@@ -1,32 +1,37 @@
 /*
- * XREFs of HalpDmaCheckMdlAccessibility @ 0x140503D4C
+ * XREFs of HalpDmaCheckMdlAccessibility @ 0x14039F9B8
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x140516D80 (HalFlushAdapterBuffersEx.c)
- *     HalMapTransferEx @ 0x140517000 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
  * Callees:
- *     IoBuildPartialMdl @ 0x14021A4E0 (IoBuildPartialMdl.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoBuildPartialMdl @ 0x140290D90 (IoBuildPartialMdl.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
-char *__fastcall HalpDmaCheckMdlAccessibility(__int64 a1, __int64 *a2, unsigned int a3, ULONG a4, char *a5, PMDL *a6)
+char *__fastcall HalpDmaCheckMdlAccessibility(
+        __int64 a1,
+        _QWORD *a2,
+        unsigned __int64 a3,
+        ULONG a4,
+        char *a5,
+        PMDL *a6)
 {
   unsigned int v8; // r10d
-  __int64 *v9; // rbx
+  _QWORD *v9; // rbx
   char v11; // r15
-  __int64 v12; // r9
-  ULONG v13; // edi
-  unsigned int v14; // r13d
-  int v15; // eax
+  char *result; // rax
+  __int64 v13; // r9
+  ULONG v14; // edi
+  unsigned int v15; // r13d
+  int v16; // eax
   PMDL Mdl; // rax
-  struct _MDL *v17; // r14
-  unsigned int v19; // ecx
-  __int64 *v20; // rdx
+  struct _MDL *v18; // r14
+  unsigned int v20; // ecx
   ULONG v21; // eax
   struct _MDL *Next; // rbx
-  char *result; // rax
   PVOID VirtualAddress; // [rsp+30h] [rbp-38h]
   _QWORD *p_Next; // [rsp+98h] [rbp+30h]
 
@@ -36,7 +41,7 @@ char *__fastcall HalpDmaCheckMdlAccessibility(__int64 a1, __int64 *a2, unsigned 
   p_Next = 0LL;
   if ( KeGetCurrentIrql() > 2u || *(_BYTE *)(a1 + 437) )
   {
-LABEL_26:
+LABEL_3:
     if ( *a6 )
     {
       do
@@ -56,22 +61,22 @@ LABEL_26:
     {
       while ( a4 )
       {
-        v12 = *((unsigned int *)v9 + 11);
-        v13 = *((_DWORD *)v9 + 10) - v8;
-        if ( v13 >= a4 )
-          v13 = a4;
-        v14 = v12 + v8;
+        v13 = *((unsigned int *)v9 + 11);
+        v14 = *((_DWORD *)v9 + 10) - v8;
+        if ( v14 >= a4 )
+          v14 = a4;
+        v15 = v13 + v8;
         if ( !*(_BYTE *)(a1 + 437) )
         {
-          v15 = HalpDmaGetAdapterCacheAlignment(a1) - 1;
-          if ( (v15 & v14) != 0 || (v13 & v15) != 0 )
-            goto LABEL_26;
+          v16 = HalpDmaGetAdapterCacheAlignment(a1, a2, a3) - 1;
+          if ( (v16 & v15) != 0 || (v14 & v16) != 0 )
+            goto LABEL_3;
         }
-        VirtualAddress = (PVOID)(v8 + v12 + v9[4]);
-        Mdl = IoAllocateMdl(VirtualAddress, v13, 0, 0, 0LL);
-        v17 = Mdl;
+        VirtualAddress = (PVOID)(v8 + v13 + v9[4]);
+        Mdl = IoAllocateMdl(VirtualAddress, v14, 0, 0, 0LL);
+        v18 = Mdl;
         if ( !Mdl )
-          goto LABEL_26;
+          goto LABEL_3;
         if ( *a6 )
           *p_Next = Mdl;
         else
@@ -80,28 +85,29 @@ LABEL_26:
         if ( !((*((_BYTE *)v9 + 10) & 5) != 0
              ? (PVOID)v9[3]
              : MmMapLockedPagesSpecifyCache((PMDL)v9, 0, MmCached, 0LL, 0, 0x40000020u)) )
-          goto LABEL_26;
-        IoBuildPartialMdl((PMDL)v9, v17, VirtualAddress, v13);
-        v19 = 4096 - (v14 & 0xFFF);
-        v20 = &v9[((unsigned __int64)v14 >> 12) + 6];
-        if ( v13 )
+          goto LABEL_3;
+        IoBuildPartialMdl((PMDL)v9, v18, VirtualAddress, v14);
+        v20 = 4096 - (v15 & 0xFFF);
+        a2 = &v9[((unsigned __int64)v15 >> 12) + 6];
+        if ( v14 )
         {
-          while ( *(_QWORD *)(a1 + 136) >= (unsigned __int64)(*v20 << 12) || *(_DWORD *)(a1 + 512) == 3 )
+          a3 = *(_QWORD *)(a1 + 136);
+          while ( a3 >= *a2 << 12 || *(_DWORD *)(a1 + 512) == 2 )
           {
-            ++v20;
-            v21 = v13;
-            if ( v13 >= v19 )
-              v21 = v19;
-            v19 = 4096;
+            ++a2;
+            v21 = v14;
+            if ( v14 >= v20 )
+              v21 = v20;
+            v20 = 4096;
             a4 -= v21;
-            v13 -= v21;
-            if ( !v13 )
-              goto LABEL_24;
+            v14 -= v21;
+            if ( !v14 )
+              goto LABEL_28;
           }
-          goto LABEL_26;
+          goto LABEL_3;
         }
-LABEL_24:
-        v9 = (__int64 *)*v9;
+LABEL_28:
+        v9 = (_QWORD *)*v9;
         v8 = 0;
         if ( !v9 )
           break;

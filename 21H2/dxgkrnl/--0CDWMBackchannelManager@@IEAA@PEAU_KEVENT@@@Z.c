@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CDWMBackchannelManager@@IEAA@PEAU_KEVENT@@@Z @ 0x1C0080BD0
+ * XREFs of ??0CDWMBackchannelManager@@IEAA@PEAU_KEVENT@@@Z @ 0x1C006D5F0
  * Callers:
- *     ?Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z @ 0x1C0080CCC (-Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z.c)
+ *     ?Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z @ 0x1C006D6FC (-Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,8 +20,9 @@ CDWMBackchannelManager *__fastcall CDWMBackchannelManager::CDWMBackchannelManage
   *((_DWORD *)this + 7) = -1;
   ObfReferenceObject(a2);
   *((_BYTE *)this + 40) &= 0xF8u;
+  *((_QWORD *)this + 6) = 0LL;
   *(_QWORD *)this = &CDWMBackchannelManager::`vftable';
   result = this;
-  *((_DWORD *)this + 7) = 1024;
+  *((_DWORD *)this + 7) = 100;
   return result;
 }

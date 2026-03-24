@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsTouchpadQuery@@YAHKPEAG@Z @ 0x1C00A11B0
+ * XREFs of ?IsTouchpadQuery@@YAHKPEAG@Z @ 0x1C00E1ABC
  * Callers:
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00A0C7C (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E14E0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
  * Callees:
  *     <none>
  */

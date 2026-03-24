@@ -1,95 +1,96 @@
 /*
- * XREFs of ?Initialize@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ @ 0x1C02E1F14
+ * XREFs of ?Initialize@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ @ 0x1C028D374
  * Callers:
- *     ?DxgkCreateRemoteCompositionSurfaceObjectForPairing@@YAJPEAVCompositionSurfaceObject@@PEAPEAUIPairedSurfaceObject@@PEAPEAX@Z @ 0x1C02E1A3C (-DxgkCreateRemoteCompositionSurfaceObjectForPairing@@YAJPEAVCompositionSurfaceObject@@PEAPEAUIPa.c)
+ *     ?DxgkCreateRemoteCompositionSurfaceObjectForPairing@@YAJPEAPEAUIPairedSurfaceObject@@PEAPEAX@Z @ 0x1C028CF00 (-DxgkCreateRemoteCompositionSurfaceObjectForPairing@@YAJPEAPEAUIPairedSurfaceObject@@PEAPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?VailRegisterCompositionSurfaceProxy@DXGSESSIONDATA@@QEAAJPEAVDXGCOMPOSITIONSURFACEPROXY@@@Z @ 0x1C03628B4 (-VailRegisterCompositionSurfaceProxy@DXGSESSIONDATA@@QEAAJPEAVDXGCOMPOSITIONSURFACEPROXY@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?VailRegisterCompositionSurfaceProxy@DXGSESSIONDATA@@QEAAJPEAVDXGCOMPOSITIONSURFACEPROXY@@@Z @ 0x1C02B71D8 (-VailRegisterCompositionSurfaceProxy@DXGSESSIONDATA@@QEAAJPEAVDXGCOMPOSITIONSURFACEPROXY@@@Z.c)
  */
 
-__int64 __fastcall DXGCOMPOSITIONSURFACEPROXY::Initialize(DXGCOMPOSITIONSURFACEPROXY *this)
+__int64 __fastcall DXGCOMPOSITIONSURFACEPROXY::Initialize(
+        DXGCOMPOSITIONSURFACEPROXY *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  unsigned int v2; // ebx
-  struct DXGPROCESS *Current; // rdi
-  __int64 v5; // rcx
-  DXGSESSIONMGR *v6; // rbx
-  unsigned int v7; // eax
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  int v9; // eax
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGPROCESS *Current; // rbx
+  __int64 v9; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  DXGSESSIONMGR *v16; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // eax
-  _BYTE v13[24]; // [rsp+50h] [rbp-18h] BYREF
+  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  __int64 v19; // rbx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  _BYTE v25[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = 0;
-  Current = DXGPROCESS::GetCurrent((__int64)this);
-  if ( Current )
+  LODWORD(v5) = 0;
+  Current = DXGPROCESS::GetCurrent((__int64)this, a2, a3, a4);
+  if ( !Current )
   {
-    KeEnterCriticalRegion();
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (struct DXGPROCESS *)((char *)Current + 104), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-    if ( *((_DWORD *)Current + 126) && (*((_DWORD *)Current + 106) & 4) != 0 )
-    {
-      if ( *((_BYTE *)Current + 600) )
-      {
-        v6 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-        if ( v6
-          && (v7 = PsGetCurrentProcessSessionId(v5),
-              (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v6, v7)) != 0LL) )
-        {
-          v9 = DXGSESSIONDATA::VailRegisterCompositionSurfaceProxy(SessionDataForSpecifiedSession, this);
-          v2 = v9;
-          if ( v9 < 0 )
-            WdLogSingleEntry2(3LL, v9, this);
-        }
-        else
-        {
-          v2 = -1073741811;
-          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v5);
-          WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-          v12 = PsGetCurrentProcessSessionId(v11);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-            v12,
-            -1073741811LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-      }
-      else
-      {
-        v2 = -2147483611;
-        WdLogSingleEntry1(3LL, -2147483611LL);
-      }
-    }
-    KeLeaveCriticalRegion();
-    if ( v13[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
-    return v2;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v9);
     return 3221225485LL;
   }
+  KeEnterCriticalRegion();
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v25, *((struct DXGFASTMUTEX *const *)Current + 13), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v25);
+  if ( *((_DWORD *)Current + 106) && (*((_BYTE *)Current + 346) || g_OSTestSigningEnabled && (_BYTE)KdDebuggerEnabled) )
+  {
+    if ( !*((_BYTE *)Current + 488) )
+    {
+      v5 = -2147483611LL;
+LABEL_15:
+      v23 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+      *(_QWORD *)(v23 + 24) = v5;
+      WdLogEvent5_WdWarning(v23);
+      goto LABEL_16;
+    }
+    v16 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v12, v11) + 102);
+    if ( v16 )
+    {
+      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v15, v14);
+      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v16, CurrentProcessSessionId);
+    }
+    else
+    {
+      SessionDataForSpecifiedSession = 0LL;
+    }
+    if ( SessionDataForSpecifiedSession )
+    {
+      v22 = DXGSESSIONDATA::VailRegisterCompositionSurfaceProxy(SessionDataForSpecifiedSession, this);
+      v5 = v22;
+      if ( v22 < 0 )
+        goto LABEL_15;
+    }
+    else
+    {
+      LODWORD(v5) = -1073741811;
+      v19 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v19 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v21, v20);
+      *(_QWORD *)(v19 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v19);
+    }
+  }
+LABEL_16:
+  KeLeaveCriticalRegion();
+  if ( v25[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v25, v24);
+  return (unsigned int)v5;
 }

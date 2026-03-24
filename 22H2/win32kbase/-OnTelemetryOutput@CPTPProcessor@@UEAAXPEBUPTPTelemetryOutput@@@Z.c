@@ -1,228 +1,249 @@
 /*
- * XREFs of ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DFD20
+ * XREFs of ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A6710
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     ?HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ @ 0x1C00CC8E0 (-HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     EtwTraceTouchPadAAP @ 0x1C00DF240 (EtwTraceTouchPadAAP.c)
- *     EtwTracePTPElasticDragModeStart @ 0x1C013ABB0 (EtwTracePTPElasticDragModeStart.c)
- *     EtwTracePTPElasticDragModeStop @ 0x1C013ABE0 (EtwTracePTPElasticDragModeStop.c)
- *     EtwTraceTouchPadCurtainState @ 0x1C013B370 (EtwTraceTouchPadCurtainState.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$01@@U2@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$01@@4AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C01DDE54 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$01@@U2@U-$_tlgWrapBuffer@U_UNICODE_STRING.c)
- *     ?IncrementTotalTime@Usage@PTPTelemetry@@SAXW4tagPTP_TELEM_TOTALTIME@@_K@Z @ 0x1C01DF400 (-IncrementTotalTime@Usage@PTPTelemetry@@SAXW4tagPTP_TELEM_TOTALTIME@@_K@Z.c)
- *     ?OnEndSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01DF504 (-OnEndSession@Usage@PTPTelemetry@@SAX_J@Z.c)
- *     ?OnNewContact@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01DFBD8 (-OnNewContact@Usage@PTPTelemetry@@SAX_J@Z.c)
- *     ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01DFC2C (-OnNewSession@Usage@PTPTelemetry@@SAX_J@Z.c)
- *     ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01E071C (-SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z @ 0x1C007A0B8 (-_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z.c)
+ *     ?HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ @ 0x1C00C53B0 (-HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     EtwTracePTPElasticDragModeStart @ 0x1C0123740 (EtwTracePTPElasticDragModeStart.c)
+ *     EtwTracePTPElasticDragModeStop @ 0x1C0123770 (EtwTracePTPElasticDragModeStop.c)
+ *     EtwTraceTouchPadAAP @ 0x1C0123EF0 (EtwTraceTouchPadAAP.c)
+ *     EtwTraceTouchPadCurtainState @ 0x1C0123FC0 (EtwTraceTouchPadCurtainState.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$01@@U2@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$01@@4AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C01A4E94 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$01@@U2@U-$_tlgWrapBuffer@U_UNICODE_STRING.c)
+ *     ?OnEndSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01A6140 (-OnEndSession@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01A66A8 (-OnNewSession@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01A7268 (-SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z.c)
+ *     ApiSetTraceLoggingPTPWarpBack @ 0x1C01D10A4 (ApiSetTraceLoggingPTPWarpBack.c)
  */
 
-void __fastcall CPTPProcessor::OnTelemetryOutput(
-        CPTPProcessor *this,
-        const struct PTPTelemetryOutput *a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall CPTPProcessor::OnTelemetryOutput(CPTPProcessor *this, const struct PTPTelemetryOutput *a2, __int64 a3)
 {
+  int v4; // edx
   __int64 v6; // rdx
-  __int64 v7; // rdx
-  __int64 v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rdx
-  int v11; // edx
-  int v12; // edx
-  __int64 v13; // rdx
-  int v14; // edx
-  __int16 v15; // bx
-  __int16 v16; // di
+  int v7; // ecx
+  int v8; // ecx
+  int v9; // ecx
+  int v10; // ecx
+  int v11; // ecx
+  int v12; // ecx
+  int v13; // ecx
+  int v14; // ecx
+  __int16 v15; // si
+  __int16 v16; // bp
   unsigned __int16 *v17; // r14
   __int64 v18; // rax
   __int64 v19; // rcx
   __int64 v20; // rcx
   __int64 v21; // r8
   __int64 v22; // r9
-  unsigned int v23; // r14d
-  __int64 v24; // rbx
-  __int64 v25; // rdi
-  unsigned int v26; // esi
-  __int64 v27; // rbx
-  int v28; // edi
-  __int64 v29; // rax
-  int v30; // ecx
-  int v31; // ecx
-  __int64 v32; // rcx
-  __int64 v33; // [rsp+50h] [rbp-38h] BYREF
-  unsigned __int16 *v34; // [rsp+58h] [rbp-30h] BYREF
-  int v35; // [rsp+98h] [rbp+10h] BYREF
-  __int16 v36; // [rsp+A0h] [rbp+18h] BYREF
-  int v37; // [rsp+A8h] [rbp+20h] BYREF
+  int v23; // edx
+  int v24; // edx
+  unsigned __int64 v25; // rcx
+  int v26; // ecx
+  int v27; // ecx
+  __int64 v28; // rcx
+  __int64 v29; // [rsp+50h] [rbp-38h] BYREF
+  unsigned __int16 *v30; // [rsp+58h] [rbp-30h] BYREF
+  int v31; // [rsp+98h] [rbp+10h] BYREF
+  __int16 v32; // [rsp+A0h] [rbp+18h] BYREF
+  int v33; // [rsp+A8h] [rbp+20h] BYREF
 
-  v6 = (unsigned int)(*(_DWORD *)a2 - 1);
-  if ( (_DWORD)v6 )
+  v4 = *(_DWORD *)a2;
+  if ( v4 )
   {
-    if ( (_DWORD)v6 == 1 )
+    v6 = (unsigned int)(v4 - 1);
+    if ( (_DWORD)v6 )
     {
-      v7 = *((unsigned int *)a2 + 1);
-      if ( (_DWORD)v7 )
+      if ( (_DWORD)v6 == 1 )
       {
-        v8 = (unsigned int)(v7 - 1);
-        if ( (_DWORD)v8 )
+        v7 = *((_DWORD *)a2 + 1);
+        if ( v7 )
         {
-          v9 = (unsigned int)(v8 - 1);
-          if ( (_DWORD)v9 )
+          v8 = v7 - 1;
+          if ( v8 )
           {
-            v10 = (unsigned int)(v9 - 1);
-            if ( (_DWORD)v10 )
+            v9 = v8 - 1;
+            if ( v9 )
             {
-              v11 = v10 - 1;
-              if ( v11 )
+              v10 = v9 - 1;
+              if ( v10 )
               {
-                v12 = v11 - 1;
-                if ( v12 )
+                v11 = v10 - 1;
+                if ( v11 )
                 {
-                  v13 = (unsigned int)(v12 - 1);
-                  if ( (_DWORD)v13 )
+                  v12 = v11 - 1;
+                  if ( v12 )
                   {
-                    v14 = v13 - 1;
-                    if ( v14 )
+                    v13 = v12 - 1;
+                    if ( v13 )
                     {
-                      if ( v14 == 4 )
+                      v14 = v13 - 1;
+                      if ( v14 )
                       {
-                        v35 = 0x20000;
-                        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 706);
-                        v15 = 0;
-                        v16 = 0;
-                        v17 = 0LL;
-                        v18 = HMValidateHandleNoSecure(*((_QWORD *)this + 45), 19);
-                        if ( v18 )
+                        if ( v14 == 4 )
                         {
-                          if ( *(_QWORD *)(v18 + 472) )
+                          v31 = 0x20000;
+                          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 580);
+                          if ( !*((_BYTE *)this + 2060) )
                           {
-                            v19 = *(_QWORD *)(v18 + 456);
-                            if ( v19 )
+                            *((_BYTE *)this + 2060) = 1;
+                            DbgkWerCaptureLiveKernelDump(
+                              L"win32kbase.sys",
+                              400LL,
+                              17LL,
+                              (char *)this - 160,
+                              *((_QWORD *)this + 35),
+                              *((int *)a2 + 2),
+                              0LL,
+                              0LL,
+                              0);
+                          }
+                          v15 = 0;
+                          v16 = 0;
+                          v17 = 0LL;
+                          v18 = HMValidateHandleNoSecure(*((_QWORD *)this + 30), 19);
+                          if ( v18 )
+                          {
+                            if ( *(_QWORD *)(v18 + 480) )
                             {
-                              v15 = *(_WORD *)(v19 + 110);
-                              v17 = (unsigned __int16 *)(v18 + 208);
-                              v16 = *(_WORD *)(v19 + 112);
+                              v19 = *(_QWORD *)(v18 + 464);
+                              if ( v19 )
+                              {
+                                v15 = *(_WORD *)(v19 + 110);
+                                v17 = (unsigned __int16 *)(v18 + 208);
+                                v16 = *(_WORD *)(v19 + 112);
+                              }
                             }
                           }
+                          if ( (unsigned int)dword_1C0249250 > 5
+                            && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL) )
+                          {
+                            v33 = *((_DWORD *)a2 + 2);
+                            v29 = 0x1000000LL;
+                            v30 = v17;
+                            LOWORD(v31) = v16;
+                            v32 = v15;
+                            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<8>>(
+                              v20,
+                              byte_1C021E8E5,
+                              v21,
+                              v22,
+                              (__int64)&v33,
+                              (__int64)&v32,
+                              (__int64)&v31,
+                              &v30,
+                              (__int64)&v29);
+                          }
                         }
-                        if ( (unsigned int)dword_1C02883D8 > 5
-                          && tlgKeywordOn((__int64)&dword_1C02883D8, 0x400000000000LL) )
-                        {
-                          v37 = *((_DWORD *)a2 + 2);
-                          v33 = 0x1000000LL;
-                          v34 = v17;
-                          LOWORD(v35) = v16;
-                          v36 = v15;
-                          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<8>>(
-                            v20,
-                            byte_1C025D6DB,
-                            v21,
-                            v22,
-                            (__int64)&v37,
-                            (__int64)&v36,
-                            (__int64)&v35,
-                            &v34,
-                            (__int64)&v33);
-                        }
+                      }
+                      else
+                      {
+                        ApiSetTraceLoggingPTPWarpBack(
+                          *((unsigned int *)a2 + 2),
+                          *(_QWORD *)((char *)a2 + 12),
+                          *(_QWORD *)((char *)a2 + 20),
+                          *((unsigned int *)a2 + 7));
                       }
                     }
                     else
                     {
-                      v23 = *((_DWORD *)a2 + 7);
-                      v24 = *(_QWORD *)((char *)a2 + 20);
-                      v25 = *(_QWORD *)((char *)a2 + 12);
-                      v26 = *((_DWORD *)a2 + 2);
-                      if ( qword_1C0296D20 && (int)qword_1C0296D20() >= 0 && qword_1C0296D28 )
-                        qword_1C0296D28(v26, v25, v24, v23);
+                      v23 = *((_DWORD *)a2 + 2);
+                      if ( v23 )
+                      {
+                        if ( v23 == 1 )
+                          qword_1C0257C58 = *(_QWORD *)((char *)a2 + 12);
+                      }
+                      else
+                      {
+                        qword_1C0257C50 = *(_QWORD *)((char *)a2 + 12);
+                      }
                     }
                   }
                   else
                   {
-                    v27 = *(_QWORD *)((char *)a2 + 12);
-                    v28 = *((_DWORD *)a2 + 2);
-                    v29 = SGDGetUserSessionState(this, v13, a3, a4);
-                    if ( v28 )
+                    v24 = *((_DWORD *)a2 + 2);
+                    v25 = *(_QWORD *)((char *)a2 + 12);
+                    if ( v24 )
                     {
-                      if ( v28 == 1 )
-                        *(_QWORD *)(v29 + 11960) = v27;
+                      if ( v24 == 1 )
+                        qword_1C0257C48 += v25;
                     }
                     else
                     {
-                      *(_QWORD *)(v29 + 11952) = v27;
+                      qword_1C0257C30 += v25;
+                      if ( v25 > qword_1C0257C38 )
+                        qword_1C0257C38 = v25;
+                      if ( !qword_1C0257C40 || v25 < qword_1C0257C40 )
+                        qword_1C0257C40 = v25;
                     }
                   }
                 }
                 else
                 {
-                  PTPTelemetry::Usage::IncrementTotalTime(
-                    *((unsigned int *)a2 + 2),
-                    *(_QWORD *)((char *)a2 + 12),
-                    a3,
-                    a4);
+                  PTPTelemetry::Usage::SetLastAction(*((unsigned int *)a2 + 2));
                 }
               }
-              else
+              else if ( qword_1C0250D68 < qword_1C0254EF8 )
               {
-                PTPTelemetry::Usage::SetLastAction(*((unsigned int *)a2 + 2));
+                qword_1C0250D68 = *((_QWORD *)a2 + 1);
               }
             }
             else
             {
-              PTPTelemetry::Usage::OnNewContact(*((_QWORD *)a2 + 1), v10, a3, a4);
+              PTPTelemetry::Usage::HandlePTPTelemetry();
             }
           }
           else
           {
-            PTPTelemetry::Usage::HandlePTPTelemetry((__int64)this, v9, a3, a4);
+            PTPTelemetry::Usage::OnEndSession(*((_QWORD *)a2 + 1));
           }
         }
         else
         {
-          PTPTelemetry::Usage::OnEndSession(*((_QWORD *)a2 + 1), v8, a3, a4);
+          PTPTelemetry::Usage::OnNewSession(*((_QWORD *)a2 + 1));
+        }
+      }
+    }
+    else
+    {
+      v26 = *((_DWORD *)a2 + 1);
+      if ( v26 )
+      {
+        v27 = v26 - 1;
+        if ( v27 )
+        {
+          v28 = (unsigned int)(v27 - 1);
+          if ( (_DWORD)v28 )
+          {
+            if ( (_DWORD)v28 == 1 )
+              EtwTracePTPElasticDragModeStop(v28);
+          }
+          else
+          {
+            EtwTracePTPElasticDragModeStart(v28);
+          }
+        }
+        else
+        {
+          EtwTraceTouchPadCurtainState(*((unsigned int *)a2 + 2), v6, a3);
         }
       }
       else
       {
-        PTPTelemetry::Usage::OnNewSession(*(LARGE_INTEGER *)((char *)a2 + 8), v7, a3, a4);
+        EtwTraceTouchPadAAP(
+          *((_DWORD *)a2 + 2),
+          *((_DWORD *)a2 + 3),
+          *((_DWORD *)a2 + 4),
+          *((_DWORD *)a2 + 5),
+          *((_DWORD *)a2 + 6));
       }
     }
   }
   else
   {
-    v30 = *((_DWORD *)a2 + 1);
-    if ( v30 )
-    {
-      v31 = v30 - 1;
-      if ( v31 )
-      {
-        v32 = (unsigned int)(v31 - 1);
-        if ( (_DWORD)v32 )
-        {
-          if ( (_DWORD)v32 == 1 )
-            EtwTracePTPElasticDragModeStop(v32);
-        }
-        else
-        {
-          EtwTracePTPElasticDragModeStart(v32);
-        }
-      }
-      else
-      {
-        EtwTraceTouchPadCurtainState(*((unsigned int *)a2 + 2), v6, a3);
-      }
-    }
-    else
-    {
-      EtwTraceTouchPadAAP(
-        *((_DWORD *)a2 + 2),
-        *((_DWORD *)a2 + 3),
-        *((_DWORD *)a2 + 4),
-        *((_DWORD *)a2 + 5),
-        *((_DWORD *)a2 + 6));
-    }
+    _WinSqmDWORDEvent(&SQM_INCREMENT_DWORD, 0LL, *((_DWORD *)a2 + 1), 1);
   }
 }

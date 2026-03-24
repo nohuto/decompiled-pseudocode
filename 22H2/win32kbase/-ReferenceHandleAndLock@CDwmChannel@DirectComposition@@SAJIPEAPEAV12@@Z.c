@@ -1,14 +1,15 @@
 /*
- * XREFs of ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0031D40
+ * XREFs of ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005FC30
  * Callers:
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C00318F0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005DFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     NtDCompositionSubmitDWMBatch @ 0x1C005F450 (NtDCompositionSubmitDWMBatch.c)
  * Callees:
- *     ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0026A28 (-ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005FC94 (-ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CDwmChannel::ReferenceHandleAndLock(
-        __int64 a1,
+        unsigned int a1,
         struct DirectComposition::CDwmChannel **a2)
 {
   int v3; // edi

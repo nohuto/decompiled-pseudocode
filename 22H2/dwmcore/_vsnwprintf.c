@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsnwprintf @ 0x180110100
+ * XREFs of _vsnwprintf @ 0x1800E7F68
  * Callers:
- *     StringVPrintfWorkerW @ 0x1800AE9F4 (StringVPrintfWorkerW.c)
- *     ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x18027C7BC (-StringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B2364 (-StringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     StringVPrintfWorkerW @ 0x1800B259C (StringVPrintfWorkerW.c)
  * Callees:
- *     __local_stdio_printf_options @ 0x18010EEC4 (__local_stdio_printf_options.c)
- *     __stdio_common_vswprintf_0 @ 0x180110F00 (__stdio_common_vswprintf_0.c)
+ *     __local_stdio_printf_options @ 0x1800E6A9C (__local_stdio_printf_options.c)
+ *     _o___stdio_common_vswprintf_0 @ 0x1800E7E12 (_o___stdio_common_vswprintf_0.c)
  */
 
 int __cdecl vsnwprintf(wchar_t *Buffer, size_t BufferCount, const wchar_t *Format, va_list Args)
@@ -14,7 +14,7 @@ int __cdecl vsnwprintf(wchar_t *Buffer, size_t BufferCount, const wchar_t *Forma
   int result; // eax
 
   v8 = _local_stdio_printf_options();
-  result = _stdio_common_vswprintf_0(*v8 | 1, Buffer, BufferCount, Format, 0LL, Args);
+  result = o___stdio_common_vswprintf_0(*v8 | 1, Buffer, BufferCount, Format, 0LL, Args);
   if ( result < 0 )
     return -1;
   return result;

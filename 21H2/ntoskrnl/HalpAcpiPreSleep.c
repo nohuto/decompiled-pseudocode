@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpAcpiPreSleep @ 0x140A5072C
+ * XREFs of HalpAcpiPreSleep @ 0x140995EFC
  * Callers:
- *     HaliAcpiSleep @ 0x140390D20 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
  * Callees:
- *     HalpPreserveNvsArea @ 0x140391764 (HalpPreserveNvsArea.c)
- *     KeSynchronizeTimeToQpc @ 0x1403917D0 (KeSynchronizeTimeToQpc.c)
- *     HalpTimerGetSavedPerformanceCounter @ 0x140391800 (HalpTimerGetSavedPerformanceCounter.c)
- *     HalpSetClockBeforeSleep @ 0x14039188C (HalpSetClockBeforeSleep.c)
- *     HalpTimerSavePerformanceCounter @ 0x14039190C (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerSwitchStallSource @ 0x140391998 (HalpTimerSwitchStallSource.c)
- *     HalpAcpiPmRegisterWrite @ 0x1403B2B00 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x1403B2F00 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403B41A0 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpSaveDmaControllerState @ 0x140A508C0 (HalpSaveDmaControllerState.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037CA20 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpPreserveNvsArea @ 0x140386A3C (HalpPreserveNvsArea.c)
+ *     KeSynchronizeTimeToQpc @ 0x140386AB0 (KeSynchronizeTimeToQpc.c)
+ *     HalpTimerGetSavedPerformanceCounter @ 0x140386AE0 (HalpTimerGetSavedPerformanceCounter.c)
+ *     HalpSetClockBeforeSleep @ 0x140386B74 (HalpSetClockBeforeSleep.c)
+ *     HalpTimerSavePerformanceCounter @ 0x140386BF4 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x140386C80 (HalpTimerSwitchStallSource.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpSaveDmaControllerState @ 0x140996090 (HalpSaveDmaControllerState.c)
  */
 
 void *__fastcall HalpAcpiPreSleep(int a1)
@@ -38,22 +38,22 @@ void *__fastcall HalpAcpiPreSleep(int a1)
   if ( (HalpPlatformFlags & 4) != 0 )
     HalpSetClockBeforeSleep(v3, v2, v4);
   SavedPerformanceCounter = HalpTimerGetSavedPerformanceCounter();
-  KeSynchronizeTimeToQpc((LARGE_INTEGER)SavedPerformanceCounter);
+  KeSynchronizeTimeToQpc(SavedPerformanceCounter);
   HalpHiberInProgress = 1;
   if ( (v1 & 0x4000) != 0 )
     HalpSaveDmaControllerState();
   if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )
   {
-    HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v10, 2u, 0LL);
+    HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v10, 2u, 0LL);
     v6 = v10;
     v9 = v10;
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
     {
-      HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v10, 2u, 0LL);
+      HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v10, 2u, 0LL);
       v6 = v10 | v9;
       v9 |= v10;
     }
-    if ( (dword_140C4C090 & 0x40) == 0 )
+    if ( (dword_140C4A050 & 0x40) == 0 )
     {
       if ( HIBYTE(HalpWakeupState) )
         v7 = v6 | 0x400;
@@ -61,9 +61,9 @@ void *__fastcall HalpAcpiPreSleep(int a1)
         v7 = v6 & 0xFBFF;
       v9 = v7;
     }
-    HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v9, 2u, 0LL);
+    HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v9, 2u, 0LL);
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
-      HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v9, 2u, 0LL);
+      HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v9, 2u, 0LL);
     HalpAcpiPmRegisterRead(0, 0, (__int64)&v10, 2u, 0LL);
     v9 = v10;
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of _CmGetDeviceHardwareKeyPath @ 0x1406BC9D4
+ * XREFs of _CmGetDeviceHardwareKeyPath @ 0x1406BC9B4
  * Callers:
  *     _CmGetDeviceRegKeyPath @ 0x1405C7544 (_CmGetDeviceRegKeyPath.c)
  * Callees:

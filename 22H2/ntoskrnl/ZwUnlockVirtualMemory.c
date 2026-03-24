@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwUnlockVirtualMemory @ 0x14041E200
+ * XREFs of ZwUnlockVirtualMemory @ 0x1403FD3C0
  * Callers:
- *     CmSiUnlockViewOfSection @ 0x140354438 (CmSiUnlockViewOfSection.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405C215C (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x1405CB898 (SmKmStoreHelperCommandProcess.c)
- *     VmColdPagesHint @ 0x1405F89C0 (VmColdPagesHint.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140312750 (SmKmStoreHelperCommandProcess.c)
+ *     CmSiUnlockViewOfSection @ 0x140361FC0 (CmSiUnlockViewOfSection.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x140599D04 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     VmColdPagesHint @ 0x1405A2710 (VmColdPagesHint.c)
  * Callees:
  *     <none>
  */

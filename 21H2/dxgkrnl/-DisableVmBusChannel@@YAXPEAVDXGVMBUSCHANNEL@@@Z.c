@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C03510D8
+ * XREFs of ?DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02B5358
  * Callers:
- *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0057A18 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
+ *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0048AB4 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
  * Callees:
- *     ?Disable@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0351070 (-Disable@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ *     ?Disable@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C02B2DA8 (-Disable@DXGVMBUSCHANNEL@@QEAAXXZ.c)
  */
 
 void __fastcall DisableVmBusChannel(struct DXGVMBUSCHANNEL *a1)

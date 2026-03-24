@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UpdateStop@CGradientBrush@@AEAAXPEBUIUnknown@@@Z @ 0x1800354BC
+ * XREFs of ?UpdateStop@CGradientBrush@@AEAAXPEBUIUnknown@@@Z @ 0x1801E7904
  * Callers:
- *     ?OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180036030 (-OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801E74B0 (-OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ void __fastcall CGradientBrush::UpdateStop(CGradientBrush *this, const struct IU
   __int64 v11; // rcx
   _BYTE v12[20]; // [rsp+0h] [rbp-28h]
 
-  v2 = *((_QWORD *)this + 21);
+  v2 = *((_QWORD *)this + 15);
   v3 = 0;
-  v5 = (*((_QWORD *)this + 22) - v2) >> 3;
+  v5 = (*((_QWORD *)this + 16) - v2) >> 3;
   if ( v5 )
   {
     v6 = 0LL;
@@ -34,14 +34,14 @@ void __fastcall CGradientBrush::UpdateStop(CGradientBrush *this, const struct IU
       if ( v3 >= v5 )
         return;
     }
-    v8 = _mm_loadu_si128((const __m128i *)(v7 + 68));
+    v8 = _mm_loadu_si128((const __m128i *)(v7 + 60));
     v9 = 5 * v6;
-    v10 = *(_DWORD *)(v7 + 64);
-    v11 = *((_QWORD *)this + 24);
+    v10 = *(_DWORD *)(v7 + 56);
+    v11 = *((_QWORD *)this + 18);
     *(__m128i *)&v12[4] = v8;
     *(_DWORD *)v12 = v10;
     *(_OWORD *)(v11 + 4 * v9) = *(_OWORD *)v12;
     *(_DWORD *)(v11 + 4 * v9 + 16) = _mm_cvtsi128_si32(_mm_srli_si128(v8, 12));
-    *((_BYTE *)this + 224) = 0;
+    *((_BYTE *)this + 176) = 0;
   }
 }

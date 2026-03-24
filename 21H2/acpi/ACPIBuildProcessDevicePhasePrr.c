@@ -1,81 +1,82 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhasePrr @ 0x1C0009660
+ * XREFs of ACPIBuildProcessDevicePhasePrr @ 0x1C00157E0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteMustSucceed @ 0x1C000A4C0 (ACPIBuildCompleteMustSucceed.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIBuildDeviceResetPowerNode @ 0x1C002E5C4 (ACPIBuildDeviceResetPowerNode.c)
- *     ACPIWriteEventLogEntry @ 0x1C00543C8 (ACPIWriteEventLogEntry.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIBuildDeviceResetPowerNode @ 0x1C004B128 (ACPIBuildDeviceResetPowerNode.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0054C98 (ACPIWriteEventLogEntry.c)
  */
 
-__int64 __fastcall ACPIBuildProcessDevicePhasePrr(__int64 a1)
+__int64 __fastcall ACPIBuildProcessDevicePhasePrr(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v1; // rbx
-  __int64 v2; // rsi
-  ULONG_PTR v3; // rdx
-  unsigned int v4; // ebp
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  void *v7; // rax
-  void *v8; // rcx
-  unsigned int v10; // eax
+  _QWORD *v4; // rbx
+  __int64 v5; // rsi
+  ULONG_PTR v6; // rdx
+  unsigned int v7; // ebp
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  void *v10; // rax
+  void *v11; // rcx
+  unsigned int v13; // eax
 
-  v1 = *(_QWORD **)(a1 + 40);
-  v2 = a1 + 80;
-  v3 = *(_QWORD *)(a1 + 56);
-  v4 = 0;
+  v4 = *(_QWORD **)(a1 + 40);
+  v5 = a1 + 80;
+  v6 = *(_QWORD *)(a1 + 56);
+  v7 = 0;
   *(_DWORD *)(a1 + 32) = 0;
-  if ( v1[56] )
+  if ( v4[51] )
   {
-    if ( !v3 )
+    if ( !v6 )
       goto LABEL_3;
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    goto LABEL_11;
+    dword_1C0082908 = 0;
+    pszDest = 0;
+LABEL_14:
+    FreeDataBuffs(v5, 1u);
+    goto LABEL_3;
   }
-  if ( v3 )
+  if ( v6 )
   {
     if ( *(_WORD *)(a1 + 82) != 4 )
     {
       ACPIWriteEventLogEntry(3221553168LL, 0LL, 0LL);
       goto LABEL_3;
     }
-    v10 = ACPIBuildDeviceResetPowerNode((ULONG_PTR)v1, v3);
-    dword_1C0081AC8 = 0;
-    v4 = v10;
-    byte_1C0081ACC = 0;
-LABEL_11:
-    FreeDataBuffs(v2, 1LL);
+    v13 = ACPIBuildDeviceResetPowerNode((ULONG_PTR)v4, v6);
+    dword_1C0082908 = 0;
+    v7 = v13;
+    pszDest = 0;
+    goto LABEL_14;
   }
 LABEL_3:
-  v5 = AMLIGetNamedChild(v1[95], 1414746719LL);
-  v6 = v1[1];
-  v1[62] = v5;
-  v7 = &unk_1C006FB8B;
-  v8 = &unk_1C006FB8B;
-  if ( (v6 & 0x200000000000LL) != 0 )
+  v8 = AMLIGetNamedChild(v4[90], 1414746719LL, a3, a4);
+  v9 = v4[1];
+  v4[57] = v8;
+  v10 = &unk_1C00701BA;
+  v11 = &unk_1C00701BA;
+  if ( (v9 & 0x200000000000LL) != 0 )
   {
-    v7 = (void *)v1[76];
-    if ( (v6 & 0x400000000000LL) != 0 )
-      v8 = (void *)v1[77];
+    v10 = (void *)v4[71];
+    if ( (v9 & 0x400000000000LL) != 0 )
+      v11 = (void *)v4[72];
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v6) = 4;
+    LOBYTE(v9) = 4;
     WPP_RECORDER_SF_Lqss(
       WPP_GLOBAL_Control->DeviceExtension,
-      v6,
+      v9,
       6,
       47,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
-      v4,
-      (char)v1,
-      (__int64)v7,
-      (__int64)v8);
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+      v7,
+      (char)v4,
+      (__int64)v10,
+      (__int64)v11);
   }
   ACPIBuildCompleteMustSucceed(0LL);
-  return v4;
+  return v7;
 }

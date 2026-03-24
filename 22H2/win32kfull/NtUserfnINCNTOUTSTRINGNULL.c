@@ -1,56 +1,52 @@
 /*
- * XREFs of NtUserfnINCNTOUTSTRINGNULL @ 0x1C01E0F10
+ * XREFs of NtUserfnINCNTOUTSTRINGNULL @ 0x1C0204D90
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnINCNTOUTSTRINGNULL(
         __int64 a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        _WORD *a4,
+        SIZE_T a2,
+        SIZE_T a3,
+        volatile void *a4,
         __int64 a5,
         char a6,
         int a7)
 {
-  unsigned int v9; // r14d
-  int v11; // ecx
-  __int64 v12; // rbx
-  int v14; // [rsp+40h] [rbp-18h] BYREF
-  int v15; // [rsp+44h] [rbp-14h]
-  _WORD *v16; // [rsp+48h] [rbp-10h]
+  unsigned int v8; // esi
+  int v10; // ecx
+  __int64 v11; // rbx
+  __int128 v13; // [rsp+40h] [rbp-18h] BYREF
 
-  v9 = a2;
-  PtiCurrentShared(a1, a2, a3, (__int64)a4);
-  v11 = (a7 << 31) ^ (a3 ^ (a7 << 31)) & 0x7FFFFFFF;
-  v15 = v11;
-  v12 = 0LL;
+  v8 = a2;
+  v13 = 0LL;
+  v10 = (a7 << 31) | a3 & 0x7FFFFFFF;
+  DWORD1(v13) = v10;
+  v11 = 0LL;
   if ( !a7 )
   {
-    v11 ^= (v11 ^ (2 * v11)) & 0x7FFFFFFF;
-    v15 = v11;
+    v10 ^= (v10 ^ (2 * v10)) & 0x7FFFFFFF;
+    DWORD1(v13) = v10;
   }
-  if ( (v11 & 0x7FFFFFFFu) < 2 || (v11 & 0x7FFFFFFFu) < a3 )
+  if ( (v10 & 0x7FFFFFFFu) < 2 || (a2 = v10 & 0x7FFFFFFF, a2 < a3) )
   {
-    UserSetLastError(87);
+    UserSetLastError(87LL, a2, 0x7FFFFFFFLL);
   }
   else
   {
-    v14 = 0;
-    v16 = a4;
-    ProbeForWrite(a4, v11 & 0x7FFFFFFF, (v11 >> 31) + 2);
-    *a4 = 0;
-    return (*((__int64 (__fastcall **)(__int64, _QWORD, unsigned __int64, int *, __int64))&WPP_MAIN_CB.SectorSize
-            + ((a6 + 6) & 0x1F)))(
+    LODWORD(v13) = 0;
+    *((_QWORD *)&v13 + 1) = a4;
+    ProbeForWrite(a4, a2, (v10 >> 31) + 2);
+    **((_WORD **)&v13 + 1) = 0;
+    return ((__int64 (__fastcall *)(__int64, _QWORD, SIZE_T, __int128 *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
              a1,
-             v9,
+             v8,
              a3,
-             &v14,
+             &v13,
              a5);
   }
-  return v12;
+  return v11;
 }

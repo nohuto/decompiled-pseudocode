@@ -1,21 +1,19 @@
 /*
- * XREFs of KiVerifyXcpt12$fin$0 @ 0x140B7D37D
+ * XREFs of KiVerifyXcpt12$fin$0 @ 0x140A7A0EB
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_DWORD *__fastcall KiVerifyXcpt12_fin_0(char a1, __int64 a2)
+_DWORD **__fastcall KiVerifyXcpt12_fin_0(char a1, __int64 a2)
 {
-  _QWORD *v2; // rdx
-  _DWORD *result; // rax
+  _DWORD **result; // rax
 
   if ( a1 )
   {
-    v2 = *(_QWORD **)(a2 + 64);
-    result = (_DWORD *)*v2;
-    ++*(_DWORD *)*v2;
+    result = *(_DWORD ***)(a2 + 64);
+    ++**result;
   }
   return result;
 }

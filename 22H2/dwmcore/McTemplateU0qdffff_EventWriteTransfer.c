@@ -1,18 +1,19 @@
 /*
- * XREFs of McTemplateU0qdffff_EventWriteTransfer @ 0x180130D4A
+ * XREFs of McTemplateU0qdffff_EventWriteTransfer @ 0x180184F50
  * Callers:
- *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x18008B5D8 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$span@.c)
- *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x1801E90F4 (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$spa.c)
- *     ?RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTree@@PEBVCDirtyRegion@@IIPEAVIRenderTargetBitmap@@PEAVCDrawingContext@@@Z @ 0x1802A9A7C (-RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTr.c)
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180082E50 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x180091458 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompose.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CA3C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
+ *     ?RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTree@@PEBVCDirtyRegion@@IIPEAVIRenderTargetBitmap@@PEAVCDrawingContext@@@Z @ 0x180257BB4 (-RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTr.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qdffff_EventWriteTransfer(
+ULONG __fastcall McTemplateU0qdffff_EventWriteTransfer(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        const EVENT_DESCRIPTOR *a2,
+        int a3,
         __int64 a4,
         char a5,
         char a6,
@@ -20,7 +21,7 @@ __int64 __fastcall McTemplateU0qdffff_EventWriteTransfer(
         char a8)
 {
   int v9; // [rsp+30h] [rbp-59h] BYREF
-  _BYTE v10[16]; // [rsp+40h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+40h] [rbp-49h] BYREF
   int *v11; // [rsp+50h] [rbp-39h]
   __int64 v12; // [rsp+58h] [rbp-31h]
   int *v13; // [rsp+60h] [rbp-29h]
@@ -43,16 +44,11 @@ __int64 __fastcall McTemplateU0qdffff_EventWriteTransfer(
   v13 = &v9;
   v16 = 4LL;
   v15 = &a5;
-  v18 = 4LL;
   v17 = &a6;
   v19 = &a7;
   v21 = &a8;
+  v18 = 4LL;
   v20 = 4LL;
   v22 = 4LL;
-  return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
-           &EVTDESC_ETWGUID_DIRTYREGIONEVENT,
-           a3,
-           7LL,
-           v10);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, 0LL, 7u, &v10);
 }

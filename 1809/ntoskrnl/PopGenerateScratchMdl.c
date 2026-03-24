@@ -1,5 +1,5 @@
 /*
- * XREFs of PopGenerateScratchMdl @ 0x140144A80
+ * XREFs of PopGenerateScratchMdl @ 0x140144AA0
  * Callers:
  *     PopGenerateUnHibernatedMdl @ 0x14056BCDC (PopGenerateUnHibernatedMdl.c)
  * Callees:

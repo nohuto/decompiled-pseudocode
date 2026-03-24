@@ -5,10 +5,10 @@
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8670 (ZwMapViewOfSection.c)
- *     ZwOpenSection @ 0x1401B8850 (ZwOpenSection.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
+ *     ZwOpenSection @ 0x1401B8870 (ZwOpenSection.c)
  */
 
 char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID *a4, __int64 a5)

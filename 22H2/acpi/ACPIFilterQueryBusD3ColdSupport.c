@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIFilterQueryBusD3ColdSupport @ 0x1C0086F48
+ * XREFs of ACPIFilterQueryBusD3ColdSupport @ 0x1C0098CEC
  * Callers:
- *     ACPIDetectFilterDevices @ 0x1C001AA30 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C008823C (ACPIInternalSendSynchronousIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall ACPIFilterQueryBusD3ColdSupport(ULONG_PTR BugCheckParameter3)
@@ -22,7 +22,7 @@ __int64 __fastcall ACPIFilterQueryBusD3ColdSupport(ULONG_PTR BugCheckParameter3)
   memset(v5, 0, sizeof(v5));
   DeviceExtension = ACPIInternalGetDeviceExtension(BugCheckParameter3);
   memset(v6, 0, 0x48uLL);
-  v3 = *(struct _DEVICE_OBJECT **)(DeviceExtension + 776);
+  v3 = *(struct _DEVICE_OBJECT **)(DeviceExtension + 736);
   v5[4] = 0LL;
   v5[1] = &GUID_D3COLD_SUPPORT_INTERFACE;
   LOWORD(v5[0]) = 2075;
@@ -32,7 +32,7 @@ __int64 __fastcall ACPIFilterQueryBusD3ColdSupport(ULONG_PTR BugCheckParameter3)
   if ( (int)result >= 0 )
   {
     if ( v6[7] && ((int (__fastcall *)(_QWORD, char *))v6[7])(v6[1], &v7) >= 0 && v7 )
-      *(_QWORD *)(DeviceExtension + 1008) |= 0x800uLL;
+      *(_QWORD *)(DeviceExtension + 960) |= 0x800uLL;
     result = v6[3];
     if ( v6[3] )
       return ((__int64 (__fastcall *)(_QWORD))v6[3])(v6[1]);

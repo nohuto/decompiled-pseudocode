@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnParametersRead @ 0x14084FF94
+ * XREFs of PfSnParametersRead @ 0x1407BF2F4
  * Callers:
- *     PfpParametersWatcher @ 0x140989150 (PfpParametersWatcher.c)
- *     PfpParametersInitialize @ 0x140B23B40 (PfpParametersInitialize.c)
+ *     PfpParametersWatcher @ 0x1408E0C00 (PfpParametersWatcher.c)
+ *     PfpParametersInitialize @ 0x140A6A864 (PfpParametersInitialize.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x1402E0978 (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsupr @ 0x1403E17B0 (_wcsupr.c)
- *     PfpGetParameter @ 0x1408504E0 (PfpGetParameter.c)
- *     PfSnParametersVerify @ 0x1408505D0 (PfSnParametersVerify.c)
+ *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsupr @ 0x1403D23F0 (_wcsupr.c)
+ *     PfpGetParameter @ 0x1407BF840 (PfpGetParameter.c)
+ *     PfSnParametersVerify @ 0x1407BF930 (PfSnParametersVerify.c)
  */
 
 __int64 __fastcall PfSnParametersRead(__int64 a1)
 {
   __int64 v1; // rsi
   _OWORD *v3; // rax
-  _OWORD *v4; // rdx
+  char *v4; // rdx
   __int64 v5; // rcx
   __int128 v6; // xmm1
   __int128 v7; // xmm0
@@ -36,35 +36,35 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
   const wchar_t *v22; // rdi
   int v23; // eax
   wchar_t *v24; // rax
-  __int64 v25; // r11
-  __int64 v26; // r8
+  __int64 v25; // rcx
+  __int64 v26; // rax
   wchar_t *v27; // rcx
   __int64 v28; // rdx
-  __int64 v29; // rax
-  char *v30; // r8
+  __int64 v29; // r8
+  char *v30; // rax
   wchar_t v31; // r9
   wchar_t *v32; // rax
   wchar_t *v33; // rax
-  __int64 v34; // r11
-  __int64 v35; // r8
+  __int64 v34; // rcx
+  __int64 v35; // rax
   wchar_t *v36; // rcx
   __int64 v37; // rdx
-  __int64 v38; // rax
-  char *v39; // r8
+  __int64 v38; // r8
+  char *v39; // rax
   wchar_t v40; // r9
   wchar_t *v41; // rax
   wchar_t *v42; // rax
-  __int64 v43; // r11
-  __int64 v44; // r8
+  __int64 v43; // rcx
+  __int64 v44; // rax
   wchar_t *v45; // rcx
   __int64 v46; // rdx
-  __int64 v47; // rax
-  char *v48; // r8
+  __int64 v47; // r8
+  char *v48; // rax
   wchar_t v49; // r9
   wchar_t *v50; // rax
   __int64 result; // rax
   _OWORD *v52; // rbx
-  _OWORD *v53; // rax
+  char *v53; // rax
   __int128 v54; // xmm1
   __int128 v55; // xmm0
   __int128 v56; // xmm1
@@ -77,7 +77,7 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
   __int64 v63; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v64; // [rsp+40h] [rbp-C8h]
   _OWORD *v65; // [rsp+48h] [rbp-C0h]
-  _BYTE v66[8]; // [rsp+58h] [rbp-B0h] BYREF
+  char v66[8]; // [rsp+58h] [rbp-B0h] BYREF
   char v67; // [rsp+60h] [rbp-A8h] BYREF
   wchar_t String[128]; // [rsp+E8h] [rbp-20h] BYREF
   wchar_t pszDest[80]; // [rsp+1F8h] [rbp+F0h] BYREF
@@ -90,29 +90,29 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
   do
   {
     v6 = v3[1];
-    *v4 = *v3;
+    *(_OWORD *)v4 = *v3;
     v7 = v3[2];
-    v4[1] = v6;
+    *((_OWORD *)v4 + 1) = v6;
     v8 = v3[3];
-    v4[2] = v7;
+    *((_OWORD *)v4 + 2) = v7;
     v9 = v3[4];
-    v4[3] = v8;
+    *((_OWORD *)v4 + 3) = v8;
     v10 = v3[5];
-    v4[4] = v9;
+    *((_OWORD *)v4 + 4) = v9;
     v11 = v3[6];
-    v4[5] = v10;
+    *((_OWORD *)v4 + 5) = v10;
     v12 = v3[7];
     v3 += 8;
-    v4[6] = v11;
-    v4 += 8;
-    *(v4 - 1) = v12;
+    *((_OWORD *)v4 + 6) = v11;
+    v4 += 128;
+    *((_OWORD *)v4 - 1) = v12;
     --v5;
   }
   while ( v5 );
   v13 = *v3;
   v14 = *((_QWORD *)v3 + 2);
   v15 = *(void **)(a1 + 8);
-  *v4 = v13;
+  *(_OWORD *)v4 = v13;
   *((_QWORD *)v4 + 2) = v14;
   v63 = 4LL;
   v16 = (int)PfpGetParameter(v15, (__int64)&v63) < 0;
@@ -143,7 +143,10 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
       --v25;
     }
     while ( v25 );
-    v26 = (80 - v25) & -(__int64)(v25 != 0);
+    if ( v25 )
+      v26 = 80 - v25;
+    else
+      v26 = 0LL;
     if ( v25 )
     {
       v27 = &pszDest[v26];
@@ -184,7 +187,10 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
       --v34;
     }
     while ( v34 );
-    v35 = (80 - v34) & -(__int64)(v34 != 0);
+    if ( v34 )
+      v35 = 80 - v34;
+    else
+      v35 = 0LL;
     if ( v34 )
     {
       v36 = &pszDest[v35];
@@ -225,7 +231,10 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
       --v43;
     }
     while ( v43 );
-    v44 = (80 - v43) & -(__int64)(v43 != 0);
+    if ( v43 )
+      v44 = 80 - v43;
+    else
+      v44 = 0LL;
     if ( v43 )
     {
       v45 = &pszDest[v44];
@@ -283,27 +292,27 @@ __int64 __fastcall PfSnParametersRead(__int64 a1)
     v53 = v66;
     do
     {
-      v54 = v53[1];
-      *v52 = *v53;
-      v55 = v53[2];
+      v54 = *((_OWORD *)v53 + 1);
+      *v52 = *(_OWORD *)v53;
+      v55 = *((_OWORD *)v53 + 2);
       v52[1] = v54;
-      v56 = v53[3];
+      v56 = *((_OWORD *)v53 + 3);
       v52[2] = v55;
-      v57 = v53[4];
+      v57 = *((_OWORD *)v53 + 4);
       v52[3] = v56;
-      v58 = v53[5];
+      v58 = *((_OWORD *)v53 + 5);
       v52[4] = v57;
-      v59 = v53[6];
+      v59 = *((_OWORD *)v53 + 6);
       v52[5] = v58;
-      v60 = v53[7];
-      v53 += 8;
+      v60 = *((_OWORD *)v53 + 7);
+      v53 += 128;
       v52[6] = v59;
       v52 += 8;
       *(v52 - 1) = v60;
       --v1;
     }
     while ( v1 );
-    v61 = *v53;
+    v61 = *(_OWORD *)v53;
     v62 = *((_QWORD *)v53 + 2);
     *v52 = v61;
     *((_QWORD *)v52 + 2) = v62;

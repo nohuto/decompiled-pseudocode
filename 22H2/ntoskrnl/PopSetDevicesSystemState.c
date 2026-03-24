@@ -1,34 +1,34 @@
 /*
- * XREFs of PopSetDevicesSystemState @ 0x140AA7500
+ * XREFs of PopSetDevicesSystemState @ 0x1409913D8
  * Callers:
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PopGracefulShutdown @ 0x1409B10A0 (PopGracefulShutdown.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  */
 
-__int64 __fastcall PopSetDevicesSystemState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 PopSetDevicesSystemState()
 {
-  int v4; // eax
-  _DWORD v6[6]; // [rsp+20h] [rbp-38h] BYREF
-  char v7; // [rsp+38h] [rbp-20h]
-  char v8; // [rsp+39h] [rbp-1Fh]
-  char v9; // [rsp+3Ah] [rbp-1Eh]
-  char v10; // [rsp+3Bh] [rbp-1Dh]
+  int v0; // eax
+  _DWORD v2[6]; // [rsp+20h] [rbp-38h] BYREF
+  char v3; // [rsp+38h] [rbp-20h]
+  char v4; // [rsp+39h] [rbp-1Fh]
+  char v5; // [rsp+3Ah] [rbp-1Eh]
+  char v6; // [rsp+3Bh] [rbp-1Dh]
 
-  v8 = byte_140C3CE3D;
-  v7 = byte_140C3CE22;
-  v9 = byte_140C3CE3C;
-  v6[0] = dword_140C3CE4C;
-  v6[1] = dword_140C3CE48;
-  v4 = dword_140C3CE40;
-  if ( (dword_140C3CE2C & 8) != 0 )
-    v4 = 6;
-  v6[5] = dword_140C3CE2C;
-  v6[2] = v4;
-  v6[3] = dword_140C3CE44;
-  v6[4] = qword_140C3CE24;
-  v10 = 0;
-  return PoBroadcastSystemState((__int64)v6, 6LL, a3, a4);
+  v4 = byte_140C23A5D;
+  v3 = byte_140C23A42;
+  v5 = byte_140C23A5C;
+  v2[0] = dword_140C23A6C;
+  v2[1] = dword_140C23A68;
+  v0 = dword_140C23A60;
+  if ( (dword_140C23A4C & 8) != 0 )
+    v0 = 6;
+  v2[5] = dword_140C23A4C;
+  v2[2] = v0;
+  v2[3] = dword_140C23A64;
+  v2[4] = qword_140C23A44;
+  v6 = 0;
+  return PoBroadcastSystemState(v2);
 }

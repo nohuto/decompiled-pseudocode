@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetDepthSortedList@CVisual@@QEBAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x18004960C
+ * XREFs of ?GetDepthSortedList@CVisual@@QEBAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x18009FF68
  * Callers:
- *     ?DeleteDepthSortedList@CVisual@@AEAAXXZ @ 0x1800495E4 (-DeleteDepthSortedList@CVisual@@AEAAXXZ.c)
- *     ?CreateDepthSortedList@CVisual@@AEAAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x1801F7354 (-CreateDepthSortedList@CVisual@@AEAAPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@s.c)
+ *     ?DeleteDepthSortedList@CVisual@@AEAAXXZ @ 0x18009FF40 (-DeleteDepthSortedList@CVisual@@AEAAXXZ.c)
+ *     ?CreateDepthSortedList@CVisual@@AEAAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x1801AD654 (-CreateDepthSortedList@CVisual@@AEAAPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@s.c)
  * Callees:
  *     <none>
  */
@@ -13,29 +13,21 @@ __int64 __fastcall CVisual::GetDepthSortedList(__int64 a1)
   __int64 v3; // rdx
   _BYTE *v4; // r9
   __int64 v5; // rcx
-  unsigned int v6; // eax
+  unsigned int i; // eax
 
-  v1 = *(_DWORD **)(a1 + 232);
+  v1 = *(_DWORD **)(a1 + 224);
   if ( (*v1 & 0x10000000) == 0 )
     return 0LL;
   v3 = (unsigned int)v1[1];
   v4 = v1 + 2;
   v5 = 0LL;
-  v6 = 0;
-  if ( (_DWORD)v3 )
+  for ( i = 0; i < (unsigned int)v3; ++v4 )
   {
-    while ( *v4 != 4 )
-    {
-      ++v6;
-      ++v4;
-      if ( v6 >= (unsigned int)v3 )
-        goto LABEL_6;
-    }
-    goto LABEL_7;
+    if ( *v4 == 4 )
+      break;
+    ++i;
   }
-LABEL_6:
-  if ( v6 < (unsigned int)v3 )
-LABEL_7:
-    v5 = (__int64)v1 + 8LL * v6 - (((_BYTE)v3 + 15) & 7) + v3 + 15;
+  if ( i < (unsigned int)v3 )
+    v5 = (__int64)v1 + 8LL * i - (((_BYTE)v3 + 15) & 7) + v3 + 15;
   return *(_QWORD *)v5;
 }

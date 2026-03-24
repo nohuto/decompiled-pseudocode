@@ -1,28 +1,25 @@
 /*
- * XREFs of ??$destruct_range@UContentEntry@CDrawListCacheSet@@@detail@@YAXPEAUContentEntry@CDrawListCacheSet@@0@Z @ 0x1800C854C
+ * XREFs of ??$destruct_range@UContentEntry@CDrawListCacheSet@@@detail@@YAXPEAUContentEntry@CDrawListCacheSet@@0@Z @ 0x1800DC99C
  * Callers:
- *     ?clear_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800C8050 (-clear_region@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDra.c)
- *     ?reserve_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUContentEntry@CDrawListCacheSet@@_K0@Z @ 0x1800C8450 (-reserve_region@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CD.c)
- *     ?ensure_extra_capacity@?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x1800C858C (-ensure_extra_capacity@-$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_p.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180052234 (-ensure_extra_capacity@-$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_p.c)
  * Callees:
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ??_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z @ 0x1800DC9D4 (--_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z.c)
  */
 
-__int64 __fastcall detail::destruct_range<CDrawListCacheSet::ContentEntry>(__int64 a1, __int64 a2)
+void *__fastcall detail::destruct_range<CDrawListCacheSet::ContentEntry>(
+        CDrawListCacheSet::ContentEntry *this,
+        CDrawListCacheSet::ContentEntry *a2)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rcx
-  __int64 result; // rax
+  CDrawListCacheSet::ContentEntry *v3; // rbx
+  void *result; // rax
 
-  if ( a1 != a2 )
+  if ( this != a2 )
   {
-    v3 = a1;
+    v3 = this;
     do
     {
-      v4 = *(_QWORD *)(v3 + 16);
-      if ( v4 )
-        result = CMILRefCountBaseT<IMILRefCount>::InternalRelease(v4);
-      v3 += 24LL;
+      result = CDrawListCacheSet::ContentEntry::`scalar deleting destructor'(v3, (unsigned int)a2);
+      v3 = (CDrawListCacheSet::ContentEntry *)((char *)v3 + 24);
     }
     while ( v3 != a2 );
   }

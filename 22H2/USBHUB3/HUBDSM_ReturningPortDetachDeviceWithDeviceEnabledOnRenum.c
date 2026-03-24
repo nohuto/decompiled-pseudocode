@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ReturningPortDetachDeviceWithDeviceEnabledOnRenum @ 0x1C00239B0
+ * XREFs of HUBDSM_ReturningPortDetachDeviceWithDeviceEnabledOnRenum @ 0x1C00211D0
  * Callers:
  *     <none>
  * Callees:

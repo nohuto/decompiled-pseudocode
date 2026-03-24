@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreateCompatibleBitmap @ 0x1C00FC280
+ * XREFs of NtGdiCreateCompatibleBitmap @ 0x1C010FCF0
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
  */
 
 __int64 __fastcall NtGdiCreateCompatibleBitmap(HDC a1, unsigned int a2, int a3)

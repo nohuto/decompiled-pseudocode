@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C016D8A8
+ * XREFs of ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C0218688
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,15 +12,15 @@ __int64 __fastcall CoalesceMousePromotionEntry(const struct tagPOINTER_INFO *a1,
   unsigned int v4; // edx
   int v5; // eax
 
-  v2 = qword_1C0335CA8;
-  if ( !qword_1C0335CA8 )
+  v2 = qword_1C033AAE8;
+  if ( !qword_1C033AAE8 )
     return 0LL;
-  if ( *((_DWORD *)qword_1C0335CA8 + 5) != *((_DWORD *)a1 + 3) )
+  if ( *((_DWORD *)qword_1C033AAE8 + 5) != *((_DWORD *)a1 + 3) )
     return 0LL;
   v4 = *((_DWORD *)a1 + 2);
-  if ( v4 <= *((_DWORD *)qword_1C0335CA8 + 9) || qword_1C0335D88 != *((_QWORD *)a1 + 3) )
+  if ( v4 <= *((_DWORD *)qword_1C033AAE8 + 9) || qword_1C033ABC8 != *((_QWORD *)a1 + 3) )
     return 0LL;
-  *((_QWORD *)qword_1C0335CA8 + 1) = *((_QWORD *)a1 + 6);
+  *((_QWORD *)qword_1C033AAE8 + 1) = *((_QWORD *)a1 + 6);
   *((_DWORD *)v2 + 9) = v4;
   v5 = *((_DWORD *)v2 + 11);
   *((_QWORD *)v2 + 3) = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)

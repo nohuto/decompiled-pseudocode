@@ -1,22 +1,20 @@
 /*
- * XREFs of KeDisconnectInterrupt @ 0x14031F1B8
+ * XREFs of KeDisconnectInterrupt @ 0x1403767A4
  * Callers:
- *     KeConnectInterrupt @ 0x140320874 (KeConnectInterrupt.c)
- *     IoDisconnectInterrupt @ 0x14078E6E0 (IoDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14037723C (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761030 (IoDisconnectInterrupt.c)
  * Callees:
- *     KiIntSteerDisable @ 0x14031F2B0 (KiIntSteerDisable.c)
- *     KeMaskInterrupt @ 0x14031F3D4 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x14031F540 (KiDisconnectInterruptCommon.c)
- *     KiIsInterruptTypeSecondary @ 0x140321160 (KiIsInterruptTypeSecondary.c)
- *     KiClearSystemPriority @ 0x140345AF0 (KiClearSystemPriority.c)
- *     KiSetSystemPriorityThread @ 0x1403558D0 (KiSetSystemPriorityThread.c)
- *     KiDisconnectSecondaryInterrupt @ 0x140571AD8 (KiDisconnectSecondaryInterrupt.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiIntSteerDisable @ 0x14037688C (KiIntSteerDisable.c)
+ *     KeMaskInterrupt @ 0x1403769B0 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x140376B1C (KiDisconnectInterruptCommon.c)
+ *     KiIsInterruptTypeSecondary @ 0x140377C04 (KiIsInterruptTypeSecondary.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14051914C (KiDisconnectSecondaryInterrupt.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rbx
+  unsigned int v3; // ebx
   __int64 *v5; // rdi
   unsigned int v6; // esi
   char IsInterruptTypeSecondary; // r13
@@ -26,6 +24,7 @@ __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)
   __int64 v11; // rbx
   int v12; // eax
   void *v13; // rcx
+  __int64 v14; // r8
   __int64 v15; // rdx
 
   v3 = (unsigned __int8)a2;
@@ -33,13 +32,12 @@ __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)
   v6 = 0;
   KeMaskInterrupt(a1, a2, a3, 0LL);
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);
-  v8 = (unsigned int)v3;
-  KiIntSteerDisable(v5, (unsigned int)v3);
-  KiSetSystemPriorityThread((ULONG_PTR)KeGetCurrentThread());
+  v8 = v3;
+  KiIntSteerDisable(v5, v3);
   if ( (_BYTE)v3 )
   {
     v9 = v5;
-    v10 = (unsigned int)v3;
+    v10 = v3;
     do
     {
       v11 = *v9;
@@ -60,21 +58,20 @@ __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)
       --v10;
     }
     while ( v10 );
-    v3 = v8;
   }
-  KiClearSystemPriority((ULONG_PTR)KeGetCurrentThread());
   v13 = *(void **)(*v5 + 272);
   if ( v13 )
   {
     if ( (_DWORD)v8 )
     {
+      v14 = v8;
       do
       {
         v15 = *v5++;
         *(_QWORD *)(v15 + 272) = 0LL;
-        --v3;
+        --v14;
       }
-      while ( v3 );
+      while ( v14 );
     }
     ExFreePoolWithTag(v13, 0x5249654Bu);
   }

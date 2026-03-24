@@ -1,79 +1,63 @@
 /*
- * XREFs of ViThunkReplaceAllThunkedImports @ 0x140ADCEC8
+ * XREFs of ViThunkReplaceAllThunkedImports @ 0x1409D9364
  * Callers:
- *     VfThunkApplyThunksCurrentSession @ 0x140ADC3AC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x1409D8ECC (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x140ADC890 (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceIatEntryForClassDriverThunk @ 0x140ADCFE8 (ViThunkReplaceIatEntryForClassDriverThunk.c)
- *     ViThunkReplaceIatEntryForWdmThunk @ 0x140ADD048 (ViThunkReplaceIatEntryForWdmThunk.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x1409D909C (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceImportEntry @ 0x1409D9480 (ViThunkReplaceImportEntry.c)
+ *     ViThunkReplaceImportIfThunkedOrderDependent @ 0x1409D94F8 (ViThunkReplaceImportIfThunkedOrderDependent.c)
+ *     ViThunkReplaceImportIfThunkedRegular @ 0x1409D95D4 (ViThunkReplaceImportIfThunkedRegular.c)
  */
 
-__int64 __fastcall ViThunkReplaceAllThunkedImports(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall ViThunkReplaceAllThunkedImports(__int64 BugCheckParameter3, unsigned int a2, int a3, int a4)
 {
-  unsigned int v3; // esi
-  __int64 v4; // rbp
-  __int64 v6; // rdi
-  __int64 *AllSpecialTables; // rbx
-  __int64 i; // r15
-  int v9; // eax
-  int v10; // ecx
-  __int64 v11; // rax
-  int v12; // ebp
-  unsigned int v13; // eax
+  __int64 v4; // rsi
+  ULONG_PTR v7; // rbx
+  __int64 *AllSpecialTables; // rdi
+  __int64 v9; // rbp
+  __int64 v10; // rax
+  int v11; // esi
 
-  v3 = 0;
   v4 = a2;
-  v6 = a1;
-  if ( !a3 || KernelVerifier )
+  v7 = BugCheckParameter3;
+  if ( a3 || a4 != 1 )
     AllSpecialTables = 0LL;
   else
-    AllSpecialTables = ViThunkFindAllSpecialTables(a1, a2);
+    AllSpecialTables = ViThunkFindAllSpecialTables(BugCheckParameter3, a2);
   if ( (_DWORD)v4 )
   {
-    for ( i = v4; i; --i )
+    v9 = v4;
+    do
     {
-      if ( KernelVerifier )
+      if ( AllSpecialTables )
       {
-        v9 = ViThunkReplaceIatEntryForWdmThunk(v6, &VfPoolThunks);
-      }
-      else
-      {
-        v10 = ViThunkReplaceIatEntryForWdmThunk(v6, &VfPoolThunks);
-        if ( v10 )
-          goto LABEL_20;
-        v10 = ViThunkReplaceIatEntryForWdmThunk(v6, &VfRegularThunks);
-        if ( v10 )
-          goto LABEL_20;
-        v10 = ViThunkReplaceIatEntryForWdmThunk(v6, &VfDifThunks);
-        if ( v10 )
-          goto LABEL_20;
-        if ( AllSpecialTables )
+        v10 = *AllSpecialTables;
+        v11 = 0;
+        while ( v10 )
         {
-          v11 = *AllSpecialTables;
-          v12 = 0;
-          while ( v11 )
-          {
-            v10 = ViThunkReplaceIatEntryForClassDriverThunk(v11 + 24, v6);
-            if ( v10 )
-              goto LABEL_20;
-            v11 = AllSpecialTables[++v12];
-          }
+          if ( (unsigned int)ViThunkReplaceImportEntry(v10 + 24, v7) == 1 )
+            goto LABEL_20;
+          v10 = AllSpecialTables[++v11];
         }
-        if ( !a3 )
-          goto LABEL_20;
-        v9 = ViThunkReplaceIatEntryForClassDriverThunk(&ViVerifierDriverAddedThunkListHead, v6);
       }
-      v10 = v9;
+      if ( (KernelVerifier
+         || !(unsigned int)ViThunkReplaceImportIfThunkedRegular(v7)
+         && !(unsigned int)ViThunkReplaceImportIfThunkedOrderDependent(v7)
+         && !(unsigned int)ViThunkReplaceImportIfThunkedRegular(v7))
+        && !(unsigned int)ViThunkReplaceImportIfThunkedRegular(v7)
+        && !a3
+        && a4 == 1 )
+      {
+        ViThunkReplaceImportEntry(&ViVerifierDriverAddedThunkListHead, v7);
+      }
 LABEL_20:
-      v13 = v3 + 1;
-      if ( !v10 )
-        v13 = v3;
-      v6 += 8LL;
-      v3 = v13;
+      v7 += 8LL;
+      --v9;
     }
+    while ( v9 );
   }
   if ( AllSpecialTables )
     ExFreePoolWithTag(AllSpecialTables, 0);
-  return v3;
+  return 1LL;
 }

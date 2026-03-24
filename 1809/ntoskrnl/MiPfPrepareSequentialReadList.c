@@ -1,8 +1,8 @@
 /*
  * XREFs of MiPfPrepareSequentialReadList @ 0x1405EBA20
  * Callers:
- *     MmPrefetchForCacheManager @ 0x140662658 (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1406C7264 (MiPrefetchControlArea.c)
+ *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
@@ -20,17 +20,17 @@
  *     MiGetControlAreaPtes @ 0x140077D18 (MiGetControlAreaPtes.c)
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
  *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED64 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x14013488C (MiGetAvailablePagesExcludeSlists.c)
- *     MiGetSharedProtos @ 0x140177154 (MiGetSharedProtos.c)
- *     MiRefillPurgedExtents @ 0x1402B6B50 (MiRefillPurgedExtents.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED84 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x1401348AC (MiGetAvailablePagesExcludeSlists.c)
+ *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
+ *     MiRefillPurgedExtents @ 0x1402B6C50 (MiRefillPurgedExtents.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x1406628F0 (MiReleaseReadListResources.c)
- *     MiPfAllocateMdls @ 0x1406982C0 (MiPfAllocateMdls.c)
+ *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
+ *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
  */
 
 __int64 MiPfPrepareSequentialReadList(__int64 a1, __int64 a2, unsigned __int64 a3, ...)

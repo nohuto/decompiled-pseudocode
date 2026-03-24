@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETLIGHTSOURCE@@@Z @ 0x180237238
+ * XREFs of ?ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETLIGHTSOURCE@@@Z @ 0x18000CE4C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x1802373B0 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x18000CDD4 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessSetLightSource(
@@ -17,33 +17,33 @@ __int64 __fastcall CProjectedShadowScene::ProcessSetLightSource(
         const struct tagMILCMD_PROJECTEDSHADOWSCENE_SETLIGHTSOURCE *a3)
 {
   unsigned int v4; // ebx
-  unsigned int v5; // edx
+  __int64 v5; // rdx
   struct CResource *v6; // rsi
   __int64 Resource; // rax
-  __int64 v9; // rcx
+  unsigned int v9; // ecx
   int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
 
   v4 = 0;
-  v5 = *((_DWORD *)a3 + 2);
+  v5 = *((unsigned int *)a3 + 2);
   v6 = 0LL;
-  if ( !v5
-    || (Resource = CResourceTable::GetResource((__int64)a2, v5, 0x22u), (v6 = (struct CResource *)Resource) != 0LL)
+  if ( !(_DWORD)v5
+    || (Resource = CResourceTable::GetResource(a2, v5, 34LL), (v6 = (struct CResource *)Resource) != 0LL)
     && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)Resource + 56LL))(Resource, 32LL) )
   {
-    if ( v6 != this[12] )
+    if ( v6 != this[11] )
     {
       v10 = CResource::RegisterNotifier((CResource *)this, v6);
       v4 = v10;
       if ( v10 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x14Fu);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x14Fu, 0LL);
       }
       else
       {
-        CResource::UnRegisterNotifierInternal((CResource *)this, this[12]);
-        this[13] = 0LL;
-        this[12] = v6;
+        CResource::UnRegisterNotifierInternal((CResource *)this, this[11]);
+        this[12] = 0LL;
+        this[11] = v6;
         CProjectedShadowScene::RequestRedrawAll((CProjectedShadowScene *)this);
       }
     }
@@ -51,7 +51,7 @@ __int64 __fastcall CProjectedShadowScene::ProcessSetLightSource(
   else
   {
     v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2003303421, 0x149u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0x149u, 0LL);
   }
   return v4;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of IoUnregisterFileSystem @ 0x1408757B0
+ * XREFs of IoUnregisterFileSystem @ 0x14077D010
  * Callers:
- *     RawShutdown @ 0x1409B82D0 (RawShutdown.c)
+ *     RawShutdown @ 0x14090F2D0 (RawShutdown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IopDecrementDeviceObjectRefCount @ 0x1403690A4 (IopDecrementDeviceObjectRefCount.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x1403607CC (IopDecrementDeviceObjectRefCount.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
 {
   struct _KTHREAD *CurrentThread; // rax
-  union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *p_Queue; // r8
-  struct _LIST_ENTRY *Flink; // rdx
-  struct _LIST_ENTRY *Blink; // rax
+  union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *p_Queue; // rdx
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *Blink; // rcx
   __int64 *v6; // rbx
   void (__fastcall *v7)(PDEVICE_OBJECT, _QWORD); // rax
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSessionConnectionChange @ 0x14071D6A8
+ * XREFs of PopSessionConnectionChange @ 0x14071D688
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopSessionDisconnected @ 0x1406E1F6C (PopSessionDisconnected.c)
- *     PopSessionConnected @ 0x14071D74C (PopSessionConnected.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopSessionDisconnected @ 0x1406E1F4C (PopSessionDisconnected.c)
+ *     PopSessionConnected @ 0x14071D72C (PopSessionConnected.c)
  */
 
 _QWORD *__fastcall PopSessionConnectionChange(unsigned int a1, char *a2, _DWORD *a3)

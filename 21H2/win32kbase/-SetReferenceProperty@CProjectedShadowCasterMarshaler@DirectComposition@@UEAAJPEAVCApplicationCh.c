@@ -1,11 +1,12 @@
 /*
- * XREFs of ?SetReferenceProperty@CProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0007C30
+ * XREFs of ?SetReferenceProperty@CProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0004B60
  * Callers:
- *     <none>
+ *     ?SetReferenceProperty@CSharedClientProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F9D30 (-SetReferenceProperty@CSharedClientProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCA.c)
+ *     ?SetReferenceProperty@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F9F20 (-SetReferenceProperty@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@UEAAJPEAVCApp.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CProjectedShadowCasterMarshaler::SetReferenceProperty(
@@ -34,25 +35,25 @@ __int64 __fastcall DirectComposition::CProjectedShadowCasterMarshaler::SetRefere
       {
         if ( v10 != 1 )
           return 3221225485LL;
-        v11 = 80LL;
+        v11 = 72LL;
         v12 = 128;
       }
       else
       {
         v12 = 512;
-        v11 = 88LL;
+        v11 = 80LL;
       }
     }
     else
     {
       v12 = 1024;
-      v11 = 104LL;
+      v11 = 96LL;
     }
   }
   else
   {
     v12 = 256;
-    v11 = 96LL;
+    v11 = 88LL;
   }
   v13 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
   if ( (DirectComposition::CProjectedShadowCasterMarshaler *)((char *)this + v11)

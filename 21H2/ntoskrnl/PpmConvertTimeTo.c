@@ -1,16 +1,14 @@
 /*
- * XREFs of PpmConvertTimeTo @ 0x140387A68
+ * XREFs of PpmConvertTimeTo @ 0x140576F98
  * Callers:
- *     PpmIdleGetPackageIdleIntervalStats @ 0x1407FBB54 (PpmIdleGetPackageIdleIntervalStats.c)
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140806090 (PopIdleWakeNotifyModernStandbyExitWorker.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408062D4 (PopIdleWakeConvertIntervalBucketsTo.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x140996A20 (PopDripsWatchdogUpdateMetrics.c)
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099BD28 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF720 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408F4144 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F45E0 (PopIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
  */
 
-unsigned __int64 __fastcall PpmConvertTimeTo(unsigned __int64 a1, unsigned __int64 a2)
+ULONGLONG __fastcall PpmConvertTimeTo(ULONGLONG a1, ULONGLONG a2)
 {
   return PpmConvertTime(a1, PopQpcFrequency, a2);
 }

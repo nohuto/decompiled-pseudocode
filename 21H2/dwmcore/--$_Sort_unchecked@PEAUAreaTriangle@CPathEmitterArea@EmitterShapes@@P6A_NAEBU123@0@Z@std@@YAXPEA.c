@@ -1,81 +1,88 @@
 /*
- * XREFs of ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180258AC8
+ * XREFs of ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020841C
  * Callers:
- *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180258AC8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
- *     ?Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ @ 0x180259280 (-Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ.c)
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020841C (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ *     ?Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ @ 0x180208D00 (-Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ.c)
  * Callees:
- *     ??$_Insertion_sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@QEAU123@0P6A_NAEBU123@1@Z@Z @ 0x18025821C (--$_Insertion_sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@s.c)
- *     ??$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x180258360 (--$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@Y.c)
- *     ??$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YA?AU?$pair@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@PEAU123@@0@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU234@1@Z@Z @ 0x180258518 (--$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAE.c)
- *     ??$_Pop_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x18025896C (--$_Pop_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YA.c)
- *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180258AC8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ *     ??$_Insertion_sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@PEAU123@QEAU123@P6A_NAEBU123@2@Z@Z @ 0x180207B44 (--$_Insertion_sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@s.c)
+ *     ??$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x180207C80 (--$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@Y.c)
+ *     ??$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YA?AU?$pair@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@PEAU123@@0@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU234@1@Z@Z @ 0x180207E28 (--$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAE.c)
+ *     ??$_Sort_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x180208398 (--$_Sort_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@Y.c)
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020841C (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
  */
 
 char *__fastcall std::_Sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
         char *a1,
         char *a2,
         __int64 a3,
-        unsigned __int8 (__fastcall *a4)(__int128 *, char *))
+        unsigned __int8 (__fastcall *a4)(unsigned __int64, unsigned __int64))
 {
-  char *v6; // rbx
+  char *v4; // rbx
   char *v7; // rdi
+  unsigned __int64 v8; // rdx
   char *result; // rax
-  char *v9; // [rsp+20h] [rbp-18h] BYREF
-  char *v10; // [rsp+28h] [rbp-10h]
+  __int64 v10; // rdx
+  char *v11; // [rsp+20h] [rbp-18h] BYREF
+  char *v12; // [rsp+28h] [rbp-10h]
 
-  v6 = a2;
+  v4 = a2;
   v7 = a1;
-  if ( a2 - a1 < 924 )
-    return std::_Insertion_sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
-             v7,
-             v6,
-             a4);
-  while ( a3 > 0 )
+  v8 = (__int64)((unsigned __int128)((a2 - a1) * (__int128)0x4924924924924925LL) >> 64) >> 3;
+  result = (char *)(v8 >> 63);
+  v10 = (v8 >> 63) + v8;
+  if ( v10 <= 32 )
+    goto LABEL_9;
+  do
   {
+    if ( a3 <= 0 )
+      break;
     std::_Partition_by_median_guess_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
-      (unsigned __int64 *)&v9,
+      (unsigned __int64 *)&v11,
       (unsigned __int64)v7,
-      (unsigned __int64)v6,
-      (unsigned __int8 (__fastcall *)(unsigned __int64, unsigned __int64))a4);
+      (unsigned __int64)v4,
+      a4);
     a3 = (a3 >> 2) + (a3 >> 1);
-    if ( 0x6DB6DB6DB6DB6DB7LL * ((v9 - v7) >> 2) >= 0x6DB6DB6DB6DB6DB7LL * ((v6 - v10) >> 2) )
+    if ( (v11 - v7) / 28 >= (v4 - v12) / 28 )
     {
       std::_Sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
-        v10,
-        v6,
+        v12,
+        v4,
         a3,
         a4);
-      v6 = v9;
+      v4 = v11;
     }
     else
     {
       std::_Sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
         v7,
-        v9,
+        v11,
         a3,
         a4);
-      v7 = v10;
+      v7 = v12;
     }
-    if ( v6 - v7 < 924 )
+    result = (char *)((unsigned __int64)((unsigned __int128)((v4 - v7) * (__int128)0x4924924924924925LL) >> 64) >> 63);
+    v10 = (v4 - v7) / 28;
+  }
+  while ( v10 > 32 );
+  if ( v10 <= 32 )
+  {
+LABEL_9:
+    if ( v10 >= 2 )
       return std::_Insertion_sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
                v7,
-               v6,
-               a4);
+               v4,
+               (unsigned __int8 (__fastcall *)(__int128 *, char *))a4);
   }
-  std::_Make_heap_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
-    (__int64)v7,
-    (__int64)v6,
-    (__int64)a4);
-  while ( 1 )
+  else
   {
-    result = (char *)(v6 - v7);
-    if ( v6 - v7 < 56 )
-      break;
-    std::_Pop_heap_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
+    std::_Make_heap_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
       (__int64)v7,
-      (__int64)v6,
-      (unsigned __int8 (__fastcall *)(__int64, __int64))a4);
-    v6 -= 28;
+      (__int64)v4,
+      (__int64)a4);
+    return (char *)std::_Sort_heap_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
+                     (__int64)v7,
+                     (__int64)v4,
+                     (unsigned __int8 (__fastcall *)(__int64, __int64))a4);
   }
   return result;
 }

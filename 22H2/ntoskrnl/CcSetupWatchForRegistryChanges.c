@@ -1,54 +1,54 @@
 /*
- * XREFs of CcSetupWatchForRegistryChanges @ 0x1403B1B4C
+ * XREFs of CcSetupWatchForRegistryChanges @ 0x1403CC768
  * Callers:
- *     CcInitializeVolumeCacheMap @ 0x14032EE94 (CcInitializeVolumeCacheMap.c)
+ *     CcInitializeVolumeCacheMap @ 0x14030C890 (CcInitializeVolumeCacheMap.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     CcOpenRegistryPath @ 0x1403B1CB0 (CcOpenRegistryPath.c)
- *     ZwNotifyChangeKey @ 0x14041CAC0 (ZwNotifyChangeKey.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     CcOpenRegistryPath @ 0x1403CC8DC (CcOpenRegistryPath.c)
+ *     ZwNotifyChangeKey @ 0x1403FBD60 (ZwNotifyChangeKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void CcSetupWatchForRegistryChanges()
 {
   char *PoolWithTag; // rax
   char *v1; // rdi
-  char *v2; // rsi
-  int v3; // eax
-  int v4; // ebx
-  NTSTATUS v5; // eax
-  __int128 v6; // [rsp+A0h] [rbp-28h] BYREF
+  int v2; // eax
+  int v3; // ebx
+  NTSTATUS v4; // eax
+  __int128 v5; // [rsp+A0h] [rbp-28h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-18h] BYREF
 
   IoStatusBlock = 0LL;
-  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1536, 0x50uLL, 0x52576343u);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x52576343u);
   v1 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v2 = PoolWithTag + 56;
+    memset(PoolWithTag, 0, 0x50uLL);
     RtlInitUnicodeString(
-      (PUNICODE_STRING)(PoolWithTag + 56),
+      (PUNICODE_STRING)(v1 + 56),
       L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management");
     *((_QWORD *)v1 + 5) = CcUpdateDynamicRegistrySettings;
     *((_QWORD *)v1 + 2) = CcRegistryChangeCallback;
     *((_QWORD *)v1 + 3) = v1;
     *(_QWORD *)v1 = 0LL;
-    v3 = CcOpenRegistryPath(v2, v1 + 32);
-    v4 = v3;
-    if ( v3 < 0 )
+    v2 = CcOpenRegistryPath(v1 + 56);
+    v3 = v2;
+    if ( v2 < 0 )
     {
       DbgPrintEx(
         0x7Fu,
         0,
         "CcSetupWatchForRegistryChanges: Failed to open Key, status=0x%08x \"%wZ\"\n",
-        (unsigned int)v3,
-        v2);
+        (unsigned int)v2,
+        v1 + 56);
     }
     else
     {
-      v5 = ZwNotifyChangeKey(
+      v4 = ZwNotifyChangeKey(
              *((HANDLE *)v1 + 4),
              0LL,
              (PIO_APC_ROUTINE)v1,
@@ -59,35 +59,40 @@ void CcSetupWatchForRegistryChanges()
              0LL,
              0,
              1u);
-      v4 = v5;
-      if ( v5 == 259 )
+      v3 = v4;
+      if ( v4 == 259 )
       {
-        DbgPrintEx(0x7Fu, 2u, "CcSetupWatchForRegistryChanges: Queued for \"%wZ\"\n", v2);
+        DbgPrintEx(0x7Fu, 2u, "CcSetupWatchForRegistryChanges: Queued for \"%wZ\"\n", v1 + 56);
 LABEL_5:
         CcRegistryWatchInitComplete = 1;
         goto LABEL_10;
       }
-      if ( v5 >= 0 )
+      if ( v4 >= 0 )
         goto LABEL_5;
-      DbgPrintEx(0x7Fu, 0, "CcSetupWatchForRegistryChanges: Failed, status=0x%08x for \"%wZ\"\n", (unsigned int)v5, v2);
+      DbgPrintEx(
+        0x7Fu,
+        0,
+        "CcSetupWatchForRegistryChanges: Failed, status=0x%08x for \"%wZ\"\n",
+        (unsigned int)v4,
+        v1 + 56);
     }
   }
   else
   {
-    v4 = -1073741670;
+    v3 = -1073741670;
   }
 LABEL_10:
   if ( v1 )
   {
-    if ( v4 < 0 )
+    if ( v3 < 0 )
     {
-      v6 = *(_OWORD *)(v1 + 56);
+      v5 = *(_OWORD *)(v1 + 56);
       DbgPrintEx(
         0x7Fu,
         2u,
         "CcSetupWatchForRegistryChanges: Queuing worker thread, status=0x%08x for \"%wZ\"\n",
-        (unsigned int)v4,
-        &v6);
+        (unsigned int)v3,
+        &v5);
       v1[72] = 1;
       ExQueueWorkItem((PWORK_QUEUE_ITEM)v1, DelayedWorkQueue);
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_MarkingUnknownDeviceAsFailed @ 0x1C00233D0
+ * XREFs of HUBDSM_MarkingUnknownDeviceAsFailed @ 0x1C0020DD0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_ReportDeviceFailure @ 0x1C001B478 (HUBPDO_ReportDeviceFailure.c)
+ *     HUBPDO_ReportDeviceFailure @ 0x1C0019800 (HUBPDO_ReportDeviceFailure.c)
  */
 
 __int64 __fastcall HUBDSM_MarkingUnknownDeviceAsFailed(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPERTY@@PEAJ@Z @ 0x1C01CC0FC
+ * XREFs of ?GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPERTY@@PEAJ@Z @ 0x1C0194958
  * Callers:
- *     ?GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C01CC260 (-GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z.c)
+ *     ?GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C0194B00 (-GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z.c)
  * Callees:
- *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C00E7CE8 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
- *     RIMExtractPointerPropertyValues @ 0x1C01918C0 (RIMExtractPointerPropertyValues.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C015D2D0 (RIMExtractPointerPropertyValues.c)
+ *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C0188920 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerRawData(
@@ -17,25 +17,24 @@ __int64 __fastcall CTouchProcessor::GetPointerRawData(
         const struct tagPOINTER_DEVICE_PROPERTY *a6,
         int *a7)
 {
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
   __int64 i; // rcx
 
   if ( !CTouchProcessor::CTouchProcessorLockShared(this) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v12, v11, v13);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13529);
   if ( !CTouchProcessor::CTouchProcessorLockShared(this) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v14, v16);
-  if ( !a3 || a3 > *((_DWORD *)a2 + 14) )
-    return 0LL;
-  for ( i = *((_QWORD *)a2 + 29); i && *(_DWORD *)(i + 4) != a3; i = *(_QWORD *)(i + 24) )
-    ;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13564);
+  if ( a3 && a3 <= *((_DWORD *)a2 + 14) )
+  {
+    for ( i = *((_QWORD *)a2 + 16); i && *(_DWORD *)(i + 4) != a3; i = *(_QWORD *)(i + 24) )
+      ;
+  }
+  else
+  {
+    i = 0LL;
+  }
   if ( i )
     return RIMExtractPointerPropertyValues(
-             *((_QWORD *)a2 + 32),
+             *((_QWORD *)a2 + 19),
              a4,
              *(_DWORD *)(i + 8),
              *(char **)(i + 16),

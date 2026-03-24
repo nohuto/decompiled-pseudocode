@@ -1,27 +1,16 @@
 /*
- * XREFs of WPP_RECORDER_SF_qdqss @ 0x1C0009EDC
+ * XREFs of WPP_RECORDER_SF_qDqss @ 0x1C004E29C
  * Callers:
- *     ACPIDockIrpSetSystemPower @ 0x1C00097F4 (ACPIDockIrpSetSystemPower.c)
- *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
- *     ACPIBusIrpSetSystemPower @ 0x1C0016FF4 (ACPIBusIrpSetSystemPower.c)
- *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2E8 (ACPIDeviceInternalDelayedDeviceRequest.c)
- *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3C8 (ACPIDeviceInternalDeviceRequest.c)
- *     ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DAB0 (ACPIDeviceIrpDeviceFilterRequest.c)
- *     ACPIDeviceIrpDeviceRequest @ 0x1C001DC18 (ACPIDeviceIrpDeviceRequest.c)
- *     ACPIDeviceIrpSystemRequest @ 0x1C001DE68 (ACPIDeviceIrpSystemRequest.c)
- *     ACPIDeviceIrpWaitWakeRequest @ 0x1C001DFD8 (ACPIDeviceIrpWaitWakeRequest.c)
- *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E494 (ACPIDeviceIrpWarmEjectRequest.c)
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001F120 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C0020670 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C00208A0 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
- *     ACPIRootIrpSetPower @ 0x1C003D4E0 (ACPIRootIrpSetPower.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0025860 (ACPIWakeCompleteRequestQueue.c)
+ *     ACPIDevicePowerProcessPhase4 @ 0x1C002B9D4 (ACPIDevicePowerProcessPhase4.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C008F638 (ACPIBusIrpQueryTargetRelation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall WPP_RECORDER_SF_qdqss(
+__int64 __fastcall WPP_RECORDER_SF_qDqss(
         __int64 a1,
-        __int64 a2,
+        unsigned __int8 a2,
         unsigned int a3,
         unsigned __int16 a4,
         __int64 a5,
@@ -31,99 +20,93 @@ __int64 __fastcall WPP_RECORDER_SF_qdqss(
         const char *a9,
         const char *a10)
 {
-  const char *v11; // rsi
-  __int64 v12; // rbx
-  const char *v13; // rdi
-  unsigned __int64 v15; // r11
-  unsigned int v16; // r15d
+  __int64 v10; // rdi
+  __int64 v11; // rsi
+  unsigned __int64 v13; // r14
+  unsigned int v14; // r15d
+  unsigned int v15; // r12d
+  __int64 v16; // rbx
   int v17; // eax
-  __int64 v18; // r8
+  unsigned __int8 v18; // cf
   __int64 v19; // r8
-  const char *v20; // r9
-  __int64 v21; // rdx
+  __int64 v20; // r8
+  const char *v21; // r9
   __int64 v22; // rdx
-  const char *v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rbx
-  int v27; // [rsp+20h] [rbp-78h]
+  __int64 v23; // rdx
+  const char *v24; // rcx
+  __int64 v25; // rax
+  int v27; // [rsp+20h] [rbp-88h]
+  __int64 v28; // [rsp+B0h] [rbp+8h]
 
-  v11 = a9;
-  v12 = -1LL;
-  v13 = a10;
-  v15 = (unsigned __int64)a3 >> 16;
-  v16 = a4;
-  v17 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v15 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  if ( _bittest(&v17, ((_BYTE)a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v15 + 1) >= 4u )
+  v28 = a1;
+  v10 = (__int64)a10;
+  v11 = (__int64)a9;
+  v13 = (unsigned __int64)a3 >> 16;
+  v14 = a2;
+  v15 = a4;
+  v16 = -1LL;
+  v17 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v13 + (((a3 - 1) >> 5) & 0x7FF) + 1);
+  v18 = _bittest(&v17, (a3 - 1) & 0x1F);
+  v19 = 5LL;
+  if ( v18 && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v13 + 1) >= a2 )
   {
     if ( a10 )
     {
-      v18 = -1LL;
+      v20 = -1LL;
       do
-        ++v18;
-      while ( a10[v18] );
-      v19 = v18 + 1;
+        ++v20;
+      while ( a10[v20] );
+      v19 = v20 + 1;
     }
-    else
-    {
-      v19 = 5LL;
-    }
-    v20 = a10;
+    v21 = a10;
     if ( !a10 )
-      v20 = "NULL";
+      v21 = "NULL";
     if ( a9 )
     {
-      v21 = -1LL;
+      v22 = -1LL;
       do
-        ++v21;
-      while ( a9[v21] );
-      v22 = v21 + 1;
+        ++v22;
+      while ( a9[v22] );
+      v23 = v22 + 1;
     }
     else
     {
-      v22 = 5LL;
+      v23 = 5LL;
     }
-    v23 = a9;
+    v24 = a9;
     if ( !a9 )
-      v23 = "NULL";
+      v24 = "NULL";
     ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v15),
+      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v13),
       43LL,
       a5,
-      v16,
+      v15,
       &a6,
       8LL,
       &a7,
       4LL,
       &a8,
       8LL,
+      v24,
       v23,
-      v22,
-      v20,
+      v21,
       v19,
       0LL);
+    a1 = v28;
   }
-  if ( v13 )
+  if ( v10 )
   {
-    v24 = -1LL;
+    v25 = -1LL;
     do
-      ++v24;
-    while ( v13[v24] );
+      ++v25;
+    while ( *(_BYTE *)(v10 + v25) );
   }
-  if ( !v13 )
-    v13 = "NULL";
   if ( v11 )
   {
     do
-      ++v12;
-    while ( v11[v12] );
-    v25 = v12 + 1;
+      ++v16;
+    while ( *(_BYTE *)(v11 + v16) );
   }
-  else
-  {
-    v25 = 5LL;
-  }
-  if ( !v11 )
-    v11 = "NULL";
-  LOWORD(v27) = v16;
-  return WppAutoLogTrace(a1, 4LL, a3, a5, v27, &a6, 8LL, &a7, 4LL, &a8, 8LL, v11, v25, v13);
+  LOWORD(v27) = v15;
+  return WppAutoLogTrace(a1, v14, a3, a5, v27, &a6);
 }

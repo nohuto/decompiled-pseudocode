@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryDockedOrientationRegistrySetting@CLegacyRotationMgr@@AEAAJPEAK0@Z @ 0x1C01A70D4
+ * XREFs of ?QueryDockedOrientationRegistrySetting@CLegacyRotationMgr@@AEAAJPEAK0@Z @ 0x1C01D0E14
  * Callers:
- *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01A6DF8 (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
+ *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01D0B3C (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CLegacyRotationMgr::QueryDockedOrientationRegistrySetting(

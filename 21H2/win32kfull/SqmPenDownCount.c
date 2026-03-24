@@ -1,5 +1,5 @@
 /*
- * XREFs of SqmPenDownCount @ 0x1C01E90F0
+ * XREFs of SqmPenDownCount @ 0x1C01EEC30
  * Callers:
  *     <none>
  * Callees:

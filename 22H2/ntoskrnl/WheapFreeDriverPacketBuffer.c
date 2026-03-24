@@ -1,35 +1,39 @@
 /*
- * XREFs of WheapFreeDriverPacketBuffer @ 0x140611864
+ * XREFs of WheapFreeDriverPacketBuffer @ 0x1405BC2AC
  * Callers:
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x1406112B0 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x140611450 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BBD20 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBEC0 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x140611830 (WheapErrDescIsDeviceDriver.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
  */
 
-void __fastcall WheapFreeDriverPacketBuffer(_DWORD *P)
+PSLIST_ENTRY __fastcall WheapFreeDriverPacketBuffer(ULONG_PTR BugCheckParameter2)
 {
   __int64 *ErrorSource; // rax
-  __int64 v3; // rdi
-  volatile __int32 *v4; // rax
+  unsigned __int64 v3; // rdx
+  PSLIST_ENTRY result; // rax
+  __int64 v5; // rdi
+  volatile __int32 *v6; // rcx
 
-  ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, P[3]);
-  v3 = (unsigned __int64)(ErrorSource + 12) & -(__int64)(ErrorSource != 0LL);
-  if ( WheapErrDescIsDeviceDriver(v3) )
+  ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *(_DWORD *)(BugCheckParameter2 + 12));
+  v3 = (unsigned __int64)(ErrorSource + 12);
+  result = (PSLIST_ENTRY)-(__int64)ErrorSource;
+  v5 = v3 & -(__int64)(result != 0LL);
+  if ( v5 )
   {
-    v4 = (volatile __int32 *)*((_QWORD *)P + 4);
-    *P = 0;
-    if ( *((_BYTE *)P + 48) )
+    v6 = *(volatile __int32 **)(BugCheckParameter2 + 32);
+    *(_DWORD *)BugCheckParameter2 = 0;
+    if ( *(_BYTE *)(BugCheckParameter2 + 48) )
     {
-      _InterlockedExchange(v4, 0);
+      result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchange(v6, 0);
     }
     else
     {
-      ExFreePoolWithTag((PVOID)v4, 0x41454857u);
-      ExFreePoolWithTag(P, 0x41454857u);
+      ExFreeHeapPool((ULONG_PTR)v6);
+      result = ExFreeHeapPool(BugCheckParameter2);
     }
-    _InterlockedDecrement((volatile signed __int32 *)(v3 + 152));
+    _InterlockedDecrement((volatile signed __int32 *)(v5 + 152));
   }
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of MmQuerySystemWorkingSetInformation @ 0x140130A14
+ * XREFs of MmQuerySystemWorkingSetInformation @ 0x140130A34
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
@@ -8,10 +8,10 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetStandbyRepurposed @ 0x1400EF32C (MiGetStandbyRepurposed.c)
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4C4 (MiGetCurrentMultiplexedVm.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetStandbyRepurposed @ 0x1400EF34C (MiGetStandbyRepurposed.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 _UNKNOWN **__fastcall MmQuerySystemWorkingSetInformation(int a1, _QWORD *a2)

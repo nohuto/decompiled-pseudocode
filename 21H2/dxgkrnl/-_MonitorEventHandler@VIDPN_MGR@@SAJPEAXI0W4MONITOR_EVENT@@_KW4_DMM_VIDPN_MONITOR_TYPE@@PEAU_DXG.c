@@ -1,224 +1,340 @@
 /*
- * XREFs of ?_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F3C90
+ * XREFs of ?_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017A940
  * Callers:
  *     <none>
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000F0FC (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C0012B30 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?LogMonitorPlugUnplugEvent@DMMVIDEOPRESENTTARGET@@QEAAEKI@Z @ 0x1C00695E8 (-LogMonitorPlugUnplugEvent@DMMVIDEOPRESENTTARGET@@QEAAEKI@Z.c)
- *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C01C02FC (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
- *     ?PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F1820 (-PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_.c)
- *     _VIDPN_MGR::_MonitorEventHandler_::_2_::_AUTO_PERFTRACK::__AUTO_PERFTRACK @ 0x1C01F3EC4 (_VIDPN_MGR--_MonitorEventHandler_--_2_--_AUTO_PERFTRACK--__AUTO_PERFTRACK.c)
- *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C0216DB4 (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
- *     ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02C2338 (-RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SC.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007DB8 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C000A800 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??1?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@XZ @ 0x1C0027E64 (--1-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@XZ.c)
+ *     ?LogMonitorPlugUnplugEvent@DMMVIDEOPRESENTTARGET@@QEAAEKI@Z @ 0x1C005C7EC (-LogMonitorPlugUnplugEvent@DMMVIDEOPRESENTTARGET@@QEAAEKI@Z.c)
+ *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C00E2438 (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
+ *     _VIDPN_MGR::_MonitorEventHandler_::_2_::_AUTO_PERFTRACK::__AUTO_PERFTRACK @ 0x1C016EF88 (_VIDPN_MGR--_MonitorEventHandler_--_2_--_AUTO_PERFTRACK--__AUTO_PERFTRACK.c)
+ *     ?PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0177A7C (-PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_.c)
+ *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C019C068 (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
+ *     ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021451C (-RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SC.c)
  */
 
 __int64 __fastcall VIDPN_MGR::_MonitorEventHandler(
         __int64 a1,
-        unsigned int a2,
+        __int64 a2,
         __int64 a3,
-        signed int a4,
+        int a4,
         __int64 a5,
         unsigned int a6,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a7)
 {
   __int64 v7; // r15
-  unsigned int v8; // edi
+  __int64 v8; // r14
   unsigned int v9; // ebx
-  __int64 v11; // r13
-  __int64 v13; // rsi
-  __int64 v14; // rsi
+  unsigned int v10; // ebp
+  __int64 v11; // r12
+  __int64 v13; // rax
+  __int64 v14; // rdx
   __int64 v15; // r8
-  unsigned int v16; // eax
-  __int64 v18; // rdx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rsi
+  __int64 v20; // rax
+  __int64 v21; // rsi
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // rcx
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  __int64 v34; // rax
+  _QWORD *v35; // rbx
+  __int64 v36; // rax
+  _QWORD *v37; // rbp
+  unsigned int *NextTarget; // rbp
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v39; // r13
+  int v40; // eax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rdx
+  __int64 v45; // rax
+  _QWORD *v46; // rax
+  _QWORD *v47; // rcx
+  __int64 v48; // rax
+  __int64 v49; // rbx
+  DMMVIDEOPRESENTTARGET *v50; // rax
+  unsigned int v51; // r11d
   struct DXGGLOBAL *Global; // rax
-  _QWORD *v20; // rbx
-  __int64 v21; // rax
-  _QWORD *v22; // r14
-  unsigned int *NextTarget; // r14
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v24; // r12
-  int v25; // eax
-  _QWORD *v26; // rax
-  _QWORD *v27; // rcx
-  __int64 v28; // rbx
-  DMMVIDEOPRESENTTARGET *v29; // rax
-  unsigned int v30; // r11d
-  signed int v31; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v32; // [rsp+38h] [rbp-30h]
-  unsigned __int64 v33; // [rsp+40h] [rbp-28h]
-  int v34; // [rsp+48h] [rbp-20h]
+  __int64 v53; // r8
+  __int64 v54; // r9
+  int v56; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v57; // [rsp+38h] [rbp-30h]
+  unsigned __int64 v58; // [rsp+40h] [rbp-28h]
+  int v59; // [rsp+48h] [rbp-20h]
 
   v7 = a5;
-  v8 = 0;
+  LODWORD(v8) = 0;
   v9 = a6;
+  v10 = a2;
   v11 = a4;
-  v31 = a4;
-  v32 = a5;
-  v33 = __PAIR64__(a2, a6);
-  LOBYTE(v34) = 1;
-  if ( (unsigned int)a4 > 3 && (unsigned int)(a4 - 7) > 4 )
+  v56 = a4;
+  v57 = a5;
+  v58 = __PAIR64__(a2, a6);
+  LOBYTE(v59) = 1;
+  if ( a1 )
   {
-    WdLogSingleEntry1(2LL, a4);
-    v8 = -1073741811;
-    goto LABEL_16;
-  }
-  if ( !a1 )
-  {
-    WdLogSingleEntry0(2LL);
-    v8 = -1071775742;
-    goto LABEL_16;
-  }
-  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)a1) )
-    WdLogSingleEntry0(1LL);
-  v13 = *(_QWORD *)(a1 + 2792);
-  if ( !v13 )
-  {
-    WdLogSingleEntry0(1LL);
-    v13 = *(_QWORD *)(a1 + 2792);
-  }
-  v14 = *(_QWORD *)(v13 + 104);
-  if ( !v14 )
-  {
-    WdLogSingleEntry1(2LL, a1);
-    v8 = -1071774923;
-    goto LABEL_16;
-  }
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&a5, v14);
-  switch ( (_DWORD)v11 )
-  {
-    case 0:
-      goto LABEL_19;
-    case 1:
-      v8 = VIDPN_MGR::OnMonitorConnectionChanged(v14, a2, v15, 1LL);
-      if ( !*(_DWORD *)(v14 + 536) )
-        ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2792), a2, 1LL, v7, 1, a7, v31, v32, v33, v34);
-      goto LABEL_15;
-    case 2:
-      goto LABEL_11;
-    case 3:
-      if ( a2 == -1 )
-        WdLogSingleEntry0(1LL);
-      if ( *(_DWORD *)(v14 + 536) )
-        goto LABEL_15;
-      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v14 + 120) + 72LL));
-      v20 = *(_QWORD **)(v14 + 120);
-      v21 = IndexedSet<DMMVIDEOPRESENTTARGET>::FindById((__int64)v20, a2);
-      if ( v21 && *(_QWORD *)(v21 + 112) )
-        ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2792), a2, 3LL, v7, 0, a7, v31, v32, v33, v34);
-      if ( !v20 )
-        goto LABEL_15;
-      goto LABEL_38;
-    case 7:
-LABEL_19:
-      v18 = a2;
-      if ( a2 == -1 )
+    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)a1) )
+    {
+      v18 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v18);
+    }
+    v19 = *(_QWORD *)(a1 + 2696);
+    if ( !v19 )
+    {
+      v20 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v20);
+      v19 = *(_QWORD *)(a1 + 2696);
+    }
+    v21 = *(_QWORD *)(v19 + 88);
+    if ( !v21 )
+    {
+      v22 = WdLogNewEntry5_WdError(v17, v16);
+      *(_QWORD *)(v22 + 24) = a1;
+      WdLogEvent5_WdError(v22);
+      LODWORD(v8) = -1071774923;
+      goto LABEL_75;
+    }
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&a5, v21);
+    v25 = (unsigned int)v11;
+    if ( (_DWORD)v11 )
+    {
+      if ( (_DWORD)v11 == 1 )
       {
-        if ( (_DWORD)v11 )
-          WdLogSingleEntry0(1LL);
-        v26 = (_QWORD *)(*(_QWORD *)(v14 + 120) + 24LL);
-        v27 = (_QWORD *)*v26;
-        if ( (_QWORD *)*v26 == v26 || v27 == (_QWORD *)8 || (v18 = *((unsigned int *)v27 + 4), (_DWORD)v18 == -1) )
-        {
-          WdLogSingleEntry1(2LL, v14);
-          v8 = -1071774971;
-          goto LABEL_15;
-        }
+        LODWORD(v8) = VIDPN_MGR::OnMonitorConnectionChanged(v21, v10, v24, 1LL);
+        if ( !*(_DWORD *)(v21 + 480) )
+          ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
+            *(_QWORD *)(a1 + 2696),
+            v10,
+            1LL,
+            v7,
+            1,
+            a7,
+            v56,
+            v57,
+            v58,
+            v59);
+        goto LABEL_74;
       }
-      v8 = VIDPN_MGR::OnMonitorConnectionChanged(v14, v18, v15, (unsigned int)v11);
-      if ( !*(_DWORD *)(v14 + 536)
-        && !(_DWORD)v11
-        && !*(_BYTE *)(a1 + 2705)
-        && (v7 == 1 || v7 == 4 || v7 == 3 || v7 == 2 || v7 == 5)
-        && v9 - 1 <= 2 )
+      v26 = (unsigned int)(v11 - 2);
+      if ( (_DWORD)v11 == 2 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v14 + 120) + 72LL));
-        v28 = *(_QWORD *)(v14 + 120);
-        v29 = (DMMVIDEOPRESENTTARGET *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById(v28, a2);
-        if ( v29
-          && DMMVIDEOPRESENTTARGET::LogMonitorPlugUnplugEvent(v29, *(_DWORD *)(v14 + 540), *(_DWORD *)(v14 + 544)) )
-        {
-          v30 = 6;
-          v7 = 0LL;
-        }
-        ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2792), a2, v30, v7, 1, a7, v31, v32, v33, v34);
-        LOBYTE(v34) = 0;
-        if ( v28 )
-          ReferenceCounted::Release((ReferenceCounted *)(v28 + 64));
-      }
-      goto LABEL_28;
-    case 8:
-LABEL_11:
-      if ( (unsigned int)v7 <= 3 )
-      {
-        if ( *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 2792) + 16LL) + 2692LL) < 1105 && a2 == -1 )
-        {
-          _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v14 + 120) + 72LL));
-          v20 = *(_QWORD **)(v14 + 120);
-          v22 = (_QWORD *)v20[3];
-          if ( v22 != v20 + 3 )
-          {
-            NextTarget = (unsigned int *)(v22 - 1);
-            if ( NextTarget )
-            {
-              v24 = a7;
-              do
-              {
-                v25 = VIDPN_MGR::PowerOnOffVidPnTarget(v14, 0xFFFFFFFF, v11, v7, v24);
-                v8 = v25;
-                if ( v25 < 0 )
-                  WdLogSingleEntry2(2LL, NextTarget[6], v25);
-                NextTarget = (unsigned int *)DMMVIDEOPRESENTTARGETSET::GetNextTarget(
-                                               (DMMVIDEOPRESENTTARGETSET *)v20,
-                                               (const struct DMMVIDEOPRESENTTARGET *const)NextTarget);
-              }
-              while ( NextTarget );
-            }
-          }
 LABEL_38:
-          ReferenceCounted::Release((ReferenceCounted *)(v20 + 8));
-          goto LABEL_15;
+        if ( (unsigned int)v7 > 3 )
+        {
+          v28 = WdLogNewEntry5_WdError(v26, v23);
+          *(_QWORD *)(v28 + 24) = v7;
+LABEL_19:
+          WdLogEvent5_WdError(v28);
+          LODWORD(v8) = -1073741811;
+LABEL_74:
+          EXCLUSIVEACCESS<VIDPN_MGR>::~EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&a5, v23);
+          goto LABEL_75;
         }
-        v16 = VIDPN_MGR::PowerOnOffVidPnTarget(v14, a2, v11, v7, a7);
-        goto LABEL_14;
+        if ( *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 2696) + 16LL) + 2596LL) >= 1105 || v10 != -1 )
+        {
+          LODWORD(v8) = VIDPN_MGR::PowerOnOffVidPnTarget((VIDPN_MGR *)v21, v10, v11, v7, a7);
+          goto LABEL_74;
+        }
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v21 + 80) + 72LL));
+        v35 = *(_QWORD **)(v21 + 80);
+        v37 = (_QWORD *)v35[3];
+        if ( v37 != v35 + 3 )
+        {
+          NextTarget = (unsigned int *)(v37 - 1);
+          if ( NextTarget )
+          {
+            v39 = a7;
+            do
+            {
+              v40 = VIDPN_MGR::PowerOnOffVidPnTarget((VIDPN_MGR *)v21, 0xFFFFFFFFLL, v11, v7, v39);
+              v8 = v40;
+              if ( v40 < 0 )
+              {
+                v43 = WdLogNewEntry5_WdError(v42, v41);
+                *(_QWORD *)(v43 + 24) = NextTarget[6];
+                *(_QWORD *)(v43 + 32) = v8;
+                WdLogEvent5_WdError(v43);
+              }
+              NextTarget = (unsigned int *)DMMVIDEOPRESENTTARGETSET::GetNextTarget(
+                                             (DMMVIDEOPRESENTTARGETSET *)v35,
+                                             (const struct DMMVIDEOPRESENTTARGET *const)NextTarget);
+            }
+            while ( NextTarget );
+          }
+        }
+LABEL_37:
+        ReferenceCounted::Release((ReferenceCounted *)(v35 + 8), v23);
+        goto LABEL_74;
       }
-      WdLogSingleEntry1(2LL, v7);
-LABEL_47:
-      v8 = -1073741811;
-      goto LABEL_15;
-    case 9:
-      if ( a2 == -1 )
-        WdLogSingleEntry0(1LL);
-      if ( !*(_DWORD *)(v14 + 536) )
-        ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2792), a2, 9LL, v7, 0, a7, v31, v32, v33, v34);
-      goto LABEL_15;
-    case 0xA:
-      if ( a2 == -1 )
-        WdLogSingleEntry0(1LL);
-      v8 = VIDPN_MGR::OnMonitorConnectionChanged(v14, a2, v15, 10LL);
-      ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2792), a2, 10LL, v7, 1, a7, v31, v32, v33, v34);
-LABEL_28:
-      Global = DXGGLOBAL_GetGlobal();
-      QDC_CACHE::InvalidateCache(*((QDC_CACHE **)Global + 191), 0LL);
-      goto LABEL_15;
+      if ( (_DWORD)v11 == 3 )
+      {
+        if ( v10 == -1 )
+        {
+          v34 = WdLogNewEntry5_WdAssertion((unsigned int)(v11 - 3), v23);
+          WdLogEvent5_WdAssertion(v34);
+        }
+        if ( *(_DWORD *)(v21 + 480) )
+          goto LABEL_74;
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v21 + 80) + 72LL));
+        v35 = *(_QWORD **)(v21 + 80);
+        v36 = IndexedSet<DMMVIDEOPRESENTTARGET>::FindById((__int64)v35, v10);
+        if ( v36 && *(_QWORD *)(v36 + 112) )
+          ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
+            *(_QWORD *)(a1 + 2696),
+            v10,
+            3LL,
+            v7,
+            0,
+            a7,
+            v56,
+            v57,
+            v58,
+            v59);
+        if ( !v35 )
+          goto LABEL_74;
+        goto LABEL_37;
+      }
+      v25 = (unsigned int)(v11 - 7);
+      if ( (_DWORD)v11 != 7 )
+      {
+        v26 = (unsigned int)(v11 - 8);
+        if ( (_DWORD)v11 != 8 )
+        {
+          if ( (_DWORD)v11 == 9 )
+          {
+            if ( v10 == -1 )
+            {
+              v33 = WdLogNewEntry5_WdAssertion((unsigned int)(v11 - 9), v23);
+              WdLogEvent5_WdAssertion(v33);
+            }
+            if ( !*(_DWORD *)(v21 + 480) )
+              ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
+                *(_QWORD *)(a1 + 2696),
+                v10,
+                9LL,
+                v7,
+                0,
+                a7,
+                v56,
+                v57,
+                v58,
+                v59);
+            goto LABEL_74;
+          }
+          v27 = (unsigned int)(v11 - 10);
+          if ( (_DWORD)v11 != 10 )
+          {
+            if ( (_DWORD)v11 == 11 )
+            {
+              if ( v10 == -1 )
+              {
+                v29 = WdLogNewEntry5_WdAssertion(v27, v23);
+                WdLogEvent5_WdAssertion(v29);
+              }
+              ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
+                *(_QWORD *)(a1 + 2696),
+                v10,
+                11LL,
+                v7,
+                0,
+                a7,
+                v56,
+                v57,
+                v58,
+                v59);
+              goto LABEL_74;
+            }
+            v28 = WdLogNewEntry5_WdError(v27, v23);
+            *(_QWORD *)(v28 + 24) = v11;
+            goto LABEL_19;
+          }
+          if ( v10 == -1 )
+          {
+            v30 = WdLogNewEntry5_WdAssertion(v27, v23);
+            WdLogEvent5_WdAssertion(v30);
+          }
+          LODWORD(v8) = VIDPN_MGR::OnMonitorConnectionChanged(v21, v10, v24, 10LL);
+          ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
+            *(_QWORD *)(a1 + 2696),
+            v10,
+            10LL,
+            v7,
+            1,
+            a7,
+            v56,
+            v57,
+            v58,
+            v59);
+LABEL_73:
+          Global = DXGGLOBAL::GetGlobal(v32, v31);
+          QDC_CACHE::InvalidateCache(*((struct DXGFASTMUTEX *const **)Global + 172), 0LL, v53, v54);
+          goto LABEL_74;
+        }
+        goto LABEL_38;
+      }
+    }
+    v44 = v10;
+    if ( v10 == -1 )
+    {
+      if ( (_DWORD)v11 )
+      {
+        v45 = WdLogNewEntry5_WdAssertion(v25, v10);
+        WdLogEvent5_WdAssertion(v45);
+      }
+      v46 = (_QWORD *)(*(_QWORD *)(v21 + 80) + 24LL);
+      v47 = (_QWORD *)*v46;
+      if ( (_QWORD *)*v46 == v46 || v47 == (_QWORD *)8 || (v44 = *((unsigned int *)v47 + 4), (_DWORD)v44 == -1) )
+      {
+        v48 = WdLogNewEntry5_WdError(v47, v44);
+        *(_QWORD *)(v48 + 24) = v21;
+        WdLogEvent5_WdError(v48);
+        LODWORD(v8) = -1071774971;
+        goto LABEL_74;
+      }
+    }
+    LODWORD(v8) = VIDPN_MGR::OnMonitorConnectionChanged(v21, v44, v24, (unsigned int)v11);
+    if ( !*(_DWORD *)(v21 + 480)
+      && !(_DWORD)v11
+      && !*(_BYTE *)(a1 + 2609)
+      && (v7 == 1 || v7 == 4 || v7 == 3 || v7 == 2 || v7 == 5)
+      && v9 - 1 <= 2 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v21 + 80) + 72LL));
+      v49 = *(_QWORD *)(v21 + 80);
+      v50 = (DMMVIDEOPRESENTTARGET *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById(v49, v10);
+      if ( v50 && DMMVIDEOPRESENTTARGET::LogMonitorPlugUnplugEvent(v50, *(_DWORD *)(v21 + 484), *(_DWORD *)(v21 + 488)) )
+      {
+        v51 = 6;
+        v7 = 0LL;
+      }
+      ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(*(_QWORD *)(a1 + 2696), v10, v51, v7, 1, a7, v56, v57, v58, v59);
+      LOBYTE(v59) = 0;
+      if ( v49 )
+        ReferenceCounted::Release((ReferenceCounted *)(v49 + 64), v31);
+    }
+    goto LABEL_73;
   }
-  if ( (_DWORD)v11 != 11 )
-  {
-    WdLogSingleEntry1(2LL, v11);
-    goto LABEL_47;
-  }
-  if ( a2 == -1 )
-    WdLogSingleEntry0(1LL);
-  v16 = VIDPN_MGR::OnMonitorConnectionChanged(v14, a2, v15, 11LL);
-LABEL_14:
-  v8 = v16;
-LABEL_15:
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(a5 + 40));
-LABEL_16:
-  VIDPN_MGR::_MonitorEventHandler_::_2_::_AUTO_PERFTRACK::__AUTO_PERFTRACK(&v31);
-  return v8;
+  v13 = WdLogNewEntry5_WdError(0LL, a2);
+  WdLogEvent5_WdError(v13);
+  LODWORD(v8) = -1071775742;
+LABEL_75:
+  VIDPN_MGR::_MonitorEventHandler_::_2_::_AUTO_PERFTRACK::__AUTO_PERFTRACK((__int64)&v56, v14, v15);
+  return (unsigned int)v8;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CEmptyRegionDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x180019DB0
+ * XREFs of ?IsOfType@CEmptyRegionDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800197C0
  * Callers:
  *     <none>
  * Callees:

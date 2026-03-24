@@ -1,24 +1,24 @@
 /*
- * XREFs of PoUserShutdownCancelled @ 0x1406EADA0
+ * XREFs of PoUserShutdownCancelled @ 0x140779E50
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PopQueueWorkItem @ 0x14036AAC4 (PopQueueWorkItem.c)
- *     PopUserShutdownCancelled @ 0x1406EADD4 (PopUserShutdownCancelled.c)
+ *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PopUserShutdownCancelled @ 0x140779E84 (PopUserShutdownCancelled.c)
  */
 
-char PoUserShutdownCancelled()
+char __fastcall PoUserShutdownCancelled(__int64 a1, __int64 a2)
 {
   char result; // al
-  __int64 v1; // rcx
+  __int64 v3; // rcx
 
-  result = PsIsCurrentThreadInServerSilo();
+  result = PsIsCurrentThreadInServerSilo(a1, a2);
   if ( !result )
   {
     PopQueueWorkItem((__int64)&PopClearUserShutdownMarkerWorkItem, DelayedWorkQueue);
-    LOBYTE(v1) = 1;
-    return PopUserShutdownCancelled(v1);
+    LOBYTE(v3) = 1;
+    return PopUserShutdownCancelled(v3);
   }
   return result;
 }

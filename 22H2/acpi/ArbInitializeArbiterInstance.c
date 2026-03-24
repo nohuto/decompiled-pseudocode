@@ -1,109 +1,102 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x1C00A1BA4
+ * XREFs of ArbInitializeArbiterInstance @ 0x1C009FCF0
  * Callers:
- *     AcpiInitializeBusNumberArbiter @ 0x1C008205C (AcpiInitializeBusNumberArbiter.c)
- *     AcpiInitializeMemoryArbiter @ 0x1C0088F3C (AcpiInitializeMemoryArbiter.c)
- *     AcpiInitializePortArbiter @ 0x1C008C03C (AcpiInitializePortArbiter.c)
- *     AcpiIrqLibInitializeGlobalState @ 0x1C00ABB78 (AcpiIrqLibInitializeGlobalState.c)
+ *     AcpiInitializeBusNumberArbiter @ 0x1C00AE288 (AcpiInitializeBusNumberArbiter.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1C00B01D0 (AcpiInitializeMemoryArbiter.c)
+ *     AcpiInitializePortArbiter @ 0x1C00B1EB4 (AcpiInitializePortArbiter.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEF34 (AcpiIrqLibInitializeGlobalState.c)
  * Callees:
- *     RtlInitializeRangeList_0 @ 0x1C0001A31 (RtlInitializeRangeList_0.c)
- *     ArbBuildAssignmentOrdering @ 0x1C00A125C (ArbBuildAssignmentOrdering.c)
+ *     RtlInitializeRangeList_0 @ 0x1C0031CE1 (RtlInitializeRangeList_0.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C009FF94 (ArbBuildAssignmentOrdering.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
-  struct _KEVENT *Pool2; // rax
-  int v8; // edi
-  PVOID *v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
-  struct _KEVENT *v13; // rax
+  struct _KEVENT *PoolWithTag; // rax
+  PVOID v8; // rax
+  PVOID v9; // rax
+  PVOID v10; // rax
+  struct _KEVENT *v11; // rax
+  int v12; // edi
   void *v14; // rcx
   void *v15; // rcx
   void *v16; // rcx
   void *v17; // rcx
+  void *v18; // rcx
 
   *(_QWORD *)(a1 + 320) = a2;
   *(_DWORD *)a1 = 1935831617;
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL);
-  *(_QWORD *)(a1 + 8) = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u);
+  *(_QWORD *)(a1 + 8) = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_44;
+  KeInitializeEvent(PoolWithTag, SynchronizationEvent, 1u);
+  v8 = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x41627241u);
+  *(_QWORD *)(a1 + 112) = v8;
+  if ( !v8 )
+    goto LABEL_44;
+  *(_DWORD *)(a1 + 104) = 4096;
+  v9 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
+  *(_QWORD *)(a1 + 40) = v9;
+  if ( !v9 )
+    goto LABEL_44;
+  v10 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
+  *(_QWORD *)(a1 + 48) = v10;
+  if ( v10
+    && (RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 40)),
+        RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 48)),
+        *(_BYTE *)(a1 + 296) = 0,
+        v11 = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u),
+        (*(_QWORD *)(a1 + 304) = v11) != 0LL) )
   {
-    KeInitializeEvent(Pool2, SynchronizationEvent, 1u);
-    v10 = ExAllocatePool2(256LL, 4096LL, 1096970817LL);
-    v9 = (PVOID *)(a1 + 112);
-    *(_QWORD *)(a1 + 112) = v10;
-    if ( !v10 )
-      goto LABEL_4;
-    *(_DWORD *)(a1 + 104) = 4096;
-    v11 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
-    *(_QWORD *)(a1 + 40) = v11;
-    if ( !v11 )
-      goto LABEL_4;
-    v12 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
-    *(_QWORD *)(a1 + 48) = v12;
-    if ( v12
-      && (RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 40)),
-          RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 48)),
-          *(_BYTE *)(a1 + 296) = 0,
-          v13 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL),
-          (*(_QWORD *)(a1 + 304) = v13) != 0LL) )
-    {
-      KeInitializeEvent(v13, NotificationEvent, 1u);
-      *(_QWORD *)(a1 + 16) = a4;
-      *(_QWORD *)(a1 + 24) = L"Root";
-      *(_DWORD *)(a1 + 32) = a3;
-      if ( !*(_QWORD *)(a1 + 152) )
-        *(_QWORD *)(a1 + 152) = ArbTestAllocation;
-      if ( !*(_QWORD *)(a1 + 160) )
-        *(_QWORD *)(a1 + 160) = ArbRetestAllocation;
-      if ( !*(_QWORD *)(a1 + 168) )
-        *(_QWORD *)(a1 + 168) = ArbCommitAllocation;
-      if ( !*(_QWORD *)(a1 + 176) )
-        *(_QWORD *)(a1 + 176) = ArbRollbackAllocation;
-      if ( !*(_QWORD *)(a1 + 208) )
-        *(_QWORD *)(a1 + 208) = ArbAddReserved;
-      if ( !*(_QWORD *)(a1 + 224) )
-        *(_QWORD *)(a1 + 224) = ArbPreprocessEntry;
-      if ( !*(_QWORD *)(a1 + 232) )
-        *(_QWORD *)(a1 + 232) = ArbAllocateEntry;
-      if ( !*(_QWORD *)(a1 + 240) )
-        *(_QWORD *)(a1 + 240) = ArbGetNextAllocationRange;
-      if ( !*(_QWORD *)(a1 + 248) )
-        *(_QWORD *)(a1 + 248) = ArbFindSuitableRange;
-      if ( !*(_QWORD *)(a1 + 256) )
-        *(_QWORD *)(a1 + 256) = ArbAddAllocation;
-      if ( !*(_QWORD *)(a1 + 264) )
-        *(_QWORD *)(a1 + 264) = ArbBacktrackAllocation;
-      if ( !*(_QWORD *)(a1 + 272) )
-        *(_QWORD *)(a1 + 272) = ArbOverrideConflict;
-      if ( !*(_QWORD *)(a1 + 184) )
-        *(_QWORD *)(a1 + 184) = ArbBootAllocation;
-      if ( !*(_QWORD *)(a1 + 200) )
-        *(_QWORD *)(a1 + 200) = ArbQueryConflict;
-      if ( !*(_QWORD *)(a1 + 192) )
-        *(_QWORD *)(a1 + 192) = ArbPreprocessEntry;
-      if ( !*(_QWORD *)(a1 + 216) )
-        *(_QWORD *)(a1 + 216) = ArbStartArbiter;
-      if ( !*(_QWORD *)(a1 + 280) )
-        *(_QWORD *)(a1 + 280) = &ArbInitializeRangeList;
-      if ( !*(_QWORD *)(a1 + 288) )
-        *(_QWORD *)(a1 + 288) = ArbDeleteOwnerRanges;
-      v8 = ArbBuildAssignmentOrdering(a1);
-      if ( v8 >= 0 )
-        return 0LL;
-    }
-    else
-    {
-LABEL_4:
-      v8 = -1073741670;
-    }
+    KeInitializeEvent(v11, NotificationEvent, 1u);
+    *(_QWORD *)(a1 + 16) = a4;
+    *(_QWORD *)(a1 + 24) = L"Root";
+    *(_DWORD *)(a1 + 32) = a3;
+    if ( !*(_QWORD *)(a1 + 152) )
+      *(_QWORD *)(a1 + 152) = ArbTestAllocation;
+    if ( !*(_QWORD *)(a1 + 160) )
+      *(_QWORD *)(a1 + 160) = ArbRetestAllocation;
+    if ( !*(_QWORD *)(a1 + 168) )
+      *(_QWORD *)(a1 + 168) = ArbCommitAllocation;
+    if ( !*(_QWORD *)(a1 + 176) )
+      *(_QWORD *)(a1 + 176) = ArbRollbackAllocation;
+    if ( !*(_QWORD *)(a1 + 208) )
+      *(_QWORD *)(a1 + 208) = ArbAddReserved;
+    if ( !*(_QWORD *)(a1 + 224) )
+      *(_QWORD *)(a1 + 224) = ArbPreprocessEntry;
+    if ( !*(_QWORD *)(a1 + 232) )
+      *(_QWORD *)(a1 + 232) = ArbAllocateEntry;
+    if ( !*(_QWORD *)(a1 + 240) )
+      *(_QWORD *)(a1 + 240) = ArbGetNextAllocationRange;
+    if ( !*(_QWORD *)(a1 + 248) )
+      *(_QWORD *)(a1 + 248) = ArbFindSuitableRange;
+    if ( !*(_QWORD *)(a1 + 256) )
+      *(_QWORD *)(a1 + 256) = ArbAddAllocation;
+    if ( !*(_QWORD *)(a1 + 264) )
+      *(_QWORD *)(a1 + 264) = ArbBacktrackAllocation;
+    if ( !*(_QWORD *)(a1 + 272) )
+      *(_QWORD *)(a1 + 272) = ArbOverrideConflict;
+    if ( !*(_QWORD *)(a1 + 184) )
+      *(_QWORD *)(a1 + 184) = ArbBootAllocation;
+    if ( !*(_QWORD *)(a1 + 200) )
+      *(_QWORD *)(a1 + 200) = ArbQueryConflict;
+    if ( !*(_QWORD *)(a1 + 192) )
+      *(_QWORD *)(a1 + 192) = ArbPreprocessEntry;
+    if ( !*(_QWORD *)(a1 + 216) )
+      *(_QWORD *)(a1 + 216) = ArbStartArbiter;
+    if ( !*(_QWORD *)(a1 + 280) )
+      *(_QWORD *)(a1 + 280) = &ArbInitializeRangeList;
+    if ( !*(_QWORD *)(a1 + 288) )
+      *(_QWORD *)(a1 + 288) = ArbDeleteOwnerRanges;
+    v12 = ArbBuildAssignmentOrdering(a1);
+    if ( v12 >= 0 )
+      return 0LL;
   }
   else
   {
-    v8 = -1073741670;
-    v9 = (PVOID *)(a1 + 112);
+LABEL_44:
+    v12 = -1073741670;
   }
   v14 = *(void **)(a1 + 8);
   if ( v14 )
@@ -117,7 +110,8 @@ LABEL_4:
   v17 = *(void **)(a1 + 48);
   if ( v17 )
     ExFreePoolWithTag(v17, 0);
-  if ( *v9 )
-    ExFreePoolWithTag(*v9, 0);
-  return (unsigned int)v8;
+  v18 = *(void **)(a1 + 112);
+  if ( v18 )
+    ExFreePoolWithTag(v18, 0);
+  return (unsigned int)v12;
 }

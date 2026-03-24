@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxAcpiPrepareDevice @ 0x1405DDEE4
+ * XREFs of PopFxAcpiPrepareDevice @ 0x14057DF60
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DDBE0 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x14057DC68 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1403BA6E0 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopPluginAcpiNotificationStrict @ 0x1405DFA70 (PopPluginAcpiNotificationStrict.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x14037E8D4 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopPluginAcpiNotificationStrict @ 0x14057FB9C (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiPrepareDevice(const UNICODE_STRING *a1, ULONG_PTR a2, ULONG_PTR *a3, _BYTE *a4)
@@ -39,7 +39,7 @@ __int64 __fastcall PopFxAcpiPrepareDevice(const UNICODE_STRING *a1, ULONG_PTR a2
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopFxPluginLock);
     KeAbPostRelease((ULONG_PTR)&PopFxPluginLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v9 )
     {
       *a3 = v9;

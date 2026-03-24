@@ -1,15 +1,13 @@
 /*
- * XREFs of MmGetSystemRoutineAddress @ 0x140759130
+ * XREFs of MmGetSystemRoutineAddress @ 0x1406B6EC0
  * Callers:
- *     HalpCmciLoadThresholdConfiguration @ 0x1403D2888 (HalpCmciLoadThresholdConfiguration.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x14051EAEC (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcGetLoadConfiguration @ 0x14051EF00 (HalpMcGetLoadConfiguration.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x1403C55B8 (HalpCmciLoadThresholdConfiguration.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     MiMarkKernelCfgTarget @ 0x1402D7FD0 (MiMarkKernelCfgTarget.c)
- *     RtlFreeAnsiString @ 0x14070AFC0 (RtlFreeAnsiString.c)
- *     RtlFindExportedRoutineByName @ 0x140757F00 (RtlFindExportedRoutineByName.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     MiMarkKernelCfgTarget @ 0x1402C973C (MiMarkKernelCfgTarget.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlFindExportedRoutineByName @ 0x140612560 (RtlFindExportedRoutineByName.c)
  */
 
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
@@ -24,7 +22,7 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(PsNtosImageBase, DestinationString.Buffer);
   if ( !ExportedRoutineByName )
     ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
-  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString((PUNICODE_STRING)&DestinationString);
   if ( ExportedRoutineByName && (int)MiMarkKernelCfgTarget() < 0 )
     return 0LL;
   else

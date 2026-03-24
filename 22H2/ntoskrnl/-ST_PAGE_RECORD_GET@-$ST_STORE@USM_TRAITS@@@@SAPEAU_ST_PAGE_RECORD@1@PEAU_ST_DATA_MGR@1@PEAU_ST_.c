@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ST_PAGE_RECORD_GET@?$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_ENTRY@1@@Z @ 0x140464536
+ * XREFs of ?ST_PAGE_RECORD_GET@?$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_ENTRY@1@@Z @ 0x14026CAB8
  * Callers:
- *     ?StDmEtwPageRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C5B4C (-StDmEtwPageRundown@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C6014 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
- *     ?StDmpSinglePageLookup@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAPEAU_ST_PAGE_RECORD@1@@Z @ 0x1405C829C (-StDmpSinglePageLookup@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@P.c)
+ *     ?StDmpSinglePageLookup@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAPEAU_ST_PAGE_RECORD@1@@Z @ 0x14026C9BC (-StDmpSinglePageLookup@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@P.c)
+ *     ?StDmEtwPageRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059B3B4 (-StDmEtwPageRundown@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14059B814 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
  *     <none>
  */
@@ -17,9 +17,9 @@ _DWORD *__fastcall ST_STORE<SM_TRAITS>::ST_PAGE_RECORD_GET(_DWORD *a1, __int64 a
   __int64 v7; // rsi
   __int64 v8; // rcx
   __int64 i; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  _DWORD *v12; // r8
+  _DWORD *v10; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rcx
 
   v3 = a1[114];
   v4 = (unsigned int)(*(_DWORD *)(a2 + 4) >> v3);
@@ -30,13 +30,13 @@ _DWORD *__fastcall ST_STORE<SM_TRAITS>::ST_PAGE_RECORD_GET(_DWORD *a1, __int64 a
   for ( i = v6 * (*(_DWORD *)(a2 + 4) & v5)
           + *(_QWORD *)(*(_QWORD *)&a1[2 * v8 + 48] + 16 * (v4 ^ (unsigned int)(1 << v8)));
         ;
-        i = v6 * (v12[1] & v5) + *(_QWORD *)(*(_QWORD *)&a1[2 * v11 + 48] + 16 * (v10 ^ (unsigned int)(1 << v11))) )
+        i = v6 * (v10[1] & v5) + *(_QWORD *)(*(_QWORD *)&a1[2 * v13 + 48] + 16 * (v12 ^ (unsigned int)(1 << v13))) )
   {
-    v12 = (_DWORD *)(v7 + i);
-    if ( *v12 != -1 )
+    v10 = (_DWORD *)(v7 + i);
+    if ( *v10 != -1 )
       break;
-    v10 = (unsigned int)(v12[1] >> v3);
-    _BitScanReverse((unsigned int *)&v11, v10);
+    v12 = (unsigned int)(v10[1] >> v3);
+    _BitScanReverse((unsigned int *)&v13, v12);
   }
-  return v12;
+  return v10;
 }

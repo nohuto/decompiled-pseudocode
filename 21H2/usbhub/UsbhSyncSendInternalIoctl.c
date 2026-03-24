@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhSyncSendInternalIoctl @ 0x1C0002F60
+ * XREFs of UsbhSyncSendInternalIoctl @ 0x1C0015F10
  * Callers:
- *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0002F00 (UsbhFdoCheckUpstreamConnectionState.c)
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhSshResumeUpstream @ 0x1C000D344 (UsbhSshResumeUpstream.c)
- *     UsbhCheckHubPowerStatus @ 0x1C000D988 (UsbhCheckHubPowerStatus.c)
- *     UsbhConfigureUsbHub @ 0x1C00293DC (UsbhConfigureUsbHub.c)
- *     UsbhGetHubCount @ 0x1C002BA50 (UsbhGetHubCount.c)
- *     UsbhGetTopOfBusStack @ 0x1C002C348 (UsbhGetTopOfBusStack.c)
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
- *     UsbhLogStartFailure @ 0x1C002CA90 (UsbhLogStartFailure.c)
- *     UsbhResetIrqPipe @ 0x1C003896C (UsbhResetIrqPipe.c)
- *     UsbhResetHubUpstreamPort @ 0x1C003CBB0 (UsbhResetHubUpstreamPort.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhSshResumeUpstream @ 0x1C0013558 (UsbhSshResumeUpstream.c)
+ *     UsbhCheckHubPowerStatus @ 0x1C00139C0 (UsbhCheckHubPowerStatus.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0015EB4 (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhConfigureUsbHub @ 0x1C002A738 (UsbhConfigureUsbHub.c)
+ *     UsbhGetHubCount @ 0x1C002CE58 (UsbhGetHubCount.c)
+ *     UsbhGetTopOfBusStack @ 0x1C002D770 (UsbhGetTopOfBusStack.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
+ *     UsbhLogStartFailure @ 0x1C002DEBC (UsbhLogStartFailure.c)
+ *     UsbhResetIrqPipe @ 0x1C0039C58 (UsbhResetIrqPipe.c)
+ *     UsbhResetHubUpstreamPort @ 0x1C003DD90 (UsbhResetHubUpstreamPort.c)
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 NTSTATUS __fastcall UsbhSyncSendInternalIoctl(__int64 a1, ULONG a2, unsigned __int64 a3, _UNICODE_STRING *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDereferenceHost @ 0x1408D6FA8
+ * XREFs of ExpDereferenceHost @ 0x1408D6F88
  * Callers:
- *     ExRegisterExtension @ 0x1407273E0 (ExRegisterExtension.c)
- *     ExRegisterHost @ 0x1407275DC (ExRegisterHost.c)
- *     ExUnregisterExtension @ 0x1408D6EC0 (ExUnregisterExtension.c)
+ *     ExRegisterExtension @ 0x1407273C0 (ExRegisterExtension.c)
+ *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
+ *     ExUnregisterExtension @ 0x1408D6EA0 (ExUnregisterExtension.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSvmSetDeviceEnabled @ 0x140275EE0
+ * XREFs of HvlSvmSetDeviceEnabled @ 0x140275FE0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7270 (HvcallpExtendedFastHypercall.c)
- *     HvlpHvToNtStatus @ 0x140279480 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmSetDeviceEnabled(int a1, unsigned __int8 a2)

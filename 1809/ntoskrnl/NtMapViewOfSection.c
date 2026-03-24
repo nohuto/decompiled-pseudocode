@@ -1,5 +1,5 @@
 /*
- * XREFs of NtMapViewOfSection @ 0x140676FD0
+ * XREFs of NtMapViewOfSection @ 0x140676FB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
  *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
- *     MiMapViewOfSectionCommon @ 0x140677210 (MiMapViewOfSectionCommon.c)
- *     MiValidateZeroBits @ 0x14067744C (MiValidateZeroBits.c)
- *     DbgkMapViewOfSection @ 0x14067749C (DbgkMapViewOfSection.c)
- *     EtwTiLogMapExecView @ 0x1406CF400 (EtwTiLogMapExecView.c)
+ *     MiMapViewOfSectionCommon @ 0x1406771F0 (MiMapViewOfSectionCommon.c)
+ *     MiValidateZeroBits @ 0x14067742C (MiValidateZeroBits.c)
+ *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
+ *     EtwTiLogMapExecView @ 0x1406CF3E0 (EtwTiLogMapExecView.c)
  */
 
 NTSTATUS __stdcall NtMapViewOfSection(

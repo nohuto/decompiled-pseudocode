@@ -1,7 +1,7 @@
 /*
- * XREFs of WppIntToHex @ 0x1C005B82C
+ * XREFs of WppIntToHex @ 0x1C003A100
  * Callers:
- *     WppGuidToStr @ 0x1C005B728 (WppGuidToStr.c)
+ *     WppGuidToStr @ 0x1C0039C24 (WppGuidToStr.c)
  * Callees:
  *     <none>
  */

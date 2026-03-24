@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQuerySection @ 0x1401B8B90
+ * XREFs of ZwQuerySection @ 0x1401B8BB0
  * Callers:
  *     CmSiGetSectionLength @ 0x14000F130 (CmSiGetSectionLength.c)
  * Callees:

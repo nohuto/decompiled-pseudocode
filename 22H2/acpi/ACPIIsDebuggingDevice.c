@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIIsDebuggingDevice @ 0x1C0098080
+ * XREFs of ACPIIsDebuggingDevice @ 0x1C0098DCC
  * Callers:
- *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ *     ACPIBuildPdo @ 0x1C0011198 (ACPIBuildPdo.c)
  * Callees:
- *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BE4 (ACPIQueryDeviceBiosNameEx.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0099CE0 (ACPIQueryDeviceBiosName.c)
  */
 
-__int64 __fastcall ACPIIsDebuggingDevice(ULONG_PTR a1)
+__int64 __fastcall ACPIIsDebuggingDevice(__int64 a1)
 {
   int v1; // ebx
   _QWORD *v2; // rsi
@@ -14,7 +14,7 @@ __int64 __fastcall ACPIIsDebuggingDevice(ULONG_PTR a1)
   UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
 
   String2 = 0LL;
-  v1 = ACPIQueryDeviceBiosNameEx(a1, 1, &String2);
+  v1 = ACPIQueryDeviceBiosName(a1, &String2);
   if ( v1 >= 0 )
   {
     v1 = -1073741823;
@@ -25,11 +25,11 @@ __int64 __fastcall ACPIIsDebuggingDevice(ULONG_PTR a1)
       ++v3;
       v2 += 2;
       if ( v3 >= 2 )
-        goto LABEL_8;
+        goto LABEL_5;
     }
     v1 = 0;
   }
-LABEL_8:
+LABEL_5:
   if ( String2.Buffer )
     ExFreePoolWithTag(String2.Buffer, 0x53706341u);
   return (unsigned int)v1;

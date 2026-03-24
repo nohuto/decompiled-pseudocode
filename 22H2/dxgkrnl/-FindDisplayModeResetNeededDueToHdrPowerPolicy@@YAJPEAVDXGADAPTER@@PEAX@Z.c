@@ -1,42 +1,46 @@
 /*
- * XREFs of ?FindDisplayModeResetNeededDueToHdrPowerPolicy@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0312F40
+ * XREFs of ?FindDisplayModeResetNeededDueToHdrPowerPolicy@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0269EC0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z @ 0x1C03AE4D8 (-DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z @ 0x1C02DEB20 (-DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z.c)
  */
 
 __int64 __fastcall FindDisplayModeResetNeededDueToHdrPowerPolicy(struct DXGADAPTER *a1, _BYTE *a2)
 {
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct DXGGLOBAL *Global; // rax
-  unsigned int v5; // ebx
-  _BYTE v7[8]; // [rsp+50h] [rbp-28h] BYREF
-  struct DXGADAPTER *v8; // [rsp+58h] [rbp-20h]
-  char v9; // [rsp+60h] [rbp-18h]
+  unsigned int v8; // ebx
+  _BYTE v10[8]; // [rsp+20h] [rbp-28h] BYREF
+  struct DXGADAPTER *v11; // [rsp+28h] [rbp-20h]
+  char v12; // [rsp+30h] [rbp-18h]
 
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 7107LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDxgAdapter != NULL", 7107LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v4 + 24) = 6117LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v8 = a1;
-  v9 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
+  v11 = a1;
+  v12 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
   if ( *((_DWORD *)a1 + 50) == 1
-    && (Global = DXGGLOBAL::GetGlobal(), DmmNeedDisplayModeResetDueToHdrPowerPolicy(a1, *((_BYTE *)Global + 304780))) )
+    && (Global = DXGGLOBAL::GetGlobal(v6, v5),
+        DmmNeedDisplayModeResetDueToHdrPowerPolicy(a1, *((_BYTE *)Global + 304564))) )
   {
     *a2 = 1;
-    v5 = -2147483622;
+    v8 = -2147483622;
   }
   else
   {
-    v5 = 0;
+    v8 = 0;
   }
-  if ( v9 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
-  return v5;
+  if ( v12 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
+  return v8;
 }

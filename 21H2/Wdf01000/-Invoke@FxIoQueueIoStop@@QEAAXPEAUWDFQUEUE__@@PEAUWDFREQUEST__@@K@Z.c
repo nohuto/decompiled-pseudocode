@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Invoke@FxIoQueueIoStop@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C000F1E0
+ * XREFs of ?Invoke@FxIoQueueIoStop@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C001589C
  * Callers:
- *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C0011924 (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
+ *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C00143AC (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxIoQueueIoStop::Invoke(

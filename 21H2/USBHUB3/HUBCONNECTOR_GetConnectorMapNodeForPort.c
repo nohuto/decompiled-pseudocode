@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C007D7A0
+ * XREFs of HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C007C1C4
  * Callers:
- *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020E40 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020A40 (HUBDSM_AddingDeviceToGlobalChildList.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall HUBCONNECTOR_GetConnectorMapNodeForPort(__int64 a1)
@@ -21,7 +21,7 @@ _QWORD *__fastcall HUBCONNECTOR_GetConnectorMapNodeForPort(__int64 a1)
     v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2504))(
       WdfDriverGlobals,
       *(_QWORD *)(v3 + 56),
@@ -29,7 +29,7 @@ _QWORD *__fastcall HUBCONNECTOR_GetConnectorMapNodeForPort(__int64 a1)
     v4 = (_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       WdfDriverGlobals->Driver,
-                      off_1C00671E8)
+                      off_1C00661C0)
                   + 40);
     for ( i = (_QWORD *)*v4; ; i = (_QWORD *)v6[10] )
     {
@@ -45,7 +45,7 @@ LABEL_7:
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2512))(
       WdfDriverGlobals,
       *(_QWORD *)(v7 + 56));

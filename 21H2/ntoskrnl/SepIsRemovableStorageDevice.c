@@ -1,7 +1,7 @@
 /*
- * XREFs of SepIsRemovableStorageDevice @ 0x1409CE5F8
+ * XREFs of SepIsRemovableStorageDevice @ 0x140924D1C
  * Callers:
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
  * Callees:
  *     <none>
  */

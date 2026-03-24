@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetFileHashPage @ 0x14015171C
+ * XREFs of MiGetFileHashPage @ 0x14015173C
  * Callers:
- *     MiMapPageFileHash @ 0x14014FCB8 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)

@@ -1,15 +1,15 @@
 /*
- * XREFs of AnFwpFadeAnimationTimer @ 0x140AEE0D0
+ * XREFs of AnFwpFadeAnimationTimer @ 0x1409F24C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     BgpGxDrawRectangle @ 0x14038444C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140384700 (BgpGetBitsPerPixel.c)
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     LogFwStat @ 0x140AEE81C (LogFwStat.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     BgpGxDrawRectangle @ 0x14039B798 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14039BB80 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     LogFwStat @ 0x1409F27D8 (LogFwStat.c)
  */
 
 void __fastcall AnFwpFadeAnimationTimer(
@@ -18,266 +18,252 @@ void __fastcall AnFwpFadeAnimationTimer(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  unsigned int v4; // edi
-  char v5; // r13
-  char v6; // r12
-  __int64 v7; // r14
-  __int64 v8; // r15
-  unsigned int v9; // esi
-  __int64 v10; // r9
-  _BYTE *v11; // r10
+  int v4; // r13d
+  __int64 v5; // rbx
+  __int64 v6; // rdi
+  char v7; // r12
+  char v8; // r15
+  char v9; // bp
+  unsigned int v10; // r14d
+  __int64 v11; // r9
   __int64 v12; // r11
-  int v13; // ebx
+  int v13; // esi
   __int64 v14; // r10
-  unsigned int v15; // eax
-  __int64 v16; // r11
-  __int64 k; // r9
-  int v18; // ecx
-  int v19; // ebp
-  unsigned int v20; // r8d
-  __int64 v21; // r9
-  __int64 m; // r10
-  int v23; // eax
-  int v24; // edx
-  unsigned int v25; // eax
-  unsigned int v26; // eax
+  __int64 v15; // r8
+  __int64 v16; // rdi
+  __int64 m; // rbx
+  int v18; // edx
+  unsigned int v19; // eax
+  unsigned int v20; // eax
+  unsigned int v21; // eax
+  int v22; // edi
+  __int64 v23; // r10
+  __int64 v24; // r8
+  __int64 n; // rbx
+  int v26; // edx
   unsigned int v27; // eax
-  int v28; // r14d
-  char v29; // di
-  int v30; // r8d
-  unsigned int v31; // ecx
-  unsigned int v32; // ecx
-  unsigned int v33; // ecx
-  __int64 v34; // rdx
-  __int64 v35; // r8
-  int v36; // eax
-  unsigned int v37; // eax
-  unsigned int v38; // eax
-  unsigned int v39; // eax
-  __int64 v40; // rdx
-  unsigned int v41; // ecx
-  __int64 v42; // r10
-  __int64 i; // r9
-  int v44; // eax
-  unsigned int v45; // eax
-  __int64 v46; // r8
-  unsigned int v47; // ecx
-  __int64 j; // r9
-  int v49; // eax
-  unsigned int v50; // eax
-  __int64 v51; // rdx
-  __int64 v52; // r8
-  int v53; // eax
-  unsigned int v54; // eax
-  char v55; // [rsp+20h] [rbp-58h]
-  int v56; // [rsp+24h] [rbp-54h]
-  __int64 v57; // [rsp+28h] [rbp-50h]
-  _BYTE *v58; // [rsp+30h] [rbp-48h]
-  __int64 v59; // [rsp+38h] [rbp-40h] BYREF
-  _BYTE *v60; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int v28; // eax
+  unsigned int v29; // eax
+  int v30; // ebx
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rbx
+  __int64 i; // r10
+  int v35; // eax
+  unsigned int v36; // eax
+  __int64 v37; // r8
+  __int64 v38; // rcx
+  __int64 j; // r10
+  int v40; // eax
+  unsigned int v41; // eax
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  __int64 k; // r9
+  int v45; // eax
+  unsigned int v46; // eax
+  __int64 v47; // r8
+  __int64 v48; // r9
+  __int64 ii; // r10
+  int v50; // edx
+  unsigned int v51; // eax
+  unsigned int v52; // eax
+  unsigned int v53; // eax
+  _BYTE *v54; // [rsp+20h] [rbp-48h]
+  __int64 v55; // [rsp+28h] [rbp-40h]
+  __int64 v56; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE *v57; // [rsp+38h] [rbp-30h] BYREF
 
-  v4 = 0;
-  v59 = 0LL;
+  v56 = 0LL;
   BgpFwAcquireLock();
-  if ( byte_140CF7BA9 )
+  if ( byte_140CDB170 )
   {
     LogFwStat(1LL, 6LL, 0LL);
     LogFwStat(1LL, 4LL, 0LL);
-    v5 = byte_140C0B511;
-    v6 = byte_140C0B512;
-    v7 = qword_140C0B518;
-    v8 = qword_140C0B588;
-    v59 = qword_140C0B508;
-    v55 = byte_140C0B510;
-    v56 = dword_140C0B504;
-    v58 = (_BYTE *)qword_140C0B548;
-    v60 = (_BYTE *)qword_140C0B558;
-    v57 = qword_140C0B590;
-    v9 = 10 * (dword_140C0B500 - dword_140C0B500 / (unsigned int)(dword_140C0E4B4 - dword_140C0B504));
+    v4 = dword_140C10E74;
+    v5 = qword_140C10EB0;
+    v6 = qword_140C10EC0;
+    v7 = byte_140C10E80;
+    v8 = byte_140C10E81;
+    v9 = byte_140C10E82;
+    v56 = qword_140C10E78;
+    v55 = qword_140C10EF0;
+    v54 = (_BYTE *)qword_140C10EB0;
+    v57 = (_BYTE *)qword_140C10EC0;
+    v10 = 10 * (dword_140C10E70 - dword_140C10E70 / (unsigned int)(dword_140C134F4 - dword_140C10E74));
     v13 = 0;
     if ( (unsigned int)BgpGetBitsPerPixel() == 24 )
     {
-      if ( !v6 )
+      if ( !v9 )
       {
-        v40 = qword_140C0B550;
-        v41 = 0;
-        v42 = *(_QWORD *)(v12 + 24);
-        for ( i = *(_QWORD *)(qword_140C0B550 + 24); v41 < *(_DWORD *)(v40 + 12); ++v41 )
+        v31 = qword_140C10EB8;
+        v32 = 0LL;
+        v33 = *(_QWORD *)(v6 + 24);
+        for ( i = *(_QWORD *)(qword_140C10EB8 + 24);
+              (unsigned int)v32 < *(_DWORD *)(v31 + 12);
+              v32 = (unsigned int)(v32 + 1) )
         {
-          v44 = *(unsigned __int8 *)(v41 + i);
-          if ( (_BYTE)v44 )
+          v35 = *(unsigned __int8 *)(v32 + i);
+          if ( (_BYTE)v35 )
           {
-            v45 = (v9 * v44) >> 10;
-            *(_BYTE *)(v41 + v42) = v45;
-            if ( v45 )
+            v36 = (v10 * v35) >> 10;
+            *(_BYTE *)(v32 + v33) = v36;
+            if ( v36 )
               ++v13;
           }
         }
-        v10 = v57;
-        v11 = v58;
+        v5 = (__int64)v54;
       }
-      v19 = 0;
-      if ( !v55 )
+      v22 = 0;
+      if ( !v7 )
       {
-        v46 = *(_QWORD *)(v7 + 24);
-        v47 = 0;
-        for ( j = *((_QWORD *)v11 + 3); v47 < *(_DWORD *)(v7 + 12); ++v47 )
+        v37 = *(_QWORD *)(v11 + 24);
+        v38 = 0LL;
+        for ( j = *(_QWORD *)(v5 + 24); (unsigned int)v38 < *(_DWORD *)(v11 + 12); v38 = (unsigned int)(v38 + 1) )
         {
-          v49 = *(unsigned __int8 *)(v47 + v46);
-          if ( (_BYTE)v49 )
+          v40 = *(unsigned __int8 *)(v38 + v37);
+          if ( (_BYTE)v40 )
           {
-            v50 = (v9 * v49) >> 10;
-            *(_BYTE *)(v47 + j) = v50;
-            if ( v50 )
-              ++v19;
+            v41 = (v10 * v40) >> 10;
+            *(_BYTE *)(v38 + j) = v41;
+            if ( v41 )
+              ++v22;
           }
         }
-        v10 = v57;
       }
-      v28 = 0;
-      if ( !v5 )
+      v30 = 0;
+      if ( !v8 )
       {
-        v51 = *(_QWORD *)(v8 + 24);
-        v52 = *(_QWORD *)(v10 + 24);
-        if ( *(_DWORD *)(v8 + 12) )
+        v42 = 0LL;
+        v43 = *(_QWORD *)(v12 + 24);
+        for ( k = *(_QWORD *)(v55 + 24); (unsigned int)v42 < *(_DWORD *)(v12 + 12); v42 = (unsigned int)(v42 + 1) )
         {
-          do
+          v45 = *(unsigned __int8 *)(v42 + v43);
+          if ( (_BYTE)v45 )
           {
-            v53 = *(unsigned __int8 *)(v4 + v51);
-            if ( (_BYTE)v53 )
-            {
-              v54 = (v9 * v53) >> 10;
-              *(_BYTE *)(v4 + v52) = v54;
-              if ( v54 )
-                ++v28;
-            }
-            ++v4;
+            v46 = (v10 * v45) >> 10;
+            *(_BYTE *)(v42 + k) = v46;
+            if ( v46 )
+              ++v30;
           }
-          while ( v4 < *(_DWORD *)(v8 + 12) );
         }
       }
     }
     else
     {
-      if ( !v6 )
+      if ( !v9 )
       {
-        v14 = qword_140C0B550;
-        v15 = 0;
-        v16 = *(_QWORD *)(v12 + 24);
-        for ( k = *(_QWORD *)(qword_140C0B550 + 24); v15 < *(_DWORD *)(v14 + 12); v15 += 4 )
+        v14 = qword_140C10EB8;
+        v15 = 0LL;
+        v16 = *(_QWORD *)(v6 + 24);
+        for ( m = *(_QWORD *)(qword_140C10EB8 + 24);
+              (unsigned int)v15 < *(_DWORD *)(v14 + 12);
+              v15 = (unsigned int)(v15 + 4) )
         {
-          v18 = *(_DWORD *)(v15 + k);
-          if ( v18 )
+          if ( *(_DWORD *)(v15 + m) )
           {
-            v30 = v13 + 1;
-            v31 = (v9 * (unsigned __int8)v18) >> 10;
-            *(_BYTE *)(v15 + v16) = v31;
-            if ( !v31 )
-              v30 = v13;
-            v13 = v30 + 1;
-            v32 = (v9 * *(unsigned __int8 *)(v15 + 1 + k)) >> 10;
-            *(_BYTE *)(v15 + 1 + v16) = v32;
-            if ( !v32 )
-              v13 = v30;
-            v33 = (v9 * *(unsigned __int8 *)(v15 + 2 + k)) >> 10;
-            *(_BYTE *)(v15 + 2 + v16) = v33;
-            if ( v33 )
+            v18 = v13 + 1;
+            v19 = (v10 * *(unsigned __int8 *)(v15 + m)) >> 10;
+            *(_BYTE *)(v15 + v16) = v19;
+            if ( !v19 )
+              v18 = v13;
+            v13 = v18 + 1;
+            v20 = (v10 * *(unsigned __int8 *)((unsigned int)(v15 + 1) + m)) >> 10;
+            *(_BYTE *)((unsigned int)(v15 + 1) + v16) = v20;
+            if ( !v20 )
+              v13 = v18;
+            v21 = (v10 * *(unsigned __int8 *)((unsigned int)(v15 + 2) + m)) >> 10;
+            *(_BYTE *)((unsigned int)(v15 + 2) + v16) = v21;
+            if ( v21 )
               ++v13;
           }
         }
-        v11 = v58;
+        v5 = (__int64)v54;
       }
-      v19 = 0;
-      if ( !v55 )
+      v22 = 0;
+      if ( !v7 )
       {
-        v20 = 0;
-        v21 = *(_QWORD *)(v7 + 24);
-        for ( m = *((_QWORD *)v11 + 3); v20 < *(_DWORD *)(v7 + 12); v20 += 4 )
+        v23 = *(_QWORD *)(v11 + 24);
+        v24 = 0LL;
+        for ( n = *(_QWORD *)(v5 + 24); (unsigned int)v24 < *(_DWORD *)(v11 + 12); v24 = (unsigned int)(v24 + 4) )
         {
-          v23 = *(_DWORD *)(v20 + v21);
-          if ( v23 )
+          if ( *(_DWORD *)(v24 + v23) )
           {
-            v24 = v19 + 1;
-            v25 = (v9 * (unsigned __int8)v23) >> 10;
-            *(_BYTE *)(v20 + m) = v25;
-            if ( !v25 )
-              v24 = v19;
-            v19 = v24 + 1;
-            v26 = (v9 * *(unsigned __int8 *)(v20 + 1 + v21)) >> 10;
-            *(_BYTE *)(v20 + 1 + m) = v26;
-            if ( !v26 )
-              v19 = v24;
-            v27 = (v9 * *(unsigned __int8 *)(v20 + 2 + v21)) >> 10;
-            *(_BYTE *)(v20 + 2 + m) = v27;
-            if ( v27 )
-              ++v19;
+            v26 = v22 + 1;
+            v27 = (v10 * *(unsigned __int8 *)(v24 + v23)) >> 10;
+            *(_BYTE *)(v24 + n) = v27;
+            if ( !v27 )
+              v26 = v22;
+            v22 = v26 + 1;
+            v28 = (v10 * *(unsigned __int8 *)((unsigned int)(v24 + 1) + v23)) >> 10;
+            *(_BYTE *)((unsigned int)(v24 + 1) + n) = v28;
+            if ( !v28 )
+              v22 = v26;
+            v29 = (v10 * *(unsigned __int8 *)((unsigned int)(v24 + 2) + v23)) >> 10;
+            *(_BYTE *)((unsigned int)(v24 + 2) + n) = v29;
+            if ( v29 )
+              ++v22;
           }
         }
       }
-      v28 = 0;
-      if ( !v5 )
+      v30 = 0;
+      if ( !v8 )
       {
-        v34 = *(_QWORD *)(v8 + 24);
-        v35 = *(_QWORD *)(v57 + 24);
-        if ( *(_DWORD *)(v8 + 12) )
+        v47 = 0LL;
+        v48 = *(_QWORD *)(v12 + 24);
+        for ( ii = *(_QWORD *)(v55 + 24); (unsigned int)v47 < *(_DWORD *)(v12 + 12); v47 = (unsigned int)(v47 + 4) )
         {
-          do
+          if ( *(_DWORD *)(v47 + v48) )
           {
-            v36 = *(_DWORD *)(v4 + v34);
-            if ( v36 )
-            {
-              v37 = (v9 * (unsigned __int8)v36) >> 10;
-              *(_BYTE *)(v4 + v35) = v37;
-              if ( v37 )
-                ++v28;
-              v38 = (v9 * *(unsigned __int8 *)(v4 + 1 + v34)) >> 10;
-              *(_BYTE *)(v4 + 1 + v35) = v38;
-              if ( v38 )
-                ++v28;
-              v39 = (v9 * *(unsigned __int8 *)(v4 + 2 + v34)) >> 10;
-              *(_BYTE *)(v4 + 2 + v35) = v39;
-              if ( v39 )
-                ++v28;
-            }
-            v4 += 4;
+            v50 = v30 + 1;
+            v51 = (v10 * *(unsigned __int8 *)(v47 + v48)) >> 10;
+            *(_BYTE *)(v47 + ii) = v51;
+            if ( !v51 )
+              v50 = v30;
+            v30 = v50 + 1;
+            v52 = (v10 * *(unsigned __int8 *)((unsigned int)(v47 + 1) + v48)) >> 10;
+            *(_BYTE *)((unsigned int)(v47 + 1) + ii) = v52;
+            if ( !v52 )
+              v30 = v50;
+            v53 = (v10 * *(unsigned __int8 *)((unsigned int)(v47 + 2) + v48)) >> 10;
+            *(_BYTE *)((unsigned int)(v47 + 2) + ii) = v53;
+            if ( v53 )
+              ++v30;
           }
-          while ( v4 < *(_DWORD *)(v8 + 12) );
         }
       }
     }
     LogFwStat(0LL, 4LL, 0LL);
     LogFwStat(1LL, 3LL, 0LL);
-    if ( !v6 )
+    if ( !v9 )
     {
-      BgpGxDrawRectangle(v60, (__int64)&v59);
-      v6 = v13 == 0;
+      BgpGxDrawRectangle(v57, (__int64)&v56);
+      v9 = v13 == 0;
     }
-    v29 = v55;
-    if ( !v55 )
+    if ( !v7 )
     {
-      if ( !v56 && !v19 || (BgpGxDrawRectangle(v58, (__int64)&xmmword_140C0B520), !v19) )
-        v29 = 1;
+      if ( !v4 && !v22 || (BgpGxDrawRectangle(v54, (__int64)&xmmword_140C10E90), !v22) )
+        v7 = 1;
     }
-    if ( !v5 )
+    if ( !v8 )
     {
-      if ( !v56 && !v28 || (BgpGxDrawRectangle((_BYTE *)v57, (__int64)&xmmword_140C0B560), !v28) )
-        v5 = 1;
+      if ( !v4 && !v30 || (BgpGxDrawRectangle((_BYTE *)v55, (__int64)&xmmword_140C10EC8), !v30) )
+        v8 = 1;
     }
     LogFwStat(0LL, 3LL, 0LL);
-    LogFwStat(0LL, 6LL, &v60);
-    if ( v13 || v28 || v19 )
+    LogFwStat(0LL, 6LL, &v57);
+    if ( v13 || v30 || v22 )
     {
-      byte_140C0B510 = v29;
-      byte_140C0B511 = v5;
-      dword_140C0B500 = v9 / 0xA;
-      dword_140C0B504 = v56 + 1;
-      byte_140C0B512 = v6;
+      byte_140C10E80 = v7;
+      byte_140C10E81 = v8;
+      dword_140C10E70 = v10 / 0xA;
+      dword_140C10E74 = v4 + 1;
+      byte_140C10E82 = v9;
     }
     else
     {
-      byte_140CF7BA9 = 0;
-      KeCancelTimer(&stru_140D16A80);
-      KeSetEvent(&stru_140D16AC0, 0, 0);
+      byte_140CDB170 = 0;
+      KeCancelTimer(&stru_140CF32C0);
+      KeSetEvent(&stru_140CF3300, 0, 0);
     }
   }
   BgpFwReleaseLock();

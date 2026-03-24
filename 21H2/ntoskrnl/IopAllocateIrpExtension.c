@@ -1,43 +1,47 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x14020C420
+ * XREFs of IopAllocateIrpExtension @ 0x1402EE1B0
  * Callers:
- *     IoSetActivityIdIrp @ 0x14020C120 (IoSetActivityIdIrp.c)
- *     IopSetDiskIoAttributionExtension @ 0x14020C178 (IopSetDiskIoAttributionExtension.c)
- *     IopSetDriverFlagsExtension @ 0x14020C21C (IopSetDriverFlagsExtension.c)
- *     IoPropagateIrpExtensionEx @ 0x14020C270 (IoPropagateIrpExtensionEx.c)
- *     IoSetGenericIrpExtension @ 0x140387790 (IoSetGenericIrpExtension.c)
- *     IopSetCopyInformationExtension @ 0x140417D50 (IopSetCopyInformationExtension.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140559250 (IoClearAdapterCryptoEngineExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140559350 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x1405593B0 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140559460 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x14055969C (IopPerfCallDriver.c)
- *     ViGetContextPointer @ 0x140A8362C (ViGetContextPointer.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402EDF0C (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x1402EDF88 (IopSetDriverFlagsExtension.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402EE000 (IoPropagateIrpExtensionEx.c)
+ *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
+ *     IoSetGenericIrpExtension @ 0x14037A120 (IoSetGenericIrpExtension.c)
+ *     IopSetCopyInformationExtension @ 0x1403F15CC (IopSetCopyInformationExtension.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140507AF0 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140507BF0 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x140507C50 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507CF0 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
+ *     ViGetContextPointer @ 0x1409C84D4 (ViGetContextPointer.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_WORD *__fastcall IopAllocateIrpExtension(__int64 a1, int a2, __int64 a3, __int64 a4)
+_WORD *__fastcall IopAllocateIrpExtension(__int64 a1, int a2)
 {
-  _WORD *Pool2; // r8
-  char v5; // di
-  __int64 v8; // rax
+  _WORD *v2; // rbx
+  char v3; // si
+  _WORD *PoolWithTag; // rax
+  _WORD *v7; // rax
 
-  Pool2 = *(_WORD **)(a1 + 200);
-  v5 = a2;
-  if ( !Pool2 )
+  v2 = *(_WORD **)(a1 + 200);
+  v3 = a2;
+  if ( !v2 )
   {
     if ( a2 != 2 )
     {
-      Pool2 = (_WORD *)ExAllocatePool2(64LL, 80LL, 1483764297LL, a4);
-      if ( !Pool2 )
-        return Pool2;
-      Pool2[1] = 1 << v5;
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x58707249u);
+      v2 = PoolWithTag;
+      if ( !PoolWithTag )
+        return v2;
+      memset(PoolWithTag, 0, 0x50uLL);
+      v2[1] = 1 << v3;
       *(_BYTE *)(a1 + 71) |= 0x40u;
 LABEL_10:
-      *(_QWORD *)(a1 + 200) = Pool2;
-      *Pool2 |= 1u;
-      return Pool2;
+      *(_QWORD *)(a1 + 200) = v2;
+      *v2 |= 1u;
+      return v2;
     }
     *(_BYTE *)(a1 + 71) |= 0x80u;
     return (_WORD *)(a1 + 196);
@@ -46,17 +50,18 @@ LABEL_10:
   {
     if ( a2 != 2 )
     {
-      v8 = ExAllocatePool2(64LL, 80LL, 1483764297LL, a4);
-      Pool2 = (_WORD *)v8;
-      if ( !v8 )
-        return Pool2;
-      *(_WORD *)(v8 + 2) = (1 << (v5 & 0xF)) | 4;
-      *(_DWORD *)(v8 + 4) = *(_DWORD *)(a1 + 200);
+      v7 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x58707249u);
+      v2 = v7;
+      if ( !v7 )
+        return v2;
+      memset(v7, 0, 0x50uLL);
+      v2[1] = (1 << (v3 & 0xF)) | 4;
+      *((_DWORD *)v2 + 1) = *(_DWORD *)(a1 + 200);
       *(_BYTE *)(a1 + 71) = *(_BYTE *)(a1 + 71) & 0x3F | 0x40;
       goto LABEL_10;
     }
     return (_WORD *)(a1 + 196);
   }
-  Pool2[1] |= 1 << a2;
-  return Pool2;
+  v2[1] |= 1 << a2;
+  return v2;
 }

@@ -1,140 +1,145 @@
 /*
- * XREFs of IopGetBootDiskInformationLite @ 0x140B0BC60
+ * XREFs of IopGetBootDiskInformationLite @ 0x140A45940
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x14082D040 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x14079CFB0 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     IopCheckDiskName @ 0x1403C4550 (IopCheckDiskName.c)
- *     IopAddBootDiskInformation @ 0x1403C485C (IopAddBootDiskInformation.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VhdiGetDiskParameters @ 0x140B54490 (VhdiGetDiskParameters.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     IopCheckDiskName @ 0x1403B4128 (IopCheckDiskName.c)
+ *     IopAddBootDiskInformation @ 0x1403B4554 (IopAddBootDiskInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VhdiGetDiskParameters @ 0x140A94628 (VhdiGetDiskParameters.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
 {
-  int DiskParameters; // esi
+  int DiskParameters; // r14d
   int v3; // edx
   _QWORD *v4; // r9
   _QWORD *v5; // r8
-  unsigned int *Pool2; // r15
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rbx
-  unsigned int v9; // r14d
-  __int16 *v10; // rdi
-  int *v11; // r12
-  bool v12; // zf
-  int v13; // eax
-  __int64 v14; // rcx
-  int v16; // ecx
-  __int128 v17; // xmm0
-  _BYTE v18[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int16 v19; // [rsp+34h] [rbp-CCh] BYREF
-  char v20; // [rsp+36h] [rbp-CAh]
-  ULONG v21; // [rsp+38h] [rbp-C8h] BYREF
-  _BYTE v22[24]; // [rsp+40h] [rbp-C0h] BYREF
-  int v23; // [rsp+58h] [rbp-A8h]
-  _OWORD *v24; // [rsp+60h] [rbp-A0h] BYREF
-  STRING v25; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v26[8]; // [rsp+78h] [rbp-88h] BYREF
-  _QWORD v27[18]; // [rsp+80h] [rbp-80h] BYREF
-  _DWORD v28[4]; // [rsp+110h] [rbp+10h] BYREF
+  SIZE_T v6; // rbx
+  unsigned int *Pool; // rax
+  unsigned int *v8; // rdi
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rbx
+  unsigned int v11; // r15d
+  __int16 *v12; // rsi
+  int *v13; // r12
+  bool v14; // zf
+  int v15; // eax
+  __int64 v16; // rcx
+  int v18; // ecx
+  __int128 v19; // xmm0
+  _BYTE v20[4]; // [rsp+30h] [rbp-D0h] BYREF
+  __int16 v21; // [rsp+34h] [rbp-CCh] BYREF
+  char v22; // [rsp+36h] [rbp-CAh]
+  ULONG v23; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v24[24]; // [rsp+40h] [rbp-C0h] BYREF
+  int v25; // [rsp+58h] [rbp-A8h]
+  _OWORD *v26; // [rsp+60h] [rbp-A0h] BYREF
+  STRING v27; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v28[8]; // [rsp+78h] [rbp-88h] BYREF
+  _DWORD v29[36]; // [rsp+80h] [rbp-80h] BYREF
+  _DWORD v30[4]; // [rsp+110h] [rbp+10h] BYREF
   STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
-  STRING v30; // [rsp+130h] [rbp+30h] BYREF
-  STRING v31; // [rsp+140h] [rbp+40h] BYREF
+  STRING v32; // [rsp+130h] [rbp+30h] BYREF
+  STRING v33; // [rsp+140h] [rbp+40h] BYREF
 
-  v28[0] = 536871168;
-  v19 = 0;
-  v20 = 0;
-  v23 = 0;
-  v28[1] = 538968064;
-  memset(v22, 0, sizeof(v22));
-  v28[2] = 0x20000000;
-  v25 = 0LL;
-  memset(v27, 0, 0x8CuLL);
+  v30[0] = 536871168;
   v21 = 0;
+  v22 = 0;
+  v25 = 0;
+  v30[1] = 538968064;
+  memset(v24, 0, sizeof(v24));
+  v30[2] = 0x20000000;
+  v27 = 0LL;
+  memset(v29, 0, sizeof(v29));
+  v23 = 0;
   DiskParameters = 0;
-  v24 = 0LL;
-  v18[0] = 0;
+  v26 = 0LL;
+  v20[0] = 0;
   RtlInitAnsiString(&DestinationString, *(PCSZ *)(KeLoaderBlock_0 + 184));
-  RtlInitAnsiString(&v30, *(PCSZ *)(KeLoaderBlock_0 + 192));
-  RtlInitAnsiString(&v31, *(PCSZ *)(KeLoaderBlock_0 + 336));
+  RtlInitAnsiString(&v32, *(PCSZ *)(KeLoaderBlock_0 + 192));
+  RtlInitAnsiString(&v33, *(PCSZ *)(KeLoaderBlock_0 + 336));
   v3 = 3;
   v4 = *(_QWORD **)(KeLoaderBlock_0 + 232);
   v5 = (_QWORD *)*v4;
   while ( v5 != v4 )
   {
-    v12 = v5[7] == 0LL;
-    v16 = v3 + 1;
+    v14 = v5[7] == 0LL;
+    v18 = v3 + 1;
     v5 = (_QWORD *)*v5;
-    if ( v12 )
-      v16 = v3;
-    v3 = v16;
+    if ( v14 )
+      v18 = v3;
+    v3 = v18;
   }
-  Pool2 = (unsigned int *)ExAllocatePool2(64LL, (unsigned int)(28 * v3 + 4), 0x20206F49u);
-  if ( Pool2 )
+  v6 = (unsigned int)(28 * v3 + 4);
+  Pool = (unsigned int *)IopVerifierExAllocatePool(NonPagedPoolNx, v6);
+  v8 = Pool;
+  if ( Pool )
   {
-    v7 = *(_QWORD **)(KeLoaderBlock_0 + 232);
-    v8 = (_QWORD *)*v7;
-    if ( (_QWORD *)*v7 != v7 )
+    memset(Pool, 0, (unsigned int)v6);
+    v9 = *(_QWORD **)(KeLoaderBlock_0 + 232);
+    v10 = (_QWORD *)*v9;
+    if ( (_QWORD *)*v9 != v9 )
     {
       do
       {
-        RtlInitAnsiString(&v25, (PCSZ)v8[3]);
-        v9 = 0;
-        v10 = &v19;
-        v11 = v28;
+        RtlInitAnsiString(&v27, (PCSZ)v10[3]);
+        v11 = 0;
+        v12 = &v21;
+        v13 = v30;
         do
         {
-          if ( !*(_BYTE *)v10 && IopCheckDiskName(&v25, &DestinationString + v9, &v21) )
+          if ( !*(_BYTE *)v12 && IopCheckDiskName(&v27, &DestinationString + v11, &v23) )
           {
-            v12 = *((_BYTE *)v8 + 38) == 0;
-            *(_DWORD *)&v22[4] = v21;
-            v23 = *v11;
-            *(_BYTE *)v10 = 1;
-            if ( v12 )
+            v14 = *((_BYTE *)v10 + 38) == 0;
+            *(_DWORD *)&v24[4] = v23;
+            v25 = *v13;
+            *(_BYTE *)v12 = 1;
+            if ( v14 )
             {
-              v13 = *((_DWORD *)v8 + 4);
-              *(_DWORD *)v22 = 0;
-              *(_OWORD *)&v22[8] = 0LL;
-              *(_DWORD *)&v22[8] = v13;
+              v15 = *((_DWORD *)v10 + 4);
+              *(_DWORD *)v24 = 0;
+              *(_OWORD *)&v24[8] = 0LL;
+              *(_DWORD *)&v24[8] = v15;
             }
             else
             {
-              v17 = *(_OWORD *)(v8 + 5);
-              *(_DWORD *)v22 = 1;
-              *(_OWORD *)&v22[8] = v17;
+              v19 = *(_OWORD *)(v10 + 5);
+              *(_DWORD *)v24 = 1;
+              *(_OWORD *)&v24[8] = v19;
             }
-            IopAddBootDiskInformation(Pool2, (__int64)v22);
+            IopAddBootDiskInformation(v8, (__int64)v24);
           }
-          ++v9;
-          v10 = (__int16 *)((char *)v10 + 1);
           ++v11;
+          v12 = (__int16 *)((char *)v12 + 1);
+          ++v13;
         }
-        while ( v9 < 3 );
-        v14 = v8[7];
-        if ( v14 )
+        while ( v11 < 3 );
+        v16 = v10[7];
+        if ( v16 )
         {
-          DiskParameters = VhdiGetDiskParameters(v14, v27, &v24, v18, v26);
+          DiskParameters = VhdiGetDiskParameters(v16, v29, &v26, v20, v28);
           if ( DiskParameters >= 0 )
           {
-            if ( !v18[0] )
+            if ( !v20[0] )
             {
-              *(_DWORD *)v22 = v27[0];
-              *(_DWORD *)&v22[4] = v27[3];
-              v23 = 0x400000;
-              if ( LODWORD(v27[0]) )
+              *(_DWORD *)v24 = v29[0];
+              *(_DWORD *)&v24[4] = v29[6];
+              v25 = 0x400000;
+              if ( v29[0] )
               {
-                if ( LODWORD(v27[0]) == 1 )
-                  *(_OWORD *)&v22[8] = *v24;
+                if ( v29[0] == 1 )
+                  *(_OWORD *)&v24[8] = *v26;
               }
               else
               {
-                *(_OWORD *)&v22[8] = 0LL;
-                *(_DWORD *)&v22[8] = *(_DWORD *)v24;
+                *(_OWORD *)&v24[8] = 0LL;
+                *(_DWORD *)&v24[8] = *(_DWORD *)v26;
               }
-              IopAddBootDiskInformation(Pool2, (__int64)v22);
+              IopAddBootDiskInformation(v8, (__int64)v24);
             }
           }
           else
@@ -142,11 +147,11 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
             DiskParameters = 0;
           }
         }
-        v8 = (_QWORD *)*v8;
+        v10 = (_QWORD *)*v10;
       }
-      while ( v8 != *(_QWORD **)(KeLoaderBlock_0 + 232) );
+      while ( v10 != *(_QWORD **)(KeLoaderBlock_0 + 232) );
     }
-    *a1 = Pool2;
+    *a1 = v8;
   }
   else
   {

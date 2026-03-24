@@ -1,12 +1,13 @@
 /*
- * XREFs of KiXSavesManagesIpt @ 0x14057036C
+ * XREFs of KiXSavesManagesIpt @ 0x14051A604
  * Callers:
- *     KiQueryIptSupport @ 0x140A69780 (KiQueryIptSupport.c)
+ *     KiGetSavedIptState @ 0x14051A1D0 (KiGetSavedIptState.c)
+ *     KiQueryIptSupport @ 0x1409AF6A0 (KiQueryIptSupport.c)
  * Callees:
  *     <none>
  */
 
 bool KiXSavesManagesIpt()
 {
-  return (_bittest64(&KeEnabledSupervisorXStateFeatures, 8u) & _bittest64(&KeFeatureBits, 0x17u)) != 0;
+  return (KeFeatureBits & 0x800000) != 0 && (MEMORY[0xFFFFF780000005F0] & 0x100) != 0;
 }

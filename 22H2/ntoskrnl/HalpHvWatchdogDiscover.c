@@ -1,37 +1,37 @@
 /*
- * XREFs of HalpHvWatchdogDiscover @ 0x1403A3C70
+ * XREFs of HalpHvWatchdogDiscover @ 0x1403B3510
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall HalpHvWatchdogDiscover(__int64 a1, __int64 a2)
+__int64 __fastcall HalpHvWatchdogDiscover(__int64 a1)
 {
-  _QWORD v8[18]; // [rsp+20h] [rbp-59h] BYREF
-  __int128 v9; // [rsp+B0h] [rbp+37h]
+  _QWORD v7[18]; // [rsp+20h] [rbp-59h] BYREF
+  __int128 v8; // [rsp+B0h] [rbp+37h]
 
-  if ( !HalpTimerWatchdogPhysicalOnly && HalpIsMicrosoftCompatibleHvLoaded(a1, a2) && (HalpEnlightenment & 0x20) == 0 )
+  if ( !HalpTimerWatchdogPhysicalOnly && HalpIsMicrosoftCompatibleHvLoaded(a1) && (HalpEnlightenment & 0x20) == 0 )
   {
     _RAX = 1073741827LL;
     __asm { cpuid }
-    v9 = __PAIR64__(_RBX, _RAX);
-    if ( (_RDX & 0x400000) != 0 && (v9 & 0x100000000008LL) == 0x100000000008LL )
+    v8 = __PAIR64__(_RBX, _RAX);
+    if ( (_RDX & 0x400000) != 0 && (v8 & 0x100000000008LL) == 0x100000000008LL )
     {
-      memset(v8, 0, sizeof(v8));
-      v8[11] = 0LL;
-      v8[12] = 0x4000000000LL;
-      v8[1] = HalpHvWatchdogInitialize;
-      v8[0] = 0x9000000001LL;
-      v8[4] = HalpHvWatchdogArm;
-      v8[5] = HalpHvWatchdogStop;
-      v8[13] = 10000000LL;
-      LODWORD(v8[17]) = 7;
-      HIDWORD(v8[14]) = 163872;
-      HalpTimerRegister((__int64)v8, 0LL);
+      memset(v7, 0, sizeof(v7));
+      v7[11] = 0LL;
+      v7[12] = 0x4000000000LL;
+      v7[1] = HalpHvWatchdogInitialize;
+      v7[0] = 0x9000000001LL;
+      v7[4] = HalpHvWatchdogArm;
+      v7[5] = HalpHvWatchdogStop;
+      v7[13] = 10000000LL;
+      LODWORD(v7[17]) = 8;
+      HIDWORD(v7[14]) = 163872;
+      HalpTimerRegister((__int64)v7, 0LL);
     }
   }
   return 0LL;

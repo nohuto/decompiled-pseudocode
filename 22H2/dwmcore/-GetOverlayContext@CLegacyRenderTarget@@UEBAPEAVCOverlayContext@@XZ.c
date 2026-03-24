@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOverlayContext@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x180105D90
+ * XREFs of ?GetOverlayContext@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x1800E1F80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct COverlayContext *__fastcall CLegacyRenderTarget::GetOverlayContext(CLegacyRenderTarget *this)
 {
-  return (CLegacyRenderTarget *)((char *)this + 56);
+  return (CLegacyRenderTarget *)((char *)this + 336);
 }

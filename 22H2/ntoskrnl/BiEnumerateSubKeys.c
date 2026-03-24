@@ -1,19 +1,19 @@
 /*
- * XREFs of BiEnumerateSubKeys @ 0x140806090
+ * XREFs of BiEnumerateSubKeys @ 0x140783428
  * Callers:
- *     BiOpenSystemStore @ 0x140805A48 (BiOpenSystemStore.c)
- *     BiDeleteKey @ 0x140805E5C (BiDeleteKey.c)
- *     BiBuildIdentifierList @ 0x140806BE8 (BiBuildIdentifierList.c)
- *     BiCleanupLoadedStores @ 0x14080A164 (BiCleanupLoadedStores.c)
- *     BcdEnumerateObjects @ 0x140A5C4A0 (BcdEnumerateObjects.c)
+ *     BiDeleteKey @ 0x140779860 (BiDeleteKey.c)
+ *     BiCleanupLoadedStores @ 0x140781FA8 (BiCleanupLoadedStores.c)
+ *     BiOpenSystemStore @ 0x14078371C (BiOpenSystemStore.c)
+ *     BcdEnumerateObjects @ 0x14096ED5C (BcdEnumerateObjects.c)
+ *     BiBuildIdentifierList @ 0x140970978 (BiBuildIdentifierList.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14036937C (BiSanitizeHandle.c)
- *     BiZwEnumerateKey @ 0x1403743E0 (BiZwEnumerateKey.c)
- *     BiZwQueryKey @ 0x140374498 (BiZwQueryKey.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     BiSanitizeHandle @ 0x14032C5AC (BiSanitizeHandle.c)
+ *     BiZwEnumerateKey @ 0x14039AE28 (BiZwEnumerateKey.c)
+ *     BiZwQueryKey @ 0x14039AEC8 (BiZwQueryKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
@@ -25,41 +25,43 @@ __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
   void *v8; // r12
   NTSTATUS v9; // ebx
   unsigned int v10; // r14d
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rsi
-  unsigned int v13; // r8d
-  unsigned int v14; // ecx
+  __int64 v11; // rsi
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rax
+  unsigned int v14; // edx
   unsigned int v15; // eax
-  __int64 Pool2; // rax
-  char *v17; // r12
-  __int64 v18; // r8
+  unsigned int v16; // ecx
+  char *PoolWithTag; // rax
+  char *v18; // r12
+  __int64 v19; // r8
   ULONG i; // esi
-  NTSTATUS v20; // eax
-  char *v21; // r12
-  unsigned int v23; // [rsp+34h] [rbp-B4h]
-  void *v24; // [rsp+38h] [rbp-B0h]
-  _QWORD *v25; // [rsp+40h] [rbp-A8h]
-  ULONG v26; // [rsp+48h] [rbp-A0h] BYREF
-  ULONG v27; // [rsp+4Ch] [rbp-9Ch]
-  _QWORD *v28; // [rsp+50h] [rbp-98h]
-  ULONG *v29; // [rsp+58h] [rbp-90h]
-  _QWORD *v30; // [rsp+60h] [rbp-88h]
-  ULONG *v31; // [rsp+68h] [rbp-80h]
-  int v32[4]; // [rsp+70h] [rbp-78h] BYREF
-  __int128 v33; // [rsp+80h] [rbp-68h]
-  __int128 v34; // [rsp+90h] [rbp-58h]
+  NTSTATUS v21; // eax
+  char *v22; // r12
+  unsigned int v24; // [rsp+34h] [rbp-B4h]
+  void *v25; // [rsp+40h] [rbp-A8h]
+  _QWORD *v26; // [rsp+48h] [rbp-A0h]
+  ULONG v27; // [rsp+50h] [rbp-98h] BYREF
+  ULONG v28; // [rsp+54h] [rbp-94h]
+  _QWORD *v29; // [rsp+58h] [rbp-90h]
+  ULONG *v30; // [rsp+60h] [rbp-88h]
+  _QWORD *v31; // [rsp+68h] [rbp-80h]
+  ULONG *v32; // [rsp+70h] [rbp-78h]
+  int v33[4]; // [rsp+78h] [rbp-70h] BYREF
+  __int128 v34; // [rsp+88h] [rbp-60h]
+  __int128 v35; // [rsp+98h] [rbp-50h]
 
-  v29 = a3;
+  v30 = a3;
   v3 = a2;
-  v28 = a2;
-  v30 = a2;
-  v31 = a3;
-  *(_OWORD *)v32 = 0LL;
-  v33 = 0LL;
+  v29 = a2;
+  v31 = a2;
+  v32 = a3;
+  v28 = 0;
+  *(_OWORD *)v33 = 0LL;
   v34 = 0LL;
-  v26 = 0;
+  v35 = 0LL;
+  v27 = 0;
   v5 = 0;
-  v23 = 0;
+  v24 = 0;
   v6 = -1;
   while ( 1 )
   {
@@ -68,91 +70,92 @@ __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
     v7 = 0LL;
     v8 = 0LL;
     a1 = (void *)BiSanitizeHandle((__int64)a1);
-    v24 = a1;
-    v9 = BiZwQueryKey(a1, KeyFullInformation, v32, 0x30u, &v26);
+    v25 = a1;
+    v9 = BiZwQueryKey(a1, KeyFullInformation, v33, 0x30u, &v27);
     if ( (int)(v9 + 0x80000000) < 0 || v9 == -2147483643 )
     {
-      v27 = DWORD1(v33);
-      if ( DWORD1(v33) )
+      v28 = DWORD1(v34);
+      if ( DWORD1(v34) )
       {
-        v10 = DWORD2(v33) + 2;
-        if ( (unsigned int)(DWORD2(v33) + 2) < DWORD2(v33) )
+        v10 = DWORD2(v34) + 2;
+        if ( (unsigned int)(DWORD2(v34) + 2) < DWORD2(v34) )
         {
-          v10 = -1;
           v9 = -1073741675;
+          v10 = -1;
         }
         else
         {
           v9 = 0;
         }
+        v11 = DWORD1(v34);
         if ( v9 >= 0 )
         {
-          v11 = DWORD1(v33) * (unsigned __int64)v10;
+          v12 = DWORD1(v34) * (unsigned __int64)v10;
           v10 = -1;
-          if ( v11 <= 0xFFFFFFFF )
-            v10 = v11;
-          v9 = v11 > 0xFFFFFFFF ? 0xC0000095 : 0;
+          if ( v12 <= 0xFFFFFFFF )
+            v10 = v12;
+          v9 = v12 > 0xFFFFFFFF ? 0xC0000095 : 0;
         }
-        v12 = 8LL * DWORD1(v33);
         if ( v9 >= 0 )
         {
-          v13 = -1;
-          if ( v12 <= 0xFFFFFFFF )
-            v13 = 8 * DWORD1(v33);
-          v9 = v12 > 0xFFFFFFFF ? 0xC0000095 : 0;
-          if ( v12 <= 0xFFFFFFFF )
+          v13 = 8LL * DWORD1(v34);
+          v14 = -1;
+          if ( v13 <= 0xFFFFFFFF )
+            v14 = v13;
+          v9 = v13 > 0xFFFFFFFF ? 0xC0000095 : 0;
+          if ( v13 <= 0xFFFFFFFF )
           {
-            v14 = v13 + v10;
-            v15 = -1;
-            if ( v13 + v10 >= v13 )
-              v15 = v13 + v10;
-            v9 = v14 < v13 ? 0xC0000095 : 0;
-            if ( v14 >= v13 )
+            v15 = v14 + v10;
+            v16 = -1;
+            if ( v14 + v10 >= v14 )
+              v16 = v14 + v10;
+            v9 = v15 < v14 ? 0xC0000095 : 0;
+            if ( v15 >= v14 )
             {
-              Pool2 = ExAllocatePool2(258LL, v15, 1262764866LL);
-              v8 = (void *)Pool2;
-              v25 = (_QWORD *)Pool2;
-              if ( Pool2 )
+              PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v16, 0x4B444342u);
+              v8 = PoolWithTag;
+              v26 = PoolWithTag;
+              if ( PoolWithTag )
               {
-                v17 = (char *)(v12 + Pool2);
-                if ( DWORD2(v33) < 0xFFFFFFE6 )
-                  v6 = DWORD2(v33) + 26;
-                v9 = DWORD2(v33) >= 0xFFFFFFE6 ? 0xC0000095 : 0;
-                if ( (unsigned int)(DWORD2(v33) + 26) >= 0x1A )
+                v18 = &PoolWithTag[8 * v11];
+                if ( DWORD2(v34) < 0xFFFFFFE6 )
+                  v6 = DWORD2(v34) + 26;
+                v9 = DWORD2(v34) >= 0xFFFFFFE6 ? 0xC0000095 : 0;
+                if ( (unsigned int)(DWORD2(v34) + 26) >= 0x1A )
                 {
-                  v7 = (unsigned int *)ExAllocatePool2(258LL, v6, 1262764866LL);
+                  v7 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v6, 0x4B444342u);
                   if ( v7 )
                   {
                     for ( i = 0; ; ++i )
                     {
-                      if ( i >= v27 )
-                        goto LABEL_34;
-                      v20 = BiZwEnumerateKey(v24, i, v18, v7, v6, &v26);
-                      v9 = v20;
-                      if ( v20 == -2147483622 )
+                      if ( i >= v28 )
+                        goto LABEL_28;
+                      v21 = BiZwEnumerateKey(v25, i, v19, v7, v6, &v27);
+                      v9 = v21;
+                      if ( v21 == -2147483622 )
                         break;
-                      if ( v20 < 0 )
+                      if ( v21 < 0 )
                         goto LABEL_44;
                       if ( (unsigned __int64)v7[3] + 2 > v10 )
                       {
                         v9 = -1073741789;
                         goto LABEL_44;
                       }
-                      v25[i] = v17;
-                      memmove(v17, v7 + 4, v7[3]);
-                      v21 = &v17[v7[3]];
-                      *(_WORD *)v21 = 0;
-                      v17 = v21 + 2;
+                      v26[i] = v18;
+                      memmove(v18, v7 + 4, v7[3]);
+                      v22 = &v18[v7[3]];
+                      *(_WORD *)v22 = 0;
+                      v18 = v22 + 2;
                       v10 += -2 - v7[3];
                     }
                     if ( i )
                     {
-LABEL_34:
-                      v8 = v25;
-                      *v28 = v25;
-                      *v29 = i;
+LABEL_28:
+                      v8 = v26;
+                      *v29 = v26;
+                      *v30 = i;
                       v9 = 0;
-                      goto LABEL_35;
+                      goto LABEL_29;
                     }
                   }
                   else
@@ -161,8 +164,8 @@ LABEL_34:
                   }
                 }
 LABEL_44:
-                v8 = v25;
-LABEL_35:
+                v8 = v26;
+LABEL_29:
                 v6 = -1;
               }
               else
@@ -172,8 +175,8 @@ LABEL_35:
             }
           }
         }
-        a1 = v24;
-        v5 = v23;
+        a1 = v25;
+        v5 = v24;
       }
       else
       {
@@ -187,11 +190,11 @@ LABEL_35:
     if ( v9 != -1073741443 )
       break;
     __debugbreak();
-    v3 = v28;
-    a3 = v29;
+    v3 = v29;
+    a3 = v30;
     if ( v5 >= 5 )
       break;
-    v23 = ++v5;
+    v24 = ++v5;
   }
   return (unsigned int)v9;
 }

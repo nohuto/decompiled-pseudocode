@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_AcquiringWdfPowerReferenceOnInterrupt @ 0x1C0008410
+ * XREFs of HUBHSM_AcquiringWdfPowerReferenceOnInterrupt @ 0x1C0007C60
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_AcquireWdfPowerReference @ 0x1C000DF34 (HUBFDO_AcquireWdfPowerReference.c)
+ *     HUBFDO_AcquireWdfPowerReference @ 0x1C000CD44 (HUBFDO_AcquireWdfPowerReference.c)
  */
 
 __int64 __fastcall HUBHSM_AcquiringWdfPowerReferenceOnInterrupt(__int64 a1)

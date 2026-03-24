@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsstr @ 0x1403DB540
+ * XREFs of wcsstr @ 0x1403D3A90
  * Callers:
- *     BcpGetProgressMessages @ 0x140383E30 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x1405CA888 (SmUniqueIdParseProductName.c)
- *     PiGetDeviceRegProperty @ 0x140793418 (PiGetDeviceRegProperty.c)
- *     SiIsWinPEBoot @ 0x1407C0020 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1407C0094 (SiGetBootDeviceName.c)
- *     PfSnIsHostingApplication @ 0x1407C3168 (PfSnIsHostingApplication.c)
- *     EtwpGenerateFileName @ 0x1407E9820 (EtwpGenerateFileName.c)
- *     BiIsWinPEBoot @ 0x140805598 (BiIsWinPEBoot.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408081F8 (BiGetObjectReferenceFromEfiEntry.c)
- *     IopCheckIfNotNativeDriver @ 0x140944694 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x140954DC8 (PiGetDeviceRegistryProperty.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5F114 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SiGetBiosSystemPartition @ 0x140A604C4 (SiGetBiosSystemPartition.c)
- *     SubstringMatch @ 0x140A6EFAC (SubstringMatch.c)
- *     PopGetBitlockerKeyLocation @ 0x140AA0858 (PopGetBitlockerKeyLocation.c)
+ *     BcpGetProgressMessages @ 0x1403BC3DC (BcpGetProgressMessages.c)
+ *     SmUniqueIdParseProductName @ 0x14059D1C0 (SmUniqueIdParseProductName.c)
+ *     PfSnIsHostingApplication @ 0x140630DEC (PfSnIsHostingApplication.c)
+ *     SiIsWinPEBoot @ 0x140687A00 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x140687A74 (SiGetBootDeviceName.c)
+ *     EtwpGenerateFileName @ 0x14068EAAC (EtwpGenerateFileName.c)
+ *     PiGetDeviceRegProperty @ 0x1406B8FC8 (PiGetDeviceRegProperty.c)
+ *     SiGetBiosSystemPartition @ 0x14077AAD4 (SiGetBiosSystemPartition.c)
+ *     BiIsWinPEBoot @ 0x140782CC4 (BiIsWinPEBoot.c)
+ *     IopCheckIfNotNativeDriver @ 0x140891340 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x14089E568 (PiGetDeviceRegistryProperty.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972388 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140973384 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SubstringMatch @ 0x14097FE44 (SubstringMatch.c)
+ *     PopGetBitlockerKeyLocation @ 0x140996D20 (PopGetBitlockerKeyLocation.c)
  * Callees:
  *     <none>
  */
@@ -23,35 +23,36 @@
 wchar_t *__cdecl wcsstr(const wchar_t *Str, const wchar_t *SubStr)
 {
   wchar_t *v3; // r8
-  signed __int64 v5; // r9
-  const wchar_t *v6; // rdx
+  wchar_t v5; // ax
+  signed __int64 i; // r9
+  const wchar_t *v7; // rdx
 
   v3 = (wchar_t *)Str;
   if ( !*SubStr )
     return (wchar_t *)Str;
-  if ( *Str )
+  v5 = *Str;
+  if ( !*Str )
+    return 0LL;
+  for ( i = (char *)Str - (char *)SubStr; ; i += 2LL )
   {
-    v5 = (char *)Str - (char *)SubStr;
-    while ( 2 )
-    {
-      v6 = SubStr;
-      do
-      {
-        if ( !*v6 )
-          return v3;
-        if ( *(const wchar_t *)((char *)v6 + v5) != *v6 )
-          break;
-        ++v6;
-      }
-      while ( *(const wchar_t *)((char *)v6 + v5) );
-      if ( !*v6 )
-        return v3;
-      ++v3;
-      v5 += 2LL;
-      if ( *v3 )
-        continue;
+    v7 = SubStr;
+    if ( v5 )
       break;
-    }
+LABEL_9:
+    if ( !*v7 )
+      return v3;
+    v5 = *++v3;
+    if ( !*v3 )
+      return 0LL;
   }
-  return 0LL;
+  while ( *v7 )
+  {
+    if ( *(const wchar_t *)((char *)v7 + i) == *v7 )
+    {
+      if ( *(const wchar_t *)((char *)++v7 + i) )
+        continue;
+    }
+    goto LABEL_9;
+  }
+  return v3;
 }

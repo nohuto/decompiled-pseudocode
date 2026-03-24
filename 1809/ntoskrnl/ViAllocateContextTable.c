@@ -1,7 +1,7 @@
 /*
  * XREFs of ViAllocateContextTable @ 0x140927CD8
  * Callers:
- *     VfInsertContext @ 0x140309A90 (VfInsertContext.c)
+ *     VfInsertContext @ 0x140309B90 (VfInsertContext.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  */

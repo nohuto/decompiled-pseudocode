@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C00696F8
+ * XREFs of ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C0090D58
  * Callers:
- *     ?GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0068A58 (-GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
+ *     ?GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0090BB0 (-GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
  * Callees:
- *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C0068FAC (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
- *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0069A20 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C00D5A10 (__report_rangecheckfailure.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C00905A4 (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
+ *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0091080 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C00C50B0 (__report_rangecheckfailure.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall GetMonitorCapabilityFromInf(struct _DEVICE_OBJECT *a1, struct tagModeCap *a2, char a3)

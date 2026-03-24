@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetBufferingMessageCallHost@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVBufferingMessageCallHost@23@XZ @ 0x1801B9B4C
+ * XREFs of ?GetBufferingMessageCallHost@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVBufferingMessageCallHost@23@XZ @ 0x180165F14
  * Callers:
- *     ?GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ @ 0x1800AD754 (-GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ.c)
+ *     ?GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ @ 0x1800D6C30 (-GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ??0BufferingMessageCallHost@BamoImpl@Microsoft@@QEAA@PEAUIMessageCallSendHost@@@Z @ 0x1801B89EC (--0BufferingMessageCallHost@BamoImpl@Microsoft@@QEAA@PEAUIMessageCallSendHost@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??0BufferingMessageCallHost@BamoImpl@Microsoft@@QEAA@PEAUIMessageCallSendHost@@@Z @ 0x180165618 (--0BufferingMessageCallHost@BamoImpl@Microsoft@@QEAA@PEAUIMessageCallSendHost@@@Z.c)
  */
 
 struct Microsoft::BamoImpl::BufferingMessageCallHost *__fastcall Microsoft::BamoImpl::BaseBamoConnectionImpl::GetBufferingMessageCallHost(
@@ -15,28 +15,33 @@ struct Microsoft::BamoImpl::BufferingMessageCallHost *__fastcall Microsoft::Bamo
   struct Microsoft::BamoImpl::BufferingMessageCallHost *result; // rax
   Microsoft::BamoImpl::BufferingMessageCallHost *v3; // rax
   const char *v4; // r9
-  __int64 v5; // rcx
+  void (__fastcall ***v5)(_QWORD); // rdi
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  result = (struct Microsoft::BamoImpl::BufferingMessageCallHost *)*((_QWORD *)this + 11);
+  result = (struct Microsoft::BamoImpl::BufferingMessageCallHost *)*((_QWORD *)this + 10);
   if ( !result )
   {
-    v3 = (Microsoft::BamoImpl::BufferingMessageCallHost *)operator new(0x68uLL);
+    v3 = (Microsoft::BamoImpl::BufferingMessageCallHost *)operator new(0x50uLL);
     if ( v3 )
       v3 = Microsoft::BamoImpl::BufferingMessageCallHost::BufferingMessageCallHost(
              v3,
-             *((struct IMessageCallSendHost **)this + 9));
-    v5 = *((_QWORD *)this + 11);
-    *((_QWORD *)this + 11) = v3;
+             *((struct IMessageCallSendHost **)this + 8));
+    v5 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 10);
+    *((_QWORD *)this + 10) = v3;
+    if ( v3 )
+      (*(void (__fastcall **)(_QWORD *))(*((_QWORD *)v3 + 2) + 8LL))((_QWORD *)v3 + 2);
     if ( v5 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
-    result = (struct Microsoft::BamoImpl::BufferingMessageCallHost *)*((_QWORD *)this + 11);
+      (**v5)(v5);
+    result = (struct Microsoft::BamoImpl::BufferingMessageCallHost *)*((_QWORD *)this + 10);
     if ( !result )
+    {
       wil::details::in1diag3::_FailFast_Unexpected(
         retaddr,
-        661LL,
-        (__int64)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
+        (void *)0x1CF,
+        (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
         v4);
+      __debugbreak();
+    }
   }
   return result;
 }

@@ -1,238 +1,244 @@
 /*
- * XREFs of ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C01BB044
+ * XREFs of ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C013D324
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B41A0 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B468C (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C01C1110 (-DxgkCddDisable@@YAJIII@Z.c)
- *     ?UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z @ 0x1C01C5840 (-UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z.c)
- *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C01C66CC (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C01C69E4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
- *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C01C7E74 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     DxgkFlushPresentHistory @ 0x1C01E6FB0 (DxgkFlushPresentHistory.c)
- *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01EF9A0 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
- *     ?AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z @ 0x1C02B9A0C (-AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z.c)
- *     ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C02BCB2C (-PrepareToRemove@DXGADAPTER@@QEAAXXZ.c)
- *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BDA44 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02BE1F8 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BFF14 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
- *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02C452C (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02C4878 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C02C49B8 (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
- *     ?SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02C4D14 (-SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?DxgkCddSetPalette@@YAJQEAXPEBU_DXGKARG_SETPALETTE@@@Z @ 0x1C02DD060 (-DxgkCddSetPalette@@YAJQEAXPEBU_DXGKARG_SETPALETTE@@@Z.c)
- *     ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C030AEB0 (-NotifyShutdown@DXGGLOBAL@@QEAAXXZ.c)
- *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C030C1C8 (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
- *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C03A4D40 (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
+ *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C00E1F50 (-DxgkCddDisable@@YAJIII@Z.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121824 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121BB4 (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C013F584 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C014BD78 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z @ 0x1C014DDCC (-UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C014E000 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     DxgkFlushPresentHistory @ 0x1C016C4F0 (DxgkFlushPresentHistory.c)
+ *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01776D4 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
+ *     ?AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z @ 0x1C020B49C (-AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z.c)
+ *     ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C020E26C (-PrepareToRemove@DXGADAPTER@@QEAAXXZ.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020F040 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C020F7B4 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0211888 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0216870 (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0216B14 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C0216CEC (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     ?SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C021705C (-SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?DxgkCddSetPalette@@YAJQEAXPEBU_DXGKARG_SETPALETTE@@@Z @ 0x1C022DB30 (-DxgkCddSetPalette@@YAJQEAXPEBU_DXGKARG_SETPALETTE@@@Z.c)
+ *     ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C026A338 (-NotifyShutdown@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C026B2DC (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C02E4B54 (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000A924 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0044D64 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C0179770 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
- *     ?SuspendScheduler@ADAPTER_RENDER@@QEAAJEE@Z @ 0x1C01BADA4 (-SuspendScheduler@ADAPTER_RENDER@@QEAAJEE@Z.c)
- *     ?ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C01BAE50 (-ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z.c)
- *     ?VmBusSendFlushAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@I@Z @ 0x1C0377578 (-VmBusSendFlushAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@I@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007514 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A358 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C00F7BC0 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
+ *     ?SuspendScheduler@ADAPTER_RENDER@@QEAAJEE@Z @ 0x1C013D534 (-SuspendScheduler@ADAPTER_RENDER@@QEAAJEE@Z.c)
+ *     ?ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C013D5DC (-ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024D240 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
  */
 
-__int64 __fastcall ADAPTER_RENDER::FlushScheduler(__int64 a1, unsigned int a2, unsigned int a3, int a4)
+__int64 __fastcall ADAPTER_RENDER::FlushScheduler(__int64 a1, int a2, unsigned int a3, int a4)
 {
-  __int64 v5; // rbp
+  __int64 v5; // r14
   __int64 v6; // r9
-  __int64 v7; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // r8
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
   unsigned __int8 IsDxgmms2; // r15
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  unsigned int v15; // r14d
-  __int64 v17; // rdx
-  int v18; // ebx
-  int v19; // ebx
-  int v20; // ebx
-  int v21; // ebx
-  int v22; // eax
-  unsigned int v23; // ebx
-  int v24; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r9
+  unsigned int v17; // ebp
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  int v26; // ebx
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  DXG_VMBUS_CHANNEL_BASE *v29; // rcx
+  struct _MDL *v30; // r9
+  int v31; // ebx
+  int v32; // ebx
+  int v33; // ebx
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  int v39; // eax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  unsigned int v42; // ebx
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // [rsp+30h] [rbp-48h] BYREF
+  int v48; // [rsp+38h] [rbp-40h]
+  int v49; // [rsp+3Ch] [rbp-3Ch]
+  int v50; // [rsp+40h] [rbp-38h]
+  int v51; // [rsp+48h] [rbp-30h]
+  int v52; // [rsp+4Ch] [rbp-2Ch]
+  unsigned int v53; // [rsp+50h] [rbp-28h]
+  int v54; // [rsp+80h] [rbp+8h] BYREF
 
   v5 = a3;
   v6 = *(_QWORD *)(a1 + 16);
-  v7 = (int)a2;
+  v8 = a2;
   if ( *(_BYTE *)(v6 + 209) )
-    return DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendFlushAdapter(v6 + 4344, a2, a3);
-  IsDxgmms2 = DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(a1 + 16));
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0pqq_EtwWriteTransfer(v9, &Dxgk_FlushScheduler, v10);
-  WdLogSingleEntry2(4LL, v7, v5);
-  v15 = 1;
-  if ( (int)v7 > 6 )
   {
-    if ( (_DWORD)v7 == 7 )
+    v29 = (DXG_VMBUS_CHANNEL_BASE *)(v6 + 4240);
+    v30 = (struct _MDL *)*(unsigned int *)(*(_QWORD *)(v6 + 4304) + 4312LL);
+    v47 = 0LL;
+    v48 = 0;
+    v49 = 0;
+    v50 = 43;
+    v51 = (int)v30;
+    v52 = a2;
+    v53 = a3;
+    return DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(
+             v29,
+             (struct DXGKVMB_COMMAND_BASE *)&v47,
+             0x28u,
+             v30);
+  }
+  IsDxgmms2 = DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(a1 + 16));
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0pqq_EtwWriteTransfer(v10, &Dxgk_FlushScheduler, v11);
+  v13 = WdLogNewEntry5_WdEvent(v10, v9);
+  *(_QWORD *)(v13 + 24) = v8;
+  *(_QWORD *)(v13 + 32) = v5;
+  WdLogEvent5_WdEvent(v13);
+  v17 = 1;
+  if ( (int)v8 > 6 )
+  {
+    if ( (_DWORD)v8 == 7 )
     {
 LABEL_7:
       if ( !a4 && !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
       {
-        WdLogSingleEntry1(1LL, 2688LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"ExclusiveAccessHeld || IsCoreResourceExclusiveOwner()",
-          2688LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v46 = WdLogNewEntry5_WdAssertion(v19, v18);
+        *(_QWORD *)(v46 + 24) = 2644LL;
+        WdLogEvent5_WdAssertion(v46);
       }
-      LOBYTE(v12) = a4 != 0;
-      ADAPTER_RENDER::ResumeScheduler((ADAPTER_RENDER *)a1, v12, (_DWORD)v7 == 10);
+      ADAPTER_RENDER::ResumeScheduler((ADAPTER_RENDER *)a1, a4 != 0, (_DWORD)v8 == 10);
       return 0LL;
     }
-    if ( (_DWORD)v7 == 8 )
+    if ( (_DWORD)v8 == 8 )
     {
       if ( !a4 && !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
       {
-        WdLogSingleEntry1(1LL, 2693LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"ExclusiveAccessHeld || IsCoreResourceExclusiveOwner()",
-          2693LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v45 = WdLogNewEntry5_WdAssertion(v24, v23);
+        *(_QWORD *)(v45 + 24) = 2649LL;
+        WdLogEvent5_WdAssertion(v45);
       }
-      if ( !IsDxgmms2 && (*DXGADAPTER::GetAdapterType(*(DXGADAPTER **)(a1 + 16), &v24) & 0x10) != 0 )
+      if ( !IsDxgmms2 && (*DXGADAPTER::GetAdapterType(*(DXGADAPTER **)(a1 + 16), &v54) & 0x10) != 0 )
         return 0LL;
-      v17 = 1LL;
-      LOBYTE(v14) = a4 != 0;
-      goto LABEL_25;
+      v25 = 1LL;
+      LOBYTE(v16) = a4 != 0;
+      goto LABEL_27;
     }
-    if ( (_DWORD)v7 != 9 )
+    v15 = (unsigned int)(v8 - 9);
+    if ( (_DWORD)v8 != 9 )
     {
-      if ( (_DWORD)v7 == 10 )
+      if ( (_DWORD)v8 == 10 )
         goto LABEL_7;
-      goto LABEL_42;
+      goto LABEL_45;
     }
 LABEL_13:
     if ( !a4 && !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
     {
-      WdLogSingleEntry1(1LL, 2647LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"ExclusiveAccessHeld || IsCoreResourceExclusiveOwner()",
-        2647LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v44 = WdLogNewEntry5_WdAssertion(v22, v21);
+      *(_QWORD *)(v44 + 24) = 2603LL;
+      WdLogEvent5_WdAssertion(v44);
     }
     if ( IsDxgmms2 )
     {
       if ( (_DWORD)v5 == -1 )
-      {
-LABEL_18:
-        LOBYTE(v13) = (_DWORD)v7 == 9;
-        ADAPTER_RENDER::SuspendScheduler((ADAPTER_RENDER *)a1, a4 != 0, v13);
-        return 0LL;
-      }
+        goto LABEL_19;
     }
-    else if ( (*DXGADAPTER::GetAdapterType(*(DXGADAPTER **)(a1 + 16), &v24) & 0x10) != 0 )
+    else if ( (*DXGADAPTER::GetAdapterType(*(DXGADAPTER **)(a1 + 16), &v54) & 0x10) != 0 )
     {
-      goto LABEL_18;
+LABEL_19:
+      ADAPTER_RENDER::SuspendScheduler((ADAPTER_RENDER *)a1, a4 != 0, (_DWORD)v8 == 9);
+      return 0LL;
     }
-    LOBYTE(v14) = a4 != 0;
-    (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(a1 + 624) + 8LL) + 776LL))(
-      *(_QWORD *)(a1 + 632),
+    LOBYTE(v16) = a4 != 0;
+    (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(a1 + 616) + 8LL) + 776LL))(
+      *(_QWORD *)(a1 + 624),
       1LL,
       (unsigned int)v5,
-      v14);
-    goto LABEL_18;
+      v16);
+    goto LABEL_19;
   }
-  if ( (_DWORD)v7 == 6 )
+  if ( (_DWORD)v8 == 6 )
     goto LABEL_13;
-  v18 = v7 - 1;
-  if ( !v18 )
+  v26 = v8 - 1;
+  if ( !v26 )
   {
     if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
     {
-      WdLogSingleEntry1(1LL, 2629LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"IsCoreResourceExclusiveOwner()",
-        2629LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v34 = WdLogNewEntry5_WdAssertion(v28, v27);
+      *(_QWORD *)(v34 + 24) = 2585LL;
+      WdLogEvent5_WdAssertion(v34);
     }
-    LOBYTE(v14) = a4 != 0;
-    v17 = 0LL;
-LABEL_25:
-    (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(a1 + 624) + 8LL) + 776LL))(
-      *(_QWORD *)(a1 + 632),
-      v17,
+    LOBYTE(v16) = a4 != 0;
+    v25 = 0LL;
+LABEL_27:
+    (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(a1 + 616) + 8LL) + 776LL))(
+      *(_QWORD *)(a1 + 624),
+      v25,
       (unsigned int)v5,
-      v14);
+      v16);
     return 0LL;
   }
-  v19 = v18 - 1;
-  if ( !v19 )
-    goto LABEL_43;
-  v20 = v19 - 1;
-  if ( !v20 )
+  v31 = v26 - 1;
+  if ( !v31 )
+    goto LABEL_46;
+  v32 = v31 - 1;
+  if ( !v32 )
   {
-    v15 = 8;
-    goto LABEL_43;
+    v17 = 6;
+    goto LABEL_46;
   }
-  v21 = v20 - 1;
-  if ( !v21 )
+  v33 = v32 - 1;
+  if ( !v33 )
   {
-    v15 = 9;
-    goto LABEL_43;
+    v17 = 7;
+    goto LABEL_46;
   }
-  if ( v21 == 1 )
+  if ( v33 == 1 )
   {
-    v15 = 17;
-    goto LABEL_43;
+    v17 = 15;
+    goto LABEL_46;
   }
-LABEL_42:
-  WdLogSingleEntry1(1LL, 2719LL);
-  DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Invalid flush reason!", 2719LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_43:
+LABEL_45:
+  v35 = WdLogNewEntry5_WdAssertion(v15, v14);
+  *(_QWORD *)(v35 + 24) = 2675LL;
+  WdLogEvent5_WdAssertion(v35);
+LABEL_46:
   if ( DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16))
     && *(_DWORD *)(*(_QWORD *)(a1 + 16) + 176LL) != 2 )
   {
-    WdLogSingleEntry1(1LL, 2735LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->m_ExclusiveAccessReason == DXGADAPTER_EXCLUSIVEACCESS_FLUSHSCHEDULER",
-      2735LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v38 = WdLogNewEntry5_WdAssertion(v37, v36);
+    *(_QWORD *)(v38 + 24) = 2691LL;
+    WdLogEvent5_WdAssertion(v38);
   }
-  v22 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(a1 + 624) + 8LL) + 40LL))(
-          *(_QWORD *)(a1 + 632),
-          v15);
-  v23 = v22;
-  if ( v15 >= 8 && v22 < 0 )
+  v39 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(a1 + 616) + 8LL) + 40LL))(
+          *(_QWORD *)(a1 + 624),
+          v17);
+  v42 = v39;
+  if ( v17 >= 6 && v39 < 0 )
   {
-    WdLogSingleEntry1(1LL, 2742LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status)", 2742LL, 0LL, 0LL, 0LL, 0LL);
+    v43 = WdLogNewEntry5_WdAssertion(v41, v40);
+    *(_QWORD *)(v43 + 24) = 2698LL;
+    WdLogEvent5_WdAssertion(v43);
   }
-  return v23;
+  return v42;
 }

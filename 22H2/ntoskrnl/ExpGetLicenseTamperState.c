@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGetLicenseTamperState @ 0x1406090CC
+ * XREFs of ExpGetLicenseTamperState @ 0x1405B2C08
  * Callers:
- *     ExGetLicenseTamperState @ 0x1409F9720 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1409F97E0 (ExSetLicenseTamperState.c)
- *     sub_1409F9AF0 @ 0x1409F9AF0 (sub_1409F9AF0.c)
- *     sub_1409FA2E0 @ 0x1409FA2E0 (sub_1409FA2E0.c)
- *     sub_1409FA360 @ 0x1409FA360 (sub_1409FA360.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
+ *     ExGetLicenseTamperState @ 0x14094D260 (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x14094D320 (ExSetLicenseTamperState.c)
+ *     sub_14094D660 @ 0x14094D660 (sub_14094D660.c)
+ *     sub_14094DE90 @ 0x14094DE90 (sub_14094DE90.c)
+ *     sub_14094DF10 @ 0x14094DF10 (sub_14094DF10.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E2E0 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExpLicUpdateChecksum @ 0x140609238 (ExpLicUpdateChecksum.c)
- *     ExpSetKernelDataProtection @ 0x1407AEDE0 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1407AEFD0 (ExpGetKernelDataProtection.c)
+ *     ExpLicUpdateChecksum @ 0x1405B2D68 (ExpLicUpdateChecksum.c)
+ *     ExpSetKernelDataProtection @ 0x140665A90 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x140665C80 (ExpGetKernelDataProtection.c)
  */
 
 __int64 __fastcall ExpGetLicenseTamperState(__int64 a1, _DWORD *a2)
@@ -18,88 +18,84 @@ __int64 __fastcall ExpGetLicenseTamperState(__int64 a1, _DWORD *a2)
   __int64 result; // rax
   __int64 v5; // rcx
   __int64 v6; // rdx
-  __int64 v7; // rdx
-  int updated; // ecx
-  __int64 v9; // r9
-  unsigned int v10; // r10d
-  unsigned int v11; // edx
-  __int128 v12; // [rsp+20h] [rbp-60h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-50h]
-  __int128 v14; // [rsp+40h] [rbp-40h]
-  __int128 v15; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v16; // [rsp+60h] [rbp-20h]
-  __int128 v17; // [rsp+70h] [rbp-10h]
+  unsigned __int64 v7; // r10
+  int updated; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r9
+  __int128 v11; // [rsp+20h] [rbp-60h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-50h]
+  __int128 v13; // [rsp+40h] [rbp-40h]
+  __int128 v14; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v15; // [rsp+60h] [rbp-20h]
+  __int128 v16; // [rsp+70h] [rbp-10h]
 
+  v14 = 0LL;
   v15 = 0LL;
   v16 = 0LL;
-  v17 = 0LL;
   if ( !*(_QWORD *)(a1 + 46832) )
   {
     result = *(unsigned int *)(a1 + 46988);
     *a2 = result;
     return result;
   }
-  result = ExpGetKernelDataProtection(a1, &v15);
+  result = ExpGetKernelDataProtection(a1, &v14);
   if ( (int)result >= 0 )
   {
-    result = DWORD2(v15);
-    *a2 = DWORD2(v15);
+    result = DWORD2(v14);
+    *a2 = DWORD2(v14);
     return result;
   }
   if ( (_DWORD)result == -1073741275 )
   {
     v5 = *(_QWORD *)(a1 + 46832);
     v6 = *(unsigned int *)(a1 + 46824);
-    HIDWORD(v12) = 0;
-    *(_DWORD *)((char *)&v14 + 9) = 0;
-    *(_WORD *)((char *)&v14 + 13) = 0;
-    HIBYTE(v14) = 0;
-    if ( v5 )
+    LODWORD(v7) = -1;
+    HIDWORD(v11) = 0;
+    *(_DWORD *)((char *)&v13 + 9) = 0;
+    *(_WORD *)((char *)&v13 + 13) = 0;
+    HIBYTE(v13) = 0;
+    if ( !v5 )
     {
-      if ( !(_DWORD)v6 || a1 != -24 )
+      result = 3221225485LL;
+LABEL_17:
+      if ( (int)result >= 0 )
       {
-        *(_QWORD *)&v12 = 0LL;
-        v13 = 0uLL;
-        DWORD2(v12) = 4;
-        *(_QWORD *)&v14 = 0LL;
-        BYTE8(v14) = 1;
-        updated = ExpLicUpdateChecksum(v5 + 20, v6, &v12, a1 + 24);
-        v10 = -1;
-        if ( !updated && (_DWORD)v7 )
-        {
-          if ( (unsigned __int64)(16 * v7) > 0xFFFFFFFF )
-          {
-            updated = -1073741675;
-            v11 = -1073741675;
-            goto LABEL_15;
-          }
-          updated = ExpLicUpdateChecksum(v9, v7, &v12, v9);
-        }
-        v11 = updated;
-        if ( !updated )
-        {
-LABEL_16:
-          result = 0LL;
-          if ( !updated )
-            result = v11;
-          v15 = v12;
-          v16 = v13;
-          v17 = v14;
-          if ( (int)result >= 0 )
-          {
-            DWORD2(v15) = 4;
-            result = ExpSetKernelDataProtection(a1, &v15, v10, 0LL);
-          }
-          goto LABEL_20;
-        }
-LABEL_15:
-        *(_QWORD *)&v12 = 0LL;
-        DWORD2(v12) = 4;
-        goto LABEL_16;
+        DWORD2(v14) = 4;
+        result = ExpSetKernelDataProtection(a1, &v14, (unsigned int)v7, 0LL);
       }
+      goto LABEL_19;
     }
+    if ( (_DWORD)v6 && a1 == -24 )
+      goto LABEL_19;
+    *(_QWORD *)&v11 = 0LL;
+    v12 = 0uLL;
+    DWORD2(v11) = 4;
+    *(_QWORD *)&v13 = 0LL;
+    BYTE8(v13) = 1;
+    updated = ExpLicUpdateChecksum(v5 + 20, v6, &v11, a1 + 24);
+    if ( updated )
+      goto LABEL_14;
+    if ( (_DWORD)v9 )
+    {
+      if ( 16 * v9 > v7 )
+        goto LABEL_14;
+      updated = ExpLicUpdateChecksum(v10, v9, &v11, v10);
+    }
+    if ( !updated )
+    {
+LABEL_15:
+      result = 0LL;
+      v14 = v11;
+      v15 = v12;
+      v16 = v13;
+      goto LABEL_17;
+    }
+LABEL_14:
+    *(_QWORD *)&v11 = 0LL;
+    DWORD2(v11) = 4;
+    goto LABEL_15;
   }
-LABEL_20:
+LABEL_19:
   *a2 = 4;
   return result;
 }

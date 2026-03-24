@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_DisablingPortOnPortCycleWithTimer @ 0x1C0011BC0
+ * XREFs of HUBPSM20_DisablingPortOnPortCycleWithTimer @ 0x1C00107A0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004888 (HUBHTX_DisablePortUsingControlTransfer.c)
+ *     HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004254 (HUBHTX_DisablePortUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBPSM20_DisablingPortOnPortCycleWithTimer(__int64 a1)

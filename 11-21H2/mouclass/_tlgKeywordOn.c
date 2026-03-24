@@ -1,1 +1,13 @@
-/*\n * XREFs of _tlgKeywordOn @ 0x1C0006D28\n * Callers:\n *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004A04 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)\n *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\nbool tlgKeywordOn()\n{\n  return (qword_1C0009020 & 0x400000000000LL) != 0 && (qword_1C0009028 & 0x400000000000LL) == qword_1C0009028;\n}\n
+/*
+ * XREFs of _tlgKeywordOn @ 0x1C0006D28
+ * Callers:
+ *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004A04 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+bool tlgKeywordOn()
+{
+  return (qword_1C0009020 & 0x400000000000LL) != 0 && (qword_1C0009028 & 0x400000000000LL) == qword_1C0009028;
+}

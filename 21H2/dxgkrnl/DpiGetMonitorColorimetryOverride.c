@@ -1,27 +1,26 @@
 /*
- * XREFs of DpiGetMonitorColorimetryOverride @ 0x1C02176F4
+ * XREFs of DpiGetMonitorColorimetryOverride @ 0x1C018CD0C
  * Callers:
- *     ?GetDriverColorimetryOverride@KernelDriver@@UEBAJAEAU_DXGK_COLORIMETRY@@@Z @ 0x1C02176C0 (-GetDriverColorimetryOverride@KernelDriver@@UEBAJAEAU_DXGK_COLORIMETRY@@@Z.c)
+ *     ?_RetrieveHDRParamDriverOverrides@DXGMONITOR@@AEAAJXZ @ 0x1C018CC8C (-_RetrieveHDRParamDriverOverrides@DXGMONITOR@@AEAAJXZ.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C016BE48 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     DpiFdoValidateDxgkColorimetry @ 0x1C02177F0 (DpiFdoValidateDxgkColorimetry.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C012A308 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     DpiFdoValidateDxgkColorimetry @ 0x1C02CC7D4 (DpiFdoValidateDxgkColorimetry.c)
  */
 
 __int64 __fastcall DpiGetMonitorColorimetryOverride(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v5; // edi
   _QWORD *ChildDescriptor; // rax
-  int v7; // edx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  DXGADAPTER *v11; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rcx
+  __int64 v11; // rsi
   int v12; // eax
-  int v13; // eax
-  __int64 v15; // rsi
-  struct _DXGKARG_QUERYADAPTERINFO v16; // [rsp+20h] [rbp-30h] BYREF
-  int v17; // [rsp+60h] [rbp+10h] BYREF
+  DXGADAPTER *v13; // rcx
+  int v14; // eax
+  struct _DXGKARG_QUERYADAPTERINFO v15; // [rsp+20h] [rbp-30h] BYREF
+  unsigned int v16; // [rsp+60h] [rbp+10h] BYREF
 
   v5 = -1071841279;
   ChildDescriptor = DpiFdoGetChildDescriptor(*(_QWORD *)(a1 + 64), a2);
@@ -31,49 +30,49 @@ __int64 __fastcall DpiGetMonitorColorimetryOverride(__int64 a1, unsigned int a2,
     *(_OWORD *)(a3 + 16) = 0LL;
     *(_OWORD *)(a3 + 32) = 0LL;
     *(_DWORD *)(a3 + 48) = 0;
-    v10 = ChildDescriptor[13];
-    if ( v10 )
+    v9 = ChildDescriptor[13];
+    if ( v9 )
     {
-      v15 = v10 + 68;
-      if ( RtlCompareMemory((const void *)a3, (const void *)(v10 + 68), 0x34uLL) == 52 )
+      v11 = v9 + 68;
+      if ( RtlCompareMemory((const void *)a3, (const void *)(v9 + 68), 0x34uLL) == 52 )
         return v5;
       v5 = 0;
-      *(_OWORD *)a3 = *(_OWORD *)v15;
-      *(_OWORD *)(a3 + 16) = *(_OWORD *)(v15 + 16);
-      *(_OWORD *)(a3 + 32) = *(_OWORD *)(v15 + 32);
-      v13 = *(_DWORD *)(v15 + 48);
+      *(_OWORD *)a3 = *(_OWORD *)v11;
+      *(_OWORD *)(a3 + 16) = *(_OWORD *)(v11 + 16);
+      *(_OWORD *)(a3 + 32) = *(_OWORD *)(v11 + 32);
+      v12 = *(_DWORD *)(v11 + 48);
     }
     else
     {
       if ( !*((_BYTE *)ChildDescriptor + 65) )
         return v5;
-      if ( *(int *)(v9 + 3912) < 8704 )
+      if ( *(int *)(v8 + 3912) < 8704 )
         return v5;
-      *((_DWORD *)&v16.Type + 1) = 0;
-      *(&v16.InputDataSize + 1) = 0;
-      *(_QWORD *)&v16.Flags.0 = 0LL;
-      HIDWORD(v16.hKmdProcessHandle) = 0;
-      v11 = *(DXGADAPTER **)(v9 + 3896);
-      v17 = v7;
-      v16.pInputData = &v17;
-      v16.Type = DXGKQAITYPE_QUERYCOLORIMETRYOVERRIDES;
-      v16.InputDataSize = 4;
-      v16.OutputDataSize = 52;
-      v16.pOutputData = (void *)a3;
-      if ( (int)DXGADAPTER::DdiQueryAdapterInfo(v11, &v16, v8) >= 0 )
+      v13 = *(DXGADAPTER **)(v8 + 3896);
+      *((_DWORD *)&v15.Type + 1) = 0;
+      *(&v15.InputDataSize + 1) = 0;
+      *(_QWORD *)&v15.Flags.0 = 0LL;
+      HIDWORD(v15.hKmdProcessHandle) = 0;
+      v15.pInputData = &v16;
+      v16 = a2;
+      v15.Type = DXGKQAITYPE_QUERYCOLORIMETRYOVERRIDES;
+      v15.InputDataSize = 4;
+      v15.OutputDataSize = 52;
+      v15.pOutputData = (void *)a3;
+      if ( (int)DXGADAPTER::DdiQueryAdapterInfo(v13, &v15, v7) >= 0 )
       {
-        v12 = DpiFdoValidateDxgkColorimetry(a3, a2);
-        v5 = v12;
-        if ( v12 >= 0 && v12 != 279 )
+        v14 = DpiFdoValidateDxgkColorimetry(a3, a2);
+        v5 = v14;
+        if ( v14 >= 0 && v14 != 279 )
           return v5;
       }
-      v13 = 0;
+      v12 = 0;
       *(_OWORD *)a3 = 0LL;
       v5 = -1071841279;
       *(_OWORD *)(a3 + 16) = 0LL;
       *(_OWORD *)(a3 + 32) = 0LL;
     }
-    *(_DWORD *)(a3 + 48) = v13;
+    *(_DWORD *)(a3 + 48) = v12;
     return v5;
   }
   return 3221225485LL;

@@ -1,57 +1,52 @@
 /*
- * XREFs of HvlpGetPageList @ 0x14054A294
+ * XREFs of HvlpGetPageList @ 0x1404FB2E8
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1405471B4 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x1405473C0 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x140547D58 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1404F821C (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x1404F8460 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1404F8D18 (HvlpGetEncryptedDataFromHypervisor.c)
  * Callees:
- *     HvlpInvokeGetPageListHypercall @ 0x14054A368 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x1404FB3B0 (HvlpInvokeGetPageListHypercall.c)
  */
 
 __int64 __fastcall HvlpGetPageList(int a1, __int64 *a2, _DWORD *a3)
 {
-  unsigned __int16 v5; // ax
-  __int16 *v6; // rbx
-  __int64 v8; // rsi
-  unsigned int v9; // edi
-  __int64 v10; // r8
-  unsigned __int64 v11; // rcx
+  int *v3; // rbx
+  __int64 v7; // rdi
+  unsigned int v8; // esi
+  unsigned __int16 v9; // ax
+  unsigned __int64 v10; // rcx
 
+  v3 = &HvlpIteratorCrashdump;
   *a2 = 0LL;
   *a3 = 0;
-  if ( a1 )
-  {
-    v5 = HvlpIteratorCrashdump;
-    v6 = &HvlpIteratorCrashdump;
-  }
-  else
-  {
-    v5 = HvlpIteratorHibernate;
-    v6 = &HvlpIteratorHibernate;
-  }
-  if ( !*((_BYTE *)v6 + 2) )
+  if ( !a1 )
+    v3 = &HvlpIteratorHibernate;
+  if ( !*((_BYTE *)v3 + 2) )
     return 0LL;
-  v8 = *((_QWORD *)v6 + 1);
-  v9 = 261;
-  if ( v5 < *(_WORD *)(v8 + 8) )
+  v7 = *((_QWORD *)v3 + 1);
+  v8 = 261;
+  v9 = *(_WORD *)v3;
+  if ( *(_WORD *)v3 < *(_WORD *)(v7 + 8) )
   {
 LABEL_9:
-    v10 = (unsigned __int16)*v6;
-    v11 = *(_QWORD *)(v8 + 8 * v10 + 16);
-    *a2 = v11 & 0xFFFFFFFFFFLL;
-    *a3 = (v11 >> 40) + 1;
-    *v6 = v10 + 1;
+    v10 = *(_QWORD *)(v7 + 8LL * v9 + 16);
+    *a2 = v10 & 0xFFFFFFFFFFLL;
+    *a3 = (v10 >> 40) + 1;
+    *(_WORD *)v3 = v9 + 1;
   }
   else
   {
-    while ( *(_QWORD *)v8 != -1LL )
+    while ( *(_QWORD *)v7 != -1LL )
     {
-      HvlpInvokeGetPageListHypercall(v6, *(_QWORD *)v8);
-      *v6 = 0;
-      if ( *(_WORD *)(v8 + 8) )
+      HvlpInvokeGetPageListHypercall(v3);
+      *(_WORD *)v3 = 0;
+      if ( *(_WORD *)(v7 + 8) )
+      {
+        v9 = 0;
         goto LABEL_9;
+      }
     }
     return 0;
   }
-  return v9;
+  return v8;
 }

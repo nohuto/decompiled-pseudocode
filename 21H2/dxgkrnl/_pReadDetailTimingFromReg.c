@@ -1,88 +1,121 @@
 /*
- * XREFs of _pReadDetailTimingFromReg @ 0x1C03B4C68
+ * XREFs of _pReadDetailTimingFromReg @ 0x1C019B1A8
  * Callers:
- *     _pLoadAdditinalMode @ 0x1C01DC608 (_pLoadAdditinalMode.c)
+ *     _pLoadAdditinalMode @ 0x1C019AE40 (_pLoadAdditinalMode.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?IsValidVideoStandardType@@YAJW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@@Z @ 0x1C006BA90 (-IsValidVideoStandardType@@YAJW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 __int64 __fastcall pReadDetailTimingFromReg(HANDLE KeyHandle, int a2, unsigned int a3, __int64 a4)
 {
   unsigned int *v4; // rsi
   unsigned int v5; // edi
-  __int64 v6; // r14
-  __int64 v8; // rbp
+  __int64 v6; // rbp
+  __int64 v8; // r14
   NTSTATUS v10; // eax
-  int valid; // ebx
-  unsigned int v12; // eax
-  int v13; // edx
-  __int64 v14; // rdx
-  __int64 v15; // rax
-  ULONG ResultLength; // [rsp+30h] [rbp-78h] BYREF
-  _BYTE KeyValueInformation[4]; // [rsp+38h] [rbp-70h] BYREF
-  int v19; // [rsp+3Ch] [rbp-6Ch]
-  int v20; // [rsp+40h] [rbp-68h]
-  unsigned int v21; // [rsp+44h] [rbp-64h]
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rbx
+  _DWORD *v15; // rbx
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  _QWORD *v19; // rax
+  __int64 v20; // rcx
+  ULONG ResultLength; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+38h] [rbp-60h] BYREF
+  int v23; // [rsp+3Ch] [rbp-5Ch]
+  int v24; // [rsp+40h] [rbp-58h]
+  unsigned int v25; // [rsp+44h] [rbp-54h]
 
   ResultLength = 0;
   v4 = (unsigned int *)(a4 + 4);
   v5 = 0;
   v6 = a3;
   v8 = a2;
-  do
+  while ( 1 )
   {
     v10 = ZwQueryValueKey(
             KeyHandle,
-            (PUNICODE_STRING)&unk_1C0087CD0 + v5,
+            (PUNICODE_STRING)&unk_1C0071C80 + v5,
             KeyValuePartialInformation,
             KeyValueInformation,
             0x13u,
             &ResultLength);
-    valid = v10;
+    v14 = v10;
     if ( v10 < 0 )
+      break;
+    if ( v23 != 4 || v24 != 4 )
     {
-      WdLogSingleEntry4(3LL, v8, v6, v5, v10);
-      return (unsigned int)valid;
+      v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+      v18[3] = v8;
+      v18[4] = v6;
+      v18[5] = v5;
+      v18[6] = v14;
+      goto LABEL_23;
     }
-    if ( v19 != 4 || v20 != 4 )
-    {
-      WdLogSingleEntry4(3LL, v8, v6, v5, v10);
-      return (unsigned int)-1073741811;
-    }
-    v12 = v21;
     if ( v5 )
     {
-      *v4 = v21;
+      *v4 = v25;
     }
     else
     {
-      *(_DWORD *)a4 = HIBYTE(v21);
-      *(_DWORD *)(a4 + 4) = v12 & 0xFFFFFF;
-      valid = IsValidVideoStandardType((enum _D3DKMDT_VIDEO_SIGNAL_STANDARD)HIBYTE(v12));
-      if ( valid < 0 )
+      v12 = HIBYTE(v25);
+      *(_DWORD *)(a4 + 4) = v25 & 0xFFFFFF;
+      *(_DWORD *)a4 = v12;
+      if ( (unsigned int)(v12 - 1) > 0x1A && (_DWORD)v12 != 255 )
       {
-        WdLogSingleEntry2(3LL, v6, v8);
-        return (unsigned int)valid;
+        LODWORD(v14) = -1071774942;
+        v17 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+        *(_QWORD *)(v17 + 24) = v6;
+        *(_QWORD *)(v17 + 32) = v8;
+        WdLogEvent5_WdWarning(v17);
+        return (unsigned int)v14;
       }
+      LODWORD(v14) = 0;
     }
     ++v5;
     ++v4;
+    if ( v5 >= 6 )
+      goto LABEL_8;
   }
-  while ( v5 < 6 );
-  v13 = *(_DWORD *)(a4 + 8);
-  if ( (v13 & 0xFFFFFF) == 0 )
+  v19 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+  v19[5] = v5;
+  v19[3] = v8;
+  v19[4] = v6;
+  v19[6] = v14;
+  WdLogEvent5_WdWarning(v19);
+LABEL_8:
+  if ( (int)v14 < 0 )
+    return (unsigned int)v14;
+  v15 = (_DWORD *)(a4 + 8);
+  if ( (*(_DWORD *)(a4 + 8) & 0xFFFFFF) != 0 )
   {
-    v14 = v13 & 0xFFFFFF;
-    goto LABEL_12;
+    if ( *(_WORD *)(a4 + 12) < 0x64u )
+    {
+      v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+      v20 = *(unsigned __int16 *)(a4 + 12);
+    }
+    else
+    {
+      if ( *(_WORD *)(a4 + 20) >= 0x64u )
+      {
+        LODWORD(v14) = 0;
+        return (unsigned int)v14;
+      }
+      v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+      v20 = *(unsigned __int16 *)(a4 + 20);
+    }
   }
-  v15 = *(unsigned __int16 *)(a4 + 12);
-  if ( (unsigned int)v15 < 0x64 || (v15 = *(unsigned __int16 *)(a4 + 20), (unsigned int)v15 < 0x64) )
+  else
   {
-    v14 = v15;
-LABEL_12:
-    WdLogSingleEntry2(3LL, v14, a4 + 8);
-    return (unsigned int)-1073741811;
+    v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+    v20 = *v15 & 0xFFFFFFLL;
   }
-  return 0;
+  v18[3] = v20;
+  v18[4] = v15;
+LABEL_23:
+  WdLogEvent5_WdWarning(v18);
+  LODWORD(v14) = -1073741811;
+  return (unsigned int)v14;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of DriverEntry @ 0x1C0071878
+ * XREFs of DriverEntry @ 0x1C007112C
  * Callers:
- *     FxDriverEntryWorker @ 0x1C0017C04 (FxDriverEntryWorker.c)
+ *     FxDriverEntryWorker @ 0x1C00182B4 (FxDriverEntryWorker.c)
  * Callees:
- *     McGenEventRegister_EtwRegister @ 0x1C0017D0C (McGenEventRegister_EtwRegister.c)
- *     InitializeTelemetryAssertsKM @ 0x1C0017D40 (InitializeTelemetryAssertsKM.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     wil_UninitializeFeatureStaging @ 0x1C006B008 (wil_UninitializeFeatureStaging.c)
- *     Counter_Register @ 0x1C0071C94 (Counter_Register.c)
- *     WppInitKm @ 0x1C0071DA4 (WppInitKm.c)
- *     WppLoadTracingSupport @ 0x1C0071E58 (WppLoadTracingSupport.c)
- *     WppCleanupKm @ 0x1C00775CC (WppCleanupKm.c)
- *     wil_InitializeFeatureStaging @ 0x1C007B03C (wil_InitializeFeatureStaging.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C00183DC (McGenEventRegister_EtwRegister.c)
+ *     InitializeTelemetryAssertsKM @ 0x1C0018410 (InitializeTelemetryAssertsKM.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C006A008 (wil_UninitializeFeatureStaging.c)
+ *     Counter_Register @ 0x1C0071514 (Counter_Register.c)
+ *     WppInitKm @ 0x1C007165C (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C0071710 (WppLoadTracingSupport.c)
+ *     WppCleanupKm @ 0x1C00761C4 (WppCleanupKm.c)
+ *     wil_InitializeFeatureStaging @ 0x1C007A03C (wil_InitializeFeatureStaging.c)
  */
 
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
@@ -22,34 +22,29 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   int v5; // edi
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // rsi
   ULONG ReturnLength; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-B8h] BYREF
   __int64 SystemInformation; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v14[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v15; // [rsp+70h] [rbp-90h]
-  int v16; // [rsp+78h] [rbp-88h]
-  int v17; // [rsp+7Ch] [rbp-84h]
-  struct _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v19[2]; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v20; // [rsp+A0h] [rbp-60h]
-  int v21; // [rsp+A8h] [rbp-58h]
-  int v22; // [rsp+ACh] [rbp-54h]
-  __int128 v23; // [rsp+B0h] [rbp-50h]
-  void *v24; // [rsp+C0h] [rbp-40h]
+  __int64 v12; // [rsp+58h] [rbp-A8h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v14; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v15; // [rsp+80h] [rbp-80h]
+  __int128 v16; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v17; // [rsp+A0h] [rbp-60h]
+  __int128 v18; // [rsp+B0h] [rbp-50h]
+  void *v19; // [rsp+C0h] [rbp-40h]
   struct _OSVERSIONINFOW VersionInformation; // [rsp+D0h] [rbp-30h] BYREF
 
-  DestinationString = 0LL;
   ReturnLength = 0;
-  v11 = 0LL;
-  v13 = 0LL;
-  HIDWORD(v19[0]) = 0;
-  v20 = 0LL;
-  v23 = 0LL;
-  HIDWORD(v14[0]) = 0;
+  DestinationString = 0LL;
+  v10 = 0LL;
+  v12 = 0LL;
+  v16 = 0LL;
+  v19 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
+  v14 = 0LL;
   v15 = 0LL;
-  v16 = 0;
   wil_InitializeFeatureStaging();
   *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters = DriverObject;
   memset(&VersionInformation.dwMajorVersion, 0, 0x110uLL);
@@ -58,7 +53,8 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
     && (VersionInformation.dwMajorVersion > 6
      || VersionInformation.dwMajorVersion == 6 && VersionInformation.dwMinorVersion >= 2) )
   {
-    WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink = (_LIST_ENTRY *)0x20040000000LL;
+    WPP_MAIN_CB.DeviceLock.Header.SignalState = 512;
+    WPP_MAIN_CB.DeviceLock.Header.LockNV = 0x40000000;
   }
   RtlInitUnicodeString(&DestinationString, L"KseQueryDeviceFlags");
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = MmGetSystemRoutineAddress(&DestinationString);
@@ -74,36 +70,34 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   WppLoadTracingSupport();
   WPP_MAIN_CB.CurrentIrp = 0LL;
   WppInitKm(DriverObject, RegistryPath);
-  BYTE4(v11) = 0;
-  LODWORD(v11) = 8;
-  imp_WppRecorderConfigure(WPP_GLOBAL_Control, &v11);
-  v24 = off_1C0061220;
-  v19[1] = DriverCleanup;
-  v19[0] = 56LL;
-  v14[1] = Controller_WdfEvtDeviceAdd;
-  v20 = 0LL;
-  v23 = 0LL;
-  v21 = 1;
-  v22 = 1;
-  v14[0] = 32LL;
-  v15 = 0LL;
-  v16 = 0;
-  v17 = 1464027224;
-  if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, _DRIVER_OBJECT *, PUNICODE_STRING, _QWORD *, _QWORD *, __int64 *))(WdfFunctions_01023 + 928))(
+  BYTE4(v10) = 0;
+  LODWORD(v10) = 8;
+  imp_WppRecorderConfigure(WPP_GLOBAL_Control, &v10);
+  v19 = off_1C0060220;
+  *((_QWORD *)&v16 + 1) = DriverCleanup;
+  *(_QWORD *)&v16 = 56LL;
+  *((_QWORD *)&v14 + 1) = Controller_WdfEvtDeviceAdd;
+  *(_QWORD *)&v17 = 0LL;
+  v18 = 0LL;
+  *((_QWORD *)&v17 + 1) = 0x100000001LL;
+  *(_QWORD *)&v14 = 32LL;
+  *(_QWORD *)&v15 = 0LL;
+  *((_QWORD *)&v15 + 1) = 0x5743485800000000LL;
+  if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, _DRIVER_OBJECT *, PUNICODE_STRING, __int128 *, __int128 *, __int64 *))(WdfFunctions_01023 + 928))(
          WdfDriverGlobals,
          DriverObject,
          RegistryPath,
-         v19,
-         v14,
-         &v13) < 0 )
+         &v16,
+         &v14,
+         &v12) < 0 )
   {
     WppCleanupKm(DriverObject);
     wil_UninitializeFeatureStaging();
   }
   v4 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
-                   v13,
-                   off_1C0061220);
+                   v12,
+                   off_1C0060220);
   g_WdfDriverUsbXhciContext = (__int64)v4;
   v4[1] = v4;
   *v4 = v4;
@@ -121,23 +115,14 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
     *(_BYTE *)(g_WdfDriverUsbXhciContext + 28) = 0;
   }
   imp_WppRecorderGetTriageInfo(WPP_GLOBAL_Control, &WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-  dword_1C00614C8 = WPP_MAIN_CB.Queue.Wcb.WaitQueueEntry.SortKey;
-  qword_1C00614CC = (__int64)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine;
-  dword_1C00614D4 = *((_DWORD *)&WPP_MAIN_CB.Queue.Wcb.1 + 5);
-  dword_1C00614D8 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
-  qword_1C00614F0 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 3448))(WdfDriverGlobals);
+  dword_1C00604C8 = WPP_MAIN_CB.Queue.Wcb.WaitQueueEntry.SortKey;
+  qword_1C00604CC = (__int64)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine;
+  dword_1C00604D4 = *((_DWORD *)&WPP_MAIN_CB.Queue.Wcb.1 + 5);
+  dword_1C00604D8 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
+  qword_1C00604F0 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 3448))(WdfDriverGlobals);
   InitializeTelemetryAssertsKM((const void **)RegistryPath);
   McGenEventRegister_EtwRegister(v7, v6, &MS_USBXHCI_ETW_PROVIDER_Context, &MS_USBXHCI_ETW_PROVIDER_Context);
-  v8 = g_WdfDriverUsbXhciContext;
-  if ( RtlRunOnceExecuteOnce(&SleepstudyHelperInitializeRunOnce, SleepstudyHelperInitializeOnce, 0LL, 0LL) >= 0
-    && qword_1C0062AA0 )
-  {
-    qword_1C0062AA0(v8 + 32, DriverObject);
-  }
-  else
-  {
-    *(_QWORD *)(v8 + 32) = &SleepstudyHelperUnsupportedHandle;
-  }
+  SleepstudyHelper_Initialize(g_WdfDriverUsbXhciContext + 32, DriverObject);
   EtwSetInformation(
     MS_USBXHCI_ETW_PROVIDER_Context,
     EventProviderSetTraits,

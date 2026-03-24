@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionInitializeMoveSizeList @ 0x1C0122DB0
+ * XREFs of EditionInitializeMoveSizeList @ 0x1C0137680
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 *EditionInitializeMoveSizeList()
   __int64 *result; // rax
 
   result = &gActiveMoveSizeDataList;
-  qword_1C0336CD0 = (__int64)&gActiveMoveSizeDataList;
+  qword_1C033C238 = (__int64)&gActiveMoveSizeDataList;
   gActiveMoveSizeDataList = (__int64)&gActiveMoveSizeDataList;
   return result;
 }

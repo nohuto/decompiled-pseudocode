@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFreeRangeListEntry @ 0x140738F18
+ * XREFs of RtlpFreeRangeListEntry @ 0x140738EF8
  * Callers:
- *     RtlpDeleteFromMergedRange @ 0x140738490 (RtlpDeleteFromMergedRange.c)
- *     RtlAddRange @ 0x140738710 (RtlAddRange.c)
- *     RtlpAddIntersectingRanges @ 0x1407388D4 (RtlpAddIntersectingRanges.c)
- *     RtlDeleteRange @ 0x140738CB0 (RtlDeleteRange.c)
- *     RtlDeleteOwnersRanges @ 0x140738D60 (RtlDeleteOwnersRanges.c)
- *     RtlpDeleteRangeListEntry @ 0x140738EB8 (RtlpDeleteRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x140738470 (RtlpDeleteFromMergedRange.c)
+ *     RtlAddRange @ 0x1407386F0 (RtlAddRange.c)
+ *     RtlpAddIntersectingRanges @ 0x1407388B4 (RtlpAddIntersectingRanges.c)
+ *     RtlDeleteRange @ 0x140738C90 (RtlDeleteRange.c)
+ *     RtlDeleteOwnersRanges @ 0x140738D40 (RtlDeleteOwnersRanges.c)
+ *     RtlpDeleteRangeListEntry @ 0x140738E98 (RtlpDeleteRangeListEntry.c)
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

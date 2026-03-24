@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMcaInitializePcrContext @ 0x140A5B2F8
+ * XREFs of HalpMcaInitializePcrContext @ 0x1409A023C
  * Callers:
- *     HalpWheaInitSystem @ 0x140A5B290 (HalpWheaInitSystem.c)
+ *     HalpWheaInitSystem @ 0x1409A01E0 (HalpWheaInitSystem.c)
  * Callees:
- *     KeSetTargetProcessorDpcEx @ 0x14025ACA0 (KeSetTargetProcessorDpcEx.c)
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KeGetCurrentProcessorNumberEx @ 0x140355110 (KeGetCurrentProcessorNumberEx.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140260D70 (KeGetCurrentProcessorNumberEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1402D1640 (KeSetTargetProcessorDpcEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 int HalpMcaInitializePcrContext()
@@ -28,11 +28,11 @@ int HalpMcaInitializePcrContext()
   v1 = (unsigned int)v0;
   if ( !(_DWORD)v0 && !HalpMcaPcrContextData )
   {
-    v5 = 192 * (unsigned int)HalpQueryMaximumRegisteredProcessorCount();
+    v5 = 184 * (unsigned int)HalpQueryMaximumRegisteredProcessorCount();
     v6 = (void *)HalpMmAllocCtxAlloc(v5, v5);
     HalpMcaPcrContextData = (__int64)v6;
     if ( !v6 )
-      KeBugCheckEx(0xACu, v5, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\whea\\mca.c", 0x222uLL);
+      KeBugCheckEx(0xACu, v5, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\whea\\mca.c", 0x217uLL);
     LODWORD(v0) = (unsigned int)memset(v6, 0, (unsigned int)v5);
   }
   Pcr = KeGetPcr();
@@ -40,18 +40,18 @@ int HalpMcaInitializePcrContext()
   {
     if ( !*(_QWORD *)&Pcr->HalReserved[6] )
     {
-      v3 = HalpMcaPcrContextData + 192 * v1;
+      v3 = HalpMcaPcrContextData + 184 * v1;
       *(_QWORD *)&Pcr->HalReserved[6] = v3;
-      *(_QWORD *)(v3 + 184) = 0LL;
-      *(_DWORD *)(v3 + 172) = v1;
+      *(_QWORD *)(v3 + 176) = 0LL;
+      *(_DWORD *)(v3 + 164) = v1;
     }
     v0 = KeGetPcr();
     v4 = *(_QWORD *)&v0->HalReserved[6];
-    if ( !*(_BYTE *)(v4 + 160) )
+    if ( !*(_BYTE *)(v4 + 152) )
     {
-      KeInitializeDpc((PRKDPC)(v4 + 48), (PKDEFERRED_ROUTINE)HalpCmciDeferredRoutine, *(PVOID *)&v0->HalReserved[6]);
-      LODWORD(v0) = KeSetTargetProcessorDpcEx((PKDPC)(v4 + 48), &ProcNumber);
-      *(_BYTE *)(v4 + 160) = 1;
+      KeInitializeDpc((PRKDPC)(v4 + 40), (PKDEFERRED_ROUTINE)HalpCmciDeferredRoutine, *(PVOID *)&v0->HalReserved[6]);
+      LODWORD(v0) = KeSetTargetProcessorDpcEx((PKDPC)(v4 + 40), &ProcNumber);
+      *(_BYTE *)(v4 + 152) = 1;
     }
   }
   return (int)v0;

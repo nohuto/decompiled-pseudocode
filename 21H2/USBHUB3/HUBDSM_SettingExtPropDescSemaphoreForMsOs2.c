@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_SettingExtPropDescSemaphoreForMsOs2 @ 0x1C00225E0
+ * XREFs of HUBDSM_SettingExtPropDescSemaphoreForMsOs2 @ 0x1C0022190
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C007DD8C (HUBMISC_SetExtPropDescSemaphoreInRegistry.c)
+ *     HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C007C7B0 (HUBMISC_SetExtPropDescSemaphoreInRegistry.c)
  */
 
 __int64 __fastcall HUBDSM_SettingExtPropDescSemaphoreForMsOs2(__int64 a1)

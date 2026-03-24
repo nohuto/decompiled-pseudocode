@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z @ 0x1C00770C0
+ * XREFs of ?AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z @ 0x1C0063940
  * Callers:
  *     <none>
  * Callees:
- *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007703C (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BD50 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::AddTokenToQueueAndSignalTokenEvent(
@@ -17,7 +17,7 @@ __int64 __fastcall CTokenManager::AddTokenToQueueAndSignalTokenEvent(
   if ( v3 >= 0 )
   {
     PreviousState = 0;
-    ZwSetEvent(this[8], &PreviousState);
+    ZwSetEvent(this[7], &PreviousState);
   }
   return (unsigned int)v3;
 }

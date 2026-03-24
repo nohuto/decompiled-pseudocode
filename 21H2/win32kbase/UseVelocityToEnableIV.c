@@ -1,23 +1,22 @@
 /*
- * XREFs of UseVelocityToEnableIV @ 0x1C0038478
+ * XREFs of UseVelocityToEnableIV @ 0x1C0041550
  * Callers:
- *     IsKeyboardIVEnabled @ 0x1C0006EF4 (IsKeyboardIVEnabled.c)
- *     IsMouseIVEnabled @ 0x1C0038414 (IsMouseIVEnabled.c)
- *     IsPTPIVEnabled @ 0x1C0042570 (IsPTPIVEnabled.c)
- *     IsPenIVEnabled @ 0x1C01F0D34 (IsPenIVEnabled.c)
- *     IsTouchIVEnabled @ 0x1C01F0DB4 (IsTouchIVEnabled.c)
+ *     IsMouseIVEnabled @ 0x1C0041518 (IsMouseIVEnabled.c)
+ *     IsPTPIVEnabled @ 0x1C00A9640 (IsPTPIVEnabled.c)
+ *     IsKeyboardIVEnabled @ 0x1C01BA704 (IsKeyboardIVEnabled.c)
+ *     IsPenIVEnabled @ 0x1C01BA73C (IsPenIVEnabled.c)
+ *     IsTouchIVEnabled @ 0x1C01BA78C (IsTouchIVEnabled.c)
  * Callees:
- *     isRootPartition @ 0x1C00384A0 (isRootPartition.c)
+ *     RIMIsRunningOnDesktop @ 0x1C004157C (RIMIsRunningOnDesktop.c)
+ *     isRootPartition @ 0x1C0041628 (isRootPartition.c)
  */
 
 char UseVelocityToEnableIV()
 {
-  char v0; // al
-  char v1; // cl
+  char v0; // bl
 
-  v0 = isRootPartition();
-  v1 = 0;
-  if ( v0 || dword_1C028F6FC == 3 )
+  v0 = 0;
+  if ( (unsigned __int8)isRootPartition() || (unsigned int)RIMIsRunningOnDesktop() )
     return 1;
-  return v1;
+  return v0;
 }

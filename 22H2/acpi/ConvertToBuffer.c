@@ -1,82 +1,84 @@
 /*
- * XREFs of ConvertToBuffer @ 0x1C00598A4
+ * XREFs of ConvertToBuffer @ 0x1C006B288
  * Callers:
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     Concat @ 0x1C0055F80 (Concat.c)
- *     ToBuffer @ 0x1C0058C60 (ToBuffer.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ToBuffer @ 0x1C006A7D0 (ToBuffer.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertToBuffer(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  unsigned int v5; // esi
-  _BYTE *v6; // rax
-  unsigned __int64 v7; // rdi
-  unsigned int v8; // esi
-  _BYTE *v9; // rax
-  __int64 v10; // rcx
-  __int128 v12; // [rsp+20h] [rbp-38h]
-  __int128 v13; // [rsp+30h] [rbp-28h]
-  _BYTE *v14; // [rsp+40h] [rbp-18h]
+  unsigned __int16 v5; // ax
+  unsigned int v6; // esi
+  _BYTE *v7; // rax
+  unsigned __int64 v8; // rdi
+  unsigned int v9; // esi
+  _BYTE *v10; // rax
+  __int64 v11; // rcx
+  __int128 v13; // [rsp+20h] [rbp-38h]
+  __int128 v14; // [rsp+30h] [rbp-28h]
+  _BYTE *v15; // [rsp+40h] [rbp-18h]
 
   v2 = 0;
-  v12 = 0LL;
   v13 = 0LL;
   v14 = 0LL;
-  WORD1(v12) = 3;
-  if ( *(_WORD *)(a1 + 2) == 1 )
+  v15 = 0LL;
+  v5 = *(_WORD *)(a1 + 2);
+  WORD1(v13) = 3;
+  if ( v5 == 1 )
   {
     if ( IsCompatableDSDTRevision() )
     {
-      v7 = *(_QWORD *)(a1 + 16);
-      v8 = 8;
+      v8 = *(_QWORD *)(a1 + 16);
+      v9 = 8;
     }
     else
     {
-      v7 = *(unsigned int *)(a1 + 16);
-      v8 = 4;
+      v8 = *(unsigned int *)(a1 + 16);
+      v9 = 4;
     }
-    DWORD2(v13) = v8;
-    v9 = (_BYTE *)HeapAlloc(gpheapGlobal, 1381258056, v8);
-    v14 = v9;
-    if ( v9 )
+    DWORD2(v14) = v9;
+    v10 = (_BYTE *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v9);
+    v15 = v10;
+    if ( v10 )
     {
-      v10 = v8;
+      v11 = v9;
       do
       {
-        *v9++ = v7;
-        v7 >>= 8;
-        --v10;
+        *v10++ = v8;
+        v8 >>= 8;
+        --v11;
       }
-      while ( v10 );
-      goto LABEL_14;
+      while ( v11 );
+      goto LABEL_15;
     }
     return (unsigned int)-1073741670;
   }
-  if ( (unsigned int)*(unsigned __int16 *)(a1 + 2) - 2 < 2 )
+  if ( v5 > 1u && v5 <= 3u )
   {
-    v5 = *(_DWORD *)(a1 + 24);
-    if ( !v5 )
+    v6 = *(_DWORD *)(a1 + 24);
+    if ( !v6 )
     {
-LABEL_14:
+LABEL_15:
       FreeDataBuffs(a2, 1u);
-      *(_OWORD *)a2 = v12;
-      *(_OWORD *)(a2 + 16) = v13;
-      *(_QWORD *)(a2 + 32) = v14;
+      *(_OWORD *)a2 = v13;
+      *(_OWORD *)(a2 + 16) = v14;
+      *(_QWORD *)(a2 + 32) = v15;
       return v2;
     }
-    DWORD2(v13) = *(_DWORD *)(a1 + 24);
-    v6 = (_BYTE *)HeapAlloc(gpheapGlobal, 1381258056, v5);
-    v14 = v6;
-    if ( v6 )
+    DWORD2(v14) = *(_DWORD *)(a1 + 24);
+    v7 = (_BYTE *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v6);
+    v15 = v7;
+    if ( v7 )
     {
-      memmove(v6, *(const void **)(a1 + 32), v5);
-      goto LABEL_14;
+      memmove(v7, *(const void **)(a1 + 32), v6);
+      goto LABEL_15;
     }
     return (unsigned int)-1073741670;
   }

@@ -1,89 +1,84 @@
 /*
- * XREFs of ?ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18007FC08
+ * XREFs of ?ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800C6CD8
  * Callers:
- *     ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800109B0 (-EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush.c)
- *     ?MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z @ 0x18003593C (-MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z.c)
- *     ?ConfigureIntermediateFromBackdropInput@CBrushRenderingGraph@@KAXAEBUIntermediateConfigurationInputs@1@PEAUIntermediateConfigurationOutputs@1@@Z @ 0x1800379B4 (-ConfigureIntermediateFromBackdropInput@CBrushRenderingGraph@@KAXAEBUIntermediateConfigurationIn.c)
- *     ?ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@PEAU3@@Z @ 0x180037F24 (-ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@.c)
- *     ?DeterminePreScale@CBlurRenderingGraph@@SAXAEBUEffectInput@@0W4D2D1_GAUSSIANBLUR_OPTIMIZATION@@AEBUD2D_VECTOR_2F@@PEAU4@@Z @ 0x180038408 (-DeterminePreScale@CBlurRenderingGraph@@SAXAEBUEffectInput@@0W4D2D1_GAUSSIANBLUR_OPTIMIZATION@@A.c)
- *     ?EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x180076920 (-EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX.c)
- *     ?ProcessRenderCommands_OffscreenRenderPass@CCpuClipAntialiasSinkContext@@AEAAJPEAVCDrawingContext@@IPEAV?$list@USinkRenderCommand@CCpuClipAntialiasSinkContext@@V?$allocator@USinkRenderCommand@CCpuClipAntialiasSinkContext@@@std@@@std@@PEBV?$vector_facade@UBounds@CCpuClipAntialiasSink@@V?$buffer_impl@UBounds@CCpuClipAntialiasSink@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180091448 (-ProcessRenderCommands_OffscreenRenderPass@CCpuClipAntialiasSinkContext@@AEAAJPEAVCDrawingContex.c)
- *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PEAVCImageSource@@PEBUD2D_RECT_F@@3M@Z @ 0x1800B4AD0 (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEnt_ea_1800B4AD0.c)
- *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x1801FC9F8 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
- *     ?CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@MPEAPEAVCDrawListBrush@@@Z @ 0x180229520 (-CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZ.c)
- *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x180249148 (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
- *     ?GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x18024ACA8 (-GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z.c)
+ *     ?CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@MPEAPEAVCDrawListBrush@@@Z @ 0x180006598 (-CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZ.c)
+ *     ?GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x180008BA4 (-GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z.c)
+ *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NPEAVCImageSource@@PEBUD2D_RECT_F@@4M@Z @ 0x1800C696C (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEnt_ea_1800C696C.c)
+ *     ?EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F2530 (-EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX.c)
+ *     ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F3240 (-EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush.c)
+ *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x18019DC38 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
+ *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x1801E392C (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z @ 0x1800C6DEC (-AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 char __fastcall D2DMatrixHelper::ComputeRectangleTransform(
-        D2DMatrixHelper *this,
+        const struct D2D_RECT_F *this,
         const struct D2D_RECT_F *a2,
         const struct D2D_RECT_F *a3,
         struct D2D_MATRIX_3X2_F *a4)
 {
-  float v4; // xmm3_4
-  float left; // xmm4_4
-  char v6; // r9
-  float v7; // xmm6_4
-  float v8; // xmm5_4
-  float v9; // xmm2_4
-  float top; // xmm1_4
-  float v11; // xmm0_4
-  __int64 v12; // xmm1_8
-  __int64 v13; // rax
-  __int128 v15; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-50h]
-  float v17[6]; // [rsp+38h] [rbp-48h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-30h] BYREF
-  int v19; // [rsp+60h] [rbp-20h]
-  int v20; // [rsp+64h] [rbp-1Ch]
+  float *v4; // rdx
+  float *v5; // rcx
+  __int64 v6; // r9
+  char v7; // r10
+  float v8; // xmm2_4
+  float v9; // xmm5_4
+  float v10; // xmm4_4
+  float v11; // xmm3_4
+  float v12; // xmm1_4
+  float v13; // xmm0_4
+  float v14; // xmm2_4
+  __int64 v15; // xmm1_8
+  __int64 v16; // r9
+  __int128 v18; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v19; // [rsp+30h] [rbp-40h]
+  float v20[6]; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v21; // [rsp+50h] [rbp-20h] BYREF
+  int v22; // [rsp+60h] [rbp-10h]
+  int v23; // [rsp+64h] [rbp-Ch]
 
-  v4 = *(float *)this;
-  left = a2->left;
-  v6 = 1;
-  if ( *(float *)this == a2->left
-    && *((float *)this + 1) == a2->top
-    && *((float *)this + 2) == a2->right
-    && *((float *)this + 3) == a2->bottom )
+  if ( AreEqual(this, a2) )
   {
-    *(_QWORD *)&a3->left = 1065353216LL;
-    a3->right = 0.0;
-    *(_QWORD *)&a3->bottom = 1065353216LL;
-    a3[1].top = 0.0;
+    *(_QWORD *)v6 = 1065353216LL;
+    *(_DWORD *)(v6 + 8) = 0;
+    *(_QWORD *)(v6 + 12) = 1065353216LL;
+    *(_DWORD *)(v6 + 20) = 0;
   }
   else
   {
-    v7 = *((float *)this + 1);
-    v8 = *((float *)this + 2) - v4;
-    v9 = *((float *)this + 3) - v7;
-    if ( v8 == 0.0 && v9 == 0.0 )
+    v8 = *v5;
+    v9 = v5[1];
+    v10 = v5[2] - *v5;
+    v11 = v5[3] - v9;
+    if ( v10 == 0.0 && v11 == 0.0 )
     {
       return 0;
     }
     else
     {
-      top = a2->top;
-      v17[1] = 0.0;
-      v17[2] = 0.0;
-      v18 = *(_OWORD *)&_xmm;
-      v11 = a2->right - left;
-      v19 = LODWORD(v4) ^ _xmm;
-      v20 = LODWORD(v7) ^ _xmm;
-      v17[4] = left;
-      v17[5] = top;
-      v17[0] = v11 / v8;
-      v17[3] = (float)(a2->bottom - top) / v9;
+      v12 = v4[1];
+      v20[1] = 0.0;
+      v20[2] = 0.0;
+      v21 = _xmm;
+      v13 = v4[2];
+      v22 = LODWORD(v8) ^ _xmm;
+      v14 = *v4;
+      v23 = LODWORD(v9) ^ _xmm;
+      v20[4] = v14;
+      v20[5] = v12;
+      v20[0] = (float)(v13 - v14) / v10;
+      v20[3] = (float)(v4[3] - v12) / v11;
       D2D1::Matrix3x2F::SetProduct(
-        (D2D1::Matrix3x2F *)&v15,
-        (const struct D2D1::Matrix3x2F *)&v18,
-        (const struct D2D1::Matrix3x2F *)v17);
-      v12 = v16;
-      *(_OWORD *)v13 = v15;
-      *(_QWORD *)(v13 + 16) = v12;
+        (D2D1::Matrix3x2F *)&v18,
+        (const struct D2D1::Matrix3x2F *)&v21,
+        (const struct D2D1::Matrix3x2F *)v20);
+      v15 = v19;
+      *(_OWORD *)v16 = v18;
+      *(_QWORD *)(v16 + 16) = v15;
     }
   }
-  return v6;
+  return v7;
 }

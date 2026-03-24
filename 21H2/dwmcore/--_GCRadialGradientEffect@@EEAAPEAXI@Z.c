@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCRadialGradientEffect@@EEAAPEAXI@Z @ 0x1802ABCD0
+ * XREFs of ??_GCRadialGradientEffect@@EEAAPEAXI@Z @ 0x1802699C0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CRadialGradientEffect *__fastcall CRadialGradientEffect::`scalar deleting destructor'(

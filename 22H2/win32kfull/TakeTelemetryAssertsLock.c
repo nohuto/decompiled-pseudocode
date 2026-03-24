@@ -1,8 +1,8 @@
 /*
- * XREFs of TakeTelemetryAssertsLock @ 0x1C00B7CE8
+ * XREFs of TakeTelemetryAssertsLock @ 0x1C0132154
  * Callers:
- *     UninitializeTelemetryAssertsKM @ 0x1C00B7A98 (UninitializeTelemetryAssertsKM.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C03076A8 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C0132044 (UninitializeTelemetryAssertsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C02DF120 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */

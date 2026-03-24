@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C016A0A0
+ * XREFs of ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C013CF30
  * Callers:
  *     <none>
  * Callees:
- *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0019374 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0019EB0 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0080694 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0085B30 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
  */
 
 __int64 __fastcall EPATHOBJ::bAppend(EPATHOBJ *this, struct EPATHOBJ *a2, struct _POINTFIX *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall EPATHOBJ::bAppend(EPATHOBJ *this, struct EPATHOBJ *a2, struct
   int v12; // [rsp+20h] [rbp-10h] BYREF
   int v13; // [rsp+24h] [rbp-Ch]
   __int64 *v14; // [rsp+28h] [rbp-8h]
-  struct _POINTL v15; // [rsp+58h] [rbp+28h] BYREF
+  struct _POINTL v15; // [rsp+68h] [rbp+38h] BYREF
 
   v3 = *((_QWORD *)a2 + 1);
   v13 = 0;
@@ -37,9 +37,9 @@ __int64 __fastcall EPATHOBJ::bAppend(EPATHOBJ *this, struct EPATHOBJ *a2, struct
     }
     v8 = *((_DWORD *)i + 4);
     v9 = *((_DWORD *)i + 5);
+    v13 = v9;
     v12 = v8 & 0x10;
     v14 = i + 3;
-    v13 = v9;
     if ( (v8 & 1) != 0 )
     {
       v15.x = a3->x + *((_DWORD *)i + 6);

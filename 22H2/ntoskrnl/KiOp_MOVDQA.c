@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_MOVDQA @ 0x14057FB40
+ * XREFs of KiOp_MOVDQA @ 0x140524910
  * Callers:
  *     <none>
  * Callees:
- *     KiOpPatchCode @ 0x14057F490 (KiOpPatchCode.c)
+ *     KiOpPatchCode @ 0x140524674 (KiOpPatchCode.c)
  */
 
 __int64 __fastcall KiOp_MOVDQA(__int64 a1)

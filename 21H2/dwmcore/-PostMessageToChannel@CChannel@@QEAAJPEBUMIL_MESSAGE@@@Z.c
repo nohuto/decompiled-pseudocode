@@ -1,16 +1,16 @@
 /*
- * XREFs of ?PostMessageToChannel@CChannel@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x1800E7198
+ * XREFs of ?PostMessageToChannel@CChannel@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x180028358
  * Callers:
- *     ?PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z @ 0x1800E7040 (-PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z @ 0x180028210 (-PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z.c)
  * Callees:
- *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x180044330 (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x1800374F8 (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CChannel::PostMessageToChannel(CChannel *this, const struct MIL_MESSAGE *a2)
 {
   int v4; // eax
-  __int64 v5; // rcx
+  unsigned int v5; // ecx
   unsigned int v6; // edi
   _OWORD *v7; // rbx
   CChannel **v8; // rcx
@@ -21,7 +21,7 @@ __int64 __fastcall CChannel::PostMessageToChannel(CChannel *this, const struct M
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x1BDu);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x1A5u, 0LL);
   }
   else
   {

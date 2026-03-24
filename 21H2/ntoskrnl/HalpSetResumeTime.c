@@ -1,56 +1,60 @@
 /*
- * XREFs of HalpSetResumeTime @ 0x14039157C
+ * XREFs of HalpSetResumeTime @ 0x140386740
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
+ *     HalpEfiInitializeOnResume @ 0x1404C40E4 (HalpEfiInitializeOnResume.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
  * Callees:
- *     ExLocalTimeToSystemTime @ 0x14022D7D0 (ExLocalTimeToSystemTime.c)
- *     HalpSetVirtualRtc @ 0x14022DA40 (HalpSetVirtualRtc.c)
- *     HalpQueryVirtualRtc @ 0x14038B7AC (HalpQueryVirtualRtc.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     HalpSetVirtualRtc @ 0x1402B617C (HalpSetVirtualRtc.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     HalpQueryVirtualRtc @ 0x14038402C (HalpQueryVirtualRtc.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
+void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
 {
-  unsigned __int64 v2; // r10
-  unsigned __int64 v3; // rcx
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  bool v6; // [rsp+38h] [rbp+10h] BYREF
-  unsigned __int64 v7; // [rsp+40h] [rbp+18h] BYREF
-  LARGE_INTEGER v8; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v2; // rax
+  NTSTATUS v3; // ecx
+  unsigned __int64 v4; // r10
+  ULONGLONG v5; // r9
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  bool v9; // [rsp+48h] [rbp+10h] BYREF
+  ULONGLONG pullResult; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int64 v11; // [rsp+58h] [rbp+20h] BYREF
 
-  v8.QuadPart = 0LL;
-  v7 = 0LL;
-  if ( a2 )
+  v8[0] = 0LL;
+  v11 = 0LL;
+  pullResult = 0LL;
+  if ( (_DWORD)a2 )
   {
     if ( HalpResumeFromHibernate )
     {
-      if ( a2 == 1 )
+      if ( (_DWORD)a2 == 1 )
       {
-        if ( (HalpResumeFlags & 1) == 0 && HalpResumeTime.QuadPart )
+        if ( (HalpResumeFlags & 1) == 0 && HalpResumeTime )
         {
           if ( (HalpResumeFlags & 2) == 0 && !ExpRealTimeIsUniversal )
-            ExLocalTimeToSystemTime(&HalpResumeTime, &HalpResumeTime);
-          v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C01E40)(&v7) - HalpTimeStampAtResume;
-          if ( is_mul_ok(v2, 0x989680uLL) )
-            v3 = v2 * (unsigned __int128)0x989680uLL / v7;
-          else
-            v3 = 10000000 * (v2 / v7) + 10000000 * (v2 % v7) / v7;
-          HalpResumeTime.QuadPart += v3;
+            HalpResumeTime += *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals((__int64)a1, a2) + 133) + 440LL);
+          v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C007F0)(&v11);
+          v3 = RtlULongLongMult(v2 - HalpTimeStampAtResume, 0x989680uLL, &pullResult);
+          v5 = pullResult / v11;
+          if ( v3 < 0 )
+            v5 = 10000000 * (v4 / v11) + 10000000 * (v4 % v11) / v11;
+          HalpResumeTime += v5;
         }
       }
-      else if ( a2 == 2 )
+      else if ( (_DWORD)a2 == 2 )
       {
-        if ( (HalpResumeFlags & 1) != 0
-          || !HalpResumeTime.QuadPart
-          || HalpQueryVirtualRtc(&v8, &v6) && HalpResumeTime.QuadPart < v8.QuadPart )
+        if ( (HalpResumeFlags & 1) != 0 || !HalpResumeTime || HalpQueryVirtualRtc(v8, &v9) && HalpResumeTime < v8[0] )
         {
           HalpVrtcTimeStale = 1;
         }
         else
         {
-          HalpSetVirtualRtc((__int64 *)&HalpResumeTime, v4, v5);
-          HalpResumeTime.QuadPart = 0LL;
+          HalpSetVirtualRtc(&HalpResumeTime, v6, v7);
+          HalpResumeTime = 0LL;
         }
       }
     }
@@ -58,7 +62,7 @@ void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
   else if ( a1 )
   {
     HalpResumeTime = a1[15];
-    HalpTimeStampAtResume = a1[16].QuadPart;
-    HalpResumeFlags = a1[17].QuadPart;
+    HalpTimeStampAtResume = a1[16];
+    HalpResumeFlags = a1[17];
   }
 }

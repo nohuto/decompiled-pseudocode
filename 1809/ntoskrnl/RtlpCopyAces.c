@@ -2,11 +2,11 @@
  * XREFs of RtlpCopyAces @ 0x14062FDC0
  * Callers:
  *     RtlpInheritAcl2 @ 0x14062ED40 (RtlpInheritAcl2.c)
- *     RtlpComputeMergedAcl2 @ 0x140894624 (RtlpComputeMergedAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x140894604 (RtlpComputeMergedAcl2.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlpCopyEffectiveAce @ 0x140630400 (RtlpCopyEffectiveAce.c)
  */
 

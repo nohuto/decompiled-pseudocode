@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriverSpecifyReturn @ 0x1401731B0 (IofCallDriverSpecifyReturn.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     IofCallDriverSpecifyReturn @ 0x1401731D0 (IofCallDriverSpecifyReturn.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierPoCallDriver(void *a1, __int64 a2)

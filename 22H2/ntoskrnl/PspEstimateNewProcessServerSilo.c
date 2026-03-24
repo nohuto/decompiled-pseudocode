@@ -1,12 +1,12 @@
 /*
- * XREFs of PspEstimateNewProcessServerSilo @ 0x1406B9020
+ * XREFs of PspEstimateNewProcessServerSilo @ 0x14060D7A8
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020C010 (PsGetEffectiveServerSilo.c)
- *     PsGetProcessServerSilo @ 0x14028C060 (PsGetProcessServerSilo.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     PsGetProcessServerSilo @ 0x14025C2E0 (PsGetProcessServerSilo.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140361880 (PsGetEffectiveServerSilo.c)
  */
 
 __int64 __fastcall PspEstimateNewProcessServerSilo(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -24,7 +24,7 @@ __int64 __fastcall PspEstimateNewProcessServerSilo(__int64 a1, __int64 a2, unsig
   }
   v6 = 0;
   if ( !a3 )
-    return PdcCreateWatchdogAroundClientCall();
+    return HalSystemVectorDispatchEntry();
   v8 = 0LL;
   while ( 1 )
   {
@@ -33,7 +33,7 @@ __int64 __fastcall PspEstimateNewProcessServerSilo(__int64 a1, __int64 a2, unsig
       break;
     v8 = ++v6;
     if ( v6 >= a3 )
-      return PdcCreateWatchdogAroundClientCall();
+      return HalSystemVectorDispatchEntry();
   }
   return EffectiveServerSilo;
 }

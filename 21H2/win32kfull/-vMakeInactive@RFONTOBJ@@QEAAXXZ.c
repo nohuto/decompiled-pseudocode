@@ -1,65 +1,72 @@
 /*
- * XREFs of ?vMakeInactive@RFONTOBJ@@QEAAXXZ @ 0x1C000A82C
+ * XREFs of ?vMakeInactive@RFONTOBJ@@QEAAXXZ @ 0x1C009CFCC
  * Callers:
- *     RFONTOBJ_vConstructPRFONTWrap @ 0x1C000A800 (RFONTOBJ_vConstructPRFONTWrap.c)
- *     ??1RESETFCOBJ@@QEAA@XZ @ 0x1C001C0B0 (--1RESETFCOBJ@@QEAA@XZ.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C015154C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A5B8C (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C1E4 (GreGetGlyphOutlineInternal.c)
+ *     RFONTOBJ_vConstructPRFONTWrap @ 0x1C009CFA0 (RFONTOBJ_vConstructPRFONTWrap.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7DFC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A79B8 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C000A940 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?bValid@RFONTOBJ@@QEBAHXZ @ 0x1C0090814 (-bValid@RFONTOBJ@@QEBAHXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C009D160 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bActive@RFONTOBJ@@QEBA_NAEBVSEMOBJSHARED@@@Z @ 0x1C016AB18 (-bActive@RFONTOBJ@@QEBA_NAEBVSEMOBJSHARED@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ??0SEMOBJ@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C026D714 (--0SEMOBJ@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ??1SEMOBJ@@QEAA@XZ @ 0x1C026D7BC (--1SEMOBJ@@QEAA@XZ.c)
  */
 
 void __fastcall RFONTOBJ::vMakeInactive(RFONTOBJ *this)
 {
-  __int64 v2; // rax
+  const struct SEMOBJSHARED *v2; // rdx
   unsigned int v3; // ecx
   struct RFONT **v4; // rbx
-  int v5; // edi
+  int v5; // esi
   int InactiveHelper; // eax
   struct RFONT *v7; // rcx
   int v8; // ebp
-  __int64 v9; // rcx
-  __int64 v10; // rsi
-  _QWORD v11[2]; // [rsp+20h] [rbp-98h] BYREF
-  struct RFONT *v12[14]; // [rsp+30h] [rbp-88h] BYREF
+  __int64 v9; // rdi
+  _QWORD v10[2]; // [rsp+20h] [rbp-98h] BYREF
+  _BYTE v11[112]; // [rsp+30h] [rbp-88h] BYREF
 
-  memset(v12, 0, sizeof(v12));
-  v2 = *(_QWORD *)this;
-  if ( *(_QWORD *)this && *(_DWORD *)(v2 + 660) )
+  memset(v11, 0, sizeof(v11));
+  if ( RFONTOBJ::bValid(this) )
   {
-    v3 = *(_DWORD *)(v2 + 840);
-    if ( v3 > 0xA )
+    SEMOBJ::SEMOBJ((SEMOBJ *)v10, ghsemRFONTList);
+    if ( !RFONTOBJ::bActive(this, v2) )
     {
-      v9 = 8 * v3 + 32;
-      if ( !(_DWORD)v9 )
-        return;
-      v4 = (struct RFONT **)Win32AllocPoolZInit(v9, 1718382187LL);
-      if ( !v4 )
-        return;
-      v5 = 1;
+      SEMOBJ::~SEMOBJ((SEMOBJ *)v10);
+      return;
+    }
+    SEMOBJ::~SEMOBJ((SEMOBJ *)v10);
+    v3 = *(_DWORD *)(*(_QWORD *)this + 840LL);
+    if ( v3 <= 0xA )
+    {
+      v4 = (struct RFONT **)v11;
+      v5 = 0;
     }
     else
     {
-      v4 = v12;
-      v5 = 0;
+      v4 = (struct RFONT **)PALLOCMEM2(8 * v3 + 32);
+      if ( !v4 )
+        return;
+      v5 = 1;
     }
     InactiveHelper = RFONTOBJ::bMakeInactiveHelper(this, v4);
     v7 = *v4;
     v8 = InactiveHelper;
     if ( *v4 )
     {
-      v10 = 0LL;
+      v9 = 0LL;
       do
       {
-        v11[0] = v7;
-        RFONTOBJ::bMakeInactiveHelper((RFONTOBJ *)v11, 0LL);
-        v11[0] = 0LL;
-        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v11);
-        v7 = v4[++v10];
+        v10[0] = v7;
+        RFONTOBJ::bMakeInactiveHelper((RFONTOBJ *)v10, 0LL);
+        v10[0] = 0LL;
+        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v10);
+        v7 = v4[++v9];
       }
       while ( v7 );
     }

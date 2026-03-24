@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z @ 0x18029D380
+ * XREFs of ?UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z @ 0x18024C8E0
  * Callers:
  *     <none>
  * Callees:

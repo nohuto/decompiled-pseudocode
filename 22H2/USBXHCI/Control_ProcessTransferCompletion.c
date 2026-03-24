@@ -1,12 +1,12 @@
 /*
- * XREFs of Control_ProcessTransferCompletion @ 0x1C0042604
+ * XREFs of Control_ProcessTransferCompletion @ 0x1C0019B38
  * Callers:
- *     Control_WdfEvtDpcForTransferCompletion @ 0x1C0042E30 (Control_WdfEvtDpcForTransferCompletion.c)
- *     Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0043360 (Control_WdfEvtWorkItemForTransferCompletion.c)
+ *     Control_WdfEvtDpcForTransferCompletion @ 0x1C0019B00 (Control_WdfEvtDpcForTransferCompletion.c)
+ *     Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0040640 (Control_WdfEvtWorkItemForTransferCompletion.c)
  * Callees:
- *     Control_Transfer_CompleteCancelable @ 0x1C0006FEC (Control_Transfer_CompleteCancelable.c)
- *     TR_TransfersReclaimed @ 0x1C000E5A8 (TR_TransfersReclaimed.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     Control_Transfer_CompleteCancelable @ 0x1C00041A4 (Control_Transfer_CompleteCancelable.c)
+ *     TR_TransfersReclaimed @ 0x1C000BBB4 (TR_TransfersReclaimed.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Control_ProcessTransferCompletion(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall Control_ProcessTransferCompletion(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063388);
+         off_1C0060388);
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 96));
   v4 = *(_QWORD *)(v2 + 344) == 0LL;
   *(_BYTE *)(v2 + 104) = v3;

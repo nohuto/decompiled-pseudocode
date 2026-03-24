@@ -1,23 +1,25 @@
 /*
- * XREFs of RtlSetSystemBootStatus @ 0x1407EDAF0
+ * XREFs of RtlSetSystemBootStatus @ 0x140790690
  * Callers:
- *     PopBsdHandleRequest @ 0x1403697C8 (PopBsdHandleRequest.c)
- *     PopWriteBsdPoInfo @ 0x1403A68B0 (PopWriteBsdPoInfo.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x14082876C (PopRecordLongPowerButtonPressDetected.c)
- *     PopProcessBootstat @ 0x140B2C0C0 (PopProcessBootstat.c)
+ *     PopBsdHandleRequest @ 0x1403F8020 (PopBsdHandleRequest.c)
+ *     PopWriteBsdPoInfo @ 0x1403F8074 (PopWriteBsdPoInfo.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x1407905E4 (PopRecordLongPowerButtonPressDetected.c)
+ *     PopProcessBootstat @ 0x140A39280 (PopProcessBootstat.c)
  * Callees:
- *     RtlpSystemBootStatusRequest @ 0x1407EDB2C (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x1407906CC (RtlpSystemBootStatusRequest.c)
  */
 
-__int64 __fastcall RtlSetSystemBootStatus(int a1, __int64 a2, int a3)
+__int64 __fastcall RtlSetSystemBootStatus(int a1, __int64 a2, int a3, __int64 a4)
 {
-  _DWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-20h]
-  int v6; // [rsp+30h] [rbp-18h]
+  _DWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-20h]
+  int v7; // [rsp+30h] [rbp-18h]
+  int v8; // [rsp+34h] [rbp-14h]
 
-  v4[0] = a1;
-  v4[1] = 0;
-  v5 = a2;
-  v6 = a3;
-  return RtlpSystemBootStatusRequest(32LL, v4, 1LL);
+  v5[1] = 0;
+  v8 = 0;
+  v7 = a3;
+  v5[0] = a1;
+  v6 = a2;
+  return RtlpSystemBootStatusRequest(32LL, v5, 1LL, a4);
 }

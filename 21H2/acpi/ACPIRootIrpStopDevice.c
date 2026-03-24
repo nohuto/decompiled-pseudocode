@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIRootIrpStopDevice @ 0x1C00B4A00
+ * XREFs of ACPIRootIrpStopDevice @ 0x1C00B5230
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 __int64 __fastcall ACPIRootIrpStopDevice(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax
-  char v4; // di
+  __int64 v4; // rdi
   unsigned __int8 MinorFunction; // bp
   unsigned int v6; // esi
   __int64 v7; // rcx
@@ -22,12 +22,12 @@ __int64 __fastcall ACPIRootIrpStopDevice(ULONG_PTR a1, IRP *a2)
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = DeviceExtension;
   MinorFunction = a2->Tail.Overlay.CurrentStackLocation->MinorFunction;
-  if ( *(_DWORD *)(DeviceExtension + 368) == 1 )
+  if ( *(_DWORD *)(DeviceExtension + 328) == 1 )
   {
-    *(_DWORD *)(DeviceExtension + 368) = 0;
+    *(_DWORD *)(DeviceExtension + 328) = 0;
     ++a2->CurrentLocation;
     ++a2->Tail.Overlay.CurrentStackLocation;
-    v6 = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+    v6 = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   }
   else
   {
@@ -35,6 +35,9 @@ __int64 __fastcall ACPIRootIrpStopDevice(ULONG_PTR a1, IRP *a2)
     a2->IoStatus.Status = -1073741808;
     IofCompleteRequest(a2, 0);
   }
+  v7 = 0x200000000000LL;
+  if ( (*(_QWORD *)(v4 + 8) & 0x200000000000LL) != 0 )
+    v7 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
@@ -43,7 +46,7 @@ __int64 __fastcall ACPIRootIrpStopDevice(ULONG_PTR a1, IRP *a2)
       4u,
       5u,
       0x1Bu,
-      (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
       IrpText,
       v6,

@@ -1,49 +1,50 @@
 /*
- * XREFs of TraceDxgkPatchLocationList @ 0x1C004EA88
+ * XREFs of TraceDxgkPatchLocationList @ 0x1C0044CC8
  * Callers:
- *     ?SubmitPresentWithDmaBuffer@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAVDXGHWQUEUE@@PEAVDXGALLOCATION@@2PEAU_DXGKARG_PRESENT@@PEAU_VIDMM_DMA_BUFFER@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01697F0 (-SubmitPresentWithDmaBuffer@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAVDXGHWQUEUE@@PEAVDXGALLOCAT.c)
- *     ?Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C01C04F0 (-Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSH.c)
+ *     ?Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C00F4E90 (-Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSH.c)
+ *     ?SubmitPresentWithDmaBuffer@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAVDXGHWQUEUE@@PEAVDXGALLOCATION@@2PEAU_DXGKARG_PRESENT@@PEAU_VIDMM_DMA_BUFFER@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00F85D0 (-SubmitPresentWithDmaBuffer@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAVDXGHWQUEUE@@PEAVDXGALLOCAT.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer @ 0x1C004E8FC (McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer @ 0x1C0044B40 (McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall TraceDxgkPatchLocationList(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+unsigned int __fastcall TraceDxgkPatchLocationList(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  NTSTATUS result; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  unsigned int v12; // r10d
-  __int64 v13; // r8
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  __int64 v11; // r8
+  unsigned int result; // eax
+  unsigned int v13; // r10d
   unsigned __int64 v14; // r9
   __int64 v15; // rax
   __int64 v16; // [rsp+28h] [rbp-D8h]
-  _BYTE v18[256]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v19[256]; // [rsp+180h] [rbp+80h] BYREF
-  _BYTE v20[256]; // [rsp+280h] [rbp+180h] BYREF
-  _BYTE v21[256]; // [rsp+380h] [rbp+280h] BYREF
-  _DWORD v22[64]; // [rsp+480h] [rbp+380h] BYREF
-  _BYTE v23[256]; // [rsp+580h] [rbp+480h] BYREF
-  _DWORD v24[64]; // [rsp+680h] [rbp+580h] BYREF
+  _BYTE v18[256]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v19[256]; // [rsp+170h] [rbp+70h] BYREF
+  _BYTE v20[256]; // [rsp+270h] [rbp+170h] BYREF
+  _BYTE v21[256]; // [rsp+370h] [rbp+270h] BYREF
+  _DWORD v22[64]; // [rsp+470h] [rbp+370h] BYREF
+  _BYTE v23[256]; // [rsp+570h] [rbp+470h] BYREF
+  _DWORD v24[64]; // [rsp+670h] [rbp+570h] BYREF
 
-  result = (unsigned int)memset(v22, 0, sizeof(v22));
-  v11 = 0;
+  memset(v22, 0, sizeof(v22));
+  v10 = 0;
   do
   {
-    v12 = 0;
-    v13 = a3 - v11;
-    if ( (unsigned int)v13 >= 0x40 )
+    v11 = 64LL;
+    result = a3 - v10;
+    if ( a3 - v10 < 0x40 )
+      v11 = result;
+    v13 = 0;
+    if ( (_DWORD)v11 )
     {
-      v13 = 64LL;
-LABEL_6:
       v14 = 0LL;
       do
       {
-        v15 = v12 + v11;
-        ++v12;
-        v9 = 3 * v15;
+        v15 = v13 + v10;
+        ++v13;
+        v8 = 3 * v15;
         v24[v14 / 4] = *(_DWORD *)(a4 + 24 * v15);
         v14 += 4LL;
         v22[v14 / 4 + 63] = *(_DWORD *)(a4 + 24 * v15 + 4) & 0xFFFFFF;
@@ -53,20 +54,16 @@ LABEL_6:
         result = *(_DWORD *)(a4 + 24 * v15 + 20);
         *(_DWORD *)&v18[v14 - 4] = result;
       }
-      while ( v12 < (unsigned int)v13 );
-      goto LABEL_8;
+      while ( v13 < (unsigned int)v11 );
     }
-    if ( (_DWORD)v13 )
-      goto LABEL_6;
-LABEL_8:
-    v11 += v13;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    v10 += v11;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x800) != 0 )
     {
-      LODWORD(v16) = v13;
+      LODWORD(v16) = v11;
       result = McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer(
-                 v10,
                  v9,
-                 v13,
+                 v8,
+                 v11,
                  a1,
                  a2,
                  v16,
@@ -79,6 +76,6 @@ LABEL_8:
                  v18);
     }
   }
-  while ( v11 < a3 );
+  while ( v10 < a3 );
   return result;
 }

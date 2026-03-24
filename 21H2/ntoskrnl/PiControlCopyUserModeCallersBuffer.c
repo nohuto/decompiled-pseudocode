@@ -1,11 +1,11 @@
 /*
- * XREFs of PiControlCopyUserModeCallersBuffer @ 0x14077C6D4
+ * XREFs of PiControlCopyUserModeCallersBuffer @ 0x140637680
  * Callers:
- *     PiControlMakeUserModeCallersCopy @ 0x14077C610 (PiControlMakeUserModeCallersCopy.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiControlCopyUserModeCallersBuffer(

@@ -1,18 +1,17 @@
 /*
- * XREFs of KeAcquireInterruptSpinLock @ 0x14033DCB0
+ * XREFs of KeAcquireInterruptSpinLock @ 0x14031EBF0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
 {
-  unsigned __int64 SynchronizeIrql; // r8
-  KIRQL CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r11
-  int v5; // edx
+  unsigned __int64 SynchronizeIrql; // rdx
+  KIRQL CurrentIrql; // di
+  _DWORD *SchedulerAssist; // r10
 
   SynchronizeIrql = Interrupt->SynchronizeIrql;
   if ( !(_BYTE)SynchronizeIrql )
@@ -22,11 +21,7 @@ KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(SynchronizeIrql - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == (_BYTE)SynchronizeIrql )
-      v5 = 1 << SynchronizeIrql;
-    else
-      v5 = ((1LL << ((unsigned __int8)SynchronizeIrql + 1)) - 1) & (-1LL << (CurrentIrql + 1)) & 0xFFFFFFFC;
-    SchedulerAssist[5] |= v5;
+    SchedulerAssist[5] |= ((1LL << ((unsigned __int8)SynchronizeIrql + 1)) - 1) & ~((1LL << (CurrentIrql + 1)) - 1) & 0xFFFFFFFC;
   }
   KxAcquireSpinLock(Interrupt->ActualLock);
   return CurrentIrql;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCheckDuplicateEntries @ 0x140654B28
+ * XREFs of ObpCheckDuplicateEntries @ 0x140654B08
  * Callers:
- *     ObpCaptureBoundaryDescriptor @ 0x1406548B8 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140654898 (ObpCaptureBoundaryDescriptor.c)
  * Callees:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CE4 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CC4 (RtlEnumerateBoundaryDescriptorEntries.c)
  */
 
 _BOOL8 __fastcall ObpCheckDuplicateEntries(__int64 a1)

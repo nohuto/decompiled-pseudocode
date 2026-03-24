@@ -1,32 +1,38 @@
 /*
- * XREFs of AMLIGetNameSpaceObjectNoLock @ 0x1C00484F0
+ * XREFs of AMLIGetNameSpaceObjectNoLock @ 0x1C000AF30
  * Callers:
- *     AMLIGetNameSpaceObject @ 0x1C00483D8 (AMLIGetNameSpaceObject.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
  * Callees:
- *     AMLIDebugger @ 0x1C004D650 (AMLIDebugger.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObjectNoLock @ 0x1C004F860 (GetNameSpaceObjectNoLock.c)
+ *     FreeNameSpaceObjects @ 0x1C0003A50 (FreeNameSpaceObjects.c)
+ *     GetNameSpaceObjectNoLock @ 0x1C0009160 (GetNameSpaceObjectNoLock.c)
+ *     AMLIDebugger @ 0x1C0065C80 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
-__int64 __fastcall AMLIGetNameSpaceObjectNoLock(_BYTE *a1, __int64 *a2, _QWORD *a3, unsigned int a4)
+__int64 __fastcall AMLIGetNameSpaceObjectNoLock(const char *Src, __int64 *a2, unsigned __int64 *a3, int a4)
 {
   __int64 v8; // rdx
   int NameSpaceObjectNoLock; // ebx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v11; // rdx
+  char v12; // al
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v13 = 0LL;
-  dword_1C006F938 = 0;
+  v19[0] = 0LL;
+  dword_1C0082908 = 0;
   pszDest = 0;
   if ( (gDebugger & 0x1000) != 0 )
   {
     ConPrintf("\nProcess AML Debugger Request.\n");
     _InterlockedAnd(&gDebugger, 0xFFFFEFFF);
-    AMLIDebugger();
+    AMLIDebugger(v15, v14, v16, v17);
   }
-  if ( a1 && *a1 )
+  if ( Src && *Src )
   {
     if ( a2 )
     {
@@ -38,22 +44,29 @@ __int64 __fastcall AMLIGetNameSpaceObjectNoLock(_BYTE *a1, __int64 *a2, _QWORD *
     {
       v8 = 0LL;
     }
-    NameSpaceObjectNoLock = GetNameSpaceObjectNoLock(a1, v8, &v13, a4);
+    NameSpaceObjectNoLock = GetNameSpaceObjectNoLock(Src, v8, (__int64 *)v19, a4);
     if ( NameSpaceObjectNoLock >= 0 )
     {
-      v10 = v13;
-      if ( v13 )
+      v10 = v19[0];
+      if ( v19[0] )
       {
-        dword_1C006F938 = 0;
-        v11 = v13 + 120;
+        dword_1C0082908 = 0;
+        v11 = v19[0] + 120;
         pszDest = 0;
         if ( (gdwfAMLI & 4) != 0 )
         {
-          _InterlockedIncrement((volatile signed __int32 *)(v13 + 128));
-          v10 = v13;
+          _InterlockedIncrement((volatile signed __int32 *)(v19[0] + 128));
+          v10 = v19[0];
         }
+        v12 = gdwfAMLI;
         *a3 = v11;
-        DereferenceObjectEx(v10, v11);
+        if ( (v12 & 4) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 112), 0xFFFFFFFF) == 1 )
+        {
+          v18 = v19[0];
+          *(_WORD *)(v19[0] + 64) |= 4u;
+          if ( (*(_WORD *)(v18 + 64) & 0x40) == 0 )
+            FreeNameSpaceObjects(v18);
+        }
       }
     }
     if ( NameSpaceObjectNoLock == 32772 )

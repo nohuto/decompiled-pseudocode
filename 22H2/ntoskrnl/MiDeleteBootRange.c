@@ -1,21 +1,22 @@
 /*
- * XREFs of MiDeleteBootRange @ 0x14038E378
+ * XREFs of MiDeleteBootRange @ 0x1403B4B18
  * Callers:
- *     MmFreeBootRegistry @ 0x140828E1C (MmFreeBootRegistry.c)
- *     MmFreeLoaderBlock @ 0x140B5E8D4 (MmFreeLoaderBlock.c)
+ *     MmFreeBootRegistry @ 0x14079FC8C (MmFreeBootRegistry.c)
+ *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
  * Callees:
- *     MiReturnSystemVa @ 0x140213B74 (MiReturnSystemVa.c)
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiReturnSystemVa @ 0x14027AC68 (MiReturnSystemVa.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiDeleteSystemPagableVm @ 0x140286100 (MiDeleteSystemPagableVm.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -25,210 +26,245 @@ __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, i
   unsigned __int64 v5; // r15
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // r12
-  __int64 v8; // r13
-  volatile LONG *SharedVm; // rbx
-  KIRQL v10; // al
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned __int8 v13; // r14
-  unsigned __int64 v14; // rbx
-  volatile LONG *v15; // rbx
-  KIRQL v16; // al
-  PVOID *v17; // r8
-  unsigned __int64 v18; // r9
-  unsigned __int8 v19; // si
-  unsigned __int64 v20; // rbx
+  LONG *SharedVm; // rbx
+  KIRQL v9; // al
+  KIRQL v10; // r14
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rbx
+  __int64 Flink; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // rbx
+  unsigned __int8 v17; // dl
+  __int64 v18; // r14
+  struct _KTHREAD *CurrentThread; // r13
+  LONG *v20; // rbx
+  KIRQL v21; // al
+  unsigned __int8 v22; // r12
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // rbx
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rbx
   struct _KPRCB *CurrentPrcb; // r9
-  unsigned __int64 v22; // r8
+  unsigned __int64 v30; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v24; // zf
-  signed __int32 v25; // eax
-  __int64 v26; // rdi
+  bool v32; // zf
+  signed __int32 v33; // eax
+  __int64 v34; // rdi
   __int64 result; // rax
-  unsigned __int64 v28; // rbx
-  unsigned __int64 v29; // rsi
-  unsigned __int64 v30; // rbp
-  __int16 v31; // ax
-  unsigned __int64 v32; // rbx
-  unsigned __int64 v33; // rdx
-  unsigned __int64 v34; // rcx
-  unsigned __int64 v35; // rcx
-  volatile LONG *v36; // rbx
-  KIRQL v37; // al
-  char *AnyMultiplexedVm; // [rsp+38h] [rbp-90h]
-  struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp-90h]
-  _OWORD v40[3]; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v41; // [rsp+70h] [rbp-58h]
-  unsigned __int64 v42; // [rsp+D0h] [rbp+8h] BYREF
-  unsigned __int64 v43; // [rsp+D8h] [rbp+10h]
-  int v44; // [rsp+E0h] [rbp+18h]
-  int v45; // [rsp+E8h] [rbp+20h] BYREF
+  __int64 v36; // rbx
+  unsigned __int64 v37; // rsi
+  unsigned __int64 i; // rbp
+  __int16 v39; // ax
+  PVOID *v40; // rdx
+  unsigned __int64 v41; // rbx
+  unsigned __int64 v42; // r8
+  unsigned __int64 v43; // rcx
+  unsigned __int64 v44; // rcx
+  LONG *v45; // rbx
+  KIRQL v46; // al
+  __int64 v47; // rax
+  __int64 v48; // rax
+  char *AnyMultiplexedVm; // [rsp+30h] [rbp-98h]
+  unsigned __int64 v50; // [rsp+38h] [rbp-90h]
+  _QWORD v51[16]; // [rsp+48h] [rbp-80h] BYREF
+  int v54; // [rsp+E0h] [rbp+18h] BYREF
+  int v55; // [rsp+E8h] [rbp+20h] BYREF
 
-  v44 = a3;
-  v43 = a2;
-  v42 = a1;
+  v54 = a3;
   v3 = a1;
   v4 = a2;
-  memset(v40, 0, sizeof(v40));
-  v41 = 0LL;
+  memset(v51, 0, 48);
   v5 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v6 = v5;
   v7 = (((a1 + 8 * a2 - 8) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v50 = v7;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v8 = (__int64)AnyMultiplexedVm;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)AnyMultiplexedVm);
-  v10 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  v13 = v10;
+  SharedVm = MiGetSharedVm((__int64)AnyMultiplexedVm);
+  v9 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
+  v10 = v9;
   if ( v5 <= v7 )
   {
+    v11 = v5;
     do
     {
-      v14 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v6) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      v45 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
+      v12 = *(_QWORD *)v6;
+      if ( MiPteInShadowRange(v11)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v12 & 1) != 0
+        && ((v12 & 0x20) == 0 || (v12 & 0x42) == 0) )
+      {
+        Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v47 = *(_QWORD *)(Flink + 8 * ((v6 >> 3) & 0x1FF));
+          Flink = v12 | 0x20;
+          if ( (v47 & 0x20) == 0 )
+            Flink = v12;
+          v12 = Flink;
+          if ( (v47 & 0x42) != 0 )
+            v12 = Flink | 0x42;
+        }
+      }
+      v16 = 48 * ((v12 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+      v54 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v45);
-        while ( *(__int64 *)(v14 + 24) < 0 );
+          KeYieldProcessorEx(&v54, Flink, v14, v15);
+        while ( *(__int64 *)(v16 + 24) < 0 );
       }
-      *(_QWORD *)(v14 + 24) ^= ((*(_QWORD *)(v14 + 24) + 1LL) ^ *(_QWORD *)(v14 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
-      _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      *(_QWORD *)(v16 + 24) ^= ((*(_QWORD *)(v16 + 24) + 1LL) ^ *(_QWORD *)(v16 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
+      _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       v6 += 8LL;
+      v11 = v6;
     }
     while ( v6 <= v7 );
-    v4 = v43;
-    v3 = v42;
-    v8 = (__int64)AnyMultiplexedVm;
+    v4 = a2;
+    v3 = a1;
   }
-  MiUnlockWorkingSetExclusive(v8, v13, v11, v12);
-  MiDeleteSystemPagableVm(v8, 0LL, v3, v4, 1, (struct _KTHREAD *)v40);
+  v17 = v10;
+  v18 = (__int64)AnyMultiplexedVm;
+  MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v17);
+  MiDeleteSystemPagableVm((__int64)AnyMultiplexedVm, 0LL, v3, v4, 1, v51);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
-  v15 = (volatile LONG *)MiGetSharedVm(v8);
-  v16 = ExAcquireSpinLockExclusive(v15);
-  *((_DWORD *)v15 + 1) = 0;
-  v19 = v16;
-  LOBYTE(v44) = v16;
-  if ( v5 <= v7 )
+  v20 = MiGetSharedVm((__int64)AnyMultiplexedVm);
+  v21 = ExAcquireSpinLockExclusive(v20);
+  v20[1] = 0;
+  v22 = v21;
+  if ( v5 <= v50 )
   {
+    v23 = v5;
     do
     {
-      v20 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v5) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      LODWORD(v42) = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v20 + 24), 0x3FuLL) )
+      v24 = *(_QWORD *)v5;
+      if ( MiPteInShadowRange(v23)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v24 & 1) != 0
+        && ((v24 & 0x20) == 0 || (v24 & 0x42) == 0) )
+      {
+        v25 = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( v25 )
+        {
+          v48 = *(_QWORD *)(v25 + 8 * ((v5 >> 3) & 0x1FF));
+          v25 = v24 | 0x20;
+          if ( (v48 & 0x20) == 0 )
+            v25 = v24;
+          v24 = v25;
+          if ( (v48 & 0x42) != 0 )
+            v24 = v25 | 0x42;
+        }
+      }
+      v28 = 48 * ((v24 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+      v55 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v28 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v42);
-        while ( *(__int64 *)(v20 + 24) < 0 );
+          KeYieldProcessorEx(&v55, v25, v26, v27);
+        while ( *(__int64 *)(v28 + 24) < 0 );
       }
-      *(_QWORD *)(v20 + 24) ^= ((*(_QWORD *)(v20 + 24) - 1LL) ^ *(_QWORD *)(v20 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
-      _InterlockedAnd64((volatile signed __int64 *)(v20 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( (*(_QWORD *)(v20 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+      *(_QWORD *)(v28 + 24) ^= ((*(_QWORD *)(v28 + 24) - 1LL) ^ *(_QWORD *)(v28 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
+      _InterlockedAnd64((volatile signed __int64 *)(v28 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( (*(_QWORD *)(v28 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
       {
-        v28 = (__int64)(v5 << 25) >> 16;
-        v29 = v28;
-        v30 = v28 + 4096;
-        if ( v28 >= v28 + 4096 )
+        v36 = (__int64)(v5 << 25) >> 16;
+        v37 = v36;
+        for ( i = v36 + 4096; v37 < i; v37 += 8LL )
         {
-LABEL_21:
-          if ( v29 == v30 )
+          v39 = MI_READ_PTE_LOCK_FREE(v37);
+          if ( (v39 & 0xC01) != 0 || (v39 & 0x3E0) != 0 && (v39 & 0x3E0) != 0x300LL )
+            break;
+        }
+        if ( v37 == i )
+        {
+          v40 = (PVOID *)PsLoadedModuleList;
+          v41 = v36 << 25 >> 16;
+          while ( 1 )
           {
-            v17 = (PVOID *)PsLoadedModuleList;
-            v32 = (__int64)(v28 << 25) >> 16;
-            v18 = ((unsigned int)dword_140C6997C + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
-            while ( 1 )
-            {
-              v33 = (unsigned __int64)v17[6];
-              v34 = v18 + v33 + (unsigned int)(*((_DWORD *)v17 + 16) - 1);
-              if ( v33 != PsNtosImageBase && v33 != PsHalImageBase )
-                v34 += (unsigned __int64)(unsigned int)dword_140C65944 << 12;
-              v35 = ((v34 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
-              if ( v5 >= ((v33 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL && v5 <= v35 )
-                break;
-              v17 = (PVOID *)*v17;
-              if ( v17 == &PsLoadedModuleList )
-              {
-                if ( !v17 )
-                  break;
-                MiUnlockWorkingSetExclusive(v8, v44, (__int64)v17, v18);
-                MiReturnSystemVa(v32, v32 + 0x200000, 12, 0LL);
-                v36 = (volatile LONG *)MiGetSharedVm(v8);
-                v37 = ExAcquireSpinLockExclusive(v36);
-                *((_DWORD *)v36 + 1) = 0;
-                v19 = v37;
-                LOBYTE(v44) = v37;
-                goto LABEL_10;
-              }
-            }
+            v42 = (unsigned __int64)v40[6];
+            v43 = v42
+                + (((unsigned int)dword_140C4CCB0 + 4095LL) & 0xFFFFFFFFFFFFF000uLL)
+                + (unsigned int)(*((_DWORD *)v40 + 16) - 1);
+            if ( v42 != PsNtosImageBase && v42 != PsHalImageBase )
+              v43 += (unsigned __int64)(unsigned int)dword_140C4CC4C << 12;
+            v44 = ((v43 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+            if ( v5 >= ((v42 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL && v5 <= v44 )
+              break;
+            v40 = (PVOID *)*v40;
+            if ( v40 == &PsLoadedModuleList )
+              goto LABEL_44;
+          }
+          v40 = 0LL;
+LABEL_44:
+          v18 = (__int64)AnyMultiplexedVm;
+          if ( v40 )
+          {
+            MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v22);
+            MiReturnSystemVa(v41, v41 + 0x200000, 12);
+            v45 = MiGetSharedVm((__int64)AnyMultiplexedVm);
+            v46 = ExAcquireSpinLockExclusive(v45);
+            v45[1] = 0;
+            v22 = v46;
           }
         }
         else
         {
-          while ( 1 )
-          {
-            v31 = MI_READ_PTE_LOCK_FREE(v29);
-            if ( (v31 & 0xC01) != 0 )
-              break;
-            if ( (v31 & 0x3E0) == 0 || (v31 & 0x3E0) == 0x300LL )
-            {
-              v29 += 8LL;
-              if ( v29 < v30 )
-                continue;
-            }
-            goto LABEL_21;
-          }
+          v18 = (__int64)AnyMultiplexedVm;
         }
-        v19 = v44;
       }
-LABEL_10:
       v5 += 8LL;
+      v23 = v5;
     }
-    while ( v5 <= v7 );
-    v4 = v43;
+    while ( v5 <= v50 );
+    v4 = a2;
   }
-  MiUnlockWorkingSetExclusive(v8, v19, (__int64)v17, v18);
+  MiUnlockWorkingSetExclusive(v18, v22);
   ExReleaseResourceLite(&PsLoadedModuleResource);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   CurrentPrcb = KeGetCurrentPrcb();
-  v22 = v4;
+  v30 = v4;
   CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-  if ( (_DWORD)CachedResidentAvailable == -1 )
-    goto LABEL_33;
-  if ( v4 + CachedResidentAvailable > 0x100 || v4 >= 0x80000 )
+  if ( (_DWORD)CachedResidentAvailable != -1 )
   {
-LABEL_32:
+    if ( v4 + CachedResidentAvailable <= 0x100 )
+    {
+      do
+      {
+        if ( v4 >= 0x80000 )
+          break;
+        v33 = _InterlockedCompareExchange(
+                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                v4 + CachedResidentAvailable,
+                CachedResidentAvailable);
+        v32 = (_DWORD)CachedResidentAvailable == v33;
+        LODWORD(CachedResidentAvailable) = v33;
+        if ( v32 )
+          goto LABEL_20;
+      }
+      while ( v33 != -1 && v4 + v33 <= 0x100 );
+    }
     if ( (int)CachedResidentAvailable > 192
       && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
                                               (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                                               192,
                                               CachedResidentAvailable) )
     {
-      v22 = v4 + (int)CachedResidentAvailable - 192;
+      v30 = v4 + (int)CachedResidentAvailable - 192;
     }
-LABEL_33:
-    if ( v22 )
-      _InterlockedExchangeAdd64(&qword_140C6F880, v22);
-    goto LABEL_16;
   }
-  while ( 1 )
-  {
-    v25 = _InterlockedCompareExchange(
-            (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-            CachedResidentAvailable + v4,
-            CachedResidentAvailable);
-    v24 = (_DWORD)CachedResidentAvailable == v25;
-    LODWORD(CachedResidentAvailable) = v25;
-    if ( v24 )
-      break;
-    if ( v25 == -1 || v4 + v25 > 0x100 )
-      goto LABEL_32;
-  }
-LABEL_16:
-  v26 = v4 - *((_QWORD *)&v40[0] + 1);
-  MiReturnCommit((__int64)&MiSystemPartition, v26);
-  result = qword_140C69AA8 - v26;
-  qword_140C69AA8 -= v26;
+  if ( v30 )
+    _InterlockedExchangeAdd64(&qword_140C52980, v30);
+LABEL_20:
+  v34 = v4 - v51[1];
+  MiReturnCommit((__int64)&MiSystemPartition, v34);
+  result = qword_140C4EFB0 - v34;
+  qword_140C4EFB0 -= v34;
   return result;
 }

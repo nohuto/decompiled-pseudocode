@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PowerPolRestartingFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008ADC0
+ * XREFs of ?PowerPolRestartingFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0086CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C001E240 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
- *     ?Stop@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0089844 (-Stop@FxPowerIdleMachine@@QEAAXXZ.c)
+ *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C007BC58 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
+ *     ?Stop@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0083E0C (-Stop@FxPowerIdleMachine@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolRestartingFailed(FxPkgPnp *This)

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCallSetDisplayState @ 0x1409A21EC
+ * XREFs of TtmpCallSetDisplayState @ 0x1408FC78C
  * Callers:
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1409A2AF4 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1408FD098 (TtmpPushTerminalDisplayStateOntoDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     TtmpStartCallout @ 0x1409A2D68 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1409A2E54 (TtmpStopCallout.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     TtmpStartCallout @ 0x1408FD31C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD408 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallSetDisplayState(__int64 a1, __int64 a2, unsigned int a3)
@@ -25,6 +25,6 @@ void __fastcall TtmpCallSetDisplayState(__int64 a1, __int64 a2, unsigned int a3)
     v7 = v3(*(_QWORD *)(a2 + 24), a3, *(unsigned int *)(a1 + 120));
     TtmpStopCallout(v8, (unsigned int)v7);
     if ( v7 < 0 )
-      TtmiLogError("TtmpCallSetDisplayState", 2440LL, (unsigned int)v7, 0xFFFFFFFFLL);
+      TtmiLogError("TtmpCallSetDisplayState", 2441LL, (unsigned int)v7, 0xFFFFFFFFLL);
   }
 }

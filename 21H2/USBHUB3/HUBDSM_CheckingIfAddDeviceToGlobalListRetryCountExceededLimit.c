@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_CheckingIfAddDeviceToGlobalListRetryCountExceededLimit @ 0x1C0020F80
+ * XREFs of HUBDSM_CheckingIfAddDeviceToGlobalListRetryCountExceededLimit @ 0x1C0020B80
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfAddDeviceToGlobalListRetryCountExceededLimit(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HUBDSM_CheckingIfAddDeviceToGlobalListRetryCountExceededLimit
       3u,
       5u,
       0x12u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v5);
     v3 = *(_BYTE *)(v1 + 2456);
   }
@@ -39,7 +39,7 @@ __int64 __fastcall HUBDSM_CheckingIfAddDeviceToGlobalListRetryCountExceededLimit
         2u,
         5u,
         0x13u,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
   }
   return v2;
 }

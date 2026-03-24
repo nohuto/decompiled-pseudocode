@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180012464
+ * XREFs of ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180024034
  * Callers:
- *     ?GetRealization@CManipulationTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18001D550 (-GetRealization@CManipulationTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
- *     ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800F1B1C (-ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIO.c)
- *     ?GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800FB610 (-GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020F1BC (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?GetRealization@CManipulationTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18001A970 (-GetRealization@CManipulationTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ *     ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800CF174 (-ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIO.c)
+ *     ?GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800D8ED0 (-GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801D5538 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
  * Callees:
- *     WithinEpsilon @ 0x1800125EC (WithinEpsilon.c)
- *     ?D2DMatrixMultiply@@YAPEAUD2DMatrix@@PEAU1@PEBU1@1@Z @ 0x1800C19C4 (-D2DMatrixMultiply@@YAPEAUD2DMatrix@@PEAU1@PEBU1@1@Z.c)
+ *     WithinEpsilon @ 0x18002423C (WithinEpsilon.c)
+ *     ?D2DMatrixMultiply@@YAPEAUD2DMatrix@@PEAU1@PEBU1@1@Z @ 0x18005E5F8 (-D2DMatrixMultiply@@YAPEAUD2DMatrix@@PEAU1@PEBU1@1@Z.c)
  */
 
 void __fastcall CManipulationTransform::CalculateMatrixFromDelta(
@@ -31,15 +31,15 @@ void __fastcall CManipulationTransform::CalculateMatrixFromDelta(
   __int64 v16; // rcx
   _DWORD *v17; // r8
   __int64 v18; // r9
-  int *v19; // r10
+  int *v19; // r11
   int v20; // xmm0_4
   int v21; // xmm1_4
-  int v22; // xmm3_4
-  int v23; // xmm0_4
-  int v24; // xmm0_4
-  int v25; // xmm1_4
-  const struct D2DMatrix *v26; // rdx
-  int *v27; // r11
+  int v22; // xmm0_4
+  int v23; // xmm1_4
+  const struct D2DMatrix *v24; // rdx
+  int *v25; // r10
+  int v26; // xmm3_4
+  int v27; // xmm0_4
   int v28; // xmm1_4
   int v29; // [rsp+20h] [rbp-40h] BYREF
   int v30; // [rsp+24h] [rbp-3Ch]
@@ -91,14 +91,14 @@ void __fastcall CManipulationTransform::CalculateMatrixFromDelta(
   {
     if ( v8 )
     {
-      v22 = v17[2] ^ _xmm;
-      v23 = *v17 ^ _xmm;
+      v26 = v17[2] ^ _xmm;
+      v27 = *v17 ^ _xmm;
       *(_DWORD *)(v18 + 52) = v17[1] ^ _xmm;
-      *(_DWORD *)(v18 + 48) = v23;
-      *(_DWORD *)(v18 + 56) = v22;
+      *(_DWORD *)(v18 + 48) = v27;
+      *(_DWORD *)(v18 + 56) = v26;
     }
-    v24 = *v15;
-    v25 = v15[1];
+    v22 = *v15;
+    v23 = v15[1];
     v43 = 0;
     v42 = 0;
     v41 = 0;
@@ -111,21 +111,21 @@ void __fastcall CManipulationTransform::CalculateMatrixFromDelta(
     v32 = 0;
     v31 = 0;
     v30 = 0;
-    v29 = v24;
+    v29 = v22;
     v39 = v15[2];
-    v34 = v25;
+    v34 = v23;
     v44 = 1065353216;
     D2DMatrixMultiply((struct D2DMatrix *)v18, (const struct D2DMatrix *)v18, (const struct D2DMatrix *)&v29);
     if ( v8 )
     {
-      v28 = v27[1];
-      v41 = *v27;
-      v43 = v27[2];
+      v28 = v25[1];
+      v41 = *v25;
+      v43 = v25[2];
       v42 = v28;
       v39 = 1065353216;
       v34 = 1065353216;
       v29 = 1065353216;
-      D2DMatrixMultiply((struct D2DMatrix *)v18, v26, (const struct D2DMatrix *)&v29);
+      D2DMatrixMultiply((struct D2DMatrix *)v18, v24, (const struct D2DMatrix *)&v29);
     }
   }
   if ( v9 )

@@ -1,22 +1,21 @@
 /*
- * XREFs of MiAddMdlPageToTradeBlock @ 0x1403BBA68
+ * XREFs of MiAddMdlPageToTradeBlock @ 0x14027FB08
  * Callers:
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
  * Callees:
- *     <none>
+ *     MiPfnZeroingNeeded @ 0x1402384D0 (MiPfnZeroingNeeded.c)
  */
 
-unsigned __int64 __fastcall MiAddMdlPageToTradeBlock(__int64 a1, __int64 a2)
+void __fastcall MiAddMdlPageToTradeBlock(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v2; // r8
-  unsigned __int64 result; // rax
+  __int64 v3; // r9
 
-  v2 = *(_QWORD *)(a1 + 64);
-  if ( v2 )
+  v3 = *(_QWORD *)(a1 + 64);
+  if ( v3 )
   {
-    result = (unsigned __int64)*(unsigned int *)(v2 + 40) >> 12;
-    *(_QWORD *)(v2 + 8 * result + 48) = a2;
-    *(_DWORD *)(v2 + 40) += 4096;
+    *(_QWORD *)(v3 + 8 * ((unsigned __int64)*(unsigned int *)(v3 + 40) >> 12) + 48) = a2;
+    *(_DWORD *)(v3 + 40) += 4096;
+    if ( a3 || MiPfnZeroingNeeded(48 * a2 - 0x58000000000LL, *(_DWORD *)(a1 + 32)) )
+      *(_QWORD *)(v3 + 24) = 1LL;
   }
-  return result;
 }

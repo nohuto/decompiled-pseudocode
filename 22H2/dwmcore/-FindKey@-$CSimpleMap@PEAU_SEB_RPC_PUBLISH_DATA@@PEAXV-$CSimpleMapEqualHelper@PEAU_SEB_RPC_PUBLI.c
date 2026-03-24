@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindKey@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEBAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x1800FDEF4
+ * XREFs of ?FindKey@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEBAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x180024C78
  * Callers:
- *     PubSebUnregisterRpc @ 0x1800FDA7C (PubSebUnregisterRpc.c)
- *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x1800FDE7C (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
+ *     PubSebUnregisterRpc @ 0x1800244D4 (PubSebUnregisterRpc.c)
+ *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x180024C00 (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,13 +16,13 @@ __int64 __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMa
   _QWORD *i; // rcx
 
   result = 0LL;
-  if ( (int)qword_1803E6508 <= 0 )
+  if ( (int)qword_18034B4E0 <= 0 )
     return 0xFFFFFFFFLL;
   v3 = *a2;
-  for ( i = (_QWORD *)Block; *i != v3; ++i )
+  for ( i = Block; *i != v3; ++i )
   {
     result = (unsigned int)(result + 1);
-    if ( (int)result >= (int)qword_1803E6508 )
+    if ( (int)result >= (int)qword_18034B4E0 )
       return 0xFFFFFFFFLL;
   }
   return result;

@@ -1,18 +1,20 @@
 /*
- * XREFs of ??1CCompositionSurfaceInfo@@MEAA@XZ @ 0x1800BA6B0
+ * XREFs of ??1CCompositionSurfaceInfo@@MEAA@XZ @ 0x180036C50
  * Callers:
- *     ??_ECGlobalCompositionSurfaceInfo@@UEAAPEAXI@Z @ 0x1800BA600 (--_ECGlobalCompositionSurfaceInfo@@UEAAPEAXI@Z.c)
- *     ??_ECCompositionSurfaceInfo@@MEAAPEAXI@Z @ 0x18025AB80 (--_ECCompositionSurfaceInfo@@MEAAPEAXI@Z.c)
+ *     ??_ECGlobalCompositionSurfaceInfo@@UEAAPEAXI@Z @ 0x180036C00 (--_ECGlobalCompositionSurfaceInfo@@UEAAPEAXI@Z.c)
+ *     ??_ECCompositionSurfaceInfo@@MEAAPEAXI@Z @ 0x1801F86C0 (--_ECCompositionSurfaceInfo@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z @ 0x1800BA650 (-RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z.c)
- *     ?clear_region@?$vector_facade@PEAVICompositionSurfaceInfoListener@@V?$buffer_impl@PEAVICompositionSurfaceInfoListener@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800BA774 (-clear_region@-$vector_facade@PEAVICompositionSurfaceInfoListener@@V-$buffer_impl@PEAVICompositi.c)
+ *     ?clear_region@?$vector_facade@PEAVICompositionSurfaceInfoListener@@V?$buffer_impl@PEAVICompositionSurfaceInfoListener@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180036D38 (-clear_region@-$vector_facade@PEAVICompositionSurfaceInfoListener@@V-$buffer_impl@PEAVICompositi.c)
+ *     ?RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z @ 0x180038384 (-RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CCompositionSurfaceInfo::~CCompositionSurfaceInfo(CCompositionSurfaceInfo *this)
 {
-  CCompositionSurfaceInfo *v2; // rcx
+  CCompositionSurfaceInfo **v2; // rdi
+  CCompositionSurfaceInfo *v3; // rcx
 
-  *(_QWORD *)this = &CCompositionSurfaceInfo::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CCompositionSurfaceInfo::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 2) = &CCompositionSurfaceInfo::`vftable'{for `IDeviceResourceNotify'};
   if ( *((_QWORD *)this + 4) )
   {
@@ -21,13 +23,18 @@ void __fastcall CCompositionSurfaceInfo::~CCompositionSurfaceInfo(CCompositionSu
       *(struct _LUID *)((char *)this + 40));
     CloseHandle(*((HANDLE *)this + 4));
   }
-  if ( (__int64)(*((_QWORD *)this + 9) - *((_QWORD *)this + 8)) >> 3 )
+  v2 = (CCompositionSurfaceInfo **)((char *)this + 48);
+  v3 = (CCompositionSurfaceInfo *)*((_QWORD *)this + 6);
+  if ( (__int64)(*((_QWORD *)this + 7) - (_QWORD)v3) >> 3 )
+  {
     detail::vector_facade<ICompositionSurfaceInfoListener *,detail::buffer_impl<ICompositionSurfaceInfoListener *,1,1,detail::liberal_expansion_policy>>::clear_region(
-      (char *)this + 64,
+      (char *)this + 48,
       0LL);
-  v2 = (CCompositionSurfaceInfo *)*((_QWORD *)this + 8);
-  *((_QWORD *)this + 8) = 0LL;
-  if ( v2 == (CCompositionSurfaceInfo *)((char *)this + 88) )
-    v2 = 0LL;
-  operator delete(v2);
+    v3 = *v2;
+  }
+  *v2 = 0LL;
+  if ( v3 == (CCompositionSurfaceInfo *)((char *)this + 72) )
+    v3 = 0LL;
+  operator delete(v3);
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

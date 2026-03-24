@@ -1,181 +1,179 @@
 /*
- * XREFs of PfpFlushBuffers @ 0x14074B520
+ * XREFs of PfpFlushBuffers @ 0x1406315B0
  * Callers:
- *     PfTLoggingWorker @ 0x14083A720 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x1407AD3A0 (PfTLoggingWorker.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x1402F55AC (MmFreeAccessPfnBuffer.c)
- *     PfpReturnAccessBuffer @ 0x1402F55F4 (PfpReturnAccessBuffer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PfpFlushEventBuffers @ 0x14074B1EC (PfpFlushEventBuffers.c)
- *     PfpCopyEvent @ 0x14074B2E0 (PfpCopyEvent.c)
- *     PfpLogPageAccess @ 0x14074B830 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x14074BE94 (PfTAcquireLogEntry.c)
+ *     MmFreeAccessPfnBuffer @ 0x14026E7A0 (MmFreeAccessPfnBuffer.c)
+ *     PfpIsProcessInfoPresent @ 0x14026E7E0 (PfpIsProcessInfoPresent.c)
+ *     PfpReturnAccessBuffer @ 0x14026EDF8 (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x140631270 (PfpFlushEventBuffers.c)
+ *     PfpCopyEvent @ 0x140631370 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x140631950 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x140631FA0 (PfTAcquireLogEntry.c)
  */
 
 char PfpFlushBuffers()
 {
   struct _SLIST_ENTRY *v0; // rbx
   _SLIST_ENTRY *v1; // rdi
-  void *v2; // r13
-  int v3; // ebp
-  PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // rcx
-  struct _SLIST_ENTRY *v6; // r12
-  struct _SLIST_ENTRY *v7; // r15
+  void *v2; // r12
+  PSLIST_ENTRY v3; // rax
+  struct _SLIST_ENTRY *v4; // rcx
+  struct _SLIST_ENTRY *v5; // r15
+  struct _SLIST_ENTRY *v6; // rsi
+  struct _SLIST_ENTRY *v7; // r13
   __int64 v8; // rax
   unsigned __int64 v9; // rcx
   __int64 v10; // rbp
+  _SLIST_ENTRY *v11; // r14
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  int v14; // ebp
   _SLIST_ENTRY *Next; // r14
-  struct _SLIST_ENTRY *v12; // rsi
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  struct _SLIST_ENTRY *v16; // rcx
-  _SLIST_ENTRY *v17; // r14
-  unsigned __int64 v18; // rbp
-  __int64 v19; // rax
-  unsigned __int64 *v20; // rcx
-  unsigned __int64 v21; // rax
-  int v22[4]; // [rsp+30h] [rbp-88h] BYREF
-  __int128 v23; // [rsp+40h] [rbp-78h] BYREF
-  __int128 v24; // [rsp+50h] [rbp-68h] BYREF
-  __int128 v25; // [rsp+60h] [rbp-58h] BYREF
-  __int64 Src; // [rsp+70h] [rbp-48h] BYREF
-  int v27; // [rsp+78h] [rbp-40h]
-  __int64 v28; // [rsp+7Ch] [rbp-3Ch]
-  int v29; // [rsp+84h] [rbp-34h]
+  unsigned __int64 v17; // rbp
+  __int64 v18; // rax
+  unsigned __int64 *v19; // rcx
+  unsigned __int64 v20; // rax
+  struct _SLIST_ENTRY *v21; // rcx
+  int v22; // [rsp+30h] [rbp-88h] BYREF
+  __int128 v23; // [rsp+38h] [rbp-80h] BYREF
+  __int128 v24; // [rsp+48h] [rbp-70h] BYREF
+  __int128 v25; // [rsp+58h] [rbp-60h] BYREF
+  __int64 Src; // [rsp+68h] [rbp-50h] BYREF
+  int v27; // [rsp+70h] [rbp-48h]
+  __int64 v28; // [rsp+74h] [rbp-44h]
+  int v29; // [rsp+7Ch] [rbp-3Ch]
 
-  v0 = 0LL;
   v23 = 0LL;
   DWORD2(v23) = 1;
-  v1 = 0LL;
+  v0 = 0LL;
   v25 = 0LL;
+  v1 = 0LL;
   v2 = 0LL;
   v24 = 0LL;
-  v22[0] = PfpFlushEventBuffers();
-  v3 = v22[0];
-  if ( v22[0] < 0 )
+  v22 = PfpFlushEventBuffers();
+  if ( v22 < 0 )
     return 0;
-  v4 = RtlpInterlockedFlushSList(&stru_140D0C240);
-  if ( !v4 )
-    return 1;
+  v3 = RtlpInterlockedFlushSList(&ListHead);
+  if ( !v3 )
+  {
+LABEL_16:
+    v14 = v22;
+    goto LABEL_17;
+  }
   do
   {
-    v5 = v4;
-    v6 = v0;
-    v4 = v4->Next;
-    v5->Next = v0;
-    v0 = v5;
+    v4 = v3;
+    v5 = v0;
+    v3 = v3->Next;
+    v4->Next = v0;
+    v0 = v4;
   }
-  while ( v4 );
+  while ( v3 );
   while ( 1 )
   {
-    v7 = v0;
+    v6 = v0;
     v28 = 0LL;
-    v0 = v6;
-    v8 = MEMORY[0xFFFFF78000000004] * HIDWORD(*((_QWORD *)&v7[1].Next + 1));
-    v9 = (MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*((_QWORD *)&v7[1].Next + 1)) >> 24;
-    HIDWORD(v28) = dword_140C650AC
-                 + ((((MEMORY[0xFFFFF78000000004] * ((unsigned __int64)v7[1].Next >> 32)) << 8)
-                   + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)v7[1].Next) >> 24)) >> 10);
+    v7 = v0;
+    v0 = v5;
+    v8 = MEMORY[0xFFFFF78000000004] * HIDWORD(*((_QWORD *)&v6[1].Next + 1));
+    v9 = (MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*((_QWORD *)&v6[1].Next + 1)) >> 24;
+    HIDWORD(v28) = dword_140C502DC
+                 + ((((MEMORY[0xFFFFF78000000004] * ((unsigned __int64)v6[1].Next >> 32)) << 8)
+                   + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)v6[1].Next) >> 24)) >> 10);
     v27 = HIDWORD(v28);
-    v29 = dword_140C650AC + (((v8 << 8) + v9) >> 10);
+    v29 = dword_140C502DC + (((v8 << 8) + v9) >> 10);
     Src = 163851LL;
     PfpCopyEvent(&Src);
-    if ( *((int *)&v7->Next + 2) > 1 )
-      break;
-    *((_QWORD *)&v24 + 1) = *((unsigned int *)&v7->Next + 3);
-    *(_QWORD *)&v24 = 94215LL;
-    PfpCopyEvent((__int64 *)&v24);
-    if ( *((int *)&v7->Next + 2) > 1 )
-      break;
-    v10 = *((_QWORD *)&v7[3].Next + 1);
-    Next = v7[3].Next;
+    if ( *((int *)&v6->Next + 2) > 1
+      || (*((_QWORD *)&v24 + 1) = *((unsigned int *)&v6->Next + 3),
+          *(_QWORD *)&v24 = 94215LL,
+          PfpCopyEvent((__int64 *)&v24),
+          *((int *)&v6->Next + 2) > 1) )
+    {
+      Next = v6[2].Next;
+      if ( (unsigned __int64)Next <= *((_QWORD *)&v6[2].Next + 1) )
+      {
+        while ( 1 )
+        {
+          v17 = (unsigned __int64)Next->Next;
+          v22 = 0;
+          v18 = PfTAcquireLogEntry(&unk_140C4FBD8, &v22, 1LL);
+          if ( !v18 )
+            break;
+          v19 = (unsigned __int64 *)(16LL * (unsigned int)v22 + ((v18 + 31) & 0xFFFFFFFFFFFFFFF8uLL));
+          v20 = *v19 & 0xFFFFFFFFFFFC6007uLL;
+          v19[1] = v17;
+          *v19 = v20 | 0x6007;
+          Next = (_SLIST_ENTRY *)((char *)Next + 8);
+          v22 = 0;
+          if ( (unsigned __int64)Next > *((_QWORD *)&v6[2].Next + 1) )
+            goto LABEL_13;
+        }
+        v22 = -1073741670;
+        v6[2].Next = Next;
+      }
+      goto LABEL_12;
+    }
+    v10 = *((_QWORD *)&v6[3].Next + 1);
+    v11 = v6[3].Next;
     if ( v10 == 1 )
     {
-      LODWORD(v10) = LODWORD(v7[4].Next) + 1;
+      LODWORD(v10) = LODWORD(v6[4].Next) + 1;
     }
-    else if ( v10 && (!*(_QWORD *)(v10 + 1088) || !*(_QWORD *)(v10 + 1128)) )
+    else if ( v10 && !PfpIsProcessInfoPresent(*((_QWORD *)&v6[3].Next + 1)) )
     {
-      v3 = v22[0];
-      goto LABEL_16;
+      goto LABEL_14;
     }
-    v2 = &v7[4].Next + 1;
-    v12 = v7 + 2;
-    v1 = (struct _SLIST_ENTRY *)((char *)v7 + 72);
-    if ( (_SLIST_ENTRY *)(&v7[4].Next + 1) < v7[2].Next )
+    v2 = &v6[4].Next + 1;
+    v1 = (struct _SLIST_ENTRY *)((char *)v6 + 72);
+    if ( (_SLIST_ENTRY *)(&v6[4].Next + 1) < v6[2].Next )
+      break;
+LABEL_12:
+    if ( v22 < 0 )
     {
-      while ( PfpLogPageAccess(v10, (_DWORD)v1, (unsigned int)&v23, (_DWORD)Next, 0) )
-      {
-        v1 = (_SLIST_ENTRY *)((char *)v1 + 8);
-        if ( v1 >= v12->Next )
-          goto LABEL_13;
-      }
-      v3 = -1073741432;
-      goto LABEL_19;
+      v14 = v22;
+      goto LABEL_28;
     }
 LABEL_13:
-    v3 = v22[0];
-LABEL_14:
-    if ( v3 < 0 )
-      goto LABEL_19;
-LABEL_15:
-    v13 = (unsigned int)*((_QWORD *)&v7[1].Next + 1);
-    v14 = HIDWORD(*((_QWORD *)&v7[1].Next + 1));
+    v12 = (unsigned int)*((_QWORD *)&v6[1].Next + 1);
+    v13 = HIDWORD(*((_QWORD *)&v6[1].Next + 1));
     *(_QWORD *)&v25 = 147463LL;
-    *((_QWORD *)&v25 + 1) = dword_140C650AC
-                          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * v14) << 8)
-                                          + (((unsigned __int64)MEMORY[0xFFFFF78000000004] * v13) >> 24)) >> 10);
+    *((_QWORD *)&v25 + 1) = dword_140C502DC
+                          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * v13) << 8)
+                                          + (((unsigned __int64)MEMORY[0xFFFFF78000000004] * v12) >> 24)) >> 10);
     PfpCopyEvent((__int64 *)&v25);
-LABEL_16:
+LABEL_14:
     MmFreeAccessPfnBuffer(v7, 0);
-    if ( !v6 )
-      goto LABEL_22;
-    v6 = v6->Next;
+    if ( !v5 )
+      goto LABEL_16;
+    v5 = v5->Next;
   }
-  v17 = v7[2].Next;
-  v12 = v7 + 2;
-  if ( (unsigned __int64)v17 > *((_QWORD *)&v7[2].Next + 1) )
-    goto LABEL_14;
-  while ( 1 )
+  while ( PfpLogPageAccess(v10, (_DWORD)v1, (unsigned int)&v23, (_DWORD)v11, 0) )
   {
-    v18 = (unsigned __int64)v17->Next;
-    v22[0] = 0;
-    v19 = PfTAcquireLogEntry(&unk_140C65258, v22, 1LL);
-    if ( !v19 )
-      break;
-    v20 = (unsigned __int64 *)(16LL * (unsigned int)v22[0] + ((v19 + 31) & 0xFFFFFFFFFFFFFFF8uLL));
-    v21 = *v20 & 0xFFFFFFFFFFFC6007uLL;
-    v20[1] = v18;
-    v3 = 0;
-    *v20 = v21 | 0x6007;
-    v22[0] = 0;
-    v17 = (_SLIST_ENTRY *)((char *)v17 + 8);
-    if ( (unsigned __int64)v17 > *((_QWORD *)&v7[2].Next + 1) )
-      goto LABEL_15;
+    v1 = (_SLIST_ENTRY *)((char *)v1 + 8);
+    if ( v1 >= v6[2].Next )
+      goto LABEL_12;
   }
-  v3 = -1073741670;
-  v12->Next = v17;
-LABEL_19:
-  if ( *((int *)&v7->Next + 2) <= 1 )
+  v14 = -1073741432;
+LABEL_28:
+  if ( *((int *)&v6->Next + 2) <= 1 )
   {
-    memmove(v2, v1, ((char *)v12->Next - (char *)v1) & 0xFFFFFFFFFFFFFFF8uLL);
-    v12->Next = (_SLIST_ENTRY *)((char *)v12->Next - 8 * (((char *)v1 - (_BYTE *)v2) >> 3));
+    memmove(v2, v1, ((char *)v6[2].Next - (char *)v1) & 0xFFFFFFFFFFFFFFF8uLL);
+    v6[2].Next = (_SLIST_ENTRY *)((char *)v6[2].Next - 8 * (((char *)v1 - (_BYTE *)v2) >> 3));
   }
-  PfpReturnAccessBuffer(v7);
-LABEL_22:
-  if ( v3 >= 0 )
+  PfpReturnAccessBuffer(v6);
+LABEL_17:
+  if ( v14 >= 0 )
     return 1;
-  if ( v6 )
+  while ( v0 )
   {
-    do
-    {
-      v16 = v0;
-      v0 = v0->Next;
-      PfpReturnAccessBuffer(v16);
-    }
-    while ( v0 );
+    v21 = v0;
+    v0 = v0->Next;
+    PfpReturnAccessBuffer(v21);
   }
   return 0;
 }

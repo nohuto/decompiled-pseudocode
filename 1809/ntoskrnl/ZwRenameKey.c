@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRenameKey @ 0x1401BAED0
+ * XREFs of ZwRenameKey @ 0x1401BAEF0
  * Callers:
- *     CmpDoReDoRenameKey @ 0x140807430 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoRenameKey @ 0x140807410 (CmpDoReDoRenameKey.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C011B7B8
+ * XREFs of ?UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0130598
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
  * Callees:
- *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C0010648 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
- *     cParseFontResources @ 0x1C011B894 (cParseFontResources.c)
- *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C015DD8C (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
- *     ??0AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C015E120 (--0AutoSharedUmfdLookupLock@@QEAA@XZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C00A70D4 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
+ *     cParseFontResources @ 0x1C0130674 (cParseFontResources.c)
+ *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C016B840 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     ??0AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C016BAB0 (--0AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall UmfdEscParseFontResources(struct tagUMFD_ESCAPE_ARGUMENT *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcGpeServiceRoutine @ 0x1C0002BA0
+ * XREFs of ACPIEcGpeServiceRoutine @ 0x1C00534A0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiEcCommonDpcHandler @ 0x1C0002C4E (AcpiEcCommonDpcHandler.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
  */
 
 char __fastcall ACPIEcGpeServiceRoutine(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateTelemetryBuffer@DeadzonePalmTelemetry@@QEAAXKKH@Z @ 0x1C01B7260
+ * XREFs of ?UpdateTelemetryBuffer@DeadzonePalmTelemetry@@QEAAXKKH@Z @ 0x1C0180B00
  * Callers:
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C01A273C (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C016E2DC (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
  * Callees:
- *     ?_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z @ 0x1C01B78F0 (-_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z.c)
+ *     ?_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z @ 0x1C01811F4 (-_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z.c)
  */
 
 void __fastcall DeadzonePalmTelemetry::UpdateTelemetryBuffer(DeadzonePalmTelemetry *this, int a2, int a3, int a4)

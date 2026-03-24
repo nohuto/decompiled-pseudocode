@@ -1,12 +1,12 @@
 /*
- * XREFs of NVMeLogTelemetry @ 0x1C000A660
+ * XREFs of NVMeLogTelemetry @ 0x1C000F3E0
  * Callers:
- *     NVMeLogTelemetryControllerInfo @ 0x1C0009604 (NVMeLogTelemetryControllerInfo.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C000A1DC (WaitForCommandCompleteWithCustomTimeout.c)
+ *     NVMeLogTelemetryControllerInfo @ 0x1C000F6F0 (NVMeLogTelemetryControllerInfo.c)
+ *     NVMeLogTelemetryWaitForCmdComplete @ 0x1C001A52C (NVMeLogTelemetryWaitForCmdComplete.c)
  * Callees:
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memmove @ 0x1C0010700 (memmove.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall NVMeLogTelemetry(
@@ -36,179 +36,196 @@ __int64 __fastcall NVMeLogTelemetry(
         _BYTE *a24,
         __int64 a25)
 {
-  unsigned int v26; // eax
-  _BYTE *v27; // rcx
+  unsigned int v26; // ecx
+  _BYTE *v27; // rax
   unsigned int v28; // ebx
-  unsigned int v29; // eax
-  _BYTE *v30; // rcx
-  unsigned int v31; // eax
-  _BYTE *v32; // rcx
-  unsigned int v33; // eax
-  _BYTE *v34; // rcx
-  unsigned int v35; // eax
-  _BYTE *v36; // rcx
-  unsigned int v37; // eax
-  _BYTE *v38; // rcx
-  unsigned int v39; // eax
-  _BYTE *v40; // rcx
-  unsigned int v41; // eax
-  _BYTE *v42; // rcx
-  unsigned int v43; // eax
-  _BYTE *v44; // rcx
-  _QWORD v48[48]; // [rsp+60h] [rbp-A0h] BYREF
+  size_t v29; // r8
+  unsigned int v30; // ecx
+  _BYTE *v31; // rax
+  size_t v32; // r8
+  unsigned int v33; // ecx
+  _BYTE *v34; // rax
+  size_t v35; // r8
+  unsigned int v36; // ecx
+  _BYTE *v37; // rax
+  size_t v38; // r8
+  unsigned int v39; // ecx
+  _BYTE *v40; // rax
+  size_t v41; // r8
+  unsigned int v42; // ecx
+  _BYTE *v43; // rax
+  size_t v44; // r8
+  unsigned int v45; // ecx
+  _BYTE *v46; // rax
+  size_t v47; // r8
+  unsigned int v48; // ecx
+  _BYTE *v49; // rax
+  size_t v50; // r8
+  unsigned int v51; // eax
+  _BYTE *v52; // rcx
+  _QWORD v56[48]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v48, 0, sizeof(v48));
+  memset(v56, 0, sizeof(v56));
   v26 = 0;
-  HIDWORD(v48[0]) = a4;
-  LODWORD(v48[0]) = 1;
+  HIDWORD(v56[0]) = a4;
+  LODWORD(v56[0]) = 1;
   v27 = Src;
   v28 = 32;
-  while ( *v27 )
+  do
   {
+    if ( !*v27 )
+      break;
     ++v26;
     ++v27;
-    if ( v26 >= 0x20 )
-    {
-      v26 = 32;
-      break;
-    }
   }
-  memmove(&v48[1], Src, v26);
-  v48[5] = 1LL;
+  while ( v26 < 0x20 );
+  v29 = 32LL;
+  if ( v26 < 0x20 )
+    v29 = v26;
+  memmove(&v56[1], Src, v29);
+  v56[5] = 1LL;
   if ( a10 )
   {
-    v29 = 0;
-    v30 = a10;
-    while ( *v30 )
+    v30 = 0;
+    v31 = a10;
+    do
     {
-      ++v29;
-      ++v30;
-      if ( v29 >= 0x20 )
-      {
-        v29 = 32;
+      if ( !*v31 )
         break;
-      }
+      ++v30;
+      ++v31;
     }
-    memmove(&v48[8], a10, v29);
-    v48[12] = a11;
+    while ( v30 < 0x20 );
+    v32 = 32LL;
+    if ( v30 < 0x20 )
+      v32 = v30;
+    memmove(&v56[8], a10, v32);
+    v56[12] = a11;
   }
   if ( a12 )
   {
-    v31 = 0;
-    v32 = a12;
-    while ( *v32 )
+    v33 = 0;
+    v34 = a12;
+    do
     {
-      ++v31;
-      ++v32;
-      if ( v31 >= 0x20 )
-      {
-        v31 = 32;
+      if ( !*v34 )
         break;
-      }
+      ++v33;
+      ++v34;
     }
-    memmove(&v48[13], a12, v31);
-    v48[17] = a13;
+    while ( v33 < 0x20 );
+    v35 = 32LL;
+    if ( v33 < 0x20 )
+      v35 = v33;
+    memmove(&v56[13], a12, v35);
+    v56[17] = a13;
   }
   if ( a14 )
   {
-    v33 = 0;
-    v34 = a14;
-    while ( *v34 )
+    v36 = 0;
+    v37 = a14;
+    do
     {
-      ++v33;
-      ++v34;
-      if ( v33 >= 0x20 )
-      {
-        v33 = 32;
+      if ( !*v37 )
         break;
-      }
+      ++v36;
+      ++v37;
     }
-    memmove(&v48[18], a14, v33);
-    v48[22] = a15;
+    while ( v36 < 0x20 );
+    v38 = 32LL;
+    if ( v36 < 0x20 )
+      v38 = v36;
+    memmove(&v56[18], a14, v38);
+    v56[22] = a15;
   }
   if ( a16 )
   {
-    v35 = 0;
-    v36 = a16;
-    while ( *v36 )
+    v39 = 0;
+    v40 = a16;
+    do
     {
-      ++v35;
-      ++v36;
-      if ( v35 >= 0x20 )
-      {
-        v35 = 32;
+      if ( !*v40 )
         break;
-      }
+      ++v39;
+      ++v40;
     }
-    memmove(&v48[23], a16, v35);
-    v48[27] = a17;
+    while ( v39 < 0x20 );
+    v41 = 32LL;
+    if ( v39 < 0x20 )
+      v41 = v39;
+    memmove(&v56[23], a16, v41);
+    v56[27] = a17;
   }
   if ( a18 )
   {
-    v37 = 0;
-    v38 = a18;
-    while ( *v38 )
+    v42 = 0;
+    v43 = a18;
+    do
     {
-      ++v37;
-      ++v38;
-      if ( v37 >= 0x20 )
-      {
-        v37 = 32;
+      if ( !*v43 )
         break;
-      }
+      ++v42;
+      ++v43;
     }
-    memmove(&v48[28], a18, v37);
-    v48[32] = a19;
+    while ( v42 < 0x20 );
+    v44 = 32LL;
+    if ( v42 < 0x20 )
+      v44 = v42;
+    memmove(&v56[28], a18, v44);
+    v56[32] = a19;
   }
   if ( a20 )
   {
-    v39 = 0;
-    v40 = a20;
-    while ( *v40 )
+    v45 = 0;
+    v46 = a20;
+    do
     {
-      ++v39;
-      ++v40;
-      if ( v39 >= 0x20 )
-      {
-        v39 = 32;
+      if ( !*v46 )
         break;
-      }
+      ++v45;
+      ++v46;
     }
-    memmove(&v48[33], a20, v39);
-    v48[37] = a21;
+    while ( v45 < 0x20 );
+    v47 = 32LL;
+    if ( v45 < 0x20 )
+      v47 = v45;
+    memmove(&v56[33], a20, v47);
+    v56[37] = a21;
   }
   if ( a22 )
   {
-    v41 = 0;
-    v42 = a22;
-    while ( *v42 )
+    v48 = 0;
+    v49 = a22;
+    do
     {
-      ++v41;
-      ++v42;
-      if ( v41 >= 0x20 )
-      {
-        v41 = 32;
+      if ( !*v49 )
         break;
-      }
+      ++v48;
+      ++v49;
     }
-    memmove(&v48[38], a22, v41);
-    v48[42] = a23;
+    while ( v48 < 0x20 );
+    v50 = 32LL;
+    if ( v48 < 0x20 )
+      v50 = v48;
+    memmove(&v56[38], a22, v50);
+    v56[42] = a23;
   }
   if ( a24 )
   {
-    v43 = 0;
-    v44 = a24;
-    while ( *v44 )
+    v51 = 0;
+    v52 = a24;
+    do
     {
-      ++v43;
-      ++v44;
-      if ( v43 >= 0x20 )
-        goto LABEL_51;
+      if ( !*v52 )
+        break;
+      ++v51;
+      ++v52;
     }
-    v28 = v43;
-LABEL_51:
-    memmove(&v48[43], a24, v28);
-    v48[47] = a25;
+    while ( v51 < 0x20 );
+    if ( v51 < 0x20 )
+      v28 = v51;
+    memmove(&v56[43], a24, v28);
+    v56[47] = a25;
   }
-  return StorPortExtendedFunction(96LL, a1, a2, v48);
+  return StorPortExtendedFunction(96LL, a1, a2, v56);
 }

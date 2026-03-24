@@ -1,37 +1,46 @@
 /*
- * XREFs of HalpMmAllocCtxAllocBuffer @ 0x1403B2460
+ * XREFs of HalpMmAllocCtxAllocBuffer @ 0x1403A4C5C
  * Callers:
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
  * Callees:
- *     HalpMmAllocCtxBufferCleanup @ 0x140398F30 (HalpMmAllocCtxBufferCleanup.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalpMmAllocCtxBufferCleanup @ 0x1403A5E20 (HalpMmAllocCtxBufferCleanup.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *__fastcall HalpMmAllocCtxAllocBuffer(__int64 a1, unsigned __int64 a2)
+_DWORD *__fastcall HalpMmAllocCtxAllocBuffer(__int64 a1, SIZE_T a2)
 {
-  unsigned __int64 v3; // rsi
-  __int64 Pool2; // rax
-  __int64 v5; // rdi
-  _QWORD *v6; // rbx
-  __int64 v7; // rax
+  SIZE_T v3; // rsi
+  SIZE_T v4; // rdi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v6; // rbx
+  PVOID v7; // rax
   __int64 v8; // rcx
+  _DWORD *v9; // rdi
 
   v3 = a2 >> 4;
-  Pool2 = ExAllocatePool2(64LL, (a2 >> 7) + 48, 1651269960LL);
-  v5 = 0LL;
-  v6 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  v4 = a2 >> 7;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (a2 >> 7) + 48, 0x626C6148u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
+    return 0LL;
+  memset(PoolWithTag, 0, v4 + 48);
+  v6[8] = v3;
+  *((_QWORD *)v6 + 5) = ((unsigned __int64)v6 + 51) & 0xFFFFFFFFFFFFFFFCuLL;
+  *((_QWORD *)v6 + 1) = v6;
+  *(_QWORD *)v6 = v6;
+  v7 = ExAllocatePoolWithTag(NonPagedPoolNx, a2, 0x426C6148u);
+  *((_QWORD *)v6 + 2) = v7;
+  if ( v7 )
   {
-    *(_DWORD *)(Pool2 + 32) = v3;
-    *(_QWORD *)(Pool2 + 40) = (Pool2 + 51) & 0xFFFFFFFFFFFFFFFCuLL;
-    *(_QWORD *)(Pool2 + 8) = Pool2;
-    *(_QWORD *)Pool2 = Pool2;
-    v7 = ExAllocatePool2(64LL, a2, 1114399048LL);
-    v6[2] = v7;
-    if ( v7 )
-      return v6;
-    else
-      HalpMmAllocCtxBufferCleanup(v8, v6);
+    v9 = v6;
+    v6 = 0LL;
   }
-  return (_QWORD *)v5;
+  else
+  {
+    v9 = 0LL;
+  }
+  if ( v6 )
+    HalpMmAllocCtxBufferCleanup(v8, v6);
+  return v9;
 }

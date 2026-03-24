@@ -1,22 +1,35 @@
 /*
- * XREFs of ?InitializeDeviceTransform@CVirtualMonitorCaptureRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801EE790
+ * XREFs of ?InitializeDeviceTransform@CVirtualMonitorCaptureRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x180188650
  * Callers:
  *     <none>
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801E9F40 (-InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z.c)
+ *     ?InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801858A0 (-InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z.c)
  */
 
 void __fastcall CVirtualMonitorCaptureRenderTarget::InitializeDeviceTransform(
         CVirtualMonitorCaptureRenderTarget *this,
         struct CMILMatrix *a2)
 {
-  if ( *((_QWORD *)this + 12) )
+  if ( *((_QWORD *)this + 13) )
+  {
     COffScreenRenderTarget::InitializeDeviceTransform(this, a2);
+  }
   else
-    CMILMatrix::SetToIdentity(a2);
+  {
+    *(_QWORD *)a2 = 1065353216LL;
+    *((_QWORD *)a2 + 1) = 0LL;
+    *((_DWORD *)a2 + 4) = 0;
+    *(_QWORD *)((char *)a2 + 20) = 1065353216LL;
+    *(_QWORD *)((char *)a2 + 28) = 0LL;
+    *((_DWORD *)a2 + 9) = 0;
+    *((_QWORD *)a2 + 5) = 1065353216LL;
+    *((_QWORD *)a2 + 6) = 0LL;
+    *((_DWORD *)a2 + 14) = 0;
+    *((_DWORD *)a2 + 15) = 1065353216;
+    *((_WORD *)a2 + 32) = 32085;
+  }
   CMILMatrix::Translate(
     a2,
-    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 529)) ^ _xmm),
-    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 530)) ^ _xmm));
+    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 533)) ^ _xmm),
+    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 534)) ^ _xmm));
 }

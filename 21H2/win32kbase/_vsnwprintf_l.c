@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsnwprintf_l @ 0x1C00D5F90
+ * XREFs of _vsnwprintf_l @ 0x1C00C5254
  * Callers:
- *     _vsnwprintf @ 0x1C00D5F70 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1C00C5234 (_vsnwprintf.c)
  * Callees:
- *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C0019C10 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
- *     _flsbuf @ 0x1C00D6538 (_flsbuf.c)
- *     _woutput_l @ 0x1C00D6EA0 (_woutput_l.c)
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C0091240 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     _flsbuf @ 0x1C00C5744 (_flsbuf.c)
+ *     _woutput_l @ 0x1C00C60C0 (_woutput_l.c)
  */
 
 int __cdecl vsnwprintf_l(wchar_t *DstBuf, size_t MaxCount, const wchar_t *Format, _locale_t Locale, va_list ArgList)

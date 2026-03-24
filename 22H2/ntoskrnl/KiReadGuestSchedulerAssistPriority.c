@@ -1,91 +1,64 @@
 /*
- * XREFs of KiReadGuestSchedulerAssistPriority @ 0x14040FB14
+ * XREFs of KiReadGuestSchedulerAssistPriority @ 0x14051FB88
  * Callers:
- *     KiAddThreadToReadyQueue @ 0x1402348C0 (KiAddThreadToReadyQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x140238920 (KiAddThreadToPrcbQueue.c)
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402469D0 (KeYieldExecution.c)
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KiDirectSwitchThread @ 0x1402B1870 (KiDirectSwitchThread.c)
- *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x1403059D8 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
- *     KiNormalPriorityReadyScan @ 0x140306CC0 (KiNormalPriorityReadyScan.c)
- *     KiUpdateVPBackingThreadPriority @ 0x14034DCD8 (KiUpdateVPBackingThreadPriority.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E73C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x140258670 (KiUpdateVPBackingThreadPriority.c)
+ *     KiQueueReadyThread @ 0x140258C10 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402F4130 (KiAddThreadToPrcbQueue.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520C00 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KiReadGuestSchedulerAssistPriority(__int64 a1, _QWORD *a2)
+__int64 __fastcall KiReadGuestSchedulerAssistPriority(__int64 a1)
 {
-  unsigned int *v3; // r8
-  __int64 result; // rax
-  unsigned int v6; // r10d
-  char v7; // dl
-  char v8; // al
-  unsigned int v9; // edi
-  int v10; // ecx
-  __int64 v11; // [rsp+10h] [rbp+8h]
+  int *v1; // rdx
+  int v3; // r9d
+  int v4; // r8d
+  int v5; // eax
 
-  v11 = 0LL;
-  v3 = *(unsigned int **)(a1 + 968);
-  if ( v3 )
+  v1 = *(int **)(a1 + 968);
+  if ( !v1 )
+    return (unsigned int)*(char *)(a1 + 195);
+  v3 = *v1;
+  if ( (*v1 & 0x20000) == 0 )
   {
-    v6 = *v3;
-    v7 = 0;
-    v8 = 1;
-    if ( (*v3 & 0x20000) != 0 )
-      v8 = 3;
-    v9 = *v3 >> 8;
-    BYTE1(v11) = v8;
-    BYTE2(v11) = BYTE1(*v3);
-    if ( v3[7] )
+    v4 = BYTE1(v3);
+    if ( (unsigned int)BYTE1(v3) - 1 > 0x1E )
+      v4 = 1;
+    if ( (KiVelocityFlags & 1) != 0 )
+      goto LABEL_16;
+    if ( (KiVelocityFlags & 8) != 0 )
     {
-      v7 = 1;
-      LOBYTE(v11) = 1;
+      v4 += PsPrioritySeparation;
+      if ( v4 >= 16 )
+        v4 = 15;
+      goto LABEL_16;
     }
-    if ( v3[8] )
+    v5 = *(char *)(a1 + 563);
+    if ( v4 >= v5 )
     {
-      v7 |= 2u;
-      LOBYTE(v11) = v7;
+      if ( (unsigned int)v4 < 0x10 )
+        goto LABEL_16;
+      v5 = v4;
+      if ( (KiVelocityFlags & 0x80u) == 0 )
+        v5 = 15;
     }
-    HIDWORD(v11) = v3[5];
-    if ( (v6 & 0x80000) != 0 )
-    {
-      v7 |= 4u;
-      LOBYTE(v11) = v7;
-    }
-    if ( *((_QWORD *)v3 + 5) != *((_QWORD *)v3 + 6) )
-    {
-      v7 |= 8u;
-      LOBYTE(v11) = v7;
-    }
-    if ( (v6 & 0x200000) != 0 )
-    {
-      v7 |= 0x10u;
-      LOBYTE(v11) = v7;
-    }
-    v10 = (char)v9;
-    result = (unsigned int)*(char *)(a1 + 563);
-    if ( (unsigned int)((char)v9 - 1) > 0x1E )
-      v10 = 1;
-    if ( v10 >= (int)result )
-      result = (unsigned int)v10;
-    if ( (int)result > KiVpThreadSystemWorkPriority )
-      result = (unsigned int)KiVpThreadSystemWorkPriority;
-    if ( (*v3 & 0x20000) != 0 )
-    {
-      result = 7LL;
-    }
-    else if ( (v7 || v3[5]) && (int)result < KiVpThreadSystemWorkPriority )
-    {
-      result = (unsigned int)KiVpThreadSystemWorkPriority;
-    }
+    v4 = v5;
+LABEL_16:
+    if ( v1[7] && v4 < KiVpThreadSystemWorkPriority )
+      v4 = KiVpThreadSystemWorkPriority;
+    if ( v1[8] && v4 < KiVpThreadSystemWorkPriority )
+      v4 = KiVpThreadSystemWorkPriority;
+    if ( (KiVelocityFlags & 0x20) != 0 && v1[6] && v4 < KiVpThreadSystemWorkPriority )
+      v4 = KiVpThreadSystemWorkPriority;
+    if ( (KiVelocityFlags & 0x200) != 0 && v1[5] && v4 < KiVpThreadSystemWorkPriority )
+      v4 = KiVpThreadSystemWorkPriority;
+    if ( (KiVelocityFlags & 0x40) != 0 && (v3 & 0x80000) != 0 && v4 < KiVpThreadSystemWorkPriority )
+      return (unsigned int)KiVpThreadSystemWorkPriority;
+    return (unsigned int)v4;
   }
-  else
-  {
-    result = (unsigned int)*(char *)(a1 + 195);
-  }
-  if ( a2 )
-    *a2 = v11;
-  return result;
+  return 7;
 }

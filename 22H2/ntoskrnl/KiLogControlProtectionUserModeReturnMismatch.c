@@ -1,20 +1,34 @@
 /*
- * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x14057BEFC
+ * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1403F22FC
  * Callers:
- *     KiProcessControlProtection @ 0x14057C050 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x1405126A0 (KiProcessControlProtection.c)
  * Callees:
- *     KiShouldLogUserModeReturnMismatch @ 0x140975808 (KiShouldLogUserModeReturnMismatch.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E92A0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2198 (Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
  */
 
-__int64 __fastcall KiLogControlProtectionUserModeReturnMismatch(unsigned int a1, __int64 a2, __int64 a3)
+void __fastcall KiLogControlProtectionUserModeReturnMismatch(__int64 a1)
 {
-  _KPROCESS *Process; // rsi
-  __int64 result; // rax
+  _KPROCESS *Process; // r10
+  signed __int32 Blink_high; // eax
+  signed __int32 v3; // ett
 
   Process = KeGetCurrentThread()->Process;
-  result = KiShouldLogUserModeReturnMismatch(Process, a1, *(_QWORD *)(a3 + 8));
-  if ( (_BYTE)result )
-    return EtwTimLogControlProtectionUserModeReturnMismatch(a1, Process, a3);
-  return result;
+  _m_prefetchw((char *)&Process[2].ReadyListHead.Blink + 4);
+  Blink_high = HIDWORD(Process[2].ReadyListHead.Blink);
+  do
+  {
+    v3 = Blink_high;
+    Blink_high = _InterlockedCompareExchange(
+                   (volatile signed __int32 *)&Process[2].ReadyListHead.Blink + 1,
+                   Blink_high | 0x10000,
+                   Blink_high);
+  }
+  while ( v3 != Blink_high );
+  if ( (Blink_high & 0x10000) == 0 )
+  {
+    if ( (_DWORD)a1 == 1 || (_DWORD)a1 == 2 )
+      EtwTimLogControlProtectionUserModeReturnMismatch(a1, Process);
+    Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage();
+  }
 }

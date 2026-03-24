@@ -1,143 +1,157 @@
 /*
- * XREFs of KeInsertQueueApc @ 0x1402CC640
+ * XREFs of KeInsertQueueApc @ 0x14025F120
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C2B0 (IopCopyCompleteReadIrp.c)
- *     IopCompleteRequest @ 0x1402AB360 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1402C9980 (IopfCompleteRequest.c)
- *     ExpTimerDpcRoutine @ 0x140369870 (ExpTimerDpcRoutine.c)
- *     EtwpQueueStackWalkApc @ 0x140468426 (EtwpQueueStackWalkApc.c)
- *     IoRaiseHardError @ 0x140556B20 (IoRaiseHardError.c)
- *     IoRaiseInformationalHardError @ 0x140556E00 (IoRaiseInformationalHardError.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140601B3C (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406034F0 (EtwpCovSampCaptureQueueApc.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14063B498 (MiQueueSyncModifiedWriterApc.c)
- *     MiStoreModifiedWriteDereference @ 0x14065C8C4 (MiStoreModifiedWriteDereference.c)
- *     PerfLogImageUnload @ 0x140697438 (PerfLogImageUnload.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x14073FC68 (PspRecheckThreadOptionalXStateFeatures.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140770CE4 (PspGetContextThreadInternal.c)
- *     NtQueueApcThreadEx2 @ 0x140779F90 (NtQueueApcThreadEx2.c)
- *     IopCancelIrpsInThreadList @ 0x1407C2078 (IopCancelIrpsInThreadList.c)
- *     DbgkpLkmdLaunchSnapApc @ 0x14093AF24 (DbgkpLkmdLaunchSnapApc.c)
- *     KeSpecialUserApcKernelRoutine @ 0x140975490 (KeSpecialUserApcKernelRoutine.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1409AE9B8 (PspEnableProcessOptionalXStateFeatures.c)
- *     ExSwapinWorkerThreads @ 0x140A00678 (ExSwapinWorkerThreads.c)
+ *     IopfCompleteRequest @ 0x140242E30 (IopfCompleteRequest.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     MiStoreModifiedWriteDereference @ 0x1402688F0 (MiStoreModifiedWriteDereference.c)
+ *     IopCompleteRequest @ 0x1402C31B0 (IopCompleteRequest.c)
+ *     ExpTimerDpcRoutine @ 0x140327160 (ExpTimerDpcRoutine.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x14032D01C (MiQueueSyncModifiedWriterApc.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F0CC0 (IopCopyCompleteReadIrp.c)
+ *     IoRaiseHardError @ 0x1405058F0 (IoRaiseHardError.c)
+ *     IoRaiseInformationalHardError @ 0x140505BB0 (IoRaiseInformationalHardError.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6B80 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405AB7CC (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AED80 (EtwpCovSampCaptureQueueApc.c)
+ *     NtQueueApcThreadEx2 @ 0x1405CF9B0 (NtQueueApcThreadEx2.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     PerfLogImageUnload @ 0x14062A070 (PerfLogImageUnload.c)
+ *     IopCancelIrpsInThreadList @ 0x140682588 (IopCancelIrpsInThreadList.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
+ *     ExSwapinWorkerThreads @ 0x1407743E4 (ExSwapinWorkerThreads.c)
+ *     DbgkpLkmdLaunchSnapApc @ 0x1408883A4 (DbgkpLkmdLaunchSnapApc.c)
+ *     KeSpecialUserApcKernelRoutine @ 0x1408BCC30 (KeSpecialUserApcKernelRoutine.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14090EC1C (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140258400 (EtwpLevelKeywordEnabled.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiInsertQueueApc @ 0x14030A03C (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14030B1D8 (KiSignalThreadForApc.c)
- *     EtwTiLogInsertQueueUserApc @ 0x1403637A4 (EtwTiLogInsertQueueUserApc.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     EtwTiLogInsertQueueUserApc @ 0x14031EC40 (EtwTiLogInsertQueueUserApc.c)
+ *     KiSignalThreadForApc @ 0x1403436D0 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140343854 (KiInsertQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeInsertQueueApc(__int64 a1, __int64 a2, _DWORD *SchedulerAssist, unsigned int a4)
+char __fastcall KeInsertQueueApc(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  _DWORD *v5; // r12
-  __int64 v8; // rax
-  bool v9; // r10
-  char v10; // cl
-  __int64 v11; // rdi
+  BOOLEAN v7; // al
+  __int64 v8; // r8
+  _DWORD *SchedulerAssist; // r9
+  char v10; // r10
+  BOOLEAN v11; // r11
+  bool v12; // cl
+  __int64 v13; // rdi
   struct _KTHREAD *CurrentThread; // rdx
-  bool v13; // al
-  char v14; // r14
-  unsigned __int8 CurrentIrql; // si
-  struct _KPRCB *CurrentPrcb; // rbp
-  unsigned __int8 v17; // bl
-  __int64 v19; // r9
-  int v20; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+48h] [rbp-40h]
-  __int64 v22; // [rsp+50h] [rbp-38h]
-  char v23; // [rsp+90h] [rbp+8h]
+  _KPROCESS *v15; // rax
+  bool v16; // zf
+  char v17; // r15
+  char CurrentIrql; // bp
+  struct _KPRCB *CurrentPrcb; // r14
+  _DWORD *v20; // rcx
+  __int64 v21; // r8
+  char v22; // bl
+  struct _KTHREAD *v24; // rcx
+  _DWORD *v25; // rcx
+  int v26; // eax
+  int v27; // eax
+  int v28; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v29; // [rsp+48h] [rbp-50h]
+  __int64 v30; // [rsp+50h] [rbp-48h]
+  char v31; // [rsp+A0h] [rbp+8h]
 
-  v5 = SchedulerAssist;
-  v9 = 0;
-  if ( EtwThreatIntProvRegHandle )
-  {
-    if ( (v8 = *(_QWORD *)(EtwThreatIntProvRegHandle + 32), *(_DWORD *)(v8 + 96))
-      && (*(_DWORD *)(v8 + 112) & 0x3000LL) != 0
-      && (*(_QWORD *)(v8 + 120) & 0x3000LL) == *(_QWORD *)(v8 + 120)
-      || *(_BYTE *)(EtwThreatIntProvRegHandle + 101)
-      && EtwpLevelKeywordEnabled(*(_QWORD *)(EtwThreatIntProvRegHandle + 40) + 96LL, 0, 12288LL) )
-    {
-      v9 = 1;
-    }
-  }
+  v7 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x3000uLL);
   v10 = *(_BYTE *)(a1 + 81);
-  v21 = *(_QWORD *)(a1 + 56);
-  v22 = *(_QWORD *)(a1 + 48);
-  v23 = v10 != 0;
-  if ( *(__int64 (__fastcall **)(int, int, int, int, __int64))(a1 + 32) != KeSpecialUserApcKernelRoutine || v10 )
+  v11 = v7;
+  v29 = *(_QWORD *)(a1 + 56);
+  v31 = v10 != 0;
+  v30 = *(_QWORD *)(a1 + 48);
+  v12 = *(__int64 (__fastcall **)(int, int, int, int, __int64))(a1 + 32) == KeSpecialUserApcKernelRoutine && !v10;
+  v13 = *(_QWORD *)(a1 + 8);
+  CurrentThread = KeGetCurrentThread();
+  v15 = *(_KPROCESS **)(v13 + 544);
+  if ( v10 )
+    v16 = CurrentThread->Process == v15;
+  else
+    v16 = CurrentThread->ApcState.Process == v15;
+  if ( v11 && !v16 && (v10 || v12) )
   {
-    v11 = *(_QWORD *)(a1 + 8);
-    LOBYTE(SchedulerAssist) = 0;
-    CurrentThread = KeGetCurrentThread();
-    if ( v10 )
-    {
-      v13 = CurrentThread->Process != *(_KPROCESS **)(v11 + 544);
-      goto LABEL_9;
-    }
+    v17 = 1;
+    ObfReferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x5149654Bu);
   }
   else
   {
-    v11 = *(_QWORD *)(a1 + 8);
-    LOBYTE(SchedulerAssist) = 1;
-    CurrentThread = KeGetCurrentThread();
-  }
-  v13 = CurrentThread->ApcState.Process != *(_KPROCESS **)(v11 + 544);
-LABEL_9:
-  if ( v9 && v13 && (v10 || (_BYTE)SchedulerAssist) )
-  {
-    v14 = 1;
-    ObfReferenceObjectWithTag((PVOID)v11, 0x5149654Bu);
-  }
-  else
-  {
-    v14 = 0;
+    v17 = 0;
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v19) = 4;
-    else
-      v19 = (-1LL << (CurrentIrql + 1)) & 4;
-    CurrentThread = (struct _KTHREAD *)((unsigned int)v19 | SchedulerAssist[5]);
-    SchedulerAssist[5] = (_DWORD)CurrentThread;
+    CurrentThread = (struct _KTHREAD *)((-1LL << (CurrentIrql + 1)) & 4);
+    v8 = (unsigned int)CurrentThread | SchedulerAssist[5];
+    SchedulerAssist[5] = v8;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v20 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 64), 0LL) )
+  v28 = 0;
+  while ( 1 )
   {
+    v20 = CurrentPrcb->SchedulerAssist;
+    if ( v20 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v26 = v20[6];
+        v20[6] = v26 + 1;
+        if ( v26 == -1 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(v13 + 64), 0LL) )
+      break;
+    v25 = CurrentPrcb->SchedulerAssist;
+    if ( v25 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v27 = v25[6] - 1;
+        v25[6] = v27;
+        if ( !v27 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v20);
-    while ( *(_QWORD *)(v11 + 64) );
+      KeYieldProcessorEx(&v28, (__int64)CurrentThread, v8, (__int64)SchedulerAssist);
+    while ( *(_QWORD *)(v13 + 64) );
   }
-  if ( (*(_DWORD *)(v11 + 116) & 0x4000) == 0 || *(_BYTE *)(a1 + 82) )
+  if ( (*(_DWORD *)(v13 + 116) & 0x4000) == 0 || *(_BYTE *)(a1 + 82) )
   {
-    v17 = 0;
+    v22 = 0;
   }
   else
   {
     *(_BYTE *)(a1 + 82) = 1;
     *(_QWORD *)(a1 + 64) = a2;
-    *(_QWORD *)(a1 + 72) = v5;
-    KiInsertQueueApc(a1, CurrentThread, SchedulerAssist);
-    KiSignalThreadForApc(CurrentPrcb, a1, CurrentIrql);
-    v17 = 1;
+    *(_QWORD *)(a1 + 72) = a3;
+    KiInsertQueueApc(a1);
+    LOBYTE(v21) = CurrentIrql;
+    KiSignalThreadForApc(CurrentPrcb, a1, v21);
+    v22 = 1;
   }
-  *(_QWORD *)(v11 + 64) = 0LL;
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, a4, CurrentIrql);
-  if ( v14 )
+  KiReleaseThreadLockSafe(v13);
+  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, a4, CurrentIrql);
+  if ( v17 )
   {
-    if ( v17 )
-      EtwTiLogInsertQueueUserApc((unsigned __int8)KeGetCurrentThread()->PreviousMode, v11, v22, v21, a2, (char)v5, v23);
-    ObfDereferenceObjectWithTag((PVOID)v11, 0x5149654Bu);
+    if ( v22 )
+    {
+      v24 = KeGetCurrentThread();
+      LOBYTE(v24) = v24->PreviousMode;
+      EtwTiLogInsertQueueUserApc((_DWORD)v24, v13, v30, v29, a2, a3, v31);
+    }
+    ObfDereferenceObjectWithTag((PVOID)v13, 0x5149654Bu);
   }
-  return v17;
+  return v22;
 }

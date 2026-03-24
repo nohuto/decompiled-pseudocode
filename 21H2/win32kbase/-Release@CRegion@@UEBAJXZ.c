@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Release@CRegion@@UEBAJXZ @ 0x1C0093AC0
+ * XREFs of ?Release@CRegion@@UEBAJXZ @ 0x1C0084B90
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C009AE20 (-SetEmpty@CRegion@@UEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C00917D0 (-SetEmpty@CRegion@@UEAAXXZ.c)
  */
 
 __int64 __fastcall CRegion::Release(CRegion *this)
@@ -16,9 +16,7 @@ __int64 __fastcall CRegion::Release(CRegion *this)
   {
     *(_QWORD *)this = &CRegion::`vftable';
     CRegion::SetEmpty(this);
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+    Win32FreePool((__int64)this);
   }
   return v2;
 }

@@ -1,25 +1,27 @@
 /*
- * XREFs of DpiCheckSpbResourceLeakage @ 0x1C0066430
+ * XREFs of DpiCheckSpbResourceLeakage @ 0x1C0059674
  * Callers:
- *     DpiFdoHandleRemoveDevice @ 0x1C039B860 (DpiFdoHandleRemoveDevice.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C02CA780 (DpiFdoHandleRemoveDevice.c)
  * Callees:
- *     DpiDeleteSpbResourceRecord @ 0x1C03A7F9C (DpiDeleteSpbResourceRecord.c)
+ *     DpiDeleteSpbResourceRecord @ 0x1C02D7D8C (DpiDeleteSpbResourceRecord.c)
  */
 
-__int64 __fastcall DpiCheckSpbResourceLeakage(__int64 a1)
+void __fastcall DpiCheckSpbResourceLeakage(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdx
-  __int64 result; // rax
+  __int64 v2; // rbx
+  __int64 v3; // rax
 
-  v1 = a1 + 2704;
-  v2 = *(_QWORD *)(a1 + 2704);
-  if ( v2 != a1 + 2704 )
-    result = WdLogSingleEntry2(2LL, v2, -1073741823LL);
-  while ( *(_QWORD *)v1 != v1 )
+  v2 = a1 + 2704;
+  if ( *(_QWORD *)v2 != v2 )
   {
-    *(_DWORD *)(*(_QWORD *)v1 + 48LL) = 0;
-    result = DpiDeleteSpbResourceRecord();
+    v3 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v3 + 24) = *(_QWORD *)v2;
+    *(_QWORD *)(v3 + 32) = -1073741823LL;
+    WdLogEvent5_WdError(v3);
   }
-  return result;
+  while ( *(_QWORD *)v2 != v2 )
+  {
+    *(_DWORD *)(*(_QWORD *)v2 + 48LL) = 0;
+    DpiDeleteSpbResourceRecord();
+  }
 }

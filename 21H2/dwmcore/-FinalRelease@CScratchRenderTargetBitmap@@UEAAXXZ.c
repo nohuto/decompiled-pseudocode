@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ @ 0x1800BA490
+ * XREFs of ?FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ @ 0x180060730
  * Callers:
  *     <none>
  * Callees:
- *     ?ReturnRenderTargetBitmap@CRenderTargetBitmapCache@@IEAAXPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800BA4E4 (-ReturnRenderTargetBitmap@CRenderTargetBitmapCache@@IEAAXPEAVCScratchRenderTargetBitmap@@@Z.c)
- *     ?GetDevice@CRenderTargetBitmap@@UEBAPEAVCD3DDevice@@XZ @ 0x1800BA594 (-GetDevice@CRenderTargetBitmap@@UEBAPEAVCD3DDevice@@XZ.c)
- *     ?IsValid@CRenderTargetBitmap@@UEBAJXZ @ 0x1800BB1AC (-IsValid@CRenderTargetBitmap@@UEBAJXZ.c)
+ *     ?ReturnRenderTargetBitmap@CRenderTargetBitmapCache@@IEAAXPEAVCScratchRenderTargetBitmap@@@Z @ 0x180060784 (-ReturnRenderTargetBitmap@CRenderTargetBitmapCache@@IEAAXPEAVCScratchRenderTargetBitmap@@@Z.c)
+ *     ?GetDevice@CRenderTargetBitmap@@UEBAPEAVCD3DDevice@@XZ @ 0x180060834 (-GetDevice@CRenderTargetBitmap@@UEBAPEAVCD3DDevice@@XZ.c)
+ *     ?IsValid@CRenderTargetBitmap@@UEBAJXZ @ 0x180060E60 (-IsValid@CRenderTargetBitmap@@UEBAJXZ.c)
  */
 
 void __fastcall CScratchRenderTargetBitmap::FinalRelease(CScratchRenderTargetBitmap *this)
@@ -19,7 +19,7 @@ void __fastcall CScratchRenderTargetBitmap::FinalRelease(CScratchRenderTargetBit
     if ( (int)CRenderTargetBitmap::IsValid((CScratchRenderTargetBitmap *)((char *)this + 192)) >= 0 )
     {
       Device = CRenderTargetBitmap::GetDevice(v2);
-      CRenderTargetBitmapCache::ReturnRenderTargetBitmap((struct CD3DDevice *)((char *)Device + 464), this);
+      CRenderTargetBitmapCache::ReturnRenderTargetBitmap((struct CD3DDevice *)((char *)Device + 512), this);
     }
   }
 }

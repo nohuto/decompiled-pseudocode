@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmReserveGpuVirtualAddressRangeCb @ 0x1C002D2F0
+ * XREFs of VidMmReserveGpuVirtualAddressRangeCb @ 0x1C0012BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE@@@Z @ 0x1C00EA1F0 (-VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESS.c)
+ *     ?VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE@@@Z @ 0x1C0083FFC (-VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESS.c)
  */
 
 __int64 __fastcall VidMmReserveGpuVirtualAddressRangeCb(

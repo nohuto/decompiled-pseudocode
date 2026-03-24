@@ -1,54 +1,55 @@
 /*
- * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x14092BEF8
+ * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x1408893A8
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x14092BA58 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140888D80 (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateTimer @ 0x14041D060 (ZwCreateTimer.c)
- *     DbgkpWerAllocateNonpagedPool @ 0x140540B20 (DbgkpWerAllocateNonpagedPool.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateTimer @ 0x1403FBC00 (ZwCreateTimer.c)
+ *     DbgkpWerAllocateNonpagedPool @ 0x1404EE9C8 (DbgkpWerAllocateNonpagedPool.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
 {
-  __int64 v1; // rsi
+  __int64 v1; // r14
   NTSTATUS v3; // eax
-  unsigned int v4; // ebx
+  int v4; // ebx
   int v5; // eax
+  struct _DMA_ADAPTER *v6; // rdi
   _QWORD *NonpagedPool; // rax
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   HANDLE TimerHandle; // [rsp+90h] [rbp+20h] BYREF
-  PVOID Object; // [rsp+98h] [rbp+28h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp+28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 128);
+  memset(&ObjectAttributes.Length + 1, 0, 20);
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   TimerHandle = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   v3 = ZwCreateTimer(&TimerHandle, 0x1F0003u, &ObjectAttributes, NotificationTimer);
   v4 = v3;
   if ( v3 >= 0 )
   {
-    Object = 0LL;
+    DmaAdapter = 0LL;
     v5 = ObpReferenceObjectByHandleWithTag(
            (ULONG_PTR)TimerHandle,
            2031619,
            (__int64)ExTimerObjectType,
            0,
            0x57676244u,
-           &Object,
+           &DmaAdapter,
            0LL,
            0LL);
+    v6 = DmaAdapter;
     v4 = v5;
     if ( v5 >= 0 )
     {
       ZwClose(TimerHandle);
       TimerHandle = 0LL;
-      *(_QWORD *)(v1 + 16) = Object;
+      *(_QWORD *)(v1 + 16) = v6;
       NonpagedPool = DbgkpWerAllocateNonpagedPool();
       if ( !NonpagedPool )
       {
@@ -63,9 +64,12 @@ __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
     else
     {
       DbgPrintEx(5u, 0, "DBGK: Failed to reference timer, status 0x%X\n", v5);
-      if ( Object )
+    }
+    if ( v4 < 0 )
+    {
+      if ( v6 )
       {
-        ObfDereferenceObject(Object);
+        HalPutDmaAdapter(v6);
         *(_QWORD *)(v1 + 16) = 0LL;
       }
       if ( TimerHandle )
@@ -76,5 +80,5 @@ __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
   {
     DbgPrintEx(5u, 0, "DBGK: Failed to create timer, status 0x%X\n", v3);
   }
-  return v4;
+  return (unsigned int)v4;
 }

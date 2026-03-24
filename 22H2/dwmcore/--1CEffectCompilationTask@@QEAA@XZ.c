@@ -1,48 +1,42 @@
 /*
- * XREFs of ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801E624C
+ * XREFs of ??1CEffectCompilationTask@@QEAA@XZ @ 0x180182A88
  * Callers:
- *     ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800E3A10 (-Release@CEffectCompilationTask@@UEAAKXZ.c)
+ *     ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800CA490 (-Release@CEffectCompilationTask@@UEAAKXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?erase@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@QEAA_KAEBUEffectDescriptionKey@@@Z @ 0x1801BC4E4 (-erase@-$_Hash@V-$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V-$_Uhash_comp.c)
- *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x1801E6310 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
- *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801E63B4 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
+ *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x18001FF20 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?erase@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@QEAA_KAEBUEffectDescriptionKey@@@Z @ 0x180167E68 (-erase@-$_Hash@V-$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V_ea_180167E68.c)
+ *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x180182B28 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
  */
 
 void __fastcall CEffectCompilationTask::~CEffectCompilationTask(CEffectCompilationTask *this)
 {
-  unsigned int v2; // edx
-  __int64 v3; // rsi
-  __int64 *v4; // rdi
-  OLECHAR *v5; // rcx
-  CCompiledEffectCache *v6; // rcx
-  __int64 v7; // rcx
-  unsigned int v8; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-10h]
+  __int64 v2; // rbx
+  OLECHAR *v3; // rcx
+  CCompiledEffectCache *v4; // rcx
+  __int64 v5; // rcx
+  unsigned int v6; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h]
 
   *(_QWORD *)this = &CEffectCompilationTask::`vftable';
   CEffectCompilationTask::Cancel_RenderThread(this);
-  v3 = *((_QWORD *)this + 1);
-  v4 = (__int64 *)((char *)this + 48);
-  if ( !*(_BYTE *)(v3 + 72) )
-  {
-    v9 = *v4;
-    v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v9 + 104LL))(v9);
-    std::_Hash<std::_Umap_traits<EffectDescriptionKey,CEffectCompilationTask *,std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>,std::allocator<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>,0>>::erase(
-      (_QWORD *)(v3 + 112),
-      &v8);
-  }
-  v5 = (OLECHAR *)*((_QWORD *)this + 10);
+  v2 = *((_QWORD *)this + 1);
+  v7 = *((_QWORD *)this + 6);
+  v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 104LL))(v7);
+  std::_Hash<std::_Umap_traits<EffectDescriptionKey,CEffectCompilationTask *,std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>,std::allocator<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>,0>>::erase(
+    (_QWORD *)(v2 + 112),
+    &v6);
+  v3 = (OLECHAR *)*((_QWORD *)this + 10);
+  if ( v3 )
+    SysFreeString(v3);
+  v4 = (CCompiledEffectCache *)*((_QWORD *)this + 9);
+  if ( v4 )
+    CCompiledEffectCache::`scalar deleting destructor'(v4);
+  v5 = *((_QWORD *)this + 6);
   if ( v5 )
-    SysFreeString(v5);
-  v6 = (CCompiledEffectCache *)*((_QWORD *)this + 9);
-  if ( v6 )
-    CCompiledEffectCache::`scalar deleting destructor'(v6, v2);
-  v7 = *v4;
-  if ( *v4 )
   {
-    *v4 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
+    *((_QWORD *)this + 6) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
   }
   DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 16);
 }

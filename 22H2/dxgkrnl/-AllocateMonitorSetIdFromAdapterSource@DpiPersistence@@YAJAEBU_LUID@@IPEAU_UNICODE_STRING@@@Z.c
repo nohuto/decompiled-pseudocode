@@ -1,14 +1,13 @@
 /*
- * XREFs of ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C0184F64
+ * XREFs of ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C014AEA8
  * Callers:
- *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C0184BC0 (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
- *     ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C0302D10 (-WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
- *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C0302E08 (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
+ *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C014B710 (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
+ *     ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A9BE8 (-WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
+ *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A9CAC (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z @ 0x1C01838EC (-CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z.c)
- *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0183DF8 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z @ 0x1C014ABC0 (-CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z.c)
+ *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C014AF50 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall DpiPersistence::AllocateMonitorSetIdFromAdapterSource(
@@ -17,60 +16,51 @@ __int64 __fastcall DpiPersistence::AllocateMonitorSetIdFromAdapterSource(
         struct _UNICODE_STRING *a3,
         struct _UNICODE_STRING *a4)
 {
-  unsigned int v5; // edi
-  __int64 v7; // rax
-  int v8; // eax
-  struct _UNICODE_STRING *v9; // rdx
-  __int64 v10; // rdi
+  unsigned int v5; // ebx
+  wchar_t *v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  int v12; // eax
+  struct _UNICODE_STRING *v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
   int appended; // eax
-  struct _UNICODE_STRING v13; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v18; // rax
+  __int64 v19; // rax
+  struct _UNICODE_STRING v20; // [rsp+50h] [rbp+18h] BYREF
 
   v5 = (unsigned int)a2;
   a3->Length = 0;
-  v7 = operator new[](0x8002uLL, 0x63644356u, 256LL);
-  a3->Buffer = (wchar_t *)v7;
+  v7 = (wchar_t *)operator new[](0x8002uLL, 0x63644356u, PagedPool);
+  a3->Buffer = v7;
   if ( v7 )
   {
     a3->MaximumLength = -32766;
-    LOBYTE(v13.Length) = 0;
-    v8 = DpiPersistence::CreateMonitorSetId(this, (const struct _LUID *)v5, (__int64)a3, &v13);
-    v10 = v8;
-    if ( LOBYTE(v13.Length) )
+    LOBYTE(v20.Length) = 0;
+    v12 = DpiPersistence::CreateMonitorSetId(this, (const struct _LUID *)v5, (__int64)a3, &v20);
+    v15 = v12;
+    if ( LOBYTE(v20.Length) )
     {
       return 3221225659LL;
     }
     else
     {
-      if ( v8 < 0 || (appended = DpiPersistence::SortMonitorSetIdAndAppendHash(a3, v9), v10 = appended, appended < 0) )
+      if ( v12 < 0 || (appended = DpiPersistence::SortMonitorSetIdAndAppendHash(a3, v13), v15 = appended, appended < 0) )
       {
-        WdLogSingleEntry1(2LL, v10);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Unable to get Monitor ID String to write to registry (Status = 0x%I64x)",
-          v10,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v19 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v19 + 24) = v15;
+        WdLogEvent5_WdError(v19);
       }
-      return (unsigned int)v10;
+      return (unsigned int)v15;
     }
   }
   else
   {
-    WdLogSingleEntry1(6LL, 32770LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to create o_pMonitorSetId->Buffer of size 0x%I64x",
-      32770LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdLowResource(v9, v8, v10, v11);
+    *(_QWORD *)(v18 + 24) = 32770LL;
+    WdLogEvent5_WdLowResource(v18);
     return 3221225495LL;
   }
 }

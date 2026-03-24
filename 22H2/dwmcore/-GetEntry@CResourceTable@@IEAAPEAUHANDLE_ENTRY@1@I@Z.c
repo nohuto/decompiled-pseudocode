@@ -1,20 +1,19 @@
 /*
- * XREFs of ?GetEntry@CResourceTable@@IEAAPEAUHANDLE_ENTRY@1@I@Z @ 0x1800AAE34
+ * XREFs of ?GetEntry@CResourceTable@@IEAAPEAUHANDLE_ENTRY@1@I@Z @ 0x18005D9D8
  * Callers:
- *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x1800AAD4C (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x18005EBB0 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x18005EEFC (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
  * Callees:
- *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x180099D6C (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
+ *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x18005E0E0 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
  */
 
 struct CResourceTable::HANDLE_ENTRY *__fastcall CResourceTable::GetEntry(CResourceTable *this, unsigned int a2)
 {
-  int v2; // eax
-  int v3; // r8d
-  __int64 v4; // r9
+  __int64 v2; // r8
+  int v3; // r9d
 
-  LOBYTE(v2) = HANDLE_TABLE::ValidEntry((CResourceTable *)((char *)this + 16), a2);
-  if ( v2 )
-    return (struct CResourceTable::HANDLE_ENTRY *)(*(_QWORD *)(v4 + 40) + (unsigned int)(*(_DWORD *)(v4 + 24) * v3));
+  if ( (unsigned int)HANDLE_TABLE::ValidEntry((CResourceTable *)((char *)this + 16), a2) )
+    return (struct CResourceTable::HANDLE_ENTRY *)(*(_QWORD *)(v2 + 40) + (unsigned int)(v3 * *(_DWORD *)(v2 + 24)));
   else
     return 0LL;
 }

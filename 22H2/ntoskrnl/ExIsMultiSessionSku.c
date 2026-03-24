@@ -1,47 +1,45 @@
 /*
- * XREFs of ExIsMultiSessionSku @ 0x140861E24
+ * XREFs of ExIsMultiSessionSku @ 0x1407D1AC8
  * Callers:
- *     PspSiloInitializeIsMultiSessionSku @ 0x1409AD690 (PspSiloInitializeIsMultiSessionSku.c)
- *     InitSkuSessionParameters @ 0x140B73D08 (InitSkuSessionParameters.c)
+ *     PspSiloInitializeIsMultiSessionSku @ 0x1409069C8 (PspSiloInitializeIsMultiSessionSku.c)
+ *     InitSkuSessionParameters @ 0x140A71D04 (InitSkuSessionParameters.c)
  * Callees:
- *     ApiSetResolveToHost @ 0x14035EDE8 (ApiSetResolveToHost.c)
- *     PsQueryCurrentApiSetSchema @ 0x1407D468C (PsQueryCurrentApiSetSchema.c)
- *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x140861E94 (ExpGetNumberOfInitialSessionsFromRegistry.c)
+ *     ApiSetResolveToHost @ 0x14037263C (ApiSetResolveToHost.c)
+ *     PsQueryCurrentApiSetSchema @ 0x14075D104 (PsQueryCurrentApiSetSchema.c)
+ *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1B38 (ExpGetNumberOfInitialSessionsFromRegistry.c)
  */
 
 __int64 __fastcall ExIsMultiSessionSku(char *a1)
 {
-  int NumberOfInitialSessionsFromRegistry; // ecx
+  int NumberOfInitialSessionsFromRegistry; // eax
+  __int64 v3; // rdx
+  int v4; // ecx
   __int64 CurrentApiSetSchema; // rax
-  char v5; // al
-  _QWORD v6[2]; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v7; // [rsp+40h] [rbp-10h] BYREF
-  char v8; // [rsp+68h] [rbp+18h] BYREF
-  unsigned int v9; // [rsp+70h] [rbp+20h] BYREF
+  char v7; // al
+  _QWORD v8[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v9; // [rsp+40h] [rbp-10h] BYREF
+  char v10; // [rsp+68h] [rbp+18h] BYREF
+  unsigned int v11; // [rsp+70h] [rbp+20h] BYREF
 
-  v6[0] = 4587588LL;
-  v6[1] = L"ext-ms-win-session-wtsapi32-l1-1-0";
-  v8 = 0;
-  v7 = 0LL;
-  v9 = 0;
-  NumberOfInitialSessionsFromRegistry = ExpGetNumberOfInitialSessionsFromRegistry(&v9);
+  v8[0] = 4587588LL;
+  v8[1] = L"ext-ms-win-session-wtsapi32-l1-1-0";
+  v10 = 0;
+  v9 = 0LL;
+  v11 = 0;
+  NumberOfInitialSessionsFromRegistry = ExpGetNumberOfInitialSessionsFromRegistry(&v11);
+  v4 = NumberOfInitialSessionsFromRegistry;
   if ( NumberOfInitialSessionsFromRegistry >= 0 )
   {
-    if ( v9 <= 1 )
+    if ( v11 <= 1 )
     {
-      CurrentApiSetSchema = PsQueryCurrentApiSetSchema();
-      NumberOfInitialSessionsFromRegistry = ApiSetResolveToHost(
-                                              CurrentApiSetSchema,
-                                              (unsigned __int16 *)v6,
-                                              0LL,
-                                              &v8,
-                                              (__int64)&v7);
-      if ( NumberOfInitialSessionsFromRegistry >= 0 )
+      CurrentApiSetSchema = PsQueryCurrentApiSetSchema((unsigned int)NumberOfInitialSessionsFromRegistry, v3);
+      v4 = ApiSetResolveToHost(CurrentApiSetSchema, (unsigned __int16 *)v8, 0LL, &v10, (__int64)&v9);
+      if ( v4 >= 0 )
       {
-        v5 = v8;
-        if ( v8 && !(_WORD)v7 )
-          v5 = 0;
-        *a1 = v5;
+        v7 = v10;
+        if ( v10 && !(_WORD)v9 )
+          v7 = 0;
+        *a1 = v7;
       }
     }
     else
@@ -49,5 +47,5 @@ __int64 __fastcall ExIsMultiSessionSku(char *a1)
       *a1 = 1;
     }
   }
-  return (unsigned int)NumberOfInitialSessionsFromRegistry;
+  return (unsigned int)v4;
 }

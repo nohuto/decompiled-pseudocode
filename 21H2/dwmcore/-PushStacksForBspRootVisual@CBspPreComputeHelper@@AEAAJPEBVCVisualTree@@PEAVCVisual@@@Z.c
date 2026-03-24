@@ -1,25 +1,23 @@
 /*
- * XREFs of ?PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801B5A64
+ * XREFs of ?PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x18019A0A4
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?Push@?$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBackfaceVisibility@@@Z @ 0x18004C000 (-Push@-$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBackfaceVis.c)
- *     ?Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z @ 0x180059504 (-Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x18008F04C (-Push@-$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z.c)
- *     ?CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z @ 0x180093FA0 (-CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z.c)
- *     ?Push@?$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z @ 0x1800D66A4 (-Push@-$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z.c)
- *     ?Push@?$CWatermarkStack@I$0EA@$01$09@@QEAAJAEBI@Z @ 0x1801B2DEC (-Push@-$CWatermarkStack@I$0EA@$01$09@@QEAAJAEBI@Z.c)
- *     ?Push@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z @ 0x1801B5270 (-Push@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z.c)
- *     ?Push@?$CWatermarkStack@PEAVCVisual@@$0EA@$01$09@@QEAAJAEBQEAVCVisual@@@Z @ 0x1801B53A4 (-Push@-$CWatermarkStack@PEAVCVisual@@$0EA@$01$09@@QEAAJAEBQEAVCVisual@@@Z.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapBorderMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapBorderMode@@@Z @ 0x1801B54D8 (-Push@-$CWatermarkStack@W4Enum@MilBitmapBorderMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapBorderM.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapInterpolationMode@@@Z @ 0x1801B560C (-Push@-$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmap.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMode@@@Z @ 0x1801B5740 (-Push@-$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMod.c)
+ *     ?Push@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAAJAEBW4StackStateType@COcclusionContext@@@Z @ 0x18003F564 (-Push@-$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAAJAEBW4StackStateTyp.c)
+ *     ?Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z @ 0x18003F648 (-Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z.c)
+ *     ?Push@?$CWatermarkStack@PEAVCVisual@@$0EA@$01$09@@QEAAJAEBQEAVCVisual@@@Z @ 0x18004300C (-Push@-$CWatermarkStack@PEAVCVisual@@$0EA@$01$09@@QEAAJAEBQEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV5@4@Z @ 0x180081420 (-CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@.c)
+ *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapInterpolationMode@@@Z @ 0x18008F40C (-Push@-$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmap.c)
+ *     ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x180094694 (-Push@-$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z.c)
+ *     ?Push@?$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z @ 0x180177C18 (-Push@-$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z.c)
+ *     ?Push@?$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMode@@@Z @ 0x180199C4C (-Push@-$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMod.c)
+ *     ?Push@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z @ 0x180199D80 (-Push@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z.c)
  */
 
 __int64 __fastcall CBspPreComputeHelper::PushStacksForBspRootVisual(
         CBspPreComputeHelper *this,
-        CVisual **a2,
+        const struct CVisualTree *a2,
         struct CVisual *a3)
 {
   int v4; // eax
@@ -27,15 +25,15 @@ __int64 __fastcall CBspPreComputeHelper::PushStacksForBspRootVisual(
   unsigned int v6; // ebx
   int v7; // eax
   __int64 v8; // rcx
-  unsigned int v10; // [rsp+20h] [rbp-60h]
-  _BYTE v11[64]; // [rsp+30h] [rbp-50h] BYREF
-  int v12; // [rsp+70h] [rbp-10h]
-  __int64 v13; // [rsp+A0h] [rbp+20h] BYREF
-  struct CVisual *v14; // [rsp+B0h] [rbp+30h] BYREF
+  unsigned int v10; // [rsp+28h] [rbp-29h]
+  _BYTE v11[64]; // [rsp+48h] [rbp-9h] BYREF
+  int v12; // [rsp+88h] [rbp+37h]
+  __int64 v13; // [rsp+B8h] [rbp+67h] BYREF
+  struct CVisual *v14; // [rsp+C8h] [rbp+77h] BYREF
 
   v14 = a3;
   v12 = 0;
-  CVisual::CalcTransform(a3, a2, 0LL, (bool *)&v13, (struct CMILMatrix *)v11, 0LL);
+  CVisual::CalcCpuClippingTransform((__int64)a3, 5, (__int64)a2, 0LL, &v13, (CMILMatrix *)v11, 0LL);
   v4 = CMatrixStack::Push((CBspPreComputeHelper *)((char *)this + 64), (const struct CMILMatrix *)v11, 0);
   v6 = v4;
   if ( v4 < 0 )
@@ -55,7 +53,7 @@ __int64 __fastcall CBspPreComputeHelper::PushStacksForBspRootVisual(
   v6 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x72u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x72u, 0LL);
   }
   else
   {
@@ -69,61 +67,61 @@ __int64 __fastcall CBspPreComputeHelper::PushStacksForBspRootVisual(
       v10 = 117;
       goto LABEL_23;
     }
-    LODWORD(v13) = -1;
-    v4 = CWatermarkStack<enum MilBackfaceVisibility::Enum,64,2,10>::Push((unsigned int *)this + 32, &v13);
+    LODWORD(v14) = -1;
+    v4 = CWatermarkStack<enum COcclusionContext::StackStateType,64,2,10>::Push((unsigned int *)this + 32, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 120;
       goto LABEL_23;
     }
-    LODWORD(v13) = -1;
-    v4 = CWatermarkStack<enum MilBitmapInterpolationMode::Enum,64,2,10>::Push((unsigned int *)this + 40, &v13);
+    LODWORD(v14) = -1;
+    v4 = CWatermarkStack<enum MilBitmapInterpolationMode::Enum,64,2,10>::Push((unsigned int *)this + 40, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 123;
       goto LABEL_23;
     }
-    LODWORD(v13) = -1;
-    v4 = CWatermarkStack<enum MilBitmapBorderMode::Enum,64,2,10>::Push((unsigned int *)this + 48, &v13);
+    LODWORD(v14) = -1;
+    v4 = CWatermarkStack<enum MilBitmapInterpolationMode::Enum,64,2,10>::Push((unsigned int *)this + 48, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 126;
       goto LABEL_23;
     }
-    LODWORD(v13) = 5;
-    v4 = CWatermarkStack<enum MilCompositingMode::Enum,64,2,10>::Push((unsigned int *)this + 56, &v13);
+    LODWORD(v14) = 5;
+    v4 = CWatermarkStack<enum MilCompositingMode::Enum,64,2,10>::Push((unsigned int *)this + 56, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 129;
       goto LABEL_23;
     }
-    LODWORD(v13) = (_DWORD)FLOAT_1_0;
-    v4 = CWatermarkStack<float,64,2,10>::Push((unsigned int *)this + 64, &v13);
+    LODWORD(v14) = (_DWORD)FLOAT_1_0;
+    v4 = CWatermarkStack<float,64,2,10>::Push((unsigned int *)this + 64, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 132;
       goto LABEL_23;
     }
-    LOBYTE(v13) = 0;
-    v4 = CWatermarkStack<bool,64,2,10>::Push((const void **)this + 36, &v13);
+    LOBYTE(v14) = 0;
+    v4 = CWatermarkStack<bool,64,2,10>::Push((const void **)this + 36, &v14);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 135;
       goto LABEL_23;
     }
-    v4 = CWatermarkStack<unsigned int,64,2,10>::Push((unsigned int *)this + 80, (_DWORD *)this + 88);
+    v4 = CWatermarkStack<enum MilCompositingMode::Enum,64,2,10>::Push((unsigned int *)this + 80, (_DWORD *)this + 88);
     v6 = v4;
     if ( v4 < 0 )
     {
       v10 = 138;
 LABEL_23:
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, v10);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, v10, 0LL);
     }
   }
   return v6;

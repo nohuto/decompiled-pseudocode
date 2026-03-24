@@ -1,12 +1,12 @@
 /*
- * XREFs of ProcessEvalObj @ 0x1C0025310
+ * XREFs of ProcessEvalObj @ 0x1C0001CF0
  * Callers:
  *     <none>
  * Callees:
- *     GetObjectPath @ 0x1C00282F8 (GetObjectPath.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     DumpObject @ 0x1C0068B08 (DumpObject.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  */
 
 __int64 __fastcall ProcessEvalObj(__int64 a1, __int64 a2, unsigned int a3)
@@ -25,36 +25,34 @@ __int64 __fastcall ProcessEvalObj(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v17; // rdx
   _QWORD *v18; // rax
   __int64 ObjectPath; // rax
-  void *v21; // rbp
-  __int64 v22; // rdx
-  __int64 v23; // r10
-  __int64 v24; // rcx
-  _QWORD *v25; // rax
-  __int64 v26; // rcx
+  void *v21; // rdx
+  void *v22; // rbp
+  __int64 v23; // rdx
+  __int64 v24; // r10
+  __int64 v25; // rcx
+  _QWORD *v26; // rax
   __int64 v27; // rcx
-  _QWORD *v28; // rax
+  __int64 v28; // rcx
+  _QWORD *v29; // rax
 
   if ( (gDebugger & 0xD0) != 0 && !a3 )
   {
     ObjectPath = GetObjectPath(*(_QWORD *)(a2 + 32));
-    v21 = (void *)ObjectPath;
+    v21 = &unk_1C00701BA;
+    v22 = (void *)ObjectPath;
     if ( ObjectPath )
-    {
-      PrintDebugMessage(45, ObjectPath, 0, 0, 0LL);
-      ExFreePoolWithTag(v21, 0);
-    }
-    else
-    {
-      PrintDebugMessage(45, (unsigned int)&unk_1C006FB8B, 0, 0, 0LL);
-    }
-    DumpObject(*(_QWORD *)(a2 + 48), v22, 0LL);
+      LODWORD(v21) = ObjectPath;
+    PrintDebugMessage(45, (_DWORD)v21, 0, 0, 0LL);
+    if ( v22 )
+      ExFreePoolWithTag(v22, 0);
+    DumpObject(*(_QWORD *)(a2 + 48), v23, 0LL);
     ConPrintf("\n");
   }
   v6 = *(_QWORD **)(a1 + 416);
   *(_QWORD *)(a1 + 416) = v6[1];
   v7 = v6 - 2;
   *((_DWORD *)v6 - 4) = 0;
-  byte_1C0082868 = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+  NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
   v8 = *(v6 - 1);
   v9 = *(_QWORD **)(v8 + 40);
   for ( i = (_QWORD *)(v8 + 40); v9 != i; v9 = (_QWORD *)*v9 )
@@ -73,37 +71,37 @@ __int64 __fastcall ProcessEvalObj(__int64 a1, __int64 a2, unsigned int a3)
   v13 = *v6 - 16LL;
   if ( (_QWORD *)*v6 != i )
   {
-    v23 = *((unsigned int *)v7 + 1);
-    if ( (_QWORD *)v13 == (_QWORD *)((char *)v7 + v23) )
+    v24 = *((unsigned int *)v7 + 1);
+    if ( (_QWORD *)v13 == (_QWORD *)((char *)v7 + v24) )
     {
-      *((_DWORD *)v7 + 1) = v23 + *(_DWORD *)(v13 + 4);
-      v24 = *v12;
+      *((_DWORD *)v7 + 1) = v24 + *(_DWORD *)(v13 + 4);
+      v25 = *v12;
       if ( *(_QWORD **)(*v12 + 8LL) != v12 )
         goto LABEL_11;
-      v25 = (_QWORD *)v12[1];
-      if ( (_QWORD *)*v25 != v12 )
+      v26 = (_QWORD *)v12[1];
+      if ( (_QWORD *)*v26 != v12 )
         goto LABEL_11;
-      *v25 = v24;
-      *(_QWORD *)(v24 + 8) = v25;
+      *v26 = v25;
+      *(_QWORD *)(v25 + 8) = v26;
     }
   }
   v14 = (_QWORD *)v7[3];
   v15 = v14 - 2;
   if ( v14 != i )
   {
-    v26 = *((unsigned int *)v15 + 1);
-    if ( v7 == (_QWORD *)((char *)v15 + v26) )
+    v27 = *((unsigned int *)v15 + 1);
+    if ( v7 == (_QWORD *)((char *)v15 + v27) )
     {
-      *((_DWORD *)v15 + 1) = *((_DWORD *)v7 + 1) + v26;
-      v27 = *v6;
+      *((_DWORD *)v15 + 1) = *((_DWORD *)v7 + 1) + v27;
+      v28 = *v6;
       if ( *(_QWORD **)(*v6 + 8LL) != v6 )
         goto LABEL_11;
-      v28 = (_QWORD *)v6[1];
-      if ( (_QWORD *)*v28 != v6 )
+      v29 = (_QWORD *)v6[1];
+      if ( (_QWORD *)*v29 != v6 )
         goto LABEL_11;
-      *v28 = v27;
+      *v29 = v28;
       v7 = v15;
-      *(_QWORD *)(v27 + 8) = v28;
+      *(_QWORD *)(v28 + 8) = v29;
     }
   }
   if ( *(_QWORD *)(v8 + 32) <= (unsigned __int64)v7 + *((unsigned int *)v7 + 1) )
@@ -125,6 +123,6 @@ LABEL_11:
     __fastfail(3u);
   }
 LABEL_10:
-  KeReleaseSpinLock(&gmutHeap, byte_1C0082868);
+  KeReleaseSpinLock(&gmutHeap, NewIrql);
   return a3;
 }

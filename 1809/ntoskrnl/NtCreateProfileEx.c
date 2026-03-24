@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateProfileEx @ 0x1408DA320
+ * XREFs of NtCreateProfileEx @ 0x1408DA300
  * Callers:
  *     <none>
  * Callees:
- *     ExpProfileCreate @ 0x1408D9BEC (ExpProfileCreate.c)
+ *     ExpProfileCreate @ 0x1408D9BCC (ExpProfileCreate.c)
  */
 
 NTSTATUS __stdcall NtCreateProfileEx(

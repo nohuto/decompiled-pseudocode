@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDisassociateThreadIrp @ 0x14027E9F8
+ * XREFs of IopDisassociateThreadIrp @ 0x14027EAF8
  * Callers:
- *     IoCancelThreadIo @ 0x1406A67D8 (IoCancelThreadIo.c)
+ *     IoCancelThreadIo @ 0x1406A67B8 (IoCancelThreadIo.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IoAllocateErrorLogEntry @ 0x14016CB30 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x14016CC50 (IoWriteErrorLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IoAllocateErrorLogEntry @ 0x14016CB50 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x14016CC70 (IoWriteErrorLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR IopDisassociateThreadIrp()

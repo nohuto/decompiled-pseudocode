@@ -1,101 +1,110 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeBottomUp @ 0x140884620
+ * XREFs of IopFileUtilWalkDirectoryTreeBottomUp @ 0x14077C5B8
  * Callers:
- *     NtEnableLastKnownGood @ 0x140884340 (NtEnableLastKnownGood.c)
+ *     NtEnableLastKnownGood @ 0x14077C2F0 (NtEnableLastKnownGood.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x1408847A4 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C750 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeBottomUp(PCUNICODE_STRING SourceString)
 {
-  __int64 Length; // rdx
+  __int64 Length; // r14
   int v3; // edi
-  UNICODE_STRING *Pool2; // rax
-  PVOID *v5; // rbx
+  UNICODE_STRING *PoolWithTag; // rax
+  UNICODE_STRING *v5; // rbx
   _QWORD *v6; // rax
-  PVOID v7; // rcx
-  __int64 v8; // rax
-  PVOID v10; // rbx
-  PVOID *v11; // rax
-  int v12; // [rsp+28h] [rbp-D8h]
-  PVOID P; // [rsp+40h] [rbp-C0h] BYREF
-  PVOID p_P; // [rsp+48h] [rbp-B8h]
-  __int64 v15[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE FileInformation[1024]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v7; // rax
+  PVOID v9; // rbx
+  PVOID *v10; // rax
+  int v11; // [rsp+30h] [rbp-D8h]
+  PVOID P; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID p_P; // [rsp+50h] [rbp-B8h]
+  __int64 v14[2]; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE FileInformation[1024]; // [rsp+68h] [rbp-A0h] BYREF
 
   Length = SourceString->Length;
   p_P = &P;
   P = &P;
-  v15[1] = (__int64)v15;
   v3 = 0;
-  v15[0] = (__int64)v15;
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, Length + 38, 1967550281LL);
-  v5 = (PVOID *)Pool2;
-  if ( !Pool2 )
+  v14[1] = (__int64)v14;
+  v14[0] = (__int64)v14;
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, Length + 38, 0x75466F49u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v3 = -1073741670;
-    goto LABEL_6;
+    goto LABEL_5;
   }
-  Pool2[1].Length = 0;
-  Pool2[1].MaximumLength = SourceString->Length;
-  Pool2[1].Buffer = &Pool2[2].Length;
-  RtlCopyUnicodeString(Pool2 + 1, SourceString);
+  memset(PoolWithTag, 0, Length + 38);
+  v5[1].Length = 0;
+  v5[1].MaximumLength = SourceString->Length;
+  v5[1].Buffer = &v5[2].Length;
+  RtlCopyUnicodeString(v5 + 1, SourceString);
   v6 = P;
   if ( *((PVOID **)P + 1) != &P )
-LABEL_12:
+LABEL_11:
     __fastfail(3u);
-  *v5 = P;
-  v5[1] = &P;
+  *(_QWORD *)&v5->Length = P;
+  v5->Buffer = (wchar_t *)&P;
   v6[1] = v5;
   P = v5;
-  while ( v5 != &P )
+  if ( v5 == (UNICODE_STRING *)&P )
+    goto LABEL_15;
+  do
   {
-    v3 = IopFileUtilWalkDirectoryTreeHelper((int)v5 + 16, 8, 0, 0, FileInformation, v12, (__int64)&P);
+    v3 = IopFileUtilWalkDirectoryTreeHelper((int)v5 + 16, 8, 0, 0, FileInformation, v11, (__int64)&P);
     if ( v3 < 0 )
-      goto LABEL_6;
-    v5 = (PVOID *)*v5;
+    {
+LABEL_5:
+      while ( 1 )
+      {
+        v5 = (UNICODE_STRING *)P;
+LABEL_6:
+        if ( v5 == (UNICODE_STRING *)&P )
+          return (unsigned int)v3;
+        if ( (PVOID *)v5->Buffer != &P )
+          goto LABEL_11;
+        v7 = *(_QWORD *)&v5->Length;
+        if ( *(UNICODE_STRING **)(*(_QWORD *)&v5->Length + 8LL) != v5 )
+          goto LABEL_11;
+        P = *(PVOID *)&v5->Length;
+        *(_QWORD *)(v7 + 8) = &P;
+        ExFreePoolWithTag(v5, 0x75466F49u);
+      }
+    }
+    v5 = *(UNICODE_STRING **)&v5->Length;
   }
-  while ( P != &P )
+  while ( v5 != (UNICODE_STRING *)&P );
+  while ( 1 )
   {
-    v10 = p_P;
+    v5 = (UNICODE_STRING *)P;
+LABEL_15:
+    if ( v5 == (UNICODE_STRING *)&P )
+      break;
+    v9 = p_P;
     if ( *(PVOID **)p_P != &P )
-      goto LABEL_12;
-    v11 = (PVOID *)*((_QWORD *)p_P + 1);
-    if ( *v11 != p_P )
-      goto LABEL_12;
+      goto LABEL_11;
+    v10 = (PVOID *)*((_QWORD *)p_P + 1);
+    if ( *v10 != p_P )
+      goto LABEL_11;
     p_P = (PVOID)*((_QWORD *)p_P + 1);
-    *v11 = &P;
+    *v10 = &P;
     v3 = IopFileUtilWalkDirectoryTreeHelper(
-           (int)v10 + 16,
+           (int)v9 + 16,
            7,
            (int)PpLastGoodDeleteFilesCallback,
            0,
            FileInformation,
-           v12,
-           (__int64)v15);
-    ExFreePoolWithTag(v10, 0x75466F49u);
+           v11,
+           (__int64)v14);
+    ExFreePoolWithTag(v9, 0x75466F49u);
   }
   if ( v3 < 0 )
-  {
-LABEL_6:
-    while ( 1 )
-    {
-      v7 = P;
-      if ( P == &P )
-        break;
-      if ( *((PVOID **)P + 1) != &P )
-        goto LABEL_12;
-      v8 = *(_QWORD *)P;
-      if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P )
-        goto LABEL_12;
-      P = *(PVOID *)P;
-      *(_QWORD *)(v8 + 8) = &P;
-      ExFreePoolWithTag(v7, 0x75466F49u);
-    }
-  }
+    goto LABEL_6;
   return (unsigned int)v3;
 }

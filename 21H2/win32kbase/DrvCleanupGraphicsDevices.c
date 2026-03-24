@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvCleanupGraphicsDevices @ 0x1C01735B0
+ * XREFs of DrvCleanupGraphicsDevices @ 0x1C01465B4
  * Callers:
- *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014790C (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0119628 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     DrvCleanupOneGraphicsDevice @ 0x1C0069DB0 (DrvCleanupOneGraphicsDevice.c)
- *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C0069E9C (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C009AA74 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     DrvCleanupOneGraphicsDevice @ 0x1C007D360 (DrvCleanupOneGraphicsDevice.c)
+ *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007D414 (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C0086F74 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
 struct tagGRAPHICS_DEVICE *__fastcall DrvCleanupGraphicsDevices(__int64 a1)
@@ -59,8 +59,8 @@ struct tagGRAPHICS_DEVICE *__fastcall DrvCleanupGraphicsDevices(__int64 a1)
           EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
           for ( i = gppdevList; i; i = *(struct PDEV **)i )
           {
-            if ( *((struct tagGRAPHICS_DEVICE **)i + 319) == v4 )
-              *((_QWORD *)i + 319) = 0LL;
+            if ( *((struct tagGRAPHICS_DEVICE **)i + 322) == v4 )
+              *((_QWORD *)i + 322) = 0LL;
           }
           EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v7);
           if ( ghsemDriverMgmt )
@@ -80,8 +80,8 @@ struct tagGRAPHICS_DEVICE *__fastcall DrvCleanupGraphicsDevices(__int64 a1)
             gpGraphicsDeviceListLast = v3;
           if ( (*((_DWORD *)v4 + 40) & 0x800000) != 0 )
           {
-            v10 = qword_1C0296A08;
-            OPM::CMutex::Lock((void **)qword_1C0296A08 + 7);
+            v10 = qword_1C0251C30;
+            OPM::CMutex::Lock((void **)qword_1C0251C30 + 7);
             OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyAllHandlesFromAdapter(
               (__int64)v10 + 24,
               (_DWORD *)v4 + 62,
@@ -91,7 +91,7 @@ struct tagGRAPHICS_DEVICE *__fastcall DrvCleanupGraphicsDevices(__int64 a1)
               KeReleaseMutex(v11, 0);
             DrvRemoveAdapterLuid(*(struct _LUID *)((char *)v4 + 248));
           }
-          DrvCleanupOneGraphicsDevice(v4);
+          DrvCleanupOneGraphicsDevice((__int64)v4);
           a1 = v13;
           v4 = v3;
         }

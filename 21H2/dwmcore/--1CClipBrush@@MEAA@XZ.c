@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CClipBrush@@MEAA@XZ @ 0x18020A96C
+ * XREFs of ??1CClipBrush@@MEAA@XZ @ 0x1801B79FC
  * Callers:
- *     ??_ECClipBrush@@MEAAPEAXI@Z @ 0x18020A9F0 (--_ECClipBrush@@MEAAPEAXI@Z.c)
+ *     ??_ECClipBrush@@MEAAPEAXI@Z @ 0x1801B7A80 (--_ECClipBrush@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CClipBrush::~CClipBrush(CClipBrush *this)
@@ -11,12 +11,12 @@ void __fastcall CClipBrush::~CClipBrush(CClipBrush *this)
   __int64 v2; // rdx
 
   *(_QWORD *)this = &CClipBrush::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CClipBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CClipBrush::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 56;
-  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 60) = *(_DWORD *)(*((_QWORD *)this + 8) + 8LL) - 72;
-  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 11));
-  *((_QWORD *)this + 11) = 0LL;
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CCompositionGlyphRun::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CClipBrush::`vftable'{for `IContent'};
+  v2 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 52) = v2 - 56;
+  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 52) = *(_DWORD *)(*((_QWORD *)this + 7) + 8LL) - 72;
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 10));
+  *((_QWORD *)this + 10) = 0LL;
   CBrush::~CBrush(this);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressFragment @ 0x1409B9410
+ * XREFs of RtlDecompressFragment @ 0x1409105C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlDecompressFragment(
@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlDecompressFragment(
 {
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
-  if ( (unsigned __int8)CompressionFormat <= 5u )
+  if ( (unsigned __int8)CompressionFormat <= 4u )
     return ((__int64 (__fastcall *)(PUCHAR, _QWORD, PUCHAR, _QWORD, ULONG, _DWORD, PULONG, PVOID))RtlDecompressFragmentProcs[(unsigned __int8)CompressionFormat])(
              UncompressedFragment,
              UncompressedFragmentSize,

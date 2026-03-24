@@ -1,25 +1,25 @@
 /*
- * XREFs of PopApplyPolicy @ 0x1407476D4
+ * XREFs of PopApplyPolicy @ 0x1407476B4
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x140186470 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x140186490 (PopVideoPowerSettingCallback.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopConsoleLockPowerSettingCallback @ 0x140746C90 (PopConsoleLockPowerSettingCallback.c)
- *     PopHardDiskPowerSettingCallback @ 0x140746DC0 (PopHardDiskPowerSettingCallback.c)
- *     PopSleepPowerSettingCallback @ 0x140746F30 (PopSleepPowerSettingCallback.c)
- *     PopPowerButtonSettingCallback @ 0x1407471E0 (PopPowerButtonSettingCallback.c)
- *     PopBatteryUpdateAlarms @ 0x1407473FC (PopBatteryUpdateAlarms.c)
- *     PopResetCurrentPolicies @ 0x14074760C (PopResetCurrentPolicies.c)
+ *     PopConsoleLockPowerSettingCallback @ 0x140746C70 (PopConsoleLockPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x140746DA0 (PopHardDiskPowerSettingCallback.c)
+ *     PopSleepPowerSettingCallback @ 0x140746F10 (PopSleepPowerSettingCallback.c)
+ *     PopPowerButtonSettingCallback @ 0x1407471C0 (PopPowerButtonSettingCallback.c)
+ *     PopBatteryUpdateAlarms @ 0x1407473DC (PopBatteryUpdateAlarms.c)
+ *     PopResetCurrentPolicies @ 0x1407475EC (PopResetCurrentPolicies.c)
  * Callees:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PopOpenPowerKey @ 0x140178B10 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     PopInitSIdle @ 0x14071C5DC (PopInitSIdle.c)
- *     PopVerifySystemPowerPolicy @ 0x140747978 (PopVerifySystemPowerPolicy.c)
- *     PopResetCBTriggers @ 0x140747C4C (PopResetCBTriggers.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x140178B30 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     PopInitSIdle @ 0x14071C5BC (PopInitSIdle.c)
+ *     PopVerifySystemPowerPolicy @ 0x140747958 (PopVerifySystemPowerPolicy.c)
+ *     PopResetCBTriggers @ 0x140747C2C (PopResetCBTriggers.c)
  */
 
 __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)

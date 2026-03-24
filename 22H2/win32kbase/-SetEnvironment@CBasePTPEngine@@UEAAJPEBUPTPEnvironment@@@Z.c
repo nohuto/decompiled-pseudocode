@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetEnvironment@CBasePTPEngine@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C0204270
+ * XREFs of ?SetEnvironment@CBasePTPEngine@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C01C8940
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBasePTPEngine::SetEnvironment(CBasePTPEngine *this, const struct PTPEnvironment *a2)
@@ -12,7 +12,7 @@ __int64 __fastcall CBasePTPEngine::SetEnvironment(CBasePTPEngine *this, const st
   char *v3; // r8
   __int128 v4; // xmm1
 
-  v2 = 4LL;
+  v2 = 3LL;
   v3 = (char *)this + 16;
   do
   {
@@ -32,8 +32,13 @@ __int64 __fastcall CBasePTPEngine::SetEnvironment(CBasePTPEngine *this, const st
   while ( v2 );
   *(_OWORD *)v3 = *(_OWORD *)a2;
   *((_OWORD *)v3 + 1) = *((_OWORD *)a2 + 1);
-  *((_QWORD *)v3 + 4) = *((_QWORD *)a2 + 4);
-  *((_DWORD *)v3 + 10) = *((_DWORD *)a2 + 10);
+  *((_OWORD *)v3 + 2) = *((_OWORD *)a2 + 2);
+  *((_OWORD *)v3 + 3) = *((_OWORD *)a2 + 3);
+  *((_OWORD *)v3 + 4) = *((_OWORD *)a2 + 4);
+  *((_OWORD *)v3 + 5) = *((_OWORD *)a2 + 5);
+  *((_OWORD *)v3 + 6) = *((_OWORD *)a2 + 6);
+  *((_QWORD *)v3 + 14) = *((_QWORD *)a2 + 14);
+  *((_DWORD *)v3 + 30) = *((_DWORD *)a2 + 30);
   return (*(__int64 (__fastcall **)(CBasePTPEngine *, const struct PTPEnvironment *, char *, __int64))(*(_QWORD *)this + 40LL))(
            this,
            a2,

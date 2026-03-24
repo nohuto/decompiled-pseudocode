@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlpHpExtrasGet @ 0x1405F2F0C
+ * XREFs of RtlpHpExtrasGet @ 0x140594968
  * Callers:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     RtlpHpFreeHeap @ 0x140364128 (RtlpHpFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
  * Callees:
- *     RtlpHpSizeHeapInternal @ 0x1405F30C0 (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpSizeHeapInternal @ 0x140594B2C (RtlpHpSizeHeapInternal.c)
  */
 
 unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)

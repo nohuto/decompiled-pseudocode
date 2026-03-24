@@ -1,111 +1,113 @@
 /*
- * XREFs of ACPIBusIrpQueryInstanceId @ 0x1C008061C
+ * XREFs of ACPIBusIrpQueryInstanceId @ 0x1C00A2000
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     RtlStringCbPrintfW @ 0x1C0017D20 (RtlStringCbPrintfW.c)
- *     WPP_RECORDER_SF_qdLqss @ 0x1C0017F78 (WPP_RECORDER_SF_qdLqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     ACPIAllocateBuffer @ 0x1C0097C3C (ACPIAllocateBuffer.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C004E02C (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C004E4F4 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIAllocateBuffer @ 0x1C008FA90 (ACPIAllocateBuffer.c)
  */
 
-__int64 __fastcall ACPIBusIrpQueryInstanceId(__int64 *a1, size_t *a2, _QWORD *a3)
+__int64 __fastcall ACPIBusIrpQueryInstanceId(_QWORD *a1, SIZE_T *a2, __int64 *a3)
 {
-  __int64 v6; // rax
+  PVOID v6; // rax
   size_t v7; // rdi
-  void *v8; // rbp
-  unsigned int v9; // ebx
-  int v10; // eax
-  __int64 v11; // rax
+  void *v8; // r14
+  int v9; // eax
+  int v10; // ebx
   __int64 v12; // rdx
-  void *Pool2; // rax
-  __int64 v14; // rdx
-  const char *v15; // rax
-  const char *v16; // rcx
-  __int64 v17; // r8
-  int v19; // [rsp+20h] [rbp-58h]
-  int v20; // [rsp+28h] [rbp-50h]
-  int v21; // [rsp+30h] [rbp-48h]
-  void *Src; // [rsp+88h] [rbp+10h] BYREF
-  size_t cbDest; // [rsp+98h] [rbp+20h] BYREF
+  const char *v13; // rax
+  const char *v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  PVOID PoolWithTag; // rax
+  int v19; // [rsp+20h] [rbp-40h]
+  int v20; // [rsp+28h] [rbp-38h]
+  int v21; // [rsp+30h] [rbp-30h]
+  void *Src; // [rsp+80h] [rbp+20h] BYREF
+  size_t Size; // [rsp+88h] [rbp+28h] BYREF
 
   Src = 0LL;
-  cbDest = 0LL;
-  v6 = ACPIAllocateBuffer(a2, a3, 660LL);
+  Size = 0LL;
+  v6 = ACPIAllocateBuffer(a2, (__int64)a3, 0x294uLL);
   v7 = *a2;
-  v8 = (void *)v6;
+  v8 = v6;
   *a1 = v6;
   if ( !v6 )
-    goto LABEL_2;
-  v10 = ACPIGet((__int64)a3, 0x4449555Fu, 268959894, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&cbDest);
-  v9 = v10;
-  if ( v10 != -1073741661 )
+    goto LABEL_11;
+  v9 = ACPIGet(a3, 1145656671, 268959894, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
+  v10 = v9;
+  if ( v9 != -1073741661 )
   {
-    if ( v10 < 0 )
+    if ( v9 < 0 )
+      goto LABEL_9;
+LABEL_4:
+    if ( v7 >= Size )
     {
+      memmove(v8, Src, Size);
+      if ( v10 >= 0 )
+        goto LABEL_6;
+LABEL_9:
       if ( v10 == -1073741772 )
-        goto LABEL_19;
-      goto LABEL_13;
+        goto LABEL_6;
+      goto LABEL_12;
     }
-    goto LABEL_10;
+    goto LABEL_11;
   }
-  v11 = a3[77];
-  if ( v11 )
+  v16 = a3[72];
+  if ( v16 )
   {
-    v12 = -1LL;
+    v17 = -1LL;
     do
-      ++v12;
-    while ( *(_BYTE *)(v11 + v12) );
-    cbDest = 2 * v12 + 2;
-    Pool2 = (void *)ExAllocatePool2(256LL, cbDest, 1399874369LL);
-    Src = Pool2;
-    if ( !Pool2 )
+      ++v17;
+    while ( *(_BYTE *)(v16 + v17) );
+    Size = 2 * v17 + 2;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, Size, 0x53706341u);
+    Src = PoolWithTag;
+    if ( PoolWithTag )
     {
-LABEL_2:
-      v9 = -1073741670;
-      goto LABEL_13;
+      memset(PoolWithTag, 0, Size);
+      RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Src, Size, L"%S", a3[72]);
+      v10 = 0;
+      goto LABEL_4;
     }
-    RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Pool2, cbDest, L"%S", a3[77]);
-    v9 = 0;
-LABEL_10:
-    if ( v7 >= cbDest )
-    {
-      memmove(v8, Src, cbDest);
-      goto LABEL_19;
-    }
-    goto LABEL_2;
+LABEL_11:
+    v10 = -1073741670;
   }
-LABEL_13:
-  v14 = 0LL;
-  v15 = byte_1C00622D0;
-  v16 = byte_1C00622D0;
+LABEL_12:
+  v12 = 0LL;
+  v13 = byte_1C00701BA;
+  v14 = byte_1C00701BA;
   if ( a3 )
   {
-    v17 = a3[1];
-    v14 = (__int64)a3;
-    if ( (v17 & 0x200000000000LL) != 0 )
+    v15 = a3[1];
+    v12 = (__int64)a3;
+    if ( (v15 & 0x200000000000LL) != 0 )
     {
-      v15 = (const char *)a3[76];
-      if ( (v17 & 0x400000000000LL) != 0 )
-        v16 = (const char *)a3[77];
+      v13 = (const char *)a3[71];
+      if ( (v15 & 0x400000000000LL) != 0 )
+        v14 = (const char *)a3[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_qdLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v14,
+      v12,
       (__int64)&WPP_RECORDER_INITIALIZED,
       0x27u,
       v19,
       v20,
       v21,
-      v9,
-      v14,
-      v15,
-      v16);
-LABEL_19:
+      v10,
+      v12,
+      v13,
+      v14);
+LABEL_6:
   if ( Src )
     ExFreePoolWithTag(Src, 0x53706341u);
-  return v9;
+  return (unsigned int)v10;
 }

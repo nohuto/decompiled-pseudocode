@@ -1,8 +1,8 @@
 /*
- * XREFs of IS_UI_LANGID @ 0x1C009A598
+ * XREFs of IS_UI_LANGID @ 0x1C01072B0
  * Callers:
- *     BitBltSysBmp @ 0x1C009A400 (BitBltSysBmp.c)
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     BitBltSysBmp @ 0x1C0106EBC (BitBltSysBmp.c)
  * Callees:
  *     <none>
  */

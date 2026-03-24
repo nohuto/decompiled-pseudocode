@@ -1,8 +1,8 @@
 /*
- * XREFs of FxVerifierIsDebugInfoFlagSetForType @ 0x1C006BC28
+ * XREFs of FxVerifierIsDebugInfoFlagSetForType @ 0x1C0058340
  * Callers:
- *     ?AllocateTagTracker@FxObject@@IEAAXG@Z @ 0x1C006CEE8 (-AllocateTagTracker@FxObject@@IEAAXG@Z.c)
- *     ?Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7E0C (-Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?AllocateTagTracker@FxObject@@IEAAXG@Z @ 0x1C0059D84 (-AllocateTagTracker@FxObject@@IEAAXG@Z.c)
+ *     ?Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6D24 (-Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  * Callees:
  *     <none>
  */

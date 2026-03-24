@@ -1,88 +1,81 @@
 /*
- * XREFs of ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1800A55E0
+ * XREFs of ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003D820
  * Callers:
  *     <none>
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ??4?$com_ptr_t@VCBitmapLock@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCBitmapLock@@@Z @ 0x1800A84EC (--4-$com_ptr_t@VCBitmapLock@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCBitmapLock@@@Z.c)
- *     ??0CBitmapLock@@QEAA@XZ @ 0x1800A858C (--0CBitmapLock@@QEAA@XZ.c)
- *     ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x1800A875C (-HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@.c)
- *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A8890 (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?IsEmpty@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800A88E0 (-IsEmpty@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x180009404 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
+ *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003A95C (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?IsEmpty@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18003A9AC (-IsEmpty@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18003BF1C (-HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ??0CBitmapLock@@QEAA@XZ @ 0x18003C0A8 (--0CBitmapLock@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CSecondarySysmemBitmap::LockForRead(__int64 a1, _DWORD *a2, CBitmapLock **a3)
+__int64 __fastcall CSecondarySysmemBitmap::LockForRead(__int64 a1, _DWORD *a2, unsigned __int64 *a3)
 {
   CBitmapLock *v4; // rbx
-  __int64 v7; // rdx
+  _DWORD *v7; // rdx
   unsigned int v8; // ecx
   unsigned __int8 PixelFormatSize; // al
   _DWORD *v10; // rdx
-  unsigned int v11; // r12d
+  unsigned int v11; // ebp
   CBitmapLock *v12; // rax
-  CBitmapLock *v13; // rbp
+  unsigned int v13; // ecx
   int v14; // eax
   unsigned int v15; // ecx
   unsigned int v16; // edi
-  char *v18; // rcx
-  unsigned int v19; // [rsp+20h] [rbp-68h]
-  CBitmapLock *v20; // [rsp+90h] [rbp+8h] BYREF
+  CBitmapLock *v18; // rax
+  CBitmapLock *v19; // [rsp+90h] [rbp+8h] BYREF
 
   v4 = 0LL;
-  v20 = 0LL;
-  if ( !(unsigned __int8)TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain(a1 + 32)
-    || (unsigned __int8)TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEmpty(v7) )
+  v19 = 0LL;
+  if ( !TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain(a1 + 24, (__int64)a2)
+    || TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEmpty(v7) )
   {
     v16 = -2147024809;
-    v19 = 132;
-    goto LABEL_14;
-  }
-  PixelFormatSize = GetPixelFormatSize(*(_DWORD *)(a1 + 132));
-  v11 = *(_DWORD *)(a1 + 128) * v10[1] + *v10 * (PixelFormatSize >> 3);
-  v12 = (CBitmapLock *)operator new(0xA0uLL);
-  if ( v12 )
-    v12 = CBitmapLock::CBitmapLock(v12);
-  wil::com_ptr_t<CBitmapLock,wil::err_returncode_policy>::operator=(&v20, v12);
-  v4 = v20;
-  if ( !v20 )
-  {
-    v16 = -2147024882;
-    v19 = 141;
-LABEL_14:
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v16, v19, 0LL);
-    goto LABEL_8;
-  }
-  v13 = v20;
-  v14 = CBitmapLock::HrInit(
-          v20,
-          (struct IBitmapUnlock *)((a1 + 24) & -(__int64)(a1 != 0)),
-          a2[2] - *a2,
-          a2[3] - a2[1],
-          (const struct PixelFormatInfo *)(a1 + 132),
-          *(_DWORD *)(a1 + 128),
-          *(_DWORD *)(a1 + 152) - v11,
-          (void *)(v11 + *(_QWORD *)(a1 + 144)),
-          WICBitmapLockRead,
-          0,
-          0LL);
-  v16 = v14;
-  if ( v14 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x98u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024809, 0x84u, 0LL);
+    v18 = 0LL;
   }
   else
   {
-    v4 = 0LL;
-    *a3 = v13;
+    PixelFormatSize = GetPixelFormatSize(*(_DWORD *)(a1 + 124));
+    v11 = *(_DWORD *)(a1 + 120) * v10[1] + *v10 * (PixelFormatSize >> 3);
+    v12 = (CBitmapLock *)operator new(0xA8uLL);
+    if ( v12 )
+      v12 = CBitmapLock::CBitmapLock(v12, 1);
+    wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((__int64 *)&v19, (__int64)v12);
+    v4 = v19;
+    if ( !v19 )
+    {
+      v16 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x8Du, 0LL);
+      return v16;
+    }
+    v14 = CBitmapLock::HrInit(
+            v19,
+            (struct IBitmapUnlock *)((a1 - 16 + 32) & -(__int64)(a1 != 16)),
+            a2[2] - *a2,
+            a2[3] - a2[1],
+            (const struct PixelFormatInfo *)(a1 + 124),
+            *(_DWORD *)(a1 + 120),
+            *(_DWORD *)(a1 + 144) - v11,
+            (void *)(v11 + *(_QWORD *)(a1 + 136)),
+            WICBitmapLockRead,
+            0,
+            0LL);
+    v16 = v14;
+    if ( v14 >= 0 )
+    {
+      *a3 = ((unsigned __int64)v4 + 16) & -(__int64)(v4 != 0LL);
+      return v16;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x98u, 0LL);
+    v18 = v4;
   }
-LABEL_8:
-  if ( v4 )
-  {
-    v18 = (char *)v4 + *(int *)(*((_QWORD *)v4 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v18 + 16LL))(v18);
-  }
+  if ( v18 )
+    (*(void (__fastcall **)(CBitmapLock *))(*(_QWORD *)v4 + 16LL))(v4);
   return v16;
 }

@@ -4,14 +4,14 @@
  *     NtQueryMultipleValueKey @ 0x1405B7130 (NtQueryMultipleValueKey.c)
  *     NtEnumerateKey @ 0x1405D22F0 (NtEnumerateKey.c)
  *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
- *     NtQueryKey @ 0x14063FBB0 (NtQueryKey.c)
+ *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
  * Callees:
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
  *     CmpAllocateTransientPoolWithQuotaTag @ 0x140013018 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpIsBufferGloballyVisible @ 0x1405DF288 (CmpIsBufferGloballyVisible.c)
  */
 
@@ -72,7 +72,7 @@ LABEL_9:
     v16 = 8LL;
     v18 = 1LL;
     v20 = 8LL;
-    TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036C070, a3, a4, 5u, &v14);
+    TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036C180, a3, a4, 5u, &v14);
   }
   if ( a3 <= 0x40 )
   {

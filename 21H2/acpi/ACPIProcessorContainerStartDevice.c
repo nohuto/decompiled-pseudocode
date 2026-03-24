@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIProcessorContainerStartDevice @ 0x1C00B1460
+ * XREFs of ACPIProcessorContainerStartDevice @ 0x1C00B2210
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
  */
 
 __int64 __fastcall ACPIProcessorContainerStartDevice(ULONG_PTR a1, __int64 a2)

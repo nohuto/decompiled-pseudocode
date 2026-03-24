@@ -1,16 +1,16 @@
 /*
- * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x140A001D0
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x140953E20
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x14093E3C0 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x1408998EC (IoEnumerateEnvironmentVariablesEx.c)
  */
 
 __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatile void *a2, unsigned int *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatil
   v13 = 0LL;
   v12 = 0;
   P = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -64,7 +64,7 @@ __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatil
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     v11 = IoEnumerateEnvironmentVariablesEx(a1, 0LL, v13, &v12);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( P )
       ExUnlockUserBuffer((struct _MDL *)P);
     *a3 = v12;

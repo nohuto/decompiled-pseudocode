@@ -1,10 +1,10 @@
 /*
- * XREFs of PspWow64GetSharedInformation @ 0x140672A64
+ * XREFs of PspWow64GetSharedInformation @ 0x140611C34
  * Callers:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     PspPrepareSystemDllInitBlock @ 0x1406727EC (PspPrepareSystemDllInitBlock.c)
- *     PspWow64InitThread @ 0x1406747FC (PspWow64InitThread.c)
- *     PspInitializeSystemDlls @ 0x140B24D94 (PspInitializeSystemDlls.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1406119C8 (PspPrepareSystemDllInitBlock.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
+ *     PspWow64InitThread @ 0x1406959A0 (PspWow64InitThread.c)
+ *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
  * Callees:
  *     <none>
  */

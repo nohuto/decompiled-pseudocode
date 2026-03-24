@@ -1,21 +1,21 @@
 /*
- * XREFs of IopErrorLogThread @ 0x14080FDC0
+ * XREFs of IopErrorLogThread @ 0x140755770
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlStringCchCopyNW @ 0x1402D88AC (RtlStringCchCopyNW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IopErrorLogGetEntry @ 0x1403A5A64 (IopErrorLogGetEntry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     IopErrorLogRequeueEntry @ 0x14055F10C (IopErrorLogRequeueEntry.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1406E6D40 (EtwQueryTraceHandleByLoggerName.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
- *     EtwWriteErrorLogEntry @ 0x1408100A4 (EtwWriteErrorLogEntry.c)
- *     IopErrorLogQueueRequest @ 0x14093FB40 (IopErrorLogQueueRequest.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IopErrorLogGetEntry @ 0x140371338 (IopErrorLogGetEntry.c)
+ *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     IopErrorLogRequeueEntry @ 0x14050A3AC (IopErrorLogRequeueEntry.c)
+ *     IopVerifierExAllocatePool_4 @ 0x14050A474 (IopVerifierExAllocatePool_4.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     EtwWriteErrorLogEntry @ 0x1407552D8 (EtwWriteErrorLogEntry.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14078981C (EtwQueryTraceHandleByLoggerName.c)
+ *     IopErrorLogQueueRequest @ 0x140899874 (IopErrorLogQueueRequest.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 IopErrorLogThread()
@@ -26,148 +26,158 @@ __int64 IopErrorLogThread()
   wchar_t *Buffer; // rbx
   __int16 v4; // ax
   char v5; // r12
-  void *v6; // rcx
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // r15
-  NTSTATUS v8; // eax
-  int v9; // ecx
-  void *v10; // rcx
+  UNICODE_STRING *p_P; // r15
+  unsigned int v7; // r8d
+  __int64 v8; // rcx
+  struct _DMA_ADAPTER *v9; // rcx
   __int64 result; // rax
-  __int64 v12; // r14
+  __int64 v11; // r14
+  int v12; // eax
   const WCHAR *v13; // rdx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
-  __int16 v15; // r9
-  ULONG v16; // [rsp+48h] [rbp-C0h] BYREF
-  __int16 v17; // [rsp+4Ch] [rbp-BCh]
-  UNICODE_STRING Name; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v19; // [rsp+60h] [rbp-A8h]
-  __int64 v20; // [rsp+68h] [rbp-A0h]
-  UNICODE_STRING v21; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v22; // [rsp+80h] [rbp-88h]
+  unsigned __int16 v14; // r9
+  unsigned int v15; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned __int16 v16; // [rsp+4Ch] [rbp-BCh]
+  UNICODE_STRING v17; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-A8h]
+  __int64 v19; // [rsp+68h] [rbp-A0h]
+  UNICODE_STRING v20; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v21; // [rsp+80h] [rbp-88h]
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  struct _OBJECT_NAME_INFORMATION v24; // [rsp+98h] [rbp-70h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+1A8h] [rbp+A0h] BYREF
-  wchar_t pszDest[256]; // [rsp+2B8h] [rbp+1B0h] BYREF
-  wchar_t v27[256]; // [rsp+4B8h] [rbp+3B0h] BYREF
+  UNICODE_STRING v23; // [rsp+98h] [rbp-70h] BYREF
+  wchar_t pszDest[256]; // [rsp+1A8h] [rbp+A0h] BYREF
+  wchar_t v25[256]; // [rsp+3A8h] [rbp+2A0h] BYREF
+  char P; // [rsp+5A8h] [rbp+4A0h] BYREF
 
-  Name = 0LL;
-  v17 = 0;
-  v21 = 0LL;
+  v17 = 0LL;
+  v16 = 0;
   v20 = 0LL;
+  v19 = 0LL;
   DestinationString = 0LL;
   if ( ErrorLogSessionOpened )
   {
     while ( 1 )
     {
-LABEL_32:
-      v16 = 0;
+LABEL_29:
+      v15 = 0;
       result = IopErrorLogGetEntry();
-      v12 = result;
+      v11 = result;
       if ( !result )
         return result;
       v0 = *(_QWORD *)(result + 24);
       v1 = *(unsigned __int16 *)(result - 6) - 48;
-      v22 = v0;
-      LODWORD(v19) = v1;
+      v21 = v0;
+      LODWORD(v18) = v1;
       if ( v0 )
       {
-        RtlInitUnicodeString(&Name, 0LL);
+        RtlInitUnicodeString(&v17, 0LL);
         if ( *(_QWORD *)(v0 + 64) )
-          Name = *(UNICODE_STRING *)(v0 + 56);
-        Length = Name.Length;
-        if ( Name.Length )
-          goto LABEL_8;
-        v16 = 0;
-        if ( ObQueryNameString((PVOID)v0, &v24, 0x110u, &v16) >= 0 && v16 )
+          v17 = *(UNICODE_STRING *)(v0 + 56);
+        Length = v17.Length;
+        if ( v17.Length )
         {
-          Name = v24.Name;
-          goto LABEL_42;
+LABEL_8:
+          Buffer = &v17.Buffer[((unsigned __int64)Length >> 1) - 1];
+          if ( *Buffer == 92 )
+            goto LABEL_12;
+          do
+          {
+            if ( Buffer == v17.Buffer )
+              break;
+            --Buffer;
+          }
+          while ( *Buffer != 92 );
+          if ( *Buffer == 92 )
+LABEL_12:
+            ++Buffer;
+          v4 = LOWORD(v17.Buffer) - (_WORD)Buffer;
+          v17.Buffer = Buffer;
+          Length += v4;
+          v17.Length = Length;
+          goto LABEL_14;
         }
-        v13 = &word_140867F00;
+        v15 = 0;
+        if ( (int)ObQueryNameStringMode((char *)v0, (__int64)&v23, 0x110u, &v15, 0) >= 0 && v15 )
+        {
+          v17 = v23;
+          goto LABEL_41;
+        }
+        v13 = &word_1407D7BA0;
       }
       else
       {
         v13 = L"Application Popup";
       }
-      RtlInitUnicodeString(&Name, v13);
-LABEL_42:
-      Length = Name.Length;
-      if ( !Name.Length )
-      {
-        Buffer = Name.Buffer;
-        goto LABEL_14;
-      }
-LABEL_8:
-      Buffer = &Name.Buffer[((unsigned __int64)Length >> 1) - 1];
-      if ( *Buffer == 92 )
-        goto LABEL_12;
-      do
-      {
-        if ( Buffer == Name.Buffer )
-          break;
-        --Buffer;
-      }
-      while ( *Buffer != 92 );
-      if ( *Buffer == 92 )
-LABEL_12:
-        ++Buffer;
-      v4 = LOWORD(Name.Buffer) - (_WORD)Buffer;
-      Name.Buffer = Buffer;
-      Length += v4;
-      Name.Length = Length;
+      RtlInitUnicodeString(&v17, v13);
+LABEL_41:
+      Length = v17.Length;
+      if ( v17.Length )
+        goto LABEL_8;
+      Buffer = v17.Buffer;
 LABEL_14:
-      v16 = 0;
+      v15 = 0;
       v5 = 0;
-      v6 = *(void **)(v12 + 16);
-      p_ObjectNameInfo = &ObjectNameInfo;
-      if ( v6
-        && ((v8 = ObQueryNameString(v6, &ObjectNameInfo, 0x110u, &v16), v8 != -1073741820)
-         || (Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, v16, 538996553LL),
-             v5 = 0,
-             (p_ObjectNameInfo = Pool2) != 0LL)
-         && (v5 = 1, v8 = ObQueryNameString(*(PVOID *)(v12 + 16), Pool2, v16, &v16), v8 != -1073741820))
-        && v8 >= 0
-        && v16 )
+      p_P = (UNICODE_STRING *)&P;
+      v7 = 272;
+      if ( !*(_QWORD *)(v11 + 16) )
+        goto LABEL_15;
+      while ( 1 )
       {
-        v21 = p_ObjectNameInfo->Name;
+        v12 = ObQueryNameStringMode(*(char **)(v11 + 16), (__int64)p_P, v7, &v15, 0);
+        if ( v12 != -1073741820 )
+          break;
+        if ( v5 )
+          goto LABEL_15;
+        p_P = (UNICODE_STRING *)IopVerifierExAllocatePool_4(PagedPool, v15);
+        if ( !p_P )
+          goto LABEL_15;
+        v7 = v15;
+        v5 = 1;
+      }
+      v8 = 0LL;
+      if ( v12 >= 0 && v15 )
+      {
+        v20 = *p_P;
       }
       else
       {
-        RtlInitUnicodeString(&v21, &word_140867F00);
+LABEL_15:
+        RtlInitUnicodeString(&v20, &word_1407D7BA0);
+        v8 = 0LL;
       }
       pszDest[0] = 0;
-      v27[0] = 0;
+      v25[0] = 0;
       if ( Buffer )
         RtlStringCchCopyNW(pszDest, 0x100uLL, Buffer, (unsigned __int64)Length >> 1);
-      if ( v21.Buffer )
-        RtlStringCchCopyNW(v27, 0x100uLL, v21.Buffer, (unsigned __int64)v21.Length >> 1);
+      if ( v20.Buffer )
+        RtlStringCchCopyNW(v25, 0x100uLL, v20.Buffer, (unsigned __int64)v20.Length >> 1);
       if ( v5 == 1 )
-        ExFreePoolWithTag(p_ObjectNameInfo, 0);
-      if ( (unsigned int)(*(_DWORD *)(v12 + 52) - 1074004004) <= 1 && !wcsicmp(pszDest, L"NTFS") )
+        ExFreePoolWithTag(p_P, 0);
+      if ( (unsigned int)(*(_DWORD *)(v11 + 52) - 1074004004) <= 1 && !wcsicmp(pszDest, L"NTFS") )
       {
-        v15 = *(_WORD *)(v12 + 84);
-        *(_WORD *)(v12 + 42) -= v15;
-        v17 = v15;
-        v20 = v12 + 120;
+        v14 = *(_WORD *)(v11 + 84);
+        *(_WORD *)(v11 + 42) -= v14;
+        v16 = v14;
+        v19 = v11 + 120;
       }
-      if ( (int)EtwWriteErrorLogEntry(v9, (int)v12 + 40, v19, (int)v12 + 32, (__int64)pszDest, (__int64)v27, v17, v20) < 0 )
+      if ( (int)EtwWriteErrorLogEntry(v8, v11 + 40, v18, v11 + 32, (__int64)pszDest, (__int64)v25, v16, v19) < 0 )
       {
-        IopErrorLogRequeueEntry((__int64 *)v12);
+        IopErrorLogRequeueEntry((__int64 *)v11);
         return IopErrorLogQueueRequest();
       }
-      _InterlockedExchangeAdd(&IopErrorLogAllocation, -*(unsigned __int16 *)(v12 - 6));
-      v10 = *(void **)(v12 + 16);
-      if ( v10 )
-        ObfDereferenceObject(v10);
-      if ( v22 )
-        ObfDereferenceObject(*(PVOID *)(v12 + 24));
-      ExFreePoolWithTag((PVOID)(v12 - 8), 0);
+      _InterlockedExchangeAdd(&IopErrorLogAllocation, -*(unsigned __int16 *)(v11 - 6));
+      v9 = *(struct _DMA_ADAPTER **)(v11 + 16);
+      if ( v9 )
+        HalPutDmaAdapter(v9);
+      if ( v21 )
+        HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v11 + 24));
+      ExFreePoolWithTag((PVOID)(v11 - 8), 0);
     }
   }
   RtlInitUnicodeString(&DestinationString, L"Eventlog-System");
-  if ( (int)EtwQueryTraceHandleByLoggerName((__int64)&DestinationString, &IopErrorLogSession) >= 0 )
+  if ( (int)EtwQueryTraceHandleByLoggerName(&DestinationString, &IopErrorLogSession) >= 0 )
   {
     ErrorLogSessionOpened = 1;
-    goto LABEL_32;
+    goto LABEL_29;
   }
   return IopErrorLogQueueRequest();
 }

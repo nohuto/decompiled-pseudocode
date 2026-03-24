@@ -1,54 +1,50 @@
 /*
- * XREFs of PfpVirtualQuery @ 0x14097F120
+ * XREFs of PfpVirtualQuery @ 0x140733988
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075DE28 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
+NTSTATUS __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
 {
-  __int64 v6; // rax
-  __int64 result; // rax
-  unsigned __int64 v8; // rcx
-  int v9; // eax
-  __int128 v10; // [rsp+40h] [rbp-28h] BYREF
-  ULONG_PTR BugCheckParameter1[3]; // [rsp+50h] [rbp-18h]
+  unsigned int v4; // eax
+  unsigned __int64 v5; // rdx
+  int v6; // eax
+  NTSTATUS result; // eax
+  __int128 v8; // [rsp+40h] [rbp-28h] BYREF
+  HANDLE Handle[3]; // [rsp+50h] [rbp-18h]
 
-  v10 = 0LL;
-  *(_OWORD *)BugCheckParameter1 = 0LL;
-  v6 = *(unsigned int *)(a1 + 24);
-  if ( (_DWORD)v6 != 32 )
-    return 3221225990LL;
+  v8 = 0LL;
+  *(_OWORD *)Handle = 0LL;
+  if ( *(_DWORD *)(a1 + 24) != 32 )
+    return -1073741306;
+  v4 = 32;
   if ( a2 )
   {
-    v8 = *(_QWORD *)(a1 + 16);
-    if ( (v8 & 7) != 0 )
+    v5 = *(_QWORD *)(a1 + 16);
+    if ( (v5 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( v8 + v6 > 0x7FFFFFFF0000LL || v8 + v6 < v8 )
+    if ( v5 + 32 > 0x7FFFFFFF0000LL || (v4 = 32, v5 + 32 < v5) )
+    {
       MEMORY[0x7FFFFFFF0000] = 0;
+      v4 = *(_DWORD *)(a1 + 24);
+    }
   }
-  memmove(&v10, *(const void **)(a1 + 16), *(unsigned int *)(a1 + 24));
-  if ( (_DWORD)v10 != 1 )
-    return 3221225485LL;
-  v9 = 2;
-  if ( (BYTE4(v10) & 1) != 0 && (BYTE4(v10) & 2) != 0 )
-    return 3221225485LL;
-  if ( (DWORD1(v10) & 0xFFFFFFFC) != 0 )
-    return 3221225485LL;
-  if ( (BYTE4(v10) & 1) == 0 )
-    v9 = (BYTE4(v10) & 2) != 0;
-  result = MmQueryVirtualMemory(
-             BugCheckParameter1[1],
-             0LL,
-             4,
-             *((unsigned __int64 *)&v10 + 1),
-             BugCheckParameter1[0],
-             0LL,
-             v9);
-  if ( (int)result >= 0 )
+  memmove(&v8, *(const void **)(a1 + 16), v4);
+  if ( (_DWORD)v8 != 1 )
+    return -1073741811;
+  v6 = 2;
+  if ( (BYTE4(v8) & 1) != 0 && (BYTE4(v8) & 2) != 0 )
+    return -1073741811;
+  if ( (DWORD1(v8) & 0xFFFFFFFC) != 0 )
+    return -1073741811;
+  if ( (BYTE4(v8) & 1) == 0 )
+    v6 = (BYTE4(v8) & 2) != 0;
+  result = MmQueryVirtualMemory(Handle[1], 0LL, 4, *((_OWORD **)&v8 + 1), (SIZE_T)Handle[0], 0LL, v6);
+  if ( result >= 0 )
     *a3 = 32;
   return result;
 }

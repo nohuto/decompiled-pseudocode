@@ -1,23 +1,23 @@
 /*
- * XREFs of PiUEventHandleVetoEvent @ 0x1406FF7F0
+ * XREFs of PiUEventHandleVetoEvent @ 0x1406FF7D0
  * Callers:
  *     PiUEventHandleIoctl @ 0x14059FE4C (PiUEventHandleIoctl.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     RtlStringCchCopyNW @ 0x1400F5074 (RtlStringCchCopyNW.c)
- *     PsGetProcessImageFileName @ 0x140129C50 (PsGetProcessImageFileName.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     RtlStringCchCopyNW @ 0x1400F5094 (RtlStringCchCopyNW.c)
+ *     PsGetProcessImageFileName @ 0x140129C70 (PsGetProcessImageFileName.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiUEventDequeuePendingEventWorker @ 0x14058EA80 (PiUEventDequeuePendingEventWorker.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x140667218 (PsGetAllocatedFullProcessImageName.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1406671F8 (PsGetAllocatedFullProcessImageName.c)
  */
 
 __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __int64 a4, __int64 a5)
@@ -84,7 +84,7 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
                     AllocatedFullProcessImageName < 0) )
               {
                 v6 = &v21;
-                RtlInitUnicodeString(&v21, &word_140766570);
+                RtlInitUnicodeString(&v21, &word_140766550);
                 AllocatedFullProcessImageName = 0;
               }
               else

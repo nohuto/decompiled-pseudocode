@@ -1,19 +1,19 @@
 /*
- * XREFs of PspTerminateProcess @ 0x14067789C
+ * XREFs of PspTerminateProcess @ 0x14067787C
  * Callers:
- *     NtTerminateProcess @ 0x14067A830 (NtTerminateProcess.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     PspTerminatePicoProcess @ 0x14088C7E0 (PspTerminatePicoProcess.c)
+ *     NtTerminateProcess @ 0x14067A810 (NtTerminateProcess.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x14088C7C0 (PspTerminatePicoProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeForceResumeProcess @ 0x1400F349C (KeForceResumeProcess.c)
- *     KeSetProcessSchedulingGroup @ 0x1400F358C (KeSetProcessSchedulingGroup.c)
- *     EtwTraceProcessTerminate @ 0x1400F3684 (EtwTraceProcessTerminate.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeForceResumeProcess @ 0x1400F34BC (KeForceResumeProcess.c)
+ *     KeSetProcessSchedulingGroup @ 0x1400F35AC (KeSetProcessSchedulingGroup.c)
+ *     EtwTraceProcessTerminate @ 0x1400F36A4 (EtwTraceProcessTerminate.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
- *     PspTerminateAllThreads @ 0x140676204 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
  */
 
 __int64 __fastcall PspTerminateProcess(
@@ -57,9 +57,9 @@ LABEL_14:
     v12 = v11;
     goto LABEL_15;
   }
-  if ( *((_QWORD *)&xmmword_14040E300 + 1) && (v10 & 8) == 0 )
+  if ( *((_QWORD *)&xmmword_14040E2E0 + 1) && (v10 & 8) == 0 )
   {
-    v11 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_14040E300 + 1))(BugCheckParameter1, a3);
+    v11 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_14040E2E0 + 1))(BugCheckParameter1, a3);
     goto LABEL_14;
   }
   v12 = 290;

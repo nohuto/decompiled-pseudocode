@@ -1,14 +1,13 @@
 /*
- * XREFs of PoInitDriverServices @ 0x140B72FD0
+ * XREFs of PoInitDriverServices @ 0x140A71D64
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x14069BFE0 (IoRegisterPlugPlayNotification.c)
  */
 
-NTSTATUS (*PoInitDriverServices())()
+NTSTATUS PoInitDriverServices()
 {
-  NTSTATUS (*result)(); // rax
   PVOID NotificationEntry; // [rsp+50h] [rbp+10h] BYREF
 
   NotificationEntry = 0LL;
@@ -57,17 +56,12 @@ NTSTATUS (*PoInitDriverServices())()
     (PVOID)9,
     &NotificationEntry);
   NotificationEntry = 0LL;
-  IoRegisterPlugPlayNotification(
-    EventCategoryDeviceInterfaceChange,
-    1u,
-    &GUID_DEVINTERFACE_HPMI,
-    PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopCadHpmiPnpNotification,
-    0LL,
-    &NotificationEntry);
-  PopCadTriggerDriverLoadWorkItem.Parameter = 0LL;
-  result = PopCadTriggerDriverLoad;
-  PopCadTriggerDriverLoadWorkItem.List.Flink = 0LL;
-  PopCadTriggerDriverLoadWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopCadTriggerDriverLoad;
-  return result;
+  return IoRegisterPlugPlayNotification(
+           EventCategoryDeviceInterfaceChange,
+           1u,
+           &GUID_DEVINTERFACE_HPMI,
+           PnpDriverObject,
+           (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopCadHpmiPnpNotification,
+           0LL,
+           &NotificationEntry);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C016E280
+ * XREFs of ?MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C01413C0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00717F0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
- *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C008DCA0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0010F60 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00218E0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
  */
 
 void __fastcall MulCompletePDEV(struct DHPDEV__ *a1, HDEV a2, int a3)

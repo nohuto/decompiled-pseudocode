@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmIsDevicePresent @ 0x14079AC60
+ * XREFs of _CmIsDevicePresent @ 0x140684B78
  * Callers:
- *     PiPnpRtlEnumeratorFilterCallback @ 0x14079AB90 (PiPnpRtlEnumeratorFilterCallback.c)
- *     _CmEnumSubkeyCallback @ 0x14082C810 (_CmEnumSubkeyCallback.c)
- *     PiPnpRtlServiceFilterCallback @ 0x14095A9C0 (PiPnpRtlServiceFilterCallback.c)
+ *     PiPnpRtlEnumeratorFilterCallback @ 0x140684AA0 (PiPnpRtlEnumeratorFilterCallback.c)
+ *     PiPnpRtlServiceFilterCallback @ 0x14075FFC0 (PiPnpRtlServiceFilterCallback.c)
+ *     _CmEnumSubkeyCallback @ 0x1407B1150 (_CmEnumSubkeyCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x14079ACE8 (_NtPlugPlayGetDeviceStatus.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x140684D10 (_NtPlugPlayGetDeviceStatus.c)
  */
 
 NTSTATUS __fastcall CmIsDevicePresent(int a1, const WCHAR *a2, _BYTE *a3)

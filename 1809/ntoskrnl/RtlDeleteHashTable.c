@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDeleteHashTable @ 0x14012ACD0
+ * XREFs of RtlDeleteHashTable @ 0x14012ACF0
  * Callers:
- *     SepDeleteSessionLowboxEntries @ 0x14012A040 (SepDeleteSessionLowboxEntries.c)
- *     RtlpCreateHashTable @ 0x14016A550 (RtlpCreateHashTable.c)
- *     SepInitializeLowBoxNumberTable @ 0x14071E928 (SepInitializeLowBoxNumberTable.c)
- *     SepRmDestroyCapTable @ 0x1408A4ECC (SepRmDestroyCapTable.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14012A060 (SepDeleteSessionLowboxEntries.c)
+ *     RtlpCreateHashTable @ 0x14016A570 (RtlpCreateHashTable.c)
+ *     SepInitializeLowBoxNumberTable @ 0x14071E908 (SepInitializeLowBoxNumberTable.c)
+ *     SepRmDestroyCapTable @ 0x1408A4EAC (SepRmDestroyCapTable.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

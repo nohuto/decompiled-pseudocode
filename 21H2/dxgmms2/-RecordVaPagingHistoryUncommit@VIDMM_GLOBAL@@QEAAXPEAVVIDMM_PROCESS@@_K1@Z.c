@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RecordVaPagingHistoryUncommit@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@_K1@Z @ 0x1C00E3978
+ * XREFs of ?RecordVaPagingHistoryUncommit@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@_K1@Z @ 0x1C00BE78C
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008AF00 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00705F0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUncommit(
@@ -24,11 +24,11 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUncommit(
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(v8, 0LL);
     *((_QWORD *)v8 + 1) = KeGetCurrentThread();
-    v9 = (_QWORD *)operator new(32LL, 0x32356956u, 256LL);
+    v9 = operator new[](0x20uLL, 0x32356956u, PagedPool);
     if ( v9 )
     {
       v10 = *((unsigned int *)this + 10248);
-      if ( (_DWORD)v10 == dword_1C006E41C )
+      if ( (_DWORD)v10 == dword_1C00503AC )
       {
         *((_DWORD *)this + 10248) = 0;
         v10 = 0LL;

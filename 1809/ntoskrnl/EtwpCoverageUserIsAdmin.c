@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageUserIsAdmin @ 0x1406E26D4
+ * XREFs of EtwpCoverageUserIsAdmin @ 0x1406E26B4
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
- *     EtwQueryProcessTelemetryCoverage @ 0x1408B6690 (EtwQueryProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwQueryProcessTelemetryCoverage @ 0x1408B6670 (EtwQueryProcessTelemetryCoverage.c)
  * Callees:
  *     SeTokenIsAdmin @ 0x1405BBCD0 (SeTokenIsAdmin.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

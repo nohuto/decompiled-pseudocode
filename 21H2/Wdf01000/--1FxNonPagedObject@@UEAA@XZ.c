@@ -1,37 +1,36 @@
 /*
- * XREFs of ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180
+ * XREFs of ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230
  * Callers:
- *     ??_EFxFileObject@@UEAAPEAXI@Z @ 0x1C0003BD0 (--_EFxFileObject@@UEAAPEAXI@Z.c)
- *     ??1FxTimer@@UEAA@XZ @ 0x1C00186F8 (--1FxTimer@@UEAA@XZ.c)
- *     ??1FxSystemWorkItem@@UEAA@XZ @ 0x1C00188A0 (--1FxSystemWorkItem@@UEAA@XZ.c)
- *     ??1FxWorkItem@@UEAA@XZ @ 0x1C0018970 (--1FxWorkItem@@UEAA@XZ.c)
- *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0020990 (--1FxPkgPnp@@MEAA@XZ.c)
- *     ??1FxCollection@@UEAA@XZ @ 0x1C0021F48 (--1FxCollection@@UEAA@XZ.c)
- *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C002BAE4 (--1FxDeviceBase@@MEAA@XZ.c)
- *     ??1FxPkgIo@@UEAA@XZ @ 0x1C00339E0 (--1FxPkgIo@@UEAA@XZ.c)
- *     ??1FxPkgGeneral@@UEAA@XZ @ 0x1C0033B50 (--1FxPkgGeneral@@UEAA@XZ.c)
- *     ??1FxWmiIrpHandler@@UEAA@XZ @ 0x1C0033E10 (--1FxWmiIrpHandler@@UEAA@XZ.c)
- *     ??_EFxDmaSystemTransaction@@UEAAPEAXI@Z @ 0x1C00346E0 (--_EFxDmaSystemTransaction@@UEAAPEAXI@Z.c)
- *     ??_GFxIoTargetRemote@@UEAAPEAXI@Z @ 0x1C0034720 (--_GFxIoTargetRemote@@UEAAPEAXI@Z.c)
- *     ??1FxDmaEnabler@@UEAA@XZ @ 0x1C0055098 (--1FxDmaEnabler@@UEAA@XZ.c)
- *     ??1FxDpc@@UEAA@XZ @ 0x1C005B860 (--1FxDpc@@UEAA@XZ.c)
- *     ??_EFxWmiProvider@@UEAAPEAXI@Z @ 0x1C005DFD0 (--_EFxWmiProvider@@UEAAPEAXI@Z.c)
- *     ??_EFxWmiInstanceExternal@@UEAAPEAXI@Z @ 0x1C005E3C0 (--_EFxWmiInstanceExternal@@UEAAPEAXI@Z.c)
- *     ??_GFxCompanionTarget@@UEAAPEAXI@Z @ 0x1C0060F80 (--_GFxCompanionTarget@@UEAAPEAXI@Z.c)
- *     ??1FxDriver@@UEAA@XZ @ 0x1C0069CE8 (--1FxDriver@@UEAA@XZ.c)
- *     ??_GFxDisposeList@@UEAAPEAXI@Z @ 0x1C006AA50 (--_GFxDisposeList@@UEAAPEAXI@Z.c)
- *     ??1FxUsbPipe@@MEAA@XZ @ 0x1C0079308 (--1FxUsbPipe@@MEAA@XZ.c)
- *     ??1FxUsbDevice@@MEAA@XZ @ 0x1C007BD80 (--1FxUsbDevice@@MEAA@XZ.c)
- *     ??1FxUsbInterface@@MEAA@XZ @ 0x1C007E2D8 (--1FxUsbInterface@@MEAA@XZ.c)
- *     ??1FxIoQueue@@UEAA@XZ @ 0x1C0081978 (--1FxIoQueue@@UEAA@XZ.c)
- *     ??1FxInterrupt@@UEAA@XZ @ 0x1C008CD58 (--1FxInterrupt@@UEAA@XZ.c)
- *     ??_GFxSystemThread@@UEAAPEAXI@Z @ 0x1C0091470 (--_GFxSystemThread@@UEAAPEAXI@Z.c)
+ *     ??1FxWorkItem@@UEAA@XZ @ 0x1C00141D0 (--1FxWorkItem@@UEAA@XZ.c)
+ *     ??_EFxDmaEnabler@@UEAAPEAXI@Z @ 0x1C0031720 (--_EFxDmaEnabler@@UEAAPEAXI@Z.c)
+ *     ??_EFxDmaSystemTransaction@@UEAAPEAXI@Z @ 0x1C00317B0 (--_EFxDmaSystemTransaction@@UEAAPEAXI@Z.c)
+ *     ??1FxDpc@@UEAA@XZ @ 0x1C003A348 (--1FxDpc@@UEAA@XZ.c)
+ *     ??_EFxWmiProvider@@UEAAPEAXI@Z @ 0x1C003E030 (--_EFxWmiProvider@@UEAAPEAXI@Z.c)
+ *     ??_EFxWmiInstanceExternal@@UEAAPEAXI@Z @ 0x1C003EA00 (--_EFxWmiInstanceExternal@@UEAAPEAXI@Z.c)
+ *     ??_GFxWmiIrpHandler@@UEAAPEAXI@Z @ 0x1C003F960 (--_GFxWmiIrpHandler@@UEAAPEAXI@Z.c)
+ *     ??_GFxCompanionTarget@@UEAAPEAXI@Z @ 0x1C00435B0 (--_GFxCompanionTarget@@UEAAPEAXI@Z.c)
+ *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C004D508 (--1FxDeviceBase@@MEAA@XZ.c)
+ *     ??1FxDriver@@UEAA@XZ @ 0x1C0053A50 (--1FxDriver@@UEAA@XZ.c)
+ *     ??1FxTimer@@UEAA@XZ @ 0x1C0054330 (--1FxTimer@@UEAA@XZ.c)
+ *     ??_GFxDisposeList@@UEAAPEAXI@Z @ 0x1C00550B0 (--_GFxDisposeList@@UEAAPEAXI@Z.c)
+ *     ??1FxSystemWorkItem@@UEAA@XZ @ 0x1C0055E50 (--1FxSystemWorkItem@@UEAA@XZ.c)
+ *     ??1FxCollection@@UEAA@XZ @ 0x1C00618A0 (--1FxCollection@@UEAA@XZ.c)
+ *     ??_GFxIoTargetRemote@@UEAAPEAXI@Z @ 0x1C0064820 (--_GFxIoTargetRemote@@UEAAPEAXI@Z.c)
+ *     ??1FxUsbPipe@@MEAA@XZ @ 0x1C006C77C (--1FxUsbPipe@@MEAA@XZ.c)
+ *     ??1FxUsbDevice@@MEAA@XZ @ 0x1C006F5A0 (--1FxUsbDevice@@MEAA@XZ.c)
+ *     ??1FxUsbInterface@@MEAA@XZ @ 0x1C0071B98 (--1FxUsbInterface@@MEAA@XZ.c)
+ *     ??1FxPkgIo@@UEAA@XZ @ 0x1C0074848 (--1FxPkgIo@@UEAA@XZ.c)
+ *     ??1FxIoQueue@@UEAA@XZ @ 0x1C00758D4 (--1FxIoQueue@@UEAA@XZ.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
+ *     ??1FxInterrupt@@UEAA@XZ @ 0x1C0089000 (--1FxInterrupt@@UEAA@XZ.c)
+ *     ??_EFxPkgGeneral@@UEAAPEAXI@Z @ 0x1C008D610 (--_EFxPkgGeneral@@UEAAPEAXI@Z.c)
+ *     ??_GFxSystemThread@@UEAAPEAXI@Z @ 0x1C0090E90 (--_GFxSystemThread@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
- *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00551B0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
+ *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00317F0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall FxNonPagedObject::~FxNonPagedObject(FxNonPagedObject *this, unsigned int a2)
+void __fastcall FxNonPagedObject::~FxNonPagedObject(FxNonPagedObject *this, unsigned int a2, unsigned int a3)
 {
   _LIST_ENTRY *Blink; // rcx
 
@@ -46,5 +45,5 @@ void __fastcall FxNonPagedObject::~FxNonPagedObject(FxNonPagedObject *this, unsi
     }
   }
   this->m_NPLock.m_DbgFlagIsInitialized = 0;
-  FxObject::~FxObject(this);
+  FxObject::~FxObject(this, a2, a3);
 }

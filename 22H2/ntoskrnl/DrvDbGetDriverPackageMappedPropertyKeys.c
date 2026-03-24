@@ -1,183 +1,193 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140A6BF4C
+ * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x14097DB80
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x140876870 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406B4DB0 (DrvDbDispatchDriverPackage.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408769B8 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x140876DFC (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140A6B4E4 (DrvDbGetCompositeMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140A6C288 (DrvDbGetDriverPackageSignerScore.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1406B797C (DrvDbOpenDriverPackageRegKey.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x14072841C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x14097D29C (DrvDbGetCompositeMappedPropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
-        __int64 *a1,
-        const wchar_t *a2,
+        _QWORD *a1,
+        _WORD *a2,
         void *a3,
         __int64 a4,
         unsigned int a5,
-        unsigned int *a6)
+        __int64 a6)
 {
-  unsigned int *v6; // rdi
-  __int64 v8; // rsi
-  unsigned int v9; // r12d
-  unsigned int v10; // r14d
-  int CompositeMappedPropertyKeys; // ebx
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  unsigned int v14; // r15d
-  __int64 *v15; // rbx
-  HANDLE v16; // r8
+  unsigned int *v6; // rsi
+  unsigned int v7; // r12d
+  int v8; // r14d
+  __int64 v10; // rdi
+  unsigned int v11; // r15d
+  signed int CompositeMappedPropertyKeys; // ebx
+  __int64 v13; // r9
+  __int64 v14; // rdx
+  unsigned int v15; // r14d
+  __int64 *v16; // rbx
+  HANDLE v17; // r8
   int DriverPackageMappedProperty; // eax
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  unsigned int v21; // ecx
-  unsigned int v22; // r13d
-  const WCHAR **v23; // r15
-  HANDLE v24; // rcx
-  int Value; // eax
-  const WCHAR *v26; // rcx
-  __int64 v27; // rax
-  HANDLE v28; // r8
-  const WCHAR *v29; // rdx
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  unsigned int v22; // edx
+  int v23; // eax
+  unsigned int v24; // ecx
+  unsigned int v25; // r13d
+  const WCHAR **v26; // r14
+  HANDLE v27; // rcx
+  signed int Value; // eax
+  const WCHAR *v29; // rcx
   __int64 v30; // rax
-  __int64 v31; // rcx
-  unsigned int v32; // ecx
-  unsigned int *v34; // [rsp+28h] [rbp-38h]
-  __int64 v35; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v36; // [rsp+48h] [rbp-18h] BYREF
+  HANDLE v31; // r8
+  const WCHAR *v32; // rdx
+  __int64 v33; // rax
+  __int64 v34; // rcx
+  unsigned int v35; // edx
+  int v36; // eax
+  unsigned int v37; // ecx
+  unsigned int *v39; // [rsp+28h] [rbp-38h]
+  int v40; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v41; // [rsp+44h] [rbp-1Ch] BYREF
   HANDLE Handle[2]; // [rsp+50h] [rbp-10h] BYREF
 
-  v6 = a6;
-  v34 = a6;
-  v8 = a4;
+  v6 = (unsigned int *)a6;
+  v7 = a5;
+  v8 = (int)a2;
+  v39 = (unsigned int *)a6;
   Handle[0] = 0LL;
-  v35 = 0LL;
-  v9 = 0;
-  LODWORD(a6) = 0;
-  v10 = a5;
-  *v6 = 0;
+  v41 = 0LL;
+  v10 = a4;
+  v11 = 0;
+  v40 = 0;
+  *(_DWORD *)a6 = 0;
   CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(
                                   (__int64)a1,
-                                  (_OWORD **)&off_140C09690,
-                                  0xFu,
+                                  (_OWORD **)&off_140C0F120,
+                                  0xEu,
                                   a4,
                                   a5,
-                                  v34);
+                                  v39);
   if ( CompositeMappedPropertyKeys >= 0 )
   {
-    v13 = *v6;
-    if ( (_DWORD)v13 )
+    v14 = *v6;
+    if ( (_DWORD)v14 )
     {
-      if ( v12 )
-        v8 = v12 + 20 * v13;
-      if ( (unsigned int)v13 <= a5 )
-        v10 = a5 - v13;
-      else
-        v10 = 0;
+      if ( v13 )
+        v10 = v13 + 20 * v14;
+      v7 = a5 - v14;
     }
     if ( a3
-      || (CompositeMappedPropertyKeys = DrvDbOpenDriverPackageRegKey((int)a1, (int)a2, 1, 0, (__int64)Handle, 0LL),
+      || (CompositeMappedPropertyKeys = DrvDbOpenDriverPackageRegKey((int)a1, v8, 1, 0, (__int64)Handle, 0LL),
           CompositeMappedPropertyKeys >= 0) )
     {
-      v14 = 0;
-      v15 = (__int64 *)off_14000B2A0;
+      v15 = 0;
+      v16 = (__int64 *)off_140009EF0;
       while ( 1 )
       {
-        v16 = Handle[0];
+        v17 = Handle[0];
         if ( a3 )
-          v16 = a3;
+          v17 = a3;
         DriverPackageMappedProperty = DrvDbGetDriverPackageMappedProperty(
                                         a1,
                                         a2,
-                                        v16,
-                                        *v15,
-                                        (__int64 (**)[3])((char *)&v35 + 4),
+                                        v17,
+                                        *v16,
+                                        (_DWORD *)&v41 + 1,
                                         0LL,
                                         0,
-                                        (unsigned int *)&v35);
+                                        (__int64 (**)[3])&v41);
         if ( DriverPackageMappedProperty != -1073741275 )
         {
           if ( DriverPackageMappedProperty && DriverPackageMappedProperty != -1073741789 )
-            goto LABEL_24;
-          if ( v8 && v9 < v10 )
+            goto LABEL_23;
+          if ( v10 && v11 < v7 )
           {
-            v18 = *v15;
-            v19 = v9++;
-            v20 = 5 * v19;
-            *(_OWORD *)(v8 + 4 * v20) = *(_OWORD *)*v15;
-            *(_DWORD *)(v8 + 4 * v20 + 16) = *(_DWORD *)(v18 + 16);
+            v19 = *v16;
+            v20 = v11++;
+            v21 = 5 * v20;
+            *(_OWORD *)(v10 + 4 * v21) = *(_OWORD *)*v16;
+            *(_DWORD *)(v10 + 4 * v21 + 16) = *(_DWORD *)(v19 + 16);
           }
-          v21 = *v6 + 1;
-          if ( v21 < *v6 )
-          {
-            *v6 = 0;
-LABEL_24:
-            v22 = 0;
-            v23 = (const WCHAR **)&off_140005A20;
-LABEL_25:
-            LODWORD(v36) = 0;
-            v24 = Handle[0];
-            if ( a3 )
-              v24 = a3;
-            Value = RegRtlQueryValue(v24, v23[2], 0LL, 0LL, (unsigned int *)&v36);
-            CompositeMappedPropertyKeys = Value;
-            if ( Value == -1073741772 )
-            {
-              v26 = *v23;
-              if ( *((_DWORD *)*v23 + 4) != 7 )
-                goto LABEL_44;
-              v27 = *(_QWORD *)v26 - *(_QWORD *)&DEVPKEY_DriverPackage_SignerName;
-              if ( *(_QWORD *)v26 == *(_QWORD *)&DEVPKEY_DriverPackage_SignerName )
-                v27 = *((_QWORD *)v26 + 1) + 0x4524B8338B5D1E6CLL;
-              if ( v27 )
-                goto LABEL_44;
-              v28 = Handle[0];
-              if ( a3 )
-                v28 = a3;
-              if ( (int)DrvDbGetDriverPackageSignerScore(a1, a2, v28, &a6) < 0 || (_DWORD)a6 != 218103811 )
-                goto LABEL_44;
-            }
-            else if ( Value && Value != -1073741789 )
-            {
-LABEL_45:
-              if ( CompositeMappedPropertyKeys >= 0 && a5 < *v6 )
-                CompositeMappedPropertyKeys = -1073741789;
-              break;
-            }
-            if ( v8 && v9 < v10 )
-            {
-              v29 = *v23;
-              v30 = v9++;
-              v31 = 5 * v30;
-              *(_OWORD *)(v8 + 4 * v31) = *(_OWORD *)*v23;
-              *(_DWORD *)(v8 + 4 * v31 + 16) = *((_DWORD *)v29 + 4);
-            }
-            v32 = *v6 + 1;
-            if ( v32 < *v6 )
-            {
-              *v6 = 0;
-              CompositeMappedPropertyKeys = -1073741675;
-              break;
-            }
-            *v6 = v32;
-LABEL_44:
-            CompositeMappedPropertyKeys = 0;
-            ++v22;
-            v23 += 5;
-            if ( v22 >= 0x22 )
-              goto LABEL_45;
-            goto LABEL_25;
-          }
-          *v6 = v21;
+          v22 = *v6;
+          v23 = -1;
+          v24 = *v6 + 1;
+          if ( v24 >= *v6 )
+            v23 = *v6 + 1;
+          *v6 = v23;
+          if ( v24 < v22 )
+            break;
         }
-        ++v14;
         ++v15;
-        if ( v14 >= 2 )
-          goto LABEL_24;
+        ++v16;
+        if ( v15 >= 2 )
+          goto LABEL_23;
       }
+      *v6 = 0;
+LABEL_23:
+      v25 = 0;
+      v26 = (const WCHAR **)&off_140004460;
+      do
+      {
+        LODWORD(a6) = 0;
+        v27 = Handle[0];
+        if ( a3 )
+          v27 = a3;
+        Value = RegRtlQueryValue(v27, v26[2], 0LL, 0LL, (unsigned int *)&a6);
+        CompositeMappedPropertyKeys = Value;
+        if ( Value == -1073741772 )
+        {
+          v29 = *v26;
+          if ( *((_DWORD *)*v26 + 4) != 7 )
+            goto LABEL_35;
+          v30 = *(_QWORD *)v29 - *(_QWORD *)&DEVPKEY_DriverPackage_SignerName;
+          if ( *(_QWORD *)v29 == *(_QWORD *)&DEVPKEY_DriverPackage_SignerName )
+            v30 = *((_QWORD *)v29 + 1) + 0x4524B8338B5D1E6CLL;
+          if ( v30 )
+            goto LABEL_35;
+          v31 = Handle[0];
+          if ( a3 )
+            v31 = a3;
+          if ( (int)DrvDbGetDriverPackageSignerScore(a1, a2, v31, (wchar_t *)&v40) < 0 || v40 != 218103811 )
+          {
+LABEL_35:
+            CompositeMappedPropertyKeys = 0;
+            goto LABEL_44;
+          }
+        }
+        else if ( Value && Value != -1073741789 )
+        {
+          break;
+        }
+        if ( v10 && v11 < v7 )
+        {
+          v32 = *v26;
+          v33 = v11++;
+          v34 = 5 * v33;
+          *(_OWORD *)(v10 + 4 * v34) = *(_OWORD *)*v26;
+          *(_DWORD *)(v10 + 4 * v34 + 16) = *((_DWORD *)v32 + 4);
+        }
+        v35 = *v6;
+        v36 = -1;
+        v37 = *v6 + 1;
+        if ( v37 >= *v6 )
+          v36 = *v6 + 1;
+        CompositeMappedPropertyKeys = v37 < v35 ? 0xC0000095 : 0;
+        *v6 = v36;
+        if ( v37 < v35 )
+        {
+          *v6 = 0;
+          break;
+        }
+LABEL_44:
+        ++v25;
+        v26 += 5;
+      }
+      while ( v25 < 0x20 );
     }
     if ( Handle[0] )
       ZwClose(Handle[0]);

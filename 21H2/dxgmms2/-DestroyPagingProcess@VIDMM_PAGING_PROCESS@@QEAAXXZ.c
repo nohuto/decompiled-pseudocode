@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C00E2434
+ * XREFs of ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C00BCBF4
  * Callers:
- *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z @ 0x1C00B1204 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z.c)
- *     ?InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00B8348 (-InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00D4CC4 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@K@Z @ 0x1C0097270 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@K@Z.c)
+ *     ?InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00994D0 (-InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AD91C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
  * Callees:
- *     ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C001382C (--_GVIDMM_DEVICE@@QEAAPEAXI@Z.c)
- *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C009E854 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
- *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00A2170 (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
- *     ?UnmapPagingQueueGpuVAs@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00DDCAC (-UnmapPagingQueueGpuVAs@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C00120BC (--_GVIDMM_DEVICE@@QEAAPEAXI@Z.c)
+ *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00880DC (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0088228 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?UnmapPagingQueueGpuVAs@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00B864C (-UnmapPagingQueueGpuVAs@VIDMM_DEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_PAGING_PROCESS::DestroyPagingProcess(
@@ -35,14 +35,14 @@ void __fastcall VIDMM_PAGING_PROCESS::DestroyPagingProcess(
       v4 = *((_QWORD *)this + 2);
     }
     v7 = 0LL;
-    if ( *(_DWORD *)(v4 + 7016) )
+    if ( *(_DWORD *)(v4 + 7000) )
     {
       do
       {
         v8 = (struct CVirtualAddressAllocator *)*((_QWORD *)this + v7 + 4);
         if ( v8 )
         {
-          for ( i = 0; i < *(_DWORD *)(*((_QWORD *)v8 + 11) + 7016LL); ++i )
+          for ( i = 0; i < *(_DWORD *)(*((_QWORD *)v8 + 11) + 7000LL); ++i )
           {
             v10 = (VIDMM_PAGE_DIRECTORY **)(*((_QWORD *)v8 + 15) + 32LL * i);
             if ( *v10 )
@@ -51,12 +51,12 @@ void __fastcall VIDMM_PAGING_PROCESS::DestroyPagingProcess(
               *v10 = 0LL;
             }
           }
-          CVirtualAddressAllocator::DestroyVaAllocator(*((CVirtualAddressAllocator **)this + v7 + 4), a2, a3, a4);
+          CVirtualAddressAllocator::DestroyVaAllocator(*((CVirtualAddressAllocator **)this + v7 + 4));
           *((_QWORD *)this + v7 + 4) = 0LL;
         }
         v7 = (unsigned int)(v7 + 1);
       }
-      while ( (unsigned int)v7 < *(_DWORD *)(*((_QWORD *)this + 2) + 7016LL) );
+      while ( (unsigned int)v7 < *(_DWORD *)(*((_QWORD *)this + 2) + 7000LL) );
     }
     v11 = (VIDMM_DEVICE *)*((_QWORD *)this + 1);
     if ( v11 )

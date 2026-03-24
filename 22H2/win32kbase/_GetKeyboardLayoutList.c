@@ -1,24 +1,22 @@
 /*
- * XREFs of _GetKeyboardLayoutList @ 0x1C00699AC
+ * XREFs of _GetKeyboardLayoutList @ 0x1C00958D4
  * Callers:
- *     NtUserGetKeyboardLayoutList @ 0x1C0069920 (NtUserGetKeyboardLayoutList.c)
+ *     NtUserGetKeyboardLayoutList @ 0x1C0095840 (NtUserGetKeyboardLayoutList.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ApiSetEditionGetProcessWindowStation @ 0x1C0069BB4 (ApiSetEditionGetProcessWindowStation.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ApiSetEditionGetProcessWindowStation @ 0x1C003EC78 (ApiSetEditionGetProcessWindowStation.c)
  */
 
-__int64 __fastcall GetKeyboardLayoutList(__int64 a1, _QWORD *a2)
+__int64 __fastcall GetKeyboardLayoutList(int a1, _QWORD *a2)
 {
-  int v3; // edi
   unsigned int v4; // ebx
   __int64 ProcessWindowStation; // rax
   __int64 v6; // r8
   __int64 v7; // rdx
   unsigned int v10; // ecx
 
-  v3 = a1;
   v4 = 0;
-  ProcessWindowStation = ApiSetEditionGetProcessWindowStation(a1);
+  ProcessWindowStation = ApiSetEditionGetProcessWindowStation();
   if ( ProcessWindowStation )
     v6 = *(_QWORD *)(ProcessWindowStation + 72);
   else
@@ -26,13 +24,13 @@ __int64 __fastcall GetKeyboardLayoutList(__int64 a1, _QWORD *a2)
   if ( !v6 )
     return 0LL;
   v7 = v6;
-  if ( v3 )
+  if ( a1 )
   {
     do
     {
       if ( (*(_DWORD *)(v6 + 32) & 0x20000000) == 0 )
       {
-        if ( !v3-- )
+        if ( !a1-- )
           return v4;
         ++v4;
         *a2++ = *(_QWORD *)(v6 + 40);

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhConnectPdoToHub @ 0x1C0029868
+ * XREFs of UsbhConnectPdoToHub @ 0x1C002ABC0
  * Callers:
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 __int64 __fastcall UsbhConnectPdoToHub(__int64 a1, __int64 a2)

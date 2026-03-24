@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbResolveDatabaseEx @ 0x1408E84D0
+ * XREFs of SdbResolveDatabaseEx @ 0x1408E84B0
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x1408E8238 (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408E8218 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80E8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbGetPathCustomSdb @ 0x1408E8400 (SdbGetPathCustomSdb.c)
- *     SdbpGetSystemSdbFilePath @ 0x1408E8DEC (SdbpGetSystemSdbFilePath.c)
- *     AslGuidToString_UStr @ 0x1408E9134 (AslGuidToString_UStr.c)
- *     AslUnicodeStringFree @ 0x1408E94E8 (AslUnicodeStringFree.c)
- *     AslRegistryGetUInt32_UStr @ 0x1408E9824 (AslRegistryGetUInt32_UStr.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80C8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGetPathCustomSdb @ 0x1408E83E0 (SdbGetPathCustomSdb.c)
+ *     SdbpGetSystemSdbFilePath @ 0x1408E8DCC (SdbpGetSystemSdbFilePath.c)
+ *     AslGuidToString_UStr @ 0x1408E9114 (AslGuidToString_UStr.c)
+ *     AslUnicodeStringFree @ 0x1408E94C8 (AslUnicodeStringFree.c)
+ *     AslRegistryGetUInt32_UStr @ 0x1408E9804 (AslRegistryGetUInt32_UStr.c)
  */
 
 __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4, _WORD *a5, int a6)

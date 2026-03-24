@@ -1,113 +1,103 @@
 /*
- * XREFs of CmpMountPreloadedHives @ 0x1408632CC
+ * XREFs of CmpMountPreloadedHives @ 0x1407AB024
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlAreBitsClear @ 0x140220900 (RtlAreBitsClear.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     TmEnableCallbacks @ 0x1403D7E50 (TmEnableCallbacks.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     CmpQueryHiveRedirectionFileList @ 0x140695B38 (CmpQueryHiveRedirectionFileList.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407034AC (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
- *     CmpInitializeActualFileSizes @ 0x140751538 (CmpInitializeActualFileSizes.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     CmRmFinalizeRecovery @ 0x1407E8CA8 (CmRmFinalizeRecovery.c)
- *     HvpDropPagedBins @ 0x140828B84 (HvpDropPagedBins.c)
- *     ExRaiseHardError @ 0x140A00C30 (ExRaiseHardError.c)
- *     CmpDiskFullWarning @ 0x140A11AF8 (CmpDiskFullWarning.c)
- *     SyspartGetSystemPartition @ 0x140A5F37C (SyspartGetSystemPartition.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlSetAllBits @ 0x1403536C0 (RtlSetAllBits.c)
+ *     RtlAreBitsClear @ 0x1403621A0 (RtlAreBitsClear.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x14069DDF8 (CmpQueryHiveRedirectionFileList.c)
+ *     CmRmFinalizeRecovery @ 0x1406A24AC (CmRmFinalizeRecovery.c)
+ *     CmpOpenHiveFile @ 0x1406EA6B8 (CmpOpenHiveFile.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407203B0 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpInitializeActualFileSizes @ 0x140723838 (CmpInitializeActualFileSizes.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
+ *     HvpDropPagedBins @ 0x14079FB58 (HvpDropPagedBins.c)
+ *     CmpDiskFullWarning @ 0x140876BF8 (CmpDiskFullWarning.c)
+ *     ExRaiseHardError @ 0x140956160 (ExRaiseHardError.c)
+ *     SyspartGetSystemPartition @ 0x1409735F0 (SyspartGetSystemPartition.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void CmpMountPreloadedHives()
 {
   int v0; // edi
-  wchar_t *p_Length; // rbx
+  wchar_t *v1; // rbx
   __int64 v2; // rsi
-  int v3; // eax
-  int v4; // r13d
-  int v5; // eax
-  __int64 v6; // rax
-  const WCHAR *v7; // rdx
+  int v3; // r13d
+  int v4; // eax
+  __int64 v5; // rax
+  const WCHAR *v6; // rdx
   int SystemPartition; // ebx
-  unsigned int v9; // r12d
-  ULONG v10; // ebx
-  ULONG v11; // eax
-  int v12; // r12d
-  unsigned int v13; // r12d
-  ULONG i; // r12d
-  ULONG v15; // eax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int v20; // ebx
-  PKRESOURCEMANAGER *v21; // rcx
+  unsigned int v8; // r15d
+  ULONG v9; // ebx
+  unsigned int v10; // r15d
+  ULONG i; // r15d
+  ULONG v12; // eax
+  int v13; // ebx
+  _DWORD *v14; // r9
+  PKRESOURCEMANAGER *v15; // rcx
   UNICODE_STRING Destination_8; // [rsp+58h] [rbp-B0h] BYREF
   WCHAR Source[2]; // [rsp+68h] [rbp-A0h] BYREF
-  int v24; // [rsp+6Ch] [rbp-9Ch] BYREF
-  int v25; // [rsp+70h] [rbp-98h] BYREF
-  int v26; // [rsp+74h] [rbp-94h] BYREF
-  int v27; // [rsp+78h] [rbp-90h] BYREF
-  int v28; // [rsp+7Ch] [rbp-8Ch]
-  unsigned int v29; // [rsp+80h] [rbp-88h]
-  int v30; // [rsp+84h] [rbp-84h] BYREF
-  int v31; // [rsp+88h] [rbp-80h] BYREF
+  int v18; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v19; // [rsp+70h] [rbp-98h] BYREF
+  int v20; // [rsp+74h] [rbp-94h] BYREF
+  __int64 v21; // [rsp+78h] [rbp-90h] BYREF
+  UNICODE_STRING *p_Destination_8; // [rsp+80h] [rbp-88h] BYREF
+  int v23; // [rsp+88h] [rbp-80h] BYREF
+  int v24; // [rsp+8Ch] [rbp-7Ch] BYREF
   ULONG Length[2]; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING *Pool2; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v34; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 v35; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v36; // [rsp+B0h] [rbp-58h] BYREF
-  _QWORD v37[54]; // [rsp+B8h] [rbp-50h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v38; // [rsp+268h] [rbp+160h] BYREF
+  HANDLE v26; // [rsp+98h] [rbp-70h] BYREF
+  HANDLE v27; // [rsp+A0h] [rbp-68h] BYREF
+  HANDLE v28; // [rsp+A8h] [rbp-60h] BYREF
+  wchar_t *PoolWithTag; // [rsp+B0h] [rbp-58h]
+  _QWORD v30[54]; // [rsp+B8h] [rbp-50h] BYREF
+  _OWORD v31[3]; // [rsp+268h] [rbp+160h] BYREF
 
   v0 = 0;
-  v25 = 0;
-  v31 = 0;
-  v30 = 0;
-  Destination_8 = 0LL;
-  memset(v37, 0, sizeof(v37));
-  v26 = 0;
-  v35 = 0LL;
-  v27 = 0;
-  v36 = 0LL;
-  memset(&v38, 0, sizeof(v38));
+  v19 = 0;
   v24 = 0;
-  v34 = 0LL;
+  v23 = 0;
+  Destination_8 = 0LL;
+  memset(v30, 0, sizeof(v30));
+  v20 = 0;
+  v27 = 0LL;
+  LODWORD(v21) = 0;
+  v28 = 0LL;
+  v18 = 0;
+  memset(v31, 0, sizeof(v31));
+  v26 = 0LL;
   *(_DWORD *)Source = 0;
   *(_QWORD *)Length = 0LL;
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, 4096LL, 1649626435LL);
-  p_Length = &Pool2->Length;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x62534D43u);
+  v1 = PoolWithTag;
+  if ( !PoolWithTag )
     KeBugCheckEx(0x74u, 2uLL, 1uLL, 0LL, 0xFFFFFFFFC000009AuLL);
   v2 = CmpPreloadedHivesList;
   if ( (__int64 *)CmpPreloadedHivesList != &CmpPreloadedHivesList )
   {
     while ( 1 )
     {
-      v3 = *(_DWORD *)(v2 - 1464);
-      v4 = v3 & 0x1000000;
-      v28 = v3 & 0x1000000;
-      if ( (v3 & 1) != 0 )
+      v3 = *(_DWORD *)(v2 - 1456) & 0x1000000;
+      if ( (*(_DWORD *)(v2 - 1456) & 1) != 0 )
         goto LABEL_45;
       *(_QWORD *)&Destination_8.Length = 0x10000000LL;
-      Destination_8.Buffer = p_Length;
+      Destination_8.Buffer = v1;
       if ( !CmpQueryHiveRedirectionFileList((PUNICODE_STRING)(v2 + 232), &Destination_8) || Destination_8.Length == 2 )
         break;
 LABEL_17:
@@ -115,142 +105,139 @@ LABEL_17:
       *(_OWORD *)(v2 + 200) = 0LL;
       *(_WORD *)(v2 + 202) = 0;
       *(_QWORD *)(v2 + 208) = 0LL;
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 0, &v34, &v24, 7u, 0LL, (int *)Length, 0LL, 0LL, (__int64)v37);
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 0, &v26, &v18, 7u, 0LL, (__int64)Length, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 16;
 LABEL_52:
-        *(_QWORD *)(v2 - 1568) = v37;
-        v37[0] = v2 - 1624;
-        SetFailureLocation(*(_QWORD *)(v2 - 1568), 0, 21, SystemPartition, v0);
-        CmpPuntBoot = 1;
-        Pool2 = &Destination_8;
-        ExRaiseHardError(3221226008LL, 1LL, 1LL, &Pool2, 1, &v31);
-        KeBugCheckEx(0x74u, 2uLL, 1uLL, v2 - 1624, SystemPartition);
+        *(_QWORD *)(v2 - 1560) = v30;
+        v30[0] = v2 - 1616;
+        SetFailureLocation(*(_QWORD *)(v2 - 1560), 0, 21, SystemPartition, v0);
+        BYTE6(NlsMbCodePageTag) = 1;
+        p_Destination_8 = &Destination_8;
+        ExRaiseHardError(3221226008LL, 1LL, 1LL, &p_Destination_8, 1, &v24);
+        KeBugCheckEx(0x74u, 2uLL, 1uLL, v2 - 1616, SystemPartition);
       }
-      v9 = 2;
-      if ( v24 == 2 )
-        v9 = 18;
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 4, &v35, &v26, v9, 0LL, 0LL, 0LL, 0LL, (__int64)v37);
+      v8 = 2;
+      if ( v18 == 2 )
+        v8 = 18;
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 4u, &v27, &v20, v8, 0LL, 0LL, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 32;
         goto LABEL_52;
       }
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 5, &v36, &v27, v9, 0LL, 0LL, 0LL, 0LL, (__int64)v37);
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 5u, &v28, (int *)&v21, v8, 0LL, 0LL, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 48;
         goto LABEL_52;
       }
-      v10 = Length[0];
-      *(_QWORD *)(v2 - 80) = v34;
-      *(_QWORD *)(v2 - 48) = v35;
-      *(_QWORD *)(v2 - 40) = v36;
-      v11 = Length[1];
-      *(_DWORD *)(v2 - 1464) &= ~2u;
-      v12 = *(_DWORD *)(v2 - 1344);
-      *(_DWORD *)(v2 - 1436) = v11;
-      v13 = v12 + 4096;
-      v29 = v13;
-      if ( *(_DWORD *)(v2 - 1488) != v10 )
+      v9 = Length[0];
+      *(_QWORD *)(v2 - 80) = v26;
+      *(_QWORD *)(v2 - 48) = v27;
+      *(_QWORD *)(v2 - 40) = v28;
+      *(_DWORD *)(v2 - 1456) &= ~2u;
+      v10 = *(_DWORD *)(v2 - 1344) + 4096;
+      *(_DWORD *)(v2 - 1432) = Length[1];
+      LODWORD(p_Destination_8) = v10;
+      if ( *(_DWORD *)(v2 - 1480) != v9 )
       {
-        for ( i = 0; i < *(_DWORD *)(v2 - 1536); i += v10 )
+        for ( i = 0; i < *(_DWORD *)(v2 - 1528); i += v9 )
         {
-          if ( !RtlAreBitsClear((PRTL_BITMAP)(v2 - 1536), i, v10) )
-            RtlSetBits((PRTL_BITMAP)(v2 - 1536), i, v10);
+          if ( !RtlAreBitsClear((PRTL_BITMAP)(v2 - 1528), i, v9) )
+            RtlSetBits((PRTL_BITMAP)(v2 - 1528), i, v9);
         }
-        v15 = RtlNumberOfSetBits((PRTL_BITMAP)(v2 - 1536));
-        v4 = v28;
-        v13 = v29;
-        *(_DWORD *)(v2 - 1520) = v15;
-        *(_DWORD *)(v2 - 1488) = v10;
+        v12 = RtlNumberOfSetBits((PRTL_BITMAP)(v2 - 1528));
+        v10 = (unsigned int)p_Destination_8;
+        *(_DWORD *)(v2 - 1512) = v12;
+        *(_DWORD *)(v2 - 1480) = v9;
       }
-      SystemPartition = CmpInitializeActualFileSizes(v2 - 1624, &v30);
+      SystemPartition = CmpInitializeActualFileSizes(v2 - 1616, &v23);
       if ( SystemPartition < 0 )
       {
         v0 = 64;
         goto LABEL_52;
       }
-      if ( (int)CmpDoFileSetSizeEx(v2 - 1624, 0, v13, 1) < 0 )
+      if ( (int)CmpDoFileSetSizeEx(v2 - 1616, 0, v10, 1) < 0 )
         CmpCannotWriteConfiguration = 1;
-      if ( v4 )
+      if ( v3 )
       {
-        *(_QWORD *)(*(_QWORD *)(v2 - 1560) + 12LL) = MEMORY[0xFFFFF78000000014];
-        HvCheckAndUpdateHiveBackupTimeStamp(v2 - 1624);
+        *(_QWORD *)(*(_QWORD *)(v2 - 1552) + 12LL) = MEMORY[0xFFFFF78000000014];
+        HvCheckAndUpdateHiveBackupTimeStamp(v2 - 1616);
       }
-      if ( *(_DWORD *)(*(_QWORD *)(v2 - 1560) + 4092LL) || v4 )
+      if ( *(_DWORD *)(*(_QWORD *)(v2 - 1552) + 4092LL) || v3 )
       {
-        RtlSetAllBits((PRTL_BITMAP)(v2 - 1536));
-        *(_DWORD *)(v2 - 1520) = *(_DWORD *)(v2 - 1536);
+        RtlSetAllBits((PRTL_BITMAP)(v2 - 1528));
+        *(_DWORD *)(v2 - 1512) = *(_DWORD *)(v2 - 1528);
       }
-      SystemPartition = HvpDropPagedBins(v2 - 1624);
+      SystemPartition = HvpDropPagedBins(v2 - 1616);
       if ( SystemPartition < 0 )
       {
         v0 = 96;
         goto LABEL_52;
       }
-      if ( *(_DWORD *)(*(_QWORD *)(v2 - 1560) + 4092LL) || v4 )
+      if ( *(_DWORD *)(*(_QWORD *)(v2 - 1552) + 4092LL) || v3 )
       {
-        CmpUnlockRegistry(v17, v16, v18, v19);
-        CmpFlushHive(v2 - 1624, 0xCu);
+        CmpUnlockRegistry();
+        CmpFlushHive(v2 - 1616, 0xCu);
         CmpLockRegistryExclusive();
-        *(_DWORD *)(*(_QWORD *)(v2 - 1560) + 4092LL) = 0;
+        *(_DWORD *)(*(_QWORD *)(v2 - 1552) + 4092LL) = 0;
       }
       if ( CmpCannotWriteConfiguration )
         CmpDiskFullWarning();
-      v20 = *(_DWORD *)(v2 - 1464);
-      *(_DWORD *)(v2 - 1464) = v20 & 0xFFFFF7FF;
-      CmpUnlockRegistry(v17, v16, v18, v19);
-      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v38);
-      CmpInitCmRM(v2 - 1624, (v20 & 0x800) != 0);
-      KiUnstackDetachProcess(&v38);
-      v21 = *(PKRESOURCEMANAGER **)(v2 + 2528);
-      *(_DWORD *)(v2 + 2488) |= 8u;
-      if ( v21 )
+      v13 = *(_DWORD *)(v2 - 1456);
+      *(_DWORD *)(v2 - 1456) = v13 & 0xFFFFF7FF;
+      CmpUnlockRegistry();
+      KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v31, v14);
+      CmpInitCmRM(v2 - 1616, (v13 & 0x800) != 0);
+      KiUnstackDetachProcess((__int64)v31, 0);
+      v15 = *(PKRESOURCEMANAGER **)(v2 + 2576);
+      *(_DWORD *)(v2 + 2536) |= 8u;
+      if ( v15 )
       {
-        TmEnableCallbacks(v21[7], (PTM_RM_NOTIFICATION)CmKtmNotification, v21);
-        CmRmFinalizeRecovery(*(_QWORD *)(v2 + 2528));
+        TmEnableCallbacks(v15[7], (PTM_RM_NOTIFICATION)CmKtmNotification, v15);
+        CmRmFinalizeRecovery(*(_QWORD *)(v2 + 2576));
       }
       CmpLockRegistryExclusive();
-      p_Length = &Pool2->Length;
+      v1 = PoolWithTag;
 LABEL_45:
-      *(_DWORD *)(v2 + 2488) |= 4u;
+      *(_DWORD *)(v2 + 2536) |= 4u;
       v2 = *(_QWORD *)v2;
       if ( (__int64 *)v2 == &CmpPreloadedHivesList )
         goto LABEL_3;
     }
     *(_QWORD *)&Destination_8.Length = 0x10000000LL;
-    Destination_8.Buffer = p_Length;
-    v5 = *(_DWORD *)(v2 - 1464);
-    if ( (v5 & 0x1000) != 0 )
+    Destination_8.Buffer = v1;
+    v4 = *(_DWORD *)(v2 - 1456);
+    if ( (v4 & 0x1000) != 0 )
     {
-      v6 = PdcCreateWatchdogAroundClientCall();
-      Source[0] = **((_WORD **)PsGetServerSiloGlobals(v6) + 159);
+      v5 = HalSystemVectorDispatchEntry();
+      Source[0] = **((_WORD **)PsGetServerSiloGlobals(v5) + 135);
       RtlAppendUnicodeToString(&Destination_8, L"\\??\\");
       RtlAppendUnicodeToString(&Destination_8, Source);
-      v7 = L":";
+      v6 = L":";
     }
     else
     {
-      if ( (v5 & 0x2000) != 0 )
+      if ( (v4 & 0x2000) != 0 )
       {
-        SystemPartition = SyspartGetSystemPartition(p_Length, 4096LL, &v25);
+        SystemPartition = SyspartGetSystemPartition(v1, 4096LL, &v19);
         if ( SystemPartition < 0 )
           goto LABEL_52;
         goto LABEL_16;
       }
-      if ( (v5 & 0x200000) == 0 )
+      if ( (v4 & 0x200000) == 0 )
       {
 LABEL_16:
         RtlAppendUnicodeToString(&Destination_8, *(PCWSTR *)(v2 + 208));
         goto LABEL_17;
       }
-      v7 = L"\\OSDataRoot";
+      v6 = L"\\OSDataRoot";
     }
-    RtlAppendUnicodeToString(&Destination_8, v7);
+    RtlAppendUnicodeToString(&Destination_8, v6);
     goto LABEL_16;
   }
 LABEL_3:
-  ExFreePoolWithTag(p_Length, 0);
+  ExFreePoolWithTag(v1, 0);
 }

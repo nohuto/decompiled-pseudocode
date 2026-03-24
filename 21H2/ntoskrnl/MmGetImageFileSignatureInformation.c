@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetImageFileSignatureInformation @ 0x140246FD0
+ * XREFs of MmGetImageFileSignatureInformation @ 0x140274340
  * Callers:
  *     <none>
  * Callees:
- *     MiLockSectionControlArea @ 0x14028494C (MiLockSectionControlArea.c)
- *     MiDereferenceControlAreaBySection @ 0x140287574 (MiDereferenceControlAreaBySection.c)
- *     MiRemoveUnusedSegment @ 0x140287A2C (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
+ *     MiDereferenceControlAreaBySection @ 0x140314A6C (MiDereferenceControlAreaBySection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmGetImageFileSignatureInformation(__int64 a1)

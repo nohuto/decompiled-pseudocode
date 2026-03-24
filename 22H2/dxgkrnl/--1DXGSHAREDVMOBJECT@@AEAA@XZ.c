@@ -1,48 +1,33 @@
 /*
- * XREFs of ??1DXGSHAREDVMOBJECT@@AEAA@XZ @ 0x1C005BD6C
+ * XREFs of ??1DXGSHAREDVMOBJECT@@AEAA@XZ @ 0x1C0040B80
  * Callers:
- *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C0376288 (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C023B42C (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-void __fastcall DXGSHAREDVMOBJECT::~DXGSHAREDVMOBJECT(DXGSHAREDVMOBJECT *this)
+void __fastcall DXGSHAREDVMOBJECT::~DXGSHAREDVMOBJECT(DXGSHAREDVMOBJECT *this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
+  __int64 v3; // rax
+  __int64 v4; // rax
+  __int64 v5; // rax
 
   if ( *((_QWORD *)this + 1) )
   {
-    WdLogSingleEntry1(1LL, 166LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v3,
-          v2,
-          v4,
-          0LL,
-          2,
-          -1,
-          L"NULL == m_pDxgkObject",
-          166LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 160LL;
+    WdLogEvent5_WdAssertion(v3);
+  }
+  if ( *((_DWORD *)this + 4) )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 161LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   if ( *((_DWORD *)this + 6) )
   {
-    WdLogSingleEntry1(1LL, 167LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(v6, v5, v7, 0LL, 2, -1, L"0 == m_Reference", 167LL, 0LL, 0LL, 0LL, 0LL);
-    }
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 162LL;
+    WdLogEvent5_WdAssertion(v5);
   }
 }

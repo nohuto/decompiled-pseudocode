@@ -1,10 +1,10 @@
 /*
- * XREFs of HT_Get8BPPFormatPalette @ 0x1C0250090
+ * XREFs of HT_Get8BPPFormatPalette @ 0x1C0260EF0
  * Callers:
- *     HT_Get8BPPMaskPalette @ 0x1C02501A0 (HT_Get8BPPMaskPalette.c)
- *     NtGdiHT_Get8BPPFormatPalette @ 0x1C02CD110 (NtGdiHT_Get8BPPFormatPalette.c)
+ *     HT_Get8BPPMaskPalette @ 0x1C0154C20 (HT_Get8BPPMaskPalette.c)
+ *     NtGdiHT_Get8BPPFormatPalette @ 0x1C02B4800 (NtGdiHT_Get8BPPFormatPalette.c)
  * Callees:
- *     DivFD6 @ 0x1C0157C2C (DivFD6.c)
+ *     DivFD6 @ 0x1C001CD3C (DivFD6.c)
  */
 
 LONG __stdcall HT_Get8BPPFormatPalette(

@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpAcpiPreSleep @ 0x140A96960
+ * XREFs of HalpAcpiPreSleep @ 0x140995EEC
  * Callers:
- *     HaliAcpiSleep @ 0x140528000 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385840 (HaliAcpiSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362640 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x1403642F0 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1570 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpTimerGetSavedPerformanceCounter @ 0x1404FE76C (HalpTimerGetSavedPerformanceCounter.c)
- *     HalpTimerSavePerformanceCounter @ 0x1404FEA30 (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerSwitchStallSource @ 0x1404FECAC (HalpTimerSwitchStallSource.c)
- *     HalpSetClockBeforeSleep @ 0x14050AC54 (HalpSetClockBeforeSleep.c)
- *     HalpPreserveNvsArea @ 0x14051C6B8 (HalpPreserveNvsArea.c)
- *     KeSynchronizeTimeToQpc @ 0x14056B020 (KeSynchronizeTimeToQpc.c)
- *     HalpSaveDmaControllerState @ 0x140A95420 (HalpSaveDmaControllerState.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C1D0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037C490 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpPreserveNvsArea @ 0x14038633C (HalpPreserveNvsArea.c)
+ *     KeSynchronizeTimeToQpc @ 0x1403863B0 (KeSynchronizeTimeToQpc.c)
+ *     HalpTimerGetSavedPerformanceCounter @ 0x1403863E0 (HalpTimerGetSavedPerformanceCounter.c)
+ *     HalpSetClockBeforeSleep @ 0x140386474 (HalpSetClockBeforeSleep.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1403864F4 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x140386580 (HalpTimerSwitchStallSource.c)
+ *     HalpAcpiPmRegisterRead @ 0x140398F40 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpSaveDmaControllerState @ 0x140996080 (HalpSaveDmaControllerState.c)
  */
 
 void *__fastcall HalpAcpiPreSleep(int a1)
@@ -22,7 +22,7 @@ void *__fastcall HalpAcpiPreSleep(int a1)
   __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // r8
-  unsigned __int64 SavedPerformanceCounter; // rax
+  __int64 SavedPerformanceCounter; // rax
   __int16 v6; // bx
   __int16 v7; // bx
   void *result; // rax
@@ -38,22 +38,22 @@ void *__fastcall HalpAcpiPreSleep(int a1)
   if ( (HalpPlatformFlags & 4) != 0 )
     HalpSetClockBeforeSleep(v3, v2, v4);
   SavedPerformanceCounter = HalpTimerGetSavedPerformanceCounter();
-  KeSynchronizeTimeToQpc((LARGE_INTEGER)SavedPerformanceCounter);
+  KeSynchronizeTimeToQpc(SavedPerformanceCounter);
   HalpHiberInProgress = 1;
   if ( (v1 & 0x4000) != 0 )
     HalpSaveDmaControllerState();
   if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )
   {
-    HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C62158 >> 1, (__int64)&v10, 2u, 0LL);
+    HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A058 >> 1, (__int64)&v10, 2u, 0LL);
     v6 = v10;
     v9 = v10;
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
     {
-      HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C62158 >> 1, (__int64)&v10, 2u, 0LL);
+      HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A058 >> 1, (__int64)&v10, 2u, 0LL);
       v6 = v10 | v9;
       v9 |= v10;
     }
-    if ( (dword_140C62170 & 0x40) == 0 )
+    if ( (dword_140C4A070 & 0x40) == 0 )
     {
       if ( HIBYTE(HalpWakeupState) )
         v7 = v6 | 0x400;
@@ -61,9 +61,9 @@ void *__fastcall HalpAcpiPreSleep(int a1)
         v7 = v6 & 0xFBFF;
       v9 = v7;
     }
-    HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C62158 >> 1, (__int64)&v9, 2u, 0LL);
+    HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A058 >> 1, (__int64)&v9, 2u, 0LL);
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
-      HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C62158 >> 1, (__int64)&v9, 2u, 0LL);
+      HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A058 >> 1, (__int64)&v9, 2u, 0LL);
     HalpAcpiPmRegisterRead(0, 0, (__int64)&v10, 2u, 0LL);
     v9 = v10;
     if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHotRemovePartitionPageRun @ 0x140860630
+ * XREFs of MiHotRemovePartitionPageRun @ 0x140860610
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall MiHotRemovePartitionPageRun(__int64 a1, unsigned __int64 a2)

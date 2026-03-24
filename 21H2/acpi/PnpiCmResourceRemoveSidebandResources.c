@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiCmResourceRemoveSidebandResources @ 0x1C00B3EE0
+ * XREFs of PnpiCmResourceRemoveSidebandResources @ 0x1C00B4810
  * Callers:
- *     PnpCmResourcesExcludeSidebandResources @ 0x1C00B38EC (PnpCmResourcesExcludeSidebandResources.c)
+ *     PnpCmResourcesExcludeSidebandResources @ 0x1C00B46C0 (PnpCmResourcesExcludeSidebandResources.c)
  * Callees:
- *     PnpiCmResourceSidebandConnection @ 0x1C00B40C0 (PnpiCmResourceSidebandConnection.c)
+ *     PnpiCmResourceSidebandConnection @ 0x1C00B49F0 (PnpiCmResourceSidebandConnection.c)
  */
 
 __int64 __fastcall PnpiCmResourceRemoveSidebandResources(

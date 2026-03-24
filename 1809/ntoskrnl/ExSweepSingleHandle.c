@@ -3,7 +3,7 @@
  * Callers:
  *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x140111B60 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x140111B80 (ExpUnblockPushLock.c)
  */
 
 __int64 __fastcall ExSweepSingleHandle(__int64 a1, _QWORD *a2)

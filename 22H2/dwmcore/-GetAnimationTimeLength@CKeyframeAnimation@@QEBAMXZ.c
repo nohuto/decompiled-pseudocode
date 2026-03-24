@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BB448
+ * XREFs of ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800AA37C
  * Callers:
- *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x180020104 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180057590 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800BB33C (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BD3F8 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
- *     ?AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z @ 0x180239C88 (-AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z.c)
- *     ?GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180239D90 (-GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?GetTimePositionWithinIteration@CKeyframeAnimation@@AEAAMM@Z @ 0x180239E40 (-GetTimePositionWithinIteration@CKeyframeAnimation@@AEAAMM@Z.c)
- *     ?EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18026F354 (-EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ.c)
+ *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800A9DC8 (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9ECC (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800AC434 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z @ 0x1801D10C4 (-AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ?GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801D11D0 (-GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?ProgressSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D178C (-ProgressSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x1801D1A28 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
+ *     ?EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18020EBB0 (-EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ float __fastcall CKeyframeAnimation::GetAnimationTimeLength(CKeyframeAnimation *
   float result; // xmm0_4
   int v3; // eax
 
-  v1 = *((_QWORD *)this + 49);
+  v1 = *((_QWORD *)this + 45);
   result = 0.0;
   v3 = *(_DWORD *)(v1 + 112);
   if ( v3 > 0 )

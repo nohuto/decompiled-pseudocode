@@ -1,13 +1,14 @@
 /*
- * XREFs of PoSetProcessorQoS @ 0x14045E06E
+ * XREFs of PoSetProcessorQoS @ 0x14056E55C
  * Callers:
- *     KiUpdateRunTime @ 0x140307660 (KiUpdateRunTime.c)
- *     KeCheckAndApplyBamQos @ 0x14045AAC0 (KeCheckAndApplyBamQos.c)
+ *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
+ *     KeCheckAndApplyBamQos @ 0x14051E4A0 (KeCheckAndApplyBamQos.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14023B8E8 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1405DC760 (PpmHvSetVirtualProcessorQos.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x140398CA4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x14057C494 (PpmHvSetVirtualProcessorQos.c)
  */
 
 char __fastcall PoSetProcessorQoS(__int64 a1, signed int a2, __int64 a3, __int64 a4)
@@ -28,9 +29,9 @@ char __fastcall PoSetProcessorQoS(__int64 a1, signed int a2, __int64 a3, __int64
   v4 = 0;
   v5 = 0;
   v8 = 1;
-  if ( a2 == *(_DWORD *)(a1 + 34112) )
+  if ( a2 == *(_DWORD *)(a1 + 33264) )
     return v8;
-  v9 = *(_QWORD *)(a1 + 33976);
+  v9 = *(_QWORD *)(a1 + 33136);
   if ( v9 && *(_BYTE *)(v9 + 125) )
   {
     v5 = 1;
@@ -38,38 +39,28 @@ char __fastcall PoSetProcessorQoS(__int64 a1, signed int a2, __int64 a3, __int64
     v4 = (v18 & 0x200) != 0;
     KxAcquireSpinLock((PKSPIN_LOCK)(v9 + 128));
   }
-  v10 = *(unsigned __int16 *)(a1 + 34120);
+  v10 = *(unsigned __int16 *)(a1 + 33272);
   if ( _bittest(&v10, a2) )
-    goto LABEL_13;
+    goto LABEL_19;
   v11 = __rdtsc();
-  v12 = v11 - *(_QWORD *)(a1 + 34096);
-  v13 = *(_DWORD *)(a1 + 34112);
+  v12 = v11 - *(_QWORD *)(a1 + 33248);
+  v13 = *(_DWORD *)(a1 + 33264);
   v14 = a2 == 3 || v13 == 3;
-  if ( a2 == 4 )
+  if ( a2 == 4 && v13 || !a2 || a2 <= v13 && !v14 || v12 >= *(_QWORD *)(a1 + 33256) || *(_BYTE *)(a1 + 33213) )
   {
-    if ( v13 )
-    {
-LABEL_12:
-      v15 = 2LL * *(_QWORD *)(a1 + 34104);
-      *(_QWORD *)(a1 + 34096) = v11;
-      *(_BYTE *)(a1 + 34061) = v12 >= v15;
-LABEL_13:
-      v16 = PpmPerfVmQosSupported == 0;
-      *(_DWORD *)(a1 + 34112) = a2;
-      if ( v16 )
-        PpmPerfArbitratorApplyProcessorState(a1, 1u, 0, a4);
-      else
-        PpmHvSetVirtualProcessorQos(a1);
-      *(_BYTE *)(a1 + 236) = a2;
-      goto LABEL_23;
-    }
+    v15 = 2LL * *(_QWORD *)(a1 + 33256);
+    *(_QWORD *)(a1 + 33248) = v11;
+    *(_BYTE *)(a1 + 33213) = v12 >= v15;
+LABEL_19:
+    v16 = PpmPerfVmQosSupported == 0;
+    *(_DWORD *)(a1 + 33264) = a2;
+    if ( v16 )
+      PpmPerfArbitratorApplyProcessorState(a1, 1u, 0, a4);
+    else
+      PpmHvSetVirtualProcessorQos(a1);
+    *(_BYTE *)(a1 + 236) = a2;
+    goto LABEL_23;
   }
-  else if ( !a2 || a2 <= v13 && !v14 )
-  {
-    goto LABEL_12;
-  }
-  if ( v12 >= *(_QWORD *)(a1 + 34104) || *(_BYTE *)(a1 + 34061) )
-    goto LABEL_12;
   v8 = 0;
 LABEL_23:
   if ( v5 )

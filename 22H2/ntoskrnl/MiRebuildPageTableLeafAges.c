@@ -1,35 +1,37 @@
 /*
- * XREFs of MiRebuildPageTableLeafAges @ 0x1402188C0
+ * XREFs of MiRebuildPageTableLeafAges @ 0x1402DAED0
  * Callers:
- *     MiCombineWithExisting @ 0x1402179D4 (MiCombineWithExisting.c)
- *     MiTerminateWsle @ 0x140274730 (MiTerminateWsle.c)
- *     MiFreeWsleList @ 0x140280B00 (MiFreeWsleList.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x140294160 (MmUnmapViewInSystemCache.c)
+ *     MiFreeWsleList @ 0x1402A79B0 (MiFreeWsleList.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCountWslesInPageTable @ 0x140317B20 (MiCountWslesInPageTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiCountWslesInPageTable @ 0x1402DAFF0 (MiCountWslesInPageTable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)
+unsigned __int64 __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v3; // r8
-  __int64 v4; // rcx
-  unsigned __int64 *v5; // rbx
-  unsigned __int64 v6; // rax
-  char v7; // dl
-  int v8; // ecx
+  unsigned __int64 v3; // rdi
+  unsigned __int64 v4; // rbx
+  _KPROCESS *Process; // rcx
+  unsigned __int64 *v6; // rbx
+  unsigned __int64 result; // rax
+  unsigned __int8 v8; // cl
+  int v9; // edx
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v10; // rax
-  __int64 v11; // r8
-  __int64 v13; // [rsp+20h] [rbp-38h] BYREF
-  _DWORD v14[8]; // [rsp+28h] [rbp-30h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  struct _LIST_ENTRY *v13; // rdx
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  unsigned __int64 v16; // [rsp+20h] [rbp-38h] BYREF
+  _DWORD v17[8]; // [rsp+28h] [rbp-30h] BYREF
 
   v3 = ((a2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
   v4 = *(_QWORD *)v3;
-  if ( v3 >= 0xFFFFF6FB7DBED000uLL
-    && v3 <= 0xFFFFF6FB7DBED7F8uLL
-    && (MiFlags & 0x600000) != 0
+  if ( MiPteInShadowRange(v3)
+    && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
     && (v4 & 1) != 0
     && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
@@ -37,35 +39,54 @@ char __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v10 = *((_QWORD *)&Flink->Flink + ((v3 >> 3) & 0x1FF));
       v11 = v4 | 0x20;
-      if ( (v10 & 0x20) == 0 )
+      v12 = *((_QWORD *)&Flink->Flink + ((v3 >> 3) & 0x1FF));
+      if ( (v12 & 0x20) == 0 )
         v11 = v4;
       v4 = v11;
-      if ( (v10 & 0x42) != 0 )
+      if ( (v12 & 0x42) != 0 )
         v4 = v11 | 0x42;
     }
   }
-  v13 = v4;
-  v5 = (unsigned __int64 *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v13) >> 12) & 0xFFFFFFFFFFLL)
-                          - 0x220000000000LL);
-  v6 = (unsigned __int64)*(unsigned int *)v5 >> 4;
-  if ( (v6 & 0x3FF) == 0 )
+  v16 = v4;
+  if ( MiPteInShadowRange((unsigned __int64)&v16) && (MiFlags & 0xC00000) != 0 )
   {
-    MiCountWslesInPageTable(0xFFFFFFFFFFLL, a2, v14);
-    LOBYTE(v6) = 8;
+    Process = KeGetCurrentThread()->ApcState.Process;
+    if ( Process->AddressPolicy != 1 && (v4 & 1) != 0 && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
+    {
+      Process = KeGetCurrentThread()->ApcState.Process;
+      v13 = Process[1].ProcessListEntry.Flink;
+      if ( v13 )
+      {
+        v14 = *((_QWORD *)&v13->Flink + (((unsigned __int64)&v16 >> 3) & 0x1FF));
+        v15 = v4 | 0x20;
+        Process = (_KPROCESS *)(unsigned __int8)v14;
+        LOBYTE(Process) = v14 & 0x20;
+        if ( (v14 & 0x20) == 0 )
+          v15 = v4;
+        v4 = v15;
+        if ( (v14 & 0x42) != 0 )
+          v4 = v15 | 0x42;
+      }
+    }
+  }
+  v6 = (unsigned __int64 *)(48 * ((v4 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+  result = (unsigned __int64)*(unsigned int *)v6 >> 4;
+  if ( (result & 0x3FF) == 0 )
+  {
+    MiCountWslesInPageTable(Process, a2, v17);
+    v8 = 8;
     while ( 1 )
     {
-      LOBYTE(v6) = v6 - 1;
-      v7 = v6;
-      v8 = v14[(unsigned __int8)v6];
-      if ( v8 )
+      result = --v8;
+      v9 = v17[v8];
+      if ( v9 )
         break;
-      if ( !(_BYTE)v6 )
-        return v6;
+      if ( !v8 )
+        return result;
     }
-    v6 = *v5 & 0xFFFFFFFFFFFE000FuLL;
-    *v5 = v6 | (16 * (((unsigned __int64)(v7 & 7) << 10) | v8 & 0x3FF));
+    result = *v6 & 0xFFFFFFFFFFFE000FuLL;
+    *v6 = result | (16 * (v9 & 0x3FF | ((unsigned __int64)(v8 & 7) << 10)));
   }
-  return v6;
+  return result;
 }

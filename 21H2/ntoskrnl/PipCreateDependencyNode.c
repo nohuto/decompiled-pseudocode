@@ -1,29 +1,29 @@
 /*
- * XREFs of PipCreateDependencyNode @ 0x14084442C
+ * XREFs of PipCreateDependencyNode @ 0x1407B4C9C
  * Callers:
- *     IoResolveDependency @ 0x1403CBF80 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x140942470 (IoDuplicateDependency.c)
- *     PipSetDependency @ 0x140942DE4 (PipSetDependency.c)
+ *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x14089D670 (IoDuplicateDependency.c)
+ *     PipSetDependency @ 0x14089DFF4 (PipSetDependency.c)
  * Callees:
- *     PipAddBindingId @ 0x1408442E8 (PipAddBindingId.c)
- *     PipDeleteDependencyNode @ 0x14085CA14 (PipDeleteDependencyNode.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PipAddBindingId @ 0x1407B4B78 (PipAddBindingId.c)
+ *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipCreateDependencyNode(__int64 a1)
 {
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   __int64 v3; // rbx
   _QWORD *v4; // rax
   __int64 *v5; // rax
   __int64 v6; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 96LL, 1399877200LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x53706E50u);
+  v3 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 92) = 0;
-    v4 = (_QWORD *)(Pool2 + 56);
+    *((_DWORD *)PoolWithTag + 23) = 0;
+    v4 = PoolWithTag + 56;
     v4[1] = v4;
     *v4 = v4;
     *(_QWORD *)(v3 + 40) = v3 + 32;
@@ -34,13 +34,13 @@ __int64 __fastcall PipCreateDependencyNode(__int64 a1)
     *(_QWORD *)(v3 + 72) = v3 + 72;
     *(_DWORD *)(v3 + 88) = 0;
     *(_QWORD *)(v3 + 48) = 0LL;
-    v5 = (__int64 *)qword_140C46A98;
-    if ( *(__int64 **)qword_140C46A98 != &PiDependencyNodeListHead )
+    v5 = (__int64 *)qword_140C456A8;
+    if ( *(__int64 **)qword_140C456A8 != &PiDependencyNodeListHead )
       __fastfail(3u);
     *(_QWORD *)v3 = &PiDependencyNodeListHead;
     *(_QWORD *)(v3 + 8) = v5;
     *v5 = v3;
-    qword_140C46A98 = v3;
+    qword_140C456A8 = v3;
     if ( *(_DWORD *)a1 == 1 )
     {
       if ( PipAddBindingId(v3, *(const UNICODE_STRING **)(a1 + 8)) < 0 )

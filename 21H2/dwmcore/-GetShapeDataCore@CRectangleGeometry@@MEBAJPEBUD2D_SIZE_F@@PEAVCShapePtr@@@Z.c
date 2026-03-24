@@ -1,23 +1,19 @@
 /*
- * XREFs of ?GetShapeDataCore@CRectangleGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800A6180
+ * XREFs of ?GetShapeDataCore@CRectangleGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180081E80
  * Callers:
  *     <none>
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??0SharedData@CRoundedRectangleShape@@IEAA@AEBUCRoundedRectangleGeometryData@@@Z @ 0x1800862A0 (--0SharedData@CRoundedRectangleShape@@IEAA@AEBUCRoundedRectangleGeometryData@@@Z.c)
- *     ??0FlattenedShapeSharedData@CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z @ 0x1800866CC (--0FlattenedShapeSharedData@CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x1800893A0 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800AF6DC (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800D33F8 (--0CRectanglesShape@@QEAA@XZ.c)
- *     ??2CRectanglesShape@@SAPEAX_K@Z @ 0x1800E810C (--2CRectanglesShape@@SAPEAX_K@Z.c)
- *     ??0CThreadContext@@AEAA@XZ @ 0x1800F1BC4 (--0CThreadContext@@AEAA@XZ.c)
- *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x1800F9440 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??2CRectanglesShape@@SAPEAX_K@Z @ 0x180016B6C (--2CRectanglesShape@@SAPEAX_K@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x180059390 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800CC6E4 (--0CRectanglesShape@@QEAA@XZ.c)
+ *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x1800E1D40 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CRectangleGeometry::GetShapeDataCore(
@@ -25,16 +21,16 @@ __int64 __fastcall CRectangleGeometry::GetShapeDataCore(
         const struct D2D_SIZE_F *a2,
         struct CShapePtr *a3)
 {
-  CRoundedRectangleShape::FlattenedShapeSharedData *v3; // r14
-  float *v4; // rdi
-  unsigned int v6; // ebp
+  float *v3; // rdi
+  unsigned int v5; // ebp
+  __int128 v6; // xmm0
   __int128 v7; // xmm1
   __int128 v8; // xmm0
   char v9; // dl
-  float v10; // xmm8_4
+  float v10; // xmm6_4
   float v11; // xmm7_4
-  float v12; // xmm9_4
-  float v13; // xmm10_4
+  float v12; // xmm8_4
+  float v13; // xmm9_4
   char v14; // al
   bool v15; // cl
   LPVOID Value; // rdi
@@ -42,182 +38,186 @@ __int64 __fastcall CRectangleGeometry::GetShapeDataCore(
   CRectanglesShape *v18; // rbx
   void *v19; // rcx
   __int64 v20; // rcx
-  int Current; // eax
-  struct CThreadContext *v23; // rcx
-  int v24; // edx
-  HANDLE ProcessHeap; // rax
-  CRoundedRectangleShape::SharedData *v26; // rax
-  CRoundedRectangleShape::FlattenedShapeSharedData *v27; // rax
-  CRectanglesShape *v28; // rax
-  __int64 v29; // rcx
-  CRoundedRectangleShape::FlattenedShapeSharedData *v30; // rax
-  CThreadContext *v31; // rax
-  __int64 v32; // rcx
-  CThreadContext *v33; // rax
-  _OWORD v34[3]; // [rsp+30h] [rbp-B8h] BYREF
-  __int64 v35; // [rsp+60h] [rbp-88h]
-  struct CThreadContext *v36; // [rsp+68h] [rbp-80h] BYREF
-  float v37; // [rsp+70h] [rbp-78h]
-  float v38; // [rsp+74h] [rbp-74h]
-  void *retaddr; // [rsp+E8h] [rbp+0h]
+  CRectanglesShape *v22; // rax
+  __int64 v23; // rcx
+  CRectanglesShape *v24; // rax
+  _QWORD *v25; // rax
+  __int64 v26; // rcx
+  DWORD v27; // ecx
+  unsigned int v28; // [rsp+20h] [rbp-B8h]
+  _DWORD v29[4]; // [rsp+30h] [rbp-A8h] BYREF
+  _OWORD v30[3]; // [rsp+40h] [rbp-98h] BYREF
+  int v31; // [rsp+70h] [rbp-68h]
+  void *retaddr; // [rsp+D8h] [rbp+0h]
 
-  v3 = 0LL;
-  v4 = (float *)((char *)this + 144);
-  LODWORD(v35) = 0;
-  v6 = 0;
+  v3 = (float *)((char *)this + 136);
+  v5 = 0;
   if ( a2 )
   {
-    v7 = *((_OWORD *)this + 10);
-    v34[0] = *(_OWORD *)v4;
-    v8 = *((_OWORD *)this + 11);
-    v34[1] = v7;
-    *(_QWORD *)&v7 = *((_QWORD *)this + 24);
-    v4 = (float *)v34;
-    v34[2] = v8;
-    *(float *)&v8 = a2->width - *((float *)this + 38);
-    v35 = v7;
-    *((_QWORD *)&v34[0] + 1) = __PAIR64__(a2->height - *((float *)this + 39), v8);
+    v6 = *(_OWORD *)v3;
+    v7 = *(_OWORD *)((char *)this + 152);
+    v31 = *((_DWORD *)this + 46);
+    v30[0] = v6;
+    v8 = *(_OWORD *)((char *)this + 168);
+    v3 = (float *)v30;
+    v30[1] = v7;
+    *(float *)&v7 = a2->height - *((float *)this + 37);
+    v30[2] = v8;
+    *((_QWORD *)&v30[0] + 1) = __PAIR64__(v7, a2->width - *((float *)this + 36));
   }
-  v9 = *((_BYTE *)this + 196);
-  v10 = *v4;
-  v11 = v4[1];
+  v9 = *((_BYTE *)this + 184);
+  v10 = *v3;
+  v11 = v3[1];
   if ( v9 )
   {
-    v12 = v10 + v4[2];
-    v13 = v11 + v4[3];
+    v12 = v10 + v3[2];
+    v13 = v11 + v3[3];
   }
   else
   {
-    v12 = v4[2];
-    v13 = v4[3];
+    v12 = v3[2];
+    v13 = v3[3];
   }
-  if ( v12 > v10 && v13 > v11 )
+  if ( v12 <= v10 || v13 <= v11 )
   {
-    v14 = *((float *)this + 40) > 0.0 && *((float *)this + 41) > 0.0;
-    if ( !v9 )
+    v22 = (CRectanglesShape *)CRectanglesShape::operator new(this);
+    if ( v22 )
     {
-      v15 = *((float *)this + 42) > 0.0 && *((float *)this + 43) > 0.0
-         || *((float *)this + 46) > 0.0 && *((float *)this + 47) > 0.0
-         || *((float *)this + 44) > 0.0 && *((float *)this + 45) > 0.0;
-      v14 |= v15;
+      v18 = CRectanglesShape::CRectanglesShape(v22);
+      if ( v18 )
+        goto LABEL_29;
     }
-    if ( !v14 )
+    v28 = 265;
+LABEL_49:
+    v5 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, -2147024882, v28, 0LL);
+    return v5;
+  }
+  v14 = *((float *)this + 38) > 0.0 || *((float *)this + 39) > 0.0;
+  if ( !v9 )
+  {
+    v15 = *((float *)this + 40) > 0.0
+       || *((float *)this + 41) > 0.0
+       || *((float *)this + 42) > 0.0
+       || *((float *)this + 43) > 0.0
+       || *((float *)this + 44) > 0.0
+       || *((float *)this + 45) > 0.0;
+    v14 |= v15;
+  }
+  if ( !v14 )
+  {
+    Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
+    if ( !Value )
     {
-      Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
-      if ( !Value )
+      v25 = operator new(0x118uLL);
+      Value = v25;
+      if ( !v25 )
       {
-        v31 = (CThreadContext *)operator new(0x150uLL);
-        if ( !v31 || (v33 = CThreadContext::CThreadContext(v31), (Value = v33) == 0LL) )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0LL, -2147024882, 0x42u);
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        }
-        TlsSetValue(CThreadContext::s_dwTlsIndex, v33);
+        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024882, 0x42u, 0LL);
+        ModuleFailFastForHRESULT(2147942414LL, retaddr);
       }
-      v17 = *((_DWORD *)Value + 9);
-      v18 = 0LL;
-      if ( v17 )
-      {
-        v18 = (CRectanglesShape *)*((_QWORD *)Value + 5);
-        *((_QWORD *)Value + 5) = *(_QWORD *)v18;
-        *((_DWORD *)Value + 9) = v17 - 1;
-      }
-      if ( !v18 )
-      {
-        v18 = (CRectanglesShape *)DefaultHeap::Alloc(0x48uLL);
-        if ( !v18 )
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      }
-      *((_QWORD *)v18 + 1) = 0LL;
-      *(_QWORD *)v18 = &CRectanglesShape::`vftable';
-      *((_QWORD *)v18 + 2) = (char *)v18 + 48;
-      *((_QWORD *)v18 + 3) = (char *)v18 + 48;
-      *((_DWORD *)v18 + 8) = 1;
-      *(_QWORD *)((char *)v18 + 36) = 1LL;
-      TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>((char *)v18 + 48);
-      *((_QWORD *)v18 + 8) = 0LL;
-      v19 = (void *)*((_QWORD *)v18 + 2);
-      *((_DWORD *)v18 + 10) = 0;
-      if ( v19 != *((void **)v18 + 3) )
-      {
-        DefaultHeap::Free(v19);
-        *((_QWORD *)v18 + 2) = *((_QWORD *)v18 + 3);
-        *((_DWORD *)v18 + 9) = *((_DWORD *)v18 + 8);
-      }
-      v20 = *((_QWORD *)v18 + 8);
-      if ( v20 )
-      {
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
-        *((_QWORD *)v18 + 8) = 0LL;
-      }
-      v36 = (struct CThreadContext *)__PAIR64__(LODWORD(v11), LODWORD(v10));
-      v37 = v12;
-      v38 = v13;
-      DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
-        (__int64)v18 + 16,
-        &v36,
-        1u);
-      goto LABEL_25;
+      *v25 = 0LL;
+      v25[1] = 0LL;
+      v25[2] = 0LL;
+      v27 = CThreadContext::s_dwTlsIndex;
+      v25[3] = 0LL;
+      v25[4] = 0LL;
+      v25[5] = 0LL;
+      v25[6] = 0LL;
+      v25[7] = 0LL;
+      v25[8] = 0LL;
+      v25[9] = 0LL;
+      v25[10] = 0LL;
+      v25[11] = 0LL;
+      v25[12] = 0LL;
+      v25[13] = 0LL;
+      v25[14] = 0LL;
+      v25[15] = 0LL;
+      v25[16] = 0LL;
+      v25[17] = 0LL;
+      v25[18] = 0LL;
+      v25[19] = 0LL;
+      v25[20] = 0LL;
+      v25[21] = 0LL;
+      v25[22] = 0LL;
+      v25[23] = 0LL;
+      v25[24] = 0LL;
+      v25[25] = 0LL;
+      v25[26] = 0LL;
+      v25[27] = 0LL;
+      v25[28] = 0LL;
+      v25[29] = 0LL;
+      v25[30] = 0LL;
+      v25[31] = 0LL;
+      v25[32] = 0LL;
+      v25[33] = 0LL;
+      v25[34] = 0LL;
+      TlsSetValue(v27, v25);
     }
-    Current = CThreadContext::GetCurrent(&v36);
-    if ( Current < 0 )
-      ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-    v23 = v36;
+    v17 = *((_DWORD *)Value + 3);
     v18 = 0LL;
-    v24 = *((_DWORD *)v36 + 13);
-    if ( v24 )
+    if ( v17 )
     {
-      v18 = (CRectanglesShape *)*((_QWORD *)v36 + 7);
-      *((_QWORD *)v36 + 7) = *(_QWORD *)v18;
-      *((_DWORD *)v23 + 13) = v24 - 1;
+      v18 = (CRectanglesShape *)*((_QWORD *)Value + 2);
+      *((_QWORD *)Value + 2) = *(_QWORD *)v18;
+      *((_DWORD *)Value + 3) = v17 - 1;
     }
     if ( !v18 )
     {
-      v18 = (CRectanglesShape *)DefaultHeap::Alloc(0x18uLL);
+      v18 = (CRectanglesShape *)DefaultHeap::Alloc(0x48uLL);
       if ( !v18 )
         ModuleFailFastForHRESULT(2147942414LL, retaddr);
     }
     *((_QWORD *)v18 + 1) = 0LL;
-    *(_QWORD *)v18 = &CRoundedRectangleShape::`vftable';
-    if ( v4[12] > 0.0 )
+    *(_QWORD *)v18 = &CRectanglesShape::`vftable';
+    *((_QWORD *)v18 + 2) = (char *)v18 + 48;
+    *((_QWORD *)v18 + 3) = (char *)v18 + 48;
+    *((_DWORD *)v18 + 8) = 1;
+    *(_QWORD *)((char *)v18 + 36) = 1LL;
+    TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>((char *)v18 + 48);
+    *((_QWORD *)v18 + 8) = 0LL;
+    v19 = (void *)*((_QWORD *)v18 + 2);
+    *((_DWORD *)v18 + 10) = 0;
+    if ( v19 != *((void **)v18 + 3) )
     {
-      v30 = (CRoundedRectangleShape::FlattenedShapeSharedData *)operator new(0x68uLL);
-      if ( !v30 )
-      {
-LABEL_40:
-        *((_QWORD *)v18 + 2) = v3;
-        if ( v3 )
-          (**(void (__fastcall ***)(CRoundedRectangleShape::FlattenedShapeSharedData *))v3)(v3);
-        goto LABEL_25;
-      }
-      v27 = CRoundedRectangleShape::FlattenedShapeSharedData::FlattenedShapeSharedData(
-              v30,
-              (const struct CRoundedRectangleGeometryData *)v4);
+      operator delete(v19);
+      *((_QWORD *)v18 + 2) = *((_QWORD *)v18 + 3);
+      *((_DWORD *)v18 + 9) = *((_DWORD *)v18 + 8);
     }
-    else
+    v20 = *((_QWORD *)v18 + 8);
+    if ( v20 )
     {
-      ProcessHeap = GetProcessHeap();
-      v26 = (CRoundedRectangleShape::SharedData *)HeapAlloc(ProcessHeap, 0, 0x50uLL);
-      if ( !v26 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v27 = (CRoundedRectangleShape::FlattenedShapeSharedData *)CRoundedRectangleShape::SharedData::SharedData(
-                                                                  v26,
-                                                                  (const struct CRoundedRectangleGeometryData *)v4);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+      *((_QWORD *)v18 + 8) = 0LL;
     }
-    v3 = v27;
-    goto LABEL_40;
+    *(float *)v29 = v10;
+    *(float *)&v29[1] = v11;
+    *(float *)&v29[2] = v12;
+    *(float *)&v29[3] = v13;
+    DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
+      (__int64)v18 + 16,
+      v29,
+      1LL);
+    goto LABEL_29;
   }
-  v28 = (CRectanglesShape *)CRectanglesShape::operator new((unsigned __int64)this);
-  if ( !v28 || (v18 = CRectanglesShape::CRectanglesShape(v28)) == 0LL )
+  v24 = (CRectanglesShape *)operator new(0x50uLL);
+  v18 = v24;
+  if ( !v24 )
   {
-    v6 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0LL, -2147024882, 0x108u);
-    return v6;
+    v28 = 272;
+    goto LABEL_49;
   }
-LABEL_25:
+  *((_QWORD *)v24 + 1) = 0LL;
+  *(_QWORD *)v24 = &CRoundedRectangleShape::`vftable';
+  *((_OWORD *)v24 + 1) = *(_OWORD *)v3;
+  *((_OWORD *)v24 + 2) = *((_OWORD *)v3 + 1);
+  *((_OWORD *)v24 + 3) = *((_OWORD *)v3 + 2);
+  *((float *)v24 + 16) = v3[12];
+  *((_QWORD *)v24 + 9) = 0LL;
+LABEL_29:
   if ( *((_BYTE *)a3 + 8) && *(_QWORD *)a3 )
     (***(void (__fastcall ****)(_QWORD, __int64))a3)(*(_QWORD *)a3, 1LL);
   *(_QWORD *)a3 = v18;
   *((_BYTE *)a3 + 8) = 1;
-  return v6;
+  return v5;
 }

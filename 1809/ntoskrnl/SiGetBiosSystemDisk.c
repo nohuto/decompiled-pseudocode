@@ -1,22 +1,22 @@
 /*
- * XREFs of SiGetBiosSystemDisk @ 0x140704448
+ * XREFs of SiGetBiosSystemDisk @ 0x140704428
  * Callers:
- *     SiGetBiosSystemPartition @ 0x140704110 (SiGetBiosSystemPartition.c)
- *     SiGetSystemDisk @ 0x140704370 (SiGetSystemDisk.c)
+ *     SiGetBiosSystemPartition @ 0x1407040F0 (SiGetBiosSystemPartition.c)
+ *     SiGetSystemDisk @ 0x140704350 (SiGetSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _snwscanf_s @ 0x14019AD20 (_snwscanf_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQuerySymbolicLinkObject @ 0x1401BAC50 (ZwQuerySymbolicLinkObject.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _snwscanf_s @ 0x14019AD40 (_snwscanf_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1401BAC70 (ZwQuerySymbolicLinkObject.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SiIsWinPEBoot @ 0x1406AE858 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1406AEA68 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x1406AEDB8 (SiTranslateSymbolicLink.c)
- *     SiOpenArcNameObject @ 0x14070456C (SiOpenArcNameObject.c)
- *     SiIssueSynchronousIoctl @ 0x1408F5068 (SiIssueSynchronousIoctl.c)
+ *     SiIsWinPEBoot @ 0x1406AE838 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x1406AEA48 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x1406AED98 (SiTranslateSymbolicLink.c)
+ *     SiOpenArcNameObject @ 0x14070454C (SiOpenArcNameObject.c)
+ *     SiIssueSynchronousIoctl @ 0x1408F5048 (SiIssueSynchronousIoctl.c)
  */
 
 __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1, __int64 a2, __int64 a3, int a4)

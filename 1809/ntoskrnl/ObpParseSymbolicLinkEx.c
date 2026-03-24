@@ -6,12 +6,12 @@
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpParseSymbolicLinkEx(

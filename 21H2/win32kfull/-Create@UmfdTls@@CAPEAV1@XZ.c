@@ -1,12 +1,11 @@
 /*
- * XREFs of ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C011C498
+ * XREFs of ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C01317CC
  * Callers:
- *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0010E28 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     ?UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z @ 0x1C0011080 (-UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z.c)
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0011710 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7AC0 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8E80 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
  * Callees:
- *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F78BC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
- *     ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C011C4F8 (-Create@UmfdUMBuffer@@SAPEAV1@XZ.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F46FC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C013182C (-Create@UmfdUMBuffer@@SAPEAV1@XZ.c)
  */
 
 struct UmfdTls *UmfdTls::Create(void)

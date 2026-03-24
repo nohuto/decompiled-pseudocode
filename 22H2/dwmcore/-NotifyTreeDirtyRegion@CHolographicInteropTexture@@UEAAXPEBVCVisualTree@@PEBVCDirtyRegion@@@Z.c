@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyTreeDirtyRegion@CHolographicInteropTexture@@UEAAXPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1802AB3A0
+ * XREFs of ?NotifyTreeDirtyRegion@CHolographicInteropTexture@@UEAAXPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x180259300
  * Callers:
  *     <none>
  * Callees:
@@ -13,8 +13,8 @@ void __fastcall CHolographicInteropTexture::NotifyTreeDirtyRegion(
 {
   RTL_SRWLOCK *v3; // rbx
 
-  v3 = this + 43;
-  AcquireSRWLockExclusive(this + 43);
-  this[6].Ptr = a3;
+  v3 = this + 42;
+  AcquireSRWLockExclusive(this + 42);
+  this[5].Ptr = a3;
   ReleaseSRWLockExclusive(v3);
 }

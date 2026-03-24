@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Dispose@FxWmiInstance@@UEAAEXZ @ 0x1C005E410
+ * XREFs of ?Dispose@FxWmiInstance@@UEAAEXZ @ 0x1C003EA50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z @ 0x1C005E1C4 (-RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z @ 0x1C003E404 (-RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z.c)
  */
 
 unsigned __int8 __fastcall FxWmiInstance::Dispose(FxWmiInstance *this, __int64 a2, unsigned __int8 a3)

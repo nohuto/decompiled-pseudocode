@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetBrushCommand@CTextObjectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0216AA4
+ * XREFs of ?EmitSetBrushCommand@CTextObjectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D69F0
  * Callers:
- *     ?EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C7C0 (-EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB8B4 (-EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTextObjectMarshaler::EmitSetBrushCommand(
@@ -25,11 +25,11 @@ char __fastcall DirectComposition::CTextObjectMarshaler::EmitSetBrushCommand(
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 3) = 0;
-    *((_DWORD *)v4 + 1) = 685;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v4 + 1) = 657;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
     v5 = *((_QWORD *)this + 7);
     if ( v5 )
-      v3 = *(_DWORD *)(v5 + 32);
+      v3 = *(_DWORD *)(v5 + 24);
     *((_DWORD *)v4 + 3) = v3;
     *((_DWORD *)this + 4) &= ~0x20u;
     return 1;

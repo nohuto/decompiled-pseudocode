@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepGetModuleInfoByName @ 0x140848BAC
+ * XREFs of KsepGetModuleInfoByName @ 0x140848B8C
  * Callers:
- *     KsepResolveShimHooks @ 0x140848074 (KsepResolveShimHooks.c)
+ *     KsepResolveShimHooks @ 0x140848054 (KsepResolveShimHooks.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCompareString @ 0x140679700 (RtlCompareString.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlCompareString @ 0x1406796E0 (RtlCompareString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWORD *a3)

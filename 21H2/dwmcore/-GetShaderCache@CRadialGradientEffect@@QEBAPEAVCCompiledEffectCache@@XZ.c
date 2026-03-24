@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1802ABE48
+ * XREFs of ?GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x180269A68
  * Callers:
- *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18025E4A8 (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
+ *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020DE60 (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
  * Callees:
- *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x18001A4E4 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
+ *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x180020060 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
  */
 
 struct CCompiledEffectCache *__fastcall CRadialGradientEffect::GetShaderCache(CRadialGradientEffect *this)
@@ -13,7 +13,7 @@ struct CCompiledEffectCache *__fastcall CRadialGradientEffect::GetShaderCache(CR
   CCompiledEffectCache *v2; // rcx
   CCompiledEffectCache *v3; // rcx
 
-  if ( *((_BYTE *)this + 60) )
+  if ( *((_BYTE *)this + 68) )
   {
     result = CRadialGradientEffect::s_spCenteredCompiledEffectCache;
     if ( !CRadialGradientEffect::s_spCenteredCompiledEffectCache )

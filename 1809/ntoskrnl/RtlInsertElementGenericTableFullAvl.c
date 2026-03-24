@@ -3,12 +3,12 @@
  * Callers:
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
  *     PiPnpRtlObjectEventCreate @ 0x1405980E4 (PiPnpRtlObjectEventCreate.c)
- *     PiDmAddCacheReferenceForObject @ 0x1406F1B00 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406F1AE0 (PiDmAddCacheReferenceForObject.c)
  * Callees:
  *     RebalanceNode @ 0x14000709C (RebalanceNode.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFullAvl(

@@ -8,8 +8,8 @@
  *     FsRtlFindFirstOverlappingSharedNode @ 0x14008D364 (FsRtlFindFirstOverlappingSharedNode.c)
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x14012EF40 (RtlRealSuccessor.c)
- *     FsRtlSplitLocks @ 0x14012EFD4 (FsRtlSplitLocks.c)
+ *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
+ *     FsRtlSplitLocks @ 0x14012EFF4 (FsRtlSplitLocks.c)
  */
 
 char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)

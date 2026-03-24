@@ -1,13 +1,13 @@
 /*
- * XREFs of ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006CCBC
+ * XREFs of ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C005EEA8
  * Callers:
- *     DxgNotifyDpcCB @ 0x1C0014800 (DxgNotifyDpcCB.c)
+ *     DxgNotifyDpcCB @ 0x1C000D5D0 (DxgNotifyDpcCB.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z @ 0x1C002F844 (-TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z.c)
- *     ?UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z @ 0x1C002FAA4 (-UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z.c)
- *     ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006CEDC (-PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@.c)
- *     ?SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK_N@Z @ 0x1C006CFDC (-SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?TriggerRemoteVsync@REMOTEVSYNCMAPPING@@QEAAXU_LUID@@I@Z @ 0x1C004F718 (-TriggerRemoteVsync@REMOTEVSYNCMAPPING@@QEAAXU_LUID@@I@Z.c)
+ *     ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C005F0DC (-PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@.c)
+ *     ?SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK@Z @ 0x1C005F1D0 (-SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK@Z.c)
+ *     ?UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z @ 0x1C005F314 (-UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::NotifyDpc(DXGDODPRESENT *this, struct DXGADAPTER *a2)
@@ -16,9 +16,10 @@ void __fastcall DXGDODPRESENT::NotifyDpc(DXGDODPRESENT *this, struct DXGADAPTER 
   unsigned __int64 i; // rsi
   __int64 v6; // rbx
   unsigned int updated; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   struct DXGGLOBAL *Global; // rax
-  bool v9; // [rsp+20h] [rbp-28h]
-  _DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS v10; // [rsp+50h] [rbp+8h] BYREF
+  _DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS v11; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0LL;
   for ( i = _InterlockedExchange64((volatile __int64 *)this + 10, 0LL);
@@ -27,23 +28,18 @@ void __fastcall DXGDODPRESENT::NotifyDpc(DXGDODPRESENT *this, struct DXGADAPTER 
   {
     if ( _InterlockedExchange((volatile __int32 *)this + v2 + 4, 0) )
     {
-      v6 = 2920LL * (unsigned int)v2;
+      v6 = 2904LL * (unsigned int)v2;
       updated = BLTQUEUE::UpdateVsyncCount((BLTQUEUE *)(v6 + *((_QWORD *)this + 1)), 0LL);
-      LODWORD(v6) = *(_DWORD *)(v6 + *((_QWORD *)this + 1) + 260);
-      ADAPTER_DISPLAY::SignalVerticalBlankEvent(*((ADAPTER_DISPLAY **)a2 + 349), a2, v2, updated, v9);
-      Global = DXGGLOBAL_GetGlobal();
-      HOSTVMMONITORMAPPING::TriggerRemoteVsync(
-        (KSPIN_LOCK *)Global + 38115,
-        *(struct _LUID *)((char *)a2 + 404),
-        v6,
-        0,
-        0);
+      LODWORD(v6) = *(_DWORD *)(v6 + *((_QWORD *)this + 1) + 252);
+      ADAPTER_DISPLAY::SignalVerticalBlankEvent(*((ADAPTER_DISPLAY **)a2 + 337), a2, v2, updated);
+      Global = DXGGLOBAL::GetGlobal(v9, v8);
+      REMOTEVSYNCMAPPING::TriggerRemoteVsync((KSPIN_LOCK *)Global + 38084, *(struct _LUID *)((char *)a2 + 316), v6);
     }
     if ( (i & 3) != 0 )
     {
-      v10.VidPnSourceId = v2;
-      v10.ProgressId = ((unsigned __int8)i >> 1) & 1;
-      DXGDODPRESENT::PresentDisplayOnlySetProgress(this, &v10);
+      v11.VidPnSourceId = v2;
+      v11.ProgressId = ((unsigned __int8)i >> 1) & 1;
+      DXGDODPRESENT::PresentDisplayOnlySetProgress(this, &v11);
     }
     i >>= 2;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiChargeSystemImageCommitment @ 0x140695FD0
+ * XREFs of MiChargeSystemImageCommitment @ 0x14075E354
  * Callers:
- *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
+ *     MiMapSystemImage @ 0x14075C8B4 (MiMapSystemImage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiReleaseNonPagedResources @ 0x1406610DC (MiReleaseNonPagedResources.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiReleaseNonPagedResources @ 0x1402E9CE0 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x1403571F0 (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiChargeSystemImageCommitment(__int64 a1)
@@ -21,10 +21,10 @@ __int64 __fastcall MiChargeSystemImageCommitment(__int64 a1)
     return 0LL;
   if ( v2 != 1 )
   {
-    MiReleaseNonPagedResources((__int64)MiSystemPartition, v3);
+    MiReleaseNonPagedResources((__int64)&MiSystemPartition, v3);
     return 0LL;
   }
-  if ( (int)MiAcquireNonPagedResources((unsigned __int64)MiSystemPartition, v3, 0LL, 0) >= 0 )
+  if ( (int)MiAcquireNonPagedResources(&MiSystemPartition, v3, 0LL, 0) >= 0 )
     return 0LL;
   return 3221225626LL;
 }

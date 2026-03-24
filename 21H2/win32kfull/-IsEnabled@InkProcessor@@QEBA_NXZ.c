@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C024C77C
+ * XREFs of ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C0101810
  * Callers:
- *     InkProcessorIsInkDevice @ 0x1C021AC20 (InkProcessorIsInkDevice.c)
+ *     InkProcessorIsInkDevice @ 0x1C0101780 (InkProcessorIsInkDevice.c)
  * Callees:
  *     <none>
  */

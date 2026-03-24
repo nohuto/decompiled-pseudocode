@@ -1,15 +1,15 @@
 /*
- * XREFs of SeQuerySessionIdTokenEx @ 0x14077D580
+ * XREFs of SeQuerySessionIdTokenEx @ 0x140634440
  * Callers:
- *     PiPnpRtlIsDeviceValidForSession @ 0x14077D368 (PiPnpRtlIsDeviceValidForSession.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14077D454 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiUEventApplyAdditionalFilters @ 0x14078BEA4 (PiUEventApplyAdditionalFilters.c)
+ *     PiPnpRtlIsDeviceValidForSession @ 0x14063420C (PiPnpRtlIsDeviceValidForSession.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406342F8 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1406E6C88 (PiUEventApplyAdditionalFilters.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402DF7B0 (PsGetServerSiloServiceSessionId.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetSiloBySessionId @ 0x14077D624 (PsGetSiloBySessionId.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PsGetSiloBySessionId @ 0x140634520 (PsGetSiloBySessionId.c)
  */
 
 NTSTATUS __stdcall SeQuerySessionIdTokenEx(PACCESS_TOKEN Token, PULONG SessionId, PBOOLEAN IsServiceSession)
@@ -27,7 +27,7 @@ NTSTATUS __stdcall SeQuerySessionIdTokenEx(PACCESS_TOKEN Token, PULONG SessionId
   v8 = *((_DWORD *)Token + 30);
   *SessionId = v8;
   ExReleaseResourceLite(*((PERESOURCE *)Token + 6));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v8 )
     v7 = (int)PsGetSiloBySessionId(v8, &v10) >= 0 && v8 == (unsigned int)PsGetServerSiloServiceSessionId(v10);
   *IsServiceSession = v7;

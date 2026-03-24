@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180023BB0
+ * XREFs of ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800C77B0
  * Callers:
  *     <none>
  * Callees:
- *     ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x180023C48 (-D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098F64 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?NotifyQuaternionPropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DQuaternion@@@Z @ 0x18021B2F8 (-NotifyQuaternionPropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DQuaternion@@@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180066030 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x1800C78EC (-D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z.c)
+ *     ?NotifyQuaternionPropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DQuaternion@@@Z @ 0x1801B1A9C (-NotifyQuaternionPropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DQuaternion@@@Z.c)
  */
 
 __int64 __fastcall CComponentTransform3D::SetOrientation(
@@ -17,23 +17,23 @@ __int64 __fastcall CComponentTransform3D::SetOrientation(
 {
   unsigned int v4; // edi
   int v6; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   float v8[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = 0;
   D3DXQuaternionNormalize((struct D2DQuaternion *)v8, a3);
-  if ( *((float *)this + 54) != v8[0]
-    || *((float *)this + 55) != v8[1]
-    || *((float *)this + 56) != v8[2]
-    || *((float *)this + 57) != v8[3] )
+  if ( *((float *)this + 52) != v8[0]
+    || *((float *)this + 53) != v8[1]
+    || *((float *)this + 54) != v8[2]
+    || *((float *)this + 55) != v8[3] )
   {
-    *(_OWORD *)((char *)this + 216) = *(_OWORD *)v8;
-    CResource::InvalidateAnimationSources(this, 3u);
-    CResource::NotifyOnChanged(this, 0LL, 0LL);
+    *((_OWORD *)this + 13) = *(_OWORD *)v8;
+    CResource::InvalidateAnimationSources(this, 24);
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
     v6 = CPropertyChangeResource::NotifyQuaternionPropertyChanged(
            this,
-           3u,
-           (CComponentTransform3D *)((char *)this + 216));
+           0x18u,
+           (CComponentTransform3D *)((char *)this + 208));
     v4 = v6;
     if ( v6 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x19Bu, 0LL);

@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_ProcessTransferCompletion @ 0x1C0042CD0
+ * XREFs of Isoch_ProcessTransferCompletion @ 0x1C0041DC0
  * Callers:
- *     Isoch_WdfEvtDpcForTransferCompletion @ 0x1C0043720 (Isoch_WdfEvtDpcForTransferCompletion.c)
- *     Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C0043BA0 (Isoch_WdfEvtWorkItemForTransferCompletion.c)
+ *     Isoch_WdfEvtDpcForTransferCompletion @ 0x1C0042D20 (Isoch_WdfEvtDpcForTransferCompletion.c)
+ *     Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C00431A0 (Isoch_WdfEvtWorkItemForTransferCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     TR_TransfersReclaimed @ 0x1C000B9F4 (TR_TransfersReclaimed.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Isoch_CompleteTransfers @ 0x1C0041F9C (Isoch_CompleteTransfers.c)
- *     Isoch_DoesDriverOwnRequests @ 0x1C0042180 (Isoch_DoesDriverOwnRequests.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     TR_TransfersReclaimed @ 0x1C000BBB4 (TR_TransfersReclaimed.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
+ *     Isoch_DoesDriverOwnRequests @ 0x1C0041280 (Isoch_DoesDriverOwnRequests.c)
  */
 
 void __fastcall Isoch_ProcessTransferCompletion(__int64 a1)
@@ -28,7 +28,7 @@ void __fastcall Isoch_ProcessTransferCompletion(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061388);
+         off_1C0060388);
   v10 = &v9;
   v9 = (__int64)&v9;
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 96));
@@ -74,7 +74,7 @@ void __fastcall Isoch_ProcessTransferCompletion(__int64 a1)
         {
           v8 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 48) + 135LL);
           LOBYTE(v8) = 5;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(v2 + 56) + 80LL),
             v8,
             14,

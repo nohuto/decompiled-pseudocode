@@ -12,12 +12,12 @@
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
  *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiRestrictRangeToNode @ 0x14017F28C (MiRestrictRangeToNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     MiInitializeBlankPfns @ 0x1409BB160 (MiInitializeBlankPfns.c)
- *     MiFreeEmptyBootPageTable @ 0x1409F7BE4 (MiFreeEmptyBootPageTable.c)
+ *     MiFreeEmptyBootPageTable @ 0x1409F7BF4 (MiFreeEmptyBootPageTable.c)
  */
 
 void __fastcall MxCreateFreePfns(__int64 a1)

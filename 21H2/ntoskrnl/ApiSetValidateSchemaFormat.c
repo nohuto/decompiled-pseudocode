@@ -1,34 +1,34 @@
 /*
- * XREFs of ApiSetValidateSchemaFormat @ 0x140646EC4
+ * XREFs of ApiSetValidateSchemaFormat @ 0x1405BE2E4
  * Callers:
- *     ApiSetComposeSchema @ 0x14064717C (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x14025179C (ApiSetpSearchForApiSet.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A3330 (ApiSetpSearchForApiSet.c)
  */
 
 __int64 __fastcall ApiSetValidateSchemaFormat(_DWORD *a1, unsigned int a2)
 {
-  unsigned int v4; // r8d
-  __int64 v5; // rax
-  unsigned int v6; // ecx
-  unsigned int v7; // esi
-  __int64 i; // rbp
-  unsigned int *v9; // rdi
-  unsigned int v10; // ecx
-  __int64 v11; // rax
-  unsigned int v12; // ecx
-  unsigned int v13; // eax
-  __int64 v14; // r10
-  int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // rdi
+  unsigned int v4; // esi
+  __int64 v5; // r14
+  unsigned int v6; // eax
+  unsigned int v7; // ebp
+  __int64 v8; // r15
+  __int64 v9; // r12
+  unsigned int *v10; // rdi
+  unsigned int v11; // ecx
+  __int64 v12; // rax
+  unsigned int v13; // ecx
+  unsigned int v14; // eax
+  __int64 v15; // r9
+  int v16; // ecx
+  __int64 i; // rdx
   _DWORD *v18; // rax
-  unsigned int v19; // r9d
-  unsigned int v20; // r11d
+  unsigned int v19; // r8d
+  unsigned int v20; // r10d
   unsigned int v21; // ecx
-  unsigned int v22; // r9d
+  unsigned int v22; // r8d
   unsigned int v23; // ecx
-  unsigned __int64 v24; // rcx
+  int v24; // ecx
   unsigned int v25; // eax
 
   if ( *a1 > 4u )
@@ -47,47 +47,49 @@ __int64 __fastcall ApiSetValidateSchemaFormat(_DWORD *a1, unsigned int a2)
           return (unsigned int)-1073741675;
         if ( v7 <= v4 )
         {
-          for ( i = 0LL; (unsigned int)i < (unsigned int)v5; i = (unsigned int)(i + 1) )
+          v8 = 0LL;
+          if ( (_DWORD)v5 )
           {
-            v9 = (_DWORD *)((char *)&a1[6 * i] + (unsigned int)a1[4]);
-            v10 = v9[2];
-            if ( v10 > 0xFFFF )
-              return (unsigned int)-1073741596;
-            if ( v9[3] > 0xFFFF )
-              return (unsigned int)-1073741596;
-            v11 = v9[1];
-            if ( (_DWORD)v11 )
+            v9 = (unsigned int)a1[4];
+            do
             {
-              if ( (unsigned int)v11 < v7 )
+              v10 = (_DWORD *)((char *)&a1[6 * v8] + v9);
+              v11 = v10[2];
+              if ( v11 > 0xFFFF )
                 return (unsigned int)-1073741596;
-            }
-            v12 = v11 + v10;
-            if ( v12 < (unsigned int)v11 )
-              return (unsigned int)-1073741675;
-            if ( v12 > v4 )
-              return (unsigned int)-1073741596;
-            if ( (unsigned int *)ApiSetpSearchForApiSet(a1, (const WCHAR *)((char *)a1 + v11), *((_WORD *)v9 + 6) >> 1) != v9 )
-              return (unsigned int)-1073741596;
-            v13 = v9[4];
-            if ( v13 )
-            {
-              if ( v13 < v7 )
+              if ( v10[3] > 0xFFFF )
                 return (unsigned int)-1073741596;
-            }
-            v14 = v9[5];
-            v15 = 20 * v14;
-            if ( (unsigned __int64)(20 * v14) > 0xFFFFFFFF || v13 + v15 < v13 )
-              return (unsigned int)-1073741675;
-            v4 = a1[1];
-            if ( v13 + v15 > v4 )
-              return (unsigned int)-1073741596;
-            v16 = 0LL;
-            if ( (_DWORD)v14 )
-            {
-              v17 = v9[4];
-              do
+              v12 = v10[1];
+              if ( (_DWORD)v12 )
               {
-                v18 = (_DWORD *)((char *)&a1[5 * v16] + v17);
+                if ( (unsigned int)v12 < v7 )
+                  return (unsigned int)-1073741596;
+              }
+              v13 = v12 + v11;
+              if ( v13 < (unsigned int)v12 )
+                return (unsigned int)-1073741675;
+              if ( v13 > v4 )
+                return (unsigned int)-1073741596;
+              if ( (unsigned int *)ApiSetpSearchForApiSet(
+                                     a1,
+                                     (const WCHAR *)((char *)a1 + v12),
+                                     *((_WORD *)v10 + 6) >> 1) != v10 )
+                return (unsigned int)-1073741596;
+              v14 = v10[4];
+              if ( v14 )
+              {
+                if ( v14 < v7 )
+                  return (unsigned int)-1073741596;
+              }
+              v15 = v10[5];
+              v16 = 20 * v15;
+              if ( (unsigned __int64)(20 * v15) > 0xFFFFFFFF || v14 + v16 < v14 )
+                return (unsigned int)-1073741675;
+              if ( v14 + v16 > v4 )
+                return (unsigned int)-1073741596;
+              for ( i = 0LL; (unsigned int)i < (unsigned int)v15; i = (unsigned int)(i + 1) )
+              {
+                v18 = (_DWORD *)((char *)&a1[5 * i] + v10[4]);
                 v19 = v18[2];
                 if ( v19 > 0xFFFF )
                   return (unsigned int)-1073741596;
@@ -115,18 +117,17 @@ __int64 __fastcall ApiSetValidateSchemaFormat(_DWORD *a1, unsigned int a2)
                   return (unsigned int)-1073741675;
                 if ( v20 + v23 > v4 )
                   return (unsigned int)-1073741596;
-                v16 = (unsigned int)(v16 + 1);
               }
-              while ( (unsigned int)v16 < (unsigned int)v14 );
+              v8 = (unsigned int)(v8 + 1);
             }
-            LODWORD(v5) = a1[3];
+            while ( (unsigned int)v8 < (unsigned int)v5 );
           }
-          v24 = 8LL * (unsigned int)v5;
-          if ( v24 <= 0xFFFFFFFF )
+          v24 = 8 * v5;
+          if ( (unsigned __int64)(8 * v5) <= 0xFFFFFFFF )
           {
             v25 = a1[5];
-            if ( v25 + (unsigned int)v24 >= v25 )
-              return v4 < v25 + (unsigned int)v24 ? 0xC00000E4 : 0;
+            if ( v25 + v24 >= v25 )
+              return v4 < v25 + v24 ? 0xC00000E4 : 0;
           }
           return (unsigned int)-1073741675;
         }

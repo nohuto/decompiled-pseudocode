@@ -1,5 +1,5 @@
 /*
- * XREFs of InitKeyboardState @ 0x1C011F9A0
+ * XREFs of InitKeyboardState @ 0x1C0009010
  * Callers:
  *     <none>
  * Callees:

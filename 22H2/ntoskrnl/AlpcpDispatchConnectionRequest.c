@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpDispatchConnectionRequest @ 0x1407160C8
+ * XREFs of AlpcpDispatchConnectionRequest @ 0x1405DF168
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1403608E0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1405A3D68 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpSetOwnerPortMessage @ 0x14071C064 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1403166D0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405812B8 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
@@ -22,15 +22,16 @@ __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
   int v4; // r12d
   __int64 *v5; // r15
   volatile signed __int64 *v6; // rbx
-  __int64 v7; // rbp
-  volatile signed __int64 *v8; // rdi
-  signed __int64 v9; // rdx
+  __int64 v7; // rdi
+  __int64 v8; // rbp
+  volatile signed __int64 *v9; // rdi
+  signed __int64 v10; // rdx
   struct _KTHREAD *CurrentThread; // rcx
-  signed __int32 v11; // eax
-  unsigned int v13; // ebx
-  __int64 v14; // rcx
+  signed __int32 v12; // eax
+  unsigned int v14; // ebx
+  __int64 v15; // rcx
   __int64 ProcessJob; // rax
-  signed __int64 v16; // rsi
+  signed __int64 v17; // rsi
 
   v1 = *a1;
   v2 = a1[1];
@@ -41,97 +42,101 @@ __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
   v5 = *(__int64 **)(v1 + 16);
   v6 = v5 - 2;
   ExAcquirePushLockSharedEx((ULONG_PTR)(v5 - 2), 0LL);
-  v7 = *v5;
-  if ( *v5 && ObReferenceObjectSafe(*v5) )
+  if ( *v5 )
   {
-    v8 = (volatile signed __int64 *)(v7 + 352);
-    ExAcquirePushLockSharedEx(v7 + 352, 0LL);
-    if ( (*(_DWORD *)(v7 + 416) & 0x20) != 0 )
+    v7 = *v5;
+    v8 = v7 & -(__int64)(ObReferenceObjectSafe(*v5) != 0);
+    if ( v8 )
     {
-      if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v5 - 2);
-      KeAbPostRelease((ULONG_PTR)(v5 - 2));
-      if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)(v7 + 352));
-      KeAbPostRelease(v7 + 352);
-      v13 = -1073741769;
-      goto LABEL_38;
-    }
-    if ( (*(_DWORD *)(*a1 + 256) & 0x800000) == 0 || (*(_DWORD *)(a1[1] + 40) & 0x200) != 0 )
-    {
-      v9 = 0LL;
-    }
-    else
-    {
-      v9 = 0LL;
-      v14 = 0LL;
-      if ( (*(_QWORD *)(v7 + 24) & 1) == 0 )
-        v14 = *(_QWORD *)(v7 + 24);
-      if ( v14 )
+      v9 = (volatile signed __int64 *)(v8 + 352);
+      ExAcquirePushLockSharedEx(v8 + 352, 0LL);
+      if ( (*(_DWORD *)(v8 + 416) & 0x20) != 0 )
       {
-        ProcessJob = PsGetProcessJob(v14);
-        v9 = 0LL;
-        if ( ProcessJob )
+        if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v5 - 2);
+        KeAbPostRelease((ULONG_PTR)(v5 - 2));
+        if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
+        KeAbPostRelease(v8 + 352);
+        v14 = -1073741769;
+        goto LABEL_38;
+      }
+      if ( (*(_DWORD *)(*a1 + 256) & 0x800000) == 0 || (*(_DWORD *)(a1[1] + 40) & 0x200) != 0 )
+      {
+        v10 = 0LL;
+      }
+      else
+      {
+        v10 = 0LL;
+        v15 = 0LL;
+        if ( (*(_QWORD *)(v8 + 24) & 1) == 0 )
+          v15 = *(_QWORD *)(v8 + 24);
+        if ( v15 )
         {
-          if ( (unsigned int)PsGetJobEffectiveFreezeCount(ProcessJob) )
+          ProcessJob = PsGetProcessJob(v15);
+          v10 = 0LL;
+          if ( ProcessJob )
           {
-            v16 = (unsigned int)(v9 + 17);
-            if ( v16 != _InterlockedCompareExchange64(v6, v9, v16) )
-              ExfReleasePushLockShared(v5 - 2);
-            KeAbPostRelease((ULONG_PTR)(v5 - 2));
-            if ( v16 != _InterlockedCompareExchange64(v8, 0LL, v16) )
-              ExfReleasePushLockShared((signed __int64 *)(v7 + 352));
-            KeAbPostRelease(v7 + 352);
-            v13 = -1073741770;
+            if ( (unsigned int)PsGetJobEffectiveFreezeCount(ProcessJob) )
+            {
+              v17 = (unsigned int)(v10 + 17);
+              if ( v17 != _InterlockedCompareExchange64(v6, v10, v17) )
+                ExfReleasePushLockShared(v5 - 2);
+              KeAbPostRelease((ULONG_PTR)(v5 - 2));
+              if ( v17 != _InterlockedCompareExchange64(v9, 0LL, v17) )
+                ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
+              KeAbPostRelease(v8 + 352);
+              v14 = -1073741770;
 LABEL_38:
-            ObfDereferenceObject((PVOID)v7);
-            return v13;
+              HalPutDmaAdapter((PADAPTER_OBJECT)v8);
+              return v14;
+            }
           }
         }
       }
-    }
-    if ( (unsigned __int64)*(unsigned __int16 *)(v2 + 242) > *(_QWORD *)(v7 + 272) )
-    {
-      if ( _InterlockedCompareExchange64(v6, v9, 17LL) != 17 )
-        ExfReleasePushLockShared(v5 - 2);
-      KeAbPostRelease((ULONG_PTR)(v5 - 2));
-      if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)(v7 + 352));
-      KeAbPostRelease(v7 + 352);
-      v13 = -1073741789;
-      goto LABEL_38;
-    }
-    if ( (v4 & 0x20000) != 0 )
-    {
-      CurrentThread = KeGetCurrentThread();
-      if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x20) != 0 )
+      if ( (unsigned __int64)*(unsigned __int16 *)(v2 + 242) > *(_QWORD *)(v8 + 272) )
       {
-        if ( _InterlockedCompareExchange64(v6, v9, 17LL) != 17 )
+        if ( _InterlockedCompareExchange64(v6, v10, 17LL) != 17 )
           ExfReleasePushLockShared(v5 - 2);
         KeAbPostRelease((ULONG_PTR)(v5 - 2));
-        if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)(v7 + 352));
-        KeAbPostRelease(v7 + 352);
-        v13 = -1073741823;
+        if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
+        KeAbPostRelease(v8 + 352);
+        v14 = -1073741789;
         goto LABEL_38;
       }
-      ++*(_WORD *)(v2 - 30);
-      _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v2);
-      ++*(_WORD *)(v2 - 30);
-      *(_QWORD *)(v2 + 32) = CurrentThread;
+      if ( (v4 & 0x20000) != 0 )
+      {
+        CurrentThread = KeGetCurrentThread();
+        if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x20) != 0 )
+        {
+          if ( _InterlockedCompareExchange64(v6, v10, 17LL) != 17 )
+            ExfReleasePushLockShared(v5 - 2);
+          KeAbPostRelease((ULONG_PTR)(v5 - 2));
+          if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
+          KeAbPostRelease(v8 + 352);
+          v14 = -1073741823;
+          goto LABEL_38;
+        }
+        ++*(_WORD *)(v2 - 30);
+        _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v2);
+        ++*(_WORD *)(v2 - 30);
+        *(_QWORD *)(v2 + 32) = CurrentThread;
+      }
+      *(_DWORD *)(v2 + 40) &= ~0x200u;
+      *(_WORD *)(v2 + 244) |= 0x2000u;
+      v12 = _InterlockedIncrement((volatile signed __int32 *)(v8 + 400));
+      *(_QWORD *)(v2 + 120) = v10;
+      *(_DWORD *)(v2 + 44) = v12;
+      *(_QWORD *)(v2 + 184) = v5;
+      *(_QWORD *)(v2 + 192) = v8;
+      AlpcpSetOwnerPortMessage(v2, v1);
+      a1[4] = v8;
+      a1[2] = (__int64)v5;
+      AlpcpCompleteDispatchMessage(a1);
+      return 0LL;
     }
-    *(_DWORD *)(v2 + 40) &= ~0x200u;
-    *(_WORD *)(v2 + 244) |= 0x2000u;
-    v11 = _InterlockedIncrement((volatile signed __int32 *)(v7 + 400));
-    *(_QWORD *)(v2 + 120) = v9;
-    *(_DWORD *)(v2 + 44) = v11;
-    *(_QWORD *)(v2 + 184) = v5;
-    *(_QWORD *)(v2 + 192) = v7;
-    AlpcpSetOwnerPortMessage(v2, v1);
-    a1[4] = v7;
-    a1[2] = (__int64)v5;
-    AlpcpCompleteDispatchMessage(a1);
-    return 0LL;
   }
   if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5 - 2);

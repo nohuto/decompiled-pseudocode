@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00981E4
+ * XREFs of ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00473AC
  * Callers:
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     ?RemoveLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C00980D0 (-RemoveLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z.c)
- *     ?AddLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C0098130 (-AddLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z.c)
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
- *     GreSfmGetNotificationTokens @ 0x1C00CBC90 (GreSfmGetNotificationTokens.c)
- *     EngAllocUserMemEx @ 0x1C0169C28 (EngAllocUserMemEx.c)
- *     EngFreeUserMem @ 0x1C016A070 (EngFreeUserMem.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
+ *     EngFreeUserMem @ 0x1C0048AD0 (EngFreeUserMem.c)
+ *     EngAllocUserMemEx @ 0x1C0048BA8 (EngAllocUserMemEx.c)
+ *     GreSfmGetNotificationTokens @ 0x1C0048CC0 (GreSfmGetNotificationTokens.c)
+ *     ?AddLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C0049480 (-AddLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z.c)
+ *     ?RemoveLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C004A460 (-RemoveLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x18024EBB0
+ * XREFs of _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x1801E8A08
  * Callers:
- *     ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18024ECF0 (-OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
+ *     ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801E8B20 (-OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
  * Callees:
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x180251AAC (-GetSharedSectionData@CSharedSectionWrapper@@QEBA-AV-$span@E$0-0@gsl@@XZ.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x1801EC80C (-GetSharedSectionData@CSharedSectionWrapper@@QEBA-AV-$span@E$0-0@gsl@@XZ.c)
  */
 
 unsigned __int64 __fastcall lambda_05398b4549421d065ab404e0dbeea144_::operator()(__int64 a1, __int64 a2, int a3)

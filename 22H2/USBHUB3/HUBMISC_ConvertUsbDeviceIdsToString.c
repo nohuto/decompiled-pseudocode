@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033DDC
+ * XREFs of HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4
  * Callers:
- *     HUBFDO_QueryHubErrataFlags @ 0x1C007B7E4 (HUBFDO_QueryHubErrataFlags.c)
- *     HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C0082134 (HUBMISC_QueryAndCacheRegistryValuesForDevice.c)
- *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C0083330 (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBFDO_QueryHubErrataFlags @ 0x1C007760C (HUBFDO_QueryHubErrataFlags.c)
+ *     HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007C6B4 (HUBMISC_QueryAndCacheRegistryValuesForDevice.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8 (HUBREG_AssignUsbflagsValueForDevice.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     RtlStringCchPrintfA @ 0x1C00010B0 (RtlStringCchPrintfA.c)
  */
 
 NTSTATUS __fastcall HUBMISC_ConvertUsbDeviceIdsToString(unsigned __int16 *a1, char *a2, char *a3, char *a4)

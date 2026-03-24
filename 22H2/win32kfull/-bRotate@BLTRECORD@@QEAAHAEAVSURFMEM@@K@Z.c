@@ -1,91 +1,95 @@
 /*
- * XREFs of ?bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028F4C0
+ * XREFs of ?bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028BBC4
  * Callers:
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028EBA0 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z @ 0x1C028F258 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B248 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z @ 0x1C028B960 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z.c)
  * Callees:
- *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00BBD9C (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C028F724 (-vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
- *     ?vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z @ 0x1C028F834 (-vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z.c)
- *     EngPlgBlt @ 0x1C028F8F0 (EngPlgBlt.c)
+ *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00B8D30 (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C028BE28 (-vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
+ *     ?vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z @ 0x1C028BF3C (-vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z.c)
+ *     EngPlgBlt @ 0x1C028BFC0 (EngPlgBlt.c)
  */
 
-__int64 __fastcall BLTRECORD::bRotate(BLTRECORD *this, struct SURFMEM *a2, ULONG a3)
+__int64 __fastcall BLTRECORD::bRotate(RECTL *this, struct SURFMEM *a2, ULONG a3)
 {
-  int v6; // esi
+  unsigned int v6; // ebx
   int v7; // r14d
-  int v8; // edx
-  __int64 v9; // r15
-  int v10; // esi
-  int v11; // r14d
-  struct SURFACE *v12; // rax
-  __int64 v13; // rcx
-  __int64 result; // rax
+  int v8; // r15d
+  int v9; // r14d
+  int v10; // r15d
+  struct SURFACE *v11; // rax
+  __int64 v12; // r10
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
   POINTL pptlBrushOrg; // [rsp+60h] [rbp-39h] BYREF
-  int v16; // [rsp+68h] [rbp-31h] BYREF
-  int v17; // [rsp+6Ch] [rbp-2Dh]
-  int v18; // [rsp+70h] [rbp-29h]
-  int v19; // [rsp+74h] [rbp-25h]
-  _DWORD v20[4]; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v21; // [rsp+88h] [rbp-11h]
-  int v22; // [rsp+90h] [rbp-9h]
-  int v23; // [rsp+94h] [rbp-5h]
+  int v18; // [rsp+68h] [rbp-31h] BYREF
+  int v19; // [rsp+6Ch] [rbp-2Dh]
+  int v20; // [rsp+70h] [rbp-29h]
+  int v21; // [rsp+74h] [rbp-25h]
+  _DWORD v22[4]; // [rsp+78h] [rbp-21h] BYREF
+  __int64 v23; // [rsp+88h] [rbp-11h]
+  int v24; // [rsp+90h] [rbp-9h]
+  int v25; // [rsp+94h] [rbp-5h]
   POINTFIX pptfx; // [rsp+98h] [rbp-1h] BYREF
-  int v25; // [rsp+A0h] [rbp+7h]
-  int v26; // [rsp+A4h] [rbp+Bh]
-  int v27; // [rsp+A8h] [rbp+Fh]
-  int v28; // [rsp+ACh] [rbp+13h]
-  int v29; // [rsp+B0h] [rbp+17h]
-  int v30; // [rsp+B4h] [rbp+1Bh]
+  int v27; // [rsp+A0h] [rbp+7h]
+  int v28; // [rsp+A4h] [rbp+Bh]
+  int v29; // [rsp+A8h] [rbp+Fh]
+  int v30; // [rsp+ACh] [rbp+13h]
+  int v31; // [rsp+B0h] [rbp+17h]
+  int v32; // [rsp+B4h] [rbp+1Bh]
 
-  BLTRECORD::vBound(this, (struct ERECTL *)&v16);
-  v6 = v16;
-  v7 = v17;
-  v20[1] = v18 - v16;
-  v20[3] = 0;
-  v20[2] = v19 - v17;
-  v23 = 0;
-  v20[0] = 1;
-  v21 = 0LL;
-  v22 = *((_DWORD *)BLTRECORD::pSurfMskOut(this) + 28) & 0x40000;
-  SURFMEM::bCreateDIB(a2, (struct _DEVBITMAPINFO *)v20, 0LL, 0LL, 0, 0LL, 0LL, 0, v8, 0, 0);
-  v9 = *(_QWORD *)a2;
-  if ( !*(_QWORD *)a2 )
-    return 0LL;
-  v10 = 16 * v6;
-  v11 = 16 * v7;
-  pptfx.x = *((_DWORD *)this + 28) - v10;
-  pptfx.y = *((_DWORD *)this + 29) - v11;
-  v25 = *((_DWORD *)this + 30) - v10;
-  v26 = *((_DWORD *)this + 31) - v11;
-  v27 = *((_DWORD *)this + 32) - v10;
-  v28 = *((_DWORD *)this + 33) - v11;
-  v29 = *((_DWORD *)this + 34) - v10;
-  v30 = *((_DWORD *)this + 35) - v11;
-  BLTRECORD::vMirror(this, &pptfx);
-  pptlBrushOrg = 0LL;
-  v12 = BLTRECORD::pSurfMskOut(this);
-  if ( !EngPlgBlt(
-          (SURFOBJ *)(v9 + 24),
-          (SURFOBJ *)(((unsigned __int64)v12 + 24) & -(__int64)(v12 != 0LL)),
-          0LL,
-          0LL,
-          0LL,
-          0LL,
-          &pptlBrushOrg,
-          &pptfx,
-          (RECTL *)((char *)this + 184),
-          0LL,
-          a3) )
-    return 0LL;
-  *((_DWORD *)this + 53) &= ~0x20000u;
-  v13 = *((_QWORD *)this + 10);
-  if ( v13 )
-    DEC_SHARE_REF_CNT(v13);
-  result = 1LL;
-  *((_QWORD *)this + 10) = *(_QWORD *)a2;
-  *((_DWORD *)this + 46) = 0;
-  *((_DWORD *)this + 47) = 0;
-  return result;
+  BLTRECORD::vBound((BLTRECORD *)this, (struct ERECTL *)&v18);
+  v6 = 0;
+  v7 = v18;
+  v8 = v19;
+  v22[1] = v20 - v18;
+  v22[3] = 0;
+  v22[2] = v21 - v19;
+  v25 = 0;
+  v22[0] = 1;
+  v23 = 0LL;
+  v24 = *((_DWORD *)BLTRECORD::pSurfMskOut((BLTRECORD *)this) + 28) & 0x40000;
+  SURFMEM::bCreateDIB(a2, (struct _DEVBITMAPINFO *)v22, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+  if ( *(_QWORD *)a2 )
+  {
+    v9 = 16 * v7;
+    v10 = 16 * v8;
+    pptfx.x = this[7].right - v9;
+    pptfx.y = this[7].bottom - v10;
+    v27 = this[8].left - v9;
+    v28 = this[8].top - v10;
+    v29 = this[8].right - v9;
+    v30 = this[8].bottom - v10;
+    v31 = this[9].left - v9;
+    v32 = this[9].top - v10;
+    BLTRECORD::vMirror((BLTRECORD *)this, &pptfx);
+    pptlBrushOrg = 0LL;
+    v11 = BLTRECORD::pSurfMskOut((BLTRECORD *)this);
+    if ( EngPlgBlt(
+           (SURFOBJ *)(v12 + 24),
+           (SURFOBJ *)(((unsigned __int64)v11 + 24) & -(__int64)(v11 != 0LL)),
+           0LL,
+           0LL,
+           0LL,
+           0LL,
+           &pptlBrushOrg,
+           &pptfx,
+           this + 12,
+           0LL,
+           a3) )
+    {
+      this[13].bottom &= ~0x20000u;
+      v14 = *(_QWORD *)&this[5].left;
+      if ( v14 )
+        DEC_SHARE_REF_CNT(v14, v13);
+      v15 = *(_QWORD *)a2;
+      this[12].left = 0;
+      this[12].top = 0;
+      v6 = 1;
+      *(_QWORD *)&this[5].left = v15;
+    }
+  }
+  return v6;
 }

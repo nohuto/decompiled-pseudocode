@@ -1,17 +1,17 @@
 /*
- * XREFs of McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014258
+ * XREFs of McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C
  * Callers:
- *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033E60 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
- *     HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C0033F00 (HUBMISC_LogDescriptorValidationWarningForDevice.c)
- *     HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C0033FA0 (HUBMISC_LogDescriptorValidationErrorForHub.c)
- *     HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C0033FF0 (HUBMISC_LogDescriptorValidationWarningForHub.c)
- *     FWUPDATE_EvtDeviceD0Entry @ 0x1C003FB50 (FWUPDATE_EvtDeviceD0Entry.c)
- *     FWUPDATE_EvtDeviceD0Exit @ 0x1C003FC00 (FWUPDATE_EvtDeviceD0Exit.c)
- *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003FED0 (FWUPDATE_EvtIoInternalDeviceControl.c)
- *     HUBPDO_CreatePdoInternal @ 0x1C007DE24 (HUBPDO_CreatePdoInternal.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0030F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C0031010 (HUBMISC_LogDescriptorValidationWarningForDevice.c)
+ *     HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C00310B0 (HUBMISC_LogDescriptorValidationErrorForHub.c)
+ *     HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C0031100 (HUBMISC_LogDescriptorValidationWarningForHub.c)
+ *     FWUPDATE_EvtDeviceD0Entry @ 0x1C003D870 (FWUPDATE_EvtDeviceD0Entry.c)
+ *     FWUPDATE_EvtDeviceD0Exit @ 0x1C003D920 (FWUPDATE_EvtDeviceD0Exit.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003DBF0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

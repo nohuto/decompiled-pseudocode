@@ -1,26 +1,26 @@
 /*
- * XREFs of PfpVirtualQuery @ 0x1407F89C0
+ * XREFs of PfpVirtualQuery @ 0x140733638
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
+NTSTATUS __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
 {
   unsigned int v4; // eax
   unsigned __int64 v5; // rdx
   int v6; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v8; // [rsp+40h] [rbp-28h] BYREF
-  ULONG_PTR BugCheckParameter1[3]; // [rsp+50h] [rbp-18h]
+  HANDLE Handle[3]; // [rsp+50h] [rbp-18h]
 
   v8 = 0LL;
-  *(_OWORD *)BugCheckParameter1 = 0LL;
+  *(_OWORD *)Handle = 0LL;
   if ( *(_DWORD *)(a1 + 24) != 32 )
-    return 3221225990LL;
+    return -1073741306;
   v4 = 32;
   if ( a2 )
   {
@@ -35,23 +35,16 @@ __int64 __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
   }
   memmove(&v8, *(const void **)(a1 + 16), v4);
   if ( (_DWORD)v8 != 1 )
-    return 3221225485LL;
+    return -1073741811;
   v6 = 2;
   if ( (BYTE4(v8) & 1) != 0 && (BYTE4(v8) & 2) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (DWORD1(v8) & 0xFFFFFFFC) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (BYTE4(v8) & 1) == 0 )
     v6 = (BYTE4(v8) & 2) != 0;
-  result = MmQueryVirtualMemory(
-             BugCheckParameter1[1],
-             0LL,
-             4,
-             *((unsigned __int64 *)&v8 + 1),
-             BugCheckParameter1[0],
-             0LL,
-             v6);
-  if ( (int)result >= 0 )
+  result = MmQueryVirtualMemory(Handle[1], 0LL, 4, *((_OWORD **)&v8 + 1), (SIZE_T)Handle[0], 0LL, v6);
+  if ( result >= 0 )
     *a3 = 32;
   return result;
 }

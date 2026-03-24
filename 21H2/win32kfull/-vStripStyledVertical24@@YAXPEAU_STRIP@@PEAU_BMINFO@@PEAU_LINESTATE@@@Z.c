@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vStripStyledVertical24@@YAXPEAU_STRIP@@PEAU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02D3010
+ * XREFs of ?vStripStyledVertical24@@YAXPEAU_STRIP@@PEAU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02D4B10
  * Callers:
  *     <none>
  * Callees:
@@ -11,10 +11,10 @@ void __fastcall vStripStyledVertical24(struct _STRIP *a1, struct _BMINFO *a2, st
   int *v3; // rbx
   int v5; // eax
   __int64 v6; // r10
-  int v7; // r15d
-  int v8; // r12d
+  int v7; // r14d
+  int v8; // r15d
   int v9; // r11d
-  char *v10; // rbp
+  char *v10; // rsi
   int v11; // r9d
   int v12; // edx
   int v13; // ecx

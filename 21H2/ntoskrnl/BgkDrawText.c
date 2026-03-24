@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkDrawText @ 0x140AB070C
+ * XREFs of BgkDrawText @ 0x1409F63DC
  * Callers:
- *     NtDrawText @ 0x140639760 (NtDrawText.c)
+ *     NtDrawText @ 0x1405B2740 (NtDrawText.c)
  * Callees:
- *     BgDisplayString @ 0x140AB08A0 (BgDisplayString.c)
+ *     BgDisplayString @ 0x1409F6570 (BgDisplayString.c)
  */
 
 __int64 BgkDrawText()
 {
-  if ( byte_140C54D48 && byte_140C54D49 )
+  if ( byte_140C50B99 && byte_140C50BAC )
     return BgDisplayString();
   else
     return 3221225473LL;

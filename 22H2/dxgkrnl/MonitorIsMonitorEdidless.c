@@ -1,41 +1,44 @@
 /*
- * XREFs of MonitorIsMonitorEdidless @ 0x1C01E53BC
+ * XREFs of MonitorIsMonitorEdidless @ 0x1C0164F20
  * Callers:
- *     DxgkGetMonitorInternalInfo @ 0x1C01A0250 (DxgkGetMonitorInternalInfo.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C0128030 (DxgkGetMonitorInternalInfo.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_GetEdidBaseBlockPtr@DXGMONITOR@@QEBAPEBXXZ @ 0x1C0133DD0 (-_GetEdidBaseBlockPtr@DXGMONITOR@@QEBAPEBXXZ.c)
  */
 
-__int64 __fastcall MonitorIsMonitorEdidless(__int64 a1, bool *a2)
+__int64 __fastcall MonitorIsMonitorEdidless(struct HDXGMONITOR__ *a1, bool *a2)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  DXGMONITOR *v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  DXGMONITOR *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
-  {
-    MONITOR_MGR::AcquireMonitorShared(&v6, a1);
-    v3 = v6;
-    if ( v6 )
-    {
-      *a2 = *(_QWORD *)(*(_QWORD *)(v6 + 216) + 128LL) == 0LL;
-      v4 = 0;
-    }
-    else
-    {
-      v4 = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-    }
-    if ( v3 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v3 + 24));
-      KeLeaveCriticalRegion();
-    }
-    return v4;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+  if ( !a1 )
     return 3221225485LL;
+  v11 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v11);
+  if ( (int)result >= 0 )
+  {
+    v6 = v11;
+    if ( !v11 )
+    {
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v6 + 296), 1u);
+    *a2 = DXGMONITOR::_GetEdidBaseBlockPtr(v6) == 0LL;
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
+    KeLeaveCriticalRegion();
+    return 0LL;
   }
+  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PowerPolicyChildPoweredDown@FxPkgPnp@@QEAAXXZ @ 0x1C000E440
+ * XREFs of ?PowerPolicyChildPoweredDown@FxPkgPnp@@QEAAXXZ @ 0x1C00186E0
  * Callers:
- *     ?PowerParentPowerDereference@FxPkgPdo@@EEAAXXZ @ 0x1C000E410 (-PowerParentPowerDereference@FxPkgPdo@@EEAAXXZ.c)
+ *     ?PowerParentPowerDereference@FxPkgPdo@@EEAAXXZ @ 0x1C00186B0 (-PowerParentPowerDereference@FxPkgPdo@@EEAAXXZ.c)
  * Callees:
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
- *     ?IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z @ 0x1C0017128 (-IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z @ 0x1C0017610 (-IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z.c)
  */
 
 void __fastcall FxPkgPnp::PowerPolicyChildPoweredDown(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)

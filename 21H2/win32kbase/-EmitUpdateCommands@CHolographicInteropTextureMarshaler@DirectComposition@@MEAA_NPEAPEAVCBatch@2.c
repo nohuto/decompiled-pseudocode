@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CFA0
+ * XREFs of ?EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?EmitFlags@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CE24 (-EmitFlags@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CE94 (-EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitRootVisual@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CF18 (-EmitRootVisual@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitFlags@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED554 (-EmitFlags@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED5C4 (-EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitRootVisual@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED648 (-EmitRootVisual@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicInteropTextureMarshaler::EmitUpdateCommands(
@@ -27,11 +27,11 @@ char __fastcall DirectComposition::CHolographicInteropTextureMarshaler::EmitUpda
     *v7 = 24;
     *(_OWORD *)(v5 + 1) = 0LL;
     v5[5] = 0;
-    v5[1] = 172;
-    v5[2] = *((_DWORD *)this + 8);
-    v5[4] = *((_DWORD *)this + 21);
-    v5[5] = *((_DWORD *)this + 22);
-    v5[3] = *((_DWORD *)this + 16);
+    v5[1] = 181;
+    v5[2] = *((_DWORD *)this + 6);
+    v5[4] = *((_DWORD *)this + 19);
+    v5[5] = *((_DWORD *)this + 20);
+    v5[3] = *((_DWORD *)this + 14);
     *((_DWORD *)this + 4) &= ~0x20u;
   }
   if ( DirectComposition::CHolographicInteropTextureMarshaler::EmitPosition(this, a2)

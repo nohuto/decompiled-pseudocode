@@ -1,71 +1,74 @@
 /*
- * XREFs of IcAddSecondaryIcInstance @ 0x1C009DBAC
+ * XREFs of IcAddSecondaryIcInstance @ 0x1C0097938
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00BE048 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 IcAddSecondaryIcInstance()
 {
-  int v0; // eax
-  unsigned int v1; // ebx
-  int v2; // esi
-  int v3; // edi
-  _DWORD *Pool2; // rax
-  _QWORD *v5; // rcx
-  _QWORD *v6; // rax
-  _OWORD v8[3]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v9; // [rsp+60h] [rbp-18h]
-  int v10; // [rsp+80h] [rbp+8h] BYREF
+  __int64 result; // rax
+  int v1; // esi
+  int v2; // edi
+  unsigned int v3; // ebp
+  PVOID PoolWithTag; // rax
+  __int64 v5; // rbx
+  __int64 *v6; // rax
+  _OWORD v7[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v8; // [rsp+60h] [rbp-18h]
+  int v9; // [rsp+80h] [rbp+8h] BYREF
 
-  memset(v8, 0, sizeof(v8));
-  v10 = 56;
-  v9 = 0LL;
-  v0 = ((__int64 (__fastcall *)(__int64, __int64, _OWORD *, int *))HalDispatchTable->HalQuerySystemInformation)(
-         28LL,
-         56LL,
-         v8,
-         &v10);
-  v1 = 0;
-  if ( v0 < 0 )
+  memset(v7, 0, sizeof(v7));
+  v8 = 0LL;
+  v9 = 56;
+  result = ((__int64 (__fastcall *)(__int64, __int64, _OWORD *, int *))HalDispatchTable->HalQuerySystemInformation)(
+             28LL,
+             56LL,
+             v7,
+             &v9);
+  if ( (int)result >= 0 )
   {
-    return (unsigned int)v0;
-  }
-  else
-  {
-    v2 = DWORD2(v8[0]);
-    v3 = DWORD1(v8[0]);
-    if ( !DWORD2(v8[0]) || !DWORD1(v8[0]) )
-      return (unsigned int)-1073741811;
-    if ( (unsigned int)(DWORD2(v8[0]) + DWORD1(v8[0])) < DWORD1(v8[0]) )
-      return (unsigned int)-1073741675;
-    if ( (unsigned int)(DWORD2(v8[0]) + DWORD1(v8[0])) < 0xFFF00000 )
+    v1 = DWORD2(v7[0]);
+    v2 = DWORD1(v7[0]);
+    if ( DWORD2(v7[0]) && DWORD1(v7[0]) )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(200 * (DWORD2(v8[0]) - 1) + 232), 1232102209LL);
-      v5 = Pool2;
-      if ( Pool2 )
-      {
-        Pool2[4] = v3;
-        Pool2[7] = 4;
-        Pool2[5] = v2 + v3 - 1;
-        v6 = (_QWORD *)qword_1C00805F8;
-        if ( *(__int64 **)qword_1C00805F8 != &IcListHead )
-          __fastfail(3u);
-        *v5 = &IcListHead;
-        v5[1] = v6;
-        *v6 = v5;
-        qword_1C00805F8 = (__int64)v5;
-      }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
+      if ( (unsigned int)(DWORD2(v7[0]) + DWORD1(v7[0])) < DWORD1(v7[0]) )
+        return 3221225621LL;
+      if ( (unsigned int)(DWORD2(v7[0]) + DWORD1(v7[0])) >= 0xFFF00000 )
+        return 3221225485LL;
+      result = 0LL;
     }
     else
     {
-      return (unsigned int)-1073741811;
+      result = 3221225485LL;
+    }
+    if ( (int)result >= 0 )
+    {
+      v3 = 200 * (DWORD2(v7[0]) - 1) + 232;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x49706341u);
+      v5 = (__int64)PoolWithTag;
+      if ( PoolWithTag )
+      {
+        memset(PoolWithTag, 0, v3);
+        *(_DWORD *)(v5 + 16) = v2;
+        *(_DWORD *)(v5 + 28) = 4;
+        *(_DWORD *)(v5 + 20) = v1 + v2 - 1;
+        v6 = (__int64 *)qword_1C0081548;
+        if ( *(__int64 **)qword_1C0081548 != &IcListHead )
+          __fastfail(3u);
+        *(_QWORD *)(v5 + 8) = qword_1C0081548;
+        *(_QWORD *)v5 = &IcListHead;
+        *v6 = v5;
+        result = 0LL;
+        qword_1C0081548 = v5;
+      }
+      else
+      {
+        return 3221225626LL;
+      }
     }
   }
-  return v1;
+  return result;
 }

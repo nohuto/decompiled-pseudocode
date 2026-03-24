@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetPathAppraiser @ 0x140A52DA0
+ * XREFs of SdbpGetPathAppraiser @ 0x1409670A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A530B0 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140A5515C (AslPathCombine.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x140A57218 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140967390 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140968864 (AslPathCombine.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14096A334 (AslEnvGetSysNativeDirPathForGuestBuf.c)
  */
 
 __int64 __fastcall SdbpGetPathAppraiser(NTSTRSAFE_PWSTR pszDest, size_t cchDest, __int64 a3, __int64 a4)
@@ -21,9 +21,9 @@ __int64 __fastcall SdbpGetPathAppraiser(NTSTRSAFE_PWSTR pszDest, size_t cchDest,
   if ( cchDest < 0xB )
     return 3221225507LL;
   *pszDest = 0;
+  pszSrc[12] = 0;
   v10 = -1;
   v9[0] = -1;
-  pszSrc[12] = 0;
   ProcessHostGuestArchitectures = AslPathCombine(pszSrc);
   if ( ProcessHostGuestArchitectures < 0
     || (ProcessHostGuestArchitectures = SdbpGetProcessHostGuestArchitectures(&v10, v9, a4),

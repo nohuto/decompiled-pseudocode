@@ -1,238 +1,337 @@
 /*
- * XREFs of PopBatteryCheckCompositeCapacity @ 0x140870D58
+ * XREFs of PopBatteryCheckCompositeCapacity @ 0x14077FFD0
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
  */
 
 void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
 {
-  unsigned int *v3; // rbx
-  int v7; // r8d
-  __int64 v8; // rax
-  unsigned __int64 v9; // r9
-  int v10; // r10d
-  unsigned int v11; // r8d
-  unsigned int v12; // edx
-  unsigned int v13; // edx
-  const CHAR *v14; // rdx
-  bool v15; // zf
-  const CHAR *v16; // rdx
-  const CHAR *v17; // r8
-  const CHAR *v18; // rdx
-  const CHAR *v19; // r8
+  unsigned __int8 v6; // r9
+  unsigned int v7; // ebx
+  const CHAR *v8; // rsi
+  const CHAR *v9; // r14
+  const CHAR *v10; // r15
+  const CHAR *v11; // r12
+  const CHAR *v12; // r13
+  __int64 v13; // rax
+  unsigned __int64 v14; // r8
+  int v15; // r10d
+  unsigned int v16; // r9d
+  unsigned int v17; // edx
+  unsigned int v18; // edx
+  unsigned int v19; // ecx
   const CHAR *v20; // rdx
-  const CHAR *v21; // r8
+  bool v21; // zf
   const CHAR *v22; // rdx
-  const CHAR *v23; // r8
+  const CHAR *v23; // r9
   const CHAR *v24; // rdx
-  const CHAR *v25; // r8
-  const CHAR *v26; // rdx
-  const CHAR *v27; // r8
-  const CHAR *v28; // rdx
-  int v29; // r11d
-  int v30; // r8d
-  unsigned int v31; // r10d
-  unsigned int v32; // eax
-  unsigned __int64 v33; // rax
-  int v34; // [rsp+40h] [rbp-C0h] BYREF
-  int v35; // [rsp+44h] [rbp-BCh] BYREF
-  int v36; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v37; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v38; // [rsp+50h] [rbp-B0h] BYREF
-  int v39; // [rsp+54h] [rbp-ACh] BYREF
-  int v40; // [rsp+58h] [rbp-A8h] BYREF
-  int v41; // [rsp+5Ch] [rbp-A4h] BYREF
-  int v42; // [rsp+60h] [rbp-A0h] BYREF
-  int v43; // [rsp+64h] [rbp-9Ch] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+70h] [rbp-90h] BYREF
-  int *v45; // [rsp+90h] [rbp-70h]
-  __int64 v46; // [rsp+98h] [rbp-68h]
-  int *v47; // [rsp+A0h] [rbp-60h]
-  __int64 v48; // [rsp+A8h] [rbp-58h]
-  char v49[16]; // [rsp+B0h] [rbp-50h] BYREF
-  char v50[16]; // [rsp+C0h] [rbp-40h] BYREF
-  char v51[16]; // [rsp+D0h] [rbp-30h] BYREF
-  char v52[16]; // [rsp+E0h] [rbp-20h] BYREF
-  char v53[16]; // [rsp+F0h] [rbp-10h] BYREF
-  char v54[16]; // [rsp+100h] [rbp+0h] BYREF
-  char v55[16]; // [rsp+110h] [rbp+10h] BYREF
-  char v56[16]; // [rsp+120h] [rbp+20h] BYREF
-  unsigned int *v57; // [rsp+130h] [rbp+30h]
-  __int64 v58; // [rsp+138h] [rbp+38h]
-  int *v59; // [rsp+140h] [rbp+40h]
-  __int64 v60; // [rsp+148h] [rbp+48h]
-  int *v61; // [rsp+150h] [rbp+50h]
-  __int64 v62; // [rsp+158h] [rbp+58h]
-  int *v63; // [rsp+160h] [rbp+60h]
-  __int64 v64; // [rsp+168h] [rbp+68h]
-  int *v65; // [rsp+170h] [rbp+70h]
-  __int64 v66; // [rsp+178h] [rbp+78h]
-  int *v67; // [rsp+180h] [rbp+80h]
-  __int64 v68; // [rsp+188h] [rbp+88h]
-  int *v69; // [rsp+190h] [rbp+90h]
-  __int64 v70; // [rsp+198h] [rbp+98h]
+  unsigned __int8 v25; // r8
+  const CHAR *v26; // r9
+  const CHAR *v27; // rdx
+  const CHAR *v28; // r9
+  const CHAR *v29; // rdx
+  const CHAR *v30; // r9
+  const CHAR *v31; // rdx
+  const CHAR *v32; // r9
+  const CHAR *v33; // rdx
+  int v34; // r10d
+  unsigned int v35; // r11d
+  __int64 v36; // r9
+  unsigned int v37; // eax
+  unsigned __int64 v38; // rax
+  const CHAR *v39; // r8
+  unsigned __int8 v40; // r11
+  const CHAR *v41; // r8
+  const CHAR *v42; // r8
+  const CHAR *v43; // r8
+  const CHAR *v44; // rdx
+  const CHAR *v45; // r8
+  const CHAR *v46; // rdx
+  int v47; // r10d
+  __int64 v48; // r11
+  __int64 v49; // r9
+  unsigned int v50; // eax
+  unsigned __int64 v51; // rax
+  int v52; // [rsp+40h] [rbp-C0h] BYREF
+  int v53; // [rsp+44h] [rbp-BCh] BYREF
+  int v54; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v55; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v56; // [rsp+50h] [rbp-B0h] BYREF
+  int v57; // [rsp+54h] [rbp-ACh] BYREF
+  unsigned int v58; // [rsp+58h] [rbp-A8h] BYREF
+  int v59; // [rsp+5Ch] [rbp-A4h] BYREF
+  int v60; // [rsp+60h] [rbp-A0h] BYREF
+  int v61; // [rsp+64h] [rbp-9Ch] BYREF
+  __int64 v62; // [rsp+68h] [rbp-98h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v63[2]; // [rsp+70h] [rbp-90h] BYREF
+  int *v64; // [rsp+90h] [rbp-70h]
+  __int64 v65; // [rsp+98h] [rbp-68h]
+  int *v66; // [rsp+A0h] [rbp-60h]
+  __int64 v67; // [rsp+A8h] [rbp-58h]
+  _BYTE v68[16]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v69[16]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v70[16]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v71[16]; // [rsp+E0h] [rbp-20h] BYREF
+  _BYTE v72[16]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v73[16]; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v74[16]; // [rsp+110h] [rbp+10h] BYREF
+  unsigned int *v75; // [rsp+120h] [rbp+20h]
+  __int64 v76; // [rsp+128h] [rbp+28h]
+  int *v77; // [rsp+130h] [rbp+30h]
+  __int64 v78; // [rsp+138h] [rbp+38h]
+  int *v79; // [rsp+140h] [rbp+40h]
+  __int64 v80; // [rsp+148h] [rbp+48h]
+  unsigned int *v81; // [rsp+150h] [rbp+50h]
+  __int64 v82; // [rsp+158h] [rbp+58h]
+  int *v83; // [rsp+160h] [rbp+60h]
+  __int64 v84; // [rsp+168h] [rbp+68h]
+  int *v85; // [rsp+170h] [rbp+70h]
+  __int64 v86; // [rsp+178h] [rbp+78h]
+  int *v87; // [rsp+180h] [rbp+80h]
+  __int64 v88; // [rsp+188h] [rbp+88h]
+  __int64 *v89; // [rsp+190h] [rbp+90h]
+  __int64 v90; // [rsp+198h] [rbp+98h]
 
-  v3 = a1 + 1;
   *a3 = 0;
-  if ( !dword_140C3D0F4 )
+  if ( !dword_140C23C34 )
   {
-    LOBYTE(v7) = 0;
+    v6 = 0;
+    dword_140C23DB8 = 0;
 LABEL_3:
-    dword_140C3D298 = 0;
+    LOBYTE(v7) = 0;
 LABEL_4:
-    PopWeakChargerMeasured = 0;
-LABEL_5:
-    HIDWORD(qword_140C3D29C) = 0;
-    goto LABEL_6;
+    dword_140C23DD8 = 0;
+    goto LABEL_5;
   }
-  v8 = *v3;
-  LODWORD(v9) = 100000;
-  if ( HIDWORD(qword_140C3D140) > (unsigned int)v8 )
+  v13 = (unsigned int)a1[1];
+  LODWORD(v14) = 100000;
+  if ( HIDWORD(qword_140C23C80) > (unsigned int)v13 )
   {
-    if ( HIDWORD(qword_140C3D140) )
-      v9 = 100000 * v8 / (unsigned __int64)HIDWORD(qword_140C3D140);
+    if ( HIDWORD(qword_140C23C80) )
+      v14 = 100000 * v13 / (unsigned __int64)HIDWORD(qword_140C23C80);
     else
-      LODWORD(v9) = 0;
+      LODWORD(v14) = 0;
   }
-  v10 = 0;
-  if ( dword_140C3D28C != -1 )
-    v10 = v9 - dword_140C3D28C;
-  v11 = ((int)v9 + 500) / 0x3E8u;
-  v12 = (dword_140C3D28C + 500) / 0x3E8u;
-  if ( v11 != v12 )
-    *a3 = v11 - v12;
-  LOBYTE(v7) = byte_140C3D288;
-  dword_140C3D28C = v9;
+  v15 = 0;
+  if ( dword_140C23DAC != -1 )
+    v15 = v14 - dword_140C23DAC;
+  v16 = ((int)v14 + 500) / 0x3E8u;
+  v17 = (dword_140C23DAC + 500) / 0x3E8u;
+  if ( v16 != v17 )
+    *a3 = v16 - v17;
+  v6 = byte_140C23DBC;
+  LOBYTE(v7) = byte_140C23DA8;
+  dword_140C23DAC = v14;
   if ( a2 == 1 )
   {
+    v6 = 0;
+    dword_140C23DB8 = 0;
     LOBYTE(v7) = 1;
-    goto LABEL_3;
-  }
-  if ( a2 != ((unk_140C3D120 & 1) == 0) )
-  {
-    LOBYTE(v7) = 0;
-    dword_140C3D298 = v9;
     goto LABEL_4;
   }
-  if ( byte_140C3D0F8 )
+  if ( a2 != ((unk_140C23C60 & 1) == 0) )
   {
-    if ( !PopWeakChargerMeasured )
-      dword_140C3D298 = v9;
-    LOBYTE(v7) = 0;
-    goto LABEL_5;
+    v6 = 0;
+LABEL_20:
+    dword_140C23DB8 = v14;
+    goto LABEL_3;
   }
-  v13 = dword_140C3D298;
-  if ( dword_140C3D298 < (unsigned int)v9 )
+  if ( byte_140C23C38 )
   {
-    v13 = v9;
-    dword_140C3D298 = v9;
+    if ( byte_140C23DBC )
+      goto LABEL_3;
+    goto LABEL_20;
   }
-  if ( v13 > (int)v9 + WeakChargerChargeDropMilliPercent )
-    PopWeakChargerMeasured = 1;
-  HIDWORD(qword_140C3D29C) += v10;
-  if ( (int)abs32(SHIDWORD(qword_140C3D29C)) >= BatteryChargeTrajectoryThresholdMilliPercent )
+  v18 = dword_140C23DB8;
+  if ( dword_140C23DB8 < (unsigned int)v14 )
   {
-    v7 = HIDWORD(qword_140C3D29C) >> 31;
-    goto LABEL_5;
+    v18 = v14;
+    dword_140C23DB8 = v14;
   }
-LABEL_6:
-  if ( byte_140C3D288 != (_BYTE)v7 )
+  if ( v18 > (int)v14 + WeakChargerChargeDropMilliPercent )
+    v6 = 1;
+  v19 = v15 + dword_140C23DD8;
+  dword_140C23DD8 = v19;
+  if ( (int)abs32(v19) >= BatteryChargeTrajectoryThresholdMilliPercent )
   {
-    byte_140C3D288 = v7;
-    v34 = (unsigned __int8)v7;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v34);
-    if ( (unsigned int)dword_140C03950 > 5 )
+    v7 = v19 >> 31;
+    goto LABEL_4;
+  }
+LABEL_5:
+  v8 = "AC Power";
+  v9 = "Battery Discharging";
+  v10 = "Battery Charging";
+  v11 = "Battery Critical";
+  v12 = "Battery charge limiting mode";
+  if ( byte_140C23DBC != v6 )
+  {
+    byte_140C23DBC = v6;
+    v52 = v6;
+    ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v52);
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
       {
-        v45 = &v35;
-        v14 = "AC Power";
-        v36 = dword_140C3D0F4;
-        v47 = &v36;
-        v15 = (*a1 & 1) == 0;
-        v35 = (unsigned __int8)byte_140C3D288;
-        if ( v15 )
-          v14 = "DC Power";
-        v46 = 4LL;
-        v48 = 4LL;
-        tlgCreate1Sz_char((__int64)v49, v14);
-        v16 = "Battery Discharging";
+        v64 = &v53;
+        v20 = "AC Power";
+        v54 = dword_140C23C34;
+        v66 = &v54;
+        v21 = (*a1 & 1) == 0;
+        v53 = (unsigned __int8)byte_140C23DBC;
+        if ( v21 )
+          v20 = "DC Power";
+        v65 = 4LL;
+        v67 = 4LL;
+        tlgCreate1Sz_char((__int64)v68, v20);
+        v22 = "Battery Discharging";
         if ( (*a1 & 2) == 0 )
-          v16 = "-";
-        tlgCreate1Sz_char((__int64)v50, v16);
-        v18 = "Battery Charging";
-        if ( (*a1 & 4) == 0 )
-          v18 = v17;
-        tlgCreate1Sz_char((__int64)v51, v18);
-        v20 = "Battery Critical";
-        if ( (*a1 & 8) == 0 )
-          v20 = v19;
-        tlgCreate1Sz_char((__int64)v52, v20);
-        v22 = "Battery charge limiting mode";
-        if ( (*a1 & 0x10) == 0 )
-          v22 = v21;
-        tlgCreate1Sz_char((__int64)v53, v22);
-        v24 = "Battery charging state power supply present";
-        if ( (*a1 & 0x20) == 0 )
+          v22 = "-";
+        tlgCreate1Sz_char((__int64)v69, v22);
+        v24 = "Battery Charging";
+        if ( ((unsigned __int8)*a1 & v25) == 0 )
           v24 = v23;
-        tlgCreate1Sz_char((__int64)v54, v24);
-        v26 = "Battery charging state adequate";
+        tlgCreate1Sz_char((__int64)v70, v24);
+        v27 = "Battery Critical";
+        if ( (*a1 & 8) == 0 )
+          v27 = v26;
+        tlgCreate1Sz_char((__int64)v71, v27);
+        v29 = "Battery charge limiting mode";
+        if ( (*a1 & 0x10) == 0 )
+          v29 = v28;
+        tlgCreate1Sz_char((__int64)v72, v29);
+        v31 = "Battery charging state power supply present";
+        if ( (*a1 & 0x20) == 0 )
+          v31 = v30;
+        tlgCreate1Sz_char((__int64)v73, v31);
+        v33 = "Battery charging state adequate";
         if ( (*a1 & 0x40) == 0 )
-          v26 = v25;
-        tlgCreate1Sz_char((__int64)v55, v26);
-        v28 = "Platform BCL Enabled";
-        if ( (byte_140C3D2F8 & 1) == 0 )
-          v28 = v27;
-        tlgCreate1Sz_char((__int64)v56, v28);
-        v30 = *v3;
-        v31 = *v3;
-        if ( HIDWORD(qword_140C3D140) )
-          v32 = (unsigned int)((HIDWORD(qword_140C3D140) >> 1) + 100 * v30) / HIDWORD(qword_140C3D140);
+          v33 = v32;
+        tlgCreate1Sz_char((__int64)v74, v33);
+        v36 = (unsigned int)a1[1];
+        if ( HIDWORD(qword_140C23C80) )
+          v37 = (unsigned int)((HIDWORD(qword_140C23C80) >> 1) + 100 * v36) / HIDWORD(qword_140C23C80);
         else
-          v32 = 0;
-        v37 = v32;
-        v57 = &v37;
-        v58 = 4LL;
-        if ( HIDWORD(qword_140C3D140) )
-        {
-          v30 = v31;
-          v33 = 100000 * (unsigned __int64)v31 / HIDWORD(qword_140C3D140);
-        }
+          v37 = v35;
+        v55 = v37;
+        v75 = &v55;
+        v76 = 4LL;
+        if ( HIDWORD(qword_140C23C80) )
+          v38 = 100000 * v36 / (unsigned __int64)HIDWORD(qword_140C23C80);
         else
-        {
-          LODWORD(v33) = 0;
-        }
-        v38 = v33;
-        v39 = v30;
-        v59 = &v38;
-        v40 = HIDWORD(qword_140C3D140);
-        v61 = &v39;
-        v60 = 4LL;
-        v63 = &v40;
-        v41 = a1[2];
-        v65 = &v41;
-        v42 = a1[3];
-        v67 = &v42;
-        v69 = &v43;
-        v62 = 4LL;
-        v64 = 4LL;
-        v66 = 4LL;
-        v68 = 4LL;
-        v43 = v29;
-        v70 = 4LL;
+          LODWORD(v38) = v35;
+        v56 = v38;
+        v57 = v36;
+        v77 = &v56;
+        v58 = HIDWORD(qword_140C23C80);
+        v79 = &v57;
+        v78 = 4LL;
+        v81 = &v58;
+        v59 = a1[2];
+        v83 = &v59;
+        v60 = a1[3];
+        v85 = &v60;
+        v87 = &v61;
+        v89 = &v62;
+        v80 = 4LL;
+        v82 = 4LL;
+        v84 = 4LL;
+        v86 = 4LL;
+        v61 = v34;
+        v88 = 4LL;
+        v62 = 0x1000000LL;
+        v90 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03950,
-          (unsigned __int8 *)&dword_14003087C,
+          (__int64)&dword_140C02228,
+          (unsigned __int8 *)&dword_1400295E4,
           0LL,
           0LL,
           0x13u,
-          &v44);
+          v63);
+      }
+    }
+  }
+  if ( byte_140C23DA8 != (_BYTE)v7 )
+  {
+    byte_140C23DA8 = v7;
+    v61 = (unsigned __int8)v7;
+    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v61);
+    if ( (unsigned int)dword_140C02228 > 5 )
+    {
+      if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
+      {
+        v64 = &v60;
+        v59 = dword_140C23C34;
+        v66 = &v59;
+        v21 = (*a1 & 1) == 0;
+        v60 = (unsigned __int8)byte_140C23DA8;
+        if ( v21 )
+          v8 = "DC Power";
+        v65 = 4LL;
+        v67 = 4LL;
+        tlgCreate1Sz_char((__int64)v68, v8);
+        if ( (*a1 & 2) == 0 )
+          v9 = "-";
+        tlgCreate1Sz_char((__int64)v69, v9);
+        if ( ((unsigned __int8)*a1 & v40) == 0 )
+          v10 = v39;
+        tlgCreate1Sz_char((__int64)v70, v10);
+        if ( (*a1 & 8) == 0 )
+          v11 = v41;
+        tlgCreate1Sz_char((__int64)v71, v11);
+        if ( (*a1 & 0x10) == 0 )
+          v12 = v42;
+        tlgCreate1Sz_char((__int64)v72, v12);
+        v44 = "Battery charging state power supply present";
+        if ( (*a1 & 0x20) == 0 )
+          v44 = v43;
+        tlgCreate1Sz_char((__int64)v73, v44);
+        v46 = "Battery charging state adequate";
+        if ( (*a1 & 0x40) == 0 )
+          v46 = v45;
+        tlgCreate1Sz_char((__int64)v74, v46);
+        v49 = (unsigned int)a1[1];
+        if ( HIDWORD(qword_140C23C80) )
+          v50 = (unsigned int)((HIDWORD(qword_140C23C80) >> 1) + 100 * v49) / HIDWORD(qword_140C23C80);
+        else
+          v50 = 0;
+        v58 = v50;
+        v75 = &v58;
+        v76 = v48;
+        if ( HIDWORD(qword_140C23C80) )
+          v51 = 100000 * v49 / (unsigned __int64)HIDWORD(qword_140C23C80);
+        else
+          LODWORD(v51) = 0;
+        v57 = v51;
+        v56 = v49;
+        v77 = &v57;
+        v55 = HIDWORD(qword_140C23C80);
+        v79 = &v56;
+        v78 = v48;
+        v81 = &v55;
+        v54 = a1[2];
+        v83 = &v54;
+        v53 = a1[3];
+        v85 = &v53;
+        v87 = &v52;
+        v80 = v48;
+        v82 = v48;
+        v84 = v48;
+        v86 = v48;
+        v52 = v47;
+        v88 = v48;
+        tlgWriteTransfer_EtwWriteTransfer(
+          (__int64)&dword_140C02228,
+          (unsigned __int8 *)byte_140029799,
+          0LL,
+          0LL,
+          0x12u,
+          v63);
       }
     }
   }

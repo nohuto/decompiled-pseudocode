@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_DispatchWdmPnpPowerIrpSynchronously @ 0x1C001A9A4
+ * XREFs of HUBPDO_DispatchWdmPnpPowerIrpSynchronously @ 0x1C001A454
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall HUBPDO_DispatchWdmPnpPowerIrpSynchronously(__int64 a1, __int64 a2)

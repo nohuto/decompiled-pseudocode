@@ -1,29 +1,29 @@
 /*
- * XREFs of ??1CProjectedShadowReceiver@@MEAA@XZ @ 0x180004324
+ * XREFs of ??1CProjectedShadowReceiver@@MEAA@XZ @ 0x18000E854
  * Callers:
- *     ??_ECProjectedShadowReceiver@@MEAAPEAXI@Z @ 0x1800042E0 (--_ECProjectedShadowReceiver@@MEAAPEAXI@Z.c)
+ *     ??_ECProjectedShadowReceiver@@MEAAPEAXI@Z @ 0x18000E8C0 (--_ECProjectedShadowReceiver@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x180004424 (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800FF334 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x18000CFCC (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
-void __fastcall CProjectedShadowReceiver::~CProjectedShadowReceiver(struct CResource **this)
+void __fastcall CProjectedShadowReceiver::~CProjectedShadowReceiver(CVisual **this)
 {
-  struct CResource *v2; // rcx
+  CVisual *v2; // rcx
 
-  *this = (struct CResource *)&CProjectedShadowReceiver::`vftable';
-  CProjectedShadowReceiver::SetReceivingVisual((CProjectedShadowReceiver *)this, 0LL);
-  CResource::UnRegisterNotifierInternal((CResource *)this, this[13]);
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease(this + 14);
-  v2 = this[9];
+  *this = (CVisual *)&CProjectedShadowReceiver::`vftable';
+  CProjectedShadowReceiver::SetReceivingVisual(this, 0LL);
+  CResource::UnRegisterNotifierInternal((CResource *)this, this[12]);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(this + 13);
+  v2 = this[8];
   if ( v2 )
   {
-    std::_Deallocate<16,0>(v2, (this[11] - v2) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(v2, (this[10] - v2) & 0xFFFFFFFFFFFFFFF8uLL);
+    this[8] = 0LL;
     this[9] = 0LL;
     this[10] = 0LL;
-    this[11] = 0LL;
   }
   CResource::~CResource((CResource *)this);
 }

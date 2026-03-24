@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaInvalidateRemappingTableEntry @ 0x140530660
+ * XREFs of HsaInvalidateRemappingTableEntry @ 0x1404E3C30
  * Callers:
  *     <none>
  * Callees:
- *     HsaInvalidateRemappingTableEntries @ 0x1405305E4 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x1404E3BBC (HsaInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall HsaInvalidateRemappingTableEntry(__int64 a1, __int64 a2)

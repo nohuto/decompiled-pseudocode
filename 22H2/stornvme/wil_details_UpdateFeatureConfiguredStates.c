@@ -1,16 +1,16 @@
 /*
- * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C003424C
+ * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C002923C
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0034230 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0029220 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003750 (__security_check_cookie.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0004550 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0034008 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0007C8C (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0029008 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
  */
 
 volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
 {
-  int **i; // rcx
+  _QWORD *i; // rcx
   __int64 v1; // rcx
   int v2; // eax
   volatile signed __int32 **result; // rax
@@ -20,7 +20,7 @@ volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
   __int64 v7; // [rsp+30h] [rbp-28h] BYREF
   int v8; // [rsp+38h] [rbp-20h]
 
-  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v4 + 7) )
+  for ( i = wil_details_featureDescriptors_a; ; i = v4 + 5 )
   {
     result = (volatile signed __int32 **)wil_details_FeatureDescriptors_SkipPadding(i);
     v4 = result;
@@ -32,12 +32,7 @@ volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
       v6 = 0LL;
       v7 = 0LL;
       v8 = 0;
-      v2 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, __int64 *, __int64))RtlQueryFeatureConfiguration)(
-             v1,
-             1LL,
-             &v6,
-             &v7,
-             v5);
+      v2 = RtlQueryFeatureConfiguration(v1, 1LL, &v6, &v7);
       v5 = 0LL;
       wil_details_BuildFeatureStateCacheFromQueryResults(v2, (__int64)&v7, &v5);
       _InterlockedXor(*v4, ((unsigned __int16)v5 ^ (unsigned __int16)**v4) & 0xF80);

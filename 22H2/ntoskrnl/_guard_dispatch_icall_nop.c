@@ -1,16 +1,10 @@
 /*
- * XREFs of _guard_dispatch_icall_nop @ 0x140419E90
+ * XREFs of _guard_dispatch_icall_nop @ 0x1403F9200
  * Callers:
- *     SymCryptParallelHashProcess @ 0x1403F5EC0 (SymCryptParallelHashProcess.c)
- *     SymCryptParallelHashProcess_serial @ 0x1403F6180 (SymCryptParallelHashProcess_serial.c)
- *     SymCryptParallelHashSetNextWork @ 0x1403F6308 (SymCryptParallelHashSetNextWork.c)
- *     SymCryptHashAppendInternal @ 0x140402868 (SymCryptHashAppendInternal.c)
- *     SymCryptHashCommonPaddingMd4Style @ 0x140402958 (SymCryptHashCommonPaddingMd4Style.c)
- *     SymCryptFdefIntToModElement @ 0x140403804 (SymCryptFdefIntToModElement.c)
- *     SymCryptFdefIntToModulus @ 0x14040388C (SymCryptFdefIntToModulus.c)
- *     SymCryptFdefModElementGetValue @ 0x140403B88 (SymCryptFdefModElementGetValue.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x140419EB0 (_guard_xfg_dispatch_icall_nop.c)
- *     KeGuardDispatchICall @ 0x140B147A0 (KeGuardDispatchICall.c)
+ *     SymCryptParallelHashProcess @ 0x1403EEF4C (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x1403EF1FC (SymCryptParallelHashProcess_serial.c)
+ *     SymCryptParallelHashSetNextWork @ 0x1403EF3B4 (SymCryptParallelHashSetNextWork.c)
+ *     KeGuardDispatchICall @ 0x140A11330 (KeGuardDispatchICall.c)
  * Callees:
  *     <none>
  */

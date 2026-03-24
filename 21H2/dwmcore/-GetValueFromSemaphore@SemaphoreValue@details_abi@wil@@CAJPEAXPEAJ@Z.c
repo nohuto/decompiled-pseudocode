@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z @ 0x180027E8C
+ * XREFs of ?GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z @ 0x1800E652C
  * Callers:
- *     ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x180027A00 (-TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z.c)
+ *     ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x1800B2420 (-TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180178750 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18014E76C (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall wil::details_abi::SemaphoreValue::GetValueFromSemaphore(HANDLE hHandle, int *a2)
@@ -14,9 +14,10 @@ __int64 __fastcall wil::details_abi::SemaphoreValue::GetValueFromSemaphore(HANDL
   __int64 v7; // rdx
   __int64 v8; // rdx
   DWORD v9; // eax
+  int v10; // [rsp+20h] [rbp-8h]
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
   int PreviousCount; // [rsp+40h] [rbp+18h] BYREF
-  int v12; // [rsp+48h] [rbp+20h] BYREF
+  int v13; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = WaitForSingleObject(hHandle, 0);
   if ( v4 == -1 )
@@ -32,10 +33,10 @@ __int64 __fastcall wil::details_abi::SemaphoreValue::GetValueFromSemaphore(HANDL
   PreviousCount = 0;
   if ( v4 )
   {
-    v12 = 0;
-    if ( ReleaseSemaphore(hHandle, 1, &v12) )
+    v13 = 0;
+    if ( ReleaseSemaphore(hHandle, 1, &v13) )
     {
-      if ( v12 )
+      if ( v13 )
       {
         v7 = 174LL;
         goto LABEL_25;
@@ -75,6 +76,6 @@ LABEL_7:
     goto LABEL_7;
   v7 = 163LL;
 LABEL_25:
-  wil::details::in1diag3::Return_Hr(retaddr, (void *)v7, (int)"wil", (const char *)0x8000FFFFLL);
+  wil::details::in1diag3::Return_Hr(retaddr, (void *)v7, (unsigned int)"wil", (const char *)0x8000FFFFLL, v10);
   return 2147549183LL;
 }

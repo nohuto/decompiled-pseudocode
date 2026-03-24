@@ -1,8 +1,8 @@
 /*
- * XREFs of PopWakeSourceSize @ 0x14086BB9C
+ * XREFs of PopWakeSourceSize @ 0x14086BB7C
  * Callers:
- *     PopGetWakeSource @ 0x1406E1004 (PopGetWakeSource.c)
- *     PopCopyWakeSource @ 0x14086B6BC (PopCopyWakeSource.c)
+ *     PopGetWakeSource @ 0x1406E0FE4 (PopGetWakeSource.c)
+ *     PopCopyWakeSource @ 0x14086B69C (PopCopyWakeSource.c)
  * Callees:
  *     <none>
  */

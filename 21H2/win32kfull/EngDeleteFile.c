@@ -1,5 +1,5 @@
 /*
- * XREFs of EngDeleteFile @ 0x1C027B3F0
+ * XREFs of EngDeleteFile @ 0x1C027D880
  * Callers:
  *     <none>
  * Callees:
@@ -8,15 +8,15 @@
 
 BOOL __stdcall EngDeleteFile(LPWSTR pwszFileName)
 {
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  struct _UNICODE_STRING v2; // [rsp+20h] [rbp-48h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, pwszFileName);
+  v2 = 0LL;
+  RtlInitUnicodeString(&v2, pwszFileName);
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.ObjectName = &v2;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 64;

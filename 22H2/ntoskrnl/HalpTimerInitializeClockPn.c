@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpTimerInitializeClockPn @ 0x14037D70C
+ * XREFs of HalpTimerInitializeClockPn @ 0x1403AFBA0
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D8C0 (HalpInterruptSetIdtEntry.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A1FAC (HalpInterruptSetIdtEntry.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpTimerInitializeClockPn(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall HalpTimerInitializeClockPn(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v4; // r9d
+  __int64 v4; // r9
   __int64 v5; // rbx
   __int64 result; // rax
   __int64 InternalData; // rax
   __int64 v8; // rbx
   __int64 v9; // rax
 
-  HalpInterruptSetIdtEntry(210, (unsigned int)HalpTimerClockIpiRoutine, 13, a4, -3LL);
+  HalpInterruptSetIdtEntry(0xD2u, (int)HalpTimerClockIpiRoutine, 13, a4, -3LL);
   v5 = HalpClockTimer;
   result = *(unsigned int *)(HalpClockTimer + 224);
   if ( (result & 1) != 0 )
   {
-    result = HalpInterruptSetIdtEntry(209, (unsigned int)HalpTimerClockInterrupt, 13, v4, -3LL);
+    result = HalpInterruptSetIdtEntry(0xD1u, (int)HalpTimerClockInterrupt, 13, v4, -3LL);
     if ( (*(_DWORD *)(v5 + 224) & 0x800) != 0 )
     {
       InternalData = HalpTimerGetInternalData(v5);
@@ -35,7 +35,7 @@ __int64 __fastcall HalpTimerInitializeClockPn(__int64 a1, __int64 a2, __int64 a3
     result = *(unsigned int *)(HalpAlwaysOnTimer + 224);
     if ( (result & 1) != 0 )
     {
-      result = HalpInterruptSetIdtEntry(211, (unsigned int)HalpTimerAlwaysOnClockInterrupt, 13, v4, -3LL);
+      result = HalpInterruptSetIdtEntry(0xD3u, (int)HalpTimerAlwaysOnClockInterrupt, 13, v4, -3LL);
       if ( (*(_DWORD *)(v8 + 224) & 0x800) != 0 )
       {
         v9 = HalpTimerGetInternalData(v8);

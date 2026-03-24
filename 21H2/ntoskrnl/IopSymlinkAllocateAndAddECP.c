@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSymlinkAllocateAndAddECP @ 0x1406B9EA8
+ * XREFs of IopSymlinkAllocateAndAddECP @ 0x14069E77C
  * Callers:
- *     IopSymlinkUpdateECP @ 0x1406B9A14 (IopSymlinkUpdateECP.c)
- *     IopSymlinkCreateECP @ 0x1406B9CBC (IopSymlinkCreateECP.c)
- *     IopGraftName @ 0x1406B9FD4 (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x14069E24C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkCreateECP @ 0x14069E570 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
  * Callees:
- *     IoClearIrpExtraCreateParameter @ 0x140557450 (IoClearIrpExtraCreateParameter.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x14066EEA0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14066EF20 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlInsertExtraCreateParameter @ 0x14066F340 (FsRtlInsertExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameterList @ 0x14066F3B0 (FsRtlAllocateExtraCreateParameterList.c)
- *     IoGetIrpExtraCreateParameter @ 0x14069B6E0 (IoGetIrpExtraCreateParameter.c)
- *     IoSetIrpExtraCreateParameter @ 0x1406BA6F0 (IoSetIrpExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14071E5C0 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     IoClearIrpExtraCreateParameter @ 0x140505990 (IoClearIrpExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14060C920 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x14060CE80 (FsRtlInsertExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterList @ 0x14060CEF0 (FsRtlAllocateExtraCreateParameterList.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140683F20 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140684300 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     IoSetIrpExtraCreateParameter @ 0x14068ACF0 (IoSetIrpExtraCreateParameter.c)
  */
 
 __int64 __fastcall IopSymlinkAllocateAndAddECP(PIRP Irp, PVOID *EcpContext, unsigned __int16 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall IopSymlinkAllocateAndAddECP(PIRP Irp, PVOID *EcpContext, unsi
                                  &IopSymlinkECPGuid,
                                  v4 + 32,
                                  0,
-                                 (PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK)IopSymlinkCleanupECP,
+                                 IopSymlinkCleanupECP,
                                  &IopSymlinkInfoLookasideList,
                                  EcpContext);
   if ( ParameterFromLookasideList >= 0 )

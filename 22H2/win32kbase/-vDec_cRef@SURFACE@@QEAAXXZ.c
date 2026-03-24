@@ -1,28 +1,31 @@
 /*
- * XREFs of ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C003F8CC
+ * XREFs of ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C002BDF8
  * Callers:
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0150CE8 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
+ *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C00835D4 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
  * Callees:
- *     HmgDecrementShareReferenceCountEx @ 0x1C00421F0 (HmgDecrementShareReferenceCountEx.c)
- *     GreMakeBitmapNonStock @ 0x1C0060A30 (GreMakeBitmapNonStock.c)
+ *     GreMakeBitmapNonStock @ 0x1C00172A0 (GreMakeBitmapNonStock.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002F680 (HmgDecrementShareReferenceCountEx.c)
  */
 
 void __fastcall SURFACE::vDec_cRef(SURFACE *this)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rdx
+  __int16 v4; // ax
+  unsigned __int64 v5; // rcx
 
   HmgDecrementShareReferenceCountEx(this, 0LL);
   if ( (*((_DWORD *)this + 42))-- == 1 )
   {
     if ( (*(_DWORD *)this & 0x800000) != 0 )
     {
-      if ( _bittest16((const signed __int16 *)this + 51, 0xAu) )
+      v4 = *((_WORD *)this + 51);
+      if ( (v4 & 0x400) != 0 )
       {
-        v3 = *(_QWORD *)this;
-        *((_WORD *)this + 51) &= ~0x400u;
-        GreMakeBitmapNonStock(v3);
+        v5 = *(_QWORD *)this;
+        *((_WORD *)this + 51) = v4 & 0xFBFF;
+        GreMakeBitmapNonStock(v5, v2);
       }
     }
     *((_QWORD *)this + 20) = 0LL;

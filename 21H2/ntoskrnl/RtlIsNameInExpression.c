@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIsNameInExpression @ 0x140219D90
+ * XREFs of RtlIsNameInExpression @ 0x14024F7F0
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140218F84 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14064A96C (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14024F520 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C1890 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
- *     RtlpIsNameInExpressionPrivate @ 0x140219EC0 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14021A3A0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x14024F920 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlIsNameInExpression(
@@ -25,7 +25,7 @@ BOOLEAN __stdcall RtlIsNameInExpression(
   UnicodeString = 0LL;
   if ( IgnoreCase && !UpcaseTable )
   {
-    v6 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, Name);
+    v6 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &Name->Length);
     if ( v6 < 0 )
       RtlRaiseStatus((unsigned int)v6);
     Name = &UnicodeString;
@@ -33,6 +33,6 @@ BOOLEAN __stdcall RtlIsNameInExpression(
   }
   IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(v5, (_DWORD)Name, IgnoreCase, 0, (__int64)UpcaseTable);
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   return IsNameInExpressionPrivate;
 }

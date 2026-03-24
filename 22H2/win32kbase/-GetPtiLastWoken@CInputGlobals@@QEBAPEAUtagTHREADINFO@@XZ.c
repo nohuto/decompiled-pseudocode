@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C009E0F0
+ * XREFs of ?GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C0087DA0
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
  *     <none>
  */

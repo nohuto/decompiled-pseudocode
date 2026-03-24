@@ -1,20 +1,20 @@
 /*
- * XREFs of NtQueueApcThreadEx @ 0x1406A1EE0
+ * XREFs of NtQueueApcThreadEx @ 0x1405D6B00
  * Callers:
  *     <none>
  * Callees:
- *     NtQueueApcThreadEx2 @ 0x1406A1F70 (NtQueueApcThreadEx2.c)
+ *     NtQueueApcThreadEx2 @ 0x1405CF9B0 (NtQueueApcThreadEx2.c)
  */
 
-__int64 __fastcall NtQueueApcThreadEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  __int64 v6; // r10
-  __int64 v8; // r8
+  void *v6; // r10
+  int v8; // r8d
 
   v6 = 0LL;
-  v8 = 0LL;
-  if ( a2 != 1 )
+  v8 = 0;
+  if ( a2 != (void *)1 )
     v6 = a2;
-  LOBYTE(v8) = a2 == 1;
+  LOBYTE(v8) = a2 == (void *)1;
   return NtQueueApcThreadEx2(a1, v6, v8, a3, a4, a5, a6);
 }

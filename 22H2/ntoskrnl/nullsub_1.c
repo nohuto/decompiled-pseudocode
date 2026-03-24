@@ -1,7 +1,7 @@
 /*
- * XREFs of nullsub_1 @ 0x140434DD4
+ * XREFs of nullsub_1 @ 0x140413254
  * Callers:
- *     KiFlushBhbDuringTrapEntryOrExitPreAlderLake @ 0x140434D40 (KiFlushBhbDuringTrapEntryOrExitPreAlderLake.c)
+ *     KiFlushBhbDuringTrapEntryOrExitPreAlderLake @ 0x1404131C0 (KiFlushBhbDuringTrapEntryOrExitPreAlderLake.c)
  * Callees:
  *     <none>
  */

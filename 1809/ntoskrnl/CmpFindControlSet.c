@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpFindControlSet @ 0x14073D2DC
+ * XREFs of CmpFindControlSet @ 0x14073D2BC
  * Callers:
  *     CmpAcquireSystemDriverHiveContext @ 0x1409CCEA8 (CmpAcquireSystemDriverHiveContext.c)
  *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D11C (CmpFindSubKeyByNameWithStatus.c)
- *     CmpValueToData @ 0x14073D8A8 (CmpValueToData.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, __int64 a2, int a3, _BYTE *a4)

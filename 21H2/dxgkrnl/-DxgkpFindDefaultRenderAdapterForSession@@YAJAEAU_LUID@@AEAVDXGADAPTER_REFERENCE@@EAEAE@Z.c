@@ -1,57 +1,79 @@
 /*
- * XREFs of ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C01F2964
+ * XREFs of ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C0178B68
  * Callers:
- *     DxgkGetAdapter @ 0x1C01F2740 (DxgkGetAdapter.c)
- *     ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C0222D62 (-DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z.c)
+ *     DxgkGetAdapter @ 0x1C0178970 (DxgkGetAdapter.c)
+ *     ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C0221720 (-DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C000EF68 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000F538 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?IsCurrentConsoleSession@@YAEXZ @ 0x1C0043CBC (-IsCurrentConsoleSession@@YAEXZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C01985C4 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C00068E0 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000A914 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?IsCurrentConsoleSession@@YAEXZ @ 0x1C0037830 (-IsCurrentConsoleSession@@YAEXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C0133D8C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
  */
 
-__int64 __fastcall DxgkpFindDefaultRenderAdapterForSession(struct _LUID *a1, DXGADAPTER **a2, __int64 a3, bool *a4)
+__int64 __fastcall DxgkpFindDefaultRenderAdapterForSession(struct _LUID *a1, DXGADAPTER **a2, char a3, bool *a4)
 {
-  char v7; // si
+  char v7; // di
   DXGPROCESS *Current; // rax
-  __int64 v9; // rcx
-  DXGSESSIONMGR *v10; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  DXGSESSIONMGR *v13; // rdi
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  struct DXGGLOBAL *v13; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  bool v18; // zf
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  struct DXGGLOBAL *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
   struct DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v16; // rdx
-  struct _LUID *v17; // [rsp+50h] [rbp-18h] BYREF
-  DXGADAPTER **v18; // [rsp+58h] [rbp-10h]
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  struct DXGADAPTER *v32; // rdx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  struct _LUID *v37; // [rsp+20h] [rbp-18h] BYREF
+  DXGADAPTER **v38; // [rsp+28h] [rbp-10h]
 
   v7 = 1;
-  if ( (_BYTE)a3 )
+  if ( a3 )
   {
-    Current = DXGPROCESS::GetCurrent((__int64)a1, (__int64)a2, a3, (__int64)a4);
+    Current = DXGPROCESS::GetCurrent((__int64)a1, (__int64)a2);
     if ( Current )
     {
       if ( DXGPROCESS::IsRemoteConnection(Current) )
       {
-        v10 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-        if ( v10
-          && (CurrentProcessSessionId = PsGetCurrentProcessSessionId(v9),
-              (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                                  v10,
-                                                  CurrentProcessSessionId)) != 0LL) )
+        v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v10, v9) + 102);
+        if ( v13 )
         {
-          v7 = *((_BYTE *)SessionDataForSpecifiedSession + 18505);
+          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12, v11);
+          SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                             v13,
+                                             CurrentProcessSessionId);
         }
         else
         {
-          v7 = 0;
+          SessionDataForSpecifiedSession = 0LL;
         }
+        if ( SessionDataForSpecifiedSession )
+          v7 = *((_BYTE *)SessionDataForSpecifiedSession + 18496);
+        else
+          v7 = 0;
       }
     }
   }
@@ -59,57 +81,55 @@ __int64 __fastcall DxgkpFindDefaultRenderAdapterForSession(struct _LUID *a1, DXG
   *a4 = v7 == 0;
   if ( v7 )
   {
-    v17 = a1;
-    v18 = a2;
-    if ( a1->LowPart || a1->HighPart )
+    v18 = a1->LowPart == 0;
+    v37 = a1;
+    v38 = a2;
+    if ( !v18 || a1->HighPart )
     {
-      Global = DXGGLOBAL_GetGlobal();
+      Global = DXGGLOBAL::GetGlobal(v17, v16);
       DXGGLOBAL::IterateAdaptersWithCallback(
         (__int64)Global,
         (__int64 (__fastcall *)(_QWORD *, __int64))FindHWRenderAdapterByLuid,
-        (__int64)&v17,
-        2LL);
+        (__int64)&v37,
+        2);
     }
     if ( *a2 )
       return 0LL;
-    WdLogSingleEntry2(4LL, a1->HighPart, a1->LowPart);
-    v13 = DXGGLOBAL_GetGlobal();
+    v19 = WdLogNewEntry5_WdEvent(v17, v16);
+    *(_QWORD *)(v19 + 24) = a1->HighPart;
+    *(_QWORD *)(v19 + 32) = a1->LowPart;
+    WdLogEvent5_WdEvent(v19);
+    v22 = DXGGLOBAL::GetGlobal(v21, v20);
     DXGGLOBAL::IterateAdaptersWithCallback(
-      (__int64)v13,
+      (__int64)v22,
       (__int64 (__fastcall *)(_QWORD *, __int64))FindFirstHWRenderAdapter,
-      (__int64)&v17,
-      2LL);
+      (__int64)&v37,
+      2);
     if ( *a2 )
       return 0LL;
-    WdLogSingleEntry1(4LL, 4486LL);
+    v27 = WdLogNewEntry5_WdEvent(v24, v23);
+    *(_QWORD *)(v27 + 24) = 4127LL;
+    WdLogEvent5_WdEvent(v27);
   }
   if ( *a2 )
     return 0LL;
-  DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)&v17);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v17);
-  if ( IsCurrentConsoleSession() )
-    v16 = (struct DXGADAPTER *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 125);
+  DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)&v37, v16);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v37);
+  if ( IsCurrentConsoleSession(v29, v28) )
+    v32 = (struct DXGADAPTER *)*((_QWORD *)DXGGLOBAL::GetGlobal(v31, v30) + 105);
   else
-    v16 = (struct DXGADAPTER *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 123);
-  DXGADAPTER_REFERENCE::Assign(a2, v16);
+    v32 = (struct DXGADAPTER *)*((_QWORD *)DXGGLOBAL::GetGlobal(v31, v30) + 103);
+  DXGADAPTER_REFERENCE::Assign(a2, v32);
   if ( *a2 )
   {
-    if ( (_BYTE)v18 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v17);
+    if ( (_BYTE)v38 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v37, v33);
     return 0LL;
   }
-  WdLogSingleEntry1(2LL, -1073741275LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"DxgkGetAdapter(): BRD WARP is not available, returning 0x%I64x.",
-    -1073741275LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  if ( (_BYTE)v18 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v17);
+  v35 = WdLogNewEntry5_WdError(v34, v33);
+  *(_QWORD *)(v35 + 24) = -1073741275LL;
+  WdLogEvent5_WdError(v35);
+  if ( (_BYTE)v38 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v37, v36);
   return 3221226021LL;
 }

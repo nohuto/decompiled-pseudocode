@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_DP_AUX_V2__private_ReportDeviceUsage @ 0x1C0025C38
+ * XREFs of Feature_DP_AUX_V2__private_ReportDeviceUsage @ 0x1C0028388
  * Callers:
- *     NtDxgkDisplayPortOperation @ 0x1C004B890 (NtDxgkDisplayPortOperation.c)
+ *     NtDxgkDisplayPortOperation @ 0x1C004FF00 (NtDxgkDisplayPortOperation.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_DP_AUX_V2__private_ReportDeviceUsage()

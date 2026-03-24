@@ -5,9 +5,9 @@
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     McTemplateK0d @ 0x14028AB80 (McTemplateK0d.c)
- *     McTemplateK0jzt @ 0x14028AC90 (McTemplateK0jzt.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McTemplateK0d @ 0x14028AC80 (McTemplateK0d.c)
+ *     McTemplateK0jzt @ 0x14028AD90 (McTemplateK0jzt.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)

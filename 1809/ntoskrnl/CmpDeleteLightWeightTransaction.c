@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpDeleteLightWeightTransaction @ 0x1406D00E0
+ * XREFs of CmpDeleteLightWeightTransaction @ 0x1406D00C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,71 +1,65 @@
 /*
- * XREFs of SmcProcessListRequest @ 0x140842ED4
+ * XREFs of SmcProcessListRequest @ 0x1407C81E8
  * Callers:
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmcProcessListRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
+__int64 __fastcall SmcProcessListRequest(__int64 a1, unsigned __int64 a2, int a3, _DWORD *a4, char a5)
 {
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r9
-  int v11; // r11d
-  unsigned int v12; // r8d
-  unsigned int v13; // r10d
-  _OWORD v15[5]; // [rsp+20h] [rbp-78h] BYREF
+  unsigned int v9; // edx
+  __int64 v10; // rcx
+  unsigned int v11; // r8d
+  unsigned int i; // r9d
+  _OWORD v14[5]; // [rsp+20h] [rbp-78h] BYREF
 
-  memset(v15, 0, 0x44uLL);
-  if ( a2 == 68 )
+  memset(v14, 0, 0x44uLL);
+  if ( a3 == 68 )
   {
-    if ( a4 )
+    v9 = 0;
+    if ( a5 )
     {
-      if ( (a1 & 3) != 0 )
+      if ( (a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v8 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v8 = a1;
-      *(_BYTE *)v8 = *(_BYTE *)v8;
-      *(_BYTE *)(v8 + 67) = *(_BYTE *)(v8 + 67);
+      v10 = a2;
+      if ( a2 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v10 = *(_BYTE *)v10;
+      *(_BYTE *)(v10 + 67) = *(_BYTE *)(v10 + 67);
     }
-    v15[0] = *(_OWORD *)a1;
-    v15[1] = *(_OWORD *)(a1 + 16);
-    v15[2] = *(_OWORD *)(a1 + 32);
-    v15[3] = *(_OWORD *)(a1 + 48);
-    LODWORD(v15[4]) = *(_DWORD *)(a1 + 64);
-    if ( LOBYTE(v15[0]) != 1 || (v15[0] & 0xFF00) != 0 || (v15[0] & 0xFFFF0000) != 0 )
+    v14[0] = *(_OWORD *)a2;
+    v14[1] = *(_OWORD *)(a2 + 16);
+    v14[2] = *(_OWORD *)(a2 + 32);
+    v14[3] = *(_OWORD *)(a2 + 48);
+    LODWORD(v14[4]) = *(_DWORD *)(a2 + 64);
+    if ( LOBYTE(v14[0]) != 1 || (v14[0] & 0xFF00) != 0 || (v14[0] & 0xFFFF0000) != 0 )
     {
-      LODWORD(v9) = -1073741811;
+      return (unsigned int)-1073741811;
     }
     else
     {
-      v10 = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process) + 2128;
-      v12 = v9;
-      v13 = v9;
-      do
+      v11 = 0;
+      for ( i = 0; i < 0x10; ++i )
       {
-        if ( *(_QWORD *)v10 != v9 )
-          *((_DWORD *)v15 + ++v12) = v13 | (16 * (*(_DWORD *)(v10 + 24) & 0xFFF));
-        ++v13;
-        v10 += 32LL;
+        if ( *(_QWORD *)a1 )
+          *((_DWORD *)v14 + ++v11) = i | (16 * (*(_DWORD *)(a1 + 24) & 0xFFF));
+        a1 += 32LL;
       }
-      while ( v13 < 0x10 );
-      LODWORD(v15[0]) ^= v11 & (LODWORD(v15[0]) ^ (v12 << 8));
-      *(_OWORD *)a1 = v15[0];
-      *(_OWORD *)(a1 + 16) = v15[1];
-      *(_OWORD *)(a1 + 32) = v15[2];
-      *(_OWORD *)(a1 + 48) = v15[3];
-      *(_DWORD *)(a1 + 64) = v15[4];
-      *a3 = 68;
+      LODWORD(v14[0]) ^= (LODWORD(v14[0]) ^ (v11 << 8)) & 0xFF00;
+      *(_OWORD *)a2 = v14[0];
+      *(_OWORD *)(a2 + 16) = v14[1];
+      *(_OWORD *)(a2 + 32) = v14[2];
+      *(_OWORD *)(a2 + 48) = v14[3];
+      *(_DWORD *)(a2 + 64) = v14[4];
+      *a4 = 68;
     }
   }
   else
   {
-    LODWORD(v9) = -1073741306;
+    return (unsigned int)-1073741306;
   }
-  return (unsigned int)v9;
+  return v9;
 }

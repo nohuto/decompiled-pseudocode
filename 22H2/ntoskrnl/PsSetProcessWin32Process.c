@@ -1,44 +1,44 @@
 /*
- * XREFs of PsSetProcessWin32Process @ 0x1407D42A0
+ * XREFs of PsSetProcessWin32Process @ 0x14068C460
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetProcessWin32Process(_QWORD *Object, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  volatile signed __int64 *v4; // rbp
-  unsigned int v8; // edi
-  __int64 Pool2; // rax
+  unsigned int v4; // edi
+  volatile signed __int64 *v8; // rbp
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   struct _WORK_QUEUE_ITEM *v11; // r14
 
   CurrentThread = KeGetCurrentThread();
-  v4 = Object + 135;
+  v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v8 = 0;
+  v8 = Object + 135;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object + 135), 0LL);
   if ( a2 )
   {
     if ( (*((_DWORD *)Object + 281) & 8) != 0 || Object[161] )
     {
-      v8 = -1073741558;
+      v4 = -1073741558;
     }
     else
     {
       Object[161] = a2;
       if ( ((Object[302] | (Object[302] >> 30)) & 0x3FFFFFFFLL) != 0 )
       {
-        Pool2 = ExAllocatePool2(256LL, 40LL, 1698982228LL);
-        v11 = (struct _WORK_QUEUE_ITEM *)Pool2;
-        if ( Pool2 )
+        PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x65446954u);
+        v11 = PoolWithTag;
+        if ( PoolWithTag )
         {
           ObfReferenceObjectWithTag(Object, 0x624A7350u);
           v11[1].List.Flink = (struct _LIST_ENTRY *)Object;
@@ -56,11 +56,11 @@ __int64 __fastcall PsSetProcessWin32Process(_QWORD *Object, __int64 a2, __int64 
   }
   else
   {
-    v8 = -1073741823;
+    v4 = -1073741823;
   }
-  if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v4);
-  KeAbPostRelease((ULONG_PTR)v4);
+  if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v8);
+  KeAbPostRelease((ULONG_PTR)v8);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v8;
+  return v4;
 }

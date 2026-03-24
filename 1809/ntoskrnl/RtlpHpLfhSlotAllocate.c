@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSlotAllocate @ 0x1400BAE80
+ * XREFs of RtlpHpLfhSlotAllocate @ 0x1400BAEA0
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
- *     RtlpHpLfhBucketAllocate @ 0x1402FD0F4 (RtlpHpLfhBucketAllocate.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhBucketAllocate @ 0x1402FD1F4 (RtlpHpLfhBucketAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -20,19 +20,19 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC480 (RtlpHpAcquireLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x14010E110 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x14010E420 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E700 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C440 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD218 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14010E130 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x14010E440 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E720 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall RtlpHpLfhSlotAllocate(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -410,8 +410,8 @@ LABEL_217:
         v64 = 2 * (*(unsigned __int16 *)(v63 + 34) + (unsigned __int64)*(unsigned __int8 *)(v63 + 39));
         v65 = RtlpSearchWidth[*(unsigned __int8 *)(a3 + 1)];
         v163 = (unsigned int)v63 >> 12;
-        v66 = (unsigned __int16)(qword_14040E0A8 ^ *(_WORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12));
-        v162 = qword_14040E0A8 ^ *(_DWORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12);
+        v66 = (unsigned __int16)(qword_14040E088 ^ *(_WORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12));
+        v162 = qword_14040E088 ^ *(_DWORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12);
         v67 = 3LL;
         if ( a4 >= v66 )
           v67 = 1LL;
@@ -599,7 +599,7 @@ LABEL_321:
         if ( a4 < v66 )
         {
           v134 = v66 - a4;
-          v135 = (unsigned __int16)qword_14040E0A8 ^ *(unsigned __int16 *)(v63 + 40) ^ (unsigned __int64)(unsigned __int16)v163;
+          v135 = (unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(v63 + 40) ^ (unsigned __int64)(unsigned __int16)v163;
           if ( v134 == 1 )
             v136 = 0x8000;
           else
@@ -1017,7 +1017,7 @@ LABEL_160:
   v39 = RtlpSearchWidth[v36];
   LODWORD(v36) = ((unsigned int)v12 >> 12) ^ *(_DWORD *)(v12 + 40);
   v162 = (unsigned int)v12 >> 12;
-  LODWORD(v36) = qword_14040E0A8 ^ v36;
+  LODWORD(v36) = qword_14040E088 ^ v36;
   v40 = (unsigned __int16)v36;
   v41 = a4 < (unsigned __int16)v36;
   v163 = v36;
@@ -1110,7 +1110,7 @@ LABEL_62:
         v151 = 0x8000;
       else
         v151 = v150 & 0x3FFF;
-      *(_WORD *)(((unsigned __int16)qword_14040E0A8 ^ *(unsigned __int16 *)(v12 + 40) ^ (unsigned __int64)(unsigned __int16)v162)
+      *(_WORD *)(((unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(v12 + 40) ^ (unsigned __int64)(unsigned __int16)v162)
                + v61
                - 2) = v151;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CAXXZ @ 0x1802949C0
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CAXXZ @ 0x180252580
  * Callers:
  *     <none>
  * Callees:
- *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x18017BE50 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
+ *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x180222070 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
  */
 
 void _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_(void)

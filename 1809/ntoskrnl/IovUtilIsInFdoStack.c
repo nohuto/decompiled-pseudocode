@@ -4,7 +4,7 @@
  *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  *     IovUtilIsDeviceObjectMarked @ 0x1409355A0 (IovUtilIsDeviceObjectMarked.c)
  */
 

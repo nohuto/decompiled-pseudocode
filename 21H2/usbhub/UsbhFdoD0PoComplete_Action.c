@@ -1,50 +1,49 @@
 /*
- * XREFs of UsbhFdoD0PoComplete_Action @ 0x1C0006D20
+ * XREFs of UsbhFdoD0PoComplete_Action @ 0x1C000E620
  * Callers:
  *     <none>
  * Callees:
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     UsbhAllocWorkItem @ 0x1C0003C40 (UsbhAllocWorkItem.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubPowerEvent @ 0x1C000C730 (UsbhEtwLogHubPowerEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
- *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003BE4C (UsbhPoStartNextPowerIrp_Fdo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubPowerEvent @ 0x1C0012210 (UsbhEtwLogHubPowerEvent.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhAllocWorkItem @ 0x1C0017C80 (UsbhAllocWorkItem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003D17C (UsbhPoStartNextPowerIrp_Fdo.c)
  */
 
 void __fastcall UsbhFdoD0PoComplete_Action(
-        _LIST_ENTRY *DeviceObject,
+        PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,
         POWER_STATE PowerState,
-        _LIST_ENTRY *Context,
+        _QWORD *Context,
         PIO_STATUS_BLOCK IoStatus)
 {
   __int64 v8; // r15
-  __int64 Blink; // r14
+  __int64 v9; // r14
   int Status; // r12d
   char v11; // r13
   __int64 v12; // rsi
   KIRQL v13; // al
   int v14; // ecx
-  int v15; // ecx
-  int v16; // esi
-  __int64 v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // rsi
-  KIRQL v20; // dl
-  unsigned __int8 v21; // si
-  int v22; // r9d
-  struct _LIST_ENTRY *v23; // rax
-  __int64 v24; // rsi
-  void (__fastcall *v25)(_LIST_ENTRY *, __int64, void *, _QWORD, __int64, int); // rax
-  int v26; // esi
-  int v27; // [rsp+28h] [rbp-50h]
+  int v15; // esi
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rsi
+  KIRQL v19; // dl
+  char v20; // si
+  int v21; // r9d
+  __int64 v22; // rax
+  __int64 v23; // rsi
+  void (__fastcall *v24)(PDEVICE_OBJECT, __int64, void *, _QWORD, __int64, int); // rax
+  int v25; // esi
+  int v26; // [rsp+28h] [rbp-50h]
   IRP *Irp; // [rsp+40h] [rbp-38h]
-  __int64 v29; // [rsp+98h] [rbp+20h]
-  unsigned __int8 IoStatusa; // [rsp+A0h] [rbp+28h]
+  __int64 v28; // [rsp+98h] [rbp+20h]
+  char IoStatusa; // [rsp+A0h] [rbp+28h]
 
   v8 = FdoExt(DeviceObject);
   Log((_DWORD)DeviceObject, 16, 1680896111, (_DWORD)Context, IoStatus->Status);
@@ -55,45 +54,48 @@ void __fastcall UsbhFdoD0PoComplete_Action(
       1,
       17,
       (__int64)&WPP_fe7d9686e7a73592f5b78ddce8c5363a_Traceguids);
-  Blink = (__int64)Context[4].Blink;
+  v9 = Context[9];
   Status = IoStatus->Status;
-  Irp = (IRP *)Context[3].Blink;
+  Irp = (IRP *)Context[7];
   v11 = 0;
-  Log((_DWORD)DeviceObject, 16, 1685090097, (_DWORD)Context, Blink);
+  Log((_DWORD)DeviceObject, 16, 1685090097, (_DWORD)Context, v9);
   v12 = FdoExt(DeviceObject);
   v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v12 + 5056));
   v14 = *(_DWORD *)(v12 + 4172);
   *(_BYTE *)(v12 + 5064) = v13;
-  *(_DWORD *)(Blink + 40) = v14;
-  *(_DWORD *)(Blink + 44) = 110;
-  *(_DWORD *)(Blink + 32) = 844055622;
-  *(_DWORD *)(Blink + 36) = 829436004;
-  *(_QWORD *)(Blink + 24) = KeGetCurrentThread();
-  v15 = (int)DeviceObject;
-  *(_QWORD *)(v12 + 1344) = Blink;
+  *(_DWORD *)(v9 + 40) = v14;
+  *(_DWORD *)(v9 + 44) = 110;
+  *(_DWORD *)(v9 + 32) = 844055622;
+  *(_DWORD *)(v9 + 36) = 829436004;
+  *(_QWORD *)(v9 + 24) = KeGetCurrentThread();
+  *(_QWORD *)(v12 + 1344) = v9;
   *(_QWORD *)(v8 + 5088) = MEMORY[0xFFFFF78000000014];
-  if ( (Status & 0xC0000000) != 0xC0000000 )
+  if ( (Status & 0xC0000000) == 0xC0000000 )
   {
-    v16 = *(_DWORD *)(FdoExt(DeviceObject) + 4212);
-    v17 = FdoExt(DeviceObject);
-    v18 = ((unsigned __int8)*(_DWORD *)(v17 + 828) + 1) & 7;
-    *(_DWORD *)(v17 + 828) = v18;
-    v18 *= 32LL;
-    *(_DWORD *)(v18 + v17 + 284) = 110;
-    *(_DWORD *)(v18 + v17 + 288) = *(_DWORD *)(v17 + 4172);
-    *(_DWORD *)(v18 + v17 + 292) = 210;
-    *(_DWORD *)(v18 + v17 + 296) = v16;
-    *(_DWORD *)(v17 + 4172) = 210;
+    UsbhFdoPower_PowerFailureEntry((_DWORD)DeviceObject);
+  }
+  else
+  {
+    v15 = *(_DWORD *)(FdoExt(DeviceObject) + 4212);
+    v16 = FdoExt(DeviceObject);
+    v17 = ((unsigned __int8)*(_DWORD *)(v16 + 828) + 1) & 7;
+    *(_DWORD *)(v16 + 828) = v17;
+    v17 *= 32LL;
+    *(_DWORD *)(v17 + v16 + 284) = 110;
+    *(_DWORD *)(v17 + v16 + 288) = *(_DWORD *)(v16 + 4172);
+    *(_DWORD *)(v17 + v16 + 292) = 210;
+    *(_DWORD *)(v17 + v16 + 296) = v15;
+    *(_DWORD *)(v16 + 4172) = 210;
     *(_DWORD *)(FdoExt(DeviceObject) + 4208) = 1;
-    v19 = FdoExt(DeviceObject);
-    FdoExt(*(_QWORD *)(Blink + 8));
-    *(_DWORD *)(Blink + 32) = 1734964085;
-    v20 = *(_BYTE *)(v19 + 5064);
-    *(_QWORD *)(v19 + 1344) = 0LL;
-    KeReleaseSpinLock((PKSPIN_LOCK)(v19 + 5056), v20);
+    v18 = FdoExt(DeviceObject);
+    FdoExt(*(_QWORD *)(v9 + 8));
+    *(_DWORD *)(v9 + 32) = 1734964085;
+    v19 = *(_BYTE *)(v18 + 5064);
+    *(_QWORD *)(v18 + 1344) = 0LL;
+    KeReleaseSpinLock((PKSPIN_LOCK)(v18 + 5056), v19);
     Log((_DWORD)DeviceObject, 16, 1935962161, 0, (__int64)Context);
-    v21 = *(_BYTE *)(FdoExt(DeviceObject) + 5268);
-    IoStatusa = v21;
+    v20 = *(_BYTE *)(FdoExt(DeviceObject) + 5268);
+    IoStatusa = v20;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_d(
         WPP_GLOBAL_Control->DeviceExtension,
@@ -103,11 +105,11 @@ void __fastcall UsbhFdoD0PoComplete_Action(
         (__int64)&WPP_17d2bee9f04934815023b5c023c5576c_Traceguids,
         0);
     Log((_DWORD)DeviceObject, 8, 1632720717, 1769428816, (__int64)Context);
-    v23 = UsbhAllocWorkItem(DeviceObject, (_LIST_ENTRY *)UsbhFdoD0Worker_Action, Context, 0, v22, v21);
-    v24 = (__int64)v23;
-    if ( v23 )
+    v22 = UsbhAllocWorkItem((_DWORD)DeviceObject, (unsigned int)UsbhFdoD0Worker_Action, (_DWORD)Context, 0, v21, v20);
+    v23 = v22;
+    if ( v22 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)&v23->Blink);
+      _InterlockedIncrement((volatile signed __int32 *)(v22 + 8));
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         WPP_RECORDER_SF_d(
           WPP_GLOBAL_Control->DeviceExtension,
@@ -116,39 +118,43 @@ void __fastcall UsbhFdoD0PoComplete_Action(
           47,
           (__int64)&WPP_17d2bee9f04934815023b5c023c5576c_Traceguids,
           0);
-      Log((_DWORD)DeviceObject, 8, 1364479275, 1769428816, v24);
-      v29 = *(_QWORD *)(v24 + 40);
-      v25 = *(void (__fastcall **)(_LIST_ENTRY *, __int64, void *, _QWORD, __int64, int))(FdoExt(DeviceObject) + 4784);
-      if ( v25 )
+      Log((_DWORD)DeviceObject, 8, 1364479275, 1769428816, v23);
+      v28 = *(_QWORD *)(v23 + 40);
+      v24 = *(void (__fastcall **)(PDEVICE_OBJECT, __int64, void *, _QWORD, __int64, int))(FdoExt(DeviceObject) + 4784);
+      if ( v24 )
       {
-        LOBYTE(v27) = IoStatusa;
-        v25(DeviceObject, v29, &UsbhHubWorker, 0LL, v24, v27);
-        v26 = 0;
+        LOBYTE(v26) = IoStatusa;
+        v24(DeviceObject, v28, &UsbhHubWorker, 0LL, v23, v26);
+        v25 = 0;
       }
       else
       {
-        v26 = -1073741822;
-      }
-      if ( (v26 & 0xC0000000) != 0xC0000000 )
-      {
-        v11 = 1;
-        goto LABEL_16;
+        v25 = -1073741822;
       }
     }
-    *(_QWORD *)(v8 + 5096) = MEMORY[0xFFFFF78000000014];
-    UsbhAcquireFdoPwrLock((__int64)DeviceObject, Blink, 132, 846213220);
-    v15 = (int)DeviceObject;
+    else
+    {
+      v25 = -1073741670;
+    }
+    if ( (v25 & 0xC0000000) == 0xC0000000 )
+    {
+      *(_QWORD *)(v8 + 5096) = MEMORY[0xFFFFF78000000014];
+      UsbhAcquireFdoPwrLock(DeviceObject, v9, 132LL, 846213220LL);
+      UsbhFdoPower_PowerFailureEntry((_DWORD)DeviceObject);
+    }
+    else
+    {
+      v11 = 1;
+    }
   }
-  UsbhFdoPower_PowerFailureEntry(v15);
-LABEL_16:
   ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD))UsbhEtwLogHubPowerEvent)(
     DeviceObject,
     0LL,
-    &Context[7].Blink,
+    Context + 15,
     &USBHUB_ETW_EVENT_HUB_POWER_SET_D0_COMPLETE,
     (POWER_STATE)PowerState.SystemState,
     Status);
-  if ( dword_1C006A67C )
+  if ( dword_1C006C5DC )
   {
     UsbhPoStartNextPowerIrp_Fdo(DeviceObject, Irp, 2047LL);
     IofCompleteRequest(Irp, 0);

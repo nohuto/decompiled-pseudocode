@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDrvDbEnumNodes @ 0x14095BE50
+ * XREFs of PiDrvDbEnumNodes @ 0x1408B5D98
  * Callers:
- *     PpDevCfgInit @ 0x140B0ED44 (PpDevCfgInit.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14094C428 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6A98 (PiDevCfgInitDriverDatabaseCallback.c)
  */
 
 __int64 PiDrvDbEnumNodes()

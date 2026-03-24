@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerInitializeClock @ 0x1403BAF00
+ * XREFs of HalpTimerInitializeClock @ 0x1403A8454
  * Callers:
- *     HalpTimerInitializeClock @ 0x1403BAF00 (HalpTimerInitializeClock.c)
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpSetTimer @ 0x140354420 (HalpSetTimer.c)
- *     HalpTimerConfigureInterrupt @ 0x1403AEA08 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x1403AEF08 (HalpInterruptSetIdtEntry.c)
- *     HalpTimerInitializeClock @ 0x1403BAF00 (HalpTimerInitializeClock.c)
- *     HalpTimerWaitForPhase0Interrupt @ 0x1403BB040 (HalpTimerWaitForPhase0Interrupt.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalpTimerUnmapInterrupt @ 0x14050D048 (HalpTimerUnmapInterrupt.c)
+ *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
+ *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
+ *     HalpTimerWaitForPhase0Interrupt @ 0x1403A8560 (HalpTimerWaitForPhase0Interrupt.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -24,11 +24,11 @@ __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, 
 
   v4 = HalpClockTimer;
   HalpInterruptSetIdtEntry(0xD2u, (int)HalpTimerClockIpiRoutine, 13, a4, -3LL);
-  *((_QWORD *)&v8 + 1) = (unsigned __int16)(KiProcessorIndexToNumberMappingTable[0] >> 6);
+  *((_QWORD *)&v8 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
   *(_QWORD *)&v8 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
   LODWORD(result) = HalpTimerConfigureInterrupt(v4, 0xD1u, 13, v5, -3LL, 0, &v8, (__int64)HalpTimerClockInterruptStub);
   if ( (int)result < 0 )
-    goto LABEL_11;
+    goto LABEL_10;
   if ( HalpAlwaysOnTimer )
   {
     LODWORD(result) = HalpTimerConfigureInterrupt(
@@ -41,34 +41,39 @@ __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, 
                         &v8,
                         (__int64)HalpTimerAlwaysOnClockInterrupt);
     if ( (int)result < 0 )
-      goto LABEL_11;
+      goto LABEL_10;
   }
   if ( (*(_DWORD *)(v4 + 224) & 0x50) == 0 )
   {
     LODWORD(result) = -1073741637;
-    goto LABEL_11;
+    goto LABEL_10;
   }
   LODWORD(result) = HalpSetTimer(v4, 2u, 0x2625AuLL, 1, &v9);
   if ( (int)result < 0 )
-    goto LABEL_11;
+    goto LABEL_10;
   if ( (unsigned __int8)HalpTimerWaitForPhase0Interrupt(v4) )
-    return 0LL;
-  if ( (*(_DWORD *)(v4 + 184) & 0x10) != 0 && (*(_DWORD *)(v4 + 224) &= ~0x400u, (*(_DWORD *)(v4 + 224) & 0xF00) != 0) )
   {
-    HalpTimerUnmapInterrupt(v4, 209LL, 0LL, 0LL);
-    result = HalpTimerInitializeClock();
+    result = 0LL;
   }
   else
   {
-    result = 3221225473LL;
+    if ( (*(_DWORD *)(v4 + 184) & 0x10) != 0 && (*(_DWORD *)(v4 + 224) &= ~0x400u, (*(_DWORD *)(v4 + 224) & 0xF00) != 0) )
+    {
+      HalpTimerUnmapInterrupt(v4, 209LL, 0LL, 0LL);
+      result = HalpTimerInitializeClock();
+    }
+    else
+    {
+      result = 3221225473LL;
+    }
+    *(_DWORD *)(v4 + 256) = 0;
+    HalpTimerLastProblem = 25;
+    *(_DWORD *)(v4 + 252) = 25;
+    *(_QWORD *)(v4 + 264) = "minkernel\\hals\\lib\\timers\\common\\clockint.c";
+    *(_DWORD *)(v4 + 272) = 280;
   }
-  *(_DWORD *)(v4 + 256) = 0;
-  HalpTimerLastProblem = 25;
-  *(_DWORD *)(v4 + 252) = 25;
-  *(_QWORD *)(v4 + 264) = "minkernel\\hals\\lib\\timers\\common\\clockint.c";
-  *(_DWORD *)(v4 + 272) = 280;
   if ( (int)result < 0 )
-LABEL_11:
+LABEL_10:
     KeBugCheckEx(0x5Cu, 0x110uLL, v4, HalpTimerLastProblem, (int)result);
   return result;
 }

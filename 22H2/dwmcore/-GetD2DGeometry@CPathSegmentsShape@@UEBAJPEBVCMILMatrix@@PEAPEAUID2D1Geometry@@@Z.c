@@ -1,15 +1,12 @@
 /*
- * XREFs of ?GetD2DGeometry@CPathSegmentsShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D37C0
+ * XREFs of ?GetD2DGeometry@CPathSegmentsShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x18025F4F0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z @ 0x1800D39AC (-TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z.c)
- *     ?PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z @ 0x1800D458C (-PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1PathGeometry@@@Z @ 0x18027FE80 (--4-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1PathGeometry@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C915C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?GetD2DGeometry@CPathData@@QEBAJPEAUID2D1Factory@@PEAPEAUID2D1Geometry@@@Z @ 0x180220B28 (-GetD2DGeometry@CPathData@@QEBAJPEAUID2D1Factory@@PEAPEAUID2D1Geometry@@@Z.c)
+ *     ?TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z @ 0x180260318 (-TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z.c)
  */
 
 __int64 __fastcall CPathSegmentsShape::GetD2DGeometry(
@@ -17,121 +14,31 @@ __int64 __fastcall CPathSegmentsShape::GetD2DGeometry(
         const struct CMILMatrix *a2,
         struct ID2D1Geometry **a3)
 {
-  __int64 v3; // r14
-  struct ID2D1Geometry *v6; // rdi
-  int v7; // ebx
-  __int64 *v8; // r15
-  struct ID2D1Geometry *v9; // rdi
-  struct ID2D1Geometry *v10; // rcx
-  struct ID2D1Geometry *v11; // rcx
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v15; // rax
-  __int64 (__fastcall *v16)(__int64 *, struct ID2D1Geometry **); // rbx
-  int v17; // eax
-  __int64 v18; // rcx
-  struct ID2D1Geometry *v19; // rbx
-  __int64 (__fastcall *v20)(struct ID2D1Geometry *, struct ID2D1GeometrySink **); // rsi
-  int v21; // eax
-  __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  struct ID2D1Geometry *v27; // [rsp+80h] [rbp+40h] BYREF
-  struct ID2D1GeometrySink *v28; // [rsp+98h] [rbp+58h] BYREF
+  CPathData *v3; // rbx
+  struct ID2D1Factory *v6; // rdx
+  int D2DGeometry; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rcx
+  struct ID2D1Geometry *v13; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *((_QWORD *)this + 2);
-  v27 = 0LL;
-  v6 = 0LL;
-  v7 = 0;
-  v8 = *(__int64 **)(v3 + 40);
-  if ( *(_QWORD *)(v3 + 64) )
+  v3 = (CPathData *)*((_QWORD *)this + 2);
+  v13 = 0LL;
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)&v13);
+  D2DGeometry = CPathData::GetD2DGeometry(v3, v6, &v13);
+  v9 = D2DGeometry;
+  if ( D2DGeometry < 0 )
   {
-    v9 = *(struct ID2D1Geometry **)(v3 + 64);
-    if ( v27 != v9 )
-    {
-      if ( v9 )
-        (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v9 + 8LL))(*(_QWORD *)(v3 + 64));
-      v10 = v27;
-      v27 = v9;
-      if ( v10 )
-        (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v10 + 16LL))(v10);
-    }
-LABEL_7:
-    v6 = v27;
-    v27 = 0LL;
-    goto LABEL_8;
-  }
-  v15 = *v8;
-  v28 = 0LL;
-  v16 = *(__int64 (__fastcall **)(__int64 *, struct ID2D1Geometry **))(v15 + 80);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v27);
-  v17 = v16(v8, &v27);
-  v7 = v17;
-  if ( v17 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x67u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, D2DGeometry, 0x1Au, 0LL);
   }
   else
   {
-    v19 = v27;
-    v20 = *(__int64 (__fastcall **)(struct ID2D1Geometry *, struct ID2D1GeometrySink **))(*(_QWORD *)v27 + 136LL);
-    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v28);
-    v21 = v20(v19, &v28);
-    v7 = v21;
-    if ( v21 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x68u, 0LL);
-    }
-    else
-    {
-      v23 = CPathData::PushIntoSink((CPathData *)v3, v28);
-      v7 = v23;
-      if ( v23 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x6Au, 0LL);
-      }
-      else
-      {
-        v25 = (*(__int64 (__fastcall **)(struct ID2D1GeometrySink *))(*(_QWORD *)v28 + 72LL))(v28);
-        v7 = v25;
-        if ( v25 >= 0 )
-        {
-          if ( v8 == *(__int64 **)(v3 + 40) )
-          {
-            if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 64), (signed __int64)v27, 0LL) )
-              Microsoft::WRL::ComPtr<ID2D1PathGeometry>::operator=(&v27, *(_QWORD *)(v3 + 64));
-            else
-              (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(v3 + 64) + 8LL))(*(_QWORD *)(v3 + 64));
-          }
-          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v28);
-          goto LABEL_7;
-        }
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x6Cu, 0LL);
-      }
-    }
+    v10 = CTransformedGeometryHelper::TransformGeometry(a2, v13, a3);
+    v9 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1Cu, 0LL);
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v28);
-LABEL_8:
-  v11 = v27;
-  if ( v27 )
-  {
-    v27 = 0LL;
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v11 + 16LL))(v11);
-  }
-  if ( v7 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, 0LL, 0, v7, 0x1Au, 0LL);
-  }
-  else
-  {
-    v12 = CTransformedGeometryHelper::TransformGeometry(a2, v6, a3);
-    v7 = v12;
-    if ( v12 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1Cu, 0LL);
-  }
-  if ( v6 )
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v6 + 16LL))(v6);
-  return (unsigned int)v7;
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)&v13);
+  return v9;
 }

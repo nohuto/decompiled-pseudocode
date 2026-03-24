@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBlkAllocateShadowData @ 0x140B92E34
+ * XREFs of HalpBlkAllocateShadowData @ 0x140A8DEE0
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B92ECC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpBlkAllocateAndShadowMemory @ 0x140B92BDC (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140A8DC88 (HalpBlkAllocateAndShadowMemory.c)
  */
 
 __int64 HalpBlkAllocateShadowData()

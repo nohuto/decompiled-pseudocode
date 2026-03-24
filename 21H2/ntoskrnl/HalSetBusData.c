@@ -1,9 +1,9 @@
 /*
- * XREFs of HalSetBusData @ 0x1405054B0
+ * XREFs of HalSetBusData @ 0x1404B8A70
  * Callers:
  *     <none>
  * Callees:
- *     HalSetBusDataByOffset @ 0x1403ADD00 (HalSetBusDataByOffset.c)
+ *     HalSetBusDataByOffset @ 0x14039E860 (HalSetBusDataByOffset.c)
  */
 
 ULONG __fastcall HalSetBusData(BUS_DATA_TYPE a1, ULONG a2, ULONG a3, void *a4, ULONG Length)

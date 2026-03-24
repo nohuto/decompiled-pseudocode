@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClearSession@DeadzonePalmTelemetry@@QEAAXXZ @ 0x1C01B1128
+ * XREFs of ?ClearSession@DeadzonePalmTelemetry@@QEAAXXZ @ 0x1C0180818
  * Callers:
- *     ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C019B0D8 (-ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z.c)
- *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C019BD24 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ *     ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C016DEFC (-ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C016E63C (-Release@RIMDeadzone@@QEAAXXZ.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z @ 0x1C01B193C (-_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z @ 0x1C0181124 (-_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z.c)
  */
 
 void __fastcall DeadzonePalmTelemetry::ClearSession(DeadzonePalmTelemetry *this)

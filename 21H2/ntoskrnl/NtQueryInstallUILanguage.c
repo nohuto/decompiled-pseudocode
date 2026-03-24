@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryInstallUILanguage @ 0x1407F4A10
+ * XREFs of NtQueryInstallUILanguage @ 0x1406B3620
  * Callers:
- *     ExpSetPendingUILanguage @ 0x1407F44F0 (ExpSetPendingUILanguage.c)
- *     NtQueryDefaultUILanguage @ 0x1407F49F0 (NtQueryDefaultUILanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408303C0 (_RtlpMuiRegValidateInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A36378 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
+ *     NtQueryDefaultUILanguage @ 0x14078ED00 (NtQueryDefaultUILanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140793850 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098233C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */

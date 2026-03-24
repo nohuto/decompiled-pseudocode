@@ -2,11 +2,11 @@
  * XREFs of IovAllocateIrp @ 0x140923810
  * Callers:
  *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoAllocateIrpEx @ 0x1400B9250 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IopInitActivityIdIrp @ 0x14027EEE4 (IopInitActivityIdIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
  *     IovpLogStackTrace @ 0x140924998 (IovpLogStackTrace.c)
  *     VfIoAllocateIrp2 @ 0x1409301F8 (VfIoAllocateIrp2.c)
  *     ViIrpAllocateLockedPacket @ 0x140930768 (ViIrpAllocateLockedPacket.c)

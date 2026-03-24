@@ -1,9 +1,9 @@
 /*
- * XREFs of EngDeviceIoControl @ 0x1C0169F20
+ * XREFs of EngDeviceIoControl @ 0x1C014B1F0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E270 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E47C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
  */
 
 DWORD __stdcall EngDeviceIoControl(

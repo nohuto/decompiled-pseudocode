@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckDll @ 0x140B144F0
+ * XREFs of SdbpCheckDll @ 0x140A11080
  * Callers:
- *     KiSwInterruptDispatch @ 0x1403E3F70 (KiSwInterruptDispatch.c)
- *     sub_1403E51E0 @ 0x1403E51E0 (sub_1403E51E0.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AFB010 (FsRtlMdlReadCompleteDevEx.c)
- *     sub_140B131A0 @ 0x140B131A0 (sub_140B131A0.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     KiSwInterruptDispatch @ 0x1403DC520 (KiSwInterruptDispatch.c)
+ *     sub_1403DD750 @ 0x1403DD750 (sub_1403DD750.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140A0FD10 @ 0x140A0FD10 (sub_140A0FD10.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
  *     <none>
  */

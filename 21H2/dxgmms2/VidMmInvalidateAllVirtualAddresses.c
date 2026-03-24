@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmInvalidateAllVirtualAddresses @ 0x1C002D300
+ * XREFs of VidMmInvalidateAllVirtualAddresses @ 0x1C0022E00
  * Callers:
  *     <none>
  * Callees:
- *     ?InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D7764 (-InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B08A8 (-InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmInvalidateAllVirtualAddresses(VIDMM_GLOBAL *a1)

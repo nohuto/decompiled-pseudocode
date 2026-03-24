@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlPinAtomInAtomTable @ 0x1406B7C90
+ * XREFs of RtlPinAtomInAtomTable @ 0x1406B7C70
  * Callers:
  *     <none>
  * Callees:

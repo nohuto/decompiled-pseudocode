@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceBroadcastRootDevice @ 0x1402E7450
+ * XREFs of PopDirectedDripsDiagTraceBroadcastRootDevice @ 0x1402E7550
  * Callers:
- *     PopDirectedDripsBuildBroadcastTree @ 0x14087BFB8 (PopDirectedDripsBuildBroadcastTree.c)
+ *     PopDirectedDripsBuildBroadcastTree @ 0x14087BF98 (PopDirectedDripsBuildBroadcastTree.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14087B7AC (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14087B78C (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagTraceBroadcastRootDevice(__int64 a1, int *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of wcsncpy @ 0x1403E3430
+ * XREFs of wcsncpy @ 0x1403D4080
  * Callers:
  *     <none>
  * Callees:
@@ -19,21 +19,24 @@ wchar_t *__cdecl wcsncpy(wchar_t *Dest, const wchar_t *Source, size_t Count)
   if ( Count )
   {
     v4 = (char *)Source - (char *)Dest;
-    while ( 1 )
+    do
     {
       v5 = *(wchar_t *)((char *)Dest + v4);
       *Dest++ = v5;
       if ( !v5 )
         break;
-      if ( !--Count )
-        return v3;
+      --Count;
     }
-    v6 = Count - 1;
-    if ( v6 )
+    while ( Count );
+    if ( Count )
     {
-      v7 = Dest;
-      for ( i = v6; i; --i )
-        *v7++ = 0;
+      v6 = Count - 1;
+      if ( v6 )
+      {
+        v7 = Dest;
+        for ( i = v6; i; --i )
+          *v7++ = 0;
+      }
     }
   }
   return v3;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePteCopyList @ 0x14012EBC0
+ * XREFs of MiCreatePteCopyList @ 0x14012EBE0
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiAddPagesToEnclave @ 0x1402BC7E4 (MiAddPagesToEnclave.c)
- *     MiGetPteMappingPair @ 0x1402CE068 (MiGetPteMappingPair.c)
- *     MiCopyDirectMapHeader @ 0x140852BC4 (MiCopyDirectMapHeader.c)
- *     MiCopyPagesIntoEnclave @ 0x1408594AC (MiCopyPagesIntoEnclave.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
- *     MiInitializeScrubPacket @ 0x14085F9A8 (MiInitializeScrubPacket.c)
+ *     MiAddPagesToEnclave @ 0x1402BC8E4 (MiAddPagesToEnclave.c)
+ *     MiGetPteMappingPair @ 0x1402CE168 (MiGetPteMappingPair.c)
+ *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
+ *     MiInitializeScrubPacket @ 0x14085F988 (MiInitializeScrubPacket.c)
  * Callees:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  */

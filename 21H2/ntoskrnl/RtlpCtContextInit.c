@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCtContextInit @ 0x1409BE9D8
+ * XREFs of RtlpCtContextInit @ 0x1409194D8
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405EDBA0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     RtlpCtContextFree @ 0x1409BE97C (RtlpCtContextFree.c)
- *     RtlpCtInitializeNotificationEvent @ 0x1409BEABC (RtlpCtInitializeNotificationEvent.c)
- *     RtlpCtInitializeWorkItem @ 0x1409BEB08 (RtlpCtInitializeWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
+ *     RtlpCtContextFree @ 0x14091947C (RtlpCtContextFree.c)
+ *     RtlpCtInitializeNotificationEvent @ 0x1409195BC (RtlpCtInitializeNotificationEvent.c)
+ *     RtlpCtInitializeWorkItem @ 0x140919608 (RtlpCtInitializeWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCtContextInit(PVOID **a1, int a2)
@@ -27,8 +27,8 @@ __int64 __fastcall RtlpCtContextInit(PVOID **a1, int a2)
     if ( v6 < 0
       || (v6 = RtlpCtInitializeWorkItem(v5, v5), v6 < 0)
       || (v6 = ExSubscribeWnfStateChange(
-                 (int)v5 + 8,
-                 (int)&WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED,
+                 (__int64)(v5 + 1),
+                 (__int64)&WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED,
                  8,
                  a2,
                  (__int64)RtlpRtlpCtSelfSubscribeCallback,

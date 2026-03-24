@@ -1,13 +1,14 @@
 /*
- * XREFs of IvtProcessDeviceExceptions @ 0x140A98F54
+ * XREFs of IvtProcessDeviceExceptions @ 0x1409AA2C8
  * Callers:
- *     IvtInitializeIommu @ 0x140A8A670 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409A9A90 (IvtInitializeIommu.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HalpIommuGetExceptionList @ 0x140515578 (HalpIommuGetExceptionList.c)
- *     IvtAllocateTranslationStructures @ 0x14052B82C (IvtAllocateTranslationStructures.c)
- *     IvtUpdateTranslationStructures @ 0x14052E18C (IvtUpdateTranslationStructures.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140A999F8 (HalpIvtpInitializeReservedDomain.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpIommuGetExceptionList @ 0x1404CBEAC (HalpIommuGetExceptionList.c)
+ *     IvtAllocateContextTable @ 0x1404DF290 (IvtAllocateContextTable.c)
+ *     IvtUpdateContextEntry @ 0x1404E0AFC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0CB0 (IvtUpdateExtendedContextEntry.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409AADE8 (HalpIvtpInitializeReservedDomain.c)
  */
 
 __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)
@@ -18,46 +19,49 @@ __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)
   __int64 *ExceptionList; // r14
   __int64 j; // rbx
   unsigned __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
   __int64 result; // rax
-  __int64 v11; // r8
-  int v12; // [rsp+20h] [rbp-59h]
-  __int64 v13; // [rsp+28h] [rbp-51h]
-  __int64 v14; // [rsp+38h] [rbp-41h]
-  _DWORD v15[28]; // [rsp+50h] [rbp-29h] BYREF
-  __int64 i; // [rsp+E0h] [rbp+67h] BYREF
-  __int64 *v17; // [rsp+E8h] [rbp+6Fh] BYREF
+  unsigned __int64 v9; // r8
+  __int64 v10; // r9
+  unsigned int v11; // ecx
+  __int64 v12; // [rsp+30h] [rbp-21h]
+  __int64 v13; // [rsp+48h] [rbp-9h] BYREF
+  int i; // [rsp+50h] [rbp-1h]
+  _DWORD v15[20]; // [rsp+58h] [rbp+7h] BYREF
 
   memset(v15, 0, sizeof(v15));
-  v2 = *(unsigned int **)(a1 + 352);
+  v2 = *(unsigned int **)(a1 + 296);
   v3 = 0;
-  v17 = 0LL;
+  v13 = 0LL;
   v4 = 0;
-  for ( i = 0LL; v4 < *v2; ++v4 )
+  for ( i = 0; v4 < *v2; ++v4 )
   {
     v3 = HalpIvtpInitializeReservedDomain(a1, &v2[4 * v4 + 2]);
     if ( v3 < 0 )
       break;
-    v2 = *(unsigned int **)(a1 + 352);
+    v2 = *(unsigned int **)(a1 + 296);
   }
   if ( v3 >= 0 )
   {
     ExceptionList = HalpIommuGetExceptionList();
     for ( j = *ExceptionList; (__int64 *)j != ExceptionList; j = *(_QWORD *)j )
     {
-      if ( *(_DWORD *)(j + 16) == *(_DWORD *)(a1 + 252) )
+      if ( *(_DWORD *)(j + 16) == *(_DWORD *)(a1 + 212) )
       {
-        memset(&v15[2], 0, 0x68uLL);
+        memset(v15, 0, sizeof(v15));
         v7 = *(_QWORD *)(j + 24);
         v15[1] = 0;
         v15[0] = 1;
-        result = IvtAllocateTranslationStructures(a1, v7, v8, v9, (__int64 *)&v17);
+        result = IvtAllocateContextTable(a1, v7);
         v3 = result;
         if ( (int)result < 0 )
           return result;
-        i = *(unsigned int *)(j + 24);
-        IvtUpdateTranslationStructures(a1, (int *)&i, v11, v17, v12, v13, (__int64)v15, v14, 1);
+        v11 = *(_DWORD *)(j + 24);
+        i = 0;
+        v13 = v11 | 0x100000000LL;
+        if ( (*(_DWORD *)(a1 + 184) & 0x1000000) != 0 )
+          IvtUpdateExtendedContextEntry(a1, (unsigned int *)&v13, v9, v10, (__int64)v15, v12, 1, 0LL);
+        else
+          IvtUpdateContextEntry(a1, (unsigned int *)&v13, (__int64)v15, v10, 1, 0LL);
       }
     }
   }

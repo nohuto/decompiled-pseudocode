@@ -1,10 +1,10 @@
 /*
- * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C0041EC4
+ * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C003F9D4
  * Callers:
- *     USBD_CreateHandle @ 0x1C004236C (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C003FE80 (USBD_CreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 void __fastcall USBDInternal_QueryUsbVerifierSettings(__int64 a1, __int64 a2, __int64 a3)

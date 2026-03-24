@@ -1,19 +1,19 @@
 /*
- * XREFs of AsiSortValueList @ 0x140647A40
+ * XREFs of AsiSortValueList @ 0x1405BEE70
  * Callers:
- *     ApiSetComposeSchema @ 0x14064717C (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1407CD7A0 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
  */
 
 int __fastcall AsiSortValueList(__int64 a1, __int64 a2)
 {
   _UNKNOWN **v2; // rax
   unsigned int v5; // ebx
-  __int128 *v6; // rdi
-  __int64 v7; // r14
-  char v8; // r15
-  __int128 *v9; // rsi
+  char v6; // r12
+  __int128 *v7; // rdi
+  __int128 *v8; // rsi
+  __int64 v9; // rbp
   int v10; // ecx
   __int128 v11; // xmm1
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
@@ -24,35 +24,37 @@ int __fastcall AsiSortValueList(__int64 a1, __int64 a2)
   {
     do
     {
-      v6 = (__int128 *)(a1 + *(unsigned int *)(a2 + 16));
-      v7 = v5;
-      v8 = 0;
-      v9 = (__int128 *)((char *)v6 + 20);
+      v6 = 0;
+      v7 = (__int128 *)(a1 + *(unsigned int *)(a2 + 16));
+      v8 = (__int128 *)((char *)v7 + 20);
+      if ( !v5 )
+        break;
+      v9 = v5;
       do
       {
         LODWORD(v2) = RtlCompareUnicodeStrings(
-                        (PCWCH)(a1 + *((unsigned int *)v6 + 1)),
-                        *((_DWORD *)v6 + 2) >> 1,
-                        (PCWCH)(a1 + *((unsigned int *)v9 + 1)),
-                        *((_DWORD *)v9 + 2) >> 1,
+                        (PCWCH)(a1 + *((unsigned int *)v7 + 1)),
+                        (unsigned __int64)*((unsigned int *)v7 + 2) >> 1,
+                        (PCWCH)(a1 + *((unsigned int *)v8 + 1)),
+                        (unsigned __int64)*((unsigned int *)v8 + 2) >> 1,
                         1u);
         if ( (_DWORD)v2 )
         {
-          v10 = *((_DWORD *)v9 + 4);
-          v8 = 1;
-          v11 = *v9;
-          *v9 = *v6;
-          LODWORD(v2) = *((_DWORD *)v6 + 4);
-          *((_DWORD *)v9 + 4) = (_DWORD)v2;
-          *v6 = v11;
-          *((_DWORD *)v6 + 4) = v10;
+          v10 = *((_DWORD *)v8 + 4);
+          v6 = 1;
+          v11 = *v8;
+          *v8 = *v7;
+          LODWORD(v2) = *((_DWORD *)v7 + 4);
+          *((_DWORD *)v8 + 4) = (_DWORD)v2;
+          *v7 = v11;
+          *((_DWORD *)v7 + 4) = v10;
         }
-        v6 = (__int128 *)((char *)v6 + 20);
-        v9 = (__int128 *)((char *)v9 + 20);
-        --v7;
+        v7 = (__int128 *)((char *)v7 + 20);
+        v8 = (__int128 *)((char *)v8 + 20);
+        --v9;
       }
-      while ( v7 );
-      if ( !v8 )
+      while ( v9 );
+      if ( !v6 )
         break;
       --v5;
     }

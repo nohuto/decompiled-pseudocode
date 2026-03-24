@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETINSETPROPERTY@@@Z @ 0x1800E2D08
+ * XREFs of ?ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETINSETPROPERTY@@@Z @ 0x1800CB594
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetInsetProperty@CNineGridBrush@@QEAAXKM@Z @ 0x1800E2D50 (-SetInsetProperty@CNineGridBrush@@QEAAXKM@Z.c)
- *     ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800E2DA4 (-TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetInsetProperty@CNineGridBrush@@QEAAXKM@Z @ 0x1800CB5DC (-SetInsetProperty@CNineGridBrush@@QEAAXKM@Z.c)
+ *     ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800CB62C (-TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z.c)
  */
 
 __int64 __fastcall CNineGridBrush::ProcessSetInsetProperty(
@@ -27,7 +27,7 @@ __int64 __fastcall CNineGridBrush::ProcessSetInsetProperty(
   else
   {
     v3 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0LL, -2003303421, 0x145u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, -2003303421, 0x145u, 0LL);
   }
   return v3;
 }

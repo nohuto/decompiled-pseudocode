@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampStackHashCheck @ 0x1409F226C
+ * XREFs of EtwpCovSampStackHashCheck @ 0x140945D14
  * Callers:
- *     EtwpCovSampCaptureBufferProcess @ 0x14088399A (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409EE8FC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F209C (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094207C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x140942190 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140945B44 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpCovSampStackHashLookup @ 0x1409F24A8 (EtwpCovSampStackHashLookup.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpCovSampStackHashLookup @ 0x140945F50 (EtwpCovSampStackHashLookup.c)
  */
 
 __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, __int64 a2, unsigned __int8 *a3, __int64 a4)
@@ -30,14 +30,14 @@ __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, __int64 a2, unsigned __
   volatile signed __int32 *v23; // [rsp+58h] [rbp+10h] BYREF
 
   v23 = 0LL;
-  if ( !*(_QWORD *)(a1 + 1056) )
+  if ( !*(_QWORD *)(a1 + 944) )
     return 0LL;
-  v7 = *(unsigned int **)(a1 + 1056);
+  v7 = *(unsigned int **)(a1 + 944);
   v8 = 0;
-  v9 = *(unsigned int **)(a1 + 1064);
+  v9 = *(unsigned int **)(a1 + 952);
   if ( v7 == v9 )
-    v9 = *(unsigned int **)(a1 + 1072);
-  v10 = *(_QWORD *)(a1 + 1080);
+    v9 = *(unsigned int **)(a1 + 960);
+  v10 = *(_QWORD *)(a1 + 968);
   a4 = (unsigned int)a4;
   v11 = 8LL * (unsigned int)a4;
   if ( (unsigned __int64)v11 >= 8 )
@@ -133,7 +133,7 @@ LABEL_32:
       {
         memset(v9 + 2, 0, 4LL * v9[1]);
         *v9 = 0;
-        _InterlockedExchange64((volatile __int64 *)(a1 + 1056), (__int64)v9);
+        _InterlockedExchange64((volatile __int64 *)(a1 + 944), (__int64)v9);
       }
     }
   }

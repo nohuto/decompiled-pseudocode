@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x1403B822C
+ * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x1403BA85C
  * Callers:
- *     HalpErrataInitSystem @ 0x140A54AB0 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x1409A0160 (HalpErrataInitSystem.c)
  * Callees:
- *     HalpUsbLegacyDeviceHandoff @ 0x1403DA174 (HalpUsbLegacyDeviceHandoff.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpUsbLegacyDeviceHandoff @ 0x1403CA594 (HalpUsbLegacyDeviceHandoff.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int16 HalpUsbLegacyScanBusForHandoff()
@@ -30,10 +30,10 @@ __int16 HalpUsbLegacyScanBusForHandoff()
       {
         LODWORD(v7) = 2;
         v0 = j & 0x1F | v0 & 0xFFFFFF00 | (32 * (k & 7));
-        v4 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, __int64))qword_140C01C80)(i, v0, v8, 0LL, v7);
+        v4 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, __int64))qword_140C00630)(i, v0, v8, 0LL, v7);
         if ( v4 && (LOWORD(v4) = v8[0] - 1, (unsigned __int16)(v8[0] - 1) <= 0xFFFDu) )
         {
-          v4 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, int))qword_140C01C80)(i, v0, v8, 0LL, 16);
+          v4 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, int))qword_140C00630)(i, v0, v8, 0LL, 16);
           if ( !v4 )
             continue;
           LOWORD(v4) = HalpUsbLegacyDeviceHandoff(0LL, i, v0, v8, 0LL);

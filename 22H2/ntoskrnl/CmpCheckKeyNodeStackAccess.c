@@ -1,45 +1,30 @@
 /*
- * XREFs of CmpCheckKeyNodeStackAccess @ 0x140A1B370
+ * XREFs of CmpCheckKeyNodeStackAccess @ 0x14072A794
  * Callers:
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B788 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x14072A620 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpGetSecurityCellForKeyNodeStack @ 0x140A1BA14 (CmpGetSecurityCellForKeyNodeStack.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x140688794 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpGetSecurityCellForKeyNodeStack @ 0x14072ABBC (CmpGetSecurityCellForKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpCheckKeyNodeStackAccess(__int64 a1, KPROCESSOR_MODE a2, ACCESS_MASK a3, char a4)
 {
-  ULONG_PTR v8; // rbx
-  __int64 CellFlat; // rax
-  __int64 v10; // rdi
-  unsigned int v11; // esi
-  ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-18h] BYREF
-  ULONG_PTR BugCheckParameter3[2]; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v7; // r14
+  __int64 v8; // rbx
+  unsigned int v9; // edi
+  unsigned int v11; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+28h] [rbp-20h] BYREF
+  _QWORD v13[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  LODWORD(BugCheckParameter4) = 0;
-  v14 = 0LL;
-  BugCheckParameter3[0] = 0LL;
-  HvpGetCellContextReinitialize(&v14);
-  CmpGetSecurityCellForKeyNodeStack(a1, BugCheckParameter3, &BugCheckParameter4);
-  v8 = BugCheckParameter3[0];
-  if ( (*(_BYTE *)(BugCheckParameter3[0] + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3[0], (unsigned int)BugCheckParameter4, &v14);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3[0], BugCheckParameter4, (unsigned int *)&v14);
-  v10 = CellFlat;
-  v11 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(CellFlat + 20), a2, a3, a4);
-  if ( v10 )
-  {
-    if ( (*(_BYTE *)(v8 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v8, &v14);
-    else
-      HvpReleaseCellPaged(v8, (unsigned int *)&v14);
-  }
-  return v11;
+  v12 = 0xFFFFFFFFLL;
+  v11 = 0;
+  v13[0] = 0LL;
+  CmpGetSecurityCellForKeyNodeStack(a1, v13, &v11);
+  v7 = v13[0];
+  v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64 *))(v13[0] + 8LL))(v13[0], v11, &v12);
+  v9 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(v8 + 20), a2, a3, a4);
+  if ( v8 )
+    (*(void (__fastcall **)(__int64, __int64 *))(v7 + 16))(v7, &v12);
+  return v9;
 }

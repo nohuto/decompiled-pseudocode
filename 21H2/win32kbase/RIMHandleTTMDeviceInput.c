@@ -1,39 +1,26 @@
 /*
- * XREFs of RIMHandleTTMDeviceInput @ 0x1C01B81A8
+ * XREFs of RIMHandleTTMDeviceInput @ 0x1C0182288
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RIMIsWakeCapableDevice @ 0x1C00D2D98 (RIMIsWakeCapableDevice.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0055804 (RimDeviceTypeToRimInputType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMHandleTTMDeviceInput(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMHandleTTMDeviceInput(__int64 a1)
 {
-  int v4; // eax
-  int v5; // edx
-  int v6; // r8d
+  int v2; // eax
+  int v3; // edx
 
   if ( !gbTtmEnabled )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v4 = RIMIsWakeCapableDevice(a1);
-  TtmNotifyDeviceInput(2LL, a1, v4 != 0);
-  LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 195);
+  v2 = RimDeviceTypeToRimInputType(a1, *(unsigned __int8 *)(a1 + 48));
+  TtmNotifyDeviceInput(2LL, a1, (v2 & gWakeOnDeviceTypes) != 0);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      v6,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      15,
-      (__int64)&WPP_e19c1f9dc6ba3a4e002eb4dd1e679f56_Traceguids,
-      0);
+    LOBYTE(v3) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v3, 1, 15, (__int64)&WPP_aac38269f52f3d1812b82afa174c5f16_Traceguids, 0);
   }
   return 0LL;
 }

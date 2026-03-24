@@ -1,13 +1,13 @@
 /*
- * XREFs of DmaEnabler_Create @ 0x1C0073180
+ * XREFs of DmaEnabler_Create @ 0x1C006DE2C
  * Callers:
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A70 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall DmaEnabler_Create(__int64 a1, __int64 a2, __int64 *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall DmaEnabler_Create(__int64 a1, __int64 a2, __int64 *a3)
   v21 = 0LL;
   v4 = *(_QWORD *)(a2 + 88);
   v16 = 0LL;
-  v19 = off_1C0063018;
+  v19 = off_1C0060018;
   v15 = 0LL;
   LODWORD(v15) = 56;
   v18 = 0LL;
@@ -65,13 +65,13 @@ __int64 __fastcall DmaEnabler_Create(__int64 a1, __int64 a2, __int64 *a3)
     v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             v21,
-            off_1C0063018);
+            off_1C0060018);
     *(_QWORD *)v13 = v21;
     *(_QWORD *)(v13 + 8) = a2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v12) = 4;
-      WPP_RECORDER_SF_q(
+      WPP_RECORDER_SF_i(
         *(_QWORD *)(a2 + 72),
         v12,
         18,

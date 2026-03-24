@@ -1,8 +1,7 @@
 /*
- * XREFs of ExpAeUpdateStatsForExclusiveRelease @ 0x1402F95EC
+ * XREFs of ExpAeUpdateStatsForExclusiveRelease @ 0x14039152C
  * Callers:
- *     FsRtlInsertPerStreamContext @ 0x1402F8CF0 (FsRtlInsertPerStreamContext.c)
- *     ExTryAcquireAutoExpandPushLockExclusive @ 0x14039E660 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x140391170 (ExTryAcquireAutoExpandPushLockExclusive.c)
  * Callees:
  *     <none>
  */

@@ -1,133 +1,119 @@
 /*
- * XREFs of GreWindowResizeStarted @ 0x1C02686B0
+ * XREFs of GreWindowResizeStarted @ 0x1C02700B0
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01EC5FC (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0210F44 (xxxDrawDragRectEx.c)
  * Callees:
- *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C001C2F4 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00C89F8 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     DwmAsyncUpdateSprite @ 0x1C00D5BA0 (DwmAsyncUpdateSprite.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     UserDCompositionCreateSynchronizationObject @ 0x1C01FE61C (UserDCompositionCreateSynchronizationObject.c)
- *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C0265774 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ *     DwmAsyncUpdateSprite @ 0x1C0012AC0 (DwmAsyncUpdateSprite.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE028 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00EFE88 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     UserDCompositionCreateSynchronizationObject @ 0x1C0220308 (UserDCompositionCreateSynchronizationObject.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026D214 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
  */
 
-__int64 __fastcall GreWindowResizeStarted(void *a1, HWND a2, int a3, int *a4, _DWORD *a5)
+__int64 __fastcall GreWindowResizeStarted(__int64 a1, HWND a2, int a3, unsigned int *a4, unsigned int *a5)
 {
-  unsigned int v6; // r12d
-  _DWORD *v7; // rsi
-  int v8; // r13d
-  Gre::Base *v9; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v10; // r15
-  Gre::Base *v11; // rcx
-  struct PDEVOBJ *v12; // rdx
-  Gre::Base *v13; // rcx
-  struct DWMSPRITE *v14; // rdi
-  __int64 *v15; // r14
-  __int64 v16; // rax
-  bool v17; // bl
-  PVOID v18; // rbx
-  __int64 v19; // rcx
-  __int64 v20; // rbx
-  __int64 v21; // rdi
-  void *v22; // rax
-  int v23; // ecx
-  int v24; // eax
-  char v26[8]; // [rsp+68h] [rbp-21h] BYREF
-  void *v27; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v28; // [rsp+78h] [rbp-11h] BYREF
-  _BYTE v29[32]; // [rsp+80h] [rbp-9h] BYREF
-  struct DWMSPRITE *v30; // [rsp+A0h] [rbp+17h]
-  PVOID Object; // [rsp+E8h] [rbp+5Fh] BYREF
-  int v32; // [rsp+F8h] [rbp+6Fh]
-  int *v33; // [rsp+100h] [rbp+77h]
+  unsigned int v7; // r15d
+  unsigned int v8; // r12d
+  unsigned int v9; // esi
+  struct PDEVOBJ *v10; // rdx
+  struct DWMSPRITE *v11; // rdi
+  __int64 *v12; // r14
+  __int64 v13; // rcx
+  SURFACE *v14; // rcx
+  bool v15; // bl
+  PVOID v16; // rbx
+  __int64 v17; // rcx
+  __int64 v18; // rbx
+  __int64 v19; // rdi
+  void *v20; // rax
+  unsigned int v21; // ecx
+  unsigned int v22; // eax
+  PVOID Object; // [rsp+68h] [rbp-21h] BYREF
+  void *v25; // [rsp+70h] [rbp-19h] BYREF
+  __int64 v26; // [rsp+78h] [rbp-11h] BYREF
+  _BYTE v27[32]; // [rsp+80h] [rbp-9h] BYREF
+  struct DWMSPRITE *v28; // [rsp+A0h] [rbp+17h]
+  __int64 v29; // [rsp+E8h] [rbp+5Fh] BYREF
+  unsigned int *v30; // [rsp+100h] [rbp+77h]
 
-  v33 = a4;
-  v32 = a3;
-  Object = a1;
-  v6 = 0;
-  v7 = *(_DWORD **)(SGDGetSessionState(a1) + 32);
-  v8 = v7[2177] & 2;
-  LODWORD(Object) = v7[2177] & 1;
-  v10 = Gre::Base::Globals(v9);
-  v28 = *((_QWORD *)v10 + 15);
-  GreAcquireSemaphore(v28);
-  if ( IsDwmActive(v11) )
+  v30 = a4;
+  v29 = a1;
+  v7 = 0;
+  v8 = gdwDwmResizeOptimizationOptions & 1;
+  v9 = gdwDwmResizeOptimizationOptions & 2;
+  v26 = ghsemGreLock;
+  GreAcquireSemaphore(ghsemGreLock);
+  if ( g_pDwmState )
   {
-    DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)v26, v12, 0, 0);
-    GreAcquireSemaphore(*((_QWORD *)v10 + 9));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v10 + 9), 7LL);
-    if ( IsDwmActive(v13) )
+    DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v29, v10, 0, 0);
+    GreAcquireSemaphore(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v27, a2);
+    v11 = v28;
+    if ( v28 )
     {
-      DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v29, a2);
-      v14 = v30;
-      if ( v30 )
+      v12 = (__int64 *)*((_QWORD *)v28 + 21);
+      if ( v12 && (v13 = v12[23]) != 0 )
+        v14 = (SURFACE *)(v13 - 24);
+      else
+        v14 = 0LL;
+      v15 = v14 && (unsigned int)SURFACE::bRedirectionBitmap(v14);
+      if ( v8 && v15 || a3 && v9 )
       {
-        v15 = (__int64 *)*((_QWORD *)v30 + 18);
-        v17 = 0;
-        if ( v15 )
+        v7 = 1;
+        if ( *((int *)v11 + 29) >= 1 )
+          CheckAndProcessWindowResizeComplete(v11, 1, 0LL);
+        *((_DWORD *)v11 + 29) = v15 + 1;
+        *((_DWORD *)v11 + 30) = 0;
+        *((_QWORD *)v11 + 18) = MEMORY[0xFFFFF78000000014];
+        if ( a3 && v9 )
         {
-          v16 = v15[23];
-          if ( v16 )
+          Object = 0LL;
+          if ( (unsigned int)UserDCompositionCreateSynchronizationObject(&Object) )
           {
-            if ( v16 != 24 && (unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v16 - 24)) )
-              v17 = 1;
-          }
-        }
-        if ( (_DWORD)Object && v17 || v32 && v8 )
-        {
-          if ( *((int *)v14 + 29) >= 1 )
-            CheckAndProcessWindowResizeComplete(v14, 1, 0LL);
-          *(_QWORD *)((char *)v14 + 116) = (unsigned int)v17 + 1;
-          if ( v32 && v8 )
-          {
-            Object = 0LL;
-            if ( (unsigned int)UserDCompositionCreateSynchronizationObject(&Object) )
+            v16 = Object;
+            v25 = 0LL;
+            if ( (int)CompositionObject::OpenDwmHandle((CompositionObject *)Object, &v25) < 0 )
             {
-              v18 = Object;
-              v27 = 0LL;
-              if ( (int)CompositionObject::OpenDwmHandle((CompositionObject *)Object, &v27) < 0 )
-              {
-                ObfDereferenceObject(v18);
-              }
-              else
-              {
-                *((_QWORD *)v14 + 13) = v27;
-                *((_QWORD *)v14 + 12) = v18;
-                *((_DWORD *)v14 + 30) = 1;
-                *((_DWORD *)v14 + 31) = 1;
-                v20 = *v15;
-                v21 = *(_QWORD *)v14;
-                v22 = (void *)UserReferenceDwmApiPort(v19);
-                DwmAsyncUpdateSprite(v22, v21, v20, 512, 0LL, 0LL, 0, 0, 0, 0, 0LL);
-              }
+              ObfDereferenceObject(v16);
             }
-            v23 = v7[2179];
-            v24 = v7[2177] & 8;
+            else
+            {
+              *((_QWORD *)v11 + 13) = v25;
+              *((_QWORD *)v11 + 12) = v16;
+              *((_DWORD *)v11 + 30) = 1;
+              *((_DWORD *)v11 + 31) = 1;
+              v18 = *v12;
+              v19 = *(_QWORD *)v11;
+              v20 = (void *)UserReferenceDwmApiPort(v17);
+              DwmAsyncUpdateSprite(v20, v19, v18, 512, 0LL, 0LL, 0, 0, 0, 0, 0LL);
+            }
           }
-          else
-          {
-            v23 = v7[2178];
-            v24 = v7[2177] & 4;
-          }
-          v6 = 1;
-          v14 = v30;
-          *v33 = v24;
-          *a5 = v23;
+          v21 = gdwDwmResizeTimeoutModern;
+          v22 = gdwDwmResizeOptimizationOptions & 8;
         }
-        if ( v14 )
-          _InterlockedDecrement((volatile signed __int32 *)v14 + 3);
+        else
+        {
+          v21 = gdwDwmResizeTimeoutGdi;
+          v22 = gdwDwmResizeOptimizationOptions & 4;
+        }
+        v11 = v28;
+        *v30 = v22;
+        *a5 = v21;
       }
-      v30 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v29);
+      if ( v11 )
+        _InterlockedDecrement((volatile signed __int32 *)v11 + 3);
     }
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v10 + 9));
-    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)v26);
+    v28 = 0LL;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v27);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    GreReleaseSemaphoreInternal(ghsemDwmState);
+    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v29);
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v28);
-  return v6;
+  SEMOBJ::vUnlock((SEMOBJ *)&v26);
+  return v7;
 }

@@ -1,115 +1,151 @@
 /*
- * XREFs of ExpRemovePoolTrackerExpansion @ 0x14046AB3A
+ * XREFs of ExpRemovePoolTrackerExpansion @ 0x14030F6D0
  * Callers:
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     ExInsertPoolTag @ 0x1403B9E9C (ExInsertPoolTag.c)
- *     ExRemovePoolTag @ 0x1403C31AC (ExRemovePoolTag.c)
- *     ExPoolCleanupExpansionTable @ 0x140607318 (ExPoolCleanupExpansionTable.c)
- *     ExpFreeHeapSpecialPool @ 0x14060F118 (ExpFreeHeapSpecialPool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExRemovePoolTag @ 0x1402EAE78 (ExRemovePoolTag.c)
+ *     ExPoolCleanupExpansionTable @ 0x140389090 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x1405BA020 (ExpFreeHeapSpecialPool.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402AC320 (ExpPoolTrackerReturnLimit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
+__int64 __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  int v8; // ecx
-  __int64 CurrentIrql; // rax
-  unsigned __int64 v10; // rdi
-  struct _KPRCB *v11; // r10
-  _DWORD *v12; // r8
-  bool v13; // zf
-  unsigned __int64 v14; // rbx
-  volatile signed __int64 *v15; // rcx
+  unsigned __int64 v6; // rax
+  _DWORD *v7; // r8
+  unsigned __int64 v8; // rdx
+  unsigned int v9; // ecx
+  __int64 v10; // rax
+  int v11; // r9d
+  _QWORD *v12; // rcx
+  __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  struct _KLOCK_QUEUE_HANDLE v20; // [rsp+20h] [rbp-28h] BYREF
+  bool v17; // zf
+  __int64 CurrentIrql; // rax
+  unsigned __int64 v19; // rdi
+  struct _KPRCB *v20; // r10
+  _DWORD *v21; // r8
+  int v22; // edx
+  __int64 v23; // r8
+  unsigned __int64 v24; // rbx
+  volatile signed __int64 *v25; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v20, 0, sizeof(v20));
-  KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &v20);
-  v6 = 0LL;
-  if ( PoolTrackTableExpansionSize )
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
+  if ( (a3 & 0x20) != 0 )
   {
-    v7 = 0LL;
+    v6 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+    v7 = *(_DWORD **)(v6 + 976);
+    v8 = *(_QWORD *)(v6 + 984);
+  }
+  else
+  {
+    v8 = PoolTrackTableExpansionSize;
+    v7 = PoolTrackTableExpansion;
+  }
+  v9 = 0;
+  if ( v8 )
+  {
+    v10 = 0LL;
     while ( 1 )
     {
-      v8 = *(_DWORD *)(PoolTrackTableExpansion + 80 * v7);
-      if ( v8 == a1 )
+      v11 = v7[14 * v10];
+      if ( v11 == a1 )
         break;
-      if ( v8 )
+      if ( v11 )
       {
-        v6 = (unsigned int)(v6 + 1);
-        v7 = (unsigned int)v6;
-        if ( (unsigned int)v6 < (unsigned __int64)PoolTrackTableExpansionSize )
+        v10 = ++v9;
+        if ( v9 < v8 )
           continue;
       }
-      goto LABEL_6;
+      goto LABEL_21;
     }
-    ExpPoolTrackerReturnLimit((a3 & 1) == 0, a2, PoolTrackTableExpansion + 80 * v6);
-    LODWORD(CurrentIrql) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
-    OldIrql = v20.OldIrql;
+    v12 = &v7[14 * v9];
+    if ( (a3 & 1) != 0 )
+    {
+      ++v12[6];
+      v12[4] -= a2;
+    }
+    else
+    {
+      ++v12[3];
+      v12[1] -= a2;
+    }
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    result = (unsigned int)KiIrqlFlags;
+    OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      LODWORD(CurrentIrql) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)CurrentIrql <= 0xFu
-        && v20.OldIrql <= 0xFu
-        && (unsigned __int8)CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        LODWORD(CurrentIrql) = ~(unsigned __int16)(-1LL << (v20.OldIrql + 1));
-        v13 = ((unsigned int)CurrentIrql & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= CurrentIrql;
-        if ( v13 )
-          LODWORD(CurrentIrql) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v17 )
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
   }
   else
   {
-LABEL_6:
-    CurrentIrql = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
-    v10 = v20.OldIrql;
+LABEL_21:
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    CurrentIrql = (unsigned int)KiIrqlFlags;
+    v19 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)CurrentIrql <= 0xFu
-        && v20.OldIrql <= 0xFu
-        && (unsigned __int8)CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v11 = KeGetCurrentPrcb();
-        v12 = v11->SchedulerAssist;
-        CurrentIrql = ~(unsigned __int16)(-1LL << (v20.OldIrql + 1));
-        v13 = ((unsigned int)CurrentIrql & v12[5]) == 0;
-        v12[5] &= CurrentIrql;
-        if ( v13 )
-          CurrentIrql = KiRemoveSystemWorkPriorityKick(v11);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( (unsigned __int8)CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)CurrentIrql >= 2u )
+        {
+          v20 = KeGetCurrentPrcb();
+          v21 = v20->SchedulerAssist;
+          CurrentIrql = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v17 = ((unsigned int)CurrentIrql & v21[5]) == 0;
+          v21[5] &= CurrentIrql;
+          if ( v17 )
+            CurrentIrql = KiRemoveSystemWorkPriorityKick(v20);
+        }
       }
     }
-    __writecr8(v10);
-    LODWORD(CurrentIrql) = KeGetPcr()->Prcb.Number;
-    v14 = -a2;
-    v15 = (volatile signed __int64 *)((char *)*(&ExPoolTagTables + CurrentIrql)
-                                    + 80 * (unsigned int)(PoolTrackTableSize - 1));
-    if ( (a3 & 1) != 0 )
+    __writecr8(v19);
+    if ( (a3 & 0x20) != 0 )
     {
-      _InterlockedIncrement64(v15 + 6);
-      _InterlockedExchangeAdd64(v15 + 4, v14);
+      v23 = ExpSessionPoolTrackTable;
+      v22 = ExpSessionPoolTrackTableSize;
     }
     else
     {
-      _InterlockedIncrement64(v15 + 3);
-      _InterlockedExchangeAdd64(v15 + 1, v14);
+      LODWORD(CurrentIrql) = KeGetPcr()->Prcb.Number;
+      v22 = PoolTrackTableSize;
+      v23 = (__int64)*(&ExPoolTagTables + CurrentIrql);
+    }
+    v24 = -a2;
+    result = (unsigned int)(v22 - 1);
+    v25 = (volatile signed __int64 *)(v23 + 56 * result);
+    if ( (a3 & 1) != 0 )
+    {
+      _InterlockedIncrement64(v25 + 6);
+      _InterlockedExchangeAdd64(v25 + 4, v24);
+    }
+    else
+    {
+      _InterlockedIncrement64(v25 + 3);
+      _InterlockedExchangeAdd64(v25 + 1, v24);
     }
   }
-  return CurrentIrql;
+  return result;
 }

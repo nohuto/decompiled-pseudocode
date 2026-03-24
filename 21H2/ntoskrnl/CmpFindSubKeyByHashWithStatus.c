@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFindSubKeyByHashWithStatus @ 0x14082F314
+ * XREFs of CmpFindSubKeyByHashWithStatus @ 0x1407ACA90
  * Callers:
- *     CmpFindSubKeyByNameWithStatus @ 0x14082F12C (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407AC8F8 (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
- *     CmpDoCompareKeyName @ 0x1407C4460 (CmpDoCompareKeyName.c)
+ *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByHashWithStatus(__int64 a1, __int64 a2, __m128i *a3, _DWORD *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall CmpFindSubKeyByHashWithStatus(__int64 a1, __int64 a2, __m128i
   {
     if ( v9 != *(_DWORD *)(a2 + 8LL * v10 + 8) )
       goto LABEL_3;
-    v12 = CmpDoCompareKeyName(a1, a3, 0LL, *(unsigned int *)(a2 + 8LL * v10 + 4));
+    v12 = CmpDoCompareKeyName(a1, (const UNICODE_STRING *)a3, 0LL, *(_DWORD *)(a2 + 8LL * v10 + 4));
     if ( v12 == 2 )
       return 3221225626LL;
     if ( !v12 )

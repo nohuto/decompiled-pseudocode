@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C01DBD00
+ * XREFs of NtUserSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C0201A70
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C026CCCC (DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C027423C (DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated.c)
  */
 
 _BOOL8 __fastcall NtUserSetFullscreenMagnifierOffsetsDWMUpdated(__int64 a1, __int64 a2, float a3)
@@ -13,6 +13,8 @@ _BOOL8 __fastcall NtUserSetFullscreenMagnifierOffsetsDWMUpdated(__int64 a1, __in
   void *v4; // rax
 
   ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v4 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(ThreadWin32Thread + 456) + 8LL));
+  v4 = (void *)ReferenceDwmApiPort(
+                 **(_QWORD **)(*(_QWORD *)(ThreadWin32Thread + 456) + 8LL),
+                 *(_QWORD *)(ThreadWin32Thread + 456));
   return (int)DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated(v4, SLODWORD(a3)) >= 0;
 }

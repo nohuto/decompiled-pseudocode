@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmUseDirectFlip @ 0x1C0018B60
+ * XREFs of VidMmUseDirectFlip @ 0x1C0016390
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 char __fastcall VidMmUseDirectFlip(__int64 a1)
 {
-  return *(_BYTE *)(a1 + 7153);
+  return *(_BYTE *)(a1 + 7145);
 }

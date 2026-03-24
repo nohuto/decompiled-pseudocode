@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQueryWnfStateNameInformation @ 0x14041D480
+ * XREFs of ZwQueryWnfStateNameInformation @ 0x1403FC6C0
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405B1030 (RtlRaiseCustomSystemEventTrigger.c)
- *     DbgkpStartSystemErrorHandler @ 0x14093A80C (DbgkpStartSystemErrorHandler.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E520 (RtlRaiseCustomSystemEventTrigger.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408878A0 (DbgkpStartSystemErrorHandler.c)
  * Callees:
  *     <none>
  */

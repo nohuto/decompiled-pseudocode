@@ -1,68 +1,71 @@
 /*
- * XREFs of ?DestroyAllocation@DXGCONTEXT@@QEAAJIPEAVCOREDEVICEACCESS@@@Z @ 0x1C03301AC
+ * XREFs of ?DestroyAllocation@DXGCONTEXT@@QEAAJIPEAVCOREDEVICEACCESS@@@Z @ 0x1C027FCAC
  * Callers:
- *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C03304A4 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C027FF20 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000EDA8 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019EA90 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
- *     DxgkDestroyClientAllocation @ 0x1C02D7FFC (DxgkDestroyClientAllocation.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0002630 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0119AC8 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
+ *     DxgkDestroyClientAllocation @ 0x1C02296C4 (DxgkDestroyClientAllocation.c)
  */
 
-__int64 __fastcall DXGCONTEXT::DestroyAllocation(DXGCONTEXT *this, __int64 a2, struct COREDEVICEACCESS *a3, __int64 a4)
+__int64 __fastcall DXGCONTEXT::DestroyAllocation(DXGCONTEXT *this, __int64 a2, struct COREDEVICEACCESS *a3)
 {
-  unsigned int v5; // ebp
-  struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v8; // rdi
-  unsigned int v9; // ecx
-  __int64 v10; // r8
-  int v11; // edx
-  __int64 v12; // rbx
-  __int64 v14; // rcx
-  DXGDEVICE *v15; // r10
-  _BYTE v16[32]; // [rsp+50h] [rbp-28h] BYREF
+  unsigned int v4; // ebp
+  struct _KTHREAD **Current; // rax
+  struct _KTHREAD **v7; // rsi
+  __int64 v8; // rax
+  struct _KTHREAD *v9; // r8
+  int v10; // edx
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  __int64 v15; // rcx
+  DXGDEVICE *v16; // r10
+  _BYTE v17[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  v5 = a2;
-  Current = DXGPROCESS::GetCurrent((__int64)this, a2, (__int64)a3, a4);
-  v8 = Current;
+  v4 = a2;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent((__int64)this, a2);
+  v7 = Current;
   if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL) + 200LL) == 4 )
     return 0LL;
-  DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v16, Current);
-  v9 = (v5 >> 6) & 0xFFFFFF;
-  if ( v9 < *((_DWORD *)v8 + 74) )
+  DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v17, Current);
+  v8 = (v4 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v8 < *((_DWORD *)v7 + 64) )
   {
-    v10 = *((_QWORD *)v8 + 35);
-    v11 = *(_DWORD *)(v10 + 16LL * v9 + 8);
-    if ( ((v5 >> 25) & 0x60) == (v11 & 0x60) && (v11 & 0x2000) == 0 && (v11 & 0x1F) != 0 )
+    v9 = v7[30];
+    v10 = *((_DWORD *)v9 + 4 * v8 + 2);
+    if ( ((v4 >> 25) & 0x60) == (*((_BYTE *)v9 + 16 * v8 + 8) & 0x60) && (v10 & 0x2000) == 0 && (v10 & 0x1F) != 0 )
     {
-      if ( (v11 & 0x1F) == 5 )
+      v11 = v10 & 0x1F;
+      if ( (_BYTE)v11 == 5 )
       {
-        v12 = *(_QWORD *)(v10 + 16LL * v9);
-        if ( v12 )
-          *(_DWORD *)(v10 + 16 * (((unsigned __int64)v5 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
+        v13 = *((_QWORD *)v9 + 2 * (unsigned int)v8);
+        if ( v13 )
+          *((_DWORD *)v9 + 4 * (((unsigned __int64)v4 >> 6) & 0xFFFFFF) + 2) |= 0x2000u;
         goto LABEL_9;
       }
-      WdLogSingleEntry1(2LL, 267LL);
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+      v12 = WdLogNewEntry5_WdError(0x2000LL, v11);
+      *(_QWORD *)(v12 + 24) = 316LL;
+      WdLogEvent5_WdError(v12);
     }
   }
-  v12 = 0LL;
+  v13 = 0LL;
 LABEL_9:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v16);
-  if ( !v12 )
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
+  if ( !v13 )
     return 3221225485LL;
-  v14 = *(unsigned int *)(*((_QWORD *)this + 2) + 576LL);
-  v15 = (DXGDEVICE *)*((_QWORD *)this + 2);
-  if ( (_DWORD)v14 == 4 )
-    DxgkDestroyClientAllocation(v14, v15, 0LL, 0LL, *(struct DXGALLOCATION ***)(v12 + 40));
+  v15 = *(unsigned int *)(*((_QWORD *)this + 2) + 576LL);
+  v16 = (DXGDEVICE *)*((_QWORD *)this + 2);
+  if ( (_DWORD)v15 == 4 )
+    DxgkDestroyClientAllocation(v15, v16, 0, 0LL, *(struct DXGALLOCATION ***)(v13 + 40));
   else
     DXGDEVICE::DestroyAllocationInternal(
-      v15,
+      v16,
+      0,
       0LL,
-      0LL,
-      *(struct DXGRESOURCE **)(v12 + 40),
+      *(struct DXGRESOURCE **)(v13 + 40),
       a3,
       DXGDEVICE::DestroyFlagsDefault);
   return 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of FxLibraryGlobalsCommission @ 0x1C002E278
+ * XREFs of FxLibraryGlobalsCommission @ 0x1C00571F0
  * Callers:
- *     FxLibraryCommonCommission @ 0x1C002E7B8 (FxLibraryCommonCommission.c)
+ *     FxLibraryCommonCommission @ 0x1C00417E8 (FxLibraryCommonCommission.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C002E89C (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     FxInitializeBugCheckDriverInfo @ 0x1C002EAB0 (FxInitializeBugCheckDriverInfo.c)
- *     FxLibraryGlobalsVerifyVersion @ 0x1C002EBEC (FxLibraryGlobalsVerifyVersion.c)
- *     ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C002ECC4 (-MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z.c)
- *     FxLibraryGlobalsQueryRegistrySettings @ 0x1C002ED04 (FxLibraryGlobalsQueryRegistrySettings.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C001B7DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C0056B10 (-MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z.c)
+ *     FxLibraryGlobalsQueryRegistrySettings @ 0x1C0057728 (FxLibraryGlobalsQueryRegistrySettings.c)
+ *     FxLibraryGlobalsVerifyVersion @ 0x1C00579B8 (FxLibraryGlobalsVerifyVersion.c)
+ *     FxInitializeBugCheckDriverInfo @ 0x1C0090658 (FxInitializeBugCheckDriverInfo.c)
  */
 
 NTSTATUS __fastcall FxLibraryGlobalsCommission()
@@ -18,44 +18,28 @@ NTSTATUS __fastcall FxLibraryGlobalsCommission()
   NTSTATUS result; // eax
   wil_ReportingKind v3; // [rsp+30h] [rbp-20h]
   wil_ReportingKind v4; // [rsp+30h] [rbp-20h]
-  wil_ReportingKind v5; // [rsp+30h] [rbp-20h]
-  unsigned __int64 v6; // [rsp+38h] [rbp-18h]
-  unsigned __int64 v7; // [rsp+38h] [rbp-18h]
-  unsigned __int64 v8; // [rsp+38h] [rbp-18h]
   _UNICODE_STRING funcName; // [rsp+40h] [rbp-10h] BYREF
 
   *(_WORD *)&FxLibraryGlobals.IsUserModeFramework = 0;
   *(_WORD *)&FxLibraryGlobals.IfrDisabled = 0;
   wil_details_FeatureReporting_ReportUsageToService(
-    (wil_details_FeatureReportingCache *)&WPP_GLOBAL_WDF_Control.Queue.Wcb.DmaWaitEntry.Blink,
+    &Feature_WdfDirectedPowerTransition_DefaultOptIn__private_reporting,
     0x132D035u,
     0,
     0,
-    &Feature_WdfUseWdfTimerForPofx_logged_traits,
+    &Feature_WdfDirectedPowerTransition_DefaultOptIn_logged_traits,
     0,
-    v3,
-    v6);
+    v3);
   FxLibraryGlobals.WdfDirectedPowerTransitionEnabled = 0;
   wil_details_FeatureReporting_ReportUsageToService(
-    (wil_details_FeatureReportingCache *)&WPP_GLOBAL_WDF_Control.Queue,
+    &Feature_WdfAllowBindToPreReleaseVersion__private_reporting,
     0x11D68E7u,
     0,
     0,
     &Feature_WdfAllowBindToPreReleaseVersion_logged_traits,
     1,
-    v4,
-    v7);
+    v4);
   FxLibraryGlobals.AllowBindToPreReleaseVersion = 1;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (wil_details_FeatureReportingCache *)&WPP_GLOBAL_WDF_Control.DeviceType,
-    0x18B174Du,
-    0,
-    0,
-    &Feature_WdfUseWdfTimerForPofx_logged_traits,
-    0,
-    v5,
-    v8);
-  FxLibraryGlobals.UseWdfTimerForPofx = 0;
   FxLibraryGlobalsQueryRegistrySettings();
   funcName = 0LL;
   RtlInitUnicodeString(&funcName, L"IoConnectInterruptEx");

@@ -2,7 +2,7 @@
  * XREFs of SeDeassignPrimaryToken @ 0x14060895C
  * Callers:
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     SeAssignPrimaryToken @ 0x140748B44 (SeAssignPrimaryToken.c)
+ *     SeAssignPrimaryToken @ 0x140748B24 (SeAssignPrimaryToken.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)

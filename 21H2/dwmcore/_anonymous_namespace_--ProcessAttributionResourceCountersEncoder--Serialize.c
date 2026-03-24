@@ -1,11 +1,11 @@
 /*
- * XREFs of _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18007601C
+ * XREFs of _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18004C2FC
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x1800751DC (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B7F8 (_anonymous_namespace_--SendFramesReport.c)
  * Callees:
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x180076AC0 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x180076B48 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
- *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x180076BA4 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004CF18 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18004CFE0 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D21C (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
  */
 
 void __fastcall anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize(

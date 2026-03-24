@@ -1,12 +1,12 @@
 /*
- * XREFs of GreSetSolidBrushLight @ 0x1C0150EB0
+ * XREFs of GreSetSolidBrushLight @ 0x1C0092560
  * Callers:
- *     GreDCSelectPen @ 0x1C00067B0 (GreDCSelectPen.c)
- *     GreDCSelectBrush @ 0x1C0089420 (GreDCSelectBrush.c)
+ *     GreDCSelectPen @ 0x1C0022200 (GreDCSelectPen.c)
+ *     GreDCSelectBrush @ 0x1C002BA50 (GreDCSelectBrush.c)
  * Callees:
- *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C0042940 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C00892E0 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C002FBA0 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0068010 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
  */
 
 __int64 __fastcall GreSetSolidBrushLight(struct OBJECT *a1, int a2, int a3)
@@ -52,9 +52,7 @@ __int64 __fastcall GreSetSolidBrushLight(struct OBJECT *a1, int a2, int a3)
             v11 = 20;
           *((_DWORD *)a1 + 20) = 7;
           *((_DWORD *)a1 + 10) = v11;
-          *((_DWORD *)a1 + 11) = _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(SGDGetSessionState(0xFFFFFFFFLL)
-                                                                                             + 24)
-                                                                                 + 744LL));
+          *((_DWORD *)a1 + 11) = _InterlockedIncrement((volatile signed __int32 *)&BRUSH::_ulGlobalBrushUnique);
         }
         HANDLELOCK::vUnlock((HANDLELOCK *)v13);
         if ( v14 )

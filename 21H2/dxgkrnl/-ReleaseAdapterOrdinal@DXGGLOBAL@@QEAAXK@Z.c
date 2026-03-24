@@ -1,35 +1,26 @@
 /*
- * XREFs of ?ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z @ 0x1C030BFE4
+ * XREFs of ?ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z @ 0x1C026AFB8
  * Callers:
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02BA5BC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020BED8 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0179890 (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
  */
 
-void __fastcall DXGGLOBAL::ReleaseAdapterOrdinal(DXGGLOBAL *this, unsigned int a2)
+void __fastcall DXGGLOBAL::ReleaseAdapterOrdinal(struct _RTL_BITMAP *this, __int64 a2)
 {
-  ULONG v2; // ebx
-  struct _RTL_BITMAP *v4; // rcx
+  ULONG v2; // esi
+  __int64 v4; // rax
+  __int64 v5; // rdx
 
   v2 = a2;
-  if ( a2 >= 0x400 )
+  if ( (unsigned int)a2 >= this[78].SizeOfBitMap )
   {
-    WdLogSingleEntry1(1LL, 3779LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Ordinal < MAX_ADAPTERS_CEILING", 3779LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 3429LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 816));
-  if ( v2 < (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(this) )
-  {
-    v4 = (struct _RTL_BITMAP *)((char *)this + 864);
-  }
-  else
-  {
-    v2 -= DXGGLOBAL::GetMaximumGlobalAdapterCount(this);
-    v4 = (struct _RTL_BITMAP *)((char *)this + 880);
-  }
-  RtlClearBits(v4, v2, 1u);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)this + 102);
+  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)&this[42].Buffer);
+  RtlClearBits(this + 45, v2, 1u);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)&this[42].Buffer, v5);
 }

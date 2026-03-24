@@ -1,16 +1,15 @@
 /*
- * XREFs of ZwFsControlFile @ 0x14041ADC0
+ * XREFs of ZwFsControlFile @ 0x1403FA140
  * Callers:
- *     DifZwFsControlFileWrapper @ 0x1405F0AE0 (DifZwFsControlFileWrapper.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14063B760 (MiTrimUnusedPageFileRegionsWorker.c)
- *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     RtlUnlockBootStatusData @ 0x1407EC910 (RtlUnlockBootStatusData.c)
- *     PopCreateHiberFile @ 0x140800B90 (PopCreateHiberFile.c)
- *     PopSanityCheckHiberFile @ 0x1408011BC (PopSanityCheckHiberFile.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x1408524E8 (FsRtlpRegisterProviderWithMUP.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E5A0 (PfpQueryFileExtentsRequest.c)
- *     PopClearHiberFileSignature @ 0x1409884FC (PopClearHiberFileSignature.c)
- *     SmKmStoreFileGetExtents @ 0x1409D9F74 (SmKmStoreFileGetExtents.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403306A0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     CmpOpenHiveFile @ 0x1406EA6B8 (CmpOpenHiveFile.c)
+ *     RtlUnlockBootStatusData @ 0x14078C5B0 (RtlUnlockBootStatusData.c)
+ *     PopSanityCheckHiberFile @ 0x14078E178 (PopSanityCheckHiberFile.c)
+ *     PopClearHiberFileSignature @ 0x14078E594 (PopClearHiberFileSignature.c)
+ *     PopCreateHiberFile @ 0x14079BC20 (PopCreateHiberFile.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x1407C7930 (FsRtlpRegisterProviderWithMUP.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD5C (PfpQueryFileExtentsRequest.c)
+ *     SmKmStoreFileGetExtents @ 0x14092C828 (SmKmStoreFileGetExtents.c)
  * Callees:
  *     <none>
  */

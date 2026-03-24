@@ -1,21 +1,21 @@
 /*
- * XREFs of KiDisplayBlueScreen @ 0x140292474
+ * XREFs of KiDisplayBlueScreen @ 0x140292574
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
- *     HeadlessDispatch @ 0x1401860F0 (HeadlessDispatch.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     RtlStringCbPrintfExA @ 0x1402689E8 (RtlStringCbPrintfExA.c)
- *     InbvAcquireDisplayOwnership @ 0x14027D1B0 (InbvAcquireDisplayOwnership.c)
- *     IoSaveBugCheckProgress @ 0x140280120 (IoSaveBugCheckProgress.c)
- *     KeGetBugMessageText @ 0x140292064 (KeGetBugMessageText.c)
- *     KiDumpParameterImages @ 0x1402927D4 (KiDumpParameterImages.c)
- *     KiHeadlessDisplayString @ 0x14029292C (KiHeadlessDisplayString.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
+ *     HeadlessDispatch @ 0x140186110 (HeadlessDispatch.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     RtlStringCbPrintfExA @ 0x140268AE8 (RtlStringCbPrintfExA.c)
+ *     InbvAcquireDisplayOwnership @ 0x14027D2B0 (InbvAcquireDisplayOwnership.c)
+ *     IoSaveBugCheckProgress @ 0x140280220 (IoSaveBugCheckProgress.c)
+ *     KeGetBugMessageText @ 0x140292164 (KeGetBugMessageText.c)
+ *     KiDumpParameterImages @ 0x1402928D4 (KiDumpParameterImages.c)
+ *     KiHeadlessDisplayString @ 0x140292A2C (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  */
 
 __int64 __fastcall KiDisplayBlueScreen(int a1)

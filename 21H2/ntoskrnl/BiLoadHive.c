@@ -1,19 +1,19 @@
 /*
- * XREFs of BiLoadHive @ 0x140813960
+ * XREFs of BiLoadHive @ 0x140785A48
  * Callers:
- *     BiAddStoreFromFile @ 0x14081210C (BiAddStoreFromFile.c)
+ *     BiAddStoreFromFile @ 0x140781DD8 (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwLoadKey @ 0x14041D900 (ZwLoadKey.c)
- *     ZwLoadKey2 @ 0x14041D920 (ZwLoadKey2.c)
- *     ZwUnloadKey @ 0x14041F1C0 (ZwUnloadKey.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
- *     BiOpenKeyNonBcd @ 0x140813D88 (BiOpenKeyNonBcd.c)
- *     BiDoesHiveExist @ 0x140813E58 (BiDoesHiveExist.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwLoadKey @ 0x1403FC4A0 (ZwLoadKey.c)
+ *     ZwLoadKey2 @ 0x1403FC4C0 (ZwLoadKey2.c)
+ *     ZwUnloadKey @ 0x1403FDCC0 (ZwUnloadKey.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140785980 (BiOpenKeyNonBcd.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
+ *     BiDoesHiveExist @ 0x140785E64 (BiDoesHiveExist.c)
  */
 
 __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
@@ -38,9 +38,8 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
 
   v18 = 0LL;
   v19 = 0LL;
-  *(_QWORD *)&v20 = 0LL;
-  DWORD2(v20) = 0;
-  memset(&ObjectAttributes, 0, 44);
+  v20 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v15 = 0LL;
   v22 = 0LL;
   DestinationString = 0LL;
@@ -50,7 +49,7 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
     Handle = 0LL;
     if ( (unsigned __int8)BiDoesHiveExist(a2) )
     {
-      v7 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle);
+      v7 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 0xF003Fu, &Handle);
       Key2 = v7;
       if ( v7 < 0 )
       {

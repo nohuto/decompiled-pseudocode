@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateProcess @ 0x1409ADC60
+ * XREFs of NtCreateProcess @ 0x140906F30
  * Callers:
  *     <none>
  * Callees:
- *     NtCreateProcessEx @ 0x1409ADCF0 (NtCreateProcessEx.c)
+ *     NtCreateProcessEx @ 0x140906FC0 (NtCreateProcessEx.c)
  */
 
 __int64 __fastcall NtCreateProcess(int a1, int a2, int a3, int a4, char a5, __int64 a6, __int64 a7, __int64 a8)

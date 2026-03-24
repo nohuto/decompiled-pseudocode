@@ -1,33 +1,30 @@
 /*
- * XREFs of CmpUpdatePhaseAccessBit @ 0x14085DF94
+ * XREFs of CmpUpdatePhaseAccessBit @ 0x1407CEE5C
  * Callers:
- *     CmpAcceptBoot @ 0x1407E9258 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x14078D470 (CmpAcceptBoot.c)
  * Callees:
- *     CmpTrimHive @ 0x14074ED94 (CmpTrimHive.c)
- *     CmpGetNextActiveHive @ 0x140752570 (CmpGetNextActiveHive.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14085DFE4 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpGetNextActiveHive @ 0x1406EB310 (CmpGetNextActiveHive.c)
+ *     CmpTrimHive @ 0x14071C6E0 (CmpTrimHive.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407CEEAC (CmpUpdateReorganizeRegistryValues.c)
  */
 
 void CmpUpdatePhaseAccessBit()
 {
   struct _EX_RUNDOWN_REF *i; // rcx
   __int64 *NextActiveHive; // rax
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  struct _EX_RUNDOWN_REF *v2; // rbx
 
   if ( CmpAccessBitForPhase != 2 )
   {
     CmpAccessBitForPhase = 2;
-    for ( i = 0LL; ; i = v5 )
+    for ( i = 0LL; ; i = v2 )
     {
       NextActiveHive = CmpGetNextActiveHive(i);
-      v5 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
+      v2 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
       if ( !NextActiveHive )
         break;
       if ( (NextActiveHive[20] & 0x10) == 0 )
-        CmpTrimHive((__int64)NextActiveHive, v2, v3, v4);
+        CmpTrimHive((__int64)NextActiveHive);
     }
     CmpUpdateReorganizeRegistryValues();
   }

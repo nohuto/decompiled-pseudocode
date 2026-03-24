@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBatches@CCompositionFrame@@UEAAPEAUIBatchList@@XZ @ 0x1C00205C0
+ * XREFs of ?GetBatches@CCompositionFrame@@UEAAPEAUIBatchList@@XZ @ 0x1C001B980
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,26 @@
 /*
- * XREFs of ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0244E50
+ * XREFs of ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0256470
  * Callers:
- *     ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C0244EC0 (-CleanQueue@InteractiveControlDevice@@QEAAXK@Z.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C02451D8 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0245E94 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C02564F8 (-CleanQueue@InteractiveControlDevice@@QEAAXK@Z.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256814 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02574D0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
  * Callees:
- *     ??1InteractiveControlInput@@QEAA@XZ @ 0x1C0246A34 (--1InteractiveControlInput@@QEAA@XZ.c)
+ *     <none>
  */
 
 InteractiveControlInput *__fastcall InteractiveControlInput::`scalar deleting destructor'(
         InteractiveControlInput *this,
         char a2)
 {
-  InteractiveControlInput::~InteractiveControlInput(this);
+  void *v4; // rcx
+
+  v4 = (void *)*((_QWORD *)this + 10);
+  if ( v4 )
+  {
+    Win32FreePool(v4);
+    *((_QWORD *)this + 10) = 0LL;
+    *((_DWORD *)this + 22) = 0;
+  }
   if ( (a2 & 1) != 0 )
     Win32FreePool(this);
   return this;

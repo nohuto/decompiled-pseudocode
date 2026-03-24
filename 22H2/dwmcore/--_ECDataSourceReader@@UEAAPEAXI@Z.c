@@ -1,20 +1,41 @@
 /*
- * XREFs of ??_ECDataSourceReader@@UEAAPEAXI@Z @ 0x180229100
+ * XREFs of ??_ECDataSourceReader@@UEAAPEAXI@Z @ 0x1801BE930
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CDataSourceReader@@UEAA@XZ @ 0x18022907C (--1CDataSourceReader@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A132C (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ?RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x180164BE4 (-RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z.c)
+ *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x180164CA0 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
  */
 
 CDataSourceReader *__fastcall CDataSourceReader::`vector deleting destructor'(CDataSourceReader *this, char a2)
 {
-  CDataSourceReader::~CDataSourceReader(this);
+  char v4; // al
+
+  *(_QWORD *)this = &CDataSourceReader::`vftable';
+  v4 = *((_BYTE *)this + 72);
+  if ( (v4 & 2) != 0 )
+  {
+    DataProviderManager::RemoveReaderFromReadyList(*(DataProviderManager **)(*((_QWORD *)this + 2) + 1096LL), this);
+    *((_BYTE *)this + 72) &= ~2u;
+    v4 = *((_BYTE *)this + 72);
+  }
+  if ( (v4 & 1) != 0 )
+  {
+    DataProviderManager::UnregisterReaderForDataSource(
+      *(DataProviderManager **)(*((_QWORD *)this + 2) + 1096LL),
+      *((_QWORD *)this + 7),
+      *((_QWORD *)this + 8),
+      this);
+    *((_BYTE *)this + 72) &= ~1u;
+  }
+  CResource::~CResource(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x50);
     else
       operator delete(this);
   }

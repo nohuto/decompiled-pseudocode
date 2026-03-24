@@ -1,70 +1,49 @@
 /*
- * XREFs of CmpVirtualPathPresent @ 0x140A1A890
+ * XREFs of CmpVirtualPathPresent @ 0x140870EA0
  * Callers:
- *     CmpReparseToVirtualPath @ 0x140A19FB4 (CmpReparseToVirtualPath.c)
+ *     CmpReparseToVirtualPath @ 0x1406854AC (CmpReparseToVirtualPath.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpBlockTwoHiveWrites @ 0x140A13908 (CmpBlockTwoHiveWrites.c)
- *     CmpUnblockTwoHiveWrites @ 0x140A13ADC (CmpUnblockTwoHiveWrites.c)
- *     CmpFindPathByName @ 0x140A19690 (CmpFindPathByName.c)
- *     CmpGetCmHiveFromVirtualPath @ 0x140A19BDC (CmpGetCmHiveFromVirtualPath.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindPathByName @ 0x1406E8C18 (CmpFindPathByName.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1406EB048 (CmpUnblockTwoHiveWrites.c)
+ *     CmpBlockTwoHiveWrites @ 0x1406EB244 (CmpBlockTwoHiveWrites.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1406EB5BC (CmpGetCmHiveFromVirtualPath.c)
  */
 
 bool __fastcall CmpVirtualPathPresent(__m128i *a1)
 {
-  volatile signed __int32 *v1; // r14
-  __int64 v3; // rsi
+  char *v1; // r14
+  __int64 v3; // rdi
   char PathByName; // al
-  ULONG_PTR v5; // rdi
+  __int64 v5; // rsi
   bool v6; // bl
-  __int64 CellFlat; // rax
-  ULONG_PTR BugCheckParameter3[2]; // [rsp+30h] [rbp-10h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v11; // [rsp+80h] [rbp+40h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int v9; // [rsp+78h] [rbp+38h] BYREF
+  int v10; // [rsp+80h] [rbp+40h] BYREF
+  int v11; // [rsp+84h] [rbp+44h]
   PVOID v12; // [rsp+88h] [rbp+48h] BYREF
 
-  v11 = 0xFFFFFFFFLL;
-  v1 = (volatile signed __int32 *)CmpMasterHive;
-  BugCheckParameter3[0] = 0LL;
-  LODWORD(BugCheckParameter4) = 0;
+  v10 = -1;
+  v1 = (char *)CmpMasterHive;
+  v8 = 0LL;
+  v9 = 0;
   v3 = 0LL;
   v12 = 0LL;
-  if ( (int)CmpGetCmHiveFromVirtualPath((__int64)a1, (__int64)&v12) >= 0
-    && (int)CmpBlockTwoHiveWrites(v1, (__int64)v12, 1) >= 0 )
+  v11 = 0;
+  if ( (int)CmpGetCmHiveFromVirtualPath((__int64)a1, (__int64)&v12) < 0
+    || (int)CmpBlockTwoHiveWrites((__int64)v1, (__int64)v12, 1) < 0 )
   {
-    PathByName = CmpFindPathByName(0LL, a1, 0LL, (unsigned int *)&BugCheckParameter4, BugCheckParameter3);
-    v5 = BugCheckParameter3[0];
-    v6 = PathByName;
-    if ( BugCheckParameter3[0] )
-    {
-      if ( (*(_BYTE *)(BugCheckParameter3[0] + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(BugCheckParameter3[0], (unsigned int)BugCheckParameter4, &v11);
-      else
-        CellFlat = HvpGetCellPaged(BugCheckParameter3[0], BugCheckParameter4, (unsigned int *)&v11);
-      v3 = CellFlat;
-    }
-    if ( v6 )
-    {
-      if ( v3 )
-      {
-        v6 = CmpVEEnabled && _bittest16((const signed __int16 *)(v3 + 2), 8u);
-        goto LABEL_16;
-      }
-      v6 = 0;
-    }
-    else if ( v3 )
-    {
-LABEL_16:
-      if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v5, &v11);
-      else
-        HvpReleaseCellPaged(v5, (unsigned int *)&v11);
-    }
-    CmpUnblockTwoHiveWrites(v1, (volatile signed __int32 *)v12);
-    return v6;
+    return 0;
   }
-  return 0;
+  PathByName = CmpFindPathByName(0LL, a1, 0LL, &v9, &v8);
+  v5 = v8;
+  v6 = PathByName;
+  if ( v8 )
+    v3 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v8 + 8))(v8, v9, &v10);
+  if ( v6 )
+    v6 = v3 && CmpVEEnabled && (*(_WORD *)(v3 + 2) & 0x100) != 0;
+  if ( v3 )
+    (*(void (__fastcall **)(__int64, int *))(v5 + 16))(v5, &v10);
+  CmpUnblockTwoHiveWrites(v1, v12);
+  return v6;
 }

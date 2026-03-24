@@ -1,13 +1,13 @@
 /*
- * XREFs of InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00C6CC4
+ * XREFs of InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00E2998
  * Callers:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     SetIconMetrics @ 0x1C00C6CF4 (SetIconMetrics.c)
- *     DestroyDpiMetricsCache @ 0x1C00C73E0 (DestroyDpiMetricsCache.c)
- *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C0158F68 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ *     DestroyDpiMetricsCache @ 0x1C00E2150 (DestroyDpiMetricsCache.c)
+ *     SetIconMetrics @ 0x1C00E22C0 (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01D6B7C (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
  * Callees:
- *     DeleteMetricsFont @ 0x1C00C7520 (DeleteMetricsFont.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     DeleteMetricsFont @ 0x1C00E2290 (DeleteMetricsFont.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 InvalidateKMDpiMetricsCacheDPIMETRICS()
@@ -18,11 +18,11 @@ __int64 InvalidateKMDpiMetricsCacheDPIMETRICS()
   result = gpDpiKernelModeMetricsCache;
   for ( i = gpDpiKernelModeMetricsCache; i; i = *(_QWORD *)(i + 8) )
   {
-    DeleteMetricsFont(*(_QWORD *)(i + 16));
-    DeleteMetricsFont(*(_QWORD *)(i + 64));
-    DeleteMetricsFont(*(_QWORD *)(i + 72));
-    DeleteMetricsFont(*(_QWORD *)(i + 80));
-    DeleteMetricsFont(*(_QWORD *)(i + 48));
+    DeleteMetricsFont(*(struct HLFONT__ **)(i + 16));
+    DeleteMetricsFont(*(struct HLFONT__ **)(i + 64));
+    DeleteMetricsFont(*(struct HLFONT__ **)(i + 72));
+    DeleteMetricsFont(*(struct HLFONT__ **)(i + 80));
+    DeleteMetricsFont(*(struct HLFONT__ **)(i + 48));
     memset((void *)(i + 16), 0, 0x48uLL);
     result = 1LL;
     *(_WORD *)(i + 2) = 1;

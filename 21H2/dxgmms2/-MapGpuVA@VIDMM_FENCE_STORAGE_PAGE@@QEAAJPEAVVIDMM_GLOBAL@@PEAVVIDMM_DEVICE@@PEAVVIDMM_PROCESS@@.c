@@ -1,21 +1,21 @@
 /*
- * XREFs of ?MapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEA_KI_N@Z @ 0x1C009ABBC
+ * XREFs of ?MapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEA_KI_N@Z @ 0x1C0085574
  * Callers:
- *     ?MapGpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEA_KI_N@Z @ 0x1C009AAFC (-MapGpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STOR.c)
+ *     ?MapGpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEA_KI_N@Z @ 0x1C00854B4 (-MapGpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STOR.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C007B4E8 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
- *     ?ReleaseVaRangeReferenceSafe@VIDMM_MAPPED_VA_RANGE@@QEAAJPEAVCVirtualAddressAllocator@@@Z @ 0x1C007B820 (-ReleaseVaRangeReferenceSafe@VIDMM_MAPPED_VA_RANGE@@QEAAJPEAVCVirtualAddressAllocator@@@Z.c)
- *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C00859C8 (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
- *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C008A360 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
- *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0098DD4 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C009A5E0 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?CommitVirtualAddressRange@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@PEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_MAPPED_VA_RANGE@@EPEAU_MDL@@PEA_KPEAUVIDMM_VAD_PENDING_OPERATION@@@Z @ 0x1C009B124 (-CommitVirtualAddressRange@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@PEAVVIDMM_PAGING_QUE.c)
- *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C009B234 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
- *     ?AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C009B3B4 (-AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
- *     ?ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C009B7EC (-ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
- *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00B85BC (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
- *     ?QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00D931C (-QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N6@Z @ 0x1C005FFD8 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ *     ?ReleaseVaRangeReferenceSafe@VIDMM_MAPPED_VA_RANGE@@QEAAJPEAVCVirtualAddressAllocator@@@Z @ 0x1C00602F0 (-ReleaseVaRangeReferenceSafe@VIDMM_MAPPED_VA_RANGE@@QEAAJPEAVCVirtualAddressAllocator@@@Z.c)
+ *     ?CommitVirtualAddressRange@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@PEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_MAPPED_VA_RANGE@@EPEAU_MDL@@PEA_KPEAUVIDMM_VAD_PENDING_OPERATION@@@Z @ 0x1C0067880 (-CommitVirtualAddressRange@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@PEAVVIDMM_PAGING_QUE.c)
+ *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C006F95C (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
+ *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C006FD28 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0084248 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0084384 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C0085B08 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
+ *     ?AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C0085F44 (-AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
+ *     ?ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C008633C (-ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
+ *     ?QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00B2C64 (-QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00BD184 (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapGpuVA(
@@ -28,72 +28,69 @@ __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapGpuVA(
         unsigned int a7,
         bool a8)
 {
-  struct VIDMM_PROCESS *v8; // r13
-  unsigned int v11; // ecx
+  VIDMM_PROCESS *v8; // r12
+  __int64 v11; // rcx
   int v12; // eax
   unsigned int v13; // edi
-  bool v15; // r14
+  __int64 v14; // rax
   bool v16; // zf
   int v17; // eax
   char v18; // cl
-  __int64 v19; // rbx
-  struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *i; // rsi
-  int v21; // edi
-  int v22; // r14d
-  VIDMM_PROCESS *v23; // r9
-  char *v24; // r13
+  char *v19; // rbx
+  struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *v20; // rax
+  struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *i; // r15
+  int v22; // edi
+  char v23; // r14
+  char *v24; // r12
   char *j; // rcx
   __int64 v26; // r10
-  struct CVirtualAddressAllocator *v27; // rcx
-  __int64 Pool2; // rax
-  unsigned __int64 v29; // r8
-  __int64 v30; // rax
-  unsigned __int64 v31; // r9
-  unsigned __int64 v32; // rax
-  __int64 v33; // r8
-  __int64 v34; // r9
-  struct _KTHREAD **v35; // rcx
-  char **v36; // rcx
-  char *v37; // rax
-  unsigned int v38; // r13d
-  unsigned int v39; // r14d
-  void *v40; // rax
-  __int64 v41; // rdi
-  __int64 v42; // rcx
-  struct VIDMM_ALLOC *v43; // rax
-  int v44; // eax
-  bool v45; // r8
-  int v46; // eax
-  VIDMM_FENCE_STORAGE_PAGE *v47; // rcx
-  VIDMM_FENCE_STORAGE_PAGE **v48; // rax
-  VIDMM_FENCE_STORAGE_PAGE **v49; // rdx
-  char *v50; // rcx
-  CVirtualAddressAllocator *v51; // rax
-  __int64 v52; // r8
-  __int64 v53; // r9
-  char *v54; // rcx
-  unsigned int v55; // [rsp+78h] [rbp-81h]
-  struct CVirtualAddressAllocator *VirtualAddressAllocator; // [rsp+80h] [rbp-79h]
-  PVOID P; // [rsp+88h] [rbp-71h] BYREF
-  char *v58; // [rsp+90h] [rbp-69h]
-  _QWORD v59[20]; // [rsp+98h] [rbp-61h] BYREF
-  struct VIDMM_ALLOC *v61; // [rsp+150h] [rbp+57h] BYREF
-  struct VIDMM_DEVICE *v62; // [rsp+158h] [rbp+5Fh]
-  VIDMM_PROCESS *v63; // [rsp+160h] [rbp+67h]
+  void **v27; // r11
+  struct CVirtualAddressAllocator *v28; // rcx
+  int v29; // r14d
+  char *PoolWithTag; // rax
+  unsigned __int64 v31; // r8
+  __int64 v32; // rax
+  unsigned __int64 v33; // r9
+  unsigned __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  char **v38; // rcx
+  char *v39; // rax
+  unsigned int v40; // r12d
+  unsigned int v41; // r14d
+  struct VIDMM_MAPPED_VA_RANGE *v42; // rax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  VIDMM_MAPPED_VA_RANGE *v45; // r13
+  __int64 v46; // rdi
+  int v47; // eax
+  bool v48; // r8
+  __int64 v49; // rax
+  int v50; // eax
+  VIDMM_FENCE_STORAGE_PAGE *v51; // rcx
+  VIDMM_FENCE_STORAGE_PAGE **v52; // rax
+  VIDMM_FENCE_STORAGE_PAGE **v53; // rdx
+  CVirtualAddressAllocator *v54; // rax
+  unsigned int v55; // [rsp+88h] [rbp-80h]
+  struct CVirtualAddressAllocator *VirtualAddressAllocator; // [rsp+90h] [rbp-78h]
+  unsigned __int64 v57; // [rsp+98h] [rbp-70h] BYREF
+  struct VIDMM_ALLOC *v58; // [rsp+A0h] [rbp-68h] BYREF
+  _QWORD v59[20]; // [rsp+A8h] [rbp-60h] BYREF
+  char v61; // [rsp+160h] [rbp+58h]
 
-  v63 = a4;
-  v62 = a3;
   v8 = a4;
   *a6 = 0LL;
   if ( (*((_BYTE *)a2 + 40936) & 2) == 0 )
     return 0LL;
-  v11 = *((_DWORD *)a2 + 1754);
+  v11 = *((unsigned int *)a2 + 1750);
   v12 = 1;
-  if ( v11 > 1 && (v13 = a7, v12 = (1 << v11) - 1, a7) )
+  if ( (unsigned int)v11 > 1 && (v13 = a7, v12 = (1 << v11) - 1, a7) )
   {
     if ( (~v12 & a7) != 0 )
     {
-      WdLogSingleEntry0(3LL);
+      v14 = WdLogNewEntry5_WdWarning(v11, a2);
+      WdLogEvent5_WdWarning(v14);
       return 3221225485LL;
     }
   }
@@ -101,24 +98,22 @@ __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapGpuVA(
   {
     v13 = v12;
   }
-  v15 = a8;
   v55 = 0;
   if ( a8 )
   {
     v16 = !_BitScanForward((unsigned int *)&v17, v13);
     v18 = -1;
-    LODWORD(v61) = 0;
     if ( !v16 )
       v18 = v17;
     v55 = v18;
   }
   v19 = 0LL;
-  v58 = (char *)this + 72;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx((char *)this + 72, 0LL);
   *((_QWORD *)this + 10) = KeGetCurrentThread();
+  v20 = (VIDMM_FENCE_STORAGE_PAGE *)((char *)this + 56);
   for ( i = (struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *)*((_QWORD *)this + 7);
-        i != (VIDMM_FENCE_STORAGE_PAGE *)((char *)this + 56);
+        i != v20;
         i = *(struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA **)i )
   {
     if ( a2 == *((struct VIDMM_GLOBAL **)i + 6) )
@@ -127,222 +122,223 @@ __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapGpuVA(
   i = VIDMM_FENCE_STORAGE_PAGE::AllocateStoragePageGpuData(this, a2);
   if ( !i )
   {
-    v21 = -1073741801;
-    LOBYTE(v22) = 0;
-    goto LABEL_63;
+    v22 = -1073741801;
+    v23 = 0;
+    goto LABEL_62;
   }
 LABEL_17:
-  v23 = v63;
   v24 = (char *)i + 32;
   for ( j = (char *)*((_QWORD *)i + 4); j != v24; j = *(char **)j )
   {
-    if ( v63 == *((VIDMM_PROCESS **)j - 1) && (!v15 || *((_DWORD *)j + 5) == v13) )
+    if ( a4 == *((struct VIDMM_PROCESS **)j - 1) && (!a8 || *((_DWORD *)j + 5) == v13) )
     {
       ++*((_DWORD *)j + 4);
-      v19 = (__int64)(j - 32);
+      v19 = j - 32;
       break;
     }
   }
-  VirtualAddressAllocator = VIDMM_PROCESS::GetVirtualAddressAllocator(
-                              v23,
-                              *(_DWORD *)(*((_QWORD *)a2 + 3) + 240LL),
-                              v55);
-  v27 = VirtualAddressAllocator;
-  if ( !VirtualAddressAllocator || (v16 = *(_BYTE *)(v26 + 2731) == 0, LOBYTE(v61) = 1, !v16) )
-    LOBYTE(v61) = 0;
-  v22 = 0;
+  VirtualAddressAllocator = VIDMM_PROCESS::GetVirtualAddressAllocator(a4, *(_DWORD *)(*((_QWORD *)a2 + 3) + 232LL), v55);
+  v28 = VirtualAddressAllocator;
+  if ( !VirtualAddressAllocator || (v61 = 1, *(_BYTE *)(v26 + 2635) != (_BYTE)v27) )
+    v61 = (char)v27;
+  v29 = (int)v27;
   if ( v19 )
   {
-    v22 = *(_DWORD *)(v19 + 52);
-    *(_DWORD *)(v19 + 52) = v13 | v22;
+    v29 = *((_DWORD *)v19 + 13);
+    *((_DWORD *)v19 + 13) = v13 | v29;
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 56LL, 1700882774LL);
-    v19 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x65616956u);
+    v27 = 0LL;
+    v19 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v21 = -1073741801;
-      goto LABEL_62;
+      v22 = -1073741801;
+      v23 = 0;
+      goto LABEL_61;
     }
-    *(_DWORD *)(Pool2 + 48) = 1;
-    *(_QWORD *)(Pool2 + 24) = v63;
-    *(_QWORD *)(Pool2 + 8) = i;
-    *(_DWORD *)(Pool2 + 52) = v13;
-    ++*((_DWORD *)i + 18);
-    if ( (_BYTE)v61 )
+    *(_QWORD *)PoolWithTag = 0LL;
+    *((_QWORD *)PoolWithTag + 2) = 0LL;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
+    *((_QWORD *)PoolWithTag + 5) = 0LL;
+    *((_DWORD *)PoolWithTag + 12) = 1;
+    *((_QWORD *)PoolWithTag + 3) = a4;
+    *((_QWORD *)PoolWithTag + 1) = i;
+    *((_DWORD *)PoolWithTag + 13) = v13;
+    ++*((_DWORD *)i + 16);
+    if ( v61 )
     {
-      v30 = *((_QWORD *)a2 + 3);
+      v32 = *((_QWORD *)a2 + 3);
       if ( a8 )
       {
-        *(_BYTE *)(v19 + 17) = 1;
-        v31 = *((_QWORD *)a2 + 5118);
-        v32 = *((_QWORD *)a2 + 5119);
+        v19[17] = 1;
+        v33 = *((_QWORD *)a2 + 5118);
+        v34 = *((_QWORD *)a2 + 5119);
       }
       else
       {
-        v31 = *(_QWORD *)(v30 + 2640);
-        v32 = *(_QWORD *)(v30 + 2648);
+        v33 = *(_QWORD *)(v32 + 2544);
+        v34 = *(_QWORD *)(v32 + 2552);
       }
-      P = 0LL;
-      v21 = CVirtualAddressAllocator::ReserveVirtualAddressRangeNoAccess(
+      v57 = 0LL;
+      v22 = CVirtualAddressAllocator::ReserveVirtualAddressRangeNoAccess(
               VirtualAddressAllocator,
               0x1000uLL,
-              v29,
               v31,
-              v32,
+              v33,
+              v34,
               0x1000u,
-              (unsigned __int64 *)&P);
-      if ( v21 < 0 )
+              &v57);
+      if ( v22 < 0 )
       {
 LABEL_36:
-        WdLogSingleEntry0(3LL);
-        goto LABEL_55;
+        v37 = WdLogNewEntry5_WdWarning(v36, v35);
+        WdLogEvent5_WdWarning(v37);
+        goto LABEL_54;
       }
-      v35 = (struct _KTHREAD **)v63;
-      *(_QWORD *)v19 = P;
-      *(_BYTE *)(v19 + 16) = 1;
-      VIDMM_PROCESS::OpenAdapter(v35, a2, v33, v34);
+      *(_QWORD *)v19 = v57;
+      v19[16] = 1;
+      VIDMM_PROCESS::OpenAdapter((struct _KTHREAD **)a4, a2);
+      v27 = 0LL;
     }
     else
     {
-      *(_QWORD *)Pool2 = *(_QWORD *)(*((_QWORD *)this + 15) + 48LL) << 12;
-      *(_BYTE *)(Pool2 + 16) = 0;
+      *(_QWORD *)PoolWithTag = *(_QWORD *)(*((_QWORD *)this + 15) + 48LL) << 12;
+      PoolWithTag[16] = 0;
     }
-    v36 = (char **)*((_QWORD *)i + 5);
-    v37 = (char *)(v19 + 32);
-    if ( *v36 != v24 )
-      goto LABEL_68;
-    *(_QWORD *)(v19 + 40) = v36;
-    *(_QWORD *)v37 = v24;
-    *v36 = v37;
-    v27 = VirtualAddressAllocator;
-    *((_QWORD *)i + 5) = v37;
+    v38 = (char **)*((_QWORD *)i + 5);
+    v39 = v19 + 32;
+    if ( *v38 != v24 )
+      goto LABEL_67;
+    *((_QWORD *)v19 + 5) = v38;
+    *(_QWORD *)v39 = v24;
+    *v38 = v39;
+    v28 = VirtualAddressAllocator;
+    *((_QWORD *)i + 5) = v39;
   }
-  if ( !(_BYTE)v61 || (v38 = 0, (v39 = *(_DWORD *)(v19 + 52) & ~v22) == 0) )
+  if ( v61 == (_BYTE)v27 || (v40 = (unsigned int)v27, (v41 = *((_DWORD *)v19 + 13) & ~v29) == 0) )
   {
-LABEL_69:
-    v54 = v58;
+LABEL_68:
     *a6 = *(_QWORD *)v19 + *((unsigned int *)a5 + 4);
-    *((_QWORD *)v54 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v54, 0LL);
+    *((_QWORD *)this + 10) = v27;
+    ExReleasePushLockExclusiveEx((char *)this + 72, 0LL);
     KeLeaveCriticalRegion();
     return 0LL;
   }
   while ( 1 )
   {
-    if ( (v39 & 1) == 0 )
+    if ( (v41 & 1) == 0 )
       goto LABEL_51;
-    v40 = (void *)CVirtualAddressAllocator::MapVirtualAddressRange(
-                    v27,
-                    (__int64)i,
-                    0LL,
-                    2u,
-                    0x1000uLL,
-                    *(_QWORD *)v19,
-                    0LL,
-                    0LL,
-                    0x1000u,
-                    (_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE)17LL,
-                    0LL,
-                    v38,
-                    0LL,
-                    1);
-    P = v40;
-    v41 = (__int64)v40;
-    if ( !v40 )
+    v42 = (struct VIDMM_MAPPED_VA_RANGE *)CVirtualAddressAllocator::MapVirtualAddressRange(
+                                            v28,
+                                            (__int64)this + 120,
+                                            0LL,
+                                            2,
+                                            0x1000uLL,
+                                            *(_QWORD *)v19,
+                                            (unsigned __int64)v27,
+                                            (unsigned __int64)v27,
+                                            0x1000u,
+                                            (_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE)17LL,
+                                            (__int64)v27,
+                                            v40,
+                                            v27,
+                                            1,
+                                            (char)v27);
+    v45 = v42;
+    if ( !v42 )
       break;
-    if ( *(_BYTE *)(v19 + 17) )
+    if ( v19[17] )
     {
-      v42 = *(_QWORD *)a2;
-      v43 = (struct VIDMM_ALLOC *)*((_QWORD *)i + 7);
-      v61 = v43;
-      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v42 + 8) )
+      v46 = *((_QWORD *)this + 15);
+      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(*(_QWORD *)a2 + 8LL) )
       {
-        v61 = 0LL;
-        v44 = CVirtualAddressAllocator::CommitVirtualAddressRange(
+        v58 = 0LL;
+        v47 = CVirtualAddressAllocator::CommitVirtualAddressRange(
                 (__int64)VirtualAddressAllocator,
-                v41,
-                v38,
+                (__int64)v42,
+                v40,
                 0,
                 0LL,
-                (__int64)v43,
+                v46,
                 0,
-                &v61,
+                &v58,
                 0LL);
       }
       else
       {
         memset(v59, 0, 0x58uLL);
         v59[5] = VirtualAddressAllocator;
-        v59[7] = v61;
         LODWORD(v59[0]) = 113;
-        v59[6] = v41;
-        HIDWORD(v59[0]) = v38;
-        v44 = VIDMM_GLOBAL::QueueLazySystemCommandAndWait(a2, (struct _VIDMM_SYSTEM_COMMAND *)v59, v45);
+        v59[6] = v45;
+        HIDWORD(v59[0]) = v40;
+        v59[7] = v46;
+        v47 = VIDMM_GLOBAL::QueueLazySystemCommandAndWait(a2, (struct _VIDMM_SYSTEM_COMMAND *)v59, v48);
       }
     }
     else
     {
-      v44 = VIDMM_GLOBAL::CommitVirtualAddressRange(
+      v47 = VIDMM_GLOBAL::CommitVirtualAddressRange(
               a2,
               VirtualAddressAllocator,
-              (struct VIDMM_PAGING_QUEUE *)(*((_QWORD *)v62 + 10) + 176LL * v38),
-              (struct VIDMM_MAPPED_VA_RANGE *)v40,
+              (struct VIDMM_PAGING_QUEUE *)(*((_QWORD *)a3 + 9) + 176LL * v40),
+              v42,
               0,
-              *((struct _MDL **)i + 7),
+              *((struct _MDL **)this + 15),
               0LL,
               0LL);
     }
-    v21 = v44;
-    VIDMM_MAPPED_VA_RANGE::ReleaseVaRangeReferenceSafe((volatile signed __int32 *)P, VirtualAddressAllocator);
-    if ( v21 < 0 )
+    v22 = v47;
+    VIDMM_MAPPED_VA_RANGE::ReleaseVaRangeReferenceSafe(v45, VirtualAddressAllocator);
+    v27 = 0LL;
+    if ( v22 < 0 )
       goto LABEL_36;
 LABEL_51:
-    ++v38;
-    v39 >>= 1;
-    if ( !v39 )
-      goto LABEL_69;
-    v27 = VirtualAddressAllocator;
+    ++v40;
+    v41 >>= 1;
+    if ( !v41 )
+      goto LABEL_68;
+    v28 = VirtualAddressAllocator;
   }
-  WdLogSingleEntry0(3LL);
-  v21 = -1073741823;
-LABEL_55:
-  v46 = *(_DWORD *)(v19 + 48);
-  LOBYTE(v22) = 0;
-  if ( v46 != 1 )
-    goto LABEL_61;
-  v47 = (VIDMM_FENCE_STORAGE_PAGE *)(v19 + 32);
-  LOBYTE(v22) = 1;
-  v48 = *(VIDMM_FENCE_STORAGE_PAGE ***)(v19 + 32);
-  if ( !v48 )
+  v49 = WdLogNewEntry5_WdWarning(v44, v43);
+  WdLogEvent5_WdWarning(v49);
+  v22 = -1073741823;
+LABEL_54:
+  v50 = *((_DWORD *)v19 + 12);
+  v23 = 0;
+  if ( v50 != 1 )
     goto LABEL_60;
-  if ( v48[1] != v47 || (v49 = *(VIDMM_FENCE_STORAGE_PAGE ***)(v19 + 40), *v49 != v47) )
-LABEL_68:
+  v51 = (VIDMM_FENCE_STORAGE_PAGE *)(v19 + 32);
+  v23 = 1;
+  v52 = (VIDMM_FENCE_STORAGE_PAGE **)*((_QWORD *)v19 + 4);
+  if ( !v52 )
+    goto LABEL_59;
+  if ( v52[1] != v51 || (v53 = (VIDMM_FENCE_STORAGE_PAGE **)*((_QWORD *)v19 + 5), *v53 != v51) )
+LABEL_67:
     __fastfail(3u);
-  *v49 = (VIDMM_FENCE_STORAGE_PAGE *)v48;
-  v48[1] = (VIDMM_FENCE_STORAGE_PAGE *)v49;
+  *v53 = (VIDMM_FENCE_STORAGE_PAGE *)v52;
+  v52[1] = (VIDMM_FENCE_STORAGE_PAGE *)v53;
+LABEL_59:
+  VIDMM_FENCE_STORAGE_PAGE::ReleaseStoragePageGpuData(v51, i);
+  v50 = *((_DWORD *)v19 + 12);
 LABEL_60:
-  VIDMM_FENCE_STORAGE_PAGE::ReleaseStoragePageGpuData(v47, i);
-  v46 = *(_DWORD *)(v19 + 48);
+  *((_DWORD *)v19 + 12) = v50 - 1;
 LABEL_61:
-  *(_DWORD *)(v19 + 48) = v46 - 1;
+  v8 = a4;
 LABEL_62:
-  v8 = v63;
-LABEL_63:
-  v50 = v58;
-  *((_QWORD *)v58 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v50, 0LL);
+  *((_QWORD *)this + 10) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 72, 0LL);
   KeLeaveCriticalRegion();
-  if ( (_BYTE)v22 )
+  if ( v23 )
   {
-    if ( *(_BYTE *)(v19 + 16) )
+    if ( v19[16] )
     {
-      v51 = VIDMM_PROCESS::GetVirtualAddressAllocator(v8, *(_DWORD *)(*((_QWORD *)a2 + 3) + 240LL), v55);
-      CVirtualAddressAllocator::FreeVirtualAddressRange(v51, *(_QWORD *)v19);
-      VIDMM_PROCESS::CloseAdapter((struct _KTHREAD **)v8, a2, v52, v53);
+      v54 = VIDMM_PROCESS::GetVirtualAddressAllocator(v8, *(_DWORD *)(*((_QWORD *)a2 + 3) + 232LL), v55);
+      CVirtualAddressAllocator::FreeVirtualAddressRange(v54, *(_QWORD *)v19);
+      VIDMM_PROCESS::CloseAdapter((struct _KTHREAD **)v8, a2);
     }
-    ExFreePoolWithTag((PVOID)v19, 0);
+    ExFreePoolWithTag(v19, 0);
   }
-  return (unsigned int)v21;
+  return (unsigned int)v22;
 }

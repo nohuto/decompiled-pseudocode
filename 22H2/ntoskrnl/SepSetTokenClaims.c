@@ -1,15 +1,15 @@
 /*
- * XREFs of SepSetTokenClaims @ 0x1407CF918
+ * XREFs of SepSetTokenClaims @ 0x1405DC6A8
  * Callers:
- *     SepCreateTokenEx @ 0x140229730 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SepCompareClaimAttributes @ 0x1407C7908 (SepCompareClaimAttributes.c)
- *     SepCreateClaimAttributes @ 0x1407CF994 (SepCreateClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x1409D146C (SepDeleteClaimAttributes.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     SepCompareClaimAttributes @ 0x14070EA60 (SepCompareClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140925038 (SepDeleteClaimAttributes.c)
  */
 
 __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a5)
@@ -19,8 +19,7 @@ __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a
   unsigned int v8; // r14d
   PVOID v9; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rcx
-  __int64 v12; // rsi
+  __int64 v11; // rsi
   PVOID P; // [rsp+30h] [rbp-18h] BYREF
 
   P = 0LL;
@@ -45,17 +44,17 @@ __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a
       {
         v6 = 1;
         *(_QWORD *)(v11 + 112) = P;
+        v11 = *(_QWORD *)(a1 + 216);
       }
-      v12 = *(_QWORD *)(a1 + 216);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v12 + 104));
-      KeAbPostRelease(v12 + 104);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(v11 + 104));
+      KeAbPostRelease(v11 + 104);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v9 = P;
       if ( v6 )
         goto LABEL_13;
     }
-    if ( SepCompareClaimAttributes((unsigned int *)v9, *(unsigned int **)(*(_QWORD *)(a1 + 216) + 112LL)) )
+    if ( (unsigned __int8)SepCompareClaimAttributes(v9, *(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL)) )
     {
 LABEL_13:
       *(_QWORD *)(a1 + 1096) = *(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL);

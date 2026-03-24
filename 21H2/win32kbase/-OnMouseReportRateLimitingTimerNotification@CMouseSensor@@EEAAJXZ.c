@@ -1,15 +1,15 @@
 /*
- * XREFs of ?OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ @ 0x1C01EC260
+ * XREFs of ?OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ @ 0x1C01B25F0
  * Callers:
  *     <none>
  * Callees:
- *     ?FlushMouseReports@CMouseSensor@@AEAAJXZ @ 0x1C00E92C8 (-FlushMouseReports@CMouseSensor@@AEAAJXZ.c)
- *     ?MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z @ 0x1C01EC1C8 (-MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z.c)
+ *     ?FlushMouseReports@CMouseSensor@@AEAAJXZ @ 0x1C01B2398 (-FlushMouseReports@CMouseSensor@@AEAAJXZ.c)
+ *     ?MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z @ 0x1C01B2550 (-MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z.c)
  */
 
 __int64 __fastcall CMouseSensor::OnMouseReportRateLimitingTimerNotification(struct DEVICEINFO **this)
 {
   CMouseSensor::FlushMouseReports((CMouseSensor *)this);
-  InputTraceLogging::Mouse::MouseReportRateLimitingTimerFired(this[217]);
+  InputTraceLogging::Mouse::MouseReportRateLimitingTimerFired(this[212]);
   return 0LL;
 }

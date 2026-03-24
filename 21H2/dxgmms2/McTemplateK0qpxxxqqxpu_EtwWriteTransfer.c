@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qpxxxqqxpu_EtwWriteTransfer @ 0x1C0032FA0
+ * XREFs of McTemplateK0qpxxxqqxpu_EtwWriteTransfer @ 0x1C0028A10
  * Callers:
- *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00B0D90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C0092F90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qpxxxqqxpu_EtwWriteTransfer(

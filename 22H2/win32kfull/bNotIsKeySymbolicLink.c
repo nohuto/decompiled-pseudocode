@@ -1,40 +1,40 @@
 /*
- * XREFs of bNotIsKeySymbolicLink @ 0x1C008A598
+ * XREFs of bNotIsKeySymbolicLink @ 0x1C00E6E44
  * Callers:
- *     bReadUserSystemEUDCRegistry @ 0x1C0089700 (bReadUserSystemEUDCRegistry.c)
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C02A02D8 (bWriteUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E6D18 (bReadUserSystemEUDCRegistry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029825C (bWriteUserSystemEUDCRegistry.c)
  * Callees:
- *     IsRegNameEqual @ 0x1C029F110 (IsRegNameEqual.c)
+ *     IsRegNameEqual @ 0x1C0297EA0 (IsRegNameEqual.c)
  */
 
-__int64 __fastcall bNotIsKeySymbolicLink(PCWSTR SourceString, PHANDLE KeyHandle, PHANDLE a3)
+_BOOL8 __fastcall bNotIsKeySymbolicLink(PCWSTR SourceString, PHANDLE KeyHandle, PHANDLE a3)
 {
-  unsigned int v3; // ebx
+  _BOOL8 result; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
-  v3 = 0;
   *KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   *a3 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenKey(KeyHandle, 0xF003Fu, &ObjectAttributes) < 0 )
-    return 0LL;
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.Attributes = 832;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenKey(a3, 0xF003Fu, &ObjectAttributes) < 0 )
-    return 0LL;
-  LOBYTE(v3) = (int)IsRegNameEqual(*KeyHandle, *a3) >= 0;
-  return v3;
+  result = 0;
+  if ( ZwOpenKey(KeyHandle, 0xF003Fu, &ObjectAttributes) >= 0 )
+  {
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 832;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(a3, 0xF003Fu, &ObjectAttributes) >= 0 && (int)IsRegNameEqual(*KeyHandle, *a3) >= 0 )
+      return 1;
+  }
+  return result;
 }

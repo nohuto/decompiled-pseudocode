@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold @ 0x1C0012D10
+ * XREFs of HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold @ 0x1C0011800
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StartD3ColdReconnectTimer @ 0x1C0032488 (HUBMISC_StartD3ColdReconnectTimer.c)
+ *     HUBMISC_StartD3ColdReconnectTimer @ 0x1C002F2A8 (HUBMISC_StartD3ColdReconnectTimer.c)
  */
 
 __int64 __fastcall HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold(__int64 a1)

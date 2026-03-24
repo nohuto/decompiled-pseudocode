@@ -1,7 +1,7 @@
 /*
- * XREFs of USBDInternal_BuildandSendIoctlSynchronously @ 0x1C004040C
+ * XREFs of USBDInternal_BuildandSendIoctlSynchronously @ 0x1C003F834
  * Callers:
- *     USBD_QueryUsbCapability @ 0x1C0040E9C (USBD_QueryUsbCapability.c)
+ *     USBD_QueryUsbCapability @ 0x1C00402C4 (USBD_QueryUsbCapability.c)
  * Callees:
  *     <none>
  */

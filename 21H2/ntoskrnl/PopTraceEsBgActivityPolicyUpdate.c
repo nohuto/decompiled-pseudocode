@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x140993C6C
+ * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x1408EC2AC
  * Callers:
- *     PopEsInStandbyEvaluate @ 0x14099A030 (PopEsInStandbyEvaluate.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F27A0 (PopEsInStandbyEvaluate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
@@ -36,9 +36,9 @@ char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
   v1 = &retaddr;
   v21 = a1;
   v8 = PopEsBgActivityPolicy;
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOBYTE(v1) = tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL);
+    LOBYTE(v1) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( (_BYTE)v1 )
     {
       v16 = 0;
@@ -50,8 +50,8 @@ char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
       v7 = v3;
       v18 = 4;
       LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C03A00,
-                     (unsigned __int8 *)word_14002F222,
+                     (__int64)&dword_140C02228,
+                     (unsigned __int8 *)&dword_140027BF4,
                      0LL,
                      0LL,
                      4u,

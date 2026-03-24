@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmObjectGetCachedCmProperty @ 0x1407895F0
+ * XREFs of PiDmObjectGetCachedCmProperty @ 0x1406AEF6C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1406D6A8C (PiDmObjectGetCachedObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406AF6C0 (PiDmObjectGetCachedObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedCmProperty(
@@ -20,17 +20,17 @@ __int64 __fastcall PiDmObjectGetCachedCmProperty(
 {
   __int64 v7; // rbx
   int CachedObjectProperty; // edx
-  signed int v10; // eax
-  __int64 v11; // r8
-  __int64 v12; // r10
+  int v10; // eax
+  int v11; // r8d
+  int v12; // r10d
   __int128 v13; // xmm0
   __int128 v14; // xmm1
   int v15; // eax
   __int128 v16; // xmm0
   __int128 v17; // xmm1
-  unsigned int v18; // [rsp+50h] [rbp-51h] BYREF
-  int v19; // [rsp+54h] [rbp-4Dh] BYREF
-  GUID v20; // [rsp+58h] [rbp-49h] BYREF
+  int v18; // [rsp+50h] [rbp-51h] BYREF
+  _BYTE v19[4]; // [rsp+54h] [rbp-4Dh] BYREF
+  __int128 v20; // [rsp+58h] [rbp-49h] BYREF
   _OWORD v21[4]; // [rsp+70h] [rbp-31h] BYREF
   __int64 v22; // [rsp+B0h] [rbp+Fh]
   int v23; // [rsp+B8h] [rbp+17h]
@@ -51,12 +51,12 @@ __int64 __fastcall PiDmObjectGetCachedCmProperty(
                              v10,
                              v12,
                              v11,
-                             0LL,
+                             0,
                              (__int64)&DEVPKEY_Device_ClassGuid,
-                             &v19,
-                             &v20,
-                             0x10u,
-                             &v18);
+                             (__int64)v19,
+                             (__int64)&v20,
+                             16,
+                             (__int64)&v18);
     if ( CachedObjectProperty >= 0 )
     {
       *a5 = 1;
@@ -67,7 +67,7 @@ __int64 __fastcall PiDmObjectGetCachedCmProperty(
       }
       else
       {
-        CachedObjectProperty = PnpStringFromGuid((int *)&v20, (wchar_t *)v21);
+        CachedObjectProperty = PnpStringFromGuid(&v20, v21);
         if ( CachedObjectProperty >= 0 )
         {
           v13 = v21[0];

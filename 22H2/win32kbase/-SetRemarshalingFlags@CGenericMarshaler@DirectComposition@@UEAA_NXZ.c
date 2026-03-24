@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CGenericMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0230BE0
+ * XREFs of ?SetRemarshalingFlags@CGenericMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01F6D90
  * Callers:
  *     <none>
  * Callees:
@@ -12,12 +12,12 @@ bool __fastcall DirectComposition::CGenericMarshaler::SetRemarshalingFlags(Direc
   __int64 *v2; // r8
   __int64 v3; // rdx
 
-  v1 = (__int64 *)*((_QWORD *)this + 7);
-  v2 = &v1[*((_QWORD *)this + 8)];
+  v1 = (__int64 *)*((_QWORD *)this + 8);
+  v2 = &v1[*((_QWORD *)this + 9)];
   while ( v1 != v2 )
   {
     v3 = *v1++;
     *(_BYTE *)(v3 + 5) = 1;
   }
-  return *((_QWORD *)this + 8) != 0LL;
+  return *((_QWORD *)this + 9) != 0LL;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopConnectInterruptFullySpecified @ 0x1408590B0
+ * XREFs of IopConnectInterruptFullySpecified @ 0x1407CBD80
  * Callers:
- *     IoConnectInterruptEx @ 0x140816FD0 (IoConnectInterruptEx.c)
- *     IoConnectInterrupt @ 0x140859030 (IoConnectInterrupt.c)
+ *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
+ *     IoConnectInterrupt @ 0x1407CBD00 (IoConnectInterrupt.c)
  * Callees:
- *     KeVerifyGroupAffinity @ 0x1402585E8 (KeVerifyGroupAffinity.c)
- *     HalGetVectorInput @ 0x1403D8FC0 (HalGetVectorInput.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x1403781B4 (KeVerifyGroupAffinity.c)
+ *     HalGetVectorInput @ 0x1403CA8A0 (HalGetVectorInput.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
  */
 
 __int64 __fastcall IopConnectInterruptFullySpecified(
@@ -33,7 +33,7 @@ __int64 __fastcall IopConnectInterruptFullySpecified(
   __int64 v20; // [rsp+68h] [rbp-71h] BYREF
   _OWORD v21[6]; // [rsp+70h] [rbp-69h] BYREF
 
-  memset(v21, 0, 0x5CuLL);
+  memset(v21, 0, sizeof(v21));
   v20 = 0LL;
   if ( !a3 || !KeVerifyGroupAffinity((__int64)a11, 0) )
     return 3221225485LL;
@@ -57,7 +57,7 @@ LABEL_5:
   result = HalGetVectorInput(a6);
   if ( (int)result >= 0 )
   {
-    ((__int64 (__fastcall *)(_QWORD, _QWORD))off_140C01DD0[0])(0LL, 0LL);
+    ((__int64 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, 0LL);
     *a1 = 0LL;
     LODWORD(v21[4]) = 0;
     if ( (BYTE4(v21[4]) & 1) == 0 )

@@ -1,58 +1,70 @@
 /*
- * XREFs of xxxRecreateSmallIcons @ 0x1C022DD3C
+ * XREFs of xxxRecreateSmallIcons @ 0x1C0242E7C
  * Callers:
- *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C001F89C (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00234E4 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
  * Callees:
- *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C00135D0 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
- *     ClassLock @ 0x1C00135F8 (ClassLock.c)
- *     xxxCreateWindowSmIcon @ 0x1C001FABC (xxxCreateWindowSmIcon.c)
- *     xxxCreateClassSmIcon @ 0x1C0020AF8 (xxxCreateClassSmIcon.c)
- *     SendDwmIconChange @ 0x1C00625D0 (SendDwmIconChange.c)
- *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00A9354 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     DestroyClassSmIcon @ 0x1C00EB5B0 (DestroyClassSmIcon.c)
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C00EBBE4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     DestroyWindowSmIcon @ 0x1C013D1BC (DestroyWindowSmIcon.c)
+ *     xxxCreateClassSmIcon @ 0x1C0023628 (xxxCreateClassSmIcon.c)
+ *     xxxCreateWindowSmIcon @ 0x1C00250E0 (xxxCreateWindowSmIcon.c)
+ *     SendDwmIconChange @ 0x1C0038960 (SendDwmIconChange.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078D28 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     DestroyWindowSmIcon @ 0x1C007C4E0 (DestroyWindowSmIcon.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00FF480 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     ClassLock @ 0x1C0100DC0 (ClassLock.c)
+ *     DestroyClassSmIcon @ 0x1C010E350 (DestroyClassSmIcon.c)
+ *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C010F370 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
  */
 
-__int64 __fastcall xxxRecreateSmallIcons(struct tagWND *a1)
+__int64 __fastcall xxxRecreateSmallIcons(__int64 a1)
 {
   bool v2; // bl
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  struct tagCLS *v5; // rbx
-  __int64 ThreadWin32Thread; // rax
-  char v7; // bl
+  __int64 ThreadWin32Thread; // rsi
+  _QWORD *v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  _QWORD *v7; // rcx
+  struct _CALLPROCDATA **v8; // rbx
+  __int64 v9; // rax
+  char v10; // bl
   __int64 result; // rax
-  __int64 *v9[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-18h]
+  __int64 *v12[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v13[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v14; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+50h] [rbp-18h]
 
-  SmartObjStackRefBase<tagCLS>::Init(v9, *((_QWORD *)a1 + 17));
-  v2 = (unsigned int)DestroyClassSmIcon(v9) && *(_QWORD *)(*((_QWORD *)a1 + 17) + 80LL);
-  SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>((__int64 *)v9);
+  SmartObjStackRefBase<tagCLS>::Init(v12, *(_QWORD *)(a1 + 136));
+  v2 = (unsigned int)DestroyClassSmIcon(v12) && *(_QWORD *)(*(_QWORD *)(a1 + 136) + 80LL);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree((__int64 *)v12);
+  v4 = *(_QWORD **)(ThreadWin32Thread + 1472);
+  if ( v4 )
+    *(_QWORD *)(ThreadWin32Thread + 1472) = *v4;
   if ( v2 )
   {
-    v3 = *((_QWORD *)a1 + 17);
-    v10 = 0LL;
-    v11 = 0LL;
-    if ( (unsigned int)ClassLock(v3, (__int64)&v10) )
+    v5 = *(_QWORD *)(a1 + 136);
+    v14 = 0LL;
+    v15 = 0LL;
+    if ( (unsigned int)ClassLock(v5, &v14) )
     {
-      SmartObjStackRefBase<tagCLS>::Init(v9, *((_QWORD *)a1 + 17));
-      xxxCreateClassSmIcon((__int64 *)v9, v4);
-      SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>((__int64 *)v9);
-      v5 = (struct tagCLS *)*((_QWORD *)a1 + 17);
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *(_QWORD *)(ThreadWin32Thread + 16) = v10;
-      ClassUnlockWorker(v5);
+      SmartObjStackRefBase<tagCLS>::Init(v13, *(_QWORD *)(a1 + 136));
+      xxxCreateClassSmIcon(v13);
+      v6 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v13);
+      v7 = *(_QWORD **)(v6 + 1472);
+      if ( v7 )
+        *(_QWORD *)(v6 + 1472) = *v7;
+      v8 = *(struct _CALLPROCDATA ***)(a1 + 136);
+      v9 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)(v9 + 16) = v14;
+      ClassUnlockWorker(v8);
     }
   }
-  v7 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 23LL) & 0x20;
-  if ( (unsigned int)DestroyWindowSmIcon(a1) && !v7 )
-    xxxCreateWindowSmIcon((__int64)a1, *(_QWORD *)(*((_QWORD *)a1 + 5) + 272LL), 1);
-  result = IsToplevelWindowDesktopComposed((__int64)a1);
+  v10 = *(_BYTE *)(*(_QWORD *)(a1 + 40) + 23LL) & 0x20;
+  if ( (unsigned int)DestroyWindowSmIcon(a1) && !v10 )
+    xxxCreateWindowSmIcon(a1, *(_QWORD *)(*(_QWORD *)(a1 + 40) + 272LL), 1);
+  result = IsToplevelWindowDesktopComposed(a1);
   if ( (_DWORD)result )
-    return SendDwmIconChange((ULONG_PTR)a1);
+    return SendDwmIconChange(a1);
   return result;
 }

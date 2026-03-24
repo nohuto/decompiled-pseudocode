@@ -1,97 +1,92 @@
 /*
- * XREFs of ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01CC208
+ * XREFs of ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01F5D08
  * Callers:
- *     NtUserCallNextHookEx @ 0x1C0154060 (NtUserCallNextHookEx.c)
+ *     NtUserCallNextHookEx @ 0x1C0150DB0 (NtUserCallNextHookEx.c)
  * Callees:
- *     xxxCallNextHookEx @ 0x1C000A1E4 (xxxCallNextHookEx.c)
- *     RtlInitLargeUnicodeString @ 0x1C0065A48 (RtlInitLargeUnicodeString.c)
- *     RtlInitLargeAnsiString @ 0x1C00BD434 (RtlInitLargeAnsiString.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxCallNextHookEx @ 0x1C0020274 (xxxCallNextHookEx.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033F1C (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeAnsiString @ 0x1C0033F68 (RtlInitLargeAnsiString.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall NtUserfnHkINLPCBTCREATESTRUCT(int a1, unsigned __int64 a2, struct tagCBT_CREATEWNDW *a3, int a4)
+__int64 __fastcall NtUserfnHkINLPCBTCREATESTRUCT(__int64 a1, __int64 a2, struct tagCBT_CREATEWNDW *a3, int a4)
 {
-  struct tagCBT_CREATEWNDW *v8; // rcx
-  _BYTE *v9; // rcx
-  _DWORD *v10; // rbx
+  struct tagCBT_CREATEWNDW *v6; // rcx
+  _OWORD *v7; // rax
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rdx
   __int64 v11; // rdx
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  _DWORD *v16; // [rsp+20h] [rbp-A8h]
-  __int128 v17; // [rsp+28h] [rbp-A0h] BYREF
-  _OWORD v18[3]; // [rsp+40h] [rbp-88h] BYREF
-  __int128 v19; // [rsp+70h] [rbp-58h]
-  __int128 v20; // [rsp+80h] [rbp-48h]
-  _BYTE v21[16]; // [rsp+90h] [rbp-38h] BYREF
-  _BYTE v22[32]; // [rsp+A0h] [rbp-28h] BYREF
+  __int64 v12; // r8
+  __int128 v14; // [rsp+28h] [rbp-A0h]
+  _OWORD v15[8]; // [rsp+40h] [rbp-88h] BYREF
 
-  v17 = 0LL;
-  memset_0(v18, 0, 0x70uLL);
-  v8 = a3;
+  memset(v15, 0, 0x70uLL);
+  v6 = a3;
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    v8 = (struct tagCBT_CREATEWNDW *)MmUserProbeAddress;
-  v17 = *(_OWORD *)v8;
-  v9 = (_BYTE *)v17;
-  if ( (unsigned __int64)v17 >= MmUserProbeAddress )
-    v9 = (_BYTE *)MmUserProbeAddress;
-  *v9 = *v9;
-  v9[79] = v9[79];
-  v10 = (_DWORD *)v17;
-  v16 = (_DWORD *)v17;
-  v18[0] = *(_OWORD *)v17;
-  v18[1] = *(_OWORD *)(v17 + 16);
-  v18[2] = *(_OWORD *)(v17 + 32);
-  v19 = *(_OWORD *)(v17 + 48);
-  v20 = *(_OWORD *)(v17 + 64);
-  *(_QWORD *)&v17 = v18;
-  v11 = *((_QWORD *)&v19 + 1);
+    v6 = (struct tagCBT_CREATEWNDW *)MmUserProbeAddress;
+  v14 = *(_OWORD *)v6;
+  v7 = *(_OWORD **)v6;
+  if ( *(_QWORD *)v6 >= MmUserProbeAddress )
+  {
+    *(_DWORD *)MmUserProbeAddress = 0;
+    v7 = (_OWORD *)v14;
+  }
+  *v7 = *v7;
+  v7[1] = v7[1];
+  v7[2] = v7[2];
+  v7[3] = v7[3];
+  v7[4] = v7[4];
+  v8 = v14;
+  v15[0] = *(_OWORD *)v14;
+  v15[1] = *(_OWORD *)(v14 + 16);
+  v15[2] = *(_OWORD *)(v14 + 32);
+  v15[3] = *(_OWORD *)(v14 + 48);
+  v15[4] = *(_OWORD *)(v14 + 64);
+  v9 = *((_QWORD *)&v15[3] + 1);
   if ( !a4 )
   {
-    if ( *((_QWORD *)&v19 + 1) )
+    if ( *((_QWORD *)&v15[3] + 1) )
     {
-      if ( (BYTE8(v19) & 1) != 0 )
+      if ( (BYTE8(v15[3]) & 1) != 0 )
         goto LABEL_18;
-      v11 = *((_QWORD *)&v19 + 1);
-      v10 = v16;
+      v9 = *((_QWORD *)&v15[3] + 1);
+      v8 = v14;
     }
-    RtlInitLargeUnicodeString((__int64)v21, v11);
-    v13 = v20;
-    if ( (v20 & 0xFFFFFFFFFFFF0000uLL) == 0 )
+    RtlInitLargeUnicodeString((__int64)&v15[5], v9);
+    v11 = *(_QWORD *)&v15[4];
+    if ( (*(_QWORD *)&v15[4] & 0xFFFFFFFFFFFF0000uLL) == 0 )
       goto LABEL_21;
-    if ( (_QWORD)v20 )
+    if ( *(_QWORD *)&v15[4] )
     {
-      if ( (v20 & 1) != 0 )
+      if ( (v15[4] & 1) != 0 )
 LABEL_18:
         ExRaiseDatatypeMisalignment();
-      v13 = v20;
-      v10 = v16;
+      v11 = *(_QWORD *)&v15[4];
+      v8 = v14;
     }
-    RtlInitLargeUnicodeString((__int64)v22, v13);
+    RtlInitLargeUnicodeString((__int64)&v15[6], v11);
     goto LABEL_21;
   }
-  if ( *((_QWORD *)&v19 + 1) )
+  if ( *((_QWORD *)&v15[3] + 1) )
   {
-    v11 = *((_QWORD *)&v19 + 1);
-    v10 = v16;
+    v9 = *((_QWORD *)&v15[3] + 1);
+    v8 = v14;
   }
-  RtlInitLargeAnsiString((__int64)v21, v11);
-  v12 = v20;
-  if ( (v20 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+  RtlInitLargeAnsiString((__int64)&v15[5], v9);
+  v10 = *(_QWORD *)&v15[4];
+  if ( (*(_QWORD *)&v15[4] & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    if ( (_QWORD)v20 )
+    if ( *(_QWORD *)&v15[4] )
     {
-      v12 = v20;
-      v10 = v16;
+      v10 = *(_QWORD *)&v15[4];
+      v8 = v14;
     }
-    RtlInitLargeAnsiString((__int64)v22, v12);
+    RtlInitLargeAnsiString((__int64)&v15[6], v10);
   }
 LABEL_21:
-  v14 = xxxCallNextHookEx(a1, a2, (__int64)&v17);
-  *((_QWORD *)a3 + 1) = *((_QWORD *)&v17 + 1);
-  v10[11] = *(_DWORD *)(v17 + 44);
-  v10[10] = *(_DWORD *)(v17 + 40);
-  v10[9] = *(_DWORD *)(v17 + 36);
-  v10[8] = *(_DWORD *)(v17 + 32);
-  return v14;
+  v12 = xxxCallNextHookEx();
+  *((_QWORD *)a3 + 1) = *((_QWORD *)&v14 + 1);
+  *(_OWORD *)(v8 + 32) = v15[2];
+  return v12;
 }

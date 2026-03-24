@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeTransitionPageHeatList @ 0x1402CEA90
+ * XREFs of MiFreeTransitionPageHeatList @ 0x1402CEB90
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

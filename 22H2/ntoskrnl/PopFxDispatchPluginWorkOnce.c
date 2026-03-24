@@ -1,98 +1,103 @@
 /*
- * XREFs of PopFxDispatchPluginWorkOnce @ 0x1403119A4
+ * XREFs of PopFxDispatchPluginWorkOnce @ 0x140262C5C
  * Callers:
- *     PopFxProcessWorkPool @ 0x140310E14 (PopFxProcessWorkPool.c)
+ *     PopFxProcessWorkPool @ 0x140262E94 (PopFxProcessWorkPool.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxEnableWorkOrderWatchdog @ 0x140311B08 (PopFxEnableWorkOrderWatchdog.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x140311BE8 (PopFxDisableWorkOrderWatchdog.c)
- *     PopPepWork @ 0x140311C7C (PopPepWork.c)
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PopPepWork @ 0x140260D5C (PopPepWork.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x1402623B8 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x140262DB4 (PopFxEnableWorkOrderWatchdog.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
-__int64 __fastcall PopFxDispatchPluginWorkOnce(ULONG_PTR BugCheckParameter3, unsigned int a2)
+void __fastcall PopFxDispatchPluginWorkOnce(ULONG_PTR BugCheckParameter2)
 {
-  bool v4; // zf
-  unsigned __int64 v5; // rdi
-  unsigned __int8 (__fastcall *v7)(__int64, __int128 *); // rax
-  unsigned __int8 (__fastcall *v8)(__int64, __int128 *); // rax
+  bool v2; // zf
+  unsigned __int64 v3; // rdi
+  __int64 v4; // r8
+  unsigned __int8 (__fastcall *v5)(__int64, __int128 *); // rax
+  unsigned __int8 (__fastcall *v6)(__int64, __int128 *); // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  __int128 v13; // [rsp+28h] [rbp-E0h] BYREF
-  _QWORD v14[8]; // [rsp+38h] [rbp-D0h] BYREF
-  ULONG_PTR BugCheckParameter2[22]; // [rsp+78h] [rbp-90h] BYREF
-  _DWORD v16[16]; // [rsp+128h] [rbp+20h] BYREF
+  int v10; // eax
+  __int128 v11; // [rsp+28h] [rbp-E0h] BYREF
+  _QWORD v12[8]; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG_PTR BugCheckParameter2a[22]; // [rsp+78h] [rbp-90h] BYREF
+  int v14[16]; // [rsp+128h] [rbp+20h] BYREF
 
-  v16[1] = 0;
-  memset(BugCheckParameter2, 0, sizeof(BugCheckParameter2));
-  v14[6] = BugCheckParameter2;
-  LODWORD(BugCheckParameter2[10]) = 275;
-  BugCheckParameter2[2] = 8LL;
-  BugCheckParameter2[18] = (ULONG_PTR)v14;
-  BugCheckParameter2[4] = (ULONG_PTR)&BugCheckParameter2[3];
-  BugCheckParameter2[3] = (ULONG_PTR)&BugCheckParameter2[3];
-  BugCheckParameter2[13] = (ULONG_PTR)PopFxWorkOrderWatchdog;
-  BugCheckParameter2[14] = (ULONG_PTR)BugCheckParameter2;
-  memset(v14, 0, 40);
-  v14[5] = BugCheckParameter3;
-  BugCheckParameter2[5] = 0LL;
-  HIDWORD(BugCheckParameter2[9]) = 0;
-  LOWORD(BugCheckParameter2[9]) = 0;
-  BugCheckParameter2[17] = 0LL;
-  BugCheckParameter2[12] = 0LL;
-  PopFxEnableWorkOrderWatchdog(v14, (unsigned int)PopFxWatchdogWorkOrderTimeout);
-  v13 = 0LL;
-  memset(v16, 0, sizeof(v16));
-  BYTE8(v13) = 0;
-  *(_QWORD *)&v13 = v16;
-  if ( !BugCheckParameter3 )
+  memset(BugCheckParameter2a, 0, sizeof(BugCheckParameter2a));
+  v12[6] = BugCheckParameter2a;
+  LODWORD(BugCheckParameter2a[10]) = 275;
+  BugCheckParameter2a[2] = 8LL;
+  BugCheckParameter2a[18] = (ULONG_PTR)v12;
+  BugCheckParameter2a[4] = (ULONG_PTR)&BugCheckParameter2a[3];
+  BugCheckParameter2a[3] = (ULONG_PTR)&BugCheckParameter2a[3];
+  BugCheckParameter2a[13] = (ULONG_PTR)PopFxWorkOrderWatchdog;
+  BugCheckParameter2a[14] = (ULONG_PTR)BugCheckParameter2a;
+  memset(v12, 0, 40);
+  v12[5] = BugCheckParameter2;
+  BugCheckParameter2a[5] = 0LL;
+  HIDWORD(BugCheckParameter2a[9]) = 0;
+  LOWORD(BugCheckParameter2a[9]) = 0;
+  BugCheckParameter2a[17] = 0LL;
+  BugCheckParameter2a[12] = 0LL;
+  PopFxEnableWorkOrderWatchdog(v12, (unsigned int)PopFxWatchdogWorkOrderTimeout);
+  v11 = 0LL;
+  memset(v14, 0, sizeof(v14));
+  BYTE8(v11) = 0;
+  *(_QWORD *)&v11 = v14;
+  if ( !BugCheckParameter2 )
   {
-    v4 = (unsigned __int8)PopPepWork(a2, v16) == 0;
+    v2 = PopPepWork((__int64)v14) == 0;
     goto LABEL_3;
   }
-  v7 = *(unsigned __int8 (__fastcall **)(__int64, __int128 *))(BugCheckParameter3 + 96);
-  if ( v7 && v7(13LL, &v13) )
+  v5 = *(unsigned __int8 (__fastcall **)(__int64, __int128 *))(BugCheckParameter2 + 96);
+  if ( v5 && v5(13LL, &v11) )
   {
-    v4 = BYTE8(v13) == 0;
+    v2 = BYTE8(v11) == 0;
 LABEL_3:
-    if ( v4 )
-      return PopFxDisableWorkOrderWatchdog((ULONG_PTR)BugCheckParameter2);
+    if ( v2 )
+      goto LABEL_6;
     goto LABEL_4;
   }
-  v8 = *(unsigned __int8 (__fastcall **)(__int64, __int128 *))(BugCheckParameter3 + 112);
-  if ( !v8 || !v8(10LL, &v13) )
-    PopFxBugCheck(0x605uLL, 0xDuLL, BugCheckParameter3, 0LL);
-  if ( BYTE8(v13) )
+  v6 = *(unsigned __int8 (__fastcall **)(__int64, __int128 *))(BugCheckParameter2 + 112);
+  if ( !v6 || !v6(10LL, &v11) )
+    PopFxBugCheck(0x605uLL, 0xDuLL, BugCheckParameter2, 0LL);
+  if ( BYTE8(v11) )
   {
-    if ( (unsigned int)(v16[0] - 7) > 1 )
-      PopFxBugCheck(0x612uLL, BugCheckParameter3, 0LL, 0LL);
+    if ( (unsigned int)(v14[0] - 7) > 1 )
+      PopFxBugCheck(0x612uLL, BugCheckParameter2, 0LL, 0LL);
 LABEL_4:
-    v5 = KeAcquireSpinLockRaiseToDpc(&PopWorkOrderLock);
-    BugCheckParameter2[19] = (ULONG_PTR)v16;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopWorkOrderLock);
+    v3 = KeAcquireSpinLockRaiseToDpc(&PopWorkOrderLock);
+    BugCheckParameter2a[19] = (ULONG_PTR)v14;
+    KxReleaseSpinLock(&PopWorkOrderLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v4 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v4 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v2 = (v10 & SchedulerAssist[5]) == 0;
+          v4 = (unsigned int)v10 & SchedulerAssist[5];
+          SchedulerAssist[5] = v4;
+          if ( v2 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v5);
-    PopFxProcessWork(BugCheckParameter3);
+    __writecr8(v3);
+    PopFxProcessWork(BugCheckParameter2, v14, v4);
   }
-  return PopFxDisableWorkOrderWatchdog((ULONG_PTR)BugCheckParameter2);
+LABEL_6:
+  PopFxDisableWorkOrderWatchdog((__int64 *)BugCheckParameter2a);
 }

@@ -1,68 +1,65 @@
 /*
- * XREFs of KeAccumulateTicks @ 0x1402C7AE0
+ * XREFs of KeAccumulateTicks @ 0x1402243D0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     KiUpdateRunTime @ 0x1402C74B0 (KiUpdateRunTime.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     KiUpdateRunTime @ 0x140227590 (KiUpdateRunTime.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1402B3210 (KiGetThreadEffectiveRankNonZero.c)
- *     KiCheckKeepAlive @ 0x1402BFF1C (KiCheckKeepAlive.c)
- *     KiCheckForTimerExpiration @ 0x1402C8110 (KiCheckForTimerExpiration.c)
- *     KiRequestSoftwareInterrupt @ 0x140318788 (KiRequestSoftwareInterrupt.c)
- *     KdCheckForDebugBreak @ 0x140331CD4 (KdCheckForDebugBreak.c)
- *     KiDpcWatchdogCounterReset @ 0x140346024 (KiDpcWatchdogCounterReset.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HvlInvokeHypervisorDebugger @ 0x14053F8E0 (HvlInvokeHypervisorDebugger.c)
- *     KiDpcWatchdogCaptureStack @ 0x14056B2B4 (KiDpcWatchdogCaptureStack.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x14056B430 (KiResetGlobalDpcWatchdogProfiler.c)
- *     KiDeferDpcWatchdogViolation @ 0x14057AE24 (KiDeferDpcWatchdogViolation.c)
- *     EtwTraceDpcProfilingStack @ 0x1405FCC20 (EtwTraceDpcProfilingStack.c)
- *     EtwTraceDpcProfilingStackBegin @ 0x1405FCCB0 (EtwTraceDpcProfilingStackBegin.c)
+ *     KiCheckForTimerExpiration @ 0x1402247B0 (KiCheckForTimerExpiration.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024CE70 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1402F1418 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiCheckKeepAlive @ 0x140310D70 (KiCheckKeepAlive.c)
+ *     KiRequestSoftwareInterrupt @ 0x14035E984 (KiRequestSoftwareInterrupt.c)
+ *     KdCheckForDebugBreak @ 0x140383F80 (KdCheckForDebugBreak.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlInvokeHypervisorDebugger @ 0x1404F1740 (HvlInvokeHypervisorDebugger.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140511F60 (KiDpcWatchdogCaptureStack.c)
  */
 
-__int64 __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4, char a5, unsigned int a6)
+__int64 __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4, char a5)
 {
+  char v9; // r15
   __int64 result; // rax
-  unsigned int v11; // esi
-  __int64 v12; // rdi
-  int v13; // r14d
-  __int64 v14; // rcx
-  unsigned int v15; // eax
-  int v16; // edx
-  int v17; // r8d
-  __int64 v18; // rdx
-  unsigned int v20; // ecx
-  unsigned int v21; // r15d
-  ULONG_PTR v22; // rbp
-  unsigned int *v23; // r14
-  ULONG_PTR BugCheckParameter4; // r15
-  __int64 v25; // r14
+  __int64 v11; // rcx
+  unsigned int v12; // esi
+  __int64 v13; // rbp
+  unsigned int v14; // edi
+  void *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  int v19; // ecx
+  int v20; // eax
+  int v21; // r9d
+  int v22; // edx
+  int v23; // r8d
+  ULONG_PTR BugCheckParameter4; // r12
+  ULONG_PTR v25; // r13
   unsigned int v26; // ecx
-  int v27; // r15d
-  unsigned int v28; // r15d
-  unsigned int v29; // ecx
-  ULONG_PTR v30; // r12
-  unsigned int v31; // r13d
-  __int16 v32; // cx
-  unsigned int v33; // ecx
-  ULONG_PTR v34; // r10
-  __int64 v35; // r8
-  __int64 v36; // rdx
-  __int64 v37; // rdx
+  int v27; // ecx
+  unsigned int v28; // ecx
+  unsigned int v29; // eax
+  unsigned int v30; // r8d
+  unsigned int v31; // edx
+  __int64 v32; // rdx
+  __int64 v33; // rdx
+  size_t v34; // r8
 
-  result = KiCheckForTimerExpiration(a1, a6);
-  *(_DWORD *)(a1 + 13248) = a3;
-  v11 = a3 - a2;
-  if ( !v11 )
+  v9 = 0;
+  result = KiCheckForTimerExpiration();
+  *(_DWORD *)(a1 + 12596) = a3;
+  v12 = a3 - a2;
+  if ( !v12 )
   {
     if ( KiForceIdleDisabled )
       return result;
     result = (unsigned int)KiForceIdleState;
     if ( KiForceIdleState != 4 )
       return result;
-    goto LABEL_20;
+    goto LABEL_18;
   }
-  v12 = *(_QWORD *)(a1 + 8);
+  v13 = *(_QWORD *)(a1 + 8);
+  v14 = 0;
   if ( *(_BYTE *)(a1 + 33) )
   {
     if ( !--KiClockPollCycle )
@@ -74,218 +71,178 @@ __int64 __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8
       if ( v26 >= (unsigned int)KeNumberProcessors_0 )
         LOBYTE(v26) = 0;
       KiClockCheckSlot = v26;
-      if ( KiCheckKeepAlive(v25) )
+      if ( (unsigned __int8)KiCheckKeepAlive(*(unsigned int *)(v25 + 36)) )
       {
-        if ( !*(_DWORD *)(v25 + 32416) && KeEnableWatchdogTimeout && (KiBugCheckActive & 3) == 0 )
+        if ( !*(_DWORD *)(v25 + 31712) && KeEnableWatchdogTimeout && (KiBugCheckActive & 3) == 0 )
         {
           HvlInvokeHypervisorDebugger(1LL, BugCheckParameter4);
           KeBugCheckEx(0x101u, (unsigned __int8)KiClockKeepAliveCycle, 0LL, v25, BugCheckParameter4);
         }
-        *(_DWORD *)(v25 + 32416) = 0;
+        *(_DWORD *)(v25 + 31712) = 0;
       }
     }
   }
   if ( a5 )
   {
-    *(_DWORD *)(a1 + 33096) += v11;
-    *(_DWORD *)(v12 + 732) += v11;
-    ++*(_DWORD *)(a1 + 32492);
-    KiDpcWatchdogCounterReset(a1);
-    goto LABEL_9;
+    *(_DWORD *)(a1 + 32392) += v12;
+    *(_DWORD *)(v13 + 732) += v12;
   }
-  *(_DWORD *)(a1 + 33092) += v11;
-  v13 = 0;
-  if ( *(_BYTE *)(a1 + 32) != 2 || !*(_BYTE *)(a1 + 13242) )
+  else
   {
-    if ( *(_BYTE *)(a1 + 32) > 1u )
-      *(_DWORD *)(a1 + 33104) += v11;
-    else
-      *(_DWORD *)(*(_QWORD *)(a1 + 8) + 652LL) += v11;
-    goto LABEL_7;
-  }
-  v27 = *(_DWORD *)(a1 + 33116);
-  *(_DWORD *)(a1 + 33100) += v11;
-  v28 = v27 + 1;
-  v29 = *(_DWORD *)(a1 + 33344);
-  v30 = *(unsigned int *)(a1 + 33120);
-  v31 = *(_DWORD *)(a1 + 13260);
-  *(_DWORD *)(a1 + 33116) = v28;
-  if ( v29 )
-  {
-    if ( v28 == v29 )
+    *(_DWORD *)(a1 + 32388) += v12;
+    if ( *(_BYTE *)(a1 + 32) == 2 && *(_BYTE *)(a1 + 12586) )
     {
-      EtwTraceDpcProfilingStackBegin(a1, *(unsigned int *)(a1 + 32492), v29, 0LL);
-LABEL_48:
-      KiDpcWatchdogCaptureStack(a1);
-      v13 = 1;
-      EtwTraceDpcProfilingStack(*(unsigned int *)(a1 + 32492), v28);
-      goto LABEL_49;
-    }
-    if ( v28 >= v29 )
-      goto LABEL_48;
-  }
-LABEL_49:
-  if ( v31 )
-  {
-    if ( v28 >= v31 )
-    {
-      v34 = *(_QWORD *)(a1 + 13264);
-      if ( v34 )
+      v27 = *(_DWORD *)(a1 + 32412);
+      *(_DWORD *)(a1 + 32396) += v12;
+      v28 = v27 + 1;
+      v29 = *(_DWORD *)(a1 + 32416);
+      *(_DWORD *)(a1 + 32412) = v28;
+      if ( v29 )
       {
-        v35 = *(_QWORD *)(a1 + 13152);
-        if ( v35 )
+        v30 = *(_DWORD *)(a1 + 32512);
+        v31 = v28;
+        if ( v30 && v28 >= v30 )
         {
-          if ( *(_DWORD *)(v34 + 72) )
+          KiDpcWatchdogCaptureStack(a1, v28);
+          v31 = *(_DWORD *)(a1 + 32412);
+          v9 = 1;
+          v29 = *(_DWORD *)(a1 + 32416);
+        }
+        if ( v31 > v29 )
+        {
+          if ( KeEnableWatchdogTimeout )
           {
-            if ( *(_QWORD *)(v34 + 64) == *(_QWORD *)(v35 + 24) )
-              *(_DWORD *)(v34 + 72) = v28;
+            __rdtsc();
+            HvlInvokeHypervisorDebugger(3LL, 0LL);
+            if ( !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent )
+              KeBugCheckEx(
+                0x133u,
+                0LL,
+                *(unsigned int *)(a1 + 32412),
+                *(unsigned int *)(a1 + 32416),
+                (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock);
+            __int2c();
           }
-          else
-          {
-            *(_DWORD *)(v34 + 72) = v28;
-            *(_QWORD *)(v34 + 64) = *(_QWORD *)(v35 + 24);
-            KiInsertQueueDpc(
-              v34,
-              *(_QWORD *)(a1 + 8),
-              0x7E35C6C7F3DD7277LL
-            * (KiWaitNever ^ __ROR8__(*(_QWORD *)(v35 + 24) ^ _byteswap_uint64(KiWaitAlways ^ v35), KiWaitNever)),
-              0LL,
-              0);
-          }
+          *(_DWORD *)(a1 + 32412) = 0;
+          KiResetGlobalDpcWatchdogProfiler(a1);
         }
       }
     }
-  }
-  if ( (_DWORD)v30 && v28 > (unsigned int)v30 )
-  {
-    if ( KeEnableWatchdogTimeout )
+    else if ( *(_BYTE *)(a1 + 32) > 1u )
     {
-      __rdtsc();
-      HvlInvokeHypervisorDebugger(3LL, 0LL);
-      if ( !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent || KiForceBugcheckForDpcWatchdog )
-      {
-        if ( KiRecoveryCallbackCount <= 0 )
-          KeBugCheckEx(0x133u, 0LL, v28, v30, (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock);
-        KiDeferDpcWatchdogViolation();
-      }
-      else
-      {
-        __int2c();
-      }
+      *(_DWORD *)(a1 + 32400) += v12;
     }
-    *(_DWORD *)(a1 + 33116) = 0;
-    KiResetGlobalDpcWatchdogProfiler(a1);
-  }
-LABEL_7:
-  if ( a4 >= 2u )
-  {
-    ++*(_DWORD *)(a1 + 32428);
-    v20 = *(_DWORD *)(a1 + 32436);
-    v21 = *(_DWORD *)(a1 + 32428);
-    v22 = *(unsigned int *)(a1 + 32424);
-    if ( v20 && !v13 )
+    else
     {
-      v23 = (unsigned int *)(a1 + 32492);
-      if ( v21 == v20 )
-      {
-        EtwTraceDpcProfilingStackBegin(a1, *v23, v21, 1LL);
-      }
-      else if ( v21 < v20 )
-      {
-        goto LABEL_27;
-      }
-      KiDpcWatchdogCaptureStack(a1);
-      EtwTraceDpcProfilingStack(*v23, v21);
+      *(_DWORD *)(v13 + 652) += v12;
     }
-LABEL_27:
-    if ( !(_DWORD)v22 )
-      goto LABEL_9;
-    if ( v21 == (unsigned int)v22 >> 1 )
-      KiInsertQueueDpc(a1 + 34264, 0LL, 0LL, 0LL, 0);
-    if ( v21 < (unsigned int)v22 )
-      goto LABEL_9;
+    if ( a4 < 2u )
+    {
+      ++*(_DWORD *)(a1 + 31788);
+      v15 = *(void **)(a1 + 33960);
+      *(_DWORD *)(a1 + 31724) = 0;
+      if ( v15 && *(void **)(a1 + 33968) != v15 && *(int *)(a1 + 31732) > 0 )
+      {
+        v34 = 8LL * (unsigned int)KiDpcWatchdogProfileArrayLength;
+        *(_QWORD *)(a1 + 33968) = v15;
+        memset(v15, 0, v34);
+      }
+      goto LABEL_12;
+    }
+    v19 = *(_DWORD *)(a1 + 31720);
+    v20 = *(_DWORD *)(a1 + 31724) + 1;
+    *(_DWORD *)(a1 + 31724) = v20;
+    if ( !v19 )
+      goto LABEL_12;
+    v21 = *(_DWORD *)(a1 + 31732);
+    v22 = v20;
+    v23 = v19;
+    if ( v21 && v20 >= v21 && !v9 )
+    {
+      KiDpcWatchdogCaptureStack(a1, (unsigned int)v20);
+      v22 = *(_DWORD *)(a1 + 31724);
+      v23 = *(_DWORD *)(a1 + 31720);
+    }
+    if ( v22 < v23 )
+      goto LABEL_12;
     if ( KeEnableWatchdogTimeout )
     {
       __rdtsc();
       HvlInvokeHypervisorDebugger(2LL, 0LL);
-      if ( !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent || KiForceBugcheckForDpcWatchdog )
-        KeBugCheckEx(0x133u, 1uLL, v22, (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock, 0LL);
+      if ( !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent )
+        KeBugCheckEx(0x133u, 1uLL, *(int *)(a1 + 31720), (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock, 0LL);
       __int2c();
     }
   }
-  KiDpcWatchdogCounterReset(a1);
-  ++*(_DWORD *)(a1 + 32492);
-LABEL_9:
-  if ( v12 != *(_QWORD *)(a1 + 24)
+  ++*(_DWORD *)(a1 + 31788);
+  *(_DWORD *)(a1 + 31724) = 0;
+  KiResetGlobalDpcWatchdogProfiler(a1);
+LABEL_12:
+  if ( v13 != *(_QWORD *)(a1 + 24)
     && *(_BYTE *)(a1 + 32) <= 1u
-    && (*(char *)(v12 + 195) < 16
-     && *(_QWORD *)(v12 + 104)
-     && (v36 = *(_QWORD *)(v12 + 104)) != 0
-     && (v37 = *(unsigned int *)(a1 + 216) + v36) != 0
-     && (unsigned int)KiGetThreadEffectiveRankNonZero(v12, v37, 0, 0LL)
-     || *(char *)(v12 + 195) < 8) )
+    && (*(char *)(v13 + 195) < 16
+     && *(_QWORD *)(v13 + 104)
+     && (v32 = *(_QWORD *)(v13 + 104)) != 0
+     && (v33 = *(unsigned int *)(a1 + 216) + v32) != 0
+     && (unsigned int)KiGetThreadEffectiveRankNonZero(v13, v33, 0, 0, 0LL)
+     || *(char *)(v13 + 195) < 8) )
   {
-    *(_DWORD *)(a1 + 33132) += v11;
+    *(_DWORD *)(a1 + 32428) += v12;
   }
-  if ( v11 >= 8 )
+  if ( v12 < 8 )
   {
-    *(_DWORD *)(a1 + 11684) = 0;
-  }
-  else
-  {
-    v14 = v11;
-    *(_DWORD *)(a1 + 11684) += 15 * (*(_DWORD *)(a1 + 33088) - *(_DWORD *)(a1 + 11680));
-    v15 = *(_DWORD *)(a1 + 11684);
+    *(_DWORD *)(a1 + 11684) += 15 * (*(_DWORD *)(a1 + 32384) - *(_DWORD *)(a1 + 11680));
+    v14 = *(_DWORD *)(a1 + 11684);
+    v16 = v12;
     do
     {
-      v15 >>= 4;
-      --v14;
+      v14 >>= 4;
+      --v16;
     }
-    while ( v14 );
-    *(_DWORD *)(a1 + 11684) = v15;
+    while ( v16 );
   }
-  v16 = *(_DWORD *)(a1 + 13228) - *(_DWORD *)(a1 + 13236);
-  *(_DWORD *)(a1 + 11680) = *(_DWORD *)(a1 + 33088);
-  v17 = *(_DWORD *)(a1 + 13148);
-  v18 = (unsigned int)(v17 + v16) >> v11;
-  *(_DWORD *)(a1 + 13228) = v18;
-  *(_DWORD *)(a1 + 13236) = v17;
-  result = *(unsigned int *)(a1 + 13144);
-  if ( !(_DWORD)result || (v32 = *(_WORD *)(a1 + 13244), (v32 & 3) != 0) )
+  *(_DWORD *)(a1 + 11684) = v14;
+  v11 = v12;
+  *(_DWORD *)(a1 + 11680) = *(_DWORD *)(a1 + 32384);
+  v17 = (unsigned int)(*(_DWORD *)(a1 + 12572) + *(_DWORD *)(a1 + 12508) - *(_DWORD *)(a1 + 12580)) >> v12;
+  *(_DWORD *)(a1 + 12572) = v17;
+  *(_DWORD *)(a1 + 12580) = *(_DWORD *)(a1 + 12508);
+  result = *(unsigned int *)(a1 + 12504);
+  if ( !(_DWORD)result || (v11 = *(unsigned __int16 *)(a1 + 12588), (v11 & 3) != 0) )
   {
-    if ( (*(_DWORD *)(a1 + 33108))-- == 1 )
+    if ( (*(_DWORD *)(a1 + 32404))-- == 1 )
     {
-      *(_DWORD *)(a1 + 33108) = KiAdjustDpcThreshold;
-      result = *(unsigned int *)(a1 + 13224);
+      *(_DWORD *)(a1 + 32404) = KiAdjustDpcThreshold;
+      result = *(unsigned int *)(a1 + 12568);
       if ( (unsigned int)result < KiMaximumDpcQueueDepth )
       {
         result = (unsigned int)(result + 1);
-        *(_DWORD *)(a1 + 13224) = result;
+        *(_DWORD *)(a1 + 12568) = result;
       }
     }
   }
   else
   {
-    *(_DWORD *)(a1 + 33108) = KiAdjustDpcThreshold;
-    if ( (v32 & 0xAF) == 0 )
+    *(_DWORD *)(a1 + 32404) = KiAdjustDpcThreshold;
+    if ( (v11 & 0x2F) == 0 )
     {
-      LOBYTE(v18) = 2;
-      KiRequestSoftwareInterrupt(a1, v18);
+      LOBYTE(v17) = 2;
+      KiRequestSoftwareInterrupt(a1, v17);
     }
-    v33 = *(_DWORD *)(a1 + 13224);
+    v11 = *(unsigned int *)(a1 + 12568);
     result = (unsigned int)KiIdealDpcRate;
-    if ( v33 > 1 && *(_DWORD *)(a1 + 13228) < (unsigned int)KiIdealDpcRate )
+    if ( *(_DWORD *)(a1 + 12572) < (unsigned int)KiIdealDpcRate && (unsigned int)v11 > 1 )
     {
-      result = v33 - 1;
-      *(_DWORD *)(a1 + 13224) = result;
+      result = (unsigned int)(v11 - 1);
+      *(_DWORD *)(a1 + 12568) = result;
     }
   }
-LABEL_20:
+LABEL_18:
   if ( (_BYTE)KdDebuggerEnabled || KdEventLoggingEnabled )
   {
     result = *(unsigned int *)(a1 + 36);
     if ( KiPollSlot == (_DWORD)result )
-      return KdCheckForDebugBreak();
+      return KdCheckForDebugBreak(v11);
   }
   return result;
 }

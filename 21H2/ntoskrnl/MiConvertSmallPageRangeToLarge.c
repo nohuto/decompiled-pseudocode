@@ -1,177 +1,111 @@
 /*
- * XREFs of MiConvertSmallPageRangeToLarge @ 0x14028CF90
+ * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403F6180
  * Callers:
- *     MiFreeLargePageMemory @ 0x14028CA70 (MiFreeLargePageMemory.c)
- *     MiRebuildLargePage @ 0x14045CDD6 (MiRebuildLargePage.c)
- *     MiDeleteSubsectionLargePages @ 0x1405AED7C (MiDeleteSubsectionLargePages.c)
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
+ *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
+ *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
+ *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiSetPfnNodeBlinkLow @ 0x1402393AC (MiSetPfnNodeBlinkLow.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiSetPfnTbFlushStamp @ 0x14033C33C (MiSetPfnTbFlushStamp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiConvertLockedSmallPageToLarge @ 0x1403F606C (MiConvertLockedSmallPageToLarge.c)
  */
 
-__int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
+__int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  char v2; // r8
-  unsigned __int64 v3; // r13
-  char v4; // si
-  _BOOL8 v5; // r15
-  unsigned __int64 v6; // r14
-  unsigned __int8 CurrentIrql; // r12
-  volatile signed __int64 *v8; // rbx
-  signed __int64 v9; // rax
-  signed __int64 v10; // rax
-  signed __int64 v11; // rax
-  volatile signed __int64 v12; // rax
+  char v4; // r12
+  unsigned __int64 v5; // rbp
+  BOOL v6; // r13d
+  unsigned __int64 v7; // r14
+  char v8; // r15
+  unsigned __int8 CurrentIrql; // di
+  volatile signed __int32 *v10; // rbx
+  struct _KPRCB *CurrentPrcb; // r10
+  int v12; // eax
+  bool v13; // zf
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r9
+  _DWORD *v16; // r8
+  int v17; // eax
   __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // rax
-  unsigned __int8 v15; // r10
-  _DWORD *v16; // r9
-  struct _KPRCB *v17; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v19; // eax
-  bool v20; // zf
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r9
-  _DWORD *v23; // r8
-  int v24; // eax
-  signed __int64 v25; // [rsp+50h] [rbp-B8h]
-  signed __int64 v26; // [rsp+50h] [rbp-B8h]
-  volatile signed __int64 v27; // [rsp+80h] [rbp-88h]
-  signed __int64 v28; // [rsp+80h] [rbp-88h]
-  int v29; // [rsp+158h] [rbp+50h] BYREF
-  int v30; // [rsp+160h] [rbp+58h]
-  unsigned __int64 v31; // [rsp+168h] [rbp+60h]
+  int v19; // [rsp+58h] [rbp+10h] BYREF
 
-  v30 = a2;
-  v2 = a2;
-  v3 = 48 * a1 - 0x220000000000LL;
-  v4 = 0;
-  v5 = (*(_BYTE *)(v3 + 34) & 7) != 6;
-  v6 = v3 + 48 * MiLargePageSizes[a2];
+  v4 = a2;
+  v5 = 48 * a1 - 0x58000000000LL;
+  v6 = (*(_BYTE *)(v5 + 34) & 7) != 6;
+  v7 = v5 + 48 * MiLargePageSizes[(unsigned int)a2];
+  v8 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    *((_DWORD *)CurrentPrcb->SchedulerAssist + 5) |= (-1 << (CurrentIrql + 1)) & 4;
-    v2 = v30;
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  if ( v3 < v6 )
+  if ( v5 < v7 )
   {
-    v31 = 0xFFFFFF0000000000uLL;
-    v8 = (volatile signed __int64 *)(v3 + 40);
+    v10 = (volatile signed __int32 *)(v5 + 24);
     do
     {
-      v29 = 0;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v8 - 4, 0x3FuLL) )
+      v19 = 0;
+      while ( _interlockedbittestandset64(v10, 0x3FuLL) )
       {
         do
-        {
-          do
-            KeYieldProcessorEx(&v29);
-          while ( *((__int64 *)v8 - 2) < 0 );
-        }
-        while ( _interlockedbittestandset64((volatile signed __int32 *)v8 - 4, 0x3FuLL) );
-        v2 = v30;
+          KeYieldProcessorEx(&v19, a2, a3, (__int64)SchedulerAssist);
+        while ( *(__int64 *)v10 < 0 );
       }
-      if ( v5 )
-      {
-        MiSetPfnTbFlushStamp(v8 - 5, 0LL, 1LL);
-        MiSetPfnNodeBlinkLow((__int64)(v8 - 5), 0);
-        v2 = v30;
-        *((_QWORD *)v8 - 2) = *(v8 - 2) & 0xC000000000000000uLL | 1;
-        *((_WORD *)v8 - 4) = 2;
-        if ( v8 - 5 != (volatile signed __int64 *)v3 )
-          *((_BYTE *)v8 - 6) = *((_BYTE *)v8 - 6) & 0xF8 | 6;
-      }
-      if ( *(__int64 *)v8 < 0 )
-        *v8 &= ~0x8000000000000000uLL;
-      v9 = *v8;
-      *((_BYTE *)v8 - 5) &= 0xF8u;
-      v25 = v9;
-      v10 = _InterlockedCompareExchange64(v8, v9 & 0x8FFFFFFFFFFFFFFFuLL, v9);
-      if ( v25 != v10 )
-      {
-        do
-        {
-          v26 = v10;
-          v10 = _InterlockedCompareExchange64(v8, v10 & 0x8FFFFFFFFFFFFFFFuLL, v10);
-        }
-        while ( v26 != v10 );
-      }
-      *((_QWORD *)v8 - 5) = 0LL;
-      *((_QWORD *)v8 - 4) = 0LL;
-      *((_QWORD *)v8 - 3) = 0LL;
-      v27 = *v8;
-      v11 = _InterlockedCompareExchange64(v8, v31 & *v8, *v8);
-      if ( v27 != v11 )
-      {
-        do
-        {
-          v28 = v11;
-          v11 = _InterlockedCompareExchange64(v8, v31 & v11, v11);
-        }
-        while ( v28 != v11 );
-      }
-      v12 = *v8;
-      *((_QWORD *)v8 - 2) &= ~0x4000000000000000uLL;
-      *((_QWORD *)v8 - 4) = 0LL;
-      *v8 = v12 | 0x10000000000LL;
-      if ( v8 - 5 == (volatile signed __int64 *)v3 )
-        *((_BYTE *)v8 - 4) ^= (*((_BYTE *)v8 - 4) ^ ~v2) & 3;
-      else
-        *((_BYTE *)v8 - 4) &= 0xFCu;
-      *((_BYTE *)v8 - 6) &= ~0x10u;
-      _InterlockedAnd64(v8 - 2, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( (v4 & 0xF) == 0 && CurrentIrql < 2u && KeShouldYieldProcessor() )
+      MiConvertLockedSmallPageToLarge((__int64)(v10 - 6), v5, v4, v6);
+      _InterlockedAnd64((volatile signed __int64 *)v10, 0x7FFFFFFFFFFFFFFFuLL);
+      if ( (v8 & 0xF) == 0 && CurrentIrql < 2u && KeShouldYieldProcessor() )
       {
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
           {
-            v17 = KeGetCurrentPrcb();
-            SchedulerAssist = v17->SchedulerAssist;
-            v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v20 = (v19 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v19;
-            if ( v20 )
-              KiRemoveSystemWorkPriorityKick(v17);
+            CurrentPrcb = KeGetCurrentPrcb();
+            a2 = -1LL << (CurrentIrql + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v12 = ~(unsigned __int16)a2;
+            v13 = (v12 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v12 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(CurrentIrql);
-        v15 = KeGetCurrentIrql();
+        CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
-          v16 = KeGetCurrentPrcb()->SchedulerAssist;
-          v16[5] |= (-1 << (v15 + 1)) & 4;
+          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+          a2 = (-1LL << (CurrentIrql + 1)) & 4;
+          a3 = (unsigned int)a2 | SchedulerAssist[5];
+          SchedulerAssist[5] = a3;
         }
-        CurrentIrql = v15;
       }
-      v2 = v30;
-      v8 += 6;
-      ++v4;
+      v10 += 12;
+      ++v8;
     }
-    while ( (unsigned __int64)(v8 - 5) < v6 );
+    while ( (unsigned __int64)(v10 - 6) < v7 );
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v21 = KeGetCurrentIrql();
-      if ( v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
-        v22 = KeGetCurrentPrcb();
-        v23 = v22->SchedulerAssist;
-        v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v20 = (v24 & v23[5]) == 0;
-        v23[5] &= v24;
-        if ( v20 )
-          KiRemoveSystemWorkPriorityKick(v22);
+        v15 = KeGetCurrentPrcb();
+        v16 = v15->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v17 & v16[5]) == 0;
+        v16[5] &= v17;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)v15);
       }
     }
   }

@@ -1,29 +1,29 @@
 /*
- * XREFs of xxxSetDialogSystemMenu @ 0x1C00AF934
+ * XREFs of xxxSetDialogSystemMenu @ 0x1C0129130
  * Callers:
- *     NtUserSetDialogSystemMenu @ 0x1C00AF880 (NtUserSetDialogSystemMenu.c)
+ *     <none>
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00AF33C (-LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
- *     xxxLoadSysDesktopMenu @ 0x1C00AF9D4 (xxxLoadSysDesktopMenu.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C011AA2C (-LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C01291D4 (xxxLoadSysDesktopMenu.c)
  */
 
 __int64 __fastcall xxxSetDialogSystemMenu(__int64 a1)
 {
-  __int64 v2; // rax
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
+  __int64 v3; // rdx
   __int64 SysDesktopMenu; // rax
   _QWORD *v6[2]; // [rsp+20h] [rbp-28h] BYREF
   __int64 v7; // [rsp+30h] [rbp-18h]
 
   SmartObjStackRefBase<tagMENU>::Init(v6, 0LL);
-  v2 = *(_QWORD *)(a1 + 24);
-  v3 = 0;
+  v2 = 0;
+  v3 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 64LL);
   v7 = 0LL;
-  SmartObjStackRefBase<tagMENU>::operator=(v6, *(_QWORD *)(v2 + 64));
+  SmartObjStackRefBase<tagMENU>::operator=(v6, v3);
   if ( SmartObjStackRef<tagMENU>::operator==((__int64)v6) )
   {
     SysDesktopMenu = xxxLoadSysDesktopMenu(*(_QWORD *)(a1 + 24) + 64LL, 48LL);
@@ -31,7 +31,7 @@ __int64 __fastcall xxxSetDialogSystemMenu(__int64 a1)
     SmartObjStackRefBase<tagMENU>::operator=(v6, SysDesktopMenu);
   }
   LockWndMenuWorker(a1, 1u, v6);
-  LOBYTE(v3) = !SmartObjStackRef<tagMENU>::operator==((__int64)v6);
+  LOBYTE(v2) = !SmartObjStackRef<tagMENU>::operator==((__int64)v6);
   SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v6);
-  return v3;
+  return v2;
 }

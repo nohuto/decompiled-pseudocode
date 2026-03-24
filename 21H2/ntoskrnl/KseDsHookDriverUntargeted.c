@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsHookDriverUntargeted @ 0x14057DFC0
+ * XREFs of KseDsHookDriverUntargeted @ 0x140527770
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventDriverUnload @ 0x14057E860 (KsepDsEventDriverUnload.c)
+ *     KsepDsEventDriverUnload @ 0x140528010 (KsepDsEventDriverUnload.c)
  */
 
 __int64 __fastcall KseDsHookDriverUntargeted(__int64 a1)

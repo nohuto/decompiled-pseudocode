@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIoFreeIrp @ 0x140A8CEB8
+ * XREFs of VfIoFreeIrp @ 0x1409D124C
  * Callers:
- *     IovFreeIrpPrivate @ 0x140A80820 (IovFreeIrpPrivate.c)
+ *     IovFreeIrpPrivate @ 0x1409C51D0 (IovFreeIrpPrivate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViErrorReport1 @ 0x1405FFB44 (ViErrorReport1.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140602294 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1406022DC (ViIrpDatabaseReleaseLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140A81AE8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AA5A48 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AA5BCC (VfIrpDatabaseEntryReleaseLock.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViErrorReport1 @ 0x1405A1F18 (ViErrorReport1.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405A260C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405A2654 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x1409C63B0 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfIoFreeIrp(char *P, const void *a2)
@@ -25,6 +25,7 @@ __int64 __fastcall VfIoFreeIrp(char *P, const void *a2)
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // rbx
   KIRQL v12; // [rsp+40h] [rbp+8h] BYREF
+  KIRQL v13; // [rsp+50h] [rbp+18h] BYREF
 
   if ( (P[71] & 0x21) != 0x21 )
   {
@@ -59,17 +60,17 @@ __int64 __fastcall VfIoFreeIrp(char *P, const void *a2)
               ObfDereferenceObjectWithTag((PVOID)v5[11], 0x49667256u);
             }
             v9 = (*((_DWORD *)v5 + 6))-- == 1;
-            v12 = 0;
+            v13 = 0;
             if ( v9 )
             {
-              ViIrpDatabaseAcquireLockExclusive(&v12);
+              ViIrpDatabaseAcquireLockExclusive(&v13);
               v11 = *v5;
               ((void (__fastcall *)(_QWORD *, _QWORD, __int64))v5[6])(v5, *v5, 1LL);
               *v5 = 0LL;
               VfUtilAddressRangeRemoveCheckEmpty(
                 (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v11 >> 12))),
                 v11);
-              ViIrpDatabaseReleaseLockExclusive(v12);
+              ViIrpDatabaseReleaseLockExclusive(v13);
             }
             _InterlockedDecrement((volatile signed __int32 *)v5 + 5);
             VfIrpDatabaseEntryReleaseLock(v5);

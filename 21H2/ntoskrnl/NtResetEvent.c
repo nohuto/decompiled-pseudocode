@@ -1,12 +1,12 @@
 /*
- * XREFs of NtResetEvent @ 0x1407E0340
+ * XREFs of NtResetEvent @ 0x1406C6C70
  * Callers:
- *     PfSnPrefetchFileMetadata @ 0x1407E0048 (PfSnPrefetchFileMetadata.c)
+ *     PfSnPrefetchFileMetadata @ 0x1406C6D4C (PfSnPrefetchFileMetadata.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExpResetCrossVmEvent @ 0x140A081A8 (ExpResetCrossVmEvent.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExpResetCrossVmEvent @ 0x14095C9D8 (ExpResetCrossVmEvent.c)
  */
 
 __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
@@ -16,9 +16,9 @@ __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
   NTSTATUS v6; // edi
   struct _KEVENT *v7; // rsi
   __int64 v9; // rcx
-  LONG v10; // [rsp+68h] [rbp+10h] BYREF
-  PVOID Object; // [rsp+70h] [rbp+18h] BYREF
-  PVOID v12; // [rsp+78h] [rbp+20h]
+  LONG v10; // [rsp+78h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+80h] [rbp+18h] BYREF
+  PVOID v12; // [rsp+88h] [rbp+20h] BYREF
 
   v10 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -33,7 +33,6 @@ __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
   v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v6 = v5;
   v7 = (struct _KEVENT *)Object;
-  v12 = Object;
   LODWORD(Object) = v5;
   if ( v5 < 0 )
   {
@@ -41,14 +40,13 @@ __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
     {
       if ( ExCrossVmEventObjectType )
       {
-        Object = 0LL;
-        v6 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &Object, 0LL);
-        v7 = (struct _KEVENT *)Object;
-        v12 = Object;
+        v12 = 0LL;
+        v6 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &v12, 0LL);
+        v7 = (struct _KEVENT *)v12;
         LODWORD(Object) = v6;
         if ( v6 >= 0 )
         {
-          v6 = ExpResetCrossVmEvent(v7, &v10);
+          v6 = ExpResetCrossVmEvent(v12, &v10);
           LODWORD(Object) = v6;
         }
       }
@@ -61,6 +59,6 @@ __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
   if ( v6 >= 0 && a2 )
     *a2 = v10;
   if ( v7 )
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v7);
   return (unsigned int)v6;
 }

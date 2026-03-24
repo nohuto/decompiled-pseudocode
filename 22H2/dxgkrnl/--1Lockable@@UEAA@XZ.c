@@ -1,20 +1,24 @@
 /*
- * XREFs of ??1Lockable@@UEAA@XZ @ 0x1C03B8DA4
+ * XREFs of ??1Lockable@@UEAA@XZ @ 0x1C02E8FDC
  * Callers:
- *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C0067F38 (--1VIDPN_MGR@@UEAA@XZ.c)
- *     ??_ELockable@@UEAAPEAXI@Z @ 0x1C006AAF0 (--_ELockable@@UEAAPEAXI@Z.c)
+ *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C005B120 (--1VIDPN_MGR@@UEAA@XZ.c)
+ *     ??_ELockable@@UEAAPEAXI@Z @ 0x1C005D570 (--_ELockable@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C000B66C (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall Lockable::~Lockable(struct _KTHREAD **this)
+void __fastcall Lockable::~Lockable(Lockable *this, __int64 a2)
 {
-  DXGFASTMUTEX *v1; // rbx
+  struct _KTHREAD **v3; // rcx
 
-  *this = (struct _KTHREAD *)&Lockable::`vftable';
-  v1 = (DXGFASTMUTEX *)(this + 3);
-  if ( this[6] == KeGetCurrentThread() )
-    DXGFASTMUTEX::Release(this + 3);
-  DXGFASTMUTEX::~DXGFASTMUTEX(v1);
+  *(_QWORD *)this = &Lockable::`vftable';
+  v3 = (struct _KTHREAD **)*((_QWORD *)this + 3);
+  if ( v3[2] == KeGetCurrentThread() )
+  {
+    DXGFASTMUTEX::Release(v3, a2);
+    v3 = (struct _KTHREAD **)*((_QWORD *)this + 3);
+  }
+  if ( v3 )
+    DXGFASTMUTEX::`scalar deleting destructor'((DXGFASTMUTEX *)v3, a2);
 }

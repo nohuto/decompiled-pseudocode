@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIFilterIrpQueryResourceRequirements @ 0x1C0097840
+ * XREFs of ACPIFilterIrpQueryResourceRequirements @ 0x1C009C430
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001660 (ACPIDispatchForwardIrp.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     PnpBiosGetDeviceResourceList @ 0x1C0097DD0 (PnpBiosGetDeviceResourceList.c)
- *     ACPIInternalSetSpare @ 0x1C0097F6C (ACPIInternalSetSpare.c)
- *     ACPIInternalSetProximityDomain @ 0x1C009800C (ACPIInternalSetProximityDomain.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C009C794 (PnpBiosGetDeviceResourceList.c)
+ *     ACPIInternalSetSpare @ 0x1C009C950 (ACPIInternalSetSpare.c)
+ *     ACPIInternalSetProximityDomain @ 0x1C009C9F4 (ACPIInternalSetProximityDomain.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryResourceRequirements(ULONG_PTR BugCheckParameter3, PIRP Irp)
@@ -31,17 +31,17 @@ __int64 __fastcall ACPIFilterIrpQueryResourceRequirements(ULONG_PTR BugCheckPara
   if ( DeviceResourceList < 0 )
   {
     v8 = 0;
-    v9 = (const char *)&unk_1C006FB8B;
-    v10 = (const char *)&unk_1C006FB8B;
+    v9 = byte_1C00701BA;
+    v10 = byte_1C00701BA;
     if ( DeviceExtension )
     {
       v11 = DeviceExtension[1];
       v8 = (char)DeviceExtension;
       if ( (v11 & 0x200000000000LL) != 0 )
       {
-        v9 = (const char *)DeviceExtension[76];
+        v9 = (const char *)DeviceExtension[71];
         if ( (v11 & 0x400000000000LL) != 0 )
-          v10 = (const char *)DeviceExtension[77];
+          v10 = (const char *)DeviceExtension[72];
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -50,7 +50,7 @@ __int64 __fastcall ACPIFilterIrpQueryResourceRequirements(ULONG_PTR BugCheckPara
         2u,
         5u,
         0xFu,
-        (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+        (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
         BugCheckParameter3,
         DeviceResourceList,
         v8,

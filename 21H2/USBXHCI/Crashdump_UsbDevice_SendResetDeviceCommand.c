@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C004EE24
+ * XREFs of Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C004E3A8
  * Callers:
- *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C004E7F0 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
+ *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C004DD70 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
  * Callees:
- *     Crashdump_Command_SendCommand @ 0x1C004CA30 (Crashdump_Command_SendCommand.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_SendResetDeviceCommand(__int64 a1)

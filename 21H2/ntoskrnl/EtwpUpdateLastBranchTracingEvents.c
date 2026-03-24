@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingEvents @ 0x1409EE518
+ * XREFs of EtwpUpdateLastBranchTracingEvents @ 0x1409481F4
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpAllocateLbrData @ 0x1409EE394 (EtwpAllocateLbrData.c)
+ *     EtwpAllocateLbrData @ 0x140948064 (EtwpAllocateLbrData.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingEvents(__int64 a1, __int64 a2, unsigned int a3)
@@ -16,17 +16,17 @@ __int64 __fastcall EtwpUpdateLastBranchTracingEvents(__int64 a1, __int64 a2, uns
     return 3221225659LL;
   if ( !a3 || a3 > 4 )
     return 3221225485LL;
-  if ( *(_QWORD *)(a1 + 1024) || (result = EtwpAllocateLbrData(a1), (int)result >= 0) )
+  if ( *(_QWORD *)(a1 + 1008) || (result = EtwpAllocateLbrData(a1), (int)result >= 0) )
   {
     for ( i = 0LL; ; i = (unsigned int)(i + 1) )
     {
       v8[8] = i;
       if ( (unsigned int)i >= a3 )
         break;
-      *(_WORD *)(*(_QWORD *)(a1 + 1024) + 2 * i + 12) = *(_WORD *)(a2 + 4 * i);
+      *(_WORD *)(*(_QWORD *)(a1 + 1008) + 2 * i + 12) = *(_WORD *)(a2 + 4 * i);
     }
     _InterlockedOr(v8, 0);
-    *(_DWORD *)(*(_QWORD *)(a1 + 1024) + 8LL) = a3;
+    *(_DWORD *)(*(_QWORD *)(a1 + 1008) + 8LL) = a3;
     return 0LL;
   }
   return result;

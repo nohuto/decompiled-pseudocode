@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchQueryProcessVidPnSourceStatistics @ 0x1C0107AC0
+ * XREFs of VidSchQueryProcessVidPnSourceStatistics @ 0x1C00D0810
  * Callers:
  *     <none>
  * Callees:
@@ -16,13 +16,13 @@ __int64 __fastcall VidSchQueryProcessVidPnSourceStatistics(__int64 a1, unsigned 
   v7 = a2;
   if ( a2 < *(_DWORD *)(a1 + 40) )
   {
-    v8 = a3 + 2664;
-    ExAcquirePushLockSharedEx(a3 + 2664, 0LL);
-    v9 = *(_QWORD *)(*(_QWORD *)(a3 + 32) + 8LL * *(unsigned int *)(a1 + 4));
+    v8 = a3 + 2656;
+    ExAcquirePushLockSharedEx(a3 + 2656, 0LL);
+    v9 = *(_QWORD *)(*(_QWORD *)(a3 + 24) + 8LL * *(unsigned int *)(a1 + 4));
     if ( v9 && *(_QWORD *)(v9 + 8 * v7 + 88) )
     {
       _mm_lfence();
-      v10 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a3 + 32) + 8LL * *(unsigned int *)(a1 + 4)) + 8 * v7 + 88);
+      v10 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a3 + 24) + 8LL * *(unsigned int *)(a1 + 4)) + 8 * v7 + 88);
       *a4 = *v10;
       a4[1] = v10[1];
       a4[2] = v10[2];

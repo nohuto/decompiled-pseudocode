@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiGetAndSetDCDword @ 0x1C02AA3E0
+ * XREFs of NtGdiGetAndSetDCDword @ 0x1C010C5D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C02CF9D4 (-iSetMapMode@DC@@QEAAHH@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C010C7C0 (-iSetMapMode@DC@@QEAAHH@Z.c)
  */
 
 __int64 __fastcall NtGdiGetAndSetDCDword(HDC a1, int a2, int a3, _DWORD *a4)
@@ -48,8 +48,8 @@ __int64 __fastcall NtGdiGetAndSetDCDword(HDC a1, int a2, int a3, _DWORD *a4)
   v11 = v10 - 1;
   if ( !v11 )
   {
-    v7 = *((_DWORD *)v20[0] + 523);
-    *((_DWORD *)v20[0] + 523) = a3;
+    v7 = *((_DWORD *)v20[0] + 525);
+    *((_DWORD *)v20[0] + 525) = a3;
     goto LABEL_32;
   }
   v12 = v11 - 2;

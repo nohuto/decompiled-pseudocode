@@ -1,42 +1,39 @@
 /*
- * XREFs of ObpInitializeRootNamespace @ 0x14082C020
+ * XREFs of ObpInitializeRootNamespace @ 0x1407A0990
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x140A34510 (ObCreateSiloRootDirectory.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
+ *     ObCreateSiloRootDirectory @ 0x1409804D0 (ObCreateSiloRootDirectory.c)
+ *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
  * Callees:
- *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14041C260 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObject @ 0x14041CC80 (ZwCreateDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x14041CCA0 (ZwCreateDirectoryObjectEx.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041D000 (ZwCreateSymbolicLinkObject.c)
- *     ZwSetInformationSymbolicLink @ 0x14041EC00 (ZwSetInformationSymbolicLink.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCleanupSecurityDescriptor @ 0x14082C308 (ObCleanupSecurityDescriptor.c)
- *     ObCreateKernelObjectsSD @ 0x14082C34C (ObCreateKernelObjectsSD.c)
- *     ObpCreateDosDevicesDirectory @ 0x14082C49C (ObpCreateDosDevicesDirectory.c)
+ *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FAEA0 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObject @ 0x1403FB880 (ZwCreateDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1403FB8A0 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FBBC0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwSetInformationSymbolicLink @ 0x1403FD720 (ZwSetInformationSymbolicLink.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObCleanupSecurityDescriptor @ 0x1407A0C68 (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x1407A0CAC (ObCreateKernelObjectsSD.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407A0DF8 (ObpCreateDosDevicesDirectory.c)
  */
 
-__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
 {
   bool IsHostSilo; // di
   int KernelObjectsSD; // ebx
-  bool v10; // sf
-  int Object; // [rsp+28h] [rbp-49h]
-  HANDLE Handle; // [rsp+38h] [rbp-39h] BYREF
-  int v14; // [rsp+40h] [rbp-31h]
-  HANDLE DirectoryHandle; // [rsp+48h] [rbp-29h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-21h] BYREF
-  PVOID v17; // [rsp+80h] [rbp+Fh] BYREF
-  _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp+17h] BYREF
-  __int64 v19; // [rsp+A8h] [rbp+37h]
+  bool v8; // sf
+  HANDLE Handle; // [rsp+38h] [rbp-29h] BYREF
+  HANDLE DirectoryHandle; // [rsp+40h] [rbp-21h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-19h] BYREF
+  PVOID Object; // [rsp+78h] [rbp+17h] BYREF
+  _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp+1Fh] BYREF
+  __int64 v15; // [rsp+A0h] [rbp+3Fh]
 
-  v14 = 0;
   Handle = 0LL;
   DirectoryHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IsHostSilo = PsIsHostSilo(a1);
-  v19 = 0LL;
+  v15 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   KernelObjectsSD = ObCreateKernelObjectsSD(SecurityDescriptor);
   if ( KernelObjectsSD >= 0 )
@@ -51,7 +48,6 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
           KernelObjectsSD >= 0) )
     {
       ObjectAttributes.SecurityQualityOfService = 0LL;
-      Object = 0;
       ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpKernelObjectsNameString;
       ObjectAttributes.Length = 48;
       ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
@@ -72,10 +68,10 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
           KernelObjectsSD = ZwCreateDirectoryObject(&Handle, 0xF000Fu, &ObjectAttributes);
           if ( KernelObjectsSD < 0 )
             goto LABEL_9;
-          v17 = 0LL;
-          KernelObjectsSD = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, 0, &v17, 0LL);
-          ObpTypeDirectoryObject = v17;
-          v10 = KernelObjectsSD < 0;
+          Object = 0LL;
+          KernelObjectsSD = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, 0, &Object, 0LL);
+          ObpTypeDirectoryObject = (PADAPTER_OBJECT)Object;
+          v8 = KernelObjectsSD < 0;
         }
         else
         {
@@ -83,10 +79,10 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
           if ( KernelObjectsSD < 0 )
             goto LABEL_9;
           KernelObjectsSD = ZwSetInformationSymbolicLink((__int64)Handle, 1LL);
-          v10 = KernelObjectsSD < 0;
+          v8 = KernelObjectsSD < 0;
         }
-        if ( !v10 )
-          KernelObjectsSD = ObpCreateDosDevicesDirectory(a1, a2, a3, a4, Object);
+        if ( !v8 )
+          KernelObjectsSD = ObpCreateDosDevicesDirectory(a1, a2, a3);
       }
     }
   }

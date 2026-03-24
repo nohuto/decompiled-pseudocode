@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfLogExecutiveResourceSetOwnerPointer @ 0x1406329AC
+ * XREFs of PerfLogExecutiveResourceSetOwnerPointer @ 0x1405AB13C
  * Callers:
- *     ExpSetResourceOwnerPointerEx @ 0x14021A7D0 (ExpSetResourceOwnerPointerEx.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x140286C70 (ExpSetResourceOwnerPointerEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x1406324DC (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405AAC54 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 struct _KTHREAD *__fastcall PerfLogExecutiveResourceSetOwnerPointer(int a1, __int64 a2)
@@ -30,7 +30,7 @@ struct _KTHREAD *__fastcall PerfLogExecutiveResourceSetOwnerPointer(int a1, __in
   v12[1] = 48LL;
   CurrentRunTime = KeGetCurrentThread()[1].CurrentRunTime;
   v12[0] = v6;
-  EtwTraceKernelEvent((__int64)v12, 1u, 0x20020000u, 0x52Bu, 0x1501802u);
+  EtwTraceKernelEvent((int)v12, 1, 0x20020000u, 1323, 22026242);
   result = KeGetCurrentThread();
   if ( result[1].WaitBlock[0].Object )
   {

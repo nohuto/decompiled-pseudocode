@@ -1,10 +1,10 @@
 /*
- * XREFs of _RegisterErrorReportingDialog @ 0x1C0211704
+ * XREFs of _RegisterErrorReportingDialog @ 0x1C020A160
  * Callers:
- *     NtUserRegisterErrorReportingDialog @ 0x1C01FB9C0 (NtUserRegisterErrorReportingDialog.c)
+ *     NtUserRegisterErrorReportingDialog @ 0x1C0200C80 (NtUserRegisterErrorReportingDialog.c)
  * Callees:
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
- *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01449F8 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C0003960 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
  */
 
 __int64 __fastcall RegisterErrorReportingDialog(__int64 a1)

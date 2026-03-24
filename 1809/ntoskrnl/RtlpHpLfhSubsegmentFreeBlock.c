@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10
+ * XREFs of RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30
  * Callers:
  *     RtlpHpSegFree @ 0x140007CDC (RtlpHpSegFree.c)
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
@@ -15,15 +15,15 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x14010E110 (RtlpHpLfhBucketAddSubsegment.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpLogHeapFailure @ 0x1402FB738 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD530 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD5FC (RtlpHpLfhSubsegmentDecommitPages.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14010E130 (RtlpHpLfhBucketAddSubsegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -131,7 +131,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 a1, __int64 a2, __int64 
   v90 = -1;
   v4 = (signed __int64 *)a2;
   v6 = 0LL;
-  v7 = qword_14040E0A8 ^ ((unsigned int)a2 >> 12) ^ *(_DWORD *)(a2 + 40);
+  v7 = qword_14040E088 ^ ((unsigned int)a2 >> 12) ^ *(_DWORD *)(a2 + 40);
   v98 = v7;
   v8 = HIWORD(v7);
   BugCheckParameter3 = -1;

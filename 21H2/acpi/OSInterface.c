@@ -1,13 +1,13 @@
 /*
- * XREFs of OSInterface @ 0x1C0022310
+ * XREFs of OSInterface @ 0x1C0024EB0
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _stricmp_0 @ 0x1C002F267 (_stricmp_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _stricmp_0 @ 0x1C0031DA7 (_stricmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall OSInterface(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall OSInterface(__int64 a1, __int64 a2)
   const char *v8; // r15
   bool v10; // al
   bool v11; // cf
-  _QWORD v12[22]; // [rsp+20h] [rbp-99h] BYREF
+  _QWORD v12[20]; // [rsp+20h] [rbp-89h] BYREF
 
   v3 = *(_QWORD *)(a2 + 80);
   v12[0] = "Windows 2000";
@@ -42,7 +42,6 @@ __int64 __fastcall OSInterface(__int64 a1, __int64 a2)
   v12[17] = "Windows 2018.2";
   v12[18] = "Windows 2019";
   v12[19] = "Windows 2020";
-  v12[20] = "Windows 2021";
   v5 = ValidateArgTypes(a1, v3, 0, "A");
   if ( !v5 )
   {
@@ -58,7 +57,7 @@ __int64 __fastcall OSInterface(__int64 a1, __int64 a2)
       {
         ++v7;
         ++v6;
-        if ( v7 >= 0x15 )
+        if ( v7 >= 0x14 )
           goto LABEL_6;
       }
       v10 = IsCompatableDSDTRevision();

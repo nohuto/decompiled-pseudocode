@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMirrorPerformBrownWrites @ 0x140152374
+ * XREFs of MiMirrorPerformBrownWrites @ 0x140152394
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
@@ -8,10 +8,10 @@
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B100 (RtlFindNextForwardRunClearCappedEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, char a2, _QWORD *a3)

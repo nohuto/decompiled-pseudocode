@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vPlgWrite16@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C03010B0
+ * XREFs of ?vPlgWrite16@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C02D8850
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00542C4 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
- *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C02654BC (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00CEAA0 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
+ *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C00CEB24 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
  */
 
 void __fastcall vPlgWrite16(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
@@ -55,7 +55,7 @@ void __fastcall vPlgWrite16(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
         v18 = *((_DWORD *)a1 + 2);
         a1 = (struct _PLGRUN *)((char *)a1 + 12);
         v26 = v16;
-        v19 = *((_QWORD *)v6 + 10) + *((_DWORD *)v6 + 22) * v17;
+        v19 = *((_QWORD *)v6 + 10) + v17 * *((_DWORD *)v6 + 22);
         for ( i = v18 == 0; ; i = v18 == 0 )
         {
           v25 = v18;

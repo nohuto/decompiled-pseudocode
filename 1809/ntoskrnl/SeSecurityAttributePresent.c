@@ -1,18 +1,18 @@
 /*
- * XREFs of SeSecurityAttributePresent @ 0x1400A7030
+ * XREFs of SeSecurityAttributePresent @ 0x1400A7050
  * Callers:
- *     SepVerifyDesktopAppxPackageName @ 0x1402FF0CC (SepVerifyDesktopAppxPackageName.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1402FF1CC (SepVerifyDesktopAppxPackageName.c)
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
  *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
- *     AuthzBasepEqualUnicodeString @ 0x1400A5DC8 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADD8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     ExAcquireFastResourceShared @ 0x140165B40 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166344 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1400A5DE8 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     ExAcquireFastResourceShared @ 0x140165B60 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166364 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */

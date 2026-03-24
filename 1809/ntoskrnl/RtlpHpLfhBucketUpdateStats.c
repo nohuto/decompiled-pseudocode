@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpSegFree @ 0x140007CDC (RtlpHpSegFree.c)
  *     RtlpHpLfhContextAllocate @ 0x140008C54 (RtlpHpLfhContextAllocate.c)
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
  *     RtlpLfhBucketUsageUpdate @ 0x140008D90 (RtlpLfhBucketUsageUpdate.c)

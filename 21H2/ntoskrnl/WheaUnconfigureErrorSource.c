@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaUnconfigureErrorSource @ 0x140A6D3D0
+ * XREFs of WheaUnconfigureErrorSource @ 0x1409B3770
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1)
@@ -27,17 +27,17 @@ __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1)
   {
     v1 = (unsigned __int64 *)((char *)&WheapSourceConfiguration + 64 * (__int64)(int)a1);
     v2 = -1073741823;
-    v3 = KeAbPreAcquire((__int64)&WheapConfigTableLock, 0LL);
+    v3 = KeAbPreAcquire((ULONG_PTR)&WheapConfigTableLock, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&WheapConfigTableLock, 0, v3, (__int64)&WheapConfigTableLock);
+      ExfAcquirePushLockSharedEx(&WheapConfigTableLock, v3, (ULONG_PTR)&WheapConfigTableLock);
     if ( v3 )
-      *(_BYTE *)(v3 + 18) = 1;
-    v4 = KeAbPreAcquire((__int64)v1, 0LL);
+      *(_BYTE *)(v3 + 26) |= 1u;
+    v4 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0);
     v5 = v4;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v1, v4, (__int64)v1);
+      ExfAcquirePushLockExclusiveEx(v1, v4, (ULONG_PTR)v1);
     if ( v5 )
-      *(_BYTE *)(v5 + 18) = 1;
+      *(_BYTE *)(v5 + 26) |= 1u;
     if ( *((_BYTE *)v1 + 8) )
     {
       *((_BYTE *)v1 + 8) = 0;

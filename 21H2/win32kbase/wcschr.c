@@ -1,11 +1,11 @@
 /*
- * XREFs of wcschr @ 0x1C00D5E68
+ * XREFs of wcschr @ 0x1C00C50C0
  * Callers:
- *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0069A20 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
- *     ParseWindowStation @ 0x1C0098FC0 (ParseWindowStation.c)
- *     InitCreateUserSubsystem @ 0x1C02E32B8 (InitCreateUserSubsystem.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ParseWindowStation @ 0x1C004E8A0 (ParseWindowStation.c)
+ *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0091080 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
+ *     InitCreateUserSubsystem @ 0x1C0299BFC (InitCreateUserSubsystem.c)
  * Callees:
  *     <none>
  */

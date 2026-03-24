@@ -3,10 +3,10 @@
  * Callers:
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140144400 (MmMapMemoryDumpMdlEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1402D3638 (_PopInternalError.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1402D3738 (_PopInternalError.c)
  */
 
 void __fastcall PopCreateDumpMdl(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned __int64 a4)

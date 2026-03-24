@@ -1,9 +1,9 @@
 /*
- * XREFs of XilCoreCommonBuffer_Create @ 0x1C001591C
+ * XREFs of XilCoreCommonBuffer_Create @ 0x1C0015D00
  * Callers:
- *     CommonBuffer_Create @ 0x1C006E6D0 (CommonBuffer_Create.c)
+ *     CommonBuffer_Create @ 0x1C006E368 (CommonBuffer_Create.c)
  * Callees:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015B94 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)

@@ -1,188 +1,136 @@
 /*
- * XREFs of NtConfigureInputSpace @ 0x1C0140880
+ * XREFs of NtConfigureInputSpace @ 0x1C0128D70
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z @ 0x1C001901C (-AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z.c)
- *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C00193AC (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C00B756C (-FreeRegions@CInputSpace@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01E3C3C (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
- *     ?Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z @ 0x1C01E4140 (-Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z @ 0x1C006E934 (-AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z.c)
+ *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C006EA38 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
+ *     ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C0072188 (-FreeRegions@CInputSpace@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01B3110 (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
+ *     ?Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z @ 0x1C01B3558 (-Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z.c)
  */
 
-__int64 __fastcall NtConfigureInputSpace(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtConfigureInputSpace(ULONG64 a1, char *a2, unsigned int a3)
 {
-  __int64 v4; // r14
-  ULONG64 v6; // r15
-  int v7; // edi
-  struct tagTHREADINFO *v8; // rax
-  __int64 v9; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v11; // rax
-  char v12; // al
-  __int64 *v13; // rsi
-  unsigned __int64 v14; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v15; // rcx
-  __int64 v16; // r8
-  unsigned int v17; // r12d
-  char *QuotaZInit; // rsi
-  ULONG v19; // ecx
-  ULONG64 v20; // rcx
-  __int64 v21; // r15
-  CInputConfig *v22; // rcx
-  int v23; // r15d
-  char *v24; // rax
-  NTSTATUS v25; // eax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v31; // [rsp+38h] [rbp-8F0h] BYREF
-  int v32; // [rsp+40h] [rbp-8E8h]
-  __int64 v33; // [rsp+48h] [rbp-8E0h]
-  int v34; // [rsp+50h] [rbp-8D8h]
-  _OWORD v35[12]; // [rsp+60h] [rbp-8C8h] BYREF
-  __int64 v36; // [rsp+120h] [rbp-808h]
-  _BYTE v37[520]; // [rsp+128h] [rbp-800h] BYREF
-  __int64 v38; // [rsp+330h] [rbp-5F8h] BYREF
-  int v39; // [rsp+338h] [rbp-5F0h]
+  __int64 v3; // rsi
+  int v6; // ebx
+  __int64 v7; // rdx
+  unsigned int v8; // r14d
+  char *v9; // rdi
+  __int64 v10; // rcx
+  ULONG64 v11; // rcx
+  __int64 v12; // r15
+  CInputConfig *v13; // rcx
+  int v14; // r14d
+  char *v15; // rax
+  NTSTATUS v16; // eax
+  __int64 v18; // [rsp+40h] [rbp-8C8h] BYREF
+  int v19; // [rsp+48h] [rbp-8C0h]
+  __int64 v20; // [rsp+50h] [rbp-8B8h]
+  int v21; // [rsp+58h] [rbp-8B0h]
+  _OWORD v22[12]; // [rsp+70h] [rbp-898h] BYREF
+  __int64 v23; // [rsp+130h] [rbp-7D8h]
+  _BYTE v24[504]; // [rsp+138h] [rbp-7D0h] BYREF
+  __int64 v25; // [rsp+330h] [rbp-5D8h] BYREF
+  int v26; // [rsp+338h] [rbp-5D0h]
 
-  v4 = (unsigned int)a3;
-  v6 = a1;
-  v7 = 1;
-  LOBYTE(a1) = 1;
-  v8 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(a1, (__int64)a2, a3, a4);
-  gptiCurrent = v8;
-  if ( v8 )
+  v3 = a3;
+  v6 = 1;
+  EnterCrit(0, 1);
+  v18 = 0LL;
+  v19 = 0;
+  CInputSpace::CInputSpace((CInputSpace *)&v25, (const struct INPUT_SPACE *)&v18, 0);
+  v8 = 0;
+  v9 = 0LL;
+  if ( (_DWORD)v3 )
   {
-    *((_DWORD *)v8 + 387) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
-    if ( CurrentProcessWin32Process )
+    v8 = 200 * v3;
+    if ( (unsigned __int64)(200 * v3) > 0xFFFFFFFF )
     {
-      v11 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      if ( v11 )
-      {
-        if ( (*(_DWORD *)(v11 + 12) & 0x8000) != 0 )
-        {
-          if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-            || (v12 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-          {
-            v12 = 0;
-          }
-          if ( v12 )
-          {
-            while ( 1 )
-            {
-              v13 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-              if ( !gpSharedUserCritDeferredUnlockListHead )
-                break;
-              gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                           + 2);
-              v13[2] = 0LL;
-              if ( !*(_DWORD *)(*v13 + 8) )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 4237);
-              HMUnlockObject(*v13);
-            }
-          }
-        }
-      }
+LABEL_5:
+      v10 = 87LL;
+      goto LABEL_6;
+    }
+    v9 = (char *)Win32AllocPoolWithQuota(v8, 0x63736955u);
+    if ( !v9 )
+    {
+      v10 = 8LL;
+LABEL_6:
+      v6 = 0;
+LABEL_7:
+      UserSetLastError(v10, v7);
+      goto LABEL_26;
     }
   }
-  v31 = 0LL;
-  v32 = 0;
-  CInputSpace::CInputSpace((CInputSpace *)&v38, (const struct INPUT_SPACE *)&v31, 0);
-  v17 = 0;
-  QuotaZInit = 0LL;
-  if ( (_DWORD)v4 )
+  v11 = a1 + 12;
+  if ( a1 + 12 < a1 || v11 > MmUserProbeAddress )
+    a1 = MmUserProbeAddress;
+  v20 = *(_QWORD *)a1;
+  v21 = *(_DWORD *)(a1 + 8);
+  v25 = v20;
+  v26 = v21;
+  if ( (_DWORD)v3 )
   {
-    v17 = 200 * v4;
-    if ( (unsigned __int64)(200 * v4) > 0xFFFFFFFF )
+    v12 = 200 * v3;
+    if ( 200 * v3 )
     {
-LABEL_18:
-      v19 = 87;
-      goto LABEL_19;
-    }
-    QuotaZInit = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v15, v14, v17, 0x63736955u);
-    if ( !QuotaZInit )
-    {
-      v19 = 8;
-LABEL_19:
-      v7 = 0;
-LABEL_20:
-      UserSetLastError(v19);
-      goto LABEL_39;
-    }
-  }
-  v20 = v6 + 12;
-  if ( v6 + 12 < v6 || v20 > MmUserProbeAddress )
-    v6 = MmUserProbeAddress;
-  v33 = *(_QWORD *)v6;
-  v34 = *(_DWORD *)(v6 + 8);
-  v38 = v33;
-  v39 = v34;
-  if ( (_DWORD)v4 )
-  {
-    v21 = 200 * v4;
-    if ( 200 * v4 )
-    {
-      if ( ((unsigned __int8)a2 & (PsGetCurrentProcessWow64Process(v20, v14, v16) == 0 ? 3 : 0)) != 0 )
+      if ( ((PsGetCurrentProcessWow64Process(v11) == 0 ? 3 : 0) & (unsigned __int8)a2) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a2[v21] > MmUserProbeAddress || &a2[v21] < a2 )
+      if ( (unsigned __int64)&a2[v12] > MmUserProbeAddress || &a2[v12] < a2 )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
-    memmove(QuotaZInit, a2, v17);
+    memmove(v9, a2, v8);
   }
-  if ( !CInputConfig::Validate((const struct INPUT_SPACE *)&v38, (const struct INPUT_SPACE_REGION *)QuotaZInit, v4) )
-    goto LABEL_18;
-  if ( (_DWORD)v4 )
+  if ( !CInputConfig::Validate((const struct INPUT_SPACE *)&v25, (const struct INPUT_SPACE_REGION *)v9, v3) )
+    goto LABEL_5;
+  if ( (_DWORD)v3 )
   {
-    v23 = 0;
+    v14 = 0;
     do
     {
-      v24 = &QuotaZInit[200 * v23];
-      v35[0] = *(_OWORD *)v24;
-      v35[1] = *((_OWORD *)v24 + 1);
-      v35[2] = *((_OWORD *)v24 + 2);
-      v35[3] = *((_OWORD *)v24 + 3);
-      v35[4] = *((_OWORD *)v24 + 4);
-      v35[5] = *((_OWORD *)v24 + 5);
-      v35[6] = *((_OWORD *)v24 + 6);
-      v35[7] = *((_OWORD *)v24 + 7);
-      v35[8] = *((_OWORD *)v24 + 8);
-      v35[9] = *((_OWORD *)v24 + 9);
-      v35[10] = *((_OWORD *)v24 + 10);
-      v35[11] = *((_OWORD *)v24 + 11);
-      v36 = *((_QWORD *)v24 + 24);
-      memset(v37, 0, 289);
-      memset(&v37[296], 0, 0xD8uLL);
-      v25 = CInputSpace::AddRegion((CInputSpace *)&v38, (const struct CInputSpaceRegion *)v35, 0LL);
-      if ( v25 < 0 )
-        goto LABEL_38;
+      v15 = &v9[200 * v14];
+      v22[0] = *(_OWORD *)v15;
+      v22[1] = *((_OWORD *)v15 + 1);
+      v22[2] = *((_OWORD *)v15 + 2);
+      v22[3] = *((_OWORD *)v15 + 3);
+      v22[4] = *((_OWORD *)v15 + 4);
+      v22[5] = *((_OWORD *)v15 + 5);
+      v22[6] = *((_OWORD *)v15 + 6);
+      v22[7] = *((_OWORD *)v15 + 7);
+      v15 += 128;
+      v22[8] = *(_OWORD *)v15;
+      v22[9] = *((_OWORD *)v15 + 1);
+      v22[10] = *((_OWORD *)v15 + 2);
+      v22[11] = *((_OWORD *)v15 + 3);
+      v23 = *((_QWORD *)v15 + 8);
+      memset(v24, 0, 289);
+      memset(&v24[296], 0, 0xC8uLL);
+      v16 = CInputSpace::AddRegion((CInputSpace *)&v25, (const struct CInputSpaceRegion *)v22, 0LL);
+      if ( v16 < 0 )
+        goto LABEL_25;
     }
-    while ( ++v23 != (_DWORD)v4 );
+    while ( ++v14 != (_DWORD)v3 );
   }
-  v25 = CInputConfig::ConfigureInputSpace(v22, (struct CInputSpace *)&v38);
-  if ( v25 < 0 )
+  v16 = CInputConfig::ConfigureInputSpace(v13, (struct CInputSpace *)&v25);
+  if ( v16 < 0 )
   {
-LABEL_38:
-    v7 = 0;
-    v19 = RtlNtStatusToDosError(v25);
-    goto LABEL_20;
+LABEL_25:
+    v6 = 0;
+    v10 = RtlNtStatusToDosError(v16);
+    goto LABEL_7;
   }
-LABEL_39:
-  CInputSpace::FreeRegions((CInputSpace *)&v38);
-  if ( QuotaZInit )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, QuotaZInit);
-  UserSessionSwitchLeaveCrit(v27, v26, v28, v29);
-  return v7;
+LABEL_26:
+  CInputSpace::FreeRegions((CInputSpace *)&v25);
+  if ( v9 )
+    Win32FreePool((__int64)v9);
+  UserSessionSwitchLeaveCrit();
+  return v6;
 }

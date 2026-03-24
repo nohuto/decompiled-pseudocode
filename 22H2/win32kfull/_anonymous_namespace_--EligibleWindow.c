@@ -1,28 +1,29 @@
 /*
- * XREFs of _anonymous_namespace_::EligibleWindow @ 0x1C00AE74C
+ * XREFs of _anonymous_namespace_::EligibleWindow @ 0x1C004B6E8
  * Callers:
- *     ?xxxGetShellShowWindowCommand@@YA?AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@Z @ 0x1C0026FA0 (-xxxGetShellShowWindowCommand@@YA-AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@.c)
- *     ?EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z @ 0x1C00AE708 (-EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z.c)
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z @ 0x1C021E068 (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z.c)
+ *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z @ 0x1C004B54C (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
+ *     ?InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z @ 0x1C006D3A0 (-InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z.c)
+ *     ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0122980 (-_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z.c)
  * Callees:
- *     IsImmersiveApplicationBandId @ 0x1C0017B3C (IsImmersiveApplicationBandId.c)
- *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00952FC (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035260 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
  */
 
-char __fastcall anonymous_namespace_::EligibleWindow(struct tagWND *a1, int a2)
+bool __fastcall anonymous_namespace_::EligibleWindow(struct tagWND *a1, int a2)
 {
-  int v4; // ecx
+  __int64 v4; // rcx
+  int v5; // eax
   struct tagWND *RootOwner; // rax
 
-  v4 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 236LL);
-  if ( v4 != 1 && !(unsigned int)IsImmersiveApplicationBandId(v4) )
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = *(_DWORD *)(v4 + 236);
+  if ( (v5 < 8 || v5 != 13 && v5 > 11) && v5 != 1 || !a2 && (*(_BYTE *)(v4 + 30) & 1) == 0 )
     return 0;
-  if ( !a2 || (unsigned __int8)IsTrayWindow(a1, 2LL) )
+  if ( (unsigned int)IsTrayWindow(a1) )
     return 1;
-  if ( a2 == 2 && (RootOwner = GetRootOwner(a1), RootOwner != a1) )
-    return IsTrayWindow(RootOwner, 2LL);
-  else
+  if ( a2 != 1 )
     return 0;
+  RootOwner = GetRootOwner(a1);
+  return (unsigned int)IsTrayWindow(RootOwner) != 0;
 }

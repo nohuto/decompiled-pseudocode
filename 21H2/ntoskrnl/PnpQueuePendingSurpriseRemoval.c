@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x140810CB4
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x140737ADC
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x140810C28 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x140735DD0 (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopEnumerateRelations @ 0x1407667B0 (IopEnumerateRelations.c)
- *     IopIsDescendantNode @ 0x1407668C8 (IopIsDescendantNode.c)
- *     IopAllocateRelationList @ 0x140767538 (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x140767600 (IopFreeRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x140767730 (PnpAllocateCriticalMemory.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     IopCheckIfMergeRequired @ 0x1409581A0 (IopCheckIfMergeRequired.c)
- *     IopMergeRelationLists @ 0x1409582C4 (IopMergeRelationLists.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
+ *     IopIsDescendantNode @ 0x140738684 (IopIsDescendantNode.c)
+ *     IopAllocateRelationList @ 0x14073928C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
+ *     IopCheckIfMergeRequired @ 0x1408B2604 (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x1408B2728 (IopMergeRelationLists.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int a3, int a4)
+_QWORD *__fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, int a4)
 {
   __int64 CriticalMemory; // rbx
-  unsigned int **v6; // rbp
+  PVOID v6; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int **v10; // rsi
+  PVOID v10; // rsi
   PVOID *v11; // r14
   __int64 *v12; // rax
   char v13; // r9
@@ -31,7 +31,7 @@ char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
   __int64 v15; // r11
   PVOID *v17; // rdi
   __int64 v18; // r8
-  unsigned int **RelationList; // rax
+  __int64 RelationList; // rax
   PVOID *v20; // rax
   PVOID **v21; // rcx
   __int64 v22; // [rsp+30h] [rbp-38h] BYREF
@@ -55,7 +55,7 @@ char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
     if ( v17[7] == a1 )
     {
       CriticalMemory = (__int64)v17;
-      v10 = (unsigned int **)v17[8];
+      v10 = v17[8];
       break;
     }
     if ( (unsigned __int8)IopCheckIfMergeRequired(v17[8], v10) )
@@ -63,8 +63,8 @@ char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
       if ( v10 == v6 )
       {
         CriticalMemory = (__int64)v17;
-        RelationList = (unsigned int **)IopAllocateRelationList(3LL);
-        v10 = RelationList;
+        RelationList = IopAllocateRelationList(3LL);
+        v10 = (PVOID)RelationList;
         if ( !RelationList )
         {
           v10 = v6;
@@ -83,10 +83,10 @@ char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
       {
         v20 = (PVOID *)*v17;
         if ( *((PVOID **)*v17 + 1) != v17 )
-          goto LABEL_28;
+          goto LABEL_27;
         v21 = (PVOID **)v17[1];
         if ( *v21 != v17 )
-          goto LABEL_28;
+          goto LABEL_27;
         *v21 = v20;
         v20[1] = v21;
         ExFreePoolWithTag(v17, 0);
@@ -97,21 +97,21 @@ char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
   PpDevNodeUnlockTree(0);
   if ( v6 == v10 )
   {
-    CriticalMemory = PnpAllocateCriticalMemory(3, 64LL, 112LL, 0x54706E50u);
-    v12 = (__int64 *)qword_140C46138;
-    if ( *(PVOID **)qword_140C46138 != &IopPendingSurpriseRemovals )
-LABEL_28:
+    CriticalMemory = PnpAllocateCriticalMemory(3LL, 512LL, 112LL, 1416654416LL);
+    v12 = (__int64 *)qword_140C44C78;
+    if ( *(PVOID **)qword_140C44C78 != &IopPendingSurpriseRemovals )
+LABEL_27:
       __fastfail(3u);
     *(_QWORD *)CriticalMemory = &IopPendingSurpriseRemovals;
     *(_QWORD *)(CriticalMemory + 8) = v12;
     *v12 = CriticalMemory;
-    qword_140C46138 = CriticalMemory;
+    qword_140C44C78 = CriticalMemory;
   }
   else
   {
     IopFreeRelationList(v6);
   }
-  while ( IopEnumerateRelations(v10, (int *)&v22, &v23, 0LL, 0LL) )
+  while ( (unsigned __int8)IopEnumerateRelations((_DWORD)v10, (unsigned int)&v22, (unsigned int)&v23, 0, 0LL) )
   {
     if ( v23 )
       v14 = *(_QWORD *)(*(_QWORD *)(v23 + 312) + 40LL);
@@ -119,7 +119,7 @@ LABEL_28:
       v14 = 0LL;
     if ( (*(_BYTE *)(v14 + 648) & 1) != 0 )
     {
-      if ( (unsigned __int8)IopIsDescendantNode(v10, v23) )
+      if ( (unsigned __int8)IopIsDescendantNode(v10) )
       {
         *(_QWORD *)(v15 + 648) &= ~1uLL;
         --*(_DWORD *)(*(_QWORD *)(v15 + 648) + 656LL);
@@ -133,5 +133,5 @@ LABEL_28:
   *(_DWORD *)(CriticalMemory + 108) = a4;
   *(_BYTE *)(CriticalMemory + 104) = v13;
   ExReleaseResourceLite(&IopSurpriseRemoveListLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

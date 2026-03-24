@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOpenDevicesControlSet @ 0x14084BC14
+ * XREFs of CmpOpenDevicesControlSet @ 0x1407A6B94
  * Callers:
- *     CmSetAcpiHwProfile @ 0x14084B574 (CmSetAcpiHwProfile.c)
- *     CmpMarkCurrentProfileDirty @ 0x14084BAAC (CmpMarkCurrentProfileDirty.c)
- *     CmpMoveBiosAliasTable @ 0x140A10D4C (CmpMoveBiosAliasTable.c)
- *     CmpCreateHardwareProfiles @ 0x140B679AC (CmpCreateHardwareProfiles.c)
+ *     CmpMarkCurrentProfileDirty @ 0x1407A5BEC (CmpMarkCurrentProfileDirty.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5D38 (CmSetAcpiHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x140877C68 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
  */
 
 __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRING *a3)
@@ -22,15 +22,14 @@ __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRI
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-C8h] BYREF
   _BYTE v12[256]; // [rsp+70h] [rbp-90h] BYREF
 
-  v3 = &CmpDevicesHiveNameString;
   KeyHandle = 0LL;
-  ObjectAttributes.SecurityDescriptor = 0LL;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
+  v3 = &CmpDevicesHiveNameString;
+  DestinationString = 0LL;
   if ( !CmStateSeparationEnabled )
     v3 = &CmpSystemHiveNameString;
-  *(_QWORD *)&DestinationString.Length = 0x1000000LL;
+  DestinationString.MaximumLength = 256;
   DestinationString.Buffer = (wchar_t *)v12;
-  memset(&ObjectAttributes, 0, 32);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v6 = RtlUnicodeStringPrintf(&DestinationString, L"\\Registry\\Machine\\%wZ\\CurrentControlSet", v3);
   if ( v6 < 0 )
     goto LABEL_11;

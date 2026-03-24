@@ -1,22 +1,20 @@
 /*
- * XREFs of ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C015C0B4
+ * XREFs of ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0140318
  * Callers:
- *     NtGdiDestroyOPMProtectedOutput @ 0x1C015C5F0 (NtGdiDestroyOPMProtectedOutput.c)
- *     DrvCreatePhysicalMonitorObjects @ 0x1C0165F80 (DrvCreatePhysicalMonitorObjects.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00BFE10 (DrvCreatePhysicalMonitorObjects.c)
+ *     NtGdiDestroyOPMProtectedOutput @ 0x1C01405E0 (NtGdiDestroyOPMProtectedOutput.c)
  * Callees:
- *     ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C015B750 (-DestroyProtectedOutput@COPM@@QEAAJPEAX@Z.c)
+ *     ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C0140050 (-DestroyProtectedOutput@COPM@@QEAAJPEAX@Z.c)
  */
 
-__int64 __fastcall OPMDestroyProtectedOutput(void *a1)
+__int64 __fastcall OPMDestroyProtectedOutput(COPM *a1)
 {
-  __int64 v2; // rax
-  int v3; // eax
-  unsigned int v4; // ecx
+  int v1; // eax
+  unsigned int v2; // ecx
 
-  v2 = SGDGetSessionState(a1);
-  v3 = COPM::DestroyProtectedOutput(*(void ***)(*(_QWORD *)(v2 + 24) + 3824LL), a1);
-  v4 = 0;
-  if ( v3 < 0 )
-    return (unsigned int)v3;
-  return v4;
+  v1 = COPM::DestroyProtectedOutput(a1, (unsigned __int64)a1);
+  v2 = 0;
+  if ( v1 < 0 )
+    return (unsigned int)v1;
+  return v2;
 }

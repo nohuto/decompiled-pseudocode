@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsVirtEnabledForSubject @ 0x1406B20AC
+ * XREFs of CmpIsVirtEnabledForSubject @ 0x1406B208C
  * Callers:
- *     CmpIsSystemEntity @ 0x1406B1FF4 (CmpIsSystemEntity.c)
+ *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
  * Callees:
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     CmpEffectiveTokenForSubject @ 0x1406B20F4 (CmpEffectiveTokenForSubject.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     CmpEffectiveTokenForSubject @ 0x1406B20D4 (CmpEffectiveTokenForSubject.c)
  */
 
 char __fastcall CmpIsVirtEnabledForSubject(__int64 a1)

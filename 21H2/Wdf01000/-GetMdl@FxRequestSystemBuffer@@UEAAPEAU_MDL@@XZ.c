@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMdl@FxRequestSystemBuffer@@UEAAPEAU_MDL@@XZ @ 0x1C006B030
+ * XREFs of ?GetMdl@FxRequestSystemBuffer@@UEAAPEAU_MDL@@XZ @ 0x1C0055B40
  * Callers:
  *     <none>
  * Callees:

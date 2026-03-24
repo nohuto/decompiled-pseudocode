@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bInactive@DC@@QEBAHXZ @ 0x1C02C0988
+ * XREFs of ?bInactive@DC@@QEBAHXZ @ 0x1C01457E4
  * Callers:
- *     NtGdiFillPath @ 0x1C02C0DE0 (NtGdiFillPath.c)
- *     NtGdiFlattenPath @ 0x1C02C0F70 (NtGdiFlattenPath.c)
- *     NtGdiGetPath @ 0x1C02C1080 (NtGdiGetPath.c)
- *     NtGdiPathToRegion @ 0x1C02C1330 (NtGdiPathToRegion.c)
- *     NtGdiSelectClipPath @ 0x1C02C1490 (NtGdiSelectClipPath.c)
- *     NtGdiStrokeAndFillPath @ 0x1C02C1640 (NtGdiStrokeAndFillPath.c)
- *     NtGdiStrokePath @ 0x1C02C1810 (NtGdiStrokePath.c)
- *     NtGdiWidenPath @ 0x1C02C1980 (NtGdiWidenPath.c)
+ *     NtGdiFillPath @ 0x1C01435D0 (NtGdiFillPath.c)
+ *     NtGdiSelectClipPath @ 0x1C01445D0 (NtGdiSelectClipPath.c)
+ *     NtGdiFlattenPath @ 0x1C02AD030 (NtGdiFlattenPath.c)
+ *     NtGdiGetPath @ 0x1C02AD120 (NtGdiGetPath.c)
+ *     NtGdiPathToRegion @ 0x1C02AD3B0 (NtGdiPathToRegion.c)
+ *     NtGdiStrokeAndFillPath @ 0x1C02AD510 (NtGdiStrokeAndFillPath.c)
+ *     NtGdiStrokePath @ 0x1C02AD6B0 (NtGdiStrokePath.c)
+ *     NtGdiWidenPath @ 0x1C02AD7F0 (NtGdiWidenPath.c)
  * Callees:
  *     <none>
  */

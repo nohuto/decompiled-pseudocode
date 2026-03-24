@@ -1,10 +1,10 @@
 /*
- * XREFs of PiUEventHandleUnregisterClient @ 0x1406E6124
+ * XREFs of PiUEventHandleUnregisterClient @ 0x1406E14A0
  * Callers:
- *     PiUEventHandleIoctl @ 0x14078C5BC (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x1406E1C5C (PiUEventHandleIoctl.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 __int64 __fastcall PiUEventHandleUnregisterClient(__int64 a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of KiCompleteDirectSwitchThread @ 0x14035B090
+ * XREFs of KiCompleteDirectSwitchThread @ 0x1402634D8
  * Callers:
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140345AA0 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiRemoveBoostThread @ 0x14035B110 (KiRemoveBoostThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveBoostThread @ 0x14024AED0 (KiRemoveBoostThread.c)
  */
 
-__int64 __fastcall KiCompleteDirectSwitchThread(__int64 a1, __int64 a2)
+char __fastcall KiCompleteDirectSwitchThread(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  int v2; // eax
   unsigned __int64 updated; // rdi
   __int64 v6; // rax
   unsigned __int64 v7; // rcx
 
-  result = *(unsigned int *)(a2 + 120);
-  if ( (result & 0x20) != 0 )
+  v2 = *(_DWORD *)(a2 + 120);
+  if ( (v2 & 0x20) != 0 )
   {
     _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 5u);
     _disable();
@@ -28,8 +28,8 @@ __int64 __fastcall KiCompleteDirectSwitchThread(__int64 a1, __int64 a2)
       if ( v7 > updated )
         *(_QWORD *)(v6 - 184) += v7 - updated;
     }
-    result = KiRemoveBoostThread(a1, a2);
+    LOBYTE(v2) = KiRemoveBoostThread(a1, a2);
     *(_QWORD *)(a2 + 32) = updated;
   }
-  return result;
+  return v2;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C068
+ * XREFs of Endpoint_SetUpConfigureEndpointCommand @ 0x1C003A07C
  * Callers:
- *     Endpoint_OnCancelEndpointConfigure @ 0x1C003A6B4 (Endpoint_OnCancelEndpointConfigure.c)
- *     Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C003AA40 (Endpoint_OnCancelEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_OnResetEndpointConfigure @ 0x1C003AC30 (Endpoint_OnResetEndpointConfigure.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B090 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnCancelEndpointConfigure @ 0x1C00387A8 (Endpoint_OnCancelEndpointConfigure.c)
+ *     Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C0038B20 (Endpoint_OnCancelEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C0038D28 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FF0 (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Endpoint_SetUpConfigureEndpointCommand(

@@ -1,15 +1,15 @@
 /*
- * XREFs of WbHashData @ 0x140691168
+ * XREFs of WbHashData @ 0x140691148
  * Callers:
- *     sub_1406910CC @ 0x1406910CC (sub_1406910CC.c)
+ *     sub_1406910AC @ 0x1406910AC (sub_1406910AC.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
- *     BCryptGetProperty @ 0x140691284 (BCryptGetProperty.c)
- *     BCryptDestroyHash @ 0x140691310 (BCryptDestroyHash.c)
- *     BCryptFinishHash @ 0x140691360 (BCryptFinishHash.c)
- *     BCryptCreateHash @ 0x1406913D4 (BCryptCreateHash.c)
- *     BCryptHashData @ 0x140691464 (BCryptHashData.c)
+ *     BCryptGetProperty @ 0x140691264 (BCryptGetProperty.c)
+ *     BCryptDestroyHash @ 0x1406912F0 (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x140691340 (BCryptFinishHash.c)
+ *     BCryptCreateHash @ 0x1406913B4 (BCryptCreateHash.c)
+ *     BCryptHashData @ 0x140691444 (BCryptHashData.c)
  */
 
 __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD *a4)

@@ -1,73 +1,60 @@
 /*
- * XREFs of DwmAsyncMagnSetWindowSharedTextures @ 0x1C026D080
+ * XREFs of DwmAsyncMagnSetWindowSharedTextures @ 0x1C0274734
  * Callers:
- *     MagpComposeDesktop @ 0x1C005A938 (MagpComposeDesktop.c)
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncMagnSetWindowSharedTextures(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  unsigned int v9; // ecx
-  char *v10; // r8
-  __int64 *v11; // r9
-  __int64 v12; // r10
-  __int64 v13; // rax
-  int v15; // [rsp+20h] [rbp-E0h] BYREF
-  __int16 v16; // [rsp+24h] [rbp-DCh]
-  int v17; // [rsp+48h] [rbp-B8h]
-  __int64 v18; // [rsp+50h] [rbp-B0h]
-  unsigned int v19; // [rsp+58h] [rbp-A8h]
-  int v20; // [rsp+5Ch] [rbp-A4h]
-  int v21; // [rsp+60h] [rbp-A0h]
-  int v22; // [rsp+64h] [rbp-9Ch]
-  char v23; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v24; // [rsp+128h] [rbp+28h]
+  _QWORD *v9; // r8
+  __int64 *v10; // r9
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  __int64 v13; // r10
+  __int64 v14; // rax
+  _QWORD v16[34]; // [rsp+20h] [rbp-E0h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset_0(&v15, 0, 0x110uLL);
-    v9 = *(_DWORD *)a4;
-    v16 = 0x8000;
-    v20 = *(_DWORD *)(a4 + 4);
-    v21 = *(_DWORD *)(a4 + 8);
-    v22 = *(_DWORD *)(a4 + 12);
-    v15 = 17826024;
-    v17 = 1073741927;
-    v18 = a2;
-    v24 = a3;
-    v19 = v9;
-    if ( v9 >= 6 )
+    memset(v16, 0, sizeof(v16));
+    v11 = *(_DWORD *)a4;
+    WORD2(v16[0]) = 0x8000;
+    v12 = 6;
+    HIDWORD(v16[7]) = *(_DWORD *)(a4 + 4);
+    if ( v11 < 6 )
+      v12 = v11;
+    v16[8] = *(_QWORD *)(a4 + 8);
+    LODWORD(v16[0]) = 17826024;
+    LODWORD(v16[5]) = 1073741923;
+    v16[6] = a2;
+    v16[33] = a3;
+    LODWORD(v16[7]) = v11;
+    if ( v12 )
     {
-      v9 = 6;
+      v9 = &v16[10];
+      v10 = (__int64 *)(*(_QWORD *)(a4 + 16) + 8LL);
+      v13 = v12;
+      do
+      {
+        *(v9 - 1) = v10[1];
+        *v9 = *(v10 - 1);
+        v9 += 4;
+        v14 = *v10;
+        v10 += 3;
+        *(v9 - 3) = v14;
+        --v13;
+      }
+      while ( v13 );
     }
-    else if ( !v9 )
-    {
-LABEL_8:
-      EtwUpdateEvent(0LL, 1073741927LL);
-      v8 = LpcRequestPort(Object, &v15);
-      ObfDereferenceObject(Object);
-      return v8;
-    }
-    v10 = &v23;
-    v11 = (__int64 *)(*(_QWORD *)(a4 + 16) + 8LL);
-    v12 = v9;
-    do
-    {
-      *((_QWORD *)v10 - 1) = v11[1];
-      *(_QWORD *)v10 = *(v11 - 1);
-      v10 += 32;
-      v13 = *v11;
-      v11 += 3;
-      *((_QWORD *)v10 - 3) = v13;
-      --v12;
-    }
-    while ( v12 );
-    goto LABEL_8;
+    EtwUpdateEvent(0LL, 1073741923LL, v9, v10);
+    v8 = LpcRequestPort(Object, v16);
+    ObfDereferenceObject(Object);
   }
   return v8;
 }

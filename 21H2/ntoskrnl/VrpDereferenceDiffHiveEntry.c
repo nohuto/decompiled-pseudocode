@@ -1,30 +1,30 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntry @ 0x140691330
+ * XREFs of VrpDereferenceDiffHiveEntry @ 0x1405D642C
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140690FEC (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x1407F6200 (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     VrpDereferenceDiffHiveEntryWithLock @ 0x1407F7018 (VrpDereferenceDiffHiveEntryWithLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     VrpDereferenceDiffHiveEntryWithLock @ 0x1405D64B0 (VrpDereferenceDiffHiveEntryWithLock.c)
  */
 
-char __fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
+_QWORD *__fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
 {
-  signed __int64 v2; // rax
+  _QWORD *result; // rax
   signed __int64 i; // rdx
-  signed __int64 v4; // rtt
+  _QWORD *v4; // rtt
   struct _KTHREAD *CurrentThread; // rax
 
   _m_prefetchw(P + 2);
-  v2 = P[2];
-  for ( i = v2 - 1; i > 0; i = v2 - 1 )
+  result = (_QWORD *)P[2];
+  for ( i = (signed __int64)result - 1; i > 0; i = (signed __int64)result - 1 )
   {
-    v4 = v2;
-    v2 = _InterlockedCompareExchange64(P + 2, i, v2);
-    if ( v4 == v2 )
-      return v2;
+    v4 = result;
+    result = (_QWORD *)_InterlockedCompareExchange64(P + 2, i, (signed __int64)result);
+    if ( v4 == result )
+      return result;
   }
   if ( i )
     __fastfail(0xEu);
@@ -33,6 +33,5 @@ char __fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
   VrpDereferenceDiffHiveEntryWithLock(P);
   ExReleasePushLockEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
-  LOBYTE(v2) = KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return v2;
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

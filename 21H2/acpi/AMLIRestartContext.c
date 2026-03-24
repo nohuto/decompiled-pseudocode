@@ -1,18 +1,18 @@
 /*
- * XREFs of AMLIRestartContext @ 0x1C00648F4
+ * XREFs of AMLIRestartContext @ 0x1C0063670
  * Callers:
- *     ACPIFlushDeviceQueueCallback @ 0x1C004B5A0 (ACPIFlushDeviceQueueCallback.c)
- *     ACPIFlushPowerQueueCallback @ 0x1C004B5E0 (ACPIFlushPowerQueueCallback.c)
- *     GenericDeviceFirmwareLockCompletion @ 0x1C004ED30 (GenericDeviceFirmwareLockCompletion.c)
- *     AcpiNativeMethodEvalRequestCompletion @ 0x1C005C200 (AcpiNativeMethodEvalRequestCompletion.c)
- *     ACPITableUnloadCallBack @ 0x1C00609D0 (ACPITableUnloadCallBack.c)
- *     AMLIFinalizeObject @ 0x1C00646F8 (AMLIFinalizeObject.c)
- *     FreeObjOwnerWorker @ 0x1C0066590 (FreeObjOwnerWorker.c)
+ *     ACPIFlushDeviceQueueCallback @ 0x1C004C850 (ACPIFlushDeviceQueueCallback.c)
+ *     ACPIFlushPowerQueueCallback @ 0x1C004C890 (ACPIFlushPowerQueueCallback.c)
+ *     GenericDeviceFirmwareLockCompletion @ 0x1C004FF00 (GenericDeviceFirmwareLockCompletion.c)
+ *     AcpiNativeMethodEvalRequestCompletion @ 0x1C005B340 (AcpiNativeMethodEvalRequestCompletion.c)
+ *     ACPITableUnloadCallBack @ 0x1C005FBE0 (ACPITableUnloadCallBack.c)
+ *     AMLIFinalizeObject @ 0x1C006344C (AMLIFinalizeObject.c)
+ *     FreeObjOwnerWorker @ 0x1C0065330 (FreeObjOwnerWorker.c)
  * Callees:
- *     RestartContext @ 0x1C000DCC0 (RestartContext.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
  */
 
 __int64 __fastcall AMLIRestartContext(__int64 a1)
 {
-  return RestartContext(a1);
+  return RestartContext(a1, (*(_DWORD *)(a1 + 64) & 0x100) == 0);
 }

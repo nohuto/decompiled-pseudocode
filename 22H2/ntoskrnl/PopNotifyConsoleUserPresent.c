@@ -1,63 +1,63 @@
 /*
- * XREFs of PopNotifyConsoleUserPresent @ 0x1407D3CC4
+ * XREFs of PopNotifyConsoleUserPresent @ 0x140772DC0
  * Callers:
- *     PopUserPresentSetWorker @ 0x14058E240 (PopUserPresentSetWorker.c)
- *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
- *     NtSetThreadExecutionState @ 0x1407A92D0 (NtSetThreadExecutionState.c)
- *     PopSetSystemAwayMode @ 0x14098A940 (PopSetSystemAwayMode.c)
+ *     NtSetThreadExecutionState @ 0x1406F8710 (NtSetThreadExecutionState.c)
+ *     PopReleaseAdaptiveLock @ 0x1407251C4 (PopReleaseAdaptiveLock.c)
+ *     PopDispatchFullWake @ 0x14077A090 (PopDispatchFullWake.c)
+ *     PopUserPresentSetWorker @ 0x14078EA40 (PopUserPresentSetWorker.c)
+ *     PopSetSystemAwayMode @ 0x1408E7820 (PopSetSystemAwayMode.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x14035E670 (RtlGetActiveConsoleId.c)
- *     TtmIsEnabled @ 0x1407A65A0 (TtmIsEnabled.c)
- *     PopInvokeWin32Callout @ 0x1407D3E3C (PopInvokeWin32Callout.c)
- *     TtmNotifyConsoleUserPresent @ 0x1409A42C4 (TtmNotifyConsoleUserPresent.c)
+ *     RtlGetActiveConsoleId @ 0x14034ADC0 (RtlGetActiveConsoleId.c)
+ *     PopInvokeWin32Callout @ 0x1406F45B8 (PopInvokeWin32Callout.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1408FE934 (TtmNotifyConsoleUserPresent.c)
  */
 
-__int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
+void __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
+  unsigned __int8 v4; // di
+  unsigned int ActiveConsoleId; // eax
   int v6; // [rsp+20h] [rbp-30h] BYREF
-  __int16 v7; // [rsp+25h] [rbp-2Bh]
-  char v8; // [rsp+27h] [rbp-29h]
-  int v9; // [rsp+28h] [rbp-28h]
-  int v10; // [rsp+2Ch] [rbp-24h]
-  int *v11; // [rsp+30h] [rbp-20h]
-  int v12; // [rsp+38h] [rbp-18h]
-  int v13; // [rsp+3Ch] [rbp-14h]
-  __int64 v14; // [rsp+40h] [rbp-10h]
-  int v15; // [rsp+80h] [rbp+30h] BYREF
-  int v16; // [rsp+88h] [rbp+38h] BYREF
-  unsigned int v17; // [rsp+8Ch] [rbp+3Ch]
+  char v7; // [rsp+24h] [rbp-2Ch]
+  __int16 v8; // [rsp+25h] [rbp-2Bh]
+  char v9; // [rsp+27h] [rbp-29h]
+  int v10; // [rsp+28h] [rbp-28h]
+  int v11; // [rsp+2Ch] [rbp-24h]
+  __int64 *v12; // [rsp+30h] [rbp-20h]
+  int v13; // [rsp+38h] [rbp-18h]
+  int v14; // [rsp+3Ch] [rbp-14h]
+  __int64 v15; // [rsp+40h] [rbp-10h]
+  unsigned int v16; // [rsp+78h] [rbp+28h] BYREF
+  __int64 v17; // [rsp+88h] [rbp+38h] BYREF
 
-  result = 0LL;
-  v7 = 0;
+  LOBYTE(v16) = a2;
+  v4 = a1;
   v8 = 0;
-  v10 = 0;
-  v13 = 0;
-  v16 = 0;
-  LOBYTE(v17) = 0;
+  v9 = 0;
+  v11 = 0;
+  v14 = 0;
+  v17 = 0LL;
   if ( PsWin32CalloutsEstablished )
   {
-    result = RtlGetActiveConsoleId();
-    v15 = result;
-    v5 = result;
-    if ( (_DWORD)result != -1 )
+    ActiveConsoleId = RtlGetActiveConsoleId(a1, a2);
+    v16 = ActiveConsoleId;
+    if ( ActiveConsoleId != -1 )
     {
-      if ( TtmIsEnabled() )
+      if ( TtmpEnabled == 1 )
       {
-        return TtmNotifyConsoleUserPresent(v5, a2);
+        TtmNotifyConsoleUserPresent(ActiveConsoleId, a3);
       }
       else
       {
-        LOBYTE(v16) = a1;
-        v11 = &v16;
-        v17 = a2;
-        v9 = 8;
-        v12 = 0;
-        v14 = 0LL;
-        return PopInvokeWin32Callout(5LL, &v6, 1LL, &v15, 1);
+        LOWORD(v17) = v4;
+        v12 = &v17;
+        HIDWORD(v17) = a3;
+        v6 = 1;
+        v7 = 0;
+        v10 = 8;
+        v13 = 0;
+        v15 = 0LL;
+        PopInvokeWin32Callout(5, (__int64)&v6, 1, (int *)&v16);
       }
     }
   }
-  return result;
 }

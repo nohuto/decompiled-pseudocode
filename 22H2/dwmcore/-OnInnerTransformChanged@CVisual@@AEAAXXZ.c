@@ -1,13 +1,12 @@
 /*
- * XREFs of ?OnInnerTransformChanged@CVisual@@AEAAXXZ @ 0x1800E4DA0
+ * XREFs of ?OnInnerTransformChanged@CVisual@@AEAAXXZ @ 0x1800C9A98
  * Callers:
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z @ 0x1800C3B8C (-SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z.c)
- *     ?ProcessSetOptions@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETOPTIONS@@@Z @ 0x1800E4CA0 (-ProcessSetOptions@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETOPTIONS@@@Z.c)
- *     ?SetPixelSnappingEnabled@CVisual@@QEAAX_N@Z @ 0x180211D88 (-SetPixelSnappingEnabled@CVisual@@QEAAX_N@Z.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?ProcessSetOptions@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETOPTIONS@@@Z @ 0x1800C99D8 (-ProcessSetOptions@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETOPTIONS@@@Z.c)
+ *     ?SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z @ 0x1800CCC54 (-SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z.c)
  * Callees:
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A5BC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
- *     ?OnTransformChanged@CVisual@@AEAAXXZ @ 0x1800E4EF0 (-OnTransformChanged@CVisual@@AEAAXXZ.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?OnTransformChanged@CVisual@@AEAAXXZ @ 0x1800C9BD4 (-OnTransformChanged@CVisual@@AEAAXXZ.c)
  */
 
 void __fastcall CVisual::OnInnerTransformChanged(CVisual *this)
@@ -17,11 +16,11 @@ void __fastcall CVisual::OnInnerTransformChanged(CVisual *this)
   struct _LIST_ENTRY *i; // rcx
 
   CVisual::OnTransformChanged(this);
-  *((_BYTE *)v1 + 499) = 1;
+  *((_QWORD *)v1 + 72) = 0LL;
   TreeDataListHead = CVisual::GetTreeDataListHead(v1);
   if ( TreeDataListHead )
   {
     for ( i = TreeDataListHead->Flink; i != TreeDataListHead; i = i->Flink )
-      BYTE3(i[-13].Blink) = 1;
+      i[-2].Flink = 0LL;
   }
 }

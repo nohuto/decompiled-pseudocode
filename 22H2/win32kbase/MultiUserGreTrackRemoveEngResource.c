@@ -1,39 +1,31 @@
 /*
- * XREFs of MultiUserGreTrackRemoveEngResource @ 0x1C0077F40
+ * XREFs of MultiUserGreTrackRemoveEngResource @ 0x1C005C2E0
  * Callers:
- *     GreDeleteSemaphore @ 0x1C0077EE0 (GreDeleteSemaphore.c)
+ *     GreDeleteSemaphore @ 0x1C005C290 (GreDeleteSemaphore.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
-_QWORD *__fastcall MultiUserGreTrackRemoveEngResource(_QWORD *a1)
+__int64 __fastcall MultiUserGreTrackRemoveEngResource(__int64 *a1)
 {
-  __int64 v2; // rdi
-  HSEMAPHORE v3; // rcx
-  __int64 v4; // rcx
-  _QWORD *result; // rax
-  __int64 v6; // rdx
-  struct _ERESOURCE *v7; // rcx
+  __int64 result; // rax
+  __int64 *v3; // rcx
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = *(HSEMAPHORE *)(v2 + 3216);
-  if ( v3 )
-    EngAcquireSemaphore(v3);
-  v4 = *a1;
-  if ( *(_QWORD **)(*a1 + 8LL) != a1 || (result = (_QWORD *)a1[1], (_QWORD *)*result != a1) )
+  if ( MultiUserEngAllocListLock )
+    EngAcquireSemaphore(MultiUserEngAllocListLock);
+  result = *a1;
+  if ( *(__int64 **)(*a1 + 8) != a1 || (v3 = (__int64 *)a1[1], (__int64 *)*v3 != a1) )
     __fastfail(3u);
-  *result = v4;
-  *(_QWORD *)(v4 + 8) = result;
-  v6 = *(_QWORD *)(v2 + 3216);
-  if ( v6 )
+  *v3 = result;
+  *(_QWORD *)(result + 8) = v3;
+  if ( MultiUserEngAllocListLock )
   {
-    result = (_QWORD *)EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.MultiUserEngAllocListLock", v6);
-    v7 = *(struct _ERESOURCE **)(v2 + 3216);
-    if ( v7 )
+    result = EtwTraceGreLockReleaseSemaphore(L"MultiUserEngAllocListLock", MultiUserEngAllocListLock);
+    if ( MultiUserEngAllocListLock )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v7);
-      return (_QWORD *)PsLeavePriorityRegion();
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)MultiUserEngAllocListLock);
+      return PsLeavePriorityRegion();
     }
   }
   return result;

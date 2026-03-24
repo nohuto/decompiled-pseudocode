@@ -4,7 +4,7 @@
  *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
  */
 
 USHORT __fastcall CmpLogDirtyVectorUse(__int64 a1, int a2, int a3, int a4)

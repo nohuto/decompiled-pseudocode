@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CTokenBase@@MEAAJW4TokenState@1@@Z @ 0x1C00205B0
+ * XREFs of ?Initialize@CTokenBase@@MEAAJW4TokenState@1@@Z @ 0x1C001BA10
  * Callers:
  *     <none>
  * Callees:

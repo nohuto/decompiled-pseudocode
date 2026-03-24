@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0nqqq_EtwWriteTransfer @ 0x1C014FEFC
+ * XREFs of McTemplateK0nqqq_EtwWriteTransfer @ 0x1C0125714
  * Callers:
- *     EtwTraceUIPIInputError @ 0x1C003D190 (EtwTraceUIPIInputError.c)
- *     EtwTraceUIPIClipboardError @ 0x1C014EE90 (EtwTraceUIPIClipboardError.c)
+ *     EtwTraceUIPIInputError @ 0x1C004B150 (EtwTraceUIPIInputError.c)
+ *     EtwTraceUIPIClipboardError @ 0x1C0124250 (EtwTraceUIPIClipboardError.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0nqqq_EtwWriteTransfer(

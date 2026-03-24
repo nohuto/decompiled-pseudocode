@@ -1,8 +1,8 @@
 /*
- * XREFs of IovpUtilMarkDeviceObject @ 0x140AD3E10
+ * XREFs of IovpUtilMarkDeviceObject @ 0x1409D6D48
  * Callers:
- *     IovUtilMarkStack @ 0x140367444 (IovUtilMarkStack.c)
- *     IovUtilMarkDeviceObject @ 0x1405CFD70 (IovUtilMarkDeviceObject.c)
+ *     IovUtilMarkStack @ 0x14036EA68 (IovUtilMarkStack.c)
+ *     IovUtilMarkDeviceObject @ 0x1405A1CBC (IovUtilMarkDeviceObject.c)
  * Callees:
  *     <none>
  */

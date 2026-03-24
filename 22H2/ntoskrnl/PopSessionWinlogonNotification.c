@@ -1,59 +1,74 @@
 /*
- * XREFs of PopSessionWinlogonNotification @ 0x140682D5C
+ * XREFs of PopSessionWinlogonNotification @ 0x1405D8DC4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     PopNotifyConsoleUserPresent @ 0x1407D3CC4 (PopNotifyConsoleUserPresent.c)
- *     PopDiagTraceSessionStates @ 0x1407EBDDC (PopDiagTraceSessionStates.c)
- *     PopAcquireAdaptiveLock @ 0x1407EC41C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EC4C8 (PopReleaseAdaptiveLock.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x1405D8EC8 (PopGetLockConsoleTimeoutUnsafe.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PopReleaseAdaptiveLock @ 0x1407251C4 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1407252B4 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x140725380 (PopDiagTraceSessionStates.c)
+ *     PopUpdateTimeouts @ 0x140725430 (PopUpdateTimeouts.c)
+ *     PopLazySensorActiveInput @ 0x1408F5204 (PopLazySensorActiveInput.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
 {
   char v2; // si
-  char v3; // di
+  char v4; // bl
   const EVENT_DESCRIPTOR *v5; // rcx
-  const char *v6; // rax
-  const char *v7; // r8
+  int v6; // edi
+  const char *v7; // rax
+  const char *v8; // r8
   __int64 result; // rax
-  bool v9; // bl
-  BOOL v10; // [rsp+48h] [rbp+10h] BYREF
+  int LockConsoleTimeoutUnsafe; // eax
+  __int64 v11; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = *(_BYTE *)(a2 + 5);
-  v3 = *(_BYTE *)(a2 + 4);
+  v4 = *(_BYTE *)(a2 + 4);
   v5 = (const EVENT_DESCRIPTOR *)POP_ETW_ADPM_SESSION_LOCKED;
+  v6 = 0;
+  v11 = 0LL;
   if ( !v2 )
     v5 = &POP_ETW_ADPM_SESSION_UNLOCKED;
   PopDiagTraceSessionStates(v5);
-  v6 = "Locked";
+  v7 = "Locked";
   if ( !v2 )
-    v6 = "Unlocked";
-  v7 = "Console";
-  if ( !v3 )
-    v7 = "Remote";
-  result = PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v7, a1, v6);
-  v9 = 0;
-  if ( v3 )
+    v7 = "Unlocked";
+  v8 = "Console";
+  if ( !v4 )
+    v8 = "Remote";
+  result = PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v8, a1, v7);
+  if ( v4 )
   {
     PopAcquireAdaptiveLock(0LL);
     if ( v2 )
     {
-      byte_140C39CC1 = 1;
+      BYTE4(xmmword_140C20570) = 1;
+      LockConsoleTimeoutUnsafe = PopGetLockConsoleTimeoutUnsafe();
+      LODWORD(v11) = LockConsoleTimeoutUnsafe;
+      if ( LockConsoleTimeoutUnsafe && !BYTE5(xmmword_140C20570) )
+      {
+        *(_WORD *)((char *)&xmmword_140C20570 + 5) = 256;
+        HIDWORD(PopLazyContext) = LockConsoleTimeoutUnsafe;
+        BYTE1(qword_140C205D0) = 1;
+        PopUpdateTimeouts(a1, &v11, 0LL);
+      }
     }
     else
     {
-      byte_140C39CC1 = 0;
-      v9 = byte_140C39CC2 == 0;
+      BYTE4(xmmword_140C20570) = 0;
+      if ( BYTE6(xmmword_140C20570) )
+      {
+        BYTE6(xmmword_140C20570) = 0;
+        PopLazySensorActiveInput(a1);
+      }
     }
     PopReleaseAdaptiveLock();
-    v10 = v2 != 0;
-    result = PopSetPowerSettingValueAcDc(&GUID_CONSOLE_LOCKED, 4LL, &v10);
-    if ( v9 )
-      return PopNotifyConsoleUserPresent(0LL, 10LL);
+    LOBYTE(v6) = v2 != 0;
+    LODWORD(v11) = v6;
+    return PopSetPowerSettingValueAcDc(&GUID_CONSOLE_LOCKED);
   }
   return result;
 }

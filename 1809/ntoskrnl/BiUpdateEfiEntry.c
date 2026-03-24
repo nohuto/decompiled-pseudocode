@@ -1,17 +1,17 @@
 /*
- * XREFs of BiUpdateEfiEntry @ 0x1408F4BE8
+ * XREFs of BiUpdateEfiEntry @ 0x1408F4BC8
  * Callers:
- *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
- *     BiExportBcdObjects @ 0x1408F3580 (BiExportBcdObjects.c)
+ *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
+ *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiGetElement @ 0x1408F1118 (BiGetElement.c)
- *     BiCreateMergedBootEntry @ 0x1408F2F98 (BiCreateMergedBootEntry.c)
- *     BiModifyBootEntry @ 0x1408F429C (BiModifyBootEntry.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
+ *     BiCreateMergedBootEntry @ 0x1408F2F78 (BiCreateMergedBootEntry.c)
+ *     BiModifyBootEntry @ 0x1408F427C (BiModifyBootEntry.c)
  */
 
 __int64 __fastcall BiUpdateEfiEntry(__int64 a1, __int64 a2)

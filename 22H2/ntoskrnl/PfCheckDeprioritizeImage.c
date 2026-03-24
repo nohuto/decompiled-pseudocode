@@ -1,49 +1,60 @@
 /*
- * XREFs of PfCheckDeprioritizeImage @ 0x140760FB0
+ * XREFs of PfCheckDeprioritizeImage @ 0x14062EBBC
  * Callers:
- *     CcUnmapVacb @ 0x140721E80 (CcUnmapVacb.c)
- *     PfProcessCreateNotification @ 0x140760974 (PfProcessCreateNotification.c)
+ *     PfProcessCreateNotification @ 0x14062E8B4 (PfProcessCreateNotification.c)
+ *     CcUnmapVacb @ 0x140637A98 (CcUnmapVacb.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
 _BOOL8 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
 {
   __int64 v1; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // r8
-  unsigned __int64 v4; // rdx
+  __int64 v3; // rdx
+  unsigned __int64 v4; // r10
   __int64 v5; // rax
-  __int64 v6; // rcx
-  BOOL v7; // ebx
+  BOOL v6; // ebx
+  __int64 v8; // rcx
 
   v1 = a1;
   if ( !a1 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C651A0, 0LL);
-  if ( dword_140C65194 )
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C503D0, 0LL);
+  if ( (_DWORD)qword_140C503C4 )
   {
     v3 = 0LL;
-    v4 = (HIBYTE(v1)
-        + 37
+    v4 = (37
         * (BYTE6(v1)
          + 37
          * (BYTE5(v1)
           + 37
-          * (BYTE4(v1) + 37 * (BYTE3(v1) + 37 * (BYTE2(v1) + 37 * (BYTE1(v1) + 37 * ((unsigned __int8)v1 + 11623883)))))))) & (unsigned int)(dword_140C65194 - 1);
-    v5 = *(_QWORD *)((v4 << dword_140C65190) + qword_140C65188);
+          * (BYTE4(v1) + 37 * (BYTE3(v1) + 37 * (BYTE2(v1) + 37 * (BYTE1(v1) + 37 * ((unsigned __int8)v1 + 11623883)))))))
+        + HIBYTE(v1)) & (unsigned int)(qword_140C503C4 - 1);
+    v5 = *(_QWORD *)((v4 << dword_140C503C0) + qword_140C503B8);
     if ( v5 )
     {
-      v6 = *(_QWORD *)((v4 << dword_140C65190) + qword_140C65188);
+      v8 = *(_QWORD *)(((unsigned __int64)((37
+                                          * (BYTE6(v1)
+                                           + 37
+                                           * (BYTE5(v1)
+                                            + 37
+                                            * (BYTE4(v1)
+                                             + 37
+                                             * (BYTE3(v1)
+                                              + 37
+                                              * (BYTE2(v1) + 37 * (BYTE1(v1) + 37 * ((unsigned __int8)v1 + 11623883)))))))
+                                          + HIBYTE(v1)) & (unsigned int)(qword_140C503C4 - 1)) << dword_140C503C0)
+                     + qword_140C503B8);
       do
       {
-        v5 = v6;
-        if ( v6 == (unsigned int)v1 )
+        v5 = v8;
+        if ( v8 == (unsigned int)v1 )
           break;
         if ( !v3 )
         {
@@ -51,9 +62,9 @@ _BOOL8 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
           if ( ((-79 * (_BYTE)v1) & 1) != 0 )
             v3 = 2654435761LL * (unsigned int)v1;
         }
-        v4 = (unsigned int)(dword_140C65194 - 1) & (v3 + v4);
-        v5 = *(_QWORD *)((v4 << dword_140C65190) + qword_140C65188);
-        v6 = v5;
+        v4 = (unsigned int)(qword_140C503C4 - 1) & (v3 + v4);
+        v5 = *(_QWORD *)((v4 << dword_140C503C0) + qword_140C503B8);
+        v8 = v5;
       }
       while ( v5 );
     }
@@ -62,10 +73,10 @@ _BOOL8 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
   {
     v5 = 0LL;
   }
-  v7 = v5 != 0;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C651A0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C651A0);
-  KeAbPostRelease((ULONG_PTR)&qword_140C651A0);
+  v6 = v5 != 0;
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C503D0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140C503D0);
+  KeAbPostRelease((ULONG_PTR)&qword_140C503D0);
   KeLeaveCriticalRegion();
-  return v7;
+  return v6;
 }

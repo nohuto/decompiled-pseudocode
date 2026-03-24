@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0EffectInput@@QEAA@XZ @ 0x1800D6AFC
+ * XREFs of ??0EffectInput@@QEAA@XZ @ 0x180057D8C
  * Callers:
- *     ??0EffectStage@@QEAA@XZ @ 0x18005517C (--0EffectStage@@QEAA@XZ.c)
+ *     ??0EffectStage@@QEAA@XZ @ 0x1800C9DC0 (--0EffectStage@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,12 @@ EffectInput *__fastcall EffectInput::EffectInput(EffectInput *this)
 
   *(_QWORD *)this = 0LL;
   *((_QWORD *)this + 1) = 0LL;
-  *((_BYTE *)this + 16) = 0;
+  *(_QWORD *)((char *)this + 28) = 0LL;
+  *((_DWORD *)this + 9) = 0;
+  *((_QWORD *)this + 2) = 0LL;
   result = this;
-  *((_OWORD *)this + 3) = 0LL;
+  *((_DWORD *)this + 6) = 0;
+  *((_BYTE *)this + 40) = 0;
+  *(_OWORD *)((char *)this + 72) = 0LL;
   return result;
 }

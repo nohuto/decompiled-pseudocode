@@ -1,24 +1,26 @@
 /*
- * XREFs of ?GetWeakReference@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@U?$IIterator@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@Collections@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAJPEAPEAUIWeakReference@@@Z @ 0x180296420
+ * XREFs of ?GetWeakReference@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@U?$IIterator@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@Collections@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAJPEAPEAUIWeakReference@@@Z @ 0x1802456C0
  * Callers:
  *     <none>
  * Callees:
- *     ??_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z @ 0x1802930E0 (--_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z.c)
- *     ?CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z @ 0x180294784 (-CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z.c)
- *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x180298438 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ *     ??_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z @ 0x180243030 (--_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z.c)
+ *     ?AddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIWeakReference@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x1802431E0 (-AddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIWeakReference@@@.c)
+ *     ?CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z @ 0x1802440FC (-CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z.c)
+ *     ?InternalAddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIWeakReference@@@Details@WRL@Microsoft@@IEAAKXZ @ 0x1802462D8 (-InternalAddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIWeakRefe.c)
  */
 
 __int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Foundation::Collections::IIterator<Windows::Foundation::Collections::IKeyValuePair<_GUID,IInspectable *> *>,Microsoft::WRL::FtmBase>::GetWeakReference(
         __int64 a1,
         struct IUnknown *a2)
 {
-  signed __int64 v2; // rdi
-  struct IUnknownVtbl *v5; // r10
+  signed __int64 v2; // rbx
+  __int64 v5; // rbx
   __int64 WeakReference; // rax
   struct IUnknownVtbl *v7; // r8
   unsigned __int64 v9; // rdx
   bool i; // zf
   signed __int64 v11; // rax
+  signed __int64 v12; // rbx
 
   v2 = *(_QWORD *)(a1 + 48);
   a2->lpVtbl = 0LL;
@@ -31,9 +33,9 @@ __int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::Run
     *(_DWORD *)(WeakReference + 16) = v2;
     v9 = (WeakReference >> 1) | 0x8000000000000000uLL;
     v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 48), v9, v2);
-    for ( i = v2 == v11; ; i = v11 == v2 )
+    for ( i = v2 == v11; ; i = v11 == v12 )
     {
-      v2 = v11;
+      v12 = v11;
       if ( i )
       {
         a2->lpVtbl = v7;
@@ -47,8 +49,14 @@ __int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::Run
     Microsoft::WRL::Details::WeakReferenceImpl::`vector deleting destructor'(
       (Microsoft::WRL::Details::WeakReferenceImpl *)v7,
       1);
+    v5 = 2 * v12;
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IWeakReference>::AddRef();
   }
-  Microsoft::WRL::Details::SafeUnknownIncrementReference((Microsoft::WRL::Details *)(2 * v2 + 12), (volatile int *)a2);
-  a2->lpVtbl = v5;
+  else
+  {
+    v5 = 2 * v2;
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IWeakReference>::InternalAddRef(v5);
+  }
+  a2->lpVtbl = (struct IUnknownVtbl *)v5;
   return 0LL;
 }

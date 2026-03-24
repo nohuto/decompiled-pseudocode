@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgEnforceEnumerationPolicy @ 0x140839340
+ * XREFs of PipDmgEnforceEnumerationPolicy @ 0x140839320
  * Callers:
- *     PiDmaGuardAddDevice @ 0x140702358 (PiDmaGuardAddDevice.c)
+ *     PiDmaGuardAddDevice @ 0x140702338 (PiDmaGuardAddDevice.c)
  * Callees:
- *     PipDmaGuardBlockAddDevice @ 0x140839218 (PipDmaGuardBlockAddDevice.c)
- *     PiCslIsConsoleLocked @ 0x14083A194 (PiCslIsConsoleLocked.c)
- *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14083CDF4 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PipDmaGuardBlockAddDevice @ 0x1408391F8 (PipDmaGuardBlockAddDevice.c)
+ *     PiCslIsConsoleLocked @ 0x14083A174 (PiCslIsConsoleLocked.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14083CDD4 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
  */
 
 __int64 __fastcall PipDmgEnforceEnumerationPolicy(ULONG_PTR BugCheckParameter2)

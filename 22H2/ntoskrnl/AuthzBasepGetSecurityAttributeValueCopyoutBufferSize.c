@@ -1,128 +1,130 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1403462F4
+ * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14024E62C
  * Callers:
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14022CCD0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14024E2B0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
  */
 
 NTSTATUS __fastcall AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(__int64 a1, unsigned __int64 *a2)
 {
-  unsigned __int64 v3; // r9
+  unsigned __int16 v2; // ax
+  unsigned __int64 v3; // r8
   NTSTATUS result; // eax
-  ULONGLONG v5; // r10
-  unsigned __int64 v6; // rcx
-  ULONGLONG v7; // r10
-  __int64 v8; // r11
-  __int64 ***v9; // r11
-  __int64 **v10; // rdx
-  unsigned __int64 v11; // r8
-  ULONGLONG v12; // r10
-  __int64 v13; // r11
-  __int64 ***v14; // r11
-  __int64 **v15; // rdx
-  unsigned __int64 v16; // r8
-  ULONGLONG v17; // r10
-  __int64 v18; // r11
-  __int64 ***v19; // r11
-  __int64 **v20; // rdx
-  unsigned __int64 v21; // r8
+  ULONGLONG v6; // r10
+  unsigned __int64 v7; // rcx
+  ULONGLONG v8; // r10
+  __int64 v9; // r11
+  __int64 ***v10; // r11
+  __int64 **v11; // rdx
+  unsigned __int64 v12; // r8
+  ULONGLONG v13; // r10
+  __int64 v14; // r11
+  __int64 ***v15; // r11
+  __int64 **v16; // rdx
+  unsigned __int64 v17; // r8
+  ULONGLONG v18; // r10
+  __int64 v19; // r11
+  __int64 ***v20; // r11
+  __int64 **v21; // rdx
+  unsigned __int64 v22; // r8
   ULONGLONG pullResult; // [rsp+30h] [rbp+8h] BYREF
 
-  pullResult = 0LL;
+  v2 = *(_WORD *)(a1 + 48);
   v3 = *a2;
-  switch ( *(_WORD *)(a1 + 48) )
+  pullResult = 0LL;
+  if ( !v2 )
+    return -1073741811;
+  if ( v2 <= 2u )
   {
-    case 1:
-    case 2:
-      goto LABEL_3;
-    case 3:
-      if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
-        return -1073741675;
-      result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
-      if ( result >= 0 )
-      {
-        v6 = v7 + pullResult;
-        if ( v7 + pullResult < v7 )
-          return -1073741675;
-        v9 = (__int64 ***)(v8 + 72);
-        v10 = *v9;
-        while ( v10 != (__int64 **)v9 )
-        {
-          v11 = v6 + *((unsigned __int16 *)v10 + 20);
-          if ( v11 < v6 )
-            return -1073741675;
-          v10 = (__int64 **)*v10;
-          v6 = v11;
-        }
-LABEL_6:
-        result = 0;
-        *a2 = v6;
-      }
-      break;
-    case 4:
-      if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
-        return -1073741675;
-      result = RtlULongLongMult(0x18uLL, *(unsigned int *)(a1 + 60), &pullResult);
-      if ( result >= 0 )
-      {
-        v6 = v17 + pullResult;
-        if ( v17 + pullResult < v17 )
-          return -1073741675;
-        v19 = (__int64 ***)(v18 + 72);
-        v20 = *v19;
-        while ( v20 != (__int64 **)v19 )
-        {
-          v21 = v6 + *((unsigned __int16 *)v20 + 24);
-          if ( v21 < v6 )
-            return -1073741675;
-          v20 = (__int64 **)*v20;
-          v6 = v21;
-        }
-        goto LABEL_6;
-      }
-      break;
-    default:
-      if ( *(_WORD *)(a1 + 48) != 5 )
-      {
-        if ( *(_WORD *)(a1 + 48) == 6 )
-        {
 LABEL_3:
-          if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) >= v3 )
-          {
-            result = RtlULongLongMult(8uLL, *(unsigned int *)(a1 + 60), &pullResult);
-            if ( result < 0 )
-              return result;
-            v6 = v5 + pullResult;
-            if ( v5 + pullResult >= v5 )
-              goto LABEL_6;
-          }
-          return -1073741675;
-        }
-        if ( *(_WORD *)(a1 + 48) != 16 )
-          return -1073741811;
-      }
-      if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
-        return -1073741675;
-      result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
-      if ( result >= 0 )
-      {
-        v6 = v12 + pullResult;
-        if ( v12 + pullResult < v12 )
-          return -1073741675;
-        v14 = (__int64 ***)(v13 + 72);
-        v15 = *v14;
-        while ( v15 != (__int64 **)v14 )
-        {
-          v16 = v6 + *((unsigned int *)v15 + 12);
-          if ( v16 < v6 )
-            return -1073741675;
-          v15 = (__int64 **)*v15;
-          v6 = v16;
-        }
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) >= v3 )
+    {
+      result = RtlULongLongMult(8uLL, *(unsigned int *)(a1 + 60), &pullResult);
+      if ( result < 0 )
+        return result;
+      v7 = v6 + pullResult;
+      if ( v6 + pullResult >= v6 )
         goto LABEL_6;
+    }
+    return -1073741675;
+  }
+  if ( v2 == 3 )
+  {
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+      return -1073741675;
+    result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
+    if ( result >= 0 )
+    {
+      v7 = v8 + pullResult;
+      if ( v8 + pullResult < v8 )
+        return -1073741675;
+      v10 = (__int64 ***)(v9 + 72);
+      v11 = *v10;
+      while ( v11 != (__int64 **)v10 )
+      {
+        v12 = v7 + *((unsigned __int16 *)v11 + 20);
+        if ( v12 < v7 )
+          return -1073741675;
+        v11 = (__int64 **)*v11;
+        v7 = v12;
       }
-      break;
+LABEL_6:
+      *a2 = v7;
+      return 0;
+    }
+    return result;
+  }
+  if ( v2 == 4 )
+  {
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+      return -1073741675;
+    result = RtlULongLongMult(0x18uLL, *(unsigned int *)(a1 + 60), &pullResult);
+    if ( result >= 0 )
+    {
+      v7 = v18 + pullResult;
+      if ( v18 + pullResult < v18 )
+        return -1073741675;
+      v20 = (__int64 ***)(v19 + 72);
+      v21 = *v20;
+      while ( v21 != (__int64 **)v20 )
+      {
+        v22 = v7 + *((unsigned __int16 *)v21 + 24);
+        if ( v22 < v7 )
+          return -1073741675;
+        v21 = (__int64 **)*v21;
+        v7 = v22;
+      }
+      goto LABEL_6;
+    }
+    return result;
+  }
+  if ( v2 != 5 )
+  {
+    if ( v2 == 6 )
+      goto LABEL_3;
+    if ( v2 != 16 )
+      return -1073741811;
+  }
+  if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+    return -1073741675;
+  result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
+  if ( result >= 0 )
+  {
+    v7 = v13 + pullResult;
+    if ( v13 + pullResult < v13 )
+      return -1073741675;
+    v15 = (__int64 ***)(v14 + 72);
+    v16 = *v15;
+    while ( v16 != (__int64 **)v15 )
+    {
+      v17 = v7 + *((unsigned int *)v16 + 12);
+      if ( v17 < v7 )
+        return -1073741675;
+      v16 = (__int64 **)*v16;
+      v7 = v17;
+    }
+    goto LABEL_6;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalEnumerateProcessors @ 0x1403DD110
+ * XREFs of HalEnumerateProcessors @ 0x1403B4E80
  * Callers:
- *     HvlpSelectLpSet @ 0x140544A9C (HvlpSelectLpSet.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     HvlpSelectLpSet @ 0x1404F3514 (HvlpSelectLpSet.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
 __int64 __fastcall HalEnumerateProcessors(unsigned int a1)

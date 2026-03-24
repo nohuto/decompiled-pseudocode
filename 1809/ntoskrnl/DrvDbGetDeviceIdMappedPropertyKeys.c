@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x1409013E4
+ * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x1409013C4
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1406F5040 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F5020 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901360 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901340 (DrvDbGetCompositeMappedPropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedPropertyKeys(

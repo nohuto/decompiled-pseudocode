@@ -1,12 +1,12 @@
 /*
- * XREFs of ?InkProcessorOnInkDeviceAttached@@YAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C021A82C
+ * XREFs of ?InkProcessorOnInkDeviceAttached@@YAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0220440
  * Callers:
- *     EditionDevicePnpNotification @ 0x1C0102A40 (EditionDevicePnpNotification.c)
- *     Win32kRIMDevChangeCallback @ 0x1C01CD100 (Win32kRIMDevChangeCallback.c)
+ *     EditionDevicePnpNotification @ 0x1C0107A80 (EditionDevicePnpNotification.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D670 (Win32kRIMDevChangeCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024C7DC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F2BC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  */
 
 __int64 __fastcall InkProcessorOnInkDeviceAttached(struct RawInputManagerDeviceObject *a1)
@@ -23,7 +23,7 @@ __int64 __fastcall InkProcessorOnInkDeviceAttached(struct RawInputManagerDeviceO
   {
     v2 = InkProcessor::OnDeviceAttached(InkProcessor::s_pInstance, a1);
     v1 = v2;
-    if ( v2 < 0 && (unsigned int)dword_1C0326250 > 2 )
+    if ( v2 < 0 && (unsigned int)dword_1C032B288 > 2 )
     {
       v4 = v2;
       goto LABEL_7;
@@ -32,7 +32,7 @@ __int64 __fastcall InkProcessorOnInkDeviceAttached(struct RawInputManagerDeviceO
   else
   {
     v1 = -1073741823;
-    if ( (unsigned int)dword_1C0326250 > 2 )
+    if ( (unsigned int)dword_1C032B288 > 2 )
     {
       v4 = -1073741823;
 LABEL_7:
@@ -40,8 +40,8 @@ LABEL_7:
       v6 = &v4;
       v7 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C0326250,
-        (unsigned __int8 *)dword_1C02EFE22,
+        (__int64)&dword_1C032B288,
+        (unsigned __int8 *)dword_1C02F2FAC,
         0LL,
         0LL,
         3u,

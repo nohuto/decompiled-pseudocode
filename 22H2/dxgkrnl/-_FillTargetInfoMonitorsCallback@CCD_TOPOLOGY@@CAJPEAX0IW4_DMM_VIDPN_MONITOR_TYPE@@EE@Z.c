@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_FillTargetInfoMonitorsCallback@CCD_TOPOLOGY@@CAJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z @ 0x1C019EF40
+ * XREFs of ?_FillTargetInfoMonitorsCallback@CCD_TOPOLOGY@@CAJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z @ 0x1C013D690
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::_FillTargetInfoMonitorsCallback(
@@ -30,8 +30,8 @@ __int64 __fastcall CCD_TOPOLOGY::_FillTargetInfoMonitorsCallback(
     PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(a2, i);
     v14 = PathDescriptor;
     if ( *((_DWORD *)PathDescriptor + 7) == a3
-      && *((_DWORD *)PathDescriptor + 4) == *(_DWORD *)(a1 + 404)
-      && *((_DWORD *)PathDescriptor + 5) == *(_DWORD *)(a1 + 408) )
+      && *((_DWORD *)PathDescriptor + 4) == *(_DWORD *)(a1 + 316)
+      && *((_DWORD *)PathDescriptor + 5) == *(_DWORD *)(a1 + 320) )
     {
       if ( a5 )
         *(_QWORD *)PathDescriptor |= 0x200000000000000uLL;

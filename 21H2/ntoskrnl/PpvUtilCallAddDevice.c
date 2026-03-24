@@ -1,11 +1,11 @@
 /*
- * XREFs of PpvUtilCallAddDevice @ 0x1402D2574
+ * XREFs of PpvUtilCallAddDevice @ 0x14036F630
  * Callers:
- *     PnpCallAddDevice @ 0x140749DA0 (PnpCallAddDevice.c)
+ *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDevObjPostAddDevice @ 0x140A91784 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x140A917D8 (VfDevObjPreAddDevice.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfDevObjPostAddDevice @ 0x1409D60A4 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x1409D60F8 (VfDevObjPreAddDevice.c)
  */
 
 __int64 __fastcall PpvUtilCallAddDevice(
@@ -15,7 +15,7 @@ __int64 __fastcall PpvUtilCallAddDevice(
 {
   unsigned int v7; // ebx
 
-  if ( !PpvUtilVerifierEnabled )
+  if ( !PpvUtilVerifierEnabled || (MmVerifierData & 0x200) == 0 )
     return a3(a2, a1);
   VfDevObjPreAddDevice(a1, a2);
   v7 = a3(a2, a1);

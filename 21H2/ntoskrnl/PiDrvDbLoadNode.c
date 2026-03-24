@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDrvDbLoadNode @ 0x1407D4E34
+ * XREFs of PiDrvDbLoadNode @ 0x140629F74
  * Callers:
- *     PiDrvDbNodeActionCallback @ 0x1407D4DD0 (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbNodeActionCallback @ 0x140629F10 (PiDrvDbNodeActionCallback.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1402D1EB4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
@@ -44,8 +44,8 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
     v6 = (_QWORD *)(a1 + 72);
     if ( !*(_QWORD *)(a1 + 72) )
     {
-      if ( (int)SysCtxRegOpenKey(0LL, 0LL, *(_QWORD *)(a1 + 40), 0, 0x2000000u, (__int64)&Handle) < 0
-        || (v2 = SysCtxRegOpenKey(0LL, (__int64)Handle, (__int64)L"DriverDatabase", 0, 0x2000000u, a1 + 72),
+      if ( (int)SysCtxRegOpenKey(0, 0, *(_QWORD *)(a1 + 40), 0, 0x2000000, (__int64)&Handle) < 0
+        || (v2 = SysCtxRegOpenKey(0, (_DWORD)Handle, (unsigned int)L"DriverDatabase", 0, 0x2000000, a1 + 72),
             ZwClose(Handle),
             v2 < 0) )
       {
@@ -88,6 +88,6 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
   }
 LABEL_6:
   ExReleaseResourceLite((PERESOURCE)(a1 + 88));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v2;
 }

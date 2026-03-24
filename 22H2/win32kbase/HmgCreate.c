@@ -1,181 +1,168 @@
 /*
- * XREFs of HmgCreate @ 0x1C007C9D4
+ * XREFs of HmgCreate @ 0x1C006BCFC
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C003FBE0 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
- *     GreCreateSemaphoreInternal @ 0x1C0077FFC (GreCreateSemaphoreInternal.c)
- *     ?HmgrStacksInit@@YAXXZ @ 0x1C007BE64 (-HmgrStacksInit@@YAXXZ.c)
- *     bLoadProcessHandleQuota @ 0x1C007BFF8 (bLoadProcessHandleQuota.c)
- *     ?HmgInitializeLookAsideList@@YAHKKKG@Z @ 0x1C007CE14 (-HmgInitializeLookAsideList@@YAHKKKG@Z.c)
- *     GreCreateFastMutex @ 0x1C007E708 (GreCreateFastMutex.c)
- *     ?Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z @ 0x1C007E750 (-Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z.c)
- *     Win32CreateSection @ 0x1C007E7E8 (Win32CreateSection.c)
- *     ?InitializeReferenceTracker@@YA_NXZ @ 0x1C007EDF8 (-InitializeReferenceTracker@@YA_NXZ.c)
- *     ?InitializeTypeIsolation@@YA_NXZ @ 0x1C007EE9C (-InitializeTypeIsolation@@YA_NXZ.c)
- *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C00A9640 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C002CFC0 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     GreCreateSemaphoreInternal @ 0x1C005C364 (GreCreateSemaphoreInternal.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
+ *     ?HmgInitializeLookAsideList@@YAHKKKG@Z @ 0x1C006C124 (-HmgInitializeLookAsideList@@YAHKKKG@Z.c)
+ *     ?InitializeReferenceTracker@@YA_NXZ @ 0x1C006C21C (-InitializeReferenceTracker@@YA_NXZ.c)
+ *     ?HmgrStacksInit@@YAXXZ @ 0x1C006C290 (-HmgrStacksInit@@YAXXZ.c)
+ *     ?Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z @ 0x1C006C408 (-Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z.c)
+ *     Win32CreateSection @ 0x1C006C828 (Win32CreateSection.c)
+ *     GreCreateFastMutex @ 0x1C006C88C (GreCreateFastMutex.c)
+ *     bLoadProcessHandleQuota @ 0x1C006C8C8 (bLoadProcessHandleQuota.c)
+ *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C007DFD0 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
+ *     ?Create@?$TypeIsolationFactory@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0MAAA@$0MA@@2@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@2@V?$CTypeIsolation@$0BEAAA@$0BEA@@2@V?$CTypeIsolation@$0OAAAA@$0OAA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00CB500 (-Create@-$TypeIsolationFactory@V-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@V-$C.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall HmgCreate(__int64 a1)
+__int64 HmgCreate()
 {
-  __int64 v1; // rcx
-  __int64 v2; // rbx
-  int v3; // eax
-  unsigned int v4; // eax
-  __int64 v5; // rdi
-  __int64 (*v6)(void); // rax
-  __int64 SemaphoreInternal; // rax
+  unsigned int v0; // eax
+  __int64 v1; // rbx
+  unsigned int v2; // r8d
+  unsigned int v3; // r8d
+  unsigned int v4; // r8d
+  unsigned int v5; // r8d
+  unsigned int v6; // r8d
+  unsigned int v7; // r8d
   unsigned int v8; // r8d
-  unsigned int v9; // r8d
-  unsigned int v10; // r8d
-  unsigned int v11; // r8d
-  unsigned int v12; // r8d
-  unsigned int v13; // r8d
-  unsigned int v14; // r8d
-  __int64 FastMutex; // rax
-  int v16; // r8d
-  _QWORD *v17; // rsi
-  void *v18; // rcx
-  struct _ENTRY **v19; // r14
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 CurrentProcess; // r15
-  struct _ENTRY *v24; // rdx
-  unsigned int v25; // ecx
-  struct GdiHandleManager *v26; // rax
-  int v27; // edi
-  GdiHandleManager *v28; // rcx
-  struct _ENTRY *v29; // rcx
-  _DWORD *v30; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v31; // rcx
-  __int64 v32; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v33; // rcx
-  _QWORD *v34; // rax
-  __int64 v35; // rcx
-  ULONG_PTR ViewSize; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v38; // [rsp+58h] [rbp-20h] BYREF
-  _QWORD v39[3]; // [rsp+60h] [rbp-18h] BYREF
-  __int64 v40; // [rsp+B0h] [rbp+38h] BYREF
-  ULONG_PTR RegionSize; // [rsp+B8h] [rbp+40h] BYREF
-  PVOID BaseAddress; // [rsp+C0h] [rbp+48h] BYREF
-  int v43; // [rsp+C8h] [rbp+50h] BYREF
-  int v44; // [rsp+CCh] [rbp+54h]
+  int v9; // r8d
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 CurrentProcess; // rdi
+  struct _ENTRY *v13; // rdx
+  unsigned int v14; // ecx
+  GdiHandleManager *v15; // rcx
+  int v16; // ebx
+  union _LARGE_INTEGER *v17; // rax
+  void **v18; // rax
+  unsigned __int8 **v19; // rax
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v23; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v24; // [rsp+90h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+28h] BYREF
+  PVOID BaseAddress; // [rsp+A0h] [rbp+30h] BYREF
+  int v27; // [rsp+A8h] [rbp+38h] BYREF
+  int v28; // [rsp+ACh] [rbp+3Ch]
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = (int)qword_1C02948E8;
-  if ( qword_1C02948E8 )
-    v3 = qword_1C02948E8();
-  *(_DWORD *)(v2 + 1904) = v3;
-  if ( !(unsigned int)bLoadProcessHandleQuota(v1) )
-    *(_DWORD *)(v2 + 2376) = 10000;
-  v4 = *(_DWORD *)(v2 + 1904);
-  v5 = 0x10000LL;
-  if ( v4 < 0x10000 )
-    v5 = v4;
-  v6 = qword_1C0294B20;
-  if ( qword_1C0294B20 )
-    v6 = (__int64 (*)(void))qword_1C0294B20();
-  *(_QWORD *)(v2 + 1896) = v6;
-  SemaphoreInternal = GreCreateSemaphoreInternal(0);
-  *(_QWORD *)(v2 + 1912) = SemaphoreInternal;
-  if ( !SemaphoreInternal )
+  v0 = (unsigned int)qword_1C02554D8;
+  if ( qword_1C02554D8 )
+    v0 = qword_1C02554D8();
+  gMaxGdiHandleCount = v0;
+  if ( !(unsigned int)bLoadProcessHandleQuota() )
+    gProcessHandleQuota = 10000;
+  v1 = 0x10000LL;
+  if ( gMaxGdiHandleCount < 0x10000 )
+    v1 = gMaxGdiHandleCount;
+  if ( qword_1C0255718 )
+    qword_1C0255718();
+  ghsemHmgr = (PERESOURCE)GreCreateSemaphoreInternal(0);
+  if ( !ghsemHmgr )
     return 0LL;
-  memset((void *)(v2 + 2200), 0, 0x7CuLL);
-  if ( !HmgInitializeLookAsideList(1u, 0x888u, v8, 0x28u) )
+  memset(&laSize, 0, 0x7CuLL);
+  if ( !(unsigned int)HmgInitializeLookAsideList(1u, 0x868u, v2, 0x28u) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(4u, 0x78u, v9, 0x60u) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(4u, 0x70u, v3, 0x60u) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(5u, 0x458u, v10, 0x28u) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(5u, (int)SURFACE::tSize + 256, v4, 0x28u) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(8u, 0xC8u, v11, 0xCu) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(8u, 0xC8u, v5, 0xCu) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(0x10u, 0xB8u, v12, 0x60u) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(0x10u, 0xB8u, v6, 0x60u) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(0xAu, 0x278u, v13, 0x40u) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(0xAu, 0x278u, v7, 0x40u) )
     return 0LL;
-  if ( !HmgInitializeLookAsideList(0xBu, 0x390u, v14, 0x37u) )
+  if ( !(unsigned int)HmgInitializeLookAsideList(0xBu, 0x390u, v8, 0x37u) )
     return 0LL;
-  FastMutex = GreCreateFastMutex();
-  *(_QWORD *)(v2 + 144) = FastMutex;
-  if ( !FastMutex )
+  ghfmMemory = (PKGUARDED_MUTEX)GreCreateFastMutex();
+  if ( !ghfmMemory )
     return 0LL;
-  *(_QWORD *)(v2 + 2328) = 0LL;
-  v17 = (_QWORD *)(v2 + 2344);
-  *(_QWORD *)(v2 + 2336) = 0LL;
-  v44 = 0;
-  v43 = 1573528;
-  if ( (int)Win32CreateSection((int)v2 + 2344, 6, v16, (unsigned int)&v43) < 0 )
+  gDpiDepDefaultGuiFontsPushLock = 0LL;
+  gDCOwnershipChangeLock = 0LL;
+  v28 = 0;
+  v27 = 1573528;
+  if ( (int)Win32CreateSection((unsigned int)&gpHmgrSharedHandleSection, 6, v9, (unsigned int)&v27) < 0 )
     return 0LL;
-  v18 = (void *)*v17;
-  v19 = (struct _ENTRY **)(v2 + 1928);
   ViewSize = 0LL;
-  if ( MmMapViewInSessionSpace(v18, (PVOID *)(v2 + 1928), &ViewSize) < 0 )
+  if ( MmMapViewInSessionSpace(gpHmgrSharedHandleSection, &gpGdiSharedMemory, &ViewSize) < 0 )
     return 0LL;
-  v38 = 0LL;
-  v40 = 0LL;
-  v39[0] = 0LL;
-  CurrentProcess = PsGetCurrentProcess(v21, v20, v22);
-  if ( (int)MmMapViewOfSection(*v17, CurrentProcess, &v40, 0LL, 4096LL, v39, &v38, 2, 0x400000, 4, ViewSize) < 0 )
+  v22 = 0LL;
+  v24 = 0LL;
+  v23 = 0LL;
+  CurrentProcess = PsGetCurrentProcess(v11, v10);
+  if ( (int)MmMapViewOfSection(
+              gpHmgrSharedHandleSection,
+              CurrentProcess,
+              &v24,
+              0LL,
+              4096LL,
+              &v23,
+              &v22,
+              2,
+              0x400000,
+              4,
+              ViewSize) < 0 )
     return 0LL;
-  RegionSize = 24 * v5;
-  BaseAddress = (PVOID)v40;
+  RegionSize = 24 * v1;
+  BaseAddress = (PVOID)v24;
   if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
     return 0LL;
-  BaseAddress = (PVOID)(v40 + 1572864);
+  BaseAddress = (PVOID)(v24 + 1572864);
   RegionSize = 664LL;
   if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
     return 0LL;
   MmUnmapViewOfSection(CurrentProcess);
-  v24 = *v19;
-  v25 = *(_DWORD *)(v2 + 1904);
-  *(_QWORD *)(v2 + 1936) = *v19;
-  *(_QWORD *)(v2 + 1920) = (char *)v24 + 1572864;
-  v26 = GdiHandleManager::Create(v25, v24, v5);
-  *(_QWORD *)(v2 + 8008) = v26;
-  if ( v26 )
+  gpentHmgr = (struct _ENTRY *)gpGdiSharedMemory;
+  gpGdiDevCaps = (struct _DEVCAPS *)((char *)gpGdiSharedMemory + 1572864);
+  gpHandleManager = GdiHandleManager::Create(v14, v13, v1);
+  if ( !gpHandleManager )
+    return 0LL;
+  v16 = 0;
+  while ( 1 )
   {
-    v27 = 0;
-    while ( 1 )
-    {
-      v28 = *(GdiHandleManager **)(v2 + 8008);
-      LODWORD(v40) = 0;
-      if ( !GdiHandleManager::AcquireEntryIndex(v28, (unsigned int *)&v40) )
-        break;
-      if ( (unsigned int)++v27 >= 0xA )
-        goto LABEL_27;
-    }
-    GdiHandleManager::Destroy(*(struct GdiHandleManager **)(v2 + 8008));
-    *(_QWORD *)(v2 + 8008) = 0LL;
+    LODWORD(v24) = 0;
+    if ( !GdiHandleManager::AcquireEntryIndex(v15, (unsigned int *)&v24) )
+      break;
+    if ( (unsigned int)++v16 >= 0xA )
+      goto LABEL_27;
   }
+  GdiHandleManager::Destroy(v15);
+  gpHandleManager = 0LL;
 LABEL_27:
-  if ( !*(_QWORD *)(v2 + 8008) )
+  if ( !gpHandleManager )
     return 0LL;
-  v29 = *v19;
-  *(_QWORD *)(v2 + 3168) = (char *)*v19 + 1573040;
-  *(_QWORD *)(v2 + 3176) = (char *)v29 + 1573216;
-  *(_QWORD *)(v2 + 3184) = (char *)v29 + 1573392;
+  gahStockObjects = (void **)((char *)gpGdiSharedMemory + 1573040);
+  gahStockObjects96 = (void **)((char *)gpGdiSharedMemory + 1573216);
+  gahDpiDepDefaultGuiFonts = (void **)((char *)gpGdiSharedMemory + 1573392);
   HmgrStacksInit();
-  v30 = (_DWORD *)NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 68LL, 8uLL, 0x6C6D6847u);
-  *(_QWORD *)(v2 + 2352) = v30;
-  if ( !v30 )
+  v17 = (union _LARGE_INTEGER *)Win32AllocPoolNonPaged(8LL, 0x6C6D6847u);
+  gpLockShortDelay = v17;
+  if ( !v17 )
     return 0LL;
-  v31 = gpLeakTrackingAllocator;
-  *v30 = -100000;
-  *(_DWORD *)(*(_QWORD *)(v2 + 2352) + 4LL) = -1;
-  v32 = NSInstrumentation::CLeakTrackingAllocator::Allocate(v31, 260LL, 0x1000uLL, 0x6D746847u);
-  v33 = gpLeakTrackingAllocator;
-  *(_QWORD *)(v2 + 2368) = v32;
-  v34 = (_QWORD *)NSInstrumentation::CLeakTrackingAllocator::Allocate(v33, 68LL, 8uLL, 0x6D746847u);
-  v35 = *(_QWORD *)(v2 + 2368);
-  *(_QWORD *)(v2 + 2360) = v34;
-  if ( !v35 )
+  v17->LowPart = -100000;
+  gpLockShortDelay->HighPart = -1;
+  gpTmpGlobal = PALLOCMEM2(0x1000uLL, 1836345415LL, 0);
+  v18 = (void **)Win32AllocPoolNonPaged(8LL, 0x6D746847u);
+  gpTmpGlobalFree = v18;
+  if ( !gpTmpGlobal )
     return 0LL;
-  if ( v34 && (*v34 = v35, InitializeReferenceTracker()) && InitializeTypeIsolation() )
+  if ( v18
+    && (*v18 = gpTmpGlobal, InitializeReferenceTracker())
+    && (v19 = (unsigned __int8 **)Win32AllocPool(64LL, 0x6F736955u), (gpTypeIsolation = v19) != 0LL)
+    && (memset(v19, 0, 0x40uLL),
+        (unsigned __int8)TypeIsolationFactory<NSInstrumentation::CLookAsideTypeIsolation<180224,704>,NSInstrumentation::CTypeIsolation<40960,160>,NSInstrumentation::CTypeIsolation<49152,192>,NSInstrumentation::CLookAsideTypeIsolation<36864,144>,NSInstrumentation::CTypeIsolation<81920,320>,NSInstrumentation::CTypeIsolation<917504,3584>,NSInstrumentation::CTypeIsolation<28672,112>,NSInstrumentation::CTypeIsolation<233472,912>>::Create()) )
+  {
     return 1LL;
+  }
   else
+  {
     return 0LL;
+  }
 }

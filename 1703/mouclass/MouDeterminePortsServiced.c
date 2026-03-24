@@ -1,1 +1,60 @@
-/*\n * XREFs of MouDeterminePortsServiced @ 0x1C000C7A0\n * Callers:\n *     MouseClassFindMorePorts @ 0x1C000C180 (MouseClassFindMorePorts.c)\n *     DriverEntry @ 0x1C000F4D0 (DriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_d @ 0x1C00022E0 (WPP_RECORDER_SF_d.c)\n *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)\n *     memset @ 0x1C0002FC0 (memset.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005040 (WPP_RECORDER_SF_.c)\n */\n\n__int64 __fastcall MouDeterminePortsServiced(unsigned __int16 *a1, _DWORD *a2)\n{\n  unsigned __int64 v4; // r8\n  _QWORD *PoolWithTag; // rax\n  __int64 v6; // rdx\n  _QWORD *v7; // rdi\n  __int64 v8; // rbx\n  PVOID SystemRoutineAddress; // rax\n  int v10; // eax\n  int v11; // edx\n  int v12; // r8d\n  unsigned int v13; // ebx\n  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF\n\n  *a2 = 0;\n  v4 = *a1;\n  if ( a1[1] < v4 + 2 )\n    return 3221225473LL;\n  *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * (v4 >> 1) + 2) = 0;\n  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x43756F4Du);\n  v7 = PoolWithTag;\n  if ( PoolWithTag )\n  {\n    memset(PoolWithTag, 0, 0x70uLL);\n    v7[2] = 0LL;\n    *v7 = MouDeviceMapQueryCallback;\n    v8 = *((_QWORD *)a1 + 1);\n    RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");\n    SystemRoutineAddress = MmGetSystemRoutineAddress(&DestinationString);\n    if ( !SystemRoutineAddress )\n      SystemRoutineAddress = RtlQueryRegistryValues;\n    v10 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, _DWORD *))SystemRoutineAddress)(2147483652LL, v8, v7, a2);\n    v13 = v10;\n    if ( v10 < 0 )\n    {\n      LOBYTE(v11) = 2;\n      WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 75, 0, v10);\n    }\n    ExFreePoolWithTag(v7, 0);\n    return v13;\n  }\n  else\n  {\n    LOBYTE(v6) = 2;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v6, 1LL);\n    return 3221225473LL;\n  }\n}\n
+/*
+ * XREFs of MouDeterminePortsServiced @ 0x1C000C7A0
+ * Callers:
+ *     MouseClassFindMorePorts @ 0x1C000C180 (MouseClassFindMorePorts.c)
+ *     DriverEntry @ 0x1C000F4D0 (DriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C00022E0 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002FC0 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0005040 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 __fastcall MouDeterminePortsServiced(unsigned __int16 *a1, _DWORD *a2)
+{
+  unsigned __int64 v4; // r8
+  _QWORD *PoolWithTag; // rax
+  __int64 v6; // rdx
+  _QWORD *v7; // rdi
+  __int64 v8; // rbx
+  PVOID SystemRoutineAddress; // rax
+  int v10; // eax
+  int v11; // edx
+  int v12; // r8d
+  unsigned int v13; // ebx
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+
+  *a2 = 0;
+  v4 = *a1;
+  if ( a1[1] < v4 + 2 )
+    return 3221225473LL;
+  *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * (v4 >> 1) + 2) = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x43756F4Du);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, 0x70uLL);
+    v7[2] = 0LL;
+    *v7 = MouDeviceMapQueryCallback;
+    v8 = *((_QWORD *)a1 + 1);
+    RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
+    SystemRoutineAddress = MmGetSystemRoutineAddress(&DestinationString);
+    if ( !SystemRoutineAddress )
+      SystemRoutineAddress = RtlQueryRegistryValues;
+    v10 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, _DWORD *))SystemRoutineAddress)(2147483652LL, v8, v7, a2);
+    v13 = v10;
+    if ( v10 < 0 )
+    {
+      LOBYTE(v11) = 2;
+      WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 75, 0, v10);
+    }
+    ExFreePoolWithTag(v7, 0);
+    return v13;
+  }
+  else
+  {
+    LOBYTE(v6) = 2;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v6, 1LL);
+    return 3221225473LL;
+  }
+}

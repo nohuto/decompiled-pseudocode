@@ -1,22 +1,22 @@
 /*
- * XREFs of SepValidateAndCopyGlobalEntry @ 0x1405F58AC
+ * XREFs of SepValidateAndCopyGlobalEntry @ 0x1405979EC
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x140219130 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140204B30 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1402058C0 (SepGetSingletonEntryFromIndexNumber.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x1405F55D8 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140251564 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140597718 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
 {
   int ProcUniqueLuidAndIndexFromAttributeInfo; // esi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _QWORD *v5; // rbx
   _QWORD *v6; // rax
   unsigned int v7; // ecx
@@ -42,13 +42,13 @@ __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
   ProcUniqueLuidAndIndexFromAttributeInfo = SepGetProcUniqueLuidAndIndexFromAttributeInfo(a1, &v22, &v23);
   if ( ProcUniqueLuidAndIndexFromAttributeInfo >= 0 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 48LL, 1950442835LL);
-    v5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x74416553u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 0;
-      Pool2[6] = 0;
-      v6 = Pool2 + 2;
+      *PoolWithTag = 0;
+      PoolWithTag[6] = 0;
+      v6 = PoolWithTag + 2;
       v7 = v22;
       v6[1] = v6;
       *v6 = v6;

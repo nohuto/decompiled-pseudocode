@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUsedSamplersBitmask@CBrushRenderingEffect@@UEBAIXZ @ 0x1800FCF60
+ * XREFs of ?GetUsedSamplersBitmask@CBrushRenderingEffect@@UEBAIXZ @ 0x1800E3D10
  * Callers:
  *     <none>
  * Callees:

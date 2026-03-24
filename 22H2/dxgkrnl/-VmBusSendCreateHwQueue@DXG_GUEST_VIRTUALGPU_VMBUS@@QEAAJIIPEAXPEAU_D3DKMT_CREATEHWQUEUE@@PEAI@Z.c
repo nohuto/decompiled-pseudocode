@@ -1,146 +1,114 @@
 /*
- * XREFs of ?VmBusSendCreateHwQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAXPEAU_D3DKMT_CREATEHWQUEUE@@PEAI@Z @ 0x1C0386BE0
+ * XREFs of ?VmBusSendCreateHwQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAXPEAU_D3DKMT_CREATEHWQUEUE@@PEAI@Z @ 0x1C0247B3C
  * Callers:
- *     ?InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C031AA10 (-InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
+ *     ?InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C026E5FC (-InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendCreateHwQueue(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
-        int a2,
+        __int64 a2,
         int a3,
         void *a4,
         struct _D3DKMT_CREATEHWQUEUE *a5,
         unsigned int *a6)
 {
-  UINT PrivateDriverDataSize; // edi
-  unsigned int v12; // esi
-  unsigned int v13; // edi
-  char *v14; // rbx
-  const void *v15; // r15
-  UINT v16; // eax
-  __int64 v17; // r14
+  int v8; // r15d
+  UINT PrivateDriverDataSize; // eax
+  __int64 v10; // rax
+  unsigned int v12; // ebp
+  _QWORD *v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rax
   UINT v18; // eax
-  __int64 v19; // rbx
-  __int64 v20; // rdi
-  UINT v21; // eax
-  unsigned int v22; // [rsp+50h] [rbp-178h] BYREF
-  unsigned int *v23; // [rsp+58h] [rbp-170h]
-  void *v24[2]; // [rsp+60h] [rbp-168h] BYREF
-  int v25; // [rsp+70h] [rbp-158h]
+  __int64 v19; // rsi
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  UINT v22; // eax
+  __int64 v23; // rax
+  UINT v24; // eax
+  struct _MDL *v25; // [rsp+28h] [rbp-B0h]
+  unsigned int v26; // [rsp+30h] [rbp-A8h] BYREF
+  DXG_VMBUS_CHANNEL_BASE *v27; // [rsp+38h] [rbp-A0h]
+  _QWORD v28[2]; // [rsp+40h] [rbp-98h] BYREF
+  int v29; // [rsp+50h] [rbp-88h]
 
-  v23 = a6;
+  v8 = a2;
+  v27 = this;
   PrivateDriverDataSize = a5->PrivateDriverDataSize;
-  if ( PrivateDriverDataSize <= 0x20000 )
+  if ( PrivateDriverDataSize > 0x20000 )
   {
-    v12 = 0;
-    *(_OWORD *)v24 = 0LL;
-    v13 = (PrivateDriverDataSize + 78) & 0xFFFFFFF8;
-    v25 = 0;
-    DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v24, this, v13, 0LL, 0LL, 0LL);
-    v14 = (char *)v24[0];
-    if ( v24[0] )
+    v10 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v10 + 24) = 7366LL;
+    WdLogEvent5_WdError(v10);
+    return 0LL;
+  }
+  v29 = 50;
+  v28[0] = 0LL;
+  v12 = (PrivateDriverDataSize + 78) & 0xFFFFFFF8;
+  v28[1] = 0LL;
+  v13 = v28;
+  if ( PrivateDriverDataSize )
+  {
+    v13 = operator new[](v12, 0x4B677844u, (POOL_TYPE)512);
+    if ( !v13 )
     {
-      *((_BYTE *)v24[0] + 12) = 0;
-      *((_DWORD *)v14 + 3) &= 0x1FFu;
-      *((_DWORD *)v14 + 2) = a2;
-      v15 = v14 + 68;
-      *(_QWORD *)v14 = 0LL;
-      *((_QWORD *)v14 + 2) = 50LL;
-      *((_DWORD *)v14 + 14) = a3;
-      *((_DWORD *)v14 + 15) = a5->Flags.0;
-      *((_DWORD *)v14 + 16) = a5->PrivateDriverDataSize;
-      v16 = a5->PrivateDriverDataSize;
-      if ( v16 )
-        memmove(v14 + 68, a4, v16);
-      v22 = v13;
-      LODWORD(v17) = -1073741823;
-      if ( DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)v24, v14, &v22) < 0
-        || v22 < v13 )
-      {
-        v19 = v13;
-        v20 = v22;
-        WdLogSingleEntry2(2LL, v22, (unsigned int)v19);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"VmBusSendSyncMessage failed. OutputSize:0x%I64x, OutputsizeOriginal:0x%I64x",
-          v20,
-          v19,
-          0LL,
-          0LL,
-          0LL);
-      }
-      else
-      {
-        v17 = *((int *)v14 + 6);
-        if ( (int)v17 < 0 )
-        {
-          WdLogSingleEntry1(2LL, *((int *)v14 + 6));
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"CreateHwQueue failed on host with Status: 0x%I64x",
-            v17,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        else
-        {
-          *v23 = *((_DWORD *)v14 + 7);
-          a5->hHwQueueProgressFence = *((_DWORD *)v14 + 8);
-          a5->HwQueueProgressFenceGPUVirtualAddress = *((_QWORD *)v14 + 6);
-          a5->HwQueueProgressFenceCPUVirtualAddress = (void *)*((_QWORD *)v14 + 5);
-          v18 = a5->PrivateDriverDataSize;
-          if ( v18 )
-            memmove(a4, v14 + 68, v18);
-        }
-      }
-      v21 = a5->PrivateDriverDataSize;
-      if ( v21 )
-        memmove(a4, v15, v21);
-      v12 = v17;
+      v17 = WdLogNewEntry5_WdLowResource(0LL, v14, v15, v16);
+      *(_QWORD *)(v17 + 24) = 7379LL;
+      WdLogEvent5_WdLowResource(v17);
+      return 0LL;
     }
-    else
-    {
-      WdLogSingleEntry1(6LL, 8816LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate memory for DXGKVMB_COMMAND_CREATEHWQUEUE",
-        8816LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v24);
-    return v12;
+  }
+  *((_DWORD *)v13 + 2) = v8;
+  *v13 = 0LL;
+  *((_DWORD *)v13 + 3) = 0;
+  *((_DWORD *)v13 + 4) = 50;
+  *((_DWORD *)v13 + 14) = a3;
+  *((_DWORD *)v13 + 15) = a5->Flags.0;
+  *((_DWORD *)v13 + 16) = a5->PrivateDriverDataSize;
+  v18 = a5->PrivateDriverDataSize;
+  if ( v18 )
+    memmove((char *)v13 + 68, a4, v18);
+  v26 = v12;
+  LODWORD(v19) = -1073741823;
+  if ( DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(v27, (struct DXGKVMB_COMMAND_BASE *)v13, v12, v13, &v26, v25) < 0
+    || v26 < v12 )
+  {
+    v23 = WdLogNewEntry5_WdError(v21, v20);
+    *(_QWORD *)(v23 + 24) = v26;
+    *(_QWORD *)(v23 + 32) = v12;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 8804LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"PrivateDriverDataSize is invalid",
-      8804LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 0LL;
+    v19 = *((int *)v13 + 6);
+    if ( (int)v19 >= 0 )
+    {
+      *a6 = *((_DWORD *)v13 + 7);
+      a5->hHwQueueProgressFence = *((_DWORD *)v13 + 8);
+      a5->HwQueueProgressFenceGPUVirtualAddress = v13[6];
+      a5->HwQueueProgressFenceCPUVirtualAddress = (void *)v13[5];
+      v22 = a5->PrivateDriverDataSize;
+      if ( v22 )
+        memmove(a4, (char *)v13 + 68, v22);
+      goto LABEL_17;
+    }
+    v23 = WdLogNewEntry5_WdError(v21, v20);
+    *(_QWORD *)(v23 + 24) = v19;
   }
+  WdLogEvent5_WdError(v23);
+LABEL_17:
+  v24 = a5->PrivateDriverDataSize;
+  if ( v24 )
+  {
+    memmove(a4, (char *)v13 + 68, v24);
+    operator delete[](v13);
+  }
+  return (unsigned int)v19;
 }

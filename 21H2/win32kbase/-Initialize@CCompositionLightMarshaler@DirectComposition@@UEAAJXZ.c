@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00CB440
+ * XREFs of ?Initialize@CCompositionLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BC350
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall DirectComposition::CCompositionLightMarshaler::Initialize(
         DirectComposition::CCompositionLightMarshaler *this)
 {
-  *((_BYTE *)this + 96) = 1;
+  *((_BYTE *)this + 88) = 1;
   return 0LL;
 }

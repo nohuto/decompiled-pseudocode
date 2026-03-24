@@ -1,10 +1,10 @@
 /*
- * XREFs of DpCloseSpbResource @ 0x1C0395590
+ * XREFs of DpCloseSpbResource @ 0x1C02D6DB0
  * Callers:
  *     <none>
  * Callees:
- *     DpiDeleteSpbResourceRecord @ 0x1C0395EAC (DpiDeleteSpbResourceRecord.c)
- *     DpiValidateSpbResource @ 0x1C0395F28 (DpiValidateSpbResource.c)
+ *     DpiDeleteSpbResourceRecord @ 0x1C02D77FC (DpiDeleteSpbResourceRecord.c)
+ *     DpiValidateSpbResource @ 0x1C02D7878 (DpiValidateSpbResource.c)
  */
 
 __int64 __fastcall DpCloseSpbResource(int a1, int a2)

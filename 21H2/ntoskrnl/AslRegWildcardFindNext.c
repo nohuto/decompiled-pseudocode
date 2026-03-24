@@ -1,10 +1,10 @@
 /*
- * XREFs of AslRegWildcardFindNext @ 0x140A16D28
+ * XREFs of AslRegWildcardFindNext @ 0x140969AB0
  * Callers:
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A11E1C (SdbpCheckMatchingWildcardRegistryEntry.c)
- *     AslRegWildcardFindFirst @ 0x140A16C68 (AslRegWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x14096549C (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     AslRegWildcardFindFirst @ 0x1409699EC (AslRegWildcardFindFirst.c)
  * Callees:
- *     AslpProcessMatchRegNode @ 0x140A17490 (AslpProcessMatchRegNode.c)
+ *     AslpProcessMatchRegNode @ 0x14096A174 (AslpProcessMatchRegNode.c)
  */
 
 __int64 __fastcall AslRegWildcardFindNext(_QWORD *a1, _QWORD *a2)

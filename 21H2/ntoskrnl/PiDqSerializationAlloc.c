@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqSerializationAlloc @ 0x1406CA5B0
+ * XREFs of PiDqSerializationAlloc @ 0x1406B9500
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqSerializationAlloc(__int64 a1, _QWORD *a2, unsigned int *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall PiDqSerializationAlloc(__int64 a1, _QWORD *a2, unsigned int *
   unsigned int v5; // ebx
   __int64 result; // rax
   void *v9; // rcx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v3 = *a3;
   v5 = *(_DWORD *)(a1 + 24);
@@ -32,11 +32,11 @@ __int64 __fastcall PiDqSerializationAlloc(__int64 a1, _QWORD *a2, unsigned int *
       *a3 = 4096;
       v3 = 4096;
     }
-    Pool2 = (void *)ExAllocatePool2(256LL, v3, 1483763280LL);
-    *(_QWORD *)(a1 + 16) = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x58706E50u);
+    *(_QWORD *)(a1 + 16) = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, *a3);
+      memset(PoolWithTag, 0, *a3);
       v5 = *a3;
     }
     *(_DWORD *)(a1 + 24) = v5;

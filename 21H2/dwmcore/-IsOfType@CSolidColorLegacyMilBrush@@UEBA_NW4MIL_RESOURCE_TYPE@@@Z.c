@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSolidColorLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D9130
+ * XREFs of ?IsOfType@CSolidColorLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C8900
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSolidColorLegacyMilBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 174 || a2 == 93;
+  return a2 == 175 || a2 == 93;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeDebugWriteEnclaveMemory @ 0x14097465C
+ * XREFs of KeDebugWriteEnclaveMemory @ 0x1408BB6AC
  * Callers:
- *     MiDbgReadWriteEnclave @ 0x140A3DC54 (MiDbgReadWriteEnclave.c)
- *     MiDbgReadWriteEnclaveUnaligned @ 0x140A3DD44 (MiDbgReadWriteEnclaveUnaligned.c)
+ *     MiDbgReadWriteEnclave @ 0x1408D2D2C (MiDbgReadWriteEnclave.c)
+ *     MiDbgReadWriteEnclaveUnaligned @ 0x1408D2E1C (MiDbgReadWriteEnclaveUnaligned.c)
  * Callees:
- *     KiEncls @ 0x14041F5C0 (KiEncls.c)
+ *     KiEncls @ 0x1403FE6E0 (KiEncls.c)
  */
 
 __int64 __fastcall KeDebugWriteEnclaveMemory(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   *a4 = 0LL;
-  if ( !_bittest64(&KeFeatureBits, 0x28u) )
+  if ( (KeFeatureBits & 0x10000000000LL) == 0 )
     return 3221225659LL;
   while ( a3 )
   {

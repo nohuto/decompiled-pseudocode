@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CD2DResource@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x180108210
+ * XREFs of ?GetDevice@CD2DResource@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F6F90
  * Callers:
  *     <none>
  * Callees:

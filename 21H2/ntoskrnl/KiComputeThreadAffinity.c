@@ -1,91 +1,75 @@
 /*
- * XREFs of KiComputeThreadAffinity @ 0x140292884
+ * XREFs of KiComputeThreadAffinity @ 0x1402EBAA0
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x14020E464 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetAffinityThread @ 0x14020EC24 (KiSetAffinityThread.c)
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiQueueReadyThread @ 0x1402B9970 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiSetSystemAffinityThread @ 0x14035C1C0 (KiSetSystemAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1403D3170 (KiUpdateThreadCpuSets.c)
+ *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x1402AAFD4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSetSystemAffinityThread @ 0x1402EB8C4 (KiSetSystemAffinityThread.c)
+ *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x14020EFEC (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140292818 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x140292A04 (KiUpdateNodeAffinitizedFlag.c)
- *     KeIsEqualAffinityEx @ 0x140292B10 (KeIsEqualAffinityEx.c)
- *     RtlBeginReadTickLock @ 0x140292B8C (RtlBeginReadTickLock.c)
- *     KiComputeCpuSetAffinity @ 0x140292BA4 (KiComputeCpuSetAffinity.c)
- *     KiAndAffinityEx @ 0x1402FF140 (KiAndAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
- *     KeFirstGroupAffinityEx @ 0x14035C9C0 (KeFirstGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140277ED4 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
+ *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
+ *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
+ *     KiComputeCpuSetAffinity @ 0x1402EBB78 (KiComputeCpuSetAffinity.c)
+ *     KeSelectNodeForAffinity @ 0x1402ECD60 (KeSelectNodeForAffinity.c)
  */
 
 __int64 __fastcall KiComputeThreadAffinity(__int64 a1)
 {
-  unsigned int v2; // r14d
-  __int64 v3; // r15
+  unsigned int v1; // ebp
+  _QWORD *v3; // r14
   __int64 v4; // rax
-  __int64 TickLock; // rdi
-  __int64 v6; // rsi
-  __int64 v8; // rsi
-  __int64 v9; // r14
-  __int64 v10; // rcx
-  __int128 v11; // [rsp+28h] [rbp-E0h] BYREF
-  _DWORD v12[68]; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 v5; // rdi
+  __int64 TickLock; // rsi
+  __int64 v7; // rax
+  __int64 v9; // r8
+  __int64 v10; // r8
+  __int64 v11; // rax
+  __int64 v12; // r11
+  _OWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v11 = 0LL;
-  memset(&v12[2], 0, 0x100uLL);
-  v2 = 0;
-  v3 = *(_QWORD *)(a1 + 544);
+  v1 = 0;
+  v13[0] = 0LL;
   if ( (*(_DWORD *)(a1 + 116) & 8) != 0 )
   {
     TickLock = RtlBeginReadTickLock(&KiCpuSetSequence);
   }
   else
   {
+    v3 = (_QWORD *)(a1 + 576);
     do
     {
       v4 = RtlBeginReadTickLock(&KiCpuSetSequence);
-      v12[0] = 2097153;
+      v5 = *(_QWORD *)(a1 + 552);
       TickLock = v4;
-      memset(&v12[1], 0, 0x104uLL);
-      KiCopyAffinityEx(v12, 32LL, *(_QWORD *)(a1 + 552));
-      if ( (unsigned int)KeCountSetBitsAffinityEx(v12) > 1 )
+      if ( ((v5 - 1) & v5) != 0 )
       {
-        KiComputeCpuSetAffinity(a1, v12);
-        if ( !(unsigned int)KiAndAffinityEx(*(_QWORD *)(a1 + 552), v12, v12, HIWORD(v12[0])) )
-          KiCopyAffinityEx(v12, HIWORD(v12[0]), *(_QWORD *)(a1 + 552));
+        v7 = KiComputeCpuSetAffinity(a1);
+        if ( (v7 & v5) != 0 )
+          v5 &= v7;
       }
-      v6 = *(_QWORD *)(a1 + 576);
-      if ( !(unsigned int)KeIsEqualAffinityEx(v6, v12) )
+      if ( *v3 != v5 )
       {
-        KiCopyAffinityEx(v6, *(unsigned __int16 *)(v6 + 2), v12);
-        v8 = *(unsigned int *)(a1 + 196);
-        v9 = KiProcessorBlock[v8];
-        if ( !(unsigned int)KeCheckProcessorAffinityEx(*(_QWORD *)(a1 + 576), v8) )
+        v9 = *(unsigned int *)(a1 + 196);
+        *v3 = v5;
+        if ( !KiPrcbInGroupAffinity(KiProcessorBlock[v9], (__int64)v3) )
         {
-          KeFirstGroupAffinityEx(&v11, v12);
-          v8 = (unsigned __int16)KiReselectIdealProcessorAfterAffinityChange(
-                                   a1,
-                                   (__int64)&v11,
-                                   v9,
-                                   v3 + 2 * (WORD4(v11) + 322LL));
+          *((_QWORD *)&v13[0] + 1) = *(unsigned __int16 *)(a1 + 584);
+          *(_QWORD *)&v13[0] = v5;
+          v11 = KeSelectNodeForAffinity(v13);
+          v10 = (unsigned __int16)KeSelectIdealProcessor(v11, v13, 0LL, (unsigned int *)(v12 + 36));
         }
-        v10 = KiProcessorBlock[v8];
-        *(_DWORD *)(a1 + 588) = v8;
-        *(_WORD *)(a1 + 584) = *(unsigned __int8 *)(v10 + 208);
-        *(_WORD *)(a1 + 560) = *(unsigned __int8 *)(v10 + 208);
-        KiUpdateSharedReadyQueueAffinityThread(v10, a1);
+        *(_DWORD *)(a1 + 588) = v10;
+        KiUpdateSharedReadyQueueAffinityThread(KiProcessorBlock[v10], a1);
         KiUpdateNodeAffinitizedFlag(a1);
-        v2 = 1;
+        v1 = 1;
       }
     }
     while ( KiCpuSetSequence != TickLock );
   }
   *(_QWORD *)(a1 + 568) = TickLock;
-  return v2;
+  return v1;
 }

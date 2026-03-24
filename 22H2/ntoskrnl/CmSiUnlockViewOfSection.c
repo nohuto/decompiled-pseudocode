@@ -1,12 +1,12 @@
 /*
- * XREFs of CmSiUnlockViewOfSection @ 0x140354438
+ * XREFs of CmSiUnlockViewOfSection @ 0x140361FC0
  * Callers:
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B0F4 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3BD4 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x14082B0D8 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140885B00 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140723208 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140724C90 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140734084 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x1407AE35C (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
  * Callees:
- *     ZwUnlockVirtualMemory @ 0x14041E200 (ZwUnlockVirtualMemory.c)
+ *     ZwUnlockVirtualMemory @ 0x1403FD3C0 (ZwUnlockVirtualMemory.c)
  */
 
 __int64 __fastcall CmSiUnlockViewOfSection(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

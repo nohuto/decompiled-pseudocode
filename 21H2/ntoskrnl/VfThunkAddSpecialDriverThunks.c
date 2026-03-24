@@ -1,21 +1,21 @@
 /*
- * XREFs of VfThunkAddSpecialDriverThunks @ 0x140A93398
+ * XREFs of VfThunkAddSpecialDriverThunks @ 0x1409D88B4
  * Callers:
- *     MmAddVerifierSpecialThunks @ 0x140969FB0 (MmAddVerifierSpecialThunks.c)
+ *     MmAddVerifierSpecialThunks @ 0x1408C6490 (MmAddVerifierSpecialThunks.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     ViThunkCreateThunkTable @ 0x140A93B28 (ViThunkCreateThunkTable.c)
- *     ViThunkFindNextSpecialTable @ 0x140A93E2C (ViThunkFindNextSpecialTable.c)
- *     ViThunkRecoverPristines @ 0x140A9415C (ViThunkRecoverPristines.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     ViThunkCreateThunkTable @ 0x1409D8F84 (ViThunkCreateThunkTable.c)
+ *     ViThunkFindNextSpecialTable @ 0x1409D913C (ViThunkFindNextSpecialTable.c)
+ *     ViThunkRecoverPristines @ 0x1409D9194 (ViThunkRecoverPristines.c)
  */
 
 __int64 __fastcall VfThunkAddSpecialDriverThunks(__int64 a1, void *a2, __int64 a3, __int64 a4)
 {
   _QWORD *ThunkTable; // rbx
   _QWORD *NextSpecialTable; // rdx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v10; // rax
   _QWORD *v11; // rax
   _QWORD *v12; // rax
@@ -33,16 +33,16 @@ __int64 __fastcall VfThunkAddSpecialDriverThunks(__int64 a1, void *a2, __int64 a
   NextSpecialTable = (_QWORD *)ViThunkFindNextSpecialTable(&v15, 1LL);
   if ( !NextSpecialTable )
   {
-    Pool2 = ExAllocatePool2(256LL, 0x28uLL, 0x74566D4Du);
-    NextSpecialTable = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x74566D4Du);
+    NextSpecialTable = PoolWithTag;
+    if ( !PoolWithTag )
     {
       ViDriversLoadLockOwner = 0LL;
       KeReleaseMutex(&ViDriversLoadLock, 0);
       return 3221225626LL;
     }
-    *(_QWORD *)(Pool2 + 16) = a1;
-    v10 = (_QWORD *)(Pool2 + 24);
+    PoolWithTag[2] = a1;
+    v10 = PoolWithTag + 3;
     v10[1] = v10;
     *v10 = v10;
     v11 = ViVerifierDriverAddedSpecialThunkListHead;

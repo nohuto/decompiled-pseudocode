@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPassiveIsrWatchdog @ 0x140299ED0
+ * XREFs of KiPassiveIsrWatchdog @ 0x140299FD0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
  */
 
 void __fastcall __noreturn KiPassiveIsrWatchdog(__int64 a1, __int64 a2)

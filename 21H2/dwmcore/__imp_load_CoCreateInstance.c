@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CoCreateInstance @ 0x180102E0A
+ * XREFs of __imp_load_CoCreateInstance @ 0x1800E8E67
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumFreePartitionPages @ 0x1405E2630
+ * XREFs of PspIumFreePartitionPages @ 0x140583BE0
  * Callers:
- *     PspIumFreePhysicalPages @ 0x1405E281C (PspIumFreePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x140583DCC (PspIumFreePhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmFreeNonChargedSecurePages @ 0x14058A2D8 (MmFreeNonChargedSecurePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MmFreeNonChargedSecurePages @ 0x1405344D4 (MmFreeNonChargedSecurePages.c)
  */
 
 void __fastcall PspIumFreePartitionPages(__int64 a1, int a2, ULONG_PTR *a3)
@@ -56,5 +56,5 @@ void __fastcall PspIumFreePartitionPages(__int64 a1, int a2, ULONG_PTR *a3)
   }
   __writecr8(v7);
   if ( (_DWORD)v6 )
-    MmFreeNonChargedSecurePages(*(ULONG_PTR ***)(a1 + 8), (unsigned int)v6, a3);
+    MmFreeNonChargedSecurePages(*(ULONG_PTR ***)(a1 + 8), v6, a3);
 }

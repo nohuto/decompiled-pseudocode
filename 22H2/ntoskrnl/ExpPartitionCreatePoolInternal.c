@@ -1,55 +1,47 @@
 /*
- * XREFs of ExpPartitionCreatePoolInternal @ 0x14084AA20
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x1407C2D70
  * Callers:
- *     ExpPartitionCreatePool @ 0x14084A758 (ExpPartitionCreatePool.c)
- *     ExpPartitionInitialize @ 0x14084A868 (ExpPartitionInitialize.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140A00904 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionCreatePool @ 0x1407C2A48 (ExpPartitionCreatePool.c)
+ *     ExpPartitionInitialize @ 0x1407C2B6C (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140955E28 (ExpPartitionCreatePoolDelayed.c)
  * Callees:
- *     ExpCreateWorkerThread @ 0x140683520 (ExpCreateWorkerThread.c)
- *     ExpWorkQueueInitialize @ 0x14084AB08 (ExpWorkQueueInitialize.c)
- *     ExpWorkQueueDestroy @ 0x140A00B74 (ExpWorkQueueDestroy.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2E3C (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExpWorkQueueDestroy @ 0x1409560A8 (ExpWorkQueueDestroy.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, unsigned __int16 *a4, int a5)
+__int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, __int64 a4, int a5)
 {
-  __int64 Pool2; // rbx
-  __int64 v10; // r15
-  __int64 v11; // r8
-  int v12; // r9d
-  int v13; // esi
-  int WorkerThread; // edi
+  PVOID PoolWithTag; // rbx
+  int v10; // edi
 
-  Pool2 = ExAllocatePool2(64LL, 736LL, 1817671749LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x2E0uLL, 0x6C577845u);
+  if ( PoolWithTag )
   {
-    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *a4);
-    ExpWorkQueueInitialize(Pool2, a2, a3, a1, (__int64)a4, a5);
-    v13 = 0;
-    if ( 2 * *(_DWORD *)(Pool2 + 716) > 0 )
+    v10 = ExpWorkQueueInitializeWithMinimumThreads(
+            (_DWORD)PoolWithTag,
+            a2,
+            a3,
+            a1,
+            a4,
+            a5,
+            *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *(unsigned __int16 *)(a4 + 146)) + 276LL);
+    if ( v10 >= 0 )
     {
-      while ( 1 )
-      {
-        WorkerThread = ExpCreateWorkerThread((_QWORD *)Pool2, (int)v10 + 276, v11, v12);
-        if ( WorkerThread < 0 )
-          break;
-        if ( ++v13 >= (2 * *(_DWORD *)(Pool2 + 716)) >> 1 )
-          goto LABEL_3;
-      }
-      ExpWorkQueueDestroy(Pool2);
-      ExFreePoolWithTag((PVOID)Pool2, 0);
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *(unsigned __int16 *)(a4 + 146)) + 8LL * a5) = PoolWithTag;
+      PoolWithTag = 0LL;
+      v10 = 0;
     }
-    else
+    if ( PoolWithTag )
     {
-LABEL_3:
-      WorkerThread = 0;
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *a4) + 8LL * a5) = Pool2;
+      ExpWorkQueueDestroy(PoolWithTag);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)WorkerThread;
+  return (unsigned int)v10;
 }

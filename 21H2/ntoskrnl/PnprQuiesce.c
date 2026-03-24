@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprQuiesce @ 0x140563058
+ * XREFs of PnprQuiesce @ 0x14050F718
  * Callers:
- *     PnprEndMirroring @ 0x140A67BA0 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x140A67C74 (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x1409AD720 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x1409AD7FC (PnprInitiateReplaceOperation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PnprLockPagesForReplace @ 0x140952A20 (PnprLockPagesForReplace.c)
- *     PnprQuiesceProcessors @ 0x140A68BE8 (PnprQuiesceProcessors.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PnprLockPagesForReplace @ 0x1408ADFC4 (PnprLockPagesForReplace.c)
+ *     PnprQuiesceProcessors @ 0x1409AE774 (PnprQuiesceProcessors.c)
  */
 
 __int64 PnprQuiesce()
@@ -23,23 +23,23 @@ __int64 PnprQuiesce()
     PnprLockPagesForReplace();
     goto LABEL_9;
   }
-  KeSetEvent((PRKEVENT)(PnprContext + 33048), 0, 1u);
-  KeWaitForSingleObject((PVOID)(PnprContext + 33072), Executive, 0, 0, 0LL);
+  KeSetEvent((PRKEVENT)(PnprContext + 20760), 0, 1u);
+  KeWaitForSingleObject((PVOID)(PnprContext + 20784), Executive, 0, 0, 0LL);
   v1 = PnprContext;
-  v0 = *(_DWORD *)(PnprContext + 33144);
+  v0 = *(_DWORD *)(PnprContext + 20856);
   if ( v0 >= 0 )
   {
 LABEL_9:
     PnprQuiesceProcessors();
     return (unsigned int)v0;
   }
-  v2 = *(_DWORD *)(PnprContext + 33272);
+  v2 = *(_DWORD *)(PnprContext + 20984);
   if ( !v2 )
-    v2 = 1892;
-  *(_DWORD *)(PnprContext + 33272) = v2;
-  v3 = *(_DWORD *)(v1 + 33276);
+    v2 = 1899;
+  *(_DWORD *)(PnprContext + 20984) = v2;
+  v3 = *(_DWORD *)(v1 + 20988);
   if ( !v3 )
     v3 = 1;
-  *(_DWORD *)(v1 + 33276) = v3;
+  *(_DWORD *)(v1 + 20988) = v3;
   return (unsigned int)v0;
 }

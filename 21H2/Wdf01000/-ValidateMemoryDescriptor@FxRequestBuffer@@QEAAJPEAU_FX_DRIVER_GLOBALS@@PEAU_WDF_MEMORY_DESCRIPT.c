@@ -1,18 +1,18 @@
 /*
- * XREFs of ?ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPTOR@@K@Z @ 0x1C001A074
+ * XREFs of ?ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPTOR@@K@Z @ 0x1C0017B54
  * Callers:
- *     FxIoTargetSendIoctl @ 0x1C0019E84 (FxIoTargetSendIoctl.c)
- *     FxIoTargetSendIo @ 0x1C00726D4 (FxIoTargetSendIo.c)
- *     imp_WdfIoTargetSendInternalIoctlOthersSynchronously @ 0x1C0073280 (imp_WdfIoTargetSendInternalIoctlOthersSynchronously.c)
- *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0078E40 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
- *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C007AF70 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
+ *     FxIoTargetSendIoctl @ 0x1C0017974 (FxIoTargetSendIoctl.c)
+ *     FxIoTargetSendIo @ 0x1C0062804 (FxIoTargetSendIo.c)
+ *     imp_WdfIoTargetSendInternalIoctlOthersSynchronously @ 0x1C0063A60 (imp_WdfIoTargetSendInternalIoctlOthersSynchronously.c)
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C006BA90 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C006E4F0 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C001B2C8 (-SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C000CDB0 (-SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
  */
 
 __int64 __fastcall FxRequestBuffer::ValidateMemoryDescriptor(
@@ -24,9 +24,9 @@ __int64 __fastcall FxRequestBuffer::ValidateMemoryDescriptor(
   unsigned int v4; // ebx
   _FX_DRIVER_GLOBALS *v6; // rbp
   unsigned int Length; // ecx
+  unsigned __int16 v10; // r9
   void *Buffer; // rdx
   _WDFMEMORY_OFFSET *Offsets; // rax
-  unsigned __int16 v12; // r9
   unsigned __int64 BufferLength; // rcx
   unsigned __int64 v14; // r14
   IFxMemory *v15; // rcx
@@ -41,8 +41,8 @@ __int64 __fastcall FxRequestBuffer::ValidateMemoryDescriptor(
   {
     if ( (Flags & 1) != 0 )
       return 0LL;
-    v12 = 10;
-    goto LABEL_16;
+    v10 = 10;
+    goto LABEL_10;
   }
   if ( Descriptor->Type == WdfMemoryDescriptorTypeBuffer )
   {
@@ -58,14 +58,14 @@ LABEL_4:
     }
     if ( (Flags & 2) == 0 )
     {
-      v12 = 11;
-      goto LABEL_16;
+      v10 = 11;
+      goto LABEL_10;
     }
     globals = Descriptor->u.BufferType.Length;
     if ( !globals )
       goto LABEL_4;
     v17 = 12;
-LABEL_17:
+LABEL_11:
     WPP_IFR_SF_D(v6, (unsigned __int8)FxDriverGlobals, 6u, v17, WPP_FxRequestBuffer_cpp_Traceguids, globals);
     return 3221225485LL;
   }
@@ -114,12 +114,12 @@ LABEL_29:
     if ( globals )
     {
       v17 = 14;
-      goto LABEL_17;
+      goto LABEL_11;
     }
     goto LABEL_29;
   }
-  v12 = 13;
-LABEL_16:
-  WPP_IFR_SF_(v6, 2u, 6u, v12, WPP_FxRequestBuffer_cpp_Traceguids);
+  v10 = 13;
+LABEL_10:
+  WPP_IFR_SF_(v6, 2u, 6u, v10, WPP_FxRequestBuffer_cpp_Traceguids);
   return 3221225485LL;
 }

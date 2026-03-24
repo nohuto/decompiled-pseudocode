@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x180273368
+ * XREFs of ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x1802305E8
  * Callers:
- *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180272C10 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
- *     ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x1802732E0 (-DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z.c)
- *     ?HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z @ 0x180273880 (-HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z.c)
+ *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x18022FE74 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
+ *     ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x180230560 (-DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z.c)
+ *     ?HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z @ 0x180230B10 (-HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ struct CBufferedOutputPointer *__fastcall CInteractionContextWrapper::FindBuffer
 
   v2 = 0LL;
   v3 = 0;
-  if ( *((int *)this + 152) > 0 )
+  if ( *((int *)this + 154) > 0 )
   {
-    v4 = (_DWORD **)*((_QWORD *)this + 75);
-    v5 = *((int *)this + 152);
+    v4 = (_DWORD **)*((_QWORD *)this + 76);
+    v5 = *((int *)this + 154);
     v6 = v4;
     v7 = 0LL;
     while ( a2 != **v6 )

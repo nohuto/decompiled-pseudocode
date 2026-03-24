@@ -4,9 +4,9 @@
  *     WbReEncryptWarbirdEncryptionSegment @ 0x1405847A8 (WbReEncryptWarbirdEncryptionSegment.c)
  * Callees:
  *     sub_140584974 @ 0x140584974 (sub_140584974.c)
- *     WbVerifyVirtualAddressSignature @ 0x1406909A4 (WbVerifyVirtualAddressSignature.c)
- *     sub_140690AA4 @ 0x140690AA4 (sub_140690AA4.c)
- *     sub_140691564 @ 0x140691564 (sub_140691564.c)
+ *     WbVerifyVirtualAddressSignature @ 0x140690984 (WbVerifyVirtualAddressSignature.c)
+ *     sub_140690A84 @ 0x140690A84 (sub_140690A84.c)
+ *     sub_140691544 @ 0x140691544 (sub_140691544.c)
  */
 
 __int64 __fastcall sub_14058485C(__int64 a1, _DWORD *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall sub_14058485C(__int64 a1, _DWORD *a2)
     v6 = sub_140584974((_DWORD)v5, a2[2] & 0xFFFFFFF, (*a2 & 2) == 0, (unsigned int)&Mdl, (__int64)&v8);
     if ( v6 >= 0 )
     {
-      v6 = sub_140690AA4(
+      v6 = sub_140690A84(
              1,
              (_DWORD)v5,
              v8,
@@ -39,6 +39,6 @@ __int64 __fastcall sub_14058485C(__int64 a1, _DWORD *a2)
         *a2 &= 0xFFFFFC03;
     }
   }
-  sub_140691564(Mdl);
+  sub_140691544(Mdl);
   return (unsigned int)v6;
 }

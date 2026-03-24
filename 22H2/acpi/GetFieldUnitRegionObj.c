@@ -1,25 +1,24 @@
 /*
- * XREFs of GetFieldUnitRegionObj @ 0x1C004B964
+ * XREFs of GetFieldUnitRegionObj @ 0x1C00248F8
  * Callers:
- *     InternalRawAccessOpRegionHandler @ 0x1C0039CE0 (InternalRawAccessOpRegionHandler.c)
- *     GetFieldUnitRegionObj @ 0x1C004B964 (GetFieldUnitRegionObj.c)
- *     AccessFieldData @ 0x1C0051AF8 (AccessFieldData.c)
+ *     GetFieldUnitRegionObj @ 0x1C00248F8 (GetFieldUnitRegionObj.c)
+ *     AccessFieldData @ 0x1C0031E7C (AccessFieldData.c)
+ *     InternalRawAccessOpRegionHandler @ 0x1C005CA50 (InternalRawAccessOpRegionHandler.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetFieldUnitRegionObj @ 0x1C004B964 (GetFieldUnitRegionObj.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     GetFieldUnitRegionObj @ 0x1C00248F8 (GetFieldUnitRegionObj.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
-__int64 __fastcall GetFieldUnitRegionObj(__int64 *a1, _QWORD *a2)
+__int64 __fastcall GetFieldUnitRegionObj(__int64 *a1, __int64 *a2)
 {
-  unsigned int FieldUnitRegionObj; // esi
+  int FieldUnitRegionObj; // esi
   __int64 v4; // rdx
   int v5; // ecx
   int v6; // ecx
-  __int64 v7; // rax
-  __int64 ObjectPath; // rax
+  _QWORD *ObjectPath; // rax
   void *v9; // rdx
   void *v10; // rdi
 
@@ -35,8 +34,8 @@ __int64 __fastcall GetFieldUnitRegionObj(__int64 *a1, _QWORD *a2)
     else
     {
       LogError(3222536195LL);
-      AcpiDiagTraceAmlError(0LL, -1072431101);
-      PrintDebugMessage(56, *(unsigned __int16 *)(*a2 + 66LL), 0, 0, 0LL);
+      AcpiDiagTraceAmlError(0LL, 3222536195LL);
+      PrintDebugMessage(56, *(unsigned __int16 *)(*a2 + 66), 0, 0, 0LL);
       FieldUnitRegionObj = -1072431101;
     }
   }
@@ -44,31 +43,28 @@ __int64 __fastcall GetFieldUnitRegionObj(__int64 *a1, _QWORD *a2)
   {
     *a2 = **(_QWORD **)(v4 + 96);
   }
-  v7 = *a2;
-  if ( *a2 && *(_WORD *)(v7 + 66) != 10 )
+  if ( *a2 && *(_WORD *)(*a2 + 66) != 10 )
   {
     LogError(3222536195LL);
-    AcpiDiagTraceAmlError(0LL, -1072431101);
+    AcpiDiagTraceAmlError(0LL, 3222536195LL);
     ObjectPath = GetObjectPath(*a2);
-    v9 = &unk_1C00622D0;
-    v10 = (void *)ObjectPath;
+    v9 = &unk_1C00701BA;
+    v10 = ObjectPath;
     if ( ObjectPath )
-      LODWORD(v9) = ObjectPath;
-    PrintDebugMessage(55, (_DWORD)v9, *(unsigned __int16 *)(*a2 + 66LL), 0, 0LL);
+      LODWORD(v9) = (_DWORD)ObjectPath;
+    PrintDebugMessage(55, (_DWORD)v9, *(unsigned __int16 *)(*a2 + 66), 0, 0LL);
     FieldUnitRegionObj = -1072431101;
-    if ( v10 )
-    {
-      ExFreePoolWithTag(v10, 0);
-      *a2 = 0LL;
-      return FieldUnitRegionObj;
-    }
-LABEL_17:
-    *a2 = 0LL;
-    return FieldUnitRegionObj;
+    if ( !v10 )
+      goto LABEL_18;
+    ExFreePoolWithTag(v10, 0);
   }
-  if ( (FieldUnitRegionObj & 0x80000000) != 0 || !v7 )
-    goto LABEL_17;
+  if ( FieldUnitRegionObj < 0 || !*a2 )
+  {
+LABEL_18:
+    *a2 = 0LL;
+    return (unsigned int)FieldUnitRegionObj;
+  }
   if ( (gdwfAMLI & 4) != 0 )
-    _InterlockedIncrement((volatile signed __int32 *)(*a2 + 112LL));
-  return FieldUnitRegionObj;
+    _InterlockedIncrement((volatile signed __int32 *)(*a2 + 112));
+  return (unsigned int)FieldUnitRegionObj;
 }

@@ -1,38 +1,38 @@
 /*
- * XREFs of BiBindEfiBootManager @ 0x140805090
+ * XREFs of BiBindEfiBootManager @ 0x14097043C
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x140804D40 (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x1409708D8 (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     BiQueryBootOptions @ 0x140804AD4 (BiQueryBootOptions.c)
- *     BcdDeleteObject @ 0x140805284 (BcdDeleteObject.c)
- *     BcdCreateObject @ 0x1408052E0 (BcdCreateObject.c)
- *     BiTranslateBootOrder @ 0x140805F1C (BiTranslateBootOrder.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiTranslateBootEntryId @ 0x140808178 (BiTranslateBootEntryId.c)
- *     BiQueryBootEntryOrder @ 0x1408094AC (BiQueryBootEntryOrder.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783ACC (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BcdCreateObject @ 0x14096EC68 (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x14096ED00 (BcdDeleteObject.c)
+ *     BiQueryBootEntryOrder @ 0x1409728AC (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x140972984 (BiQueryBootOptions.c)
+ *     BiTranslateBootEntryId @ 0x140972C04 (BiTranslateBootEntryId.c)
+ *     BiTranslateBootOrder @ 0x140972C6C (BiTranslateBootOrder.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiBindEfiBootManager(__int64 a1, __int64 a2)
 {
   void *v4; // r14
-  int v5; // ebx
-  __int64 Pool2; // rax
+  int Object; // ebx
+  PVOID PoolWithTag; // rax
   __int64 v7; // r8
   int v8; // eax
   __int64 v9; // r8
   unsigned int *v10; // rsi
   __int64 v11; // rdx
-  __int64 v13; // r8
-  __int64 v14; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v12; // r8
+  void *v14; // [rsp+30h] [rbp-50h] BYREF
   unsigned int v15; // [rsp+38h] [rbp-48h] BYREF
   PVOID v16; // [rsp+40h] [rbp-40h] BYREF
-  unsigned int v17; // [rsp+48h] [rbp-38h] BYREF
+  int v17; // [rsp+48h] [rbp-38h] BYREF
   _DWORD v18[2]; // [rsp+50h] [rbp-30h] BYREF
   PVOID P; // [rsp+58h] [rbp-28h] BYREF
   __int64 v20; // [rsp+60h] [rbp-20h] BYREF
@@ -46,74 +46,72 @@ __int64 __fastcall BiBindEfiBootManager(__int64 a1, __int64 a2)
   v14 = 0LL;
   v4 = 0LL;
   v21 = 0LL;
-  if ( (int)BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, &v14) >= 0 )
+  if ( (int)BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR.Data1, &v14) >= 0 )
   {
     BcdDeleteObject(v14);
     v14 = 0LL;
   }
-  v18[0] = 1;
   v18[1] = 269484033;
-  v5 = BcdCreateObject(a1, &GUID_FIRMWARE_BOOTMGR, v18, &v14);
-  if ( v5 >= 0 )
+  v18[0] = 1;
+  Object = BcdCreateObject(a1, (int)&GUID_FIRMWARE_BOOTMGR, (int)v18, (__int64 *)&v14);
+  if ( Object >= 0 )
   {
-    v5 = BiQueryBootEntryOrder(&v16, &v15);
-    if ( v5 >= 0 )
+    Object = BiQueryBootEntryOrder(&v16, &v15);
+    if ( Object >= 0 )
     {
-      if ( !v15 )
-        goto LABEL_9;
-      Pool2 = ExAllocatePool2(258LL, 16LL * v15, 1262764866LL);
-      v4 = (void *)Pool2;
-      if ( Pool2 )
+      if ( v15 )
       {
-        BiTranslateBootOrder(a2, v16, Pool2, &v15);
-        if ( !v15 || (v5 = BcdSetElementDataWithFlags(v14, 603979777LL, v7, v4, 16 * v15), v5 >= 0) )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 16LL * v15, 0x4B444342u);
+        v4 = PoolWithTag;
+        if ( !PoolWithTag )
         {
-LABEL_9:
-          v8 = BiQueryBootOptions(&P, &v17);
-          v10 = (unsigned int *)P;
-          v5 = v8;
-          if ( v8 >= 0 )
-          {
-            if ( *((_DWORD *)P + 2) == -1
-              || (v20 = *((unsigned int *)P + 2), v5 = BcdSetElementDataWithFlags(v14, 620756996LL, v9, &v20, 8),
-                                                  v5 >= 0) )
-            {
-              v11 = v10[4];
-              if ( (_DWORD)v11 == -2
-                || (int)BiTranslateBootEntryId(a2, v11, &v21) < 0
-                || (v5 = BcdSetElementDataWithFlags(v14, 603979778LL, v13, &v21, 16), v5 >= 0) )
-              {
-                v5 = 0;
-              }
-            }
-          }
-          if ( v10 )
-            ExFreePoolWithTag(v10, 0x4B444342u);
+          Object = -1073741670;
+          goto LABEL_19;
+        }
+        BiTranslateBootOrder(a2, v16, PoolWithTag, &v15);
+        if ( v15 )
+        {
+          Object = BcdSetElementDataWithFlags(v14, 0x24000001u, v7, (__int64)v4, 16 * v15);
+          if ( Object < 0 )
+            goto LABEL_19;
         }
       }
-      else
+      v8 = BiQueryBootOptions(&P, &v17);
+      v10 = (unsigned int *)P;
+      Object = v8;
+      if ( v8 >= 0 )
       {
-        v5 = -1073741670;
+        if ( *((_DWORD *)P + 2) == -1
+          || (v20 = *((unsigned int *)P + 2),
+              Object = BcdSetElementDataWithFlags(v14, 0x25000004u, v9, (__int64)&v20, 8u),
+              Object >= 0) )
+        {
+          v11 = v10[4];
+          if ( (_DWORD)v11 == -2
+            || (int)BiTranslateBootEntryId(a2, v11, &v21) < 0
+            || (Object = BcdSetElementDataWithFlags(v14, 0x24000002u, v12, (__int64)&v21, 0x10u), Object >= 0) )
+          {
+            Object = 0;
+          }
+        }
       }
+      if ( v10 )
+        ExFreePoolWithTag(v10, 0x4B444342u);
     }
+LABEL_19:
     if ( v16 )
       ExFreePoolWithTag(v16, 0x4B444342u);
     if ( v4 )
       ExFreePoolWithTag(v4, 0x4B444342u);
   }
-  if ( !v14 )
+  if ( v14 )
   {
-    if ( v5 >= 0 )
-      return (unsigned int)v5;
-LABEL_31:
-    BiLogMessage(4LL, L"BiBindEfiBootManager failed %x", (unsigned int)v5);
-    return (unsigned int)v5;
+    if ( Object >= 0 )
+      BcdCloseObject((__int64)v14);
+    else
+      BcdDeleteObject(v14);
   }
-  if ( v5 < 0 )
-  {
-    BcdDeleteObject(v14);
-    goto LABEL_31;
-  }
-  BcdCloseObject(v14);
-  return (unsigned int)v5;
+  if ( Object < 0 )
+    BiLogMessage(4LL, L"BiBindEfiBootManager failed %x", (unsigned int)Object);
+  return (unsigned int)Object;
 }

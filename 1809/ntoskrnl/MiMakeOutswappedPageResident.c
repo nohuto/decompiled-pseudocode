@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMakeOutswappedPageResident @ 0x1402A4268
+ * XREFs of MiMakeOutswappedPageResident @ 0x1402A4368
  * Callers:
- *     KiInSwapProcesses @ 0x14010B320 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
  * Callees:
  *     MiIsRetryIoStatus @ 0x140022E18 (MiIsRetryIoStatus.c)
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
@@ -20,22 +20,22 @@
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
- *     MiGetPagingFileOffset @ 0x14010FA04 (MiGetPagingFileOffset.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D988 (MiSetPageTablePfnBuddy.c)
- *     MiIsPteInStore @ 0x1401417E8 (MiIsPteInStore.c)
- *     SmPageRead @ 0x14014F76C (SmPageRead.c)
- *     MiStoreFaultComplete @ 0x140157C40 (MiStoreFaultComplete.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAEF0 (MiFlushAllFilesystemPages.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
- *     MiValidatePagefilePageHash @ 0x1402CC414 (MiValidatePagefilePageHash.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
+ *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
+ *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
+ *     SmPageRead @ 0x14014F78C (SmPageRead.c)
+ *     MiStoreFaultComplete @ 0x140157C60 (MiStoreFaultComplete.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiValidatePagefilePageHash @ 0x1402CC514 (MiValidatePagefilePageHash.c)
  */
 
 __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

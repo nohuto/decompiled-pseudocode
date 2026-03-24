@@ -1,42 +1,42 @@
 /*
- * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1407F1980
+ * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x14069F338
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C3580 (SepAdtAuditThisEventWithContext.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCCF0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x1409CD4A0 (SepQueryTypeString.c)
- *     SepIsAclEqual @ 0x1409D1288 (SepIsAclEqual.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627EE0 (SepAdtAuditThisEventWithContext.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityDescriptor @ 0x1406D4920 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FFAC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x140920754 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x140924D24 (SepIsAclEqual.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __int64 a3, ACL *a4, PACL Dacl)
 {
   PVOID v5; // rsi
-  void *v6; // rdi
-  void *v7; // r14
+  __int64 v6; // rdi
+  __int64 v7; // r14
   int v10; // r15d
   _QWORD **PrimaryToken; // r13
-  __int64 v12; // r8
-  __int64 v13; // r9
-  int v14; // eax
-  int v15; // ebx
+  int v12; // eax
+  __int64 v13; // r8
+  __int64 v14; // r9
+  NTSTATUS v15; // ebx
   int v16; // eax
   PVOID P; // [rsp+58h] [rbp-61h] BYREF
-  void *v18; // [rsp+60h] [rbp-59h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-59h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp-51h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-31h] BYREF
   __int64 v21; // [rsp+A8h] [rbp-11h]
   _OWORD v22[2]; // [rsp+B0h] [rbp-9h] BYREF
   __int64 v23; // [rsp+D0h] [rbp+17h]
-  void *v24; // [rsp+118h] [rbp+5Fh] BYREF
+  __int64 v24; // [rsp+118h] [rbp+5Fh] BYREF
   __int64 v25; // [rsp+128h] [rbp+6Fh]
 
   v25 = a3;
@@ -58,7 +58,8 @@ void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __in
     PrimaryToken = (_QWORD **)SubjectContext.ClientToken;
   if ( PrimaryToken )
   {
-    if ( !SepAdtAuditThisEventWithContext(142LL, 1u, 0, &SubjectContext) || (unsigned __int8)SepIsAclEqual(a4, Dacl) )
+    if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(142LL, 1u, 0, &SubjectContext)
+      || (unsigned __int8)SepIsAclEqual(a4, Dacl) )
     {
 LABEL_5:
       SeReleaseSubjectContext(&SubjectContext);
@@ -66,18 +67,24 @@ LABEL_5:
     }
     if ( a2 )
     {
-      v14 = SepQueryTypeString(a2, &P, v12, v13);
+      v12 = SepQueryTypeString(a2, &P);
       v5 = P;
-      v15 = v14;
-      if ( v14 < 0 )
+      v15 = v12;
+      if ( v12 < 0 )
       {
 LABEL_20:
         if ( v5 )
           ExFreePoolWithTag(v5, 0);
         if ( v6 )
-          SeReleaseSecurityDescriptor(v6, 0, 1);
+        {
+          LOBYTE(v13) = 1;
+          SeReleaseSecurityDescriptor(v6, 0LL, v13, v14);
+        }
         if ( v7 )
-          SeReleaseSecurityDescriptor(v7, 0, 1);
+        {
+          LOBYTE(v13) = 1;
+          SeReleaseSecurityDescriptor(v7, 0LL, v13, v14);
+        }
         if ( v15 < 0 )
           SepAuditFailed((unsigned int)v15);
         goto LABEL_5;
@@ -91,7 +98,8 @@ LABEL_20:
       v15 = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, a4, 0);
       if ( v15 >= 0 )
       {
-        v15 = SeCaptureSecurityDescriptor((__int64)SecurityDescriptor, 0, 1, 1, &v24);
+        LOBYTE(v14) = 1;
+        v15 = SeCaptureSecurityDescriptor((unsigned int)SecurityDescriptor, 0, 1, v14, (__int64)&v24);
         if ( v15 < 0
           || (v15 = RtlCreateSecurityDescriptor(v22, 1u), v15 < 0)
           || (v15 = RtlSetDaclSecurityDescriptor(v22, 1u, Dacl, 0), v15 < 0) )
@@ -100,7 +108,8 @@ LABEL_20:
         }
         else
         {
-          v16 = SeCaptureSecurityDescriptor((__int64)v22, 0, 1, 1, &v18);
+          LOBYTE(v14) = 1;
+          v16 = SeCaptureSecurityDescriptor((unsigned int)v22, 0, 1, v14, (__int64)&v18);
           v7 = v18;
           v15 = v16;
           v6 = v24;
@@ -112,9 +121,9 @@ LABEL_20:
               0,
               v25,
               *PrimaryToken[19],
-              (__int64)v24,
+              v24,
               4,
-              (__int64)v18);
+              v18);
         }
       }
     }

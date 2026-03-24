@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Create@CFlipExSwapchainStatistics@@SAJPEBVCGlobalCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x18001544C
+ * XREFs of ?Create@CFlipExSwapchainStatistics@@SAJPEBVCGlobalCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x18001F474
  * Callers:
- *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x18006B800 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
+ *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x180038944 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
  * Callees:
- *     ?AddRef@CProjectedShadowReceiver@@UEAAKXZ @ 0x180019070 (-AddRef@CProjectedShadowReceiver@@UEAAKXZ.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?AddRef@CProjectedShadowReceiver@@UEAAKXZ @ 0x18001E4C0 (-AddRef@CProjectedShadowReceiver@@UEAAKXZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CFlipExSwapchainStatistics::Create(
@@ -17,15 +17,16 @@ __int64 __fastcall CFlipExSwapchainStatistics::Create(
   __int64 result; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = (struct CFlipExSwapchainStatistics *)DefaultHeap::AllocClear(0x20uLL);
+  v4 = (struct CFlipExSwapchainStatistics *)DefaultHeap::AllocClear(0x28uLL);
   v5 = v4;
   if ( !v4 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   *((_DWORD *)v4 + 2) = 0;
-  *((_DWORD *)v4 + 7) = 0;
-  *(_QWORD *)v4 = &CFlipExSwapchainStatistics::`vftable';
-  *((_QWORD *)v4 + 2) = a1;
-  *((_DWORD *)v4 + 6) = 2;
+  *((_DWORD *)v4 + 9) = 0;
+  *(_QWORD *)v4 = &CFlipExSwapchainStatistics::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)v4 + 2) = &CFlipExSwapchainStatistics::`vftable'{for `ICompositionSurfaceStatistics'};
+  *((_QWORD *)v4 + 3) = a1;
+  *((_DWORD *)v4 + 8) = 2;
   CProjectedShadowReceiver::AddRef(v4);
   result = 0LL;
   *a2 = v5;

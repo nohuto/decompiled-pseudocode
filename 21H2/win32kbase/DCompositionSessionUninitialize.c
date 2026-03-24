@@ -1,17 +1,18 @@
 /*
- * XREFs of DCompositionSessionUninitialize @ 0x1C0059A70
+ * XREFs of DCompositionSessionUninitialize @ 0x1C00AB0BC
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C00579B8 (-RemoveAnyObject@-$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@Direct.c)
- *     ??_GMaterialProperty@@QEAAPEAXI@Z @ 0x1C0057A18 (--_GMaterialProperty@@QEAAPEAXI@Z.c)
- *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0059B88 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C00AB19C (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ *     ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C00AB2CC (-RemoveAnyObject@-$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@Direct.c)
+ *     ??_GMaterialProperty@@QEAAPEAXI@Z @ 0x1C00AB32C (--_GMaterialProperty@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall DCompositionSessionUninitialize(__int64 a1, unsigned int a2)
 {
   MaterialProperty *v2; // rax
+  unsigned int v3; // edx
 
   if ( Table )
   {
@@ -20,23 +21,15 @@ void __fastcall DCompositionSessionUninitialize(__int64 a1, unsigned int a2)
       v2 = (MaterialProperty *)DirectComposition::CGenericTable<MaterialProperty::MaterialPropertyId,MaterialProperty,1953645380,0>::RemoveAnyObject();
       if ( !v2 )
         break;
-      MaterialProperty::`scalar deleting destructor'(v2);
+      MaterialProperty::`scalar deleting destructor'(v2, v3);
     }
-    a2 = (unsigned int)Table;
-    if ( Table )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        Table);
+    Win32FreePool((__int64)Table);
     Table = 0LL;
   }
   if ( Resource )
   {
     ExDeleteResourceLite(Resource);
-    a2 = (unsigned int)Resource;
-    if ( Resource )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        Resource);
+    Win32FreePool((__int64)Resource);
     Resource = 0LL;
   }
   if ( DirectComposition::CConnection::s_pSessionConnection )
@@ -46,22 +39,14 @@ void __fastcall DCompositionSessionUninitialize(__int64 a1, unsigned int a2)
   if ( DirectComposition::CConnection::s_pSessionConnectionLock )
   {
     ExDeleteResourceLite(DirectComposition::CConnection::s_pSessionConnectionLock);
-    if ( DirectComposition::CConnection::s_pSessionConnectionLock )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        DirectComposition::CConnection::s_pSessionConnectionLock);
+    Win32FreePool((__int64)DirectComposition::CConnection::s_pSessionConnectionLock);
     DirectComposition::CConnection::s_pSessionConnectionLock = 0LL;
   }
   if ( DirectComposition::CSynchronizationManager::s_pSyncTable )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      DirectComposition::CSynchronizationManager::s_pSyncTable);
+    Win32FreePool((__int64)DirectComposition::CSynchronizationManager::s_pSyncTable);
   if ( DirectComposition::CSynchronizationManager::s_pSyncTableLock )
   {
     ExDeleteResourceLite(DirectComposition::CSynchronizationManager::s_pSyncTableLock);
-    if ( DirectComposition::CSynchronizationManager::s_pSyncTableLock )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        DirectComposition::CSynchronizationManager::s_pSyncTableLock);
+    Win32FreePool((__int64)DirectComposition::CSynchronizationManager::s_pSyncTableLock);
   }
 }

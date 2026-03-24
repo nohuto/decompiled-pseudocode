@@ -1,16 +1,16 @@
 /*
- * XREFs of IsSpbCheckDceSupported @ 0x1C000F398
+ * XREFs of IsSpbCheckDceSupported @ 0x1C003AC1C
  * Callers:
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     GetMonitorDC @ 0x1C005B3E8 (GetMonitorDC.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GetMonitorDC @ 0x1C003B0E0 (GetMonitorDC.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsSpbCheckDceSupported()
 {
-  if ( qword_1C0295AE8 )
-    return qword_1C0295AE8();
+  if ( qword_1C02566D8 )
+    return qword_1C02566D8();
   else
     return 3221225659LL;
 }

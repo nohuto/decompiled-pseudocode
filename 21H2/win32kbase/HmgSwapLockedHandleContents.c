@@ -1,13 +1,13 @@
 /*
- * XREFs of HmgSwapLockedHandleContents @ 0x1C00CCC50
+ * XREFs of HmgSwapLockedHandleContents @ 0x1C00BDCC0
  * Callers:
- *     bMigrateSurfaceForConversion @ 0x1C0061D70 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00B9E00 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C0022C00 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?ShareCount@HANDLELOCK@@QEAAKXZ @ 0x1C00CD090 (-ShareCount@HANDLELOCK@@QEAAKXZ.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C002FF20 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?ShareCount@HANDLELOCK@@QEAAKXZ @ 0x1C00BE100 (-ShareCount@HANDLELOCK@@QEAAKXZ.c)
  */
 
 __int64 __fastcall HmgSwapLockedHandleContents(
@@ -72,13 +72,13 @@ __int64 __fastcall HmgSwapLockedHandleContents(
   v56 = 0LL;
   v57 = 0;
   v9 = (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v56, v9, 0LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v56, v9, 0, 0, 0);
   if ( v57 )
   {
     v54 = 0LL;
     v55 = 0;
     v10 = (unsigned __int16)a3 | (a3 >> 8) & 0xFF0000;
-    HANDLELOCK::vLockHandle((HANDLELOCK *)&v54, v10, 0LL, 0, 0);
+    HANDLELOCK::vLockHandle((HANDLELOCK *)&v54, v10, 0, 0, 0);
     v11 = v55;
     if ( v55 )
     {

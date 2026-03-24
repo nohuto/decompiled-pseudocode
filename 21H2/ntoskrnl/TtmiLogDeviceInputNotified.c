@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceInputNotified @ 0x1409A7DA4
+ * XREFs of TtmiLogDeviceInputNotified @ 0x140902240
  * Callers:
- *     TtmNotifyDeviceInput @ 0x1409A1A20 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyDeviceInput @ 0x1408FBFC0 (TtmNotifyDeviceInput.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x1402445B0 (PsGetProcessSessionIdEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, char a5, char a6)
@@ -45,9 +45,9 @@ char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, 
   _UNKNOWN *retaddr; // [rsp+100h] [rbp+4Fh] BYREF
 
   v6 = &retaddr;
-  if ( (unsigned int)dword_140D3B908 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140D3B908, 1LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL);
     if ( (_BYTE)v6 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -80,8 +80,8 @@ char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, 
       v37 = 1;
       v40 = 1;
       LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140D3B908,
-                     (unsigned __int8 *)&dword_140033C6C,
+                     (__int64)&dword_140D2D8C8,
+                     (unsigned __int8 *)byte_14002BD23,
                      0LL,
                      0LL,
                      9u,

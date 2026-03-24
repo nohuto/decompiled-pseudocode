@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_DisablingU1U2OnExitLatencyTooLargeError @ 0x1C0022DB0
+ * XREFs of HUBDSM_DisablingU1U2OnExitLatencyTooLargeError @ 0x1C0022960
  * Callers:
  *     <none>
  * Callees:

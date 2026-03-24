@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvCounterQueryCounter @ 0x1403C80F0
+ * XREFs of HalpHvCounterQueryCounter @ 0x14038DBB0
  * Callers:
- *     HalpHvTimerArm @ 0x1403C8060 (HalpHvTimerArm.c)
+ *     HalpHvTimerArm @ 0x14038DB20 (HalpHvTimerArm.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpHvCounterQueryCounter()

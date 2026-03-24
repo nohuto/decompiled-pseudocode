@@ -1,19 +1,19 @@
 /*
- * XREFs of ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00217E0
+ * XREFs of ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024700
  * Callers:
- *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C002179C (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
- *     ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01ADA64 (-xxxRestoreMouseCursors@Feedback@@YAXXZ.c)
+ *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C002509C (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
+ *     ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01DA94C (-xxxRestoreMouseCursors@Feedback@@YAXXZ.c)
  * Callees:
- *     RtlInitUnicodeStringOrId @ 0x1C001FB94 (RtlInitUnicodeStringOrId.c)
- *     xxxClientExpandStringW @ 0x1C0020288 (xxxClientExpandStringW.c)
- *     xxxClientLoadImage @ 0x1C0022330 (xxxClientLoadImage.c)
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     xxxClientLoadImage @ 0x1C0022860 (xxxClientLoadImage.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024954 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     xxxClientExpandStringW @ 0x1C00251BC (xxxClientExpandStringW.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C00254A4 (RtlInitUnicodeStringOrId.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2, unsigned int a3)
+unsigned __int8 *__fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  int v5; // edi
+  unsigned int v5; // edi
   __int64 v6; // rbx
   __int64 v7; // rdx
   _OWORD *v8; // rcx
@@ -27,11 +27,11 @@ __int64 __fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2
   __int128 v16; // xmm1
   __int64 v17; // rax
   unsigned int v18; // eax
-  int v19; // edx
+  __int64 v19; // rdx
   PWSTR Buffer; // rcx
   _OWORD *v21; // rax
   __int128 v22; // xmm1
-  __int64 result; // rax
+  unsigned __int8 *result; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   _DWORD v25[2]; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE *v26; // [rsp+58h] [rbp-A8h]
@@ -40,7 +40,7 @@ __int64 __fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2
 
   DestinationString = 0LL;
   v5 = 576;
-  FastGetProfileStringFromIDW(a1, 1LL, WORD1(gasyscur[69 * (int)a2]), &word_1C030D60C, SourceString, 260, 0);
+  FastGetProfileStringFromIDW(a1, 1LL, WORD1(gasyscur[69 * (int)a2]), &word_1C02E497C, SourceString, 260, 0);
   if ( SourceString[0] )
   {
     v6 = 4LL;
@@ -112,10 +112,10 @@ __int64 __fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2
   }
   else
   {
-    RtlInitUnicodeStringOrId(&DestinationString, (WCHAR *)(unsigned __int16)(a2 + 100));
+    RtlInitUnicodeStringOrId(&DestinationString, (unsigned __int16)(a2 + 100));
   }
-  result = xxxClientLoadImage((unsigned int)&DestinationString, v19, 2, 0, 0, v5);
+  result = xxxClientLoadImage(&DestinationString.Length, v19, 2u, 0, 0, v5);
   if ( result )
-    return zzzInternalSetSystemCursor(result, a2, &DestinationString, a3);
+    return (unsigned __int8 *)zzzInternalSetSystemCursor(result, a2, &DestinationString, a3);
   return result;
 }

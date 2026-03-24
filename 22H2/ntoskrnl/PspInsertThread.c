@@ -1,391 +1,332 @@
 /*
- * XREFs of PspInsertThread @ 0x14073F3AC
+ * XREFs of PspInsertThread @ 0x1406C1DE8
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspCreateThread @ 0x1407712B4 (PspCreateThread.c)
- *     PspCreatePicoThread @ 0x1409B5840 (PspCreatePicoThread.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PspCreateThread @ 0x1406C1A0C (PspCreateThread.c)
+ *     PspCreatePicoThread @ 0x14090BFA0 (PspCreatePicoThread.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KeReadyThread @ 0x1402BDD8C (KeReadyThread.c)
- *     KeStartThread @ 0x1402BE0A8 (KeStartThread.c)
- *     KeQueryMaximumGroupCount @ 0x1402BE5F0 (KeQueryMaximumGroupCount.c)
- *     KeRequestTerminationThread @ 0x1403098CC (KeRequestTerminationThread.c)
- *     KeSuspendThread @ 0x140309CE8 (KeSuspendThread.c)
- *     KeForceResumeThread @ 0x14030AAAC (KeForceResumeThread.c)
- *     ObReferenceObjectExWithTag @ 0x1403373E0 (ObReferenceObjectExWithTag.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeRaiseUserException @ 0x140570F30 (KeRaiseUserException.c)
- *     PspChangeProcessExecutionState @ 0x1406A6C04 (PspChangeProcessExecutionState.c)
- *     EtwTraceThread @ 0x1406AD060 (EtwTraceThread.c)
- *     PspCallProcessNotifyRoutines @ 0x1406AF954 (PspCallProcessNotifyRoutines.c)
- *     PspCallThreadNotifyRoutines @ 0x1406AFDA0 (PspCallThreadNotifyRoutines.c)
- *     SeCreateAccessStateEx @ 0x1406C2F50 (SeCreateAccessStateEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x14073FC68 (PspRecheckThreadOptionalXStateFeatures.c)
- *     PspCreateObjectHandle @ 0x14073FCC0 (PspCreateObjectHandle.c)
- *     EtwTraceProcess @ 0x14075540C (EtwTraceProcess.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     MmDeleteTeb @ 0x14076F0DC (MmDeleteTeb.c)
- *     PoEnergyContextStart @ 0x1407B15EC (PoEnergyContextStart.c)
- *     PspDeleteUserStack @ 0x1407E8654 (PspDeleteUserStack.c)
- *     KeUninitThread @ 0x1407EA0BC (KeUninitThread.c)
- *     PspAssignProcessToJobList @ 0x1409B0F60 (PspAssignProcessToJobList.c)
- *     PspCreateSecureThread @ 0x1409B1010 (PspCreateSecureThread.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MmDeleteKernelStack @ 0x1402AB200 (MmDeleteKernelStack.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ObReferenceObjectExWithTag @ 0x1402F6460 (ObReferenceObjectExWithTag.c)
+ *     KeReadyThread @ 0x140340A24 (KeReadyThread.c)
+ *     KeStartThread @ 0x140340A7C (KeStartThread.c)
+ *     KeForceResumeThread @ 0x14034281C (KeForceResumeThread.c)
+ *     KeSuspendThread @ 0x140343270 (KeSuspendThread.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     KeRequestTerminationThread @ 0x14035BD28 (KeRequestTerminationThread.c)
+ *     KeRaiseUserException @ 0x140515E60 (KeRaiseUserException.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PspCallProcessNotifyRoutines @ 0x14061B30C (PspCallProcessNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x14061B820 (PspCallThreadNotifyRoutines.c)
+ *     EtwTraceThread @ 0x14062997C (EtwTraceThread.c)
+ *     MmDeleteTeb @ 0x140636AF0 (MmDeleteTeb.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     PoEnergyContextStart @ 0x14067C358 (PoEnergyContextStart.c)
+ *     PspDeleteUserStack @ 0x1406A1938 (PspDeleteUserStack.c)
+ *     PspCreateObjectHandle @ 0x1406C3584 (PspCreateObjectHandle.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406DA6C0 (SeCreateAccessStateEx.c)
+ *     KeSetUmsThreadKernelLock @ 0x1408BD668 (KeSetUmsThreadKernelLock.c)
+ *     KeUnInitializeUmsThread @ 0x1408BD738 (KeUnInitializeUmsThread.c)
+ *     KeUpdateUmsThreadState @ 0x1408BD7AC (KeUpdateUmsThreadState.c)
+ *     PspAssignProcessToJobList @ 0x140909F3C (PspAssignProcessToJobList.c)
+ *     PspCreateSecureThread @ 0x140909FEC (PspCreateSecureThread.c)
  */
 
 __int64 __fastcall PspInsertThread(
-        char *Object,
-        PEPROCESS Process,
-        __int64 a3,
+        char *DmaAdapter,
+        ULONG_PTR BugCheckParameter1,
+        _QWORD *a3,
         _DWORD *a4,
-        int a5,
-        _BYTE *a6,
+        ACCESS_MASK a5,
+        _DWORD *a6,
         __int64 a7,
         __int64 a8,
-        PACCESS_STATE AccessState,
-        PVOID *a10,
-        _OWORD *a11)
+        __int64 a9,
+        _QWORD *a10,
+        struct _DMA_ADAPTER *a11)
 {
-  __int64 v13; // rdx
   unsigned int v14; // edi
-  __int64 Pool2; // r12
-  unsigned __int64 v16; // rbx
-  _DWORD *v17; // rdx
+  unsigned int *v15; // r13
+  __int64 v16; // r15
+  __int64 v17; // rbx
+  __int64 v18; // rdx
   int SecureThread; // ecx
-  unsigned int v19; // ecx
-  struct _KPROCESS *v20; // rcx
-  PEPROCESS *v21; // rdx
-  signed int inserted; // r12d
-  struct _KPROCESS *v23; // rcx
-  volatile signed __int64 *v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  int v27; // ebx
-  PACCESS_STATE v28; // rbx
-  __int64 result; // rax
-  USHORT MaximumGroupCount; // ax
-  USHORT v31; // ax
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  _DWORD *v22; // r9
+  unsigned int v24; // edx
+  unsigned int v25; // ecx
+  _QWORD *v26; // rcx
+  _QWORD *v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  _DWORD *v30; // r9
+  __int64 v31; // rdx
   __int64 v32; // r8
-  __int64 v33; // rcx
+  _DWORD *v33; // r9
   __int64 v34; // rdx
-  KPROCESSOR_MODE v35; // dl
-  unsigned int v36; // [rsp+44h] [rbp-94h]
-  char v37; // [rsp+44h] [rbp-94h]
-  unsigned int *v38; // [rsp+48h] [rbp-90h]
-  _QWORD *v39; // [rsp+50h] [rbp-88h]
-  __int64 v40; // [rsp+58h] [rbp-80h]
-  _KPROCESS *v41; // [rsp+68h] [rbp-70h]
+  __int64 v35; // r8
+  _DWORD *v36; // r9
+  char v37; // r12
+  int v38; // edx
+  signed int AccessState; // r15d
+  volatile signed __int64 *v40; // r12
+  __int64 v41; // rdx
+  __int64 v42; // r8
+  _DWORD *v43; // r9
+  _BYTE *v44; // rbx
+  int v45; // r12d
+  KPROCESSOR_MODE v46; // dl
+  unsigned __int64 *v47; // [rsp+48h] [rbp-70h]
+  unsigned __int64 v48; // [rsp+50h] [rbp-68h]
+  _KPROCESS *Process; // [rsp+60h] [rbp-58h]
 
-  v13 = a7;
   v14 = 0;
-  v41 = KeGetCurrentThread()->ApcState.Process;
-  v40 = *((_QWORD *)Object + 30);
-  v38 = 0LL;
-  Pool2 = 0LL;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v48 = *((_QWORD *)DmaAdapter + 30);
+  v15 = 0LL;
   v16 = 0LL;
+  if ( a7 )
+  {
+    v47 = *(unsigned __int64 **)(a7 + 24);
+    v15 = (unsigned int *)((a7 + 252) & -(__int64)((*(_DWORD *)(a7 + 4) & 0x4000) != 0));
+    v16 = (a7 + 320) & -(__int64)((*(_DWORD *)(a7 + 4) & 0x1000) != 0);
+  }
+  else
+  {
+    v47 = 0LL;
+  }
   if ( (*a4 & 0x20) == 0 )
+    ExAcquirePushLockExclusiveEx(BugCheckParameter1 + 1080, 0LL);
+  v17 = *(_QWORD *)(BugCheckParameter1 + 1296);
+  if ( v17 )
   {
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&Process[1], 0LL);
-    v13 = a7;
-  }
-  if ( !v13 )
-  {
-    v39 = 0LL;
-    goto LABEL_6;
-  }
-  v39 = *(_QWORD **)(v13 + 24);
-  if ( (*(_DWORD *)(v13 + 4) & 0x1000) != 0 )
-  {
-    MaximumGroupCount = KeQueryMaximumGroupCount();
-    Pool2 = ExAllocatePool2(64LL, 8LL * MaximumGroupCount + 8, 538997584LL);
-    if ( !Pool2 )
+    if ( (*((_DWORD *)DmaAdapter + 29) & 0x400) == 0 )
     {
-      v36 = -1073741670;
-      goto LABEL_89;
-    }
-    v31 = KeQueryMaximumGroupCount();
-    *(_WORD *)Pool2 = 1;
-    *(_WORD *)(Pool2 + 2) = v31;
-    *(_DWORD *)(Pool2 + 4) = 0;
-    memset((void *)(Pool2 + 8), 0, 8LL * v31);
-    v13 = a7;
-    v32 = *(_QWORD *)(a7 + 320);
-    v33 = *(unsigned __int16 *)(a7 + 328);
-    if ( *(_WORD *)Pool2 <= (unsigned __int16)v33 )
-    {
-      if ( *(_WORD *)(Pool2 + 2) <= (unsigned __int16)v33 )
-      {
-LABEL_72:
-        if ( Process->PrimaryGroup != *(_WORD *)(a7 + 328) )
-          _interlockedbittestandset((volatile signed __int32 *)&Process->632, 0xCu);
-        goto LABEL_5;
-      }
-      *(_WORD *)Pool2 = v33 + 1;
-    }
-    *(_QWORD *)(Pool2 + 8 * v33 + 8) |= v32;
-    goto LABEL_72;
-  }
-LABEL_5:
-  v38 = (unsigned int *)((v13 + 252) & -(__int64)((*(_DWORD *)(v13 + 4) & 0x4000) != 0));
-LABEL_6:
-  v16 = Process[1].Affinity.StaticBitmap[16];
-  if ( v16 )
-  {
-    if ( (*((_DWORD *)Object + 29) & 0x400) == 0 )
-    {
-      ExAcquireResourceSharedLite((PERESOURCE)(v16 + 56), 1u);
+      ExAcquireResourceSharedLite((PERESOURCE)(v17 + 56), 1u);
       v14 = 1;
-      if ( Pool2 )
+      if ( v16 )
       {
-        if ( (*(_DWORD *)(v16 + 1040) & 0x10) != 0 && !(unsigned int)KeIsSubsetAffinityEx(Pool2, v16 + 712) )
-          v14 = 5;
+        if ( (*(_DWORD *)(v17 + 848) & 0x10) != 0 )
+        {
+          v18 = *(_QWORD *)(v17 + 8LL * *(unsigned __int16 *)(v16 + 8) + 624);
+          if ( !v18 || (v18 & *(_QWORD *)v16) != *(_QWORD *)v16 )
+            v14 = 5;
+        }
       }
     }
   }
-  if ( v14 >= 4 || (HIDWORD(Process[1].DirectoryTableBase) & 0x4000008) != 0x4000000 )
+  if ( v14 < 4
+    && (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x4000008) == 0x4000000
+    && ((*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000000) == 0
+     || (*((_DWORD *)DmaAdapter + 29) & 0x400) != 0
+     || (*a4 & 2) != 0) )
   {
-    v17 = a4;
-LABEL_106:
+    SecureThread = 0;
+  }
+  else
+  {
     SecureThread = -1073741823;
-    goto LABEL_11;
   }
-  v17 = a4;
-  if ( (Process[1].DirectoryTableBase & 0x4000000000000000LL) != 0
-    && (*((_DWORD *)Object + 29) & 0x400) == 0
-    && (*(_BYTE *)a4 & 2) == 0 )
+  if ( SecureThread >= 0 && (*(_BYTE *)(BugCheckParameter1 + 992) & 1) != 0 )
+    SecureThread = PspCreateSecureThread(DmaAdapter);
+  if ( SecureThread < 0 )
   {
-    goto LABEL_106;
-  }
-  SecureThread = 0;
-LABEL_11:
-  v36 = SecureThread;
-  if ( SecureThread >= 0 )
-  {
-    if ( (Process->SecureState.SecureHandle & 1) != 0 && (*v17 & 0x400) != 0 )
+    if ( (v14 & 1) != 0 )
+      ExReleaseResourceLite((PERESOURCE)(v17 + 56));
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter1 + 1080), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(BugCheckParameter1 + 1080));
+    KeAbPostRelease(BugCheckParameter1 + 1080);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)DmaAdapter + 160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)DmaAdapter + 160);
+    KeAbPostRelease((ULONG_PTR)(DmaAdapter + 1280));
+    MmDeleteKernelStack(*((_QWORD *)DmaAdapter + 7), (struct _LIST_ENTRY *)2);
+    *((_QWORD *)DmaAdapter + 5) = 0LL;
+    if ( a6 )
     {
-      SecureThread = PspCreateSecureThread(Object);
-      v36 = SecureThread;
+      if ( v48 )
+        MmDeleteTeb((_KPROCESS *)BugCheckParameter1, v48, v21, v22);
+      if ( *(_BYTE *)a6 )
+        PspDeleteUserStack((_KPROCESS *)BugCheckParameter1, v20, a3, a6);
     }
-    if ( SecureThread >= 0 )
-    {
-      KeStartThread((__int64)Object, (unsigned __int16 *)Pool2, v38);
-      if ( (v14 & 1) != 0 )
-      {
-        ExReleaseResourceLite((PERESOURCE)(v16 + 56));
-        v14 &= ~1u;
-      }
-      if ( (Process[1].DirectoryTableBase & 0x4000000000000000LL) != 0 && (*a4 & 2) != 0 )
-        *((_DWORD *)Object + 345) |= 0x40u;
-      if ( Pool2 )
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-      v19 = (((HIDWORD(Process[1].DirectoryTableBase) >> 27) & 7) << 9) | *((_DWORD *)Object + 344) & 0xFFFFF1FF;
-      *((_DWORD *)Object + 344) = v19;
-      *((_DWORD *)Object + 344) = v19 ^ (LODWORD(Process[1].DirectoryTableBase) ^ v19) & 0x7000;
-      if ( ++LODWORD(Process[1].ActiveProcessors.StaticBitmap[8]) > LODWORD(Process[1].CpuPartitionList.Flink) )
-        LODWORD(Process[1].CpuPartitionList.Flink) = Process[1].ActiveProcessors.StaticBitmap[8];
-      if ( LODWORD(Process[1].ActiveProcessors.StaticBitmap[8]) == 1 )
-      {
-        v14 |= 2u;
-      }
-      else if ( LODWORD(Process[1].ActiveProcessors.StaticBitmap[8]) == 2
-             && (Process[1].DirectoryTableBase & 0x8000) == 0 )
-      {
-        _interlockedbittestandset((volatile signed __int32 *)&Process[1].DirectoryTableBase, 0xFu);
-      }
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&Process[1].CpuPartitionList.Blink, 0LL);
-      v20 = (struct _KPROCESS *)(Object + 1336);
-      v21 = (PEPROCESS *)Process[1].ActiveProcessors.StaticBitmap[7];
-      if ( *v21 != (PEPROCESS)&Process[1].ActiveProcessors.StaticBitmap[6] )
-        __fastfail(3u);
-      *(_QWORD *)&v20->Header.Lock = (char *)Process + 1504;
-      *((_QWORD *)Object + 168) = v21;
-      *v21 = v20;
-      Process[1].ActiveProcessors.StaticBitmap[7] = (unsigned __int64)v20;
-      if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&Process[1].CpuPartitionList.Blink,
-              0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&Process[1].CpuPartitionList.Blink);
-      KeAbPostRelease((ULONG_PTR)&Process[1].CpuPartitionList.Blink);
-      if ( Process->InstrumentationCallback )
-        _interlockedbittestandset((volatile signed __int32 *)Object, 0x19u);
-      if ( *(_QWORD *)&Process[2].IdealProcessor[14] )
-        _interlockedbittestandset((volatile signed __int32 *)Object, 0x1Du);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].Header.Lock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&Process[1].Header.Lock);
-      KeAbPostRelease((ULONG_PTR)&Process[1]);
-      if ( (*a4 & 0x40) != 0 )
-        PspChangeProcessExecutionState(Process);
-      ObReferenceObjectExWithTag((ULONG_PTR)Object, 2);
-      *((_DWORD *)Object + 363) = 1;
-      if ( (*a4 & 1) != 0 )
-      {
-        KeSuspendThread((__int64)Object);
-        if ( (*((_DWORD *)Object + 344) & 1) != 0 )
-          KeForceResumeThread((__int64)Object);
-      }
-      inserted = PspRecheckThreadOptionalXStateFeatures(Process, Object);
-      v37 = 0;
-      if ( !BYTE4(AccessState[2].SecurityDescriptor) || (*a4 & 0x10) != 0 )
-      {
-        v23 = Process;
-        v37 = 1;
-      }
-      else
-      {
-        v23 = v41;
-      }
-      if ( inserted < 0
-        || (inserted = SeCreateAccessStateEx(
-                         0LL,
-                         v23,
-                         AccessState,
-                         &AccessState[1].OperationID,
-                         a5,
-                         (_DWORD *)PsThreadType + 19),
-            inserted < 0) )
-      {
-        ObfDereferenceObject(Object);
-      }
-      else
-      {
-        inserted = ObInsertObjectEx(Object, AccessState, a5, 0, v37, 0LL, 0LL);
-        if ( inserted >= 0 )
-        {
-          ObfDereferenceObject(Object);
-          if ( v39 )
-            *v39 = v40;
-          if ( a11 )
-            *a11 = *(_OWORD *)(Object + 1224);
-        }
-        if ( inserted < 0 )
-        {
-          SepDeleteAccessState((__int64)AccessState);
-          SeReleaseSubjectContext(&AccessState->SubjectSecurityContext);
-        }
-      }
-      v24 = (volatile signed __int64 *)(Object + 1360);
-      if ( inserted < 0 )
-      {
-        if ( (_InterlockedExchangeAdd64(v24, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        {
-          ExfTryToWakePushLock(v24);
-          v24 = (volatile signed __int64 *)(Object + 1360);
-        }
-        KeAbPostRelease((ULONG_PTR)v24);
-        if ( (*a4 & 1) != 0 )
-          KeForceResumeThread((__int64)Object);
-        if ( a6 && *a6 )
-          PspDeleteUserStack(Process, v25, a3, a6);
-      }
-      else
-      {
-        _InterlockedOr((volatile signed __int32 *)Object + 344, 2u);
-        if ( (_InterlockedExchangeAdd64(v24, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        {
-          ExfTryToWakePushLock(v24);
-          v24 = (volatile signed __int64 *)(Object + 1360);
-        }
-        KeAbPostRelease((ULONG_PTR)v24);
-      }
-      v27 = 0;
-      if ( (v14 & 2) != 0 )
-      {
-        if ( (PerfGlobalGroupMask & 1) != 0 )
-          EtwTraceProcess((_DWORD)Process);
-        if ( Process[2].Affinity.StaticBitmap[4] )
-          PoEnergyContextStart((ULONG_PTR)Process);
-        if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 1) == 0 || *(_QWORD *)&Process[2].Affinity.Count )
-          v27 = PspCallProcessNotifyRoutines((struct _EX_RUNDOWN_REF *)Process, a7, 1);
-      }
-      if ( (PerfGlobalGroupMask & 2) != 0 )
-        EtwTraceThread((__int64)Object, a3, 1);
-      if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 1) == 0 || *(_QWORD *)&Process[2].Affinity.Count )
-        PspCallThreadNotifyRoutines(Object, 1u, 0);
-      if ( inserted < 0 )
-        goto LABEL_66;
-      if ( v27 < 0 )
-      {
-        inserted = v27;
-        v28 = AccessState;
-      }
-      else
-      {
-        v28 = AccessState;
-        inserted = PspCreateObjectHandle(Object, AccessState, PsThreadType);
-      }
-      SepDeleteAccessState((__int64)v28);
-      SeReleaseSubjectContext(&v28->SubjectSecurityContext);
-      if ( inserted >= 0 )
-      {
-        if ( a7 )
-        {
-          v25 = *(_QWORD *)(a7 + 376);
-          if ( v25 )
-            inserted = PspAssignProcessToJobList(Process, v25, *(unsigned int *)(a7 + 388));
-        }
-        if ( inserted >= 0 )
-        {
-          *a10 = v28[2].AuxData;
-LABEL_66:
-          KeReadyThread((__int64)Object, v25, v26);
-          return (unsigned int)inserted;
-        }
-        if ( ((__int64)v28[2].SecurityDescriptor & 0x200) != 0
-          || (v35 = 1, (HIDWORD(v41[2].Header.WaitListHead.Flink) & 0x1000) != 0) )
-        {
-          v35 = 0;
-        }
-        ObCloseHandle(v28[2].AuxData, v35);
-        if ( a6 && (*a6 & 1) != 0 )
-          KeRaiseUserException(inserted);
-      }
-      if ( !_interlockedbittestandset((volatile signed __int32 *)Object + 344, 0) )
-        v14 |= 8u;
-      if ( (*((_DWORD *)Object + 29) & 0x400) != 0 )
-      {
-        if ( (*a4 & 1) != 0 )
-          KeForceResumeThread((__int64)Object);
-      }
-      else
-      {
-        if ( v14 >= 8 )
-          *((_DWORD *)Object + 358) = inserted;
-        KeRequestTerminationThread((__int64)Object, v25, v26);
-      }
-      goto LABEL_66;
-    }
+    return (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000008) != 0 ? -1073741558 : -1073741823;
   }
-LABEL_89:
+  KeStartThread((__int64)DmaAdapter, (__int128 *)v16, v15);
   if ( (v14 & 1) != 0 )
-    ExReleaseResourceLite((PERESOURCE)(v16 + 56));
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].Header.Lock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&Process[1].Header.Lock);
-  KeAbPostRelease((ULONG_PTR)&Process[1]);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)Object + 170, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)Object + 170);
-  KeAbPostRelease((ULONG_PTR)(Object + 1360));
-  KeUninitThread(Object);
-  if ( a6 )
   {
-    if ( v40 )
-      MmDeleteTeb(Process, v40);
-    if ( *a6 )
-      PspDeleteUserStack(Process, v34, a3, a6);
+    ExReleaseResourceLite((PERESOURCE)(v17 + 56));
+    v14 &= ~1u;
   }
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-  result = v36;
-  if ( (Process[1].DirectoryTableBase & 0x4000000800000000LL) != 0 )
-    return 3221225738LL;
-  return result;
+  v24 = *(_DWORD *)(BugCheckParameter1 + 1124);
+  if ( (v24 & 0x40000000) != 0 && (*a4 & 2) != 0 )
+  {
+    *((_DWORD *)DmaAdapter + 325) |= 0x40u;
+    v24 = *(_DWORD *)(BugCheckParameter1 + 1124);
+  }
+  v25 = (((v24 >> 27) & 7) << 9) | *((_DWORD *)DmaAdapter + 324) & 0xFFFFF1FF;
+  *((_DWORD *)DmaAdapter + 324) = v25;
+  *((_DWORD *)DmaAdapter + 324) = v25 ^ ((unsigned __int16)v25 ^ (unsigned __int16)*(_DWORD *)(BugCheckParameter1 + 1120)) & 0x7000;
+  if ( ++*(_DWORD *)(BugCheckParameter1 + 1520) > *(_DWORD *)(BugCheckParameter1 + 2136) )
+    *(_DWORD *)(BugCheckParameter1 + 2136) = *(_DWORD *)(BugCheckParameter1 + 1520);
+  if ( *(_DWORD *)(BugCheckParameter1 + 1520) == 1 )
+  {
+    v14 |= 2u;
+  }
+  else if ( *(_DWORD *)(BugCheckParameter1 + 1520) == 2 && (*(_DWORD *)(BugCheckParameter1 + 1120) & 0x8000) == 0 )
+  {
+    _interlockedbittestandset((volatile signed __int32 *)(BugCheckParameter1 + 1120), 0xFu);
+  }
+  ExAcquirePushLockExclusiveEx(BugCheckParameter1 + 2144, 0LL);
+  v26 = DmaAdapter + 1256;
+  v27 = *(_QWORD **)(BugCheckParameter1 + 1512);
+  if ( *v27 != BugCheckParameter1 + 1504 )
+    __fastfail(3u);
+  *v26 = BugCheckParameter1 + 1504;
+  *((_QWORD *)DmaAdapter + 158) = v27;
+  *v27 = v26;
+  *(_QWORD *)(BugCheckParameter1 + 1512) = v26;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter1 + 2144), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(BugCheckParameter1 + 2144));
+  KeAbPostRelease(BugCheckParameter1 + 2144);
+  if ( *(_QWORD *)(BugCheckParameter1 + 984) )
+    _interlockedbittestandset((volatile signed __int32 *)DmaAdapter, 0x19u);
+  if ( (*(_DWORD *)(BugCheckParameter1 + 2172) & 0x2000000) != 0 )
+    _interlockedbittestandset((volatile signed __int32 *)DmaAdapter, 0x1Du);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter1 + 1080), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(BugCheckParameter1 + 1080));
+  KeAbPostRelease(BugCheckParameter1 + 1080);
+  if ( (*a4 & 0x40) != 0 )
+    PspChangeProcessExecutionState((PEPROCESS)BugCheckParameter1, v28, v29, v30);
+  ObReferenceObjectExWithTag((ULONG_PTR)DmaAdapter, 2);
+  *((_DWORD *)DmaAdapter + 343) = 1;
+  if ( (*a4 & 1) != 0 )
+  {
+    KeSuspendThread((__int64)DmaAdapter, v31, v32, v33);
+    if ( (*((_DWORD *)DmaAdapter + 324) & 1) != 0 )
+      KeForceResumeThread((__int64)DmaAdapter, v34, v35, v36);
+  }
+  v37 = 0;
+  if ( !*(_BYTE *)(a9 + 388) || (*a4 & 0x10) != 0 )
+  {
+    v38 = BugCheckParameter1;
+    v37 = 1;
+  }
+  else
+  {
+    v38 = (int)Process;
+  }
+  AccessState = SeCreateAccessStateEx(0, v38, a9, (int)a9 + 160, a5, (__int64)PsThreadType + 76);
+  if ( AccessState < 0 )
+  {
+    HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+  }
+  else
+  {
+    AccessState = ObInsertObjectEx((PADAPTER_OBJECT)DmaAdapter, (struct _ACCESS_STATE *)a9, a5, 0, v37, 0LL, 0LL);
+    if ( AccessState >= 0 )
+    {
+      HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+      if ( v47 )
+        *v47 = v48;
+      if ( a11 )
+        *a11 = *(struct _DMA_ADAPTER *)(DmaAdapter + 1144);
+    }
+    if ( AccessState < 0 )
+    {
+      SepDeleteAccessState(a9);
+      SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(a9 + 32));
+    }
+  }
+  v40 = (volatile signed __int64 *)(DmaAdapter + 1280);
+  if ( AccessState < 0 )
+  {
+    if ( (_InterlockedExchangeAdd64(v40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)DmaAdapter + 160);
+    KeAbPostRelease((ULONG_PTR)(DmaAdapter + 1280));
+    if ( (*a4 & 1) != 0 )
+      KeForceResumeThread((__int64)DmaAdapter, v41, v42, v43);
+    v44 = a6;
+    if ( a6 && *(_BYTE *)a6 )
+      PspDeleteUserStack((_KPROCESS *)BugCheckParameter1, v41, a3, a6);
+  }
+  else
+  {
+    _InterlockedOr((volatile signed __int32 *)DmaAdapter + 324, 2u);
+    if ( (_InterlockedExchangeAdd64(v40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)DmaAdapter + 160);
+    KeAbPostRelease((ULONG_PTR)(DmaAdapter + 1280));
+    v44 = a6;
+  }
+  v45 = 0;
+  if ( (v14 & 2) != 0 )
+  {
+    if ( (PerfGlobalGroupMask & 1) != 0 )
+      EtwTraceProcess((PEPROCESS)BugCheckParameter1, 769);
+    if ( *(_QWORD *)(BugCheckParameter1 + 2280) )
+      PoEnergyContextStart(BugCheckParameter1);
+    if ( (*(_DWORD *)(BugCheckParameter1 + 2172) & 1) == 0 || *(_QWORD *)(BugCheckParameter1 + 2240) )
+      v45 = PspCallProcessNotifyRoutines((struct _EX_RUNDOWN_REF *)BugCheckParameter1, a7, 1);
+  }
+  if ( (PerfGlobalGroupMask & 2) != 0 )
+    EtwTraceThread((__int64)DmaAdapter, (__int64)a3, 1);
+  if ( (*(_DWORD *)(BugCheckParameter1 + 2172) & 1) == 0 || *(_QWORD *)(BugCheckParameter1 + 2240) )
+    PspCallThreadNotifyRoutines(DmaAdapter, 1u, 0);
+  if ( AccessState >= 0 )
+  {
+    if ( v45 < 0 )
+      AccessState = v45;
+    else
+      AccessState = PspCreateObjectHandle(DmaAdapter, a9, PsThreadType);
+    SepDeleteAccessState(a9);
+    SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(a9 + 32));
+    if ( AccessState >= 0 )
+    {
+      if ( a7 )
+      {
+        v41 = *(_QWORD *)(a7 + 400);
+        if ( v41 )
+          AccessState = PspAssignProcessToJobList(BugCheckParameter1, v41, *(unsigned int *)(a7 + 412));
+      }
+      if ( AccessState >= 0 )
+      {
+        *a10 = *(_QWORD *)(a9 + 392);
+        goto LABEL_125;
+      }
+      v46 = (*(_DWORD *)(a9 + 384) & 0x200) == 0 && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0;
+      ObCloseHandle(*(HANDLE *)(a9 + 392), v46);
+      if ( v44 && (*v44 & 1) != 0 )
+        KeRaiseUserException(AccessState);
+    }
+    if ( !_interlockedbittestandset((volatile signed __int32 *)DmaAdapter + 324, 0) )
+      v14 |= 8u;
+    if ( (*((_DWORD *)DmaAdapter + 29) & 0x400) != 0 )
+    {
+      if ( (*a4 & 1) != 0 )
+        KeForceResumeThread((__int64)DmaAdapter, v41, v42, v43);
+    }
+    else
+    {
+      if ( v14 >= 8 )
+        *((_DWORD *)DmaAdapter + 338) = AccessState;
+      KeRequestTerminationThread((__int64)DmaAdapter, v41, v42, v43);
+    }
+  }
+LABEL_125:
+  if ( (DmaAdapter[3] & 0x40) != 0 && AccessState < 0 )
+  {
+    KeSetUmsThreadKernelLock(**((_QWORD **)DmaAdapter + 62), 0LL);
+    KeUpdateUmsThreadState(**((_QWORD **)DmaAdapter + 62), 2LL, 0LL);
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(*((_QWORD *)DmaAdapter + 62) + 16LL));
+    KeUnInitializeUmsThread(DmaAdapter);
+  }
+  KeReadyThread((__int64)DmaAdapter, v41, v42, (__int64)v43);
+  return (unsigned int)AccessState;
 }

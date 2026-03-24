@@ -1,17 +1,26 @@
 /*
- * XREFs of ??_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z @ 0x180074C7C
+ * XREFs of ??_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z @ 0x1800B0CE8
  * Callers:
- *     ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x180074C18 (-DeleteScenario@CAnimationTracking@@AEAAXI@Z.c)
- *     ?EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGIPEBU_GUID@@AEBUTelFrameInfo@1@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x180077304 (-EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_IN.c)
+ *     ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x1800B0C84 (-DeleteScenario@CAnimationTracking@@AEAAXI@Z.c)
+ *     ?EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGIPEBU_GUID@@AEBUTelFrameInfo@1@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800B18D0 (-EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_IN.c)
  * Callees:
- *     ??1AnimationScenarioRunningStatistics@CAnimationTracking@@QEAA@XZ @ 0x180074CA4 (--1AnimationScenarioRunningStatistics@CAnimationTracking@@QEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 CAnimationTracking::AnimationScenarioRunningStatistics *__fastcall CAnimationTracking::AnimationScenarioRunningStatistics::`scalar deleting destructor'(
         CAnimationTracking::AnimationScenarioRunningStatistics *this)
 {
-  CAnimationTracking::AnimationScenarioRunningStatistics::~AnimationScenarioRunningStatistics(this);
-  DefaultHeap::Free(this);
+  void *v2; // rcx
+  void *v3; // rcx
+
+  v2 = (void *)*((_QWORD *)this + 19);
+  if ( v2 )
+    operator delete(v2);
+  v3 = (void *)*((_QWORD *)this + 17);
+  if ( v3 && *((_QWORD *)this + 18) )
+    operator delete(v3);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 160);
+  operator delete(this);
   return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRemoveSystemServiceTable @ 0x140843400
+ * XREFs of KeRemoveSystemServiceTable @ 0x1408433E0
  * Callers:
  *     <none>
  * Callees:

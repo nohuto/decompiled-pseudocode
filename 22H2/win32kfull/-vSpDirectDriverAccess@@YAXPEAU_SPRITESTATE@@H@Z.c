@@ -1,78 +1,75 @@
 /*
- * XREFs of ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001B570
+ * XREFs of ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00EDFC0
  * Callers:
- *     ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C001BAF8 (--0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C001BB98 (--1MULTISPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00EDED0 (--0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C00EDF70 (--1MULTISPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0164708 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
  * Callees:
- *     ?vSpTlSpriteStateDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F6BB0 (-vSpTlSpriteStateDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ?vSpTlSpriteStateDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C008DB0C (-vSpTlSpriteStateDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall vSpDirectDriverAccess(struct _SPRITESTATE *a1, int a2)
 {
   __int64 ThreadWin32Thread; // rax
   __int64 v5; // rbx
-  Gre::Base *v6; // rcx
-  Gre::Base *v7; // rcx
-  int v8; // ebx
-  int v9; // ebx
-  int v10; // ebx
-  int v11; // ebx
-  int v12; // ebx
-  int v13; // ebx
-  int v14; // ebx
-  int v15; // ebx
-  __int64 v16; // [rsp+30h] [rbp+8h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  __int64 v7; // rdi
+  struct _KTHREAD *v8; // rbx
+  __int64 v9; // rdi
+  struct _KTHREAD *v10; // rbx
+  __int64 v11; // rdi
+  struct _KTHREAD *v12; // rbx
+  __int64 v13; // rdi
+  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
-  v16 = *(_QWORD *)a1;
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v14 = *(_QWORD *)a1;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   v5 = ThreadWin32Thread;
   if ( a2 )
   {
     if ( ThreadWin32Thread
-      && PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v16)
+      && PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v14)
       && (*(_DWORD *)(v5 + 104) || *(_DWORD *)(v5 + 108)) )
     {
-      v8 = *((_DWORD *)a1 + 23);
-      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 4LL) = v8;
-      v9 = *((_DWORD *)a1 + 24);
-      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 8LL) = v9;
-      v10 = *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 4LL);
-      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) = v10;
-      v11 = *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 8LL);
-      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 24LL) = v11;
+      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 4LL) = *((_DWORD *)a1 + 23);
+      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 8LL) = *((_DWORD *)a1 + 24);
+      CurrentThread = KeGetCurrentThread();
+      v7 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)CurrentThread) + 280);
+      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)CurrentThread) + 280) + 20LL) = *(_DWORD *)(v7 + 4);
+      v8 = KeGetCurrentThread();
+      v9 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)v8) + 280);
+      *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)v8) + 280) + 24LL) = *(_DWORD *)(v9 + 8);
       vSpTlSpriteStateDirectDriverAccess(a1, a2);
-      **(_DWORD **)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) = 1;
+      **(_DWORD **)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) = 1;
     }
     else
     {
-      if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v16) )
-        Gre::Base::Globals(v6);
+      PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v14);
       *(_DWORD *)(*((_QWORD *)a1 + 4) + 88LL) = *((_DWORD *)a1 + 23);
       *(_WORD *)(*((_QWORD *)a1 + 4) + 76LL) = *((_WORD *)a1 + 48);
       *((_DWORD *)a1 + 22) = 1;
     }
   }
   else if ( ThreadWin32Thread
-         && PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v16)
+         && PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v14)
          && (*(_DWORD *)(v5 + 104) || *(_DWORD *)(v5 + 108)) )
   {
-    v12 = *((_DWORD *)a1 + 25);
-    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 12LL) = v12;
-    v13 = *((_DWORD *)a1 + 26);
-    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 16LL) = v13;
-    v14 = *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 12LL);
-    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) = v14;
-    v15 = *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 16LL);
-    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 24LL) = v15;
+    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 12LL) = *((_DWORD *)a1 + 25);
+    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 16LL) = *((_DWORD *)a1 + 26);
+    v10 = KeGetCurrentThread();
+    v11 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)v10) + 280);
+    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)v10) + 280) + 20LL) = *(_DWORD *)(v11 + 12);
+    v12 = KeGetCurrentThread();
+    v13 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)v12) + 280);
+    *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)v12) + 280) + 24LL) = *(_DWORD *)(v13 + 16);
     vSpTlSpriteStateDirectDriverAccess(a1, 0);
-    **(_DWORD **)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) = 0;
+    **(_DWORD **)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) = 0;
   }
   else
   {
-    if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v16) )
-      Gre::Base::Globals(v7);
+    PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v14);
     *(_DWORD *)(*((_QWORD *)a1 + 4) + 88LL) = *((_DWORD *)a1 + 25);
     *(_WORD *)(*((_QWORD *)a1 + 4) + 76LL) = *((_WORD *)a1 + 52);
     *((_DWORD *)a1 + 22) = 0;

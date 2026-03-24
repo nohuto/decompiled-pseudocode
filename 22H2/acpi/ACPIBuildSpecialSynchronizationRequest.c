@@ -1,32 +1,34 @@
 /*
- * XREFs of ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8
+ * XREFs of ACPIBuildSpecialSynchronizationRequest @ 0x1C001C75C
  * Callers:
- *     ACPIFlushQueuesUnload @ 0x1C0014558 (ACPIFlushQueuesUnload.c)
- *     ACPITableLoad @ 0x1C003F190 (ACPITableLoad.c)
- *     ACPITableLoadNotifyPnp @ 0x1C003F520 (ACPITableLoadNotifyPnp.c)
- *     ACPITableUnload @ 0x1C003F810 (ACPITableUnload.c)
- *     ACPIBuildFlushQueue @ 0x1C007D43C (ACPIBuildFlushQueue.c)
- *     ACPIInitStartACPI @ 0x1C00A8DF0 (ACPIInitStartACPI.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
+ *     ACPITableLoadNotifyPnp @ 0x1C0031900 (ACPITableLoadNotifyPnp.c)
+ *     ACPIFlushQueuesUnload @ 0x1C004C8A8 (ACPIFlushQueuesUnload.c)
+ *     ACPITableUnload @ 0x1C005FA70 (ACPITableUnload.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
+ *     ACPIInitStartACPI @ 0x1C00BB534 (ACPIInitStartACPI.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
  */
 
 __int64 __fastcall ACPIBuildSpecialSynchronizationRequest(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   _QWORD *v9; // rbx
-  KIRQL v11; // si
-  KIRQL v12; // al
-  __int64 v13; // rdx
-  KIRQL v14; // di
+  KIRQL v10; // si
+  KIRQL v11; // al
+  __int64 v12; // rdx
+  KIRQL v13; // di
 
   v9 = ExAllocateFromNPagedLookasideList(&BuildRequestLookAsideList);
   if ( !v9 )
     return 3221225626LL;
-  v11 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  if ( *(_DWORD *)(a1 + 732) )
+  v10 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  if ( *(_DWORD *)(a1 + 692) )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 732));
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 692));
     memset(v9, 0, 0x88uLL);
     *((_DWORD *)v9 + 4) = 1599293264;
     v9[16] = &AcpiBuildSpecialSynchronizationList;
@@ -36,25 +38,25 @@ __int64 __fastcall ACPIBuildSpecialSynchronizationRequest(__int64 a1, __int64 a2
     v9[5] = a1;
     *((_DWORD *)v9 + 20) = a4;
     *((_DWORD *)v9 + 5) = 4120;
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v11);
-    v12 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
-    v13 = AcpiBuildQueueList;
-    v14 = v12;
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v10);
+    v11 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
+    v12 = AcpiBuildQueueList;
+    v13 = v11;
     if ( *(__int64 **)(AcpiBuildQueueList + 8) != &AcpiBuildQueueList )
       __fastfail(3u);
     *v9 = AcpiBuildQueueList;
     v9[1] = &AcpiBuildQueueList;
-    *(_QWORD *)(v13 + 8) = v9;
+    *(_QWORD *)(v12 + 8) = v9;
     AcpiBuildQueueList = (__int64)v9;
     if ( a5 )
       ACPIBuildScheduleDpc();
-    KeReleaseSpinLock(&AcpiBuildQueueLock, v14);
+    KeReleaseSpinLock(&AcpiBuildQueueLock, v13);
     return 259LL;
   }
   else
   {
     ExFreeToNPagedLookasideList(&BuildRequestLookAsideList, v9);
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v11);
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v10);
     return 3221226166LL;
   }
 }

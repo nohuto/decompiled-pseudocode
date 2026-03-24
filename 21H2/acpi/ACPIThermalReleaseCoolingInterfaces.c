@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIThermalReleaseCoolingInterfaces @ 0x1C002EF8C
+ * XREFs of ACPIThermalReleaseCoolingInterfaces @ 0x1C0031680
  * Callers:
  *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C000A564 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIFanStopDevice @ 0x1C00550FC (ACPIFanStopDevice.c)
- *     ACPIBusIrpQueryRemoveOrStopDevice @ 0x1C00ACA70 (ACPIBusIrpQueryRemoveOrStopDevice.c)
- *     ACPIBusIrpStopDevice @ 0x1C00ACBF0 (ACPIBusIrpStopDevice.c)
- *     ACPIRootIrpQueryRemoveOrStopDevice @ 0x1C00B48C0 (ACPIRootIrpQueryRemoveOrStopDevice.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIFanStopDevice @ 0x1C005570C (ACPIFanStopDevice.c)
+ *     ACPIBusIrpQueryRemoveOrStopDevice @ 0x1C00ADEC0 (ACPIBusIrpQueryRemoveOrStopDevice.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
+ *     ACPIRootIrpQueryRemoveOrStopDevice @ 0x1C00B50E0 (ACPIRootIrpQueryRemoveOrStopDevice.c)
  * Callees:
- *     ACPIThermalReevaluateConstraints @ 0x1C0003ED4 (ACPIThermalReevaluateConstraints.c)
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0047A40 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 __int64 __fastcall ACPIThermalReleaseCoolingInterfaces(__int64 a1)
@@ -30,12 +30,12 @@ __int64 __fastcall ACPIThermalReleaseCoolingInterfaces(__int64 a1)
 
   memset(&Event, 0, sizeof(Event));
   v2 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
-  v3 = *(_QWORD **)(a1 + 656);
+  v3 = *(_QWORD **)(a1 + 616);
   v4 = v2;
-  *(_BYTE *)(a1 + 664) = 0;
+  *(_BYTE *)(a1 + 624) = 0;
   if ( v3 )
   {
-    *(_QWORD *)(a1 + 656) = 0LL;
+    *(_QWORD *)(a1 + 616) = 0LL;
     v6 = *v3;
     if ( *(_QWORD **)(*v3 + 8LL) == v3 )
     {
@@ -70,7 +70,7 @@ LABEL_16:
           }
           else if ( *((_BYTE *)v9 + 39) )
           {
-            AcpiDiagTraceActiveCoolingConstraint(v9[2], v9[3], 0LL);
+            AcpiDiagTraceActiveCoolingConstraint(v9[2], v9[3], 0, 0);
           }
           v9[3] = 0LL;
           v11 = *v10;
@@ -81,13 +81,13 @@ LABEL_16:
             break;
           *v12 = v11;
           *(_QWORD *)(v11 + 8) = v12;
-          v13 = (_QWORD *)qword_1C0080B98;
-          if ( *(__int64 **)qword_1C0080B98 != &AcpiThermalUnclaimedConstraintList )
+          v13 = (_QWORD *)qword_1C00819D8;
+          if ( *(__int64 **)qword_1C00819D8 != &AcpiThermalUnclaimedConstraintList )
             break;
           *v10 = &AcpiThermalUnclaimedConstraintList;
           v10[1] = v13;
           *v13 = v10;
-          qword_1C0080B98 = (__int64)v10;
+          qword_1C00819D8 = (__int64)v10;
           if ( v8 == v3 + 2 )
             goto LABEL_16;
         }

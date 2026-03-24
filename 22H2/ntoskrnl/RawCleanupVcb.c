@@ -1,41 +1,35 @@
 /*
- * XREFs of RawCleanupVcb @ 0x140791B24
+ * XREFs of RawCleanupVcb @ 0x1406681C4
  * Callers:
- *     RawInitiateDeleteVolume @ 0x140321C68 (RawInitiateDeleteVolume.c)
- *     RawCheckForDeleteVolume @ 0x1405A6C4C (RawCheckForDeleteVolume.c)
- *     RawMountVolume @ 0x14079287C (RawMountVolume.c)
+ *     RawInitiateDeleteVolume @ 0x14026D9DC (RawInitiateDeleteVolume.c)
+ *     RawCheckForDeleteVolume @ 0x140394B44 (RawCheckForDeleteVolume.c)
+ *     RawMountVolume @ 0x140719E00 (RawMountVolume.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140321BB0 (ExFreeCacheAwareRundownProtection.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1407918D0 (FsRtlTeardownPerStreamContexts.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x1402F7BD0 (ExFreeCacheAwareRundownProtection.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x140668240 (FsRtlTeardownPerStreamContexts.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RawCleanupVcb(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
 {
   void *Oplock; // rcx
-  PFSRTL_ADVANCED_FCB_HEADER v3; // rdi
-  struct _EX_RUNDOWN_REF_CACHE_AWARE *v4; // rcx
+  _ERESOURCE *Resource; // rcx
 
   Oplock = AdvancedHeader[1].Oplock;
   if ( Oplock )
   {
     ExFreePoolWithTag(Oplock, 0);
     AdvancedHeader[1].Oplock = 0LL;
-    v3 = AdvancedHeader + 1;
   }
-  else
+  else if ( (*(_DWORD *)&AdvancedHeader[1].NodeTypeCode & 8) != 0 )
   {
-    v3 = AdvancedHeader + 1;
-    if ( (*(_DWORD *)&AdvancedHeader[1].NodeTypeCode & 8) != 0 )
-    {
-      ExFreePoolWithTag(AdvancedHeader[1].FileContextSupportPointer, 0);
-      AdvancedHeader[1].FileContextSupportPointer = 0LL;
-    }
+    ExFreePoolWithTag(AdvancedHeader[1].FileContextSupportPointer, 0);
+    AdvancedHeader[1].FileContextSupportPointer = 0LL;
   }
-  if ( (*(_DWORD *)&v3->NodeTypeCode & 0x10) != 0 )
+  if ( (*(_DWORD *)&AdvancedHeader[1].NodeTypeCode & 0x10) != 0 )
     FsRtlTeardownPerStreamContexts(AdvancedHeader);
-  v4 = *(struct _EX_RUNDOWN_REF_CACHE_AWARE **)&AdvancedHeader[2].NodeTypeCode;
-  if ( v4 )
-    ExFreeCacheAwareRundownProtection(v4);
-  *(_QWORD *)&AdvancedHeader[2].NodeTypeCode = 0LL;
+  Resource = AdvancedHeader[2].Resource;
+  if ( Resource )
+    ExFreeCacheAwareRundownProtection((PEX_RUNDOWN_REF_CACHE_AWARE)Resource);
+  AdvancedHeader[2].Resource = 0LL;
 }

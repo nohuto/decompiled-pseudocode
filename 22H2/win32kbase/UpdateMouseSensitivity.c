@@ -1,23 +1,21 @@
 /*
- * XREFs of UpdateMouseSensitivity @ 0x1C00957D0
+ * XREFs of UpdateMouseSensitivity @ 0x1C000D2B0
  * Callers:
- *     UnpackMouseSettings @ 0x1C01E999C (UnpackMouseSettings.c)
+ *     <none>
  * Callees:
- *     BroadcastSettingsUpdateToAllContainers @ 0x1C0095820 (BroadcastSettingsUpdateToAllContainers.c)
- *     ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C0095858 (-UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z.c)
+ *     ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C000D2E4 (-UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C000D350 (BroadcastSettingsUpdateToAllContainers.c)
  */
 
-__int64 __fastcall UpdateMouseSensitivity(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall UpdateMouseSensitivity(unsigned int a1)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rcx
+  unsigned int v1; // edx
 
-  v4 = a1;
-  v5 = *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 16008);
-  if ( v4 - 1 > 0x13 )
-    v4 = *(_DWORD *)(v5 + 96);
+  v1 = a1;
+  if ( a1 - 1 > 0x13 )
+    v1 = *((_DWORD *)qword_1C0245098 + 24);
   CMouseAcceleration::MOUSE_SENSITIVITY_INFO::UpdateMouseSensitivity(
-    (CMouseAcceleration::MOUSE_SENSITIVITY_INFO *)(v5 + 104),
-    v4);
+    (CDeviceAcceleration *)((char *)qword_1C0245098 + 104),
+    v1);
   return BroadcastSettingsUpdateToAllContainers();
 }

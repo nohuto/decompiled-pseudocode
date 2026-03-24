@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CBitmapResource@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E1F30
+ * XREFs of ?IsOfType@CBitmapResource@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D1B80
  * Callers:
  *     <none>
  * Callees:

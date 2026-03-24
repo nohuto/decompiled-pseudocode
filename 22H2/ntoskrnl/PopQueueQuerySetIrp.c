@@ -1,19 +1,18 @@
 /*
- * XREFs of PopQueueQuerySetIrp @ 0x14028E8AC
+ * XREFs of PopQueueQuerySetIrp @ 0x140397C44
  * Callers:
- *     PopRequestPowerIrp @ 0x14028F110 (PopRequestPowerIrp.c)
- *     PopFxActivateComponentDependents @ 0x14031457C (PopFxActivateComponentDependents.c)
- *     PopNotifyDevice @ 0x140AA738C (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x140370580 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x1409930F0 (PopNotifyDevice.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E728 (PopDeepSleepSetDisengageReason.c)
- *     PopDiagTraceIrpStart @ 0x14028EA80 (PopDiagTraceIrpStart.c)
- *     PopEnableIrpWatchdog @ 0x14028EB98 (PopEnableIrpWatchdog.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14034A558 (PopDeepSleepSetDisengageReason.c)
+ *     PopDiagTraceIrpStart @ 0x140370C44 (PopDiagTraceIrpStart.c)
+ *     PopEnableIrpWatchdog @ 0x140397E0C (PopEnableIrpWatchdog.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
@@ -28,21 +27,20 @@ NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
   int v8; // eax
   __int64 v9; // rdi
   PIRP *v10; // rdi
-  struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *p_ListEntry; // rax
-  PIRP v12; // rcx
+  PIRP v11; // rax
+  __int64 v12; // rcx
   NTSTATUS result; // eax
-  __int64 v14; // rcx
   unsigned __int64 OldIrql; // rdi
-  __int64 v16; // rdx
-  KIRQL v17; // al
+  KIRQL v15; // al
   struct _DEVICE_OBJECT *AttachedTo; // rdx
-  struct _LIST_ENTRY *v19; // rcx
-  IRP *i; // rax
+  struct _LIST_ENTRY *v17; // rcx
+  struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *p_ListEntry; // rax
+  IRP *i; // rcx
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v25; // zf
+  bool v24; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -67,9 +65,9 @@ NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
   if ( v8 != 1 )
     v9 = 280LL;
   v10 = (PIRP *)(v6 + v9);
-  if ( *(_BYTE *)(v4 + 184) == 2 && v8 == 1 && CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart == 1 )
+  if ( v8 == 1 && *(_BYTE *)(v4 + 184) == 2 && CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart == 1 )
   {
-    v17 = KeAcquireQueuedSpinLock(0xAuLL);
+    v15 = KeAcquireQueuedSpinLock(0xAuLL);
     AttachedTo = v7;
     if ( v7 )
     {
@@ -82,91 +80,88 @@ NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
       v2 = 1;
     }
 LABEL_24:
-    KeReleaseQueuedSpinLock(0xAuLL, v17);
+    KeReleaseQueuedSpinLock(0xAuLL, v15);
   }
   v3->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink = 0LL;
   KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
-  PopIrpLockThread = (__int64)KeGetCurrentThread();
-  p_ListEntry = (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)&v3->Tail.Overlay.ListEntry;
   if ( v2 )
   {
-    v19 = (struct _LIST_ENTRY *)qword_140C3D638;
-    if ( *(__int64 **)qword_140C3D638 != &PopInrushIrpList )
+    v17 = (struct _LIST_ENTRY *)qword_140C22F88;
+    p_ListEntry = (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)&v3->Tail.Overlay.ListEntry;
+    if ( *(__int64 **)qword_140C22F88 != &PopInrushIrpList )
       goto LABEL_38;
     p_ListEntry->ListEntry.Flink = (struct _LIST_ENTRY *)&PopInrushIrpList;
-    v3->Tail.Overlay.ListEntry.Blink = v19;
-    v19->Flink = &p_ListEntry->ListEntry;
-    qword_140C3D638 = (__int64)&v3->Tail.Overlay.ListEntry;
+    v3->Tail.Overlay.ListEntry.Blink = v17;
+    v17->Flink = &p_ListEntry->ListEntry;
+    qword_140C22F88 = (__int64)&v3->Tail.Overlay.ListEntry;
   }
-  v12 = v10[1];
-  if ( v12 )
+  v11 = v10[1];
+  if ( v11 )
   {
-    for ( i = (IRP *)v12->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink;
+    for ( i = (IRP *)v11->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink;
           i;
           i = (IRP *)i->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink )
     {
-      v12 = i;
+      v11 = i;
     }
-    v12->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink = (struct _LIST_ENTRY *)v3;
-    goto LABEL_33;
+    v11->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink = (struct _LIST_ENTRY *)v3;
+    goto LABEL_25;
   }
   v10[1] = v3;
   if ( *v10 )
   {
-LABEL_33:
+LABEL_25:
     v3 = 0LL;
-    goto LABEL_17;
+    goto LABEL_15;
   }
   if ( v2 )
   {
     if ( !PopInrushIrp )
     {
-      Flink = p_ListEntry->ListEntry.Flink;
-      Blink = v3->Tail.Overlay.ListEntry.Blink;
       PopInrushIrp = (__int64)v3;
-      if ( (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)Flink->Blink == p_ListEntry
-        && (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)Blink->Flink == p_ListEntry )
+      Flink = v3->Tail.Overlay.ListEntry.Flink;
+      Blink = v3->Tail.Overlay.ListEntry.Blink;
+      if ( (PVOID *)Flink->Blink == &v3->Tail.CompletionKey + 6 && (PVOID *)Blink->Flink == &v3->Tail.CompletionKey + 6 )
       {
         Blink->Flink = Flink;
         Flink->Blink = Blink;
-        goto LABEL_16;
+        goto LABEL_14;
       }
 LABEL_38:
       __fastfail(3u);
     }
-    goto LABEL_33;
+    goto LABEL_25;
   }
-LABEL_16:
+LABEL_14:
   v10[1] = 0LL;
   *v10 = v3;
-LABEL_17:
-  PopIrpLockThread = 0LL;
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v14 = (unsigned int)KiIrqlFlags;
+LABEL_15:
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = (unsigned int)LockHandle.OldIrql + 1;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v25 = (result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v25 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = (unsigned int)LockHandle.OldIrql + 1;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v24 = (result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v24 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);
   if ( v3 )
   {
-    PopDiagTraceIrpStart(v14, v3);
-    PopEnableIrpWatchdog(v3, v16);
+    PopDiagTraceIrpStart(v12, (__int64)v3);
+    PopEnableIrpWatchdog(v3);
     return IofCallDriver(v7, v3);
   }
   return result;

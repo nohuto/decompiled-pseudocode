@@ -1,7 +1,7 @@
 /*
  * XREFs of NtFreeVirtualMemory @ 0x1405EFA50
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x140891F48 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140891F28 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
  *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
  */

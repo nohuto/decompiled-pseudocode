@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DestroySessionGlobal@CInputManager@@SAXXZ @ 0x1C00C1BF0
+ * XREFs of ?DestroySessionGlobal@CInputManager@@SAXXZ @ 0x1C00B5720
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCInputManager@@IEAAPEAXI@Z @ 0x1C00C1C1C (--_GCInputManager@@IEAAPEAXI@Z.c)
+ *     ??_GCInputManager@@IEAAPEAXI@Z @ 0x1C00B574C (--_GCInputManager@@IEAAPEAXI@Z.c)
  */
 
 void __fastcall CInputManager::DestroySessionGlobal(__int64 a1, unsigned int a2)

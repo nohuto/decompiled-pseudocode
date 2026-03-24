@@ -1,12 +1,12 @@
 /*
- * XREFs of CalcSBStuff2 @ 0x1C00C7CF4
+ * XREFs of CalcSBStuff2 @ 0x1C0063AB4
  * Callers:
- *     xxxGetScrollBarInfo @ 0x1C00C73CC (xxxGetScrollBarInfo.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     SBCtlSetup @ 0x1C0229F04 (SBCtlSetup.c)
+ *     xxxGetScrollBarInfo @ 0x1C00629F0 (xxxGetScrollBarInfo.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     SBCtlSetup @ 0x1C024503C (SBCtlSetup.c)
  * Callees:
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
  */
 
 INT __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
@@ -19,20 +19,18 @@ INT __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
   unsigned int DpiForSystem; // eax
   int v12; // ebp
   int v13; // r9d
-  int v14; // ecx
-  INT v15; // r8d
+  int v14; // r10d
+  int v15; // r8d
   int v16; // eax
   int v17; // edi
   INT v18; // edi
   int v19; // r14d
-  int v20; // r9d
-  INT v21; // edx
-  int v22; // ecx
-  int v23; // edx
-  INT v24; // edx
+  INT v20; // edx
+  INT v21; // eax
+  INT v22; // r9d
   INT result; // eax
-  INT v26; // edi
-  int v27; // edx
+  INT v24; // edi
+  int v25; // ecx
 
   v4 = a2 + 1;
   if ( a4 )
@@ -70,36 +68,36 @@ INT __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
   v19 = (v13 - v14) / 2;
   if ( v19 >= v15 )
     v19 = v15;
-  v20 = v13 - v19;
-  a1[10] = v20;
+  a1[10] = v13 - v19;
   a1[9] = v19 + v14;
-  v21 = a3[2];
-  if ( v21 && v18 )
+  v20 = a3[2];
+  if ( v20 && v18 )
   {
-    v15 = EngMulDiv(v20 - (v19 + v14), v21, v18);
-    if ( a1[8] / 2 > v15 )
+    v21 = EngMulDiv(v13 - v19 - (v19 + v14), v20, v18);
+    v14 = a1[4];
+    v15 = v21;
+    v13 = a1[5];
+    if ( a1[8] / 2 > v21 )
       v15 = a1[8] / 2;
     a1[8] = v15;
   }
-  v22 = v19 + a1[4];
-  v23 = a1[5] - v22;
-  a1[15] = v22;
-  v24 = v23 - v19 - v15;
-  a1[14] = v24;
+  a1[15] = v19 + v14;
+  v22 = v13 - (v19 + v14) - v19 - v15;
+  a1[14] = v22;
   result = a3[2];
   if ( result )
     v12 = a3[2];
-  v26 = v18 - v12;
-  if ( v26 )
+  v24 = v18 - v12;
+  if ( v24 )
   {
-    result = EngMulDiv(a3[3] - *a3, v24, v26);
-    v27 = result + a1[15];
+    result = EngMulDiv(a3[3] - *a3, v22, v24);
+    v25 = a1[15] + result;
   }
   else
   {
-    v27 = v22 - 1;
+    v25 = v19 + v14 - 1;
   }
-  a1[13] = v27;
-  a1[12] = v27 + a1[8];
+  a1[13] = v25;
+  a1[12] = a1[8] + v25;
   return result;
 }

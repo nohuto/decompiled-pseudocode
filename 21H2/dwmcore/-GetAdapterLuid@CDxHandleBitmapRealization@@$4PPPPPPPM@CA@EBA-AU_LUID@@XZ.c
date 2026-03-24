@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x18010B790
+ * XREFs of ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x1800F8AB0
  * Callers:
  *     <none>
  * Callees:

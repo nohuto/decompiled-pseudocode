@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetShareAccess @ 0x140791C20
+ * XREFs of IoSetShareAccess @ 0x14062D420
  * Callers:
- *     DifIoSetShareAccessWrapper @ 0x1405E1650 (DifIoSetShareAccessWrapper.c)
+ *     <none>
  * Callees:
- *     IoSetLinkShareAccess @ 0x1407922A0 (IoSetLinkShareAccess.c)
+ *     IoSetLinkShareAccess @ 0x14062DE20 (IoSetLinkShareAccess.c)
  */
 
 void __stdcall IoSetShareAccess(

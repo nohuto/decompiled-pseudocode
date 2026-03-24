@@ -1,12 +1,12 @@
 /*
- * XREFs of IovpSessionDataCreate @ 0x140A9CDF4
+ * XREFs of IovpSessionDataCreate @ 0x1409E1820
  * Callers:
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x140A921E0 (IovUtilIsVerifiedDeviceStack.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x1409D6B08 (IovUtilIsVerifiedDeviceStack.c)
  */
 
 char *__fastcall IovpSessionDataCreate(__int64 a1, __int64 *a2, int a3)
@@ -15,7 +15,7 @@ char *__fastcall IovpSessionDataCreate(__int64 a1, __int64 *a2, int a3)
   int v5; // ecx
   size_t v6; // rsi
   int v7; // r14d
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v9; // rbx
   char *result; // rax
   _QWORD *v11; // rcx
@@ -30,17 +30,17 @@ char *__fastcall IovpSessionDataCreate(__int64 a1, __int64 *a2, int a3)
   if ( *(char *)(*a2 + 66) <= 20 && ViSessionDataInitialized )
   {
     v7 = 1;
-    Pool2 = (char *)ExAllocateFromNPagedLookasideList(&ViSessionDataLookaside);
+    PoolWithTag = (char *)ExAllocateFromNPagedLookasideList(&ViSessionDataLookaside);
   }
   else
   {
     v7 = 0;
-    Pool2 = (char *)ExAllocatePool2(64LL, (unsigned int)(120 * v5 + 200), 0x73707249u);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(120 * v5 + 200), 0x73707249u);
   }
-  v9 = Pool2;
-  if ( !Pool2 )
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
-  memset(Pool2, 0, v6);
+  memset(PoolWithTag, 0, v6);
   if ( v7 )
     *((_DWORD *)v9 + 8) |= 4u;
   v11 = v9 + 16;

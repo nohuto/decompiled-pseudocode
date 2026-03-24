@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x140882966
+ * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x140920980
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeAuditHandleCreation @ 0x1406CE5F8 (SeAuditHandleCreation.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     SeOperationAuditAlarm @ 0x1409C820C (SeOperationAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140627514 (SepAdtAuditObjectAccessWithContext.c)
+ *     SeAuditHandleCreation @ 0x1406B0F68 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     SeOperationAuditAlarm @ 0x14091E7BC (SeOperationAuditAlarm.c)
  * Callees:
- *     SepAuditingEnabledForSubcategory @ 0x1402A4700 (SepAuditingEnabledForSubcategory.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     SepIsRemovableStorageDevice @ 0x1409CE5F8 (SepIsRemovableStorageDevice.c)
+ *     SepAuditingEnabledForSubcategory @ 0x14025CC30 (SepAuditingEnabledForSubcategory.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     SepIsRemovableStorageDevice @ 0x140924D1C (SepIsRemovableStorageDevice.c)
  */
 
 __int64 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, const UNICODE_STRING *a2, char a3, char a4)
@@ -22,30 +22,30 @@ __int64 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, const UNICODE
   if ( !a1 )
   {
     if ( !a2 )
-      return 118LL;
+      return 119LL;
     if ( !RtlCompareUnicodeString(a2, &SepFileTypeName, 0) )
-      return 116LL;
+      return 117LL;
     if ( RtlCompareUnicodeString(a2, &SepRegistryTypeName, 0) )
-      return 118LL;
-    return 117LL;
+      return 119LL;
+    return 118LL;
   }
   v5 = (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
   if ( v5 == CmKeyObjectType )
-    return 117LL;
+    return 118LL;
   if ( v5 == IoFileObjectType )
   {
-    if ( SepAuditingEnabledForSubcategory(128, a3, a4)
+    if ( SepAuditingEnabledForSubcategory(129, a3, a4)
       && (unsigned __int8)SepIsRemovableStorageDevice(*(_QWORD *)(v6 + 8)) == 1 )
     {
       return v7;
     }
-    return 116LL;
+    return 117LL;
   }
   if ( v5 == (POBJECT_TYPE *)IoDeviceObjectType
-    && SepAuditingEnabledForSubcategory(128, a3, a4)
+    && SepAuditingEnabledForSubcategory(129, a3, a4)
     && (unsigned __int8)SepIsRemovableStorageDevice(v8) == 1 )
   {
     return v7;
   }
-  return 118LL;
+  return 119LL;
 }

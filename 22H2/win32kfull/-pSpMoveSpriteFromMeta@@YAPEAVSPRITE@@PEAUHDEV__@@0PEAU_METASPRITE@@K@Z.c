@@ -1,10 +1,10 @@
 /*
- * XREFs of ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C027F5EC
+ * XREFs of ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C028180C
  * Callers:
- *     vSpDynamicModeChange @ 0x1C001B8E0 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EDCB0 (vSpDynamicModeChange.c)
  * Callees:
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001C318 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C001ECCC (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED604 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE3A4 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
  */
 
 struct SPRITE *__fastcall pSpMoveSpriteFromMeta(HDEV a1, _QWORD *a2, struct _METASPRITE *a3, unsigned int a4)
@@ -26,14 +26,17 @@ struct SPRITE *__fastcall pSpMoveSpriteFromMeta(HDEV a1, _QWORD *a2, struct _MET
     {
       v10 = (struct SPRITE *)*((_QWORD *)a3 + v8 + 3);
       if ( (*(_DWORD *)v10 & 0x40) != 0 )
+      {
         pSpHintSpriteShape(v10, 0LL, 0);
-      vSpDeleteSprite(*((struct SPRITE **)a3 + v8 + 3));
+        v10 = (struct SPRITE *)*((_QWORD *)a3 + v8 + 3);
+      }
+      vSpDeleteSprite(v10);
     }
   }
-  v11 = a2[19];
+  v11 = a2[20];
   if ( (struct _METASPRITE *)v11 == a3 )
   {
-    a2[19] = *((_QWORD *)a3 + 1);
+    a2[20] = *((_QWORD *)a3 + 1);
   }
   else
   {

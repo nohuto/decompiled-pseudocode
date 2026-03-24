@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillHyperPtes @ 0x140348F40
+ * XREFs of MiFillHyperPtes @ 0x1403054DC
  * Callers:
- *     MiMakeHyperRangeAccessible @ 0x140277590 (MiMakeHyperRangeAccessible.c)
+ *     MiMakeHyperRangeAccessible @ 0x14021B4A0 (MiMakeHyperRangeAccessible.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiMakeHyperPteDemandZero @ 0x1403490C4 (MiMakeHyperPteDemandZero.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiMakeHyperPteDemandZero @ 0x140305668 (MiMakeHyperPteDemandZero.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall MiFillHyperPtes(unsigned __int64 a1, unsigned __int64 a2, unsigned __int8 a3, __int64 a4)
@@ -62,7 +62,7 @@ void __fastcall MiFillHyperPtes(unsigned __int64 a1, unsigned __int64 a2, unsign
             v10 += 8LL;
           }
           while ( v10 <= v11 && (v10 & 0xFFF) != 0 );
-          MiUnlockPageTableInternal((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v13);
+          MiUnlockPageTableInternal((__int64)&Process[1].ActiveProcessorsPadding[6], v13);
         }
         while ( v10 <= v11 );
         v9 = v15;

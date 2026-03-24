@@ -1,56 +1,57 @@
 /*
- * XREFs of RtlUnicodeStringPrintf @ 0x1403C448C
+ * XREFs of RtlUnicodeStringPrintf @ 0x14036E45C
  * Callers:
- *     FsRtlOpenFileSystemRegistryKeyFromFsGuid @ 0x14067E670 (FsRtlOpenFileSystemRegistryKeyFromFsGuid.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x140814158 (PiDrvDbResolveNodeFilePaths.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14081CB70 (PiCreateDriverSwDeviceCallback.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140845C24 (SshpGenerateDeviceFriendlyName.c)
- *     CmSetAcpiHwProfile @ 0x14084B574 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x14084BC14 (CmpOpenDevicesControlSet.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgBuildIndirectString @ 0x14087BCA4 (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x14087BF60 (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x14087CDFC (PiDevCfgBuildDriverNodeStrongName.c)
- *     PopGetCallerContextFromBuffer @ 0x140980A3C (PopGetCallerContextFromBuffer.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x14099A44C (PopIdleWakeGenerateDescriptionString.c)
- *     PopIdleWakeSystemImageCallback @ 0x14099B3D0 (PopIdleWakeSystemImageCallback.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     IopStoreBootDriveLetter @ 0x140B3CE40 (IopStoreBootDriveLetter.c)
- *     CmpCreateHardwareProfiles @ 0x140B679AC (CmpCreateHardwareProfiles.c)
- *     CmpCreateControlSet @ 0x140B71258 (CmpCreateControlSet.c)
- *     CmpAddAliasEntry @ 0x140B98E98 (CmpAddAliasEntry.c)
- *     CmpCreateControlSetOverride @ 0x140B990C4 (CmpCreateControlSetOverride.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x140737C68 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgBuildIndirectString @ 0x14073964C (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140739908 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5D38 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6B94 (CmpOpenDevicesControlSet.c)
+ *     CmpSaveBootControlSet @ 0x140867AD0 (CmpSaveBootControlSet.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B4730 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x1408B79AC (PiDrvDbResolveNodeFilePaths.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F41F0 (PopIdleWakeGenerateDescriptionString.c)
+ *     PopIdleWakeSystemImageCallback @ 0x1408F48B0 (PopIdleWakeSystemImageCallback.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB170 (SshpGenerateDeviceFriendlyName.c)
+ *     CmpCreateControlSet @ 0x140A58080 (CmpCreateControlSet.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
+ *     CmpAddAliasEntry @ 0x140A8E43C (CmpAddAliasEntry.c)
+ *     CmpCreateControlSetOverride @ 0x140A8E6E4 (CmpCreateControlSetOverride.c)
  * Callees:
- *     RtlWideCharArrayVPrintfWorker @ 0x14040F474 (RtlWideCharArrayVPrintfWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14036E4E0 (RtlUnicodeStringValidateDestWorker.c)
+ *     _vsnwprintf @ 0x1403D0970 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
-  unsigned __int16 Length; // r8
-  unsigned __int16 MaximumLength; // ax
-  wchar_t *Buffer; // rcx
-  size_t v7; // rdx
-  NTSTATUS result; // eax
-  size_t pcchNewDestLength[3]; // [rsp+30h] [rbp-18h] BYREF
-  va_list va; // [rsp+60h] [rbp+18h] BYREF
+  int v3; // ebx
+  int v4; // eax
+  size_t v6; // [rsp+20h] [rbp-48h]
+  ULONG v7; // [rsp+28h] [rbp-40h]
+  size_t Count; // [rsp+30h] [rbp-38h] BYREF
+  wchar_t *Dest; // [rsp+38h] [rbp-30h] BYREF
+  __int64 Args; // [rsp+80h] [rbp+18h] BYREF
+  size_t *v12; // [rsp+88h] [rbp+20h]
+  va_list va1; // [rsp+90h] [rbp+28h] BYREF
+  va_list Argsa; // [rsp+80h] [rbp+18h]
 
-  va_start(va, pszFormat);
-  Length = DestinationString->Length;
-  if ( (DestinationString->Length & 1) != 0 )
-    return -1073741811;
-  MaximumLength = DestinationString->MaximumLength;
-  if ( (MaximumLength & 1) != 0
-    || Length > MaximumLength
-    || MaximumLength == 0xFFFF
-    || !DestinationString->Buffer && (Length || MaximumLength) )
+  va_start(va1, pszFormat);
+  va_start(Argsa, pszFormat);
+  Args = va_arg(va1, _QWORD);
+  v12 = va_arg(va1, size_t *);
+  Dest = 0LL;
+  Count = 0LL;
+  v3 = RtlUnicodeStringValidateDestWorker(DestinationString, &Dest, &Count, v12, v6, v7);
+  if ( v3 >= 0 )
   {
-    return -1073741811;
+    v3 = 0;
+    v4 = vsnwprintf(Dest, Count, pszFormat, Argsa);
+    if ( v4 < 0 || v4 > Count )
+    {
+      LOWORD(v4) = Count;
+      v3 = -2147483643;
+    }
+    DestinationString->Length = 2 * v4;
   }
-  Buffer = DestinationString->Buffer;
-  v7 = (unsigned __int64)DestinationString->MaximumLength >> 1;
-  pcchNewDestLength[0] = 0LL;
-  result = RtlWideCharArrayVPrintfWorker(Buffer, v7, pcchNewDestLength, pszFormat, va);
-  DestinationString->Length = 2 * LOWORD(pcchNewDestLength[0]);
-  return result;
+  return v3;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpDereferenceJobContext @ 0x14080844C
+ * XREFs of VrpDereferenceJobContext @ 0x14080842C
  * Callers:
- *     VrpOriginalKeyNameParameterCleanup @ 0x14026D710 (VrpOriginalKeyNameParameterCleanup.c)
+ *     VrpOriginalKeyNameParameterCleanup @ 0x14026D810 (VrpOriginalKeyNameParameterCleanup.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  */

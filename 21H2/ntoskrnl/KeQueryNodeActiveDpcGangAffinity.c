@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryNodeActiveDpcGangAffinity @ 0x140378C44
+ * XREFs of KeQueryNodeActiveDpcGangAffinity @ 0x14036BB4C
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
  */
 
 void __fastcall KeQueryNodeActiveDpcGangAffinity(USHORT a1, struct _GROUP_AFFINITY *a2, USHORT *a3)

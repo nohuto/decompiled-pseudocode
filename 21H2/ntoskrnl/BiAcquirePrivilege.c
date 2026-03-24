@@ -1,23 +1,23 @@
 /*
- * XREFs of BiAcquirePrivilege @ 0x140813BA8
+ * XREFs of BiAcquirePrivilege @ 0x140785C90
  * Callers:
- *     BiUnloadHiveByName @ 0x1408073EC (BiUnloadHiveByName.c)
- *     BiLoadHive @ 0x140813960 (BiLoadHive.c)
- *     BiAddBootEntry @ 0x140A1E0A0 (BiAddBootEntry.c)
- *     BiDeleteBootEntry @ 0x140A1F760 (BiDeleteBootEntry.c)
- *     BiDeleteEfiVariable @ 0x140A1F7E0 (BiDeleteEfiVariable.c)
- *     BiEnumerateBootEntries @ 0x140A1F8F4 (BiEnumerateBootEntries.c)
- *     BiModifyBootEntry @ 0x140A20758 (BiModifyBootEntry.c)
- *     BiQueryBootEntryOrder @ 0x140A207C4 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x140A2089C (BiQueryBootOptions.c)
- *     BiSetBootEntryOrder @ 0x140A20A2C (BiSetBootEntryOrder.c)
- *     BiSetBootOptions @ 0x140A20AA4 (BiSetBootOptions.c)
- *     BiTranslateFilePath @ 0x140A20C90 (BiTranslateFilePath.c)
- *     SiGetEspFromFirmware @ 0x140A22034 (SiGetEspFromFirmware.c)
+ *     BiUnloadHiveByName @ 0x140779404 (BiUnloadHiveByName.c)
+ *     BiLoadHive @ 0x140785A48 (BiLoadHive.c)
+ *     BiAddBootEntry @ 0x140970138 (BiAddBootEntry.c)
+ *     BiDeleteBootEntry @ 0x140971804 (BiDeleteBootEntry.c)
+ *     BiDeleteEfiVariable @ 0x140971884 (BiDeleteEfiVariable.c)
+ *     BiEnumerateBootEntries @ 0x140971998 (BiEnumerateBootEntries.c)
+ *     BiModifyBootEntry @ 0x1409727F0 (BiModifyBootEntry.c)
+ *     BiQueryBootEntryOrder @ 0x14097285C (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x140972934 (BiQueryBootOptions.c)
+ *     BiSetBootEntryOrder @ 0x140972AC4 (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x140972B3C (BiSetBootOptions.c)
+ *     BiTranslateFilePath @ 0x140972D28 (BiTranslateFilePath.c)
+ *     SiGetEspFromFirmware @ 0x140973FA8 (SiGetEspFromFirmware.c)
  * Callees:
- *     ZwSetInformationThread @ 0x14041B900 (ZwSetInformationThread.c)
- *     RtlImpersonateSelfEx @ 0x1406CB908 (RtlImpersonateSelfEx.c)
- *     BiAdjustPrivilege @ 0x140813C34 (BiAdjustPrivilege.c)
+ *     ZwSetInformationThread @ 0x1403FA540 (ZwSetInformationThread.c)
+ *     RtlImpersonateSelfEx @ 0x1406B13C8 (RtlImpersonateSelfEx.c)
+ *     BiAdjustPrivilege @ 0x140785D10 (BiAdjustPrivilege.c)
  */
 
 __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
@@ -26,10 +26,11 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
   char v4; // bl
   __int64 result; // rax
   int v6; // edi
-  __int64 ThreadInformation; // [rsp+40h] [rbp+18h] BYREF
+  char v7; // [rsp+50h] [rbp+18h] BYREF
+  __int64 ThreadInformation; // [rsp+58h] [rbp+20h] BYREF
 
-  LOBYTE(ThreadInformation) = 0;
   v2 = a2;
+  v7 = 0;
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0 )
   {
     v4 = 1;
@@ -42,7 +43,7 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
       return result;
   }
   LOBYTE(a2) = 1;
-  v6 = BiAdjustPrivilege(a1, a2, &ThreadInformation);
+  v6 = BiAdjustPrivilege(a1, a2, &v7);
   if ( v6 < 0 )
   {
     if ( !v4 )
@@ -53,7 +54,7 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
   }
   else
   {
-    *(_BYTE *)(v2 + 4) = ThreadInformation;
+    *(_BYTE *)(v2 + 4) = v7;
     *(_BYTE *)(v2 + 5) = v4;
     *(_DWORD *)v2 = a1;
   }

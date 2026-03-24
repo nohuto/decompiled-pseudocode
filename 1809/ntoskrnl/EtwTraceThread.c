@@ -7,9 +7,9 @@
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
  *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
  *     PsGetCurrentThreadTeb @ 0x1400A39C0 (PsGetCurrentThreadTeb.c)
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     EtwpPsProvTraceThread @ 0x140623B44 (EtwpPsProvTraceThread.c)
  */
 

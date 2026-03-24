@@ -1,17 +1,17 @@
 /*
- * XREFs of PdcTaskClientRegister @ 0x1408454C0
+ * XREFs of PdcTaskClientRegister @ 0x1407989A8
  * Callers:
- *     PopDiagInitialize @ 0x140B1BC34 (PopDiagInitialize.c)
+ *     PopDiagInitialize @ 0x140A40D18 (PopDiagInitialize.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PdcPortOpenCommon @ 0x14085F954 (PdcPortOpenCommon.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PdcPortOpenCommon @ 0x1407CF938 (PdcPortOpenCommon.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PdcTaskClientRegister(__int64 a1, __int64 a2)
 {
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v3; // rbx
   int v4; // edx
   int v5; // ecx
@@ -20,19 +20,22 @@ __int64 __fastcall PdcTaskClientRegister(__int64 a1, __int64 a2)
 
   v8 = a2;
   PopSleepStudyTaskClientActivator = 0LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 64LL, 1667458128LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x63636450u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x40uLL);
+    memset(PoolWithTag, 0, 0x40uLL);
     v8 = 0LL;
     *v3 = 1667458128;
     v3[8] = 68;
     v6 = PdcPortOpenCommon(v5, v4, (_DWORD)v3, (unsigned int)&v8);
-    if ( v6 )
-      ExFreePoolWithTag(v3, 0);
-    else
+    if ( !v6 )
+    {
       PopSleepStudyTaskClientActivator = (__int64)v3;
+      v3 = 0LL;
+    }
+    if ( v3 )
+      ExFreePoolWithTag(v3, 0);
   }
   else
   {

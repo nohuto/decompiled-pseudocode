@@ -1,18 +1,18 @@
 /*
- * XREFs of NtLockProductActivationKeys @ 0x14080D370
+ * XREFs of NtLockProductActivationKeys @ 0x1407B40D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcscat_s @ 0x1403E7610 (wcscat_s.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     wcsncat_s @ 0x1403E7750 (wcsncat_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     ZwLockRegistryKey @ 0x14041D9C0 (ZwLockRegistryKey.c)
- *     IsRegistryKeyLocked @ 0x14080D780 (IsRegistryKeyLocked.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403D81D0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403D8300 (wcsncat_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     ZwLockRegistryKey @ 0x1403FC540 (ZwLockRegistryKey.c)
+ *     IsRegistryKeyLocked @ 0x1407B44B0 (IsRegistryKeyLocked.c)
  */
 
 NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
@@ -27,22 +27,22 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   unsigned int v10; // esi
   int v11; // r14d
   unsigned __int64 v12; // r11
-  __int64 v13; // rcx
   NTSTATUS result; // eax
-  int v15; // edi
-  ULONG v16; // r14d
+  int v14; // edi
+  ULONG v15; // r14d
   NTSTATUS k; // eax
-  NTSTATUS v18; // esi
-  NTSTATUS v19; // eax
-  __int64 v20; // rdx
-  int v21; // esi
+  NTSTATUS v17; // esi
+  NTSTATUS v18; // eax
+  __int64 v19; // rdx
+  int v20; // esi
+  __int64 v21; // rcx
   char v22[4]; // [rsp+30h] [rbp-908h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-904h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-900h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-8F8h] BYREF
-  OBJECT_ATTRIBUTES v26; // [rsp+48h] [rbp-8F0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-8C0h] BYREF
-  UNICODE_STRING v28; // [rsp+88h] [rbp-8B0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-8F0h] BYREF
+  UNICODE_STRING v27; // [rsp+58h] [rbp-8E0h] BYREF
+  OBJECT_ATTRIBUTES v28; // [rsp+68h] [rbp-8D0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-8A0h] BYREF
   WCHAR SourceString[8]; // [rsp+C8h] [rbp-870h] BYREF
   __int128 v31; // [rsp+D8h] [rbp-860h]
@@ -60,9 +60,9 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(_OWORD *)SourceString = xmmword_140024E40;
-  v31 = xmmword_140024E50;
-  v32 = xmmword_140024E60;
+  *(_OWORD *)SourceString = xmmword_140020448;
+  v31 = xmmword_140020458;
+  v32 = xmmword_140020468;
   v33 = 0x2C7EFB57828734DALL;
   v34 = 593434642;
   v4 = -21647;
@@ -97,10 +97,10 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   {
     if ( a2 )
     {
-      v13 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a2;
-      *(_DWORD *)v13 = *(_DWORD *)v13;
+      v21 = (__int64)a2;
+      if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+        v21 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v21 = *(_DWORD *)v21;
       *a2 = InitSafeBootMode;
     }
   }
@@ -114,62 +114,62 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-  v15 = result;
+  v14 = result;
   if ( result >= 0 )
   {
-    v16 = 0;
+    v15 = 0;
     for ( k = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, KeyInformation, 0x400u, &ResultLength);
           ;
-          k = ZwEnumerateKey(KeyHandle, v16, KeyBasicInformation, KeyInformation, 0x400u, &ResultLength) )
+          k = ZwEnumerateKey(KeyHandle, v15, KeyBasicInformation, KeyInformation, 0x400u, &ResultLength) )
     {
-      v18 = k;
+      v17 = k;
       if ( k == -2147483622 )
         break;
-      v28 = 0LL;
-      memset(&v26, 0, 44);
+      v27 = 0LL;
+      memset(&v28, 0, sizeof(v28));
       Handle = 0LL;
       if ( k < 0 )
       {
-        v15 = k;
+        v14 = k;
         break;
       }
       if ( v36 + 64 > 0x400 )
       {
-        v15 = -1073741801;
+        v14 = -1073741801;
       }
       else
       {
         wcscpy_s(Dst, 0x200uLL, SourceString);
         wcsncat_s(Dst, 0x200uLL, Src, (unsigned __int64)v36 >> 1);
         wcscat_s(Dst, 0x200uLL, L"\\");
-        RtlInitUnicodeString(&v28, Dst);
-        v26.Length = 48;
-        v26.RootDirectory = 0LL;
-        v26.Attributes = 576;
-        v26.ObjectName = &v28;
-        *(_OWORD *)&v26.SecurityDescriptor = 0LL;
-        v19 = ZwOpenKey(&Handle, 0x20019u, &v26);
-        if ( v19 < 0 )
+        RtlInitUnicodeString(&v27, Dst);
+        v28.Length = 48;
+        v28.RootDirectory = 0LL;
+        v28.Attributes = 576;
+        v28.ObjectName = &v27;
+        *(_OWORD *)&v28.SecurityDescriptor = 0LL;
+        v18 = ZwOpenKey(&Handle, 0x20019u, &v28);
+        if ( v18 < 0 )
         {
-          v15 = v19;
+          v14 = v18;
         }
         else
         {
           v22[0] = 0;
-          v21 = IsRegistryKeyLocked(Handle, v22);
-          if ( v21 >= 0 && !v22[0] )
-            v21 = ZwLockRegistryKey((__int64)Handle, v20);
+          v20 = IsRegistryKeyLocked(Handle, v22);
+          if ( v20 >= 0 && !v22[0] )
+            v20 = ZwLockRegistryKey((__int64)Handle, v19);
           ZwClose(Handle);
-          if ( v21 >= 0 )
-            v21 = v15;
-          v15 = v21;
+          if ( v20 >= 0 )
+            v20 = v14;
+          v14 = v20;
         }
-        ++v16;
+        ++v15;
       }
     }
     ZwClose(KeyHandle);
-    if ( v18 != -2147483622 )
-      return v15;
+    if ( v17 != -2147483622 )
+      return v14;
     return v3;
   }
   return result;

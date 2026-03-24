@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C0028EB8
+ * XREFs of HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002629C
  * Callers:
- *     HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001F960 (HUBDSM_PurgingDeviceIoOnDetachInConfigured.c)
- *     HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C0023970 (HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership.c)
+ *     HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001CF50 (HUBDSM_PurgingDeviceIoOnDetachInConfigured.c)
+ *     HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C0021190 (HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_PurgeDeviceIoUsingUCXIoctl(__int64 *a1)
@@ -33,7 +33,7 @@ __int64 __fastcall HUBUCX_PurgeDeviceIoUsingUCXIoctl(__int64 *a1)
              2u,
              5u,
              0x43u,
-             (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+             (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
              v4);
   }
   return result;

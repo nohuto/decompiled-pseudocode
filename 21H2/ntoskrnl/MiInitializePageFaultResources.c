@@ -1,40 +1,42 @@
 /*
- * XREFs of MiInitializePageFaultResources @ 0x1403B7B80
+ * XREFs of MiInitializePageFaultResources @ 0x1403CA778
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     MiAllocateInPageSupportBlock @ 0x140251B4C (MiAllocateInPageSupportBlock.c)
- *     MiInsertInPageBlock @ 0x1402745EC (MiInsertInPageBlock.c)
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiAllocateInPageSupportBlock @ 0x1402C8F1C (MiAllocateInPageSupportBlock.c)
+ *     MiInsertInPageBlock @ 0x1402FC95C (MiInsertInPageBlock.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
  */
 
 __int64 MiInitializePageFaultResources()
 {
-  unsigned int v0; // esi
-  __int64 i; // rdi
+  int v0; // edi
+  __int64 i; // rsi
   __int64 v2; // rbx
   unsigned int v3; // ebp
-  __int64 v4; // rax
+  char *v4; // rax
   unsigned __int64 v5; // r14
   unsigned int *v6; // rbx
   unsigned int v7; // ecx
-  ULONG_PTR v8; // rax
+  __int64 v8; // r8
+  unsigned __int64 v9; // r9
+  ULONG_PTR v10; // rax
 
   v0 = 0;
   for ( i = 0LL; ; ++i )
   {
     v2 = 2LL * v0;
-    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 2100]);
-    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 2104]);
+    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 1154]);
+    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 1158]);
     v3 = v0 != 0 ? 16 : 8;
-    *((_BYTE *)&MiState[2108] + i) = v0 != 0 ? 16 : 8;
-    v4 = MiAllocateInPageSupportBlock(v0, v3);
+    *((_BYTE *)&MiState[1162] + i) = v0 != 0 ? 16 : 8;
+    v4 = (char *)MiAllocateInPageSupportBlock(v0, v3);
     if ( !v4 )
       break;
-    MiState[i + 2109] = v4;
+    MiState[i + 1163] = (__int64)v4;
     v5 = (-(__int64)(v0 != 0) & 0xFFFFFFFFFFFFF880uLL) + 2368;
-    MiState[i + 2111] = v4 + v5 * v3;
+    MiState[i + 1165] = (__int64)&v4[v5 * v3];
     v6 = (unsigned int *)(v4 + 192);
     do
     {
@@ -47,13 +49,13 @@ __int64 MiInitializePageFaultResources()
       --v3;
     }
     while ( v3 );
-    if ( (int)++v0 >= 2 )
+    if ( ++v0 >= 2 )
     {
-      v8 = MiReservePtes((__int64)&qword_140C534C0, 0x10u);
-      if ( v8 )
+      v10 = MiReservePtes((__int64)&qword_140C4EF40, 0x10u, v8, v9);
+      if ( v10 )
       {
-        qword_140C53250 = 0LL;
-        qword_140C53248 = v8;
+        qword_140C4ED40 = 0LL;
+        qword_140C4ED38 = v10;
         return 1LL;
       }
       return 0LL;

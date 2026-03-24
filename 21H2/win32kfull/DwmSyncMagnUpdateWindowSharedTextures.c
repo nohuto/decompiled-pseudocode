@@ -1,97 +1,104 @@
 /*
- * XREFs of DwmSyncMagnUpdateWindowSharedTextures @ 0x1C0273230
+ * XREFs of DwmSyncMagnUpdateWindowSharedTextures @ 0x1C02759A0
  * Callers:
- *     MagGetLensContextInformation @ 0x1C01C9964 (MagGetLensContextInformation.c)
+ *     MagGetLensContextInformation @ 0x1C01CCB00 (MagGetLensContextInformation.c)
  * Callees:
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C00CCA80 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EB28 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmSyncMagnUpdateWindowSharedTextures(
         PVOID Object,
         __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        void *a3,
+        void *a4,
         __int64 a5,
         __int64 a6,
-        int a7,
-        _DWORD *a8)
+        ULONG a7,
+        ULONG a8,
+        ULONG *a9,
+        ULONG *a10)
 {
-  int v12; // edi
-  __int128 v13; // xmm1
-  int v14; // eax
-  int v15; // ecx
-  _DWORD *v16; // rbx
-  int v17; // ecx
-  __int64 v18; // rdx
-  HANDLE v19; // rcx
-  PVOID v21; // [rsp+48h] [rbp-59h] BYREF
-  __int64 v22; // [rsp+50h] [rbp-51h] BYREF
-  _BYTE v23[112]; // [rsp+58h] [rbp-49h] BYREF
-  HANDLE Handle; // [rsp+E8h] [rbp+47h] BYREF
+  signed int v14; // edi
+  __int128 v15; // xmm1
+  __int64 v16; // r8
+  __int64 v17; // r9
+  int v18; // eax
+  signed int ZeroInit; // ecx
+  ULONG *v20; // rbx
+  ULONG DoNotUseThisField_low; // ecx
+  __int64 v22; // rdx
+  HANDLE v23; // rcx
+  PVOID v25; // [rsp+48h] [rbp-79h] BYREF
+  __int64 v26; // [rsp+50h] [rbp-71h] BYREF
+  struct _PORT_MESSAGE v27[3]; // [rsp+58h] [rbp-69h] BYREF
+  HANDLE Handle; // [rsp+F8h] [rbp+37h] BYREF
 
-  v12 = -1073741823;
+  v14 = -1073741823;
   if ( Object )
   {
+    v14 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
     if ( !gbInVideoPnpCallout )
     {
-      memset(v23, 0, sizeof(v23));
-      *(_DWORD *)v23 = 7340104;
-      *(_WORD *)&v23[4] = 0x8000;
-      *(_DWORD *)&v23[44] = a7;
-      *(_QWORD *)&v23[104] = a6;
-      *(_DWORD *)&v23[40] = 1073741928;
-      *(_QWORD *)&v23[88] = a3;
-      *(_QWORD *)&v23[96] = a4;
-      v13 = *(_OWORD *)(a5 + 16);
-      *(_OWORD *)&v23[48] = *(_OWORD *)a5;
-      *(_QWORD *)&v23[80] = *(_QWORD *)(a5 + 32);
-      *(_OWORD *)&v23[64] = v13;
-      EtwUpdateEvent(0LL);
-      v22 = 112LL;
-      v14 = LpcSendWaitReceivePort(Object, 0x20000LL, v23, v23, &v22, 0LL);
-      v12 = SyncLpcCheckNtStatus(v14, (struct _PORT_MESSAGE *)v23);
-      if ( v12 >= 0 )
+      memset(v27, 0, 0x74uLL);
+      v27[0].u1.Length = 7602252;
+      v27[0].u2.s2.Type = 0x8000;
+      v27[1].u2.ZeroInit = a7;
+      v27[2].CallbackId = a8;
+      *(_QWORD *)&v27[2].MessageId = a6;
+      v27[1].u1.Length = 1073741924;
+      v27[2].ClientId.UniqueProcess = a3;
+      v27[2].ClientId.UniqueThread = a4;
+      v15 = *(_OWORD *)(a5 + 16);
+      v27[1].8 = *(union _PORT_MESSAGE::$C6BC508B531A81D74C33985719C23F49 *)a5;
+      *(_QWORD *)&v27[2].u1.s1.DataLength = *(_QWORD *)(a5 + 32);
+      *(_OWORD *)&v27[1].MessageId = v15;
+      EtwUpdateEvent(0LL, 1073741924LL, v16, v17);
+      v26 = 116LL;
+      v18 = LpcSendWaitReceivePort(Object, 0x20000LL, v27, v27, &v26, 0LL);
+      v14 = SyncLpcCheckNtStatus(v18, v27);
+      if ( v14 >= 0 )
       {
-        v15 = *(_DWORD *)&v23[44];
-        v16 = a8;
-        *a8 = *(_DWORD *)&v23[44];
-        if ( v15 < 0 )
+        ZeroInit = v27[1].u2.ZeroInit;
+        v20 = a9;
+        *a9 = v27[1].u2.ZeroInit;
+        if ( ZeroInit < 0 )
         {
-          v16[1] = 0;
-          v16[2] = 0;
+          v20[1] = 0;
+          v20[2] = 0;
         }
         else
         {
-          v17 = *(_DWORD *)&v23[48];
-          v16[1] = *(_DWORD *)&v23[64];
-          *(_QWORD *)(v16 + 3) = *(_QWORD *)&v23[68];
-          v16[5] = *(_DWORD *)&v23[76];
-          v16[2] = v17;
-          if ( v17 )
+          DoNotUseThisField_low = LODWORD(v27[1].DoNotUseThisField);
+          v20[1] = v27[1].MessageId;
+          *(_QWORD *)(v20 + 3) = *(_QWORD *)(&v27[1].MessageId + 1);
+          v20[5] = *(&v27[1].CallbackId + 1);
+          v20[2] = DoNotUseThisField_low;
+          if ( DoNotUseThisField_low )
           {
-            v18 = *(_QWORD *)&v23[52];
+            v22 = *(_QWORD *)((char *)&v27[1].DoNotUseThisField + 4);
             Handle = 0LL;
-            v16[9] = *(_DWORD *)&v23[60];
-            if ( (int)ObDuplicateObject(a2, v18, 0LL, &Handle, 4, 512, 1, 0) >= 0 )
+            v20[9] = *((_DWORD *)&v27[1].DoNotUseThisField + 3);
+            if ( (int)ObDuplicateObject(a2, v22, 0LL, &Handle, 4, 512, 1, 0) >= 0 )
             {
-              v21 = 0LL;
-              ObReferenceObjectByHandle(Handle, 4u, MmSectionObjectType, 0, &v21, 0LL);
-              v19 = Handle;
-              *((_QWORD *)v16 + 5) = v21;
-              ZwClose(v19);
+              v25 = 0LL;
+              ObReferenceObjectByHandle(Handle, 4u, MmSectionObjectType, 0, &v25, 0LL);
+              v23 = Handle;
+              *((_QWORD *)v20 + 5) = v25;
+              ZwClose(v23);
             }
           }
           else
           {
-            *((_QWORD *)v16 + 5) = 0LL;
-            v16[9] = 0;
+            *((_QWORD *)v20 + 5) = 0LL;
+            v20[9] = 0;
           }
-          v12 = 0;
+          v14 = 0;
+          *a10 = v27[2].u1.Length;
         }
       }
     }
     ObfDereferenceObject(Object);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v14;
 }

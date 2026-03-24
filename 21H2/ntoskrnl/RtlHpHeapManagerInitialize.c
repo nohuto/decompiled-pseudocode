@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlHpHeapManagerInitialize @ 0x14036FB38
+ * XREFs of RtlHpHeapManagerInitialize @ 0x14039DD3C
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14036EEAC (ExInitializeSessionHeapManager.c)
- *     RtlHpKInitializeHeapManager @ 0x1403C445C (RtlHpKInitializeHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
+ *     RtlHpKInitializeHeapManager @ 0x1403C3DE8 (RtlHpKInitializeHeapManager.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     CmSiRWLockInitialize @ 0x1407F3B30 (CmSiRWLockInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
  */
 
 void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_RUN_ONCE *a2)
@@ -15,7 +15,7 @@ void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_R
   union _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
 
-  memset(a1, 0, 0x38E0uLL);
+  memset(a1, 0, 0x38D0uLL);
   a1->Value = (unsigned __int64)&RtlpHpHeapGlobals;
   memset(&a1[2], 0, 0x48uLL);
   a1[6].Value = -1LL;
@@ -40,8 +40,8 @@ void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_R
   }
   while ( v4 );
   v6 = a1 + 1812;
-  a1[1819].Ptr = a2->Ptr;
-  v7 = 4LL;
+  a1[1817].Ptr = a2->Ptr;
+  v7 = 3LL;
   do
   {
     CmSiRWLockInitialize(v6);

@@ -1,7 +1,7 @@
 /*
- * XREFs of NormBuffer__RewindOutputCharacter @ 0x1402F5178
+ * XREFs of NormBuffer__RewindOutputCharacter @ 0x1402F5278
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x140898C5C (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140898C3C (Normalization__NormalizeCharacter.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtInitializeLargePagePte @ 0x14052EE54
+ * XREFs of IvtInitializeLargePagePte @ 0x1404E03CC
  * Callers:
- *     IvtInitializeIdentityMappings @ 0x14052EC78 (IvtInitializeIdentityMappings.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E01F0 (IvtInitializeIdentityMappings.c)
  * Callees:
  *     <none>
  */

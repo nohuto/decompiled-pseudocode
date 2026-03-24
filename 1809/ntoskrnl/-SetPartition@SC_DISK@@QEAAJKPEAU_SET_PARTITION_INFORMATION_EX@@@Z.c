@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140329B88
+ * XREFs of ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140329C88
  * Callers:
- *     IoSetPartitionInformation @ 0x140817170 (IoSetPartitionInformation.c)
- *     IoSetPartitionInformationEx @ 0x140817260 (IoSetPartitionInformationEx.c)
+ *     IoSetPartitionInformation @ 0x140817150 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x140817240 (IoSetPartitionInformationEx.c)
  * Callees:
- *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032A268 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x14032AD0C (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
- *     ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032B060 (-SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032A368 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x14032AE0C (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
+ *     ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032B160 (-SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  */
 
 __int64 __fastcall SC_DISK::SetPartition(SC_DISK *this, unsigned int a2, struct _SET_PARTITION_INFORMATION_EX *a3)

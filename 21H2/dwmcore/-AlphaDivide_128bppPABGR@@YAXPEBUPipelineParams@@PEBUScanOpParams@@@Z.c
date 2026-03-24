@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AlphaDivide_128bppPABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B1010
+ * XREFs of ?AlphaDivide_128bppPABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AFD0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ void __fastcall AlphaDivide_128bppPABGR(const struct PipelineParams *a1, const s
   __m128 *i; // r8
   __m128 v5; // xmm0
   float v6; // xmm1_4
-  __m128 v7; // [rsp+0h] [rbp-18h]
+  __m128 v7; // [rsp+0h] [rbp-10h]
 
   v2 = *((_DWORD *)a1 + 2);
   v3 = (const __m128i *)*((_QWORD *)a2 + 1);

@@ -1,37 +1,30 @@
 /*
- * XREFs of CcFreeWorkQueueEntry @ 0x1402766A0
+ * XREFs of CcFreeWorkQueueEntry @ 0x1402F6CBC
  * Callers:
- *     CcWaitForUninitializeCacheMap @ 0x14023AFD8 (CcWaitForUninitializeCacheMap.c)
- *     CcCompleteAsyncReadWorker @ 0x140242F10 (CcCompleteAsyncReadWorker.c)
- *     CcCachemapUninitWorkerThread @ 0x140275000 (CcCachemapUninitWorkerThread.c)
- *     CcWriteBehind @ 0x140275FC0 (CcWriteBehind.c)
- *     CcUninitializeCacheMap @ 0x1402761B0 (CcUninitializeCacheMap.c)
- *     CcMapAndCopyInToCache @ 0x1402BD970 (CcMapAndCopyInToCache.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F5AEC (CcPostWorkQueueAsyncRead.c)
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
- *     CcAsyncReadWorker @ 0x1403C4AE0 (CcAsyncReadWorker.c)
- *     CcSerializeWithLazyWriter @ 0x1404171F4 (CcSerializeWithLazyWriter.c)
- *     CcQuickLazyWriteScanForVolume @ 0x14053D730 (CcQuickLazyWriteScanForVolume.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402B87C0 (CcWaitForUninitializeCacheMap.c)
+ *     CcCompleteAsyncReadWorker @ 0x1402CC2D0 (CcCompleteAsyncReadWorker.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x1402F38A0 (CcCachemapUninitWorkerThread.c)
+ *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
+ *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
+ *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
+ *     CcAsyncReadWorker @ 0x1403B7950 (CcAsyncReadWorker.c)
+ *     CcSerializeWithLazyWriter @ 0x1403F03C4 (CcSerializeWithLazyWriter.c)
  * Callees:
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-int __fastcall CcFreeWorkQueueEntry(PSLIST_ENTRY ListEntry)
+__int64 __fastcall CcFreeWorkQueueEntry(PSLIST_ENTRY ListEntry)
 {
   struct _KPRCB *CurrentPrcb; // r8
-  __int64 v3; // rdi
   _SLIST_ENTRY *Next; // rbx
   _GENERAL_LOOKASIDE *P; // rcx
-  signed __int64 v6; // rax
-  signed __int64 v7; // rax
-  bool v8; // cc
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v3 = *((_QWORD *)&ListEntry[8].Next + 1);
-  Next = ListEntry[9].Next;
+  Next = ListEntry[8].Next;
   P = CurrentPrcb->PPLookasideList[6].P;
   ++P->TotalFrees;
   if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -46,18 +39,5 @@ int __fastcall CcFreeWorkQueueEntry(PSLIST_ENTRY ListEntry)
     ++P->FreeMisses;
     ((void (__fastcall *)(PSLIST_ENTRY))P->FreeEx)(ListEntry);
   }
-  LODWORD(v6) = CcDereferencePartition(v3);
-  if ( Next )
-  {
-    v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)&Next->Next + 1, 0xFFFFFFFFFFFFFFFFuLL);
-    v8 = v7 <= 1;
-    v6 = v7 - 1;
-    if ( v8 )
-    {
-      if ( v6 )
-        __fastfail(0xEu);
-      LODWORD(v6) = KeSetEvent((PRKEVENT)&Next[75], 0, 0);
-    }
-  }
-  return v6;
+  return CcDereferencePartition(Next);
 }

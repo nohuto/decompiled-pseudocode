@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CREATE@@@Z @ 0x1801F05BC
+ * XREFs of ?ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CREATE@@@Z @ 0x18018B588
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1801EA648 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x180185A74 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::ProcessCreate(
@@ -17,38 +17,38 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessCreate(
   unsigned int v7; // ebx
   _OWORD *v8; // rcx
 
-  *((_QWORD *)this + 230) = *((_QWORD *)a3 + 1);
+  *((_QWORD *)this + 232) = *((_QWORD *)a3 + 1);
   updated = COffScreenRenderTarget::UpdatePixelFormatInfo(this, *((_DWORD *)a3 + 5));
   v7 = updated;
   if ( updated < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, updated, 0x52u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, updated, 0x53u, 0LL);
   }
   else
   {
     v8 = (_OWORD *)((char *)a3 + 16);
-    *((_DWORD *)this + 26) = *((_DWORD *)a3 + 6);
-    *((_DWORD *)this + 27) = *((_DWORD *)a3 + 7);
+    *((_DWORD *)this + 20) = *((_DWORD *)a3 + 6);
+    *((_DWORD *)this + 21) = *((_DWORD *)a3 + 7);
     if ( *((_DWORD *)a3 + 4) <= 6u )
     {
-      *(_OWORD *)((char *)this + 1864) = *v8;
-      *(_OWORD *)((char *)this + 1880) = *((_OWORD *)a3 + 2);
-      *(_OWORD *)((char *)this + 1896) = *((_OWORD *)a3 + 3);
-      *(_OWORD *)((char *)this + 1912) = *((_OWORD *)a3 + 4);
-      *(_OWORD *)((char *)this + 1928) = *((_OWORD *)a3 + 5);
-      *(_OWORD *)((char *)this + 1944) = *((_OWORD *)a3 + 6);
-      *(_OWORD *)((char *)this + 1960) = *((_OWORD *)a3 + 7);
-      *(_OWORD *)((char *)this + 1976) = *((_OWORD *)a3 + 8);
-      *(_OWORD *)((char *)this + 1992) = *((_OWORD *)a3 + 9);
-      *(_OWORD *)((char *)this + 2008) = *((_OWORD *)a3 + 10);
-      *(_OWORD *)((char *)this + 2024) = *((_OWORD *)a3 + 11);
-      *(_OWORD *)((char *)this + 2040) = *((_OWORD *)a3 + 12);
-      *(_OWORD *)((char *)this + 2056) = *((_OWORD *)a3 + 13);
+      *(_OWORD *)((char *)this + 1880) = *v8;
+      *(_OWORD *)((char *)this + 1896) = *((_OWORD *)a3 + 2);
+      *(_OWORD *)((char *)this + 1912) = *((_OWORD *)a3 + 3);
+      *(_OWORD *)((char *)this + 1928) = *((_OWORD *)a3 + 4);
+      *(_OWORD *)((char *)this + 1944) = *((_OWORD *)a3 + 5);
+      *(_OWORD *)((char *)this + 1960) = *((_OWORD *)a3 + 6);
+      *(_OWORD *)((char *)this + 1976) = *((_OWORD *)a3 + 7);
+      *(_OWORD *)((char *)this + 1992) = *((_OWORD *)a3 + 8);
+      *(_OWORD *)((char *)this + 2008) = *((_OWORD *)a3 + 9);
+      *(_OWORD *)((char *)this + 2024) = *((_OWORD *)a3 + 10);
+      *(_OWORD *)((char *)this + 2040) = *((_OWORD *)a3 + 11);
+      *(_OWORD *)((char *)this + 2056) = *((_OWORD *)a3 + 12);
+      *(_OWORD *)((char *)this + 2072) = *((_OWORD *)a3 + 13);
     }
     else
     {
       v7 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v8, 0LL, 0, -2147024809, 0x59u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v8, 0LL, 0, -2147024809, 0x5Au, 0LL);
     }
   }
   return v7;

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeWriteProtectProcessorState @ 0x140A918B0
+ * XREFs of KeWriteProtectProcessorState @ 0x14099ED90
  * Callers:
- *     MakeGdtReadOnly @ 0x1403ADE1C (MakeGdtReadOnly.c)
- *     KiDynamicProcessorInitialization @ 0x14056BD08 (KiDynamicProcessorInitialization.c)
+ *     MakeGdtReadOnly @ 0x1403B48D0 (MakeGdtReadOnly.c)
+ *     KiDynamicProcessorInitialization @ 0x14051237C (KiDynamicProcessorInitialization.c)
  * Callees:
- *     MmSetPageProtection @ 0x1403C2610 (MmSetPageProtection.c)
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     VslFinishStartSecureProcessor @ 0x14054AFA0 (VslFinishStartSecureProcessor.c)
- *     KiShadowProcessorAllocation @ 0x140A89C48 (KiShadowProcessorAllocation.c)
+ *     MmSetPageProtection @ 0x1403796F0 (MmSetPageProtection.c)
+ *     KeBugCheck @ 0x1403FD550 (KeBugCheck.c)
+ *     VslFinishStartSecureProcessor @ 0x1404FBFF4 (VslFinishStartSecureProcessor.c)
+ *     KiShadowProcessorAllocation @ 0x14099F65C (KiShadowProcessorAllocation.c)
  */
 
 char __fastcall KeWriteProtectProcessorState(__int64 *a1)
@@ -15,6 +15,7 @@ char __fastcall KeWriteProtectProcessorState(__int64 *a1)
   __int64 v1; // rsi
   bool v3; // bl
   int v4; // eax
+  unsigned int v5; // ecx
 
   v1 = *a1;
   v3 = VslVsmEnabled != 0;
@@ -25,13 +26,17 @@ char __fastcall KeWriteProtectProcessorState(__int64 *a1)
     if ( KiKvaShadow )
       LOBYTE(v4) = MmSetPageProtection(a1[1], 0x1000uLL, 2u);
   }
-  if ( !*((_DWORD *)a1 + 105) )
+  v5 = *((_DWORD *)a1 + 105);
+  if ( v5 )
   {
-    v4 = KiShadowProcessorAllocation((__int64)(a1 + 48), v1 - 12208, 0LL);
+    if ( VslVsmEnabled )
+      LOBYTE(v4) = VslFinishStartSecureProcessor(v5);
+  }
+  else
+  {
+    v4 = KiShadowProcessorAllocation(a1 + 48, v1 - 12208);
     if ( !v4 )
       KeBugCheck(0x7Du);
   }
-  if ( VslVsmEnabled )
-    LOBYTE(v4) = VslFinishStartSecureProcessor((__int64)(a1 + 48), (struct _MDL *)a1[4456]);
   return v4;
 }

@@ -1,27 +1,34 @@
 /*
- * XREFs of KGetAppModelStateSeparatedRegKeyPath @ 0x1406E295C
+ * XREFs of KGetAppModelStateSeparatedRegKeyPath @ 0x1406BC0F0
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x14069954C (KIsUnlockSettingEnabled.c)
- *     KIsSideloadingEnabled @ 0x140A0AC70 (KIsSideloadingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406B7BD8 (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x14095EFA4 (KIsSideloadingEnabled.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall KGetAppModelStateSeparatedRegKeyPath(PCWSTR SourceString, __int64 a2, UNICODE_STRING *a3)
+__int64 __fastcall KGetAppModelStateSeparatedRegKeyPath(PCWSTR SourceString, _WORD *a2, UNICODE_STRING *a3)
 {
   int PersistedStateLocation; // eax
-  NTSTATUS inited; // ebx
-  int v7; // ebx
+  int inited; // ebx
+  unsigned int v8; // ebx
   PVOID PoolWithTag; // rdi
   SIZE_T NumberOfBytes; // [rsp+70h] [rbp+18h] BYREF
 
   LODWORD(NumberOfBytes) = 0;
   if ( a3 )
   {
-    PersistedStateLocation = RtlGetPersistedStateLocation(SourceString, 0LL, 0, (__int64)&NumberOfBytes);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               SourceString,
+                               L"TargetNtPath",
+                               a2,
+                               0,
+                               0LL,
+                               0,
+                               (unsigned int *)&NumberOfBytes);
     inited = PersistedStateLocation;
     if ( PersistedStateLocation >= 0 )
     {
@@ -29,12 +36,25 @@ __int64 __fastcall KGetAppModelStateSeparatedRegKeyPath(PCWSTR SourceString, __i
     }
     else if ( PersistedStateLocation == -2147483643 )
     {
-      v7 = NumberOfBytes;
+      v8 = NumberOfBytes;
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4D707041u);
       if ( PoolWithTag )
       {
-        inited = RtlGetPersistedStateLocation(SourceString, PoolWithTag, v7, (__int64)&NumberOfBytes);
-        if ( inited < 0 || (inited = RtlInitUnicodeStringEx(a3, (PCWSTR)PoolWithTag), inited < 0) )
+        inited = RtlGetPersistedStateLocation(
+                   SourceString,
+                   L"TargetNtPath",
+                   a2,
+                   0,
+                   PoolWithTag,
+                   v8,
+                   (unsigned int *)&NumberOfBytes);
+        if ( inited >= 0 )
+        {
+          inited = RtlInitUnicodeStringEx(a3, (PCWSTR)PoolWithTag);
+          if ( inited >= 0 )
+            PoolWithTag = 0LL;
+        }
+        if ( PoolWithTag )
           ExFreePoolWithTag(PoolWithTag, 0x4D707041u);
       }
       else

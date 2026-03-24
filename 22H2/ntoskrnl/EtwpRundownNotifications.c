@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpRundownNotifications @ 0x1406C02A8
+ * XREFs of EtwpRundownNotifications @ 0x14067766C
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x1406BEDE0 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     EtwpUnreferenceDataBlock @ 0x140781CF8 (EtwpUnreferenceDataBlock.c)
- *     EtwpReleaseQueueEntry @ 0x140781D20 (EtwpReleaseQueueEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     EtwpReleaseQueueEntry @ 0x1407181BC (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceDataBlock @ 0x140718224 (EtwpUnreferenceDataBlock.c)
  */
 
 void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx
-  __int64 *v4; // rdi
   struct _KTHREAD *CurrentThread; // rax
+  ULONG_PTR v5; // rdi
   _QWORD *v6; // rbx
   _QWORD *v7; // rdx
   _QWORD *v8; // rbx
@@ -28,10 +28,10 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
   if ( v2 )
   {
     P[1] = P;
-    v4 = (__int64 *)(v2 + 16);
     P[0] = P;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
+    v5 = v2 + 16;
     ExAcquirePushLockExclusiveEx(v2 + 16, 0LL);
     v6 = (_QWORD *)(v2 + 24);
     v7 = (_QWORD *)*v6;
@@ -54,7 +54,7 @@ LABEL_15:
         P[0] = v9;
       }
     }
-    ExReleasePushLockEx(v4, 0LL);
+    ExReleasePushLockEx(v5, 0LL);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     while ( 1 )
     {

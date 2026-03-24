@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HasImpulse@CMotion@@QEBA_NXZ @ 0x1802544BC
+ * XREFs of ?HasImpulse@CMotion@@QEBA_NXZ @ 0x180203C38
  * Callers:
- *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x18021B2D4 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
- *     ?IsInMotion@CMotion@@QEBA_NXZ @ 0x18025F1A8 (-IsInMotion@CMotion@@QEBA_NXZ.c)
+ *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x1801C9F30 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?IsInMotion@CMotion@@QEBA_NXZ @ 0x18020E8EC (-IsInMotion@CMotion@@QEBA_NXZ.c)
  * Callees:
  *     <none>
  */

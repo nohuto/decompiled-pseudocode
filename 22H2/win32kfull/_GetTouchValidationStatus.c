@@ -1,8 +1,8 @@
 /*
- * XREFs of _GetTouchValidationStatus @ 0x1C01B2914
+ * XREFs of _GetTouchValidationStatus @ 0x1C01DDFF8
  * Callers:
- *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0155C46 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
- *     NtUserGetTouchValidationStatus @ 0x1C01D40C0 (NtUserGetTouchValidationStatus.c)
+ *     NtUserGetTouchValidationStatus @ 0x1C01FBD10 (NtUserGetTouchValidationStatus.c)
+ *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0208060 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,33 +12,28 @@ __int64 __fastcall GetTouchValidationStatus(__int64 a1)
   unsigned int v1; // edi
   __int64 v2; // rax
   int v3; // ecx
-  __int64 v4; // rax
   CInpPushLock *Lock; // rbx
-  __int64 v6; // rcx
-  __int64 v7; // rax
   struct DEVICEINFO *DeviceList; // rdx
-  __int64 v9; // rax
+  __int64 v6; // rax
 
   v1 = 3;
   if ( a1 )
   {
     if ( *(_BYTE *)(a1 + 48) == 2 )
     {
-      v2 = *(_QWORD *)(a1 + 456);
+      v2 = *(_QWORD *)(a1 + 464);
       if ( *(_WORD *)(v2 + 42) == 13 && (unsigned __int16)(*(_WORD *)(v2 + 40) - 4) <= 1u )
       {
-        v3 = *(_DWORD *)(*(_QWORD *)(a1 + 472) + 360LL);
+        v3 = *(_DWORD *)(*(_QWORD *)(a1 + 480) + 312LL);
         if ( (v3 & 8) == 0 )
           return 2 - (unsigned int)((v3 & 0x100) != 0);
       }
     }
     return v1;
   }
-  v4 = SGDGetUserSessionState(0LL);
-  Lock = CBaseInput::TmpGetLock(*(CBaseInput **)(v4 + 16840));
+  Lock = CBaseInput::TmpGetLock(gpHidInput);
   CInpPushLock::LockShared(Lock);
-  v7 = SGDGetUserSessionState(v6);
-  DeviceList = CBaseInput::TmpGetDeviceList(*(CBaseInput **)(v7 + 16840));
+  DeviceList = CBaseInput::TmpGetDeviceList(gpHidInput);
   if ( !DeviceList )
     goto LABEL_17;
   while ( 1 )
@@ -47,10 +42,10 @@ __int64 __fastcall GetTouchValidationStatus(__int64 a1)
       goto LABEL_14;
     if ( (*((_DWORD *)DeviceList + 46) & 0x2000) != 0 )
       goto LABEL_14;
-    v9 = *((_QWORD *)DeviceList + 57);
-    if ( *(_WORD *)(v9 + 42) != 13 || *(_WORD *)(v9 + 40) != 4 )
+    v6 = *((_QWORD *)DeviceList + 58);
+    if ( *(_WORD *)(v6 + 42) != 13 || *(_WORD *)(v6 + 40) != 4 )
       goto LABEL_14;
-    if ( (*(_DWORD *)(*((_QWORD *)DeviceList + 59) + 360LL) & 0x100) != 0 )
+    if ( (*(_DWORD *)(*((_QWORD *)DeviceList + 60) + 312LL) & 0x100) != 0 )
       break;
     v1 = 2;
 LABEL_14:

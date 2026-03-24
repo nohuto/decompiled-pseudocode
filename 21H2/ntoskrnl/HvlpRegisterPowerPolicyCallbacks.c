@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x14054A344
+ * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x1404F8684
  * Callers:
- *     HvlPhase2Initialize @ 0x1403DE4F0 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS HvlpRegisterPowerPolicyCallbacks()
@@ -35,7 +35,7 @@ NTSTATUS HvlpRegisterPowerPolicyCallbacks()
   if ( (HvlpEnlightenments & 0x408) != 0 )
   {
     v3 = &HvlpPowerSettingList;
-    v4 = 6LL;
+    v4 = 5LL;
     do
     {
       result = PoRegisterPowerSettingCallback(

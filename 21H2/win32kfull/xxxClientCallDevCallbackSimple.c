@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxClientCallDevCallbackSimple @ 0x1C022B650
+ * XREFs of xxxClientCallDevCallbackSimple @ 0x1C0231BDC
  * Callers:
- *     EditionInputExtensibilityCallout @ 0x1C01EB870 (EditionInputExtensibilityCallout.c)
+ *     EditionInputExtensibilityCallout @ 0x1C01F0D60 (EditionInputExtensibilityCallout.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall xxxClientCallDevCallbackSimple(__int64 a1, __int64 a2)

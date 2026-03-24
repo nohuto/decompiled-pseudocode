@@ -1,31 +1,30 @@
 /*
- * XREFs of CmInitServerSiloState @ 0x14080EBB4
+ * XREFs of CmInitServerSiloState @ 0x1407A5B58
  * Callers:
- *     CmpInitSiloSupport @ 0x14080EB40 (CmpInitSiloSupport.c)
- *     PspInitializeServerSiloDeferred @ 0x1409AD150 (PspInitializeServerSiloDeferred.c)
+ *     CmpInitSiloSupport @ 0x1407A5B28 (CmpInitSiloSupport.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409064C0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x14077AC4C (CmpGetOrCreateContextForSiloNoRef.c)
- *     CmpStartSiloRegistryNamespace @ 0x14077D410 (CmpStartSiloRegistryNamespace.c)
- *     CmpStartSiloKeyLockTracker @ 0x14080EC28 (CmpStartSiloKeyLockTracker.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140660BCC (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406A630C (CmpStartSiloRegistryNamespace.c)
+ *     CmpStartSiloKeyLockTracker @ 0x1407A5BA0 (CmpStartSiloKeyLockTracker.c)
  */
 
-__int64 CmInitServerSiloState()
+__int64 __fastcall CmInitServerSiloState(__int64 a1)
 {
-  __int64 v0; // r8
-  unsigned int v1; // r8d
-  __int64 v3[3]; // [rsp+20h] [rbp-18h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp+10h] BYREF
+  __int64 result; // rax
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp+10h] BYREF
 
-  *(_OWORD *)v3 = 0LL;
   BugCheckParameter2 = 0LL;
-  CmpInitializeThreadInfo((__int64)v3);
-  if ( (int)CmpGetOrCreateContextForSiloNoRef(v0, &BugCheckParameter2) >= 0
-    && (int)CmpStartSiloRegistryNamespace(BugCheckParameter2) >= 0 )
+  result = CmpGetOrCreateContextForSiloNoRef(a1, &BugCheckParameter2);
+  if ( (int)result >= 0 )
   {
-    CmpStartSiloKeyLockTracker(BugCheckParameter2);
+    result = CmpStartSiloRegistryNamespace(BugCheckParameter2);
+    if ( (int)result >= 0 )
+    {
+      result = CmpStartSiloKeyLockTracker(BugCheckParameter2);
+      if ( (int)result >= 0 )
+        return 0LL;
+    }
   }
-  CmCleanupThreadInfo(v3);
-  return v1;
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EngDeleteSemaphore @ 0x1C0044ED0
+ * XREFs of EngDeleteSemaphore @ 0x1C005AFF0
  * Callers:
  *     <none>
  * Callees:
- *     GreDeleteSemaphore @ 0x1C0044F30 (GreDeleteSemaphore.c)
+ *     GreDeleteSemaphore @ 0x1C005B290 (GreDeleteSemaphore.c)
  */
 
 void __stdcall EngDeleteSemaphore(HSEMAPHORE hsem)

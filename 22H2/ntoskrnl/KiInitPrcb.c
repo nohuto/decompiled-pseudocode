@@ -1,60 +1,79 @@
 /*
- * XREFs of KiInitPrcb @ 0x140A8C3EC
+ * XREFs of KiInitPrcb @ 0x14099C048
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099BA20 (KiInitializeBootStructures.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KiInitializeDpcList @ 0x14036E8F0 (KiInitializeDpcList.c)
- *     KiIntSteerInitPrcb @ 0x1403816AC (KiIntSteerInitPrcb.c)
- *     KiInitializeSoftwareInterruptBatch @ 0x1403816E8 (KiInitializeSoftwareInterruptBatch.c)
- *     KiInitializeBugcheckRecoveryProcessor @ 0x140381730 (KiInitializeBugcheckRecoveryProcessor.c)
- *     KiInitializeSharedReadyQueue @ 0x140381788 (KiInitializeSharedReadyQueue.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiInitializeDpcList @ 0x14032D134 (KiInitializeDpcList.c)
+ *     KiIntSteerInitPrcb @ 0x14032D144 (KiIntSteerInitPrcb.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void *__fastcall KiInitPrcb(__int64 a1, int a2)
+__int64 __fastcall KiInitPrcb(__int64 a1, int a2)
 {
-  _QWORD *v2; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  __int64 v7; // rbx
-  void *result; // rax
+  _QWORD *v3; // rax
+  __int64 v5; // r8
+  __int64 v6; // rcx
+  __int64 v7; // rdx
+  _QWORD *v8; // rcx
+  __int64 i; // rcx
+  __int64 result; // rax
 
-  v2 = (_QWORD *)(a1 + 32576);
-  *(_DWORD *)(a1 + 32472) = 0;
-  *(_DWORD *)(a1 + 32480) = 1;
-  *(_DWORD *)(a1 + 33140) = 0;
-  *(_QWORD *)(a1 + 33144) = 0LL;
-  *(_QWORD *)(a1 + 11528) = 0LL;
+  *(_DWORD *)(a1 + 31776) = 1;
+  *(_DWORD *)(a1 + 31768) = 0;
+  *(_DWORD *)(a1 + 32436) = 0;
+  v3 = (_QWORD *)(a1 + 31872);
+  *(_QWORD *)(a1 + 32440) = 0LL;
   v5 = 32LL;
+  *(_QWORD *)(a1 + 11528) = 0LL;
+  v6 = 32LL;
   do
   {
-    v2[1] = v2;
-    *v2 = v2;
-    v2 += 2;
+    v3[1] = v3;
+    *v3 = v3;
+    v3 += 2;
+    --v6;
+  }
+  while ( v6 );
+  v7 = 0LL;
+  **(_QWORD **)(a1 + 33864) = 0LL;
+  *(_DWORD *)(*(_QWORD *)(a1 + 33864) + 8LL) = 0;
+  *(_DWORD *)(*(_QWORD *)(a1 + 33864) + 608LL) = 0;
+  *(_QWORD *)(*(_QWORD *)(a1 + 33864) + 616LL) = 0LL;
+  do
+  {
+    v8 = (_QWORD *)(v7 + *(_QWORD *)(a1 + 33864) + 16LL);
+    v7 += 16LL;
+    v8[1] = v8;
+    *v8 = v8;
     --v5;
   }
   while ( v5 );
-  KiInitializeSharedReadyQueue(*(_QWORD *)(a1 + 34888), a1);
-  *(_QWORD *)(a1 + 56) = *(_QWORD *)(a1 + 34888) + 528LL;
-  KiInitializeDpcList((_QWORD *)(a1 + 13120));
-  *(_QWORD *)(a1 + 13136) = 0LL;
-  *(_QWORD *)(a1 + 13144) = 0LL;
-  *(_DWORD *)(a1 + 13244) = 0;
-  *(_BYTE *)(a1 + 13242) = 0;
-  *(_DWORD *)(a1 + 13224) = KiMaximumDpcQueueDepth;
-  *(_DWORD *)(a1 + 13232) = KiMinimumDpcRate;
-  *(_DWORD *)(a1 + 33108) = KiAdjustDpcThreshold;
-  KeInitializeDpc((PRKDPC)(a1 + 32352), (PKDEFERRED_ROUTINE)KiDpcWatchdog, 0LL);
-  if ( !*(_QWORD *)(a1 + 32408) )
-    *(_WORD *)(a1 + 32354) = a2 + 2048;
-  *(_BYTE *)(a1 + 32353) = 2;
-  KiInitializeBugcheckRecoveryProcessor(a1);
-  *(_QWORD *)(a1 + 13096) = -1LL;
-  *(_QWORD *)(a1 + 32456) = a1 + 32448;
-  *(_QWORD *)(a1 + 32448) = a1 + 32448;
-  InitializeSListHead((PSLIST_HEADER)(a1 + 13056));
+  memset((void *)(*(_QWORD *)(a1 + 33864) + 528LL), 127, 0x40uLL);
+  *(_BYTE *)(*(_QWORD *)(a1 + 33864) + 592LL) = 1;
+  *(_BYTE *)(*(_QWORD *)(a1 + 33864) + 593LL) = *(_BYTE *)(a1 + 209);
+  for ( i = 0LL; i < 2; ++i )
+    *(_BYTE *)(i + *(_QWORD *)(a1 + 33864) + 594) = 1;
+  *(_QWORD *)(*(_QWORD *)(a1 + 33864) + 600LL) = *(_QWORD *)(a1 + 200);
+  *(_QWORD *)(a1 + 56) = *(_QWORD *)(a1 + 33864) + 528LL;
+  KiInitializeDpcList((_QWORD *)(a1 + 12480));
+  *(_QWORD *)(a1 + 12496) = 0LL;
+  *(_DWORD *)(a1 + 12504) = 0;
+  *(_DWORD *)(a1 + 12588) = 0;
+  *(_BYTE *)(a1 + 12586) = 0;
+  *(_DWORD *)(a1 + 12508) = 0;
+  *(_DWORD *)(a1 + 12568) = KiMaximumDpcQueueDepth;
+  *(_DWORD *)(a1 + 12576) = KiMinimumDpcRate;
+  *(_DWORD *)(a1 + 32404) = KiAdjustDpcThreshold;
+  KeInitializeDpc((PRKDPC)(a1 + 31648), (PKDEFERRED_ROUTINE)KiDpcWatchdog, 0LL);
+  if ( !*(_QWORD *)(a1 + 31704) )
+    *(_WORD *)(a1 + 31650) = a2 + 1280;
+  *(_BYTE *)(a1 + 31649) = 2;
+  *(_QWORD *)(a1 + 31752) = a1 + 31744;
+  *(_QWORD *)(a1 + 31744) = a1 + 31744;
+  *(_QWORD *)(a1 + 12456) = 1LL;
+  InitializeSListHead((PSLIST_HEADER)(a1 + 12416));
   KeGetPcr()->NtTib.ArbitraryUserPointer = (void *)(a1 + 1776);
   *(_QWORD *)(a1 + 2008) = &CcBcbSpinLock;
   *(_QWORD *)(a1 + 2000) = 0LL;
@@ -78,11 +97,11 @@ void *__fastcall KiInitPrcb(__int64 a1, int a2)
   *(_QWORD *)(a1 + 1984) = 0LL;
   *(_QWORD *)(a1 + 2032) = 0LL;
   *(_QWORD *)(a1 + 2040) = 0LL;
-  *(_DWORD *)(a1 + 35296) = (3 * (_WORD)a2) & 0x3FF;
+  *(_DWORD *)(a1 + 34272) = (3 * (_WORD)a2) & 0x3FF;
   *(_QWORD *)(a1 + 48) = 0LL;
-  *(_QWORD *)(a1 + 32464) = 0LL;
-  *(_DWORD *)(a1 + 32416) = 1;
-  KeInitializeDpc((PRKDPC)(a1 + 35560), (PKDEFERRED_ROUTINE)KiEntropyDpcRoutine, (PVOID)(a1 + 35296));
+  *(_QWORD *)(a1 + 31760) = 0LL;
+  *(_DWORD *)(a1 + 31712) = 1;
+  KeInitializeDpc((PRKDPC)(a1 + 34536), (PKDEFERRED_ROUTINE)KiEntropyDpcRoutine, (PVOID)(a1 + 34272));
   if ( !a2 )
   {
     KiClockPollCycle = KiClockKeepAliveCycle;
@@ -97,24 +116,13 @@ void *__fastcall KiInitPrcb(__int64 a1, int a2)
     NonPagedPoolLock = 0LL;
     NtfsStructLock = 0LL;
     AfdWorkQueueSpinLock = 0LL;
-    KeSleepingProcessors = 2097184;
-    memset(&unk_140C419C4, 0, 0x104uLL);
+    KeSleepingProcessors = 1310740;
+    memset(&unk_140C2B404, 0, 0xA4uLL);
   }
   KiIntSteerInitPrcb(a1);
-  KeInitializeDpc((PRKDPC)(a1 + 35712), (PKDEFERRED_ROUTINE)KiAbDeferredProcessingWorker, 0LL);
-  if ( !*(_QWORD *)(a1 + 35768) )
-    *(_WORD *)(a1 + 35714) = a2 + 2048;
-  KiInitializeSoftwareInterruptBatch((_DWORD *)(a1 + 12760));
-  *(_DWORD *)(a1 + 34452) = 0;
-  v6 = 5LL;
-  v7 = a1 + 40636;
-  do
-  {
-    *(_QWORD *)(v7 - 4) = 2097153LL;
-    result = memset((void *)(v7 + 4), 0, 0x100uLL);
-    v7 += 264LL;
-    --v6;
-  }
-  while ( v6 );
+  KeInitializeDpc((PRKDPC)(a1 + 34688), (PKDEFERRED_ROUTINE)KiAbDeferredProcessingWorker, 0LL);
+  result = *(_QWORD *)(a1 + 34744);
+  if ( !result )
+    *(_WORD *)(a1 + 34690) = a2 + 1280;
   return result;
 }

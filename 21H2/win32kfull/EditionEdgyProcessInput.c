@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionEdgyProcessInput @ 0x1C0209060
+ * XREFs of EditionEdgyProcessInput @ 0x1C0208C70
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C016D560 (-ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z.c)
+ *     ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C0207978 (-ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z.c)
  */
 
 __int64 __fastcall EditionEdgyProcessInput(__int64 a1, __int64 a2, Edgy *a3, _QWORD *a4)

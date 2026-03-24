@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeNonPagedPoolThresholds @ 0x1403C315C
+ * XREFs of MiInitializeNonPagedPoolThresholds @ 0x1403B6100
  * Callers:
- *     MiPerformMemoryChange @ 0x1405835E0 (MiPerformMemoryChange.c)
- *     MiInitializeNonPagedPool @ 0x140B0681C (MiInitializeNonPagedPool.c)
+ *     MiPerformMemoryChange @ 0x14052EA38 (MiPerformMemoryChange.c)
+ *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSignalNonPagedPoolWatchers @ 0x1403C31D4 (MiSignalNonPagedPoolWatchers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x1403B6178 (MiSignalNonPagedPoolWatchers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiInitializeNonPagedPoolThresholds()
@@ -22,10 +22,10 @@ __int64 MiInitializeNonPagedPoolThresholds()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C58CC0, &LockHandle);
-  v0 = qword_140C534B0;
-  if ( qword_140C534B0 > qword_140C590D0 )
-    v0 = qword_140C590D0;
+  KeAcquireInStackQueuedSpinLock(&qword_140C520C0, &LockHandle);
+  v0 = qword_140C4EF30;
+  if ( qword_140C4EF30 > qword_140C52890 )
+    v0 = qword_140C52890;
   MiState[0] = v0;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;

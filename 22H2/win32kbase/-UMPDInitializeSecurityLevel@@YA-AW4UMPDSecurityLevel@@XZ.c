@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C007C1AC
+ * XREFs of ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C00A0B74
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 UMPDInitializeSecurityLevel()
@@ -35,8 +35,7 @@ __int64 UMPDInitializeSecurityLevel()
     ResultLength = 0;
     ValueName = 0LL;
     RtlInitUnicodeString(&ValueName, L"UMPDSecurityLevel");
-    if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0
-      && v8 )
+    if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
     {
       if ( v8 == 1 )
       {

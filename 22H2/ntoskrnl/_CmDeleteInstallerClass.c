@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteInstallerClass @ 0x140A62A64
+ * XREFs of _CmDeleteInstallerClass @ 0x1409751E8
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
- *     PiCMDeleteClassKey @ 0x140968DDC (PiCMDeleteClassKey.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
+ *     PiCMDeleteClassKey @ 0x1408AFDAC (PiCMDeleteClassKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmDeleteInstallerClassWorker @ 0x140A62B90 (_CmDeleteInstallerClassWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140975314 (_CmDeleteInstallerClassWorker.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClass(__int64 a1, __int64 a2, int a3)

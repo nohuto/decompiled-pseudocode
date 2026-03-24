@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023C830
+ * XREFs of ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9AF0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023C808 (-IsOfType@-$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA.c)
+ *     ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9AC8 (-IsOfType@-$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA.c)
  */
 
 char __fastcall CSceneMeshRendererComponent::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CSceneMeshRendererComponent::IsOfType(__int64 a1, int a2)
   bool v2; // al
   char v3; // cl
 
-  if ( a2 == 157 )
+  if ( a2 == 158 )
     return 1;
   v2 = CSceneRendererComponentGeneratedT<CSceneRendererComponent,CSceneComponent>::IsOfType(a1, a2);
   v3 = 0;

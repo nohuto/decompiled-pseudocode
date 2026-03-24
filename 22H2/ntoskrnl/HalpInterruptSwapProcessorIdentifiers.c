@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140A97E20
+ * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x1409A8D94
  * Callers:
- *     HalpDpReplaceControl @ 0x140A97960 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x1409A88C0 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpInterruptIsRemappingRequired @ 0x14031FBEC (HalpInterruptIsRemappingRequired.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpUpdateIrtDestinationId @ 0x14051A678 (HalpUpdateIrtDestinationId.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140A95770 (HalpInterruptRestoreAllControllerState.c)
- *     HalpInterruptEnsureLineSwapComplete @ 0x140A97D34 (HalpInterruptEnsureLineSwapComplete.c)
- *     HalpInterruptUpdateLinesPostSwap @ 0x140A97FCC (HalpInterruptUpdateLinesPostSwap.c)
- *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140A98140 (HalpInterruptUpdateLocalUnitIdentifier.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378AAC (HalpInterruptIsRemappingRequired.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpUpdateIrtDestinationId @ 0x1404D14D8 (HalpUpdateIrtDestinationId.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140997C90 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptEnsureLineSwapComplete @ 0x1409A8CA8 (HalpInterruptEnsureLineSwapComplete.c)
+ *     HalpInterruptUpdateLinesPostSwap @ 0x1409A8F44 (HalpInterruptUpdateLinesPostSwap.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x1409A90BC (HalpInterruptUpdateLocalUnitIdentifier.c)
  */
 
 __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(_DWORD *BugCheckParameter3, ULONG_PTR a2, unsigned int a3)
@@ -22,20 +22,20 @@ __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(_DWORD *BugCheckParamet
   unsigned int v11; // r15d
   ULONG_PTR v12; // r12
   unsigned int *v13; // rdi
-  ULONG_PTR *v14; // r14
+  ULONG_PTR *v14; // rsi
   ULONG_PTR *v15; // rax
   _QWORD *v16; // r13
   int v17; // ecx
   __int128 v18; // [rsp+30h] [rbp-68h] BYREF
-  int v19; // [rsp+40h] [rbp-58h]
+  __int64 v19; // [rsp+40h] [rbp-58h]
   __int128 v20; // [rsp+48h] [rbp-50h] BYREF
-  int v21; // [rsp+58h] [rbp-40h]
+  __int64 v21; // [rsp+58h] [rbp-40h]
   _QWORD *v23; // [rsp+B8h] [rbp+20h]
 
   updated = 0;
   v4 = 0;
-  v19 = 0;
-  v21 = 0;
+  v19 = 0LL;
+  v21 = 0LL;
   v18 = 0LL;
   v20 = 0LL;
   if ( a3 )
@@ -81,8 +81,8 @@ LABEL_17:
         {
           v15 = v14;
           v14 = (ULONG_PTR *)*v14;
-          v23 = v15 + 33;
-          v16 = (_QWORD *)v15[33];
+          v23 = v15 + 30;
+          v16 = (_QWORD *)v15[30];
           if ( (_QWORD *)*v23 != v23 )
           {
             while ( 1 )

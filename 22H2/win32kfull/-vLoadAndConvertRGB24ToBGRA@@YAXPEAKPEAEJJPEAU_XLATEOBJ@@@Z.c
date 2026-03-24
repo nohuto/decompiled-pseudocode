@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLoadAndConvertRGB24ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02E5410
+ * XREFs of ?vLoadAndConvertRGB24ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02C54C0
  * Callers:
  *     <none>
  * Callees:

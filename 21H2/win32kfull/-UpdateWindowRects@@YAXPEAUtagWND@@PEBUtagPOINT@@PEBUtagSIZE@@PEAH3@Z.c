@@ -1,11 +1,10 @@
 /*
- * XREFs of ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C0090220
+ * XREFs of ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C00F22C4
  * Callers:
- *     zzzUpdateLayeredWindow @ 0x1C008FE60 (zzzUpdateLayeredWindow.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1FE4 (zzzUpdateLayeredWindow.c)
  * Callees:
- *     CalcWindowFullScreen @ 0x1C006C0E8 (CalcWindowFullScreen.c)
- *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C0084B7C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
- *     PostShellHookMessages @ 0x1C00A6110 (PostShellHookMessages.c)
+ *     PostShellHookMessages @ 0x1C00435E0 (PostShellHookMessages.c)
+ *     CalcWindowFullScreen @ 0x1C006AA64 (CalcWindowFullScreen.c)
  */
 
 void __fastcall UpdateWindowRects(
@@ -22,11 +21,11 @@ void __fastcall UpdateWindowRects(
   _DWORD *v12; // rcx
   int v13; // r8d
   int v14; // edx
-  __int64 v15; // r9
+  _DWORD *v15; // rcx
   int v16; // eax
   _DWORD *v17; // rcx
   _DWORD *v18; // rcx
-  HRGN ExplicitClipRgn; // rax
+  __int64 v19; // rcx
   __int64 v20; // rax
   int v21; // ecx
   __int64 v22; // rax
@@ -38,17 +37,17 @@ void __fastcall UpdateWindowRects(
   *a5 = 0;
   if ( a2 )
   {
-    v15 = *((_QWORD *)a1 + 5);
-    v10 = a2->x - *(_DWORD *)(v15 + 88);
-    v11 = a2->y - *(_DWORD *)(v15 + 92);
-    if ( a2->x != *(_DWORD *)(v15 + 88) || v11 )
+    v15 = (_DWORD *)*((_QWORD *)a1 + 5);
+    v10 = a2->x - v15[22];
+    v11 = a2->y - v15[23];
+    if ( a2->x != v15[22] || v11 )
     {
-      v16 = *((_DWORD *)a1 + 80);
+      v16 = v15[58];
       v6 = 1;
-      if ( (v16 & 0x400) != 0 )
+      if ( (v16 & 0x8000) != 0 )
       {
-        *((_DWORD *)a1 + 80) = v16 & 0xFFFFFBFF;
-        PostShellHookMessages(54LL, *(_QWORD *)a1);
+        v15[58] = v16 & 0xFFFF7FFF;
+        PostShellHookMessages(0x36uLL, *(_QWORD *)a1);
       }
     }
   }
@@ -84,27 +83,27 @@ void __fastcall UpdateWindowRects(
     v18[27] += v11;
     if ( v13 < 0 )
     {
-      v20 = *((_QWORD *)a1 + 5);
-      v21 = *(_DWORD *)(v20 + 88);
-      if ( *(_DWORD *)(v20 + 104) < v21 )
+      v22 = *((_QWORD *)a1 + 5);
+      v23 = *(_DWORD *)(v22 + 88);
+      if ( *(_DWORD *)(v22 + 104) < v23 )
       {
-        *(_DWORD *)(v20 + 104) = v21;
+        *(_DWORD *)(v22 + 104) = v23;
         *(_DWORD *)(*((_QWORD *)a1 + 5) + 112LL) = *(_DWORD *)(*((_QWORD *)a1 + 5) + 88LL);
       }
     }
     if ( v14 < 0 )
     {
-      v22 = *((_QWORD *)a1 + 5);
-      v23 = *(_DWORD *)(v22 + 92);
-      if ( *(_DWORD *)(v22 + 108) < v23 )
+      v20 = *((_QWORD *)a1 + 5);
+      v21 = *(_DWORD *)(v20 + 92);
+      if ( *(_DWORD *)(v20 + 108) < v21 )
       {
-        *(_DWORD *)(v22 + 108) = v23;
+        *(_DWORD *)(v20 + 108) = v21;
         *(_DWORD *)(*((_QWORD *)a1 + 5) + 116LL) = *(_DWORD *)(*((_QWORD *)a1 + 5) + 92LL);
       }
     }
-    ExplicitClipRgn = tagWND::GetExplicitClipRgn(a1);
-    if ( ExplicitClipRgn )
-      GreOffsetRgn(ExplicitClipRgn, v10, v11);
+    v19 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 168LL);
+    if ( v19 )
+      GreOffsetRgn(v19, v10, v11);
     CalcWindowFullScreen(a1);
   }
   *a4 = v5;

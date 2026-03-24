@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnAsyncContextInitialize @ 0x1407DB758
+ * XREFs of PfSnAsyncContextInitialize @ 0x1406964CC
  * Callers:
- *     PfSnPrefetchScenario @ 0x1407DB6B0 (PfSnPrefetchScenario.c)
+ *     PfSnPrefetchScenario @ 0x140696420 (PfSnPrefetchScenario.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     PfSnReferenceProcessTrace @ 0x1402E25B4 (PfSnReferenceProcessTrace.c)
- *     memset @ 0x140435400 (memset.c)
+ *     PsGetPagePriorityThread @ 0x140242140 (PsGetPagePriorityThread.c)
+ *     PfSnReferenceProcessTrace @ 0x14029E950 (PfSnReferenceProcessTrace.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
   _KPROCESS *Process; // rcx
-  __int64 v9; // rax
-  struct _EX_RUNDOWN_REF *v10; // rcx
+  struct _EX_RUNDOWN_REF *v9; // rax
+  KSPIN_LOCK *v10; // rcx
 
   memset(a1, 0, 0xF8uLL);
   a1[26] = a2;
@@ -25,7 +25,7 @@ void __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, i
   a1[27] = Process;
   ObfReferenceObject(Process);
   v9 = PfSnReferenceProcessTrace(a1[27]);
-  v10 = (struct _EX_RUNDOWN_REF *)a1[4];
+  v10 = (KSPIN_LOCK *)a1[4];
   a1[28] = v9;
   ExInitializePushLock(v10);
   *((_DWORD *)a1 + 59) = PsGetPagePriorityThread((__int64)KeGetCurrentThread());
@@ -34,7 +34,7 @@ void __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, i
   a1[3] = a1;
   if ( a4 )
     *((_DWORD *)a1 + 60) |= 1u;
-  ExInitializePushLock((PEX_RUNDOWN_REF)a1 + 5);
+  ExInitializePushLock(a1 + 5);
   a1[22] = 0LL;
   a1[24] = PfSnPowerBoostWorker;
   a1[25] = a1 + 5;

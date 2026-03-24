@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegContextInitialize @ 0x140140DB8
+ * XREFs of RtlpHpSegContextInitialize @ 0x140140DD8
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AC0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 RtlpHpSegContextInitialize(

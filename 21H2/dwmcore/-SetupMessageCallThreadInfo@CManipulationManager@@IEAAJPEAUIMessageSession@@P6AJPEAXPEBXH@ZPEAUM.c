@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x18002C820
+ * XREFs of ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800B5B9C
  * Callers:
- *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x18002C6B8 (-Initialize@CManipulationManager@@IEAAJXZ.c)
- *     ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x18002E280 (-ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ.c)
+ *     ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800B4DC0 (-ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ.c)
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800B5A48 (-Initialize@CManipulationManager@@IEAAJXZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CManipulationManager::SetupMessageCallThreadInfo(
@@ -32,11 +32,11 @@ __int64 __fastcall CManipulationManager::SetupMessageCallThreadInfo(
     *((_QWORD *)a4 + 2) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
   }
-  v10 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 112LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL));
+  v10 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 88LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 504LL));
   v11 = CoreUICallCreateEndpointHost(v10, 0LL, (char *)a4 + 16);
   if ( v11 < 0 )
     ModuleFailFastForHRESULT((unsigned int)v11, retaddr);
-  v12 = (*(__int64 (__fastcall **)(struct IMessageSession *, int (*)(void *, const void *, int), CManipulationManager *, struct CManipulationManager::MessageCallThreadInfo *))(*(_QWORD *)a2 + 112LL))(
+  v12 = (*(__int64 (__fastcall **)(struct IMessageSession *, int (*)(void *, const void *, int), CManipulationManager *, struct CManipulationManager::MessageCallThreadInfo *))(*(_QWORD *)a2 + 104LL))(
           a2,
           a3,
           this,

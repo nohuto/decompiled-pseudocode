@@ -1,47 +1,56 @@
 /*
- * XREFs of DrvCleanupOneGraphicsDevice @ 0x1C0018720
+ * XREFs of DrvCleanupOneGraphicsDevice @ 0x1C007EA40
  * Callers:
- *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00186C8 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C001F34C (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
- *     DrvAddMirrorDriversToRemoteList @ 0x1C00CAEC4 (DrvAddMirrorDriversToRemoteList.c)
- *     DrvCleanupGraphicsDevices @ 0x1C0165C94 (DrvCleanupGraphicsDevices.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001F350 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C0020020 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C007E9E4 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C3560 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C0146904 (DrvCleanupGraphicsDevices.c)
  * Callees:
- *     bSetDeviceSessionUsage @ 0x1C001CCE0 (bSetDeviceSessionUsage.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     bSetDeviceSessionUsage @ 0x1C00AE270 (bSetDeviceSessionUsage.c)
  */
 
-void __fastcall DrvCleanupOneGraphicsDevice(void *a1)
+void __fastcall DrvCleanupOneGraphicsDevice(__int64 a1)
 {
-  void *v1; // rdx
-  void *v3; // rdx
-  void *v4; // rdx
-  void *v5; // rdx
-  void *v6; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  void *v7; // rcx
+  __int64 v8; // rcx
 
-  v1 = (void *)*((_QWORD *)a1 + 22);
-  if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
-  v3 = (void *)*((_QWORD *)a1 + 24);
+  v2 = *(_QWORD *)(a1 + 176);
+  if ( v2 )
+    Win32FreePool(v2);
+  v3 = *(_QWORD *)(a1 + 192);
   if ( v3 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
-  v4 = (void *)*((_QWORD *)a1 + 26);
+    Win32FreePool(v3);
+  v4 = *(_QWORD *)(a1 + 208);
   if ( v4 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-  v5 = (void *)*((_QWORD *)a1 + 25);
+    Win32FreePool(v4);
+  v5 = *(_QWORD *)(a1 + 200);
   if ( v5 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
-  if ( *((_QWORD *)a1 + 28) )
-  {
-    if ( (*((_DWORD *)a1 + 41) & 2) != 0 )
-      bSetDeviceSessionUsage(a1, 0LL);
-    ObfDereferenceObject(*((PVOID *)a1 + 28));
-  }
-  v6 = (void *)*((_QWORD *)a1 + 33);
+    Win32FreePool(v5);
+  v6 = *(_QWORD *)(a1 + 224);
   if ( v6 )
+    Win32FreePool(v6);
+  v7 = *(void **)(a1 + 232);
+  if ( v7 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v6);
-    *((_QWORD *)a1 + 33) = 0LL;
+    if ( (*(_DWORD *)(a1 + 164) & 2) != 0 )
+    {
+      bSetDeviceSessionUsage(a1, 0LL);
+      v7 = *(void **)(a1 + 232);
+    }
+    ObfDereferenceObject(v7);
   }
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
+  v8 = *(_QWORD *)(a1 + 272);
+  if ( v8 )
+  {
+    Win32FreePool(v8);
+    *(_QWORD *)(a1 + 272) = 0LL;
+  }
+  Win32FreePool(a1);
 }

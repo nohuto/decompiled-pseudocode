@@ -1,18 +1,18 @@
 /*
- * XREFs of ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00B6818
+ * XREFs of ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F0648
  * Callers:
- *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0049AEC (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
- *     GreDeleteSpriteOverlapPresent @ 0x1C0060B00 (GreDeleteSpriteOverlapPresent.c)
- *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00B67C4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
- *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027CAC4 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
+ *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0074D3C (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
+ *     GreDeleteSpriteOverlapPresent @ 0x1C007C2C0 (GreDeleteSpriteOverlapPresent.c)
+ *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00F05F4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
+ *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027F104 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0042D7C (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B68CC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     UserGetClientRgn @ 0x1C01E3204 (UserGetClientRgn.c)
- *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C02741B4 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B307C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F06FC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     UserGetClientRgn @ 0x1C01E8B58 (UserGetClientRgn.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C02768A8 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
  */
 
 void __fastcall vSpComputeNoPresentRegion(struct _SPRITESTATE *a1, int a2)
@@ -76,13 +76,13 @@ void __fastcall vSpComputeNoPresentRegion(struct _SPRITESTATE *a1, int a2)
           RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v19, ClientRgn, 0, 0);
           if ( v19[0] )
           {
-            v12.x = -*(_DWORD *)(v2 + 2560);
-            v12.y = -*(_DWORD *)(v2 + 2564);
+            v12.x = -*(_DWORD *)(v2 + 2584);
+            v12.y = -*(_DWORD *)(v2 + 2588);
             RGNOBJ::bOffset((RGNOBJ *)v19, &v12);
             v15 = *((_QWORD *)a1 + 88);
             RGNOBJ::vSet((RGNOBJ *)&v15, &v21);
-            v12.x = -*(_DWORD *)(v2 + 2560);
-            v12.y = -*(_DWORD *)(v2 + 2564);
+            v12.x = -*(_DWORD *)(v2 + 2584);
+            v12.y = -*(_DWORD *)(v2 + 2588);
             RGNOBJ::bOffset((RGNOBJ *)v19, &v12);
             RGNOBJ::bOffset((RGNOBJ *)&v15, &v12);
             v9 = RGNOBJ::iComplexity((RGNOBJ *)v19);

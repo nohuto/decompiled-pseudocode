@@ -1,14 +1,14 @@
 /*
- * XREFs of PspTerminateProcessesJobCallback @ 0x1406A0B50
+ * XREFs of PspTerminateProcessesJobCallback @ 0x14068ECF0
  * Callers:
  *     <none>
  * Callees:
- *     PsIsServerSilo @ 0x14020C040 (PsIsServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspCompleteServerSiloShutdown @ 0x1409ACB48 (PspCompleteServerSiloShutdown.c)
- *     PspMarkServerSiloAsTerminating @ 0x1409B4318 (PspMarkServerSiloAsTerminating.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsIsServerSilo @ 0x140361920 (PsIsServerSilo.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspGetNextJobProcess @ 0x14068EDB0 (PspGetNextJobProcess.c)
+ *     PspCompleteServerSiloShutdown @ 0x140905F50 (PspCompleteServerSiloShutdown.c)
+ *     PspMarkServerSiloAsTerminating @ 0x14090B780 (PspMarkServerSiloAsTerminating.c)
  */
 
 __int64 __fastcall PspTerminateProcessesJobCallback(__int64 a1, __int64 a2)
@@ -17,41 +17,49 @@ __int64 __fastcall PspTerminateProcessesJobCallback(__int64 a1, __int64 a2)
   __int64 v5; // rcx
   char v6; // si
   struct _KTHREAD *CurrentThread; // r14
-  __int64 i; // r9
-  __int64 NextJobProcess; // rax
-  __int64 v10; // rbp
-  int v12; // ebp
+  __int64 v8; // r9
+  unsigned int v9; // r15d
+  __int64 v10; // rax
+  __int64 v11; // rbp
+  int v13; // ebp
   _DWORD *ServerSiloGlobals; // r14
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int128 v17; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-28h]
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int128 v18; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+30h] [rbp-28h]
 
-  v17 = 0LL;
   v18 = 0LL;
+  v19 = 0LL;
   if ( PsIsServerSilo(a1) )
   {
-    v12 = *v4;
+    v13 = *v4;
     ServerSiloGlobals = PsGetServerSiloGlobals(v5);
-    v6 = PspMarkServerSiloAsTerminating(v15, v14, v16);
+    v6 = PspMarkServerSiloAsTerminating(v16, v15, v17);
     if ( v6 )
-      ServerSiloGlobals[327] = v12;
+      ServerSiloGlobals[279] = v13;
   }
   else
   {
     v6 = 0;
   }
   CurrentThread = KeGetCurrentThread();
-  for ( i = 0LL; ; i = v10 )
+  v8 = 0LL;
+  v9 = 8 * (*(_BYTE *)(a2 + 4) & 1) + 6;
+  while ( 1 )
   {
-    NextJobProcess = PspGetNextJobProcess(a1, CurrentThread, &v17, i);
-    v10 = NextJobProcess;
-    if ( !NextJobProcess )
+    v10 = ((__int64 (__fastcall *)(__int64, struct _KTHREAD *, __int128 *, __int64))PspGetNextJobProcess)(
+            a1,
+            CurrentThread,
+            &v18,
+            v8);
+    v11 = v10;
+    if ( !v10 )
       break;
-    if ( (*(_DWORD *)(NextJobProcess + 1120) & 0x800) == 0 )
+    if ( (*(_DWORD *)(v10 + 1120) & 0x800) == 0 )
       *(_BYTE *)(a2 + 4) |= 2u;
-    PspRemoveProcessFromJobChain((PEPROCESS)NextJobProcess);
+    PspRemoveProcessFromJobChain((PEPROCESS)v10, 0LL, v9, *(_DWORD *)a2);
+    v8 = v11;
   }
   if ( v6 )
     PspCompleteServerSiloShutdown(a1);

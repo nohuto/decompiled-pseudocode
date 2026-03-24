@@ -1,72 +1,61 @@
 /*
- * XREFs of vCleanupUMWindowlessSprite @ 0x1C00D4A00
+ * XREFs of vCleanupUMWindowlessSprite @ 0x1C0014B70
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     GreDeleteSprite @ 0x1C00C8F74 (GreDeleteSprite.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     GreDeleteSprite @ 0x1C00EF0D8 (GreDeleteSprite.c)
  */
 
 void __fastcall vCleanupUMWindowlessSprite(int a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  Gre::Base *v5; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v6; // rdi
-  Gre::Base *HDEV; // rbp
-  Gre::Base *v8; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v9; // rbx
-  _QWORD **v10; // rax
-  _QWORD *v11; // rbx
-  __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rax
-  int v15; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v16; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v17; // [rsp+58h] [rbp+20h] BYREF
+  HDEV HDEV; // rsi
+  struct PDEVOBJ *v3; // rdx
+  char *v4; // rax
+  char *v5; // rbx
+  __int64 v6; // rax
+  unsigned __int64 v7; // rcx
+  __int64 v8; // rax
+  DYNAMICMODECHANGESHARELOCK *v9; // rcx
+  char v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
 
-  if ( (unsigned int)IsDwmActive() && PsGetCurrentProcess(v3, v2, v4) != gpepCSRSS )
+  if ( g_pDwmState && PsGetCurrentProcess() != gpepCSRSS )
   {
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v15);
-    v6 = Gre::Base::Globals(v5);
-    v17 = *((_QWORD *)v6 + 15);
-    GreAcquireSemaphore(v17);
-    HDEV = (Gre::Base *)UserGetHDEV();
-    W32GetThreadWin32Thread(KeGetCurrentThread());
-    v9 = Gre::Base::Globals(v8);
-    GreAcquireSemaphore(*((_QWORD *)v9 + 14));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v9 + 14), 5LL);
-    v16 = *((_QWORD *)v6 + 9);
-    v15 = 1;
-    GreAcquireSemaphore(v16);
-    if ( (unsigned int)IsDwmActive() )
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v10);
+    v12 = ghsemGreLock;
+    GreAcquireSemaphore(ghsemGreLock);
+    HDEV = (HDEV)UserGetHDEV();
+    DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v10, v3, 0, 1);
+    v11 = ghsemDwmState;
+    GreAcquireSemaphore(ghsemDwmState);
+    if ( g_pDwmState )
     {
-      v10 = (_QWORD **)(*((_QWORD *)v6 + 38) + 80LL);
-      v11 = *v10;
-      while ( v11 != v10 )
+      v4 = (char *)g_pDwmState + 80;
+      v5 = (char *)*((_QWORD *)g_pDwmState + 10);
+      while ( v5 != v4 )
       {
-        v12 = (__int64)v11;
-        v13 = (unsigned __int64)(v11 - 3);
-        v11 = (_QWORD *)*v11;
-        v14 = -v12;
-        if ( (*(_DWORD *)((v13 & -(__int64)(v14 != 0)) + 0x48) & 0x400000) != 0
-          && *(_DWORD *)((v13 & -(__int64)(v14 != 0)) + 0x70) == a1 )
+        v6 = (__int64)v5;
+        v7 = (unsigned __int64)(v5 - 24);
+        v5 = *(char **)v5;
+        v8 = -v6;
+        if ( (*(_DWORD *)((v7 & -(__int64)(v8 != 0)) + 0x48) & 0x400000) != 0
+          && *(_DWORD *)((v7 & -(__int64)(v8 != 0)) + 0x70) == a1 )
         {
-          GreDeleteSprite(HDEV, 0LL, *(void **)(v13 & -(__int64)(v14 != 0)), 1);
+          GreDeleteSprite(HDEV, 0LL, *(void **)(v7 & -(__int64)(v8 != 0)), 1);
         }
-        v10 = (_QWORD **)(*((_QWORD *)v6 + 38) + 80LL);
+        v4 = (char *)g_pDwmState + 80;
       }
     }
-    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v16);
-    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v15);
-    SEMOBJ::vUnlock((SEMOBJ *)&v17);
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v15);
+    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v11);
+    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v10);
+    SEMOBJ::vUnlock((SEMOBJ *)&v12);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v9);
   }
 }

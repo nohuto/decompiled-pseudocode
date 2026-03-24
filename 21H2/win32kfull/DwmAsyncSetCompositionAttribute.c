@@ -1,10 +1,29 @@
 /*
- * XREFs of DwmAsyncSetCompositionAttribute @ 0x1C0080CE4
+ * XREFs of DwmAsyncSetCompositionAttribute @ 0x1C00379B0
  * Callers:
- *     ?_DwmAsyncSetCompositionAttribute@@YAJPEBUtagWND@@W4WINDOWCOMPOSITIONATTRIB@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C0080C74 (-_DwmAsyncSetCompositionAttribute@@YAJPEBUtagWND@@W4WINDOWCOMPOSITIONATTRIB@@PEBUtagWINDOWCOMPOS.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036D90 (zzzSetWindowCompositionCloak.c)
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0037AA0 (NtUserSetWindowCompositionAttribute.c)
+ *     SetWindowCompositionNCRenderingExiled @ 0x1C003804C (SetWindowCompositionNCRenderingExiled.c)
+ *     SetWindowCompositionAccentPolicy @ 0x1C0120628 (SetWindowCompositionAccentPolicy.c)
+ *     SetWindowCompositionHasIconicBitmap @ 0x1C012524C (SetWindowCompositionHasIconicBitmap.c)
+ *     SetWindowCompositionFreezeSWR @ 0x1C0125320 (SetWindowCompositionFreezeSWR.c)
+ *     SetWindowCompositionExcludeFromLivePreview @ 0x1C0128F10 (SetWindowCompositionExcludeFromLivePreview.c)
+ *     SetWindowCompositionDarkModeColors @ 0x1C0128FE4 (SetWindowCompositionDarkModeColors.c)
+ *     SetWindowCompositionForceActiveWindowAppearance @ 0x1C012A7AC (SetWindowCompositionForceActiveWindowAppearance.c)
+ *     SetWindowCompositionForceIconicSWR @ 0x1C0130368 (SetWindowCompositionForceIconicSWR.c)
+ *     SetWindowCompositionPassiveUpdateMode @ 0x1C0164018 (SetWindowCompositionPassiveUpdateMode.c)
+ *     SetWindowCompositionExcludedFromDDA @ 0x1C01640E0 (SetWindowCompositionExcludedFromDDA.c)
+ *     SetWindowCompositionAllowNCPaint @ 0x1C02141C4 (SetWindowCompositionAllowNCPaint.c)
+ *     SetWindowCompositionDisallowPeek @ 0x1C0214298 (SetWindowCompositionDisallowPeek.c)
+ *     SetWindowCompositionHolographic @ 0x1C021436C (SetWindowCompositionHolographic.c)
+ *     SetWindowCompositionNCRenderPolicy @ 0x1C0214440 (SetWindowCompositionNCRenderPolicy.c)
+ *     SetWindowCompositionNonClientRTLLayout @ 0x1C02144F4 (SetWindowCompositionNonClientRTLLayout.c)
+ *     SetWindowCompositionTransitions @ 0x1C02145C8 (SetWindowCompositionTransitions.c)
+ *     SetWindowCompositionVideoOverlayActive @ 0x1C021469C (SetWindowCompositionVideoOverlayActive.c)
+ *     SetWindowCompositionVisualOwner @ 0x1C0214770 (SetWindowCompositionVisualOwner.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncSetCompositionAttribute(PVOID Object, __int64 a2, int a3, __int128 *a4)
@@ -26,13 +45,13 @@ __int64 __fastcall DwmAsyncSetCompositionAttribute(PVOID Object, __int64 a2, int
     v9 = *a4;
     v10 = *((_QWORD *)a4 + 2);
     *(_DWORD *)((char *)v14 + 2) = -2147483560;
-    *((_QWORD *)&v14[2] + 1) = 1073741867LL;
+    *((_QWORD *)&v14[2] + 1) = 1073741866LL;
     *(_QWORD *)&v14[3] = a2;
     DWORD2(v14[3]) = v5;
-    v11 = qword_1C02ED3A8[2 * v5];
+    v11 = qword_1C02EBA68[2 * v5];
     v14[4] = v9;
     LOWORD(v14[0]) = v11 + 24;
-    v12 = qword_1C02ED3A8[2 * v5];
+    v12 = qword_1C02EBA68[2 * v5];
     *(_QWORD *)&v14[5] = v10;
     HIDWORD(v14[3]) = v12;
     v8 = LpcRequestPort(Object, v14);

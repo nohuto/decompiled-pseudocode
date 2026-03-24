@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindLargePageMemory @ 0x14085D1A0
+ * XREFs of MiFindLargePageMemory @ 0x14085D180
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiUpdateLargePagePfns @ 0x1402C5BF8 (MiUpdateLargePagePfns.c)
+ *     MiUpdateLargePagePfns @ 0x1402C5CF8 (MiUpdateLargePagePfns.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

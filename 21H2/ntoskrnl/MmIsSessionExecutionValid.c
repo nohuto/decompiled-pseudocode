@@ -1,44 +1,45 @@
 /*
- * XREFs of MmIsSessionExecutionValid @ 0x1402DBFAC
+ * XREFs of MmIsSessionExecutionValid @ 0x1402CF5C0
  * Callers:
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     MiSessionLookupImage @ 0x1402DBF3C (MiSessionLookupImage.c)
- *     MmUnlockLoadedModuleListShared @ 0x1402DC05C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x1402DC098 (MmLockLoadedModuleListShared.c)
+ *     MiSessionLookupImage @ 0x1402CF668 (MiSessionLookupImage.c)
+ *     MmUnlockLoadedModuleListShared @ 0x14031C754 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
  */
 
-__int64 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, __int64 a3)
 {
+  __int64 v5; // rdx
   int SessionId; // ebp
-  unsigned int v6; // edi
-  _QWORD *v7; // rax
-  __int64 v8; // rcx
-  _QWORD *v9; // rbx
-  char v11; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned int v9; // edi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  char v16; // [rsp+48h] [rbp+20h] BYREF
 
-  v11 = 0;
+  v16 = 0;
   SessionId = MmGetSessionIdEx(a2);
   if ( SessionId == -1 )
     return 0LL;
-  v6 = 1;
+  v9 = 1;
   if ( *(_BYTE *)(a1 + 586) == 1 && SessionId != (unsigned int)MmGetSessionIdEx(*(_QWORD *)(a1 + 544)) )
     return 0LL;
-  if ( (*(_DWORD *)(a1 + 116) & 0x800) != 0
-    || *(char *)(a1 + 1385) < 0
-    || *(_QWORD *)(a1 + 40) != KeGetPcr()->Prcb.RspBase )
-  {
+  if ( (*(_DWORD *)(a1 + 116) & 0x800) != 0 || *(_QWORD *)(a1 + 40) != KeGetPcr()->Prcb.RspBase )
     return 0LL;
-  }
   if ( a3 )
   {
-    MmLockLoadedModuleListShared(&v11);
-    v7 = MiSessionLookupImage(a3);
-    LOBYTE(v8) = v11;
-    v9 = v7;
-    MmUnlockLoadedModuleListShared(v8);
-    return v9 != 0LL;
+    MmLockLoadedModuleListShared(&v16, v5, v7, v8);
+    v12 = MiSessionLookupImage(a3, v10, v11);
+    LOBYTE(v13) = v16;
+    v14 = v12;
+    MmUnlockLoadedModuleListShared(v13);
+    return v14 != 0;
   }
-  return v6;
+  return v9;
 }

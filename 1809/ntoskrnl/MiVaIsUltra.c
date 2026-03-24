@@ -1,9 +1,9 @@
 /*
- * XREFs of MiVaIsUltra @ 0x1400EA5D4
+ * XREFs of MiVaIsUltra @ 0x1400EA5F4
  * Callers:
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA120 (MiPrefetchVirtualMemory.c)
- *     MiZeroPageWorkMapping @ 0x140121304 (MiZeroPageWorkMapping.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
+ *     MiZeroPageWorkMapping @ 0x140121324 (MiZeroPageWorkMapping.c)
  * Callees:
  *     <none>
  */

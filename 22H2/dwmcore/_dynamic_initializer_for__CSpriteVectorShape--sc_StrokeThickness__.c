@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeThickness__ @ 0x180003000
+ * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeThickness__ @ 0x1800028A0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CSpriteVectorShape::sc_StrokeThickness__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4B68 = (unsigned __int64)CSpriteVectorShape::SetBoundsStrokeStyleInvalidatingAnimatedProperty;
-  qword_1803E4B78 = v1;
+  xmmword_180346398 = (unsigned __int64)CSpriteVectorShape::SetBoundsStrokeStyleInvalidatingAnimatedProperty;
+  qword_1803463A8 = v1;
   return result;
 }

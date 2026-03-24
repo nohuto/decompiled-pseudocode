@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiGetUFIPathname @ 0x1C02ADB30
+ * XREFs of NtGdiGetUFIPathname @ 0x1C02AF3F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GreGetUFIPathname @ 0x1C027A6E4 (GreGetUFIPathname.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GreGetUFIPathname @ 0x1C027CB78 (GreGetUFIPathname.c)
  */
 
 __int64 __fastcall NtGdiGetUFIPathname(

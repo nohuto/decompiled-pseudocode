@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPortarbAddAllocation @ 0x1C00B11A0
+ * XREFs of AcpiPortarbAddAllocation @ 0x1C00B1F50
  * Callers:
  *     <none>
  * Callees:
- *     AcpiArblibGetNextAlias @ 0x1C00ABF58 (AcpiArblibGetNextAlias.c)
+ *     AcpiArblibGetNextAlias @ 0x1C00AD2A0 (AcpiArblibGetNextAlias.c)
  */
 
 char __fastcall AcpiPortarbAddAllocation(__int64 a1, __int64 a2)

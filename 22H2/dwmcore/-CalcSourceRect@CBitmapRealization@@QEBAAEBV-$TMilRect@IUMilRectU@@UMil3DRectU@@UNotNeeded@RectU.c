@@ -1,14 +1,12 @@
 /*
- * XREFs of ?CalcSourceRect@CBitmapRealization@@QEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x180014E74
+ * XREFs of ?CalcSourceRect@CBitmapRealization@@QEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800181A4
  * Callers:
- *     ?GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x180014E60 (-GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeede.c)
- *     ?CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x18011B59C (-CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV-$TMi.c)
- *     ?GetMPORects@CBitmapRealization@@QEBAXAEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@11@Z @ 0x180136460 (-GetMPORects@CBitmapRealization@@QEBAXAEBVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
- *     ?GetSourceRect@CDxHandleYUVBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1802B43D8 (-GetSourceRect@CDxHandleYUVBitmapRealization@@UEBAAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNe.c)
+ *     ?GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x180018190 (-GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeede.c)
+ *     ?GetSourceRect@CDxHandleYUVBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x180265DDC (-GetSourceRect@CDxHandleYUVBitmapRealization@@UEBAAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNe.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DoesContain@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1801DD1A4 (-DoesContain@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1.c)
+ *     ?DoesContain@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006C298 (-DoesContain@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CBitmapRealization::CalcSourceRect(__int64 a1)
@@ -16,51 +14,53 @@ _DWORD *__fastcall CBitmapRealization::CalcSourceRect(__int64 a1)
   int v1; // edi
   _DWORD *result; // rax
   int *v4; // rsi
-  bool v5; // zf
-  int v6; // r10d
-  int v7; // r11d
-  bool v8; // cl
-  int v9; // ecx
-  __int64 v10; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v11[2]; // [rsp+28h] [rbp-20h] BYREF
+  void (__fastcall ***v5)(_QWORD, __int64 *); // rcx
+  bool v6; // zf
+  int v7; // r10d
+  int v8; // r11d
+  bool v9; // cl
+  int v10; // ecx
+  __int64 v11; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v12[2]; // [rsp+28h] [rbp-20h] BYREF
 
   v1 = 0;
-  if ( *(_BYTE *)(a1 + 312) )
-    return (_DWORD *)(a1 + 296);
-  v4 = (int *)(a1 + 148);
-  (*(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)a1 + 56LL))(a1, &v10);
-  v5 = *(_DWORD *)(a1 + 80) == 3;
-  v6 = v10;
-  v7 = HIDWORD(v10);
-  v11[1] = v10;
-  v11[0] = 0LL;
-  v8 = 0;
-  if ( v5 )
+  if ( *(_BYTE *)(a1 + 280) )
+    return (_DWORD *)(a1 + 264);
+  v4 = (int *)(a1 + 144);
+  v5 = (void (__fastcall ***)(_QWORD, __int64 *))(*(int *)(*(_QWORD *)(a1 + 16) + 16LL) + a1 + 16);
+  (**v5)(v5, &v11);
+  v6 = *(_DWORD *)(a1 + 80) == 3;
+  v7 = v11;
+  v8 = HIDWORD(v11);
+  v12[1] = v11;
+  v12[0] = 0LL;
+  v9 = 0;
+  if ( v6 )
   {
-    v8 = *v4 <= v4[2]
+    v9 = *v4 <= v4[2]
       && v4[1] <= v4[3]
-      && (unsigned __int8)TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::DoesContain(v11, v4);
+      && (unsigned __int8)TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::DoesContain(v12, v4);
   }
-  else if ( *(_BYTE *)(a1 + 313) && v4[2] - *v4 > 0 )
+  else if ( *(_BYTE *)(a1 + 281) && v4[2] - *v4 > 0 )
   {
-    v8 = v4[3] - v4[1] > 0;
+    v9 = v4[3] - v4[1] > 0;
   }
-  result = (_DWORD *)(a1 + 296);
-  if ( v8 )
+  result = (_DWORD *)(a1 + 264);
+  if ( v9 )
   {
-    v7 = *(_DWORD *)(a1 + 160);
-    v6 = *(_DWORD *)(a1 + 156);
-    v1 = *(_DWORD *)(a1 + 152);
-    v9 = *v4;
+    v8 = *(_DWORD *)(a1 + 156);
+    v7 = *(_DWORD *)(a1 + 152);
+    v1 = *(_DWORD *)(a1 + 148);
+    v10 = *v4;
   }
   else
   {
-    v9 = 0;
+    v10 = 0;
   }
-  *result = v9;
-  *(_DWORD *)(a1 + 300) = v1;
-  *(_DWORD *)(a1 + 304) = v6;
-  *(_DWORD *)(a1 + 308) = v7;
-  *(_BYTE *)(a1 + 312) = 1;
+  *result = v10;
+  *(_DWORD *)(a1 + 268) = v1;
+  *(_DWORD *)(a1 + 272) = v7;
+  *(_DWORD *)(a1 + 276) = v8;
+  *(_BYTE *)(a1 + 280) = 1;
   return result;
 }

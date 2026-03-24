@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceConvertTimeOutToBlocking @ 0x1C014C940
+ * XREFs of EtwTraceConvertTimeOutToBlocking @ 0x1C0121B60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0c_EtwWriteTransfer @ 0x1C014F2B4 (McTemplateK0c_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0c_EtwWriteTransfer @ 0x1C01245C4 (McTemplateK0c_EtwWriteTransfer.c)
  */
 
 void EtwTraceConvertTimeOutToBlocking()
@@ -16,7 +16,7 @@ void EtwTraceConvertTimeOutToBlocking()
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    LOBYTE(v0) = GetCallbackCount();
+    LOBYTE(v0) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
     McTemplateK0c_EtwWriteTransfer(v2, v1, v3, v0);
   }
 }

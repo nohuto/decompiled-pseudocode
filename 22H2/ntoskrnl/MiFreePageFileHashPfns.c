@@ -1,107 +1,134 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x14021D980
+ * XREFs of MiFreePageFileHashPfns @ 0x14033C274
  * Callers:
- *     MiScanPagefiles @ 0x14021D91C (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x14033C2FC (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreePageFileHashPfn @ 0x140665F38 (MiFreePageFileHashPfn.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     MiFreePageFileHashPfn @ 0x14055D4BC (MiFreePageFileHashPfn.c)
  */
 
-unsigned __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+__int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
 {
-  unsigned __int64 Region; // rbp
-  unsigned __int64 v2; // rdi
-  unsigned __int64 result; // rax
-  unsigned __int64 v4; // rsi
-  unsigned __int64 v5; // r15
-  unsigned __int64 v6; // r14
+  unsigned __int64 v1; // rdi
+  __int64 result; // rax
+  union _SLIST_HEADER **v3; // r15
+  __int64 v4; // rbp
+  union _SLIST_HEADER *v5; // rcx
+  __int64 v6; // r8
+  _DWORD *SchedulerAssist; // r9
+  __int64 v8; // r14
+  __int64 v9; // r13
+  unsigned __int64 v10; // r12
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v10; // zf
-  unsigned __int64 v11; // r8
-  struct _KPRCB *v12; // r9
+  bool v13; // zf
+  unsigned __int64 v14; // r8
+  struct _KPRCB *v15; // r9
   __int64 CachedResidentAvailable; // rdx
 
-  Region = a1[15].Region;
-  v2 = 0LL;
-  result = (unsigned __int64)RtlpInterlockedFlushSList(a1 + 5);
-  v4 = result;
-  if ( result )
+  v1 = 0LL;
+  result = *(unsigned int *)(a1 + 6936);
+  if ( (_DWORD)result )
   {
+    v3 = (union _SLIST_HEADER **)(a1 + 6944);
+    v4 = (unsigned int)result;
     do
     {
-      v5 = *(_QWORD *)v4;
-      v6 = (unsigned __int8)MiLockPageInline(v4);
-      MiFreePageFileHashPfn(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v4 + 0x220000000000LL) >> 4));
-      _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      result = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v5 = *v3 + 5;
+      if ( LOWORD(v5->Alignment) )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        result = (__int64)RtlpInterlockedFlushSList(v5);
+        v8 = result;
+        if ( result )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-          v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= result;
-          if ( v10 )
-            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          do
+          {
+            v9 = *(_QWORD *)v8;
+            v10 = (unsigned __int8)MiLockPageInline(
+                                     v8,
+                                     (unsigned __int128)((v8 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
+                                     v6,
+                                     SchedulerAssist);
+            MiFreePageFileHashPfn((v8 + 0x58000000000LL) / 48);
+            _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            result = (unsigned int)KiIrqlFlags;
+            if ( KiIrqlFlags )
+            {
+              if ( (KiIrqlFlags & 1) != 0 )
+              {
+                CurrentIrql = KeGetCurrentIrql();
+                if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+                {
+                  CurrentPrcb = KeGetCurrentPrcb();
+                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                  result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+                  v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+                  v6 = (unsigned int)result & SchedulerAssist[5];
+                  SchedulerAssist[5] = v6;
+                  if ( v13 )
+                    result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                }
+              }
+            }
+            __writecr8(v10);
+            ++v1;
+            v8 = v9;
+          }
+          while ( v9 );
         }
       }
-      __writecr8(v6);
-      ++v2;
-      v4 = v5;
+      ++v3;
+      --v4;
     }
-    while ( v5 );
-    if ( v2 )
+    while ( v4 );
+    if ( v1 )
     {
-      MiReturnCommit(Region, v2);
-      result = (unsigned __int64)&MiSystemPartition;
-      v11 = v2;
-      if ( (_UNKNOWN *)Region != &MiSystemPartition )
-        goto LABEL_23;
-      v12 = KeGetCurrentPrcb();
-      CachedResidentAvailable = (int)v12->CachedResidentAvailable;
-      if ( (_DWORD)CachedResidentAvailable == -1 )
-        goto LABEL_23;
-      for ( ; v2 + CachedResidentAvailable <= 0x100; result = v2 + (int)result )
+      MiReturnCommit(a1, v1);
+      result = (__int64)&MiSystemPartition;
+      v14 = v1;
+      if ( (ULONG_PTR *)a1 == &MiSystemPartition )
       {
-        if ( v2 >= 0x80000 )
-          break;
-        result = (unsigned int)_InterlockedCompareExchange(
-                                 (volatile signed __int32 *)&v12->CachedResidentAvailable,
-                                 CachedResidentAvailable + v2,
-                                 CachedResidentAvailable);
-        v10 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
-        CachedResidentAvailable = (int)result;
-        if ( v10 )
-          goto LABEL_24;
-        if ( (_DWORD)result == -1 )
-          break;
-      }
-      if ( (int)CachedResidentAvailable > 192 )
-      {
-        result = (unsigned int)_InterlockedCompareExchange(
-                                 (volatile signed __int32 *)&v12->CachedResidentAvailable,
-                                 192,
-                                 CachedResidentAvailable);
-        if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
+        v15 = KeGetCurrentPrcb();
+        CachedResidentAvailable = (int)v15->CachedResidentAvailable;
+        if ( (_DWORD)CachedResidentAvailable != -1 )
         {
-          result = (unsigned int)(CachedResidentAvailable - 192);
-          v11 = v2 + (int)result;
+          for ( ; v1 + CachedResidentAvailable <= 0x100; result = v1 + (int)result )
+          {
+            if ( v1 >= 0x80000 )
+              break;
+            result = (unsigned int)_InterlockedCompareExchange(
+                                     (volatile signed __int32 *)&v15->CachedResidentAvailable,
+                                     CachedResidentAvailable + v1,
+                                     CachedResidentAvailable);
+            v13 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
+            CachedResidentAvailable = (int)result;
+            if ( v13 )
+              goto LABEL_29;
+            if ( (_DWORD)result == -1 )
+              break;
+          }
+          if ( (int)CachedResidentAvailable > 192 )
+          {
+            result = (unsigned int)_InterlockedCompareExchange(
+                                     (volatile signed __int32 *)&v15->CachedResidentAvailable,
+                                     192,
+                                     CachedResidentAvailable);
+            if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
+            {
+              result = (unsigned int)(CachedResidentAvailable - 192);
+              v14 = v1 + (int)result;
+            }
+          }
         }
       }
-      if ( v11 )
-LABEL_23:
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(Region + 17280), v11);
-LABEL_24:
-      _InterlockedExchangeAdd64(&qword_140C6A328, -(__int64)v2);
+      if ( v14 )
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v14);
+LABEL_29:
+      _InterlockedExchangeAdd64(&qword_140C4F828, -(__int64)v1);
     }
   }
   return result;

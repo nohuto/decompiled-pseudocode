@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetDebugOverlayFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETDEBUGOVERLAYFLAGS@@@Z @ 0x1802985F8
+ * XREFs of ?ProcessSetDebugOverlayFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETDEBUGOVERLAYFLAGS@@@Z @ 0x1802566F0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x180298528 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
+ *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x180256628 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CHolographicDisplay::ProcessSetDebugOverlayFlags(
@@ -11,12 +11,9 @@ __int64 __fastcall CHolographicDisplay::ProcessSetDebugOverlayFlags(
         struct CResourceTable *a2,
         const struct tagMILCMD_HOLOGRAPHICDISPLAY_SETDEBUGOVERLAYFLAGS *a3)
 {
-  RTL_SRWLOCK *v3; // rbx
-
-  v3 = this + 16;
-  AcquireSRWLockExclusive(this + 16);
-  LODWORD(this[15].Ptr) = *((_DWORD *)a3 + 2);
-  ReleaseSRWLockExclusive(v3);
+  AcquireSRWLockExclusive(this + 15);
+  LODWORD(this[14].Ptr) = *((_DWORD *)a3 + 2);
+  ReleaseSRWLockExclusive(this + 15);
   CHolographicDisplay::OnChanged((CHolographicDisplay *)this);
   return 0LL;
 }

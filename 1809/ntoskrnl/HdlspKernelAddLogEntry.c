@@ -1,14 +1,14 @@
 /*
  * XREFs of HdlspKernelAddLogEntry @ 0x14094C904
  * Callers:
- *     HeadlessKernelAddLogEntry @ 0x1400F5248 (HeadlessKernelAddLogEntry.c)
+ *     HeadlessKernelAddLogEntry @ 0x1400F5268 (HeadlessKernelAddLogEntry.c)
  *     PipInitializeCoreDriversByGroup @ 0x1409CA988 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBuiltinDriver @ 0x1409CBA80 (IopInitializeBuiltinDriver.c)
  *     IoInitSystem @ 0x1409D2354 (IoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcscpy_s @ 0x14019BCA0 (wcscpy_s.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
  */
 

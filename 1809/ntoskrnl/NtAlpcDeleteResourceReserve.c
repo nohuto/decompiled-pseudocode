@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAlpcDeleteResourceReserve @ 0x14084B0B0
+ * XREFs of NtAlpcDeleteResourceReserve @ 0x14084B090
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcReferenceBlobByHandle @ 0x140618368 (AlpcReferenceBlobByHandle.c)
  *     AlpcpDeleteBlob @ 0x140618BF4 (AlpcpDeleteBlob.c)

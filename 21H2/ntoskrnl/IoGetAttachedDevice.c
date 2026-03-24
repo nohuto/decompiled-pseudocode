@@ -1,21 +1,21 @@
 /*
- * XREFs of IoGetAttachedDevice @ 0x1402A78F0
+ * XREFs of IoGetAttachedDevice @ 0x140353740
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14024FC04 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D30A0 (IoGetAttachedDeviceReferenceWithTag.c)
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IoAdjustStackSizeForRedirection @ 0x1405572B0 (IoAdjustStackSizeForRedirection.c)
- *     IopCopyOffloadCapable @ 0x1406E8D8C (IopCopyOffloadCapable.c)
- *     NtUnlockFile @ 0x14071CD90 (NtUnlockFile.c)
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
- *     FsRtlQueryOpen @ 0x1407F730C (FsRtlQueryOpen.c)
- *     PipSendGuestAssignedNotification @ 0x14095A544 (PipSendGuestAssignedNotification.c)
- *     IopShutdownBaseFileSystems @ 0x140A65554 (IopShutdownBaseFileSystems.c)
- *     VfFilterAttach @ 0x140A9E12C (VfFilterAttach.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1402832F4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     IoAdjustStackSizeForRedirection @ 0x140505710 (IoAdjustStackSizeForRedirection.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopCopyOffloadCapable @ 0x1406888C4 (IopCopyOffloadCapable.c)
+ *     NtUnlockFile @ 0x14068F570 (NtUnlockFile.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     PipSendGuestAssignedNotification @ 0x1408B4460 (PipSendGuestAssignedNotification.c)
+ *     IopShutdownBaseFileSystems @ 0x1409AB134 (IopShutdownBaseFileSystems.c)
+ *     VfFilterAttach @ 0x1409E4EF4 (VfFilterAttach.c)
  * Callees:
  *     <none>
  */

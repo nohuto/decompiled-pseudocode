@@ -1,7 +1,7 @@
 /*
- * XREFs of IopGetMaxValidSectionSize @ 0x1402815B0
+ * XREFs of IopGetMaxValidSectionSize @ 0x1402816B0
  * Callers:
- *     KeCapturePersistentThreadState @ 0x1402825A0 (KeCapturePersistentThreadState.c)
+ *     KeCapturePersistentThreadState @ 0x1402826A0 (KeCapturePersistentThreadState.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
  */

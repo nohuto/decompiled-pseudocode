@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDequeueBufferPendingCompression @ 0x140602778
+ * XREFs of EtwpDequeueBufferPendingCompression @ 0x1405ACF34
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x140602554 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x1405AC9DC (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x14022809C (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1402280E8 (EtwpLockBufferList.c)
- *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x140602878 (EtwpDequeueBufferPendingCompressionFromQueue.c)
- *     EtwpDisableCompression @ 0x1406028E8 (EtwpDisableCompression.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwpUnlockBufferList @ 0x14032F2D4 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14032F320 (EtwpLockBufferList.c)
+ *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x1405AD028 (EtwpDequeueBufferPendingCompressionFromQueue.c)
+ *     EtwpDisableCompression @ 0x1405AD098 (EtwpDisableCompression.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpDequeueBufferPendingCompression(__int64 a1)
@@ -15,49 +15,43 @@ __int64 __fastcall EtwpDequeueBufferPendingCompression(__int64 a1)
   __int64 *v1; // rdi
   __int64 v3; // rax
   __int64 *v4; // rdi
-  __int64 v6; // rcx
-  __int64 Pool2; // rax
-  __int64 v8; // rsi
-  __int64 v9; // r8
-  unsigned __int8 v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 *PoolWithTag; // rax
+  __int64 v6; // rsi
+  __int64 v7; // r8
+  unsigned __int8 v9; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(__int64 **)(a1 + 1184);
-  v10 = 0;
+  v1 = *(__int64 **)(a1 + 1168);
+  v9 = 0;
   if ( v1 )
   {
     v3 = *v1;
     v4 = v1 - 4;
-    *(_QWORD *)(a1 + 1184) = v3;
+    *(_QWORD *)(a1 + 1168) = v3;
   }
   else
   {
-    v6 = 256LL;
-    if ( *(_DWORD *)(a1 + 300) != 1 )
-      v6 = 64LL;
-    Pool2 = ExAllocatePool2(v6, 72LL, 1115124805LL);
-    v4 = (__int64 *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag((POOL_TYPE)*(_DWORD *)(a1 + 316), 0x48uLL, 0x42777445u);
+    v4 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 32) = 0LL;
-      *(_DWORD *)(Pool2 + 44) = 6;
-      goto LABEL_9;
+LABEL_11:
+      EtwpDisableCompression(a1);
+      return 0LL;
     }
+    PoolWithTag[4] = 0LL;
+    *((_DWORD *)PoolWithTag + 11) = 6;
   }
   if ( !v4 )
+    goto LABEL_11;
+  EtwpLockBufferList(a1, &v9);
+  v6 = EtwpDequeueBufferPendingCompressionFromQueue(a1 + 80, a1 + 244, v4);
+  if ( !v6 )
+    v6 = EtwpDequeueBufferPendingCompressionFromQueue(a1 + 64, a1 + 244, v7);
+  EtwpUnlockBufferList(a1, &v9);
+  if ( !v6 )
   {
-    EtwpDisableCompression(a1);
-    return 0LL;
+    v4[4] = *(_QWORD *)(a1 + 1168);
+    *(_QWORD *)(a1 + 1168) = v4 + 4;
   }
-LABEL_9:
-  EtwpLockBufferList(a1, &v10);
-  v8 = EtwpDequeueBufferPendingCompressionFromQueue(a1 + 64, a1 + 228, v4);
-  if ( !v8 )
-    v8 = EtwpDequeueBufferPendingCompressionFromQueue(a1 + 48, a1 + 228, v9);
-  EtwpUnlockBufferList(a1, &v10);
-  if ( !v8 )
-  {
-    v4[4] = *(_QWORD *)(a1 + 1184);
-    *(_QWORD *)(a1 + 1184) = v4 + 4;
-  }
-  return v8;
+  return v6;
 }

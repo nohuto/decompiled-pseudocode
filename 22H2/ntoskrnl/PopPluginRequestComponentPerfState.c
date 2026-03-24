@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRequestComponentPerfState @ 0x14058CA78
+ * XREFs of PopPluginRequestComponentPerfState @ 0x14056DEA8
  * Callers:
- *     PopFxIssueComponentPerfStateChanges @ 0x14058AC48 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14056B298 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
 char __fastcall PopPluginRequestComponentPerfState(__int64 a1, int a2, int a3, __int64 a4, char *a5)

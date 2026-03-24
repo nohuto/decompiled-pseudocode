@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDeepSleepEvaluateCallback @ 0x1405D77A0
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x140577680
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140224C34 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIdleResiliencyEnd @ 0x1405D2E34 (PopDiagTraceIdleResiliencyEnd.c)
- *     PopDiagTraceIdleResiliencyStart @ 0x1405D2EE4 (PopDiagTraceIdleResiliencyStart.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x140572A68 (PopDiagTraceIdleResiliencyEnd.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x140572B18 (PopDiagTraceIdleResiliencyStart.c)
  */
 
 __int64 PopDeepSleepEvaluateCallback()
@@ -65,9 +65,9 @@ __int64 PopDeepSleepEvaluateCallback()
       }
     }
     __writecr8(v2);
-    PpmAcquireLock(&PopFxSystemLatencyLock);
+    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
     PoFxSendSystemLatencyUpdate();
-    PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
+    PpmReleaseLock(&PopFxSystemLatencyLock);
   }
   PopDeepSleepEvaluateWorkItemQueued = 0;
   KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);

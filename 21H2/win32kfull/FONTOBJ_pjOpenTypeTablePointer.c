@@ -1,10 +1,10 @@
 /*
- * XREFs of FONTOBJ_pjOpenTypeTablePointer @ 0x1C0291230
+ * XREFs of FONTOBJ_pjOpenTypeTablePointer @ 0x1C02936D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02A700C (-pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02A8878 (-pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z.c)
  */
 
 PBYTE __stdcall FONTOBJ_pjOpenTypeTablePointer(FONTOBJ *pfo, ULONG ulTag, ULONG *pcjTable)

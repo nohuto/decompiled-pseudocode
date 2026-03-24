@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CKeyframeAnimationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022B0F0
+ * XREFs of ?SetRemarshalingFlags@CKeyframeAnimationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EB1A0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022AD80 (-SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EAEA0 (-SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetRemarshalingFlags(
@@ -13,23 +13,23 @@ char __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetRemarshalingF
   unsigned int v3; // eax
   char v4; // bl
 
-  v2 = *((float *)this + 69);
-  v3 = *((_DWORD *)this + 4) & 0xFFFB07FF;
+  v2 = *((float *)this + 78);
+  v3 = *((_DWORD *)this + 4) & 0xFFFF83FF;
   *((_DWORD *)this + 4) = v3;
   if ( v2 != 1.0 )
   {
-    v3 &= ~0x10000u;
+    v3 &= ~0x8000u;
     *((_DWORD *)this + 4) = v3;
   }
   v4 = 0;
-  if ( *((_DWORD *)this + 65) )
-    *((_DWORD *)this + 4) = v3 & 0xFFFDFFFF;
-  *((_DWORD *)this + 64) = 0;
-  *((_DWORD *)this + 66) = 0;
+  if ( *((_DWORD *)this + 54) )
+    *((_DWORD *)this + 4) = v3 & 0xFFFEFFFF;
+  *((_DWORD *)this + 51) = 0;
+  *((_DWORD *)this + 55) = 0;
   if ( DirectComposition::CBaseExpressionMarshaler::SetRemarshalingFlags(this)
-    || *((_QWORD *)this + 17) && *((_QWORD *)this + 28)
-    || *((_DWORD *)this + 63)
-    || *((_DWORD *)this + 65) )
+    || *((_QWORD *)this + 16) && *((_QWORD *)this + 18)
+    || *((_DWORD *)this + 50)
+    || *((_DWORD *)this + 54) )
   {
     return 1;
   }

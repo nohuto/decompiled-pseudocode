@@ -1,7 +1,7 @@
 /*
- * XREFs of __ascii_stricmp @ 0x14019536C
+ * XREFs of __ascii_stricmp @ 0x14019538C
  * Callers:
- *     _stricmp @ 0x1401953C0 (_stricmp.c)
+ *     _stricmp @ 0x1401953E0 (_stricmp.c)
  * Callees:
  *     <none>
  */

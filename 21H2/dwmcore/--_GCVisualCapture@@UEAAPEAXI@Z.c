@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCVisualCapture@@UEAAPEAXI@Z @ 0x180243670
+ * XREFs of ??_GCVisualCapture@@UEAAPEAXI@Z @ 0x1801F1BC0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CVisualCapture@@UEAA@XZ @ 0x1802435A8 (--1CVisualCapture@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CVisualCapture@@UEAA@XZ @ 0x1801F1AF8 (--1CVisualCapture@@UEAA@XZ.c)
  */
 
 CVisualCapture *__fastcall CVisualCapture::`scalar deleting destructor'(CVisualCapture *this, char a2)
@@ -14,9 +14,9 @@ CVisualCapture *__fastcall CVisualCapture::`scalar deleting destructor'(CVisualC
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x7D0);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

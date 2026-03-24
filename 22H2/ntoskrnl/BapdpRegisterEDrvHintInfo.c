@@ -1,68 +1,61 @@
 /*
- * XREFs of BapdpRegisterEDrvHintInfo @ 0x140B988AC
+ * XREFs of BapdpRegisterEDrvHintInfo @ 0x140A94110
  * Callers:
- *     BapdpProcessEDrvHintInfo @ 0x140B385F8 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140A4025C (BapdpProcessEDrvHintInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
-int __fastcall BapdpRegisterEDrvHintInfo(_DWORD *a1)
+void __fastcall BapdpRegisterEDrvHintInfo(_DWORD *a1)
 {
-  int result; // eax
+  bool v1; // cf
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   int Data; // [rsp+90h] [rbp+10h] BYREF
   HANDLE KeyHandle; // [rsp+98h] [rbp+18h] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp+20h] BYREF
 
-  result = 0;
-  Data = 1;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  KeyHandle = 0LL;
-  Handle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   if ( a1 )
   {
-    if ( *a1 >= 8u )
+    *(&ObjectAttributes.Length + 1) = 0;
+    *(&ObjectAttributes.Attributes + 1) = 0;
+    KeyHandle = 0LL;
+    Handle = 0LL;
+    v1 = *a1 < 8u;
+    DestinationString = 0LL;
+    Data = 1;
+    if ( !v1 && (a1[1] & 1) != 0 )
     {
-      result = a1[1];
-      if ( (result & 1) != 0 )
+      RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
       {
-        RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
-        ObjectAttributes.RootDirectory = 0LL;
+        RtlInitUnicodeString(&DestinationString, L"BitLockerEDriveVolatile");
+        ObjectAttributes.RootDirectory = KeyHandle;
         ObjectAttributes.ObjectName = &DestinationString;
         ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 576;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-        if ( result >= 0 )
+        if ( ZwCreateKey(&Handle, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL) >= 0 )
         {
-          RtlInitUnicodeString(&DestinationString, L"BitLockerEDriveVolatile");
-          ObjectAttributes.RootDirectory = KeyHandle;
-          ObjectAttributes.ObjectName = &DestinationString;
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.Attributes = 576;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          result = ZwCreateKey(&Handle, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL);
-          if ( result >= 0 )
-          {
-            ZwClose(KeyHandle);
-            KeyHandle = 0LL;
-            RtlInitUnicodeString(&DestinationString, L"EDriveSupportedInBoot");
-            result = ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
-          }
+          ZwClose(KeyHandle);
+          KeyHandle = 0LL;
+          RtlInitUnicodeString(&DestinationString, L"EDriveSupportedInBoot");
+          ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
         }
-        if ( KeyHandle )
-          result = ZwClose(KeyHandle);
-        if ( Handle )
-          return ZwClose(Handle);
       }
+      if ( KeyHandle )
+        ZwClose(KeyHandle);
+      if ( Handle )
+        ZwClose(Handle);
     }
   }
-  return result;
 }

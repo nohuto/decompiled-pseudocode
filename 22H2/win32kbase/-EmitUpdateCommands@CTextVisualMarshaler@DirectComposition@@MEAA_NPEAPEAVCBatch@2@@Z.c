@@ -1,10 +1,12 @@
 /*
- * XREFs of ?EmitUpdateCommands@CTextVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C820
+ * XREFs of ?EmitUpdateCommands@CTextVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB910
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002B0C0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetGlyphRunsCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7C40 (-EmitSetGlyphRunsCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetStrikethroughsCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D9F14 (-EmitSetStrikethroughsCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetUnderlinesCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DA9C0 (-EmitSetUnderlinesCommand@CTextVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CTextVisualMarshaler::EmitUpdateCommands(
@@ -14,32 +16,11 @@ char __fastcall DirectComposition::CTextVisualMarshaler::EmitUpdateCommands(
   char v4; // bl
 
   v4 = 0;
-  if ( DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, a2)
-    && DirectComposition::CResourceMarshalerArrayBase::Marshal(
-         (_QWORD *)this + 47,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 112,
-         2,
-         688,
-         689)
-    && DirectComposition::CResourceMarshalerArrayBase::Marshal(
-         (_QWORD *)this + 50,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 112,
-         4,
-         690,
-         691) )
+  if ( DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, (struct DirectComposition::CBatch **)a2)
+    && DirectComposition::CTextVisualMarshaler::EmitSetGlyphRunsCommand(this, a2)
+    && DirectComposition::CTextVisualMarshaler::EmitSetStrikethroughsCommand(this, a2) )
   {
-    return DirectComposition::CResourceMarshalerArrayBase::Marshal(
-             (_QWORD *)this + 53,
-             a2,
-             *((_DWORD *)this + 8),
-             (_DWORD *)this + 112,
-             8,
-             692,
-             693);
+    return DirectComposition::CTextVisualMarshaler::EmitSetUnderlinesCommand(this, a2);
   }
   return v4;
 }

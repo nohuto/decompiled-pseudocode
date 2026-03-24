@@ -1,7 +1,7 @@
 /*
- * XREFs of ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02D9B00
+ * XREFs of ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02BD0B0
  * Callers:
- *     STROBJ_bGetAdvanceWidths @ 0x1C02DBD10 (STROBJ_bGetAdvanceWidths.c)
+ *     STROBJ_bGetAdvanceWidths @ 0x1C02BE920 (STROBJ_bGetAdvanceWidths.c)
  * Callees:
  *     <none>
  */

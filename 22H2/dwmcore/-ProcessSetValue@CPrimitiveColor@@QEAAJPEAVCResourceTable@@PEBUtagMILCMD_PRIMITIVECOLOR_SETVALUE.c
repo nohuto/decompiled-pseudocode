@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetValue@CPrimitiveColor@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVECOLOR_SETVALUE@@@Z @ 0x180247E5C
+ * XREFs of ?ProcessSetValue@CPrimitiveColor@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVECOLOR_SETVALUE@@@Z @ 0x1801E2B94
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?OnColorChanged@CPrimitiveColor@@AEAAXXZ @ 0x1801E2AE4 (-OnColorChanged@CPrimitiveColor@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CPrimitiveColor::ProcessSetValue(
@@ -11,16 +11,13 @@ __int64 __fastcall CPrimitiveColor::ProcessSetValue(
         struct CResourceTable *a2,
         const struct tagMILCMD_PRIMITIVECOLOR_SETVALUE *a3)
 {
-  __int64 v3; // rax
-
-  if ( *((float *)this + 16) != *((float *)a3 + 2)
-    || *((float *)this + 17) != *((float *)a3 + 3)
-    || *((float *)this + 18) != *((float *)a3 + 4)
-    || *((float *)this + 19) != *((float *)a3 + 5) )
+  if ( *((float *)this + 28) != *((float *)a3 + 2)
+    || *((float *)this + 29) != *((float *)a3 + 3)
+    || *((float *)this + 30) != *((float *)a3 + 4)
+    || *((float *)this + 31) != *((float *)a3 + 5) )
   {
-    v3 = *(_QWORD *)this;
-    *((_OWORD *)this + 4) = *(_OWORD *)((char *)a3 + 8);
-    (*(void (__fastcall **)(CPrimitiveColor *, _QWORD, _QWORD))(v3 + 72))(this, 0LL, 0LL);
+    *((_OWORD *)this + 7) = *(_OWORD *)((char *)a3 + 8);
+    CPrimitiveColor::OnColorChanged(this);
   }
   return 0LL;
 }

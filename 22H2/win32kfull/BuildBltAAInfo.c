@@ -1,9 +1,9 @@
 /*
- * XREFs of BuildBltAAInfo @ 0x1C0259950
+ * XREFs of BuildBltAAInfo @ 0x1C0102F60
  * Callers:
  *     <none>
  * Callees:
- *     _ALIGN_MEM @ 0x1C015853A (_ALIGN_MEM.c)
+ *     _ALIGN_MEM @ 0x1C001D67C (_ALIGN_MEM.c)
  */
 
 _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6, int a7, int *a8, int *a9, ...)
@@ -22,8 +22,8 @@ _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6,
   int v20; // ecx
   int v21; // eax
   int v22; // eax
-  int v24; // r14d
-  int v25; // eax
+  int v23; // r14d
+  int v24; // eax
   int v26; // [rsp+20h] [rbp-48h]
   int v27; // [rsp+24h] [rbp-44h]
   int v30; // [rsp+98h] [rbp+30h]
@@ -43,70 +43,71 @@ _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6,
   v14 = *a4 - *a3;
   v26 = 0;
   v15 = a7 - a6;
-  if ( a7 - a6 <= 0 )
-    return 0LL;
-  v16 = 0;
-  if ( v11 >= 0 )
-    v16 = *a3;
-  v31 = v16;
-  if ( v9 > a5 )
-    v9 = a5;
-  v17 = -1;
-  v30 = *a8;
-  v27 = *a9;
-  if ( *a8 >= *a9 || v14 != v15 || (int)ALIGN_MEM((__int64 *)va, v32) < 0 || (unsigned int)v32 >= 0xFFFFFF10 )
-    return 0LL;
-  v18 = EngAllocMem(1u, (int)v32 + 240, 0x33355448u);
-  v19 = v18;
-  if ( v18 )
+  if ( a7 - a6 > 0 )
   {
-    *((_QWORD *)v18 + 4) = v18 + 60;
-    v20 = v15;
-    do
+    v16 = 0;
+    if ( v11 >= 0 )
+      v16 = *a3;
+    v31 = v16;
+    if ( v9 > a5 )
+      v9 = a5;
+    v17 = -1;
+    v30 = *a8;
+    v27 = *a9;
+    if ( *a8 < *a9 && v14 == v15 && (int)ALIGN_MEM((__int64 *)va, v32) >= 0 && (unsigned int)v32 < 0xFFFFFF10 )
     {
-      --v20;
-      if ( v11 < v31 || v11 >= v9 || v13 < v30 || v13 >= v27 )
+      v18 = EngAllocMem(1u, (int)v32 + 240, 0x33355448u);
+      v19 = v18;
+      if ( !v18 )
+        return v19;
+      *((_QWORD *)v18 + 4) = v18 + 60;
+      v20 = v15;
+      do
       {
-        if ( v17 != -1 )
-          goto LABEL_26;
+        --v20;
+        if ( v13 < v30 || v13 >= v27 || v11 < v31 || v11 >= v9 )
+        {
+          if ( v17 != -1 )
+            goto LABEL_23;
+        }
+        else
+        {
+          v21 = v13;
+          v10 = v11;
+          v12 = v13;
+          if ( v17 != -1 )
+            v21 = v26;
+          v26 = v21;
+          v22 = v11;
+          if ( v17 != -1 )
+            v22 = v17;
+          v17 = v22;
+        }
+        ++v11;
+        ++v13;
       }
-      else
+      while ( v20 );
+      if ( v17 != -1 )
       {
-        v21 = v13;
-        v10 = v11;
-        v12 = v13;
-        if ( v17 != -1 )
-          v21 = v26;
-        v26 = v21;
-        v22 = v11;
-        if ( v17 != -1 )
-          v22 = v17;
-        v17 = v22;
+LABEL_23:
+        *a3 = v17;
+        v19[30] = v17;
+        *a4 = v10;
+        v23 = v10 - v17;
+        *a8 = v26;
+        *a9 = v12;
+        *v19 = v23 + 1;
+        v19[31] = v23 + 1;
+        v19[28] = v14;
+        v19[29] = v15;
+        v24 = v12 - v26 + 1;
+        v19[1] = v24;
+        v19[5] = v24;
+        v19[4] = v24;
+        return v19;
       }
-      ++v11;
-      ++v13;
-    }
-    while ( v20 );
-    if ( v17 == -1 )
-    {
       EngFreeMem(v19);
-      return 0LL;
     }
-LABEL_26:
-    *a3 = v17;
-    v19[30] = v17;
-    *a4 = v10;
-    v24 = v10 - v17;
-    *a8 = v26;
-    *a9 = v12;
-    *v19 = v24 + 1;
-    v19[31] = v24 + 1;
-    v19[28] = v14;
-    v19[29] = v15;
-    v25 = v12 - v26 + 1;
-    v19[1] = v25;
-    v19[5] = v25;
-    v19[4] = v25;
   }
-  return v19;
+  return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitBootTable @ 0x140B66DDC
+ * XREFs of HalpInitBootTable @ 0x140A64DF0
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     HalReadBootRegister @ 0x140A90CB4 (HalReadBootRegister.c)
- *     HalWriteBootRegister @ 0x140A90CFC (HalWriteBootRegister.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     HalReadBootRegister @ 0x1409A9790 (HalReadBootRegister.c)
+ *     HalWriteBootRegister @ 0x1409A97D8 (HalWriteBootRegister.c)
  */
 
 __int64 (*__fastcall HalpInitBootTable(__int64 a1))()
@@ -27,6 +27,6 @@ __int64 (*__fastcall HalpInitBootTable(__int64 a1))()
     HalpSimpleBootFlagTable = 0LL;
   }
   result = HalpEndOfBoot;
-  off_140C02178[0] = HalpEndOfBoot;
+  off_140C00AF8[0] = HalpEndOfBoot;
   return result;
 }

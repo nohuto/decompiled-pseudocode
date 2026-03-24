@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x1407BA640
+ * XREFs of MmGetSectionInformation @ 0x140621350
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     AlpcpMapLegacyPortView @ 0x1407B9EC0 (AlpcpMapLegacyPortView.c)
- *     NtQuerySection @ 0x1407BA510 (NtQuerySection.c)
- *     PspLocateSystemDll @ 0x140801BE0 (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x14093A32C (DbgkpSendErrorMessage.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     NtQuerySection @ 0x14068C1C0 (NtQuerySection.c)
+ *     AlpcpMapLegacyPortView @ 0x1406FFA18 (AlpcpMapLegacyPortView.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PspLocateSystemDll @ 0x140793A08 (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x1408873C0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     MiGetControlAreaLoadConfig @ 0x140214E24 (MiGetControlAreaLoadConfig.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x1402A0D84 (MiAweControlArea.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x1402966C8 (MiAweControlArea.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402FA0C4 (MiGetControlAreaLoadConfig.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
@@ -21,169 +21,157 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
   __int64 v8; // r9
   __int64 v9; // r10
   int v10; // r11d
-  __int128 *v11; // rdx
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm2
-  __int128 v15; // xmm3
-  __int64 v16; // rdx
-  __int64 v17; // rdx
+  int v12; // r8d
+  int v13; // edx
+  int v14; // ecx
+  int v15; // edx
+  __int16 v16; // cx
+  int v17; // eax
   __int64 v18; // rdx
-  int *ControlAreaLoadConfig; // r8
-  int v20; // eax
-  int v21; // ecx
-  int v22; // r10d
-  int v23; // edx
-  int v25; // r8d
-  int v26; // edx
+  __int64 v19; // rdx
+  __int128 *v20; // r8
+  __int128 v21; // xmm0
+  __int128 v22; // xmm1
+  __int128 v23; // xmm2
+  __int128 v24; // xmm3
+  _DWORD *ControlAreaLoadConfig; // rax
+  __int64 v26; // r8
   int v27; // ecx
   int v28; // edx
-  __int16 v29; // cx
-  int v30; // eax
-  _OWORD v31[5]; // [rsp+30h] [rbp-58h] BYREF
+  int v29; // eax
+  _OWORD v30[5]; // [rsp+30h] [rbp-58h] BYREF
 
-  memset(v31, 0, 0x48uLL);
+  memset(v30, 0, 0x48uLL);
   v6 = MiSectionControlArea(a1);
-  if ( !(unsigned int)MiAweControlArea(v6) )
+  if ( MiAweControlArea(v6) )
+    return 3221225485LL;
+  if ( !a2 )
   {
-    if ( !a2 )
+    v12 = ((v10 & 0x1000) << 14) | 0x8000000;
+    if ( (v10 & 0x2000) == 0 )
+      v12 = (v10 & 0x1000) << 14;
+    if ( (v10 & 0x20) != 0 )
+      v12 = 0x1000000;
+    v13 = v12 | 0x200000;
+    if ( (v10 & 0x40) == 0 )
+      v13 = v12;
+    v14 = v13 | 0x800000;
+    if ( (v10 & 0x80u) == 0 )
+      v14 = v13;
+    v15 = v14 | 0x80000;
+    if ( v10 >= 0 )
+      v15 = v14;
+    v16 = *(_WORD *)(*(_QWORD *)v9 + 12LL);
+    v17 = v15 | 0x10000000;
+    if ( v16 >= 0 )
+      v17 = v15;
+    v7 = v17 | 0x40000000;
+    if ( (v16 & 0x4000) == 0 )
+      v7 = v17;
+    if ( (*(_DWORD *)(v9 + 56) & 0x20020) == 0x20020 )
+      v7 |= 0x20000000u;
+  }
+  if ( a2 )
+  {
+    if ( a2 == 1 || a2 == 4 )
     {
-      v25 = ((v10 & 0x1000) << 14) | 0x8000000;
-      if ( (v10 & 0x2000) == 0 )
-        v25 = (v10 & 0x1000) << 14;
       if ( (v10 & 0x20) != 0 )
-        v25 = 0x1000000;
-      v26 = v25 | 0x200000;
-      if ( (v10 & 0x40) == 0 )
-        v26 = v25;
-      v27 = v26 | 0x800000;
-      if ( (v10 & 0x80u) == 0 )
-        v27 = v26;
-      v28 = v27 | 0x80000;
-      if ( v10 >= 0 )
-        v28 = v27;
-      v29 = *(_WORD *)(*(_QWORD *)v9 + 12LL);
-      v30 = v28 | 0x10000000;
-      if ( v29 >= 0 )
-        v30 = v28;
-      v7 = v30 | 0x40000000;
-      if ( (v29 & 0x4000) == 0 )
-        v7 = v30;
-      if ( (*(_DWORD *)(v9 + 56) & 0x20020) == 0x20020 )
-        v7 |= 0x20000000u;
-    }
-    if ( a2 )
-    {
-      if ( a2 == 1 || a2 == 4 )
       {
-        if ( (v10 & 0x20) != 0 )
+        v20 = *(__int128 **)(*(_QWORD *)v9 + 56LL);
+        v21 = *v20;
+        v30[0] = *v20;
+        v22 = v20[1];
+        v23 = v20[2];
+        v24 = v20[3];
+        if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
         {
-          v11 = *(__int128 **)(*(_QWORD *)v9 + 56LL);
-          v12 = *v11;
-          v31[0] = *v11;
-          v13 = v11[1];
-          v14 = v11[2];
-          v15 = v11[3];
-          if ( (*(_DWORD *)(v9 + 56) & 0x20000000) != 0 )
-          {
-            *(_QWORD *)&v31[0] = qword_140C65B00 | LOWORD(v31[0]);
-            v12 = v31[0];
-          }
-          if ( a2 == 4 )
-          {
-            ControlAreaLoadConfig = (int *)MiGetControlAreaLoadConfig(v9);
-            v20 = v8;
-            LODWORD(v31[4]) = v8;
-            v21 = v8;
-            if ( ControlAreaLoadConfig )
-            {
-              v22 = *ControlAreaLoadConfig;
-              if ( (*ControlAreaLoadConfig & 0x10) != 0 )
-              {
-                v20 = 1;
-                LODWORD(v31[4]) = 1;
-                v21 = 1;
-              }
-              if ( (v22 & 0x80u) != 0 )
-              {
-                v20 = v21 | 4;
-                LODWORD(v31[4]) = v21 | 4;
-                v21 |= 4u;
-              }
-            }
-            v23 = *(_DWORD *)(v18 + 76);
-            if ( (v23 & 1) != 0 )
-            {
-              v20 = v21 | 2;
-              LODWORD(v31[4]) = v21 | 2;
-              v21 |= 2u;
-            }
-            if ( (v23 & 2) != 0 )
-            {
-              v20 = v21 | 8;
-              LODWORD(v31[4]) = v21 | 8;
-            }
-            if ( (v23 & 4) != 0 )
-            {
-              v20 |= 0x10u;
-              LODWORD(v31[4]) = v20;
-            }
-            if ( (v23 & 8) != 0 )
-            {
-              v20 |= 0x20u;
-              LODWORD(v31[4]) = v20;
-            }
-            if ( (v23 & 0x10) != 0 )
-            {
-              v20 |= 0x40u;
-              LODWORD(v31[4]) = v20;
-            }
-            if ( (v23 & 0x20) != 0 )
-              LODWORD(v31[4]) = v20 | 0x80;
-            *(_OWORD *)a3 = v12;
-            *(_OWORD *)(a3 + 16) = v13;
-            *(_OWORD *)(a3 + 32) = v14;
-            *(_OWORD *)(a3 + 48) = v15;
-            *(_QWORD *)(a3 + 64) = *(_QWORD *)&v31[4];
-          }
-          else
-          {
-            *(_OWORD *)a3 = v12;
-            *(_OWORD *)(a3 + 16) = v13;
-            *(_OWORD *)(a3 + 32) = v14;
-            *(_OWORD *)(a3 + 48) = v15;
-          }
-          return (unsigned int)v8;
+          *(_QWORD *)&v30[0] = qword_140C4DE10 | LOWORD(v30[0]);
+          v21 = v30[0];
         }
-      }
-      else if ( (v10 & 0x20) != 0 )
-      {
-        v16 = *(_QWORD *)(*(_QWORD *)(v9 + 96) + 32LL);
-        if ( v16 )
-          v17 = *(_QWORD *)(v16 + 40);
-        else
-          v17 = v8;
-        if ( a2 == 2 )
+        if ( a2 == 4 )
         {
-          if ( (*(_DWORD *)(v9 + 56) & 0x20000000) != 0 )
-            v17 += qword_140C65B00 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
-          *(_QWORD *)a3 = v17;
+          ControlAreaLoadConfig = (_DWORD *)MiGetControlAreaLoadConfig(v9);
+          v27 = v8;
+          LODWORD(v30[4]) = v8;
+          v28 = v8;
+          if ( ControlAreaLoadConfig && (*ControlAreaLoadConfig & 0x10) != 0 )
+          {
+            v27 = 1;
+            LODWORD(v30[4]) = 1;
+            v28 = 1;
+          }
+          v29 = *(_DWORD *)(v26 + 76);
+          if ( (v29 & 1) != 0 )
+          {
+            v27 = v28 | 2;
+            LODWORD(v30[4]) = v28 | 2;
+            v28 |= 2u;
+          }
+          if ( (v29 & 2) != 0 )
+          {
+            v27 = v28 | 8;
+            LODWORD(v30[4]) = v28 | 8;
+            v28 |= 8u;
+          }
+          if ( (v29 & 4) != 0 )
+          {
+            v27 = v28 | 0x10;
+            LODWORD(v30[4]) = v28 | 0x10;
+          }
+          if ( (v29 & 8) != 0 )
+          {
+            v27 |= 0x20u;
+            LODWORD(v30[4]) = v27;
+          }
+          if ( (v29 & 0x10) != 0 )
+          {
+            v27 |= 0x40u;
+            LODWORD(v30[4]) = v27;
+          }
+          if ( (v29 & 0x20) != 0 )
+            LODWORD(v30[4]) = v27 | 0x80;
+          *(_OWORD *)a3 = v21;
+          *(_OWORD *)(a3 + 16) = v22;
+          *(_OWORD *)(a3 + 32) = v23;
+          *(_OWORD *)(a3 + 48) = v24;
+          *(_QWORD *)(a3 + 64) = *(_QWORD *)&v30[4];
         }
         else
         {
-          *(_QWORD *)a3 = *(_QWORD *)(*(_QWORD *)v9 + 32LL) - v17;
+          *(_OWORD *)a3 = v21;
+          *(_OWORD *)(a3 + 16) = v22;
+          *(_OWORD *)(a3 + 32) = v23;
+          *(_OWORD *)(a3 + 48) = v24;
         }
         return (unsigned int)v8;
       }
-      LODWORD(v8) = -1073741751;
     }
-    else
+    else if ( (v10 & 0x20) != 0 )
     {
-      *(_QWORD *)a3 = *(_QWORD *)(a1 + 24) << 12;
-      *(_QWORD *)(a3 + 16) = *(_QWORD *)(a1 + 48);
-      *(_DWORD *)(a3 + 8) = v7;
+      v18 = *(_QWORD *)(*(_QWORD *)(v9 + 96) + 32LL);
+      if ( v18 )
+        v19 = *(_QWORD *)(v18 + 40);
+      else
+        v19 = v8;
+      if ( a2 == 2 )
+      {
+        if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
+          v19 += qword_140C4DE10 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
+        *(_QWORD *)a3 = v19;
+      }
+      else
+      {
+        *(_QWORD *)a3 = *(_QWORD *)(*(_QWORD *)v9 + 32LL) - v19;
+      }
+      return (unsigned int)v8;
     }
-    return (unsigned int)v8;
+    LODWORD(v8) = -1073741751;
   }
-  return 3221225485LL;
+  else
+  {
+    *(_QWORD *)a3 = *(_QWORD *)(a1 + 24) << 12;
+    *(_QWORD *)(a3 + 16) = *(_QWORD *)(a1 + 48);
+    *(_DWORD *)(a3 + 8) = v7;
+  }
+  return (unsigned int)v8;
 }

@@ -1,82 +1,75 @@
 /*
- * XREFs of ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C01EA108
+ * XREFs of ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C016D358
  * Callers:
- *     DxgkInitializeDpi @ 0x1C01EA0F0 (DxgkInitializeDpi.c)
+ *     DxgkInitializeDpi @ 0x1C016D340 (DxgkInitializeDpi.c)
  * Callees:
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0003B8C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z @ 0x1C0003C90 (-GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000CAFC (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z @ 0x1C000CC70 (-GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-NTSTATUS __fastcall DpiPersistence::SaveHKCUPathInSessionData(DpiPersistence *this)
+NTSTATUS __fastcall DpiPersistence::SaveHKCUPathInSessionData(DpiPersistence *this, __int64 a2)
 {
-  __int64 v1; // rcx
-  DXGSESSIONMGR *v2; // rbx
-  unsigned int v3; // eax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  DXGSESSIONMGR *v4; // rbx
+  unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
   NTSTATUS result; // eax
-  void *v6; // rcx
+  void *v8; // rcx
   struct _UNICODE_STRING *UserRegistryPath; // rax
-  __int64 v8; // rdi
-  unsigned int CurrentProcessSessionId; // eax
-  __int64 v10; // rcx
-  unsigned int v11; // eax
-  struct _UNICODE_STRING KeyPath; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  struct _UNICODE_STRING KeyPath; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v2
-    && (v3 = PsGetCurrentProcessSessionId(v1),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v2, v3)) != 0LL) )
+  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+  if ( v4 )
+  {
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v3, v2);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v4, CurrentProcessSessionId);
+  }
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( SessionDataForSpecifiedSession )
   {
     KeyPath = 0LL;
     result = RtlFormatCurrentUserKeyPath(&KeyPath);
     if ( result >= 0 )
     {
-      v6 = (void *)*((_QWORD *)SessionDataForSpecifiedSession + 2342);
-      if ( v6 )
+      v8 = (void *)*((_QWORD *)SessionDataForSpecifiedSession + 2339);
+      if ( v8 )
       {
-        operator delete(v6);
-        *((_DWORD *)SessionDataForSpecifiedSession + 4682) = 0;
-        *((_QWORD *)SessionDataForSpecifiedSession + 2342) = 0LL;
+        operator delete[](v8);
+        *((_DWORD *)SessionDataForSpecifiedSession + 4676) = 0;
+        *((_QWORD *)SessionDataForSpecifiedSession + 2339) = 0LL;
       }
       UserRegistryPath = DXGSESSIONDATA::GetUserRegistryPath(SessionDataForSpecifiedSession, KeyPath.MaximumLength);
-      v8 = (int)RtlUnicodeStringCopy(UserRegistryPath, &KeyPath);
+      v10 = (int)RtlUnicodeStringCopy(UserRegistryPath, &KeyPath);
       RtlFreeUnicodeString(&KeyPath);
-      if ( (int)v8 < 0 )
+      if ( (int)v10 < 0 )
       {
-        WdLogSingleEntry1(2LL, v8);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"RtlFreeUnicodeString failed: (Status = 0x%I64x)",
-          v8,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v16 = WdLogNewEntry5_WdError(v12, v11);
+        *(_QWORD *)(v16 + 24) = v10;
+        WdLogEvent5_WdError(v16);
       }
-      return v8;
+      return v10;
     }
   }
   else
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v1);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v11 = PsGetCurrentProcessSessionId(v10);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Current session does not have session data in session 0x%I64x, returning 0x%I64x.",
-      v11,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v13 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v15, v14);
+    *(_QWORD *)(v13 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v13);
     return -1073741811;
   }
   return result;

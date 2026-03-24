@@ -1,89 +1,128 @@
 /*
- * XREFs of ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800BCFA4
+ * XREFs of ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800BF188
  * Callers:
- *     ?Present@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180106270 (-Present@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
- *     ?Present@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJ_N@Z @ 0x180106290 (-Present@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJ_N@Z.c)
+ *     ?Present@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F5270 (-Present@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJ_N@Z @ 0x1800F5280 (-Present@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800B8414 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
- *     ?Ready@CTargetStats@@QEAA_N_KPEAVIOverlaySwapChain@@@Z @ 0x1800BC030 (-Ready@CTargetStats@@QEAA_N_KPEAVIOverlaySwapChain@@@Z.c)
- *     ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800BD1A8 (-CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z.c)
- *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800BD210 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800DCDE8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
- *     ?NeedsPresent@COverlayContext@@QEBA_NXZ @ 0x1800DE61C (-NeedsPresent@COverlayContext@@QEBA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DumpVisualTree@CDebugTreeDumper@@SAJPEAVCVisualTree@@PEAVIDeviceTarget@@@Z @ 0x1800BF408 (-DumpVisualTree@CDebugTreeDumper@@SAJPEAVCVisualTree@@PEAVIDeviceTarget@@@Z.c)
+ *     ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800BF428 (-CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800D8C44 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800EC140 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
+ *     ?SkipUnpin@CD3DDevice@@QEAAXXZ @ 0x1800ED228 (-SkipUnpin@CD3DDevice@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAA@XZ @ 0x18016BBF0 (--1-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAA@XZ.c)
+ *     ?RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ @ 0x1801845A0 (-RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ.c)
+ *     ?FlushAndWaitAtPresent@CLegacyRenderTarget@@IEAAXXZ @ 0x180184854 (-FlushAndWaitAtPresent@CLegacyRenderTarget@@IEAAXXZ.c)
  */
 
-__int64 __fastcall CLegacyRenderTarget::Present(struct IOverlaySwapChain **this, unsigned __int8 a2)
+__int64 __fastcall CLegacyRenderTarget::Present(CLegacyRenderTarget *this, char a2)
 {
-  unsigned int v2; // ebx
-  LARGE_INTEGER *v5; // r14
-  char v6; // r15
-  bool v7; // cl
-  FastRegion::CRegion *v8; // rcx
-  char v9; // di
-  int v10; // ebx
-  int v11; // eax
-  __int64 v12; // rcx
-  _DWORD **v13; // rax
-  unsigned int v14; // eax
-  LARGE_INTEGER v15; // rax
-  __int128 v17; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-10h]
-  LARGE_INTEGER PerformanceCount; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v3; // rcx
+  int v5; // ebx
+  unsigned int v6; // esi
+  int v7; // r15d
+  int v8; // eax
+  CDirectFlipInfo *v9; // rcx
+  int v10; // eax
+  __int64 v11; // rcx
+  CD3DDevice *v12; // rax
+  __int64 v13; // rcx
+  char v14; // bl
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 (__fastcall ***v17)(_QWORD); // rcx
+  struct IDeviceTarget *v18; // rdx
+  struct CVisualTree *v19; // rcx
+  __int128 v21; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v22; // [rsp+40h] [rbp-20h]
 
-  v2 = 0;
-  if ( *(this - 2314) )
+  v3 = *((_QWORD *)this - 2313);
+  v5 = 0;
+  if ( !v3 )
+    goto LABEL_29;
+  v21 = 0LL;
+  v6 = 0;
+  v7 = 0;
+  v22 = 0LL;
+  if ( (*(int (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v3 + 32LL))(v3, &v21) >= 0 )
   {
-    QueryPerformanceCounter(&PerformanceCount);
-    v5 = (LARGE_INTEGER *)(this - 30);
-    v6 = CTargetStats::Ready((CTargetStats *)(this - 30), PerformanceCount.QuadPart, *(this - 2314));
-    v7 = *((_BYTE *)this - 77)
-      || !*(_DWORD *)*(this - 20) && COverlayContext::NeedsPresent((COverlayContext *)(this - 2312));
-    if ( *((_BYTE *)this - 76) | a2 || v6 && v7 )
+    if ( (_DWORD)v21 )
     {
-      v18 = 0LL;
-      v8 = *(this - 11);
-      v17 = 0LL;
-      if ( v8 )
-        CRegion::GetRectangles(v8, &v17);
-      else
-        (*(void (__fastcall **)(_QWORD, __int128 *))(*(_QWORD *)*(this - 2314) + 40LL))(*(this - 2314), &v17);
-      v9 = (*((__int64 (__fastcall **)(char *))*(this - 2336) + 30))((char *)this - 18688);
-      v10 = *((_DWORD *)this - 59) + 1 + *((_DWORD *)this - 58);
-      (*((void (__fastcall **)(char *))*(this - 2336) + 31))((char *)this - 18688);
-      v11 = COverlayContext::Present((COverlayContext *)(this - 2312), *(this - 2314), v10, v9);
-      v2 = v11;
-      if ( v11 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x1D3u);
-      }
-      else
-      {
-        QueryPerformanceCounter(&PerformanceCount);
-        v13 = (_DWORD **)*(this - 11);
-        *(_WORD *)((char *)this - 77) = 0;
-        if ( v13 )
-          **v13 = 0;
-        v14 = CLegacyRenderTarget::CheckForOcclusionChange((CLegacyRenderTarget *)(this - 2336), v2);
-        ++v5->LowPart;
-        v2 = v14;
-        v15 = PerformanceCount;
-        ++v5->HighPart;
-        v5[6] = v15;
-        v5[7].QuadPart = (LONGLONG)GetCurrentFrameId();
-      }
-      if ( (_QWORD)v17 )
-        std::_Deallocate<16,0>(v17, (v18 - v17) & 0xFFFFFFFFFFFFFFF0uLL);
+      v8 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this - 2313) + 8LL))(*((_QWORD *)this - 2313));
+      v6 = v8 - v21;
     }
-    else if ( v7 )
+    v7 = v6 + DWORD2(v21) + 1;
+  }
+  if ( *((_BYTE *)this - 76) )
+    goto LABEL_16;
+  if ( *((_DWORD *)this - 4620) || *((_DWORD *)this - 4619) || !*((_BYTE *)this - 79) || *((_BYTE *)this - 74) )
+    goto LABEL_17;
+  v9 = (CDirectFlipInfo *)*((_QWORD *)this - 862);
+  if ( !v9 )
+    goto LABEL_16;
+  v10 = *((_DWORD *)v9 + 13);
+  if ( v10 != 4 )
+    goto LABEL_15;
+  if ( CDirectFlipInfo::RenderingRealizationChanged(v9) )
+  {
+LABEL_16:
+    a2 = 1;
+    goto LABEL_17;
+  }
+  v10 = 2;
+LABEL_15:
+  if ( v10 != 1 )
+    goto LABEL_16;
+LABEL_17:
+  if ( a2 || *((_BYTE *)this - 77) || *((_BYTE *)this - 78) && v6 < 2 )
+  {
+    if ( *((_BYTE *)this - 75) )
+      CLegacyRenderTarget::FlushAndWaitAtPresent((CLegacyRenderTarget *)((char *)this - 18664));
+    v13 = *((_QWORD *)this - 2313);
+    *(_QWORD *)&v22 = 0LL;
+    v21 = 0LL;
+    (*(void (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v13 + 40LL))(v13, &v21);
+    v14 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this - 2333) + 248LL))((char *)this - 18664);
+    (*(void (__fastcall **)(char *))(*((_QWORD *)this - 2333) + 256LL))((char *)this - 18664);
+    v15 = COverlayContext::Present((CLegacyRenderTarget *)((char *)this - 18192), v7, v14);
+    v5 = v15;
+    if ( v15 < 0 )
     {
-      ScheduleCompositionPass(0LL, 2LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x154u, 0LL);
+    }
+    else
+    {
+      *((_BYTE *)this - 78) = 0;
+      *((_BYTE *)this - 76) = 0;
+      v5 = CLegacyRenderTarget::CheckForOcclusionChange((CLegacyRenderTarget *)((char *)this - 18664), v15);
+      *((_QWORD *)this - 13) = *(_QWORD *)(*((_QWORD *)this - 2331) + 352LL);
+    }
+    std::vector<tagRECT>::~vector<tagRECT>(&v21);
+  }
+  else
+  {
+    v11 = *((_QWORD *)this - 2313) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)this - 2313) + 8LL) + 12LL);
+    v12 = (CD3DDevice *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
+    CD3DDevice::SkipUnpin(v12);
+    if ( *((_BYTE *)this - 78) )
+      ScheduleCompositionPass(0LL, 0x2000LL);
+  }
+LABEL_29:
+  if ( *((_BYTE *)this - 74) )
+    v5 = 142213121;
+  if ( v5 >= 0 )
+  {
+    if ( *((_QWORD *)this - 2320) )
+    {
+      v17 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this - 2313);
+      if ( v17 )
+      {
+        if ( (**v17)(v17) )
+          CDebugTreeDumper::DumpVisualTree(v19, v18);
+      }
     }
   }
-  if ( *((_BYTE *)this - 75) )
-    return 142213121;
-  return v2;
+  return (unsigned int)v5;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z @ 0x18029C230
+ * XREFs of ?StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z @ 0x180259C10
  * Callers:
  *     <none>
  * Callees:
@@ -13,8 +13,8 @@ void __fastcall CHolographicInteropTexture::StereoscopicUwp_SetPoseData(
         const struct DirectX::XMFLOAT4X4 *a4)
 {
   wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::ReportUsage(
-    `wil::Feature<__WilFeatureTraits_Feature_StereoscopicUwp>::GetImpl'::`2'::impl,
+    &`wil::Feature<__WilFeatureTraits_Feature_StereoscopicUwp>::GetImpl'::`2'::impl,
     0,
     (__int64)a3,
-    (__int64)a4);
+    a4);
 }

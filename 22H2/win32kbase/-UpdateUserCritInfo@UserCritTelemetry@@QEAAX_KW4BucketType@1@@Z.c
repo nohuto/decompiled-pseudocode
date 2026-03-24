@@ -1,54 +1,75 @@
 /*
- * XREFs of ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C005408C
+ * XREFs of ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C00374D0
  * Callers:
- *     EtwTraceAcquiredSharedUserCrit @ 0x1C0053C40 (EtwTraceAcquiredSharedUserCrit.c)
- *     EtwTraceReleaseUserCrit @ 0x1C0053D40 (EtwTraceReleaseUserCrit.c)
- *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C0053EC0 (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     NtUserVkKeyScanEx @ 0x1C000AAA0 (NtUserVkKeyScanEx.c)
+ *     DrvGetCurrentDpiInfo @ 0x1C0010864 (DrvGetCurrentDpiInfo.c)
+ *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C00116E0 (DxgkEngAcquireWin32kAndPDEVLocks.c)
+ *     ReferenceDwmApiPort @ 0x1C00165F0 (ReferenceDwmApiPort.c)
+ *     NtUserGetDC @ 0x1C0036B40 (NtUserGetDC.c)
+ *     NtUserReleaseDC @ 0x1C0036EF0 (NtUserReleaseDC.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserEnterUserCritSecShared @ 0x1C003D010 (UserEnterUserCritSecShared.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C003E200 (NtUserMapVirtualKeyEx.c)
+ *     NtUserGetKeyboardLayout @ 0x1C003E7C0 (NtUserGetKeyboardLayout.c)
+ *     NtMITGetCursorUpdateHandle @ 0x1C00889A0 (NtMITGetCursorUpdateHandle.c)
+ *     NtUserCheckProcessSession @ 0x1C008A210 (NtUserCheckProcessSession.c)
+ *     UserReleaseDC @ 0x1C0092CC0 (UserReleaseDC.c)
+ *     NtUserGetDoubleClickTime @ 0x1C009D340 (NtUserGetDoubleClickTime.c)
+ *     UserGetDesktopIdForCurrentThread @ 0x1C009E490 (UserGetDesktopIdForCurrentThread.c)
+ *     ?DxgkEngEnterUserCrit@@YAXH@Z @ 0x1C00A3C30 (-DxgkEngEnterUserCrit@@YAXH@Z.c)
+ *     NtUserGetProcessDpiAwarenessContext @ 0x1C00A6E10 (NtUserGetProcessDpiAwarenessContext.c)
+ *     NtMITSetLastInputRecipient @ 0x1C012BA30 (NtMITSetLastInputRecipient.c)
+ *     NtUserGetSystemDpiForProcess @ 0x1C012FEA0 (NtUserGetSystemDpiForProcess.c)
+ *     NtUserIsMouseInPointerEnabled @ 0x1C0132380 (NtUserIsMouseInPointerEnabled.c)
+ *     W32pLkmdDataCollectionCallback @ 0x1C013B2A0 (W32pLkmdDataCollectionCallback.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B9620 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall UserCritTelemetry::UpdateUserCritInfo(__int64 a1, __int64 a2, int a3)
+signed __int64 __fastcall UserCritTelemetry::UpdateUserCritInfo(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // r10
+  __int64 v4; // r9
   unsigned __int64 v5; // r8
-  __int64 v6; // rax
-  unsigned __int64 *v7; // rcx
-  unsigned __int64 result; // rax
-  _QWORD v9[16]; // [rsp+0h] [rbp-39h] BYREF
+  unsigned __int64 v6; // rax
+  unsigned int v7; // r8d
+  unsigned __int64 *v8; // rcx
+  signed __int64 result; // rax
+  _QWORD v10[16]; // [rsp+0h] [rbp-98h] BYREF
 
-  v9[14] = -1LL;
+  v10[0] = 10LL;
+  v10[1] = 25LL;
+  v10[2] = 50LL;
   v4 = a3;
-  v9[0] = 10LL;
-  v5 = (unsigned __int64)(1000000 * a2) / gliQpcFreq.QuadPart;
-  v9[1] = 25LL;
-  v6 = 0LL;
-  v7 = v9;
-  v9[2] = 50LL;
-  v9[3] = 100LL;
-  v9[4] = 250LL;
-  v9[5] = 500LL;
-  v9[6] = 1000LL;
-  v9[7] = 2500LL;
-  v9[8] = 5000LL;
-  v9[9] = 10000LL;
-  v9[10] = 25000LL;
-  v9[11] = 50000LL;
-  v9[12] = 100000LL;
-  v9[13] = 200000LL;
-  while ( v5 > *v7 )
+  v5 = 1000000 * a2;
+  v10[3] = 100LL;
+  v10[4] = 250LL;
+  v10[5] = 500LL;
+  v10[6] = 1000LL;
+  v10[7] = 2500LL;
+  v10[8] = 5000LL;
+  v10[9] = 10000LL;
+  v10[10] = 25000LL;
+  v10[11] = 50000LL;
+  v10[12] = 100000LL;
+  v10[13] = 200000LL;
+  v10[14] = -1LL;
+  if ( gliQpcFreq.QuadPart == 10000000 )
+    v6 = v5 / 0x989680;
+  else
+    v6 = v5 / gliQpcFreq.QuadPart;
+  v7 = 0;
+  v8 = v10;
+  while ( v6 > *v8 )
   {
-    v6 = (unsigned int)(v6 + 1);
     ++v7;
-    if ( (unsigned int)v6 >= 0xF )
+    ++v8;
+    if ( v7 >= 0xF )
       goto LABEL_6;
   }
-  _InterlockedIncrement64((volatile signed __int64 *)(a1 + 8 * (v6 + 15 * v4) + 4400));
+  _InterlockedIncrement64((volatile signed __int64 *)(a1 + 8 * (v7 + 15 * v4)));
 LABEL_6:
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8 * v4 + 4760), v5);
-  _InterlockedIncrement64((volatile signed __int64 *)(a1 + 8 * v4 + 4808));
-  result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4 + 4784), 0LL, 0LL);
-  if ( v5 > result )
-    _InterlockedExchange64((volatile __int64 *)(a1 + 8 * v4 + 4784), v5);
+  result = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8 * v4 + 360), v6);
+  _InterlockedIncrement64((volatile signed __int64 *)(a1 + 8 * v4 + 384));
   return result;
 }

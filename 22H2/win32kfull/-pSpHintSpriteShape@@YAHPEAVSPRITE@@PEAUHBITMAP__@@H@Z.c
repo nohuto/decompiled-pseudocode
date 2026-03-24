@@ -1,111 +1,121 @@
 /*
- * XREFs of ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C001ECCC
+ * XREFs of ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE3A4
  * Callers:
- *     ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C001D3D8 (-GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z.c)
- *     ?GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z @ 0x1C027A23C (-GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z.c)
- *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C027F054 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
- *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C027F21C (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
- *     ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C027F5EC (-pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z.c)
- *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C027F728 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
- *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FB40 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
+ *     ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C00EE2B8 (-GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z.c)
+ *     ?GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z @ 0x1C027E108 (-GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z.c)
+ *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C02812D8 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
+ *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C02814A0 (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
+ *     ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C028180C (-pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z.c)
+ *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C02818E8 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0281CD0 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
  * Callees:
- *     ?vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z @ 0x1C001C254 (-vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z.c)
- *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C001C2F4 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
- *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C001C4C0 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00F6640 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C00F6984 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BE40 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C448 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C00ED7D0 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00EFE88 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z @ 0x1C00F0B14 (-vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall pSpHintSpriteShape(struct SPRITE *a1, HSURF hsurf, int a3)
 {
   unsigned int v3; // edi
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  SURFOBJ *v9; // rax
-  SURFOBJ *v10; // rdx
-  int v11; // eax
+  __int64 v7; // r9
+  SURFOBJ *v8; // rax
+  SURFOBJ *v9; // rdx
+  int v10; // eax
   HDEV hdev; // rsi
-  __int64 *v13; // rax
+  __int64 *v12; // rax
+  __int64 v14; // rsi
   int v15; // eax
-  _BYTE v16[192]; // [rsp+20h] [rbp-D8h] BYREF
+  __int64 *v16[24]; // [rsp+20h] [rbp-D8h] BYREF
   __int64 v17; // [rsp+100h] [rbp+8h] BYREF
 
   v3 = 0;
   if ( !a1 )
     return v3;
   v7 = *((_QWORD *)a1 + 16);
-  if ( !v7 || !(unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v7 - 24)) )
+  if ( !v7 || (v14 = v7 - 24, !(unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v7 - 24))) )
   {
 LABEL_3:
-    v8 = *((_QWORD *)a1 + 16);
     if ( hsurf )
     {
-      if ( v8 && (*(_DWORD *)a1 & 0x40) == 0 )
-        vSpDeleteShape(a1);
-      if ( !*((_QWORD *)a1 + 16) && (*(_DWORD *)a1 & 0x40) == 0 )
+      if ( !v7 )
+        goto LABEL_36;
+      if ( (*(_DWORD *)a1 & 0x40) == 0 )
       {
-        v9 = EngLockSurface(hsurf);
-        v10 = v9;
-        if ( v9 )
+        vSpDeleteShape(a1);
+        v7 = *((_QWORD *)a1 + 16);
+      }
+      if ( !v7 )
+      {
+LABEL_36:
+        if ( (*(_DWORD *)a1 & 0x40) == 0 )
         {
-          if ( v9->iType == 3 && (HIDWORD(v9[1].hsurf) & 1) != 0 )
+          v8 = EngLockSurface(hsurf);
+          v9 = v8;
+          if ( v8 )
           {
-            EngUnlockSurface(v9);
-          }
-          else
-          {
-            v11 = *(_DWORD *)a1 | 0x40;
-            *((_QWORD *)a1 + 16) = v10;
-            *(_DWORD *)a1 = v11;
-            if ( a3 )
-              *(_DWORD *)a1 = v11 | 0x80;
-            *((_QWORD *)a1 + 30) = hsurf;
-            *((_QWORD *)a1 + 12) = 0LL;
-            *((_DWORD *)a1 + 26) = v10->sizlBitmap.cx;
-            *((_DWORD *)a1 + 27) = v10->sizlBitmap.cy;
-            *((_QWORD *)a1 + 17) = 0LL;
-            hdev = v10[1].hdev;
-            if ( hdev )
-              INC_SHARE_REF_CNT(v10[1].hdev);
-            v13 = (__int64 *)*((_QWORD *)a1 + 2);
-            *((_QWORD *)a1 + 18) = hdev;
-            v17 = *v13;
-            SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v16, (struct PDEVOBJ *)&v17);
-            bSpUpdatePosition(a1, (struct _POINTL *)a1 + 14, 0, 0);
-            SPRITEDDIACCESS::~SPRITEDDIACCESS((SPRITEDDIACCESS *)v16);
+            if ( v8->iType == 3 && (HIDWORD(v8[1].hsurf) & 1) != 0 )
+            {
+              EngUnlockSurface(v8);
+              v9 = 0LL;
+            }
+            if ( v9 )
+            {
+              v10 = *(_DWORD *)a1 | 0x40;
+              *((_QWORD *)a1 + 16) = v9;
+              *(_DWORD *)a1 = v10;
+              if ( a3 )
+                *(_DWORD *)a1 = v10 | 0x80;
+              *((_QWORD *)a1 + 30) = hsurf;
+              *((_QWORD *)a1 + 12) = 0LL;
+              *((_DWORD *)a1 + 26) = v9->sizlBitmap.cx;
+              *((_DWORD *)a1 + 27) = v9->sizlBitmap.cy;
+              *((POINTL *)a1 + 17) = gptlZero;
+              hdev = v9[1].hdev;
+              if ( hdev )
+                INC_SHARE_REF_CNT(v9[1].hdev);
+              v12 = (__int64 *)*((_QWORD *)a1 + 2);
+              *((_QWORD *)a1 + 18) = hdev;
+              v17 = *v12;
+              SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v16, (struct PDEVOBJ *)&v17);
+              bSpUpdatePosition(a1, (struct _POINTL *)a1 + 14, 0, 0);
+              SPRITEDDIACCESS::~SPRITEDDIACCESS(v16);
+            }
           }
         }
       }
     }
-    else if ( v8 )
+    else if ( v7 )
     {
       vSpRemoveShapeHint(a1, a3);
     }
     return 1;
   }
-  W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v7 + 248));
-  if ( !*(_DWORD *)(v7 + 300) )
+  W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v14 + 272));
+  if ( !*(_DWORD *)(v14 + 324) )
   {
-    if ( _bittest((const signed __int32 *)a1, 9u) )
+    if ( (*(_DWORD *)a1 & 0x200) != 0 )
     {
       vSpRemoveShapeHint(a1, 0);
       *(_DWORD *)a1 &= ~0x200u;
     }
-    W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v7 + 248));
+    W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v14 + 272));
+    v7 = *((_QWORD *)a1 + 16);
     goto LABEL_3;
   }
-  *(_QWORD *)(v7 + 304) = UserGetHDEV();
-  *(_QWORD *)(v7 + 312) = *((_QWORD *)a1 + 9);
-  *(_QWORD *)(v7 + 320) = hsurf;
-  memset_0((void *)(v7 + 328), 0, 0x88uLL);
-  v15 = *(_DWORD *)(v7 + 88);
-  *(_QWORD *)(v7 + 464) = 0LL;
+  *(_QWORD *)(v14 + 328) = UserGetHDEV();
+  *(_QWORD *)(v14 + 336) = *((_QWORD *)a1 + 9);
+  *(_QWORD *)(v14 + 344) = hsurf;
+  memset((void *)(v14 + 352), 0, 0x88uLL);
+  v15 = *(_DWORD *)(v14 + 112);
+  *(_QWORD *)(v14 + 488) = 0LL;
   if ( (v15 & 0x2000000) == 0 )
-    *(_DWORD *)(v7 + 88) = v15 | 0x2000000;
+    *(_DWORD *)(v14 + 112) = v15 | 0x2000000;
   if ( (*(_DWORD *)a1 & 0x200) == 0 )
     *(_DWORD *)a1 |= 0x200u;
-  W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v7 + 248));
+  W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v14 + 272));
   return 1LL;
 }

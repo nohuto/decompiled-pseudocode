@@ -1,14 +1,13 @@
 /*
- * XREFs of HalpInterruptResetThisProcessor @ 0x140508F00
+ * XREFs of HalpInterruptResetThisProcessor @ 0x1404BC480
  * Callers:
- *     HalpInterruptRebootService @ 0x14051F5B0 (HalpInterruptRebootService.c)
+ *     HalpInterruptRebootService @ 0x1404D2650 (HalpInterruptRebootService.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
- *     HalpInterruptInitializeController @ 0x1403AE924 (HalpInterruptInitializeController.c)
- *     HalpInterruptInitializeLocalUnit @ 0x1403B0A04 (HalpInterruptInitializeLocalUnit.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpPowerWriteResetCommand @ 0x14050A93C (HalpPowerWriteResetCommand.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
+ *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
  */
 
 void __noreturn HalpInterruptResetThisProcessor()
@@ -19,14 +18,14 @@ void __noreturn HalpInterruptResetThisProcessor()
   int v3; // eax
   __int64 (__fastcall *v4)(_QWORD); // rax
   int v5; // eax
-  int v6; // ebx
+  ULONG_PTR v6; // rbx
   __int64 (__fastcall *v7)(_QWORD); // rax
   int v8; // eax
 
   Number = KeGetPcr()->Prcb.Number;
   _disable();
   HalpInterruptInitializeLocalUnit(HalpInterruptController);
-  HalpInterruptSetProblemEx(0, 12, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\start.c", 884);
+  HalpInterruptLastProblem = 12;
   if ( !Number )
   {
     _InterlockedDecrement(&HalpInterruptProcessorsStarted);
@@ -38,34 +37,43 @@ void __noreturn HalpInterruptResetThisProcessor()
     {
       v2 = (ULONG_PTR)v1;
       v1 = (ULONG_PTR *)*v1;
-      v3 = *(_DWORD *)(v2 + 232);
+      v3 = *(_DWORD *)(v2 + 224);
       if ( (v3 & 1) != 0 )
       {
-        *(_DWORD *)(v2 + 232) = v3 & 0xFFFFFFFE;
+        *(_DWORD *)(v2 + 224) = v3 & 0xFFFFFFFE;
         HalpInterruptInitializeController(v2);
         v4 = *(__int64 (__fastcall **)(_QWORD))(v2 + 176);
         if ( v4 && (v5 = v4(*(_QWORD *)(v2 + 16)), v5 < 0) )
-          HalpInterruptSetProblemEx(
-            v2,
-            35,
-            v5,
-            (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c",
-            3034);
+        {
+          HalpInterruptLastProblem = 35;
+          *(_DWORD *)(v2 + 292) = 35;
+          *(_DWORD *)(v2 + 296) = v5;
+          *(_QWORD *)(v2 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\intsup.c";
+          *(_DWORD *)(v2 + 312) = 3011;
+        }
         else
-          *(_DWORD *)(v2 + 232) &= ~1u;
+        {
+          *(_DWORD *)(v2 + 224) &= ~1u;
+        }
       }
     }
     KeStallExecutionProcessor(0x64u);
   }
-  HalPerformEndOfInterruptAtController();
+  HalPerformEndOfInterruptAtController[0]();
   v6 = HalpInterruptController;
   v7 = *(__int64 (__fastcall **)(_QWORD))(HalpInterruptController + 168);
   if ( v7 )
   {
     v8 = v7(*(_QWORD *)(HalpInterruptController + 16));
     if ( v8 < 0 )
-      HalpInterruptSetProblemEx(v6, 34, v8, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 3083);
+    {
+      *(_DWORD *)(v6 + 296) = v8;
+      HalpInterruptLastProblem = 34;
+      *(_DWORD *)(v6 + 292) = 34;
+      *(_QWORD *)(v6 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\intsup.c";
+      *(_DWORD *)(v6 + 312) = 3060;
+    }
   }
   HalpPowerWriteResetCommand(Number, (unsigned __int64)&HalpInterruptProcessorsStarted & -(__int64)(Number != 0));
-  JUMPOUT(0x140509054LL);
+  JUMPOUT(0x1404BC5E1LL);
 }

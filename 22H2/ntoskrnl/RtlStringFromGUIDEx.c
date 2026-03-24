@@ -1,60 +1,58 @@
 /*
- * XREFs of RtlStringFromGUIDEx @ 0x1406852B0
+ * XREFs of RtlStringFromGUIDEx @ 0x1406F35C8
  * Callers:
- *     BapdpMarshallBootDataToRegistry @ 0x140373A58 (BapdpMarshallBootDataToRegistry.c)
- *     KsepEvntLogShimsApplied @ 0x1403AF0FC (KsepEvntLogShimsApplied.c)
- *     PipGenerateContainerID @ 0x1406850A8 (PipGenerateContainerID.c)
- *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     CmpRecoverEnlistment @ 0x1408017A8 (CmpRecoverEnlistment.c)
- *     BiCreateObject @ 0x14080581C (BiCreateObject.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     BiConvertElementToRegistryData @ 0x140808860 (BiConvertElementToRegistryData.c)
- *     PopSetNewPolicyValue @ 0x14082E04C (PopSetNewPolicyValue.c)
- *     IopUpdateSecureDeviceClassState @ 0x14083C688 (IopUpdateSecureDeviceClassState.c)
- *     IopCreateSecureDeviceClassSettings @ 0x14083C924 (IopCreateSecureDeviceClassSettings.c)
- *     ExpTranslateEfiPath @ 0x1408402B0 (ExpTranslateEfiPath.c)
- *     CmpStartRMLog @ 0x140873068 (CmpStartRMLog.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1408790C0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgLogDeviceConfigured @ 0x14087A140 (PiDevCfgLogDeviceConfigured.c)
- *     IoGetDeviceDirectory @ 0x1409550C0 (IoGetDeviceDirectory.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14095FC00 (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x1409619C0 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PpDevCfgProcessDeviceClass @ 0x1409629AC (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceReset @ 0x14096346C (PpDevCfgProcessDeviceReset.c)
- *     RtlpConstructCrossVmObjectPath @ 0x1409BDDA8 (RtlpConstructCrossVmObjectPath.c)
- *     ExpCreateOutputSIGNATURE @ 0x1409FC218 (ExpCreateOutputSIGNATURE.c)
- *     CmpCloneHwProfile @ 0x140A10264 (CmpCloneHwProfile.c)
- *     CmpAddRemoveRMLogContainer @ 0x140A1E900 (CmpAddRemoveRMLogContainer.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5F114 (BiUpdateObjectReferenceInEfiEntry.c)
- *     ConvertDevpropcompkeyToString @ 0x140A6E164 (ConvertDevpropcompkeyToString.c)
- *     PipInitComputerIds @ 0x140B3D92C (PipInitComputerIds.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1403AA474 (BapdpMarshallBootDataToRegistry.c)
+ *     KsepEvntLogShimsApplied @ 0x140526E6C (KsepEvntLogShimsApplied.c)
+ *     PopSetNewPolicyValue @ 0x1406F34A0 (PopSetNewPolicyValue.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140730310 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140730680 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x1407308D4 (PiDevCfgResetDeviceDriverSettings.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140735DF8 (IopCreateSecureDeviceClassSettings.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140737538 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
+ *     PipGenerateContainerID @ 0x14076DBF8 (PipGenerateContainerID.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x14077BD90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     CmpStartRMLog @ 0x14077D3E4 (CmpStartRMLog.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     BiConvertElementToRegistryData @ 0x140784A7C (BiConvertElementToRegistryData.c)
+ *     IopUpdateSecureDeviceClassState @ 0x1407BDFF4 (IopUpdateSecureDeviceClassState.c)
+ *     CmpRecoverEnlistment @ 0x140874EDC (CmpRecoverEnlistment.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140875224 (CmpAddRemoveRMLogContainer.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
+ *     IoGetDeviceDirectory @ 0x14089E860 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1408A9900 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x140915818 (RtlpConstructCrossVmObjectPath.c)
+ *     ExpCreateOutputSIGNATURE @ 0x14094FD9C (ExpCreateOutputSIGNATURE.c)
+ *     ExpTranslateEfiPath @ 0x14095228C (ExpTranslateEfiPath.c)
+ *     BiCreateObject @ 0x14096F018 (BiCreateObject.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140973384 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     ConvertDevpropcompkeyToString @ 0x14097F058 (ConvertDevpropcompkeyToString.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
  * Callees:
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall RtlStringFromGUIDEx(unsigned int *a1, __int64 a2, char a3)
 {
-  __int64 StringRoutine; // rax
-  unsigned __int64 v6; // rdx
+  PVOID StringRoutine; // rax
+  unsigned __int16 v6; // dx
 
   if ( a3 )
   {
     *(_WORD *)(a2 + 2) = 78;
-    StringRoutine = ExpAllocateStringRoutine(78LL);
+    StringRoutine = ExpAllocateStringRoutine(0x4EuLL);
     *(_QWORD *)(a2 + 8) = StringRoutine;
     if ( StringRoutine )
     {
-LABEL_3:
-      v6 = *(unsigned __int16 *)(a2 + 2);
+      v6 = *(_WORD *)(a2 + 2);
+LABEL_4:
       *(_WORD *)a2 = 76;
       swprintf_s(
         *(wchar_t **)(a2 + 8),
-        v6 >> 1,
+        (unsigned __int64)v6 >> 1,
         L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
         *a1,
         *((unsigned __int16 *)a1 + 2),
@@ -73,8 +71,9 @@ LABEL_3:
   }
   else
   {
-    if ( *(_WORD *)(a2 + 2) >= 0x4Eu )
-      goto LABEL_3;
+    v6 = *(_WORD *)(a2 + 2);
+    if ( v6 >= 0x4Eu )
+      goto LABEL_4;
     return 3221225507LL;
   }
 }

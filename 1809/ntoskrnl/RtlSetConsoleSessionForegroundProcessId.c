@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSetConsoleSessionForegroundProcessId @ 0x1406C1170
+ * XREFs of RtlSetConsoleSessionForegroundProcessId @ 0x1406C1150
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _QWORD *__fastcall RtlSetConsoleSessionForegroundProcessId(_QWORD *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpHeapExtendContext @ 0x140136288
+ * XREFs of RtlpHpHeapExtendContext @ 0x1401362A8
  * Callers:
- *     RtlpHpSegLfhExtendContext @ 0x140136270 (RtlpHpSegLfhExtendContext.c)
+ *     RtlpHpSegLfhExtendContext @ 0x140136290 (RtlpHpSegLfhExtendContext.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -13,12 +13,12 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC480 (RtlpHpAcquireLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpMetadataCommit @ 0x1401920EC (RtlpHpMetadataCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpMetadataCommit @ 0x14019210C (RtlpHpMetadataCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)

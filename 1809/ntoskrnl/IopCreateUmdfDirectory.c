@@ -3,17 +3,17 @@
  * Callers:
  *     IopCreateRootDirectories @ 0x1409D9E34 (IopCreateRootDirectories.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlLengthRequiredSid @ 0x1405BD5C0 (RtlLengthRequiredSid.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     NtCreateDirectoryObject @ 0x1406ADCE0 (NtCreateDirectoryObject.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
  */
 
 __int64 IopCreateUmdfDirectory()

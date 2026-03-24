@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepFindTokenAttribute @ 0x140324B8C
+ * XREFs of AuthzBasepFindTokenAttribute @ 0x140324C8C
  * Callers:
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x140324C00 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x140324D00 (AuthzBasepQueryTokenAttributeAndValues.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1400A5DC8 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1400A5DE8 (AuthzBasepEqualUnicodeString.c)
  */
 
 _UNKNOWN **__fastcall AuthzBasepFindTokenAttribute(const UNICODE_STRING *a1)

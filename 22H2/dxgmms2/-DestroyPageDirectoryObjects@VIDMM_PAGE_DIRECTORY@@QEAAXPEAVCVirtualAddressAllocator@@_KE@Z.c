@@ -1,117 +1,138 @@
 /*
- * XREFs of ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C009D860
+ * XREFs of ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C005F7B8
  * Callers:
- *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0087C64 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C005F790 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ?GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z @ 0x1C0017C88 (-GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0087C64 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
- *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C009B6CC (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
- *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C009C5B0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
+ *     ?GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z @ 0x1C0001008 (-GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     ExFreeToPagedLookasideList @ 0x1C0026078 (ExFreeToPagedLookasideList.c)
+ *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C005F790 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0060B54 (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0069DC0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A8D0 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
  */
 
 void __fastcall VIDMM_PAGE_DIRECTORY::DestroyPageDirectoryObjects(
         struct VIDMM_ALLOC **this,
-        struct CVirtualAddressAllocator *a2,
+        PRKPROCESS **a2,
         unsigned __int64 a3)
 {
-  struct CVirtualAddressAllocator *v3; // rbx
-  VIDMM_GLOBAL *v6; // rdi
-  struct VIDMM_ALLOC *v7; // r9
-  unsigned int NumPde; // r14d
-  unsigned int v9; // r15d
-  unsigned __int64 v10; // rbp
-  __int64 v11; // rsi
-  unsigned int v12; // ebx
-  __int64 v13; // r12
-  __int64 v14; // rdi
-  PRKPROCESS *v15; // rcx
-  struct _VIDMM_GLOBAL_ALLOC *v16; // r8
-  struct VIDMM_ALLOC *v17; // rcx
-  VIDMM_GLOBAL *v19; // [rsp+38h] [rbp-80h]
-  struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-70h] BYREF
+  __int64 v6; // r15
+  PRKPROCESS *v7; // rbp
+  unsigned int NumPde; // eax
+  struct VIDMM_ALLOC *v9; // r9
+  unsigned __int64 v10; // rsi
+  unsigned int v11; // r8d
+  unsigned int v12; // r12d
+  __int64 v13; // rax
+  unsigned int v14; // ecx
+  __int64 v15; // r14
+  unsigned __int64 v16; // rax
+  PRKPROCESS *v17; // rcx
+  struct _VIDMM_GLOBAL_ALLOC *v18; // r8
+  struct VIDMM_ALLOC *v19; // rcx
+  unsigned int v20; // [rsp+30h] [rbp-88h]
+  unsigned int v21; // [rsp+34h] [rbp-84h]
+  __int64 v22; // [rsp+38h] [rbp-80h]
+  _KAPC_STATE ApcState; // [rsp+40h] [rbp-78h] BYREF
 
-  v3 = a2;
-  VIDMM_PAGE_DIRECTORY::EvictPageDirectory((VIDMM_PAGE_DIRECTORY *)this, a2, a3, 1u, 1);
-  v6 = (VIDMM_GLOBAL *)*((_QWORD *)v3 + 11);
-  v19 = v6;
+  VIDMM_PAGE_DIRECTORY::EvictPageDirectory(
+    (VIDMM_PAGE_DIRECTORY *)this,
+    (struct CVirtualAddressAllocator *)a2,
+    a3,
+    1u,
+    1u);
+  v6 = 0LL;
+  v7 = a2[11];
   if ( this[6] )
   {
-    NumPde = CVirtualAddressAllocator::GetNumPde(v3, (struct VIDMM_PAGE_DIRECTORY *)this);
-    v9 = NumPde;
-    if ( (*(_DWORD *)this & 0x1020) == 0x1020 )
-      NumPde *= 2;
+    NumPde = CVirtualAddressAllocator::GetNumPde((CVirtualAddressAllocator *)a2, (struct VIDMM_PAGE_DIRECTORY *)this);
+    v20 = NumPde;
     v10 = a3;
-    v11 = 0LL;
+    v11 = 2 * NumPde;
     v12 = 0;
-    v13 = *(_QWORD *)(48LL * (*(_DWORD *)this & 7)
-                    + 1616 * (((unsigned __int64)*(unsigned int *)this >> 7) & 0x1F)
-                    + *((_QWORD *)v6 + 5028)
-                    + 136);
-    if ( NumPde )
+    if ( (*(_DWORD *)this & 0x1020) != 0x1020 )
+      v11 = NumPde;
+    v21 = v11;
+    v13 = *((_QWORD *)v7[5027]
+          + 198 * (((unsigned __int64)*(unsigned int *)this >> 7) & 0x1F)
+          + 6 * (*(_DWORD *)this & 7)
+          + 16);
+    v22 = v13;
+    if ( v11 )
     {
-      v14 = 0LL;
+      v14 = v20;
+      v15 = 0LL;
       do
       {
-        if ( *(_QWORD *)((char *)v7 + v14) )
+        v9 = this[6];
+        if ( *(_QWORD *)((char *)v9 + v15) )
         {
           if ( (*(_DWORD *)this & 0x20) != 0 )
           {
-            if ( (*(_DWORD *)((_BYTE *)this[5] + v11) & 0x400LL) != 0 )
-              ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)((char *)v19 + 40256), *(PVOID *)((char *)v7 + v14));
+            if ( (*(_DWORD *)((_BYTE *)this[5] + v6) & 0x400LL) != 0 )
+              ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(v7 + 5032), *(PVOID *)((char *)v9 + v15));
             else
-              VIDMM_PAGE_TABLE::DestroyPageTable(*(struct VIDMM_ALLOC ***)((char *)v7 + v14), a2);
+              VIDMM_PAGE_TABLE::DestroyPageTable(
+                *(VIDMM_PAGE_TABLE **)((char *)v9 + v15),
+                (struct CVirtualAddressAllocator *)a2,
+                v10);
           }
           else
           {
             VIDMM_PAGE_DIRECTORY::DestroyPageDirectory(
-              *(VIDMM_PAGE_DIRECTORY **)((char *)v7 + v14),
-              a2,
+              *(VIDMM_PAGE_DIRECTORY **)((char *)v9 + v15),
+              (struct CVirtualAddressAllocator *)a2,
               v10,
-              (unsigned __int8)v7);
+              (unsigned __int8)v9);
           }
-          *(_QWORD *)((char *)this[6] + v14) = 0LL;
-          v7 = this[6];
+          v11 = v21;
+          v14 = v20;
+          *(_QWORD *)((char *)this[6] + v15) = 0LL;
+          v9 = this[6];
+          v13 = v22;
         }
-        v10 += v13;
-        if ( v12 == v9 )
-        {
-          v10 = a3;
-          v7 = this[6];
-        }
+        v16 = v10 + v13;
+        v10 = a3;
+        if ( v12 != v14 )
+          v10 = v16;
+        v13 = v22;
         ++v12;
-        v11 += 16LL;
-        v14 += 8LL;
+        v6 += 16LL;
+        v15 += 8LL;
       }
-      while ( v12 < NumPde );
-      v6 = v19;
+      while ( v12 < v11 );
     }
-    operator delete(v7);
-    v3 = a2;
+    operator delete(v9);
     this[6] = 0LL;
   }
   if ( this[3] )
   {
-    v15 = (PRKPROCESS *)*((_QWORD *)v3 + 12);
+    v17 = a2[12];
     memset(&ApcState, 0, sizeof(ApcState));
-    KeStackAttachProcess(*v15, &ApcState);
-    VIDMM_GLOBAL::CloseOneAllocation(v6, this[3], 0LL, 0, (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)1, 0LL);
+    KeStackAttachProcess(*v17, &ApcState);
+    VIDMM_GLOBAL::CloseOneAllocation(
+      (VIDMM_GLOBAL *)v7,
+      this[3],
+      0LL,
+      0,
+      (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)1,
+      0LL);
     KeUnstackDetachProcess(&ApcState);
     this[3] = 0LL;
   }
-  v16 = this[2];
-  if ( v16 )
+  v18 = this[2];
+  if ( v18 )
   {
-    VIDMM_GLOBAL::DestroyOneAllocation((struct _KTHREAD **)v6, 0LL, v16, 0);
+    VIDMM_GLOBAL::DestroyOneAllocation((VIDMM_GLOBAL *)v7, 0LL, v18, 0);
     this[2] = 0LL;
   }
-  v17 = this[5];
-  if ( v17 )
+  v19 = this[5];
+  if ( v19 )
   {
-    operator delete(v17);
+    operator delete(v19);
     this[5] = 0LL;
   }
 }

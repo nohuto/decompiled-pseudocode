@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerWakingDmaEnableNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000F450
+ * XREFs of ?PowerWakingDmaEnableNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C001A400
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C0017578 (-PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ.c)
+ *     ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C001C194 (-PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerWakingDmaEnableNP(FxPkgPnp *This)

@@ -4,7 +4,7 @@
  *     ObWaitForMultipleObjects @ 0x14058A3E0 (ObWaitForMultipleObjects.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     NtWriteFile @ 0x140638C40 (NtWriteFile.c)
- *     PspReferenceCidTableEntry @ 0x140646D30 (PspReferenceCidTableEntry.c)
+ *     PspReferenceCidTableEntry @ 0x140646D10 (PspReferenceCidTableEntry.c)
  * Callees:
  *     <none>
  */

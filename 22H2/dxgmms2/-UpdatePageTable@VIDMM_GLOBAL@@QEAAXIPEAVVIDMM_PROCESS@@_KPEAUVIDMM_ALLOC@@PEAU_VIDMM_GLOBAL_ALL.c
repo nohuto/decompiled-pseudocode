@@ -1,42 +1,38 @@
 /*
- * XREFs of ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C00998C0
+ * XREFs of ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C0071370
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00987B0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C009A6B0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
- *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C009B1F8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
- *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C00F3828 (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C0060EF8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
+ *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C006F9CC (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006FD20 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?UncommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K2@Z @ 0x1C0070C60 (-UncommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_.c)
  * Callees:
- *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0005300 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
- *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C00053BC (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
- *     ?IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ @ 0x1C00053E0 (-IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00055A8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00055CC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C003104C (McTemplateK0pptpqqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C003110C (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C00311EC (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C00312E0 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C00313A0 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C003154C (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C0031664 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00317B0 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C003189C (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
- *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C003197C (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0031A5C (McTemplateK0pptpxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0031B1C (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0031BFC (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0031D00 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
- *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0031E94 (McTemplateK0pptqx_EtwWriteTransfer.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z @ 0x1C0089B94 (-FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z @ 0x1C00E3A78 (-GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z.c)
- *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F19F4 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0001CF0 (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ *     ?IsXBoxOneDevice@DXGADAPTER@@QEBAEXZ @ 0x1C0017728 (-IsXBoxOneDevice@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C0026DFC (McTemplateK0pptpqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C0026EBC (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C0026F9C (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C0027090 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C0027150 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C00272FC (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C0027414 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C0027560 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C0027654 (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C0027734 (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0027814 (McTemplateK0pptpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C00278D4 (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C00279B4 (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0027AB8 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0027C4C (McTemplateK0pptqx_EtwWriteTransfer.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z @ 0x1C00887A4 (-FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z.c)
+ *     ?RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z @ 0x1C00B1894 (-RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z.c)
+ *     ?RecordVaPagingHistoryUpdatePte@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGK_BUILDPAGINGBUFFER_UPDATEPAGETABLE@@PEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@I@Z @ 0x1C00BD610 (-RecordVaPagingHistoryUpdatePte@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGK_BUILDPAGINGBUFFE.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::UpdatePageTable(
         VIDMM_GLOBAL *this,
         UINT a2,
@@ -46,7 +42,7 @@ void __fastcall VIDMM_GLOBAL::UpdatePageTable(
         struct _VIDMM_GLOBAL_ALLOC *a6,
         UINT64 a7,
         UINT a8,
-        LONG a9,
+        unsigned int a9,
         struct _DXGK_PTE *a10,
         struct _DXGK_PTE *a11,
         unsigned int a12,
@@ -54,875 +50,594 @@ void __fastcall VIDMM_GLOBAL::UpdatePageTable(
         SIZE_T a14,
         enum _DXGK_PAGETABLEUPDATEMODE a15,
         unsigned __int64 a16,
-        LONG a17,
+        DXGK_UPDATEPAGETABLEFLAGS a17,
         unsigned __int64 a18)
 {
   bool v18; // zf
-  UINT v19; // edi
-  struct _VIDMM_GLOBAL_ALLOC *v21; // rsi
-  unsigned int v22; // r13d
-  LONG v23; // ebx
-  enum _DXGK_PAGETABLEUPDATEMODE v24; // r12d
-  __int64 v25; // rax
-  __int64 v26; // r10
-  _QWORD *v27; // rcx
-  __int64 v28; // rax
-  __int64 v29; // rax
-  void *v30; // rax
-  _QWORD *v31; // rdx
-  D3DGPU_VIRTUAL_ADDRESS v32; // r11
-  _DWORD *v33; // r15
-  __int64 v34; // r9
-  _QWORD *v35; // r9
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // rdx
-  void *v39; // rcx
-  UINT v40; // eax
-  int v41; // eax
-  __int64 v42; // rsi
-  __int64 v43; // rdi
-  DXGGLOBAL *Global; // rax
-  void *v45; // rax
-  void (*v46)(void *); // r8
-  __int64 v47; // r9
-  unsigned int NumPageTableEntries; // r15d
-  __int64 v49; // rsi
-  _OWORD *VaPagingHistoryEntry; // rax
-  _OWORD *v51; // rdx
-  __int64 v52; // rsi
-  int v53; // r9d
-  int v54; // edi
-  _DWORD *v55; // rax
-  _DWORD *v56; // rcx
-  _DWORD *v57; // rcx
-  __int64 v58; // r9
-  __int64 v59; // r8
-  UINT FillPattern; // r11d
-  SIZE_T OffsetInPages; // r10
-  __int64 v62; // rdx
-  unsigned int v63; // esi
-  unsigned __int64 v64; // rdi
-  __int64 v65; // r13
-  __int64 v66; // rdi
-  D3DGPU_VIRTUAL_ADDRESS v67; // r12
-  __int64 v68; // rax
-  __int64 v69; // rdx
-  SIZE_T v70; // rcx
-  struct VIDMM_PROCESS *v71; // r8
-  struct _VIDMM_GLOBAL_ALLOC *v72; // rcx
-  __int64 v73; // rax
-  __int64 v74; // rax
-  __int64 v75; // rcx
-  __int64 v76; // r8
-  DXGK_PTE *pPageTableEntries64KB; // r8
-  unsigned int v78; // r9d
-  __int64 v79; // r10
-  __int128 v80; // xmm0
-  __int64 v81; // rcx
-  char v82; // al
-  struct _DXGKARG_BUILDPAGINGBUFFER *v83; // rax
-  _OWORD *v84; // rdx
-  __int64 v85; // rcx
-  __int128 v86; // xmm0
-  __int64 v87; // rcx
-  unsigned __int8 v88[8]; // [rsp+30h] [rbp-F8h]
-  unsigned __int8 v89[8]; // [rsp+38h] [rbp-F0h]
-  __int64 v90; // [rsp+40h] [rbp-E8h]
-  __int64 v91; // [rsp+48h] [rbp-E0h]
-  __int64 v92; // [rsp+50h] [rbp-D8h]
-  __int64 v93; // [rsp+58h] [rbp-D0h]
-  __int64 v94; // [rsp+60h] [rbp-C8h]
-  __int64 v95; // [rsp+70h] [rbp-B8h]
-  __int64 v96; // [rsp+78h] [rbp-B0h]
-  __int64 v97; // [rsp+80h] [rbp-A8h]
-  __int64 v98; // [rsp+98h] [rbp-90h]
-  unsigned __int64 v99; // [rsp+A8h] [rbp-80h] BYREF
-  enum _DXGK_PAGETABLEUPDATEMODE v100; // [rsp+B0h] [rbp-78h]
-  unsigned int v101; // [rsp+B4h] [rbp-74h]
-  UINT v102; // [rsp+B8h] [rbp-70h]
-  _DWORD *v103; // [rsp+C0h] [rbp-68h]
-  struct _DXGKARG_BUILDPAGINGBUFFER v104; // [rsp+C8h] [rbp-60h] BYREF
-  SIZE_T v105; // [rsp+208h] [rbp+E0h]
-  struct VIDMM_PROCESS *v106; // [rsp+210h] [rbp+E8h]
-  __int64 v107; // [rsp+218h] [rbp+F0h]
-  struct _VIDMM_GLOBAL_ALLOC *v108; // [rsp+220h] [rbp+F8h]
-  struct _DXGK_PTE *v109; // [rsp+228h] [rbp+100h]
-  DXGK_PTE *v110; // [rsp+230h] [rbp+108h]
-  D3DGPU_VIRTUAL_ADDRESS v111; // [rsp+238h] [rbp+110h]
-  _DWORD *v112; // [rsp+240h] [rbp+118h]
-  _DWORD *v113; // [rsp+248h] [rbp+120h]
-  char *v114; // [rsp+250h] [rbp+128h]
-  _DWORD *v115; // [rsp+258h] [rbp+130h]
-  char *v116; // [rsp+260h] [rbp+138h]
-  __int64 *v117; // [rsp+268h] [rbp+140h]
-  __int128 v118; // [rsp+270h] [rbp+148h] BYREF
-  unsigned __int64 v119; // [rsp+350h] [rbp+228h]
+  struct _VIDMM_GLOBAL_ALLOC *v20; // r14
+  enum _DXGK_PAGETABLEUPDATEMODE v21; // r15d
+  _OWORD *v22; // rdx
+  SIZE_T TransferSize; // rcx
+  __int64 v24; // rax
+  void *v25; // rax
+  __int64 v26; // rax
+  unsigned int NumPageTableEntries; // r9d
+  UINT v28; // r10d
+  unsigned __int64 v29; // r11
+  __int64 v30; // rdi
+  _QWORD *v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  void *v36; // rdx
+  int v37; // eax
+  LONG v38; // eax
+  UINT SegmentId; // r10d
+  __int64 v40; // rcx
+  DXGK_PTE *pPageTableEntries64KB; // rax
+  __int64 v42; // rcx
+  SIZE_T v43; // rcx
+  _QWORD *v44; // rcx
+  int v45; // r14d
+  unsigned int i; // edi
+  unsigned __int64 v47; // rdx
+  int v48; // eax
+  __int64 v49; // rdx
+  __int64 v50; // r15
+  int v51; // edi
+  __int64 v52; // r14
+  char v53; // al
+  _QWORD *v54; // rax
+  _QWORD *v55; // rax
+  __int64 v56; // r8
+  __int64 v57; // r9
+  struct _DXGKARG_BUILDPAGINGBUFFER *v58; // rax
+  __int64 v59; // rcx
+  __int128 v60; // xmm0
+  __int64 v61; // rdi
+  _QWORD *v62; // rax
+  char v63[8]; // [rsp+30h] [rbp-F8h]
+  char v64[8]; // [rsp+38h] [rbp-F0h]
+  enum _DXGK_PAGETABLEUPDATEMODE v65; // [rsp+A8h] [rbp-80h]
+  struct _DXGKARG_BUILDPAGINGBUFFER v67; // [rsp+B8h] [rbp-70h] BYREF
+  SIZE_T v68; // [rsp+1F8h] [rbp+D0h]
+  struct _VIDMM_GLOBAL_ALLOC *v69; // [rsp+200h] [rbp+D8h]
+  struct _DXGK_PTE *v70; // [rsp+208h] [rbp+E0h]
+  DXGK_PTE *v71; // [rsp+210h] [rbp+E8h]
+  D3DGPU_VIRTUAL_ADDRESS v72; // [rsp+218h] [rbp+F0h]
+  D3DGPU_VIRTUAL_ADDRESS v73; // [rsp+220h] [rbp+F8h]
+  struct VIDMM_PROCESS *v74; // [rsp+228h] [rbp+100h]
+  __int128 v75; // [rsp+230h] [rbp+108h] BYREF
 
-  v18 = *((_BYTE *)this + 7088) == 0;
-  v19 = a2;
-  v21 = a6;
-  v22 = a12;
-  v23 = a17;
-  v109 = a10;
-  v110 = a11;
-  v105 = a14;
-  v111 = a4;
-  v106 = a3;
-  v102 = a2;
-  v108 = a6;
-  v101 = a12;
+  v18 = *((_BYTE *)this + 7080) == 0;
+  v20 = a6;
+  v70 = a10;
+  v71 = a11;
+  v68 = a14;
+  v73 = a4;
+  v74 = a3;
+  v69 = a6;
   if ( v18 )
   {
-    v24 = DXGK_PAGETABLEUPDATE_CPU_VIRTUAL;
-    if ( (*((_BYTE *)this + 40936) & 0x40) == 0 )
-      v24 = a15;
-    v100 = v24;
-    memset(&v104, 0, sizeof(v104));
-    v25 = *((_QWORD *)this + 2);
-    v26 = a12;
-    v107 = a12;
-    v27 = *(_QWORD **)(v25 + 744);
-    v28 = *(_QWORD *)(v27[34] + 8LL * a12);
-    if ( v28 )
+    v21 = DXGK_PAGETABLEUPDATE_CPU_VIRTUAL;
+    if ( (*((_BYTE *)this + 40936) & 0x10) == 0 )
+      v21 = a15;
+    v65 = v21;
+    memset(&v67, 0, sizeof(v67));
+    TransferSize = *(_QWORD *)(*((_QWORD *)this + 2) + 624LL);
+    v24 = *(_QWORD *)(*(_QWORD *)(TransferSize + 264) + 8LL * a12);
+    if ( v24 )
     {
-      v30 = *(void **)(v28 + 48);
+      v25 = *(void **)(v24 + 48);
     }
     else
     {
-      if ( (*((_BYTE *)this + 40937) & 0x20) != 0 )
-        v29 = v27[36];
+      if ( (*((_BYTE *)this + 40937) & 8) != 0 )
+        v26 = *(_QWORD *)(TransferSize + 280);
       else
-        v29 = v27[33];
-      v30 = *(void **)(*(_QWORD *)(v29 + 8LL * a12) + 64LL);
+        v26 = *(_QWORD *)(TransferSize + 256);
+      v25 = *(void **)(*(_QWORD *)(v26 + 8LL * a12) + 64LL);
     }
-    v104.hSystemContext = v30;
-    v31 = (_QWORD *)((char *)this + 8 * a12 + 2680);
-    v104.MultipassOffset = 0;
-    v32 = a16 << 12;
-    v112 = (_DWORD *)((char *)this + 8 * a12 + 3192);
-    v119 = a16 << 12;
-    v103 = v31;
-    v113 = (_DWORD *)((char *)this + 4 * a12 + 1656);
-    v33 = (_DWORD *)((char *)this + 4 * a12 + 2168);
-    v115 = v33;
-    v114 = (char *)this + 4 * a12 + 116;
-    v116 = (char *)this + 4 * a12 + 372;
-    v117 = (__int64 *)((char *)this + 8 * a12 + 1144);
-    while ( 1 )
+    v67.hSystemContext = v25;
+    v72 = a16 << 12;
+    v67.MultipassOffset = 0;
+LABEL_11:
+    NumPageTableEntries = a9;
+    v28 = a13;
+    v29 = a18;
+    do
     {
-      v34 = *((_QWORD *)this + v26 + 79);
-      if ( (*(_DWORD *)(v34 + 32) & 4) == 0 )
+      v30 = *((_QWORD *)this + a12 + 79);
+      if ( (*(_DWORD *)(v30 + 32) & 4) == 0 )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 29LL, v34, 0LL, 0LL);
-        v26 = v107;
-        v32 = v119;
-        v31 = v103;
+        v31 = (_QWORD *)WdLogNewEntry5_WdCriticalError(TransferSize, v22);
+        v31[3] = 270LL;
+        v31[4] = 29LL;
+        v31[5] = v30;
+        v31[6] = 0LL;
+        v31[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v31);
+        v29 = a18;
+        v28 = a13;
+        NumPageTableEntries = a9;
+        v30 = *((_QWORD *)this + a12 + 79);
       }
-      v35 = (_QWORD *)*((_QWORD *)this + v26 + 143);
-      if ( *(_DWORD *)(*((_QWORD *)this + v26 + 79) + 36LL) )
-        v36 = *(_QWORD *)(v35[7] + 392LL);
+      v32 = *((_QWORD *)this + a12 + 143);
+      if ( *(_DWORD *)(v30 + 36) )
+        v33 = *(_QWORD *)(*(_QWORD *)(v32 + 56) + 360LL);
       else
-        v36 = v35[9];
-      v37 = *((unsigned int *)this + v26 + 414);
-      *v31 = v37 + v36;
-      v38 = (unsigned int)*v33;
-      v104.pDmaBuffer = (void *)(v37 + v36);
-      v39 = (void *)(v38 + v35[16]);
-      *((_QWORD *)this + v26 + 399) = v39;
-      v40 = *((_DWORD *)this + v26 + 29) - v37;
-      v104.pDmaBufferPrivateData = v39;
-      v104.DmaSize = v40;
-      v104.DmaBufferPrivateDataSize = *((_DWORD *)this + v26 + 93) - v38;
-      v104.DmaBufferGpuVirtualAddress = v35[12];
-      v41 = v23;
-      v104.DmaBufferWriteOffset = v37;
-      v104.Operation = DXGK_OPERATION_UPDATE_PAGE_TABLE;
-      v104.Transfer.Destination.SegmentAddress.HighPart = v23;
-      v104.UnmapApertureSegment.DummyPage.HighPart = a9;
-      v118 = 0LL;
-      if ( (unsigned int)v24 > DXGK_PAGETABLEUPDATE_GPU_VIRTUAL )
+        v33 = *(_QWORD *)(v32 + 72);
+      *((_QWORD *)this + a12 + 335) = v33;
+      *((_QWORD *)this + a12 + 335) += *((unsigned int *)this + a12 + 414);
+      v34 = *((unsigned int *)this + a12 + 542);
+      v35 = *((_QWORD *)this + a12 + 143);
+      v67.pDmaBuffer = (void *)*((_QWORD *)this + a12 + 335);
+      v36 = (void *)(v34 + *(_QWORD *)(v35 + 128));
+      *((_QWORD *)this + a12 + 399) = v36;
+      v37 = *((_DWORD *)this + a12 + 29);
+      LODWORD(v34) = *((_DWORD *)this + a12 + 93) - *((_DWORD *)this + a12 + 542);
+      v67.pDmaBufferPrivateData = v36;
+      LODWORD(v36) = *((_DWORD *)this + a12 + 414);
+      v67.DmaSize = v37 - (_DWORD)v36;
+      v67.DmaBufferPrivateDataSize = v34;
+      v67.DmaBufferGpuVirtualAddress = *(_QWORD *)(v35 + 96);
+      v38 = (LONG)a17;
+      v67.DmaBufferWriteOffset = (unsigned int)v36;
+      v67.Operation = DXGK_OPERATION_UPDATE_PAGE_TABLE;
+      v67.UpdatePageTable.Flags = a17;
+      v67.UnmapApertureSegment.DummyPage.HighPart = NumPageTableEntries;
+      v75 = 0LL;
+      if ( (unsigned int)v21 > DXGK_PAGETABLEUPDATE_GPU_VIRTUAL )
       {
-        v104.Fill.FillPattern = a13;
-        v104.MapApertureSegment.OffsetInPages = v105;
-      }
-      else
-      {
-        v104.Transfer.TransferSize = v105;
-      }
-      v104.Transfer.Destination.SegmentId = a8;
-      v104.ReadPhysical.SegmentId = v19;
-      if ( v109 )
-      {
-        v104.Transfer.Source.SegmentAddress.QuadPart = (LONGLONG)v109;
-        v104.UpdatePageTable.pPageTableEntries64KB = v110;
+        v67.Fill.FillPattern = v28;
+        v67.MapApertureSegment.OffsetInPages = v68;
       }
       else
       {
-        v104.Transfer.Source.SegmentAddress.QuadPart = (LONGLONG)&v118;
-        if ( (**(_DWORD **)(1616 * v26 + *((_QWORD *)this + 5028) + 448) & 0x80u) != 0 )
-          v104.UpdatePageTable.pPageTableEntries64KB = (DXGK_PTE *)&v118;
-        v41 = v23 | 1;
-        v104.Transfer.Destination.SegmentAddress.HighPart = v23 | 1;
+        v67.Transfer.TransferSize = v68;
       }
-      v104.Reserved.Reserved[20] = v24;
-      v104.UpdatePageTable.FirstPteVirtualAddress = v32;
-      if ( !v19 )
+      SegmentId = a2;
+      v67.Transfer.Destination.SegmentId = a8;
+      v67.ReadPhysical.SegmentId = a2;
+      if ( v70 )
       {
-        if ( a18 == 16 )
+        v67.Transfer.Source.SegmentAddress.QuadPart = (LONGLONG)v70;
+        v67.UpdatePageTable.pPageTableEntries64KB = v71;
+      }
+      else
+      {
+        v40 = *((_QWORD *)this + 5027);
+        v67.Transfer.Source.SegmentAddress.QuadPart = (LONGLONG)&v75;
+        pPageTableEntries64KB = (DXGK_PTE *)&v75;
+        if ( **(char **)(1584LL * a12 + v40 + 440) >= 0 )
+          pPageTableEntries64KB = v67.UpdatePageTable.pPageTableEntries64KB;
+        v67.UpdatePageTable.pPageTableEntries64KB = pPageTableEntries64KB;
+        v38 = *(_DWORD *)&a17 | 1;
+        v67.Transfer.Destination.SegmentAddress.HighPart = *(_DWORD *)&a17 | 1;
+      }
+      v67.UpdatePageTable.FirstPteVirtualAddress = v72;
+      v67.Reserved.Reserved[20] = v21;
+      if ( !a2 )
+      {
+        if ( v29 == 16 )
         {
-          if ( (v23 & 8) != 0 )
-            goto LABEL_84;
+          if ( (*(_BYTE *)&a17 & 8) != 0 )
+            goto LABEL_31;
         }
-        else if ( a18 == 1 && (v23 & 8) == 0 )
+        else if ( v29 == 1 && (*(_BYTE *)&a17 & 8) == 0 )
         {
-LABEL_84:
-          v104.Transfer.Destination.SegmentAddress.HighPart = v41 | 1;
+LABEL_31:
+          v38 |= 1u;
+          v67.Transfer.Destination.SegmentAddress.HighPart = v38;
         }
       }
-      v104.TransferVirtual.DestinationPageTable = v111;
-      if ( v21 )
+      v67.TransferVirtual.DestinationPageTable = v73;
+      if ( v20 )
       {
-        v70 = *(_QWORD *)(*((_QWORD *)v21 + 67) + 40LL);
-        v104.UpdatePageTable.AllocationOffsetInBytes = a7;
-        v104.Fill.FillSize = v70;
-      }
-      v42 = *(unsigned int *)(*((_QWORD *)this + 3) + 240LL);
-      v43 = *((_QWORD *)v106 + 4);
-      Global = DXGGLOBAL::GetGlobal();
-      if ( (unsigned int)v42 < (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(Global)
-        && *(_QWORD *)(8 * v42 + *(_QWORD *)(v43 + 48)) )
-      {
-        _mm_lfence();
-        v45 = *(void **)(*(_QWORD *)(*(_QWORD *)(v43 + 48) + 8 * v42) + 48LL);
-      }
-      else
-      {
-        v45 = 0LL;
-      }
-      v104.UpdatePageTable.hProcess = v45;
-      if ( VIDMM_GLOBAL::IsGpuVaPagingHistoryEnabled(this)
-        && (VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled || *((_QWORD *)this + 5123)) )
-      {
-        NumPageTableEntries = v104.UpdatePageTable.NumPageTableEntries;
-        if ( (v104.Reserved.Reserved[13] & 1) != 0 )
-          NumPageTableEntries = 1;
-        v49 = 16LL * (NumPageTableEntries - 1);
-        if ( v104.UpdatePageTable.pPageTableEntries64KB )
-          v49 += 16LL * NumPageTableEntries;
-        KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
-        v18 = !VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled;
-        *((_QWORD *)this + 5126) = KeGetCurrentThread();
-        if ( v18 )
-          VaPagingHistoryEntry = (_OWORD *)VIDMM_GLOBAL::AllocateVaPagingHistoryEntry(this, 4LL, v49 + 168);
+        v42 = *((_QWORD *)v20 + 5);
+        if ( v42 )
+          v43 = *(_QWORD *)(v42 + 16);
         else
-          VaPagingHistoryEntry = operator new(168, (VIDMM_GLOBAL *)((char *)this + 41024), 4u, v49);
-        v51 = VaPagingHistoryEntry;
-        if ( VaPagingHistoryEntry )
-        {
-          v71 = v106;
-          v72 = v108;
-          *VaPagingHistoryEntry = *(_OWORD *)&v104.Transfer.hAllocation;
-          VaPagingHistoryEntry[1] = *(_OWORD *)&v104.NotifyResidency.PhysicalAddress.SegmentOffset;
-          VaPagingHistoryEntry[2] = *(_OWORD *)&v104.Reserved.Reserved[8];
-          VaPagingHistoryEntry[3] = *(_OWORD *)&v104.Reserved.Reserved[12];
-          VaPagingHistoryEntry[4] = *(_OWORD *)&v104.Reserved.Reserved[16];
-          VaPagingHistoryEntry[5] = *(_OWORD *)&v104.Reserved.Reserved[20];
-          *((_QWORD *)VaPagingHistoryEntry + 12) = v104.UpdatePageTable.FirstPteVirtualAddress;
-          *((_DWORD *)VaPagingHistoryEntry + 36) = v22;
-          *((_QWORD *)VaPagingHistoryEntry + 15) = a5;
-          *((_QWORD *)VaPagingHistoryEntry + 16) = v72;
-          *((_QWORD *)VaPagingHistoryEntry + 13) = *(_QWORD *)v71;
-          *((_QWORD *)VaPagingHistoryEntry + 14) = *((_QWORD *)v71 + 4);
-          if ( a5 && (v73 = *((_QWORD *)a5 + 2)) != 0 )
-          {
-            v74 = *(_QWORD *)(v73 + 32);
-          }
-          else if ( v72 )
-          {
-            v74 = *(_QWORD *)(*((_QWORD *)v72 + 67) + 40LL);
-          }
-          else
-          {
-            v74 = 0LL;
-          }
-          *((_QWORD *)v51 + 17) = v74;
-          if ( NumPageTableEntries )
-          {
-            v75 = 0LL;
-            v76 = NumPageTableEntries;
-            do
-            {
-              ++v75;
-              *(_OWORD *)((char *)&v51[v75 + 8] + 8) = *(_OWORD *)(v75 * 16
-                                                                 + v104.Transfer.Source.SegmentAddress.QuadPart
-                                                                 - 16);
-              --v76;
-            }
-            while ( v76 );
-          }
-          pPageTableEntries64KB = v104.UpdatePageTable.pPageTableEntries64KB;
-          if ( v104.UpdatePageTable.pPageTableEntries64KB )
-          {
-            v78 = 0;
-            if ( NumPageTableEntries )
-            {
-              v79 = 0LL;
-              while ( 1 )
-              {
-                v80 = *(_OWORD *)&pPageTableEntries64KB[v79].0;
-                v81 = v78 + NumPageTableEntries;
-                ++v78;
-                ++v79;
-                *(_OWORD *)((char *)&v51[v81 + 9] + 8) = v80;
-                if ( v78 >= NumPageTableEntries )
-                  break;
-                pPageTableEntries64KB = v104.UpdatePageTable.pPageTableEntries64KB;
-              }
-            }
-          }
-        }
-        *((_QWORD *)this + 5126) = 0LL;
-        ExReleasePushLockExclusiveEx((char *)this + 41000, 0LL);
-        KeLeaveCriticalRegion();
+          v43 = *((_QWORD *)v20 + 6);
+        v67.Fill.FillSize = v43;
+        v67.UpdatePageTable.AllocationOffsetInBytes = a7;
       }
-      if ( !v104.ReadPhysical.SegmentId && *((_QWORD *)this + 5132) && (v104.Reserved.Reserved[13] & 1) == 0 )
+      v44 = *(_QWORD **)(*(_QWORD *)(*((_QWORD *)v74 + 4) + 48LL)
+                       + 8LL * *(unsigned int *)(*((_QWORD *)this + 3) + 232LL));
+      if ( v44 )
+        v44 = (_QWORD *)v44[2];
+      v18 = *((_QWORD *)this + 5123) == 0LL;
+      v67.UpdatePageTable.hProcess = v44;
+      if ( !v18 )
       {
-        v46 = (void (*)(void *))v104.UpdatePageTable.NumPageTableEntries;
-        v47 = 4096LL;
-        if ( (v104.Reserved.Reserved[13] & 8) != 0 )
-          v47 = 0x10000LL;
-        v63 = 0;
-        LODWORD(v99) = v47;
-        if ( v104.UnmapApertureSegment.DummyPage.HighPart )
+        VIDMM_GLOBAL::RecordVaPagingHistoryUpdatePte(this, v74, &v67.UpdatePageTable, a5, v20, a12);
+        LOBYTE(v38) = v67.Reserved.Reserved[13];
+        NumPageTableEntries = v67.UpdatePageTable.NumPageTableEntries;
+        SegmentId = v67.ReadPhysical.SegmentId;
+      }
+      if ( *((_QWORD *)this + 5128) && !SegmentId && (v38 & 1) == 0 )
+      {
+        v45 = 0x10000;
+        if ( (v38 & 8) == 0 )
+          v45 = 4096;
+        for ( i = 0; i < NumPageTableEntries; ++i )
         {
-          do
+          v47 = *(_QWORD *)(v67.Transfer.Source.SegmentAddress.QuadPart + 16LL * i);
+          if ( (v47 & 1) != 0 )
           {
-            v64 = *(_QWORD *)(v104.Transfer.Source.SegmentAddress.QuadPart + 16LL * v63);
-            if ( (v64 & 1) != 0 )
-            {
-              v65 = *(_QWORD *)(v104.Transfer.Source.SegmentAddress.QuadPart + 16LL * v63 + 8);
-              v66 = (v64 >> 5) & 0x1F;
-              v67 = v104.UpdatePageTable.FirstPteVirtualAddress + (unsigned int)v47 * v63;
-              if ( *((_QWORD *)this + 5132) )
-              {
-                KeEnterCriticalRegion();
-                ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
-                *((_QWORD *)this + 5126) = KeGetCurrentThread();
-                v68 = *((unsigned int *)this + 10266);
-                if ( (_DWORD)v68 == dword_1C0076464 )
-                {
-                  *((_DWORD *)this + 10266) = 0;
-                  v68 = 0LL;
-                }
-                v69 = *((_QWORD *)this + 5132) + 48 * v68;
-                *(_QWORD *)v69 = MEMORY[0xFFFFF78000000014];
-                *(_DWORD *)(v69 + 32) = 1;
-                *(_DWORD *)(v69 + 36) = v66;
-                *(_QWORD *)(v69 + 8) = v65;
-                *(_QWORD *)(v69 + 16) = 1LL;
-                *(_QWORD *)(v69 + 24) = v67;
-                *(_DWORD *)(v69 + 40) = *((_DWORD *)this + 10248);
-                ++*((_DWORD *)this + 10266);
-                *((_QWORD *)this + 5126) = 0LL;
-                ExReleasePushLockExclusiveEx((char *)this + 41000, 0LL);
-                KeLeaveCriticalRegion();
-                v46 = (void (*)(void *))v104.UpdatePageTable.NumPageTableEntries;
-                v47 = (unsigned int)v99;
-              }
-            }
-            ++v63;
+            VIDMM_GLOBAL::RecordPageMappingHistory(
+              this,
+              (v47 >> 5) & 0x1F,
+              *(_QWORD *)(v67.Transfer.Source.SegmentAddress.QuadPart + 16LL * i + 8),
+              1LL,
+              1,
+              v67.UpdatePageTable.FirstPteVirtualAddress + i * v45,
+              *(_QWORD *)v64);
+            NumPageTableEntries = v67.UpdatePageTable.NumPageTableEntries;
           }
-          while ( v63 < (unsigned int)v46 );
-          v23 = a17;
-          v24 = v100;
-          v22 = v101;
         }
       }
-      if ( (*(_DWORD *)(*((_QWORD *)this + 3) + 436LL) & 0x200) != 0
-        && v24 == DXGK_PAGETABLEUPDATE_CPU_VIRTUAL
+      if ( DXGADAPTER::IsXBoxOneDevice(*((DXGADAPTER **)this + 3))
+        && v21 == DXGK_PAGETABLEUPDATE_CPU_VIRTUAL
         && *((VIDMM_GLOBAL **)this + 473) != (VIDMM_GLOBAL *)((char *)this + 3784)
         && *((_BYTE *)this + 40939)
-        && (v23 & 2) != 0 )
+        && (*(_BYTE *)&a17 & 2) != 0 )
       {
-        VIDMM_GLOBAL::FlushPagingBuffer(this, 0, v46, (void *)v47);
-        VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(this, v22);
+        VIDMM_GLOBAL::FlushPagingBuffer(this, 0, 0LL, 0LL);
+        VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(this, a12);
         *((_BYTE *)this + 40939) = 0;
       }
-      v52 = (int)ADAPTER_RENDER::DdiBuildPagingBuffer(
-                   *((ADAPTER_RENDER **)this + 2),
-                   (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v104);
-      v99 = -1LL;
-      v53 = LODWORD(v104.pDmaBuffer) - *v103;
-      v54 = LODWORD(v104.pDmaBufferPrivateData) - *v112;
-      if ( LODWORD(v104.pDmaBuffer) != *v103 || v54 )
+      v48 = ADAPTER_RENDER::DdiBuildPagingBuffer(*((ADAPTER_RENDER **)this + 2), &v67);
+      v50 = -1LL;
+      TransferSize = (unsigned int)(LODWORD(v67.pDmaBuffer) - *((_DWORD *)this + 2 * a12 + 670));
+      v51 = LODWORD(v67.pDmaBufferPrivateData) - *((_DWORD *)this + 2 * a12 + 798);
+      v52 = v48;
+      if ( LODWORD(v67.pDmaBuffer) != *((_DWORD *)this + 2 * a12 + 670) || v51 )
       {
-        VIDMM_GLOBAL::GetOrGeneratePendingPagingBufferFence(this, v22, &v99);
-        v82 = *((_BYTE *)this + 40937);
-        if ( (v82 & 8) != 0 )
-          *((_BYTE *)this + 40937) = v82 & 0xF7;
+        if ( !*((_DWORD *)this + a12 + 1173) )
+        {
+          *((_DWORD *)this + a12 + 1173) = 1;
+          ++*((_QWORD *)this + a12 + 619);
+        }
+        v53 = *((_BYTE *)this + 40937);
+        v50 = *((_QWORD *)this + a12 + 619);
+        if ( (v53 & 2) != 0 )
+          *((_BYTE *)this + 40937) = v53 & 0xFD;
       }
-      v55 = v113;
-      v56 = v114;
-      *v113 += v53;
-      if ( *v55 > *v56 )
+      *((_DWORD *)this + a12 + 414) += TransferSize;
+      if ( *((_DWORD *)this + a12 + 414) > *((_DWORD *)this + a12 + 29) )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 18LL, 0LL, 0LL, 0LL);
+        v54 = (_QWORD *)WdLogNewEntry5_WdCriticalError(TransferSize, v49);
+        v54[5] = 0LL;
+        v54[6] = 0LL;
+        v54[7] = 0LL;
+        v54[3] = 270LL;
+        v54[4] = 18LL;
+        WdLogEvent5_WdCriticalError(v54);
       }
-      v33 = v115;
-      v57 = v116;
-      *v115 += v54;
-      if ( *v33 > *v57 )
+      *((_DWORD *)this + a12 + 542) += v51;
+      if ( *((_DWORD *)this + a12 + 542) > *((_DWORD *)this + a12 + 93) )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 19LL, 0LL, 0LL, 0LL);
+        v55 = (_QWORD *)WdLogNewEntry5_WdCriticalError(TransferSize, v49);
+        v55[3] = 270LL;
+        v55[4] = 19LL;
+        v55[5] = 0LL;
+        v55[6] = 0LL;
+        v55[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v55);
       }
       if ( bTracingEnabled )
       {
-        v58 = *((_QWORD *)this + 3);
-        v59 = *v117;
-        if ( v104.Operation == DXGK_OPERATION_UPDATE_PAGE_TABLE )
+        v56 = *((_QWORD *)this + a12 + 143);
+        v57 = *((_QWORD *)this + 3);
+        switch ( v67.Operation )
         {
-          v57 = (_DWORD *)v104.Reserved.Reserved[20];
-          FillPattern = 0;
-          if ( v104.Reserved.Reserved[20] > 1 )
-          {
-            if ( v104.Reserved.Reserved[20] == 2 )
+          case DXGK_OPERATION_TRANSFER:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
             {
-              OffsetInPages = v104.MapApertureSegment.OffsetInPages;
-              FillPattern = v104.Fill.FillPattern;
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxqxqxq_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpTransfer,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_FILL:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpxqqx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpFill,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_DISCARD_CONTENT:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqqx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpDiscard,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_READ_PHYSICAL:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_DWORD *)v64 = v67.ReadPhysical.SegmentId;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptqx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                &EventPagingOpReadPhysical,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_WRITE_PHYSICAL:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_DWORD *)v64 = v67.ReadPhysical.SegmentId;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptqx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                &EventPagingOpWritePhysical,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_MAP_APERTURE_SEGMENT:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxxqt_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpMapApertureSegment,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_UNMAP_APERTURE_SEGMENT:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxxt_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpUnmapApertureSegment,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_SPECIAL_LOCK_TRANSFER:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpSpecialLockTransfer,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_VIRTUAL_TRANSFER:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpVirtualTransfer,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_VIRTUAL_FILL:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpxxqqxx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpVirtualFill,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_INIT_CONTEXT_RESOURCE:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxpx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpInitContextResource,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_UPDATE_PAGE_TABLE:
+            if ( v67.Reserved.Reserved[20] < 2 )
+            {
+              TransferSize = v67.Transfer.TransferSize;
+            }
+            else if ( v67.Reserved.Reserved[20] == 2 )
+            {
+              TransferSize = v67.MapApertureSegment.OffsetInPages;
             }
             else
             {
-              OffsetInPages = 0LL;
+              TransferSize = 0LL;
             }
-          }
-          else
-          {
-            OffsetInPages = v104.Transfer.TransferSize;
-          }
-          if ( (byte_1C0076981 & 8) != 0 )
-          {
-            LODWORD(v98) = v104.UpdatePageTable.UpdateMode;
-            LODWORD(v96) = v104.Transfer.Destination.SegmentAddress.HighPart;
-            LODWORD(v93) = v104.UnmapApertureSegment.DummyPage.HighPart;
-            LODWORD(v95) = v104.Transfer.Destination.SegmentId;
-            LODWORD(v92) = FillPattern;
-            LODWORD(v90) = v104.ReadPhysical.SegmentId;
-            *(_DWORD *)v88 = v52 == -1071775743;
-            McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer(
-              (__int64)&DxgkControlGuid_Context,
-              (__int64)&EventPagingOpUpdatePageTable,
-              0LL,
-              v58,
-              v59,
-              *(_QWORD *)v88,
-              0LL,
-              v90,
-              OffsetInPages,
-              v92,
-              v93,
-              v104.Transfer.Source.SegmentAddress.QuadPart,
-              v104.UpdatePageTable.pPageTableEntries64KB,
-              v95,
-              v96,
-              *(_OWORD *)&v104.Reserved.Reserved[14],
-              v104.UpdatePageTable.hProcess,
-              v98,
-              v104.UpdatePageTable.FirstPteVirtualAddress);
-          }
-        }
-        else if ( v104.Operation == DXGK_OPERATION_FLUSH_TLB )
-        {
-          if ( (byte_1C0076981 & 8) != 0 )
-          {
-            LODWORD(v90) = v104.ReadPhysical.SegmentId;
-            *(_DWORD *)v88 = v52 == -1071775743;
-            McTemplateK0pptpqxpxx_EtwWriteTransfer(
-              (__int64)&DxgkControlGuid_Context,
-              (__int64)&EventPagingOpFlushTlb,
-              0LL,
-              v58,
-              v59,
-              *(_QWORD *)v88,
-              0LL,
-              v90,
-              *(_OWORD *)&v104.SpecialLockTransfer.TransferOffset,
-              *(_OWORD *)&v104.Reserved.Reserved[6]);
-          }
-        }
-        else
-        {
-          switch ( v104.Operation )
-          {
-            case DXGK_OPERATION_TRANSFER:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v95) = v104.Transfer.Flags.0;
-                LODWORD(v94) = v104.Transfer.Destination.SegmentId;
-                LODWORD(v92) = v104.Transfer.Source.SegmentId;
-                LODWORD(v90) = v104.Transfer.TransferOffset;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxqxqxq_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpTransfer,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  v104.Transfer.TransferSize,
-                  v92,
-                  v104.Transfer.Source.SegmentAddress.QuadPart,
-                  v94,
-                  v104.Transfer.Destination.SegmentAddress.QuadPart,
-                  v95);
-              }
-              break;
-            case DXGK_OPERATION_FILL:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v92) = v104.Transfer.Source.SegmentId;
-                LODWORD(v91) = v104.Fill.FillPattern;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpxqqx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpFill,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v104.Fill.FillSize,
-                  v91,
-                  v92,
-                  v104.Transfer.Source.SegmentAddress.QuadPart);
-              }
-              break;
-            case DXGK_OPERATION_DISCARD_CONTENT:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v91) = v104.DiscardContent.SegmentId;
-                LODWORD(v90) = v104.Transfer.TransferOffset;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqqx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpDiscard,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  v91,
-                  v104.Transfer.TransferSize);
-              }
-              break;
-            case DXGK_OPERATION_READ_PHYSICAL:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                *(_DWORD *)v89 = v104.ReadPhysical.SegmentId;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptqx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  &EventPagingOpReadPhysical,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  *(_QWORD *)v89,
-                  v104.Fill.FillSize);
-              }
-              break;
-            case DXGK_OPERATION_WRITE_PHYSICAL:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                *(_DWORD *)v89 = v104.ReadPhysical.SegmentId;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptqx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  &EventPagingOpWritePhysical,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  *(_QWORD *)v89,
-                  v104.Fill.FillSize);
-              }
-              break;
-            case DXGK_OPERATION_MAP_APERTURE_SEGMENT:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v94) = 0;
-                LODWORD(v93) = v104.Transfer.Destination.SegmentAddress.LowPart;
-                LODWORD(v90) = v104.Fill.FillPattern;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxxqt_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  &EventPagingOpMapApertureSegment,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  *(_OWORD *)&v104.Reserved.Reserved[6],
-                  v93,
-                  v94);
-              }
-              break;
-            case DXGK_OPERATION_UNMAP_APERTURE_SEGMENT:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v93) = 0;
-                LODWORD(v90) = v104.Fill.FillPattern;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxxt_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpUnmapApertureSegment,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  *(_OWORD *)&v104.Reserved.Reserved[6],
-                  v93);
-              }
-              break;
-            case DXGK_OPERATION_SPECIAL_LOCK_TRANSFER:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v97) = v104.SpecialLockTransfer.SwizzlingRangeData;
-                LODWORD(v96) = v104.Transfer.MdlOffset;
-                LODWORD(v95) = v104.Transfer.Flags.0;
-                LODWORD(v94) = v104.Transfer.Destination.SegmentId;
-                LODWORD(v92) = v104.Transfer.Source.SegmentId;
-                LODWORD(v90) = v104.Transfer.TransferOffset;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpSpecialLockTransfer,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  v104.Transfer.TransferSize,
-                  v92,
-                  v104.Transfer.Source.SegmentAddress.QuadPart,
-                  v94,
-                  v104.Transfer.Destination.SegmentAddress.QuadPart,
-                  v95,
-                  v96,
-                  v97);
-              }
-              break;
-            case DXGK_OPERATION_VIRTUAL_TRANSFER:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v97) = v104.Transfer.Destination.SegmentAddress.HighPart;
-                LODWORD(v96) = v104.Transfer.Destination.SegmentAddress.LowPart;
-                LODWORD(v93) = MEMORY[4];
-                LODWORD(v92) = MEMORY[0];
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpVirtualTransfer,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  *(_OWORD *)&v104.SpecialLockTransfer.TransferOffset,
-                  v92,
-                  v93,
-                  *(_OWORD *)&v104.Reserved.Reserved[6],
-                  v104.UnmapApertureSegment.DummyPage.QuadPart,
-                  v96,
-                  v97,
-                  v104.TransferVirtual.DestinationPageTable,
-                  MEMORY[8],
-                  MEMORY[0x10]);
-              }
-              break;
-            case DXGK_OPERATION_VIRTUAL_FILL:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v93) = MEMORY[0];
-                LODWORD(v92) = v104.Transfer.Source.SegmentId;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpxxqqxx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpVirtualFill,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  *(_OWORD *)&v104.SpecialLockTransfer.TransferOffset,
-                  v92,
-                  v93,
-                  v104.Transfer.Source.SegmentAddress.QuadPart,
-                  MEMORY[8]);
-              }
-              break;
-            case DXGK_OPERATION_INIT_CONTEXT_RESOURCE:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v90) = v104.Transfer.TransferOffset;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxpx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpInitContextResource,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  *(_OWORD *)&v104.NotifyResidency.PhysicalAddress.SegmentOffset,
-                  v104.Transfer.Source.SegmentAddress.QuadPart);
-              }
-              break;
-            case DXGK_OPERATION_UPDATE_CONTEXT_ALLOCATION:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v93) = v104.Transfer.Source.SegmentId;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpxxpq_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpUpdateContextAllocation,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  *(_OWORD *)&v104.Transfer.hAllocation,
-                  v104.Transfer.TransferSize,
-                  v93);
-              }
-              break;
-            case DXGK_OPERATION_NOTIFY_RESIDENCY:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v92) = v104.Transfer.Source.SegmentId;
-                LODWORD(v90) = v104.Transfer.TransferOffset;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxq_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpNotifyResidency,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  v104.Transfer.TransferSize,
-                  v92);
-              }
-              break;
-            case DXGK_OPERATION_SIGNAL_MONITORED_FENCE:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpxx_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  (__int64)&EventPagingOpSignalMonitoredFence,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  *(_OWORD *)&v104.Transfer.hAllocation);
-              }
-              break;
-            case DXGK_OPERATION_SIGNAL_MONITORED_FENCE|DXGK_OPERATION_FILL:
-              if ( (byte_1C0076981 & 8) != 0 )
-              {
-                LODWORD(v94) = 0;
-                LODWORD(v93) = v104.Transfer.Flags.0;
-                LODWORD(v90) = v104.Fill.FillPattern;
-                *(_DWORD *)v88 = v52 == -1071775743;
-                McTemplateK0pptpqxxqt_EtwWriteTransfer(
-                  (__int64)&DxgkControlGuid_Context,
-                  &EventPagingOpMapApertureSegment2,
-                  0LL,
-                  v58,
-                  v59,
-                  *(_QWORD *)v88,
-                  0LL,
-                  v90,
-                  *(_OWORD *)&v104.Reserved.Reserved[6],
-                  v93,
-                  v94);
-              }
-              break;
-            default:
-              break;
-          }
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpUpdatePageTable,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_FLUSH_TLB:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxpxx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpFlushTlb,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_UPDATE_CONTEXT_ALLOCATION:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpxxpq_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpUpdateContextAllocation,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_NOTIFY_RESIDENCY:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpqxq_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpNotifyResidency,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          case DXGK_OPERATION_SIGNAL_MONITORED_FENCE:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+            {
+              *(_QWORD *)v64 = 0LL;
+              *(_DWORD *)v63 = v52 == -1071775743;
+              McTemplateK0pptpxx_EtwWriteTransfer(
+                (__int64)&DxgkControlGuid_Context,
+                (__int64)&EventPagingOpSignalMonitoredFence,
+                0LL,
+                v57,
+                v56,
+                *(_QWORD *)v63);
+            }
+            break;
+          default:
+            break;
         }
       }
-      v62 = *((_QWORD *)this + 985);
-      if ( v62 )
+      v22 = (_OWORD *)*((_QWORD *)this + 984);
+      if ( v22 )
       {
-        *(_QWORD *)(360LL * *((unsigned int *)this + 1972) + v62 + 8) = 0LL;
-        *(_QWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 16) = 0LL;
-        *(_DWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985)) = v22;
-        v83 = &v104;
-        v84 = (_OWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 24LL);
-        v85 = 2LL;
+        *((_QWORD *)v22 + 45 * *((unsigned int *)this + 1970) + 1) = 0LL;
+        *(_QWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 16) = 0LL;
+        *(_DWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984)) = a12;
+        v58 = &v67;
+        v22 = (_OWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 24LL);
+        v59 = 2LL;
         do
         {
-          v84 += 8;
-          v86 = *(_OWORD *)&v83->pDmaBuffer;
-          v83 = (struct _DXGKARG_BUILDPAGINGBUFFER *)((char *)v83 + 128);
-          *(v84 - 8) = v86;
-          *(v84 - 7) = *(_OWORD *)&v83[-1].Reserved.Reserved[42];
-          *(v84 - 6) = *(_OWORD *)&v83[-1].Reserved.Reserved[46];
-          *(v84 - 5) = *(_OWORD *)&v83[-1].Reserved.Reserved[50];
-          *(v84 - 4) = *(_OWORD *)&v83[-1].Reserved.Reserved[54];
-          *(v84 - 3) = *(_OWORD *)&v83[-1].Reserved.Reserved[58];
-          *(v84 - 2) = *(_OWORD *)&v83[-1].Reserved.Reserved[62];
-          *(v84 - 1) = *(_OWORD *)&v83[-1].DmaBufferGpuVirtualAddress;
-          --v85;
+          v22 += 8;
+          v60 = *(_OWORD *)&v58->pDmaBuffer;
+          v58 = (struct _DXGKARG_BUILDPAGINGBUFFER *)((char *)v58 + 128);
+          *(v22 - 8) = v60;
+          *(v22 - 7) = *(_OWORD *)&v58[-1].Reserved.Reserved[42];
+          *(v22 - 6) = *(_OWORD *)&v58[-1].Reserved.Reserved[46];
+          *(v22 - 5) = *(_OWORD *)&v58[-1].Reserved.Reserved[50];
+          *(v22 - 4) = *(_OWORD *)&v58[-1].Reserved.Reserved[54];
+          *(v22 - 3) = *(_OWORD *)&v58[-1].Reserved.Reserved[58];
+          *(v22 - 2) = *(_OWORD *)&v58[-1].Reserved.Reserved[62];
+          *(v22 - 1) = *(_OWORD *)&v58[-1].DmaBufferGpuVirtualAddress;
+          --v59;
         }
-        while ( v85 );
-        *v84 = *(_OWORD *)&v83->pDmaBuffer;
-        v84[1] = *(_OWORD *)&v83->pDmaBufferPrivateData;
-        v84[2] = *(_OWORD *)&v83->MultipassOffset;
-        v84[3] = *(_OWORD *)&v83->SpecialLockTransfer.TransferOffset;
-        *(_DWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 344) = v52;
-        v57 = (_DWORD *)*((_QWORD *)this + 985);
-        *(_QWORD *)&v57[90 * (*((_DWORD *)this + 1972))++ + 88] = v99;
-        if ( *((_DWORD *)this + 1972) >= *((_DWORD *)this + 1968) )
+        while ( v59 );
+        *v22 = *(_OWORD *)&v58->pDmaBuffer;
+        v22[1] = *(_OWORD *)&v58->pDmaBufferPrivateData;
+        v22[2] = *(_OWORD *)&v58->MultipassOffset;
+        v22[3] = *(_OWORD *)&v58->SpecialLockTransfer.TransferOffset;
+        *(_DWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 344) = v52;
+        TransferSize = 360LL * *((unsigned int *)this + 1970);
+        *(_QWORD *)(TransferSize + *((_QWORD *)this + 984) + 352) = v50;
+        if ( ++*((_DWORD *)this + 1970) >= *((_DWORD *)this + 1966) )
         {
-          ++*((_DWORD *)this + 1973);
-          *((_DWORD *)this + 1972) = 0;
+          ++*((_DWORD *)this + 1971);
+          *((_DWORD *)this + 1970) = 0;
         }
       }
-      if ( (int)v52 >= 0 )
-        return;
-      if ( (_DWORD)v52 != -1071775743 )
+      if ( (int)v52 < 0 )
       {
-        v87 = *((_QWORD *)this + 3);
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 11LL, &v104, v52, v87);
-        return;
+        if ( (_DWORD)v52 == -1071775743 )
+        {
+          if ( g_IsInternalReleaseOrDbg )
+            WdLogNewEntry5_WdTrace(TransferSize);
+          VIDMM_GLOBAL::FlushPagingBufferInternal(this, a12, 1u, 0LL, 0LL, 1, 0);
+          v20 = v69;
+          v21 = v65;
+          goto LABEL_11;
+        }
+        v61 = *((_QWORD *)this + 3);
+        v62 = (_QWORD *)WdLogNewEntry5_WdCriticalError(TransferSize, v22);
+        v62[5] = &v67;
+        v62[3] = 270LL;
+        v62[4] = 11LL;
+        v62[6] = v52;
+        v62[7] = v61;
+        WdLogEvent5_WdCriticalError(v62);
       }
-      if ( g_IsInternalReleaseOrDbg )
-        WdLogNewEntry5_WdTrace(v57);
-      VIDMM_GLOBAL::FlushPagingBufferInternal(this, v22, 1u, 0LL, 0LL, 1u, 0);
-      v26 = v107;
-      v32 = v119;
-      v31 = v103;
-      v19 = v102;
-      v21 = v108;
+      v21 = v65;
+      v18 = (_DWORD)v52 == -1071775743;
+      v20 = v69;
+      v29 = a18;
+      v28 = a13;
+      NumPageTableEntries = a9;
     }
+    while ( v18 );
   }
 }

@@ -1,191 +1,201 @@
 /*
- * XREFs of MiMirrorNodeLargePages @ 0x14064F574
+ * XREFs of MiMirrorNodeLargePages @ 0x14038521C
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140626CE8 (MiMirrorGatherBrownPages.c)
- *     MiMirrorReduceBlackWrites @ 0x1406280D0 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorGatherBrownPages @ 0x140382408 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140385580 (MiMirrorReduceBlackWrites.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMirrorAddPagesToBrownList @ 0x140626B7C (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorOmitPagesFromCopy @ 0x1406272F8 (MiMirrorOmitPagesFromCopy.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiMirrorAddPagesToBrownList @ 0x140382688 (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14038576C (MiMirrorOmitPagesFromCopy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-volatile LONG *__fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, int a3)
+unsigned __int64 __fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, int a3)
 {
-  unsigned __int64 v3; // rbx
-  __int64 v4; // r9
-  volatile LONG *result; // rax
-  KIRQL v6; // al
-  int *v7; // rax
-  __int64 *v8; // rcx
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  __int64 v11; // r13
-  unsigned int v12; // ecx
-  __int64 i; // rbp
-  unsigned int v14; // r12d
-  __int64 v15; // rax
-  __int64 v16; // rdi
-  _QWORD **v17; // r14
-  __int64 v18; // rax
-  _QWORD *v19; // rsi
-  bool v20; // zf
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
+  unsigned __int64 v3; // rdi
+  int v4; // ebx
+  __int64 v5; // r9
+  unsigned __int64 result; // rax
+  unsigned __int64 *v7; // r10
+  unsigned __int8 CurrentIrql; // bp
   _DWORD *SchedulerAssist; // r9
-  int v24; // eax
-  volatile LONG *SpinLock; // [rsp+20h] [rbp-A8h]
-  __int64 v26; // [rsp+28h] [rbp-A0h]
-  __int64 v27; // [rsp+30h] [rbp-98h]
-  __int64 v28; // [rsp+38h] [rbp-90h]
-  __int64 *v29; // [rsp+40h] [rbp-88h]
-  int *v30; // [rsp+48h] [rbp-80h]
-  unsigned __int64 v31; // [rsp+50h] [rbp-78h]
-  __int64 v32; // [rsp+58h] [rbp-70h]
-  unsigned __int64 v33; // [rsp+60h] [rbp-68h]
-  unsigned __int64 v34; // [rsp+68h] [rbp-60h]
-  unsigned __int64 v35; // [rsp+70h] [rbp-58h]
-  unsigned __int8 v37; // [rsp+D8h] [rbp+10h]
-  int v38; // [rsp+E0h] [rbp+18h]
-  int v39; // [rsp+E8h] [rbp+20h]
+  unsigned __int64 v10; // rdx
+  int *v11; // rax
+  unsigned __int64 *v12; // rcx
+  unsigned __int64 v13; // rbp
+  __int64 v14; // r13
+  unsigned int v15; // ecx
+  __int64 i; // r15
+  unsigned int v17; // r12d
+  __int64 v18; // rax
+  __int64 v19; // rbx
+  _QWORD **v20; // r14
+  __int64 v21; // rax
+  _QWORD *v22; // rsi
+  bool v23; // zf
+  unsigned __int8 v24; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *v26; // r9
+  int v27; // eax
+  __int64 v28; // [rsp+20h] [rbp-B8h]
+  __int64 v29; // [rsp+28h] [rbp-B0h]
+  __int64 *v30; // [rsp+30h] [rbp-A8h]
+  int *v31; // [rsp+38h] [rbp-A0h]
+  unsigned __int64 v32; // [rsp+40h] [rbp-98h]
+  __int64 v33; // [rsp+48h] [rbp-90h]
+  unsigned __int8 v34; // [rsp+50h] [rbp-88h]
+  unsigned __int64 v35; // [rsp+58h] [rbp-80h]
+  unsigned __int64 v36; // [rsp+60h] [rbp-78h]
+  unsigned __int64 v37; // [rsp+68h] [rbp-70h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-68h] BYREF
+  int v40; // [rsp+E8h] [rbp+10h]
+  __int64 v42; // [rsp+F8h] [rbp+20h]
 
-  v38 = a3;
-  v3 = *(_QWORD *)(a2 + 16);
-  v4 = a1;
-  result = (volatile LONG *)(unsigned __int16)KeNumberNodes;
-  v37 = 17;
-  v33 = v3;
-  v35 = v3 + 25408LL * (unsigned __int16)KeNumberNodes;
-  if ( v3 < v35 )
+  v35 = *(_QWORD *)(a2 + 16);
+  v3 = v35;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v4 = a3;
+  v5 = a1;
+  v34 = 17;
+  result = v35 + 4544LL * (unsigned __int16)KeNumberNodes;
+  v37 = result;
+  if ( v35 < result )
   {
-    result = (volatile LONG *)(v3 + 23104);
-    SpinLock = (volatile LONG *)(v3 + 23104);
+    v7 = (unsigned __int64 *)(v35 + 4328);
+    v36 = v35 + 4328;
     do
     {
-      if ( !a3 )
+      if ( !v4 )
       {
-        v6 = ExAcquireSpinLockExclusive(result);
-        v4 = a1;
-        v37 = v6;
+        CurrentIrql = KeGetCurrentIrql();
+        v34 = CurrentIrql;
+        __writecr8(2uLL);
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        {
+          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+          SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+        }
+        LockHandle.LockQueue.Next = 0LL;
+        LockHandle.LockQueue.Lock = v7;
+        KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)v7);
+        v5 = a1;
       }
-      v7 = dword_140C65C80;
-      v31 = v3;
-      v8 = MiLargePageSizes;
-      v30 = dword_140C65C80;
-      v9 = v3;
-      v29 = MiLargePageSizes;
-      v32 = 3LL;
+      v10 = v3;
+      v33 = 3LL;
+      v11 = dword_140C4DF80;
+      v32 = v3;
+      v12 = (unsigned __int64 *)MiLargePageSizes;
+      v31 = dword_140C4DF80;
+      v30 = MiLargePageSizes;
       do
       {
-        v10 = *v8;
-        v11 = 0LL;
-        v12 = *v7;
-        v34 = v10;
-        v39 = *v7;
-        v28 = 0LL;
+        v13 = *v12;
+        v14 = 0LL;
+        v15 = *v11;
+        v40 = *v11;
+        v29 = 0LL;
         do
         {
           for ( i = 0LL; i <= 1; ++i )
           {
-            v14 = 0;
+            v17 = 0;
             if ( MmNumberOfChannels )
             {
               do
               {
-                v15 = 4LL;
-                v27 = 4LL;
-                v16 = 32 * (4 * (v11 + i) + v14) + 560;
+                v18 = 4LL;
+                v28 = 4LL;
+                v19 = 32 * (4 * (i + v14) + v17) + 560;
                 do
                 {
-                  v17 = *(_QWORD ***)(v9 + v16);
-                  if ( v12 )
+                  v20 = *(_QWORD ***)(v10 + v19);
+                  if ( v15 )
                   {
-                    v18 = v12;
-                    v26 = v12;
+                    v21 = v15;
+                    v42 = v15;
                     do
                     {
-                      v19 = *v17;
-                      if ( *v17 != v17 )
+                      v22 = *v20;
+                      if ( *v20 != v20 )
                       {
                         do
                         {
-                          if ( v38 )
-                            MiMirrorOmitPagesFromCopy(
-                              v4,
-                              0xAAAAAAAAAAAAAAABuLL * ((__int64)(v19 + 0x44000000000LL) >> 4),
-                              v34);
+                          if ( a3 )
+                            MiMirrorOmitPagesFromCopy(v5, (__int64)(v22 + 0xB000000000LL) / 48, v13);
                           else
-                            MiMirrorAddPagesToBrownList(
-                              0xAAAAAAAAAAAAAAABuLL * ((__int64)(v19 + 0x44000000000LL) >> 4),
-                              v34);
-                          v19 = (_QWORD *)*v19;
-                          v4 = a1;
+                            MiMirrorAddPagesToBrownList((__int64)(v22 + 0xB000000000LL) / 48, v13);
+                          v22 = (_QWORD *)*v22;
+                          v5 = a1;
                         }
-                        while ( v19 != v17 );
-                        v18 = v26;
+                        while ( v22 != v20 );
+                        v21 = v42;
                       }
-                      v4 = a1;
-                      v17 += 3;
-                      v26 = --v18;
+                      v5 = a1;
+                      v20 += 3;
+                      v42 = --v21;
                     }
-                    while ( v18 );
-                    v15 = v27;
-                    v9 = v31;
-                    v12 = v39;
+                    while ( v21 );
+                    v18 = v28;
+                    v10 = v32;
+                    v15 = v40;
                   }
-                  v4 = a1;
-                  v16 += 8LL;
-                  v27 = --v15;
+                  v5 = a1;
+                  v19 += 8LL;
+                  v28 = --v18;
                 }
-                while ( v15 );
-                ++v14;
+                while ( v18 );
+                ++v17;
               }
-              while ( v14 < MmNumberOfChannels );
-              v11 = v28;
+              while ( v17 < MmNumberOfChannels );
+              v14 = v29;
             }
-            v4 = a1;
+            v5 = a1;
           }
-          v11 += 2LL;
-          v28 = v11;
+          v14 += 2LL;
+          v29 = v14;
         }
-        while ( v11 <= 2 );
-        v9 += 1072LL;
-        v8 = v29 + 1;
-        v7 = v30 + 1;
-        ++v29;
-        v20 = v32-- == 1;
+        while ( v14 <= 2 );
+        v10 += 1072LL;
+        v12 = (unsigned __int64 *)(v30 + 1);
+        v11 = v31 + 1;
         ++v30;
-        v31 = v9;
+        v23 = v33-- == 1;
+        ++v31;
+        v32 = v10;
       }
-      while ( !v20 );
-      if ( !v38 )
+      while ( !v23 );
+      v4 = a3;
+      if ( !a3 )
       {
-        ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v37 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v24 = ~(unsigned __int16)(-1LL << (v37 + 1));
-            v20 = (v24 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v24;
-            if ( v20 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            v24 = KeGetCurrentIrql();
+            if ( v24 <= 0xFu && v34 <= 0xFu && v24 >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              v26 = CurrentPrcb->SchedulerAssist;
+              v27 = ~(unsigned __int16)(-1LL << (v34 + 1));
+              v23 = (v27 & v26[5]) == 0;
+              v26[5] &= v27;
+              if ( v23 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
           }
         }
-        __writecr8(v37);
+        __writecr8(v34);
       }
-      a3 = v38;
-      v3 = v33 + 25408;
-      v4 = a1;
-      result = SpinLock + 6352;
-      v33 = v3;
-      SpinLock += 6352;
+      result = 4544LL;
+      v5 = a1;
+      v3 = v35 + 4544;
+      v7 = (unsigned __int64 *)(v36 + 4544);
+      v35 = v3;
+      v36 += 4544LL;
     }
-    while ( v3 < v35 );
+    while ( v3 < v37 );
   }
   return result;
 }

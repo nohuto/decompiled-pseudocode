@@ -6,7 +6,7 @@
  *     AnFwpBackgroundUpdateTimer @ 0x140953FF0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
  *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
  *     RaspClearCache @ 0x14095054C (RaspClearCache.c)
  */

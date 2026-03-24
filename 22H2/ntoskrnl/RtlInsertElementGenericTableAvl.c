@@ -1,26 +1,24 @@
 /*
- * XREFs of RtlInsertElementGenericTableAvl @ 0x14031EA50
+ * XREFs of RtlInsertElementGenericTableAvl @ 0x14032DC80
  * Callers:
- *     VfAvlInsertReservedTreeNode @ 0x14020A3CC (VfAvlInsertReservedTreeNode.c)
- *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PopPowerRequestTableInsertEntry @ 0x1407A7CB4 (PopPowerRequestTableInsertEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407A7CEC (PopPowerRequestStatsCreate.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1407E0934 (PiDqQueryAddObjectToResultSet.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E22C8 (PnpMapDeviceObjectToDeviceInstance.c)
- *     EtwpEnumerateKeyProviders @ 0x14080B5F4 (EtwpEnumerateKeyProviders.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwBusRelationAdd @ 0x14081C248 (PiSwBusRelationAdd.c)
- *     PiDmObjectManagerPopulate @ 0x14083B22C (PiDmObjectManagerPopulate.c)
- *     EtwpInitializeAutoLoggers @ 0x14083D85C (EtwpInitializeAutoLoggers.c)
- *     EtwpEnumerateAutologgerPath @ 0x14083DAD8 (EtwpEnumerateAutologgerPath.c)
- *     PiDcInitUpdateProperties @ 0x140850328 (PiDcInitUpdateProperties.c)
- *     IopSetFileObjectIosbRange @ 0x140945FE8 (IopSetFileObjectIosbRange.c)
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099F700 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
- *     VfPtAddStackInfoIfNotExist @ 0x140ADF5A0 (VfPtAddStackInfoIfNotExist.c)
- *     VfPtProcessAllocPoolInfo @ 0x140ADFA18 (VfPtProcessAllocPoolInfo.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140372350 (VfAvlInsertReservedTreeNode.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x14069FF88 (PiDqQueryAddObjectToResultSet.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1406F5C6C (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopCreatePowerRequestObject @ 0x1406F5E38 (PopCreatePowerRequestObject.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     PiSwBusRelationAdd @ 0x14074D19C (PiSwBusRelationAdd.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x1407523B0 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     PopAvlFindOrMakeStatsForScenarioType @ 0x1407721E0 (PopAvlFindOrMakeStatsForScenarioType.c)
+ *     PiUpdateDriverDBCache @ 0x14077E38C (PiUpdateDriverDBCache.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407961B4 (EtwpEnumerateAutologgerPath.c)
+ *     EtwpEnumerateKeyProviders @ 0x140797DFC (EtwpEnumerateKeyProviders.c)
+ *     PiDmObjectManagerPopulate @ 0x1407A3270 (PiDmObjectManagerPopulate.c)
+ *     PiDcInitUpdateProperties @ 0x1407A4058 (PiDcInitUpdateProperties.c)
+ *     IopSetFileObjectIosbRange @ 0x140892864 (IopSetFileObjectIosbRange.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F8604 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
  * Callees:
- *     RtlInsertElementGenericTableFullAvl @ 0x14031EB10 (RtlInsertElementGenericTableFullAvl.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x14032DCF0 (RtlInsertElementGenericTableFullAvl.c)
+ *     FindNodeOrParent_0 @ 0x14032DF3C (FindNodeOrParent_0.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableAvl(
@@ -29,40 +27,10 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
         CLONG BufferSize,
         PBOOLEAN NewElement)
 {
-  _RTL_BALANCED_LINKS *NodeOrParent; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS v9; // eax
   TABLE_SEARCH_RESULT SearchResult; // eax
+  PVOID NodeOrParent[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  NodeOrParent = 0LL;
-  if ( Table->NumberGenericTableElements )
-  {
-    for ( NodeOrParent = Table->BalancedRoot.RightChild; ; NodeOrParent = NodeOrParent->RightChild )
-    {
-      while ( 1 )
-      {
-        v9 = Table->CompareRoutine(Table, Buffer, &NodeOrParent[1]);
-        if ( v9 )
-          break;
-        if ( !NodeOrParent->LeftChild )
-        {
-          SearchResult = TableInsertAsLeft;
-          return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent, SearchResult);
-        }
-        NodeOrParent = NodeOrParent->LeftChild;
-      }
-      if ( v9 != GenericGreaterThan )
-        break;
-      if ( !NodeOrParent->RightChild )
-      {
-        SearchResult = TableInsertAsRight;
-        return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent, SearchResult);
-      }
-    }
-    SearchResult = TableFoundNode;
-  }
-  else
-  {
-    SearchResult = TableEmptyTree;
-  }
-  return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent, SearchResult);
+  NodeOrParent[0] = 0LL;
+  SearchResult = (unsigned int)FindNodeOrParent_0(Table, Buffer, NodeOrParent);
+  return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent[0], SearchResult);
 }

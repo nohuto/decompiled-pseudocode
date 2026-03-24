@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIInitializeAMLI @ 0x1C00BCD04
+ * XREFs of ACPIInitializeAMLI @ 0x1C00BCC5C
  * Callers:
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     ACPIInitGlobalHeapSize @ 0x1C00967F4 (ACPIInitGlobalHeapSize.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
- *     OSReadAcpiConfigurationData @ 0x1C00BC964 (OSReadAcpiConfigurationData.c)
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
- *     OSInitializeCallbacks @ 0x1C00BEDD4 (OSInitializeCallbacks.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00977FC (ACPIInitGlobalHeapSize.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00BC3BC (OSReadAcpiConfigurationData.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
+ *     OSInitializeCallbacks @ 0x1C00BF128 (OSInitializeCallbacks.c)
  */
 
 __int64 ACPIInitializeAMLI()
@@ -36,12 +36,12 @@ __int64 ACPIInitializeAMLI()
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v6 = v1;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x16u,
         0x24u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
         v6);
     }
   }

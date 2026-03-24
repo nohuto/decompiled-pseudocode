@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqArbpLookupIsaOverrideByGsiv @ 0x1C009E4B4
+ * XREFs of IrqArbpLookupIsaOverrideByGsiv @ 0x1C00951E8
  * Callers:
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbIrqFromGsiv @ 0x1C009D6CC (IrqArbIrqFromGsiv.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDD0 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
  * Callees:
  *     <none>
  */

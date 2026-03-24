@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@ConnectionIndirector@BamoImpl@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011BC60
+ * XREFs of ?QueryInterface@ConnectionIndirector@BamoImpl@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F4160
  * Callers:
  *     <none>
  * Callees:

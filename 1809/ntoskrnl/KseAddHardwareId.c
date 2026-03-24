@@ -1,21 +1,21 @@
 /*
- * XREFs of KseAddHardwareId @ 0x1406FEFE8
+ * XREFs of KseAddHardwareId @ 0x1406FEFC8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CBC (KsepPoolAllocatePaged.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
- *     KsepCacheLookup @ 0x14070CAFC (KsepCacheLookup.c)
- *     KsepStringDuplicate @ 0x14070CDB8 (KsepStringDuplicate.c)
- *     KsepCacheInsert @ 0x14070CFAC (KsepCacheInsert.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
+ *     KsepCacheLookup @ 0x14070CADC (KsepCacheLookup.c)
+ *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
+ *     KsepCacheInsert @ 0x14070CF8C (KsepCacheInsert.c)
  */
 
 __int64 __fastcall KseAddHardwareId(PCWSTR SourceString)

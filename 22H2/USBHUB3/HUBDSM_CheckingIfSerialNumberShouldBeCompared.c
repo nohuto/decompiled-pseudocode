@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfSerialNumberShouldBeCompared @ 0x1C00235A0
+ * XREFs of HUBDSM_CheckingIfSerialNumberShouldBeCompared @ 0x1C0020F60
  * Callers:
  *     <none>
  * Callees:

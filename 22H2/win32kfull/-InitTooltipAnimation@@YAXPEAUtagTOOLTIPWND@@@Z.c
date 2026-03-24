@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitTooltipAnimation@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0040C9C
+ * XREFs of ?InitTooltipAnimation@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00DB1BC
  * Callers:
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
  * Callees:
- *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C0040D04 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
+ *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C00DB224 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
  */
 
 void __fastcall InitTooltipAnimation(struct tagTOOLTIPWND *a1)

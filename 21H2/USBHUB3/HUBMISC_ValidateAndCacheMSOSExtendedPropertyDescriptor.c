@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_ValidateAndCacheMSOSExtendedPropertyDescriptor @ 0x1C002FCB0
+ * XREFs of HUBMISC_ValidateAndCacheMSOSExtendedPropertyDescriptor @ 0x1C002F610
  * Callers:
- *     HUBDSM_ValidatingMSOSExtendedPropertyDescriptor @ 0x1C0022600 (HUBDSM_ValidatingMSOSExtendedPropertyDescriptor.c)
+ *     HUBDSM_ValidatingMSOSExtendedPropertyDescriptor @ 0x1C00221B0 (HUBDSM_ValidatingMSOSExtendedPropertyDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall HUBMISC_ValidateAndCacheMSOSExtendedPropertyDescriptor(unsigned int *a1)
@@ -128,7 +128,7 @@ LABEL_29:
     v6 = *((_QWORD *)a1 + 1);
     v7 = 70;
   }
-  WPP_RECORDER_SF_(*(_QWORD *)(v6 + 1432), 2u, 5u, v7, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+  WPP_RECORDER_SF_(*(_QWORD *)(v6 + 1432), 2u, 5u, v7, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
 LABEL_31:
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
     McTemplateK0p_EtwWriteTransfer(

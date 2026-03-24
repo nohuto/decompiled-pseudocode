@@ -1,77 +1,69 @@
 /*
- * XREFs of CmpPublishEventForPcaResolver @ 0x140A12BC8
+ * XREFs of CmpPublishEventForPcaResolver @ 0x14086AB7C
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
  */
 
-char __fastcall CmpPublishEventForPcaResolver(__int64 a1, unsigned __int16 *a2)
+void __fastcall CmpPublishEventForPcaResolver(__int64 a1, unsigned __int16 *a2)
 {
-  _UNKNOWN **v2; // rax
-  char v4; // bl
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  _DWORD *v6; // r9
+  int v7; // ebx
   _KPROCESS *CurrentThreadProcess; // rax
-  int v7; // r8d
-  unsigned __int16 *v8; // rdx
-  __int64 v9; // rax
-  int v10; // ecx
-  __int16 v12; // [rsp+38h] [rbp-39h] BYREF
-  __int16 v13; // [rsp+3Ch] [rbp-35h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v14[3]; // [rsp+40h] [rbp-31h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp+7h] BYREF
-  __int64 v16; // [rsp+88h] [rbp+17h]
-  int v17; // [rsp+90h] [rbp+1Fh]
-  int v18; // [rsp+94h] [rbp+23h]
-  __int16 *v19; // [rsp+98h] [rbp+27h]
-  int v20; // [rsp+A0h] [rbp+2Fh]
-  int v21; // [rsp+A4h] [rbp+33h]
-  __int64 v22; // [rsp+A8h] [rbp+37h]
-  int v23; // [rsp+B0h] [rbp+3Fh]
-  int v24; // [rsp+B4h] [rbp+43h]
-  _UNKNOWN *retaddr; // [rsp+D0h] [rbp+5Fh] BYREF
+  int v9; // r8d
+  unsigned __int16 *v10; // rdx
+  __int64 v11; // rax
+  int v12; // ecx
+  __int16 v13; // [rsp+34h] [rbp-35h] BYREF
+  __int16 v14; // [rsp+38h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v15[3]; // [rsp+40h] [rbp-29h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v17; // [rsp+80h] [rbp+17h]
+  int v18; // [rsp+88h] [rbp+1Fh]
+  int v19; // [rsp+8Ch] [rbp+23h]
+  __int16 *v20; // [rsp+90h] [rbp+27h]
+  int v21; // [rsp+98h] [rbp+2Fh]
+  int v22; // [rsp+9Ch] [rbp+33h]
+  __int64 v23; // [rsp+A0h] [rbp+37h]
+  int v24; // [rsp+A8h] [rbp+3Fh]
+  int v25; // [rsp+ACh] [rbp+43h]
 
-  v2 = &retaddr;
-  v4 = 0;
-  memset(v14, 0, sizeof(v14));
-  if ( EtwAppCompatProvRegHandle )
+  memset(v15, 0, sizeof(v15));
+  if ( EtwAppCompatProvRegHandle && EtwEventEnabled(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED) )
   {
-    LOBYTE(v2) = EtwEventEnabled(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED);
-    if ( (_BYTE)v2 )
-    {
-      if ( (*(_DWORD *)(a1 + 160) & 1) == 0 )
-      {
-        CmpAttachToRegistryProcess(v14);
-        v4 = 1;
-      }
-      CurrentThreadProcess = PsGetCurrentThreadProcess();
-      v7 = *a2;
-      v8 = (unsigned __int16 *)CurrentThreadProcess[1].ActiveProcessors.StaticBitmap[2];
-      LOWORD(CurrentThreadProcess) = *v8;
-      UserData.Reserved = 0;
-      v12 = (unsigned __int16)CurrentThreadProcess >> 1;
-      v13 = (unsigned __int16)v7 >> 1;
-      UserData.Ptr = (ULONGLONG)&v12;
-      UserData.Size = 2;
-      v9 = *((_QWORD *)v8 + 1);
-      v10 = *v8;
-      v18 = 0;
-      v21 = 0;
-      v24 = 0;
-      v16 = v9;
-      v19 = &v13;
-      v22 = *((_QWORD *)a2 + 1);
-      v17 = v10;
-      v20 = 2;
-      v23 = v7;
-      LOBYTE(v2) = EtwWrite(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED, 0LL, 4u, &UserData);
-      if ( v4 )
-        LOBYTE(v2) = CmpDetachFromRegistryProcess(v14);
-    }
+    v7 = *(_DWORD *)(a1 + 160) & 1;
+    if ( !v7 )
+      CmpAttachToRegistryProcess((__int64)v15, v4, v5, v6);
+    CurrentThreadProcess = PsGetCurrentThreadProcess();
+    v9 = *a2;
+    v10 = (unsigned __int16 *)CurrentThreadProcess[1].ActiveProcessors.Bitmap[2];
+    LOWORD(CurrentThreadProcess) = *v10;
+    UserData.Reserved = 0;
+    v13 = (unsigned __int16)CurrentThreadProcess >> 1;
+    v14 = (unsigned __int16)v9 >> 1;
+    UserData.Ptr = (ULONGLONG)&v13;
+    UserData.Size = 2;
+    v11 = *((_QWORD *)v10 + 1);
+    v12 = *v10;
+    v19 = 0;
+    v22 = 0;
+    v25 = 0;
+    v17 = v11;
+    v20 = &v14;
+    v23 = *((_QWORD *)a2 + 1);
+    v18 = v12;
+    v21 = 2;
+    v24 = v9;
+    EtwWrite(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED, 0LL, 4u, &UserData);
+    if ( (unsigned __int8)v7 != 1 )
+      KiUnstackDetachProcess((__int64)v15, 0);
   }
-  return (char)v2;
 }

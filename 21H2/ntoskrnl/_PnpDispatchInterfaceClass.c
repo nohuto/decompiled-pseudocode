@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpDispatchInterfaceClass @ 0x140787620
+ * XREFs of _PnpDispatchInterfaceClass @ 0x14063B450
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x1402E02F0 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmCreateInterfaceClass @ 0x14076A9A0 (_CmCreateInterfaceClass.c)
- *     _CmValidateInstallerClassName @ 0x1407871A0 (_CmValidateInstallerClassName.c)
- *     _CmGetInterfaceClassMappedProperty @ 0x140787730 (_CmGetInterfaceClassMappedProperty.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140787DE8 (_CmOpenInterfaceClassRegKey.c)
- *     _CmGetMatchingCommonClassList @ 0x14083E1A0 (_CmGetMatchingCommonClassList.c)
- *     _CmDeleteInterfaceClass @ 0x140A24FF8 (_CmDeleteInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x140A2BE80 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmGetInterfaceClassMappedPropertyLocales @ 0x140A2C000 (_CmGetInterfaceClassMappedPropertyLocales.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x140A2CC38 (_CmSetInterfaceClassMappedProperty.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x1402653E0 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x14063B1B4 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmValidateInstallerClassName @ 0x140645BCC (_CmValidateInstallerClassName.c)
+ *     _CmCreateInterfaceClass @ 0x14074BB54 (_CmCreateInterfaceClass.c)
+ *     _CmGetMatchingCommonClassList @ 0x1407B073C (_CmGetMatchingCommonClassList.c)
+ *     _CmDeleteInterfaceClass @ 0x140975558 (_CmDeleteInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14097B488 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x14097B69C (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BDE0 (_CmSetInterfaceClassMappedProperty.c)
  */
 
-__int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r8
   __int128 *v6; // rbx
   int v7; // r9d
-  int v8; // r9d
+  __int64 v8; // r9
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
@@ -36,8 +36,8 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int6
   v7 = a4 - 1;
   if ( v7 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v8 = (unsigned int)(v7 - 1);
+    if ( (_DWORD)v8 )
     {
       v9 = v8 - 1;
       if ( v9 )
@@ -60,10 +60,11 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int6
                   if ( v14 == 1 )
                     InterfaceClassMappedProperty = CmSetInterfaceClassMappedProperty(
                                                      a1,
-                                                     *((_QWORD *)a5 + 2),
-                                                     a5[6],
-                                                     *((_QWORD *)a5 + 4),
-                                                     a5[10]);
+                                                     a2,
+                                                     *(_QWORD *)(a5 + 16),
+                                                     *(_DWORD *)(a5 + 24),
+                                                     *(_QWORD *)(a5 + 32),
+                                                     *(_DWORD *)(a5 + 40));
                   else
                     InterfaceClassMappedProperty = -1073741811;
                 }
@@ -71,38 +72,38 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int6
                 {
                   InterfaceClassMappedProperty = CmGetInterfaceClassMappedProperty(
                                                    a1,
-                                                   (_DWORD)a2,
+                                                   a2,
                                                    *(_QWORD *)a5,
-                                                   *((_QWORD *)a5 + 1),
-                                                   *((_QWORD *)a5 + 2),
-                                                   *((_QWORD *)a5 + 3),
-                                                   *((_QWORD *)a5 + 4),
-                                                   a5[10],
-                                                   *((_QWORD *)a5 + 6));
+                                                   *(_QWORD *)(a5 + 8),
+                                                   *(_QWORD *)(a5 + 16),
+                                                   *(_QWORD *)(a5 + 24),
+                                                   *(_QWORD *)(a5 + 32),
+                                                   *(_DWORD *)(a5 + 40),
+                                                   *(_DWORD **)(a5 + 48));
                 }
               }
               else
               {
                 InterfaceClassMappedProperty = CmGetInterfaceClassMappedPropertyLocales(
                                                  a1,
-                                                 (_DWORD)a2,
+                                                 a2,
                                                  0,
-                                                 *((_QWORD *)a5 + 1),
-                                                 *((_QWORD *)a5 + 2),
-                                                 a5[6],
-                                                 *((_QWORD *)a5 + 4));
+                                                 *(_QWORD *)(a5 + 8),
+                                                 *(_QWORD *)(a5 + 16),
+                                                 *(_DWORD *)(a5 + 24),
+                                                 *(_QWORD *)(a5 + 32));
               }
             }
             else
             {
               InterfaceClassMappedProperty = CmGetInterfaceClassMappedPropertyKeys(
                                                a1,
-                                               (_DWORD)a2,
+                                               a2,
                                                *(_QWORD *)a5,
                                                0,
-                                               *((_QWORD *)a5 + 3),
-                                               a5[8],
-                                               *((_QWORD *)a5 + 5));
+                                               *(_QWORD *)(a5 + 24),
+                                               *(_DWORD *)(a5 + 32),
+                                               *(_QWORD *)(a5 + 40));
             }
           }
           else
@@ -112,51 +113,51 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int6
               *(_QWORD *)&v17 = *(_QWORD *)a5;
               v5 = PnpCmMatchCallbackRoutine;
               v6 = &v17;
-              *((_QWORD *)&v17 + 1) = *((_QWORD *)a5 + 1);
+              *((_QWORD *)&v17 + 1) = *(_QWORD *)(a5 + 8);
             }
             InterfaceClassMappedProperty = CmGetMatchingCommonClassList(
                                              a1,
                                              4,
                                              (_DWORD)v5,
                                              (_DWORD)v6,
-                                             *((_QWORD *)a5 + 2),
-                                             a5[6],
-                                             *((_QWORD *)a5 + 4),
-                                             a5[10] & 0xFFFF0000);
+                                             *(_QWORD *)(a5 + 16),
+                                             *(_DWORD *)(a5 + 24),
+                                             *(_QWORD *)(a5 + 32),
+                                             *(_DWORD *)(a5 + 40) & 0xFFFF0000);
           }
         }
         else
         {
-          InterfaceClassMappedProperty = CmDeleteInterfaceClass(a1, a2, *a5 & 0xFFFF0000);
+          InterfaceClassMappedProperty = CmDeleteInterfaceClass(a1, a2, *(_DWORD *)a5 & 0xFFFF0000);
         }
       }
       else
       {
         InterfaceClassMappedProperty = CmCreateInterfaceClass(
                                          a1,
-                                         (__int64)a2,
-                                         *a5,
-                                         (HANDLE *)a5 + 1,
-                                         (_BYTE *)a5 + 16,
-                                         a5[5] & 0xFFFF0000);
+                                         a2,
+                                         *(_DWORD *)a5,
+                                         (int)a5 + 8,
+                                         a5 + 16,
+                                         *(_DWORD *)(a5 + 20) & 0xFFFF0000);
       }
     }
     else
     {
       InterfaceClassMappedProperty = CmOpenInterfaceClassRegKey(
                                        a1,
-                                       (_DWORD)a2,
-                                       0,
-                                       0,
-                                       *a5,
-                                       *((_BYTE *)a5 + 4),
-                                       *((_QWORD *)a5 + 1),
-                                       (__int64)(a5 + 4));
+                                       a2,
+                                       0LL,
+                                       v8,
+                                       *(_DWORD *)a5,
+                                       *(_BYTE *)(a5 + 4),
+                                       *(_QWORD *)(a5 + 8),
+                                       a5 + 16);
     }
   }
   else
   {
-    InterfaceClassMappedProperty = CmValidateInstallerClassName(a1, a2);
+    InterfaceClassMappedProperty = CmValidateInstallerClassName();
   }
   return PnpMapCmStatusToDispatchStatus(InterfaceClassMappedProperty);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpSelectFirstConfiguration @ 0x140818AEC
+ * XREFs of PnpSelectFirstConfiguration @ 0x14075219C
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x1408182F8 (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x140751F2C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     IopAddRemoveReqDescs @ 0x14081AD78 (IopAddRemoveReqDescs.c)
+ *     IopAddRemoveReqDescs @ 0x140752230 (IopAddRemoveReqDescs.c)
  */
 
 __int64 __fastcall PnpSelectFirstConfiguration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

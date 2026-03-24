@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CInputManager@@IEAA@PEAVCComposition@@@Z @ 0x1800AF2EC
+ * XREFs of ??0CInputManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B4DD4
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AEC50 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B46F0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -34,18 +34,16 @@ CInputManager *__fastcall CInputManager::CInputManager(CInputManager *this, stru
   *((_DWORD *)this + 46) = 0;
   *((_QWORD *)this + 24) = 0LL;
   *((_QWORD *)this + 25) = 0LL;
-  *((_BYTE *)this + 208) = 0;
+  *((_QWORD *)this + 26) = 0LL;
   *((_QWORD *)this + 27) = 0LL;
   *((_QWORD *)this + 28) = 0LL;
-  *((_QWORD *)this + 29) = 0LL;
+  *((_QWORD *)this + 30) = 0LL;
+  *((_DWORD *)this + 58) = 0;
+  *((_DWORD *)this + 62) = 0;
   *((_QWORD *)this + 32) = 0LL;
   *((_QWORD *)this + 34) = 0LL;
   *((_DWORD *)this + 66) = 0;
   *((_DWORD *)this + 70) = 0;
-  *((_QWORD *)this + 36) = 0LL;
-  *((_QWORD *)this + 38) = 0LL;
-  *((_DWORD *)this + 74) = 0;
-  *((_DWORD *)this + 78) = 0;
   CInputManager::s_pInputManager = this;
   return result;
 }

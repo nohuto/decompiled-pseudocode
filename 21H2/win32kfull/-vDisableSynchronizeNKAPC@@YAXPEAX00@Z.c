@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C029D590
+ * XREFs of ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C029ECB0
  * Callers:
  *     <none>
  * Callees:
- *     ?vDisableTimers@@YAXK@Z @ 0x1C0113640 (-vDisableTimers@@YAXK@Z.c)
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C0127FB0 (-vDisableTimers@@YAXK@Z.c)
  */
 
 void __fastcall vDisableSynchronizeNKAPC(void *a1, void *a2, void *a3)

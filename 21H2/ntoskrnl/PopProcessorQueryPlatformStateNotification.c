@@ -1,10 +1,10 @@
 /*
- * XREFs of PopProcessorQueryPlatformStateNotification @ 0x1405CF320
+ * XREFs of PopProcessorQueryPlatformStateNotification @ 0x14056E440
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopTranslateDependencyArray @ 0x1405CF3DC (PopTranslateDependencyArray.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopTranslateDependencyArray @ 0x14056E4FC (PopTranslateDependencyArray.c)
  */
 
 __int64 __fastcall PopProcessorQueryPlatformStateNotification(__int64 a1, ULONG_PTR a2, char a3)

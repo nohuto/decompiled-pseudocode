@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDmaGuardDevicePolicy @ 0x140845E14
+ * XREFs of PnpTraceDmaGuardDevicePolicy @ 0x140771934
  * Callers:
- *     PipDmgSaveDeviceDmarPolicy @ 0x140845D74 (PipDmgSaveDeviceDmarPolicy.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x140771854 (PipDmgSaveDeviceDmarPolicy.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1402A1A20 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
@@ -29,9 +29,9 @@ void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
   __int64 *v18; // [rsp+B0h] [rbp+37h]
   __int64 v19; // [rsp+B8h] [rbp+3Fh]
 
-  if ( a2 && (unsigned int)dword_140C06550 > 5 )
+  if ( a2 && (unsigned int)dword_140C02E00 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C06550, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
     {
       v6 = v3;
       v10 = &v7;
@@ -45,9 +45,9 @@ void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
       v13 = 2LL;
       v15[1] = v5;
       v17 = 4LL;
-      v8 = 2048LL;
+      v8 = 0x1000000LL;
       v19 = 8LL;
-      tlgWriteAgg((__int64)&dword_140C06550, (unsigned __int8 *)&word_14002BF62, v2, v5 + 7, &v9);
+      tlgWriteAgg((__int64)&dword_140C02E00, (unsigned __int8 *)&byte_140025309, v2, v5 + 7, &v9);
     }
   }
 }

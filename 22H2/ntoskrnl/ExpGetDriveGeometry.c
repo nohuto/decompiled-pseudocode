@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpGetDriveGeometry @ 0x1409FCAF0
+ * XREFs of ExpGetDriveGeometry @ 0x1409506AC
  * Callers:
- *     ExpTranslateEfiPath @ 0x1408402B0 (ExpTranslateEfiPath.c)
- *     ExpCreateOutputEFI @ 0x1409FC048 (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputEFI @ 0x14094FAEC (ExpCreateOutputEFI.c)
+ *     ExpTranslateEfiPath @ 0x14095228C (ExpTranslateEfiPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetDriveGeometry(unsigned int a1, _DWORD *a2)
 {
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   WCHAR *v5; // rdi
   NTSTATUS v6; // ebx
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp+7h] BYREF
@@ -23,15 +23,15 @@ __int64 __fastcall ExpGetDriveGeometry(unsigned int a1, _DWORD *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+27h] BYREF
   HANDLE FileHandle; // [rsp+C8h] [rbp+77h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
-  Pool2 = (wchar_t *)ExAllocatePool2(64LL, 76LL, 1920364101LL);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x4CuLL, 0x72766E45u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    swprintf_s(Pool2, 0x26uLL, L"\\Device\\Harddisk%lu\\Partition0", a1);
+    swprintf_s(PoolWithTag, 0x26uLL, L"\\Device\\Harddisk%lu\\Partition0", a1);
     RtlInitUnicodeString(&DestinationString, v5);
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = &DestinationString;

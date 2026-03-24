@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapExtendStorage @ 0x1406CC5C0
+ * XREFs of HvpViewMapExtendStorage @ 0x1406CC5A0
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     CmSiExtendSection @ 0x140139950 (CmSiExtendSection.c)
+ *     CmSiExtendSection @ 0x140139970 (CmSiExtendSection.c)
  *     HvpViewMapCreateViewsForRegion @ 0x1405A524C (HvpViewMapCreateViewsForRegion.c)
  *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
  *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)

@@ -1,110 +1,118 @@
 /*
- * XREFs of xxxDesktopThreadWaiter @ 0x1C006A140
+ * XREFs of xxxDesktopThreadWaiter @ 0x1C00D9CA4
  * Callers:
- *     xxxDesktopThread @ 0x1C0069C00 (xxxDesktopThread.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxDesktopThread @ 0x1C00D9400 (xxxDesktopThread.c)
  * Callees:
- *     ?ClearQueueServerEvent@@YAXG@Z @ 0x1C006A2D4 (-ClearQueueServerEvent@@YAXG@Z.c)
- *     zzzWakeInputIdle @ 0x1C006A310 (zzzWakeInputIdle.c)
- *     xxxRemoveQueueCompletion @ 0x1C006A534 (xxxRemoveQueueCompletion.c)
- *     SleepInputIdle @ 0x1C006A604 (SleepInputIdle.c)
- *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C00AFCF8 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z @ 0x1C012A800 (-xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z.c)
- *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C0138B94 (--0LeaveEnterCrit@@QEAA@XZ.c)
- *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0138BBC (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C0038EA8 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
+ *     xxxUpdateInputHangInfo @ 0x1C0057A70 (xxxUpdateInputHangInfo.c)
+ *     IsMulDestroyBrushInternalSupported @ 0x1C0058F50 (IsMulDestroyBrushInternalSupported.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     SleepInputIdle @ 0x1C00D9E90 (SleepInputIdle.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00D9F1C (xxxRemoveQueueCompletion.c)
+ *     zzzWakeInputIdle @ 0x1C00DA024 (zzzWakeInputIdle.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C01363D8 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0136400 (--1LeaveEnterCrit@@QEAA@XZ.c)
  */
 
-__int64 __fastcall xxxDesktopThreadWaiter(char a1, unsigned __int8 a2)
+__int64 __fastcall xxxDesktopThreadWaiter(char a1, char a2)
 {
-  LegacyInputDispatcher *v4; // r15
-  int v5; // r14d
-  char v6; // r12
-  __int64 v7; // rcx
-  int v8; // eax
+  LegacyInputDispatcher *v4; // r14
+  int v5; // esi
+  char v6; // r15
+  int v7; // eax
+  LeaveEnterCrit *v8; // rcx
   bool v9; // al
   __int64 result; // rax
-  __int64 v11; // rax
-  char v12; // [rsp+70h] [rbp+8h] BYREF
-  int v13; // [rsp+80h] [rbp+18h] BYREF
-  int v14; // [rsp+84h] [rbp+1Ch]
+  char v11; // [rsp+80h] [rbp+8h] BYREF
+  int v12; // [rsp+90h] [rbp+18h] BYREF
+  int v13; // [rsp+94h] [rbp+1Ch]
 
-  v4 = (LegacyInputDispatcher *)qword_1C035E1A8;
+  v4 = (LegacyInputDispatcher *)qword_1C0339F10;
   if ( gptiCurrent == gTermIO[2] )
-    v4 = (LegacyInputDispatcher *)qword_1C035E1A0;
+    v4 = (LegacyInputDispatcher *)qword_1C0339F18;
   v5 = *((_DWORD *)v4 + 15);
   v6 = 0;
   if ( a1 )
-    ClearQueueServerEvent(0x3CFFu);
-  if ( a1 )
   {
-    if ( (*(_DWORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL) & 0x1CFF) != 0 )
-      goto LABEL_20;
-    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x400) == 0
-      || (result = CheckProcessForeground(gptiCurrent), (int)result >= 0) )
-    {
-      *(_QWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 8LL) = 0LL;
-      if ( gptiCurrent == gptiForeground
-        && ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x1000) != 0 )
-      {
-        xxxCallHook(0, 0LL, 0LL, 11);
-      }
-      xxxUpdateInputHangInfo(0LL, 0LL);
-      zzzWakeInputIdle(gptiCurrent);
-      goto LABEL_10;
-    }
-    return result;
+    *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 10LL) = 15615;
+    KeClearEvent(*(PRKEVENT *)(gptiCurrent + 736LL));
   }
-  do
+  if ( !a1 )
   {
+    IsMulDestroyBrushInternalSupported();
+    goto LABEL_10;
+  }
+  if ( (*(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL) & 0x1CFF) == 0 )
+  {
+    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x400) != 0 )
+    {
+      result = CheckProcessForeground(gptiCurrent);
+      if ( (int)result < 0 )
+        return result;
+    }
+    *(_QWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 8LL) = 0LL;
+    if ( gptiCurrent == gptiForeground
+      && ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x1000) != 0 )
+    {
+      xxxCallHook(0, 0LL, 0LL, 11);
+    }
+    xxxUpdateInputHangInfo(0LL, 0);
+    zzzWakeInputIdle(gptiCurrent);
     while ( 1 )
     {
 LABEL_10:
-      LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)&v12);
-      if ( a1 || gDWMCapable )
+      if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)&v11);
+      if ( a1 )
       {
-        v8 = LegacyInputDispatcher::WaitAndDispatch(v4);
+        v7 = LegacyInputDispatcher::WaitAndDispatch(v4);
       }
       else
       {
-        v13 = 0;
-        v14 = 768;
-        v11 = SGDGetUserSessionState(v7);
-        v5 = CBaseInput::PopulateDispatcherObjectWithCustomInputEvents(
-               *(CBaseInput **)(v11 + 3272),
-               (struct CEventBitmap *)&v13,
-               v4);
+        v12 = 0;
+        v13 = 1536;
+        v5 = CBaseInput::PopulateDispatcherObjectWithCustomInputEvents(gpMouseSensor, (struct CEventBitmap *)&v12, v4);
         if ( v5 < 0 )
-          goto LABEL_13;
-        v8 = LegacyInputDispatcher::WaitForMessagesOrCustomInputEventsAndDispatch(v4);
+          goto LABEL_14;
+        v7 = LegacyInputDispatcher::WaitForMessagesOrCustomInputEventsAndDispatch(v4);
       }
-      v5 = v8;
-LABEL_13:
-      LeaveEnterCrit::~LeaveEnterCrit((LeaveEnterCrit *)&v12);
+      v5 = v7;
+LABEL_14:
+      LeaveEnterCrit::~LeaveEnterCrit(v8);
       if ( v5 != *((_DWORD *)v4 + 15) )
-        break;
+        goto LABEL_36;
       v9 = (unsigned int)xxxRemoveQueueCompletion() != 0;
       if ( a1 )
-        goto LABEL_15;
-      if ( !v9 || (a2 & *(_BYTE *)(*(_QWORD *)(gptiCurrent + 448LL) + 8LL) & 8) != 0 )
-        break;
-      v6 = 1;
+      {
+LABEL_16:
+        if ( !v6 )
+        {
+          if ( a1 )
+            xxxUpdateInputHangInfo(0LL, 1);
+          if ( v5 == *((_DWORD *)v4 + 15) )
+          {
+            SleepInputIdle(gptiCurrent);
+            v5 = a1 != 0 ? v5 : 0;
+          }
+          break;
+        }
+      }
+      else
+      {
+        if ( !v9 || (*(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) & 8) != 0 && (a2 & 8) != 0 )
+        {
+LABEL_36:
+          v6 = 0;
+          goto LABEL_16;
+        }
+        v6 = 1;
+      }
     }
-    v6 = 0;
-LABEL_15:
-    ;
   }
-  while ( v6 );
   if ( a1 )
-    xxxUpdateInputHangInfo(0LL, 1LL);
-  if ( v5 == *((_DWORD *)v4 + 15) )
-  {
-    SleepInputIdle(gptiCurrent);
-    v5 = a1 != 0 ? v5 : 0;
-  }
-LABEL_20:
-  if ( a1 )
-    _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 16LL), 0);
+    *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 10LL) = 0;
   return (unsigned int)v5;
 }

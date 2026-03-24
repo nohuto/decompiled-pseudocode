@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiInitializeWin8 @ 0x1C0020BF0
+ * XREFs of DpiInitializeWin8 @ 0x1C0023B00
  * Callers:
  *     <none>
  * Callees:
- *     DpiInitializeInternal @ 0x1C0020C08 (DpiInitializeInternal.c)
+ *     DpiInitializeInternal @ 0x1C0023BB8 (DpiInitializeInternal.c)
  */
 
 __int64 __fastcall DpiInitializeWin8(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

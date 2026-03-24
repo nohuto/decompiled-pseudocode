@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01E7590
+ * XREFs of ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01AE238
  * Callers:
- *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01E74A4 (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01AE14C (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
  * Callees:
- *     LongLongToLong @ 0x1C003C44C (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C007FFEC (LongLongToLong.c)
  */
 
 __int64 __fastcall GetAdjustedHimetricLong(int a1, int a2, int a3, int *a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PsRemoveVirtualizedTimer @ 0x140360B10
+ * XREFs of PsRemoveVirtualizedTimer @ 0x1402F1444
  * Callers:
- *     ExpDeleteTimer @ 0x140360A70 (ExpDeleteTimer.c)
+ *     ExpDeleteTimer @ 0x14025FA00 (ExpDeleteTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-LONG_PTR __fastcall PsRemoveVirtualizedTimer(PVOID *a1, _QWORD *a2, volatile signed __int64 *a3, unsigned __int8 a4)
+LONG_PTR __fastcall PsRemoveVirtualizedTimer(PVOID *a1, _QWORD *a2, KSPIN_LOCK *a3, unsigned __int8 a4)
 {
   KSPIN_LOCK *v4; // rbp
   unsigned __int64 v7; // rsi
@@ -27,7 +27,7 @@ LONG_PTR __fastcall PsRemoveVirtualizedTimer(PVOID *a1, _QWORD *a2, volatile sig
   ObfReferenceObjectWithTag(*a1, 0x54567350u);
   KxReleaseSpinLock(a3);
   KxAcquireSpinLock(v4 + 305);
-  KxAcquireSpinLock((PKSPIN_LOCK)a3);
+  KxAcquireSpinLock(a3);
   if ( *a1 )
   {
     v9 = *a2;
@@ -39,19 +39,22 @@ LONG_PTR __fastcall PsRemoveVirtualizedTimer(PVOID *a1, _QWORD *a2, volatile sig
     ObfDereferenceObjectWithTag(v4, 0x54567350u);
   }
   KxReleaseSpinLock(a3);
-  KxReleaseSpinLock((volatile signed __int64 *)v4 + 305);
+  KxReleaseSpinLock(v4 + 305);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

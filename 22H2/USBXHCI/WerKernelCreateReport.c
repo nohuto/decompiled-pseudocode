@@ -1,10 +1,10 @@
 /*
- * XREFs of WerKernelCreateReport @ 0x1C0053D44
+ * XREFs of WerKernelCreateReport @ 0x1C0050F80
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C007AF98 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
- *     CheckSpaceAvailable @ 0x1C0053B40 (CheckSpaceAvailable.c)
- *     WerpCreateRegistryKey @ 0x1C00548D4 (WerpCreateRegistryKey.c)
+ *     CheckSpaceAvailable @ 0x1C0050D60 (CheckSpaceAvailable.c)
+ *     WerpCreateRegistryKey @ 0x1C0051B38 (WerpCreateRegistryKey.c)
  */
 
 __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)
@@ -37,7 +37,7 @@ __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)
   while ( *(_WORD *)(a1 + 2 * v7) );
   if ( v7 >= 0x10 )
   {
-    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Key key length exceeded\n", 573LL);
+    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Key key length exceeded\n", 575LL);
     return 3221225485LL;
   }
   do
@@ -45,7 +45,7 @@ __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)
   while ( *(_WORD *)(a2 + 2 * v6) );
   if ( v6 >= 0x28 )
   {
-    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Key id length exceeded\n", 581LL);
+    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Key id length exceeded\n", 583LL);
     return 3221225485LL;
   }
   RegistryKey = WerpCreateRegistryKey(
@@ -58,7 +58,7 @@ __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)
   v10 = RegistryKey;
   if ( RegistryKey < 0 )
   {
-    v11 = 599LL;
+    v11 = 601LL;
     v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwCreateKey failed with scode 0x%x for the root\n";
 LABEL_14:
     LODWORD(v14) = RegistryKey;
@@ -69,7 +69,7 @@ LABEL_14:
   v10 = RegistryKey;
   if ( RegistryKey < 0 )
   {
-    v11 = 616LL;
+    v11 = 618LL;
 LABEL_18:
     v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwCreateKey failed with scode 0x%x for the report type\n";
     goto LABEL_14;
@@ -80,7 +80,7 @@ LABEL_18:
     v10 = RegistryKey;
     if ( RegistryKey < 0 )
     {
-      v11 = 644LL;
+      v11 = 646LL;
       v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwCreateKey failed with scode 0x%x for the report id\n";
       goto LABEL_14;
     }
@@ -91,7 +91,7 @@ LABEL_18:
       v10 = RegistryKey;
       if ( RegistryKey < 0 )
       {
-        v11 = 672LL;
+        v11 = 674LL;
         goto LABEL_18;
       }
       ZwFlushKey(KeyHandle);
@@ -100,13 +100,13 @@ LABEL_18:
     else
     {
       v10 = -1073741771;
-      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Report id %S already exists\n", 654LL, a2);
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Report id %S already exists\n", 656LL, a2);
     }
   }
   else
   {
     v10 = -1073741671;
-    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR CheckSpaceAvailable returned no more space available\n", 626);
+    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR CheckSpaceAvailable returned no more space available\n", 628);
   }
 LABEL_28:
   if ( Handle )

@@ -1,20 +1,47 @@
 /*
- * XREFs of MiMappingHasIoTracker @ 0x140335C44
+ * XREFs of MiMappingHasIoTracker @ 0x14029D1D0
  * Callers:
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     MmProtectMdlSystemAddress @ 0x14061EE40 (MmProtectMdlSystemAddress.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     MmProtectMdlSystemAddress @ 0x1405320F0 (MmProtectMdlSystemAddress.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
-unsigned __int64 __fastcall MiMappingHasIoTracker(unsigned __int64 a1)
+__int64 __fastcall MiMappingHasIoTracker(unsigned __int64 a1)
 {
-  unsigned __int64 v1; // rbx
-  int i; // eax
+  unsigned __int64 v1; // rdi
+  int v2; // eax
+  __int64 v3; // rdx
+  bool i; // zf
+  unsigned __int64 v5; // rbx
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rax
 
   v1 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  for ( i = MI_IS_PHYSICAL_ADDRESS(a1); i; --i )
+  v2 = MI_IS_PHYSICAL_ADDRESS(a1);
+  for ( i = v2 == 0; !i; i = v2-- == 1 )
     v1 = ((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  return ((unsigned __int64)MI_READ_PTE_LOCK_FREE(v1) >> 9) & 1;
+  v5 = *(_QWORD *)v1;
+  if ( (unsigned int)MiPteInShadowRange(v1, v3)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v5 & 1) != 0
+    && ((v5 & 0x20) == 0 || (v5 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v8 = v5 | 0x20;
+      v9 = *((_QWORD *)&Flink->Flink + ((v1 >> 3) & 0x1FF));
+      if ( (v9 & 0x20) == 0 )
+        v8 = v5;
+      v5 = v8;
+      if ( (v9 & 0x42) != 0 )
+        v5 = v8 | 0x42;
+    }
+  }
+  return (v5 >> 9) & 1;
 }

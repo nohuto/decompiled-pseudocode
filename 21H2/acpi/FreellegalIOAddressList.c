@@ -1,7 +1,7 @@
 /*
- * XREFs of FreellegalIOAddressList @ 0x1C00C0988
+ * XREFs of FreellegalIOAddressList @ 0x1C00C08F4
  * Callers:
- *     InitIllegalIOAddressListFromHAL @ 0x1C00BF108 (InitIllegalIOAddressListFromHAL.c)
+ *     InitIllegalIOAddressListFromHAL @ 0x1C00BDA5C (InitIllegalIOAddressListFromHAL.c)
  * Callees:
  *     <none>
  */

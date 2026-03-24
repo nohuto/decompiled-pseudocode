@@ -1,7 +1,7 @@
 /*
  * XREFs of MmProtectVirtualMemory @ 0x1405EDFD0
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
  *     NtProtectVirtualMemory @ 0x1405EDD70 (NtProtectVirtualMemory.c)
  * Callees:
@@ -18,9 +18,9 @@
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
  *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiAllowProtectionChange @ 0x1400F15C8 (MiAllowProtectionChange.c)
- *     MiProtectAweRegion @ 0x1402B14BC (MiProtectAweRegion.c)
- *     MiProtectEnclavePages @ 0x1402BE020 (MiProtectEnclavePages.c)
+ *     MiAllowProtectionChange @ 0x1400F15E8 (MiAllowProtectionChange.c)
+ *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
+ *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
  *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
  */

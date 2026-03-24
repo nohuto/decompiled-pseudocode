@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qDDDDsdisd @ 0x1C008D4F8
+ * XREFs of WPP_IFR_SF_qDDDDsdisd @ 0x1C008A0DC
  * Callers:
- *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C0012C10 (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C0017424 (-Connect@FxInterrupt@@QEAAJK@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qDDDDsdisd(

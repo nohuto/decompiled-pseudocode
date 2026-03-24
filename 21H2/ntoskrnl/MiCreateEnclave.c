@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateEnclave @ 0x140979918
+ * XREFs of MiCreateEnclave @ 0x1408D27DC
  * Callers:
- *     NtCreateEnclave @ 0x14097AD20 (NtCreateEnclave.c)
+ *     NtCreateEnclave @ 0x1408D3D20 (NtCreateEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     MiDeleteVad @ 0x1407BC0B0 (MiDeleteVad.c)
- *     MiAllocateEnclaveVad @ 0x140978F40 (MiAllocateEnclaveVad.c)
- *     MiCreateHardwareEnclave @ 0x140979A34 (MiCreateHardwareEnclave.c)
- *     MiCreateVsmEnclave @ 0x140979D48 (MiCreateVsmEnclave.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
+ *     MiCreateHardwareEnclave @ 0x1408D28D0 (MiCreateHardwareEnclave.c)
+ *     MiCreateVsmEnclave @ 0x1408D2BAC (MiCreateVsmEnclave.c)
  */
 
 __int64 __fastcall MiCreateEnclave(
@@ -24,6 +24,7 @@ __int64 __fastcall MiCreateEnclave(
   int EnclaveVad; // eax
   char *v12; // rbx
   int v13; // edi
+  int v14; // edx
   int VsmEnclave; // eax
   PVOID P[3]; // [rsp+30h] [rbp-18h] BYREF
 
@@ -33,31 +34,26 @@ __int64 __fastcall MiCreateEnclave(
   v13 = EnclaveVad;
   if ( EnclaveVad >= 0 )
   {
+    v14 = (int)P[0];
     *a2 = (*((unsigned int *)P[0] + 6) | ((unsigned __int64)*((unsigned __int8 *)P[0] + 32) << 32)) << 12;
     if ( (unsigned int)(a6 - 16) <= 1 )
     {
       *((_QWORD *)v12 + 11) = v12 + 80;
       *((_QWORD *)v12 + 10) = v12 + 80;
-      VsmEnclave = MiCreateVsmEnclave(a1, (_DWORD)v12, a6, a7, a8);
+      VsmEnclave = MiCreateVsmEnclave(a1, v14, a6, a7, a8);
     }
     else
     {
-      if ( a8 != 4096 )
-      {
-        v13 = -1073741811;
-        goto LABEL_8;
-      }
-      VsmEnclave = MiCreateHardwareEnclave(a1, (_DWORD)v12, a5, a7, a9);
+      VsmEnclave = MiCreateHardwareEnclave(a1, v14, a5, a7, a9);
     }
     v13 = VsmEnclave;
   }
-LABEL_8:
   if ( v12 )
   {
     if ( v13 >= 0 )
       MiUnlockAndDereferenceVad(v12);
     else
-      MiDeleteVad((unsigned __int8 *)v12, 0LL, 0);
+      MiDeleteVad(v12, 0LL, 0);
   }
   return (unsigned int)v13;
 }

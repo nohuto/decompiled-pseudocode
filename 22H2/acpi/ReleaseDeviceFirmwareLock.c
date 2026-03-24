@@ -1,11 +1,11 @@
 /*
- * XREFs of ReleaseDeviceFirmwareLock @ 0x1C001BF8C
+ * XREFs of ReleaseDeviceFirmwareLock @ 0x1C00500E4
  * Callers:
- *     AcpiHandleDeviceFirmwareLock @ 0x1C001B680 (AcpiHandleDeviceFirmwareLock.c)
- *     DestroyDeviceFirmwareLock @ 0x1C001BB80 (DestroyDeviceFirmwareLock.c)
+ *     AcpiHandleDeviceFirmwareLock @ 0x1C0030E70 (AcpiHandleDeviceFirmwareLock.c)
+ *     DestroyDeviceFirmwareLock @ 0x1C004FDBC (DestroyDeviceFirmwareLock.c)
  * Callees:
- *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C001BA0C (DereferenceDeviceFirmwareLockHandlerEntry.c)
- *     PerformHandlerInvocation @ 0x1C001BDF0 (PerformHandlerInvocation.c)
+ *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004FC48 (DereferenceDeviceFirmwareLockHandlerEntry.c)
+ *     PerformHandlerInvocation @ 0x1C004FF48 (PerformHandlerInvocation.c)
  */
 
 __int64 __fastcall ReleaseDeviceFirmwareLock(__int64 a1, __int64 a2)

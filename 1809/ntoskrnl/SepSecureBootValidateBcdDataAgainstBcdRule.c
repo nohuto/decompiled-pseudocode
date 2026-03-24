@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1408A36C0
+ * XREFs of SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1408A36A0
  * Callers:
- *     NtFilterBootOption @ 0x1408A2CE0 (NtFilterBootOption.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3564 (SepSecureBootUpdateBcdDataForRule.c)
+ *     NtFilterBootOption @ 0x1408A2CC0 (NtFilterBootOption.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3544 (SepSecureBootUpdateBcdDataForRule.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     SepSecureBootGetQWordPolicyValue @ 0x1408A34D0 (SepSecureBootGetQWordPolicyValue.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     SepSecureBootGetQWordPolicyValue @ 0x1408A34B0 (SepSecureBootGetQWordPolicyValue.c)
  */
 
 __int64 __fastcall SepSecureBootValidateBcdDataAgainstBcdRule(__int64 a1, _BYTE *a2, unsigned int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall SepSecureBootValidateBcdDataAgainstBcdRule(__int64 a1, _BYTE 
   __int64 v10; // rdi
   __int64 v12; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = (_WORD *)(qword_1404E1530 + *(unsigned int *)(a1 + 8));
+  v4 = (_WORD *)(qword_1404E14E8 + *(unsigned int *)(a1 + 8));
   QWordPolicyValue = 0;
   v6 = *v4 & 0x1F;
   if ( v6 != 8 )

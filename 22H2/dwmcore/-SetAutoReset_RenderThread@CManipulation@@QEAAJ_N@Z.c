@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x18020E2C8
+ * XREFs of ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x1801D4778
  * Callers:
- *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x18027506C (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
+ *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x180213940 (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x18020F064 (-_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x1801D53D4 (-_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z.c)
  */
 
 __int64 __fastcall CManipulation::SetAutoReset_RenderThread(CManipulation *this)
@@ -16,27 +16,25 @@ __int64 __fastcall CManipulation::SetAutoReset_RenderThread(CManipulation *this)
   unsigned int v4; // ebx
   int v5; // eax
   __int64 v6; // rcx
-  CManipulation *v8; // [rsp+40h] [rbp-18h] BYREF
-  struct IMessageCallSendHost *v9; // [rsp+70h] [rbp+18h] BYREF
-  unsigned __int64 v10; // [rsp+78h] [rbp+20h] BYREF
+  struct IMessageCallSendHost *v8; // [rsp+70h] [rbp+18h] BYREF
+  unsigned __int64 v9; // [rsp+78h] [rbp+20h] BYREF
 
-  v9 = 0LL;
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v9);
-  RenderToManipulationMsgInfo = CManipulation::_GetRenderToManipulationMsgInfo(this, &v9, &v10);
+  v8 = 0LL;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v8);
+  RenderToManipulationMsgInfo = CManipulation::_GetRenderToManipulationMsgInfo(this, &v8, &v9);
   v4 = RenderToManipulationMsgInfo;
   if ( RenderToManipulationMsgInfo < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, RenderToManipulationMsgInfo, 0x36Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, RenderToManipulationMsgInfo, 0x366u, 0LL);
   }
   else
   {
     (*(void (__fastcall **)(CManipulation *))(*(_QWORD *)this + 8LL))(this);
-    v8 = this;
-    v5 = CoreUICallSend(v9, &v10, 1LL, 12LL, 2, &unk_18033C4AA, &v8);
+    v5 = CoreUICallSend(v8, &v9, 1LL, 10LL, 2, &unk_1802CE774);
     v4 = v5;
     if ( v5 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x375u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x36Fu, 0LL);
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v9);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v8);
   return v4;
 }

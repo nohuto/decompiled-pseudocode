@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedSectionMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00ADB30
+ * XREFs of ?IsOfType@CSharedSectionMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C0096A60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DirectComposition::CSharedSectionMarshaler::IsOfType(__int64 a1, int a2)
 {
-  return (unsigned int)(a2 - 168) <= 1;
+  return (unsigned int)(a2 - 169) <= 1;
 }

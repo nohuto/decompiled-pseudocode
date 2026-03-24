@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeLargePageColorSizes @ 0x1403ADD20
+ * XREFs of MiInitializeLargePageColorSizes @ 0x1403AC330
  * Callers:
- *     MiInitializeCacheSizes @ 0x140B6FF88 (MiInitializeCacheSizes.c)
+ *     MiInitializeCacheSizes @ 0x140A445AC (MiInitializeCacheSizes.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 MiInitializeLargePageColorSizes()
@@ -19,14 +19,14 @@ __int64 MiInitializeLargePageColorSizes()
   __int128 v7; // [rsp+50h] [rbp-28h]
   __int64 v8; // [rsp+60h] [rbp-18h]
 
-  dword_140C65C84 = 17;
+  dword_140C4DF84 = 17;
   v5 = 0LL;
   v4 = 0;
   v6 = 0LL;
-  dword_140C65C80[0] = 4;
+  dword_140C4DF80[0] = 4;
   v7 = 0LL;
   v8 = 0LL;
-  result = ((__int64 (__fastcall *)(__int64, __int64, int (__fastcall **)(_QWORD, __int64, __int128 *), int *))off_140C020E8[0])(
+  result = ((__int64 (__fastcall *)(__int64, __int64, int (__fastcall **)(_QWORD, __int64, __int128 *), int *))off_140C00A68[0])(
              49LL,
              8LL,
              &v5,
@@ -50,8 +50,8 @@ __int64 MiInitializeLargePageColorSizes()
         v3 = v1 >> 30;
         if ( (_DWORD)v3 )
         {
-          dword_140C65C80[0] = v3;
-          dword_140C65C84 = v3;
+          dword_140C4DF80[0] = v3;
+          dword_140C4DF84 = v3;
         }
       }
     }

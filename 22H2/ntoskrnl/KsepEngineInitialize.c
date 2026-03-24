@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepEngineInitialize @ 0x140B64D18
+ * XREFs of KsepEngineInitialize @ 0x140A6A168
  * Callers:
- *     KseInitialize @ 0x140B4CCCC (KseInitialize.c)
+ *     KseInitialize @ 0x140A3BCCC (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepCacheInitialize @ 0x1408462B4 (KsepCacheInitialize.c)
- *     KsepEngineReadFlags @ 0x140B64DDC (KsepEngineReadFlags.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepCacheInitialize @ 0x1407BEF40 (KsepCacheInitialize.c)
+ *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
  */
 
 __int64 __fastcall KsepEngineInitialize(_QWORD *a1)
@@ -24,11 +24,11 @@ __int64 __fastcall KsepEngineInitialize(_QWORD *a1)
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\ksecore.c", 0x320u, 0LL);
   }
-  a1[6] = 0LL;
   a1[3] = a1 + 2;
   a1[2] = a1 + 2;
   a1[5] = a1 + 4;
   a1[4] = a1 + 4;
+  a1[6] = 0LL;
   v2 = KsepCacheInitialize(
          (__int64)a1,
          (__int64)KsepCacheDeviceEqual,

@@ -1,38 +1,44 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1408081E0
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774BE0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140808E28 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PopGetPolicyWorker @ 0x1402D6254 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x1402D62A8 (PopCheckForWork.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140809310 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140774C94 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
  */
 
-__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
+__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(__int64 a1)
 {
-  _OWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF
+  int v1; // eax
+  int v3; // eax
+  _OWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  KeResetEvent(a1 + 11);
-  memset(v3, 0, sizeof(v3));
-  LODWORD(v3[0]) = 3;
-  PopPowerAggregatorSetCurrentState(a1, v3);
-  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
-  PopSleepstudyStartNextSession(1LL, 20LL);
-  KeResetEvent(&PopIdleLoopExecuted);
-  PopGetPolicyWorker(128);
-  PopCheckForWork();
-  KeWaitForSingleObject(&PopIdleLoopExecuted, Executive, 0, 0, 0LL);
-  if ( qword_140C5AD70 )
+  v1 = *(_DWORD *)(a1 + 88);
+  if ( v1 )
   {
-    qword_140C5AD70(2LL);
-    if ( qword_140C5AD70 )
-      qword_140C5AD70(3LL);
+    if ( v1 == 1 )
+      goto LABEL_5;
+    if ( (unsigned int)(v1 - 2) > 2 )
+      return 0LL;
+  }
+  KeResetEvent((PRKEVENT)(a1 + 280));
+  *(_DWORD *)(a1 + 88) = 1;
+LABEL_5:
+  v3 = *(_DWORD *)(a1 + 92);
+  memset(v5, 0, sizeof(v5));
+  LODWORD(v5[0]) = v3;
+  PopPowerAggregatorSetCurrentState(a1, v5);
+  PopPowerAggregatorStartNextSession(0LL, 11LL);
+  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+  if ( qword_140C543E0 )
+  {
+    qword_140C543E0(2LL);
+    if ( qword_140C543E0 )
+      qword_140C543E0(3LL);
   }
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
   return 0LL;

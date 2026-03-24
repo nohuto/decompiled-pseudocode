@@ -1,19 +1,18 @@
 /*
- * XREFs of ExIsSoftBoot @ 0x1403B72A0
+ * XREFs of ExIsSoftBoot @ 0x14039B470
  * Callers:
- *     CmpReorganizeHive @ 0x14068B1C8 (CmpReorganizeHive.c)
- *     PoClearTransitionMarker @ 0x1408285B0 (PoClearTransitionMarker.c)
- *     PoInitHiberServices @ 0x1408288D4 (PoInitHiberServices.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     IoAcquireKsrPersistentMemoryEx @ 0x1409407A0 (IoAcquireKsrPersistentMemoryEx.c)
- *     IoQueryKsrPersistentMemorySizeEx @ 0x140940A60 (IoQueryKsrPersistentMemorySizeEx.c)
- *     EtwpSavePersistedLoggers @ 0x1409ED690 (EtwpSavePersistedLoggers.c)
- *     BapdRecordFirmwareBootStats @ 0x140A5464C (BapdRecordFirmwareBootStats.c)
+ *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
+ *     PoClearTransitionMarker @ 0x1407903D4 (PoClearTransitionMarker.c)
+ *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
+ *     IoAcquireKsrPersistentMemory @ 0x14089BBC0 (IoAcquireKsrPersistentMemory.c)
+ *     IoQueryKsrPersistentMemorySize @ 0x14089BE30 (IoQueryKsrPersistentMemorySize.c)
+ *     EtwpSavePersistedLoggers @ 0x14094920C (EtwpSavePersistedLoggers.c)
+ *     BapdRecordFirmwareBootStats @ 0x140999260 (BapdRecordFirmwareBootStats.c)
  * Callees:
  *     <none>
  */
 
 bool ExIsSoftBoot()
 {
-  return (qword_140C15C78 & 4) != 0;
+  return (qword_140C19858 & 4) != 0;
 }

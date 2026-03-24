@@ -1,10 +1,10 @@
 /*
- * XREFs of zzzRegisterSystemThread @ 0x1C01E147C
+ * XREFs of zzzRegisterSystemThread @ 0x1C0162180
  * Callers:
- *     NtUserRegisterSystemThread @ 0x1C01FBC10 (NtUserRegisterSystemThread.c)
+ *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01E0DC0 (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01E694C (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
  */
 
 __int64 __fastcall zzzRegisterSystemThread(char a1)

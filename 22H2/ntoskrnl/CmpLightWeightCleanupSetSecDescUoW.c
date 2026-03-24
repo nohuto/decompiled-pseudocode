@@ -1,12 +1,10 @@
 /*
- * XREFs of CmpLightWeightCleanupSetSecDescUoW @ 0x140A28008
+ * XREFs of CmpLightWeightCleanupSetSecDescUoW @ 0x14087EB68
  * Callers:
- *     CmpCleanupLightWeightUoWData @ 0x140A1C3F4 (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A287A0 (CmpLightWeightCommitSetSecDescUoW.c)
- *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A298C4 (CmpLightWeightPrepareSetSecDescUoW.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x14087FB40 (CmpLightWeightPrepareSetSecDescUoW.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x140297330 (CmpDereferenceSecurityNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmpDereferenceSecurityNode @ 0x1403EFFFC (CmpDereferenceSecurityNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpLightWeightCleanupSetSecDescUoW(_QWORD *P)

@@ -1,22 +1,22 @@
 /*
- * XREFs of UserSetWindowedSwapChain @ 0x1C014F1C8
+ * XREFs of UserSetWindowedSwapChain @ 0x1C015EBB8
  * Callers:
- *     UserSetWindowedSwapChainApiExt @ 0x1C014F1B0 (UserSetWindowedSwapChainApiExt.c)
+ *     UserSetWindowedSwapChainApiExt @ 0x1C015EBA0 (UserSetWindowedSwapChainApiExt.c)
  * Callees:
- *     CreateVisRgnTracker @ 0x1C008300C (CreateVisRgnTracker.c)
- *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C0083090 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
- *     ??$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z @ 0x1C00B3444 (--$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C014F364 (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
- *     ?ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ @ 0x1C014F4C4 (-ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ.c)
- *     ?CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z @ 0x1C014F508 (-CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     CreateVisRgnTracker @ 0x1C0036014 (CreateVisRgnTracker.c)
+ *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C003823C (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
+ *     ??$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z @ 0x1C00ECBC0 (--$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z.c)
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C015ED74 (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ *     ?ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ @ 0x1C015EEC4 (-ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ.c)
+ *     ?CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z @ 0x1C015EF08 (-CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UserSetWindowedSwapChain(__int64 a1, int a2, __int64 a3)
 {
-  unsigned int v3; // edi
+  unsigned int v6; // edi
   __int64 v7; // rax
   __int64 v8; // rcx
   struct tagWND *v9; // rsi
@@ -28,65 +28,73 @@ __int64 __fastcall UserSetWindowedSwapChain(__int64 a1, int a2, __int64 a3)
   void *v16; // [rsp+30h] [rbp-38h] BYREF
   CSwapChainProp *v17; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = 0;
   v16 = 0LL;
   v17 = 0LL;
-  EnterCrit(1LL, 0LL);
+  v6 = 0;
+  EnterCrit(0LL, 1LL);
   v7 = ValidateHwnd(a1);
   v9 = (struct tagWND *)v7;
   if ( !v7 )
-    goto LABEL_14;
+    goto LABEL_15;
   v8 = (*(_WORD *)(*(_QWORD *)(v7 + 40) + 42LL) & 0x2FFFu) - 669;
   if ( (v8 & 0xFFFFFFFD) == 0 )
-    goto LABEL_14;
+    goto LABEL_15;
   if ( (unsigned int)IsWindowBeingDestroyed(v7) )
-    goto LABEL_14;
+    goto LABEL_15;
   v10 = IsWindowDesktopComposed(v8);
   LOBYTE(v11) = 1;
   v12 = v10;
   if ( (int)DxgkReferenceCompositionObject(a3, 1LL, 1LL, v11, &v16) < 0 )
-    goto LABEL_14;
+    goto LABEL_15;
   CWindowProp::GetProp<CSwapChainProp>((__int64)v9, (__int64 *)&v17);
   v13 = v17;
   if ( !v17 )
   {
     if ( !(unsigned int)CSwapChainProp::CreateSwapChainProp(v16, &v17) )
-      goto LABEL_14;
+      goto LABEL_15;
     v13 = v17;
-    v3 = CWindowProp::SetProp(v17, (__int64)v9);
-    if ( v3 )
+    v6 = CWindowProp::SetProp(v17, (unsigned __int64)v9);
+    if ( v6 )
     {
       if ( (int)CreateVisRgnTracker(v9, 2) >= 0 )
       {
-LABEL_12:
-        v3 = 1;
+        v6 = 1;
+LABEL_13:
         if ( v12 )
-          v3 = CSwapChainProp::NotifyDwm(v13, v9);
-        goto LABEL_14;
+          v6 = CSwapChainProp::NotifyDwm(v13, v9);
+        goto LABEL_15;
       }
-      v3 = 0;
+      v6 = 0;
     }
     (**(void (__fastcall ***)(CSwapChainProp *))v13)(v13);
-    goto LABEL_14;
+    v13 = 0LL;
+LABEL_12:
+    if ( !v6 )
+      goto LABEL_15;
+    goto LABEL_13;
   }
   v14 = v16;
-  if ( *((void **)v17 + 3) == v16 )
+  if ( *((void **)v17 + 2) == v16 )
   {
-    *((_DWORD *)v17 + 8) = 0;
-    v3 = 1;
+    *((_DWORD *)v17 + 6) = 0;
+    v6 = 1;
     DxgkReleaseCompositionObjectReference(v16);
-    goto LABEL_14;
+    goto LABEL_15;
   }
-  if ( a2 || *((_DWORD *)v17 + 8) )
+  if ( a2 || *((_DWORD *)v17 + 6) )
   {
     CSwapChainProp::ClearCompositionSurfaceObj(v17);
-    if ( *((_QWORD *)v13 + 3) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM();
-    *((_DWORD *)v13 + 8) = 0;
-    *((_QWORD *)v13 + 3) = v14;
+    if ( *((_QWORD *)v13 + 2) )
+    {
+      LODWORD(v17) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 81LL);
+    }
+    *((_QWORD *)v13 + 2) = v14;
+    v6 = 1;
+    *((_DWORD *)v13 + 6) = 0;
     goto LABEL_12;
   }
-LABEL_14:
+LABEL_15:
   UserSessionSwitchLeaveCrit(v8);
-  return v3;
+  return v6;
 }

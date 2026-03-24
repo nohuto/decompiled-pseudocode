@@ -1,7 +1,7 @@
 /*
- * XREFs of atanf_0 @ 0x18011B890
+ * XREFs of atanf_0 @ 0x1800F3F7B
  * Callers:
- *     ?Atan@CExpressionValueStack@@QEAAJXZ @ 0x18025C878 (-Atan@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Atan@CExpressionValueStack@@QEAAJXZ @ 0x1801FB6BC (-Atan@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

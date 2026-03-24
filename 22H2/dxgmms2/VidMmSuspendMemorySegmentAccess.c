@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmSuspendMemorySegmentAccess @ 0x1C002D3C0
+ * XREFs of VidMmSuspendMemorySegmentAccess @ 0x1C0023090
  * Callers:
  *     <none>
  * Callees:
- *     ?SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00E7C7C (-SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ?SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00B29D4 (-SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ.c)
  */
 
 __int64 __fastcall VidMmSuspendMemorySegmentAccess(VIDMM_GLOBAL *a1)

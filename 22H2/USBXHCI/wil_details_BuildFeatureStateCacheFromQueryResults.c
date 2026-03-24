@@ -1,40 +1,40 @@
 /*
- * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C006D038
+ * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C006A038
  * Callers:
- *     wil_details_UpdateFeatureConfiguredStates @ 0x1C006D2C0 (wil_details_UpdateFeatureConfiguredStates.c)
- *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C007E080 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C006A26C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C007A0CC (wil_details_PopulateInitialConfiguredFeatureStates.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall wil_details_BuildFeatureStateCacheFromQueryResults(unsigned int a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall wil_details_BuildFeatureStateCacheFromQueryResults(int a1, __int64 a2, _QWORD *a3)
 {
-  unsigned int v3; // r9d
+  __int64 result; // rax
   int v4; // edx
 
-  v3 = 0;
   if ( a1 == -2147483614 || a1 == -1073741275 )
   {
+    result = 0LL;
     *a3 = 0LL;
+    goto LABEL_8;
+  }
+  result = 0LL;
+  *a3 = 0LL;
+  if ( !a1 )
+  {
+    result = *(_DWORD *)(a2 + 4) & 0xB0;
+    v4 = (8 * (result | (4 * (*(_DWORD *)(a2 + 4) & 0x40)))) | 0x206;
     goto LABEL_9;
   }
-  *a3 = 0LL;
-  if ( a1 )
+  if ( a1 != 279 )
   {
-    if ( a1 != 279 )
-    {
-      v3 = a1;
+LABEL_8:
+    v4 = 518;
+    goto LABEL_9;
+  }
+  result = 8 * (*(_DWORD *)(a2 + 4) & 0x80u);
+  v4 = result | 0x206;
 LABEL_9:
-      v4 = 131;
-      goto LABEL_10;
-    }
-    v4 = (2 * (*(_DWORD *)(a2 + 4) & 0x80)) | 0x83;
-  }
-  else
-  {
-    v4 = (2 * (*(_DWORD *)(a2 + 4) & 0xB0 | (4 * (*(_DWORD *)(a2 + 4) & 0x40)))) | 0x83;
-  }
-LABEL_10:
   *(_DWORD *)a3 = v4;
-  return v3;
+  return result;
 }

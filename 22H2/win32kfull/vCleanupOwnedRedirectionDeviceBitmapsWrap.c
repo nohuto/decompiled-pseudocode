@@ -1,12 +1,12 @@
 /*
- * XREFs of vCleanupOwnedRedirectionDeviceBitmapsWrap @ 0x1C0086C50
+ * XREFs of vCleanupOwnedRedirectionDeviceBitmapsWrap @ 0x1C0104650
  * Callers:
  *     <none>
  * Callees:
- *     ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@@Z @ 0x1C0086C68 (-vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@@Z.c)
+ *     ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z @ 0x1C0104668 (-vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z.c)
  */
 
-void __fastcall vCleanupOwnedRedirectionDeviceBitmapsWrap(struct PDEV *a1)
+__int64 vCleanupOwnedRedirectionDeviceBitmapsWrap()
 {
-  vCleanupOwnedRedirectionDeviceBitmaps(a1);
+  return vCleanupOwnedRedirectionDeviceBitmaps();
 }

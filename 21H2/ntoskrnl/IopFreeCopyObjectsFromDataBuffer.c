@@ -1,32 +1,32 @@
 /*
- * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x140418218
+ * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x1403F1B00
  * Callers:
- *     IopFreeCopyObjectsFromIrp @ 0x1404182AC (IopFreeCopyObjectsFromIrp.c)
- *     NtCopyFileChunk @ 0x1406588A0 (NtCopyFileChunk.c)
- *     IopReadFile @ 0x14073A450 (IopReadFile.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F1B94 (IopFreeCopyObjectsFromIrp.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IopExceptionCleanupEx @ 0x140658670 (IopExceptionCleanupEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2)
 {
   __int64 v2; // rbx
-  IRP *v3; // rsi
-  void *v4; // rdi
+  __int64 v3; // rsi
+  struct _DMA_ADAPTER *v4; // rdi
   void *v5; // rcx
 
   v2 = a1 - 72;
   if ( a2 )
   {
-    v3 = *(IRP **)(v2 + 32);
-    v4 = *(void **)(v2 + 48);
+    v3 = *(_QWORD *)(v2 + 32);
+    v4 = *(struct _DMA_ADAPTER **)(v2 + 48);
     if ( v3 )
     {
       IopFreeIrpExtension(*(_QWORD *)(v2 + 32), 9, 1);
-      IopExceptionCleanupEx(v4, v3, v3->UserEvent, 0LL, 0);
+      IopExceptionCleanupEx(v4, (PIRP)v3, *(PADAPTER_OBJECT *)(v3 + 80), 0LL, 0);
       return;
     }
     if ( v4 )

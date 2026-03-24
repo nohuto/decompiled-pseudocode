@@ -1,15 +1,15 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x1407099A0
+ * XREFs of IoRegisterDeviceInterface @ 0x140709980
  * Callers:
- *     PiSwCompleteCreate @ 0x1406D808C (PiSwCompleteCreate.c)
+ *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1401980B0 (wcspbrk.c)
+ *     wcspbrk @ 0x1401980D0 (wcspbrk.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
  *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
- *     ObQueryNameStringMode @ 0x140660F70 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
+ *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(

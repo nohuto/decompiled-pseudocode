@@ -1,22 +1,17 @@
 /*
- * XREFs of ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x1800C2014
+ * XREFs of ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x1802008EC
  * Callers:
- *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800BF690 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
+ *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x18005C2C0 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ??0?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z @ 0x1800B9D90 (--0-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceNode@@@Z @ 0x1800C210C (-GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceN.c)
- *     ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1800C2138 (-ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180134BEE (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
- *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x180216F08 (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
- *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1802171A0 (-Start@QpcStopwatch@@QEAAXXZ.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x18021738C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@44@Z @ 0x18023050C (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ?AddDurationSample@CExpressionPerformanceCounter@@QEAAXW4ExpressionPerformanceLabel@@_J@Z @ 0x180263308 (-AddDurationSample@CExpressionPerformanceCounter@@QEAAXW4ExpressionPerformanceLabel@@_J@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C16BC (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801AAF4C (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
+ *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1801AB08C (-Start@QpcStopwatch@@QEAAXXZ.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B149C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ?CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCResource@@1@Z @ 0x1801C89E0 (-CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCReso.c)
+ *     ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1801DA5E8 (-ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ.c)
+ *     ?GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceNode@@@Z @ 0x1801FC640 (-GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceN.c)
  */
 
 __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
@@ -30,127 +25,71 @@ __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
   __int64 v7; // rbx
   __int64 v8; // rsi
   struct ExpressionReferenceInfo *ReferenceInfoFromNode; // r15
-  __int64 v10; // rcx
-  __int64 v11; // r14
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  _QWORD *v15; // rbx
-  __int64 Elapsed; // rax
+  int v10; // eax
+  __int64 v11; // rcx
+  unsigned int v12; // edi
+  LONGLONG Elapsed; // rax
+  int v14; // eax
+  __int64 v15; // rcx
+  int v16; // eax
+  __int64 v17; // rcx
   __int64 v18; // rax
-  CVisual *v19; // rbx
-  struct CInteraction *InteractionInternal; // rax
-  struct CInteraction *v21; // r10
-  int v22; // ecx
-  int v23; // r8d
-  int v24; // r9d
-  __int64 v25; // r10
-  unsigned int v26; // [rsp+20h] [rbp-40h]
-  __int64 v27; // [rsp+40h] [rbp-20h] BYREF
-  CVisual *v28; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v29; // [rsp+50h] [rbp-10h] BYREF
-  CVisual *v30; // [rsp+90h] [rbp+30h] BYREF
-  __int64 v31; // [rsp+98h] [rbp+38h] BYREF
-  __int64 v32; // [rsp+A8h] [rbp+48h] BYREF
+  struct CResource *v19; // rdx
+  __int64 v21; // [rsp+50h] [rbp+8h] BYREF
+  struct CResource *v22; // [rsp+68h] [rbp+20h] BYREF
 
-  v30 = this;
+  v22 = 0LL;
   v7 = 0LL;
-  v32 = 0LL;
+  v21 = 0LL;
   v8 = 0LL;
   ReferenceInfoFromNode = CExpression::GetReferenceInfoFromNode(a2, a3);
   if ( CBaseExpression::ShouldLogPerfStats(a2) )
   {
-    v8 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) + 88LL;
-    QpcStopwatch::Start((QpcStopwatch *)&v32);
-    v7 = v32;
+    v8 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 272LL) + 88LL;
+    QpcStopwatch::Start((QpcStopwatch *)&v21);
+    v7 = v21;
   }
-  v11 = (*(__int64 (__fastcall **)(struct CExpression *, _QWORD))(*(_QWORD *)a2 + 288LL))(
+  v10 = (*(__int64 (__fastcall **)(struct CExpression *, _QWORD, struct CResource **))(*(_QWORD *)a2 + 288LL))(
           a2,
-          *((unsigned int *)ReferenceInfoFromNode + 5));
-  if ( v11 )
+          *((unsigned int *)ReferenceInfoFromNode + 5),
+          &v22);
+  v12 = v10;
+  if ( v10 < 0 )
   {
-    if ( v7 )
-    {
-      Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&v32);
-      CExpressionPerformanceCounter::AddDurationSample(v8, 3LL, Elapsed);
-    }
-    v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct CExpressionValue *))(*(_QWORD *)v11 + 136LL))(
-            v11,
-            *(unsigned int *)ReferenceInfoFromNode,
-            a5);
-    v14 = v12;
-    if ( v12 < 0 )
-    {
-      v26 = 263;
-      goto LABEL_30;
-    }
-    if ( a6 )
-    {
-      if ( *((_BYTE *)a6 + 4) )
-      {
-        v12 = CExpressionValue::ApplyMaskToValue(a5, a6);
-        v14 = v12;
-        if ( v12 < 0 )
-        {
-          v26 = 279;
-LABEL_30:
-          MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_18033D680, 2u, v12, v26, 0LL);
-          return v14;
-        }
-      }
-    }
-    v15 = (_QWORD *)*((_QWORD *)a2 + 23);
-    if ( v15 )
-      v15 = (_QWORD *)v15[2];
-    if ( (unsigned int)dword_1803E3798 > 4
-      && tlgKeywordOn((__int64)&dword_1803E3798, 2LL)
-      && v15
-      && (unsigned int)(*(_DWORD *)ReferenceInfoFromNode - 1) <= 1
-      && (*(unsigned __int8 (__fastcall **)(_QWORD *, __int64))(*v15 + 56LL))(v15, 196LL)
-      && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v11 + 56LL))(v11, 90LL) )
-    {
-      wil::com_ptr_t<CVisual,wil::err_returncode_policy>::com_ptr_t<CVisual,wil::err_returncode_policy>(
-        &v30,
-        (__int64)v15);
-      v18 = *(_QWORD *)v11;
-      v29 = v11;
-      (*(void (__fastcall **)(__int64))(v18 + 8))(v11);
-      v19 = v30;
-      *((_BYTE *)v30 + 272) |= 8u;
-      if ( InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v11 + 200)) )
-      {
-        if ( CVisual::GetInteractionInternal(v19) )
-        {
-          InteractionInternal = CVisual::GetInteractionInternal(v19);
-          if ( InteractionInternal == v21
-            && (unsigned int)dword_1803E3798 > 4
-            && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-          {
-            LODWORD(v32) = *(_DWORD *)ReferenceInfoFromNode;
-            v31 = v25;
-            v27 = v11;
-            v28 = v19;
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-              v22,
-              (unsigned int)&unk_180380CA2,
-              v23,
-              v24,
-              (__int64)&v32,
-              (__int64)&v28,
-              (__int64)&v27,
-              (__int64)&v31);
-          }
-        }
-      }
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v29);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v30);
-    }
-    return 0;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802CE578, 2u, v10, 0xFEu, 0LL);
   }
   else
   {
-    v14 = -2147467259;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_18033D680, 2u, -2147467259, 0xFFu, 0LL);
+    if ( v7 )
+    {
+      Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&v21);
+      ++*(_DWORD *)(v8 + 12);
+      *(_QWORD *)(v8 + 48) += Elapsed;
+    }
+    v14 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, struct CExpressionValue *))(*(_QWORD *)v22 + 144LL))(
+            v22,
+            *(unsigned int *)ReferenceInfoFromNode,
+            a5);
+    v12 = v14;
+    if ( v14 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_1802CE578, 2u, v14, 0x105u, 0LL);
+    }
+    else if ( a6 && *((_BYTE *)a6 + 4) && (v16 = CExpressionValue::ApplyMaskToValue(a5, a6), v12 = v16, v16 < 0) )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802CE578, 2u, v16, 0x115u, 0LL);
+    }
+    else
+    {
+      v18 = *((_QWORD *)a2 + 22);
+      if ( v18 )
+        v19 = *(struct CResource **)(v18 + 16);
+      else
+        v19 = 0LL;
+      CInteractionTracker::CheckTargetsForInteractionSource(ReferenceInfoFromNode, v19, v22);
+      v12 = 0;
+    }
   }
-  return v14;
+  ReleaseInterface<CResource>((__int64 *)&v22);
+  return v12;
 }

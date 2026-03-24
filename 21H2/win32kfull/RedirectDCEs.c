@@ -1,12 +1,12 @@
 /*
- * XREFs of RedirectDCEs @ 0x1C00204E0
+ * XREFs of RedirectDCEs @ 0x1C004C510
  * Callers:
- *     SetRedirectedWindow @ 0x1C001F9FC (SetRedirectedWindow.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     UnsetLayeredWindow @ 0x1C00B3964 (UnsetLayeredWindow.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     SetRedirectedWindow @ 0x1C00BD1BC (SetRedirectedWindow.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
  * Callees:
- *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C0020580 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
- *     UpdateRedirectedDCE @ 0x1C00DC330 (UpdateRedirectedDCE.c)
+ *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C004C5B0 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
+ *     UpdateRedirectedDCE @ 0x1C00D52E0 (UpdateRedirectedDCE.c)
  */
 
 __int64 __fastcall RedirectDCEs(struct tagWND *a1)

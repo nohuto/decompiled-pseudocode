@@ -1,25 +1,25 @@
 /*
- * XREFs of ACPIIoctlCalculateOutputBufferV2 @ 0x1C0031016
+ * XREFs of ACPIIoctlCalculateOutputBufferV2 @ 0x1C0057714
  * Callers:
- *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C0031016 (ACPIIoctlCalculateOutputBufferV2.c)
- *     ACPIIoctlEvalPostProcessingV2 @ 0x1C0031196 (ACPIIoctlEvalPostProcessingV2.c)
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C0057714 (ACPIIoctlCalculateOutputBufferV2.c)
+ *     ACPIIoctlEvalPostProcessingV2 @ 0x1C005789C (ACPIIoctlEvalPostProcessingV2.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0030F14 (ACPIIoctlCalculateOutputBufferSizeV2.c)
- *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C0031016 (ACPIIoctlCalculateOutputBufferV2.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0057610 (ACPIIoctlCalculateOutputBufferSizeV2.c)
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C0057714 (ACPIIoctlCalculateOutputBufferV2.c)
  */
 
 __int64 __fastcall ACPIIoctlCalculateOutputBufferV2(__int64 a1, unsigned __int64 a2, char a3, char a4)
 {
   __int16 v5; // cx
   unsigned __int64 v8; // rbx
-  unsigned int *v9; // r12
+  unsigned int *v9; // r14
   __int64 result; // rax
   __int64 v11; // r8
   unsigned int v12; // eax
   unsigned int v13; // ecx
   unsigned int v14; // ebp
-  unsigned __int64 v15; // r14
+  unsigned __int64 v15; // r15
   __int64 v16; // rax
   int v17[4]; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v18; // [rsp+70h] [rbp+8h] BYREF
@@ -51,6 +51,8 @@ __int64 __fastcall ACPIIoctlCalculateOutputBufferV2(__int64 a1, unsigned __int64
     if ( v5 != 4 )
       return 3222536207LL;
     v9 = *(unsigned int **)(a1 + 32);
+    if ( !*v9 )
+      return 3222536207LL;
     v18 = 0;
     v17[0] = 0;
     result = ACPIIoctlCalculateOutputBufferSizeV2(a1, &v18, v17, a3, 1);

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0?$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ @ 0x1C013F074
+ * XREFs of ??0?$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ @ 0x1C016AFF0
  * Callers:
- *     ??0SURFREFDC@@QEAA@XZ @ 0x1C028E8FC (--0SURFREFDC@@QEAA@XZ.c)
+ *     ??0SURFREFDC@@QEAA@XZ @ 0x1C028B094 (--0SURFREFDC@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

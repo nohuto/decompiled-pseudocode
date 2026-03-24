@@ -1,1 +1,78 @@
-/*\n * XREFs of memset @ 0x1C0002FC0\n * Callers:\n *     MouseStart @ 0x1C0002840 (MouseStart.c)\n *     MouseClassFindMorePorts @ 0x1C000C180 (MouseClassFindMorePorts.c)\n *     MouseAddDeviceEx @ 0x1C000C480 (MouseAddDeviceEx.c)\n *     MouDeterminePortsServiced @ 0x1C000C7A0 (MouDeterminePortsServiced.c)\n *     MouCreateClassObject @ 0x1C000C990 (MouCreateClassObject.c)\n *     MouseClassGetWaitWakeEnableState @ 0x1C000CE80 (MouseClassGetWaitWakeEnableState.c)\n *     WppTraceCallback @ 0x1C000E1A0 (WppTraceCallback.c)\n *     MouConfiguration @ 0x1C000F030 (MouConfiguration.c)\n *     DriverEntry @ 0x1C000F4D0 (DriverEntry.c)\n * Callees:\n *     <none>\n */\n\n// local variable allocation has failed, the output may be wrong!\nvoid *__cdecl memset(void *a1, int Val, size_t Size)\n{\n  void *result; // rax\n  size_t v4; // r9\n  size_t i; // r8\n  unsigned int v6; // ecx\n  _QWORD *v7; // rcx\n  size_t v8; // r10\n  size_t j; // r8\n\n  result = a1;\n  if ( Size < 8 )\n  {\nLABEL_5:\n    for ( i = Size & 7; i; --i )\n      *((char *)a1 + i - 1) = Val;\n    return result;\n  }\n  *(_QWORD *)&Val = 0x101010101010101LL * (unsigned __int8)Val;\n  if ( Size < 0x47 )\n  {\n    v4 = Size & 0x78;\n    a1 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);\n    do\n    {\n      *(_QWORD *)((char *)result + v4 - 8) = *(_QWORD *)&Val;\n      v4 -= 8LL;\n    }\n    while ( v4 );\n    goto LABEL_5;\n  }\n  v6 = -(int)a1 & 7;\n  if ( v6 )\n  {\n    Size -= v6;\n    *(_QWORD *)result = *(_QWORD *)&Val;\n  }\n  v7 = (char *)result + v6;\n  v8 = Size >> 6;\n  if ( ((Size >> 3) & 7) != 0 )\n    return (void *)((__int64 (__fastcall *)(_QWORD *, _QWORD))((char *)&loc_1C000307D + 4 * (8 - ((Size >> 3) & 7)) + 2))(\n                     &v7[((Size >> 3) & 7) - 8],\n                     *(_QWORD *)&Val);\n  do\n  {\n    *v7 = *(_QWORD *)&Val;\n    v7[1] = *(_QWORD *)&Val;\n    v7[2] = *(_QWORD *)&Val;\n    v7[3] = *(_QWORD *)&Val;\n    v7[4] = *(_QWORD *)&Val;\n    v7[5] = *(_QWORD *)&Val;\n    v7[6] = *(_QWORD *)&Val;\n    v7[7] = *(_QWORD *)&Val;\n    v7 += 8;\n    --v8;\n  }\n  while ( v8 );\n  for ( j = Size & 7; j; --j )\n    *((_BYTE *)v7 + j - 1) = Val;\n  return result;\n}\n
+/*
+ * XREFs of memset @ 0x1C0002FC0
+ * Callers:
+ *     MouseStart @ 0x1C0002840 (MouseStart.c)
+ *     MouseClassFindMorePorts @ 0x1C000C180 (MouseClassFindMorePorts.c)
+ *     MouseAddDeviceEx @ 0x1C000C480 (MouseAddDeviceEx.c)
+ *     MouDeterminePortsServiced @ 0x1C000C7A0 (MouDeterminePortsServiced.c)
+ *     MouCreateClassObject @ 0x1C000C990 (MouCreateClassObject.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000CE80 (MouseClassGetWaitWakeEnableState.c)
+ *     WppTraceCallback @ 0x1C000E1A0 (WppTraceCallback.c)
+ *     MouConfiguration @ 0x1C000F030 (MouConfiguration.c)
+ *     DriverEntry @ 0x1C000F4D0 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+void *__cdecl memset(void *a1, int Val, size_t Size)
+{
+  void *result; // rax
+  size_t v4; // r9
+  size_t i; // r8
+  unsigned int v6; // ecx
+  _QWORD *v7; // rcx
+  size_t v8; // r10
+  size_t j; // r8
+
+  result = a1;
+  if ( Size < 8 )
+  {
+LABEL_5:
+    for ( i = Size & 7; i; --i )
+      *((char *)a1 + i - 1) = Val;
+    return result;
+  }
+  *(_QWORD *)&Val = 0x101010101010101LL * (unsigned __int8)Val;
+  if ( Size < 0x47 )
+  {
+    v4 = Size & 0x78;
+    a1 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);
+    do
+    {
+      *(_QWORD *)((char *)result + v4 - 8) = *(_QWORD *)&Val;
+      v4 -= 8LL;
+    }
+    while ( v4 );
+    goto LABEL_5;
+  }
+  v6 = -(int)a1 & 7;
+  if ( v6 )
+  {
+    Size -= v6;
+    *(_QWORD *)result = *(_QWORD *)&Val;
+  }
+  v7 = (char *)result + v6;
+  v8 = Size >> 6;
+  if ( ((Size >> 3) & 7) != 0 )
+    return (void *)((__int64 (__fastcall *)(_QWORD *, _QWORD))((char *)&loc_1C000307D + 4 * (8 - ((Size >> 3) & 7)) + 2))(
+                     &v7[((Size >> 3) & 7) - 8],
+                     *(_QWORD *)&Val);
+  do
+  {
+    *v7 = *(_QWORD *)&Val;
+    v7[1] = *(_QWORD *)&Val;
+    v7[2] = *(_QWORD *)&Val;
+    v7[3] = *(_QWORD *)&Val;
+    v7[4] = *(_QWORD *)&Val;
+    v7[5] = *(_QWORD *)&Val;
+    v7[6] = *(_QWORD *)&Val;
+    v7[7] = *(_QWORD *)&Val;
+    v7 += 8;
+    --v8;
+  }
+  while ( v8 );
+  for ( j = Size & 7; j; --j )
+    *((_BYTE *)v7 + j - 1) = Val;
+  return result;
+}

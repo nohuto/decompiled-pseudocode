@@ -1,34 +1,34 @@
 /*
- * XREFs of SepGetLowBoxNumberEntry @ 0x1407F4F18
+ * XREFs of SepGetLowBoxNumberEntry @ 0x14070F258
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1402266A0 (RtlInsertEntryHashTable.c)
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x1407F504C (SepFindMatchingLowBoxNumberEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     RtlInsertEntryHashTable @ 0x140250E50 (RtlInsertEntryHashTable.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x14070F384 (SepFindMatchingLowBoxNumberEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __int64 *a3)
+__int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, _QWORD *a3)
 {
   struct _RTL_DYNAMIC_HASH_TABLE *v3; // r13
   RTL_BITMAP *v4; // r14
-  unsigned int v6; // ebx
-  unsigned int v8; // edi
-  __int64 Pool2; // rax
-  __int64 v10; // rsi
+  unsigned int v6; // edi
+  unsigned int v8; // ebp
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v10; // rsi
   ULONG ClearBitsAndSet; // ebp
   __int64 v12; // rax
   __int64 v13; // rdx
   ULONG_PTR v14; // r8
   ULONG v16; // ebp
-  __int64 v17; // r13
+  unsigned int *v17; // r13
   struct _RTL_DYNAMIC_HASH_TABLE *v18; // [rsp+78h] [rbp+20h]
 
   v3 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
@@ -37,24 +37,24 @@ __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __in
   v6 = 0;
   SepFindMatchingLowBoxNumberEntry(v3, a2);
   v8 = (4 * a2[1] + 67) & 0xFFFFFFFC;
-  Pool2 = ExAllocatePool2(256LL, v8, 1934386515LL);
-  v10 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x734C6553u);
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 32) = Pool2 + 56;
-    RtlCopySid(v8 - 56, (PSID)(Pool2 + 56), a2);
+    PoolWithTag[4] = PoolWithTag + 7;
+    RtlCopySid(v8 - 56, PoolWithTag + 7, a2);
     ClearBitsAndSet = RtlFindClearBitsAndSet(v4, 1u, 0);
     if ( ClearBitsAndSet == -1 )
     {
       v16 = 2 * RtlNumberOfSetBits(v4);
       if ( v16 > 0x10000 )
         goto LABEL_15;
-      v17 = ExAllocatePool2(256LL, (unsigned __int64)v16 >> 3, 1934386515LL);
+      v17 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned __int64)v16 >> 3, 0x734C6553u);
       if ( !v17 )
         goto LABEL_15;
       ExFreePoolWithTag(v4->Buffer, 0);
       v4->SizeOfBitMap = v16;
-      v4->Buffer = (unsigned int *)v17;
+      v4->Buffer = v17;
       RtlClearAllBits(v4);
       RtlSetBits(v4, 0, v16 >> 1);
       ClearBitsAndSet = RtlFindClearBitsAndSet(v4, 1u, 0);
@@ -64,9 +64,9 @@ __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __in
     }
     if ( ClearBitsAndSet != 0xFFFF )
     {
-      *(_QWORD *)(v10 + 48) = 0LL;
-      *(_DWORD *)(v10 + 40) = ClearBitsAndSet + 1;
-      *(_QWORD *)(v10 + 24) = 1LL;
+      v10[6] = 0LL;
+      *((_DWORD *)v10 + 10) = ClearBitsAndSet + 1;
+      v10[3] = 1LL;
       v12 = (unsigned int)a2[1] - 1;
       v13 = *(unsigned int *)&a2[4 * v12 + 8];
       v14 = v13 + 1;
@@ -77,12 +77,12 @@ __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __in
         *a3 = v10;
         return v6;
       }
-      ExFreePoolWithTag((PVOID)v10, 0);
+      ExFreePoolWithTag(v10, 0);
       RtlClearBits(v4, 1u, ClearBitsAndSet);
       return (unsigned int)-1073741670;
     }
 LABEL_15:
-    ExFreePoolWithTag((PVOID)v10, 0);
+    ExFreePoolWithTag(v10, 0);
     return (unsigned int)-1073741670;
   }
   return 3221225626LL;

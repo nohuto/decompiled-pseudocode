@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMarvin32 @ 0x1403F58A8
+ * XREFs of SymCryptMarvin32 @ 0x1403EB528
  * Callers:
- *     HvpGenerateLogEntryChecksums @ 0x140705728 (HvpGenerateLogEntryChecksums.c)
- *     HvpLogEntryCheckHeaderChecksum @ 0x1407FE924 (HvpLogEntryCheckHeaderChecksum.c)
- *     HvpLogEntryCheckDataChecksum @ 0x1407FE98C (HvpLogEntryCheckDataChecksum.c)
+ *     HvpGenerateLogEntryChecksums @ 0x140720ED8 (HvpGenerateLogEntryChecksums.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x140872588 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpApplyIncrementalLogFile @ 0x140881368 (HvpApplyIncrementalLogFile.c)
  * Callees:
  *     <none>
  */
@@ -28,32 +28,27 @@ __int64 __fastcall SymCryptMarvin32(int *a1, unsigned __int16 *a2, unsigned __in
   unsigned __int64 v19; // r8
   unsigned __int64 v20; // r8
   unsigned __int64 v21; // r8
-  unsigned __int64 v22; // r8
-  int v23; // r10d
-  int v24; // r11d
-  int v25; // r10d
-  int v26; // r11d
-  int v27; // ecx
-  int v28; // r10d
-  int v29; // r11d
-  int v30; // r10d
-  int v31; // r11d
-  int v32; // r10d
-  int v33; // r11d
-  int v34; // r10d
-  int v35; // r11d
-  int v36; // r10d
-  int v37; // r11d
-  int v38; // r10d
-  int v39; // r11d
-  int v40; // r10d
-  int v41; // r11d
-  int v42; // r10d
-  int v43; // r11d
-  int v44; // r10d
-  int v45; // r11d
-  int v46; // r10d
-  int v47; // r11d
+  int v22; // r10d
+  int v23; // r11d
+  int v24; // r10d
+  int v25; // r11d
+  int v26; // ecx
+  int v27; // r10d
+  int v28; // r11d
+  int v29; // r10d
+  int v30; // r11d
+  int v31; // r10d
+  int v32; // r11d
+  int v33; // r10d
+  int v34; // r11d
+  int v35; // r10d
+  int v36; // r11d
+  int v37; // r10d
+  int v38; // r11d
+  int v39; // r10d
+  int v40; // r11d
+  int v41; // r10d
+  int v42; // r11d
 
   v4 = *a1;
   v5 = a1[1];
@@ -81,84 +76,72 @@ __int64 __fastcall SymCryptMarvin32(int *a1, unsigned __int16 *a2, unsigned __in
     while ( v6 );
   }
   if ( !a3 )
-    goto LABEL_19;
+    goto LABEL_17;
   v17 = a3 - 1;
   if ( !v17 )
-    goto LABEL_17;
+    goto LABEL_16;
   v18 = v17 - 1;
   if ( !v18 )
-    goto LABEL_15;
+    goto LABEL_14;
   v19 = v18 - 1;
   if ( v19 )
   {
-    v20 = v19 - 1;
-    if ( !v20 )
+    v20 = v19 - 2;
+    if ( v20 )
     {
-LABEL_18:
-      v36 = *(_DWORD *)a2 + v4;
-      v37 = v36 ^ v5;
-      v38 = v37 + __ROL4__(v36, 20);
-      v39 = v38 ^ __ROL4__(v37, 9);
-      v4 = v39 + __ROL4__(v38, 27);
-      v5 = __ROL4__(v39, 19);
-LABEL_19:
-      v27 = 128;
-      goto LABEL_20;
-    }
-    v21 = v20 - 1;
-    if ( v21 )
-    {
-      v22 = v21 - 1;
-      if ( v22 )
+      v21 = v20 - 1;
+      if ( v21 )
       {
-        if ( v22 == 1 )
+        v22 = *(_DWORD *)a2 + v4;
+        v23 = v22 ^ v5;
+        v24 = v23 + __ROL4__(v22, 20);
+        v25 = v24 ^ __ROL4__(v23, 9);
+        v4 = v25 + __ROL4__(v24, 27);
+        v5 = __ROL4__(v25, 19);
+        if ( v21 == 1 )
         {
-          v23 = *(_DWORD *)a2 + v4;
-          v24 = v23 ^ v5;
-          v25 = v24 + __ROL4__(v23, 20);
-          v26 = v25 ^ __ROL4__(v24, 9);
-          v4 = v26 + __ROL4__(v25, 27);
-          v5 = __ROL4__(v26, 19);
           a2 += 2;
-          goto LABEL_13;
+          goto LABEL_12;
         }
+LABEL_17:
+        v26 = 128;
         goto LABEL_18;
       }
-      v28 = *(_DWORD *)a2 + v4;
-      v29 = v28 ^ v5;
-      v30 = v29 + __ROL4__(v28, 20);
-      v31 = v30 ^ __ROL4__(v29, 9);
-      v4 = v31 + __ROL4__(v30, 27);
-      v5 = __ROL4__(v31, 19);
+      v27 = *(_DWORD *)a2 + v4;
+      v28 = v27 ^ v5;
+      v29 = v28 + __ROL4__(v27, 20);
+      v30 = v29 ^ __ROL4__(v28, 9);
+      v4 = v30 + __ROL4__(v29, 27);
+      v5 = __ROL4__(v30, 19);
       a2 += 2;
-LABEL_15:
-      v27 = *a2 | 0x800000;
-      goto LABEL_20;
+LABEL_14:
+      v26 = *a2 | 0x800000;
+      goto LABEL_18;
     }
-    v32 = *(_DWORD *)a2 + v4;
-    v33 = v32 ^ v5;
-    v34 = v33 + __ROL4__(v32, 20);
-    v35 = v34 ^ __ROL4__(v33, 9);
-    v4 = v35 + __ROL4__(v34, 27);
-    v5 = __ROL4__(v35, 19);
+    v31 = *(_DWORD *)a2 + v4;
+    v32 = v31 ^ v5;
+    v33 = v32 + __ROL4__(v31, 20);
+    v34 = v33 ^ __ROL4__(v32, 9);
+    v4 = v34 + __ROL4__(v33, 27);
+    v5 = __ROL4__(v34, 19);
     a2 += 2;
-LABEL_17:
-    v27 = *(unsigned __int8 *)a2 | 0x8000;
-    goto LABEL_20;
+LABEL_16:
+    v26 = *(unsigned __int8 *)a2 | 0x8000;
+    goto LABEL_18;
   }
-LABEL_13:
+LABEL_12:
   result = *a2;
-  v27 = result | (*((unsigned __int8 *)a2 + 2) << 16) | 0x80000000;
-LABEL_20:
-  v40 = v27 + v4;
-  v41 = v40 ^ v5;
-  v42 = v41 + __ROL4__(v40, 20);
-  v43 = v42 ^ __ROL4__(v41, 9);
-  v44 = v43 + __ROL4__(v42, 27);
-  v45 = v44 ^ __ROL4__(v43, 19);
-  v46 = v45 + __ROL4__(v44, 20);
-  v47 = v46 ^ __ROL4__(v45, 9);
-  a4[1] = __ROL4__(v47, 19);
-  *a4 = v47 + __ROL4__(v46, 27);
+  v26 = result | (*((unsigned __int8 *)a2 + 2) << 16) | 0x80000000;
+LABEL_18:
+  v35 = v26 + v4;
+  v36 = v35 ^ v5;
+  v37 = v36 + __ROL4__(v35, 20);
+  v38 = v37 ^ __ROL4__(v36, 9);
+  v39 = v38 + __ROL4__(v37, 27);
+  v40 = v39 ^ __ROL4__(v38, 19);
+  v41 = v40 + __ROL4__(v39, 20);
+  v42 = v41 ^ __ROL4__(v40, 9);
+  a4[1] = __ROL4__(v42, 19);
+  *a4 = v42 + __ROL4__(v41, 27);
   return result;
 }

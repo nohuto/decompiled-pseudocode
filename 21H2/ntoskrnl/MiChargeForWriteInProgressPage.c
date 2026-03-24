@@ -1,30 +1,30 @@
 /*
- * XREFs of MiChargeForWriteInProgressPage @ 0x140282160
+ * XREFs of MiChargeForWriteInProgressPage @ 0x14025A5C4
  * Callers:
- *     MiAllocateModWriterEntry @ 0x1402820F4 (MiAllocateModWriterEntry.c)
- *     MiReferencePageForModifiedWrite @ 0x14028C14C (MiReferencePageForModifiedWrite.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402568EC (MiReferencePageForModifiedWrite.c)
+ *     MiAllocateModWriterEntry @ 0x14025A558 (MiAllocateModWriterEntry.c)
  * Callees:
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
  */
 
-__int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2)
+__int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rbx
-  unsigned int v5; // esi
-  unsigned int v6; // ebp
+  unsigned __int64 v5; // rbx
+  unsigned int v7; // esi
+  unsigned int v8; // ebp
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v10; // zf
-  signed __int32 v11; // eax
+  bool v12; // zf
+  signed __int32 v13; // eax
 
-  v3 = 1LL;
-  v5 = (a2 & 2) != 0 ? 0xFFFFFFFC : 0;
-  v6 = MiChargeResident(a1, 1LL, (unsigned int)-((a2 & 2) != 0));
-  if ( v6 )
+  v5 = 1LL;
+  v7 = (a2 & 2) != 0 ? 0xFFFFFFFC : 0;
+  v8 = MiChargeResident(a1, 1LL, (unsigned int)-((a2 & 2) != 0), a4);
+  if ( v8 )
   {
-    if ( (a2 & 1) == 0 || (unsigned int)MiChargeCommit(a1, 1LL, v5 + 8) )
-      return v6;
+    if ( (a2 & 1) == 0 || (unsigned int)MiChargeCommit(a1, 1uLL, v7 + 8) )
+      return v8;
     if ( (ULONG_PTR *)a1 != &MiSystemPartition )
       goto LABEL_16;
     CurrentPrcb = KeGetCurrentPrcb();
@@ -35,16 +35,16 @@ __int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2)
     {
       do
       {
-        v11 = _InterlockedCompareExchange(
+        v13 = _InterlockedCompareExchange(
                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                 CachedResidentAvailable + 1,
                 CachedResidentAvailable);
-        v10 = (_DWORD)CachedResidentAvailable == v11;
-        LODWORD(CachedResidentAvailable) = v11;
-        if ( v10 )
+        v12 = (_DWORD)CachedResidentAvailable == v13;
+        LODWORD(CachedResidentAvailable) = v13;
+        if ( v12 )
           return 0LL;
       }
-      while ( v11 != -1 && (unsigned __int64)(v11 + 1LL) <= 0x100 );
+      while ( v13 != -1 && (unsigned __int64)(v13 + 1LL) <= 0x100 );
     }
     if ( (int)CachedResidentAvailable > 192
       && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -52,11 +52,11 @@ __int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2)
                                               192,
                                               CachedResidentAvailable) )
     {
-      v3 = (int)CachedResidentAvailable - 192 + 1LL;
+      v5 = (int)CachedResidentAvailable - 192 + 1LL;
     }
-    if ( v3 )
+    if ( v5 )
 LABEL_16:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v3);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v5);
   }
   return 0LL;
 }

@@ -1,220 +1,173 @@
 /*
- * XREFs of VidSchSubmitCommandToHwQueue @ 0x1C00443B0
+ * XREFs of VidSchSubmitCommandToHwQueue @ 0x1C0039FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0006834 (-VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_.c)
- *     ?VidSchiAcquireFlipFencesReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@@Z @ 0x1C0006D50 (-VidSchiAcquireFlipFencesReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@.c)
- *     ?VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@@Z @ 0x1C0006E18 (-VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@.c)
- *     memmove @ 0x1C001A8C0 (memmove.c)
- *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC9C (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DB3E (VidSchiSubmitCommandPacketToHwQueue.c)
- *     VidSchiAllocateHwQueuePacket @ 0x1C00C4732 (VidSchiAllocateHwQueuePacket.c)
- *     VidSchiEnsureRootPageTableUpdated @ 0x1C00C48E4 (VidSchiEnsureRootPageTableUpdated.c)
- *     VidSchiEnsureHwFlipQueueLog @ 0x1C01092DC (VidSchiEnsureHwFlipQueueLog.c)
+ *     ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0005734 (-VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_.c)
+ *     ?VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@@Z @ 0x1C00070E4 (-VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@.c)
+ *     memmove @ 0x1C0018AC0 (memmove.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C003C024 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00D209C (VidSchiAllocateHwQueuePacket.c)
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00D224C (VidSchiEnsureRootPageTableUpdated.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall VidSchSubmitCommandToHwQueue(struct VIDSCH_HW_QUEUE *a1, struct VIDSCH_SUBMIT_DATA2 *a2)
+__int64 __fastcall VidSchSubmitCommandToHwQueue(__int64 a1, struct VIDSCH_SUBMIT_DATA2 *a2)
 {
-  _QWORD *v2; // r15
-  char *v3; // r12
-  struct VIDSCH_SUBMIT_DATA2 *v4; // rdi
+  __int64 v2; // r15
+  struct VIDSCH_SUBMIT_DATA2 *v3; // rdi
+  __int64 v5; // rsi
   __int64 v6; // rbp
-  __int64 v7; // rsi
-  int v8; // eax
   __int64 result; // rax
-  __int64 v10; // r8
   __int64 HwQueuePacket; // rbx
-  bool v12; // zf
-  unsigned __int64 v13; // r14
-  _DWORD *v14; // rdx
-  unsigned int v15; // r9d
-  unsigned int v16; // eax
-  unsigned int v17; // r15d
-  int v18; // eax
-  unsigned int v19; // ecx
-  int v20; // eax
-  __int64 v21; // r8
-  __int64 v22; // r10
-  __int16 v23; // ax
-  __int64 v24; // rax
-  void *v25; // rcx
+  bool v9; // zf
+  __int16 v10; // ax
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  unsigned int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r9
+  int v16; // eax
+  char v17; // cl
+  unsigned int v18; // r12d
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  int v21; // r8d
+  _QWORD *v22; // rax
+  void *v23; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // rdx
   __int64 v26; // rax
-  __int64 v27; // rax
-  __int64 v28; // rax
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  _QWORD *v31; // [rsp+30h] [rbp-48h]
-  unsigned int v32; // [rsp+90h] [rbp+18h]
-  __int64 v33; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v27; // [rsp+70h] [rbp+18h] BYREF
 
-  v2 = (_QWORD *)*((_QWORD *)a1 + 5);
-  v3 = 0LL;
-  v4 = a2;
-  v31 = v2;
-  v6 = v2[1];
-  v7 = *(_QWORD *)(v6 + 32);
-  if ( *(_BYTE *)(v6 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 200), 0, 0) )
+  v2 = *(_QWORD *)(a1 + 40);
+  v3 = a2;
+  v5 = *(_QWORD *)(v2 + 8);
+  v6 = *(_QWORD *)(v5 + 32);
+  if ( *(_BYTE *)(v5 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v5 + 200), 0, 0) )
   {
-    WdLogSingleEntry2(3LL, v6, -1071775232LL);
+    v26 = WdLogNewEntry5_WdWarning(a1, a2);
+    *(_QWORD *)(v26 + 24) = v5;
+    *(_QWORD *)(v26 + 32) = -1071775232LL;
+    WdLogEvent5_WdWarning(v26);
     return 3223192064LL;
   }
-  v33 = *(_QWORD *)a2;
-  v8 = v33;
-  if ( (v33 & 0x20) != 0 )
+  v27 = *(_QWORD *)a2;
+  if ( (v27 & 0x20) == 0
+    || (result = VidSchValidatePresentFlags(a2, (struct _VIDSCH_DEVICE *)v5, (struct _VIDSCH_SUBMIT_FLAGS *)&v27),
+        (int)result >= 0) )
   {
-    result = VidSchValidatePresentFlags(a2, (struct _VIDSCH_DEVICE *)v6, (struct _VIDSCH_SUBMIT_FLAGS *)&v33);
-    if ( (int)result < 0 )
-      return result;
-    v8 = v33;
-  }
-  if ( (v8 & 0x800004) == 4 && *(_BYTE *)(v7 + 59) )
-  {
-    v10 = *((_BYTE *)v4 + 356) != 0 ? 0x68 : 0;
-    a2 = (struct VIDSCH_SUBMIT_DATA2 *)(*(_DWORD *)((_BYTE *)v4 + v10 + 496) & 0xFFF003FF | ((((unsigned __int16)(1 << *(_DWORD *)(v7 + 152))
-                                                                                             - 1) & 0x3FE) << 10));
-    *(_DWORD *)((char *)v4 + v10 + 496) = (_DWORD)a2;
-  }
-  LOBYTE(a2) = 1;
-  HwQueuePacket = VidSchiAllocateHwQueuePacket(a1, a2);
-  *(_DWORD *)HwQueuePacket = 895576406;
-  v12 = (v33 & 0x40000) == 0;
-  *(_QWORD *)(HwQueuePacket + 56) = MEMORY[0xFFFFF78000000320];
-  *(_DWORD *)(HwQueuePacket + 52) = 2;
-  *(_DWORD *)(HwQueuePacket + 64) = 0;
-  if ( v12 )
-  {
-    v3 = (char *)v4 + 120;
-    if ( ((*((_DWORD *)v4 + 30) - 3) & 0xFFFFFFFD) != 0 )
+    LOBYTE(a2) = 1;
+    HwQueuePacket = VidSchiAllocateHwQueuePacket(a1, a2);
+    *(_DWORD *)HwQueuePacket = 895576406;
+    v9 = (v27 & 0x40000) == 0;
+    *(_QWORD *)(HwQueuePacket + 56) = MEMORY[0xFFFFF78000000320];
+    *(_DWORD *)(HwQueuePacket + 52) = 2;
+    *(_DWORD *)(HwQueuePacket + 64) = 0;
+    if ( v9 )
     {
-      v13 = HwQueuePacket + 48;
-      *(_DWORD *)(HwQueuePacket + 48) = 0;
-      VidSchiEnsureRootPageTableUpdated(v2);
-LABEL_24:
-      v14 = (_DWORD *)((char *)v4 + 120);
+      if ( ((*((_DWORD *)v3 + 30) - 3) & 0xFFFFFFFD) != 0 )
+      {
+        *(_DWORD *)(HwQueuePacket + 48) = 0;
+        VidSchiEnsureRootPageTableUpdated((void *)v2);
+      }
+      else
+      {
+        *(_DWORD *)(HwQueuePacket + 48) = 3;
+        v12 = *((unsigned int *)v3 + 29);
+        if ( (_DWORD)v12 != -1 )
+        {
+          v13 = *((_DWORD *)v3 + 144);
+          v14 = ((unsigned __int16)v13 | (unsigned __int16)(v13 >> 10)) & 0x3FF;
+          if ( (((unsigned __int16)v13 | (unsigned __int16)(v13 >> 10)) & 0x3FF) != 0 )
+          {
+            v15 = *(_QWORD *)(v6 + 8 * v12 + 3104);
+            while ( 1 )
+            {
+              v9 = !_BitScanForward((unsigned int *)&v16, v14);
+              v17 = -1;
+              if ( !v9 )
+                v17 = v16;
+              v18 = v17;
+              v19 = 216LL * (unsigned int)v17;
+              v20 = *(int *)(v19 + v15 + 172);
+              if ( (int)v20 <= -1 )
+              {
+                v21 = 0;
+              }
+              else
+              {
+                v19 = 152 * v20;
+                v21 = *(_DWORD *)(152 * v20 + *(_QWORD *)(v6 + 3232) + 112);
+              }
+              if ( v21 == 2 )
+                break;
+              v14 = ~(1 << v18) & (unsigned int)v14;
+              if ( !(_DWORD)v14 )
+                goto LABEL_7;
+            }
+            v22 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v19, v14);
+            v22[5] = v18;
+            v22[3] = 281LL;
+            v22[4] = 0x100000LL;
+            v22[6] = *((unsigned int *)v3 + 29);
+            v22[7] = v6;
+            LOBYTE(v10) = WdLogEvent5_WdCriticalError(v22);
+            __debugbreak();
+            goto LABEL_25;
+          }
+        }
+      }
     }
     else
     {
-      v14 = (_DWORD *)((char *)v4 + 120);
-      *(_DWORD *)(HwQueuePacket + 48) = 3;
-      v13 = HwQueuePacket + 48;
-      v15 = *((_DWORD *)v4 + 29);
-      if ( v15 != -1 )
-      {
-        v16 = *((_DWORD *)v4 + 150);
-        v17 = ((unsigned __int16)v16 | (unsigned __int16)(v16 >> 10)) & 0x3FF;
-        if ( (((unsigned __int16)v16 | (unsigned __int16)(v16 >> 10)) & 0x3FF) != 0 )
-        {
-          while ( 1 )
-          {
-            v12 = !_BitScanForward((unsigned int *)&v18, v17);
-            LOBYTE(v19) = -1;
-            if ( !v12 )
-              LOBYTE(v19) = v18;
-            v19 = (char)v19;
-            v32 = (char)v19;
-            if ( *(_BYTE *)(v7 + 59) )
-            {
-              v20 = VidSchiEnsureHwFlipQueueLog((struct _VIDSCH_GLOBAL *)v7, v15, (char)v19);
-              v13 = (unsigned int)v20;
-              if ( v20 < 0 )
-              {
-                VidSchiFreeQueuePacket(a1, (struct _VIDSCH_QUEUE_PACKET *)HwQueuePacket);
-                return (unsigned int)v13;
-              }
-              v19 = v32;
-            }
-            v21 = *((unsigned int *)v4 + 29);
-            v22 = *(int *)(*(_QWORD *)(v7 + 8 * v21 + 3200) + 288LL * v19 + 188);
-            if ( (int)v22 > -1 && *(_DWORD *)(160 * v22 + *(_QWORD *)(v7 + 3328) + 112) == 2 )
-              break;
-            v15 = *((_DWORD *)v4 + 29);
-            v17 &= ~(1 << v19);
-            if ( !v17 )
-            {
-              v13 = HwQueuePacket + 48;
-              goto LABEL_24;
-            }
-          }
-          g_DxgMmsBugcheckExportIndex = 1;
-          LOBYTE(v23) = WdLogSingleEntry5(0LL, 281LL, 0x100000LL, v19, v21, v7);
-          __debugbreak();
-          goto LABEL_32;
-        }
-      }
+      *(_DWORD *)(HwQueuePacket + 48) = 7;
     }
-    v3 = 0LL;
-  }
-  else
-  {
-    v13 = HwQueuePacket + 48;
-    *(_DWORD *)(HwQueuePacket + 48) = 7;
-    v14 = (_DWORD *)((char *)v4 + 120);
-  }
-  *(_QWORD *)(HwQueuePacket + 96) = a1;
-  *(_QWORD *)(HwQueuePacket + 104) = KeGetCurrentThread();
-  v23 = v33;
-  *(_QWORD *)(HwQueuePacket + 72) = v33;
-  *(_QWORD *)(HwQueuePacket + 144) = *((_QWORD *)v4 + 12);
-  *(_QWORD *)(HwQueuePacket + 152) = *((_QWORD *)v4 + 13);
-  *(_DWORD *)(HwQueuePacket + 160) = *((_DWORD *)v4 + 29);
-  if ( (v23 & 4) == 0 )
-  {
-LABEL_32:
-    if ( (v23 & 0x20) != 0 )
+LABEL_7:
+    *(_QWORD *)(HwQueuePacket + 96) = a1;
+    *(_QWORD *)(HwQueuePacket + 104) = KeGetCurrentThread();
+    v10 = v27;
+    *(_QWORD *)(HwQueuePacket + 72) = v27;
+    *(_QWORD *)(HwQueuePacket + 144) = *((_QWORD *)v3 + 12);
+    *(_QWORD *)(HwQueuePacket + 152) = *((_QWORD *)v3 + 13);
+    *(_DWORD *)(HwQueuePacket + 160) = *((_DWORD *)v3 + 29);
+    if ( (v10 & 4) != 0 )
     {
-      *(_DWORD *)(HwQueuePacket + 64) ^= (*(_DWORD *)(HwQueuePacket + 64) ^ (*(_DWORD *)(v7 + 2536) >> 5)) & 4;
+      *(_DWORD *)(HwQueuePacket + 64) ^= (*(_DWORD *)(HwQueuePacket + 64) ^ (*(_DWORD *)(v6 + 2448) >> 4)) & 4;
+      if ( ((*((_DWORD *)v3 + 30) - 3) & 0xFFFFFFFD) == 0 && (v10 & 0xC00) != 0x400 )
+      {
+        v11 = *((unsigned int *)v3 + 29);
+        *((_QWORD *)v3 + 16) = ++*(_QWORD *)(v5 + 8 * v11 + 248);
+      }
+LABEL_29:
+      memmove((void *)(HwQueuePacket + 272), v3, *((unsigned int *)v3 + 135));
+      if ( !*(_BYTE *)(v2 + 89) )
+        VidSchiAcquirePrivateDataReference(
+          (struct _VIDSCH_GLOBAL *)v6,
+          (struct VIDSCH_FLIP_MULTIPLANE_OVERLAY2 *)(HwQueuePacket + 848));
+      if ( *((_QWORD *)v3 + 4) )
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(HwQueuePacket + 304) + 12LL));
+      v23 = *(void **)(HwQueuePacket + 360);
+      if ( v23 )
+        ObfReferenceObject(v23);
+      v24 = *(_QWORD *)(HwQueuePacket + 280);
+      if ( v24 && (*(_DWORD *)(HwQueuePacket + 272) & 0x8000000) != 0 && !*(_QWORD *)(HwQueuePacket + 312) )
+        *(_QWORD *)(HwQueuePacket + 312) = *(_QWORD *)(v24 + 96);
+      VidSchiSubmitCommandPacketToHwQueue((struct _VIDSCH_QUEUE_PACKET *)HwQueuePacket);
+      v25 = *((unsigned int *)v3 + 29);
+      if ( (unsigned int)v25 < *(_DWORD *)(v6 + 40) && (*(_BYTE *)v3 & 5) == 5 )
+        _InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(v6 + 8 * v25 + 3104) + 66432LL), 2, 1);
+      return 0LL;
     }
-    else if ( *(_DWORD *)v13 != 7 )
+LABEL_25:
+    if ( (v10 & 0x20) != 0 )
+    {
+      *(_DWORD *)(HwQueuePacket + 64) ^= (*(_DWORD *)(HwQueuePacket + 64) ^ (*(_DWORD *)(v6 + 2448) >> 5)) & 4;
+    }
+    else if ( *(_DWORD *)(HwQueuePacket + 48) != 7 )
     {
       *(_DWORD *)(HwQueuePacket + 64) |= 4u;
     }
-    goto LABEL_36;
+    goto LABEL_29;
   }
-  *(_DWORD *)(HwQueuePacket + 64) ^= (*(_DWORD *)(HwQueuePacket + 64) ^ (*(_DWORD *)(v7 + 2536) >> 4)) & 4;
-  if ( ((*v14 - 3) & 0xFFFFFFFD) == 0 && (v23 & 0xC00) != 0x400 )
-  {
-    v24 = *((unsigned int *)v4 + 29);
-    *((_QWORD *)v4 + 16) = ++*(_QWORD *)(v6 + 8 * v24 + 248);
-  }
-LABEL_36:
-  memmove((void *)(HwQueuePacket + 272), v4, *((unsigned int *)v4 + 139));
-  if ( *((_BYTE *)v31 + 89) == (_BYTE)v3 )
-    VidSchiAcquirePrivateDataReference(
-      (struct _VIDSCH_GLOBAL *)v7,
-      (struct VIDSCH_FLIP_MULTIPLANE_OVERLAY2 *)(HwQueuePacket + 872));
-  if ( *((char **)v4 + 4) != v3 )
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(HwQueuePacket + 304) + 12LL));
-  v25 = *(void **)(HwQueuePacket + 360);
-  if ( v25 )
-    ObfReferenceObject(v25);
-  VidSchiAcquireFlipFencesReference(
-    (struct _VIDSCH_GLOBAL *)v7,
-    (struct VIDSCH_FLIP_MULTIPLANE_OVERLAY2 *)(HwQueuePacket + 872));
-  if ( *(_DWORD *)(HwQueuePacket + 472) > (unsigned int)v3 )
-  {
-    v26 = *(_QWORD *)(v7 + 16);
-    if ( *(_BYTE *)(v26 + 4736) != (_BYTE)v3 && *(_DWORD *)(v26 + 288) == 1 )
-    {
-      v27 = *(unsigned int *)(HwQueuePacket + 160);
-      if ( (unsigned int)v27 < *(_DWORD *)(v7 + 40) )
-      {
-        v28 = *(_QWORD *)(*(_QWORD *)(v7 + 8 * v27 + 3200) + 16LL);
-        if ( v28 )
-        {
-          if ( v28 != v6 )
-            *(_DWORD *)(HwQueuePacket + 64) |= 0x80u;
-        }
-      }
-    }
-  }
-  v29 = *(_QWORD *)(HwQueuePacket + 280);
-  if ( v29 && (*(_DWORD *)(HwQueuePacket + 272) & 0x8000000) != 0 && *(char **)(HwQueuePacket + 312) == v3 )
-    *(_QWORD *)(HwQueuePacket + 312) = *(_QWORD *)(v29 + 96);
-  VidSchiSubmitCommandPacketToHwQueue((struct _VIDSCH_QUEUE_PACKET *)HwQueuePacket);
-  v30 = *((unsigned int *)v4 + 29);
-  if ( (unsigned int)v30 < *(_DWORD *)(v7 + 40) && (*(_BYTE *)v4 & 5) == 5 )
-    _InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(v7 + 8 * v30 + 3200) + 78784LL), 2, 1);
-  return 0LL;
+  return result;
 }

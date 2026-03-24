@@ -1,15 +1,14 @@
 /*
- * XREFs of ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C001BC68
+ * XREFs of ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C00187BC
  * Callers:
- *     NtTokenManagerCreateCompositionTokenHandle @ 0x1C001AC70 (NtTokenManagerCreateCompositionTokenHandle.c)
- *     NtCreateCompositionSurfaceHandle @ 0x1C001CFB0 (NtCreateCompositionSurfaceHandle.c)
- *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0074FE0 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
- *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0075220 (NtTokenManagerCreateFlipObjectTokenHandle.c)
- *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C0077B14 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
- *     NtFlipObjectCreate @ 0x1C007AC80 (NtFlipObjectCreate.c)
- *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C0350850 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ *     NtCreateCompositionSurfaceHandle @ 0x1C0018B00 (NtCreateCompositionSurfaceHandle.c)
+ *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0063000 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
+ *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0063240 (NtTokenManagerCreateFlipObjectTokenHandle.c)
+ *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C0065DF4 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
+ *     NtFlipObjectCreate @ 0x1C0069550 (NtFlipObjectCreate.c)
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C02B4AC8 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkCompositionObject::Create(

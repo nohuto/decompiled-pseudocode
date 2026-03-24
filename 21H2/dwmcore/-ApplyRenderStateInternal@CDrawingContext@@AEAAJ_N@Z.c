@@ -1,299 +1,387 @@
 /*
- * XREFs of ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18009A920
+ * XREFs of ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18007FF00
  * Callers:
- *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x18008AB80 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?ApplyRenderState@CDrawingContext@@UEAAJXZ @ 0x180097770 (-ApplyRenderState@CDrawingContext@@UEAAJXZ.c)
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x180194320 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?RenderEffect@CTreeEffectLayer@@IEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBUD2D_SIZE_F@@@Z @ 0x1800051C4 (-RenderEffect@CTreeEffectLayer@@IEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@MUMilR.c)
+ *     ?FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_POINT_2F@@_N@Z @ 0x18000D480 (-FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
+ *     ?ApplyRenderState@CDrawingContext@@UEAAJXZ @ 0x1800201B0 (-ApplyRenderState@CDrawingContext@@UEAAJXZ.c)
+ *     ?DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z @ 0x18003EBC0 (-DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z.c)
+ *     ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x180041590 (-Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x18008D4E0 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z.c)
+ *     ?RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResource@@PEBVCShape@@PEAU_MARGINS@@H@Z @ 0x1800F0800 (-RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResourc.c)
+ *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x18016200C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
+ *     ?DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z @ 0x180175740 (-DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z.c)
+ *     ?DrawInk@CDrawingContext@@UEAAJPEAUID2D1Ink@@AEBU_D3DCOLORVALUE@@PEAUID2D1InkStyle@@@Z @ 0x180175B10 (-DrawInk@CDrawingContext@@UEAAJPEAUID2D1Ink@@AEBU_D3DCOLORVALUE@@PEAUID2D1InkStyle@@@Z.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x180176198 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?DrawTextW@CDrawingContext@@QEAAJPEAGIPEAUIDWriteTextFormat@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@@Z @ 0x1801770C8 (-DrawTextW@CDrawingContext@@QEAAJPEAGIPEAUIDWriteTextFormat@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@.c)
+ *     ?FillShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@@Z @ 0x1801772E0 (-FillShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@@Z.c)
+ *     ?StrokeShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@MPEAUID2D1StrokeStyle1@@@Z @ 0x1801788A4 (-StrokeShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@MPEAUID2D1StrokeStyle1@@.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018E210 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F9C00 (-RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV-$TMilRect_.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18007FC60 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
- *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180080698 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
- *     ?Top@CBaseClipStack@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18008A238 (-Top@CBaseClipStack@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded.c)
- *     ?HasClipBoundsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18008A298 (-HasClipBoundsInScope@CScopedClipStack@@QEBA_NXZ.c)
- *     ?FlushAllDeferredClipping@CDrawingContext@@AEAAJXZ @ 0x180097784 (-FlushAllDeferredClipping@CDrawingContext@@AEAAJXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _o_ceilf_0 @ 0x1801018BC (_o_ceilf_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x18002C600 (-ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x180090C38 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
+ *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180090FE8 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
+ *     ?QueueForRender@CDrawListEntryBatch@@QEAAXPEAVIDeviceTarget@@@Z @ 0x1800910A8 (-QueueForRender@CDrawListEntryBatch@@QEAAXPEAVIDeviceTarget@@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C5704 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ceilf_0 @ 0x1800F4757 (ceilf_0.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDrawingContext::ApplyRenderStateInternal(CDrawingContext *this, char a2)
 {
-  char v2; // di
-  char *v3; // r14
-  unsigned int v4; // r15d
+  char v2; // si
+  unsigned int v3; // r14d
+  int v5; // eax
+  __int64 v6; // rcx
+  __int64 v7; // rax
   __int64 result; // rax
-  int v7; // eax
-  int v8; // eax
-  float v9; // xmm9_4
-  float v10; // xmm8_4
-  float v11; // xmm7_4
-  float v12; // xmm6_4
-  float v13; // xmm1_4
-  float v14; // xmm2_4
-  float v15; // xmm0_4
+  int v9; // r8d
+  __m128 v10; // xmm6
+  int v11; // eax
+  float v12; // xmm10_4
+  float v13; // xmm9_4
+  __m128 v14; // xmm8
+  float v15; // xmm7_4
   float v16; // xmm3_4
-  unsigned int v17; // r12d
-  __int64 v18; // rbx
-  __int64 v19; // r13
-  int v20; // eax
-  int v21; // ebx
-  float v22; // xmm7_4
-  int v23; // eax
-  float v24; // xmm8_4
-  int v25; // eax
-  float v26; // xmm9_4
-  int v27; // eax
-  float v28; // xmm6_4
-  int v29; // eax
-  int v30; // eax
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  __int64 v33; // rcx
-  __int64 v34; // rbx
-  CMILRefCountImpl *v35; // rbx
-  bool v36; // zf
-  __int128 v37; // xmm0
-  __int64 v38; // rbx
-  __int64 v39; // rcx
-  __int128 v40; // xmm0
-  float v41; // xmm3_4
-  float v42; // xmm2_4
-  float v43; // xmm0_4
-  __int64 v44; // [rsp+30h] [rbp-99h]
-  __int64 v45; // [rsp+30h] [rbp-99h]
-  __m128 v46; // [rsp+40h] [rbp-89h]
-  __int128 v47; // [rsp+50h] [rbp-79h] BYREF
-  float v48; // [rsp+60h] [rbp-69h]
-  __int128 v49; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v50; // [rsp+78h] [rbp-51h]
+  float v17; // xmm4_4
+  float v18; // xmm5_4
+  __m128 v19; // xmm6
+  float v20; // xmm11_4
+  unsigned int v21; // r12d
+  __m128 v22; // xmm6
+  __m128 v23; // xmm6
+  __int64 v24; // rbx
+  __int64 v25; // r15
+  int v26; // eax
+  __int64 v27; // rcx
+  bool v28; // zf
+  __int64 v29; // rbx
+  __int64 v30; // rcx
+  __int128 v31; // xmm0
+  int v32; // ebx
+  float v33; // xmm8_4
+  int v34; // eax
+  float v35; // xmm9_4
+  int v36; // eax
+  float v37; // xmm10_4
+  int v38; // eax
+  float v39; // xmm7_4
+  int v40; // eax
+  __int64 v41; // r15
+  __int64 v42; // r12
+  char *v43; // rbx
+  __int64 v44; // rcx
+  __int64 v45; // rcx
+  __int64 v46; // rax
+  float v47; // xmm3_4
+  float v48; // xmm2_4
+  float v49; // xmm1_4
+  __int64 v50; // r13
+  int v51; // eax
+  __int64 v52; // rdx
+  int v53; // eax
+  __int64 v54; // rcx
+  unsigned int v55; // r12d
+  unsigned int v56; // r12d
+  __int128 v57; // [rsp+30h] [rbp-69h] BYREF
+  __int64 v58; // [rsp+40h] [rbp-59h]
+  __m128 v59; // [rsp+48h] [rbp-51h]
 
   v2 = 0;
-  v3 = (char *)this + 864;
-  v4 = 0;
-  if ( *(_BYTE *)(88LL * (unsigned int)(*((_DWORD *)this + 222) - 1) + *((_QWORD *)this + 108) + 84) )
+  v3 = 0;
+  if ( *(_BYTE *)(84LL * (unsigned int)(*((_DWORD *)this + 240) - 1) + *((_QWORD *)this + 117) + 80) )
     v2 = a2;
   if ( !v2 )
   {
-    v30 = CDrawingContext::FlushAllDeferredClipping(this);
-    v4 = v30;
-    if ( v30 < 0 )
+    v41 = 0LL;
+    v42 = 0LL;
+    if ( *((_DWORD *)this + 140) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0LL, v30, 0x1A2u);
-      return v4;
+      v43 = (char *)this + 536;
+      while ( 1 )
+      {
+        v53 = CD2DLayer::ApplyState(*(CD2DLayer **)(*(_QWORD *)v43 + 8 * v42), this);
+        v3 = v53;
+        if ( v53 < 0 )
+          break;
+        v41 = (unsigned int)(v41 + 1);
+        v42 = (unsigned int)(v42 + 1);
+        if ( (unsigned int)v42 >= *((_DWORD *)this + 140) )
+          goto LABEL_50;
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v53, 0x1005u, 0LL);
+    }
+    else
+    {
+LABEL_50:
+      v43 = (char *)this + 536;
+      *((_DWORD *)this + 140) = 0;
+      DynArrayImpl<0>::ShrinkToSize((char *)this + 536, 8LL);
+    }
+    if ( (unsigned int)v41 < *((_DWORD *)this + 140) && (_DWORD)v41 )
+    {
+      v55 = *((_DWORD *)v43 + 6);
+      if ( (unsigned int)v41 > v55 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, -2147024809, 0x23Du, 0LL);
+      }
+      else
+      {
+        v56 = v55 - v41;
+        if ( v56 )
+          memmove_0(*(void **)v43, (const void *)(*(_QWORD *)v43 + 8 * v41), 8LL * v56);
+        *((_DWORD *)v43 + 6) = v56;
+      }
+    }
+    if ( (v3 & 0x80000000) != 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v3, 0xFF0u, 0LL);
+    }
+    else if ( *((_BYTE *)this + 5955) )
+    {
+      *((_WORD *)this + 2977) = 1;
+    }
+    if ( (v3 & 0x80000000) != 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v3, 0x1B6u, 0LL);
+      return v3;
     }
   }
-  if ( !*((_BYTE *)this + 8041) )
-    return v4;
-  v7 = *((_DWORD *)v3 + 6);
-  v49 = 0LL;
-  if ( v7 && *(_DWORD *)(88LL * (unsigned int)(v7 - 1) + *(_QWORD *)v3) && (v8 = *((_DWORD *)v3 + 516)) != 0 )
+  if ( *((_BYTE *)this + 5953) )
   {
-    v46 = *(__m128 *)(*((_QWORD *)v3 + 260) + 16LL * (unsigned int)(v8 - 1));
-    LODWORD(v9) = *(_QWORD *)(*((_QWORD *)v3 + 260) + 16LL * (unsigned int)(v8 - 1) + 8);
-    LODWORD(v10) = HIDWORD(*(_QWORD *)(*((_QWORD *)v3 + 260) + 16LL * (unsigned int)(v8 - 1)));
-    v11 = v46.m128_f32[0];
-    LODWORD(v12) = _mm_shuffle_ps(v46, v46, 255).m128_u32[0];
+    v5 = *((_DWORD *)this + 102);
+    if ( v5 )
+    {
+      v6 = (unsigned int)(v5 - 1);
+      v7 = *((_QWORD *)this + 53);
+      *((_OWORD *)this + 19) = *(_OWORD *)(68 * v6 + v7);
+      *((_OWORD *)this + 20) = *(_OWORD *)(68 * v6 + v7 + 16);
+      *((_OWORD *)this + 21) = *(_OWORD *)(68 * v6 + v7 + 32);
+      *((_OWORD *)this + 22) = *(_OWORD *)(68 * v6 + v7 + 48);
+      *((_DWORD *)this + 92) = *(_DWORD *)(68 * v6 + v7 + 64);
+    }
+    else
+    {
+      *((_QWORD *)this + 38) = 1065353216LL;
+      *((_QWORD *)this + 39) = 0LL;
+      *((_DWORD *)this + 80) = 0;
+      *(_QWORD *)((char *)this + 324) = 1065353216LL;
+      *(_QWORD *)((char *)this + 332) = 0LL;
+      *((_DWORD *)this + 85) = 0;
+      *((_QWORD *)this + 43) = 1065353216LL;
+      *((_QWORD *)this + 44) = 0LL;
+      *((_DWORD *)this + 90) = 0;
+      *((_DWORD *)this + 91) = 1065353216;
+      *((_WORD *)this + 184) = 32085;
+    }
+    *((_BYTE *)this + 5953) = 0;
+  }
+  if ( !*((_BYTE *)this + 5954) )
+    return v3;
+  v9 = *((_DWORD *)this + 240);
+  v10 = 0LL;
+  v57 = 0LL;
+  v59 = 0LL;
+  if ( v9
+    && *(_DWORD *)(84LL * (unsigned int)(v9 - 1) + *((_QWORD *)this + 117))
+    && (v11 = *((_DWORD *)this + 800)) != 0 )
+  {
+    v59 = *(__m128 *)(*((_QWORD *)this + 402) + 16LL * (unsigned int)(v11 - 1));
+    v12 = v59.m128_f32[2];
+    v13 = v59.m128_f32[1];
+    v14 = (__m128)v59.m128_u32[0];
+    LODWORD(v15) = _mm_shuffle_ps(v59, v59, 255).m128_u32[0];
   }
   else
   {
-    v12 = *((float *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
-    v9 = *((float *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
-    v10 = *((float *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
-    LODWORD(v11) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-    v46 = (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+    v15 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
+    v12 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
+    v13 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
+    v14 = (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
   }
-  if ( v2 || !CScopedClipStack::HasClipBoundsInScope((CScopedClipStack *)v3) )
-    goto LABEL_13;
-  v47 = 0LL;
-  CBaseClipStack::Top((unsigned int *)v3 + 524, &v47);
-  if ( *(float *)&v47 > v11 )
+  if ( v2 || !v9 || !*(_DWORD *)(84LL * (unsigned int)(v9 - 1) + *((_QWORD *)this + 117) + 4) )
+    goto LABEL_17;
+  v45 = 136LL * (unsigned int)(*((_DWORD *)this + 458) - 1);
+  v46 = *((_QWORD *)this + 226);
+  if ( *(float *)(v45 + v46 + 96) > v14.m128_f32[0] )
+    v14 = (__m128)*(unsigned int *)(v45 + v46 + 96);
+  v47 = v13;
+  if ( *(float *)(v45 + v46 + 100) > v13 )
   {
-    v46.m128_i32[0] = v47;
-    LODWORD(v11) = v47;
+    v13 = *(float *)(v45 + v46 + 100);
+    v47 = v13;
   }
-  v41 = v10;
-  if ( *((float *)&v47 + 1) > v10 )
+  v48 = v12;
+  if ( v12 > *(float *)(v45 + v46 + 104) )
   {
-    v46.m128_i32[1] = DWORD1(v47);
-    v10 = *((float *)&v47 + 1);
-    v41 = *((float *)&v47 + 1);
+    v12 = *(float *)(v45 + v46 + 104);
+    v48 = v12;
   }
-  v42 = v9;
-  if ( v9 > *((float *)&v47 + 2) )
+  v49 = v15;
+  if ( v15 > *(float *)(v45 + v46 + 108) )
   {
-    v46.m128_i32[2] = DWORD2(v47);
-    v9 = *((float *)&v47 + 2);
-    v42 = *((float *)&v47 + 2);
+    v15 = *(float *)(v45 + v46 + 108);
+    v49 = v15;
   }
-  v43 = v12;
-  if ( v12 > *((float *)&v47 + 3) )
+  if ( v48 <= v14.m128_f32[0] || v49 <= v47 )
   {
-    v46.m128_i32[3] = HIDWORD(v47);
-    v12 = *((float *)&v47 + 3);
-    v43 = *((float *)&v47 + 3);
-  }
-  if ( v42 > v11 && v43 > v41 )
-  {
-LABEL_13:
-    if ( v9 > v11 && v12 > v10 )
-    {
-      v13 = v10;
-      *(_QWORD *)&v49 = __PAIR64__(LODWORD(v10), LODWORD(v11));
-      v14 = v9;
-      *((_QWORD *)&v49 + 1) = __PAIR64__(LODWORD(v12), LODWORD(v9));
-      v15 = v11;
-      v16 = v12;
-      v17 = 0;
-      goto LABEL_15;
-    }
-  }
-  else
-  {
+    v15 = 0.0;
     v12 = 0.0;
-    v9 = 0.0;
-    v10 = 0.0;
-    v11 = 0.0;
-    v46 = 0uLL;
+    v13 = 0.0;
+    v14.m128_i32[0] = 0;
   }
-  v16 = *((float *)&v49 + 3);
-  v17 = 1;
-  v14 = *((float *)&v49 + 2);
-  v13 = *((float *)&v49 + 1);
-  v15 = *(float *)&v49;
-LABEL_15:
-  v18 = *((_QWORD *)this + 5);
-  v19 = 0LL;
-  v20 = *(_DWORD *)(v18 + 368);
-  if ( v20 )
-    v19 = *(_QWORD *)(*(_QWORD *)(v18 + 344) + 8LL * (unsigned int)(v20 - 1));
-  if ( !*(_BYTE *)(v18 + 453)
-    || *(_BYTE *)(v18 + 455)
-    || v17 != *(_DWORD *)(v18 + 432)
-    || v15 != *(float *)(v18 + 416)
-    || v13 != *(float *)(v18 + 420)
-    || v14 != *(float *)(v18 + 424)
-    || v16 != *(float *)(v18 + 428) )
+  else
   {
-    v32 = *(_QWORD *)(v18 + 152);
-    if ( v32 )
+LABEL_17:
+    if ( v12 > v14.m128_f32[0] && v15 > v13 )
     {
-      if ( *(_QWORD *)(v18 + 160) )
+      v16 = v14.m128_f32[0];
+      v17 = v13;
+      v18 = v12;
+      v19 = _mm_shuffle_ps(v14, v14, 225);
+      v20 = v15;
+      v19.m128_f32[0] = v13;
+      v21 = 0;
+      v22 = _mm_shuffle_ps(v19, v19, 198);
+      v22.m128_f32[0] = v12;
+      v23 = _mm_shuffle_ps(v22, v22, 39);
+      v23.m128_f32[0] = v15;
+      v10 = _mm_shuffle_ps(v23, v23, 57);
+      v57 = (__int128)v10;
+      goto LABEL_19;
+    }
+  }
+  v20 = *((float *)&v57 + 3);
+  v21 = 1;
+  v18 = *((float *)&v57 + 2);
+  v17 = *((float *)&v57 + 1);
+  v16 = *(float *)&v57;
+LABEL_19:
+  v24 = *((_QWORD *)this + 5);
+  v25 = 0LL;
+  v26 = *(_DWORD *)(v24 + 416);
+  if ( v26 )
+    v25 = *(_QWORD *)(*(_QWORD *)(v24 + 392) + 8LL * (unsigned int)(v26 - 1));
+  if ( !*(_BYTE *)(v24 + 501)
+    || *(_BYTE *)(v24 + 503)
+    || v21 != *(_DWORD *)(v24 + 480)
+    || v16 != *(float *)(v24 + 464)
+    || v17 != *(float *)(v24 + 468)
+    || v18 != *(float *)(v24 + 472)
+    || v20 != *(float *)(v24 + 476) )
+  {
+    v27 = *(_QWORD *)(v24 + 192);
+    if ( v27 )
+    {
+      if ( *(_QWORD *)(v24 + 200) )
       {
-        CBatchOptimizer::Flush(*(CBatchOptimizer **)(v18 + 160));
-        v32 = *(_QWORD *)(v18 + 152);
+        CBatchOptimizer::Flush(*(CBatchOptimizer **)(v24 + 200));
+        v27 = *(_QWORD *)(v24 + 192);
       }
-      *(_DWORD *)(v32 + 52) = *(_DWORD *)(v18 + 48);
-      *(_QWORD *)(v32 + 40) = 0LL;
-      v44 = *(_QWORD *)(v18 + 152);
-      *(_QWORD *)(v18 + 152) = 0LL;
-      if ( v44 )
+      *(_DWORD *)(v27 + 52) = *(_DWORD *)(v24 + 48);
+      v50 = *(_QWORD *)(v24 + 192);
+      *(_QWORD *)(v24 + 192) = 0LL;
+      if ( v50 )
       {
-        CD2DContext::EnsureBeginDraw((CD2DContext *)(v18 + 16));
-        v33 = *(_QWORD *)(v18 + 224);
-        v34 = v44;
-        (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v33 + 120LL))(v33, v44);
-        v45 = v44 + 8;
-        v35 = (CMILRefCountImpl *)(v34 + 16);
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)v35, 0xFFFFFFFF) == 1 )
-        {
-          CMILRefCountImpl::AddReference(v35);
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v45 + 24LL))(v45);
-          if ( _InterlockedExchangeAdd((volatile signed __int32 *)v35, 0xFFFFFFFF) == 1 )
-          {
-            --*(_DWORD *)v35;
-            (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v45 + 16LL))(v45, 1LL);
-          }
-        }
-        v11 = v46.m128_f32[0];
-        v10 = v46.m128_f32[1];
-        v9 = v46.m128_f32[2];
-        v12 = v46.m128_f32[3];
+        v51 = *(_DWORD *)(v24 + 416);
+        v52 = 0LL;
+        if ( v51 )
+          v52 = *(_QWORD *)(*(_QWORD *)(v24 + 392) + 8LL * (unsigned int)(v51 - 1));
+        CDrawListEntryBatch::QueueForRender((CDrawListEntryBatch *)v50, *(struct IDeviceTarget **)(v52 + 24));
+        CD2DContext::EnsureBeginDraw((CD2DContext *)(v24 + 16));
+        (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(v24 + 264) + 120LL))(*(_QWORD *)(v24 + 264), v50);
+        CDrawListEntry::Release((CDrawListEntry *)(v50 + 8));
       }
     }
-    v36 = *(_BYTE *)(v19 + 73) == 0;
-    v37 = v49;
-    *(_DWORD *)(v19 + 68) = v17;
-    *(_OWORD *)(v19 + 52) = v37;
-    if ( !v36 )
+    v28 = *(_BYTE *)(v25 + 48) == 0;
+    *(__m128 *)(v25 + 60) = v10;
+    *(_DWORD *)(v25 + 76) = v21;
+    if ( !v28 )
     {
-      v38 = *(_QWORD *)(v19 + 16);
-      v49 = *(_OWORD *)&_xmm;
-      v50 = 0LL;
-      (*(void (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)(v38 + 200) + 240LL))(*(_QWORD *)(v38 + 200), &v49);
-      v39 = *(_QWORD *)(v38 + 208);
-      *(_BYTE *)(v38 + 439) = 0;
-      v40 = *(_OWORD *)(v19 + 52);
-      *(_DWORD *)(v38 + 416) = v17;
-      *(_OWORD *)(v38 + 400) = v40;
-      (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v39 + 80LL))(v39, v19 + 52, v17);
+      v29 = *(_QWORD *)(v25 + 16);
+      v57 = _xmm;
+      v58 = 0LL;
+      (*(void (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)(v29 + 240) + 240LL))(*(_QWORD *)(v29 + 240), &v57);
+      v30 = *(_QWORD *)(v29 + 248);
+      *(_BYTE *)(v29 + 487) = 0;
+      v31 = *(_OWORD *)(v25 + 60);
+      *(_DWORD *)(v29 + 464) = v21;
+      *(_OWORD *)(v29 + 448) = v31;
+      (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v30 + 80LL))(v30, v25 + 60, v21);
     }
-    *(_BYTE *)(v19 + 72) = 1;
+    *(_BYTE *)(v25 + 56) = 1;
   }
-  v21 = 0x7FFFFFFF;
-  v22 = v11 - 0.5;
-  LODWORD(v47) = 0;
-  if ( v22 < -2147483600.0 )
+  v32 = 0x7FFFFFFF;
+  v33 = v14.m128_f32[0] - 0.5;
+  LODWORD(v57) = 0;
+  if ( v33 < -2147483600.0 )
   {
-    v23 = 0x80000000;
+    v34 = 0x80000000;
   }
-  else if ( v22 >= 2147483600.0 )
+  else if ( v33 >= 2147483600.0 )
   {
-    v23 = 0x7FFFFFFF;
+    v34 = 0x7FFFFFFF;
   }
   else
   {
-    v23 = (int)o_ceilf_0(v22);
+    v34 = (int)ceilf_0(v33);
   }
-  v24 = v10 - 0.5;
-  *((float *)&v47 + 1) = (float)v23;
-  if ( v24 < -2147483600.0 )
+  v35 = v13 - 0.5;
+  *((float *)&v57 + 1) = (float)v34;
+  if ( v35 < -2147483600.0 )
   {
-    v25 = 0x80000000;
+    v36 = 0x80000000;
   }
-  else if ( v24 >= 2147483600.0 )
+  else if ( v35 >= 2147483600.0 )
   {
-    v25 = 0x7FFFFFFF;
+    v36 = 0x7FFFFFFF;
   }
   else
   {
-    v25 = (int)o_ceilf_0(v24);
+    v36 = (int)ceilf_0(v35);
   }
-  v26 = v9 - 0.5;
-  *((float *)&v47 + 2) = (float)v25;
-  if ( v26 < -2147483600.0 )
+  v37 = v12 - 0.5;
+  *((float *)&v57 + 2) = (float)v36;
+  if ( v37 < -2147483600.0 )
   {
-    v27 = 0x80000000;
+    v38 = 0x80000000;
   }
-  else if ( v26 >= 2147483600.0 )
+  else if ( v37 >= 2147483600.0 )
   {
-    v27 = 0x7FFFFFFF;
+    v38 = 0x7FFFFFFF;
   }
   else
   {
-    v27 = (int)o_ceilf_0(v26);
+    v38 = (int)ceilf_0(v37);
   }
-  v28 = v12 - 0.5;
-  *((float *)&v47 + 3) = (float)v27;
-  if ( v28 < -2147483600.0 )
+  v39 = v15 - 0.5;
+  *((float *)&v57 + 3) = (float)v38;
+  if ( v39 < -2147483600.0 )
   {
-    v21 = 0x80000000;
+    v32 = 0x80000000;
   }
-  else if ( v28 < 2147483600.0 )
+  else if ( v39 < 2147483600.0 )
   {
-    v21 = (int)o_ceilf_0(v28);
+    v32 = (int)ceilf_0(v39);
   }
-  *((_BYTE *)this + 8041) = 0;
-  *((_OWORD *)this + 12) = v47;
-  v48 = (float)v21;
-  *((float *)this + 52) = (float)v21;
+  *((_BYTE *)this + 5954) = 0;
+  *(_OWORD *)((char *)this + 164) = v57;
+  *(float *)&v58 = (float)v32;
+  *((float *)this + 45) = (float)v32;
   if ( !v2 )
-    return v4;
-  v29 = *((_DWORD *)v3 + 6);
-  if ( !v29 || !*(_DWORD *)(88LL * (unsigned int)(v29 - 1) + *(_QWORD *)v3 + 4) )
-    return v4;
-  result = v4;
-  if ( *(_DWORD *)(112LL * (unsigned int)(*((_DWORD *)v3 + 234) - 1) + *((_QWORD *)v3 + 114) + 104) )
-    *((_BYTE *)this + 8042) = 1;
+    return v3;
+  v40 = *((_DWORD *)this + 240);
+  if ( !v40 || !*(_DWORD *)(84LL * (unsigned int)(v40 - 1) + *((_QWORD *)this + 117) + 4) )
+    return v3;
+  v28 = (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(*((_QWORD *)this + 226)
+                                                                                                 + 96LL + 136LL * (unsigned int)(*((_DWORD *)this + 458) - 1)) == 0;
+  result = v3;
+  if ( v28 )
+    *((_BYTE *)this + 5955) = 1;
   return result;
 }

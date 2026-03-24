@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipEventNotification @ 0x140856900
+ * XREFs of WmipEventNotification @ 0x140755D00
  * Callers:
  *     <none>
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAD4 (WmipUnreferenceRegEntry.c)
- *     ExInterlockedRemoveHeadList @ 0x14032F150 (ExInterlockedRemoveHeadList.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExInterlockedRemoveHeadList @ 0x1402F8780 (ExInterlockedRemoveHeadList.c)
+ *     WmipUnreferenceRegEntry @ 0x14032E244 (WmipUnreferenceRegEntry.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 WmipEventNotification()

@@ -1,44 +1,43 @@
 /*
- * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x140AC327C
+ * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x1409C61CC
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140AC3240 (VfProbeAndCaptureUnicodeString.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x1409C6194 (VfProbeAndCaptureUnicodeString.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, int a2)
+__int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, POOL_TYPE a2)
 {
   __int64 v3; // rax
-  unsigned __int64 v5; // rcx
-  __int64 v6; // rcx
-  void *Pool2; // rax
-  void *v8; // rdi
+  unsigned __int16 v5; // di
+  unsigned __int64 v6; // rcx
+  PVOID PoolWithTag; // rax
+  PVOID v8; // rsi
 
   v3 = *a1;
   if ( (v3 & 1) != 0 )
     return 3221225485LL;
+  v5 = 0;
   if ( (_WORD)v3 )
   {
-    v5 = *((_QWORD *)a1 + 1);
-    if ( v5 + v3 > 0x7FFFFFFF0000LL || v5 + v3 < v5 )
+    v6 = *((_QWORD *)a1 + 1);
+    if ( v6 + v3 > 0x7FFFFFFF0000LL || v6 + v3 < v6 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v6 = 256LL;
-    if ( a2 != 1 )
-      v6 = 64LL;
-    Pool2 = (void *)ExAllocatePool2(v6, *a1, 0x43536656u);
-    v8 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(a2, *a1, 0x43536656u);
+    v8 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225495LL;
-    memmove(Pool2, *((const void **)a1 + 1), *a1);
+    memmove(PoolWithTag, *((const void **)a1 + 1), *a1);
     *((_QWORD *)a1 + 1) = v8;
+    v5 = *a1;
   }
   else
   {
     *((_QWORD *)a1 + 1) = MmBadPointer;
   }
-  a1[1] = *a1;
+  a1[1] = v5;
   return 0LL;
 }

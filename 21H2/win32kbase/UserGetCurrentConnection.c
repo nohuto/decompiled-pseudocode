@@ -1,5 +1,5 @@
 /*
- * XREFs of UserGetCurrentConnection @ 0x1C00C5200
+ * XREFs of UserGetCurrentConnection @ 0x1C00B3B00
  * Callers:
  *     <none>
  * Callees:

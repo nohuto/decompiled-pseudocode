@@ -1,11 +1,11 @@
 /*
- * XREFs of Register_MapSecureMmio @ 0x1C003EC24
+ * XREFs of Register_MapSecureMmio @ 0x1C003C9D4
  * Callers:
- *     Register_PrepareHardware @ 0x1C00733C8 (Register_PrepareHardware.c)
+ *     Register_PrepareHardware @ 0x1C006CD24 (Register_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall Register_MapSecureMmio(__int64 a1)
@@ -51,7 +51,7 @@ __int64 __fastcall Register_MapSecureMmio(__int64 a1)
         v6,
         6,
         73,
-        (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids,
+        (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
         v9);
     }
   }

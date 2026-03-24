@@ -1,19 +1,14 @@
 /*
- * XREFs of InkProcessorIsInkDevice @ 0x1C021AC20
+ * XREFs of InkProcessorIsInkDevice @ 0x1C0101780
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C024C77C (-IsEnabled@InkProcessor@@QEBA_NXZ.c)
- *     ?IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z @ 0x1C024D5B0 (-IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z.c)
+ *     ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C0101810 (-IsEnabled@InkProcessor@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall InkProcessorIsInkDevice(
-        unsigned __int16 a1,
-        unsigned __int16 a2,
-        const unsigned __int16 *a3,
-        const unsigned __int16 *a4)
+__int64 __fastcall InkProcessorIsInkDevice(__int16 a1, __int16 a2, _WORD *a3, _WORD *a4)
 {
   unsigned int v5; // ebx
   int v10; // [rsp+30h] [rbp-48h] BYREF
@@ -24,15 +19,21 @@ __int64 __fastcall InkProcessorIsInkDevice(
   v5 = 0;
   if ( InkProcessor::s_pInstance )
   {
-    if ( InkProcessor::IsEnabled(InkProcessor::s_pInstance) )
-      return InkDeviceParser::IsInkDevice(a1, a2, a3, a4);
+    if ( InkProcessor::IsEnabled(InkProcessor::s_pInstance)
+      && a1 == -241
+      && a2 == 256
+      && (!a3 || *a3 == 1118)
+      && (!a4 || *a4 == 85) )
+    {
+      return 1;
+    }
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
     v10 = -1073741823;
     v12 = &v10;
     v13 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0326250, (unsigned __int8 *)dword_1C02EFE22, 0LL, 0LL, 3u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032B288, (int)&dword_1C02F2FAC, 0, 0, 3u, &v11);
   }
   return v5;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01C06C0
+ * XREFs of ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C00E0570
  * Callers:
- *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C01C0654 (DxgkRemoveAllSessionViewForCurrentSession.c)
- *     DxgkDestroyCsrssProcess @ 0x1C01E9CA4 (DxgkDestroyCsrssProcess.c)
+ *     DxgkDestroyCsrssProcess @ 0x1C00E00B8 (DxgkDestroyCsrssProcess.c)
+ *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C00E0508 (DxgkRemoveAllSessionViewForCurrentSession.c)
  * Callees:
- *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C0013A3C (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
- *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C01C10C8 (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
+ *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C0001B60 (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
+ *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C00E0610 (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
  */
 
 void __fastcall DXGSESSIONDATA::RemoveAllSourceViewFromSession(DXGSESSIONDATA *this)
@@ -17,8 +17,8 @@ void __fastcall DXGSESSIONDATA::RemoveAllSourceViewFromSession(DXGSESSIONDATA *t
   __int64 v5; // rcx
   _QWORD *v6; // rax
 
-  v1 = (char *)this + 18592;
-  v2 = (char *)*((_QWORD *)this + 2324);
+  v1 = (char *)this + 18576;
+  v2 = (char *)*((_QWORD *)this + 2322);
   while ( v2 != v1 )
   {
     v3 = (SESSION_VIEW *)(v2 - 8);

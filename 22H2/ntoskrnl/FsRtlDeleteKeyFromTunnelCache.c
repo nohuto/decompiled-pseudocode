@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x14079EC30
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x1406687A0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     RtlRealSuccessor @ 0x140326B10 (RtlRealSuccessor.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x140326BAC (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlEmptyFreePoolList @ 0x140326CB0 (FsRtlEmptyFreePoolList.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     RtlRealSuccessor @ 0x1402F80C0 (RtlRealSuccessor.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1402F815C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402F8264 (FsRtlEmptyFreePoolList.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
@@ -20,7 +20,7 @@ void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryK
 
   v2 = 0LL;
   v8 = 1;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 2) )
+  if ( !TunnelMaxEntries )
     return;
   v7[1] = v7;
   v7[0] = v7;
@@ -41,15 +41,15 @@ LABEL_4:
         goto LABEL_4;
       }
       if ( v2 )
-        goto LABEL_13;
+        goto LABEL_11;
       v5 = v5->RightChild;
     }
   }
   if ( !v2 )
-    goto LABEL_11;
+    goto LABEL_13;
   do
   {
-LABEL_13:
+LABEL_11:
     v6 = RtlRealSuccessor(v2);
     if ( v2[2].Parent != (_RTL_SPLAY_LINKS *)DirectoryKey )
       break;
@@ -57,7 +57,7 @@ LABEL_13:
     v2 = v6;
   }
   while ( v6 );
-LABEL_11:
-  ExReleaseFastMutex(&Cache->Mutex);
+LABEL_13:
+  KeReleaseGuardedMutex(&Cache->Mutex);
   FsRtlEmptyFreePoolList(v7);
 }

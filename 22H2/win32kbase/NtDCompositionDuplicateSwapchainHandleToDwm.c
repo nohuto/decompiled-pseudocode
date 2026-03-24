@@ -1,5 +1,5 @@
 /*
- * XREFs of NtDCompositionDuplicateSwapchainHandleToDwm @ 0x1C0209A60
+ * XREFs of NtDCompositionDuplicateSwapchainHandleToDwm @ 0x1C01D26F0
  * Callers:
  *     <none>
  * Callees:

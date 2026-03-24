@@ -1,34 +1,46 @@
 /*
- * XREFs of IopHardErrorThread @ 0x1409345F0
+ * XREFs of IopHardErrorThread @ 0x140891660
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IopCheckHardErrorEmpty @ 0x140556550 (IopCheckHardErrorEmpty.c)
- *     IopRemoveHardErrorPacket @ 0x140556FA8 (IopRemoveHardErrorPacket.c)
- *     ExRaiseHardError @ 0x140A02230 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IopCheckHardErrorEmpty @ 0x1405005D8 (IopCheckHardErrorEmpty.c)
+ *     IopRemoveHardErrorPacket @ 0x140501060 (IopRemoveHardErrorPacket.c)
+ *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void IopHardErrorThread()
 {
   __int64 v0; // rbx
-  char v1; // al
-  void *v2; // rcx
-  char v3; // di
+  __int64 v1; // rax
+  char v2; // al
+  void *v3; // rcx
+  char v4; // di
+  int v5; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v6; // [rsp+50h] [rbp+18h] BYREF
 
+  v5 = 0;
   do
   {
-    KeWaitForSingleObject(&SystemArgument1, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&Semaphore, Executive, 0, 0, 0LL);
     v0 = IopRemoveHardErrorPacket();
+    v1 = *(_QWORD *)(v0 + 32);
+    v6 = v0 + 24;
     if ( ExReadyForErrors )
-      ExRaiseHardError(*(unsigned int *)(v0 + 16), *(_QWORD *)(v0 + 32) != 0LL);
-    v1 = IopCheckHardErrorEmpty();
-    v2 = *(void **)(v0 + 32);
-    v3 = v1;
-    if ( v2 )
-      ExFreePoolWithTag(v2, 0);
+      ExRaiseHardError(
+        *(unsigned int *)(v0 + 16),
+        v1 != 0,
+        v1 != 0,
+        (unsigned __int64)&v6 & -(__int64)(v1 != 0),
+        7,
+        &v5);
+    v2 = IopCheckHardErrorEmpty();
+    v3 = *(void **)(v0 + 32);
+    v4 = v2;
+    if ( v3 )
+      ExFreePoolWithTag(v3, 0);
     ExFreePoolWithTag((PVOID)v0, 0);
   }
-  while ( v3 );
+  while ( v4 );
 }

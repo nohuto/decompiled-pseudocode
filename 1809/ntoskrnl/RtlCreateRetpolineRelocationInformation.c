@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCreateRetpolineRelocationInformation @ 0x1402F6CC8
+ * XREFs of RtlCreateRetpolineRelocationInformation @ 0x1402F6DC8
  * Callers:
- *     MiCreateRetpolineRelocationInformation @ 0x140853B20 (MiCreateRetpolineRelocationInformation.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x140853B00 (MiCreateRetpolineRelocationInformation.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlSizeOfRetpolineRelocationEntry @ 0x1402F7358 (RtlSizeOfRetpolineRelocationEntry.c)
- *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402F7C1C (RtlpCopyRetpolineRelocationBlockEntryArray.c)
- *     RtlpScanRetpolineIndexForEndStraddle @ 0x1402F7CC8 (RtlpScanRetpolineIndexForEndStraddle.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x1402F7458 (RtlSizeOfRetpolineRelocationEntry.c)
+ *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402F7D1C (RtlpCopyRetpolineRelocationBlockEntryArray.c)
+ *     RtlpScanRetpolineIndexForEndStraddle @ 0x1402F7DC8 (RtlpScanRetpolineIndexForEndStraddle.c)
  */
 
 __int64 __fastcall RtlCreateRetpolineRelocationInformation(

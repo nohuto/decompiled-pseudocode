@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x18003A274
+ * XREFs of ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x180044360
  * Callers:
- *     ??0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z @ 0x18003A17C (--0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z.c)
+ *     ??0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z @ 0x180044270 (--0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z.c)
  * Callees:
- *     ??0COcclusionContext@@QEAA@XZ @ 0x18003913C (--0COcclusionContext@@QEAA@XZ.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x18003A3F4 (--0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ.c)
+ *     ??0COcclusionContext@@QEAA@XZ @ 0x18003E7C0 (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x180044480 (--0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CDirtyRegion *__fastcall CDirtyRegion::CDirtyRegion(CDirtyRegion *this, struct CVisualTree *a2)
@@ -18,39 +18,39 @@ CDirtyRegion *__fastcall CDirtyRegion::CDirtyRegion(CDirtyRegion *this, struct C
   COcclusionContext::COcclusionContext((CDirtyRegion *)((char *)this + 16));
   v3 = 8LL;
   `vector constructor iterator'(
-    (char *)this + 1568,
+    (char *)this + 1600,
     0x10uLL,
     8uLL,
     TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
   `vector constructor iterator'(
-    (char *)this + 1696,
+    (char *)this + 1728,
     0x10uLL,
     8uLL,
     TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
   `vector constructor iterator'(
-    (char *)this + 2368,
+    (char *)this + 2400,
     0x10uLL,
     8uLL,
     TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
-  *((_DWORD *)this + 624) = 0;
+  *((_DWORD *)this + 632) = 0;
   `vector constructor iterator'(
-    (char *)this + 2532,
+    (char *)this + 2564,
     0x10uLL,
     8uLL,
     TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
   `vector constructor iterator'(
-    (char *)this + 2660,
+    (char *)this + 2692,
     0x10uLL,
     8uLL,
     TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
-  *((_DWORD *)this + 705) = 0;
-  CDirtyRegionAnnotationAllocationSet::CDirtyRegionAnnotationAllocationSet((CDirtyRegion *)((char *)this + 2824));
-  v4 = (_QWORD *)((char *)this + 1824);
-  *((_QWORD *)this + 550) = 0LL;
-  *((_QWORD *)this + 551) = 0LL;
-  *((_QWORD *)this + 552) = 1065353216LL;
-  *((_WORD *)this + 2212) = 0;
-  *((_BYTE *)this + 4426) = 0;
+  *((_DWORD *)this + 713) = 0;
+  CDirtyRegionAnnotationAllocationSet::CDirtyRegionAnnotationAllocationSet((CDirtyRegion *)((char *)this + 2856));
+  v4 = (_QWORD *)((char *)this + 1856);
+  *((_QWORD *)this + 554) = 0LL;
+  *((_QWORD *)this + 555) = 0LL;
+  *((_DWORD *)this + 1112) = 0;
+  *(_QWORD *)((char *)this + 4452) = 1065353216LL;
+  *((_WORD *)this + 2230) = 0;
   do
   {
     v4[1] = v4;

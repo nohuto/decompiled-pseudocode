@@ -1,12 +1,12 @@
 /*
- * XREFs of CoreUICallSendVaList @ 0x1C00A12B0
+ * XREFs of CoreUICallSendVaList @ 0x1C0099270
  * Callers:
- *     CoreUICallSend @ 0x1C00A1278 (CoreUICallSend.c)
+ *     CoreUICallSend @ 0x1C0099238 (CoreUICallSend.c)
  * Callees:
- *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C00A13D8 (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
- *     ?MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z @ 0x1C00A18FC (-MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z @ 0x1C0099398 (-MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z.c)
+ *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C0099574 (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CoreUICallSendVaList(

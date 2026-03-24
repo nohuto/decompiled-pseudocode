@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CDataSourceReader@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1802291A0
+ * XREFs of ?IsOfType@CDataSourceReader@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801BEA20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDataSourceReader::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 51;
+  return a2 == 49;
 }

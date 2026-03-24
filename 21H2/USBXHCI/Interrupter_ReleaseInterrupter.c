@@ -1,11 +1,11 @@
 /*
- * XREFs of Interrupter_ReleaseInterrupter @ 0x1C0077CD4
+ * XREFs of Interrupter_ReleaseInterrupter @ 0x1C00768D4
  * Callers:
- *     Interrupter_ReleaseHardware @ 0x1C0077C50 (Interrupter_ReleaseHardware.c)
+ *     Interrupter_ReleaseHardware @ 0x1C0076850 (Interrupter_ReleaseHardware.c)
  * Callees:
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014420 (XilRegister_WriteUlong64.c)
- *     XilCommonBuffer_ReleaseBuffer @ 0x1C0019034 (XilCommonBuffer_ReleaseBuffer.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001A008 (XilCommonBuffer_ReleaseBuffer.c)
  */
 
 void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)
     if ( (_mm_srli_si128(v2[21], 8).m128i_u64[0] & 0x400) == 0 )
     {
       v5 = (_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL);
-      if ( *(_BYTE *)(v4 + 129) )
+      if ( *(_BYTE *)(v4 + 137) )
       {
         *v5 = 0;
         _InterlockedOr(v16, 0);
@@ -45,7 +45,7 @@ void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)
       }
       v6 = *(_QWORD *)(a1 + 24);
       v7 = (_DWORD *)(v6 + 16);
-      if ( *(_BYTE *)(v4 + 129) )
+      if ( *(_BYTE *)(v4 + 137) )
       {
         if ( (*(_QWORD *)(*(_QWORD *)(v4 + 8) + 336LL) & 1) != 0 )
         {
@@ -65,7 +65,7 @@ void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)
       }
       v8 = *(_QWORD *)(a1 + 24);
       v9 = (_DWORD *)(v8 + 24);
-      if ( *(_BYTE *)(v4 + 129) )
+      if ( *(_BYTE *)(v4 + 137) )
       {
         if ( (*(_QWORD *)(*(_QWORD *)(v4 + 8) + 336LL) & 1) != 0 )
         {

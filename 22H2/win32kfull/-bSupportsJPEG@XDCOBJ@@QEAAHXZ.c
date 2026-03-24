@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C027697C
+ * XREFs of ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C0159C64
  * Callers:
- *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C0276A0C (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
- *     ?bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z @ 0x1C02DE438 (-bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z.c)
+ *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C01598F4 (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
+ *     ?bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z @ 0x1C02C0528 (-bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z.c)
  * Callees:
  *     <none>
  */

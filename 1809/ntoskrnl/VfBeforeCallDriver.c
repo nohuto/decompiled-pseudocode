@@ -6,8 +6,8 @@
  *     IovpCallDriverWithStackBuffer @ 0x14092450C (IovpCallDriverWithStackBuffer.c)
  * Callees:
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     VfBugCheckNoStackUsage @ 0x14030A948 (VfBugCheckNoStackUsage.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x14030AA48 (VfBugCheckNoStackUsage.c)
  *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
  *     VfGetPristineDispatchRoutine @ 0x14092FCFC (VfGetPristineDispatchRoutine.c)
  *     ViIrpCheckKernelAddressForIrp @ 0x1409308A0 (ViIrpCheckKernelAddressForIrp.c)

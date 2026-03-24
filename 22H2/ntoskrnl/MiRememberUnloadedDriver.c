@@ -1,20 +1,19 @@
 /*
- * XREFs of MiRememberUnloadedDriver @ 0x1408592AC
+ * XREFs of MiRememberUnloadedDriver @ 0x14075F2E4
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     MiReleaseResourceLite @ 0x140372D1C (MiReleaseResourceLite.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall MiRememberUnloadedDriver(const void **a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r14
-  struct _KTHREAD *CurrentThread; // rsi
+  struct _KTHREAD *CurrentThread; // rdi
   char *v7; // rcx
   __int64 v8; // rax
   UNICODE_STRING *v9; // rbx
@@ -40,8 +39,7 @@ void __fastcall MiRememberUnloadedDriver(const void **a1, __int64 a2, unsigned i
       if ( !MmUnloadedDrivers )
       {
 LABEL_6:
-        ExReleaseResourceLite(&PsLoadedModuleResource);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        MiReleaseResourceLite((__int64)CurrentThread);
         return;
       }
     }
@@ -49,7 +47,7 @@ LABEL_6:
     MmLastUnloadedDriver = 0;
 LABEL_4:
     v9 = (UNICODE_STRING *)&v7[40 * v8];
-    RtlFreeUnicodeString(v9);
+    RtlFreeAnsiString(v9);
     Pool = (wchar_t *)MiAllocatePool(64, *(unsigned __int16 *)a1, 0x54446D4Du);
     v9->Buffer = Pool;
     if ( Pool )
@@ -57,8 +55,8 @@ LABEL_4:
       memmove(Pool, a1[1], *(unsigned __int16 *)a1);
       v9->Length = *(_WORD *)a1;
       v9->MaximumLength = *((_WORD *)a1 + 1);
+      v9[1].Buffer = (wchar_t *)(v3 + a2);
       *(_QWORD *)&v9[1].Length = a2;
-      v9[1].Buffer = (wchar_t *)(a2 + v3);
       *(_QWORD *)&v9[2].Length = MEMORY[0xFFFFF78000000014];
       ++MmLastUnloadedDriver;
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLIGetNSObjectContext @ 0x1C0001768
+ * XREFs of AMLIGetNSObjectContext @ 0x1C0002340
  * Callers:
- *     IsNsobjPciBus @ 0x1C0094D74 (IsNsobjPciBus.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  * Callees:
  *     <none>
  */

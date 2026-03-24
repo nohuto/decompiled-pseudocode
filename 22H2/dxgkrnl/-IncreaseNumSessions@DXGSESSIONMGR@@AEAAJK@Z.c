@@ -1,67 +1,76 @@
 /*
- * XREFs of ?IncreaseNumSessions@DXGSESSIONMGR@@AEAAJK@Z @ 0x1C0355358
+ * XREFs of ?IncreaseNumSessions@DXGSESSIONMGR@@AEAAJK@Z @ 0x1C029F2E8
  * Callers:
- *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C01EAE9C (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
+ *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C016DAF0 (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall DXGSESSIONMGR::IncreaseNumSessions(DXGSESSIONMGR *this, unsigned int a2)
+__int64 __fastcall DXGSESSIONMGR::IncreaseNumSessions(DXGSESSIONMGR *this, __int64 a2)
 {
   __int64 v3; // rsi
-  unsigned int i; // edi
-  unsigned __int64 v5; // rax
-  void *v6; // rax
-  void *v7; // rsi
+  __int64 v4; // rax
+  __int64 v5; // rax
+  unsigned int v6; // edi
+  _QWORD *v7; // rax
+  SIZE_T v8; // rax
+  char *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  char *v14; // rsi
+  __int64 v15; // rax
   __int64 result; // rax
-  char *v9; // rcx
+  char *v17; // rcx
 
-  v3 = a2;
-  if ( *((struct _KTHREAD **)this + 3) != KeGetCurrentThread() )
+  v3 = (unsigned int)a2;
+  if ( *((struct _KTHREAD **)this + 2) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 5247LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SessionMutex.IsOwner()", 5247LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 5052LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  if ( *((struct _KTHREAD **)this + 14) != KeGetCurrentThread() )
+  if ( *((struct _KTHREAD **)this + 12) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 5248LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_ArrayMutex.IsOwner()", 5248LL, 0LL, 0LL, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 5053LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  for ( i = 2 * *((_DWORD *)this + 20); (unsigned int)v3 >= i; i *= 2 )
-    ;
-  WdLogSingleEntry3(4LL, *((unsigned int *)this + 20), i, v3);
-  v5 = 8LL * i;
-  if ( !is_mul_ok(i, 8uLL) )
-    v5 = -1LL;
-  v6 = (void *)operator new[](v5, 0x4B677844u, 256LL);
-  v7 = v6;
-  if ( v6 )
+  v6 = *((_DWORD *)this + 18);
+  do
+    v6 *= 2;
+  while ( (unsigned int)v3 >= v6 );
+  v7 = (_QWORD *)WdLogNewEntry5_WdEvent(this, a2);
+  v7[3] = *((unsigned int *)this + 18);
+  v7[4] = v6;
+  v7[5] = v3;
+  WdLogEvent5_WdEvent(v7);
+  v8 = 8LL * v6;
+  if ( !is_mul_ok(v6, 8uLL) )
+    v8 = -1LL;
+  v9 = (char *)operator new[](v8, 0x4B677844u, PagedPool);
+  v14 = v9;
+  if ( v9 )
   {
-    memmove(v6, *((const void **)this + 6), 8LL * *((unsigned int *)this + 20));
-    v9 = (char *)*((_QWORD *)this + 6);
-    if ( v9 != (char *)this + 56 )
-      operator delete(v9);
-    *((_QWORD *)this + 6) = v7;
+    memmove(v9, *((const void **)this + 5), 8LL * *((unsigned int *)this + 18));
+    memset(&v14[8 * *((unsigned int *)this + 18)], 0, 8LL * (v6 - *((_DWORD *)this + 18)));
+    v17 = (char *)*((_QWORD *)this + 5);
+    if ( v17 != (char *)this + 48 )
+      operator delete[](v17);
+    *((_QWORD *)this + 5) = v14;
     result = 0LL;
-    *((_DWORD *)this + 20) = i;
+    *((_DWORD *)this + 18) = v6;
   }
   else
   {
-    *((_DWORD *)this + 37) |= 1u;
-    WdLogSingleEntry1(6LL, i);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Unable to allocate new dxg session data array of size 0x%I64x",
-      i,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    *((_DWORD *)this + 33) |= 1u;
+    v15 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+    *(_QWORD *)(v15 + 24) = v6;
+    WdLogEvent5_WdLowResource(v15);
     return 3221225495LL;
   }
   return result;

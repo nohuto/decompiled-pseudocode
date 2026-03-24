@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWriteProtectSystemImages @ 0x14082B668
+ * XREFs of MiWriteProtectSystemImages @ 0x1407A1604
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     MiProtectSystemImage @ 0x14082B6F0 (MiProtectSystemImage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     MiProtectSystemImage @ 0x1407A168C (MiProtectSystemImage.c)
  */
 
 _QWORD *MiWriteProtectSystemImages()

@@ -1,16 +1,17 @@
 /*
- * XREFs of ?DxgkWin32kQueryInterface@@YAJPEAU_DXGKWIN32K_INTERFACE@@PEAK@Z @ 0x1C01E36DC
+ * XREFs of ?DxgkWin32kQueryInterface@@YAJPEAU_DXGKWIN32K_INTERFACE@@PEAK@Z @ 0x1C0162FCC
  * Callers:
- *     DxgkInternalDeviceIoctl @ 0x1C01E30C0 (DxgkInternalDeviceIoctl.c)
+ *     DxgkInternalDeviceIoctl @ 0x1C01627D0 (DxgkInternalDeviceIoctl.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DxgkWin32kQueryInterface(struct _DXGKWIN32K_INTERFACE *a1, unsigned int *a2)
 {
   __int64 result; // rax
+  _QWORD *v4; // rax
 
-  if ( *(_WORD *)a1 == 792 && *((_WORD *)a1 + 1) == 47 )
+  if ( *(_WORD *)a1 == 808 && *((_WORD *)a1 + 1) == 44 )
   {
     *((_QWORD *)a1 + 2) = 0LL;
     *((_QWORD *)a1 + 3) = W32kStub_DCompositionNotifyCompositionTokenPresent;
@@ -20,11 +21,11 @@ __int64 __fastcall DxgkWin32kQueryInterface(struct _DXGKWIN32K_INTERFACE *a1, un
     *((_QWORD *)a1 + 7) = DxgkNotifyProcessThawCallout;
     *((_QWORD *)a1 + 8) = DxgkOpenAdapter;
     *((_QWORD *)a1 + 9) = DxgkEnumAdapters2Impl;
-    *((_QWORD *)a1 + 10) = DxgkGetMaximumAdapterCountInSession;
+    *((_QWORD *)a1 + 10) = DxgkGetMaximumAdapterCount;
     *((_QWORD *)a1 + 11) = DxgkCloseAdapterImpl;
     *((_QWORD *)a1 + 12) = DxgkDestroyDevice;
     *((_QWORD *)a1 + 13) = DxgkEscape;
-    *((_QWORD *)a1 + 14) = DxgkCleanupPresentHistoryInternal;
+    *((_QWORD *)a1 + 14) = DxgkGetPresentHistoryInternal;
     *((_QWORD *)a1 + 15) = DxgkReleaseProcessVidPnSourceOwners;
     *((_QWORD *)a1 + 16) = DxgkPollDisplayChildrenInternal;
     *((_QWORD *)a1 + 18) = DxgkGetPathsModality;
@@ -32,10 +33,10 @@ __int64 __fastcall DxgkWin32kQueryInterface(struct _DXGKWIN32K_INTERFACE *a1, un
     *((_QWORD *)a1 + 20) = DxgkApplyPathsModality;
     *((_QWORD *)a1 + 21) = DxgkFinalizePathsModality;
     *((_QWORD *)a1 + 22) = DxgkPersistPathsModality;
-    *((_QWORD *)a1 + 74) = DxgkCopyPathsModality;
+    *((_QWORD *)a1 + 75) = DxgkCopyPathsModality;
     *((_QWORD *)a1 + 23) = DxgkFreePathsModality;
     *((_QWORD *)a1 + 24) = DxgkAugmentCdsj;
-    *((_QWORD *)a1 + 75) = &DxgkApplyCdsjToPathsModality;
+    *((_QWORD *)a1 + 76) = &DxgkApplyCdsjToPathsModality;
     *((_QWORD *)a1 + 17) = DxgkFlushPresentHistory;
     *((_QWORD *)a1 + 25) = DxgkGetPresentHistoryReadyEvent;
     *((_QWORD *)a1 + 26) = DxgkGetDisplayConfigBufferSizes;
@@ -72,59 +73,56 @@ __int64 __fastcall DxgkWin32kQueryInterface(struct _DXGKWIN32K_INTERFACE *a1, un
     *((_QWORD *)a1 + 57) = DxgkGetMonitorDeviceObject;
     *((_QWORD *)a1 + 58) = DxgkRegisterDwmProcess;
     *((_QWORD *)a1 + 59) = DxgkGetSharedResourceAdapterLuid;
-    *((_QWORD *)a1 + 60) = DxgkGetSharedAllocationObjectType;
-    *((_QWORD *)a1 + 61) = DxgkGetSharedSyncObjectType;
-    *((_QWORD *)a1 + 62) = DxgkGetDisplayManagerObjectType;
-    *((_QWORD *)a1 + 63) = DxgkGetProcessInterferenceCount;
-    *((_QWORD *)a1 + 64) = DxgkGetGpuUsageStatistics;
-    *((_QWORD *)a1 + 65) = DxgkUpdateGdiInfo;
-    *((_QWORD *)a1 + 66) = DxgkSetPresenterViewMode;
-    *((_QWORD *)a1 + 67) = DxgkGetPresenterViewMode;
-    *((_QWORD *)a1 + 68) = DxgkSetProcessStatus;
-    *((_QWORD *)a1 + 69) = DxgkConvertLegacyQDCAdapterAndIdToActual;
-    *((_QWORD *)a1 + 70) = DxgkDisplayOnOff;
-    *((_QWORD *)a1 + 71) = DxgkIsVirtualizationDisabledForTarget;
-    *((_QWORD *)a1 + 72) = &DxgkIsSourceInHardwareClone;
-    *((_QWORD *)a1 + 73) = DxgkProcessLockScreen;
-    *((_QWORD *)a1 + 76) = DxgkUpdateDpiInfoForNewOverride;
-    *((_QWORD *)a1 + 77) = DxgkInitializeDpi;
-    *((_QWORD *)a1 + 78) = DxgkGetDpiOverrideForSource;
-    *((_QWORD *)a1 + 79) = &DxgkGetLegacyDpiInfo;
-    *((_QWORD *)a1 + 80) = &DxgkWin32kSetPointerPosition;
-    *((_QWORD *)a1 + 81) = &DxgkWin32kSetPointerShape;
-    *((_QWORD *)a1 + 82) = DxgkGetUseHWGPUInRemoteSession;
-    *((_QWORD *)a1 + 84) = DxgkGetMonitorEdid;
-    *((_QWORD *)a1 + 83) = DxgkChangeD3RequestsState;
-    *((_QWORD *)a1 + 85) = DxgkConvertPathsModalityToDisplayConfig;
-    *((_QWORD *)a1 + 86) = DxgkConvertDisplayConfigToDevMode;
-    *((_QWORD *)a1 + 87) = DxgkDDisplayEnumInternal;
-    *((_QWORD *)a1 + 91) = DxgkDispMgrReferenceObjectByHandle;
-    *((_QWORD *)a1 + 92) = DxgkDispMgrIsTargetOwned;
-    *((_QWORD *)a1 + 88) = &DxgkGetMonitorDisplayId;
-    *((_QWORD *)a1 + 89) = &DxgkEnumerateModesForPathsModality;
-    *((_QWORD *)a1 + 90) = DxgCreateLiveDumpWithWdLogs;
-    *((_QWORD *)a1 + 93) = DxgkCheckDisplayState;
-    *((_QWORD *)a1 + 94) = &DxgkSetKernelDisplayPolicy;
-    *((_QWORD *)a1 + 95) = DxgkSendDisplayBrokerMessage;
-    *((_QWORD *)a1 + 96) = DxgkGetWddmRemoteSessionGdiViewRange;
-    *((_QWORD *)a1 + 97) = DxgkGetVirtualRefreshRateInfo;
-    *((_QWORD *)a1 + 98) = DxgkGetMonitorHash;
+    *((_QWORD *)a1 + 61) = DxgkGetSharedAllocationObjectType;
+    *((_QWORD *)a1 + 62) = DxgkGetSharedSyncObjectType;
+    *((_QWORD *)a1 + 63) = DxgkGetDisplayManagerObjectType;
+    *((_QWORD *)a1 + 60) = &DxgkNotifyMonitorDimming;
+    *((_QWORD *)a1 + 64) = DxgkGetProcessInterferenceCount;
+    *((_QWORD *)a1 + 65) = DxgkGetGpuUsageStatistics;
+    *((_QWORD *)a1 + 66) = DxgkUpdateGdiInfo;
+    *((_QWORD *)a1 + 67) = DxgkSetPresenterViewMode;
+    *((_QWORD *)a1 + 68) = DxgkGetPresenterViewMode;
+    *((_QWORD *)a1 + 69) = DxgkSetProcessStatus;
+    *((_QWORD *)a1 + 70) = DxgkConvertLegacyQDCAdapterAndIdToActual;
+    *((_QWORD *)a1 + 71) = DxgkDisplayOnOff;
+    *((_QWORD *)a1 + 72) = DxgkIsVirtualizationDisabledForTarget;
+    *((_QWORD *)a1 + 73) = &DxgkIsSourceInHardwareClone;
+    *((_QWORD *)a1 + 74) = DxgkProcessLockScreen;
+    *((_QWORD *)a1 + 77) = DxgkUpdateDpiInfoForNewOverride;
+    *((_QWORD *)a1 + 78) = DxgkInitializeDpi;
+    *((_QWORD *)a1 + 79) = DxgkGetDpiOverrideForSource;
+    *((_QWORD *)a1 + 80) = &DxgkGetLegacyDpiInfo;
+    *((_QWORD *)a1 + 81) = &DxgkWin32kSetPointerPosition;
+    *((_QWORD *)a1 + 82) = &DxgkWin32kSetPointerShape;
+    *((_QWORD *)a1 + 84) = DxgkLPMDisplayControl;
+    *((_QWORD *)a1 + 85) = DxgkEnableHighPrecisionBrightness;
+    *((_QWORD *)a1 + 86) = DxgkSetHighPrecisionBrightness;
+    *((_QWORD *)a1 + 83) = DxgkGetUseHWGPUInRemoteSession;
+    *((_QWORD *)a1 + 88) = &DxgkGetMonitorEdid;
+    *((_QWORD *)a1 + 87) = DxgkChangeD3RequestsState;
+    *((_QWORD *)a1 + 89) = DxgkConvertPathsModalityToDisplayConfig;
+    *((_QWORD *)a1 + 90) = DxgkConvertDisplayConfigToDevMode;
+    *((_QWORD *)a1 + 91) = DxgkDDisplayEnumInternal;
+    *((_QWORD *)a1 + 95) = DxgkDispMgrReferenceObjectByHandle;
+    *((_QWORD *)a1 + 96) = DxgkDispMgrIsTargetOwned;
+    *((_QWORD *)a1 + 92) = &DxgkGetMonitorDisplayId;
+    *((_QWORD *)a1 + 93) = &DxgkEnumerateModesForPathsModality;
+    *((_QWORD *)a1 + 94) = DxgCreateLiveDumpWithWdLogs;
+    *((_QWORD *)a1 + 97) = DxgkCheckDisplayState;
+    *((_QWORD *)a1 + 98) = &DxgkSetKernelDisplayPolicy;
+    *((_QWORD *)a1 + 99) = DxgkSendDisplayBrokerMessage;
+    *((_QWORD *)a1 + 100) = DxgkGetWddmRemoteSessionGdiViewRange;
     result = 0LL;
-    *a2 = 792;
+    *a2 = 808;
   }
   else
   {
-    WdLogSingleEntry4(1LL, *((unsigned __int16 *)a1 + 1), *(unsigned __int16 *)a1, 47LL, 792LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Interface mismatch between Win32k (0x%I64x, 0x%I64x) and Dxgkrnl (0x%I64x, 0x%I64x).",
-      *((unsigned __int16 *)a1 + 1),
-      *(unsigned __int16 *)a1,
-      47LL,
-      792LL,
-      0LL);
+    v4 = (_QWORD *)WdLogNewEntry5_WdAssertion(a1, a2);
+    v4[3] = *((unsigned __int16 *)a1 + 1);
+    v4[4] = *(unsigned __int16 *)a1;
+    v4[5] = 44LL;
+    v4[6] = 808LL;
+    WdLogEvent5_WdAssertion(v4);
     return 3221225485LL;
   }
   return result;

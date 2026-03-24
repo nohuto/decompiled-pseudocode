@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliPciInterfaceReadConfig @ 0x14033F130
+ * XREFs of HaliPciInterfaceReadConfig @ 0x140309200
  * Callers:
- *     HalpKdReadPCIConfig @ 0x1403964F0 (HalpKdReadPCIConfig.c)
- *     HaliHandlePCIConfigSpaceAccess @ 0x140520920 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdReadPCIConfig @ 0x1403BCF20 (HalpKdReadPCIConfig.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x1404D68C0 (HaliHandlePCIConfigSpaceAccess.c)
  * Callees:
- *     HalpPCIConfig @ 0x14033F1A0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x140309270 (HalpPCIConfig.c)
  */
 
 __int64 __fastcall HaliPciInterfaceReadConfig(

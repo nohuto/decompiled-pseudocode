@@ -1,13 +1,14 @@
 /*
- * XREFs of ?Create@CCompositionSurfaceBitmap@@SAJPEAVCComposition@@PEAVCCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x180226CC0
+ * XREFs of ?Create@CCompositionSurfaceBitmap@@SAJPEAVCComposition@@PEAVCCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x1801BC6B4
  * Callers:
- *     ?CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCCompositionSurfaceBitmap@@@Z @ 0x1801E0280 (-CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCC.c)
+ *     ?CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCCompositionSurfaceBitmap@@@Z @ 0x18017DCC4 (-CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCC.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z @ 0x1800B6414 (--0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z.c)
- *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BB100 (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??2CCompositionSurfaceBitmap@@KAPEAX_K@Z @ 0x1800FE33C (--2CCompositionSurfaceBitmap@@KAPEAX_K@Z.c)
+ *     ??0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z @ 0x180036668 (--0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x180036F7C (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ??2CCompositionSurfaceBitmap@@KAPEAX_K@Z @ 0x1800D8EA0 (--2CCompositionSurfaceBitmap@@KAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CCompositionSurfaceBitmap::Create(
@@ -15,25 +16,28 @@ __int64 __fastcall CCompositionSurfaceBitmap::Create(
         struct CCompositionSurfaceInfo *a2,
         struct CCompositionSurfaceBitmap **a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v3; // esi
   CCompositionSurfaceBitmap *v7; // rax
   __int64 v8; // rcx
-  CCompositionSurfaceBitmap *v9; // rax
-  CCompositionSurfaceBitmap *v10; // rdi
+  CMILCOMBase *v9; // rdi
 
   v3 = 0;
   *a3 = 0LL;
   v7 = (CCompositionSurfaceBitmap *)CCompositionSurfaceBitmap::operator new();
-  if ( v7 && (v9 = CCompositionSurfaceBitmap::CCompositionSurfaceBitmap(v7, a1), (v10 = v9) != 0LL) )
+  if ( v7 )
+    v9 = CCompositionSurfaceBitmap::CCompositionSurfaceBitmap(v7, a1);
+  else
+    v9 = 0LL;
+  if ( v9 )
   {
-    CMILRefCountImpl::AddReference((CCompositionSurfaceBitmap *)((char *)v9 + 8));
-    CCompositionSurfaceBitmap::SetSurfaceInfo(v10, a2);
-    *a3 = v10;
+    CMILCOMBase::InternalAddRef(v9);
+    CCompositionSurfaceBitmap::SetSurfaceInfo(v9, a2);
+    *a3 = v9;
   }
   else
   {
     v3 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x1Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x1Du, 0LL);
   }
   return v3;
 }

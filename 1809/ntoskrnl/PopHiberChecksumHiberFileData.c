@@ -4,8 +4,8 @@
  *     PopRequestWrite @ 0x14056A5F4 (PopRequestWrite.c)
  *     PopRequestRead @ 0x14057D27C (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1401C5070 (tcpxsum.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1401C5090 (tcpxsum.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  */
 

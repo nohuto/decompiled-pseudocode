@@ -3,7 +3,7 @@
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     BapdpQueryData @ 0x1409D160C (BapdpQueryData.c)
  */
@@ -23,7 +23,7 @@ void __fastcall BapdpProcessBootMetadata(__int64 a1)
   v4 = 0x479C9BC55B043C6CLL;
   v5 = 1736995215;
   v6 = 1054971003;
-  if ( (qword_140409DD8 & 4) != 0 )
+  if ( (qword_140409D98 & 4) != 0 )
   {
     v3 = 0;
     ExSoftRebootState = 2;

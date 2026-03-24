@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAdjustCachedStacks @ 0x1400A7708
+ * XREFs of MiAdjustCachedStacks @ 0x1400A7728
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF594 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
  * Callees:
- *     MiDeleteCachedKernelStack @ 0x1400A5E50 (MiDeleteCachedKernelStack.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x1400A5E70 (MiDeleteCachedKernelStack.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 MiAdjustCachedStacks()

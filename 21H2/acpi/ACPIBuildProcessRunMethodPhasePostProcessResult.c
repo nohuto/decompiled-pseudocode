@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004AA30
+ * XREFs of ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004BF20
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteMustSucceed @ 0x1C000A4C0 (ACPIBuildCompleteMustSucceed.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     PerformDLMObjectBindings @ 0x1C0066E9C (PerformDLMObjectBindings.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     PerformDLMObjectBindings @ 0x1C0065AE8 (PerformDLMObjectBindings.c)
  */
 
 __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
@@ -24,22 +24,22 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
   if ( !v1 )
   {
     PerformDLMObjectBindings(a1 + 88, **(_QWORD **)(a1 + 56));
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     FreeDataBuffs(a1 + 88, 1u);
   }
   v4 = 0;
-  v5 = &unk_1C006FB8B;
-  v6 = &unk_1C006FB8B;
+  v5 = &unk_1C00701BA;
+  v6 = &unk_1C00701BA;
   if ( v3 )
   {
     v7 = v3[1];
     v4 = (char)v3;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v5 = (void *)v3[76];
+      v5 = (void *)v3[71];
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = (void *)v3[77];
+        v6 = (void *)v3[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -48,7 +48,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
       4u,
       6u,
       0x44u,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v4,
       (__int64)v5,

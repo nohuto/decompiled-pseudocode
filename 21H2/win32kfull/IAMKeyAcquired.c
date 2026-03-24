@@ -1,5 +1,5 @@
 /*
- * XREFs of IAMKeyAcquired @ 0x1C01CEE10
+ * XREFs of IAMKeyAcquired @ 0x1C01D2A60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall IAMKeyAcquired(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 280) != 0LL;
+  return *(_QWORD *)(a1 + 288) != 0LL;
 }

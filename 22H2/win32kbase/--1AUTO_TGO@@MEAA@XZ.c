@@ -1,13 +1,13 @@
 /*
- * XREFs of ??1AUTO_TGO@@MEAA@XZ @ 0x1C00158A4
+ * XREFs of ??1AUTO_TGO@@MEAA@XZ @ 0x1C001A218
  * Callers:
- *     _DrvSetDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C00157A0 (_DrvSetDisplayConfig_--_2_--_AUTO--__AUTO.c)
- *     _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C015FC44 (_DrvFunctionalizeDisplayConfig_--_2_--_AUTO--__AUTO.c)
- *     _DrvChangeDisplaySettings_::_2_::AUTO_KM::_scalar_deleting_destructor_ @ 0x1C015FCF0 (_DrvChangeDisplaySettings_--_2_--AUTO_KM--_scalar_deleting_destructor_.c)
- *     ??_GAUTO_TGO@@MEAAPEAXI@Z @ 0x1C015FD30 (--_GAUTO_TGO@@MEAAPEAXI@Z.c)
- *     DrvChangeDisplaySettings @ 0x1C016570C (DrvChangeDisplaySettings.c)
+ *     DrvChangeDisplaySettings @ 0x1C0019E30 (DrvChangeDisplaySettings.c)
+ *     _DrvSetDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C001A134 (_DrvSetDisplayConfig_--_2_--_AUTO--__AUTO.c)
+ *     _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C0142DC8 (_DrvFunctionalizeDisplayConfig_--_2_--_AUTO--__AUTO.c)
+ *     _DrvChangeDisplaySettings_::_2_::AUTO_KM::_scalar_deleting_destructor_ @ 0x1C0142E70 (_DrvChangeDisplaySettings_--_2_--AUTO_KM--_scalar_deleting_destructor_.c)
+ *     ??_GAUTO_TGO@@MEAAPEAXI@Z @ 0x1C0142EC0 (--_GAUTO_TGO@@MEAAPEAXI@Z.c)
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
  */
 
 void __fastcall AUTO_TGO::~AUTO_TGO(AUTO_TGO *this)

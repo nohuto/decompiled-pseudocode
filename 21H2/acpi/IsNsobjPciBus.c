@@ -1,17 +1,17 @@
 /*
- * XREFs of IsNsobjPciBus @ 0x1C0094D74
+ * XREFs of IsNsobjPciBus @ 0x1C009DA40
  * Callers:
- *     ACPIBusIrpStartDeviceWorker @ 0x1C008F350 (ACPIBusIrpStartDeviceWorker.c)
- *     IsPciBus @ 0x1C0091898 (IsPciBus.c)
- *     EnableDisableRegions @ 0x1C0094CC0 (EnableDisableRegions.c)
- *     ACPIInternalIsPci @ 0x1C00A0FB0 (ACPIInternalIsPci.c)
- *     ACPIBusIrpStopDevice @ 0x1C00ACBF0 (ACPIBusIrpStopDevice.c)
- *     ACPIFilterIrpStopDevice @ 0x1C00AEBD0 (ACPIFilterIrpStopDevice.c)
- *     ACPIInitStopDevice @ 0x1C00AEFEC (ACPIInitStopDevice.c)
- *     IsPciBusExtension @ 0x1C00B024C (IsPciBusExtension.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
+ *     IsPciBus @ 0x1C0099E04 (IsPciBus.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIInternalIsPci @ 0x1C00A306C (ACPIInternalIsPci.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C00AFB30 (ACPIFilterIrpStopDevice.c)
+ *     IsPciBusExtension @ 0x1C00B0D78 (IsPciBusExtension.c)
  * Callees:
- *     AMLIGetNSObjectContext @ 0x1C0001768 (AMLIGetNSObjectContext.c)
- *     IsPciBusAsync @ 0x1C001B660 (IsPciBusAsync.c)
+ *     AMLIGetNSObjectContext @ 0x1C0002340 (AMLIGetNSObjectContext.c)
+ *     IsPciBusAsync @ 0x1C0017610 (IsPciBusAsync.c)
  */
 
 char __fastcall IsNsobjPciBus(volatile signed __int32 *a1)
@@ -35,7 +35,7 @@ char __fastcall IsNsobjPciBus(volatile signed __int32 *a1)
   KeInitializeEvent((PRKEVENT)Event, SynchronizationEvent, 0);
   *(_DWORD *)&Event[24] = -1073741275;
   v6 = 0;
-  if ( (unsigned int)IsPciBusAsync(a1, (KSPIN_LOCK)AmlisuppCompletePassive, (KSPIN_LOCK)Event, &v6) != 259 )
+  if ( (unsigned int)IsPciBusAsync(a1, (__int64)AmlisuppCompletePassive, (__int64)Event, &v6) != 259 )
     return v6;
   KeWaitForSingleObject(Event, Executive, 0, 0, 0LL);
   result = v6;

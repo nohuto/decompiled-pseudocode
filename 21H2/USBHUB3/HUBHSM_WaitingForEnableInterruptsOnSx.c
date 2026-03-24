@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_WaitingForEnableInterruptsOnSx @ 0x1C0008E10
+ * XREFs of HUBHSM_WaitingForEnableInterruptsOnSx @ 0x1C0008B00
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000D0A0 (HUBFDO_ReleaseWdfPowerReference.c)
+ *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000CCC0 (HUBFDO_ReleaseWdfPowerReference.c)
  */
 
 __int64 __fastcall HUBHSM_WaitingForEnableInterruptsOnSx(__int64 a1)

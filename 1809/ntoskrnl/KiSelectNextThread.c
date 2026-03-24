@@ -1,24 +1,24 @@
 /*
- * XREFs of KiSelectNextThread @ 0x1400D7148
+ * XREFs of KiSelectNextThread @ 0x1400D7168
  * Callers:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiSetSystemAffinityThread @ 0x1400D63E0 (KiSetSystemAffinityThread.c)
- *     KiExitThreadWait @ 0x1400F9E70 (KiExitThreadWait.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x140115688 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiSetHeteroPolicyThread @ 0x140298F5C (KiSetHeteroPolicyThread.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiSetSystemAffinityThread @ 0x1400D6400 (KiSetSystemAffinityThread.c)
+ *     KiExitThreadWait @ 0x1400F9E90 (KiExitThreadWait.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
  * Callees:
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     KiSelectLowestRankedThread @ 0x1400D71E0 (KiSelectLowestRankedThread.c)
- *     KiSetProcessorIdle @ 0x1400D7324 (KiSetProcessorIdle.c)
- *     KiCheckThreadAffinity @ 0x140115138 (KiCheckThreadAffinity.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiAddThreadToReadyQueue @ 0x140297F84 (KiAddThreadToReadyQueue.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     KiSelectLowestRankedThread @ 0x1400D7200 (KiSelectLowestRankedThread.c)
+ *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
+ *     KiCheckThreadAffinity @ 0x140115158 (KiCheckThreadAffinity.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiAddThreadToReadyQueue @ 0x140298084 (KiAddThreadToReadyQueue.c)
  */
 
 __int64 __fastcall KiSelectNextThread(__int64 a1, __int64 a2, __int64 a3)

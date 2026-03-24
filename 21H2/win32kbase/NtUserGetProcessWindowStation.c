@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserGetProcessWindowStation @ 0x1C009B380
+ * XREFs of NtUserGetProcessWindowStation @ 0x1C0095720
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionGetProcessWindowStationEntryPoint @ 0x1C009B3A8 (ApiSetEditionGetProcessWindowStationEntryPoint.c)
+ *     ApiSetEditionGetProcessWindowStationEntryPoint @ 0x1C0095748 (ApiSetEditionGetProcessWindowStationEntryPoint.c)
  */
 
 __int64 NtUserGetProcessWindowStation()

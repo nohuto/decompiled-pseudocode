@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NumHandles@@YAKPEAX@Z @ 0x1C003C35C
+ * XREFs of ?NumHandles@@YAKPEAX@Z @ 0x1C000A918
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C003B554 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -15,11 +15,8 @@ __int64 __fastcall NumHandles(void *a1)
 
   v3 = 0LL;
   memset(ObjectInformation, 0, sizeof(ObjectInformation));
-  if ( !*(_QWORD *)&WPP_MAIN_CB.ActiveThreadCount
-    || ZwQueryObject(*(HANDLE *)&WPP_MAIN_CB.ActiveThreadCount, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL) )
-  {
+  if ( !ghDisconnectDesk || ZwQueryObject(ghDisconnectDesk, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL) )
     return 0LL;
-  }
   result = DWORD2(ObjectInformation[0]);
   if ( DWORD2(ObjectInformation[0]) > 1 )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C00BBE14
+ * XREFs of ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C01339E0
  * Callers:
- *     ??1InteractiveControlManager@@AEAA@XZ @ 0x1C00BBDB8 (--1InteractiveControlManager@@AEAA@XZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
- *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C0241394 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C02523F4 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
  */
 
 void __fastcall InteractiveControlManager::Deinitialize(InteractiveControlManager *this)
 {
-  struct InteractiveControlDevice **v2; // rbx
+  struct InteractiveControlDevice **v2; // rdi
   __int64 v3; // rsi
   InteractiveControlManager *v4; // [rsp+20h] [rbp-18h] BYREF
   __int64 v5; // [rsp+28h] [rbp-10h]
@@ -25,8 +25,8 @@ void __fastcall InteractiveControlManager::Deinitialize(InteractiveControlManage
   while ( v3 );
   v5 = 0LL;
   v4 = (InteractiveControlManager *)((char *)this + 16);
-  HMAssignmentLock(&v4, 0LL);
+  HMAssignmentLock(&v4);
   v5 = 0LL;
   v4 = this;
-  HMAssignmentLock(&v4, 0LL);
+  HMAssignmentLock(&v4);
 }

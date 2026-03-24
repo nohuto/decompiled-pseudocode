@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindRebuildCandidate @ 0x1402CE198
+ * XREFs of MiFindRebuildCandidate @ 0x1402CE298
  * Callers:
- *     MiRebuildLargePage @ 0x1402CE2E4 (MiRebuildLargePage.c)
+ *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
  * Callees:
  *     MiCollapseRunTopDown @ 0x14009A71C (MiCollapseRunTopDown.c)
  *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)

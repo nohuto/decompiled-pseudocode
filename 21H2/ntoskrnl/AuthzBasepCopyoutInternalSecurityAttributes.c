@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepCopyoutInternalSecurityAttributes @ 0x1406A2F6C
+ * XREFs of AuthzBasepCopyoutInternalSecurityAttributes @ 0x1406066E8
  * Callers:
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1406A2E40 (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1405DC544 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x14022B210 (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AuthzBasepProbeAndInsertTailList @ 0x140659E0C (AuthzBasepProbeAndInsertTailList.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x1402525B0 (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AuthzBasepProbeAndInsertTailList @ 0x1405D2430 (AuthzBasepProbeAndInsertTailList.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributes(unsigned int *a1, _DWORD *a2, unsigned int a3)
@@ -25,42 +25,47 @@ __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributes(unsigned int *a1,
   unsigned int v18; // [rsp+88h] [rbp+10h] BYREF
   __int64 v19; // [rsp+98h] [rbp+20h]
 
-  if ( a2 && a3 && (v6 = (unsigned __int64)a2 + a3, v6 >= (unsigned __int64)a2) )
+  if ( !a2 || !a3 )
   {
-    memset(a2, 0, a3);
-    if ( (unsigned __int64)(a2 + 12) > v6 )
+    inserted = -1073741811;
+    goto LABEL_18;
+  }
+  v6 = (unsigned __int64)a2 + a3;
+  if ( v6 < (unsigned __int64)a2 )
+  {
+    inserted = -1073741811;
+    goto LABEL_19;
+  }
+  memset(a2, 0, a3);
+  if ( (unsigned __int64)(a2 + 12) > v6 )
+    goto LABEL_6;
+  *a2 = 0;
+  a2[6] = 0;
+  *((_QWORD *)a2 + 5) = a2 + 8;
+  *((_QWORD *)a2 + 4) = a2 + 8;
+  *((_QWORD *)a2 + 2) = a2 + 2;
+  *((_QWORD *)a2 + 1) = a2 + 2;
+  v8 = 112LL * *a1;
+  if ( v8 <= 0xFFFFFFFF )
+  {
+    inserted = 0;
+    v9 = (unsigned __int64)a2 + (unsigned int)v8 + 48;
+    if ( v9 > v6 )
     {
-LABEL_5:
+LABEL_6:
       inserted = -2147483643;
-      goto LABEL_17;
+      goto LABEL_19;
     }
-    *a2 = 0;
-    a2[6] = 0;
-    *((_QWORD *)a2 + 5) = a2 + 8;
-    *((_QWORD *)a2 + 4) = a2 + 8;
-    *((_QWORD *)a2 + 2) = a2 + 2;
-    *((_QWORD *)a2 + 1) = a2 + 2;
-    v8 = 112LL * *a1;
-    if ( v8 > 0xFFFFFFFF )
+    v10 = (__int64 *)(a1 + 2);
+    v11 = *v10;
+    if ( (__int64 *)*v10 != v10 )
     {
-      inserted = -1073741675;
-    }
-    else
-    {
-      inserted = 0;
-      v9 = (unsigned __int64)a2 + (unsigned int)v8 + 48;
-      if ( v9 > v6 )
-        goto LABEL_5;
-      v10 = (__int64 *)(a1 + 2);
-      v11 = *v10;
-      if ( (__int64 *)*v10 == v10 )
-        return (unsigned int)inserted;
       v12 = a2 + 38;
-      while ( 1 )
+      do
       {
         inserted = AuthzBasepProbeAndInsertTailList((unsigned __int64)(a2 + 2), v12 - 13);
         if ( inserted < 0 )
-          break;
+          goto LABEL_19;
         ++*a2;
         *((_WORD *)v12 - 28) = *(_WORD *)(v11 + 48);
         v13 = (wchar_t *)((v9 + 1) & 0xFFFFFFFFFFFFFFFEuLL);
@@ -76,12 +81,12 @@ LABEL_5:
         v19 = v14;
         v18 = v14;
         if ( (unsigned __int64)v13 + v14 > v6 )
-          goto LABEL_5;
+          goto LABEL_6;
         *(_QWORD *)&DestinationString.Length = 0LL;
         DestinationString.MaximumLength = v14;
         DestinationString.Buffer = v13;
         RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(v11 + 32));
-        v15 = (unsigned __int64)v13 + v19;
+        v15 = (unsigned __int64)v13 + (unsigned int)v19;
         *(UNICODE_STRING *)(v12 - 9) = DestinationString;
         inserted = AuthzBasepCopyoutInternalSecurityAttributeValues(
                      v11,
@@ -90,20 +95,20 @@ LABEL_5:
                      (int)v6 - (int)v15,
                      &v18);
         if ( inserted < 0 )
-          break;
+          goto LABEL_19;
         v12 += 14;
         v11 = *(_QWORD *)v11;
         v9 = v18 + v15;
-        if ( (__int64 *)v11 == v10 )
-          return (unsigned int)inserted;
       }
+      while ( (__int64 *)v11 != v10 );
     }
+LABEL_18:
+    if ( inserted >= 0 )
+      return (unsigned int)inserted;
+    goto LABEL_19;
   }
-  else
-  {
-    inserted = -1073741811;
-  }
-LABEL_17:
+  inserted = -1073741675;
+LABEL_19:
   if ( a3 >= 0x30 )
   {
     *(_OWORD *)a2 = 0LL;

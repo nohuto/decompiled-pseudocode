@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_IssuingAttachDeviceToDsm @ 0x1C0012150
+ * XREFs of HUBPSM30_IssuingAttachDeviceToDsm @ 0x1C0011C50
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_AttachDevice @ 0x1C002E4A0 (HUBMISC_AttachDevice.c)
+ *     HUBMISC_AttachDevice @ 0x1C002DE1C (HUBMISC_AttachDevice.c)
  */
 
 __int64 __fastcall HUBPSM30_IssuingAttachDeviceToDsm(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x14087FCA0
+ * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x14087FC80
  * Callers:
- *     PopNotifySessionDisplayRequired @ 0x1406DBEC0 (PopNotifySessionDisplayRequired.c)
+ *     PopNotifySessionDisplayRequired @ 0x1406DBEA0 (PopNotifySessionDisplayRequired.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     PoSessionEngagementUpdate @ 0x1402E6FD4 (PoSessionEngagementUpdate.c)
- *     TtmpAcquireSessionById @ 0x140761694 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1408814F0 (TtmpUpdateDisplayRequiredPowerRequest.c)
- *     TtmiLogSessionDisplayRequiredDereference @ 0x140884CF8 (TtmiLogSessionDisplayRequiredDereference.c)
- *     TtmiLogSessionDisplayRequiredReference @ 0x140884E7C (TtmiLogSessionDisplayRequiredReference.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     PoSessionEngagementUpdate @ 0x1402E70D4 (PoSessionEngagementUpdate.c)
+ *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1408814D0 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmiLogSessionDisplayRequiredDereference @ 0x140884CD8 (TtmiLogSessionDisplayRequiredDereference.c)
+ *     TtmiLogSessionDisplayRequiredReference @ 0x140884E5C (TtmiLogSessionDisplayRequiredReference.c)
  */
 
 __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, unsigned int a2, char a3)

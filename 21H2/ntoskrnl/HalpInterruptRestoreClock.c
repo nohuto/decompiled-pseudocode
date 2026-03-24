@@ -1,16 +1,15 @@
 /*
- * XREFs of HalpInterruptRestoreClock @ 0x1403915EC
+ * XREFs of HalpInterruptRestoreClock @ 0x1403868C8
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140252134 (HalpInterruptLookupController.c)
- *     HalpInterruptApplyOverrides @ 0x140252258 (HalpInterruptApplyOverrides.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpInterruptRestoreClock()
@@ -35,14 +34,14 @@ __int64 HalpInterruptRestoreClock()
     while ( 1 )
     {
       v10 = *v5;
-      HalpInterruptApplyOverrides(&v10, 0LL, 0LL);
+      HalpInterruptApplyOverrides((unsigned int *)&v10, 0LL, 0LL);
       Lines = HalpInterruptFindLines((unsigned int *)&v10);
       if ( !Lines )
         break;
       v7 = HalpInterruptLookupController(*((_DWORD *)Lines + 4));
       if ( !v7 )
       {
-        HalpInterruptSetProblemEx(0, 17, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1914);
+        HalpInterruptLastProblem = 17;
 LABEL_11:
         v9 = -1073741810;
 LABEL_12:
@@ -56,7 +55,7 @@ LABEL_12:
       if ( v0 >= v1 )
         goto LABEL_2;
     }
-    HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1900);
+    HalpInterruptLastProblem = 18;
     goto LABEL_11;
   }
 LABEL_2:

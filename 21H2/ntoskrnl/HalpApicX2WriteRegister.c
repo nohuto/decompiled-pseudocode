@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicX2WriteRegister @ 0x140372AD0
+ * XREFs of HalpApicX2WriteRegister @ 0x1403651D0
  * Callers:
  *     <none>
  * Callees:

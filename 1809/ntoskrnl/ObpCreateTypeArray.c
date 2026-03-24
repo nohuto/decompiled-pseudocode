@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x140862308
+ * XREFs of ObpCreateTypeArray @ 0x1408622E8
  * Callers:
- *     ObEnumerateObjectsByType @ 0x140861BB4 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x140861C80 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x140861B94 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionKillAccessibilityTimer @ 0x1C0211FB0
+ * XREFs of EditionKillAccessibilityTimer @ 0x1C0213300
  * Callers:
  *     <none>
  * Callees:
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 __int64 __fastcall EditionKillAccessibilityTimer(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpConstructPathToExtension @ 0x1408DD704
+ * XREFs of ApiSetpConstructPathToExtension @ 0x1408DD6E4
  * Callers:
- *     ApiSetpLoadSchemaExtension @ 0x1408DD838 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetpLoadSchemaExtension @ 0x1408DD818 (ApiSetpLoadSchemaExtension.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

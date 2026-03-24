@@ -1,29 +1,30 @@
 /*
- * XREFs of PfpFileBuildReadSupport @ 0x14075E6B4
+ * XREFs of PfpFileBuildReadSupport @ 0x14063290C
  * Callers:
- *     PfpPrefetchFilesTrickle @ 0x14075D9A0 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchFiles @ 0x14097DF94 (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140633C60 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x1408DF8B0 (PfpPrefetchFiles.c)
  * Callees:
- *     PfpFileCheckAttributesForPrefetch @ 0x1402F8698 (PfpFileCheckAttributesForPrefetch.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     NtCreateSection @ 0x140722710 (NtCreateSection.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     PfpFileBuildReadList @ 0x14075E950 (PfpFileBuildReadList.c)
- *     PfpFileSetupObjectAttributes @ 0x14075EA5C (PfpFileSetupObjectAttributes.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x14026E924 (PfpFileCheckAttributesForPrefetch.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     PfpFileSetupObjectAttributes @ 0x140634140 (PfpFileSetupObjectAttributes.c)
+ *     PfpFileBuildReadList @ 0x1406341D8 (PfpFileBuildReadList.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtCreateSection @ 0x140654E50 (NtCreateSection.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, int a3, char a4, __int64 a5)
+__int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, unsigned int a3, char a4, __int64 a5)
 {
   void *v5; // r15
-  __int64 v8; // rcx
-  __int64 v11; // rdx
+  __int64 v8; // rdx
+  __int64 v10; // r12
+  __int64 v11; // r8
   int v12; // edi
   ULONG AllocationAttributes; // r9d
-  __m128i *v14; // rbx
-  unsigned int v15; // r8d
-  int v16; // edi
+  __int64 v14; // rdx
+  __m128i *v15; // rbx
+  NTSTATUS v16; // edi
   void *FileHandle; // r12
   __m128i v18; // xmm6
   unsigned __int64 v19; // rbx
@@ -41,28 +42,30 @@ __int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, int a3, char 
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-29h] BYREF
   ULONG v33; // [rsp+108h] [rbp+5Fh]
   HANDLE SectionHandle; // [rsp+110h] [rbp+67h] BYREF
-  unsigned int v35; // [rsp+120h] [rbp+77h] BYREF
+  int v35; // [rsp+120h] [rbp+77h] BYREF
 
-  SectionHandle = 0LL;
-  v5 = 0LL;
-  v29 = 0LL;
   v35 = 0;
   memset(&v31, 0, 24);
+  v5 = 0LL;
+  SectionHandle = 0LL;
   v8 = *a1;
-  v11 = a1[1];
   v31.m256i_i64[3] = 0x200000000LL;
+  v10 = a3;
+  v11 = a1[1];
+  v29 = 0LL;
   v12 = a4 != 0 ? 32 : 129;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   AllocationAttributes = a4 != 0 ? 285212672 : 0x4000000;
   v33 = AllocationAttributes;
   v30 = 0LL;
-  v14 = (__m128i *)(v11 + 0x5555555555555560LL * (((__int64)a2 - *(unsigned int *)(v8 + 40) - v8) >> 4));
-  if ( v11 && _bittest64(&v14[1].m128i_i64[1], 0x22u) )
+  v14 = (unsigned __int128)(((__int64)a2 - *(unsigned int *)(v8 + 40) - v8) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+  v15 = (__m128i *)(v11 + 32 * (((unsigned __int64)v14 >> 63) + (v14 >> 3)));
+  if ( v11 && (v15[1].m128i_i64[1] & 0x400000000LL) != 0 )
   {
-    v28 = v14[1];
-    v18 = *v14;
-    v31.m256i_i64[2] = v14[1].m128i_i64[0];
-    v19 = _mm_srli_si128(v28, 8).m128i_u64[0] | 0x1000000000LL;
+    v27 = v15[1];
+    v18 = *v15;
+    v31.m256i_i64[2] = v15[1].m128i_i64[0];
+    v19 = _mm_srli_si128(v27, 8).m128i_u64[0] | 0x1000000000LL;
     *(__m128i *)v31.m256i_i8 = v18;
     FileHandle = (void *)v18.m128i_i64[0];
     v31.m256i_i64[3] = v19;
@@ -72,19 +75,19 @@ __int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, int a3, char 
     PfpFileSetupObjectAttributes(
       (_DWORD)a1,
       (_DWORD)a2,
-      a3,
+      v10,
       (unsigned int)&v30,
       (__int64)&ObjectAttributes,
       (__int64)&v35);
     v16 = PfpOpenHandleCreate(
-            (__int64)&v31,
+            (unsigned int)&v31,
             a1[5],
-            (__int64)ObjectAttributes.ObjectName,
-            (__int64)ObjectAttributes.RootDirectory,
+            ObjectAttributes.ObjectName,
+            ObjectAttributes.RootDirectory,
             v12,
             v35,
-            0x80u,
-            a1[2] + ((unsigned __int64)v15 << 6));
+            128,
+            a1[2] + (v10 << 6));
     if ( v16 < 0 )
     {
       v19 = v31.m256i_u64[3];
@@ -95,16 +98,16 @@ __int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, int a3, char 
     if ( v16 < 0 )
     {
       v19 = v31.m256i_u64[3];
-      goto LABEL_26;
+      goto LABEL_20;
     }
     v18 = *(__m128i *)v31.m256i_i8;
     AllocationAttributes = v33;
     if ( a1[1] )
     {
-      v27 = *(__m128i *)&v31.m256i_u64[2];
-      *v14 = *(__m128i *)v31.m256i_i8;
-      v14[1] = v27;
-      v19 = _mm_srli_si128(v27, 8).m128i_u64[0] | 0x1000000000LL;
+      v28 = *(__m128i *)&v31.m256i_u64[2];
+      *v15 = *(__m128i *)v31.m256i_i8;
+      v15[1] = v28;
+      v19 = _mm_srli_si128(v28, 8).m128i_u64[0] | 0x1000000000LL;
       v31.m256i_i64[3] = v19;
     }
     else
@@ -158,7 +161,7 @@ LABEL_11:
     if ( (v19 & 0x100000000LL) == 0 )
       goto LABEL_12;
   }
-LABEL_26:
+LABEL_20:
   if ( (*a2 & 8) == 0 )
   {
     *a2 |= 8u;
@@ -168,7 +171,7 @@ LABEL_12:
   if ( SectionHandle )
     NtClose(SectionHandle);
   if ( (v19 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose((__int64)&v31, a1[5]);
+    PfpOpenHandleClose(&v31, a1[5]);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
   return (unsigned int)v16;

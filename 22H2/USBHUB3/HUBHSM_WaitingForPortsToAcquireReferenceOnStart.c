@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0009440
+ * XREFs of HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0008C70
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_QueuePowerUpEventToPSMs @ 0x1C00108AC (HUBMUX_QueuePowerUpEventToPSMs.c)
- *     HUBMUX_EnableResetHub @ 0x1C0010E80 (HUBMUX_EnableResetHub.c)
- *     FWUPDATE_ReenumerateFirmwareUpdateDevice @ 0x1C00406AC (FWUPDATE_ReenumerateFirmwareUpdateDevice.c)
+ *     HUBMUX_QueuePowerUpEventToPSMs @ 0x1C000F478 (HUBMUX_QueuePowerUpEventToPSMs.c)
+ *     HUBMUX_EnableResetHub @ 0x1C000FA54 (HUBMUX_EnableResetHub.c)
+ *     FWUPDATE_ReenumerateFirmwareUpdateDevice @ 0x1C003E3D0 (FWUPDATE_ReenumerateFirmwareUpdateDevice.c)
  */
 
 __int64 __fastcall HUBHSM_WaitingForPortsToAcquireReferenceOnStart(__int64 a1)

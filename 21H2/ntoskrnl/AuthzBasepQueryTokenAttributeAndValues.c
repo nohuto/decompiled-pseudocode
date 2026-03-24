@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x14064A4B8
+ * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x1405C145C
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140300374 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E6B8 (AuthzBasepQuerySecurityAttributeAndValues.c)
  * Callees:
- *     SepCopyTokenIntegrity @ 0x1402ED98C (SepCopyTokenIntegrity.c)
- *     AuthzBasepFindTokenAttribute @ 0x14064A444 (AuthzBasepFindTokenAttribute.c)
+ *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
+ *     AuthzBasepFindTokenAttribute @ 0x1405C13E8 (AuthzBasepFindTokenAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
@@ -26,11 +26,31 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
   v1 = *(_QWORD *)(a1 + 56);
   v2 = 0;
   *(_DWORD *)(a1 + 36) = 0;
-  if ( !v1 )
+  if ( v1 )
   {
-    TokenAttribute = AuthzBasepFindTokenAttribute((const UNICODE_STRING *)(a1 + 16));
-    if ( !TokenAttribute )
-      return (unsigned int)-1073741275;
+    if ( *(_DWORD *)(v1 + 8) != 1 )
+      return (unsigned int)-2147483622;
+    v12 = *(_QWORD *)(a1 + 8);
+    v7 = (__int64 *)(a1 + 64);
+    v13 = *(_DWORD *)(a1 + 64) + 1;
+    if ( v13 > 0x24 )
+      return (unsigned int)-2147483622;
+    do
+    {
+      v14 = *(_QWORD *)(v12 + 72);
+      if ( _bittest64(&v14, v13) )
+        break;
+      ++v13;
+    }
+    while ( v13 <= 0x24 );
+    if ( v13 > 0x24 )
+      return (unsigned int)-2147483622;
+    *v7 = v13;
+    goto LABEL_27;
+  }
+  TokenAttribute = AuthzBasepFindTokenAttribute((const UNICODE_STRING *)(a1 + 16));
+  if ( TokenAttribute )
+  {
     *(_QWORD *)(a1 + 56) = TokenAttribute;
     *(_WORD *)(a1 + 32) = *((_WORD *)TokenAttribute + 6);
     if ( *((_DWORD *)TokenAttribute + 2) == 1 )
@@ -85,24 +105,9 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
       }
       *(_DWORD *)(a1 + 40) = 1;
     }
-LABEL_28:
+LABEL_27:
     *(_QWORD *)(a1 + 48) = v7;
     return v2;
   }
-  if ( *(_DWORD *)(v1 + 8) == 1 )
-  {
-    v12 = *(_QWORD *)(a1 + 8);
-    v7 = (__int64 *)(a1 + 64);
-    v13 = *(_DWORD *)(a1 + 64);
-    while ( ++v13 <= 0x24 )
-    {
-      v14 = *(_QWORD *)(v12 + 72);
-      if ( _bittest64(&v14, v13) )
-      {
-        *v7 = v13;
-        goto LABEL_28;
-      }
-    }
-  }
-  return (unsigned int)-2147483622;
+  return (unsigned int)-1073741275;
 }

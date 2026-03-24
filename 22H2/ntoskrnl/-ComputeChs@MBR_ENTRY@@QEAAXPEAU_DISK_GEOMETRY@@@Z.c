@@ -1,61 +1,67 @@
 /*
- * XREFs of ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x140675FB4
+ * XREFs of ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x1405C7330
  * Callers:
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x140674B5C (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406765EC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7950 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x1405C8460 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall MBR_ENTRY::ComputeChs(MBR_ENTRY *this, struct _DISK_GEOMETRY *a2)
 {
-  ULONG v2; // esi
-  _BYTE **v3; // r14
-  ULONG *v5; // rbx
-  __int64 v6; // rbp
-  ULONG v7; // edi
-  ULONG v8; // ecx
+  ULONG v2; // edi
+  _BYTE **v3; // rsi
+  ULONG LowPart; // ebx
+  unsigned int *v5; // r11
+  int v7; // edx
+  __int64 v8; // rbp
+  int v9; // eax
+  unsigned int v10; // ebx
+  unsigned int v11; // eax
+  unsigned int v12; // r10d
+  ULONG v13; // eax
+  ULONG v14; // edx
   ULONG SectorsPerTrack; // r8d
-  unsigned int v10; // r9d
-  unsigned int v11; // ecx
-  int v12; // r11d
-  _BYTE *v13; // rdx
-  _QWORD v14[5]; // [rsp+0h] [rbp-28h] BYREF
-  int v15; // [rsp+30h] [rbp+8h] BYREF
-  int v16; // [rsp+34h] [rbp+Ch]
+  _BYTE *v16; // rdx
+  _QWORD v17[3]; // [rsp+0h] [rbp-18h] BYREF
+  int v18; // [rsp+20h] [rbp+8h] BYREF
+  int v19; // [rsp+24h] [rbp+Ch]
 
   v2 = a2->SectorsPerTrack * a2->TracksPerCylinder;
-  v3 = (_BYTE **)v14;
-  v14[0] = (char *)this + 1;
-  v5 = (ULONG *)&v15;
-  v15 = *((_DWORD *)this + 2);
-  v6 = 2LL;
-  v14[1] = (char *)this + 5;
-  v7 = a2->Cylinders.LowPart * v2;
-  v16 = *((_DWORD *)this + 3) + v15 - 1;
+  v3 = (_BYTE **)v17;
+  LowPart = a2->Cylinders.LowPart;
+  v5 = (unsigned int *)&v18;
+  v17[0] = (char *)this + 1;
+  v7 = *((_DWORD *)this + 2);
+  v17[1] = (char *)this + 5;
+  v8 = 2LL;
+  v9 = *((_DWORD *)this + 3);
+  v10 = v2 * LowPart;
+  v18 = v7;
+  v19 = v9 + v7 - 1;
   do
   {
-    v8 = *v5;
-    SectorsPerTrack = a2->SectorsPerTrack;
-    if ( *v5 >= v7 )
+    v11 = *v5;
+    if ( *v5 >= v10 )
     {
-      v10 = a2->Cylinders.LowPart - 1;
-      LOBYTE(v12) = a2->TracksPerCylinder - 1;
+      v12 = a2->Cylinders.LowPart - 1;
+      SectorsPerTrack = a2->SectorsPerTrack;
+      LOBYTE(v13) = a2->TracksPerCylinder - 1;
     }
     else
     {
-      v10 = v8 / v2;
-      v11 = v8 % v2;
-      v12 = v11 / SectorsPerTrack;
-      SectorsPerTrack = v11 % SectorsPerTrack + 1;
+      v12 = v11 / v2;
+      v14 = v11 % v2 % a2->SectorsPerTrack;
+      v13 = v11 % v2 / a2->SectorsPerTrack;
+      LOBYTE(SectorsPerTrack) = v14 + 1;
     }
-    v13 = *v3;
+    v16 = *v3;
     ++v5;
-    *v13 = v12;
     ++v3;
-    v13[1] = (v10 >> 2) ^ (SectorsPerTrack ^ (v10 >> 2)) & 0x3F;
-    v13[2] = v10;
-    --v6;
+    *v16 = v13;
+    v16[1] = (v12 >> 2) ^ (SectorsPerTrack ^ (v12 >> 2)) & 0x3F;
+    v16[2] = v12;
+    --v8;
   }
-  while ( v6 );
+  while ( v8 );
 }

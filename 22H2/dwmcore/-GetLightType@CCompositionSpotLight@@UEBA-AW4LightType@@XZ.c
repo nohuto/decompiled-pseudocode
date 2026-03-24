@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetLightType@CCompositionSpotLight@@UEBA?AW4LightType@@XZ @ 0x180107370
+ * XREFs of ?GetLightType@CCompositionSpotLight@@UEBA?AW4LightType@@XZ @ 0x1800E2170
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of IcGetPossibleInput @ 0x1C009F324
+ * XREFs of IcGetPossibleInput @ 0x1C0091E28
  * Callers:
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB1C (IrqArbpAssignIrqFromLinkNode.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDD0 (IrqArbpFindSuitableRangeIsa.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009E1B4 (IrqArbpFindSuitableRangePci.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009E8A0 (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
  * Callees:
  *     <none>
  */
@@ -14,10 +14,10 @@ __int64 __fastcall IcGetPossibleInput(unsigned int a1, __int64 a2, _BYTE *a3)
 {
   __int64 v3; // rdx
   unsigned int v4; // eax
-  __int64 v6; // rcx
+  __int64 v5; // rcx
   int v7; // eax
-  char v8; // al
-  int v9; // eax
+  int v8; // eax
+  char v9; // al
 
   v3 = IcListHead;
   if ( &IcListHead == (__int64 *)IcListHead )
@@ -34,29 +34,34 @@ __int64 __fastcall IcGetPossibleInput(unsigned int a1, __int64 a2, _BYTE *a3)
     if ( &IcListHead == (__int64 *)v3 )
       return 3221226021LL;
   }
-  v6 = 200LL * (a1 - v4);
-  if ( !*(_DWORD *)(v6 + v3 + 36) )
+  v5 = 200LL * (a1 - v4);
+  if ( !*(_DWORD *)(v5 + v3 + 36) )
     return 3221226021LL;
   if ( a3 )
   {
-    v7 = *(_DWORD *)(v6 + v3 + 148);
-    if ( v7 == 3 )
+    v8 = *(_DWORD *)(v5 + v3 + 148);
+    if ( v8 == 3 )
     {
-      v8 = 10;
+      v9 = 10;
     }
-    else if ( v7 == 4 )
+    else if ( v8 == 4 )
     {
-      v8 = 8;
+      v9 = 8;
     }
     else
     {
-      v8 = v7 != 2 ? 0 : 2;
+      v9 = v8 != 2 ? 0 : 2;
     }
-    *a3 = (*(_DWORD *)(v6 + v3 + 152) == 0) | v8;
+    *a3 = (*(_DWORD *)(v5 + v3 + 152) == 0) | v9;
   }
-  v9 = *(_DWORD *)(v6 + v3 + 40);
-  if ( v9 && v9 == *(_DWORD *)(v6 + v3 + 32) && *(_DWORD *)(v6 + v3 + 44) == *(_DWORD *)(v6 + v3 + 36) )
+  v7 = *(_DWORD *)(v5 + v3 + 40);
+  if ( v7 && v7 == *(_DWORD *)(v5 + v3 + 32) && *(_DWORD *)(v5 + v3 + 44) == *(_DWORD *)(v5 + v3 + 36)
+    || *(_BYTE *)(v5 + v3 + 224) )
+  {
     return 263LL;
+  }
   else
-    return *(_BYTE *)(v6 + v3 + 224) != 0 ? 0x107 : 0;
+  {
+    return 0LL;
+  }
 }

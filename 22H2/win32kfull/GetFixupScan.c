@@ -1,74 +1,66 @@
 /*
- * XREFs of GetFixupScan @ 0x1C0158C70
+ * XREFs of GetFixupScan @ 0x1C00C7690
  * Callers:
- *     BltDIB_CY @ 0x1C025E160 (BltDIB_CY.c)
- *     ExpandDIB_CY @ 0x1C025F1F0 (ExpandDIB_CY.c)
- *     ExpandDIB_CY_ExpCX @ 0x1C025FB80 (ExpandDIB_CY_ExpCX.c)
- *     FastExpAA_CY @ 0x1C0260A70 (FastExpAA_CY.c)
- *     GrayExpandDIB_CY @ 0x1C02613F0 (GrayExpandDIB_CY.c)
- *     GrayExpandDIB_CY_ExpCX @ 0x1C0261B60 (GrayExpandDIB_CY_ExpCX.c)
- *     GrayShrinkDIB_CY @ 0x1C0262650 (GrayShrinkDIB_CY.c)
- *     RepDIB_CY @ 0x1C0262E90 (RepDIB_CY.c)
- *     ShrinkDIB_CY @ 0x1C0263610 (ShrinkDIB_CY.c)
- *     ShrinkDIB_CY_SrkCX @ 0x1C0263DB0 (ShrinkDIB_CY_SrkCX.c)
- *     SkipDIB_CY @ 0x1C02647C0 (SkipDIB_CY.c)
- *     TileDIB_CY @ 0x1C0264A30 (TileDIB_CY.c)
+ *     ShrinkDIB_CY_SrkCX @ 0x1C00012D0 (ShrinkDIB_CY_SrkCX.c)
+ *     BltDIB_CY @ 0x1C00C7480 (BltDIB_CY.c)
+ *     ExpandDIB_CY @ 0x1C02679A0 (ExpandDIB_CY.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0268310 (ExpandDIB_CY_ExpCX.c)
+ *     FastExpAA_CY @ 0x1C0269200 (FastExpAA_CY.c)
+ *     GrayExpandDIB_CY @ 0x1C0269B90 (GrayExpandDIB_CY.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C026A330 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayShrinkDIB_CY @ 0x1C026AFC0 (GrayShrinkDIB_CY.c)
+ *     ShrinkDIB_CY @ 0x1C026BC20 (ShrinkDIB_CY.c)
+ *     SkipDIB_CY @ 0x1C026C400 (SkipDIB_CY.c)
+ *     TileDIB_CY @ 0x1C026C670 (TileDIB_CY.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     FixupGrayScan @ 0x1C01588D8 (FixupGrayScan.c)
- *     FixupColorScan @ 0x1C025CB14 (FixupColorScan.c)
- *     MappingBGR @ 0x1C0262CAC (MappingBGR.c)
+ *     FixupGrayScan @ 0x1C0002C80 (FixupGrayScan.c)
+ *     FixupColorScan @ 0x1C0151228 (FixupColorScan.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     MappingBGR @ 0x1C026B60C (MappingBGR.c)
  */
 
 void *__fastcall GetFixupScan(__int64 a1, void *a2)
 {
-  int v2; // r9d
-  int v5; // eax
-  int v6; // edx
-  char *v7; // r8
+  int v4; // ecx
+  char *v5; // r8
+  int v7; // edx
   int v8; // eax
-  char v9; // dl
+  char v9; // cl
   int v10; // eax
   int v11; // eax
 
-  v2 = *(_DWORD *)a1;
-  if ( (*(_DWORD *)a1 & 0x40) != 0 )
+  v4 = *(_DWORD *)a1;
+  if ( (v4 & 0x40) != 0 )
   {
     if ( (*(_BYTE *)(a1 + 8) & 4) != 0 )
       FixupGrayScan(a1, a2);
     else
-      FixupColorScan();
+      FixupColorScan(a1);
   }
   else
   {
-    if ( (v2 & 0x20) != 0 )
+    if ( (v4 & 0x20) != 0 )
     {
-      v5 = *(_DWORD *)(a1 + 40);
-      v6 = *(_DWORD *)(a1 + 60) + 1;
-      *(_DWORD *)(a1 + 60) = v6;
-      if ( v6 > v5 )
+      v7 = ++*(_DWORD *)(a1 + 60);
+      v8 = *(_DWORD *)(a1 + 40);
+      if ( v7 > v8 )
       {
-        *(_DWORD *)(a1 + 60) = v5;
-        v6 = v5;
+        *(_DWORD *)(a1 + 60) = v8;
+        v7 = v8;
       }
-      v7 = (char *)(a1 + 8);
-      v8 = *(_DWORD *)(a1 + 68) * (v5 - v6);
       *(_BYTE *)(a1 + 8) |= 2u;
-      *(_QWORD *)(a1 + 48) = *(_QWORD *)(a1 + 32) + v8;
-      *(_DWORD *)a1 = v2 & 0xFFFFFFDF;
+      *(_QWORD *)(a1 + 48) = *(_QWORD *)(a1 + 32) + *(_DWORD *)(a1 + 68) * (v8 - v7);
+      *(_DWORD *)a1 = v4 & 0xFFFFFFDF;
     }
-    else
-    {
-      v7 = (char *)(a1 + 8);
-    }
+    v5 = (char *)(a1 + 8);
     if ( a2 )
     {
-      (*(void (__fastcall **)(char *, void *))(a1 + 24))(v7, a2);
+      (*(void (__fastcall **)(__int64, void *))(a1 + 24))(a1 + 8, a2);
     }
     else
     {
-      v9 = *v7;
-      if ( (*v7 & 2) != 0 )
+      v9 = *v5;
+      if ( (*v5 & 2) != 0 )
       {
         v10 = *(_DWORD *)(a1 + 60);
         if ( v10 && (v11 = v10 - 1, (*(_DWORD *)(a1 + 60) = v11) != 0) )
@@ -82,7 +74,7 @@ void *__fastcall GetFixupScan(__int64 a1, void *a2)
         }
         else
         {
-          *v7 = v9 & 0xFD;
+          *v5 = v9 & 0xFD;
         }
       }
     }

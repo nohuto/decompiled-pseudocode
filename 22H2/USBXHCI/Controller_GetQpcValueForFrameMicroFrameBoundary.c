@@ -1,7 +1,7 @@
 /*
- * XREFs of Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C00334E8
+ * XREFs of Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C0031B0C
  * Callers:
- *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003529C (Controller_TranslateFrameNumberToQpcValue.c)
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003395C (Controller_TranslateFrameNumberToQpcValue.c)
  * Callees:
  *     <none>
  */

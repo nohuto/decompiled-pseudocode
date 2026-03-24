@@ -1,7 +1,8 @@
 /*
- * XREFs of NtWaitLowEventPair @ 0x1407FDD10
+ * XREFs of NtWaitLowEventPair @ 0x140726130
  * Callers:
- *     MiKernelWriteToExecutableMemory @ 0x1406463DC (MiKernelWriteToExecutableMemory.c)
+ *     MiKernelWriteToExecutableMemory @ 0x1405488F4 (MiKernelWriteToExecutableMemory.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406E5AEC (CmpSetSecurityDescriptorInfo.c)
  * Callees:
  *     <none>
  */

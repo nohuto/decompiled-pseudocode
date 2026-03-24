@@ -1,11 +1,13 @@
 /*
- * XREFs of KeInitializeSemaphore @ 0x1402B32C0
+ * XREFs of KeInitializeSemaphore @ 0x1402D6DB0
  * Callers:
- *     AlpcpInitializePort @ 0x140716798 (AlpcpInitializePort.c)
- *     NtCreateSemaphore @ 0x1407336E0 (NtCreateSemaphore.c)
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
- *     MiInitializeSections @ 0x14083969C (MiInitializeSections.c)
- *     PopFxInitializeWorkPool @ 0x14085070C (PopFxInitializeWorkPool.c)
+ *     AlpcpInitializePort @ 0x1405E0D98 (AlpcpInitializePort.c)
+ *     NtCreateSemaphore @ 0x1406526A0 (NtCreateSemaphore.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
+ *     MiInitializeSections @ 0x140797A24 (MiInitializeSections.c)
+ *     PopFxInitializeWorkPool @ 0x1407CB394 (PopFxInitializeWorkPool.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */

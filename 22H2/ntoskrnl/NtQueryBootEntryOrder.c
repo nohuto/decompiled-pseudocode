@@ -1,24 +1,24 @@
 /*
- * XREFs of NtQueryBootEntryOrder @ 0x14083F3D0
+ * XREFs of NtQueryBootEntryOrder @ 0x140954190
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A9C (IoGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a2)
 {
-  KPROCESSOR_MODE PreviousMode; // bl
-  __int64 v5; // rcx
-  unsigned int v6; // eax
   __int64 result; // rax
+  KPROCESSOR_MODE PreviousMode; // bl
+  __int64 v6; // rcx
+  unsigned int v7; // eax
   struct _KTHREAD *v8; // rax
   int EnvironmentVariable; // ebx
   unsigned int v10; // r8d
@@ -34,25 +34,25 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
   v15 = 0LL;
   v18 = 0;
   P = 0LL;
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v5 = 0x7FFFFFFF0000LL;
+    v6 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
-    *(_DWORD *)v5 = *(_DWORD *)v5;
-    v6 = 4 * *a2;
-    v18 = v6;
+      v6 = (__int64)a2;
+    *(_DWORD *)v6 = *(_DWORD *)v6;
+    v7 = 4 * *a2;
+    v18 = v7;
     if ( !Address )
     {
       v18 = 0;
-      v6 = 0;
+      v7 = 0;
     }
-    if ( v6 )
-      ProbeForWrite(Address, v6, 4u);
+    if ( v7 )
+      ProbeForWrite(Address, v7, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
       return 3221225569LL;
   }

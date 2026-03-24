@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CDDisplaySwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x180105DCC
+ * XREFs of ?GetPixelFormatInfo@CDDisplaySwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E1F9C
  * Callers:
- *     ?GetPixelFormatInfo@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011EC60 (-GetPixelFormatInfo@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F6900 (-GetPixelFormatInfo@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,8 @@ __int64 __fastcall CDDisplaySwapChain::GetPixelFormatInfo(__int64 a1, __int64 a2
 {
   int v2; // eax
 
-  v2 = *(_DWORD *)(a1 - 120);
-  *(_QWORD *)a2 = *(_QWORD *)(a1 - 128);
+  v2 = *(_DWORD *)(a1 - 240);
+  *(_QWORD *)a2 = *(_QWORD *)(a1 - 248);
   *(_DWORD *)(a2 + 8) = v2;
   return a2;
 }

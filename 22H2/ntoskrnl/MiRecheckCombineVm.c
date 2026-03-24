@@ -1,39 +1,43 @@
 /*
- * XREFs of MiRecheckCombineVm @ 0x140359F64
+ * XREFs of MiRecheckCombineVm @ 0x140367420
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiCombineWithStandbyExisting @ 0x140359B7C (MiCombineWithStandbyExisting.c)
+ *     MiConvertStandbyToProto @ 0x1403668C8 (MiConvertStandbyToProto.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiGetTopLevelPfn @ 0x140215FC0 (MiGetTopLevelPfn.c)
- *     MiCombineCandidate @ 0x140281E90 (MiCombineCandidate.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiGetTopLevelPfn @ 0x140333500 (MiGetTopLevelPfn.c)
+ *     MiCombineCandidate @ 0x1403690F0 (MiCombineCandidate.c)
  */
 
-__int64 __fastcall MiRecheckCombineVm(_QWORD *a1, char a2, _OWORD *a3, char *a4)
+_BOOL8 __fastcall MiRecheckCombineVm(__int64 a1, __int64 a2, ULONG_PTR a3, char *a4)
 {
   int v6; // eax
-  unsigned int v7; // ebx
-  int v8; // esi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // edi
   __int64 TopLevelPfn; // rax
-  unsigned __int64 v10; // rcx
-  __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  __int64 v13; // rdx
+  char *AnyMultiplexedVm; // rax
 
-  v6 = MiCombineCandidate(a1, a2, a3);
-  v7 = 0;
-  v8 = v6;
+  v6 = MiCombineCandidate();
+  v10 = v6;
   if ( !v6 )
     return 0LL;
   if ( v6 == 2 )
-    return a4 == MiGetAnyMultiplexedVm(2);
-  TopLevelPfn = MiGetTopLevelPfn((ULONG_PTR)a3);
-  v10 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
-  v11 = (*(_QWORD *)(TopLevelPfn + 24) >> 62) & 1LL;
-  if ( (_OWORD *)TopLevelPfn != a3 )
-    _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v8 == 1 )
-    return a4 == (char *)(v10 + 1664);
-  if ( (_DWORD)v11 )
-    return 0LL;
-  LOBYTE(v7) = a4 == (char *)(v10 + 192);
-  return v7;
+  {
+    AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
+  }
+  else
+  {
+    TopLevelPfn = MiGetTopLevelPfn(a3, v7, v8, v9);
+    v12 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
+    v13 = (*(_QWORD *)(TopLevelPfn + 24) >> 62) & 1LL;
+    if ( TopLevelPfn != a3 )
+      _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( v10 != 1 )
+      return !(_DWORD)v13 && a4 == (char *)(v12 + 256);
+    AnyMultiplexedVm = (char *)(v12 + 1664);
+  }
+  return a4 == AnyMultiplexedVm;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x14017D5C0
+ * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x14017D5E0
  * Callers:
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x14017D764 (KiDetectHardwareSpecControlFeatures.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14017D784 (KiDetectHardwareSpecControlFeatures.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)

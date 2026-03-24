@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReadUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x18027205C
+ * XREFs of ?ReadUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x180218BAC
  * Callers:
- *     ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x180271E1C (-HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlag.c)
+ *     ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x18021896C (-HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlag.c)
  * Callees:
  *     <none>
  */
@@ -27,6 +27,6 @@ void __fastcall ReadUnalignedScanline(unsigned __int8 *a1, const unsigned __int8
     v10 = *a2 << a4;
     if ( v9 > v4 )
       v10 |= a2[1] >> v4;
-    *a1 = ~(255 >> v9) & v10 | (255 >> v9) & *a1;
+    *a1 = ~(255 >> v9) & v10 | *a1 & (255 >> v9);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFlushProcessTbWorker @ 0x140125470
+ * XREFs of KiFlushProcessTbWorker @ 0x140125490
  * Callers:
- *     KxFlushNonGlobalTb @ 0x1400ED200 (KxFlushNonGlobalTb.c)
+ *     KxFlushNonGlobalTb @ 0x1400ED220 (KxFlushNonGlobalTb.c)
  * Callees:
  *     <none>
  */

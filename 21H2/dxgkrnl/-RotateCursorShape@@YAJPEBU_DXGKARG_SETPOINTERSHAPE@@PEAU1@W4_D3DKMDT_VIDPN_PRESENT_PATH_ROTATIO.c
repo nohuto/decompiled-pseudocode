@@ -1,12 +1,11 @@
 /*
- * XREFs of ?RotateCursorShape@@YAJPEBU_DXGKARG_SETPOINTERSHAPE@@PEAU1@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@PEBU_DXGK_DRIVERCAPS@@@Z @ 0x1C032D424
+ * XREFs of ?RotateCursorShape@@YAJPEBU_DXGKARG_SETPOINTERSHAPE@@PEAU1@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@PEBU_DXGK_DRIVERCAPS@@@Z @ 0x1C027D7E0
  * Callers:
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01A4940 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01228E0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z @ 0x1C0224A50 (-RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z @ 0x1C027DA5C (-RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z.c)
  */
 
 __int64 __fastcall RotateCursorShape(
@@ -15,46 +14,48 @@ __int64 __fastcall RotateCursorShape(
         enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION a3,
         const struct _DXGK_DRIVERCAPS *a4)
 {
-  __int64 v4; // rsi
+  __int64 v7; // rsi
   UINT YHot; // eax
   __int64 v10; // r14
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
   UINT Width; // r8d
   UINT Pitch; // edx
   UINT Value; // r9d
   UINT Height; // ecx
-  int v15; // r9d
+  int v18; // r9d
   char *pPixels; // r11
-  UINT v17; // eax
-  UINT v18; // ecx
-  UINT v19; // edx
   UINT v20; // eax
   UINT v21; // ecx
-  UINT v22; // [rsp+58h] [rbp-9h] BYREF
-  UINT v23; // [rsp+5Ch] [rbp-5h]
-  UINT v24; // [rsp+60h] [rbp-1h]
-  UINT v25; // [rsp+64h] [rbp+3h]
-  UINT v26; // [rsp+68h] [rbp+7h]
-  UINT v27; // [rsp+6Ch] [rbp+Bh]
-  char *v28; // [rsp+70h] [rbp+Fh]
-  int v29; // [rsp+78h] [rbp+17h]
-  int v30; // [rsp+7Ch] [rbp+1Bh]
-  UINT v31; // [rsp+80h] [rbp+1Fh] BYREF
-  UINT v32; // [rsp+84h] [rbp+23h]
-  UINT v33; // [rsp+88h] [rbp+27h]
-  UINT v34; // [rsp+8Ch] [rbp+2Bh]
-  UINT v35; // [rsp+90h] [rbp+2Fh]
-  UINT v36; // [rsp+94h] [rbp+33h]
-  char *v37; // [rsp+98h] [rbp+37h]
-  int v38; // [rsp+A0h] [rbp+3Fh]
-  int v39; // [rsp+A4h] [rbp+43h]
+  UINT v22; // eax
+  UINT v23; // ecx
+  UINT v24; // [rsp+20h] [rbp-50h] BYREF
+  UINT v25; // [rsp+24h] [rbp-4Ch]
+  UINT v26; // [rsp+28h] [rbp-48h]
+  UINT v27; // [rsp+2Ch] [rbp-44h]
+  UINT v28; // [rsp+30h] [rbp-40h]
+  UINT v29; // [rsp+34h] [rbp-3Ch]
+  char *v30; // [rsp+38h] [rbp-38h]
+  int v31; // [rsp+40h] [rbp-30h]
+  int v32; // [rsp+44h] [rbp-2Ch]
+  UINT v33; // [rsp+48h] [rbp-28h] BYREF
+  UINT v34; // [rsp+4Ch] [rbp-24h]
+  UINT v35; // [rsp+50h] [rbp-20h]
+  UINT v36; // [rsp+54h] [rbp-1Ch]
+  UINT v37; // [rsp+58h] [rbp-18h]
+  UINT v38; // [rsp+5Ch] [rbp-14h]
+  char *v39; // [rsp+60h] [rbp-10h]
+  int v40; // [rsp+68h] [rbp-8h]
+  int v41; // [rsp+6Ch] [rbp-4h]
 
-  v4 = a3;
-  v32 = 0;
   v34 = 0;
   v36 = 0;
-  v39 = 0;
-  v23 = 0;
+  v38 = 0;
+  v41 = 0;
   v25 = 0;
+  v27 = 0;
+  v7 = a3;
   if ( a3 == D3DKMDT_VPPR_IDENTITY )
   {
     a2->Flags.Value = a1->Flags.Value;
@@ -85,99 +86,95 @@ LABEL_4:
   Pitch = a1->Pitch;
   Value = a1->Flags.Value;
   Height = a1->Height;
-  v15 = Value & 1;
+  v18 = Value & 1;
   pPixels = (char *)a2->pPixels;
-  v37 = (char *)a1->pPixels;
-  v39 = v15;
-  v30 = v15;
-  v34 = Height;
-  v33 = Height;
-  v24 = Height;
-  v32 = Width;
-  v31 = Width;
-  v22 = Width;
-  v36 = Pitch;
-  v35 = Pitch;
-  v26 = Pitch;
-  v28 = pPixels;
-  v29 = v4;
-  v38 = 1;
-  if ( (((_DWORD)v4 - 2) & 0xFFFFFFFD) != 0 )
+  v39 = (char *)a1->pPixels;
+  v41 = v18;
+  v32 = v18;
+  v36 = Height;
+  v35 = Height;
+  v26 = Height;
+  v34 = Width;
+  v33 = Width;
+  v24 = Width;
+  v38 = Pitch;
+  v37 = Pitch;
+  v28 = Pitch;
+  v30 = pPixels;
+  v31 = v7;
+  v40 = 1;
+  if ( (((_DWORD)v7 - 2) & 0xFFFFFFFD) != 0 )
   {
-    v17 = Width;
-    v23 = Width;
+    v20 = Width;
+    v25 = Width;
   }
   else
   {
-    v23 = Height;
-    v17 = Height;
-    if ( v15 )
+    v25 = Height;
+    v20 = Height;
+    if ( v18 )
       Pitch = (Height + 7) >> 3;
     else
       Pitch = 4 * Height;
     Height = Width;
   }
-  v27 = Pitch;
-  v25 = Height;
-  if ( v17 <= a4->MaxPointerWidth && Height <= a4->MaxPointerHeight )
+  v29 = Pitch;
+  v27 = Height;
+  if ( v20 <= a4->MaxPointerWidth && Height <= a4->MaxPointerHeight )
   {
-    if ( v15 )
+    if ( v18 )
     {
       memset(pPixels, 255, Height * Pitch);
       do
       {
-        RotateCursorShapeWorker((struct CURSOR_INFO *)&v22, (const struct CURSOR_INFO *)&v31);
-        v18 = v27;
-        v19 = v25;
-        v28 += v25 * v27;
-        v37 += v33 * v35;
+        RotateCursorShapeWorker((struct CURSOR_INFO *)&v24, (const struct CURSOR_INFO *)&v33);
+        v21 = v29;
+        v11 = v27;
+        v30 += v27 * v29;
+        v39 += v35 * v37;
         --v10;
       }
       while ( v10 );
     }
     else
     {
-      RotateCursorShapeWorker((struct CURSOR_INFO *)&v22, (const struct CURSOR_INFO *)&v31);
-      v18 = v27;
-      v19 = v25;
+      RotateCursorShapeWorker((struct CURSOR_INFO *)&v24, (const struct CURSOR_INFO *)&v33);
+      v21 = v29;
+      v11 = v27;
     }
-    v20 = v23;
-    a2->Pitch = v18;
-    a2->Height = v19;
-    a2->Width = v20;
+    v22 = v25;
+    a2->Pitch = v21;
+    a2->Height = v11;
+    a2->Width = v22;
     a2->Flags.Value = a1->Flags.Value;
-    switch ( (_DWORD)v4 )
+    if ( (_DWORD)v7 == 1 )
+      goto LABEL_3;
+    if ( (_DWORD)v7 == 2 )
     {
-      case 1:
-        goto LABEL_3;
-      case 2:
-        a2->XHot = a1->YHot;
-        v21 = a1->Width - a1->XHot;
-        break;
-      case 3:
-        a2->XHot = a1->Width - a1->XHot;
-        v21 = a1->Height - a1->YHot;
-        break;
-      case 4:
-        a2->XHot = a1->Height - a1->YHot;
-        YHot = a1->XHot;
-        goto LABEL_4;
-      default:
-LABEL_8:
-        WdLogSingleEntry1(1LL, v4);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"Invalid rotation (0x%I64x) specified",
-          v4,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        return 0LL;
+      a2->XHot = a1->YHot;
+      v23 = a1->Width - a1->XHot;
     }
-    a2->YHot = v21;
+    else
+    {
+      v12 = (unsigned int)(v7 - 3);
+      if ( (_DWORD)v7 != 3 )
+      {
+        if ( (_DWORD)v7 == 4 )
+        {
+          a2->XHot = a1->Height - a1->YHot;
+          YHot = a1->XHot;
+          goto LABEL_4;
+        }
+LABEL_8:
+        v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+        *(_QWORD *)(v13 + 24) = v7;
+        WdLogEvent5_WdAssertion(v13);
+        return 0LL;
+      }
+      a2->XHot = a1->Width - a1->XHot;
+      v23 = a1->Height - a1->YHot;
+    }
+    a2->YHot = v23;
     return 0LL;
   }
   return 3221225659LL;

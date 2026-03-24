@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIrtAllocateDeviceAperture @ 0x1409099C0
+ * XREFs of HalpIrtAllocateDeviceAperture @ 0x140865830
  * Callers:
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
- *     HalpIrtInitializeDeviceApertures @ 0x14090A064 (HalpIrtInitializeDeviceApertures.c)
+ *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140865EDC (HalpIrtInitializeDeviceApertures.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     HalpIrtExtendApertureRange @ 0x140909D8C (HalpIrtExtendApertureRange.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     HalpIrtExtendApertureRange @ 0x140865BFC (HalpIrtExtendApertureRange.c)
  */
 
 __int64 __fastcall HalpIrtAllocateDeviceAperture(int a1, int a2, int a3, int a4, _DWORD *a5)
 {
-  int v9; // r14d
+  int v9; // esi
   int v10; // edi
   __int64 i; // rbx
   __int64 v12; // rax
@@ -40,11 +40,12 @@ LABEL_4:
         break;
       KeReleaseGuardedMutex(&HalpIrtLock);
       if ( v9 )
-        return (unsigned int)-1073741670;
-      v10 = HalpIrtExtendApertureRange();
+        v10 = -1073741670;
+      else
+        v10 = HalpIrtExtendApertureRange();
       if ( v10 < 0 )
         return (unsigned int)v10;
-      v9 = 1;
+      ++v9;
       ExAcquireFastMutex(&HalpIrtLock);
     }
     v12 = *(_QWORD *)HalpIrtFreeDeviceAperturesHead;

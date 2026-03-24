@@ -1,7 +1,7 @@
 /*
- * XREFs of PfFbBufferListShutdown @ 0x1402D315C
+ * XREFs of PfFbBufferListShutdown @ 0x1402D325C
  * Callers:
- *     PfTCleanup @ 0x1408651FC (PfTCleanup.c)
+ *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
  * Callees:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  */

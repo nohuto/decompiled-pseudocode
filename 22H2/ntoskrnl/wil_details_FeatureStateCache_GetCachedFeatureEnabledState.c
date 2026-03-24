@@ -1,18 +1,15 @@
 /*
- * XREFs of wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x140333230
+ * XREFs of wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x14032C5E4
  * Callers:
- *     wil_details_GetCurrentFeatureEnabledState @ 0x14050E838 (wil_details_GetCurrentFeatureEnabledState.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x14032C634 (wil_details_GetCurrentFeatureEnabledState.c)
  * Callees:
- *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x14050E738 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1403F12E0 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
  */
 
-__int64 __fastcall wil_details_FeatureStateCache_GetCachedFeatureEnabledState(_DWORD *a1, __int64 a2)
+__int64 __fastcall wil_details_FeatureStateCache_GetCachedFeatureEnabledState(unsigned int *a1, __int64 a2)
 {
-  __int64 result; // rax
-
-  LODWORD(result) = *a1;
   if ( (*a1 & 2) != 0 )
-    return (unsigned int)result;
+    return *a1;
   else
-    return wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(a1, (unsigned int)result, a2);
+    return wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(a1, *a1, a2);
 }

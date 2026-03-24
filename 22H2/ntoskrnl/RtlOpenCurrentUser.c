@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlOpenCurrentUser @ 0x1407FC860
+ * XREFs of RtlOpenCurrentUser @ 0x14078C480
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403713AC (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A414C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlFormatCurrentUserKeyPath @ 0x1407FB180 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1406EFAC0 (RtlFormatCurrentUserKeyPath.c)
  */
 
 __int64 __fastcall RtlOpenCurrentUser(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
@@ -16,7 +16,7 @@ __int64 __fastcall RtlOpenCurrentUser(ACCESS_MASK DesiredAccess, PHANDLE KeyHand
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
   UnicodeString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v4 = RtlFormatCurrentUserKeyPath(&UnicodeString);
   if ( v4 >= 0 )
   {
@@ -26,7 +26,7 @@ __int64 __fastcall RtlOpenCurrentUser(ACCESS_MASK DesiredAccess, PHANDLE KeyHand
     ObjectAttributes.Attributes = 1600;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v4 = ZwOpenKey(KeyHandle, DesiredAccess, &ObjectAttributes);
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   }
   if ( v4 == -1073741772 )
   {

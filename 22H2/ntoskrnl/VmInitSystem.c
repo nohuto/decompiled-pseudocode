@@ -1,12 +1,12 @@
 /*
- * XREFs of VmInitSystem @ 0x140B5436C
+ * XREFs of VmInitSystem @ 0x140A47B1C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x140222240 (ExInitializeLookasideListExInternal.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ExRegisterHost @ 0x140823390 (ExRegisterHost.c)
+ *     ExInitializeLookasideListExInternal @ 0x140352460 (ExInitializeLookasideListExInternal.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExRegisterHost @ 0x14079DE50 (ExRegisterHost.c)
  */
 
 __int64 __fastcall VmInitSystem(int a1, __int64 a2)
@@ -21,30 +21,21 @@ __int64 __fastcall VmInitSystem(int a1, __int64 a2)
   {
     if ( a1 == 2 )
     {
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(byte_140D1D598, 0LL, 0LL);
-      VmpTraceLoggingProvider = (__int64)byte_140D1D598;
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&qword_140CFB458, 0LL, 0LL);
+      VmpTraceLoggingProvider = (__int64)&qword_140CFB458;
     }
   }
   else
   {
-    v3[1] = 2;
+    v3[1] = 1;
     v4 = 512LL;
-    v3[0] = 1441800;
+    v3[0] = 1114120;
     v6 = 0LL;
     v5 = &VmpHostInterface;
     result = ExRegisterHost(&VmpExtensionHost, a2, (unsigned __int16 *)v3);
     if ( (int)result < 0 )
       return result;
-    ExInitializeLookasideListExInternal(
-      &VmpLargeFaultBatchLookasideList.L.ListHead,
-      0LL,
-      0LL,
-      512,
-      0,
-      0x8020uLL,
-      1649175894,
-      0,
-      0);
+    ExInitializeLookasideListExInternal(&VmpLargeFaultBatchLookasideList, 0LL, 0LL, 512, 0, 0x8020uLL, 1649175894, 0, 0);
   }
   return 0LL;
 }

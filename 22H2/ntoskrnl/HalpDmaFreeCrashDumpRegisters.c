@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaFreeCrashDumpRegisters @ 0x140501610
+ * XREFs of HalpDmaFreeCrashDumpRegisters @ 0x14038D4A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaFreeMapRegisters @ 0x14045BE96 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C79F8 (HalpDmaFreeMapRegisters.c)
  */
 
 __int64 __fastcall HalpDmaFreeCrashDumpRegisters(int a1)
@@ -19,9 +19,9 @@ __int64 __fastcall HalpDmaFreeCrashDumpRegisters(int a1)
     *(_QWORD *)(result + 56) = result;
     if ( a1 )
       result = HalpDmaFreeMapRegisters(
-                 (__int64)HalpDmaHibernateAdapter,
-                 *((_QWORD **)&HalpDmaHibernateRegisterSets + 2 * v1),
-                 *((_DWORD *)&HalpDmaHibernateRegisterSets + 4 * v1 + 2));
+                 HalpDmaHibernateAdapter,
+                 *((_QWORD *)&HalpDmaHibernateRegisterSets + 2 * v1),
+                 *((unsigned int *)&HalpDmaHibernateRegisterSets + 4 * v1 + 2));
   }
   if ( a1 )
   {

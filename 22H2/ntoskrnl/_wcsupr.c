@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcsupr @ 0x1403D9710
+ * XREFs of _wcsupr @ 0x1403D1CF0
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408081F8 (BiGetObjectReferenceFromEfiEntry.c)
- *     PfSnParametersRead @ 0x1408482F8 (PfSnParametersRead.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5F114 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     PfSnParametersRead @ 0x1407BFAB4 (PfSnParametersRead.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972388 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140973384 (BiUpdateObjectReferenceInEfiEntry.c)
  * Callees:
  *     <none>
  */

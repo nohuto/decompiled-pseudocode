@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBcdEstablishResumeObject @ 0x1407118A8
+ * XREFs of PopBcdEstablishResumeObject @ 0x140711888
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140712330 (PopBcdSetDefaultResumeObjectElements.c)
- *     BcdQueryObject @ 0x140712724 (BcdQueryObject.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
- *     PopBcdRegenerateResumeObject @ 0x14087A280 (PopBcdRegenerateResumeObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140712310 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdQueryObject @ 0x140712704 (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
+ *     PopBcdRegenerateResumeObject @ 0x14087A260 (PopBcdRegenerateResumeObject.c)
  */
 
 __int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, _QWORD *a2)

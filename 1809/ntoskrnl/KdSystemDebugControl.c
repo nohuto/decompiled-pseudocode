@@ -1,14 +1,14 @@
 /*
- * XREFs of KdSystemDebugControl @ 0x1408422D0
+ * XREFs of KdSystemDebugControl @ 0x1408422B0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     KdpSysReadIoSpace @ 0x14028CD20 (KdpSysReadIoSpace.c)
- *     KdpSysReadMsr @ 0x14028CDDC (KdpSysReadMsr.c)
- *     KdpSysWriteIoSpace @ 0x14028CE10 (KdpSysWriteIoSpace.c)
- *     KdpSysWriteMsr @ 0x14028CEC8 (KdpSysWriteMsr.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     KdpSysReadIoSpace @ 0x14028CE20 (KdpSysReadIoSpace.c)
+ *     KdpSysReadMsr @ 0x14028CEDC (KdpSysReadMsr.c)
+ *     KdpSysWriteIoSpace @ 0x14028CF10 (KdpSysWriteIoSpace.c)
+ *     KdpSysWriteMsr @ 0x14028CFC8 (KdpSysWriteMsr.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
  *     KdpSysCheckLowMemory @ 0x140917AB0 (KdpSysCheckLowMemory.c)
  *     KdpSysGetVersion @ 0x140917AD0 (KdpSysGetVersion.c)
  *     KdpSysReadBusData @ 0x140917AFC (KdpSysReadBusData.c)

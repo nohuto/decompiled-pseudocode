@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkInvalidateVidPnDisplayModeListCache @ 0x1C02C28E0
+ * XREFs of DxgkInvalidateVidPnDisplayModeListCache @ 0x1C0217F18
  * Callers:
- *     DxgkQueryConnectionChanges @ 0x1C001C200 (DxgkQueryConnectionChanges.c)
+ *     DxgkQueryConnectionChanges @ 0x1C00205E0 (DxgkQueryConnectionChanges.c)
  * Callees:
- *     ?InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@@Z @ 0x1C02225D0 (-InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DI.c)
+ *     ?InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@@Z @ 0x1C019B718 (-InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DI.c)
  */
 
 void __fastcall DxgkInvalidateVidPnDisplayModeListCache(
@@ -13,7 +13,7 @@ void __fastcall DxgkInvalidateVidPnDisplayModeListCache(
 {
   PERESOURCE **v3; // rcx
 
-  v3 = *(PERESOURCE ***)(a1 + 2920);
+  v3 = *(PERESOURCE ***)(a1 + 2696);
   if ( v3 )
     ADAPTER_DISPLAY::InvalidateActiveVidPnDisplayModeListCache(v3, a2, a3);
 }

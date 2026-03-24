@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C008EFE8
+ * XREFs of ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C0087C50
  * Callers:
- *     ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C008EF58 (-CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z.c)
+ *     ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C0087984 (-CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z.c)
  * Callees:
- *     ?CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z @ 0x1C0031F78 (-CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z.c)
+ *     ?CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z @ 0x1C0027D38 (-CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z.c)
  */
 
 VIDMM_RECYCLE_BLOCK *__fastcall VIDMM_RECYCLE_BLOCK::VIDMM_RECYCLE_BLOCK(
@@ -40,7 +40,7 @@ VIDMM_RECYCLE_BLOCK *__fastcall VIDMM_RECYCLE_BLOCK::VIDMM_RECYCLE_BLOCK(
   *(_QWORD *)(v4 + 8) = v3;
   *((_QWORD *)this + 10) = (char *)this + 72;
   *((_QWORD *)this + 9) = (char *)this + 72;
-  if ( dword_1C00764A8 )
-    VIDMM_RECYCLE_BLOCK::CreateHistoryProxy(this, (unsigned int)dword_1C00764AC);
+  if ( dword_1C00503F8 )
+    VIDMM_RECYCLE_BLOCK::CreateHistoryProxy(this, (unsigned int)dword_1C00503FC);
   return this;
 }

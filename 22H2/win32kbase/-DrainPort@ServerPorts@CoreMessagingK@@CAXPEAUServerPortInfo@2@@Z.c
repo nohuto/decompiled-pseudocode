@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z @ 0x1C0068B1C
+ * XREFs of ?DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z @ 0x1C0073060
  * Callers:
- *     ?OpenConnection@ServerPorts@CoreMessagingK@@SAJDPEBUtagMsgRoutingInfo@@PEAPEAX@Z @ 0x1C0069028 (-OpenConnection@ServerPorts@CoreMessagingK@@SAJDPEBUtagMsgRoutingInfo@@PEAPEAX@Z.c)
- *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C00B1428 (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
- *     ?PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z @ 0x1C00C2F80 (-PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z.c)
+ *     ?OpenConnection@ServerPorts@CoreMessagingK@@SAJDPEBUtagMsgRoutingInfo@@PEAPEAX@Z @ 0x1C0072DFC (-OpenConnection@ServerPorts@CoreMessagingK@@SAJDPEBUtagMsgRoutingInfo@@PEAPEAX@Z.c)
+ *     ?PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z @ 0x1C00732C0 (-PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z.c)
+ *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C007580C (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
  * Callees:
- *     ?HandleConnectionRequest@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAU_PORT_MESSAGE@@@Z @ 0x1C00B18D0 (-HandleConnectionRequest@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAU_PORT_MESSAGE@@.c)
- *     ?HandleClientDisconnect@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAUClientPortInfo@2@@Z @ 0x1C00BA4C8 (-HandleClientDisconnect@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAUClientPortInfo@2.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0235054 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     ?HandleClientDisconnect@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAUClientPortInfo@2@@Z @ 0x1C0074B70 (-HandleClientDisconnect@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAUClientPortInfo@2.c)
+ *     ?HandleConnectionRequest@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAU_PORT_MESSAGE@@@Z @ 0x1C0074C5C (-HandleConnectionRequest@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@PEAU_PORT_MESSAGE@@.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C01FF124 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
  */
 
 void __fastcall CoreMessagingK::ServerPorts::DrainPort(struct CoreMessagingK::ServerPortInfo *a1)
@@ -24,7 +24,7 @@ void __fastcall CoreMessagingK::ServerPorts::DrainPort(struct CoreMessagingK::Se
 
   while ( 1 )
   {
-    do
+    while ( 1 )
     {
       while ( 1 )
       {
@@ -40,24 +40,35 @@ LABEL_15:
         MessageAttribute = AlpcGetMessageAttribute(v8, 0x20000000LL);
         ZwAlpcCancelMessage(*((_QWORD *)a1 + 1), 0LL, MessageAttribute);
       }
+      if ( v3 != -1073741769 )
+      {
+        if ( v3 <= -1073740033 )
+          goto LABEL_16;
+        if ( v3 > -1073740031 )
+          break;
+      }
     }
-    while ( v3 == -1073741769 || v3 == -1073740032 || v3 == -1073740031 );
     if ( v3 )
       break;
-    if ( LOBYTE(v9.u2.ZeroInit) == 5 || LOBYTE(v9.u2.ZeroInit) == 6 )
+    if ( LOBYTE(v9.u2.ZeroInit) < 5u )
+    {
+LABEL_14:
+      if ( (v9.u2.s2.Type & 0x2000) != 0 )
+        goto LABEL_15;
+    }
+    else if ( LOBYTE(v9.u2.ZeroInit) <= 6u )
     {
       v4 = (struct CoreMessagingK::ClientPortInfo **)AlpcGetMessageAttribute(v8, 0x20000000LL);
       CoreMessagingK::ServerPorts::HandleClientDisconnect(a1, *v4);
     }
-    else if ( LOBYTE(v9.u2.ZeroInit) == 10 )
+    else
     {
+      if ( LOBYTE(v9.u2.ZeroInit) != 10 )
+        goto LABEL_14;
       CoreMessagingK::ServerPorts::HandleConnectionRequest(a1, &v9);
-    }
-    else if ( (v9.u2.s2.Type & 0x2000) != 0 )
-    {
-      goto LABEL_15;
     }
   }
   if ( v3 != 258 )
+LABEL_16:
     CoreMessagingK::Runtime::BugCheck(1538LL, v3, 0LL);
 }

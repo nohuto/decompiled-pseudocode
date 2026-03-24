@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18010A530
+ * XREFs of ?GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x1800F7D90
  * Callers:
  *     <none>
  * Callees:

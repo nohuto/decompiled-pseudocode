@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetSystemPartition @ 0x1409474F0
+ * XREFs of IoSetSystemPartition @ 0x140893CC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
  */
 
 NTSTATUS __stdcall IoSetSystemPartition(PUNICODE_STRING VolumeNameString)

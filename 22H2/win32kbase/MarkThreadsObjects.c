@@ -1,40 +1,43 @@
 /*
- * XREFs of MarkThreadsObjects @ 0x1C004F750
+ * XREFs of MarkThreadsObjects @ 0x1C0034720
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     HMChangeOwnerThreadWorker @ 0x1C00A1CD8 (HMChangeOwnerThreadWorker.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A66E4 (HMChangeOwnerThreadWorker.c)
  */
 
-__int64 __fastcall MarkThreadsObjects(__int64 a1)
+void *__fastcall MarkThreadsObjects(__int64 a1)
 {
-  struct _HANDLEENTRY *v1; // rbx
-  _QWORD *v3; // rdi
-  struct _HANDLEENTRY *v4; // rsi
-  __int64 v5; // rdx
-  struct tagTHREADINFO *v6; // rdx
-  __int64 result; // rax
+  void *result; // rax
+  struct _HANDLEENTRY *v3; // rbx
+  _QWORD *v4; // rdi
+  struct _HANDLEENTRY *v5; // rsi
+  __int64 v6; // rdx
+  struct tagTHREADINFO *v7; // rdx
 
-  v1 = qword_1C028FE68;
-  v3 = gpKernelHandleTable;
-  v4 = (struct _HANDLEENTRY *)((char *)qword_1C028FE68 + 32 * (unsigned int)giheLast);
-  if ( qword_1C028FE68 <= v4 )
+  GetDomainLockRef(20);
+  result = GetDomainLockRef(14);
+  v3 = qword_1C024FA38;
+  v4 = gpKernelHandleTable;
+  v5 = (struct _HANDLEENTRY *)((char *)qword_1C024FA38 + 32 * (unsigned int)giheLast);
+  if ( qword_1C024FA38 <= v5 )
   {
     do
     {
-      v5 = *((unsigned __int8 *)v1 + 24);
-      if ( (_BYTE)v5 && (*((_BYTE *)&unk_1C024292C + 24 * v5) & 2) == 0 && v3[1] == a1 )
+      v6 = *((unsigned __int8 *)v3 + 24);
+      if ( (_BYTE)v6 && (*((_BYTE *)&unk_1C020946C + 24 * v6) & 2) == 0 && v4[1] == a1 )
       {
-        if ( (_BYTE)v5 == 23 )
-          v6 = (struct tagTHREADINFO *)gptiModerncoreTimerThread;
+        if ( (_BYTE)v6 == 23 )
+          v7 = (struct tagTHREADINFO *)gptiModerncoreTimerThread;
         else
-          v6 = gptiRit;
-        result = HMChangeOwnerThreadWorker(*v3, v6);
+          v7 = gptiRit;
+        result = (void *)HMChangeOwnerThreadWorker(*v4, v7);
       }
-      v1 = (struct _HANDLEENTRY *)((char *)v1 + 32);
-      v3 += 3;
+      v3 = (struct _HANDLEENTRY *)((char *)v3 + 32);
+      v4 += 3;
     }
-    while ( v1 <= v4 );
+    while ( v3 <= v5 );
   }
   return result;
 }

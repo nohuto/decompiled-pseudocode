@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpUpdateDebugInfo @ 0x1408CE408
+ * XREFs of ExpUpdateDebugInfo @ 0x1408CE3E8
  * Callers:
- *     ExHandleLogBadReference @ 0x140319D14 (ExHandleLogBadReference.c)
+ *     ExHandleLogBadReference @ 0x140319E14 (ExHandleLogBadReference.c)
  *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
  *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
- *     ExDupHandleTable @ 0x1406965A0 (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x140696580 (ExDupHandleTable.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ExDereferenceHandleDebugInfo @ 0x1408CDC34 (ExDereferenceHandleDebugInfo.c)
- *     ExReferenceHandleDebugInfo @ 0x1408CE078 (ExReferenceHandleDebugInfo.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1408CDC14 (ExDereferenceHandleDebugInfo.c)
+ *     ExReferenceHandleDebugInfo @ 0x1408CE058 (ExReferenceHandleDebugInfo.c)
  */
 
 void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)

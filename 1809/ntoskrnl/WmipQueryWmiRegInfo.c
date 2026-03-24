@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipQueryWmiRegInfo @ 0x140763E20
+ * XREFs of WmipQueryWmiRegInfo @ 0x140763E00
  * Callers:
- *     IoWMISystemControl @ 0x1406CC11C (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406CC0FC (IoWMISystemControl.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  */
 

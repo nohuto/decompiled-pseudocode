@@ -4,7 +4,7 @@
  *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
  * Callees:
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     WbGetWowTrapFrame @ 0x1408E544C (WbGetWowTrapFrame.c)
+ *     WbGetWowTrapFrame @ 0x1408E542C (WbGetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbGetTrapFrame(__int64 a1, __int64 a2)

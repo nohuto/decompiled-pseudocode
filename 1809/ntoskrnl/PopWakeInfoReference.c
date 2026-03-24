@@ -1,5 +1,5 @@
 /*
- * XREFs of PopWakeInfoReference @ 0x14013BBE0
+ * XREFs of PopWakeInfoReference @ 0x14013BC00
  * Callers:
  *     PopHandleWakeSources @ 0x140566540 (PopHandleWakeSources.c)
  * Callees:

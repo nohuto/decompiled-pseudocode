@@ -1,18 +1,18 @@
 /*
- * XREFs of MiApplyImageHotPatch @ 0x140A353F8
+ * XREFs of MiApplyImageHotPatch @ 0x1408C95AC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     MmUnlockPagableImageSection @ 0x14025A320 (MmUnlockPagableImageSection.c)
- *     MiLockPagableImageSection @ 0x14025A6C0 (MiLockPagableImageSection.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     KeGenericCallDpc @ 0x14036B760 (KeGenericCallDpc.c)
- *     RtlApplyHotPatch @ 0x140AAD830 (RtlApplyHotPatch.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14029CB80 (MiLockPagableImageSection.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     KeGenericCallDpc @ 0x14035E460 (KeGenericCallDpc.c)
+ *     RtlApplyHotPatch @ 0x1409B2884 (RtlApplyHotPatch.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -23,29 +23,27 @@ __int64 __fastcall MiApplyImageHotPatch(__int64 a1, __int64 a2, __int64 a3, __in
   int v9; // r14d
   void *v10; // r10
   struct _MDL *Mdl; // rax
-  char Priority; // [rsp+28h] [rbp-100h]
-  int v14; // [rsp+38h] [rbp-F0h]
-  int v15; // [rsp+68h] [rbp-C0h]
-  int v16; // [rsp+A8h] [rbp-80h]
-  __int64 v17; // [rsp+B0h] [rbp-78h]
-  __int64 v18; // [rsp+B8h] [rbp-70h]
-  int v19; // [rsp+C0h] [rbp-68h]
-  _QWORD v20[4]; // [rsp+D0h] [rbp-58h] BYREF
-  PVOID v21; // [rsp+F0h] [rbp-38h]
-  __int64 v22; // [rsp+F8h] [rbp-30h] BYREF
+  char Priority; // [rsp+28h] [rbp-E0h]
+  int v14; // [rsp+30h] [rbp-D8h]
+  int v15; // [rsp+90h] [rbp-78h]
+  int v16; // [rsp+98h] [rbp-70h]
+  __int64 v17; // [rsp+A0h] [rbp-68h]
+  _QWORD v18[4]; // [rsp+B0h] [rbp-58h] BYREF
+  PVOID v19; // [rsp+D0h] [rbp-38h]
+  __int64 v20; // [rsp+D8h] [rbp-30h] BYREF
 
   v6 = 0LL;
   MappedSystemVa = 0LL;
   v8 = 0;
   v9 = 0;
-  v20[0] = a1;
-  v20[1] = a2;
-  v20[2] = a4;
-  v20[3] = a5;
-  v22 = *(unsigned int *)(a3 + 16);
-  v10 = *(void **)(a3 + 24);
-  v21 = v10;
-  if ( (*(_DWORD *)(a1 + 140) & 1) != 0 )
+  v18[0] = a1;
+  v18[1] = a2;
+  v18[2] = a4;
+  v18[3] = a5;
+  v20 = *(unsigned int *)(a3 + 32);
+  v10 = *(void **)(a3 + 40);
+  v19 = v10;
+  if ( (*(_DWORD *)(a1 + 136) & 1) != 0 )
   {
     if ( v10 )
     {
@@ -57,46 +55,42 @@ __int64 __fastcall MiApplyImageHotPatch(__int64 a1, __int64 a2, __int64 a3, __in
           : (MappedSystemVa = v6->MappedSystemVa),
             !MappedSystemVa) )
       {
-        HIDWORD(v22) = -1073741670;
+        HIDWORD(v20) = -1073741670;
         goto LABEL_15;
       }
-      v21 = MappedSystemVa;
+      v19 = MappedSystemVa;
     }
-    v8 = 1;
     if ( (MiFlags & 4) == 0 )
       MiLockPagableImageSection((ULONG_PTR)ExPageLockHandle, 1uLL);
-    KeGenericCallDpc((__int64)MiApplyImageHotPatchDpc, (__int64)v20);
+    v8 = 1;
+    KeGenericCallDpc((__int64)MiApplyImageHotPatchDpc, (__int64)v18);
   }
   else
   {
-    HIDWORD(v22) = RtlApplyHotPatch(
+    HIDWORD(v20) = RtlApplyHotPatch(
                      *(_QWORD *)(a1 + 72),
                      *(_QWORD *)(a1 + 8),
                      *(_QWORD *)(a1 + 80),
                      *(_DWORD *)(a1 + 36),
-                     (__int64)&v22,
+                     (__int64)&v20,
                      Priority,
-                     0LL,
                      v14,
                      *(_QWORD *)(a2 + 72),
                      *(_QWORD *)(a2 + 8),
                      0LL,
                      0,
                      0LL,
-                     v15,
                      a4,
                      a5,
                      1,
-                     *(_WORD *)(a1 + 136),
                      *(PRTL_BITMAP *)(a1 + 40),
                      (__int64)v10,
                      0LL,
+                     v15,
                      v16,
-                     v17,
-                     v18,
-                     v19);
+                     v17);
   }
-  *(_DWORD *)(a3 + 16) = v22;
+  *(_DWORD *)(a3 + 32) = v20;
 LABEL_15:
   if ( MappedSystemVa )
     MmUnmapLockedPages(MappedSystemVa, v6);
@@ -108,5 +102,5 @@ LABEL_15:
   }
   if ( v8 && (MiFlags & 4) == 0 )
     MmUnlockPagableImageSection(ExPageLockHandle);
-  return HIDWORD(v22);
+  return HIDWORD(v20);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionTime @ 0x1407FE1F4
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x1407741C4
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopPowerTransitionTimesInMs @ 0x14038B488 (PopPowerTransitionTimesInMs.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     PopPowerTransitionTimesInMs @ 0x140382984 (PopPowerTransitionTimesInMs.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerTransitionTime()
@@ -43,16 +43,16 @@ void PopDiagTracePowerTransitionTime()
   {
     if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TRANSITIONTIMES) )
     {
-      PopPowerTransitionTimesInMs(&v0, &v1, &v2, &v3, (__int64)&v4, v5);
+      PopPowerTransitionTimesInMs(&v0, &v1, &v2, &v3, &v4, v5);
       UserData.Ptr = (ULONGLONG)&v0;
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = &v1;
       v8 = 4LL;
-      v9 = &qword_140C22EA8;
+      v9 = &qword_140C23B28;
       v10 = 4LL;
       v11 = &v2;
       v13 = &v3;
-      v15 = &dword_140C22EF0;
+      v15 = &dword_140C23B70;
       v17 = &v4;
       v19 = v5;
       v12 = 4LL;

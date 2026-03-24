@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQueueWorkItemEx @ 0x1402B93A0
+ * XREFs of IoQueueWorkItemEx @ 0x14030DB40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemFromIo @ 0x1402B75F0 (ExQueueWorkItemFromIo.c)
- *     IopQueueWorkItemProlog @ 0x1402B93D0 (IopQueueWorkItemProlog.c)
+ *     IopQueueWorkItemProlog @ 0x140206630 (IopQueueWorkItemProlog.c)
+ *     ExQueueWorkItemFromIo @ 0x14030DB68 (ExQueueWorkItemFromIo.c)
  */
 
 void __stdcall IoQueueWorkItemEx(
@@ -13,8 +13,8 @@ void __stdcall IoQueueWorkItemEx(
         WORK_QUEUE_TYPE QueueType,
         PVOID Context)
 {
-  ULONG_PTR v5; // rax
+  ULONG_PTR v4; // rax
 
-  v5 = IopQueueWorkItemProlog(IoWorkItem, WorkerRoutine, Context);
-  ExQueueWorkItemFromIo(v5, QueueType);
+  v4 = IopQueueWorkItemProlog((__int64)IoWorkItem, (__int64)WorkerRoutine, (__int64)Context);
+  ExQueueWorkItemFromIo(v4);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ObInitializeProcessor @ 0x1407292E4
+ * XREFs of ObInitializeProcessor @ 0x1407292C4
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:
  *     MmIsThisAnNtAsSystem @ 0x14000EC80 (MmIsThisAnNtAsSystem.c)

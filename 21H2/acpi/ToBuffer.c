@@ -1,12 +1,12 @@
 /*
- * XREFs of ToBuffer @ 0x1C006AEE0
+ * XREFs of ToBuffer @ 0x1C006A7D0
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
- *     ConvertToBuffer @ 0x1C006B518 (ConvertToBuffer.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     ConvertToBuffer @ 0x1C006B288 (ConvertToBuffer.c)
  */
 
 __int64 __fastcall ToBuffer(struct _SLIST_ENTRY *a1, __int64 a2)

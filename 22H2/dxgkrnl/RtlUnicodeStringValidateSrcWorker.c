@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C00152D0
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C003F268
  * Callers:
- *     ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0015228 (-RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C003F1AC (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,8 @@ NTSTATUS __stdcall RtlUnicodeStringValidateSrcWorker(
 {
   unsigned __int64 Length; // r10
   NTSTATUS v6; // r9d
-  unsigned __int16 MaximumLength; // r8
+  unsigned __int16 MaximumLength; // ax
+  wchar_t *Buffer; // rcx
 
   Length = SourceString->Length;
   v6 = 0;
@@ -24,14 +25,16 @@ NTSTATUS __stdcall RtlUnicodeStringValidateSrcWorker(
   if ( (Length & 1) != 0 )
     return -1073741811;
   MaximumLength = SourceString->MaximumLength;
-  if ( (MaximumLength & 1) != 0
-    || (unsigned __int16)Length > MaximumLength
-    || MaximumLength == 0xFFFF
-    || !SourceString->Buffer && ((_WORD)Length || MaximumLength) )
-  {
+  if ( (MaximumLength & 1) != 0 )
     return -1073741811;
-  }
-  *ppszSrc = SourceString->Buffer;
+  if ( (unsigned __int16)Length > MaximumLength )
+    return -1073741811;
+  if ( MaximumLength == 0xFFFF )
+    return -1073741811;
+  Buffer = SourceString->Buffer;
+  if ( !Buffer && ((_WORD)Length || MaximumLength) )
+    return -1073741811;
+  *ppszSrc = Buffer;
   *pcchSrcLength = Length >> 1;
   return v6;
 }

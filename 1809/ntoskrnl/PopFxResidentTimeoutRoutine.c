@@ -1,5 +1,5 @@
 /*
- * XREFs of PopFxResidentTimeoutRoutine @ 0x140100260
+ * XREFs of PopFxResidentTimeoutRoutine @ 0x140100280
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopFxIdleComponent @ 0x1400FECEC (PopFxIdleComponent.c)
- *     PopFxArmResidentTimer @ 0x140100380 (PopFxArmResidentTimer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PopFxArmResidentTimer @ 0x1401003A0 (PopFxArmResidentTimer.c)
  */
 
 __int64 PopFxResidentTimeoutRoutine()

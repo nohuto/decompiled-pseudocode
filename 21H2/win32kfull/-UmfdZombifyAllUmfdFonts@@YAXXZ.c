@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C00F7270
+ * XREFs of ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C00F37E8
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F7180 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F36E8 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
  * Callees:
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C000AD50 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00153D0 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     _lambda_97c9cca63d1bce585f2b122b4771693f_::operator() @ 0x1C00F73A0 (_lambda_97c9cca63d1bce585f2b122b4771693f_--operator().c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D690 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E4E8 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     _lambda_42f186421c331d4d68df43a01bbfc838_::operator() @ 0x1C016CA80 (_lambda_42f186421c331d4d68df43a01bbfc838_--operator().c)
  */
 
 void UmfdZombifyAllUmfdFonts(void)
@@ -26,8 +26,8 @@ void UmfdZombifyAllUmfdFonts(void)
   v8 = (struct PDEV *)ghsemPublicPFT;
   GreAcquireSemaphore(ghsemPublicPFT);
   GreAcquireFastMutex(ghfmMemory);
-  lambda_97c9cca63d1bce585f2b122b4771693f_::operator()(v0, gpPFTPublic);
-  lambda_97c9cca63d1bce585f2b122b4771693f_::operator()(v1, gpPFTPrivate);
+  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v0, gpPFTPublic);
+  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v1, gpPFTPrivate);
   GreReleaseFastMutex(ghfmMemory);
   SEMOBJ::vUnlock((SEMOBJ *)&v8);
   v10 = ghsemDriverMgmt;
@@ -37,6 +37,8 @@ void UmfdZombifyAllUmfdFonts(void)
   for ( i = gppdevList; i; i = *v6 )
   {
     v8 = i;
+    if ( !i )
+      break;
     for ( j = PDEVOBJ::prfntActive((PDEVOBJ *)&v8); j; j = (struct RFONT *)*((_QWORD *)j + 84) )
     {
       if ( *((_QWORD *)j + 12) == v4 )

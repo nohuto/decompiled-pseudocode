@@ -1,7 +1,7 @@
 /*
- * XREFs of wcscmp_0 @ 0x1C0036B76
+ * XREFs of wcscmp_0 @ 0x1C001D4E6
  * Callers:
- *     WppInitGlobalLoggerWdf @ 0x1C00335A0 (WppInitGlobalLoggerWdf.c)
+ *     WppInitGlobalLoggerWdf @ 0x1C0039D28 (WppInitGlobalLoggerWdf.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of BgpRasPrintGlyph @ 0x140384924
+ * XREFs of BgpRasPrintGlyph @ 0x1403AC968
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140384188 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140AF37A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x1403AC6A8 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x1409F7784 (BgpTxtDisplayString.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     RaspGetCacheEntry @ 0x140385044 (RaspGetCacheEntry.c)
- *     RaspRasterize @ 0x1403850C0 (RaspRasterize.c)
- *     RaspFreeMemory @ 0x140385284 (RaspFreeMemory.c)
- *     BgpFmRoundUp @ 0x140385CAC (BgpFmRoundUp.c)
- *     RaspRectangleCreate @ 0x140385ED4 (RaspRectangleCreate.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     RaspAntiAlias @ 0x140386CE0 (RaspAntiAlias.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RaspDestroyCachedBitmap @ 0x140AEEAE0 (RaspDestroyCachedBitmap.c)
- *     RaspAddCacheEntry @ 0x140AEEB20 (RaspAddCacheEntry.c)
- *     BgpGxCopyRectangle @ 0x140AF3654 (BgpGxCopyRectangle.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     BgpFmRoundUp @ 0x14039C168 (BgpFmRoundUp.c)
+ *     RaspAntiAlias @ 0x1403ACCDC (RaspAntiAlias.c)
+ *     RaspGetCacheEntry @ 0x1403AD0C8 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x1403AD15C (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x1403AD328 (RaspFreeMemory.c)
+ *     RaspRectangleCreate @ 0x1403ADC9C (RaspRectangleCreate.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RaspAddCacheEntry @ 0x1409F46A4 (RaspAddCacheEntry.c)
+ *     RaspDestroyCachedBitmap @ 0x1409F4708 (RaspDestroyCachedBitmap.c)
+ *     BgpGxCopyRectangle @ 0x1409F763C (BgpGxCopyRectangle.c)
  */
 
 __int64 __fastcall BgpRasPrintGlyph(
@@ -48,231 +48,224 @@ __int64 __fastcall BgpRasPrintGlyph(
   __int64 v24; // rcx
   int v25; // r10d
   __int64 v26; // rdx
-  __int64 v27; // rax
-  int v28; // ecx
-  __int64 v29; // r9
-  int v30; // r10d
-  int v31; // r11d
-  int v32; // eax
+  int v27; // ecx
+  __int64 v28; // r9
+  int v29; // r10d
+  int v30; // r11d
+  int v31; // eax
+  unsigned int v32; // ecx
   unsigned int v33; // ecx
-  unsigned int v34; // ecx
-  bool v35; // zf
-  __m128i v36; // xmm0
-  __m128i v37; // xmm3
-  __m128i v38; // xmm1
-  __int64 v39; // xmm0_8
-  int v40; // edx
-  unsigned __int64 v41; // xmm3_8
-  int v43; // r9d
-  int v44; // eax
-  int v45; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v46; // [rsp+54h] [rbp-ACh]
-  int v47; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v48; // [rsp+60h] [rbp-A0h]
-  unsigned int v49; // [rsp+68h] [rbp-98h]
-  _DWORD *v50; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int64 v51; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v52; // [rsp+80h] [rbp-80h] BYREF
-  __m128i *v53; // [rsp+88h] [rbp-78h] BYREF
-  _DWORD v54[4]; // [rsp+90h] [rbp-70h] BYREF
-  __m128i *v55; // [rsp+A0h] [rbp-60h]
-  int *v56; // [rsp+A8h] [rbp-58h]
-  __int128 v57; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v58; // [rsp+C0h] [rbp-40h]
-  _BYTE v59[80]; // [rsp+D0h] [rbp-30h] BYREF
-  __m128i v60[5]; // [rsp+120h] [rbp+20h] BYREF
-  char v61[8]; // [rsp+1F8h] [rbp+F8h]
+  bool v34; // zf
+  __m128i v35; // xmm0
+  __m128i v36; // xmm3
+  __m128i v37; // xmm1
+  __int64 v38; // xmm0_8
+  int v39; // edx
+  unsigned __int64 v40; // xmm3_8
+  int v42; // r9d
+  int v43; // eax
+  int v44; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v45; // [rsp+54h] [rbp-ACh]
+  int v46; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v47; // [rsp+60h] [rbp-A0h]
+  _DWORD *v48; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v49; // [rsp+70h] [rbp-90h]
+  unsigned __int64 v50; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v51; // [rsp+80h] [rbp-80h] BYREF
+  __m128i *v52; // [rsp+88h] [rbp-78h] BYREF
+  _DWORD v53[4]; // [rsp+90h] [rbp-70h] BYREF
+  __m128i *v54; // [rsp+A0h] [rbp-60h]
+  int *v55; // [rsp+A8h] [rbp-58h]
+  __int128 v56; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v57; // [rsp+C0h] [rbp-40h]
+  _BYTE v58[80]; // [rsp+D0h] [rbp-30h] BYREF
+  __m128i v59[5]; // [rsp+120h] [rbp+20h] BYREF
+  char v60[8]; // [rsp+1F8h] [rbp+F8h]
 
-  v48 = a2;
-  LOWORD(v46) = a3;
-  v55 = a1;
+  v47 = a2;
+  LOWORD(v45) = a3;
+  v54 = a1;
   v49 = a4;
-  v56 = a7;
-  memset(v60, 0, 0x48uLL);
-  memset(v59, 0, 0x46uLL);
-  v45 = 0;
+  v55 = a7;
+  memset(v59, 0, 0x48uLL);
+  memset(v58, 0, 0x46uLL);
+  v44 = 0;
   *a7 = 0;
   v9 = 0;
-  v54[0] = 0;
-  v10 = &v57;
-  v51 = 0LL;
+  v53[0] = 0;
+  v10 = &v56;
+  v50 = 0LL;
   v11 = 0LL;
-  v47 = 0;
+  v46 = 0;
   v12 = 0LL;
   v13 = 0;
-  v58 = 0LL;
+  v57 = 0LL;
   v14 = 0;
+  v51 = 0LL;
+  v60[0] = a6 & 1;
   v52 = 0LL;
-  v61[0] = a6 & 1;
-  v53 = 0LL;
   if ( a9 )
     v10 = a9;
-  v57 = 0LL;
-  if ( (unsigned __int16)v46 < 0x20u )
-    goto LABEL_28;
-  v15 = *(_DWORD *)(v48 + 16);
-  v50 = *(_DWORD **)(v48 + 8);
-  RaspGetCacheEntry((unsigned int)&RaspBitmapCache, (unsigned __int16)v46, v15, v50[10], (__int64)v50, (__int64)&v51);
-  Memory = (_BYTE *)v51;
-  if ( v51 )
+  v56 = 0LL;
+  if ( (unsigned __int16)v45 >= 0x20u )
   {
-    v22 = v48;
-    v21 = v50;
-  }
-  else
-  {
-    LOBYTE(v14) = (dword_140C0E4B0 & 4) != 0;
-    if ( (dword_140C0E4B0 & 4) == 0 && !*(_QWORD *)v10 )
-      v13 = (*(_BYTE *)(v48 + 20) & 1) == 0;
-    v19 = v46;
-    v9 = RaspRasterize(
-           v48,
-           (unsigned __int16)v46,
-           v16,
-           v17,
-           v14,
-           (__int64)&v52,
-           (__int64)&v47,
-           (__int64)&v45,
-           (__int64)v10);
-    if ( v9 < 0 )
+    v15 = *(_DWORD *)(v47 + 16);
+    v48 = *(_DWORD **)(v47 + 8);
+    RaspGetCacheEntry((unsigned int)&RaspBitmapCache, (unsigned __int16)v45, v15, v48[10], (__int64)v48, (__int64)&v50);
+    Memory = (_BYTE *)v50;
+    if ( v50 )
     {
-      v11 = v52;
-      goto LABEL_25;
-    }
-    if ( v13 )
-    {
-      Memory = (_BYTE *)BgpFwAllocateMemory(70LL);
-      if ( !Memory )
+      v22 = v47;
+      v21 = v48;
+LABEL_12:
+      v24 = *((__int16 *)v21 + 43);
+      v25 = *((_DWORD *)Memory + 11);
+      v48 = (_DWORD *)*((_QWORD *)Memory + 2);
+      v26 = *(_QWORD *)(v22 + 8);
+      v46 = *v48 / *((_DWORD *)Memory + 14);
+      v44 = v25;
+      v27 = BgpFmRoundUp(
+              ((*(unsigned int *)(v22 + 16) * v24 * *(unsigned int *)(v26 + 96)) << 6)
+            / (72LL
+             * *(unsigned __int16 *)(v26 + 120)));
+      v31 = *((_DWORD *)Memory + 12);
+      v32 = a5 + v27;
+      if ( v31 >= 0 && v31 > v32 )
       {
-        v11 = v52;
-        v9 = -1073741801;
-        goto LABEL_41;
+        v42 = *((unsigned __int16 *)Memory + 30);
+        v45 = 0;
+        DbgPrintEx(0x65u, 0, "BGFX internal font error char %x!\n", v42);
+        v28 = v47;
+        v33 = 0;
+        v29 = v44;
+        v30 = v46;
       }
-    }
-    else
-    {
-      Memory = v59;
-    }
-    v20 = *((_QWORD *)v10 + 2);
-    v21 = v50;
-    v22 = v48;
-    v23 = v50[10];
-    *((_DWORD *)Memory + 10) = *(_DWORD *)(v48 + 16);
-    *((_DWORD *)Memory + 11) = v47;
-    *((_DWORD *)Memory + 12) = v45;
-    *((_WORD *)Memory + 30) = v19;
-    v11 = v52;
-    *((_DWORD *)Memory + 13) = 4;
-    *((_DWORD *)Memory + 14) = 4;
-    *((_DWORD *)Memory + 9) = v23;
-    *((_QWORD *)Memory + 3) = v21;
-    *((_QWORD *)Memory + 2) = v11;
-    *(_QWORD *)(Memory + 62) = v20;
-  }
-  v24 = *((__int16 *)v21 + 43);
-  v25 = *((_DWORD *)Memory + 11);
-  v50 = (_DWORD *)*((_QWORD *)Memory + 2);
-  v26 = *(_QWORD *)(v22 + 8);
-  v47 = *v50 / *((_DWORD *)Memory + 14);
-  v45 = v25;
-  v27 = *(unsigned int *)(v22 + 16) * v24 * *(unsigned int *)(v26 + 96);
-  v28 = BgpFmRoundUp(
-          (v27 << 6) / (72LL * *(unsigned __int16 *)(v26 + 120)),
-          (v27 << 6) % (72LL * *(unsigned __int16 *)(v26 + 120)));
-  v32 = *((_DWORD *)Memory + 12);
-  v33 = a5 + v28;
-  if ( v32 >= 0 && v32 > v33 )
-  {
-    v43 = *((unsigned __int16 *)Memory + 30);
-    v46 = 0;
-    DbgPrintEx(0x65u, 0, "BGFX internal font error char %x!\n", v43);
-    v29 = v48;
-    v34 = 0;
-    v30 = v45;
-    v31 = v47;
-  }
-  else
-  {
-    v34 = v33 - v32;
-    v46 = v34;
-  }
-  if ( v55->m128i_i32[0] < v31 + v34 || v55->m128i_i32[1] < v30 + v49 )
-  {
-    v9 = -2147483643;
-  }
-  else
-  {
-    if ( v61[0] )
-    {
-      v35 = (*(_BYTE *)(v29 + 20) & 1) == 0;
-      v12 = v60;
-      v36 = v55[2];
-      v37 = v55[1];
-      v38 = v55[3];
-      v60[0] = *v55;
-      v60[1] = v37;
-      v60[2] = v36;
-      v39 = v55[4].m128i_i64[0];
-      v40 = _mm_cvtsi128_si32(_mm_srli_si128(v60[0], 4));
-      v41 = _mm_srli_si128(v37, 8).m128i_u64[0];
-      v60[3] = v38;
-      if ( v35 )
-        v40 = v30;
-      v60[4].m128i_i64[0] = v39;
-      v45 = v40;
-      v60[0].m128i_i64[0] = __PAIR64__(v40, v31);
-      v60[1].m128i_i64[1] = v40 * ((unsigned __int32)v60[0].m128i_i32[2] >> 3) * v34 + v41;
-      goto LABEL_21;
-    }
-    v54[1] = v31;
-    v54[0] = v30;
-    v54[2] = v30;
-    v44 = RaspRectangleCreate(v54, 32LL, &v53, v10);
-    v12 = v53;
-    v9 = v44;
-    if ( v44 >= 0 )
-    {
-      v29 = v48;
+      else
+      {
+        v33 = v32 - v31;
+        v45 = v33;
+      }
+      if ( v54->m128i_i32[0] < v30 + v33 || v54->m128i_i32[1] < v29 + v49 )
+      {
+        v9 = -2147483643;
+        goto LABEL_25;
+      }
+      if ( v60[0] )
+      {
+        v34 = (*(_BYTE *)(v28 + 20) & 1) == 0;
+        v12 = v59;
+        v35 = v54[2];
+        v36 = v54[1];
+        v37 = v54[3];
+        v59[0] = *v54;
+        v59[1] = v36;
+        v59[2] = v35;
+        v38 = v54[4].m128i_i64[0];
+        v39 = _mm_cvtsi128_si32(_mm_srli_si128(v59[0], 4));
+        v40 = _mm_srli_si128(v36, 8).m128i_u64[0];
+        v59[3] = v37;
+        if ( v34 )
+          v39 = v29;
+        v59[4].m128i_i64[0] = v38;
+        v44 = v39;
+        v59[0].m128i_i64[0] = __PAIR64__(v39, v30);
+        v59[1].m128i_i64[1] = v39 * ((unsigned __int32)v59[0].m128i_i32[2] >> 3) * v33 + v40;
+        goto LABEL_21;
+      }
+      v53[1] = v30;
+      v53[0] = v29;
+      v53[2] = v29;
+      v43 = RaspRectangleCreate(v53, 32LL, &v52, v10);
+      v12 = v52;
+      v9 = v43;
+      if ( v43 >= 0 )
+      {
+        v28 = v47;
 LABEL_21:
-      RaspAntiAlias((_DWORD)v50, (_DWORD)v12, *((_DWORD *)Memory + 13), *((_DWORD *)Memory + 14), v29);
-      if ( !v61[0] )
-      {
-        v50 = 0LL;
-        v51 = __PAIR64__(v46, v49);
-        BgpGxCopyRectangle(v55, v12, &v51, &v50);
-      }
-      *v56 = v45;
-      if ( v13 )
-        RaspAddCacheEntry(&RaspBitmapCache, Memory);
-LABEL_25:
-      if ( v9 >= 0 )
-      {
+        RaspAntiAlias((_DWORD)v48, (_DWORD)v12, *((_DWORD *)Memory + 13), *((_DWORD *)Memory + 14), v28);
+        if ( !v60[0] )
+        {
+          v48 = 0LL;
+          v50 = __PAIR64__(v45, v49);
+          BgpGxCopyRectangle(v54, v12, &v50, &v48);
+        }
+        *v55 = v44;
         if ( v13 )
-          goto LABEL_30;
+          RaspAddCacheEntry(&RaspBitmapCache, Memory);
+LABEL_25:
+        if ( v9 >= 0 )
+          goto LABEL_26;
+      }
+LABEL_38:
+      if ( !v13 )
+      {
 LABEL_27:
         if ( !v14 )
-          goto LABEL_28;
-LABEL_43:
+        {
+LABEL_28:
+          if ( v11 )
+            RaspFreeMemory(v11, v10);
+          goto LABEL_30;
+        }
+LABEL_32:
         if ( v9 >= 0 || Memory )
           goto LABEL_30;
         goto LABEL_28;
       }
+      if ( Memory )
+        RaspDestroyCachedBitmap(Memory);
+LABEL_26:
+      if ( v13 )
+        goto LABEL_32;
+      goto LABEL_27;
     }
+    LOBYTE(v14) = (dword_140C134F0 & 4) != 0;
+    if ( (dword_140C134F0 & 4) == 0 && !*(_QWORD *)v10 )
+      v13 = (*(_BYTE *)(v47 + 20) & 1) == 0;
+    v19 = v45;
+    v9 = RaspRasterize(
+           v47,
+           (unsigned __int16)v45,
+           v16,
+           v17,
+           v14,
+           (__int64)&v51,
+           (__int64)&v46,
+           (__int64)&v44,
+           (__int64)v10);
+    if ( v9 >= 0 )
+    {
+      if ( !v13 )
+      {
+        Memory = v58;
+LABEL_11:
+        v20 = *((_QWORD *)v10 + 2);
+        v21 = v48;
+        v22 = v47;
+        v23 = v48[10];
+        *((_DWORD *)Memory + 10) = *(_DWORD *)(v47 + 16);
+        *((_DWORD *)Memory + 11) = v46;
+        *((_DWORD *)Memory + 12) = v44;
+        *((_WORD *)Memory + 30) = v19;
+        v11 = v51;
+        *((_DWORD *)Memory + 13) = 4;
+        *((_DWORD *)Memory + 14) = 4;
+        *((_DWORD *)Memory + 9) = v23;
+        *((_QWORD *)Memory + 3) = v21;
+        *((_QWORD *)Memory + 2) = v11;
+        *(_QWORD *)(Memory + 62) = v20;
+        goto LABEL_12;
+      }
+      Memory = (_BYTE *)BgpFwAllocateMemory(0x46uLL);
+      if ( Memory )
+        goto LABEL_11;
+      v9 = -1073741801;
+    }
+    v11 = v51;
+    goto LABEL_38;
   }
-  if ( !v13 )
-    goto LABEL_27;
-LABEL_41:
-  if ( Memory )
-  {
-    RaspDestroyCachedBitmap(Memory);
-    goto LABEL_43;
-  }
-LABEL_28:
-  if ( v11 )
-    RaspFreeMemory(v11, v10);
 LABEL_30:
-  if ( !v61[0] && v12 )
+  if ( !v60[0] && v12 )
     RaspFreeMemory(v12, v10);
   *((_QWORD *)v10 + 2) = 0LL;
   return (unsigned int)v9;

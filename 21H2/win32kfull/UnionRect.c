@@ -1,14 +1,14 @@
 /*
- * XREFs of UnionRect @ 0x1C00C1640
+ * XREFs of UnionRect @ 0x1C0104EFC
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     CalcWindowFullScreen @ 0x1C006C0E8 (CalcWindowFullScreen.c)
- *     GetInheritedMonitor @ 0x1C006F4F4 (GetInheritedMonitor.c)
- *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C007D1E4 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
- *     xxxScrollWindowEx @ 0x1C00BFE8C (xxxScrollWindowEx.c)
- *     _ScrollDC @ 0x1C00C08AC (_ScrollDC.c)
- *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C00C09C8 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
- *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C016BA80 (FlushWEFCOMPOSITEDDCEBounds.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     CalcWindowFullScreen @ 0x1C006AA64 (CalcWindowFullScreen.c)
+ *     GetInheritedMonitor @ 0x1C006C184 (GetInheritedMonitor.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0071654 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ *     _ScrollDC @ 0x1C00FCE74 (_ScrollDC.c)
+ *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C0104C70 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C01E7E80 (FlushWEFCOMPOSITEDDCEBounds.c)
  * Callees:
  *     <none>
  */

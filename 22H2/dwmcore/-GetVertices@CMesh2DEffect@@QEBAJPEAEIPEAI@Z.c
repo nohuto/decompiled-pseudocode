@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetVertices@CMesh2DEffect@@QEBAJPEAEIPEAI@Z @ 0x1802BEEC0
+ * XREFs of ?GetVertices@CMesh2DEffect@@QEBAJPEAEIPEAI@Z @ 0x18026C918
  * Callers:
- *     <none>
+ *     ??$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H?GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C350 (--$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H-GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@Y.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 __int64 __fastcall CMesh2DEffect::GetVertices(
@@ -14,7 +14,7 @@ __int64 __fastcall CMesh2DEffect::GetVertices(
         unsigned int *a4)
 {
   unsigned int v4; // r10d
-  unsigned int v5; // edi
+  unsigned int v5; // ebx
   size_t v6; // rax
   size_t v9; // r8
 
@@ -32,8 +32,10 @@ __int64 __fastcall CMesh2DEffect::GetVertices(
       return v5;
     }
     if ( v4 )
+    {
       memcpy_0(a2, *((const void **)this + 21), v9);
-    v4 = *((_DWORD *)this + 41);
+      v4 = *((_DWORD *)this + 41);
+    }
   }
   *a4 = 32 * v4;
   return v5;

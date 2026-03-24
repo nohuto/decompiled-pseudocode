@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlCopyWrite @ 0x14092D2C0
+ * XREFs of FsRtlCopyWrite @ 0x14088A890
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyWriteWontFlush @ 0x140229E10 (CcCopyWriteWontFlush.c)
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     CcCanIWrite @ 0x140283F40 (CcCanIWrite.c)
- *     IoSetTopLevelIrp @ 0x140288140 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140288160 (IoGetTopLevelIrp.c)
- *     CcZeroData @ 0x14029BD20 (CcZeroData.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CcCopyWrite @ 0x140539DF0 (CcCopyWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     CcCopyWriteWontFlush @ 0x14022BF00 (CcCopyWriteWontFlush.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
+ *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CcCopyWrite @ 0x1404EA010 (CcCopyWrite.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyWrite(
@@ -44,15 +44,16 @@ BOOLEAN __stdcall FsRtlCopyWrite(
   struct _ERESOURCE *v26; // rcx
   struct _ERESOURCE *v27; // rcx
   struct _ERESOURCE *v28; // rcx
-  BOOLEAN v29; // [rsp+50h] [rbp-78h]
-  char v30; // [rsp+51h] [rbp-77h]
-  char v31; // [rsp+52h] [rbp-76h]
-  LONGLONG v32; // [rsp+58h] [rbp-70h]
-  LARGE_INTEGER EndOffset; // [rsp+60h] [rbp-68h] BYREF
-  __int128 v34; // [rsp+68h] [rbp-60h] BYREF
-  __int64 v35; // [rsp+78h] [rbp-50h]
-  __int64 v36; // [rsp+80h] [rbp-48h]
-  char *v37; // [rsp+88h] [rbp-40h]
+  BOOLEAN v29; // [rsp+50h] [rbp-88h]
+  char v30; // [rsp+51h] [rbp-87h]
+  char v31; // [rsp+52h] [rbp-86h]
+  LONGLONG v32; // [rsp+58h] [rbp-80h]
+  LARGE_INTEGER EndOffset; // [rsp+60h] [rbp-78h] BYREF
+  signed __int64 v34; // [rsp+68h] [rbp-70h]
+  __int64 v35; // [rsp+70h] [rbp-68h]
+  __int64 v36; // [rsp+78h] [rbp-60h]
+  char *v37; // [rsp+80h] [rbp-58h]
+  __int128 v38[5]; // [rsp+88h] [rbp-50h] BYREF
 
   v9 = Length;
   v12 = 0;
@@ -71,7 +72,7 @@ BOOLEAN __stdcall FsRtlCopyWrite(
     return 0;
   }
   IoStatus->Status = 0;
-  *(_QWORD *)&v34 = v9;
+  v34 = v9;
   IoStatus->Information = v9;
   if ( !(_DWORD)v9 )
     return 1;
@@ -92,7 +93,7 @@ BOOLEAN __stdcall FsRtlCopyWrite(
     if ( !ExAcquireResourceSharedLite(*((PERESOURCE *)FsContext + 1), Wait) )
     {
 LABEL_12:
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 0;
     }
     v19 = 1;
@@ -110,12 +111,8 @@ LABEL_12:
   if ( !v22 )
     goto LABEL_33;
   v23 = *((_QWORD *)FsContext + 5);
-  if ( v20.QuadPart >= v23 + 0x2000
-    || 0x7FFFFFFFFFFFFFFFLL - v20.QuadPart < (__int64)v34
-    || v21 > *((_QWORD *)FsContext + 3) )
-  {
+  if ( v20.QuadPart >= v23 + 0x2000 || 0x7FFFFFFFFFFFFFFFLL - v20.QuadPart < v34 || v21 > *((_QWORD *)FsContext + 3) )
     goto LABEL_33;
-  }
   if ( v19 && v21 > v23 )
   {
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
@@ -138,7 +135,7 @@ LABEL_33:
   if ( v22 != 2 )
     goto LABEL_39;
   FastIoDispatch = DeviceObject->DriverObject->FastIoDispatch;
-  v34 = 0LL;
+  v38[0] = 0LL;
   v25 = FileOffset;
   if ( FileOffset->QuadPart == -1 )
     v25 = (PLARGE_INTEGER)(FsContext + 32);
@@ -150,7 +147,7 @@ LABEL_33:
          v17,
          LockKey,
          0,
-         &v34,
+         v38,
          DeviceObject) )
   {
 LABEL_39:
@@ -225,6 +222,6 @@ LABEL_39:
   {
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v12;
 }

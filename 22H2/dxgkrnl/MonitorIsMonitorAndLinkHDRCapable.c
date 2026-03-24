@@ -1,50 +1,103 @@
 /*
- * XREFs of MonitorIsMonitorAndLinkHDRCapable @ 0x1C03C4434
+ * XREFs of MonitorIsMonitorAndLinkHDRCapable @ 0x1C01355E8
  * Callers:
- *     ?DetermineHdrPixelFormatFromColorSpace@ADAPTER_DISPLAY@@QEBA?AW4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@@W4_D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE@@PEAUHDXGMONITOR__@@@Z @ 0x1C016D3FC (-DetermineHdrPixelFormatFromColorSpace@ADAPTER_DISPLAY@@QEBA-AW4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C0128030 (DxgkGetMonitorInternalInfo.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C014273C (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0182398 (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C019B43C (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C019DCD0 (-_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z.c)
- *     ?GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATMONITOR_AND_LINK_HDR_CAPS@@@Z @ 0x1C01DA948 (-GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATM.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_GetDisplayCoreFromMonitor@MONITOR_MGR@@SAPEAVADAPTER_DISPLAY@@PEAUHDXGMONITOR__@@@Z @ 0x1C00222DC (-_GetDisplayCoreFromMonitor@MONITOR_MGR@@SAPEAVADAPTER_DISPLAY@@PEAUHDXGMONITOR__@@@Z.c)
+ *     ?EdidSupportsHDR@DXGMONITOR@@QEAAEXZ @ 0x1C01834E4 (-EdidSupportsHDR@DXGMONITOR@@QEAAEXZ.c)
  */
 
-__int64 __fastcall MonitorIsMonitorAndLinkHDRCapable(__int64 a1, union MONITOR_AND_LINK_HDR_CAPS *a2)
+__int64 __fastcall MonitorIsMonitorAndLinkHDRCapable(struct HDXGMONITOR__ *a1, unsigned int *a2)
 {
-  DXGMONITOR *v3; // rbx
-  unsigned int v4; // edi
-  int LinkInfo; // eax
-  struct _DXGK_MONITORLINKINFO v7; // [rsp+20h] [rbp-18h] BYREF
-  DXGMONITOR *v8; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v2; // ebx
+  __int64 result; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  DXGMONITOR *v8; // rdi
+  int v9; // esi
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  struct ADAPTER_DISPLAY *DisplayCoreFromMonitor; // rax
+  __int64 v16; // rax
+  int v17; // r9d
+  __int16 v18; // r10
+  int v19; // r11d
+  int v20; // r11d
+  int v21; // eax
+  unsigned int v22; // ecx
+  __int64 v23; // [rsp+20h] [rbp-28h]
+  DXGMONITOR *v24; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( !a1 || !a2 )
+  v2 = 0;
+  if ( !a1 )
     return 3221225485LL;
-  *(_DWORD *)a2 = 0;
-  MONITOR_MGR::AcquireMonitorShared(&v8, a1);
-  v3 = v8;
-  if ( v8 )
+  *a2 = 0;
+  v24 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v24);
+  if ( (int)result >= 0 )
   {
-    *(_QWORD *)&v7.UsageHints.0 = 0LL;
-    v7.DitheringSupport.Value = 0;
-    LinkInfo = DXGMONITOR::_GetLinkInfo(v8, &v7);
-    if ( LinkInfo != -1073741275 )
+    v8 = v24;
+    if ( !v24 )
     {
-      if ( LinkInfo < 0 )
-      {
-        v4 = LinkInfo;
-        goto LABEL_10;
-      }
-      DxgMonitor::MonitorColorState::GetMonitorAndLinkHdrCapable(*((DxgMonitor::MonitorColorState **)v3 + 28), &v7, a2);
+      v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+      WdLogEvent5_WdAssertion(v11);
+      v14 = WdLogNewEntry5_WdAssertion(v13, v12);
+      WdLogEvent5_WdAssertion(v14);
     }
-    v4 = 0;
-    goto LABEL_10;
+    KeEnterCriticalRegion();
+    v9 = 1;
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v8 + 296), 1u);
+    if ( (*((_DWORD *)v8 + 10) & 0x400) == 0 )
+      goto LABEL_6;
+    v23 = *(_QWORD *)((char *)v8 + 468);
+    DisplayCoreFromMonitor = MONITOR_MGR::_GetDisplayCoreFromMonitor(a1, v10);
+    if ( !DisplayCoreFromMonitor )
+    {
+      v2 = -1073741275;
+LABEL_6:
+      ExReleaseResourceLite((PERESOURCE)((char *)v8 + 296));
+      KeLeaveCriticalRegion();
+      return v2;
+    }
+    v16 = *((_QWORD *)DisplayCoreFromMonitor + 2);
+    v17 = 4;
+    v18 = WORD2(v23);
+    if ( *(int *)(v16 + 2596) < 2500 )
+    {
+      if ( (v23 & 0x400000000LL) == 0 || !DXGMONITOR::EdidSupportsHDR(v8) )
+        v9 = 0;
+      v22 = (v9 | *a2 & 0xFFFFFFFE) ^ (HIBYTE(v18) ^ (unsigned __int8)(v9 | *a2)) & 2;
+    }
+    else
+    {
+      v19 = *(_DWORD *)(v16 + 2576);
+      if ( (v19 & 0xC) == 0 || (v23 & 0x400000000LL) == 0 || !DXGMONITOR::EdidSupportsHDR(v8) )
+        v9 = 0;
+      v20 = v17 & v19;
+      if ( !v20 || (v21 = 2, (v18 & 0x200) == 0) )
+        v21 = 0;
+      v22 = v21 | v9 & 0xFFFFFFFD | *a2 & 0xFFFFFFFC;
+      if ( !v20 )
+      {
+LABEL_27:
+        v17 = 0;
+LABEL_28:
+        *a2 = v17 | v22 & 0xFFFFFFFB;
+        goto LABEL_6;
+      }
+    }
+    if ( (v18 & 0x400) != 0 && *((_BYTE *)v8 + 702) )
+      goto LABEL_28;
+    goto LABEL_27;
   }
-  v4 = -1073741275;
-  WdLogSingleEntry1(2LL, -1073741275LL);
-LABEL_10:
-  if ( v3 )
-  {
-    ExReleaseResourceLite((PERESOURCE)((char *)v3 + 24));
-    KeLeaveCriticalRegion();
-  }
-  return v4;
+  return result;
 }

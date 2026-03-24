@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnsureInertiaStateChangeAdded@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18026F284
+ * XREFs of ?EnsureInertiaStateChangeAdded@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18020EAE0
  * Callers:
- *     ?CalculateValueWorker@CScrollKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18026F1A0 (-CalculateValueWorker@CScrollKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CScrollKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18020EA10 (-CalculateValueWorker@CScrollKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x180230CE8 (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18026F354 (-EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x1801C79AC (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ @ 0x18020EBB0 (-EnsureInertiaStateChangeInfo@CScrollKeyframeAnimation@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CScrollKeyframeAnimation::EnsureInertiaStateChangeAdded(CScrollKeyframeAnimation *this)
@@ -22,19 +22,19 @@ __int64 __fastcall CScrollKeyframeAnimation::EnsureInertiaStateChangeAdded(CScro
   unsigned int v10; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v1 = *((_BYTE *)this + 752);
+  v1 = *((_BYTE *)this + 720);
   if ( (v1 & 1) != 0 )
     return 0LL;
-  v3 = *((_QWORD *)this + 73);
-  *((_BYTE *)this + 752) = v1 | 1;
+  v3 = *((_QWORD *)this + 69);
+  *((_BYTE *)this + 720) = v1 | 1;
   CurrentValue = CInteractionTracker::GetCurrentValue(v3, 0);
   CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v3, 0, CurrentValue, 0);
-  v5 = *((_QWORD *)this + 73);
+  v5 = *((_QWORD *)this + 69);
   v6 = CInteractionTracker::GetCurrentValue(v5, 1);
-  CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v5, 1u, v6, 0);
-  v7 = *((_QWORD *)this + 73);
+  CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v5, 1, v6, 0);
+  v7 = *((_QWORD *)this + 69);
   v8 = CInteractionTracker::GetCurrentValue(v7, 2);
-  CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v7, 2u, v8, 0);
+  CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v7, 2, v8, 0);
   v9 = CScrollKeyframeAnimation::EnsureInertiaStateChangeInfo(this);
   v10 = v9;
   if ( v9 >= 0 )
@@ -42,7 +42,7 @@ __int64 __fastcall CScrollKeyframeAnimation::EnsureInertiaStateChangeAdded(CScro
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)0xCB,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollkeyframeanimation.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollkeyframeanimation.cpp",
     (const char *)(unsigned int)v9);
   return v10;
 }

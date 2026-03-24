@@ -1,32 +1,29 @@
 /*
- * XREFs of UserIsCurrentProcessImmersiveAppContainer @ 0x1C008F800
+ * XREFs of UserIsCurrentProcessImmersiveAppContainer @ 0x1C007BDE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall UserIsCurrentProcessImmersiveAppContainer(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall UserIsCurrentProcessImmersiveAppContainer(__int64 a1, __int64 a2)
 {
   __int64 CurrentProcess; // rax
   __int64 ProcessWin32Process; // rax
-  _BOOL8 result; // rax
-  int v6; // ecx
+  unsigned int v4; // ecx
+  int v6; // edx
 
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
   ProcessWin32Process = PsGetProcessWin32Process(CurrentProcess);
-  result = 0;
+  v4 = 0;
   if ( ProcessWin32Process )
   {
-    if ( *(_QWORD *)ProcessWin32Process )
+    if ( *(_DWORD *)(ProcessWin32Process + 884) )
     {
-      if ( *(_DWORD *)(ProcessWin32Process + 892) )
-      {
-        v6 = *(_DWORD *)(ProcessWin32Process + 816);
-        if ( (v6 & 0x30) == 0x10 && (v6 & 0x200) == 0 )
-          return 1;
-      }
+      v6 = *(_DWORD *)(ProcessWin32Process + 820);
+      if ( (v6 & 0x30) == 0x10 )
+        return (v6 & 0x200) == 0;
     }
   }
-  return result;
+  return v4;
 }

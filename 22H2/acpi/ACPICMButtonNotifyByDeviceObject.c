@@ -1,18 +1,17 @@
 /*
- * XREFs of ACPICMButtonNotifyByDeviceObject @ 0x1C0018BD0
+ * XREFs of ACPICMButtonNotifyByDeviceObject @ 0x1C004EA40
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPICMButtonNotify @ 0x1C0018AC8 (ACPICMButtonNotify.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPICMButtonNotify @ 0x1C004E918 (ACPICMButtonNotify.c)
  */
 
-_QWORD *__fastcall ACPICMButtonNotifyByDeviceObject(ULONG_PTR a1, unsigned int a2)
+void __fastcall ACPICMButtonNotifyByDeviceObject(ULONG_PTR a1, unsigned int a2)
 {
-  _QWORD *result; // rax
+  __int64 DeviceExtension; // rax
 
-  result = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
-  if ( result )
-    return ACPICMButtonNotify(a1, (__int64)result, a2);
-  return result;
+  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
+  if ( DeviceExtension )
+    ACPICMButtonNotify(a1, DeviceExtension, a2);
 }

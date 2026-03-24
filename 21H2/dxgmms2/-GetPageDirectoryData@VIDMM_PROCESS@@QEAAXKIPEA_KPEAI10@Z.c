@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00DFC84
+ * XREFs of ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00BA298
  * Callers:
- *     VidSchiEnsureRootPageTableUpdated @ 0x1C00B8EE8 (VidSchiEnsureRootPageTableUpdated.c)
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00D382C (VidSchiEnsureRootPageTableUpdated.c)
  * Callees:
- *     ?GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z @ 0x1C00B853C (-GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z.c)
+ *     ?GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z @ 0x1C00BD26C (-GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS::GetPageDirectoryData(

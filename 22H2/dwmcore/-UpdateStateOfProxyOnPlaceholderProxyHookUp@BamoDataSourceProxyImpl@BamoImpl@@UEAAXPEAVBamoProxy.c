@@ -1,25 +1,15 @@
 /*
- * XREFs of ?UpdateStateOfProxyOnPlaceholderProxyHookUp@BamoDataSourceProxyImpl@BamoImpl@@UEAAXPEAVBamoProxyImpl@2Microsoft@@@Z @ 0x1801F90F0
+ * XREFs of ?UpdateStateOfProxyOnPlaceholderProxyHookUp@BamoDataSourceProxyImpl@BamoImpl@@UEAAXPEAVBamoProxyImpl@2Microsoft@@@Z @ 0x1801943D0
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdateRestrictToProcessIds@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_NI@Z @ 0x1801F8EE8 (-UpdateRestrictToProcessIds@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_NI@Z.c)
- *     ?UpdateUniqueId@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_NPEBU_LUID@@@Z @ 0x1801F9134 (-UpdateUniqueId@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_NPEBU_LUID@@@Z.c)
+ *     ?UpdateUniqueId@BamoDataSourceProxyImpl@BamoImpl@@QEAAJPEAU_LUID@@@Z @ 0x180194404 (-UpdateUniqueId@BamoDataSourceProxyImpl@BamoImpl@@QEAAJPEAU_LUID@@@Z.c)
  */
 
 void __fastcall BamoImpl::BamoDataSourceProxyImpl::UpdateStateOfProxyOnPlaceholderProxyHookUp(
         BamoImpl::BamoDataSourceProxyImpl *this,
-        const struct _LUID *a2)
+        struct _LUID *a2)
 {
-  const char *v4; // r9
-  struct _LUID v5; // rax
-
-  BamoImpl::BamoDataSourceProxyImpl::UpdateUniqueId(this, 0, a2 + 4);
-  v5 = a2[5];
-  if ( v5 )
-    BamoImpl::BamoDataSourceProxyImpl::UpdateRestrictToProcessIds(
-      this,
-      0LL,
-      *(unsigned int *)(*(_QWORD *)&v5 + 40LL),
-      v4);
+  BamoImpl::BamoDataSourceProxyImpl::UpdateUniqueId(this, a2 + 4);
+  BamoImpl::BamoDataSourceProxyImpl::UpdateRestrictToProcessId(this, a2[5].LowPart);
 }

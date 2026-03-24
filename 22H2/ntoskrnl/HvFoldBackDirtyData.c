@@ -1,51 +1,43 @@
 /*
- * XREFs of HvFoldBackDirtyData @ 0x140A20AB0
+ * XREFs of HvFoldBackDirtyData @ 0x1408769B4
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     HvMarkDirtyForFlush @ 0x1402F645C (HvMarkDirtyForFlush.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     HvFreeDirtyData @ 0x14075148C (HvFreeDirtyData.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HvpMarkDirty @ 0x140655BF0 (HvpMarkDirty.c)
+ *     HvFreeDirtyData @ 0x14071BBEC (HvFreeDirtyData.c)
  */
 
 void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)
 {
-  unsigned __int64 v1; // rdi
+  unsigned __int64 v1; // rsi
   __int64 v3; // r14
-  unsigned __int64 *v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rbp
-  int v7; // ebp
+  volatile signed __int64 *v4; // rdi
+  int v5; // ebp
 
   v1 = 0LL;
-  if ( *(_QWORD *)(a1 + 1696) )
+  if ( *(_QWORD *)(a1 + 1688) )
   {
-    v3 = *(unsigned int *)(a1 + 1688);
-    v4 = (unsigned __int64 *)(a1 + 80);
-    v5 = KeAbPreAcquire(a1 + 80, 0LL);
-    v6 = v5;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
-    if ( v6 )
-      *(_BYTE *)(v6 + 18) = 1;
+    v3 = *(unsigned int *)(a1 + 1680);
+    v4 = (volatile signed __int64 *)(a1 + 80);
+    ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
     if ( (_DWORD)v3 )
     {
-      v7 = 8;
+      v5 = 8;
       do
       {
-        if ( _bittest64(*(const signed __int64 **)(a1 + 1696), v1) == 1 )
-          HvMarkDirtyForFlush(a1);
+        if ( _bittest64(*(const signed __int64 **)(a1 + 1688), v1) == 1 )
+          HvpMarkDirty(a1, v5, 1u, 0);
         ++v1;
-        v7 += 512;
+        v5 += 512;
         --v3;
       }
       while ( v3 );
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v4);
+    if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v4);
     KeAbPostRelease((ULONG_PTR)v4);
   }
   HvFreeDirtyData(a1);

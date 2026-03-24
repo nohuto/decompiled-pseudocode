@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlGetCurrentOperation @ 0x140789970
+ * XREFs of PiPnpRtlGetCurrentOperation @ 0x1406B015C
  * Callers:
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x140789868 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406B004C (PiPnpRtlCacheObjectBaseKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
@@ -18,8 +18,8 @@ __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
-  *a1 = 0LL;
   v4 = 0LL;
+  *a1 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&PiPnpRtlActiveOperationsLock, 1u);
   v5 = (__int64 *)PiPnpRtlActiveOperations;
@@ -32,7 +32,7 @@ __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
     v4 = 0LL;
   }
   ExReleaseResourceLite(&PiPnpRtlActiveOperationsLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v4 )
     *a1 = v4;
   else

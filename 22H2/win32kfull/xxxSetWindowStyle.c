@@ -1,320 +1,535 @@
 /*
- * XREFs of xxxSetWindowStyle @ 0x1C00EB620
+ * XREFs of xxxSetWindowStyle @ 0x1C005E140
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C000EF44 (xxxSetModernAppWindow.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     ?xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z @ 0x1C01BCAB0 (-xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z.c)
- *     ?xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z @ 0x1C01F2C68 (-xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z.c)
- *     xxxSetBridgeWindowChild @ 0x1C01F2E24 (xxxSetBridgeWindowChild.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
+ *     ?xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z @ 0x1C01E7550 (-xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z.c)
+ *     ?xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z @ 0x1C0208A6C (-xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxSetBridgeWindowChild @ 0x1C0208BD8 (xxxSetBridgeWindowChild.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     DecVisWindows @ 0x1C00A17FC (DecVisWindows.c)
- *     IncVisWindows @ 0x1C00A1908 (IncVisWindows.c)
- *     _IsWindowVisible @ 0x1C00A79A8 (_IsWindowVisible.c)
- *     ?VisWindow@@YAHPEAUtagWND@@K@Z @ 0x1C00A846C (-VisWindow@@YAHPEAUtagWND@@K@Z.c)
- *     NeedsWindowEdge @ 0x1C00A9FC4 (NeedsWindowEdge.c)
- *     IsTopLevelOrLayeredChildWindow @ 0x1C00B4624 (IsTopLevelOrLayeredChildWindow.c)
- *     ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C00B4970 (-UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z.c)
- *     UnsetRedirectedWindow @ 0x1C00C881C (UnsetRedirectedWindow.c)
- *     UnsetLayeredWindow @ 0x1C00C8C24 (UnsetLayeredWindow.c)
- *     DwmAsyncChildStyleChange @ 0x1C00C8EAC (DwmAsyncChildStyleChange.c)
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
- *     PostIAMShellHookMessage @ 0x1C00D34E8 (PostIAMShellHookMessage.c)
- *     SetRedirectedWindow @ 0x1C00D36F4 (SetRedirectedWindow.c)
- *     ComposeWindowIfNeeded @ 0x1C00D3A58 (ComposeWindowIfNeeded.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00EE714 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     GetStyleWindow @ 0x1C0119070 (GetStyleWindow.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     xxxTurnOffCompositing @ 0x1C01BD2F0 (xxxTurnOffCompositing.c)
+ *     PostIAMShellHookMessageEx @ 0x1C002DAB0 (PostIAMShellHookMessageEx.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     IncVisWindows @ 0x1C004BEB4 (IncVisWindows.c)
+ *     ComposeWindowIfNeeded @ 0x1C004C260 (ComposeWindowIfNeeded.c)
+ *     DecVisWindows @ 0x1C004C6EC (DecVisWindows.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C004E67C (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ *     ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004E8CC (-MarkDirty@CVisRgnTrackerProp@@QEAAXXZ.c)
+ *     ??$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C004E90C (--$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     IsTopLevelOrLayeredChildWindow @ 0x1C006F8B4 (IsTopLevelOrLayeredChildWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     GetStyleWindow @ 0x1C00714C0 (GetStyleWindow.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     SetRedirectedWindow @ 0x1C00BCE5C (SetRedirectedWindow.c)
+ *     GetAppCompatFlags2 @ 0x1C00E0FC0 (GetAppCompatFlags2.c)
+ *     UnsetLayeredWindow @ 0x1C00EEE28 (UnsetLayeredWindow.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF498 (UnsetRedirectedWindow.c)
+ *     _IsWindowVisible @ 0x1C0125D64 (_IsWindowVisible.c)
+ *     VerifyChildMenu @ 0x1C0169704 (VerifyChildMenu.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ClrWFNoDwmNotify @ 0x1C01D7174 (ClrWFNoDwmNotify.c)
+ *     xxxTurnOffCompositing @ 0x1C01E7FF0 (xxxTurnOffCompositing.c)
  */
 
 __int64 __fastcall xxxSetWindowStyle(struct tagWND *a1, int a2, int a3)
 {
-  __int64 v3; // rax
-  int v5; // r12d
-  __int64 v6; // r15
-  int v7; // r14d
+  unsigned __int64 v3; // rsi
+  int v4; // r13d
+  int v5; // r14d
+  __int64 v6; // rax
   __int64 v8; // rdx
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  bool v11; // r13
+  unsigned int v9; // edi
+  int v10; // ecx
+  __int64 v12; // rcx
+  int v13; // edi
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  int v15; // r9d
-  int v16; // ebx
-  __int64 v17; // r10
-  int v18; // esi
-  int v19; // r9d
-  __int64 v20; // r10
-  __int64 v21; // rax
-  int v22; // ecx
-  unsigned int v23; // ecx
-  int v24; // r14d
-  unsigned int v25; // r9d
-  __int64 v26; // rcx
-  __int64 v27; // rdx
-  char v28; // r11
-  char v29; // r10
-  _BYTE *v30; // r11
-  char v31; // r10
-  __int64 v32; // rbx
-  __int64 v33; // rcx
-  void *v34; // rax
-  unsigned int v36; // ecx
-  int v37; // ecx
-  __int64 ThreadWin32Thread; // rax
-  unsigned int v39; // ebx
-  int v40; // edx
-  int v41; // edx
-  __int64 v42; // r15
-  int v43; // ebx
-  int v44; // esi
-  int v45; // ecx
-  int v46; // edx
-  unsigned int v47; // ecx
-  __int64 v48; // rcx
-  __int64 v49; // [rsp+80h] [rbp+40h] BYREF
-  int v50; // [rsp+88h] [rbp+48h]
-  unsigned int v51; // [rsp+90h] [rbp+50h]
+  int v15; // r8d
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // r9
+  __int64 v20; // rdx
+  __int64 v21; // r11
+  char v22; // dl
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // r10
+  struct tagWND *i; // rdx
+  __int64 v27; // rcx
+  int v28; // esi
+  __int64 v29; // rax
+  int v30; // ecx
+  unsigned int v31; // ecx
+  __int64 v32; // r8
+  unsigned int v33; // edx
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  int v37; // edi
+  struct tagWND *j; // rdx
+  __int64 v39; // rcx
+  int v40; // eax
+  __int64 v41; // r8
+  __int64 v42; // rcx
+  unsigned int v43; // edi
+  int v44; // edx
+  int v45; // edx
+  __int64 v46; // r15
+  int v47; // edi
+  int v48; // esi
+  int v49; // ecx
+  int v50; // edx
+  __int64 v51; // rdx
+  int v52; // r8d
+  int v53; // eax
+  int v54; // eax
+  struct _LIST_ENTRY *Blink; // rdx
+  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v57; // rax
+  struct _LIST_ENTRY *v58; // rdi
+  char Blink_high; // al
+  __int64 v60; // rdx
+  __int64 v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // rcx
+  char v64; // si
+  __int64 v65; // rcx
+  struct tagWND *v66; // rax
+  __int64 v67; // rdx
+  __int64 Prop; // rax
+  struct _LIST_ENTRY *v69; // rax
+  __int64 k; // rdi
+  __int64 m; // rdi
+  int v72; // esi
+  __int64 v73; // r14
+  void *v74; // rdi
+  int v75; // r14d
+  int v76; // eax
+  unsigned int v77; // edx
+  int v78; // [rsp+40h] [rbp-39h]
+  unsigned int v79; // [rsp+40h] [rbp-39h]
+  unsigned int v80; // [rsp+40h] [rbp-39h]
+  __int64 v81; // [rsp+48h] [rbp-31h] BYREF
+  int v82; // [rsp+50h] [rbp-29h]
+  int v83; // [rsp+54h] [rbp-25h]
+  CVisRgnTrackerProp *v84; // [rsp+58h] [rbp-21h] BYREF
+  int v85; // [rsp+60h] [rbp-19h] BYREF
+  __int16 v86; // [rsp+64h] [rbp-15h]
+  __int128 v87; // [rsp+66h] [rbp-13h]
+  __int128 v88; // [rsp+76h] [rbp-3h]
+  __int16 v89; // [rsp+86h] [rbp+Dh]
+  int v90; // [rsp+88h] [rbp+Fh]
+  __int64 v91; // [rsp+8Ch] [rbp+13h]
+  int v92; // [rsp+94h] [rbp+1Bh]
+  int v93; // [rsp+98h] [rbp+1Fh]
 
-  v50 = a2;
-  v3 = *((_QWORD *)a1 + 5);
-  v49 = 0LL;
-  v51 = 0;
+  v3 = a2;
+  v81 = 0LL;
+  v4 = 0;
   v5 = 0;
-  v6 = a2;
-  v7 = 0;
-  v51 = (*(_DWORD *)(v3 + 24) >> 22) & 8;
+  v6 = *((_QWORD *)a1 + 5);
+  v82 = v3;
   v8 = *((_QWORD *)a1 + 5);
-  v51 = (*(_DWORD *)(v8 + 28) >> 26) & 4 | v51 & 0xFFFFFFFB;
-  if ( (_DWORD)v6 == -16 )
+  v78 = (*(_DWORD *)(v8 + 28) >> 26) & 4 | (*(_DWORD *)(v6 + 24) >> 22) & 8;
+  if ( (_DWORD)v3 == -16 )
   {
     v9 = *(_DWORD *)(v8 + 28);
-    LODWORD(v49) = v9;
+    LODWORD(v81) = v9;
     if ( (*(_DWORD *)(v8 + 24) & 0x800) == 0 )
-      goto LABEL_5;
+      goto LABEL_6;
     v9 |= 0x10000000u;
   }
   else
   {
-    v37 = *(_DWORD *)(v8 + 24);
-    LODWORD(v49) = v37 & 0xA7F77FF;
-    v9 = v37 & (((~(unsigned __int8)*(_DWORD *)(v8 + 232) & 2) << 18) | 0xA7777FF);
+    v10 = *(_DWORD *)(v8 + 24);
+    LODWORD(v81) = v10 & 0xA7F77FF;
+    v9 = v10 & (((~(unsigned __int8)*(_DWORD *)(v8 + 232) & 0x20) << 14) | 0xA7777FF);
   }
-  LODWORD(v49) = v9;
-LABEL_5:
-  HIDWORD(v49) = a3;
+  LODWORD(v81) = v9;
+LABEL_6:
+  HIDWORD(v81) = a3;
   if ( (*(_BYTE *)(v8 + 21) & 2) != 0 )
   {
-    xxxSendMessage(a1, 124LL, v6, &v49);
+    xxxSendMessage((unsigned __int64)a1, 0x7Cu, v3, (struct _LARGE_STRING *)&v81);
     if ( (*(_BYTE *)(_HMPheFromObject(a1) + 25) & 1) != 0 )
       return v9;
-    LODWORD(v49) = v9;
+    LODWORD(v81) = v9;
   }
-  v11 = IsTrayWindow(a1, 1);
-  if ( (_DWORD)v6 != -16 )
+  v83 = IsTrayWindow(a1);
+  v13 = v83;
+  if ( (_DWORD)v3 != -16 )
   {
-    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-    if ( *(_DWORD *)(ThreadWin32Thread + 632) <= 0x400u && (*(_DWORD *)(ThreadWin32Thread + 648) & 4) != 0 )
-      v39 = HIDWORD(v49) & 0x777FF;
+    if ( (GetAppCompatFlags2(1024LL) & 4) != 0 )
+      v43 = HIDWORD(v81) & 0x777FF;
     else
-      v39 = HIDWORD(v49) & 0xA7F77FF;
-    v40 = v49 & 8;
-    HIDWORD(v49) = v39;
-    if ( v40 != (v39 & 8) && ((*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) != 0 || !HIWORD(v39)) )
+      v43 = HIDWORD(v81) & 0xA7F77FF;
+    v44 = v81 & 8;
+    HIDWORD(v81) = v43;
+    if ( v44 != (v43 & 8) && ((*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) != 0 || !HIWORD(v43)) )
     {
-      v39 = v40 | v39 & 0xFFFFFFF7;
-      HIDWORD(v49) = v39;
+      v43 = v44 | v43 & 0xFFFFFFF7;
+      HIDWORD(v81) = v43;
     }
-    v41 = v39 & 0x80000;
-    if ( (((~(unsigned __int8)*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 2) << 18) & *(_DWORD *)(*((_QWORD *)a1 + 5)
-                                                                                               + 24LL)) != 0 )
+    v45 = v43 & 0x80000;
+    if ( (((~(unsigned __int8)*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x20) << 14) & *(_DWORD *)(*((_QWORD *)a1 + 5)
+                                                                                                  + 24LL)) != 0 )
     {
-      if ( v41 )
-      {
-LABEL_50:
-        v42 = *((_QWORD *)a1 + 5);
-        if ( ((*(_DWORD *)(v42 + 24) & 0x200000) != 0) != ((v39 >> 21) & 1)
-          || (*(_DWORD *)(v42 + 24) & 0x200000) != 0 && (v39 & 0x2000000) != 0 )
-        {
-          v48 = 87LL;
-          goto LABEL_100;
-        }
-        v43 = v39 & 0x2000000;
-        v44 = *(_DWORD *)(v42 + 24) & 0x2000000;
-        if ( !v44 && v43 && GetStyleWindow(*((_QWORD *)a1 + 13), 2818LL) )
-          return 0LL;
-        v51 = (*(_DWORD *)(v42 + 28) >> 28) & 1 | v51 & 0xFFFFFFFE;
-        v51 = v51 & 0xFFFFFFFD | (v43 != 0 ? 2 : 0);
-        if ( v44 )
-        {
-          if ( !v43 )
-          {
-            UnsetRedirectedWindow(a1, 2);
-            SetOrClrWF(0LL, a1, 2818LL, 0LL);
-          }
-          goto LABEL_56;
-        }
-        if ( !v43 )
-        {
-LABEL_56:
-          ((void (__fastcall *)(struct tagWND *))(&grpVisCompStyleChangeAction)[v51])(a1);
-          if ( v5 )
-            xxxTurnOffCompositing(a1, 1LL);
-          *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL) = HIDWORD(v49) & 0xFDF7FFFF | *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL) & 0xF7888800;
-          v45 = HIDWORD(v49);
-          v46 = v49;
-          if ( (((unsigned int)v49 ^ HIDWORD(v49)) & 0x407000) != 0 )
-          {
-            xxxSetWindowPos(a1, 0LL, 0LL, 0LL, 0, 0, 55);
-            v45 = HIDWORD(v49);
-            v46 = v49;
-          }
-          if ( ((v46 ^ v45) & 0x80000) != 0 && v7 )
-            xxxRedrawWindow(a1, 0LL, 0LL, 1157);
-          LODWORD(v6) = v50;
-          goto LABEL_25;
-        }
-        if ( (int)SetRedirectedWindow(a1, 2) >= 0 )
-        {
-          SetOrClrWF(1LL, a1, 2818LL, 0LL);
-          v5 = 1;
-          goto LABEL_56;
-        }
-        return 0LL;
-      }
-      if ( (unsigned int)IsTopLevelOrLayeredChildWindow((__int64)a1) && !(unsigned int)IsTopLevelWindow(a1) )
-        v7 = 1;
-      UnsetLayeredWindow(a1, v7);
+      if ( v45 )
+        goto LABEL_86;
+      if ( (unsigned int)IsTopLevelOrLayeredChildWindow(a1) && !(unsigned int)IsTopLevelWindow(a1) )
+        v5 = 1;
+      UnsetLayeredWindow(a1);
     }
     else
     {
-      if ( !v41 )
-        goto LABEL_50;
-      if ( (int)xxxSetLayeredWindow((struct tagWND **)a1, 1, 0LL) < 0 )
+      if ( !v45 )
+        goto LABEL_86;
+      if ( (int)xxxSetLayeredWindow(a1, 1, 0LL) < 0 )
         return 0LL;
     }
-    v39 = HIDWORD(v49);
-    goto LABEL_50;
-  }
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v10);
-  v14 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-  {
-    v13 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    v14 = v13 & CurrentProcessWin32Process;
-  }
-  if ( v14 != *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) )
-  {
-    v13 = *(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL);
-    if ( *(_WORD *)(gpsi + 870LL) == *(_WORD *)(v13 + 2) && (v49 & 0x20) != 0 && (v49 & 0x2000000000LL) == 0 )
+    v43 = HIDWORD(v81);
+LABEL_86:
+    v46 = *((_QWORD *)a1 + 5);
+    if ( ((*(_DWORD *)(v46 + 24) & 0x200000) != 0) != ((v43 >> 21) & 1)
+      || (*(_DWORD *)(v46 + 24) & 0x200000) != 0 && (v43 & 0x2000000) != 0 )
     {
-      v48 = 5LL;
-LABEL_100:
-      UserSetLastError(v48);
+      v16 = 87LL;
+      goto LABEL_161;
+    }
+    v47 = v43 & 0x2000000;
+    v48 = *(_DWORD *)(v46 + 24) & 0x2000000;
+    if ( !v48 && v47 && GetStyleWindow(*((_QWORD *)a1 + 13), 2818LL) )
       return 0LL;
+    v80 = (*(_DWORD *)(v46 + 28) >> 28) & 1 | v78 & 0xFFFFFFFC | (v47 != 0 ? 2 : 0);
+    if ( v48 )
+    {
+      if ( !v47 )
+      {
+        UnsetRedirectedWindow(a1);
+        ClrWFNoDwmNotify(a1, 2818LL);
+      }
+      goto LABEL_98;
+    }
+    if ( !v47 )
+    {
+LABEL_98:
+      ((void (__fastcall *)(struct tagWND *))(&grpVisCompStyleChangeAction)[v80])(a1);
+      if ( v4 )
+        xxxTurnOffCompositing(a1, 1LL);
+      *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL) = HIDWORD(v81) & 0xFDF7FFFF | *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL) & 0xF7888800;
+      v49 = HIDWORD(v81);
+      v50 = v81;
+      if ( (((unsigned int)v81 ^ HIDWORD(v81)) & 0x407000) != 0 )
+      {
+        xxxSetWindowPos(a1, 0, 0, 55);
+        v49 = HIDWORD(v81);
+        v50 = v81;
+      }
+      if ( ((v50 ^ v49) & 0x80000) != 0 && v5 )
+        xxxRedrawWindow(a1);
+      goto LABEL_105;
+    }
+    if ( (int)SetRedirectedWindow(a1) >= 0 )
+    {
+      SetOrClrWF(1, (__int64)a1, 0xB02u, 0);
+      v4 = 1;
+      goto LABEL_98;
+    }
+    return 0LL;
+  }
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v12);
+  v15 = HIDWORD(v81);
+  if ( CurrentProcessWin32Process != *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL)
+    && *(_WORD *)(gpsi + 870LL) == *(_WORD *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 2LL)
+    && (v81 & 0x20) != 0
+    && (v81 & 0x2000000000LL) == 0 )
+  {
+    v16 = 5LL;
+LABEL_161:
+    UserSetLastError(v16);
+    return 0LL;
+  }
+  v17 = *((_QWORD *)a1 + 3);
+  v18 = 0LL;
+  v19 = *((_QWORD *)a1 + 13);
+  if ( v17 )
+  {
+    v20 = *(_QWORD *)(v17 + 8);
+    if ( v20 )
+      v18 = *(_QWORD *)(v20 + 24);
+  }
+  if ( v19 == v18 )
+  {
+    v15 = HIDWORD(v81) | 0x4000000;
+    HIDWORD(v81) |= 0x4000000u;
+  }
+  if ( (((unsigned int)v81 ^ v15) & 0x6000000) != 0 )
+  {
+    zzzLockDisplayAreaAndInvalidateDCCache(a1, 1LL, 0LL);
+    v19 = *((_QWORD *)a1 + 13);
+    v15 = HIDWORD(v81);
+  }
+  v21 = *((_QWORD *)a1 + 5);
+  v22 = *(_BYTE *)(v21 + 31);
+  if ( (v22 & 0x40) == 0 && (v22 & 0x20) != 0 && (*(_BYTE *)(v21 + 16) & 8) == 0 && (v15 & 0x20000000) == 0 )
+  {
+    v15 |= 0x20000000u;
+    HIDWORD(v81) = v15;
+  }
+  if ( v19 )
+  {
+    v23 = *((_QWORD *)a1 + 3);
+    v24 = 0LL;
+    if ( v23 )
+    {
+      v25 = *(_QWORD *)(v23 + 8);
+      if ( v25 )
+        v24 = *(_QWORD *)(v25 + 24);
+    }
+    if ( v19 == v24 && (*(_DWORD *)(v21 + 28) & 0x30000000) == 0x10000000 )
+      v5 = 1;
+  }
+  if ( v13 )
+  {
+    for ( i = a1; ; i = (struct tagWND *)*((_QWORD *)i + 13) )
+    {
+      v27 = *((_QWORD *)i + 5);
+      if ( (*(_BYTE *)(v27 + 31) & 0x10) == 0 && (*(_BYTE *)(v27 + 25) & 8) == 0 )
+        break;
+      if ( (*(_WORD *)(v27 + 42) & 0x2FFF) == 0x29D )
+      {
+        v28 = 1;
+        goto LABEL_43;
+      }
     }
   }
-  if ( *((_QWORD *)a1 + 13) == GetDesktopWindow(a1, v13) )
-  {
-    v15 |= 0x4000000u;
-    HIDWORD(v49) = v15;
-  }
-  v16 = 1;
-  if ( (((unsigned int)v49 ^ v15) & 0x6000000) != 0 )
-  {
-    zzzLockDisplayAreaAndInvalidateDCCache((__int64)a1, 1, 0LL);
-    v15 = HIDWORD(v49);
-  }
-  v17 = *((_QWORD *)a1 + 5);
-  if ( (*(_BYTE *)(v17 + 31) & 0x60) == 0x20 && (*(_BYTE *)(v17 + 16) & 8) == 0 && (v15 & 0x20000000) == 0 )
-    HIDWORD(v49) = v15 | 0x20000000;
-  v18 = VisWindow(a1);
-  if ( !v11 || !(unsigned int)IsWindowVisible((__int64)a1) )
-    v16 = 0;
-  *(_DWORD *)(v20 + 28) = v19;
-  v21 = *((_QWORD *)a1 + 5);
-  v22 = *(_DWORD *)(v21 + 24);
-  if ( (*(_DWORD *)(v21 + 28) & 0x10000000) != 0 )
-    v23 = v22 | 0x800;
+  v28 = 0;
+LABEL_43:
+  *(_DWORD *)(v21 + 28) = v15;
+  v29 = *((_QWORD *)a1 + 5);
+  v30 = *(_DWORD *)(v29 + 24);
+  if ( (*(_DWORD *)(v29 + 28) & 0x10000000) != 0 )
+    v31 = v30 | 0x800;
   else
-    v23 = v22 & 0xFFFFF7FF;
-  *(_DWORD *)(v21 + 24) = v23;
-  v24 = VisWindow(a1);
-  v26 = *((_QWORD *)a1 + 5);
-  v51 = v51 & 0xFFFFFFFE | (v25 >> 28) & 1;
-  v27 = *((_QWORD *)a1 + 5);
-  v51 = *(_BYTE *)(v26 + 27) & 2 | v51 & 0xFFFFFFFD;
-  if ( (v28 == 64) != ((*(_BYTE *)(v27 + 31) & 0xC0) == 64) )
+    v31 = v30 & 0xFFFFF7FF;
+  *(_DWORD *)(v29 + 24) = v31;
+  v32 = *((_QWORD *)a1 + 13);
+  v33 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 28LL);
+  if ( !v32 )
+    goto LABEL_52;
+  v34 = *((_QWORD *)a1 + 3);
+  v35 = 0LL;
+  if ( v34 )
   {
-    *(_QWORD *)(v27 + 320) = 0LL;
-    *(_BYTE *)(*((_QWORD *)a1 + 5) + 16LL) &= ~1u;
-    UnlockWndMenuWorker(a1, 0);
+    v36 = *(_QWORD *)(v34 + 8);
+    if ( v36 )
+      v35 = *(_QWORD *)(v36 + 24);
   }
-  ((void (__fastcall *)(struct tagWND *))(&grpVisCompStyleChangeAction)[v51])(a1);
-  if ( v18 != v24 )
+  if ( v32 != v35 || (v37 = 1, (v33 & 0x30000000) != 0x10000000) )
+LABEL_52:
+    v37 = 0;
+  v79 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 27LL) & 2 | v78 & 0xFFFFFFFC | (v33 >> 28) & 1;
+  VerifyChildMenu(a1);
+  ((void (__fastcall *)(struct tagWND *))(&grpVisCompStyleChangeAction)[v79])(a1);
+  if ( v5 != v37 )
   {
-    if ( v18 )
+    if ( v5 )
     {
-      DecVisWindows(a1);
+      DecVisWindows((__int64)a1);
     }
     else
     {
-      IncVisWindows(a1);
+      IncVisWindows((__int64)a1);
       if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 8) == 0 )
-        ComposeWindowIfNeeded(a1, 0);
+        ComposeWindowIfNeeded((__int64)a1, 0);
     }
   }
-  if ( IsTrayWindow(a1, 1) && v16 != (unsigned int)IsWindowVisible((__int64)a1) )
+  if ( (unsigned int)IsTrayWindow(a1) )
   {
-    v36 = 22;
-    if ( !v16 )
-      v36 = 17;
-    PostIAMShellHookMessage(v36);
+    for ( j = a1; ; j = (struct tagWND *)*((_QWORD *)j + 13) )
+    {
+      v39 = *((_QWORD *)j + 5);
+      if ( (*(_BYTE *)(v39 + 31) & 0x10) == 0 && (*(_BYTE *)(v39 + 25) & 8) == 0 )
+      {
+        v40 = 0;
+        goto LABEL_66;
+      }
+      if ( (*(_WORD *)(v39 + 42) & 0x2FFF) == 0x29D )
+        break;
+    }
+    v40 = 1;
+LABEL_66:
+    if ( v28 != v40 )
+    {
+      v41 = *(_QWORD *)a1;
+      v42 = *(_QWORD *)(gptiCurrent + 456LL);
+      if ( v28 )
+        PostIAMShellHookMessageEx(v42, 0x16u, v41);
+      else
+        PostIAMShellHookMessageEx(v42, 0x11u, v41);
+    }
   }
-LABEL_25:
-  if ( (unsigned int)NeedsWindowEdge(
-                       *(_DWORD *)(*((_QWORD *)a1 + 5) + 28LL),
-                       *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL),
-                       *(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) )
-    v31 = v29 | 1;
+LABEL_105:
+  v51 = *((_QWORD *)a1 + 5);
+  v52 = *(_DWORD *)(v51 + 24);
+  v53 = *(_DWORD *)(v51 + 28);
+  if ( (v52 & 1) != 0
+    || (v52 & 0x20000) == 0
+    && ((v53 & 0x40000) != 0
+     || (v54 = v53 & 0xC00000, v54 == 0x400000)
+     || v54 == 12582912 && (*(_BYTE *)(v51 + 21) & 2) != 0) )
+  {
+    *(_BYTE *)(v51 + 25) = BYTE1(v52) | 1;
+  }
   else
-    v31 = v29 & 0xFE;
-  *v30 = v31;
-  if ( (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    DirtyVisRgnTrackers(a1);
-    v32 = *(_QWORD *)a1;
-    v34 = (void *)ReferenceDwmApiPort(v33);
-    DwmAsyncChildStyleChange(v34, v32, v6, SHIDWORD(v49));
-    WindowMargins::CheckForChanges(a1, 1LL);
+    ClrWFNoDwmNotify(a1, 2305LL);
   }
-  if ( v11 == IsTrayWindow(a1, 1) )
-    goto LABEL_30;
-  if ( v11 )
+  if ( !(unsigned int)IsWindowDesktopComposed(a1) )
+    goto LABEL_150;
+  Flink = (struct _LIST_ENTRY *)gptiCurrent;
+  v57 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( v57 )
   {
-    v47 = 18;
+    Flink = **(struct _LIST_ENTRY ***)(v57 + 8);
+    if ( ((__int64)Flink[4].Flink & 1) != 0 )
+    {
+      Flink = (struct _LIST_ENTRY *)*(unsigned int *)(*((_QWORD *)a1 + 5) + 232LL);
+      if ( ((unsigned __int8)Flink & 0x10) != 0 )
+      {
+        v58 = (struct _LIST_ENTRY *)*((_QWORD *)a1 + 13);
+        Flink = v58;
+        if ( v58 )
+        {
+          while ( 1 )
+          {
+            Blink = Flink[2].Blink;
+            Blink_high = HIBYTE(Blink[1].Blink);
+            if ( (Blink_high & 0x10) == 0 || (Blink_high & 0x20) != 0 && Flink != v58 )
+              break;
+            if ( (WORD1(Blink[2].Blink) & 0x2FFF) != 0x29D )
+            {
+              Flink = Flink[6].Blink;
+              if ( Flink )
+                continue;
+            }
+            goto LABEL_123;
+          }
+        }
+        else
+        {
+LABEL_123:
+          EtwTraceDwmVisRgnDirty(*(_QWORD *)a1, v58->Flink);
+          v60 = *((_QWORD *)a1 + 13);
+          if ( !v60 )
+            goto LABEL_129;
+          v61 = *((_QWORD *)a1 + 3);
+          v62 = 0LL;
+          if ( v61 )
+          {
+            v63 = *(_QWORD *)(v61 + 8);
+            if ( v63 )
+              v62 = *(_QWORD *)(v63 + 24);
+          }
+          if ( v60 == v62 )
+          {
+            v64 = 1;
+          }
+          else
+          {
+LABEL_129:
+            v65 = *((_QWORD *)a1 + 3);
+            v64 = 0;
+            v66 = 0LL;
+            if ( v65 )
+            {
+              v67 = *(_QWORD *)(v65 + 8);
+              if ( v67 )
+                v66 = *(struct tagWND **)(v67 + 24);
+            }
+            if ( a1 != v66 && (HIBYTE(v58[2].Blink[1].Blink) & 2) != 0 )
+            {
+              v84 = 0LL;
+              if ( CWindowProp::GetProp<CVisRgnTrackerProp>((__int64)v58, (__int64 *)&v84) )
+                CVisRgnTrackerProp::MarkDirty(v84);
+            }
+          }
+          Prop = RealGetProp(*((_QWORD *)a1 + 18), LOWORD(WPP_MAIN_CB.Queue.Wcb.CurrentIrp), 1LL);
+          if ( Prop && !*(_BYTE *)(Prop + 65) )
+          {
+            *(_BYTE *)(Prop + 65) = 1;
+            Blink = &CVisRgnTrackerProp::s_DirtyList;
+            Flink = CVisRgnTrackerProp::s_DirtyList.Flink;
+            v69 = (struct _LIST_ENTRY *)(Prop + 16);
+            if ( CVisRgnTrackerProp::s_DirtyList.Flink->Blink != &CVisRgnTrackerProp::s_DirtyList )
+              __fastfail(3u);
+            v69->Flink = CVisRgnTrackerProp::s_DirtyList.Flink;
+            v69->Blink = &CVisRgnTrackerProp::s_DirtyList;
+            Flink->Blink = v69;
+            CVisRgnTrackerProp::s_DirtyList.Flink = v69;
+          }
+          for ( k = *((_QWORD *)a1 + 14); k; k = *(_QWORD *)(k + 88) )
+            MarkDirtyWorker((struct tagWND *)k);
+          if ( !v64 )
+          {
+            for ( m = *((_QWORD *)a1 + 11); m; m = *(_QWORD *)(m + 88) )
+            {
+              Flink = (struct _LIST_ENTRY *)*(unsigned __int8 *)(*(_QWORD *)(m + 40) + 31LL);
+              LOBYTE(Flink) = (unsigned __int8)Flink & 0x14;
+              if ( (_BYTE)Flink == 20 )
+                MarkDirtyWorker((struct tagWND *)m);
+            }
+          }
+        }
+      }
+    }
+  }
+  v72 = HIDWORD(v81);
+  v73 = *(_QWORD *)a1;
+  v74 = (void *)ReferenceDwmApiPort(Flink, Blink);
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
+  if ( v74 )
+  {
+    v91 = v73;
+    v75 = v82;
+    v92 = v82;
+    v89 = 0;
+    v86 = 0x8000;
+    v87 = 0LL;
+    v85 = 3932180;
+    v88 = 0LL;
+    v90 = 1073741846;
+    v93 = v72;
+    LpcRequestPort(v74, &v85);
+    ObfDereferenceObject(v74);
   }
   else
   {
-    if ( !(unsigned int)IsWindowVisible((__int64)a1) )
-      goto LABEL_30;
-    v47 = 17;
+LABEL_150:
+    v75 = v82;
   }
-  PostIAMShellHookMessage(v47);
-LABEL_30:
+  v76 = IsTrayWindow(a1);
+  if ( v83 == v76 )
+    goto LABEL_157;
+  if ( v83 )
+  {
+    v77 = 18;
+LABEL_156:
+    PostIAMShellHookMessageEx(*(_QWORD *)(gptiCurrent + 456LL), v77, *(_QWORD *)a1);
+    goto LABEL_157;
+  }
+  if ( (unsigned int)IsWindowVisible(a1) )
+  {
+    v77 = 17;
+    goto LABEL_156;
+  }
+LABEL_157:
   if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) != 0 )
-    xxxSendMessage(a1, 125LL, (int)v6, &v49);
-  return (unsigned int)v49;
+    xxxSendMessage((unsigned __int64)a1, 0x7Du, v75, (struct _LARGE_STRING *)&v81);
+  return (unsigned int)v81;
 }

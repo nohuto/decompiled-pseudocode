@@ -1,19 +1,19 @@
 /*
- * XREFs of BiCreateEfiEntry @ 0x140A1F234
+ * XREFs of BiCreateEfiEntry @ 0x1409712D0
  * Callers:
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
- *     BiExportBcdObjects @ 0x140A1F9F4 (BiExportBcdObjects.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x140971A98 (BiExportBcdObjects.c)
  * Callees:
- *     BiSetRegistryValue @ 0x1408123B4 (BiSetRegistryValue.c)
- *     BcdOpenObject @ 0x140812B74 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140812D00 (BcdCloseObject.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiAddBootEntry @ 0x140A1E0A0 (BiAddBootEntry.c)
- *     BiCreateBootEntry @ 0x140A1EE84 (BiCreateBootEntry.c)
- *     BiGetSavedBootEntry @ 0x140A20438 (BiGetSavedBootEntry.c)
- *     BiUpdateEfiEntry @ 0x140A210D4 (BiUpdateEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A212A0 (BiUpdateObjectReferenceInEfiEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BcdOpenObject @ 0x140783A40 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783BCC (BcdCloseObject.c)
+ *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiAddBootEntry @ 0x140970138 (BiAddBootEntry.c)
+ *     BiCreateBootEntry @ 0x140970F20 (BiCreateBootEntry.c)
+ *     BiGetSavedBootEntry @ 0x1409724CC (BiGetSavedBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x14097316C (BiUpdateEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140973334 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
   v6 = (__int64)v13;
   SavedBootEntry = v5;
   if ( v5 < 0 )
-    goto LABEL_16;
+    goto LABEL_17;
   if ( (*(_DWORD *)(a2 + 48) & 2) == 0 )
   {
     SavedBootEntry = BiCreateBootEntry(v13, &P);
@@ -52,54 +52,52 @@ __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
         *(_DWORD *)(a2 + 48) |= 0x21u;
         *(_DWORD *)(a2 + 32) = v9;
         *(_QWORD *)(a2 + 40) = v3;
-        SavedBootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", (__int64)L"Description", 3u, v3, v3[1]);
+        SavedBootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", L"Description", 3u, v3, v3[1]);
         if ( SavedBootEntry >= 0 )
         {
           *(_DWORD *)(a2 + 48) |= 2u;
+LABEL_14:
+          if ( SavedBootEntry >= 0 )
+            goto LABEL_18;
           goto LABEL_17;
         }
       }
-      goto LABEL_16;
+      goto LABEL_17;
     }
-    goto LABEL_15;
+LABEL_16:
+    v3 = (ULONG *)P;
+    goto LABEL_17;
   }
   SavedBootEntry = BiGetSavedBootEntry(v13, &P);
   if ( SavedBootEntry < 0 )
-  {
-LABEL_15:
-    v3 = (ULONG *)P;
     goto LABEL_16;
-  }
   v3 = (ULONG *)P;
   if ( (*(_DWORD *)(a2 + 48) & 8) == 0 )
   {
     SavedBootEntry = BiUpdateObjectReferenceInEfiEntry(P, v6);
+    if ( SavedBootEntry < 0 )
+      goto LABEL_17;
+    *(_DWORD *)(a2 + 48) |= 0x20u;
+  }
+  SavedBootEntry = BiAddBootEntry((__int64)v3, (__int64)&v11);
+  if ( SavedBootEntry >= 0 )
+  {
+    BiLogMessage(2LL, L"Created boot entry 0x%x using cached variable", v11);
+    v3[2] = v11;
+    v8 = v11;
+    *(_DWORD *)(a2 + 48) |= 1u;
+    *(_DWORD *)(a2 + 32) = v8;
+    *(_QWORD *)(a2 + 40) = v3;
+    SavedBootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", L"Description", 3u, v3, v3[1]);
     if ( SavedBootEntry >= 0 )
     {
-      *(_DWORD *)(a2 + 48) |= 0x20u;
-      goto LABEL_7;
+      SavedBootEntry = BiUpdateEfiEntry(a1, a2);
+      goto LABEL_14;
     }
-LABEL_16:
-    BiLogMessage(4LL, L"BiCreateEfiEntry failed %x", (unsigned int)SavedBootEntry);
-    goto LABEL_17;
   }
-LABEL_7:
-  SavedBootEntry = BiAddBootEntry((__int64)v3, (__int64)&v11);
-  if ( SavedBootEntry < 0 )
-    goto LABEL_16;
-  BiLogMessage(2LL, L"Created boot entry 0x%x using cached variable", v11);
-  v3[2] = v11;
-  v8 = v11;
-  *(_DWORD *)(a2 + 48) |= 1u;
-  *(_DWORD *)(a2 + 32) = v8;
-  *(_QWORD *)(a2 + 40) = v3;
-  SavedBootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", (__int64)L"Description", 3u, v3, v3[1]);
-  if ( SavedBootEntry < 0 )
-    goto LABEL_16;
-  SavedBootEntry = BiUpdateEfiEntry(a1, a2);
-  if ( SavedBootEntry < 0 )
-    goto LABEL_16;
 LABEL_17:
+  BiLogMessage(4LL, L"BiCreateEfiEntry failed %x", (unsigned int)SavedBootEntry);
+LABEL_18:
   if ( v6 )
     BcdCloseObject(v6);
   if ( (*(_DWORD *)(a2 + 48) & 1) == 0 && v3 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceLocation @ 0x140702094
+ * XREFs of PiDevCfgConfigureDeviceLocation @ 0x140702074
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceClass @ 0x1408316F4 (PpDevCfgProcessDeviceClass.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceClass @ 0x1408316D4 (PpDevCfgProcessDeviceClass.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x14015D998 (PnpDuplicateUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     PnpDuplicateUnicodeString @ 0x14015D9B8 (PnpDuplicateUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     NtQueryKey @ 0x14063FBB0 (NtQueryKey.c)
- *     IopReplaceSeperatorWithPound @ 0x1406D9348 (IopReplaceSeperatorWithPound.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C28 (PiDevCfgConfigureDeviceKeys.c)
- *     PnpOpenFirstMatchingSubKey @ 0x140827F34 (PnpOpenFirstMatchingSubKey.c)
+ *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
+ *     IopReplaceSeperatorWithPound @ 0x1406D9328 (IopReplaceSeperatorWithPound.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C08 (PiDevCfgConfigureDeviceKeys.c)
+ *     PnpOpenFirstMatchingSubKey @ 0x140827F14 (PnpOpenFirstMatchingSubKey.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)

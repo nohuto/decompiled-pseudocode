@@ -3,8 +3,8 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x14073A0B0 (IoCreateDriver.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
  *     WmipInitializeRegistration @ 0x1409D45A0 (WmipInitializeRegistration.c)
  *     WmipInitializeAllocs @ 0x1409DE458 (WmipInitializeAllocs.c)
  *     WmipRegisterFirmwareProviders @ 0x1409DEA74 (WmipRegisterFirmwareProviders.c)

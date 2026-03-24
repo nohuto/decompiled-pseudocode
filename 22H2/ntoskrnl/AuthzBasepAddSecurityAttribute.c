@@ -1,40 +1,40 @@
 /*
- * XREFs of AuthzBasepAddSecurityAttribute @ 0x140224C64
+ * XREFs of AuthzBasepAddSecurityAttribute @ 0x140250284
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepReplaceSecurityAttribute @ 0x140225AC4 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140250214 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeValues @ 0x140225050 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepAllocateSecurityAttribute @ 0x140225650 (AuthzBasepAllocateSecurityAttribute.c)
- *     AuthzBasepAddSecurityAttributeToLists @ 0x140225A78 (AuthzBasepAddSecurityAttributeToLists.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x140250330 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140250680 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1402D6B00 (AuthzBasepAllocateSecurityAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepAddSecurityAttribute(__int64 a1, __int64 a2)
 {
   bool v2; // zf
-  __int64 SecurityAttribute; // rax
+  const UNICODE_STRING *SecurityAttribute; // rax
   __int64 v6; // r9
   __int64 v7; // r11
   __int64 v8; // rax
   __int64 v9; // r11
-  UNICODE_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  UNICODE_STRING v11; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = *(_DWORD *)(a2 + 24) == 0;
-  SourceString = 0LL;
+  v11 = 0LL;
   if ( v2 )
     return 3221225485LL;
-  SourceString.Length = *(_WORD *)a2;
-  SourceString.MaximumLength = SourceString.Length;
-  SourceString.Buffer = *(wchar_t **)(a2 + 8);
-  SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, &SourceString);
-  v7 = SecurityAttribute;
+  v11.Length = *(_WORD *)a2;
+  v11.MaximumLength = v11.Length;
+  v11.Buffer = *(wchar_t **)(a2 + 8);
+  SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, &v11);
+  v7 = (__int64)SecurityAttribute;
   if ( SecurityAttribute )
   {
-    *(_DWORD *)(SecurityAttribute + 56) &= ~4u;
+    LODWORD(SecurityAttribute[3].Buffer) &= ~4u;
     goto LABEL_5;
   }
-  v8 = AuthzBasepAllocateSecurityAttribute(&SourceString);
+  v8 = AuthzBasepAllocateSecurityAttribute(&v11);
   v7 = v8;
   if ( v8 )
   {

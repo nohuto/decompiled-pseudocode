@@ -1,30 +1,30 @@
 /*
- * XREFs of PfpQueryFileExtentsRequest @ 0x14097E5A0
+ * XREFs of PfpQueryFileExtentsRequest @ 0x1408DFD5C
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075DE28 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ZwFsControlFile @ 0x14041ADC0 (ZwFsControlFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041AFC0 (ZwQueryVolumeInformationFile.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PfpPrefetchSharedDeref @ 0x140684A38 (PfpPrefetchSharedDeref.c)
- *     PfpPrefetchSharedCleanup @ 0x140684B04 (PfpPrefetchSharedCleanup.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PfpPrefetchSharedInitialize @ 0x14074C2E4 (PfpPrefetchSharedInitialize.c)
- *     PfpPrefetchSharedStart @ 0x14074C32C (PfpPrefetchSharedStart.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ZwFsControlFile @ 0x1403FA140 (ZwFsControlFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FA340 (ZwQueryVolumeInformationFile.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     PfpPrefetchSharedDeref @ 0x14070BCAC (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedCleanup @ 0x14070BCDC (PfpPrefetchSharedCleanup.c)
+ *     PfpPrefetchSharedStart @ 0x14070BF54 (PfpPrefetchSharedStart.c)
+ *     PfpPrefetchSharedInitialize @ 0x14070C0A0 (PfpPrefetchSharedInitialize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpQueryFileExtentsRequest(__int64 a1, char a2, _DWORD *a3)
 {
-  void *Pool2; // r14
+  PVOID PoolWithTag; // r14
   _DWORD *v6; // r12
   ULONG_PTR v7; // rsi
   int inited; // ebx
@@ -34,23 +34,23 @@ __int64 __fastcall PfpQueryFileExtentsRequest(__int64 a1, char a2, _DWORD *a3)
   unsigned int v12; // ebx
   char *v13; // xmm0_8
   __int64 v14; // r13
-  __int64 v15; // rax
+  PVOID v15; // rax
   ULONG OutputBufferLength; // r15d
   NTSTATUS v17; // eax
-  ULONG Information; // r13d
+  unsigned int Information; // r13d
   _DWORD *OutputBuffer; // rax
   NTSTATUS v20; // eax
   NTSTATUS v21; // eax
   __int64 v22; // rax
   int v25; // [rsp+54h] [rbp-144h]
-  ULONG v26; // [rsp+70h] [rbp-128h]
+  unsigned int v26; // [rsp+70h] [rbp-128h]
   __int64 FileInformation; // [rsp+78h] [rbp-120h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-118h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp-108h] BYREF
   void *Src[2]; // [rsp+A0h] [rbp-F8h]
   __m128i v31; // [rsp+B0h] [rbp-E8h]
   volatile void *Address[2]; // [rsp+C0h] [rbp-D8h]
-  ULONG v33[2]; // [rsp+D0h] [rbp-C8h]
+  SIZE_T NumberOfBytes; // [rsp+D0h] [rbp-C8h]
   __int64 InputBuffer; // [rsp+D8h] [rbp-C0h] BYREF
   __int64 v35; // [rsp+E0h] [rbp-B8h]
   _DWORD *v36; // [rsp+E8h] [rbp-B0h]
@@ -71,7 +71,7 @@ __int64 __fastcall PfpQueryFileExtentsRequest(__int64 a1, char a2, _DWORD *a3)
   FsInformation = 0LL;
   v44 = 0LL;
   DestinationString = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v6 = 0LL;
   v7 = 0LL;
   FileHandle = 0LL;
@@ -95,7 +95,7 @@ LABEL_2:
   v11 = *(__m128i *)(v9 + 16);
   v31 = v11;
   *(_OWORD *)Address = *(_OWORD *)(v9 + 32);
-  *(_QWORD *)v33 = *(_QWORD *)(v9 + 48);
+  NumberOfBytes = *(_QWORD *)(v9 + 48);
   if ( _mm_cvtsi128_si32(*(__m128i *)Src) != 2 )
   {
     inited = -1073741735;
@@ -104,8 +104,8 @@ LABEL_2:
   v12 = _mm_cvtsi128_si32(v11);
   if ( (v12 & 1) != 0 || v12 - 1 > 0xFFFFF || (v11.m128i_i8[4] & 1) != 0 || !v11.m128i_i32[1] || v11.m128i_i32[1] >= v12 )
     goto LABEL_57;
-  Pool2 = (void *)ExAllocatePool2(256LL, v12, 1883465296LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x70436650u);
+  if ( !PoolWithTag )
   {
 LABEL_13:
     inited = -1073741670;
@@ -120,34 +120,34 @@ LABEL_13:
     if ( (unsigned __int64)&v13[v12] > 0x7FFFFFFF0000LL || &v13[v12] < v13 )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(Pool2, Src[1], v12);
-  if ( *((_WORD *)Pool2 + (v12 >> 1) - 1)
-    || (v14 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v11, 4)) >> 1, *((_WORD *)Pool2 + v14) != 92) )
+  memmove(PoolWithTag, Src[1], v12);
+  if ( *((_WORD *)PoolWithTag + (v12 >> 1) - 1)
+    || (v14 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v11, 4)) >> 1, *((_WORD *)PoolWithTag + v14) != 92) )
   {
 LABEL_57:
     inited = -1073741811;
     goto LABEL_58;
   }
-  v15 = ExAllocatePool2(64LL, 144LL, 1129539152LL);
-  v7 = v15;
+  v15 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x90uLL, 0x43536650u);
+  v7 = (ULONG_PTR)v15;
   if ( !v15 )
     goto LABEL_13;
-  PfpPrefetchSharedInitialize(v15);
+  PfpPrefetchSharedInitialize((__int64)v15);
   *(_DWORD *)(v7 + 56) = 15;
   *(_DWORD *)(v7 + 60) = 150;
   inited = PfpPrefetchSharedStart(v7);
   if ( inited >= 0 )
   {
-    *((_WORD *)Pool2 + v14) = 0;
-    inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)Pool2);
+    *((_WORD *)PoolWithTag + v14) = 0;
+    inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)PoolWithTag);
     if ( inited >= 0 )
     {
       OutputBufferLength = 32;
       inited = PfpOpenHandleCreate((__int64)&FileHandle, v7, (__int64)&DestinationString, 0LL, 1048960, 0x20u, 0, 0LL);
       if ( inited >= 0 )
       {
-        *((_WORD *)Pool2 + v14) = 92;
-        inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)Pool2);
+        *((_WORD *)PoolWithTag + v14) = 92;
+        inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)PoolWithTag);
         if ( inited >= 0 )
         {
           inited = PfpOpenHandleCreate(
@@ -169,21 +169,21 @@ LABEL_57:
                     FileFsVolumeInformation);
             inited = v17;
             if ( v17 == 259 )
-              KeBugCheckEx(0x191u, 0xF93uLL, 0LL, 0LL, 0LL);
+              KeBugCheckEx(0x191u, 0xF72uLL, 0LL, 0LL, 0LL);
             if ( (v17 & 0xC0000000) != 0xC0000000 )
             {
               LODWORD(Address[0]) = DWORD2(FsInformation);
-              Information = v33[0];
-              v26 = v33[0];
-              if ( v33[0] > 0x20 )
-                OutputBufferLength = v33[0];
+              Information = NumberOfBytes;
+              v26 = NumberOfBytes;
+              if ( (unsigned int)NumberOfBytes > 0x20 )
+                OutputBufferLength = NumberOfBytes;
               while ( 1 )
               {
                 if ( OutputBufferLength > 0xA00000 )
                   goto LABEL_2;
                 if ( v6 )
                   ExFreePoolWithTag(v6, 0);
-                OutputBuffer = (_DWORD *)ExAllocatePool2(256LL, OutputBufferLength, 1699112528LL);
+                OutputBuffer = ExAllocatePoolWithTag(PagedPool, OutputBufferLength, 0x65466650u);
                 v6 = OutputBuffer;
                 if ( !OutputBuffer )
                   goto LABEL_13;
@@ -200,7 +200,7 @@ LABEL_57:
                         OutputBufferLength);
                 inited = v20;
                 if ( v20 == 259 )
-                  KeBugCheckEx(0x191u, 0xFD1uLL, 0LL, 0LL, 0LL);
+                  KeBugCheckEx(0x191u, 0xFB0uLL, 0LL, 0LL, 0LL);
                 if ( v20 >= 0 )
                   break;
                 if ( v20 == -1073741807 )
@@ -210,7 +210,7 @@ LABEL_57:
                 OutputBufferLength *= 2;
               }
               Information = IoStatusBlock.Information;
-              v33[0] = IoStatusBlock.Information;
+              LODWORD(NumberOfBytes) = IoStatusBlock.Information;
               if ( *v6 )
               {
                 inited = 0;
@@ -219,7 +219,7 @@ LABEL_47:
                 *(_OWORD *)v22 = v10;
                 *(__m128i *)(v22 + 16) = v11;
                 *(_OWORD *)(v22 + 32) = *(_OWORD *)Address;
-                *(_QWORD *)(v22 + 48) = *(_QWORD *)v33;
+                *(_QWORD *)(v22 + 48) = NumberOfBytes;
                 if ( inited == -1073741807 )
                 {
                   v25 = 0;
@@ -242,7 +242,7 @@ LABEL_43:
               v21 = ZwQueryInformationFile(v37, &IoStatusBlock, &FileInformation, 8u, FileInternalInformation);
               inited = v21;
               if ( v21 == 259 )
-                KeBugCheckEx(0x191u, 0x100CuLL, 0LL, 0LL, 0LL);
+                KeBugCheckEx(0x191u, 0xFEBuLL, 0LL, 0LL, 0LL);
               if ( v21 >= 0 )
               {
                 v31.m128i_i64[1] = FileInformation;
@@ -260,16 +260,16 @@ LABEL_58:
   if ( v25 && (inited == -1073741807 || inited == -1073741789) )
     inited = -1073741823;
   if ( (v39 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose((__int64)&v37, v7);
+    PfpOpenHandleClose(&v37, v7);
   if ( (v42 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose((__int64)&FileHandle, v7);
+    PfpOpenHandleClose(&FileHandle, v7);
   if ( v7 )
   {
     PfpPrefetchSharedCleanup(v7);
     PfpPrefetchSharedDeref((volatile signed __int64 *)v7);
   }
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   return (unsigned int)inited;

@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C00371C8
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C0036F88
  * Callers:
- *     DriverCleanup @ 0x1C0077510 (DriverCleanup.c)
+ *     DriverCleanup @ 0x1C0076110 (DriverCleanup.c)
  * Callees:
  *     <none>
  */

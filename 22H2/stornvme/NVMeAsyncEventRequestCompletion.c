@@ -1,165 +1,127 @@
 /*
- * XREFs of NVMeAsyncEventRequestCompletion @ 0x1C001BA70
+ * XREFs of NVMeAsyncEventRequestCompletion @ 0x1C0017780
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     GetNamespaceId @ 0x1C0007BE0 (GetNamespaceId.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     GetLocalCommand @ 0x1C0009D40 (GetLocalCommand.c)
- *     IsNVMeControllerOnFatalError @ 0x1C000C0FC (IsNVMeControllerOnFatalError.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeControllerAsyncReset @ 0x1C000CB60 (NVMeControllerAsyncReset.c)
- *     BuildGetLogPageCommand @ 0x1C0010E84 (BuildGetLogPageCommand.c)
- *     NVMeQueueWorkItem @ 0x1C0016BF8 (NVMeQueueWorkItem.c)
- *     NVMeIssueAsyncEventCommand @ 0x1C001FBC4 (NVMeIssueAsyncEventCommand.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     IsNVMeControllerOnFatalError @ 0x1C0005E98 (IsNVMeControllerOnFatalError.c)
+ *     GetLocalCommand @ 0x1C000B8A8 (GetLocalCommand.c)
+ *     NVMeControllerAsyncReset @ 0x1C000D560 (NVMeControllerAsyncReset.c)
+ *     NVMeQueueWorkItem @ 0x1C001522C (NVMeQueueWorkItem.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001A3AC (NVMeIssueAsyncEventCommand.c)
  */
 
 char __fastcall NVMeAsyncEventRequestCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 SrbExtension; // rax
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rbp
-  __int64 v8; // r8
-  _BYTE *v9; // r15
-  char v10; // r11
-  unsigned int v11; // esi
+  __int64 SrbExtension; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rsi
+  __int64 v9; // r8
+  unsigned int v10; // r11d
+  _DWORD *v11; // r14
   int v12; // ecx
-  char v13; // al
-  __int64 v14; // rcx
-  char v15; // cl
-  char v16; // cl
+  unsigned int v13; // r15d
+  char v14; // al
+  __int64 v15; // rcx
+  __int64 v16; // r9
+  __int64 v17; // r9
+  __int64 v18; // r9
 
   SrbExtension = GetSrbExtension(a2);
-  v7 = SrbExtension;
-  if ( !v8 || *(_BYTE *)(v6 + 3) == 14 || (*(_DWORD *)(a1 + 32) & 0xE) != 0 )
+  v8 = SrbExtension;
+  if ( !v9
+    || (LOBYTE(SrbExtension) = *(_BYTE *)(v7 + 3), (_BYTE)SrbExtension == 14)
+    || (*(_DWORD *)(a1 + 24) & 0xE) != 0
+    || (_BYTE)SrbExtension != 1 )
   {
-    *(_BYTE *)(SrbExtension + 4253) |= 8u;
+    *(_BYTE *)(v8 + 4253) |= 8u;
     return SrbExtension;
   }
-  SrbExtension = GetLocalCommand(a1, v6);
-  v9 = (_BYTE *)SrbExtension;
-  if ( v10 != 1 )
-  {
-    *(_BYTE *)(v7 + 4253) |= 8u;
-    if ( *(_BYTE *)(a1 + 22) )
-      LOBYTE(SrbExtension) = StorPortExtendedFunction(86LL, a1, 0LL);
-    goto LABEL_53;
-  }
-  v11 = 0;
+  SrbExtension = GetLocalCommand(a1, a2);
+  v11 = (_DWORD *)SrbExtension;
   v12 = *(_DWORD *)a3 & 7;
+  if ( !v12 )
+  {
+    v13 = 64;
+    StorPortExtendedFunction(86LL, a1, 0LL, v10);
+    v14 = *(_BYTE *)(a3 + 1);
+    if ( v14 == 1 )
+    {
+      v15 = a1;
+    }
+    else
+    {
+      if ( v14 != 3 || !IsNVMeControllerOnFatalError(a1) )
+        goto LABEL_35;
+      v15 = a1;
+      if ( *(_QWORD *)(a1 + 3992) )
+      {
+        NVMeQueueWorkItem(a1, (__int64)NVMeControllerPanicResetActionWorkItem, 0LL, v16);
+        goto LABEL_35;
+      }
+    }
+    NVMeControllerAsyncReset(v15, 0, 0LL, 0LL);
+LABEL_35:
+    LOBYTE(SrbExtension) = NVMeAllocateDmaBuffer(a1, v13);
+    goto LABEL_26;
+  }
+  if ( v12 == v10 )
+  {
+    v13 = 512;
+    goto LABEL_33;
+  }
   switch ( v12 )
   {
-    case 0:
-      v11 = 64;
-      if ( *(_BYTE *)(a1 + 22) )
-        StorPortExtendedFunction(86LL, a1, 0LL);
-      v13 = *(_BYTE *)(a3 + 1);
-      if ( v13 == 1 )
+    case 2:
+      LOBYTE(SrbExtension) = *(_BYTE *)(a3 + 1);
+      if ( (_BYTE)SrbExtension )
       {
-        v14 = a1;
+        if ( (_BYTE)SrbExtension == (_BYTE)v10 )
+        {
+          v13 = 512;
+          v17 = 0LL;
+LABEL_34:
+          StorPortExtendedFunction(86LL, a1, 0LL, v17);
+          goto LABEL_35;
+        }
+        if ( (_BYTE)SrbExtension != 2 )
+          break;
+        v13 = 512;
       }
       else
       {
-        if ( v13 != 3 || !IsNVMeControllerOnFatalError(a1) )
-          goto LABEL_50;
-        v14 = a1;
-        if ( *(_QWORD *)(a1 + 4208) )
-        {
-          NVMeQueueWorkItem(a1, (__int64)NVMeControllerPanicResetActionWorkItem);
-          goto LABEL_50;
-        }
+        _interlockedbittestandset((volatile signed __int32 *)(a1 + 3812), 2u);
+        if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 3812), 1u) )
+          break;
+        v13 = 4096;
       }
-      NVMeControllerAsyncReset(v14, 0, 0LL, 0LL);
-LABEL_50:
-      LOBYTE(SrbExtension) = NVMeAllocateDmaBuffer(a1, v11);
-      break;
-    case 1:
-      v11 = 512;
-      if ( !*(_BYTE *)(a1 + 22) )
-        goto LABEL_50;
-LABEL_49:
-      StorPortExtendedFunction(86LL, a1, 0LL);
-      goto LABEL_50;
-    case 2:
-      v15 = *(_BYTE *)(a3 + 1);
-      switch ( v15 )
-      {
-        case 0:
-          _interlockedbittestandset((volatile signed __int32 *)(a1 + 4028), 2u);
-          if ( !_interlockedbittestandset((volatile signed __int32 *)(a1 + 4028), 1u) )
-          {
-            _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4028), 2u);
-            v11 = 4096;
-          }
-          if ( !*(_BYTE *)(a1 + 22) )
-          {
 LABEL_33:
-            if ( v11 )
-              goto LABEL_50;
-            goto LABEL_53;
-          }
-LABEL_32:
-          LOBYTE(SrbExtension) = StorPortExtendedFunction(86LL, a1, 0LL);
-          goto LABEL_33;
-        case 1:
-          v11 = 512;
-          if ( !*(_BYTE *)(a1 + 24) )
-            goto LABEL_50;
-          goto LABEL_49;
-        case 2:
-          v11 = 512;
-          if ( !*(_BYTE *)(a1 + 22) )
-            goto LABEL_50;
-          goto LABEL_49;
-        case -17:
-          v11 = 4096;
-          if ( !*(_BYTE *)(a1 + 22) )
-            goto LABEL_50;
-          goto LABEL_32;
-      }
-      break;
+      v17 = v10;
+      goto LABEL_34;
     case 6:
-      v16 = *(_BYTE *)(a3 + 1);
-      if ( !v16 )
-      {
-        v11 = 64;
-        if ( !*(_BYTE *)(a1 + 24) )
-          goto LABEL_50;
-        goto LABEL_49;
-      }
-      LOBYTE(SrbExtension) = v16 - 1;
-      if ( (unsigned __int8)(v16 - 1) <= 1u )
-      {
-        v11 = 512;
-        if ( !*(_BYTE *)(a1 + 24) )
-          goto LABEL_50;
-        goto LABEL_49;
-      }
+      if ( *(_BYTE *)(a3 + 1) == (_BYTE)v10 )
+        LOBYTE(SrbExtension) = StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
       break;
     case 7:
-      if ( *(_QWORD *)(a1 + 4208) && *(_BYTE *)(a3 + 1) == 1 )
+      if ( *(_QWORD *)(a1 + 3992) && *(_BYTE *)(a3 + 1) == (_BYTE)v10 )
       {
-        if ( *(_BYTE *)(a1 + 22) )
-          StorPortExtendedFunction(86LL, a1, 0LL);
-        LOBYTE(SrbExtension) = NVMeQueueWorkItem(a1, (__int64)NVMeControllerPanicResetActionWorkItem);
+        StorPortExtendedFunction(86LL, a1, 0LL, v10);
+        LOBYTE(SrbExtension) = NVMeQueueWorkItem(a1, (__int64)NVMeControllerPanicResetActionWorkItem, 0LL, v18);
         break;
       }
-      v11 = 512;
-      if ( !*(_BYTE *)(a1 + 22) )
-        goto LABEL_50;
-      goto LABEL_49;
+      v13 = 512;
+      goto LABEL_33;
   }
-LABEL_53:
-  if ( v9 )
+LABEL_26:
+  if ( v11 )
   {
-    LODWORD(SrbExtension) = *(_DWORD *)(a1 + 32);
-    if ( (SrbExtension & 0x10) == 0 )
-    {
-      *v9 = 0;
-      LOBYTE(SrbExtension) = NVMeIssueAsyncEventCommand(a1, v9);
-    }
+    *v11 = 0;
+    LOBYTE(SrbExtension) = NVMeIssueAsyncEventCommand(a1, v11);
   }
   return SrbExtension;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of GetPTPShellTarget @ 0x1C0232FE4
+ * XREFs of GetPTPShellTarget @ 0x1C01FC2B4
  * Callers:
- *     ApiSetGetPTPShellTarget @ 0x1C0207D30 (ApiSetGetPTPShellTarget.c)
+ *     ApiSetGetPTPShellTarget @ 0x1C01CEF84 (ApiSetGetPTPShellTarget.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 _OWORD *__fastcall GetPTPShellTarget(_OWORD *a1)
@@ -23,9 +23,9 @@ _OWORD *__fastcall GetPTPShellTarget(_OWORD *a1)
   _OWORD *result; // rax
   _OWORD v14[7]; // [rsp+20h] [rbp-78h] BYREF
 
-  if ( qword_1C0296D08 )
+  if ( qword_1C0257A60 )
   {
-    v2 = (_OWORD *)qword_1C0296D08(v14);
+    v2 = (_OWORD *)qword_1C0257A60(v14);
     v3 = v2[1];
     *a1 = *v2;
     v4 = v2[2];

@@ -1,45 +1,46 @@
 /*
- * XREFs of CmpEtwDumpKcb @ 0x140910724
+ * XREFs of CmpEtwDumpKcb @ 0x14086A678
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14067C9E8 (CmpLinkHiveToMaster.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1407C09E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpConstructNameWithStatus @ 0x1407C0690 (CmpConstructNameWithStatus.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
  */
 
-__int64 __fastcall CmpEtwDumpKcb(__int64 a1, char a2)
+__int64 __fastcall CmpEtwDumpKcb(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  void (__fastcall *v2)(__int64, _OWORD *, _QWORD, _QWORD, __int64, void *); // rsi
-  __int64 v5; // r8
-  __int64 v6; // rcx
-  void *v7; // rbx
+  void (__fastcall *v4)(__int64, _OWORD *, _QWORD, _QWORD, __int64, void *); // rsi
+  char v5; // bp
+  __int64 v7; // rcx
+  void *v8; // rbx
   __int64 result; // rax
-  void *v9; // [rsp+40h] [rbp-78h] BYREF
-  _OWORD v10[3]; // [rsp+48h] [rbp-70h] BYREF
-  _OWORD v11[2]; // [rsp+78h] [rbp-40h] BYREF
+  void *v10; // [rsp+40h] [rbp-78h] BYREF
+  _OWORD v11[3]; // [rsp+48h] [rbp-70h] BYREF
+  _OWORD v12[2]; // [rsp+78h] [rbp-40h] BYREF
 
-  v2 = (void (__fastcall *)(__int64, _OWORD *, _QWORD, _QWORD, __int64, void *))CmpTraceRoutine;
+  v4 = *(void (__fastcall **)(__int64, _OWORD *, _QWORD, _QWORD, __int64, void *))((char *)&NlsMbCodePageTag + 7);
+  v5 = a2;
+  memset(v12, 0, sizeof(v12));
   memset(v11, 0, sizeof(v11));
-  memset(v10, 0, sizeof(v10));
-  if ( CmpTraceRoutine )
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    CmpAttachToRegistryProcess(v10);
-    v9 = 0LL;
-    CmpConstructNameWithStatus(a1, &v9, v5);
-    v7 = v9;
-    if ( v9 )
+    CmpAttachToRegistryProcess((__int64)v11, a2, a3, a4);
+    v10 = 0LL;
+    CmpConstructNameWithStatus(a1, &v10);
+    v8 = v10;
+    if ( v10 )
     {
-      LOBYTE(v6) = a2;
-      v2(v6, v11, 0LL, 0LL, a1, v9);
-      CmpFreeTransientPoolWithTag(v7, 0x624E4D43u);
+      LOBYTE(v7) = v5;
+      v4(v7, v12, 0LL, 0LL, a1, v10);
+      CmpFreeTransientPoolWithTag(v8, 0x624E4D43u);
     }
-    return CmpDetachFromRegistryProcess(v10);
+    return KiUnstackDetachProcess((__int64)v11, 0);
   }
   return result;
 }

@@ -1,58 +1,47 @@
 /*
- * XREFs of AllocateAndLinkHidTLCInfo @ 0x1C009F204
+ * XREFs of AllocateAndLinkHidTLCInfo @ 0x1C00057E8
  * Callers:
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C009F8EC (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0108520 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
  * Callees:
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C009FBE0 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C009FC90 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C01088FC (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C010892C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
  */
 
-__int64 __fastcall AllocateAndLinkHidTLCInfo(__int64 a1, __int16 a2)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall AllocateAndLinkHidTLCInfo(__int16 a1, __int16 a2)
 {
-  __int16 v3; // si
   __int64 v4; // rax
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int64 *i; // rdi
-  char v13; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v5; // rbx
+  __int64 v6; // r8
+  __int64 *i; // rax
+  char v9; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = a1;
-  v4 = SGDGetUserSessionState(a1);
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v13, (struct RIMLOCK *)(v4 + 288));
-  v5 = Win32AllocPoolZInit(48LL, 1416131413LL);
-  v7 = v5;
-  if ( v5 )
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v9, gTLCInfoLock);
+  v4 = Win32AllocPoolZInit(48LL, 1416131413LL);
+  v5 = 0LL;
+  v6 = v4;
+  if ( v4 )
   {
-    *(_WORD *)(v5 + 16) = v3;
-    *(_WORD *)(v5 + 18) = a2;
-    v8 = SGDGetUserSessionState(v6) + 376;
-    v9 = *(_QWORD *)v8;
-    if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) != v8 )
+    *(_WORD *)(v4 + 16) = a1;
+    *(_WORD *)(v4 + 18) = a2;
+    if ( *(_QWORD *)(RawInputManagerObject::gHidRequestTable[0] + 8LL) != RawInputManagerObject::gHidRequestTable[0] )
       __fastfail(3u);
-    *(_QWORD *)v7 = v9;
-    *(_QWORD *)(v7 + 8) = v8;
-    *(_QWORD *)(v9 + 8) = v7;
-    *(_QWORD *)v8 = v7;
-    for ( i = *(__int64 **)(SGDGetUserSessionState(v9) + 392);
-          i != (__int64 *)(SGDGetUserSessionState(v10) + 392);
+    *(_QWORD *)v4 = RawInputManagerObject::gHidRequestTable[0];
+    *(_QWORD *)(v4 + 8) = RawInputManagerObject::gHidRequestTable[0];
+    *(_QWORD *)(RawInputManagerObject::gHidRequestTable[0] + 8LL) = v4;
+    RawInputManagerObject::gHidRequestTable[0] = v4;
+    for ( i = (__int64 *)RawInputManagerObject::gHidRequestTable[2];
+          i != &RawInputManagerObject::gHidRequestTable[2];
           i = (__int64 *)*i )
     {
-      if ( *((_WORD *)i + 8) == v3 )
+      if ( *((_WORD *)i + 8) == a1 )
       {
-        *(_DWORD *)(v7 + 32) = *((_DWORD *)i + 5);
+        *(_DWORD *)(v6 + 32) = *((_DWORD *)i + 5);
         break;
       }
     }
-    RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v13);
-    return v7;
+    v5 = v6;
   }
-  else
-  {
-    RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v13);
-    return 0LL;
-  }
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v9);
+  return v5;
 }

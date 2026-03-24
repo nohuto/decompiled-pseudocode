@@ -1,43 +1,55 @@
 /*
- * XREFs of xxxEndMenu @ 0x1C0231DD0
+ * XREFs of xxxEndMenu @ 0x1C0249E34
  * Callers:
- *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0011604 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     xxxEndMenuLoop @ 0x1C0213C50 (xxxEndMenuLoop.c)
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0046828 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     xxxEndMenuLoop @ 0x1C0233740 (xxxEndMenuLoop.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C0062940 (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00A9F90 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00AE308 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     xxxMNCancel @ 0x1C0216E04 (xxxMNCancel.c)
- *     xxxMNCloseHierarchy @ 0x1C0217510 (xxxMNCloseHierarchy.c)
- *     xxxMNReleaseCapture @ 0x1C0219A20 (xxxMNReleaseCapture.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104778 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C010F934 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     xxxMNCancel @ 0x1C0236ED4 (xxxMNCancel.c)
+ *     xxxMNCloseHierarchy @ 0x1C0237760 (xxxMNCloseHierarchy.c)
+ *     xxxMNReleaseCapture @ 0x1C023A53C (xxxMNReleaseCapture.c)
  */
 
-_QWORD *__fastcall xxxEndMenu(__int64 a1)
+__int64 *__fastcall xxxEndMenu(__int64 a1)
 {
-  _DWORD **v2; // rax
-  __int64 v3; // rsi
-  int v4; // eax
-  int v5; // ebx
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rcx
+  _DWORD **v3; // rax
+  __int64 v4; // rsi
+  int v5; // eax
+  int v6; // ebx
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v14; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 *ThreadWin32Thread; // rax
+  __int64 *result; // rax
+  _QWORD v18[2]; // [rsp+20h] [rbp-10h] BYREF
 
-  SmartObjStackRefBase<tagPOPUPMENU>::Init(v7, 0LL);
-  SmartObjStackRefBase<tagPOPUPMENU>::operator=(v7, *(_QWORD *)a1);
-  if ( *(_QWORD *)v7[0] )
+  SmartObjStackRefBase<tagPOPUPMENU>::Init(v18, 0LL);
+  SmartObjStackRefBase<tagPOPUPMENU>::operator=(v18, *(_QWORD *)a1);
+  if ( *(_QWORD *)v18[0] )
   {
-    v2 = (_DWORD **)v7[0];
+    v3 = (_DWORD **)v18[0];
     *(_DWORD *)(a1 + 8) &= 0xFFFFFFFA;
-    **v2 |= 0x8000u;
-    v3 = *(_QWORD *)(a1 + 32);
-    if ( *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) == *(_QWORD *)(*(_QWORD *)a1 + 8LL) )
+    **v3 |= 0x8000u;
+    v4 = *(_QWORD *)(a1 + 32);
+    v2 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
+    if ( *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) == v2 )
       xxxMNReleaseCapture(a1);
-    if ( gptiCurrent == v3 )
+    if ( gptiCurrent == v4 )
     {
-      v4 = *(_DWORD *)(a1 + 8);
-      if ( (v4 & 0x10) == 0 )
+      v5 = *(_DWORD *)(a1 + 8);
+      if ( (v5 & 0x10) == 0 )
       {
-        *(_DWORD *)(a1 + 8) = v4 | 0x10;
+        *(_DWORD *)(a1 + 8) = v5 | 0x10;
         if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) )
         {
           if ( (**(_DWORD **)a1 & 0x80000) == 0 )
@@ -45,13 +57,40 @@ _QWORD *__fastcall xxxEndMenu(__int64 a1)
         }
         else
         {
-          v5 = **(_DWORD **)v7[0];
-          xxxMNCloseHierarchy(*(_QWORD *)v7[0], a1);
-          if ( (v5 & 8) != 0 && *(_QWORD *)(*(_QWORD *)v7[0] + 16LL) )
-            xxxDestroyWindow(*(__int64 **)(*(_QWORD *)v7[0] + 16LL));
+          v6 = **(_DWORD **)v18[0];
+          xxxMNCloseHierarchy(*(_QWORD *)v18[0], a1);
+          if ( (v6 & 8) != 0 )
+          {
+            v2 = *(_QWORD *)v18[0];
+            if ( *(_QWORD *)(*(_QWORD *)v18[0] + 16LL) )
+              xxxDestroyWindow(*(_QWORD *)(*(_QWORD *)v18[0] + 16LL));
+          }
         }
       }
     }
   }
-  return SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(v7);
+  CurrentThread = KeGetCurrentThread();
+  v8 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v2)
+    || (CurrentProcess = PsGetCurrentProcess(v10, v9, v11),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v14),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v8 = *ThreadWin32Thread;
+  }
+  if ( v18[0] != gSmartObjNullRef && !--*(_DWORD *)(v18[0] + 8LL) )
+  {
+    if ( *(_BYTE *)(v18[0] + 12LL) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v18[0]);
+  }
+  result = *(__int64 **)(v8 + 1472);
+  if ( result )
+  {
+    result = (__int64 *)*result;
+    *(_QWORD *)(v8 + 1472) = result;
+  }
+  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetRandomPoint@CEllipseSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x1802597D0
+ * XREFs of ?GetRandomPoint@CEllipseSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x180209260
  * Callers:
  *     <none>
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ??$generate_canonical@M$0?0V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@@std@@YAMAEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@0@@Z @ 0x18022CC28 (--$generate_canonical@M$0-0V-$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PP.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ??$generate_canonical@M$0?0V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@@std@@YAMAEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@0@@Z @ 0x1801DDC24 (--$generate_canonical@M$0-0V-$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PP.c)
  */
 
 float *__fastcall EmitterShapes::CEllipseSpawner::GetRandomPoint(__int64 a1, float *a2, __int64 a3, float a4)
@@ -36,12 +36,12 @@ float *__fastcall EmitterShapes::CEllipseSpawner::GetRandomPoint(__int64 a1, flo
   v10 = (float)(std::generate_canonical<float,-1,std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253>>(a3)
               * 6.2831855)
       + 0.0;
-  v11 = o_sinf_0(v10);
-  v12 = cosf(v10);
+  v11 = sinf_0(v10);
+  v12 = cosf_0(v10);
   if ( *(_DWORD *)(a1 + 24) )
   {
     v14 = std::generate_canonical<float,-1,std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253>>(a3);
-    v13 = o_sqrtf_0(v14 + 0.0);
+    v13 = sqrtf_0(v14 + 0.0);
   }
   else
   {

@@ -1,30 +1,33 @@
 /*
- * XREFs of AcpiCreateDiscoveryDeleteParameters @ 0x1C005BF88
+ * XREFs of AcpiCreateDiscoveryDeleteParameters @ 0x1C005B0B8
  * Callers:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0002434 (AcpiNotifyPlExtDiscoverDeviceAsync.c)
- *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005C430 (AcpiNotifyPlExtDeleteDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005B580 (AcpiNotifyPlExtDeleteDeviceAsync.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AcpiCreateDiscoveryDeleteParameters(__int64 *a1, char a2, __int64 *a3)
+__int64 __fastcall AcpiCreateDiscoveryDeleteParameters(_QWORD *a1, char a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   unsigned int v7; // r9d
 
-  Pool2 = ExAllocatePool2(64LL, 48LL, 1315988289LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x4E706341u);
   v7 = 0;
-  if ( Pool2 )
+  if ( PoolWithTag )
   {
-    *a1 = Pool2;
-    a1[1] = Pool2;
-    *(_QWORD *)Pool2 = a1;
-    *(_QWORD *)(Pool2 + 8) = a1;
-    *(_BYTE *)(Pool2 + 16) = a2;
-    *(_QWORD *)(Pool2 + 24) = qword_1C0080D88;
-    *(_QWORD *)(Pool2 + 32) = AcpiNotifyDiscoverDeleteMainCompletion;
-    *(_QWORD *)(Pool2 + 40) = Pool2;
-    *a3 = Pool2;
+    *a3 = PoolWithTag;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    *a1 = PoolWithTag;
+    a1[1] = PoolWithTag;
+    *(_QWORD *)PoolWithTag = a1;
+    *((_QWORD *)PoolWithTag + 1) = a1;
+    *((_BYTE *)PoolWithTag + 16) = a2;
+    *((_QWORD *)PoolWithTag + 3) = qword_1C0081BC8;
+    *((_QWORD *)PoolWithTag + 4) = AcpiNotifyDiscoverDeleteMainCompletion;
+    *((_QWORD *)PoolWithTag + 5) = PoolWithTag;
   }
   else
   {

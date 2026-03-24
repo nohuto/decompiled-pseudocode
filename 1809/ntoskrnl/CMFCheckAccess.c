@@ -1,21 +1,21 @@
 /*
- * XREFs of CMFCheckAccess @ 0x1408D8404
+ * XREFs of CMFCheckAccess @ 0x1408D83E4
  * Callers:
- *     NtMapCMFModule @ 0x1407067C0 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
  *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
  *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
  *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
- *     SeAppendPrivileges @ 0x140699A40 (SeAppendPrivileges.c)
- *     CMFCreateSecurityDescriptor @ 0x1408D8630 (CMFCreateSecurityDescriptor.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
+ *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
+ *     CMFCreateSecurityDescriptor @ 0x1408D8610 (CMFCreateSecurityDescriptor.c)
  */
 
 __int64 __fastcall CMFCheckAccess(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3)

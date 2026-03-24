@@ -1,20 +1,20 @@
 /*
- * XREFs of ObKillProcess @ 0x14068B254
+ * XREFs of ObKillProcess @ 0x1406034EC
  * Callers:
- *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
- *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
- *     ExSweepHandleTable @ 0x140740170 (ExSweepHandleTable.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpRemoveHandleTable @ 0x140604524 (ExpRemoveHandleTable.c)
+ *     ExSweepHandleTable @ 0x1406045D0 (ExSweepHandleTable.c)
  */
 
 void __fastcall ObKillProcess(__int64 a1)
 {
-  _QWORD *v1; // rdi
+  void *v1; // rdi
   BOOLEAN v3; // bl
 
-  v1 = *(_QWORD **)(a1 + 1392);
+  v1 = *(void **)(a1 + 1392);
   if ( v1 )
   {
     v3 = IoSetThreadHardErrorMode(0);

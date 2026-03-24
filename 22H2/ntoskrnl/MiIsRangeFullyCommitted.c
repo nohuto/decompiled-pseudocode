@@ -1,16 +1,15 @@
 /*
- * XREFs of MiIsRangeFullyCommitted @ 0x1406F61C0
+ * XREFs of MiIsRangeFullyCommitted @ 0x14063D9E0
  * Callers:
- *     MmProtectVirtualMemory @ 0x1406F9820 (MmProtectVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A518 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406DAFE8 (MmSecureVirtualMemoryAgainstWrites.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiReadPteShadow @ 0x14025D280 (MiReadPteShadow.c)
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     MiReadPteShadow @ 0x1402860B0 (MiReadPteShadow.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -19,13 +18,13 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   __int64 v6; // r14
   struct _KTHREAD *CurrentThread; // rbp
   unsigned int v8; // r15d
-  __int64 v9; // rsi
-  signed __int64 *v10; // rsi
-  unsigned __int64 v11; // rdi
-  __int64 v12; // r11
-  __int64 v13; // r10
-  unsigned __int64 v14; // r9
+  __int64 v9; // rdi
+  signed __int64 *v10; // rdi
+  __int64 v11; // r11
+  __int64 v12; // r10
+  unsigned __int64 v13; // r9
   __int64 PteShadow; // rax
+  $C459BD0D405E8E46662177FB3D0A143F *v17; // rcx
   __int64 v18; // [rsp+60h] [rbp+8h] BYREF
   __int64 v19; // [rsp+68h] [rbp+10h] BYREF
 
@@ -42,20 +41,16 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   v9 = ***(_QWORD ***)(a1 + 72);
   --CurrentThread->SpecialApcDisable;
   v10 = (signed __int64 *)(v9 + 40);
-  v11 = KeAbPreAcquire((__int64)v10, 0LL);
-  if ( _InterlockedCompareExchange64(v10, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v10, 0LL, v11, (__int64)v10);
-  if ( v11 )
-    *(_BYTE *)(v11 + 18) = 1;
-  v12 = v19;
-  v13 = v18;
+  ExAcquirePushLockSharedEx((ULONG_PTR)v10, 0LL);
+  v11 = v19;
+  v12 = v18;
   while ( 1 )
   {
-    if ( v13 == v12 )
-      v14 = v6;
+    if ( v12 == v11 )
+      v13 = v6;
     else
-      v14 = *(_QWORD *)(v13 + 8) + 8LL * (unsigned int)(*(_DWORD *)(v13 + 44) - 1);
-    if ( (unsigned __int64)ProtoPteAddress <= v14 )
+      v13 = *(_QWORD *)(v12 + 8) + 8LL * (unsigned int)(*(_DWORD *)(v12 + 44) - 1);
+    if ( (unsigned __int64)ProtoPteAddress <= v13 )
     {
       while ( 1 )
       {
@@ -67,17 +62,17 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
         }
         if ( !PteShadow )
           break;
-        if ( (unsigned __int64)++ProtoPteAddress > v14 )
-          goto LABEL_14;
+        if ( (unsigned __int64)++ProtoPteAddress > v13 )
+          goto LABEL_10;
       }
       v8 = 0;
     }
-LABEL_14:
-    if ( v13 == v12 )
+LABEL_10:
+    if ( v12 == v11 )
       break;
-    v13 = *(_QWORD *)(v13 + 16);
-    v18 = v13;
-    ProtoPteAddress = *(__int64 **)(v13 + 8);
+    v12 = *(_QWORD *)(v12 + 16);
+    v18 = v12;
+    ProtoPteAddress = *(__int64 **)(v12 + 8);
     if ( !ProtoPteAddress )
     {
       v8 = 0;
@@ -87,10 +82,11 @@ LABEL_14:
   if ( _InterlockedCompareExchange64(v10, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v10);
   KeAbPostRelease((ULONG_PTR)v10);
-  if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
-    KiCheckForKernelApcDelivery();
+    v17 = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v17->ApcState.ApcListHead[0].Flink != v17 )
+      KiCheckForKernelApcDelivery((__int64)v17);
   }
   return v8;
 }

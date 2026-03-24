@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x140635DB8
+ * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x1405AE928
  * Callers:
- *     EtwpCovSampCaptureCleanupDpc @ 0x140635DA0 (EtwpCovSampCaptureCleanupDpc.c)
- *     EtwpCovSampCaptureContextStop @ 0x140635EEC (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureCleanupDpc @ 0x1405AE910 (EtwpCovSampCaptureCleanupDpc.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1405AEA5C (EtwpCovSampCaptureContextStop.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406366B8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF36C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)
@@ -24,15 +24,15 @@ __int64 __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
 
-  v1 = (KSPIN_LOCK *)(a1 + 368);
+  v1 = (KSPIN_LOCK *)(a1 + 264);
   v3 = 1;
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 368));
-  if ( !*(_DWORD *)(a1 + 1024) && !*(_DWORD *)(a1 + 1032) )
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 264));
+  if ( !*(_DWORD *)(a1 + 912) && !*(_DWORD *)(a1 + 920) )
   {
-    for ( i = *(_QWORD **)(a1 + 688); i != (_QWORD *)(a1 + 688); i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(a1 + 576); i != (_QWORD *)(a1 + 576); i = (_QWORD *)*i )
       EtwpCovSampLookasideFlushFreeListToCleanupList(i - 2);
-    v6 = *(__int64 **)(a1 + 704);
-    if ( v6 == (__int64 *)(a1 + 704) )
+    v6 = *(__int64 **)(a1 + 592);
+    if ( v6 == (__int64 *)(a1 + 592) )
       goto LABEL_11;
     do
     {
@@ -41,12 +41,12 @@ __int64 __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)
       if ( v7 )
         v3 = 0;
     }
-    while ( v6 != (__int64 *)(a1 + 704) );
+    while ( v6 != (__int64 *)(a1 + 592) );
     if ( v3 )
     {
 LABEL_11:
-      *(_DWORD *)(a1 + 1032) = 1;
-      KeSetEvent((PRKEVENT)(a1 + 1000), 0, 0);
+      *(_DWORD *)(a1 + 920) = 1;
+      KeSetEvent((PRKEVENT)(a1 + 888), 0, 0);
     }
   }
   KxReleaseSpinLock(v1);

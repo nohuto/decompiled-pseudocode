@@ -1,37 +1,34 @@
 /*
- * XREFs of KxContextToKframes @ 0x14033F640
+ * XREFs of KxContextToKframes @ 0x140342010
  * Callers:
- *     KiInitializeContextThread @ 0x1402BE71C (KiInitializeContextThread.c)
- *     KeContextToKframes @ 0x14041E4C0 (KeContextToKframes.c)
+ *     KiInitializeContextThread @ 0x140341B1C (KiInitializeContextThread.c)
+ *     KeContextToKframes @ 0x1403FD6A0 (KeContextToKframes.c)
  * Callees:
- *     RtlXRestoreS @ 0x14033FAB8 (RtlXRestoreS.c)
- *     VslKernelShadowStackAssist @ 0x14054BAE0 (VslKernelShadowStackAssist.c)
- *     KiCopyXStateArea @ 0x140572780 (KiCopyXStateArea.c)
+ *     RtlXRestoreS @ 0x140381658 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x140519ED0 (KiCopyXStateArea.c)
  */
 
-char __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
+__int64 __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
-  char v6; // r12
+  unsigned __int8 v5; // r15
   int v10; // eax
   int v11; // eax
   __int64 v12; // rcx
   __int16 v13; // ax
-  unsigned __int64 v14; // rcx
+  __int64 result; // rax
   unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rcx
+  unsigned __int64 v16; // rax
   unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rax
-  __int64 v22; // rcx
-  struct _KTHREAD *CurrentThread; // rax
+  unsigned __int64 v18; // rax
+  __int64 v19; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  bool v21; // zf
+  __int64 v22; // r8
   _QWORD *SparePtr; // rcx
-  __int64 v26; // rcx
-  _QWORD *v27; // rdx
-  __int64 v28; // r15
+  _QWORD *v24; // rdx
+  __int64 v25; // rcx
 
-  v6 = 0;
+  v5 = 0;
   if ( (a4 & 0x100001) == 0x100001 )
   {
     v10 = *(_DWORD *)(a3 + 68);
@@ -46,22 +43,20 @@ char __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, c
     if ( a5 == 1 )
     {
       *(_WORD *)(a1 + 392) = 43;
-      v13 = 35;
-      if ( *(_WORD *)(a3 + 56) == 51 )
-        v13 = 51;
-    }
-    else
-    {
-      *(_WORD *)(a1 + 392) = 24;
-      v13 = 16;
-    }
-    *(_WORD *)(a1 + 368) = v13;
-    if ( a5 == 1 )
-    {
+      v13 = 51;
+      if ( *(_WORD *)(a3 + 56) != 51 )
+        v13 = 35;
+      *(_WORD *)(a1 + 368) = v13;
+      v12 = *(_QWORD *)(a1 + 360);
       if ( v13 == 35 )
         v12 = (unsigned int)v12;
       else
         v12 = v12 << 16 >> 16;
+    }
+    else
+    {
+      *(_WORD *)(a1 + 368) = 16;
+      *(_WORD *)(a1 + 392) = 24;
     }
     *(_QWORD *)(a1 + 360) = v12;
   }
@@ -85,43 +80,26 @@ char __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, c
   }
   if ( (a4 & 0x100040) == 0x100040 && a5 == 1 )
   {
+    v22 = *(int *)(a3 + 1248) + a3 + 720;
     SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
     if ( !SparePtr )
-      goto LABEL_45;
-    v27 = (_QWORD *)*SparePtr;
+      goto LABEL_42;
+    v24 = (_QWORD *)*SparePtr;
     if ( *SparePtr )
     {
       do
       {
-        SparePtr = v27;
-        v27 = (_QWORD *)*v27;
+        SparePtr = v24;
+        v24 = (_QWORD *)*v24;
       }
-      while ( v27 );
+      while ( v24 );
     }
-    v26 = SparePtr[5];
-    if ( v26 )
-      KiCopyXStateArea(v26, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL);
+    v25 = SparePtr[5];
+    if ( v25 )
+      KiCopyXStateArea(v25, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL);
     else
-LABEL_45:
-      RtlXRestoreS(*(int *)(a3 + 1248) + a3 + 720);
-  }
-  if ( (a4 & 0x100080) == 0x100080 && !a5 )
-  {
-    v28 = *(int *)(a3 + 1256);
-    _R14 = *(_QWORD **)(a1 + 216);
-    _RCX = *(_QWORD *)(v28 + a3 + 1240);
-    if ( _R14[1] != _RCX )
-    {
-      if ( (*(_BYTE *)(v28 + a3 + 1250) & 1) != 0 )
-        __asm { wrssq   qword ptr [r14+8], rcx }
-      else
-        VslKernelShadowStackAssist(3, (_DWORD)_R14, 0, 0, _RCX, 4);
-    }
-    if ( (*(_BYTE *)(v28 + a3 + 1250) & 2) != 0 )
-    {
-      _RAX = *_R14 + 8LL;
-      __asm { wrssq   qword ptr [r14], rax }
-    }
+LABEL_42:
+      RtlXRestoreS(v22);
   }
   if ( (a4 & 0x100008) == 0x100008 )
   {
@@ -144,60 +122,40 @@ LABEL_45:
     *(_DWORD *)(a1 + 44) = KiMxCsrMask & *(_DWORD *)(a3 + 52);
     if ( a5 == 1 )
     {
-      v6 = 1;
+      v5 = 1;
       *(_DWORD *)(a3 + 280) = _mm_getcsr();
       *(_WORD *)(a3 + 256) &= 0x1F3Fu;
     }
   }
-  if ( (a4 & 0x100010) == 0x100010 )
-  {
-    v14 = *(_QWORD *)(a3 + 72);
-    if ( a5 )
-    {
-      v15 = 0LL;
-      if ( v14 <= 0x7FFFFFFEFFFFLL )
-        v15 = *(_QWORD *)(a3 + 72);
-      v14 = v15;
-    }
-    *(_QWORD *)(a1 + 216) = v14;
-    v16 = *(_QWORD *)(a3 + 80);
-    if ( a5 )
-    {
-      v17 = 0LL;
-      if ( v16 <= 0x7FFFFFFEFFFFLL )
-        v17 = *(_QWORD *)(a3 + 80);
-      v16 = v17;
-    }
-    *(_QWORD *)(a1 + 224) = v16;
-    v18 = *(_QWORD *)(a3 + 88);
-    if ( a5 )
-    {
-      v19 = 0LL;
-      if ( v18 <= 0x7FFFFFFEFFFFLL )
-        v19 = *(_QWORD *)(a3 + 88);
-      v18 = v19;
-    }
-    *(_QWORD *)(a1 + 232) = v18;
-    v20 = *(_QWORD *)(a3 + 96);
-    if ( a5 )
-    {
-      v21 = 0LL;
-      if ( v20 <= 0x7FFFFFFEFFFFLL )
-        v21 = *(_QWORD *)(a3 + 96);
-      v20 = v21;
-    }
-    *(_QWORD *)(a1 + 248) = 0LL;
-    *(_QWORD *)(a1 + 240) = v20;
-    v22 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
-    *(_QWORD *)(a1 + 256) = v22;
-    if ( a5 )
-    {
-      CurrentThread = KeGetCurrentThread();
-      if ( (v22 & 0x355) != 0 )
-        _interlockedbittestandset(&CurrentThread->Header.Lock, 0x18u);
-      else
-        _interlockedbittestandreset(&CurrentThread->Header.Lock, 0x18u);
-    }
-  }
-  return v6;
+  if ( (a4 & 0x100010) != 0x100010 )
+    return v5;
+  v15 = *(_QWORD *)(a3 + 72);
+  if ( a5 && v15 > 0x7FFFFFFEFFFFLL )
+    v15 = 0LL;
+  *(_QWORD *)(a1 + 216) = v15;
+  v16 = *(_QWORD *)(a3 + 80);
+  if ( a5 && v16 > 0x7FFFFFFEFFFFLL )
+    v16 = 0LL;
+  *(_QWORD *)(a1 + 224) = v16;
+  v17 = *(_QWORD *)(a3 + 88);
+  if ( a5 && v17 > 0x7FFFFFFEFFFFLL )
+    v17 = 0LL;
+  *(_QWORD *)(a1 + 232) = v17;
+  v18 = *(_QWORD *)(a3 + 96);
+  if ( a5 && v18 > 0x7FFFFFFEFFFFLL )
+    v18 = 0LL;
+  *(_QWORD *)(a1 + 240) = v18;
+  *(_QWORD *)(a1 + 248) = 0LL;
+  v19 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
+  *(_QWORD *)(a1 + 256) = v19;
+  if ( !a5 )
+    return v5;
+  CurrentThread = KeGetCurrentThread();
+  v21 = (v19 & 0x355) == 0;
+  result = v5;
+  if ( v21 )
+    _interlockedbittestandreset(&CurrentThread->Header.Lock, 0x18u);
+  else
+    _interlockedbittestandset(&CurrentThread->Header.Lock, 0x18u);
+  return result;
 }

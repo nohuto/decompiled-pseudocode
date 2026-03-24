@@ -1,19 +1,19 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x14039AD4C
+ * XREFs of PopCalculateIdleInformation @ 0x140570410
  * Callers:
- *     PopCalculateCsSummary @ 0x140397424 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
- *     PopDripsWatchdogCallbackWorker @ 0x1409962E0 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x1409965B0 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x140996854 (PopDripsWatchdogStartWatchdog.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140997DE0 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EEF80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1408EF230 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x1408EF554 (PopDripsWatchdogStartWatchdog.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x1408FA3EC (PopSleepstudySnapModernStandbySessionData.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     PpmQueryPlatformStateResidency @ 0x14039A1C4 (PpmQueryPlatformStateResidency.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     PpmQueryPlatformStateResidency @ 0x1405673CC (PpmQueryPlatformStateResidency.c)
  */
 
-unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
+ULONGLONG __fastcall PopCalculateIdleInformation(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 v2; // rdi
@@ -23,12 +23,12 @@ unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   unsigned __int64 PlatformStateResidency; // rbp
   int v7; // r13d
   unsigned int v8; // r14d
-  unsigned __int64 result; // rax
-  unsigned __int64 *v10; // rsi
-  int v11; // edi
-  unsigned __int64 v12; // rax
-  unsigned __int64 v14; // [rsp+68h] [rbp+10h]
-  unsigned __int64 v15; // [rsp+70h] [rbp+18h]
+  ULONGLONG *v9; // rsi
+  int v10; // edi
+  ULONGLONG v11; // rax
+  ULONGLONG result; // rax
+  __int64 v14; // [rsp+68h] [rbp+10h]
+  ULONGLONG v15; // [rsp+70h] [rbp+18h]
 
   v1 = 0LL;
   v2 = a1;
@@ -45,27 +45,27 @@ unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
     v5 = 0;
   }
   v15 = 0LL;
-  PlatformStateResidency = PpmQueryPlatformStateResidency(dword_140C542C0);
+  PlatformStateResidency = PpmQueryPlatformStateResidency(dword_140C50080);
   if ( PlatformStateResidency != -1LL )
     PlatformStateResidency /= 0xAuLL;
   v7 = 0;
   v8 = 0;
   if ( v4 )
   {
-    v10 = (unsigned __int64 *)(v3 + 56);
-    v11 = dword_140C542C0;
+    v9 = (ULONGLONG *)(v3 + 56);
+    v10 = dword_140C50080;
     do
     {
       v14 = PopQpcFrequency;
-      v1 += PpmConvertTime(*v10, PopQpcFrequency, 0xF4240uLL);
-      if ( v11 != -1 && v8 == v11 )
+      v1 += PpmConvertTime(*v9, PopQpcFrequency, 0xF4240uLL);
+      if ( v10 != -1 && v8 == v10 )
       {
-        v12 = PpmConvertTime(*v10, v14, 0xF4240uLL);
-        v7 = *((_DWORD *)v10 - 6);
-        v15 = v12;
+        v11 = PpmConvertTime(*v9, v14, 0xF4240uLL);
+        v7 = *((_DWORD *)v9 - 6);
+        v15 = v11;
       }
       ++v8;
-      v10 += 126;
+      v9 += 126;
     }
     while ( v8 < v4 );
     v2 = a1;

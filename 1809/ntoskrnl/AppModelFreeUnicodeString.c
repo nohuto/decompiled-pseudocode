@@ -1,7 +1,7 @@
 /*
- * XREFs of AppModelFreeUnicodeString @ 0x1401345D0
+ * XREFs of AppModelFreeUnicodeString @ 0x1401345F0
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1406C30F0 (KIsUnlockSettingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406C30D0 (KIsUnlockSettingEnabled.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolStoppingFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000BFF0
+ * XREFs of ?PowerPolStoppingFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000DF50
  * Callers:
  *     <none>
  * Callees:

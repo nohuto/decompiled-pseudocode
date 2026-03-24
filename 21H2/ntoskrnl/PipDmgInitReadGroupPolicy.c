@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgInitReadGroupPolicy @ 0x140949330
+ * XREFs of PipDmgInitReadGroupPolicy @ 0x1408A3530
  * Callers:
- *     PipDmgInitPhaseTwo @ 0x140826E04 (PipDmgInitPhaseTwo.c)
+ *     PipDmgInitPhaseTwo @ 0x1407A3FC4 (PipDmgInitPhaseTwo.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1402088DC (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 PipDmgInitReadGroupPolicy()
@@ -27,12 +27,13 @@ __int64 PipDmgInitReadGroupPolicy()
   P = 0LL;
   v0 = 0;
   v7 = L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\Windows\\Kernel DMA Protection";
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v6;
   v6[0] = 9961622;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {

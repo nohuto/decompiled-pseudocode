@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00CB480
+ * XREFs of ?GetType@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00BC390
  * Callers:
  *     <none>
  * Callees:

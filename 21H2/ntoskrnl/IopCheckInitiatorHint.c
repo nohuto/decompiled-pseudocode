@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCheckInitiatorHint @ 0x140280170
+ * XREFs of IopCheckInitiatorHint @ 0x1402602E0
  * Callers:
- *     IopAllocRealFileObject @ 0x14072DDC0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
  * Callees:
- *     IoGetInitiatorProcess @ 0x14025D5C0 (IoGetInitiatorProcess.c)
- *     IopSetFileObjectExtensionFlag @ 0x1402A34C8 (IopSetFileObjectExtensionFlag.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x14079F1E0 (RtlIsSandboxedToken.c)
+ *     IoGetInitiatorProcess @ 0x1402D3250 (IoGetInitiatorProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403621E0 (IopSetFileObjectExtensionFlag.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
   _QWORD *Teb; // rbx
   __int64 v6; // rcx
   char v7; // bl
-  int v8; // r9d
+  __int64 v8; // r9
   PVOID InitiatorProcess; // rax
   NTSTATUS SetSpecificExtension; // [rsp+30h] [rbp-18h]
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
@@ -45,10 +45,10 @@ __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
     {
       v13 = 0LL;
       LOBYTE(v8) = 1;
-      SetSpecificExtension = IopGetSetSpecificExtension(a1, 1, 32, v8, (__int64)&v13, 0LL);
+      SetSpecificExtension = IopGetSetSpecificExtension(a1, 1LL, 32LL, v8, &v13, 0LL);
       if ( SetSpecificExtension < 0 )
       {
-        ObfDereferenceObject(Object);
+        ObfDereferenceObjectWithTag(Object, 0x746C6644u);
       }
       else
       {
@@ -58,7 +58,7 @@ __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
           if ( InitiatorProcess != Object )
           {
             SetSpecificExtension = -1073741811;
-            ObfDereferenceObject(Object);
+            ObfDereferenceObjectWithTag(Object, 0x746C6644u);
           }
         }
         if ( SetSpecificExtension >= 0 )

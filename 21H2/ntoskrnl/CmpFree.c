@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFree @ 0x14079CEF0
+ * XREFs of CmpFree @ 0x1406A9460
  * Callers:
  *     <none>
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x14079CF18 (CmpReleaseGlobalQuota.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFree(PVOID P, unsigned int a2)

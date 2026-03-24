@@ -1,12 +1,13 @@
 /*
- * XREFs of xxxActivateKeyboardLayout @ 0x1C004FA80
+ * XREFs of xxxActivateKeyboardLayout @ 0x1C00093C0
  * Callers:
- *     NtUserActivateKeyboardLayout @ 0x1C004F880 (NtUserActivateKeyboardLayout.c)
+ *     NtUserActivateKeyboardLayout @ 0x1C0009110 (NtUserActivateKeyboardLayout.c)
  * Callees:
- *     ThreadUnlock1 @ 0x1C0030C00 (ThreadUnlock1.c)
- *     HKLtoPKL @ 0x1C003FF30 (HKLtoPKL.c)
- *     xxxInternalActivateKeyboardLayout @ 0x1C004FB30 (xxxInternalActivateKeyboardLayout.c)
- *     ?ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z @ 0x1C01E4154 (-ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z.c)
+ *     xxxInternalActivateKeyboardLayout @ 0x1C0009480 (xxxInternalActivateKeyboardLayout.c)
+ *     HKLtoPKL @ 0x1C000A070 (HKLtoPKL.c)
+ *     ThreadUnlock1 @ 0x1C002E4A0 (ThreadUnlock1.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     ?ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z @ 0x1C01AACA4 (-ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z.c)
  */
 
 struct tagKL *__fastcall xxxActivateKeyboardLayout(
@@ -19,19 +20,21 @@ struct tagKL *__fastcall xxxActivateKeyboardLayout(
   struct tagKL *result; // rax
   struct tagKL *v9; // rbx
   __int64 v10; // rbx
-  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE v11[16]; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD v12[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = gptiCurrent;
-  v11[2] = 0LL;
-  result = (struct tagKL *)HKLtoPKL((__int64)gptiCurrent, a2);
+  v12[2] = 0LL;
+  result = (struct tagKL *)HKLtoPKL(gptiCurrent, a2);
   v9 = result;
   if ( result )
   {
     if ( (a3 & 8) != 0 )
       ReorderKeyboardLayouts(a1, result);
-    v11[0] = *((_QWORD *)v4 + 52);
-    *((_QWORD *)v4 + 52) = v11;
-    v11[1] = v9;
+    v12[0] = *((_QWORD *)v4 + 52);
+    *((_QWORD *)v4 + 52) = v12;
+    v12[1] = v9;
+    CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v11);
     _InterlockedIncrement((volatile signed __int32 *)v9 + 2);
     v10 = xxxInternalActivateKeyboardLayout(a1, v9, a3, a4);
     ThreadUnlock1();

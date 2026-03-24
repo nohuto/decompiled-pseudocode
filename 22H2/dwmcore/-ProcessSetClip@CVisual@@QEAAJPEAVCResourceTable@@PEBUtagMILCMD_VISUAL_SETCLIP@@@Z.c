@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z @ 0x1800E4DE4
+ * XREFs of ?ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z @ 0x1800C9AD0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z @ 0x1800E4E34 (-SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z @ 0x1800C9B20 (-SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z.c)
  */
 
 __int64 __fastcall CVisual::ProcessSetClip(
@@ -22,17 +22,17 @@ __int64 __fastcall CVisual::ProcessSetClip(
 
   Resource = 0LL;
   v5 = *((_DWORD *)a3 + 2);
-  if ( v5 && (Resource = (struct CGeometry *)CResourceTable::GetResource((__int64)a2, v5, 0x43u)) == 0LL )
+  if ( v5 && (Resource = (struct CGeometry *)CResourceTable::GetResource((__int64)a2, v5, 0x41u)) == 0LL )
   {
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0xA7Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0xAFDu, 0LL);
   }
   else
   {
     v8 = CVisual::SetClip(this, Resource);
     v10 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xA7Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xB01u, 0LL);
   }
   return v10;
 }

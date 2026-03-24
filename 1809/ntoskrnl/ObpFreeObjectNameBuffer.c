@@ -7,8 +7,8 @@
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
  *     IopAllocRealFileObject @ 0x14063BB00 (IopAllocRealFileObject.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

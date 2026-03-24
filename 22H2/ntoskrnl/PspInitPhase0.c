@@ -1,35 +1,33 @@
 /*
- * XREFs of PspInitPhase0 @ 0x140B4DF94
+ * XREFs of PspInitPhase0 @ 0x140A3D098
  * Callers:
- *     PsInitSystem @ 0x140B53504 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     VslGetNestedPageProtectionFlags @ 0x14033FE30 (VslGetNestedPageProtectionFlags.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140354470 (KeRegisterBugCheckReasonCallback.c)
- *     SeRegisterObjectTypeMandatoryPolicy @ 0x14038148C (SeRegisterObjectTypeMandatoryPolicy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strcpy_s @ 0x1403DF230 (strcpy_s.c)
- *     memset @ 0x140435400 (memset.c)
- *     PsIumResumeAfterHibernate @ 0x1405A5974 (PsIumResumeAfterHibernate.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     ExCreateHandleTable @ 0x1407B0B78 (ExCreateHandleTable.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     PsChangeQuantumTable @ 0x1407C09D4 (PsChangeQuantumTable.c)
- *     PspValidateMitigationOptions @ 0x1407C69CC (PspValidateMitigationOptions.c)
- *     CmSiRWLockInitialize @ 0x1408106D0 (CmSiRWLockInitialize.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
- *     PspValidateMitigationAuditOptions @ 0x14084AFE4 (PspValidateMitigationAuditOptions.c)
- *     PspCreateProcess @ 0x14085CC20 (PspCreateProcess.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     MmAllocateMappingAddress @ 0x14086C930 (MmAllocateMappingAddress.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     PspInitializeSiloStructures @ 0x140B4CF10 (PspInitializeSiloStructures.c)
- *     PspTlsInitialize @ 0x140B67F24 (PspTlsInitialize.c)
- *     PspInitializeCpuPartitionsPhase0 @ 0x140B6BF04 (PspInitializeCpuPartitionsPhase0.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x140B6C6C8 (PspInitializeSystemPartitionPhase0.c)
- *     PspInitializeJobStructures @ 0x140B73C28 (PspInitializeJobStructures.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140340410 (VslGetNestedPageProtectionFlags.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PsIumResumeAfterHibernate @ 0x14038D6FC (PsIumResumeAfterHibernate.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039DF60 (KeRegisterBugCheckReasonCallback.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x1403A84B4 (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strcpy_s @ 0x1403D7670 (strcpy_s.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     MmAllocateMappingAddress @ 0x140691430 (MmAllocateMappingAddress.c)
+ *     PspValidateMitigationOptions @ 0x14069260C (PspValidateMitigationOptions.c)
+ *     ExCreateHandleTable @ 0x1406A6B48 (ExCreateHandleTable.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     PsChangeQuantumTable @ 0x14078C6B8 (PsChangeQuantumTable.c)
+ *     CmSiRWLockInitialize @ 0x1407905A0 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
+ *     PspValidateMitigationAuditOptions @ 0x1407C4DC8 (PspValidateMitigationAuditOptions.c)
+ *     PspCreateProcess @ 0x1407CE380 (PspCreateProcess.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PspInitializeSiloStructures @ 0x140A3BFF4 (PspInitializeSiloStructures.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140A6DD90 (PspInitializeSystemPartitionPhase0.c)
+ *     PspInitializeJobStructures @ 0x140A72054 (PspInitializeJobStructures.c)
  */
 
 char __fastcall PspInitPhase0(PVOID StartContext)
@@ -42,7 +40,7 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   int *v7; // r8
   __int64 v8; // r9
   int v9; // eax
-  size_t v10; // rbx
+  size_t v10; // rdi
   union _RTL_RUN_ONCE *v11; // rcx
   union _RTL_RUN_ONCE *v12; // rcx
   __int64 v13; // rax
@@ -52,57 +50,58 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   union _RTL_RUN_ONCE *v17; // rcx
   union _RTL_RUN_ONCE *v18; // rcx
   __int64 v19; // rax
-  struct _EX_RUNDOWN_REF *Process; // rcx
+  _KPROCESS *Process; // rcx
   __int64 *v21; // rdi
   int v22; // ebx
   _QWORD *v23; // rbx
   void *v24; // rcx
   NTSTATUS v25; // eax
   PVOID v26; // rcx
+  _OWORD *v27; // rcx
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v29[16]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v30[16]; // [rsp+60h] [rbp-A0h] BYREF
   PVOID Object; // [rsp+E0h] [rbp-20h] BYREF
   HANDLE ThreadHandle; // [rsp+E8h] [rbp-18h] BYREF
-  __int128 v32; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v33; // [rsp+100h] [rbp+0h]
-  __int128 v34; // [rsp+110h] [rbp+10h] BYREF
-  __int64 v35; // [rsp+120h] [rbp+20h]
-  int v36; // [rsp+130h] [rbp+30h]
-  char v37; // [rsp+134h] [rbp+34h] BYREF
-  int v38; // [rsp+138h] [rbp+38h]
-  char v39; // [rsp+13Ch] [rbp+3Ch]
-  int v40; // [rsp+140h] [rbp+40h]
-  char v41; // [rsp+144h] [rbp+44h]
-  int v42; // [rsp+148h] [rbp+48h]
-  char v43; // [rsp+14Ch] [rbp+4Ch]
-  int v44; // [rsp+150h] [rbp+50h]
-  char v45; // [rsp+154h] [rbp+54h]
-  int v46; // [rsp+158h] [rbp+58h]
-  char v47; // [rsp+15Ch] [rbp+5Ch]
-  _OWORD v48[2]; // [rsp+160h] [rbp+60h] BYREF
+  __int128 v33; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v34; // [rsp+100h] [rbp+0h]
+  __int128 v35; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v36; // [rsp+120h] [rbp+20h]
+  int v37; // [rsp+130h] [rbp+30h]
+  char v38; // [rsp+134h] [rbp+34h] BYREF
+  int v39; // [rsp+138h] [rbp+38h]
+  char v40; // [rsp+13Ch] [rbp+3Ch]
+  int v41; // [rsp+140h] [rbp+40h]
+  char v42; // [rsp+144h] [rbp+44h]
+  int v43; // [rsp+148h] [rbp+48h]
+  char v44; // [rsp+14Ch] [rbp+4Ch]
+  int v45; // [rsp+150h] [rbp+50h]
+  char v46; // [rsp+154h] [rbp+54h]
+  int v47; // [rsp+158h] [rbp+58h]
+  char v48; // [rsp+15Ch] [rbp+5Ch]
+  _OWORD v49[2]; // [rsp+160h] [rbp+60h] BYREF
 
   PspMinimumWorkingSet += 30LL;
-  v1 = &v37;
+  v1 = &v38;
   PspMaximumWorkingSet += 300LL;
   ThreadHandle = 0LL;
   DestinationString = 0LL;
-  v36 = 0;
-  v48[0] = _mm_load_si128((const __m128i *)&_xmm);
-  v37 = 1;
+  v37 = 0;
+  v49[0] = _mm_load_si128((const __m128i *)&_xmm);
+  v38 = 1;
   v3 = 6LL;
-  v38 = 2;
+  v39 = 2;
   PspHardenedMitigationOptionsMap = 0LL;
-  v39 = 3;
   v40 = 3;
-  v41 = 1;
+  v41 = 3;
   v42 = 1;
   v43 = 1;
-  v44 = 4;
-  v45 = 1;
-  v46 = 5;
-  v47 = 1;
-  v48[1] = _mm_load_si128((const __m128i *)&_xmm);
-  qword_140D1F428 = 0LL;
+  v44 = 1;
+  v45 = 4;
+  v46 = 1;
+  v47 = 5;
+  v48 = 1;
+  v49[1] = _mm_load_si128((const __m128i *)&_xmm);
+  qword_140CFCC78 = 0LL;
   do
   {
     v4 = (unsigned int)(4 * *((_DWORD *)v1 - 1));
@@ -116,18 +115,18 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   while ( v3 );
   if ( (unsigned int)PspSystemMitigationOptionsLength < 0x18 )
     memset(
-      (void *)(0x140000000LL + (unsigned int)PspSystemMitigationOptionsLength + 13758408LL),
+      (void *)(0x140000000LL + (unsigned int)PspSystemMitigationOptionsLength + 13617616LL),
       0,
       24LL - (unsigned int)PspSystemMitigationOptionsLength);
-  v32 = PspSystemMitigationOptions;
+  v33 = PspSystemMitigationOptions;
   PspSystemMitigationOptionsLength = 24;
-  v33 = qword_140D1EFD8;
-  if ( (int)PspValidateMitigationOptions((__m128i *)&v32, 1) < 0 )
+  v34 = qword_140CFC9E0;
+  if ( (int)PspValidateMitigationOptions((__m128i *)&v33, 1) < 0 )
   {
     PspSystemMitigationOptions = 0LL;
-    qword_140D1EFD8 = 0LL;
+    qword_140CFC9E0 = 0LL;
   }
-  v7 = (int *)v48;
+  v7 = (int *)v49;
   v8 = 8LL;
   do
   {
@@ -142,9 +141,9 @@ char __fastcall PspInitPhase0(PVOID StartContext)
       (char *)&PspSystemMitigationAuditOptions + (unsigned int)PspSystemMitigationAuditOptionsLength,
       0,
       24LL - (unsigned int)PspSystemMitigationAuditOptionsLength);
-  v34 = PspSystemMitigationAuditOptions;
-  v35 = qword_140D1F258;
-  if ( (int)PspValidateMitigationAuditOptions(&v34) < 0 )
+  v35 = PspSystemMitigationAuditOptions;
+  v36 = qword_140CFCB80;
+  if ( (int)PspValidateMitigationAuditOptions(&v35) < 0 )
     memset(&PspSystemMitigationAuditOptions, 0, v10);
   v11 = &PspCreateThreadNotifyRoutine;
   do
@@ -169,83 +168,83 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   while ( v19 != 1 );
   PsChangeQuantumTable(0, PsRawPrioritySeparation);
   PspActiveProcessLock = 0LL;
-  qword_140C382E8 = (__int64)&PsActiveProcessHead;
+  qword_140C1E218 = (__int64)&PsActiveProcessHead;
   PsActiveProcessHead = (__int64)&PsActiveProcessHead;
-  Process = (struct _EX_RUNDOWN_REF *)KeGetCurrentThread()->ApcState.Process;
+  Process = KeGetCurrentThread()->ApcState.Process;
   PsIdleProcess = Process;
-  Process[135].Count = 0LL;
-  ExInitializePushLock(Process + 139);
+  *(_QWORD *)&Process[1].Header.Lock = 0LL;
+  ExInitializePushLock((PKSPIN_LOCK)&Process[1].ProfileListHead.Blink);
   *((_DWORD *)PsIdleProcess + 223) = 0;
-  memset(v29, 0, 0x78uLL);
-  LOWORD(v29[0]) = 120;
-  *(_QWORD *)((char *)&v29[4] + 4) = 512LL;
+  memset(v30, 0, 0x78uLL);
+  LOWORD(v30[0]) = 120;
+  *(_QWORD *)((char *)&v30[4] + 4) = 512LL;
   RtlInitUnicodeString(&DestinationString, L"Job");
-  *(_QWORD *)((char *)v29 + 4) = 2048LL;
-  v29[9] = PspJobDelete;
-  HIDWORD(v29[5]) = 1816;
-  v29[8] = PspJobClose;
-  HIDWORD(v29[3]) = 2031679;
-  BYTE2(v29[0]) = BYTE2(v29[0]) & 0x77 | 8;
-  *(_OWORD *)((char *)&v29[1] + 4) = PspJobMapping;
-  if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PsJobType) >= 0
+  *(_QWORD *)((char *)v30 + 4) = 2048LL;
+  v30[9] = PspJobDelete;
+  HIDWORD(v30[5]) = 1600;
+  v30[8] = PspJobClose;
+  HIDWORD(v30[3]) = 2031679;
+  BYTE2(v30[0]) = BYTE2(v30[0]) & 0x77 | 8;
+  *(_OWORD *)((char *)&v30[1] + 4) = PspJobMapping;
+  if ( (int)ObCreateObjectType(&DestinationString, (__int64)v30, 0LL, (__int64)&PsJobType) >= 0
     && (int)SeRegisterObjectTypeMandatoryPolicy((__int64)PsJobType, 1) >= 0 )
   {
-    LODWORD(v29[1]) = 176;
+    LODWORD(v30[1]) = 176;
     RtlInitUnicodeString(&DestinationString, L"Process");
-    BYTE2(v29[0]) |= 0xC2u;
-    v29[9] = PspProcessDelete;
-    HIDWORD(v29[0]) = 32;
-    v29[7] = PspProcessOpen;
-    v29[5] = 0xB8000001000LL;
-    v29[8] = PspProcessClose;
-    HIDWORD(v29[3]) = 0x1FFFFF;
-    LODWORD(v29[4]) = 1052672;
-    *(_OWORD *)((char *)&v29[1] + 4) = PspProcessMapping;
-    if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PsProcessType) >= 0
+    BYTE2(v30[0]) |= 0xC2u;
+    v30[9] = PspProcessDelete;
+    HIDWORD(v30[0]) = 32;
+    v30[7] = PspProcessOpen;
+    v30[5] = 0xA4000001000LL;
+    v30[8] = PspProcessClose;
+    HIDWORD(v30[3]) = 0x1FFFFF;
+    LODWORD(v30[4]) = 1052672;
+    *(_OWORD *)((char *)&v30[1] + 4) = PspProcessMapping;
+    if ( (int)ObCreateObjectType(&DestinationString, (__int64)v30, 0LL, (__int64)&PsProcessType) >= 0
       && (int)SeRegisterObjectTypeMandatoryPolicy((__int64)PsProcessType, 3) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"Thread");
-      BYTE2(v29[0]) |= 0x80u;
-      v29[9] = PspThreadDelete;
-      HIDWORD(v29[0]) = 4;
-      v29[7] = PspThreadOpen;
-      v29[5] = 0x91000000000LL;
-      v29[8] = 0LL;
-      HIDWORD(v29[3]) = 0x1FFFFF;
-      LODWORD(v29[4]) = 1054720;
-      *(_OWORD *)((char *)&v29[1] + 4) = PspThreadMapping;
-      if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PsThreadType) >= 0
+      BYTE2(v30[0]) |= 0x80u;
+      v30[9] = PspThreadDelete;
+      HIDWORD(v30[0]) = 4;
+      v30[7] = PspThreadOpen;
+      v30[5] = 0x89800000000LL;
+      v30[8] = 0LL;
+      HIDWORD(v30[3]) = 0x1FFFFF;
+      LODWORD(v30[4]) = 1054720;
+      *(_OWORD *)((char *)&v30[1] + 4) = PspThreadMapping;
+      if ( (int)ObCreateObjectType(&DestinationString, (__int64)v30, 0LL, (__int64)&PsThreadType) >= 0
         && (int)SeRegisterObjectTypeMandatoryPolicy((__int64)PsThreadType, 3) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"Partition");
-        memset(v29, 0, 0x78uLL);
-        BYTE2(v29[0]) |= 0xCu;
-        v29[7] = PspOpenPartitionHandle;
-        LOWORD(v29[0]) = 120;
-        v29[8] = PspClosePartitionHandle;
-        LODWORD(v29[1]) = 16;
-        v29[9] = PspDeletePartition;
-        HIDWORD(v29[3]) = 2031619;
-        HIDWORD(v29[4]) = 512;
-        *(_OWORD *)((char *)&v29[1] + 4) = PspPartitionMapping;
-        HIDWORD(v29[5]) = 136;
-        if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PsPartitionType) >= 0 )
+        memset(v30, 0, 0x78uLL);
+        BYTE2(v30[0]) |= 0xCu;
+        v30[7] = PspOpenPartitionHandle;
+        LOWORD(v30[0]) = 120;
+        v30[8] = PspClosePartitionHandle;
+        LODWORD(v30[1]) = 16;
+        v30[9] = PspDeletePartition;
+        HIDWORD(v30[3]) = 2031619;
+        HIDWORD(v30[4]) = 512;
+        *(_OWORD *)((char *)&v30[1] + 4) = PspPartitionMapping;
+        HIDWORD(v30[5]) = 128;
+        if ( (int)ObCreateObjectType(&DestinationString, (__int64)v30, 0LL, (__int64)&PsPartitionType) >= 0 )
         {
-          memset(v29, 0, 0x78uLL);
-          LODWORD(v29[1]) = 176;
-          HIDWORD(v29[4]) = 512;
-          BYTE2(v29[0]) = BYTE2(v29[0]) & 0x7D | 2;
+          memset(v30, 0, 0x78uLL);
+          LOWORD(v30[0]) = 120;
+          HIDWORD(v30[4]) = 512;
+          BYTE2(v30[0]) = BYTE2(v30[0]) & 0x7D | 2;
           v21 = PspMemoryReserveObjectSizes;
-          LOWORD(v29[0]) = 120;
+          LODWORD(v30[1]) = 176;
           v22 = 0;
-          *(_OWORD *)((char *)&v29[1] + 4) = PspMemReserveMapping;
-          HIDWORD(v29[3]) = 983043;
+          *(_OWORD *)((char *)&v30[1] + 4) = PspMemReserveMapping;
+          HIDWORD(v30[3]) = 983043;
           do
           {
-            HIDWORD(v29[5]) = *(_DWORD *)v21;
+            HIDWORD(v30[5]) = *(_DWORD *)v21;
             if ( (int)ObCreateObjectType(
                         (const UNICODE_STRING *)&PspMemoryReserveObjectNames[2 * v22],
-                        (__int64)v29,
+                        (__int64)v30,
                         0LL,
                         (__int64)(&PspMemoryReserveObjectTypes + v22)) < 0 )
               return 0;
@@ -254,155 +253,107 @@ char __fastcall PspInitPhase0(PVOID StartContext)
           }
           while ( v22 < 2 );
           RtlInitUnicodeString(&DestinationString, L"ActivityReference");
-          memset(v29, 0, 0x78uLL);
-          BYTE2(v29[0]) |= 4u;
-          LOWORD(v29[0]) = 120;
-          *(_QWORD *)((char *)&v29[4] + 4) = 0x800000001LL;
-          LODWORD(v29[1]) = 402;
-          *(_OWORD *)((char *)&v29[1] + 4) = PspActivityReferenceMapping;
-          HIDWORD(v29[3]) = 2031616;
-          v29[8] = PspCloseActivityReference;
-          if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PspActivityReferenceObjectType) >= 0 )
+          memset(v30, 0, 0x78uLL);
+          BYTE2(v30[0]) |= 4u;
+          LOWORD(v30[0]) = 120;
+          *(_QWORD *)((char *)&v30[4] + 4) = 0x800000001LL;
+          LODWORD(v30[1]) = 402;
+          *(_OWORD *)((char *)&v30[1] + 4) = PspActivityReferenceMapping;
+          HIDWORD(v30[3]) = 2031616;
+          v30[8] = PspCloseActivityReference;
+          if ( (int)ObCreateObjectType(&DestinationString, (__int64)v30, 0LL, (__int64)&PspActivityReferenceObjectType) >= 0 )
           {
-            RtlInitUnicodeString(&DestinationString, L"ProcessStateChange");
-            memset(v29, 0, 0x78uLL);
-            BYTE2(v29[0]) |= 6u;
-            LOWORD(v29[0]) = 120;
-            LODWORD(v29[1]) = 146;
-            HIDWORD(v29[3]) = 983041;
-            *(_QWORD *)((char *)&v29[4] + 4) = 0x1800000001LL;
-            v29[7] = 0LL;
-            *(_OWORD *)((char *)&v29[1] + 4) = PspProcessStateChangeMapping;
-            v29[8] = 0LL;
-            v29[9] = PspDeleteProcessStateChange;
-            if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PspProcessStateChangeType) >= 0 )
+            if ( (unsigned __int8)PspInitializeJobStructures() )
             {
-              RtlInitUnicodeString(&DestinationString, L"ThreadStateChange");
-              memset(v29, 0, 0x78uLL);
-              BYTE2(v29[0]) |= 6u;
-              LOWORD(v29[0]) = 120;
-              LODWORD(v29[1]) = 146;
-              HIDWORD(v29[3]) = 983041;
-              *(_QWORD *)((char *)&v29[4] + 4) = 0x1800000001LL;
-              *(_OWORD *)((char *)&v29[1] + 4) = PspThreadStateChangeMapping;
-              v29[7] = 0LL;
-              v29[8] = 0LL;
-              v29[9] = PspDeleteThreadStateChange;
-              if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PspThreadStateChangeType) >= 0 )
+              if ( PspInitializeSiloStructures() )
               {
-                RtlInitUnicodeString(&DestinationString, L"CpuPartition");
-                memset(v29, 0, 0x78uLL);
-                BYTE2(v29[0]) |= 4u;
-                LOWORD(v29[0]) = 120;
-                HIDWORD(v29[3]) = 983047;
-                HIDWORD(v29[4]) = 512;
-                HIDWORD(v29[5]) = 344;
-                *(_OWORD *)((char *)&v29[1] + 4) = PspCpuPartitionMapping;
-                v29[7] = 0LL;
-                v29[8] = 0LL;
-                v29[9] = PspDeleteCpuPartition;
-                if ( (int)ObCreateObjectType(&DestinationString, (__int64)v29, 0LL, (__int64)&PsCpuPartitionType) >= 0 )
+                qword_140C13270 = 0LL;
+                qword_140C13268 = (__int64)&PspWorkingSetChangeHead;
+                PspWorkingSetChangeHead = (__int64)&PspWorkingSetChangeHead;
+                PspAffinityUpdateLock = 0LL;
+                PspCidTable = (__int64)ExCreateHandleTable(0LL, 0);
+                if ( PspCidTable )
                 {
-                  if ( (unsigned __int8)PspInitializeJobStructures() )
+                  CmSiRWLockInitialize(&PsWin32CallBack);
+                  CmSiRWLockInitialize(&PsWin32NullCallBack);
+                  *(_BYTE *)(PspCidTable + 44) |= 1u;
+                  qword_140C1E1F0 = (__int64)PspReaper;
+                  qword_140C1E250 = (__int64)PspProcessRundownWorker;
+                  PspProcessRundownCacheWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspProcessRundownWorkerSingle;
+                  PsReaperListHead = 0LL;
+                  qword_140C1E1F8 = 0LL;
+                  PsReaperWorkItem = 0LL;
+                  qword_140C1E258 = 0LL;
+                  PspProcessRundownWorkItem = 0LL;
+                  PspProcessRundownCacheWorkItem.Parameter = 0LL;
+                  PspProcessRundownCacheWorkItem.List.Flink = 0LL;
+                  PspBootAccessToken = (PVOID)(*((_QWORD *)PsIdleProcess + 151) & 0xFFFFFFFFFFFFFFF0uLL);
+                  if ( (int)PspInitializeSystemPartitionPhase0() >= 0 )
                   {
-                    if ( PspInitializeSiloStructures() )
+                    v23 = PspSystemPartition;
+                    if ( PspCreateProcess((__int64)PspSystemPartition + 112, 0x1FFFFF, 0LL, 0LL, 0, 0, 0LL, 0LL, 0LL) >= 0 )
                     {
-                      qword_140D0C390 = 0LL;
-                      qword_140D0C388 = (__int64)&PspWorkingSetChangeHead;
-                      PspWorkingSetChangeHead = (__int64)&PspWorkingSetChangeHead;
-                      PspAffinityUpdateLock = 0LL;
-                      PspCidTable = ExCreateHandleTable(0LL, 0LL);
-                      if ( PspCidTable )
+                      v24 = (void *)v23[14];
+                      Object = 0LL;
+                      v25 = ObReferenceObjectByHandle(v24, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
+                      v26 = Object;
+                      v23[13] = Object;
+                      if ( v25 >= 0 )
                       {
-                        CmSiRWLockInitialize(&PsWin32CallBack);
-                        CmSiRWLockInitialize(&PsWin32NullCallBack);
-                        *(_BYTE *)(PspCidTable + 44) |= 1u;
-                        qword_140C38310 = (__int64)PspReaper;
-                        qword_140C38370 = (__int64)PspProcessRundownWorker;
-                        PspProcessRundownCacheWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspProcessRundownWorkerSingle;
-                        PsReaperListHead = 0LL;
-                        qword_140C38318 = 0LL;
-                        PsReaperWorkItem = 0LL;
-                        qword_140C38378 = 0LL;
-                        PspProcessRundownWorkItem = 0LL;
-                        PspProcessRundownCacheWorkItem.Parameter = 0LL;
-                        PspProcessRundownCacheWorkItem.List.Flink = 0LL;
-                        if ( (int)PspTlsInitialize() >= 0 )
+                        PsInitialSystemProcess = (PEPROCESS)v26;
+                        _InterlockedOr((volatile signed __int32 *)v26 + 628, 0x40000000u);
+                        _InterlockedOr(
+                          (volatile signed __int32 *)&PsInitialSystemProcess[2].ReadyListHead.Blink + 1,
+                          0x2000u);
+                        _InterlockedOr(
+                          (volatile signed __int32 *)&PsInitialSystemProcess[2].Header.WaitListHead.Flink + 1,
+                          0x1000u);
+                        strcpy_s((char *)PsIdleProcess + 1448, 0xFuLL, "Idle");
+                        strcpy_s((char *)&PsInitialSystemProcess[1].ActiveProcessors, 0xFuLL, "System");
+                        PsInitialSystemProcess[1].ActiveProcessors.Bitmap[2] = (unsigned __int64)ExAllocatePoolWithTag(
+                                                                                                   NonPagedPoolNx,
+                                                                                                   0x10uLL,
+                                                                                                   0x61506553u);
+                        v27 = (_OWORD *)PsInitialSystemProcess[1].ActiveProcessors.Bitmap[2];
+                        if ( v27 )
                         {
-                          PspBootAccessToken = (PVOID)(*((_QWORD *)PsIdleProcess + 151) & 0xFFFFFFFFFFFFFFF0uLL);
-                          if ( (int)PspInitializeSystemPartitionPhase0() >= 0 )
+                          *v27 = 0LL;
+                          if ( PsCreateSystemThread(
+                                 &ThreadHandle,
+                                 0x1FFFFFu,
+                                 0LL,
+                                 0LL,
+                                 0LL,
+                                 (PKSTART_ROUTINE)Phase1Initialization,
+                                 StartContext) >= 0 )
                           {
-                            v23 = PspSystemPartition;
-                            if ( (int)PspInitializeCpuPartitionsPhase0() >= 0
-                              && PspCreateProcess(v23 + 15, 0x1FFFFF, 0LL, 0LL, 0, 0, 0LL, 0LL, 0LL) >= 0 )
+                            ObCloseHandle(ThreadHandle, 0);
+                            if ( !VslVsmEnabled )
                             {
-                              v24 = (void *)v23[15];
-                              Object = 0LL;
-                              v25 = ObReferenceObjectByHandle(v24, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
-                              v26 = Object;
-                              v23[14] = Object;
-                              if ( v25 >= 0 )
+LABEL_39:
+                              PsVmProcessorHostTransitionEvent = 0LL;
+                              return 1;
+                            }
+                            PspIumWorkItem.Parameter = 0LL;
+                            PspIumWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspIumWorker;
+                            PspIumWorkItem.List.Flink = 0LL;
+                            PspIumFreeMapping = MmAllocateMappingAddress(0x1000uLL, 0x466D7356u);
+                            if ( PspIumFreeMapping )
+                            {
+                              PspIumLogBuffer = MmAllocateIndependentPagesEx(0x2000uLL, -1, -1LL, 1uLL);
+                              PsIumResumeAfterHibernate();
+                              if ( (VslGetNestedPageProtectionFlags() & 0x40) != 0 )
+                                *(_QWORD *)&PspSystemMitigationOptions = PspSystemMitigationOptions & 0xFFFFFF0FFFFFFFFFuLL | 0x5000000000LL;
+                              if ( PspIumLogBuffer )
                               {
-                                PsInitialSystemProcess = (PEPROCESS)v26;
-                                _InterlockedOr((volatile signed __int32 *)v26 + 628, 0x40000000u);
-                                _InterlockedOr(
-                                  (volatile signed __int32 *)&PsInitialSystemProcess[2].ReadyListHead.Blink + 1,
-                                  0x2000u);
-                                _InterlockedOr(
-                                  (volatile signed __int32 *)&PsInitialSystemProcess[2].Header.WaitListHead.Flink + 1,
-                                  0x1000u);
-                                strcpy_s((char *)PsIdleProcess + 1448, 0xFuLL, "Idle");
-                                strcpy_s((char *)&PsInitialSystemProcess[1].ActiveProcessors, 0xFuLL, "System");
-                                PsInitialSystemProcess[1].ActiveProcessors.StaticBitmap[2] = ExAllocatePool2(
-                                                                                               64LL,
-                                                                                               0x10uLL,
-                                                                                               0x61506553u);
-                                if ( PsInitialSystemProcess[1].ActiveProcessors.StaticBitmap[2] )
-                                {
-                                  if ( PsCreateSystemThread(
-                                         &ThreadHandle,
-                                         0x1FFFFFu,
-                                         0LL,
-                                         0LL,
-                                         0LL,
-                                         (PKSTART_ROUTINE)Phase1Initialization,
-                                         StartContext) >= 0 )
-                                  {
-                                    ObCloseHandle(ThreadHandle, 0);
-                                    if ( !VslVsmEnabled )
-                                    {
-LABEL_44:
-                                      PsVmProcessorHostTransitionEvent = 0LL;
-                                      return 1;
-                                    }
-                                    PspIumWorkItem.Parameter = 0LL;
-                                    PspIumWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspIumWorker;
-                                    PspIumWorkItem.List.Flink = 0LL;
-                                    PspIumFreeMapping = MmAllocateMappingAddress(0x1000uLL, 0x466D7356u);
-                                    if ( PspIumFreeMapping )
-                                    {
-                                      PspIumLogBuffer = MmAllocateIndependentPagesEx(
-                                                          0x2000uLL,
-                                                          -1,
-                                                          (_QWORD *)0xFFFFFFFFFFFFFFFFLL,
-                                                          1u);
-                                      PsIumResumeAfterHibernate();
-                                      if ( (VslGetNestedPageProtectionFlags() & 0x40) != 0 )
-                                        *(_QWORD *)&PspSystemMitigationOptions = PspSystemMitigationOptions & 0xFFFFFF0FFFFFFFFFuLL | 0x5000000000LL;
-                                      if ( PspIumLogBuffer )
-                                      {
-                                        PspVsmLogCallbackRecord.State = 0;
-                                        KeRegisterBugCheckReasonCallback(
-                                          &PspVsmLogCallbackRecord,
-                                          (PKBUGCHECK_REASON_CALLBACK_ROUTINE)PspVsmLogBugCheckCallback,
-                                          KbCallbackSecondaryDumpData,
-                                          (PUCHAR)"SecureKernelFailureLog");
-                                      }
-                                      goto LABEL_44;
-                                    }
-                                  }
-                                }
+                                PspVsmLogCallbackRecord.State = 0;
+                                KeRegisterBugCheckReasonCallback(
+                                  &PspVsmLogCallbackRecord,
+                                  (PKBUGCHECK_REASON_CALLBACK_ROUTINE)PspVsmLogBugCheckCallback,
+                                  KbCallbackSecondaryDumpData,
+                                  (PUCHAR)"SecureKernelFailureLog");
                               }
+                              goto LABEL_39;
                             }
                           }
                         }

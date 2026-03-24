@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSvmCreatePrQueue @ 0x140548960
+ * XREFs of HvlSvmCreatePrQueue @ 0x1404F6C40
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x140459C2A (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHandleInsufficientMemory @ 0x1405438E8 (HvlpHandleInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FACD8 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmCreatePrQueue(int a1, int a2, unsigned __int64 a3, int a4, int a5)
@@ -34,8 +34,8 @@ __int64 __fastcall HvlSvmCreatePrQueue(int a1, int a2, unsigned __int64 a3, int 
   v13 = v5;
   while ( 1 )
   {
-    LOWORD(v6) = HvcallFastExtended(65703LL, (__int64)v10, 0x20u, 0LL, 0);
-    if ( (HvlpFlags & 2) == 0 || !HvlpHvStatusIsInsufficientMemory(v6) )
+    v6 = HvcallFastExtended(65703LL, (__int64)v10, 0x20u, 0, 0);
+    if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v6, v6) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v7, v6, v8) < 0 )
       return 3221225626LL;

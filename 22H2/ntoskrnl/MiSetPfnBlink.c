@@ -1,29 +1,23 @@
 /*
- * XREFs of MiSetPfnBlink @ 0x1402DF0B0
+ * XREFs of MiSetPfnBlink @ 0x1402987B0
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiResolvePrivateZeroFault @ 0x14026A260 (MiResolvePrivateZeroFault.c)
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
- *     MiReplaceTransitionPage @ 0x1403304D0 (MiReplaceTransitionPage.c)
- *     MiUnlinkStandbyPage @ 0x14046CD9A (MiUnlinkStandbyPage.c)
- *     MiAllocateEnclavePagesForMdl @ 0x1406230CC (MiAllocateEnclavePagesForMdl.c)
- *     MiPreInitializeSystemImagePage @ 0x14062C63C (MiPreInitializeSystemImagePage.c)
- *     MiSwitchToTransition @ 0x1406331FC (MiSwitchToTransition.c)
- *     MiAllocateEnclavePages @ 0x140646E08 (MiAllocateEnclavePages.c)
- *     MiGetPageForEnclave @ 0x1406480A8 (MiGetPageForEnclave.c)
- *     MiReserveEnclavePages @ 0x1406489B0 (MiReserveEnclavePages.c)
- *     MiReturnEnclavePage @ 0x140648A7C (MiReturnEnclavePage.c)
- *     MiUnlinkPageFromBadList @ 0x14064E034 (MiUnlinkPageFromBadList.c)
- *     MiDiscardTransitionPteEx @ 0x140650694 (MiDiscardTransitionPteEx.c)
- *     MiSwapNumaStandbyPage @ 0x140651E40 (MiSwapNumaStandbyPage.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
- *     MiPfPrepareSequentialReadList @ 0x140744BF0 (MiPfPrepareSequentialReadList.c)
- *     MiCreateHardwareEnclave @ 0x140A3D7F8 (MiCreateHardwareEnclave.c)
- *     MiInitializeEnclaveMetadataPage @ 0x140B9AC44 (MiInitializeEnclaveMetadataPage.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14023D740 (MiBuildMdlForMappedFileFault.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MiReplaceTransitionPage @ 0x140336380 (MiReplaceTransitionPage.c)
+ *     MiGetHardFaultPages @ 0x1403592E4 (MiGetHardFaultPages.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1403761CC (MiReInitializeFreeSlabPfn.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140384A30 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDiscardTransitionPteEx @ 0x140388794 (MiDiscardTransitionPteEx.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F52A8 (MiConvertEntireLargePageToSmall.c)
+ *     MiSwitchToTransition @ 0x140539E54 (MiSwitchToTransition.c)
+ *     MiGetEnclavePage @ 0x14054A618 (MiGetEnclavePage.c)
+ *     MiReturnEnclavePage @ 0x14054B360 (MiReturnEnclavePage.c)
+ *     MiUnlinkPageFromBadList @ 0x14054F480 (MiUnlinkPageFromBadList.c)
+ *     MiSwapNumaStandbyPage @ 0x140551310 (MiSwapNumaStandbyPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x14063B4F0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
@@ -31,30 +25,30 @@
 unsigned __int64 __fastcall MiSetPfnBlink(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r9
-  signed __int64 v5; // rdx
   unsigned __int64 result; // rax
+  signed __int64 v6; // rdx
   signed __int64 v7; // r8
   signed __int64 v8; // rcx
 
-  v3 = a2 & 0xFFFFFFFFFFLL;
-  if ( a3 )
+  v3 = a2 & 0xFFFFFFFFFLL;
+  if ( a3 == 1 )
   {
-    result = v3 | *(_QWORD *)(a1 + 24) & 0xFFFFFF0000000000uLL;
+    result = v3 | *(_QWORD *)(a1 + 24) & 0xFFFFFFF000000000uLL;
     *(_QWORD *)(a1 + 24) = result;
   }
   else
   {
-    v5 = *(_QWORD *)(a1 + 24);
-    result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 24), v3 | v5 & 0xFFFFFF0000000000uLL, v5);
+    v6 = *(_QWORD *)(a1 + 24);
+    result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 24), v3 | v6 & 0xFFFFFFF000000000uLL, v6);
     v7 = result;
-    if ( v5 != result )
+    if ( v6 != result )
     {
       do
       {
         v8 = v7;
         result = _InterlockedCompareExchange64(
                    (volatile signed __int64 *)(a1 + 24),
-                   v3 | v7 & 0xFFFFFF0000000000uLL,
+                   v3 | v7 & 0xFFFFFFF000000000uLL,
                    v7);
         v7 = result;
       }

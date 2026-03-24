@@ -1,25 +1,25 @@
 /*
- * XREFs of Normalization__NormalizeCharacter @ 0x1409BDBFC
+ * XREFs of Normalization__NormalizeCharacter @ 0x140918590
  * Callers:
- *     Normalization__AppendDecomposedChar @ 0x1409BCCCC (Normalization__AppendDecomposedChar.c)
- *     Normalization__Normalize @ 0x1409BDA38 (Normalization__Normalize.c)
+ *     Normalization__AppendDecomposedChar @ 0x14091766C (Normalization__AppendDecomposedChar.c)
+ *     Normalization__Normalize @ 0x1409183D4 (Normalization__Normalize.c)
  * Callees:
- *     ComposeHangulLV @ 0x1405ECFE0 (ComposeHangulLV.c)
- *     ComposeHangulLVT @ 0x1405ED010 (ComposeHangulLVT.c)
- *     IsHangulLV @ 0x1405ED044 (IsHangulLV.c)
- *     NormBuffer__Append @ 0x1405ED07C (NormBuffer__Append.c)
- *     NormBuffer__AppendEx @ 0x1405ED158 (NormBuffer__AppendEx.c)
- *     NormBuffer__GetLastChar @ 0x1405ED1F8 (NormBuffer__GetLastChar.c)
- *     NormBuffer__Insert @ 0x1405ED288 (NormBuffer__Insert.c)
- *     NormBuffer__IsBlocked @ 0x1405ED354 (NormBuffer__IsBlocked.c)
- *     NormBuffer__LastStartBase @ 0x1405ED3E0 (NormBuffer__LastStartBase.c)
- *     NormBuffer__LastStartBasePair @ 0x1405ED40C (NormBuffer__LastStartBasePair.c)
- *     NormBuffer__RecheckStartCombinations @ 0x1405ED45C (NormBuffer__RecheckStartCombinations.c)
- *     NormBuffer__ReplaceLastStartBase @ 0x1405ED5A4 (NormBuffer__ReplaceLastStartBase.c)
- *     NormBuffer__ReplaceLastStartBasePair @ 0x1405ED624 (NormBuffer__ReplaceLastStartBasePair.c)
- *     NormBuffer__RewindOutputCharacter @ 0x1405ED69C (NormBuffer__RewindOutputCharacter.c)
- *     Normalization__AppendDecomposedChar @ 0x1409BCCCC (Normalization__AppendDecomposedChar.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x1409BCDDC (Normalization__CanCombinableCharactersCombine.c)
+ *     ComposeHangulLV @ 0x14058D980 (ComposeHangulLV.c)
+ *     ComposeHangulLVT @ 0x14058D9B0 (ComposeHangulLVT.c)
+ *     IsHangulLV @ 0x14058D9E4 (IsHangulLV.c)
+ *     NormBuffer__Append @ 0x14058DA1C (NormBuffer__Append.c)
+ *     NormBuffer__AppendEx @ 0x14058DAF8 (NormBuffer__AppendEx.c)
+ *     NormBuffer__GetLastChar @ 0x14058DB98 (NormBuffer__GetLastChar.c)
+ *     NormBuffer__Insert @ 0x14058DC1C (NormBuffer__Insert.c)
+ *     NormBuffer__IsBlocked @ 0x14058DCE8 (NormBuffer__IsBlocked.c)
+ *     NormBuffer__LastStartBase @ 0x14058DD74 (NormBuffer__LastStartBase.c)
+ *     NormBuffer__LastStartBasePair @ 0x14058DDA0 (NormBuffer__LastStartBasePair.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x14058DDF0 (NormBuffer__RecheckStartCombinations.c)
+ *     NormBuffer__ReplaceLastStartBase @ 0x14058DF34 (NormBuffer__ReplaceLastStartBase.c)
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x14058DFB4 (NormBuffer__ReplaceLastStartBasePair.c)
+ *     NormBuffer__RewindOutputCharacter @ 0x14058E02C (NormBuffer__RewindOutputCharacter.c)
+ *     Normalization__AppendDecomposedChar @ 0x14091766C (Normalization__AppendDecomposedChar.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x140917778 (Normalization__CanCombinableCharactersCombine.c)
  */
 
 __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, int a2, unsigned __int8 a3, __int64 a4)
@@ -31,53 +31,56 @@ __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, int a2, unsigne
   int v11; // eax
   int v12; // r9d
   char v13; // al
-  unsigned __int16 *v14; // rax
-  int v15; // ecx
-  unsigned __int8 v16; // r15
-  char v17; // dl
-  unsigned __int8 v18; // r15
+  unsigned __int16 *v14; // rcx
+  int v15; // edx
+  unsigned __int8 v16; // r11
+  unsigned __int8 v17; // r15
+  unsigned __int8 v18; // dl
+  unsigned __int8 v19; // r15
   int CanCombinableCharactersCombine; // eax
-  char v20; // dl
-  bool v21; // zf
-  __int16 *v22; // r8
-  __int64 v23; // rcx
-  int v24; // edx
+  __int64 v21; // r10
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  char v24; // dl
+  bool v25; // zf
   int StartBasePair; // eax
-  int v26; // eax
+  int v27; // eax
   int StartBase; // eax
-  int v28; // eax
-  char v29; // r8
-  __int64 v31; // r10
-  char v32; // r9
-  __int64 v33; // rax
-  int v34; // eax
-  char v35; // di
-  char v36; // r8
-  char v37; // di
-  char v38; // al
-  int v39; // eax
-  __int64 v40; // r9
-  __int64 v41; // rax
-  unsigned __int64 v42; // rdx
-  char v43; // al
-  unsigned __int16 *v44; // r10
-  __int64 v45; // rdx
-  __int64 v46; // rcx
-  int v47; // esi
-  unsigned __int16 v48; // di
-  __int64 v49; // rcx
-  unsigned __int16 v50; // si
+  int v29; // eax
+  __int16 *v30; // r8
+  __int64 v31; // rcx
+  int v32; // edx
+  __int64 v33; // r10
+  char v34; // r9
+  __int64 v35; // rax
+  int v37; // eax
+  char v38; // di
+  char v39; // r8
+  char v40; // di
+  char v41; // al
+  int v42; // eax
+  char v43; // di
+  char v44; // r8
+  __int64 v45; // r9
+  __int64 v46; // rax
+  unsigned __int64 v47; // rdx
+  char v48; // al
+  unsigned __int16 *v49; // r10
+  __int64 v50; // rcx
+  int v51; // esi
+  unsigned __int16 v52; // di
+  __int64 v53; // rcx
+  unsigned __int16 v54; // si
   int LastChar; // eax
-  unsigned int v52; // r9d
-  int v53; // eax
-  int v54; // r9d
-  unsigned __int16 *v55; // r8
-  int v56; // edx
-  unsigned int v57; // eax
-  __int64 v58; // r8
-  unsigned __int16 *v59; // r9
-  unsigned __int16 *v60; // r10
-  __int64 v61; // r10
+  unsigned int v56; // r11d
+  int v57; // eax
+  int v58; // r11d
+  unsigned __int16 *v59; // r8
+  int v60; // edx
+  unsigned int v61; // eax
+  __int64 v62; // r8
+  unsigned __int16 *v63; // r9
+  __int64 v64; // r10
 
   v5 = a3;
   if ( !a3 )
@@ -94,7 +97,7 @@ __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, int a2, unsigne
           if ( !*(_BYTE *)(a1 + 113) )
             return 3221227287LL;
 LABEL_125:
-          v43 = NormBuffer__Append(a4, a2);
+          v48 = NormBuffer__Append(a4, a2);
           goto LABEL_96;
         case 0xFCu:
           return 3221227287LL;
@@ -122,40 +125,38 @@ LABEL_30:
     {
       if ( (unsigned int)(a2 - 4352) <= 0x12 )
       {
-        v55 = *(unsigned __int16 **)(a4 + 16);
-        if ( v55 == *(unsigned __int16 **)(a4 + 8) )
-          goto LABEL_26;
-        v56 = *v55;
-        *(_QWORD *)(a4 + 16) = v55 + 1;
-        v57 = ComposeHangulLV(a2, v56);
-        if ( !v57 )
+        v59 = *(unsigned __int16 **)(a4 + 16);
+        if ( v59 != *(unsigned __int16 **)(a4 + 8) )
         {
-          *(_QWORD *)(a4 + 16) = v58;
-          goto LABEL_26;
+          v60 = *v59;
+          *(_QWORD *)(a4 + 16) = v59 + 1;
+          v61 = ComposeHangulLV(a2, v60);
+          if ( !v61 )
+          {
+            *(_QWORD *)(a4 + 16) = v62;
+            goto LABEL_26;
+          }
+          a2 = v61;
+          if ( v49 != v63 )
+          {
+            *(_QWORD *)(a4 + 16) = v49 + 1;
+            v50 = v61;
+            goto LABEL_119;
+          }
         }
-        a2 = v57;
-        if ( v60 == v59 )
-          goto LABEL_26;
-        v45 = *v60;
-        *(_QWORD *)(a4 + 16) = v60 + 1;
-        v46 = v57;
-LABEL_119:
-        v53 = ComposeHangulLVT(v46, v45);
-        if ( !v53 )
-        {
-          *(_QWORD *)(a4 + 16) = v61;
-          goto LABEL_26;
-        }
-LABEL_114:
-        a2 = v53;
-        goto LABEL_26;
+LABEL_26:
+        v13 = NormBuffer__Append(a4, a2);
+LABEL_92:
+        if ( !v13 )
+          return 3221225507LL;
+        return 0LL;
       }
       if ( (unsigned int)(a2 - 4449) <= 0x14 )
       {
         if ( (unsigned int)NormBuffer__GetLastChar(a4) - 4352 > 0x12 )
           goto LABEL_26;
         NormBuffer__RewindOutputCharacter(a4);
-        v53 = ComposeHangulLV(v54, a2);
+        v57 = ComposeHangulLV(v58, a2);
         goto LABEL_114;
       }
       if ( (unsigned int)(a2 - 4520) <= 0x1A )
@@ -164,15 +165,10 @@ LABEL_114:
         if ( IsHangulLV(LastChar) )
         {
           NormBuffer__RewindOutputCharacter(a4);
-          v53 = ComposeHangulLVT(v52, (unsigned int)a2);
+          v57 = ComposeHangulLVT(v56, (unsigned int)a2);
           goto LABEL_114;
         }
-LABEL_26:
-        v13 = NormBuffer__Append(a4, a2);
-LABEL_64:
-        if ( v13 )
-          return 0LL;
-        return 3221225507LL;
+        goto LABEL_26;
       }
       if ( ((*(_DWORD *)a1 - 13) & 0xFFFFFEFF) != 0 || (unsigned int)(a2 - 4447) > 1 )
         goto LABEL_26;
@@ -185,32 +181,38 @@ LABEL_64:
         {
           if ( !IsHangulLV(a2) )
             goto LABEL_26;
-          v44 = *(unsigned __int16 **)(a4 + 16);
-          if ( v44 == *(unsigned __int16 **)(a4 + 8) )
+          v49 = *(unsigned __int16 **)(a4 + 16);
+          if ( v49 == *(unsigned __int16 **)(a4 + 8) )
             goto LABEL_26;
-          v45 = *v44;
-          *(_QWORD *)(a4 + 16) = v44 + 1;
-          v46 = (unsigned int)a2;
-          goto LABEL_119;
+          v50 = (unsigned int)a2;
+          *(_QWORD *)(a4 + 16) = v49 + 1;
+LABEL_119:
+          v57 = ComposeHangulLVT(v50, *v49);
+          if ( !v57 )
+          {
+            *(_QWORD *)(a4 + 16) = v64;
+            goto LABEL_26;
+          }
+LABEL_114:
+          a2 = v57;
+          goto LABEL_26;
         }
-        v47 = a2 - 44032;
+        v51 = a2 - 44032;
         if ( !NormBuffer__AppendEx(a4, (unsigned __int16)((a2 - 44032) / 588 + 4352), 0, 0) )
           return 3221225507LL;
-        v48 = (a2 - 44032) % 588 / 28 + 4449;
-        if ( !NormBuffer__AppendEx(a4, v48, 0, 0) )
+        v52 = (a2 - 44032) % 588 / 28 + 4449;
+        if ( !NormBuffer__AppendEx(a4, v52, 0, 0) )
           return 3221225507LL;
-        v50 = (unsigned __int16)(v47 % 28) != 0 ? v47 % 28 + 4519 : 0;
-        if ( v50 )
+        v54 = (unsigned __int16)(v51 % 28) != 0 ? v51 % 28 + 4519 : 0;
+        if ( v54 )
         {
-          if ( !NormBuffer__AppendEx(v49, v50, 0, 0) )
+          if ( !NormBuffer__AppendEx(v53, v54, 0, 0) )
             return 3221225507LL;
-          v48 = v50;
+          v52 = v54;
         }
         *(_QWORD *)(a4 + 80) = *(_QWORD *)(a4 + 40);
-        *(_DWORD *)(a4 + 88) = v48;
-LABEL_98:
-        *(_WORD *)(a4 + 92) = 0;
-        return 0LL;
+        *(_DWORD *)(a4 + 88) = v52;
+        goto LABEL_98;
       }
       if ( (unsigned int)(a2 - 55216) <= 0x16 || (unsigned int)(a2 - 55243) <= 0x30 )
         goto LABEL_26;
@@ -226,185 +228,180 @@ LABEL_98:
   {
     if ( (v8 & 0x80) == 0 )
     {
-      if ( NormBuffer__AppendEx(a4, a2, v8 & 0x3F, v8 & 0xC0) )
-      {
-        *(_QWORD *)(a4 + 80) = *(_QWORD *)(a4 + 40);
-        *(_DWORD *)(a4 + 88) = a2;
-        *(_BYTE *)(a4 + 92) = v10;
-        *(_BYTE *)(a4 + 93) = v9;
-        return 0LL;
-      }
-      return 3221225507LL;
+      if ( !NormBuffer__AppendEx(a4, a2, v8 & 0x3F, v8 & 0xC0) )
+        return 3221225507LL;
+      *(_QWORD *)(a4 + 80) = *(_QWORD *)(a4 + 40);
+      *(_DWORD *)(a4 + 88) = a2;
+      *(_BYTE *)(a4 + 92) = v10;
+      *(_BYTE *)(a4 + 93) = v9;
+      return 0LL;
     }
     NormBuffer__GetLastChar(a4);
-    v16 = *(_BYTE *)(a4 + 72);
-    if ( !v16 || v16 == 63 || (v17 = *(_BYTE *)(a4 + 73), (v17 & 0xBF) == 0) )
+    v17 = *(_BYTE *)(a4 + 72);
+    if ( !v17 || v17 == 63 || (v18 = *(_BYTE *)(a4 + 73), (v18 & v16) == 0) )
     {
-      v17 = *(_BYTE *)(a4 + 73);
+      v18 = *(_BYTE *)(a4 + 73);
       *(_QWORD *)(a4 + 80) = *(_QWORD *)(a4 + 64) + 2LL;
       *(_DWORD *)(a4 + 88) = *(_DWORD *)(a4 + 56);
-      *(_BYTE *)(a4 + 92) = v16;
-      *(_BYTE *)(a4 + 93) = v17;
+      *(_BYTE *)(a4 + 92) = v17;
+      *(_BYTE *)(a4 + 93) = v18;
       *(_QWORD *)(a4 + 96) = 0LL;
     }
-    if ( v9 == (char)0x80 || (((*(_BYTE *)(a4 + 93) | *(_BYTE *)(a4 + 92)) + 64) & 0xBF) == 0 )
+    if ( v9 == (char)0x80 || ((unsigned __int8)((*(_BYTE *)(a4 + 92) | *(_BYTE *)(a4 + 93)) + 64) & v16) == 0 )
     {
       NormBuffer__IsBlocked((_QWORD *)a4, v10);
-      goto LABEL_55;
+      goto LABEL_61;
     }
-    if ( !v16 || v16 == 63 )
+    if ( !v17 || v17 == 63 )
     {
       if ( (unsigned int)Normalization__CanCombinableCharactersCombine(a1, *(_DWORD *)(a4 + 88), a2) )
       {
         NormBuffer__RewindOutputCharacter(a4);
-        a2 = v40;
-        v41 = *(_QWORD *)(a1 + 40);
-        v42 = (v40 & 0x7F) + ((unsigned __int64)*(unsigned __int8 *)((v40 >> 7) + *(_QWORD *)(a1 + 32)) << 7);
-        v9 = *(_BYTE *)(v42 + v41 - 128) & 0xC0;
-        v10 = *(_BYTE *)(v42 + v41 - 128) & 0x3F;
+        a2 = v45;
+        v46 = *(_QWORD *)(a1 + 40);
+        v47 = (v45 & 0x7F) + ((unsigned __int64)*(unsigned __int8 *)((v45 >> 7) + *(_QWORD *)(a1 + 32)) << 7);
+        v9 = *(_BYTE *)(v47 + v46 - 128) & 0xC0;
+        v10 = *(_BYTE *)(v47 + v46 - 128) & 0x3F;
       }
-LABEL_73:
-      v24 = a2;
-      v23 = a4;
-      goto LABEL_56;
+LABEL_90:
+      v31 = a4;
+      v32 = a2;
+LABEL_91:
+      v13 = NormBuffer__AppendEx(v31, v32, v10, v9);
+      goto LABEL_92;
     }
-    if ( v17 )
+    if ( v18 )
     {
-      if ( v17 != 64 )
+      if ( v18 != 64 )
       {
         if ( NormBuffer__IsBlocked((_QWORD *)a4, v10) )
-          goto LABEL_55;
-        v18 = *(_BYTE *)(a4 + 92);
-        if ( !v18 || v18 == 63 || *(_BYTE *)(a4 + 93) == 64 )
+          goto LABEL_61;
+        v19 = *(_BYTE *)(a4 + 92);
+        if ( !v19 || v19 == 63 || *(_BYTE *)(a4 + 93) == 64 )
         {
           CanCombinableCharactersCombine = Normalization__CanCombinableCharactersCombine(a1, *(_DWORD *)(a4 + 88), a2);
+          v21 = CanCombinableCharactersCombine;
           if ( CanCombinableCharactersCombine )
           {
-            v20 = *(_BYTE *)((CanCombinableCharactersCombine & 0x7F)
-                           + ((unsigned __int64)*(unsigned __int8 *)(((__int64)CanCombinableCharactersCombine >> 7)
-                                                                   + *(_QWORD *)(a1 + 32)) << 7)
+            v22 = *(_QWORD *)(a1 + 32);
+            v23 = *(_QWORD *)(a4 + 80);
+            *(_DWORD *)(a4 + 88) = v21;
+            v24 = *(_BYTE *)((v21 & 0x7F)
+                           + ((unsigned __int64)*(unsigned __int8 *)((v21 >> 7) + v22) << 7)
                            + *(_QWORD *)(a1 + 40)
                            - 128);
-            *(_WORD *)(*(_QWORD *)(a4 + 80) - 2LL) = CanCombinableCharactersCombine;
-            *(_DWORD *)(a4 + 88) = CanCombinableCharactersCombine;
-            *(_BYTE *)(a4 + 93) = v20 & 0xC0;
-            v21 = (v20 & 0xC0) == 64;
-            *(_BYTE *)(a4 + 92) = v20 & 0x3F;
-            goto LABEL_83;
+            *(_WORD *)(v23 - 2) = v21;
+            *(_BYTE *)(a4 + 93) = v24 & 0xC0;
+            v25 = (v24 & 0xC0) == 64;
+            *(_BYTE *)(a4 + 92) = v24 & 0x3F;
+LABEL_80:
+            if ( v25 )
+              NormBuffer__RecheckStartCombinations(a4);
+            return 0LL;
           }
-          if ( !v18 || v18 == 63 )
-            goto LABEL_55;
+          if ( !v19 || v19 == 63 )
+            goto LABEL_61;
         }
-        if ( v18 <= v10 )
-          goto LABEL_55;
-        if ( v18 == *(_BYTE *)(a1 + 116) )
+        if ( v19 <= v10 )
+          goto LABEL_61;
+        if ( v19 == *(_BYTE *)(a1 + 116) )
         {
           if ( v10 >= *(_BYTE *)(a1 + 114) )
           {
-            if ( v10 != *(_BYTE *)(a1 + 115) )
-              goto LABEL_55;
-LABEL_59:
-            StartBasePair = NormBuffer__LastStartBasePair(a4);
-            v26 = Normalization__CanCombinableCharactersCombine(a1, StartBasePair, a2);
-            if ( v26 )
+            if ( v10 == *(_BYTE *)(a1 + 115) )
+              goto LABEL_58;
+LABEL_61:
+            v30 = *(__int16 **)(a4 + 104);
+            v31 = a4;
+            v32 = a2;
+            if ( v30 != *(__int16 **)(a4 + 40) )
             {
-LABEL_77:
-              v35 = *(_BYTE *)((v26 & 0x7F)
-                             + ((unsigned __int64)*(unsigned __int8 *)(((__int64)v26 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
-                             + *(_QWORD *)(a1 + 40)
-                             - 128);
-              v36 = v35 & 0x3F;
-              v37 = v35 & 0xC0;
-              v38 = NormBuffer__ReplaceLastStartBasePair(a4, v26, v36, v37);
-LABEL_81:
-              if ( !v38 )
-                return 3221225507LL;
-              v21 = v37 == 64;
-LABEL_83:
-              if ( v21 )
-                NormBuffer__RecheckStartCombinations(a4);
-              return 0LL;
+              v13 = NormBuffer__Insert((_QWORD *)a4, a2, v30);
+              goto LABEL_92;
             }
-LABEL_55:
-            v22 = *(__int16 **)(a4 + 104);
-            v23 = a4;
-            v24 = a2;
-            if ( v22 != *(__int16 **)(a4 + 40) )
-            {
-              v13 = NormBuffer__Insert((_QWORD *)a4, a2, v22);
-              goto LABEL_64;
-            }
-LABEL_56:
-            v13 = NormBuffer__AppendEx(v23, v24, v10, v9);
-            goto LABEL_64;
+            goto LABEL_91;
           }
         }
-        else if ( v18 == *(_BYTE *)(a1 + 118) && v10 == *(_BYTE *)(a1 + 117) )
+        else if ( v19 == *(_BYTE *)(a1 + 118) && v10 == *(_BYTE *)(a1 + 117) )
         {
-          goto LABEL_59;
+LABEL_58:
+          StartBasePair = NormBuffer__LastStartBasePair(a4);
+          v27 = Normalization__CanCombinableCharactersCombine(a1, StartBasePair, a2);
+          if ( v27 )
+          {
+LABEL_75:
+            v38 = *(_BYTE *)((v27 & 0x7F)
+                           + ((unsigned __int64)*(unsigned __int8 *)(((__int64)v27 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
+                           + *(_QWORD *)(a1 + 40)
+                           - 128);
+            v39 = v38 & 0x3F;
+            v40 = v38 & 0xC0;
+            v41 = NormBuffer__ReplaceLastStartBasePair(a4, v27, v39, v40);
+LABEL_78:
+            if ( !v41 )
+              return 3221225507LL;
+            v25 = v40 == 64;
+            goto LABEL_80;
+          }
+          goto LABEL_61;
         }
         StartBase = NormBuffer__LastStartBase(a4);
-        v28 = Normalization__CanCombinableCharactersCombine(a1, StartBase, a2);
-        if ( !v28 )
-          goto LABEL_55;
-        v29 = *(_BYTE *)(*(_QWORD *)(a1 + 40)
-                       + ((unsigned __int64)*(unsigned __int8 *)(((__int64)v28 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
-                       + (v28 & 0x7F)
+        v29 = Normalization__CanCombinableCharactersCombine(a1, StartBase, a2);
+        if ( !v29 )
+          goto LABEL_61;
+LABEL_77:
+        v43 = *(_BYTE *)((v29 & 0x7F)
+                       + ((unsigned __int64)*(unsigned __int8 *)(((__int64)v29 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
+                       + *(_QWORD *)(a1 + 40)
                        - 128);
-LABEL_80:
-        v37 = v29 & 0xC0;
-        v38 = NormBuffer__ReplaceLastStartBase(a4, v28, v29 & 0x3F, v29 & 0xC0);
-        goto LABEL_81;
+        v44 = v43 & 0x3F;
+        v40 = v43 & 0xC0;
+        v41 = NormBuffer__ReplaceLastStartBase(a4, v29, v44, v40);
+        goto LABEL_78;
       }
       if ( (unsigned int)Normalization__CanCombinableCharactersCombine(a1, *(_DWORD *)(a4 + 88), a2) )
       {
         NormBuffer__RewindOutputCharacter(a4);
-        v32 = *(_BYTE *)((v31 & 0x7F)
-                       + ((unsigned __int64)*(unsigned __int8 *)((v31 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
+        v34 = *(_BYTE *)((v33 & 0x7F)
+                       + ((unsigned __int64)*(unsigned __int8 *)((v33 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
                        + *(_QWORD *)(a1 + 40)
                        - 128);
-        if ( NormBuffer__AppendEx(a4, v31, v32 & 0x3F, v32 & 0xC0) )
-        {
-          v33 = *(_QWORD *)(a4 + 64);
-          *(_QWORD *)(a4 + 96) = 0LL;
-          *(_QWORD *)(a4 + 80) = v33 + 2;
-          *(_DWORD *)(a4 + 88) = *(_DWORD *)(a4 + 56);
-          *(_BYTE *)(a4 + 92) = *(_BYTE *)(a4 + 72);
-          *(_BYTE *)(a4 + 93) = *(_BYTE *)(a4 + 73);
-          return 0LL;
-        }
-        return 3221225507LL;
+        if ( !NormBuffer__AppendEx(a4, v33, v34 & 0x3F, v34 & 0xC0) )
+          return 3221225507LL;
+        v35 = *(_QWORD *)(a4 + 64);
+        *(_QWORD *)(a4 + 96) = 0LL;
+        *(_QWORD *)(a4 + 80) = v35 + 2;
+        *(_DWORD *)(a4 + 88) = *(_DWORD *)(a4 + 56);
+        *(_BYTE *)(a4 + 92) = *(_BYTE *)(a4 + 72);
+        *(_BYTE *)(a4 + 93) = *(_BYTE *)(a4 + 73);
+        return 0LL;
       }
     }
-    if ( v16 <= v10 )
-      goto LABEL_73;
-    if ( v16 == *(_BYTE *)(a1 + 116) )
+    if ( v17 <= v10 )
+      goto LABEL_90;
+    if ( v17 == *(_BYTE *)(a1 + 116) )
     {
       if ( v10 >= *(_BYTE *)(a1 + 114) )
       {
         if ( v10 != *(_BYTE *)(a1 + 115) )
-          goto LABEL_73;
-LABEL_76:
-        v34 = NormBuffer__LastStartBasePair(a4);
-        v26 = Normalization__CanCombinableCharactersCombine(a1, v34, a2);
-        if ( !v26 )
-          goto LABEL_73;
-        goto LABEL_77;
+          goto LABEL_90;
+LABEL_74:
+        v37 = NormBuffer__LastStartBasePair(a4);
+        v27 = Normalization__CanCombinableCharactersCombine(a1, v37, a2);
+        if ( !v27 )
+          goto LABEL_90;
+        goto LABEL_75;
       }
     }
-    else if ( v16 == *(_BYTE *)(a1 + 118) && v10 == *(_BYTE *)(a1 + 117) )
+    else if ( v17 == *(_BYTE *)(a1 + 118) && v10 == *(_BYTE *)(a1 + 117) )
     {
-      goto LABEL_76;
+      goto LABEL_74;
     }
-    v39 = NormBuffer__LastStartBase(a4);
-    v28 = Normalization__CanCombinableCharactersCombine(a1, v39, a2);
-    if ( !v28 )
-      goto LABEL_73;
-    v29 = *(_BYTE *)((v28 & 0x7F)
-                   + ((unsigned __int64)*(unsigned __int8 *)(((__int64)v28 >> 7) + *(_QWORD *)(a1 + 32)) << 7)
-                   + *(_QWORD *)(a1 + 40)
-                   - 128);
-    goto LABEL_80;
+    v42 = NormBuffer__LastStartBase(a4);
+    v29 = Normalization__CanCombinableCharactersCombine(a1, v42, a2);
+    if ( !v29 )
+      goto LABEL_90;
+    goto LABEL_77;
   }
   switch ( v8 )
   {
@@ -412,24 +409,26 @@ LABEL_76:
       if ( !*(_BYTE *)(a1 + 113) )
         return 3221227287LL;
 LABEL_95:
-      v43 = NormBuffer__AppendEx(a4, a2, 0, 0);
+      v48 = NormBuffer__AppendEx(a4, a2, 0, 0);
 LABEL_96:
-      if ( !v43 )
+      if ( !v48 )
         return 3221225507LL;
       *(_QWORD *)(a4 + 80) = *(_QWORD *)(a4 + 40);
       *(_DWORD *)(a4 + 88) = a2;
-      goto LABEL_98;
+LABEL_98:
+      *(_WORD *)(a4 + 92) = 0;
+      return 0LL;
     case 191:
       return Normalization__AppendDecomposedChar(a1, a2, a4);
     case 192:
       v11 = NormBuffer__GetLastChar(a4);
       if ( !(unsigned int)Normalization__CanCombinableCharactersCombine(a1, v11, a2) )
-        goto LABEL_73;
+        goto LABEL_90;
       NormBuffer__RewindOutputCharacter(a4);
       a2 = v12;
       goto LABEL_30;
   }
   if ( v8 != 255 || !a2 && *(_QWORD *)(a4 + 16) == *(_QWORD *)(a4 + 8) )
-    goto LABEL_73;
+    goto LABEL_90;
   return 3221227287LL;
 }

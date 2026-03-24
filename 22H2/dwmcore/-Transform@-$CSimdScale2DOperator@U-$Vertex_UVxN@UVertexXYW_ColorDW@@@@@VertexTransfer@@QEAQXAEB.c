@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Transform@?$CSimdScale2DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAQXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@T__m128@@2IPEAU3@@Z @ 0x1800DD030
+ * XREFs of ?Transform@?$CSimdScale2DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAQXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@T__m128@@2IPEAU3@@Z @ 0x1800BE9F0
  * Callers:
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____1_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1800DCE90 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1800DCE90.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x180206220 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_180206220.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____1_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1800BE81C (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1800BE81C.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1801A7A30 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1801A7A30.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __m128 *__fastcall VertexTransfer::CSimdScale2DOperator<Vertex_UVxN<VertexXYW_Co
 
   v9 = *a3;
   v10 = _mm_sub_ps(_mm_shuffle_ps(*(__m128 *)&a4, DirectX::g_XMOne, 228), *a3);
-  v11 = _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v10, v10, 85), a1[1]), _mm_mul_ps(_mm_shuffle_ps(v10, v10, 0), *a1));
+  v11 = _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v10, v10, 0), *a1), _mm_mul_ps(_mm_shuffle_ps(v10, v10, 85), a1[1]));
   v12 = (__m128)DirectX::g_XMOne;
   result = (__m128 *)(_mm_movemask_ps(_mm_cmpeq_ps(v11, DirectX::g_XMZero)) & 3);
   if ( (_BYTE)result != 3 )
@@ -52,7 +52,7 @@ __m128 *__fastcall VertexTransfer::CSimdScale2DOperator<Vertex_UVxN<VertexXYW_Co
             _mm_andnot_ps(
               (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask,
               DirectX::g_XMOne),
-            _mm_and_ps(v7, (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask)),
+            _mm_and_ps((__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask, v7)),
           228);
   if ( v12.m128_f32[0] <= 1.0 || a3->m128_f32[3] != 0.0 )
     v15 = v12;

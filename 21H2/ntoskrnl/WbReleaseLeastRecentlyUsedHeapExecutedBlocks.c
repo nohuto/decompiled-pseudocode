@@ -1,18 +1,18 @@
 /*
- * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407E1968
+ * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406A2980
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x1407E3260 (WbGetHeapExecutedBlock.c)
+ *     WbGetHeapExecutedBlock @ 0x14064D984 (WbGetHeapExecutedBlock.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     sub_1407E1B0C @ 0x1407E1B0C (sub_1407E1B0C.c)
- *     sub_1407E3B7C @ 0x1407E3B7C (sub_1407E3B7C.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     sub_14064DAEC @ 0x14064DAEC (sub_14064DAEC.c)
+ *     sub_1406A2AFC @ 0x1406A2AFC (sub_1406A2AFC.c)
  */
 
-void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a1, int a2)
+void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
 {
   int v2; // r15d
   unsigned __int64 *v3; // rdi
@@ -25,54 +25,52 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a
   __int64 v11; // rbx
   _QWORD *v12; // rax
   __int64 v13; // rcx
-  _QWORD *v14; // rbx
+  __int64 v14; // rbx
   char v15; // al
   __int64 v16; // rdx
   char v17; // al
-  struct _KTHREAD *v18; // rax
-  bool v19; // zf
-  __int64 v20; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+18h] BYREF
 
   if ( a2 > 0 )
   {
     v2 = a2;
-    v3 = a1 + 10;
-    v5 = a1 + 8;
-    v6 = a1 + 6;
+    v3 = (unsigned __int64 *)(a1 + 80);
+    v5 = (_QWORD *)(a1 + 64);
+    v6 = (unsigned __int64 *)(a1 + 48);
     do
     {
       CurrentThread = KeGetCurrentThread();
       --v2;
       --CurrentThread->SpecialApcDisable;
-      v8 = KeAbPreAcquire((__int64)v6, 0LL);
+      v8 = KeAbPreAcquire((ULONG_PTR)v6, 0LL, 0);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v6, v8, (__int64)v6);
+        ExfAcquirePushLockExclusiveEx(v6, v8, (ULONG_PTR)v6);
       if ( v9 )
-        *(_BYTE *)(v9 + 18) = 1;
-      v10 = KeAbPreAcquire((__int64)v3, 0LL);
+        *(_BYTE *)(v9 + 26) |= 1u;
+      v10 = KeAbPreAcquire((ULONG_PTR)v3, 0LL, 0);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v3, v10, (__int64)v3);
+        ExfAcquirePushLockExclusiveEx(v3, v10, (ULONG_PTR)v3);
       if ( v11 )
-        *(_BYTE *)(v11 + 18) = 1;
+        *(_BYTE *)(v11 + 26) |= 1u;
       v12 = (_QWORD *)*v5;
       if ( (_QWORD *)*v5 == v5 )
       {
-        v14 = 0LL;
+        v12 = 0LL;
       }
       else
       {
         if ( (_QWORD *)v12[1] != v5 || (v13 = *v12, *(_QWORD **)(*v12 + 8LL) != v12) )
           __fastfail(3u);
-        v14 = 0LL;
         *v5 = v13;
         *(_QWORD *)(v13 + 8) = v5;
-        if ( v12 )
-        {
-          *((_DWORD *)v12 + 4) &= ~1u;
-          v14 = v12;
-        }
+      }
+      v14 = 0LL;
+      if ( v12 )
+      {
+        *((_DWORD *)v12 + 4) &= ~1u;
+        v14 = (__int64)v12;
       }
       v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v15 & 2) != 0 && (v15 & 4) == 0 )
@@ -80,22 +78,19 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a
       KeAbPostRelease((ULONG_PTR)v3);
       if ( v14 )
       {
-        v16 = v14[6];
-        v20 = 0LL;
-        if ( (int)sub_1407E1B0C((int)a1 + 8, v16, 8, -1, (__int64)&v20) >= 0 )
-          sub_1407E3B7C(a1, v20);
+        v16 = *(_QWORD *)(v14 + 48);
+        v18 = 0LL;
+        if ( (int)sub_1406A2AFC((int)a1 + 8, v16, 8, -1, (__int64)&v18) >= 0 )
+          sub_14064DAEC(a1, v18);
       }
       v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
         ExfTryToWakePushLock(v6);
       KeAbPostRelease((ULONG_PTR)v6);
-      v18 = KeGetCurrentThread();
-      v19 = v18->SpecialApcDisable++ == -1;
-      if ( v19 && ($CEA84C04E3712D858E5667A507841A2A *)v18->ApcState.ApcListHead[0].Flink != &v18->152 )
-        KiCheckForKernelApcDelivery();
+      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
       if ( !v14 )
         break;
-      sub_1407E3B7C(a1, v14);
+      sub_14064DAEC(a1, v14);
     }
     while ( v2 > 0 );
   }

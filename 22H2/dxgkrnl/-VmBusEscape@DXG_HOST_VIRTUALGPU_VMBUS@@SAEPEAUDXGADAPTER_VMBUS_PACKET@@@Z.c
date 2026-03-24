@@ -1,119 +1,110 @@
 /*
- * XREFs of ?VmBusEscape@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037DE00
+ * XREFs of ?VmBusEscape@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241310
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B804 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040634 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusEscape(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // r14
-  char v4; // di
-  _DWORD *v5; // rax
-  int *v6; // rsi
-  __int64 v8; // r8
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rax
+  char v6; // r14
+  char v7; // bl
+  __int64 v8; // rcx
   __int64 v9; // rax
-  const wchar_t *v10; // r9
-  __int64 v11; // r8
-  int v12; // eax
-  __int64 v13; // rbx
-  __int64 v14; // [rsp+30h] [rbp-11h]
-  char v15[8]; // [rsp+58h] [rbp+17h] BYREF
-  DXGPUSHLOCK *v16; // [rsp+60h] [rbp+1Fh]
-  int v17; // [rsp+68h] [rbp+27h]
-  _DWORD v18[4]; // [rsp+70h] [rbp+2Fh] BYREF
-  void *v19; // [rsp+80h] [rbp+3Fh]
-  unsigned int v20; // [rsp+88h] [rbp+47h]
-  int v21; // [rsp+8Ch] [rbp+4Bh]
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _DWORD *v13; // rdi
+  unsigned __int64 v14; // rcx
+  __int64 v15; // rax
+  int v16; // eax
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rdi
+  __int64 v21; // rax
+  char v23[8]; // [rsp+20h] [rbp-40h] BYREF
+  DXGPUSHLOCK *v24; // [rsp+28h] [rbp-38h]
+  int v25; // [rsp+30h] [rbp-30h]
+  _DWORD v26[4]; // [rsp+38h] [rbp-28h] BYREF
+  void *v27; // [rsp+48h] [rbp-18h]
+  unsigned int v28; // [rsp+50h] [rbp-10h]
+  int v29; // [rsp+54h] [rbp-Ch]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v16);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v4 = 0;
-  v17 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v23, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v24);
+  v5 = *((_QWORD *)a1 + 5);
+  v6 = 1;
+  v7 = 0;
+  v25 = 1;
+  if ( !*(_BYTE *)(v5 + 165) )
   {
-    WdLogSingleEntry1(2LL, 5088LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      5088LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_8:
-    v3 = 0;
-    goto LABEL_9;
+    v8 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v8 + 24) = 4443LL;
+LABEL_18:
+    WdLogEvent5_WdError(v8);
+    goto LABEL_19;
   }
-  v5 = (_DWORD *)CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
-  if ( !v5 )
-    goto LABEL_8;
-  v6 = v5 + 8;
-  if ( *(_BYTE *)(*((_QWORD *)a1 + 10) + 153LL) && (*v6 || (v5[9] & 0x40) == 0) )
+  if ( *(_BYTE *)(v5 + 153) )
   {
-    WdLogSingleEntry1(3LL, *v6);
-    goto LABEL_8;
+    v9 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v9 + 24) = 4447LL;
+    WdLogEvent5_WdWarning(v9);
+LABEL_19:
+    v6 = 0;
+    goto LABEL_20;
   }
-  v8 = *((unsigned int *)a1 + 36);
-  if ( v8 - 55 < (unsigned __int64)(unsigned int)v5[10] )
+  v10 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
+  v13 = (_DWORD *)v10;
+  if ( !v10 )
+    goto LABEL_19;
+  v14 = *((unsigned int *)a1 + 22) - 55LL;
+  if ( v14 < *(unsigned int *)(v10 + 40) )
   {
-    WdLogSingleEntry1(2LL, (unsigned int)v8);
-    v9 = *((unsigned int *)a1 + 36);
-    v10 = L"Invalid packet size 0x%I64x";
-    v14 = 0LL;
-LABEL_13:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v10, v9, v14, 0LL, 0LL, 0LL);
-    goto LABEL_8;
+    v8 = WdLogNewEntry5_WdError(v14, v11);
+    v15 = *((unsigned int *)a1 + 22);
+LABEL_17:
+    *(_QWORD *)(v8 + 24) = v15;
+    goto LABEL_18;
   }
-  v11 = *v6;
-  if ( (unsigned int)v11 >= 2 && (_DWORD)v11 != 3 && (_DWORD)v11 != 8 && (unsigned int)(v11 - 28) >= 2 )
+  v16 = *(_DWORD *)(v10 + 32);
+  if ( v16 < 0 || v16 > 1 && v16 != 3 && v16 != 8 && (unsigned int)(v16 - 28) > 1 )
   {
-    WdLogSingleEntry2(2LL, *v6, 5120LL);
-    v9 = *v6;
-    v10 = L"Unsupported escape type 0x%I64x";
-    v14 = 5120LL;
-    goto LABEL_13;
+    v8 = WdLogNewEntry5_WdError(v14, v11);
+    v15 = (int)v13[8];
+    *(_QWORD *)(v8 + 32) = 4469LL;
+    goto LABEL_17;
   }
-  v18[0] = v5[6];
-  v18[3] = v5[9];
-  v18[1] = v5[7];
-  v21 = v5[11];
-  v18[2] = *v6;
-  v20 = v5[10];
-  v19 = v5 + 12;
-  v12 = DxgkEscape((__int64)v18, (__int64)v5, v11);
-  if ( v12 < 0 )
+  v26[0] = v13[6];
+  v26[3] = v13[9];
+  v26[1] = v13[7];
+  v29 = v13[11];
+  v26[2] = v13[8];
+  v28 = v13[10];
+  v27 = v13 + 12;
+  v17 = DxgkEscape((__int64)v26, v11, v12);
+  v20 = v17;
+  if ( v17 >= 0 )
   {
-    v13 = v12;
-    WdLogSingleEntry1(2LL, v12);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkEscapeInternal failed: 0x%I64x",
-      v13,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_10;
+    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v27, v28);
+LABEL_20:
+    v7 = v6;
+    goto LABEL_21;
   }
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v19, v20);
-LABEL_9:
-  v4 = v3;
-LABEL_10:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
-  return v4;
+  v21 = WdLogNewEntry5_WdError(v19, v18);
+  *(_QWORD *)(v21 + 24) = v20;
+  WdLogEvent5_WdError(v21);
+LABEL_21:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v23);
+  return v7;
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of PfTAcquireLogEntry @ 0x14074BE94
+ * XREFs of PfTAcquireLogEntry @ 0x140631FA0
  * Callers:
- *     PfpCopyEvent @ 0x14074B2E0 (PfpCopyEvent.c)
- *     PfpFlushBuffers @ 0x14074B520 (PfpFlushBuffers.c)
+ *     PfpCopyEvent @ 0x140631370 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x1406315B0 (PfpFlushBuffers.c)
  * Callees:
- *     PfTReplaceCurrentBuffer @ 0x14074BF10 (PfTReplaceCurrentBuffer.c)
+ *     PfTReplaceCurrentBuffer @ 0x140632024 (PfTReplaceCurrentBuffer.c)
  */
 
-__int64 __fastcall PfTAcquireLogEntry(__int64 a1, int *a2, int a3)
+__int64 __fastcall PfTAcquireLogEntry(__int64 a1, _DWORD *a2, int a3)
 {
-  __int64 v3; // r10
-  int v7; // eax
+  __int64 result; // rax
+  int v7; // edx
 
-  v3 = *(_QWORD *)(a1 + 24);
-  if ( (unsigned int)(a3 + *(_DWORD *)(v3 + 16)) > *(_DWORD *)(v3 + 20) )
+  result = *(_QWORD *)(a1 + 24);
+  if ( (unsigned int)(a3 + *(_DWORD *)(result + 16)) > *(_DWORD *)(result + 20) )
   {
     while ( (unsigned int)PfTReplaceCurrentBuffer(a1) != -1073741823 )
     {
-      v3 = *(_QWORD *)(a1 + 24);
-      if ( (unsigned int)(a3 + *(_DWORD *)(v3 + 16)) <= *(_DWORD *)(v3 + 20) )
+      result = *(_QWORD *)(a1 + 24);
+      if ( (unsigned int)(a3 + *(_DWORD *)(result + 16)) <= *(_DWORD *)(result + 20) )
         goto LABEL_2;
     }
-    v3 = 0LL;
-    v7 = 0xFFFF;
+    result = 0LL;
+    *a2 = 0xFFFF;
   }
   else
   {
 LABEL_2:
-    v7 = *(_DWORD *)(v3 + 16);
-    *(_DWORD *)(v3 + 16) = v7 + a3;
+    v7 = *(_DWORD *)(result + 16);
+    *a2 = v7;
+    *(_DWORD *)(result + 16) = v7 + a3;
   }
-  *a2 = v7;
-  return v3;
+  return result;
 }

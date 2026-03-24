@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C00151F8
+ * XREFs of ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C00A313C
  * Callers:
- *     ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C0014F84 (-ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z.c)
+ *     ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C00A0FB4 (-ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z.c)
  * Callees:
  *     <none>
  */

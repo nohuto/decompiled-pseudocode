@@ -1,48 +1,46 @@
 /*
- * XREFs of PipProcessPendingObjects @ 0x140B50770
+ * XREFs of PipProcessPendingObjects @ 0x140A910E0
  * Callers:
- *     PipProcessPendingServices @ 0x140B0F0F4 (PipProcessPendingServices.c)
- *     PipProcessPendingOsExtensionResources @ 0x140B0F180 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140A53388 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingServices @ 0x140A53414 (PipProcessPendingServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpCtxRegQueryValue @ 0x14082EB54 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x14082EBA4 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x14082EBE0 (_PnpCtxRegEnumKey.c)
- *     PnpCheckDriverDependencies @ 0x140946BB8 (PnpCheckDriverDependencies.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C3C44 (_PnpCtxRegEnumKey.c)
+ *     PnpCheckDriverDependencies @ 0x1408A1A48 (PnpCheckDriverDependencies.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipProcessPendingObjects(
         void *a1,
-        __int64 (__fastcall *a2)(char *, void *, _QWORD, char *),
+        __int64 (__fastcall *a2)(unsigned int *, void *, _QWORD, char *),
         __int64 a3,
-        int (__fastcall *a4)(char *, void *, void *, _QWORD))
+        int (__fastcall *a4)(unsigned int *, void *, void *, _QWORD))
 {
-  _WORD *Pool2; // rbx
+  _WORD *PoolWithTag; // rbx
   unsigned int v5; // esi
   int v9; // eax
   ULONG i; // r14d
   __int64 v11; // rcx
   int v12; // edi
-  int v13; // eax
+  int Value; // eax
   __int64 v14; // r8
   __int64 v15; // rcx
   char v17; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v18[3]; // [rsp+31h] [rbp-CFh] BYREF
-  unsigned int v19; // [rsp+34h] [rbp-CCh] BYREF
-  int v20; // [rsp+38h] [rbp-C8h] BYREF
-  void *v21; // [rsp+40h] [rbp-C0h] BYREF
-  char v22[528]; // [rsp+50h] [rbp-B0h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+34h] [rbp-CCh] BYREF
+  void *v20; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v21[132]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v19 = 260;
-  Pool2 = 0LL;
+  NumberOfBytes = 260LL;
+  PoolWithTag = 0LL;
   v17 = 0;
   v5 = 0;
-  v21 = 0LL;
-  v20 = 0;
-  v9 = PnpCtxRegEnumKey((__int64)a1, a1, 0, v22, &v19);
+  v20 = 0LL;
+  v9 = PnpCtxRegEnumKey((__int64)a1, a1, 0, v21, (unsigned int *)&NumberOfBytes);
   for ( i = 1; ; ++i )
   {
     v12 = v9;
@@ -50,61 +48,77 @@ __int64 __fastcall PipProcessPendingObjects(
       break;
     if ( v9 < 0 )
       goto LABEL_29;
-    if ( (int)PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (__int64)a1, (__int64)v22, 0, 1u, (__int64)&v21) >= 0 )
+    if ( (int)PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (int)a1, (int)v21, 0, 1, (__int64)&v20) >= 0 )
     {
       if ( !a2 )
         goto LABEL_8;
       v17 = 0;
-      v12 = a2(v22, v21, 0LL, &v17);
+      v12 = a2(v21, v20, 0LL, &v17);
       if ( v12 < 0 )
         goto LABEL_29;
       if ( !v17 )
       {
 LABEL_8:
-        v19 = v5;
-        v13 = PnpCtxRegQueryValue(v11, v21, L"DependOnFirmware", &v20, Pool2, &v19);
-        if ( v13 == -1073741789 || v13 == -2147483643 )
+        LODWORD(NumberOfBytes) = v5;
+        Value = PnpCtxRegQueryValue(
+                  v11,
+                  v20,
+                  L"DependOnFirmware",
+                  (_DWORD *)&NumberOfBytes + 1,
+                  PoolWithTag,
+                  (unsigned int *)&NumberOfBytes);
+        if ( Value == -1073741789 || Value == -2147483643 )
         {
-          if ( Pool2 )
-            ExFreePoolWithTag(Pool2, 0x42706E50u);
-          v5 = v19;
-          Pool2 = (_WORD *)ExAllocatePool2(256LL, v19, 0x42706E50u);
-          if ( !Pool2 )
+          if ( PoolWithTag )
+            ExFreePoolWithTag(PoolWithTag, 0x42706E50u);
+          v5 = NumberOfBytes;
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x42706E50u);
+          if ( !PoolWithTag )
             return (unsigned int)-1073741670;
-          v13 = PnpCtxRegQueryValue(v15, v21, L"DependOnFirmware", &v20, Pool2, &v19);
+          Value = PnpCtxRegQueryValue(
+                    v15,
+                    v20,
+                    L"DependOnFirmware",
+                    (_DWORD *)&NumberOfBytes + 1,
+                    PoolWithTag,
+                    (unsigned int *)&NumberOfBytes);
         }
-        if ( v13 == -1073741772 )
+        if ( Value == -1073741772 )
         {
-          if ( Pool2 && v5 >= 2 )
+          if ( PoolWithTag )
           {
-            *Pool2 = 0;
-LABEL_21:
-            if ( *Pool2 )
+            if ( v5 >= 2 )
+              *PoolWithTag = 0;
+LABEL_19:
+            if ( PoolWithTag )
             {
-              v18[0] = 0;
-              if ( (int)PnpCheckDriverDependencies(Pool2, v18, v14) < 0 || !v18[0] )
-                goto LABEL_26;
+              if ( v5 >= 2 )
+              {
+                if ( *PoolWithTag )
+                {
+                  v18[0] = 0;
+                  if ( (int)PnpCheckDriverDependencies(PoolWithTag, v18, v14) < 0 || !v18[0] )
+                    goto LABEL_26;
+                }
+              }
             }
           }
+          if ( a4(v21, a1, v20, 0LL) >= 0 )
+            --i;
+          goto LABEL_26;
         }
-        else
-        {
-          if ( v13 < 0 )
-            goto LABEL_26;
-          if ( Pool2 && v5 >= 2 )
-            goto LABEL_21;
-        }
-        if ( a4(v22, a1, v21, 0LL) >= 0 )
-          --i;
+        if ( Value < 0 )
+          goto LABEL_26;
+        goto LABEL_19;
       }
     }
 LABEL_26:
-    v19 = 260;
-    v9 = PnpCtxRegEnumKey(v11, a1, i, v22, &v19);
+    LODWORD(NumberOfBytes) = 260;
+    v9 = PnpCtxRegEnumKey(v11, a1, i, v21, (unsigned int *)&NumberOfBytes);
   }
   v12 = 0;
 LABEL_29:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x42706E50u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x42706E50u);
   return (unsigned int)v12;
 }

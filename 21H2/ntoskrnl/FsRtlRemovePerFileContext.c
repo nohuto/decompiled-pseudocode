@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemovePerFileContext @ 0x1405417D0
+ * XREFs of FsRtlRemovePerFileContext @ 0x1404F1400
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
@@ -26,12 +26,12 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
   v6 = v5;
   if ( !v5 )
     return 0LL;
-  v7 = (struct _FSRTL_PER_FILE_CONTEXT **)(v5 + 16);
+  v7 = (struct _FSRTL_PER_FILE_CONTEXT **)(v5 + 8);
   if ( *v7 == (struct _FSRTL_PER_FILE_CONTEXT *)v7 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireAutoExpandPushLockExclusive(v5, 0LL);
+  ExAcquirePushLockExclusiveEx(v5, 0LL);
   Flink = *v7;
   v10 = 0LL;
   if ( InstanceId )
@@ -68,7 +68,7 @@ LABEL_6:
       v11->Blink = Blink;
     }
   }
-  ExReleaseAutoExpandPushLockExclusive(v6, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx(v6, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v10;
 }

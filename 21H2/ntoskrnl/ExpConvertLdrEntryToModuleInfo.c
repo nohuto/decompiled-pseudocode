@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x140759410
+ * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x1407B179C
  * Callers:
- *     ExpQueryModuleInformationEx @ 0x140759300 (ExpQueryModuleInformationEx.c)
- *     ExpQuerySingleModuleInformation @ 0x1409F75A0 (ExpQuerySingleModuleInformation.c)
+ *     ExpQueryModuleInformationEx @ 0x1407B168C (ExpQueryModuleInformationEx.c)
+ *     ExpQuerySingleModuleInformation @ 0x14094B220 (ExpQuerySingleModuleInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpConvertLdrEntryToModuleInfo(__int64 a1, __int16 a2, __int64 a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlFindAceByType @ 0x1400A8F90
+ * XREFs of RtlFindAceByType @ 0x1400A8FB0
  * Callers:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1400A9050 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SepMandatorySubProcessToken @ 0x1400D9E74 (SepMandatorySubProcessToken.c)
- *     RtlIsUntrustedObject @ 0x140131B80 (RtlIsUntrustedObject.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x1401B6D70 (SepSetProcessTrustLabelAceForToken.c)
- *     SepGetScopedPolicySid @ 0x1402FE9B4 (SepGetScopedPolicySid.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1402FF0CC (SepVerifyDesktopAppxPackageName.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140326A4C (AdtpBuildContextFromSecurityDescriptor.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x1400A9070 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SepMandatorySubProcessToken @ 0x1400D9E94 (SepMandatorySubProcessToken.c)
+ *     RtlIsUntrustedObject @ 0x140131BA0 (RtlIsUntrustedObject.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1401B6D90 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepGetScopedPolicySid @ 0x1402FEAB4 (SepGetScopedPolicySid.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1402FF1CC (SepVerifyDesktopAppxPackageName.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140326B4C (AdtpBuildContextFromSecurityDescriptor.c)
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  *     RtlpInheritAcl2 @ 0x14062ED40 (RtlpInheritAcl2.c)
  *     RtlpCopyAces @ 0x14062FDC0 (RtlpCopyAces.c)
- *     SeQueryMandatoryLabel @ 0x140654E4C (SeQueryMandatoryLabel.c)
- *     RtlpValidFilterAclSubjectContext @ 0x1408955D0 (RtlpValidFilterAclSubjectContext.c)
- *     SepSDContainsAttributeACE @ 0x1408A3C6C (SepSDContainsAttributeACE.c)
+ *     SeQueryMandatoryLabel @ 0x140654E2C (SeQueryMandatoryLabel.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x1408955B0 (RtlpValidFilterAclSubjectContext.c)
+ *     SepSDContainsAttributeACE @ 0x1408A3C4C (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */

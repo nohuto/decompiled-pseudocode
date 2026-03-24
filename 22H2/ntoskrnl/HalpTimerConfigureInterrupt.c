@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpTimerConfigureInterrupt @ 0x14037D5E4
+ * XREFs of HalpTimerConfigureInterrupt @ 0x1403A1E84
  * Callers:
- *     HalpTimerInitializeProfiling @ 0x14037B310 (HalpTimerInitializeProfiling.c)
- *     HalpTimerPrepareClockInterrupt @ 0x14037D54C (HalpTimerPrepareClockInterrupt.c)
- *     HalpTimerInitializeClock @ 0x1403B1320 (HalpTimerInitializeClock.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050A9E8 (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerPrepareClockInterrupt @ 0x1403A1DEC (HalpTimerPrepareClockInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403AF5E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeProfiling @ 0x1403AF9E0 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1A6C (HalpTimerTestHypervisorTimer.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x140221D10 (KeFindFirstSetRightGroupAffinity.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptRemap @ 0x14037C728 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineState @ 0x14037CD5C (HalpInterruptSetLineState.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D8C0 (HalpInterruptSetIdtEntry.c)
- *     HalpInterruptIsMsiSupported @ 0x140380F6C (HalpInterruptIsMsiSupported.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInterruptLineToGsi @ 0x140505230 (HalpInterruptLineToGsi.c)
- *     HalpTimerSetupMessageInterruptRouting @ 0x140509478 (HalpTimerSetupMessageInterruptRouting.c)
- *     HalpTimerUnmapInterrupt @ 0x1405095B0 (HalpTimerUnmapInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140344540 (KeFindFirstSetRightGroupAffinity.c)
+ *     HalpInterruptRemap @ 0x140378050 (HalpInterruptRemap.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A1FAC (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptSetLineState @ 0x1403A33F8 (HalpInterruptSetLineState.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C94D8 (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC654 (HalpInterruptLineToGsi.c)
+ *     HalpTimerSetupMessageInterruptRouting @ 0x1404C0390 (HalpTimerSetupMessageInterruptRouting.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C04C8 (HalpTimerUnmapInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerConfigureInterrupt(
@@ -38,7 +38,7 @@ __int64 __fastcall HalpTimerConfigureInterrupt(
   __int128 v11; // xmm0
   __int64 v12; // rcx
   int v13; // r8d
-  int v14; // r9d
+  __int64 v14; // r9
   int v15; // edi
   int v16; // eax
   __int64 InternalData; // rax
@@ -46,45 +46,42 @@ __int64 __fastcall HalpTimerConfigureInterrupt(
   int v19; // r9d
   int v20; // edi
   unsigned int *v22; // rax
-  int v23; // eax
-  __int64 v24; // r9
+  int v23; // ecx
+  int v24; // eax
   int v25; // eax
-  int v26; // eax
-  _DWORD *v27; // rsi
-  unsigned int v28; // eax
-  __int64 v29; // rax
-  int v30; // eax
-  int v31; // eax
+  unsigned int v26; // eax
+  bool v27; // zf
+  __int64 v28; // rax
+  int v29; // eax
+  unsigned __int8 v30; // al
+  __int64 v31; // r8
   unsigned __int64 v32; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v36; // eax
-  bool v37; // zf
-  unsigned int v38; // [rsp+38h] [rbp-B1h]
-  __int64 v39; // [rsp+40h] [rbp-A9h] BYREF
-  _DWORD v40[2]; // [rsp+48h] [rbp-A1h] BYREF
-  __int64 v41; // [rsp+50h] [rbp-99h] BYREF
-  int FirstSetRightGroupAffinity; // [rsp+58h] [rbp-91h]
-  int v43; // [rsp+5Ch] [rbp-8Dh]
-  __int128 *v44; // [rsp+60h] [rbp-89h]
-  __int128 v45; // [rsp+68h] [rbp-81h] BYREF
-  _QWORD v46[12]; // [rsp+80h] [rbp-69h] BYREF
+  __int64 v37; // [rsp+40h] [rbp-A9h] BYREF
+  _DWORD v38[2]; // [rsp+48h] [rbp-A1h] BYREF
+  _DWORD v39[4]; // [rsp+50h] [rbp-99h] BYREF
+  __int128 *v40; // [rsp+60h] [rbp-89h]
+  __int128 v41; // [rsp+68h] [rbp-81h] BYREF
+  _QWORD v42[12]; // [rsp+80h] [rbp-69h] BYREF
 
-  v43 = 0;
-  v39 = 0LL;
-  v41 = 6LL;
-  v45 = 0LL;
-  memset(v46, 0, 0x58uLL);
+  v39[1] = 0;
+  v39[3] = 0;
+  v37 = 0LL;
+  v41 = 0LL;
+  memset(v42, 0, 0x58uLL);
   v11 = *a7;
-  HIDWORD(v46[0]) = a2;
-  LOBYTE(v46[1]) = a3;
-  LODWORD(v46[5]) = a6 & 0x3FFFFFFF | v46[5] & 0xC0000000 | 0x40000000;
-  *(_OWORD *)&v46[3] = v11;
-  FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity((__int64)a7);
-  v44 = &v45;
+  HIDWORD(v42[0]) = a2;
+  LOBYTE(v42[1]) = a3;
+  v39[0] = 6;
+  LODWORD(v42[5]) = a6 & 0x3FFFFFFF | v42[5] & 0xC0000000 | 0x40000000;
+  *(_OWORD *)&v42[3] = v11;
+  v39[2] = KeFindFirstSetRightGroupAffinity((__int64)a7);
+  v40 = &v41;
   v15 = -1073741637;
-  LODWORD(v45) = a6 & 0x3FFFFFFF;
+  LODWORD(v41) = a6 & 0x3FFFFFFF;
   v16 = *(_DWORD *)(a1 + 224);
   if ( (v16 & 0x800) != 0 )
   {
@@ -106,72 +103,75 @@ __int64 __fastcall HalpTimerConfigureInterrupt(
         if ( (*(_DWORD *)(a1 + 184) & 0x40) == 0 )
         {
           v22 = *(unsigned int **)(a1 + 288);
-          HIDWORD(v46[1]) = 0;
-          LODWORD(v46[0]) = 3;
-          LODWORD(v46[2]) = 1;
-          v15 = HalpInterruptRemap(*v22, v22[1], (__int64)(v22 + 2), 0, (unsigned int *)v46, 1u);
+          HIDWORD(v42[1]) = 0;
+          LODWORD(v42[0]) = 3;
+          LODWORD(v42[2]) = 1;
+          v15 = HalpInterruptRemap(*v22, v22[1], (__int64)(v22 + 2), 0, (unsigned int *)v42, 1u);
           if ( v15 < 0 )
-            goto LABEL_13;
-          v23 = HIDWORD(v46[5]);
+            goto LABEL_15;
+          v23 = HIDWORD(v42[5]);
           *(_DWORD *)(a1 + 184) |= 0x40u;
           *(_DWORD *)(a1 + 236) = v23;
-          *(_DWORD *)(a1 + 232) = v46[6];
-          *(_QWORD *)(a1 + 240) = HIDWORD(v46[6]);
+          *(_DWORD *)(a1 + 232) = v42[6];
+          *(_QWORD *)(a1 + 240) = WORD2(v42[6]);
         }
         v15 = HalpTimerSetupMessageInterruptRouting(a1);
         if ( v15 >= 0 )
         {
           *(_DWORD *)(a1 + 184) |= 0x10u;
-          return 0;
         }
-        LOBYTE(v24) = 1;
-        HalpTimerUnmapInterrupt(a1, a2, a6, v24);
+        else
+        {
+          LOBYTE(v14) = 1;
+          HalpTimerUnmapInterrupt(a1, a2, a6, v14);
+        }
+        if ( v15 >= 0 )
+          return 0;
       }
     }
   }
-LABEL_13:
-  v25 = *(_DWORD *)(a1 + 224);
-  if ( (v25 & 0x200) != 0 )
+LABEL_15:
+  v24 = *(_DWORD *)(a1 + 224);
+  if ( (v24 & 0x200) != 0 )
   {
-    v26 = HalpInterruptGsiToLine(*(unsigned int *)(a1 + 88), &v39);
-    v20 = v26;
-    if ( v26 < 0 )
+    v20 = HalpInterruptGsiToLine(*(unsigned int *)(a1 + 88), &v37);
+    if ( v20 < 0 )
     {
-      HalpTimerLastProblem = 16;
-      *(_DWORD *)(a1 + 252) = 16;
-      *(_DWORD *)(a1 + 256) = v26;
+      v25 = 16;
+      *(_DWORD *)(a1 + 256) = v20;
       *(_DWORD *)(a1 + 272) = 356;
-LABEL_45:
+LABEL_44:
+      HalpTimerLastProblem = v25;
+      *(_DWORD *)(a1 + 252) = v25;
       *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
       return (unsigned int)v20;
     }
-    v27 = (_DWORD *)(a1 + 92);
   }
   else
   {
-    if ( (v25 & 0x100) == 0 )
+    if ( (v24 & 0x100) == 0 )
     {
       *(_DWORD *)(a1 + 256) = v15;
-      v30 = 17;
+      v25 = 17;
       v20 = -1073741811;
       *(_DWORD *)(a1 + 272) = 371;
       goto LABEL_44;
     }
-    v28 = *(_DWORD *)(a1 + 84);
-    if ( v28 >= 8 )
+    v26 = *(_DWORD *)(a1 + 84);
+    if ( v26 >= 8 )
     {
-      LODWORD(v39) = 45057;
-      v28 -= 8;
+      LODWORD(v37) = 45057;
+      v26 -= 8;
     }
     else
     {
-      LODWORD(v39) = 45056;
+      LODWORD(v37) = 45056;
     }
-    v27 = (_DWORD *)(a1 + 92);
-    HIDWORD(v39) = v28;
-    if ( !*(_DWORD *)(a1 + 92) )
+    v27 = *(_DWORD *)(a1 + 92) == 0;
+    HIDWORD(v37) = v26;
+    if ( v27 )
     {
-      *v27 = 1;
+      *(_DWORD *)(a1 + 92) = 1;
       *(_DWORD *)(a1 + 96) = 1;
     }
   }
@@ -179,17 +179,14 @@ LABEL_45:
   HalpInterruptSetIdtEntry(a2, a8, v13, v14, a5);
   if ( (*(_DWORD *)(a1 + 184) & 0x10) == 0 )
     goto LABEL_28;
-  v29 = HalpTimerGetInternalData(a1);
-  v20 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(a1 + 152))(v29, 0LL, 0LL, 0LL);
+  v28 = HalpTimerGetInternalData(a1);
+  v20 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(a1 + 152))(v28, 0LL, 0LL, 0LL);
   if ( v20 < 0 )
   {
-    v30 = 24;
+    v25 = 24;
     *(_DWORD *)(a1 + 256) = v20;
     *(_DWORD *)(a1 + 272) = 398;
-LABEL_44:
-    *(_DWORD *)(a1 + 252) = v30;
-    HalpTimerLastProblem = v30;
-    goto LABEL_45;
+    goto LABEL_44;
   }
   *(_DWORD *)(a1 + 184) &= ~0x10u;
   if ( (*(_DWORD *)(a1 + 184) & 0x10) == 0 )
@@ -197,16 +194,16 @@ LABEL_44:
 LABEL_28:
     if ( a2 == 209 )
     {
-      HalpTimerCriticalClockSource = v39;
+      HalpTimerCriticalClockSource = v37;
       HalpTimerCriticalClockSourceCount = 1;
     }
   }
-  v31 = *(_DWORD *)(a1 + 96);
-  LODWORD(v46[0]) = 0;
-  LODWORD(v46[2]) = v31;
-  HIDWORD(v46[1]) = *v27;
-  HalpInterruptApplyOverrides(&v39, (_DWORD *)&v46[1] + 1, &v46[2]);
-  v20 = HalpInterruptLineToGsi(&v39, &v46[7]);
+  v29 = *(_DWORD *)(a1 + 96);
+  LODWORD(v42[0]) = 0;
+  LODWORD(v42[2]) = v29;
+  HIDWORD(v42[1]) = *(_DWORD *)(a1 + 92);
+  HalpInterruptApplyOverrides((unsigned int *)&v37, (_DWORD *)&v42[1] + 1, &v42[2]);
+  v20 = HalpInterruptLineToGsi(&v37, &v42[7]);
   if ( v20 >= 0 )
   {
     if ( (*(_DWORD *)(a1 + 184) & 0x40) == 0 )
@@ -216,29 +213,34 @@ LABEL_28:
               *(_DWORD *)(*(_QWORD *)(a1 + 288) + 4LL),
               *(_QWORD *)(a1 + 288) + 8LL,
               0,
-              (unsigned int *)v46,
+              (unsigned int *)v42,
               1u);
       if ( v20 < 0 )
         return (unsigned int)v20;
       *(_DWORD *)(a1 + 184) |= 0x40u;
     }
-    v40[0] = -1;
-    v40[1] = 1;
-    v32 = HalpAcquireHighLevelLock(&HalpInterruptLock);
-    v20 = HalpInterruptSetLineState(&v39, a2, a3, v46[2], SHIDWORD(v46[1]), (__int64)&v41, (__int64)v40, v38);
-    KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+    v38[0] = -1;
+    v38[1] = 1;
+    v30 = HalpAcquireHighLevelLock(&HalpInterruptLock);
+    LOBYTE(v31) = a3;
+    v32 = v30;
+    v20 = HalpInterruptSetLineState(&v37, a2, v31, LODWORD(v42[2]), HIDWORD(v42[1]), v39, v38);
+    KxReleaseSpinLock(&HalpInterruptLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v32 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v32 + 1));
-        v37 = (v36 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v36;
-        if ( v37 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v32 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v32 + 1));
+          v27 = (v36 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v36;
+          if ( v27 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v32);

@@ -1,16 +1,37 @@
 /*
- * XREFs of MiIsPteDecommittedPage @ 0x14023AF98
+ * XREFs of MiIsPteDecommittedPage @ 0x14030CF60
  * Callers:
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
+ *     MiComputePageCommitment @ 0x14030CB60 (MiComputePageCommitment.c)
  * Callees:
- *     MiIsPrototypePteVadLookup @ 0x1402806A0 (MiIsPrototypePteVadLookup.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
  */
 
-_BOOL8 __fastcall MiIsPteDecommittedPage(__int64 a1)
+_BOOL8 __fastcall MiIsPteDecommittedPage(unsigned __int64 a1)
 {
-  __int64 v1; // rax
+  unsigned __int64 v2; // rcx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v5; // r8
+  __int64 v6; // rax
 
-  v1 = MI_READ_PTE_LOCK_FREE(a1);
-  return (v1 & 0x3E0) == 0x200 && (v1 & 1) == 0 && ((v1 & 0x400) == 0 || (unsigned int)MiIsPrototypePteVadLookup(v1));
+  v2 = *(_QWORD *)a1;
+  if ( a1 >= 0xFFFFF6FB7DBED000uLL
+    && a1 <= 0xFFFFF6FB7DBED7F8uLL
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v2 & 1) != 0
+    && ((v2 & 0x20) == 0 || (v2 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v5 = v2 | 0x20;
+      v6 = *((_QWORD *)&Flink->Flink + ((a1 >> 3) & 0x1FF));
+      if ( (v6 & 0x20) == 0 )
+        v5 = v2;
+      v2 = v5;
+      if ( (v6 & 0x42) != 0 )
+        v2 = v5 | 0x42;
+    }
+  }
+  return (v2 & 0x3E0) == 0x200 && (v2 & 1) == 0 && ((v2 & 0x400) == 0 || MiIsPrototypePteVadLookup(v2));
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRealization@CMatrixTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800D9A50
+ * XREFs of ?GetRealization@CMatrixTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800CD400
  * Callers:
  *     <none>
  * Callees:
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D9B88 (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800CD45C (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
  */
 
 void __fastcall CMatrixTransform::GetRealization(
@@ -13,10 +13,10 @@ void __fastcall CMatrixTransform::GetRealization(
 {
   CMILMatrix::Set2DAffineMatrix(
     a3,
+    *((float *)this + 38),
+    *((float *)this + 39),
     *((float *)this + 40),
     *((float *)this + 41),
     *((float *)this + 42),
-    *((float *)this + 43),
-    *((float *)this + 44),
-    *((float *)this + 45));
+    *((float *)this + 43));
 }

@@ -1,42 +1,35 @@
 /*
- * XREFs of VidSchSetPriorityClassProcess @ 0x1C00ABDE0
+ * XREFs of VidSchSetPriorityClassProcess @ 0x1C008EBE0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall VidSchSetPriorityClassProcess(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall VidSchSetPriorityClassProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  __int64 v6; // rbx
-  __int64 v7; // rcx
+  __int64 v4; // rax
+  __int64 v6; // rax
 
   v3 = (int)a2;
-  if ( a1 )
+  if ( !a1 )
   {
-    if ( (unsigned int)a2 > 5 )
-    {
-      a2 = (int)a2;
-      v6 = -1073741811LL;
-    }
-    else
-    {
-      if ( (int)a2 < 5 || a3 || SeSinglePrivilegeCheck((LUID)14LL, 1) )
-      {
-        *(_DWORD *)(a1 + 24) = v3;
-        return 0LL;
-      }
-      a2 = v3;
-      v6 = -1073741790LL;
-    }
-    WdLogSingleEntry2(3LL, a2, v6);
+    v4 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v4 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v4);
+    return 3221225485LL;
   }
-  else
+  if ( (unsigned int)a2 > 5 )
   {
-    LODWORD(v6) = -1073741811;
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v7, 0x40000LL);
+    v6 = WdLogNewEntry5_WdWarning(a1, a2);
+    *(_QWORD *)(v6 + 24) = v3;
+    *(_QWORD *)(v6 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v6);
+    return 3221225485LL;
   }
-  return (unsigned int)v6;
+  if ( (_DWORD)a3 )
+    *(_BYTE *)(a1 + 2625) = 1;
+  *(_DWORD *)(a1 + 16) = a2;
+  return 0LL;
 }

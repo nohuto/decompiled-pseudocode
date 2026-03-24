@@ -1,54 +1,59 @@
 /*
- * XREFs of ?_AllocateCxDeviceInit@WDFCXDEVICE_INIT@@SAPEAU1@PEAUWDFDEVICE_INIT@@@Z @ 0x1C0069BBC
+ * XREFs of ?_AllocateCxDeviceInit@WDFCXDEVICE_INIT@@SAPEAU1@PEAUWDFDEVICE_INIT@@@Z @ 0x1C005383C
  * Callers:
- *     imp_WdfCxDeviceInitAllocate @ 0x1C0065380 (imp_WdfCxDeviceInitAllocate.c)
+ *     imp_WdfCxDeviceInitAllocate @ 0x1C004B170 (imp_WdfCxDeviceInitAllocate.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 FX_POOL **__fastcall WDFCXDEVICE_INIT::_AllocateCxDeviceInit(WDFDEVICE_INIT *DeviceInit)
 {
-  _FX_DRIVER_GLOBALS *DriverGlobals; // rdi
-  void *v3; // rax
-  FX_POOL **v4; // rax
-  FX_POOL **v5; // rbx
+  _FX_DRIVER_GLOBALS *DriverGlobals; // rsi
+  FX_POOL **v3; // rax
+  FX_POOL **v4; // rbx
   _LIST_ENTRY *p_CxDeviceInitListHead; // rax
   _LIST_ENTRY *Flink; // rcx
-  __m128i v9; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  void *Caller; // [rsp+38h] [rbp+0h]
 
   DriverGlobals = DeviceInit->DriverGlobals;
-  v9.m128i_i64[0] = 0LL;
-  v9.m128i_i64[1] = 64LL;
-  if ( DriverGlobals->FxPoolTrackingOn )
-    v3 = retaddr;
+  v3 = FxPoolAllocator(
+         DriverGlobals,
+         &DriverGlobals->FxPoolFrameworks,
+         ExDefaultNonPagedPoolType,
+         0x290uLL,
+         DriverGlobals->Tag,
+         Caller);
+  v4 = v3;
+  if ( v3 )
+  {
+    v3[2] = 0LL;
+    v3[3] = 0LL;
+    v3[4] = 0LL;
+    v3[5] = 0LL;
+    v3[1] = (FX_POOL *)v3;
+    *v3 = (FX_POOL *)v3;
+    memset(v3 + 6, 0, 0xA8uLL);
+    *((_DWORD *)v4 + 52) = 2;
+    memset(v4 + 27, 0, 0x1B0uLL);
+    v4[81] = 0LL;
+  }
   else
-    v3 = 0LL;
-  v4 = FxPoolAllocator(DriverGlobals, &DriverGlobals->FxPoolFrameworks, &v9, 0x290uLL, DriverGlobals->Tag, v3);
-  v5 = v4;
+  {
+    v4 = 0LL;
+  }
   if ( v4 )
   {
-    v4[2] = 0LL;
-    v4[3] = 0LL;
-    v4[4] = 0LL;
-    v4[5] = 0LL;
-    v4[1] = (FX_POOL *)v4;
-    *v4 = (FX_POOL *)v4;
-    memset(v4 + 6, 0, 0xA8uLL);
-    *((_DWORD *)v5 + 52) = 2;
-    memset(v5 + 27, 0, 0x1B0uLL);
-    v5[81] = 0LL;
     p_CxDeviceInitListHead = &DeviceInit->CxDeviceInitListHead;
     Flink = DeviceInit->CxDeviceInitListHead.Flink;
     if ( Flink->Blink != &DeviceInit->CxDeviceInitListHead )
       __fastfail(3u);
-    v5[1] = (FX_POOL *)p_CxDeviceInitListHead;
-    *v5 = (FX_POOL *)Flink;
-    Flink->Blink = (_LIST_ENTRY *)v5;
-    p_CxDeviceInitListHead->Flink = (_LIST_ENTRY *)v5;
-    return v5;
+    v4[1] = (FX_POOL *)p_CxDeviceInitListHead;
+    *v4 = (FX_POOL *)Flink;
+    Flink->Blink = (_LIST_ENTRY *)v4;
+    p_CxDeviceInitListHead->Flink = (_LIST_ENTRY *)v4;
+    return v4;
   }
   else
   {

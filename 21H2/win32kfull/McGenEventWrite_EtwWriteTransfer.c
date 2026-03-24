@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C01E626C
+ * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C01EB448
  * Callers:
- *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01E62D8 (McTemplateK0qqzz_EtwWriteTransfer.c)
+ *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01EB4B4 (McTemplateK0qqzz_EtwWriteTransfer.c)
  * Callees:
  *     <none>
  */
@@ -17,11 +17,11 @@ NTSTATUS __fastcall McGenEventWrite_EtwWriteTransfer(
   ULONG v6; // eax
   ULONG v7; // edx
 
-  v5 = (unsigned __int16 *)qword_1C032BDB8;
+  v5 = (unsigned __int16 *)qword_1C0330AB8;
   v6 = 0;
-  if ( qword_1C032BDB8 )
+  if ( qword_1C0330AB8 )
   {
-    UserData->Ptr = qword_1C032BDB8;
+    UserData->Ptr = qword_1C0330AB8;
     v6 = 2;
     v7 = *v5;
   }

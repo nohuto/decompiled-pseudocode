@@ -1,18 +1,18 @@
 /*
- * XREFs of ?xxxMNRemoveMessage@@YAHII@Z @ 0x1C022D4FC
+ * XREFs of ?xxxMNRemoveMessage@@YAHII@Z @ 0x1C0233C74
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
  * Callees:
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
  */
 
 __int64 __fastcall xxxMNRemoveMessage(int a1, int a2)
 {
-  _QWORD v5[7]; // [rsp+30h] [rbp-38h] BYREF
+  _OWORD v5[3]; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v5, 0, 48);
-  if ( !(unsigned int)xxxInternalGetMessage(v5, 0LL, 0, 0, 2, 0) || LODWORD(v5[1]) != a1 && LODWORD(v5[1]) != a2 )
+  memset(v5, 0, sizeof(v5));
+  if ( !(unsigned int)xxxInternalGetMessage(v5, 0LL, 0, 0, 2, 0) || DWORD2(v5[0]) != a1 && DWORD2(v5[0]) != a2 )
     return 0LL;
-  xxxInternalGetMessage(v5, 0LL, v5[1], v5[1], 1, 0);
+  xxxInternalGetMessage(v5, 0LL, DWORD2(v5[0]), DWORD2(v5[0]), 1, 0);
   return 1LL;
 }

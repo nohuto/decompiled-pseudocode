@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_Sd @ 0x1C0069324
+ * XREFs of WPP_IFR_SF_Sd @ 0x1C00511F0
  * Callers:
- *     ?OpenDevicemapKeyWorker@FxDevice@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@KPEAVFxRegKey@@@Z @ 0x1C0069130 (-OpenDevicemapKeyWorker@FxDevice@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@KPEAVFxRegKe.c)
+ *     ?OpenDevicemapKeyWorker@FxDevice@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@KPEAVFxRegKey@@@Z @ 0x1C0050A28 (-OpenDevicemapKeyWorker@FxDevice@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@KPEAVFxRegKe.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_Sd(
@@ -16,13 +16,12 @@ void __fastcall WPP_IFR_SF_Sd(
         const wchar_t *flags,
         int id)
 {
-  const wchar_t *v7; // rbp
+  const wchar_t *v7; // rsi
   __int64 v8; // rdi
-  __int64 v10; // rsi
-  __int64 v11; // rcx
+  __int64 v10; // rbp
+  __int64 v11; // rdx
   __int64 v12; // rax
-  const wchar_t *v13; // rdx
-  bool v14; // zf
+  const wchar_t *v13; // rcx
 
   v7 = L"<NULL>";
   v8 = -1LL;
@@ -43,13 +42,19 @@ void __fastcall WPP_IFR_SF_Sd(
       {
         v11 = 14LL;
       }
+    }
+    else
+    {
+      v11 = 10LL;
+    }
+    if ( flags )
+    {
       v13 = L"<NULL>";
       if ( *flags )
         v13 = flags;
     }
     else
     {
-      v11 = 10LL;
       v13 = L"NULL";
     }
     FxWmiTraceMessage(
@@ -65,21 +70,25 @@ void __fastcall WPP_IFR_SF_Sd(
   }
   if ( flags )
   {
-    v14 = *flags == 0;
     if ( *flags )
     {
       do
         ++v8;
       while ( flags[v8] );
-      v14 = *flags == 0;
       v10 = 2 * v8 + 2;
     }
-    if ( !v14 )
-      v7 = flags;
   }
   else
   {
     v10 = 10LL;
+  }
+  if ( flags )
+  {
+    if ( *flags )
+      v7 = flags;
+  }
+  else
+  {
     v7 = L"NULL";
   }
   FxIFR(globals, 2u, 0x12u, WPP_FxDeviceKm_cpp_Traceguids, 0x1Bu, v7, v10, &id, 4LL, 0LL);

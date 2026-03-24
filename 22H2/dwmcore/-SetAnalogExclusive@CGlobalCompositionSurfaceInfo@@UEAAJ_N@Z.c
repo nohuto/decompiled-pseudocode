@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetAnalogExclusive@CGlobalCompositionSurfaceInfo@@UEAAJ_N@Z @ 0x18025BAE0
+ * XREFs of ?SetAnalogExclusive@CGlobalCompositionSurfaceInfo@@UEAAJ_N@Z @ 0x1801F8D00
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CGlobalCompositionSurfaceInfo::SetAnalogExclusive(
@@ -19,7 +19,7 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::SetAnalogExclusive(
   if ( v3 < 0 )
   {
     v2 = v3 | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3 | 0x10000000, 0x230u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3 | 0x10000000, 0x122u, 0LL);
   }
   return v2;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C0322BF4
+ * XREFs of ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C027735C
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall DXGMMS_EXPORT::Release(DXGMMS_EXPORT *this)
@@ -26,7 +25,6 @@ __int64 __fastcall DXGMMS_EXPORT::Release(DXGMMS_EXPORT *this)
   }
   if ( *(_BYTE *)this )
   {
-    (*((void (__fastcall **)(_QWORD))this + 10))(0LL);
     ZwSetSystemInformation(SystemUnloadGdiDriverInformation, (char *)this + 32, 8uLL);
     *(_BYTE *)this = 0;
   }

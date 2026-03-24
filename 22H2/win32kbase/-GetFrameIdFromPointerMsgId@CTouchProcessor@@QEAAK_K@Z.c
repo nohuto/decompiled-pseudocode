@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetFrameIdFromPointerMsgId@CTouchProcessor@@QEAAK_K@Z @ 0x1C00E4060
+ * XREFs of ?GetFrameIdFromPointerMsgId@CTouchProcessor@@QEAAK_K@Z @ 0x1C01918A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
+ *     <none>
  */
 
-__int64 __fastcall CTouchProcessor::GetFrameIdFromPointerMsgId(CTouchProcessor *this, unsigned __int64 a2)
+__int64 __fastcall CTouchProcessor::GetFrameIdFromPointerMsgId(CTouchProcessor *this, __int64 a2)
 {
-  return *((unsigned int *)CTouchProcessor::GetNonConstMsgData(this, a2) + 7);
+  return *(unsigned int *)(a2 + 28);
 }

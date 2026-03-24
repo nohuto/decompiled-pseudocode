@@ -1,36 +1,45 @@
 /*
- * XREFs of ?DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z @ 0x1C0086220
+ * XREFs of ?DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z @ 0x1C0064FFC
  * Callers:
- *     ?ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_KPEAUVIDMM_PARTITION@@@Z @ 0x1C00B0AF0 (-ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_KPEAUVIDMM_PARTITION@@@Z.c)
- *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C00FAFC8 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
+ *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C0063620 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
+ *     ?MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C0064EDC (-MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z.c)
+ *     ?ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z @ 0x1C0086260 (-ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAUVIDMM_PARTITION@@@Z @ 0x1C008DFB0 (-GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT.c)
+ *     ?GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAUVIDMM_PARTITION@@@Z @ 0x1C0065084 (-GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT.c)
  */
 
 void __fastcall VIDMM_SEGMENT::DecrementBytesCommitted(VIDMM_SEGMENT *this, struct VIDMM_PARTITION *a2, __int64 a3)
 {
-  enum _D3DKMT_MEMORY_SEGMENT_GROUP v6; // r8d
-  unsigned int v7; // edx
-  VIDMM_GLOBAL *v8; // rcx
+  unsigned __int64 v3; // r9
+  enum _D3DKMT_MEMORY_SEGMENT_GROUP v7; // r8d
+  unsigned int v8; // edx
+  VIDMM_GLOBAL *v9; // rcx
   struct VIDMM_SEGMENT_GROUP_STATE *SegmentGroupState; // rbx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
+  __int64 v11; // r8
+  unsigned __int64 v12; // rdx
+  __int64 v13; // rax
+  __int64 v14; // rax
 
-  if ( *((_QWORD *)this + 27) < (unsigned __int64)(*((_QWORD *)this + 27) - a3) )
+  v3 = *((_QWORD *)this + 27);
+  if ( v3 < v3 - a3 )
   {
-    WdLogSingleEntry1(1LL, 300LL);
-    DxgkLogInternalTriageEvent(v10, 0x40000LL);
+    v13 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v13 + 24) = 292LL;
+    WdLogEvent5_WdAssertion(v13);
+    v3 = *((_QWORD *)this + 27);
   }
-  v6 = *((_DWORD *)this + 119);
-  v7 = *((_DWORD *)this + 95);
-  v8 = (VIDMM_GLOBAL *)*((_QWORD *)this + 1);
-  *((_QWORD *)this + 27) -= a3;
-  SegmentGroupState = VIDMM_GLOBAL::GetSegmentGroupState(v8, v7, v6, a2);
-  if ( *((_QWORD *)SegmentGroupState + 15) < (unsigned __int64)(*((_QWORD *)SegmentGroupState + 15) - a3) )
+  v7 = *((_DWORD *)this + 119);
+  v8 = *((_DWORD *)this + 95);
+  v9 = (VIDMM_GLOBAL *)*((_QWORD *)this + 1);
+  *((_QWORD *)this + 27) = v3 - a3;
+  SegmentGroupState = VIDMM_GLOBAL::GetSegmentGroupState(v9, v8, v7, a2);
+  v12 = *((_QWORD *)SegmentGroupState + 15);
+  if ( v12 < v12 - a3 )
   {
-    WdLogSingleEntry1(1LL, 310LL);
-    DxgkLogInternalTriageEvent(v11, 0x40000LL);
+    v14 = WdLogNewEntry5_WdAssertion(v12 - a3, v12, v11);
+    *(_QWORD *)(v14 + 24) = 299LL;
+    WdLogEvent5_WdAssertion(v14);
+    v12 = *((_QWORD *)SegmentGroupState + 15);
   }
-  *((_QWORD *)SegmentGroupState + 15) -= a3;
+  *((_QWORD *)SegmentGroupState + 15) = v12 - a3;
 }

@@ -1,17 +1,18 @@
 /*
- * XREFs of ACPIDetectEjectDevices @ 0x1C004E440
+ * XREFs of ACPIDetectEjectDevices @ 0x1C004F600
  * Callers:
- *     ACPIDockIrpQueryEjectRelations @ 0x1C00AAAB8 (ACPIDockIrpQueryEjectRelations.c)
- *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AC5AC (ACPIBusAndFilterIrpQueryEjectRelations.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C00ABD18 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AD9B0 (ACPIBusAndFilterIrpQueryEjectRelations.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIExtListStartEnum @ 0x1C000990C (ACPIExtListStartEnum.c)
- *     ACPIExtListTestElement @ 0x1C000A7D4 (ACPIExtListTestElement.c)
- *     ACPIExtListEnumNext @ 0x1C000C1AC (ACPIExtListEnumNext.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     ACPIBuildMissingEjectionRelations @ 0x1C004A4D4 (ACPIBuildMissingEjectionRelations.c)
- *     ACPIExtListIsMemberOfRelation @ 0x1C0054864 (ACPIExtListIsMemberOfRelation.c)
- *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00932F8 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIExtListTestElement @ 0x1C001A904 (ACPIExtListTestElement.c)
+ *     ACPIExtListStartEnum @ 0x1C001AD98 (ACPIExtListStartEnum.c)
+ *     ACPIExtListEnumNext @ 0x1C001B0F0 (ACPIExtListEnumNext.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIBuildMissingEjectionRelations @ 0x1C004BB44 (ACPIBuildMissingEjectionRelations.c)
+ *     ACPIExtListIsMemberOfRelation @ 0x1C0055134 (ACPIExtListIsMemberOfRelation.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  */
 
 __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
@@ -19,18 +20,18 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
   unsigned int *v3; // rdi
   unsigned int v4; // r14d
   __int64 v8; // r15
-  __int64 i; // rax
-  __int64 v10; // rbx
+  char *i; // rax
+  char *v10; // rbx
   int v11; // eax
   __int64 v12; // rcx
   PVOID *v13; // r12
   __int64 v14; // rcx
   bool v15; // zf
-  __int64 Pool2; // rax
-  _DWORD *v17; // rsi
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v17; // rsi
   unsigned int v19; // ebx
-  __int64 j; // rax
-  __int64 v21; // r15
+  char *j; // rax
+  char *v21; // r15
   __int64 v22; // rcx
   __int64 v23; // rcx
   __int64 v24; // rax
@@ -67,24 +68,24 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
     v3 = (unsigned int *)*a2;
   }
   v36 = 0LL;
-  v8 = a1 + 832;
+  v8 = a1 + 792;
   SpinLock = &AcpiDeviceTreeLock;
-  v35 = a1 + 832;
-  v39 = 848LL;
+  v35 = a1 + 792;
+  v39 = 808LL;
   v40 = 1;
-  for ( i = ACPIExtListStartEnum((__int64)&v35); ; i = (__int64)ACPIExtListEnumNext((__int64)&v35) )
+  for ( i = ACPIExtListStartEnum((__int64)&v35); ; i = ACPIExtListEnumNext((__int64)&v35) )
   {
     v10 = i;
     if ( !ACPIExtListTestElement((__int64)&v35, 1) )
       break;
-    if ( (*(_QWORD *)(v10 + 8) & 0x2000000000002LL) == 0 )
+    if ( (*((_QWORD *)v10 + 1) & 0x2000000000002LL) == 0 )
     {
-      if ( *(_QWORD *)(v10 + 784) )
+      if ( *((_QWORD *)v10 + 93) )
       {
-        v11 = ACPIDetectCouldExtensionBeInRelation(v10, (_DWORD)v3, 0, 0, (__int64)&v42);
+        v11 = ACPIDetectCouldExtensionBeInRelation((_DWORD)v10, (_DWORD)v3, 0, 0, (__int64)&v42);
         if ( !v42 && v11 >= 0 )
         {
-          v12 = *(_QWORD *)(v10 + 784);
+          v12 = *((_QWORD *)v10 + 93);
           if ( v12 )
           {
             if ( !(unsigned __int8)ACPIExtListIsMemberOfRelation(v12, v3) )
@@ -99,7 +100,7 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
   {
     if ( (*(_QWORD *)(a3 + 8) & 0x2000000000002LL) == 0 )
     {
-      v14 = *(_QWORD *)(a3 + 784);
+      v14 = *(_QWORD *)(a3 + 744);
       if ( v14 )
       {
         if ( !(unsigned __int8)ACPIExtListIsMemberOfRelation(v14, v3) )
@@ -113,13 +114,14 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
     v15 = v4 == 0;
   if ( !v15 )
   {
-    Pool2 = ExAllocatePool2(256LL, 8 * v4 + 8, 1148216129LL);
-    v17 = (_DWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 8 * v4 + 8, 0x44706341u);
+    v17 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
+    memset(PoolWithTag, 0, 8 * v4 + 8);
     if ( v3 )
     {
-      memmove((void *)(Pool2 + 8), v3 + 2, 8LL * *v3);
+      memmove(v17 + 2, v3 + 2, 8LL * *v3);
       v19 = *v3;
     }
     else
@@ -129,9 +131,9 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
     v36 = 0LL;
     SpinLock = &AcpiDeviceTreeLock;
     v35 = v8;
-    v39 = 848LL;
+    v39 = 808LL;
     v40 = 1;
-    for ( j = ACPIExtListStartEnum((__int64)&v35); ; j = (__int64)ACPIExtListEnumNext((__int64)&v35) )
+    for ( j = ACPIExtListStartEnum((__int64)&v35); ; j = ACPIExtListEnumNext((__int64)&v35) )
     {
       v21 = j;
       if ( !ACPIExtListTestElement((__int64)&v35, v4 > v19) )
@@ -142,9 +144,9 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
           KeReleaseSpinLock(SpinLock, NewIrql[0]);
         break;
       }
-      if ( (*(_QWORD *)(v21 + 8) & 0x202000000000002LL) == 0 )
+      if ( (*((_QWORD *)v21 + 1) & 0x202000000000002LL) == 0 )
       {
-        v22 = *(_QWORD *)(v21 + 784);
+        v22 = *((_QWORD *)v21 + 93);
         if ( v22 )
         {
           if ( !(unsigned __int8)ACPIExtListIsMemberOfRelation(v22, v3) && v19 < v4 )
@@ -159,7 +161,7 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
     {
       if ( (*(_QWORD *)(a3 + 8) & 0x2000000000002LL) == 0 )
       {
-        v25 = *(_QWORD *)(a3 + 784);
+        v25 = *(_QWORD *)(a3 + 744);
         if ( v25 )
         {
           if ( !(unsigned __int8)ACPIExtListIsMemberOfRelation(v25, v3) && v19 < v4 )
@@ -192,11 +194,11 @@ __int64 __fastcall ACPIDetectEjectDevices(__int64 a1, PVOID *a2, __int64 a3)
               2u,
               0x16u,
               0xFu,
-              (__int64)&WPP_e848b9e179ab32f347f39b604d9f0dbd_Traceguids,
+              (__int64)&WPP_c0e337b8db3d3f7e68015837118db5e6_Traceguids,
               *v30,
               v34);
           }
-          v32 = (unsigned int)--*v17;
+          v32 = --*v17;
           v33 = *(void **)&v17[2 * v32 + 2];
           *(_QWORD *)&v17[2 * v32 + 2] = *v30;
           *v30 = v33;

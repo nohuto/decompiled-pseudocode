@@ -1,1 +1,31 @@
-/*\n * XREFs of _TlgWrite @ 0x1C0005D34\n * Callers:\n *     MouConfiguration @ 0x1C000E95C (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\nTLG_STATUS __stdcall TlgWrite(\n        TraceLoggingHProvider hProvider,\n        const void *pEventMetadata,\n        LPCGUID pActivityId,\n        LPCGUID pRelatedActivityId,\n        UINT32 cData,\n        EVENT_DATA_DESCRIPTOR *pData)\n{\n  ULONG v6; // ecx\n  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF\n\n  *(_DWORD *)&EventDescriptor.Id = ((_DWORD)pEventMetadata - (unsigned int)&TraceLoggingMetadata) | (*(unsigned __int8 *)pEventMetadata << 24);\n  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)((char *)pEventMetadata + 1);\n  EventDescriptor.Keyword = *(_QWORD *)((char *)pEventMetadata + 3);\n  pData->Ptr = (ULONGLONG)EventInformation;\n  v6 = *(unsigned __int16 *)EventInformation;\n  pData[1].Ptr = (ULONGLONG)pEventMetadata + 11;\n  pData->Size = v6;\n  pData->Reserved = 2;\n  pData[1].Size = *(unsigned __int16 *)((char *)pEventMetadata + 11);\n  pData[1].Reserved = 1;\n  return EtwWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, 7u, pData);\n}\n
+/*
+ * XREFs of _TlgWrite @ 0x1C0005D34
+ * Callers:
+ *     MouConfiguration @ 0x1C000E95C (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+TLG_STATUS __stdcall TlgWrite(
+        TraceLoggingHProvider hProvider,
+        const void *pEventMetadata,
+        LPCGUID pActivityId,
+        LPCGUID pRelatedActivityId,
+        UINT32 cData,
+        EVENT_DATA_DESCRIPTOR *pData)
+{
+  ULONG v6; // ecx
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
+
+  *(_DWORD *)&EventDescriptor.Id = ((_DWORD)pEventMetadata - (unsigned int)&TraceLoggingMetadata) | (*(unsigned __int8 *)pEventMetadata << 24);
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)((char *)pEventMetadata + 1);
+  EventDescriptor.Keyword = *(_QWORD *)((char *)pEventMetadata + 3);
+  pData->Ptr = (ULONGLONG)EventInformation;
+  v6 = *(unsigned __int16 *)EventInformation;
+  pData[1].Ptr = (ULONGLONG)pEventMetadata + 11;
+  pData->Size = v6;
+  pData->Reserved = 2;
+  pData[1].Size = *(unsigned __int16 *)((char *)pEventMetadata + 11);
+  pData[1].Reserved = 1;
+  return EtwWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, 7u, pData);
+}

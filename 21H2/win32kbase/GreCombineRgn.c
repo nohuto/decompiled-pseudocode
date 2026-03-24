@@ -1,31 +1,31 @@
 /*
- * XREFs of GreCombineRgn @ 0x1C006EFF0
+ * XREFs of GreCombineRgn @ 0x1C0039860
  * Callers:
- *     GetMonitorDC @ 0x1C00183FC (GetMonitorDC.c)
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     UserSetDCVisRgn @ 0x1C002C8B0 (UserSetDCVisRgn.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0063D18 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006D8F4 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
- *     UserValidateCopyRgn @ 0x1C006EE60 (UserValidateCopyRgn.c)
- *     NtGdiCombineRgn @ 0x1C006EFD0 (NtGdiCombineRgn.c)
- *     EngCombineRgn @ 0x1C008E080 (EngCombineRgn.c)
- *     EngCopyRgn @ 0x1C0177A00 (EngCopyRgn.c)
- *     EngIntersectRgn @ 0x1C0177BA0 (EngIntersectRgn.c)
- *     EngSubtractRgn @ 0x1C0177D10 (EngSubtractRgn.c)
- *     EngUnionRgn @ 0x1C0177DB0 (EngUnionRgn.c)
- *     EngXorRgn @ 0x1C0177E50 (EngXorRgn.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0038920 (UserSetDCVisRgn.c)
+ *     GetMonitorDC @ 0x1C0039C70 (GetMonitorDC.c)
+ *     NtGdiCombineRgn @ 0x1C003BB80 (NtGdiCombineRgn.c)
+ *     UserValidateCopyRgn @ 0x1C006AC90 (UserValidateCopyRgn.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006F95C (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C7464 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     EngCombineRgn @ 0x1C014B610 (EngCombineRgn.c)
+ *     EngCopyRgn @ 0x1C014B6B0 (EngCopyRgn.c)
+ *     EngIntersectRgn @ 0x1C014B9C0 (EngIntersectRgn.c)
+ *     EngSubtractRgn @ 0x1C014BBC0 (EngSubtractRgn.c)
+ *     EngUnionRgn @ 0x1C014BC60 (EngUnionRgn.c)
+ *     EngXorRgn @ 0x1C014BD00 (EngXorRgn.c)
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0022E08 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0023C00 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C0024160 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0024B20 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     ?bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z @ 0x1C0024D60 (-bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z.c)
- *     ??0RGNMEMOBJ@@QEAA@HH@Z @ 0x1C0025980 (--0RGNMEMOBJ@@QEAA@HH@Z.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z @ 0x1C0027DA0 (-bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     ?iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z @ 0x1C00968C0 (-iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ?iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z @ 0x1C00273D0 (-iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z.c)
+ *     ??0RGNMEMOBJ@@QEAA@HH@Z @ 0x1C002AF30 (--0RGNMEMOBJ@@QEAA@HH@Z.c)
+ *     ?bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z @ 0x1C002B290 (-bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002B750 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002B874 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00302E8 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0032A50 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z @ 0x1C0035370 (-bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall GreCombineRgn(HRGN a1, HRGN a2, HRGN a3, int a4)
@@ -40,7 +40,7 @@ __int64 __fastcall GreCombineRgn(HRGN a1, HRGN a2, HRGN a3, int a4)
   struct OBJECT *v15; // rax
   struct OBJECT *v16; // rcx
   struct OBJECT **v17; // rcx
-  __int128 *v19[2]; // [rsp+28h] [rbp-79h] BYREF
+  REGION *v19[2]; // [rsp+28h] [rbp-79h] BYREF
   struct OBJECT *v20[7]; // [rsp+38h] [rbp-69h] BYREF
   struct OBJECT *v21[7]; // [rsp+70h] [rbp-31h] BYREF
   _QWORD v22[8]; // [rsp+A8h] [rbp+7h] BYREF
@@ -61,7 +61,7 @@ LABEL_10:
           EngSetLastError(6u);
           goto LABEL_11;
         }
-        if ( (unsigned int)RGNOBJAPI::bCopy((RGNOBJAPI *)v20, (struct RGNOBJ *)v21) )
+        if ( (unsigned int)RGNOBJAPI::bCopy(v20, (struct RGNOBJ *)v21) )
         {
           v9 = RGNOBJ::iComplexity((RGNOBJ *)v20);
 LABEL_11:
@@ -135,7 +135,7 @@ LABEL_31:
       }
       goto LABEL_31;
     }
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v19, 0LL, 1);
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v19, 0LL, 1LL);
     RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v19);
     v9 = 0;
     RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v20, a2, 0, a1 == a2);
@@ -161,19 +161,19 @@ LABEL_44:
       {
         if ( a1 == a2 )
         {
-          if ( !(unsigned int)RGNOBJAPI::bSwap(v20, v19) )
+          if ( !(unsigned int)RGNOBJAPI::bSwap(v20, (struct RGNOBJ *)v19) )
           {
 LABEL_47:
             RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v21);
             RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v20);
-            RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v19);
+            RGNMEMOBJTMP::~RGNMEMOBJTMP(v19);
             return v9;
           }
           v17 = v20;
         }
         else
         {
-          if ( !(unsigned int)RGNOBJAPI::bSwap(v21, v19) )
+          if ( !(unsigned int)RGNOBJAPI::bSwap(v21, (struct RGNOBJ *)v19) )
             goto LABEL_47;
           v17 = v21;
         }

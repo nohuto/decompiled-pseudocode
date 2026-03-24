@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscInitialize @ 0x1403787F0
+ * XREFs of HalpTscInitialize @ 0x1403A1160
  * Callers:
  *     <none>
  * Callees:
- *     HalUpdateTimerCapabilities @ 0x140378870 (HalUpdateTimerCapabilities.c)
- *     HalpTscGetAttributes @ 0x140378914 (HalpTscGetAttributes.c)
+ *     HalUpdateTimerCapabilities @ 0x1403A11E0 (HalUpdateTimerCapabilities.c)
+ *     HalpTscGetAttributes @ 0x1403A12B0 (HalpTscGetAttributes.c)
  */
 
 __int64 __fastcall HalpTscInitialize(__int64 a1)

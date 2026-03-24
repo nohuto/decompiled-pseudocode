@@ -1,120 +1,92 @@
 /*
- * XREFs of ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x18008A438
+ * XREFs of ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180177D18
  * Callers:
- *     ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180089D74 (-DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18020BDA8 (-DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x1800893A0 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x18008B098 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z @ 0x18008B164 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z.c)
- *     ?ShouldRealizeCpuClipOnGpu@CDrawingContext@@AEBA_NPEBVCShape@@AEBVCMILMatrix@@@Z @ 0x18008B19C (-ShouldRealizeCpuClipOnGpu@CDrawingContext@@AEBA_NPEBVCShape@@AEBVCMILMatrix@@@Z.c)
- *     ??0NodeEffects@CDrawingContext@@QEAA@XZ @ 0x18008B2D8 (--0NodeEffects@CDrawingContext@@QEAA@XZ.c)
- *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x180098620 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x1800F9440 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z @ 0x180057D5C (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18007F560 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV-.c)
+ *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x18008D82C (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ??0CRectanglesShape@@QEAA@AEBUMilRectF@@@Z @ 0x180098768 (--0CRectanglesShape@@QEAA@AEBUMilRectF@@@Z.c)
+ *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x1800BA570 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA7B0 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??0NodeEffects@CDrawingContext@@QEAA@XZ @ 0x180174704 (--0NodeEffects@CDrawingContext@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CDrawingContext::PushClipRectForCurrentNode(CDrawingContext *this, __int128 *a2)
+__int64 __fastcall CDrawingContext::PushClipRectForCurrentNode(
+        const struct CVisualTree **this,
+        struct MilRectF *a2,
+        _BYTE *a3)
 {
-  struct CRectanglesShape *v4; // rcx
-  int v5; // eax
-  _OWORD *v6; // rax
-  struct CObjectCache *ObjectCache; // rax
-  _QWORD *v8; // rbx
-  int v9; // edx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  const struct CVisualTree *v12; // rdx
-  int v13; // eax
-  __int64 v14; // rcx
-  unsigned int v15; // ebx
-  CVisual *v17; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD *v18; // [rsp+38h] [rbp-C8h] BYREF
-  char v19; // [rsp+40h] [rbp-C0h]
-  _BYTE v20[100]; // [rsp+48h] [rbp-B8h] BYREF
-  _OWORD v21[4]; // [rsp+ACh] [rbp-54h] BYREF
-  int v22; // [rsp+ECh] [rbp-14h]
-  __int64 v23; // [rsp+F0h] [rbp-10h]
-  char v24; // [rsp+100h] [rbp+0h]
-  __int128 v25; // [rsp+110h] [rbp+10h] BYREF
+  const struct CMILMatrix *TopByReference; // rax
+  struct CRectanglesShape *v7; // rcx
+  struct CObjectCache *ObjectCache; // rdx
+  CRectanglesShape *v9; // rax
+  int v10; // r8d
+  CRectanglesShape *v11; // rbx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
+  __int64 *v14; // r8
+  int v15; // eax
+  __int64 v16; // rcx
+  CRectanglesShape *v18; // [rsp+38h] [rbp-69h] BYREF
+  char v19; // [rsp+40h] [rbp-61h]
+  CVisual *v20[11]; // [rsp+48h] [rbp-59h] BYREF
+  _OWORD v21[4]; // [rsp+A4h] [rbp+3h] BYREF
+  int v22; // [rsp+E4h] [rbp+43h]
+  char v23; // [rsp+ECh] [rbp+4Bh]
 
-  CDrawingContext::NodeEffects::NodeEffects((CDrawingContext::NodeEffects *)&v17);
-  v17 = (CVisual *)(*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 32LL))((char *)this + 24);
-  v5 = *((_DWORD *)this + 92);
-  if ( v5 )
+  CDrawingContext::NodeEffects::NodeEffects((CDrawingContext::NodeEffects *)v20);
+  v20[0] = CDrawingContext::GetCurrentVisual((CDrawingContext *)(this + 3));
+  v23 = 1;
+  TopByReference = CMatrixStack::GetTopByReference((CMatrixStack *)(this + 51));
+  v18 = 0LL;
+  v19 = 0;
+  v21[0] = *(_OWORD *)TopByReference;
+  v21[1] = *((_OWORD *)TopByReference + 1);
+  v21[2] = *((_OWORD *)TopByReference + 2);
+  v21[3] = *((_OWORD *)TopByReference + 3);
+  v22 = *((_DWORD *)TopByReference + 16);
+  ObjectCache = CThreadContext::GetObjectCache(v7);
+  v9 = 0LL;
+  v10 = *((_DWORD *)ObjectCache + 1);
+  if ( v10 )
   {
-    v4 = (struct CRectanglesShape *)(unsigned int)(v5 - 1);
-    v6 = (_OWORD *)(*((_QWORD *)this + 48) + 68LL * (_QWORD)v4);
+    v9 = (CRectanglesShape *)*((_QWORD *)ObjectCache + 1);
+    *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v9;
+    *((_DWORD *)ObjectCache + 1) = v10 - 1;
   }
+  if ( v9 || (v9 = (CRectanglesShape *)DefaultHeap::Alloc(0x48uLL)) != 0LL )
+    v11 = CRectanglesShape::CRectanglesShape(v9, a2);
   else
-  {
-    v6 = &CMILMatrix::Identity;
-  }
-  v21[0] = *v6;
-  v21[1] = v6[1];
-  v21[2] = v6[2];
-  v21[3] = v6[3];
-  v22 = *((_DWORD *)v6 + 16);
-  ObjectCache = CThreadContext::GetObjectCache(v4);
-  v8 = 0LL;
-  v9 = *((_DWORD *)ObjectCache + 1);
-  if ( v9 )
-  {
-    v8 = (_QWORD *)*((_QWORD *)ObjectCache + 1);
-    *((_QWORD *)ObjectCache + 1) = *v8;
-    *((_DWORD *)ObjectCache + 1) = v9 - 1;
-  }
-  if ( v8 || (v8 = DefaultHeap::Alloc(0x48uLL)) != 0LL )
-  {
-    v8[1] = 0LL;
-    *v8 = &CRectanglesShape::`vftable';
-    *((_DWORD *)v8 + 10) = 0;
-    v8[2] = v8 + 6;
-    v8[3] = v8 + 6;
-    *((_DWORD *)v8 + 8) = 1;
-    *((_DWORD *)v8 + 9) = 1;
-    TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v8 + 6);
-    v8[8] = 0LL;
-    *((_DWORD *)v8 + 10) = 0;
-    DynArrayImpl<0>::ShrinkToSize(v8 + 2, 16LL);
-    v10 = v8[8];
-    if ( v10 )
-    {
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
-      v8[8] = 0LL;
-    }
-    v25 = *a2;
-    DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
-      (__int64)(v8 + 2),
-      &v25,
-      1u);
-  }
+    v11 = 0LL;
   CShapePtr::Release((CShapePtr *)&v18);
-  v18 = v8;
+  v18 = v11;
   v19 = 1;
-  if ( v8 )
+  if ( v11 )
   {
-    if ( !CDrawingContext::ShouldRealizeCpuClipOnGpu(this, (const struct CShape *)v8, (const struct CMILMatrix *)v21) )
-    {
-      v12 = (const struct CVisualTree *)*((_QWORD *)this + 991);
-      v24 = 1;
-      v23 = *((_QWORD *)CVisual::FindTreeData(v17, v12) + 14);
-    }
-    v13 = CDrawingContext::PushLocalSpaceClipAndAlphaInternal(this);
-    v15 = v13;
-    if ( v13 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0xC95u);
+    if ( *((_BYTE *)this[117] + 84 * (unsigned int)(*((_DWORD *)this + 240) - 1) + 80) )
+      v14 = CVisual::FindTreeData(v20[0], this[741])[27];
+    else
+      v14 = (__int64 *)v21;
+    v15 = CDrawingContext::PushLocalSpaceClipAndAlphaInternal(
+            (CDrawingContext *)this,
+            (CShapePtr *)&v18,
+            (int)v14,
+            0LL,
+            (__int64)v20,
+            a3);
+    v13 = v15;
+    if ( v15 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xC28u, 0LL);
   }
   else
   {
-    v15 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2147024882, 0xC8Bu);
+    v13 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0xC18u, 0LL);
   }
-  CShapePtr::Release((CShapePtr *)v20);
   CShapePtr::Release((CShapePtr *)&v18);
-  return v15;
+  return v13;
 }

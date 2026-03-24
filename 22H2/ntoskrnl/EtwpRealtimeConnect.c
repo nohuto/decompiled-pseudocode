@@ -1,196 +1,182 @@
 /*
- * XREFs of EtwpRealtimeConnect @ 0x1407F5B64
+ * XREFs of EtwpRealtimeConnect @ 0x14069B8B8
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     EtwpOpenConsumer @ 0x1407F5F94 (EtwpOpenConsumer.c)
- *     EtwpSynchronizeWithLogger @ 0x1407F5FE0 (EtwpSynchronizeWithLogger.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     EtwpSynchronizeWithLogger @ 0x14069BD8C (EtwpSynchronizeWithLogger.c)
+ *     EtwpOpenConsumer @ 0x14069BE14 (EtwpOpenConsumer.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BBBBC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
-__int64 __fastcall EtwpRealtimeConnect(__int64 a1)
+__int64 __fastcall EtwpRealtimeConnect(int *a1)
 {
-  PVOID v2; // r15
-  PVOID v3; // r12
-  volatile void *v4; // rsi
-  unsigned __int64 v5; // r13
+  _DMA_OPERATIONS *v2; // rsi
+  unsigned __int64 v3; // r15
+  unsigned __int64 v4; // r12
+  __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
-  __int64 v8; // rcx
-  _KPROCESS *Process; // rcx
-  SIZE_T v10; // rdx
-  __int16 v11; // ax
-  char v12; // al
-  unsigned int *v13; // rax
-  unsigned int *v14; // rsi
-  int v15; // ebx
-  void *v16; // rcx
-  void *v17; // rcx
-  _WORD *v18; // rbx
-  _QWORD *v19; // rdx
-  _KPROCESS *v20; // rcx
-  char v21; // cl
-  char *v22; // r14
+  unsigned __int64 v8; // rcx
+  SIZE_T v9; // rdx
+  __int16 v10; // ax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  _DMA_OPERATIONS *v13; // r12
+  __int64 v14; // r8
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rsi
+  int v18; // ebx
+  void *v19; // rcx
+  void *v20; // rcx
+  PADAPTER_OBJECT v21; // rbx
+  PADAPTER_OBJECT v22; // rdx
+  unsigned __int64 v23; // rax
+  char v24; // cl
+  PADAPTER_OBJECT v25; // r14
+  __int64 v26; // rdx
   int inserted; // edi
-  __int16 v25; // ax
-  char v26; // al
-  PVOID *Object; // [rsp+20h] [rbp-F8h]
-  PVOID v28; // [rsp+50h] [rbp-C8h] BYREF
-  PVOID v29; // [rsp+58h] [rbp-C0h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-B8h] BYREF
-  volatile void *Address; // [rsp+68h] [rbp-B0h]
-  unsigned __int64 v32; // [rsp+70h] [rbp-A8h]
-  unsigned __int64 v33; // [rsp+78h] [rbp-A0h]
-  volatile void *v34; // [rsp+80h] [rbp-98h]
-  unsigned __int64 v35; // [rsp+88h] [rbp-90h]
-  __int64 v36; // [rsp+90h] [rbp-88h]
-  volatile void *v37; // [rsp+98h] [rbp-80h]
-  __int64 v38; // [rsp+A0h] [rbp-78h] BYREF
-  _DWORD v39[2]; // [rsp+A8h] [rbp-70h] BYREF
-  __int64 v40; // [rsp+B0h] [rbp-68h]
-  __int64 v41; // [rsp+B8h] [rbp-60h]
-  int v42; // [rsp+C0h] [rbp-58h]
-  int v43; // [rsp+C4h] [rbp-54h]
-  __int128 v44; // [rsp+C8h] [rbp-50h]
-  unsigned int v45; // [rsp+120h] [rbp+8h]
-  unsigned int v46; // [rsp+128h] [rbp+10h]
-  PVOID v47; // [rsp+138h] [rbp+20h] BYREF
+  __int16 v29; // ax
+  char *Object; // [rsp+20h] [rbp-F8h]
+  PVOID v31; // [rsp+50h] [rbp-C8h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-C0h] BYREF
+  volatile void *Address; // [rsp+60h] [rbp-B8h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-B0h]
+  PADAPTER_OBJECT v35; // [rsp+70h] [rbp-A8h]
+  struct _DMA_ADAPTER v36; // [rsp+78h] [rbp-A0h]
+  _DMA_OPERATIONS *v37; // [rsp+88h] [rbp-90h]
+  unsigned __int64 v38; // [rsp+90h] [rbp-88h]
+  _DMA_OPERATIONS *v39; // [rsp+98h] [rbp-80h]
+  __int64 v40; // [rsp+A0h] [rbp-78h] BYREF
+  _DWORD v41[2]; // [rsp+A8h] [rbp-70h] BYREF
+  __int64 v42; // [rsp+B0h] [rbp-68h]
+  __int64 v43; // [rsp+B8h] [rbp-60h]
+  int v44; // [rsp+C0h] [rbp-58h]
+  int v45; // [rsp+C4h] [rbp-54h]
+  __int128 v46; // [rsp+C8h] [rbp-50h]
+  unsigned int v47; // [rsp+120h] [rbp+8h]
+  unsigned int v48; // [rsp+128h] [rbp+10h]
+  PADAPTER_OBJECT v49; // [rsp+130h] [rbp+18h] BYREF
+  PVOID v50; // [rsp+138h] [rbp+20h] BYREF
 
-  v38 = 0LL;
-  v39[1] = 0;
-  v43 = 0;
-  v47 = 0LL;
-  v2 = 0LL;
-  v3 = 0LL;
-  v45 = *(_DWORD *)a1;
+  v40 = 0LL;
+  v41[1] = 0;
+  v45 = 0;
+  v49 = 0LL;
+  v35 = 0LL;
+  DmaAdapter = 0LL;
+  v47 = *a1;
   Handle = 0LL;
-  v37 = *(volatile void **)(a1 + 16);
-  Address = *(volatile void **)(a1 + 8);
-  v46 = *(_DWORD *)(a1 + 4);
-  v33 = *(_QWORD *)(a1 + 48);
-  v4 = *(volatile void **)(a1 + 40);
-  v34 = v4;
-  v5 = *(_QWORD *)(a1 + 56);
-  v35 = v5;
-  v32 = *(_QWORD *)(a1 + 64);
-  ProbeForWrite(v37, (((v46 >> 12) + 31) >> 3) & 0x1FFFFFFC, 4u);
-  ProbeForWrite(Address, v46, 4u);
-  v6 = v33;
-  if ( v33 >= 0x7FFFFFFF0000LL )
+  v39 = (_DMA_OPERATIONS *)*((_QWORD *)a1 + 2);
+  Address = (volatile void *)*((_QWORD *)a1 + 1);
+  v48 = a1[1];
+  *(_QWORD *)&v36.Version = *((_QWORD *)a1 + 6);
+  v2 = (_DMA_OPERATIONS *)*((_QWORD *)a1 + 5);
+  v36.DmaOperations = v2;
+  v3 = *((_QWORD *)a1 + 7);
+  v37 = (_DMA_OPERATIONS *)v3;
+  v4 = *((_QWORD *)a1 + 8);
+  v38 = v4;
+  ProbeForWrite(v39, (((v48 >> 12) + 31) >> 3) & 0x1FFFFFFC, 4u);
+  ProbeForWrite(Address, v48, 4u);
+  v5 = *(_QWORD *)&v36.Version;
+  if ( *(_QWORD *)&v36.Version >= 0x7FFFFFFF0000uLL )
+    v5 = 0x7FFFFFFF0000LL;
+  *(_DWORD *)v5 = *(_DWORD *)v5;
+  v6 = v3;
+  if ( v3 >= 0x7FFFFFFF0000LL )
     v6 = 0x7FFFFFFF0000LL;
   *(_DWORD *)v6 = *(_DWORD *)v6;
-  v7 = v5;
-  if ( v5 >= 0x7FFFFFFF0000LL )
+  v7 = v4;
+  if ( v4 >= 0x7FFFFFFF0000LL )
     v7 = 0x7FFFFFFF0000LL;
   *(_DWORD *)v7 = *(_DWORD *)v7;
-  v8 = v32;
-  if ( v32 >= 0x7FFFFFFF0000LL )
-    v8 = 0x7FFFFFFF0000LL;
-  *(_DWORD *)v8 = *(_DWORD *)v8;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !Process[1].Affinity.StaticBitmap[30]
-    || ((v11 = WORD2(Process[2].Affinity.StaticBitmap[20]), v11 == 332) || v11 == 452 ? (v12 = 1) : (v12 = 0),
-        v10 = 4LL,
-        !v12) )
-  {
-    v10 = 8LL;
-  }
-  ProbeForWrite(v4, v10, 4u);
-  v36 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  v13 = EtwpAcquireLoggerContextByLoggerId(v36, v45, 1);
-  v14 = v13;
-  if ( !v13 )
+  v8 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v8 && ((v10 = *(_WORD *)(v8 + 8), v10 == 332) || v10 == 452) )
+    v9 = 4LL;
+  else
+    v9 = 8LL;
+  ProbeForWrite(v2, v9, 4u);
+  v13 = (_DMA_OPERATIONS *)*((_QWORD *)PsGetCurrentServerSiloGlobals(v12, v11) + 108);
+  LOBYTE(v14) = 1;
+  v15 = EtwpAcquireLoggerContextByLoggerId(v13, v47, v14);
+  v17 = v15;
+  if ( !v15 )
     return 3221225485LL;
-  if ( (v13[3] & 0x100) != 0 )
+  if ( (*(_DWORD *)(v15 + 12) & 0x100) != 0 )
   {
-    v15 = EtwpCheckLoggerControlAccess(0x400u, (__int64)v13);
-    if ( v15 >= 0 )
+    v18 = EtwpCheckLoggerControlAccess(0x400u);
+    if ( v18 >= 0 )
     {
-      v15 = EtwpOpenConsumer(&Handle);
-      if ( v15 >= 0 )
+      v18 = EtwpOpenConsumer(&Handle);
+      if ( v18 >= 0 )
       {
-        v16 = *(void **)(a1 + 24);
-        v28 = 0LL;
-        v15 = ObReferenceObjectByHandle(v16, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v28, 0LL);
-        v3 = v28;
-        if ( v15 >= 0 )
+        v19 = (void *)*((_QWORD *)a1 + 3);
+        v50 = 0LL;
+        v18 = ObReferenceObjectByHandle(v19, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v50, 0LL);
+        DmaAdapter = (PADAPTER_OBJECT)v50;
+        if ( v18 >= 0 )
         {
-          v17 = *(void **)(a1 + 32);
-          v29 = 0LL;
-          v15 = ObReferenceObjectByHandle(v17, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v29, 0LL);
-          v2 = v29;
-          if ( v15 >= 0 )
+          v20 = (void *)*((_QWORD *)a1 + 4);
+          v31 = 0LL;
+          v18 = ObReferenceObjectByHandle(v20, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v31, 0LL);
+          v35 = (PADAPTER_OBJECT)v31;
+          if ( v18 >= 0 )
           {
-            v39[0] = 48;
-            v40 = 0LL;
-            v42 = 64;
-            v41 = 0LL;
-            v44 = 0LL;
-            v15 = ObCreateObjectEx(
-                    0,
-                    EtwpRealTimeConnectionObjectType,
-                    (__int64)v39,
-                    1,
-                    (__int64)Object,
-                    160,
-                    0,
-                    0,
-                    &v47,
-                    0LL);
-            if ( v15 >= 0 )
+            v41[0] = 48;
+            v42 = 0LL;
+            v44 = 64;
+            v43 = 0LL;
+            v46 = 0LL;
+            v18 = ObCreateObjectEx(0, EtwpRealTimeConnectionObjectType, (int)v41, 1u, Object, 160, 0, 0, &v49, 0LL);
+            if ( v18 >= 0 )
             {
-              v18 = v47;
-              memset(v47, 0, 0xA0uLL);
-              v18[44] = v45;
-              *((_QWORD *)v18 + 2) = Handle;
-              v19 = v47;
-              *((_QWORD *)v47 + 3) = KeGetCurrentThread()->ApcState.Process;
-              v19[6] = v28;
-              v19[7] = v29;
-              v19[8] = v33;
-              v19[9] = v34;
-              v19[14] = Address;
-              *((_DWORD *)v19 + 30) = v46;
-              v19[17] = v35;
-              v19[18] = v32;
-              v19[19] = v36;
-              *((_DWORD *)v19 + 24) = v46 >> 12;
-              v19[13] = v37;
-              v20 = KeGetCurrentThread()->ApcState.Process;
-              if ( v20[1].Affinity.StaticBitmap[30]
-                && ((v25 = WORD2(v20[2].Affinity.StaticBitmap[20]), v25 == 332) || v25 == 452 ? (v26 = 1) : (v26 = 0),
-                    v26) )
-              {
-                v21 = 16;
-              }
+              v21 = v49;
+              memset(v49, 0, 0xA0uLL);
+              LOWORD(v21[5].DmaOperations) = v47;
+              *(_QWORD *)&v21[1].Version = Handle;
+              v22 = v49;
+              v49[1].DmaOperations = (_DMA_OPERATIONS *)KeGetCurrentThread()->ApcState.Process;
+              *(_QWORD *)&v22[3].Version = v50;
+              v22[3].DmaOperations = (_DMA_OPERATIONS *)v31;
+              v22[4] = v36;
+              *(_QWORD *)&v22[7].Version = Address;
+              LODWORD(v22[7].DmaOperations) = v48;
+              v22[8].DmaOperations = v37;
+              *(_QWORD *)&v22[9].Version = v38;
+              v22[9].DmaOperations = v13;
+              *(_DWORD *)&v22[6].Version = v48 >> 12;
+              v22[6].DmaOperations = v39;
+              v23 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+              if ( v23 && ((v29 = *(_WORD *)(v23 + 8), v29 == 332) || v29 == 452) )
+                v24 = 16;
               else
-              {
-                v21 = 0;
-              }
-              v22 = (char *)v47;
-              *((_BYTE *)v47 + 90) = v21 | *((_BYTE *)v47 + 90) & 0xEF;
-              *((_QWORD *)v22 + 5) = a1;
-              inserted = ObInsertObjectEx(v22, 0LL, 1024, 1, 0, (PVOID *)&v38, (_QWORD *)(a1 + 72));
+                v24 = 0;
+              v25 = v49;
+              BYTE2(v49[5].DmaOperations) = v24 | BYTE2(v49[5].DmaOperations) & 0xEF;
+              v25[2].DmaOperations = (_DMA_OPERATIONS *)a1;
+              inserted = ObInsertObjectEx(v25, 0LL, 0x400u, 1, 0, (__int64)&v40, (unsigned __int64 *)a1 + 9);
               if ( inserted >= 0 )
               {
-                ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 172), 0LL);
-                *((_QWORD *)v14 + 44) = v22;
-                ExReleasePushLockEx((__int64 *)v14 + 86, 0LL);
-                EtwpSynchronizeWithLogger(v14, 32LL);
+                ExAcquirePushLockExclusiveEx(v17 + 704, 0LL);
+                *(_QWORD *)(v17 + 368) = v25;
+                ExReleasePushLockEx(v17 + 704, 0LL);
+                EtwpSynchronizeWithLogger(v17, 32LL);
               }
-              EtwpReleaseLoggerContext(v14, 1);
+              LOBYTE(v26) = 1;
+              EtwpReleaseLoggerContext(v17, v26);
               return (unsigned int)inserted;
             }
           }
@@ -200,14 +186,15 @@ __int64 __fastcall EtwpRealtimeConnect(__int64 a1)
   }
   else
   {
-    v15 = -1073741811;
+    v18 = -1073741811;
   }
-  EtwpReleaseLoggerContext(v14, 1);
+  LOBYTE(v16) = 1;
+  EtwpReleaseLoggerContext(v17, v16);
   if ( Handle )
     ZwClose(Handle);
-  if ( v3 )
-    ObfDereferenceObject(v3);
-  if ( v2 )
-    ObfDereferenceObject(v2);
-  return (unsigned int)v15;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  if ( v35 )
+    HalPutDmaAdapter(v35);
+  return (unsigned int)v18;
 }

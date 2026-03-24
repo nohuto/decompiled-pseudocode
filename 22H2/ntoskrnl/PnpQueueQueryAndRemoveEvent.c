@@ -1,58 +1,53 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14096E100
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14072F89C
  * Callers:
- *     PnpRequestDeviceEjectExWorker @ 0x140957240 (PnpRequestDeviceEjectExWorker.c)
- *     PiCMQueryRemove @ 0x14096A324 (PiCMQueryRemove.c)
+ *     PiCMQueryRemove @ 0x14072F1D0 (PiCMQueryRemove.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x1408A0560 (PnpRequestDeviceEjectExWorker.c)
+ *     PiControlQueryAndRemoveDevice @ 0x1408B3740 (PiControlQueryAndRemoveDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x1403229A0 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140362424 (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PnpSetTargetDeviceRemove @ 0x140868120 (PnpSetTargetDeviceRemove.c)
- *     PnpRemoveEventFromQueue @ 0x140964658 (PnpRemoveEventFromQueue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x1403645B8 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14037BD64 (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PnpSetTargetDeviceRemove @ 0x14074A49C (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x1408ABDFC (PnpRemoveEventFromQueue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _WORD *a3, _WORD *a4, char a5, int a6)
 {
   int v7; // r14d
   volatile __int32 *v9; // rdi
-  char *v10; // r15
+  _DWORD *v10; // r15
   unsigned __int16 *v11; // rsi
   _QWORD *v12; // rax
-  char *v13; // r13
-  int v14; // ebx
-  PVOID v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rbx
-  char *Pool2; // rax
-  int v19; // ebx
-  int v20; // edi
-  int v21; // r13d
-  unsigned int v23; // ecx
-  int v24; // ecx
-  _WORD *v25; // rax
-  int v26; // [rsp+48h] [rbp-59h]
-  int v27; // [rsp+50h] [rbp-51h]
-  char v28; // [rsp+78h] [rbp-29h]
-  int v29; // [rsp+7Ch] [rbp-25h] BYREF
-  BOOL v30; // [rsp+80h] [rbp-21h]
+  PVOID v13; // rcx
+  __int64 v14; // rax
+  char *PoolWithTag; // rax
+  int v16; // ebx
+  int v17; // edi
+  NTSTATUS v18; // ebx
+  char *v19; // r12
+  unsigned int v20; // ecx
+  int v22; // ecx
+  _WORD *v23; // rax
+  char v24; // [rsp+78h] [rbp-29h]
+  _DWORD v25[3]; // [rsp+7Ch] [rbp-25h] BYREF
   PVOID P; // [rsp+88h] [rbp-19h] BYREF
   PVOID Object; // [rsp+90h] [rbp-11h]
   struct _KEVENT Event; // [rsp+98h] [rbp-9h] BYREF
 
   v7 = a5 & 8;
-  v29 = 0;
+  v25[0] = 0;
   memset(&Event, 0, sizeof(Event));
   v9 = 0LL;
   P = 0LL;
   v10 = 0LL;
-  v28 = 0;
+  v24 = 0;
   v11 = 0LL;
   *(_DWORD *)a2 = 0;
   if ( (a5 & 8) != 0 )
@@ -61,152 +56,148 @@ __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _
   Object = v12;
   if ( !v12 )
   {
-    v13 = a2;
-    v14 = -1073741810;
+    v19 = a2;
+    v18 = -1073741810;
+    goto LABEL_27;
+  }
+  v13 = *(PVOID *)(v12[39] + 40LL);
+  if ( !v13 )
+  {
+    v18 = -1073741810;
+LABEL_35:
+    v19 = a2;
+    goto LABEL_24;
+  }
+  if ( v13 == IopRootDeviceNode )
+  {
+    v18 = -1073741790;
     goto LABEL_35;
   }
-  v15 = *(PVOID *)(v12[39] + 40LL);
-  if ( v15 )
+  v14 = *(unsigned int *)a4;
+  if ( (_DWORD)v14 )
   {
-    if ( v15 == IopRootDeviceNode )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v14 + 20, 0x20207050u);
+    v10 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v14 = -1073741790;
-      goto LABEL_7;
+      v18 = -1073741670;
+LABEL_38:
+      v19 = a2;
+      goto LABEL_24;
     }
-    v16 = *(unsigned int *)a4;
-    if ( (_DWORD)v16 )
+    v11 = (unsigned __int16 *)(PoolWithTag + 4);
+    v24 = 1;
+    *((_WORD *)PoolWithTag + 2) = 0;
+    *(_QWORD *)(PoolWithTag + 12) = PoolWithTag + 20;
+    v16 = 0;
+    *((_WORD *)PoolWithTag + 3) = *a4;
+  }
+  else
+  {
+    v16 = 1;
+  }
+  if ( v7 && a6 )
+    v16 = 1;
+  v25[1] = (a5 & 0xB) != 0;
+  if ( (a5 & 2) != 0 )
+  {
+    v17 = 22;
+  }
+  else if ( v7 )
+  {
+    v17 = 47;
+  }
+  else
+  {
+    v17 = 21;
+  }
+  KeInitializeEvent(&Event, NotificationEvent, 0);
+  v18 = PnpSetTargetDeviceRemove(
+          Object,
+          v16,
+          v17,
+          0,
+          (__int64)&Event,
+          0LL,
+          0LL,
+          (__int64)v25,
+          (__int64)v10,
+          (__int64)v11,
+          (__int64)&P);
+  if ( v18 < 0 )
+    goto LABEL_48;
+  v18 = KeWaitForSingleObject(&Event, Executive, 0, 1u, 0LL);
+  if ( v18 != 257 )
+    goto LABEL_15;
+  v9 = (volatile __int32 *)P;
+  if ( (unsigned int)PnpRemoveEventFromQueue(P) )
+  {
+    v18 = -1073741536;
+    goto LABEL_38;
+  }
+  if ( _InterlockedExchange(v9 + 17, 1) )
+  {
+    v18 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+LABEL_15:
+    v19 = a2;
+    if ( v18 >= 0 )
+      v18 = v25[0];
+    if ( v10 )
+      *(_DWORD *)a2 = *v10;
+    if ( v11 )
     {
-      v17 = (unsigned int)v16;
-      Pool2 = (char *)ExAllocatePool2(256LL, v16 + 20, 538996816LL);
-      v10 = Pool2;
-      if ( !Pool2 )
+      v20 = *v11;
+      if ( (_WORD)v20 )
       {
-        v14 = -1073741670;
-        goto LABEL_7;
-      }
-      memset(Pool2, 0, v17 + 20);
-      v11 = (unsigned __int16 *)(v10 + 4);
-      *((_WORD *)v10 + 2) = 0;
-      *(_QWORD *)(v10 + 12) = v10 + 20;
-      v19 = 0;
-      *((_WORD *)v10 + 3) = *a4;
-      v28 = 1;
-    }
-    else
-    {
-      v19 = 1;
-    }
-    if ( v7 && a6 )
-      v19 = 1;
-    v30 = (a5 & 0xB) != 0;
-    if ( (a5 & 2) != 0 )
-    {
-      v20 = 22;
-    }
-    else
-    {
-      if ( v7 )
-      {
-        v20 = 47;
-        v21 = 1;
-        goto LABEL_24;
-      }
-      v20 = 21;
-    }
-    v21 = 0;
-LABEL_24:
-    KeInitializeEvent(&Event, NotificationEvent, 0);
-    v14 = PnpSetTargetDeviceRemove(
-            Object,
-            0,
-            v30,
-            v21,
-            v19,
-            v20,
-            0,
-            (__int64)&Event,
-            v26,
-            v27,
-            &v29,
-            (__int64)v10,
-            (__int64)v11,
-            (__int64 *)&P);
-    if ( v14 >= 0 )
-    {
-      v14 = KeWaitForSingleObject(&Event, Executive, 0, 1u, 0LL);
-      if ( v14 == 257 )
-      {
-        v9 = (volatile __int32 *)P;
-        if ( (unsigned int)PnpRemoveEventFromQueue(P) )
+        if ( v20 >= *(_DWORD *)a4 )
         {
-          v13 = a2;
-          v14 = -1073741536;
-          goto LABEL_32;
+          LOWORD(v20) = *a4 - 2;
+          *v11 = v20;
         }
-        if ( !_InterlockedExchange(v9 + 17, 1) )
-        {
-          v14 = -1073741536;
-          v28 = 0;
-          *((_BYTE *)P + 72) = 1;
-          _InterlockedExchange(v9 + 17, 0);
-          goto LABEL_30;
-        }
-        v14 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+        memmove(a3, *((const void **)v11 + 1), (unsigned __int16)v20);
+        a3[(unsigned __int64)*v11 >> 1] = 0;
+        LOWORD(v20) = *v11;
       }
-      v13 = a2;
-      if ( v14 >= 0 )
-        v14 = v29;
-      if ( v10 )
-        *(_DWORD *)a2 = *(_DWORD *)v10;
-      if ( v11 )
+      *(_DWORD *)a4 = (unsigned __int16)v20;
+    }
+    if ( *(_DWORD *)a2 == 6 )
+    {
+      if ( a3 )
       {
-        v23 = *v11;
-        if ( (_WORD)v23 )
-        {
-          if ( v23 >= *(_DWORD *)a4 )
-          {
-            LOWORD(v23) = *a4 - 2;
-            *v11 = v23;
-          }
-          memmove(a3, *((const void **)v11 + 1), (unsigned __int16)v23);
-          a3[(unsigned __int64)*v11 >> 1] = 0;
-        }
-        *(_DWORD *)a4 = *v11;
-      }
-      if ( *(_DWORD *)a2 == 6 && *(_DWORD *)a4 >= 2u )
-      {
-        v24 = 0;
-        v25 = a3;
+        v22 = 0;
+        v23 = a3;
         if ( *a3 )
         {
-          while ( *v25 != 92 || ++v24 != 3 )
+          while ( *v23 != 92 || ++v22 != 3 )
           {
-            if ( !*++v25 )
-              goto LABEL_31;
+            if ( !*++v23 )
+              goto LABEL_59;
           }
-          *v25 = 0;
-          *(_DWORD *)a4 = (unsigned __int16)((_WORD)v25 - (_WORD)a3);
+          *v23 = 0;
+LABEL_59:
+          if ( v22 == 3 )
+            *(_DWORD *)a4 = (unsigned __int16)((_WORD)v23 - (_WORD)a3);
         }
       }
-      goto LABEL_31;
     }
-LABEL_30:
-    v13 = a2;
-LABEL_31:
-    v9 = (volatile __int32 *)P;
-    goto LABEL_32;
+    goto LABEL_23;
   }
-  v14 = -1073741810;
-LABEL_7:
-  v13 = a2;
-LABEL_32:
+  v18 = -1073741536;
+  v24 = 0;
+  *((_BYTE *)P + 72) = 1;
+  _InterlockedExchange(v9 + 17, 0);
+LABEL_48:
+  v19 = a2;
+LABEL_23:
+  v9 = (volatile __int32 *)P;
+LABEL_24:
   ObfDereferenceObjectWithTag(Object, 0x43706E50u);
   if ( v9 && _InterlockedExchangeAdd(v9 + 16, 0xFFFFFFFF) == 1 )
     ExFreePoolWithTag(P, 0x4B706E50u);
-LABEL_35:
+LABEL_27:
   if ( v7 )
-    PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceEject_Stop, a1, v14, (__int64)v11, *v13);
-  if ( v28 )
+    PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceEject_Stop, a1, v18, (__int64)v11, *v19);
+  if ( v24 )
     ExFreePoolWithTag(v10, 0);
-  return (unsigned int)v14;
+  return (unsigned int)v18;
 }

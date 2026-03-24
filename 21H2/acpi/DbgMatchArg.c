@@ -1,7 +1,7 @@
 /*
- * XREFs of DbgMatchArg @ 0x1C006B934
+ * XREFs of DbgMatchArg @ 0x1C006B6A4
  * Callers:
- *     DbgParseOneArg @ 0x1C006BAA0 (DbgParseOneArg.c)
+ *     DbgParseOneArg @ 0x1C006B810 (DbgParseOneArg.c)
  * Callees:
  *     <none>
  */

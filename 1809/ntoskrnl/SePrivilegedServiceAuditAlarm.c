@@ -6,12 +6,12 @@
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     SeSinglePrivilegeCheckEx @ 0x1406121AC (SeSinglePrivilegeCheckEx.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     PsOpenProcess @ 0x1406467E0 (PsOpenProcess.c)
- *     PspSetQuotaLimits @ 0x1406D1118 (PspSetQuotaLimits.c)
+ *     PsOpenProcess @ 0x1406467C0 (PsOpenProcess.c)
+ *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     SepAdtPrivilegedServiceAuditAlarm @ 0x1405BB82C (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepFilterPrivilegeAudits @ 0x1406AE560 (SepFilterPrivilegeAudits.c)
+ *     SepFilterPrivilegeAudits @ 0x1406AE540 (SepFilterPrivilegeAudits.c)
  */
 
 void __fastcall SePrivilegedServiceAuditAlarm(unsigned __int16 *a1, __int64 *a2, int *a3, char a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcSectionDestroyProcedure @ 0x1406B9520
+ * XREFs of AlpcSectionDestroyProcedure @ 0x1406B9500
  * Callers:
  *     <none>
  * Callees:

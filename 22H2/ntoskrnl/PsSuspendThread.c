@@ -1,57 +1,58 @@
 /*
- * XREFs of PsSuspendThread @ 0x1407DBC10
+ * XREFs of PsSuspendThread @ 0x14069EDC0
  * Callers:
- *     NtSuspendThread @ 0x1407DBB40 (NtSuspendThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937834 (DbgkpPostFakeThreadMessages.c)
- *     DbgkQueueUserExceptionReport @ 0x1409397BC (DbgkQueueUserExceptionReport.c)
- *     NtChangeThreadState @ 0x1409AFF70 (NtChangeThreadState.c)
- *     PsSuspendProcess @ 0x1409B6150 (PsSuspendProcess.c)
+ *     NtSuspendThread @ 0x14069ECF0 (NtSuspendThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884EE4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886860 (DbgkQueueUserExceptionReport.c)
+ *     PsSuspendProcess @ 0x14090C870 (PsSuspendProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KeSuspendThread @ 0x140309CE8 (KeSuspendThread.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408A7DA4 (EtwTiLogSuspendResumeThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSuspendThread @ 0x140343270 (KeSuspendThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     EtwTiLogSuspendResumeThread @ 0x14093BC64 (EtwTiLogSuspendResumeThread.c)
  */
 
 __int64 __fastcall PsSuspendThread(__int64 a1, _DWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   struct _EX_RUNDOWN_REF *v5; // r15
-  __int64 v6; // r9
-  unsigned int v7; // ebx
-  int v9; // [rsp+20h] [rbp-38h]
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  unsigned int v9; // ebx
+  int v11; // [rsp+20h] [rbp-38h]
 
-  v9 = 0;
+  v11 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (struct _EX_RUNDOWN_REF *)(a1 + 1352);
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1352)) )
+  v5 = (struct _EX_RUNDOWN_REF *)(a1 + 1272);
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1272)) )
   {
-    if ( (*(_DWORD *)(a1 + 1376) & 1) != 0 )
+    if ( (*(_DWORD *)(a1 + 1296) & 1) != 0 )
     {
-      v7 = -1073741749;
+      v9 = -1073741749;
     }
     else
     {
-      v9 = KeSuspendThread(a1);
-      v7 = 0;
+      v11 = KeSuspendThread(a1, v6, v7, v8);
+      v9 = 0;
     }
-    ExReleaseRundownProtection_0(v5);
+    ExReleaseRundownProtection(v5);
   }
   else
   {
-    v7 = -1073741749;
+    v9 = -1073741749;
   }
   if ( a2 )
   {
-    *a2 = v9;
-    if ( !v9 && (*(_DWORD *)(*(_QWORD *)(a1 + 544) + 2172LL) & 0x100000) != 0 )
+    *a2 = v11;
+    if ( !v11 && (*(_DWORD *)(*(_QWORD *)(a1 + 544) + 2172LL) & 0x100000) != 0 )
     {
-      LOBYTE(v6) = 1;
-      EtwTiLogSuspendResumeThread(v7, CurrentThread, a1, v6);
+      LOBYTE(v8) = 1;
+      EtwTiLogSuspendResumeThread(v9, CurrentThread, a1, v8);
     }
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v7;
+  return v9;
 }

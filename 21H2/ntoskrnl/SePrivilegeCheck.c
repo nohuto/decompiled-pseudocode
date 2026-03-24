@@ -1,19 +1,19 @@
 /*
- * XREFs of SePrivilegeCheck @ 0x14072B5E0
+ * XREFs of SePrivilegeCheck @ 0x140654F40
  * Callers:
- *     PiAuDoesClientHavePrivilege @ 0x14065FC74 (PiAuDoesClientHavePrivilege.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     SeCheckPrivilegedObject @ 0x1406E856C (SeCheckPrivilegedObject.c)
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     SeSinglePrivilegeCheckEx @ 0x140724418 (SeSinglePrivilegeCheckEx.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
- *     PspSinglePrivCheck @ 0x1407F3230 (PspSinglePrivCheck.c)
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     SeSinglePrivilegeCheckEx @ 0x140627698 (SeSinglePrivilegeCheckEx.c)
+ *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
+ *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
+ *     PspSinglePrivCheck @ 0x1406A63AC (PspSinglePrivCheck.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     IopCheckBackupRestorePrivilege @ 0x140702EF0 (IopCheckBackupRestorePrivilege.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F34C (PiAuDoesClientHavePrivilege.c)
+ *     SeCheckPrivilegedObject @ 0x14078DE60 (SeCheckPrivilegedObject.c)
+ *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1402A70F0 (SepPrivilegeCheck.c)
+ *     SepPrivilegeCheck @ 0x14027C450 (SepPrivilegeCheck.c)
  */
 
 BOOLEAN __stdcall SePrivilegeCheck(

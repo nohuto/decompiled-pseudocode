@@ -1,24 +1,50 @@
 /*
- * XREFs of ApiSetEditionInputExtensibilityCallout @ 0x1C020683C
+ * XREFs of ApiSetEditionInputExtensibilityCallout @ 0x1C01CBE40
  * Callers:
- *     ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01DC5D0 (-CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
+ *     ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01A2ED0 (-CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
+ *     ?CallUserModeWithLock@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01A2F80 (-CallUserModeWithLock@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*__fastcall ApiSetEditionInputExtensibilityCallout(__int64 a1, __int64 a2))(void)
+__int64 __fastcall ApiSetEditionInputExtensibilityCallout(__int64 a1, __int64 a2)
 {
-  __int64 (*result)(void); // rax
+  __int64 v2; // rbx
+  __int64 result; // rax
 
-  result = qword_1C02965E0;
-  if ( qword_1C02965E0 )
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    result = (__int64 (*)(void))qword_1C02965E0();
-    if ( (int)result >= 0 )
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      198,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  if ( qword_1C0257358 )
+    result = qword_1C0257358();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0257360;
+    if ( qword_1C0257360 )
+      result = qword_1C0257360(a1, v2);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      result = (__int64 (*)(void))qword_1C02965E8;
-      if ( qword_1C02965E8 )
-        return (__int64 (*)(void))qword_1C02965E8(a1, a2);
+      LOBYTE(a2) = 5;
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               a2,
+               10,
+               199,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
     }
   }
   return result;

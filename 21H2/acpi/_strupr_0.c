@@ -1,9 +1,9 @@
 /*
- * XREFs of _strupr_0 @ 0x1C002F1FB
+ * XREFs of _strupr_0 @ 0x1C0031D3B
  * Callers:
- *     FindNSObjMainNoLock @ 0x1C001F71C (FindNSObjMainNoLock.c)
- *     DebugExpr @ 0x1C0067114 (DebugExpr.c)
- *     DebugNotify @ 0x1C00673F0 (DebugNotify.c)
+ *     FindNSObjMainNoLock @ 0x1C0014080 (FindNSObjMainNoLock.c)
+ *     DebugExpr @ 0x1C0065E5C (DebugExpr.c)
+ *     DebugNotify @ 0x1C0066140 (DebugNotify.c)
  * Callees:
  *     <none>
  */

@@ -1,49 +1,49 @@
 /*
- * XREFs of ?GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z @ 0x1C0336544
+ * XREFs of ?GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z @ 0x1C0285440
  * Callers:
- *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EPEAX@Z @ 0x1C035F620 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EPEAX@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C0236580 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
  * Callees:
- *     ?GetRenderAdapterInfo@DXGPROCESS@@QEBAPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@I@Z @ 0x1C000A448 (-GetRenderAdapterInfo@DXGPROCESS@@QEBAPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@I@Z.c)
- *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C0168698 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
- *     ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C0183ED4 (-CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z.c)
+ *     ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C011FA24 (-CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z.c)
+ *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@@Z @ 0x1C012E9A0 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
  */
 
 struct DXGDEVICE *__fastcall DXGPROCESS::GetVirtualGpuDevice(DXGPROCESS *this, struct ADAPTER_RENDER *a2)
 {
-  struct DXGPROCESS_RENDER_ADAPTER_INFO *RenderAdapterInfo; // rax
+  unsigned int *v2; // r9
+  __int64 v5; // rcx
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rdi
+  __int64 v11; // rax
+  __int64 *v13; // rbx
   int Device; // eax
-  char *v7; // rbx
-  unsigned int v8; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v15; // [rsp+60h] [rbp+8h] BYREF
 
-  RenderAdapterInfo = DXGPROCESS::GetRenderAdapterInfo(this, *(_DWORD *)(*((_QWORD *)a2 + 2) + 240LL));
-  if ( !RenderAdapterInfo )
+  v2 = (unsigned int *)*((_QWORD *)a2 + 2);
+  v5 = *(_QWORD *)(*((_QWORD *)this + 6) + 8LL * v2[58]);
+  if ( !v5 )
   {
-    Device = DXGADAPTER::CreateHandle(*((DXGADAPTER **)a2 + 2), this, &v8);
-    if ( Device < 0 )
+    v6 = DXGADAPTER::CreateHandle((DXGADAPTER *)v2, this, &v15);
+    v10 = v6;
+    if ( v6 < 0 )
     {
 LABEL_3:
-      WdLogSingleEntry1(3LL, Device);
+      v11 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+      *(_QWORD *)(v11 + 24) = v10;
+      WdLogEvent5_WdWarning(v11);
       return 0LL;
     }
-    RenderAdapterInfo = DXGPROCESS::GetRenderAdapterInfo(this, *(_DWORD *)(*((_QWORD *)a2 + 2) + 240LL));
+    v5 = *(_QWORD *)(*((_QWORD *)this + 6) + 8LL * *(unsigned int *)(*((_QWORD *)a2 + 2) + 232LL));
   }
-  v7 = (char *)RenderAdapterInfo + 40;
-  if ( !*((_QWORD *)RenderAdapterInfo + 5) )
+  v13 = (__int64 *)(v5 + 40);
+  if ( !*(_QWORD *)(v5 + 40) )
   {
-    Device = ADAPTER_RENDER::CreateDevice(
-               *((_QWORD *)RenderAdapterInfo + 6),
-               (DXGDEVICE **)RenderAdapterInfo + 5,
-               0,
-               3,
-               0LL,
-               0,
-               0,
-               0,
-               0LL,
-               0LL,
-               1);
+    Device = ADAPTER_RENDER::CreateDevice(*(DXGADAPTER ***)(v5 + 48), v13, 0, 3, 0LL, 0, 0, 0, 0LL, 0LL);
+    v10 = Device;
     if ( Device < 0 )
       goto LABEL_3;
   }
-  return *(struct DXGDEVICE **)v7;
+  return (struct DXGDEVICE *)*v13;
 }

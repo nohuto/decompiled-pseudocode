@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceBeginDispatchMessage @ 0x1C00AD6D0
+ * XREFs of EtwTraceBeginDispatchMessage @ 0x1C0096930
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0cd_EtwWriteTransfer @ 0x1C014F320 (McTemplateK0cd_EtwWriteTransfer.c)
+ *     McTemplateK0cd_EtwWriteTransfer @ 0x1C0124630 (McTemplateK0cd_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceBeginDispatchMessage(__int64 a1, int a2, __int64 a3, __int64 a4)

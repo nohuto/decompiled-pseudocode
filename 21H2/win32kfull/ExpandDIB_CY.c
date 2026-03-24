@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpandDIB_CY @ 0x1C0265500
+ * XREFs of ExpandDIB_CY @ 0x1C0267F60
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
  */
 
 __int64 __fastcall ExpandDIB_CY(_OWORD *a1)
@@ -255,9 +255,9 @@ __int64 __fastcall ExpandDIB_CY(_OWORD *a1)
   while ( v40 )
   {
     v84 = v40 - 1;
+    v41 = *v39;
     v80 = *v39;
     v85 = v39 + 1;
-    v41 = *v39;
     if ( (v41 & 0x8000u) != 0 )
     {
       v42 = *(_OWORD *)&v81[24];
@@ -342,8 +342,8 @@ __int64 __fastcall ExpandDIB_CY(_OWORD *a1)
                 + *(_DWORD *)(v15 + 4LL * v57[v60 - 4] + 2048)) >> 13;
         *v51 = (*(_DWORD *)(v15 + 4LL * *(v57 - 5) + 1024)
               + *(_DWORD *)(v15 + 4LL * v57[(_QWORD)v59 - 5])
-              + *(_DWORD *)(v15 + 4LL * v57[v58 - 5] + 3072)
-              + *(_DWORD *)(v15 + 4LL * v57[v60 - 5] + 2048)) >> 13;
+              + *(_DWORD *)(v15 + 4LL * v57[v60 - 5] + 2048)
+              + *(_DWORD *)(v15 + 4LL * v57[v58 - 5] + 3072)) >> 13;
         v51 += v116;
       }
       while ( v51 != v115 );

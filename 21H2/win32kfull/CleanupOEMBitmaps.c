@@ -1,7 +1,7 @@
 /*
- * XREFs of CleanupOEMBitmaps @ 0x1C00C60B0
+ * XREFs of CleanupOEMBitmaps @ 0x1C00E2A50
  * Callers:
- *     CreateBitmapStrip @ 0x1C00C6030 (CreateBitmapStrip.c)
+ *     CreateBitmapStrip @ 0x1C00E29D0 (CreateBitmapStrip.c)
  * Callees:
  *     <none>
  */

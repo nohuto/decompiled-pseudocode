@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetOpacityFalloff@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETOPACITYFALLOFF@@@Z @ 0x18024BF14
+ * XREFs of ?ProcessSetOpacityFalloff@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETOPACITYFALLOFF@@@Z @ 0x1801E4B50
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x1800046D4 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CBF8 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessSetOpacityFalloff(

@@ -1,63 +1,69 @@
 /*
- * XREFs of MiReplaceLockedPage @ 0x140636D04
+ * XREFs of MiReplaceLockedPage @ 0x14053D6AC
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
  * Callees:
- *     MiTbFlushType @ 0x14025B98C (MiTbFlushType.c)
- *     MiGetPage @ 0x14026D240 (MiGetPage.c)
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetPfnChannel @ 0x1402870B0 (MiGetPfnChannel.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
- *     MiCheckSlabPfnBitmap @ 0x140324550 (MiCheckSlabPfnBitmap.c)
- *     MiCanPageMove @ 0x1403BD84C (MiCanPageMove.c)
+ *     MiGetPage @ 0x1402135D0 (MiGetPage.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiGetPfnChannel @ 0x140284844 (MiGetPfnChannel.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1402AA5C0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiTbFlushType @ 0x1402B7898 (MiTbFlushType.c)
+ *     MiTradeActivePage @ 0x14030DD40 (MiTradeActivePage.c)
+ *     MiCanPageMove @ 0x1403349A0 (MiCanPageMove.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
  */
 
-__int64 __fastcall MiReplaceLockedPage(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4, unsigned int a5)
+__int64 __fastcall MiReplaceLockedPage(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4, int a5)
 {
   int v9; // edi
   int PfnChannel; // eax
   __int64 Page; // rax
   __int64 v12; // rbx
-  __int64 v13; // rdi
-  unsigned int v14; // eax
-  unsigned __int8 v16; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rdi
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  unsigned int v17; // eax
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  _DWORD *v21; // r9
+  int v22; // [rsp+28h] [rbp-30h]
+  unsigned __int8 v23; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1 && *(_WORD *)(a2 + 32) == 1 && MiCanPageMove(a2) )
+  if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
+    return 0LL;
+  if ( *(_WORD *)(a2 + 32) != 1 )
+    return 0LL;
+  if ( !MiCanPageMove(a2) )
+    return 0LL;
+  v23 = 17;
+  v9 = *((_DWORD *)MiSearchNumaNodeTable((__int64)(a2 + 0x58000000000LL) / 48) + 2);
+  PfnChannel = MiGetPfnChannel(a2);
+  Page = MiGetPage(
+           *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a2 + 40) >> 39) & 0x3FFLL)),
+           (PfnChannel << byte_140C4DE8D) | (v9 << byte_140C4DE8C) | (unsigned int)((__int64)(a2 + 0x58000000000LL) / 48) & dword_140C4DEF8,
+           a4);
+  if ( Page == -1 )
+    return 0LL;
+  v12 = 48 * Page - 0x58000000000LL;
+  v14 = MiLockProtoPoolPage(*(_QWORD *)(a2 + 8) | 0x8000000000000000uLL, (__int64)&v23);
+  if ( !v14 )
   {
-    v16 = 17;
-    v9 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a2 + 0x220000000000LL) >> 4)) + 2);
-    PfnChannel = MiGetPfnChannel(a2);
-    Page = MiGetPage(
-             *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)),
-             (PfnChannel << byte_140C65B8E) | (v9 << byte_140C65B8D) | (-1431655765
-                                                                      * ((__int64)(a2 + 0x220000000000LL) >> 4)) & dword_140C65BF8,
-             a4);
-    if ( Page != -1 )
-    {
-      v12 = 48 * Page - 0x220000000000LL;
-      v13 = MiLockProtoPoolPage(*(_QWORD *)(a2 + 8) | 0x8000000000000000uLL, &v16);
-      if ( v13 )
-      {
-        if ( !(unsigned int)MiCheckSlabPfnBitmap(a2, 1LL, 0) )
-        {
-          v14 = MiTbFlushType(a1);
-          if ( (unsigned int)MiTradeActivePage(a2, v12, a3, v14, a5, 0) )
-          {
-            MiUnlockProtoPoolPage(v13, v16);
-            *(_QWORD *)(a2 + 16) = ZeroPte;
-            MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a2 + 16));
-            MiReleaseFreshPage(a2);
-            return 1LL;
-          }
-        }
-        MiUnlockProtoPoolPage(v13, v16);
-      }
-      MiReleaseFreshPage(v12);
-    }
+LABEL_8:
+    MiReleaseFreshPage(v12, v13, v15, v16);
+    return 0LL;
   }
-  return 0LL;
+  v17 = MiTbFlushType(a1);
+  if ( !(unsigned int)MiTradeActivePage(a2, v12, a3, v17, a5, v22) )
+  {
+    MiUnlockProtoPoolPage(v14, v23);
+    goto LABEL_8;
+  }
+  MiUnlockProtoPoolPage(v14, v23);
+  *(_QWORD *)(a2 + 16) = ZeroPte;
+  MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a2 + 16));
+  MiReleaseFreshPage(a2, v19, v20, v21);
+  return 1LL;
 }

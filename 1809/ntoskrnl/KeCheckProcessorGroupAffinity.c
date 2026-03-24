@@ -1,7 +1,7 @@
 /*
- * XREFs of KeCheckProcessorGroupAffinity @ 0x1400D56E0
+ * XREFs of KeCheckProcessorGroupAffinity @ 0x1400D5700
  * Callers:
- *     sub_1401A1720 @ 0x1401A1720 (sub_1401A1720.c)
+ *     sub_1401A1740 @ 0x1401A1740 (sub_1401A1740.c)
  * Callees:
  *     <none>
  */

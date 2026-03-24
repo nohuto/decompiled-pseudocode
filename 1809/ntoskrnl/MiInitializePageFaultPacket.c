@@ -5,10 +5,10 @@
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
  * Callees:
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiInitializePageFaultPacket(__int64 a1, __int64 a2, char a3, __int64 a4, char *a5)

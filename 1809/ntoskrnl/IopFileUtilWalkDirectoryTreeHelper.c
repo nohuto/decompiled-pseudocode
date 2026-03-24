@@ -1,19 +1,19 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x140706088
+ * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x140706068
  * Callers:
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140705EF0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62B4 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140705ED0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62C4 (IopFileUtilWalkDirectoryTreeTopDown.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwWaitForSingleObject @ 0x1401B81F0 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     ZwQueryDirectoryFile @ 0x1401B8810 (ZwQueryDirectoryFile.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     ZwQueryDirectoryFile @ 0x1401B8830 (ZwQueryDirectoryFile.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x1405AD7A0
+ * XREFs of MiFreeListPageContentsChanged @ 0x14054EE4C
  * Callers:
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402E8990 (MiGetPfnChannel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
  */
 
 void __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
@@ -14,49 +14,53 @@ void __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
   __int64 v2; // rdi
   int v3; // ebx
   __int64 v4; // rbx
-  __int64 v5; // r10
-  unsigned __int64 v6; // rdx
-  volatile signed __int32 *v7; // r8
-  int v8; // esi
-  unsigned __int64 v9; // rcx
+  __int64 v5; // rax
+  __int64 v6; // r10
+  unsigned __int64 v7; // rdx
+  volatile signed __int32 *v8; // r8
+  int v9; // esi
+  unsigned __int64 v10; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = 48 * a1 - 0x220000000000LL;
-  v3 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(48 * a1) >> 4)) + 2);
-  v4 = 88LL
-     * (((unsigned int)MiGetPfnChannel(v2) << byte_140C506CD) | dword_140C50738 & (unsigned int)a1 | (v3 << byte_140C506CC))
-     + *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v2 + 40) >> 43) & 0x3FFLL)) + 2440LL);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 32));
-  if ( dword_140C529CC == 1 )
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  v2 = 48 * a1 - 0x58000000000LL;
+  v3 = *((_DWORD *)MiSearchNumaNodeTable((__int64)(48 * a1) / 48) + 2);
+  v4 = ((unsigned int)MiGetPfnChannel(v2) << byte_140C4DE8D) | dword_140C4DEF8 & (unsigned int)a1 | (v3 << byte_140C4DE8C);
+  v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)) + 2184LL);
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 8 * (v4 + 4 * (v4 + 1)));
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
+  if ( dword_140C4E6CC == 1 )
   {
-    v5 = a1 & 0x1F;
-    LOBYTE(v6) = 1;
-    v7 = (volatile signed __int32 *)(qword_140C52A28 + 4 * (a1 >> 5));
-    if ( (unsigned __int64)(v5 + 1) > 0x20 )
+    v6 = a1 & 0x1F;
+    LOBYTE(v7) = 1;
+    v8 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (a1 >> 5));
+    if ( (unsigned __int64)(v6 + 1) > 0x20 )
     {
       if ( (a1 & 0x1F) == 0 )
         goto LABEL_9;
-      v8 = a1 & 0x1F;
-      _InterlockedOr(v7++, ((1 << (32 - v8)) - 1) << v5);
-      v6 = 1LL - (unsigned int)(32 - v8);
-      if ( v6 >= 0x20 )
+      v9 = a1 & 0x1F;
+      _InterlockedOr(v8++, ((1 << (32 - v9)) - 1) << v6);
+      v7 = 1LL - (unsigned int)(32 - v9);
+      if ( v7 >= 0x20 )
       {
-        v9 = v6 >> 5;
-        v6 += -32LL * (v6 >> 5);
+        v10 = v7 >> 5;
+        v7 += -32LL * (v7 >> 5);
         do
         {
-          *v7++ = -1;
-          --v9;
+          *v8++ = -1;
+          --v10;
         }
-        while ( v9 );
+        while ( v10 );
       }
-      if ( v6 )
+      if ( v7 )
 LABEL_9:
-        _InterlockedOr(v7, (1 << v6) - 1);
+        _InterlockedOr(v8, (1 << v7) - 1);
     }
     else
     {
-      _InterlockedOr(v7, 1 << v5);
+      _InterlockedOr(v8, 1 << v6);
     }
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 32));
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
 }

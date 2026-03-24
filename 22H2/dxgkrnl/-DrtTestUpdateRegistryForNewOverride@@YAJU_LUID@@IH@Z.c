@@ -1,45 +1,41 @@
 /*
- * XREFs of ?DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z @ 0x1C0302AA8
+ * XREFs of ?DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z @ 0x1C02A97F0
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007174 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C019D2BC (DxgkReleaseSessionModeChangeLock.c)
- *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C0302E08 (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000A3B8 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0120374 (DxgkReleaseSessionModeChangeLock.c)
+ *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A9CAC (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
  */
 
 __int64 __fastcall DrtTestUpdateRegistryForNewOverride(struct _LUID a1, unsigned int a2, unsigned int a3)
 {
   int v5; // eax
-  unsigned int v6; // r9d
-  __int64 v7; // rdi
-  struct _LUID v9; // [rsp+60h] [rbp+8h] BYREF
-  char v10; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  unsigned int v8; // r9d
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  struct _LUID v14; // [rsp+30h] [rbp+8h] BYREF
+  char v15; // [rsp+48h] [rbp+20h] BYREF
 
-  v9 = a1;
-  v10 = 0;
-  v5 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v10, 0);
-  v7 = v5;
+  v14 = a1;
+  v15 = 0;
+  v5 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v15, 0);
+  v9 = v5;
   if ( v5 >= 0 )
   {
-    LODWORD(v7) = DpiPersistence::WriteDpiToRegistry((DpiPersistence *)&v9, (const struct _LUID *)a2, a3, v6);
+    LODWORD(v9) = DpiPersistence::WriteDpiToRegistry((DpiPersistence *)&v14, (const struct _LUID *)a2, a3, v8);
   }
   else
   {
-    WdLogSingleEntry1(2LL, v5);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire session mode change lock shared (Status = 0x%I64x)",
-      v7,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v10 + 24) = v9;
+    WdLogEvent5_WdError(v10);
   }
-  if ( v10 )
-    DxgkReleaseSessionModeChangeLock();
-  return (unsigned int)v7;
+  if ( v15 )
+    DxgkReleaseSessionModeChangeLock(v12, v11);
+  return (unsigned int)v9;
 }

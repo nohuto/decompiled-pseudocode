@@ -1,21 +1,25 @@
 /*
- * XREFs of ?Pending@CFlipPresentUpdate@@UEAAXXZ @ 0x1C00818C0
+ * XREFs of ?Pending@CFlipPresentUpdate@@UEAAXXZ @ 0x1C006EAB0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ProcessPendingProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C007E630 (-ProcessPendingProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C490 (-ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C514 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
  */
 
 void __fastcall CFlipPresentUpdate::Pending(CFlipPresentUpdate *this)
 {
-  __int64 v1; // rdi
+  _QWORD *v1; // rbx
 
-  v1 = *((_QWORD *)this + 1);
-  if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v1 + 40)) >= 0 )
+  v1 = (_QWORD *)*((_QWORD *)this + 1);
+  if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v1 + 5)) >= 0 )
   {
-    CFlipManager::ProcessPendingProducerPresentUpdate((CFlipManager *)(v1 + 32), this);
-    CPushLock::ReleaseLock((CPushLock *)(v1 + 40));
+    CEndpointResourceStateManager::CommitPendingUpdates((CEndpointResourceStateManager *)(v1 + 11));
+    ++v1[26];
+    if ( !*((_BYTE *)this + 72) )
+      CEndpointResourceStateManager::ClearAllContentBindings((CEndpointResourceStateManager *)(v1 + 11));
+    CPushLock::ReleaseLock((CPushLock *)(v1 + 5));
   }
 }

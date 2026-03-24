@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18003D168
+ * XREFs of ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18002EE70
  * Callers:
- *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003DCAC (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?Initialize@CDisplayManager@@IEAAJXZ @ 0x1800F8888 (-Initialize@CDisplayManager@@IEAAJXZ.c)
+ *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003117C (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?ResetTokenThread@CComposition@@QEAAJXZ @ 0x18003DE1C (-ResetTokenThread@CComposition@@QEAAJXZ.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qqq_EventWriteTransfer @ 0x180111C8E (McTemplateU0qqq_EventWriteTransfer.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ResetTokenThread@CComposition@@QEAAJXZ @ 0x18002EE30 (-ResetTokenThread@CComposition@@QEAAJXZ.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180090244 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0qqq_EventWriteTransfer @ 0x180152AF8 (McTemplateU0qqq_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CDisplayManager::UpdateDXGIFactory(CDisplayManager *this)
@@ -19,18 +19,20 @@ __int64 __fastcall CDisplayManager::UpdateDXGIFactory(CDisplayManager *this)
   HRESULT v1; // eax
   unsigned int v2; // ebx
   CDisplayManager *v3; // rax
-  CComposition *v4; // rcx
+  CDisplayManager *v4; // rcx
+  CComposition *v5; // rcx
   int CurrentFrameId; // eax
-  int v7; // ecx
+  int v8; // ecx
+  int v9; // [rsp+20h] [rbp-18h]
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
   void *ppFactory; // [rsp+40h] [rbp+8h] BYREF
-  _RTL_CRITICAL_SECTION *v10; // [rsp+48h] [rbp+10h] BYREF
+  struct _RTL_CRITICAL_SECTION *v12; // [rsp+48h] [rbp+10h] BYREF
 
   ppFactory = this;
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
   {
     CurrentFrameId = GetCurrentFrameId();
-    McTemplateU0qqq_EventWriteTransfer(v7, (unsigned int)&EVTDESC_SCHEDULE_DERIVEDISPLAYSET, 0, CurrentFrameId, 0);
+    McTemplateU0qqq_EventWriteTransfer(v8, (unsigned int)&EVTDESC_SCHEDULE_DERIVEDISPLAYSET, 0, CurrentFrameId, 0);
   }
   ppFactory = 0LL;
   v1 = CreateDXGIFactory1(&GUID_7632e1f5_ee65_4dca_87fd_84cd75f8838d, &ppFactory);
@@ -39,30 +41,34 @@ __int64 __fastcall CDisplayManager::UpdateDXGIFactory(CDisplayManager *this)
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x152,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
-      (const char *)(unsigned int)v1);
+      (void *)0x218,
+      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
+      (const char *)(unsigned int)v1,
+      v9);
   }
   else
   {
-    v10 = &g_DisplayManager;
+    v12 = &g_DisplayManager;
     EnterCriticalSection(&g_DisplayManager);
-    if ( qword_1803D7618 && !byte_1803D762D && (unsigned __int64)(qword_1803D7620 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( qword_18034B5F8 && !byte_18034B60D && (char *)hObject - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
     {
-      (*(void (__fastcall **)(CDisplayManager *, _QWORD))(*(_QWORD *)qword_1803D7618 + 184LL))(
-        qword_1803D7618,
-        (unsigned int)dword_1803D7628);
-      dword_1803D7628 = 0;
+      (*(void (__fastcall **)(CDisplayManager *, _QWORD))(*(_QWORD *)qword_18034B5F8 + 184LL))(
+        qword_18034B5F8,
+        (unsigned int)dword_18034B608);
+      dword_18034B608 = 0;
     }
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      &qword_1803D7620,
+      &hObject,
       0LL);
     v3 = (CDisplayManager *)ppFactory;
+    v4 = qword_18034B5F8;
     ppFactory = 0LL;
-    qword_1803D7618 = v3;
-    byte_1803D762D = GetSystemMetrics(4096) != 0;
-    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v10);
-    CComposition::ResetTokenThread(v4);
+    qword_18034B5F8 = v3;
+    if ( v4 )
+      (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)v4 + 16LL))(v4);
+    byte_18034B60D = GetSystemMetrics(4096) != 0;
+    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v12);
+    CComposition::ResetTokenThread(v5);
     v2 = 0;
   }
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&ppFactory);

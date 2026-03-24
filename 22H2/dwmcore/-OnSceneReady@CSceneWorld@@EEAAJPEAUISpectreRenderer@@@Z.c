@@ -1,12 +1,12 @@
 /*
- * XREFs of ?OnSceneReady@CSceneWorld@@EEAAJPEAUISpectreRenderer@@@Z @ 0x180263E40
+ * XREFs of ?OnSceneReady@CSceneWorld@@EEAAJPEAUISpectreRenderer@@@Z @ 0x18020B590
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z @ 0x180250F80 (-HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z @ 0x1801EB7AC (-HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z.c)
  */
 
 __int64 __fastcall CSceneWorld::OnSceneReady(CSceneWorld *this, struct ISpectreRenderer *a2)
@@ -24,14 +24,14 @@ __int64 __fastcall CSceneWorld::OnSceneReady(CSceneWorld *this, struct ISpectreR
   v7 = v5;
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x44u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x46u, 0LL);
   }
   else
   {
-    v8 = CSceneNode::HydrateSpectreResources(*((CSceneNode **)this + 3), (CSceneWorld *)((char *)this - 72));
+    v8 = CSceneNode::HydrateSpectreResources(*((CSceneNode **)this + 3), (CSceneWorld *)((char *)this - 64));
     v7 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x45u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x47u, 0LL);
   }
   return v7;
 }

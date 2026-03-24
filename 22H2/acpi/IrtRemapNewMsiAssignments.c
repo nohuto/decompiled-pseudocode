@@ -1,11 +1,11 @@
 /*
- * XREFs of IrtRemapNewMsiAssignments @ 0x1C00A0548
+ * XREFs of IrtRemapNewMsiAssignments @ 0x1C0095CE0
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     PcisuppGetBusSlotNumber @ 0x1C0099958 (PcisuppGetBusSlotNumber.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     PcisuppGetBusSlotNumber @ 0x1C0095E18 (PcisuppGetBusSlotNumber.c)
  */
 
 __int64 __fastcall IrtRemapNewMsiAssignments(__int64 a1)
@@ -13,25 +13,26 @@ __int64 __fastcall IrtRemapNewMsiAssignments(__int64 a1)
   struct _RTL_RANGE_LIST *v1; // rcx
   _DWORD *UserData; // rbx
   int v3; // eax
-  __int64 v4; // rcx
-  __int64 v5; // rdx
+  __int64 v4; // r9
+  __int64 v5; // rcx
+  __int64 v6; // rdx
   __int64 result; // rax
-  _BYTE v7[4]; // [rsp+40h] [rbp+7h] BYREF
-  unsigned int v8; // [rsp+44h] [rbp+Bh] BYREF
-  unsigned int v9; // [rsp+48h] [rbp+Fh] BYREF
+  char v8; // [rsp+40h] [rbp+7h] BYREF
+  unsigned int v9; // [rsp+44h] [rbp+Bh] BYREF
+  unsigned int v10; // [rsp+48h] [rbp+Fh] BYREF
   PRTL_RANGE Range; // [rsp+50h] [rbp+17h] BYREF
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+58h] [rbp+1Fh] BYREF
-  __int64 v12; // [rsp+78h] [rbp+3Fh] BYREF
-  int v13; // [rsp+80h] [rbp+47h]
+  __int64 v13; // [rsp+78h] [rbp+3Fh] BYREF
+  int v14; // [rsp+80h] [rbp+47h]
 
   v1 = *(struct _RTL_RANGE_LIST **)(a1 + 48);
-  v8 = 0;
-  Range = 0LL;
   v9 = 0;
-  v12 = 0LL;
-  v13 = 0;
+  Range = 0LL;
+  v10 = 0;
+  v13 = 0LL;
+  v14 = 0;
   memset(&Iterator, 0, sizeof(Iterator));
-  v7[0] = 0;
+  v8 = 0;
   RtlGetFirstRange(v1, &Iterator, &Range);
   while ( Range )
   {
@@ -46,22 +47,35 @@ __int64 __fastcall IrtRemapNewMsiAssignments(__int64 a1)
           if ( (v3 & 4) != 0 && UserData[2] == 3 )
           {
             UserData[1] = v3 & 0xFFFFFFFB;
-            if ( (int)PcisuppGetBusSlotNumber((__int64)Range->Owner, (int *)&v8, (int *)&v9, (__int64)v7, (__int64)&v12) >= 0 )
+            if ( (int)PcisuppGetBusSlotNumber(
+                        Range->Owner,
+                        (unsigned int)&v9,
+                        (unsigned int)&v10,
+                        (unsigned int)&v8,
+                        (__int64)&v13) < 0 )
             {
-              v4 = v8;
-              v5 = v9;
+              v5 = 0LL;
+              v6 = 0LL;
+              LOBYTE(v4) = 0;
+              v9 = 0;
+              v10 = 0;
+              v13 = 0LL;
+              v14 = 0;
+              v8 = 0;
             }
             else
             {
-              v4 = 0LL;
-              v5 = 0LL;
-              v8 = 0;
-              v9 = 0;
-              v12 = 0LL;
-              v13 = 0;
-              v7[0] = 0;
+              v5 = v9;
+              LOBYTE(v4) = v8;
+              v6 = v10;
             }
-            result = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))HalPrivateDispatchTable[64])(v4, v5, &v12);
+            result = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, __int64, _DWORD *, _DWORD))HalPrivateDispatchTable[64])(
+                       v5,
+                       v6,
+                       &v13,
+                       v4,
+                       UserData + 8,
+                       *((unsigned __int8 *)UserData + 26));
             if ( (int)result < 0 )
               return result;
           }

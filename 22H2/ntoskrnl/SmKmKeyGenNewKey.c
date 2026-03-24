@@ -1,28 +1,28 @@
 /*
- * XREFs of SmKmKeyGenNewKey @ 0x1409D9224
+ * XREFs of SmKmKeyGenNewKey @ 0x14092BAC4
  * Callers:
- *     SmKmKeyGenGenerate @ 0x1409D8EBC (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenGenerate @ 0x14092B750 (SmKmKeyGenGenerate.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmCrGenRandom @ 0x1405CDD1C (SmCrGenRandom.c)
- *     SmKmKeyGenKeyFind @ 0x1409D9064 (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenLoadKey @ 0x1409D90A8 (SmKmKeyGenLoadKey.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SmCrGenRandom @ 0x1405A0090 (SmCrGenRandom.c)
+ *     SmKmKeyGenKeyFind @ 0x14092B8F4 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenLoadKey @ 0x14092B938 (SmKmKeyGenLoadKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, ULONG cbBuffer)
 {
   __int64 v3; // r14
   __int64 v4; // rsi
-  void *NonPaged; // rax
+  PVOID NonPaged; // rax
   __int64 v8; // rdi
   NTSTATUS v9; // esi
   void *v10; // rcx
@@ -32,9 +32,10 @@ __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, UL
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v15; // rax
   __int64 v16; // rcx
-  HANDLE v17; // r9
-  _WORD *v18; // rcx
+  HANDLE v17; // r10
+  _WORD *v18; // rax
   __int64 v19; // r8
+  __int64 v20; // rdx
   UNICODE_STRING ValueName; // [rsp+20h] [rbp-38h] BYREF
   HANDLE KeyHandle; // [rsp+78h] [rbp+20h] BYREF
 
@@ -45,7 +46,7 @@ __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, UL
   do
     ++v4;
   while ( Src[v4] );
-  NonPaged = (void *)SSHSupportAllocateNonPaged(cbBuffer + 42 + 2 * (_DWORD)v4, 0x474B6D73u);
+  NonPaged = SSHSupportAllocateNonPaged(cbBuffer + 42 + 2 * (_DWORD)v4, 0x474B6D73u);
   v8 = (__int64)NonPaged;
   if ( !NonPaged )
     return (unsigned int)-1073741670;
@@ -82,17 +83,22 @@ LABEL_9:
         {
           v18 = *(_WORD **)(v8 + 16);
           v19 = 0x7FFFLL;
-          while ( *v18 )
+          do
           {
+            if ( !*v18 )
+              break;
             ++v18;
-            if ( !--v19 )
-              goto LABEL_19;
+            --v19;
           }
-          ValueName.Buffer = *(wchar_t **)(v8 + 16);
-          ValueName.Length = 2 * (0x7FFF - v19);
-          ValueName.MaximumLength = ValueName.Length + 2;
+          while ( v19 );
+          v20 = (0x7FFF - v19) & ((unsigned __int128)-(__int128)(unsigned __int64)v19 >> 64);
+          if ( v19 )
+          {
+            ValueName.Buffer = *(wchar_t **)(v8 + 16);
+            ValueName.Length = 2 * v20;
+            ValueName.MaximumLength = 2 * v20 + 2;
+          }
         }
-LABEL_19:
         ZwDeleteValueKey(v17, &ValueName);
       }
       v8 = 0LL;

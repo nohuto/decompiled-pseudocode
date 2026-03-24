@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022D9D0
+ * XREFs of ?SetIntegerProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EE0B0
  * Callers:
  *     <none>
  * Callees:
@@ -21,7 +21,7 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::SetInt
     if ( a3 == 2 )
     {
       *((_DWORD *)this + 4) |= 0x20u;
-      *((_DWORD *)this + 18) = a4;
+      *((_DWORD *)this + 16) = a4;
       *a5 = 1;
     }
     else
@@ -32,7 +32,7 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::SetInt
   else
   {
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_DWORD *)this + 16) = a4;
+    *((_DWORD *)this + 14) = a4;
     *a5 = 1;
   }
   return v5;

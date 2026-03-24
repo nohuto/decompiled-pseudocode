@@ -1,33 +1,33 @@
 /*
- * XREFs of PspSetJobIoRateControl @ 0x1407D861C
+ * XREFs of PspSetJobIoRateControl @ 0x1405D7F68
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PspIoRateControlInfoIsAnySet @ 0x140361FF4 (PspIoRateControlInfoIsAnySet.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PspJobIoRateControlDisable @ 0x140687E3C (PspJobIoRateControlDisable.c)
- *     PspLockRootJobExclusive @ 0x14069F000 (PspLockRootJobExclusive.c)
- *     PspUnlockJobConditionally @ 0x1406A30A0 (PspUnlockJobConditionally.c)
- *     PspLockJobConditionally @ 0x1406A30D0 (PspLockJobConditionally.c)
- *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspSetJobIoAttribution @ 0x1407D8864 (PspSetJobIoAttribution.c)
- *     PspIoRateEntryActivate @ 0x1407D8BEC (PspIoRateEntryActivate.c)
- *     PspIoRateEntryDeactivate @ 0x1407D8CF8 (PspIoRateEntryDeactivate.c)
- *     PspSetJobIoRateControlForVolume @ 0x1409B2B64 (PspSetJobIoRateControlForVolume.c)
+ *     PspIoRateControlInfoIsAnySet @ 0x140200668 (PspIoRateControlInfoIsAnySet.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PspIoRateEntryActivate @ 0x1405D81B0 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x1405D82B8 (PspIoRateEntryDeactivate.c)
+ *     PspLockJobConditionally @ 0x1406167C8 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x140618B90 (PspUnlockJob.c)
+ *     PspUnlockJobConditionally @ 0x1406193EC (PspUnlockJobConditionally.c)
+ *     PspJobIoRateControlDisable @ 0x14065CA70 (PspJobIoRateControlDisable.c)
+ *     PspLockRootJobExclusive @ 0x14065CFF0 (PspLockRootJobExclusive.c)
+ *     PspSetJobIoAttribution @ 0x14065D8D0 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909474 (PspSetJobIoRateControlForVolume.c)
  */
 
 __int64 __fastcall PspSetJobIoRateControl(volatile signed __int64 *Object, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // r15
-  volatile signed __int64 *v3; // r13
-  int v4; // edi
-  __int64 v7; // r12
+  int v3; // edi
+  __int64 v4; // r12
+  volatile signed __int64 *v7; // r13
   int v8; // r14d
   char v9; // al
   int v10; // eax
@@ -78,45 +78,45 @@ __int64 __fastcall PspSetJobIoRateControl(volatile signed __int64 *Object, __int
   __int64 v56; // [rsp+168h] [rbp+68h]
 
   CurrentThread = KeGetCurrentThread();
-  v3 = Object + 216;
-  v4 = 0;
+  v3 = 0;
+  v4 = -1LL;
   v18 = 0LL;
-  v7 = -1LL;
   v19 = 0LL;
-  --CurrentThread->KernelApcDisable;
   v16 = 0;
+  --CurrentThread->KernelApcDisable;
   v17 = 0;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object + 216), 0LL);
+  v7 = Object + 189;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object + 189), 0LL);
   v8 = 1;
   if ( (*(_DWORD *)(a2 + 36) & 1) != 0 )
   {
-    PspLockRootJobExclusive((__int64)Object, (__int64)CurrentThread, &v18);
-    PspLockJobConditionally((__int64)Object, &v18);
-    v4 = PspSetJobIoAttribution((PVOID)Object);
-    if ( v4 < 0 )
+    PspLockRootJobExclusive(Object, CurrentThread, &v18);
+    PspLockJobConditionally(Object, &v18);
+    v3 = PspSetJobIoAttribution((PVOID)Object);
+    if ( v3 < 0 )
     {
 LABEL_12:
-      PspUnlockJobConditionally((__int64)Object, &v18);
-      PspUnlockJob(v18, (__int64)CurrentThread);
+      PspUnlockJobConditionally(Object, &v18);
+      PspUnlockJob(v18, CurrentThread);
       goto LABEL_13;
     }
-    PspUnlockJobConditionally((__int64)Object, &v18);
-    PspUnlockJob(v18, (__int64)CurrentThread);
-    v4 = 0;
+    PspUnlockJobConditionally(Object, &v18);
+    PspUnlockJob(v18, CurrentThread);
+    v3 = 0;
     if ( *(_QWORD *)(a2 + 24) )
     {
-      v4 = PspSetJobIoRateControlForVolume((_DWORD)Object, a2, (unsigned int)&v16, (unsigned int)&v17, (__int64)&v19);
-      if ( v4 < 0 )
+      v3 = PspSetJobIoRateControlForVolume((_DWORD)Object, a2, (unsigned int)&v16, (unsigned int)&v17, (__int64)&v19);
+      if ( v3 < 0 )
         goto LABEL_11;
     }
     else
     {
       if ( !PspIoRateControlInfoIsAnySet((_QWORD *)a2) )
       {
-        if ( !*((_QWORD *)Object + 207) )
+        if ( !*((_QWORD *)Object + 180) )
           goto LABEL_10;
-        v19 = *((_QWORD *)Object + 207);
-        PspIoRateEntryDeactivate(Object + 202);
+        v19 = *((_QWORD *)Object + 180);
+        PspIoRateEntryDeactivate(Object + 175);
 LABEL_20:
         v8 = 2;
 LABEL_8:
@@ -124,43 +124,43 @@ LABEL_8:
           --v8;
         goto LABEL_10;
       }
-      v4 = PspIoRateEntryActivate(Object + 202, Object, a2, &v16);
-      if ( v4 < 0 )
+      v3 = PspIoRateEntryActivate(Object + 175, Object, a2, &v16);
+      if ( v3 < 0 )
       {
 LABEL_11:
-        PspLockRootJobExclusive((__int64)Object, (__int64)CurrentThread, &v18);
-        PspLockJobConditionally((__int64)Object, &v18);
+        PspLockRootJobExclusive(Object, CurrentThread, &v18);
+        PspLockJobConditionally(Object, &v18);
         PspSetJobIoAttribution((PVOID)Object);
         goto LABEL_12;
       }
-      v19 = *((_QWORD *)Object + 207);
+      v19 = *((_QWORD *)Object + 180);
       v17 = 1;
     }
-    v4 = 0;
+    v3 = 0;
     if ( !v16 )
       goto LABEL_8;
     goto LABEL_20;
   }
   v14 = v19;
-  if ( *((_QWORD *)Object + 207) )
-    v14 = *((_QWORD *)Object + 207);
+  if ( *((_QWORD *)Object + 180) )
+    v14 = *((_QWORD *)Object + 180);
   v19 = v14;
-  v8 = PspJobIoRateControlDisable((__int64)Object);
+  v8 = PspJobIoRateControlDisable(Object);
 LABEL_10:
   if ( v8 )
     goto LABEL_11;
 LABEL_13:
-  v9 = _InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL);
+  v9 = _InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v9 & 2) != 0 && (v9 & 4) == 0 )
-    ExfTryToWakePushLock(v3);
-  KeAbPostRelease((ULONG_PTR)v3);
+    ExfTryToWakePushLock(v7);
+  KeAbPostRelease((ULONG_PTR)v7);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   v22 = v19;
-  v10 = *((_DWORD *)Object + 363);
+  v10 = *((_DWORD *)Object + 309);
   v11 = (const EVENT_DESCRIPTOR *)PsIoRateControlStart;
   v20 = v10;
   v12 = (*(_DWORD *)(a2 + 36) & 1) == 0;
-  v21 = v4;
+  v21 = v3;
   if ( v12 )
     v11 = &PsIoRateControlStop;
   if ( EtwEventEnabled(EtwpPsProvRegHandle, v11) )
@@ -169,11 +169,11 @@ LABEL_13:
     if ( *(_QWORD *)(a2 + 24) )
       v15 = *(const WCHAR **)(a2 + 24);
     do
-      ++v7;
-    while ( v15[v7] );
+      ++v4;
+    while ( v15[v4] );
     v52 = v15;
     UserData.Ptr = (ULONGLONG)&v20;
-    v53 = 2 * v7 + 2;
+    v53 = 2 * v4 + 2;
     v24 = &v22;
     v54 = 0;
     v28 = a2 + 8;
@@ -208,5 +208,5 @@ LABEL_13:
     v56 = 4LL;
     EtwWrite(EtwpPsProvRegHandle, v11, 0LL, 0x11u, &UserData);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

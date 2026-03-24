@@ -1,35 +1,31 @@
 /*
- * XREFs of ?bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A2F8C
+ * XREFs of ?bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029A958
  * Callers:
- *     ??0BMPDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z @ 0x1C02A11C4 (--0BMPDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A1234 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A3300 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C027B044 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0298C48 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029AC8C (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall bBmpUndoMakeOpaque(HDEV *a1)
+__int64 __fastcall bBmpUndoMakeOpaque(struct SURFACE *a1)
 {
-  unsigned int v2; // edi
+  unsigned int v1; // edx
+  unsigned int v2; // eax
   __int64 v3; // rax
-  HDEV v4; // rdx
-  unsigned int v5; // eax
-  int v6; // eax
 
-  v2 = 0;
-  v3 = SGDGetSessionState(a1);
-  if ( *((_WORD *)a1 + 50) == 3 && a1[6] == *(HDEV *)(*(_QWORD *)(v3 + 32) + 8608LL) )
+  v1 = 0;
+  if ( *((_WORD *)a1 + 50) == 3 && *((void **)a1 + 6) == gpBmpDev )
   {
-    v4 = a1[68];
     *((_WORD *)a1 + 50) = *((_WORD *)a1 + 276);
-    v5 = (_DWORD)a1[14] & 0xFFFC7A10;
+    v2 = *((_DWORD *)a1 + 28) & 0xFFFC7A10;
     *((_DWORD *)a1 + 138) = -1;
-    v6 = *((_DWORD *)a1 + 139) | v5;
+    *((_DWORD *)a1 + 28) = *((_DWORD *)a1 + 139) | v2;
+    v3 = *((_QWORD *)a1 + 68);
+    *((_QWORD *)a1 + 68) = -1LL;
     *((_DWORD *)a1 + 139) = -1;
-    *((_DWORD *)a1 + 28) = v6;
-    SURFACE::hdev((SURFACE *)a1, v4);
-    a1[68] = (HDEV)-1LL;
-    return 1;
+    v1 = 1;
+    *((_QWORD *)a1 + 6) = v3;
   }
-  return v2;
+  return v1;
 }

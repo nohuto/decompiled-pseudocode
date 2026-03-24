@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x180135F62
+ * XREFs of ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x180265D88
  * Callers:
- *     ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x180123080 (-GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F89D0 (-GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,15 +12,15 @@ _DWORD *__fastcall CDxHandleYUVBitmapRealization::GetPixelFormatInfo(__int64 a1,
   int v3; // r8d
   _DWORD *result; // rax
 
-  v2 = *(_QWORD *)(a1 - 56);
+  v2 = *(_QWORD *)(a1 - 64);
   v3 = 3;
   if ( v2 )
-    *a2 = *(_DWORD *)(v2 + 120);
+    *a2 = *(_DWORD *)(v2 + 136);
   else
     *a2 = 0;
-  if ( *(_DWORD *)(a1 - 336) )
-    v3 = *(_DWORD *)(a1 - 336);
-  a2[2] = *(_DWORD *)(a1 - 288);
+  if ( *(_DWORD *)(a1 - 312) )
+    v3 = *(_DWORD *)(a1 - 312);
+  a2[2] = *(_DWORD *)(a1 - 268);
   result = a2;
   a2[1] = v3;
   return result;

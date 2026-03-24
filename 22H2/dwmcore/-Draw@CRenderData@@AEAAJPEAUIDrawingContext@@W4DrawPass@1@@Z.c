@@ -1,581 +1,645 @@
 /*
- * XREFs of ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x180094990
+ * XREFs of ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x1800692C0
  * Callers:
- *     ?Draw@CRenderData@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180094954 (-Draw@CRenderData@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?AddOcclusionInformation@CRenderData@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x180094978 (-AddOcclusionInformation@CRenderData@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?GetBounds@CRenderData@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800DF258 (-GetBounds@CRenderData@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ?Draw@CRenderData@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180069278 (-Draw@CRenderData@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?AddOcclusionInformation@CRenderData@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x18006929C (-AddOcclusionInformation@CRenderData@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?GetBounds@CRenderData@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006B838 (-GetBounds@CRenderData@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
  * Callees:
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A5BC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
- *     ?DrawCommandAsLegacy@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@IV?$span@$$CBE$0?0@gsl@@@Z @ 0x180095130 (-DrawCommandAsLegacy@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@IV-$span@$$CBE$0-0@gsl@.c)
- *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@IV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180095390 (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
- *     ?GetDrawListCacheForCommandRun@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x180095A00 (-GetDrawListCacheForCommandRun@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDr.c)
- *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180095AB0 (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
- *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x1800BB9E0 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E8F9C (-InternalRelease@-$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _alloca_probe @ 0x18011B800 (_alloca_probe.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?clear_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801B1EF4 (-clear_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FB33C (-clear_region@-$vector_facade@GV-$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail.c)
+ *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037E98 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ @ 0x18004F6BC (-InternalRelease@-$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_GMeshGraph@Mesh@@QEAAPEAXI@Z @ 0x1800688F0 (--_GMeshGraph@Mesh@@QEAAPEAXI@Z.c)
+ *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180068FEC (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
+ *     ?DrawCommandAsLegacy@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@IV?$span@$$CBE$0?0@gsl@@@Z @ 0x180069B18 (-DrawCommandAsLegacy@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@IV-$span@$$CBE$0-0@gsl@.c)
+ *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@_NIV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180069D3C (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
+ *     ?GetDrawListCacheForCommandRun@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x18006A344 (-GetDrawListCacheForCommandRun@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDr.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019CFB8 (-clear_region@-$vector_facade@GV-$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail.c)
+ *     ?clear_region@?$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D124 (-clear_region@-$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V-$buffer_impl@UAlign16Chunk@.c)
  */
 
-__int64 __fastcall CRenderData::Draw(unsigned int *a1, unsigned int *a2, unsigned __int64 a3)
+__int64 __fastcall CRenderData::Draw(__int64 *a1, __int64 a2, int a3)
 {
-  CRenderData *v3; // r12
-  unsigned int *v4; // rbx
-  unsigned int **v5; // rax
-  struct CTreeData *p_Blink; // rdi
-  __int64 v7; // r9
-  unsigned int *v8; // r13
-  struct CDrawingContext *v9; // r15
-  struct CDrawListCache *v10; // r10
-  unsigned int v11; // r11d
-  unsigned int **v12; // r14
-  unsigned __int64 v13; // rax
+  __int64 v3; // r9
+  __int64 *v4; // rdi
+  __int64 **v5; // rax
+  __int64 v6; // rcx
+  struct CDrawListCache *v7; // rbx
+  int v9; // r12d
+  __int64 v10; // r14
+  __m128i v11; // xmm6
+  __m128i v12; // rax
+  unsigned int *v13; // r15
   int v14; // esi
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rcx
-  int i; // ebx
-  _QWORD *v18; // rbx
-  _QWORD *v19; // rdi
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  _BYTE *v22; // rbx
-  _BYTE *v23; // rbx
-  _BYTE *v24; // rbx
-  __int64 v25; // r8
-  __int64 v26; // rax
-  void *v27; // rbx
-  bool v28; // zf
-  __int64 v29; // rcx
-  __int64 v31; // rax
-  struct _LIST_ENTRY *v32; // r14
-  CVisual *v33; // rsi
-  struct _LIST_ENTRY *Flink; // rcx
-  unsigned __int128 v35; // xmm6
-  int v36; // eax
+  _QWORD *v15; // rbx
+  _QWORD *v16; // rdi
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  _BYTE *v19; // rbx
+  _BYTE *v20; // rbx
+  _BYTE *v21; // rbx
+  Mesh::MeshGraph *v22; // rcx
+  __int64 v23; // rcx
+  void *v24; // rbx
+  bool v25; // zf
+  __int64 v26; // rcx
+  CVisual *v28; // rsi
+  __int64 v29; // r15
+  struct CTreeData *v30; // rdx
+  int v31; // eax
+  __int64 v32; // rcx
+  int v33; // r8d
+  int v34; // eax
+  unsigned __int64 v35; // rdx
+  __int64 v36; // r8
   unsigned __int64 v37; // rax
-  int NextItemSafe; // eax
-  int DrawListCacheForCommandRun; // eax
-  unsigned int v40; // ecx
-  int v41; // eax
-  struct CDrawListCache *v42; // rbx
-  int v43; // eax
-  unsigned int v44; // ecx
-  int v45; // eax
+  unsigned int v38; // eax
+  bool v39; // sf
+  int v40; // eax
+  __int64 v41; // rcx
+  unsigned int *v42; // rax
+  __int64 **v43; // r8
+  unsigned __int64 v44; // rcx
+  __int64 v45; // r8
   int v46; // eax
-  struct _LIST_ENTRY *TreeDataListHead; // rax
+  int DrawListCacheForCommandRun; // eax
   int v48; // eax
-  unsigned int v49; // ecx
-  HANDLE v50; // rax
-  unsigned int **v51; // rcx
-  unsigned int v52; // eax
-  int v53; // eax
-  unsigned int v54; // ecx
+  int v49; // eax
+  int v50; // eax
+  __int64 v51; // rcx
+  unsigned int **TreeDataListHead; // rax
+  HANDLE v53; // rax
+  unsigned int *v54; // rcx
+  unsigned __int32 v55; // eax
+  int NextItemSafe; // eax
+  int v57; // eax
+  __int64 v58; // rcx
   HANDLE ProcessHeap; // rax
-  HANDLE v56; // rax
-  HANDLE v57; // rax
-  char v58; // [rsp+40h] [rbp-C0h]
-  char v59[3]; // [rsp+41h] [rbp-BFh] BYREF
-  int v60; // [rsp+44h] [rbp-BCh]
-  unsigned int v61; // [rsp+48h] [rbp-B8h] BYREF
-  int v62; // [rsp+4Ch] [rbp-B4h]
-  struct CDrawListCache *v63; // [rsp+50h] [rbp-B0h]
-  unsigned int v64; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v65; // [rsp+5Ch] [rbp-A4h]
-  struct CDrawListCache *v66; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int *v67; // [rsp+68h] [rbp-98h]
-  CRenderData *v68; // [rsp+70h] [rbp-90h]
-  CRenderData *v69; // [rsp+78h] [rbp-88h]
-  void *v70[2]; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int128 v71; // [rsp+90h] [rbp-70h]
-  unsigned int *v72; // [rsp+A0h] [rbp-60h]
-  unsigned int *v73; // [rsp+A8h] [rbp-58h]
-  unsigned int *v74; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned int *v75; // [rsp+B8h] [rbp-48h]
-  unsigned int v76; // [rsp+C0h] [rbp-40h]
-  _OWORD v77[5]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v78; // [rsp+120h] [rbp+20h]
-  _BYTE *v79; // [rsp+128h] [rbp+28h]
-  _BYTE *v80; // [rsp+130h] [rbp+30h]
-  __int64 *v81; // [rsp+138h] [rbp+38h]
-  _BYTE v82[32]; // [rsp+140h] [rbp+40h] BYREF
-  __int64 v83; // [rsp+160h] [rbp+60h] BYREF
-  LPVOID v84; // [rsp+170h] [rbp+70h] BYREF
-  _BYTE *v85; // [rsp+178h] [rbp+78h]
-  LPVOID *v86; // [rsp+180h] [rbp+80h]
-  _BYTE v87[1920]; // [rsp+190h] [rbp+90h] BYREF
-  LPVOID v88; // [rsp+910h] [rbp+810h] BYREF
-  _BYTE *v89; // [rsp+918h] [rbp+818h]
-  int *v90; // [rsp+920h] [rbp+820h]
-  _BYTE v91[1920]; // [rsp+930h] [rbp+830h] BYREF
-  int v92; // [rsp+10B0h] [rbp+FB0h] BYREF
-  LPVOID lpMem; // [rsp+10B8h] [rbp+FB8h] BYREF
-  _BYTE *v94; // [rsp+10C0h] [rbp+FC0h]
-  char *v95; // [rsp+10C8h] [rbp+FC8h]
-  _BYTE v96[348]; // [rsp+10D0h] [rbp+FD0h] BYREF
-  char v97; // [rsp+122Ch] [rbp+112Ch] BYREF
-  int v98; // [rsp+1230h] [rbp+1130h]
-  __int64 v99; // [rsp+1240h] [rbp+1140h]
-  int v100; // [rsp+1248h] [rbp+1148h]
-  __int16 v101; // [rsp+124Ch] [rbp+114Ch]
+  HANDLE v60; // rax
+  HANDLE v61; // rax
+  unsigned __int8 v62; // [rsp+40h] [rbp-C0h]
+  char v63[3]; // [rsp+41h] [rbp-BFh] BYREF
+  unsigned int v64; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v65; // [rsp+48h] [rbp-B8h]
+  struct CDrawListCache *v66; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v67; // [rsp+58h] [rbp-A8h] BYREF
+  struct CTreeData *v68; // [rsp+60h] [rbp-A0h]
+  __int64 v69; // [rsp+68h] [rbp-98h]
+  void *v70; // [rsp+70h] [rbp-90h] BYREF
+  CRenderData *v71; // [rsp+78h] [rbp-88h]
+  unsigned int *v72; // [rsp+80h] [rbp-80h]
+  __m128i v73; // [rsp+90h] [rbp-70h] BYREF
+  __int64 *v74; // [rsp+A0h] [rbp-60h]
+  unsigned int *v75; // [rsp+A8h] [rbp-58h]
+  __int64 v76; // [rsp+B0h] [rbp-50h] BYREF
+  unsigned int *v77; // [rsp+B8h] [rbp-48h]
+  unsigned __int32 v78; // [rsp+C0h] [rbp-40h]
+  __m128i v79; // [rsp+D0h] [rbp-30h] BYREF
+  _OWORD v80[2]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v81; // [rsp+100h] [rbp+0h]
+  _BYTE *v82; // [rsp+108h] [rbp+8h]
+  _BYTE *v83; // [rsp+110h] [rbp+10h]
+  int *v84; // [rsp+118h] [rbp+18h]
+  _BYTE v85[32]; // [rsp+120h] [rbp+20h] BYREF
+  int v86; // [rsp+140h] [rbp+40h] BYREF
+  void *v87; // [rsp+148h] [rbp+48h]
+  __int64 v88; // [rsp+150h] [rbp+50h]
+  Mesh::MeshGraph *v89; // [rsp+158h] [rbp+58h]
+  __int64 v90; // [rsp+160h] [rbp+60h]
+  Mesh::MeshGraph *v91; // [rsp+168h] [rbp+68h]
+  __int64 v92; // [rsp+178h] [rbp+78h]
+  int v93; // [rsp+180h] [rbp+80h]
+  char v94; // [rsp+194h] [rbp+94h]
+  __int64 v95; // [rsp+198h] [rbp+98h]
+  LPVOID v96; // [rsp+1A0h] [rbp+A0h] BYREF
+  _BYTE *v97; // [rsp+1A8h] [rbp+A8h]
+  LPVOID *v98; // [rsp+1B0h] [rbp+B0h]
+  _BYTE v99[960]; // [rsp+1C0h] [rbp+C0h] BYREF
+  LPVOID v100; // [rsp+580h] [rbp+480h] BYREF
+  _BYTE *v101; // [rsp+588h] [rbp+488h]
+  int *v102; // [rsp+590h] [rbp+490h]
+  _BYTE v103[960]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  int v104; // [rsp+960h] [rbp+860h] BYREF
+  LPVOID lpMem; // [rsp+968h] [rbp+868h] BYREF
+  _BYTE *v106; // [rsp+970h] [rbp+870h]
+  unsigned int *v107; // [rsp+978h] [rbp+878h]
+  _BYTE v108[60]; // [rsp+980h] [rbp+880h] BYREF
+  unsigned int v109; // [rsp+9BCh] [rbp+8BCh] BYREF
+  __int64 v110; // [rsp+9C0h] [rbp+8C0h]
+  CDrawListEntry *v111; // [rsp+9D0h] [rbp+8D0h]
+  __int16 v112; // [rsp+9D8h] [rbp+8D8h]
+  char v113; // [rsp+9DAh] [rbp+8DAh]
 
-  v69 = (CRenderData *)a1;
-  v3 = 0LL;
-  v65 = a3;
-  v78 = 0LL;
-  v79 = v82;
-  v83 = 0LL;
-  v80 = v82;
-  v4 = a1 + 18;
-  v5 = (unsigned int **)*((_QWORD *)a1 + 13);
-  v81 = &v83;
-  v84 = v87;
-  v85 = v87;
-  v86 = &v88;
-  v88 = v91;
-  v89 = v91;
-  v90 = &v92;
-  lpMem = v96;
-  v94 = v96;
-  v95 = &v97;
-  p_Blink = 0LL;
-  v92 = 0;
-  v7 = (unsigned int)a3;
-  v98 = 0;
-  v8 = a2;
-  v99 = 0LL;
-  v9 = 0LL;
-  v100 = 0;
+  v71 = (CRenderData *)a1;
+  v69 = a2;
+  v81 = 0LL;
+  v82 = v85;
+  LOBYTE(v3) = 0;
+  v86 = 0;
+  v83 = v85;
+  v4 = a1 + 8;
+  v5 = (__int64 **)a1[12];
+  v84 = &v86;
+  v96 = v99;
+  v97 = v99;
+  v98 = &v100;
+  v100 = v103;
+  v101 = v103;
+  v102 = &v104;
+  lpMem = v108;
+  v106 = v108;
+  v87 = 0LL;
+  v6 = (__int64)&v109;
+  v107 = &v109;
+  v7 = 0LL;
+  v88 = 0LL;
+  v89 = 0LL;
+  v9 = 0;
+  v91 = 0LL;
   v10 = 0LL;
-  v101 = 0;
-  v60 = 0;
-  v63 = 0LL;
+  v90 = 0LL;
+  v92 = 0LL;
+  v93 = 0;
+  v94 = 5;
+  v95 = 0LL;
+  v104 = 0;
+  v110 = 0LL;
+  v111 = 0LL;
+  v112 = 0;
+  v113 = 0;
+  v68 = 0LL;
   v66 = 0LL;
-  v58 = 0;
-  memset(v77, 0, 32);
+  v62 = 0;
+  memset(v80, 0, sizeof(v80));
   if ( v5 )
   {
-    v51 = (unsigned int **)*((_QWORD *)a1 + 10);
-    if ( *v51 != v4 )
+    v6 = v4[1];
+    if ( *(__int64 **)v6 != v4 )
       __fastfail(3u);
     *v5 = v4;
-    v5[1] = (unsigned int *)v51;
-    *v51 = (unsigned int *)v5;
-    *((_QWORD *)v4 + 1) = v5;
-    *((_QWORD *)v4 + 4) = 0LL;
+    v5[1] = (__int64 *)v6;
+    *(_QWORD *)v6 = v5;
+    v4[1] = (__int64)v5;
+    v4[4] = 0LL;
   }
-  v11 = 0;
-  v72 = v4;
+  v11 = 0LL;
   v73 = 0LL;
-  v62 = 0;
-  v71 = 0uLL;
-  if ( !(_DWORD)a3 )
-  {
-    if ( a2 )
-      v9 = (struct CDrawingContext *)(a2 - 4);
-    v31 = (*(__int64 (__fastcall **)(_QWORD *, unsigned int *, unsigned __int64, _QWORD))(*((_QWORD *)v9 + 3) + 32LL))(
-            (_QWORD *)v9 + 3,
-            a2,
-            a3,
-            (unsigned int)a3);
-    v32 = (struct _LIST_ENTRY *)*((_QWORD *)v9 + 1007);
-    v33 = (CVisual *)v31;
-    if ( ((unsigned __int8 (__fastcall *)(struct _LIST_ENTRY *))v32->Flink[11].Blink)(v32) )
-    {
-      p_Blink = (CVisual *)((char *)v33 + 336);
-    }
-    else
-    {
-      TreeDataListHead = CVisual::GetTreeDataListHead(v33);
-      if ( TreeDataListHead )
-      {
-        Flink = TreeDataListHead->Flink;
-        if ( TreeDataListHead->Flink != TreeDataListHead )
-        {
-          while ( 1 )
-          {
-            p_Blink = (struct CTreeData *)&Flink[-23].Blink;
-            if ( Flink[2].Flink == v32 )
-              break;
-            Flink = Flink->Flink;
-            if ( Flink == TreeDataListHead )
-              goto LABEL_102;
-          }
-        }
-      }
-    }
-    if ( !p_Blink )
-    {
-LABEL_102:
-      v14 = -2003292412;
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)Flink, 0LL, 0, -2003292412, 0xDAu, 0LL);
-      goto LABEL_14;
-    }
-    v7 = v65;
+  v74 = v4;
+  v72 = 0LL;
+  v65 = 0;
+  if ( a3 )
+    goto LABEL_3;
+  v10 = a2 - 16;
+  v28 = 0LL;
+  if ( !a2 )
     v10 = 0LL;
-    v11 = 0;
-  }
-  v12 = *(unsigned int ***)v4;
-  if ( v4 == *(unsigned int **)v4 )
-    goto LABEL_13;
-  v13 = *((unsigned int *)v12 + 5);
-  a2 = (unsigned int *)(v12 + 3);
-  v67 = (unsigned int *)(v12 + 3);
-  v14 = -2147467259;
-  v74 = (unsigned int *)(v12 + 3);
-  v76 = v13;
-  if ( (_DWORD)v13 )
+  if ( *(_BYTE *)(v10 + 5920) )
   {
-    if ( (unsigned int)v13 < 8
-      || (v15 = *a2, (unsigned int)v15 < 8)
-      || (v15 & 3) != 0
-      || (a3 = (unsigned int)v15, v15 > v13) )
-    {
-      v16 = v65;
-      v3 = v69;
-    }
+    if ( *(_BYTE *)(v10 + 5921) )
+      v28 = *(CVisual **)(v10 + 3304);
     else
-    {
-      v3 = (CRenderData *)((char *)v12 + 28);
-      a2 = (unsigned int *)((char *)a2 + (unsigned int)v15);
-      v61 = *((_DWORD *)v12 + 7);
-      v16 = (unsigned int)(v15 - 4);
-      v67 = a2;
-      v14 = 0;
-    }
+      v28 = *(CVisual **)(*(_QWORD *)(v10 + 5928) + 56LL);
+  }
+  v29 = *(_QWORD *)(v10 + 5928);
+  v68 = 0LL;
+  if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v29 + 200LL))(v29) )
+  {
+    v30 = (CVisual *)((char *)v28 + 320);
   }
   else
   {
+    TreeDataListHead = (unsigned int **)CVisual::GetTreeDataListHead(v28);
+    if ( !TreeDataListHead || (v6 = (__int64)*TreeDataListHead, *TreeDataListHead == (unsigned int *)TreeDataListHead) )
+    {
+LABEL_115:
+      v30 = 0LL;
+      goto LABEL_56;
+    }
+    while ( 1 )
+    {
+      v30 = (struct CTreeData *)(v6 - 288);
+      if ( *(_QWORD *)(v6 + 32) == v29 )
+        break;
+      v6 = *(_QWORD *)v6;
+      if ( (unsigned int **)v6 == TreeDataListHead )
+        goto LABEL_115;
+    }
+  }
+  v68 = v30;
+LABEL_56:
+  if ( !v30 )
+  {
+    v14 = -2003292412;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003292412, 0xE0u, 0LL);
+    goto LABEL_9;
+  }
+  LOBYTE(v3) = 0;
+LABEL_3:
+  v12.m128i_i64[0] = *v4;
+  if ( v4 == (__int64 *)*v4 )
+  {
+    v13 = v77;
     v14 = 1;
-    v16 = 0LL;
-    if ( *v12 != v4 )
+    goto LABEL_5;
+  }
+  v12.m128i_i64[1] = *(unsigned int *)(v12.m128i_i64[0] + 20);
+  v13 = (unsigned int *)(v12.m128i_i64[0] + 24);
+  v72 = (unsigned int *)*v4;
+  v43 = (__int64 **)v12.m128i_i64[0];
+  v76 = v12.m128i_i64[0] + 24;
+  v12.m128i_i32[0] = -2147467259;
+  v78 = v12.m128i_u32[2];
+  if ( v12.m128i_i64[1] )
+  {
+    if ( v12.m128i_i64[1] < 8uLL
+      || (v44 = *v13, (unsigned int)v44 < 8)
+      || (v44 & 3) != 0
+      || (v45 = (unsigned int)v44, v44 > v12.m128i_i64[1]) )
+    {
+      v6 = v65;
+      v12.m128i_i64[1] = (__int64)v70;
+    }
+    else
+    {
+      v12.m128i_i64[1] = (__int64)(v13 + 1);
+      v6 = (unsigned int)(v44 - 4);
+      v64 = v13[1];
+      v12.m128i_i32[0] = 0;
+      v13 = (unsigned int *)((char *)v13 + v45);
+    }
+    v14 = v12.m128i_i32[0];
+  }
+  else
+  {
+    v12.m128i_i32[0] = 1;
+    v6 = 0LL;
+    v14 = 1;
+    v12.m128i_i64[1] = 0LL;
+    if ( *v43 != v4 )
+    {
       v14 = -2147467259;
+      goto LABEL_5;
+    }
+  }
+  if ( !v12.m128i_i32[0] )
+  {
+    v12.m128i_i64[0] = (int)v6;
+    if ( (int)v6 < 0 || !v12.m128i_i64[1] && (_DWORD)v6 )
+    {
+      ((void (__fastcall *)(__int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(v6, v12.m128i_i64[1]);
+      __debugbreak();
+    }
+    v73 = v12;
+    v11 = _mm_load_si128(&v73);
+  }
+LABEL_5:
+  if ( v14 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v14, 0xE5u, 0LL);
+    goto LABEL_9;
   }
   if ( v14 )
   {
-    if ( v14 >= 0 )
-      goto LABEL_12;
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v14, 0xDFu, 0LL);
-    goto LABEL_14;
+LABEL_7:
+    if ( v14 == 1 )
+      v14 = 0;
+    goto LABEL_9;
   }
-  if ( !v3 && (_DWORD)v16 )
-  {
-    ((void (__fastcall *)(unsigned __int64, unsigned int *, unsigned __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
-      v16,
-      a2,
-      a3,
-      v7);
-    __debugbreak();
-  }
-  *(_QWORD *)&v71 = (unsigned int)v16;
-  v68 = (CRenderData *)v70[0];
-  *((_QWORD *)&v71 + 1) = v3;
   while ( 1 )
   {
-    v35 = v71;
-    if ( v10 || (_DWORD)v7 )
+    if ( !v7 && !a3 )
     {
-      v59[0] = 0;
-      if ( (_DWORD)v7 )
-        goto LABEL_57;
-    }
-    else
-    {
-      DrawListCacheForCommandRun = CRenderData::GetDrawListCacheForCommandRun(v69, v9, p_Blink, v11, &v66);
+      Microsoft::WRL::ComPtr<CDrawListCache>::InternalRelease(&v66);
+      DrawListCacheForCommandRun = CRenderData::GetDrawListCacheForCommandRun(
+                                     v71,
+                                     (struct CDrawingContext *)v10,
+                                     v68,
+                                     v65,
+                                     &v66);
       v14 = DrawListCacheForCommandRun;
       if ( DrawListCacheForCommandRun < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, DrawListCacheForCommandRun, 0xEDu, 0LL);
-        v63 = v66;
-        goto LABEL_14;
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, DrawListCacheForCommandRun, 0xF3u, 0LL);
+        v7 = v66;
+        goto LABEL_9;
       }
-      v63 = v66;
-      v58 = 0;
-      v59[0] = 0;
+      v7 = v66;
+      LOBYTE(v3) = 0;
+      v62 = 0;
     }
-    *(_OWORD *)v70 = v35;
-    v41 = CRenderData::TryDrawCommandAsDrawList(v69, v9, v61, (CRenderData *)v70, (__int64)v59);
-    v14 = v41;
-    if ( v41 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v41, 0xF9u, 0LL);
-      goto LABEL_14;
-    }
-    if ( v59[0] )
-    {
-      v58 = 1;
-      goto LABEL_62;
-    }
-    v10 = v63;
-LABEL_57:
-    if ( v58 )
-    {
-      v48 = CRenderData::FlushDrawListCache((CRenderData *)v16, v9, v10, (struct CDrawListEntryBuilder *)v77);
-      v14 = v48;
-      if ( v48 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v49, 0LL, 0, v48, 0x109u, 0LL);
-        goto LABEL_14;
-      }
-      Microsoft::WRL::ComPtr<CGenericInkTipPointSource>::InternalRelease(&v66);
-      v63 = v66;
-      v58 = 0;
-    }
-    if ( v61 == 453 )
-    {
-      v45 = (*(__int64 (__fastcall **)(unsigned int *, _QWORD, unsigned __int64))(*(_QWORD *)v8 + 104LL))(
-              v8,
-              *(_QWORD *)(*((_QWORD *)v69 + 17) + 8LL * *((unsigned int *)v3 + 1)),
-              a3);
-      v14 = v45;
-      if ( v45 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v45, 0x119u, 0LL);
-        goto LABEL_14;
-      }
-      ++v60;
-    }
-    else if ( v61 == 452 )
-    {
-      if ( !v60 )
-      {
-        v14 = -2003292412;
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2003292412, 0x129u, 0LL);
-        goto LABEL_14;
-      }
-      v46 = (*(__int64 (__fastcall **)(unsigned int *, unsigned int *, unsigned __int64))(*(_QWORD *)v8 + 96LL))(
-              v8,
-              a2,
-              a3);
-      v14 = v46;
-      if ( v46 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v46, 0x123u, 0LL);
-        goto LABEL_14;
-      }
-      --v60;
-    }
-    else
-    {
-      *(_OWORD *)v70 = v35;
-      v36 = CRenderData::DrawCommandAsLegacy((_DWORD)v69, (_DWORD)v8, a3, v61, (__int64)v70);
-      v14 = v36;
-      if ( v36 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v36, 0x12Eu, 0LL);
-        goto LABEL_14;
-      }
-    }
-    if ( v14 == 1 )
+    v63[0] = 0;
+    if ( a3 )
       break;
-LABEL_62:
-    a2 = v67;
-    v37 = (unsigned __int64)v74 + v76 - (_QWORD)v67;
+    v79 = v11;
+    v46 = CRenderData::TryDrawCommandAsDrawList(
+            v71,
+            (struct CDrawingContext *)v10,
+            v9 != 0,
+            v64,
+            (__int64)&v79,
+            (__int64)v63);
+    v14 = v46;
+    if ( v46 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v46, 0x100u, 0LL);
+      goto LABEL_9;
+    }
+    if ( !v63[0] )
+    {
+      LOBYTE(v3) = v62;
+      break;
+    }
+    LOBYTE(v3) = 1;
+    v62 = 1;
+LABEL_68:
+    v14 = -2147467259;
+    v37 = v76 + v78 - (_QWORD)v13;
     if ( v37 )
     {
       if ( v37 >= 8 )
       {
-        a3 = *v67;
-        if ( (unsigned int)a3 >= 8 && (a3 & 3) == 0 && a3 <= v37 )
+        v35 = *v13;
+        if ( (unsigned int)v35 >= 8 && (v35 & 3) == 0 && v35 <= v37 )
         {
-          v16 = (unsigned __int64)(v67 + 1);
-          v61 = v67[1];
-          v68 = (CRenderData *)(v67 + 1);
-          v64 = a3 - 4;
-          NextItemSafe = 0;
+          v38 = v13[1];
+          v6 = (__int64)(v13 + 1);
+          v13 = (unsigned int *)((char *)v13 + v35);
+          v64 = v38;
+          v70 = (void *)v6;
+          v67 = v35 - 4;
           v14 = 0;
-          v67 = (unsigned int *)((char *)v67 + a3);
-LABEL_79:
-          a2 = (unsigned int *)v64;
-          if ( !v16 && v64 )
-          {
-            ((void (__fastcall *)(_QWORD, _QWORD))`gsl::details::get_terminate_handler'::`2'::handler)(0LL, v64);
-            __debugbreak();
-          }
-          v71 = __PAIR128__(v16, v64);
-          v3 = (CRenderData *)v16;
-          goto LABEL_66;
         }
       }
-      v16 = (unsigned __int64)v68;
-      NextItemSafe = -2147467259;
     }
     else
     {
-      a2 = *v12;
-      v16 = 0LL;
-      v68 = 0LL;
-      v70[0] = 0LL;
-      v64 = 0;
-      NextItemSafe = 1;
-      if ( a2 != v4 )
+      v6 = (__int64)v72;
+      v70 = 0LL;
+      v67 = 0;
+      v42 = *(unsigned int **)v72;
+      v14 = 1;
+      if ( *(__int64 **)v72 != v4 )
       {
-        v52 = a2[5];
-        v74 = a2 + 6;
-        v75 = a2 + 6;
-        v73 = a2;
-        v76 = v52;
-        NextItemSafe = CDataStreamReader::GetNextItemSafe((CDataStreamReader *)&v74, &v61, v70, &v64);
-        v4 = v72;
-        v12 = (unsigned int **)v73;
-        if ( NextItemSafe == 1 && *(unsigned int **)v73 != v72 )
+        v54 = v42 + 6;
+        v75 = *(unsigned int **)v72;
+        v55 = v42[5];
+        v76 = (__int64)v54;
+        v77 = v54;
+        v78 = v55;
+        NextItemSafe = CDataStreamReader::GetNextItemSafe((CDataStreamReader *)&v76, &v64, &v70, &v67);
+        v4 = v74;
+        v14 = NextItemSafe;
+        v13 = v77;
+        v3 = v62;
+        v72 = v75;
+        if ( NextItemSafe == 1 )
         {
-          NextItemSafe = -2147467259;
-          v14 = -2147467259;
-LABEL_111:
-          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, NextItemSafe, 0x13Du, 0LL);
-          goto LABEL_14;
+          if ( *(__int64 **)v75 != v74 )
+            v14 = -2147467259;
+          goto LABEL_78;
         }
-        v67 = v75;
-        v16 = (unsigned __int64)v70[0];
-        v68 = (CRenderData *)v70[0];
       }
     }
-    v14 = NextItemSafe;
-    if ( !NextItemSafe )
-      goto LABEL_79;
-    *((_QWORD *)&v71 + 1) = v3;
-    if ( NextItemSafe < 0 )
-      goto LABEL_111;
-LABEL_66:
-    v11 = ++v62;
-    if ( NextItemSafe )
-      break;
-    v10 = v63;
-    LODWORD(v7) = v65;
-  }
-  if ( !v58 )
-    goto LABEL_12;
-  v42 = v63;
-  v43 = CRenderData::FlushDrawListCache((CRenderData *)v16, v9, v63, (struct CDrawListEntryBuilder *)v77);
-  v14 = v43;
-  if ( v43 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x146u, 0LL);
-    goto LABEL_14;
-  }
-  if ( v42 )
-  {
-    v63 = 0LL;
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v42);
-  }
-LABEL_12:
-  if ( v14 == 1 )
-LABEL_13:
-    v14 = 0;
-LABEL_14:
-  for ( i = v60; i; v60 = i )
-  {
-    v53 = (*(__int64 (__fastcall **)(unsigned int *, unsigned int *, unsigned __int64, __int64))(*(_QWORD *)v8 + 96LL))(
-            v8,
-            a2,
-            a3,
-            v7);
-    v14 = v53;
-    if ( v53 < 0 )
+    v39 = v14 < 0;
+    if ( !v14 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v53, 0x155u, 0LL);
-      goto LABEL_14;
+      if ( (v67 & 0x80000000) != 0 || !v70 && v67 )
+      {
+        ((void (__fastcall *)(__int64, unsigned __int64, __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
+          v6,
+          v35,
+          v36,
+          v3);
+        __debugbreak();
+      }
+      v73.m128i_i64[0] = (int)v67;
+      v73.m128i_i64[1] = (__int64)v70;
+      v11 = _mm_load_si128(&v73);
+LABEL_78:
+      v39 = v14 < 0;
     }
-    --i;
-  }
-  if ( v63 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v63);
-  v18 = v79;
-  v19 = v80;
-  while ( v18 != v19 )
-  {
-    if ( *v18 )
+    if ( v39 )
     {
-      (*(void (__fastcall **)(_QWORD, unsigned int *, unsigned __int64, __int64))(*(_QWORD *)*v18 + 8LL))(
-        *v18,
-        a2,
-        a3,
-        v7);
-      *v18 = 0LL;
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v14, 0x146u, 0LL);
+      goto LABEL_9;
     }
-    ++v18;
+    ++v65;
+    if ( v14 )
+      goto LABEL_81;
   }
-  v20 = (v80 - v79) >> 3;
-  if ( v20 )
-    v80 -= 8 * v20;
-  v21 = v78;
-  LOBYTE(v100) = 0;
-  if ( v78 )
+  if ( (_BYTE)v3 )
   {
-    v78 = 0LL;
-    (*(void (__fastcall **)(__int64, unsigned int *, unsigned __int64, __int64))(*(_QWORD *)v21 + 8LL))(v21, a2, a3, v7);
+    v50 = CRenderData::FlushDrawListCache(
+            (CRenderData *)v6,
+            (struct CDrawingContext *)v10,
+            v7,
+            (struct CDrawListEntryBuilder *)v80);
+    v14 = v50;
+    if ( v50 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, v50, 0x110u, 0LL);
+      goto LABEL_9;
+    }
+    Microsoft::WRL::ComPtr<CDrawListCache>::InternalRelease(&v66);
+    v7 = v66;
+    v62 = 0;
   }
-  if ( v99 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v99);
-  v22 = lpMem;
-  if ( (v94 - (_BYTE *)lpMem) >> 1 )
+  if ( v64 == 470 )
   {
-    detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,174,1,detail::liberal_expansion_policy>>::clear_region(
+    v48 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v69 + 104LL))(
+            v69,
+            *(_QWORD *)(*((_QWORD *)v71 + 16) + 8LL * *(unsigned int *)(v73.m128i_i64[1] + 4)));
+    v14 = v48;
+    if ( v48 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v48, 0x11Du, 0LL);
+      goto LABEL_9;
+    }
+    ++v9;
+  }
+  else if ( v64 == 469 )
+  {
+    if ( !v9 )
+    {
+      v14 = -2003292412;
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003292412, 0x12Du, 0LL);
+      goto LABEL_9;
+    }
+    v49 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v69 + 96LL))(v69);
+    v14 = v49;
+    if ( v49 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v49, 0x127u, 0LL);
+      goto LABEL_9;
+    }
+    --v9;
+  }
+  else
+  {
+    v31 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v69 + 112LL))(v69);
+    v14 = v31;
+    if ( v31 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x135u, 0LL);
+      goto LABEL_9;
+    }
+    v79 = v11;
+    v34 = CRenderData::DrawCommandAsLegacy((_DWORD)v71, v69, v33, v64, (__int64)&v79);
+    v14 = v34;
+    if ( v34 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v34, 0x137u, 0LL);
+      goto LABEL_9;
+    }
+  }
+  if ( v14 != 1 )
+  {
+    v3 = v62;
+    goto LABEL_68;
+  }
+LABEL_81:
+  if ( !v62 )
+    goto LABEL_7;
+  v40 = CRenderData::FlushDrawListCache(
+          (CRenderData *)v6,
+          (struct CDrawingContext *)v10,
+          v7,
+          (struct CDrawListEntryBuilder *)v80);
+  v14 = v40;
+  if ( v40 >= 0 )
+  {
+    Microsoft::WRL::ComPtr<CDrawListCache>::InternalRelease(&v66);
+    v7 = v66;
+    goto LABEL_7;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, v40, 0x14Fu, 0LL);
+LABEL_9:
+  while ( v9 )
+  {
+    v57 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v69 + 96LL))(v69);
+    v14 = v57;
+    if ( v57 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v58, 0LL, 0, v57, 0x15Eu, 0LL);
+    else
+      --v9;
+  }
+  if ( v7 )
+    CDrawListEntry::Release(v7);
+  v15 = v82;
+  v16 = v83;
+  while ( v15 != v16 )
+  {
+    if ( *v15 )
+    {
+      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*v15 + 8LL))(*v15);
+      *v15 = 0LL;
+    }
+    ++v15;
+  }
+  v17 = (v83 - v82) >> 3;
+  if ( v17 )
+    v83 -= 8 * v17;
+  v18 = v81;
+  v86 = 0;
+  if ( v81 )
+  {
+    v81 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 8LL))(v18);
+  }
+  if ( v111 )
+    CDrawListEntry::Release(v111);
+  v19 = lpMem;
+  if ( (v106 - (_BYTE *)lpMem) >> 1 )
+  {
+    detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,30,1,detail::liberal_expansion_policy>>::clear_region(
       &lpMem,
-      0LL,
-      (v94 - (_BYTE *)lpMem) >> 1,
-      v7);
-    v22 = lpMem;
+      0LL);
+    v19 = lpMem;
   }
   lpMem = 0LL;
-  if ( v22 != v96 && v22 )
+  if ( v19 != v108 && v19 )
   {
     ProcessHeap = GetProcessHeap();
-    HeapFree(ProcessHeap, 0, v22);
+    HeapFree(ProcessHeap, 0, v19);
   }
-  v23 = v88;
-  if ( (v89 - (_BYTE *)v88) >> 4 )
+  v20 = v100;
+  if ( (v101 - (_BYTE *)v100) >> 4 )
   {
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      &v88,
+    detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+      &v100,
       0LL);
-    v23 = v88;
+    v20 = v100;
   }
-  v88 = 0LL;
-  if ( v23 != v91 && v23 )
+  v100 = 0LL;
+  if ( v20 != v103 && v20 )
   {
-    v56 = GetProcessHeap();
-    HeapFree(v56, 0, v23);
+    v60 = GetProcessHeap();
+    HeapFree(v60, 0, v20);
   }
-  v24 = v84;
-  v25 = (v85 - (_BYTE *)v84) >> 4;
+  v21 = v96;
+  if ( (v97 - (_BYTE *)v96) >> 4 )
+  {
+    detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+      &v96,
+      0LL);
+    v21 = v96;
+  }
+  v96 = 0LL;
+  if ( v21 != v99 && v21 )
+  {
+    v61 = GetProcessHeap();
+    HeapFree(v61, 0, v21);
+  }
+  if ( v95 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v95 + 16LL))(v95);
+  v22 = v89;
+  v90 = 0LL;
+  HIDWORD(v88) = 0;
+  v92 = 0LL;
+  v93 = 0;
+  if ( v89 )
+  {
+    *((_QWORD *)v89 + 8) = 0LL;
+    *((_DWORD *)v22 + 8) = 0;
+    *((_DWORD *)v22 + 14) = 0;
+    *((_QWORD *)v22 + 11) = 0LL;
+    *((_QWORD *)v22 + 12) = 0LL;
+    *((_DWORD *)v22 + 26) = 0;
+    *((_DWORD *)v22 + 32) = 0;
+    v22 = v89;
+  }
+  v94 = v94 & 4 | 1;
+  if ( v91 )
+  {
+    Mesh::MeshGraph::`scalar deleting destructor'(v91);
+    v22 = v89;
+  }
+  if ( v22 )
+    Mesh::MeshGraph::`scalar deleting destructor'(v22);
+  if ( v87 )
+    operator delete(v87);
+  v23 = (v83 - v82) >> 3;
+  if ( v23 )
+    v83 -= 8 * v23;
+  v24 = v82;
+  v25 = v82 == v85;
+  v82 = 0LL;
   if ( v25 )
+    v24 = 0LL;
+  if ( v24 )
   {
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      &v84,
-      0LL);
-    v24 = v84;
+    v53 = GetProcessHeap();
+    HeapFree(v53, 0, v24);
   }
-  v84 = 0LL;
-  if ( v24 != v87 && v24 )
+  v26 = v81;
+  if ( v81 )
   {
-    v57 = GetProcessHeap();
-    HeapFree(v57, 0, v24);
-  }
-  if ( v83 )
-    (*(void (__fastcall **)(__int64, unsigned int *, __int64, __int64))(*(_QWORD *)v83 + 16LL))(v83, a2, v25, v7);
-  v26 = (v80 - v79) >> 3;
-  if ( v26 )
-    v80 -= 8 * v26;
-  v27 = v79;
-  v28 = v79 == v82;
-  v79 = 0LL;
-  if ( v28 )
-    v27 = 0LL;
-  if ( v27 )
-  {
-    v50 = GetProcessHeap();
-    HeapFree(v50, 0, v27);
-  }
-  v29 = v78;
-  if ( v78 )
-  {
-    v78 = 0LL;
-    (*(void (__fastcall **)(__int64, unsigned int *, __int64, __int64))(*(_QWORD *)v29 + 8LL))(v29, a2, v25, v7);
+    v81 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v26 + 8LL))(v26);
   }
   return (unsigned int)v14;
 }

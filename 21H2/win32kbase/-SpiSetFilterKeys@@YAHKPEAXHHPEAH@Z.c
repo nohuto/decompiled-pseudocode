@@ -1,27 +1,27 @@
 /*
- * XREFs of ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C01656A0
+ * XREFs of ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138644
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
  * Callees:
- *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C005FA80 (-SetAccessEnabledFlag@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C0165240 (-SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z.c)
- *     ?StopFilterKeysTimers@@YAXXZ @ 0x1C01B9790 (-StopFilterKeysTimers@@YAXXZ.c)
- *     ApiSetEditionCallAccessibilityHook @ 0x1C0206380 (ApiSetEditionCallAccessibilityHook.c)
- *     ApiSetEditionPostShellHookMessages @ 0x1C020ABD8 (ApiSetEditionPostShellHookMessages.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C000C420 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     CreateProfileUserName @ 0x1C000C7E0 (CreateProfileUserName.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z @ 0x1C0138184 (-SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z.c)
+ *     ?StopFilterKeysTimers@@YAXXZ @ 0x1C01839C0 (-StopFilterKeysTimers@@YAXXZ.c)
+ *     ApiSetEditionPostShellHookMessages @ 0x1C01CD604 (ApiSetEditionPostShellHookMessages.c)
  */
 
 __int64 __fastcall SpiSetFilterKeys(int a1, struct tagFILTERKEYS *a2, int a3, int a4, int *a5)
 {
-  unsigned int v7; // r8d
-  unsigned int v8; // edx
-  unsigned int v9; // eax
-  int v10; // edx
-  int v11; // eax
+  unsigned int v8; // r8d
+  unsigned int v9; // edx
+  unsigned int v10; // eax
+  int v11; // edx
+  struct _UNICODE_STRING *ProfileUserName; // rdi
   __int64 v13; // rcx
-  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-18h]
+  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-18h]
 
   if ( a1 && a1 != 24 )
     return 0LL;
@@ -29,44 +29,43 @@ __int64 __fastcall SpiSetFilterKeys(int a1, struct tagFILTERKEYS *a2, int a3, in
     return 0LL;
   if ( *(_DWORD *)a2 != 24 )
     return 0LL;
-  v7 = *((_DWORD *)a2 + 2);
-  if ( v7 )
+  v8 = *((_DWORD *)a2 + 2);
+  if ( v8 )
   {
     if ( *((_DWORD *)a2 + 5) )
       return 0LL;
   }
-  v8 = *((_DWORD *)a2 + 1);
-  if ( (v8 & 0x7F) != v8 )
+  v9 = *((_DWORD *)a2 + 1);
+  if ( (v9 & 0x7F) != v9 )
     return 0LL;
-  v9 = v8 & 0xFFFFFFFD;
-  v10 = v8 | 2;
-  if ( (xmmword_1C0295A4C & 2) == 0 )
-    v10 = v9;
-  *((_DWORD *)a2 + 1) = v10;
-  if ( v7 > 0x4E20 || *((_DWORD *)a2 + 3) > 0x4E20u || *((_DWORD *)a2 + 4) > 0x4E20u || *((_DWORD *)a2 + 5) > 0x4E20u )
+  v10 = v9 & 0xFFFFFFFD;
+  v11 = v9 | 2;
+  if ( (xmmword_1C0250C04 & 2) == 0 )
+    v11 = v10;
+  *((_DWORD *)a2 + 1) = v11;
+  if ( v8 > 0x4E20 || *((_DWORD *)a2 + 3) > 0x4E20u || *((_DWORD *)a2 + 4) > 0x4E20u || *((_DWORD *)a2 + 5) > 0x4E20u )
     return 0LL;
   if ( a3 )
   {
-    v11 = SetFilterKeys(a2);
-    *a5 = v11;
-    a4 = v11;
-    if ( !v11 )
-    {
-      SetFilterKeys((struct tagFILTERKEYS *)&gFilterKeys);
-      return 0LL;
-    }
+    v15 = 0LL;
+    v16 = 0LL;
+    ProfileUserName = (struct _UNICODE_STRING *)CreateProfileUserName((__int64)&v15);
+    a4 = SetFilterKeys(ProfileUserName, a2);
+    *a5 = a4;
+    if ( !a4 )
+      SetFilterKeys(ProfileUserName, (struct tagFILTERKEYS *)&gFilterKeys);
+    if ( ProfileUserName && qword_1C02570E8 )
+      qword_1C02570E8(&v15);
   }
   if ( !a4 )
     return 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  memmove(&v14, &gFilterKeys, (unsigned int)gFilterKeys);
   memmove(&gFilterKeys, a2, *(unsigned int *)a2);
-  LODWORD(gFilterKeys) = 24;
-  if ( (xmmword_1C0295A4C & 1) == 0 )
+  gFilterKeys = 24;
+  if ( (xmmword_1C0250C04 & 1) == 0 )
     StopFilterKeysTimers();
   SetAccessEnabledFlag();
-  ApiSetEditionCallAccessibilityHook(2LL);
-  ApiSetEditionPostShellHookMessages(v13, 2LL, &v14, &gFilterKeys);
+  if ( qword_1C02578F0 )
+    qword_1C02578F0();
+  ApiSetEditionPostShellHookMessages(v13, 2LL);
   return 1LL;
 }

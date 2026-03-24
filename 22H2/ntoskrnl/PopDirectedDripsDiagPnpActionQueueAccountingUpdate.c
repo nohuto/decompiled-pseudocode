@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405A04D8
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14057C74C
  * Callers:
- *     PopDirectedDripsHandleResiliencyNotification @ 0x1409835E0 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E31E4 (PopDirectedDripsHandleResiliencyNotification.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405A057C (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14057C7F0 (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1, char a2)
@@ -19,28 +19,29 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1
   _DWORD *SchedulerAssist; // r9
   bool v9; // zf
 
-  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C38EF0);
-  if ( byte_140C38F70 != a2 )
+  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C1E9F0);
+  if ( byte_140C1EA68 != a2 )
   {
     LOBYTE(v3) = a2;
     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v4, v3);
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
+  KxReleaseSpinLock(&qword_140C1E9F0);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v5 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v9 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v5 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v9 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnfreezeHive @ 0x1407F0654
+ * XREFs of CmpUnfreezeHive @ 0x1407F0634
  * Callers:
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1407F01E8 (CmpIsHiveAlreadyLoaded.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x1407F01C8 (CmpIsHiveAlreadyLoaded.c)
  * Callees:
  *     CmpDereferenceKeyControlBlockWithLock @ 0x1405A942C (CmpDereferenceKeyControlBlockWithLock.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
- *     CmWorkerEngineDequeueWorkItem @ 0x1407ED2A4 (CmWorkerEngineDequeueWorkItem.c)
+ *     CmWorkerEngineDequeueWorkItem @ 0x1407ED284 (CmWorkerEngineDequeueWorkItem.c)
  */
 
 void __fastcall CmpUnfreezeHive(_QWORD *P)

@@ -1,171 +1,136 @@
 /*
- * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x140A28DA0
+ * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x14087F404
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpAddSubKeyToList @ 0x140708884 (CmpAddSubKeyToList.c)
- *     HvAllocateCell @ 0x14070A478 (HvAllocateCell.c)
- *     CmpFreeKeyByCell @ 0x14070B2C4 (CmpFreeKeyByCell.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     CmpCopyKeyPartial @ 0x1407DDDD8 (CmpCopyKeyPartial.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27FB4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x140A28AA8 (CmpLightWeightCreateModificationData.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvAllocateCell @ 0x140656A94 (HvAllocateCell.c)
+ *     CmpAddSubKeyToList @ 0x1406E2B90 (CmpAddSubKeyToList.c)
+ *     CmpFreeKeyByCell @ 0x1406E4070 (CmpFreeKeyByCell.c)
+ *     CmpCopyKeyPartial @ 0x14076F54C (CmpCopyKeyPartial.c)
+ *     HvMarkCellDirty @ 0x14087BD38 (HvMarkCellDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EB14 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F25C (CmpLightWeightCreateModificationData.c)
  */
 
-__int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1)
+__int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  unsigned int v2; // r14d
-  __int64 v3; // rax
-  _WORD *v4; // r13
-  ULONG_PTR v5; // rbx
+  unsigned int v5; // r15d
   __int64 v6; // rax
-  unsigned int *v7; // rdi
-  int v8; // eax
-  int v9; // esi
-  bool v10; // zf
-  ULONG_PTR v11; // rdx
-  __int64 CellPaged; // rax
-  __int64 v13; // r12
-  unsigned int v14; // ecx
-  unsigned int v15; // r13d
-  _WORD *v16; // rax
-  unsigned int *v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
-  ULONG_PTR BugCheckParameter4; // [rsp+28h] [rbp-40h]
-  __int64 v22; // [rsp+40h] [rbp-28h] BYREF
-  unsigned int *v23; // [rsp+48h] [rbp-20h] BYREF
-  _WORD *v24; // [rsp+50h] [rbp-18h] BYREF
-  unsigned int *v25; // [rsp+58h] [rbp-10h]
-  unsigned int v26; // [rsp+B0h] [rbp+48h]
-  __int64 v27; // [rsp+B8h] [rbp+50h] BYREF
-  unsigned int v28; // [rsp+C0h] [rbp+58h] BYREF
-  ULONG_PTR v29; // [rsp+C8h] [rbp+60h] BYREF
+  unsigned int v7; // ebx
+  _WORD *v8; // r13
+  ULONG_PTR v9; // rsi
+  __int64 v10; // rax
+  unsigned int *v11; // rdi
+  int v12; // eax
+  unsigned int v13; // ebx
+  __int64 v14; // r12
+  __int64 (__fastcall *v15)(ULONG_PTR, _QWORD, _DWORD *); // rax
+  unsigned int *v16; // r12
+  unsigned int v17; // r13d
+  unsigned int v18; // edx
+  _WORD *v19; // rax
+  unsigned int v20; // eax
+  __int64 v21; // rcx
+  __int64 v23; // [rsp+28h] [rbp-30h]
+  _DWORD v24[2]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-10h]
+  unsigned int v26; // [rsp+A0h] [rbp+48h]
+  __int64 v27; // [rsp+A8h] [rbp+50h] BYREF
+  unsigned int *v28; // [rsp+B0h] [rbp+58h] BYREF
+  _WORD *v29; // [rsp+B8h] [rbp+60h] BYREF
 
-  v22 = 0xFFFFFFFFLL;
-  v2 = -1;
-  v3 = *(_QWORD *)(a1 + 48);
-  v4 = 0LL;
-  v29 = 0xFFFFFFFFLL;
-  v28 = 0;
-  LODWORD(v27) = -1;
-  v5 = *(_QWORD *)(v3 + 32);
-  v26 = *(_DWORD *)(a1 + 72);
-  v6 = *(_QWORD *)(a1 + 80);
-  v24 = 0LL;
-  v7 = *(unsigned int **)(v6 + 104);
-  v23 = v7;
-  if ( v7 )
+  v24[1] = 0;
+  v5 = -1;
+  v24[0] = -1;
+  v6 = *(_QWORD *)(a1 + 48);
+  v7 = *(_DWORD *)(a1 + 72);
+  v27 = 0xFFFFFFFFLL;
+  v26 = v7;
+  v8 = 0LL;
+  v9 = *(_QWORD *)(v6 + 32);
+  v10 = *(_QWORD *)(a1 + 80);
+  v29 = 0LL;
+  v11 = *(unsigned int **)(v10 + 104);
+  v28 = v11;
+  if ( v11 )
   {
-    ++*v7;
+    ++*v11;
   }
   else
   {
-    v8 = CmpLightWeightCreateModificationData(a1, &v23);
-    v7 = v23;
-    v9 = v8;
-    if ( v8 < 0 )
-      goto LABEL_32;
+    v12 = CmpLightWeightCreateModificationData(a1, &v28, a3, a4);
+    v11 = v28;
+    v13 = v12;
+    if ( v12 < 0 )
+      goto LABEL_23;
+    v7 = v26;
   }
-  v10 = (*(_BYTE *)(v5 + 140) & 1) == 0;
-  v23 = *(unsigned int **)(*(_QWORD *)(a1 + 48) + 72LL);
-  v11 = v23[10];
-  if ( v10 )
-    CellPaged = HvpGetCellPaged(v5, v11, (unsigned int *)&v22);
-  else
-    CellPaged = HvpGetCellFlat(v5, v11, &v22);
-  v13 = CellPaged;
-  if ( !CellPaged )
+  v14 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL);
+  v15 = *(__int64 (__fastcall **)(ULONG_PTR, _QWORD, _DWORD *))(v9 + 8);
+  v25 = v14;
+  v28 = (unsigned int *)v15(v9, *(unsigned int *)(v14 + 40), v24);
+  if ( !v28 )
   {
-    v9 = -1073741670;
-    goto LABEL_32;
+    v13 = -1073741670;
+    goto LABEL_23;
   }
-  v9 = HvpMarkCellDirty(v5, *(unsigned int *)(*(_QWORD *)(a1 + 48) + 40LL), 1);
-  if ( v9 >= 0 )
+  if ( !HvMarkCellDirty(v9, *(unsigned int *)(*(_QWORD *)(a1 + 48) + 40LL), 1)
+    || !HvMarkCellDirty(v9, *(unsigned int *)(v14 + 40), 1)
+    || !HvMarkCellDirty(v9, v28[v7 + 7], 1) )
   {
-    v9 = HvpMarkCellDirty(v5, v23[10], 1);
-    if ( v9 >= 0 )
+    v13 = -1073741443;
+    goto LABEL_19;
+  }
+  v16 = &v11[v7];
+  if ( v16[3] != -1 )
+  {
+LABEL_14:
+    v20 = CmpCopyKeyPartial(v9, *(unsigned int *)(*(_QWORD *)(a1 + 48) + 40LL), v9, *(_DWORD *)(v25 + 40), 38, v23, v26);
+    v5 = v20;
+    if ( v20 == -1 || !CmpAddSubKeyToList(v9, v16 + 3, v20) )
     {
-      v9 = HvpMarkCellDirty(v5, *(unsigned int *)(v13 + 4LL * (int)v26 + 28), 1);
-      if ( v9 >= 0 )
-      {
-        v14 = v26;
-        v10 = v7[v26 + 3] == -1;
-        v25 = &v7[v26 + 3];
-        if ( !v10 )
-          goto LABEL_19;
-        v15 = *(_DWORD *)(v5 + 220);
-        v9 = HvAllocateCell(v5, 12, v26, &v28, (__int64)&v24, (__int64)&v29);
-        if ( v9 >= 0 )
-        {
-          v16 = v24;
-          *v24 = v15 < 5 ? 26220 : 26732;
-          v17 = v25;
-          v16[1] = 0;
-          *v17 = v28;
-          v7[v26 + 1] = 0;
-          if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v5, &v29);
-          else
-            HvpReleaseCellPaged(v5, (unsigned int *)&v29);
-          v14 = v26;
-          v4 = 0LL;
-LABEL_19:
-          v18 = CmpCopyKeyPartial(
-                  v5,
-                  *(unsigned int *)(*(_QWORD *)(a1 + 48) + 40LL),
-                  v5,
-                  v23[10],
-                  38,
-                  BugCheckParameter4,
-                  v14,
-                  (unsigned int *)&v27);
-          v2 = v27;
-          v9 = v18;
-          if ( v18 >= 0 )
-          {
-            v9 = CmpAddSubKeyToList(v5, v25, v27);
-            if ( v9 >= 0 )
-            {
-              ++v7[v26 + 1];
-              v19 = *(_QWORD *)(a1 + 48);
-              v9 = 0;
-              *(_DWORD *)(a1 + 88) = *(_DWORD *)(v19 + 40);
-              *(_DWORD *)(v19 + 40) = v2;
-              v2 = -1;
-              *(_QWORD *)(a1 + 104) = v7;
-              v7 = 0LL;
-            }
-          }
-          goto LABEL_23;
-        }
-        v4 = v24;
-      }
+      v13 = -1073741670;
     }
-  }
-LABEL_23:
-  if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(v5, &v22);
-  else
-    HvpReleaseCellPaged(v5, (unsigned int *)&v22);
-  if ( v4 )
-  {
-    if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v5, &v29);
     else
-      HvpReleaseCellPaged(v5, (unsigned int *)&v29);
+    {
+      ++v11[v7 + 1];
+      v13 = 0;
+      v21 = *(_QWORD *)(a1 + 48);
+      *(_DWORD *)(a1 + 88) = *(_DWORD *)(v21 + 40);
+      *(_DWORD *)(v21 + 40) = v5;
+      v5 = -1;
+      *(_QWORD *)(a1 + 104) = v11;
+      v11 = 0LL;
+    }
+    goto LABEL_19;
   }
-  if ( v2 != -1 )
-    CmpFreeKeyByCell(v5, v2, 0);
-LABEL_32:
-  if ( v7 )
+  v17 = *(_DWORD *)(v9 + 212);
+  v18 = HvAllocateCell(v9, 12, v26, &v29, &v27);
+  if ( v18 != -1 )
   {
-    CmpLightWeightCleanupModifyKeyDataUoW(v5, v7);
+    v19 = v29;
+    *v29 = v17 < 5 ? 26220 : 26732;
+    v19[1] = 0;
+    v16[3] = v18;
+    v11[v7 + 1] = 0;
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(v9 + 16))(v9, &v27);
+    v8 = 0LL;
+    goto LABEL_14;
+  }
+  v8 = v29;
+  v13 = -1073741670;
+LABEL_19:
+  (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(v9 + 16))(v9, v24);
+  if ( v8 )
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(v9 + 16))(v9, &v27);
+  if ( v5 != -1 )
+    CmpFreeKeyByCell(v9, v5, 0);
+LABEL_23:
+  if ( v11 )
+  {
+    CmpLightWeightCleanupModifyKeyDataUoW(v9, v11);
     *(_QWORD *)(a1 + 104) = 0LL;
   }
-  return (unsigned int)v9;
+  return v13;
 }

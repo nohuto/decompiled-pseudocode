@@ -1,12 +1,15 @@
 /*
- * XREFs of VerifierExfReleasePushLock @ 0x140A9C460
+ * XREFs of VerifierExfReleasePushLock @ 0x1409E4B30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E4DC4 (ViExCheckAPCsDisabled.c)
  */
 
-__int64 VerifierExfReleasePushLock()
+__int64 __fastcall VerifierExfReleasePushLock(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExfReleasePushLock)();
+  if ( (MmVerifierData & 0x800) != 0 )
+    ViExCheckAPCsDisabled(0xEBuLL, a1);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvExfReleasePushLock)(a1);
 }

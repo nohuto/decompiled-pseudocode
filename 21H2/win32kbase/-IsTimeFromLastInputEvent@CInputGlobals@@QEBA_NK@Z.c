@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C0097B60
+ * XREFs of ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C00859B0
  * Callers:
- *     PowerIsDisplayIdleExpired @ 0x1C007D130 (PowerIsDisplayIdleExpired.c)
+ *     PowerIsDisplayIdleExpired @ 0x1C00856F0 (PowerIsDisplayIdleExpired.c)
  * Callees:
  *     <none>
  */

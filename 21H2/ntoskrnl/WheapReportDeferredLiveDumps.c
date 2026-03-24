@@ -1,64 +1,64 @@
 /*
- * XREFs of WheapReportDeferredLiveDumps @ 0x140A09D2C
+ * XREFs of WheapReportDeferredLiveDumps @ 0x14095E18C
  * Callers:
- *     WheaCrashDumpInitializationComplete @ 0x1408642EC (WheaCrashDumpInitializationComplete.c)
+ *     WheaCrashDumpInitializationComplete @ 0x1407D44C4 (WheaCrashDumpInitializationComplete.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     WheapReportLiveDump @ 0x140A09E34 (WheapReportLiveDump.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     WheapReportLiveDump @ 0x14095E294 (WheapReportLiveDump.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapReportDeferredLiveDumps()
 {
-  struct _LIST_ENTRY *Blink; // rbx
-  struct _LIST_ENTRY *Flink; // rax
+  struct _DRIVER_OBJECT *DriverObject; // rbx
+  __int64 v1; // rax
   bool v2; // di
   unsigned int v3; // esi
-  struct _LIST_ENTRY *v4; // rax
+  __int64 v4; // rax
 
-  Blink = 0LL;
-  ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
-  if ( (struct _LIST_ENTRY **)WheapDispatchPtr.Queue.ListEntry.Blink != &WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink )
+  DriverObject = 0LL;
+  ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.Timer);
+  if ( (struct _DRIVER_OBJECT **)WheapDispatchPtr.DriverObject != &WheapDispatchPtr.DriverObject )
   {
-    Blink = WheapDispatchPtr.Queue.ListEntry.Blink;
-    Flink = WheapDispatchPtr.Queue.ListEntry.Blink->Flink;
-    if ( (struct _LIST_ENTRY **)WheapDispatchPtr.Queue.ListEntry.Blink->Blink != &WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink
-      || Flink->Blink != WheapDispatchPtr.Queue.ListEntry.Blink )
+    DriverObject = WheapDispatchPtr.DriverObject;
+    v1 = *(_QWORD *)WheapDispatchPtr.DriverObject;
+    if ( WheapDispatchPtr.DriverObject->DeviceObject != (PDEVICE_OBJECT)&WheapDispatchPtr.DriverObject
+      || *(struct _DRIVER_OBJECT **)(v1 + 8) != WheapDispatchPtr.DriverObject )
     {
 LABEL_18:
       __fastfail(3u);
     }
-    WheapDispatchPtr.Queue.ListEntry.Blink = WheapDispatchPtr.Queue.ListEntry.Blink->Flink;
-    Flink->Blink = (struct _LIST_ENTRY *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink;
+    WheapDispatchPtr.DriverObject = *(struct _DRIVER_OBJECT **)WheapDispatchPtr.DriverObject;
+    *(_QWORD *)(v1 + 8) = &WheapDispatchPtr.DriverObject;
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.AttachedDevice);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.Timer);
   v2 = 0;
   v3 = 0;
-  while ( Blink )
+  while ( DriverObject )
   {
     if ( !v2 )
-      v3 = WheapReportLiveDump(Blink);
-    ExFreePoolWithTag(Blink, 0x61656857u);
+      v3 = WheapReportLiveDump(DriverObject);
+    ExFreePoolWithTag(DriverObject, 0x61656857u);
     if ( !v2 )
       v2 = v3 != 0;
-    ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
-    Blink = WheapDispatchPtr.Queue.ListEntry.Blink;
-    if ( (struct _LIST_ENTRY **)WheapDispatchPtr.Queue.ListEntry.Blink == &WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink )
+    ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.Timer);
+    DriverObject = WheapDispatchPtr.DriverObject;
+    if ( (struct _DRIVER_OBJECT **)WheapDispatchPtr.DriverObject == &WheapDispatchPtr.DriverObject )
     {
-      Blink = 0LL;
+      DriverObject = 0LL;
     }
     else
     {
-      if ( (struct _LIST_ENTRY **)WheapDispatchPtr.Queue.ListEntry.Blink->Blink != &WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink )
+      if ( WheapDispatchPtr.DriverObject->DeviceObject != (PDEVICE_OBJECT)&WheapDispatchPtr.DriverObject )
         goto LABEL_18;
-      v4 = WheapDispatchPtr.Queue.ListEntry.Blink->Flink;
-      if ( WheapDispatchPtr.Queue.ListEntry.Blink->Flink->Blink != WheapDispatchPtr.Queue.ListEntry.Blink )
+      v4 = *(_QWORD *)WheapDispatchPtr.DriverObject;
+      if ( *(struct _DRIVER_OBJECT **)(*(_QWORD *)WheapDispatchPtr.DriverObject + 8LL) != WheapDispatchPtr.DriverObject )
         goto LABEL_18;
-      WheapDispatchPtr.Queue.ListEntry.Blink = WheapDispatchPtr.Queue.ListEntry.Blink->Flink;
-      v4->Blink = (struct _LIST_ENTRY *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink;
+      WheapDispatchPtr.DriverObject = *(struct _DRIVER_OBJECT **)WheapDispatchPtr.DriverObject;
+      *(_QWORD *)(v4 + 8) = &WheapDispatchPtr.DriverObject;
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.AttachedDevice);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.Timer);
   }
   return v3;
 }

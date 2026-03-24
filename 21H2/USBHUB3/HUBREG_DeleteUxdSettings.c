@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBREG_DeleteUxdSettings @ 0x1C00823BC
+ * XREFs of HUBREG_DeleteUxdSettings @ 0x1C0080E50
  * Callers:
- *     HUBPDO_NotifyDeviceDisconnected @ 0x1C00162B4 (HUBPDO_NotifyDeviceDisconnected.c)
- *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C0079DC0 (HUBPDO_EvtDeviceReleaseHardware.c)
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0 (HUBPDO_EvtDeviceReleaseHardware.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_QueryGlobalUxdSettings @ 0x1C0081584 (HUBREG_QueryGlobalUxdSettings.c)
- *     HUBREG_DeleteUxdDeviceKey @ 0x1C0081CD0 (HUBREG_DeleteUxdDeviceKey.c)
- *     HUBREG_DeleteUxdPortKey @ 0x1C0082158 (HUBREG_DeleteUxdPortKey.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0080018 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_DeleteUxdDeviceKey @ 0x1C0080764 (HUBREG_DeleteUxdDeviceKey.c)
+ *     HUBREG_DeleteUxdPortKey @ 0x1C0080BEC (HUBREG_DeleteUxdPortKey.c)
  */
 
 __int64 __fastcall HUBREG_DeleteUxdSettings(__int64 a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall HUBREG_DeleteUxdSettings(__int64 a1, int a2)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   HUBREG_QueryGlobalUxdSettings(v4);
   v5 = a2 - 1;
   if ( v5 )

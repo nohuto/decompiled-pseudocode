@@ -1,9 +1,9 @@
 /*
- * XREFs of IncPaintCount @ 0x1C0239B54
+ * XREFs of IncPaintCount @ 0x1C023E470
  * Callers:
- *     InternalInvalidate3 @ 0x1C004C894 (InternalInvalidate3.c)
+ *     InternalInvalidate3 @ 0x1C0074764 (InternalInvalidate3.c)
  * Callees:
- *     SetWakeBit @ 0x1C00ABE30 (SetWakeBit.c)
+ *     SetWakeBit @ 0x1C0051920 (SetWakeBit.c)
  */
 
 int __fastcall IncPaintCount(__int64 a1)

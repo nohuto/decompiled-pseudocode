@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDestroyHive @ 0x1407F6798
+ * XREFs of CmpDestroyHive @ 0x1407F6778
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmLoadKey @ 0x1406C8B98 (CmLoadKey.c)
- *     CmpFreeAllMemory @ 0x1407ECDE0 (CmpFreeAllMemory.c)
- *     CmReplaceKey @ 0x1407EF15C (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1407F4070 (CmpFlushBackupHive.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65F8 (CmpCreateEmptyHiveClone.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmSaveKey @ 0x140801F50 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x140802918 (CmpLoadHiveVolatile.c)
- *     CmpRefreshHive @ 0x140802DCC (CmpRefreshHive.c)
+ *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
+ *     CmpFreeAllMemory @ 0x1407ECDC0 (CmpFreeAllMemory.c)
+ *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
+ *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
  * Callees:
- *     CmpUnJoinClassOfTrust @ 0x1401B320C (CmpUnJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B322C (CmpUnJoinClassOfTrust.c)
  *     CmpVERemoveHiveFromSIDMappingTable @ 0x140580888 (CmpVERemoveHiveFromSIDMappingTable.c)
  *     CmpCmdHiveClose @ 0x1405AFA08 (CmpCmdHiveClose.c)
  *     CmpDestroySecurityCache @ 0x1405AFB54 (CmpDestroySecurityCache.c)

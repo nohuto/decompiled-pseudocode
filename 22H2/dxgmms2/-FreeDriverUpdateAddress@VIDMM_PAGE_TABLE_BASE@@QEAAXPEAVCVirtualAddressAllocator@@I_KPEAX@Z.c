@@ -1,12 +1,12 @@
 /*
- * XREFs of ?FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z @ 0x1C009AC30
+ * XREFs of ?FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z @ 0x1C006FB5C
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00987B0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
- *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C009B1F8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
- *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C00F3828 (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C0060EF8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
+ *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C006F9CC (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006FD20 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     ?FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAX1@Z @ 0x1C009AC74 (-FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAX1@Z.c)
+ *     ?FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAX1@Z @ 0x1C0072350 (-FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAX1@Z.c)
  */
 
 void __fastcall VIDMM_PAGE_TABLE_BASE::FreeDriverUpdateAddress(
@@ -17,36 +17,36 @@ void __fastcall VIDMM_PAGE_TABLE_BASE::FreeDriverUpdateAddress(
         void *a5)
 {
   __int64 v5; // r10
-  unsigned __int64 v6; // r8
-  int v7; // eax
-  __int64 v8; // rax
-  __int64 *v9; // rdx
+  int v6; // r8d
+  __int64 v7; // rax
+  __int64 *v8; // rdx
+  __int64 v9; // r8
   __int64 v10; // r8
-  __int64 v11; // r8
-  __int64 **v12; // rax
+  __int64 **v11; // rax
 
   v5 = *((_QWORD *)a2 + 11);
-  if ( (*(_BYTE *)(v5 + 40936) & 0x40) == 0 && (v6 = *(unsigned int *)this, (v7 = (__int16)v6 >> 13) != 0) )
+  if ( (*(_BYTE *)(v5 + 40936) & 0x10) == 0 && (v6 = (int)(*(_DWORD *)this << 16) >> 29) != 0 )
   {
-    if ( v7 == 1 && *(struct CVirtualAddressAllocator **)(v5 + 8 * ((v6 >> 7) & 0x1F) + 40416) != a2 )
+    if ( v6 == 1
+      && *(struct CVirtualAddressAllocator **)(v5 + 8 * (((unsigned __int64)*(unsigned int *)this >> 7) & 0x1F) + 40416) != a2 )
     {
-      v8 = *((_QWORD *)this + 3) + 128LL;
-      v9 = *(__int64 **)v8;
-      if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) != v8
-        || (v10 = *v9, *(__int64 **)(*v9 + 8) != v9)
-        || (*(_QWORD *)v8 = v10,
-            *(_QWORD *)(v10 + 8) = v8,
-            v9[2] = *(_QWORD *)(v5 + 8LL * ((*(_DWORD *)this >> 7) & 0x1F) + 4968),
-            v11 = 1616LL * ((*(_DWORD *)this >> 7) & 0x1F) + *(_QWORD *)(v5 + 40224) + 472LL,
-            v12 = *(__int64 ***)(v11 + 8),
-            *v12 != (__int64 *)v11) )
+      v7 = *((_QWORD *)this + 3) + 128LL;
+      v8 = *(__int64 **)v7;
+      if ( *(_QWORD *)(*(_QWORD *)v7 + 8LL) != v7
+        || (v9 = *v8, *(__int64 **)(*v8 + 8) != v8)
+        || (*(_QWORD *)v7 = v9,
+            *(_QWORD *)(v9 + 8) = v7,
+            v8[2] = *(_QWORD *)(v5 + 8LL * ((*(_DWORD *)this >> 7) & 0x1F) + 4952),
+            v10 = 1584LL * ((*(_DWORD *)this >> 7) & 0x1F) + *(_QWORD *)(v5 + 40216) + 464LL,
+            v11 = *(__int64 ***)(v10 + 8),
+            *v11 != (__int64 *)v10) )
       {
         __fastfail(3u);
       }
-      *v9 = v11;
-      v9[1] = (__int64)v12;
-      *v12 = v9;
-      *(_QWORD *)(v11 + 8) = v9;
+      *v8 = v10;
+      v8[1] = (__int64)v11;
+      *v11 = v8;
+      *(_QWORD *)(v10 + 8) = v8;
     }
   }
   else

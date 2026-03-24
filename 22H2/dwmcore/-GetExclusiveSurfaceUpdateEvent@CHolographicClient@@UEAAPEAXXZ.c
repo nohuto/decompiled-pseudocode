@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetExclusiveSurfaceUpdateEvent@CHolographicClient@@UEAAPEAXXZ @ 0x1802ACFC0
+ * XREFs of ?GetExclusiveSurfaceUpdateEvent@CHolographicClient@@UEAAPEAXXZ @ 0x18025B0A0
  * Callers:
  *     <none>
  * Callees:

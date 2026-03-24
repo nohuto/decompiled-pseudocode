@@ -4,7 +4,7 @@
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
  * Callees:
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
- *     MiFreeLargePageChain @ 0x1402CC72C (MiFreeLargePageChain.c)
+ *     MiFreeLargePageChain @ 0x1402CC82C (MiFreeLargePageChain.c)
  */
 
 _QWORD *__fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwFindChildren @ 0x14076E82C
+ * XREFs of PiSwFindChildren @ 0x14074705C
  * Callers:
- *     PiSwProcessParentStartIrp @ 0x1406E4E14 (PiSwProcessParentStartIrp.c)
- *     PiSwStopDestroy @ 0x140766F84 (PiSwStopDestroy.c)
- *     PipEnumerateCompleted @ 0x14076F8AC (PipEnumerateCompleted.c)
+ *     PiSwStopDestroy @ 0x140738C44 (PiSwStopDestroy.c)
+ *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
+ *     PiSwProcessParentStartIrp @ 0x14076DD88 (PiSwProcessParentStartIrp.c)
  * Callees:
- *     PiSwFindBusRelations @ 0x14076E854 (PiSwFindBusRelations.c)
+ *     PiSwFindBusRelations @ 0x140747084 (PiSwFindBusRelations.c)
  */
 
 __int64 PiSwFindChildren()

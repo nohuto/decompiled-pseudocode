@@ -1,11 +1,12 @@
 /*
- * XREFs of ?UmfdEscPATHOBJ_bCommonTo@@YAHP6AHPEAU_PATHOBJ@@PEAU_POINTFIX@@K@Z01K@Z @ 0x1C012D464
+ * XREFs of ?UmfdEscPATHOBJ_bCommonTo@@YAHP6AHPEAU_PATHOBJ@@PEAU_POINTFIX@@K@Z01K@Z @ 0x1C013A214
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0011710 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8E80 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
@@ -14,10 +15,10 @@ __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
         struct _POINTFIX *a3,
         unsigned int a4)
 {
-  size_t v7; // rbx
+  size_t v7; // rdi
   struct UmfdTls *v8; // rax
   __int64 v9; // r14
-  void *v10; // rdi
+  void *v10; // rsi
   unsigned int v11; // ebx
 
   v7 = 8LL * a4;
@@ -29,7 +30,7 @@ __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
   v9 = *((_QWORD *)v8 + 6);
   if ( !v9 )
     return 0LL;
-  v10 = (_DWORD)v7 ? (void *)Win32AllocPool((unsigned int)v7, 1801733703LL) : 0LL;
+  v10 = PALLOCMEM2((unsigned int)v7, 1801733703LL, 0);
   if ( !v10 )
     return 0LL;
   if ( v7 )

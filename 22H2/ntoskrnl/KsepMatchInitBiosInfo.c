@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepMatchInitBiosInfo @ 0x140B6519C
+ * XREFs of KsepMatchInitBiosInfo @ 0x140A6A22C
  * Callers:
- *     KsepMatchInitMachineInfo @ 0x140B64EEC (KsepMatchInitMachineInfo.c)
+ *     KsepMatchInitMachineInfo @ 0x140A6A0D0 (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcstoul @ 0x1403DB890 (wcstoul.c)
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x14084646C (KsepRegistryQuerySZ.c)
- *     KsepRegistryCloseKey @ 0x1408465B8 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryMULTISZ @ 0x140977C9C (KsepRegistryQueryMULTISZ.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403D3E00 (wcstoul.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KsepRegistryOpenKey @ 0x14075AC54 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1407BEFF4 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryMULTISZ @ 0x1407BF0D0 (KsepRegistryQueryMULTISZ.c)
+ *     KsepRegistryQuerySZ @ 0x1407BF100 (KsepRegistryQuerySZ.c)
  */
 
 __int64 KsepMatchInitBiosInfo()
@@ -19,13 +19,13 @@ __int64 KsepMatchInitBiosInfo()
   int v0; // edi
   int v1; // eax
   HANDLE v2; // rbx
-  int v3; // r14d
-  __int64 v5; // rax
-  _WORD *v6; // rcx
-  unsigned __int64 v7; // rax
-  unsigned int v8; // esi
-  unsigned int v9; // ebx
-  unsigned int v10; // eax
+  int MULTISZ; // r14d
+  __int64 v4; // rax
+  _WORD *v5; // rcx
+  unsigned __int64 v6; // rax
+  unsigned int v7; // esi
+  unsigned int v8; // ebx
+  unsigned int v9; // eax
   HANDLE KeyHandle; // [rsp+30h] [rbp-30h] BYREF
   __int64 v12; // [rsp+38h] [rbp-28h] BYREF
   wchar_t v13[3]; // [rsp+40h] [rbp-20h] BYREF
@@ -34,64 +34,64 @@ __int64 KsepMatchInitBiosInfo()
 
   v12 = 0LL;
   KeyHandle = 0LL;
-  xmmword_140C70D98 = 0LL;
-  qword_140C70DC8 = 0LL;
+  xmmword_140C54230 = 0LL;
+  qword_140C54260 = 0LL;
   v0 = -1;
-  xmmword_140C70DA8 = 0LL;
-  xmmword_140C70DB8 = 0LL;
+  xmmword_140C54240 = 0LL;
+  xmmword_140C54250 = 0LL;
   v1 = KsepRegistryOpenKey(L"\\Registry\\Machine\\Hardware\\Description\\System", 0LL, &KeyHandle);
   v2 = KeyHandle;
-  v3 = v1;
+  MULTISZ = v1;
   if ( v1 >= 0 )
   {
-    v3 = KsepRegistryQuerySZ(KeyHandle, L"SystemBiosDate", 1, v13, 0x16uLL, &v12);
-    if ( v3 >= 0 )
+    MULTISZ = KsepRegistryQuerySZ(KeyHandle, L"SystemBiosDate", 1, v13, 0x16uLL, &v12);
+    if ( MULTISZ >= 0 )
     {
       Str[4] = 0;
       KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 655816LL;
       if ( (KsepDebugFlag & 1) != 0 )
         KsepDebugPrint(0LL, "KSE: BiosDate name [%ws] .\n", v13);
-      KsepLogInfo(0, "KSE: BiosDate name [%ws] .\n", v13);
-      v3 = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", &unk_140D18E30, 0x208uLL, &v12);
-      word_140D19036 = 0;
-      v5 = 0LL;
-      v6 = &unk_140D18E30;
-      while ( *v6 != 32 )
+      KsepLogInfo(0LL, (__int64)"KSE: BiosDate name [%ws] .\n", v13);
+      MULTISZ = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", (__int64)&unk_140C53FF0, 520LL, (__int64)&v12);
+      word_140C541F6 = 0;
+      v4 = 0LL;
+      v5 = &unk_140C53FF0;
+      while ( *v5 != 32 )
       {
-        v5 = (unsigned int)(v5 + 1);
-        ++v6;
-        if ( (unsigned int)v5 >= 0x104 )
-          goto LABEL_16;
+        v4 = (unsigned int)(v4 + 1);
+        ++v5;
+        if ( (unsigned int)v4 >= 0x104 )
+          goto LABEL_11;
       }
-      v7 = 2 * v5;
-      if ( v7 >= 0x208 )
+      v6 = 2 * v4;
+      if ( v6 >= 0x208 )
         _report_rangecheckfailure();
-      *(_WORD *)((char *)&unk_140D18E30 + v7) = 0;
-LABEL_16:
+      *(_WORD *)((char *)&unk_140C53FF0 + v6) = 0;
+LABEL_11:
       KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 655840LL;
       if ( (KsepDebugFlag & 1) != 0 )
-        KsepDebugPrint(0LL, "KSE: BiosVendor name [%ws] .\n", &unk_140D18E30);
-      KsepLogInfo(0, "KSE: BiosVendor name [%ws] .\n", &unk_140D18E30);
+        KsepDebugPrint(0LL, "KSE: BiosVendor name [%ws] .\n", &unk_140C53FF0);
+      KsepLogInfo(0LL, (__int64)"KSE: BiosVendor name [%ws] .\n", &unk_140C53FF0);
       v13[2] = 0;
       v14[2] = 0;
-      v8 = wcstoul(Str, 0LL, 16);
-      v9 = wcstoul(v13, 0LL, 16) << 8;
-      v10 = v9 + wcstoul(v14, 0LL, 16);
+      v7 = wcstoul(Str, 0LL, 16);
+      v8 = wcstoul(v13, 0LL, 16) << 8;
+      v9 = v8 + wcstoul(v14, 0LL, 16);
       v2 = KeyHandle;
-      v0 = v10 + ((v8 + (v8 < 0x80 ? 0x2000 : 6400)) << 16);
+      v0 = v9 + ((v7 + (v7 < 0x80 ? 0x2000 : 6400)) << 16);
     }
   }
   if ( v2 )
     KsepRegistryCloseKey(v2);
-  if ( v3 >= 0 )
+  if ( MULTISZ < 0 )
   {
-    *(_QWORD *)&xmmword_140C70D98 = &unk_140D18E30;
-    DWORD2(xmmword_140C70DB8) = v0;
+    DWORD2(xmmword_140C54250) = -1;
+    *(_QWORD *)&xmmword_140C54230 = 0LL;
   }
   else
   {
-    DWORD2(xmmword_140C70DB8) = -1;
-    *(_QWORD *)&xmmword_140C70D98 = 0LL;
+    *(_QWORD *)&xmmword_140C54230 = &unk_140C53FF0;
+    DWORD2(xmmword_140C54250) = v0;
   }
-  return (unsigned int)v3;
+  return (unsigned int)MULTISZ;
 }

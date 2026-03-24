@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18020D1B0
+ * XREFs of ?OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801BA670
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x18020D720 (-UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x1801BABAC (-UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::OnSceneFrameTick(
@@ -15,9 +15,9 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneFrameTick(
   __int64 v3; // rcx
   unsigned int v4; // ebx
 
-  updated = CCompositionMipmapSurface::UpdateMipmapSurface((CCompositionMipmapSurface *)((char *)this - 88));
+  updated = CCompositionMipmapSurface::UpdateMipmapSurface((CCompositionMipmapSurface *)((char *)this - 80));
   v4 = updated;
   if ( updated < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0LL, updated, 0xA5u);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, updated, 0xA5u, 0LL);
   return v4;
 }

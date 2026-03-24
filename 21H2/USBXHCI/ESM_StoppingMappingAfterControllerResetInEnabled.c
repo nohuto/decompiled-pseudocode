@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C004FBC0
+ * XREFs of ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C004F070
  * Callers:
  *     <none>
  * Callees:
- *     TR_StopMapping @ 0x1C000D10C (TR_StopMapping.c)
+ *     TR_StopMapping @ 0x1C000F4D0 (TR_StopMapping.c)
  */
 
 __int64 __fastcall ESM_StoppingMappingAfterControllerResetInEnabled(__int64 a1)

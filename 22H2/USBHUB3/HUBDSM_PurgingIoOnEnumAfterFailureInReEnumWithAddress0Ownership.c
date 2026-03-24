@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C0023970
+ * XREFs of HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C0021190
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C0028EB8 (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002629C (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_PurgingIoOnEnumAfterFailureInReEnumWithAddress0Ownership(__int64 a1)

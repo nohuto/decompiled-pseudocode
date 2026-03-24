@@ -1,29 +1,29 @@
 /*
- * XREFs of SepInitializeWorkList @ 0x140B57DA8
+ * XREFs of SepInitializeWorkList @ 0x140A489FC
  * Callers:
- *     SepInitializationPhase0 @ 0x140B57104 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
  */
 
 __int64 SepInitializeWorkList()
 {
   __int64 result; // rax
 
-  ExInitializeResourceLite(&stru_140C71080);
-  qword_140C710E8 = 0LL;
-  qword_140C71068 = (__int64)&SepLsaAuditQueueInfo;
+  ExInitializeResourceLite(&stru_140C54680);
+  qword_140C546E8 = 0LL;
+  qword_140C54668 = (__int64)&SepLsaAuditQueueInfo;
   SepLsaAuditQueueInfo = (__int64)&SepLsaAuditQueueInfo;
-  qword_140C71138 = (__int64)ExFreePool;
-  qword_140C71078 = (__int64)&qword_140C71070;
-  qword_140C71070 = (__int64)&qword_140C71070;
-  qword_140C71130 = (__int64)SepAdtDetermineInsertQueue;
-  word_140C71140 = 3;
-  ExInitializeResourceLite(&stru_140C70F50);
-  qword_140C71008 = (__int64)ExFreePool;
-  qword_140C70F38 = (__int64)&SepLsaDeletedLogonQueueInfo;
+  qword_140C54738 = (__int64)ExFreePoolWithTag;
+  qword_140C54678 = (__int64)&qword_140C54670;
+  qword_140C54670 = (__int64)&qword_140C54670;
+  qword_140C54730 = (__int64)SepAdtDetermineInsertQueue;
+  word_140C54740 = 3;
+  ExInitializeResourceLite(&stru_140C54540);
+  qword_140C545F8 = (__int64)ExFreePoolWithTag;
+  qword_140C54528 = (__int64)&SepLsaDeletedLogonQueueInfo;
   SepLsaDeletedLogonQueueInfo = (__int64)&SepLsaDeletedLogonQueueInfo;
   result = 1LL;
-  word_140C71010 = 1;
+  word_140C54600 = 1;
   return result;
 }

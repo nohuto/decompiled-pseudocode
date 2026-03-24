@@ -1,37 +1,35 @@
 /*
- * XREFs of HalpInterruptResetAllProcessors @ 0x140504EAC
+ * XREFs of HalpInterruptResetAllProcessors @ 0x1404D2B2C
  * Callers:
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x140254570 (HalRequestIpiSpecifyVector.c)
- *     HalpPowerWriteResetCommand @ 0x140506BCC (HalpPowerWriteResetCommand.c)
- *     HalpNmiReboot @ 0x14051BE10 (HalpNmiReboot.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalRequestIpiSpecifyVector @ 0x1403443F0 (HalRequestIpiSpecifyVector.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE25C (HalpPowerWriteResetCommand.c)
+ *     HalpNmiReboot @ 0x1404D2BC8 (HalpNmiReboot.c)
  */
 
 void __noreturn HalpInterruptResetAllProcessors()
 {
-  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
-  bool v3; // zf
+  bool v2; // zf
 
-  if ( HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140C6AA28 )
+  if ( HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140C50958 )
   {
     HalpNmiReboot();
     HalpRebootNow = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))HalpInterruptResetThisProcessor;
     HalRequestIpiSpecifyVector(2, 0LL, 0xD7u);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v3 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+        v2 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
         SchedulerAssist[5] &= 0xFFFF0001;
-        if ( v3 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        if ( v2 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(0LL);
@@ -39,6 +37,5 @@ void __noreturn HalpInterruptResetAllProcessors()
     while ( 1 )
       ;
   }
-  HalpPowerWriteResetCommand(0LL, 0LL);
-  JUMPOUT(0x140504F40LL);
+  HalpPowerWriteResetCommand(0, 0LL);
 }

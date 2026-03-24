@@ -1,13 +1,14 @@
 /*
- * XREFs of ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02B9ED0
+ * XREFs of ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02BBB70
  * Callers:
- *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C000B310 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
- *     ?bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@@Z @ 0x1C02BA244 (-bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@@Z.c)
+ *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C009ED10 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
+ *     ?bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C016DC7C (-bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
  * Callees:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 char __fastcall bExtendGlyphSet(struct _FD_GLYPHSET **a1, struct _FD_GLYPHSET **a2)
@@ -15,10 +16,10 @@ char __fastcall bExtendGlyphSet(struct _FD_GLYPHSET **a1, struct _FD_GLYPHSET **
   __int64 v2; // r14
   char v3; // bl
   __int64 v4; // rbp
-  unsigned int v5; // r15d
+  unsigned int v5; // edi
   _WORD *v6; // rdx
   unsigned int v7; // r8d
-  ULONG v9; // edi
+  ULONG v9; // r15d
   struct _FD_GLYPHSET *v10; // rsi
   unsigned int v11; // r12d
   __int16 *v12; // rdx
@@ -85,123 +86,120 @@ char __fastcall bExtendGlyphSet(struct _FD_GLYPHSET **a1, struct _FD_GLYPHSET **
     }
   }
   v9 = 4 * (v5 + 4 * (v4 + 58));
-  if ( v9 )
+  v10 = (struct _FD_GLYPHSET *)PALLOCMEM2(v9, 1936484167LL, 1);
+  if ( v10 )
   {
-    v10 = (struct _FD_GLYPHSET *)Win32AllocPoolZInit(v9, 1936484167LL);
-    if ( v10 )
+    memset(v42, 0, sizeof(v42));
+    v11 = 0;
+    v12 = (__int16 *)(v2 + 16);
+    v13 = v4;
+    do
     {
-      memset(v42, 0, sizeof(v42));
-      v11 = 0;
-      v12 = (__int16 *)(v2 + 16);
-      v13 = v4;
-      do
+      v14 = (unsigned __int16)v12[1];
+      v15 = 0;
+      if ( v12[1] )
       {
-        v14 = (unsigned __int16)v12[1];
-        v15 = 0;
-        if ( v12[1] )
-        {
-          v16 = *v12;
-          do
-          {
-            v17 = v11;
-            v18 = v15 + v16;
-            ++v11;
-            ++v15;
-            v43[v17] = v18;
-          }
-          while ( v15 < v14 );
-        }
-        v12 += 8;
-        --v13;
-      }
-      while ( v13 );
-      RtlGetDefaultCodePage(AnsiCodePage, &OemCodePage);
-      v19 = AnsiCodePage[0];
-      v20 = AnsiCodePage[0];
-      if ( (unsigned __int16)(AnsiCodePage[0] - 932) <= 0x12u )
-      {
-        v21 = 393233;
-        LOWORD(v20) = AnsiCodePage[0] - 932;
-        if ( _bittest(&v21, v20) )
-        {
-          v19 = 1252;
-          AnsiCodePage[0] = 1252;
-        }
-      }
-      if ( (unsigned int)ConvertToAndFromWideChar(v19, v43, 2 * v5, v42, 0x100u, 0) == -1 )
-      {
-        Win32FreePool(v10);
-        return 0;
-      }
-      v10->cjThis = v9;
-      v10->flAccel = *(_DWORD *)(v2 + 4) | 0x10;
-      v10->cGlyphsSupported = v5 + 224;
-      v10->cRuns = v4 + 1;
-      v22 = 0;
-      v23 = (char *)&v10->awcrun[(unsigned int)(v4 + 1)];
-      awcrun = v10->awcrun;
-      v25 = v2 - (_QWORD)v10;
-      do
-      {
-        v26 = *(WCHAR *)((char *)&awcrun->wcLow + v25);
-        if ( v26 >= 0xF020u )
-          break;
-        awcrun->wcLow = v26;
-        awcrun->cGlyphs = *(USHORT *)((char *)&awcrun->cGlyphs + v25);
-        awcrun->phg = (HGLYPH *)v23;
-        memmove(
-          v23,
-          *(const void **)((char *)&awcrun->phg + v25),
-          4LL * *(unsigned __int16 *)((char *)&awcrun->cGlyphs + v25));
-        v27 = *(unsigned __int16 *)((char *)&awcrun->cGlyphs + v25);
-        ++v22;
-        ++awcrun;
-        v23 += 4 * v27;
-      }
-      while ( v22 < (unsigned int)v4 );
-      v28 = v22;
-      *(_DWORD *)&v10->awcrun[v28].wcLow = 14741536;
-      v10->awcrun[v28].phg = (HGLYPH *)v23;
-      memset(v23, 0, 0x380uLL);
-      v29 = 0;
-      v30 = (unsigned __int16 *)(v2 + 18);
-      v31 = v4;
-      do
-      {
-        for ( i = 0; i < *v30; ++i )
-        {
-          v33 = (unsigned __int8)v42[v29];
-          if ( (unsigned __int8)v33 >= 0x20u )
-            *(_DWORD *)&v23[4 * v33 - 128] = *(_DWORD *)(*(_QWORD *)(v30 + 3) + 4LL * i);
-          ++v29;
-        }
-        v30 += 8;
-        --v31;
-      }
-      while ( v31 );
-      v34 = v23 + 896;
-      if ( v22 < (unsigned int)v4 )
-      {
-        v35 = (unsigned __int16 *)(v28 * 16 + v2 + 18);
-        v36 = (__int64)&v10[1].cjThis + 16 * v22 + 2;
-        v37 = (unsigned int)v4 - v22;
+        v16 = *v12;
         do
         {
-          *(_WORD *)(v36 - 2) = *(v35 - 1);
-          *(_WORD *)v36 = *v35;
-          *(_QWORD *)(v36 + 6) = v34;
-          memmove(v34, *(const void **)(v35 + 3), 4LL * *v35);
-          v38 = *v35;
-          v36 += 16LL;
-          v35 += 8;
-          v34 += 4 * v38;
-          --v37;
+          v17 = v11;
+          v18 = v15 + v16;
+          ++v11;
+          ++v15;
+          v43[v17] = v18;
         }
-        while ( v37 );
+        while ( v15 < v14 );
       }
-      v3 = 1;
-      *v41 = v10;
+      v12 += 8;
+      --v13;
     }
+    while ( v13 );
+    RtlGetDefaultCodePage(AnsiCodePage, &OemCodePage);
+    v19 = AnsiCodePage[0];
+    v20 = AnsiCodePage[0];
+    if ( (unsigned __int16)(AnsiCodePage[0] - 932) <= 0x12u )
+    {
+      v21 = 393233;
+      LOWORD(v20) = AnsiCodePage[0] - 932;
+      if ( _bittest(&v21, v20) )
+      {
+        v19 = 1252;
+        AnsiCodePage[0] = 1252;
+      }
+    }
+    if ( (unsigned int)ConvertToAndFromWideChar(v19, v43, 2 * v5, v42, 0x100u, 0) == -1 )
+    {
+      Win32FreePool(v10);
+      return 0;
+    }
+    v10->cjThis = v9;
+    v10->flAccel = *(_DWORD *)(v2 + 4) | 0x10;
+    v10->cGlyphsSupported = v5 + 224;
+    v10->cRuns = v4 + 1;
+    v22 = 0;
+    v23 = (char *)&v10->awcrun[(unsigned int)(v4 + 1)];
+    awcrun = v10->awcrun;
+    v25 = v2 - (_QWORD)v10;
+    do
+    {
+      v26 = *(WCHAR *)((char *)&awcrun->wcLow + v25);
+      if ( v26 >= 0xF020u )
+        break;
+      awcrun->wcLow = v26;
+      awcrun->cGlyphs = *(USHORT *)((char *)&awcrun->cGlyphs + v25);
+      awcrun->phg = (HGLYPH *)v23;
+      memmove(
+        v23,
+        *(const void **)((char *)&awcrun->phg + v25),
+        4LL * *(unsigned __int16 *)((char *)&awcrun->cGlyphs + v25));
+      v27 = *(unsigned __int16 *)((char *)&awcrun->cGlyphs + v25);
+      ++v22;
+      ++awcrun;
+      v23 += 4 * v27;
+    }
+    while ( v22 < (unsigned int)v4 );
+    v28 = v22;
+    *(_DWORD *)&v10->awcrun[v28].wcLow = 14741536;
+    v10->awcrun[v28].phg = (HGLYPH *)v23;
+    memset(v23, 0, 0x380uLL);
+    v29 = 0;
+    v30 = (unsigned __int16 *)(v2 + 18);
+    v31 = v4;
+    do
+    {
+      for ( i = 0; i < *v30; ++i )
+      {
+        v33 = (unsigned __int8)v42[v29];
+        if ( (unsigned __int8)v33 >= 0x20u )
+          *(_DWORD *)&v23[4 * v33 - 128] = *(_DWORD *)(*(_QWORD *)(v30 + 3) + 4LL * i);
+        ++v29;
+      }
+      v30 += 8;
+      --v31;
+    }
+    while ( v31 );
+    v34 = v23 + 896;
+    if ( v22 < (unsigned int)v4 )
+    {
+      v35 = (unsigned __int16 *)(v28 * 16 + v2 + 18);
+      v36 = (__int64)&v10[1].cjThis + 16 * v22 + 2;
+      v37 = (unsigned int)v4 - v22;
+      do
+      {
+        *(_WORD *)(v36 - 2) = *(v35 - 1);
+        *(_WORD *)v36 = *v35;
+        *(_QWORD *)(v36 + 6) = v34;
+        memmove(v34, *(const void **)(v35 + 3), 4LL * *v35);
+        v38 = *v35;
+        v36 += 16LL;
+        v35 += 8;
+        v34 += 4 * v38;
+        --v37;
+      }
+      while ( v37 );
+    }
+    v3 = 1;
+    *v41 = v10;
   }
   return v3;
 }

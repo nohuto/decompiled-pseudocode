@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogFullPagefile @ 0x1402C3E40
+ * XREFs of MiStoreLogFullPagefile @ 0x1402C3F40
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void MiStoreLogFullPagefile()
@@ -20,6 +20,6 @@ void MiStoreLogFullPagefile()
   if ( hProvider && hProvider->LevelPlus1 > 5 )
   {
     if ( TlgKeywordOn(hProvider, 2uLL) )
-      TlgWriteEx(v2, &unk_14036E6ED, v1, (ULONG)v2, v3, v4, cData, &pData);
+      TlgWriteEx(v2, &unk_14036E77A, v1, (ULONG)v2, v3, v4, cData, &pData);
   }
 }

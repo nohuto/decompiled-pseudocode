@@ -1,124 +1,103 @@
 /*
- * XREFs of ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C008A44C
+ * XREFs of ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E67D4
  * Callers:
- *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C0089520 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6600 (-bInitializeEUDCInternal@@YAHXZ.c)
  * Callees:
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0085D98 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0115160 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
- *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029E35C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1C50 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1E64 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029731C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
  */
 
-void __fastcall vInitializeFontAssocStatus(__int64 a1)
+void vInitializeFontAssocStatus(void)
 {
-  __int64 v1; // rbx
-  _QWORD *v2; // r14
-  struct PFE **v3; // rdi
-  __int64 v4; // rcx
-  bool v5; // r12
-  __int64 v6; // rsi
-  unsigned int v7; // r14d
-  unsigned int i; // edi
-  PFTOBJ *v9; // rcx
-  _QWORD v10[2]; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v11; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v12; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v13; // [rsp+70h] [rbp+7h] BYREF
-  unsigned int v14; // [rsp+80h] [rbp+17h]
-  unsigned int v15; // [rsp+D0h] [rbp+67h] BYREF
-  struct PFF *v16; // [rsp+D8h] [rbp+6Fh] BYREF
+  bool v0; // r14
+  __int64 v1; // rdi
+  unsigned int v2; // esi
+  unsigned int i; // ebx
+  PFTOBJ *v4; // rcx
+  _QWORD v5[2]; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v6; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v7; // [rsp+60h] [rbp-20h] BYREF
+  unsigned int v8; // [rsp+70h] [rbp-10h]
+  unsigned int v9; // [rsp+B0h] [rbp+30h] BYREF
+  struct PFF *v10; // [rsp+B8h] [rbp+38h] BYREF
+  struct _FONTHASH **v11; // [rsp+C0h] [rbp+40h] BYREF
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v2 = (_QWORD *)(v1 + 13968);
-  *(_DWORD *)(v1 + 13976) = 4;
-  *(_QWORD *)(v1 + 13968) = FontAssocCharsetRoutine;
-  *(_QWORD *)(v1 + 13984) = 0LL;
-  *(_QWORD *)(v1 + 13992) = 0LL;
-  *(_DWORD *)(v1 + 14000) = 0;
-  *(_QWORD *)(v1 + 14008) = 0LL;
-  *(_DWORD *)(v1 + 14016) = 0;
-  *(_QWORD *)(v1 + 14024) = 0LL;
-  *(_DWORD *)(v1 + 14032) = 0;
-  *(_QWORD *)(v1 + 14040) = 0LL;
-  *(_DWORD *)(v1 + 18736) = 0;
-  *(_WORD *)(v1 + 18748) = 0;
-  if ( RtlQueryRegistryValues(
-         0x80000002,
-         L"FontAssoc\\Associated CharSet",
-         (PRTL_QUERY_REGISTRY_TABLE)(v1 + 13968),
-         0LL,
-         0LL) < 0 )
-    *(_DWORD *)(v1 + 18736) = 0;
-  *v2 = FontAssocDefaultRoutine;
-  *(_WORD *)(v1 + 19268) = 0;
-  if ( RtlQueryRegistryValues(
-         0x80000002,
-         L"FontAssoc\\Associated DefaultFonts",
-         (PRTL_QUERY_REGISTRY_TABLE)(v1 + 13968),
-         0LL,
-         0LL) >= 0 )
+  SharedQueryTable.Flags = 4;
+  SharedQueryTable.DefaultType = 0;
+  SharedQueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)FontAssocCharsetRoutine;
+  *(_OWORD *)&SharedQueryTable.Name = 0LL;
+  SharedQueryTable.DefaultData = 0LL;
+  SharedQueryTable.DefaultLength = 0;
+  qword_1C0339868 = 0LL;
+  dword_1C0339870 = 0;
+  qword_1C0339878 = 0LL;
+  fFontAssocStatus = 0;
+  gawcSystemDBCSFontPath = 0;
+  if ( RtlQueryRegistryValues(0x80000002, L"FontAssoc\\Associated CharSet", &SharedQueryTable, 0LL, 0LL) < 0 )
+    fFontAssocStatus = 0;
+  word_1C0339BF0 = 0;
+  SharedQueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)FontAssocDefaultRoutine;
+  if ( RtlQueryRegistryValues(0x80000002, L"FontAssoc\\Associated DefaultFonts", &SharedQueryTable, 0LL, 0LL) >= 0 )
   {
-    *(_DWORD *)(v1 + 19356) = 1;
-    if ( *(_WORD *)(v1 + 18748) )
+    bReadyToInitializeFontAssocDefault = 1;
+    if ( gawcSystemDBCSFontPath )
     {
-      if ( *(_WORD *)(v1 + 19268) )
+      if ( word_1C0339BF0 )
       {
-        v3 = (struct PFE **)(v1 + 19336);
-        v11 = *(_QWORD *)(v1 + 20272);
-        v15 = 0;
-        v16 = 0LL;
-        v10[0] = v1 + 19336;
-        v10[1] = v1 + 19268;
+        v11 = gpPFTPublic;
+        v5[0] = &gappfeSystemDBCS;
+        v9 = 0;
+        v5[1] = &word_1C0339BF0;
+        v10 = 0LL;
         if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
                              (PUBLIC_PFTOBJ *)&v11,
-                             (const unsigned __int16 *)(v1 + 18748),
-                             &v15,
+                             &gawcSystemDBCSFontPath,
+                             &v9,
                              8u,
-                             &v16,
-                             (struct _EUDCLOAD *)v10,
+                             &v10,
+                             (struct _EUDCLOAD *)v5,
                              1) )
         {
-          v4 = *(_QWORD *)(v1 + 13272);
-          *(_QWORD *)(v1 + 13888) = 0LL;
-          GreAcquireSemaphore(v4);
-          if ( (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)(v1 + 13880), *v3, 0) )
+          qword_1C033C570 = 0LL;
+          GreAcquireSemaphore(ghsemEUDC1);
+          if ( (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlTTSystem, gappfeSystemDBCS, 0) )
             goto LABEL_16;
-          v5 = 0;
-          v12 = *(_QWORD *)*v3;
+          v0 = 0;
+          v6 = *(_QWORD *)gappfeSystemDBCS;
           UmfdClientSideFileViewMapper::UmfdClientSideFileViewMapper(
-            (UmfdClientSideFileViewMapper *)&v13,
-            (struct PFFOBJ *)&v12);
-          v6 = v13;
-          v7 = v14;
-          if ( v14 == *(_DWORD *)(v13 + 36) )
-            v5 = (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)(v1 + 13880), *v3, 0) != 0;
-          for ( i = 0; i < v7; EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v6 + 200) + 8LL * i++)) )
+            (UmfdClientSideFileViewMapper *)&v7,
+            (struct PFFOBJ *)&v6);
+          v1 = v7;
+          v2 = v8;
+          if ( v8 == *(_DWORD *)(v7 + 36) )
+            v0 = (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlTTSystem, gappfeSystemDBCS, 0) != 0;
+          for ( i = 0; i < v2; EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v1 + 200) + 8LL * i++)) )
           {
-            if ( i >= *(_DWORD *)(v6 + 36) )
+            if ( i >= *(_DWORD *)(v1 + 36) )
               break;
           }
-          if ( v5 )
+          if ( v0 )
           {
 LABEL_16:
-            *(_DWORD *)(v1 + 19352) = 1;
-            *(_DWORD *)(v1 + 13304) = 1;
+            gbSystemDBCSFontEnabled = 1;
+            gbAnyLinkedFonts = 1;
           }
-          EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-          GreReleaseSemaphoreInternal(*(_QWORD *)(v1 + 13272));
-          if ( !*(_DWORD *)(v1 + 19352) )
-            PFTOBJ::bUnloadEUDCFont(v9, (unsigned __int16 *)(v1 + 18748));
-          v2 = (_QWORD *)(v1 + 13968);
+          EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+          GreReleaseSemaphoreInternal(ghsemEUDC1);
+          if ( !gbSystemDBCSFontEnabled )
+            PFTOBJ::bUnloadEUDCFont(v4, &gawcSystemDBCSFontPath);
         }
       }
     }
   }
   else
   {
-    *(_DWORD *)(v1 + 19356) = 0;
+    bReadyToInitializeFontAssocDefault = 0;
   }
-  *(_DWORD *)(v1 + 19364) = 0;
-  *v2 = CountRegistryEntryRoutine;
-  *(_QWORD *)(v1 + 13992) = v1 + 19368;
-  *(_DWORD *)(v1 + 19368) = 0;
+  SharedQueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)CountRegistryEntryRoutine;
+  SharedQueryTable.EntryContext = &dword_1C033A094;
+  dword_1C033A094 = 0;
 }

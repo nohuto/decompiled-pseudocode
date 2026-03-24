@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x180016558
+ * XREFs of ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x18025EE64
  * Callers:
- *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016324 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E38C (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
  * Callees:
- *     sqrtf_0 @ 0x18011B95C (sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F3FDB (sqrtf_0.c)
  */
 
 float __fastcall CPathLengthOperation::SumPointDistances(CPathLengthOperation *this, unsigned int a2)

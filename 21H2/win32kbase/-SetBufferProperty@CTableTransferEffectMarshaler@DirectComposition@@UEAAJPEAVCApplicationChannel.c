@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetBufferProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02180E0
+ * XREFs of ?SetBufferProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E1E90
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215D20 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFED0 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetBufferProperty(
@@ -19,9 +19,9 @@ __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetBufferPr
 {
   unsigned int v6; // ebx
   __int64 v8; // rax
-  char *v9; // rsi
-  void *Quota; // rax
-  void *v11; // rbp
+  __int64 *v9; // rsi
+  void *v10; // rax
+  __int64 v11; // rbp
 
   v6 = 0;
   if ( a3 )
@@ -29,13 +29,13 @@ __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetBufferPr
     switch ( a3 )
     {
       case 1:
-        v8 = 136LL;
+        v8 = 128LL;
         break;
       case 2:
-        v8 = 152LL;
+        v8 = 144LL;
         break;
       case 3:
-        v8 = 168LL;
+        v8 = 160LL;
         break;
       default:
         return (unsigned int)DirectComposition::CFilterEffectMarshaler::SetBufferProperty(this, a2, a3, a4, Size, a6);
@@ -43,9 +43,9 @@ __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetBufferPr
   }
   else
   {
-    v8 = 120LL;
+    v8 = 112LL;
   }
-  v9 = (char *)this + v8;
+  v9 = (__int64 *)((char *)this + v8);
   if ( (DirectComposition::CTableTransferEffectMarshaler *)((char *)this + v8) )
   {
     if ( (Size & 3) != 0 )
@@ -54,17 +54,15 @@ __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetBufferPr
     }
     else
     {
-      Quota = (void *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(this, 260LL, Size, 1650869060);
-      v11 = Quota;
-      if ( Quota )
+      v10 = (void *)Win32AllocPoolWithQuota(Size, 0x62664344u);
+      v11 = (__int64)v10;
+      if ( v10 )
       {
-        memmove(Quota, a4, Size);
-        if ( *(_QWORD *)v9 )
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            *(char **)v9);
-        *(_QWORD *)v9 = v11;
-        *((_QWORD *)v9 + 1) = (unsigned int)(Size >> 2);
+        memmove(v10, a4, Size);
+        if ( *v9 )
+          Win32FreePool(*v9);
+        *v9 = v11;
+        v9[1] = (unsigned int)(Size >> 2);
         *a6 = 1;
       }
       else

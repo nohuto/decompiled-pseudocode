@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterContainerNotification @ 0x140937460
+ * XREFs of IoUnregisterContainerNotification @ 0x140894C80
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14025DE40 (ExUnregisterCallback.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
@@ -29,7 +29,7 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
     v3 = (PVOID *)*v3;
     if ( v4[4] == CallbackRegistration )
     {
-      ObfDereferenceObject(v4[2]);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v4[2]);
       ExUnregisterCallback(CallbackRegistration);
       v5 = (PVOID *)*v4;
       if ( *((PVOID **)*v4 + 1) != v4 || (v6 = (PVOID **)v4[1], *v6 != v4) )
@@ -41,5 +41,5 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
     }
   }
   ExReleasePushLockEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KxTryToAcquireSpinLock @ 0x14011BAB4
+ * XREFs of KxTryToAcquireSpinLock @ 0x14011BAD4
  * Callers:
- *     KeTryToAcquireSpinLockAtDpcLevel @ 0x14011BAA0 (KeTryToAcquireSpinLockAtDpcLevel.c)
- *     KdPollBreakIn @ 0x14028CB40 (KdPollBreakIn.c)
- *     KiProcessNMI @ 0x14028D790 (KiProcessNMI.c)
- *     KeFreezeExecution @ 0x140296EC8 (KeFreezeExecution.c)
- *     EtwpTraceStackKey @ 0x140315B14 (EtwpTraceStackKey.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x140317728 (EtwpCovSampTryAcquireBufferLock.c)
+ *     KeTryToAcquireSpinLockAtDpcLevel @ 0x14011BAC0 (KeTryToAcquireSpinLockAtDpcLevel.c)
+ *     KdPollBreakIn @ 0x14028CC40 (KdPollBreakIn.c)
+ *     KiProcessNMI @ 0x14028D890 (KiProcessNMI.c)
+ *     KeFreezeExecution @ 0x140296FC8 (KeFreezeExecution.c)
+ *     EtwpTraceStackKey @ 0x140315C14 (EtwpTraceStackKey.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x140317828 (EtwpCovSampTryAcquireBufferLock.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x140290E64 (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140290F64 (KiTryToAcquireSpinLockInstrumented.c)
  */
 
 char __fastcall KxTryToAcquireSpinLock(volatile signed __int32 *a1)

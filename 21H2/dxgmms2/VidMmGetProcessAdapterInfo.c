@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmGetProcessAdapterInfo @ 0x1C0018FE0
+ * XREFs of VidMmGetProcessAdapterInfo @ 0x1C0016230
  * Callers:
  *     <none>
  * Callees:

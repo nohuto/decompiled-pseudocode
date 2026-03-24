@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlEnlightenProcessor @ 0x140178660
+ * XREFs of HvlEnlightenProcessor @ 0x140178680
  * Callers:
- *     HvlpInitializeBootProcessor @ 0x140271FB0 (HvlpInitializeBootProcessor.c)
+ *     HvlpInitializeBootProcessor @ 0x1402720B0 (HvlpInitializeBootProcessor.c)
  *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlpGetLpIndexFromProcessorIndex @ 0x140271E3C (HvlpGetLpIndexFromProcessorIndex.c)
- *     HvlpGetLpcbByLpIndex @ 0x140271EAC (HvlpGetLpcbByLpIndex.c)
- *     HvlpSetupSchedulerAssist @ 0x140272DFC (HvlpSetupSchedulerAssist.c)
- *     HvlpGetRegister64 @ 0x140278A08 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140278AF4 (HvlpSetRegister64.c)
- *     HvlpDiscoverTopologyLocal @ 0x1408179B8 (HvlpDiscoverTopologyLocal.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlpGetLpIndexFromProcessorIndex @ 0x140271F3C (HvlpGetLpIndexFromProcessorIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140271FAC (HvlpGetLpcbByLpIndex.c)
+ *     HvlpSetupSchedulerAssist @ 0x140272EFC (HvlpSetupSchedulerAssist.c)
+ *     HvlpGetRegister64 @ 0x140278B08 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140278BF4 (HvlpSetRegister64.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140817998 (HvlpDiscoverTopologyLocal.c)
  */
 
 void __fastcall HvlEnlightenProcessor(char a1)

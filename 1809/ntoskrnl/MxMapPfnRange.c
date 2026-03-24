@@ -4,7 +4,7 @@
  *     MiCreateSparsePfnDatabase @ 0x1409BB4A4 (MiCreateSparsePfnDatabase.c)
  * Callees:
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x14017F28C (MiRestrictRangeToNode.c)
+ *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
  *     MxMapVa @ 0x1409BB8F8 (MxMapVa.c)
  */
 

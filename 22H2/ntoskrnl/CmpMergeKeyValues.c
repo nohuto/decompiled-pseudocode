@@ -1,141 +1,115 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x140A22388
+ * XREFs of CmpMergeKeyValues @ 0x1408794D0
  * Callers:
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
- *     CmpCopySyncTree2 @ 0x140A21558 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1408785E0 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpFindNameInListWithStatus @ 0x1406D2824 (CmpFindNameInListWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpInitializeValueNameString @ 0x140708514 (CmpInitializeValueNameString.c)
- *     CmpAddValueToListEx @ 0x140709B64 (CmpAddValueToListEx.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpCopyValue @ 0x1408ABE64 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x140A22E84 (CmpSyncKeyValues.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpInitializeValueNameString @ 0x14066F2E8 (CmpInitializeValueNameString.c)
+ *     CmpAddValueToListEx @ 0x1406E0254 (CmpAddValueToListEx.c)
+ *     CmpFindNameInList @ 0x1406E23E8 (CmpFindNameInList.c)
+ *     CmpCopyValue @ 0x140878D70 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x140879E7C (CmpSyncKeyValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 CmpMergeKeyValues(ULONG_PTR BugCheckParameter3, int a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, ...)
+char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, __int64 a6)
 {
-  unsigned int v5; // r15d
-  __int64 v7; // rax
-  unsigned int v9; // ecx
+  char v6; // bl
+  __int64 v8; // rax
   unsigned int v10; // ecx
-  int NameInListWithStatus; // ebx
-  unsigned int v12; // r14d
-  ULONG_PTR v13; // rdx
-  unsigned int v14; // r13d
-  __int64 CellFlat; // rax
-  __int64 v16; // r12
+  unsigned int v11; // ecx
+  unsigned int *v12; // r13
+  PVOID PoolWithTag; // rax
+  unsigned int v14; // r14d
+  void *v15; // r12
+  __int64 v16; // rdx
   unsigned int *v17; // rsi
-  ULONG_PTR v18; // rdx
+  unsigned int v18; // r15d
   ULONG_PTR v19; // rax
-  __int16 v21; // [rsp+30h] [rbp-40h]
-  __int64 v22; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-28h] BYREF
-  unsigned int *v24; // [rsp+50h] [rbp-20h]
-  PPRIVILEGE_SET Privileges; // [rsp+58h] [rbp-18h]
-  __int128 v26; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v27; // [rsp+B8h] [rbp+48h] BYREF
-  __int64 v28; // [rsp+C0h] [rbp+50h] BYREF
-  ULONG_PTR BugCheckParameter3a; // [rsp+C8h] [rbp+58h]
-  __int64 v30; // [rsp+D8h] [rbp+68h] BYREF
-  va_list va; // [rsp+D8h] [rbp+68h]
-  va_list va1; // [rsp+E0h] [rbp+70h] BYREF
+  bool v20; // zf
+  void (__fastcall *v21)(__int64, _DWORD *); // rax
+  int v22; // eax
+  _DWORD v24[2]; // [rsp+40h] [rbp-20h] BYREF
+  _DWORD v25[2]; // [rsp+48h] [rbp-18h] BYREF
+  __int128 v26; // [rsp+50h] [rbp-10h] BYREF
+  int v27; // [rsp+A8h] [rbp+48h] BYREF
+  unsigned int v28; // [rsp+B0h] [rbp+50h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+B8h] [rbp+58h]
 
-  va_start(va1, a5);
-  va_start(va, a5);
-  v30 = va_arg(va1, _QWORD);
-  BugCheckParameter3a = a4;
-  LODWORD(v27) = a2;
-  v5 = 0;
-  v7 = v30;
-  v23 = 0xFFFFFFFFLL;
-  v22 = 0xFFFFFFFFLL;
-  v9 = a3[15];
-  LODWORD(v28) = 0;
-  LODWORD(v27) = 0;
+  BugCheckParameter2 = a4;
+  v27 = a2;
+  v6 = 0;
+  v25[1] = 0;
+  v24[1] = 0;
+  v8 = a6;
+  v25[0] = -1;
+  v24[0] = -1;
+  v10 = a3[15];
+  v27 = 0;
+  v28 = 0;
   v26 = 0LL;
-  if ( *(_DWORD *)(v30 + 60) < v9 )
-    *(_DWORD *)(v30 + 60) = v9;
-  v10 = a3[16];
-  if ( *(_DWORD *)(v7 + 64) < v10 )
-    *(_DWORD *)(v7 + 64) = v10;
-  v24 = (unsigned int *)(v7 + 36);
-  if ( *(_DWORD *)(v7 + 36) )
+  if ( *(_DWORD *)(a6 + 60) < v10 )
+    *(_DWORD *)(a6 + 60) = v10;
+  v11 = a3[16];
+  if ( *(_DWORD *)(v8 + 64) < v11 )
+    *(_DWORD *)(v8 + 64) = v11;
+  v12 = (unsigned int *)(v8 + 36);
+  if ( *(_DWORD *)(v8 + 36) )
   {
-    v12 = a3[9];
-    if ( !v12 )
-      return 0;
-    Privileges = (PPRIVILEGE_SET)CmpAllocatePool(256LL, 0x7FFFLL, 538987843LL);
-    if ( Privileges )
+    v14 = a3[9];
+    if ( v14 )
     {
-      v13 = (unsigned int)a3[10];
-      v14 = a5 >> 31;
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(BugCheckParameter3, v13, &v23);
-      else
-        CellFlat = HvpGetCellPaged(BugCheckParameter3, v13, (unsigned int *)&v23);
-      v16 = CellFlat;
-      v17 = (unsigned int *)CellFlat;
-      while ( 1 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x7FFFuLL, 0x20204D43u);
+      v15 = PoolWithTag;
+      if ( !PoolWithTag )
+        return (char)PoolWithTag;
+      v16 = (unsigned int)a3[10];
+      LODWORD(a6) = a5 >> 31;
+      v17 = (unsigned int *)(*(__int64 (__fastcall **)(__int64, __int64, _DWORD *))(a1 + 8))(a1, v16, v25);
+      if ( v17 )
       {
-        v18 = *v17;
-        v19 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0
-            ? HvpGetCellFlat(BugCheckParameter3, v18, &v22)
-            : HvpGetCellPaged(BugCheckParameter3, v18, (unsigned int *)&v22);
-        CmpInitializeValueNameString(v19, (__int64)&v26, (__int64)Privileges);
-        NameInListWithStatus = CmpFindNameInListWithStatus(
-                                 BugCheckParameter3a,
-                                 v24,
-                                 (__int64)&v26,
-                                 0,
-                                 (__int64)&v27,
-                                 (__int64)va);
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(BugCheckParameter3, &v22);
-        else
-          HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v22);
-        if ( NameInListWithStatus < 0 )
+        v18 = 0;
+        while ( 1 )
         {
-          if ( NameInListWithStatus != -1073741772 )
+          v19 = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8))(a1, *v17, v24);
+          if ( !v19 )
             break;
-          NameInListWithStatus = CmpCopyValue(BugCheckParameter3, *v17, BugCheckParameter3a, v14, (unsigned int *)&v28);
-          if ( NameInListWithStatus < 0 )
+          CmpInitializeValueNameString(v19, (__int64)&v26, (__int64)v15);
+          v20 = !CmpFindNameInList(BugCheckParameter2, v12, (__int64)&v26, 0, (__int64)&v28, (__int64)&v27);
+          v21 = *(void (__fastcall **)(__int64, _DWORD *))(a1 + 16);
+          if ( v20 )
+          {
+            v21(a1, v24);
             break;
-          NameInListWithStatus = CmpAddValueToListEx(BugCheckParameter3a, v28, v27, v14, v24, 1);
-          if ( NameInListWithStatus < 0 )
+          }
+          v21(a1, v24);
+          if ( v27 == -1 )
+          {
+            v22 = CmpCopyValue(a1, *v17, BugCheckParameter2, a6);
+            if ( v22 == -1 || (int)CmpAddValueToListEx(BugCheckParameter2, v22, v28, a6, v12, 1) < 0 )
+              break;
+          }
+          ++v18;
+          ++v17;
+          if ( v18 >= v14 )
+          {
+            v6 = 1;
             break;
+          }
         }
-        ++v5;
-        ++v17;
-        if ( v5 >= v12 )
-        {
-          NameInListWithStatus = 0;
-          break;
-        }
+        (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v25);
       }
-      if ( v16 )
-      {
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(BugCheckParameter3, &v23);
-        else
-          HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v23);
-      }
-      CmSiFreeMemory(Privileges);
+      ExFreePoolWithTag(v15, 0);
     }
     else
     {
-      return (unsigned int)-1073741670;
+      v6 = 1;
     }
+    LOBYTE(PoolWithTag) = v6;
+    return (char)PoolWithTag;
   }
-  else
-  {
-    NameInListWithStatus = CmpSyncKeyValues(BugCheckParameter3, a5, v7, v21);
-    if ( NameInListWithStatus >= 0 )
-      return 0;
-  }
-  return (unsigned int)NameInListWithStatus;
+  LOBYTE(PoolWithTag) = CmpSyncKeyValues(a1, a2, a3, a4, a5);
+  return (char)PoolWithTag;
 }

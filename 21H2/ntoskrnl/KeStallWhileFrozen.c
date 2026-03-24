@@ -1,12 +1,12 @@
 /*
- * XREFs of KeStallWhileFrozen @ 0x140573650
+ * XREFs of KeStallWhileFrozen @ 0x14051DAE0
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckStall @ 0x140302560 (KiCheckStall.c)
+ *     KiCheckStall @ 0x14051DD20 (KiCheckStall.c)
  */
 
 __int64 KeStallWhileFrozen()
 {
-  return KiCheckStall((__int64)KeGetCurrentPrcb(), 0);
+  return KiCheckStall(KeGetCurrentPrcb(), 0LL);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of PopWriteHiberPages @ 0x140AA5AA4
+ * XREFs of PopWriteHiberPages @ 0x1409916A0
  * Callers:
- *     PopWriteSecurePages @ 0x14058F060 (PopWriteSecurePages.c)
- *     PopWriteSecurePagesCallback @ 0x14058F108 (PopWriteSecurePagesCallback.c)
- *     PopWriteChecksumPages @ 0x140AA5610 (PopWriteChecksumPages.c)
- *     PopWriteHeaderPages @ 0x140AA56A8 (PopWriteHeaderPages.c)
- *     PopWriteImageHeader @ 0x140AA5D58 (PopWriteImageHeader.c)
+ *     PopWriteSecurePages @ 0x14056F2F8 (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x14056F3A0 (PopWriteSecurePagesCallback.c)
+ *     PopWriteHeaderPages @ 0x140991478 (PopWriteHeaderPages.c)
+ *     PopWriteChecksumPages @ 0x1409B1DC8 (PopWriteChecksumPages.c)
+ *     PopWriteImageHeader @ 0x1409B1E60 (PopWriteImageHeader.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _PopInternalError @ 0x140583758 (_PopInternalError.c)
- *     MmGetNumberOfPhysicalPages @ 0x1407B9EA0 (MmGetNumberOfPhysicalPages.c)
- *     PopGetIoLocation @ 0x140AA2DEC (PopGetIoLocation.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140AA2E7C (PopGetRemainingHibernateRangeDataSize.c)
- *     PopRecordHibernateDiagnosticInfo @ 0x140AA3B50 (PopRecordHibernateDiagnosticInfo.c)
- *     PopCheckpointSystemSleep @ 0x140AAA5A8 (PopCheckpointSystemSleep.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PopInternalError @ 0x1405652B8 (_PopInternalError.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406C8500 (MmGetNumberOfPhysicalPages.c)
+ *     PopCheckpointSystemSleep @ 0x140993C64 (PopCheckpointSystemSleep.c)
+ *     PopGetIoLocation @ 0x1409948D8 (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B13D4 (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x1409B18A4 (PopRecordHibernateDiagnosticInfo.c)
  */
 
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -26,19 +26,19 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   __int64 v6; // rsi
   __int64 result; // rax
   ULONG_PTR BugCheckParameter4; // rdi
-  unsigned __int64 v10; // r12
+  __int64 v10; // r12
   unsigned __int64 v11; // r14
   unsigned int v12; // ecx
   __int64 v13; // r8
   unsigned __int64 v14; // r15
-  int v15; // eax
-  __int64 v16; // rbx
+  __int64 v15; // rbx
   unsigned int i; // esi
-  unsigned __int64 v18; // rbx
-  int v19; // ecx
-  unsigned __int64 v20; // rax
+  unsigned __int64 v17; // rbx
+  int v18; // ecx
+  unsigned __int64 v19; // rax
+  int v20; // eax
   unsigned __int64 v21; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int64 IoLocation; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 IoLocation; // [rsp+40h] [rbp-C0h] BYREF
   ULONG MaxDataSize[2]; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v24; // [rsp+50h] [rbp-B0h]
   __int64 v25; // [rsp+58h] [rbp-A8h]
@@ -53,11 +53,11 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   v21 = 0LL;
   IoLocation = 0LL;
   if ( (PopWatchdogTimerCount & 0x1F) == 0 )
-    result = off_140C01CD0[0]();
+    result = off_140C008C0[0]();
   ++PopWatchdogTimerCount;
   if ( *(int *)(v6 + 188) >= 0 )
   {
-    if ( (a4 + a3) << 12 > qword_140C3D010 )
+    if ( (a4 + a3) << 12 > qword_140C23E50 )
     {
       PopCheckpointSystemSleep(22LL);
       if ( (unsigned int)(*(_DWORD *)(v6 + 184) - 4) <= 1 )
@@ -66,10 +66,10 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)8);
       PopRecordHibernateDiagnosticInfo(v6);
       IoAddTriageDumpDataBlock((ULONG)&PopHibernateDiagnosticInfo, (PVOID)0x80);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C3D010, *(unsigned int *)(v6 + 184), BugCheckParameter4);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C23E50, *(unsigned int *)(v6 + 184), BugCheckParameter4);
     }
     if ( a3 > 0xFFFFFFFFFFFFFLL )
-      PopInternalError(0xA23B4uLL);
+      PopInternalError(0xA2044uLL);
     result = *(_QWORD *)(v6 + 160);
     v10 = a4 << 12;
     v26 = result;
@@ -84,9 +84,9 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       v14 = ((unsigned __int64)v12 + v13 + 4095) >> 12;
       if ( v14 > 0x10 )
       {
-        v15 = v14 - 16;
+        v20 = v14 - 16;
         v14 = 16LL;
-        v12 -= v15 << 12;
+        v12 -= v20 << 12;
       }
       v25 = v12;
       v27[0] = 0LL;
@@ -98,26 +98,26 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       WORD1(v27[1]) = 1;
       if ( v14 )
       {
-        v16 = 0LL;
-        for ( i = 0; i < v14; v16 = i )
+        v15 = 0LL;
+        for ( i = 0; i < v14; v15 = i )
         {
           ++i;
-          v27[v16 + 6] = (unsigned __int64)MmGetPhysicalAddress((PVOID)(a2 + (v16 << 12))).QuadPart >> 12;
+          v27[v15 + 6] = (unsigned __int64)MmGetPhysicalAddress((PVOID)(a2 + (v15 << 12))).QuadPart >> 12;
         }
         v6 = v24;
       }
-      v18 = __rdtsc();
-      v19 = (*(__int64 (__fastcall **)(unsigned __int64 *, _QWORD *))(*(_QWORD *)(v6 + 168) + 64LL))(&IoLocation, v27);
-      v20 = __rdtsc();
-      dword_140C3D570 += v14;
-      qword_140C3D398 += (((unsigned __int64)HIDWORD(v20) << 32) | (unsigned int)v20) - v18;
+      v17 = __rdtsc();
+      v18 = (*(__int64 (__fastcall **)(__int64 *, _QWORD *))(*(_QWORD *)(v6 + 168) + 64LL))(&IoLocation, v27);
+      v19 = __rdtsc();
+      dword_140C24170 += v14;
+      qword_140C23F98 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
       result = v25;
       v11 -= v25;
       v10 += v25;
       a2 += v25;
-      if ( v19 < 0 )
+      if ( v18 < 0 )
       {
-        *(_DWORD *)(v6 + 188) = v19;
+        *(_DWORD *)(v6 + 188) = v18;
         return result;
       }
       result = v26;

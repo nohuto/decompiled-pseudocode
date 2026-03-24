@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0068B14
+ * XREFs of ?GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0090110
  * Callers:
- *     ?GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0068A58 (-GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
+ *     ?GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0090BB0 (-GetMonitorCapability@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
  * Callees:
- *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C0068FAC (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C00905A4 (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetMonitorCapability1(
@@ -30,8 +30,8 @@ __int64 __fastcall GetMonitorCapability1(
   __int64 v21; // r15
   int v22; // esi
   unsigned __int8 v23; // al
-  unsigned __int8 v24; // r9
-  unsigned __int8 v25; // dl
+  unsigned __int8 v24; // dl
+  unsigned __int8 v25; // r9
   int v26; // r14d
   int v27; // r11d
   unsigned int v28; // eax
@@ -213,7 +213,7 @@ __int64 __fastcall GetMonitorCapability1(
     v14[1] = -1;
     *(v14 - 1) = v8;
     *v14 = 0;
-    if ( ((a1[36 - i / 7u] >> (i % 7u)) & 1) != 0 )
+    if ( ((a1[36 - i / 7] >> (i % 7)) & 1) != 0 )
       inserted = InsertModecapList((struct tagModeCap *)(v14 - 4), a2, inserted);
     v14 += 6;
   }
@@ -255,12 +255,12 @@ __int64 __fastcall GetMonitorCapability1(
       {
         v28 = 10000
             * (v22 + (*v20 << 8))
-            / ((v27 + ((v24 & 0xF) << 8) + v20[5])
-             * (v26 + ((v23 & 0xF) << 8) + (unsigned int)v20[2]));
+            / ((v26 + ((v23 & 0xF) << 8) + v20[2])
+             * (v27 + ((v24 & 0xF) << 8) + (unsigned int)v20[5]));
         DWORD2(v40) = 10000
                     * (v22 + (*v20 << 8))
-                    / ((v27 + ((v24 & 0xF) << 8) + v20[5])
-                     * (v26 + ((v25 & 0xF) << 8) + (unsigned int)v20[2]));
+                    / ((v26 + ((v25 & 0xF) << 8) + v20[2])
+                     * (v27 + ((v24 & 0xF) << 8) + (unsigned int)v20[5]));
         if ( (v20[16] & 0x80u) != 0 )
           DWORD2(v40) = v28 >> 1;
         inserted = InsertModecapList((struct tagModeCap *)&v40, a2, inserted);

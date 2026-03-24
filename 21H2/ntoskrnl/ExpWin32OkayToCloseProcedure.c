@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32OkayToCloseProcedure @ 0x1406C0100
+ * XREFs of ExpWin32OkayToCloseProcedure @ 0x1406A1690
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
  */
 
 bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, char a4)
@@ -11,7 +11,7 @@ bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, ch
   int v5; // ebx
   unsigned __int64 v6; // rdx
   POBJECT_TYPE *v7; // rax
-  __int64 v8; // rcx
+  int v8; // ecx
   _QWORD v10[3]; // [rsp+20h] [rbp-20h] BYREF
   char v11; // [rsp+38h] [rbp-8h]
   int v12; // [rsp+39h] [rbp-7h]
@@ -32,34 +32,34 @@ bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, ch
   v7 = (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v6];
   if ( v7 == (POBJECT_TYPE *)ExActivationObjectType )
   {
-    v8 = 38LL;
+    v8 = 38;
     goto LABEL_9;
   }
   if ( v7 == (POBJECT_TYPE *)ExCoreMessagingObjectType )
   {
-    v8 = 34LL;
+    v8 = 34;
     goto LABEL_9;
   }
   if ( v7 == (POBJECT_TYPE *)ExRawInputManagerObjectType )
   {
-    v8 = 28LL;
+    v8 = 28;
     goto LABEL_9;
   }
   if ( v7 == (POBJECT_TYPE *)ExCompositionObjectType )
   {
-    v8 = 19LL;
+    v8 = 19;
     goto LABEL_9;
   }
   if ( v7 == ExDesktopObjectType )
   {
-    v8 = 9LL;
+    v8 = 9;
     goto LABEL_9;
   }
   if ( v7 == (POBJECT_TYPE *)ExWindowStationObjectType )
   {
-    v8 = 12LL;
+    v8 = 12;
 LABEL_9:
-    v5 = PsInvokeWin32Callout(v8, v10, 1LL, &v15);
+    v5 = PsInvokeWin32Callout(v8, (__int64)v10, 1, (__int64)&v15);
   }
   return v5 >= 0;
 }

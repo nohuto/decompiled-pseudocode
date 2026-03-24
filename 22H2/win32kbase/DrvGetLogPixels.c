@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvGetLogPixels @ 0x1C00C4C40
+ * XREFs of DrvGetLogPixels @ 0x1C00B86D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DrvGetLogPixels(__int64 a1)
+__int64 DrvGetLogPixels()
 {
-  return *(unsigned __int16 *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 1248LL);
+  return gdmLogPixels;
 }

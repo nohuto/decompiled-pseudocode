@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x14039DE70
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x140390430
  * Callers:
  *     <none>
  * Callees:
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039DECC (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x140549468 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1405496F8 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039048C (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1404F769C (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F791C (HvlpSlowSendSyntheticClusterIpiEx.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -33,7 +33,7 @@ __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2, __int64 a3
     v8 = *(_QWORD *)(v6 + 8);
     if ( !HvlpVirtualProcessorsIdentityMapped )
     {
-      for ( i = &unk_140D0CBD3; ; i += 4 )
+      for ( i = &unk_140D006C3; ; i += 4 )
       {
         if ( (v8 & 1) != 0 )
           v7 |= 1LL << *(i - 2);

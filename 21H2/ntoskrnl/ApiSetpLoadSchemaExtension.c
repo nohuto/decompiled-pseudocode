@@ -1,21 +1,21 @@
 /*
- * XREFs of ApiSetpLoadSchemaExtension @ 0x140A0A848
+ * XREFs of ApiSetpLoadSchemaExtension @ 0x14095EB80
  * Callers:
- *     ApiSetpLoadSchemaExtensions @ 0x140A0A95C (ApiSetpLoadSchemaExtensions.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x14095EC94 (ApiSetpLoadSchemaExtensions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ApiSetComposeSchema @ 0x14064717C (ApiSetComposeSchema.c)
- *     ApiSetLoadSchemaEx @ 0x140A0A574 (ApiSetLoadSchemaEx.c)
- *     ApiSetpConstructPathToExtension @ 0x140A0A718 (ApiSetpConstructPathToExtension.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
+ *     ApiSetLoadSchemaEx @ 0x14095E8B4 (ApiSetLoadSchemaEx.c)
+ *     ApiSetpConstructPathToExtension @ 0x14095EA50 (ApiSetpConstructPathToExtension.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ApiSetpLoadSchemaExtension(void *a1, unsigned int **a2, unsigned int *a3)
+__int64 __fastcall ApiSetpLoadSchemaExtension(void *a1, _DWORD **a2, unsigned int *a3)
 {
   int v5; // ebx
   ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
-  size_t v8; // [rsp+38h] [rbp-C8h] BYREF
+  SIZE_T v8; // [rsp+38h] [rbp-C8h] BYREF
   _DWORD *v9; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING v11; // [rsp+58h] [rbp-A8h] BYREF

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpEarlyLaunchImageNotificationPreProcess @ 0x140B678F0
+ * XREFs of PnpEarlyLaunchImageNotificationPreProcess @ 0x140A6AD90
  * Callers:
  *     <none>
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1403229A0 (PnpDiagnosticTraceObject.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
+ *     PnpDiagnosticTraceObject @ 0x1403645B8 (PnpDiagnosticTraceObject.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
  */
 
 NTSTATUS __fastcall PnpEarlyLaunchImageNotificationPreProcess(

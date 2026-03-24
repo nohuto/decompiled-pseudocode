@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C0063F94
+ * XREFs of ?GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C00B41C8
  * Callers:
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00624B4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
- *     DrvGetCurrentDpiInfoFromHDev @ 0x1C005E15C (DrvGetCurrentDpiInfoFromHDev.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C0010A40 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall GetMonitorLogicalDPI(__int64 a1)

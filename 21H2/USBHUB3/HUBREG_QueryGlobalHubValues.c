@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_QueryGlobalHubValues @ 0x1C00800F0
+ * XREFs of HUBREG_QueryGlobalHubValues @ 0x1C007EB84
  * Callers:
- *     DriverEntry @ 0x1C008C008 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
@@ -79,7 +79,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
         2u,
         2u,
         0x2Bu,
-        (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v5);
     }
   }
@@ -235,7 +235,7 @@ LABEL_56:
                2u,
                2u,
                v4,
-               (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+               (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
                v5);
     goto LABEL_57;
   }

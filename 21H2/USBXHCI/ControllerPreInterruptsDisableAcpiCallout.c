@@ -1,12 +1,12 @@
 /*
- * XREFs of ControllerPreInterruptsDisableAcpiCallout @ 0x1C000C9B4
+ * XREFs of ControllerPreInterruptsDisableAcpiCallout @ 0x1C000A6F4
  * Callers:
- *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000C790 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
+ *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000A530 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014644 (WPP_RECORDER_SF_qd.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ControllerPreInterruptsDisableAcpiCallout(__int64 a1)
@@ -32,20 +32,23 @@ __int64 __fastcall ControllerPreInterruptsDisableAcpiCallout(__int64 a1)
   int v20; // [rsp+90h] [rbp+27h] BYREF
   __int128 v21; // [rsp+94h] [rbp+2Bh]
 
-  v19 = 0LL;
   v15 = 0;
+  v18 = 0;
   v10 = 0;
+  v13 = 0;
+  v19 = 0LL;
+  v21 = 0LL;
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
              WdfDriverGlobals,
              a1,
-             off_1C00613D8);
+             off_1C00603D8);
   v4 = *(_QWORD *)(result + 8);
-  if ( _bittest64((const signed __int64 *)(v4 + 336), 0x36u) )
+  if ( (*(_QWORD *)(v4 + 336) & 0x40000000000000LL) != 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v3) = 4;
-      WPP_RECORDER_SF_i(*(_QWORD *)(v4 + 72), v3, 4, 79, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, a1);
+      WPP_RECORDER_SF_i(*(_QWORD *)(v4 + 72), v3, 4, 79, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, a1);
     }
     v15 = 0;
     v18 = 0;
@@ -91,7 +94,7 @@ __int64 __fastcall ControllerPreInterruptsDisableAcpiCallout(__int64 a1)
                v6,
                4,
                v7,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                a1);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -102,7 +105,7 @@ __int64 __fastcall ControllerPreInterruptsDisableAcpiCallout(__int64 a1)
                v6,
                4,
                80,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                a1,
                result);
     }

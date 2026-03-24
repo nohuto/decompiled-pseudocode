@@ -1,192 +1,190 @@
 /*
- * XREFs of GreAngleArc @ 0x1C02AB948
+ * XREFs of GreAngleArc @ 0x1C029F740
  * Callers:
- *     NtGdiAngleArc @ 0x1C02C1EA0 (NtGdiAngleArc.c)
+ *     NtGdiAngleArc @ 0x1C02ADBB0 (NtGdiAngleArc.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C015A7AA (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
- *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0284824 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0285B9C (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ?lGetQuadrant@@YAJAEAVEPOINTFL@@@Z @ 0x1C02AB8A0 (-lGetQuadrant@@YAJAEAVEPOINTFL@@@Z.c)
- *     ??0EBOX@@QEAA@AEAVEXFORMOBJ@@AEAU_RECTL@@@Z @ 0x1C02C5644 (--0EBOX@@QEAA@AEAVEXFORMOBJ@@AEAU_RECTL@@@Z.c)
- *     ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02C58D4 (-bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z.c)
- *     ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02C6290 (-vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z.c)
- *     ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C6424 (-vCosSin@@YAXVEFLOAT@@PEAV1@1@Z.c)
- *     ?vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C65A4 (-vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0144B70 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C0145870 (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C01468E4 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?lGetQuadrant@@YAJAEAVEPOINTFL@@@Z @ 0x1C029F6DC (-lGetQuadrant@@YAJAEAVEPOINTFL@@@Z.c)
+ *     ??0EBOX@@QEAA@AEAVEXFORMOBJ@@AEAU_RECTL@@@Z @ 0x1C02AFE44 (--0EBOX@@QEAA@AEAVEXFORMOBJ@@AEAU_RECTL@@@Z.c)
+ *     ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02B00E4 (-bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z.c)
+ *     ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02B06E4 (-vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z.c)
+ *     ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0890 (-vCosSin@@YAXVEFLOAT@@PEAV1@1@Z.c)
+ *     ?vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0A28 (-vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z.c)
  */
 
-__int64 __fastcall GreAngleArc(HDC a1, int a2, int a3, int a4, unsigned int a5, float a6)
+__int64 __fastcall GreAngleArc(HDC a1, int a2, int a3, int a4, unsigned int a5, unsigned int a6)
 {
   POINTL *v9; // rcx
   POINTL v10; // rdx
   int v11; // r14d
-  unsigned int v12; // r14d
-  float v13; // xmm7_4
-  __m128i v14; // xmm6
+  unsigned int v12; // ebx
+  __m128 v13; // xmm6
+  __m128i v14; // xmm7
+  __m128i v15; // xmm8
   LONG top; // ecx
-  unsigned int v16; // r13d
-  char v17; // bl
-  __m128i v18; // xmm2
+  unsigned int v17; // r13d
+  char v18; // di
   int v19; // r12d
-  __m128i v20; // xmm7
-  float v21; // xmm2_4
-  BOOL IsZero; // eax
-  float v23; // edi
-  float v24; // eax
-  char v25; // si
-  int v26; // esi
-  int v27; // edi
-  int v28; // ebx
-  int v29; // r15d
+  BOOL IsZero; // ecx
+  float v21; // esi
+  float v22; // eax
+  char v23; // r14
+  int v24; // r14d
+  int v25; // esi
+  int v26; // edi
+  int v27; // r15d
   _QWORD *Current; // rax
-  ULONG v32; // ecx
-  float v33; // [rsp+58h] [rbp-B0h] BYREF
-  float v34; // [rsp+5Ch] [rbp-ACh] BYREF
-  unsigned int v35; // [rsp+60h] [rbp-A8h] BYREF
-  struct _RECTL v36; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned int v37; // [rsp+78h] [rbp-90h] BYREF
-  unsigned int v38; // [rsp+7Ch] [rbp-8Ch] BYREF
-  POINTL *v39[2]; // [rsp+80h] [rbp-88h] BYREF
-  _BYTE v40[32]; // [rsp+90h] [rbp-78h] BYREF
-  struct _XFORMOBJ v41; // [rsp+B0h] [rbp-58h] BYREF
-  _BYTE v42[80]; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v29; // r8
+  ULONG v30; // ecx
+  float v32; // [rsp+58h] [rbp-B0h] BYREF
+  float v33; // [rsp+5Ch] [rbp-ACh] BYREF
+  unsigned int v34; // [rsp+60h] [rbp-A8h] BYREF
+  struct _RECTL v35; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned int v36; // [rsp+78h] [rbp-90h] BYREF
+  unsigned int v37; // [rsp+7Ch] [rbp-8Ch] BYREF
+  POINTL *v38[2]; // [rsp+80h] [rbp-88h] BYREF
+  _BYTE v39[32]; // [rsp+90h] [rbp-78h] BYREF
+  struct _XFORMOBJ v40; // [rsp+B0h] [rbp-58h] BYREF
+  _BYTE v41[80]; // [rsp+C8h] [rbp-40h] BYREF
   PATHOBJ ppo; // [rsp+118h] [rbp+10h] BYREF
-  __int64 v44; // [rsp+120h] [rbp+18h]
+  __int64 v43; // [rsp+120h] [rbp+18h]
+  _BYTE v44[32]; // [rsp+168h] [rbp+60h] BYREF
+  int v45; // [rsp+188h] [rbp+80h]
 
-  v33 = 0.0;
-  DCOBJ::DCOBJ((DCOBJ *)v39, a1);
-  v9 = v39[0];
-  if ( !v39[0] || (v39[0][4].y & 0x10000) != 0 )
+  v32 = 0.0;
+  DCOBJ::DCOBJ((DCOBJ *)v38, a1);
+  v9 = v38[0];
+  if ( !v38[0] || (v38[0][4].y & 0x10000) != 0 )
   {
-    v32 = 6;
-    goto LABEL_43;
+    v30 = 6;
+    goto LABEL_41;
   }
-  v10 = v39[0][122];
+  v10 = v38[0][122];
   v11 = *(_DWORD *)(*(_QWORD *)&v10 + 152LL);
   if ( (v11 & 0x1000) != 0 )
   {
-    GreDCSelectBrush(v39[0], *(_QWORD *)(*(_QWORD *)&v10 + 160LL));
-    v9 = v39[0];
+    GreDCSelectBrush(v38[0], *(_QWORD *)(*(_QWORD *)&v10 + 160LL));
+    v9 = v38[0];
   }
   if ( (v11 & 0x2000) != 0 )
     GreDCSelectPen(v9, *(_QWORD *)(*(_QWORD *)&v9[122] + 168LL));
-  v36.right = a4 + a2;
-  v36.left = a2 - a4;
-  v36.top = a3 - a4;
-  v36.bottom = a4 + a3;
-  if ( a4 < 0 || a2 - a4 > a2 || a4 + a2 < a2 || a3 - a4 > a3 || a4 + a3 < a3 )
+  v35.right = a2 + a4;
+  v35.left = a2 - a4;
+  v35.top = a3 - a4;
+  v35.bottom = a4 + a3;
+  if ( a4 < 0 || a2 - a4 > a2 || a2 + a4 < a2 || a3 - a4 > a3 || a4 + a3 < a3 )
   {
-    v32 = 87;
-LABEL_43:
-    EngSetLastError(v32);
-    goto LABEL_44;
+    v30 = 87;
+LABEL_41:
+    EngSetLastError(v30);
+    v12 = 0;
+    goto LABEL_42;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v41, (struct XDCOBJ *)v39, 516);
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v40, (struct XDCOBJ *)v38, 516);
   v12 = 1;
-  PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)&ppo, (DC **)v39, 1);
-  if ( !v44 )
-    goto LABEL_40;
-  ERECTL::vOrder((ERECTL *)&v36);
-  v13 = a6;
-  v14 = (__m128i)a5;
-  v35 = a5;
-  if ( a6 < 0.0 )
+  PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)&ppo, (DC **)v38, 1);
+  if ( !v43 )
+    goto LABEL_36;
+  ERECTL::vOrder((ERECTL *)&v35);
+  v13.m128_i32[0] = a5;
+  v14 = (__m128i)a6;
+  v15 = (__m128i)a5;
+  v34 = a5;
+  if ( *(float *)&a6 < 0.0 )
   {
-    top = v36.top;
-    v14 = (__m128i)_mm_xor_ps((__m128)a5, (__m128)_xmm);
-    LODWORD(v13) = LODWORD(a6) ^ _xmm;
-    v35 = v14.m128i_i32[0];
-    v36.top = v36.bottom;
-    v36.bottom = top;
+    v13 = _mm_xor_ps((__m128)a5, (__m128)_xmm);
+    top = v35.top;
+    v15 = (__m128i)v13;
+    v14 = (__m128i)_mm_xor_ps((__m128)a6, (__m128)_xmm);
+    v34 = v13.m128_i32[0];
+    v35.top = v35.bottom;
+    v35.bottom = top;
   }
-  EBOX::EBOX((EBOX *)v42, (struct EXFORMOBJ *)&v41, &v36);
-  v16 = 2;
-  bFToL(v13 * FP_1DIV90, (int *)&v33, 5u);
-  v17 = LOBYTE(v33);
-  v18 = v14;
-  *(float *)v18.m128i_i32 = *(float *)v14.m128i_i32 + v13;
-  v19 = SLODWORD(v33) >> 2;
-  if ( SLODWORD(v33) >> 2 > 8 )
+  EBOX::EBOX((EBOX *)v41, (struct EXFORMOBJ *)&v40, &v35);
+  v17 = 2;
+  bFToL(*(float *)v14.m128i_i32 * FP_1DIV90, (int *)&v32, 5u);
+  v18 = LOBYTE(v32);
+  *(float *)v14.m128i_i32 = *(float *)v14.m128i_i32 + v13.m128_f32[0];
+  v19 = SLODWORD(v32) >> 2;
+  if ( SLODWORD(v32) >> 2 > 8 )
     v19 = 8;
-  v20 = v18;
-  v21 = *(float *)v18.m128i_i32 - *(float *)v14.m128i_i32;
-  v33 = *(float *)v20.m128i_i32;
-  v34 = v21;
-  IsZero = EFLOAT::bIsZero((EFLOAT *)&v34);
-  if ( (float)(v21 - FP_3_0) >= 0.0 || IsZero )
+  v32 = *(float *)v14.m128i_i32;
+  v33 = *(float *)v14.m128i_i32 - v13.m128_f32[0];
+  IsZero = EFLOAT::bIsZero((EFLOAT *)&v33);
+  if ( (float)((float)(*(float *)v14.m128i_i32 - v13.m128_f32[0]) - FP_3_0) >= 0.0 || IsZero )
   {
-    vCosSin((unsigned int)_mm_cvtsi128_si32(v14), &v36, &v36.top);
-    vCosSin((unsigned int)_mm_cvtsi128_si32(v20), &v37, &v38);
+    vCosSin((unsigned int)_mm_cvtsi128_si32(v15), &v35, &v35.top);
+    vCosSin((unsigned int)_mm_cvtsi128_si32(v14), &v36, &v37);
   }
   else
   {
-    vCosSinPrecise((unsigned int)_mm_cvtsi128_si32(v14), &v36, &v36.top);
-    vCosSinPrecise((unsigned int)_mm_cvtsi128_si32(v20), &v37, &v38);
+    vCosSinPrecise((unsigned int)_mm_cvtsi128_si32(v15), &v35, &v35.top);
+    vCosSinPrecise((unsigned int)_mm_cvtsi128_si32(v14), &v36, &v37);
   }
-  LODWORD(v23) = lGetQuadrant((struct EPOINTFL *)&v36);
-  v34 = v23;
+  LODWORD(v21) = lGetQuadrant((struct EPOINTFL *)&v35);
+  v33 = v21;
+  if ( v13.m128_f32[0] > FP_3600_0 || FP_M3600_0 > v13.m128_f32[0] )
+  {
+    vArctan((unsigned int)v35.left, (unsigned int)v35.top, &v34, &v33);
+    v21 = v33;
+    v15.m128i_i32[0] = v34;
+  }
+  LODWORD(v22) = lGetQuadrant((struct EPOINTFL *)&v36);
+  v23 = LOBYTE(v22);
+  v33 = v22;
   if ( *(float *)v14.m128i_i32 > FP_3600_0 || FP_M3600_0 > *(float *)v14.m128i_i32 )
   {
-    vArctan((unsigned int)v36.left, (unsigned int)v36.top, &v35, &v34);
-    v23 = v34;
-    v14.m128i_i32[0] = v35;
+    vArctan(v36, v37, &v32, &v33);
+    v23 = LOBYTE(v33);
+    v18 = (LOBYTE(v33) - LOBYTE(v21)) & 3;
+    if ( ((LODWORD(v33) - LODWORD(v21)) & 3) == 0 && *(float *)v15.m128i_i32 > v32 )
+      v18 = 3;
   }
-  LODWORD(v24) = lGetQuadrant((struct EPOINTFL *)&v37);
-  v25 = LOBYTE(v24);
-  v34 = v24;
-  if ( *(float *)v20.m128i_i32 > FP_3600_0 || FP_M3600_0 > *(float *)v20.m128i_i32 )
-  {
-    vArctan(v37, v38, &v33, &v34);
-    v25 = LOBYTE(v34);
-    v17 = (LOBYTE(v34) - LOBYTE(v23)) & 3;
-    if ( ((LODWORD(v34) - LODWORD(v23)) & 3) == 0 && *(float *)v14.m128i_i32 > v33 )
-      v17 = 3;
-  }
-  v26 = v25 & 3;
-  v27 = LOBYTE(v23) & 3;
-  v28 = v17 & 3;
-  v29 = 0;
+  v24 = v23 & 3;
+  v25 = LOBYTE(v21) & 3;
+  v26 = v18 & 3;
+  v27 = 0;
   if ( v19 > 0 )
   {
-    while ( (unsigned int)bPartialArc(v16, &ppo, v42, &v36, v27, &v35, &v37, v26, &v33, v28)
-         && (unsigned int)bPartialArc(0LL, &ppo, v42, &v37, v26, &v33, &v36, v27, &v35, 3 - v28) )
+    while ( (unsigned int)bPartialArc(v17, &ppo, v41, &v35, v25, &v34, &v36, v24, &v32, v26)
+         && (unsigned int)bPartialArc(0LL, &ppo, v41, &v36, v24, &v32, &v35, v25, &v34, 3 - v26) )
     {
-      v16 = 0;
-      if ( ++v29 >= v19 )
+      v17 = 0;
+      if ( ++v27 >= v19 )
         goto LABEL_33;
     }
-    goto LABEL_40;
+    goto LABEL_36;
   }
 LABEL_33:
-  if ( !(unsigned int)bPartialArc(v16, &ppo, v42, &v36, v27, &v35, &v37, v26, &v33, v28) )
+  if ( !(unsigned int)bPartialArc(v17, &ppo, v41, &v35, v25, &v34, &v36, v24, &v32, v26)
+    || (*(_DWORD *)(*(_QWORD *)&v38[0][122] + 152LL) |= 0x100u,
+        *(_DWORD *)(*(_QWORD *)&v38[0][122] + 152LL) &= ~0x200u,
+        Current = (_QWORD *)EPATHOBJ::ptfxGetCurrent((EPATHOBJ *)&ppo, &v35),
+        *(_QWORD *)(v29 + 8) = *Current,
+        (v38[0][31].x & 1) == 0)
+    && !(unsigned int)EPATHOBJ::bStrokeAndOrFill(&ppo, v38, (LINEATTRS *)&v38[0][26], &v40, 1u) )
   {
-LABEL_40:
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-LABEL_44:
-    DCOBJ::~DCOBJ((DCOBJ *)v39);
-    return 0LL;
-  }
-  *(_DWORD *)(*(_QWORD *)&v39[0][122] + 152LL) |= 0x100u;
-  *(_DWORD *)(*(_QWORD *)&v39[0][122] + 152LL) &= ~0x200u;
-  Current = (_QWORD *)EPATHOBJ::ptfxGetCurrent((EPATHOBJ *)&ppo, &v36);
-  *(_QWORD *)(*(_QWORD *)&v39[0][122] + 8LL) = *Current;
-  if ( (v39[0][31].x & 1) == 0
-    && !(unsigned int)EPATHOBJ::bStrokeAndOrFill(&ppo, v39, (LINEATTRS *)&v39[0][26], &v41, 1u) )
-  {
+LABEL_36:
     v12 = 0;
   }
-  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-  if ( v39[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v39);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v40);
+  EPATHOBJ::vUnlock((EPATHOBJ *)&ppo);
+  if ( v45 )
+  {
+    PopThreadGuardedObject(v44);
+    v45 = 0;
+  }
+LABEL_42:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v38);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v39);
   return v12;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x1405FB648
+ * XREFs of SmKmEtwAppendObjectName @ 0x14059DC48
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405FBC00 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x14059E1E0 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
+ *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
  */
 
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAttachmentBaseRefWithTag)
@@ -55,13 +55,18 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   {
     v10 = 0LL;
   }
-  if ( !DeviceAttachmentBaseRefWithTag )
-    goto LABEL_10;
-  v11 = IoSetThreadHardErrorMode(0);
-  v12 = ObQueryNameString((PVOID)DeviceAttachmentBaseRefWithTag, v8, v9, &ReturnLength);
-  if ( v10 )
-    ObfDereferenceObjectWithTag(v10, 0x746C6644u);
-  IoSetThreadHardErrorMode(v11);
+  if ( DeviceAttachmentBaseRefWithTag )
+  {
+    v11 = IoSetThreadHardErrorMode(0);
+    v12 = ObQueryNameString((PVOID)DeviceAttachmentBaseRefWithTag, v8, v9, &ReturnLength);
+    if ( v10 )
+      ObfDereferenceObjectWithTag(v10, 0x746C6644u);
+    IoSetThreadHardErrorMode(v11);
+  }
+  else
+  {
+    v12 = -1073741809;
+  }
   if ( v12 >= 0 && v8->Name.Length )
   {
     Buffer = v8->Name.Buffer;
@@ -69,7 +74,6 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   }
   else
   {
-LABEL_10:
     Buffer = (wchar_t *)Src;
     v14 = 15;
   }

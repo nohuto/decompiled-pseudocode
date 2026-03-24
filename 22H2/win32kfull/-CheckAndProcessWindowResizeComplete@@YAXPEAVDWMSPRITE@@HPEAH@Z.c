@@ -1,78 +1,96 @@
 /*
- * XREFs of ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C0265774
+ * XREFs of ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026D214
  * Callers:
- *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C007B35C (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
- *     GreWindowLayoutComplete @ 0x1C00C5DFC (GreWindowLayoutComplete.c)
- *     GreHintSpriteShape @ 0x1C00D41D4 (GreHintSpriteShape.c)
- *     CheckAndProcessSurfaceComplete @ 0x1C02672A0 (CheckAndProcessSurfaceComplete.c)
- *     GreCancelSynchronizedWindowResize @ 0x1C026737C (GreCancelSynchronizedWindowResize.c)
- *     GreWindowResizeComplete @ 0x1C0268454 (GreWindowResizeComplete.c)
- *     GreWindowResizeStarted @ 0x1C02686B0 (GreWindowResizeStarted.c)
+ *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C0015944 (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
+ *     GreHintSpriteShape @ 0x1C00BD828 (GreHintSpriteShape.c)
+ *     GreWindowLayoutComplete @ 0x1C011C408 (GreWindowLayoutComplete.c)
+ *     CheckAndProcessSurfaceComplete @ 0x1C026E910 (CheckAndProcessSurfaceComplete.c)
+ *     GreCancelSynchronizedWindowResize @ 0x1C026EB90 (GreCancelSynchronizedWindowResize.c)
+ *     GreWindowResizeComplete @ 0x1C026FE50 (GreWindowResizeComplete.c)
+ *     GreWindowResizeStarted @ 0x1C02700B0 (GreWindowResizeStarted.c)
  * Callees:
- *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C00B0400 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
- *     DwmAsyncUpdateSprite @ 0x1C00D5BA0 (DwmAsyncUpdateSprite.c)
- *     DwmAsyncProcessSurfaceComplete @ 0x1C026D404 (DwmAsyncProcessSurfaceComplete.c)
- *     DwmCheckForDeferredUpdateSpriteCommands @ 0x1C026DE4C (DwmCheckForDeferredUpdateSpriteCommands.c)
+ *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C0012A28 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
+ *     DwmAsyncUpdateSprite @ 0x1C0012AC0 (DwmAsyncUpdateSprite.c)
+ *     ?UpdateWindowResizeTelemetry@@YAXPEAVDWMSPRITE@@H@Z @ 0x1C026DF00 (-UpdateWindowResizeTelemetry@@YAXPEAVDWMSPRITE@@H@Z.c)
+ *     DwmAsyncProcessSurfaceComplete @ 0x1C0274AE4 (DwmAsyncProcessSurfaceComplete.c)
  */
 
 void __fastcall CheckAndProcessWindowResizeComplete(struct DWMSPRITE *a1, int a2, int *a3)
 {
-  int v5; // eax
-  _QWORD *v6; // r12
-  __int64 v7; // rcx
-  SFMLOGICALSURFACE *v8; // rdi
-  int v9; // edx
+  int v3; // edi
+  int *v4; // rbx
+  int v6; // eax
+  SFMLOGICALSURFACE *v7; // r13
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
   int v10; // eax
-  __int64 v11; // r14
-  int v12; // ebp
-  __int64 v13; // rdi
-  __int64 v14; // rsi
+  int v11; // edx
+  __int64 v12; // rsi
+  __int64 v13; // r15
+  __int64 v14; // r14
   __int64 v15; // rcx
   int v16; // ebx
   void *v17; // rax
   void *v18; // rax
   void *v19; // rcx
-  unsigned int v20; // [rsp+A8h] [rbp+10h] BYREF
-  unsigned int v21; // [rsp+B0h] [rbp+18h] BYREF
-  int v22; // [rsp+B8h] [rbp+20h] BYREF
+  int v20[18]; // [rsp+60h] [rbp-48h] BYREF
+  unsigned int v21; // [rsp+B8h] [rbp+10h] BYREF
+  int *v22; // [rsp+C0h] [rbp+18h]
+  unsigned int v23; // [rsp+C8h] [rbp+20h] BYREF
 
-  v5 = 0;
+  v22 = a3;
+  v3 = 0;
+  v4 = a3;
+  v6 = 0;
   if ( a2 || !*((_DWORD *)a1 + 30) && *((_DWORD *)a1 + 29) == 1 )
   {
-    v6 = (_QWORD *)*((_QWORD *)a1 + 18);
-    if ( v6 )
+    v7 = (SFMLOGICALSURFACE *)*((_QWORD *)a1 + 21);
+    if ( v7 )
     {
-      if ( a2 || !(unsigned int)DwmCheckForDeferredUpdateSpriteCommands(*v6) )
+      if ( a2 || (v8 = 0LL, !g_cDelayedUpdateSpriteNotifications) )
       {
-        v8 = (SFMLOGICALSURFACE *)*((_QWORD *)a1 + 18);
-        v22 = 0;
+LABEL_10:
+        v20[0] = 0;
+        v23 = 0;
         v21 = 0;
-        v20 = 0;
-        SFMLOGICALSURFACE::GetRedirectionInfo(v8, (enum _HLSURF_REDIRECTIONSTYLE *)&v22, &v21, &v20, 0LL, 0LL);
-        v9 = *((_DWORD *)v8 + 63);
-        v10 = *((_DWORD *)a1 + 35);
-        v11 = *((_QWORD *)a1 + 13);
-        v12 = *((_DWORD *)a1 + 29);
+        SFMLOGICALSURFACE::GetRedirectionInfo(v7, (enum _HLSURF_REDIRECTIONSTYLE *)v20, &v23, &v21, 0LL, 0LL);
+        v10 = *((_DWORD *)a1 + 41);
+        v11 = *((_DWORD *)v7 + 63);
+        v12 = *((_QWORD *)a1 + 13);
+        v13 = *(_QWORD *)a1;
         *((_QWORD *)a1 + 13) = 0LL;
-        v13 = *(_QWORD *)v8;
-        v14 = *(_QWORD *)a1;
-        v15 = v9 & 1;
-        v16 = v10 & 1 | v9 & 0xC | (2 * (v15 | v10 & 0x40 | (4 * (v10 & 0xE | 0x20))));
+        v14 = *(_QWORD *)v7;
+        v15 = v11 & 1;
+        v16 = v11 & 0xC | v10 & 1 | (2 * (v15 | v10 & 0x40 | (4 * (v10 & 0xE | 0x20))));
+        LOBYTE(v3) = *((_DWORD *)a1 + 29) >= 1;
         v17 = (void *)UserReferenceDwmApiPort(v15);
-        DwmAsyncUpdateSprite(v17, v14, v13, v16, (__int64)a1 + 72, 0LL, v22, v21, v20, v12 >= 1, v11);
+        DwmAsyncUpdateSprite(v17, v13, v14, v16, (__int64)a1 + 72, 0LL, v20[0], v23, v21, v3, v12);
       }
-      v18 = (void *)UserReferenceDwmApiPort(v7);
+      else
+      {
+        v9 = &unk_1C033DB18;
+        while ( *v9 != *(_QWORD *)v7 )
+        {
+          v8 = (unsigned int)(v8 + 1);
+          v9 = (_QWORD *)((char *)v9 + 196);
+          if ( (unsigned int)v8 >= g_cDelayedUpdateSpriteNotifications )
+            goto LABEL_10;
+        }
+      }
+      v18 = (void *)UserReferenceDwmApiPort(v8);
       DwmAsyncProcessSurfaceComplete(v18);
+      v4 = v22;
     }
-    v19 = (void *)*((_QWORD *)a1 + 12);
     *((_DWORD *)a1 + 29) = 0;
+    UpdateWindowResizeTelemetry(a1, 0);
+    v19 = (void *)*((_QWORD *)a1 + 12);
     if ( v19 )
     {
       ObfDereferenceObject(v19);
       *((_QWORD *)a1 + 12) = 0LL;
     }
-    v5 = 1;
+    v6 = 1;
   }
-  if ( a3 )
-    *a3 = v5;
+  if ( v4 )
+    *v4 = v6;
 }

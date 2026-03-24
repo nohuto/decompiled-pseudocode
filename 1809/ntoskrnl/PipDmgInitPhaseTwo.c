@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgInitPhaseTwo @ 0x14073B170
+ * XREFs of PipDmgInitPhaseTwo @ 0x14073B150
  * Callers:
- *     PiDmaGuardInitialize @ 0x140181CC8 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x140181CE8 (PiDmaGuardInitialize.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PipDmgInitReadGroupPolicy @ 0x140829930 (PipDmgInitReadGroupPolicy.c)
- *     PipDmgReevaluateQueue @ 0x140839484 (PipDmgReevaluateQueue.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PipDmgInitReadGroupPolicy @ 0x140829910 (PipDmgInitReadGroupPolicy.c)
+ *     PipDmgReevaluateQueue @ 0x140839464 (PipDmgReevaluateQueue.c)
  */
 
 __int64 PipDmgInitPhaseTwo()
@@ -33,7 +33,7 @@ __int64 PipDmgInitPhaseTwo()
     v2 = PipDmaGuardPolicy;
     v4 = &v2;
     v5 = 4;
-    TlgWrite(&stru_1403FFBC8, &unk_14036D306, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_1403FFBC8, &unk_14036D416, 0LL, 0LL, 3u, &pData);
   }
   return 0LL;
 }

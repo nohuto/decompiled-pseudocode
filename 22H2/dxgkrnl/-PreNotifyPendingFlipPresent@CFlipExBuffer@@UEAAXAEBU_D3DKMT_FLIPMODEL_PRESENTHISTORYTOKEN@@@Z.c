@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PreNotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C007E6C0
+ * XREFs of ?PreNotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C0067160
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z @ 0x1C007F0B4 (-UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z.c)
+ *     ?UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z @ 0x1C00671F0 (-UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z.c)
  */
 
 void __fastcall CFlipExBuffer::PreNotifyPendingFlipPresent(

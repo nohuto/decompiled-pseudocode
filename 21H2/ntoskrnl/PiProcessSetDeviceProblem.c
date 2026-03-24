@@ -1,45 +1,44 @@
 /*
- * XREFs of PiProcessSetDeviceProblem @ 0x140947A8C
+ * XREFs of PiProcessSetDeviceProblem @ 0x140731584
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PipIsProblemReadonly @ 0x140660534 (PipIsProblemReadonly.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeUserFlags @ 0x140767220 (PipSetDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PipIsProblemReadonly @ 0x140731934 (PipIsProblemReadonly.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeUserFlags @ 0x14074C32C (PipSetDevNodeUserFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessSetDeviceProblem(__int64 a1)
 {
   __int64 v1; // rax
   _DWORD *v2; // rbp
-  __int64 v3; // rdi
+  __int64 v3; // rbx
   unsigned int v4; // r14d
   unsigned int v5; // edx
   unsigned int v6; // r9d
-  int v7; // esi
+  unsigned int v7; // esi
   int v8; // ecx
-  unsigned int v9; // ebx
+  unsigned int v9; // edi
   int v10; // eax
-  int v11; // ecx
-  int v12; // edx
+  __int64 v11; // rdx
   PVOID P; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 16);
   v2 = *(_DWORD **)(a1 + 32);
   P = 0LL;
   v3 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL);
-  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 789) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 787) <= 1 )
   {
     v4 = -1073741738;
   }
   else
   {
     v4 = 0;
-    PiPnpRtlBeginOperation((__int64 **)&P);
+    PiPnpRtlBeginOperation(&P);
     v5 = v2[5];
     v6 = v2[6];
     v7 = (v5 >> 18) & 1 | 4;
@@ -52,30 +51,28 @@ __int64 __fastcall PiProcessSetDeviceProblem(__int64 a1)
     if ( v6 == 14 )
     {
       v10 = *(_DWORD *)(v3 + 300);
-      if ( v10 != 772 && v10 != 771 && v10 != 788 )
+      if ( v10 != 786 && v10 != 770 )
         v9 = v8 & 0xFFFFDFFF;
       v7 |= 4u;
     }
     if ( !v9 )
     {
-      v12 = 0;
-      goto LABEL_19;
+      v11 = 0LL;
+      goto LABEL_15;
     }
-    v11 = *(_DWORD *)(v3 + 300);
-    if ( ((v11 - 771) & 0xFFFFFFEE) == 0
-      && v11 != 787
+    if ( ((*(_DWORD *)(v3 + 300) - 770) & 0xFFFFFFEF) == 0
       && ((v9 & 0x4000) != 0 || v6 < 0x3A && !(unsigned int)PipIsProblemReadonly(v3, v6)) )
     {
-      PipSetDevNodeProblem(v3, v6, v2[8]);
-      v12 = v9;
-LABEL_19:
-      PipSetDevNodeFlags(v3, v12);
+      PipSetDevNodeProblem(v3, v6, (unsigned int)v2[8]);
+      v11 = v9;
+LABEL_15:
+      PipSetDevNodeFlags(v3, v11);
       PipSetDevNodeUserFlags(v3, v7);
-      goto LABEL_23;
+      goto LABEL_16;
     }
     v4 = -1073741584;
   }
-LABEL_23:
+LABEL_16:
   if ( (v2[7] & 1) != 0 )
     ExFreePoolWithTag(v2, 0x55706E50u);
   if ( P )

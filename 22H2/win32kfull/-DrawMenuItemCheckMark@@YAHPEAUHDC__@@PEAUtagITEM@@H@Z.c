@@ -1,27 +1,27 @@
 /*
- * XREFs of ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C0233414
+ * XREFs of ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C024B3F8
  * Callers:
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
  * Callees:
- *     PrepareHDCBITSBitmap @ 0x1C0016A4C (PrepareHDCBITSBitmap.c)
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     BltColor @ 0x1C023F394 (BltColor.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010721C (PrepareHDCBITSBitmap.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     BltColor @ 0x1C025063C (BltColor.c)
  */
 
 __int64 __fastcall DrawMenuItemCheckMark(HDC a1, struct tagITEM *a2)
 {
-  int v2; // esi
+  int v2; // edi
   unsigned int v5; // r15d
-  int v6; // r14d
+  int v6; // ebp
   unsigned int DpiForSystem; // eax
   char *OemBitmapInfoForDpi; // rax
   __int64 v9; // r8
@@ -30,18 +30,15 @@ __int64 __fastcall DrawMenuItemCheckMark(HDC a1, struct tagITEM *a2)
   int v12; // eax
   int v13; // r13d
   __int64 v14; // rcx
-  HBRUSH v15; // rbp
-  __int64 v16; // r14
+  HSURF v15; // r14
+  __int64 v16; // rbp
   bool v17; // zf
   char v18; // al
   unsigned int v19; // eax
-  __int64 v20; // rdx
-  int v22; // [rsp+60h] [rbp-C8h]
-  int v23; // [rsp+64h] [rbp-C4h]
-  int v24; // [rsp+68h] [rbp-C0h]
-  _BYTE v25[46]; // [rsp+70h] [rbp-B8h] BYREF
-  __int16 v26; // [rsp+9Eh] [rbp-8Ah]
-  int v27; // [rsp+A0h] [rbp-88h]
+  int v21; // [rsp+60h] [rbp-C8h]
+  int v22; // [rsp+64h] [rbp-C4h]
+  int v23; // [rsp+68h] [rbp-C0h]
+  _DWORD v24[28]; // [rsp+70h] [rbp-B8h] BYREF
 
   v2 = 2;
   v5 = 1;
@@ -57,37 +54,37 @@ __int64 __fastcall DrawMenuItemCheckMark(HDC a1, struct tagITEM *a2)
   v13 = v12 / 2;
   v14 = *(_DWORD *)(v9 + 4) & 8;
   if ( (*(_DWORD *)(v9 + 4) & 8) != 0 )
-    v15 = *(HBRUSH *)(v9 + 24);
+    v15 = *(HSURF *)(v9 + 24);
   else
-    v15 = *(HBRUSH *)(v9 + 32);
+    v15 = *(HSURF *)(v9 + 32);
   if ( v15 )
   {
-    v16 = GreSelectBitmap(ghdcMem2, v15);
+    v16 = GreSelectBitmap(*(_QWORD *)ghdcMem2, v15);
     if ( v16 )
     {
-      memset_0(v25, 0, 0x68uLL);
-      v23 = GreSetTextColor((__int64)a1, 0);
-      v24 = GreSetBkColor(a1, 0xFFFFFF);
+      memset(v24, 0, 0x68uLL);
+      v22 = GreSetTextColor(a1, 0);
+      v23 = GreSetBkColor(a1, 0xFFFFFF);
       if ( (**(_DWORD **)a2 & 0x2000) != 0 )
         v2 = *(_DWORD *)(*(_QWORD *)a2 + 72LL) - v10[2];
-      if ( (unsigned int)GreExtGetObjectW(v15, 104LL, (__int64)v25) == 104 && v26 == 32 && !v27 )
+      if ( (unsigned int)GreExtGetObjectW(v15, 104LL, (char *)v24) == 104 && HIWORD(v24[11]) == 32 && !v24[12] )
       {
-        LOBYTE(v22) = 0;
-        HIWORD(v22) = 511;
+        LOBYTE(v21) = 0;
+        HIWORD(v21) = 511;
         v17 = (GreGetLayout(a1) & 1) == 0;
         v18 = 0;
         if ( !v17 )
           v18 = 0x80;
-        BYTE1(v22) = v18;
-        NtGdiAlphaBlend((Gre::Base *)a1, v2, v13, v10[3], v10[3], ghdcMem2, 0, 0, v10[2], v10[3], v22);
+        BYTE1(v21) = v18;
+        NtGdiAlphaBlend((XLATEOBJ *)a1, v2, v13, v10[3], v10[3], *(POINTL *)ghdcMem2, 0, 0, v10[2], v10[3], v21);
       }
       else
       {
-        NtGdiBitBltInternal((__int64)a1, v2, v13, v10[2], v10[3], ghdcMem2, 0, 0, 12060490, 0xFFFFFF, 0);
+        NtGdiBitBltInternal(a1, v2, v13, v10[2], v10[3], *(HDC *)ghdcMem2, 0, 0, 12060490, 0xFFFFFFu, 0);
       }
-      GreSetTextColor((__int64)a1, v23);
-      GreSetBkColor(a1, v24);
-      GreSelectBitmap(ghdcMem2, v16);
+      GreSetTextColor(a1, v22);
+      GreSetBkColor(a1, v23);
+      GreSelectBitmap(*(_QWORD *)ghdcMem2, v16);
     }
   }
   else if ( (_DWORD)v14 )
@@ -99,7 +96,7 @@ __int64 __fastcall DrawMenuItemCheckMark(HDC a1, struct tagITEM *a2)
     }
     if ( (GreGetLayout(a1) & 1) != 0 && a1 != *(HDC *)(gpDispInfo + 72LL) )
       v6 = 3;
-    if ( PrepareHDCBITSBitmap(0LL, v20) )
+    if ( PrepareHDCBITSBitmap(0LL) )
       BltColor(a1, v13, v10[2], v10[3], *v10, v10[1], v6);
   }
   else

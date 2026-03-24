@@ -1,17 +1,15 @@
 /*
- * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1407F8114
+ * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1407141E4
  * Callers:
- *     EtwpAddLogHeader @ 0x1407F7BE4 (EtwpAddLogHeader.c)
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
- *     ExInitializeUtcTimeZoneBias @ 0x140865B90 (ExInitializeUtcTimeZoneBias.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x1409BD800 (RtlQueryDynamicTimeZoneInformation.c)
- *     RtlQueryTimeZoneInformation @ 0x1409BD820 (RtlQueryTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x1406A6830 (RtlQueryDynamicTimeZoneInformation.c)
+ *     EtwpAddLogHeader @ 0x140713C88 (EtwpAddLogHeader.c)
+ *     RtlQueryTimeZoneInformation @ 0x140915100 (RtlQueryTimeZoneInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1407F83A4 (RtlpGetTimeZoneInfoHandle.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x140714474 (RtlpGetTimeZoneInfoHandle.c)
  */
 
 __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
@@ -86,7 +84,7 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
       LODWORD(v13[57]) = 288;
       LODWORD(v13[60]) = 0x4000000;
     }
-    RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, v13, 0LL);
+    RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, (__int64)v13, 0LL);
     if ( RegistryValues >= 0 && v2 >= 0x1B0 )
       a1[428] = v6 != 0;
     ZwClose(Handle);

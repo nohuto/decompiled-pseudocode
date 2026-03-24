@@ -1,16 +1,16 @@
 /*
- * XREFs of CalculateDisplayBlankTime @ 0x1801E9594
+ * XREFs of CalculateDisplayBlankTime @ 0x1801A42C8
  * Callers:
- *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801E9EA0 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
+ *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801A4A64 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ??$_Resize@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801E8E80 (--$_Resize@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_PATH_INFO@@V-$allocator@UDISPLAYCONFIG.c)
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_MODE_INFO@@V?$allocator@UDISPLAYCONFIG_MODE_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801E8FA8 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_MODE_INFO@@V-$allocator@UDI.c)
- *     ?Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z @ 0x1801EA718 (-Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ??$_Resize@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801A3C9C (--$_Resize@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_PATH_INFO@@V-$allocator@UDISPLAYCONFIG.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_MODE_INFO@@V?$allocator@UDISPLAYCONFIG_MODE_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801A3D5C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_MODE_INFO@@V-$allocator@UDI.c)
+ *     ?Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z @ 0x1801A5260 (-Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z.c)
  */
 
-__int64 __fastcall CalculateDisplayBlankTime(__int64 a1, int a2, double *a3)
+__int64 __fastcall CalculateDisplayBlankTime(__int64 a1, int a2, float *a3)
 {
   DISPLAYCONFIG_MODE_INFO *v3; // rbx
   __int64 v4; // r14
@@ -21,12 +21,12 @@ __int64 __fastcall CalculateDisplayBlankTime(__int64 a1, int a2, double *a3)
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rsi
   __int64 v13; // rdx
-  unsigned int v14; // r8d
-  unsigned __int64 v15; // r9
+  unsigned int v14; // r9d
+  unsigned __int64 v15; // r8
   unsigned int v16; // ebx
   unsigned __int64 v17; // rdx
   __int64 v18; // rcx
-  double v19; // xmm0_8
+  float v19; // xmm0_4
   __int64 v20; // rax
   unsigned int modeInfoArray; // [rsp+20h] [rbp-50h]
   UINT32 numPathArrayElements; // [rsp+30h] [rbp-40h] BYREF
@@ -47,10 +47,10 @@ __int64 __fastcall CalculateDisplayBlankTime(__int64 a1, int a2, double *a3)
   v25 = 0LL;
   do
   {
-    DisplayConfigBufferSizes = GetDisplayConfigBufferSizes(0x42u, &numPathArrayElements, &numModeInfoArrayElements);
+    DisplayConfigBufferSizes = GetDisplayConfigBufferSizes(2u, &numPathArrayElements, &numModeInfoArrayElements);
     if ( DisplayConfigBufferSizes )
     {
-      v13 = 37LL;
+      v13 = 36LL;
       goto LABEL_26;
     }
     std::vector<DISPLAYCONFIG_PATH_INFO>::_Resize<std::_Value_init_tag>((__int64 *)pathArray, numPathArrayElements);
@@ -84,7 +84,7 @@ __int64 __fastcall CalculateDisplayBlankTime(__int64 a1, int a2, double *a3)
 LABEL_11:
     v7 = pathArray[0];
     DisplayConfigBufferSizes = QueryDisplayConfig(
-                                 0x42u,
+                                 2u,
                                  &numPathArrayElements,
                                  pathArray[0],
                                  &numModeInfoArrayElements,
@@ -94,7 +94,7 @@ LABEL_11:
   while ( DisplayConfigBufferSizes == 122 );
   if ( DisplayConfigBufferSizes )
   {
-    v13 = 50LL;
+    v13 = 49LL;
 LABEL_26:
     v16 = wil::details::in1diag3::Return_Win32(
             retaddr,
@@ -124,27 +124,27 @@ LABEL_26:
     if ( v18 < 0 )
     {
       v20 = *(UINT64 *)((_BYTE *)&v5->targetMode.targetVideoSignalInfo.pixelRate + v17) & 1 | (*(UINT64 *)((char *)&v5->targetMode.targetVideoSignalInfo.pixelRate + v17) >> 1);
-      v19 = (double)(int)v20 + (double)(int)v20;
+      v19 = (float)(int)v20 + (float)(int)v20;
     }
     else
     {
-      v19 = (double)(int)v18;
+      v19 = (float)(int)v18;
     }
-    *a3 = (double)(*(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.totalSize.cx + v17)
-                 * (*(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.totalSize.cy + v17)
-                  - *(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.activeSize.cy + v17)))
+    *a3 = (float)(*(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.totalSize.cx + v17)
+                * (*(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.totalSize.cy + v17)
+                 - *(UINT32 *)((char *)&v5->targetMode.targetVideoSignalInfo.activeSize.cy + v17)))
         / v19;
   }
   else
   {
 LABEL_19:
-    *a3 = 0.001000000047497451;
+    *a3 = 0.001;
   }
   v16 = 0;
 LABEL_27:
   if ( v5 )
     std::_Deallocate<16,0>(v5, (v4 - (_QWORD)v5) & 0xFFFFFFFFFFFFFFC0uLL);
   if ( v7 )
-    std::_Deallocate<16,0>(v7, 8 * ((v27 - (__int64)v7) >> 3));
+    std::_Deallocate<16,0>(v7, 72 * ((v27 - (__int64)v7) / 72));
   return v16;
 }

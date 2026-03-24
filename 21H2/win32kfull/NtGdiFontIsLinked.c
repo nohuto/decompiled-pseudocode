@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiFontIsLinked @ 0x1C0107820
+ * XREFs of NtGdiFontIsLinked @ 0x1C01118C0
  * Callers:
  *     <none>
  * Callees:
- *     GreFontIsLinked @ 0x1C0107838 (GreFontIsLinked.c)
+ *     GreFontIsLinked @ 0x1C01118D8 (GreFontIsLinked.c)
  */
 
 __int64 __fastcall NtGdiFontIsLinked(HDC a1)

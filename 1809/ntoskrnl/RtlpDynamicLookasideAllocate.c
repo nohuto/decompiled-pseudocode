@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDynamicLookasideAllocate @ 0x1401B7AA0
+ * XREFs of RtlpDynamicLookasideAllocate @ 0x1401B7AC0
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall RtlpDynamicLookasideAllocate(__int64 a1, unsigned int a2)

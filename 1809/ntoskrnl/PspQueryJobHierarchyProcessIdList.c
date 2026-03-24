@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQueryJobHierarchyProcessIdList @ 0x1406B7730
+ * XREFs of PspQueryJobHierarchyProcessIdList @ 0x1406B7710
  * Callers:
  *     NtQueryInformationJobObject @ 0x1405FE8F0 (NtQueryInformationJobObject.c)
  * Callees:

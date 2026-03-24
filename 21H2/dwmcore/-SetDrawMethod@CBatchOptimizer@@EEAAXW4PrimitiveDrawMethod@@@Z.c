@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetDrawMethod@CBatchOptimizer@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x1800FAEC0
+ * XREFs of ?SetDrawMethod@CBatchOptimizer@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x1800E2800
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x1403A0E90
+ * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x1403A7C40
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x1408469D0 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F330 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     LdrpOpenKey @ 0x14084686C (LdrpOpenKey.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A74C24 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     LdrpOpenKey @ 0x14078F688 (LdrpOpenKey.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1409815DC (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
 __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
@@ -38,33 +38,33 @@ __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
     v7 = 0;
     do
     {
-      while ( 1 )
+      v8 = ZwEnumerateKey(
+             *(HANDLE *)(((unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+             v7,
+             KeyBasicInformation,
+             v2 + 16,
+             0x200u,
+             (PULONG)v2 + 1);
+      if ( v8 >= 0 )
       {
-        v8 = ZwEnumerateKey(
-               *(HANDLE *)(((unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
-               v7,
-               KeyBasicInformation,
-               v2 + 16,
-               0x200u,
-               (PULONG)v2 + 1);
-        if ( v8 < 0 )
-          break;
         v10 = *(unsigned int *)(((unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2C);
-        if ( v10 + 24 >= 0x1FE )
-          break;
-        *(_WORD *)(((unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30 + 2 * (v10 >> 1)) = 0;
-        if ( (int)RtlpMuiRegGetInstalledLanguageIndexByName(
-                    a1,
-                    v2 + 24,
-                    v9,
-                    (unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) < 0 )
-          break;
-        v11 = *v2;
-        if ( (_WORD)v11 == 0xFFFF || (_WORD)v11 == a2 )
-          break;
-        *(_WORD *)(28 * v11 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL)) &= ~0x20u;
-        *(_WORD *)(28LL * *v2 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL)) |= 0x8000u;
-        ++v7;
+        if ( v10 + 24 < 0x1FE )
+        {
+          *(_WORD *)(((unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30 + 2 * (v10 >> 1)) = 0;
+          if ( (int)RtlpMuiRegGetInstalledLanguageIndexByName(
+                      a1,
+                      v2 + 24,
+                      v9,
+                      (unsigned __int64)v13 & 0xFFFFFFFFFFFFFFE0uLL) >= 0 )
+          {
+            v11 = *v2;
+            if ( (_WORD)v11 != 0xFFFF && (_WORD)v11 != a2 )
+            {
+              *(_WORD *)(28 * v11 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL)) &= ~0x20u;
+              *(_WORD *)(28LL * *v2 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL)) |= 0x8000u;
+            }
+          }
+        }
       }
       ++v7;
     }

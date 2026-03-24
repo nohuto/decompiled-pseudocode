@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetNameFromLangInfoNode @ 0x1403C624C
+ * XREFs of RtlpGetNameFromLangInfoNode @ 0x1403AD158
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x1408303C0 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140793850 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x1402E0978 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x1409BB670 (RtlLCIDToCultureName.c)
+ *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
   unsigned int v3; // ebx
   __int64 v5; // rax
   __int64 v6; // r8
-  __int16 v7; // r11
+  unsigned __int16 Length; // si
   __int64 v9; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
@@ -34,10 +34,11 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
       RtlInitUnicodeString(
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v5)));
+      Length = DestinationString.Length;
       if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
         && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = v7;
+        *(_WORD *)a3 = Length;
         return v3;
       }
     }

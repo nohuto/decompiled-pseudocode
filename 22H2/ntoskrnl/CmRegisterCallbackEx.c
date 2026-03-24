@@ -1,10 +1,9 @@
 /*
- * XREFs of CmRegisterCallbackEx @ 0x140851B60
+ * XREFs of CmRegisterCallbackEx @ 0x140869C10
  * Callers:
- *     DifCmRegisterCallbackExWrapper @ 0x1405D64D0 (DifCmRegisterCallbackExWrapper.c)
- *     EtwpRegTraceEnableCallback @ 0x1409F4580 (EtwpRegTraceEnableCallback.c)
+ *     EtwpRegTraceEnableCallback @ 0x14093BA50 (EtwpRegTraceEnableCallback.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140851C2C (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x140681D48 (CmpRegisterCallbackInternal.c)
  */
 
 NTSTATUS __stdcall CmRegisterCallbackEx(
@@ -19,5 +18,5 @@ NTSTATUS __stdcall CmRegisterCallbackEx(
     return -1073741583;
   if ( Reserved )
     return -1073741580;
-  return CmpRegisterCallbackInternal((_DWORD)Function, (_DWORD)Context, (_DWORD)Altitude, 0, 0, (__int64)Cookie);
+  return CmpRegisterCallbackInternal((__int64)Function, (__int64)Context, (const void **)Altitude, 0, 0, Cookie);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseHotPatchResources @ 0x1409778EC
+ * XREFs of MiReleaseHotPatchResources @ 0x1408CE44C
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
+ *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
  * Callees:
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     MiFinishHoldingDirtyFaults @ 0x1405A3738 (MiFinishHoldingDirtyFaults.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MiFinishHoldingDirtyFaults @ 0x14053EB04 (MiFinishHoldingDirtyFaults.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseHotPatchResources(__int64 a1)
@@ -22,13 +22,13 @@ void __fastcall MiReleaseHotPatchResources(__int64 a1)
   void *v8; // rcx
   void *v9; // rcx
 
-  if ( (*(_DWORD *)(a1 + 140) & 2) != 0 )
+  if ( (*(_DWORD *)(a1 + 136) & 2) != 0 )
     MiFinishHoldingDirtyFaults((_QWORD *)(a1 + 88));
   v2 = *(_QWORD *)(a1 + 64);
   if ( !v2 )
     goto LABEL_7;
   PteAddress = (_QWORD *)MiGetPteAddress(*(_QWORD *)(v2 + 24));
-  MiReleasePtes((__int64)&qword_140C534C0, PteAddress, v4);
+  MiReleasePtes((__int64)&qword_140C4EF40, PteAddress, v4);
   *(_WORD *)(*(_QWORD *)(a1 + 64) + 10LL) &= ~1u;
   for ( i = *(struct _MDL **)(a1 + 64); ; i = v7 )
   {

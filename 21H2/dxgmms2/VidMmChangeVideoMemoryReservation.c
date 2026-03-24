@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmChangeVideoMemoryReservation @ 0x1C002D260
+ * XREFs of VidMmChangeVideoMemoryReservation @ 0x1C0022D00
  * Callers:
  *     <none>
  * Callees:
- *     ?ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00D56A0 (-ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GR.c)
+ *     ?ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00AE2F8 (-ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GR.c)
  */
 
 int __fastcall VidMmChangeVideoMemoryReservation(

@@ -1,19 +1,18 @@
 /*
- * XREFs of KiAbCpuBoostOwners @ 0x140318B48
+ * XREFs of KiAbCpuBoostOwners @ 0x1402714E4
  * Callers:
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249510 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC320 (KiAbProcessThreadLocks.c)
- *     KiAbForceProcessLockEntry @ 0x1403CC428 (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x140271744 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1402C82E0 (KiAbProcessContextSwitch.c)
+ *     KiAbForceProcessLockEntry @ 0x14038F384 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140272404 (KiAbSetMinimumThreadPriority.c)
  */
 
 _QWORD **__fastcall KiAbCpuBoostOwners(__int64 a1, char a2, int a3, int a4, __int64 a5)
 {
   _QWORD **result; // rax
   unsigned __int64 v8; // rbx
-  __int64 v10; // r12
+  __int64 v10; // r15
   unsigned __int64 v12; // rcx
   _QWORD *v13; // rcx
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
@@ -26,16 +25,16 @@ _QWORD **__fastcall KiAbCpuBoostOwners(__int64 a1, char a2, int a3, int a4, __in
   v8 = *(_QWORD *)(a1 + 56);
   v10 = a5;
   LOBYTE(v16) = a2;
-  while ( v8 && *(char *)(v8 + 24) < a2 )
+  while ( v8 && *(char *)(v8 + 48) < a2 )
   {
-    KiAbSetMinimumThreadPriority(v8 - 24, (unsigned int)&v16, a3, a4, v10, (__int64)&v15);
-    *(_BYTE *)(v8 + 24) = a2;
-    v12 = v8;
+    KiAbSetMinimumThreadPriority(v8, (unsigned int)&v16, a3, a4, v10, (__int64)&v15);
     result = *(_QWORD ***)(v8 + 8);
+    v12 = v8;
+    *(_BYTE *)(v8 + 48) = a2;
     if ( result )
     {
       v13 = *result;
-      v8 = *(_QWORD *)(v8 + 8);
+      v8 = (unsigned __int64)result;
       if ( *result )
       {
         do
@@ -58,7 +57,7 @@ _QWORD **__fastcall KiAbCpuBoostOwners(__int64 a1, char a2, int a3, int a4, __in
       }
     }
   }
-  if ( !*(_BYTE *)(a1 + 17) )
+  if ( (*(_BYTE *)(a1 + 25) & 1) == 0 )
     return (_QWORD **)KiAbSetMinimumThreadPriority(a1, (unsigned int)&v16, a3, a4, v10, (__int64)&v15);
   return result;
 }

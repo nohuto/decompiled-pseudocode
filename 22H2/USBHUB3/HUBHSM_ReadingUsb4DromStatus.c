@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_ReadingUsb4DromStatus @ 0x1C0009FD0
+ * XREFs of HUBHSM_ReadingUsb4DromStatus @ 0x1C0009810
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     FWUPDATE_GetMMIO @ 0x1C0040B14 (FWUPDATE_GetMMIO.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     FWUPDATE_GetMMIO @ 0x1C003E844 (FWUPDATE_GetMMIO.c)
  */
 
 __int64 __fastcall HUBHSM_ReadingUsb4DromStatus(__int64 a1)

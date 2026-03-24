@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C0008168
+ * XREFs of ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001C214
  * Callers:
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C0007F80 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
- *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002615C (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
- *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C002D73C (ACPIDeviceRecordBlockedOnPhase3List.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001C330 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002ADE8 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0031938 (ACPIDeviceRecordBlockedOnPhase3List.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
@@ -30,7 +30,7 @@ __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
 
   v3 = *(_QWORD *)(a1 + 40);
   v4 = 0LL;
-  v8 = *(_DWORD *)(v3 + 384);
+  v8 = *(_DWORD *)(v3 + 344);
   v9 = ((*(_DWORD *)(v3 + 8) & 0x800) != 0LL) + 3;
   if ( !v8 )
     v8 = *(_DWORD *)(a1 + 108);
@@ -52,7 +52,7 @@ __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
     v11 = (1 << (((*(_DWORD *)(v3 + 8) & 0x800) != 0LL) + 4)) - 1;
   }
   v12 = 0;
-  v13 = (_QWORD *)(v3 + 408);
+  v13 = (_QWORD *)(v3 + 368);
   do
   {
     if ( _bittest(&v11, v12) )
@@ -69,7 +69,7 @@ __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
     ++v13;
   }
   while ( v12 < 5 );
-  v15 = *(_QWORD *)(v3 + 448);
+  v15 = *(_QWORD *)(v3 + 408);
   if ( !v15 )
     return (unsigned int)v4;
   v19 = *(_QWORD *)(v15 + 8);

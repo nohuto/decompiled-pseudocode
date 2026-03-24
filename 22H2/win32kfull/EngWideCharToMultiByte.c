@@ -1,9 +1,9 @@
 /*
- * XREFs of EngWideCharToMultiByte @ 0x1C0279990
+ * XREFs of EngWideCharToMultiByte @ 0x1C027D670
  * Callers:
  *     <none>
  * Callees:
- *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C0098480 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A49A4 (ConvertToAndFromWideChar.c)
  */
 
 INT __stdcall EngWideCharToMultiByte(

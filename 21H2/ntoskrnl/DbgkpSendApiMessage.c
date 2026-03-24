@@ -1,46 +1,44 @@
 /*
- * XREFs of DbgkpSendApiMessage @ 0x14092A070
+ * XREFs of DbgkpSendApiMessage @ 0x140887154
  * Callers:
- *     DbgkPostModuleMessage @ 0x1405400A4 (DbgkPostModuleMessage.c)
- *     DbgkUnMapViewOfSection @ 0x1406C321C (DbgkUnMapViewOfSection.c)
- *     DbgkForwardException @ 0x1406EA7D0 (DbgkForwardException.c)
- *     DbgkCreateThread @ 0x140702604 (DbgkCreateThread.c)
- *     DbgkMapViewOfSection @ 0x140757090 (DbgkMapViewOfSection.c)
- *     DbgkCreateMinimalProcess @ 0x140831AEC (DbgkCreateMinimalProcess.c)
- *     DbgkSendSystemDllMessages @ 0x140927394 (DbgkSendSystemDllMessages.c)
- *     DbgkCreateMinimalThread @ 0x14092A888 (DbgkCreateMinimalThread.c)
- *     DbgkExitProcess @ 0x14092A938 (DbgkExitProcess.c)
- *     DbgkExitThread @ 0x14092A9F4 (DbgkExitThread.c)
+ *     DbgkPostModuleMessage @ 0x1404EDF6C (DbgkPostModuleMessage.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     DbgkUnMapViewOfSection @ 0x1406A89C8 (DbgkUnMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1407129A4 (DbgkMapViewOfSection.c)
+ *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
+ *     DbgkCreateMinimalProcess @ 0x1407C6578 (DbgkCreateMinimalProcess.c)
+ *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
+ *     DbgkCreateMinimalThread @ 0x14088795C (DbgkCreateMinimalThread.c)
+ *     DbgkExitProcess @ 0x140887A0C (DbgkExitProcess.c)
+ *     DbgkExitThread @ 0x140887AC8 (DbgkExitThread.c)
  * Callees:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     EtwTraceDebuggerEvent @ 0x14062D734 (EtwTraceDebuggerEvent.c)
- *     DbgkpQueueMessage @ 0x1409283F4 (DbgkpQueueMessage.c)
- *     DbgkpSuspendProcess @ 0x14092AC20 (DbgkpSuspendProcess.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     EtwTraceDebuggerEvent @ 0x1405A761C (EtwTraceDebuggerEvent.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
+ *     DbgkpQueueMessage @ 0x140885518 (DbgkpQueueMessage.c)
+ *     DbgkpSuspendProcess @ 0x140887CE0 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessage(_KPROCESS *Object, char a2, __int64 a3)
 {
-  struct _KTHREAD *CurrentThread; // r12
-  int v7; // ebp
-  int v8; // esi
+  int v6; // ebp
+  int v7; // esi
 
-  CurrentThread = KeGetCurrentThread();
   if ( (PerfGlobalGroupMask[0] & 0x400000) != 0 )
-    EtwTraceDebuggerEvent((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)CurrentThread, 1);
+    EtwTraceDebuggerEvent((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)KeGetCurrentThread(), 1);
   do
   {
-    v7 = 0;
+    v6 = 0;
     if ( Object == KeGetCurrentThread()->ApcState.Process && (a2 & 1) != 0 )
-      v7 = (unsigned __int8)DbgkpSuspendProcess(Object);
+      v6 = (unsigned __int8)DbgkpSuspendProcess(Object);
     *(_DWORD *)(a3 + 44) = 259;
-    v8 = DbgkpQueueMessage(Object, (char *)CurrentThread, a3, 32 * (a2 & 2u), 0LL);
-    if ( v7 )
+    v7 = DbgkpQueueMessage(Object, (char *)KeGetCurrentThread(), a3, 32 * (a2 & 2u), 0LL);
+    if ( v6 )
     {
-      PsThawMultiProcess((ULONG_PTR)Object, 0LL, 1u);
+      PsThawProcess((ULONG_PTR)Object, 0);
       KeLeaveCriticalRegion();
     }
   }
-  while ( v8 >= 0 && *(_DWORD *)(a3 + 44) == 1073807361 );
-  return (unsigned int)v8;
+  while ( v7 >= 0 && *(_DWORD *)(a3 + 44) == 1073807361 );
+  return (unsigned int)v7;
 }

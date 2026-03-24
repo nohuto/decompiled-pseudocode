@@ -1,61 +1,74 @@
 /*
- * XREFs of AslStringDuplicate @ 0x14075B1B8
+ * XREFs of AslStringDuplicate @ 0x14075A8A4
  * Callers:
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
- *     AslpFileMakeStringVersionAttributes @ 0x140841B4C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerQueryBlock @ 0x14084205C (AslpFileVerQueryBlock.c)
- *     AslFileMappingCreateFromImageView @ 0x140842D98 (AslFileMappingCreateFromImageView.c)
- *     SdbpCheckMatchingRegistryValue @ 0x140A111BC (SdbpCheckMatchingRegistryValue.c)
- *     AslRegWildcardFindFirst @ 0x140A16C68 (AslRegWildcardFindFirst.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407B29BC (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerQueryBlock @ 0x1407B2F90 (AslpFileVerQueryBlock.c)
+ *     AslFileMappingCreateFromImageView @ 0x1407B3798 (AslFileMappingCreateFromImageView.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x14096484C (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegWildcardFindFirst @ 0x1409699EC (AslRegWildcardFindFirst.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslStringDuplicate(wchar_t **a1, const wchar_t *a2)
 {
-  __int64 v4; // rcx
-  NTSTATUS v5; // ebx
-  unsigned __int64 v6; // rbx
+  NTSTATUS v4; // ebx
+  size_t v5; // rbp
+  __int64 v6; // rcx
   wchar_t *v7; // rax
   wchar_t *v8; // rdi
-  size_t v10; // [rsp+40h] [rbp+8h] BYREF
+  size_t v10; // [rsp+50h] [rbp+8h] BYREF
+  ULONGLONG pullResult; // [rsp+58h] [rbp+10h] BYREF
 
   v10 = 0LL;
+  pullResult = 0LL;
   *a1 = 0LL;
   if ( !a2 )
     return 0;
-  v5 = RtlStringCchLengthW(a2, 0x7FFFFFFFuLL, &v10);
-  if ( v5 < 0 )
+  v4 = RtlStringCchLengthW(a2, 0x7FFFFFFFuLL, &v10);
+  if ( v4 < 0 )
   {
-LABEL_15:
+LABEL_17:
     AslLogCallPrintf(1LL);
-    return (unsigned int)v5;
+    return (unsigned int)v4;
   }
-  v6 = v10 + 1;
-  if ( v10 + 1 < v10 || !is_mul_ok(v6, 2uLL) )
+  v5 = v10 + 1;
+  if ( v10 + 1 < v10 )
   {
-    v5 = -1073741675;
-    goto LABEL_15;
+    v4 = -1073741675;
+    goto LABEL_17;
   }
-  v7 = (wchar_t *)AslAlloc(v4, 2 * v6);
+  v4 = RtlULongLongMult(v10 + 1, 2uLL, &pullResult);
+  if ( v4 < 0 )
+    goto LABEL_17;
+  v7 = (wchar_t *)AslAlloc(v6, pullResult);
   v8 = v7;
-  if ( !v7 )
+  if ( v7 )
   {
-    v5 = -1073741801;
-    AslLogCallPrintf(1LL);
-    return (unsigned int)v5;
+    v4 = RtlStringCchCopyW(v7, v5, a2);
+    if ( v4 < 0 )
+    {
+      AslLogCallPrintf(1LL);
+    }
+    else
+    {
+      *a1 = v8;
+      v8 = 0LL;
+      v4 = 0;
+    }
+    if ( v8 )
+      ExFreePoolWithTag(v8, 0x74705041u);
   }
-  v5 = RtlStringCchCopyW(v7, v6, a2);
-  if ( v5 < 0 )
+  else
   {
+    v4 = -1073741801;
     AslLogCallPrintf(1LL);
-    ExFreePoolWithTag(v8, 0x74705041u);
-    return (unsigned int)v5;
   }
-  *a1 = v8;
-  return 0;
+  return (unsigned int)v4;
 }

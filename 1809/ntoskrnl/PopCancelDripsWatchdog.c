@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCancelDripsWatchdog @ 0x1408793C4
+ * XREFs of PopCancelDripsWatchdog @ 0x1408793A4
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14086F288 (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14086F268 (PopPdcIdleResiliencyCallback.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeCancelTimer2 @ 0x1400FAF50 (KeCancelTimer2.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopDripsWatchdogStopWatchdog @ 0x14086EA6C (PopDripsWatchdogStopWatchdog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopDripsWatchdogStopWatchdog @ 0x14086EA4C (PopDripsWatchdogStopWatchdog.c)
  */
 
 _QWORD *PopCancelDripsWatchdog()

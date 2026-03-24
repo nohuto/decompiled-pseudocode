@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeProtoReadOnly @ 0x140633F9C
+ * XREFs of MiMakeProtoReadOnly @ 0x14053A7D8
  * Callers:
- *     MiResolveTransitionFault @ 0x1402623B0 (MiResolveTransitionFault.c)
- *     MiMakeFaultPfnActive @ 0x140334D40 (MiMakeFaultPfnActive.c)
+ *     MiResolveTransitionFault @ 0x140216750 (MiResolveTransitionFault.c)
+ *     MiFinishHardFault @ 0x140239200 (MiFinishHardFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
 char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
@@ -44,7 +44,7 @@ char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
     if ( (_DWORD)CurrentThread )
     {
       v8 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_13;
     }
     else

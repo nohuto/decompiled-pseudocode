@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180259628
+ * XREFs of ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802090B8
  * Callers:
- *     ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802595CC (-GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows@@MM@Z.c)
+ *     ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x18020905C (-GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows@@MM@Z.c)
  * Callees:
- *     EmitterShapes::GetPointOnLine @ 0x1802596F4 (EmitterShapes--GetPointOnLine.c)
+ *     EmitterShapes::GetPointOnLine @ 0x180209184 (EmitterShapes--GetPointOnLine.c)
  */
 
 _DWORD *__fastcall EmitterShapes::CPathEmitterEdge::Figure::GetPointOnEdge(char **a1, _DWORD *a2, float a3, float a4)

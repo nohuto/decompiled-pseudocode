@@ -1,106 +1,91 @@
 /*
- * XREFs of PspDeleteServerSiloGlobals @ 0x1409ABFB0
+ * XREFs of PspDeleteServerSiloGlobals @ 0x1409062AC
  * Callers:
- *     PspDeleteSilo @ 0x1407F8C6C (PspDeleteSilo.c)
- *     PspConvertSiloToServerSilo @ 0x1409ABCF4 (PspConvertSiloToServerSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x140906418 (PspDeleteSilo.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExpDeleteSiloState @ 0x140639B54 (ExpDeleteSiloState.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ObCleanupSiloState @ 0x140983EC0 (ObCleanupSiloState.c)
- *     EtwCleanupSiloState @ 0x1409DEDF8 (EtwCleanupSiloState.c)
- *     ExWnfCleanupServerSiloState @ 0x140A08260 (ExWnfCleanupServerSiloState.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ExpDeleteSiloState @ 0x1405B2BEC (ExpDeleteSiloState.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
+ *     DbgkCleanupServerSiloState @ 0x140884358 (DbgkCleanupServerSiloState.c)
+ *     ObCleanupSiloState @ 0x1408DC470 (ObCleanupSiloState.c)
+ *     PspDeleteProtectedProcessParameters @ 0x1409059D0 (PspDeleteProtectedProcessParameters.c)
+ *     SeRmCleanupSiloState @ 0x14091C040 (SeRmCleanupSiloState.c)
+ *     EtwDeleteSiloState @ 0x140937D24 (EtwDeleteSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x14095CA90 (ExWnfCleanupServerSiloState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDeleteServerSiloGlobals(char *P)
 {
   void *v2; // rcx
-  _QWORD *v3; // rdx
+  struct _DMA_ADAPTER *v3; // rcx
   void *v4; // rcx
-  void *v5; // rcx
-  ULONG_PTR v6; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
+  void *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
-  void *v9; // rcx
-  void *v10; // rcx
-  struct _KEVENT *v11; // rcx
-  void *v12; // rcx
+  struct _KEVENT *v8; // rcx
 
-  v2 = (void *)*((_QWORD *)P + 124);
+  DbgkCleanupServerSiloState((__int64)(P + 968));
+  ObCleanupSiloState((void **)P);
+  SeRmCleanupSiloState((ULONG_PTR)(P + 784));
+  ExWnfCleanupServerSiloState(P + 912);
+  v2 = (void *)*((_QWORD *)P + 108);
   if ( v2 )
   {
-    ObfDereferenceObjectWithTag(v2, 0x6B676244u);
-    *((_QWORD *)P + 124) = 0LL;
-  }
-  ObCleanupSiloState((volatile __int64 *)P);
-  v3 = P + 784;
-  if ( *((_QWORD *)P + 99) || *((_QWORD *)P + 101) || *v3 )
-    KeBugCheckEx(0x29u, (ULONG_PTR)v3, (ULONG_PTR)"minkernel\\ntos\\se\\rmmain.c", 0x6D1uLL, 0LL);
-  ExWnfCleanupServerSiloState(P + 912);
-  v4 = (void *)*((_QWORD *)P + 108);
-  if ( v4 )
-  {
-    EtwCleanupSiloState(v4);
+    EtwDeleteSiloState(v2);
     *((_QWORD *)P + 108) = 0LL;
   }
-  if ( *((_QWORD *)P + 161) )
+  if ( *((_QWORD *)P + 137) )
   {
-    RtlFreeUnicodeString((PUNICODE_STRING)P + 80);
-    *((_QWORD *)P + 161) = 0LL;
+    RtlFreeAnsiString((PUNICODE_STRING)P + 68);
+    *((_QWORD *)P + 137) = 0LL;
   }
-  v5 = (void *)*((_QWORD *)P + 129);
-  if ( v5 )
+  v3 = (struct _DMA_ADAPTER *)*((_QWORD *)P + 129);
+  if ( v3 )
   {
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter(v3);
     *((_QWORD *)P + 129) = 0LL;
   }
-  v6 = *((_QWORD *)P + 130);
-  if ( v6 )
+  v4 = (void *)*((_QWORD *)P + 130);
+  if ( v4 )
   {
-    MiRemoveFromSystemSpace(v6, 1);
+    MmUnmapViewInSystemSpace(v4);
     *((_QWORD *)P + 130) = 0LL;
   }
-  v7 = (void *)*((_QWORD *)P + 128);
-  if ( v7 )
+  PspDeleteProtectedProcessParameters((__int64)P);
+  if ( *((_QWORD *)P + 142) )
   {
-    ExFreePoolWithTag(v7, 0x6C537350u);
-    *((_QWORD *)P + 128) = 0LL;
+    MmUnmapViewInSystemSpace(*((PVOID *)P + 141));
+    v5 = (struct _DMA_ADAPTER *)*((_QWORD *)P + 142);
+    *((_QWORD *)P + 141) = 0LL;
+    HalPutDmaAdapter(v5);
+    *((_QWORD *)P + 142) = 0LL;
   }
-  if ( *((_QWORD *)P + 166) )
+  v6 = (void *)*((_QWORD *)P + 113);
+  if ( v6 )
   {
-    MiRemoveFromSystemSpace(*((_QWORD *)P + 165), 1);
-    v8 = (void *)*((_QWORD *)P + 166);
-    *((_QWORD *)P + 165) = 0LL;
-    ObfDereferenceObject(v8);
-    *((_QWORD *)P + 166) = 0LL;
-  }
-  v9 = (void *)*((_QWORD *)P + 113);
-  if ( v9 )
-  {
-    ExpDeleteSiloState(v9);
+    ExpDeleteSiloState(v6);
     *((_QWORD *)P + 113) = 0LL;
   }
-  v10 = (void *)*((_QWORD *)P + 156);
-  if ( v10 )
+  v7 = (void *)*((_QWORD *)P + 132);
+  if ( v7 )
   {
-    ZwClose(v10);
-    *((_QWORD *)P + 156) = 0LL;
+    ZwClose(v7);
+    *((_QWORD *)P + 132) = 0LL;
   }
-  v11 = (struct _KEVENT *)*((_QWORD *)P + 164);
-  if ( v11 )
+  v8 = (struct _KEVENT *)*((_QWORD *)P + 140);
+  if ( v8 )
   {
-    KeSetEvent(v11, 0, 0);
-    ObfDereferenceObjectWithTag(*((PVOID *)P + 164), 0x65446953u);
-    *((_QWORD *)P + 164) = 0LL;
+    KeSetEvent(v8, 0, 0);
+    ObfDereferenceObjectWithTag(*((PVOID *)P + 140), 0x65446953u);
+    *((_QWORD *)P + 140) = 0LL;
   }
-  v12 = (void *)*((_QWORD *)P + 157);
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0);
+  if ( P[1049] )
+    ExFreePoolWithTag(*((PVOID *)P + 133), 0);
   ExFreePoolWithTag(P, 0x476C6953u);
 }

@@ -1,36 +1,36 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x140790FAC
+ * XREFs of PnpProcessAssignResources @ 0x14073CA2C
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpAssignResourcesToDevices @ 0x140790AB4 (PnpAssignResourcesToDevices.c)
- *     PnpProcessAssignResourcesWorker @ 0x140791170 (PnpProcessAssignResourcesWorker.c)
- *     PipClearDevNodeUserFlags @ 0x1407938F0 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeAcquireGuardedMutex @ 0x14026F9E0 (KeAcquireGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpProcessAssignResourcesWorker @ 0x14073CC10 (PnpProcessAssignResourcesWorker.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140746054 (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
+ *     PnpAssignResourcesToDevices @ 0x14074F3C0 (PnpAssignResourcesToDevices.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, _BYTE *a3)
+char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
-  unsigned int v4; // ebx
+  int v4; // edi
   char v6; // bp
-  unsigned int *Pool2; // rax
-  unsigned int *v8; // r15
-  __int64 v9; // rdi
-  __int64 v11; // rax
-  _DWORD *v12; // r13
-  _QWORD *v13; // rsi
-  __int64 *v14; // r14
-  __int64 v15; // rbp
-  __int64 v16; // rbx
-  __int64 v17; // rsi
-  _DWORD *v18; // rdi
+  unsigned int v7; // ebx
+  __int64 *PoolWithTag; // rax
+  __int64 *v9; // r12
+  __int64 v10; // rdi
+  _QWORD *v12; // rax
+  _QWORD *v13; // r15
+  _QWORD *v14; // rsi
+  __int64 *v15; // r14
+  __int64 v16; // rbp
+  __int64 v17; // rbx
+  char *v18; // rsi
   __int64 v19; // rax
   __int64 v20; // rbx
   __int64 v21; // r8
@@ -39,38 +39,40 @@ char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, _BYTE 
 
   v4 = a2;
   v6 = 0;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, (unsigned int)(8 * IopNumberDeviceNodes + 8), 896560720LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  v7 = 8 * IopNumberDeviceNodes + 8;
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, v7, 0x35706E50u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = v4;
-    PnpProcessAssignResourcesWorker(a1, Pool2);
-    v9 = v8[1];
-    if ( (_DWORD)v9 )
+    memset(PoolWithTag, 0, v7);
+    *(_DWORD *)v9 = v4;
+    PnpProcessAssignResourcesWorker(a1, v9);
+    v10 = *((unsigned int *)v9 + 1);
+    if ( (_DWORD)v10 )
     {
-      v11 = ExAllocatePool2(256LL, (unsigned int)((_DWORD)v9 << 6), 913337936LL);
-      v12 = (_DWORD *)v11;
-      if ( v11 )
+      v12 = ExAllocatePoolWithTag(PagedPool, (unsigned int)((_DWORD)v10 << 6), 0x36706E50u);
+      v13 = v12;
+      if ( v12 )
       {
-        v13 = (_QWORD *)v11;
-        v14 = (__int64 *)(v8 + 2);
-        v15 = v9;
+        memset(v12, 0, (unsigned int)((_DWORD)v10 << 6));
+        v14 = v13;
+        v15 = v9 + 1;
+        v16 = v10;
         do
         {
-          v16 = *v14;
-          memset(v13, 0, 0x40uLL);
-          v13[3] = 0LL;
-          ++v14;
-          *v13 = v16;
-          *((_DWORD *)v13 + 3) = 4;
-          v13 += 8;
-          --v15;
+          v17 = *v15;
+          memset(v14, 0, 0x40uLL);
+          v14[3] = 0LL;
+          ++v15;
+          *v14 = v17;
+          *((_DWORD *)v14 + 3) = 4;
+          v14 += 8;
+          --v16;
         }
-        while ( v15 );
+        while ( v16 );
         v6 = 0;
-        v17 = v9;
-        PnpAssignResourcesToDevices(v9, v12, a3);
-        v18 = v12 + 10;
+        PnpAssignResourcesToDevices((unsigned int)v10, v13, a3);
+        v18 = (char *)(v13 + 5);
         while ( 1 )
         {
           v19 = *((_QWORD *)v18 - 5);
@@ -78,32 +80,32 @@ char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, _BYTE 
             v20 = *(_QWORD *)(*(_QWORD *)(v19 + 312) + 40LL);
           else
             v20 = 0LL;
-          v21 = (unsigned int)v18[4];
+          v21 = *((unsigned int *)v18 + 4);
           if ( (int)v21 >= 0 )
           {
             v6 = 1;
             if ( *(_QWORD *)v18 )
             {
-              ExAcquireFastMutex(&PiResourceListLock);
+              KeAcquireGuardedMutex(&PiResourceListLock);
               *(_QWORD *)(v20 + 416) = *(_QWORD *)v18;
               *(_QWORD *)(v20 + 424) = *((_QWORD *)v18 + 1);
-              ExReleaseFastMutex(&PiResourceListLock);
+              KeReleaseGuardedMutex(&PiResourceListLock);
             }
             else
             {
               PipSetDevNodeFlags(v20, 256LL);
             }
-            PipSetDevNodeState(v20, 774);
+            PipSetDevNodeState(v20, 772);
             PipClearDevNodeUserFlags(v20, 4LL);
-            goto LABEL_15;
+            goto LABEL_18;
           }
           if ( (_DWORD)v21 != -1073741267 )
             break;
-LABEL_15:
-          v18 += 16;
-          if ( !--v17 )
+LABEL_18:
+          v18 += 64;
+          if ( !--v10 )
           {
-            ExFreePoolWithTag(v12, 0x36706E50u);
+            ExFreePoolWithTag(v13, 0x36706E50u);
             goto LABEL_3;
           }
         }
@@ -128,16 +130,16 @@ LABEL_15:
               v23 = 36LL;
             else
               v23 = 12LL;
-            goto LABEL_34;
+            goto LABEL_37;
         }
         v22 = v20;
-LABEL_34:
+LABEL_37:
         PipSetDevNodeProblem(v22, v23, v21);
-        goto LABEL_15;
+        goto LABEL_18;
       }
     }
 LABEL_3:
-    ExFreePoolWithTag(v8, 0x35706E50u);
+    ExFreePoolWithTag(v9, 0x35706E50u);
   }
   return v6;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of UserUnsafeIsProcessDwm @ 0x1C009B7F0
+ * XREFs of UserUnsafeIsProcessDwm @ 0x1C003AC00
  * Callers:
- *     W32CalloutDispatch @ 0x1C00DE840 (W32CalloutDispatch.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall UserUnsafeIsProcessDwm(__int64 a1)
+_BOOL8 __fastcall UserUnsafeIsProcessDwm(PVOID a1)
 {
   _BOOL8 result; // rax
 
   result = 0LL;
   if ( a1 )
-    return a1 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
+    return a1 == g_pepDwm;
   return result;
 }

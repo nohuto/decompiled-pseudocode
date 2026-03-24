@@ -1,43 +1,40 @@
 /*
- * XREFs of HalpCommitCR3Worker @ 0x140A8FEA4
+ * XREFs of HalpCommitCR3Worker @ 0x1409995DC
  * Callers:
- *     HalpCommitCR3Worker @ 0x140A8FEA4 (HalpCommitCR3Worker.c)
- *     HalpMmBuildTiledMemoryMap @ 0x140A90D78 (HalpMmBuildTiledMemoryMap.c)
+ *     HalpCommitCR3Worker @ 0x1409995DC (HalpCommitCR3Worker.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099A1AC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     HalpCommitCR3Worker @ 0x140A8FEA4 (HalpCommitCR3Worker.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalpCommitCR3Worker @ 0x1409995DC (HalpCommitCR3Worker.c)
  */
 
-void __fastcall HalpCommitCR3Worker(PVOID *a1, unsigned int a2)
+void __fastcall HalpCommitCR3Worker(void **a1, unsigned int a2)
 {
   __int64 v4; // rdi
-  PHYSICAL_ADDRESS PhysicalAddress; // rax
-  __int64 v6; // rdx
-  LONGLONG v7; // rax
-  __int64 v8; // r8
-  __int64 v9; // rcx
-  void *v10; // rcx
+  void *v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rcx
 
   v4 = 512LL;
   do
   {
+    v5 = *a1;
     if ( *a1 )
     {
       if ( a2 >= 2 )
-        HalpCommitCR3Worker(*a1, a2 - 1);
-      PhysicalAddress = MmGetPhysicalAddress(*a1);
+      {
+        HalpCommitCR3Worker(v5, a2 - 1);
+        v5 = *a1;
+      }
+      *a1 = (void *)(MmGetPhysicalAddress(v5).QuadPart & 0xFFFFFFFFF000LL);
       v6 = 1LL;
-      v7 = PhysicalAddress.QuadPart & 0xFFFFFFFFFF000LL;
-      v8 = 2LL;
+      v7 = 2LL;
       do
       {
-        v9 = v6++;
-        v10 = (void *)(v7 | v9);
-        *a1 = v10;
-        v7 = (LONGLONG)v10;
-        --v8;
+        *a1 = (void *)(v6++ | (unsigned __int64)*a1);
+        --v7;
       }
-      while ( v8 );
+      while ( v7 );
     }
     ++a1;
     --v4;

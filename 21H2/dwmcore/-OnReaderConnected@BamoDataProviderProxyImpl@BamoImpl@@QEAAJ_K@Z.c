@@ -1,64 +1,43 @@
 /*
- * XREFs of ?OnReaderConnected@BamoDataProviderProxyImpl@BamoImpl@@QEAAJ_K@Z @ 0x1801BE0B0
+ * XREFs of ?OnReaderConnected@BamoDataProviderProxyImpl@BamoImpl@@QEAAJ_K@Z @ 0x180181B70
  * Callers:
- *     ?OnReaderConnected@BamoDataProviderProxy@@UEAAJ_K@Z @ 0x1801BE060 (-OnReaderConnected@BamoDataProviderProxy@@UEAAJ_K@Z.c)
+ *     ?OnReaderConnected@BamoDataProviderProxy@@UEAAJ_K@Z @ 0x180181B20 (-OnReaderConnected@BamoDataProviderProxy@@UEAAJ_K@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ @ 0x1801BCA90 (-IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ.c)
- *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x1801BCD28 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x180180BD0 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
  */
 
-__int64 __fastcall BamoImpl::BamoDataProviderProxyImpl::OnReaderConnected(
-        BamoImpl::BamoDataProviderProxyImpl *this,
-        __int64 a2,
-        __int64 a3,
-        const char *a4)
+__int64 __fastcall BamoImpl::BamoDataProviderProxyImpl::OnReaderConnected(BamoImpl::BamoDataProviderProxyImpl *this)
 {
-  int v6; // eax
-  unsigned int v7; // edi
-  struct IMessageCallSendHost *v8; // rcx
-  char *v9; // rax
-  _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
+  int v3; // eax
+  unsigned int v4; // edi
+  struct IMessageCallSendHost *v5; // rcx
+  char *v6; // rax
+  _QWORD v7[5]; // [rsp+40h] [rbp-28h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
-  unsigned int v12; // [rsp+70h] [rbp+8h] BYREF
-  unsigned int v13; // [rsp+80h] [rbp+18h] BYREF
-  struct IMessageCallSendHost *v14; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int v9; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
+  struct IMessageCallSendHost *v11; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( *(_DWORD *)(*((_QWORD *)this + 2) + 44LL) )
-    wil::details::in1diag3::_FailFast_Unexpected(
-      retaddr,
-      8810LL,
-      (__int64)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-      a4);
-  if ( Microsoft::BamoImpl::BamoProxyImpl::IsDisconnected(this) )
+  if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 32LL) + 56LL) )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x226E,
-      (int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-      (const char *)0x87B20814LL);
-    return 2276591636LL;
-  }
-  else
-  {
-    v6 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(this, &v14, &v12, &v13);
-    v7 = v6;
-    if ( v6 >= 0 )
+    v3 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(this, &v11, &v9, &v10);
+    v4 = v3;
+    if ( v3 >= 0 )
     {
-      v8 = v14;
+      v5 = v11;
       if ( *((_BYTE *)this + 31) )
       {
-        v9 = (char *)v14 - 16;
-        if ( !v14 )
-          v9 = 0LL;
-        v9[72] = 1;
+        v6 = (char *)v11 - 16;
+        if ( !v11 )
+          v6 = 0LL;
+        v6[72] = 1;
       }
-      v10[0] = v12;
-      v10[1] = v13;
+      v7[0] = v9;
+      v7[1] = v10;
       return CoreUICallSend(
-               v8,
-               v10,
+               v5,
+               v7,
                2LL,
                0LL,
                0,
@@ -68,10 +47,19 @@ __int64 __fastcall BamoImpl::BamoDataProviderProxyImpl::OnReaderConnected(
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x2275,
-        (int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-        (const char *)(unsigned int)v6);
-      return v7;
+        (void *)0x1FA8,
+        (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+        (const char *)(unsigned int)v3);
+      return v4;
     }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x1FA1,
+      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (const char *)0x87B20814LL);
+    return 2276591636LL;
   }
 }

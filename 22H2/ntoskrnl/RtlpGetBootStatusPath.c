@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetBootStatusPath @ 0x1403C5CB4
+ * XREFs of RtlpGetBootStatusPath @ 0x140399114
  * Callers:
- *     RtlLockBootStatusData @ 0x1407EF310 (RtlLockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14077F470 (RtlLockBootStatusData.c)
  * Callees:
- *     RtlpGetBootStatusPathFromRegistry @ 0x1403C5D10 (RtlpGetBootStatusPathFromRegistry.c)
- *     RtlIsStateSeparationEnabled @ 0x1407E25A0 (RtlIsStateSeparationEnabled.c)
+ *     RtlpGetBootStatusPathFromRegistry @ 0x140399170 (RtlpGetBootStatusPathFromRegistry.c)
+ *     RtlIsStateSeparationEnabled @ 0x14069AC30 (RtlIsStateSeparationEnabled.c)
  */
 
 __int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)

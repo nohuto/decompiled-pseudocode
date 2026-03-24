@@ -1,42 +1,38 @@
 /*
- * XREFs of PopAcquireAdaptiveLock @ 0x1407EF098
+ * XREFs of PopAcquireAdaptiveLock @ 0x14067E094
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PopSessionConnectionChange @ 0x1407ED88C (PopSessionConnectionChange.c)
- *     PopSetDisplayStatus @ 0x140809408 (PopSetDisplayStatus.c)
- *     PopIsLockConsoleTimeoutActive @ 0x14080A454 (PopIsLockConsoleTimeoutActive.c)
- *     PopSystemIdleEventHandler @ 0x14080C220 (PopSystemIdleEventHandler.c)
- *     PopUpdateSystemIdleContext @ 0x140819D40 (PopUpdateSystemIdleContext.c)
- *     PopAdaptivePowerSettingCallback @ 0x140828BC0 (PopAdaptivePowerSettingCallback.c)
- *     PopActiveLockScreenPowerRequest @ 0x14099C730 (PopActiveLockScreenPowerRequest.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x14099C8F8 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
- *     PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14099CAD0 (PopAdaptiveSetSystemInitiatedRebootTargetStateOverride.c)
- *     PopAdaptiveWnfCallback @ 0x14099CB50 (PopAdaptiveWnfCallback.c)
- *     PopSessionWinlogonNotification @ 0x14099CBC8 (PopSessionWinlogonNotification.c)
- *     PopUserPresentOverride @ 0x14099CCC4 (PopUserPresentOverride.c)
+ *     PopSessionWinlogonNotification @ 0x1405D8DC4 (PopSessionWinlogonNotification.c)
+ *     PopSessionInputChange @ 0x14067DE74 (PopSessionInputChange.c)
+ *     PopSetDisplayStatus @ 0x14077A87C (PopSetDisplayStatus.c)
+ *     PopSessionConnectionChange @ 0x14078D92C (PopSessionConnectionChange.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140790F60 (PopAdaptivePowerSettingCallback.c)
+ *     PopActiveLockScreenPowerRequest @ 0x1408F4F30 (PopActiveLockScreenPowerRequest.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x1408F518C (PopIsLockConsoleTimeoutActive.c)
+ *     PopUserPresentOverride @ 0x1408F5380 (PopUserPresentOverride.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PoBlockConsoleSwitch @ 0x1407FE7DC (PoBlockConsoleSwitch.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
  */
 
 struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
 {
+  int v1; // ebx
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *result; // rax
-  int v4; // edi
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-38h] BYREF
   __int128 v6; // [rsp+28h] [rbp-30h] BYREF
   __int64 v7; // [rsp+38h] [rbp-20h]
 
+  v1 = -1;
   v7 = 0LL;
   v6 = 0LL;
   if ( !a1 )
   {
-    v4 = PoBlockConsoleSwitch(&v6);
+    v1 = PoBlockConsoleSwitch(&v6);
     Interval.QuadPart = -100000LL;
-    while ( v4 != dword_140C1F3B8 )
+    while ( v1 != (_DWORD)PopConsoleContext )
       KeDelayExecutionThread(0, 0, &Interval);
   }
   CurrentThread = KeGetCurrentThread();
@@ -44,6 +40,13 @@ struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
   ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   result = KeGetCurrentThread();
   PopAdpmLockThread = (__int64)result;
-  PopAdaptiveContext = a1 == 0;
+  if ( !a1 )
+  {
+    result = 0LL;
+    PopLazyContext = 0LL;
+    LOBYTE(PopLazyContext) = 1;
+    DWORD1(PopLazyContext) = v1;
+    qword_140C205D0 = 0LL;
+  }
   return result;
 }

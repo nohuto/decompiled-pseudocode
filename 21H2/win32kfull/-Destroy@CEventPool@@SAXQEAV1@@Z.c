@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C011AC74
+ * XREFs of ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C012E6BC
  * Callers:
- *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C011AC34 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E624 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
  * Callees:
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C011AC00 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E714 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  */
 
 void __fastcall CEventPool::Destroy(union _SLIST_HEADER *pv)
 {
   PSLIST_ENTRY v2; // rbx
-  _QWORD *p_Next; // rcx
+  PSLIST_ENTRY v3; // rcx
 
   v2 = ExpInterlockedFlushSList(pv + 1);
   while ( v2 )
   {
-    p_Next = &v2->Next;
+    v3 = v2;
     v2 = v2->Next;
-    CEventPool::CEventPoolEntry::Destroy(p_Next);
+    CEventPool::CEventPoolEntry::Destroy(v3);
   }
   EngFreeMem(pv);
 }

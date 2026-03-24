@@ -3,7 +3,7 @@
  * Callers:
  *     VerifierIoConnectInterruptEx @ 0x140928AF0 (VerifierIoConnectInterruptEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViCtxSetPrivateConnectParameters @ 0x140941FB8 (ViCtxSetPrivateConnectParameters.c)
  */

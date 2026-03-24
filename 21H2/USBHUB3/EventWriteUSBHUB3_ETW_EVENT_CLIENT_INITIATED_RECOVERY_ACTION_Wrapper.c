@@ -1,19 +1,19 @@
 /*
- * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001ACB0
+ * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001A758
  * Callers:
- *     HUBPDO_EvtIoInternalDeviceControl @ 0x1C0014C20 (HUBPDO_EvtIoInternalDeviceControl.c)
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
- *     HUBPDO_ReEnumerationCallback @ 0x1C001B240 (HUBPDO_ReEnumerationCallback.c)
+ *     HUBPDO_EvtIoInternalDeviceControl @ 0x1C0014760 (HUBPDO_EvtIoInternalDeviceControl.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_ReEnumerationCallback @ 0x1C001ACF0 (HUBPDO_ReEnumerationCallback.c)
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C001369C (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C0013198 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
  */
 
 void __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper(__int64 a1, __int64 a2, int a3)
 {
   int v4; // r15d
-  const GUID *v6; // r14
-  __int64 v7; // rdi
+  const GUID *v6; // rbp
+  __int64 v7; // rbx
   __int64 v8; // rcx
   int v9; // eax
   __int64 v10; // [rsp+20h] [rbp-48h]

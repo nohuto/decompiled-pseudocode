@@ -1,10 +1,10 @@
 /*
- * XREFs of TelemetryData_pCreateDumpFile @ 0x1C0078C74
+ * XREFs of TelemetryData_pCreateDumpFile @ 0x1C0077854
  * Callers:
- *     TelemetryData_pWriteDumpFile @ 0x1C00792E8 (TelemetryData_pWriteDumpFile.c)
+ *     TelemetryData_pWriteDumpFile @ 0x1C0077EC8 (TelemetryData_pWriteDumpFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1C00157F8 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C00156DC (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
@@ -87,11 +87,11 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
       if ( (unsigned int)++v4 <= 0xA )
         continue;
     }
-    goto LABEL_11;
+    goto LABEL_10;
   }
   *(_WORD *)(a1 + 656) = 0;
   v5 = -1073741823;
-LABEL_11:
+LABEL_10:
   *(_WORD *)(a1 + 736) = 0;
   *a2 = 0LL;
   return (unsigned int)v5;

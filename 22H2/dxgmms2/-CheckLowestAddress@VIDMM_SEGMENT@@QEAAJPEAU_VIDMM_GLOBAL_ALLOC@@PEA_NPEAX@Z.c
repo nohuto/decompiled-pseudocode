@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckLowestAddress@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z @ 0x1C00FC6E0
+ * XREFs of ?CheckLowestAddress@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z @ 0x1C00C5130
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall VIDMM_SEGMENT::CheckLowestAddress(
@@ -13,21 +13,22 @@ __int64 __fastcall VIDMM_SEGMENT::CheckLowestAddress(
         _QWORD *a4)
 {
   __int64 v4; // rax
-  __int64 v6; // rcx
+  __int64 v6; // rax
 
   if ( a2 )
   {
-    if ( *((_QWORD *)a2 + 15) )
-      v4 = *((_QWORD *)a2 + 16);
+    if ( *((_QWORD *)a2 + 16) )
+      v4 = *((_QWORD *)a2 + 17);
     else
-      v4 = *((_QWORD *)a2 + 24);
+      v4 = *((_QWORD *)a2 + 26);
     *a4 = v4;
     return 3221225473LL;
   }
   else
   {
-    WdLogSingleEntry1(1LL, 6374LL);
-    DxgkLogInternalTriageEvent(v6, 0x40000LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, 0LL, a3);
+    *(_QWORD *)(v6 + 24) = 6450LL;
+    WdLogEvent5_WdAssertion(v6);
     return 3221226021LL;
   }
 }

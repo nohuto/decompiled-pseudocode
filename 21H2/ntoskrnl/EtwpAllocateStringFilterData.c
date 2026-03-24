@@ -1,13 +1,14 @@
 /*
- * XREFs of EtwpAllocateStringFilterData @ 0x1409F4A30
+ * XREFs of EtwpAllocateStringFilterData @ 0x1409404FC
  * Callers:
- *     EtwpAllocateFilter @ 0x1406CEEB0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpAllocateStringFilterData(__int64 a1, unsigned __int16 **a2)
+__int64 __fastcall EtwpAllocateStringFilterData(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r8d
   unsigned int v3; // ebx
@@ -18,14 +19,14 @@ __int64 __fastcall EtwpAllocateStringFilterData(__int64 a1, unsigned __int16 **a
   __int16 v9; // cx
   unsigned __int16 v10; // ax
   unsigned int v11; // edi
-  unsigned __int16 *Pool2; // rax
-  unsigned __int16 *v13; // rsi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v13; // rsi
   char *v14; // r14
   unsigned __int16 v15; // r8
   __int16 v16; // r10
   unsigned int j; // edx
   __int16 v18; // ax
-  unsigned __int16 v19; // ax
+  __int16 v19; // ax
   __int64 v20; // rcx
 
   v2 = *(_DWORD *)(a1 + 8);
@@ -52,20 +53,21 @@ __int64 __fastcall EtwpAllocateStringFilterData(__int64 a1, unsigned __int16 **a
     v11 = i + 1;
     if ( v5 <= v11 )
       v11 = v5;
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, 2 * (v11 + 8 * v7) + 24, 1182233669LL);
-    v13 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2 * (v11 + 8 * v7) + 24, 0x46777445u);
+    v13 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = v7;
-      v14 = (char *)&Pool2[8 * v7 + 12];
+      memset(PoolWithTag, 0, 2 * (v11 + 8 * v7) + 24);
+      v14 = (char *)&v13[2 * v7 + 3];
+      *(_WORD *)v13 = v7;
       memmove(v14, v6, 2LL * v11);
-      *((_QWORD *)v13 + 2) = v14;
+      v13[2] = v14;
       v15 = 1;
       v16 = 0;
       for ( j = 0; j < v11; ++j )
       {
         v18 = *(_WORD *)&v14[2 * j];
-        if ( !v18 || v15 >= *v13 )
+        if ( !v18 || v15 >= *(_WORD *)v13 )
           break;
         if ( v18 == 59 )
         {
@@ -74,11 +76,11 @@ __int64 __fastcall EtwpAllocateStringFilterData(__int64 a1, unsigned __int16 **a
           v20 = 2LL * v15;
           v16 = j + 1;
           ++v15;
-          v13[4 * v20 - 4] = v19;
-          *(_QWORD *)&v13[4 * v20 + 8] = &v14[2 * j + 2];
+          LOWORD(v13[v20 - 1]) = v19;
+          v13[v20 + 2] = &v14[2 * j + 2];
         }
       }
-      v13[8 * v15 - 4] = v11 - v16 - 1;
+      LOWORD(v13[2 * v15 - 1]) = v11 - v16 - 1;
       *a2 = v13;
     }
     else

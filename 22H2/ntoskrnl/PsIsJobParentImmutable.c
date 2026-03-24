@@ -1,9 +1,9 @@
 /*
- * XREFs of PsIsJobParentImmutable @ 0x14069EDA4
+ * XREFs of PsIsJobParentImmutable @ 0x14071C620
  * Callers:
- *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)
- *     PspIsJobMovable @ 0x1409B2614 (PspIsJobMovable.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B70 (ObCreateSiloRootDirectory.c)
+ *     PspGetJobAssignmentDisposition @ 0x14071FA48 (PspGetJobAssignmentDisposition.c)
+ *     PspIsJobMovable @ 0x140908FD4 (PspIsJobMovable.c)
+ *     ObCreateSiloRootDirectory @ 0x140980520 (ObCreateSiloRootDirectory.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ char __fastcall PsIsJobParentImmutable(__int64 a1)
 {
   char result; // al
 
-  if ( (*(_DWORD *)(a1 + 1540) & 1) != 0 )
+  if ( (*(_DWORD *)(a1 + 1324) & 1) != 0 )
     return 1;
   result = 0;
-  if ( *(_QWORD *)(a1 + 1288) )
+  if ( *(_QWORD *)(a1 + 1072) )
     return 1;
   return result;
 }

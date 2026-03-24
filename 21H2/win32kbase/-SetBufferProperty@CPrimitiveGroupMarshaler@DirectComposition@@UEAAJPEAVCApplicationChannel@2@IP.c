@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A6880
+ * XREFs of ?SetBufferProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0093CD0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetBufferProperty(
@@ -27,15 +27,15 @@ __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetBufferPropert
     {
       v9 = *a4;
       *((_DWORD *)this + 4) |= 0x100u;
-      *(_OWORD *)((char *)this + 188) = v9;
+      *(_OWORD *)((char *)this + 180) = v9;
       goto LABEL_5;
     }
     return (unsigned int)-1073741811;
   }
   if ( Size - 1 > 0x3F || (Size & 0xF) != 0 )
     return (unsigned int)-1073741811;
-  *((_DWORD *)this + 46) = Size >> 4;
-  memmove((char *)this + 120, a4, Size);
+  *((_DWORD *)this + 44) = Size >> 4;
+  memmove((char *)this + 112, a4, Size);
 LABEL_5:
   *a6 = 1;
   return v6;

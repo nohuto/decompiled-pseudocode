@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceSiloTimedEvent @ 0x14045FA6C
+ * XREFs of EtwTraceSiloTimedEvent @ 0x1405A81C8
  * Callers:
- *     PfHardFaultLog @ 0x14027B250 (PfHardFaultLog.c)
+ *     PfHardFaultLog @ 0x1402BAA40 (PfHardFaultLog.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceSiloTimedEvent(
@@ -37,7 +37,7 @@ void __fastcall EtwTraceSiloTimedEvent(
 
   v26 = 0;
   v24 = a4;
-  v9 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v9 = *(_DWORD *)(EtwpHostSiloState + 4224);
   v25 = 32;
   while ( 1 )
   {
@@ -46,17 +46,17 @@ void __fastcall EtwTraceSiloTimedEvent(
       break;
     v9 &= v9 - 1;
     v10 = v14;
-    v11 = (_DWORD *)(32LL * v14 + EtwpHostSiloState + 4284);
+    v11 = (_DWORD *)(32LL * v14 + EtwpHostSiloState + 4260);
     if ( v11 && (*v11 & 0x2000) != 0 )
     {
-      v12 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4233);
+      v12 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4209);
       v23 = 0;
       v22 = 8;
       v21 = a7 + 8 * (v12 - 1);
       EtwpLogKernelEvent(
         (__int64)&v21,
         EtwpHostSiloState,
-        *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4232),
+        *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4208),
         2u,
         a2,
         0x401802u);
@@ -64,10 +64,10 @@ void __fastcall EtwTraceSiloTimedEvent(
   }
   if ( a1 )
   {
-    v15 = *(_QWORD *)(*(_QWORD *)(a1 + 1464) + 864LL);
+    v15 = *(_QWORD *)(*(_QWORD *)(a1 + 1272) + 864LL);
     if ( v15 )
     {
-      v16 = *(_DWORD *)(v15 + 4248);
+      v16 = *(_DWORD *)(v15 + 4224);
       while ( 1 )
       {
         v13 = !_BitScanForward(&v20, v16);
@@ -75,16 +75,16 @@ void __fastcall EtwTraceSiloTimedEvent(
           break;
         v17 = v20;
         v16 &= v16 - 1;
-        v18 = (_DWORD *)(32LL * v20 + v15 + 4284);
+        v18 = (_DWORD *)(32LL * v20 + v15 + 4260);
         if ( v18 )
         {
           if ( (*v18 & 0x2000) != 0 )
           {
-            v19 = *(unsigned __int8 *)(v15 + 2 * v17 + 4233);
+            v19 = *(unsigned __int8 *)(v15 + 2 * v17 + 4209);
             v23 = 0;
             v22 = 8;
             v21 = a7 + 8 * (v19 - 1);
-            EtwpLogKernelEvent((__int64)&v21, v15, *(unsigned __int8 *)(v15 + 2 * v17 + 4232), 2u, a2, 0x401802u);
+            EtwpLogKernelEvent((__int64)&v21, v15, *(unsigned __int8 *)(v15 + 2 * v17 + 4208), 2u, a2, 0x401802u);
           }
         }
       }

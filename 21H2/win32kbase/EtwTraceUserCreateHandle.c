@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceUserCreateHandle @ 0x1C004DFE0
+ * XREFs of EtwTraceUserCreateHandle @ 0x1C006A76C
  * Callers:
- *     HMAllocObjectEx @ 0x1C002D20C (HMAllocObjectEx.c)
- *     HMCreateHandleForObject @ 0x1C004DE50 (HMCreateHandleForObject.c)
+ *     HMAllocObject @ 0x1C0032C10 (HMAllocObject.c)
+ *     HMCreateHandleForObject @ 0x1C006A5E0 (HMCreateHandleForObject.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceUserCreateHandle(int a1, char a2, int a3)

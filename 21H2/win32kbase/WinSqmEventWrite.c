@@ -1,12 +1,12 @@
 /*
- * XREFs of WinSqmEventWrite @ 0x1C005B8DC
+ * XREFs of WinSqmEventWrite @ 0x1C00B1428
  * Callers:
- *     WinSqmStartSession @ 0x1C005B74C (WinSqmStartSession.c)
- *     WinSqmEndSession @ 0x1C00B73BC (WinSqmEndSession.c)
- *     ?_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z @ 0x1C00B7538 (-_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z.c)
- *     WinSqmAddToStream @ 0x1C01676A0 (WinSqmAddToStream.c)
- *     WinSqmAddToStreamEx @ 0x1C01678C0 (WinSqmAddToStreamEx.c)
- *     WinSqmSetString @ 0x1C0167D5C (WinSqmSetString.c)
+ *     WinSqmEndSession @ 0x1C00786AC (WinSqmEndSession.c)
+ *     ?_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z @ 0x1C00789D8 (-_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z.c)
+ *     WinSqmStartSession @ 0x1C00B12C0 (WinSqmStartSession.c)
+ *     WinSqmAddToStream @ 0x1C013A060 (WinSqmAddToStream.c)
+ *     WinSqmAddToStreamEx @ 0x1C013A2A0 (WinSqmAddToStreamEx.c)
+ *     WinSqmSetString @ 0x1C013A668 (WinSqmSetString.c)
  * Callees:
  *     <none>
  */

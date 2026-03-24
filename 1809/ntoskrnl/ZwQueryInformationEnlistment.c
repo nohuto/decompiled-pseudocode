@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationEnlistment @ 0x1401BA9B0
+ * XREFs of ZwQueryInformationEnlistment @ 0x1401BA9D0
  * Callers:
  *     <none>
  * Callees:

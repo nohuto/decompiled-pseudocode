@@ -1,15 +1,14 @@
 /*
- * XREFs of ?RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z @ 0x1C01E9744
+ * XREFs of ?RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z @ 0x1C00E0200
  * Callers:
- *     DxgkRemoveSessionViewForCurrentSession @ 0x1C01E96AC (DxgkRemoveSessionViewForCurrentSession.c)
+ *     DxgkRemoveSessionViewForCurrentSession @ 0x1C00E016C (DxgkRemoveSessionViewForCurrentSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C0013A3C (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
- *     ?GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z @ 0x1C01A52B0 (-GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z.c)
- *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01A5328 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
- *     ?GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z @ 0x1C01A5360 (-GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z.c)
- *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C01C10C8 (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
- *     ?RemoveDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@PEAE@Z @ 0x1C03484FC (-RemoveDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@PEAE@Z.c)
+ *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C0001B60 (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
+ *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C00E0610 (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
+ *     ?GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z @ 0x1C0121638 (-GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01216D0 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z @ 0x1C0121708 (-GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z.c)
+ *     ?RemoveDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@PEAE@Z @ 0x1C029F2F0 (-RemoveDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@PEAE@Z.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::RemoveSourceViewFromSession(
@@ -18,26 +17,31 @@ __int64 __fastcall DXGSESSIONDATA::RemoveSourceViewFromSession(
         unsigned int a3,
         char a4)
 {
-  unsigned int v4; // r14d
+  unsigned int v4; // r15d
   __int64 v5; // rbp
   SESSION_ADAPTER *SessionAdapterFromLuid; // rax
-  struct DISPLAY_SOURCE *DisplaySource; // r15
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct DISPLAY_SOURCE *DisplaySource; // rsi
   SESSION_VIEW *SessionViewFromSource; // rax
-  SESSION_VIEW *v12; // rbx
-  SESSION_VIEW **v13; // rdx
-  SESSION_VIEW **v14; // r8
-  __int64 v16; // rbx
-  const wchar_t *v17; // r9
-  unsigned __int8 v18[16]; // [rsp+50h] [rbp-28h] BYREF
+  SESSION_VIEW *v14; // rbx
+  SESSION_VIEW **v15; // rdx
+  SESSION_VIEW **v16; // r8
+  _QWORD *v18; // rax
+  unsigned __int8 v19[40]; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = 0;
   v5 = a3;
-  v18[0] = 0;
+  v19[0] = 0;
   SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid(this, a2);
-  if ( SessionAdapterFromLuid && (DisplaySource = SESSION_ADAPTER::GetDisplaySource(SessionAdapterFromLuid, v5)) != 0LL )
+  if ( SessionAdapterFromLuid )
+    DisplaySource = SESSION_ADAPTER::GetDisplaySource(SessionAdapterFromLuid, v5);
+  else
+    DisplaySource = 0LL;
+  if ( DisplaySource )
   {
     SessionViewFromSource = DXGSESSIONDATA::GetSessionViewFromSource(this, a2, v5);
-    v12 = SessionViewFromSource;
+    v14 = SessionViewFromSource;
     if ( SessionViewFromSource )
     {
       if ( a4 )
@@ -46,40 +50,28 @@ __int64 __fastcall DXGSESSIONDATA::RemoveSourceViewFromSession(
       }
       else
       {
-        v4 = SESSION_VIEW::RemoveDisplaySource(SessionViewFromSource, DisplaySource, v18);
-        if ( !v18[0] )
+        v4 = SESSION_VIEW::RemoveDisplaySource(SessionViewFromSource, DisplaySource, v19);
+        if ( !v19[0] )
           return v4;
       }
-      v13 = (SESSION_VIEW **)*((_QWORD *)v12 + 1);
-      if ( v13[1] != (SESSION_VIEW *)((char *)v12 + 8)
-        || (v14 = (SESSION_VIEW **)*((_QWORD *)v12 + 2), *v14 != (SESSION_VIEW *)((char *)v12 + 8)) )
+      v15 = (SESSION_VIEW **)*((_QWORD *)v14 + 1);
+      if ( v15[1] != (SESSION_VIEW *)((char *)v14 + 8)
+        || (v16 = (SESSION_VIEW **)*((_QWORD *)v14 + 2), *v16 != (SESSION_VIEW *)((char *)v14 + 8)) )
       {
         __fastfail(3u);
       }
-      *v14 = (SESSION_VIEW *)v13;
-      v13[1] = (SESSION_VIEW *)v14;
-      SESSION_VIEW::`scalar deleting destructor'(v12);
+      *v16 = (SESSION_VIEW *)v15;
+      v15[1] = (SESSION_VIEW *)v16;
+      SESSION_VIEW::`scalar deleting destructor'(v14);
       return v4;
     }
-    v16 = v5;
-    WdLogSingleEntry5(2LL, v5, a2->HighPart, a2->LowPart, this, -1073741811LL);
-    v17 = L"VidPn source 0x%I64x from adapter 0x%I64x%08I64x is not in any session view in session 0x%I64x, returning 0x%I64x.";
   }
-  else
-  {
-    v16 = v5;
-    WdLogSingleEntry5(2LL, v5, a2->HighPart, a2->LowPart, this, -1073741811LL);
-    v17 = L"VidPn source 0x%I64x from adapter 0x%I64x%08I64x is not owned by session 0x%I64x, returning 0x%I64x.";
-  }
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)v17,
-    v16,
-    a2->HighPart,
-    a2->LowPart,
-    (__int64)this,
-    -1073741811LL);
+  v18 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+  v18[3] = v5;
+  v18[4] = a2->HighPart;
+  v18[5] = a2->LowPart;
+  v18[6] = this;
+  v18[7] = -1073741811LL;
+  WdLogEvent5_WdError(v18);
   return 3221225485LL;
 }

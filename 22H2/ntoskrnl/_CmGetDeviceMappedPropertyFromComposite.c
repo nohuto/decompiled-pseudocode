@@ -1,31 +1,31 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C
+ * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C
  * Callers:
- *     _CmGetDeviceMappedProperty @ 0x1406CD2C0 (_CmGetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14080C738 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406B538C (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072E88C (_CmGetDeviceMappedPropertyKeys.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyExW @ 0x14034E1C0 (RtlStringCbCopyExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     wcscmp @ 0x1403DB2F0 (wcscmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpMultiSzGetLen @ 0x1406C944C (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x140798EF8 (_CmIsDeviceSafeRemovalRequired.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x14079A170 (_NtPlugPlayGetDeviceProperty.c)
- *     _CmGetDeviceParent @ 0x14079A844 (_CmGetDeviceParent.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x14079ACE8 (_NtPlugPlayGetDeviceStatus.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14079B574 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetDeviceCompoundFilters @ 0x1407FDB00 (_CmGetDeviceCompoundFilters.c)
- *     _CmGetDeviceSiblings @ 0x14083ACCC (_CmGetDeviceSiblings.c)
- *     _CmGetDeviceChildren @ 0x14083AE90 (_CmGetDeviceChildren.c)
- *     _CmGetDeviceRelationsList @ 0x1408520E4 (_CmGetDeviceRelationsList.c)
+ *     RtlStringCbCopyExW @ 0x14031BC50 (RtlStringCbCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     wcscmp @ 0x1403D3840 (wcscmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x140684D10 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceParent @ 0x140693B94 (_CmGetDeviceParent.c)
+ *     _PnpMultiSzGetLen @ 0x140695C7C (_PnpMultiSzGetLen.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x14069FB60 (_NtPlugPlayGetDeviceProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140735568 (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075A16C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x140769F38 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceRelationsList @ 0x140977038 (_CmGetDeviceRelationsList.c)
+ *     _CmGetDeviceChildren @ 0x140979DEC (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceSiblings @ 0x14097A7D4 (_CmGetDeviceSiblings.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
@@ -39,949 +39,897 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
         int *a8,
         int a9)
 {
-  wchar_t *v9; // r14
-  __int64 v10; // r13
-  int *v11; // rsi
-  int v13; // edx
-  unsigned int DeviceRegProp; // ebx
-  unsigned int v17; // r8d
-  unsigned int v18; // r12d
-  unsigned int v19; // eax
-  int v20; // r13d
-  __int64 v21; // rax
-  int v22; // edi
-  int v23; // r12d
-  __int64 v25; // rcx
-  _DWORD *v26; // r11
-  __int64 v27; // rax
-  __int64 v28; // rax
-  int v29; // ecx
-  int DeviceStatus; // eax
-  __int64 v31; // rax
-  int v32; // r8d
-  int v33; // ecx
-  __int64 v34; // rax
-  int v35; // r8d
-  int *v36; // rax
-  int v37; // eax
+  int *v9; // rsi
+  wchar_t *v10; // r15
+  int v12; // r8d
+  __int64 v13; // r12
+  int DeviceStatus; // ebx
+  unsigned int v15; // r14d
+  unsigned int v16; // eax
+  int v17; // r12d
+  __int64 v18; // rax
+  int v19; // edi
+  __int64 v21; // rcx
+  __int64 v22; // rcx
+  int v23; // edx
+  int v24; // ecx
+  __int64 v25; // rax
+  int v26; // edx
+  int *v27; // r14
+  int v28; // eax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  _DWORD *v31; // r11
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rcx
+  int v35; // eax
+  int v36; // eax
+  __int64 v37; // rax
   __int64 v38; // rax
-  __int64 v39; // rax
-  unsigned int ObjectProperty; // eax
+  _DWORD *v39; // r14
+  __int64 v40; // rax
   __int64 v41; // rax
-  __int64 v42; // rax
-  int v43; // eax
-  int v44; // eax
-  bool v45; // zf
-  __int64 v46; // rax
-  __int64 v47; // rax
-  _DWORD *v48; // rax
+  int v42; // eax
+  __int64 v43; // rax
+  __int64 v44; // rdi
+  int ObjectProperty; // eax
+  __int64 v46; // r9
+  int v47; // eax
+  __int64 v48; // rax
   __int64 v49; // rax
-  __int64 v50; // rax
-  int v51; // r8d
+  __int64 v50; // r9
+  __int64 v51; // rcx
+  __int64 v52; // rax
+  int v53; // eax
+  __int64 v54; // rcx
+  __int64 v55; // rax
+  __int64 v56; // rax
   int DeviceProperty; // eax
-  __int64 v53; // rcx
-  __int64 v54; // rax
-  int v55; // ecx
-  int v56; // eax
-  bool v57; // zf
   __int64 v58; // rax
-  int v59; // eax
-  int v60; // eax
-  __int64 v61; // rcx
-  __int64 v62; // rax
-  __int64 v63; // rax
-  int v64; // ecx
-  char v65; // cl
+  __int64 v59; // rax
+  unsigned int v60; // eax
+  __int64 v61; // rax
+  int v62; // eax
+  int v63; // eax
+  int DeviceParent; // eax
+  _DWORD *v65; // r14
   __int64 v66; // rax
-  __int64 v67; // rax
-  unsigned int v68; // eax
-  __int64 v69; // rax
-  unsigned int DeviceParent; // eax
-  unsigned int v71; // eax
-  __int64 v72; // rax
-  int v73; // eax
-  int v74; // eax
+  __int64 v67; // rdi
+  __int64 v68; // r9
+  __int64 v69; // rcx
+  int v70; // eax
+  __int64 v71; // r9
+  int v72; // eax
+  __int64 v73; // rax
+  int v74; // edx
   __int64 v75; // rax
-  unsigned int DeviceSiblings; // eax
-  int v77; // edx
-  __int64 v78; // rcx
-  __int64 v79; // rax
-  __int64 v80; // rax
-  int v81; // r8d
-  int v82; // eax
-  __int64 v83; // rcx
-  __int64 v84; // rcx
-  __int64 v85; // rax
-  unsigned int DeviceChildren; // eax
-  __int64 v87; // rax
-  _DWORD *v88; // rax
-  int Len; // eax
-  unsigned int v90; // [rsp+20h] [rbp-E0h]
-  unsigned int v91; // [rsp+20h] [rbp-E0h]
-  int *dwFlags; // [rsp+28h] [rbp-D8h]
-  char v93[8]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v94; // [rsp+68h] [rbp-98h]
-  NTSTRSAFE_PCWSTR pszSrc; // [rsp+70h] [rbp-90h]
-  int v96; // [rsp+78h] [rbp-88h] BYREF
-  int v97; // [rsp+7Ch] [rbp-84h] BYREF
-  unsigned int v98; // [rsp+80h] [rbp-80h] BYREF
-  int v99; // [rsp+84h] [rbp-7Ch] BYREF
-  unsigned int v100; // [rsp+88h] [rbp-78h]
-  unsigned int v101; // [rsp+8Ch] [rbp-74h] BYREF
-  unsigned int v102; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD *v103; // [rsp+98h] [rbp-68h]
+  __int64 v76; // rax
+  __int64 v77; // rax
+  int DeviceSiblings; // eax
+  _DWORD *v79; // r14
+  unsigned int v80; // eax
+  __int64 v81; // rax
+  __int64 v82; // rax
+  int DeviceRelationsList; // eax
+  unsigned int v84; // eax
+  int v85; // r8d
+  __int64 v86; // rax
+  _DWORD *v87; // r14
+  __int64 v88; // rax
+  __int64 v89; // rax
+  bool v90; // zf
+  unsigned int v91; // [rsp+30h] [rbp-D0h]
+  char v92[8]; // [rsp+60h] [rbp-A0h] BYREF
+  NTSTRSAFE_PCWSTR pszSrc; // [rsp+68h] [rbp-98h]
+  __int64 v94; // [rsp+70h] [rbp-90h]
+  int v95; // [rsp+78h] [rbp-88h] BYREF
+  unsigned int v96; // [rsp+7Ch] [rbp-84h] BYREF
+  int v97; // [rsp+80h] [rbp-80h] BYREF
+  int v98; // [rsp+84h] [rbp-7Ch] BYREF
+  unsigned int v99; // [rsp+88h] [rbp-78h] BYREF
+  unsigned int v100; // [rsp+8Ch] [rbp-74h] BYREF
+  unsigned int v101; // [rsp+90h] [rbp-70h]
+  __int64 v102; // [rsp+98h] [rbp-68h]
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v105; // [rsp+B0h] [rbp-50h]
-  int v106; // [rsp+B8h] [rbp-48h] BYREF
-  int v107; // [rsp+BCh] [rbp-44h] BYREF
-  size_t pcchLength; // [rsp+C0h] [rbp-40h] BYREF
-  HANDLE Handle; // [rsp+C8h] [rbp-38h] BYREF
-  __int128 Buf2; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 Buf1; // [rsp+E0h] [rbp-20h] BYREF
-  wchar_t Str2[40]; // [rsp+F0h] [rbp-10h] BYREF
-  WCHAR SourceString[40]; // [rsp+140h] [rbp+40h] BYREF
+  _DWORD *v104; // [rsp+B0h] [rbp-50h]
+  unsigned int v105; // [rsp+B8h] [rbp-48h] BYREF
+  int v106; // [rsp+BCh] [rbp-44h] BYREF
+  int v107; // [rsp+C0h] [rbp-40h] BYREF
+  size_t pcchLength; // [rsp+C8h] [rbp-38h] BYREF
+  HANDLE Handle; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 Buf2; // [rsp+D8h] [rbp-28h] BYREF
+  __int128 Buf1; // [rsp+E8h] [rbp-18h] BYREF
+  wchar_t Str2[40]; // [rsp+100h] [rbp+0h] BYREF
+  WCHAR SourceString[40]; // [rsp+150h] [rbp+50h] BYREF
 
-  v9 = a6;
-  v10 = a1;
-  v11 = a8;
-  v94 = a1;
+  v9 = a8;
+  v10 = a6;
   pszSrc = a2;
-  v13 = a9;
-  v105 = a3;
-  v103 = a5;
-  DeviceRegProp = 0;
-  v102 = 0;
-  v96 = 0;
-  v98 = 0;
+  v102 = a3;
+  v12 = a9;
+  v13 = a1;
+  v94 = a1;
+  DeviceStatus = 0;
+  v104 = a5;
   v99 = 0;
-  v101 = 0;
+  v105 = 0;
+  v95 = 0;
+  v96 = 0;
+  v97 = 0;
+  v100 = 0;
   v106 = 0;
   pcchLength = 0LL;
   Handle = 0LL;
-  v97 = 0;
+  v98 = 0;
   v107 = 0;
-  v93[0] = 0;
+  v92[0] = 0;
   DestinationString = 0LL;
   Buf2 = 0LL;
   Buf1 = 0LL;
   if ( (_WORD)a9 )
     return (unsigned int)-1073741811;
   *a5 = 0;
-  v17 = v13 & 0xFFFF0000;
-  *v11 = 0;
-  v100 = v13 & 0xFFFF0000;
+  *v9 = 0;
+  v101 = v12 & 0xFFFF0000;
   if ( a6 )
   {
-    v18 = a7;
-    v9 = (wchar_t *)(-(__int64)(a7 != 0) & (unsigned __int64)a6);
+    v15 = a7;
+    v10 = (wchar_t *)(-(__int64)(a7 != 0) & (unsigned __int64)a6);
   }
   else
   {
-    v18 = 0;
+    v15 = 0;
     a7 = 0;
   }
-  v19 = *(_DWORD *)(a4 + 16);
-  if ( v19 < 2 )
+  v16 = *(_DWORD *)(a4 + 16);
+  if ( v16 < 2 )
     return (unsigned int)-1073741264;
-  switch ( v19 )
+  switch ( v16 )
   {
     case 0xAu:
-      v39 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_NAME.fmtid.Data1;
+      v43 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_NAME.fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_NAME.fmtid.Data1 )
-        v39 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_NAME.fmtid.Data4;
-      if ( v39 )
+        v43 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_NAME.fmtid.Data4;
+      if ( !v43 )
       {
-        v75 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1 )
-          v75 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Siblings.fmtid.Data4;
-        if ( v75 )
-          return DeviceRegProp;
-        v98 = v18 >> 1;
-        DeviceSiblings = CmGetDeviceSiblings(a1, a2, v9, &v98);
-        DeviceRegProp = DeviceSiblings;
-        if ( DeviceSiblings != -1073741789 && DeviceSiblings )
-          goto LABEL_30;
-        *v11 = 2 * v98;
-        *v103 = 8210;
-        if ( a7 >= *v11 )
-          goto LABEL_30;
-        return (unsigned int)-1073741789;
-      }
-      ObjectProperty = PnpGetObjectProperty(
-                         a1,
-                         (_DWORD)a2,
-                         1,
-                         a3,
-                         0LL,
-                         (__int64)&DEVPKEY_Device_FriendlyName,
-                         (__int64)a5,
-                         (__int64)v9,
-                         v18,
-                         (__int64)&v96,
-                         v17);
-      DeviceRegProp = ObjectProperty;
-      if ( ObjectProperty && ObjectProperty != -1073741789 )
-      {
-        v22 = (int)pszSrc;
-        if ( ObjectProperty == -1073741275 )
+        v44 = v102;
+        ObjectProperty = PnpGetObjectProperty(
+                           a1,
+                           (__int64)a2,
+                           1LL,
+                           v102,
+                           0LL,
+                           (__int64)&DEVPKEY_Device_FriendlyName,
+                           (__int64)a5,
+                           (__int64)v10,
+                           v15,
+                           (__int64)&v95,
+                           v12 & 0xFFFF0000);
+        DeviceStatus = ObjectProperty;
+        if ( !ObjectProperty || ObjectProperty == -1073741789 )
         {
-          v71 = PnpGetObjectProperty(
-                  v10,
-                  (_DWORD)pszSrc,
-                  1,
-                  v105,
+          *v9 = v95;
+        }
+        else if ( ObjectProperty == -1073741275 )
+        {
+          v46 = v44;
+          v19 = (int)pszSrc;
+          v47 = PnpGetObjectProperty(
+                  v13,
+                  (__int64)pszSrc,
+                  1LL,
+                  v46,
                   0LL,
                   (__int64)&DEVPKEY_Device_DeviceDesc,
-                  (__int64)v103,
-                  (__int64)v9,
+                  (__int64)v104,
+                  (__int64)v10,
                   a7,
-                  (__int64)&v96,
-                  v100);
-          DeviceRegProp = v71;
-          if ( !v71 || v71 == -1073741789 )
+                  (__int64)&v95,
+                  v101);
+          DeviceStatus = v47;
+          if ( !v47 || v47 == -1073741789 )
           {
-            *v11 = v96;
+            *v9 = v95;
           }
-          else if ( v71 == -1073741275 )
+          else if ( v47 == -1073741275 )
           {
-            return DeviceRegProp;
+            return (unsigned int)DeviceStatus;
           }
+          goto LABEL_31;
         }
-        goto LABEL_74;
+        goto LABEL_30;
       }
-      *v11 = v96;
-LABEL_73:
-      v22 = (int)pszSrc;
-LABEL_74:
-      v23 = v10;
-      goto LABEL_32;
+      v77 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1 )
+        v77 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Siblings.fmtid.Data4;
+      if ( v77 )
+        return (unsigned int)DeviceStatus;
+      v96 = v15 >> 1;
+      DeviceSiblings = CmGetDeviceSiblings(a1, a2, v10, &v96);
+      goto LABEL_244;
     case 0x100u:
-      v25 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
+      v30 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1 )
-        v25 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
-      if ( v25 )
-        goto LABEL_21;
-      DeviceRegProp = RtlUnalignedStringCchLengthW(a2, 0xC8uLL, &pcchLength);
-      if ( (DeviceRegProp & 0x80000000) == 0 )
-      {
-        *v11 = 2 * pcchLength + 2;
-        *v26 = 18;
-        if ( v18 >= *v11 )
-        {
-          v22 = (int)pszSrc;
-          DeviceRegProp = RtlStringCbCopyExW(v9, (unsigned int)*v11, pszSrc, 0LL, 0LL, 0x900u);
-          v23 = v10;
-          if ( (DeviceRegProp & 0x80000000) != 0 )
-          {
-            v88 = v103;
-            *v11 = 0;
-            *v88 = 0;
-          }
-          goto LABEL_32;
-        }
+        v30 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
+      if ( v30 )
+        return (unsigned int)DeviceStatus;
+      DeviceStatus = RtlUnalignedStringCchLengthW(a2, 0xC8uLL, &pcchLength);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      *v9 = 2 * pcchLength + 2;
+      *v31 = 18;
+      if ( v15 < *v9 )
         return (unsigned int)-1073741789;
-      }
-      goto LABEL_73;
+      v19 = (int)pszSrc;
+      DeviceStatus = RtlStringCbCopyExW(v10, (unsigned int)*v9, pszSrc, 0LL, 0LL, 0x900u);
+      if ( DeviceStatus >= 0 )
+        goto LABEL_31;
+      v79 = v104;
+      goto LABEL_219;
     case 2u:
-      v31 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
+      v22 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1 )
-        v31 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
-      if ( v31 )
-      {
-        v46 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_SafeRemovalRequired.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_SafeRemovalRequired.fmtid.Data1 )
-          v46 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_SafeRemovalRequired.fmtid.Data4;
-        if ( v46 )
-        {
-          v47 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1 )
-            v47 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
-          if ( v47 )
-            return DeviceRegProp;
-          v96 = 78;
-          DeviceRegProp = CmGetDeviceRegProp(
-                            a1,
-                            (_DWORD)a2,
-                            v105,
-                            37,
-                            (__int64)&v107,
-                            (__int64)Str2,
-                            (__int64)&v96,
-                            v13);
-          if ( (DeviceRegProp & 0x80000000) != 0 )
-            goto LABEL_30;
-          if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
-          {
-            v48 = v103;
-            *v11 = 16;
-            *v48 = 13;
-            if ( a7 >= *v11 )
-            {
-              v22 = (int)pszSrc;
-              DeviceRegProp = CmGetDeviceContainerIdFromBase(v10, pszSrc, Str2, SourceString);
-              if ( (DeviceRegProp & 0x80000000) == 0 )
-              {
-                DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, SourceString);
-                if ( (DeviceRegProp & 0x80000000) == 0 )
-                  DeviceRegProp = RtlGUIDFromString(&DestinationString, (GUID *)v9);
-              }
-              goto LABEL_31;
-            }
-            return (unsigned int)-1073741789;
-          }
-          return (unsigned int)-1073741275;
-        }
-        *v11 = 1;
-        *a5 = 17;
-        if ( v18 < *v11 )
-          return (unsigned int)-1073741789;
-        v65 = -((unsigned __int8)CmIsDeviceSafeRemovalRequired(a1, a2, a3) != 0);
-        goto LABEL_158;
-      }
-LABEL_55:
-      DeviceRegProp = CmGetDeviceStatus(v10, (_DWORD)a2, v105, (unsigned int)&v99, (__int64)&v101, (__int64)&v102);
-      if ( (DeviceRegProp & 0x80000000) == 0 )
-      {
-        v32 = *(_DWORD *)(a4 + 16);
-        v33 = v99;
-        if ( v32 == 2 )
-        {
-          v34 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1 )
-            v34 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
-          if ( !v34 )
-            goto LABEL_60;
-        }
-        if ( v32 != 3 )
-          goto LABEL_163;
-        v66 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-          v66 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-        if ( !v66 )
-        {
-LABEL_60:
-          v35 = 7;
-        }
-        else
-        {
-LABEL_163:
-          if ( (v99 & 0x400) == 0 )
-            return (unsigned int)-1073741275;
-          v35 = 24;
-        }
-        v36 = v103;
-        *v11 = 4;
-        *v36 = v35;
-        if ( a7 < *v11 )
-          return (unsigned int)-1073741789;
-        v37 = *(_DWORD *)(a4 + 16);
-        if ( v37 == 2 )
-        {
-          v38 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1 )
-            v38 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
-          if ( !v38 )
-          {
-            *(_DWORD *)v9 = v33;
-            return DeviceRegProp;
-          }
-        }
-        else if ( v37 == 3 )
-        {
-          v67 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-            v67 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-          if ( !v67 )
-          {
-            v68 = (v33 & 0x400) != 0 ? v101 : 0;
-LABEL_170:
-            *(_DWORD *)v9 = v68;
-            return DeviceRegProp;
-          }
-        }
-        v68 = v102;
-        goto LABEL_170;
-      }
-      goto LABEL_73;
-    case 3u:
-      v61 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-        v61 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-      if ( !v61 )
-        goto LABEL_55;
+        v22 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
+      if ( !v22 )
+        goto LABEL_40;
       break;
   }
-  if ( v19 != 12 )
+  if ( v16 == 3 )
   {
-    v20 = 4;
-    if ( v19 != 4 )
+    v54 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
+      v54 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+    if ( !v54 )
     {
-      if ( v19 == 5 )
+LABEL_40:
+      DeviceStatus = CmGetDeviceStatus(v13, a2, v102, &v97, &v100, &v99, v91);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      v23 = *(_DWORD *)(a4 + 16);
+      v24 = v97;
+      if ( v23 == 2 )
       {
-        v27 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_RemovalRelations.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_RemovalRelations.fmtid.Data1 )
-          v27 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_RemovalRelations.fmtid.Data4;
-        if ( !v27 )
-        {
-          v20 = 8;
-          goto LABEL_219;
-        }
-        v28 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsPresent.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_IsPresent.fmtid.Data1 )
-          v28 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsPresent.fmtid.Data4;
-        if ( v28 )
-          return DeviceRegProp;
-        *v11 = 1;
-        *a5 = 17;
-        if ( v18 < *v11 )
-          return (unsigned int)-1073741789;
-        DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-        if ( (DeviceRegProp & 0x80000000) != 0 )
-          goto LABEL_30;
-        v29 = v94;
-        *(_BYTE *)v9 = 0;
-        DeviceStatus = NtPlugPlayGetDeviceStatus(
-                         v29,
-                         (unsigned int)&DestinationString,
-                         (unsigned int)&v99,
-                         (unsigned int)&v101,
-                         (__int64)&v102);
-        DeviceRegProp = DeviceStatus;
-        if ( DeviceStatus == -1073741810 )
-          return 0;
-        if ( DeviceStatus < 0 )
-          return DeviceRegProp;
+        v25 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1 )
+          v25 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
+        if ( !v25 )
+          goto LABEL_45;
+      }
+      if ( v23 != 3 )
+        goto LABEL_151;
+      v58 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
+        v58 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+      if ( !v58 )
+      {
+LABEL_45:
+        v26 = 7;
       }
       else
       {
-        if ( v19 != 6 )
+LABEL_151:
+        if ( (v97 & 0x400) == 0 )
+          return (unsigned int)-1073741275;
+        v26 = 24;
+      }
+      v27 = v104;
+      *v9 = 4;
+      *v27 = v26;
+      if ( a7 < *v9 )
+        return (unsigned int)-1073741789;
+      if ( *(_DWORD *)(a4 + 16) == 12 )
+      {
+        v76 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1 )
+          v76 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemStatus.fmtid.Data4;
+        if ( !v76 )
         {
-          if ( v19 == 7 )
+          if ( (int)PnpGetObjectProperty(
+                      v94,
+                      (__int64)pszSrc,
+                      1LL,
+                      v102,
+                      0LL,
+                      (__int64)DEVPKEY_Device_ProblemStatusOverride,
+                      (__int64)&v98,
+                      (__int64)&v105,
+                      4,
+                      (__int64)&v95,
+                      v101) >= 0
+            && v98 == 24 )
           {
-            v83 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1;
-            if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1 )
-              v83 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_BusRelations.fmtid.Data4;
-            if ( v83 )
-              goto LABEL_20;
-            v20 = 32;
+            v80 = v99;
+            if ( v95 == 4 )
+              v80 = v105;
+            v99 = v80;
+          }
+          v24 = v97;
+        }
+      }
+      v28 = *(_DWORD *)(a4 + 16);
+      if ( v28 == 2 )
+      {
+        v29 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1 )
+          v29 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DevNodeStatus.fmtid.Data4;
+        if ( !v29 )
+        {
+          *(_DWORD *)v10 = v24;
+          goto LABEL_53;
+        }
+      }
+      else if ( v28 == 3 )
+      {
+        v59 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
+          v59 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+        if ( !v59 )
+        {
+          v60 = (v24 & 0x400) != 0 ? v100 : 0;
+LABEL_158:
+          *(_DWORD *)v10 = v60;
+          goto LABEL_53;
+        }
+      }
+      v60 = v99;
+      goto LABEL_158;
+    }
+  }
+  if ( v16 == 12 )
+  {
+    v75 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1;
+    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1 )
+      v75 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemStatus.fmtid.Data4;
+    if ( v75 )
+      return (unsigned int)DeviceStatus;
+    goto LABEL_40;
+  }
+  v17 = 4;
+  switch ( v16 )
+  {
+    case 4u:
+      v48 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_EjectionRelations.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_EjectionRelations.fmtid.Data1 )
+        v48 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_EjectionRelations.fmtid.Data4;
+      if ( v48 )
+      {
+        v49 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1 )
+          v49 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InLocalMachineContainer.fmtid.Data4;
+        if ( v49 )
+          return (unsigned int)DeviceStatus;
+        v13 = v94;
+        v50 = v102;
+        v51 = v94;
+        *a5 = 17;
+        *v9 = 1;
+        DeviceStatus = PnpGetObjectProperty(
+                         v51,
+                         (__int64)a2,
+                         1LL,
+                         v50,
+                         0LL,
+                         (__int64)&DEVPKEY_Device_ContainerId,
+                         (__int64)&v98,
+                         (__int64)&Buf2,
+                         16,
+                         (__int64)&v95,
+                         v12 & 0xFFFF0000);
+        if ( DeviceStatus < 0 )
+          goto LABEL_30;
+        DeviceStatus = PnpGetObjectProperty(
+                         v13,
+                         (__int64)L"HTREE\\ROOT\\0",
+                         1LL,
+                         0LL,
+                         0LL,
+                         (__int64)&DEVPKEY_Device_BaseContainerId,
+                         (__int64)&v98,
+                         (__int64)&Buf1,
+                         16,
+                         (__int64)&v95,
+                         v101);
+        if ( DeviceStatus < 0 )
+          goto LABEL_30;
+        if ( a7 >= *v9 )
+        {
+          *(_BYTE *)v10 = (memcmp(&Buf1, &Buf2, 0x10uLL) != 0) - 1;
+          goto LABEL_30;
+        }
+        return (unsigned int)-1073741789;
+      }
+      goto LABEL_234;
+    case 5u:
+      v40 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_RemovalRelations.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_RemovalRelations.fmtid.Data1 )
+        v40 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_RemovalRelations.fmtid.Data4;
+      if ( v40 )
+      {
+        v41 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsPresent.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_IsPresent.fmtid.Data1 )
+          v41 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsPresent.fmtid.Data4;
+        if ( v41 )
+          return (unsigned int)DeviceStatus;
+        *v9 = 1;
+        *a5 = 17;
+        if ( v15 < *v9 )
+          return (unsigned int)-1073741789;
+        v13 = v94;
+        DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+        if ( DeviceStatus < 0 )
+          goto LABEL_30;
+        *(_BYTE *)v10 = 0;
+        v42 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
+        DeviceStatus = v42;
+        if ( v42 != -1073741810 )
+        {
+          v19 = (int)pszSrc;
+          if ( v42 < 0 )
+            goto LABEL_31;
+LABEL_101:
+          *(_BYTE *)v10 = -1;
+          goto LABEL_31;
+        }
+        return 0;
+      }
+      v17 = 8;
+      goto LABEL_234;
+    case 6u:
+      v32 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1 )
+        v32 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_PowerRelations.fmtid.Data4;
+      if ( !v32 )
+      {
+        v17 = 16;
+LABEL_234:
+        DeviceRelationsList = CmGetDeviceRelationsList(v94, (_DWORD)a2, v17, 0, 0, (__int64)&v96);
+        DeviceStatus = DeviceRelationsList;
+        if ( DeviceRelationsList == -1073741772 || !DeviceRelationsList )
+          return (unsigned int)-1073741275;
+        if ( DeviceRelationsList != -1073741789 )
+        {
+          LODWORD(v13) = v94;
+          goto LABEL_30;
+        }
+        v79 = v104;
+        *v9 = 2 * v96;
+        v84 = a7;
+        *v79 = 8210;
+        if ( v84 < *v9 )
+          return (unsigned int)-1073741789;
+        v19 = (int)pszSrc;
+        v85 = v17;
+        LODWORD(v13) = v94;
+        DeviceStatus = CmGetDeviceRelationsList(v94, (_DWORD)pszSrc, v85, (_DWORD)v10, v84 >> 1, (__int64)&v96);
+        if ( !DeviceStatus )
+        {
+          *v9 = 2 * PnpMultiSzGetLen(v10);
+          return (unsigned int)DeviceStatus;
+        }
+LABEL_219:
+        *v9 = 0;
+        *v79 = 0;
+        goto LABEL_31;
+      }
+      v33 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1 )
+        v33 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_HasProblem.fmtid.Data4;
+      if ( v33 )
+        return (unsigned int)DeviceStatus;
+      *a5 = 17;
+      *v9 = 1;
+      if ( !v15 )
+        return (unsigned int)-1073741789;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus >= 0 )
+      {
+        v34 = v94;
+        *(_BYTE *)v10 = 0;
+        v35 = NtPlugPlayGetDeviceStatus(v34, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
+        DeviceStatus = v35;
+        if ( v35 == -1073741810 )
+          return 0;
+        if ( v35 >= 0 )
+        {
+          if ( (v97 & 0x8000) == 0 )
+          {
+            if ( (v97 & 0x400) == 0 || v100 <= 0x1D && (v74 = 591396864, _bittest(&v74, v100)) )
+            {
+              v19 = (int)pszSrc;
+              if ( (v97 & 8) == 0 )
+              {
+                LODWORD(v13) = v94;
+                v36 = PnpGetObjectProperty(
+                        v94,
+                        (__int64)pszSrc,
+                        1LL,
+                        v102,
+                        0LL,
+                        (__int64)&DEVPKEY_Device_Capabilities,
+                        (__int64)&v98,
+                        (__int64)&v106,
+                        4,
+                        (__int64)&v95,
+                        v101);
+                DeviceStatus = v36;
+                if ( v36 == -1073741275 )
+                  return 0;
+                if ( v36 < 0 )
+                  goto LABEL_31;
+                if ( (v106 & 0x40) != 0 )
+                  *(_BYTE *)v10 = -1;
+              }
+LABEL_54:
+              LODWORD(v13) = v94;
+              goto LABEL_31;
+            }
+          }
+          *(_BYTE *)v10 = -1;
+        }
+      }
+LABEL_53:
+      v19 = (int)pszSrc;
+      goto LABEL_54;
+    case 7u:
+      v81 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1 )
+        v81 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_BusRelations.fmtid.Data4;
+      if ( v81 )
+        return (unsigned int)DeviceStatus;
+      v17 = 32;
+      goto LABEL_234;
+    case 0xBu:
+      v82 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1 )
+        v82 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_TransportRelations.fmtid.Data4;
+      if ( v82 )
+        return (unsigned int)DeviceStatus;
+      v17 = 64;
+      goto LABEL_234;
+    case 8u:
+      v55 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Parent.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Parent.fmtid.Data1 )
+        v55 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Parent.fmtid.Data4;
+      if ( v55 )
+      {
+        v56 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1 )
+          v56 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data4;
+        if ( v56 )
+          return (unsigned int)DeviceStatus;
+        *a5 = 7;
+        *v9 = 4;
+        LODWORD(v13) = v94;
+        DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+        if ( DeviceStatus < 0 )
+          goto LABEL_30;
+        DeviceProperty = NtPlugPlayGetDeviceProperty(
+                           v94,
+                           (__int64)&DestinationString,
+                           0xDu,
+                           (__int64)v10,
+                           v15,
+                           (__int64)&a7);
+LABEL_145:
+        DeviceStatus = DeviceProperty;
+        if ( DeviceProperty == -1073741772 )
+          return (unsigned int)-1073741275;
+        goto LABEL_30;
+      }
+      LODWORD(v13) = v94;
+      v96 = v15 >> 1;
+      DeviceParent = CmGetDeviceParent(v94, a2, v10, &v96);
+      DeviceStatus = DeviceParent;
+      if ( DeviceParent && DeviceParent != -1073741789 )
+        goto LABEL_30;
+      v65 = v104;
+      *v9 = 2 * v96;
+      *v65 = 18;
+      goto LABEL_178;
+    case 9u:
+      v86 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1 )
+        v86 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Children.fmtid.Data4;
+      if ( v86 )
+        return (unsigned int)DeviceStatus;
+      LODWORD(v13) = v94;
+      v96 = v15 >> 1;
+      DeviceSiblings = CmGetDeviceChildren(v94, a2, v10, &v96);
+LABEL_244:
+      DeviceStatus = DeviceSiblings;
+      if ( DeviceSiblings != -1073741789 && DeviceSiblings )
+        goto LABEL_30;
+      v87 = v104;
+      *v9 = 2 * v96;
+      *v87 = 8210;
+LABEL_178:
+      if ( a7 >= *v9 )
+        goto LABEL_30;
+      return (unsigned int)-1073741789;
+    case 2u:
+      v37 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_SafeRemovalRequired.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_SafeRemovalRequired.fmtid.Data1 )
+        v37 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_SafeRemovalRequired.fmtid.Data4;
+      if ( !v37 )
+      {
+        *v9 = 1;
+        *a5 = 17;
+        if ( v15 >= *v9 )
+        {
+          *(_BYTE *)v10 = -((unsigned __int8)CmIsDeviceSafeRemovalRequired(v94, a2, v102) != 0);
+          return (unsigned int)DeviceStatus;
+        }
+        return (unsigned int)-1073741789;
+      }
+      v38 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1 )
+        v38 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
+      if ( v38 )
+        return (unsigned int)DeviceStatus;
+      v13 = v94;
+      v95 = 78;
+      DeviceStatus = CmGetDeviceRegProp(v94, (_DWORD)a2, v102, 37, (__int64)&v107, (__int64)Str2, (__int64)&v95, v12);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
+      {
+        v39 = v104;
+        *v9 = 16;
+        *v39 = 13;
+        if ( a7 >= *v9 )
+        {
+          v19 = (int)pszSrc;
+          DeviceStatus = CmGetDeviceContainerIdFromBase(v13, pszSrc, Str2, SourceString);
+          if ( DeviceStatus >= 0 )
+          {
+            DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, SourceString);
+            if ( DeviceStatus >= 0 )
+              DeviceStatus = RtlGUIDFromString(&DestinationString, (GUID *)v10);
+          }
+          goto LABEL_31;
+        }
+        return (unsigned int)-1073741789;
+      }
+      return (unsigned int)-1073741275;
+    case 0xFu:
+      v61 = *(_QWORD *)a4 - DEVPKEY_Device_IsConnected;
+      if ( *(_QWORD *)a4 == DEVPKEY_Device_IsConnected )
+        v61 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
+      if ( v61 )
+        return (unsigned int)DeviceStatus;
+      *a5 = 17;
+      *v9 = 1;
+      if ( !v15 )
+        return (unsigned int)-1073741789;
+      v13 = v94;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      *(_BYTE *)v10 = 0;
+      v62 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
+      DeviceStatus = v62;
+      if ( v62 != -1073741810 )
+      {
+        if ( v62 >= 0 )
+        {
+          v19 = (int)pszSrc;
+          if ( (v97 & 0x2000000) != 0 )
+            goto LABEL_31;
+          v63 = PnpGetObjectProperty(
+                  v13,
+                  (__int64)pszSrc,
+                  1LL,
+                  0LL,
+                  0LL,
+                  (__int64)&DEVPKEY_Device_PresenceNotForDevice,
+                  (__int64)&v98,
+                  (__int64)v92,
+                  1,
+                  (__int64)&v95,
+                  v101);
+          DeviceStatus = v63;
+          if ( v63 >= 0 )
+          {
+            if ( v98 == 17 && v92[0] == -1 )
+              goto LABEL_31;
           }
           else
           {
-            if ( v19 != 11 )
-            {
-              switch ( v19 )
-              {
-                case 8u:
-                  v49 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Parent.fmtid.Data1;
-                  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Parent.fmtid.Data1 )
-                    v49 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Parent.fmtid.Data4;
-                  if ( v49 )
-                  {
-                    v50 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1;
-                    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1 )
-                      v50 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data4;
-                    if ( v50 )
-                      return DeviceRegProp;
-                    *a5 = 7;
-                    *v11 = 4;
-                    DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-                    if ( (DeviceRegProp & 0x80000000) != 0 )
-                      goto LABEL_30;
-                    v51 = 13;
-                    dwFlags = (int *)&a7;
-                    goto LABEL_114;
-                  }
-                  v98 = v18 >> 1;
-                  v23 = v94;
-                  DeviceParent = CmGetDeviceParent(v94, a2, v9, &v98);
-                  DeviceRegProp = DeviceParent;
-                  if ( DeviceParent && DeviceParent != -1073741789 )
-                    goto LABEL_184;
-                  *v11 = 2 * v98;
-                  *v103 = 18;
-                  break;
-                case 9u:
-                  v85 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1;
-                  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1 )
-                    v85 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Children.fmtid.Data4;
-                  if ( v85 )
-                    return DeviceRegProp;
-                  v98 = v18 >> 1;
-                  v23 = v94;
-                  DeviceChildren = CmGetDeviceChildren(v94, a2, v9, &v98);
-                  DeviceRegProp = DeviceChildren;
-                  if ( DeviceChildren != -1073741789 && DeviceChildren )
-                    goto LABEL_184;
-                  *v11 = 2 * v98;
-                  *v103 = 8210;
-                  break;
-                case 0xFu:
-                  v72 = *(_QWORD *)a4 - DEVPKEY_Device_IsConnected;
-                  if ( *(_QWORD *)a4 == DEVPKEY_Device_IsConnected )
-                    v72 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
-                  if ( v72 )
-                    return DeviceRegProp;
-                  *a5 = 17;
-                  *v11 = 1;
-                  if ( !v18 )
-                    return (unsigned int)-1073741789;
-                  v23 = v94;
-                  DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-                  if ( (DeviceRegProp & 0x80000000) == 0 )
-                  {
-                    *(_BYTE *)v9 = 0;
-                    v73 = NtPlugPlayGetDeviceStatus(
-                            v23,
-                            (unsigned int)&DestinationString,
-                            (unsigned int)&v99,
-                            (unsigned int)&v101,
-                            (__int64)&v102);
-                    DeviceRegProp = v73;
-                    if ( v73 == -1073741810 )
-                      return 0;
-                    if ( v73 < 0 || (v99 & 0x2000000) != 0 )
-                      return DeviceRegProp;
-                    v22 = (int)pszSrc;
-                    v74 = PnpGetObjectProperty(
-                            v23,
-                            (_DWORD)pszSrc,
-                            1,
-                            0,
-                            0LL,
-                            (__int64)&DEVPKEY_Device_PresenceNotForDevice,
-                            (__int64)&v97,
-                            (__int64)v93,
-                            1,
-                            (__int64)&v96,
-                            v100);
-                    DeviceRegProp = v74;
-                    if ( v74 < 0 )
-                    {
-                      if ( v74 != -1073741275 && v74 != -1073741789 )
-                        goto LABEL_32;
-                      DeviceRegProp = 0;
-                      goto LABEL_51;
-                    }
-                    if ( v97 != 17 )
-                      goto LABEL_51;
-                    v45 = v93[0] == -1;
-LABEL_92:
-                    if ( v45 )
-                      return DeviceRegProp;
-                    goto LABEL_51;
-                  }
-LABEL_184:
-                  v22 = (int)pszSrc;
-                  goto LABEL_32;
-                case 0x10u:
-                  v54 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1;
-                  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1 )
-                    v54 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsRebootRequired.fmtid.Data4;
-                  if ( v54 )
-                    return DeviceRegProp;
-                  *a5 = 17;
-                  *v11 = 1;
-                  if ( !v18 )
-                    return (unsigned int)-1073741789;
-                  DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-                  if ( (DeviceRegProp & 0x80000000) != 0 )
-                    goto LABEL_30;
-                  v55 = v94;
-                  *(_BYTE *)v9 = 0;
-                  v56 = NtPlugPlayGetDeviceStatus(
-                          v55,
-                          (unsigned int)&DestinationString,
-                          (unsigned int)&v99,
-                          (unsigned int)&v101,
-                          (__int64)&v102);
-                  DeviceRegProp = v56;
-                  if ( v56 != -1073741810 )
-                  {
-                    if ( v56 < 0 )
-                      return DeviceRegProp;
-                    if ( (v99 & 0x100) != 0 )
-                      goto LABEL_51;
-                    if ( (v99 & 0x400) == 0 )
-                      return DeviceRegProp;
-                    v57 = v101 == 14;
-                    goto LABEL_133;
-                  }
-                  return 0;
-                case 0xEu:
-                  v79 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Stack.fmtid.Data1;
-                  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Stack.fmtid.Data1 )
-                    v79 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Stack.fmtid.Data4;
-                  if ( v79 )
-                    return DeviceRegProp;
-                  *a5 = 8210;
-                  DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-                  if ( (DeviceRegProp & 0x80000000) != 0 )
-                    goto LABEL_30;
-                  dwFlags = v11;
-                  v51 = 14;
-LABEL_114:
-                  v90 = v18;
-                  v23 = v94;
-                  DeviceProperty = NtPlugPlayGetDeviceProperty(
-                                     v94,
-                                     (unsigned int)&DestinationString,
-                                     v51,
-                                     (_DWORD)v9,
-                                     v90,
-                                     (__int64)dwFlags);
-                  DeviceRegProp = DeviceProperty;
-                  if ( DeviceProperty != -1073741772 )
-                  {
-                    if ( DeviceProperty >= 0 )
-                      return DeviceRegProp;
-                    goto LABEL_184;
-                  }
-                  return (unsigned int)-1073741275;
-                default:
-LABEL_20:
-                  LODWORD(v10) = v94;
-                  v17 = v100;
-                  goto LABEL_21;
-              }
-              if ( a7 < *v11 )
-                return (unsigned int)-1073741789;
-              goto LABEL_184;
-            }
-            v84 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1;
-            if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1 )
-              v84 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_TransportRelations.fmtid.Data4;
-            if ( v84 )
-              goto LABEL_20;
-            v20 = 64;
+            if ( v63 != -1073741275 && v63 != -1073741789 )
+              goto LABEL_31;
+            DeviceStatus = 0;
           }
-LABEL_219:
-          v91 = v18 >> 1;
-          v23 = v94;
-          DeviceRegProp = CmGetDeviceRelationsList(v94, (_DWORD)a2, v20, (_DWORD)v9, v91, (__int64)&v98);
-          if ( DeviceRegProp == -1073741772 )
-            return (unsigned int)-1073741275;
-          if ( !DeviceRegProp || DeviceRegProp == -1073741789 )
-          {
-            *v103 = 8210;
-            if ( DeviceRegProp )
-              Len = v98;
-            else
-              Len = PnpMultiSzGetLen(v9);
-            *v11 = 2 * Len;
-            return DeviceRegProp;
-          }
-          goto LABEL_184;
+          goto LABEL_101;
         }
-        v41 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1 )
-          v41 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_PowerRelations.fmtid.Data4;
-        if ( !v41 )
-        {
-          v20 = 16;
-          goto LABEL_219;
-        }
-        v42 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1;
-        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1 )
-          v42 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_HasProblem.fmtid.Data4;
-        if ( v42 )
-          return DeviceRegProp;
-        *a5 = 17;
-        *v11 = 1;
-        if ( !v18 )
-          return (unsigned int)-1073741789;
-        v23 = v94;
-        DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-        if ( (DeviceRegProp & 0x80000000) != 0 )
-          goto LABEL_184;
-        *(_BYTE *)v9 = 0;
-        v43 = NtPlugPlayGetDeviceStatus(
-                v23,
-                (unsigned int)&DestinationString,
-                (unsigned int)&v99,
-                (unsigned int)&v101,
-                (__int64)&v102);
-        DeviceRegProp = v43;
-        if ( v43 == -1073741810 )
-          return 0;
-        if ( v43 < 0 )
-          return DeviceRegProp;
-        if ( (v99 & 0x8000) == 0 )
-        {
-          if ( (v99 & 0x400) == 0 || v101 <= 0x1D && (v77 = 591396864, _bittest(&v77, v101)) )
-          {
-            if ( (v99 & 8) != 0 )
-              return DeviceRegProp;
-            v22 = (int)pszSrc;
-            v44 = PnpGetObjectProperty(
-                    v23,
-                    (_DWORD)pszSrc,
-                    1,
-                    v105,
-                    0LL,
-                    (__int64)&DEVPKEY_Device_Capabilities,
-                    (__int64)&v97,
-                    (__int64)&v106,
-                    4,
-                    (__int64)&v96,
-                    v100);
-            DeviceRegProp = v44;
-            if ( v44 == -1073741275 )
-              return 0;
-            if ( v44 < 0 )
-              goto LABEL_32;
-            v45 = (v106 & 0x40) == 0;
-            goto LABEL_92;
-          }
-        }
+        goto LABEL_30;
       }
-LABEL_51:
-      *(_BYTE *)v9 = -1;
-      return DeviceRegProp;
-    }
-    v62 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_EjectionRelations.fmtid.Data1;
-    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_EjectionRelations.fmtid.Data1 )
-      v62 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_EjectionRelations.fmtid.Data4;
-    if ( !v62 )
-      goto LABEL_219;
-    v63 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1;
-    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1 )
-      v63 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InLocalMachineContainer.fmtid.Data4;
-    if ( v63 )
-      return DeviceRegProp;
-    v23 = v94;
-    v64 = v94;
-    *a5 = 17;
-    *v11 = 1;
-    DeviceRegProp = PnpGetObjectProperty(
-                      v64,
-                      (_DWORD)a2,
-                      1,
-                      a3,
-                      0LL,
-                      (__int64)&DEVPKEY_Device_ContainerId,
-                      (__int64)&v97,
-                      (__int64)&Buf2,
-                      16,
-                      (__int64)&v96,
-                      v17);
-    if ( (DeviceRegProp & 0x80000000) != 0 )
-      goto LABEL_184;
-    DeviceRegProp = PnpGetObjectProperty(
-                      v23,
-                      (unsigned int)L"HTREE\\ROOT\\0",
-                      1,
-                      0,
-                      0LL,
-                      (__int64)&DEVPKEY_Device_BaseContainerId,
-                      (__int64)&v97,
-                      (__int64)&Buf1,
-                      16,
-                      (__int64)&v96,
-                      v100);
-    if ( (DeviceRegProp & 0x80000000) != 0 )
-      goto LABEL_184;
-    if ( a7 < *v11 )
-      return (unsigned int)-1073741789;
-    v65 = (memcmp(&Buf1, &Buf2, 0x10uLL) != 0) - 1;
-LABEL_158:
-    *(_BYTE *)v9 = v65;
-    return DeviceRegProp;
-  }
-  v78 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1;
-  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1 )
-    v78 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemStatus.fmtid.Data4;
-  if ( !v78 )
-    goto LABEL_55;
-LABEL_21:
-  switch ( v19 )
-  {
-    case 0x14u:
-      v87 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1 )
-        v87 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyProviders.fmtid.Data4;
-      if ( v87 )
-        return DeviceRegProp;
-      *a5 = 8210;
-      DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-      if ( (DeviceRegProp & 0x80000000) != 0 )
-        goto LABEL_30;
-      v81 = 15;
-LABEL_235:
-      v82 = NtPlugPlayGetDeviceProperty(v10, (unsigned int)&DestinationString, v81, (_DWORD)v9, v18, (__int64)v11);
-      DeviceRegProp = v82;
-      if ( v82 == -1073741772 )
-        return (unsigned int)-1073741275;
-      if ( v82 >= 0 )
-        return DeviceRegProp;
-      goto LABEL_30;
-    case 0x15u:
-      v80 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1 )
-        v80 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyDependents.fmtid.Data4;
-      if ( v80 )
-        return DeviceRegProp;
-      *a5 = 8210;
-      DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, a2);
-      if ( (DeviceRegProp & 0x80000000) != 0 )
-        goto LABEL_30;
-      v81 = 16;
-      goto LABEL_235;
-    case 0x1Au:
-      v58 = *(_QWORD *)a4 - DEVPKEY_Device_OmitFromSystemSpec;
-      if ( *(_QWORD *)a4 == DEVPKEY_Device_OmitFromSystemSpec )
-        v58 = *(_QWORD *)(a4 + 8) + 0x298AF3586C1A6853LL;
-      if ( v58 )
-        return DeviceRegProp;
+      return 0;
+    case 0x10u:
+      v52 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1 )
+        v52 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsRebootRequired.fmtid.Data4;
+      if ( v52 )
+        return (unsigned int)DeviceStatus;
       *a5 = 17;
-      *v11 = 1;
-      if ( v18 )
+      *v9 = 1;
+      if ( !v15 )
+        return (unsigned int)-1073741789;
+      v13 = v94;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      *(_BYTE *)v10 = 0;
+      v53 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
+      DeviceStatus = v53;
+      if ( v53 != -1073741810 )
       {
-        *(_BYTE *)v9 = 0;
-        v59 = PnpGetObjectProperty(
-                v10,
-                (_DWORD)a2,
-                1,
-                a3,
-                0LL,
-                (__int64)DEVPKEY_Device_UpdateWithUngroupedDrivers,
-                (__int64)&v97,
-                (__int64)v93,
-                1,
-                (__int64)&v96,
-                v17);
-        DeviceRegProp = v59;
-        if ( v59 >= 0 )
-        {
-          if ( v97 == 17 && v96 == 1 )
-          {
-            v57 = v93[0] == 0;
-LABEL_133:
-            if ( !v57 )
-              return DeviceRegProp;
-            goto LABEL_51;
-          }
-        }
-        else if ( v59 != -1073741275 && v59 != -1073741789 )
-        {
-          goto LABEL_30;
-        }
-        v22 = (int)pszSrc;
-        v60 = PnpGetObjectProperty(
-                v10,
-                (_DWORD)pszSrc,
-                1,
-                v105,
-                0LL,
-                (__int64)DEVPKEY_Device_DriverInGroup,
-                (__int64)&v97,
-                (__int64)v93,
-                1,
-                (__int64)&v96,
-                v100);
-        DeviceRegProp = v60;
-        if ( v60 < 0 )
-        {
-          if ( v60 != -1073741275 && v60 != -1073741789 )
-            goto LABEL_31;
-          return 0;
-        }
-        if ( v97 != 17 || v96 != 1 )
-          return DeviceRegProp;
-        v57 = v93[0] == -1;
-        goto LABEL_133;
-      }
-      return (unsigned int)-1073741789;
-  }
-  if ( v19 != 22 )
-    goto LABEL_25;
-  v53 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundUpperFilters;
-  if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundUpperFilters )
-    v53 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
-  if ( v53 )
-  {
-LABEL_25:
-    if ( v19 != 23 )
-    {
-      if ( v19 != 102 )
-        return DeviceRegProp;
-      v69 = *(_QWORD *)a4 - DEVPKEY_Device_EffectiveRestrictedSD;
-      if ( *(_QWORD *)a4 == DEVPKEY_Device_EffectiveRestrictedSD )
-        v69 = *(_QWORD *)(a4 + 8) - 0x57C1C6A499921E96LL;
-      if ( v69 )
-        return DeviceRegProp;
-      DeviceRegProp = PnpGetObjectProperty(
-                        v10,
-                        (_DWORD)a2,
-                        1,
-                        a3,
-                        0LL,
-                        (__int64)&DEVPKEY_Device_RestrictedSD,
-                        (__int64)&v97,
-                        (__int64)v9,
-                        v18,
-                        (__int64)&v96,
-                        v17);
-      if ( (int)(DeviceRegProp + 0x80000000) < 0 || DeviceRegProp == -1073741789 )
-      {
-        if ( v97 == 19 )
-        {
-          *v103 = 19;
-          *v11 = v96;
-          goto LABEL_30;
-        }
-      }
-      else if ( DeviceRegProp != -1073741275 )
-      {
+        if ( v53 >= 0 && ((v97 & 0x100) != 0 || (v97 & 0x400) != 0 && v100 == 14) )
+          *(_BYTE *)v10 = -1;
         goto LABEL_30;
       }
-      v22 = (int)pszSrc;
-      DeviceRegProp = PnpGetObjectProperty(
-                        v10,
-                        (_DWORD)pszSrc,
-                        1,
-                        v105,
-                        0LL,
-                        (__int64)&DEVPKEY_Device_InheritedRestrictedSD,
-                        (__int64)&v97,
-                        (__int64)v9,
-                        a7,
-                        (__int64)&v96,
-                        v100);
-      if ( (int)(DeviceRegProp + 0x80000000) < 0 || DeviceRegProp == -1073741789 )
-      {
-        if ( v97 == 19 )
-        {
-          *v103 = 19;
-          *v11 = v96;
-        }
-        else
-        {
-          DeviceRegProp = -1073741275;
-        }
-      }
-      goto LABEL_31;
-    }
-    v21 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundLowerFilters;
-    if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundLowerFilters )
+      return 0;
+    case 0xEu:
+      v73 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Stack.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Stack.fmtid.Data1 )
+        v73 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Stack.fmtid.Data4;
+      if ( v73 )
+        return (unsigned int)DeviceStatus;
+      *a5 = 8210;
+      LODWORD(v13) = v94;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      DeviceProperty = NtPlugPlayGetDeviceProperty(
+                         v94,
+                         (__int64)&DestinationString,
+                         0xEu,
+                         (__int64)v10,
+                         v15,
+                         (__int64)v9);
+      goto LABEL_145;
+    case 0x14u:
+      v88 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1 )
+        v88 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyProviders.fmtid.Data4;
+      if ( v88 )
+        return (unsigned int)DeviceStatus;
+      *a5 = 8210;
+      LODWORD(v13) = v94;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      DeviceProperty = NtPlugPlayGetDeviceProperty(
+                         v94,
+                         (__int64)&DestinationString,
+                         0xFu,
+                         (__int64)v10,
+                         v15,
+                         (__int64)v9);
+      goto LABEL_145;
+    case 0x15u:
+      v89 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1 )
+        v89 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyDependents.fmtid.Data4;
+      if ( v89 )
+        return (unsigned int)DeviceStatus;
+      *a5 = 8210;
+      LODWORD(v13) = v94;
+      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
+      if ( DeviceStatus < 0 )
+        goto LABEL_30;
+      DeviceProperty = NtPlugPlayGetDeviceProperty(
+                         v94,
+                         (__int64)&DestinationString,
+                         0x10u,
+                         (__int64)v10,
+                         v15,
+                         (__int64)v9);
+      goto LABEL_145;
+  }
+  if ( v16 != 26 )
+  {
+    if ( v16 != 22 )
+      goto LABEL_28;
+    v21 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundUpperFilters;
+    if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundUpperFilters )
       v21 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
     if ( v21 )
-      return DeviceRegProp;
+    {
+LABEL_28:
+      if ( v16 != 23 )
+        return (unsigned int)DeviceStatus;
+      v18 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundLowerFilters;
+      if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundLowerFilters )
+        v18 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
+      if ( v18 )
+        return (unsigned int)DeviceStatus;
+    }
+    LODWORD(v13) = v94;
+    DeviceStatus = CmGetDeviceCompoundFilters(v94, (__int64)a5, (__int64)v10, v15, (__int64)v9);
+    goto LABEL_30;
   }
-  DeviceRegProp = CmGetDeviceCompoundFilters(v10, (_DWORD)a2, v105, a4, (__int64)a5, (__int64)v9, v18, (__int64)v11);
+  v66 = *(_QWORD *)a4 - DEVPKEY_Device_OmitFromSystemSpec;
+  if ( *(_QWORD *)a4 == DEVPKEY_Device_OmitFromSystemSpec )
+    v66 = *(_QWORD *)(a4 + 8) + 0x298AF3586C1A6853LL;
+  if ( v66 )
+    return (unsigned int)DeviceStatus;
+  *a5 = 17;
+  *v9 = 1;
+  if ( !v15 )
+    return (unsigned int)-1073741789;
+  v67 = v102;
+  v13 = v94;
+  v68 = v102;
+  v69 = v94;
+  *(_BYTE *)v10 = 0;
+  v70 = PnpGetObjectProperty(
+          v69,
+          (__int64)a2,
+          1LL,
+          v68,
+          0LL,
+          (__int64)DEVPKEY_Device_UpdateWithUngroupedDrivers,
+          (__int64)&v98,
+          (__int64)v92,
+          1,
+          (__int64)&v95,
+          v12 & 0xFFFF0000);
+  DeviceStatus = v70;
+  if ( v70 < 0 )
+  {
+    if ( v70 == -1073741275 || v70 == -1073741789 )
+      goto LABEL_186;
 LABEL_30:
-  v22 = (int)pszSrc;
+    v19 = (int)pszSrc;
+    goto LABEL_31;
+  }
+  if ( v98 == 17 && v95 == 1 )
+  {
+    v19 = (int)pszSrc;
+    v90 = v92[0] == 0;
+    goto LABEL_265;
+  }
+LABEL_186:
+  v71 = v67;
+  v19 = (int)pszSrc;
+  v72 = PnpGetObjectProperty(
+          v13,
+          (__int64)pszSrc,
+          1LL,
+          v71,
+          0LL,
+          (__int64)DEVPKEY_Device_DriverInGroup,
+          (__int64)&v98,
+          (__int64)v92,
+          1,
+          (__int64)&v95,
+          v101);
+  DeviceStatus = v72;
+  if ( v72 < 0 )
+  {
+    if ( v72 == -1073741275 || v72 == -1073741789 )
+      DeviceStatus = 0;
+    goto LABEL_31;
+  }
+  if ( v98 == 17 && v95 == 1 )
+  {
+    v90 = v92[0] == -1;
+LABEL_265:
+    if ( !v90 )
+      goto LABEL_31;
+    goto LABEL_101;
+  }
 LABEL_31:
-  v23 = v94;
-LABEL_32:
-  if ( DeviceRegProp != -1073741810 )
-    return DeviceRegProp;
-  DeviceRegProp = CmOpenDeviceRegKey(v23, v22, 16, 0, 1, 0, (__int64)&Handle, 0LL);
-  if ( !DeviceRegProp )
+  if ( DeviceStatus != -1073741810 )
+    return (unsigned int)DeviceStatus;
+  DeviceStatus = CmOpenDeviceRegKey(v13, v19, 16, 0, 1, 0, (__int64)&Handle, 0LL);
+  if ( !DeviceStatus )
   {
     ZwClose(Handle);
     return (unsigned int)-1073741275;
   }
-  if ( DeviceRegProp != -1073741810 && DeviceRegProp != -1073741632 )
+  if ( DeviceStatus != -1073741810 && DeviceStatus != -1073741632 )
     return (unsigned int)-1073741823;
-  return DeviceRegProp;
+  return (unsigned int)DeviceStatus;
 }

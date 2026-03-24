@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     PiDqGetPnpObjectType @ 0x140595A78 (PiDqGetPnpObjectType.c)
  *     PiDqPnPGetObjectProperty @ 0x1405972F0 (PiDqPnPGetObjectProperty.c)
- *     PiDqOpenObjectRegKey @ 0x1406D9C24 (PiDqOpenObjectRegKey.c)
+ *     PiDqOpenObjectRegKey @ 0x1406D9C04 (PiDqOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiDqPropertyCallback(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)

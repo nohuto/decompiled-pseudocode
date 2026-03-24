@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiSetFontEnumeration @ 0x1C02ADA40
+ * XREFs of NtGdiSetFontEnumeration @ 0x1C02A0640
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,6 @@
 
 __int64 NtGdiSetFontEnumeration()
 {
-  Gre::Base *v0; // rcx
-
   EngSetLastError(0x32u);
-  return *((unsigned int *)Gre::Base::Globals(v0) + 41);
+  return gulFontInformation;
 }

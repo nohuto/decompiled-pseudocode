@@ -1,5 +1,5 @@
 /*
- * XREFs of EmonPauseProfiling @ 0x1405210D0
+ * XREFs of EmonPauseProfiling @ 0x1404D3F60
  * Callers:
  *     <none>
  * Callees:
@@ -8,38 +8,34 @@
 
 unsigned __int64 EmonPauseProfiling()
 {
-  __int64 v0; // r9
+  unsigned int v0; // r8d
   unsigned __int64 result; // rax
-  __int64 v2; // r8
+  __int64 v2; // r9
   unsigned int v3; // ecx
-  unsigned __int64 *v4; // r10
+  int *v4; // r10
   __int64 v5; // r11
   unsigned int v6; // r11d
-  unsigned __int64 v7; // rdx
-  __int64 v8; // r10
+  unsigned __int64 v7; // r10
+  int *v8; // rdx
 
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v0 = HalpCounterStatus;
-  else
-    v0 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
+  v0 = 0;
   result = (unsigned int)EmonNumberArchCounters;
-  v2 = 0LL;
+  v2 = EmonCounterStatus + 16LL * EmonNumberCounters * KeGetPcr()->Prcb.Number;
   if ( EmonNumberArchCounters )
   {
     v3 = 390;
-    v4 = (unsigned __int64 *)v0;
-    v2 = (unsigned int)EmonNumberArchCounters;
+    v4 = (int *)v2;
+    v0 = EmonNumberArchCounters;
     v5 = (unsigned int)EmonNumberArchCounters;
     do
     {
-      result = *v4;
-      if ( *(int *)(*v4 + 24) < 2 )
+      if ( *v4 < 2 )
       {
         result = __readmsr(v3) & 0xFFBFFFFF;
         __writemsr(v3, result);
       }
       ++v3;
-      ++v4;
+      v4 += 4;
       --v5;
     }
     while ( v5 );
@@ -48,17 +44,17 @@ unsigned __int64 EmonPauseProfiling()
   {
     v6 = EmonNumberCounters;
     v7 = __readmsr(0x38Fu);
-    if ( (unsigned int)v2 < EmonNumberCounters )
+    if ( v0 < EmonNumberCounters )
     {
-      v8 = v0 + 8 * v2;
+      v8 = (int *)(v2 + 16LL * v0);
       do
       {
-        if ( *(int *)(*(_QWORD *)v8 + 24LL) < 2 )
-          _bittestandreset64((__int64 *)&v7, (unsigned int)(v2 - EmonNumberArchCounters + 32));
-        LODWORD(v2) = v2 + 1;
-        v8 += 8LL;
+        if ( *v8 < 2 )
+          _bittestandreset64((__int64 *)&v7, v0 - EmonNumberArchCounters + 32);
+        ++v0;
+        v8 += 4;
       }
-      while ( (unsigned int)v2 < v6 );
+      while ( v0 < v6 );
     }
     result = v7;
     __writemsr(0x38Fu, v7);

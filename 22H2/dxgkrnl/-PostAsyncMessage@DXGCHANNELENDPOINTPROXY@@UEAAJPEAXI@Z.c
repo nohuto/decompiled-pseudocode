@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PostAsyncMessage@DXGCHANNELENDPOINTPROXY@@UEAAJPEAXI@Z @ 0x1C0366D40
+ * XREFs of ?PostAsyncMessage@DXGCHANNELENDPOINTPROXY@@UEAAJPEAXI@Z @ 0x1C02B3DC0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z @ 0x1C0365C08 (-AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z.c)
+ *     ?AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z @ 0x1C02B2E68 (-AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z.c)
  */
 
 __int64 __fastcall DXGCHANNELENDPOINTPROXY::PostAsyncMessage(
@@ -12,7 +12,7 @@ __int64 __fastcall DXGCHANNELENDPOINTPROXY::PostAsyncMessage(
         unsigned int a3)
 {
   return DXGVMBUSCHANNEL::AddMessageToChannel(
-           *((DXGVMBUSCHANNEL **)this + 16),
+           *((DXGVMBUSCHANNEL **)this + 15),
            *((_DWORD *)this + 9),
            a2,
            a3,

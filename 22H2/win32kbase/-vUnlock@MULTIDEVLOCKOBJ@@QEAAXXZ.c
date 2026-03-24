@@ -1,65 +1,59 @@
 /*
- * XREFs of ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C001C144
+ * XREFs of ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C0014620
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
- *     ??1MULTIDEVLOCKOBJ@@QEAA@XZ @ 0x1C001C11C (--1MULTIDEVLOCKOBJ@@QEAA@XZ.c)
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001FC24 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00128E8 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ??_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z @ 0x1C00145F0 (--_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 void __fastcall MULTIDEVLOCKOBJ::vUnlock(MULTIDEVLOCKOBJ *this)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rsi
-  __int64 v4; // rbx
+  __int64 v2; // rsi
+  struct _ERESOURCE *v3; // rcx
+  __int64 v4; // rsi
   struct _ERESOURCE *v5; // rcx
-  __int64 v6; // rsi
-  struct _ERESOURCE *v7; // rcx
 
-  v2 = *((_QWORD *)this + 1);
-  if ( v2 && (*(_DWORD *)this & 4) != 0 )
+  if ( *((_QWORD *)this + 1) && (*(_DWORD *)this & 4) != 0 )
   {
-    v3 = 0LL;
+    v2 = 0LL;
     if ( (*((_DWORD *)this + 1) & 0xFFFFFFFE) != 0 )
     {
       do
       {
-        EtwTraceGreLockReleaseSemaphore(L"*(phsemArrayD + i)", *(_QWORD *)(v2 + 8 * v3));
-        v2 = *((_QWORD *)this + 1);
-        if ( *(_QWORD *)(v2 + 8 * v3) )
+        EtwTraceGreLockReleaseSemaphore(L"*(phsemArrayD+i)", *(_QWORD *)(*((_QWORD *)this + 1) + 8 * v2));
+        v3 = *(struct _ERESOURCE **)(*((_QWORD *)this + 1) + 8 * v2);
+        if ( v3 )
         {
-          ExReleaseResourceAndLeaveCriticalRegion(*(PERESOURCE *)(v2 + 8 * v3));
+          ExReleaseResourceAndLeaveCriticalRegion(v3);
           PsLeavePriorityRegion();
-          v2 = *((_QWORD *)this + 1);
         }
-        v3 = (unsigned int)(v3 + 1);
+        v2 = (unsigned int)(v2 + 1);
       }
-      while ( (unsigned int)v3 < *((_DWORD *)this + 1) >> 1 );
+      while ( (unsigned int)v2 < *((_DWORD *)this + 1) >> 1 );
     }
-    v4 = *(_QWORD *)(SGDGetSessionState(v2) + 24);
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemSprite", *(_QWORD *)(v4 + 112));
-    v5 = *(struct _ERESOURCE **)(v4 + 112);
-    if ( v5 )
+    EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+    if ( ghsemSprite )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v5);
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
       PsLeavePriorityRegion();
     }
-    v6 = 0LL;
+    v4 = 0LL;
     if ( (*((_DWORD *)this + 1) & 0xFFFFFFFE) != 0 )
     {
       do
       {
-        EtwTraceGreLockReleaseSemaphore(L"*(phsemArrayP + i)", *(_QWORD *)(*((_QWORD *)this + 2) + 8 * v6));
-        v7 = *(struct _ERESOURCE **)(*((_QWORD *)this + 2) + 8 * v6);
-        if ( v7 )
+        EtwTraceGreLockReleaseSemaphore(L"*(phsemArrayP+i)", *(_QWORD *)(*((_QWORD *)this + 2) + 8 * v4));
+        v5 = *(struct _ERESOURCE **)(*((_QWORD *)this + 2) + 8 * v4);
+        if ( v5 )
         {
-          ExReleaseResourceAndLeaveCriticalRegion(v7);
+          ExReleaseResourceAndLeaveCriticalRegion(v5);
           PsLeavePriorityRegion();
         }
-        v6 = (unsigned int)(v6 + 1);
+        v4 = (unsigned int)(v4 + 1);
       }
-      while ( (unsigned int)v6 < *((_DWORD *)this + 1) >> 1 );
+      while ( (unsigned int)v4 < *((_DWORD *)this + 1) >> 1 );
     }
     *(_DWORD *)this &= ~4u;
   }

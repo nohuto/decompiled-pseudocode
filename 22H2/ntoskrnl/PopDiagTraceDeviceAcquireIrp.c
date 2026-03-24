@@ -1,30 +1,30 @@
 /*
- * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x14028D8D4
+ * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x140398128
  * Callers:
- *     PoDeviceAcquireIrp @ 0x14028D898 (PoDeviceAcquireIrp.c)
+ *     PoDeviceAcquireIrp @ 0x14037C2D4 (PoDeviceAcquireIrp.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDiagGetDriverName @ 0x140591954 (PopDiagGetDriverName.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PopDiagGetDriverName @ 0x14038887C (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceAcquireIrp(__int64 a1, __int64 a2)
 {
   _UNKNOWN **v2; // rax
-  int DriverName; // eax
-  const size_t *v5; // r8
+  NTSTATUS DriverName; // eax
+  wchar_t *v5; // rdx
   __int64 v6; // rax
-  __int64 v8; // [rsp+38h] [rbp-79h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-71h] BYREF
-  __int64 *v10; // [rsp+50h] [rbp-61h]
-  __int64 v11; // [rsp+58h] [rbp-59h]
-  const size_t *v12; // [rsp+60h] [rbp-51h]
-  int v13; // [rsp+68h] [rbp-49h]
-  int v14; // [rsp+6Ch] [rbp-45h]
-  _BYTE v15[128]; // [rsp+78h] [rbp-39h] BYREF
-  _UNKNOWN *retaddr; // [rsp+110h] [rbp+5Fh] BYREF
-  __int64 v17; // [rsp+118h] [rbp+67h] BYREF
+  __int64 v8; // [rsp+48h] [rbp-C0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 *v10; // [rsp+60h] [rbp-A8h]
+  __int64 v11; // [rsp+68h] [rbp-A0h]
+  wchar_t *v12; // [rsp+70h] [rbp-98h]
+  int v13; // [rsp+78h] [rbp-90h]
+  int v14; // [rsp+7Ch] [rbp-8Ch]
+  wchar_t v15[64]; // [rsp+88h] [rbp-80h] BYREF
+  _UNKNOWN *retaddr; // [rsp+120h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+128h] [rbp+20h] BYREF
 
   v2 = &retaddr;
   v17 = a1;
@@ -37,19 +37,19 @@ char __fastcall PopDiagTraceDeviceAcquireIrp(__int64 a1, __int64 a2)
       DriverName = PopDiagGetDriverName(a2, v15);
       *(_QWORD *)&UserData.Size = 8LL;
       v11 = 8LL;
-      v5 = (const size_t *)v15;
+      v5 = v15;
       if ( DriverName < 0 )
-        v5 = &cchOriginalDestLength;
+        v5 = (wchar_t *)&cchOriginalDestLength;
       UserData.Ptr = (ULONGLONG)&v17;
       v10 = &v8;
       v6 = -1LL;
       v12 = v5;
       do
         ++v6;
-      while ( *((_WORD *)v5 + v6) );
+      while ( v5[v6] );
       v13 = 2 * v6 + 2;
       v14 = 0;
-      LOBYTE(v2) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE, 0LL, 3u, &UserData);
+      LOBYTE(v2) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return (char)v2;

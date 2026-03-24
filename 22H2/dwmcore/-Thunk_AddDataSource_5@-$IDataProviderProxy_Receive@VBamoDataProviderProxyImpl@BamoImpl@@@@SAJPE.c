@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_AddDataSource_5@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801F8910
+ * XREFs of ?Thunk_AddDataSource_5@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x180193F80
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 __int64 __fastcall IDataProviderProxy_Receive<BamoImpl::BamoDataProviderProxyImpl>::Thunk_AddDataSource_5(
         BamoImpl::BamoDataProviderProxyImpl *a1,
-        unsigned int **a2,
-        __int64 a3,
-        const char *a4)
+        unsigned int **a2)
 {
-  return BamoImpl::BamoDataProviderProxyImpl::AddDataSource(a1, **a2, a3, a4);
+  return BamoImpl::BamoDataProviderProxyImpl::AddDataSource(a1, **a2);
 }

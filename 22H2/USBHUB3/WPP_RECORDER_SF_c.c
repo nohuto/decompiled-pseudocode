@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_c @ 0x1C0002790
+ * XREFs of WPP_RECORDER_SF_c @ 0x1C0002150
  * Callers:
- *     HUBHTX_GetDescriptor @ 0x1C00034C0 (HUBHTX_GetDescriptor.c)
- *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C001663C (HUBPDO_ValidateConfigurationDescriptor.c)
+ *     HUBHTX_GetDescriptor @ 0x1C0002E90 (HUBHTX_GetDescriptor.c)
+ *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C0015138 (HUBPDO_ValidateConfigurationDescriptor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_c(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)

@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x180001300
+ * XREFs of _dynamic_initializer_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x180003580
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@QEAA@XZ @ 0x180104858 (--0-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@QEAA@XZ.c)
+ *     ??0?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@QEAA@XZ @ 0x1800DFBD8 (--0-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@QEAA@XZ.c)
  */
 
 int dynamic_initializer_for__CManipulationManager::s_InteractionUpdateQueue__()

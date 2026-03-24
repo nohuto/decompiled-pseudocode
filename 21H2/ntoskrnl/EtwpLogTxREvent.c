@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpLogTxREvent @ 0x1409E3690
+ * XREFs of EtwpLogTxREvent @ 0x140937208
  * Callers:
- *     EtwpTraceRegistryTransaction @ 0x1409E3DA0 (EtwpTraceRegistryTransaction.c)
+ *     EtwpTraceRegistryTransaction @ 0x1409379B0 (EtwpTraceRegistryTransaction.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogTxREvent(

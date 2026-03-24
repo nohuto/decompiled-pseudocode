@@ -1,18 +1,18 @@
 /*
- * XREFs of ApplySecurityAttributesToWinsta @ 0x1C007C470
+ * XREFs of ApplySecurityAttributesToWinsta @ 0x1C006A020
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
 {
-  __int64 v4; // rdx
-  void *v5; // rcx
+  void *v4; // rcx
   NTSTATUS ObjectSecurity; // ebx
-  NTSTATUS v8; // ecx
-  ULONG v9; // eax
+  NTSTATUS v7; // ecx
+  ULONG v8; // eax
+  __int64 v9; // rdx
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp-30h] BYREF
   PSECURITY_DESCRIPTOR NewDescriptor; // [rsp+48h] [rbp-28h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+50h] [rbp-20h] BYREF
@@ -25,8 +25,8 @@ __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   SeCaptureSubjectContext(&SubjectContext);
   SeLockSubjectContext(&SubjectContext);
-  v5 = *(void **)ObQueryNameInfo(a1, v4);
-  if ( v5 && (ObjectSecurity = ObGetObjectSecurity(v5, &SecurityDescriptor, &MemoryAllocated), ObjectSecurity < 0) )
+  v4 = *(void **)ObQueryNameInfo(a1);
+  if ( v4 && (ObjectSecurity = ObGetObjectSecurity(v4, &SecurityDescriptor, &MemoryAllocated), ObjectSecurity < 0) )
   {
     SeUnlockSubjectContext(&SubjectContext);
     SeReleaseSubjectContext(&SubjectContext);
@@ -46,11 +46,11 @@ __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
     SeReleaseSubjectContext(&SubjectContext);
     if ( ObjectSecurity < 0 )
     {
-      v8 = -1073741790;
+      v7 = -1073741790;
       if ( ObjectSecurity != -1073741790 )
-        v8 = ObjectSecurity;
-      v9 = RtlNtStatusToDosError(v8);
-      UserSetLastError(v9);
+        v7 = ObjectSecurity;
+      v8 = RtlNtStatusToDosError(v7);
+      UserSetLastError(v8, v9);
     }
     else
     {

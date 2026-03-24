@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C010BC88
+ * XREFs of ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C0120B78
  * Callers:
- *     PDEVOBJ_bDisableHalftoneWrap @ 0x1C010BC70 (PDEVOBJ_bDisableHalftoneWrap.c)
+ *     PDEVOBJ_bDisableHalftoneWrap @ 0x1C0120B60 (PDEVOBJ_bDisableHalftoneWrap.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0092E30 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     HT_DestroyDeviceHalftoneInfo @ 0x1C010BD78 (HT_DestroyDeviceHalftoneInfo.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A8F0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0120C68 (HT_DestroyDeviceHalftoneInfo.c)
  */
 
 __int64 __fastcall PDEVOBJ::bDisableHalftone(PDEVOBJ *this)
@@ -30,23 +30,23 @@ __int64 __fastcall PDEVOBJ::bDisableHalftone(PDEVOBJ *this)
   v4 = v2;
   if ( (*(_DWORD *)(*(_QWORD *)this + 40LL) & 0x100) != 0 )
   {
-    for ( i = 1448LL; i < 1496; i += 8LL )
+    for ( i = 1456LL; i < 1504; i += 8LL )
       bDeleteSurface(*(_QWORD *)(i + *(_QWORD *)this));
     v3 = *(_QWORD *)this;
   }
-  v6 = *(_QWORD **)(v3 + 1504);
+  v6 = *(_QWORD **)(v3 + 1512);
   v7 = 1;
   v8 = 1;
   if ( v6 )
   {
     v9 = (unsigned int)bDeletePalette(*v6, 0LL, 0LL) != 0;
-    v10 = (unsigned int)HT_DestroyDeviceHalftoneInfo(*(_QWORD *)(*(_QWORD *)this + 1504LL)) != 0;
+    v10 = (unsigned int)HT_DestroyDeviceHalftoneInfo(*(_QWORD *)(*(_QWORD *)this + 1512LL)) != 0;
     if ( !v9 || !v10 )
       v8 = 0;
   }
   v11 = *(_QWORD *)this;
   v12 = 1;
-  if ( v4 != *(_QWORD **)(*(_QWORD *)this + 1504LL) )
+  if ( v4 != *(_QWORD **)(*(_QWORD *)this + 1512LL) )
   {
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
     v15 = (unsigned int)bDeletePalette(*v4, 0LL, 0LL) != 0;
@@ -55,7 +55,7 @@ __int64 __fastcall PDEVOBJ::bDisableHalftone(PDEVOBJ *this)
     *(_QWORD *)(ThreadWin32Thread + 288) = 0LL;
     v11 = *(_QWORD *)this;
   }
-  *(_QWORD *)(v11 + 1504) = 0LL;
+  *(_QWORD *)(v11 + 1512) = 0LL;
   if ( !v8 || !v12 )
     return 0;
   return v7;

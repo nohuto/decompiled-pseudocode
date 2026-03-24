@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiCLIPOBJ_cEnumStart @ 0x1C02C84B0
+ * XREFs of NtGdiCLIPOBJ_cEnumStart @ 0x1C02B1D10
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0298AD0 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C02932D0 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiCLIPOBJ_cEnumStart(__int64 a1, int a2, int a3, unsigned int a4, unsigned int a5)
@@ -14,25 +14,34 @@ __int64 __fastcall NtGdiCLIPOBJ_cEnumStart(__int64 a1, int a2, int a3, unsigned 
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
   struct UMPDOBJ *v11; // rbx
-  XCLIPOBJ *v12; // rax
-  unsigned int v13; // r9d
+  unsigned int v12; // edi
+  XCLIPOBJ *v13; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v11 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
-    return 0xFFFFFFFFLL;
-  ++*((_DWORD *)ThreadCurrentObj + 109);
-  v12 = (XCLIPOBJ *)UMPDOBJ::GetDDIOBJ<_CLIPOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v12 )
   {
-    if ( (*((_DWORD *)v11 + 107) & 0x100) != 0 && !*((_QWORD *)v12 + 7) )
-    {
-      --*((_DWORD *)v11 + 109);
-      return 0xFFFFFFFFLL;
-    }
-    v13 = XCLIPOBJ::cEnumStart(v12, a2, a3, a4, a5);
+LABEL_7:
+    v12 = -1;
+    goto LABEL_8;
   }
-  --*((_DWORD *)v11 + 109);
-  return v13;
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  v12 = -1;
+  v13 = (XCLIPOBJ *)UMPDOBJ::GetDDIOBJ<_CLIPOBJ>((__int64)ThreadCurrentObj, a1);
+  if ( !v13 )
+    goto LABEL_8;
+  if ( (*((_DWORD *)v11 + 103) & 0x100) != 0 && !*((_QWORD *)v13 + 7) )
+  {
+    if ( gfUMPDDebug )
+      DbgPrint(
+        "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiCLIPOBJ_cEnumStart:!peco->bValid()\n",
+        2769);
+    goto LABEL_7;
+  }
+  v12 = XCLIPOBJ::cEnumStart(v13, a2, a3, a4, a5);
+LABEL_8:
+  if ( v11 )
+    --*((_DWORD *)v11 + 105);
+  return v12;
 }

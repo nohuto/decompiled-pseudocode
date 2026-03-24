@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpBlkPoRegisterIdleState @ 0x14052AC90
+ * XREFs of HalpBlkPoRegisterIdleState @ 0x1404DEC50
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpBlkPoBusyWait @ 0x14052A7C0 (HalpBlkPoBusyWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpBlkPoBusyWait @ 0x1404DE778 (HalpBlkPoBusyWait.c)
  */
 
 __int64 __fastcall HalpBlkPoRegisterIdleState(unsigned int a1, __int64 a2)
 {
   ULONG_PTR v4; // r15
-  __int64 v5; // rdi
-  volatile signed __int64 *BugCheckParameter4; // r14
+  __int64 v5; // rsi
+  KSPIN_LOCK *BugCheckParameter4; // r14
   unsigned __int64 v7; // rbp
   int v8; // eax
   __int64 (__fastcall *v9)(_QWORD, int *, __int128 *, __int64, int *); // rax
@@ -35,7 +35,7 @@ __int64 __fastcall HalpBlkPoRegisterIdleState(unsigned int a1, __int64 a2)
 
   v4 = a1;
   v5 = *(_QWORD *)(HalpBlkPcr + 8LL * a1);
-  BugCheckParameter4 = (volatile signed __int64 *)(v5 + 2216);
+  BugCheckParameter4 = (KSPIN_LOCK *)(v5 + 2216);
   v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 2216));
   HalpBlkPoBusyWait(5uLL, a1, v5 + 2216);
   *(_QWORD *)(v5 + 2232) = 0LL;
@@ -62,16 +62,19 @@ __int64 __fastcall HalpBlkPoRegisterIdleState(unsigned int a1, __int64 a2)
   KxReleaseSpinLock(BugCheckParameter4);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

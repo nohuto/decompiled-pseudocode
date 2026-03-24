@@ -4,7 +4,7 @@
  *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopQueryVpbFlagsSafe(__int64 a1)

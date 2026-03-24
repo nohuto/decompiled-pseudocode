@@ -4,8 +4,8 @@
  *     CmpMarkIndexDirty @ 0x1405AD40C (CmpMarkIndexDirty.c)
  *     CmpAddToLeaf @ 0x1405AEEC0 (CmpAddToLeaf.c)
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D11C (CmpFindSubKeyByNameWithStatus.c)
- *     CmpFindSubKeyInLeaf @ 0x1407FECA8 (CmpFindSubKeyInLeaf.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyInLeaf @ 0x1407FEC88 (CmpFindSubKeyInLeaf.c)
  * Callees:
  *     CmpCompareInIndex @ 0x1405D51D0 (CmpCompareInIndex.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C015DF06
+ * XREFs of ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C02CE89C
  * Callers:
- *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F2F74 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
  *     <none>
  */

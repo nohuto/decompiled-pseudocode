@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022A2D0
+ * XREFs of ?SetIntegerProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EA590
  * Callers:
  *     <none>
  * Callees:
@@ -22,10 +22,10 @@ __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetIntegerPropert
   {
     if ( v6 == 1 )
     {
-      if ( *((_BYTE *)this + 100) != (a4 != 0) )
+      if ( *((_BYTE *)this + 92) != (a4 != 0) )
       {
         *((_DWORD *)this + 4) |= 0x400u;
-        *((_BYTE *)this + 100) = a4 != 0;
+        *((_BYTE *)this + 92) = a4 != 0;
         *a5 = 1;
       }
     }
@@ -34,10 +34,10 @@ __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetIntegerPropert
       return (unsigned int)-1073741811;
     }
   }
-  else if ( *((_DWORD *)this + 24) != a4 )
+  else if ( *((_DWORD *)this + 22) != a4 )
   {
     *((_DWORD *)this + 4) |= 0x200u;
-    *((_DWORD *)this + 24) = a4;
+    *((_DWORD *)this + 22) = a4;
     *a5 = 1;
   }
   return v5;

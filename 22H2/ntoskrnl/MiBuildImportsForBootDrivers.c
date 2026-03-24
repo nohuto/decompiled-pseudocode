@@ -1,229 +1,196 @@
 /*
- * XREFs of MiBuildImportsForBootDrivers @ 0x140B5FFA4
+ * XREFs of MiBuildImportsForBootDrivers @ 0x140A56038
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 MiBuildImportsForBootDrivers()
 {
   PVOID *v0; // rcx
-  __int64 v1; // r15
-  PVOID *v2; // rbp
-  PVOID *v3; // rsi
-  PVOID v4; // rax
-  __int16 v5; // ax
-  size_t v6; // r13
-  char *Pool; // r14
-  PVOID *i; // rdi
-  unsigned __int64 *v9; // rbx
-  PVOID v10; // rdx
+  int v1; // ebx
+  unsigned int v2; // r12d
+  PVOID *v3; // rbp
+  PVOID *v4; // rsi
+  PVOID v5; // rax
+  __int16 v6; // ax
+  char *v7; // rdx
+  char *Pool; // r15
+  PVOID *i; // r14
+  unsigned __int64 *v10; // rdi
   unsigned int v11; // r11d
-  unsigned __int64 v12; // r8
+  char *v12; // r8
   unsigned int j; // r10d
-  unsigned int v14; // ebx
+  unsigned int v14; // edi
   unsigned __int64 v15; // rcx
-  void **v16; // rdx
-  __int64 v17; // r8
-  PVOID *v18; // rax
-  PVOID *v19; // rcx
+  __int64 v16; // r8
+  PVOID *v17; // rax
+  _QWORD *v18; // rax
+  unsigned int v19; // r10d
   __int64 v20; // r9
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // rax
-  _QWORD *v23; // rax
-  unsigned int v24; // r10d
-  char *v25; // rdx
-  __int64 v26; // r9
-  PVOID *v27; // rcx
-  int v28; // ebx
-  PVOID *k; // rdi
-  PVOID v31; // rcx
-  unsigned int v32; // [rsp+60h] [rbp+8h] BYREF
-  PVOID *v33; // [rsp+68h] [rbp+10h]
+  PVOID *v21; // rcx
+  PVOID *v22; // rcx
+  unsigned int v23; // r9d
+  unsigned __int64 v24; // rax
+  unsigned __int64 v25; // rax
+  PVOID *k; // rbx
+  PVOID v28; // rcx
+  unsigned int v29; // [rsp+60h] [rbp+8h] BYREF
+  PVOID *v30; // [rsp+68h] [rbp+10h]
 
   v0 = (PVOID *)PsLoadedModuleList;
-  v33 = &PsLoadedModuleList;
-  v32 = 0;
-  LODWORD(v1) = 0;
-  v2 = 0LL;
+  v1 = 0;
+  v30 = &PsLoadedModuleList;
+  v29 = 0;
+  v2 = 0;
   v3 = 0LL;
+  v4 = 0LL;
   if ( PsLoadedModuleList == &PsLoadedModuleList )
-    goto LABEL_63;
+    return 3221226021LL;
   do
   {
-    v4 = v0[6];
-    if ( (PVOID)PsNtosImageBase == v4 )
-    {
-      v2 = v0;
-    }
-    else if ( (PVOID)PsHalImageBase == v4 )
+    v5 = v0[6];
+    if ( (PVOID)PsNtosImageBase == v5 )
     {
       v3 = v0;
     }
-    v5 = ((_DWORD)v0[13] & 0x4000000) == 0 || v0 == v3 || v0 == v2;
-    *((_WORD *)v0 + 54) = v5;
-    v1 = (unsigned int)(v1 + 1);
+    else if ( (PVOID)PsHalImageBase == v5 )
+    {
+      v4 = v0;
+    }
+    v6 = ((_DWORD)v0[13] & 0x4000000) == 0 || v0 == v4 || v0 == v3;
+    *((_WORD *)v0 + 54) = v6;
+    ++v2;
     v0[17] = (PVOID)1;
     v0 = (PVOID *)*v0;
   }
   while ( v0 != &PsLoadedModuleList );
-  if ( !v2 || !v3 )
+  if ( !v3 || !v4 )
+    return 3221226021LL;
+  Pool = (char *)MiAllocatePool(256, 8LL * v2, 0x54446D4Du);
+  if ( Pool )
   {
-LABEL_63:
-    v28 = -1073741275;
-    if ( v2 )
-      goto LABEL_64;
-    goto LABEL_65;
-  }
-  v6 = 8 * v1;
-  Pool = (char *)MiAllocatePool(256, 8 * v1, 0x54446D4Du);
-  if ( !Pool )
-  {
-    v28 = -1073741670;
-    goto LABEL_64;
-  }
-  for ( i = (PVOID *)PsLoadedModuleList; ; i = (PVOID *)*i )
-  {
-    if ( i == &PsLoadedModuleList )
+    for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
     {
-      v28 = 0;
-      goto LABEL_61;
-    }
-    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData((int)i[6], 1, 12, (int)&v32);
-    if ( !v9 )
-      goto LABEL_15;
-    memset(Pool, 0, v6);
-    v10 = 0LL;
-    v11 = v32 >> 3;
-    v12 = 0LL;
-    for ( j = 0; j < v11; ++v9 )
-    {
-      if ( !v10 || *v9 < (unsigned __int64)v10 || *v9 >= v12 )
+      LOBYTE(v7) = 1;
+      v10 = (unsigned __int64 *)RtlImageDirectoryEntryToData((int)i[6], (int)v7, 12, (int)&v29);
+      if ( !v10 )
+        goto LABEL_15;
+      memset(Pool, 0, 8LL * v2);
+      v7 = 0LL;
+      v11 = v29 >> 3;
+      v12 = 0LL;
+      for ( j = 0; j < v11; ++v10 )
       {
-        v19 = (PVOID *)PsLoadedModuleList;
-        v20 = 0LL;
-        if ( PsLoadedModuleList != &PsLoadedModuleList )
+        if ( !v7 || *v10 < (unsigned __int64)v7 || *v10 >= (unsigned __int64)v12 )
         {
-          v21 = *v9;
-          while ( 1 )
+          v22 = (PVOID *)PsLoadedModuleList;
+          v23 = 0;
+          if ( PsLoadedModuleList != &PsLoadedModuleList )
           {
-            v10 = v19[6];
-            v12 = (unsigned __int64)v10 + *((unsigned int *)v19 + 16);
-            if ( v21 >= (unsigned __int64)v10 && v21 < v12 )
-              break;
-            v19 = (PVOID *)*v19;
-            v20 = (unsigned int)(v20 + 1);
-            if ( v19 == v33 )
-              goto LABEL_35;
-          }
-          if ( (*((_DWORD *)v19 + 49) & 0x20) != 0 || (v6 = 8 * v1, _bittest16((const signed __int16 *)v19 + 55, 9u)) )
-          {
-            if ( v19 != i )
+            v24 = *v10;
+            while ( 1 )
             {
-              v28 = -1073740608;
-              goto LABEL_61;
+              v7 = (char *)v22[6];
+              v12 = &v7[*((unsigned int *)v22 + 16)];
+              if ( v24 >= (unsigned __int64)v7 && v24 < (unsigned __int64)v12 )
+                break;
+              v22 = (PVOID *)*v22;
+              ++v23;
+              if ( v22 == v30 )
+                goto LABEL_40;
             }
+            *(_QWORD *)&Pool[8 * v23] = v22;
           }
-          if ( (*((_DWORD *)i + 49) & 0x20) != 0 && i[35] == v19 )
+LABEL_40:
+          v25 = *v10;
+          if ( *v10 < (unsigned __int64)v7 || v25 >= (unsigned __int64)v12 )
           {
-            v28 = -1073740945;
-            goto LABEL_61;
+            if ( v25 )
+              goto LABEL_59;
+            v7 = 0LL;
           }
-          *(_QWORD *)&Pool[8 * v20] = v19;
         }
-LABEL_35:
-        v22 = *v9;
-        if ( *v9 < (unsigned __int64)v10 || v22 >= v12 )
+        ++j;
+      }
+      v29 = 0;
+      v14 = 0;
+      v15 = 0LL;
+      if ( !v2 )
+        goto LABEL_15;
+      v7 = Pool;
+      v16 = v2;
+      do
+      {
+        v17 = *(PVOID **)v7;
+        if ( *(_QWORD *)v7 && v17 != v3 && v17 != i && v17 != v4 )
         {
-          if ( v22 && (*((_DWORD *)i + 49) & 0x20) == 0 )
+          v15 = *(_QWORD *)v7;
+          ++v14;
+        }
+        v7 += 8;
+        --v16;
+      }
+      while ( v16 );
+      v29 = v14;
+      if ( v14 )
+      {
+        if ( v14 == 1 )
+        {
+          i[17] = (PVOID)(v15 | 1);
+          ++*(_WORD *)(v15 + 108);
+        }
+        else
+        {
+          if ( v14 > 0x1FFFFFFE || (v18 = MiAllocatePool(256, 8 * v14 + 8, 0x54446D4Du)) == 0LL )
           {
-            v28 = -1073741275;
-            goto LABEL_61;
+LABEL_59:
+            v1 = 1;
+            break;
           }
-          v10 = 0LL;
+          v19 = 0;
+          *v18 = v14;
+          v7 = Pool;
+          v20 = v2;
+          do
+          {
+            v21 = *(PVOID **)v7;
+            if ( *(_QWORD *)v7 && v21 != v3 && v21 != i && v21 != v4 )
+            {
+              v18[v19 + 1] = v21;
+              ++*(_WORD *)(*(_QWORD *)v7 + 108LL);
+              ++v19;
+            }
+            v7 += 8;
+            --v20;
+          }
+          while ( v20 );
+          i[17] = v18;
         }
       }
-      ++j;
-    }
-    v14 = 0;
-    v15 = 0LL;
-    v32 = 0;
-    if ( !(_DWORD)v1 )
-      goto LABEL_15;
-    v16 = (void **)Pool;
-    v17 = (unsigned int)v1;
-    do
-    {
-      v18 = (PVOID *)*v16;
-      if ( *v16 && v18 != v2 && v18 != i && v18 != v3 )
+      else
       {
-        v15 = (unsigned __int64)*v16;
-        ++v14;
-      }
-      ++v16;
-      --v17;
-    }
-    while ( v17 );
-    v32 = v14;
-    if ( !v14 )
-    {
 LABEL_15:
-      i[17] = (PVOID)-2LL;
-      continue;
-    }
-    if ( v14 == 1 )
-    {
-      i[17] = (PVOID)(v15 | 1);
-      ++*(_WORD *)(v15 + 108);
-      continue;
-    }
-    if ( v14 > 0x1FFFFFFE )
-      break;
-    v23 = MiAllocatePool(256, 8 * v14 + 8, 0x54446D4Du);
-    if ( !v23 )
-      break;
-    *v23 = v14;
-    v24 = 0;
-    v25 = Pool;
-    v26 = (unsigned int)v1;
-    do
-    {
-      v27 = *(PVOID **)v25;
-      if ( *(_QWORD *)v25 && v27 != v2 && v27 != i && v27 != v3 )
-      {
-        v23[v24 + 1] = v27;
-        ++*(_WORD *)(*(_QWORD *)v25 + 108LL);
-        ++v24;
+        i[17] = (PVOID)-2LL;
       }
-      v25 += 8;
-      --v26;
     }
-    while ( v26 );
-    v6 = 8 * v1;
-    i[17] = v23;
-  }
-  v28 = -1073741670;
-LABEL_61:
-  ExFreePoolWithTag(Pool, 0);
-LABEL_64:
-  v2[17] = (PVOID)1;
-LABEL_65:
-  if ( v3 )
+    ExFreePoolWithTag(Pool, 0);
     v3[17] = (PVOID)1;
-  if ( v28 < 0 )
-  {
+    v4[17] = (PVOID)1;
+    if ( v1 != 1 )
+      return 0LL;
     for ( k = (PVOID *)PsLoadedModuleList; k != &PsLoadedModuleList; k = (PVOID *)*k )
     {
-      v31 = k[17];
-      if ( v31 != (PVOID)1 && v31 != (PVOID)-2LL && ((unsigned __int8)v31 & 1) == 0 )
-        ExFreePoolWithTag(v31, 0);
+      v28 = k[17];
+      if ( v28 != (PVOID)1 && v28 != (PVOID)-2LL && ((unsigned __int8)v28 & 1) == 0 )
+        ExFreePoolWithTag(v28, 0);
       k[17] = (PVOID)1;
       *((_WORD *)k + 54) = 1;
     }
   }
-  return (unsigned int)v28;
+  return 3221225626LL;
 }

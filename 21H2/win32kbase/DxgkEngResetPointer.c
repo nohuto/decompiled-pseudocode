@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkEngResetPointer @ 0x1C0176C00
+ * XREFs of DxgkEngResetPointer @ 0x1C014A8F0
  * Callers:
  *     <none>
  * Callees:
- *     IsUserResetPointerSupported @ 0x1C006A1D0 (IsUserResetPointerSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     IsUserResetPointerSupported @ 0x1C000C450 (IsUserResetPointerSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (*DxgkEngResetPointer())(void)
@@ -14,9 +14,9 @@ __int64 (*DxgkEngResetPointer())(void)
   result = (__int64 (*)(void))IsUserResetPointerSupported();
   if ( (int)result >= 0 )
   {
-    result = qword_1C029ADB8;
-    if ( qword_1C029ADB8 )
-      return (__int64 (*)(void))qword_1C029ADB8();
+    result = qword_1C0256038;
+    if ( qword_1C0256038 )
+      return (__int64 (*)(void))qword_1C0256038();
   }
   return result;
 }

@@ -1,74 +1,71 @@
 /*
- * XREFs of PiProcessResourceRequirementsChanged @ 0x140959584
+ * XREFs of PiProcessResourceRequirementsChanged @ 0x1408A2738
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PoFxActivateDevice @ 0x140322A64 (PoFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x140322D9C (PoFxIdleDevice.c)
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PnpReallocateResources @ 0x14096D5F8 (PnpReallocateResources.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PoFxIdleDevice @ 0x14036EFF4 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14036F174 (PoFxActivateDevice.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PnpReallocateResources @ 0x1408B31B0 (PnpReallocateResources.c)
  */
 
-__int64 __fastcall PiProcessResourceRequirementsChanged(__int64 a1)
+__int64 __fastcall PiProcessResourceRequirementsChanged(__int64 *a1)
 {
   _QWORD *v2; // rcx
   __int64 v3; // rdi
-  _DWORD *v4; // rsi
-  __int64 v5; // rbx
-  int v6; // ebx
-  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v4; // rbx
+  int v5; // ebx
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD **)(a1 + 16);
-  v8 = 0LL;
+  v7 = 0LL;
+  v2 = (_QWORD *)a1[2];
   if ( v2 )
     v3 = *(_QWORD *)(v2[39] + 40LL);
   else
     v3 = 0LL;
   ObfReferenceObjectWithTag(v2, 0x65706E50u);
-  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 789) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 787) <= 1 )
   {
-    v6 = -1073741738;
-    v4 = (_DWORD *)(v3 + 704);
+    v5 = -1073741738;
   }
   else
   {
-    PoFxActivateDevice(*(_QWORD *)(a1 + 16));
-    v4 = (_DWORD *)(v3 + 704);
+    PoFxActivateDevice(a1[2]);
     *(_DWORD *)(v3 + 704) |= 0x40u;
     PipClearDevNodeFlags(v3, 256);
     PipSetDevNodeFlags(v3, 1024);
     PipClearDevNodeProblem(v3);
-    if ( *(_DWORD *)(v3 + 300) == 778 )
+    if ( *(_DWORD *)(v3 + 300) == 776 )
     {
-      if ( *(_BYTE *)(a1 + 32) )
+      if ( a1[4] )
         PipClearDevNodeFlags(v3, 2048);
       else
         PipSetDevNodeFlags(v3, 2048);
       PnpReallocateResources(v3);
-      v5 = *(_QWORD *)(a1 + 40);
-      LODWORD(v8) = 3;
-      BYTE4(v8) = PnPBootDriversInitialized;
+      v4 = a1[5];
+      LODWORD(v7) = 3;
+      BYTE4(v7) = PnPBootDriversInitialized;
       ObfReferenceObject(*((PVOID *)IopRootDeviceNode + 4));
-      v6 = PipProcessDevNodeTree((__int64)IopRootDeviceNode, a1, (__int64)&v8, 0, 0, v5 != 0, 0);
-      if ( v6 < 0 )
-        v6 = 0;
+      v5 = PipProcessDevNodeTree((__int64)IopRootDeviceNode, (__int64)a1, (__int64)&v7, 0, 0, v4 != 0, 0);
+      if ( v5 < 0 )
+        v5 = 0;
     }
     else
     {
-      v6 = -1073741823;
+      v5 = -1073741823;
     }
   }
-  if ( (*v4 & 0x40) != 0 )
+  if ( (*(_DWORD *)(v3 + 704) & 0x40) != 0 )
   {
     PoFxIdleDevice(*(_QWORD *)(v3 + 32));
-    *v4 &= ~0x40u;
+    *(_DWORD *)(v3 + 704) &= ~0x40u;
   }
-  ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 16), 0x65706E50u);
-  return (unsigned int)v6;
+  ObfDereferenceObjectWithTag((PVOID)a1[2], 0x65706E50u);
+  return (unsigned int)v5;
 }

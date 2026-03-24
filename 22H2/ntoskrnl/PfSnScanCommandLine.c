@@ -1,49 +1,46 @@
 /*
- * XREFs of PfSnScanCommandLine @ 0x1407C2C30
+ * XREFs of PfSnScanCommandLine @ 0x140630AD4
  * Callers:
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2AB0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnBeginAppLaunch @ 0x14062E94C (PfSnBeginAppLaunch.c)
  * Callees:
- *     PfSnGetUnsafeProcessParameters @ 0x1407C2CEC (PfSnGetUnsafeProcessParameters.c)
- *     PfSnCaptureParamBlockString @ 0x1407C2D50 (PfSnCaptureParamBlockString.c)
- *     PfSnParsePrefetchParam @ 0x1407C2DA0 (PfSnParsePrefetchParam.c)
- *     PfSnHashUnsafeUnicodeString @ 0x1407C3278 (PfSnHashUnsafeUnicodeString.c)
+ *     PfSnParsePrefetchParam @ 0x140630B74 (PfSnParsePrefetchParam.c)
+ *     PfSnCaptureParamBlockString @ 0x140630D38 (PfSnCaptureParamBlockString.c)
+ *     PfSnGetUnsafeProcessParameters @ 0x140630D88 (PfSnGetUnsafeProcessParameters.c)
+ *     PfSnHashUnsafeUnicodeString @ 0x140697304 (PfSnHashUnsafeUnicodeString.c)
  */
 
-__int64 __fastcall PfSnScanCommandLine(_DWORD *a1, _DWORD *a2, int a3)
+__int64 __fastcall PfSnScanCommandLine(_DWORD *a1, __int64 a2)
 {
-  int v3; // ebx
+  int v2; // edi
+  int v4; // ebx
   __int64 UnsafeProcessParameters; // rax
   __int64 result; // rax
-  int v9; // eax
-  int v10; // edi
-  __int64 v11; // [rsp+20h] [rbp-38h] BYREF
-  _OWORD v12[3]; // [rsp+28h] [rbp-30h] BYREF
-  int v13; // [rsp+78h] [rbp+20h] BYREF
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  int v8; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
-  v12[0] = 0LL;
-  v11 = 0LL;
-  v3 = 0;
-  v13 = 0;
-  UnsafeProcessParameters = PfSnGetUnsafeProcessParameters();
+  v9 = 0LL;
+  v8 = 0;
+  v2 = a2;
+  v7 = 0LL;
+  v4 = 0;
+  UnsafeProcessParameters = PfSnGetUnsafeProcessParameters(a1, a2);
   if ( !UnsafeProcessParameters )
     return 3221225865LL;
-  result = PfSnCaptureParamBlockString(UnsafeProcessParameters, UnsafeProcessParameters + 112, v12);
+  result = PfSnCaptureParamBlockString(UnsafeProcessParameters, UnsafeProcessParameters + 112, &v7);
   if ( (int)result >= 0 )
   {
-    v9 = PfSnParsePrefetchParam(v12, &v13);
-    v10 = v13;
-    if ( v9 < 0 )
-      v10 = 0;
-    if ( !a3 )
+    if ( (int)PfSnParsePrefetchParam(&v7, &v8) >= 0 )
+      v4 = v8;
+    if ( !v2 )
       goto LABEL_6;
-    result = PfSnHashUnsafeUnicodeString(v12, &v11);
+    result = PfSnHashUnsafeUnicodeString(&v7, &v9);
     if ( (int)result >= 0 )
     {
-      v3 = v11;
+      v4 += v9;
 LABEL_6:
-      *a1 = v3;
-      result = 0LL;
-      *a2 = v10;
+      *a1 = v4;
+      return 0LL;
     }
   }
   return result;

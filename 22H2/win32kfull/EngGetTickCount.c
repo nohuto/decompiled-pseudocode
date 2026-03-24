@@ -1,5 +1,5 @@
 /*
- * XREFs of EngGetTickCount @ 0x1C0289310
+ * XREFs of EngGetTickCount @ 0x1C02884C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetVadBits @ 0x1406FAAD0
+ * XREFs of MiSetVadBits @ 0x14063A580
  * Callers:
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MiInsertVadCharges @ 0x1406FA960 (MiInsertVadCharges.c)
+ *     MiInsertVadCharges @ 0x14063A390 (MiInsertVadCharges.c)
+ *     MiUpdateVadBits @ 0x1406FC000 (MiUpdateVadBits.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
  */
 
 void __fastcall MiSetVadBits(__int64 a1)
@@ -19,21 +19,21 @@ void __fastcall MiSetVadBits(__int64 a1)
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // r10
   int v10; // r14d
-  unsigned __int64 v11; // rdx
+  __int64 v11; // rdx
   unsigned __int64 v12; // r8
 
   v1 = 0;
   v2 = ((unsigned __int64)*(unsigned int *)(a1 + 24) >> 4) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 28);
   v3 = ((unsigned __int64)*(unsigned int *)(a1 + 28) >> 4) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 28);
   Process = KeGetCurrentThread()->ApcState.Process;
-  v5 = Process[1].ActiveProcessors.StaticBitmap[28] + 48;
-  if ( *(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 264) )
+  v5 = Process[1].ActiveProcessorsPadding[8] + 48;
+  if ( *(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 264) )
   {
     v6 = 0LL;
     do
     {
       v7 = (_QWORD *)(v5 + 72 * v6);
-      v8 = (unsigned __int64)(-524288 * qword_140C67168 + (v7[1] << 19)) >> 16;
+      v8 = 8 * (v7[1] - qword_140C4E360);
       if ( v3 >= v8 )
       {
         v9 = v8 + *v7;
@@ -43,7 +43,7 @@ void __fastcall MiSetVadBits(__int64 a1)
           v11 = v2;
           if ( v2 < v8 )
           {
-            v11 = (unsigned __int64)(-524288 * qword_140C67168 + (v7[1] << 19)) >> 16;
+            v11 = 8 * (v7[1] - qword_140C4E360);
             v10 = 1;
           }
           if ( v3 >= v9 )

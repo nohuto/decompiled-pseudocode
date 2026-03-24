@@ -1,11 +1,11 @@
 /*
- * XREFs of ExIsRestrictedCaller @ 0x1406ADA0C
+ * XREFs of ExIsRestrictedCaller @ 0x1406AD9EC
  * Callers:
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     PspQueryWorkingSetWatch @ 0x140888CF8 (PspQueryWorkingSetWatch.c)
- *     ExpProfileCreate @ 0x1408D9BEC (ExpProfileCreate.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     PspQueryWorkingSetWatch @ 0x140888CD8 (PspQueryWorkingSetWatch.c)
+ *     ExpProfileCreate @ 0x1408D9BCC (ExpProfileCreate.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

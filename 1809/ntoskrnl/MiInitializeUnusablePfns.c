@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeUnusablePfns @ 0x14017F02C
+ * XREFs of MiInitializeUnusablePfns @ 0x14017F04C
  * Callers:
- *     MiInitializeDynamicPfns @ 0x1402A6604 (MiInitializeDynamicPfns.c)
- *     MiInitializeDynamicPfnsTarget @ 0x1402A69C0 (MiInitializeDynamicPfnsTarget.c)
+ *     MiInitializeDynamicPfns @ 0x1402A6704 (MiInitializeDynamicPfns.c)
+ *     MiInitializeDynamicPfnsTarget @ 0x1402A6AC0 (MiInitializeDynamicPfnsTarget.c)
  *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -13,11 +13,11 @@
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D988 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiInitializeUnusablePfns(

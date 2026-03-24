@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputeImageVadCommitCharge @ 0x1402A3D70
+ * XREFs of MiComputeImageVadCommitCharge @ 0x1402A3E70
  * Callers:
- *     MiCheckCommitReleaseFromVad @ 0x1402A38CC (MiCheckCommitReleaseFromVad.c)
- *     MiComputeCommitChargeForZeroPteRange @ 0x1402A3CC4 (MiComputeCommitChargeForZeroPteRange.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
+ *     MiComputeCommitChargeForZeroPteRange @ 0x1402A3DC4 (MiComputeCommitChargeForZeroPteRange.c)
  * Callees:
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  */

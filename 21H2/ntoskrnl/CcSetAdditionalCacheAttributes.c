@@ -1,12 +1,13 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributes @ 0x140234410
+ * XREFs of CcSetAdditionalCacheAttributes @ 0x1402AA420
  * Callers:
- *     CcSetAdditionalCacheAttributesEx @ 0x1402342F0 (CcSetAdditionalCacheAttributesEx.c)
+ *     CcSetAdditionalCacheAttributesEx @ 0x1402AA2F0 (CcSetAdditionalCacheAttributesEx.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetAdditionalCacheAttributes(
@@ -14,11 +15,11 @@ void __stdcall CcSetAdditionalCacheAttributes(
         BOOLEAN DisableReadAhead,
         BOOLEAN DisableWriteBehind)
 {
+  PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
   _DWORD *SharedCacheMap; // rbx
-  int v6; // ecx
-  unsigned int v7; // ecx
-  unsigned int v8; // eax
-  int v9; // ecx
+  __int64 Partition; // rax
+  int v8; // eax
+  unsigned int v9; // eax
   unsigned int v10; // eax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
@@ -28,22 +29,23 @@ void __stdcall CcSetAdditionalCacheAttributes(
   bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
+  SectionObjectPointer = FileObject->SectionObjectPointer;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+  SharedCacheMap = SectionObjectPointer->SharedCacheMap;
   if ( !SharedCacheMap[1] )
     KeBugCheckEx(0x34u, 0x5FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*((_QWORD *)SharedCacheMap + 66) + 704LL), &LockHandle);
-  v6 = SharedCacheMap[38];
+  Partition = CcGetPartition(SectionObjectPointer->SharedCacheMap);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
+  v8 = SharedCacheMap[38];
   if ( DisableReadAhead )
-    v7 = v6 | 1;
+    v9 = v8 | 1;
   else
-    v7 = v6 & 0xFFFFFFFE;
-  v8 = v7;
-  v9 = v7 | 0x202;
-  v10 = v8 & 0xFFFFFFFD;
-  if ( !DisableWriteBehind )
-    v9 = v10;
-  SharedCacheMap[38] = v9;
+    v9 = v8 & 0xFFFFFFFE;
+  if ( DisableWriteBehind )
+    v10 = v9 | 0x202;
+  else
+    v10 = v9 & 0xFFFFFFFD;
+  SharedCacheMap[38] = v10;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

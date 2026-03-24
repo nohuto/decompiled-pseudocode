@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0_EtwWriteTransfer @ 0x1C003BFC0
+ * XREFs of McTemplateK0_EtwWriteTransfer @ 0x1C00335C0
  * Callers:
- *     VidSchEnableLatencyToleranceTimer @ 0x1C0012D30 (VidSchEnableLatencyToleranceTimer.c)
+ *     VidSchEnableLatencyToleranceTimer @ 0x1C00342C0 (VidSchEnableLatencyToleranceTimer.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiMoveTo @ 0x1C02AE220
+ * XREFs of NtGdiMoveTo @ 0x1C02AFAE0
  * Callers:
  *     <none>
  * Callees:
- *     GreMoveTo @ 0x1C029EBA8 (GreMoveTo.c)
+ *     GreMoveTo @ 0x1C02A02C4 (GreMoveTo.c)
  */
 
 __int64 __fastcall NtGdiMoveTo(HDC a1, int a2, int a3, _QWORD *a4)

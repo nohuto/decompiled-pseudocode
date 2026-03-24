@@ -1,24 +1,22 @@
 /*
- * XREFs of ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DB9C
+ * XREFs of ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x1800C0688
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18008E4D0 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
- *     ?AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@$$QEAV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x180090710 (-AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
+ *     ?AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z @ 0x180079090 (-AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z.c)
+ *     ?AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$$QEAV?$com_ptr_t@VCDrawListEntry@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@4@@Z @ 0x1800C04B0 (-AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
  * Callees:
- *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x18000DC60 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
- *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800E7C84 (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
+ *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x180090104 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800C074C (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
  */
 
 void __fastcall CBatchOptimizer::ContinueLayer(CBatchOptimizer *this, int a2)
 {
-  __int64 v2; // rbp
+  __int64 v2; // r14
   __int64 v3; // rbx
-  __int64 v5; // rsi
-  char *v6; // r14
-  __int64 v7; // rbx
-  _DWORD *v8; // r15
-  __int64 v9; // rax
-  int v10; // edx
+  __int64 v5; // rbp
+  char *v6; // r15
+  _DWORD *v7; // rsi
+  __int64 v8; // rax
+  int v9; // ecx
 
   v2 = a2;
   v3 = 0LL;
@@ -29,26 +27,26 @@ void __fastcall CBatchOptimizer::ContinueLayer(CBatchOptimizer *this, int a2)
   if ( a2 )
   {
     CBatchOptimizer::FlushBottomLayer(this);
-    v8 = (_DWORD *)((char *)this + 48);
-    v9 = *((int *)this + 12);
-    *(_OWORD *)((char *)this + 520 * v9 + 80) = *(_OWORD *)((char *)this + v5 + 80);
-    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(
-      (char *)this + 520 * v9 + 112,
-      *((_QWORD *)v6 + 14));
-    v10 = *((_DWORD *)this + 12);
-    do
+    v7 = (_DWORD *)((char *)this + 48);
+    v8 = *((int *)this + 12);
+    *(_OWORD *)((char *)this + 520 * v8 + 80) = *(_OWORD *)((char *)this + v5 + 80);
+    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=((char *)this + 520 * v8 + 112);
+    v9 = *((_DWORD *)this + 12);
+    if ( v2 )
     {
-      ++v3;
-      *v8 = v8[1];
-      ++v8;
+      do
+      {
+        ++v3;
+        *v7 = v7[1];
+        ++v7;
+      }
+      while ( v3 != v2 );
     }
-    while ( v3 != v2 );
-    *((_DWORD *)this + v2 + 12) = v10;
+    *((_DWORD *)this + v2 + 12) = v9;
   }
   else
   {
-    v7 = *((_QWORD *)v6 + 14);
     CBatchOptimizer::FlushBottomLayer(this);
-    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v6 + 112, v7);
+    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v6 + 112);
   }
 }

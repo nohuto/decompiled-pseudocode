@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0qqqzzzzqx_EtwWriteTransfer @ 0x1C00090E8
+ * XREFs of McTemplateK0qqqzzzzqx_EtwWriteTransfer @ 0x1C00C0C60
  * Callers:
- *     EtwTraceInputProcessDelay @ 0x1C0049830 (EtwTraceInputProcessDelay.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0122370 (EtwTraceInputProcessDelay.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateK0qqqzzzzqx_EtwWriteTransfer(
+NTSTATUS __fastcall McTemplateK0qqqzzzzqx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -33,7 +33,7 @@ __int64 __fastcall McTemplateK0qqqzzzzqx_EtwWriteTransfer(
   const wchar_t *v21; // rcx
   int v22; // edx
   __int64 v24; // rdx
-  _BYTE v25[16]; // [rsp+30h] [rbp-99h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v25; // [rsp+30h] [rbp-99h] BYREF
   int *v26; // [rsp+40h] [rbp-89h]
   __int64 v27; // [rsp+48h] [rbp-81h]
   char *v28; // [rsp+50h] [rbp-79h]
@@ -141,5 +141,5 @@ __int64 __fastcall McTemplateK0qqqzzzzqx_EtwWriteTransfer(
     v21 = L"NULL";
   v41 = v21;
   v47 = 8LL;
-  return McGenEventWrite_EtwWriteTransfer(v21, &ImmersiveInputProcessDelayEvent, &W32kControlGuid, 10LL, v25);
+  return McGenEventWrite_EtwWriteTransfer((__int64)v21, &ImmersiveInputProcessDelayEvent, &W32kControlGuid, 0xAu, &v25);
 }

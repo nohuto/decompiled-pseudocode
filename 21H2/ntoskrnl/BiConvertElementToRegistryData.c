@@ -1,251 +1,249 @@
 /*
- * XREFs of BiConvertElementToRegistryData @ 0x140803498
+ * XREFs of BiConvertElementToRegistryData @ 0x140784B7C
  * Callers:
- *     BcdSetElementDataWithFlags @ 0x140803250 (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x1408038B4 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiConvertQualifiedPartitionToBootEnvironment @ 0x140A1D3CC (BiConvertQualifiedPartitionToBootEnvironment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertQualifiedPartitionToBootEnvironment @ 0x14096F468 (BiConvertQualifiedPartitionToBootEnvironment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertElementToRegistryData(
         unsigned int a1,
-        _BYTE *a2,
+        char *a2,
         unsigned int a3,
-        unsigned int a4,
+        __int64 a4,
         _QWORD *a5,
         unsigned int *a6)
 {
-  size_t v6; // r14
-  char v8; // di
-  int v9; // ecx
-  int v10; // ecx
+  int v6; // ebx
+  size_t v7; // r14
+  unsigned int *v9; // r13
+  int v10; // edi
   int v11; // ecx
   int v12; // ecx
   int v13; // ecx
   int v14; // ecx
-  unsigned int v15; // ebx
+  int v15; // ecx
+  int v16; // ecx
+  unsigned int v17; // r15d
   _BYTE *Buffer; // rsi
-  int v17; // eax
-  int v18; // edi
-  unsigned int *v19; // r14
-  _OWORD *v20; // rax
-  _WORD *v22; // rcx
-  unsigned int v23; // eax
-  _BYTE *PoolWithTag; // rax
+  _WORD *v19; // rcx
+  unsigned int v20; // eax
+  _BYTE *v21; // rax
+  int v23; // eax
+  _OWORD *PoolWithTag; // rax
   _BYTE *v25; // rax
   unsigned int v26; // r14d
-  int v27; // r12d
-  int v28; // ebx
-  unsigned int v29; // r12d
-  _BYTE *v30; // rax
-  _WORD *v31; // r13
-  unsigned int v32; // eax
-  size_t v33; // rbx
+  int v27; // r15d
+  _WORD *v28; // rax
+  __int64 v29; // rcx
+  size_t v30; // rbx
   void *Src; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-18h] BYREF
-  unsigned int v36; // [rsp+70h] [rbp+30h]
+  int v33; // [rsp+88h] [rbp+48h]
 
-  v6 = a3;
+  v6 = 0;
+  v7 = a3;
   Src = 0LL;
-  v8 = 0;
+  v9 = 0LL;
+  v10 = 0;
   DestinationString = 0LL;
-  v9 = (HIBYTE(a1) & 0xF) - 1;
-  if ( v9 )
+  v11 = (HIBYTE(a1) & 0xF) - 1;
+  if ( !v11 )
   {
-    v10 = v9 - 1;
-    if ( !v10 )
+    if ( *(_DWORD *)a2 == 6 )
+      v23 = BiConvertQualifiedPartitionToBootEnvironment(a2, a3, &Src);
+    else
+      v23 = BiConvertNtDeviceToBootEnvironment(a2, a3, 0LL, &Src);
+    v9 = (unsigned int *)Src;
+    v10 = v23;
+    if ( v23 < 0 )
+      goto LABEL_23;
+    v17 = *((_DWORD *)Src + 2) + 16;
+    if ( *((_DWORD *)Src + 2) >= 0xFFFFFFF0 )
     {
-      if ( (a3 & 1) != 0 )
-        return (unsigned int)-1073741788;
-      v22 = a2;
-      v23 = a3 >> 1;
-      if ( a3 >> 1 )
-      {
-        while ( *v22 )
-        {
-          ++v22;
-          if ( !--v23 )
-            goto LABEL_53;
-        }
-        v8 = 1;
-        v15 = a3;
-      }
-      else
-      {
-LABEL_53:
-        if ( a3 + 2 < a3 )
-          return (unsigned int)-1073741675;
-        v15 = a3 + 2;
-      }
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v15, 0x4B444342u);
+      v10 = -1073741811;
+    }
+    else
+    {
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(*((_DWORD *)Src + 2) + 16), 0x4B444342u);
       Buffer = PoolWithTag;
       if ( PoolWithTag )
       {
-        memmove(PoolWithTag, a2, v6);
-        if ( !v8 )
-          *(_WORD *)&Buffer[v15 - 2] = 0;
-        goto LABEL_18;
+        *PoolWithTag = *(_OWORD *)(a2 + 4);
+        memmove(PoolWithTag + 1, v9, v9[2]);
+        ExFreePoolWithTag(v9, 0x4B444342u);
+        v9 = 0LL;
+        goto LABEL_21;
       }
-      goto LABEL_38;
+      v10 = -1073741801;
     }
-    v11 = v10 - 1;
-    if ( v11 )
+LABEL_23:
+    if ( v9 )
+      ExFreePoolWithTag(v9, 0x4B444342u);
+    return (unsigned int)v10;
+  }
+  v12 = v11 - 1;
+  if ( !v12 )
+  {
+    if ( (a3 & 1) != 0 )
+      return (unsigned int)-1073741788;
+    v19 = a2;
+    v20 = a3 >> 1;
+    if ( a3 >> 1 )
     {
-      v12 = v11 - 1;
-      if ( v12 )
+      while ( *v19 )
       {
-        v13 = v12 - 1;
-        if ( v13 )
+        ++v19;
+        if ( !--v20 )
+          goto LABEL_16;
+      }
+      LOBYTE(v6) = 1;
+    }
+LABEL_16:
+    v17 = a3;
+    if ( !(_BYTE)v6 )
+    {
+      if ( a3 + 2 < a3 )
+        return (unsigned int)-1073741675;
+      v17 = a3 + 2;
+    }
+    v21 = ExAllocatePoolWithTag(PagedPool, v17, 0x4B444342u);
+    Buffer = v21;
+    if ( !v21 )
+      return (unsigned int)-1073741801;
+    memmove(v21, a2, v7);
+    if ( !(_BYTE)v6 )
+      *(_WORD *)&Buffer[v17 - 2] = 0;
+    v10 = 0;
+    goto LABEL_21;
+  }
+  v13 = v12 - 1;
+  if ( !v13 )
+  {
+    if ( a3 != 16 )
+      return (unsigned int)-1073741788;
+    v10 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
+    Buffer = DestinationString.Buffer;
+    v17 = DestinationString.Length + 2;
+    goto LABEL_21;
+  }
+  v14 = v13 - 1;
+  if ( v14 )
+  {
+    v15 = v14 - 1;
+    if ( v15 )
+    {
+      v16 = v15 - 1;
+      if ( v16 )
+      {
+        if ( v16 != 1 || (a3 & 7) == 0 )
         {
-          v14 = v13 - 1;
-          if ( !v14 )
-          {
-            if ( a3 - 1 <= 1 )
-            {
-              v15 = 1;
-              Buffer = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x4B444342u);
-              if ( Buffer )
-              {
-                *Buffer = *a2 != 0;
-LABEL_18:
-                v18 = 0;
-                *a5 = Buffer;
-                *a6 = v15;
-                goto LABEL_19;
-              }
-              goto LABEL_38;
-            }
-            return (unsigned int)-1073741788;
-          }
-          if ( v14 == 1 && (a3 & 7) != 0 )
-            return (unsigned int)-1073741788;
-          v15 = a3;
+          v17 = a3;
           v25 = ExAllocatePoolWithTag(PagedPool, a3, 0x4B444342u);
           Buffer = v25;
           if ( v25 )
           {
-            memmove(v25, a2, v6);
-            goto LABEL_18;
+            memmove(v25, a2, v7);
+            goto LABEL_22;
           }
-        }
-        else
-        {
-          v15 = 8;
-          if ( a3 != 8 )
-            return (unsigned int)-1073741788;
-          Buffer = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x4B444342u);
-          if ( Buffer )
-          {
-            *(_QWORD *)Buffer = *(_QWORD *)a2;
-            goto LABEL_18;
-          }
+          return (unsigned int)-1073741801;
         }
       }
-      else
+      else if ( a3 - 1 <= 1 )
       {
-        if ( (a3 & 0xF) != 0 )
-          return (unsigned int)-1073741788;
-        v26 = a3 >> 4;
-        v27 = 0;
-        v28 = 0;
-        if ( a3 >> 4 )
+        v17 = 1;
+        Buffer = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x4B444342u);
+        if ( Buffer )
         {
-          do
-          {
-            RtlInitUnicodeString(&DestinationString, 0LL);
-            v18 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v28], (__int64)&DestinationString, 1);
-            if ( v18 < 0 )
-              goto LABEL_19;
-            v27 += DestinationString.Length + 2;
-            RtlFreeUnicodeString(&DestinationString);
-          }
-          while ( ++v28 < v26 );
+          *Buffer = *a2 != 0;
+LABEL_22:
+          v10 = 0;
+          *a5 = Buffer;
+          *a6 = v17;
+          goto LABEL_23;
         }
-        v29 = v27 + 2;
-        v30 = ExAllocatePoolWithTag(PagedPool, v29, 0x4B444342u);
-        Buffer = v30;
-        if ( v30 )
-        {
-          v31 = v30;
-          v36 = 0;
-          v32 = 0;
-          if ( v26 )
-          {
-            while ( 1 )
-            {
-              v18 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v32], (__int64)&DestinationString, 1);
-              if ( v18 < 0 )
-                break;
-              v33 = (unsigned int)DestinationString.Length + 2;
-              memmove(v31, DestinationString.Buffer, v33);
-              v31 = (_WORD *)((char *)v31 + v33);
-              RtlFreeUnicodeString(&DestinationString);
-              v32 = v36 + 1;
-              v36 = v32;
-              if ( v32 >= v26 )
-                goto LABEL_17;
-            }
-            ExFreePoolWithTag(Buffer, 0x4B444342u);
-            goto LABEL_19;
-          }
-LABEL_17:
-          *v31 = 0;
-          v15 = v29;
-          goto LABEL_18;
-        }
+        return (unsigned int)-1073741801;
       }
-LABEL_38:
-      v18 = -1073741801;
-      goto LABEL_19;
     }
-    if ( a3 != 16 )
-      return (unsigned int)-1073741788;
-    v18 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
-    if ( v18 >= 0 )
-    {
-      Buffer = DestinationString.Buffer;
-      v15 = DestinationString.Length + 2;
-      goto LABEL_18;
-    }
-  }
-  else
-  {
-    if ( *(_DWORD *)a2 == 6 )
-      v17 = BiConvertQualifiedPartitionToBootEnvironment(a2, a3, &Src);
     else
-      v17 = BiConvertNtDeviceToBootEnvironment(a2, a3, a4, &Src);
-    v18 = v17;
-    if ( v17 < 0 )
-      goto LABEL_19;
-    v19 = (unsigned int *)Src;
-    v15 = *((_DWORD *)Src + 2) + 16;
-    if ( *((_DWORD *)Src + 2) < 0xFFFFFFF0 )
     {
-      v20 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(*((_DWORD *)Src + 2) + 16), 0x4B444342u);
-      Buffer = v20;
-      if ( v20 )
+      v17 = 8;
+      if ( a3 == 8 )
       {
-        *v20 = *(_OWORD *)(a2 + 4);
-        memmove(v20 + 1, v19, v19[2]);
-        if ( Src )
+        Buffer = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x4B444342u);
+        if ( Buffer )
         {
-          ExFreePoolWithTag(Src, 0x4B444342u);
-          Src = 0LL;
+          *(_QWORD *)Buffer = *(_QWORD *)a2;
+          goto LABEL_22;
         }
-        goto LABEL_18;
+        return (unsigned int)-1073741801;
       }
-      goto LABEL_38;
     }
-    v18 = -1073741811;
+    return (unsigned int)-1073741788;
   }
-LABEL_19:
-  if ( Src )
-    ExFreePoolWithTag(Src, 0x4B444342u);
-  return (unsigned int)v18;
+  if ( (a3 & 0xF) != 0 )
+    return (unsigned int)-1073741788;
+  v26 = a3 >> 4;
+  v27 = 0;
+  if ( !(a3 >> 4) )
+  {
+LABEL_48:
+    v17 = v27 + 2;
+    v28 = ExAllocatePoolWithTag(PagedPool, v17, 0x4B444342u);
+    Buffer = v28;
+    if ( !v28 )
+      return (unsigned int)-1073741801;
+    v29 = 0LL;
+    v33 = 0;
+    Src = v28;
+    if ( v26 )
+    {
+      while ( 1 )
+      {
+        v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v29], (__int64)&DestinationString, 1);
+        if ( v10 < 0 )
+          goto LABEL_60;
+        v30 = (unsigned int)DestinationString.Length + 2;
+        memmove(Src, DestinationString.Buffer, v30);
+        Src = (char *)Src + v30;
+        RtlFreeAnsiString(&DestinationString);
+        v29 = (unsigned int)(v33 + 1);
+        v33 = v29;
+        if ( (unsigned int)v29 >= v26 )
+        {
+          v28 = Src;
+          break;
+        }
+      }
+    }
+    *v28 = 0;
+LABEL_21:
+    if ( v10 >= 0 )
+      goto LABEL_22;
+LABEL_60:
+    if ( !Buffer )
+      return (unsigned int)v10;
+    ExFreePoolWithTag(Buffer, 0x4B444342u);
+    goto LABEL_23;
+  }
+  while ( 1 )
+  {
+    RtlInitUnicodeString(&DestinationString, 0LL);
+    v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v6], (__int64)&DestinationString, 1);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
+    v27 += DestinationString.Length + 2;
+    RtlFreeAnsiString(&DestinationString);
+    if ( ++v6 >= v26 )
+      goto LABEL_48;
+  }
 }

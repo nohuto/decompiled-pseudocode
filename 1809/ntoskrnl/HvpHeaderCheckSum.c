@@ -4,14 +4,14 @@
  *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
  *     HvpGetHiveHeader @ 0x1405A63B8 (HvpGetHiveHeader.c)
  *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8268 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvWriteHivePrimaryFile @ 0x1406B8358 (HvWriteHivePrimaryFile.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB2C (HvHiveStartMemoryBacked.c)
- *     HvIsInPlaceBaseBlockValid @ 0x1407FABA0 (HvIsInPlaceBaseBlockValid.c)
- *     HvWriteExternal @ 0x1407FAD94 (HvWriteExternal.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140805D00 (HvSnapshotHiveToOffsetArray.c)
- *     HvAnalyzeLogFiles @ 0x1408060F4 (HvAnalyzeLogFiles.c)
- *     HvpLogInvalidLogHeader @ 0x140806F64 (HvpLogInvalidLogHeader.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8248 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvWriteHivePrimaryFile @ 0x1406B8338 (HvWriteHivePrimaryFile.c)
+ *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
+ *     HvIsInPlaceBaseBlockValid @ 0x1407FAB80 (HvIsInPlaceBaseBlockValid.c)
+ *     HvWriteExternal @ 0x1407FAD74 (HvWriteExternal.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140805CE0 (HvSnapshotHiveToOffsetArray.c)
+ *     HvAnalyzeLogFiles @ 0x1408060D4 (HvAnalyzeLogFiles.c)
+ *     HvpLogInvalidLogHeader @ 0x140806F44 (HvpLogInvalidLogHeader.c)
  * Callees:
  *     <none>
  */

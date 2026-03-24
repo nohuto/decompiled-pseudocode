@@ -1,29 +1,27 @@
 /*
- * XREFs of RIMIsLegacyDevice @ 0x1C0199FB4
+ * XREFs of RIMIsLegacyDevice @ 0x1C00AC394
  * Callers:
- *     RIMAllocateAndLinkHidTLCInfo @ 0x1C0199C38 (RIMAllocateAndLinkHidTLCInfo.c)
- *     RIMSearchHidTLCInfo @ 0x1C019A000 (RIMSearchHidTLCInfo.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC134 (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMSearchHidTLCInfo @ 0x1C00AC2AC (RIMSearchHidTLCInfo.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMIsLegacyDevice(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMIsLegacyDevice(__int16 a1, __int16 a2)
 {
-  unsigned int v3; // ebx
-  int v4; // eax
+  unsigned int v2; // ebx
+  int v3; // eax
 
-  v3 = 0;
-  v4 = 1;
-  if ( (_WORD)a1 != 1 )
-    goto LABEL_6;
-  if ( (_WORD)a2 == 2 || (_WORD)a2 == 6 )
-    v3 = 1;
-  LOWORD(a2) = a2 - 2;
-  a1 = 65531LL;
-  if ( (a2 & 0xFFFB) != 0 )
-LABEL_6:
-    v4 = 0;
-  if ( v3 != v4 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  return v3;
+  v2 = 0;
+  v3 = 1;
+  if ( a1 != 1 )
+    goto LABEL_2;
+  if ( a2 == 2 || a2 == 6 )
+    v2 = 1;
+  if ( a2 != 6 && a2 != 2 )
+LABEL_2:
+    v3 = 0;
+  if ( v2 != v3 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 43LL);
+  return v2;
 }

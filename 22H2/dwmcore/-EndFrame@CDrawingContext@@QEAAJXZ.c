@@ -1,65 +1,53 @@
 /*
- * XREFs of ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18008C678
+ * XREFs of ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18008FC84
  * Callers:
- *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180020CC4 (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x18003AD00 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18008BA8C (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18010A2F8 (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E8994 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA030 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@AEBVCDirtyRegion@@PEAW4ProtectionMode@1@@Z @ 0x1801EBA70 (-RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@AEBVCDirtyR.c)
- *     ?RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801EDDB0 (-RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
- *     ?Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F16F8 (-Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F9888 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A9CE4 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     ?DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z @ 0x18003EA80 (-DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z.c)
+ *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180042FFC (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x180060630 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EC91C (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     gsl::final_action__lambda_4dee9d74ed0de40ddb59185f1172ad6c___::_final_action__lambda_4dee9d74ed0de40ddb59185f1172ad6c___ @ 0x1800ECCE0 (gsl--final_action__lambda_4dee9d74ed0de40ddb59185f1172ad6c___--_final_action__lambda_4dee9d74ed0.c)
+ *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE094 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE35C (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE720 (-Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EEC74 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@@Z @ 0x180186994 (-RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@@Z.c)
+ *     ?RenderDirtyRegion@CLocalAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@@Z @ 0x18018AA60 (-RenderDirtyRegion@CLocalAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@@Z.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180257E24 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?PopAllStacks@CDrawingContext@@AEAAXXZ @ 0x18008C738 (-PopAllStacks@CDrawingContext@@AEAAXXZ.c)
- *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008D348 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F2828 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?PopAllStacks@CDrawingContext@@AEAAXXZ @ 0x18008E0D4 (-PopAllStacks@CDrawingContext@@AEAAXXZ.c)
+ *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008FD08 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall CDrawingContext::EndFrame(CDrawingContext *this)
+__int64 __fastcall CDrawingContext::EndFrame(CD3DDevice **this)
 {
-  unsigned int v2; // esi
-  __int64 v3; // r8
-  int v4; // eax
-  unsigned int v5; // ecx
-  __int64 v6; // rdi
-  _BYTE v8[16]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v2; // edi
+  int v3; // eax
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  _BYTE v7[16]; // [rsp+30h] [rbp-28h] BYREF
 
   v2 = 0;
-  CDrawingContext::PopAllStacks(this);
-  if ( *((_QWORD *)this + 4) )
+  CDrawingContext::PopAllStacks((CDrawingContext *)this);
+  if ( this[4] )
   {
-    v4 = CDrawingContext::PopRenderTargetInternal(this, 1);
-    v2 = v4;
-    if ( v4 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x144u, 0LL);
+    v3 = CDrawingContext::PopRenderTargetInternal((CDrawingContext *)this, 1);
+    v2 = v3;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x133u, 0LL);
   }
-  v6 = *((_QWORD *)this + 5);
-  *((_QWORD *)this + 5) = 0LL;
-  if ( v6 )
-  {
-    if ( *(_DWORD *)(v6 + 8) == 2 )
-    {
-      *(_QWORD *)(v6 + 1496) = GetCurrentFrameId() + 5;
-      ScheduleCompositionPass(1000LL, 0x20000LL);
-    }
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v6);
-  }
-  *((_QWORD *)this + 6) = 0LL;
-  *((_QWORD *)this + 428) = 0LL;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000) != 0 )
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(this + 5);
+  this[6] = 0LL;
+  this[435] = 0LL;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80u) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_ETWGUID_DRAWING_CONTEXT_FRAME_Stop,
-      v3,
+      v5,
       1LL,
-      v8);
+      v7);
   return v2;
 }

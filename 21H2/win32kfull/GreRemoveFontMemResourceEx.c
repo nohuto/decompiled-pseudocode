@@ -1,11 +1,11 @@
 /*
- * XREFs of GreRemoveFontMemResourceEx @ 0x1C02890A8
+ * XREFs of GreRemoveFontMemResourceEx @ 0x1C028B458
  * Callers:
- *     NtGdiAddFontMemResourceEx @ 0x1C02AC7A0 (NtGdiAddFontMemResourceEx.c)
- *     NtGdiRemoveFontMemResourceEx @ 0x1C02AE410 (NtGdiRemoveFontMemResourceEx.c)
+ *     NtGdiAddFontMemResourceEx @ 0x1C02AE030 (NtGdiAddFontMemResourceEx.c)
+ *     NtGdiRemoveFontMemResourceEx @ 0x1C02AFD20 (NtGdiRemoveFontMemResourceEx.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C0011CB0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
- *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0112B1C (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A21FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C01613EC (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall GreRemoveFontMemResourceEx(unsigned int a1)
@@ -24,7 +24,7 @@ __int64 __fastcall GreRemoveFontMemResourceEx(unsigned int a1)
     && (PFFFromId = GetPFFFromId(gpPFTPrivate, a1, &v5)) != 0LL
     && (*((_DWORD *)PFFFromId + 13) & 0x10) != 0 )
   {
-    return PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v6, PFFFromId, v5, 0x30u);
+    return (unsigned int)PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v6, PFFFromId, v5, 0x30u);
   }
   else
   {

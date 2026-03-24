@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetProcessSecurityPort @ 0x1409AD550
+ * XREFs of PsSetProcessSecurityPort @ 0x1409076E0
  * Callers:
  *     <none>
  * Callees:

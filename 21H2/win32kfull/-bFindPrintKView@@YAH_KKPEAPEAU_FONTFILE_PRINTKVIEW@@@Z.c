@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02A6758
+ * XREFs of ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02A8314
  * Callers:
- *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A6D40 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A85AC (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall bFindPrintKView(__int64 a1, int a2, struct _FONTFILE_PRINTKVIEW **a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetColorValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801BCF90
+ * XREFs of ?SetColorValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x180180E40
  * Callers:
  *     <none>
  * Callees:
- *     ??$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801BBCF4 (--$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION.c)
- *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801BC46C (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
- *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801BCA3C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ *     ??$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017FD24 (--$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801803BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x180180988 (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall DataSourceProxy::SetColorValue(

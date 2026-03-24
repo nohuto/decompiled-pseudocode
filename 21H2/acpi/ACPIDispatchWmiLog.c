@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDispatchWmiLog @ 0x1C002D7E0
+ * XREFs of ACPIDispatchWmiLog @ 0x1C0030A90
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001660 (ACPIDispatchForwardIrp.c)
- *     ACPIWmiRegisterGuids @ 0x1C002D87C (ACPIWmiRegisterGuids.c)
- *     ACPIWmiEnableLog @ 0x1C00643F0 (ACPIWmiEnableLog.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIWmiRegisterGuids @ 0x1C0030B2C (ACPIWmiRegisterGuids.c)
+ *     ACPIWmiEnableLog @ 0x1C00630C0 (ACPIWmiEnableLog.c)
  */
 
 __int64 __fastcall ACPIDispatchWmiLog(ULONG_PTR BugCheckParameter3, PIRP Irp)

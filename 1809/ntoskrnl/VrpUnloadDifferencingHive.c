@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpUnloadDifferencingHive @ 0x14080DCDC
+ * XREFs of VrpUnloadDifferencingHive @ 0x14080DCBC
  * Callers:
- *     VrpCleanupNamespace @ 0x1408079D0 (VrpCleanupNamespace.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140809090 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140809710 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpCleanupNamespace @ 0x1408079B0 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140809070 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408096F0 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwUnloadKey @ 0x1401BB970 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x1401BB990 (ZwUnloadKey2.c)
- *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x14080D32C (VrpBecomeDiffHiveEntryTransitionOwner.c)
- *     VrpDecrementDiffHiveEntryHardRefCount @ 0x14080D37C (VrpDecrementDiffHiveEntryHardRefCount.c)
- *     VrpDereferenceDiffHiveEntry @ 0x14080D3C4 (VrpDereferenceDiffHiveEntry.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D578 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14080DC9C (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwUnloadKey @ 0x1401BB990 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
+ *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x14080D30C (VrpBecomeDiffHiveEntryTransitionOwner.c)
+ *     VrpDecrementDiffHiveEntryHardRefCount @ 0x14080D35C (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14080D3A4 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D558 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14080DC7C (VrpRelinquishDiffHiveEntryTransitionOwner.c)
  */
 
 __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)

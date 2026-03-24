@@ -1,96 +1,114 @@
 /*
- * XREFs of ?SerializeModeChangeRequests@DISPMODECHANGEREQUEST@VIDPN_MGR@@SAJAEBV?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@PEAV?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@@Z @ 0x1C039EC94
+ * XREFs of ?SerializeModeChangeRequests@DISPMODECHANGEREQUEST@VIDPN_MGR@@SAJAEBV?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@PEAV?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@@Z @ 0x1C02E0EF0
  * Callers:
- *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C039899C (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
- *     ?AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C03993EC (-AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
+ *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C02DA5F4 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
+ *     ?AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C02DB114 (-AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
  * Callees:
- *     ?Initialize@?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x1C0069240 (-Initialize@-$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_P.c)
+ *     ?Initialize@?$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z @ 0x1C005C394 (-Initialize@-$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::DISPMODECHANGEREQUEST::SerializeModeChangeRequests(
-        __int64 a1,
-        _QWORD *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall VIDPN_MGR::DISPMODECHANGEREQUEST::SerializeModeChangeRequests(__int64 a1, __int64 a2)
 {
+  __int64 v4; // rax
+  __int64 v6; // rax
   __int64 v7; // rcx
-  unsigned __int64 v8; // rsi
+  SIZE_T v8; // rsi
   int v9; // eax
-  unsigned int v10; // edi
-  char v11; // al
-  char v12; // r14
-  _QWORD *v13; // rbp
-  _BYTE *v14; // rax
-  _BYTE *v15; // rdi
-  __int64 v16; // rcx
-  _QWORD *v17; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rdi
+  _QWORD *v13; // rax
+  char v14; // al
+  char v15; // r14
+  _QWORD *v16; // rbp
+  _BYTE *v17; // rax
+  _BYTE *v18; // rdi
+  __int64 v19; // rcx
+  _QWORD *v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
 
   if ( a2 )
   {
-    if ( a2[4] )
-      WdLogSingleEntry0(1LL);
+    if ( *(_QWORD *)(a2 + 32) )
+    {
+      v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+      WdLogEvent5_WdAssertion(v6);
+    }
     v7 = 1LL;
     if ( *(_QWORD *)(a1 + 40) > 1uLL )
       v7 = *(_QWORD *)(a1 + 40);
     v8 = 96 * v7 + 8;
-    v9 = DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::Initialize(a2, v8, a3, a4);
-    v10 = v9;
+    v9 = DMM::AutoBuffer<_KEY_VALUE_PARTIAL_INFORMATION>::Initialize(a2, v8);
+    v12 = v9;
     if ( v9 >= 0 )
     {
-      v11 = *(_BYTE *)(a1 + 40);
-      v12 = 0;
-      v13 = (_QWORD *)(a1 + 24);
-      *(_BYTE *)a2[4] = v11;
-      v14 = (_BYTE *)a2[4];
-      v15 = v14 + 8;
-      if ( (_QWORD *)*v13 != v13 )
+      v14 = *(_BYTE *)(a1 + 40);
+      v15 = 0;
+      v16 = (_QWORD *)(a1 + 24);
+      **(_BYTE **)(a2 + 32) = v14;
+      v17 = *(_BYTE **)(a2 + 32);
+      v18 = v17 + 8;
+      if ( (_QWORD *)*v16 == v16 )
+        v19 = 0LL;
+      else
+        v19 = *v16 - 8LL;
+      if ( v19 )
       {
-        v16 = *v13 - 8LL;
-        if ( *v13 != 8LL )
+        do
         {
-          do
-          {
-            *(_DWORD *)v15 = *(_DWORD *)(v16 + 48);
-            *(_OWORD *)(v15 + 4) = *(_OWORD *)(v16 + 52);
-            *(_OWORD *)(v15 + 20) = *(_OWORD *)(v16 + 68);
-            *(_QWORD *)(v15 + 36) = *(_QWORD *)(v16 + 84);
-            *((_DWORD *)v15 + 11) = *(_DWORD *)(v16 + 92);
-            *((_DWORD *)v15 + 12) = *(_DWORD *)(v16 + 96);
-            *((_DWORD *)v15 + 13) = *(_DWORD *)(v16 + 100);
-            *((_DWORD *)v15 + 14) = *(_DWORD *)(v16 + 104);
-            *((_QWORD *)v15 + 8) = *(_QWORD *)(v16 + 112);
-            *((_DWORD *)v15 + 23) = *(_DWORD *)(v16 + 140);
-            *(_OWORD *)(v15 + 72) = *(_OWORD *)(v16 + 120);
-            *((_DWORD *)v15 + 22) = *(_DWORD *)(v16 + 136);
-            v15 += 96;
-            v17 = *(_QWORD **)(v16 + 8);
-            v16 = (__int64)(v17 - 1);
-            if ( v17 == v13 )
-              v16 = 0LL;
-            ++v12;
-          }
-          while ( v16 );
-          v14 = (_BYTE *)a2[4];
+          *(_DWORD *)v18 = *(_DWORD *)(v19 + 48);
+          *(_OWORD *)(v18 + 4) = *(_OWORD *)(v19 + 52);
+          *(_OWORD *)(v18 + 20) = *(_OWORD *)(v19 + 68);
+          *(_QWORD *)(v18 + 36) = *(_QWORD *)(v19 + 84);
+          *((_DWORD *)v18 + 11) = *(_DWORD *)(v19 + 92);
+          *((_DWORD *)v18 + 12) = *(_DWORD *)(v19 + 96);
+          *((_DWORD *)v18 + 13) = *(_DWORD *)(v19 + 100);
+          *((_DWORD *)v18 + 14) = *(_DWORD *)(v19 + 104);
+          *((_QWORD *)v18 + 8) = *(_QWORD *)(v19 + 112);
+          *((_DWORD *)v18 + 23) = *(_DWORD *)(v19 + 140);
+          *(_OWORD *)(v18 + 72) = *(_OWORD *)(v19 + 120);
+          *((_DWORD *)v18 + 22) = *(_DWORD *)(v19 + 136);
+          v18 += 96;
+          v20 = *(_QWORD **)(v19 + 8);
+          v19 = (__int64)(v20 - 1);
+          if ( v20 == v16 )
+            v19 = 0LL;
+          ++v15;
         }
+        while ( v19 );
+        v17 = *(_BYTE **)(a2 + 32);
       }
-      if ( v12 != *v14 )
-        WdLogSingleEntry0(1LL);
-      if ( v12 )
+      if ( v15 != *v17 )
       {
-        if ( (_BYTE *)v8 != &v15[-a2[4]] )
-          WdLogSingleEntry0(1LL);
+        v21 = WdLogNewEntry5_WdAssertion(v19, v10);
+        WdLogEvent5_WdAssertion(v21);
+      }
+      if ( v15 )
+      {
+        if ( (_BYTE *)v8 != &v18[-*(_QWORD *)(a2 + 32)] )
+        {
+          v22 = WdLogNewEntry5_WdAssertion(v19, v10);
+          WdLogEvent5_WdAssertion(v22);
+        }
       }
       return 0LL;
     }
     else
     {
-      WdLogSingleEntry3(2LL, v8, a1, v9);
-      return v10;
+      v13 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+      v13[3] = v8;
+      v13[4] = a1;
+      v13[5] = v12;
+      WdLogEvent5_WdError(v13);
+      return (unsigned int)v12;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v4 = WdLogNewEntry5_WdError(a1, 0LL);
+    *(_QWORD *)(v4 + 24) = 0LL;
+    WdLogEvent5_WdError(v4);
     return 3221225485LL;
   }
 }

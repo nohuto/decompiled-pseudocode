@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerAggregatorValidateModernStandbyCallback @ 0x1406C8400
+ * XREFs of PopPowerAggregatorValidateModernStandbyCallback @ 0x1406C83E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01E4A58
+ * XREFs of ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01AAEB8
  * Callers:
- *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01E4B58 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
+ *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01AAFB8 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
  * Callees:
- *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01E486C (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01AACEC (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
  */
 
 void __fastcall xxxAdjustPushStateForKL(
@@ -16,10 +16,8 @@ void __fastcall xxxAdjustPushStateForKL(
   __int64 v5; // rax
   unsigned __int8 *v9; // rbx
   unsigned __int8 i; // r9
-  __int64 v11; // rdx
-  char v12; // r10
-  char v13; // r11
-  __int64 v14; // r8
+  unsigned __int8 v11; // r10
+  unsigned __int8 v12; // r11
 
   v5 = *((_QWORD *)a3 + 6);
   if ( v5 )
@@ -29,34 +27,26 @@ void __fastcall xxxAdjustPushStateForKL(
       v9 = ***(unsigned __int8 ****)(v5 + 32);
       for ( i = *v9; *v9; i = *v9 )
       {
-        v11 = (unsigned int)(1 << (i & 7));
+        v11 = 0;
         v12 = 0;
-        v13 = 0;
-        if ( ((unsigned __int8)v11 & a2[(unsigned __int64)i >> 3]) == 0 )
+        if ( ((unsigned __int8)(1 << (i & 7)) & a2[(unsigned __int64)i >> 3]) == 0 )
         {
-          v14 = (unsigned int)i - 16;
-          if ( i == 16 )
+          switch ( i )
           {
-            v12 = -96;
-            v13 = -95;
+            case 0x10u:
+              v11 = -96;
+              v12 = -95;
+              break;
+            case 0x11u:
+              v11 = -94;
+              v12 = -93;
+              break;
+            case 0x12u:
+              v11 = -92;
+              v12 = -91;
+              break;
           }
-          else
-          {
-            v14 = (unsigned int)i - 17;
-            if ( i == 17 )
-            {
-              v12 = -94;
-              v13 = -93;
-            }
-            else if ( i == 18 )
-            {
-              v12 = -92;
-              v13 = -91;
-            }
-          }
-          LOBYTE(v14) = v13;
-          LOBYTE(v11) = v12;
-          xxxAdjustPushState(a1, v11, v14, a4, a5);
+          xxxAdjustPushState(a1, v11, v12, a4, a5);
           a2[(unsigned __int64)*v9 >> 3] |= 1 << (*v9 & 7);
         }
         v9 += 2;

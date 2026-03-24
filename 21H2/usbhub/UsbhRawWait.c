@@ -1,16 +1,14 @@
 /*
- * XREFs of UsbhRawWait @ 0x1C001A650
+ * XREFs of UsbhRawWait @ 0x1C0018570
  * Callers:
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
- *     UsbhFdoSetD0Cold @ 0x1C0009FA0 (UsbhFdoSetD0Cold.c)
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhSyncPowerOnPorts @ 0x1C001A270 (UsbhSyncPowerOnPorts.c)
- *     UsbhPortResumeComplete @ 0x1C001B2A0 (UsbhPortResumeComplete.c)
- *     UsbhReset1Complete @ 0x1C001BA90 (UsbhReset1Complete.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C000BBF0 (UsbhSyncPowerOnPorts.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000CF10 (UsbhFdoSetD0Cold.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhPortResumeComplete @ 0x1C0018460 (UsbhPortResumeComplete.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbhRawWait(int a1)
@@ -33,7 +31,7 @@ void __fastcall UsbhRawWait(int a1)
   {
     v1 = a1;
     PerformanceFrequency.QuadPart = 0LL;
-    if ( dword_1C006A6D4 == 1
+    if ( dword_1C006C634 == 1
       && (memset(&Event, 0, sizeof(Event)),
           KeInitializeEvent(&Event, NotificationEvent, 0),
           (v2 = ((__int64 (__fastcall *)(void *, struct _KEVENT *, __int64))g_ExAllocateTimer)(

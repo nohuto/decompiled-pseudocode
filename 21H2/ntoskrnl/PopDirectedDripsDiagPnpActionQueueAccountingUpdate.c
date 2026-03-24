@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405DD674
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14057C80C
  * Callers:
- *     PopDirectedDripsHandleResiliencyNotification @ 0x14098BC1C (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E3194 (PopDirectedDripsHandleResiliencyNotification.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405DD718 (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14057C8B0 (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1, char a2)
@@ -19,13 +19,13 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1
   _DWORD *SchedulerAssist; // r9
   bool v9; // zf
 
-  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C1CB90);
-  if ( byte_140C1CC10 != a2 )
+  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C1EBB0);
+  if ( byte_140C1EC28 != a2 )
   {
     LOBYTE(v3) = a2;
     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v4, v3);
   }
-  KxReleaseSpinLock(&qword_140C1CB90);
+  KxReleaseSpinLock(&qword_140C1EBB0);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

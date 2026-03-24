@@ -1,34 +1,32 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x140361260
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1403522C0
  * Callers:
- *     ExInitializePagedLookasideList @ 0x1407D71C0 (ExInitializePagedLookasideList.c)
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x140859B90 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x14085AB18 (AlpcpInitSystem.c)
+ *     ExInitializePagedLookasideList @ 0x1406FB9F0 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407CB7B0 (FsRtlInitExtraCreateParameterLookasideList.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializePagedLookasideListInternal(
         __int64 a1,
-        PVOID (__fastcall *a2)(int a1, SIZE_T a2, ULONG a3),
-        void (__stdcall *a3)(PVOID P),
+        PVOID (__stdcall *a2)(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag),
+        void (__stdcall *a3)(PVOID P, ULONG Tag),
         int a4,
         int a5,
         int a6,
         __int16 a7,
         int a8)
 {
-  void (__stdcall *v12)(PVOID); // rax
-  unsigned __int64 v13; // rbx
-  _QWORD *v14; // rax
-  _QWORD *v15; // rdi
+  unsigned __int64 v12; // rbx
+  _QWORD *v13; // rax
+  _QWORD *v14; // rdi
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v19; // zf
+  bool v18; // zf
 
   InitializeSListHead((PSLIST_HEADER)a1);
   *(_WORD *)(a1 + 16) = ExMinimumLookasideDepth;
@@ -39,14 +37,13 @@ __int64 __fastcall ExInitializePagedLookasideListInternal(
   *(_QWORD *)(a1 + 28) = 0LL;
   *(_DWORD *)(a1 + 36) = a4 | 1;
   if ( !a2 )
-    a2 = ExAllocatePoolZero;
+    a2 = ExAllocatePoolWithTag;
   *(_QWORD *)(a1 + 48) = a2;
-  v12 = ExFreePool;
-  if ( a3 )
-    v12 = a3;
-  *(_QWORD *)(a1 + 56) = v12;
+  if ( !a3 )
+    a3 = ExFreePoolWithTag;
+  *(_QWORD *)(a1 + 56) = a3;
   *(_QWORD *)(a1 + 80) = 0LL;
-  v13 = KeAcquireSpinLockRaiseToDpc(&ExPagedLookasideLock);
+  v12 = KeAcquireSpinLockRaiseToDpc(&ExPagedLookasideLock);
   if ( a8 )
   {
     *(_WORD *)(a1 + 18) = -1;
@@ -56,32 +53,33 @@ __int64 __fastcall ExInitializePagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v14 = (_QWORD *)qword_140C2D648;
-  v15 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140C2D648 != &ExPagedLookasideListHead )
+  v13 = (_QWORD *)qword_140C16AC8;
+  v14 = (_QWORD *)(a1 + 64);
+  if ( *(__int64 **)qword_140C16AC8 != &ExPagedLookasideListHead )
     __fastfail(3u);
-  *v15 = &ExPagedLookasideListHead;
-  v15[1] = v14;
-  *v14 = v15;
-  qword_140C2D648 = (__int64)v15;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ExPagedLookasideLock);
+  *v14 = &ExPagedLookasideListHead;
+  v14[1] = v13;
+  *v13 = v14;
+  qword_140C16AC8 = (__int64)v14;
+  KxReleaseSpinLock(&ExPagedLookasideLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v13 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-      v19 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v19 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v18 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v13);
+  __writecr8(v12);
   return result;
 }

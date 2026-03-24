@@ -1,13 +1,13 @@
 /*
- * XREFs of NtGdiEudcLoadUnloadLink @ 0x1C0297690
+ * XREFs of NtGdiEudcLoadUnloadLink @ 0x1C0298E10
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C01593E0 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GreEudcLoadLinkW @ 0x1C0295894 (GreEudcLoadLinkW.c)
- *     GreEudcUnloadLinkW @ 0x1C0295B94 (GreEudcUnloadLinkW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C0165DB0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GreEudcLoadLinkW @ 0x1C0297DB0 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C02980C0 (GreEudcUnloadLinkW.c)
  */
 
 __int64 __fastcall NtGdiEudcLoadUnloadLink(
@@ -60,7 +60,7 @@ __int64 __fastcall NtGdiEudcLoadUnloadLink(
       memmove(v12, a3, 2 * v7);
       *((_WORD *)v12 + v7) = 0;
       if ( a7 )
-        LinkW = GreEudcLoadLinkW((wchar_t *)Src, v14, (const unsigned __int16 *)v12, v15, a5, a6);
+        LinkW = GreEudcLoadLinkW((wchar_t *)Src, v14, (char *)v12, v15, a5, a6);
       else
         LinkW = GreEudcUnloadLinkW((wchar_t *)Src, v14, (unsigned __int16 *)v12);
       v11 = LinkW;

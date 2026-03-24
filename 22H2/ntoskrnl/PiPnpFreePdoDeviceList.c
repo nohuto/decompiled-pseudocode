@@ -1,21 +1,21 @@
 /*
- * XREFs of PiPnpFreePdoDeviceList @ 0x1407CD768
+ * XREFs of PiPnpFreePdoDeviceList @ 0x14069B4F8
  * Callers:
- *     PnpGetSystemPdoList @ 0x1407CD4F0 (PnpGetSystemPdoList.c)
- *     PnpFreeSystemPdoList @ 0x1407CD750 (PnpFreeSystemPdoList.c)
+ *     PnpGetSystemPdoList @ 0x14069B440 (PnpGetSystemPdoList.c)
+ *     PnpFreeSystemPdoList @ 0x14069B4E0 (PnpFreeSystemPdoList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiPnpFreePdoDeviceList(PVOID *P)
+void __fastcall PiPnpFreePdoDeviceList(PADAPTER_OBJECT *P)
 {
   unsigned int i; // ebx
 
   if ( P )
   {
     for ( i = 0; i < *(_DWORD *)P; ++i )
-      ObfDereferenceObject(P[i + 1]);
+      HalPutDmaAdapter(P[i + 1]);
     ExFreePoolWithTag(P, 0);
   }
 }

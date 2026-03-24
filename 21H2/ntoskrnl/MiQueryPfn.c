@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueryPfn @ 0x14025191C
+ * XREFs of MiQueryPfn @ 0x1402C96A8
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402E67E8 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
  * Callees:
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiIsPageOnBadList @ 0x140273354 (MiIsPageOnBadList.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
  */
 
 char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
@@ -20,8 +20,8 @@ char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
   char result; // al
 
   v2 = a2;
-  v3 = 48 * a1 - 0x220000000000LL;
-  if ( (*(_BYTE *)(v3 + 35) & 0x40) != 0 || (unsigned int)MiIsPageOnBadList(48 * a1 - 0x220000000000LL) )
+  v3 = 48 * a1 - 0x58000000000LL;
+  if ( (*(_BYTE *)(v3 + 35) & 0x40) != 0 || (unsigned int)MiIsPageOnBadList(48 * a1 - 0x58000000000LL) )
     *(_QWORD *)(v2 + 8) |= 0x80000000uLL;
   PfnPriority = MiGetPfnPriority(v3);
   v8 = v7 ^ ((unsigned int)v7 ^ (PfnPriority << 24)) & 0x7000000;

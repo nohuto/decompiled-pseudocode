@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00BA9E0
+ * XREFs of ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00AB910
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00BA8C0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00AB7F0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InitializeWppRecorder(struct RECORDER_LOG__ **a1, char *a2)

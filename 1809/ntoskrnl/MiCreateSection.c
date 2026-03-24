@@ -1,7 +1,7 @@
 /*
  * XREFs of MiCreateSection @ 0x1405DDAC0
  * Callers:
- *     MiCreateSystemSection @ 0x1400F58FC (MiCreateSystemSection.c)
+ *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
  *     MmCreateCacheManagerSection @ 0x1405DD6DC (MmCreateCacheManagerSection.c)
  *     MiCreateSectionCommon @ 0x1405DD7A0 (MiCreateSectionCommon.c)
  *     MmCreateSpecialImageSection @ 0x14060A404 (MmCreateSpecialImageSection.c)
@@ -9,13 +9,13 @@
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiInitializeCreateSectionPacket @ 0x1405DDDB0 (MiInitializeCreateSectionPacket.c)
  *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
  *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
  *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
- *     MiLogSectionObjectEvent @ 0x14084E888 (MiLogSectionObjectEvent.c)
+ *     MiLogSectionObjectEvent @ 0x14084E868 (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiCreateSection(

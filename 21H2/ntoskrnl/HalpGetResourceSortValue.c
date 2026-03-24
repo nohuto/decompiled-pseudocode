@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetResourceSortValue @ 0x140AF7D88
+ * XREFs of HalpGetResourceSortValue @ 0x140A3A30C
  * Callers:
- *     HalpReportResourceUsage @ 0x140AF77F8 (HalpReportResourceUsage.c)
+ *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
  * Callees:
  *     <none>
  */

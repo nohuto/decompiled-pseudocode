@@ -1,26 +1,24 @@
 /*
- * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C0169AB0
+ * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C013C684
  * Callers:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0087050 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007B150 (--1RFONTOBJ@@QEAA@XZ.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 void __fastcall RFONTOBJ::vReleaseCache(RFONTOBJ *this, __int64 a2, int a3)
 {
   __int64 v3; // rdx
-  char *v5; // rax
+  __int64 v5; // rcx
   struct _ERESOURCE *v6; // rcx
   __int64 v7; // rcx
 
   v3 = *(_QWORD *)this;
-  v5 = *(char **)(*(_QWORD *)this + 616LL);
+  v5 = *(_QWORD *)(*(_QWORD *)this + 616LL);
   if ( v5 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v5);
+    Win32FreePool(v5);
     *(_QWORD *)(*(_QWORD *)this + 624LL) = 0LL;
     *(_QWORD *)(*(_QWORD *)this + 616LL) = 0LL;
     v3 = *(_QWORD *)this;

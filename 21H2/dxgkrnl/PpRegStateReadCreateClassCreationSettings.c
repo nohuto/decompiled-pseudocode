@@ -1,14 +1,14 @@
 /*
- * XREFs of PpRegStateReadCreateClassCreationSettings @ 0x1C0385C50
+ * XREFs of PpRegStateReadCreateClassCreationSettings @ 0x1C02C4F64
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C0384C10 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C02C3F10 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005EE70 (WdmlibRtlInitUnicodeStringEx.c)
- *     PiRegStateOpenClassKey @ 0x1C03858C0 (PiRegStateOpenClassKey.c)
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C0385A5C (PiRegStateReadStackCreationSettingsFromKey.c)
- *     CmRegUtilOpenExistingWstrKey @ 0x1C0386164 (CmRegUtilOpenExistingWstrKey.c)
- *     CmRegUtilUcValueSetUcString @ 0x1C038636C (CmRegUtilUcValueSetUcString.c)
- *     CmRegUtilWstrValueSetWstrString @ 0x1C0386518 (CmRegUtilWstrValueSetWstrString.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050B6C (WdmlibRtlInitUnicodeStringEx.c)
+ *     PiRegStateOpenClassKey @ 0x1C02C4BD4 (PiRegStateOpenClassKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C4D70 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C02C5474 (CmRegUtilOpenExistingWstrKey.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C02C567C (CmRegUtilUcValueSetUcString.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C02C5828 (CmRegUtilWstrValueSetWstrString.c)
  */
 
 __int64 __fastcall PpRegStateReadCreateClassCreationSettings(unsigned int *a1, __int64 a2, __int64 a3)
@@ -61,15 +61,13 @@ __int64 __fastcall PpRegStateReadCreateClassCreationSettings(unsigned int *a1, _
         DestinationString = 0LL;
         inited = WdmlibRtlInitUnicodeStringEx(&DestinationString, L"Class");
         if ( inited >= 0 )
-        {
           inited = CmRegUtilUcValueSetUcString(v9, &DestinationString);
+        if ( inited >= 0 )
+        {
+          v11 = 49;
+          inited = CmRegUtilWstrValueSetWstrString(v9, L"NoDisplayClass", &v11);
           if ( inited >= 0 )
-          {
-            v11 = 49;
-            inited = CmRegUtilWstrValueSetWstrString(v9, L"NoDisplayClass", &v11);
-            if ( inited >= 0 )
-              inited = CmRegUtilWstrValueSetWstrString(v9, L"NoUseClass", &v11);
-          }
+            inited = CmRegUtilWstrValueSetWstrString(v9, L"NoUseClass", &v11);
         }
       }
       v8 = v9;

@@ -1,35 +1,40 @@
 /*
- * XREFs of ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180042824
+ * XREFs of ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180065F4C
  * Callers:
- *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800418D4 (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
- *     ?NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ @ 0x1800420D8 (-NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ.c)
- *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x180042190 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
- *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800422CC (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
- *     ?NotifyAnimationStopped@CBaseExpression@@IEAAJXZ @ 0x1800426E4 (-NotifyAnimationStopped@CBaseExpression@@IEAAJXZ.c)
- *     ?DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180042790 (-DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18007D2F8 (-PreRender@CComposition@@IEAAJXZ.c)
- *     ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800DA2A8 (-ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEM.c)
- *     ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801F40A4 (-OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z.c)
- *     ?TransitionTrue@CAnimationTrigger@@AEAAXXZ @ 0x180209D44 (-TransitionTrue@CAnimationTrigger@@AEAAXXZ.c)
- *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x18021DFDC (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
- *     ?OnSceneReady@CSpatialRemarshaler@@EEAAJPEAUISpectreRenderer@@@Z @ 0x18023F070 (-OnSceneReady@CSpatialRemarshaler@@EEAAJPEAUISpectreRenderer@@@Z.c)
- *     ?SetState@CHolographicComposition@@UEAAJJ@Z @ 0x180298220 (-SetState@CHolographicComposition@@UEAAJJ@Z.c)
- *     ?SetState@CHolographicDisplay@@UEAAJJ@Z @ 0x180298720 (-SetState@CHolographicDisplay@@UEAAJJ@Z.c)
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x180065C94 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
+ *     ?NotifyMatrix4x4PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DMatrix@@@Z @ 0x180065E58 (-NotifyMatrix4x4PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DMatrix@@@Z.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800A937C (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
+ *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800AA170 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
+ *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800AC3A0 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
+ *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800ACC34 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
+ *     ?NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ @ 0x1800ACCE4 (-NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ.c)
+ *     ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800CA8D8 (-ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEM.c)
+ *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x1801CCFD4 (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
+ *     ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801D4628 (-OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z.c)
+ *     ?OnSceneReady@CSpatialRemarshaler@@EEAAJPEAUISpectreRenderer@@@Z @ 0x1801ECCE0 (-OnSceneReady@CSpatialRemarshaler@@EEAAJPEAUISpectreRenderer@@@Z.c)
+ *     ?SetState@CHolographicComposition@@UEAAJJ@Z @ 0x180256330 (-SetState@CHolographicComposition@@UEAAJJ@Z.c)
+ *     ?SetState@CHolographicDisplay@@UEAAJJ@Z @ 0x1802567F0 (-SetState@CHolographicDisplay@@UEAAJJ@Z.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall CNotificationResource::ShouldNotify(CNotificationResource *this)
+char __fastcall CNotificationResource::ShouldNotify(CNotificationResource *this)
 {
   __int64 v1; // rdx
-  bool result; // al
+  char result; // al
+  int v3; // edx
 
   v1 = *((_QWORD *)this + 6);
   result = 0;
   if ( v1 )
+    v3 = *(_DWORD *)(v1 + 68);
+  else
+    v3 = 0;
+  if ( v3 )
   {
-    if ( *(_DWORD *)(v1 + 76) )
-      return *((_DWORD *)this + 16) != 0;
+    if ( *((_DWORD *)this + 14) )
+      return 1;
   }
   return result;
 }

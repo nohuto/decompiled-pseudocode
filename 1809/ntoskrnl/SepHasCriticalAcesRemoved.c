@@ -4,7 +4,7 @@
  *     SepCheckForCriticalAceRemoval @ 0x140013054 (SepCheckForCriticalAceRemoval.c)
  * Callees:
  *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     RtlGetControlSecurityDescriptor @ 0x1405B95F0 (RtlGetControlSecurityDescriptor.c)
  */
 

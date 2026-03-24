@@ -1,11 +1,11 @@
 /*
- * XREFs of DwmAsyncDesktopFree @ 0x1C0098654
+ * XREFs of DwmAsyncDesktopFree @ 0x1C00E9BB4
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0098410 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
- *     xxxCreateDesktopEx @ 0x1C00CFDF4 (xxxCreateDesktopEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DwmAsyncDesktopFree(PVOID Object, __int64 a2)

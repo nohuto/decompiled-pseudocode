@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_EDMMVIDPNSOURCEMODESET@@WFI@EAAPEAXI@Z @ 0x1C002D380
+ * XREFs of ??_EDMMVIDPNSOURCEMODESET@@WFI@EAAPEAXI@Z @ 0x1C00291A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall DMMVIDPNSOURCEMODESET::`vector deleting destructor'(__int64 a1, char a2)
+DMMVIDPNSOURCEMODESET *__fastcall DMMVIDPNSOURCEMODESET::`vector deleting destructor'(__int64 a1, __int64 a2)
 {
-  return DMMVIDPNSOURCEMODESET::`scalar deleting destructor'((_QWORD *)(a1 - 88), a2);
+  return DMMVIDPNSOURCEMODESET::`scalar deleting destructor'((DMMVIDPNSOURCEMODESET *)(a1 - 88), a2);
 }

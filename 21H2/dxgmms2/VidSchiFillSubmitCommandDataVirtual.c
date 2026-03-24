@@ -1,16 +1,16 @@
 /*
- * XREFs of VidSchiFillSubmitCommandDataVirtual @ 0x1C00058D0
+ * XREFs of VidSchiFillSubmitCommandDataVirtual @ 0x1C0006E90
  * Callers:
- *     VidSchiSendToExecutionQueue @ 0x1C0007350 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008AF0 (VidSchiSendToExecutionQueue.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall VidSchiFillSubmitCommandDataVirtual(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r9
+  __int64 v2; // r10
   __int64 v4; // r11
-  __int64 v5; // r10
+  __int64 v5; // r9
   __int64 v6; // rax
   int v7; // ecx
   int v8; // eax
@@ -42,7 +42,7 @@ __int64 __fastcall VidSchiFillSubmitCommandDataVirtual(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 52) = v8;
   v9 = v8 | (*(_DWORD *)(a1 + 92) >> 7) & 0x80;
   *(_DWORD *)(a2 + 52) = v9;
-  v10 = v9 | ((*(_BYTE *)(v2 + 909) & 1) << 8);
+  v10 = v9 | ((*(_BYTE *)(v2 + 901) & 1) << 8);
   *(_DWORD *)(a2 + 52) = v10;
   if ( *(_DWORD *)(a1 + 88) )
   {
@@ -72,13 +72,13 @@ __int64 __fastcall VidSchiFillSubmitCommandDataVirtual(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 36) = *(_DWORD *)(a1 + 184);
   *(_DWORD *)(a2 + 40) = *(_DWORD *)(a1 + 104);
   v13 = *(unsigned __int16 *)(v4 + 4);
-  v14 = *(_QWORD *)(v5 + 632);
-  if ( (unsigned int)v13 < *(_DWORD *)(v5 + 704) )
+  v14 = *(_QWORD *)(v5 + 624);
+  if ( (unsigned int)v13 < *(_DWORD *)(v5 + 696) )
     v14 += 8 * v13;
   *(_DWORD *)(a2 + 56) = *(unsigned __int16 *)(*(_QWORD *)v14 + 6LL);
   v15 = *(unsigned __int16 *)(v4 + 4);
-  v16 = *(__int64 **)(v5 + 632);
-  if ( (unsigned int)v15 < *(_DWORD *)(v5 + 704) )
+  v16 = *(__int64 **)(v5 + 624);
+  if ( (unsigned int)v15 < *(_DWORD *)(v5 + 696) )
     v16 += v15;
   result = *v16;
   *(_DWORD *)(a2 + 60) = *(unsigned __int16 *)(*v16 + 8);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrStartRecording @ 0x140935FD0
+ * XREFs of HalpLbrStartRecording @ 0x140866EC0
  * Callers:
  *     <none>
  * Callees:
- *     HalpLbrConfigurationWorker @ 0x140935E84 (HalpLbrConfigurationWorker.c)
+ *     HalpLbrConfigurationWorker @ 0x140866E0C (HalpLbrConfigurationWorker.c)
  */
 
 __int64 __fastcall HalpLbrStartRecording(int a1, int *a2)
@@ -13,16 +13,8 @@ __int64 __fastcall HalpLbrStartRecording(int a1, int *a2)
 
   if ( !HalpLbrStackSize )
     return 3221225659LL;
-  if ( (a1 & 0xFFFFFC00) != 0
-    || (a1 & 3) == 3
-    || (a1 & 0xFFFFFDFC) != 0 && (a1 & 0x200) != 0
-    || HalpArchLbrSupported
-    && (!HalpArchLbrCplFilteringCap && (a1 & 0xFFFFFFFC) != 0
-     || !HalpArchLbrBranchFilteringCap && (a1 & 0xFFFFFE03) != 0
-     || !HalpArchLbrCallstackModeCap && (a1 & 0xFFFFFDFF) != 0) )
-  {
+  if ( (a1 & 0xFFFFFC00) != 0 || (a1 & 3) == 3 || (a1 & 0xFFFFFDFC) != 0 && (a1 & 0x200) != 0 )
     return 3221225485LL;
-  }
   if ( _InterlockedCompareExchange(&HalpLbrIsInUse, 1, 0) )
     return 3221227272LL;
   _interlockedbittestandset(&KiCpuTracingFlags, 1u);

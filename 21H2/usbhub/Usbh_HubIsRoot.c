@@ -1,10 +1,10 @@
 /*
- * XREFs of Usbh_HubIsRoot @ 0x1C004BE10
+ * XREFs of Usbh_HubIsRoot @ 0x1C004D21C
  * Callers:
- *     UsbhBusIfAddDevice @ 0x1C004B330 (UsbhBusIfAddDevice.c)
+ *     UsbhBusIfAddDevice @ 0x1C004C710 (UsbhBusIfAddDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubIsRoot(__int64 a1, _BYTE *a2)

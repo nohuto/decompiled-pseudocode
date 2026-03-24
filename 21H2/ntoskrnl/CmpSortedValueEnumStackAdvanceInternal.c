@@ -1,24 +1,25 @@
 /*
- * XREFs of CmpSortedValueEnumStackAdvanceInternal @ 0x140921ADC
+ * XREFs of CmpSortedValueEnumStackAdvanceInternal @ 0x14087B564
  * Callers:
- *     CmpSortedValueEnumStackAdvance @ 0x140921AA8 (CmpSortedValueEnumStackAdvance.c)
+ *     CmpSortedValueEnumStackAdvance @ 0x14087B530 (CmpSortedValueEnumStackAdvance.c)
  * Callees:
- *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x140921D5C (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140921EA0 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B894 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BA10 (CmpSortedValueEnumStackValueCompareFunction.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackAdvanceInternal(__int16 *a1)
 {
   __int16 i; // di
-  __int64 EntryAtLayerHeight; // rsi
-  unsigned int v5; // eax
-  __int16 v6; // si
-  __int64 v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rbp
-  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 j; // [rsp+58h] [rbp+10h] BYREF
+  __int64 EntryAtLayerHeight; // rax
+  __int64 v5; // rsi
+  __int64 v6; // rbp
+  __int16 v7; // si
+  __int64 v8; // rdi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rbp
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 j; // [rsp+48h] [rbp+10h] BYREF
 
   if ( *((_BYTE *)a1 + 10) )
   {
@@ -27,33 +28,34 @@ __int64 __fastcall CmpSortedValueEnumStackAdvanceInternal(__int16 *a1)
     for ( i = 0; i <= a1[4]; ++i )
     {
       EntryAtLayerHeight = CmpSortedValueEnumStackGetEntryAtLayerHeight(a1, (unsigned __int16)i);
-      v5 = *(_DWORD *)(EntryAtLayerHeight + 28);
-      if ( v5 < *(_DWORD *)(EntryAtLayerHeight + 24) )
+      v5 = EntryAtLayerHeight;
+      v6 = *(unsigned int *)(EntryAtLayerHeight + 28);
+      if ( (unsigned int)v6 < *(_DWORD *)(EntryAtLayerHeight + 24) )
       {
-        v11 = *(_QWORD *)(*(_QWORD *)(EntryAtLayerHeight + 8) + 8LL * v5);
-        if ( v11 == *(_QWORD *)a1 || !CmpSortedValueEnumStackValueCompareFunction(&v11, a1) )
-          ++*(_DWORD *)(EntryAtLayerHeight + 28);
+        v12 = *(_QWORD *)(*(_QWORD *)(EntryAtLayerHeight + 8) + 8 * v6);
+        if ( v12 == *(_QWORD *)a1 || !CmpSortedValueEnumStackValueCompareFunction(&v12, a1) )
+          *(_DWORD *)(v5 + 28) = v6 + 1;
       }
     }
   }
-  v6 = a1[4];
-  v7 = 0LL;
-  for ( j = 0LL; v6 >= 0; --v6 )
+  v7 = a1[4];
+  v8 = 0LL;
+  for ( j = 0LL; v7 >= 0; --v7 )
   {
-    v8 = CmpSortedValueEnumStackGetEntryAtLayerHeight(a1, (unsigned __int16)v6);
-    v9 = *(unsigned int *)(v8 + 28);
-    if ( (unsigned int)v9 < *(_DWORD *)(v8 + 24) )
+    v9 = CmpSortedValueEnumStackGetEntryAtLayerHeight(a1, (unsigned __int16)v7);
+    v10 = *(unsigned int *)(v9 + 28);
+    if ( (unsigned int)v10 < *(_DWORD *)(v9 + 24) )
     {
-      v10 = *(_QWORD *)(*(_QWORD *)(v8 + 8) + 8 * v9);
-      v11 = v10;
-      if ( !v7 || CmpSortedValueEnumStackValueCompareFunction(&j, &v11) > 0 )
+      v11 = *(_QWORD *)(*(_QWORD *)(v9 + 8) + 8 * v10);
+      v12 = v11;
+      if ( !v8 || CmpSortedValueEnumStackValueCompareFunction(&j, &v12) > 0 )
       {
-        v7 = v10;
-        j = v10;
+        v8 = v11;
+        j = v11;
       }
     }
   }
-  *(_QWORD *)a1 = v7;
+  *(_QWORD *)a1 = v8;
   *((_BYTE *)a1 + 10) = 1;
-  return v7 == 0 ? 0x8000001A : 0;
+  return v8 == 0 ? 0x8000001A : 0;
 }

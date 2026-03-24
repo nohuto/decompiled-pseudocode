@@ -1,34 +1,31 @@
 /*
- * XREFs of ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0028B20
+ * XREFs of ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0066FD4
  * Callers:
- *     NtUserDrawIconEx @ 0x1C0028220 (NtUserDrawIconEx.c)
- *     NtUserGetIconSize @ 0x1C0028390 (NtUserGetIconSize.c)
- *     NtUserGetCursorFrameInfo @ 0x1C00A7580 (NtUserGetCursorFrameInfo.c)
+ *     NtUserDrawIconEx @ 0x1C0043DF0 (NtUserDrawIconEx.c)
+ *     NtUserGetIconInfo @ 0x1C0067230 (NtUserGetIconInfo.c)
+ *     NtUserGetIconSize @ 0x1C010F280 (NtUserGetIconSize.c)
+ *     NtUserGetCursorFrameInfo @ 0x1C0161BA0 (NtUserGetCursorFrameInfo.c)
  * Callees:
- *     ?GetSizeForDpi@CCursorSizes@@QEBAII@Z @ 0x1C00273AC (-GetSizeForDpi@CCursorSizes@@QEBAII@Z.c)
- *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0027440 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
- *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C002BFB8 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024CA8 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C0067014 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
+ *     ?GetSizeForDpi@CCursorSizes@@QEBAII@Z @ 0x1C011C0DC (-GetSizeForDpi@CCursorSizes@@QEBAII@Z.c)
  */
 
 struct tagCURSOR *__fastcall GetVirtualizedDpiCursor(struct tagCURSOR *a1)
 {
-  struct tagCURSOR *v1; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v2; // rcx
+  struct tagCURSOR *result; // rax
   unsigned int DpiForSystem; // eax
-  CCursorSizes *v6; // rcx
+  CCursorSizes *v5; // rcx
   int SizeForDpi; // eax
-  struct tagCURSOR *DPICursor; // rax
 
-  v1 = a1;
-  if ( ShouldVirtualizeIconCursorSize(a1) )
-  {
-    DpiForSystem = GetDpiForSystem(v3, v2);
-    SizeForDpi = CCursorSizes::GetSizeForDpi(v6, DpiForSystem);
-    DPICursor = FindDPICursor(v1, SizeForDpi);
-    if ( DPICursor )
-      return DPICursor;
-  }
-  return v1;
+  if ( !ShouldVirtualizeIconCursorSize(a1) )
+    return a1;
+  DpiForSystem = GetDpiForSystem(v2);
+  SizeForDpi = CCursorSizes::GetSizeForDpi(v5, DpiForSystem);
+  result = FindDPICursor(a1, SizeForDpi);
+  if ( !result )
+    return a1;
+  return result;
 }

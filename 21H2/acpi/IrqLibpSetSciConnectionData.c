@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqLibpSetSciConnectionData @ 0x1C00BDF94
+ * XREFs of IrqLibpSetSciConnectionData @ 0x1C00BCBA8
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C009D86C (AcpiIrqLibSetupSciInterrupt.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall IrqLibpSetSciConnectionData(__int128 *a1, struct _DEVICE_OBJECT *a2)

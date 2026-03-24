@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C02C87A0
+ * XREFs of ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0280790
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     LookUpTableFlushComplete @ 0x1C02C87EC (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x1C02C968C (LookUpTableFlushPartial.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     LookUpTableFlushComplete @ 0x1C027FA34 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C0280610 (LookUpTableFlushPartial.c)
  */
 
 void __fastcall TlgAggregateInternalRegisteredProviderEtwCallback(
@@ -29,10 +29,10 @@ void __fastcall TlgAggregateInternalRegisteredProviderEtwCallback(
   }
   if ( v8 == 1 )
   {
-    LookUpTableFlushComplete(a7);
+    LookUpTableFlushComplete((__int64)a7);
   }
   else if ( v8 == 2 )
   {
-    LookUpTableFlushPartial(a7);
+    LookUpTableFlushPartial((__int64)a7);
   }
 }

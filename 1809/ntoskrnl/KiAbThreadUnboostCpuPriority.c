@@ -1,5 +1,5 @@
 /*
- * XREFs of KiAbThreadUnboostCpuPriority @ 0x14011F538
+ * XREFs of KiAbThreadUnboostCpuPriority @ 0x14011F558
  * Callers:
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
@@ -9,14 +9,14 @@
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetVpThreadSpinLockCount @ 0x1400BC7C0 (KiSetVpThreadSpinLockCount.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiClearPriorityFloor @ 0x14011F71C (KiClearPriorityFloor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F50 (KiSwapContext.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1400BC7E0 (KiSetVpThreadSpinLockCount.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiClearPriorityFloor @ 0x14011F73C (KiClearPriorityFloor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
  */
 
 char __fastcall KiAbThreadUnboostCpuPriority(

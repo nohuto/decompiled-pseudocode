@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitWindowBackgroundTreatment@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C001175C
+ * XREFs of ?EmitWindowBackgroundTreatment@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062534
  * Callers:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010FE0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualMarshaler::EmitWindowBackgroundTreatment(
@@ -25,11 +25,11 @@ char __fastcall DirectComposition::CVisualMarshaler::EmitWindowBackgroundTreatme
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v5 + 4) = 0LL;
     *((_DWORD *)v5 + 3) = 0;
-    *((_DWORD *)v5 + 1) = 433;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-    v6 = *((_QWORD *)this + 29);
+    *((_DWORD *)v5 + 1) = 435;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 28);
     if ( v6 )
-      v4 = *(_DWORD *)(v6 + 32);
+      v4 = *(_DWORD *)(v6 + 24);
     *((_DWORD *)v5 + 3) = v4;
     *((_DWORD *)this + 4) &= ~0x4000000u;
     return 1;

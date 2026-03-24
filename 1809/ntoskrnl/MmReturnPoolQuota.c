@@ -1,5 +1,5 @@
 /*
- * XREFs of MmReturnPoolQuota @ 0x1401373D0
+ * XREFs of MmReturnPoolQuota @ 0x1401373F0
  * Callers:
  *     <none>
  * Callees:

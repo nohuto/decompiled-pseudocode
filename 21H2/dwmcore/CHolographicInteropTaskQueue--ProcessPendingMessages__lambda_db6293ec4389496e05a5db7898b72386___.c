@@ -1,14 +1,14 @@
 /*
- * XREFs of CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x180294A0C
+ * XREFs of CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802525CC
  * Callers:
- *     ?PreRender@CHolographicManager@@UEAAXXZ @ 0x1800E4FE0 (-PreRender@CHolographicManager@@UEAAXXZ.c)
+ *     ?PreRender@CHolographicManager@@UEAAXXZ @ 0x1800CC720 (-PreRender@CHolographicManager@@UEAAXXZ.c)
  * Callees:
- *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x18002BBBC (-ResetEvent@details@wil@@YAXPEAX@Z.c)
- *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x180295D68 (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
- *     ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x1802964F4 (-ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ.c)
- *     ?ReleaseInteropTextures@CHolographicManager@@QEAAXXZ @ 0x180296560 (-ReleaseInteropTextures@CHolographicManager@@QEAAXXZ.c)
- *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18029CDF0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
- *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18029D08C (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
+ *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x1801A69D8 (-ResetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x1802538F0 (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
+ *     ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x180254084 (-ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ.c)
+ *     ?ReleaseInteropTextures@CHolographicManager@@QEAAXXZ @ 0x1802540F0 (-ReleaseInteropTextures@CHolographicManager@@QEAAXXZ.c)
+ *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18025A7D0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
+ *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18025AA50 (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
  */
 
 PSLIST_ENTRY __fastcall CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___(

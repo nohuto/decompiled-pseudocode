@@ -1,134 +1,103 @@
 /*
- * XREFs of CmpCmdHiveOpen @ 0x14070AAD0
+ * XREFs of CmpCmdHiveOpen @ 0x140603588
  * Callers:
- *     CmLoadKey @ 0x1406DD184 (CmLoadKey.c)
- *     CmLoadAppKey @ 0x14071A870 (CmLoadAppKey.c)
- *     CmReplaceKey @ 0x1409136B4 (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x140917A40 (CmpFlushBackupHive.c)
+ *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x1406BA714 (CmLoadKey.c)
+ *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140870F40 (CmpFlushBackupHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlImpersonateSelfEx @ 0x1406CB908 (RtlImpersonateSelfEx.c)
- *     CmpInitHiveFromFile @ 0x1407122B0 (CmpInitHiveFromFile.c)
- *     PsReferenceImpersonationTokenEx @ 0x14072A6B0 (PsReferenceImpersonationTokenEx.c)
- *     PsImpersonateClient @ 0x1407AF1B0 (PsImpersonateClient.c)
+ *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
+ *     RtlImpersonateSelfEx @ 0x1406B13C8 (RtlImpersonateSelfEx.c)
  */
 
 __int64 __fastcall CmpCmdHiveOpen(
-        int a1,
+        const UNICODE_STRING *a1,
         char a2,
-        int a3,
+        __int64 a3,
         __int64 a4,
         int a5,
         char a6,
         __int64 a7,
         __int64 a8,
-        void *a9)
+        __int64 a9)
 {
-  int v9; // ebx
-  BOOLEAN v13; // al
-  int v14; // edx
-  int v15; // ecx
-  int v16; // edx
-  int v17; // r15d
   int inited; // eax
-  int v19; // ebx
-  unsigned int v20; // eax
-  int v21; // ecx
-  void *v23; // rdi
-  int v24; // eax
+  int v12; // ebx
+  unsigned int v13; // eax
+  int v14; // ecx
+  struct _DMA_ADAPTER *v15; // rdi
+  int v16; // eax
   struct _KTHREAD *CurrentThread; // rcx
-  int v26; // [rsp+30h] [rbp-79h]
-  int v27; // [rsp+30h] [rbp-79h]
-  int v28; // [rsp+38h] [rbp-71h]
-  int v29; // [rsp+38h] [rbp-71h]
-  BOOLEAN v30; // [rsp+50h] [rbp-59h] BYREF
-  BOOLEAN v31; // [rsp+51h] [rbp-58h] BYREF
-  BOOLEAN EnableHardErrors; // [rsp+52h] [rbp-57h]
-  __int64 ImpersonationLevel; // [rsp+58h] [rbp-51h] BYREF
-  int v34[2]; // [rsp+60h] [rbp-49h] BYREF
-  void *v35; // [rsp+68h] [rbp-41h]
-  __int64 v36; // [rsp+70h] [rbp-39h]
-  struct _EVENT_DATA_DESCRIPTOR v37; // [rsp+78h] [rbp-31h] BYREF
-  int *v38; // [rsp+98h] [rbp-11h]
-  __int64 v39; // [rsp+A0h] [rbp-9h]
+  BOOLEAN v19; // [rsp+50h] [rbp-69h] BYREF
+  BOOLEAN v20; // [rsp+51h] [rbp-68h] BYREF
+  BOOLEAN EnableHardErrors; // [rsp+52h] [rbp-67h]
+  _QWORD ImpersonationLevel[4]; // [rsp+58h] [rbp-61h] BYREF
+  __int64 v23; // [rsp+78h] [rbp-41h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v24; // [rsp+80h] [rbp-39h] BYREF
+  __int64 *v25; // [rsp+A0h] [rbp-19h]
+  __int64 v26; // [rsp+A8h] [rbp-11h]
 
-  v9 = a4;
-  ImpersonationLevel = a7;
-  v36 = a8;
-  v35 = a9;
-  *(_QWORD *)v34 = a4;
-  v13 = IoSetThreadHardErrorMode(0);
-  v14 = 0;
-  EnableHardErrors = v13;
-  if ( (a6 & 1) != 0 )
+  ImpersonationLevel[0] = a7;
+  ImpersonationLevel[2] = a8;
+  ImpersonationLevel[1] = a9;
+  ImpersonationLevel[3] = a4;
+  EnableHardErrors = IoSetThreadHardErrorMode(0);
+  inited = CmpInitHiveFromFile(a1, a5, a7);
+  v12 = inited;
+  if ( !a7 && a2 && (a6 & 0x20) == 0 )
   {
-    v14 = 0x8000;
-    if ( (a6 & 2) == 0 )
-      v14 = 294912;
-  }
-  v15 = v14 | 0x80000;
-  if ( (a6 & 4) == 0 )
-    v15 = v14;
-  v16 = v15 | 0x108000;
-  if ( (a6 & 8) == 0 )
-    v16 = v15;
-  v17 = v16 | 2;
-  if ( (a5 & 0x20000000) == 0 )
-    v17 = v16;
-  inited = CmpInitHiveFromFile(a1, v17, v9, a3, a5, ImpersonationLevel, v26, v28, v36, v35);
-  v19 = inited;
-  if ( !ImpersonationLevel && a2 && (a6 & 0x20) == 0 )
-  {
-    if ( (v20 = inited + 1073741724, v20 <= 0xE) && (v21 = 17473, _bittest(&v21, v20))
-      || v19 == -1073741790
-      || v19 == -1073741421 )
+    if ( inited == -1073741790
+      || (v13 = inited + 1073741724, v13 <= 0xE) && (v14 = 17473, _bittest(&v14, v13))
+      || v12 == -1073741421 )
     {
-      v31 = 0;
-      v30 = 0;
-      LODWORD(ImpersonationLevel) = 0;
-      v23 = (void *)PsReferenceImpersonationTokenEx(
-                      KeGetCurrentThread(),
-                      1LL,
-                      1953261124LL,
-                      &v31,
-                      &v30,
-                      &ImpersonationLevel,
-                      0LL);
-      v19 = RtlImpersonateSelfEx(2, 0, 0LL);
-      if ( v19 >= 0 )
+      v20 = 0;
+      v19 = 0;
+      LODWORD(ImpersonationLevel[0]) = 0;
+      v15 = (struct _DMA_ADAPTER *)PsReferenceImpersonationTokenEx(
+                                     (unsigned int)KeGetCurrentThread(),
+                                     1,
+                                     (unsigned int)&v20,
+                                     (unsigned int)&v19,
+                                     (__int64)ImpersonationLevel,
+                                     0LL);
+      v12 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+      if ( v12 >= 0 )
       {
-        v24 = CmpInitHiveFromFile(a1, v17, v34[0], a3, a5, 0LL, v27, v29, v36, v35);
+        v16 = CmpInitHiveFromFile(a1, a5, 0LL);
         CurrentThread = KeGetCurrentThread();
-        v19 = v24;
-        if ( v23 )
-          PsImpersonateClient(CurrentThread, v23, v31, v30, (SECURITY_IMPERSONATION_LEVEL)ImpersonationLevel);
+        v12 = v16;
+        if ( v15 )
+          PsImpersonateClient(CurrentThread, v15, v20, v19, ImpersonationLevel[0]);
         else
           PsImpersonateClient(CurrentThread, 0LL, 0, 0, SecurityImpersonation);
-        if ( v19 >= 0
+        if ( v12 >= 0
           && (a5 & 0x2000000) != 0
-          && (unsigned int)dword_140C03868 > 5
-          && tlgKeywordOn((__int64)&dword_140C03868, 0x400000000008LL) )
+          && (unsigned int)dword_140C02130 > 5
+          && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000008LL) )
         {
-          *(_QWORD *)v34 = 0x1000000LL;
-          v38 = v34;
-          v39 = 8LL;
+          v23 = 0x1000000LL;
+          v25 = &v23;
+          v26 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C03868,
-            (unsigned __int8 *)byte_14002A129,
+            (__int64)&dword_140C02130,
+            (unsigned __int8 *)&unk_140023BA0,
             0LL,
             0LL,
             3u,
-            &v37);
+            &v24);
         }
       }
-      if ( v23 )
-        ObfDereferenceObjectWithTag(v23, 0x746C6644u);
+      if ( v15 )
+        HalPutDmaAdapter(v15);
     }
   }
   IoSetThreadHardErrorMode(EnableHardErrors);
-  return (unsigned int)v19;
+  return (unsigned int)v12;
 }

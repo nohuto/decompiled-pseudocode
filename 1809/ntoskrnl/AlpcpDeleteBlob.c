@@ -9,12 +9,12 @@
  *     NtAlpcCreatePortSection @ 0x14061B620 (NtAlpcCreatePortSection.c)
  *     NtAlpcDeletePortSection @ 0x14061C3E0 (NtAlpcDeletePortSection.c)
  *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
- *     NtAlpcDeleteResourceReserve @ 0x14084B0B0 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcDeleteResourceReserve @ 0x14084B090 (NtAlpcDeleteResourceReserve.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall AlpcpDeleteBlob(__int64 a1)

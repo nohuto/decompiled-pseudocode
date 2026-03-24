@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGlobalInitialize @ 0x1C00BC3C4
+ * XREFs of ACPIGlobalInitialize @ 0x1C00BC294
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIGetUsedDebuggingDevices @ 0x1C00900C4 (ACPIGetUsedDebuggingDevices.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIGetUsedDebuggingDevices @ 0x1C0090E84 (ACPIGetUsedDebuggingDevices.c)
  */
 
 void *ACPIGlobalInitialize()
@@ -14,11 +14,11 @@ void *ACPIGlobalInitialize()
   __int64 v0; // rbx
 
   AcpiHalDispatchTable = 1094930505;
-  qword_1C0081CF0 = (__int64)ACPIGpeHalEnableDisableEvents;
-  dword_1C0081CEC = 2;
-  qword_1C0081CF8 = (__int64)ACPIEnableInitializeACPI;
-  qword_1C0081D00 = (__int64)ACPIWakeEnableWakeEvents;
-  qword_1C0081D08 = (__int64)ACPIWakeMarkHiberPhase;
+  qword_1C0082AC0 = (__int64)ACPIGpeHalEnableDisableEvents;
+  dword_1C0082ABC = 2;
+  qword_1C0082AC8 = (__int64)ACPIEnableInitializeACPI;
+  qword_1C0082AD0 = (__int64)ACPIWakeEnableWakeEvents;
+  qword_1C0082AD8 = (__int64)ACPIWakeMarkHiberPhase;
   ((void (__fastcall *)(int *, __int64 *))HalDispatchTable->HalInitPowerManagement)(
     &AcpiHalDispatchTable,
     &PmHalDispatchTable);
@@ -34,7 +34,7 @@ void *ACPIGlobalInitialize()
           2u,
           6u,
           0xAu,
-          (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+          (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
       KeBugCheckEx(0xA5u, 0x11uLL, 1uLL, 0LL, 0LL);
     }
   }
@@ -44,7 +44,7 @@ void *ACPIGlobalInitialize()
       4u,
       6u,
       0x1Eu,
-      (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+      (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
       v0);
   *((_BYTE *)AcpiInformation + 84) = 1;
   *(_QWORD *)AcpiInformation = v0;

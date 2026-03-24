@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x18023B9FC
+ * XREFs of ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x1801E8B14
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x180199DFC (-RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ *     ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x180168B5C (-RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
  */
 
 CSceneMesh *__fastcall CSceneMesh::CSceneMesh(CSceneMesh *this, struct CComposition *a2)
@@ -13,14 +13,14 @@ CSceneMesh *__fastcall CSceneMesh::CSceneMesh(CSceneMesh *this, struct CComposit
 
   *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 2) = a2;
-  v3 = (CSceneMesh *)((char *)this + 152);
+  v3 = (CSceneMesh *)((char *)this + 144);
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
-  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 19) = 0LL;
   v4 = *((_QWORD *)this + 2);
   *(_QWORD *)this = &CSceneMesh::`vftable'{for `CSceneMeshGeneratedT<CSceneMesh,CSceneObject>'};
-  *((_QWORD *)this + 19) = &CSceneMesh::`vftable'{for `ISceneNotificationListener'};
-  CSceneResourceManager::RegisterSceneListener(*(CSceneResourceManager **)(v4 + 288), v3);
+  *((_QWORD *)this + 18) = &CSceneMesh::`vftable'{for `ISceneNotificationListener'};
+  CSceneResourceManager::RegisterSceneListener(*(CSceneResourceManager **)(v4 + 152), v3);
   return this;
 }

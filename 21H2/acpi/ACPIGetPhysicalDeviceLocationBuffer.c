@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetPhysicalDeviceLocationBuffer @ 0x1C00A0474
+ * XREFs of ACPIGetPhysicalDeviceLocationBuffer @ 0x1C0091750
  * Callers:
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
- *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00A035C (ACPIProcessPhysicalDeviceLocationPackage.c)
+ *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C0091638 (ACPIProcessPhysicalDeviceLocationPackage.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIGetPhysicalDeviceLocationBuffer(__int64 a1, _DWORD *a2)

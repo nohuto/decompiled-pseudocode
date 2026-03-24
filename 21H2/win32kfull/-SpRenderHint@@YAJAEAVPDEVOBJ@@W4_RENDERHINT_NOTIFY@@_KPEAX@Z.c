@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0080944
+ * XREFs of ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0015DF8
  * Callers:
- *     ?SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z @ 0x1C0083F48 (-SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z.c)
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
- *     GreDesktopSwitch @ 0x1C0118A54 (GreDesktopSwitch.c)
- *     GreDwmShutdown @ 0x1C011FFD8 (GreDwmShutdown.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
+ *     ?SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z @ 0x1C0016300 (-SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z.c)
+ *     GreDesktopSwitch @ 0x1C002AA68 (GreDesktopSwitch.c)
+ *     GreDwmShutdown @ 0x1C0134404 (GreDwmShutdown.c)
  * Callees:
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C00843F8 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C0016760 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SpRenderHint(struct PDEVOBJ *a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -39,7 +39,7 @@ __int64 __fastcall SpRenderHint(struct PDEVOBJ *a1, unsigned int a2, __int64 a3,
       EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v11, 11LL);
       v10 = *(_QWORD *)a1;
     }
-    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int64))(v10 + 3408))(*(_QWORD *)(v10 + 1768), a2, a3, a4);
+    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int64))(v10 + 3432))(*(_QWORD *)(v10 + 1800), a2, a3, a4);
     DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)&v11);
   }
   return v8;

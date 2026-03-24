@@ -1,405 +1,408 @@
 /*
- * XREFs of ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C00A2E40
+ * XREFs of ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C0077CD8
  * Callers:
- *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C00A2CB0 (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
+ *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C0077B3C (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
  * Callees:
- *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A3C (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GVIDMM_MDL_RANGE@@QEAAPEAXI@Z @ 0x1C0017E50 (--_GVIDMM_MDL_RANGE@@QEAAPEAXI@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C0085D90 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C009E474 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
- *     ?GetNextRange@VIDMM_MDL_RANGE@@QEAAPEAV1@XZ @ 0x1C00A15D0 (-GetNextRange@VIDMM_MDL_RANGE@@QEAAPEAV1@XZ.c)
- *     ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A1F20 (-Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@.c)
- *     ?LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z @ 0x1C00B2568 (-LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z.c)
- *     ?InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z @ 0x1C00B3E5C (-InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00158AC (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0062738 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z @ 0x1C0075C14 (-InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z.c)
+ *     ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0075C58 (-Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@.c)
+ *     ?Unlock@VIDMM_MDL_RANGE@@QEAAXXZ @ 0x1C0078108 (-Unlock@VIDMM_MDL_RANGE@@QEAAXXZ.c)
+ *     ?GetNextRange@VIDMM_MDL_RANGE@@QEAAPEAV1@XZ @ 0x1C0079360 (-GetNextRange@VIDMM_MDL_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z @ 0x1C008804C (-LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z.c)
+ *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C00C1304 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::UnlockRange(
-        VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW **this,
+        VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *this,
         unsigned __int64 a2,
         unsigned __int64 a3)
 {
-  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v3; // rax
-  struct _EPROCESS *CurrentProcess; // r13
-  struct VIDMM_MDL_RANGE *v6; // rdi
-  int v7; // r9d
-  unsigned int v8; // r10d
-  bool v9; // zf
-  char *v10; // rbp
-  unsigned __int64 *NextRange; // rsi
-  unsigned __int64 v12; // r14
-  char v13; // bl
-  struct VIDMM_MDL_RANGE *v14; // r8
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  _QWORD *v17; // rdx
-  unsigned int v18; // ebx
-  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v20; // rdx
-  unsigned __int64 v21; // r12
-  int v22; // ecx
-  char *v23; // r15
-  int v24; // eax
-  __int64 v25; // r9
-  unsigned int v26; // r8d
-  VIDMM_RECYCLE_HEAP_MGR *v27; // rcx
+  void *v3; // r11
+  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v5; // rdx
+  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v7; // r8
+  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v8; // r9
+  void *v9; // rdi
+  int v10; // eax
+  unsigned __int64 *v11; // rbx
+  bool v12; // zf
+  unsigned __int64 *NextRange; // r13
+  struct VIDMM_MDL_RANGE *i; // rsi
+  struct VIDMM_MDL_RANGE *v15; // rcx
+  char v16; // si
+  unsigned __int64 *v17; // r8
+  _QWORD *v18; // rax
+  unsigned __int64 v19; // rcx
+  unsigned __int64 *v20; // rdx
+  __int64 v22; // r8
+  int *v23; // rax
+  int v24; // edx
+  int v25; // eax
+  __int64 v26; // rcx
+  unsigned int *v27; // rcx
   __int64 v28; // rdx
-  VIDMM_MDL_RANGE *v29; // rax
-  VIDMM_MDL_RANGE *v30; // r14
-  VIDMM_MDL_RANGE *v31; // rax
-  enum _LOCK_OPERATION v32; // r8d
-  VIDMM_MDL_RANGE *v33; // rbx
-  enum _LOCK_OPERATION v34; // r8d
-  __int64 v35; // rcx
-  struct VIDMM_MDL_RANGE *v36; // rbp
-  struct VIDMM_MDL_RANGE *v37; // r13
-  char v38; // r15
-  struct VIDMM_MDL_RANGE *v39; // r9
-  __int64 v40; // rcx
-  _QWORD *v41; // rax
-  _QWORD *v42; // r8
-  VIDMM_MDL_RANGE *v43; // r8
-  __int64 v44; // rcx
-  _QWORD *v45; // rax
-  __int64 v46; // rcx
-  _QWORD *v47; // rdx
-  char v48; // bp
-  struct VIDMM_MDL_RANGE *v49; // rbx
-  struct VIDMM_MDL_RANGE *v50; // r8
-  __int64 v51; // rcx
+  int v29; // eax
+  _QWORD *v30; // r8
+  __int64 v31; // rcx
+  _QWORD *v32; // rax
+  __int64 v33; // rcx
+  _QWORD *v34; // rdx
+  VIDMM_MDL_RANGE *v35; // rax
+  VIDMM_MDL_RANGE *v36; // rsi
+  VIDMM_MDL_RANGE *v37; // rax
+  enum _LOCK_OPERATION v38; // r8d
+  VIDMM_MDL_RANGE *v39; // r14
+  enum _LOCK_OPERATION v40; // r8d
+  __int64 v41; // rcx
+  unsigned __int64 v42; // rcx
+  struct VIDMM_MDL_RANGE *v43; // r12
+  char v44; // r8
+  unsigned __int64 *v45; // r10
+  _QWORD *v46; // rax
+  unsigned __int64 v47; // r9
+  unsigned __int64 *v48; // r8
+  char v49; // si
+  VIDMM_MDL_RANGE *v50; // rbx
+  VIDMM_MDL_RANGE *v51; // r8
   _QWORD *v52; // rax
-  _QWORD *v53; // rdx
-  int v54; // eax
-  unsigned int v55; // r15d
+  __int64 v53; // rcx
+  _QWORD *v54; // rdx
+  int v55; // eax
   __int64 v56; // rcx
-  __int64 v57; // rcx
-  __int64 v58; // rcx
-  __int64 v59; // rcx
-  __int64 v60; // rcx
-  __int64 v61; // rcx
-  __int64 v62; // r8
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v64; // [rsp+50h] [rbp-58h]
-  PVOID MappedBase; // [rsp+58h] [rbp-50h] BYREF
-  void *v66; // [rsp+60h] [rbp-48h] BYREF
-  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v67; // [rsp+B0h] [rbp+8h]
-  unsigned __int64 v68; // [rsp+C0h] [rbp+18h]
-  unsigned __int8 v69; // [rsp+C8h] [rbp+20h] BYREF
+  _QWORD *v57; // rax
+  __int64 v58; // rax
+  __int64 v59; // rax
+  __int64 v60; // rax
+  VIDMM_MDL_RANGE *v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // rax
+  VIDMM_RECYCLE_HEAP_MGR *CurrentProcess; // rcx
+  unsigned __int64 SmallAllocationSize; // rax
+  void *v66; // rcx
+  __int64 v67; // r8
+  __int64 v68; // rax
+  unsigned __int8 v69[8]; // [rsp+40h] [rbp-20h] BYREF
+  PVOID MappedBase; // [rsp+48h] [rbp-18h] BYREF
+  unsigned __int64 v71; // [rsp+50h] [rbp-10h]
+  struct VIDMM_MDL_RANGE *v72; // [rsp+58h] [rbp-8h]
+  void *v74; // [rsp+A8h] [rbp+48h] BYREF
 
-  v68 = a3;
-  v67 = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)this;
-  v3 = this[1];
-  CurrentProcess = 0LL;
-  v6 = 0LL;
-  v7 = -1;
-  v8 = 1;
-  if ( v3 != (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)(this + 1) )
+  v3 = 0LL;
+  v5 = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)((char *)this + 8);
+  v7 = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)*((_QWORD *)this + 1);
+  v8 = this;
+  LODWORD(v9) = 0;
+  v10 = -1;
+  v11 = 0LL;
+  if ( v7 != (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)((char *)this + 8) )
   {
     while ( 1 )
     {
-      v9 = v7 == 0;
-      if ( v7 >= 0 )
+      v12 = v10 == 0;
+      if ( v10 >= 0 )
         break;
-      v6 = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)((char *)v3 - 24);
-      if ( *((_QWORD *)v3 - 1) > a2 )
-        v7 = *((_QWORD *)v6 + 1) >= a3;
+      v11 = (unsigned __int64 *)((char *)v7 - 24);
+      if ( *((_QWORD *)v7 - 1) > a2 )
+        v10 = *((_QWORD *)v7 - 2) >= a3;
       else
-        v7 = -1;
-      v3 = *(VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW **)v3;
-      if ( v3 == (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)(this + 1) )
+        v10 = -1;
+      v7 = *(VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW **)v7;
+      if ( v7 == v5 )
       {
-        v9 = v7 == 0;
+        v12 = v10 == 0;
         break;
       }
     }
-    if ( v9 )
+    if ( v12 )
     {
-      v10 = (char *)*((_QWORD *)v6 + 1);
-      NextRange = (unsigned __int64 *)v6;
-      if ( *((_QWORD *)v6 + 2) < a3 )
+      NextRange = v11;
+      for ( i = (struct VIDMM_MDL_RANGE *)v11[1];
+            NextRange[2] < a3;
+            NextRange = (unsigned __int64 *)VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)NextRange) )
       {
-        do
-          NextRange = (unsigned __int64 *)VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)NextRange);
-        while ( NextRange[2] < a3 );
-        this = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW **)v67;
+        ;
       }
-      v12 = NextRange[2];
-      if ( (unsigned __int64)v10 >= a2 && v12 <= a3 )
+      v15 = (struct VIDMM_MDL_RANGE *)NextRange[2];
+      v72 = v15;
+      if ( (unsigned __int64)i >= a2 && (unsigned __int64)v15 <= a3 )
       {
-        v13 = 0;
-        do
+        v16 = (char)v3;
+        while ( 1 )
         {
-          MmUnlockPages(*(PMDL *)v6);
-          IoFreeMdl(*(PMDL *)v6);
-          *(_QWORD *)v6 = 0LL;
-          v14 = v6;
-          if ( v6 == (struct VIDMM_MDL_RANGE *)NextRange )
-            v13 = 1;
+          VIDMM_MDL_RANGE::Unlock((VIDMM_MDL_RANGE *)v11);
+          v17 = v11;
+          if ( v11 == NextRange )
+            v16 = 1;
           else
-            v6 = VIDMM_MDL_RANGE::GetNextRange(v6);
-          v15 = *((_QWORD *)v14 + 3);
-          v16 = (_QWORD *)((char *)v14 + 24);
-          if ( *(struct VIDMM_MDL_RANGE **)(v15 + 8) != (struct VIDMM_MDL_RANGE *)((char *)v14 + 24) )
-            goto LABEL_62;
-          v17 = (_QWORD *)*((_QWORD *)v14 + 4);
-          if ( (_QWORD *)*v17 != v16 )
-            goto LABEL_62;
-          *v17 = v15;
-          *(_QWORD *)(v15 + 8) = v17;
-          *v16 = 0LL;
-          *((_QWORD *)v14 + 4) = 0LL;
-          operator delete(v14);
+            v11 = (unsigned __int64 *)VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)v11);
+          v18 = v17 + 3;
+          v19 = v17[3];
+          if ( *(unsigned __int64 **)(v19 + 8) != v17 + 3 )
+            break;
+          v20 = (unsigned __int64 *)v17[4];
+          if ( (_QWORD *)*v20 != v18 )
+            break;
+          *v20 = v19;
+          *(_QWORD *)(v19 + 8) = v20;
+          *v18 = 0LL;
+          v17[4] = 0LL;
+          operator delete(v17);
+          if ( v16 )
+            return (unsigned int)v9;
         }
-        while ( !v13 );
-        return 0;
+        goto LABEL_62;
       }
-      v20 = *this;
-      v21 = v12 - (_QWORD)v10;
-      v66 = 0LL;
-      MappedBase = 0LL;
-      v69 = 0;
-      v22 = **((_DWORD **)v20 + 4);
-      if ( (unsigned int)(v22 - 3) > 3 || v22 - 5 <= v8 )
+      v22 = *(_QWORD *)v8;
+      v74 = v3;
+      MappedBase = v3;
+      v69[0] = (unsigned __int8)v3;
+      v23 = *(int **)(v22 + 32);
+      v71 = v15 - i;
+      v24 = *v23;
+      if ( (unsigned int)(*v23 - 3) > 3 || (unsigned int)(v24 - 5) <= 1 )
       {
-        v23 = v10;
-        v66 = v10;
+        v9 = i;
+        v74 = i;
       }
       else
       {
-        v54 = VidMmRecycleHeapMapSection(
-                *((PVOID *)v20 + 7),
-                (__int64)v10,
-                v12 - (_QWORD)v10,
-                v22 == 4,
-                &v66,
+        v55 = VidMmRecycleHeapMapSection(
+                *(PVOID *)(v22 + 56),
+                (unsigned __int64)i,
+                v15 - i,
+                v24 == 4,
+                &v74,
                 &MappedBase,
-                0,
-                &v69);
-        v55 = v54;
-        if ( v54 < 0 )
+                (unsigned __int8)v3,
+                v69);
+        v9 = (void *)v55;
+        if ( v55 < 0 )
         {
-          _InterlockedIncrement(&dword_1C0076884);
-          WdLogSingleEntry4(6LL, v12 - (_QWORD)v10, *((_QWORD *)v6 + 1), *(_QWORD *)v67, v54);
-          DxgkLogInternalTriageEvent(v56, 262145LL);
-          return v55;
+          _InterlockedIncrement(&dword_1C0050774);
+          v57 = (_QWORD *)WdLogNewEntry5_WdLowResource(v56);
+          v57[3] = v71;
+          v57[4] = v11[1];
+          v57[5] = *(_QWORD *)this;
+          v57[6] = v9;
+          WdLogEvent5_WdLowResource(v57);
+          return (unsigned int)v9;
         }
-        v23 = (char *)v66;
-        a3 = v68;
+        v9 = v74;
+        v15 = v72;
       }
-      if ( (unsigned __int64)v10 >= a2 )
+      if ( (unsigned __int64)i >= a2 )
       {
-        if ( v12 > a3 )
+        if ( (unsigned __int64)v15 > a3 )
         {
-          v24 = VIDMM_MDL_RANGE::LockUnlock(
-                  (VIDMM_MDL_RANGE *)NextRange,
-                  &v23[a3 - *((_QWORD *)v6 + 1)],
-                  a3,
-                  NextRange[2]);
-          v26 = v24;
-          v64 = v24;
-          if ( v24 >= 0 )
+          v29 = VIDMM_MDL_RANGE::LockUnlock((VIDMM_MDL_RANGE *)NextRange, (char *)v9 + a3 - v11[1], a3, NextRange[2]);
+          v9 = (void *)v29;
+          if ( v29 >= 0 )
           {
-            if ( v6 == (struct VIDMM_MDL_RANGE *)NextRange )
-              goto LABEL_27;
+            while ( v11 != NextRange )
+            {
+              VIDMM_MDL_RANGE::Unlock((VIDMM_MDL_RANGE *)v11);
+              v11 = (unsigned __int64 *)VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)v11);
+              v32 = (_QWORD *)(v31 + 24);
+              v33 = *(_QWORD *)(v31 + 24);
+              if ( *(_QWORD **)(v33 + 8) != v32 )
+                goto LABEL_62;
+              v34 = (_QWORD *)v32[1];
+              if ( (_QWORD *)*v34 != v32 )
+                goto LABEL_62;
+              *v34 = v33;
+              *(_QWORD *)(v33 + 8) = v34;
+              *v32 = 0LL;
+              v30[4] = 0LL;
+              operator delete(v30);
+            }
+            goto LABEL_26;
+          }
+          goto LABEL_67;
+        }
+      }
+      else if ( (unsigned __int64)v15 <= a3 )
+      {
+        v25 = VIDMM_MDL_RANGE::LockUnlock((VIDMM_MDL_RANGE *)v11, v9, v11[1], a2);
+        v9 = (void *)v25;
+        if ( v25 >= 0 )
+        {
+          if ( v11 != NextRange )
+          {
+            v49 = 0;
+            v50 = VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)v11);
             while ( 1 )
             {
-              MmUnlockPages(*(PMDL *)v6);
-              IoFreeMdl(*(PMDL *)v6);
-              *(_QWORD *)v6 = 0LL;
-              v6 = VIDMM_MDL_RANGE::GetNextRange(v6);
-              v45 = (_QWORD *)(v44 + 24);
-              v46 = *(_QWORD *)(v44 + 24);
-              if ( *(_QWORD **)(v46 + 8) != v45 )
-                goto LABEL_62;
-              v47 = (_QWORD *)v45[1];
-              if ( (_QWORD *)*v47 != v45 )
-                goto LABEL_62;
-              *v47 = v46;
-              *(_QWORD *)(v46 + 8) = v47;
-              *v45 = 0LL;
-              *((_QWORD *)v43 + 4) = 0LL;
-              VIDMM_MDL_RANGE::`scalar deleting destructor'(v43);
-              if ( v6 == (struct VIDMM_MDL_RANGE *)NextRange )
-                goto LABEL_45;
-            }
-          }
-LABEL_67:
-          _InterlockedIncrement(&dword_1C0076854);
-          v18 = v24;
-          WdLogSingleEntry1(6LL, v24);
-          DxgkLogInternalTriageEvent(v57, 262145LL);
-          goto LABEL_28;
-        }
-      }
-      else if ( v12 <= a3 )
-      {
-        v24 = VIDMM_MDL_RANGE::LockUnlock(v6, v23, *((_QWORD *)v6 + 1), a2);
-        v26 = v24;
-        v64 = v24;
-        if ( v24 >= 0 )
-        {
-          if ( v6 == (struct VIDMM_MDL_RANGE *)NextRange )
-          {
-LABEL_27:
-            v18 = v26;
-            goto LABEL_28;
-          }
-          v48 = 0;
-          v49 = VIDMM_MDL_RANGE::GetNextRange(v6);
-          while ( 1 )
-          {
-            MmUnlockPages(*(PMDL *)v49);
-            IoFreeMdl(*(PMDL *)v49);
-            *(_QWORD *)v49 = 0LL;
-            v50 = v49;
-            if ( v49 == (struct VIDMM_MDL_RANGE *)NextRange )
-              v48 = 1;
-            else
-              v49 = VIDMM_MDL_RANGE::GetNextRange(v49);
-            v51 = *((_QWORD *)v50 + 3);
-            v52 = (_QWORD *)((char *)v50 + 24);
-            if ( *(struct VIDMM_MDL_RANGE **)(v51 + 8) != (struct VIDMM_MDL_RANGE *)((char *)v50 + 24) )
-              break;
-            v53 = (_QWORD *)*((_QWORD *)v50 + 4);
-            if ( (_QWORD *)*v53 != v52 )
-              break;
-            *v53 = v51;
-            *(_QWORD *)(v51 + 8) = v53;
-            *v52 = 0LL;
-            *((_QWORD *)v50 + 4) = 0LL;
-            VIDMM_MDL_RANGE::`scalar deleting destructor'(v50);
-            if ( v48 )
-              goto LABEL_45;
-          }
-LABEL_62:
-          __fastfail(3u);
-        }
-        goto LABEL_67;
-      }
-      v29 = (VIDMM_MDL_RANGE *)operator new(48LL, 0x32316956u, 258LL);
-      v30 = v29;
-      if ( v29 )
-      {
-        *((_QWORD *)v29 + 1) = *((_QWORD *)v6 + 1);
-        *(_QWORD *)v29 = 0LL;
-        *((_QWORD *)v29 + 2) = a2;
-        *((_QWORD *)v29 + 5) = v67;
-        *((_QWORD *)v29 + 3) = 0LL;
-        *((_QWORD *)v29 + 4) = 0LL;
-        v31 = (VIDMM_MDL_RANGE *)operator new(48LL, 0x32316956u, 258LL);
-        v33 = v31;
-        if ( !v31 )
-        {
-          _InterlockedIncrement(&dword_1C0076854);
-          WdLogSingleEntry1(6LL, 6502LL);
-          DxgkLogInternalTriageEvent(v61, 262145LL);
-          VIDMM_MDL_RANGE::`scalar deleting destructor'(v30);
-          v18 = -1073741801;
-          goto LABEL_28;
-        }
-        *((_QWORD *)v31 + 2) = NextRange[2];
-        *((_QWORD *)v31 + 1) = v68;
-        *(_QWORD *)v31 = 0LL;
-        *((_QWORD *)v31 + 5) = v67;
-        *((_QWORD *)v31 + 3) = 0LL;
-        *((_QWORD *)v31 + 4) = 0LL;
-        if ( (int)VIDMM_MDL_RANGE::Lock(v30, v23, v32, 0LL, 0LL) < 0 )
-        {
-          _InterlockedIncrement(&dword_1C0076854);
-          WdLogSingleEntry1(6LL, 6520LL);
-          DxgkLogInternalTriageEvent(v58, 262145LL);
-        }
-        else
-        {
-          v64 = VIDMM_MDL_RANGE::Lock(v33, &v23[v68 - *((_QWORD *)v6 + 1)], v34, 0LL, 0LL);
-          if ( v64 >= 0 )
-          {
-            v35 = *((_QWORD *)v6 + 4);
-            v36 = (struct VIDMM_MDL_RANGE *)(v35 - 24);
-            if ( v35 == *((_QWORD *)v6 + 5) + 8LL )
-              v36 = 0LL;
-            v37 = VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)NextRange);
-            v38 = 0;
-            do
-            {
-              MmUnlockPages(*(PMDL *)v6);
-              IoFreeMdl(*(PMDL *)v6);
-              v39 = v6;
-              *(_QWORD *)v6 = 0LL;
-              if ( v6 == (struct VIDMM_MDL_RANGE *)NextRange )
-                v38 = 1;
+              VIDMM_MDL_RANGE::Unlock(v50);
+              v51 = v50;
+              if ( v50 == (VIDMM_MDL_RANGE *)NextRange )
+                v49 = 1;
               else
-                v6 = VIDMM_MDL_RANGE::GetNextRange(v6);
-              v40 = *((_QWORD *)v39 + 3);
-              v41 = (_QWORD *)((char *)v39 + 24);
-              if ( *(struct VIDMM_MDL_RANGE **)(v40 + 8) != (struct VIDMM_MDL_RANGE *)((char *)v39 + 24) )
-                goto LABEL_62;
-              v42 = (_QWORD *)*((_QWORD *)v39 + 4);
-              if ( (_QWORD *)*v42 != v41 )
-                goto LABEL_62;
-              *v42 = v40;
-              *(_QWORD *)(v40 + 8) = v42;
-              *v41 = 0LL;
-              *((_QWORD *)v39 + 4) = 0LL;
-              VIDMM_MDL_RANGE::`scalar deleting destructor'(v39);
+                v50 = VIDMM_MDL_RANGE::GetNextRange(v50);
+              v52 = (_QWORD *)((char *)v51 + 24);
+              v53 = *((_QWORD *)v51 + 3);
+              if ( *(VIDMM_MDL_RANGE **)(v53 + 8) != (VIDMM_MDL_RANGE *)((char *)v51 + 24) )
+                break;
+              v54 = (_QWORD *)*((_QWORD *)v51 + 4);
+              if ( (_QWORD *)*v54 != v52 )
+                break;
+              *v54 = v53;
+              *(_QWORD *)(v53 + 8) = v54;
+              *v52 = 0LL;
+              *((_QWORD *)v51 + 4) = 0LL;
+              operator delete(v51);
+              if ( v49 )
+                goto LABEL_26;
             }
-            while ( !v38 );
-            VIDMM_MDL_RANGE::InsertBetween(v30, v36, v33);
-            VIDMM_MDL_RANGE::InsertBetween(v33, v30, v37);
-            CurrentProcess = 0LL;
-LABEL_45:
-            v18 = v64;
-            goto LABEL_28;
+LABEL_62:
+            __fastfail(3u);
           }
-          _InterlockedIncrement(&dword_1C0076854);
-          WdLogSingleEntry1(6LL, 6540LL);
-          DxgkLogInternalTriageEvent(v59, 262145LL);
-          MmUnlockPages(*(PMDL *)v30);
-          IoFreeMdl(*(PMDL *)v30);
-          *(_QWORD *)v30 = 0LL;
+          goto LABEL_26;
         }
-        VIDMM_MDL_RANGE::`scalar deleting destructor'(v30);
-        VIDMM_MDL_RANGE::`scalar deleting destructor'(v33);
+LABEL_67:
+        _InterlockedIncrement(&dword_1C0050744);
+        v58 = WdLogNewEntry5_WdLowResource(v26);
+        *(_QWORD *)(v58 + 24) = v9;
+        WdLogEvent5_WdLowResource(v58);
+        goto LABEL_26;
+      }
+      v35 = (VIDMM_MDL_RANGE *)operator new[](0x30uLL, 0x32316956u, PagedPool);
+      v36 = v35;
+      if ( v35 )
+      {
+        *((_QWORD *)v35 + 1) = v11[1];
+        *((_QWORD *)v35 + 2) = a2;
+        *((_QWORD *)v35 + 5) = this;
+        *(_QWORD *)v35 = 0LL;
+        *((_QWORD *)v35 + 3) = 0LL;
+        *((_QWORD *)v35 + 4) = 0LL;
       }
       else
       {
-        _InterlockedIncrement(&dword_1C0076854);
-        WdLogSingleEntry1(6LL, 6491LL);
-        DxgkLogInternalTriageEvent(v60, 262145LL);
+        v36 = 0LL;
       }
-      v18 = -1073741801;
-LABEL_28:
-      v27 = *(VIDMM_RECYCLE_HEAP_MGR **)(*(_QWORD *)v67 + 32LL);
-      v28 = *(unsigned int *)v27;
-      if ( (unsigned int)(v28 - 3) <= 3 && (unsigned int)(v28 - 5) > 1 )
+      if ( v36 )
       {
-        if ( !v69 )
-          CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v27, v28, v67, v25);
-        if ( v21 <= VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(v27, 0) )
+        v37 = (VIDMM_MDL_RANGE *)operator new[](0x30uLL, 0x32316956u, PagedPool);
+        v39 = v37;
+        if ( v37 )
         {
-          if ( CurrentProcess )
-          {
-            VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-            (*((void (__fastcall **)(struct _EPROCESS *, PVOID))VirtualMemoryInterface + 4))(CurrentProcess, MappedBase);
-          }
-          else
-          {
-            MmUnmapViewInSystemSpace(MappedBase);
-          }
+          *((_QWORD *)v37 + 2) = NextRange[2];
+          *((_QWORD *)v37 + 5) = this;
+          *(_QWORD *)v37 = 0LL;
+          *((_QWORD *)v37 + 1) = a3;
+          *((_QWORD *)v37 + 3) = 0LL;
+          *((_QWORD *)v37 + 4) = 0LL;
         }
         else
         {
-          VidMmUnmapViewAsync(CurrentProcess, *(void **)(*(_QWORD *)v62 + 56LL), MappedBase);
+          v39 = 0LL;
+        }
+        if ( v39 )
+        {
+          if ( (int)VIDMM_MDL_RANGE::Lock(v36, v9, v38, 0LL, 0LL) < 0 )
+          {
+            _InterlockedIncrement(&dword_1C0050744);
+            v62 = WdLogNewEntry5_WdLowResource(0LL);
+            *(_QWORD *)(v62 + 24) = 6521LL;
+            WdLogEvent5_WdLowResource(v62);
+          }
+          else
+          {
+            LODWORD(v9) = VIDMM_MDL_RANGE::Lock(v39, (char *)v9 + a3 - v11[1], v40, 0LL, 0LL);
+            if ( (int)v9 >= 0 )
+            {
+              v42 = v11[4];
+              v43 = (struct VIDMM_MDL_RANGE *)(v42 - 24);
+              if ( v42 == v11[5] + 8 )
+                v43 = 0LL;
+              v72 = VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)NextRange);
+              LOBYTE(v74) = v44;
+              do
+              {
+                VIDMM_MDL_RANGE::Unlock((VIDMM_MDL_RANGE *)v11);
+                v45 = v11;
+                if ( v11 == NextRange )
+                  LOBYTE(v74) = 1;
+                else
+                  v11 = (unsigned __int64 *)VIDMM_MDL_RANGE::GetNextRange((VIDMM_MDL_RANGE *)v11);
+                v46 = v45 + 3;
+                v47 = v45[3];
+                if ( *(unsigned __int64 **)(v47 + 8) != v45 + 3 )
+                  goto LABEL_62;
+                v48 = (unsigned __int64 *)v45[4];
+                if ( (_QWORD *)*v48 != v46 )
+                  goto LABEL_62;
+                *v48 = v47;
+                *(_QWORD *)(v47 + 8) = v48;
+                *v46 = 0LL;
+                v45[4] = 0LL;
+                operator delete(v45);
+              }
+              while ( !(_BYTE)v74 );
+              VIDMM_MDL_RANGE::InsertBetween(v36, v43, v39);
+              VIDMM_MDL_RANGE::InsertBetween(v39, v36, v72);
+              goto LABEL_26;
+            }
+            _InterlockedIncrement(&dword_1C0050744);
+            v63 = WdLogNewEntry5_WdLowResource(v41);
+            *(_QWORD *)(v63 + 24) = 6541LL;
+            WdLogEvent5_WdLowResource(v63);
+            VIDMM_MDL_RANGE::Unlock(v36);
+          }
+          operator delete(v36);
+          v61 = v39;
+        }
+        else
+        {
+          _InterlockedIncrement(&dword_1C0050744);
+          v60 = WdLogNewEntry5_WdLowResource(0LL);
+          *(_QWORD *)(v60 + 24) = 6503LL;
+          WdLogEvent5_WdLowResource(v60);
+          v61 = v36;
+        }
+        operator delete(v61);
+        LODWORD(v9) = -1073741801;
+      }
+      else
+      {
+        _InterlockedIncrement(&dword_1C0050744);
+        v59 = WdLogNewEntry5_WdLowResource(0LL);
+        *(_QWORD *)(v59 + 24) = 6493LL;
+        WdLogEvent5_WdLowResource(v59);
+        LODWORD(v9) = -1073741801;
+      }
+LABEL_26:
+      v27 = *(unsigned int **)(*(_QWORD *)this + 32LL);
+      v28 = *v27;
+      if ( (unsigned int)(v28 - 3) <= 3 && (unsigned int)(v28 - 5) > 1 )
+      {
+        if ( v69[0] )
+          CurrentProcess = 0LL;
+        else
+          CurrentProcess = (VIDMM_RECYCLE_HEAP_MGR *)PsGetCurrentProcess(v27, v28, this);
+        SmallAllocationSize = VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(CurrentProcess, 0);
+        if ( v71 <= SmallAllocationSize )
+        {
+          if ( v66 )
+            MmUnmapViewOfSection(v66, MappedBase);
+          else
+            MmUnmapViewInSystemSpace(MappedBase);
+        }
+        else
+        {
+          VidMmUnmapViewAsync(v66, *(PVOID *)(*(_QWORD *)v67 + 56LL), MappedBase);
         }
       }
-      return v18;
+      return (unsigned int)v9;
     }
   }
-  g_DxgMmsBugcheckExportIndex = 1;
-  WdLogSingleEntry5(0LL, 270LL, 52LL, 9LL, 0LL, 0LL);
+  v68 = WdLogNewEntry5_WdCriticalError(0xFFFFFFFFLL, v5);
+  *(_QWORD *)(v68 + 24) = 270LL;
+  *(_QWORD *)(v68 + 32) = 52LL;
+  *(_QWORD *)(v68 + 40) = 9LL;
+  *(_OWORD *)(v68 + 48) = 0LL;
+  WdLogEvent5_WdCriticalError(v68);
   return 3221225473LL;
 }

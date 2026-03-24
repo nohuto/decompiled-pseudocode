@@ -1,41 +1,41 @@
 /*
- * XREFs of UserDeleteW32Process @ 0x1C0036230
+ * XREFs of UserDeleteW32Process @ 0x1C00933E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00385C4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003A724 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
  */
 
-void __fastcall UserDeleteW32Process(char *a1)
+void __fastcall UserDeleteW32Process(__int64 a1)
 {
-  void *v2; // rdx
-  char **v3; // rdx
-  void **v4; // rcx
-  char v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  _QWORD *v4; // rdx
+  int v5; // [rsp+30h] [rbp+8h] BYREF
 
   ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v5);
-  if ( !*((_DWORD *)a1 + 2) )
+  if ( !*(_DWORD *)(a1 + 8) )
   {
-    if ( *((_DWORD *)a1 + 263) )
+    if ( *(_DWORD *)(a1 + 1044) )
     {
-      v3 = (char **)*((_QWORD *)a1 + 133);
-      if ( v3[1] != a1 + 1064 || (v4 = (void **)*((_QWORD *)a1 + 134), *v4 != a1 + 1064) )
+      v3 = *(_QWORD *)(a1 + 1056);
+      if ( *(_QWORD *)(v3 + 8) != a1 + 1056 || (v4 = *(_QWORD **)(a1 + 1064), *v4 != a1 + 1056) )
         __fastfail(3u);
       *v4 = v3;
-      v3[1] = (char *)v4;
+      *(_QWORD *)(v3 + 8) = v4;
     }
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gpHandleFlagsMutex);
-    v2 = (void *)*((_QWORD *)a1 + 90);
+    v2 = *(_QWORD *)(a1 + 728);
     if ( v2 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v2);
-      RtlInitializeBitMap((PRTL_BITMAP)(a1 + 712), 0LL, 0);
+      Win32FreePool(v2);
+      RtlInitializeBitMap((PRTL_BITMAP)(a1 + 720), 0LL, 0);
     }
-    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpHandleFlagsMutex);
     PsSetProcessWin32Process(*(_QWORD *)a1, 0LL, a1);
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
+    Win32FreePool(a1);
+    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpHandleFlagsMutex);
   }
   if ( !v5 )
     UserSessionSwitchLeaveCrit();

@@ -1,14 +1,14 @@
 /*
- * XREFs of ParseLoad @ 0x1C0028400
+ * XREFs of ParseLoad @ 0x1C0023470
  * Callers:
  *     <none>
  * Callees:
- *     PushCall @ 0x1C0016ABC (PushCall.c)
- *     PushScope @ 0x1C0018570 (PushScope.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     NewObjOwner @ 0x1C00285B8 (NewObjOwner.c)
- *     AMLIApplyNamespaceOverride @ 0x1C0028690 (AMLIApplyNamespaceOverride.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     PushCall @ 0x1C00219CC (PushCall.c)
+ *     PushScope @ 0x1C0022A38 (PushScope.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     AMLIApplyNamespaceOverride @ 0x1C0023700 (AMLIApplyNamespaceOverride.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ParseLoad(__int64 a1, __int64 a2, int a3)
@@ -84,12 +84,12 @@ LABEL_9:
     v5 = PushCall((struct _SLIST_ENTRY *)a1, 0LL, a1 + 128);
   if ( !v5 )
   {
-    qword_1C00819E0 = *(_QWORD *)(a2 + 56) + 36LL;
-    qword_1C00819E8 = *(_QWORD *)(a2 + 56) + *(unsigned int *)(*(_QWORD *)(a2 + 56) + 4LL);
+    qword_1C0082820 = *(_QWORD *)(a2 + 56) + 36LL;
+    qword_1C0082828 = *(_QWORD *)(a2 + 56) + *(unsigned int *)(*(_QWORD *)(a2 + 56) + 4LL);
     return (unsigned int)PushScope(
                            a1,
                            *(_QWORD *)(a2 + 56) + 36LL,
-                           (_SLIST_ENTRY *)(*(_QWORD *)(a2 + 56) + *(unsigned int *)(*(_QWORD *)(a2 + 56) + 4LL)),
+                           *(_QWORD *)(a2 + 56) + *(unsigned int *)(*(_QWORD *)(a2 + 56) + 4LL),
                            *(_QWORD *)(a1 + 120),
                            *(_QWORD *)(a2 + 32),
                            *(_QWORD *)(a2 + 40),

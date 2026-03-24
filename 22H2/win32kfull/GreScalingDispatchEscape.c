@@ -1,31 +1,33 @@
 /*
- * XREFs of GreScalingDispatchEscape @ 0x1C02A8210
+ * XREFs of GreScalingDispatchEscape @ 0x1C029EB20
  * Callers:
- *     NtGdiExtEscape @ 0x1C0076E90 (NtGdiExtEscape.c)
+ *     NtGdiExtEscape @ 0x1C00A7450 (NtGdiExtEscape.c)
  * Callees:
- *     GreEscCreateScaledCompatibleBitmap @ 0x1C02A7D30 (GreEscCreateScaledCompatibleBitmap.c)
+ *     GreEscCreateScaledCompatibleBitmap @ 0x1C029E6B8 (GreEscCreateScaledCompatibleBitmap.c)
  */
 
-__int64 __fastcall GreScalingDispatchEscape(unsigned __int64 a1)
+__int64 __fastcall GreScalingDispatchEscape(_OWORD *a1)
 {
-  __int128 v3; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v4; // [rsp+30h] [rbp-18h]
+  ULONG64 v2; // rcx
+  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v5; // [rsp+30h] [rbp-18h]
 
-  v3 = 0LL;
   v4 = 0LL;
-  if ( (a1 & 3) != 0 )
+  v5 = 0LL;
+  if ( ((unsigned __int8)a1 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( a1 + 32 > MmUserProbeAddress || a1 + 32 < a1 )
+  v2 = (ULONG64)(a1 + 2);
+  if ( v2 > MmUserProbeAddress || v2 < (unsigned __int64)a1 )
     *(_BYTE *)MmUserProbeAddress = 0;
-  v3 = *(_OWORD *)a1;
-  v4 = *(_OWORD *)(a1 + 16);
-  if ( (_DWORD)v3 )
+  v4 = *a1;
+  v5 = a1[1];
+  if ( (_DWORD)v4 )
     return 3221225659LL;
-  GreEscCreateScaledCompatibleBitmap((__int64)&v3);
-  if ( !(_DWORD)v3 )
+  GreEscCreateScaledCompatibleBitmap((__int64)&v4);
+  if ( !(_DWORD)v4 )
   {
-    ProbeForWrite((volatile void *)(a1 + 8), 8uLL, 4u);
-    *(_QWORD *)(a1 + 8) = *((_QWORD *)&v3 + 1);
+    ProbeForWrite((char *)a1 + 8, 8uLL, 4u);
+    *((_QWORD *)a1 + 1) = *((_QWORD *)&v4 + 1);
   }
   return 0LL;
 }

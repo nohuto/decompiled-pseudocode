@@ -1,7 +1,7 @@
 /*
- * XREFs of PipSetDevNodeStateFlags @ 0x1408285B8
+ * XREFs of PipSetDevNodeStateFlags @ 0x140828598
  * Callers:
- *     PopReportDirectedDripsCandidateDevice @ 0x140868950 (PopReportDirectedDripsCandidateDevice.c)
+ *     PopReportDirectedDripsCandidateDevice @ 0x140868930 (PopReportDirectedDripsCandidateDevice.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRef @ 0x140002E10 (IoGetDeviceAttachmentBaseRef.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

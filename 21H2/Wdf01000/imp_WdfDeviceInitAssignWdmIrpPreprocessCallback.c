@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfDeviceInitAssignWdmIrpPreprocessCallback @ 0x1C002AEA0
+ * XREFs of imp_WdfDeviceInitAssignWdmIrpPreprocessCallback @ 0x1C0044580
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ??0FxIrpPreprocessInfo@@QEAA@XZ @ 0x1C002B06C (--0FxIrpPreprocessInfo@@QEAA@XZ.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ??0FxIrpPreprocessInfo@@QEAA@XZ @ 0x1C004412C (--0FxIrpPreprocessInfo@@QEAA@XZ.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfDeviceInitAssignWdmIrpPreprocessCallback(
@@ -20,88 +20,72 @@ __int64 __fastcall imp_WdfDeviceInitAssignWdmIrpPreprocessCallback(
 {
   __int64 v6; // rsi
   _FX_DRIVER_GLOBALS *v9; // rbx
-  FxIrpPreprocessInfo *PreprocessInfo; // rax
-  FxIrpPreprocessInfo *v11; // rcx
-  ULONG v12; // ecx
-  void *v13; // rax
-  unsigned __int8 *v14; // rcx
-  ULONG Tag; // ecx
-  void *v17; // rax
-  FX_POOL **v18; // rax
-  unsigned __int16 v19; // r9
-  __m128i v20; // [rsp+30h] [rbp-28h] BYREF
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  FxIrpPreprocessInfo *PreprocessInfo; // rcx
+  FX_POOL **v12; // rax
+  FxIrpPreprocessInfo *v13; // rax
+  unsigned __int16 v14; // r9
+  unsigned __int8 *v15; // rcx
+  void *Caller; // [rsp+48h] [rbp+0h]
 
   v6 = MajorFunction;
   if ( !DeviceInit )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, Caller);
   v9 = DeviceInit->DriverGlobals;
   if ( !EvtDeviceWdmIrpPreprocess )
-    FxVerifierNullBugCheck(v9, retaddr);
+    FxVerifierNullBugCheck(v9, Caller);
   if ( NumMinorFunctions && !MinorFunctions )
-    FxVerifierNullBugCheck(v9, retaddr);
+    FxVerifierNullBugCheck(v9, Caller);
   if ( MajorFunction >= 0x1Cu )
   {
     WPP_IFR_SF_(v9, 2u, 0x12u, 0x1Eu, WPP_FxDeviceInitApi_cpp_Traceguids);
     return 3221225485LL;
   }
   PreprocessInfo = DeviceInit->PreprocessInfo;
-  v11 = PreprocessInfo;
   if ( !PreprocessInfo )
   {
-    Tag = v9->Tag;
-    v17 = retaddr;
-    v20.m128i_i64[0] = 0LL;
-    v20.m128i_i64[1] = 64LL;
-    if ( !v9->FxPoolTrackingOn )
-      v17 = 0LL;
-    v18 = FxPoolAllocator(v9, &v9->FxPoolFrameworks, &v20, 0x2B8uLL, Tag, v17);
-    if ( v18 )
-      FxIrpPreprocessInfo::FxIrpPreprocessInfo((FxIrpPreprocessInfo *)v18);
+    v12 = FxPoolAllocator(v9, &v9->FxPoolFrameworks, ExDefaultNonPagedPoolType, 0x2B8uLL, v9->Tag, Caller);
+    if ( v12 )
+    {
+      FxIrpPreprocessInfo::FxIrpPreprocessInfo((FxIrpPreprocessInfo *)v12);
+      PreprocessInfo = v13;
+    }
     else
+    {
       PreprocessInfo = 0LL;
+    }
     DeviceInit->PreprocessInfo = PreprocessInfo;
-    v11 = PreprocessInfo;
     if ( !PreprocessInfo )
     {
-      v19 = 31;
-LABEL_26:
-      WPP_IFR_SF_(v9, 2u, 0x12u, v19, WPP_FxDeviceInitApi_cpp_Traceguids);
+      v14 = 31;
+LABEL_16:
+      WPP_IFR_SF_(v9, 2u, 0x12u, v14, WPP_FxDeviceInitApi_cpp_Traceguids);
       return 3221225626LL;
     }
   }
-  if ( !NumMinorFunctions )
+  if ( NumMinorFunctions )
   {
-LABEL_13:
-    v11->Dispatch[v6].EvtDevicePreprocess = EvtDeviceWdmIrpPreprocess;
-    return 0LL;
-  }
-  if ( !PreprocessInfo->Dispatch[v6].NumMinorFunctions )
-  {
-    v12 = v9->Tag;
-    v13 = retaddr;
-    v20.m128i_i64[0] = 0LL;
-    v20.m128i_i64[1] = 64LL;
-    if ( !v9->FxPoolTrackingOn )
-      v13 = 0LL;
+    if ( PreprocessInfo->Dispatch[v6].NumMinorFunctions )
+    {
+      WPP_IFR_SF_(v9, 2u, 0x12u, 0x20u, WPP_FxDeviceInitApi_cpp_Traceguids);
+      return 3221225488LL;
+    }
     DeviceInit->PreprocessInfo->Dispatch[v6].MinorFunctions = (unsigned __int8 *)FxPoolAllocator(
                                                                                    v9,
                                                                                    &v9->FxPoolFrameworks,
-                                                                                   &v20,
+                                                                                   ExDefaultNonPagedPoolType,
                                                                                    NumMinorFunctions,
-                                                                                   v12,
-                                                                                   v13);
-    v14 = DeviceInit->PreprocessInfo->Dispatch[v6].MinorFunctions;
-    if ( !v14 )
+                                                                                   v9->Tag,
+                                                                                   Caller);
+    v15 = DeviceInit->PreprocessInfo->Dispatch[v6].MinorFunctions;
+    if ( !v15 )
     {
-      v19 = 33;
-      goto LABEL_26;
+      v14 = 33;
+      goto LABEL_16;
     }
-    memmove(v14, MinorFunctions, NumMinorFunctions);
+    memmove(v15, MinorFunctions, NumMinorFunctions);
     DeviceInit->PreprocessInfo->Dispatch[v6].NumMinorFunctions = NumMinorFunctions;
-    v11 = DeviceInit->PreprocessInfo;
-    goto LABEL_13;
+    PreprocessInfo = DeviceInit->PreprocessInfo;
   }
-  WPP_IFR_SF_(v9, 2u, 0x12u, 0x20u, WPP_FxDeviceInitApi_cpp_Traceguids);
-  return 3221225488LL;
+  PreprocessInfo->Dispatch[v6].EvtDevicePreprocess = EvtDeviceWdmIrpPreprocess;
+  return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of AslRegWildcardFindFirst @ 0x140A56328
+ * XREFs of AslRegWildcardFindFirst @ 0x140969A3C
  * Callers:
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A507CC (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x1409654EC (SdbpCheckMatchingWildcardRegistryEntry.c)
  * Callees:
- *     AslStringDuplicate @ 0x1406D4AA8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     AslRegWildcardFindClose @ 0x140A562A4 (AslRegWildcardFindClose.c)
- *     AslRegWildcardFindNext @ 0x140A563E8 (AslRegWildcardFindNext.c)
- *     AslpParsePattern @ 0x140A565A8 (AslpParsePattern.c)
+ *     AslStringDuplicate @ 0x14075A094 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     AslRegWildcardFindClose @ 0x1409699B8 (AslRegWildcardFindClose.c)
+ *     AslRegWildcardFindNext @ 0x140969B00 (AslRegWildcardFindNext.c)
+ *     AslpParsePattern @ 0x140969C00 (AslpParsePattern.c)
  */
 
 __int64 __fastcall AslRegWildcardFindFirst(__int64 a1, PVOID **a2, const wchar_t *a3)
@@ -26,15 +26,21 @@ __int64 __fastcall AslRegWildcardFindFirst(__int64 a1, PVOID **a2, const wchar_t
   v6[1] = (wchar_t *)v6;
   *v6 = (wchar_t *)v6;
   Next = AslStringDuplicate(v6 + 3, a3);
-  if ( Next < 0
-    || (Next = AslpParsePattern(v7[3], v7), Next < 0)
-    || (v7[2] = *v7, Next = AslRegWildcardFindNext(a1, v7), Next < 0) )
+  if ( Next >= 0 )
   {
+    Next = AslpParsePattern(v7[3], v7);
+    if ( Next >= 0 )
+    {
+      v7[2] = *v7;
+      Next = AslRegWildcardFindNext(a1, v7);
+      if ( Next >= 0 )
+      {
+        *a2 = v7;
+        v7 = 0LL;
+      }
+    }
+  }
+  if ( v7 )
     AslRegWildcardFindClose(v7);
-  }
-  else
-  {
-    *a2 = v7;
-  }
   return (unsigned int)Next;
 }

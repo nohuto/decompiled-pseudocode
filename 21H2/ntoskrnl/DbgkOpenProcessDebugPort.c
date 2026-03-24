@@ -1,27 +1,27 @@
 /*
- * XREFs of DbgkOpenProcessDebugPort @ 0x1409272A0
+ * XREFs of DbgkOpenProcessDebugPort @ 0x1408843E8
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PsTestProtectedProcessIncompatibility @ 0x14066CFE4 (PsTestProtectedProcessIncompatibility.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140607578 (PsTestProtectedProcessIncompatibility.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall DbgkOpenProcessDebugPort(__int64 a1, KPROCESSOR_MODE a2, HANDLE *a3)
 {
   NTSTATUS v6; // edi
-  void *v7; // rbx
+  struct _DMA_ADAPTER *v7; // rbx
   __int64 v8; // rcx
 
   v6 = -1073740973;
   if ( *(_QWORD *)(a1 + 1400) )
   {
     ExAcquireFastMutex(&DbgkpProcessDebugPortMutex);
-    v7 = *(void **)(a1 + 1400);
+    v7 = *(struct _DMA_ADAPTER **)(a1 + 1400);
     if ( v7 )
       ObfReferenceObject(*(PVOID *)(a1 + 1400));
     KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
@@ -32,7 +32,7 @@ __int64 __fastcall DbgkOpenProcessDebugPort(__int64 a1, KPROCESSOR_MODE a2, HAND
       {
         v6 = -1073740014;
 LABEL_8:
-        ObfDereferenceObject(v7);
+        HalPutDmaAdapter(v7);
         return (unsigned int)v6;
       }
       v6 = ObOpenObjectByPointer(v7, a2 == 0 ? 0x200 : 0, 0LL, 0x2000000u, DbgkDebugObjectType, a2, a3);

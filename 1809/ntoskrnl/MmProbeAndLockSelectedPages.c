@@ -1,8 +1,8 @@
 /*
  * XREFs of MmProbeAndLockSelectedPages @ 0x1400949E0
  * Callers:
- *     NtWriteFileGather @ 0x1406CC880 (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1406CD3B0 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1406CC860 (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1406CD390 (NtReadFileScatter.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiProbeAndLockPrepare @ 0x140040790 (MiProbeAndLockPrepare.c)
@@ -12,9 +12,9 @@
  *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
  *     MiProbeLeafFrame @ 0x140094C6C (MiProbeLeafFrame.c)
  *     MiProbePacketContended @ 0x14009659C (MiProbePacketContended.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

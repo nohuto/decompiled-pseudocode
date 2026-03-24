@@ -1,60 +1,60 @@
 /*
- * XREFs of HUBMISC_ControlTransfer @ 0x1C002FA0C
+ * XREFs of HUBMISC_ControlTransfer @ 0x1C002F36C
  * Callers:
- *     HUBHTX_GetDescriptor @ 0x1C0003060 (HUBHTX_GetDescriptor.c)
- *     HUBHTX_GetHubStatusUsingControlTransfer @ 0x1C0003420 (HUBHTX_GetHubStatusUsingControlTransfer.c)
- *     HUBHTX_GetPortStatusUsingControlTransfer @ 0x1C0004060 (HUBHTX_GetPortStatusUsingControlTransfer.c)
- *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C00041BC (HUBHTX_AckPortChangeUsingControlTransfer.c)
- *     HUBHTX_ResetPortUsingControlTransfer @ 0x1C00042D8 (HUBHTX_ResetPortUsingControlTransfer.c)
- *     HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004410 (HUBHTX_DisablePortUsingControlTransfer.c)
- *     HUBHTX_SettingPortPowerUsingControlTransfer @ 0x1C000453C (HUBHTX_SettingPortPowerUsingControlTransfer.c)
- *     HUBHTX_Suspend30PortUsingControlTransfer @ 0x1C0004678 (HUBHTX_Suspend30PortUsingControlTransfer.c)
- *     HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005E34 (HUBHTX_GetRequestedPortStatusUsingControlTransfer.c)
- *     HUBHTX_GetPortStatusForBootDevice @ 0x1C00062B4 (HUBHTX_GetPortStatusForBootDevice.c)
- *     HUBHTX_ClearTTBuffer @ 0x1C0006700 (HUBHTX_ClearTTBuffer.c)
- *     HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer @ 0x1C0006A70 (HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer.c)
- *     HUBHTX_SetLinkStateToRxDetectUsingControlTransfer @ 0x1C0006BA0 (HUBHTX_SetLinkStateToRxDetectUsingControlTransfer.c)
- *     HUBHSM_SendingAckForHubChange @ 0x1C0008A90 (HUBHSM_SendingAckForHubChange.c)
- *     HUBHSM_GettingHubStatus @ 0x1C0009390 (HUBHSM_GettingHubStatus.c)
- *     HUBHSM_SettingHubDepth @ 0x1C0009870 (HUBHSM_SettingHubDepth.c)
- *     HUBFDO_GetPortStatusForDebugging @ 0x1C000D35C (HUBFDO_GetPortStatusForDebugging.c)
- *     HUBPSM20_InitiatingResume @ 0x1C0010DB0 (HUBPSM20_InitiatingResume.c)
- *     HUBPSM20_Suspending @ 0x1C0011670 (HUBPSM20_Suspending.c)
- *     HUBPSM30_InitiatingResume @ 0x1C0011ED0 (HUBPSM30_InitiatingResume.c)
- *     HUBPSM30_InitiatingWarmResetPort @ 0x1C0012010 (HUBPSM30_InitiatingWarmResetPort.c)
- *     HUBPSM30_SettingU1TImeOut @ 0x1C0012530 (HUBPSM30_SettingU1TImeOut.c)
- *     HUBPSM30_SettingU2TImeOut @ 0x1C0012690 (HUBPSM30_SettingU2TImeOut.c)
- *     HUBPSM30_DisablingRemoteWakeOnPort @ 0x1C0012C00 (HUBPSM30_DisablingRemoteWakeOnPort.c)
- *     HUBPSM30_EnablingRemoteWakeOnPort @ 0x1C0012D40 (HUBPSM30_EnablingRemoteWakeOnPort.c)
- *     HUBDSM_SendingDisallowFirmwareUpdateCommand @ 0x1C0020530 (HUBDSM_SendingDisallowFirmwareUpdateCommand.c)
- *     HUBDSM_SendingFirmwareImageHashQuery @ 0x1C0020610 (HUBDSM_SendingFirmwareImageHashQuery.c)
- *     HUBDSM_SendingUsbFeaturesVendorCmd @ 0x1C00206F0 (HUBDSM_SendingUsbFeaturesVendorCmd.c)
- *     HUBDSM_ConfiguringDevice @ 0x1C00216C0 (HUBDSM_ConfiguringDevice.c)
- *     HUBDSM_ArmingDeviceForWake @ 0x1C0021DC0 (HUBDSM_ArmingDeviceForWake.c)
- *     HUBDSM_EnablingLTM @ 0x1C0022840 (HUBDSM_EnablingLTM.c)
- *     HUBDSM_SetttingIsochDelay @ 0x1C0022950 (HUBDSM_SetttingIsochDelay.c)
- *     HUBDSM_DisablingU1 @ 0x1C0022CD0 (HUBDSM_DisablingU1.c)
- *     HUBDSM_DisablingU2 @ 0x1C0022E00 (HUBDSM_DisablingU2.c)
- *     HUBDSM_EnablingU1 @ 0x1C0022EE0 (HUBDSM_EnablingU1.c)
- *     HUBDSM_EnablingU2 @ 0x1C0022FC0 (HUBDSM_EnablingU2.c)
- *     HUBDSM_GettingRemoteWakeCapability @ 0x1C0023230 (HUBDSM_GettingRemoteWakeCapability.c)
- *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C0027C24 (HUBDTX_GetMsOsFeatureDescriptor.c)
- *     HUBDTX_GetDescriptor @ 0x1C0027CB0 (HUBDTX_GetDescriptor.c)
- *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027F44 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
- *     HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer @ 0x1C00283A0 (HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer.c)
- *     HUBDTX_SetDeviceInterfaceUsingControlTransfer @ 0x1C0028ED0 (HUBDTX_SetDeviceInterfaceUsingControlTransfer.c)
- *     HUBDTX_SetDeviceNullConfigurationUsingControlTransfer @ 0x1C0028FE4 (HUBDTX_SetDeviceNullConfigurationUsingControlTransfer.c)
- *     HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C0029ECC (HUBDTX_ClearEndpointHaltUsingControlTransfer.c)
- *     HUBDTX_SetSelUsingControlTransfer @ 0x1C002AA6C (HUBDTX_SetSelUsingControlTransfer.c)
- *     HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002AD00 (HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer.c)
- *     FWUPDATE_SetMMIO @ 0x1C003EDF0 (FWUPDATE_SetMMIO.c)
- *     FWUPDATE_GetMMIO @ 0x1C003EEC4 (FWUPDATE_GetMMIO.c)
+ *     HUBHTX_GetDescriptor @ 0x1C0002E90 (HUBHTX_GetDescriptor.c)
+ *     HUBHTX_GetHubStatusUsingControlTransfer @ 0x1C0003254 (HUBHTX_GetHubStatusUsingControlTransfer.c)
+ *     HUBHTX_GetPortStatusUsingControlTransfer @ 0x1C0003EA4 (HUBHTX_GetPortStatusUsingControlTransfer.c)
+ *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C0004000 (HUBHTX_AckPortChangeUsingControlTransfer.c)
+ *     HUBHTX_ResetPortUsingControlTransfer @ 0x1C000411C (HUBHTX_ResetPortUsingControlTransfer.c)
+ *     HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004254 (HUBHTX_DisablePortUsingControlTransfer.c)
+ *     HUBHTX_SettingPortPowerUsingControlTransfer @ 0x1C0004380 (HUBHTX_SettingPortPowerUsingControlTransfer.c)
+ *     HUBHTX_Suspend30PortUsingControlTransfer @ 0x1C00044BC (HUBHTX_Suspend30PortUsingControlTransfer.c)
+ *     HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005BB0 (HUBHTX_GetRequestedPortStatusUsingControlTransfer.c)
+ *     HUBHTX_GetPortStatusForBootDevice @ 0x1C0006034 (HUBHTX_GetPortStatusForBootDevice.c)
+ *     HUBHTX_ClearTTBuffer @ 0x1C0006480 (HUBHTX_ClearTTBuffer.c)
+ *     HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer @ 0x1C00067CC (HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer.c)
+ *     HUBHTX_SetLinkStateToRxDetectUsingControlTransfer @ 0x1C00068FC (HUBHTX_SetLinkStateToRxDetectUsingControlTransfer.c)
+ *     HUBHSM_SendingAckForHubChange @ 0x1C0008780 (HUBHSM_SendingAckForHubChange.c)
+ *     HUBHSM_GettingHubStatus @ 0x1C0009090 (HUBHSM_GettingHubStatus.c)
+ *     HUBHSM_SettingHubDepth @ 0x1C0009570 (HUBHSM_SettingHubDepth.c)
+ *     HUBFDO_GetPortStatusForDebugging @ 0x1C000CF7C (HUBFDO_GetPortStatusForDebugging.c)
+ *     HUBPSM20_InitiatingResume @ 0x1C00109A0 (HUBPSM20_InitiatingResume.c)
+ *     HUBPSM20_Suspending @ 0x1C0011260 (HUBPSM20_Suspending.c)
+ *     HUBPSM30_InitiatingResume @ 0x1C00119D0 (HUBPSM30_InitiatingResume.c)
+ *     HUBPSM30_InitiatingWarmResetPort @ 0x1C0011B10 (HUBPSM30_InitiatingWarmResetPort.c)
+ *     HUBPSM30_SettingU1TImeOut @ 0x1C0012030 (HUBPSM30_SettingU1TImeOut.c)
+ *     HUBPSM30_SettingU2TImeOut @ 0x1C0012190 (HUBPSM30_SettingU2TImeOut.c)
+ *     HUBPSM30_DisablingRemoteWakeOnPort @ 0x1C0012700 (HUBPSM30_DisablingRemoteWakeOnPort.c)
+ *     HUBPSM30_EnablingRemoteWakeOnPort @ 0x1C0012840 (HUBPSM30_EnablingRemoteWakeOnPort.c)
+ *     HUBDSM_SendingDisallowFirmwareUpdateCommand @ 0x1C0020120 (HUBDSM_SendingDisallowFirmwareUpdateCommand.c)
+ *     HUBDSM_SendingFirmwareImageHashQuery @ 0x1C0020200 (HUBDSM_SendingFirmwareImageHashQuery.c)
+ *     HUBDSM_SendingUsbFeaturesVendorCmd @ 0x1C00202E0 (HUBDSM_SendingUsbFeaturesVendorCmd.c)
+ *     HUBDSM_ConfiguringDevice @ 0x1C0021270 (HUBDSM_ConfiguringDevice.c)
+ *     HUBDSM_ArmingDeviceForWake @ 0x1C0021970 (HUBDSM_ArmingDeviceForWake.c)
+ *     HUBDSM_EnablingLTM @ 0x1C00223F0 (HUBDSM_EnablingLTM.c)
+ *     HUBDSM_SetttingIsochDelay @ 0x1C0022500 (HUBDSM_SetttingIsochDelay.c)
+ *     HUBDSM_DisablingU1 @ 0x1C0022880 (HUBDSM_DisablingU1.c)
+ *     HUBDSM_DisablingU2 @ 0x1C00229B0 (HUBDSM_DisablingU2.c)
+ *     HUBDSM_EnablingU1 @ 0x1C0022A90 (HUBDSM_EnablingU1.c)
+ *     HUBDSM_EnablingU2 @ 0x1C0022B70 (HUBDSM_EnablingU2.c)
+ *     HUBDSM_GettingRemoteWakeCapability @ 0x1C0022DE0 (HUBDSM_GettingRemoteWakeCapability.c)
+ *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C0027774 (HUBDTX_GetMsOsFeatureDescriptor.c)
+ *     HUBDTX_GetDescriptor @ 0x1C0027800 (HUBDTX_GetDescriptor.c)
+ *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027A94 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
+ *     HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer @ 0x1C0027EF8 (HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer.c)
+ *     HUBDTX_SetDeviceInterfaceUsingControlTransfer @ 0x1C0028A24 (HUBDTX_SetDeviceInterfaceUsingControlTransfer.c)
+ *     HUBDTX_SetDeviceNullConfigurationUsingControlTransfer @ 0x1C0028B38 (HUBDTX_SetDeviceNullConfigurationUsingControlTransfer.c)
+ *     HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C00297EC (HUBDTX_ClearEndpointHaltUsingControlTransfer.c)
+ *     HUBDTX_SetSelUsingControlTransfer @ 0x1C002A3A4 (HUBDTX_SetSelUsingControlTransfer.c)
+ *     HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002A620 (HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer.c)
+ *     FWUPDATE_SetMMIO @ 0x1C003E770 (FWUPDATE_SetMMIO.c)
+ *     FWUPDATE_GetMMIO @ 0x1C003E844 (FWUPDATE_GetMMIO.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBMISC_ControlTransfer(
@@ -125,7 +125,7 @@ __int64 __fastcall HUBMISC_ControlTransfer(
           0LL) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x3Au, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x3Au, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2032))(WdfDriverGlobals, *a4);
     if ( v10 < 0 )
     {
@@ -144,14 +144,14 @@ __int64 __fastcall HUBMISC_ControlTransfer(
         v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                 WdfDriverGlobals,
                 WdfDriverGlobals->Driver,
-                off_1C00671E8);
+                off_1C00661C0);
         v20 = v17;
         WPP_RECORDER_SF_d(
           *(_QWORD *)(v18 + 64),
           2u,
           2u,
           0x3Bu,
-          (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+          (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
           v20);
       }
     }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnmapImageInSystemSpace @ 0x1406508AC
+ * XREFs of MiUnmapImageInSystemSpace @ 0x14065088C
  * Callers:
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
- *     MiParseComImage @ 0x1406C06DC (MiParseComImage.c)
- *     MiOpenHotPatchFile @ 0x14085690C (MiOpenHotPatchFile.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A39C (MiLoadSectionIntoVsmEnclave.c)
- *     MiCreateSessionDriverProtos @ 0x14085F13C (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
+ *     MiParseComImage @ 0x1406C06BC (MiParseComImage.c)
+ *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3134 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
  */
 

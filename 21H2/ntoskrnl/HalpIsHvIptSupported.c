@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIsHvIptSupported @ 0x14050E7EC
+ * XREFs of HalpIsHvIptSupported @ 0x1404C239C
  * Callers:
- *     HalpProcGetFeatureBits @ 0x1403BAD80 (HalpProcGetFeatureBits.c)
+ *     HalpProcGetFeatureBits @ 0x1403A803C (HalpProcGetFeatureBits.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403B37B0 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char HalpIsHvIptSupported()
+char __fastcall HalpIsHvIptSupported(__int64 a1)
 {
-  char v0; // r10
+  char v1; // r10
 
-  if ( HalpIsMicrosoftCompatibleHvLoaded() )
+  if ( HalpIsMicrosoftCompatibleHvLoaded(a1) )
   {
     _RAX = 0x40000000LL;
     __asm { cpuid }
@@ -23,5 +23,5 @@ char HalpIsHvIptSupported()
         return 1;
     }
   }
-  return v0;
+  return v1;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorpGetSecondaryInterruptAffinity @ 0x1C009B9A0
+ * XREFs of ProcessorpGetSecondaryInterruptAffinity @ 0x1C00B6E54
  * Callers:
- *     ProcessorpFindIdtEntriesApic @ 0x1C009B600 (ProcessorpFindIdtEntriesApic.c)
+ *     ProcessorpFindIdtEntriesApic @ 0x1C0092F20 (ProcessorpFindIdtEntriesApic.c)
  * Callees:
  *     <none>
  */

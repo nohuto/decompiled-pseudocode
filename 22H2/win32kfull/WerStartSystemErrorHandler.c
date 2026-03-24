@@ -1,9 +1,9 @@
 /*
- * XREFs of WerStartSystemErrorHandler @ 0x1C024F3D0
+ * XREFs of WerStartSystemErrorHandler @ 0x1C0260754
  * Callers:
- *     WerKernelSubmitReportForHungProcess @ 0x1C024F054 (WerKernelSubmitReportForHungProcess.c)
+ *     WerKernelSubmitReportForHungProcess @ 0x1C02603C4 (WerKernelSubmitReportForHungProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 WerStartSystemErrorHandler()
@@ -19,7 +19,7 @@ __int64 WerStartSystemErrorHandler()
   v3 = 0;
   v1 = 0;
   if ( (int)ZwQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, 1LL, 0LL, &v3, 4) >= 0 && v3 )
-    v1 = (int)ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0LL, 0LL, 0LL, 0, 0) >= 0;
+    v1 = (int)ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0LL) >= 0;
   if ( EtwRegister(&ProviderId, 0LL, 0LL, &RegHandle) >= 0 )
   {
     EventDescriptor = 0LL;

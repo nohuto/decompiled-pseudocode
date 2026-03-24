@@ -1,45 +1,68 @@
 /*
- * XREFs of DxgkEngAccumD3DPresentBounds @ 0x1C026F1A0
+ * XREFs of DxgkEngAccumD3DPresentBounds @ 0x1C0276360
  * Callers:
  *     <none>
  * Callees:
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C001E590 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00A6820 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B496C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00F2608 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall DxgkEngAccumD3DPresentBounds(HDC a1, _DWORD *a2)
+__int64 __fastcall DxgkEngAccumD3DPresentBounds(HDC a1, int *a2)
 {
-  __int64 *v3; // r8
-  __int64 v4; // rbx
-  _DWORD v6[4]; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v7[2]; // [rsp+30h] [rbp-30h] BYREF
-  _BYTE v8[32]; // [rsp+40h] [rbp-20h] BYREF
-  int v9; // [rsp+80h] [rbp+20h] BYREF
+  int v3; // r10d
+  int v4; // r9d
+  int v5; // r11d
+  int v6; // edx
+  __int64 *v7; // r8
+  int v8; // r9d
+  int v9; // r10d
+  int v10; // r11d
+  _DWORD *v11; // rcx
+  int v12; // r9d
+  int v13; // eax
+  __int64 v14; // rbx
+  int v16; // [rsp+20h] [rbp-40h] BYREF
+  int v17; // [rsp+24h] [rbp-3Ch]
+  int v18; // [rsp+28h] [rbp-38h]
+  int v19; // [rsp+2Ch] [rbp-34h]
+  _QWORD v20[2]; // [rsp+30h] [rbp-30h] BYREF
+  _BYTE v21[32]; // [rsp+40h] [rbp-20h] BYREF
+  int v22; // [rsp+80h] [rbp+20h] BYREF
 
-  DCOBJA::DCOBJA((DCOBJA *)v7, a1);
-  if ( v7[0] )
+  DCOBJA::DCOBJA((DCOBJA *)v20, a1);
+  if ( v20[0] )
   {
-    v6[0] = *a2;
-    v6[1] = a2[1];
-    v6[2] = a2[2];
-    v6[3] = a2[3];
-    if ( !ERECTL::bEmpty((ERECTL *)v6) && (*((_DWORD *)v3 + 9) & 0xE0) != 0 )
+    v3 = a2[1];
+    v4 = a2[2];
+    v5 = a2[3];
+    v16 = *a2;
+    v17 = v3;
+    v18 = v4;
+    v19 = v5;
+    if ( !ERECTL::bEmpty((ERECTL *)&v16) && (*((_DWORD *)v7 + 9) & 0xE0) != 0 )
     {
-      ERECTL::bOffsetSubtract((ERECTL *)v6, (const struct _POINTL *)&v3[((_DWORD)v3[5] & 1) + 127], 0);
-      XDCOBJ::vAccumulate((XDCOBJ *)v7, (struct ERECTL *)v6);
-      v3 = (__int64 *)v7[0];
+      v11 = v7 + 128;
+      if ( (v7[5] & 1) == 0 )
+        v11 = v7 + 127;
+      v12 = v8 - *v11;
+      v16 = v6 - *v11;
+      v13 = v11[1];
+      v18 = v12;
+      v17 = v9 - v13;
+      v19 = v10 - v13;
+      XDCOBJ::vAccumulate((XDCOBJ *)v20, (struct ERECTL *)&v16);
+      v7 = (__int64 *)v20[0];
     }
-    if ( v3 )
+    if ( v7 )
     {
-      v9 = 0;
-      v4 = *v3;
-      HmgDecrementShareReferenceCountEx(v3, &v9);
-      if ( v9 )
-        GrepDeleteDC(v4, 0x2000000LL);
+      v22 = 0;
+      v14 = *v7;
+      HmgDecrementShareReferenceCountEx(v7, &v22);
+      if ( v22 )
+        bDeleteDCInternalEx(v14, 0LL);
     }
   }
-  return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v8);
+  return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v21);
 }

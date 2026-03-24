@@ -1,25 +1,25 @@
 /*
- * XREFs of NtOpenObjectAuditAlarm @ 0x1407DFA00
+ * XREFs of NtOpenObjectAuditAlarm @ 0x14068BC10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SepProbeAndCaptureString_U @ 0x1406C2314 (SepProbeAndCaptureString_U.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1406C3338 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1406C341C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeCheckAuditPrivilege @ 0x1406C3678 (SeCheckAuditPrivilege.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SeExamineSacl @ 0x1408A6730 (SeExamineSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SepProbeAndCaptureString_U @ 0x140627808 (SepProbeAndCaptureString_U.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140627934 (SepAdtAuditObjectAccessWithContext.c)
+ *     SeCheckAuditPrivilege @ 0x1406279BC (SeCheckAuditPrivilege.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140627D4C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityDescriptor @ 0x1406D4920 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SeExamineSacl @ 0x140921470 (SeExamineSacl.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenObjectAuditAlarm(
@@ -36,218 +36,229 @@ NTSTATUS __stdcall NtOpenObjectAuditAlarm(
         BOOLEAN AccessGranted,
         PBOOLEAN GenerateOnClose)
 {
-  BOOLEAN PreviousMode; // r14
-  NTSTATUS v14; // edi
-  PVOID v15; // rdi
-  NTSTATUS v16; // r14d
-  __int64 v17; // rdi
-  PBOOLEAN v18; // r12
+  PUNICODE_STRING v12; // r14
+  char PreviousMode; // r12
+  int v15; // edx
+  NTSTATUS v16; // edi
+  struct _DMA_ADAPTER *v17; // rdi
+  __int64 v18; // rdx
+  NTSTATUS v19; // esi
+  __int64 v20; // r9
+  __int64 v21; // rdi
   ULONG PrivilegeCount; // r14d
-  unsigned int v20; // ecx
-  char *v21; // rdx
-  ULONG *Pool2; // rax
-  ULONG *v23; // r12
-  PVOID v25; // r14
-  char v26; // al
-  PVOID v27; // rdi
-  BOOLEAN v28; // r13
-  __int64 v29; // rcx
-  NTSTATUS v30; // ebx
-  __int16 v31; // ax
+  unsigned int v23; // ecx
+  char *v24; // rdx
+  ULONG *PoolWithTag; // rax
+  __int64 v26; // rdx
+  __int64 v27; // r9
+  ULONG *v28; // r12
+  PVOID v30; // r14
+  char v31; // al
   __int64 v32; // rdx
-  ACL *v33; // rdx
-  __int64 v34; // rax
-  ACL *v35; // rcx
-  char v36; // [rsp+A0h] [rbp-B8h]
-  BOOLEAN GenerateAudit; // [rsp+A2h] [rbp-B6h] BYREF
-  BOOLEAN GenerateAlarm[5]; // [rsp+A3h] [rbp-B5h] BYREF
-  int v39; // [rsp+A8h] [rbp-B0h]
-  unsigned __int16 v40; // [rsp+ACh] [rbp-ACh] BYREF
-  PVOID v41; // [rsp+B0h] [rbp-A8h] BYREF
+  __int64 v33; // r9
+  PVOID v34; // rdi
+  BOOLEAN v35; // r13
+  NTSTATUS v36; // ebx
+  __int64 v37; // rcx
+  __int16 v38; // ax
+  __int64 v39; // rdx
+  ACL *v40; // rdx
+  __int64 v41; // rax
+  ACL *v42; // rcx
+  BOOLEAN GenerateAudit; // [rsp+A1h] [rbp-B7h] BYREF
+  BOOLEAN GenerateAlarm; // [rsp+A2h] [rbp-B6h] BYREF
+  char v45; // [rsp+A3h] [rbp-B5h]
+  char v46; // [rsp+A4h] [rbp-B4h]
+  int v47; // [rsp+A8h] [rbp-B0h]
+  unsigned __int16 v48; // [rsp+ACh] [rbp-ACh] BYREF
+  PVOID v49; // [rsp+B0h] [rbp-A8h] BYREF
   PVOID Token; // [rsp+B8h] [rbp-A0h] BYREF
-  PVOID v43; // [rsp+C0h] [rbp-98h] BYREF
+  PVOID v51; // [rsp+C0h] [rbp-98h] BYREF
   PVOID P; // [rsp+C8h] [rbp-90h] BYREF
-  PVOID v45; // [rsp+D0h] [rbp-88h] BYREF
-  PVOID v46; // [rsp+D8h] [rbp-80h]
-  __int64 v47; // [rsp+E0h] [rbp-78h] BYREF
+  PVOID v53; // [rsp+D0h] [rbp-88h] BYREF
+  PVOID v54; // [rsp+D8h] [rbp-80h]
+  unsigned __int64 v55; // [rsp+E0h] [rbp-78h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+E8h] [rbp-70h] BYREF
-  ULONG v49; // [rsp+108h] [rbp-50h]
-  unsigned int v50; // [rsp+10Ch] [rbp-4Ch]
+  ULONG v57; // [rsp+108h] [rbp-50h]
+  unsigned int v58; // [rsp+10Ch] [rbp-4Ch]
   size_t Size; // [rsp+110h] [rbp-48h]
 
+  v12 = ObjectTypeName;
   P = 0LL;
-  v43 = 0LL;
-  v45 = 0LL;
-  v41 = 0LL;
-  v46 = 0LL;
+  v51 = 0LL;
+  v53 = 0LL;
+  v49 = 0LL;
+  v54 = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   GenerateAudit = 0;
-  GenerateAlarm[0] = 0;
-  v47 = 0LL;
-  v40 = 0;
+  GenerateAlarm = 0;
+  v55 = 0LL;
+  v48 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v36 = PreviousMode;
-  GenerateAlarm[1] = PreviousMode;
+  v45 = PreviousMode;
+  v46 = PreviousMode;
   SeCaptureSubjectContext(&SubjectContext);
   if ( !SeCheckAuditPrivilege((__int64)&SubjectContext, PreviousMode) )
   {
-    v30 = -1073741727;
-    goto LABEL_54;
-  }
-  Token = 0LL;
-  v14 = ObReferenceObjectByHandle(ClientToken, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Token, 0LL);
-  if ( v14 < 0 )
-  {
-    SeReleaseSubjectContext(&SubjectContext);
-    if ( v14 != -1073741816 )
-    {
-      v29 = (unsigned int)v14;
-LABEL_51:
-      SepAuditFailed(v29);
-    }
-    return v14;
-  }
-  v15 = Token;
-  if ( *((_DWORD *)Token + 48) == 2 && *((int *)Token + 49) < 1 )
-  {
-    ObfDereferenceObject(Token);
-    v30 = -1073741659;
+    v36 = -1073741727;
 LABEL_54:
     SeReleaseSubjectContext(&SubjectContext);
-    return v30;
+    return v36;
+  }
+  Token = 0LL;
+  v16 = ObReferenceObjectByHandle(ClientToken, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Token, 0LL);
+  if ( v16 < 0 )
+  {
+    SeReleaseSubjectContext(&SubjectContext);
+    if ( v16 != -1073741816 )
+    {
+      v37 = (unsigned int)v16;
+LABEL_50:
+      SepAuditFailed(v37);
+    }
+    return v16;
+  }
+  v17 = (struct _DMA_ADAPTER *)Token;
+  if ( *((_DWORD *)Token + 48) == 2 && *((int *)Token + 49) < 1 )
+  {
+    HalPutDmaAdapter((PADAPTER_OBJECT)Token);
+    v36 = -1073741659;
+    goto LABEL_54;
   }
   if ( !SecurityDescriptor )
   {
-    ObfDereferenceObject(Token);
-    v30 = -1073741703;
+    HalPutDmaAdapter((PADAPTER_OBJECT)Token);
+    v36 = -1073741703;
     goto LABEL_54;
   }
-  v16 = SeCaptureSecurityDescriptor((__int64)SecurityDescriptor, PreviousMode, 1, 0, &v41);
-  v39 = v16;
-  if ( v16 >= 0 && v41 )
+  LOBYTE(v15) = PreviousMode;
+  v19 = SeCaptureSecurityDescriptor((_DWORD)SecurityDescriptor, v15, 1, 0, (__int64)&v49);
+  v47 = v19;
+  if ( v19 >= 0 && v49 )
   {
     if ( AccessGranted && Privileges )
     {
       if ( ((unsigned __int8)Privileges & 3) != 0 )
-        goto LABEL_28;
-      v17 = 0x7FFFFFFF0000LL;
+        goto LABEL_29;
+      v21 = 0x7FFFFFFF0000LL;
       PrivilegeCount = Privileges->PrivilegeCount;
-      v49 = PrivilegeCount;
+      v57 = PrivilegeCount;
       if ( PrivilegeCount >= 0x43 )
       {
-        v14 = -1073741811;
-        v39 = -1073741811;
-        v18 = GenerateOnClose;
-        goto LABEL_29;
+        v16 = -1073741811;
+        v47 = -1073741811;
+        goto LABEL_30;
       }
-      v20 = 12 * PrivilegeCount + 8;
-      v50 = v20;
+      v23 = 12 * PrivilegeCount + 8;
+      v58 = v23;
       if ( 12 * PrivilegeCount != -8 )
       {
-        v21 = (char *)Privileges + v20;
-        if ( (unsigned __int64)v21 > 0x7FFFFFFF0000LL || v21 < (char *)Privileges )
+        v24 = (char *)Privileges + v23;
+        if ( (unsigned __int64)v24 > 0x7FFFFFFF0000LL || v24 < (char *)Privileges )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      Size = v20;
-      Pool2 = (ULONG *)ExAllocatePool2(256LL, v20, 1917871443LL);
-      v23 = Pool2;
-      v46 = Pool2;
-      if ( !Pool2 )
+      Size = v23;
+      PoolWithTag = (ULONG *)ExAllocatePoolWithTag(PagedPool, v23, 0x72506553u);
+      v28 = PoolWithTag;
+      v54 = PoolWithTag;
+      if ( !PoolWithTag )
       {
-        SeReleaseSecurityDescriptor(v41, v36, 0);
-        ObfDereferenceObject(Token);
+        LOBYTE(v26) = v45;
+        SeReleaseSecurityDescriptor(v49, v26, 0LL, v27);
+        HalPutDmaAdapter((PADAPTER_OBJECT)Token);
         SeReleaseSubjectContext(&SubjectContext);
-        v39 = -1073741670;
+        v47 = -1073741670;
         SepAuditFailed(3221225626LL);
         return -1073741670;
       }
-      memmove(Pool2, Privileges, Size);
-      *v23 = PrivilegeCount;
+      memmove(PoolWithTag, Privileges, Size);
+      *v28 = PrivilegeCount;
+      PreviousMode = v45;
+      v12 = ObjectTypeName;
     }
     else
     {
-      v17 = 0x7FFFFFFF0000LL;
+      v21 = 0x7FFFFFFF0000LL;
     }
     if ( !HandleId )
     {
-LABEL_13:
-      v18 = GenerateOnClose;
+LABEL_20:
       if ( (unsigned __int64)GenerateOnClose < 0x7FFFFFFF0000LL )
-        v17 = (__int64)GenerateOnClose;
-      *(_BYTE *)v17 = *(_BYTE *)v17;
-      v14 = SepProbeAndCaptureString_U((unsigned __int64)SubsystemName, (__int64)&P);
-      v39 = v14;
-      if ( v14 >= 0 )
+        v21 = (__int64)GenerateOnClose;
+      *(_BYTE *)v21 = *(_BYTE *)v21;
+      v16 = SepProbeAndCaptureString_U((unsigned __int64)SubsystemName, (__int64)&P);
+      v47 = v16;
+      if ( v16 >= 0 )
       {
-        v14 = SepProbeAndCaptureString_U((unsigned __int64)ObjectTypeName, (__int64)&v43);
-        v39 = v14;
-        if ( v14 >= 0 )
+        v16 = SepProbeAndCaptureString_U((unsigned __int64)v12, (__int64)&v51);
+        v47 = v16;
+        if ( v16 >= 0 )
         {
-          v14 = SepProbeAndCaptureString_U((unsigned __int64)ObjectName, (__int64)&v45);
-          v39 = v14;
+          v16 = SepProbeAndCaptureString_U((unsigned __int64)ObjectName, (__int64)&v53);
+          v47 = v16;
         }
       }
-LABEL_29:
-      if ( v14 >= 0 )
+LABEL_30:
+      if ( v16 >= 0 )
       {
-        v25 = v43;
-        v26 = SepAdtAuditObjectAccessWithContext(
+        v30 = v51;
+        v31 = SepAdtAuditObjectAccessWithContext(
                 0LL,
-                (const UNICODE_STRING *)v43,
+                (const UNICODE_STRING *)v51,
                 AccessGranted,
                 AccessGranted == 0,
                 (__int64)&SubjectContext,
                 0,
-                &v40);
-        v27 = v41;
-        if ( !v26 )
-          goto LABEL_31;
-        v31 = *((_WORD *)v41 + 1);
-        if ( (v31 & 0x10) == 0 )
+                &v48);
+        v34 = v49;
+        if ( !v31 )
+          goto LABEL_32;
+        v38 = *((_WORD *)v49 + 1);
+        if ( (v38 & 0x10) == 0 )
           goto LABEL_69;
-        if ( v31 >= 0 )
+        if ( v38 >= 0 )
         {
-          v33 = (ACL *)*((_QWORD *)v41 + 3);
+          v40 = (ACL *)*((_QWORD *)v49 + 3);
           goto LABEL_71;
         }
-        v32 = *((unsigned int *)v41 + 3);
-        if ( (_DWORD)v32 )
-          v33 = (ACL *)((char *)v41 + v32);
+        v39 = *((unsigned int *)v49 + 3);
+        if ( (_DWORD)v39 )
+          v40 = (ACL *)((char *)v49 + v39);
         else
 LABEL_69:
-          v33 = 0LL;
+          v40 = 0LL;
 LABEL_71:
-        if ( (v31 & 0x10) == 0 )
+        if ( (v38 & 0x10) == 0 )
           goto LABEL_75;
-        if ( v31 >= 0 )
+        if ( v38 >= 0 )
         {
-          v35 = (ACL *)*((_QWORD *)v41 + 3);
+          v42 = (ACL *)*((_QWORD *)v49 + 3);
           goto LABEL_77;
         }
-        v34 = *((unsigned int *)v41 + 3);
-        if ( (_DWORD)v34 )
-          v35 = (ACL *)((char *)v41 + v34);
+        v41 = *((unsigned int *)v49 + 3);
+        if ( (_DWORD)v41 )
+          v42 = (ACL *)((char *)v49 + v41);
         else
 LABEL_75:
-          v35 = 0LL;
+          v42 = 0LL;
 LABEL_77:
-        SeExamineSacl(v35, v33, Token, GrantedAccess | DesiredAccess, AccessGranted, &GenerateAudit, GenerateAlarm);
-        if ( GenerateAudit || GenerateAlarm[0] )
+        SeExamineSacl(v42, v40, Token, GrantedAccess | DesiredAccess, AccessGranted, &GenerateAudit, &GenerateAlarm);
+        if ( GenerateAudit || GenerateAlarm )
         {
-          v27 = v41;
-          v25 = v43;
-          v28 = SepAdtOpenObjectAuditAlarm(
-                  v40,
+          v34 = v49;
+          v30 = v51;
+          v35 = SepAdtOpenObjectAuditAlarm(
+                  v48,
                   (int)P,
-                  (unsigned __int64)&v47 & -(__int64)(HandleId != 0LL),
-                  (int)v43,
-                  (__int64)v45,
-                  v41,
+                  (unsigned __int64)&v55 & -(__int64)(HandleId != 0LL),
+                  (int)v51,
+                  (__int64)v53,
+                  v49,
                   (__int64)Token,
                   (__int64)SubjectContext.PrimaryToken,
                   DesiredAccess,
                   GrantedAccess,
-                  (__int64)v46,
+                  (__int64)v54,
                   AccessGranted,
                   (__int64)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink,
                   2,
@@ -256,71 +267,73 @@ LABEL_77:
                   0LL,
                   0LL,
                   0LL);
-LABEL_32:
-          if ( !GenerateAudit && !GenerateAlarm[0] && Privileges && AccessGranted )
+LABEL_33:
+          if ( !GenerateAudit && !GenerateAlarm && Privileges && AccessGranted )
           {
-            v25 = v43;
+            v30 = v51;
             SepAdtPrivilegeObjectAuditAlarm(
               (const int *)P,
-              (unsigned __int16 *)v43,
-              (unsigned __int16 *)v45,
-              v47,
+              (unsigned __int16 *)v51,
+              (unsigned __int16 *)v53,
+              v55,
               (__int64)Token,
               (__int64)SubjectContext.PrimaryToken,
               (__int64)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink,
               DesiredAccess,
-              (int *)v46,
+              (int *)v54,
               AccessGranted);
-            v28 = 0;
-            v27 = v41;
+            v35 = 0;
+            v34 = v49;
           }
-          SeReleaseSecurityDescriptor(v27, v36, 0);
+          LOBYTE(v32) = PreviousMode;
+          SeReleaseSecurityDescriptor(v34, v32, 0LL, v33);
           if ( P )
             ExFreePoolWithTag(P, 0);
-          if ( v25 )
-            ExFreePoolWithTag(v25, 0);
-          if ( v45 )
-            ExFreePoolWithTag(v45, 0);
-          if ( v46 )
-            ExFreePoolWithTag(v46, 0);
-          ObfDereferenceObject(Token);
+          if ( v30 )
+            ExFreePoolWithTag(v30, 0);
+          if ( v53 )
+            ExFreePoolWithTag(v53, 0);
+          if ( v54 )
+            ExFreePoolWithTag(v54, 0);
+          HalPutDmaAdapter((PADAPTER_OBJECT)Token);
           SeReleaseSubjectContext(&SubjectContext);
-          *v18 = v28;
+          *GenerateOnClose = v35;
           return 0;
         }
-LABEL_31:
-        v28 = 0;
-        goto LABEL_32;
+LABEL_32:
+        v35 = 0;
+        goto LABEL_33;
       }
       if ( P )
         ExFreePoolWithTag(P, 0);
-      if ( v43 )
-        ExFreePoolWithTag(v43, 0);
-      if ( v45 )
-        ExFreePoolWithTag(v45, 0);
-      if ( v46 )
-        ExFreePoolWithTag(v46, 0);
-      SeReleaseSecurityDescriptor(v41, v36, 0);
-      ObfDereferenceObject(Token);
+      if ( v51 )
+        ExFreePoolWithTag(v51, 0);
+      if ( v53 )
+        ExFreePoolWithTag(v53, 0);
+      if ( v54 )
+        ExFreePoolWithTag(v54, 0);
+      LOBYTE(v18) = PreviousMode;
+      SeReleaseSecurityDescriptor(v49, v18, 0LL, v20);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Token);
       SeReleaseSubjectContext(&SubjectContext);
-      if ( v14 == -1073741670 )
+      if ( v16 == -1073741670 )
       {
-        v29 = 3221225626LL;
-        goto LABEL_51;
+        v37 = 3221225626LL;
+        goto LABEL_50;
       }
-      return v14;
+      return v16;
     }
     if ( ((unsigned __int8)HandleId & 7) == 0 )
     {
-      v47 = *(_QWORD *)HandleId;
-      goto LABEL_13;
+      v55 = *(_QWORD *)HandleId;
+      goto LABEL_20;
     }
-LABEL_28:
+LABEL_29:
     ExRaiseDatatypeMisalignment();
   }
-  ObfDereferenceObject(v15);
+  HalPutDmaAdapter(v17);
   SeReleaseSubjectContext(&SubjectContext);
-  if ( v16 == -1073741670 )
+  if ( v19 == -1073741670 )
     SepAuditFailed(3221225626LL);
-  return v16;
+  return v19;
 }

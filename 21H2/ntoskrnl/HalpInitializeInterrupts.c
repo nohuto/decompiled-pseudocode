@@ -1,33 +1,32 @@
 /*
- * XREFs of HalpInitializeInterrupts @ 0x140AF82A8
+ * XREFs of HalpInitializeInterrupts @ 0x140A396FC
  * Callers:
- *     HalpInterruptInitDiscard @ 0x140AF819C (HalpInterruptInitDiscard.c)
+ *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14036FA30 (HalQueryMaximumProcessorCount.c)
- *     HalpInterruptInitializeController @ 0x1403AE924 (HalpInterruptInitializeController.c)
- *     HalpInterruptSetIdtEntry @ 0x1403AEF08 (HalpInterruptSetIdtEntry.c)
- *     HalpInterruptParseAcpiTables @ 0x1403B85D0 (HalpInterruptParseAcpiTables.c)
- *     HalpInterruptInitializeIpis @ 0x1403B8D0C (HalpInterruptInitializeIpis.c)
- *     HalpInterruptSelectController @ 0x1403B8DA0 (HalpInterruptSelectController.c)
- *     HalpApicDiscover @ 0x1403BD04C (HalpApicDiscover.c)
- *     HalpPicDiscover @ 0x1403BD3FC (HalpPicDiscover.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
+ *     HalpInterruptParseAcpiTables @ 0x1403A8B90 (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptInitializeIpis @ 0x1403A92CC (HalpInterruptInitializeIpis.c)
+ *     HalpInterruptSelectController @ 0x1403A9360 (HalpInterruptSelectController.c)
+ *     HalpApicDiscover @ 0x1403AABC0 (HalpApicDiscover.c)
+ *     HalpPicDiscover @ 0x1403AAF70 (HalpPicDiscover.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
 {
-  int v2; // ebx
-  unsigned int v3; // ebx
+  __int64 v2; // rcx
+  int v3; // ebx
+  unsigned int v4; // ebx
   void *MemoryInternal; // rax
-  unsigned int v5; // ebx
-  void *v6; // rax
+  unsigned int v6; // ebx
   void *v7; // rax
-  unsigned int v8; // ebx
-  void *v9; // rax
-  __int64 v10; // r9
+  void *v8; // rax
+  unsigned int v9; // ebx
+  void *v10; // rax
   __int64 v11; // r9
   __int64 v12; // r9
   __int64 v13; // r9
@@ -35,125 +34,130 @@ __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
   __int64 v15; // r9
   __int64 v16; // r9
   __int64 v17; // r9
+  __int64 v18; // r9
   ULONG_PTR *i; // rdi
-  ULONG_PTR v19; // rcx
-  int v20; // eax
+  ULONG_PTR v20; // rcx
+  int v21; // eax
   _DWORD *v22; // rax
-  unsigned int v23; // ecx
-  int v24; // eax
-  ULONG_PTR v25; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v23; // rcx
+  unsigned int v24; // ecx
+  int v25; // eax
+  ULONG_PTR v27; // [rsp+60h] [rbp+18h] BYREF
 
-  v25 = 0LL;
+  v27 = 0LL;
   HalpInterruptOverridesLock = 0LL;
   HalpInterruptLocalUnitErrorLock = 0LL;
-  qword_140C4AD88 = (__int64)&HalpInterruptOverrides;
+  qword_140C49888 = (__int64)&HalpInterruptOverrides;
   HalpInterruptOverrides = (__int64)&HalpInterruptOverrides;
-  HalpInterruptPhysicalTargets = 2097153;
-  memset(&unk_140C4DD64, 0, 0x104uLL);
-  v2 = HalpInterruptParseAcpiTables(a1, 0);
-  if ( v2 < 0 )
-    goto LABEL_25;
-  HalpInterruptMaxProcessors = HalQueryMaximumProcessorCount();
-  v3 = 24 * HalpInterruptMaxProcessors;
+  HalpInterruptPhysicalTargets = 1310721;
+  memset(&unk_140C4BA44, 0, 0xA4uLL);
+  v3 = HalpInterruptParseAcpiTables(a1, 0);
+  if ( v3 < 0 )
+    goto LABEL_32;
+  HalpInterruptMaxProcessors = HalQueryMaximumProcessorCount(v2);
+  v4 = 24 * HalpInterruptMaxProcessors;
   MemoryInternal = (void *)HalpMmAllocateMemoryInternal(24 * HalpInterruptMaxProcessors, 1u);
   HalpInterruptTargets = (__int64)MemoryInternal;
   if ( !MemoryInternal )
-    goto LABEL_24;
-  memset(MemoryInternal, 0, v3);
-  v5 = HalpInterruptMaxProcessors << 6;
-  v6 = (void *)HalpMmAllocateMemoryInternal(HalpInterruptMaxProcessors << 6, 1u);
-  HalpInterruptProcessorState = (ULONG_PTR)v6;
-  if ( !v6
-    || (memset(v6, 0, v5),
-        v7 = (void *)HalpMmAllocateMemoryInternal(v5, 1u),
-        (HalpInterruptDynamicProcessorState = (__int64)v7) == 0)
-    || (memset(v7, 0, v5),
-        v8 = 8 * HalpInterruptMaxProcessors,
-        v9 = (void *)HalpMmAllocateMemoryInternal(8 * HalpInterruptMaxProcessors, 1u),
-        (HalpInterruptProcessorPcr = (__int64)v9) == 0) )
+    goto LABEL_31;
+  memset(MemoryInternal, 0, v4);
+  v6 = HalpInterruptMaxProcessors << 6;
+  v7 = (void *)HalpMmAllocateMemoryInternal(HalpInterruptMaxProcessors << 6, 1u);
+  HalpInterruptProcessorState = (ULONG_PTR)v7;
+  if ( !v7
+    || (memset(v7, 0, v6),
+        v8 = (void *)HalpMmAllocateMemoryInternal(v6, 1u),
+        (HalpInterruptDynamicProcessorState = (__int64)v8) == 0)
+    || (memset(v8, 0, v6),
+        v9 = 8 * HalpInterruptMaxProcessors,
+        v10 = (void *)HalpMmAllocateMemoryInternal(8 * HalpInterruptMaxProcessors, 1u),
+        (HalpInterruptProcessorPcr = (__int64)v10) == 0) )
   {
-LABEL_24:
-    v2 = -1073741801;
-    goto LABEL_25;
+LABEL_31:
+    v3 = -1073741801;
+    goto LABEL_32;
   }
-  memset(v9, 0, v8);
+  memset(v10, 0, v9);
   *(_QWORD *)HalpInterruptProcessorPcr = KeGetPcr();
-  v2 = HalpApicDiscover();
-  if ( v2 >= 0 )
-    v2 = HalpPicDiscover();
-  if ( v2 < 0 )
+  v3 = HalpApicDiscover();
+  if ( v3 >= 0 )
+    v3 = HalpPicDiscover();
+  if ( v3 < 0 )
   {
-    HalpInterruptSetProblemEx(0LL, 3, v2, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 0x248u);
-    goto LABEL_25;
+    HalpInterruptLastProblem = 3;
+    goto LABEL_29;
   }
-  HalpInterruptSetIdtEntry(0x35u, (int)HalpInterruptDeferredErrorService, 5, v10, -1LL);
-  HalpInterruptSetIdtEntry(0xE3u, (int)HalpInterruptDeferredRecoveryService, 14, v11, -1LL);
-  HalpInterruptSetIdtEntry(0x36u, (int)HalpInterruptDeferredErrorService, 5, v12, -1LL);
-  HalpInterruptSetIdtEntry(0xDFu, (int)HalpInterruptSpuriousService, 15, v13, -2LL);
-  HalpInterruptSetIdtEntry(0xD8u, (int)HalpInterruptStubService, 15, v14, -1LL);
-  HalpInterruptSetIdtEntry(0xE2u, (int)HalpInterruptLocalErrorService, 15, v15, -1LL);
-  HalpInterruptSetIdtEntry(0xD7u, (int)HalpInterruptRebootService, 15, v16, -1LL);
-  HalpInterruptSetIdtEntry(0xFEu, (int)HalpPerfInterrupt, 15, v17, -3LL);
-  byte_140D688E2 = 17;
-  byte_140D68AEA = 15;
-  dword_140D68AEB = 2;
-  byte_140D689BF = 17;
-  byte_140D68F3B = 15;
-  dword_140D68F3C = 223;
-  v2 = HalpInterruptSelectController(&v25);
-  if ( v2 < 0 )
-    goto LABEL_25;
+  HalpInterruptSetIdtEntry(0x35u, (int)HalpInterruptDeferredErrorService, 5, v11, -1LL);
+  HalpInterruptSetIdtEntry(0xE3u, (int)HalpInterruptDeferredRecoveryService, 14, v12, -1LL);
+  HalpInterruptSetIdtEntry(0x36u, (int)HalpInterruptDeferredErrorService, 5, v13, -1LL);
+  HalpInterruptSetIdtEntry(0xDFu, (int)HalpInterruptSpuriousService, 15, v14, -2LL);
+  HalpInterruptSetIdtEntry(0xD8u, (int)HalpInterruptStubService, 15, v15, -1LL);
+  HalpInterruptSetIdtEntry(0xE2u, (int)HalpInterruptLocalErrorService, 15, v16, -1LL);
+  HalpInterruptSetIdtEntry(0xD7u, (int)HalpInterruptRebootService, 15, v17, -1LL);
+  HalpInterruptSetIdtEntry(0xFEu, (int)HalpPerfInterrupt, 15, v18, -3LL);
+  byte_140D58962 = 17;
+  byte_140D58D6A = 15;
+  dword_140D58D6B = 2;
+  byte_140D58A3F = 17;
+  byte_140D591BB = 15;
+  dword_140D591BC = 223;
+  v3 = HalpInterruptSelectController((__int64)&v27);
+  if ( v3 < 0 )
+    goto LABEL_32;
   for ( i = (ULONG_PTR *)HalpRegisteredInterruptControllers; i != &HalpRegisteredInterruptControllers; i = (ULONG_PTR *)*i )
   {
-    v2 = HalpInterruptInitializeController((ULONG_PTR)i);
-    if ( v2 < 0 )
-      goto LABEL_25;
+    v3 = HalpInterruptInitializeController((ULONG_PTR)i);
+    if ( v3 < 0 )
+      goto LABEL_32;
   }
-  v2 = HalpInterruptParseAcpiTables(a1, 1u);
-  if ( v2 < 0 )
-    goto LABEL_25;
-  v19 = v25;
+  v3 = HalpInterruptParseAcpiTables(a1, 1u);
+  if ( v3 < 0 )
+    goto LABEL_32;
+  v20 = v27;
   HalpHwToSwIrqlMap = (__int128)_mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
   LOWORD(HalpHwToSwIrqlMap) = 256;
-  v20 = *(_DWORD *)(v25 + 228);
+  v21 = *(_DWORD *)(v27 + 220);
   *(_WORD *)((char *)&HalpHwToSwIrqlMap + 13) = 3597;
   BYTE12(HalpHwToSwIrqlMap) = 12;
   HIBYTE(HalpHwToSwIrqlMap) = 15;
   BYTE2(HalpHwToSwIrqlMap) = 2;
-  if ( (v20 & 1) == 0 )
+  if ( (v21 & 1) == 0 )
   {
     v22 = (_DWORD *)HalpInterruptTargets;
     LODWORD(HalpInterruptProcessorCount) = 1;
     *(_DWORD *)(HalpInterruptTargets + 8) = 0;
     *v22 = 4;
-    v20 = *(_DWORD *)(v19 + 228);
+    v21 = *(_DWORD *)(v20 + 220);
   }
   if ( !(_DWORD)HalpInterruptProcessorCount )
     LODWORD(HalpInterruptProcessorCount) = 1;
-  if ( (v20 & 4) == 0 )
+  if ( (v21 & 4) == 0 )
     HalpInterruptLogicalFlatLimit = 0;
-  HalpInterruptController = v19;
-  v2 = HalpInterruptInitializeIpis();
-  if ( v2 < 0 )
-LABEL_25:
-    KeBugCheckEx(0x5Cu, 0x200uLL, 0x5250631uLL, HalpInterruptLastProblem, v2);
-  if ( (*(_DWORD *)(HalpInterruptController + 228) & 0x100) != 0 )
+  HalpInterruptController = v20;
+  v3 = HalpInterruptInitializeIpis();
+  if ( v3 < 0 )
+LABEL_32:
+    KeBugCheckEx(0x5Cu, 0x200uLL, 0x5250631uLL, HalpInterruptLastProblem, v3);
+  if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 )
   {
     if ( KeGetCurrentPrcb()->CpuVendor == 1 )
     {
-      v24 = 0x200000;
+      v25 = 0x200000;
     }
     else
     {
-      v23 = 240 * HalQueryMaximumProcessorCount();
-      v24 = 0x10000;
-      if ( v23 <= 0x10000 )
+      v24 = 240 * HalQueryMaximumProcessorCount(v23);
+      v25 = 0x10000;
+      if ( v24 <= 0x10000 )
       {
-        _BitScanReverse(&v23, 2 * v23 - 1);
-        v24 = 1 << v23;
+        _BitScanReverse(&v24, 2 * v24 - 1);
+        v25 = 1 << v24;
       }
     }
-    HalpIrtTotalEntries = v24;
+    HalpIrtTotalEntries = v25;
   }
-  return (unsigned int)v2;
+LABEL_29:
+  if ( v3 < 0 )
+    goto LABEL_32;
+  return (unsigned int)v3;
 }

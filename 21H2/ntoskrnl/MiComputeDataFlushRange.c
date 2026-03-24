@@ -1,17 +1,17 @@
 /*
- * XREFs of MiComputeDataFlushRange @ 0x140286AB0
+ * XREFs of MiComputeDataFlushRange @ 0x1403152C0
  * Callers:
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
- *     MiComputeFlushRange @ 0x140283E8C (MiComputeFlushRange.c)
+ *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiComputeFlushRange @ 0x140274890 (MiComputeFlushRange.c)
  * Callees:
- *     MiFindLastSubsection @ 0x14022CB60 (MiFindLastSubsection.c)
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     MiLocateSubsectionNode @ 0x140287180 (MiLocateSubsectionNode.c)
- *     MiReleaseControlAreaWaiters @ 0x1402879F8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140287A2C (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140287B04 (MiBuildWakeList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindLastSubsection @ 0x1402A13FC (MiFindLastSubsection.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140316AE0 (MiLocateSubsectionNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeDataFlushRange(__int64 a1, unsigned __int8 a2, _QWORD *a3, __int64 a4, int a5, __int64 a6)
@@ -93,7 +93,7 @@ LABEL_17:
   v11 = SubsectionNode;
   if ( !SubsectionNode )
   {
-LABEL_34:
+LABEL_25:
     v24 = (volatile LONG *)(v9 + 72);
     goto LABEL_19;
   }
@@ -114,7 +114,7 @@ LABEL_7:
     v19 = *(_DWORD *)(v11 + 44) - v14;
     if ( v11 == LastSubsection )
     {
-LABEL_30:
+LABEL_27:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
       if ( !KiIrqlFlags )
         goto LABEL_20;
@@ -140,7 +140,7 @@ LABEL_30:
     {
       v11 = *(_QWORD *)(v11 + 16);
       if ( !v11 )
-        goto LABEL_34;
+        goto LABEL_25;
       if ( *(_DWORD *)(v11 + 104) && (int)MiReferenceSubsection(v11, 0LL) > 1 )
       {
         v20 = *(_QWORD *)(v11 + 8);
@@ -148,7 +148,7 @@ LABEL_30:
       }
       v19 += *(_DWORD *)(v11 + 44);
       if ( v11 == LastSubsection )
-        goto LABEL_30;
+        goto LABEL_27;
     }
   }
   v19 = 0;
@@ -166,17 +166,18 @@ LABEL_10:
       v25 = *(_QWORD *)(v25 + 16);
     }
     while ( v25 != LastSubsection );
-    LastSubsection = v10;
     if ( !v10 )
 LABEL_23:
       LastSubsection = v11;
+    else
+      LastSubsection = v10;
     MiReferenceSubsection(LastSubsection, 0LL);
     v18 = *(_DWORD *)(LastSubsection + 44) - (*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFFu) - 1;
   }
   ++*(_QWORD *)(v9 + 40);
   v21 = MiBuildWakeList(v9, 4LL);
   MiRemoveUnusedSegment(v9);
-  if ( a5 )
+  if ( a5 == 1 )
     *(_DWORD *)(v9 + 56) |= 4u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
   if ( KiIrqlFlags )

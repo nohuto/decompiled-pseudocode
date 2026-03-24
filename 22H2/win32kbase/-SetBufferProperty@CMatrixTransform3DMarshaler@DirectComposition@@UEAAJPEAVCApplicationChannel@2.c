@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C000D2D0
+ * XREFs of ?SetBufferProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B4490
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1C00D6840 (memcmp.c)
+ *     memcmp @ 0x1C00CE910 (memcmp.c)
  */
 
 __int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::SetBufferProperty(

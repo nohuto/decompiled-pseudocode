@@ -1,32 +1,34 @@
 /*
- * XREFs of PipProcessQueryRemovalInKernelMode @ 0x140971C2C
+ * XREFs of PipProcessQueryRemovalInKernelMode @ 0x14073291C
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x1409718E4 (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x14073283C (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x140971B28 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971D4C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PipSendTargetDeviceQueryRemoveNotification @ 0x140971EC8 (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407329B0 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x140732BBC (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1408B9090 (PiSendTargetDeviceRemoveCanceledNotification.c)
  */
 
 __int64 __fastcall PipProcessQueryRemovalInKernelMode(
-        unsigned int a1,
+        int a1,
         __int64 a2,
-        __int64 a3,
+        int a3,
         unsigned int a4,
         __int64 a5,
         __int64 a6)
 {
+  int v7; // ebx
   int v10; // ebx
 
-  if ( (int)PipSendTargetDeviceQueryRemoveNotification(a2, a5, a4, a6) >= 0 )
+  v7 = a2;
+  if ( (int)PipSendTargetDeviceQueryRemoveNotification(a2, a5, a4, a6) < 0 )
   {
-    v10 = PipSendQueryRemoveIrpAndCheckOpenHandles(a1, a2, a3, a4, a5, a6);
-    if ( v10 < 0 )
-      PiSendTargetDeviceRemoveCanceledNotification(a5, a4);
+    return (unsigned int)-2147483608;
   }
   else
   {
-    return (unsigned int)-2147483608;
+    v10 = PipSendQueryRemoveIrpAndCheckOpenHandles(a1, v7, a3, a4, a5, a6);
+    if ( v10 < 0 )
+      PiSendTargetDeviceRemoveCanceledNotification(a5, a4);
   }
   return (unsigned int)v10;
 }

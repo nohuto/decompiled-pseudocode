@@ -1,133 +1,136 @@
 /*
- * XREFs of MiLargePagePromote @ 0x1402CC9A0
+ * XREFs of MiLargePagePromote @ 0x1403F6D98
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x140358400 (MiCoalesceFreeLargePages.c)
- *     MiCoalesceActivePagesIntoFree @ 0x1405B4A34 (MiCoalesceActivePagesIntoFree.c)
+ *     MiCoalesceFreeLargePages @ 0x1403031A0 (MiCoalesceFreeLargePages.c)
  * Callees:
- *     MiDetermineCoalescedLargePageHeatState @ 0x140230700 (MiDetermineCoalescedLargePageHeatState.c)
- *     MiInsertLargePageInNodeList @ 0x1402BEEA0 (MiInsertLargePageInNodeList.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402CB2D0 (MiUnlinkNodeLargePageHelper.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdatePageFileHighInPte @ 0x14033B6A0 (MiUpdatePageFileHighInPte.c)
- *     MiPageToChannel @ 0x1403B76EC (MiPageToChannel.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiPageToNode @ 0x1402D03D4 (MiPageToNode.c)
+ *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140303120 (MiIsFreeZeroPfnCold.c)
+ *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x140318F30 (MiUnlinkNodeLargePageHelper.c)
+ *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
+ *     MiDetermineNewPfnHeatState @ 0x1403F7D80 (MiDetermineNewPfnHeatState.c)
  */
 
-__int64 __fastcall MiLargePagePromote(__int64 a1, unsigned int a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall MiLargePagePromote(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
-  int v7; // esi
-  unsigned int v8; // ebp
-  unsigned __int64 v9; // r14
-  __int64 v10; // rbx
-  __int64 v11; // rdi
-  __int64 v12; // r12
-  __int64 v13; // rax
-  unsigned __int64 v14; // r8
-  unsigned int v15; // edi
-  unsigned __int64 v16; // r12
-  __int64 v17; // r14
-  unsigned int v18; // eax
-  unsigned __int64 v19; // rax
-  char v20; // cl
-  char v21; // al
-  __int64 v22; // rbx
-  int v23; // ebp
-  __int64 v24; // rdx
-  __int64 v25; // r11
-  __int64 v27; // [rsp+38h] [rbp-90h]
-  unsigned __int64 v28; // [rsp+40h] [rbp-88h]
-  __int64 v30; // [rsp+60h] [rbp-68h] BYREF
-  int v31; // [rsp+68h] [rbp-60h]
-  int v32; // [rsp+6Ch] [rbp-5Ch]
-  __int16 v33; // [rsp+70h] [rbp-58h]
-  __int64 v34; // [rsp+72h] [rbp-56h]
-  int v35; // [rsp+7Ah] [rbp-4Eh]
-  __int16 v36; // [rsp+7Eh] [rbp-4Ah]
+  __int64 v4; // r12
+  unsigned __int64 v5; // r15
+  unsigned __int64 v6; // r13
+  char v7; // di
+  char v8; // si
+  __int64 v9; // rbx
+  __int64 v10; // r14
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned int v14; // r14d
+  unsigned __int64 v15; // r13
+  __int64 v16; // r15
+  unsigned int PfnChannel; // eax
+  int v18; // eax
+  char v19; // cl
+  char v20; // al
+  __int64 v21; // rbx
+  __int64 v22; // rdx
+  int v23; // r9d
+  __int64 v24; // [rsp+38h] [rbp-39h]
+  _QWORD *v25; // [rsp+40h] [rbp-31h]
+  unsigned __int64 v26; // [rsp+48h] [rbp-29h]
+  __int64 v27; // [rsp+50h] [rbp-21h] BYREF
+  int v28; // [rsp+58h] [rbp-19h]
+  int v29; // [rsp+5Ch] [rbp-15h]
+  __int16 v30; // [rsp+60h] [rbp-11h]
+  int v31; // [rsp+62h] [rbp-Fh]
+  __int16 v32; // [rsp+66h] [rbp-Bh]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-9h] BYREF
+  int v36; // [rsp+E8h] [rbp+77h]
 
+  v4 = a2 - 1;
+  v31 = 0;
+  v32 = 0;
+  v5 = MiLargePageSizes[a2];
+  v6 = MiLargePageSizes[v4];
   v7 = 0;
-  *a5 = 0;
+  v26 = v6;
   v8 = 0;
-  v9 = MiLargePageSizes[a2];
-  v28 = MiLargePageSizes[a2 - 1];
-  v10 = 48 * a1 - 0x220000000000LL;
-  v11 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
-  v12 = 24512LL * *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((48 * a1) >> 4)) + 2);
-  v27 = v12 + *(_QWORD *)(v11 + 16);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v27 + 22848));
-  if ( !*(_QWORD *)(v27 + 22904) )
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  *a4 = 0;
+  v36 = 0;
+  v9 = 48 * a1 - 0x58000000000LL;
+  v24 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v9 + 40) >> 39) & 0x3FFLL));
+  v10 = 4544LL * (unsigned int)MiPageToNode(48 * a1 / 48);
+  v25 = (_QWORD *)(v10 + *(_QWORD *)(v24 + 16));
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(v25 + 541, &LockHandle);
+  v12 = 0LL;
+  if ( v25[544] )
   {
-    v13 = *(_QWORD *)(v11 + 16);
-    v14 = v28;
-    v15 = 0;
-    ++*(_DWORD *)(v12 + v13 + 22788);
-    v16 = v28 / v9;
-    if ( v28 / v9 )
-    {
-      v17 = 48 * v9;
-      do
-      {
-        if ( !a4 )
-        {
-          if ( qword_140C50710 )
-            v18 = MiPageToChannel(0xAAAAAAAAAAAAAAABuLL * ((v10 + 0x220000000000LL) >> 4));
-          else
-            v18 = 0;
-          MiUnlinkNodeLargePageHelper((_QWORD *)v27, v10, a2, v18, 34);
-        }
-        v19 = *(_QWORD *)(v10 + 16);
-        v8 |= ((v19 & 0x3E0) != 0) + 1;
-        if ( qword_140C50780 && (v19 & 0x10) == 0 )
-          v19 &= ~qword_140C50780;
-        if ( HIDWORD(v19) == 4294967293 )
-          v7 |= 1u;
-        else
-          v7 |= 2u;
-        v20 = *(_BYTE *)(v10 + 36) & 0xFC;
-        if ( v15 )
-        {
-          v21 = *(_BYTE *)(v10 + 34);
-          *(_QWORD *)(v10 + 8) = 0LL;
-          *(_BYTE *)(v10 + 36) = v20;
-          *(_BYTE *)(v10 + 34) = v21 & 0xF8 | 6;
-        }
-        else
-        {
-          *(_BYTE *)(v10 + 36) = v20 | ~(a2 - 1) & 3;
-        }
-        ++v15;
-        v10 += v17;
-      }
-      while ( v15 < v16 );
-      v14 = v28;
-    }
-    v22 = -48LL * v14 + v10;
-    v23 = (v8 >> 1) & 1;
-    if ( a4 )
-    {
-      v23 = 1;
-    }
-    else if ( !MiDetermineCoalescedLargePageHeatState() )
-    {
-      v24 = 4294967293LL;
-      goto LABEL_20;
-    }
-    v24 = 0LL;
-LABEL_20:
-    *(_QWORD *)(v22 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v22 + 16), v24);
-    v30 = a1;
-    v34 = v25;
-    v35 = v25;
-    v36 = v25;
-    v31 = v23;
-    v32 = 6;
-    v33 = 258;
-    MiInsertLargePageInNodeList((__int64)&v30);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v27 + 22848));
-    return 1LL;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    return 0LL;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v27 + 22848));
-  _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  return 0LL;
+  ++*(_DWORD *)(v10 + *(_QWORD *)(v24 + 16) + 4284);
+  v14 = 0;
+  v15 = v6 / v5;
+  if ( v15 )
+  {
+    v16 = 48 * v5;
+    do
+    {
+      PfnChannel = MiGetPfnChannel(v9);
+      MiUnlinkNodeLargePageHelper(v25, v9, a2, PfnChannel, 10);
+      v8 |= ((*(_DWORD *)(v9 + 16) & 0x3E0) != 0LL) + 1;
+      LOBYTE(v18) = MiIsFreeZeroPfnCold(v9);
+      v12 = 0LL;
+      v7 |= 2 - (v18 != 0);
+      v19 = *(_BYTE *)(v9 + 39) & 0xFC;
+      if ( v14 )
+      {
+        v20 = *(_BYTE *)(v9 + 34) & 0xFE;
+        *(_BYTE *)(v9 + 39) = v19;
+        *(_BYTE *)(v9 + 34) = v20 | 6;
+      }
+      else
+      {
+        *(_BYTE *)(v9 + 39) = v19 | ~(_BYTE)v4 & 3;
+      }
+      ++v14;
+      v9 += v16;
+    }
+    while ( v14 < v15 );
+  }
+  v21 = -48LL * v26 + v9;
+  if ( (v8 & 2) == 0 )
+  {
+    if ( (v7 & 2) != 0 && (unsigned int)MiColdPageSizeSupported((unsigned int)v4) )
+    {
+      *a4 = 1;
+    }
+    else
+    {
+      if ( !(unsigned int)MiDetermineNewPfnHeatState(0LL, (unsigned int)v4, v11, v12) )
+        goto LABEL_11;
+      if ( (v7 & 1) == 0 )
+        goto LABEL_13;
+    }
+    v22 = 4294967293LL;
+    goto LABEL_12;
+  }
+  v36 = 1;
+LABEL_11:
+  v22 = 0LL;
+LABEL_12:
+  *(_QWORD *)(v21 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v21 + 16), v22);
+LABEL_13:
+  v27 = a1;
+  v28 = v36;
+  v31 = v23;
+  v32 = v23;
+  v29 = 6;
+  v30 = 258;
+  MiInsertLargePageInNodeList((__int64)&v27);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  return 1LL;
 }

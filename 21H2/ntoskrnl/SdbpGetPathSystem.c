@@ -1,24 +1,24 @@
 /*
- * XREFs of SdbpGetPathSystem @ 0x140A14210
+ * XREFs of SdbpGetPathSystem @ 0x140967280
  * Callers:
  *     <none>
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A142D0 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140A17D10 (AslEnvGetSystem32DirPathBuf.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140967340 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x14096A550 (AslEnvGetSystem32DirPathBuf.c)
  */
 
-__int64 __fastcall SdbpGetPathSystem(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR a3, __int64 a4)
+__int64 __fastcall SdbpGetPathSystem(NTSTRSAFE_PWSTR pszDest, size_t cchDest, __int64 a3, __int64 a4)
 {
   int ProcessHostGuestArchitectures; // ebx
-  _WORD v9[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int16 v10; // [rsp+34h] [rbp-14h] BYREF
+  _WORD v8[2]; // [rsp+30h] [rbp-18h] BYREF
+  __int16 v9; // [rsp+34h] [rbp-14h] BYREF
 
-  v10 = 0;
-  v9[0] = 0;
-  ProcessHostGuestArchitectures = SdbpGetProcessHostGuestArchitectures(&v10, v9, a4);
+  v9 = 0;
+  v8[0] = 0;
+  ProcessHostGuestArchitectures = SdbpGetProcessHostGuestArchitectures(&v9, v8, a4);
   if ( ProcessHostGuestArchitectures < 0
-    || (ProcessHostGuestArchitectures = AslEnvGetSystem32DirPathBuf(pszDest, cchDest, a3, (__int64)v9),
+    || (ProcessHostGuestArchitectures = AslEnvGetSystem32DirPathBuf(pszDest, cchDest, (__int64)v8),
         ProcessHostGuestArchitectures < 0) )
   {
     AslLogCallPrintf(1LL);

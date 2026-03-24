@@ -1,19 +1,18 @@
 /*
- * XREFs of NtUserfnINLPHLPSTRUCT @ 0x1C0201B80
+ * XREFs of NtUserfnINLPHLPSTRUCT @ 0x1C02056C0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserfnINLPHLPSTRUCT(__int64 a1, unsigned int a2, __int64 a3, const void *a4, __int64 a5, char a6)
 {
   ULONG64 v10; // rax
-  int v11; // ebx
+  int v11; // esi
   __int64 v12; // rbx
   __int64 v13; // rax
   _WORD *v14; // rdi
@@ -23,7 +22,6 @@ __int64 __fastcall NtUserfnINLPHLPSTRUCT(__int64 a1, unsigned int a2, __int64 a3
 
   v16 = 0LL;
   v17 = 0LL;
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   v10 = (ULONG64)a4;
   if ( (unsigned __int64)a4 >= MmUserProbeAddress )
     v10 = MmUserProbeAddress;
@@ -31,7 +29,7 @@ __int64 __fastcall NtUserfnINLPHLPSTRUCT(__int64 a1, unsigned int a2, __int64 a3
   v11 = *(_DWORD *)v10;
   if ( (unsigned __int16)*(_DWORD *)v10 < 0x18u )
     return 0LL;
-  v13 = Win32AllocPoolWithQuotaZInit((unsigned __int16)v11, 1818784597LL);
+  v13 = Win32AllocPoolWithQuota((unsigned __int16)v11, 1818784597LL);
   v14 = (_WORD *)v13;
   if ( !v13 )
     ExRaiseStatus(-1073741801);

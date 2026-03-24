@@ -1,58 +1,46 @@
 /*
- * XREFs of ?IsReadyToDraw@CEffectBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800CCD20
+ * XREFs of ?IsReadyToDraw@CEffectBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800C0A70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CEffectBrush::IsReadyToDraw(CEffectBrush *this, struct CDrawingContext *a2, bool *a3)
 {
   __int64 v4; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rax
-  bool v8; // bp
-  unsigned int v9; // r14d
-  int v10; // ebx
-  __int64 i; // rdi
-  __int64 v12; // rcx
-  char v15; // [rsp+40h] [rbp+8h] BYREF
+  bool v6; // al
+  unsigned int v7; // r8d
+  __int64 v8; // rdx
+  char v10; // cl
+  __int64 v12; // rbx
 
   *a3 = 0;
-  v4 = *((_QWORD *)this + 14);
+  v4 = *((_QWORD *)this + 13);
   if ( v4 && (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 64LL))(v4) )
   {
-    v8 = 0;
-    if ( a2 )
+    v6 = 0;
+    if ( a2 && *((_BYTE *)a2 + 5920) )
     {
-      if ( (*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 32LL))((char *)a2 + 24) )
+      v10 = *((_BYTE *)a2 + 5921);
+      if ( v10 ? *((_QWORD *)a2 + 413) : *(_QWORD *)(*((_QWORD *)a2 + 741) + 56LL) )
       {
-        v6 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 32LL))((char *)a2 + 24);
-        v7 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v6 + 216LL))(v6);
-        if ( v7 )
+        v12 = v10 ? *((_QWORD *)a2 + 413) : *(_QWORD *)(*((_QWORD *)a2 + 741) + 56LL);
+        if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v12 + 232LL))(v12)
+          && *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 240LL))(v12) + 8) )
         {
-          if ( *(_QWORD *)(v7 + 8) )
-            v8 = 1;
+          v6 = 1;
         }
       }
     }
-    v9 = *((_DWORD *)this + 36);
-    v10 = 0;
-    if ( !v9 )
+    v7 = *((_DWORD *)this + 34);
+    v8 = 0LL;
+    if ( !v7 )
       return 1;
-    for ( i = 0LL; ; i += 8LL )
+    while ( *(_QWORD *)(*((_QWORD *)this + 14) + 8 * v8) || v6 )
     {
-      v12 = *(_QWORD *)(i + *((_QWORD *)this + 15));
-      if ( v12
-         ? (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, char *))(*(_QWORD *)v12 + 288LL))(
-             v12,
-             a2,
-             &v15) == 0
-         : !v8 )
-      {
-        break;
-      }
-      if ( ++v10 >= v9 )
+      v8 = (unsigned int)(v8 + 1);
+      if ( (unsigned int)v8 >= v7 )
         return 1;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_PublishDualRoleFeaturesProperty @ 0x1C007D7D8
+ * XREFs of HUBPDO_PublishDualRoleFeaturesProperty @ 0x1C007907C
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00177F0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_PublishDualRoleFeaturesProperty(__int64 a1)
@@ -21,9 +21,10 @@ __int64 __fastcall HUBPDO_PublishDualRoleFeaturesProperty(__int64 a1)
   int v11; // [rsp+70h] [rbp+8h] BYREF
 
   v8 = 0;
+  v10 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, a1);
   v3 = *(_QWORD *)(a1 + 24);
-  v4 = *(_DWORD *)(v3 + 2669);
+  v4 = *(_DWORD *)(v3 + 2661);
   v8 = 0;
   v10 = 0LL;
   v11 = v4;
@@ -44,8 +45,8 @@ __int64 __fastcall HUBPDO_PublishDualRoleFeaturesProperty(__int64 a1)
              *(_QWORD *)(*(_QWORD *)(v3 + 8) + 1432LL),
              2u,
              2u,
-             0x65u,
-             (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+             0x5Du,
+             (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
              v6);
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqqxxx_EtwWriteTransfer @ 0x1C00469B4
+ * XREFs of McTemplateK0pqqxxx_EtwWriteTransfer @ 0x1C003BF50
  * Callers:
- *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C004682C (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C003BDAC (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqxxx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

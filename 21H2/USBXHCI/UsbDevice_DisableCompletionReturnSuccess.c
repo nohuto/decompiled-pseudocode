@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_DisableCompletionReturnSuccess @ 0x1C00465C0
+ * XREFs of UsbDevice_DisableCompletionReturnSuccess @ 0x1C0046100
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_DisableCompletion @ 0x1C00462A4 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
  */
 
 void __fastcall UsbDevice_DisableCompletionReturnSuccess(__int64 a1, __int64 a2, __int64 a3, int a4)

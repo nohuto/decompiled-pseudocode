@@ -1,13 +1,14 @@
 /*
- * XREFs of IopAllocateRelationList @ 0x140767538
+ * XREFs of IopAllocateRelationList @ 0x14073928C
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140767F88 (PnpBuildRemovalRelationList.c)
- *     PnpInvalidateRelationsInList @ 0x14080E8D0 (PnpInvalidateRelationsInList.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140810CB4 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpBuildRemovalRelationList @ 0x140737170 (PnpBuildRemovalRelationList.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x140737ADC (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408A2280 (PnpCancelRemoveOnHungDevices.c)
  * Callees:
- *     PiAllocateDeviceObjectList @ 0x140767594 (PiAllocateDeviceObjectList.c)
- *     IopFreeRelationList @ 0x140767600 (IopFreeRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x140767730 (PnpAllocateCriticalMemory.c)
+ *     PiAllocateDeviceObjectList @ 0x1407392E8 (PiAllocateDeviceObjectList.c)
+ *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
  */
 
 _BYTE *__fastcall IopAllocateRelationList(__int64 a1)
@@ -17,7 +18,7 @@ _BYTE *__fastcall IopAllocateRelationList(__int64 a1)
   __int64 DeviceObjectList; // rax
 
   v1 = a1;
-  CriticalMemory = (_BYTE *)PnpAllocateCriticalMemory(a1, 256LL, 16LL, 1416654416LL);
+  CriticalMemory = (_BYTE *)PnpAllocateCriticalMemory(a1, 1LL, 16LL, 1416654416LL);
   if ( CriticalMemory )
   {
     DeviceObjectList = PiAllocateDeviceObjectList(v1, 8LL);

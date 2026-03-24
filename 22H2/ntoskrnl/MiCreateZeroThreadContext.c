@@ -1,46 +1,32 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x140839588
+ * XREFs of MiCreateZeroThreadContext @ 0x1403ABAA8
  * Callers:
- *     MiStartZeroEngineThreads @ 0x1407BE6FC (MiStartZeroEngineThreads.c)
+ *     MiZeroNodePages @ 0x1403AB040 (MiZeroNodePages.c)
+ *     MiInitializePartitionThreads @ 0x1408C7CA4 (MiInitializePartitionThreads.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiGetClosestNodeWithProcessors @ 0x14036E1A0 (MiGetClosestNodeWithProcessors.c)
- *     MiInitializeColorTable @ 0x14039617C (MiInitializeColorTable.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x14035465C (MiCreateUltraThreadContext.c)
+ *     MiInitializeColorTable @ 0x1403ABB3C (MiInitializeColorTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-struct _KEVENT *__fastcall MiCreateZeroThreadContext(struct _LIST_ENTRY *a1)
+PVOID __fastcall MiCreateZeroThreadContext(__int64 a1, int a2)
 {
-  int Blink; // esi
-  int ClosestNodeWithProcessors; // edi
-  struct _KEVENT *PoolMm; // rax
-  struct _KEVENT *v5; // rbp
-  int v6; // edi
-  int v7; // r9d
-  _QWORD *v8; // r11
-  struct _KEVENT *result; // rax
+  _BYTE *Pool; // rax
+  PVOID v5; // rbx
 
-  Blink = (int)a1[10].Blink[3].Blink;
-  ClosestNodeWithProcessors = MiGetClosestNodeWithProcessors(Blink);
-  PoolMm = (struct _KEVENT *)ExAllocatePoolMm(64, 0x190uLL, 0x745A694Du, ClosestNodeWithProcessors | 0x80000000);
-  v5 = PoolMm;
-  if ( PoolMm )
+  Pool = MiAllocatePool(64, 0x130uLL, 0x20206D4Du);
+  v5 = Pool;
+  if ( Pool )
   {
-    MiInitializeColorTable(&PoolMm[14].Header.WaitListHead.Blink, Blink);
-    MiInitializePageColorBase(0LL, ClosestNodeWithProcessors + 1, (__int64)&v5[15].Header.WaitListHead);
-    v6 = ClosestNodeWithProcessors << byte_140C65B8D;
-    v7 = (__rdtsc() >> 4) & (unsigned __int16)((1 << byte_140C65B8E) - 1);
-    *v8 = v5 + 16;
-    v5[16].Header.LockNV = v6 | v7;
-    if ( (unsigned int)MiCreateUltraThreadContext((__int64)&v5[8].Header.WaitListHead.Blink, (__int64)v8, 14, 1u) )
+    if ( a2 )
+      Pool[80] = 1;
+    MiInitializeColorTable(Pool + 248);
+    if ( (unsigned int)MiCreateUltraThreadContext((__int64)v5 + 88, *((_DWORD *)v5 + 65), 15) )
     {
-      KeInitializeEvent(v5 + 6, SynchronizationEvent, 0);
-      result = v5;
-      v5[3].Header.WaitListHead.Blink = a1;
-      return result;
+      *((_QWORD *)v5 + 29) = a1;
+      return v5;
     }
     ExFreePoolWithTag(v5, 0);
   }

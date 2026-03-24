@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindCompositionFrame@CCompositionFrameCollection@@UEAAJ_KPEAPEAUICompositionFrame@@@Z @ 0x1C00153D0
+ * XREFs of ?FindCompositionFrame@CCompositionFrameCollection@@UEAAJ_KPEAPEAUICompositionFrame@@@Z @ 0x1C0013420
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionFrameCollection::FindCompositionFrame(
@@ -11,11 +11,11 @@ __int64 __fastcall CCompositionFrameCollection::FindCompositionFrame(
         __int64 a2,
         struct ICompositionFrame **a3)
 {
-  char *v3; // rsi
-  unsigned int v7; // ebp
-  char *v8; // r15
-  char *v9; // rdi
-  struct ICompositionFrame *v10; // rbx
+  char *v3; // rbx
+  unsigned int v7; // esi
+  char *v8; // r12
+  char *v9; // rbp
+  struct ICompositionFrame *v10; // rdi
 
   v3 = (char *)this + 32;
   *a3 = 0LL;

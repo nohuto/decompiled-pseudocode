@@ -1,138 +1,130 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x140234F78
+ * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14024ECBC
  * Callers:
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x140300720 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14024E940 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
  * Callees:
- *     <none>
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
  */
 
-__int64 __fastcall AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(__int64 a1, unsigned __int64 *a2)
+NTSTATUS __fastcall AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(__int64 a1, unsigned __int64 *a2)
 {
-  unsigned __int16 v2; // r9
-  unsigned int v3; // r8d
-  unsigned __int64 v4; // rax
-  unsigned __int64 v7; // r9
-  __int64 v8; // rax
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 ***v13; // r10
-  __int64 **v14; // rdx
-  unsigned __int64 v15; // r9
-  unsigned __int64 v16; // r9
-  __int64 v17; // rax
-  __int64 ***v18; // r10
-  __int64 **v19; // rdx
-  unsigned __int64 v20; // r9
-  unsigned __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 ***v23; // r10
-  __int64 **v24; // rdx
-  unsigned __int64 v25; // r9
+  unsigned __int16 v2; // ax
+  unsigned __int64 v3; // r8
+  NTSTATUS result; // eax
+  ULONGLONG v6; // r10
+  unsigned __int64 v7; // rcx
+  ULONGLONG v8; // r10
+  __int64 v9; // r11
+  __int64 ***v10; // r11
+  __int64 **v11; // rdx
+  unsigned __int64 v12; // r8
+  ULONGLONG v13; // r10
+  __int64 v14; // r11
+  __int64 ***v15; // r11
+  __int64 **v16; // rdx
+  unsigned __int64 v17; // r8
+  ULONGLONG v18; // r10
+  __int64 v19; // r11
+  __int64 ***v20; // r11
+  __int64 **v21; // rdx
+  unsigned __int64 v22; // r8
+  ULONGLONG pullResult; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_WORD *)(a1 + 48);
-  v3 = 0;
-  v4 = *a2;
+  v3 = *a2;
+  pullResult = 0LL;
   if ( !v2 )
-    return (unsigned int)-1073741811;
-  if ( v2 > 2u )
+    return -1073741811;
+  if ( v2 <= 2u )
   {
-    switch ( v2 )
-    {
-      case 3u:
-        v11 = (v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( v11 >= v4 )
-        {
-          v12 = 16LL * *(unsigned int *)(a1 + 60);
-          if ( is_mul_ok(0x10uLL, *(unsigned int *)(a1 + 60)) )
-          {
-            v9 = v12 + v11;
-            if ( v12 + v11 >= v11 )
-            {
-              v13 = (__int64 ***)(a1 + 72);
-              v14 = *v13;
-              while ( v14 != (__int64 **)v13 )
-              {
-                v15 = v9 + *((unsigned __int16 *)v14 + 20);
-                if ( v15 < v9 )
-                  return (unsigned int)-1073741675;
-                v14 = (__int64 **)*v14;
-                v9 = v15;
-              }
-              goto LABEL_6;
-            }
-          }
-        }
-        return (unsigned int)-1073741675;
-      case 4u:
-        v21 = (v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( v21 >= v4 )
-        {
-          v22 = 24LL * *(unsigned int *)(a1 + 60);
-          if ( is_mul_ok(0x18uLL, *(unsigned int *)(a1 + 60)) )
-          {
-            v9 = v22 + v21;
-            if ( v22 + v21 >= v21 )
-            {
-              v23 = (__int64 ***)(a1 + 72);
-              v24 = *v23;
-              while ( v24 != (__int64 **)v23 )
-              {
-                v25 = v9 + *((unsigned __int16 *)v24 + 24);
-                if ( v25 < v9 )
-                  return (unsigned int)-1073741675;
-                v24 = (__int64 **)*v24;
-                v9 = v25;
-              }
-              goto LABEL_6;
-            }
-          }
-        }
-        return (unsigned int)-1073741675;
-      case 5u:
-        goto LABEL_21;
-      case 6u:
-        goto LABEL_3;
-      case 0x10u:
-LABEL_21:
-        v16 = (v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( v16 >= v4 )
-        {
-          v17 = 16LL * *(unsigned int *)(a1 + 60);
-          if ( is_mul_ok(0x10uLL, *(unsigned int *)(a1 + 60)) )
-          {
-            v9 = v17 + v16;
-            if ( v17 + v16 >= v16 )
-            {
-              v18 = (__int64 ***)(a1 + 72);
-              v19 = *v18;
-              while ( v19 != (__int64 **)v18 )
-              {
-                v20 = v9 + *((unsigned int *)v19 + 12);
-                if ( v20 < v9 )
-                  return (unsigned int)-1073741675;
-                v19 = (__int64 **)*v19;
-                v9 = v20;
-              }
-              goto LABEL_6;
-            }
-          }
-        }
-        return (unsigned int)-1073741675;
-    }
-    return (unsigned int)-1073741811;
-  }
 LABEL_3:
-  v7 = (v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( v7 < v4 )
-    return (unsigned int)-1073741675;
-  v8 = 8LL * *(unsigned int *)(a1 + 60);
-  if ( !is_mul_ok(8uLL, *(unsigned int *)(a1 + 60)) )
-    return (unsigned int)-1073741675;
-  v9 = v8 + v7;
-  if ( v8 + v7 < v7 )
-    return (unsigned int)-1073741675;
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) >= v3 )
+    {
+      result = RtlULongLongMult(8uLL, *(unsigned int *)(a1 + 60), &pullResult);
+      if ( result < 0 )
+        return result;
+      v7 = v6 + pullResult;
+      if ( v6 + pullResult >= v6 )
+        goto LABEL_6;
+    }
+    return -1073741675;
+  }
+  if ( v2 == 3 )
+  {
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+      return -1073741675;
+    result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
+    if ( result >= 0 )
+    {
+      v7 = v8 + pullResult;
+      if ( v8 + pullResult < v8 )
+        return -1073741675;
+      v10 = (__int64 ***)(v9 + 72);
+      v11 = *v10;
+      while ( v11 != (__int64 **)v10 )
+      {
+        v12 = v7 + *((unsigned __int16 *)v11 + 20);
+        if ( v12 < v7 )
+          return -1073741675;
+        v11 = (__int64 **)*v11;
+        v7 = v12;
+      }
 LABEL_6:
-  *a2 = v9;
-  return v3;
+      *a2 = v7;
+      return 0;
+    }
+    return result;
+  }
+  if ( v2 == 4 )
+  {
+    if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+      return -1073741675;
+    result = RtlULongLongMult(0x18uLL, *(unsigned int *)(a1 + 60), &pullResult);
+    if ( result >= 0 )
+    {
+      v7 = v18 + pullResult;
+      if ( v18 + pullResult < v18 )
+        return -1073741675;
+      v20 = (__int64 ***)(v19 + 72);
+      v21 = *v20;
+      while ( v21 != (__int64 **)v20 )
+      {
+        v22 = v7 + *((unsigned __int16 *)v21 + 24);
+        if ( v22 < v7 )
+          return -1073741675;
+        v21 = (__int64 **)*v21;
+        v7 = v22;
+      }
+      goto LABEL_6;
+    }
+    return result;
+  }
+  if ( v2 != 5 )
+  {
+    if ( v2 == 6 )
+      goto LABEL_3;
+    if ( v2 != 16 )
+      return -1073741811;
+  }
+  if ( ((v3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) < v3 )
+    return -1073741675;
+  result = RtlULongLongMult(0x10uLL, *(unsigned int *)(a1 + 60), &pullResult);
+  if ( result >= 0 )
+  {
+    v7 = v13 + pullResult;
+    if ( v13 + pullResult < v13 )
+      return -1073741675;
+    v15 = (__int64 ***)(v14 + 72);
+    v16 = *v15;
+    while ( v16 != (__int64 **)v15 )
+    {
+      v17 = v7 + *((unsigned int *)v16 + 12);
+      if ( v17 < v7 )
+        return -1073741675;
+      v16 = (__int64 **)*v16;
+      v7 = v17;
+    }
+    goto LABEL_6;
+  }
+  return result;
 }

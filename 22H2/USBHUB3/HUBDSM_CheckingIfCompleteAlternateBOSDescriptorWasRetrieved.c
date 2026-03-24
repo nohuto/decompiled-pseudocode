@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfCompleteAlternateBOSDescriptorWasRetrieved @ 0x1C0022320
+ * XREFs of HUBDSM_CheckingIfCompleteAlternateBOSDescriptorWasRetrieved @ 0x1C001FD20
  * Callers:
  *     <none>
  * Callees:

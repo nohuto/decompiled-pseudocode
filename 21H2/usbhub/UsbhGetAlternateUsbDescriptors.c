@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhGetAlternateUsbDescriptors @ 0x1C00372AC
+ * XREFs of UsbhGetAlternateUsbDescriptors @ 0x1C0038560
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetDeviceInformation @ 0x1C0037880 (UsbhGetDeviceInformation.c)
- *     UsbhBusIf_SetMsOs20Support @ 0x1C004B9B4 (UsbhBusIf_SetMsOs20Support.c)
- *     UsbhValidateBOSDescriptorSet @ 0x1C0051BFC (UsbhValidateBOSDescriptorSet.c)
- *     UsbhValidateDeviceDescriptor @ 0x1C0051D98 (UsbhValidateDeviceDescriptor.c)
- *     UsbhGetBosDescriptor @ 0x1C0053C48 (UsbhGetBosDescriptor.c)
- *     UsbhGetDeviceDescriptor @ 0x1C0053DEC (UsbhGetDeviceDescriptor.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetDeviceInformation @ 0x1C0038B48 (UsbhGetDeviceInformation.c)
+ *     UsbhBusIf_SetMsOs20Support @ 0x1C004CDB4 (UsbhBusIf_SetMsOs20Support.c)
+ *     UsbhValidateBOSDescriptorSet @ 0x1C005324C (UsbhValidateBOSDescriptorSet.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C00533E8 (UsbhValidateDeviceDescriptor.c)
+ *     UsbhGetBosDescriptor @ 0x1C00552A8 (UsbhGetBosDescriptor.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C0055478 (UsbhGetDeviceDescriptor.c)
  */
 
 char __fastcall UsbhGetAlternateUsbDescriptors(__int64 a1, __int64 a2, __int64 a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpLoadInstallLanguageFallback @ 0x14073C9E4
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x14073C9C4
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x14073DFA8 (_RtlpMuiRegLoadInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140907D58 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140907D38 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x14018254C (_MuiRegAllocArray.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14018256C (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     LdrpQueryValueKey @ 0x14073E390 (LdrpQueryValueKey.c)
- *     RtlCultureNameToLCID @ 0x14073EF20 (RtlCultureNameToLCID.c)
+ *     LdrpQueryValueKey @ 0x14073E370 (LdrpQueryValueKey.c)
+ *     RtlCultureNameToLCID @ 0x14073EF00 (RtlCultureNameToLCID.c)
  */
 
 __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD *a3)

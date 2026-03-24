@@ -1,30 +1,27 @@
 /*
- * XREFs of MiFinalizePageAttribute @ 0x1402E15E4
+ * XREFs of MiFinalizePageAttribute @ 0x140337444
  * Callers:
- *     MiInitializeTransitionPfn @ 0x14021AF78 (MiInitializeTransitionPfn.c)
- *     MiMigratePfn @ 0x140262FC0 (MiMigratePfn.c)
- *     MmCheckCachedPageStates @ 0x140265200 (MmCheckCachedPageStates.c)
- *     MiAllocateKernelStackPages @ 0x1402731A0 (MiAllocateKernelStackPages.c)
- *     MiCopyDataPageToImagePage @ 0x14028B350 (MiCopyDataPageToImagePage.c)
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiReplaceTransitionPage @ 0x1403304D0 (MiReplaceTransitionPage.c)
- *     MiStealPage @ 0x1403BBD7C (MiStealPage.c)
- *     MiSplitDirectMapPage @ 0x14063F2D4 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651E40 (MiSwapNumaStandbyPage.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1406649B8 (MiHandleForkTransitionPte.c)
- *     MxSwapPages @ 0x140B5BAA8 (MxSwapPages.c)
- *     MiInitializeCacheFlushing @ 0x140B6B46C (MiInitializeCacheFlushing.c)
+ *     MiMapPagesToZero @ 0x1402339E0 (MiMapPagesToZero.c)
+ *     MiTradeActivePage @ 0x14030DD40 (MiTradeActivePage.c)
+ *     MiStealPage @ 0x140334CB4 (MiStealPage.c)
+ *     MiReplaceTransitionPage @ 0x140336380 (MiReplaceTransitionPage.c)
+ *     MiInitializeTransitionPfn @ 0x14033723C (MiInitializeTransitionPfn.c)
+ *     MiConvertStandbyToProto @ 0x1403668C8 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiSplitDirectMapPage @ 0x14054207C (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140551310 (MiSwapNumaStandbyPage.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x14055A9A4 (MiHandleForkTransitionPte.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
+ *     MxSwapPages @ 0x140A57120 (MxSwapPages.c)
  * Callees:
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiChangePageAttribute @ 0x14036ED6C (MiChangePageAttribute.c)
+ *     MiSetPfnTbFlushStamp @ 0x14023FAD0 (MiSetPfnTbFlushStamp.c)
+ *     MiChangePageAttribute @ 0x140284864 (MiChangePageAttribute.c)
  */
 
-__int64 __fastcall MiFinalizePageAttribute(__int64 a1, __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall MiFinalizePageAttribute(__int64 a1, __int64 a2, int a3, _DWORD *a4)
 {
   if ( *(unsigned __int8 *)(a1 + 34) >> 6 != (_DWORD)a2 )
-    MiChangePageAttribute(a1, a2, a3 != 0);
-  return MiSetPfnTbFlushStamp(a1, 0LL, a3);
+    MiChangePageAttribute(a1, a2, a3 == 1, a4);
+  return MiSetPfnTbFlushStamp(a1, 0, a3);
 }

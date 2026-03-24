@@ -1,202 +1,213 @@
 /*
- * XREFs of ?CheckMultiPlaneOverlaySupport@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@3@@Z @ 0x1801DC760
+ * XREFs of ?CheckMultiPlaneOverlaySupport@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@3@@Z @ 0x18017AC48
  * Callers:
- *     ?ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x180052DE0 (-ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV-$span@PEAVCOverlayContext@@$0-0@.c)
+ *     ?ComputeOverlayConfiguration@COverlayContext@@SAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x18006D330 (-ComputeOverlayConfiguration@COverlayContext@@SAJAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1800FACC0 (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?clear_region@?$vector_facade@PEAVIMonitorTarget@@V?$buffer_impl@PEAVIMonitorTarget@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18012E360 (-clear_region@-$vector_facade@PEAVIMonitorTarget@@V-$buffer_impl@PEAVIMonitorTarget@@$01$00Vlibe.c)
- *     McTemplateU0d_EventWriteTransfer @ 0x18012FED4 (McTemplateU0d_EventWriteTransfer.c)
- *     McTemplateU0dd_EventWriteTransfer @ 0x18012FF36 (McTemplateU0dd_EventWriteTransfer.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ?CheckMultiplaneOverlaySupport@COverlayContext@@AEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1801DCDBC (-CheckMultiplaneOverlaySupport@COverlayContext@@AEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PL.c)
- *     McTemplateU0xqddddddddddddqqq_EventWriteTransfer @ 0x1801DF728 (McTemplateU0xqddddddddddddqqq_EventWriteTransfer.c)
+ *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FD6C (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?clear_region@?$vector_facade@PEAVCDesktopTree@@V?$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180155E6C (-clear_region@-$vector_facade@PEAVCDesktopTree@@V-$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_.c)
+ *     ?RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ @ 0x18017CA68 (-RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ.c)
+ *     McTemplateU0xqddddddddddddqqq_EventWriteTransfer @ 0x18017D86C (McTemplateU0xqddddddddddddqqq_EventWriteTransfer.c)
  */
 
-unsigned __int8 __fastcall COverlayContext::CheckMultiPlaneOverlaySupport(__int64 a1, unsigned int *a2)
+unsigned __int8 __fastcall COverlayContext::CheckMultiPlaneOverlaySupport(unsigned __int64 *a1, _QWORD *a2)
 {
-  _QWORD **v2; // rbx
-  __int64 v3; // rax
-  unsigned int v4; // edi
-  unsigned __int8 v6; // si
-  _QWORD **v7; // rdx
-  _QWORD **v8; // r15
-  unsigned int v9; // ecx
+  unsigned int v2; // edi
+  __int64 *v3; // r8
+  __int64 v5; // r9
+  unsigned __int64 v6; // rdx
+  unsigned __int8 v7; // si
+  __int64 *v8; // rax
+  unsigned __int64 v9; // rdx
   __int64 v10; // rax
-  __int64 v11; // r12
-  const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *v12; // rax
-  int v13; // edx
-  COverlayContext **v14; // r13
-  const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *v15; // r15
-  COverlayContext *v16; // r12
-  _DWORD *v17; // rbx
-  unsigned int v18; // eax
-  __int128 v19; // xmm0
-  unsigned int v20; // ecx
-  __int128 v21; // xmm0
-  _BYTE *v22; // r8
-  _BYTE *v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // rdx
-  __int64 v26; // rbx
-  __int64 v27; // rdx
-  unsigned __int64 v28; // r8
-  char *v29; // rcx
-  _OWORD *v30; // rax
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int128 v33; // xmm2
-  __int128 v34; // xmm3
-  __int128 v35; // xmm4
-  __int128 v36; // xmm5
-  __int128 v37; // xmm6
-  int v38; // eax
-  int v39; // ecx
-  unsigned __int64 v40; // r9
-  bool v41; // al
-  __int64 v42; // r8
-  __int64 v43; // rcx
-  _DWORD *v44; // rbx
-  __int64 v45; // rdx
-  _BYTE *v46; // rcx
-  __int64 v47; // r8
-  __int64 v48; // rax
-  __int64 v49; // rdi
-  _QWORD *v50; // rbx
-  char v52; // [rsp+A0h] [rbp-80h]
-  bool v53; // [rsp+A1h] [rbp-7Fh] BYREF
-  bool v54; // [rsp+A2h] [rbp-7Eh] BYREF
-  int v55; // [rsp+A4h] [rbp-7Ch]
-  unsigned int v56; // [rsp+A8h] [rbp-78h]
-  unsigned int v57; // [rsp+ACh] [rbp-74h]
-  unsigned int v58; // [rsp+B0h] [rbp-70h]
-  __int64 v59; // [rsp+B8h] [rbp-68h]
-  char *v60; // [rsp+C0h] [rbp-60h]
-  unsigned __int64 v61; // [rsp+C8h] [rbp-58h]
-  unsigned int *v62; // [rsp+D0h] [rbp-50h]
-  COverlayContext **v63; // [rsp+D8h] [rbp-48h]
-  __int64 v64; // [rsp+E0h] [rbp-40h]
-  _BYTE *v65; // [rsp+E8h] [rbp-38h] BYREF
-  _BYTE *v66; // [rsp+F0h] [rbp-30h]
-  __int64 *v67; // [rsp+F8h] [rbp-28h]
-  _BYTE v68[128]; // [rsp+100h] [rbp-20h] BYREF
-  __int64 v69; // [rsp+180h] [rbp+60h] BYREF
+  unsigned int v11; // ecx
+  __int64 v12; // r12
+  char *v13; // rax
+  int v14; // edx
+  __int64 **v15; // r13
+  char *v16; // r15
+  unsigned __int64 v17; // rcx
+  __int64 *v18; // rbx
+  _BYTE *v19; // r8
+  __int64 v20; // r10
+  _BYTE *v21; // rbx
+  __int64 v22; // r12
+  char *v23; // rbx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  int v26; // eax
+  int v27; // edx
+  unsigned int v28; // ecx
+  unsigned int v29; // r9d
+  __int64 v30; // rax
+  __int64 v31; // rcx
+  char *v32; // rbx
+  __int64 v33; // rdx
+  __int64 v34; // r8
+  __int64 v35; // rcx
+  _OWORD *v36; // rax
+  __int128 v37; // xmm0
+  __int128 v38; // xmm1
+  __int128 v39; // xmm2
+  __int128 v40; // xmm3
+  __int128 v41; // xmm4
+  __int128 v42; // xmm5
+  __int128 v43; // xmm6
+  int v44; // eax
+  __int64 v45; // r8
+  _DWORD *v46; // rbx
+  __int64 v47; // rax
+  __int64 *v48; // r8
+  __int64 v49; // r9
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  COverlayContext::OverlayPlaneInfo **v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // rdi
+  _QWORD *v55; // rbx
+  char v57[4]; // [rsp+A8h] [rbp-80h] BYREF
+  unsigned int v58; // [rsp+ACh] [rbp-7Ch]
+  int v59; // [rsp+B0h] [rbp-78h]
+  int v60; // [rsp+B8h] [rbp-70h] BYREF
+  unsigned int v61; // [rsp+C0h] [rbp-68h] BYREF
+  unsigned int v62; // [rsp+C8h] [rbp-60h]
+  __int64 v63; // [rsp+D0h] [rbp-58h]
+  __int64 v64; // [rsp+D8h] [rbp-50h]
+  __int64 v65; // [rsp+E0h] [rbp-48h]
+  _QWORD *v66; // [rsp+E8h] [rbp-40h]
+  char *v67; // [rsp+F0h] [rbp-38h]
+  __int64 **v68; // [rsp+F8h] [rbp-30h]
+  __int64 v69; // [rsp+100h] [rbp-28h]
+  COverlayContext::OverlayPlaneInfo **v70; // [rsp+108h] [rbp-20h] BYREF
+  _BYTE *v71; // [rsp+110h] [rbp-18h]
+  struct _EVENT_DATA_DESCRIPTOR *v72; // [rsp+118h] [rbp-10h]
+  _BYTE v73[128]; // [rsp+120h] [rbp-8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v74; // [rsp+1A0h] [rbp+78h] BYREF
+  int *v75; // [rsp+1B0h] [rbp+88h]
+  __int64 v76; // [rsp+1B8h] [rbp+90h]
+  int *v77; // [rsp+1C0h] [rbp+98h]
+  __int64 v78; // [rsp+1C8h] [rbp+A0h]
 
-  v2 = *(_QWORD ***)(a1 + 8);
-  v3 = *(_QWORD *)a1;
-  v4 = *a2;
-  v62 = a2;
-  v6 = 1;
-  v53 = 0;
-  v7 = v2;
-  v8 = &v2[v3];
-  v56 = 0;
-  if ( v2 == v8 )
-  {
-    v52 = 1;
-  }
-  else
+  v2 = *(_DWORD *)a2;
+  v3 = (__int64 *)a1[1];
+  v66 = a2;
+  v5 = 0LL;
+  v6 = *a1;
+  v7 = 0;
+  v57[0] = 0;
+  v58 = 0;
+  v8 = &v3[v6];
+  v9 = (v6 * 8) >> 3;
+  if ( v3 > v8 )
+    v9 = 0LL;
+  if ( v9 )
   {
     do
     {
-      v9 = v4 + 1;
-      if ( !*((_BYTE *)*v7 + 11024) )
-        v9 = v4;
-      ++v7;
-      v4 = v9;
+      v10 = *v3;
+      v11 = v2 + 1;
+      ++v3;
+      if ( !*(_BYTE *)(v10 + 11032) )
+        v11 = v2;
+      ++v5;
+      v2 = v11;
     }
-    while ( v7 != v8 );
-    v52 = 1;
-    while ( 1 )
-    {
-      v10 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)**v2 + 176LL))(**v2);
-      if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v10 + 216LL))(v10) )
-        break;
-      if ( ++v2 == v8 )
-        goto LABEL_11;
-    }
-    v52 = 0;
+    while ( v5 != v9 );
   }
-LABEL_11:
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200) != 0 )
-    McTemplateU0dd_EventWriteTransfer(
-      a1,
-      (__int64)&EVTDESC_OVERLAY_CHECKSUPPORT_Start,
-      CCommonRegistryData::m_dwOverlayTestMode < 4,
-      v4);
-  v11 = v4;
-  v64 = v4;
-  v12 = (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)operator new(saturated_mul(v4, 0x90uLL));
-  v14 = *(COverlayContext ***)(a1 + 8);
-  v15 = v12;
-  v63 = &v14[*(_QWORD *)a1];
-  if ( v14 == v63 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
   {
-LABEL_30:
-    v43 = 1LL;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200) != 0 && v4 )
+    v76 = 4LL;
+    v78 = 4LL;
+    v61 = CCommonRegistryData::m_dwOverlayTestMode < 4;
+    v60 = v2;
+    v75 = (int *)&v61;
+    v77 = &v60;
+    McGenEventWrite_EventWriteTransfer(
+      Microsoft_Windows_Dwm_Core_Provider_Context,
+      &EVTDESC_OVERLAY_CHECKSUPPORT_Start,
+      (__int64)v3,
+      3u,
+      &v74);
+  }
+  v12 = v2;
+  v69 = v2;
+  v13 = (char *)operator new(saturated_mul(v2, 0x90uLL));
+  v15 = (__int64 **)a1[1];
+  v16 = v13;
+  v17 = *a1;
+  v68 = &v15[*a1];
+  if ( v15 == v68 )
+  {
+LABEL_28:
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 && v2 )
     {
-      v44 = (_DWORD *)((char *)v15 + 88);
+      v46 = v16 + 88;
       do
       {
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200) != 0 )
-        {
+        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
           McTemplateU0xqddddddddddddqqq_EventWriteTransfer(
-            1,
-            v13,
-            *(_QWORD *)(v44 - 17),
-            *(v44 - 14),
-            *(v44 - 13),
-            *(v44 - 12),
-            *(v44 - 11),
-            *(v44 - 10),
-            *(v44 - 9),
-            *(v44 - 8),
-            *(v44 - 7),
-            *(v44 - 6),
-            *(v44 - 5),
-            *(v44 - 4),
-            *(v44 - 3),
-            *(v44 - 2),
-            *(v44 - 1),
-            *v44,
-            v44[5]);
-          v43 = 1LL;
-        }
-        v44 += 36;
-        --v11;
+            v17,
+            v14,
+            *((_QWORD *)v46 - 10),
+            *(v46 - 14),
+            *(v46 - 13),
+            *(v46 - 12),
+            *(v46 - 11),
+            *(v46 - 10),
+            *(v46 - 9),
+            *(v46 - 8),
+            *(v46 - 7),
+            *(v46 - 6),
+            *(v46 - 5),
+            *(v46 - 4),
+            *(v46 - 3),
+            *(v46 - 2),
+            *(v46 - 1),
+            *v46,
+            v46[5]);
+        v46 += 36;
+        --v12;
       }
-      while ( v11 );
+      while ( v12 );
     }
     if ( CCommonRegistryData::m_dwOverlayTestMode >= 4 )
     {
       if ( CCommonRegistryData::m_dwOverlayTestMode == 4 )
-        v6 = 1;
+        v7 = 1;
     }
     else
     {
-      if ( v52 )
+      if ( !*a1 )
       {
-        if ( !*(_QWORD *)a1 )
-        {
-          gsl::details::terminate((gsl::details *)1);
-          __debugbreak();
-        }
-        v6 = COverlayContext::CheckMultiplaneOverlaySupport(**(COverlayContext ***)(a1 + 8), v15, v4, &v53);
+        ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+        __debugbreak();
       }
-      if ( !v6 && v53 )
+      v47 = (*(__int64 (__fastcall **)(_QWORD))(***(_QWORD ***)a1[1] + 192LL))(**(_QWORD **)a1[1]);
+      v7 = (*(__int64 (__fastcall **)(__int64, char *, _QWORD, char *))(*(_QWORD *)v47 + 80LL))(v47, v16, v2, v57);
+      if ( !v7 && v57[0] )
       {
-        v43 = *(_QWORD *)(a1 + 8);
-        v45 = v43 + 8LL * *(_QWORD *)a1;
-        while ( v43 != v45 )
+        v48 = (__int64 *)a1[1];
+        v49 = 0LL;
+        v17 = (unsigned __int64)&v48[*a1];
+        v50 = *a1 & 0x1FFFFFFFFFFFFFFFLL;
+        if ( (unsigned __int64)v48 > v17 )
+          v50 = 0LL;
+        if ( v50 )
         {
-          v48 = *(_QWORD *)v43;
-          v43 += 8LL;
-          *(_BYTE *)(v48 + 11309) = 1;
+          do
+          {
+            v51 = *v48;
+            ++v49;
+            ++v48;
+            *(_BYTE *)(v51 + 11430) = 1;
+          }
+          while ( v49 != v50 );
         }
       }
     }
@@ -205,164 +216,165 @@ LABEL_30:
   {
     while ( 1 )
     {
-      v16 = *v14;
-      v55 = 0;
-      v59 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)v16 + 176LL))(*(_QWORD *)v16);
-      v57 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v59 + 56LL))(v59);
-      v65 = v68;
-      v66 = v68;
-      v67 = &v69;
-      COverlayContext::GetContextCandidates((__int64)v16, (__int64)v62, &v65);
-      if ( *((_BYTE *)v16 + 11024) )
+      v18 = *v15;
+      v59 = 0;
+      v63 = (__int64)v18;
+      v65 = *v18;
+      v64 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v65 + 192LL))(v65);
+      v70 = (COverlayContext::OverlayPlaneInfo **)v73;
+      v71 = v73;
+      v72 = &v74;
+      COverlayContext::GetContextCandidates((__int64)v18, v66, &v70);
+      v19 = v71;
+      v20 = 0LL;
+      v21 = v70;
+      v60 = 0;
+      v22 = (v71 - (_BYTE *)v70) >> 3;
+      if ( !v22 || !COverlayContext::OverlayPlaneInfo::RequiresFrontPlane(*v70) )
       {
-        v17 = (_DWORD *)((char *)v15 + 144 * v56);
-        memset_0(v17, 0, 0x90uLL);
-        (*(void (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)v59 + 176LL))(v59, v17 + 2);
-        v18 = v57;
-        *v17 = 0;
-        v17[7] = 0;
-        v19 = *((_OWORD *)v16 + 682);
-        v20 = 1;
-        v55 = 1;
-        *((_OWORD *)v17 + 2) = v19;
-        *((_OWORD *)v17 + 3) = *((_OWORD *)v16 + 683);
-        *((_OWORD *)v17 + 4) = *((_OWORD *)v16 + 684);
-        *((_OWORD *)v17 + 5) = *((_OWORD *)v16 + 685);
-        *((_OWORD *)v17 + 6) = *((_OWORD *)v16 + 686);
-        *((_OWORD *)v17 + 7) = *((_OWORD *)v16 + 687);
-        v21 = *((_OWORD *)v16 + 688);
-        v17[4] = v18;
-        *((_OWORD *)v17 + 8) = v21;
+        LODWORD(v22) = v20;
+        v60 = 1;
+      }
+      if ( *(_BYTE *)(v63 + 11032) == (_BYTE)v20 )
+      {
+        v27 = v59;
       }
       else
       {
-        v20 = v55;
+        v23 = &v16[144 * (unsigned int)v22 + 144 * v58];
+        memset_0(v23, 0, 0x90uLL);
+        (*(void (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)v64 + 112LL))(v64, (_DWORD *)v23 + 2);
+        *((_DWORD *)v23 + 7) = 0;
+        v24 = v63;
+        v25 = v65;
+        *(_DWORD *)v23 = v22;
+        *((_OWORD *)v23 + 2) = *(_OWORD *)(v24 + 10920);
+        *((_OWORD *)v23 + 3) = *(_OWORD *)(v24 + 10936);
+        *((_OWORD *)v23 + 4) = *(_OWORD *)(v24 + 10952);
+        *((_OWORD *)v23 + 5) = *(_OWORD *)(v24 + 10968);
+        *((_OWORD *)v23 + 6) = *(_OWORD *)(v24 + 10984);
+        *((_OWORD *)v23 + 7) = *(_OWORD *)(v24 + 11000);
+        *((_OWORD *)v23 + 8) = *(_OWORD *)(v24 + 11016);
+        v26 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v25 + 176LL))(v25);
+        v19 = v71;
+        v27 = 1;
+        *((_DWORD *)v23 + 4) = v26;
+        v20 = 0LL;
+        v21 = v70;
+        v59 = 1;
       }
-      v22 = v66;
-      v23 = v65;
-      v58 = 0;
-      if ( (v66 - v65) >> 3 )
+      v62 = v20;
+      if ( (v19 - v21) >> 3 )
         break;
-LABEL_21:
-      if ( !v52 && CCommonRegistryData::m_dwOverlayTestMode < 4 )
+LABEL_22:
+      v58 += v27;
+      v45 = (v19 - v21) >> 3;
+      if ( v45 )
       {
-        v54 = 0;
-        v41 = COverlayContext::CheckMultiplaneOverlaySupport(
-                v16,
-                (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)((char *)v15 + 144 * v56),
-                v20,
-                &v54);
-        v22 = v66;
-        v6 &= v41;
-        v53 |= v54;
-        v23 = v65;
-        v20 = v55;
-      }
-      v56 += v20;
-      v42 = (v22 - v23) >> 3;
-      if ( v42 )
-      {
-        detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
-          (__int64 *)&v65,
+        detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(
+          (__int64 *)&v70,
           0LL,
-          v42);
-        v23 = v65;
+          v45);
+        v21 = v70;
+        v20 = 0LL;
       }
-      v65 = 0LL;
-      if ( v23 == v68 )
-        v23 = 0LL;
-      operator delete(v23);
-      if ( ++v14 == v63 )
+      v70 = (COverlayContext::OverlayPlaneInfo **)v20;
+      if ( v21 == v73 )
+        v21 = (_BYTE *)v20;
+      operator delete(v21);
+      if ( ++v15 == v68 )
       {
-        v11 = v4;
-        goto LABEL_30;
+        v12 = v2;
+        goto LABEL_28;
       }
     }
-    v61 = 0LL;
-    v24 = v20 + v56;
-    v57 = v20 + v56;
+    v28 = v58;
+    v63 = v20;
+    v29 = v27 + v58;
+    v61 = v27 + v58;
     while ( 1 )
     {
-      v60 = (char *)v15 + 144 * v24;
-      memset_0(v60, 0, 0x90uLL);
-      v25 = *(_QWORD *)(*(_QWORD *)&v23[8 * v61] + 16LL);
-      v26 = v59;
-      if ( (*(int (__fastcall **)(__int64, __int64, char *, char *))(*(_QWORD *)v59 + 184LL))(
-             v59,
-             v25,
-             v60 + 8,
-             v60 + 28) < 0 )
+      v30 = v29;
+      if ( (_DWORD)v22 )
+        v30 = v28;
+      v67 = &v16[144 * v30];
+      memset_0(v67, 0, 0x90uLL);
+      v31 = *(_QWORD *)&v21[8 * v63];
+      v32 = v67;
+      if ( (*(int (__fastcall **)(__int64, _QWORD, char *, char *))(*(_QWORD *)v64 + 120LL))(
+             v64,
+             *(_QWORD *)(v31 + 16),
+             v67 + 8,
+             v67 + 28) < 0 )
         break;
-      v27 = (__int64)v65;
-      v28 = v61;
-      v29 = v60;
-      *(_QWORD *)(v60 + 20) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&v65[8 * v61] + 16LL) + 40LL);
-      v30 = *(_OWORD **)(v27 + 8 * v28);
-      v31 = v30[2];
-      v32 = v30[3];
-      v33 = v30[4];
-      v34 = v30[5];
-      v35 = v30[6];
-      v36 = v30[7];
-      v37 = v30[8];
-      LODWORD(v30) = v58;
-      *((_OWORD *)v29 + 2) = v31;
-      LODWORD(v30) = (_DWORD)v30 + 1;
-      *((_OWORD *)v29 + 3) = v32;
-      v58 = (unsigned int)v30;
-      *((_OWORD *)v29 + 4) = v33;
-      *(_DWORD *)v29 = (_DWORD)v30;
-      *((_OWORD *)v29 + 5) = v34;
-      *((_OWORD *)v29 + 6) = v35;
-      *((_OWORD *)v29 + 7) = v36;
-      *((_OWORD *)v29 + 8) = v37;
-      v38 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v26 + 56LL))(v26);
-      v39 = v55;
-      v40 = v58;
-      v22 = v66;
-      v23 = v65;
-      *((_DWORD *)v60 + 4) = v38;
-      v20 = v39 + 1;
-      v24 = v57 + 1;
-      v55 = v20;
-      ++v57;
-      v61 = v40;
-      if ( v40 >= (v22 - v23) >> 3 )
-        goto LABEL_21;
+      v33 = (__int64)v70;
+      v34 = v63;
+      v35 = v65;
+      *(_QWORD *)(v32 + 20) = *(_QWORD *)(*((_QWORD *)v70[v63] + 2) + 40LL);
+      v36 = *(_OWORD **)(v33 + 8 * v34);
+      v37 = v36[2];
+      v38 = v36[3];
+      v39 = v36[4];
+      v40 = v36[5];
+      v41 = v36[6];
+      v42 = v36[7];
+      v43 = v36[8];
+      LODWORD(v36) = v62 + v60;
+      *((_OWORD *)v32 + 2) = v37;
+      *(_DWORD *)v32 = (_DWORD)v36;
+      *((_OWORD *)v32 + 3) = v38;
+      *((_OWORD *)v32 + 4) = v39;
+      *((_OWORD *)v32 + 5) = v40;
+      *((_OWORD *)v32 + 6) = v41;
+      *((_OWORD *)v32 + 7) = v42;
+      *((_OWORD *)v32 + 8) = v43;
+      v44 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v35 + 176LL))(v35);
+      v27 = v59 + 1;
+      v19 = v71;
+      v29 = v61 + 1;
+      *((_DWORD *)v32 + 4) = v44;
+      v20 = 0LL;
+      v21 = v70;
+      v63 = ++v62;
+      v59 = v27;
+      v28 = v58;
+      v61 = v29;
+      if ( v62 >= (unsigned __int64)((v19 - (_BYTE *)v70) >> 3) )
+        goto LABEL_22;
     }
-    v46 = v65;
-    v47 = (v66 - v65) >> 3;
-    if ( v47 )
+    v52 = v70;
+    v53 = (v71 - (_BYTE *)v70) >> 3;
+    if ( v53 )
     {
-      detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
-        (__int64 *)&v65,
+      detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(
+        (__int64 *)&v70,
         0LL,
-        v47);
-      v46 = v65;
+        v53);
+      v52 = v70;
     }
-    v65 = 0LL;
-    if ( v46 == v68 )
-      v46 = 0LL;
-    operator delete(v46);
+    v70 = 0LL;
+    if ( v52 == (COverlayContext::OverlayPlaneInfo **)v73 )
+      v52 = 0LL;
+    operator delete(v52);
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200) != 0 )
-    McTemplateU0d_EventWriteTransfer(v43, (__int64)&EVTDESC_OVERLAY_CHECKSUPPORT_Stop, v6);
-  if ( v15 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    McTemplateU0q_EventWriteTransfer(v17, &EVTDESC_OVERLAY_CHECKSUPPORT_Stop, v7);
+  if ( v16 )
   {
-    if ( v4 )
+    if ( v2 )
     {
-      v49 = v64;
-      v50 = (_QWORD *)((char *)v15 + 8);
+      v54 = v69;
+      v55 = v16 + 8;
       do
       {
-        if ( *v50 )
-          (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*v50 + 16LL))(*v50);
-        v50 += 18;
-        --v49;
+        if ( *v55 )
+          (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*v55 + 16LL))(*v55);
+        v55 += 18;
+        --v54;
       }
-      while ( v49 );
+      while ( v54 );
     }
-    operator delete(v15);
+    operator delete(v16);
   }
-  return v6;
+  return v7;
 }

@@ -1,97 +1,69 @@
 /*
- * XREFs of ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C00230E4
+ * XREFs of ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001E610
  * Callers:
- *     ?ProcessTokens@CTokenManager@@IEAAJPEAX0PEAUCSM_TOKEN_ADAPTER_INFO@@I@Z @ 0x1C000AA60 (-ProcessTokens@CTokenManager@@IEAAJPEAX0PEAUCSM_TOKEN_ADAPTER_INFO@@I@Z.c)
+ *     ?ProcessTokens@CTokenManager@@IEAAJPEAX0PEAUCSM_TOKEN_ADAPTER_INFO@@I@Z @ 0x1C0002D70 (-ProcessTokens@CTokenManager@@IEAAJPEAX0PEAUCSM_TOKEN_ADAPTER_INFO@@I@Z.c)
  * Callees:
- *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0008C04 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?Grow@CLegacyTokenBuffer@@IEAAJXZ @ 0x1C0020EF0 (-Grow@CLegacyTokenBuffer@@IEAAJXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Grow@CLegacyTokenBuffer@@IEAAJXZ @ 0x1C001C9B8 (-Grow@CLegacyTokenBuffer@@IEAAJXZ.c)
+ *     ?EnsureCurrentLegacyTokenBuffer@CTokenManager@@IEAAJXZ @ 0x1C001E748 (-EnsureCurrentLegacyTokenBuffer@CTokenManager@@IEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTokenManager::ProcessGdiSysmemTokens(CTokenManager *this)
 {
   __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  CLegacyTokenBuffer **v5; // rsi
-  int v6; // ebx
-  CLegacyTokenBuffer *v7; // rbp
-  unsigned int v8; // r14d
-  __int64 v9; // rbp
+  __int64 v3; // rcx
+  int v4; // edi
+  __int64 v5; // rsi
+  unsigned int v6; // ebp
+  __int64 v7; // rsi
   struct DXGGLOBAL *Global; // rax
-  int v11; // eax
-  CLegacyTokenBuffer *v12; // r8
-  unsigned int v13; // edx
-  __int64 *v15; // rcx
-  __int64 *v16; // rax
-  int v17; // eax
-  int v18; // [rsp+50h] [rbp+8h] BYREF
+  int v9; // eax
+  __int64 v10; // rdx
+  unsigned int v11; // r8d
+  void *v12; // rcx
+  int v14; // eax
+  int v15; // [rsp+50h] [rbp+8h] BYREF
   LONG PreviousState; // [rsp+58h] [rbp+10h] BYREF
 
-  ExAcquirePushLockExclusiveEx((char *)this + 96, 0LL);
-  v5 = (CLegacyTokenBuffer **)((char *)this + 192);
-  v6 = 0;
-  *((_QWORD *)this + 13) = KeGetCurrentThread();
-  if ( *((_QWORD *)this + 24) )
+  ExAcquirePushLockExclusiveEx((char *)this + 88, 0LL);
+  *((_QWORD *)this + 12) = KeGetCurrentThread();
+  v4 = CTokenManager::EnsureCurrentLegacyTokenBuffer(this);
+  if ( v4 >= 0 )
   {
-LABEL_2:
-    if ( v6 < 0 )
-      goto LABEL_10;
-    goto LABEL_3;
-  }
-  v15 = (__int64 *)((char *)this + 168);
-  v16 = (__int64 *)*((_QWORD *)this + 21);
-  if ( v16 == (__int64 *)((char *)this + 168) )
-  {
-    v6 = CLegacyTokenBuffer::Create((struct CLegacyTokenBuffer **)this + 24);
-    goto LABEL_2;
-  }
-  if ( (__int64 *)v16[1] != v15 || (v2 = *v16, *(__int64 **)(*v16 + 8) != v16) )
-    __fastfail(3u);
-  *v15 = v2;
-  *(_QWORD *)(v2 + 8) = v15;
-  --*((_DWORD *)this + 46);
-  *v5 = (CLegacyTokenBuffer *)v16;
-LABEL_3:
-  v7 = *v5;
-  v6 = 0;
-  v8 = *((_DWORD *)*v5 + 526);
-  if ( v8 < 0x280 )
-  {
-    v17 = CLegacyTokenBuffer::Grow(*v5, v2, v3, v4);
-    v8 = *((_DWORD *)v7 + 526);
-    v6 = v17;
-  }
-  v9 = *((_QWORD *)v7 + 262);
-  if ( v6 >= 0 )
-  {
-    v18 = 0;
-    Global = DXGGLOBAL_GetGlobal();
-    v11 = (*(__int64 (__fastcall **)(_QWORD, int *, __int64))(*((_QWORD *)Global + 38073) + 392LL))(v8, &v18, v9);
-    v12 = *v5;
-    v6 = v11;
-    v13 = 40 * v18;
-    *(_DWORD *)(*((_QWORD *)*v5 + 261) + 16LL) += v18;
-    *(_DWORD *)(*((_QWORD *)v12 + 261) + 2068LL) += v13;
-    *((_DWORD *)v12 + 526) -= v13;
-    *((_QWORD *)v12 + 262) += v13;
-    if ( v11 == -1073741789 )
+    v5 = *((_QWORD *)this + 23);
+    v4 = 0;
+    v6 = *(_DWORD *)(v5 + 2104);
+    if ( v6 < 0x280 )
     {
-      v6 = 0;
+      v14 = CLegacyTokenBuffer::Grow(*((CLegacyTokenBuffer **)this + 23));
+      v6 = *(_DWORD *)(v5 + 2104);
+      v4 = v14;
     }
-    else if ( v11 < 0 )
+    v7 = *(_QWORD *)(v5 + 2096);
+    if ( v4 >= 0 )
     {
-      goto LABEL_10;
-    }
-    if ( v18 )
-    {
-      PreviousState = 0;
-      ZwSetEvent(*((HANDLE *)this + 8), &PreviousState);
+      v15 = 0;
+      Global = DXGGLOBAL::GetGlobal(v3, v2);
+      v9 = (*(__int64 (__fastcall **)(_QWORD, int *, __int64))(*((_QWORD *)Global + 38048) + 160LL))(v6, &v15, v7);
+      v10 = *((_QWORD *)this + 23);
+      v4 = v9;
+      v11 = 40 * v15;
+      *(_DWORD *)(*(_QWORD *)(v10 + 2088) + 16LL) += v15;
+      *(_DWORD *)(*(_QWORD *)(v10 + 2088) + 2068LL) += v11;
+      *(_DWORD *)(v10 + 2104) -= v11;
+      *(_QWORD *)(v10 + 2096) += v11;
+      if ( v9 == -1073741789 )
+        v4 = 0;
+      if ( v4 >= 0 && v15 )
+      {
+        v12 = (void *)*((_QWORD *)this + 7);
+        PreviousState = 0;
+        ZwSetEvent(v12, &PreviousState);
+      }
     }
   }
-LABEL_10:
-  *((_QWORD *)this + 13) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
-  return (unsigned int)v6;
+  *((_QWORD *)this + 12) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
+  return (unsigned int)v4;
 }

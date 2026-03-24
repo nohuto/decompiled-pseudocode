@@ -1,19 +1,22 @@
 /*
- * XREFs of ?HasAntialiasedContent@CSpriteVisual@@UEBA_NXZ @ 0x1800D0EE0
+ * XREFs of ?HasAntialiasedContent@CSpriteVisual@@UEBA_NXZ @ 0x1800C3D30
  * Callers:
  *     <none>
  * Callees:
- *     ?HasAntialiasedContent@CVisual@@MEBA_NXZ @ 0x1800D0F20 (-HasAntialiasedContent@CVisual@@MEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CSpriteVisual::HasAntialiasedContent(CSpriteVisual *this)
 {
-  bool HasAntialiasedContent; // al
-  char v3; // dl
+  char v2; // bl
+  __int64 v3; // rcx
 
-  HasAntialiasedContent = CVisual::HasAntialiasedContent(this);
-  v3 = 0;
-  if ( HasAntialiasedContent || (**((_DWORD **)this + 29) & 0x10000) != 0 )
+  v2 = 0;
+  v3 = *((_QWORD *)this + 31);
+  if ( v3 && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 216LL))(v3)
+    || (**((_DWORD **)this + 28) & 0x10000) != 0 )
+  {
     return 1;
-  return v3;
+  }
+  return v2;
 }

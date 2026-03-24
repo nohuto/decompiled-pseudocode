@@ -1,12 +1,12 @@
 /*
- * XREFs of PopVideoPowerSettingCallback @ 0x140387E90
+ * XREFs of PopVideoPowerSettingCallback @ 0x1403AF3C0
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x14082513C (PopApplyPolicy.c)
- *     PopAdaptivePowerSettingCallback @ 0x140825BB0 (PopAdaptivePowerSettingCallback.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopAdaptivePowerSettingCallback @ 0x14079B1C0 (PopAdaptivePowerSettingCallback.c)
+ *     PopApplyPolicy @ 0x14079CC2C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, __int64 a4)
@@ -26,11 +26,13 @@ __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, 
   __int128 v19; // xmm1
   __int128 v20; // xmm0
   __int64 v21; // rax
-  _OWORD v23[8]; // [rsp+20h] [rbp-F8h] BYREF
-  _OWORD v24[4]; // [rsp+A0h] [rbp-78h] BYREF
-  __int128 v25; // [rsp+E0h] [rbp-38h]
-  __int128 v26; // [rsp+F0h] [rbp-28h]
-  __int64 v27; // [rsp+100h] [rbp-18h]
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  _OWORD v25[8]; // [rsp+20h] [rbp-F8h] BYREF
+  _OWORD v26[4]; // [rsp+A0h] [rbp-78h] BYREF
+  __int128 v27; // [rsp+E0h] [rbp-38h]
+  __int128 v28; // [rsp+F0h] [rbp-28h]
+  __int64 v29; // [rsp+100h] [rbp-18h]
 
   v7 = -1073741811;
   v8 = *(_QWORD *)&GUID_VIDEO_POWERDOWN_TIMEOUT.Data1 - *a1;
@@ -38,39 +40,39 @@ __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, 
     v8 = *(_QWORD *)GUID_VIDEO_POWERDOWN_TIMEOUT.Data4 - a1[1];
   if ( !v8 && a3 == 4 && a2 )
   {
-    PopAcquirePolicyLock();
+    PopAcquirePolicyLock(a1, a2);
     v9 = *((_OWORD *)PopPolicy + 1);
-    v23[0] = *(_OWORD *)PopPolicy;
+    v25[0] = *(_OWORD *)PopPolicy;
     v10 = *((_OWORD *)PopPolicy + 2);
-    v23[1] = v9;
+    v25[1] = v9;
     v11 = *((_OWORD *)PopPolicy + 3);
-    v23[2] = v10;
+    v25[2] = v10;
     v12 = *((_OWORD *)PopPolicy + 4);
-    v23[3] = v11;
+    v25[3] = v11;
     v13 = *((_OWORD *)PopPolicy + 5);
-    v23[4] = v12;
+    v25[4] = v12;
     v14 = *((_OWORD *)PopPolicy + 6);
-    v23[5] = v13;
-    v23[6] = v14;
-    v15 = v24;
-    v23[7] = *((_OWORD *)PopPolicy + 7);
+    v25[5] = v13;
+    v25[6] = v14;
+    v15 = v26;
+    v25[7] = *((_OWORD *)PopPolicy + 7);
     v16 = *((_OWORD *)PopPolicy + 9);
-    v24[0] = *((_OWORD *)PopPolicy + 8);
+    v26[0] = *((_OWORD *)PopPolicy + 8);
     v17 = *((_OWORD *)PopPolicy + 10);
-    v24[1] = v16;
+    v26[1] = v16;
     v18 = *((_OWORD *)PopPolicy + 11);
-    v24[2] = v17;
+    v26[2] = v17;
     v19 = *((_OWORD *)PopPolicy + 12);
-    v24[3] = v18;
+    v26[3] = v18;
     v20 = *((_OWORD *)PopPolicy + 13);
     v21 = *((_QWORD *)PopPolicy + 28);
-    v25 = v19;
-    v26 = v20;
-    v27 = v21;
+    v27 = v19;
+    v28 = v20;
+    v29 = v21;
     LOBYTE(v15) = 1;
-    LODWORD(v25) = *a2;
-    v7 = ((__int64 (__fastcall *)(_OWORD *, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v15, 0LL, v23, 232LL);
-    PopReleasePolicyLock();
+    LODWORD(v27) = *a2;
+    v7 = ((__int64 (__fastcall *)(_OWORD *, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v15, 0LL, v25, 232LL);
+    PopReleasePolicyLock(v23, v22);
     PopAdaptivePowerSettingCallback(a1, a2, 4LL, a4);
   }
   return v7;

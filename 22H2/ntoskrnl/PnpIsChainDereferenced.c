@@ -1,92 +1,91 @@
 /*
- * XREFs of PnpIsChainDereferenced @ 0x1403D3C80
+ * XREFs of PnpIsChainDereferenced @ 0x140370E28
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PipEventRemovalCheckOpenHandles @ 0x140971BAC (PipEventRemovalCheckOpenHandles.c)
+ *     PipEventRemovalCheckOpenHandles @ 0x140732B44 (PipEventRemovalCheckOpenHandles.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     PnpIsAnyDeviceInUse @ 0x1403D3D98 (PnpIsAnyDeviceInUse.c)
- *     PnpUpdateExtensionFlags @ 0x1403D3DE4 (PnpUpdateExtensionFlags.c)
- *     PnpChainDereferenceComplete @ 0x140881878 (PnpChainDereferenceComplete.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     PnpUpdateExtensionFlags @ 0x140370F60 (PnpUpdateExtensionFlags.c)
+ *     PnpIsAnyDeviceInUse @ 0x140370F90 (PnpIsAnyDeviceInUse.c)
+ *     PnpChainDereferenceComplete @ 0x14074C614 (PnpChainDereferenceComplete.c)
  */
 
 __int64 __fastcall PnpIsChainDereferenced(_QWORD *a1, int a2, int a3, unsigned int a4, _QWORD *a5)
 {
   _QWORD *v5; // rsi
-  _QWORD *v9; // rbp
+  __int64 v9; // rbp
   unsigned int IsAnyDeviceInUse; // edi
-  int v11; // ebx
+  KIRQL v11; // al
   __int64 v12; // rdx
-  __int64 v13; // r8
-  _QWORD *v14; // r14
-  __int64 v15; // rdx
-  __int64 v16; // r11
-  _QWORD *v18; // rdx
-  __int64 v19; // rdx
-  KIRQL OldIrql; // [rsp+78h] [rbp+10h]
+  int v13; // ebx
+  KIRQL v14; // r10
+  _QWORD *v15; // r14
+  KIRQL v16; // bp
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r11
+  _QWORD *v21; // r8
+  __int64 v22; // r8
+  __int64 v23[9]; // [rsp+30h] [rbp-48h] BYREF
 
   v5 = a5;
   if ( a5 )
     *a5 = 0LL;
   v9 = 0LL;
   IsAnyDeviceInUse = 0;
-  v11 = 0;
-  OldIrql = KeAcquireQueuedSpinLock(0xAuLL);
-  v13 = 1LL;
+  v11 = KeAcquireQueuedSpinLock(0xAuLL);
+  v13 = 0;
+  v14 = v11;
   if ( a2 > 0 )
   {
-    v14 = a1;
+    v15 = a1;
+    v16 = v11;
     while ( 1 )
     {
-      a5 = 0LL;
-      IsAnyDeviceInUse = PnpIsAnyDeviceInUse(&a1[v11], v12, &a5);
-      PnpUpdateExtensionFlags(v16, v15, 1LL, 1LL);
+      v23[0] = 0LL;
+      IsAnyDeviceInUse = PnpIsAnyDeviceInUse(&a1[v13], v12, v23);
+      PnpUpdateExtensionFlags(v19, v17, v18, 1LL);
       if ( a3 )
       {
         if ( IsAnyDeviceInUse )
         {
-          v9 = a5;
-          goto LABEL_16;
+LABEL_9:
+          v5 = a5;
+          v14 = v16;
+          v9 = v23[0];
+          break;
         }
       }
       else if ( !IsAnyDeviceInUse )
       {
-        KeReleaseQueuedSpinLock(0xAuLL, OldIrql);
-        PnpChainDereferenceComplete(*v14, a4);
-        OldIrql = KeAcquireQueuedSpinLock(0xAuLL);
-        v13 = 1LL;
+        KeReleaseQueuedSpinLock(0xAuLL, v16);
+        PnpChainDereferenceComplete(*v15, a4);
+        v16 = KeAcquireQueuedSpinLock(0xAuLL);
       }
-      v11 += v13;
-      ++v14;
-      if ( v11 >= a2 )
-      {
-        v9 = a5;
-        break;
-      }
+      ++v13;
+      ++v15;
+      if ( v13 >= a2 )
+        goto LABEL_9;
     }
   }
-  if ( a3 )
+  if ( a3 && IsAnyDeviceInUse )
   {
-LABEL_16:
-    if ( IsAnyDeviceInUse )
+    if ( v5 )
+      *v5 = v9;
+    if ( v13 >= 0 )
     {
-      if ( v5 )
-        *v5 = v9;
-      if ( v11 >= 0 )
+      v21 = &a1[v13];
+      do
       {
-        v18 = &a1[v11];
-        do
-        {
-          PnpUpdateExtensionFlags(v18, v18, v13, 0LL);
-          v18 = (_QWORD *)(v19 - 8);
-          v11 -= v13;
-        }
-        while ( v11 >= 0 );
+        PnpUpdateExtensionFlags(v21, v12, v21, 0LL);
+        v21 = (_QWORD *)(v22 - 8);
+        --v13;
       }
+      while ( v13 >= 0 );
     }
   }
-  KeReleaseQueuedSpinLock(0xAuLL, OldIrql);
+  KeReleaseQueuedSpinLock(0xAuLL, v14);
   if ( !a3 )
     return 1;
   return IsAnyDeviceInUse;

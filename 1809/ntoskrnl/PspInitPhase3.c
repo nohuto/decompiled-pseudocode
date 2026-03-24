@@ -6,10 +6,10 @@
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PspMapSystemDll @ 0x1406779CC (PspMapSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x1409F8288 (PspGetSystemDllSecureHandle.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PspMapSystemDll @ 0x1406779AC (PspMapSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x1409F8298 (PspGetSystemDllSecureHandle.c)
  */
 
 bool PspInitPhase3()

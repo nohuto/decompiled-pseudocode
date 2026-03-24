@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_StopMapping @ 0x1C000F2F0
+ * XREFs of Bulk_EP_StopMapping @ 0x1C000EC50
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall Bulk_EP_StopMapping(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall Bulk_EP_StopMapping(__int64 a1)
     if ( !*(_BYTE *)(v1 + 37)
       || (v2 = *(_QWORD *)(v1 + 136), _InterlockedIncrement((volatile signed __int32 *)(v2 + 20)) == *(_DWORD *)(v2 + 8)) )
     {
-      ESM_AddEvent((KSPIN_LOCK *)(v1 + 296), 20);
+      ESM_AddEvent((KSPIN_LOCK *)(v1 + 288), 20);
     }
   }
 }

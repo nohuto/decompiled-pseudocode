@@ -1,92 +1,106 @@
 /*
- * XREFs of MiDecommitLargePoolVa @ 0x140211A40
+ * XREFs of MiDecommitLargePoolVa @ 0x1403714C0
  * Callers:
- *     MiDeleteNonPagedPoolPte @ 0x140212710 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1402E9620 (MiDeleteNonPagedPoolPte.c)
  * Callees:
- *     MiWriteTopLevelPxe @ 0x140201D04 (MiWriteTopLevelPxe.c)
- *     MiLockAndDecrementShareCount @ 0x140211BCC (MiLockAndDecrementShareCount.c)
- *     MiInsertLargeTbFlushEntry @ 0x140211C4C (MiInsertLargeTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14061D8E8 (MiLogPerfMemoryRangeEvent.c)
+ *     MiGetContainingPageTable @ 0x14023DDC0 (MiGetContainingPageTable.c)
+ *     MiLockAndDecrementShareCount @ 0x140263D30 (MiLockAndDecrementShareCount.c)
+ *     MiFreeLargePageMemory @ 0x14027ECD4 (MiFreeLargePageMemory.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402EDDE0 (MiInsertLargeTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiReplicatePteChange @ 0x1403A3E44 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053155C (MiLogPerfMemoryRangeEvent.c)
  */
 
-__int64 __fastcall MiDecommitLargePoolVa(__int64 a1, unsigned __int64 *a2, __int64 a3)
+__int64 __fastcall MiDecommitLargePoolVa(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  unsigned int v6; // edi
-  unsigned __int64 v7; // r15
+  unsigned int v4; // esi
+  unsigned __int64 v7; // r14
   __int64 ContainingPageTable; // rax
-  unsigned __int64 v9; // rbx
-  int v10; // r14d
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 *v14; // rax
+  __int64 v9; // r11
+  __int64 v10; // r8
+  unsigned __int64 v11; // rbx
+  __int64 v12; // r8
+  _KPROCESS *v13; // rdx
+  __int64 v14; // rcx
+  __int64 *v15; // rax
   __int64 result; // rax
-  bool v16; // zf
   __int64 v17; // [rsp+20h] [rbp-108h] BYREF
-  _QWORD v18[24]; // [rsp+30h] [rbp-F8h] BYREF
+  _QWORD v18[4]; // [rsp+30h] [rbp-F8h] BYREF
+  __int128 v19; // [rsp+50h] [rbp-D8h]
+  __int128 v20; // [rsp+60h] [rbp-C8h]
+  __int128 v21; // [rsp+70h] [rbp-B8h]
+  __int128 v22; // [rsp+80h] [rbp-A8h]
+  __int128 v23; // [rsp+90h] [rbp-98h]
+  __int128 v24; // [rsp+A0h] [rbp-88h]
+  __int128 v25; // [rsp+B0h] [rbp-78h]
+  __int128 v26; // [rsp+C0h] [rbp-68h]
+  __int128 v27; // [rsp+D0h] [rbp-58h]
+  __int64 v28; // [rsp+E0h] [rbp-48h]
 
-  memset(v18, 0, 0xB8uLL);
-  if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
-    MiLogPerfMemoryRangeEvent(a1, 0LL, 10LL, a3);
-  v6 = 0;
-  LODWORD(v18[1]) = 20;
+  v18[0] = 0LL;
+  v19 = 0LL;
+  v4 = 0;
+  v20 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
+  v23 = 0LL;
+  v24 = 0LL;
+  v28 = 0LL;
+  v25 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  v18[1] = 20LL;
+  v18[2] = 0LL;
   v18[3] = 0LL;
   v17 = MI_READ_PTE_LOCK_FREE(a2);
-  v7 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v17) >> 12) & 0xFFFFFFFFFFLL;
-  *(_QWORD *)(48 * v7 - 0x220000000000LL) = 0LL;
+  v7 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFLL;
+  *(_QWORD *)(48 * v7 - 0x58000000000LL) = 0LL;
   ContainingPageTable = MiGetContainingPageTable(a2);
-  MiLockAndDecrementShareCount(48 * ContainingPageTable - 0x220000000000LL, 0LL);
-  if ( (unsigned __int64)a2 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)a2 <= 0xFFFFF6FB7DBEDFFFuLL )
+  MiLockAndDecrementShareCount(v9 + 48 * ContainingPageTable, 0LL, v10);
+  if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+    MiLogPerfMemoryRangeEvent(a1, 0LL, 10LL, a3);
+  v11 = ZeroPte;
+  if ( !MiPteInShadowRange(a2) )
+    goto LABEL_12;
+  if ( !(unsigned int)MiPteHasShadow() )
   {
-    MiWriteTopLevelPxe(a2, ZeroPte);
-    goto LABEL_7;
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+      && (ZeroPte & 1) != 0 )
+    {
+      v11 = ZeroPte | 0x8000000000000000uLL;
+    }
+LABEL_12:
+    *(_QWORD *)a2 = v11;
+    goto LABEL_13;
   }
-  v9 = ZeroPte;
-  v10 = 0;
-  if ( (unsigned int)MiPteInShadowRange(a2) )
+  if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+    v11 = ZeroPte | 0x8000000000000000uLL;
+  *(_QWORD *)a2 = v11;
+  MiWritePteShadow(a2, v11, v12);
+LABEL_13:
+  MiInsertLargeTbFlushEntry((__int64)v18, 1u, a2);
+  if ( a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
   {
-    if ( (unsigned int)MiPteHasShadow(v12, v11, v13) )
-    {
-      v10 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_5;
-      v16 = (ZeroPte & 1) == 0;
-    }
-    else
-    {
-      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_5;
-      v16 = (ZeroPte & 1) == 0;
-    }
-    if ( !v16 )
-      v9 = ZeroPte | 0x8000000000000000uLL;
+    v14 = (__int64)(a2 << 25) >> 16 << 25 >> 16 << 25 >> 16;
+    MiReplicatePteChange(v14, v14);
   }
-LABEL_5:
-  *a2 = v9;
-  if ( v10 )
-    MiWritePteShadow(a2, v9);
-LABEL_7:
-  MiInsertLargeTbFlushEntry(v18, 1LL, a2);
-  MiFlushTbList(v18);
-  v14 = &MiLargePageSizes;
+  MiFlushTbList((__int64)v18, v13);
+  v15 = MiLargePageSizes;
   do
   {
-    if ( *v14 == a3 )
+    if ( *v15 == a3 )
       break;
-    ++v6;
-    ++v14;
+    ++v4;
+    ++v15;
   }
-  while ( v6 < 3 );
-  result = MiFreeLargePageMemory(v7, v6, 4LL);
-  _InterlockedExchangeAdd64(&qword_140C69A98, -a3);
+  while ( v4 < 3 );
+  result = MiFreeLargePageMemory(v7, v4, 4u);
+  _InterlockedExchangeAdd64(&qword_140C4EFA0, -a3);
   return result;
 }

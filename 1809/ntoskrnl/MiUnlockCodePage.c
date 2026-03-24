@@ -3,10 +3,10 @@
  * Callers:
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
  *     MiUnlockImageSection @ 0x140097F18 (MiUnlockImageSection.c)
- *     MiHandleDriverNonPagedSections @ 0x1406557AC (MiHandleDriverNonPagedSections.c)
- *     MmUnlockPreChargedPagedPool @ 0x1406E01E0 (MmUnlockPreChargedPagedPool.c)
- *     MiUnlockDriverCode @ 0x14070DB80 (MiUnlockDriverCode.c)
- *     MiUnlockHotPatchPages @ 0x1408583BC (MiUnlockHotPatchPages.c)
+ *     MiHandleDriverNonPagedSections @ 0x14065578C (MiHandleDriverNonPagedSections.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1406E01C0 (MmUnlockPreChargedPagedPool.c)
+ *     MiUnlockDriverCode @ 0x14070DB60 (MiUnlockDriverCode.c)
+ *     MiUnlockHotPatchPages @ 0x14085839C (MiUnlockHotPatchPages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
@@ -14,8 +14,8 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2)

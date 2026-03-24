@@ -1,54 +1,53 @@
 /*
- * XREFs of SdbGetStringTagPtr @ 0x140757878
+ * XREFs of SdbGetStringTagPtr @ 0x140755D70
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DE54 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbpSearchDB @ 0x140752714 (SdbpSearchDB.c)
- *     SdbpCheckMatchingFiles @ 0x140756E10 (SdbpCheckMatchingFiles.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1407575F8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpMatchList @ 0x140757A2C (SdbpMatchList.c)
- *     SdbpCheckAllAttributes @ 0x140757C04 (SdbpCheckAllAttributes.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140758F00 (SdbpFindFirstIndexedWildCardTag.c)
- *     KsepDbReadKFlag @ 0x14080B194 (KsepDbReadKFlag.c)
- *     SdbpFindMatchingName @ 0x14084B188 (SdbpFindMatchingName.c)
- *     KsepDbGetSdbString @ 0x140856690 (KsepDbGetSdbString.c)
- *     KsepDbReadKData @ 0x140976F88 (KsepDbReadKData.c)
- *     SdbQueryDataExTagID @ 0x140A4EFF8 (SdbQueryDataExTagID.c)
- *     SdbpCheckMatchingDevice @ 0x140A4F5D0 (SdbpCheckMatchingDevice.c)
- *     SdbpCheckMatchingDir @ 0x140A4F6A0 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A503B0 (SdbpCheckMatchingWildcardFiles.c)
- *     SdbpCheckSdbCapability @ 0x140A50AB0 (SdbpCheckSdbCapability.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A50ED8 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A51104 (SdbpGetRegistryMatchingAttributes.c)
- *     SdbpMatchDeviceString @ 0x140A516C0 (SdbpMatchDeviceString.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51BB0 (SdbpFindFirstNamedTagHelper.c)
- *     SdbpFindNextNamedTagHelper @ 0x140A51C90 (SdbpFindNextNamedTagHelper.c)
- *     SdbMergeIsEntryUpdated @ 0x140A5374C (SdbMergeIsEntryUpdated.c)
- *     SdbpMergeAreTagValuesEqual @ 0x140A53B34 (SdbpMergeAreTagValuesEqual.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F8D90 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckSdbCapability @ 0x1405D1DB0 (SdbpCheckSdbCapability.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140752DDC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpCheckMatchingFiles @ 0x140753CB0 (SdbpCheckMatchingFiles.c)
+ *     SdbpMatchList @ 0x140754098 (SdbpMatchList.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758F78 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpSearchDB @ 0x14077E6B4 (SdbpSearchDB.c)
+ *     SdbpCheckAllAttributes @ 0x1407B243C (SdbpCheckAllAttributes.c)
+ *     KsepDbReadKFlag @ 0x1407B3DC0 (KsepDbReadKFlag.c)
+ *     SdbpFindMatchingName @ 0x1407C1520 (SdbpFindMatchingName.c)
+ *     SdbQueryDataExTagID @ 0x1407C1F28 (SdbQueryDataExTagID.c)
+ *     SdbFindFirstNamedTag @ 0x1407C214C (SdbFindFirstNamedTag.c)
+ *     KsepDbGetSdbString @ 0x1408BF838 (KsepDbGetSdbString.c)
+ *     KsepDbReadKData @ 0x1408BFCA0 (KsepDbReadKData.c)
+ *     SdbpCheckMatchingDevice @ 0x1409642F0 (SdbpCheckMatchingDevice.c)
+ *     SdbpCheckMatchingDir @ 0x1409643C0 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1409650D0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckPackageAttributes @ 0x140965630 (SdbpCheckPackageAttributes.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1409659F8 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140965C24 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbpMatchDeviceString @ 0x140965FD4 (SdbpMatchDeviceString.c)
+ *     SdbpFindNextNamedTag @ 0x140966120 (SdbpFindNextNamedTag.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetMappedTagData @ 0x140740E9C (SdbpGetMappedTagData.c)
- *     SdbpGetMappedStringFromTable @ 0x1407578F8 (SdbpGetMappedStringFromTable.c)
- *     SdbpReadStringRef @ 0x140757948 (SdbpReadStringRef.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetMappedStringFromTable @ 0x140755DF0 (SdbpGetMappedStringFromTable.c)
+ *     SdbpReadStringRef @ 0x140755F18 (SdbpReadStringRef.c)
+ *     SdbpGetMappedTagData @ 0x1407595F4 (SdbpGetMappedTagData.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbGetStringTagPtr(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall SdbGetStringTagPtr(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // esi
-  __int16 v6; // ax
+  __int64 v4; // rbx
+  unsigned int v5; // esi
+  __int16 v7; // ax
   unsigned int StringRef; // eax
 
-  v3 = 0LL;
-  v4 = a2;
+  v4 = 0LL;
+  v5 = a2;
   if ( a1 )
   {
-    v6 = SdbGetTagFromTagID(a1, a2, a3) & 0xF000;
-    if ( v6 == (__int16)0x8000 )
-      return SdbpGetMappedTagData(a1, v4);
-    if ( v6 != 24576 )
-      return v3;
-    StringRef = SdbpReadStringRef(a1, v4);
+    v7 = SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000;
+    if ( v7 == (__int16)0x8000 )
+      return SdbpGetMappedTagData(a1, v5);
+    if ( v7 != 24576 )
+      return v4;
+    StringRef = SdbpReadStringRef(a1, v5);
     if ( StringRef )
       return SdbpGetMappedStringFromTable(a1, StringRef);
   }

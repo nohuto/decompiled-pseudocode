@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCalculateUpdateNotification @ 0x140657A28
+ * XREFs of EtwpCalculateUpdateNotification @ 0x140657A08
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpDisallowedGuidAddition @ 0x1408B50C4 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x1408B5378 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidAddition @ 0x1408B50A4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1408B5358 (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     EtwpGetSchematizedFilterSize @ 0x1405C3DE8 (EtwpGetSchematizedFilterSize.c)
  *     EtwpComputeRegEntryEnableInfo @ 0x1405C539C (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpBuildNotificationPacket @ 0x140658C68 (EtwpBuildNotificationPacket.c)
+ *     EtwpBuildNotificationPacket @ 0x140658C48 (EtwpBuildNotificationPacket.c)
  */
 
 char __fastcall EtwpCalculateUpdateNotification(

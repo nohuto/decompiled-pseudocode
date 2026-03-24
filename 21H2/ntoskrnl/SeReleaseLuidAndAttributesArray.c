@@ -1,15 +1,15 @@
 /*
- * XREFs of SeReleaseLuidAndAttributesArray @ 0x1406651C8
+ * XREFs of SeReleaseLuidAndAttributesArray @ 0x1405DD318
  * Callers:
- *     NtFilterToken @ 0x1406623D0 (NtFilterToken.c)
- *     NtAdjustGroupsToken @ 0x140662780 (NtAdjustGroupsToken.c)
- *     NtCreateTokenEx @ 0x1406647E0 (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x14078DDF0 (NtCreateLowBoxToken.c)
- *     NtAdjustPrivilegesToken @ 0x14079DC50 (NtAdjustPrivilegesToken.c)
- *     NtPrivilegeCheck @ 0x14079E490 (NtPrivilegeCheck.c)
+ *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
+ *     NtAdjustGroupsToken @ 0x1405DA5F0 (NtAdjustGroupsToken.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     NtPrivilegeCheck @ 0x140607B40 (NtPrivilegeCheck.c)
+ *     NtAdjustPrivilegesToken @ 0x140607D30 (NtAdjustPrivilegesToken.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeReleaseLuidAndAttributesArray(void *a1, unsigned __int8 a2)

@@ -1,17 +1,14 @@
 /*
- * XREFs of ?Marshal@MouseInterceptState@CMouseProcessor@@AEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01F8AC4
+ * XREFs of ?Marshal@MouseInterceptState@CMouseProcessor@@AEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01C0B88
  * Callers:
- *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01F54D4 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
+ *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01BED84 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00742F0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
- *     RIMLockShared @ 0x1C0096B30 (RIMLockShared.c)
- *     GreLeaveCriticalRegionAndReleasePushLockShared @ 0x1C0096F70 (GreLeaveCriticalRegionAndReleasePushLockShared.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?IsCurrentInputDesktopInterceptable@MouseInterceptState@CMouseProcessor@@AEBA_NXZ @ 0x1C00E635A (-IsCurrentInputDesktopInterceptable@MouseInterceptState@CMouseProcessor@@AEBA_NXZ.c)
- *     ?PrepareForMarshaling@MouseInterceptState@CMouseProcessor@@AEAA_NPEBU_MouseInterceptorData@@@Z @ 0x1C01F9298 (-PrepareForMarshaling@MouseInterceptState@CMouseProcessor@@AEAA_NPEBU_MouseInterceptorData@@@Z.c)
- *     ?WaitForCallout@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAA_NPEAU_KTHREAD@@@Z @ 0x1C01FB930 (-WaitForCallout@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAA_NPEAU_KTHREAD@@@Z.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsCurrentInputDesktopInterceptable@MouseInterceptState@CMouseProcessor@@AEBA_NXZ @ 0x1C01C0B50 (-IsCurrentInputDesktopInterceptable@MouseInterceptState@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?PrepareForMarshaling@MouseInterceptState@CMouseProcessor@@AEAA_NPEBU_MouseInterceptorData@@@Z @ 0x1C01C109C (-PrepareForMarshaling@MouseInterceptState@CMouseProcessor@@AEAA_NPEBU_MouseInterceptorData@@@Z.c)
+ *     ?WaitForCallout@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAA_NPEAU_KTHREAD@@@Z @ 0x1C01C2368 (-WaitForCallout@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAA_NPEAU_KTHREAD@@@Z.c)
+ *     ApiSetEditionExtensibility_WakeMITForInterceptCallout @ 0x1C01CB480 (ApiSetEditionExtensibility_WakeMITForInterceptCallout.c)
  */
 
 __int64 __fastcall CMouseProcessor::MouseInterceptState::Marshal(
@@ -19,30 +16,29 @@ __int64 __fastcall CMouseProcessor::MouseInterceptState::Marshal(
         const struct _MouseInterceptorData *a2,
         _QWORD *a3)
 {
-  PKDPC BufferChainingDpc; // rdi
-  SINGLE_LIST_ENTRY *p_DpcListEntry; // rbx
-  struct _KTHREAD *SystemArgument1; // rdi
-  bool v8; // bl
+  CInputThread *v5; // rbx
+  struct _KTHREAD *v6; // rbp
+  bool v7; // bl
 
   if ( CMouseProcessor::MouseInterceptState::PrepareForMarshaling((CMouseProcessor::MouseInterceptState *)a1, a2)
-    && qword_1C0296C70
-    && (int)qword_1C0296C70() >= 0
-    && qword_1C0296C78
-    && (unsigned int)qword_1C0296C78() )
+    && (unsigned int)ApiSetEditionExtensibility_WakeMITForInterceptCallout() )
   {
-    BufferChainingDpc = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
-    p_DpcListEntry = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry;
-    RIMLockShared((__int64)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry);
-    SystemArgument1 = (struct _KTHREAD *)BufferChainingDpc->SystemArgument1;
-    GreLeaveCriticalRegionAndReleasePushLockShared((__int64)p_DpcListEntry);
-    if ( !SystemArgument1 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 8194);
-    CInpPushLock::UnLockExclusive((CInpPushLock *)a1);
-    v8 = CMouseProcessor::MouseInterceptState::MarshalSync::WaitForCallout(
+    v5 = gpInputThread;
+    KeEnterCriticalRegion();
+    ExAcquirePushLockSharedEx(v5, 0LL);
+    v6 = (struct _KTHREAD *)*((_QWORD *)v5 + 4);
+    ExReleasePushLockSharedEx(v5, 0LL);
+    KeLeaveCriticalRegion();
+    if ( !v6 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7842);
+    *(_QWORD *)(a1 + 8) = 0LL;
+    ExReleasePushLockExclusiveEx(a1, 0LL);
+    KeLeaveCriticalRegion();
+    v7 = CMouseProcessor::MouseInterceptState::MarshalSync::WaitForCallout(
            (CMouseProcessor::MouseInterceptState::MarshalSync *)(a1 + 112),
-           SystemArgument1);
+           v6);
     RIMLockExclusive(a1);
-    if ( !v8
+    if ( !v7
       || !CMouseProcessor::MouseInterceptState::IsCurrentInputDesktopInterceptable((CMouseProcessor::MouseInterceptState *)a1) )
     {
       *(_OWORD *)(a1 + 88) = 0LL;

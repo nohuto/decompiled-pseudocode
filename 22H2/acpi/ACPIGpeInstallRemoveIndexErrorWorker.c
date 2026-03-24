@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C002C630
+ * XREFs of ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C0056020
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIWriteEventLogEntry @ 0x1C0025F7C (ACPIWriteEventLogEntry.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0054C98 (ACPIWriteEventLogEntry.c)
  */
 
 void __fastcall ACPIGpeInstallRemoveIndexErrorWorker(_DWORD *P)

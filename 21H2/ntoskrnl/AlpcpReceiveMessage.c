@@ -1,344 +1,350 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x1407AC930
+ * XREFs of AlpcpReceiveMessage @ 0x1405E7C70
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x1407AC6B0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     AlpcpCancelMessage @ 0x140662E08 (AlpcpCancelMessage.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406C9174 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x1406D8084 (AlpcpExposeCapturedContextAttribute.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     AlpcpDestroyBlob @ 0x1407A5A90 (AlpcpDestroyBlob.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407A6A74 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpReadMessageData @ 0x1407A7B20 (AlpcpReadMessageData.c)
- *     AlpcpReceiveMessagePort @ 0x1407A8B00 (AlpcpReceiveMessagePort.c)
- *     AlpcpExposeAttributes @ 0x1407A9220 (AlpcpExposeAttributes.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1407F58C4 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x140966A84 (AlpcpEnterStateChangeEventMessageLog.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
+ *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     AlpcpDestroyBlob @ 0x140685CEC (AlpcpDestroyBlob.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x140692930 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140693B70 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2BD4 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, _QWORD *a3, int *a4, LARGE_INTEGER *a5)
+__int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, _DWORD *a4, __int64 *a5)
 {
-  struct _KTHREAD *CurrentThread; // r9
-  int v8; // r10d
-  unsigned __int8 PreviousMode; // dl
-  __int64 v10; // rax
-  unsigned int v11; // edx
-  __int64 v12; // rcx
-  int v13; // r14d
-  __int64 v14; // rax
-  int v15; // r12d
-  ULONG v16; // r10d
-  int v17; // ecx
-  int v18; // eax
-  int v19; // ecx
-  ULONG v20; // eax
-  ULONG v21; // ecx
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // rax
-  __int64 v25; // rcx
-  ULONG v26; // eax
-  unsigned int v27; // eax
-  unsigned int v28; // r14d
-  ULONG_PTR v29; // rdi
-  __int16 v30; // ax
-  unsigned __int16 v31; // ax
-  char *v32; // rdx
+  unsigned __int64 *v6; // r9
+  struct _KTHREAD *CurrentThread; // r8
+  unsigned int v9; // r10d
+  int v10; // edx
+  __int64 v11; // rax
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  int v14; // r14d
+  __int64 v15; // rax
+  int v16; // r12d
+  ULONG v17; // r8d
+  int v18; // ecx
+  int v19; // eax
+  int v20; // ecx
+  int v21; // eax
+  unsigned int v22; // ecx
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  ULONG v27; // eax
+  ULONG v28; // ecx
+  ULONG v29; // edx
+  unsigned int v30; // eax
+  unsigned int v31; // r14d
+  ULONG_PTR v32; // rdi
   __int16 v33; // ax
-  __int16 v34; // dx
-  __int64 v35; // r9
-  int v36; // edx
-  ULONG_PTR v37; // rsi
-  char v38; // cl
+  unsigned __int16 v34; // ax
+  void *v35; // rdx
+  __int16 v36; // ax
+  __int16 v37; // dx
+  __int64 v38; // r9
+  int v39; // edx
+  ULONG_PTR v40; // rsi
+  char v41; // cl
   signed __int64 BugCheckParameter4; // rcx
-  unsigned int v41; // [rsp+30h] [rbp-A8h]
-  int v42; // [rsp+34h] [rbp-A4h]
-  int v43; // [rsp+38h] [rbp-A0h]
-  int v44; // [rsp+3Ch] [rbp-9Ch]
-  int v45; // [rsp+48h] [rbp-90h]
-  ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v47; // [rsp+58h] [rbp-80h]
-  unsigned __int64 v48; // [rsp+60h] [rbp-78h]
-  int v49; // [rsp+68h] [rbp-70h]
-  __int64 v50; // [rsp+70h] [rbp-68h] BYREF
-  struct _KTHREAD *v51; // [rsp+78h] [rbp-60h]
-  __int64 v52; // [rsp+80h] [rbp-58h]
-  _OWORD v53[2]; // [rsp+88h] [rbp-50h] BYREF
-  __int64 v54; // [rsp+E0h] [rbp+8h]
-  __int64 v55; // [rsp+E0h] [rbp+8h]
-  _QWORD *v56; // [rsp+F0h] [rbp+18h]
+  unsigned __int8 v44; // [rsp+30h] [rbp-A8h]
+  unsigned int v45; // [rsp+34h] [rbp-A4h]
+  int v46; // [rsp+38h] [rbp-A0h]
+  int v47; // [rsp+3Ch] [rbp-9Ch]
+  int v48; // [rsp+40h] [rbp-98h]
+  unsigned int v49; // [rsp+50h] [rbp-88h]
+  ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-80h] BYREF
+  __int64 v51; // [rsp+60h] [rbp-78h]
+  unsigned __int64 v52; // [rsp+68h] [rbp-70h]
+  __int64 v53; // [rsp+70h] [rbp-68h] BYREF
+  struct _KTHREAD *v54; // [rsp+78h] [rbp-60h]
+  __int64 v55; // [rsp+80h] [rbp-58h]
+  _OWORD v56[2]; // [rsp+88h] [rbp-50h] BYREF
+  int v57; // [rsp+E0h] [rbp+8h]
+  unsigned __int64 v58; // [rsp+E0h] [rbp+8h]
 
-  v56 = a3;
-  v54 = a1;
+  v57 = a1;
+  v6 = a3;
   BugCheckParameter2 = 0LL;
-  v48 = 0LL;
+  v52 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v51 = CurrentThread;
-  v8 = *(_DWORD *)(a1 + 48);
-  v45 = v8;
-  v47 = *(_QWORD *)a1;
-  v52 = v47;
-  PreviousMode = CurrentThread->PreviousMode;
-  v49 = PreviousMode;
-  v50 = 0LL;
-  v48 = -1LL;
-  v44 = 0;
-  v43 = 0;
-  if ( PreviousMode )
+  v54 = CurrentThread;
+  v9 = *(_DWORD *)(a1 + 48);
+  v49 = v9;
+  v51 = *(_QWORD *)a1;
+  v55 = v51;
+  v44 = CurrentThread->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  v10 = v44;
+  v53 = 0LL;
+  v52 = -1LL;
+  v48 = 0;
+  v47 = 0;
+  if ( v44 )
   {
-    v10 = (__int64)a5;
+    v11 = (__int64)a5;
     if ( a5 )
     {
       if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
-        v10 = 0x7FFFFFFF0000LL;
-      v50 = *(_QWORD *)v10;
-      a5 = (LARGE_INTEGER *)&v50;
+        v11 = 0x7FFFFFFF0000LL;
+      v53 = *(_QWORD *)v11;
+      a5 = &v53;
     }
-    v11 = v8 & 0xC0000000;
-    v12 = a2;
-    if ( (v8 & 0xC0000000) == 0x80000000 )
+    v12 = v9 & 0xC0000000;
+    v13 = a2;
+    if ( (v9 & 0xC0000000) == 0x80000000 )
     {
       if ( (a2 & 3) != 0 )
-        goto LABEL_63;
+        goto LABEL_65;
       if ( a2 >= 0x7FFFFFFF0000LL )
-        v12 = 0x7FFFFFFF0000LL;
-      *(_BYTE *)v12 = *(_BYTE *)v12;
-      *(_BYTE *)(v12 + 23) = *(_BYTE *)(v12 + 23);
+        v13 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v13 = *(_BYTE *)v13;
+      *(_BYTE *)(v13 + 23) = *(_BYTE *)(v13 + 23);
     }
     else
     {
       if ( (a2 & 3) != 0 )
-        goto LABEL_63;
+        goto LABEL_65;
       if ( a2 >= 0x7FFFFFFF0000LL )
-        v12 = 0x7FFFFFFF0000LL;
-      *(_BYTE *)v12 = *(_BYTE *)v12;
-      *(_BYTE *)(v12 + 39) = *(_BYTE *)(v12 + 39);
+        v13 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v13 = *(_BYTE *)v13;
+      *(_BYTE *)(v13 + 39) = *(_BYTE *)(v13 + 39);
     }
-    v13 = v8 & 0x1000000;
-    if ( (v8 & 0x1000000) != 0 )
+    v14 = v9 & 0x1000000;
+    if ( (v9 & 0x1000000) != 0 )
     {
-      if ( v11 == 0x80000000 )
+      if ( v12 == 0x80000000 )
       {
-        v44 = *(_DWORD *)(a2 + 16);
-        v43 = *(_DWORD *)(a2 + 20);
+        v48 = *(_DWORD *)(a2 + 16);
+        v47 = *(_DWORD *)(a2 + 20);
       }
       else
       {
-        v44 = *(_DWORD *)(a2 + 24);
-        v43 = *(_DWORD *)(a2 + 32);
+        v48 = *(_DWORD *)(a2 + 24);
+        v47 = *(_DWORD *)(a2 + 32);
       }
     }
     if ( !a4 )
     {
-      v15 = 0;
-      v42 = 0;
+      v16 = 0;
+      v46 = 0;
       goto LABEL_36;
     }
-    v14 = (__int64)a4;
+    v15 = (__int64)a4;
     if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
-      v14 = 0x7FFFFFFF0000LL;
-    v15 = *(_DWORD *)v14;
-    v16 = 8;
-    if ( v11 == 0x80000000 )
+      v15 = 0x7FFFFFFF0000LL;
+    v16 = *(_DWORD *)v15;
+    v17 = 8;
+    if ( v12 == 0x80000000 )
     {
-      if ( v15 < 0 )
-        v16 = 20;
-      v26 = v16 + 16;
-      if ( (v15 & 0x40000000) == 0 )
-        v26 = v16;
-      v21 = v26 + 20;
-      if ( (v15 & 0x20000000) == 0 )
-        v21 = v26;
-      if ( (v15 & 0x10000000) != 0 )
-        v21 += 16;
-      if ( (v15 & 0x8000000) != 0 )
-        v21 += 24;
-      v16 = 4;
+      if ( v16 < 0 )
+        v17 = 20;
+      v27 = v17 + 16;
+      if ( (v16 & 0x40000000) == 0 )
+        v27 = v17;
+      v28 = v27 + 20;
+      if ( (v16 & 0x20000000) == 0 )
+        v28 = v27;
+      v29 = v28 + 16;
+      if ( (v16 & 0x10000000) == 0 )
+        v29 = v28;
+      if ( (v16 & 0x8000000) != 0 )
+        v29 += 24;
+      v23 = v29 + 8;
+      if ( (v16 & 0x2000000) == 0 )
+        v23 = v29;
+      v17 = 4;
     }
     else
     {
-      v17 = 8;
-      if ( v15 < 0 )
-        v17 = 32;
-      v18 = v17 + 32;
-      if ( (v15 & 0x40000000) == 0 )
-        v18 = v17;
+      v18 = 8;
+      if ( v16 < 0 )
+        v18 = 32;
       v19 = v18 + 32;
-      if ( (v15 & 0x20000000) == 0 )
+      if ( (v16 & 0x40000000) == 0 )
         v19 = v18;
-      v20 = v19 + 24;
-      if ( (v15 & 0x10000000) == 0 )
+      v20 = v19 + 32;
+      if ( (v16 & 0x20000000) == 0 )
         v20 = v19;
       v21 = v20 + 24;
-      if ( (v15 & 0x8000000) == 0 )
+      if ( (v16 & 0x10000000) == 0 )
         v21 = v20;
-      if ( (v15 & 0x4000000) != 0 )
-        v21 += 8;
+      v22 = v21 + 24;
+      if ( (v16 & 0x8000000) == 0 )
+        v22 = v21;
+      if ( (v16 & 0x4000000) != 0 )
+        v22 += 8;
+      v23 = v22 + 8;
+      if ( (v16 & 0x2000000) == 0 )
+        v23 = v22;
     }
-    v22 = v21 + 8;
-    if ( (v15 & 0x2000000) == 0 )
-      v22 = v21;
-    v23 = (__int64)a4;
-    if ( (unsigned __int64)(v22 - 1) > 0xFFE )
+    v24 = (__int64)a4;
+    if ( (unsigned __int64)(v23 - 1) > 0xFFE )
     {
-      ProbeForWrite(a4, (unsigned int)v22, v16);
-      a3 = v56;
+      ProbeForWrite(a4, (unsigned int)v23, v17);
+      v6 = a3;
 LABEL_35:
-      v42 = v15;
+      v46 = v16;
 LABEL_36:
-      if ( a3 )
+      if ( v6 )
       {
-        v24 = (__int64)a3;
-        if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
-          v24 = 0x7FFFFFFF0000LL;
-        v48 = *(_QWORD *)v24;
-        v25 = (__int64)a3;
-        if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+        v25 = (__int64)v6;
+        if ( (unsigned __int64)v6 >= 0x7FFFFFFF0000LL )
           v25 = 0x7FFFFFFF0000LL;
-        *(_QWORD *)v25 = *(_QWORD *)v25;
-        v15 = v42;
+        v52 = *(_QWORD *)v25;
+        v26 = (__int64)v6;
+        if ( (unsigned __int64)v6 >= 0x7FFFFFFF0000LL )
+          v26 = 0x7FFFFFFF0000LL;
+        *(_QWORD *)v26 = *(_QWORD *)v26;
+        v16 = v46;
       }
-      a1 = v54;
-      PreviousMode = v49;
-      goto LABEL_64;
+      LODWORD(a1) = v57;
+      v10 = v44;
+      goto LABEL_66;
     }
-    if ( ((v16 - 1) & (unsigned int)a4) == 0 )
+    if ( ((v17 - 1) & (unsigned int)a4) == 0 )
     {
       if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
-        v23 = 0x7FFFFFFF0000LL;
-      *(_BYTE *)v23 = *(_BYTE *)v23;
-      *(_BYTE *)(v23 + (unsigned int)v22 - 1) = *(_BYTE *)(v23 + (unsigned int)v22 - 1);
+        v24 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v24 = *(_BYTE *)v24;
+      *(_BYTE *)(v24 + (unsigned int)v23 - 1) = *(_BYTE *)(v24 + (unsigned int)v23 - 1);
       goto LABEL_35;
     }
-LABEL_63:
+LABEL_65:
     ExRaiseDatatypeMisalignment();
   }
-  v13 = v8 & 0x1000000;
-  if ( (v8 & 0x1000000) != 0 )
+  v14 = v9 & 0x1000000;
+  if ( (v9 & 0x1000000) != 0 )
   {
-    v44 = *(_DWORD *)(a2 + 24);
-    v43 = *(_DWORD *)(a2 + 32);
+    v48 = *(_DWORD *)(a2 + 24);
+    v47 = *(_DWORD *)(a2 + 32);
   }
   if ( a4 )
-    v15 = *a4;
+    v16 = *a4;
   else
-    v15 = 0;
-  if ( a3 )
-    v48 = *a3;
+    v16 = 0;
+  if ( v6 )
+    v52 = *v6;
   if ( (CurrentThread->MiscFlags & 0x400) != 0 )
-    PreviousMode = 1;
-LABEL_64:
-  if ( v13 )
-    v27 = AlpcpReceiveDirectMessagePort((__int64 *)a1, v44, v43, &BugCheckParameter2, v15);
+    LOBYTE(v10) = 1;
+LABEL_66:
+  if ( v14 )
+    v30 = AlpcpReceiveDirectMessagePort(a1, v48, v47, (unsigned int)&BugCheckParameter2, v16);
   else
-    v27 = AlpcpReceiveMessagePort((__int64 *)a1, PreviousMode, a5, &BugCheckParameter2, v15);
-  v41 = v27;
-  v28 = v27;
-  if ( !v27 )
+    v30 = AlpcpReceiveMessagePort(a1, v10, (_DWORD)a5, (unsigned int)&BugCheckParameter2, v16);
+  v45 = v30;
+  v31 = v30;
+  if ( !v30 )
   {
-    v29 = BugCheckParameter2;
-    v30 = 24;
-    if ( (v45 & 0xC0000000) != 0x80000000 )
-      v30 = 40;
-    v31 = *(_WORD *)(BugCheckParameter2 + 240) + v30;
-    if ( v56 && (v55 = v31, v31 > v48) )
+    v32 = BugCheckParameter2;
+    v33 = 24;
+    if ( (v49 & 0xC0000000) != 0x80000000 )
+      v33 = 40;
+    v34 = *(_WORD *)(BugCheckParameter2 + 240) + v33;
+    if ( a3 && (v58 = v34, v34 > v52) )
     {
-      memset(v53, 0, sizeof(v53));
-      v28 = AlpcpReturnMessageOnInsufficientBuffer(v47, (_QWORD *)BugCheckParameter2, v53);
-      v41 = v28;
-      if ( v28 == -1073741789 )
+      memset(v56, 0, sizeof(v56));
+      v31 = AlpcpReturnMessageOnInsufficientBuffer(v51, BugCheckParameter2, v56);
+      v45 = v31;
+      if ( v31 == -1073741789 )
       {
-        *v56 = v55;
-        AlpcpExposeCapturedContextAttribute(v45, v53, v15, (__int64)a4);
+        *a3 = v58;
+        AlpcpExposeCapturedContextAttribute(v49, v56, (unsigned int)v16, a4);
       }
     }
     else
     {
-      *(_QWORD *)(BugCheckParameter2 + 200) = v51;
-      if ( (v45 & 0xC0000000) == 0x80000000 )
+      *(_QWORD *)(BugCheckParameter2 + 200) = v54;
+      if ( (v49 & 0xC0000000) == 0x80000000 )
       {
-        *(_WORD *)a2 = *(_WORD *)(v29 + 240);
-        *(_WORD *)(a2 + 2) = *(_WORD *)(v29 + 240) + 24;
-        v33 = *(_WORD *)(v29 + 246);
-        if ( v33 )
-          *(_WORD *)(a2 + 6) = v33 - 16;
+        *(_WORD *)a2 = *(_WORD *)(v32 + 240);
+        *(_WORD *)(a2 + 2) = *(_WORD *)(v32 + 240) + 24;
+        v36 = *(_WORD *)(v32 + 246);
+        if ( v36 )
+          *(_WORD *)(a2 + 6) = v36 - 16;
         else
           *(_WORD *)(a2 + 6) = 0;
-        v34 = *(_WORD *)(v29 + 244) | 0x1000;
-        *(_WORD *)(a2 + 4) = v34;
-        *(_DWORD *)(a2 + 8) = *(_DWORD *)(v29 + 248);
-        *(_DWORD *)(a2 + 12) = *(_DWORD *)(v29 + 256);
-        *(_DWORD *)(a2 + 16) = *(_DWORD *)(v29 + 264);
-        *(_DWORD *)(a2 + 20) = *(_DWORD *)(v29 + 272);
-        *(_DWORD *)(a2 + 20) = *(_DWORD *)(v29 + 272);
-        if ( (*(_DWORD *)(v47 + 256) & 0x1000) != 0 )
-          *(_WORD *)(a2 + 4) = v34 & 0xC00F;
-        v32 = (char *)(a2 + 24);
+        v37 = *(_WORD *)(v32 + 244) | 0x1000;
+        *(_WORD *)(a2 + 4) = v37;
+        *(_DWORD *)(a2 + 8) = *(_DWORD *)(v32 + 248);
+        *(_DWORD *)(a2 + 12) = *(_DWORD *)(v32 + 256);
+        *(_DWORD *)(a2 + 16) = *(_DWORD *)(v32 + 264);
+        *(_DWORD *)(a2 + 20) = *(_DWORD *)(v32 + 272);
+        *(_DWORD *)(a2 + 20) = *(_DWORD *)(v32 + 272);
+        if ( (*(_DWORD *)(v51 + 256) & 0x1000) != 0 )
+          *(_WORD *)(a2 + 4) = v37 & 0xC00F;
+        v35 = (void *)(a2 + 24);
       }
       else
       {
-        *(_OWORD *)a2 = *(_OWORD *)(v29 + 240);
-        *(_OWORD *)(a2 + 16) = *(_OWORD *)(v29 + 256);
-        *(_QWORD *)(a2 + 32) = *(_QWORD *)(v29 + 272);
-        if ( (*(_DWORD *)(v47 + 256) & 0x1000) != 0 )
-          *(_WORD *)(a2 + 4) = *(_WORD *)(v29 + 244) & 0xC00F;
-        v32 = (char *)(a2 + 40);
+        *(_OWORD *)a2 = *(_OWORD *)(v32 + 240);
+        *(_OWORD *)(a2 + 16) = *(_OWORD *)(v32 + 256);
+        *(_QWORD *)(a2 + 32) = *(_QWORD *)(v32 + 272);
+        if ( (*(_DWORD *)(v51 + 256) & 0x1000) != 0 )
+          *(_WORD *)(a2 + 4) &= 0xC00Fu;
+        v35 = (void *)(a2 + 40);
       }
-      if ( *(_QWORD *)(v29 + 176) )
-        AlpcpGetDataFromUserVaSafe(v29, v32);
+      if ( *(_QWORD *)(v32 + 176) )
+        AlpcpGetDataFromUserVaSafe(v32, v35);
       else
-        AlpcpReadMessageData(v29, v32);
+        AlpcpReadMessageData(v32, (char *)v35);
       if ( a4 )
-        AlpcpExposeAttributes(v47, v45, v29, v15, (__int64)a4);
+        AlpcpExposeAttributes(v51, v49, v32, v16, (__int64)a4);
     }
-    v35 = v47;
-    if ( v28 != -1073741789 && *(_QWORD *)(v29 + 64) == v47 )
+    v38 = v51;
+    if ( v31 != -1073741789 && *(_QWORD *)(v32 + 64) == v51 )
     {
-      *(_QWORD *)(v29 + 64) = 0LL;
-      *(_QWORD *)(v29 + 56) = 0LL;
+      *(_QWORD *)(v32 + 64) = 0LL;
+      *(_QWORD *)(v32 + 56) = 0LL;
     }
-    if ( ((v28 + 0x80000000) & 0x80000000) != 0 || v28 == -1073741789 )
+    if ( ((v31 + 0x80000000) & 0x80000000) != 0 || v31 == -1073741789 )
     {
       if ( AlpcpMessageLogEnabled )
-        AlpcpEnterStateChangeEventMessageLog(v29);
-      v36 = 0;
-      v37 = v29 - 48;
-      v38 = *(_BYTE *)(v29 - 48 + 16);
-      if ( (v38 & 1) != 0 )
+        AlpcpEnterStateChangeEventMessageLog(v32);
+      v39 = 0;
+      v40 = v32 - 48;
+      v41 = *(_BYTE *)(v32 - 48 + 16);
+      if ( (v41 & 1) != 0 )
       {
-        v36 = 0x10000 - *(__int16 *)(v37 + 18);
-        *(_BYTE *)(v37 + 16) = v38 & 0xFE;
-        *(_WORD *)(v37 + 18) = 0;
+        v39 = 0x10000 - *(__int16 *)(v40 + 18);
+        *(_BYTE *)(v40 + 16) = v41 & 0xFE;
+        *(_WORD *)(v40 + 18) = 0;
       }
-      if ( v36 > 0 )
+      if ( v39 > 0 )
       {
-        BugCheckParameter4 = -v36 + _InterlockedExchangeAdd64((volatile signed __int64 *)(v37 + 24), -v36);
+        BugCheckParameter4 = -v39 + _InterlockedExchangeAdd64((volatile signed __int64 *)(v40 + 24), -v39);
         if ( BugCheckParameter4 <= 0 )
         {
           if ( BugCheckParameter4 )
             KeBugCheckEx(0x18u, 0LL, BugCheckParameter2, 0x28uLL, BugCheckParameter4);
-          AlpcpDestroyBlob(BugCheckParameter2, 1);
-          v29 = 0LL;
+          AlpcpDestroyBlob(BugCheckParameter2, 1LL);
+          v32 = 0LL;
         }
-        v28 = v41;
+        v31 = v45;
       }
-      if ( v29 )
+      if ( v32 )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v37 + 32), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v37 + 32);
-        KeAbPostRelease(v37 + 32);
-        return v41;
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v40 + 32), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock(v40 + 32);
+        KeAbPostRelease(v40 + 32);
+        return v45;
       }
     }
     else
     {
-      *(_QWORD *)(v29 + 200) = 0LL;
-      AlpcpCancelMessage(v35, v29, 0x10000);
+      *(_QWORD *)(v32 + 200) = 0LL;
+      AlpcpCancelMessage(v38, v32, 0x10000);
     }
   }
-  return v28;
+  return v31;
 }

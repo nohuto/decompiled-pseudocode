@@ -17,16 +17,16 @@
  *     IoSetDiskIoAttributionOnProcess @ 0x140090424 (IoSetDiskIoAttributionOnProcess.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     PspUnlockProcessListExclusive @ 0x140091DE0 (PspUnlockProcessListExclusive.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     PsGetProcessId @ 0x1400A56F0 (PsGetProcessId.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1208 (SmKmStoreRefFromStoreIndex.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x140138308 (SmKmStoreDeleteWhenEmpty.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwDeleteWnfStateName @ 0x1401B9BD0 (ZwDeleteWnfStateName.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeUnsecureProcess @ 0x14028E738 (KeUnsecureProcess.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140138328 (SmKmStoreDeleteWhenEmpty.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x1401B9BF0 (ZwDeleteWnfStateName.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeUnsecureProcess @ 0x14028E838 (KeUnsecureProcess.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PspDereferenceQuotaBlock @ 0x1405CACF4 (PspDereferenceQuotaBlock.c)
  *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
@@ -41,7 +41,7 @@
  *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
  *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
  *     ObDereferenceDeviceMap @ 0x140608F0C (ObDereferenceDeviceMap.c)
- *     VmpProcessContextCleanup @ 0x1408B0B48 (VmpProcessContextCleanup.c)
+ *     VmpProcessContextCleanup @ 0x1408B0B28 (VmpProcessContextCleanup.c)
  */
 
 void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
@@ -131,7 +131,7 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
   {
     KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v44);
     if ( (*(_DWORD *)(BugCheckParameter1 + 768) & 0x400) != 0 )
-      (*((void (__fastcall **)(ULONG_PTR))&xmmword_14040E2F0 + 1))(BugCheckParameter1);
+      (*((void (__fastcall **)(ULONG_PTR))&xmmword_14040E2D0 + 1))(BugCheckParameter1);
     PspExitProcess(0LL, BugCheckParameter1);
     KiUnstackDetachProcess((__int64)v44, 0LL);
     MmDeleteProcessAddressSpace(BugCheckParameter1);

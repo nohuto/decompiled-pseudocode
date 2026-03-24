@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C0019C20
+ * XREFs of ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C0012620
  * Callers:
- *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C0019C80 (DxgkEngAcquireWin32kAndPDEVLocks.c)
- *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C001AA80 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
- *     DrvNotifyModeChangeStartStop @ 0x1C001B11C (DrvNotifyModeChangeStartStop.c)
- *     DxgkEngReleaseWin32kAndPDEVLocks @ 0x1C001B2D0 (DxgkEngReleaseWin32kAndPDEVLocks.c)
- *     HDXDrvEscape @ 0x1C00CCB90 (HDXDrvEscape.c)
+ *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C00116E0 (DxgkEngAcquireWin32kAndPDEVLocks.c)
+ *     DxgkEngReleaseWin32kAndPDEVLocks @ 0x1C00119C0 (DxgkEngReleaseWin32kAndPDEVLocks.c)
+ *     DrvNotifyModeChangeStartStop @ 0x1C0011E20 (DrvNotifyModeChangeStartStop.c)
+ *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C0015974 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
+ *     HDXDrvEscape @ 0x1C00C3090 (HDXDrvEscape.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PDEVOBJ::vSync(PDEVOBJ *this, struct _SURFOBJ *a2, struct _RECTL *a3, unsigned int a4)
@@ -25,14 +25,14 @@ void __fastcall PDEVOBJ::vSync(PDEVOBJ *this, struct _SURFOBJ *a2, struct _RECTL
     v5 = *(_QWORD *)this;
     if ( (*(_DWORD *)(v5 + 40) & 0x400) == 0 )
     {
-      v6 = *(void (__fastcall **)(struct _SURFOBJ *, struct _RECTL *, _QWORD))(v5 + 1728);
+      v6 = *(void (__fastcall **)(struct _SURFOBJ *, struct _RECTL *, _QWORD))(v5 + 1760);
       if ( v6 )
       {
         v6(a2, a3, a4);
       }
       else
       {
-        v7 = *(void (__fastcall **)(DHPDEV, struct _RECTL *))(v5 + 1720);
+        v7 = *(void (__fastcall **)(DHPDEV, struct _RECTL *))(v5 + 1752);
         if ( v7 )
           v7(a2->dhpdev, a3);
       }

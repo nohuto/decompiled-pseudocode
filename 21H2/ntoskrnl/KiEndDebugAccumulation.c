@@ -1,32 +1,39 @@
 /*
- * XREFs of KiEndDebugAccumulation @ 0x14029B270
+ * XREFs of KiEndDebugAccumulation @ 0x14051DDB0
  * Callers:
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
- *     KeThawExecution @ 0x1402DA4C0 (KeThawExecution.c)
+ *     KeThawExecution @ 0x14051DBE0 (KeThawExecution.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
  * Callees:
- *     KiAccumulateProcessorCycleStats @ 0x14029B7B0 (KiAccumulateProcessorCycleStats.c)
- *     KiBeginCounterAccumulation @ 0x140571770 (KiBeginCounterAccumulation.c)
+ *     PoGetFrequencyBucket @ 0x1402C3748 (PoGetFrequencyBucket.c)
+ *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
  */
 
-__int64 __fastcall KiEndDebugAccumulation(__int64 a1)
+void __fastcall KiEndDebugAccumulation(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v3; // rdi
-  __int64 v4; // rcx
+  __int64 v2; // r8
+  unsigned __int64 v3; // r11
+  __int64 v4; // rax
+  __int64 v5; // r11
+  unsigned int FrequencyBucket; // eax
 
   if ( !*(_BYTE *)(a1 + 32) && !PoAllProcIntrDisabled )
   {
     *(_BYTE *)(a1 + 32) = 1;
-    result = __rdtsc();
-    v3 = result;
-    *(_QWORD *)(a1 + 33400) += result - *(_QWORD *)(a1 + 33152);
-    if ( (*(_BYTE *)(*(_QWORD *)(a1 + 8) + 2LL) & 0x20) != 0 )
-      result = KiAccumulateProcessorCycleStats(a1);
-    *(_QWORD *)(a1 + 33152) = v3;
-    v4 = *(_QWORD *)(a1 + 8);
-    if ( (*(_BYTE *)(v4 + 2) & 2) != 0 )
-      result = KiBeginCounterAccumulation(v4, 0LL);
+    v2 = *(_QWORD *)(a1 + 8);
+    v3 = __rdtsc();
+    v4 = *(_QWORD *)(a1 + 32448);
+    v5 = v3 - v4;
+    *(_QWORD *)(a1 + 32568) += v5;
+    if ( (*(_BYTE *)(v2 + 2) & 0x20) != 0 )
+    {
+      FrequencyBucket = PoGetFrequencyBucket(a1);
+      *(_QWORD *)(a1 + 8 * (*(unsigned __int8 *)(a1 + 33208) + 2LL * FrequencyBucket) + 32576) += v5;
+      v4 = *(_QWORD *)(a1 + 32448);
+      v2 = *(_QWORD *)(a1 + 8);
+    }
+    *(_QWORD *)(a1 + 32448) = v5 + v4;
+    if ( (*(_BYTE *)(v2 + 2) & 2) != 0 )
+      KiBeginCounterAccumulation(v2, 0);
     *(_BYTE *)(a1 + 32) = 0;
   }
-  return result;
 }

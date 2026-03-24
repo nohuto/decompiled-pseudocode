@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_Command_PrepareForDump @ 0x1C004C918
+ * XREFs of Crashdump_Command_PrepareForDump @ 0x1C004BE98
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004A724 (Crashdump_InitializeWithControllerReset.c)
- *     Crashdump_InitializeWithoutControllerReset @ 0x1C004A948 (Crashdump_InitializeWithoutControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C0049EB4 (Crashdump_InitializeWithoutControllerReset.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Crashdump_Command_Stop @ 0x1C004CBD0 (Crashdump_Command_Stop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Command_Stop @ 0x1C004C150 (Crashdump_Command_Stop.c)
  */
 
 __int64 __fastcall Crashdump_Command_PrepareForDump(__int64 a1)

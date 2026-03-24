@@ -1,62 +1,56 @@
 /*
- * XREFs of ?VmBusDestroyDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036BDE0
+ * XREFs of ?VmBusDestroyDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023FF30
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005C664 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z @ 0x1C0166120 (-DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00405FC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z @ 0x1C00E467C (-DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusDestroyDevice(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rax
-  int v5; // eax
-  struct VMBPACKETCOMPLETION__ *v6; // rcx
-  _BYTE v8[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v9; // [rsp+58h] [rbp-20h]
-  int v10; // [rsp+60h] [rbp-18h]
-  _D3DKMT_DESTROYDEVICE v11; // [rsp+80h] [rbp+8h] BYREF
-  int v12; // [rsp+88h] [rbp+10h] BYREF
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v7; // rax
+  int v8; // eax
+  struct VMBPACKETCOMPLETION__ *v9; // rcx
+  _BYTE v11[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v12; // [rsp+28h] [rbp-20h]
+  int v13; // [rsp+30h] [rbp-18h]
+  _D3DKMT_DESTROYDEVICE v14; // [rsp+50h] [rbp+8h] BYREF
+  int v15; // [rsp+58h] [rbp+10h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v8, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v9);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v10 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v12);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v13 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
-    if ( v4 )
+    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
+    if ( v7 )
     {
-      v11.hDevice = *(_DWORD *)(v4 + 24);
-      v5 = DxgkDestroyDeviceImpl(&v11, 0);
-      v6 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-      v12 = v5;
-      VmBusCompletePacket(v6, &v12, 4u);
-      v3 = 1;
+      v14.hDevice = *(_DWORD *)(v7 + 24);
+      v8 = DxgkDestroyDeviceImpl(&v14, 0);
+      v9 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+      v15 = v8;
+      VmBusCompletePacket(v9, &v15, 4u);
+      v5 = 1;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 1157LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      1157LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 858LL;
+    WdLogEvent5_WdError(v6);
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v8);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
+  return v5;
 }

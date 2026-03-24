@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSystemLatencyUpdate @ 0x14032C2CC
+ * XREFs of PopDiagTraceSystemLatencyUpdate @ 0x14034A9EC
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
- *     PopDiagTraceControlCallback @ 0x140862C00 (PopDiagTraceControlCallback.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSystemLatencyUpdate(char a1, int a2)
@@ -14,8 +14,8 @@ void __fastcall PopDiagTraceSystemLatencyUpdate(char a1, int a2)
   REGHANDLE v3; // rbx
   const EVENT_DESCRIPTOR *v4; // rdx
   const EVENT_DESCRIPTOR *v5; // rdx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-28h] BYREF
-  int v7; // [rsp+68h] [rbp+10h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
+  int v7; // [rsp+78h] [rbp+10h] BYREF
 
   v7 = a2;
   if ( PopDiagHandleRegistered )
@@ -28,11 +28,11 @@ void __fastcall PopDiagTraceSystemLatencyUpdate(char a1, int a2)
     {
       UserData.Reserved = 0;
       UserData.Ptr = (ULONGLONG)&v7;
-      v5 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_SYSTEM_LATENCY_RUNDOWN;
       UserData.Size = 4;
+      v5 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_SYSTEM_LATENCY_RUNDOWN;
       if ( !a1 )
         v5 = &POP_ETW_EVENT_SYSTEM_LATENCY_UPDATE;
-      EtwWrite(v3, v5, 0LL, 1u, &UserData);
+      EtwWriteEx(v3, v5, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

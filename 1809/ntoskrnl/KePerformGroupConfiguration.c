@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiCommitNodeAssignment @ 0x14017E818 (KiCommitNodeAssignment.c)
+ *     KiCommitNodeAssignment @ 0x14017E838 (KiCommitNodeAssignment.c)
  *     KiPerformGroupConfiguration @ 0x1409B65EC (KiPerformGroupConfiguration.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryBootEntryOrder @ 0x140A004F0
+ * XREFs of NtQueryBootEntryOrder @ 0x140954140
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a2)
@@ -34,7 +34,7 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
   v15 = 0LL;
   v18 = 0;
   P = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -69,13 +69,13 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
     --v8->KernelApcDisable;
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     EnvironmentVariable = IoGetEnvironmentVariableEx(
-                            L"BootOrder",
+                            (const size_t *)L"BootOrder",
                             (__int64)&EfiBootVariablesGuid,
                             v15,
                             (int *)&v18,
                             0LL);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( EnvironmentVariable < 0 )
     {
       if ( EnvironmentVariable == -1073741568 )

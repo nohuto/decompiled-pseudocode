@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ @ 0x1C0214F00
+ * XREFs of ?UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ @ 0x1C01D53B0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C00B0BA8 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C005959C (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CChannel::UnlockAndUnreference(DirectComposition::CChannel *this)

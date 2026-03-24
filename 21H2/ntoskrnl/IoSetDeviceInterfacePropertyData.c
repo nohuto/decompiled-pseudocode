@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetDeviceInterfacePropertyData @ 0x14080D860
+ * XREFs of IoSetDeviceInterfacePropertyData @ 0x14077DE60
  * Callers:
  *     <none>
  * Callees:
- *     PnpSetDeviceInterfacePropertyData @ 0x14080D8A8 (PnpSetDeviceInterfacePropertyData.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14077DEA8 (PnpSetDeviceInterfacePropertyData.c)
  */
 
 __int64 __fastcall IoSetDeviceInterfacePropertyData(int a1, int a2, int a3, __int64 a4, int a5, int a6, __int64 a7)

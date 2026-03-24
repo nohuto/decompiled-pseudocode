@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CancelPendingUpdates@CContentResourceState@@UEAAXXZ @ 0x1C00207F0
+ * XREFs of ?CancelPendingUpdates@CContentResourceState@@UEAAXXZ @ 0x1C001BBC0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 void __fastcall CContentResourceState::CancelPendingUpdates(CContentResourceState *this)
 {
-  *((_BYTE *)this + 64) &= ~2u;
+  *((_BYTE *)this + 56) &= ~2u;
   *((_BYTE *)this + 32) &= 0xF3u;
 }

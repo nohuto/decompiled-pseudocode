@@ -1,8 +1,8 @@
 /*
- * XREFs of PfSnCleanupTrace @ 0x1406695C4
+ * XREFs of PfSnCleanupTrace @ 0x1406695A4
  * Callers:
- *     PfSnBeginTrace @ 0x140668544 (PfSnBeginTrace.c)
- *     PfSnEndTrace @ 0x140669374 (PfSnEndTrace.c)
+ *     PfSnBeginTrace @ 0x140668524 (PfSnBeginTrace.c)
+ *     PfSnEndTrace @ 0x140669354 (PfSnEndTrace.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)

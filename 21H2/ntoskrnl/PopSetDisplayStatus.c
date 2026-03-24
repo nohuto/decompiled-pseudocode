@@ -1,21 +1,23 @@
 /*
- * XREFs of PopSetDisplayStatus @ 0x140809408
+ * XREFs of PopSetDisplayStatus @ 0x14077A87C
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     PsGetProcessSessionIdEx @ 0x1402445B0 (PsGetProcessSessionIdEx.c)
- *     PopSetSessionDisplayStatus @ 0x1407EDCAC (PopSetSessionDisplayStatus.c)
- *     PopAcquireAdaptiveLock @ 0x1407EF098 (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EF120 (PopReleaseAdaptiveLock.c)
+ *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
+ *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
+ *     PopSetSessionDisplayStatus @ 0x1407819B8 (PopSetSessionDisplayStatus.c)
  */
 
-void __fastcall PopSetDisplayStatus(int a1)
+_QWORD *__fastcall PopSetDisplayStatus(unsigned int a1)
 {
   unsigned int ProcessSessionId; // ebx
+  __int64 v3; // r8
 
   ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
   PopAcquireAdaptiveLock(1);
-  PopSetSessionDisplayStatus(ProcessSessionId, a1, 1);
-  PopReleaseAdaptiveLock();
+  LOBYTE(v3) = 1;
+  PopSetSessionDisplayStatus(ProcessSessionId, a1, v3);
+  return PopReleaseAdaptiveLock();
 }

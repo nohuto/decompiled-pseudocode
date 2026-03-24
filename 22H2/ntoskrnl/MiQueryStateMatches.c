@@ -1,18 +1,19 @@
 /*
- * XREFs of MiQueryStateMatches @ 0x14034F150
+ * XREFs of MiQueryStateMatches @ 0x14025A92C
  * Callers:
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall MiQueryStateMatches(__int64 a1, int a2, int a3, int a4, __int16 a5)
+_BOOL8 __fastcall MiQueryStateMatches(__int64 a1, int a2, int a3, int a4, __int16 a5)
 {
-  int v5; // r9d
-  bool result; // al
+  int v5; // eax
 
-  result = a2 == *(_DWORD *)(a1 + 32)
-        && (!a3 ? (v5 = 0) : (v5 = MmProtectToValue[a3] | a4), v5 == *(_DWORD *)(a1 + 36))
-        && a5 == *(_WORD *)(a1 + 20);
-  return result;
+  if ( a2 != *(_DWORD *)(a1 + 32) )
+    return 0LL;
+  v5 = 0;
+  if ( a3 )
+    v5 = a4 | MmProtectToValue[a3];
+  return v5 == *(_DWORD *)(a1 + 36) && a5 == *(_WORD *)(a1 + 20);
 }

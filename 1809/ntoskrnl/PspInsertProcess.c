@@ -2,8 +2,8 @@
  * XREFs of PspInsertProcess @ 0x1406093A8
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14075DE30 (PspCreateProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -14,9 +14,9 @@
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     PspUnlockProcessListExclusive @ 0x140091DE0 (PspUnlockProcessListExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     PsGetProcessImageFileName @ 0x140129C50 (PsGetProcessImageFileName.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x140129C70 (PsGetProcessImageFileName.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
@@ -27,8 +27,8 @@
  *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     PspValidateJobAffinityState @ 0x1406C2074 (PspValidateJobAffinityState.c)
- *     SeAuditProcessCreation @ 0x1407495D0 (SeAuditProcessCreation.c)
+ *     PspValidateJobAffinityState @ 0x1406C2054 (PspValidateJobAffinityState.c)
+ *     SeAuditProcessCreation @ 0x1407495B0 (SeAuditProcessCreation.c)
  */
 
 __int64 __fastcall PspInsertProcess(

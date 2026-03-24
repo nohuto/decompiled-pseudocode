@@ -4,7 +4,7 @@
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  * Callees:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerRequestOverrideCleanup(__int64 a1)

@@ -1,126 +1,115 @@
 /*
- * XREFs of GetCachedSMP @ 0x1C024FA44
+ * XREFs of GetCachedSMP @ 0x1C0019668
  * Callers:
- *     HT_CreateStandardMonoPattern @ 0x1C024FF24 (HT_CreateStandardMonoPattern.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C00195BC (HT_CreateStandardMonoPattern.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     FindCachedSMP @ 0x1C024F830 (FindCachedSMP.c)
- *     ComputeBytesPerScanLine @ 0x1C025114C (ComputeBytesPerScanLine.c)
- *     CreateStandardMonoPattern @ 0x1C0251A90 (CreateStandardMonoPattern.c)
+ *     ComputeBytesPerScanLine @ 0x1C00197E4 (ComputeBytesPerScanLine.c)
+ *     FindCachedSMP @ 0x1C0019838 (FindCachedSMP.c)
+ *     CreateStandardMonoPattern @ 0x1C0153034 (CreateStandardMonoPattern.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall GetCachedSMP(__int64 a1, __int16 *a2)
 {
   __int16 *v2; // rbx
   __int64 v3; // r15
-  __int64 v4; // rax
-  char v5; // dl
-  __int64 v6; // r14
-  char v7; // al
-  unsigned int v8; // ecx
+  char v4; // dl
+  char v5; // al
   __m128i *CachedSMP; // rax
-  __int64 v10; // rdx
-  __m128i *v11; // rbp
-  __m128i v12; // xmm0
-  unsigned __int16 v13; // ax
-  unsigned __int64 v14; // r10
-  int v15; // r11d
-  char *v16; // rsi
-  char *v17; // r13
-  unsigned int v18; // edi
-  unsigned __int16 v19; // cx
-  __int16 v20; // r12
-  unsigned __int64 v21; // r10
-  int v22; // eax
-  __int16 v23; // r14
-  __int64 v24; // rbx
-  __int64 v25; // rsi
-  size_t v26; // r15
-  unsigned int i; // edx
-  char *v29; // [rsp+28h] [rbp-70h]
-  __int64 v30; // [rsp+30h] [rbp-68h]
-  __m128i v31; // [rsp+38h] [rbp-60h]
+  __m128i *v7; // rbp
+  __m128i v8; // xmm0
+  unsigned __int16 v9; // ax
+  unsigned __int64 v10; // r10
+  int v11; // r11d
+  char *v12; // rsi
+  char *v13; // r12
+  unsigned int v14; // edi
+  unsigned __int16 v15; // cx
+  __int16 v16; // r13
+  unsigned __int64 v17; // r10
+  int v18; // eax
+  __int16 v19; // r14
+  __int64 v20; // rbx
+  __int64 v21; // rsi
+  size_t v22; // r15
+  unsigned int i; // ecx
+  char *v25; // [rsp+28h] [rbp-60h]
+  __m128i v26; // [rsp+30h] [rbp-58h]
 
   v2 = a2;
   v3 = a1;
-  v4 = SGDGetSessionState(a1);
-  v5 = *((_BYTE *)v2 + 4);
-  v6 = *(_QWORD *)(v4 + 48);
-  v30 = v6;
-  if ( !v5 )
+  v4 = *((_BYTE *)a2 + 4);
+  if ( !v4 )
   {
     *((_BYTE *)v2 + 4) = 8;
-    v5 = 8;
+    v4 = 8;
   }
-  v7 = *((_BYTE *)v2 + 5);
-  if ( !v7 )
+  v5 = *((_BYTE *)v2 + 5);
+  if ( !v5 )
   {
     *((_BYTE *)v2 + 5) = 15;
-    v7 = 15;
+    v5 = 15;
   }
-  v8 = *((unsigned __int8 *)v2 + 3);
-  if ( v8 >= 0x12 )
+  if ( *((unsigned __int8 *)v2 + 3) >= 0x12u )
     return (unsigned int)CreateStandardMonoPattern(v3, v2);
-  if ( v5 != 8 )
+  if ( v4 != 8 )
     return (unsigned int)CreateStandardMonoPattern(v3, v2);
-  if ( v7 != 15 )
+  if ( v5 != 15 )
     return (unsigned int)CreateStandardMonoPattern(v3, v2);
-  CachedSMP = (__m128i *)FindCachedSMP(v3, v8);
+  CachedSMP = (__m128i *)FindCachedSMP(a1, *((unsigned __int8 *)v2 + 3));
   if ( !CachedSMP )
     return (unsigned int)CreateStandardMonoPattern(v3, v2);
-  v10 = *((unsigned __int8 *)v2 + 2);
-  v11 = CachedSMP + 1;
-  v31 = *CachedSMP;
-  v12 = _mm_srli_si128(*CachedSMP, 8);
-  v2[5] = v12.m128i_i16[2];
-  v2[4] = v12.m128i_i16[1];
-  v13 = ComputeBytesPerScanLine(1LL, v10);
-  v16 = (char *)*((_QWORD *)v2 + 2);
-  v17 = v16;
-  v18 = v15 * v13;
-  v19 = v13;
-  v2[3] = v13;
-  v29 = v16;
-  if ( v16 )
+  v7 = CachedSMP + 1;
+  v26 = *CachedSMP;
+  v8 = _mm_srli_si128(*CachedSMP, 8);
+  v2[5] = v8.m128i_i16[2];
+  v2[4] = v8.m128i_i16[1];
+  v9 = ComputeBytesPerScanLine(1LL);
+  v12 = (char *)*((_QWORD *)v2 + 2);
+  v13 = v12;
+  v14 = v11 * v9;
+  v15 = v9;
+  v2[3] = v9;
+  v25 = v12;
+  if ( v12 )
   {
-    v20 = *v2;
-    v21 = HIWORD(v14);
-    v22 = v21;
+    v16 = *v2;
+    v17 = HIWORD(v10);
+    v18 = v17;
     if ( (*v2 & 1) == 0 )
     {
-      v11 = (__m128i *)((char *)v11 + (int)v21 * (v15 - 1));
-      v22 = -(int)v21;
+      v7 = (__m128i *)((char *)v7 + (int)v17 * (v11 - 1));
+      v18 = -(int)v17;
     }
-    if ( (_WORD)v15 )
+    if ( (_WORD)v11 )
     {
-      v23 = v31.m128i_i16[6];
-      v24 = v19;
-      v25 = v22;
-      v26 = (unsigned int)v21;
+      v19 = v26.m128i_i16[6];
+      v20 = v15;
+      v21 = v18;
+      v22 = (unsigned int)v17;
       do
       {
-        --v23;
-        memmove(v17, v11, v26);
-        v17 += v24;
-        v11 = (__m128i *)((char *)v11 + v25);
+        --v19;
+        memmove(v13, v7, v22);
+        v13 += v20;
+        v7 = (__m128i *)((char *)v7 + v21);
       }
-      while ( v23 );
+      while ( v19 );
       v2 = a2;
-      v16 = v29;
+      v12 = v25;
       v3 = a1;
-      v6 = v30;
     }
-    if ( (v20 & 2) != 0 )
+    if ( (v16 & 2) != 0 )
     {
-      for ( i = v18; i; --i )
+      for ( i = v14; i; --i )
       {
-        *v16 = ~*v16;
-        ++v16;
+        *v12 = ~*v12;
+        ++v12;
       }
     }
   }
-  EngReleaseSemaphore(*(HSEMAPHORE *)(v6 + 16));
-  if ( !v18 )
+  EngReleaseSemaphore(hsem);
+  if ( !v14 )
     return (unsigned int)CreateStandardMonoPattern(v3, v2);
-  return v18;
+  return v14;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECExpressionValueStack@@UEAAPEAXI@Z @ 0x180249920
+ * XREFs of ??_ECExpressionValueStack@@UEAAPEAXI@Z @ 0x1801FB440
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180062734 (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 void **__fastcall CExpressionValueStack::`vector deleting destructor'(void **this, char a2)
@@ -15,9 +15,9 @@ void **__fastcall CExpressionValueStack::`vector deleting destructor'(void **thi
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers((CDrawListPolygonBuilder *)this, (const struct D2D1_BEZIER_SEGMENT *)0x38);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

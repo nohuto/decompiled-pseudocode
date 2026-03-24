@@ -1,46 +1,48 @@
 /*
- * XREFs of ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C03667E4
+ * XREFs of ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C023B788
  * Callers:
- *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C0366494 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
+ *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C023B500 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C0366770 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C023B740 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
  */
 
-unsigned __int8 __fastcall ValidateRectBounds(const struct tagRECT *a1, unsigned int right, unsigned __int64 a3)
+unsigned __int8 __fastcall ValidateRectBounds(const struct tagRECT *a1, __int64 a2, unsigned __int64 a3)
 {
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rax
-  __int64 v8; // rbx
-  const wchar_t *v9; // r9
+  unsigned int v4; // edi
+  __int64 right; // rdx
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rax
+  __int64 v9; // rax
 
-  if ( !ValidateRect(a1) )
-    return 0;
-  if ( !right )
-    right = a1->right;
-  v6 = right * (unsigned __int64)(unsigned int)(a1->bottom - 1);
-  if ( v6 > 0xFFFFFFFF )
+  v4 = a2;
+  if ( ValidateRect(a1, a2) )
   {
-    v8 = 2206LL;
-    WdLogSingleEntry1(2LL, 2206LL);
-  }
-  else
-  {
-    v7 = (unsigned int)(v6 + a1->right);
-    if ( (unsigned int)v7 >= (unsigned int)v6 )
+    right = (unsigned int)a1->right;
+    if ( !v4 )
+      v4 = a1->right;
+    v7 = v4 * (unsigned __int64)(unsigned int)(a1->bottom - 1);
+    if ( v7 > 0xFFFFFFFF )
     {
-      if ( v7 <= a3 )
-        return 1;
-      v8 = 2216LL;
-      WdLogSingleEntry1(2LL, 2216LL);
-      v9 = L"Rect is out of  bounds";
-      goto LABEL_12;
+      v9 = WdLogNewEntry5_WdError(v7, right);
+      *(_QWORD *)(v9 + 24) = 1880LL;
     }
-    v8 = 2211LL;
-    WdLogSingleEntry1(2LL, 2211LL);
+    else
+    {
+      v8 = (unsigned int)(v7 + right);
+      if ( (unsigned int)v8 < (unsigned int)v7 )
+      {
+        v9 = WdLogNewEntry5_WdError(v7, right);
+        *(_QWORD *)(v9 + 24) = 1885LL;
+      }
+      else
+      {
+        if ( v8 <= a3 )
+          return 1;
+        v9 = WdLogNewEntry5_WdError(v7, right);
+        *(_QWORD *)(v9 + 24) = 1890LL;
+      }
+    }
+    WdLogEvent5_WdError(v9);
   }
-  v9 = L"Invalid computed size";
-LABEL_12:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, v8, 0LL, 0LL, 0LL, 0LL);
   return 0;
 }

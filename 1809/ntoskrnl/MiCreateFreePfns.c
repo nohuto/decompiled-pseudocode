@@ -3,8 +3,8 @@
  * Callers:
  *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
  *     MxReleaseFreeDescriptor @ 0x1409BA8A4 (MxReleaseFreeDescriptor.c)
  *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
  */

@@ -1,18 +1,19 @@
 /*
- * XREFs of GetDpiCacheSlot @ 0x1C00671E0
+ * XREFs of GetDpiCacheSlot @ 0x1C006152C
  * Callers:
- *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C004CE04 (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
- *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0066D38 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     _AdjustWindowRectExForDpi @ 0x1C006DA8C (_AdjustWindowRectExForDpi.c)
- *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00BBD38 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
- *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00BBD80 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
- *     GetOemBitmapInfoForDpi @ 0x1C00C3124 (GetOemBitmapInfoForDpi.c)
- *     PrepareHDCBITSBitmap @ 0x1C00C37D8 (PrepareHDCBITSBitmap.c)
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
- *     NtUserGetActiveProcessesDpis @ 0x1C0117120 (NtUserGetActiveProcessesDpis.c)
- *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01E4CEC (_EnsureDpiDepSysMetCacheForPlateau.c)
- *     NtUserForceWindowToDpiForTest @ 0x1C01F3490 (NtUserForceWindowToDpiForTest.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AEAC (GetWindowBordersWithDpiAwareness.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004BA58 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E77C (_AdjustWindowRectExForDpi.c)
+ *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0061054 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E12C0 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010748C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010759C (PrepareHDCBITSBitmap.c)
+ *     NtUserGetActiveProcessesDpis @ 0x1C012C3B0 (NtUserGetActiveProcessesDpis.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01EA560 (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     NtUserForceWindowToDpiForTest @ 0x1C01F8B90 (NtUserForceWindowToDpiForTest.c)
+ *     ?GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z @ 0x1C025D904 (-GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +28,7 @@ __int64 __fastcall GetDpiCacheSlot(int a1)
   {
     return 0;
   }
-  else if ( a1 >= 96 && a1 == 24 * (a1 / 0x18u) )
+  else if ( a1 >= 96 && a1 == 24 * (a1 / 24) )
   {
     v3 = (a1 - 72) / 24;
     if ( v3 >= 18 )

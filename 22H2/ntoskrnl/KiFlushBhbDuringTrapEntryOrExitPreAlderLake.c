@@ -1,13 +1,13 @@
 /*
- * XREFs of KiFlushBhbDuringTrapEntryOrExitPreAlderLake @ 0x140434D40
+ * XREFs of KiFlushBhbDuringTrapEntryOrExitPreAlderLake @ 0x1404131C0
  * Callers:
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140434D00 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413180 (KiFlushBhbDuringTrapEntryOrExit.c)
  * Callees:
- *     sub_140434D80 @ 0x140434D80 (sub_140434D80.c)
+ *     sub_140413200 @ 0x140413200 (sub_140413200.c)
  */
 
 __int64 KiFlushBhbDuringTrapEntryOrExitPreAlderLake()
 {
-  sub_140434D80(5LL);
+  sub_140413200(5LL);
   return nullsub_1();
 }

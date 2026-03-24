@@ -1,22 +1,22 @@
 /*
- * XREFs of KiSetSchedulerAssistPriority @ 0x14029952C
+ * XREFs of KiSetSchedulerAssistPriority @ 0x14029962C
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KiSearchForNewThread @ 0x140056AE0 (KiSearchForNewThread.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5210 (KiDirectSwitchThread.c)
- *     KeSetPriorityBoost @ 0x1400CEEC0 (KeSetPriorityBoost.c)
- *     KiSetPriorityThread @ 0x1400CF620 (KiSetPriorityThread.c)
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2C80 (KiDeferGroupSchedulingPreemption.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D308C (KiGroupSchedulingGenerationEnd.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3260 (KiTransitionSchedulingGroupGeneration.c)
- *     KeUpdateThreadSchedulingProperties @ 0x1400F4810 (KeUpdateThreadSchedulingProperties.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiCheckForEffectivePriorityChange @ 0x140116874 (KiCheckForEffectivePriorityChange.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
+ *     KeSetPriorityBoost @ 0x1400CEEE0 (KeSetPriorityBoost.c)
+ *     KiSetPriorityThread @ 0x1400CF640 (KiSetPriorityThread.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D3280 (KiTransitionSchedulingGroupGeneration.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x1400F4830 (KeUpdateThreadSchedulingProperties.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiCheckForEffectivePriorityChange @ 0x140116894 (KiCheckForEffectivePriorityChange.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
  * Callees:
  *     <none>
  */

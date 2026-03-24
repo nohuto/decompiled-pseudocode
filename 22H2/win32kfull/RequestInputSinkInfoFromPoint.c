@@ -1,10 +1,11 @@
 /*
- * XREFs of RequestInputSinkInfoFromPoint @ 0x1C01E68AC
+ * XREFs of RequestInputSinkInfoFromPoint @ 0x1C0004CF4
  * Callers:
- *     NtUserCompositionInputSinkLuidFromPoint @ 0x1C01CD990 (NtUserCompositionInputSinkLuidFromPoint.c)
- *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C01CDD00 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
+ *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0004BF0 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
+ *     NtUserCompositionInputSinkLuidFromPoint @ 0x1C01F6D70 (NtUserCompositionInputSinkLuidFromPoint.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     WakeDIT @ 0x1C010BA54 (WakeDIT.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -13,20 +14,16 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
   unsigned int v2; // edi
   bool v3; // zf
   __int128 v4; // xmm0
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  _OWORD v16[7]; // [rsp+30h] [rbp-78h] BYREF
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  _OWORD v12[7]; // [rsp+30h] [rbp-78h] BYREF
 
   v2 = 0;
-  while ( gbMIT )
+  while ( gbDIT )
   {
     if ( gbCompositionInputSinkQueryBlockedOnDIT != 1 )
     {
@@ -42,17 +39,17 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
       gInputSinkInfoRetrieval[6] = a1[6];
       if ( v3 )
       {
-        WakeMIT(2LL);
+        WakeDIT(2LL);
       }
       else
       {
-        gfAppWaitingForLLHookSignal = 1;
-        KeSetEvent((PRKEVENT)WPP_MAIN_CB.Dpc.DpcListEntry.Next, 1, 0);
+        *(_DWORD *)(&WPP_MAIN_CB.DeviceQueue.Size + 1) = 1;
+        KeSetEvent((PRKEVENT)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink, 1, 0);
       }
-      UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-      KeWaitForSingleObject((PVOID)WPP_MAIN_CB.Dpc.ProcessorHistory, UserRequest, 1, 1u, 0LL);
-      EnterCrit(1LL, 0LL);
-      gfAppWaitingForLLHookSignal = 0;
+      UserSessionSwitchLeaveCrit();
+      KeWaitForSingleObject(gpkeDITCompositionInputSinkQueryResponseEvent, UserRequest, 1, 1u, 0LL);
+      EnterCrit(0LL, 1LL);
+      *(_DWORD *)(&WPP_MAIN_CB.DeviceQueue.Size + 1) = 0;
       v2 = gInputSinkInfoRetrieval[1];
       if ( v2 )
       {
@@ -62,25 +59,25 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
         a1[3] = gInputSinkInfoRetrieval[3];
         a1[4] = gInputSinkInfoRetrieval[4];
         a1[5] = gInputSinkInfoRetrieval[5];
-        v9 = gInputSinkInfoRetrieval[6];
+        v10 = gInputSinkInfoRetrieval[6];
       }
       else
       {
-        memset_0(v16, 0, sizeof(v16));
-        v10 = v16[1];
-        *a1 = v16[0];
-        v11 = v16[2];
-        a1[1] = v10;
-        v12 = v16[3];
-        a1[2] = v11;
-        v13 = v16[4];
-        a1[3] = v12;
-        v14 = v16[5];
-        a1[4] = v13;
-        v9 = v16[6];
-        a1[5] = v14;
+        memset(v12, 0, sizeof(v12));
+        v5 = v12[1];
+        *a1 = v12[0];
+        v6 = v12[2];
+        a1[1] = v5;
+        v7 = v12[3];
+        a1[2] = v6;
+        v8 = v12[4];
+        a1[3] = v7;
+        v9 = v12[5];
+        a1[4] = v8;
+        v10 = v12[6];
+        a1[5] = v9;
       }
-      a1[6] = v9;
+      a1[6] = v10;
       gbCompositionInputSinkQueryBlockedOnDIT = 0;
       if ( gcDITLuidHitTestWaiters )
       {
@@ -92,7 +89,7 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
     ++gcDITLuidHitTestWaiters;
     LeaveCrit();
     KeWaitForSingleObject(gpsemDITLuidHitTestWaiters, UserRequest, 0, 0, 0LL);
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
   }
   return v2;
 }

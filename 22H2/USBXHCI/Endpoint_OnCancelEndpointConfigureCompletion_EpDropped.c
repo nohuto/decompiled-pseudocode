@@ -1,29 +1,32 @@
 /*
- * XREFs of Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C003AA40
+ * XREFs of Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C0038B20
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
- *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C068 (Endpoint_SetUpConfigureEndpointCommand.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003A07C (Endpoint_SetUpConfigureEndpointCommand.c)
  */
 
 void __fastcall Endpoint_OnCancelEndpointConfigureCompletion_EpDropped(__int64 a1, int a2)
 {
   __int64 v2; // rdi
-  __int64 v3; // rsi
-  int v4; // edx
-  int v5; // edx
+  __int64 v4; // rcx
+  __int64 v5; // rsi
+  int v6; // edx
+  int v7; // edx
   __int64 DequeuePointer; // rax
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 48);
-  v7 = 0LL;
-  v3 = *(_QWORD *)(*(_QWORD *)v2 + 144LL);
+  v9 = 0LL;
+  v4 = *(_QWORD *)v2;
+  v5 = *(_QWORD *)(*(_QWORD *)v2 + 144LL);
   if ( a2 == 3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -34,45 +37,48 @@ void __fastcall Endpoint_OnCancelEndpointConfigureCompletion_EpDropped(__int64 a
         a2,
         13,
         71,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
         *(_DWORD *)(v2 + 144));
     }
 LABEL_8:
+    CommonBuffer_ReleaseBuffer(*(_QWORD *)(*(_QWORD *)v2 + 120LL), *(_QWORD *)(v2 + 256));
+    *(_QWORD *)(v2 + 256) = 0LL;
     _m_prefetchw((const void *)(v2 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v2 + 32), 2u) & 2) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v2 + 296), 12);
+      ESM_AddEvent((KSPIN_LOCK *)(v2 + 288), 12);
     return;
   }
-  v4 = *(unsigned __int8 *)(a1 + 60);
-  if ( (_BYTE)v4 != 1 )
+  v6 = *(unsigned __int8 *)(a1 + 60);
+  if ( (_BYTE)v6 != 1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v5 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL);
-      LOBYTE(v5) = 2;
+      v7 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL);
+      LOBYTE(v7) = 2;
       WPP_RECORDER_SF_ddL(
         *(_QWORD *)(v2 + 80),
-        v5,
+        v7,
         13,
         72,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
         *(_DWORD *)(v2 + 144),
         *(_BYTE *)(a1 + 60));
+      v4 = *(_QWORD *)v2;
     }
-    Controller_ReportFatalErrorEx(*(_QWORD *)v2, 2u, 4119, 0LL, 0LL, *(_QWORD *)(v2 + 16), v2, 0LL);
+    Controller_ReportFatalError(v4, 2, 4119, 0LL, *(_QWORD *)(v2 + 16), v2, 0LL);
     goto LABEL_8;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v4) = 4;
+    LOBYTE(v6) = 4;
     WPP_RECORDER_SF_dd(
       *(_QWORD *)(v2 + 80),
-      v4,
+      v6,
       13,
       73,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
       *(_DWORD *)(v2 + 144));
   }
@@ -81,11 +87,11 @@ LABEL_8:
     0,
     (int)Endpoint_OnCancelEndpointConfigureCompletion,
     v2,
-    *(_QWORD *)(v2 + 264),
+    *(_QWORD *)(v2 + 256),
     0LL,
-    (__int64)&v7,
+    (__int64)&v9,
     (void *)(v2 + 160));
   DequeuePointer = Endpoint_GetDequeuePointer(v2, 0);
-  *(_QWORD *)(v7 + 8) = DequeuePointer;
-  Command_SendCommand(v3, v2 + 160);
+  *(_QWORD *)(v9 + 8) = DequeuePointer;
+  Command_SendCommand(v5, v2 + 160);
 }

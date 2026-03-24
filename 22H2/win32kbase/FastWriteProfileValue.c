@@ -1,15 +1,15 @@
 /*
- * XREFs of FastWriteProfileValue @ 0x1C0135590
+ * XREFs of FastWriteProfileValue @ 0x1C011DFA0
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
- *     ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C014E474 (-SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z.c)
- *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C014E684 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014EA20 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014EBD4 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
+ *     ?SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z @ 0x1C0138454 (-SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z.c)
+ *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C0138674 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138A84 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138C14 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     RtlLoadStringOrError @ 0x1C0061FA0 (RtlLoadStringOrError.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     RtlLoadStringOrError @ 0x1C0010F50 (RtlLoadStringOrError.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void *__fastcall FastWriteProfileValue(
@@ -37,7 +37,7 @@ void *__fastcall FastWriteProfileValue(
     RtlLoadStringOrError((unsigned __int16)a3, v15, 40, 0);
     v8 = v15;
   }
-  result = OpenCacheKeyEx(a1, a2, 131078LL, 0LL);
+  result = OpenCacheKeyEx(a1, a2, 0x20006u, 0LL);
   v12 = result;
   if ( result )
   {

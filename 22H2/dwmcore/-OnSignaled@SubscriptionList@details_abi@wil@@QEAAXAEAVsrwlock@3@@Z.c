@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnSignaled@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@@Z @ 0x1801992CC
+ * XREFs of ?OnSignaled@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@@Z @ 0x18014DC3C
  * Callers:
- *     ?_lambda_invoker_cdecl_@_lambda_152aa9d2a3a0648fa2fa7fcef514b376_@@CA@PEAX@Z @ 0x180197370 (-_lambda_invoker_cdecl_@_lambda_152aa9d2a3a0648fa2fa7fcef514b376_@@CA@PEAX@Z.c)
- *     ?_lambda_invoker_cdecl_@_lambda_1ad7ecfab602a777ecf020873216a663_@@CA@PEAX@Z @ 0x1801973A0 (-_lambda_invoker_cdecl_@_lambda_1ad7ecfab602a777ecf020873216a663_@@CA@PEAX@Z.c)
- *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x180198874 (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
+ *     ?_lambda_invoker_cdecl_@_lambda_152aa9d2a3a0648fa2fa7fcef514b376_@@CAXPEAX@Z @ 0x18014C900 (-_lambda_invoker_cdecl_@_lambda_152aa9d2a3a0648fa2fa7fcef514b376_@@CAXPEAX@Z.c)
+ *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x18014CF8C (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
+ *     ?OnStateChange@FeatureStateManager@details@wil@@QEAAXXZ @ 0x18014DDF0 (-OnStateChange@FeatureStateManager@details@wil@@QEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall wil::details_abi::SubscriptionList::OnSignaled(LPCRITICAL_SECTION lpCriticalSection, PSRWLOCK SRWLock)

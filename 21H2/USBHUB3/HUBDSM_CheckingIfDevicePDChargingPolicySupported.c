@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDevicePDChargingPolicySupported @ 0x1C001E2E0
+ * XREFs of HUBDSM_CheckingIfDevicePDChargingPolicySupported @ 0x1C001DDA0
  * Callers:
  *     <none>
  * Callees:

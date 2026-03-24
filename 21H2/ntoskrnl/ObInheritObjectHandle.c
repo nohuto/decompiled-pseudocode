@@ -1,13 +1,13 @@
 /*
- * XREFs of ObInheritObjectHandle @ 0x1406A6A34
+ * XREFs of ObInheritObjectHandle @ 0x140606624
  * Callers:
- *     ExpDuplicateSingleHandle @ 0x1406A6990 (ExpDuplicateSingleHandle.c)
+ *     ExpDuplicateSingleHandle @ 0x140606580 (ExpDuplicateSingleHandle.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObpIncrPointerCount @ 0x14030F6D0 (ObpIncrPointerCount.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     EtwTraceDuplicateHandle @ 0x1409E1FA0 (EtwTraceDuplicateHandle.c)
+ *     ObpIncrPointerCount @ 0x14021BFC0 (ObpIncrPointerCount.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     EtwTraceDuplicateHandle @ 0x140935AFC (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObInheritObjectHandle(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -27,9 +27,9 @@ __int64 __fastcall ObInheritObjectHandle(__int64 a1, int a2, __int64 a3, __int64
   v9 = ObpIncrementHandleCountEx(3, (unsigned int)&v12, a1, (int)v6 + 48, 0, 0, 0LL);
   if ( v9 < 0 )
   {
-    ObfDereferenceObject((PVOID)(v6 + 48));
+    HalPutDmaAdapter((PADAPTER_OBJECT)(v6 + 48));
   }
-  else if ( (xmmword_140D06910 & 0x40) != 0 )
+  else if ( (xmmword_140CFC490 & 0x40) != 0 )
   {
     EtwTraceDuplicateHandle(
       a2,

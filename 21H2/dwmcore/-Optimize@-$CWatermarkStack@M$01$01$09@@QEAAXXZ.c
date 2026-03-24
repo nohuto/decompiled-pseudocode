@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Optimize@?$CWatermarkStack@M$01$01$09@@QEAAXXZ @ 0x1800CFBA4
+ * XREFs of ?Optimize@?$CWatermarkStack@M$01$01$09@@QEAAXXZ @ 0x18008F12C
  * Callers:
- *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z @ 0x1800CF85C (-PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z.c)
+ *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z @ 0x18008E370 (-PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
@@ -26,7 +26,7 @@ void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
     v3 = 0;
     if ( (unsigned __int64)(3 * v4) > 0xFFFFFFFF )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0LL, -2147024362, 0x106u);
+      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0xEEu, 0LL);
     }
     else if ( (unsigned int)(3 * v4) <= *(_DWORD *)(a1 + 4) )
     {
@@ -34,13 +34,13 @@ void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
       v5 = HrMalloc(4uLL, (unsigned int)v4, &v7);
       if ( v5 >= 0 )
       {
-        DefaultHeap::Free(*(void **)(a1 + 16));
+        operator delete(*(void **)(a1 + 16));
         *(_QWORD *)(a1 + 16) = v7;
         *(_DWORD *)(a1 + 4) = v4;
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x116u);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xFEu, 0LL);
       }
     }
     *(_DWORD *)(a1 + 24) = 0;

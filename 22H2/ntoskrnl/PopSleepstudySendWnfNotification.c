@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSleepstudySendWnfNotification @ 0x140878E84
+ * XREFs of PopSleepstudySendWnfNotification @ 0x1408FA3E0
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140775738 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopSleepstudySendWnfNotification(__int64 a1, __int128 *a2, __int64 a3)

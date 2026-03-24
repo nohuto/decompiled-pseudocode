@@ -1,51 +1,51 @@
 /*
- * XREFs of PpmParkSnapNodeIdleTime @ 0x14059D488
+ * XREFs of PpmParkSnapNodeIdleTime @ 0x14057DAB8
  * Callers:
- *     PopAccumulateNonActivatedCpuTime @ 0x140599910 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1405763CC (PopAccumulateNonActivatedCpuTime.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmParkGetParkNode @ 0x140410C1C (PpmParkGetParkNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x1405855EC (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x140566D40 (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
-__int64 __fastcall PpmParkSnapNodeIdleTime(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
+__int64 __fastcall PpmParkSnapNodeIdleTime(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
-  unsigned __int64 v6; // rbx
-  _WORD *ParkNode; // rax
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rax
   KSPIN_LOCK *v8; // rcx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v12; // zf
 
+  *a2 = 0LL;
   *a3 = 0LL;
-  *a4 = 0LL;
   v6 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);
-  ParkNode = PpmParkGetParkNode(0);
-  if ( ParkNode )
+  v7 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 146LL);
+  if ( (unsigned int)v7 < PpmParkNumNodes )
   {
-    v8 = (KSPIN_LOCK *)*((_QWORD *)ParkNode + 6);
+    v8 = *(KSPIN_LOCK **)(PpmParkNodes + 272 * v7 + 72);
     if ( v8 )
-      PpmIdleSnapConcurrencyIdleTime(v8, a3, a4);
+      PpmIdleSnapConcurrencyIdleTime(v8, a2, a3);
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PpmParkStateLock);
+  KxReleaseSpinLock(&PpmParkStateLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v6 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v12 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);

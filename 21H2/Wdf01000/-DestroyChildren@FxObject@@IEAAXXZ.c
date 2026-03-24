@@ -1,18 +1,18 @@
 /*
- * XREFs of ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C0008EB8
+ * XREFs of ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C00083F0
  * Callers:
- *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0008430 (-DeleteObject@FxObject@@UEAAXXZ.c)
- *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
- *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C000AA68 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
- *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C000AB04 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
- *     ?PreProcessSendAndForget@FxRequest@@QEAAXXZ @ 0x1C000AEBC (-PreProcessSendAndForget@FxRequest@@QEAAXXZ.c)
- *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C00301DC (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
- *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760 (-Dispose@FxDevice@@UEAAEXZ.c)
- *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C0066EB0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
- *     ?PnpEventPdoInitFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C00840F0 (-PnpEventPdoInitFailed@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
- *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C00847C0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
+ *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C00040D8 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
+ *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0005D70 (-DeleteObject@FxObject@@UEAAXXZ.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C00155E4 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
+ *     ?PreProcessSendAndForget@FxRequest@@QEAAXXZ @ 0x1C0018900 (-PreProcessSendAndForget@FxRequest@@QEAAXXZ.c)
+ *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C004CDE0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
+ *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C0051B74 (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
+ *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20 (-Dispose@FxDevice@@UEAAEXZ.c)
+ *     ?PnpEventPdoInitFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A900 (-PnpEventPdoInitFailed@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C007AFD0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
  * Callees:
- *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C000AA68 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
+ *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C00040D8 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
  */
 
 void __fastcall FxObject::DestroyChildren(FxObject *this)

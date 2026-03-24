@@ -1,8 +1,8 @@
 /*
- * XREFs of GetOperatorIndexByToken @ 0x1408A8004
+ * XREFs of GetOperatorIndexByToken @ 0x1408A7FE4
  * Callers:
- *     LocalGetConditionForString @ 0x1408A8BEC (LocalGetConditionForString.c)
- *     LocalpGetStringForCondition @ 0x1408AA8F0 (LocalpGetStringForCondition.c)
+ *     LocalGetConditionForString @ 0x1408A8BCC (LocalGetConditionForString.c)
+ *     LocalpGetStringForCondition @ 0x1408AA8D0 (LocalpGetStringForCondition.c)
  * Callees:
  *     <none>
  */

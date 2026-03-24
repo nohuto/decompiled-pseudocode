@@ -1,12 +1,14 @@
 /*
- * XREFs of ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x180018438
+ * XREFs of ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x18024BDBC
  * Callers:
- *     ?CompactAtlases@CAtlasManager@@QEAAXXZ @ 0x180077E14 (-CompactAtlases@CAtlasManager@@QEAAXXZ.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
  * Callees:
- *     ?erase@?$vector@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@@Z @ 0x180018518 (-erase@-$vector@V-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@std@@@std@@V-$a.c)
- *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800185B8 (--1CAtlasTexture@@QEAA@XZ.c)
- *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x1800185F4 (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
- *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800186E4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?erase@?$vector@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@@Z @ 0x18024BF4C (-erase@-$vector@V-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@std@@@std@@V-$a.c)
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x18024BFEC (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ *     ?DestroyResources@CAtlasTexture@@AEAAXXZ @ 0x18024C2C4 (-DestroyResources@CAtlasTexture@@AEAAXXZ.c)
+ *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x18024C62C (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
  */
 
 void __fastcall CAtlasManager::MergeAtlases(CAtlasManager *this, bool *a2)
@@ -16,12 +18,13 @@ void __fastcall CAtlasManager::MergeAtlases(CAtlasManager *this, bool *a2)
   unsigned int v6; // r10d
   __int64 i; // rax
   unsigned int v8; // r9d
-  const struct CAtlasTexture *v9; // rbx
+  __int64 v9; // rbx
   int v10; // ecx
   CAtlasTexture **v11; // rdi
   int v12; // r14d
   CAtlasTexture **v13; // rsi
-  unsigned int v14; // [rsp+40h] [rbp+8h] BYREF
+  void *v14; // rcx
+  unsigned int v15; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)this;
   v5 = 0;
@@ -29,43 +32,50 @@ void __fastcall CAtlasManager::MergeAtlases(CAtlasManager *this, bool *a2)
   for ( i = *(_QWORD *)this + 8LL; i != *((_QWORD *)this + 1); i += 8LL )
   {
     v8 = *(_DWORD *)(*(_QWORD *)i + 24LL);
-    if ( v8 < v6 )
+    if ( v8 >= v6 )
+    {
+      if ( v8 == v6
+        && v8 - *(_DWORD *)(*(_QWORD *)i + 28LL) < *(_DWORD *)(*(_QWORD *)v2 + 24LL) - *(_DWORD *)(*(_QWORD *)v2 + 28LL) )
+      {
+        v2 = i;
+      }
+    }
+    else
     {
       v6 = *(_DWORD *)(*(_QWORD *)i + 24LL);
       v2 = i;
     }
-    else if ( v8 == v6
-           && v8 - *(_DWORD *)(*(_QWORD *)i + 28LL) < *(_DWORD *)(*(_QWORD *)v2 + 24LL)
-                                                    - *(_DWORD *)(*(_QWORD *)v2 + 28LL) )
-    {
-      v2 = i;
-    }
   }
-  v9 = *(const struct CAtlasTexture **)v2;
+  v9 = *(_QWORD *)v2;
   *(_QWORD *)v2 = 0LL;
-  std::vector<std::unique_ptr<CAtlasTexture>>::erase(this, &v14);
-  v10 = *((_DWORD *)v9 + 6);
-  if ( v10 != *((_DWORD *)v9 + 7) )
+  std::vector<std::unique_ptr<CAtlasTexture>>::erase(this, &v15);
+  v10 = *(_DWORD *)(v9 + 24);
+  if ( v10 != *(_DWORD *)(v9 + 28) )
   {
     v11 = *(CAtlasTexture ***)this;
     v12 = v10 + 1;
     v13 = (CAtlasTexture **)*((_QWORD *)this + 1);
-    v14 = 1;
+    v15 = 1;
     if ( v11 != v13 )
     {
       v5 = 1;
       do
       {
-        CAtlasTexture::CopyFrom(*v11, v9, &v14);
-        if ( v14 == v12 )
+        CAtlasTexture::CopyFrom(*v11, (const struct CAtlasTexture *)v9, &v15);
+        if ( v15 == v12 )
           break;
         ++v11;
       }
       while ( v11 != v13 );
     }
-    CAtlasTexture::PurgeAndNotify(v9);
+    CAtlasTexture::PurgeAndNotify((CAtlasTexture *)v9);
   }
   *a2 = v5;
-  CAtlasTexture::~CAtlasTexture(v9);
-  operator delete(v9, 0x28uLL);
+  *(_QWORD *)v9 = &CAtlasTexture::`vftable';
+  CAtlasTexture::DestroyResources((CAtlasTexture *)v9);
+  v14 = *(void **)(v9 + 16);
+  if ( v14 )
+    operator delete(v14);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)(v9 + 8));
+  operator delete((void *)v9);
 }

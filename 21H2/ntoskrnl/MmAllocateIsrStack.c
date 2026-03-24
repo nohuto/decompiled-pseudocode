@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x140829ACC
+ * XREFs of MmAllocateIsrStack @ 0x14079F938
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MmSetPageProtection @ 0x1403C2120 (MmSetPageProtection.c)
- *     MiMarkBootGuardPage @ 0x140829B50 (MiMarkBootGuardPage.c)
- *     MmAllocateIndependentPagesEx @ 0x140829CBC (MmAllocateIndependentPagesEx.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MmSetPageProtection @ 0x140379C80 (MmSetPageProtection.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
  */
 
-char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
+char __fastcall MmAllocateIsrStack(_QWORD *a1, int a2)
 {
   __int64 IndependentPages; // rax
   unsigned __int64 v4; // rbx
@@ -28,7 +28,7 @@ char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
   }
   else
   {
-    IndependentPages = MmAllocateIndependentPagesEx(28672LL, a2, 0LL, 0LL);
+    IndependentPages = MmAllocateIndependentPagesEx(0x7000uLL, a2, 0LL, 0LL);
     v4 = IndependentPages;
     if ( IndependentPages )
     {

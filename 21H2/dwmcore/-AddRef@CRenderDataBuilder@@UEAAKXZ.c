@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CRenderDataBuilder@@UEAAKXZ @ 0x1800FAC30
+ * XREFs of ?AddRef@CRenderDataBuilder@@UEAAKXZ @ 0x1800E1C80
  * Callers:
  *     <none>
  * Callees:

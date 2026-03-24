@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFailDriver @ 0x1405CE460
+ * XREFs of VfFailDriver @ 0x1405A0720
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfFailDriver(ULONG a1, unsigned int a2)

@@ -1,16 +1,18 @@
 /*
- * XREFs of CcAllocateObcb @ 0x140885F50
+ * XREFs of CcAllocateObcb @ 0x14077D1AC
  * Callers:
- *     CcPinRead @ 0x1406F5970 (CcPinRead.c)
- *     CcPinMappedData @ 0x1406F5F00 (CcPinMappedData.c)
- *     CcPreparePinWrite @ 0x1407654A0 (CcPreparePinWrite.c)
+ *     CcPinRead @ 0x14063C8C0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x14063CAA0 (CcPinMappedData.c)
+ *     CcPreparePinWrite @ 0x140678510 (CcPreparePinWrite.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall CcAllocateObcb(_DWORD *a1, int a2, __int64 a3)
 {
-  SIZE_T v6; // rbx
+  SIZE_T v6; // rsi
+  _WORD *PoolWithTag; // rdi
   _WORD *result; // rax
 
   v6 = 8
@@ -20,11 +22,13 @@ _WORD *__fastcall CcAllocateObcb(_DWORD *a1, int a2, __int64 a3)
                      + a2
                      + 4095) >> 12)
      + 32;
-  result = ExAllocatePoolWithTag((POOL_TYPE)1552, v6, 0x624F6343u);
-  result[1] = v6;
-  *result = 762;
-  *((_DWORD *)result + 1) = a2;
-  *((_QWORD *)result + 1) = *(_QWORD *)a1;
-  *((_QWORD *)result + 2) = a3;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)528, v6, 0x624F6343u);
+  memset(PoolWithTag, 0, (unsigned int)v6);
+  *PoolWithTag = 762;
+  result = PoolWithTag;
+  PoolWithTag[1] = v6;
+  *((_DWORD *)PoolWithTag + 1) = a2;
+  *((_QWORD *)PoolWithTag + 1) = *(_QWORD *)a1;
+  *((_QWORD *)PoolWithTag + 2) = a3;
   return result;
 }

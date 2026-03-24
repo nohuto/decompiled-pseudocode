@@ -1,38 +1,43 @@
 /*
- * XREFs of RIMRemoveHoldingFrame @ 0x1C01A6A7C
+ * XREFs of RIMRemoveHoldingFrame @ 0x1C00A6720
  * Callers:
- *     RIMIDEAdoptOrphanedRimDevs @ 0x1C005EB24 (RIMIDEAdoptOrphanedRimDevs.c)
- *     RIMFreeSpecificDev @ 0x1C00A0F40 (RIMFreeSpecificDev.c)
+ *     RIMFreeSpecificDev @ 0x1C00A6554 (RIMFreeSpecificDev.c)
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00ABF70 (RIMIDEAdoptOrphanedRimDevs.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     rimFindHoldingFrame @ 0x1C01A6DDC (rimFindHoldingFrame.c)
- *     rimReclaimHoldingFrame @ 0x1C01A7B2C (rimReclaimHoldingFrame.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     rimFindHoldingFrame @ 0x1C00A6778 (rimFindHoldingFrame.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172A50 (rimReclaimHoldingFrame.c)
  */
 
-__int64 __fastcall RIMRemoveHoldingFrame(__int64 a1, __int64 a2)
+void __fastcall RIMRemoveHoldingFrame(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  char *v7; // rbx
-  __int64 v8; // rdx
-  char **v9; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rcx
+  char v4; // di
+  __int64 HoldingFrame; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
 
-  while ( 1 )
+  v4 = 1;
+  do
   {
-    result = rimFindHoldingFrame(a1, a2);
-    v7 = (char *)result;
-    if ( !result )
-      break;
-    rimReclaimHoldingFrame(v6, v5, result);
-    v8 = *(_QWORD *)v7;
-    if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 || (v9 = (char **)*((_QWORD *)v7 + 1), *v9 != v7) )
-      __fastfail(3u);
-    v10 = (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator;
-    *v9 = (char *)v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    NSInstrumentation::CLeakTrackingAllocator::Free(v10, v7);
+    HoldingFrame = rimFindHoldingFrame(a1, a2);
+    v8 = (_QWORD *)HoldingFrame;
+    if ( HoldingFrame )
+    {
+      rimReclaimHoldingFrame(v7, v6, HoldingFrame);
+      v9 = *v8;
+      if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v10 = (_QWORD *)v8[1], (_QWORD *)*v10 != v8) )
+        __fastfail(3u);
+      *v10 = v9;
+      *(_QWORD *)(v9 + 8) = v10;
+      Win32FreePool((__int64)v8);
+    }
+    else
+    {
+      v4 = 0;
+    }
   }
-  return result;
+  while ( v4 );
 }

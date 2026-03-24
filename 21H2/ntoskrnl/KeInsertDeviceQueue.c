@@ -1,13 +1,12 @@
 /*
- * XREFs of KeInsertDeviceQueue @ 0x140257A00
+ * XREFs of KeInsertDeviceQueue @ 0x14051A980
  * Callers:
- *     IoStartPacket @ 0x1402576D0 (IoStartPacket.c)
- *     IoAllocateController @ 0x1402578A0 (IoAllocateController.c)
- *     HalAllocateAdapterChannelV2 @ 0x140457ED8 (HalAllocateAdapterChannelV2.c)
- *     DifKeInsertDeviceQueueWrapper @ 0x1406137A0 (DifKeInsertDeviceQueueWrapper.c)
+ *     HalAllocateAdapterChannelV2 @ 0x1404CC6E4 (HalAllocateAdapterChannelV2.c)
+ *     IoAllocateController @ 0x140505810 (IoAllocateController.c)
+ *     IoStartPacket @ 0x140506440 (IoStartPacket.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140257B30 (KeAcquireInStackQueuedSpinLockForDpc.c)
- *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140257B80 (KeReleaseInStackQueuedSpinLockForDpc.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516650 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0 (KeReleaseInStackQueuedSpinLockForDpc.c)
  */
 
 BOOLEAN __stdcall KeInsertDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)

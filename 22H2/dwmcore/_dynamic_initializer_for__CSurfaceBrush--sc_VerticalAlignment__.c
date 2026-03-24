@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_VerticalAlignment__ @ 0x180003140
+ * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_VerticalAlignment__ @ 0x180002960
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CSurfaceBrush::sc_VerticalAlignment__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4BD8 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803E4BE8 = v1;
+  xmmword_180346408 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_180346418 = v1;
   return result;
 }

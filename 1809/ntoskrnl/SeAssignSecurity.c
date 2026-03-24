@@ -2,7 +2,7 @@
  * XREFs of SeAssignSecurity @ 0x1405AD0F0
  * Callers:
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmpCreateHiveRootCell @ 0x14075BBB8 (CmpCreateHiveRootCell.c)
+ *     CmpCreateHiveRootCell @ 0x14075BB98 (CmpCreateHiveRootCell.c)
  * Callees:
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  */

@@ -1,38 +1,33 @@
 /*
- * XREFs of ?EngDeletePaletteInternal@@YAHPEAUHPALETTE__@@K@Z @ 0x1C00B0820
+ * XREFs of ?EngDeletePaletteInternal@@YAHPEAUHPALETTE__@@K@Z @ 0x1C00C9B20
  * Callers:
- *     ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B07D0 (-StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
- *     EngDeletePalette @ 0x1C00B0800 (EngDeletePalette.c)
+ *     EngDeletePalette @ 0x1C007CC10 (EngDeletePalette.c)
  * Callees:
- *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C001DB70 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C001E6BC (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C002827C (--1EPALOBJ@@QEAA@XZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002A5A8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C0080AE0 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall EngDeletePaletteInternal(HPALETTE a1, __int16 a2)
 {
   unsigned int v2; // ebx
   int v3; // edi
-  unsigned int *v4; // rcx
-  unsigned int v5; // eax
-  unsigned int *v7; // [rsp+40h] [rbp+18h] BYREF
+  int v4; // ecx
+  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   v3 = a2 & 0x8000;
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v7, a1);
-  v4 = v7;
-  if ( v7 )
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v6, a1);
+  if ( v6 )
   {
-    v5 = v7[6];
-    if ( (v5 & 0x100) == 0 && (!v3 || (v5 & 0x2000000) != 0) )
+    v4 = *(_DWORD *)(v6 + 24);
+    if ( (v4 & 0x100) == 0 && (!v3 || (v4 & 0x2000000) != 0) )
     {
-      v7[6] = v5 & 0xFEFFFFFF;
-      XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v7);
-      v4 = v7;
+      *(_DWORD *)(v6 + 24) = v4 & 0xFEFFFFFF;
+      XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v6);
       v2 = 1;
     }
-    if ( v4 )
-      HmgDecrementShareReferenceCountEx(v4, 0LL);
   }
+  EPALOBJ::~EPALOBJ((EPALOBJ *)&v6);
   return v2;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of HdlspGetLine @ 0x140AEB690
+ * XREFs of HdlspGetLine @ 0x1409EF5F8
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140AEAD84 (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
- *     HdlspPutMore @ 0x140AEC0B8 (HdlspPutMore.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspPutMore @ 0x1409F0020 (HdlspPutMore.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x1403DF0C0 (sprintf_s.c)
- *     strcpy_s @ 0x1403DF230 (strcpy_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     InbvPortGetByte @ 0x14067960C (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x1406797C0 (InbvPortPollOnly.c)
- *     HdlspSendStringAtBaud @ 0x140AEC474 (HdlspSendStringAtBaud.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x1403D74F0 (sprintf_s.c)
+ *     strcpy_s @ 0x1403D7670 (strcpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     InbvPortGetByte @ 0x1405C9C14 (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x1405C9DC0 (InbvPortPollOnly.c)
+ *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
  */
 
 char __fastcall HdlspGetLine(void *a1, size_t Size)
 {
   KIRQL v4; // bl
-  volatile signed __int64 *v5; // rcx
+  KSPIN_LOCK *v5; // rcx
   int v6; // eax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -30,48 +30,54 @@ char __fastcall HdlspGetLine(void *a1, size_t Size)
   struct _KPRCB *v14; // r10
   _DWORD *v15; // r9
   int v16; // eax
-  unsigned __int8 v17; // r8
-  PKSPIN_LOCK v18; // rdx
-  PKSPIN_LOCK v19; // rcx
+  unsigned __int8 v17; // dl
+  PKSPIN_LOCK v18; // rax
+  PKSPIN_LOCK v19; // r10
   char *v20; // rcx
   KSPIN_LOCK v21; // rcx
   KSPIN_LOCK v22; // rax
-  KSPIN_LOCK v23; // rcx
-  KSPIN_LOCK v24; // r9
-  char v25; // r8
-  PKSPIN_LOCK v26; // r9
-  KSPIN_LOCK v27; // rax
-  char *v28; // rcx
-  __int64 v29; // r8
-  PKSPIN_LOCK v30; // rbx
-  size_t v31; // r8
-  const void *v32; // rdx
-  unsigned __int8 v33; // [rsp+50h] [rbp+18h] BYREF
+  PKSPIN_LOCK v23; // rax
+  __int64 v24; // rcx
+  KSPIN_LOCK v25; // rdx
+  char v26; // al
+  KSPIN_LOCK v27; // rdx
+  __int64 v28; // r8
+  char *v29; // rcx
+  char v30; // al
+  PKSPIN_LOCK v31; // rbx
+  size_t v32; // r8
+  const void *v33; // rdx
+  PKSPIN_LOCK v34; // rax
+  PKSPIN_LOCK v35; // rcx
+  unsigned __int8 v36; // [rsp+50h] [rbp+18h] BYREF
 
-  v33 = 0;
+  v36 = 0;
   if ( (HeadlessGlobals[6] & 2) != 0 )
     v4 = -1;
   else
     v4 = KeAcquireSpinLockRaiseToDpc(HeadlessGlobals);
-  v5 = (volatile signed __int64 *)HeadlessGlobals;
+  v5 = HeadlessGlobals;
   v6 = *((_DWORD *)HeadlessGlobals + 12);
   if ( (v6 & 0x10) != 0 )
   {
     if ( v4 != 0xFF )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
+      KxReleaseSpinLock(HeadlessGlobals);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << (v4 + 1));
-          v11 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << (v4 + 1));
+            v11 = (v10 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v4);
@@ -86,16 +92,19 @@ char __fastcall HdlspGetLine(void *a1, size_t Size)
       KxReleaseSpinLock(v5);
       if ( KiIrqlFlags )
       {
-        v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v4 <= 0xFu && v13 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v14 = KeGetCurrentPrcb();
-          v15 = v14->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (v4 + 1));
-          v11 = (v16 & v15[5]) == 0;
-          v15[5] &= v16;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick((__int64)v14);
+          v13 = KeGetCurrentIrql();
+          if ( v13 <= 0xFu && v4 <= 0xFu && v13 >= 2u )
+          {
+            v14 = KeGetCurrentPrcb();
+            v15 = v14->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << (v4 + 1));
+            v11 = (v16 & v15[5]) == 0;
+            v15[5] &= v16;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick((__int64)v14);
+          }
         }
       }
       __writecr8(v4);
@@ -107,57 +116,58 @@ char __fastcall HdlspGetLine(void *a1, size_t Size)
         while ( 1 )
         {
           if ( InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14))
-            && InbvPortGetByte(*((_DWORD *)HeadlessGlobals + 14), &v33) )
+            && InbvPortGetByte(*((_DWORD *)HeadlessGlobals + 14), &v36) )
           {
-            v17 = v33;
+            v17 = v36;
           }
           else
           {
             v17 = 0;
-            v33 = 0;
+            v36 = 0;
           }
+          v18 = HeadlessGlobals;
           if ( !v17 )
             goto LABEL_46;
-          v18 = HeadlessGlobals;
-          *(_BYTE *)(HeadlessGlobals[4] + HeadlessGlobals[11]) = v17;
+          *(_BYTE *)(HeadlessGlobals[11] + HeadlessGlobals[4]) = v17;
           v19 = HeadlessGlobals;
-          if ( !*((_BYTE *)HeadlessGlobals + 117) || v33 != 10 )
+          if ( !*((_BYTE *)HeadlessGlobals + 117) || v36 != 10 )
             break;
           *((_BYTE *)HeadlessGlobals + 117) = 0;
         }
-        *((_BYTE *)HeadlessGlobals + 117) = v33 == 13;
-        if ( v33 == 10 || v33 == 13 )
+        *((_BYTE *)HeadlessGlobals + 117) = v36 == 13;
+        if ( v36 == 10 || v36 == 13 )
           break;
-        switch ( v33 )
+        switch ( v36 )
         {
           case 8u:
           case 0x7Fu:
-            if ( v18[11] )
+            if ( v19[11] )
             {
               HdlspSendStringAtBaud("\b \b");
               --HeadlessGlobals[11];
             }
             break;
           case 3u:
-            v21 = ++v18[11];
-            v22 = v18[4];
+            v21 = ++v19[11];
+            v22 = v19[4];
             goto LABEL_49;
           case 9u:
           case 0x1Bu:
             HdlspSendStringAtBaud("\a");
+            v18 = HeadlessGlobals;
 LABEL_46:
-            *((_DWORD *)HeadlessGlobals + 12) &= ~0x10u;
+            *((_DWORD *)v18 + 12) &= ~0x10u;
             return 0;
           default:
             v20 = (char *)v19[3];
-            if ( v18[11] == 78 )
+            if ( v19[11] == 78 )
             {
-              sprintf_s(v20, 0x50uLL, "\b%c", v33);
+              sprintf_s(v20, 0x50uLL, "\b%c", v36);
               HdlspSendStringAtBaud(HeadlessGlobals[3]);
             }
             else
             {
-              sprintf_s(v20, 0x50uLL, "%c", v33);
+              sprintf_s(v20, 0x50uLL, "%c", v36);
               HdlspSendStringAtBaud(HeadlessGlobals[3]);
               ++HeadlessGlobals[11];
             }
@@ -165,62 +175,64 @@ LABEL_46:
         }
       }
       HdlspSendStringAtBaud("\r\n");
-      v18 = HeadlessGlobals;
-      v21 = HeadlessGlobals[4];
-      v22 = HeadlessGlobals[11];
+      v21 = HeadlessGlobals[11];
+      v22 = HeadlessGlobals[4];
 LABEL_49:
       *(_BYTE *)(v21 + v22) = 0;
-      ++v18[11];
-      v23 = HeadlessGlobals[11] - 1;
-      if ( HeadlessGlobals[11] != 1 )
+      v23 = HeadlessGlobals;
+      ++HeadlessGlobals[11];
+      v24 = v23[11] - 1;
+      if ( v23[11] != 1 )
       {
-        v24 = HeadlessGlobals[4];
+        v25 = v23[4];
         do
         {
-          v25 = *(_BYTE *)(v24 + v23);
-          if ( v25 && *(_BYTE *)(v23 + v24) != 32 && v25 != 9 )
+          v26 = *(_BYTE *)(v25 + v24);
+          if ( v26 && v26 != 32 && v26 != 9 )
             break;
-          --v23;
+          --v24;
         }
-        while ( v23 );
+        while ( v24 );
       }
-      v26 = HeadlessGlobals;
       v27 = HeadlessGlobals[4];
-      if ( *(_BYTE *)(v27 + v23) )
-        *(_BYTE *)(v27 + v23 + 1) = 0;
-      v28 = (char *)v26[4];
-      v29 = 0LL;
-      if ( *v28 )
+      if ( *(_BYTE *)(v27 + v24) )
+        *(_BYTE *)(v27 + v24 + 1) = 0;
+      v28 = 0LL;
+      v29 = (char *)HeadlessGlobals[4];
+      if ( *v29 )
       {
         do
         {
-          if ( v28[v29] != 9 && v28[v29] != 32 )
+          v30 = v29[v28];
+          if ( v30 != 9 && v30 != 32 )
             break;
-          ++v29;
+          ++v28;
         }
-        while ( v28[v29] );
-        if ( v29 )
-          strcpy_s(v28, 0x50uLL, &v28[v29]);
+        while ( v29[v28] );
+        if ( v28 )
+          strcpy_s(v29, 0x50uLL, &v29[v28]);
       }
     }
-    v30 = HeadlessGlobals;
-    v31 = HeadlessGlobals[11];
-    v32 = (const void *)HeadlessGlobals[4];
-    if ( Size < v31 )
+    v31 = HeadlessGlobals;
+    v32 = HeadlessGlobals[11];
+    v33 = (const void *)HeadlessGlobals[4];
+    if ( Size < v32 )
     {
-      memmove(a1, v32, Size);
-      memmove((void *)v30[4], (const void *)(v30[4] + Size), v30[11] - Size);
-      v30 = HeadlessGlobals;
+      memmove(a1, v33, Size);
+      memmove((void *)v31[4], (const void *)(v31[4] + Size), v31[11] - Size);
+      v35 = HeadlessGlobals;
+      v34 = HeadlessGlobals + 6;
       *((_DWORD *)HeadlessGlobals + 12) |= 0x20u;
-      v30[11] -= Size;
+      v35[11] -= Size;
     }
     else
     {
-      memmove(a1, v32, v31);
-      v30[11] = 0LL;
-      *((_DWORD *)v30 + 12) &= ~0x20u;
+      memmove(a1, v33, v32);
+      v31[11] = 0LL;
+      v34 = v31 + 6;
+      *((_DWORD *)v31 + 12) &= ~0x20u;
     }
-    *((_DWORD *)v30 + 12) &= ~0x10u;
+    *(_DWORD *)v34 &= ~0x10u;
     return 1;
   }
 }

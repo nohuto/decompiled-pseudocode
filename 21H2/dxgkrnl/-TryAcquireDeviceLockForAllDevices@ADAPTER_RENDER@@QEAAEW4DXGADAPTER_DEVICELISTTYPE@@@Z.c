@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C01F1E50
+ * XREFs of ?TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C02170C8
  * Callers:
- *     ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01F1CA4 (-AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ *     ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C020B294 (-AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

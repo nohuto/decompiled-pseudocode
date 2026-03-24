@@ -3,10 +3,10 @@
  * Callers:
  *     MiGetHardFaultPages @ 0x140029BE0 (MiGetHardFaultPages.c)
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiCreateSharedZeroPages @ 0x1401091A0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
- *     MiGetClusterPage @ 0x1402C66BC (MiGetClusterPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
@@ -15,14 +15,14 @@
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3A8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPerformFinalZeroing @ 0x1402BFBFC (MiPerformFinalZeroing.c)
- *     MiNotifyPageHeat @ 0x1402CEE40 (MiNotifyPageHeat.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031040C (EtwTraceShouldYieldProcessor.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPerformFinalZeroing @ 0x1402BFCFC (MiPerformFinalZeroing.c)
+ *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiGetPageChain(

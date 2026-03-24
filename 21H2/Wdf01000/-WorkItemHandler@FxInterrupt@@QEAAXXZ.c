@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WorkItemHandler@FxInterrupt@@QEAAXXZ @ 0x1C008D96C
+ * XREFs of ?WorkItemHandler@FxInterrupt@@QEAAXXZ @ 0x1C008A5C0
  * Callers:
- *     ?_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z @ 0x1C008D4E0 (-_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z.c)
+ *     ?_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z @ 0x1C0089F30 (-_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     FX_TRACK_DRIVER @ 0x1C0003664 (FX_TRACK_DRIVER.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     FX_TRACK_DRIVER @ 0x1C0004734 (FX_TRACK_DRIVER.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxInterrupt::WorkItemHandler(FxInterrupt *this)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeKeyValues @ 0x1407FD724
+ * XREFs of CmpFreeKeyValues @ 0x1407FD704
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
- *     CmpSyncKeyValues @ 0x1407FE4FC (CmpSyncKeyValues.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
+ *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpFreeValue @ 0x1405ADB5C (CmpFreeValue.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpMarkKeyValuesDirty @ 0x1407FD920 (CmpMarkKeyValuesDirty.c)
+ *     CmpMarkKeyValuesDirty @ 0x1407FD900 (CmpMarkKeyValuesDirty.c)
  */
 
 char __fastcall CmpFreeKeyValues(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

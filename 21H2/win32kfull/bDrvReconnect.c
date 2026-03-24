@@ -1,12 +1,12 @@
 /*
- * XREFs of bDrvReconnect @ 0x1C02BF390
+ * XREFs of bDrvReconnect @ 0x1C02C09F8
  * Callers:
- *     RemotePassthruDisable @ 0x1C021FC30 (RemotePassthruDisable.c)
- *     xxxRemoteConsoleShadowStart @ 0x1C0220350 (xxxRemoteConsoleShadowStart.c)
+ *     RemotePassthruDisable @ 0x1C0226400 (RemotePassthruDisable.c)
+ *     xxxRemoteConsoleShadowStart @ 0x1C0226A10 (xxxRemoteConsoleShadowStart.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0154B2C (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0154C08 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163AF4 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163BD0 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall bDrvReconnect(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -31,7 +31,7 @@ __int64 __fastcall bDrvReconnect(__int64 a1, __int64 a2, __int64 a3, int a4)
       2u,
       ghsemDCVisRgn,
       3u,
-      *(HSEMAPHORE *)(a1 + 56),
+      *(HSEMAPHORE *)(a1 + 64),
       4u,
       ghsemSprite,
       5u,
@@ -39,14 +39,14 @@ __int64 __fastcall bDrvReconnect(__int64 a1, __int64 a2, __int64 a3, int a4)
       6u);
     GreAcquireSemaphore(v15[6]);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v15[6], 11LL);
-    PDEVOBJ::vSync((PDEVOBJ *)&v15, (struct _SURFOBJ *)((v15[316] + 24LL) & -(__int64)(v15[316] != 0LL)), 0LL, 0);
+    PDEVOBJ::vSync((PDEVOBJ *)&v15, (struct _SURFOBJ *)((v15[319] + 24LL) & -(__int64)(v15[319] != 0LL)), 0LL, 0);
     v7 = v15;
-    v8 = (__int64 (__fastcall *)(__int64, __int64))v15[412];
+    v8 = (__int64 (__fastcall *)(__int64, __int64))v15[415];
     if ( v8 )
     {
       v9 = v8(a2, a3);
       if ( v9 )
-        *(_DWORD *)(v15[220] + 60LL) = 2;
+        *(_DWORD *)(v15[224] + 60LL) = 2;
       v7 = v15;
     }
     else
@@ -55,14 +55,14 @@ __int64 __fastcall bDrvReconnect(__int64 a1, __int64 a2, __int64 a3, int a4)
     }
     if ( a4 == 1 )
     {
-      v10 = v7[222];
+      v10 = v7[226];
       v13 = v10;
       if ( v9 == 1 && (*(_DWORD *)(v10 + 24) & 0x800) != 0 )
       {
-        v11 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))v7[355];
+        v11 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))v7[358];
         if ( v11 )
         {
-          v11(v7[221], &v13, 0LL, 0LL, *(_DWORD *)(v10 + 28));
+          v11(v7[225], &v13, 0LL, 0LL, *(_DWORD *)(v10 + 28));
           v7 = v15;
         }
         else

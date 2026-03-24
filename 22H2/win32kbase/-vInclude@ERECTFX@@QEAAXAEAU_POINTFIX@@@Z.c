@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C0153F60
+ * XREFs of ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00BD5B8
  * Callers:
- *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0153A28 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
- *     ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0153CDC (-growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C00818E4 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0081BE4 (-growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,23 +13,21 @@ void __fastcall ERECTFX::vInclude(ERECTFX *this, struct _POINTFIX *a2)
   FIX y; // eax
 
   x = a2->x;
-  if ( *(_DWORD *)this <= a2->x )
-  {
-    if ( *((_DWORD *)this + 2) < x )
-      *((_DWORD *)this + 2) = x;
-  }
-  else
+  if ( *(_DWORD *)this > a2->x )
   {
     *(_DWORD *)this = x;
   }
-  y = a2->y;
-  if ( *((_DWORD *)this + 3) >= y )
+  else if ( *((_DWORD *)this + 2) < x )
   {
-    if ( *((_DWORD *)this + 1) > y )
-      *((_DWORD *)this + 1) = y;
+    *((_DWORD *)this + 2) = x;
   }
-  else
+  y = a2->y;
+  if ( *((_DWORD *)this + 3) < y )
   {
     *((_DWORD *)this + 3) = y;
+  }
+  else if ( *((_DWORD *)this + 1) > y )
+  {
+    *((_DWORD *)this + 1) = y;
   }
 }

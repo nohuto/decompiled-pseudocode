@@ -1,7 +1,7 @@
 /*
- * XREFs of DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_ @ 0x1C022C8CC
+ * XREFs of DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_ @ 0x1C01F3938
  * Callers:
- *     ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022CB50 (-SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F3C40 (-SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
  * Callees:
  *     <none>
  */

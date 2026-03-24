@@ -1,11 +1,11 @@
 /*
- * XREFs of ComputeFlushPeriod @ 0x1C00BDFC4
+ * XREFs of ComputeFlushPeriod @ 0x1C0090BF4
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1C00BDCD4 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C0090A60 (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     FinishHash @ 0x1C0018938 (FinishHash.c)
- *     RunningHash @ 0x1C0019624 (RunningHash.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
+ *     FinishHash @ 0x1C0016130 (FinishHash.c)
+ *     RunningHash @ 0x1C00173D8 (RunningHash.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ComputeFlushPeriod(unsigned __int64 a1)

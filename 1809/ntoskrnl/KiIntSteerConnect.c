@@ -1,20 +1,20 @@
 /*
- * XREFs of KiIntSteerConnect @ 0x14016DE84
+ * XREFs of KiIntSteerConnect @ 0x14016DEA4
  * Callers:
- *     KeConnectInterrupt @ 0x14016DB20 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6A0 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerSetDestination @ 0x140131AA8 (KiIntSteerSetDestination.c)
- *     KiIntSteerLogState @ 0x14016E20C (KiIntSteerLogState.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14016E268 (KiIntSteerChooseInitialTargetProcessors.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6C0 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x140131AC8 (KiIntSteerSetDestination.c)
+ *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14016E288 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
  */
 
 __int64 __fastcall KiIntSteerConnect(_QWORD *a1, unsigned int a2, __int64 a3)

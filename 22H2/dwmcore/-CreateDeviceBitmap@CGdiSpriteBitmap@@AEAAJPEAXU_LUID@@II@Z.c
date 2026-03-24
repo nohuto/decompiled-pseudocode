@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x1800A983C
+ * XREFs of ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x180032E7C
  * Callers:
- *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A8EE4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800332C4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800A95AC (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?Create@CGDIBitmapRealization@@SAJPEAXU_LUID@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x1800A9998 (-Create@CGDIBitmapRealization@@SAJPEAXU_LUID@@PEAPEAVIGDIBitmapRealization@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Create@CGDIBitmapRealization@@SAJPEAXU_LUID@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x180032BE8 (-Create@CGDIBitmapRealization@@SAJPEAXU_LUID@@PEAPEAVIGDIBitmapRealization@@@Z.c)
+ *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x180033728 (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?reset@?$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800CB860 (-reset@-$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
@@ -19,7 +19,7 @@ __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
         int a4,
         unsigned int a5)
 {
-  int v6; // esi
+  unsigned int v6; // esi
   unsigned int v10; // r15d
   int v11; // eax
   unsigned int v12; // ecx
@@ -41,13 +41,13 @@ __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
   if ( a4 && a5 )
   {
     v22 = 0LL;
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v22);
+    wil::com_ptr_t<IGDIBitmapRealization,wil::err_returncode_policy>::reset(&v22);
     v11 = CGDIBitmapRealization::Create(a2, a3, &v22);
     v23 = v11;
     v6 = v11;
     if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1E8u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x23Bu, 0LL);
       if ( !v22 )
         goto LABEL_8;
       v20 = (char *)v22 + *(int *)(*((_QWORD *)v22 + 1) + 4LL) + 8;
@@ -67,10 +67,10 @@ __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
       {
         (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v21 + 40LL))(
           v21,
-          ((unsigned __int64)this + 112) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64));
+          ((unsigned __int64)this + 72) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64));
         wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v21);
-        v17 = *((_QWORD *)this + 55);
-        *((_QWORD *)this + 55) = v13;
+        v17 = *((_QWORD *)this + 60);
+        *((_QWORD *)this + 60) = v13;
         if ( v17 )
         {
           v19 = v17 + 8 + *(int *)(*(_QWORD *)(v17 + 8) + 4LL);
@@ -78,7 +78,7 @@ __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
         }
         goto LABEL_7;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1F3u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x246u, 0LL);
       wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v21);
       v20 = (char *)v13 + *(int *)(*((_QWORD *)v13 + 1) + 4LL) + 8;
     }
@@ -86,11 +86,11 @@ __int64 __fastcall CGdiSpriteBitmap::CreateDeviceBitmap(
     goto LABEL_8;
   }
 LABEL_7:
-  *((_QWORD *)this + 51) = a2;
-  *((struct _LUID *)this + 52) = a3;
-  *((_DWORD *)this + 106) = a4;
-  *((_DWORD *)this + 107) = v10;
+  *((_QWORD *)this + 56) = a2;
+  *((struct _LUID *)this + 57) = a3;
+  *((_DWORD *)this + 116) = a4;
+  *((_DWORD *)this + 117) = v10;
 LABEL_8:
-  TranslateDXGIorD3DErrorInContext(v6, 8, &v23);
+  TranslateDXGIorD3DErrorInContext(v6, 8LL, &v23);
   return v23;
 }

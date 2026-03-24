@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z @ 0x1C01A7934
+ * XREFs of ?CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z @ 0x1C012439C
  * Callers:
- *     ?OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@EPEAU_EPROCESS@@PEAU_DXGSHAREDALLOCOBJECT@@PEAVDXGRESOURCEREFERENCE@@PEAEPEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVDXGAUTOMUTEX@@PEAVDXGAUTOPUSHLOCK@@@Z @ 0x1C01B5930 (-OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@E.c)
- *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C03736F8 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ *     ?OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@EPEAU_EPROCESS@@PEAU_DXGSHAREDALLOCOBJECT@@PEAVDXGRESOURCEREFERENCE@@PEAEPEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVDXGAUTOMUTEX@@PEAVDXGAUTOPUSHLOCK@@@Z @ 0x1C00D6CBC (-OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@E.c)
+ *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C0239474 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GDXGSHAREDRESOURCE_NONPAGED@@QEAAPEAXI@Z @ 0x1C0047A58 (--_GDXGSHAREDRESOURCE_NONPAGED@@QEAAPEAXI@Z.c)
- *     ??0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z @ 0x1C01A79F0 (--0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??_GDXGSHAREDRESOURCE_NONPAGED@@QEAAPEAXI@Z @ 0x1C003F758 (--_GDXGSHAREDRESOURCE_NONPAGED@@QEAAPEAXI@Z.c)
+ *     ??0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z @ 0x1C012447C (--0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z.c)
  */
 
 struct DXGSHAREDRESOURCE *__fastcall DXGSHAREDRESOURCE::CreateSharedResource(
@@ -14,56 +14,60 @@ struct DXGSHAREDRESOURCE *__fastcall DXGSHAREDRESOURCE::CreateSharedResource(
         struct DXGADAPTER *a2,
         char a3)
 {
-  struct DXGSHAREDRESOURCE *result; // rax
-  struct DXGSHAREDRESOURCE *v7; // rdi
+  _QWORD *v6; // rax
+  DXGSHAREDRESOURCE **v7; // rdi
   DXGSHAREDRESOURCE *v8; // rax
   DXGSHAREDRESOURCE *v9; // rbx
-  DXGSHAREDRESOURCE *v10; // rax
+  DXGSHAREDRESOURCE *v11; // rax
 
-  result = (struct DXGSHAREDRESOURCE *)operator new[](0x18uLL, 0x4B677844u, 64LL);
-  v7 = result;
-  if ( result )
+  v6 = operator new(0x18uLL, 0x4B677844u, 1, (POOL_TYPE)512);
+  v7 = (DXGSHAREDRESOURCE **)v6;
+  if ( v6 )
   {
-    *(_QWORD *)result = 0LL;
-    *((_QWORD *)result + 1) = 0LL;
-    KeInitializeSpinLock((PKSPIN_LOCK)result + 2);
-    if ( a3 )
-    {
-      v10 = (DXGSHAREDRESOURCE *)operator new[](0xF0uLL, 0x4B677844u, 256LL);
-      v9 = v10;
-      if ( v10 )
-      {
-        DXGSHAREDRESOURCE::DXGSHAREDRESOURCE(v10, a1, a2);
-        *((_DWORD *)v9 + 52) = 0;
-        *((_DWORD *)v9 + 53) = 0;
-        *((_DWORD *)v9 + 54) = 0;
-        *((_QWORD *)v9 + 28) = 0LL;
-        *((_DWORD *)v9 + 3) |= 0x20u;
-        *(_QWORD *)v9 = &DXGSHAREDRESOURCECA::`vftable';
-        goto LABEL_6;
-      }
-      v9 = 0LL;
-    }
-    else
-    {
-      v8 = (DXGSHAREDRESOURCE *)operator new[](0xD0uLL, 0x4B677844u, 256LL);
-      if ( !v8 )
-      {
-        v9 = 0LL;
-        goto LABEL_13;
-      }
-      v9 = DXGSHAREDRESOURCE::DXGSHAREDRESOURCE(v8, a1, a2);
-    }
-    if ( v9 )
-    {
-LABEL_6:
-      *((_QWORD *)v9 + 22) = v7;
-      *(_QWORD *)v7 = v9;
-      return v9;
-    }
-LABEL_13:
-    DXGSHAREDRESOURCE_NONPAGED::`scalar deleting destructor'(v7);
-    return v9;
+    *v6 = 0LL;
+    v6[1] = 0LL;
+    KeInitializeSpinLock(v6 + 2);
   }
-  return result;
+  else
+  {
+    v7 = 0LL;
+  }
+  if ( !v7 )
+    return 0LL;
+  if ( a3 )
+  {
+    v11 = (DXGSHAREDRESOURCE *)operator new(0xF0uLL, 0x4B677844u, 1, PagedPool);
+    v9 = v11;
+    if ( v11 )
+    {
+      DXGSHAREDRESOURCE::DXGSHAREDRESOURCE(v11, a1, a2);
+      *((_DWORD *)v9 + 52) = 0;
+      *((_DWORD *)v9 + 53) = 0;
+      *((_DWORD *)v9 + 54) = 0;
+      *((_QWORD *)v9 + 28) = 0LL;
+      *((_DWORD *)v9 + 3) |= 0x20u;
+      *(_QWORD *)v9 = &DXGSHAREDRESOURCECA::`vftable';
+      goto LABEL_7;
+    }
+    goto LABEL_12;
+  }
+  v8 = (DXGSHAREDRESOURCE *)operator new(0xD0uLL, 0x4B677844u, 1, PagedPool);
+  if ( !v8 )
+  {
+LABEL_12:
+    v9 = 0LL;
+    goto LABEL_7;
+  }
+  v9 = DXGSHAREDRESOURCE::DXGSHAREDRESOURCE(v8, a1, a2);
+LABEL_7:
+  if ( v9 )
+  {
+    *((_QWORD *)v9 + 22) = v7;
+    *v7 = v9;
+  }
+  else
+  {
+    DXGSHAREDRESOURCE_NONPAGED::`scalar deleting destructor'(v7);
+  }
+  return v9;
 }

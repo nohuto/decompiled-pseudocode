@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01BA950
+ * XREFs of ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C0185090
  * Callers:
  *     <none>
  * Callees:
- *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01B9960 (-TurnOffMouseKeys@@YAXXZ.c)
- *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01B9C40 (-xxxMKButtonSetState@@YAHG@Z.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C020A3A8 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C0183B90 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C0183E70 (-xxxMKButtonSetState@@YAHG@Z.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD100 (ApiSetEditionPostAccessibility.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
  */
 
 _BOOL8 __fastcall xxxMKToggleMouseKeys()
@@ -20,7 +20,7 @@ _BOOL8 __fastcall xxxMKToggleMouseKeys()
   {
     if ( ((unsigned __int8)gLockBits | (unsigned __int8)(gLatchBits | gPhysModifierState)) == 17 )
     {
-      if ( (dword_1C0295A24 & 4) != 0 )
+      if ( (dword_1C0250BD4 & 4) != 0 )
       {
         v0 = gbMKMouseMode != 0;
         TurnOffMouseKeys();
@@ -29,7 +29,7 @@ _BOOL8 __fastcall xxxMKToggleMouseKeys()
     else
     {
       v1 = (unsigned int)(1 << (2 * (gNumLockVk & 3) + 1));
-      if ( (((unsigned int)dword_1C0295A24 >> 7) & 1) == (((unsigned __int8)v1 & *((_BYTE *)&gafAsyncKeyState
+      if ( (((unsigned int)dword_1C0250BD4 >> 7) & 1) == (((unsigned __int8)v1 & *((_BYTE *)&gafAsyncKeyState
                                                                                  + ((unsigned __int64)(unsigned __int8)gNumLockVk >> 2))) != 0) )
       {
         gbMKMouseMode = 1;
@@ -44,7 +44,7 @@ _BOOL8 __fastcall xxxMKToggleMouseKeys()
         xxxMKButtonSetState(1);
         gwMKCurrentButton = v2;
       }
-      ApiSetEditionPostAccessibilitySettingChangedEvent(3LL);
+      ApiSetEditionPostAccessibility(3LL);
     }
   }
   return v0;

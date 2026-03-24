@@ -1,12 +1,12 @@
 /*
- * XREFs of BgLibraryEnable @ 0x140159808
+ * XREFs of BgLibraryEnable @ 0x140159828
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkAcquireDisplayOwnership @ 0x14027D8F0 (BgkAcquireDisplayOwnership.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkAcquireDisplayOwnership @ 0x14027D9F0 (BgkAcquireDisplayOwnership.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
- *     BgpFwLibraryEnable @ 0x14016F7C0 (BgpFwLibraryEnable.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryEnable @ 0x14016F7E0 (BgpFwLibraryEnable.c)
  */
 
 __int64 __fastcall BgLibraryEnable(__int64 a1, char a2)

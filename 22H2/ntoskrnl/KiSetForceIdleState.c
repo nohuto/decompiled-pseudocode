@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSetForceIdleState @ 0x14057D324
+ * XREFs of KiSetForceIdleState @ 0x1405236E0
  * Callers:
- *     KiUpdateTime @ 0x1402C3670 (KiUpdateTime.c)
- *     KiCheckAndRearmForceIdle @ 0x14036E024 (KiCheckAndRearmForceIdle.c)
- *     KeClearForceIdle @ 0x14057CC30 (KeClearForceIdle.c)
- *     KeSetForceIdle @ 0x14057CD24 (KeSetForceIdle.c)
- *     KiForceIdleStartDpcRoutine @ 0x14057CEF0 (KiForceIdleStartDpcRoutine.c)
- *     KiForceIdleStopDpcRoutine @ 0x14057CFB0 (KiForceIdleStopDpcRoutine.c)
- *     KiResetForceIdle @ 0x14057D1DC (KiResetForceIdle.c)
+ *     KiUpdateTime @ 0x1402276F0 (KiUpdateTime.c)
+ *     KiCheckAndRearmForceIdle @ 0x140328AEC (KiCheckAndRearmForceIdle.c)
+ *     KeClearForceIdle @ 0x140522DB8 (KeClearForceIdle.c)
+ *     KeSetForceIdle @ 0x140522EE8 (KeSetForceIdle.c)
+ *     KiForceIdleStartDpcRoutine @ 0x1405231F0 (KiForceIdleStartDpcRoutine.c)
+ *     KiForceIdleStopDpcRoutine @ 0x140523300 (KiForceIdleStopDpcRoutine.c)
+ *     KiResetForceIdle @ 0x140523560 (KiResetForceIdle.c)
  * Callees:
- *     PoTraceForceIdleStateChange @ 0x140591254 (PoTraceForceIdleStateChange.c)
+ *     PoTraceForceIdleStateChange @ 0x14056FD20 (PoTraceForceIdleStateChange.c)
  */
 
 __int64 __fastcall KiSetForceIdleState(unsigned int a1)

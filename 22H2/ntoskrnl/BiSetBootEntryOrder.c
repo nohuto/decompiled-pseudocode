@@ -1,14 +1,14 @@
 /*
- * XREFs of BiSetBootEntryOrder @ 0x140A5ED5C
+ * XREFs of BiSetBootEntryOrder @ 0x140972B14
  * Callers:
- *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5D984 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiExportEfiBootManager @ 0x140A5E63C (BiExportEfiBootManager.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5ECA8 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140970350 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x140971C10 (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140972A60 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
- *     ZwSetBootEntryOrder @ 0x14041D920 (ZwSetBootEntryOrder.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiAcquirePrivilege @ 0x140808628 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1408086B4 (BiReleasePrivilege.c)
+ *     ZwSetBootEntryOrder @ 0x1403FCB40 (ZwSetBootEntryOrder.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785B38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785B90 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiSetBootEntryOrder(__int64 a1, unsigned int a2)

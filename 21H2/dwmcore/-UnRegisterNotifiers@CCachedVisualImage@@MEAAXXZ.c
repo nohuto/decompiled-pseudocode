@@ -1,17 +1,20 @@
 /*
- * XREFs of ?UnRegisterNotifiers@CCachedVisualImage@@MEAAXXZ @ 0x1800EC700
+ * XREFs of ?UnRegisterNotifiers@CCachedVisualImage@@MEAAXXZ @ 0x180032960
  * Callers:
- *     <none>
+ *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x1800312D4 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
+ *     ??1CCachedVisualImage@@MEAA@XZ @ 0x1800325CC (--1CCachedVisualImage@@MEAA@XZ.c)
+ *     ?ProcessUpdate@CCachedVisualImage@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_CACHEDVISUALIMAGE@@@Z @ 0x1800329BC (-ProcessUpdate@CCachedVisualImage@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_CACHEDVISUALIMAGE@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CCachedVisualImage::UnRegisterNotifiers(struct CResource **this)
 {
-  (*((void (__fastcall **)(struct CResource **))*this + 24))(this);
-  CResource::UnRegisterNotifierInternal((CResource *)this, this[14]);
-  this[14] = 0LL;
   CResource::UnRegisterNotifierInternal((CResource *)this, this[17]);
   this[17] = 0LL;
+  CResource::UnRegisterNotifierInternal((CResource *)this, this[13]);
+  this[13] = 0LL;
+  CResource::UnRegisterNotifierInternal((CResource *)this, this[16]);
+  this[16] = 0LL;
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset(this + 22);
 }

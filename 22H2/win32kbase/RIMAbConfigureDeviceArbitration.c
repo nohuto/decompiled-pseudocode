@@ -1,22 +1,20 @@
 /*
- * XREFs of RIMAbConfigureDeviceArbitration @ 0x1C017D5A0
+ * XREFs of RIMAbConfigureDeviceArbitration @ 0x1C015A200
  * Callers:
- *     RIMProcessAnyPointerDeviceInput @ 0x1C01A7080 (RIMProcessAnyPointerDeviceInput.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01784F4 (RIMProcessAnyPointerDeviceInput.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetGetPenArbitrationType @ 0x1C01CF08C (ApiSetGetPenArbitrationType.c)
  */
 
-void __fastcall RIMAbConfigureDeviceArbitration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 RIMAbConfigureDeviceArbitration()
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int64 result; // rax
 
-  v6 = *(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 524);
-  if ( v6 < 4 )
-    *(_DWORD *)(SGDGetUserSessionState(v5, v4, v7, v8) + 436) = v6;
-  if ( *(_DWORD *)(SGDGetUserSessionState(v5, v4, v7, v8) + 436) >= 4u )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1002);
+  result = ApiSetGetPenArbitrationType();
+  if ( (unsigned int)result < 4 )
+    gDeviceArbitrationType = result;
+  if ( gDeviceArbitrationType >= 4u )
+    return MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 993);
+  return result;
 }

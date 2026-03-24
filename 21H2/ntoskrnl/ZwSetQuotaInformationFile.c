@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetQuotaInformationFile @ 0x14041ED80
+ * XREFs of ZwSetQuotaInformationFile @ 0x1403FD8A0
  * Callers:
  *     <none>
  * Callees:

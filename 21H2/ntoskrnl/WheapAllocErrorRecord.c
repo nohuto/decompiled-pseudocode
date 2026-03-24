@@ -1,19 +1,21 @@
 /*
- * XREFs of WheapAllocErrorRecord @ 0x140643B40
+ * XREFs of WheapAllocErrorRecord @ 0x1405BB64C
  * Callers:
- *     WheapReportBootError @ 0x1406433D0 (WheapReportBootError.c)
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
+ *     WheapReportBootError @ 0x1405BAEC4 (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x1403C07F4 (WheapInitializeErrorRecordWrapper.c)
- *     WheapGetPreallocatedErrorRecord @ 0x140643F80 (WheapGetPreallocatedErrorRecord.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x1403BAEC8 (WheapInitializeErrorRecordWrapper.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WheapGetPreallocatedErrorRecord @ 0x1405BBB0C (WheapGetPreallocatedErrorRecord.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WheapAllocErrorRecord(__int64 a1, int *a2)
+__int64 __fastcall WheapAllocErrorRecord(__int64 a1, unsigned int *a2)
 {
   unsigned int v4; // ecx
-  __int64 Pool2; // rax
-  __int64 v6; // r11
+  PVOID PoolWithTag; // rax
+  __int64 v6; // rdi
+  unsigned int v7; // ebx
   __int64 PreallocatedErrorRecord; // rax
 
   v4 = *(_DWORD *)(a1 + 32);
@@ -31,11 +33,13 @@ LABEL_7:
     *a2 = 0;
     return v6;
   }
-  Pool2 = ExAllocatePool2(64LL, v4, *(unsigned int *)(a1 + 36));
-  v6 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v4, *(_DWORD *)(a1 + 36));
+  v6 = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
     goto LABEL_7;
-  WheapInitializeErrorRecordWrapper(Pool2, *a2, a1);
+  v7 = *a2;
+  memset(PoolWithTag, 0, v7);
+  WheapInitializeErrorRecordWrapper(v6, v7, a1);
 LABEL_6:
   *(_QWORD *)(v6 + 32) = a1;
   return v6;

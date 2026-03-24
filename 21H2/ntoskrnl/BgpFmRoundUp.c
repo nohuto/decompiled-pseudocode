@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFmRoundUp @ 0x1403A96AC
+ * XREFs of BgpFmRoundUp @ 0x14039C868
  * Callers:
- *     BgpRasPrintGlyph @ 0x1403A8390 (BgpRasPrintGlyph.c)
- *     RaspScanConvert @ 0x1403A8E50 (RaspScanConvert.c)
- *     BgpRasGetGlyphTextCellDimensions @ 0x1403CADA8 (BgpRasGetGlyphTextCellDimensions.c)
+ *     BgpRasGetGlyphTextCellDimensions @ 0x14039C7BC (BgpRasGetGlyphTextCellDimensions.c)
+ *     BgpRasPrintGlyph @ 0x1403B1B48 (BgpRasPrintGlyph.c)
+ *     RaspScanConvert @ 0x1403B2610 (RaspScanConvert.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_FailedDeviceHubSuspended @ 0x1C001F430
+ * XREFs of HUBDSM_FailedDeviceHubSuspended @ 0x1C001CA20
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleaseDevicePowerReference @ 0x1C0011810 (HUBMUX_ReleaseDevicePowerReference.c)
+ *     HUBMUX_ReleaseDevicePowerReference @ 0x1C00103E8 (HUBMUX_ReleaseDevicePowerReference.c)
  */
 
 __int64 __fastcall HUBDSM_FailedDeviceHubSuspended(__int64 a1)

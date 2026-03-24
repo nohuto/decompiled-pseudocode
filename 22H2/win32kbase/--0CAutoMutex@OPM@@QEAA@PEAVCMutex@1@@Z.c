@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CAutoMutex@OPM@@QEAA@PEAVCMutex@1@@Z @ 0x1C00A2510
+ * XREFs of ??0CAutoMutex@OPM@@QEAA@PEAVCMutex@1@@Z @ 0x1C0088570
  * Callers:
- *     <none>
+ *     ?Configure@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z @ 0x1C013FD5C (-Configure@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
 OPM::CAutoMutex *__fastcall OPM::CAutoMutex::CAutoMutex(OPM::CAutoMutex *this, struct OPM::CMutex *a2)

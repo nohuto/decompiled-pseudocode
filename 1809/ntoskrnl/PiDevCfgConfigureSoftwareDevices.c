@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x1406F9F20
+ * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x1406F9F00
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C28 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C08 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopCreateRegistryKeyEx @ 0x1407096E4 (IopCreateRegistryKeyEx.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlCopyTreeInternal @ 0x140900520 (_RegRtlCopyTreeInternal.c)
+ *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x140900500 (_RegRtlCopyTreeInternal.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureSoftwareDevices(__int64 a1, void *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of CreateSharedReadCompositionLightMarshaler @ 0x1C00A6A20
+ * XREFs of CreateSharedReadCompositionLightMarshaler @ 0x1C0093230
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadCompositionLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A6A6C (-Create@CSharedReadCompositionLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@P.c)
- *     ?IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z @ 0x1C00A6EB8 (-IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z.c)
+ *     ?Create@CSharedReadCompositionLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C009327C (-Create@CSharedReadCompositionLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@P.c)
+ *     ?IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z @ 0x1C0093608 (-IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z.c)
  */
 
 __int64 __fastcall CreateSharedReadCompositionLightMarshaler(

@@ -1,41 +1,47 @@
 /*
- * XREFs of _SetTargetingWindowValue @ 0x1C010CE3C
+ * XREFs of _SetTargetingWindowValue @ 0x1C011FE2C
  * Callers:
- *     NtUserRegisterTouchHitTestingWindow @ 0x1C010CDC0 (NtUserRegisterTouchHitTestingWindow.c)
+ *     NtUserRegisterTouchHitTestingWindow @ 0x1C011FDB0 (NtUserRegisterTouchHitTestingWindow.c)
  * Callees:
- *     InternalRemoveProp @ 0x1C0069510 (InternalRemoveProp.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
  */
 
 __int64 __fastcall SetTargetingWindowValue(__int64 a1, int a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // rdx
+  __int64 v4; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
   v3 = a2;
   if ( gSqmIsOptedIn )
   {
-    switch ( a2 )
+    if ( a2 )
     {
-      case 0:
-        WinSqmIncrementDWORD(&SqmGlobalSessionGuid, 8295LL, 1LL);
-        goto LABEL_11;
-      case 1:
-        v5 = 8635LL;
-        break;
-      case 2:
-        v5 = 8636LL;
-        break;
-      default:
-        goto LABEL_2;
+      if ( a2 == 1 )
+      {
+        v4 = 8635LL;
+LABEL_5:
+        WinSqmIncrementDWORD(&SqmGlobalSessionGuid, v4, 1LL);
+        return InternalSetProp(a1, (unsigned __int16)gatomPtrTargetFlags, v3, 5u);
+      }
+      if ( a2 == 2 )
+      {
+        v4 = 8636LL;
+        goto LABEL_5;
+      }
     }
-    WinSqmIncrementDWORD(&SqmGlobalSessionGuid, v5, 1LL);
-    return InternalSetProp(a1, (unsigned __int16)gatomPtrTargetFlags, v3, 5u);
+    else
+    {
+      WinSqmIncrementDWORD(&SqmGlobalSessionGuid, 8295LL, 1LL);
+    }
   }
-LABEL_2:
-  if ( a2 )
+  if ( (_DWORD)v3 )
     return InternalSetProp(a1, (unsigned __int16)gatomPtrTargetFlags, v3, 5u);
-LABEL_11:
-  InternalRemoveProp(a1, (unsigned __int16)gatomPtrTargetFlags, 1u);
+  v6 = (unsigned __int16)gatomPtrTargetFlags;
+  v7 = *(_QWORD *)(a1 + 144);
+  if ( gatomPtrTargetFlags == word_1C033AF44 )
+    *(_QWORD *)(*(_QWORD *)(a1 + 40) + 312LL) = 0LL;
+  RealInternalRemoveProp(v7, v6, 1LL);
   return 1LL;
 }

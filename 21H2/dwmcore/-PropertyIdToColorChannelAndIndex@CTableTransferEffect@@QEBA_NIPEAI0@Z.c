@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z @ 0x180242284
+ * XREFs of ?PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z @ 0x1801F0C30
  * Callers:
- *     ?SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802425F0 (-SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F0F40 (-SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ bool __fastcall CTableTransferEffect::PropertyIdToColorChannelAndIndex(
 {
   bool result; // al
 
-  if ( (a2 & 0xF) != 0xF || a2 >> 6 >= *((_DWORD *)this + 10 * ((a2 >> 4) & 3) + 48) )
+  if ( (a2 & 0xF) != 0xF || a2 >> 6 >= *((_DWORD *)this + 10 * ((a2 >> 4) & 3) + 46) )
     return 0;
   result = 1;
   *a4 = a2 >> 6;

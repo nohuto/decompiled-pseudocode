@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026BA0
+ * XREFs of HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0024204
  * Callers:
- *     HUBDSM_EnablingDeviceInUCXFor30 @ 0x1C0020AE0 (HUBDSM_EnablingDeviceInUCXFor30.c)
+ *     HUBDSM_EnablingDeviceInUCXFor30 @ 0x1C001E240 (HUBDSM_EnablingDeviceInUCXFor30.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *a
              2u,
              5u,
              0x1Du,
-             (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+             (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
              v4);
   }
   return result;

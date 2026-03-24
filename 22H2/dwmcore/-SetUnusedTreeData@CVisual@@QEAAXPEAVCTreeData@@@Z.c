@@ -1,57 +1,53 @@
 /*
- * XREFs of ?SetUnusedTreeData@CVisual@@QEAAXPEAVCTreeData@@@Z @ 0x1800DCC30
+ * XREFs of ?SetUnusedTreeData@CVisual@@QEAAXPEAVCTreeData@@@Z @ 0x1800243F4
  * Callers:
- *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x1800DCB3C (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
+ *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x180024368 (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
  * Callees:
- *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x180099DF8 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E27B0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x1800C63F4 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C64BC (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
  */
 
 void __fastcall CVisual::SetUnusedTreeData(CVisual *this, struct CTreeData *a2)
 {
-  unsigned int **v2; // rcx
-  _QWORD *v3; // r11
-  unsigned int *v5; // r10
-  unsigned int v6; // eax
-  unsigned int *v7; // rcx
+  _QWORD *v2; // r10
+  _DWORD *v3; // r11
+  int v5; // eax
   unsigned int Slot; // eax
-  __int64 v9; // r10
-  char v10; // r11
-  __int64 v11; // rcx
-  _BYTE *v12; // rdx
+  char v7; // r10
+  __int64 v8; // r11
+  __int64 v9; // rcx
+  _BYTE *v10; // rdx
   unsigned int i; // eax
 
-  v2 = (unsigned int **)((char *)this + 232);
-  v3 = 0LL;
-  v5 = *v2;
-  v6 = **v2;
+  v2 = 0LL;
+  v3 = (_DWORD *)*((_QWORD *)this + 28);
+  v5 = *v3 & 0x8000000;
   if ( a2 )
   {
-    if ( (v6 & 0x8000000) != 0 )
+    if ( v5 )
     {
-      v11 = v5[1];
-      v12 = v5 + 2;
-      for ( i = 0; i < (unsigned int)v11; ++v12 )
+      v9 = (unsigned int)v3[1];
+      v10 = v3 + 2;
+      for ( i = 0; i < (unsigned int)v9; ++v10 )
       {
-        if ( *v12 == 5 )
+        if ( *v10 == 5 )
           break;
         ++i;
       }
-      if ( i < (unsigned int)v11 )
-        v3 = (_QWORD *)((char *)v5 + 8LL * i - (((_BYTE)v11 + 15) & 7) + v11 + 15);
-      *v3 = a2;
+      if ( i < (unsigned int)v9 )
+        v2 = (_QWORD *)((char *)v3 + 8LL * i - (((_BYTE)v9 + 15) & 7) + v9 + 15);
+      *v2 = a2;
     }
     else
     {
-      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot(v2, 5) = a2;
+      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot((char *)this + 224, 5LL) = a2;
     }
   }
-  else if ( (v6 & 0x8000000) != 0 )
+  else if ( v5 )
   {
-    v7 = *v2;
-    *v5 = v6 & 0xF7FFFFFF;
-    Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v7, 5LL);
-    if ( Slot < *(_DWORD *)(v9 + 4) )
-      *(_BYTE *)(Slot + v9 + 8) = v10;
+    *v3 &= ~0x8000000u;
+    Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v3, 5LL);
+    if ( Slot < *(_DWORD *)(v8 + 4) )
+      *(_BYTE *)(Slot + v8 + 8) = v7;
   }
 }

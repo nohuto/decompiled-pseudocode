@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00585EC
+ * XREFs of ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004AC64
  * Callers:
- *     ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0015178 (-CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z.c)
+ *     ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0028520 (-CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z.c)
  * Callees:
- *     ?RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C0002998 (-RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z.c)
- *     ?CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C005870C (-CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@.c)
- *     CreateSharedResourceObject @ 0x1C0058874 (CreateSharedResourceObject.c)
- *     GetSharedResourceData @ 0x1C00590F8 (GetSharedResourceData.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C0002B48 (-RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z.c)
+ *     ?CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C004AD7C (-CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@.c)
+ *     CreateSharedResourceObject @ 0x1C004ADB8 (CreateSharedResourceObject.c)
+ *     GetSharedResourceData @ 0x1C004AEB8 (GetSharedResourceData.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CreateInternalSharedResource(
@@ -27,7 +27,7 @@ __int64 __fastcall DirectComposition::CApplicationChannel::CreateInternalSharedR
   if ( (unsigned __int8)GetSharedResourceData(a2, &v9) )
   {
     Object = 0LL;
-    v6 = CreateSharedResourceObject((unsigned int)v9, 0x80000000LL, &Object);
+    v6 = CreateSharedResourceObject((unsigned int)v9, &Object);
     if ( v6 >= 0 )
     {
       v7 = (char *)Object;

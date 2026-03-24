@@ -1,25 +1,25 @@
 /*
- * XREFs of ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C000CDEC
+ * XREFs of ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00A5A04
  * Callers:
- *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C000B1C8 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
- *     bKillPFFOBJ @ 0x1C000CDC0 (bKillPFFOBJ.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02BA5B8 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C009F308 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     bKillPFFOBJ @ 0x1C00A59D8 (bKillPFFOBJ.c)
+ *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02BBFEC (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C000CF64 (-vDelete@PFEOBJ@@QEAAXXZ.c)
- *     FreeFileView @ 0x1C000D068 (FreeFileView.c)
+ *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C00A5B7C (-vDelete@PFEOBJ@@QEAAXXZ.c)
+ *     FreeFileView @ 0x1C00A5C80 (FreeFileView.c)
  */
 
-void __fastcall PFFOBJ::vPFFC_Delete(PFFOBJ *this, struct PFFCLEANUP *a2)
+void __fastcall PFFOBJ::vPFFC_Delete(void **this, struct PFFCLEANUP *a2)
 {
-  __int64 v2; // r8
+  _QWORD *v2; // r8
   __int64 v3; // rdi
-  __int64 i; // rbp
-  __int64 v7; // r8
+  void *v6; // rbp
+  _QWORD *v7; // r8
   __int64 v8; // rdx
-  __int64 v9; // rcx
+  void *v9; // rcx
   __int64 v10; // rax
-  __int64 v11; // rcx
+  _QWORD *v11; // rcx
   __int64 v12; // r9
   __int64 v13; // r11
   __int64 v14; // r9
@@ -27,29 +27,35 @@ void __fastcall PFFOBJ::vPFFC_Delete(PFFOBJ *this, struct PFFCLEANUP *a2)
   __int64 v16; // r8
   __int64 v17; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)this;
+  v2 = *this;
   v3 = 0LL;
-  for ( i = *(_QWORD *)(*(_QWORD *)this + 216LL); (unsigned int)v3 < *(_DWORD *)(v2 + 208); v3 = (unsigned int)(v3 + 1) )
+  v6 = (void *)*((_QWORD *)*this + 27);
+  if ( *((_DWORD *)*this + 52) )
   {
-    v17 = *(_QWORD *)(v2 + 8 * v3 + 216);
-    if ( v17 )
+    do
     {
-      PFEOBJ::vDelete((PFEOBJ *)&v17);
-      v2 = *(_QWORD *)this;
+      v17 = v2[v3 + 27];
+      if ( v17 )
+      {
+        PFEOBJ::vDelete((PFEOBJ *)&v17);
+        v2 = *this;
+      }
+      v3 = (unsigned int)(v3 + 1);
     }
+    while ( (unsigned int)v3 < *((_DWORD *)v2 + 52) );
   }
-  *((_QWORD *)a2 + 1) = *(_QWORD *)(v2 + 80);
-  *(_QWORD *)a2 = *(_QWORD *)(*(_QWORD *)this + 88LL);
-  *((_QWORD *)a2 + 2) = *(_QWORD *)(*(_QWORD *)this + 152LL);
-  v7 = *(_QWORD *)this;
-  v8 = *(_QWORD *)(*(_QWORD *)this + 152LL);
+  *((_QWORD *)a2 + 1) = v2[10];
+  *(_QWORD *)a2 = *((_QWORD *)*this + 11);
+  *((_QWORD *)a2 + 2) = *((_QWORD *)*this + 19);
+  v7 = *this;
+  v8 = *((_QWORD *)*this + 19);
   if ( v8 )
   {
     v10 = *(_QWORD *)(v8 + 200);
-    v11 = *(_QWORD *)this;
+    v11 = *this;
     if ( v10 )
     {
-      v12 = *(_QWORD *)(v7 + 24);
+      v12 = v7[3];
       if ( v12 )
       {
         if ( *(_QWORD *)(*(_QWORD *)v10 + 80LL) == v12 )
@@ -59,35 +65,33 @@ void __fastcall PFFOBJ::vPFFC_Delete(PFFOBJ *this, struct PFFCLEANUP *a2)
           {
             do
             {
-              v14 = *(_QWORD *)(*(_QWORD *)this + 152LL);
+              v14 = *((_QWORD *)*this + 19);
               v15 = *(_QWORD *)(*(_QWORD *)(v14 + 200) + 8 * v13);
-              v16 = v14
-                  + *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 200LL) + 8 * v13) + 80LL)
-                  - *(_QWORD *)this;
+              v16 = v14 + *(_QWORD *)(*(_QWORD *)(*((_QWORD *)*this + 25) + 8 * v13) + 80LL) - (_QWORD)*this;
               v13 = (unsigned int)(v13 + 1);
               *(_QWORD *)(v15 + 80) = v16;
-              v11 = *(_QWORD *)this;
+              v11 = *this;
             }
-            while ( (unsigned int)v13 < *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 152LL) + 36LL) );
+            while ( (unsigned int)v13 < *(_DWORD *)(*((_QWORD *)*this + 19) + 36LL) );
           }
         }
       }
     }
-    *(_QWORD *)(*(_QWORD *)(v11 + 152) + 152LL) = 0LL;
+    *(_QWORD *)(v11[19] + 152LL) = 0LL;
   }
   else
   {
-    if ( *(_QWORD *)(v7 + 200) && *(_DWORD *)(v7 + 36) )
+    if ( v7[25] && *((_DWORD *)v7 + 9) )
     {
       FreeFileView();
-      v7 = *(_QWORD *)this;
+      v7 = *this;
     }
-    v9 = *(_QWORD *)(v7 + 192);
+    v9 = (void *)v7[24];
     if ( v9 )
       Win32FreePool(v9);
   }
-  if ( i )
-    Win32FreePool(i);
-  Win32FreePool(*(_QWORD *)this);
-  *(_QWORD *)this = 0LL;
+  if ( v6 )
+    Win32FreePool(v6);
+  Win32FreePool(*this);
+  *this = 0LL;
 }

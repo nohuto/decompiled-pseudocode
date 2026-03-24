@@ -1,40 +1,40 @@
 /*
- * XREFs of VidSchiNeedToForcePreemptNode @ 0x1C001773C
+ * XREFs of VidSchiNeedToForcePreemptNode @ 0x1C00156F8
  * Callers:
- *     VidSchiCheckHwProgress @ 0x1C00978E0 (VidSchiCheckHwProgress.c)
+ *     VidSchiCheckHwProgress @ 0x1C0080BC0 (VidSchiCheckHwProgress.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000A180 (VidSchiProfilePerformanceTick.c)
- *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000C250 (VidSchiUpdateLastCompletedPresentTimestamp.c)
- *     VidSchiIncrementContextReference @ 0x1C00130A0 (VidSchiIncrementContextReference.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B670 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D3F0 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     VidSchiIncrementContextReference @ 0x1C0011550 (VidSchiIncrementContextReference.c)
  */
 
 char __fastcall VidSchiNeedToForcePreemptNode(__int64 a1)
 {
   __int64 v1; // rbp
   char v3; // si
-  __int64 v5; // rax
-  __int64 v6; // rbx
+  __int64 v4; // rdx
+  __int64 v6; // rax
   __int64 v7; // rcx
+  __int64 v8; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 24);
   v3 = 0;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1728), &LockHandle);
-  if ( *(_DWORD *)(a1 + 2896) && !*(_DWORD *)(a1 + 2904) )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1712), &LockHandle);
+  if ( *(_DWORD *)(a1 + 2880) && !*(_DWORD *)(a1 + 2888) )
   {
-    v5 = *(_QWORD *)(a1 + 96);
-    if ( v5 == *(_QWORD *)(a1 + 136) )
+    v6 = *(_QWORD *)(a1 + 96);
+    if ( v6 == *(_QWORD *)(a1 + 136) )
     {
-      v6 = *(_QWORD *)(a1 + 8LL * *(unsigned int *)(a1 + 1560) + 1568);
-      *(_QWORD *)(a1 + 232) = v6;
-      VidSchiIncrementContextReference(v6);
+      v8 = *(_QWORD *)(a1 + 8LL * *(unsigned int *)(a1 + 1552) + 1560);
+      *(_QWORD *)(a1 + 232) = v8;
+      VidSchiIncrementContextReference(v8, v4);
       v3 = 1;
-      VidSchiProfilePerformanceTick(1LL, v1, a1, 0LL, v6, 0LL, 0LL, -18LL);
+      VidSchiProfilePerformanceTick(1LL, v1, a1, 0LL, v8, 0LL, 0LL, -18LL);
     }
-    else if ( v5 == *(_QWORD *)(a1 + 144) )
+    else if ( v6 == *(_QWORD *)(a1 + 144) )
     {
-      v7 = *(_QWORD *)(a1 + 8LL * *(unsigned int *)(a1 + 1560) + 1568);
+      v7 = *(_QWORD *)(a1 + 8LL * *(unsigned int *)(a1 + 1552) + 1560);
       if ( v7 )
         VidSchiUpdateLastCompletedPresentTimestamp(v7, 0LL, 1);
     }

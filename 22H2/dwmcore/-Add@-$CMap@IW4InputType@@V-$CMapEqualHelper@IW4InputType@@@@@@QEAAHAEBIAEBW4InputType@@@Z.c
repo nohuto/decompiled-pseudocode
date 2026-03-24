@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Add@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBIAEBW4InputType@@@Z @ 0x18019DCC4
+ * XREFs of ?Add@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBIAEBW4InputType@@@Z @ 0x1802244A0
  * Callers:
- *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x18019EF88 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
+ *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x180225620 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
  */
 
 __int64 __fastcall CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int,enum InputType>>::Add(
@@ -13,27 +13,32 @@ __int64 __fastcall CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int
 {
   LPVOID v6; // rax
   void *v7; // rcx
-  LPVOID v8; // rax
-  __int64 v9; // r8
-  _DWORD *v10; // rdx
-  _DWORD *v11; // rdx
+  char *v8; // rax
+  char *v9; // rcx
+  __int64 v10; // rdx
+  _DWORD *v11; // r8
+  char *v12; // rdx
 
   v6 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) + 1));
   if ( !v6 )
     return 0LL;
   v7 = *(void **)(a1 + 8);
   *(_QWORD *)a1 = v6;
-  v8 = DefaultHeap::Realloc(v7, 4LL * (*(_DWORD *)(a1 + 16) + 1));
+  v8 = (char *)DefaultHeap::Realloc(v7, 4LL * (*(_DWORD *)(a1 + 16) + 1));
+  v9 = v8;
   if ( !v8 )
     return 0LL;
-  v9 = *(int *)(a1 + 16);
+  v10 = *(int *)(a1 + 16);
   *(_QWORD *)(a1 + 8) = v8;
-  v10 = (_DWORD *)(*(_QWORD *)a1 + 4 * v9);
-  if ( v10 )
-    *v10 = *a2;
-  v11 = (_DWORD *)(*(_QWORD *)(a1 + 8) + 4 * v9);
+  v11 = (_DWORD *)(*(_QWORD *)a1 + 4 * v10);
   if ( v11 )
-    *v11 = *a3;
+  {
+    *v11 = *a2;
+    v9 = *(char **)(a1 + 8);
+  }
+  v12 = &v9[4 * v10];
+  if ( v12 )
+    *(_DWORD *)v12 = *a3;
   ++*(_DWORD *)(a1 + 16);
   return 1LL;
 }

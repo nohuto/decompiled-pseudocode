@@ -1,154 +1,129 @@
 /*
- * XREFs of VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x18000671C
+ * XREFs of VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180020E38
  * Callers:
- *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBV?$CCommonTransferParameters@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@AEBVCMILMatrix@@1_N@Z @ 0x18000625C (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBV-$CCommonTran.c)
+ *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@@Z @ 0x180020714 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrim.c)
  * Callees:
- *     ?XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z @ 0x1800069C8 (-XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z.c)
- *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x180006B64 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
+ *     ?XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z @ 0x180021468 (-XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z.c)
+ *     ?Transform@?$CSimdNonScale2DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@VertexTransfer@@QEAQXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@T__m128@@1IPEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@Z @ 0x1800214CC (-Transform@-$CSimdNonScale2DOperator@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@Vert.c)
+ *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x180021658 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
  */
 
 __int16 __fastcall VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
         __int64 *a1,
-        unsigned __int64 *a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+        unsigned int *a2,
+        unsigned int *a3,
+        CMILMatrix *a4)
 {
   _UNKNOWN **v4; // rax
-  __int64 *v5; // r13
+  _DWORD *v5; // r14
   __int64 v6; // r15
-  unsigned int v10; // edi
-  __int128 v11; // xmm10
-  unsigned int v12; // r14d
-  unsigned int v13; // r12d
-  __m128 v14; // xmm7
-  __m128 v15; // xmm8
-  __m128 v16; // xmm9
-  unsigned __int64 v17; // r10
-  __m128 *v18; // r9
-  __m128 *v19; // r8
-  unsigned __int64 v20; // rcx
-  __int64 v21; // rbx
-  __int64 v22; // r11
-  _OWORD *v23; // rax
-  char *v24; // r9
-  _OWORD *v25; // rax
-  char *v26; // r8
+  __m128 v10; // xmm7
+  __m128 v11; // xmm8
+  __m128 v12; // xmm9
+  int v13; // ebp
+  __int128 v14; // xmm10
+  unsigned int v15; // r12d
+  unsigned int v16; // r10d
+  __m128 v17; // xmm2
+  __m128 v18; // xmm3
+  __m128 v19; // xmm2
+  int v20; // eax
+  __int64 v21; // rdi
+  int v22; // r8d
+  int v23; // r9d
+  DirectX::PackedVector *v24; // rcx
+  __int64 v25; // r11
+  unsigned int v26; // r10d
   __m128 v27; // xmm6
-  __m128 v28; // xmm5
-  __m128 v29; // xmm4
-  __m128 v30; // xmm3
-  __m128 v31; // xmm1
-  __m128 v32; // xmm2
-  DirectX::PackedVector *v33; // rcx
-  DirectX::PackedVector *v34; // rcx
-  unsigned __int16 v35; // ax
-  __int64 v36; // r11
-  DirectX::PackedVector *v37; // rcx
-  __int64 v38; // r11
-  __int128 v40; // [rsp+30h] [rbp-88h] BYREF
-  _UNKNOWN *retaddr; // [rsp+B8h] [rbp+0h] BYREF
+  __m128 v28; // xmm2
+  __m128 v29; // xmm3
+  unsigned __int16 v30; // ax
+  __int64 v31; // r11
+  DirectX::PackedVector *v32; // rcx
+  unsigned __int16 v33; // ax
+  __int64 v34; // r11
+  DirectX::PackedVector *v35; // rcx
+  DirectX::PackedVector *v36; // rcx
+  int v37; // r10d
+  __int128 v39; // [rsp+30h] [rbp-A8h] BYREF
+  _OWORD v40[8]; // [rsp+40h] [rbp-98h] BYREF
+  _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h] BYREF
 
   v4 = &retaddr;
   v5 = a1 + 1;
   v6 = *a1;
-  v10 = *((_DWORD *)a1 + 10) >> 1;
-  v11 = _xmm;
+  v10 = (__m128)DirectX::g_XMZero;
+  v11 = (__m128)DirectX::g_XMZero;
+  v12 = (__m128)DirectX::g_XMZero;
+  v13 = *((_DWORD *)a1 + 10) >> 1;
+  if ( a3 )
+  {
+    v10 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)*a3, (__m128)a3[2]), _mm_unpacklo_ps((__m128)a3[1], (__m128)0LL));
+    v11 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a3[4], (__m128)a3[6]), _mm_unpacklo_ps((__m128)a3[5], (__m128)0LL));
+    v12 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a3[12], (__m128)a3[14]), _mm_unpacklo_ps((__m128)a3[13], (__m128)0LL));
+  }
+  v14 = _xmm;
   if ( a3 && a4 )
   {
-    LOWORD(v4) = CalculateTBNFrameFrom3Vertices((unsigned int)&v40, v6, (_DWORD)v5, (_DWORD)a3, a4);
-    v11 = v40;
+    LOWORD(v4) = CalculateTBNFrameFrom3Vertices((struct D2DQuaternion *)&v39, a4);
+    v14 = v39;
   }
-  v12 = 0;
-  v13 = *((_DWORD *)a1 + 5);
-  v14 = (__m128)*a2;
-  v15 = (__m128)a2[2];
-  v16 = _mm_movelh_ps((__m128)a2[6], (__m128)_xmm);
-  if ( v13 )
+  v15 = *((_DWORD *)a1 + 5);
+  v16 = 0;
+  v17 = (__m128)a2[5];
+  v40[0] = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)*a2, (__m128)0LL), _mm_unpacklo_ps((__m128)a2[1], (__m128)0LL));
+  v18 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a2[4], (__m128)0LL), _mm_unpacklo_ps(v17, (__m128)0LL));
+  v19 = (__m128)a2[13];
+  v40[1] = v18;
+  for ( v40[2] = _mm_unpacklo_ps(
+                   _mm_unpacklo_ps((__m128)a2[12], (__m128)(unsigned int)FLOAT_1_0),
+                   _mm_unpacklo_ps(v19, (__m128)0LL)); v16 < v15; *(_WORD *)(v21 + 30) = (_WORD)v4 )
   {
-    v17 = v10;
-    do
+    v20 = *((_DWORD *)a1 + 16);
+    v21 = a1[7] + (int)((v16 + 1) * v20);
+    VertexTransfer::CSimdNonScale2DOperator<Vertex_UVxN<VertexXYW_ColorDW_WorldXYZ_Tangent>>::Transform(
+      (unsigned int)v40,
+      *v5 + v16 * v5[2],
+      v16 + 1,
+      *v5 + v5[2] * (v16 + 1),
+      v13,
+      a1[7] + (int)(v16 * v20));
+    VertexTransfer::CSimdNonScale2DOperator<Vertex_UVxN<VertexXYW_ColorDW_WorldXYZ_Tangent>>::Transform(
+      (unsigned int)v40,
+      v23,
+      v22,
+      v23,
+      v13,
+      v21);
+    v27 = *(__m128 *)(v6 + 16 * ((unsigned __int64)v26 >> 1));
+    v28 = v27;
+    if ( a3 )
     {
-      v18 = (__m128 *)(*v5 + (int)(v12 * *((_DWORD *)v5 + 2)));
-      v19 = (__m128 *)(*v5 + (int)(*((_DWORD *)v5 + 2) * (v12 + 1)));
-      v20 = (v12 + 1) * *((_DWORD *)a1 + 16);
-      v21 = a1[7] + (int)(v12 * *((_DWORD *)a1 + 16));
-      v22 = a1[7] + (int)v20;
-      *(__m128 *)v21 = _mm_or_ps(
-                         _mm_andnot_ps(
-                           (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask,
-                           _mm_add_ps(
-                             _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(*v18, *v18, 85), v15), v16),
-                             _mm_mul_ps(_mm_shuffle_ps(*v18, *v18, 0), v14))),
-                         _mm_and_ps(
-                           *v18,
-                           (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask));
-      if ( v10 )
-      {
-        v23 = (_OWORD *)(v21 + 48);
-        v20 = v10;
-        v24 = (char *)v18 - v21;
-        do
-        {
-          *v23 = *(_OWORD *)((char *)v23 + (_QWORD)v24 - 32);
-          ++v23;
-          --v20;
-        }
-        while ( v20 );
-      }
-      *(__m128 *)v22 = _mm_or_ps(
-                         _mm_andnot_ps(
-                           (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask,
-                           _mm_add_ps(
-                             _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(*v19, *v19, 85), v15), v16),
-                             _mm_mul_ps(_mm_shuffle_ps(*v19, *v19, 0), v14))),
-                         _mm_and_ps(
-                           *v19,
-                           (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask));
-      if ( v10 )
-      {
-        v25 = (_OWORD *)(v22 + 48);
-        v26 = (char *)v19 - v22;
-        v20 = v17;
-        do
-        {
-          *v25 = *(_OWORD *)((char *)v25 + (_QWORD)v26 - 32);
-          ++v25;
-          --v20;
-        }
-        while ( v20 );
-      }
-      v27 = *(__m128 *)(v6 + 16 * ((unsigned __int64)v12 >> 1));
-      if ( a3 )
-      {
-        v28 = _mm_movelh_ps((__m128)*a3, (__m128)*((unsigned int *)a3 + 2));
-        v29 = _mm_movelh_ps((__m128)a3[2], (__m128)*((unsigned int *)a3 + 6));
-        v30 = _mm_movelh_ps((__m128)a3[6], (__m128)*((unsigned int *)a3 + 14));
-        v31 = _mm_add_ps(
-                _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v27, v27, 85), v29), v30),
-                _mm_mul_ps(_mm_shuffle_ps(v27, v27, 0), v28));
-        v32 = _mm_add_ps(
-                _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v27, v27, 255), v29), v30),
-                _mm_mul_ps(_mm_shuffle_ps(v27, v27, 170), v28));
-      }
-      else
-      {
-        v31 = _mm_shuffle_ps(v27, DirectX::g_XMZero, 228);
-        v32 = (__m128)_mm_unpackhi_pd((__m128d)v27, DirectX::g_XMZero);
-      }
-      *(__m128 *)(v21 + 16) = v31;
-      *(_OWORD *)(v21 + 32) = v11;
-      *(__m128 *)(v22 + 16) = v32;
-      *(_OWORD *)(v22 + 32) = v11;
-      *(_WORD *)(v21 + 28) = DirectX::PackedVector::XMConvertFloatToHalf((DirectX::PackedVector *)v20, v31.m128_f32[0]);
-      *(_WORD *)(v21 + 30) = DirectX::PackedVector::XMConvertFloatToHalf(v33, v31.m128_f32[0]);
-      v35 = DirectX::PackedVector::XMConvertFloatToHalf(v34, v31.m128_f32[0]);
-      *(_WORD *)(v36 + 28) = v35;
-      LOWORD(v4) = DirectX::PackedVector::XMConvertFloatToHalf(v37, v31.m128_f32[0]);
-      v12 += 2;
-      *(_WORD *)(v38 + 30) = (_WORD)v4;
-      v17 = v10;
+      v28 = _mm_add_ps(
+              _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v27, v27, 85), v11), v12),
+              _mm_mul_ps(_mm_shuffle_ps(v27, v27, 0), v10));
+      v29 = _mm_shuffle_ps(
+              _mm_add_ps(
+                _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v27, v27, 255), v11), v12),
+                _mm_mul_ps(_mm_shuffle_ps(v27, v27, 170), v10)),
+              DirectX::g_XMZero,
+              228);
     }
-    while ( v12 < v13 );
+    else
+    {
+      v29 = (__m128)_mm_unpackhi_pd((__m128d)v27, DirectX::g_XMZero);
+    }
+    *(__m128 *)(v25 + 16) = _mm_shuffle_ps(v28, DirectX::g_XMZero, 228);
+    *(_OWORD *)(v25 + 32) = v14;
+    *(__m128 *)(v21 + 16) = v29;
+    *(_OWORD *)(v21 + 32) = v14;
+    v30 = DirectX::PackedVector::XMConvertFloatToHalf(v24, 0.0);
+    *(_WORD *)(v31 + 28) = v30;
+    v33 = DirectX::PackedVector::XMConvertFloatToHalf(v32, 0.0);
+    *(_WORD *)(v34 + 30) = v33;
+    *(_WORD *)(v21 + 28) = DirectX::PackedVector::XMConvertFloatToHalf(v35, 0.0);
+    LOWORD(v4) = DirectX::PackedVector::XMConvertFloatToHalf(v36, 0.0);
+    v16 = v37 + 2;
   }
   return (__int16)v4;
 }

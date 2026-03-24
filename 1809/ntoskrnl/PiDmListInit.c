@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDmListInit @ 0x14072C710
+ * XREFs of PiDmListInit @ 0x14072C6F0
  * Callers:
  *     PiDmInit @ 0x1409BD6F4 (PiDmInit.c)
  * Callees:

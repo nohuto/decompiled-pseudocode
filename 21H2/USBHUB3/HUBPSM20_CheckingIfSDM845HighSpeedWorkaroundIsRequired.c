@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_CheckingIfSDM845HighSpeedWorkaroundIsRequired @ 0x1C0010AA0
+ * XREFs of HUBPSM20_CheckingIfSDM845HighSpeedWorkaroundIsRequired @ 0x1C0010690
  * Callers:
  *     <none>
  * Callees:

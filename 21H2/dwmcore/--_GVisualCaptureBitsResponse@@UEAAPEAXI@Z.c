@@ -1,24 +1,26 @@
 /*
- * XREFs of ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180026BF0
+ * XREFs of ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180043940
  * Callers:
  *     <none>
  * Callees:
- *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180026D38 (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180043A7C (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 VisualCaptureBitsResponse *__fastcall VisualCaptureBitsResponse::`scalar deleting destructor'(
         VisualCaptureBitsResponse *this,
         char a2)
 {
+  unsigned int v4; // r8d
+
   VisualCaptureBitsResponse::~VisualCaptureBitsResponse(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x6B0uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x6C8, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

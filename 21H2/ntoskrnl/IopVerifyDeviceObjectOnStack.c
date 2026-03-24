@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifyDeviceObjectOnStack @ 0x1402A2260
+ * XREFs of IopVerifyDeviceObjectOnStack @ 0x1402B2DF4
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     IopCheckTopDeviceHint @ 0x14071C4C0 (IopCheckTopDeviceHint.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopCheckTopDeviceHint @ 0x140697C8C (IopCheckTopDeviceHint.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 char __fastcall IopVerifyDeviceObjectOnStack(__int64 a1, __int64 a2, char a3)

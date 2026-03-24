@@ -1,66 +1,34 @@
 /*
- * XREFs of MiFreePartitionPageRun @ 0x140659D6C
+ * XREFs of MiFreePartitionPageRun @ 0x1408DB084
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1406580F0 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1405607E0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiFreeMdlPageRun @ 0x1402C89B0 (MiFreeMdlPageRun.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertHugeRangeInList @ 0x14062103C (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x140621464 (MiLockHugePfn.c)
+ *     MiFreeMdlPageRun @ 0x140280378 (MiFreeMdlPageRun.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     MiInsertHugeRangeInList @ 0x140533548 (MiInsertHugeRangeInList.c)
  */
 
-__int64 __fastcall MiFreePartitionPageRun(unsigned __int16 *a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
+signed __int64 __fastcall MiFreePartitionPageRun(ULONG_PTR *a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
 {
-  __int64 result; // rax
-  __int64 v7; // rbx
-  unsigned __int64 v8; // rdi
-  int v9; // r15d
-  __int64 i; // rbp
-  unsigned __int64 v11; // r14
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
+  signed __int64 result; // rax
+  __int64 v9; // rbx
+  unsigned __int64 i; // rdi
 
-  if ( a2 <= qword_140C65CA0 && _bittest64((const signed __int64 *)(48 * a2 - 0x21FFFFFFFFD8LL), 0x36u) )
+  result = MiIsPfn(a2);
+  if ( (_DWORD)result )
   {
-    MiFreeMdlPageRun(a2, a3, a4 != 0, 0LL);
-    result = (__int64)MiSystemPartition;
-    if ( a1 == MiSystemPartition )
-      _InterlockedExchangeAdd64(&qword_140C69AB0, -(__int64)a3);
+    result = MiFreeMdlPageRun(a2, a3, a4 == 1);
+    if ( result && a1 == &MiSystemPartition )
+      return _InterlockedExchangeAdd64(&qword_140C4EFB8, -result);
   }
   else
   {
-    result = qword_140C67EF0;
-    v7 = (a2 >> 18) & 0x3FFFFF;
-    v8 = a3 >> 18;
-    v9 = a4 != 0 ? 2 : 0;
-    for ( i = qword_140C67EF0 + 8 * v7; v8; --v8 )
+    v9 = (a2 >> 18) & 0x3FFFF;
+    for ( i = a3 >> 18; i; --i )
     {
-      v11 = MiLockHugePfn(i);
-      MiInsertHugeRangeInList(0LL, v7, v9);
-      _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140C67EF8 + 4 * ((((i - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((i - qword_140C67EF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v16 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
-          if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        }
-      }
-      __writecr8(v11);
-      i += 8LL;
-      result = (v7 ^ (v7 + 1)) & 0x3FFFFF;
-      v7 ^= result;
+      MiInsertHugeRangeInList(v9, a4 == 1, 0LL);
+      result = ((unsigned int)v9 ^ ((_DWORD)v9 + 1)) & 0x3FFFF;
+      LODWORD(v9) = result ^ v9;
     }
   }
   return result;

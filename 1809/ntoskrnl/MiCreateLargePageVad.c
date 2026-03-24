@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateLargePageVad @ 0x14085D048
+ * XREFs of MiCreateLargePageVad @ 0x14085D028
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
  *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiChargeProcessPhysicalPages @ 0x14085B8B0 (MiChargeProcessPhysicalPages.c)
+ *     MiChargeProcessPhysicalPages @ 0x14085B890 (MiChargeProcessPhysicalPages.c)
  */
 
 __int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, __int64 a3)

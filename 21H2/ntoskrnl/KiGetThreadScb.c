@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetThreadScb @ 0x140291E74
+ * XREFs of KiGetThreadScb @ 0x14025A300
  * Callers:
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of IrqTranslatepQueryDeviceIrql @ 0x1C009A6CC
+ * XREFs of IrqTranslatepQueryDeviceIrql @ 0x1C00924E4
  * Callers:
- *     IrqTransGetInterruptVector @ 0x1C009A420 (IrqTransGetInterruptVector.c)
- *     IrqTranslateResources @ 0x1C009A530 (IrqTranslateResources.c)
+ *     IrqTranslateResources @ 0x1C0093510 (IrqTranslateResources.c)
+ *     IrqTransGetInterruptVector @ 0x1C00B6C80 (IrqTransGetInterruptVector.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     IrqArbGetDeviceIrql @ 0x1C009D314 (IrqArbGetDeviceIrql.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     IrqArbGetDeviceIrql @ 0x1C0095178 (IrqArbGetDeviceIrql.c)
  */
 
 char __fastcall IrqTranslatepQueryDeviceIrql(unsigned int a1, int a2)
@@ -17,14 +17,14 @@ char __fastcall IrqTranslatepQueryDeviceIrql(unsigned int a1, int a2)
   v5[0] = 0;
   memset(&v6[2], 0, 0x50uLL);
   v6[1] = a2;
-  if ( a1 >= 0xFFF00000 )
-  {
-    v6[0] = 3;
-  }
-  else
+  if ( a1 < 0xFFF00000 )
   {
     v6[0] = 0;
     v6[14] = a1;
+  }
+  else
+  {
+    v6[0] = 3;
   }
   IrqArbGetDeviceIrql(v6, v5);
   return v5[0];

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019D3C4
+ * XREFs of ??0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016B598
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x1800CF5B4 (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
+ *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x18001B214 (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
  */
 
 CTransform3DGroup *__fastcall CTransform3DGroup::CTransform3DGroup(
@@ -21,13 +21,13 @@ CTransform3DGroup *__fastcall CTransform3DGroup::CTransform3DGroup(
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
   *(_QWORD *)this = &CTransform3D::`vftable';
-  *((_DWORD *)this + 36) = 0;
+  *((_DWORD *)this + 34) = 0;
   *((_DWORD *)this + 8) |= 1u;
-  *((_BYTE *)this + 156) = 0;
+  *((_BYTE *)this + 148) = 0;
+  *((_QWORD *)this + 19) = 0LL;
   *((_QWORD *)this + 20) = 0LL;
   *((_QWORD *)this + 21) = 0LL;
-  *((_QWORD *)this + 22) = 0LL;
-  CCyclicResourceListEntry::CCyclicResourceListEntry((CTransform3DGroup *)((char *)this + 184), a3[4]);
+  CCyclicResourceListEntry::CCyclicResourceListEntry((CTransform3DGroup *)((char *)this + 176), a3[3]);
   *v3 = &CTransform3DGroup::`vftable'{for `CCyclicResourceListEntry'};
   result = v4;
   *(_QWORD *)v4 = &CTransform3DGroup::`vftable'{for `CTransform3DGroupGeneratedT<CTransform3DGroup,CTransform3D>'};

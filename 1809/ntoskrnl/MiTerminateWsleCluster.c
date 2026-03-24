@@ -10,10 +10,10 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
  *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiTerminateWsleCluster(_QWORD *a1)

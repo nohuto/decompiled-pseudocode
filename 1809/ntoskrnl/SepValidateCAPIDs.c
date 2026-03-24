@@ -1,7 +1,7 @@
 /*
- * XREFs of SepValidateCAPIDs @ 0x140300B8C
+ * XREFs of SepValidateCAPIDs @ 0x140300C8C
  * Callers:
- *     SeRmReferenceFindCapName @ 0x1403008E0 (SeRmReferenceFindCapName.c)
+ *     SeRmReferenceFindCapName @ 0x1403009E0 (SeRmReferenceFindCapName.c)
  * Callees:
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  */

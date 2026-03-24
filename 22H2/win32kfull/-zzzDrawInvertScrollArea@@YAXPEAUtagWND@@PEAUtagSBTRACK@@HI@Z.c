@@ -1,43 +1,42 @@
 /*
- * XREFs of ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0229B1C
+ * XREFs of ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0244C54
  * Callers:
- *     xxxEndScroll @ 0x1C022A170 (xxxEndScroll.c)
- *     xxxTrackBox @ 0x1C022B3F0 (xxxTrackBox.c)
+ *     xxxEndScroll @ 0x1C0245344 (xxxEndScroll.c)
+ *     xxxTrackBox @ 0x1C0246580 (xxxTrackBox.c)
  * Callees:
- *     BitBltSysBmp @ 0x1C009A400 (BitBltSysBmp.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     DrawFrameControl @ 0x1C01197C0 (DrawFrameControl.c)
- *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C022913C (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
- *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02291DC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     BitBltSysBmp @ 0x1C0106EBC (BitBltSysBmp.c)
+ *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C0244238 (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02442D8 (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
  */
 
 void __fastcall zzzDrawInvertScrollArea(struct tagWND *a1, struct tagSBTRACK *a2, int a3, unsigned int a4)
 {
   unsigned int v4; // esi
   unsigned __int16 v9; // ax
-  int v10; // r12d
+  unsigned int v10; // r12d
   int v11; // r8d
   bool v12; // zf
-  __int64 DCEx; // rax
+  int v13; // ebx
   __int64 v14; // rcx
-  int v15; // ebx
-  int v16; // r12d
-  int DpiForSystem; // eax
-  int DpiDependentMetric; // ebx
-  __int64 v19; // rcx
-  int v20; // eax
+  unsigned int DpiForSystem; // eax
+  int DpiDependentMetric; // edi
+  __int64 v17; // rcx
+  unsigned int v18; // eax
+  int v19; // eax
+  LONG v20; // edx
   int v21; // eax
   int v22; // eax
-  int v23; // eax
-  HDC v24; // rbx
-  unsigned int v25; // r9d
-  unsigned __int16 v26; // ax
-  unsigned int v27; // r8d
-  HDC v28; // [rsp+30h] [rbp-48h]
-  struct tagRECT v29; // [rsp+38h] [rbp-40h] BYREF
+  HDC v23; // rdi
+  unsigned int v24; // r9d
+  unsigned __int16 v25; // ax
+  unsigned int v26; // r8d
+  HDC DCEx; // [rsp+30h] [rbp-58h]
+  __m128i v28; // [rsp+38h] [rbp-50h] BYREF
 
   v4 = 2;
   if ( a4 < 2 )
@@ -47,49 +46,40 @@ void __fastcall zzzDrawInvertScrollArea(struct tagWND *a1, struct tagSBTRACK *a2
       RecalcTrackRect(a2);
       *(_DWORD *)a2 &= ~8u;
     }
-    v29 = (struct tagRECT)*((_OWORD *)a2 + 2);
-    DCEx = _GetDCEx(a1, 0LL, 65537LL);
-    v14 = *(unsigned int *)a2;
-    v28 = (HDC)DCEx;
-    if ( (v14 & 2) != 0 )
-    {
-      v15 = 0;
-      v16 = 10;
-    }
-    else
-    {
-      v16 = 1;
-      v15 = 11;
-    }
+    v28 = *((__m128i *)a2 + 2);
+    DCEx = (HDC)_GetDCEx(a1, 0LL, 65537LL);
+    v13 = *(_DWORD *)a2 & 2;
     DpiForSystem = GetDpiForSystem(v14);
-    DpiDependentMetric = GetDpiDependentMetric(v15, DpiForSystem);
-    v20 = GetDpiForSystem(v19);
-    v21 = GetDpiDependentMetric(v16, v20);
+    DpiDependentMetric = GetDpiDependentMetric(v13 == 0 ? 0xB : 0, DpiForSystem);
+    v18 = GetDpiForSystem(v17);
+    v19 = GetDpiDependentMetric(v13 != 0 ? 10 : 1, v18);
+    v20 = _mm_cvtsi128_si32(v28);
     v10 = 3;
-    if ( DpiDependentMetric == v29.right - v29.left && v21 == v29.bottom - v29.top )
+    if ( DpiDependentMetric == _mm_cvtsi128_si32(_mm_srli_si128(v28, 8)) - v20
+      && v19 == v28.m128i_i32[3] - v28.m128i_i32[1] )
     {
-      v22 = *(_DWORD *)a2;
+      v21 = *(_DWORD *)a2;
       if ( a4 )
-        v23 = ~(2 * (_BYTE)v22) & 4 | 0x32;
+        v22 = ~(2 * (_BYTE)v21) & 4 | 0x32;
       else
-        v23 = (v22 & 2) != 0 ? 46 : 58;
-      v24 = v28;
-      v25 = v23 + 1;
+        v22 = (v21 & 2) != 0 ? 46 : 58;
+      v23 = DCEx;
+      v24 = v22 + 1;
       if ( !a3 )
-        v25 = v23;
-      BitBltSysBmp(v28, (unsigned int)v29.left, v29.top, v25, 1);
+        v24 = v22;
+      BitBltSysBmp((__int64)DCEx, v20, v28.m128i_i32[1], v24, 1);
     }
     else
     {
-      v24 = v28;
-      DrawFrameControl(v28, &v29, 3, (a4 != 0) | (a3 != 0 ? 0x4200 : 0) | ~*(_DWORD *)a2 & 2);
+      v23 = DCEx;
+      DrawFrameControl(DCEx, (struct tagRECT *)&v28, 3u, (a4 != 0) | (a3 != 0 ? 0x4200 : 0) | ~*(_DWORD *)a2 & 2);
     }
-    _ReleaseDC(v24);
+    _ReleaseDC(v23);
     if ( a4 )
-      v26 = 1544;
+      v25 = 1544;
     else
-      v26 = 1537;
-    SetOrClrWF(a3 != 0, a1, v26, 1);
+      v25 = 1537;
+    SetOrClrWF(a3 != 0, (__int64)a1, v25, 1);
     v11 = *(_DWORD *)a2;
     if ( !gdwDeferWinEvent )
       v10 = 1;
@@ -103,7 +93,7 @@ void __fastcall zzzDrawInvertScrollArea(struct tagWND *a1, struct tagSBTRACK *a2
       v9 = 1538;
     else
       v9 = 1540;
-    SetOrClrWF(a3 != 0, a1, v9, 1);
+    SetOrClrWF(a3 != 0, (__int64)a1, v9, 1);
     v10 = 3;
     v11 = *(_DWORD *)a2;
     if ( !gdwDeferWinEvent )
@@ -113,8 +103,8 @@ void __fastcall zzzDrawInvertScrollArea(struct tagWND *a1, struct tagSBTRACK *a2
     v12 = (v11 & 4) == 0;
   }
   if ( v12 )
-    v27 = ((v11 & 2) != 0) | 0xFFFFFFFA;
+    v26 = ((v11 & 2) != 0) | 0xFFFFFFFA;
   else
-    v27 = -4;
-  xxxWindowEvent(0x800Au, a1, v27, v4, v10);
+    v26 = -4;
+  xxxWindowEvent(0x800Au, a1, v26, v4, v10);
 }

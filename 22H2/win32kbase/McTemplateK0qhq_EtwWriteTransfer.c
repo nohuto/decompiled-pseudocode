@@ -1,36 +1,36 @@
 /*
- * XREFs of McTemplateK0qhq_EtwWriteTransfer @ 0x1C013D140
+ * XREFs of McTemplateK0qhq_EtwWriteTransfer @ 0x1C01265F8
  * Callers:
- *     EtwTraceDisplayReqChange @ 0x1C0010B84 (EtwTraceDisplayReqChange.c)
- *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0011524 (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0049AFC (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     EtwTraceDisplayReqChange @ 0x1C00B743C (EtwTraceDisplayReqChange.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qhq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,
         __int64 a3,
-        int a4,
+        __int64 a4,
         char a5,
         char a6)
 {
-  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+30h] [rbp-50h] BYREF
-  int *v8; // [rsp+40h] [rbp-40h]
-  __int64 v9; // [rsp+48h] [rbp-38h]
-  char *v10; // [rsp+50h] [rbp-30h]
-  __int64 v11; // [rsp+58h] [rbp-28h]
-  char *v12; // [rsp+60h] [rbp-20h]
-  __int64 v13; // [rsp+68h] [rbp-18h]
-  int v14; // [rsp+A8h] [rbp+28h] BYREF
+  int v7; // [rsp+30h] [rbp-19h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+40h] [rbp-9h] BYREF
+  int *v9; // [rsp+50h] [rbp+7h]
+  __int64 v10; // [rsp+58h] [rbp+Fh]
+  char *v11; // [rsp+60h] [rbp+17h]
+  __int64 v12; // [rsp+68h] [rbp+1Fh]
+  char *v13; // [rsp+70h] [rbp+27h]
+  __int64 v14; // [rsp+78h] [rbp+2Fh]
 
-  v14 = a4;
-  v11 = 2LL;
-  v9 = 4LL;
-  v8 = &v14;
-  v13 = 4LL;
-  v10 = &a5;
-  v12 = &a6;
-  return McGenEventWrite_EtwWriteTransfer(a1, a2, &W32kControlGuid, 4u, &v7);
+  v7 = gSessionId;
+  v10 = 4LL;
+  v9 = &v7;
+  v11 = &a5;
+  v13 = &a6;
+  v12 = 2LL;
+  v14 = 4LL;
+  return McGenEventWrite_EtwWriteTransfer(a1, a2, &W32kControlGuid, 4u, &v8);
 }

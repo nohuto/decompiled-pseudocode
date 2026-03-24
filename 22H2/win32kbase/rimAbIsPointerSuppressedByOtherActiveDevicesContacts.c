@@ -1,29 +1,29 @@
 /*
- * XREFs of rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C017BB94
+ * XREFs of rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C0158CFC
  * Callers:
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C017C960 (rimAbSuppressLowerRankActivityInFrame.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C017CDA4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01598CC (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159C24 (rimAbUpdateDeadzonesAndResurrectContacts.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C017BC38 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158D94 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
  */
 
-__int64 __fastcall rimAbIsPointerSuppressedByOtherActiveDevicesContacts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall rimAbIsPointerSuppressedByOtherActiveDevicesContacts(__int64 a1, __int64 a2, __int64 a3)
 {
-  _QWORD **v5; // rsi
-  unsigned int v7; // edi
+  unsigned int v3; // edi
+  _QWORD **v4; // rsi
   _QWORD *i; // rbx
-  __int64 v9; // r8
+  __int64 v8; // r8
 
-  v5 = (_QWORD **)(a1 + 448);
-  v7 = 0;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 423);
-  for ( i = *v5; i != v5; i = (_QWORD *)*i )
+  v3 = 0;
+  v4 = (_QWORD **)(a1 + 448);
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 416);
+  for ( i = *v4; i != v4; i = (_QWORD *)*i )
   {
-    v9 = *(i - 1);
-    if ( v9 != a2 && (unsigned int)rimAbIsPointerSuppressedByOtherDeviceContacts(a3, a2, v9, 1LL) )
+    v8 = *(i - 1);
+    if ( v8 != a2 && (unsigned int)rimAbIsPointerSuppressedByOtherDeviceContacts(a3, a2, v8, 1LL) )
       return 1;
   }
-  return v7;
+  return v3;
 }

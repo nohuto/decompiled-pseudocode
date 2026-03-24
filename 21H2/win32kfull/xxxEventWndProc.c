@@ -1,51 +1,58 @@
 /*
- * XREFs of xxxEventWndProc @ 0x1C00A3980
+ * XREFs of xxxEventWndProc @ 0x1C0023BA0
  * Callers:
  *     <none>
  * Callees:
- *     ClientEventCallback @ 0x1C00032D8 (ClientEventCallback.c)
- *     HMValidateHandleNoRip @ 0x1C00A3A40 (HMValidateHandleNoRip.c)
- *     xxxDefWindowProc @ 0x1C00A3F90 (xxxDefWindowProc.c)
- *     xxxChangeMonitorFlags @ 0x1C010D918 (xxxChangeMonitorFlags.c)
+ *     HMValidateHandleNoRip @ 0x1C0023C6C (HMValidateHandleNoRip.c)
+ *     ??9?$RedirectedFieldfnid@G@tagWND@@QEBAEAEBG@Z @ 0x1C004684C (--9-$RedirectedFieldfnid@G@tagWND@@QEBAEAEBG@Z.c)
+ *     xxxDefWindowProc @ 0x1C0048580 (xxxDefWindowProc.c)
+ *     xxxChangeMonitorFlags @ 0x1C01283AC (xxxChangeMonitorFlags.c)
+ *     ClientEventCallback @ 0x1C02288A8 (ClientEventCallback.c)
  */
 
-__int64 __fastcall xxxEventWndProc(struct tagWND *a1, __int64 a2, __int64 a3, unsigned __int16 *a4)
+__int64 __fastcall xxxEventWndProc(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rax
-  int v6; // edi
+  __int64 v7; // rdx
   _QWORD *v8; // rcx
-  __int64 v9; // rax
-  unsigned __int16 v11; // dx
+  __int64 v9; // rcx
+  __int16 v10; // dx
+  __int16 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = *((_QWORD *)a1 + 5);
-  v6 = a2;
-  if ( *(_WORD *)(v4 + 42) )
+  v12 = 0;
+  if ( (unsigned __int8)tagWND::RedirectedFieldfnid<unsigned short>::operator!=(a1 + 87, &v12) )
     return 0LL;
-  v8 = (_QWORD *)*((_QWORD *)a1 + 35);
-  if ( !v8 )
-    return xxxDefWindowProc(a1);
-  if ( *(_DWORD *)(v4 + 248) < 8u )
-    return xxxDefWindowProc(a1);
-  LOBYTE(a2) = 9;
-  v9 = HMValidateHandleNoRip(*v8, a2);
-  if ( !v9 )
-    return xxxDefWindowProc(a1);
-  if ( v6 == 2 )
+  v8 = *(_QWORD **)(a1 + 280);
+  if ( v8 && *(_DWORD *)(*(_QWORD *)(a1 + 40) + 252LL) >= 8u )
   {
-    xxxChangeMonitorFlags(v9, 0LL);
-    return 0LL;
+    LOBYTE(v7) = 9;
+    v9 = HMValidateHandleNoRip(*v8, v7);
   }
-  if ( v6 != 60 )
-    return xxxDefWindowProc(a1);
-  v11 = a4[2];
-  if ( (*(_DWORD *)(v9 + 40) & *(_DWORD *)a4) != 0 )
+  else
   {
-    if ( !v11 )
+    v9 = 0LL;
+  }
+  if ( v9 )
+  {
+    if ( a2 == 2 )
+    {
+      xxxChangeMonitorFlags(v9, 0LL);
       return 0LL;
-    goto LABEL_10;
+    }
+    if ( a2 == 60 )
+    {
+      v10 = *(_WORD *)(a4 + 4);
+      if ( (*(_DWORD *)(v9 + 40) & *(_DWORD *)a4) != 0 )
+      {
+        if ( !v10 )
+          return 0LL;
+      }
+      else if ( v10 )
+      {
+        return 0LL;
+      }
+      ClientEventCallback(*(_QWORD *)(v9 + 56), a4);
+      return 0LL;
+    }
   }
-  if ( !v11 )
-LABEL_10:
-    ClientEventCallback(*(_QWORD *)(v9 + 56), a4);
-  return 0LL;
+  return xxxDefWindowProc((struct tagWND *)a1);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelper_Uninitialize @ 0x1409A1590
+ * XREFs of SleepstudyHelper_Uninitialize @ 0x1408FB7A0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1190 (SleepstudyHelperDestroyLibrary.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1408FB990 (SleepstudyHelperDestroyLibrary.c)
  */
 
-__int64 __fastcall SleepstudyHelper_Uninitialize(ULONG *a1)
+__int64 SleepstudyHelper_Uninitialize()
 {
-  return SleepstudyHelperDestroyLibrary(a1);
+  return SleepstudyHelperDestroyLibrary();
 }

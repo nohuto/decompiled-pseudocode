@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchCheckSurfaceIndependentFlipAssignment @ 0x1C003E480
+ * XREFs of VidSchCheckSurfaceIndependentFlipAssignment @ 0x1C0016410
  * Callers:
  *     <none>
  * Callees:
@@ -31,18 +31,18 @@ _DWORD *__fastcall VidSchCheckSurfaceIndependentFlipAssignment(
   __int128 v24; // xmm6
   __int64 v25; // rbp
   int v26; // r8d
-  _DWORD *v27; // rcx
-  __int64 v28; // rdx
-  char v29; // bl
-  __int64 v30; // r14
-  __int64 v31; // rcx
+  char v27; // bl
+  __int64 v28; // r14
+  char v29; // di
+  _DWORD *v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // rcx
   unsigned int i; // eax
-  __int64 v33; // rdx
-  int v34; // r8d
-  bool v35; // zf
-  char v36; // di
+  __int64 v34; // rdx
+  int v35; // r8d
+  bool v36; // zf
   int v37; // ecx
-  struct _LUID DestinationLuid; // [rsp+28h] [rbp-A0h] BYREF
+  _LUID DestinationLuid; // [rsp+28h] [rbp-A0h] BYREF
   __int64 v39; // [rsp+30h] [rbp-98h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-90h] BYREF
   unsigned __int8 v41; // [rsp+D0h] [rbp+8h]
@@ -63,63 +63,56 @@ _DWORD *__fastcall VidSchCheckSurfaceIndependentFlipAssignment(
   DestinationLuid = 0LL;
   RtlCopyLuid(&DestinationLuid, a3);
   v39 = 0LL;
-  v43 = *(_BYTE *)(a1 + 156);
-  v44 = 0;
+  v43 = *(_BYTE *)(a1 + 148);
   LODWORD(v20) = 0;
-  v41 = 0;
+  v44 = 0;
   v21 = 0LL;
+  v41 = 0;
   v22 = 0LL;
   v23 = 0LL;
   v24 = 0LL;
   v25 = 0LL;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
   v26 = 0;
-  if ( *(int *)(a1 + 3512) < 0 )
+  if ( *(int *)(a1 + 3408) >= 0 )
   {
-LABEL_7:
-    v29 = 0;
-    v30 = 0LL;
-  }
-  else
-  {
-    v27 = *(_DWORD **)(a1 + 3328);
-    v28 = 0LL;
-    while ( *v27 != DestinationLuid.LowPart || v27[1] != DestinationLuid.HighPart )
+    v30 = *(_DWORD **)(a1 + 3232);
+    v31 = 0LL;
+    while ( *v30 != DestinationLuid.LowPart || v30[1] != DestinationLuid.HighPart )
     {
       ++v26;
-      ++v28;
-      v27 += 40;
-      if ( v28 > *(int *)(a1 + 3512) )
-        goto LABEL_7;
+      ++v31;
+      v30 += 38;
+      if ( v31 > *(int *)(a1 + 3408) )
+        goto LABEL_3;
     }
-    v31 = *(_QWORD *)(a1 + 3328) + 160LL * v26;
+    v32 = *(_QWORD *)(a1 + 3232) + 152LL * v26;
     v15 = 1;
-    for ( i = *(_DWORD *)(v31 + 16); (i & 1) == 0; i >>= 1 )
+    for ( i = *(_DWORD *)(v32 + 16); (i & 1) == 0; i >>= 1 )
       v25 = (unsigned int)(v25 + 1);
-    v33 = *(_QWORD *)(a1 + 8 * v25 + 3200);
-    v34 = *(_DWORD *)(v31 + 112);
-    v20 = *(unsigned int *)(v31 + 20);
-    v29 = *(_BYTE *)(v33 + 3040);
-    v23 = *(_OWORD *)(v33 + 3044);
-    v24 = *(_OWORD *)(v33 + 3060);
-    if ( (unsigned int)(v34 - 1) <= 1 )
+    v34 = *(_QWORD *)(a1 + 8 * v25 + 3104);
+    v35 = *(_DWORD *)(v32 + 112);
+    v20 = *(unsigned int *)(v32 + 20);
+    v27 = *(_BYTE *)(v34 + 2304);
+    v23 = *(_OWORD *)(v34 + 2308);
+    v24 = *(_OWORD *)(v34 + 2324);
+    if ( (unsigned int)(v35 - 1) <= 1 )
     {
-      if ( a4 == *(_QWORD *)(v31 + 8) || a4 == -1 )
+      if ( a4 == *(_QWORD *)(v32 + 8) || a4 == -1 )
       {
-        if ( *(_BYTE *)(v31 + 96) )
+        if ( *(_BYTE *)(v32 + 96) )
         {
-          v30 = *(_QWORD *)(v31 + 88);
-          v36 = v43;
+          v28 = *(_QWORD *)(v32 + 88);
+          v29 = v43;
           v44 = 1;
-          v41 = *(_BYTE *)(v31 + 108);
+          v41 = *(_BYTE *)(v32 + 108);
           if ( v41 || v43 )
           {
-            v21 = *(_OWORD *)(288 * v20 + v33 + 152);
-            LODWORD(v39) = *(_DWORD *)(288 * v20 + v33 + 184);
-            v22 = *(_OWORD *)(288 * v20 + v33 + 168);
+            v21 = *(_OWORD *)(216 * v20 + v34 + 136);
+            LODWORD(v39) = *(_DWORD *)(216 * v20 + v34 + 168);
+            v22 = *(_OWORD *)(216 * v20 + v34 + 152);
           }
-          goto LABEL_21;
+          goto LABEL_5;
         }
         v44 = 0;
       }
@@ -129,27 +122,33 @@ LABEL_7:
         *a8 = v20;
       }
     }
-    else if ( v34 == 3 && a4 != -1 )
+    else if ( v35 == 3 && a4 != -1 )
     {
-      v35 = a4 == *(_QWORD *)(v31 + 8);
-      v36 = v43;
-      v30 = 0LL;
-      if ( v35 )
+      v36 = a4 == *(_QWORD *)(v32 + 8);
+      v29 = v43;
+      v28 = 0LL;
+      if ( v36 )
         *a11 = 1;
-      goto LABEL_21;
+      goto LABEL_5;
     }
-    v30 = 0LL;
+    v28 = 0LL;
   }
-  v36 = v43;
-LABEL_21:
+  else
+  {
+LABEL_3:
+    v27 = 0;
+    v28 = 0LL;
+  }
+  v29 = v43;
+LABEL_5:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v44 )
   {
     *a6 = 1;
     *a8 = v20;
     *a7 = v41;
-    *a9 = v30;
-    if ( v41 || v36 )
+    *a9 = v28;
+    if ( v41 || v29 )
     {
       v37 = v39;
       *(_OWORD *)a5 = v21;
@@ -159,7 +158,7 @@ LABEL_21:
   }
   if ( v15 )
     *a2 = v25;
-  *a12 = v29 != 0;
+  *a12 = v27 != 0;
   if ( a13 )
     *a13 = v23;
   result = a14;

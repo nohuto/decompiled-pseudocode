@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeIsApcRunningThread @ 0x140AD6580
+ * XREFs of VerifierKeIsApcRunningThread @ 0x1409DAD80
  * Callers:
  *     <none>
  * Callees:
- *     KeIsApcRunningThread @ 0x140573240 (KeIsApcRunningThread.c)
+ *     KeIsApcRunningThread @ 0x14051A740 (KeIsApcRunningThread.c)
  */
 
 __int64 __fastcall VerifierKeIsApcRunningThread(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiPdoHandleStartDevice @ 0x1C021BAC0
+ * XREFs of DpiPdoHandleStartDevice @ 0x1C019F7E0
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiPdoHandleStartDevice(PDEVICE_OBJECT DeviceObject)
@@ -13,6 +13,9 @@ __int64 __fastcall DpiPdoHandleStartDevice(PDEVICE_OBJECT DeviceObject)
   POWER_STATE v3; // r8d
   int v4; // eax
   bool v5; // zf
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
 
   DeviceExtension = DeviceObject->DeviceExtension;
   KeEnterCriticalRegion();
@@ -33,6 +36,8 @@ __int64 __fastcall DpiPdoHandleStartDevice(PDEVICE_OBJECT DeviceObject)
     DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
   ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
   KeLeaveCriticalRegion();
-  WdLogSingleEntry1(4LL, DeviceObject);
+  v8 = WdLogNewEntry5_WdEvent(v7, v6);
+  *(_QWORD *)(v8 + 24) = DeviceObject;
+  WdLogEvent5_WdEvent(v8);
   return 0LL;
 }

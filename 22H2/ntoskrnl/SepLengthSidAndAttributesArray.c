@@ -1,35 +1,33 @@
 /*
- * XREFs of SepLengthSidAndAttributesArray @ 0x1406BD564
+ * XREFs of SepLengthSidAndAttributesArray @ 0x1405DD4AC
  * Callers:
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     SepCreateClaimAttributes @ 0x1407CF994 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepLengthSidAndAttributesArray(char *Src, unsigned int a2, _DWORD *a3)
+__int64 __fastcall SepLengthSidAndAttributesArray(void *Src, __int64 a2, _DWORD *a3)
 {
-  char *Pool2; // rax
-  char *v7; // rdi
-  unsigned int v8; // ebx
-  int v10; // [rsp+28h] [rbp-50h]
-  int v11; // [rsp+30h] [rbp-48h]
-  __int64 v12; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+98h] [rbp+20h] BYREF
+  PVOID PoolWithTag; // rdi
+  unsigned int v6; // ebx
+  int v8; // [rsp+28h] [rbp-50h]
+  int v9; // [rsp+30h] [rbp-48h]
+  __int64 v10; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+98h] [rbp+20h] BYREF
 
-  LODWORD(v13) = 0;
-  v12 = 0LL;
-  Pool2 = (char *)ExAllocatePool2(256LL, 8LL, 1632855379LL);
-  v7 = Pool2;
-  if ( !Pool2 )
+  LODWORD(v11) = 0;
+  v10 = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x61536553u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v8 = SeCaptureSidAndAttributesArray(Src, a2, 0, Pool2, 8u, v10, v11, (PVOID *)&v12, (unsigned int *)&v13);
-  *a3 = v13;
-  if ( v8 == -1073741789 )
-    v8 = 0;
-  ExFreePoolWithTag(v7, 0);
-  return v8;
+  v6 = SeCaptureSidAndAttributesArray(Src, 8, v8, v9, (__int64)&v10, (__int64)&v11);
+  *a3 = v11;
+  if ( v6 == -1073741789 )
+    v6 = 0;
+  ExFreePoolWithTag(PoolWithTag, 0);
+  return v6;
 }

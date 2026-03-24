@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCloneLargeFileOnlyVad @ 0x14096FEDC
+ * XREFs of MiCloneLargeFileOnlyVad @ 0x1408CFCB0
  * Callers:
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140319600 (MiGetProtoPteAddress.c)
- *     MiDecrementLargeSubsections @ 0x14059DF58 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x14059F23C (MiIncrementLargeSubsections.c)
+ *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MiDecrementLargeSubsections @ 0x140540410 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x140541480 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiCloneLargeFileOnlyVad(__int64 a1)
@@ -22,12 +22,8 @@ __int64 __fastcall MiCloneLargeFileOnlyVad(__int64 a1)
   v2 = *(unsigned int *)(a1 + 24);
   v8 = 0LL;
   v9 = 0LL;
-  MiGetProtoPteAddress(a1, v2 | (v1 << 32), 0, (__int64 *)&v8);
-  MiGetProtoPteAddress(
-    a1,
-    *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32),
-    0,
-    (__int64 *)&v9);
+  MiGetProtoPteAddress(a1, v2 | (v1 << 32), 0, &v8);
+  MiGetProtoPteAddress(a1, *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32), 0, &v9);
   v4 = v8;
   v5 = v8;
   if ( (unsigned int)MiIncrementLargeSubsections(v8, *((unsigned int *)v8 + 11)) != -1 )

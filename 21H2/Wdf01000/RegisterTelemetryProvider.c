@@ -1,26 +1,35 @@
 /*
- * XREFs of RegisterTelemetryProvider @ 0x1C002F140
+ * XREFs of RegisterTelemetryProvider @ 0x1C0060590
  * Callers:
- *     FxLibraryCommonCommission @ 0x1C002E7B8 (FxLibraryCommonCommission.c)
+ *     FxLibraryCommonCommission @ 0x1C00417E8 (FxLibraryCommonCommission.c)
  * Callees:
- *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0036A20 (InitializeTelemetryAssertsKMWorkerInternal.c)
- *     TraceLoggingRegisterEx_EtwRegister_2K @ 0x1C00BDAE0 (TraceLoggingRegisterEx_EtwRegister_2K.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     InitializeTelemetryAssertsKMByName @ 0x1C008E674 (InitializeTelemetryAssertsKMByName.c)
+ *     TraceLoggingSetInformation_2K @ 0x1C00BC500 (TraceLoggingSetInformation_2K.c)
  */
 
-int __fastcall RegisterTelemetryProvider(
-        const _tlgProvider_t *a1,
-        void (__fastcall *a2)(const _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, _EVENT_FILTER_DESCRIPTOR *, void *),
-        void *a3)
+NTSTATUS __fastcall RegisterTelemetryProvider(const char *a1)
 {
-  _STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  _STRING v5; // [rsp+30h] [rbp-18h] BYREF
+  _GUID v1; // xmm0
+  NTSTATUS result; // eax
+  _EVENT_INFO_CLASS v3; // edx
+  const _tlgProvider_t *v4; // rcx
+  _GUID ProviderId; // [rsp+20h] [rbp-28h] BYREF
 
-  DestinationString = 0LL;
-  if ( !_InterlockedExchangeAdd(&g_AssertsOperational, 0) )
-  {
-    RtlInitAnsiString(&DestinationString, "wdf01000.sys");
-    v5 = DestinationString;
-    InitializeTelemetryAssertsKMWorkerInternal(&v5);
-  }
-  return TraceLoggingRegisterEx_EtwRegister_2K(a1, a2, a3);
+  InitializeTelemetryAssertsKMByName(a1);
+  v1 = (_GUID)*((_OWORD *)Tlgg_TelemetryProviderProv.ProviderMetadataPtr - 1);
+  *(_OWORD *)&Tlgg_TelemetryProviderProv.EnableCallback = 0LL;
+  ProviderId = v1;
+  result = EtwRegister(
+             &ProviderId,
+             tlgEnableCallback,
+             &Tlgg_TelemetryProviderProv,
+             &Tlgg_TelemetryProviderProv.RegHandle);
+  if ( !result )
+    return TraceLoggingSetInformation_2K(
+             v4,
+             v3,
+             (void *)Tlgg_TelemetryProviderProv.ProviderMetadataPtr,
+             *Tlgg_TelemetryProviderProv.ProviderMetadataPtr);
+  return result;
 }

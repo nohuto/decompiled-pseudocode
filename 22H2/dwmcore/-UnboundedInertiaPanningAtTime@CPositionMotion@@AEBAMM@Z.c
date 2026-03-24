@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z @ 0x18026FA88
+ * XREFs of ?UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z @ 0x18020F368
  * Callers:
- *     ?AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ @ 0x18026F7A0 (-AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ.c)
- *     ?CalculateNaturalEndpoint@CPositionMotion@@MEBAMXZ @ 0x18026F870 (-CalculateNaturalEndpoint@CPositionMotion@@MEBAMXZ.c)
+ *     ?AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ @ 0x18020F000 (-AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ.c)
+ *     ?CalculateNaturalEndpoint@CPositionMotion@@MEBAMXZ @ 0x18020F0E0 (-CalculateNaturalEndpoint@CPositionMotion@@MEBAMXZ.c)
  * Callees:
- *     logf_0 @ 0x18011B914 (logf_0.c)
- *     powf_0 @ 0x18011B92C (powf_0.c)
+ *     powf @ 0x1800E7F08 (powf.c)
+ *     logf_0 @ 0x1800F3FC3 (logf_0.c)
  */
 
 float __fastcall CPositionMotion::UnboundedInertiaPanningAtTime(CPositionMotion *this, float a2)
@@ -16,6 +16,6 @@ float __fastcall CPositionMotion::UnboundedInertiaPanningAtTime(CPositionMotion 
     return a2 * *((float *)this + 12);
   if ( COERCE_FLOAT(*((_DWORD *)this + 8) & _xmm) < 0.0000011920929 || (*((_BYTE *)this + 8) & 1) == 0 )
     return 0.0;
-  v4 = (float)(powf_0(*((float *)this + 8), a2) - 1.0) * *((float *)this + 12);
+  v4 = (float)(powf(*((float *)this + 8), a2) - 1.0) * *((float *)this + 12);
   return v4 / logf_0(*((float *)this + 8));
 }

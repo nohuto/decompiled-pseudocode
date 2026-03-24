@@ -1,103 +1,99 @@
 /*
- * XREFs of EditionOpenInputDesktopEntryPoint @ 0x1C006B0C0
+ * XREFs of EditionOpenInputDesktopEntryPoint @ 0x1C000EA00
  * Callers:
  *     <none>
  * Callees:
- *     OpenDesktopCompletion @ 0x1C0069634 (OpenDesktopCompletion.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     _GetProcessWindowStation @ 0x1C006B240 (_GetProcessWindowStation.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     OpenDesktopCompletion @ 0x1C0011364 (OpenDesktopCompletion.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
  */
 
-HANDLE __fastcall EditionOpenInputDesktopEntryPoint(char a1, int a2, int a3)
+HANDLE __fastcall EditionOpenInputDesktopEntryPoint(unsigned int a1, int a2, int a3)
 {
   KPROCESSOR_MODE AccessMode; // si
+  __int64 v7; // rdx
   __int64 ProcessWindowStation; // rax
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  void **v10; // rdx
-  void *v11; // rbx
+  void **v9; // rdx
+  void *v10; // rbx
   __int64 CurrentProcess; // rax
-  NTSTATUS v13; // eax
-  int v14; // ebx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  HANDLE v19; // rbx
-  NTSTATUS v21; // ecx
-  __int64 v22; // rcx
+  NTSTATUS v12; // eax
+  int v13; // ebx
+  __int64 v14; // rcx
+  HANDLE v15; // rbx
+  NTSTATUS v17; // ecx
+  __int64 v18; // rcx
   const UNICODE_STRING *NameInfo; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   HANDLE Handle; // [rsp+88h] [rbp+38h] BYREF
 
   Handle = 0LL;
   AccessMode = 1;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( !grpdeskRitInput )
     goto LABEL_25;
-  ProcessWindowStation = GetProcessWindowStation(&DestinationString);
+  ProcessWindowStation = GetProcessWindowStation(&DestinationString, v7);
   if ( !ProcessWindowStation )
   {
-    v22 = 5LL;
+    v18 = 5LL;
     goto LABEL_14;
   }
   if ( (*(_DWORD *)(ProcessWindowStation + 64) & 4) != 0 )
   {
-    v22 = 1LL;
+    v18 = 1LL;
     goto LABEL_14;
   }
-  v10 = (void **)grpdeskRitInput;
+  v9 = (void **)grpdeskRitInput;
   if ( gbDesktopLocked )
-    v10 = (void **)gspdeskShouldBeForeground;
-  v11 = *v10;
-  if ( !*v10 )
+    v9 = (void **)gspdeskShouldBeForeground;
+  v10 = *v9;
+  if ( !*v9 )
   {
 LABEL_25:
-    v22 = 110LL;
+    v18 = 110LL;
     goto LABEL_14;
   }
-  CurrentProcess = PsGetCurrentProcess(v8, v10, v9);
+  CurrentProcess = PsGetCurrentProcess();
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
     AccessMode = 0;
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"Default");
-    NameInfo = (const UNICODE_STRING *)ObQueryNameInfo(v11);
+    NameInfo = (const UNICODE_STRING *)ObQueryNameInfo(v10);
     if ( NameInfo )
-      NameInfo = (const UNICODE_STRING *)(ObQueryNameInfo(v11) + 8);
+      NameInfo = (const UNICODE_STRING *)(ObQueryNameInfo(v10) + 8);
     if ( !RtlEqualUnicodeString(&DestinationString, NameInfo, 0) )
       a3 = 64;
   }
-  v13 = ObOpenObjectByPointer(
-          v11,
+  v12 = ObOpenObjectByPointer(
+          v10,
           a2 != 0 ? 2 : 0,
           0LL,
           a3 | 0x81,
           (POBJECT_TYPE)ExDesktopObjectType,
           AccessMode,
           &Handle);
-  if ( v13 < 0 )
+  if ( v12 < 0 )
   {
-    v21 = v13;
+    v17 = v12;
 LABEL_13:
     Handle = 0LL;
-    v22 = RtlNtStatusToDosError(v21);
+    v18 = RtlNtStatusToDosError(v17);
 LABEL_14:
-    UserSetLastError(v22);
+    UserSetLastError(v18);
     goto LABEL_11;
   }
-  v14 = OpenDesktopCompletion((__int64)v11, (__int64)Handle, a1);
-  if ( v14 < 0 || !(unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
+  v13 = OpenDesktopCompletion(v10, Handle, a1);
+  if ( v13 < 0 || !(unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
   {
-    CloseProtectedHandle(Handle, 1);
-    if ( v14 >= 0 )
-      v14 = -1073741801;
-    v21 = v14;
+    CloseProtectedHandle(Handle);
+    if ( v13 >= 0 )
+      v13 = -1073741801;
+    v17 = v13;
     goto LABEL_13;
   }
 LABEL_11:
-  v19 = Handle;
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
-  return v19;
+  v15 = Handle;
+  UserSessionSwitchLeaveCrit(v14);
+  return v15;
 }

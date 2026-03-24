@@ -1,12 +1,12 @@
 /*
- * XREFs of CreateEmptyRgnPublic @ 0x1C005CAC0
+ * XREFs of CreateEmptyRgnPublic @ 0x1C006B840
  * Callers:
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     UserSetDCVisRgn @ 0x1C004C660 (UserSetDCVisRgn.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0039D90 (UserSetDCVisRgn.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
  * Callees:
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
+ *     GreCreateRectRgnIndirect @ 0x1C00357D0 (GreCreateRectRgnIndirect.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
  */
 
 struct HOBJ__ *CreateEmptyRgnPublic()
@@ -17,7 +17,7 @@ struct HOBJ__ *CreateEmptyRgnPublic()
   if ( RectRgnIndirect )
   {
     PsGetCurrentProcessId();
-    HmgSetOwner((unsigned int)RectRgnIndirect, 0, 4);
+    HmgSetOwner((__int64)RectRgnIndirect, 0, 4);
   }
   return RectRgnIndirect;
 }

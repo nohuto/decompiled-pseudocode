@@ -1,27 +1,29 @@
 /*
- * XREFs of ??4?$ComPtr@VCLinkedShader@@@WRL@Microsoft@@QEAAAEAV012@PEAVCLinkedShader@@@Z @ 0x18003C460
+ * XREFs of ??4?$ComPtr@VCLinkedShader@@@WRL@Microsoft@@QEAAAEAV012@PEAVCLinkedShader@@@Z @ 0x180045754
  * Callers:
- *     ?CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x18003C310 (-CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@.c)
+ *     ?CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180045790 (-CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@.c)
+ *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x1801BB7F0 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
  */
 
-__int64 *__fastcall Microsoft::WRL::ComPtr<CLinkedShader>::operator=(__int64 *a1, __int64 a2)
+CDrawListEntry **__fastcall Microsoft::WRL::ComPtr<CLinkedShader>::operator=(
+        CDrawListEntry **a1,
+        volatile signed __int32 *a2)
 {
-  __int64 v4; // rcx
+  CDrawListEntry *v3; // rcx
 
-  v4 = *a1;
-  if ( v4 != a2 )
+  v3 = *a1;
+  if ( v3 != (CDrawListEntry *)a2 )
   {
     if ( a2 )
     {
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(a2 + 8));
-      v4 = *a1;
+      _InterlockedIncrement(a2 + 2);
+      v3 = *a1;
     }
-    *a1 = a2;
-    if ( v4 )
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease(v4);
+    *a1 = (CDrawListEntry *)a2;
+    if ( v3 )
+      CDrawListEntry::Release(v3);
   }
   return a1;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of ?Destroy@GdiHandleEntryDirectory@@SAXPEAV1@@Z @ 0x1C008FF2C
+ * XREFs of ?Destroy@GdiHandleEntryDirectory@@SAXPEAV1@@Z @ 0x1C007C92C
  * Callers:
- *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C008FEEC (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
+ *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C007C8F0 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall GdiHandleEntryDirectory::Destroy(struct GdiHandleEntryDirectory *a1)
 {
   __int64 *v2; // rbx
-  unsigned int i; // esi
-  __int64 v4; // rbp
+  unsigned int i; // edi
+  __int64 v4; // rsi
   __int64 v5; // r12
   unsigned int v6; // eax
   __int64 v7; // r14
   __int64 v8; // r15
-  char *v9; // rdx
+  __int64 v9; // rcx
 
   v2 = (__int64 *)((char *)a1 + 8);
   for ( i = 0; i < 0x100; ++i )
@@ -31,28 +31,19 @@ void __fastcall GdiHandleEntryDirectory::Destroy(struct GdiHandleEntryDirectory 
         v8 = v6;
         do
         {
-          v9 = *(char **)(v7 + *(_QWORD *)v5);
+          v9 = *(_QWORD *)(v7 + *(_QWORD *)v5);
           if ( v9 )
-            NSInstrumentation::CLeakTrackingAllocator::Free(
-              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-              v9);
+            Win32FreePool(v9);
           v7 += 8LL;
           --v8;
         }
         while ( v8 );
       }
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v5);
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v4);
+      Win32FreePool(v5);
+      Win32FreePool(v4);
       *v2 = 0LL;
     }
     ++v2;
   }
-  if ( a1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)a1);
+  Win32FreePool((__int64)a1);
 }

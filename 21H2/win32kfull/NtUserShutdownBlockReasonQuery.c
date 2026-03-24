@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserShutdownBlockReasonQuery @ 0x1C0119FB0
+ * XREFs of NtUserShutdownBlockReasonQuery @ 0x1C012F000
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
  */
 
 __int64 __fastcall NtUserShutdownBlockReasonQuery(__int64 a1, volatile void *a2, unsigned int *a3)
@@ -14,49 +14,50 @@ __int64 __fastcall NtUserShutdownBlockReasonQuery(__int64 a1, volatile void *a2,
   ULONG64 v7; // rcx
   int v8; // edi
   __int64 v9; // rdx
+  __int64 v10; // r8
   char *Prop; // r15
-  unsigned int *v12; // rax
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  _DWORD *v15; // rdx
-  __int64 v16; // rax
+  unsigned int *v13; // rax
+  __int64 v14; // rcx
+  unsigned int v15; // ebx
+  _DWORD *v16; // rdx
+  __int64 v17; // rax
 
-  EnterSharedCrit(a1, a2, a3);
+  EnterSharedCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   v8 = 0;
   if ( v6 )
   {
-    Prop = (char *)GetProp(v6, (unsigned __int16)gatomShutdownBlockingReason, 1u);
+    Prop = (char *)GetProp(v6, (unsigned __int16)gatomShutdownBlockingReason, 1LL);
     if ( !Prop )
     {
 LABEL_3:
-      UserSetLastError(87LL, v9);
+      UserSetLastError(87LL, v9, v10);
       goto LABEL_4;
     }
-    v12 = a3;
+    v13 = a3;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v12 = (unsigned int *)MmUserProbeAddress;
-    v13 = *v12;
-    if ( (unsigned int)v13 > 0x101 )
-      v13 = 257LL;
+      v13 = (unsigned int *)MmUserProbeAddress;
+    v14 = *v13;
+    if ( (unsigned int)v14 > 0x101 )
+      v14 = 257LL;
     if ( a2 )
     {
-      if ( !(_DWORD)v13 )
+      if ( !(_DWORD)v14 )
         goto LABEL_3;
-      v14 = v13;
-      ProbeForWrite(a2, 2 * v13, 2u);
-      RtlStringCchCopyW((char *)a2, v14, Prop);
+      v15 = v14;
+      ProbeForWrite(a2, 2 * v14, 2u);
+      RtlStringCchCopyW((char *)a2, v15, Prop);
     }
     v7 = MmUserProbeAddress;
-    v15 = a3;
+    v16 = a3;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v15 = (_DWORD *)MmUserProbeAddress;
-    *v15 = *v15;
-    v16 = -1LL;
+      v16 = (_DWORD *)MmUserProbeAddress;
+    *v16 = *v16;
+    v17 = -1LL;
     do
-      ++v16;
-    while ( *(_WORD *)&Prop[2 * v16] );
-    *a3 = v16 + 1;
+      ++v17;
+    while ( *(_WORD *)&Prop[2 * v17] );
+    *a3 = v17 + 1;
     v8 = 1;
   }
 LABEL_4:

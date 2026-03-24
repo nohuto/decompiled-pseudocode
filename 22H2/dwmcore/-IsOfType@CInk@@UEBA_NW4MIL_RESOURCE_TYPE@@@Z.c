@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CInk@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C56B0
+ * XREFs of ?IsOfType@CInk@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F520
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CInk::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 88 || a2 == 47;
+  return a2 == 86 || a2 == 45;
 }

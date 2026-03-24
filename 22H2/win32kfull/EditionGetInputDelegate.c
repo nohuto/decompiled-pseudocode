@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionGetInputDelegate @ 0x1C0150DC0
+ * XREFs of EditionGetInputDelegate @ 0x1C01E1430
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01153E0 (-GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
+ *     GetInputDelegate @ 0x1C004F548 (GetInputDelegate.c)
  */
 
-struct tagTHREADINFO *__fastcall EditionGetInputDelegate(__int64 a1)
+__int64 __fastcall EditionGetInputDelegate(__int64 a1)
 {
-  return GetInputDelegate(*(struct tagWND **)(a1 + 80), 4096);
+  return GetInputDelegate(*(_QWORD *)(a1 + 80), 4096);
 }

@@ -1,38 +1,43 @@
 /*
- * XREFs of ?GetRects@?$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x180040830
+ * XREFs of ?GetRects@?$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x18006B690
  * Callers:
- *     ?GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x1800407E0 (-GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z.c)
+ *     ?GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x18006B630 (-GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z.c)
  * Callees:
- *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x1800408C8 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
- *     ?SwapExisting@?$CMergedRectBase@$03@@IEAAXII@Z @ 0x1800409D8 (-SwapExisting@-$CMergedRectBase@$03@@IEAAXII@Z.c)
+ *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x18006BAC0 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
+ *     ?SwapExisting@?$CMergedRectBase@$03@@IEAAXII@Z @ 0x18006C0C4 (-SwapExisting@-$CMergedRectBase@$03@@IEAAXII@Z.c)
  */
 
-bool __fastcall CMergedRectBase<4>::GetRects(__int64 a1, _DWORD *a2, _QWORD *a3)
+bool __fastcall CMergedRectBase<4>::GetRects(__int64 a1, unsigned int *a2, _QWORD *a3)
 {
-  _DWORD *v3; // r15
-  unsigned int v7; // esi
-  _BYTE *v8; // rbp
+  unsigned int *v3; // r15
+  unsigned int v6; // ecx
+  unsigned int v7; // eax
+  unsigned int v9; // esi
+  _BYTE *v10; // rbp
   unsigned int i; // edi
 
   v3 = a2;
   LOBYTE(a2) = 1;
   CMergedRectBase<4>::Optimize(a1, a2);
-  if ( (unsigned int)(*(_DWORD *)(a1 + 80) - 2) <= 1 )
+  v6 = *(_DWORD *)(a1 + 80);
+  v7 = v6;
+  if ( v6 > 1 && v6 < 4 )
   {
-    v7 = 0;
-    v8 = (_BYTE *)(a1 + 72);
+    v9 = 0;
+    v10 = (_BYTE *)(a1 + 72);
     for ( i = 0; i < 4; ++i )
     {
-      if ( *v8 )
+      if ( *v10 )
       {
-        if ( i != v7 )
-          CMergedRectBase<4>::SwapExisting(a1, v7, i);
-        ++v7;
+        if ( i != v9 )
+          CMergedRectBase<4>::SwapExisting(a1, v9, i);
+        ++v9;
       }
-      ++v8;
+      ++v10;
     }
+    v7 = *(_DWORD *)(a1 + 80);
   }
-  *v3 = *(_DWORD *)(a1 + 80);
+  *v3 = v7;
   *a3 = a1 + 8;
   return *(_DWORD *)(a1 + 80) != 0;
 }

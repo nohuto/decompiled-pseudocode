@@ -3,11 +3,11 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpTimeFieldsToTime @ 0x1401270C0 (RtlpTimeFieldsToTime.c)
- *     RtlpTimeToTimeFields @ 0x14015DA14 (RtlpTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpTimeFieldsToTime @ 0x1401270E0 (RtlpTimeFieldsToTime.c)
+ *     RtlpTimeToTimeFields @ 0x14015DA34 (RtlpTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
@@ -60,7 +60,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
     RtlpTimeToTimeFields(&v16, &v18, v5);
     LOBYTE(CurrentServerSiloGlobals) = HalSetRealTimeClock(&v18);
   }
-  else if ( (qword_140409DD8 & 4) == 0 )
+  else if ( (qword_140409D98 & 4) == 0 )
   {
     LOBYTE(CurrentServerSiloGlobals) = HalQueryRealTimeClock(&v18);
     if ( (_BYTE)CurrentServerSiloGlobals )

@@ -1,22 +1,22 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1406BE9A0
+ * XREFs of NtGetMUIRegistryInfo @ 0x14069C770
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MUIBugCheck @ 0x140642840 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x140642868 (MigrateOOBELanguageToInstallationLanguage.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     MUIInitializeResourceLock @ 0x14085F65C (MUIInitializeResourceLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MUIBugCheck @ 0x1405B9B78 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x1405B9BA0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x1407CFB6C (MUIInitializeResourceLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
@@ -29,28 +29,29 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   NTSTATUS SystemThread; // esi
   int v12; // eax
   unsigned int Length; // [rsp+50h] [rbp-A8h]
-  __int128 v14; // [rsp+58h] [rbp-A0h] BYREF
-  __int128 v15; // [rsp+68h] [rbp-90h]
-  __int128 v16; // [rsp+78h] [rbp-80h]
-  HANDLE Handle; // [rsp+88h] [rbp-70h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-A0h] BYREF
+  __int64 p_Event; // [rsp+60h] [rbp-98h] BYREF
+  void *v16; // [rsp+68h] [rbp-90h]
+  __int64 v17; // [rsp+70h] [rbp-88h]
+  int v18; // [rsp+78h] [rbp-80h]
+  int v19; // [rsp+7Ch] [rbp-7Ch]
+  int v20; // [rsp+80h] [rbp-78h]
+  int v21; // [rsp+84h] [rbp-74h]
+  int v22; // [rsp+88h] [rbp-70h]
+  int v23; // [rsp+8Ch] [rbp-6Ch]
   struct _KEVENT Event; // [rsp+90h] [rbp-68h] BYREF
-  int v19; // [rsp+A8h] [rbp-50h]
-  int v20; // [rsp+ACh] [rbp-4Ch]
-  __int64 v21; // [rsp+B0h] [rbp-48h]
-  __int64 v22; // [rsp+B8h] [rbp-40h]
-  int v23; // [rsp+C0h] [rbp-38h]
-  int v24; // [rsp+C4h] [rbp-34h]
-  __int128 v25; // [rsp+C8h] [rbp-30h]
-  char v26; // [rsp+118h] [rbp+20h]
+  __int128 v25; // [rsp+A8h] [rbp-50h]
+  __int128 v26; // [rsp+B8h] [rbp-40h]
+  __int128 v27; // [rsp+C8h] [rbp-30h]
+  char v28; // [rsp+118h] [rbp+20h]
 
-  v20 = 0;
-  v24 = 0;
+  v25 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
   memset(&Event, 0, sizeof(Event));
   Handle = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v16 = 0LL;
-  v26 = 0;
+  v23 = 0;
+  v28 = 0;
   if ( !KeGetCurrentThread()->PreviousMode || (_DWORD)InitSafeBootMode )
     goto LABEL_46;
   if ( !a2 )
@@ -90,7 +91,7 @@ LABEL_12:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(MUIRegistryLock, 1u);
-  v26 = 1;
+  v28 = 1;
   if ( MUIRegistryInfo == (PVOID)-1LL )
   {
     if ( (v7 & 2) != 0 )
@@ -134,22 +135,24 @@ LABEL_47:
   if ( MUIRegistryInfo )
     goto LABEL_19;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  *(_QWORD *)&v14 = &Event;
-  *((_QWORD *)&v14 + 1) = 0LL;
-  *(_QWORD *)&v15 = 0LL;
-  *((_QWORD *)&v15 + 1) = (unsigned __int16)PsInstallUILanguageId;
-  *(_QWORD *)&v16 = (unsigned __int16)PsMachineUILanguageId;
-  DWORD2(v16) = -1073741823;
-  v19 = 48;
-  v21 = 0LL;
-  v23 = 512;
-  v22 = 0LL;
-  v25 = 0LL;
+  p_Event = (__int64)&Event;
+  v16 = 0LL;
+  v17 = 0LL;
+  v18 = (unsigned __int16)PsInstallUILanguageId;
+  v19 = 0;
+  v20 = (unsigned __int16)PsMachineUILanguageId;
+  v21 = 0;
+  v22 = -1073741823;
+  LODWORD(v25) = 48;
+  *((_QWORD *)&v25 + 1) = 0LL;
+  DWORD2(v26) = 512;
+  *(_QWORD *)&v26 = 0LL;
+  v27 = 0LL;
   SystemThread = PsCreateSystemThreadEx(
-                   (unsigned int)&Handle,
+                   (int)&Handle,
                    0LL,
                    (__int64)MUIRegistrySystemRoutine,
-                   (__int64)&v14,
+                   (__int64)&p_Event,
                    0LL,
                    0LL);
   if ( SystemThread >= 0 )
@@ -158,25 +161,25 @@ LABEL_47:
     SystemThread = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     if ( SystemThread >= 0 )
     {
-      SystemThread = DWORD2(v16);
-      if ( SDWORD2(v16) < 0 )
+      SystemThread = v22;
+      if ( v22 < 0 )
       {
 LABEL_54:
         MUIRegistryInfo = (PVOID)-1LL;
         LODWORD(MUIRegistryInfoSize) = 0;
         goto LABEL_27;
       }
-      MUIRegistryInfo = (PVOID)*((_QWORD *)&v14 + 1);
-      LODWORD(MUIRegistryInfoSize) = v15;
-      if ( !DWORD1(v15) )
+      MUIRegistryInfo = v16;
+      LODWORD(MUIRegistryInfoSize) = v17;
+      if ( !HIDWORD(v17) )
         MUIBugCheck(32770);
-      if ( !HIDWORD(v15) )
+      if ( !v19 )
       {
         if ( PsUILanguageComitted )
           MUIBugCheck(32769);
         MigrateOOBELanguageToInstallationLanguage();
       }
-      if ( !DWORD1(v16) )
+      if ( !v21 )
         PsMachineUILanguageId = PsInstallUILanguageId;
     }
   }
@@ -205,10 +208,10 @@ LABEL_23:
     memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_27:
-  if ( v26 )
+  if ( v28 )
   {
     ExReleaseResourceLite(MUIRegistryLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return (unsigned int)SystemThread;
 }

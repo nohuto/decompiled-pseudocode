@@ -1,13 +1,13 @@
 /*
- * XREFs of PpReleaseBootDDB @ 0x1408456C4
+ * XREFs of PpReleaseBootDDB @ 0x1407BD504
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403A0B38 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3078 (PnpCompleteSystemStartProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SdbReleaseDatabase @ 0x1407557B8 (SdbReleaseDatabase.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 PpReleaseBootDDB()
@@ -20,7 +20,7 @@ __int64 PpReleaseBootDDB()
   ExAcquireResourceExclusiveLite(&PiDDBLock, 1u);
   if ( PpDDBHandle )
   {
-    SdbReleaseDatabase(PpDDBHandle);
+    SdbReleaseDatabase((__int64)PpDDBHandle);
     PpDDBHandle = 0LL;
     ExFreePoolWithTag(PpBootDDB, 0);
     PpBootDDB = 0LL;
@@ -32,12 +32,12 @@ __int64 PpReleaseBootDDB()
   }
   if ( PpDDBPatchHandle )
   {
-    SdbReleaseDatabase(PpDDBPatchHandle);
+    SdbReleaseDatabase((__int64)PpDDBPatchHandle);
     PpDDBPatchHandle = 0LL;
     ExFreePoolWithTag(PpBootDDBPatch, 0);
     PpBootDDBPatch = 0LL;
   }
   ExReleaseResourceLite(&PiDDBLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v1;
 }

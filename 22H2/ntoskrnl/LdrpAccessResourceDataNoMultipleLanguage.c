@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x140755C38
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x140672638
  * Callers:
- *     LdrpFindMessageInAlternateModule @ 0x1402F6D64 (LdrpFindMessageInAlternateModule.c)
- *     LdrpGetRcConfig @ 0x1402F7548 (LdrpGetRcConfig.c)
- *     LdrpAccessResourceData @ 0x140755B5C (LdrpAccessResourceData.c)
+ *     LdrpFindMessageInAlternateModule @ 0x140301428 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpGetRcConfig @ 0x140301BD4 (LdrpGetRcConfig.c)
+ *     LdrpAccessResourceData @ 0x14067255C (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     LdrpGetImageSize @ 0x1402F7008 (LdrpGetImageSize.c)
- *     RtlAddressInSectionTable @ 0x1402F7138 (RtlAddressInSectionTable.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402F7190 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     LdrpGetImageSize @ 0x140301750 (LdrpGetImageSize.c)
+ *     RtlAddressInSectionTable @ 0x1403017DC (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x140301830 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
@@ -18,116 +18,106 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
         unsigned __int64 *a3,
         _DWORD *a4)
 {
-  _DWORD *v4; // rdi
-  unsigned __int64 *v5; // r13
-  unsigned int *v6; // rsi
-  unsigned __int64 v7; // rbx
-  __int64 result; // rax
-  unsigned __int64 v9; // r14
-  unsigned int *v10; // rcx
-  __int64 v11; // r12
-  BOOL v12; // eax
-  __int64 v13; // rax
-  unsigned __int64 v14; // rdi
-  __int16 v15; // ax
-  unsigned int v16; // r8d
-  unsigned __int64 v17; // r15
-  unsigned __int64 v18; // rax
-  unsigned int v19; // r8d
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // r13
-  unsigned __int64 v24; // rax
-  __int64 v25; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v26; // [rsp+30h] [rbp-38h]
+  _DWORD *v4; // rsi
+  unsigned int *v5; // r12
+  unsigned __int64 v6; // rbx
+  unsigned int ImageSize; // r14d
+  unsigned __int64 v8; // rdi
+  __int64 v9; // r13
+  BOOL v10; // eax
+  __int64 v11; // rax
+  unsigned __int64 v12; // rsi
+  __int16 v13; // ax
+  unsigned int v14; // r8d
+  unsigned __int64 v15; // r15
+  unsigned __int64 v16; // rax
+  unsigned int v17; // r8d
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // rax
+  __int64 v22; // [rsp+28h] [rbp-50h] BYREF
+  unsigned int v23; // [rsp+30h] [rbp-48h]
+  __int64 v24; // [rsp+38h] [rbp-40h]
+  unsigned __int64 v25; // [rsp+40h] [rbp-38h]
 
   v4 = a4;
-  v5 = a3;
-  v6 = a2;
-  v7 = a1;
+  v5 = a2;
+  v6 = a1;
   LOBYTE(a2) = 1;
-  v26 = RtlImageDirectoryEntryToData(a1, (int)a2, 2, (int)&v25);
-  if ( !v26 )
+  v24 = RtlImageDirectoryEntryToData(a1, (int)a2, 2, (int)&v22);
+  if ( !v24 )
     return 3221225609LL;
-  v25 = 0LL;
-  result = LdrpGetImageSize(v7, &v25);
-  if ( (int)result >= 0 )
+  v22 = 0LL;
+  ImageSize = LdrpGetImageSize(v6, &v22);
+  v23 = ImageSize;
+  if ( ImageSize == -1073741701 )
+    return 3221225595LL;
+  v8 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( (unsigned __int64)v5 <= (v6 & 0xFFFFFFFFFFFFFFFCuLL) )
+    return 3221225595LL;
+  v9 = v22;
+  if ( v22 )
   {
-    v9 = v7 & 0xFFFFFFFFFFFFFFFCuLL;
-    v10 = v6 + 4;
-    if ( (unsigned __int64)v6 < (v7 & 0xFFFFFFFFFFFFFFFCuLL) )
+    if ( (unsigned __int64)v5 >= v8 + v22 )
       return 3221225595LL;
-    if ( v10 < v6 )
-      return 3221225595LL;
-    v11 = v25;
-    if ( v25 && (unsigned __int64)v10 > v9 + v25 )
+  }
+  v10 = 0;
+  if ( (v6 & 3) != 0 )
+  {
+    v10 = (v6 & 1) != 0;
+    v6 &= 0xFFFFFFFFFFFFFFFCuLL;
+  }
+  if ( v10 )
+  {
+    v11 = RtlImageNtHeader(v6);
+    v12 = v11;
+    if ( !v11 )
+      return 3221225609LL;
+    v13 = *(_WORD *)(v11 + 24);
+    if ( v13 == 267 )
     {
-      return 3221225595LL;
+      v14 = *(_DWORD *)(v12 + 136);
+    }
+    else if ( v13 == 523 )
+    {
+      v14 = *(_DWORD *)(v12 + 152);
     }
     else
     {
-      v12 = 0;
-      if ( (v7 & 3) != 0 )
-      {
-        v12 = (v7 & 1) != 0;
-        v7 &= 0xFFFFFFFFFFFFFFFCuLL;
-      }
-      if ( v12 )
-      {
-        v13 = RtlImageNtHeader(v7);
-        v14 = v13;
-        if ( !v13 )
-          return 3221225609LL;
-        v15 = *(_WORD *)(v13 + 24);
-        if ( v15 == 267 )
-        {
-          v16 = *(_DWORD *)(v14 + 136);
-        }
-        else if ( v15 == 523 )
-        {
-          v16 = *(_DWORD *)(v14 + 152);
-        }
-        else
-        {
-          v16 = 0;
-        }
-        if ( !v16 )
-          return 3221225609LL;
-        v17 = v7 + v16 - v26;
-        v18 = RtlSectionTableFromVirtualAddress(v14, v7, v16);
-        if ( !v18 )
-          return 3221225609LL;
-        v19 = *v6;
-        if ( *v6 > *(_DWORD *)(v18 + 8) )
-        {
-          LODWORD(v25) = *(_DWORD *)(v18 + 12);
-          v22 = RtlSectionTableFromVirtualAddress(v14, v7, v19);
-          v23 = v22;
-          if ( !v22 )
-            return 3221225609LL;
-          v24 = RtlAddressInSectionTable(v14, v7, *(_DWORD *)(v22 + 12));
-          v17 += v26 + *(unsigned int *)(v23 + 12) - (unsigned __int64)(unsigned int)v25 - v24;
-          v5 = a3;
-        }
-        v4 = a4;
-      }
-      else
-      {
-        v17 = 0LL;
-      }
-      if ( v5 )
-      {
-        v20 = v7 + *v6 - v17;
-        v21 = v20 + v6[1];
-        if ( v20 < v9 || v21 < v20 || v11 && v21 > v9 + v11 )
-          return 3221225595LL;
-        *v5 = v20;
-      }
-      if ( v4 )
-        *v4 = v6[1];
-      return 0LL;
+      v14 = 0;
     }
+    if ( !v14 )
+      return 3221225609LL;
+    v15 = v6 + v14 - v24;
+    v16 = RtlSectionTableFromVirtualAddress(v12, v6, v14);
+    if ( !v16 )
+      return 3221225609LL;
+    v17 = *v5;
+    if ( *v5 > *(_DWORD *)(v16 + 8) )
+    {
+      LODWORD(v22) = *(_DWORD *)(v16 + 12);
+      v19 = RtlSectionTableFromVirtualAddress(v12, v6, v17);
+      v25 = v19;
+      if ( !v19 )
+        return 3221225609LL;
+      v20 = RtlAddressInSectionTable(v12, v6, *(unsigned int *)(v19 + 12));
+      v15 += v24 + *(unsigned int *)(v25 + 12) - (unsigned __int64)(unsigned int)v22 - v20;
+    }
+    v4 = a4;
   }
-  return result;
+  else
+  {
+    v15 = 0LL;
+  }
+  if ( a3 && ((v18 = v6 + *v5 - v15, *a3 = v18, v18 <= v8) || v9 && v18 >= v8 + v9) )
+  {
+    *a3 = 0LL;
+    return 3221225595LL;
+  }
+  else
+  {
+    if ( v4 )
+      *v4 = v5[1];
+    return ImageSize;
+  }
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpCreateConnectionPort @ 0x1407CC8A8
+ * XREFs of AlpcpCreateConnectionPort @ 0x14068D758
  * Callers:
- *     NtCreateWaitablePort @ 0x1407CC7C0 (NtCreateWaitablePort.c)
- *     NtCreatePort @ 0x1407CC810 (NtCreatePort.c)
- *     NtAlpcCreatePort @ 0x1407CC860 (NtAlpcCreatePort.c)
+ *     NtAlpcCreatePort @ 0x14068D710 (NtAlpcCreatePort.c)
+ *     NtCreatePort @ 0x140772CE0 (NtCreatePort.c)
+ *     NtCreateWaitablePort @ 0x14078E410 (NtCreateWaitablePort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     AlpcpSetOwnerProcessPort @ 0x1407164DC (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x140716534 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x140716798 (AlpcpInitializePort.c)
- *     AlpcInitializeHandleTable @ 0x140717C10 (AlpcInitializeHandleTable.c)
- *     AlpcpCreatePort @ 0x140717C64 (AlpcpCreatePort.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     AlpcpAllocateBlob @ 0x14073A150 (AlpcpAllocateBlob.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1405E098C (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1405E0B04 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcInitializeHandleTable @ 0x1405E0D44 (AlpcInitializeHandleTable.c)
+ *     AlpcpInitializePort @ 0x1405E0D98 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x1405E0F24 (AlpcpCreatePort.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     AlpcpAllocateBlob @ 0x1406D984C (AlpcpAllocateBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateConnectionPort(
@@ -28,36 +28,36 @@ __int64 __fastcall AlpcpCreateConnectionPort(
 {
   __int64 v10; // rcx
   char PreviousMode; // r9
-  __int64 v12; // rdx
+  __int64 v12; // rax
   __int64 result; // rax
   char v14; // al
-  PVOID v15; // rbx
+  PADAPTER_OBJECT v15; // rbx
   int v16; // r14d
   _QWORD *v17; // r14
   int v18; // edi
-  char *Blob; // rax
+  __int64 Blob; // rax
   _QWORD *v20; // rax
   int v21; // eax
   int inserted; // ebx
   HANDLE Handle; // [rsp+40h] [rbp-A8h] BYREF
-  PVOID Object; // [rsp+48h] [rbp-A0h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-A0h] BYREF
   _OWORD v25[5]; // [rsp+50h] [rbp-98h] BYREF
 
   memset(v25, 0, 0x48uLL);
-  Object = 0LL;
+  DmaAdapter = 0LL;
   Handle = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v12 = 0x7FFFFFFF0000LL;
-    v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a1;
+    v10 = (__int64)a1;
+    if ( (unsigned __int64)a1 >= 0x7FFFFFFF0000LL )
+      v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
     if ( a3 )
     {
-      if ( a3 < 0x7FFFFFFF0000LL )
-        v12 = a3;
+      v12 = a3;
+      if ( a3 >= 0x7FFFFFFF0000LL )
+        v12 = 0x7FFFFFFF0000LL;
       v25[0] = *(_OWORD *)v12;
       v25[1] = *(_OWORD *)(v12 + 16);
       v25[2] = *(_OWORD *)(v12 + 32);
@@ -74,7 +74,7 @@ __int64 __fastcall AlpcpCreateConnectionPort(
     *(_QWORD *)&v25[4] = *(_QWORD *)(a3 + 64);
   }
   LOBYTE(v10) = PreviousMode;
-  result = AlpcpCreatePort(v10, a2, &Object);
+  result = AlpcpCreatePort(v10, a2, (void **)&DmaAdapter);
   if ( (int)result >= 0 )
   {
     if ( a3 )
@@ -84,11 +84,11 @@ __int64 __fastcall AlpcpCreateConnectionPort(
         v14 = 1;
       a5 = v14;
     }
-    v15 = Object;
-    v16 = AlpcpInitializePort((__int64)Object, 1, a5);
+    v15 = DmaAdapter;
+    v16 = AlpcpInitializePort((__int64)DmaAdapter, 1, a5);
     if ( v16 < 0 )
     {
-      ObfDereferenceObject(v15);
+      HalPutDmaAdapter(v15);
       return (unsigned int)v16;
     }
     v17 = (_QWORD *)((unsigned __int64)v25 & -(__int64)(a3 != 0));
@@ -96,23 +96,23 @@ __int64 __fastcall AlpcpCreateConnectionPort(
     if ( v18 >= 0 )
     {
       if ( a6 )
-        *((_DWORD *)v15 + 104) |= 0x3000u;
+        *(_DWORD *)&v15[26].Version |= 0x3000u;
       AlpcpSetOwnerProcessPort((__int64)v15, v17);
-      Blob = AlpcpAllocateBlob((__int64)AlpcConnectionType, 80LL, 1);
-      *((_QWORD *)v15 + 2) = Blob;
+      Blob = AlpcpAllocateBlob(AlpcConnectionType, 80LL, 1LL);
+      *(_QWORD *)&v15[1].Version = Blob;
       if ( Blob )
       {
-        *((_QWORD *)Blob + 2) = 0LL;
-        **((_QWORD **)v15 + 2) = v15;
-        *(_QWORD *)(*((_QWORD *)v15 + 2) + 8LL) = 0LL;
-        *(_QWORD *)(*((_QWORD *)v15 + 2) + 72LL) = 0LL;
-        v20 = (_QWORD *)(*((_QWORD *)v15 + 2) + 24LL);
+        *(_QWORD *)(Blob + 16) = 0LL;
+        **(_QWORD **)&v15[1].Version = v15;
+        *(_QWORD *)(*(_QWORD *)&v15[1].Version + 8LL) = 0LL;
+        *(_QWORD *)(*(_QWORD *)&v15[1].Version + 72LL) = 0LL;
+        v20 = (_QWORD *)(*(_QWORD *)&v15[1].Version + 24LL);
         v20[1] = v20;
         *v20 = v20;
-        v21 = AlpcInitializeHandleTable(*((_QWORD *)v15 + 2) + 40LL);
+        v21 = AlpcInitializeHandleTable(*(_QWORD *)&v15[1].Version + 40LL);
         if ( v21 >= 0 )
         {
-          inserted = ObInsertObjectEx((char *)v15, 0LL, 2031617, 0, 0, 0LL, &Handle);
+          inserted = ObInsertObjectEx(v15, 0LL, 0x1F0001u, 0, 0, 0LL, (unsigned __int64 *)&Handle);
           if ( inserted >= 0 )
             *a1 = Handle;
           return (unsigned int)inserted;
@@ -124,7 +124,7 @@ __int64 __fastcall AlpcpCreateConnectionPort(
         v18 = -1073741801;
       }
     }
-    ObfDereferenceObject(v15);
+    HalPutDmaAdapter(v15);
     return (unsigned int)v18;
   }
   return result;

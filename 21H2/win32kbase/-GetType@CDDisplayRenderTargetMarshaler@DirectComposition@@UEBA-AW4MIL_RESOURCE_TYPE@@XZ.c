@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CDDisplayRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00CB190
+ * XREFs of ?GetType@CDDisplayRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00BBF90
  * Callers:
  *     <none>
  * Callees:

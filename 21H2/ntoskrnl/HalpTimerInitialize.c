@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerInitialize @ 0x1403BC620
+ * XREFs of HalpTimerInitialize @ 0x1403AA034
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x1403BACF8 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x1403BBDD4 (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerMeasureFrequencies @ 0x1403BBEC4 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerSelectRoles @ 0x1403BC388 (HalpTimerSelectRoles.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403A9548 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403A98D8 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1403B53D4 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerNoteHpetMaskingBehavior @ 0x1403BC848 (HalpTimerNoteHpetMaskingBehavior.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5C64 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerNoteHpetMaskingBehavior @ 0x1403AA25C (HalpTimerNoteHpetMaskingBehavior.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerInitialize(__int64 a1)

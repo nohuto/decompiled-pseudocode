@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x1801C3D50
+ * XREFs of ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x18016DD90
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801EE3EC (--1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801882EC (--1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ.c)
  */
 
 CVirtualMonitorCaptureRenderTarget *__fastcall CVirtualMonitorCaptureRenderTarget::`vector deleting destructor'(
@@ -16,7 +16,7 @@ CVirtualMonitorCaptureRenderTarget *__fastcall CVirtualMonitorCaptureRenderTarge
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x8B0);
     else
       operator delete(this);
   }

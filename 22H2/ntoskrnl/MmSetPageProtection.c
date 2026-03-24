@@ -1,82 +1,103 @@
 /*
- * XREFs of MmSetPageProtection @ 0x1403C2610
+ * XREFs of MmSetPageProtection @ 0x1403796F0
  * Callers:
- *     sub_1403F1410 @ 0x1403F1410 (sub_1403F1410.c)
- *     HvpProtectBinPartial @ 0x14070B090 (HvpProtectBinPartial.c)
- *     MmAllocateIsrStack @ 0x14081FAFC (MmAllocateIsrStack.c)
- *     KeWriteProtectProcessorState @ 0x140A918B0 (KeWriteProtectProcessorState.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
- *     VslpIumPhase0Initialize @ 0x140B945CC (VslpIumPhase0Initialize.c)
+ *     sub_1403E9C70 @ 0x1403E9C70 (sub_1403E9C70.c)
+ *     MmAllocateIsrStack @ 0x14079FD68 (MmAllocateIsrStack.c)
+ *     KeWriteProtectProcessorState @ 0x14099ED90 (KeWriteProtectProcessorState.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     VslpIumPhase0Initialize @ 0x140A8F5C8 (VslpIumPhase0Initialize.c)
  * Callees:
- *     MiLockPageAndSetDirty @ 0x140217534 (MiLockPageAndSetDirty.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeProtectionMask @ 0x140276860 (MiMakeProtectionMask.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageAndSetDirty @ 0x1402900EC (MiLockPageAndSetDirty.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned int ProtectionMask; // eax
-  char v7; // si
-  unsigned __int64 v8; // rbp
-  __int64 v9; // r14
+  __int64 v7; // r9
+  char v8; // di
+  unsigned __int64 v9; // rsi
+  __int64 v10; // rbp
   unsigned __int64 ValidPte; // rax
-  __int64 v11; // rbx
-  int v12; // esi
-  char v13; // di
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rbx
-  unsigned __int64 v16; // rdx
-  __int64 v18; // [rsp+20h] [rbp-108h] BYREF
-  _QWORD v19[24]; // [rsp+30h] [rbp-F8h] BYREF
+  __int64 v12; // rbx
+  _KPROCESS *v13; // rdx
+  BOOL v14; // r14d
+  int v15; // edi
+  __int64 v16; // rax
+  _DWORD *v17; // r9
+  unsigned __int64 v18; // r8
+  __int64 v19; // r8
+  unsigned __int64 v20; // rbx
+  unsigned __int64 v21; // rdx
+  struct _LIST_ENTRY *Flink; // rdx
+  _QWORD v24[2]; // [rsp+20h] [rbp-108h] BYREF
+  _QWORD v25[24]; // [rsp+30h] [rbp-F8h] BYREF
 
-  memset(v19, 0, 0xB8uLL);
+  memset(v25, 0, 0xB8uLL);
   if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(a1) )
     return 0;
   ProtectionMask = MiMakeProtectionMask(a3);
-  v7 = ProtectionMask;
-  if ( ProtectionMask > 7 || (ProtectionMask & 5) == 5 || (ProtectionMask & 2) != 0 && (MiFlags & 0x8000) != 0 )
+  v8 = ProtectionMask;
+  if ( ProtectionMask > 7 || (ProtectionMask & 5) == 5 || (ProtectionMask & 2) != 0 && (MiFlags & 0x10000) != 0 )
     return 0;
-  v8 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v9 = (a2 >> 12) + ((a2 & 0xFFF) != 0);
-  ValidPte = MiMakeValidPte(v8, 0LL, ProtectionMask | 0xA0000000);
-  v19[3] = 0LL;
-  LODWORD(v19[1]) = 20;
-  v11 = ValidPte;
-  MiInsertTbFlushEntry((__int64)v19, a1, v9, 0);
-  if ( v9 )
+  v9 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v10 = (a2 >> 12) + ((a2 & 0xFFF) != 0);
+  ValidPte = MiMakeValidPte(v9, 0LL, ProtectionMask | 0xA0000000, v7);
+  v25[3] = 0LL;
+  LODWORD(v25[1]) = 20;
+  v12 = ValidPte;
+  MiInsertTbFlushEntry((__int64)v25, a1, v10, 0);
+  if ( v10 )
   {
-    v12 = v7 & 4;
+    v14 = MiPteInShadowRange((unsigned __int64)v24);
+    v15 = v8 & 4;
     do
     {
-      v18 = MI_READ_PTE_LOCK_FREE(v8);
-      v13 = v18;
-      v14 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v18) >> 12) & 0xFFFFFFFFFFLL;
-      v15 = (v14 << 12) | v11 & 0xFFF0000000000FFFuLL;
-      v16 = v15;
-      if ( v12 )
+      v16 = MI_READ_PTE_LOCK_FREE(v9);
+      v24[0] = v16;
+      v18 = v16;
+      if ( v14
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v16 & 1) != 0
+        && ((v16 & 0x20) == 0 || (v16 & 0x42) == 0) )
       {
-        v15 |= 0x42uLL;
-        if ( (v13 & 0x42) == 0 )
-          v15 = v16;
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)v24 >> 3) & 0x1FF)) & 0x20) != 0 )
+            v18 = v16 | 0x20;
+        }
       }
-      else if ( v14 <= qword_140C65CA0 && ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      v19 = (v18 >> 12) & 0xFFFFFFFFFLL;
+      v20 = (v19 << 12) | v12 & 0xFFFF000000000FFFuLL;
+      v21 = v20;
+      if ( v15 )
       {
-        MiLockPageAndSetDirty(48 * v14 - 0x220000000000LL, 0);
+        v20 |= 0x42uLL;
+        if ( (v24[0] & 0x42) == 0 )
+          v20 = v21;
       }
-      v11 = v15 | 0x20;
-      MiWriteValidPteNewProtection(v8, v11);
-      v8 += 8LL;
-      --v9;
+      else if ( ((*(_QWORD *)(48 * v19 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
+      {
+        MiLockPageAndSetDirty(48 * v19 - 0x58000000000LL, 0LL, v19, v17);
+      }
+      v12 = v20 | 0x20;
+      MiWriteValidPteNewProtection(v9, v12);
+      v9 += 8LL;
+      --v10;
     }
-    while ( v9 );
+    while ( v10 );
   }
-  MiFlushTbList((int *)v19);
+  MiFlushTbList((__int64)v25, v13);
   return 1;
 }

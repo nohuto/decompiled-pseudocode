@@ -1,25 +1,25 @@
 /*
- * XREFs of PiKsrNotifyInitialize @ 0x140B509E0
+ * XREFs of PiKsrNotifyInitialize @ 0x140A91350
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     PiKsrInitialize @ 0x140A531E8 (PiKsrInitialize.c)
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
  */
 
 __int64 PiKsrNotifyInitialize()
 {
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   PnpKsrNotifyLock.Owner = 0LL;
   PnpKsrNotifyLock.Contention = 0;
   PnpKsrNotifyLock.Event.Header.SignalState = 0;
-  qword_140C445C8 = (__int64)&PnpKsrNotifyList;
+  qword_140C43178 = (__int64)&PnpKsrNotifyList;
   PnpKsrNotifyList = &PnpKsrNotifyList;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   PnpKsrNotifyLock.Event.Header.WaitListHead.Blink = &PnpKsrNotifyLock.Event.Header.WaitListHead;
   PnpKsrNotifyLock.Event.Header.WaitListHead.Flink = &PnpKsrNotifyLock.Event.Header.WaitListHead;
   DestinationString = 0LL;
@@ -29,6 +29,7 @@ __int64 PiKsrNotifyInitialize()
   RtlInitUnicodeString(&DestinationString, L"\\Callback\\SoftRestart");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 80;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ExCreateCallback(&PnpKsrCallbackObject, &ObjectAttributes, 0, 0) >= 0 )

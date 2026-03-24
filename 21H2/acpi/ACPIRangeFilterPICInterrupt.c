@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIRangeFilterPICInterrupt @ 0x1C002C388
+ * XREFs of ACPIRangeFilterPICInterrupt @ 0x1C002F4EC
  * Callers:
- *     ACPIBusIrpQueryResources @ 0x1C00978C0 (ACPIBusIrpQueryResources.c)
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0097B70 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
  *     <none>
  */

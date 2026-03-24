@@ -1,5 +1,5 @@
 /*
- * XREFs of hUserCreateKernelEvent @ 0x1C0123040
+ * XREFs of hUserCreateKernelEvent @ 0x1C0137900
  * Callers:
  *     <none>
  * Callees:

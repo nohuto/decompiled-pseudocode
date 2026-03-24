@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmNotifySessionTerminalInput @ 0x1409A4A48
+ * XREFs of TtmNotifySessionTerminalInput @ 0x1408FEE7C
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmiResetTerminalTimeouts @ 0x1409A33CC (TtmiResetTerminalTimeouts.c)
- *     TtmpAcquireSessionById @ 0x1409A5200 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FD8E8 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1408FF5F0 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 void __fastcall TtmNotifySessionTerminalInput(unsigned int a1, int a2, char a3)
@@ -24,7 +24,7 @@ void __fastcall TtmNotifySessionTerminalInput(unsigned int a1, int a2, char a3)
     {
       if ( *(_DWORD *)(i + 28) == a2 )
       {
-        TtmiResetTerminalTimeouts(v7, i, 4u, 1950962771, a3);
+        TtmiResetTerminalTimeouts(v7, i, 4, 1950962771, a3);
         break;
       }
     }
@@ -33,6 +33,6 @@ void __fastcall TtmNotifySessionTerminalInput(unsigned int a1, int a2, char a3)
   }
   else
   {
-    TtmiLogError("TtmNotifySessionTerminalInput", 4213LL, (unsigned int)v5, 0xFFFFFFFFLL);
+    TtmiLogError("TtmNotifySessionTerminalInput", 4217LL, (unsigned int)v5, 0xFFFFFFFFLL);
   }
 }

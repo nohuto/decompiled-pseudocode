@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPicDiscover @ 0x1403BD3FC
+ * XREFs of HalpPicDiscover @ 0x1403AAF70
  * Callers:
- *     HalpInitializeInterrupts @ 0x140AF82A8 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140A396FC (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptRegisterLine @ 0x1403BD66C (HalpInterruptRegisterLine.c)
- *     HalpInterruptRegisterController @ 0x1403BDD00 (HalpInterruptRegisterController.c)
- *     HalSocGetAcpiTable @ 0x1403BE664 (HalSocGetAcpiTable.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpInterruptRegisterLine @ 0x1403AB1E0 (HalpInterruptRegisterLine.c)
+ *     HalpInterruptRegisterController @ 0x1403AB844 (HalpInterruptRegisterController.c)
+ *     HalSocGetAcpiTable @ 0x1403AC144 (HalSocGetAcpiTable.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 HalpPicDiscover()
@@ -24,40 +24,40 @@ __int64 HalpPicDiscover()
   AcpiTable = HalSocGetAcpiTable(1128878145LL);
   if ( AcpiTable && (*(_BYTE *)(AcpiTable + 40) & 1) == 0 )
     return 0LL;
-  memset(v7, 0, sizeof(v7));
-  v7[0] = 0xF000000001LL;
-  v7[25] = &v8;
+  memset(v7, 0, 0xE8uLL);
+  v7[0] = 0xE800000001LL;
+  v7[24] = &v8;
   v7[9] = HalpPicWriteEndOfInterrupt;
-  v7[26] = 0x100000004LL;
+  v7[25] = 0x100000004LL;
   v7[11] = HalpPicSetLineState;
   v7[12] = xKdEnumerateDebuggingDevices;
-  v7[27] = 45056LL;
-  *(_QWORD *)((char *)&v7[28] + 4) = 0LL;
+  v7[26] = 45056LL;
+  *(_QWORD *)((char *)&v7[27] + 4) = 0LL;
   v7[1] = 0LL;
   v7[2] = HalpPicInitializeIoUnit;
   v7[7] = 0LL;
   memset(&v7[3], 0, 24);
   v7[13] = 0LL;
-  LODWORD(v7[28]) = 0;
+  LODWORD(v7[27]) = 0;
   v8 = 45056;
   result = HalpInterruptRegisterController(v7);
   if ( (int)result >= 0 )
   {
-    memset(v7, 0, sizeof(v7));
-    v7[0] = 0xF000000001LL;
-    v7[25] = &v8;
+    memset(v7, 0, 0xE8uLL);
+    v7[0] = 0xE800000001LL;
+    v7[24] = &v8;
     v7[9] = HalpPicWriteEndOfInterrupt;
     v7[11] = HalpPicSetLineState;
     v7[12] = xKdEnumerateDebuggingDevices;
-    v7[26] = 0x100000004LL;
-    v7[27] = 45057LL;
-    *(_QWORD *)((char *)&v7[28] + 4) = 0LL;
+    v7[25] = 0x100000004LL;
+    v7[26] = 45057LL;
+    *(_QWORD *)((char *)&v7[27] + 4) = 0LL;
     v7[1] = 0LL;
     v7[2] = HalpPicInitializeIoUnit;
     v7[7] = 0LL;
     memset(&v7[3], 0, 24);
     v7[13] = 0LL;
-    LODWORD(v7[28]) = 0;
+    LODWORD(v7[27]) = 0;
     v8 = 45057;
     result = HalpInterruptRegisterController(v7);
     if ( (int)result >= 0 )

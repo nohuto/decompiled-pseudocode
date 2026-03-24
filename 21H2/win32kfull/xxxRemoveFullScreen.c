@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxRemoveFullScreen @ 0x1C0060E84
+ * XREFs of xxxRemoveFullScreen @ 0x1C007CA20
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     xxxCheckFullScreen @ 0x1C0061F88 (xxxCheckFullScreen.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     xxxSetTrayWindow @ 0x1C00A5F60 (xxxSetTrayWindow.c)
+ *     xxxSetTrayWindow @ 0x1C003CF18 (xxxSetTrayWindow.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
  */
 
 __int64 __fastcall xxxRemoveFullScreen(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall xxxRemoveFullScreen(__int64 a1)
     && (((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x800) != 0
      || *(_QWORD *)(v1[1] + 192LL)) )
   {
-    SetOrClrWF(0LL, a1, 1088LL, 1LL);
+    SetOrClrWF(0, a1, 0x440u, 1);
     v4 = *(_WORD *)(gpDispInfo + 160LL);
     *(_WORD *)(gpDispInfo + 160LL) = v4 - 1;
     if ( !v4 )
@@ -36,8 +36,8 @@ __int64 __fastcall xxxRemoveFullScreen(__int64 a1)
       v5 = 0LL;
       PushW32ThreadLock(v1, &v5, UserDereferenceObject);
       ObfReferenceObject(v1);
-      xxxSetTrayWindow(v1, 1LL);
-      PopAndFreeW32ThreadLock((__int64)&v5);
+      xxxSetTrayWindow((__int64)v1, (unsigned __int64 *)1);
+      PopAndFreeW32ThreadLock(&v5);
       return 1;
     }
   }

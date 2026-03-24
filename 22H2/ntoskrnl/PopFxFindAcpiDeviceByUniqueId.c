@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x1403955F0
+ * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x14037E244
  * Callers:
- *     PopFxAcpiPrepareDevice @ 0x1405A0E38 (PopFxAcpiPrepareDevice.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x14079131C (PopFxFindDeviceAndAllocateUniqueId.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
+ *     PopFxAcpiPrepareDevice @ 0x14057DEA0 (PopFxAcpiPrepareDevice.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x14073A4F8 (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     IoAcquireRemoveLockEx @ 0x140312310 (IoAcquireRemoveLockEx.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IoAcquireRemoveLockEx @ 0x140260020 (IoAcquireRemoveLockEx.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(PCUNICODE_STRING String2, __int64 **a2)
@@ -40,7 +40,7 @@ __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(PCUNICODE_STRING String2, __int
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v6 >= 0 && a2 )
     *a2 = v5;
   return (unsigned int)v6;

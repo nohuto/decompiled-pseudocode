@@ -1,133 +1,147 @@
 /*
- * XREFs of ?_EnableDisableMonitorInternal@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEA_N@Z @ 0x1C01F31C0
+ * XREFs of ?_EnableDisableMonitorInternal@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0177544
  * Callers:
- *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEA_N@Z @ 0x1C01DD680 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
+ *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0148E90 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
  * Callees:
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C0014EC8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C01DD878 (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
- *     ?_ChangePowerStatus@DXGMONITOR@@QEAAX_N@Z @ 0x1C01F3388 (-_ChangePowerStatus@DXGMONITOR@@QEAAX_N@Z.c)
- *     ?_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F6110 (-_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
- *     ?_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z @ 0x1C03C9194 (-_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z.c)
+ *     ?_ChangeLIDStatus@DXGMONITOR@@QEAAXE@Z @ 0x1C005DE44 (-_ChangeLIDStatus@DXGMONITOR@@QEAAXE@Z.c)
+ *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0148D38 (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
+ *     ?_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0179C8C (-_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
  */
 
 __int64 __fastcall MONITOR_MGR::_EnableDisableMonitorInternal(
         __int64 a1,
-        unsigned int a2,
+        __int64 a2,
         char a3,
         unsigned int a4,
         __int64 a5,
-        __int64 a6,
-        _BYTE *a7)
+        __int64 a6)
 {
-  __int64 v7; // rsi
-  __int64 v10; // r14
-  char v11; // r13
-  __int64 v12; // r12
+  __int64 v6; // r14
+  char v10; // di
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   __int64 v13; // rax
-  __int64 v14; // rbx
-  struct DXGFASTMUTEX *v15; // r14
+  __int64 v14; // rdi
+  __int64 v15; // rdx
   __int64 v16; // rax
-  __int64 v18; // rax
-  DXGMONITOR *v19; // rcx
-  DXGFASTMUTEX *v20; // [rsp+30h] [rbp-48h] BYREF
-  struct DXGFASTMUTEX *v21; // [rsp+38h] [rbp-40h] BYREF
-  DXGFASTMUTEX *v22[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rbp
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  DXGMONITOR *v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  char v29; // [rsp+78h] [rbp+20h]
 
-  v7 = a2;
-  v10 = a1;
-  v11 = 0;
+  v6 = (unsigned int)a2;
+  v29 = 0;
+  v10 = 0;
   if ( a4 - 1 > 1 && a4 != 8 )
-    WdLogSingleEntry0(1LL);
-  v21 = (struct DXGFASTMUTEX *)(v10 + 80);
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v20, (struct DXGFASTMUTEX *)(v10 + 80));
-  v12 = v10 + 40;
-  v13 = *(_QWORD *)(v10 + 40);
-  if ( v13 == v10 + 40 )
   {
-    v14 = 0LL;
+    v20 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v20);
   }
-  else
+  if ( a1 == -168 )
   {
-    v14 = v13 - 152;
+    v21 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v21);
+  }
+  KeAcquireGuardedMutex((PKGUARDED_MUTEX)(a1 + 168));
+  v13 = *(_QWORD *)(a1 + 128);
+  if ( v13 != a1 + 128 )
+  {
+    v14 = v13 - 16;
     if ( !v13 )
       v14 = 0LL;
-  }
-  MUTEX_LOCK::~MUTEX_LOCK(&v20);
-  if ( v14 )
-  {
-    v15 = v21;
-    do
+    if ( v14 )
     {
-      if ( (_DWORD)v7 == -1 || *(_DWORD *)(v14 + 180) == (_DWORD)v7 )
+      do
       {
-        v11 = 1;
-        RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v21, v14, 1);
-        if ( *(_BYTE *)(*(_QWORD *)(v14 + 264) + 8LL) && a7 )
-          *a7 = 1;
-        if ( a4 == 1 )
+        if ( (_DWORD)v6 == -1 || *(_DWORD *)(v14 + 44) == (_DWORD)v6 )
         {
-          DXGMONITOR::_ChangeLIDStatus((DXGMONITOR *)v14, a3 != 0);
-        }
-        else if ( a4 != 8 || *(_DWORD *)(*(_QWORD *)(v14 + 240) + 16LL) != 1 || a3 )
-        {
-          DXGMONITOR::_ChangePowerStatus((DXGMONITOR *)v14, a3 != 0);
-        }
-        if ( v21 )
-        {
-          ExReleaseResourceLite((PERESOURCE)((char *)v21 + 24));
-          KeLeaveCriticalRegion();
-        }
-        if ( *(_DWORD *)(v14 + 312) != 1 )
-        {
-          v18 = *(_QWORD *)(v14 + 320);
-          if ( v18 )
+          v29 = 1;
+          KeEnterCriticalRegion();
+          ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 296), 1u);
+          if ( a4 == 1 )
           {
-            if ( *(_DWORD *)(v18 + 312) != 1 )
-              WdLogSingleEntry0(1LL);
-            RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v20, *(_QWORD *)(v14 + 320), 1);
-            v19 = *(DXGMONITOR **)(v14 + 320);
-            if ( a4 == 1 )
-              DXGMONITOR::_ChangeLIDStatus(v19, a3 != 0);
-            else
-              DXGMONITOR::_ChangePowerStatus(v19, a3 != 0);
-            if ( v20 )
+            LOBYTE(v15) = a3;
+            DXGMONITOR::_ChangeLIDStatus((DXGMONITOR *)v14, v15);
+          }
+          else if ( a4 != 8 || *(_DWORD *)(v14 + 592) != 1 || a3 )
+          {
+            *(_DWORD *)(v14 + 40) = *(_DWORD *)(v14 + 40) & 0xFFFFFFDF | (a3 == 0 ? 0x20 : 0);
+          }
+          ExReleaseResourceLite((PERESOURCE)(v14 + 296));
+          KeLeaveCriticalRegion();
+          if ( *(_DWORD *)(v14 + 432) != 1 )
+          {
+            v22 = *(_QWORD *)(v14 + 440);
+            if ( v22 )
             {
-              ExReleaseResourceLite((PERESOURCE)((char *)v20 + 24));
+              if ( *(_DWORD *)(v22 + 432) != 1 )
+              {
+                v23 = WdLogNewEntry5_WdAssertion(v12, v11);
+                WdLogEvent5_WdAssertion(v23);
+                v22 = *(_QWORD *)(v14 + 440);
+              }
+              if ( !v22 )
+              {
+                v24 = WdLogNewEntry5_WdAssertion(v12, v11);
+                WdLogEvent5_WdAssertion(v24);
+              }
+              KeEnterCriticalRegion();
+              ExAcquireResourceExclusiveLite((PERESOURCE)(v22 + 296), 1u);
+              v26 = *(DXGMONITOR **)(v14 + 440);
+              if ( a4 == 1 )
+              {
+                LOBYTE(v25) = a3;
+                DXGMONITOR::_ChangeLIDStatus(v26, v25);
+              }
+              else
+              {
+                *((_DWORD *)v26 + 10) = *((_DWORD *)v26 + 10) & 0xFFFFFFDF | (a3 == 0 ? 0x20 : 0);
+              }
+              ExReleaseResourceLite((PERESOURCE)(v22 + 296));
               KeLeaveCriticalRegion();
             }
           }
         }
-      }
-      MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)v22, v15);
-      v16 = *(_QWORD *)(v14 + 152);
-      if ( v16 == v12 )
-      {
-        v14 = 0LL;
-      }
-      else
-      {
-        v14 = v16 - 152;
+        v16 = *(_QWORD *)(v14 + 16);
+        if ( v16 == a1 + 128 )
+          break;
+        v14 = v16 - 16;
         if ( !v16 )
           v14 = 0LL;
       }
-      MUTEX_LOCK::~MUTEX_LOCK(v22);
+      while ( v14 );
+      v10 = v29;
     }
-    while ( v14 );
-    v10 = a1;
-    if ( v11 )
-      goto LABEL_19;
+    else
+    {
+      v10 = 0;
+    }
   }
-  if ( (_DWORD)v7 == -1 || a4 == 2 || a4 == 8 )
+  if ( a1 == -168 )
   {
-LABEL_19:
-    MONITOR_MGR::_IssueMonitorEvent(v10 + 8, (unsigned int)v7, a4, a5, 0, a6);
-    MONITOR_MGR::_LogMonitorPresentEvent(v10, (a3 != 0) + 9, v7, 0, 0LL);
+    v27 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v27);
+  }
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 168));
+  if ( v10 || (_DWORD)v6 == -1 || a4 == 2 || a4 == 8 )
+  {
+    MONITOR_MGR::_IssueMonitorEvent(a1, (unsigned int)v6, a4, a5, 0, a6);
+    MONITOR_MGR::_LogMonitorPresentEvent(a1, (unsigned int)(a3 != 0) + 9, v6, 0, 0LL);
   }
   else
   {
-    WdLogSingleEntry2(2LL, v7, v10);
+    v28 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v28 + 24) = v6;
+    *(_QWORD *)(v28 + 32) = a1;
+    WdLogEvent5_WdError(v28);
   }
   return 0LL;
 }

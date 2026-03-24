@@ -1,10 +1,10 @@
 /*
- * XREFs of FONTOBJ_cGetAllGlyphHandles @ 0x1C0291110
+ * XREFs of FONTOBJ_cGetAllGlyphHandles @ 0x1C02935A0
  * Callers:
- *     NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02B2D50 (NtGdiFONTOBJ_cGetAllGlyphHandles.c)
+ *     NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02B48F0 (NtGdiFONTOBJ_cGetAllGlyphHandles.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z @ 0x1C02C7774 (-chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z @ 0x1C02C8F8C (-chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z.c)
  */
 
 ULONG __stdcall FONTOBJ_cGetAllGlyphHandles(FONTOBJ *pfo, HGLYPH *phg)

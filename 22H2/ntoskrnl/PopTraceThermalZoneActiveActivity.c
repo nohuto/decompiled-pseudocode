@@ -1,29 +1,28 @@
 /*
- * XREFs of PopTraceThermalZoneActiveActivity @ 0x140595DDC
+ * XREFs of PopTraceThermalZoneActiveActivity @ 0x140389EB4
  * Callers:
- *     PopThermalSxEntry @ 0x14058FCD8 (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x140590020 (PopThermalTelemetryWorker.c)
- *     PopThermalZoneRemove @ 0x14098B0C0 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x140389B58 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x14056F840 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x1408E7DD0 (PopThermalZoneRemove.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDiagSnapActiveActivity @ 0x14059199C (PopDiagSnapActiveActivity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x14034B79C (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopDiagSnapActiveActivity @ 0x14038A644 (PopDiagSnapActiveActivity.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
+char __fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
 {
   __int64 v2; // rcx
-  void *result; // rax
+  void *DeviceAttachmentBaseRefWithTag; // rax
   void *v4; // rbx
-  __int64 v5; // rsi
-  char active; // al
-  const size_t *v7; // r9
-  int v8; // r10d
-  int v9; // r11d
+  __int64 v5; // rdi
+  const size_t *v6; // r9
+  int v7; // r10d
+  int v8; // r11d
   unsigned __int8 v10[4]; // [rsp+38h] [rbp-79h] BYREF
   int v11; // [rsp+3Ch] [rbp-75h] BYREF
   __int64 v12; // [rsp+40h] [rbp-71h] BYREF
@@ -51,19 +50,24 @@ void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
   v11 = 0;
   v2 = *(_QWORD *)(a1 + 48);
   v10[0] = 0;
-  result = IoGetDeviceAttachmentBaseRefWithTag(v2, 0x67446F50u);
-  v4 = result;
-  if ( result )
+  DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(v2, 0x67446F50u);
+  v4 = DeviceAttachmentBaseRefWithTag;
+  if ( DeviceAttachmentBaseRefWithTag )
+    v5 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+  else
+    v5 = 0LL;
+  if ( v5 )
   {
-    v5 = *(_QWORD *)(*((_QWORD *)result + 39) + 40LL);
-    if ( v5 )
+    LOBYTE(DeviceAttachmentBaseRefWithTag) = PopDiagSnapActiveActivity(a1 + 504, &v11, v10, v32);
+    if ( v11 )
     {
-      active = PopDiagSnapActiveActivity(a1 + 504, &v11, v10, (__int64)v32);
-      if ( v11 )
+      if ( (_BYTE)DeviceAttachmentBaseRefWithTag || PopThermalTelemetryVerbosity )
       {
-        if ( (active || PopThermalTelemetryVerbosity) && (unsigned int)dword_140C03950 > 5 )
+        DeviceAttachmentBaseRefWithTag = *(void **)(a1 + 1048);
+        if ( (unsigned int)dword_140C02228 > 5 )
         {
-          if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+          LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
+          if ( (_BYTE)DeviceAttachmentBaseRefWithTag )
           {
             v16 = 0;
             v18[1] = 0;
@@ -71,7 +75,7 @@ void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
             v17 = *(_QWORD *)(v5 + 136);
             v18[0] = *(unsigned __int16 *)(v5 + 128);
             v15 = 2;
-            tlgCreate1Sz_wchar_t((__int64)v19, v7);
+            tlgCreate1Sz_wchar_t((__int64)v19, v6);
             v22 = 0;
             v25 = 0;
             v28 = 0;
@@ -82,23 +86,24 @@ void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
             v23 = v10;
             v29 = &v12;
             v26 = v32;
-            v11 = v8;
+            v11 = v7;
             v21 = 4;
-            v24 = v9;
+            v24 = v8;
             v12 = 0x1000000LL;
             v30 = 8;
-            tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140C03950,
-              (unsigned __int8 *)byte_14002EC4B,
-              0LL,
-              0LL,
-              9u,
-              &v13);
+            LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgWriteTransfer_EtwWriteTransfer(
+                                                       (__int64)&dword_140C02228,
+                                                       (unsigned __int8 *)&dword_140028804,
+                                                       0LL,
+                                                       0LL,
+                                                       9u,
+                                                       &v13);
           }
         }
       }
     }
-    return (void *)ObfDereferenceObjectWithTag(v4, 0x67446F50u);
   }
-  return result;
+  if ( v4 )
+    LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v4, 0x67446F50u);
+  return (char)DeviceAttachmentBaseRefWithTag;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FxVerifierBreakOnDeviceStateError@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C008A868
+ * XREFs of ?FxVerifierBreakOnDeviceStateError@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0086614
  * Callers:
- *     ?PowerPolSleeping@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000CAB0 (-PowerPolSleeping@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?PowerPolSleeping@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0010030 (-PowerPolSleeping@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ?MxDbgPrint@Mx@@SAXPEBDZZ @ 0x1C00724DC (-MxDbgPrint@Mx@@SAXPEBDZZ.c)
+ *     ?MxDbgPrint@Mx@@SAXPEBDZZ @ 0x1C006260C (-MxDbgPrint@Mx@@SAXPEBDZZ.c)
  */
 
 void __fastcall FxVerifierBreakOnDeviceStateError(_FX_DRIVER_GLOBALS *FxDriverGlobals)
@@ -14,9 +14,9 @@ void __fastcall FxVerifierBreakOnDeviceStateError(_FX_DRIVER_GLOBALS *FxDriverGl
   strcpy(ext, "sys");
   Mx::MxDbgPrint(
     "WDF detected potentially invalid device state in %s.%s. Dump the driver log (!wdflogdump %s.%s) for more information.\n");
-  if ( *(_BYTE *)(v1 + 327) )
+  if ( *(_BYTE *)(v1 + 319) )
   {
-    *(_BYTE *)(v1 + 347) = 1;
+    *(_BYTE *)(v1 + 339) = 1;
     DbgBreakPoint();
   }
 }

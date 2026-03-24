@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmaGuardQueueFlush @ 0x140971FD8
+ * XREFs of PiDmaGuardQueueFlush @ 0x1408B91A4
  * Callers:
- *     PipDmgFlushQueueAndRestartDevices @ 0x14096B40C (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1408B14B8 (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
-void __fastcall PiDmaGuardQueueFlush(__int64 a1)
+_QWORD *__fastcall PiDmaGuardQueueFlush(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v3; // rax
@@ -38,5 +38,5 @@ void __fastcall PiDmaGuardQueueFlush(__int64 a1)
     *(_QWORD *)(a1 + 8) = v3;
   }
   ExReleaseResourceLite(&PipDgqListLock);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

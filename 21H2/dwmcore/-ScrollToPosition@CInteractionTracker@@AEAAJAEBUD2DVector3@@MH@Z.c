@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x18021C660
+ * XREFs of ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x1801CB118
  * Callers:
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x18021BBDC (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA730 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Attach@?$ComPtr@VCScrollPositionKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollPositionKeyframeAnimation@@@Z @ 0x180219440 (-Attach@-$ComPtr@VCScrollPositionKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollPositionKeyf.c)
- *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x18021A18C (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
- *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x18021A420 (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x18021E3F8 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Attach@?$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAnimation@@@Z @ 0x1801C83B8 (-Attach@-$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAn.c)
+ *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x1801C8FC8 (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
+ *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801C924C (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD3E0 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
  */
 
 __int64 __fastcall CInteractionTracker::ScrollToPosition(
@@ -31,7 +31,7 @@ __int64 __fastcall CInteractionTracker::ScrollToPosition(
 
   if ( !(unsigned __int8)CInteractionTracker::TransitionToInertia(this, 1LL) )
     return 0LL;
-  *((_DWORD *)this + 47) = 0;
+  *((_DWORD *)this + 45) = 0;
   CInteractionTracker::DestroyDefaultAnimations(this, 1);
   v5 = *((_DWORD *)a2 + 1);
   v15 = 0;
@@ -54,18 +54,18 @@ __int64 __fastcall CInteractionTracker::ScrollToPosition(
     v9 = started;
     if ( started < 0 )
     {
-      v10 = 6345LL;
+      v10 = 6315LL;
       goto LABEL_6;
     }
-    Microsoft::WRL::ComPtr<CScrollPositionKeyframeAnimation>::Attach((__int64 *)this + 58, (__int64)v8);
+    Microsoft::WRL::ComPtr<CScrollScaleKeyframeAnimation>::Attach((__int64 *)this + 57, (__int64)v8);
     return 0LL;
   }
-  v10 = 6338LL;
+  v10 = 6308LL;
 LABEL_6:
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v10,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontracker.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontracker.cpp",
     (const char *)(unsigned int)started);
   if ( v8 )
     (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v8 + 16LL))(v8);

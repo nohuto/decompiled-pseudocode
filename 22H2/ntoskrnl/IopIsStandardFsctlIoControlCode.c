@@ -1,7 +1,7 @@
 /*
- * XREFs of IopIsStandardFsctlIoControlCode @ 0x140555B0C
+ * XREFs of IopIsStandardFsctlIoControlCode @ 0x1403F0728
  * Callers:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  * Callees:
  *     <none>
  */
@@ -13,26 +13,12 @@ bool __fastcall IopIsStandardFsctlIoControlCode(unsigned int a1)
   unsigned int v3; // ecx
   unsigned int v4; // ecx
   unsigned int v5; // ecx
-  unsigned int v7; // ecx
-  unsigned int v8; // ecx
-  unsigned int v9; // ecx
-  unsigned int v10; // ecx
 
   if ( a1 > 0x110030 )
   {
-    v7 = a1 - 1114168;
-    if ( !v7 )
+    if ( a1 == 1114168 || a1 == 1130508 || a1 == 1142784 || a1 == 1159164 )
       return 1;
-    v8 = v7 - 12228;
-    if ( !v8 )
-      return 1;
-    v9 = v8 - 4;
-    if ( !v9 )
-      return 1;
-    v10 = v9 - 4108;
-    if ( !v10 )
-      return 1;
-    return v10 == 32779;
+    return a1 == 1163287;
   }
   else
   {

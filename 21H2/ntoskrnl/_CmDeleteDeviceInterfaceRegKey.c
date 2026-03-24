@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x140A238FC
+ * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x14072C6E0
  * Callers:
- *     PiCMDeleteDeviceInterfaceKey @ 0x140955184 (PiCMDeleteDeviceInterfaceKey.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x140A23D44 (_CmDeleteDeviceInterfaceWorker.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x14072C49C (_CmDeleteDeviceInterfaceWorker.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x1408AFE78 (PiCMDeleteDeviceInterfaceKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A23A34 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14072C7B4 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)
@@ -16,9 +16,9 @@ __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3,
   int v9; // eax
   unsigned int v10; // eax
   unsigned int v11; // ebx
-  int v12; // eax
-  int v13; // ecx
-  unsigned int v14; // eax
+  int v13; // eax
+  int v14; // ecx
+  unsigned int v15; // eax
   int v16; // [rsp+20h] [rbp-61h]
   _DWORD v17[22]; // [rsp+40h] [rbp-41h] BYREF
 
@@ -50,14 +50,14 @@ __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3,
   if ( !v8 )
     return v11;
   v17[0] = v10;
-  v12 = v8(a1, a2, 3LL);
-  v13 = v12;
-  if ( v12 == -1073741822 )
+  v13 = v8(a1, a2, 3LL);
+  v14 = v13;
+  if ( v13 == -1073741822 )
     return v11;
-  if ( v12 == -1073741536 )
+  if ( v13 == -1073741536 )
     return v17[0];
-  v14 = v11;
-  if ( v13 )
+  v15 = v11;
+  if ( v14 )
     return (unsigned int)-1073741595;
-  return v14;
+  return v15;
 }

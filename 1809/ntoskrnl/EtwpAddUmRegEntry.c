@@ -5,8 +5,8 @@
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)

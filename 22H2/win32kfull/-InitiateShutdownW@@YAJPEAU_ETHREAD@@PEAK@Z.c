@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00B81DC
+ * XREFs of ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00D77D4
  * Callers:
- *     xxxSetInformationThread @ 0x1C00699B0 (xxxSetInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D8CE0 (xxxSetInformationThread.c)
  * Callees:
- *     IsPrivileged @ 0x1C0060DD8 (IsPrivileged.c)
- *     ?NotifyLogon@@YAHK@Z @ 0x1C00B8464 (-NotifyLogon@@YAHK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?NotifyLogon@@YAHK@Z @ 0x1C00D77A0 (-NotifyLogon@@YAHK@Z.c)
+ *     IsPrivileged @ 0x1C011D26C (IsPrivileged.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -14,9 +14,9 @@ __int64 __fastcall InitiateShutdownW(PETHREAD Thread, unsigned int *a2)
   int v4; // ebx
   unsigned int v5; // ebx
   PEPROCESS ThreadProcess; // rax
-  _QWORD *ProcessWin32Process; // rax
-  _QWORD *v8; // rsi
-  __int64 v9; // rbp
+  __int64 ProcessWin32Process; // rax
+  __int64 v8; // rbp
+  __int64 v9; // rsi
   int v10; // ebx
   int v11; // ecx
   __int64 result; // rax
@@ -32,18 +32,18 @@ __int64 __fastcall InitiateShutdownW(PETHREAD Thread, unsigned int *a2)
   else
     v5 = v4 & 0xFFFFFEFF;
   ThreadProcess = PsGetThreadProcess(Thread);
-  ProcessWin32Process = (_QWORD *)PsGetProcessWin32Process(ThreadProcess);
+  ProcessWin32Process = PsGetProcessWin32Process(ThreadProcess);
   v8 = ProcessWin32Process;
-  if ( !ProcessWin32Process || !*ProcessWin32Process )
+  if ( !ProcessWin32Process )
     return 3221225480LL;
-  v9 = ProcessWin32Process[82];
+  v9 = *(_QWORD *)(ProcessWin32Process + 664);
   if ( PsGetThreadProcessId(Thread) == (HANDLE)gpidLogon )
-    goto LABEL_6;
+    goto LABEL_5;
   v5 &= ~0x200u;
   *a2 = v5;
   if ( !v9 )
     return 3221225480LL;
-  if ( !RtlAreAllAccessesGranted(*((_DWORD *)v8 + 168), 0x40u) )
+  if ( !RtlAreAllAccessesGranted(*(_DWORD *)(v8 + 680), 0x40u) )
     return 3221225506LL;
   if ( (v5 & 1) != 0 )
   {
@@ -54,7 +54,7 @@ __int64 __fastcall InitiateShutdownW(PETHREAD Thread, unsigned int *a2)
   {
     return 3221225488LL;
   }
-LABEL_6:
+LABEL_5:
   if ( gdwThreadEndSession )
   {
     if ( v15 == *(_QWORD *)(grpwinstaLogoff + 176LL) || gpidEndSession == (void *)gpidLogon )
@@ -73,7 +73,7 @@ LABEL_6:
   {
     if ( PsGetThreadProcessId(Thread) == (HANDLE)gpidLogon )
     {
-LABEL_8:
+LABEL_7:
       v10 = v5 | 0x200;
       *a2 = v10;
       gdwShutdownFlags = v10;
@@ -88,7 +88,7 @@ LABEL_8:
       *(_DWORD *)(v9 + 64) = v11 | 0xA;
       return result;
     }
-    ThreadWin32Thread = W32GetThreadWin32Thread(Thread);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Thread);
     if ( (v5 & 0x8000) != 0 )
     {
       v5 &= ~0x8000u;
@@ -96,8 +96,8 @@ LABEL_8:
     }
     if ( (unsigned int)NotifyLogon(v5) )
       return 259LL;
-    if ( !ThreadWin32Thread || !*(_DWORD *)(ThreadWin32Thread + 904) )
-      goto LABEL_8;
+    if ( !ThreadWin32Thread || !*(_DWORD *)(ThreadWin32Thread + 896) )
+      goto LABEL_7;
     return 3221225688LL;
   }
 }

@@ -1,32 +1,37 @@
 /*
- * XREFs of ?InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z @ 0x1C00C2F2C
+ * XREFs of ?InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z @ 0x1C00973AC
  * Callers:
- *     ?VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z @ 0x1C0005674 (-VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z.c)
+ *     ?VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z @ 0x1C000204C (-VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z.c)
  * Callees:
- *     ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0019280 (-EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0017428 (-EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::InitializePartitionForAllAdapters(struct VIDMM_PARTITION *this)
 {
-  unsigned int v2; // edi
-  PVOID *i; // rbx
+  __int64 v2; // rdi
+  struct _LIST_ENTRY *i; // rbx
   int v5; // eax
-  __int64 v6; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  _QWORD *v9; // rax
 
-  v2 = 0;
+  LODWORD(v2) = 0;
   ExAcquirePushLockSharedEx(&VIDMM_GLOBAL::_AdapterListLock, 0LL);
-  for ( i = (PVOID *)VIDMM_GLOBAL::_AdapterListHead; i != &VIDMM_GLOBAL::_AdapterListHead; i = (PVOID *)*i )
+  for ( i = VIDMM_GLOBAL::_AdapterListHead.Flink; i != &VIDMM_GLOBAL::_AdapterListHead; i = i->Flink )
   {
-    v5 = VIDMM_PARTITION::EnsureAdapter(this, (struct VIDMM_GLOBAL *)(i - 5596));
+    v5 = VIDMM_PARTITION::EnsureAdapter(this, (struct VIDMM_GLOBAL *)&i[-2795].Blink);
     v2 = v5;
     if ( v5 < 0 )
     {
-      WdLogSingleEntry3(1LL, i - 5596, this, v5);
-      DxgkLogInternalTriageEvent(v6, 0x40000LL);
+      v9 = (_QWORD *)WdLogNewEntry5_WdAssertion(v7, v6, v8);
+      v9[3] = (char *)i - 44712;
+      v9[4] = this;
+      v9[5] = v2;
+      WdLogEvent5_WdAssertion(v9);
       break;
     }
   }
   ExReleasePushLockSharedEx(&VIDMM_GLOBAL::_AdapterListLock, 0LL);
-  return v2;
+  return (unsigned int)v2;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7D0
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA760
  * Callers:
- *     KeExpandKernelStackAndCalloutInternal @ 0x14022E6F0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1402AA680 (KeExpandKernelStackAndCalloutInternal.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9D0 (KeQueryCurrentStackInformationEx.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271270 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     MmGrowKernelStackEx @ 0x140360D00 (MmGrowKernelStackEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402AA8C0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402D0C30 (KeQueryCurrentStackInformationEx.c)
+ *     MmGrowKernelStackEx @ 0x1403244F0 (MmGrowKernelStackEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsigned __int64 a3, int a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rdi
   __int64 CurrentStackPointer; // rax
-  signed __int64 StackLimit; // r14
-  __int64 v12; // rsi
+  signed __int64 StackLimit; // r12
+  __int64 v12; // rbp
   unsigned __int64 v13; // rdi
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 CurrentIrql; // cl
   __int64 v16; // rax
   unsigned __int64 v17; // [rsp+30h] [rbp-38h] BYREF
   __int64 v18[6]; // [rsp+38h] [rbp-30h] BYREF

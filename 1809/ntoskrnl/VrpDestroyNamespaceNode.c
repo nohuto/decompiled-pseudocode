@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpDestroyNamespaceNode @ 0x14080A1BC
+ * XREFs of VrpDestroyNamespaceNode @ 0x14080A19C
  * Callers:
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080856C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088C4 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098D0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpDestroyNamespaceNodeList @ 0x14080A460 (VrpDestroyNamespaceNodeList.c)
- *     VrpPostUnloadKey @ 0x14080B610 (VrpPostUnloadKey.c)
- *     VrpPreLoadKey @ 0x14080B784 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088A4 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpDestroyNamespaceNodeList @ 0x14080A440 (VrpDestroyNamespaceNodeList.c)
+ *     VrpPostUnloadKey @ 0x14080B5F0 (VrpPostUnloadKey.c)
+ *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwDeleteKey @ 0x1401B9B30 (ZwDeleteKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ULongLongMult @ 0x14026D6E8 (ULongLongMult.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwDeleteKey @ 0x1401B9B50 (ZwDeleteKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VrpFindExactNamespaceNode @ 0x14080A514 (VrpFindExactNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x14080A4F4 (VrpFindExactNamespaceNode.c)
  */
 
 __int64 __fastcall VrpDestroyNamespaceNode(ULONGLONG *a1, __int64 a2)

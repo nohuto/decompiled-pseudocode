@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDecrementPowerSettingPendingUpdates @ 0x1402D5EE4
+ * XREFs of PopDecrementPowerSettingPendingUpdates @ 0x1402814B0
  * Callers:
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
- *     PopDispatchPowerSettingCallbacks @ 0x140751A80 (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x140679EE0 (PopDispatchPowerSettingCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402D6004 (PopDeepSleepClearDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopDecrementPowerSettingPendingUpdates(char a1)

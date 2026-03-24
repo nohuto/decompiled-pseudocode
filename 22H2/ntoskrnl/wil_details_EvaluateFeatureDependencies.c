@@ -1,10 +1,11 @@
 /*
- * XREFs of wil_details_EvaluateFeatureDependencies @ 0x140A12370
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1405CC62C
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x14067EE70 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1405CC7E0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     CmInitBootFeatureConfigurations @ 0x140A38340 (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x140374EA4 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140810F1C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403EFE54 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1405CC6E0 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  */
 
 __int64 *wil_details_EvaluateFeatureDependencies()
@@ -32,17 +33,17 @@ __int64 *wil_details_EvaluateFeatureDependencies()
           v3 = *((_BYTE *)v0 + 31) != 0;
         _InterlockedXor((volatile signed __int32 *)*v0, v1 & 0xFFFFFFBF | (v3 << 6) ^ *(_DWORD *)*v0 & 0x40);
       }
-      v0 = wil_details_FeatureDescriptors_SkipPadding(v0 + 7);
+      v0 = wil_details_FeatureDescriptors_SkipPadding(v0 + 5);
     }
     while ( v0 );
   }
-  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = v6 + 7 )
+  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = v6 + 5 )
   {
     result = wil_details_FeatureDescriptors_SkipPadding(i);
     v6 = result;
     if ( !result )
       break;
-    wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState((unsigned int *)*result, (__int64)result);
+    wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState(*result, result);
   }
   return result;
 }

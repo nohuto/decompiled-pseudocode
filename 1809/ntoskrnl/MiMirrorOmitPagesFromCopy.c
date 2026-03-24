@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMirrorOmitPagesFromCopy @ 0x140152FDC
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x140152FFC
  * Callers:
- *     MiMirrorNodeLargePages @ 0x140152B88 (MiMirrorNodeLargePages.c)
- *     MiMirrorReduceBlackWrites @ 0x140152DC0 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140152DE0 (MiMirrorReduceBlackWrites.c)
  *     MiRemoveEnclavePagesFromMirror @ 0x14057C7F8 (MiRemoveEnclavePagesFromMirror.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)

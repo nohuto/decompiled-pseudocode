@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtUpdateRemappingTableEntry @ 0x14052FCD0
+ * XREFs of IvtUpdateRemappingTableEntry @ 0x1404E1270
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IvtUpdateInterruptDestination @ 0x14052FB58 (IvtUpdateInterruptDestination.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IvtUpdateInterruptDestination @ 0x1404E1100 (IvtUpdateInterruptDestination.c)
  */
 
 char __fastcall IvtUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a3, _DWORD *a4)
@@ -21,7 +21,7 @@ char __fastcall IvtUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a
   ULONG_PTR BugCheckParameter4; // [rsp+40h] [rbp-20h] BYREF
   ULONG_PTR v15; // [rsp+48h] [rbp-18h]
 
-  v5 = (ULONG_PTR *)(*(_QWORD *)(a1 + 288) + 16LL * a3);
+  v5 = (ULONG_PTR *)(*(_QWORD *)(a1 + 240) + 16LL * a3);
   if ( (*v5 & 1) == 0 && (a4[3] & 0x10) == 0 )
     return 0;
   v6 = a4[3];

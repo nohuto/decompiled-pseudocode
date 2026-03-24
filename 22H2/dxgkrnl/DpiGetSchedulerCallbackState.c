@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiGetSchedulerCallbackState @ 0x1C000E0F0
+ * XREFs of DpiGetSchedulerCallbackState @ 0x1C0015560
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall DpiGetSchedulerCallbackState(__int64 a1)
 {
-  return (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(a1 + 64) + 3936LL), 0, 0);
+  return (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(a1 + 64) + 3916LL), 0, 0);
 }

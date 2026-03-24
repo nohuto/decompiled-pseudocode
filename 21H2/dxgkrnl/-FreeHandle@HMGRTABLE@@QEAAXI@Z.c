@@ -1,63 +1,56 @@
 /*
- * XREFs of ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C019D5A0
+ * XREFs of ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C010B190
  * Callers:
- *     ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x1C000ECF4 (-FreeHandle@DXGGLOBAL@@QEAAXI@Z.c)
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000ED3C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C016D80C (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
- *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C018692C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
- *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C019A7B8 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
- *     ?TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019CBB0 (-TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@.c)
- *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019DC2C (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
- *     ?DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z @ 0x1C019F020 (-DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z.c)
- *     ?FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C019F348 (-FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICE.c)
- *     ?FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C022273E (-FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDE.c)
- *     DxgkWslDestroyNtSharedObject @ 0x1C031E500 (DxgkWslDestroyNtSharedObject.c)
- *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C033F5C8 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
- *     ??1DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C0344870 (--1DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
- *     ??1DXGCHANNELENDPOINTPROXY@@UEAA@XZ @ 0x1C0354E78 (--1DXGCHANNELENDPOINTPROXY@@UEAA@XZ.c)
- *     ?FreeHandle@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z @ 0x1C0355690 (-FreeHandle@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z.c)
- *     ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C0355E88 (-NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ.c)
- *     ?VmBusDestroyNtSharedObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036C030 (-VmBusDestroyNtSharedObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0006860 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x1C00191C4 (-FreeHandle@DXGGLOBAL@@QEAAXI@Z.c)
+ *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C00E37E4 (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
+ *     ?TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C010A5F0 (-TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@.c)
+ *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C011631C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
+ *     ?FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C012B11C (-FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDE.c)
+ *     ?DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z @ 0x1C012B318 (-DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z.c)
+ *     ?VmBusDestroyNtSharedObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0240120 (-VmBusDestroyNtSharedObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C0290700 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
+ *     ??1DXGCHANNELENDPOINTPROXY@@UEAA@XZ @ 0x1C02B2684 (--1DXGCHANNELENDPOINTPROXY@@UEAA@XZ.c)
+ *     ?FreeHandle@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z @ 0x1C02B2E10 (-FreeHandle@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z.c)
+ *     ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C02B340C (-NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ.c)
+ *     ??1DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C02BC33C (--1DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-void __fastcall HMGRTABLE::FreeHandle(HMGRTABLE *this, unsigned int a2)
+void __fastcall HMGRTABLE::FreeHandle(HMGRTABLE *this, __int64 a2)
 {
   unsigned int v2; // eax
+  unsigned int v3; // edi
   unsigned int v5; // eax
   unsigned int v6; // r8d
   int v7; // edx
   char v8; // cl
   __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
   v2 = *((_DWORD *)this + 5);
+  v3 = a2;
   if ( v2 >= *((_DWORD *)this + 4) )
   {
-    WdLogSingleEntry1(1LL, 250LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_FreeCount < m_TableSize", 250LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 261LL;
+    WdLogEvent5_WdAssertion(v10);
     v2 = *((_DWORD *)this + 5);
   }
   if ( v2 < 0x80 )
   {
-    WdLogSingleEntry1(1LL, 251LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_FreeCount >= HMGRTABLE_MIN_FREE_ENTRIES",
-      251LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v11 + 24) = 262LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v5 = (a2 >> 6) & 0xFFFFFF;
+  v5 = (v3 >> 6) & 0xFFFFFF;
   if ( v5 < *((_DWORD *)this + 4) )
   {
     v6 = *(_DWORD *)(*(_QWORD *)this + 16LL * v5 + 8);
     v7 = (v6 >> 5) & 3;
-    if ( a2 >> 30 == v7 && (v6 & 0x1F) != 0 )
+    if ( v3 >> 30 == v7 && (v6 & 0x1F) != 0 )
     {
       v8 = v7 + 1;
       if ( v7 == 3 )

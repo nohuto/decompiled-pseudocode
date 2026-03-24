@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407FA1BC
+ * XREFs of CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407FA19C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804288 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804268 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardReplacePost @ 0x1407FA220 (CmpPrepareDiscardReplacePost.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardReplacePost @ 0x1407FA200 (CmpPrepareDiscardReplacePost.c)
  */
 
 __int64 __fastcall CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(ULONG_PTR BugCheckParameter2, __int64 a2)

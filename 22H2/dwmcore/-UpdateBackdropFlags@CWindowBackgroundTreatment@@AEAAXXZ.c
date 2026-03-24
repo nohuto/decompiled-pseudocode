@@ -1,25 +1,26 @@
 /*
- * XREFs of ?UpdateBackdropFlags@CWindowBackgroundTreatment@@AEAAXXZ @ 0x1800A4DD8
+ * XREFs of ?UpdateBackdropFlags@CWindowBackgroundTreatment@@AEAAXXZ @ 0x1800C1528
  * Callers:
- *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800A4C7C (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
- *     ?OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18021A3E0 (-OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800C0DCC (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
+ *     ?OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800C1500 (-OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x180049450 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
+ *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800C1578 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
  */
 
-void __fastcall CWindowBackgroundTreatment::UpdateBackdropFlags(CBrush **this, __int64 a2)
+void __fastcall CWindowBackgroundTreatment::UpdateBackdropFlags(CBrush **this)
 {
   struct CBrushRenderingGraph *BrushGraph; // rax
-  CBrush *v4; // rdx
+  char v3; // dl
 
-  BrushGraph = CBrush::GetBrushGraph(this[9], a2);
-  v4 = 0LL;
-  *((_BYTE *)this + 303) = 0;
+  BrushGraph = CBrush::GetBrushGraph(this[8]);
+  v3 = 0;
+  *((_BYTE *)this + 360) = 0;
   if ( BrushGraph )
   {
-    if ( this != (CBrush **)-303LL )
-      *((_BYTE *)this + 303) = *((_BYTE *)BrushGraph + 196);
-    v4 = (CBrush *)*((_QWORD *)BrushGraph + 26);
+    if ( this != (CBrush **)-360LL )
+      *((_BYTE *)this + 360) = *((_BYTE *)BrushGraph + 197);
+    if ( *((_BYTE *)BrushGraph + 196) )
+      v3 = 1;
   }
-  this[38] = v4;
+  *((_BYTE *)this + 359) = v3;
 }

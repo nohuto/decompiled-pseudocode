@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerRemoveDeadline @ 0x1C0002D50
+ * XREFs of CiSchedulerRemoveDeadline @ 0x1C0002C60
  * Callers:
- *     CiSchedulerRemoveTaskIndex @ 0x1C0002B60 (CiSchedulerRemoveTaskIndex.c)
- *     CiSchedulerCancelTaskIndexYield @ 0x1C0002C60 (CiSchedulerCancelTaskIndexYield.c)
- *     CiSchedulerThreadFunction @ 0x1C0002E60 (CiSchedulerThreadFunction.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002A80 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002B50 (CiSchedulerCancelTaskIndexYield.c)
+ *     CiSchedulerThreadFunction @ 0x1C0002D50 (CiSchedulerThreadFunction.c)
  * Callees:
  *     <none>
  */

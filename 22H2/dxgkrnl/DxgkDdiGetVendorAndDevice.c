@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkDdiGetVendorAndDevice @ 0x1C036A520
+ * XREFs of DxgkDdiGetVendorAndDevice @ 0x1C0231CE0
  * Callers:
- *     ?DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z @ 0x1C0065780 (-DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z.c)
+ *     ?DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z @ 0x1C0058B90 (-DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005B17C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE@@@Z @ 0x1C0368894 (-GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C0040104 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE@@@Z @ 0x1C0230984 (-GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE.c)
  */
 
 void __fastcall DxgkDdiGetVendorAndDevice(_QWORD *a1, int a2, unsigned __int16 a3, _WORD *a4, _WORD *a5)
@@ -19,7 +19,7 @@ void __fastcall DxgkDdiGetVendorAndDevice(_QWORD *a1, int a2, unsigned __int16 a
   __int64 v14; // [rsp+50h] [rbp+8h] BYREF
 
   v14 = 0LL;
-  v6 = a1[366];
+  v6 = a1[338];
   v8 = a3;
   v14 = a3;
   ADAPTER_RENDER::GetVendorAndDevice(v6, a2, (unsigned int *)&v14);

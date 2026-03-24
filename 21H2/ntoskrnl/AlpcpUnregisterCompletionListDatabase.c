@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpUnregisterCompletionListDatabase @ 0x1407F7CC4
+ * XREFs of AlpcpUnregisterCompletionListDatabase @ 0x1406C3930
  * Callers:
- *     AlpcpInitializeCompletionList @ 0x1407F5914 (AlpcpInitializeCompletionList.c)
- *     AlpcpFreeCompletionList @ 0x1407F7C68 (AlpcpFreeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpFreeCompletionList @ 0x1406C38D4 (AlpcpFreeCompletionList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
+char __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
 {
   __int64 v2; // rdx
   _QWORD *v3; // rax
@@ -20,7 +20,7 @@ __int64 __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
     __fastfail(3u);
   *v3 = v2;
   *(_QWORD *)(v2 + 8) = v3;
-  --dword_140C2A0C8;
+  --dword_140C2A968;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpCompletionListDatabase, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&AlpcpCompletionListDatabase);
   return KeAbPostRelease((ULONG_PTR)&AlpcpCompletionListDatabase);

@@ -1,61 +1,71 @@
 /*
- * XREFs of MiMarkNonPagedHiberPhasePte @ 0x140AAC600
+ * XREFs of MiMarkNonPagedHiberPhasePte @ 0x1409B0660
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14023F0A0 (MiIsPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
- *     MiIsPfnTradable @ 0x14064D964 (MiIsPfnTradable.c)
+ *     MiReadPteShadow @ 0x1402860B0 (MiReadPteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
+ *     MiIsPfnTradable @ 0x14054EF1C (MiIsPfnTradable.c)
  */
 
 __int64 __fastcall MiMarkNonPagedHiberPhasePte(__int64 a1, unsigned __int64 a2, int a3)
 {
-  char v4; // bl
-  unsigned __int64 v5; // rdi
-  ULONG_PTR v6; // r9
-  __int64 v7; // rcx
-  __int64 v8; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rbx
+  unsigned __int64 PteShadow; // rdi
+  unsigned __int64 v7; // rdi
+  ULONG_PTR v8; // r9
   __int64 v9; // rcx
-  __int64 v11; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int64 v13; // [rsp+58h] [rbp+20h] BYREF
 
-  v11 = MI_READ_PTE_LOCK_FREE(a2);
-  v4 = v11;
-  if ( (v11 & 1) != 0 )
+  v4 = MI_READ_PTE_LOCK_FREE(a2);
+  v13 = v4;
+  v5 = v4;
+  if ( (v4 & 1) != 0 )
   {
-    v5 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v11) >> 12) & 0xFFFFFFFFFFLL;
-    if ( (unsigned int)MiIsPfn(v5) )
+    PteShadow = v4;
+    if ( MiPteInShadowRange((unsigned __int64)&v13) )
+      PteShadow = MiReadPteShadow((unsigned __int64)&v13, v5);
+    v7 = (PteShadow >> 12) & 0xFFFFFFFFFLL;
+    if ( (unsigned int)MiIsPfn(v7) )
     {
-      if ( v4 >= 0 )
+      if ( (v5 & 0x80u) == 0LL )
       {
-        if ( !a3 )
+        if ( a3 )
+          return 0LL;
+        v10 = 48 * v7 - 0x58000000000LL;
+        if ( *(_WORD *)(v10 + 32) <= 1u
+          && (unsigned int)MiIsPfnTradable((_BYTE *)v10)
+          && (*(_BYTE *)(v11 + 35) & 8) == 0 )
         {
-          v8 = 48 * v5 - 0x220000000000LL;
-          if ( *(_WORD *)(v8 + 32) > 1u
-            || !(unsigned int)MiIsPfnTradable((_DWORD *)v8)
-            || (*(_BYTE *)(v9 + 35) & 8) != 0 )
-          {
-            v6 = 1LL;
-LABEL_14:
-            PoSetHiberRange(0LL, 0x14000u, (PVOID)v5, v6, 0x6C64704Eu);
-          }
+          return 0LL;
         }
+        v8 = 1LL;
       }
       else
       {
-        v6 = 512LL;
+        v8 = 512LL;
         if ( a3 <= 1 )
-          goto LABEL_14;
-        v7 = (unsigned int)(a3 - 1);
+        {
+LABEL_16:
+          PoSetHiberRange(0LL, 0x14000u, (PVOID)v7, v8, 0x6C64704Eu);
+          return 0LL;
+        }
+        v9 = (unsigned int)(a3 - 1);
         do
         {
-          v6 <<= 9;
-          --v7;
+          v8 <<= 9;
+          --v9;
         }
-        while ( v7 );
-        if ( v6 )
-          goto LABEL_14;
+        while ( v9 );
       }
+      if ( v8 )
+        goto LABEL_16;
     }
   }
   return 0LL;

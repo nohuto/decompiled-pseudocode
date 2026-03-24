@@ -1,10 +1,10 @@
 /*
- * XREFs of FxVerifyAllocateDebugInfo @ 0x1C006BF10
+ * XREFs of FxVerifyAllocateDebugInfo @ 0x1C0058628
  * Callers:
- *     FxVerifierReadObjectDebugInfo @ 0x1C006BDB0 (FxVerifierReadObjectDebugInfo.c)
+ *     FxVerifierReadObjectDebugInfo @ 0x1C00584C8 (FxVerifierReadObjectDebugInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 __int64 __fastcall FxVerifyAllocateDebugInfo(
@@ -13,83 +13,88 @@ __int64 __fastcall FxVerifyAllocateDebugInfo(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         FxObjectDebugInfoFlags DebugFlag)
 {
-  __int64 Pool2; // rbx
-  __int16 v5; // r13
-  FxObjectDebugInfo **v7; // r15
-  unsigned int v9; // esi
-  wchar_t v10; // dx
-  const char *v11; // rax
-  const wchar_t *v12; // r12
-  wchar_t v13; // [rsp+20h] [rbp-79h]
+  wchar_t v4; // r13
+  FxObjectDebugInfo *v5; // rbx
+  FxObjectDebugInfo **v7; // r12
+  SIZE_T v9; // rdi
+  FxObjectDebugInfo *PoolWithTag; // rax
+  unsigned int v11; // esi
+  const char *v12; // rdx
+  const wchar_t *v13; // r14
+  __int16 v14; // [rsp+20h] [rbp-79h]
   _UNICODE_STRING objectName; // [rsp+28h] [rbp-71h] BYREF
-  FxObjectDebugInfo **v15; // [rsp+38h] [rbp-61h]
+  FxObjectDebugInfo **v16; // [rsp+38h] [rbp-61h]
   _UNICODE_STRING handleName; // [rsp+40h] [rbp-59h] BYREF
   _STRING string; // [rsp+50h] [rbp-49h] BYREF
   wchar_t ubuffer[40]; // [rsp+60h] [rbp-39h] BYREF
 
-  Pool2 = (__int64)*Info;
-  v5 = DebugFlag;
+  v4 = *HandleNameList;
+  v5 = *Info;
+  v14 = DebugFlag;
   v7 = Info;
-  v15 = Info;
-  if ( !*HandleNameList )
+  v16 = Info;
+  if ( !v4 )
     return 3221225485LL;
-  if ( !Pool2 )
+  if ( !v5 )
   {
-    Pool2 = ExAllocatePool2(64LL, 4 * FxObjectsInfoCount, FxDriverGlobals->Tag);
-    if ( !Pool2 )
+    v9 = 4 * FxObjectsInfoCount;
+    PoolWithTag = (FxObjectDebugInfo *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v9, FxDriverGlobals->Tag);
+    v5 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225632LL;
+    memset(PoolWithTag, 0, v9);
+    LOWORD(DebugFlag) = v14;
+    v4 = *HandleNameList;
   }
-  v9 = 0;
-  v10 = *HandleNameList;
-  v13 = *HandleNameList;
+  v11 = 0;
   if ( FxObjectsInfoCount )
   {
     do
     {
       objectName = 0LL;
-      *(_WORD *)(Pool2 + 4LL * v9) = FxObjectsInfo[v9].ObjectType;
-      v11 = FxObjectsInfo[v9].HandleName;
+      v5[v11].ObjectType = FxObjectsInfo[v11].ObjectType;
+      v12 = FxObjectsInfo[v11].HandleName;
       string = 0LL;
-      if ( v11 )
+      if ( v12 )
       {
-        if ( v10 == 42 )
+        if ( v4 == 42 )
         {
-          *(_WORD *)(Pool2 + 4LL * v9 + 2) |= v5;
+          v5[v11].u.DebugFlags |= DebugFlag;
         }
         else
         {
-          RtlInitAnsiString(&string, v11);
+          RtlInitAnsiString(&string, v12);
           memset(ubuffer, 0, sizeof(ubuffer));
           *(_DWORD *)&objectName.Length = 5242880;
           objectName.Buffer = ubuffer;
-          if ( RtlAnsiStringToUnicodeString(&objectName, &string, 0) >= 0 )
+          if ( RtlAnsiStringToUnicodeString(&objectName, &string, 0) >= 0 && (v13 = HandleNameList, *HandleNameList) )
           {
-            v12 = HandleNameList;
-            if ( *HandleNameList )
+            while ( 1 )
             {
-              while ( 1 )
-              {
-                handleName = 0LL;
-                RtlInitUnicodeString(&handleName, v12);
-                v12 += ((unsigned __int64)handleName.Length >> 1) + 1;
-                if ( !RtlCompareUnicodeString(&handleName, &objectName, 1u) )
-                  break;
-                if ( !*v12 )
-                  goto LABEL_16;
-              }
-              *(_WORD *)(Pool2 + 4LL * v9 + 2) |= v5;
+              handleName = 0LL;
+              RtlInitUnicodeString(&handleName, v13);
+              v13 += ((unsigned __int64)handleName.Length >> 1) + 1;
+              if ( !RtlCompareUnicodeString(&handleName, &objectName, 1u) )
+                break;
+              if ( !*v13 )
+                goto LABEL_15;
             }
+            LOWORD(DebugFlag) = v14;
+            v5[v11].u.DebugFlags |= v14;
           }
-LABEL_16:
-          v10 = v13;
+          else
+          {
+LABEL_15:
+            LOWORD(DebugFlag) = v14;
+          }
         }
       }
-      ++v9;
+      ++v11;
     }
-    while ( v9 < FxObjectsInfoCount );
-    v7 = v15;
+    while ( v11 < FxObjectsInfoCount );
+    v7 = v16;
   }
   if ( !*v7 )
-    *v7 = (FxObjectDebugInfo *)Pool2;
+    *v7 = v5;
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?pppUserModeCallback@@YAJKPEAXK0K@Z @ 0x1C020543C
+ * XREFs of ?pppUserModeCallback@@YAJKPEAXK0K@Z @ 0x1C014EC44
  * Callers:
- *     ClientPrinterThunk @ 0x1C0205E2C (ClientPrinterThunk.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall pppUserModeCallback(__int64 a1, void *a2, __int64 a3, void *a4, unsigned int a5)

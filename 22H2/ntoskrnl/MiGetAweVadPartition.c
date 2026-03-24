@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetAweVadPartition @ 0x14064A9D0
+ * XREFs of MiGetAweVadPartition @ 0x14054C3C0
  * Callers:
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x14030B2F4 (MiLocateLockedVadEvent.c)
- *     MiGetAweInfoPartition @ 0x14064A8C8 (MiGetAweInfoPartition.c)
+ *     MiLocateLockedVadEvent @ 0x14027EA4C (MiLocateLockedVadEvent.c)
+ *     MiGetAweInfoPartition @ 0x14054C2D4 (MiGetAweInfoPartition.c)
  */
 
 __int64 __fastcall MiGetAweVadPartition(__int64 a1)
 {
-  unsigned __int64 LockedVadEvent; // rax
+  __int64 **LockedVadEvent; // rax
 
-  if ( (*(_DWORD *)(a1 + 48) & 0x6200000) == 0x4200000 )
-    return *(_QWORD *)(qword_140C674C8 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25]);
+  if ( (*(_DWORD *)(a1 + 48) & 0x3100000) == 0x2100000 )
+    return *(_QWORD *)(qword_140C4E648 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
   LockedVadEvent = MiLocateLockedVadEvent(a1, 256);
-  return MiGetAweInfoPartition(*(_QWORD *)(LockedVadEvent + 40));
+  return MiGetAweInfoPartition((__int64)LockedVadEvent[5]);
 }

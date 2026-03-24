@@ -1,14 +1,13 @@
 /*
- * XREFs of ?GetSize@CRenderTargetBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x18003551C
+ * XREFs of ?GetSize@CRenderTargetBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x18006129C
  * Callers:
- *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800352EC (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
- *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x180122860 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AUD2D_SIZE_U@@XZ @ 0x180123520 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA?AUD2D_SIZE_U@@XZ @ 0x180123A20 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AUD2D_SIZE_U@@XZ @ 0x180123D60 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802B4E4C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800610D4 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScrat.c)
+ *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F5780 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8BE0 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8D20 (-GetSize@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026666C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct D2D_SIZE_U __fastcall CRenderTargetBitmap::GetSize(CRenderTargetBitmap *this, _DWORD *a2)

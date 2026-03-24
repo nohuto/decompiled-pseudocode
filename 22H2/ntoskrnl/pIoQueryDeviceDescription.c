@@ -1,18 +1,18 @@
 /*
- * XREFs of pIoQueryDeviceDescription @ 0x1407CEB14
+ * XREFs of pIoQueryDeviceDescription @ 0x14078AA64
  * Callers:
- *     pIoQueryBusDescription @ 0x1407CEFB8 (pIoQueryBusDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B004 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopGetRegistryKeyInformation @ 0x1407CF328 (IopGetRegistryKeyInformation.c)
- *     IopOpenRegistryKey @ 0x1407CF480 (IopOpenRegistryKey.c)
- *     IopGetRegistryValues @ 0x1407CF598 (IopGetRegistryValues.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF660 (RtlIntegerToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlIntegerToUnicodeString @ 0x1406F6350 (RtlIntegerToUnicodeString.c)
+ *     IopOpenRegistryKey @ 0x1407690C4 (IopOpenRegistryKey.c)
+ *     IopGetRegistryKeyInformation @ 0x140769C04 (IopGetRegistryKeyInformation.c)
+ *     IopGetRegistryValues @ 0x14078B374 (IopGetRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -27,35 +27,33 @@ __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __in
   ULONG v14; // edi
   unsigned int v15; // r15d
   __int128 v16; // xmm6
-  int v18; // [rsp+28h] [rbp-E0h]
-  char v19; // [rsp+28h] [rbp-E0h]
   _QWORD Destination[3]; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   HANDLE KeyHandle; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v23; // [rsp+88h] [rbp-80h]
+  __int64 v21; // [rsp+88h] [rbp-80h]
   UNICODE_STRING String; // [rsp+90h] [rbp-78h] BYREF
-  PVOID v25; // [rsp+A0h] [rbp-68h]
-  PVOID P; // [rsp+A8h] [rbp-60h]
-  PVOID v27[2]; // [rsp+B0h] [rbp-58h] BYREF
-  PVOID v28; // [rsp+C0h] [rbp-48h]
-  PVOID v29[2]; // [rsp+C8h] [rbp-40h] BYREF
-  PVOID v30; // [rsp+D8h] [rbp-30h]
-  char v31; // [rsp+E0h] [rbp-28h] BYREF
+  PVOID v23; // [rsp+A0h] [rbp-68h] BYREF
+  PVOID P; // [rsp+A8h] [rbp-60h] BYREF
+  PVOID v25[2]; // [rsp+B0h] [rbp-58h] BYREF
+  PVOID v26; // [rsp+C0h] [rbp-48h]
+  PVOID v27[2]; // [rsp+C8h] [rbp-40h] BYREF
+  PVOID v28; // [rsp+D8h] [rbp-30h]
+  char v29; // [rsp+E0h] [rbp-28h] BYREF
 
   v5 = a5;
   *(_OWORD *)&Destination[1] = *a2;
+  v26 = 0LL;
   v28 = 0LL;
-  v30 = 0LL;
-  v23 = a5;
+  v21 = a5;
   String.MaximumLength = 28;
   Handle = 0LL;
-  String.Buffer = (wchar_t *)&v31;
+  String.Buffer = (wchar_t *)&v29;
   KeyHandle = 0LL;
   P = 0LL;
-  v25 = 0LL;
+  v23 = 0LL;
   *(_DWORD *)(&String.MaximumLength + 1) = 0;
+  *(_OWORD *)v25 = 0LL;
   *(_OWORD *)v27 = 0LL;
-  *(_OWORD *)v29 = 0LL;
   appended = RtlAppendUnicodeToString((PUNICODE_STRING)&Destination[1], L"\\");
   if ( appended >= 0 )
   {
@@ -70,11 +68,10 @@ __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __in
       }
       else
       {
-        v19 = 0;
-        appended = IopOpenRegistryKey(&Handle, 0LL, &Destination[1], 131097LL, v19);
+        appended = IopOpenRegistryKey(&Handle, 0LL, (UNICODE_STRING *)&Destination[1], 0x20019u, 0);
         if ( appended < 0 )
           return (unsigned int)appended;
-        appended = IopGetRegistryKeyInformation(Handle);
+        appended = IopGetRegistryKeyInformation(Handle, &P);
         ZwClose(Handle);
         Handle = 0LL;
         if ( appended < 0 )
@@ -99,8 +96,7 @@ __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __in
           appended = RtlAppendUnicodeStringToString((PUNICODE_STRING)&Destination[1], &String);
           if ( appended < 0 )
             return (unsigned int)appended;
-          LOBYTE(v18) = 0;
-          appended = IopOpenRegistryKey(&Handle, 0LL, &Destination[1], 131097LL, v18);
+          appended = IopOpenRegistryKey(&Handle, 0LL, (UNICODE_STRING *)&Destination[1], 0x20019u, 0);
           if ( appended >= 0 )
           {
             appended = IopGetRegistryValues(Handle);
@@ -123,7 +119,7 @@ LABEL_30:
                        v5,
                        *a1[2],
                        v10,
-                       v27,
+                       v25,
                        0,
                        0,
                        0LL);
@@ -143,19 +139,19 @@ LABEL_30:
             }
             else
             {
-              LOBYTE(v18) = 0;
-              if ( (int)IopOpenRegistryKey(&KeyHandle, 0LL, &Destination[1], 131097LL, v18) < 0
-                || (appended = IopGetRegistryKeyInformation(KeyHandle), ZwClose(KeyHandle),
-                                                                        KeyHandle = 0LL,
-                                                                        appended < 0) )
+              if ( IopOpenRegistryKey(&KeyHandle, 0LL, (UNICODE_STRING *)&Destination[1], 0x20019u, 0) < 0
+                || (appended = IopGetRegistryKeyInformation(KeyHandle, &v23),
+                    ZwClose(KeyHandle),
+                    KeyHandle = 0LL,
+                    appended < 0) )
               {
                 appended = 0;
                 goto LABEL_23;
               }
               v14 = 0;
-              v15 = *((_DWORD *)v25 + 5);
-              ExFreePoolWithTag(v25, 0);
-              v25 = 0LL;
+              v15 = *((_DWORD *)v23 + 5);
+              ExFreePoolWithTag(v23, 0);
+              v23 = 0LL;
             }
             v16 = *(_OWORD *)&Destination[1];
             while ( v14 < v15 )
@@ -171,8 +167,7 @@ LABEL_30:
               appended = RtlAppendUnicodeStringToString((PUNICODE_STRING)&Destination[1], &String);
               if ( appended < 0 )
                 break;
-              LOBYTE(v18) = 0;
-              appended = IopOpenRegistryKey(&KeyHandle, 0LL, &Destination[1], 131097LL, v18);
+              appended = IopOpenRegistryKey(&KeyHandle, 0LL, (UNICODE_STRING *)&Destination[1], 0x20019u, 0);
               if ( appended >= 0 )
               {
                 appended = IopGetRegistryValues(KeyHandle);
@@ -185,27 +180,27 @@ LABEL_30:
                                &Destination[1],
                                **a1,
                                a4,
-                               v23,
+                               v21,
                                *a1[2],
                                v10,
-                               v27,
+                               v25,
                                *a1[4],
                                v14,
-                               v29);
-                  if ( v29[0] )
+                               v27);
+                  if ( v27[0] )
                   {
-                    ExFreePoolWithTag(v29[0], 0);
-                    v29[0] = 0LL;
+                    ExFreePoolWithTag(v27[0], 0);
+                    v27[0] = 0LL;
                   }
-                  if ( v29[1] )
+                  if ( v27[1] )
                   {
-                    ExFreePoolWithTag(v29[1], 0);
-                    v29[1] = 0LL;
+                    ExFreePoolWithTag(v27[1], 0);
+                    v27[1] = 0LL;
                   }
-                  if ( v30 )
+                  if ( v28 )
                   {
-                    ExFreePoolWithTag(v30, 0);
-                    v30 = 0LL;
+                    ExFreePoolWithTag(v28, 0);
+                    v28 = 0LL;
                   }
                   if ( appended < 0 )
                     break;
@@ -213,24 +208,24 @@ LABEL_30:
               }
               ++v14;
             }
-            v5 = v23;
+            v5 = v21;
           }
         }
 LABEL_23:
-        if ( v27[0] )
+        if ( v25[0] )
         {
-          ExFreePoolWithTag(v27[0], 0);
-          v27[0] = 0LL;
+          ExFreePoolWithTag(v25[0], 0);
+          v25[0] = 0LL;
         }
-        if ( v27[1] )
+        if ( v25[1] )
         {
-          ExFreePoolWithTag(v27[1], 0);
-          v27[1] = 0LL;
+          ExFreePoolWithTag(v25[1], 0);
+          v25[1] = 0LL;
         }
-        if ( v28 )
+        if ( v26 )
         {
-          ExFreePoolWithTag(v28, 0);
-          v28 = 0LL;
+          ExFreePoolWithTag(v26, 0);
+          v26 = 0LL;
         }
         if ( appended < 0 )
           return (unsigned int)appended;

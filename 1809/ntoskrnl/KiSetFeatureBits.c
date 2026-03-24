@@ -3,10 +3,10 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiApplyProcessorErrata @ 0x1401B48C8 (KiApplyProcessorErrata.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     HvlSetHardwareMbecAvailable @ 0x14027108C (HvlSetHardwareMbecAvailable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiApplyProcessorErrata @ 0x1401B48E8 (KiApplyProcessorErrata.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     HvlSetHardwareMbecAvailable @ 0x14027118C (HvlSetHardwareMbecAvailable.c)
  *     KiGetProcessorSignature @ 0x14056F62C (KiGetProcessorSignature.c)
  *     KiSetProcessorSignature @ 0x14056F7A8 (KiSetProcessorSignature.c)
  *     KiDetectKvaLeakage @ 0x1405710E4 (KiDetectKvaLeakage.c)

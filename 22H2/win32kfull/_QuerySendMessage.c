@@ -1,41 +1,40 @@
 /*
- * XREFs of _QuerySendMessage @ 0x1C01FBDEC
+ * XREFs of _QuerySendMessage @ 0x1C021DE4C
  * Callers:
- *     NtUserQuerySendMessage @ 0x1C01D8C70 (NtUserQuerySendMessage.c)
+ *     NtUserQuerySendMessage @ 0x1C0200290 (NtUserQuerySendMessage.c)
  * Callees:
- *     IsPointerInputMessageWithState @ 0x1C0118014 (IsPointerInputMessageWithState.c)
- *     TranslateSentPointerMessageForClient @ 0x1C01C444C (TranslateSentPointerMessageForClient.c)
+ *     IsPointerParentNotify @ 0x1C006B28C (IsPointerParentNotify.c)
+ *     IsPointerInputMessageWithState @ 0x1C006B2B0 (IsPointerInputMessageWithState.c)
+ *     TranslateSentPointerMessageForClient @ 0x1C01EF654 (TranslateSentPointerMessageForClient.c)
  */
 
-__int64 __fastcall QuerySendMessage(__int64 a1, __int64 a2)
+_BOOL8 __fastcall QuerySendMessage(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8
-  unsigned int v3; // ebx
-  __int64 *v4; // rax
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  unsigned int v7; // ecx
-  unsigned __int64 *v8; // r9
-  __int64 *v9; // r10
+  _QWORD *v3; // rax
+  __int64 v4; // rcx
+  int v5; // eax
+  unsigned int v6; // ecx
+  __int16 v7; // r9
+  unsigned __int64 *v8; // r10
+  __int64 *v9; // r11
 
   v2 = *(_QWORD *)(a1 + 512);
-  v3 = 0;
   if ( !v2 )
     return 0LL;
-  v4 = *(__int64 **)(v2 + 112);
-  if ( v4 )
-    v5 = *v4;
-  else
-    v5 = 0LL;
-  *(_QWORD *)a2 = v5;
-  v6 = *(unsigned int *)(v2 + 104);
-  *(_DWORD *)(a2 + 8) = v6;
+  v3 = *(_QWORD **)(v2 + 112);
+  if ( v3 )
+    v3 = (_QWORD *)*v3;
+  *(_QWORD *)a2 = v3;
+  v4 = *(unsigned int *)(v2 + 104);
+  *(_DWORD *)(a2 + 8) = v4;
   *(_QWORD *)(a2 + 16) = *(_QWORD *)(v2 + 88);
   *(_QWORD *)(a2 + 24) = *(_QWORD *)(v2 + 96);
-  *(_DWORD *)(a2 + 32) = *(_DWORD *)(v2 + 80);
-  *(_QWORD *)(a2 + 36) = 0LL;
-  if ( !(unsigned int)IsPointerInputMessageWithState(v6) && (v7 != 528 || *(_WORD *)v8 != 582) )
+  v5 = *(_DWORD *)(v2 + 80);
+  *(_DWORD *)(a2 + 36) = 0;
+  *(_DWORD *)(a2 + 40) = 0;
+  *(_DWORD *)(a2 + 32) = v5;
+  if ( !(unsigned int)IsPointerInputMessageWithState(v4) && !IsPointerParentNotify(v6, v7) )
     return 1LL;
-  LOBYTE(v3) = TranslateSentPointerMessageForClient(v7, v8, v9);
-  return v3;
+  return TranslateSentPointerMessageForClient(v6, v8, v9);
 }

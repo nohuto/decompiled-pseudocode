@@ -1,22 +1,22 @@
 /*
- * XREFs of UsbhBusResume_Action @ 0x1C0013AB0
+ * XREFs of UsbhBusResume_Action @ 0x1C0005CF0
  * Callers:
- *     UsbhReleaseBusStateLock @ 0x1C0010420 (UsbhReleaseBusStateLock.c)
+ *     UsbhReleaseBusStateLock @ 0x1C0003300 (UsbhReleaseBusStateLock.c)
  * Callees:
- *     UsbhRefPdo @ 0x1C0002030 (UsbhRefPdo.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhPostInterrupt @ 0x1C00104E0 (UsbhPostInterrupt.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhDerefPdo @ 0x1C00108A0 (UsbhDerefPdo.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhRefPdo @ 0x1C0002310 (UsbhRefPdo.c)
+ *     UsbhPostInterrupt @ 0x1C00033C0 (UsbhPostInterrupt.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhDerefPdo @ 0x1C0003770 (UsbhDerefPdo.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
 {
-  _DWORD *DeviceExtension; // rbx
+  _DWORD *DeviceExtension; // rdi
   __int64 v5; // rcx
   unsigned __int16 i; // bp
   unsigned __int8 *v7; // rdx
@@ -40,23 +40,23 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
   __int64 v25; // r15
   void *v26; // rdx
   __int64 v27; // rcx
-  KIRQL v28; // bl
+  KIRQL v28; // di
   void *v29; // rdx
   __int64 v30; // rcx
   unsigned __int8 *v31; // rdx
   __int64 v32; // rcx
   __int64 v33; // r8
   volatile __int64 *v34; // rax
-  _QWORD *v35; // rsi
+  _QWORD *v35; // rbx
   __int64 v36; // rdx
-  _DWORD *v38; // rbx
+  __int64 v38; // rdi
   KIRQL v39; // al
 
   if ( !DeviceObject )
     UsbhTrapFatal_Dbg(0LL, 0LL);
   DeviceExtension = DeviceObject->DeviceExtension;
   if ( !DeviceExtension )
-    goto LABEL_79;
+    goto LABEL_78;
   if ( *DeviceExtension != 541218120 )
     UsbhTrapFatal_Dbg(DeviceObject, DeviceExtension);
   if ( (UsbhLogMask & 0x800) != 0 )
@@ -75,7 +75,7 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
   {
     v7 = (unsigned __int8 *)DeviceObject->DeviceExtension;
     if ( !v7 )
-      goto LABEL_79;
+      goto LABEL_78;
     if ( *(_DWORD *)v7 != 541218120 )
       UsbhTrapFatal_Dbg(DeviceObject, v7);
     if ( i > v7[2938] )
@@ -119,7 +119,7 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
     {
       v12 = (unsigned __int8 *)DeviceObject->DeviceExtension;
       if ( !v12 )
-        goto LABEL_79;
+        goto LABEL_78;
       if ( *(_DWORD *)v12 != 541218120 )
         UsbhTrapFatal_Dbg(DeviceObject, v12);
       if ( i <= v12[2938] )
@@ -145,7 +145,7 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
     }
     v16 = DeviceObject->DeviceExtension;
     if ( !v16 )
-      goto LABEL_79;
+      goto LABEL_78;
     if ( *v16 != 541218120 )
       UsbhTrapFatal_Dbg(DeviceObject, v16);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -188,7 +188,7 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
     {
       v21 = (unsigned __int8 *)DeviceObject->DeviceExtension;
       if ( !v21 )
-        goto LABEL_79;
+        goto LABEL_78;
       if ( *(_DWORD *)v21 != 541218120 )
         UsbhTrapFatal_Dbg(DeviceObject, v21);
       if ( i <= v21[2938] )
@@ -227,8 +227,8 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
         *(_QWORD *)(v27 + 24) = 1382380368LL;
       }
     }
-    v28 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-    WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))&WPP_MAIN_CB.Dpc.DeferredContext;
+    v28 = KeAcquireSpinLockRaiseToDpc(&HubG);
+    qword_1C006C500 = (__int64)&dword_1C006C508;
     if ( (UsbhLogMask & 8) != 0 )
     {
       v29 = DeviceObject->DeviceExtension;
@@ -243,60 +243,63 @@ LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
         *(_QWORD *)(v30 + 24) = 0LL;
       }
     }
-    if ( !i )
-      goto LABEL_70;
-    v31 = (unsigned __int8 *)DeviceObject->DeviceExtension;
-    if ( !v31 )
-      goto LABEL_79;
-    if ( *(_DWORD *)v31 != 541218120 )
-      UsbhTrapFatal_Dbg(DeviceObject, v31);
-    if ( i > v31[2938] )
-      goto LABEL_70;
-    v32 = *((_QWORD *)v31 + 382);
-    if ( !v32 )
-      goto LABEL_70;
-    v33 = 2928LL * i + v32 - 2928;
-    if ( (UsbhLogMask & 8) != 0 )
+    if ( i )
     {
-      v32 = *((_QWORD *)v31 + 111)
-          + 32LL * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)v31 + 220) & *((_DWORD *)v31 + 221));
-      *(_DWORD *)v32 = 1044672615;
-      *(_QWORD *)(v32 + 8) = 0LL;
-      *(_QWORD *)(v32 + 16) = i;
-      *(_QWORD *)(v32 + 24) = v33;
+      v31 = (unsigned __int8 *)DeviceObject->DeviceExtension;
+      if ( !v31 )
+        goto LABEL_78;
+      if ( *(_DWORD *)v31 != 541218120 )
+        UsbhTrapFatal_Dbg(DeviceObject, v31);
+      if ( i <= v31[2938] )
+      {
+        v32 = *((_QWORD *)v31 + 382);
+        if ( v32 )
+        {
+          v33 = 2928LL * i + v32 - 2928;
+          if ( (UsbhLogMask & 8) != 0 )
+          {
+            v32 = *((_QWORD *)v31 + 111)
+                + 32LL
+                * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)v31 + 220) & *((_DWORD *)v31 + 221));
+            *(_DWORD *)v32 = 1044672615;
+            *(_QWORD *)(v32 + 8) = 0LL;
+            *(_QWORD *)(v32 + 16) = i;
+            *(_QWORD *)(v32 + 24) = v33;
+          }
+          if ( v33 )
+          {
+            v25 = *(_QWORD *)(v33 + 392);
+            if ( v25 )
+              v25 = UsbhRefPdo(v32, v25, 0LL, 1382380368);
+          }
+        }
+      }
     }
-    if ( v33 )
-    {
-      v25 = *(_QWORD *)(v33 + 392);
-      if ( v25 )
-        v25 = UsbhRefPdo(v32, v25, 0LL, 1382380368);
-    }
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v28);
+    qword_1C006C500 = 0LL;
+    KeReleaseSpinLock(&HubG, v28);
     if ( v25 )
     {
       v38 = PdoExt(v25);
-      KeWaitForSingleObject(v38 + 724, Executive, 0, 0, 0LL);
-      v38[355] &= ~0x10000000u;
-      KeSetEvent((PRKEVENT)(v38 + 724), 0, 0);
-      Log((__int64)DeviceObject, 256, 1968194639, v25, 1382380368LL);
-      v39 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-      WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))&WPP_MAIN_CB.Dpc.DeferredContext;
-      v28 = v39;
+      KeWaitForSingleObject((PVOID)(v38 + 2896), Executive, 0, 0, 0LL);
+      *(_DWORD *)(v38 + 1420) &= ~0x10000000u;
+      KeSetEvent((PRKEVENT)(v38 + 2896), 0, 0);
+      Log((_DWORD)DeviceObject, 256, 1968194639, v25, 1382380368LL);
+      v39 = KeAcquireSpinLockRaiseToDpc(&HubG);
+      qword_1C006C500 = (__int64)&dword_1C006C508;
+      LOBYTE(v38) = v39;
       UsbhDerefPdo((__int64)DeviceObject, v25, 0LL, 0x52657350u);
-LABEL_70:
-      WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v28);
+      qword_1C006C500 = 0LL;
+      KeReleaseSpinLock(&HubG, v38);
     }
   }
   UsbhPostInterrupt(DeviceObject);
   v34 = (volatile __int64 *)DeviceObject->DeviceExtension;
   if ( !v34 )
-LABEL_79:
+LABEL_78:
     UsbhTrapFatal_Dbg(DeviceObject, 0LL);
   if ( *(_DWORD *)v34 != 541218120 )
     UsbhTrapFatal_Dbg(DeviceObject, DeviceObject->DeviceExtension);
   v35 = (_QWORD *)_InterlockedExchange64(v34 + 411, 0LL);
-  Log((__int64)DeviceObject, 2048, 1114863917, 0LL, (__int64)v35);
+  Log((_DWORD)DeviceObject, 2048, 1114863917, 0, (__int64)v35);
   return UsbhDecHubBusy((__int64)DeviceObject, v36, v35);
 }

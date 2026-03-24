@@ -1,15 +1,15 @@
 /*
- * XREFs of IsMFMWFPWindow @ 0x1C0230060
+ * XREFs of IsMFMWFPWindow @ 0x1C0236A58
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
- *     LockMFMWFPWindow @ 0x1C023008C (LockMFMWFPWindow.c)
- *     UnlockMFMWFPWindow @ 0x1C0230320 (UnlockMFMWFPWindow.c)
- *     xxxMNFindWindowFromPoint @ 0x1C0231654 (xxxMNFindWindowFromPoint.c)
- *     xxxMNMouseMove @ 0x1C0232340 (xxxMNMouseMove.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
- *     xxxMNDragOver @ 0x1C02454E4 (xxxMNDragOver.c)
- *     xxxMNSetGapState @ 0x1C024568C (xxxMNSetGapState.c)
- *     xxxMNUpdateDraggingInfo @ 0x1C02458A8 (xxxMNUpdateDraggingInfo.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
+ *     LockMFMWFPWindow @ 0x1C0236A84 (LockMFMWFPWindow.c)
+ *     UnlockMFMWFPWindow @ 0x1C0236FA8 (UnlockMFMWFPWindow.c)
+ *     xxxMNFindWindowFromPoint @ 0x1C02386D0 (xxxMNFindWindowFromPoint.c)
+ *     xxxMNMouseMove @ 0x1C02396FC (xxxMNMouseMove.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
+ *     xxxMNDragOver @ 0x1C0249BDC (xxxMNDragOver.c)
+ *     xxxMNSetGapState @ 0x1C0249E4C (xxxMNSetGapState.c)
+ *     xxxMNUpdateDraggingInfo @ 0x1C024A138 (xxxMNUpdateDraggingInfo.c)
  * Callees:
  *     <none>
  */

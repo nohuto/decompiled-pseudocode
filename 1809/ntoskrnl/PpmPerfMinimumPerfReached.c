@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfMinimumPerfReached @ 0x1400A54EC
+ * XREFs of PpmPerfMinimumPerfReached @ 0x1400A550C
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1400A5420 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1400A5440 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 char PpmPerfMinimumPerfReached()

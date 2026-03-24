@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIWakeReleasePmeRouting @ 0x1C00636D0
+ * XREFs of ACPIWakeReleasePmeRouting @ 0x1C0062390
  * Callers:
- *     PcisuppReleasePciInterfaces @ 0x1C00B61A0 (PcisuppReleasePciInterfaces.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C00B6B38 (PcisuppReleasePciInterfaces.c)
  * Callees:
  *     <none>
  */

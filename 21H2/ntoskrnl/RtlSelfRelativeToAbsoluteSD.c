@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x1407FBC50
+ * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x140768070
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpQuerySecurityDescriptor @ 0x1407442D8 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlpQuerySecurityDescriptor @ 0x1407685C4 (RtlpQuerySecurityDescriptor.c)
  */
 
 NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(
@@ -25,10 +25,10 @@ NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(
   PULONG v16; // rdx
   PULONG v17; // r8
   PULONG v18; // r9
-  unsigned int v19; // r10d
-  unsigned int v20; // r11d
-  unsigned int v21; // r14d
-  unsigned int v22; // r15d
+  ULONG v19; // r10d
+  ULONG v20; // r11d
+  ULONG v21; // r14d
+  ULONG v22; // r15d
   unsigned __int8 *v23; // rdx
   PSID v24; // rbx
   PSID v25; // rbx
@@ -53,7 +53,16 @@ NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(
   v32 = 0LL;
   if ( *((__int16 *)SelfRelativeSecurityDescriptor + 1) >= 0 )
     return -1073741593;
-  RtlpQuerySecurityDescriptor((__int64)SelfRelativeSecurityDescriptor, &Src, &v28, &v31, &v29, &v33, &v34, &v32, &v35);
+  RtlpQuerySecurityDescriptor(
+    (_DWORD)SelfRelativeSecurityDescriptor,
+    (unsigned int)&Src,
+    (unsigned int)&v28,
+    (unsigned int)&v31,
+    (__int64)&v29,
+    (__int64)&v33,
+    (__int64)&v34,
+    (__int64)&v32,
+    (__int64)&v35);
   v15 = PrimaryGroupSize;
   v16 = OwnerSize;
   v17 = SaclSize;

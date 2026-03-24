@@ -1,92 +1,87 @@
 /*
- * XREFs of MiPageTableLockIsContended @ 0x140274C80
+ * XREFs of MiPageTableLockIsContended @ 0x140308460
  * Callers:
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140200D20 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x140213398 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiProbePacketContended @ 0x140274818 (MiProbePacketContended.c)
- *     MiRemoveMappedPtes @ 0x140274860 (MiRemoveMappedPtes.c)
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     NtUnlockVirtualMemory @ 0x1402CD9C0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402E5D90 (NtLockVirtualMemory.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiDispatchFault @ 0x14031E200 (MiDispatchFault.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403D5614 (MiInsertViewOfPhysicalSection.c)
- *     MiVadRangeIsIoSpace @ 0x1405941C0 (MiVadRangeIsIoSpace.c)
- *     MiAddPagesToEnclave @ 0x1405A7D28 (MiAddPagesToEnclave.c)
- *     MiCommitEnclavePages @ 0x1405A8748 (MiCommitEnclavePages.c)
- *     MiDecommitHardwareEnclavePages @ 0x1405A89EC (MiDecommitHardwareEnclavePages.c)
- *     MiProtectEnclavePages @ 0x1405A9744 (MiProtectEnclavePages.c)
- *     MiFreePhysicalPages @ 0x1405AAA4C (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x1405ACB84 (MiWriteAwePtes.c)
- *     MiScrubLargeMappedPage @ 0x1405C4FB8 (MiScrubLargeMappedPage.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MiDispatchFault @ 0x14020EF00 (MiDispatchFault.c)
+ *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402980D4 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140299824 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiProbePacketContended @ 0x140308408 (MiProbePacketContended.c)
+ *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
+ *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C6DC8 (MiInsertViewOfPhysicalSection.c)
+ *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
+ *     MiCommitEnclavePages @ 0x140549784 (MiCommitEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
+ *     MiFreePhysicalPages @ 0x14054BF44 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiScrubLargeMappedPage @ 0x140563A88 (MiScrubLargeMappedPage.c)
  * Callees:
- *     MiGetPageTableLockBuffer @ 0x14020DAE8 (MiGetPageTableLockBuffer.c)
+ *     MiGetPageTableLockBuffer @ 0x140285818 (MiGetPageTableLockBuffer.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)
 {
-  char v2; // r8
-  char v3; // r8
-  unsigned __int64 v4; // rax
-  struct _KPRCB *CurrentPrcb; // rax
-  char v7; // r8
+  unsigned __int64 v2; // rdi
+  char v3; // al
+  unsigned __int64 v4; // rbx
   _KLOCK_QUEUE_HANDLE *SelfmapLockHandle; // rax
-  __int64 v9; // rcx
+  struct _KPRCB *CurrentPrcb; // rcx
+  bool v8; // zf
   char *PageTableLockBuffer; // rax
-  struct _LIST_ENTRY *Flink; // rcx
-  __int64 v12; // rcx
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rax
   int v13; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = *(_BYTE *)(a1 + 184);
+  v2 = a2;
+  v3 = *(_BYTE *)(a1 + 184) & 7;
   v13 = 0;
   if ( a2 == 0xFFFFF6FB7DBEDF68uLL )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v7 = v2 & 7;
-    if ( v7 )
+    if ( v3 )
     {
-      if ( v7 == 7 )
+      if ( v3 == 7 )
       {
-        SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[1];
-      }
-      else if ( v7 == 5 )
-      {
-        SelfmapLockHandle = CurrentPrcb->SelfmapLockHandle;
+        SelfmapLockHandle = &KeGetCurrentPrcb()->SelfmapLockHandle[1];
       }
       else
       {
-        SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[3];
+        CurrentPrcb = KeGetCurrentPrcb();
+        v8 = v3 == 5;
+        SelfmapLockHandle = CurrentPrcb->SelfmapLockHandle;
+        if ( !v8 )
+          SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[3];
       }
     }
     else
     {
-      SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[2];
+      SelfmapLockHandle = &KeGetCurrentPrcb()->SelfmapLockHandle[2];
     }
     return SelfmapLockHandle->LockQueue.Next != 0;
   }
-  v3 = v2 & 7;
-  if ( a2 >= 0xFFFFF6FB7DBED000uLL )
+  if ( !v3 )
   {
-    if ( !v3 )
+    if ( a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
     {
-      if ( a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-      {
-        v9 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 592);
-        if ( v9 )
-          return (*(_DWORD *)(v9 + 4 * ((a2 >> 3) & 0x1FF)) >> 30) & 1;
-      }
-      goto LABEL_3;
+      a2 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 608);
+      if ( a2 )
+        return (*(_DWORD *)(a2 + 4 * ((v2 >> 3) & 0x1FF)) >> 30) & 1;
     }
-    if ( a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-    {
-      PageTableLockBuffer = MiGetPageTableLockBuffer(a1, a2, &v13);
-      return ((*(_DWORD *)PageTableLockBuffer >> v13) & 2) != 0;
-    }
+    goto LABEL_4;
   }
-LABEL_3:
-  v4 = *(_QWORD *)a2;
-  if ( a2 >= 0xFFFFF6FB7DBED000uLL
-    && a2 <= 0xFFFFF6FB7DBED7F8uLL
+  if ( a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
+  {
+    PageTableLockBuffer = MiGetPageTableLockBuffer(a1, a2, &v13);
+    return ((*(_DWORD *)PageTableLockBuffer >> v13) & 2) != 0;
+  }
+LABEL_4:
+  v4 = *(_QWORD *)v2;
+  if ( (unsigned int)MiPteInShadowRange(v2, a2)
     && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
     && (v4 & 1) != 0
@@ -95,11 +90,13 @@ LABEL_3:
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v12 = *((_QWORD *)&Flink->Flink + ((a2 >> 3) & 0x1FF));
-      if ( (v12 & 0x20) != 0 )
-        v4 |= 0x20uLL;
+      v11 = v4 | 0x20;
+      v12 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
+      if ( (v12 & 0x20) == 0 )
+        v11 = v4;
+      v4 = v11;
       if ( (v12 & 0x42) != 0 )
-        v4 |= 0x42uLL;
+        v4 = v11 | 0x42;
     }
   }
   return (v4 >> 60) & 2;

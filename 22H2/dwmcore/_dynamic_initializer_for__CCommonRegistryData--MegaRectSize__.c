@@ -1,16 +1,21 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::MegaRectSize__ @ 0x180003A70
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::MegaRectSize__ @ 0x180003030
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z @ 0x18010E860 (-Load@-$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z.c)
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800B3354 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
  */
 
 __int64 dynamic_initializer_for__CCommonRegistryData::MegaRectSize__()
 {
   __int64 result; // rax
+  int v1; // ecx
+  int v2; // [rsp+30h] [rbp+8h] BYREF
 
-  result = details::CRegistryKeyLoader<unsigned long>::Load(L"MegaRectSize", 100000LL, 0LL);
-  CCommonRegistryData::MegaRectSize = result;
+  result = RegGetDwmDwordHelper(L"MegaRectSize", &v2, 0LL);
+  v1 = 100000;
+  if ( (_BYTE)result )
+    v1 = v2;
+  CCommonRegistryData::MegaRectSize = v1;
   return result;
 }

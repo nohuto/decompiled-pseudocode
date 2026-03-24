@@ -1,16 +1,16 @@
 /*
- * XREFs of PoInitiateProcessorWake @ 0x1402D38A0
+ * XREFs of PoInitiateProcessorWake @ 0x1402D39A0
  * Callers:
  *     <none>
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PpmIdleTransitionStall @ 0x1402D5218 (PpmIdleTransitionStall.c)
- *     PpmIdleUpdateSynchronizationState @ 0x1402D5350 (PpmIdleUpdateSynchronizationState.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PpmIdleTransitionStall @ 0x1402D5318 (PpmIdleTransitionStall.c)
+ *     PpmIdleUpdateSynchronizationState @ 0x1402D5450 (PpmIdleUpdateSynchronizationState.c)
  */
 
 char __fastcall PoInitiateProcessorWake(ULONG a1)

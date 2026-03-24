@@ -1,10 +1,10 @@
 /*
- * XREFs of UnlockVerifierSection @ 0x1C006C19C
+ * XREFs of UnlockVerifierSection @ 0x1C00588C4
  * Callers:
- *     FxLibraryCommonUnregisterClient @ 0x1C00600AC (FxLibraryCommonUnregisterClient.c)
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxLibraryCommonUnregisterClient @ 0x1C0041E9C (FxLibraryCommonUnregisterClient.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     WPP_IFR_SF_dq @ 0x1C005319C (WPP_IFR_SF_dq.c)
+ *     WPP_IFR_SF_dq @ 0x1C002EA2C (WPP_IFR_SF_dq.c)
  */
 
 void __fastcall UnlockVerifierSection(_FX_DRIVER_GLOBALS *FxDriverGlobals)

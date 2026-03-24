@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qqD @ 0x1C0072928
+ * XREFs of WPP_IFR_SF_qqD @ 0x1C0062CCC
  * Callers:
- *     FxIoTargetSendIo @ 0x1C00726D4 (FxIoTargetSendIo.c)
- *     imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0076320 (imp_WdfUsbTargetPipeFormatRequestForReset.c)
+ *     FxIoTargetSendIo @ 0x1C0062804 (FxIoTargetSendIo.c)
+ *     imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0068CB0 (imp_WdfUsbTargetPipeFormatRequestForReset.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqD(

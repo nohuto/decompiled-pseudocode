@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x1802B089C
+ * XREFs of ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x1802627F8
  * Callers:
- *     ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x1802B0478 (-Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z.c)
+ *     ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x180262344 (-Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z.c)
  * Callees:
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z @ 0x1802B6C30 (-Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z @ 0x1802678B8 (-Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CColorKeyBitmapRealization::Initialize(
@@ -16,24 +16,22 @@ __int64 __fastcall CColorKeyBitmapRealization::Initialize(
 {
   struct CColorKeyBitmap **v3; // rdi
   __int64 v5; // rcx
-  __int64 v8; // rcx
-  int v9; // eax
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
 
   v3 = (struct CColorKeyBitmap **)((char *)this + 104);
   v5 = *((_QWORD *)this + 13);
   *v3 = 0LL;
   if ( v5 )
-  {
-    v8 = *(int *)(*(_QWORD *)(v5 + 8) + 4LL) + v5 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-  }
-  v9 = CColorKeyBitmap::Create(a2, a3, v3);
-  v11 = v9;
-  if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x2Bu, 0LL);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  v8 = CColorKeyBitmap::Create(a2, a3, v3);
+  v10 = v8;
+  if ( v8 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x2Bu, 0LL);
   else
-    CD2DBitmapCache::InitializeCache(this, *v3);
-  return v11;
+    CD2DBitmapCache::InitializeCache(
+      this,
+      (struct ID2DBitmapCacheSource *)(((unsigned __int64)*v3 + 16) & -(__int64)(*v3 != 0LL)));
+  return v10;
 }

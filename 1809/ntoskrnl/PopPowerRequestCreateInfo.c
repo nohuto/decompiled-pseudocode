@@ -6,7 +6,7 @@
  *     PoCaptureReasonContext @ 0x1400020AC (PoCaptureReasonContext.c)
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     PopNotifySessionUserPowerRequestCreated @ 0x140588440 (PopNotifySessionUserPowerRequestCreated.c)
  *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)

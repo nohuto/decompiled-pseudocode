@@ -1,9 +1,8 @@
 /*
- * XREFs of EtwpUpdateTagFilter @ 0x14081C568
+ * XREFs of EtwpUpdateTagFilter @ 0x140798950
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x1402E1010 (EtwpEnableMetaProviderGuid.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x14081C500 (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x1407988E8 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

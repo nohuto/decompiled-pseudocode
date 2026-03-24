@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_WdfEvtCleanupCallback @ 0x1C0041C40
+ * XREFs of TR_WdfEvtCleanupCallback @ 0x1C003F730
  * Callers:
  *     <none>
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_WdfEvtCleanupCallback(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall TR_WdfEvtCleanupCallback(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063388);
+         off_1C0060388);
   v2 = *(void **)(v1 + 304);
   if ( v2 )
   {

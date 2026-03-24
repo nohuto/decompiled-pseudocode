@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAbProcessBaseIoPriorityChangeInternal @ 0x1400DEFF0
+ * XREFs of KeAbProcessBaseIoPriorityChangeInternal @ 0x1400DF010
  * Callers:
- *     KeAbProcessBaseIoPriorityChange @ 0x1400DEFB4 (KeAbProcessBaseIoPriorityChange.c)
- *     IoUpdateThreadIoRateThrottle @ 0x140286A30 (IoUpdateThreadIoRateThrottle.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x1400DEFD4 (KeAbProcessBaseIoPriorityChange.c)
+ *     IoUpdateThreadIoRateThrottle @ 0x140286B30 (IoUpdateThreadIoRateThrottle.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x14010EDBC (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x140128DB8 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x140128DD8 (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeAbProcessBaseIoPriorityChangeInternal(__int64 a1, int a2)

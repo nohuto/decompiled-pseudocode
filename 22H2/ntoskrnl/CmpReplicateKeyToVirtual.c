@@ -1,72 +1,84 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x140A1A058
+ * XREFs of CmpReplicateKeyToVirtual @ 0x140870A14
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2E70 (EtwGetKernelTraceTimestamp.c)
- *     ExConvertExclusiveToSharedLite @ 0x1403471D0 (ExConvertExclusiveToSharedLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExTryConvertSharedToExclusiveLite @ 0x14060AABC (ExTryConvertSharedToExclusiveLite.c)
- *     CmpLockKcbExclusive @ 0x1406D8518 (CmpLockKcbExclusive.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     CmRealKCBToVirtualPath @ 0x140A186B8 (CmRealKCBToVirtualPath.c)
- *     CmpBuildVirtualReplicationStack @ 0x140A18D48 (CmpBuildVirtualReplicationStack.c)
- *     CmpDestroyVirtualStack @ 0x140A18F74 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x140A19D34 (CmpGetVirtualStoreRoot.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmRealKCBToVirtualPath @ 0x1406EB88C (CmRealKCBToVirtualPath.c)
+ *     CmpConvertRegistryShared @ 0x14086EAF8 (CmpConvertRegistryShared.c)
+ *     CmpTryConvertRegistryExclusive @ 0x14086EB14 (CmpTryConvertRegistryExclusive.c)
+ *     CmpBuildVirtualReplicationStack @ 0x14086FC7C (CmpBuildVirtualReplicationStack.c)
+ *     CmpDestroyVirtualStack @ 0x14086FDF4 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x14087095C (CmpGetVirtualStoreRoot.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, char a3, ULONG_PTR *a4)
+__int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v7; // r15
+  char v4; // bl
+  ULONG_PTR v7; // r14
+  char v8; // r15
   int VirtualStoreRoot; // ebx
-  UNICODE_STRING *v9; // rcx
-  _DWORD *v10; // rsi
-  ULONG_PTR v11; // rcx
-  ULONG_PTR v12; // r8
-  unsigned int v13; // edx
+  UNICODE_STRING *v10; // rcx
+  _DWORD *v11; // rsi
+  ULONG_PTR v12; // rcx
+  unsigned __int64 v13; // r8
+  unsigned int v14; // edx
   UNICODE_STRING *p_DestinationString; // rcx
-  unsigned int v16; // [rsp+40h] [rbp-39h] BYREF
-  int v17; // [rsp+44h] [rbp-35h] BYREF
+  unsigned int v17; // [rsp+40h] [rbp-39h] BYREF
+  int v18; // [rsp+44h] [rbp-35h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-31h] BYREF
   PVOID P; // [rsp+58h] [rbp-21h] BYREF
-  ULONG_PTR v20; // [rsp+60h] [rbp-19h] BYREF
-  ULONG_PTR v21; // [rsp+68h] [rbp-11h] BYREF
-  ULONG_PTR *v22; // [rsp+70h] [rbp-9h]
-  _OWORD v23[2]; // [rsp+78h] [rbp-1h] BYREF
+  unsigned __int64 v21; // [rsp+60h] [rbp-19h] BYREF
+  ULONG_PTR v22; // [rsp+68h] [rbp-11h] BYREF
+  _QWORD *v23; // [rsp+70h] [rbp-9h]
+  _OWORD v24[2]; // [rsp+78h] [rbp-1h] BYREF
 
-  v22 = a4;
-  v17 = 0;
+  v23 = (_QWORD *)a4;
+  v4 = a3;
+  v18 = 0;
   DestinationString = 0LL;
-  memset(v23, 0, sizeof(v23));
-  if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp((__int64)v23, 0x20000LL);
-  v20 = 0LL;
-  P = 0LL;
-  v16 = 0;
-  v7 = 0;
-  RtlInitUnicodeString(&DestinationString, 0LL);
+  v7 = 0LL;
+  memset(v24, 0, sizeof(v24));
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v24, 0x20000LL, a3, a4);
   v21 = 0LL;
-  if ( !a3 )
+  P = 0LL;
+  v17 = 0;
+  v8 = 0;
+  RtlInitUnicodeString(&DestinationString, 0LL);
+  v22 = 0LL;
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && a1 )
+    v7 = a1;
+  if ( !v4 )
   {
-    v7 = ExTryConvertSharedToExclusiveLite();
-    if ( !v7 )
+    v8 = CmpTryConvertRegistryExclusive();
+    if ( !v8 )
     {
       VirtualStoreRoot = -1073741739;
-LABEL_19:
-      if ( CmpTraceRoutine )
+LABEL_22:
+      if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
       {
         p_DestinationString = &DestinationString;
         LOBYTE(p_DestinationString) = 26;
-        CmpTraceRoutine(p_DestinationString, v23, (unsigned int)VirtualStoreRoot, 0LL);
+        (*(void (__fastcall **)(UNICODE_STRING *, _OWORD *, _QWORD, _QWORD, ULONG_PTR, UNICODE_STRING *))((char *)&NlsMbCodePageTag + 7))(
+          p_DestinationString,
+          v24,
+          (unsigned int)VirtualStoreRoot,
+          0LL,
+          v7,
+          &DestinationString);
       }
       if ( DestinationString.Buffer )
-        RtlFreeUnicodeString(&DestinationString);
+        RtlFreeAnsiString(&DestinationString);
       return (unsigned int)VirtualStoreRoot;
     }
   }
@@ -74,31 +86,31 @@ LABEL_19:
   VirtualStoreRoot = CmRealKCBToVirtualPath(a1, 0LL, a2, &DestinationString);
   if ( VirtualStoreRoot >= 0 )
   {
-    if ( (int)CmpBuildVirtualReplicationStack(a1, (__int64)&DestinationString, &v16, &P) >= 0 )
+    if ( (int)CmpBuildVirtualReplicationStack(a1, (__int64)&DestinationString, &v17, &P) >= 0 )
     {
-      v10 = P;
-      if ( v16 )
+      v11 = P;
+      if ( v17 )
       {
-        VirtualStoreRoot = CmpGetVirtualStoreRoot(a2, (__int64 *)&v20, &v17, &v21);
+        VirtualStoreRoot = CmpGetVirtualStoreRoot(a2, (__int64 *)&v21, &v18, &v22);
         if ( VirtualStoreRoot >= 0 )
         {
-          v11 = v21;
-          v12 = v20;
-          v13 = v16;
-          *v22 = v20;
-          v10[8] = *(_DWORD *)(v11 + 40);
-          *((_QWORD *)v10 + 2) = v11;
-          VirtualStoreRoot = CmpDoBuildVirtualStack((__int64)v10, v13, v12, a1, a2);
+          v12 = v22;
+          v13 = v21;
+          v14 = v17;
+          *v23 = v21;
+          v11[8] = *(_DWORD *)(v12 + 40);
+          *((_QWORD *)v11 + 2) = v12;
+          VirtualStoreRoot = CmpDoBuildVirtualStack((__int64)v11, v14, v13, a1, a2);
         }
       }
       else
       {
         VirtualStoreRoot = -1073741811;
       }
-      if ( v10 )
+      if ( v11 )
       {
-        CmpDestroyVirtualStack((__int64)v10, v16);
-        ExFreePoolWithTag(v10, 0);
+        CmpDestroyVirtualStack((__int64)v11, v17);
+        ExFreePoolWithTag(v11, 0);
       }
     }
     else
@@ -106,15 +118,21 @@ LABEL_19:
       VirtualStoreRoot = -1073741670;
     }
     CmpLockKcbExclusive(a1);
-    if ( v7 )
-      ExConvertExclusiveToSharedLite((PERESOURCE)&CmpRegistryLock);
-    goto LABEL_19;
+    if ( v8 )
+      CmpConvertRegistryShared();
+    goto LABEL_22;
   }
-  if ( CmpTraceRoutine )
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    v9 = &DestinationString;
-    LOBYTE(v9) = 26;
-    CmpTraceRoutine(v9, v23, (unsigned int)VirtualStoreRoot, 0LL);
+    v10 = &DestinationString;
+    LOBYTE(v10) = 26;
+    (*(void (__fastcall **)(UNICODE_STRING *, _OWORD *, _QWORD, _QWORD, ULONG_PTR, UNICODE_STRING *))((char *)&NlsMbCodePageTag + 7))(
+      v10,
+      v24,
+      (unsigned int)VirtualStoreRoot,
+      0LL,
+      v7,
+      &DestinationString);
   }
   return (unsigned int)VirtualStoreRoot;
 }

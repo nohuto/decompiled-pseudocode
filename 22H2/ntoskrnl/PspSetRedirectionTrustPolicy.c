@@ -1,19 +1,19 @@
 /*
- * XREFs of PspSetRedirectionTrustPolicy @ 0x1407DDAA4
+ * XREFs of PspSetRedirectionTrustPolicy @ 0x1405CF6A4
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406B3700 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1407062EC (PspApplyMitigationOptions.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x140364B48 (SeTokenSetRedirectionTrustPolicy.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x1403F8680 (SeTokenSetRedirectionTrustPolicy.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
  */
 
-signed __int64 __fastcall PspSetRedirectionTrustPolicy(__int64 a1, int a2)
+void __fastcall PspSetRedirectionTrustPolicy(struct _KPROCESS *a1, int a2)
 {
-  ULONG_PTR v4; // rbx
+  struct _DMA_ADAPTER *v4; // rdi
 
-  v4 = PsReferencePrimaryTokenWithTag(a1, 0x79517350u);
-  SeTokenSetRedirectionTrustPolicy(v4, a2 == 2);
-  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v4, 0x79517350u);
+  v4 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
+  SeTokenSetRedirectionTrustPolicy((__int64)v4, a2 == 2);
+  ObFastDereferenceObject((signed __int64 *)&a1[1].Affinity.Bitmap[5], v4);
 }

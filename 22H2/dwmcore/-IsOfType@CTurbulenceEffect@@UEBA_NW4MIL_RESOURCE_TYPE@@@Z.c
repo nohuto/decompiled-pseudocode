@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CTurbulenceEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1802552A0
+ * XREFs of ?IsOfType@CTurbulenceEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F1120
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18012E580 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001BE60 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CTurbulenceEffect::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CTurbulenceEffect::IsOfType(__int64 a1, int a2)
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 192 )
+  if ( a2 == 191 )
     return 1;
   v2 = CFilterEffect::IsOfType(a1, a2);
   v3 = 0;

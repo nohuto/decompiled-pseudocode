@@ -1,27 +1,27 @@
 /*
- * XREFs of IopQueryLegacyBusInformation @ 0x1406E636C
+ * XREFs of IopQueryLegacyBusInformation @ 0x14073E4E8
  * Callers:
- *     PipCallDriverAddDevice @ 0x1407743C8 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
  * Callees:
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopQueryLegacyBusInformation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall IopQueryLegacyBusInformation(struct _DEVICE_OBJECT *a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   int v7; // ebp
   _DWORD *v9; // rcx
-  __int64 v10; // rdx
+  _QWORD *DeviceNode; // rdx
   __int64 v11; // rdx
-  _WORD v12[36]; // [rsp+30h] [rbp-58h] BYREF
+  _WORD v12[40]; // [rsp+30h] [rbp-58h] BYREF
   PVOID P; // [rsp+98h] [rbp+10h] BYREF
 
   P = 0LL;
-  memset(v12, 0, sizeof(v12));
+  memset(v12, 0, 0x48uLL);
   v12[0] = 6171;
-  v7 = IopSynchronousCall(a1, (unsigned int)v12, -1073741637, 0, (__int64)&P);
+  v7 = IopSynchronousCall(a1, (__int64)v12, -1073741637, 0LL, &P);
   if ( v7 >= 0 )
   {
     v9 = P;
@@ -35,10 +35,10 @@ __int64 __fastcall IopQueryLegacyBusInformation(__int64 a1, __int64 a2, _DWORD *
     }
     else
     {
-      v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
-      if ( v10 )
+      DeviceNode = a1->DeviceObjectExtension->DeviceNode;
+      if ( DeviceNode )
       {
-        v11 = *(_QWORD *)(v10 + 16);
+        v11 = DeviceNode[2];
         if ( v11 )
         {
           if ( *(_QWORD *)(v11 + 64) )

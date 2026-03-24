@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C004FD30
+ * XREFs of ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C0050B7C
  * Callers:
- *     ACPIWakeCompleteRequestQueue @ 0x1C002ED3C (ACPIWakeCompleteRequestQueue.c)
- *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C004FF20 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C00255F0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0025860 (ACPIWakeCompleteRequestQueue.c)
  * Callees:
- *     ACPIDeviceInternalQueueRequest @ 0x1C0008D14 (ACPIDeviceInternalQueueRequest.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C001D5CC (ACPIGpeIndexToGpeRegister.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIDeviceInternalQueueRequest @ 0x1C001CC50 (ACPIDeviceInternalQueueRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIDeviceIrpWaitWakeRequestComplete(__int64 a1)
@@ -41,7 +41,7 @@ void __fastcall ACPIDeviceIrpWaitWakeRequestComplete(__int64 a1)
     IoReleaseCancelSpinLock(Irql);
     v4 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
   }
-  if ( (*(_QWORD *)(v5 + 1000) & 0x500000000LL) != 0 )
+  if ( (*(_QWORD *)(v5 + 960) & 0x500000000LL) != 0 )
   {
     if ( *(int *)(a1 + 256) >= 0 )
     {
@@ -59,7 +59,7 @@ void __fastcall ACPIDeviceIrpWaitWakeRequestComplete(__int64 a1)
   }
   else
   {
-    v6 = *(_DWORD *)(v5 + 504);
+    v6 = *(_DWORD *)(v5 + 464);
     v7 = ACPIGpeIndexToGpeRegister(v6);
     v8 = 1 << (v6 & 7);
     if ( AcpiPowerSavedGpeBitsValid

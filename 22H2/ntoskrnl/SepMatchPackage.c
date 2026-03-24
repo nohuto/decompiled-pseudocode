@@ -1,13 +1,13 @@
 /*
- * XREFs of SepMatchPackage @ 0x14022C730
+ * XREFs of SepMatchPackage @ 0x14024DEB8
  * Callers:
- *     SepMaximumAccessCheck @ 0x14022A180 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14022AB08 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x140233520 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x1403CD610 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1402D1160 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1402D1A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403743A4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1403744CC (SepNormalAccessCheckEx.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     SepCanTokenMatchAllPackageSid @ 0x14022C7BC (SepCanTokenMatchAllPackageSid.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x14024DF44 (SepCanTokenMatchAllPackageSid.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
  */
 
 char __fastcall SepMatchPackage(

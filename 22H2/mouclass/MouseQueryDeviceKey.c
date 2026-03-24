@@ -1,1 +1,42 @@
-/*\n * XREFs of MouseQueryDeviceKey @ 0x1C000F46C\n * Callers:\n *     MouseClassGetWaitWakeEnableState @ 0x1C000F0BC (MouseClassGetWaitWakeEnableState.c)\n * Callees:\n *     memmove @ 0x1C0002C00 (memmove.c)\n */\n\n__int64 __fastcall MouseQueryDeviceKey(HANDLE KeyHandle, __int64 a2, void *a3, ULONG a4)\n{\n  __int64 v6; // rdx\n  unsigned int *Pool2; // rbx\n  NTSTATUS v8; // edi\n  unsigned int v9; // eax\n  struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF\n  ULONG Length; // [rsp+68h] [rbp+20h] BYREF\n\n  Length = a4;\n  ValueName = 0LL;\n  RtlInitUnicodeString(&ValueName, L"WaitWakeEnabled");\n  v6 = (unsigned int)ValueName.MaximumLength + 28;\n  if ( (unsigned int)v6 < (unsigned int)ValueName.MaximumLength + 24 )\n    return 3221225621LL;\n  Length = ValueName.MaximumLength + 28;\n  Pool2 = (unsigned int *)ExAllocatePool2(256LL, v6, 1131769677LL);\n  if ( Pool2 )\n  {\n    v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, Pool2, Length, &Length);\n    if ( v8 >= 0 )\n    {\n      v9 = Pool2[3];\n      if ( v9 > 4 )\n        v8 = -1073741789;\n      else\n        memmove(a3, (char *)Pool2 + Pool2[2], v9);\n    }\n    ExFreePoolWithTag(Pool2, 0);\n  }\n  else\n  {\n    return (unsigned int)-1073741801;\n  }\n  return (unsigned int)v8;\n}\n
+/*
+ * XREFs of MouseQueryDeviceKey @ 0x1C000E4AC
+ * Callers:
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000E100 (MouseClassGetWaitWakeEnableState.c)
+ * Callees:
+ *     memmove @ 0x1C0002A80 (memmove.c)
+ */
+
+__int64 __fastcall MouseQueryDeviceKey(HANDLE KeyHandle, __int64 a2, void *a3, ULONG a4)
+{
+  unsigned int *PoolWithTag; // rbx
+  NTSTATUS v7; // edi
+  unsigned int v8; // eax
+  struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
+  ULONG Length; // [rsp+68h] [rbp+20h] BYREF
+
+  Length = a4;
+  ValueName = 0LL;
+  RtlInitUnicodeString(&ValueName, L"WaitWakeEnabled");
+  if ( (unsigned int)ValueName.MaximumLength + 28 < (unsigned int)ValueName.MaximumLength + 24 )
+    return 3221225621LL;
+  Length = ValueName.MaximumLength + 28;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, Length, 0x43756F4Du);
+  if ( PoolWithTag )
+  {
+    v7 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, PoolWithTag, Length, &Length);
+    if ( v7 >= 0 )
+    {
+      v8 = PoolWithTag[3];
+      if ( v8 > 4 )
+        v7 = -1073741789;
+      else
+        memmove(a3, (char *)PoolWithTag + PoolWithTag[2], v8);
+    }
+    ExFreePoolWithTag(PoolWithTag, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741801;
+  }
+  return (unsigned int)v7;
+}

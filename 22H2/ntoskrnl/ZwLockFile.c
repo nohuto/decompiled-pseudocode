@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwLockFile @ 0x14041C8E0
+ * XREFs of ZwLockFile @ 0x1403FBB80
  * Callers:
  *     <none>
  * Callees:

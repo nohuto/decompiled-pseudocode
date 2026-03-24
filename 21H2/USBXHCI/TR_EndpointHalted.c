@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_EndpointHalted @ 0x1C003FA0C
+ * XREFs of TR_EndpointHalted @ 0x1C0019F00
  * Callers:
- *     Endpoint_SM_NotifyTransferRingsEndpointHalted @ 0x1C0039C4C (Endpoint_SM_NotifyTransferRingsEndpointHalted.c)
+ *     ESM_NotifyingTransferRingsEndpointHalted @ 0x1C0019E10 (ESM_NotifyingTransferRingsEndpointHalted.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_EndpointHalted(__int64 a1)

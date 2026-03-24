@@ -1,29 +1,27 @@
 /*
- * XREFs of BvgaSolidColorFill @ 0x14054F610
+ * XREFs of BvgaSolidColorFill @ 0x1404FFBF0
  * Callers:
  *     <none>
  * Callees:
- *     HeadlessDispatch @ 0x1403778A0 (HeadlessDispatch.c)
- *     BvgaAcquireLock @ 0x14054F1D0 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x14054F4D0 (BvgaReleaseLock.c)
+ *     HeadlessDispatch @ 0x1403AA580 (HeadlessDispatch.c)
+ *     BvgaAcquireLock @ 0x1404FF7B0 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x1404FFAB0 (BvgaReleaseLock.c)
  */
 
-char __fastcall BvgaSolidColorFill(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5)
+void __fastcall BvgaSolidColorFill(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5)
 {
-  char result; // al
-  _DWORD v10[6]; // [rsp+30h] [rbp-18h] BYREF
+  _DWORD v9[6]; // [rsp+30h] [rbp-18h] BYREF
 
   if ( !BvgaDisplayState )
   {
     BvgaAcquireLock();
     if ( BvgaBootDriverInstalled )
       VidSolidColorFill(a1, a2, a3, a4, a5);
-    v10[0] = 37;
+    v9[0] = 37;
     BvgaTerminalBkgdColor = 40;
-    v10[1] = 40;
-    HeadlessDispatch(9LL, (__int64)v10, 8LL, 0LL, 0LL);
+    v9[1] = 40;
+    HeadlessDispatch(9LL, (__int64)v9, 8LL, 0LL, 0LL);
     HeadlessDispatch(4LL, 0LL, 0LL, 0LL, 0LL);
-    return BvgaReleaseLock();
+    BvgaReleaseLock();
   }
-  return result;
 }

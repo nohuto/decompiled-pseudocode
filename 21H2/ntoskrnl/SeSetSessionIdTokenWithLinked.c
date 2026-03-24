@@ -1,85 +1,89 @@
 /*
- * XREFs of SeSetSessionIdTokenWithLinked @ 0x1409C6320
+ * XREFs of SeSetSessionIdTokenWithLinked @ 0x14091C940
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepReferenceLogonSessionSilo @ 0x14066B900 (SepReferenceLogonSessionSilo.c)
- *     SeSetSessionIdToken @ 0x1407530D0 (SeSetSessionIdToken.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
+ *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
  */
 
-__int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2, __int64 a3, int a4)
+__int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2)
 {
-  void *v5; // rsi
-  int v6; // ebx
+  void *v3; // rsi
+  int v4; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  PVOID v8; // rdi
-  __int64 v9; // rdx
-  void *v10; // r14
-  _QWORD *v12; // [rsp+40h] [rbp-20h] BYREF
-  _QWORD *v13; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v15; // [rsp+A0h] [rbp+40h] BYREF
-  PVOID Object; // [rsp+A8h] [rbp+48h] BYREF
+  PADAPTER_OBJECT v6; // rdi
+  _DMA_OPERATIONS *DmaOperations; // rdx
+  void *v8; // r14
+  _QWORD *v10; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD *v11; // [rsp+38h] [rbp-18h] BYREF
+  void *(__fastcall *AllocateCommonBuffer)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER *, unsigned __int8); // [rsp+40h] [rbp-10h] BYREF
+  __int64 v13; // [rsp+48h] [rbp-8h] BYREF
+  char v14; // [rsp+90h] [rbp+40h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp+48h] BYREF
 
-  Object = 0LL;
-  v5 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
-  v6 = SepReferenceTokenByHandle(a1, 8u, KeGetCurrentThread()->PreviousMode, a4, &Object, &v15, &v14);
-  if ( v6 < 0 )
+  DmaAdapter = 0LL;
+  v10 = 0LL;
+  v3 = 0LL;
+  v11 = 0LL;
+  v4 = SepReferenceTokenByHandle(a1, 8u, KeGetCurrentThread()->PreviousMode, &DmaAdapter, &v14, &v13);
+  if ( v4 < 0 )
   {
-    v8 = Object;
+    v6 = DmaAdapter;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v8 = Object;
-    ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-    if ( *((_BYTE *)v8 + 204) )
+    v6 = DmaAdapter;
+    ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+    if ( BYTE4(v6[12].DmaOperations) )
     {
-      v6 = -1073741525;
+      v4 = -1073741525;
       goto LABEL_13;
     }
-    v6 = SepReferenceLogonSessionSilo(
-           (_DWORD *)(*((_QWORD *)v8 + 27) + 8LL),
-           *(_QWORD *)(*((_QWORD *)v8 + 27) + 160LL),
-           (__int64 *)&v12);
-    if ( v6 >= 0 )
+    v4 = SepReferenceLogonSessionSilo(
+           &v6[13].DmaOperations->PutDmaAdapter,
+           (__int64)v6[13].DmaOperations->AllocateAdapterChannelEx,
+           (__int64 *)&v10);
+    if ( v4 >= 0 )
     {
-      v9 = *((_QWORD *)v8 + 27);
-      v10 = (void *)v12[6];
-      v15 = *(_QWORD *)(v9 + 16);
-      if ( v15 )
+      DmaOperations = v6[13].DmaOperations;
+      v8 = (void *)v10[6];
+      AllocateCommonBuffer = DmaOperations->AllocateCommonBuffer;
+      if ( AllocateCommonBuffer )
       {
-        v6 = SepReferenceLogonSessionSilo(&v15, *(_QWORD *)(v9 + 160), (__int64 *)&v13);
-        if ( v6 < 0 )
+        v4 = SepReferenceLogonSessionSilo(
+               &AllocateCommonBuffer,
+               (__int64)DmaOperations->AllocateAdapterChannelEx,
+               (__int64 *)&v11);
+        if ( v4 < 0 )
           goto LABEL_13;
-        v5 = (void *)v13[6];
+        v3 = (void *)v11[6];
       }
-      if ( !v10 || (v6 = SeSetSessionIdToken(v10, a2), v6 >= 0) )
+      if ( !v8 || (v4 = SeSetSessionIdToken(v8, a2), v4 >= 0) )
       {
-        if ( v5 )
-          v6 = SeSetSessionIdToken(v5, a2);
+        if ( v3 )
+          v4 = SeSetSessionIdToken(v3, a2);
       }
     }
   }
 LABEL_13:
-  if ( v8 )
+  if ( v6 )
   {
-    ExReleaseResourceLite(*((PERESOURCE *)v8 + 6));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    ObfDereferenceObjectWithTag(Object, 0x74726853u);
+    ExReleaseResourceLite(*(PERESOURCE *)&v6[3].Version);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    HalPutDmaAdapter(DmaAdapter);
   }
-  if ( v12 )
-    SepDeReferenceLogonSessionDirect(v12);
-  if ( v13 )
-    SepDeReferenceLogonSessionDirect(v13);
-  return (unsigned int)v6;
+  if ( v10 )
+    SepDeReferenceLogonSessionDirect(v10);
+  if ( v11 )
+    SepDeReferenceLogonSessionDirect(v11);
+  return (unsigned int)v4;
 }

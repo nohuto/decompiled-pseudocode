@@ -1,12 +1,16 @@
 /*
- * XREFs of NtRIMGetDevicePreparsedData @ 0x1C0174DE0
+ * XREFs of NtRIMGetDevicePreparsedData @ 0x1C01536C0
  * Callers:
  *     <none>
  * Callees:
- *     RIMGetDevicePreparsedData @ 0x1C0177AC0 (RIMGetDevicePreparsedData.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0056718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     RIMGetDevicePreparsedData @ 0x1C0155E20 (RIMGetDevicePreparsedData.c)
  */
 
 __int64 __fastcall NtRIMGetDevicePreparsedData(int a1, int a2, int a3, int a4)
 {
-  return RIMGetDevicePreparsedData(a1, a2, a3, a4, 1);
+  if ( (unsigned int)ApiSetEditionIsUsermodeRIMAccessAllowed() )
+    return RIMGetDevicePreparsedData(a1, a2, a3, a4, 1);
+  else
+    return 3221225506LL;
 }

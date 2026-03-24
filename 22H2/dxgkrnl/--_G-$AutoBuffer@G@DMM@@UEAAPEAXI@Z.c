@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_G?$AutoBuffer@G@DMM@@UEAAPEAXI@Z @ 0x1C0068610
+ * XREFs of ??_G?$AutoBuffer@G@DMM@@UEAAPEAXI@Z @ 0x1C005B680
  * Callers:
- *     ??_E?$AutoBuffer@G@DMM@@WBI@EAAPEAXI@Z @ 0x1C0028B50 (--_E-$AutoBuffer@G@DMM@@WBI@EAAPEAXI@Z.c)
+ *     ??_E?$AutoBuffer@G@DMM@@WBI@EAAPEAXI@Z @ 0x1C00290C0 (--_E-$AutoBuffer@G@DMM@@WBI@EAAPEAXI@Z.c)
  * Callees:
- *     ??1?$AutoBuffer@G@DMM@@UEAA@XZ @ 0x1C00163A8 (--1-$AutoBuffer@G@DMM@@UEAA@XZ.c)
+ *     ??1?$AutoBuffer@G@DMM@@UEAA@XZ @ 0x1C000A4F0 (--1-$AutoBuffer@G@DMM@@UEAA@XZ.c)
  */
 
 _QWORD *__fastcall DMM::AutoBuffer<unsigned short>::`scalar deleting destructor'(_QWORD *P, char a2)

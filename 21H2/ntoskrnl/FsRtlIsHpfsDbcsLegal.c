@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14092F6A0
+ * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14088CC30
  * Callers:
- *     FsRtlIsHpfsDbcsLegal @ 0x14092F6A0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CC30 (FsRtlIsHpfsDbcsLegal.c)
  * Callees:
- *     FsRtlDissectDbcs @ 0x14092EF60 (FsRtlDissectDbcs.c)
- *     FsRtlIsHpfsDbcsLegal @ 0x14092F6A0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlDissectDbcs @ 0x14088C4B0 (FsRtlDissectDbcs.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CC30 (FsRtlIsHpfsDbcsLegal.c)
  */
 
 BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
@@ -89,14 +89,14 @@ LABEL_14:
           do
           {
             v13 = (unsigned __int8)v8[v12];
-            if ( (unsigned __int8)v13 >= 0x80u && (_BYTE)NlsMbOemCodePageTag && *((_WORD *)NlsOemLeadByteInfo + v13) )
+            if ( (unsigned __int8)v13 >= 0x80u && (_BYTE)NlsMbOemCodePageTag && NlsOemLeadByteInfoTable[v13] )
             {
               if ( v12 == Length - 1 )
                 return 0;
               ++v12;
             }
             else if ( (v13 & 0x80u) == 0LL
-                   && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_140015C50 + v13)) == 0 )
+                   && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_140011B50 + v13)) == 0 )
             {
               return 0;
             }

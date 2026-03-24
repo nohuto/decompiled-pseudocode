@@ -1,40 +1,40 @@
 /*
- * XREFs of ?ParseBits@@YAXKPEAK00K@Z @ 0x1C00871A0
+ * XREFs of ?ParseBits@@YAXKPEAK00K@Z @ 0x1C007DB24
  * Callers:
- *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C0088400 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00C92F0 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall ParseBits(unsigned int a1, unsigned int *a2, unsigned int *a3, unsigned int *a4, unsigned int a5)
 {
+  unsigned int v5; // r10d
   unsigned int i; // eax
-  unsigned int v8; // edx
-  unsigned int v9; // r8d
-  unsigned int v10; // edx
+  unsigned int v8; // ecx
+  unsigned int v9; // edx
+  unsigned int v10; // ecx
   unsigned int v11; // eax
+  unsigned int v12; // eax
 
-  for ( i = 0; (a1 & 1) == 0; ++i )
-    a1 >>= 1;
-  v8 = i;
+  v5 = 0;
+  for ( i = a1; (i & 1) == 0; ++v5 )
+    i >>= 1;
+  v8 = v5;
   do
   {
     ++v8;
-    a1 >>= 1;
+    i >>= 1;
     v9 = v8;
   }
-  while ( (a1 & 1) != 0 );
-  v10 = v8 - i;
+  while ( (i & 1) != 0 );
+  v10 = v8 - v5;
+  v11 = v9 - 8;
   *a4 = v10;
-  if ( v10 > 8 )
-  {
-    *a2 = v9 - 8;
-    v11 = a5;
-  }
-  else
-  {
-    *a2 = i;
-    v11 = a5 - v10 + 8;
-  }
-  *a3 = v11;
+  if ( v10 <= 8 )
+    v11 = v5;
+  *a2 = v11;
+  v12 = a5;
+  if ( v10 <= 8 )
+    v12 = a5 - v10 + 8;
+  *a3 = v12;
 }

@@ -1,56 +1,69 @@
 /*
- * XREFs of ?_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C03C745C
+ * XREFs of ?_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C02F2040
  * Callers:
- *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7C9C (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
- *     ?_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@@Z @ 0x1C03C84B0 (-_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3.c)
+ *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F27C8 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
+ *     ?_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@@Z @ 0x1C02F3044 (-_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C0223C84 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
- *     ?_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z @ 0x1C03C8760 (-_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C01844B4 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
+ *     ?_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z @ 0x1C02F3388 (-_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z.c)
  */
 
-int __fastcall MONITOR_MGR::_AddTargetIntoPersistencyRegistry(MONITOR_MGR *this, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall MONITOR_MGR::_AddTargetIntoPersistencyRegistry(MONITOR_MGR *this, __int64 a2)
 {
-  __int64 v5; // rax
-  MONITOR_MGR *v6; // rcx
-  unsigned int v7; // edx
+  __int64 v3; // rax
+  MONITOR_MGR *v4; // rcx
+  unsigned int v5; // edx
+  __int64 v6; // rax
   int result; // eax
+  __int64 v8; // rcx
   const WCHAR *v9; // rdx
-  NTSTATUS v10; // eax
-  NTSTATUS v11; // ebx
+  __int64 v10; // rax
+  NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // rax
   unsigned int ValueData; // [rsp+30h] [rbp-9h] BYREF
   PCWSTR Path; // [rsp+38h] [rbp-1h] BYREF
   WCHAR ValueName[32]; // [rsp+40h] [rbp+7h] BYREF
 
   ValueData = a2;
-  v5 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-  v6 = (MONITOR_MGR *)ValueData;
-  *(_QWORD *)(v5 + 24) = ValueData;
-  v7 = ValueData;
+  v3 = WdLogNewEntry5_WdTrace(this, a2);
+  v4 = (MONITOR_MGR *)ValueData;
+  *(_QWORD *)(v3 + 24) = ValueData;
+  v5 = ValueData;
   if ( ValueData == -1 )
   {
-    WdLogSingleEntry0(1LL);
-    v7 = -1;
+    v6 = WdLogNewEntry5_WdAssertion(v4, 0xFFFFFFFFLL);
+    WdLogEvent5_WdAssertion(v6);
+    v5 = -1;
   }
-  result = MONITOR_MGR::_PersistencyRegNameFromTargetID(v6, v7, ValueName);
+  result = MONITOR_MGR::_PersistencyRegNameFromTargetID(v4, v5, ValueName);
   if ( result >= 0 )
   {
     Path = 0LL;
-    result = MONITOR_MGR::_OpenPersistencyRegistry(this, 0x20006u, (void **)&Path);
+    result = MONITOR_MGR::_OpenPersistencyRegistry(this, 131078LL, (void **)&Path);
     if ( result >= 0 )
     {
       v9 = Path;
       if ( !Path )
       {
-        WdLogSingleEntry0(1LL);
+        v10 = WdLogNewEntry5_WdAssertion(v8, 0LL);
+        WdLogEvent5_WdAssertion(v10);
         v9 = Path;
       }
-      v10 = RtlWriteRegistryValue(0x40000000u, v9, ValueName, 4u, &ValueData, 4u);
-      v11 = v10;
-      if ( v10 < 0 )
-        WdLogSingleEntry2(2LL, ValueData, v10);
+      v11 = RtlWriteRegistryValue(0x40000000u, v9, ValueName, 4u, &ValueData, 4u);
+      v14 = v11;
+      if ( v11 < 0 )
+      {
+        v15 = WdLogNewEntry5_WdError(v13, v12);
+        *(_QWORD *)(v15 + 24) = ValueData;
+        *(_QWORD *)(v15 + 32) = v14;
+        WdLogEvent5_WdError(v15);
+      }
       ZwClose((HANDLE)Path);
-      return v11;
+      return v14;
     }
   }
   return result;

@@ -3,16 +3,16 @@
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
  *     SePrivilegedServiceAuditAlarm @ 0x14062CE68 (SePrivilegedServiceAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1406C47E0 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1406C47C0 (NtPrivilegedServiceAuditAlarm.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SepAdtPrivilegedServiceAuditAlarm(

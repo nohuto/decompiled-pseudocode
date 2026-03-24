@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetIndex @ 0x14067CAFC
+ * XREFs of SdbpGetIndex @ 0x14067CADC
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7E8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721178 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
  * Callees:
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbpGetMappedTagData @ 0x14067CE28 (SdbpGetMappedTagData.c)
- *     SdbGetTagDataSize @ 0x14067D30C (SdbGetTagDataSize.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x14067CE08 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x14067D2EC (SdbGetTagDataSize.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetIndex(__int64 a1, __int64 a2, unsigned int *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@W4VIDMM_BUDGET_PRIORITY_BAND@@_K@Z @ 0x1C00EDEB4
+ * XREFs of ?AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@W4VIDMM_BUDGET_PRIORITY_BAND@@_K@Z @ 0x1C00CAAD8
  * Callers:
- *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00EDC60 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
+ *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00CA884 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     ?AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@PEAUVIDMM_PROCESS_ADAPTER_INFO@@_K@Z @ 0x1C00EE32C (-AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@P.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     ?AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@PEAUVIDMM_PROCESS_ADAPTER_INFO@@_K@Z @ 0x1C00CAF50 (-AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@P.c)
  */
 
 void __fastcall VIDMM_GLOBAL::AssignBudgetsWithinBand(
@@ -96,7 +96,7 @@ void __fastcall VIDMM_GLOBAL::AssignBudgetsWithinBand(
       while ( v13 != v12 );
     }
     v18 = a5;
-    v19 = dword_1C005E8C8;
+    v19 = dword_1C00451E8;
     v20 = *(int **)v12;
     v55 = a5;
     memset(v59, 255, sizeof(v59));
@@ -114,7 +114,7 @@ void __fastcall VIDMM_GLOBAL::AssignBudgetsWithinBand(
         v25 = v20;
         v26 = (int **)v20;
         v20 = *(int **)v20;
-        v57 = dword_1C005E8C8[*((int *)v25 - 4)];
+        v57 = dword_1C00451E8[*((int *)v25 - 4)];
         v27 = v54 * v57;
         v28 = *(_QWORD *)(*(v25 - 45) + 8 * (*a3 + 37LL * *(unsigned int *)a2) + 184);
         if ( v28 <= v27 )
@@ -145,7 +145,7 @@ void __fastcall VIDMM_GLOBAL::AssignBudgetsWithinBand(
         v22 = v54;
         break;
       }
-      v32 = dword_1C005E8C8;
+      v32 = dword_1C00451E8;
       v33 = 0LL;
       v34 = 3LL;
       do

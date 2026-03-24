@@ -1,23 +1,21 @@
 /*
- * XREFs of DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C036B268
+ * XREFs of DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C02327A4
  * Callers:
- *     DpiFdoDispatchIoctl @ 0x1C01E4AC0 (DpiFdoDispatchIoctl.c)
- *     ?EnsureVirtualGpuProcess@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0367F90 (-EnsureVirtualGpuProcess@ADAPTER_RENDER@@QEAAJXZ.c)
- *     DpiFlexIovMitigationUpdate @ 0x1C039DE00 (DpiFlexIovMitigationUpdate.c)
- *     DpiSriovAttach @ 0x1C039E23C (DpiSriovAttach.c)
+ *     ?EnsureVirtualGpuProcess@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0230248 (-EnsureVirtualGpuProcess@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C94B0 (DpiFdoDispatchIoctl.c)
+ *     DpiFlexIovMitigationUpdate @ 0x1C02CD3E0 (DpiFlexIovMitigationUpdate.c)
+ *     DpiSriovAttach @ 0x1C02CD830 (DpiSriovAttach.c)
  * Callees:
- *     DxgkpIsDrtEnabled @ 0x1C030A784 (DxgkpIsDrtEnabled.c)
+ *     DxgkpIsDrtEnabled @ 0x1C0261DB8 (DxgkpIsDrtEnabled.c)
  */
 
 bool DxgkpCheckProcessForVirtualMachineManagementAccess()
 {
-  __int64 v0; // rcx
-  char v2; // [rsp+30h] [rbp+8h] BYREF
+  char v1; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  if ( (int)RtlCheckTokenMembership(0LL, SeExports->SeLocalSystemSid, &v2) >= 0 && v2 )
-    return 1;
-  if ( DxgkpIsDrtEnabled(v0) && (int)RtlCheckTokenMembership(0LL, SeExports->SeAliasAdminsSid, &v2) >= 0 )
-    return v2 != 0;
-  return 0;
+  v1 = 0;
+  return (int)RtlCheckTokenMembership(0LL, SeExports->SeLocalSystemSid, &v1) >= 0 && v1
+      || (unsigned __int8)DxgkpIsDrtEnabled()
+      && (int)RtlCheckTokenMembership(0LL, SeExports->SeAliasAdminsSid, &v1) >= 0
+      && v1;
 }

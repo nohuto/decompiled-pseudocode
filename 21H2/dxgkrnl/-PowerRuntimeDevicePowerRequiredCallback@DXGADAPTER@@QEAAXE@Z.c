@@ -1,15 +1,15 @@
 /*
- * XREFs of ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0023F5C
+ * XREFs of ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0038894
  * Callers:
- *     ?DxgkPowerRuntimeDevicePowerRequiredCallback@@YAXPEAX@Z @ 0x1C0023DB0 (-DxgkPowerRuntimeDevicePowerRequiredCallback@@YAXPEAX@Z.c)
- *     ?DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z @ 0x1C0023DF0 (-DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z.c)
+ *     ?DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z @ 0x1C003EBC0 (-DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z.c)
+ *     ?DxgkPowerRuntimeDevicePowerRequiredCallback@@YAXPEAX@Z @ 0x1C003EC20 (-DxgkPowerRuntimeDevicePowerRequiredCallback@@YAXPEAX@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     DpiRequestDevicePowerState @ 0x1C0023FC0 (DpiRequestDevicePowerState.c)
- *     DpiIsNeedWakeUpAdapter @ 0x1C005FB4C (DpiIsNeedWakeUpAdapter.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiRequestDevicePowerState @ 0x1C00517F4 (DpiRequestDevicePowerState.c)
+ *     DpiIsNeedWakeUpAdapter @ 0x1C0052148 (DpiIsNeedWakeUpAdapter.c)
  */
 
-void __fastcall DXGADAPTER::PowerRuntimeDevicePowerRequiredCallback(DXGADAPTER *this, char a2)
+void __fastcall DXGADAPTER::PowerRuntimeDevicePowerRequiredCallback(DXGADAPTER *this, __int64 a2)
 {
   unsigned int v3; // edi
   struct DXGGLOBAL *Global; // rax
@@ -17,17 +17,17 @@ void __fastcall DXGADAPTER::PowerRuntimeDevicePowerRequiredCallback(DXGADAPTER *
 
   if ( *((_BYTE *)this + 204) )
   {
-    if ( a2 )
-      PoFxReportDevicePoweredOn(*((_QWORD *)this + 363));
+    if ( (_BYTE)a2 )
+      PoFxReportDevicePoweredOn(*((_QWORD *)this + 351));
   }
   else
   {
-    if ( a2 )
+    if ( (_BYTE)a2 )
     {
-      Global = DXGGLOBAL_GetGlobal();
+      Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
       v3 = 1;
-      if ( *((_DWORD *)Global + 538)
-        && *((_BYTE *)Global + 304408)
+      if ( *((_DWORD *)Global + 494)
+        && *((_BYTE *)Global + 304216)
         && (unsigned __int8)DpiIsNeedWakeUpAdapter(*((_QWORD *)this + 27)) )
       {
         WorkItem = IoAllocateWorkItem(*((PDEVICE_OBJECT *)this + 27));

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsDestroyBroadcast @ 0x140983558
+ * XREFs of PopDirectedDripsDestroyBroadcast @ 0x1408E315C
  * Callers:
- *     PopDirectedDripsResumeDevices @ 0x140983C74 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x140983EC4 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsResumeDevices @ 0x1408E38D0 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3AC8 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     PoClearBroadcast @ 0x14098BC3C (PoClearBroadcast.c)
+ *     PoClearBroadcast @ 0x1407780E0 (PoClearBroadcast.c)
  */
 
-__int64 PopDirectedDripsDestroyBroadcast()
+void PopDirectedDripsDestroyBroadcast()
 {
   volatile signed __int32 *v0; // rdx
   volatile signed __int32 *i; // rax
@@ -46,5 +46,5 @@ __int64 PopDirectedDripsDestroyBroadcast()
       v0 = (volatile signed __int32 *)*((_QWORD *)v0 + 2);
     }
   }
-  return PoClearBroadcast();
+  PoClearBroadcast();
 }

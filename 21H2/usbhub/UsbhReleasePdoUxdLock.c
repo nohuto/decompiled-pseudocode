@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhReleasePdoUxdLock @ 0x1C005A3E8
+ * XREFs of UsbhReleasePdoUxdLock @ 0x1C005BAAC
  * Callers:
- *     UsbhPdoPnp_QueryId @ 0x1C0054FF0 (UsbhPdoPnp_QueryId.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhPdoPnp_QueryId @ 0x1C0056680 (UsbhPdoPnp_QueryId.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 __int64 __fastcall UsbhReleasePdoUxdLock(__int64 a1, __int64 a2)

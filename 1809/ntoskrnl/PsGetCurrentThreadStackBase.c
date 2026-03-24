@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentThreadStackBase @ 0x1402E9980
+ * XREFs of PsGetCurrentThreadStackBase @ 0x1402E9A80
  * Callers:
  *     <none>
  * Callees:

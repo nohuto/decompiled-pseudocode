@@ -1,5 +1,5 @@
 /*
- * XREFs of CcPerformReadAhead @ 0x1400DDFA4
+ * XREFs of CcPerformReadAhead @ 0x1400DDFC4
  * Callers:
  *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
  * Callees:
@@ -7,22 +7,22 @@
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACF80 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MmWaitForCacheManagerPrefetch @ 0x1400DECD8 (MmWaitForCacheManagerPrefetch.c)
- *     PsSetPagePriorityThread @ 0x1400DEEE0 (PsSetPagePriorityThread.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     IoDiskIoAttributionDereference @ 0x140105834 (IoDiskIoAttributionDereference.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F230 (FsRtlIsNtstatusExpected.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1400DECF8 (MmWaitForCacheManagerPrefetch.c)
+ *     PsSetPagePriorityThread @ 0x1400DEF00 (PsSetPagePriorityThread.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
- *     MmPrefetchForCacheManager @ 0x140662658 (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
  */
 
 __int64 __fastcall CcPerformReadAhead(__int64 a1, __int64 a2, __int64 a3)

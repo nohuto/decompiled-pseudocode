@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01EB898
+ * XREFs of ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01F0D88
  * Callers:
- *     _DelegateCapturePointers @ 0x1C01EAC24 (_DelegateCapturePointers.c)
+ *     _DelegateCapturePointers @ 0x1C01F0284 (_DelegateCapturePointers.c)
  * Callees:
- *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01EBAA4 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01F0F94 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
  */
 
 __int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, unsigned __int16 a2, int a3, struct tagWND *a4)
@@ -12,7 +12,7 @@ __int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, unsigned _
   struct tagTHREADPOINTERDATA *v8; // rbx
   struct tagWND *v9; // rax
   __int64 result; // rax
-  _QWORD *v11; // [rsp+40h] [rbp+8h] BYREF
+  struct tagWND *v11; // [rsp+40h] [rbp+8h] BYREF
 
   ThreadPointerData = FindThreadPointerData(a1, a2);
   v8 = ThreadPointerData;
@@ -20,9 +20,9 @@ __int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, unsigned _
     return 0LL;
   v11 = 0LL;
   CTouchProcessor::GetPointerCapture(gpTouchProcessor, *((_QWORD *)ThreadPointerData + 3), 0, (void **)&v11, 0LL);
-  if ( !v11 )
-    return 0LL;
-  v9 = (struct tagWND *)v11[10];
+  v9 = v11;
+  if ( v11 )
+    v9 = (struct tagWND *)*((_QWORD *)v11 + 10);
   if ( !v9 || v9 != a4 || a3 != CTouchProcessor::GetPointerDownFrame(gpTouchProcessor, *((_QWORD *)v8 + 3)) )
     return 0LL;
   *((_DWORD *)v8 + 12) |= 4u;

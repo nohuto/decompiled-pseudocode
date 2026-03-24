@@ -1,10 +1,10 @@
 /*
- * XREFs of AtmDrvFontManagementRedirector @ 0x1C02A7884
+ * XREFs of AtmDrvFontManagementRedirector @ 0x1C029E5C4
  * Callers:
- *     GreNamedEscape @ 0x1C02B3788 (GreNamedEscape.c)
+ *     GreNamedEscape @ 0x1C02A6FD4 (GreNamedEscape.c)
  * Callees:
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0113620 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     UmfdFontManagement @ 0x1C0306170 (UmfdFontManagement.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7310 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     UmfdFontManagement @ 0x1C02DE310 (UmfdFontManagement.c)
  */
 
 __int64 __fastcall AtmDrvFontManagementRedirector(__int64 a1, __int64 a2, int a3, int a4, int *a5, int a6, __int64 a7)
@@ -21,7 +21,7 @@ __int64 __fastcall AtmDrvFontManagementRedirector(__int64 a1, __int64 a2, int a3
   }
   else if ( a3 == 256 || (unsigned int)(a3 - 9473) <= 0x13 )
   {
-    UmfdHostLifeTimeManager::EnsureUmfdHost(0LL);
+    UmfdHostLifeTimeManager::EnsureUmfdHost();
     return UmfdFontManagement(0, 0, a3, a4, (__int64)a5, a6, a7);
   }
   return v7;

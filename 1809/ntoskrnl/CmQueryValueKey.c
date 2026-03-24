@@ -1,7 +1,7 @@
 /*
- * XREFs of CmQueryValueKey @ 0x1406451B0
+ * XREFs of CmQueryValueKey @ 0x140645190
  * Callers:
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
@@ -12,12 +12,12 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     PsBoostThreadIo @ 0x1400BBF50 (PsBoostThreadIo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpRecordRegistryLockAcquire @ 0x1401B2FD4 (CmpRecordRegistryLockAcquire.c)
- *     CmpRecordRegistryLockRelease @ 0x1401B3004 (CmpRecordRegistryLockRelease.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpRecordRegistryLockAcquire @ 0x1401B2FF4 (CmpRecordRegistryLockAcquire.c)
+ *     CmpRecordRegistryLockRelease @ 0x1401B3024 (CmpRecordRegistryLockRelease.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
  *     CmpLockKcbStackExclusive @ 0x1405AA5D8 (CmpLockKcbStackExclusive.c)
  *     CmpTryConvertKcbLockSharedToExclusive @ 0x1405CF40C (CmpTryConvertKcbLockSharedToExclusive.c)
@@ -27,12 +27,12 @@
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     CmpSetKcbAtLayerHeight @ 0x1405D5E8C (CmpSetKcbAtLayerHeight.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockKcbStackShared @ 0x140644050 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpFreeKeyControlBlock @ 0x140692C14 (CmpFreeKeyControlBlock.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E70 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     RtlCompareUnicodeStrings @ 0x14069B170 (RtlCompareUnicodeStrings.c)
+ *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     RtlCompareUnicodeStrings @ 0x14069B150 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, void *a4, unsigned int a5, __int64 a6)

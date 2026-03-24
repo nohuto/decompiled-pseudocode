@@ -1,12 +1,12 @@
 /*
- * XREFs of EmProviderDeregisterEntry @ 0x140813A90
+ * XREFs of EmProviderDeregisterEntry @ 0x140813A70
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EmpProviderDeregisterEntry @ 0x14026E4A8 (EmpProviderDeregisterEntry.c)
+ *     EmpProviderDeregisterEntry @ 0x14026E5A8 (EmpProviderDeregisterEntry.c)
  */
 
 __int64 __fastcall EmProviderDeregisterEntry(char *P)

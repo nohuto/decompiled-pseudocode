@@ -1,352 +1,318 @@
 /*
- * XREFs of CmpSetKeySecurity @ 0x140677810
+ * XREFs of CmpSetKeySecurity @ 0x14066DF0C
  * Callers:
- *     CmpSecurityMethod @ 0x140721010 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x140665120 (CmpSecurityMethod.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpTransEnlistUowInKcb @ 0x1402A21B0 (CmpTransEnlistUowInKcb.c)
- *     CmpTransEnlistUowInCmTrans @ 0x1402A2204 (CmpTransEnlistUowInCmTrans.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmpSetSecurityDescriptorInfo @ 0x140677DC0 (CmpSetSecurityDescriptorInfo.c)
- *     CmpGetKeyNodeForKcb @ 0x14067E828 (CmpGetKeyNodeForKcb.c)
- *     CmpLockIXLockExclusive @ 0x14067E9B8 (CmpLockIXLockExclusive.c)
- *     CmpAllocateUnitOfWork @ 0x14067EA18 (CmpAllocateUnitOfWork.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x14067F480 (CmpTransSearchAddTransFromKeyBody.c)
- *     SeSetSecurityAccessMask @ 0x1406B5B10 (SeSetSecurityAccessMask.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpSignalDeferredPosts @ 0x140719010 (CmpSignalDeferredPosts.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmpRundownUnitOfWork @ 0x14071C120 (CmpRundownUnitOfWork.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14071F6D0 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpReportNotifyForKcbStack @ 0x140721878 (CmpReportNotifyForKcbStack.c)
- *     CmpUnlockKcbStack @ 0x140721BAC (CmpUnlockKcbStack.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4 (CmpStartKcbStackForTopLayerKcb.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     CmpCheckKcbStackAccess @ 0x140918134 (CmpCheckKcbStackAccess.c)
- *     CmpRollbackTransactionArray @ 0x14091BC64 (CmpRollbackTransactionArray.c)
- *     CmpSnapshotTxOwnerArray @ 0x14091ECE0 (CmpSnapshotTxOwnerArray.c)
- *     CmpPartialPromoteSubkeys @ 0x1409224D4 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x1409226E0 (CmpPromoteKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140AB4370 (CmpLockRegistry.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmUnlockHiveSecurity @ 0x140AB4484 (CmUnlockHiveSecurity.c)
- *     HvpGetBinContextInitialize @ 0x140AB4534 (HvpGetBinContextInitialize.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     CmpTransEnlistUowInKcb @ 0x140360610 (CmpTransEnlistUowInKcb.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x140361D2C (CmpTransEnlistUowInCmTrans.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpReportNotifyForKcbStack @ 0x1405ED300 (CmpReportNotifyForKcbStack.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x1405EF510 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpTryAcquireIXLockExclusive @ 0x1406650F8 (CmpTryAcquireIXLockExclusive.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpIsKcbImmutable @ 0x140665DD0 (CmpIsKcbImmutable.c)
+ *     HvUnlockHiveFlusherShared @ 0x14066628C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406662C4 (HvLockHiveFlusherShared.c)
+ *     CmpSignalDeferredPosts @ 0x140667890 (CmpSignalDeferredPosts.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x140669070 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmUnlockHiveSecurity @ 0x14066A1E4 (CmUnlockHiveSecurity.c)
+ *     CmLockHiveSecurityExclusive @ 0x14066A204 (CmLockHiveSecurityExclusive.c)
+ *     CmpGetKeyNodeForKcb @ 0x14066BFD4 (CmpGetKeyNodeForKcb.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14066CCFC (CmpSetSecurityDescriptorInfo.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     SeSetSecurityAccessMask @ 0x140697778 (SeSetSecurityAccessMask.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpAllocateUnitOfWork @ 0x1406B8780 (CmpAllocateUnitOfWork.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
+ *     CmpCleanupKcbStack @ 0x1406FB360 (CmpCleanupKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     CmpLockIXLockExclusive @ 0x14071D3E0 (CmpLockIXLockExclusive.c)
+ *     CmpRundownUnitOfWork @ 0x14071D7DC (CmpRundownUnitOfWork.c)
+ *     CmpReleaseKeyNodeForKcb @ 0x140863E04 (CmpReleaseKeyNodeForKcb.c)
+ *     CmpCheckKcbStackAccess @ 0x1408716E4 (CmpCheckKcbStackAccess.c)
+ *     CmpRollbackTransactionArray @ 0x140875078 (CmpRollbackTransactionArray.c)
+ *     CmpSnapshotTxOwnerArray @ 0x14087824C (CmpSnapshotTxOwnerArray.c)
+ *     CmpFreeUnitOfWork @ 0x14087EAA8 (CmpFreeUnitOfWork.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x1408802C8 (CmpPromoteKey.c)
  */
 
-__int64 __fastcall CmpSetKeySecurity(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall CmpSetKeySecurity(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
-  char v7; // r14
+  char v7; // r13
   char v8; // r12
-  char v9; // r13
-  _QWORD *v10; // rsi
+  char v9; // si
+  _QWORD *v10; // r14
   __int64 v11; // rdx
   __int64 v12; // r8
-  __int64 v13; // r9
-  ULONG_PTR v14; // rdi
-  int started; // ebx
-  __int64 v16; // rdx
+  _DWORD *v13; // r9
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  ULONG_PTR v16; // rdi
   __int64 v17; // r8
-  __int64 v18; // r9
-  PPRIVILEGE_SET v19; // rcx
-  __int64 v20; // r14
-  char v21; // r10
-  int v22; // r8d
-  ULONG_PTR v23; // rcx
-  char v24; // r14
-  PPRIVILEGE_SET v25; // rcx
-  char v26; // di
-  __int64 v27; // r8
-  PPRIVILEGE_SET v28; // rcx
+  struct _LOOKASIDE_LIST_EX *v18; // r9
+  int started; // ebx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r13
+  char v25; // r10
+  int v26; // r8d
+  __int64 v27; // rcx
+  BOOLEAN v28; // r13
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  char v31; // di
+  __int64 v32; // r8
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v36; // rcx
   _QWORD *UnitOfWork; // rax
-  char v31; // r15
+  char v38; // r15
+  __int64 v39; // rcx
   __int64 KeyNodeForKcb; // rax
-  __int64 v33; // rcx
-  __int64 v34; // rbx
-  __int64 v35; // rdi
-  __int64 v36; // [rsp+20h] [rbp-E0h]
-  __int64 v37; // [rsp+28h] [rbp-D8h]
-  __int64 v38; // [rsp+30h] [rbp-D0h]
-  __int64 v39; // [rsp+38h] [rbp-C8h]
-  __int64 v40; // [rsp+40h] [rbp-C0h]
-  char v41; // [rsp+50h] [rbp-B0h]
-  char v42; // [rsp+52h] [rbp-AEh]
-  unsigned int v43; // [rsp+54h] [rbp-ACh] BYREF
-  __int128 v44; // [rsp+58h] [rbp-A8h] BYREF
-  PPRIVILEGE_SET Privileges[2]; // [rsp+68h] [rbp-98h]
-  int v46; // [rsp+78h] [rbp-88h] BYREF
-  int v47; // [rsp+7Ch] [rbp-84h] BYREF
-  __int64 v48; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v49; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v50; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v51; // [rsp+98h] [rbp-68h]
-  _QWORD v52[2]; // [rsp+A0h] [rbp-60h] BYREF
-  unsigned int *v53; // [rsp+B0h] [rbp-50h]
-  __int64 v54; // [rsp+B8h] [rbp-48h]
-  __int64 v55; // [rsp+C0h] [rbp-40h]
+  __int64 v41; // [rsp+20h] [rbp-E0h]
+  BOOLEAN v42; // [rsp+50h] [rbp-B0h]
+  char v43; // [rsp+52h] [rbp-AEh]
+  unsigned int v44; // [rsp+54h] [rbp-ACh] BYREF
+  __int128 v45; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v46; // [rsp+68h] [rbp-98h]
+  int v47; // [rsp+78h] [rbp-88h] BYREF
+  int v48; // [rsp+7Ch] [rbp-84h] BYREF
+  __int64 v49; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v50; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v51; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD *v52[2]; // [rsp+98h] [rbp-68h] BYREF
+  _DWORD *v53; // [rsp+A8h] [rbp-58h]
+  __int64 v54; // [rsp+B0h] [rbp-50h]
+  __int64 v55; // [rsp+B8h] [rbp-48h]
+  __int64 v56; // [rsp+C0h] [rbp-40h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+C8h] [rbp-38h] BYREF
-  _OWORD v57[3]; // [rsp+E8h] [rbp-18h] BYREF
+  _OWORD v58[3]; // [rsp+E8h] [rbp-18h] BYREF
 
   v54 = a6;
-  v48 = 0xFFFFFFFFLL;
+  v50 = 0xFFFFFFFFLL;
+  v45 = 0LL;
+  WORD1(v45) = -1;
   v55 = a4;
-  v44 = 0LL;
-  WORD1(v44) = -1;
-  v51 = a3;
+  v56 = a3;
+  v52[1] = v52;
   v7 = 0;
   v53 = a2;
+  v52[0] = v52;
   v8 = 0;
-  v43 = 0;
+  v44 = 0;
   v9 = 0;
   v49 = 0LL;
   v10 = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v46 = 0;
-  v50 = 0LL;
-  memset(v57, 0, sizeof(v57));
-  v42 = 0;
   v47 = 0;
-  *(_OWORD *)Privileges = 0LL;
-  HvpGetBinContextInitialize((char *)&v48 + 4);
-  v52[1] = v52;
-  v52[0] = v52;
+  v51 = 0LL;
+  memset(v58, 0, sizeof(v58));
+  v43 = 0;
+  v48 = 0;
+  v46 = 0LL;
   SeCaptureSubjectContext(&SubjectContext);
-  CmpAttachToRegistryProcess(v57);
+  CmpAttachToRegistryProcess((__int64)v58, v11, v12, v13);
   while ( 1 )
   {
-    v41 = CmpAcquireShutdownRundown();
-    if ( !v41 )
+    v42 = CmpAcquireShutdownRundown();
+    if ( !v42 )
       break;
     if ( v7 )
-      CmpLockRegistryExclusive();
+      CmpLockRegistryExclusive(v15, v14);
     else
-      CmpLockRegistry();
-    v14 = *(_QWORD *)(a1 + 8);
-    if ( (*(_DWORD *)(*(_QWORD *)(v14 + 32) + 160LL) & 0x100000) != 0 )
+      CmpLockRegistry(v15);
+    v16 = *(_QWORD *)(a1 + 8);
+    if ( CmpIsKcbImmutable(v16) )
     {
-LABEL_39:
+LABEL_35:
       started = -1073741790;
-      goto LABEL_40;
+      goto LABEL_36;
     }
-    started = CmpStartKcbStackForTopLayerKcb(&v44, v14);
+    started = CmpStartKcbStackForTopLayerKcb((__int64)&v45, v16, v17, v18);
     if ( started < 0 )
-      goto LABEL_40;
+      goto LABEL_36;
     if ( !v7 )
     {
-      CmpLockKcbStackTopExclusiveRestShared(&v44);
+      CmpLockKcbStackTopExclusiveRestShared((__int64)&v45);
       v9 = 1;
     }
     started = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
     if ( started < 0 )
-      goto LABEL_40;
+      goto LABEL_36;
     if ( *(_QWORD *)(a1 + 56) || *(_QWORD *)(a1 + 64) )
     {
-      started = CmpTransSearchAddTransFromKeyBody(a1, &v50);
+      started = CmpTransSearchAddTransFromKeyBody(a1, &v51);
       if ( started < 0 )
-        goto LABEL_40;
-      started = CmpPerformKeyBodyDeletionCheck(a1, v50);
+        goto LABEL_36;
+      started = CmpPerformKeyBodyDeletionCheck(a1, v51);
       if ( started < 0 )
-        goto LABEL_40;
+        goto LABEL_36;
     }
-    if ( KeGetCurrentThread()->PreviousMode && (*(_DWORD *)(*(_QWORD *)(v14 + 32) + 4112LL) & 0x20) != 0 )
-      goto LABEL_39;
-    if ( !*(_WORD *)(v14 + 66) || *(_BYTE *)(v14 + 65) || v7 )
+    if ( KeGetCurrentThread()->PreviousMode && (*(_DWORD *)(*(_QWORD *)(v16 + 32) + 4152LL) & 0x20) != 0 )
+      goto LABEL_35;
+    if ( !*(_WORD *)(v16 + 66) || (unsigned int)CmpGetEffectiveKcbSemantics(v16, 0LL) || v7 )
     {
-      v20 = v50;
+      v24 = v51;
       if ( *(_WORD *)(a1 + 4) )
       {
-        SeSetSecurityAccessMask(*v53, &v46);
-        LOBYTE(v22) = v21;
-        started = CmpCheckKcbStackAccess((unsigned int)&v44, v20, v22, v46, 0);
+        SeSetSecurityAccessMask((unsigned int)*v53, &v47);
+        LOBYTE(v26) = v25;
+        started = CmpCheckKcbStackAccess((unsigned int)&v45, v24, v26, v47, 0);
         if ( started < 0 )
-          goto LABEL_40;
+          goto LABEL_36;
       }
-      if ( *(_WORD *)(v14 + 66) )
+      if ( *(_WORD *)(v16 + 66) )
       {
-        if ( !*(_BYTE *)(v14 + 65) )
+        if ( !(unsigned int)CmpGetEffectiveKcbSemantics(v16, 0LL) )
         {
-          LOBYTE(v11) = 1;
-          started = CmpPromoteKey(&v44, v11, 0LL);
+          LOBYTE(v20) = 1;
+          started = CmpPromoteKey(&v45, v20, 0LL);
           if ( started < 0 )
-            goto LABEL_40;
-          started = CmpPartialPromoteSubkeys(&v44);
+            goto LABEL_36;
+          started = CmpPartialPromoteSubkeys(&v45);
           if ( started < 0 )
-            goto LABEL_40;
+            goto LABEL_36;
         }
       }
-      if ( v20 )
+      if ( v24 )
       {
-        if ( (*(_DWORD *)(*(_QWORD *)(v14 + 32) + 160LL) & 2) != 0 )
+        v36 = *(unsigned int *)(*(_QWORD *)(v16 + 32) + 160LL);
+        if ( (v36 & 2) != 0 )
         {
           started = -1072103423;
         }
         else
         {
-          UnitOfWork = (_QWORD *)CmpAllocateUnitOfWork();
+          UnitOfWork = (_QWORD *)CmpAllocateUnitOfWork(v36, v20, v21);
           v10 = UnitOfWork;
           if ( UnitOfWork )
           {
-            CmpTransEnlistUowInKcb(UnitOfWork, v14);
-            started = CmpTransEnlistUowInCmTrans(v10, v20);
+            CmpTransEnlistUowInKcb(UnitOfWork, v16);
+            started = CmpTransEnlistUowInCmTrans(v10, v24);
             if ( started >= 0 )
             {
-              if ( (unsigned __int8)CmpLockIXLockExclusive(v14 + 248, v10, 0LL)
-                && (unsigned __int8)CmpLockIXLockExclusive(v14 + 264, v10, 1LL) )
+              if ( (unsigned __int8)CmpLockIXLockExclusive(v16 + 248, v10, 0LL)
+                && (unsigned __int8)CmpLockIXLockExclusive(v16 + 264, v10, 1LL) )
               {
-LABEL_61:
-                if ( !v42 )
+LABEL_55:
+                if ( !v43 )
                 {
-                  ExAcquirePushLockSharedEx(*(_QWORD *)(v14 + 32) + 72LL, 0LL);
+                  HvLockHiveFlusherShared(*(_QWORD *)(v16 + 32));
                   v8 = 1;
-                  ExAcquirePushLockExclusiveEx(*(_QWORD *)(v14 + 32) + 1784LL, 0LL);
+                  CmLockHiveSecurityExclusive(*(_QWORD *)(v16 + 32));
                 }
-                started = CmpSetSecurityDescriptorInfo(
-                            v14,
-                            (_DWORD)v53,
-                            v51,
-                            v55,
-                            a5,
-                            v54,
-                            v20,
-                            (__int64)v10,
-                            (__int64)&SubjectContext);
-                v31 = v8;
+                LODWORD(v41) = a5;
+                started = CmpSetSecurityDescriptorInfo(v16, v53, v56, v55, v41, v54, v24, v10, &SubjectContext);
+                v38 = v8;
                 if ( started >= 0 )
                 {
                   started = 0;
                   v10 = 0LL;
                   if ( v8 )
                   {
-                    CmUnlockHiveSecurity(*(_QWORD *)(v14 + 32));
-                    v31 = 0;
+                    CmUnlockHiveSecurity(*(_QWORD *)(v16 + 32));
+                    v38 = 0;
                   }
-                  if ( *(_WORD *)(v14 + 66) && !*(_BYTE *)(v14 + 65) )
+                  if ( *(_WORD *)(v16 + 66) && !(unsigned int)CmpGetEffectiveKcbSemantics(v16, 0LL) )
                   {
-                    LOBYTE(v12) = v8;
-                    KeyNodeForKcb = CmpGetKeyNodeForKcb(v14, &v48, v12);
+                    KeyNodeForKcb = CmpGetKeyNodeForKcb(v39, (__int64)&v50, v8);
                     *(_BYTE *)(KeyNodeForKcb + 13) = *(_BYTE *)(KeyNodeForKcb + 13) & 0xFC | 2;
-                    v33 = *(_QWORD *)(v14 + 32);
-                    if ( (*(_BYTE *)(v33 + 140) & 1) != 0 )
-                      HvpReleaseCellFlat(v33, &v48);
-                    else
-                      HvpReleaseCellPaged(v33, &v48);
-                    *(_BYTE *)(v14 + 65) = 2;
+                    CmpReleaseKeyNodeForKcb(v16, &v50);
+                    *(_BYTE *)(v16 + 65) = 2;
                   }
                   if ( v8 )
                   {
-                    v34 = *(_QWORD *)(v14 + 32);
-                    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v34 + 72), 0LL, 17LL) != 17 )
-                      ExfReleasePushLockShared((signed __int64 *)(v34 + 72));
-                    KeAbPostRelease(v34 + 72);
-                    v20 = v50;
-                    started = 0;
+                    HvUnlockHiveFlusherShared(*(_QWORD *)(v16 + 32));
                     v8 = 0;
                   }
-                  CmpReportNotifyForKcbStack(&v44, v20, 10LL, v52, v36, v37, v38, v39, v40);
+                  CmpReportNotifyForKcbStack((__int64)&v45, v24, 10, (__int64)v52);
                 }
-                if ( v31 )
-                  CmUnlockHiveSecurity(*(_QWORD *)(v14 + 32));
+                if ( v38 )
+                  CmUnlockHiveSecurity(*(_QWORD *)(v16 + 32));
                 if ( v8 )
-                {
-                  v35 = *(_QWORD *)(v14 + 32);
-                  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v35 + 72), 0LL, 17LL) != 17 )
-                    ExfReleasePushLockShared((signed __int64 *)(v35 + 72));
-                  KeAbPostRelease(v35 + 72);
-                }
-                if ( !v10 )
-                  goto LABEL_40;
+                  HvUnlockHiveFlusherShared(*(_QWORD *)(v16 + 32));
               }
               else
               {
                 started = -1072103423;
               }
             }
-            CmpRundownUnitOfWork((ULONG_PTR)v10);
-            ExFreePoolWithTag(v10, 0x77554D43u);
+            if ( v10 )
+            {
+              CmpRundownUnitOfWork((ULONG_PTR)v10);
+              CmpFreeUnitOfWork(v10);
+            }
           }
           else
           {
             started = -1073741670;
           }
         }
-LABEL_40:
-        v26 = 1;
-        goto LABEL_41;
+LABEL_36:
+        v31 = 1;
+        goto LABEL_37;
       }
-      v23 = v14 + 248;
-      if ( !*(_DWORD *)(v14 + 248) )
-      {
-        v23 = v14 + 264;
-        if ( !*(_DWORD *)(v14 + 264) )
-          goto LABEL_61;
-      }
-      v24 = 0;
-      started = CmpSnapshotTxOwnerArray(v23, &v43, &v49);
+      if ( CmpTryAcquireIXLockExclusive((_DWORD *)(v16 + 248)) && CmpTryAcquireIXLockExclusive((_DWORD *)(v16 + 264)) )
+        goto LABEL_55;
+      v28 = 0;
+      started = CmpSnapshotTxOwnerArray(v27, &v44, &v49);
       if ( started < 0 )
-        goto LABEL_40;
+        goto LABEL_36;
       if ( v9 )
-      {
-        CmpUnlockKcbStack(&v44);
-        v9 = 0;
-      }
-      v25 = Privileges[1];
-      if ( Privileges[1] )
-        CmSiFreeMemory(Privileges[1]);
-      v44 = 0LL;
-      WORD1(v44) = -1;
-      *(_OWORD *)Privileges = 0LL;
-      CmpUnlockRegistry(v25, v11, v12, v13, v36, v37);
-      v26 = 0;
+        CmpUnlockKcbStack(&v45);
+      v9 = 0;
+      CmpCleanupKcbStack(&v45);
+      v45 = 0LL;
+      WORD1(v45) = -1;
+      v46 = 0LL;
+      CmpUnlockRegistry(v30, v29);
+      v31 = 0;
       CmpReleaseShutdownRundown();
-      started = CmpRollbackTransactionArray(v43, v49, v27, &v47);
+      started = CmpRollbackTransactionArray(v44, v49, v32, &v48);
       if ( started < 0 )
-        goto LABEL_42;
-      v7 = v42;
+        goto LABEL_38;
+      v7 = v43;
     }
     else
     {
       v7 = 1;
-      v42 = 1;
-      CmpUnlockKcbStack(&v44);
-      v19 = Privileges[1];
+      v43 = 1;
+      CmpUnlockKcbStack(&v45);
       v9 = 0;
-      if ( Privileges[1] )
-        CmSiFreeMemory(Privileges[1]);
-      v44 = 0LL;
-      WORD1(v44) = -1;
-      *(_OWORD *)Privileges = 0LL;
-      CmpUnlockRegistry(v19, v16, v17, v18, v36, v37);
+      CmpCleanupKcbStack(&v45);
+      v45 = 0LL;
+      WORD1(v45) = -1;
+      v46 = 0LL;
+      CmpUnlockRegistry(v23, v22);
       CmpReleaseShutdownRundown();
     }
   }
   started = -1073741431;
-  v26 = 0;
-LABEL_41:
-  v24 = v41;
-LABEL_42:
+  v31 = 0;
+LABEL_37:
+  v28 = v42;
+LABEL_38:
   if ( v9 )
-    CmpUnlockKcbStack(&v44);
-  v28 = Privileges[1];
-  if ( Privileges[1] )
-    CmSiFreeMemory(Privileges[1]);
-  if ( v26 )
-    CmpUnlockRegistry(v28, v11, v12, v13, v36, v37);
-  if ( (_QWORD *)v52[0] != v52 )
+    CmpUnlockKcbStack(&v45);
+  CmpCleanupKcbStack(&v45);
+  if ( v31 )
+    CmpUnlockRegistry(v34, v33);
+  if ( v52[0] != v52 )
     CmpSignalDeferredPosts(v52);
-  if ( v24 )
+  if ( v28 )
     CmpReleaseShutdownRundown();
-  CmpDetachFromRegistryProcess(v57);
+  CmpDetachFromRegistryProcess((__int64)v58);
   SeReleaseSubjectContext(&SubjectContext);
   return (unsigned int)started;
 }

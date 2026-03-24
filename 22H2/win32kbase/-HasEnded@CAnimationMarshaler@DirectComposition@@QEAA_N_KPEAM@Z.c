@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HasEnded@CAnimationMarshaler@DirectComposition@@QEAA_N_KPEAM@Z @ 0x1C0025D44
+ * XREFs of ?HasEnded@CAnimationMarshaler@DirectComposition@@QEAA_N_KPEAM@Z @ 0x1C005CE74
  * Callers:
- *     ?RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0028CA8 (-RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ *     ?RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0060134 (-RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CAnimationMarshaler::HasEnded(
   __int64 v5; // rcx
 
   v4 = *((_DWORD *)this + 8);
-  if ( (v4 & 0x120) == 0x20 && (*((_BYTE *)this + 200) & 2) == 0 )
+  if ( (v4 & 0x120) == 0x20 && (*((_BYTE *)this + 208) & 2) == 0 )
   {
     v5 = *((_QWORD *)this + 14);
     if ( v5 )
@@ -29,6 +29,6 @@ char __fastcall DirectComposition::CAnimationMarshaler::HasEnded(
   }
   if ( (v4 & 0x100) == 0 )
     return 0;
-  *a3 = *((float *)this + 38);
+  *a3 = *((float *)this + 40);
   return 1;
 }

@@ -1,134 +1,163 @@
 /*
- * XREFs of ?AcquireTargetModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IPEAPEAUD3DKMDT_HVIDPNTARGETMODESET__@@PEAPEBU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C01B1830
+ * XREFs of ?AcquireTargetModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IPEAPEAUD3DKMDT_HVIDPNTARGETMODESET__@@PEAPEBU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C0159E70
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C000A584 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT.c)
- *     ?FindById@?$IndexedSet@VDMMVIDPNTARGET@@@@QEBAPEAVDMMVIDPNTARGET@@I@Z @ 0x1C000A5B0 (-FindById@-$IndexedSet@VDMMVIDPNTARGET@@@@QEBAPEAVDMMVIDPNTARGET@@I@Z.c)
- *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C000A5E4 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?QueryDxgMiniportVidPnTargetModeSetInterface@VIDPN_MGR@@QEAAXW4_DXGK_VIDPN_INTERFACE_VERSION@@PEAPEBU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C01B197C (-QueryDxgMiniportVidPnTargetModeSetInterface@VIDPN_MGR@@QEAAXW4_DXGK_VIDPN_INTERFACE_VERSION@@PE.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::AcquireTargetModeSet(
         DXGK_VIDPN_INTERFACE_V1_IMPL *this,
         struct D3DKMDT_HVIDPN__ *const a2,
-        struct DMMVIDPNTARGETMODESET **a3,
-        struct _DXGK_VIDPNTARGETMODESET_INTERFACE **a4)
+        _QWORD *a3,
+        struct D3DKMDT_HVIDPNTARGETMODESET__ **a4)
 {
-  __int64 v4; // r14
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  _QWORD *v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rbx
-  VIDPN_MGR *v15; // rcx
-  DMMVIDPNTARGET *v16; // rax
-  struct DMMVIDPNTARGETMODESET *v17; // rax
-  struct DMMVIDPNTARGETMODESET *v18; // rbx
-  struct _DXGK_VIDPNTARGETMODESET_INTERFACE *v19; // rax
-  __int64 v20; // r8
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  int v28; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v29; // [rsp+28h] [rbp-18h]
-  char v30; // [rsp+30h] [rbp-10h]
-  struct _DXGK_VIDPNTARGETMODESET_INTERFACE *v31; // [rsp+70h] [rbp+30h] BYREF
+  unsigned int v4; // edi
+  __int64 v5; // rbp
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  __int64 v12; // rdx
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v13; // rcx
+  _QWORD *v14; // rdx
+  _QWORD *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  _QWORD *v23; // rax
+  _QWORD *v24; // rax
+  int v25; // eax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  int v30; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v31; // [rsp+28h] [rbp-30h]
+  char v32; // [rsp+30h] [rbp-28h]
+  struct D3DKMDT_HVIDPNTARGETMODESET__ *v33; // [rsp+60h] [rbp+8h]
 
-  v4 = (unsigned int)a2;
-  v28 = -1;
-  v29 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v4 = 0;
+  v5 = (unsigned int)a2;
+  v30 = -1;
+  v31 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v30 = 1;
-    v28 = 7048;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v32 = 1;
+    v30 = 7048;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 7048);
   }
   else
   {
-    v30 = 0;
+    v32 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v28, 7048);
-  v12 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
-  v12[3] = this;
-  v12[4] = v4;
-  v12[5] = a3;
-  v12[6] = a4;
-  if ( a3 && a4 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v30, 7048LL);
+  v11 = (_QWORD *)WdLogNewEntry5_WdTrace(v10, v9);
+  v11[3] = this;
+  v11[4] = v5;
+  v11[5] = a3;
+  v11[6] = a4;
+  if ( !a3 || !a4 )
   {
-    *a3 = 0LL;
-    *a4 = 0LL;
-    v13 = ExposedViaHandle<DMMVIDPN,D3DKMDT_HVIDPN__ *>::GetFromHandle((__int64)this);
-    v14 = v13;
-    if ( v13 )
-    {
-      if ( !DMMVIDPNTOPOLOGY::IsTargetInTopology((DMMVIDPNTOPOLOGY *)(v13 + 96), v4) )
-        WdLogSingleEntry2(2LL, v4, v14);
-      v15 = *(VIDPN_MGR **)(v14 + 48);
-      v31 = 0LL;
-      VIDPN_MGR::QueryDxgMiniportVidPnTargetModeSetInterface(
-        v15,
-        DXGK_VIDPN_INTERFACE_VERSION_V1,
-        (const struct _DXGK_VIDPNTARGETMODESET_INTERFACE **)&v31);
-      v16 = (DMMVIDPNTARGET *)IndexedSet<DMMVIDPNTARGET>::FindById(*(_QWORD *)(v14 + 312), v4);
-      if ( v16 )
-      {
-        v17 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(v16);
-        v18 = v17;
-        if ( v17 )
-        {
-          if ( v17 == (struct DMMVIDPNTARGETMODESET *)-137LL )
-            v18 = 0LL;
-        }
-        else
-        {
-          WdLogSingleEntry0(1LL);
-        }
-        v19 = v31;
-        *a3 = v18;
-        *a4 = v19;
-        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-        if ( v30 )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-            McTemplateK0q_EtwWriteTransfer(BYTE1(Microsoft_Windows_DxgKrnlEnableBits), &EventProfilerExit, v20, v28);
-        }
-        return 0LL;
-      }
-      else
-      {
-        WdLogSingleEntry1(2LL, v4);
-        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-        if ( v30 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v26, &EventProfilerExit, v27, v28);
-        return 3223192325LL;
-      }
-    }
-    else
-    {
-      WdLogSingleEntry1(2LL, this);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-      if ( v30 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v28);
-      return 3223192323LL;
-    }
+    v24 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+    v24[3] = 0LL;
+    v24[4] = v5;
+    v24[5] = this;
+    WdLogEvent5_WdError(v24);
+    v25 = -1073741811;
+LABEL_38:
+    v4 = v25;
+    goto LABEL_19;
+  }
+  *a3 = 0LL;
+  *a4 = 0LL;
+  if ( !this || *((_DWORD *)this + 16) != 1833172997 )
+  {
+    v29 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v29 + 24) = this;
+    WdLogEvent5_WdError(v29);
+    v25 = -1071774973;
+    goto LABEL_38;
+  }
+  v14 = (_QWORD *)*((_QWORD *)this + 15);
+  if ( v14 == (_QWORD *)((char *)this + 120) || --v14 == 0LL )
+  {
+LABEL_32:
+    v26 = WdLogNewEntry5_WdError(v13, v14);
+    *(_QWORD *)(v26 + 24) = v5;
+    *(_QWORD *)(v26 + 32) = this;
+    WdLogEvent5_WdError(v26);
   }
   else
   {
-    WdLogSingleEntry3(2LL, 0LL, v4, this);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-    if ( v30 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v28);
-    return 3221225485LL;
+    while ( *(_DWORD *)(v14[12] + 24LL) != (_DWORD)v5 )
+    {
+      v13 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)v14[1];
+      v14 = (_QWORD *)((char *)v13 - 8);
+      if ( v13 == (DXGK_VIDPN_INTERFACE_V1_IMPL *)((char *)this + 120) )
+        v14 = 0LL;
+      if ( !v14 )
+        goto LABEL_32;
+    }
   }
+  v33 = *(struct D3DKMDT_HVIDPNTARGETMODESET__ **)(*((_QWORD *)this + 6) + 392LL);
+  v15 = (_QWORD *)(*((_QWORD *)this + 39) + 24LL);
+  if ( (_QWORD *)*v15 == v15 )
+  {
+    v16 = 0LL;
+  }
+  else
+  {
+    v16 = *v15 - 8LL;
+    if ( *v15 == 8LL )
+    {
+LABEL_36:
+      v28 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v28 + 24) = v5;
+      WdLogEvent5_WdError(v28);
+      v25 = -1071774971;
+      goto LABEL_38;
+    }
+    while ( *(_DWORD *)(v16 + 24) != (_DWORD)v5 )
+    {
+      v23 = *(_QWORD **)(v16 + 8);
+      if ( v23 == v15 )
+        v16 = 0LL;
+      else
+        v16 = (__int64)(v23 - 1);
+      if ( !v16 )
+        goto LABEL_36;
+    }
+  }
+  if ( !v16 )
+    goto LABEL_36;
+  v17 = *(_QWORD *)(v16 + 104);
+  if ( !v17 )
+  {
+    v18 = 0LL;
+    goto LABEL_35;
+  }
+  _InterlockedIncrement((volatile signed __int32 *)(v17 + 96));
+  v18 = *(_QWORD *)(v16 + 104);
+  if ( !v18 )
+  {
+LABEL_35:
+    v27 = WdLogNewEntry5_WdAssertion(v17, v14);
+    WdLogEvent5_WdAssertion(v27);
+  }
+  v19 = 0LL;
+  if ( v18 != -137 )
+    v19 = v18;
+  *a3 = v19;
+  *a4 = v33;
+LABEL_19:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30, (__int64)v14);
+  if ( v32 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v20, &EventProfilerExit, v21, v30);
+  return v4;
 }

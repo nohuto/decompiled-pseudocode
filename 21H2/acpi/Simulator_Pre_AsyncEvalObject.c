@@ -1,12 +1,12 @@
 /*
- * XREFs of Simulator_Pre_AsyncEvalObject @ 0x1C00651CC
+ * XREFs of Simulator_Pre_AsyncEvalObject @ 0x1C0063F4C
  * Callers:
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0064AA0 (Simulator_AllocAndInitTestData.c)
- *     Simulator_Copy_Arguments @ 0x1C0064C68 (Simulator_Copy_Arguments.c)
- *     Simulator_TestNotify @ 0x1C0065540 (Simulator_TestNotify.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_Copy_Arguments @ 0x1C00639E8 (Simulator_Copy_Arguments.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 __fastcall Simulator_Pre_AsyncEvalObject(
@@ -20,14 +20,14 @@ __int64 __fastcall Simulator_Pre_AsyncEvalObject(
         __int64 a8)
 {
   __int64 v9; // rsi
-  void *inited; // rax
+  PVOID inited; // rax
   int v13; // ecx
   __int64 v14; // rdx
   _DWORD *v15; // rcx
-  _SLIST_ENTRY *v16; // rax
-  _SLIST_ENTRY *v18; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v16; // rax
+  __int64 v18[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v18 = 0LL;
+  v18[0] = 0LL;
   v9 = a3;
   inited = Simulator_AllocAndInitTestData();
   *(_QWORD *)a8 = inited;
@@ -35,11 +35,11 @@ __int64 __fastcall Simulator_Pre_AsyncEvalObject(
   {
     v14 = *a4;
     *a5 = *a4;
-    v13 = Simulator_Copy_Arguments(v9, v14, &v18);
+    v13 = Simulator_Copy_Arguments(v9, v14, v18);
     if ( v13 >= 0 )
     {
       v15 = *(_DWORD **)a8;
-      v16 = v18;
+      v16 = v18[0];
       *v15 = 1;
       v15[1] = 2;
       v15[2] = 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x140804CA0
+ * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x140804C80
  * Callers:
- *     CmpLightWeightCommitAddKeyUoW @ 0x140803610 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803798 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140803AA4 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x1408035F0 (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803778 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140803A84 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpLightWeightSwapParentSubKeyList(__int64 a1, __int64 a2, __int64 a3)

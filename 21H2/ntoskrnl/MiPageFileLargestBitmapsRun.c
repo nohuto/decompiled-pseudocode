@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x14025FD40
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x14026AE68
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14025F6B0 (MiFindFreePageFileSpace.c)
- *     MiFindBestOutswapPagefile @ 0x14025FE60 (MiFindBestOutswapPagefile.c)
- *     MiGetKernelStackSwapSupport @ 0x14025FF40 (MiGetKernelStackSwapSupport.c)
- *     MiGatherPagefilePages @ 0x14037AFC0 (MiGatherPagefilePages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14059D170 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x140267690 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
+ *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
+ *     MiFindBestOutswapPagefile @ 0x14035C30C (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x14035C3EC (MiGetKernelStackSwapSupport.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)

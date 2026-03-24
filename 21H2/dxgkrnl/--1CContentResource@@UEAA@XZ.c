@@ -1,25 +1,30 @@
 /*
- * XREFs of ??1CContentResource@@UEAA@XZ @ 0x1C0080FEC
+ * XREFs of ??1CContentResource@@UEAA@XZ @ 0x1C006DEEC
  * Callers:
- *     ??_ECContentResource@@UEAAPEAXI@Z @ 0x1C0081040 (--_ECContentResource@@UEAAPEAXI@Z.c)
+ *     ??_ECContentResource@@UEAAPEAXI@Z @ 0x1C006DF60 (--_ECContentResource@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipResource@@MEAA@XZ @ 0x1C007ED60 (--1CFlipResource@@MEAA@XZ.c)
- *     ?ClearCompositionSurfaceBinding@CContentResource@@QEAAJPEAPEAVCDisableScanoutToken@@@Z @ 0x1C0081084 (-ClearCompositionSurfaceBinding@CContentResource@@QEAAJPEAPEAVCDisableScanoutToken@@@Z.c)
- *     ?SendToTokenManager@CDisableScanoutToken@@SAJAEAPEAV1@@Z @ 0x1C0082A44 (-SendToTokenManager@CDisableScanoutToken@@SAJAEAPEAV1@@Z.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000FC78 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0010098 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
+ *     ?UnBind@CCompositionSurface@@QEAAJ_N@Z @ 0x1C0011C68 (-UnBind@CCompositionSurface@@QEAAJ_N@Z.c)
+ *     ??1CFlipResource@@MEAA@XZ @ 0x1C006DA30 (--1CFlipResource@@MEAA@XZ.c)
  */
 
 void __fastcall CContentResource::~CContentResource(CContentResource *this)
 {
-  bool v1; // zf
-  struct CDisableScanoutToken *v3; // [rsp+30h] [rbp+8h] BYREF
+  char *v2; // rcx
+  CCompositionSurface *v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_QWORD *)this + 6) == 0LL;
   *(_QWORD *)this = &CContentResource::`vftable';
-  if ( !v1 )
+  v2 = (char *)*((_QWORD *)this + 6);
+  if ( v2 )
   {
     v3 = 0LL;
-    CContentResource::ClearCompositionSurfaceBinding(this, &v3);
-    CDisableScanoutToken::SendToTokenManager(&v3);
+    if ( (int)CompositionSurfaceObject::LockForWrite(v2, &v3) >= 0 )
+    {
+      CCompositionSurface::UnBind(v3, 0);
+      CCompositionSurface::UnlockAndRelease(v3);
+    }
+    ObfDereferenceObject(*((PVOID *)this + 6));
   }
   CFlipResource::~CFlipResource(this);
 }

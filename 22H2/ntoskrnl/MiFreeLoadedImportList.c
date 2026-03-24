@@ -1,14 +1,11 @@
 /*
- * XREFs of MiFreeLoadedImportList @ 0x140696D20
+ * XREFs of MiFreeLoadedImportList @ 0x1407733B4
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiActOnPatchInAllSessions @ 0x140A34680 (MiActOnPatchInAllSessions.c)
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
- *     MiMapAndApplyPatchInSession @ 0x140A3A024 (MiMapAndApplyPatchInSession.c)
- *     MiShutdownSystem @ 0x140AABC30 (MiShutdownSystem.c)
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8E04 (MiApplyDriverHotPatch.c)
+ *     MiShutdownSystem @ 0x1409AFEF8 (MiShutdownSystem.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeLoadedImportList(void *a1)

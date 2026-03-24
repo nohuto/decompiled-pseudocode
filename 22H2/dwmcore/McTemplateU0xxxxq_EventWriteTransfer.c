@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateU0xxxxq_EventWriteTransfer @ 0x18012EC24
+ * XREFs of McTemplateU0xxxxq_EventWriteTransfer @ 0x1801540F4
  * Callers:
- *     ?PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z @ 0x180050B80 (-PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0xxxxq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
+ULONG McTemplateU0xxxxq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   int v3; // [rsp+30h] [rbp-41h] BYREF
-  _BYTE v4[16]; // [rsp+40h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+40h] [rbp-31h] BYREF
   va_list v5; // [rsp+50h] [rbp-21h]
   __int64 v6; // [rsp+58h] [rbp-19h]
   va_list v7; // [rsp+60h] [rbp-11h]
@@ -50,9 +50,9 @@ __int64 McTemplateU0xxxxq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v13 = &v3;
   v14 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_SCHEDULE_PRESENT_Start,
            v16,
-           6LL,
-           v4);
+           6u,
+           &v4);
 }

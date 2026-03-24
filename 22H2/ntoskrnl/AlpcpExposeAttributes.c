@@ -1,72 +1,65 @@
 /*
- * XREFs of AlpcpExposeAttributes @ 0x14073C2B0
+ * XREFs of AlpcpExposeAttributes @ 0x1405E8380
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x14073B350 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
- *     AlpcpExposeTokenAttribute @ 0x14073C740 (AlpcpExposeTokenAttribute.c)
- *     AlpcpExposeWorkOnBehalfAttribute @ 0x14073C8D0 (AlpcpExposeWorkOnBehalfAttribute.c)
- *     AlpcpExposeHandleAttribute @ 0x14073C944 (AlpcpExposeHandleAttribute.c)
- *     AlpcpExposeContextAttribute32 @ 0x1407CD810 (AlpcpExposeContextAttribute32.c)
- *     AlpcpExposeViewAttribute @ 0x1407CE0B4 (AlpcpExposeViewAttribute.c)
- *     AlpcpExposeHandleAttribute32 @ 0x1407D1C0C (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeWorkOnBehalfAttribute @ 0x1405E87D0 (AlpcpExposeWorkOnBehalfAttribute.c)
+ *     AlpcpExposeTokenAttribute @ 0x1405E8850 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpExposeHandleAttribute @ 0x1405E89F0 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpExposeViewAttribute32 @ 0x14067C1B8 (AlpcpExposeViewAttribute32.c)
+ *     AlpcpExposeContextAttribute32 @ 0x14067F2B4 (AlpcpExposeContextAttribute32.c)
+ *     AlpcpExposeHandleAttribute32 @ 0x14068188C (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)
 {
-  __int64 v5; // rbp
+  __int64 v5; // rsi
   __int64 result; // rax
   _DWORD *v7; // r12
   __int64 v8; // r14
   __int64 v10; // r15
   int v11; // r13d
-  __int64 v12; // rsi
-  int v13; // esi
+  int v12; // ebp
+  __int64 v13; // rcx
   __int64 v14; // rax
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  __int64 v17; // rdx
-  int v18; // eax
-  __int64 v19; // rax
+  int v15; // eax
+  __int64 v16; // rax
+  int v17; // edx
+  __int64 v18; // rcx
+  int v19; // r8d
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // rdi
-  __int64 v24; // rax
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r8
-  ULONG_PTR v28; // rsi
-  ULONG_PTR v29; // rdi
-  int v30; // ebp
-  __int64 v31; // rcx
-  int v32; // esi
-  _DWORD *v33; // rdi
-  int v34; // r11d
-  __int64 v35; // r8
-  int v36; // r13d
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // rdi
-  int v40; // edx
-  __int64 v41; // rcx
-  __int64 v42; // rdx
-  __int64 v43; // r8
-  __int64 v44; // rcx
-  __int64 v45; // rax
-  __int64 v46; // rcx
-  __int64 v47; // r8
-  __int64 v48; // [rsp+20h] [rbp-58h]
-  __int128 v49; // [rsp+28h] [rbp-50h] BYREF
-  __int64 v50; // [rsp+38h] [rbp-40h]
-  unsigned int v51; // [rsp+40h] [rbp-38h]
-  int v52; // [rsp+88h] [rbp+10h]
+  __int64 v21; // r8
+  __int64 v22; // rdi
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  ULONG_PTR v26; // rsi
+  ULONG_PTR v27; // rdi
+  int v28; // ebp
+  __int64 v29; // rcx
+  int v30; // r13d
+  int v31; // ebp
+  __int64 v32; // r8
+  __int64 v33; // rdi
+  int v34; // edx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // rdi
+  int v38; // r8d
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // rax
+  __int64 v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // [rsp+20h] [rbp-38h]
 
   v5 = a5;
   result = 0LL;
@@ -84,75 +77,61 @@ __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4,
       *(_DWORD *)(a5 + 16) = a1;
       *v7 |= 0x80000000;
     }
-    v32 = a4 & 0x40000000;
+    v30 = a4 & 0x40000000;
     if ( (a4 & 0x40000000) != 0 )
-    {
-      v50 = 0LL;
-      v51 = 0;
-      v33 = (_DWORD *)(a5 + (((__int64)a4 >> 63) & 0xC) + 8);
-      v49 = 0LL;
-      result = AlpcpExposeViewAttribute(a1, a3, &v49, a5 + 4);
-      if ( (*v7 & 0x40000000) != 0 )
-      {
-        *v33 = v49;
-        v33[1] = DWORD2(v49);
-        v33[2] = v50;
-        result = v51;
-        v33[3] = v51;
-      }
-    }
-    v34 = v8 & 0x20000000;
+      result = AlpcpExposeViewAttribute32(a1, a3, a5 + (((__int64)a4 >> 63) & 0xC) + 8, a5 + 4);
+    v31 = v8 & 0x20000000;
     if ( (v8 & 0x20000000) != 0 )
     {
-      v35 = ((v8 >> 63) & 0xC) + 24;
-      if ( !v32 )
-        v35 = ((v8 >> 63) & 0xC) + 8;
-      result = AlpcpExposeContextAttribute32(v10, a3, a5 + v35, a5 + 4);
+      v32 = ((v8 >> 63) & 0xC) + 24;
+      if ( !v30 )
+        v32 = ((v8 >> 63) & 0xC) + 8;
+      result = AlpcpExposeContextAttribute32(v10, a3, a5 + v32, a5 + 4);
     }
-    v36 = v8 & 0x10000000;
+    v33 = (v8 >> 63) & 0xC;
+    v34 = v8 & 0x10000000;
     if ( (v8 & 0x10000000) != 0 )
     {
-      v37 = ((v8 >> 63) & 0xC) + 24;
-      if ( !v32 )
-        v37 = ((v8 >> 63) & 0xC) + 8;
-      v38 = v37 + 20;
-      if ( !v34 )
-        v38 = v37;
-      result = AlpcpExposeHandleAttribute32(v10, a3, a5 + v38, a5 + 4);
-      v34 = v8 & 0x20000000;
+      v35 = v33 + 24;
+      if ( !v30 )
+        v35 = v33 + 8;
+      v36 = v35 + 20;
+      if ( !v31 )
+        v36 = v35;
+      result = AlpcpExposeHandleAttribute32(v10, a3, a5 + v36, a5 + 4);
+      v34 = v8 & 0x10000000;
     }
-    v39 = (v8 >> 63) & 0xC;
-    v40 = v8 & 0x8000000;
+    v37 = v33 + 8;
+    v38 = v8 & 0x8000000;
     if ( (v8 & 0x8000000) != 0 )
     {
-      v41 = v39 + 24;
-      if ( !v32 )
-        v41 = v39 + 8;
-      v42 = v41 + 20;
+      v39 = v37 + 16;
+      if ( !v30 )
+        v39 = v37;
+      v40 = v39 + 20;
+      if ( !v31 )
+        v40 = v39;
+      v41 = v40 + 16;
       if ( !v34 )
-        v42 = v41;
-      v43 = v42 + 16;
-      if ( !v36 )
-        v43 = v42;
-      result = AlpcpExposeTokenAttribute(v10, a3, a5 + v43, a5 + 4);
-      v40 = v8 & 0x8000000;
+        v41 = v40;
+      result = AlpcpExposeTokenAttribute(v10, a3, a5 + v41, a5 + 4);
+      v38 = v8 & 0x8000000;
     }
     if ( (v8 & 0x2000000) != 0 )
     {
-      v44 = v39 + 24;
-      if ( !v32 )
-        v44 = v39 + 8;
-      v45 = v44 + 20;
-      if ( (v8 & 0x20000000) == 0 )
-        v45 = v44;
-      v46 = v45 + 16;
-      if ( !v36 )
-        v46 = v45;
-      v47 = v46 + 24;
-      if ( !v40 )
-        v47 = v46;
-      v27 = a5 + v47;
-      return AlpcpExposeWorkOnBehalfAttribute(v10, a3, v27, v7);
+      v42 = v37 + 16;
+      if ( !v30 )
+        v42 = v37;
+      v43 = v42 + 20;
+      if ( !v31 )
+        v43 = v42;
+      v44 = v43 + 16;
+      if ( (v8 & 0x10000000) == 0 )
+        v44 = v43;
+      v25 = v44 + 24;
+      if ( !v38 )
+        v25 = v44;
+      return AlpcpExposeWorkOnBehalfAttribute(v10, a3, v25 + v5, v7);
     }
   }
   else
@@ -160,102 +139,103 @@ __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4,
     if ( a4 < 0 && *(_QWORD *)(a3 + 136) )
     {
       *(_DWORD *)(a5 + 8) = 0;
-      *(_QWORD *)(a5 + 24) = *(_QWORD *)(*(_QWORD *)(a3 + 136) + 8LL);
+      result = *(_QWORD *)(a3 + 136);
+      *(_QWORD *)(a5 + 24) = *(_QWORD *)(result + 8);
       *v7 |= 0x80000000;
     }
     v11 = a4 & 0x40000000;
     if ( (a4 & 0x40000000) != 0 )
     {
-      v12 = *(_QWORD *)(a3 + 144);
-      v48 = a5 + (((__int64)a4 >> 63) & 0x18) + 8;
-      if ( v12 )
+      v45 = a5 + (((__int64)a4 >> 63) & 0x18) + 8;
+      result = *(_QWORD *)(a3 + 144);
+      if ( result )
       {
-        v28 = *(_QWORD *)(v12 + 16);
-        AlpcpReferenceBlob(v28);
-        v29 = *(_QWORD *)(*(_QWORD *)(a3 + 144) + 16LL);
-        AlpcpLockForCachedReferenceBlob(v29);
-        v30 = *(_DWORD *)(v29 + 48);
-        AlpcpUnlockBlob(v29);
-        AlpcpDereferenceBlobEx(v28, 1);
-        *(_DWORD *)(a3 + 40) |= 0x4000u;
-        v31 = *(_QWORD *)(a3 + 144);
-        *(_OWORD *)v48 = 0LL;
-        *(_OWORD *)(v48 + 16) = 0LL;
-        *(_QWORD *)(v48 + 16) = *(_QWORD *)(v31 + 40);
-        *(_QWORD *)(v48 + 24) = *(_QWORD *)(v31 + 48);
-        if ( (v30 & 1) != 0 )
-          *(_DWORD *)v48 = 0x40000;
+        v26 = *(_QWORD *)(result + 16);
+        AlpcpReferenceBlob(v26);
+        v27 = *(_QWORD *)(*(_QWORD *)(a3 + 144) + 16LL);
+        AlpcpLockForCachedReferenceBlob(v27);
+        v28 = *(_DWORD *)(v27 + 48);
+        AlpcpUnlockBlob(v27);
+        AlpcpDereferenceBlobEx(v26);
+        v29 = *(_QWORD *)(a3 + 144);
+        *(_OWORD *)v45 = 0LL;
+        *(_OWORD *)(v45 + 16) = 0LL;
+        *(_QWORD *)(v45 + 16) = *(_QWORD *)(v29 + 40);
+        result = *(_QWORD *)(v29 + 48);
+        *(_QWORD *)(v45 + 24) = result;
+        if ( (v28 & 1) != 0 )
+          *(_DWORD *)v45 = 0x40000;
         *v7 |= 0x40000000u;
         v5 = a5;
       }
     }
-    v13 = v8 & 0x20000000;
+    v12 = v8 & 0x20000000;
     if ( (v8 & 0x20000000) != 0 )
     {
-      v14 = ((v8 >> 63) & 0x18) + 40;
+      v13 = ((v8 >> 63) & 0x18) + 40;
       if ( !v11 )
-        v14 = ((v8 >> 63) & 0x18) + 8;
-      v15 = v14 + v5;
-      v16 = (_QWORD *)(a3 + 64);
-      if ( *(_QWORD *)(a3 + 56) == v10 || *v16 == v10 )
-        v17 = *(_QWORD *)(a3 + 128);
+        v13 = ((v8 >> 63) & 0x18) + 8;
+      if ( *(_QWORD *)(a3 + 56) == v10 || *(_QWORD *)(a3 + 64) == v10 )
+        v14 = *(_QWORD *)(a3 + 128);
       else
-        v17 = *(_QWORD *)(a3 + 120);
-      *(_QWORD *)v15 = v17;
-      if ( *(_QWORD *)(a3 + 56) == v10 || *v16 == v10 )
-        v18 = *(_DWORD *)(a3 + 72);
+        v14 = *(_QWORD *)(a3 + 120);
+      *(_QWORD *)(v13 + v5) = v14;
+      if ( *(_QWORD *)(a3 + 56) == v10 || *(_QWORD *)(a3 + 64) == v10 )
+        v15 = *(_DWORD *)(a3 + 72);
       else
-        v18 = *(_DWORD *)(a3 + 44);
-      *(_DWORD *)(v15 + 16) = v18;
+        v15 = *(_DWORD *)(a3 + 44);
+      *(_DWORD *)(v13 + v5 + 16) = v15;
       if ( (*(_DWORD *)(v10 + 416) & 6) == 4 )
-        v19 = *(_QWORD *)(a3 + 104);
+        v16 = *(_QWORD *)(a3 + 104);
       else
-        v19 = *(_QWORD *)(a3 + 112);
-      *(_QWORD *)(v15 + 8) = v19;
-      *(_DWORD *)(v15 + 20) = *(_DWORD *)(a3 + 264);
-      *(_DWORD *)(v15 + 24) = *(_DWORD *)(a3 + 272);
-      if ( a5 != -4 && v17 )
+        v16 = *(_QWORD *)(a3 + 112);
+      *(_QWORD *)(v13 + v5 + 8) = v16;
+      *(_DWORD *)(v13 + v5 + 20) = *(_DWORD *)(a3 + 264);
+      result = *(unsigned int *)(a3 + 272);
+      *(_DWORD *)(v13 + v5 + 24) = result;
+      if ( a5 != -4 && *(_QWORD *)(v13 + v5) )
         *v7 |= 0x20000000u;
     }
-    result = v8 & 0x10000000;
-    v52 = v8 & 0x10000000;
+    v17 = v8 & 0x10000000;
     if ( (v8 & 0x10000000) != 0 )
+    {
+      v18 = ((v8 >> 63) & 0x18) + 40;
+      if ( !v11 )
+        v18 = ((v8 >> 63) & 0x18) + 8;
+      if ( v12 )
+        v18 += 32LL;
+      result = AlpcpExposeHandleAttribute(v10, a3, v18 + v5, v7);
+      v17 = v8 & 0x10000000;
+    }
+    v19 = v8 & 0x8000000;
+    if ( (v8 & 0x8000000) != 0 )
     {
       v20 = ((v8 >> 63) & 0x18) + 40;
       if ( !v11 )
         v20 = ((v8 >> 63) & 0x18) + 8;
-      if ( v13 )
+      if ( v12 )
         v20 += 32LL;
-      result = AlpcpExposeHandleAttribute(v10, a3, v20 + v5, v7);
-    }
-    if ( (v8 & 0x8000000) != 0 )
-    {
-      v21 = ((v8 >> 63) & 0x18) + 8;
-      if ( v11 )
-        v21 = ((v8 >> 63) & 0x18) + 40;
-      if ( v13 )
-        v21 += 32LL;
-      v22 = v21 + 24;
-      if ( !v52 )
-        v22 = v21;
-      result = AlpcpExposeTokenAttribute(v10, a3, a5 + v22, v7);
+      v21 = v20 + 24;
+      if ( !v17 )
+        v21 = v20;
+      result = AlpcpExposeTokenAttribute(v10, a3, v5 + v21, v7);
+      v19 = v8 & 0x8000000;
     }
     if ( (v8 & 0x2000000) != 0 )
     {
-      v23 = (v8 >> 63) & 0x18;
-      v24 = v23 + 8;
-      if ( v11 )
-        v24 = v23 + 40;
-      if ( v13 )
-        v24 += 32LL;
+      v22 = (v8 >> 63) & 0x18;
+      v23 = v22 + 40;
+      if ( !v11 )
+        v23 = v22 + 8;
+      if ( v12 )
+        v23 += 32LL;
+      v24 = v23 + 24;
+      if ( (v8 & 0x10000000) == 0 )
+        v24 = v23;
       v25 = v24 + 24;
-      if ( !v52 )
+      if ( !v19 )
         v25 = v24;
-      v26 = v25 + 24;
-      if ( (v8 & 0x8000000) == 0 )
-        v26 = v25;
-      v27 = a5 + v26;
-      return AlpcpExposeWorkOnBehalfAttribute(v10, a3, v27, v7);
+      return AlpcpExposeWorkOnBehalfAttribute(v10, a3, v25 + v5, v7);
     }
   }
   return result;

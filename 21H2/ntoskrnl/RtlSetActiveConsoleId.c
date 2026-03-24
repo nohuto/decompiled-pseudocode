@@ -1,25 +1,29 @@
 /*
- * XREFs of RtlSetActiveConsoleId @ 0x1406EBA40
+ * XREFs of RtlSetActiveConsoleId @ 0x14078EA60
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
  */
 
-unsigned __int64 __fastcall RtlSetActiveConsoleId(unsigned int a1)
+unsigned __int64 __fastcall RtlSetActiveConsoleId(__int64 a1, __int64 a2)
 {
+  unsigned int v2; // ebx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   unsigned __int64 result; // rax
 
-  if ( PsIsCurrentThreadInServerSilo() )
+  v2 = a1;
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
   {
-    result = (unsigned __int64)PsGetCurrentServerSiloGlobals();
-    *(_DWORD *)(*(_QWORD *)(result + 1320) + 4LL) = a1;
+    result = (unsigned __int64)PsGetCurrentServerSiloGlobals(v4, v3);
+    *(_DWORD *)(*(_QWORD *)(result + 1128) + 4LL) = v2;
   }
   else
   {
-    result = a1;
-    MEMORY[0xFFFFF780000002D8] = a1;
+    result = v2;
+    MEMORY[0xFFFFF780000002D8] = v2;
   }
   return result;
 }

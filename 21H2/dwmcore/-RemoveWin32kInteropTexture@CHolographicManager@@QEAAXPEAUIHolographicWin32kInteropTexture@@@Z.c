@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x180296B94
+ * XREFs of ?RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x180254638
  * Callers:
- *     ?Remove@CHolographicFrameProcessor@@UEAAXXZ @ 0x18029FC90 (-Remove@CHolographicFrameProcessor@@UEAAXXZ.c)
+ *     ?Remove@CHolographicFrameProcessor@@UEAAXXZ @ 0x18025D060 (-Remove@CHolographicFrameProcessor@@UEAAXXZ.c)
  * Callees:
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::RemoveWin32kInteropTexture(RTL_SRWLOCK *this, struct IUnknown *a2)

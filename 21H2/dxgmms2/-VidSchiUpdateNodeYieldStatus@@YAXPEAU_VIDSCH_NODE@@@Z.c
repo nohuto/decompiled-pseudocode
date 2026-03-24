@@ -1,12 +1,12 @@
 /*
- * XREFs of ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00181D8
+ * XREFs of ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014C2C
  * Callers:
- *     VidSchiSelectContext @ 0x1C0009E90 (VidSchiSelectContext.c)
+ *     VidSchiSelectContext @ 0x1C000B380 (VidSchiSelectContext.c)
  * Callees:
- *     ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001757C (-VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z.c)
- *     VidSchiStartNodeYield @ 0x1C00182B0 (VidSchiStartNodeYield.c)
- *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C001836C (VidSchiMonitorRefreshPeriodFromNode.c)
- *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C0037D74 (McTemplateK0pqxxxx_EtwWriteTransfer.c)
+ *     VidSchiStartNodeYield @ 0x1C0014D08 (VidSchiStartNodeYield.c)
+ *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C0014DC4 (VidSchiMonitorRefreshPeriodFromNode.c)
+ *     ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014FD4 (-VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C002E894 (McTemplateK0pqxxxx_EtwWriteTransfer.c)
  */
 
 void __fastcall VidSchiUpdateNodeYieldStatus(struct _VIDSCH_NODE *a1)
@@ -14,61 +14,56 @@ void __fastcall VidSchiUpdateNodeYieldStatus(struct _VIDSCH_NODE *a1)
   __int64 v1; // rbp
   int v3; // ecx
   int v4; // esi
-  LARGE_INTEGER v5; // rdx
+  int v5; // edx
   LARGE_INTEGER v6; // rdi
-  LARGE_INTEGER v7; // r8
-  LARGE_INTEGER v8; // r9
-  __int64 v9; // rax
-  unsigned int v10; // eax
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rax
-  union _LARGE_INTEGER v13; // [rsp+60h] [rbp+8h] BYREF
+  int v7; // r8d
+  __int64 v8; // rax
+  unsigned int refreshed; // eax
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rax
+  union _LARGE_INTEGER v12; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = *((_QWORD *)a1 + 3);
-  v3 = *(_DWORD *)(v1 + 200);
-  v13.QuadPart = 0LL;
+  v3 = *(_DWORD *)(v1 + 192);
+  v12.QuadPart = 0LL;
   v4 = ~((1 << (v3 + 1)) - 1);
-  v6 = KeQueryPerformanceCounter(&v13);
-  v9 = *((_QWORD *)a1 + 250);
-  if ( (v4 & *((_DWORD *)a1 + 443)) != 0 )
+  v6 = KeQueryPerformanceCounter(&v12);
+  v8 = *((_QWORD *)a1 + 249);
+  if ( (v4 & *((_DWORD *)a1 + 441)) != 0 )
   {
-    if ( v9 )
+    if ( v8 )
     {
-      v11 = v6.QuadPart - v9;
-      v12 = *((_QWORD *)a1 + 251);
-      if ( v11 >= v12 )
+      v10 = v6.QuadPart - v8;
+      v11 = *((_QWORD *)a1 + 250);
+      if ( v10 >= v11 )
       {
-        VidSchiStopNodeYield((unsigned __int64)a1, v5.QuadPart, v7.QuadPart);
+        VidSchiStopNodeYield(a1);
       }
       else
       {
-        *((_QWORD *)a1 + 250) = 0LL;
-        *((_QWORD *)a1 + 251) = v12 - v11;
+        *((_QWORD *)a1 + 249) = 0LL;
+        *((_QWORD *)a1 + 250) = v11 - v10;
       }
     }
-    if ( *((_BYTE *)a1 + 2024) && (byte_1C006E941 & 1) != 0 )
+    if ( *((_BYTE *)a1 + 2016) && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0pqxxxx_EtwWriteTransfer(
-        *((_DWORD *)a1 + 443) & v4,
-        v5.LowPart,
-        v7.LowPart,
+        *((_DWORD *)a1 + 441) & v4,
+        v5,
+        v7,
         *(_QWORD *)(v1 + 16),
         0,
         *((_WORD *)a1 + 2),
-        *((_BYTE *)a1 + 1772) & v4,
+        *((_BYTE *)a1 + 1764) & v4,
         0,
         0);
   }
-  else if ( !v9 )
+  else if ( !v8 )
   {
-    v10 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))VidSchiMonitorRefreshPeriodFromNode)(
-            a1,
-            (LARGE_INTEGER)v5.QuadPart,
-            (LARGE_INTEGER)v7.QuadPart,
-            (LARGE_INTEGER)v8.QuadPart);
+    refreshed = VidSchiMonitorRefreshPeriodFromNode(a1);
     ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))VidSchiStartNodeYield)(
       a1,
       (LARGE_INTEGER)v6.QuadPart,
-      (union _LARGE_INTEGER)v13.QuadPart,
-      v10);
+      (union _LARGE_INTEGER)v12.QuadPart,
+      refreshed);
   }
 }

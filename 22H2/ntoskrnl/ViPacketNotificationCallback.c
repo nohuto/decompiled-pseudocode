@@ -1,20 +1,27 @@
 /*
- * XREFs of ViPacketNotificationCallback @ 0x140ADE170
+ * XREFs of ViPacketNotificationCallback @ 0x1409E1A90
  * Callers:
  *     <none>
  * Callees:
- *     VfPacketFree @ 0x140ADE104 (VfPacketFree.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ViPacketNotificationCallback(_QWORD *a1, __int64 a2, int a3)
+void __fastcall ViPacketNotificationCallback(_QWORD *Entry, __int64 a2, int a3)
 {
-  int v3; // r8d
+  int v4; // r8d
+  void *v5; // rcx
 
-  v3 = a3 - 1;
-  if ( v3 )
+  v4 = a3 - 1;
+  if ( v4 )
   {
-    if ( v3 == 1 )
-      VfPacketFree(a1);
+    if ( v4 == 1 )
+    {
+      v5 = (void *)Entry[28];
+      if ( v5 )
+        ExFreePoolWithTag(v5, 0x6D646C56u);
+      ExFreeToNPagedLookasideList(&ViPacketLookaside, Entry);
+    }
   }
   else if ( a2 )
   {

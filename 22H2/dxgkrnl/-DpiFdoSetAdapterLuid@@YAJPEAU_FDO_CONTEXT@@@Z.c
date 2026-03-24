@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiFdoSetAdapterLuid@@YAJPEAU_FDO_CONTEXT@@@Z @ 0x1C001D4D0
+ * XREFs of ?DpiFdoSetAdapterLuid@@YAJPEAU_FDO_CONTEXT@@@Z @ 0x1C0022AEC
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
  *     <none>
  */

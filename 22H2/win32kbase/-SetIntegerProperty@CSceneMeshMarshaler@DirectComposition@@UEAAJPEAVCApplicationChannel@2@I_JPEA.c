@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSceneMeshMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E2A0
+ * XREFs of ?SetIntegerProperty@CSceneMeshMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD680
  * Callers:
  *     <none>
  * Callees:
@@ -10,10 +10,10 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetIntegerProperty(
         DirectComposition::CSceneMeshMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        int a4,
+        __int64 a4,
         bool *a5)
 {
-  unsigned int v5; // edx
+  unsigned int v5; // r10d
   int v6; // r8d
   int v7; // r8d
   int v8; // r8d

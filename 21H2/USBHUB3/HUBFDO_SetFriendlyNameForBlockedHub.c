@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBFDO_SetFriendlyNameForBlockedHub @ 0x1C00742A8
+ * XREFs of HUBFDO_SetFriendlyNameForBlockedHub @ 0x1C00731F0
  * Callers:
- *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0075090 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall HUBFDO_SetFriendlyNameForBlockedHub(__int64 a1)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall HUBFDO_SetFriendlyNameForBlockedHub(__int64 a1)
              3u,
              3u,
              0xBu,
-             (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+             (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
              Size);
   }
   return result;

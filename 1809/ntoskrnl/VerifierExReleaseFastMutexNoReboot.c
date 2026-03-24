@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ViExReleaseFastMutexCommon @ 0x140942768 (ViExReleaseFastMutexCommon.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180292DA8
+ * XREFs of ?NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18024FACC
  * Callers:
- *     ?NotifyRenderedRect@CConversionSwapChain@@$4PPPPPPPM@A@EAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18010A6D0 (-NotifyRenderedRect@CConversionSwapChain@@$4PPPPPPPM@A@EAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointA.c)
+ *     ?NotifyRenderedRect@CConversionSwapChain@@$4PPPPPPPM@A@EAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1800F7EB0 (-NotifyRenderedRect@CConversionSwapChain@@$4PPPPPPPM@A@EAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointA.c)
  * Callees:
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003FA54 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18008248C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800D3824 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003A990 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B114 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B3D8 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CConversionSwapChain::NotifyRenderedRect(__int64 a1, const struct tagRECT *a2)
@@ -23,16 +23,14 @@ void __fastcall CConversionSwapChain::NotifyRenderedRect(__int64 a1, const struc
   void *v11[10]; // [rsp+30h] [rbp-68h] BYREF
   const void *retaddr; // [rsp+98h] [rbp+0h]
 
-  v4 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*(_QWORD *)(a1 - 744) + 8LL) + 16LL)
-                                            + *(_QWORD *)(a1 - 744)
+  v4 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*(_QWORD *)(a1 - 696) + 8LL) + 16LL)
+                                            + *(_QWORD *)(a1 - 696)
                                             + 8LL);
   (**v4)(v4, &v9);
   if ( a2 )
   {
     FastRegion::CRegion::CRegion((FastRegion::CRegion *)v11, a2);
-    v5 = FastRegion::CRegion::Union(
-           (const struct FastRegion::Internal::CRgnData **)(a1 - 184),
-           (const struct FastRegion::Internal::CRgnData **)v11);
+    v5 = FastRegion::CRegion::Union((void **)(a1 - 184), (const struct FastRegion::Internal::CRgnData **)v11);
     if ( v5 < 0 )
       ModuleFailFastForHRESULT(v5, retaddr);
     FastRegion::CRegion::FreeMemory(v11);

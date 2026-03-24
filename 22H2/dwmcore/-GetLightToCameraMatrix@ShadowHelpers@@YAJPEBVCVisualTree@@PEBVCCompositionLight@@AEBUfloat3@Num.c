@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x18000771C
+ * XREFs of ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x18000973C
  * Callers:
- *     ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x1800055F0 (-UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z.c)
+ *     ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x18000A150 (-UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z.c)
  * Callees:
- *     ?GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D_VECTOR_3F@@@Z @ 0x180005FC8 (-GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D.c)
- *     ?make_float4x4_look_at@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@00@Z @ 0x18000785C (-make_float4x4_look_at@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@AEBUfloat3@123@00@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?make_float4x4_look_at@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@00@Z @ 0x18000B0EC (-make_float4x4_look_at@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@AEBUfloat3@123@00@Z.c)
+ *     ?GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D_VECTOR_3F@@@Z @ 0x18000BAFC (-GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ShadowHelpers::GetLightToCameraMatrix(
@@ -26,17 +26,18 @@ __int64 __fastcall ShadowHelpers::GetLightToCameraMatrix(
   __int128 v16; // xmm1
   __int128 v17; // xmm2
   __int128 v18; // xmm3
-  float v20; // [rsp+38h] [rbp-19h] BYREF
-  float v21; // [rsp+3Ch] [rbp-15h]
-  float v22; // [rsp+40h] [rbp-11h]
-  float v23; // [rsp+48h] [rbp-9h] BYREF
-  float v24; // [rsp+4Ch] [rbp-5h]
-  float v25; // [rsp+50h] [rbp-1h]
-  _BYTE v26[64]; // [rsp+58h] [rbp+7h] BYREF
+  struct D2D_VECTOR_3F *v20; // [rsp+28h] [rbp-29h]
+  float v21; // [rsp+38h] [rbp-19h] BYREF
+  float v22; // [rsp+3Ch] [rbp-15h]
+  float v23; // [rsp+40h] [rbp-11h]
+  float v24; // [rsp+48h] [rbp-9h] BYREF
+  float v25; // [rsp+4Ch] [rbp-5h]
+  float v26; // [rsp+50h] [rbp-1h]
+  _BYTE v27[64]; // [rsp+58h] [rbp+7h] BYREF
 
-  v8 = (*(unsigned int (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 216LL))(a2) == 1;
-  v9 = (const struct CCompositionLight *)(*(__int64 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 200LL))(a2);
-  LightPosition = ShadowHelpers::GetLightPosition(this, a2, v9, &v23);
+  v8 = (*(unsigned int (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 232LL))(a2) == 1;
+  v9 = (const struct CCompositionLight *)(*(__int64 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 216LL))(a2);
+  LightPosition = ShadowHelpers::GetLightPosition(this, a2, v9, (struct CVisual *)&v24, v20);
   v12 = LightPosition;
   if ( LightPosition < 0 )
   {
@@ -44,21 +45,21 @@ __int64 __fastcall ShadowHelpers::GetLightToCameraMatrix(
   }
   else
   {
-    v20 = v23;
     v21 = v24;
     v22 = v25;
+    v23 = v26;
     if ( v8 )
     {
-      v13 = v24 + *((float *)a3 + 1);
-      v14 = v25 + *((float *)a3 + 2);
-      v20 = v23 + *(float *)a3;
-      v21 = v13;
-      v22 = v14;
+      v13 = v25 + *((float *)a3 + 1);
+      v14 = v26 + *((float *)a3 + 2);
+      v21 = v24 + *(float *)a3;
+      v22 = v13;
+      v23 = v14;
     }
-    v23 = 0.0;
-    v25 = 0.0;
-    v24 = *(float *)&FLOAT_1_0;
-    float4x4_look_at = (_OWORD *)Windows::Foundation::Numerics::make_float4x4_look_at(v26, &v20, a3, &v23);
+    v24 = 0.0;
+    v26 = 0.0;
+    v25 = *(float *)&FLOAT_1_0;
+    float4x4_look_at = (_OWORD *)Windows::Foundation::Numerics::make_float4x4_look_at(v27, &v21, a3, &v24);
     v16 = float4x4_look_at[1];
     v17 = float4x4_look_at[2];
     v18 = float4x4_look_at[3];

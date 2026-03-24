@@ -1,25 +1,24 @@
 /*
- * XREFs of ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C01E63E0
+ * XREFs of ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C016BD20
  * Callers:
- *     DxgkGetMonitorEdid @ 0x1C01E63B0 (DxgkGetMonitorEdid.c)
- *     DxgkGetMonitorDisplayId @ 0x1C02F2EE0 (DxgkGetMonitorDisplayId.c)
+ *     DxgkGetMonitorEdid @ 0x1C016BCF0 (DxgkGetMonitorEdid.c)
+ *     DxgkGetMonitorDisplayId @ 0x1C0297CD0 (DxgkGetMonitorDisplayId.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     MonitorGetDisplayIDFromMonitor @ 0x1C01639A0 (MonitorGetDisplayIDFromMonitor.c)
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01658E0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
- *     MonitorReleaseMonitorHandle @ 0x1C01A05B4 (MonitorReleaseMonitorHandle.c)
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     MonitorGetEdidFromMonitor @ 0x1C01E65CC (MonitorGetEdidFromMonitor.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     MonitorGetMonitorHandle @ 0x1C0129A20 (MonitorGetMonitorHandle.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C012D920 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C012F96C (MonitorReleaseMonitorHandle.c)
+ *     MonitorGetDisplayIDFromMonitor @ 0x1C01669AC (MonitorGetDisplayIDFromMonitor.c)
+ *     MonitorGetEdidFromMonitor @ 0x1C016BF10 (MonitorGetEdidFromMonitor.c)
  */
 
 __int64 __fastcall DxgkGetMonitorDescriptor(
@@ -32,215 +31,216 @@ __int64 __fastcall DxgkGetMonitorDescriptor(
 {
   char v6; // r13
   DWORD LowPart; // edi
-  __int64 v8; // rsi
-  __int64 v9; // r14
-  int v10; // eax
-  __int64 v11; // r15
+  __int64 v8; // r12
+  __int64 v9; // r15
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rbx
   DXGGLOBAL *Global; // rax
-  DWORD v13; // ebx
-  struct DXGADAPTER *v14; // rax
-  DXGADAPTER *v15; // r12
-  int v16; // eax
-  __int64 v17; // r15
+  DWORD v18; // ebx
+  struct DXGADAPTER *v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  DXGADAPTER *v22; // r14
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rsi
   int MonitorHandle; // eax
-  DXGMONITOR *v19; // r15
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  struct HDXGMONITOR__ *v31; // rsi
   int EdidFromMonitor; // eax
-  unsigned int v21; // ebx
-  unsigned int v22; // esi
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v26; // rsi
-  __int64 HighPart; // r14
-  __int64 v28; // rdi
-  __int64 v29; // rdi
-  __int64 v30; // rsi
-  __int64 v31; // r14
-  __int64 v32; // rbx
-  __int64 v33; // rsi
-  __int64 v34; // r14
-  signed int DisplayIDFromMonitor; // eax
-  unsigned int v36; // [rsp+50h] [rbp-B0h] BYREF
-  struct _LUID v37; // [rsp+58h] [rbp-A8h] BYREF
-  struct _LUID v38; // [rsp+60h] [rbp-A0h] BYREF
-  DXGMONITOR *v39; // [rsp+68h] [rbp-98h] BYREF
-  void *v40; // [rsp+70h] [rbp-90h]
-  unsigned int *v41; // [rsp+78h] [rbp-88h]
-  int v42; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v43; // [rsp+88h] [rbp-78h]
-  char v44; // [rsp+90h] [rbp-70h]
-  unsigned __int64 v45; // [rsp+98h] [rbp-68h] BYREF
-  _BYTE v46[144]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r9
+  __int64 v36; // rbx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v43; // rax
+  _QWORD *v44; // rax
+  __int64 v45; // rcx
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  _QWORD *v48; // rax
+  _QWORD *v49; // rax
+  __int64 HighPart; // rcx
+  __int64 v51; // rax
+  _QWORD *v52; // rax
+  int DisplayIDFromMonitor; // eax
+  __int64 v54; // rdx
+  __int64 v55; // r8
+  __int64 v56; // rcx
+  _QWORD *v57; // rax
+  __int64 v58; // rax
+  unsigned int v59; // [rsp+30h] [rbp-D0h] BYREF
+  struct _LUID v60; // [rsp+38h] [rbp-C8h] BYREF
+  struct _LUID v61; // [rsp+40h] [rbp-C0h] BYREF
+  struct HDXGMONITOR__ *v62; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int8 *v63; // [rsp+50h] [rbp-B0h]
+  unsigned int *v64; // [rsp+58h] [rbp-A8h]
+  int v65; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v66; // [rsp+68h] [rbp-98h]
+  char v67; // [rsp+70h] [rbp-90h]
+  unsigned __int64 v68; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v69[144]; // [rsp+80h] [rbp-80h] BYREF
 
-  v42 = -1;
+  v65 = -1;
   v6 = a3;
   LowPart = a1.LowPart;
-  v41 = a5;
-  v40 = a6;
+  v64 = a5;
+  v63 = a6;
   v8 = a4;
   v9 = a2;
-  v38 = a1;
-  v43 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v61 = a1;
+  v66 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v44 = 1;
-    v42 = 2187;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v67 = 1;
+    v65 = 2187;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(*(_QWORD *)&a1, &EventProfilerEnter, a3, 2187);
   }
   else
   {
-    v44 = 0;
+    v67 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v42, 2187);
-  v37 = 0LL;
-  v36 = 0;
-  v39 = 0LL;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v65, 2187LL);
+  v60 = 0LL;
+  v59 = 0;
+  v62 = 0LL;
   if ( v6 && (v8 & 0x7F) != 0 )
   {
-    WdLogSingleEntry2(3LL, v8, 128LL);
-    v22 = -1073741811;
-    goto LABEL_20;
+    v43 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+    *(_QWORD *)(v43 + 24) = v8;
+    *(_QWORD *)(v43 + 32) = 128LL;
+    WdLogEvent5_WdWarning(v43);
+    LODWORD(v16) = -1073741811;
+    goto LABEL_19;
   }
-  v10 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v38, v9, &v37, &v36);
-  v11 = v10;
-  if ( v10 < 0 )
+  v13 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v61, (unsigned int)v9, &v60, &v59);
+  v16 = v13;
+  if ( v13 < 0 )
   {
-    v26 = v9;
-    HighPart = v38.HighPart;
-    WdLogSingleEntry4(2LL, v38.HighPart, LowPart, v26, v10);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to get adapter LUID from LUID (0x%I64x%08I64x), target ID 0x%I64x (Status = 0x%I64x).",
-      HighPart,
-      LowPart,
-      v26,
-      v11,
-      0LL);
-    v22 = v11;
-    goto LABEL_20;
+    v44 = (_QWORD *)WdLogNewEntry5_WdError(v15, v14);
+    v44[3] = v61.HighPart;
+    v45 = LowPart;
+    v44[5] = v9;
+    v44[6] = v16;
+LABEL_28:
+    v44[4] = v45;
+    WdLogEvent5_WdError(v44);
+    goto LABEL_19;
   }
-  Global = DXGGLOBAL_GetGlobal();
-  v13 = v37.LowPart;
-  v14 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v37, &v45);
-  v15 = v14;
-  if ( !v14 )
+  Global = DXGGLOBAL::GetGlobal(v15, v14);
+  v18 = v60.LowPart;
+  v19 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v60, &v68);
+  v22 = v19;
+  if ( !v19 )
   {
-    v28 = v37.HighPart;
-    v22 = -1073741811;
-    WdLogSingleEntry4(2LL, v37.HighPart, v13, -1073741811LL, 0LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkGetMonitorDescriptor function, returning 0x%I64x.",
-      v28,
-      v13,
-      -1073741811LL,
-      0LL,
-      0LL);
-    goto LABEL_20;
+    v44 = (_QWORD *)WdLogNewEntry5_WdError(v21, v20);
+    v44[6] = 0LL;
+LABEL_27:
+    v44[3] = v60.HighPart;
+    v45 = v18;
+    LODWORD(v16) = -1073741811;
+    v44[5] = -1073741811LL;
+    goto LABEL_28;
   }
-  if ( !*((_QWORD *)v14 + 349) )
+  if ( !*((_QWORD *)v19 + 337) )
   {
-    DXGADAPTER::ReleaseReference(v14);
-    v29 = v37.HighPart;
-    v22 = -1073741811;
-    WdLogSingleEntry4(2LL, v37.HighPart, v13, -1073741811LL, 1LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter 0x%I64x%08I64x is not a display adapter, returning 0x%I64x",
-      v29,
-      v13,
-      -1073741811LL,
-      1LL,
-      0LL);
-    goto LABEL_20;
+    DXGADAPTER::ReleaseReference(v19);
+    v44 = (_QWORD *)WdLogNewEntry5_WdError(v47, v46);
+    v44[6] = 1LL;
+    goto LABEL_27;
   }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v46, v14, 0LL);
-  DXGADAPTER::ReleaseReference(v15);
-  v16 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v46, 0LL);
-  LODWORD(v17) = v16;
-  if ( v16 < 0 )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v69, v19, 0LL);
+  DXGADAPTER::ReleaseReference(v22);
+  v23 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v69, 0LL);
+  v27 = v23;
+  if ( v23 < 0 )
   {
-    WdLogSingleEntry3(3LL, v37.HighPart, v13, v16);
+    v48 = (_QWORD *)WdLogNewEntry5_WdWarning(v25, v24, v26);
+    v48[3] = v60.HighPart;
+    v48[4] = v18;
+    v48[5] = v27;
+    WdLogEvent5_WdWarning(v48);
   }
   else
   {
-    MonitorHandle = MonitorGetMonitorHandle((__int64)v15, v36, 0, DxgkGetMonitorDescriptor, &v39);
-    v17 = MonitorHandle;
+    MonitorHandle = MonitorGetMonitorHandle((__int64)v22, v59, 0LL, DxgkGetMonitorDescriptor, &v62);
+    v27 = MonitorHandle;
     if ( MonitorHandle >= 0 )
     {
-      v19 = v39;
-      if ( !v39 )
+      v31 = v62;
+      if ( !v62 )
       {
-        WdLogSingleEntry1(1LL, 7829LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorHandle != NULL", 7829LL, 0LL, 0LL, 0LL, 0LL);
+        v51 = WdLogNewEntry5_WdAssertion(v30, v29);
+        *(_QWORD *)(v51 + 24) = 7385LL;
+        WdLogEvent5_WdAssertion(v51);
       }
       if ( v6 )
       {
-        EdidFromMonitor = MonitorGetEdidFromMonitor(v19, (unsigned int)v8, v41, v40);
+        EdidFromMonitor = MonitorGetEdidFromMonitor(v31, v8, v64, v63);
+        v36 = EdidFromMonitor;
         if ( EdidFromMonitor < 0 )
         {
-          v32 = EdidFromMonitor;
-          v33 = v9;
-          v34 = v38.HighPart;
-          WdLogSingleEntry5(2LL, v38.HighPart, LowPart, v33, EdidFromMonitor, 1LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to get monitor EDID from adapter 0x%I64x%08I64x target 0x%I64x (Status = 0x%I64x).",
-            v34,
-            LowPart,
-            v33,
-            v32,
-            1LL);
+          v52 = (_QWORD *)WdLogNewEntry5_WdError(v34, v33);
+          v52[3] = v61.HighPart;
+          v52[4] = LowPart;
+          v52[5] = v9;
+          v52[6] = v36;
+          v52[7] = 1LL;
+          WdLogEvent5_WdError(v52);
         }
-        v21 = 0;
+        LODWORD(v16) = 0;
       }
       else
       {
-        DisplayIDFromMonitor = MonitorGetDisplayIDFromMonitor((__int64)v19, v8, v41, v40);
-        v21 = DisplayIDFromMonitor;
-        if ( (int)(DisplayIDFromMonitor + 0x80000000) >= 0 && DisplayIDFromMonitor != -1073741789 )
-          WdLogSingleEntry4(3LL, v38.HighPart, LowPart, v9, DisplayIDFromMonitor);
+        DisplayIDFromMonitor = MonitorGetDisplayIDFromMonitor(v31, v8, v64, v63);
+        v16 = DisplayIDFromMonitor;
+        v56 = DisplayIDFromMonitor + 0x80000000;
+        if ( (int)v56 >= 0 && DisplayIDFromMonitor != -1073741789 )
+        {
+          v57 = (_QWORD *)WdLogNewEntry5_WdWarning(v56, v54, v55);
+          v57[3] = v61.HighPart;
+          v57[4] = LowPart;
+          v57[5] = v9;
+          v57[6] = v16;
+          WdLogEvent5_WdWarning(v57);
+        }
       }
-      if ( (int)MonitorReleaseMonitorHandle((__int64)v15, (__int64)v19, DxgkGetMonitorDescriptor) < 0 )
+      if ( (int)MonitorReleaseMonitorHandle((__int64)v22, (__int64)v31, DxgkGetMonitorDescriptor, v35) < 0 )
       {
-        WdLogSingleEntry1(1LL, 7874LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status2)", 7874LL, 0LL, 0LL, 0LL, 0LL);
+        v58 = WdLogNewEntry5_WdAssertion(v38, v37);
+        *(_QWORD *)(v58 + 24) = 7430LL;
+        WdLogEvent5_WdAssertion(v58);
       }
-      v22 = v21;
-      goto LABEL_19;
+      goto LABEL_18;
     }
-    v30 = v9;
-    v31 = v38.HighPart;
-    WdLogSingleEntry5(2LL, v38.HighPart, LowPart, v30, MonitorHandle, 0LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to get connected monitor from adapter 0x%I64x%08I64x target 0x%I64x (Status = 0x%I64x).",
-      v31,
-      LowPart,
-      v30,
-      v17,
-      0LL);
+    v49 = (_QWORD *)WdLogNewEntry5_WdError(v30, v29);
+    HighPart = v61.HighPart;
+    v49[7] = 0LL;
+    v49[3] = HighPart;
+    v49[4] = LowPart;
+    v49[5] = v9;
+    v49[6] = v27;
+    WdLogEvent5_WdError(v49);
   }
-  v22 = v17;
+  LODWORD(v16) = v27;
+LABEL_18:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v69, v37);
 LABEL_19:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v46);
-LABEL_20:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42);
-  if ( v44 )
-  {
-    LOBYTE(v23) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v42);
-  }
-  return v22;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v39);
+  if ( v67 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v40, &EventProfilerExit, v41, v65);
+  return (unsigned int)v16;
 }

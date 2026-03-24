@@ -1,365 +1,345 @@
 /*
- * XREFs of ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800716AC
+ * XREFs of ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x18005BDD0
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z @ 0x1800458B4 (--0-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x18006EF2C (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
- *     ?StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z @ 0x1800719E4 (-StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?AddMultiple@?$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z @ 0x1800EF978 (-AddMultiple@-$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801FDC90 (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
- *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1801FDDFC (-Start@QpcStopwatch@@QEAAXXZ.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801FE380 (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@44@Z @ 0x1802185C8 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x18025008C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180264F84 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025B70 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800596E4 (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
+ *     ?StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z @ 0x18005C100 (-StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?AddMultiple@?$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z @ 0x1800D9B08 (-AddMultiple@-$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801AB31C (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B186C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@44@Z @ 0x1801C75CC (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x180200B7C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180214050 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
  */
 
 __int64 __fastcall CExpressionValueStack::ProcessReferenceNode(
         CExpressionValueStack *this,
         struct CExpression *a2,
         struct ExpressionReferenceNode *a3,
-        __int64 a4)
+        LARGE_INTEGER a4)
 {
   __int64 v4; // rax
-  CExpressionValueStack *v6; // r14
-  _DWORD *v7; // r13
-  __int64 v8; // rdi
-  __int64 v9; // rcx
-  struct SubchannelMaskInfo *v10; // r12
-  struct CExpressionValue *v11; // r15
-  struct ExpressionReferenceNode *v12; // rbx
-  __int64 v13; // rax
-  __int64 v14; // r14
+  _DWORD *v8; // r12
+  unsigned int v9; // ecx
+  int v10; // esi
+  unsigned int v11; // ebx
+  __int64 v12; // rcx
+  struct SubchannelMaskInfo *v13; // rbx
+  struct CExpressionValue *v14; // r15
   __int64 v15; // rax
-  __int64 v16; // rdi
-  int v17; // eax
-  unsigned int v18; // ecx
-  int v19; // r14d
-  _DWORD *v20; // rdi
+  LARGE_INTEGER v16; // rbx
+  DWORD *v17; // rsi
+  int v18; // eax
+  unsigned int v19; // ecx
+  int v20; // r14d
   int v21; // eax
   unsigned int v22; // ecx
-  _QWORD *v23; // rbx
+  __int64 v23; // rax
   __int64 v24; // r14
-  __int64 v25; // rax
-  struct ExpressionReferenceNode *v26; // rbx
-  __int64 v27; // r14
-  int v28; // eax
-  unsigned int v29; // ecx
-  unsigned int v30; // edi
-  int v32; // r9d
-  int v33; // eax
-  unsigned int v34; // ecx
-  int v35; // ebx
-  __int64 v36; // rbx
-  unsigned int v37; // ecx
-  unsigned int v38; // ecx
-  __int64 v39; // rbx
-  __int64 Elapsed; // rax
-  CVisual *v41; // rcx
-  int v42; // eax
-  unsigned int v43; // ecx
-  __int64 v44; // rax
-  CVisual *v45; // rbx
-  struct CInteraction *InteractionInternal; // rax
-  struct CInteraction *v47; // r10
-  int v48; // ecx
-  int v49; // r8d
-  int v50; // r9d
-  _DWORD *v51; // r10
-  __int64 v52; // rax
+  __int64 v25; // rbx
+  __int64 v26; // rax
+  LARGE_INTEGER v27; // rbx
+  __int64 v28; // r14
   int ValueFromCache; // eax
-  CExpressionValueStack *v54; // rcx
-  unsigned __int64 v55; // r9
-  unsigned int v56; // [rsp+28h] [rbp-79h]
-  unsigned int v57; // [rsp+28h] [rbp-79h]
-  _DWORD *v58; // [rsp+48h] [rbp-59h] BYREF
-  __int64 v59; // [rsp+50h] [rbp-51h] BYREF
-  CVisual *v60; // [rsp+58h] [rbp-49h] BYREF
-  __int64 v61; // [rsp+60h] [rbp-41h] BYREF
-  _BYTE v62[64]; // [rsp+68h] [rbp-39h] BYREF
-  __int64 v63; // [rsp+A8h] [rbp+7h] BYREF
-  int v64; // [rsp+B0h] [rbp+Fh]
-  char v65; // [rsp+B4h] [rbp+13h]
-  CExpressionValueStack *v66; // [rsp+108h] [rbp+67h] BYREF
-  CVisual *v67; // [rsp+110h] [rbp+6Fh] BYREF
-  struct ExpressionReferenceNode *v68; // [rsp+118h] [rbp+77h] BYREF
-  __int64 v69; // [rsp+120h] [rbp+7Fh] BYREF
+  CExpressionValueStack *v30; // rcx
+  unsigned int v31; // esi
+  __int64 result; // rax
+  int v33; // r9d
+  __int64 v34; // r15
+  int v35; // eax
+  unsigned int v36; // ecx
+  LARGE_INTEGER v37; // rbx
+  __int64 Elapsed; // rax
+  __int64 v39; // rcx
+  int v40; // eax
+  unsigned int v41; // ecx
+  __int64 v42; // rax
+  CVisual *QuadPart; // rbx
+  struct CInteraction *InteractionInternal; // rax
+  int v45; // ecx
+  int v46; // r8d
+  int v47; // r9d
+  struct CInteraction *v48; // r10
+  __int64 v49; // rax
+  unsigned __int64 v50; // r9
+  unsigned int v51; // [rsp+20h] [rbp-79h]
+  LARGE_INTEGER PerformanceCount; // [rsp+40h] [rbp-59h] BYREF
+  CVisual *v53; // [rsp+48h] [rbp-51h] BYREF
+  __int64 v54; // [rsp+50h] [rbp-49h] BYREF
+  _BYTE v55[64]; // [rsp+60h] [rbp-39h] BYREF
+  __int64 v56; // [rsp+A0h] [rbp+7h]
+  int v57; // [rsp+A8h] [rbp+Fh]
+  char v58; // [rsp+ACh] [rbp+13h]
+  __int64 v59; // [rsp+100h] [rbp+67h] BYREF
+  __int64 v60; // [rsp+108h] [rbp+6Fh] BYREF
+  struct SubchannelMaskInfo *v61; // [rsp+110h] [rbp+77h] BYREF
+  LARGE_INTEGER v62; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v69 = a4;
-  v68 = a3;
-  v66 = this;
+  v62 = a4;
   v4 = *((unsigned int *)a3 + 1);
-  v6 = this;
-  if ( (unsigned int)v4 >= *((_DWORD *)a2 + 110) )
-  {
-    v7 = 0LL;
-  }
+  if ( (unsigned int)v4 >= *((_DWORD *)a2 + 104) )
+    v8 = 0LL;
   else
+    v8 = (_DWORD *)(*((_QWORD *)a2 + 51) + 24 * v4);
+  v9 = *((_DWORD *)this + 4);
+  if ( (unsigned int)~*((_DWORD *)this + 4) < 5 )
   {
-    LODWORD(this) = 3 * v4;
-    v7 = (_DWORD *)(*((_QWORD *)a2 + 54) + 24 * v4);
-  }
-  v8 = 5LL;
-  if ( (unsigned int)~*((_DWORD *)v6 + 4) < 5 )
-  {
-    v35 = -2147418113;
+    v10 = -2147418113;
     MilInstrumentationCheckHR_MaybeFailFast(
-      (unsigned int)this,
+      v9,
       &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
       1u,
       -2147418113,
       0x53u,
       0LL);
-    v30 = -2147418113;
-LABEL_49:
-    MilInstrumentationCheckHR_MaybeFailFast(v37, &dword_18032C888, 2u, v35, 0x148u, 0LL);
-    return v30;
+    v11 = -2147418113;
+LABEL_48:
+    MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_1802CE578, 2u, v10, 0x142u, 0LL);
+    return v11;
   }
-  if ( *((_DWORD *)v6 + 12) != *((_DWORD *)v6 + 4) )
+  if ( *((_DWORD *)this + 12) != v9 )
     goto LABEL_5;
-  memset_0(v62, 0, sizeof(v62));
-  v63 = 0LL;
-  v64 = 18;
-  v65 = 0;
-  v33 = DynArrayImpl<1>::AddMultiple((char *)v6 + 24, 80LL, 5LL, &v69);
-  v35 = v33;
-  if ( v33 < 0 )
+  memset_0(v55, 0, sizeof(v55));
+  v57 = 18;
+  v34 = 5LL;
+  v56 = 0LL;
+  v58 = 0;
+  v35 = DynArrayImpl<1>::AddMultiple((char *)this + 24, 80LL, 5LL, &v62);
+  v10 = v35;
+  if ( v35 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0xE5u, 0LL);
-    v30 = v35;
-    MilInstrumentationCheckHR_MaybeFailFast(
-      v38,
-      &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-      1u,
-      v35,
-      0x5Cu,
-      0LL);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v63);
-    goto LABEL_49;
-  }
-  v36 = v69;
-  do
-  {
-    CExpressionValue::operator=(v36, v62);
-    v36 += 80LL;
-    --v8;
-  }
-  while ( v8 );
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v63);
-  a3 = v68;
-LABEL_5:
-  v9 = *((unsigned int *)v6 + 4);
-  v10 = 0LL;
-  *((_DWORD *)v6 + 4) = v9 + 1;
-  v11 = (struct CExpressionValue *)(*((_QWORD *)v6 + 3) + 80 * v9);
-  if ( v7[4] == 1 )
-    v10 = (struct SubchannelMaskInfo *)*((_QWORD *)a2 + 25);
-  if ( v7[2] == 1 )
-  {
-    ValueFromCache = CExpression::ReadValueFromCache(a2, v7[3], v11, (bool *)&v66);
-    v30 = ValueFromCache;
-    if ( ValueFromCache < 0 )
-    {
-      v57 = 399;
-    }
-    else
-    {
-      if ( (_BYTE)v66 )
-        return 0;
-      ValueFromCache = CExpressionValueStack::QueryObjectPropertyValue(v54, a2, v68, v55, v11, v10);
-      v30 = ValueFromCache;
-      if ( ValueFromCache < 0 )
-      {
-        v57 = 409;
-      }
-      else
-      {
-        ValueFromCache = CExpression::StoreValueToCache(a2, v7[3], v11);
-        v30 = ValueFromCache;
-        if ( ValueFromCache >= 0 )
-          return 0;
-        v57 = 415;
-      }
-    }
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v54, &dword_18032C888, 2u, ValueFromCache, v57, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v35, 0xE5u, 0LL);
   }
   else
   {
-    if ( v7[2] == 2 )
+    v37 = v62;
+    do
     {
-      v69 = 0LL;
-      v12 = 0LL;
-      v13 = *((unsigned int *)a3 + 1);
-      v68 = 0LL;
-      if ( (unsigned int)v13 >= *((_DWORD *)a2 + 110) )
-        v14 = 0LL;
-      else
-        v14 = *((_QWORD *)a2 + 54) + 24 * v13;
-      v15 = *((_QWORD *)a2 + 41);
-      v58 = (_DWORD *)v14;
-      if ( (*(_DWORD *)(v15 + 4) & 0x20000000) != 0 || CCommonRegistryData::LogExpressionPerfStats )
+      ((void (__fastcall *)(_QWORD, _QWORD))CExpressionValue::operator=)((LARGE_INTEGER)v37.QuadPart, v55);
+      v37.QuadPart += 80LL;
+      --v34;
+    }
+    while ( v34 );
+  }
+  if ( v10 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(
+      v9,
+      &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
+      1u,
+      v10,
+      0x5Cu,
+      0LL);
+  else
+LABEL_5:
+    v10 = 0;
+  v11 = v10;
+  if ( v10 < 0 )
+    goto LABEL_48;
+  v12 = *((unsigned int *)this + 4);
+  v13 = 0LL;
+  v61 = 0LL;
+  *((_DWORD *)this + 4) = v12 + 1;
+  v14 = (struct CExpressionValue *)(*((_QWORD *)this + 3) + 80 * v12);
+  if ( v8[4] == 1 )
+  {
+    v13 = (struct SubchannelMaskInfo *)*((_QWORD *)a2 + 24);
+    v61 = v13;
+  }
+  if ( v8[2] == 1 )
+  {
+    ValueFromCache = CExpression::ReadValueFromCache(a2, v8[3], v14, (bool *)&v62);
+    v31 = ValueFromCache;
+    if ( ValueFromCache < 0 )
+    {
+      v51 = 393;
+    }
+    else
+    {
+      if ( LOBYTE(v62.LowPart) )
+        return 0LL;
+      ValueFromCache = CExpressionValueStack::QueryObjectPropertyValue(v30, a2, a3, v50, v14, v13);
+      v31 = ValueFromCache;
+      if ( ValueFromCache < 0 )
       {
-        v39 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL);
-        QpcStopwatch::Start((QpcStopwatch *)&v68);
-        v16 = v39 + 100;
-        v67 = (CVisual *)(v39 + 136);
-        v12 = v68;
+        v51 = 403;
       }
       else
       {
-        v16 = 12LL;
-        v67 = (CVisual *)48;
+        ValueFromCache = CExpression::StoreValueToCache(a2, v8[3], v14);
+        v31 = ValueFromCache;
+        if ( ValueFromCache >= 0 )
+          return 0LL;
+        v51 = 409;
       }
-      v17 = (*(__int64 (__fastcall **)(struct CExpression *, _QWORD, __int64 *))(*(_QWORD *)a2 + 288LL))(
-              a2,
-              *(unsigned int *)(v14 + 20),
-              &v69);
-      v19 = v17;
-      if ( v17 < 0 )
+    }
+    goto LABEL_87;
+  }
+  if ( v8[2] == 2 )
+  {
+    v15 = *((unsigned int *)a3 + 1);
+    v16.QuadPart = 0LL;
+    v59 = 0LL;
+    v62.QuadPart = 0LL;
+    v60 = 0LL;
+    if ( (unsigned int)v15 >= *((_DWORD *)a2 + 104) )
+      v17 = 0LL;
+    else
+      v17 = (DWORD *)(*((_QWORD *)a2 + 51) + 24 * v15);
+    if ( *(int *)(*((_QWORD *)a2 + 38) + 4LL) < 0 || CCommonRegistryData::LogExpressionPerfStats )
+    {
+      v60 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 272LL) + 88LL;
+      if ( QueryPerformanceCounter(&PerformanceCount) )
+        v16 = PerformanceCount;
+      v62 = v16;
+    }
+    v18 = (*(__int64 (__fastcall **)(struct CExpression *, _QWORD, __int64 *))(*(_QWORD *)a2 + 288LL))(a2, v17[5], &v59);
+    v20 = v18;
+    if ( v18 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_1802CE578, 2u, v18, 0xFEu, 0LL);
+    }
+    else
+    {
+      if ( v16.QuadPart )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v18, &dword_18032C888, 2u, v17, 0x104u, 0LL);
+        Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&v62);
+        v39 = v60;
+        ++*(_DWORD *)(v60 + 12);
+        *(_QWORD *)(v39 + 48) += Elapsed;
+      }
+      v21 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct CExpressionValue *))(*(_QWORD *)v59 + 144LL))(
+              v59,
+              *v17,
+              v14);
+      v20 = v21;
+      if ( v21 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v22, &dword_1802CE578, 2u, v21, 0x105u, 0LL);
+      }
+      else if ( v61 && *((_BYTE *)v61 + 4) && (v40 = CExpressionValue::ApplyMaskToValue(v14, v61), v20 = v40, v40 < 0) )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v41, &dword_1802CE578, 2u, v40, 0x115u, 0LL);
       }
       else
       {
-        if ( v12 )
-        {
-          Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&v68);
-          v41 = v67;
-          ++*(_DWORD *)v16;
-          *(_QWORD *)v41 += Elapsed;
-        }
-        v20 = v58;
-        v21 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct CExpressionValue *))(*(_QWORD *)v69 + 136LL))(
-                v69,
-                (unsigned int)*v58,
-                v11);
-        v19 = v21;
-        if ( v21 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v22, &dword_18032C888, 2u, v21, 0x10Bu, 0LL);
-        }
-        else if ( v10 && *((_BYTE *)v10 + 4) && (v42 = CExpressionValue::ApplyMaskToValue(v11, v10), v19 = v42, v42 < 0) )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v43, &dword_18032C888, 2u, v42, 0x11Bu, 0LL);
-        }
+        v23 = *((_QWORD *)a2 + 22);
+        v24 = v59;
+        if ( v23 )
+          v25 = *(_QWORD *)(v23 + 16);
         else
+          v25 = 0LL;
+        if ( (unsigned int)dword_180344EF0 > 4
+          && (qword_180344F00 & 2) != 0
+          && (qword_180344F08 & 2) == qword_180344F08
+          && v25
+          && v59
+          && *v17 - 1 <= 1
+          && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v25 + 56LL))(v25, 195LL)
+          && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v24 + 56LL))(v24, 88LL) )
         {
-          v23 = (_QWORD *)*((_QWORD *)a2 + 23);
-          v24 = v69;
-          if ( v23 )
-            v23 = (_QWORD *)v23[2];
-          if ( (unsigned int)dword_1803D0EF0 > 4
-            && (unsigned __int8)tlgKeywordOn(&dword_1803D0EF0, 2LL)
-            && v23
-            && v69
-            && (unsigned int)(*v58 - 1) <= 1
-            && (*(unsigned __int8 (__fastcall **)(_QWORD *, __int64))(*v23 + 56LL))(v23, 195LL)
-            && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v24 + 56LL))(v24, 88LL) )
+          wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+            &v62,
+            v25);
+          v42 = *(_QWORD *)v24;
+          v54 = v24;
+          (*(void (__fastcall **)(__int64))(v42 + 8))(v24);
+          QuadPart = (CVisual *)v62.QuadPart;
+          *(_BYTE *)(v62.QuadPart + 264) |= 4u;
+          if ( InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v24 + 192)) )
           {
-            wil::com_ptr_t<CVisual,wil::err_returncode_policy>::com_ptr_t<CVisual,wil::err_returncode_policy>(
-              &v67,
-              (__int64)v23);
-            v44 = *(_QWORD *)v24;
-            v61 = v24;
-            (*(void (__fastcall **)(__int64))(v44 + 8))(v24);
-            v45 = v67;
-            *((_BYTE *)v67 + 272) |= 8u;
-            if ( InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v24 + 200)) )
+            if ( CVisual::GetInteractionInternal(QuadPart) )
             {
-              if ( CVisual::GetInteractionInternal(v45) )
+              InteractionInternal = CVisual::GetInteractionInternal(QuadPart);
+              if ( InteractionInternal == v48
+                && (unsigned int)dword_180344EF0 > 4
+                && (qword_180344F00 & 2) != 0
+                && (qword_180344F08 & 2) == qword_180344F08 )
               {
-                InteractionInternal = CVisual::GetInteractionInternal(v45);
-                if ( InteractionInternal == v47
-                  && (unsigned int)dword_1803D0EF0 > 4
-                  && (unsigned __int8)tlgKeywordOn(&dword_1803D0EF0, 2LL) )
-                {
-                  LODWORD(v68) = *v20;
-                  v58 = v51;
-                  v59 = v24;
-                  v60 = v45;
-                  _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-                    v48,
-                    (unsigned int)&unk_180371393,
-                    v49,
-                    v50,
-                    (__int64)&v68,
-                    (__int64)&v60,
-                    (__int64)&v59,
-                    (__int64)&v58);
-                }
+                v62.LowPart = *v17;
+                v60 = (__int64)v48;
+                v61 = (struct SubchannelMaskInfo *)v24;
+                v53 = QuadPart;
+                _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+                  v45,
+                  (unsigned int)&unk_1802E8C9D,
+                  v46,
+                  v47,
+                  (__int64)&v62,
+                  (__int64)&v53,
+                  (__int64)&v61,
+                  (__int64)&v60);
               }
             }
-            wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v61);
-            wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>((__int64 *)&v67);
           }
-          v19 = 0;
+          wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v54);
+          (*(void (__fastcall **)(CVisual *))(*(_QWORD *)QuadPart + 16LL))(QuadPart);
         }
+        v20 = 0;
       }
-      if ( v69 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v69 + 16LL))(v69);
-      if ( v19 >= 0 )
+    }
+    if ( v59 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v59 + 16LL))(v59);
+    if ( v20 >= 0 )
+    {
+      v26 = *((_QWORD *)a2 + 38);
+      v27.QuadPart = 0LL;
+      v28 = 0LL;
+      v62.QuadPart = 0LL;
+      if ( *(int *)(v26 + 4) < 0 )
       {
-        v25 = *((_QWORD *)a2 + 41);
-        v26 = 0LL;
-        v27 = 0LL;
-        v68 = 0LL;
-        if ( (*(_DWORD *)(v25 + 4) & 0x20000000) != 0 )
-        {
-          v27 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) + 88LL;
-          QpcStopwatch::Start((QpcStopwatch *)&v68);
-          v26 = v68;
-        }
-        v28 = CExpression::StoreValueToCache(a2, v7[3], v11);
-        v30 = v28;
-        if ( v28 >= 0 )
-        {
-          if ( v26 )
-          {
-            v52 = QpcStopwatch::GetElapsed((QpcStopwatch *)&v68);
-            ++*(_DWORD *)(v27 + 16);
-            *(_QWORD *)(v27 + 56) += v52;
-          }
-          return 0;
-        }
-        v56 = 365;
-        goto LABEL_71;
+        v28 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 272LL) + 88LL;
+        if ( QueryPerformanceCounter(&v62) )
+          v27 = v62;
+        v62 = v27;
       }
-      v28 = CExpression::ReadValueFromCache(a2, v7[3], v11, (bool *)&v68);
-      v30 = v28;
-      if ( v28 < 0 )
+      ValueFromCache = CExpression::StoreValueToCache(a2, v8[3], v14);
+      v31 = ValueFromCache;
+      if ( ValueFromCache >= 0 )
       {
-        v56 = 382;
-LABEL_71:
-        v32 = v28;
+        if ( v27.QuadPart )
+        {
+          v49 = QpcStopwatch::GetElapsed((QpcStopwatch *)&v62);
+          ++*(_DWORD *)(v28 + 16);
+          *(_QWORD *)(v28 + 56) += v49;
+        }
+        return 0LL;
+      }
+      v51 = 359;
+      goto LABEL_87;
+    }
+    ValueFromCache = CExpression::ReadValueFromCache(a2, v8[3], v14, (bool *)&v62);
+    v31 = ValueFromCache;
+    if ( ValueFromCache >= 0 )
+    {
+      if ( !LOBYTE(v62.LowPart) )
+      {
+        v31 = v20;
+        v51 = 380;
+        v33 = v20;
+LABEL_38:
+        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v30, &dword_1802CE578, 2u, v33, v51, 0LL);
         goto LABEL_39;
       }
-      if ( !(_BYTE)v68 )
-      {
-        v30 = v19;
-        v56 = 386;
-        v32 = v19;
-LABEL_39:
-        MilInstrumentationCheckHR_MaybeFailFast(v29, &dword_18032C888, 2u, v32, v56, 0LL);
-        v6 = v66;
-        goto LABEL_40;
-      }
-      return 0;
+      return 0LL;
     }
-    v30 = -2147418113;
-    MilInstrumentationCheckHR_MaybeFailFast(v7[2] - 1, &dword_18032C888, 2u, -2147418113, 0x1A5u, 0LL);
+    v51 = 376;
+LABEL_87:
+    v33 = ValueFromCache;
+    goto LABEL_38;
   }
-LABEL_40:
-  if ( v11 )
-    --*((_DWORD *)v6 + 4);
-  return v30;
+  v31 = -2147418113;
+  MilInstrumentationCheckHR_MaybeFailFast(v8[2] - 1, &dword_1802CE578, 2u, -2147418113, 0x19Fu, 0LL);
+LABEL_39:
+  result = v31;
+  if ( v14 )
+    --*((_DWORD *)this + 4);
+  return result;
 }

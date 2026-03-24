@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C001F89C
+ * XREFs of ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00234E4
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
  * Callees:
- *     xxxRedrawTitle @ 0x1C001F9E4 (xxxRedrawTitle.c)
- *     xxxCreateWindowSmIcon @ 0x1C001FABC (xxxCreateWindowSmIcon.c)
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     SendDwmIconChange @ 0x1C00625D0 (SendDwmIconChange.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxRecreateSmallIcons @ 0x1C022DD3C (xxxRecreateSmallIcons.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     xxxCreateWindowSmIcon @ 0x1C00250E0 (xxxCreateWindowSmIcon.c)
+ *     SendDwmIconChange @ 0x1C0038960 (SendDwmIconChange.c)
+ *     xxxRedrawTitle @ 0x1C0046940 (xxxRedrawTitle.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     xxxRecreateSmallIcons @ 0x1C0242E7C (xxxRecreateSmallIcons.c)
  */
 
 HICON __fastcall xxxDWP_SetIcon(struct tagWND *a1, unsigned __int64 a2, HICON a3)

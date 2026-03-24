@@ -3,9 +3,9 @@
  * Callers:
  *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
  * Callees:
- *     KeInitializeQueue @ 0x1401219B0 (KeInitializeQueue.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     PsCreateSystemThread @ 0x14066AA90 (PsCreateSystemThread.c)
+ *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
  */
 
 NTSTATUS FsRtlInitializeWorkerThread()

@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkRetrieveStringFromRegistry @ 0x1C01FE9D0
+ * XREFs of DxgkRetrieveStringFromRegistry @ 0x1C01892D0
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     DpiGetAdapterInfo @ 0x1C01FD7E8 (DpiGetAdapterInfo.c)
- *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C02027A8 (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C01872CC (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ *     DpiGetAdapterInfo @ 0x1C0187DA0 (DpiGetAdapterInfo.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 NTSTATUS __fastcall DxgkRetrieveStringFromRegistry(HANDLE KeyHandle, PUNICODE_STRING ValueName, __int64 a3)

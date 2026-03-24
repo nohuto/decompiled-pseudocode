@@ -2,7 +2,7 @@
  * XREFs of WmipOpenBlock @ 0x140611928
  * Callers:
  *     IoWMIOpenBlock @ 0x140611760 (IoWMIOpenBlock.c)
- *     WmipIoControl @ 0x1406A9E00 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -11,7 +11,7 @@
  *     WmipFindGEByGuid @ 0x1406127A0 (WmipFindGEByGuid.c)
  *     WmipEnableCollectOrEvent @ 0x140612CC4 (WmipEnableCollectOrEvent.c)
  *     WmipIsQuerySetGuid @ 0x140612DB8 (WmipIsQuerySetGuid.c)
- *     WmipAllocGuidEntry @ 0x1407502B0 (WmipAllocGuidEntry.c)
+ *     WmipAllocGuidEntry @ 0x140750290 (WmipAllocGuidEntry.c)
  */
 
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)

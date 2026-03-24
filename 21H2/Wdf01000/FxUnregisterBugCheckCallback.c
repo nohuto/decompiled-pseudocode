@@ -1,9 +1,9 @@
 /*
- * XREFs of FxUnregisterBugCheckCallback @ 0x1C00911C8
+ * XREFs of FxUnregisterBugCheckCallback @ 0x1C0090A00
  * Callers:
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxUnregisterBugCheckCallback(_FX_DRIVER_GLOBALS *FxDriverGlobals)

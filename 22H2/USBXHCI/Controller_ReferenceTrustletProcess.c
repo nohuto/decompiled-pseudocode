@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_ReferenceTrustletProcess @ 0x1C0034328
+ * XREFs of Controller_ReferenceTrustletProcess @ 0x1C0032858
  * Callers:
- *     Controller_Create @ 0x1C0071304 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
   __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
   v7 = 0LL;
-  if ( !a1[78] )
+  if ( !a1[72] )
   {
     v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 *))(WdfFunctions_01023 + 3584))(
            WdfDriverGlobals,
@@ -26,25 +26,25 @@ __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
     if ( (v2 & 0x80000000) == 0 )
     {
       v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3600))(WdfDriverGlobals, v7);
-      a1[78] = v5;
+      a1[72] = v5;
       if ( v5 )
         return v2;
       v2 = -1073741436;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return v2;
-      v4 = 272;
+      v4 = 267;
     }
     else
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return v2;
-      v4 = 271;
+      v4 = 266;
     }
     LOBYTE(v3) = 2;
-    WPP_RECORDER_SF_d(a1[9], v3, 4, v4, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v2);
+    WPP_RECORDER_SF_d(a1[9], v3, 4, v4, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v2);
     return v2;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(a1[9], 2, 4, 270, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+    WPP_RECORDER_SF_(a1[9], 2, 4, 265, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
   return (unsigned int)-1073741436;
 }

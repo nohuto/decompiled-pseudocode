@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCopyFromUntrustedMemory @ 0x1402E60F0
+ * XREFs of MiCopyFromUntrustedMemory @ 0x140545580
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     MiDbgCopyMemoryTarget @ 0x140643AA0 (MiDbgCopyMemoryTarget.c)
+ *     MiDbgCopyMemory @ 0x1405457E4 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemoryTarget @ 0x140545A80 (MiDbgCopyMemoryTarget.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
-__int64 __fastcall MiCopyFromUntrustedMemory(_BYTE *a1, _DWORD *a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall MiCopyFromUntrustedMemory(_BYTE *a1, _BYTE *a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // r11d
-  _DWORD *v5; // rbx
-  _BYTE *v6; // r10
-  unsigned int v7; // r8d
-  unsigned int i; // edx
+  _BYTE *v5; // r10
+  _BYTE *v6; // rdi
+  unsigned int v7; // edx
+  unsigned int i; // r8d
   __int64 v10; // [rsp+40h] [rbp-28h]
 
   v4 = a3;
@@ -48,14 +48,14 @@ __int64 __fastcall MiCopyFromUntrustedMemory(_BYTE *a1, _DWORD *a2, unsigned int
         v7 = 1;
       switch ( v7 )
       {
-        case 4u:
-          LODWORD(v10) = *v5;
-          break;
         case 1u:
-          LOBYTE(v10) = *(_BYTE *)v5;
+          LOBYTE(v10) = *v5;
           break;
         case 2u:
           LOWORD(v10) = *(_WORD *)v5;
+          break;
+        case 4u:
+          LODWORD(v10) = *(_DWORD *)v5;
           break;
         case 8u:
           v10 = *(_QWORD *)v5;
@@ -64,7 +64,7 @@ __int64 __fastcall MiCopyFromUntrustedMemory(_BYTE *a1, _DWORD *a2, unsigned int
       for ( i = 0; i < v7; ++i )
         *v6++ = *((_BYTE *)&v10 + i);
       v4 -= v7;
-      v5 = (_DWORD *)((char *)v5 + v7);
+      v5 += v7;
     }
   }
   else

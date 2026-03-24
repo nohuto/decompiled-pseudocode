@@ -5,9 +5,9 @@
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  *     FsRtlAcquireFileExclusiveCommon @ 0x1405DEB10 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlQueryOpen @ 0x140814EDC (FsRtlQueryOpen.c)
+ *     FsRtlQueryOpen @ 0x140814EBC (FsRtlQueryOpen.c)
  * Callees:
- *     FsFilterFreeCompletionStack @ 0x140270458 (FsFilterFreeCompletionStack.c)
+ *     FsFilterFreeCompletionStack @ 0x140270558 (FsFilterFreeCompletionStack.c)
  */
 
 __int64 __fastcall FsFilterCtrlFree(__int64 a1)

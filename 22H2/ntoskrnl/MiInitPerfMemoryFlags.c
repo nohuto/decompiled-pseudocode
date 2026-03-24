@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitPerfMemoryFlags @ 0x14064165C
+ * XREFs of MiInitPerfMemoryFlags @ 0x140544998
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiLogSectionCreate @ 0x140A2F6B0 (MiLogSectionCreate.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
+ *     MiMapUserLargePages @ 0x14055E670 (MiMapUserLargePages.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiLogSectionCreate @ 0x1408C78A0 (MiLogSectionCreate.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
  *     <none>
  */

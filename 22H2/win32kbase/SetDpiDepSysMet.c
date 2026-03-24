@@ -1,7 +1,7 @@
 /*
- * XREFs of SetDpiDepSysMet @ 0x1C005D7F0
+ * XREFs of SetDpiDepSysMet @ 0x1C00703B0
  * Callers:
- *     InitLoadResources @ 0x1C005D508 (InitLoadResources.c)
+ *     InitLoadResources @ 0x1C0070130 (InitLoadResources.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,8 @@ void *__fastcall SetDpiDepSysMet(int a1, int a2)
 {
   __int64 v2; // rbx
   void *result; // rax
-  unsigned int v4; // edx
-  __int64 v5; // r8
-  __int64 v6; // rcx
+  unsigned int v4; // ecx
+  __int64 v5; // rdx
 
   v2 = a1;
   if ( a2 < 0 )
@@ -25,14 +24,13 @@ void *__fastcall SetDpiDepSysMet(int a1, int a2)
   if ( a2 != (_DWORD)result )
   {
     v4 = 2;
-    v5 = 60LL;
+    v5 = 4 * v2 + 2524;
     do
     {
       result = gpsi;
-      v6 = v5 + v2;
       ++v4;
-      v5 += 30LL;
-      *((_DWORD *)gpsi + v6 + 571) = -1;
+      *(_DWORD *)((char *)gpsi + v5) = -1;
+      v5 += 120LL;
     }
     while ( v4 < 0x12 );
   }

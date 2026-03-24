@@ -1,22 +1,23 @@
 /*
- * XREFs of HalpDisableSecondaryInterrupt @ 0x140519E38
+ * XREFs of HalpDisableSecondaryInterrupt @ 0x1404D0AEC
  * Callers:
- *     HalDisableInterrupt @ 0x14031F710 (HalDisableInterrupt.c)
+ *     HalDisableInterrupt @ 0x140376CF0 (HalDisableInterrupt.c)
  * Callees:
- *     HalpFindSecondaryIcEntry @ 0x14037CCD0 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpCheckInterruptType @ 0x1403B2F2C (HalpCheckInterruptType.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpCheckInterruptType @ 0x1404D08BC (HalpCheckInterruptType.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0B98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpDisableSecondaryInterrupt(_DWORD *a1)
 {
-  int v2; // edi
+  int v2; // ebx
   unsigned int v3; // esi
   __int64 SecondaryIcEntry; // rax
-  __int64 v5; // rbx
+  __int64 v5; // rdi
   __int64 v6; // rdx
   unsigned int v7; // esi
+  int v8; // ecx
 
   if ( SecondaryIcServicesEnabled )
   {
@@ -31,8 +32,10 @@ __int64 __fastcall HalpDisableSecondaryInterrupt(_DWORD *a1)
         if ( v2 >= 0 )
         {
           v7 = v3 - *(_DWORD *)(v5 + 16);
-          *(_DWORD *)(v5 + 16LL * v7 + 168) |= 0x80000000;
-          *(_BYTE *)(v5 + 16LL * v7 + 172) = 0;
+          v6 = 2LL * v7;
+          v8 = *(_DWORD *)(v5 + 16LL * v7 + 168);
+          *(_BYTE *)(v5 + 8 * v6 + 172) = 0;
+          *(_DWORD *)(v5 + 8 * v6 + 168) = v8 | 0x80000000;
         }
         LOBYTE(v6) = 1;
         HalpReleaseSecondaryIcEntryShared(v5, v6);

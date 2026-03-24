@@ -1,14 +1,13 @@
 /*
- * XREFs of ?IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ @ 0x1800355AC
+ * XREFs of ?IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ @ 0x1800612E8
  * Callers:
- *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800352EC (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
- *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801228A0 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ.c)
- *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ @ 0x180123560 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ.c)
- *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ @ 0x180123A60 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ.c)
- *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x180123DA0 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ.c)
- *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802B4E4C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800610D4 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScrat.c)
+ *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F57A0 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ @ 0x1800F8C00 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ.c)
+ *     ?IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x1800F8D40 (-IsHardwareProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ.c)
+ *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026666C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CRenderTargetBitmap::IsHardwareProtected(CRenderTargetBitmap *this)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiForceCrashForInvalidAccess @ 0x140967E00
+ * XREFs of MiForceCrashForInvalidAccess @ 0x1408C42A4
  * Callers:
- *     MiKernelWriteToExecutableMemory @ 0x1405A7608 (MiKernelWriteToExecutableMemory.c)
+ *     MiKernelWriteToExecutableMemory @ 0x1405489B4 (MiKernelWriteToExecutableMemory.c)
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     ZwCreateThreadEx @ 0x14041D020 (ZwCreateThreadEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     PsTerminateProcess @ 0x1407D80A4 (PsTerminateProcess.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x14080B5F0 (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkQueueUserExceptionReport @ 0x14092972C (DbgkQueueUserExceptionReport.c)
- *     KeRequestTerminationProcess @ 0x140961390 (KeRequestTerminationProcess.c)
+ *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwCreateThreadEx @ 0x1403FBBE0 (ZwCreateThreadEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
+ *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886810 (DbgkQueueUserExceptionReport.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B30 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeRequestTerminationProcess @ 0x1408BAD30 (KeRequestTerminationProcess.c)
  */
 
 _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
@@ -57,12 +57,12 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
         LODWORD(v7[0]) = -1073739994;
         LODWORD(v7[3]) = 1;
         v7[4] = PsGetProcessId(Process);
-        DbgkQueueUserExceptionReport((__int64)CurrentThread, 0xEu, (__int64)v7);
+        DbgkQueueUserExceptionReport(CurrentThread, 0xEu, (__int64)v7);
       }
       PsFreezeProcess((ULONG_PTR)Process, 0);
       if ( (int)ZwCreateThreadEx((__int64)&Handle, 0x1FFFFFLL) < 0 )
       {
-        PsTerminateProcess((__int64)Process, 0xC0000725);
+        PsTerminateProcess((ULONG_PTR)Process);
       }
       else
       {
@@ -70,7 +70,7 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
         ObReferenceObjectByHandle(Handle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
         KeRequestTerminationProcess((__int64)Object, 3);
         ObCloseHandle(Handle, 0);
-        ObfDereferenceObject(Object);
+        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       }
     }
   }

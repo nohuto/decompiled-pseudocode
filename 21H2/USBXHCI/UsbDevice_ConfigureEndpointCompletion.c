@@ -1,37 +1,41 @@
 /*
- * XREFs of UsbDevice_ConfigureEndpointCompletion @ 0x1C0045DA0
+ * XREFs of UsbDevice_ConfigureEndpointCompletion @ 0x1C00458E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_ConfigureEndpointCompletion(__int64 a1, int a2)
 {
-  _QWORD *v2; // rbx
+  __int64 v2; // rbx
   int v3; // edx
-  unsigned __int16 v4; // r9
-  __int64 v5; // rdx
-  __int64 (__fastcall *v6)(__int64, __int64); // rax
-  __int64 v7; // rcx
+  int v4; // r9d
+  int v5; // edx
+  __int64 v6; // rdx
+  __int64 (__fastcall *v7)(__int64, __int64); // rax
+  __int64 v8; // rcx
+  char v10; // [rsp+28h] [rbp-20h]
 
-  v2 = *(_QWORD **)(a1 + 48);
+  v2 = *(_QWORD *)(a1 + 48);
   if ( a2 == 3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v3 = *((unsigned __int8 *)v2 + 135);
+      v3 = *(unsigned __int8 *)(v2 + 135);
       v4 = 76;
 LABEL_10:
+      v10 = v3;
+      LOBYTE(v3) = 4;
       WPP_RECORDER_SF_dq(
-        *(_QWORD *)(v2[1] + 72LL),
-        4u,
-        0xCu,
-        v4,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        *(_QWORD *)(*(_QWORD *)(v2 + 8) + 72LL),
         v3,
-        *v2);
+        12,
+        v4,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
+        v10,
+        *(_QWORD *)v2);
       goto LABEL_11;
     }
     goto LABEL_11;
@@ -45,23 +49,27 @@ LABEL_10:
       goto LABEL_10;
     }
 LABEL_11:
-    v5 = 3221225473LL;
+    v6 = 3221225473LL;
     goto LABEL_12;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v5 = *(unsigned __int8 *)(a1 + 61);
+    LOBYTE(v5) = 4;
     WPP_RECORDER_SF_dq(
-      *(_QWORD *)(v2[1] + 72LL),
-      4u,
-      0xCu,
-      0x4Du,
-      (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
-      *(unsigned __int8 *)(a1 + 61),
-      *v2);
-  v5 = 0LL;
+      *(_QWORD *)(*(_QWORD *)(v2 + 8) + 72LL),
+      v5,
+      12,
+      77,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
+      *(_BYTE *)(a1 + 61),
+      *(_QWORD *)v2);
+  }
+  v6 = 0LL;
 LABEL_12:
-  v6 = (__int64 (__fastcall *)(__int64, __int64))v2[69];
-  v7 = v2[70];
-  v2[69] = 0LL;
-  v2[70] = 0LL;
-  return v6(v7, v5);
+  v7 = *(__int64 (__fastcall **)(__int64, __int64))(v2 + 552);
+  v8 = *(_QWORD *)(v2 + 560);
+  *(_QWORD *)(v2 + 552) = 0LL;
+  *(_QWORD *)(v2 + 560) = 0LL;
+  return v7(v8, v6);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpDeleteObject @ 0x140A26E60
+ * XREFs of _PnpDeleteObject @ 0x140976598
  * Callers:
- *     PiCMDeleteObject @ 0x1409554B0 (PiCMDeleteObject.c)
+ *     PiCMDeleteObject @ 0x1408B01A4 (PiCMDeleteObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpDeleteObjectDispatch @ 0x140A26F84 (_PnpDeleteObjectDispatch.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpDeleteObjectDispatch @ 0x1409766BC (_PnpDeleteObjectDispatch.c)
  */
 
 __int64 __fastcall PnpDeleteObject(__int64 a1, __int64 a2, unsigned int a3)

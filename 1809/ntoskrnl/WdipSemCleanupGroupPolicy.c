@@ -1,8 +1,8 @@
 /*
- * XREFs of WdipSemCleanupGroupPolicy @ 0x140743520
+ * XREFs of WdipSemCleanupGroupPolicy @ 0x140743500
  * Callers:
- *     WdipSemCleanStart @ 0x1407434B4 (WdipSemCleanStart.c)
- *     WdipSemLoadGroupPolicy @ 0x140743650 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemCleanStart @ 0x140743494 (WdipSemCleanStart.c)
+ *     WdipSemLoadGroupPolicy @ 0x140743630 (WdipSemLoadGroupPolicy.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

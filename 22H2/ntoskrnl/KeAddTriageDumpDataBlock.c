@@ -1,13 +1,12 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x1403A7970
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1403C9A00
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     IopInitializeTriageDumpData @ 0x14084F710 (IopInitializeTriageDumpData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     RtlMarkHiberPhase @ 0x140592C24 (RtlMarkHiberPhase.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9078 (IopInitializeTriageDumpData.c)
  * Callees:
- *     KiAddTriageDumpDataBlock @ 0x1403A7A94 (KiAddTriageDumpDataBlock.c)
- *     KiValidateTriageDumpDataArray @ 0x1403A7BA4 (KiValidateTriageDumpDataArray.c)
- *     KiIsAddressRangeValid @ 0x1403A7C94 (KiIsAddressRangeValid.c)
- *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14040F80C (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403C9ABC (KiValidateTriageDumpDataArray.c)
+ *     KiIsAddressRangeValid @ 0x1403C9B9C (KiIsAddressRangeValid.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -21,9 +20,9 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   char *v6; // rsi
   ULONG NumBlocksUsed; // r9d
   char *v9; // rdx
-  SIZE_T v10; // r8
-  char *v11; // rcx
-  struct _LIST_ENTRY *v13; // rdx
+  struct _LIST_ENTRY *v10; // rdx
+  SIZE_T v12; // r8
+  char *v13; // rcx
 
   v4 = 0;
   v6 = *(char **)&MaxDataSize;
@@ -35,44 +34,42 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   }
   if ( !Address )
     return 0;
-  if ( !(unsigned int)Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage() )
+  NumBlocksUsed = KtriageDumpDataArray->NumBlocksUsed;
+  v9 = (char *)Address + (_QWORD)v6;
+  if ( NumBlocksUsed )
   {
-    NumBlocksUsed = KtriageDumpDataArray->NumBlocksUsed;
-    v9 = (char *)Address + (_QWORD)v6;
-    if ( NumBlocksUsed )
+    do
     {
-      do
+      v12 = KtriageDumpDataArray->Blocks[v4].Size;
+      v13 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v12;
+      if ( v6 < v13 && (unsigned __int64)v9 > v12 )
       {
-        v10 = KtriageDumpDataArray->Blocks[v4].Size;
-        v11 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v10;
-        if ( v6 < v11 && (unsigned __int64)v9 > v10 )
+        if ( (unsigned __int64)v6 < v12 )
         {
-          if ( (unsigned __int64)v6 < v10 )
-          {
-            if ( v9 <= v11 )
-              v9 = (char *)KtriageDumpDataArray->Blocks[v4].Size;
-          }
-          else
-          {
-            if ( v9 <= v11 )
-              return 0;
-            v6 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v10;
-          }
+          if ( v9 <= v13 )
+            v9 = (char *)KtriageDumpDataArray->Blocks[v4].Size;
         }
-        ++v4;
+        else
+        {
+          if ( v9 <= v13 )
+            return 0;
+          v6 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v12;
+        }
       }
-      while ( v4 < NumBlocksUsed );
+      ++v4;
     }
-    if ( NumBlocksUsed == KtriageDumpDataArray->NumBlocksTotal )
-      return -1073741789;
-    v13 = (struct _LIST_ENTRY *)(v9 - v6);
-    if ( (unsigned __int64)v13 > KtriageDumpDataArray->ComponentNameBufferLength - KtriageDumpDataArray->VirtMemSize )
-      return -1073741670;
-    (&KtriageDumpDataArray[1].List.Flink)[2 * v4] = v13;
+    while ( v4 < NumBlocksUsed );
+  }
+  if ( NumBlocksUsed == KtriageDumpDataArray->NumBlocksTotal )
+    return -1073741789;
+  v10 = (struct _LIST_ENTRY *)(v9 - v6);
+  if ( (unsigned __int64)v10 <= KtriageDumpDataArray->ComponentNameBufferLength - KtriageDumpDataArray->VirtMemSize )
+  {
+    (&KtriageDumpDataArray[1].List.Flink)[2 * v4] = v10;
     KtriageDumpDataArray->Blocks[v4].Size = (SIZE_T)v6;
     ++KtriageDumpDataArray->NumBlocksUsed;
-    KtriageDumpDataArray->VirtMemSize += (unsigned int)v13;
+    KtriageDumpDataArray->VirtMemSize += (unsigned int)v10;
     return 0;
   }
-  return KiAddTriageDumpDataBlock(KtriageDumpDataArray, v6, Address, 0LL);
+  return -1073741670;
 }

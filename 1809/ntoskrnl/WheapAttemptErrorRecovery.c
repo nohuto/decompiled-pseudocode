@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapAttemptErrorRecovery @ 0x140320118
+ * XREFs of WheapAttemptErrorRecovery @ 0x140320218
  * Callers:
- *     WheaReportHwError @ 0x14031FC20 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     WheaGetErrPacketFromErrRecord @ 0x14031FB48 (WheaGetErrPacketFromErrRecord.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x14031FC48 (WheaGetErrPacketFromErrRecord.c)
  */
 
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferExV3 @ 0x14050E980
+ * XREFs of HalAllocateCommonBufferExV3 @ 0x1403A0A70
  * Callers:
- *     HalAllocateCommonBufferV3 @ 0x14050EA10 (HalAllocateCommonBufferV3.c)
+ *     HalAllocateCommonBuffer @ 0x140380FF0 (HalAllocateCommonBuffer.c)
  * Callees:
- *     HalpAllocateDomainCommonBufferInternal @ 0x140512490 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A0AF4 (HalpAllocateDomainCommonBufferInternal.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferExV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, int a6)
@@ -14,7 +14,7 @@ __int64 __fastcall HalAllocateCommonBufferExV3(__int64 a1, __int64 a2, __int64 a
 
   v10 = 0;
   v9[0] = 0LL;
-  if ( a5 && *(_BYTE *)(a1 + 445) )
+  if ( a5 && *(_BYTE *)(a1 + 437) )
   {
     v10 = 1;
     v7 = &v10;
@@ -23,6 +23,6 @@ __int64 __fastcall HalAllocateCommonBufferExV3(__int64 a1, __int64 a2, __int64 a
   {
     v7 = 0LL;
   }
-  HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 512), 0, (__int64)v7, a6, a4, (__int64)v9);
+  HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 504), 0, (__int64)v7, a6, a4, (__int64)v9);
   return v9[0];
 }

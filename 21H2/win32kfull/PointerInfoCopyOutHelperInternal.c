@@ -1,14 +1,14 @@
 /*
- * XREFs of PointerInfoCopyOutHelperInternal @ 0x1C01ECD10
+ * XREFs of PointerInfoCopyOutHelperInternal @ 0x1C01F24A0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GetDPITransformationMonitor @ 0x1C01DF820 (GetDPITransformationMonitor.c)
- *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01DFB4C (RemapHimetricPointsForMultiMonDigitizers.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GetDPITransformationMonitor @ 0x1C01E5670 (GetDPITransformationMonitor.c)
+ *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01E5BEC (RemapHimetricPointsForMultiMonDigitizers.c)
  */
 
 __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, ULONG64 a6)
@@ -21,7 +21,7 @@ __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __in
   _OWORD *v14; // rdx
   _OWORD *v15; // rax
   unsigned int v17; // [rsp+50h] [rbp-B8h]
-  unsigned __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
   __int64 DPITransformationMonitor; // [rsp+60h] [rbp-A8h] BYREF
   __int64 v20; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v21; // [rsp+70h] [rbp-98h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __in
                                &v20,
                                v22,
                                a3);
-  if ( (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1256) & 0x2000) != 0 )
+  if ( (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1232) & 0x2000) != 0 )
     AdjustedPointerLocations = 0;
   if ( a4 == 2 || a4 == 5 )
   {
@@ -73,7 +73,7 @@ __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __in
       v12 = PhysicalToLogicalDPIRect(&v24, &v24, 0LL, &DPITransformationMonitor) | AdjustedPointerLocations;
       AdjustedPointerLocations = PhysicalToLogicalDPIRect(&v25, &v25, 0LL, &DPITransformationMonitor) | v12;
     }
-    if ( *(_DWORD *)*gpDispInfo > 1u && a3 && !*(_DWORD *)(*(_QWORD *)(a3 + 16) + 1336LL) && *(_DWORD *)(a3 + 24) != 7 )
+    if ( *(_DWORD *)*gpDispInfo > 1u && a3 && !*(_DWORD *)(*(_QWORD *)(a3 + 16) + 1344LL) && *(_DWORD *)(a3 + 24) != 7 )
     {
       v23 = *(_OWORD *)(a3 + 176);
       RemapHimetricPointsForMultiMonDigitizers((__int64)&v23, DPITransformationMonitor, &v21, v22);

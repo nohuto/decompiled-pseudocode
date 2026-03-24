@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInsertVirtualizedTimer @ 0x140356060
+ * XREFs of PsInsertVirtualizedTimer @ 0x14031B20C
  * Callers:
- *     ExpSetTimerObject @ 0x14032E684 (ExpSetTimerObject.c)
- *     NtCreateTimer @ 0x1407C6B20 (NtCreateTimer.c)
+ *     ExpSetTimerObject @ 0x140248D90 (ExpSetTimerObject.c)
+ *     NtCreateTimer @ 0x1406C5B20 (NtCreateTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExpTimerPause @ 0x1403691B8 (ExpTimerPause.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpTimerPause @ 0x140320ECC (ExpTimerPause.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
@@ -22,7 +22,7 @@ KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
   KSPIN_LOCK **result; // rax
   char v6; // r15
   KIRQL CurrentIrql; // di
-  volatile signed __int64 *v11; // rbp
+  KSPIN_LOCK *v11; // rbp
   PVOID *v12; // rcx
   unsigned __int8 v13; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -35,7 +35,7 @@ KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
   if ( ((unsigned int)result & 0x40000008) == 0 )
   {
     CurrentIrql = KeGetCurrentIrql();
-    v11 = (volatile signed __int64 *)(Object + 305);
+    v11 = Object + 305;
     if ( a3 )
     {
       CurrentIrql = KeAcquireSpinLockRaiseToDpc(Object + 305);
@@ -58,20 +58,23 @@ KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
     *a5 = Object;
     if ( a3 )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)a3);
+      KxReleaseSpinLock(a3);
       KxReleaseSpinLock(v11);
       if ( KiIrqlFlags )
       {
-        v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v13 = KeGetCurrentIrql();
+          if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v17 = (v16 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v16;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       result = (KSPIN_LOCK **)CurrentIrql;

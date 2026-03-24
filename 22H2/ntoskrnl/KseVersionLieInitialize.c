@@ -1,18 +1,18 @@
 /*
- * XREFs of KseVersionLieInitialize @ 0x140B3970C
+ * XREFs of KseVersionLieInitialize @ 0x140A68808
  * Callers:
- *     KseInitialize @ 0x140B4CCCC (KseInitialize.c)
+ *     KseInitialize @ 0x140A3BCCC (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x14080AC90 (KseRegisterShim.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407BDBE0 (KseRegisterShim.c)
  */
 
-__int64 KseVersionLieInitialize()
+void KseVersionLieInitialize()
 {
   int v0; // eax
   int v1; // eax
-  __int64 result; // rax
+  int v2; // eax
   __int64 v3; // rcx
   char v4; // al
   __int64 v5; // rcx
@@ -29,7 +29,7 @@ __int64 KseVersionLieInitialize()
     KsepHistoryErrors[2 * v3] = 786673;
     if ( (v4 & 2) != 0 )
       KsepDebugPrint(12LL, "Built-in Win7 version lie shims: failed to register.\n");
-    KsepLogError(12LL, (__int64)"Built-in Win7 version lie shims: failed to register.\n");
+    KsepLogError(12, "Built-in Win7 version lie shims: failed to register.\n");
   }
   v1 = KseRegisterShim((__int64)&Win8VersionLieShim, 0LL, 0LL);
   if ( v1 < 0 )
@@ -40,18 +40,17 @@ __int64 KseVersionLieInitialize()
     KsepHistoryErrors[2 * v5] = 786681;
     if ( (v6 & 2) != 0 )
       KsepDebugPrint(12LL, "Built-in Win8 version lie shims: failed to register.\n");
-    KsepLogError(12LL, (__int64)"Built-in Win8 version lie shims: failed to register.\n");
+    KsepLogError(12, "Built-in Win8 version lie shims: failed to register.\n");
   }
-  result = KseRegisterShim((__int64)&Win81VersionLieShim, 0LL, 0LL);
-  if ( (int)result < 0 )
+  v2 = KseRegisterShim((__int64)&Win81VersionLieShim, 0LL, 0LL);
+  if ( v2 < 0 )
   {
     v7 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v7 + 1] = result;
+    KsepHistoryErrors[2 * v7 + 1] = v2;
     v8 = KsepDebugFlag;
     KsepHistoryErrors[2 * v7] = 786689;
     if ( (v8 & 2) != 0 )
       KsepDebugPrint(12LL, "Built-in Win8.1 version lie shims: failed to register.\n");
-    return KsepLogError(12LL, (__int64)"Built-in Win8.1 version lie shims: failed to register.\n");
+    KsepLogError(12, "Built-in Win8.1 version lie shims: failed to register.\n");
   }
-  return result;
 }

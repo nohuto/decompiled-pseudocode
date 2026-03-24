@@ -1,20 +1,19 @@
 /*
- * XREFs of DpiFdoGetChildDescriptor @ 0x1C001E234
+ * XREFs of DpiFdoGetChildDescriptor @ 0x1C001A270
  * Callers:
- *     DpiSetTargetAdjustedColorimetry2 @ 0x1C001E0CC (DpiSetTargetAdjustedColorimetry2.c)
- *     DxgkQueryConnectionChanges @ 0x1C0024C50 (DxgkQueryConnectionChanges.c)
- *     DpiProcessOpmVmBusRequest @ 0x1C0065114 (DpiProcessOpmVmBusRequest.c)
- *     DpEvalAcpiMethod @ 0x1C01E2B10 (DpEvalAcpiMethod.c)
- *     DpiPdoIsChildConnected @ 0x1C01F35DC (DpiPdoIsChildConnected.c)
- *     DpiPdoHandleChildConnectionChange @ 0x1C02164B8 (DpiPdoHandleChildConnectionChange.c)
- *     DpiGetMonitorColorimetryOverride @ 0x1C02176F4 (DpiGetMonitorColorimetryOverride.c)
- *     ?GetIntegratedDisplayIntendedUsage@KernelDriver@@UEBAJPEAW4_DXGK_DISPLAY_USAGE@@@Z @ 0x1C021A9D0 (-GetIntegratedDisplayIntendedUsage@KernelDriver@@UEBAJPEAW4_DXGK_DISPLAY_USAGE@@@Z.c)
- *     ?GetDriverMonitorNativeTimingOverride@KernelDriver@@UEBAJPEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C021BC00 (-GetDriverMonitorNativeTimingOverride@KernelDriver@@UEBAJPEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z.c)
- *     ?GetIntegratedDisplayLinkInfo@KernelDriver@@UEBAJAEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C021BCB0 (-GetIntegratedDisplayLinkInfo@KernelDriver@@UEBAJAEAU_DXGK_MONITORLINKINFO@@@Z.c)
- *     DpiFdoHandleTargetConnectionState @ 0x1C038A234 (DpiFdoHandleTargetConnectionState.c)
- *     DpiGetIntegratedDisplayOrientationOverrides @ 0x1C0397438 (DpiGetIntegratedDisplayOrientationOverrides.c)
- *     DpiPdoPollingWorkItem @ 0x1C03978B0 (DpiPdoPollingWorkItem.c)
- *     DpiSetTargetAdjustedColorimetry @ 0x1C03982D0 (DpiSetTargetAdjustedColorimetry.c)
+ *     DxgkQueryConnectionChanges @ 0x1C0020690 (DxgkQueryConnectionChanges.c)
+ *     DpiSetTargetAdjustedColorimetry2 @ 0x1C0059D90 (DpiSetTargetAdjustedColorimetry2.c)
+ *     DpEvalAcpiMethod @ 0x1C0167EE0 (DpEvalAcpiMethod.c)
+ *     DpiPdoIsChildConnected @ 0x1C01795D4 (DpiPdoIsChildConnected.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0179B08 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiGetMonitorColorimetryOverride @ 0x1C018CD0C (DpiGetMonitorColorimetryOverride.c)
+ *     ?_RetrieveIntegratedPanelNativeOverride@DXGMONITOR@@QEAAJXZ @ 0x1C018DA4C (-_RetrieveIntegratedPanelNativeOverride@DXGMONITOR@@QEAAJXZ.c)
+ *     ?_GetIntendedUsageFromDescriptor@DXGMONITOR@@AEAAJPEAW4_DXGK_DISPLAY_USAGE@@PEA_N1@Z @ 0x1C018E098 (-_GetIntendedUsageFromDescriptor@DXGMONITOR@@AEAAJPEAW4_DXGK_DISPLAY_USAGE@@PEA_N1@Z.c)
+ *     DpiSetTargetAdjustedColorimetry @ 0x1C019FD50 (DpiSetTargetAdjustedColorimetry.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CACE4 (DpiFdoHandleTargetConnectionState.c)
+ *     DpiGetIntegratedDisplayOrientationOverrides @ 0x1C02D8DC0 (DpiGetIntegratedDisplayOrientationOverrides.c)
+ *     DpiGetIntegratedMonitorLinkInfo @ 0x1C02D8E2C (DpiGetIntegratedMonitorLinkInfo.c)
+ *     DpiPdoPollingWorkItem @ 0x1C02D92E0 (DpiPdoPollingWorkItem.c)
  * Callees:
  *     <none>
  */

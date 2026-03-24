@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfDeleteScopeInstances @ 0x1408DB620
+ * XREFs of ExpWnfDeleteScopeInstances @ 0x1408DB600
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x140887198 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x140887178 (PspDeleteServerSiloGlobals.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpWnfFreeScopeInstance @ 0x1406CBFE0 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x1406CBFC0 (ExpWnfFreeScopeInstance.c)
  */
 
 __int64 __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)

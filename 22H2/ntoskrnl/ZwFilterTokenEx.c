@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFilterTokenEx @ 0x14041C420
+ * XREFs of ZwFilterTokenEx @ 0x1403FB6E0
  * Callers:
  *     <none>
  * Callees:

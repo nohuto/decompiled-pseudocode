@@ -1,23 +1,25 @@
 /*
- * XREFs of NtDCompositionSetChildRootVisual @ 0x1C0209C10
+ * XREFs of NtDCompositionSetChildRootVisual @ 0x1C01D2930
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0086BD0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
- *     UserReferenceDwmApiPort @ 0x1C0086FA0 (UserReferenceDwmApiPort.c)
- *     GreLockDwmState @ 0x1C0087030 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     GreLockDwmState @ 0x1C0048DD0 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     UserReferenceDwmApiPort @ 0x1C004AAF0 (UserReferenceDwmApiPort.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C004B1A0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetChildRootVisual(__int64 a1, void *a2, __int64 a3)
 {
   CompositionObject *v3; // rbx
   int v4; // edi
-  PVOID v6; // rcx
-  PVOID v7; // rsi
-  int v8; // eax
+  __int64 v6; // r8
+  __int64 v7; // r9
+  PVOID v8; // rsi
+  int v9; // eax
+  PVOID v10; // rcx
   PVOID Object; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0LL;
@@ -34,31 +36,31 @@ __int64 __fastcall NtDCompositionSetChildRootVisual(__int64 a1, void *a2, __int6
   if ( v4 < 0 )
     return (unsigned int)v4;
   v3 = (CompositionObject *)Object;
-  if ( Object && *((_DWORD *)Object + 9) != 196 )
+  if ( Object && *((_DWORD *)Object + 9) != 195 )
   {
     v4 = -1073741811;
   }
   else
   {
 LABEL_6:
-    GreLockDwmState(a1);
-    v7 = 0LL;
+    GreLockDwmState();
+    v8 = 0LL;
     Object = 0LL;
     if ( v3 )
     {
-      v8 = CompositionObject::OpenDwmHandle(v3, &Object);
-      v7 = Object;
-      v4 = v8;
+      v9 = CompositionObject::OpenDwmHandle(v3, &Object, v6, v7);
+      v8 = Object;
+      v4 = v9;
     }
     if ( v4 >= 0 )
     {
-      v6 = UserReferenceDwmApiPort((__int64)v6);
-      if ( qword_1C0294EE8 )
-        v4 = qword_1C0294EE8(v6, a1, v7);
+      v10 = UserReferenceDwmApiPort();
+      if ( qword_1C0255AF0 )
+        v4 = qword_1C0255AF0(v10, a1, v8);
       else
         v4 = -1073741637;
     }
-    GreUnlockDwmState((__int64)v6);
+    GreUnlockDwmState();
   }
   if ( v3 )
     ObfDereferenceObject(v3);

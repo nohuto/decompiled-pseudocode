@@ -1,16 +1,15 @@
 /*
- * XREFs of MiImageVadHotPatchEligible @ 0x1406AD6A0
+ * XREFs of MiImageVadHotPatchEligible @ 0x1406F0418
  * Callers:
- *     MiSetProtectionOnSection @ 0x14032D1C0 (MiSetProtectionOnSection.c)
- *     MiGetVadForHotPatchInProgress @ 0x140973534 (MiGetVadForHotPatchInProgress.c)
- *     MiHotPatchProcess @ 0x1409736EC (MiHotPatchProcess.c)
+ *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE504 (MiSetImageHotPatchAllowed.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiImageVadHotPatchEligible(__int64 a1)
 {
-  return dword_140C533A0
+  return MiUserHotPatchReserveSize
       && (*(_DWORD *)(a1 + 64) & 0x1000000) == 0
       && (*(_DWORD *)(a1 + 48) & 0xF80) == 0x380
       && (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))

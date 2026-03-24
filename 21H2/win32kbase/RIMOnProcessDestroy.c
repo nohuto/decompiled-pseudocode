@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMOnProcessDestroy @ 0x1C0043910
+ * XREFs of RIMOnProcessDestroy @ 0x1C00468A0
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     RIMUnregisterCurrentProcessForInput @ 0x1C0043984 (RIMUnregisterCurrentProcessForInput.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     RIMUnregisterCurrentProcessForInput @ 0x1C0046914 (RIMUnregisterCurrentProcessForInput.c)
  */
 
 __int64 __fastcall RIMOnProcessDestroy(struct _LIST_ENTRY *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall RIMOnProcessDestroy(struct _LIST_ENTRY *a1)
     if ( i[1].Flink == a1 )
       BYTE2(i[-1].Blink) = 1;
   }
-  qword_1C029A118 = 0LL;
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
   return RIMUnregisterCurrentProcessForInput();

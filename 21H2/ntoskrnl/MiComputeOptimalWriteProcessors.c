@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeOptimalWriteProcessors @ 0x1403CAA10
+ * XREFs of MiComputeOptimalWriteProcessors @ 0x1403BC914
  * Callers:
- *     MiZeroPageCalibrateIsr @ 0x1403CA510 (MiZeroPageCalibrateIsr.c)
+ *     MiZeroPageCalibrateIsr @ 0x1403BC430 (MiZeroPageCalibrateIsr.c)
  * Callees:
  *     <none>
  */

@@ -1,66 +1,67 @@
 /*
- * XREFs of ?EmitUpdate@CCompiledEffectTemplateMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000BBDC
+ * XREFs of ?EmitUpdate@CCompiledEffectTemplateMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0058C30
  * Callers:
- *     ?EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000BB50 (-EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0058BA0 (-EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C000C9A4 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0059D60 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::EmitUpdate(
         DirectComposition::CCompiledEffectTemplateMarshaler *this,
         struct DirectComposition::CBatch **a2)
 {
-  _DWORD *v4; // rcx
-  __int64 v5; // rax
+  __int64 v4; // r9
+  _DWORD *v5; // rcx
   __int64 v6; // rax
-  _QWORD *v7; // rsi
-  unsigned int v8; // edx
-  DirectComposition::CEvent *v9; // rcx
-  _QWORD *v10; // rax
-  __int64 v11; // rdx
-  int v13; // [rsp+20h] [rbp-18h]
-  _DWORD *v14; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v7; // rax
+  _QWORD *v8; // rsi
+  unsigned int v9; // edx
+  DirectComposition::CEvent *v10; // rcx
+  _QWORD *v11; // rax
+  __int64 v12; // rdx
+  int v14; // [rsp+20h] [rbp-18h]
+  _DWORD *v15; // [rsp+40h] [rbp+8h] BYREF
 
   if ( (*((_DWORD *)this + 4) & 0x40) != 0 )
     return 1;
-  v14 = 0LL;
-  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x24uLL, (void **)&v14) )
+  v15 = 0LL;
+  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x24uLL, (void **)&v15) )
   {
-    v4 = v14;
-    *v14 = 36;
-    *(_OWORD *)(v4 + 1) = 0LL;
-    *(_OWORD *)(v4 + 5) = 0LL;
-    v4[1] = 59;
-    v4[2] = *((_DWORD *)this + 8);
-    v5 = *((_QWORD *)this + 9);
-    if ( v5 )
-      LODWORD(v5) = *(_DWORD *)(v5 + 32);
-    v4[3] = v5;
-    v4[4] = *((_DWORD *)this + 20);
-    v4[5] = *((_DWORD *)this + 21);
-    v6 = *((_QWORD *)this + 12);
+    v5 = v15;
+    *v15 = 36;
+    *(_OWORD *)(v5 + 1) = 0LL;
+    *(_OWORD *)(v5 + 5) = 0LL;
+    v5[1] = 59;
+    v5[2] = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 8);
     if ( v6 )
+      LODWORD(v6) = *(_DWORD *)(v6 + 24);
+    v5[3] = v6;
+    v5[4] = *((_DWORD *)this + 18);
+    v5[5] = *((_DWORD *)this + 19);
+    v7 = *((_QWORD *)this + 11);
+    if ( v7 )
     {
-      v7 = v4 + 7;
-      if ( (int)OpenDwmHandle(*(PVOID *)(v6 + 8), (POBJECT_TYPE)ExEventObjectType, 2u, v13, (PHANDLE)(v4 + 7)) < 0 )
+      v8 = v5 + 7;
+      if ( (int)OpenDwmHandle(*(PVOID *)(v7 + 8), (POBJECT_TYPE)ExEventObjectType, 2u, v4, v14, (PHANDLE)(v5 + 7)) < 0 )
       {
-        *v7 = 0LL;
-        KeSetEvent(*(PRKEVENT *)(*((_QWORD *)this + 12) + 8LL), 1, 0);
+        *v8 = 0LL;
+        KeSetEvent(*(PRKEVENT *)(*((_QWORD *)this + 11) + 8LL), 1, 0);
       }
-      v9 = (DirectComposition::CEvent *)*((_QWORD *)this + 12);
-      if ( v9 )
-        DirectComposition::CEvent::`scalar deleting destructor'(v9, v8);
-      *((_QWORD *)this + 12) = 0LL;
+      v10 = (DirectComposition::CEvent *)*((_QWORD *)this + 11);
+      if ( v10 )
+        DirectComposition::CEvent::`scalar deleting destructor'(v10, v9);
+      *((_QWORD *)this + 11) = 0LL;
     }
-    v10 = (_QWORD *)*((_QWORD *)this + 13);
-    if ( v10 )
+    v11 = (_QWORD *)*((_QWORD *)this + 12);
+    if ( v11 )
     {
-      v11 = *((_QWORD *)*a2 + 1);
-      *v10 = *(_QWORD *)(v11 + 208);
-      *(_QWORD *)(v11 + 208) = v10;
-      *((_QWORD *)this + 13) = 0LL;
+      v12 = *((_QWORD *)*a2 + 1);
+      *v11 = *(_QWORD *)(v12 + 208);
+      *(_QWORD *)(v12 + 208) = v11;
+      *((_QWORD *)this + 12) = 0LL;
     }
     *((_DWORD *)this + 4) |= 0x40u;
     return 1;

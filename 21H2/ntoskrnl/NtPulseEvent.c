@@ -1,12 +1,12 @@
 /*
- * XREFs of NtPulseEvent @ 0x1406F2B70
+ * XREFs of NtPulseEvent @ 0x140646730
  * Callers:
  *     <none>
  * Callees:
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExpPulseCrossVmEvent @ 0x140A08084 (ExpPulseCrossVmEvent.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExpPulseCrossVmEvent @ 0x14095C8B4 (ExpPulseCrossVmEvent.c)
  */
 
 __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
@@ -16,9 +16,9 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
   NTSTATUS v6; // edi
   struct _KEVENT *v7; // rsi
   __int64 v9; // rcx
-  LONG v10; // [rsp+68h] [rbp+10h] BYREF
-  PVOID Object; // [rsp+70h] [rbp+18h] BYREF
-  PVOID v12; // [rsp+78h] [rbp+20h]
+  LONG v10; // [rsp+78h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+80h] [rbp+18h] BYREF
+  PVOID v12; // [rsp+88h] [rbp+20h] BYREF
 
   v10 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -33,7 +33,6 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
   v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v6 = v5;
   v7 = (struct _KEVENT *)Object;
-  v12 = Object;
   LODWORD(Object) = v5;
   if ( v5 < 0 )
   {
@@ -41,14 +40,13 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
     {
       if ( ExCrossVmEventObjectType )
       {
-        Object = 0LL;
-        v6 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &Object, 0LL);
-        v7 = (struct _KEVENT *)Object;
-        v12 = Object;
+        v12 = 0LL;
+        v6 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &v12, 0LL);
+        v7 = (struct _KEVENT *)v12;
         LODWORD(Object) = v6;
         if ( v6 >= 0 )
         {
-          v6 = ExpPulseCrossVmEvent(v7, &v10);
+          v6 = ExpPulseCrossVmEvent(v12, &v10);
           LODWORD(Object) = v6;
         }
       }
@@ -61,6 +59,6 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
   if ( v6 >= 0 && a2 )
     *a2 = v10;
   if ( v7 )
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v7);
   return (unsigned int)v6;
 }

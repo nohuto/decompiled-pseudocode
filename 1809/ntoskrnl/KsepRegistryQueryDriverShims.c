@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepRegistryQueryDriverShims @ 0x14067DCB4
+ * XREFs of KsepRegistryQueryDriverShims @ 0x14067DC94
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x14067E0C0 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14067E0A0 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     KsepRegistryOpenKey @ 0x14067DE78 (KsepRegistryOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x14072829C (KsepRegistryQuerySZ.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KsepRegistryOpenKey @ 0x14067DE58 (KsepRegistryOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x14072827C (KsepRegistryQuerySZ.c)
  */
 
 __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

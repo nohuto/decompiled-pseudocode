@@ -1,8 +1,8 @@
 /*
- * XREFs of DxgkCleanupPower @ 0x1C039A4F8
+ * XREFs of DxgkCleanupPower @ 0x1C02C81A8
  * Callers:
- *     DxgkUnload @ 0x1C030A890 (DxgkUnload.c)
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DxgkUnload @ 0x1C0261ED0 (DxgkUnload.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
  *     <none>
  */
@@ -11,27 +11,27 @@ void DxgkCleanupPower()
 {
   signed __int64 v0; // rax
 
-  if ( byte_1C0140497 )
+  if ( byte_1C00B2B18 )
   {
     if ( Handle )
     {
       PoUnregisterPowerSettingCallback(Handle);
       Handle = 0LL;
     }
-    if ( qword_1C01408D0 )
+    if ( qword_1C00B2F48 )
     {
-      PoUnregisterPowerSettingCallback(qword_1C01408D0);
-      qword_1C01408D0 = 0LL;
+      PoUnregisterPowerSettingCallback(qword_1C00B2F48);
+      qword_1C00B2F48 = 0LL;
     }
-    if ( qword_1C0140960 )
+    if ( qword_1C00B2FD8 )
     {
       KeCancelTimer(&Timer);
       KeFlushQueuedDpcs();
-      v0 = _InterlockedCompareExchange64(&qword_1C0140960, qword_1C0140960 | 3, qword_1C0140960 | 1);
+      v0 = _InterlockedCompareExchange64(&qword_1C00B2FD8, qword_1C00B2FD8 | 3, qword_1C00B2FD8 | 1);
       if ( (v0 & 1) == 0 )
       {
         IoFreeWorkItem((PIO_WORKITEM)(v0 & 0xFFFFFFFFFFFFFFFCuLL));
-        qword_1C0140960 = 0LL;
+        qword_1C00B2FD8 = 0LL;
       }
     }
   }

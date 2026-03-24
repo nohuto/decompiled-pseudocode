@@ -1,39 +1,41 @@
 /*
- * XREFs of ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0022D84
+ * XREFs of ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021A5C
  * Callers:
- *     ClientEventCallback @ 0x1C000F4B8 (ClientEventCallback.c)
- *     SfnGETDBCSTEXTLENGTHS @ 0x1C0011B20 (SfnGETDBCSTEXTLENGTHS.c)
- *     xxxClientLoadMenu @ 0x1C001F60C (xxxClientLoadMenu.c)
- *     xxxClientExpandStringW @ 0x1C0020288 (xxxClientExpandStringW.c)
- *     SfnPOWERBROADCAST @ 0x1C00206D0 (SfnPOWERBROADCAST.c)
- *     xxxClientLoadStringW @ 0x1C0022098 (xxxClientLoadStringW.c)
- *     xxxClientLoadImage @ 0x1C0022330 (xxxClientLoadImage.c)
- *     SfnCOPYDATA @ 0x1C0022620 (SfnCOPYDATA.c)
- *     xxxClientAddFontResourceW @ 0x1C0022B88 (xxxClientAddFontResourceW.c)
- *     ClientLoadLibrary @ 0x1C0023120 (ClientLoadLibrary.c)
- *     SfnOUTSTRING @ 0x1C00B2C40 (SfnOUTSTRING.c)
- *     ClientGetListboxString @ 0x1C020576C (ClientGetListboxString.c)
- *     SfnCOPYGLOBALDATA @ 0x1C0205F60 (SfnCOPYGLOBALDATA.c)
- *     SfnIMECONTROL @ 0x1C0206A40 (SfnIMECONTROL.c)
- *     SfnINCNTOUTSTRING @ 0x1C02074C0 (SfnINCNTOUTSTRING.c)
- *     SfnINCNTOUTSTRINGNULL @ 0x1C0207A40 (SfnINCNTOUTSTRINGNULL.c)
- *     SfnINLPHELPINFOSTRUCT @ 0x1C0208B90 (SfnINLPHELPINFOSTRUCT.c)
- *     SfnINLPHLPSTRUCT @ 0x1C0208F60 (SfnINLPHLPSTRUCT.c)
- *     SfnINLPKDRAWSWITCHWND @ 0x1C0209330 (SfnINLPKDRAWSWITCHWND.c)
- *     SfnINLPMDICREATESTRUCT @ 0x1C02097E0 (SfnINLPMDICREATESTRUCT.c)
- *     SfnINPGESTURENOTIFYSTRUCT @ 0x1C020C930 (SfnINPGESTURENOTIFYSTRUCT.c)
- *     SfnINSTRING @ 0x1C020D030 (SfnINSTRING.c)
- *     SfnPOPTINLPUINT @ 0x1C020E680 (SfnPOPTINLPUINT.c)
- *     SfnPOUTLPINT @ 0x1C020EAB0 (SfnPOUTLPINT.c)
- *     SfnTOUCHHITTESTING @ 0x1C020FF10 (SfnTOUCHHITTESTING.c)
- *     fnHkINLPCBTCREATESTRUCT @ 0x1C02103E8 (fnHkINLPCBTCREATESTRUCT.c)
- *     xxxClientExtTextOutW @ 0x1C021212C (xxxClientExtTextOutW.c)
- *     xxxClientFindMnemChar @ 0x1C0212504 (xxxClientFindMnemChar.c)
- *     xxxClientGetTextExtentPointW @ 0x1C0212AAC (xxxClientGetTextExtentPointW.c)
- *     xxxClientLpkDrawTextEx @ 0x1C0212EB8 (xxxClientLpkDrawTextEx.c)
- *     xxxClientPSMTextOut @ 0x1C02132C0 (xxxClientPSMTextOut.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C001E5E0 (fnHkINLPCBTCREATESTRUCT.c)
+ *     SfnINDEVICECHANGE @ 0x1C0020920 (SfnINDEVICECHANGE.c)
+ *     ClientLoadLibrary @ 0x1C0020CF8 (ClientLoadLibrary.c)
+ *     SfnINLPCREATESTRUCT @ 0x1C0020F50 (SfnINLPCREATESTRUCT.c)
+ *     xxxClientAddFontResourceW @ 0x1C0021B2C (xxxClientAddFontResourceW.c)
+ *     SfnPOWERBROADCAST @ 0x1C0021FE0 (SfnPOWERBROADCAST.c)
+ *     xxxClientLoadImage @ 0x1C0022860 (xxxClientLoadImage.c)
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C0022B90 (SfnGETDBCSTEXTLENGTHS.c)
+ *     xxxClientLoadMenu @ 0x1C0023740 (xxxClientLoadMenu.c)
+ *     SfnCOPYDATA @ 0x1C0023D80 (SfnCOPYDATA.c)
+ *     xxxClientLoadStringW @ 0x1C002425C (xxxClientLoadStringW.c)
+ *     xxxClientExpandStringW @ 0x1C00251BC (xxxClientExpandStringW.c)
+ *     SfnINSTRINGNULL @ 0x1C004FDF0 (SfnINSTRINGNULL.c)
+ *     SfnINSTRING @ 0x1C011EB70 (SfnINSTRING.c)
+ *     xxxClientExtTextOutW @ 0x1C0158F28 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159250 (xxxClientGetTextExtentPointW.c)
+ *     ClientGetListboxString @ 0x1C0159EC4 (ClientGetListboxString.c)
+ *     ClientEventCallback @ 0x1C02282E8 (ClientEventCallback.c)
+ *     SfnCOPYGLOBALDATA @ 0x1C02286E0 (SfnCOPYGLOBALDATA.c)
+ *     SfnIMECONTROL @ 0x1C0229020 (SfnIMECONTROL.c)
+ *     SfnINCNTOUTSTRING @ 0x1C0229BC0 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C022A1E0 (SfnINCNTOUTSTRINGNULL.c)
+ *     SfnINLPHELPINFOSTRUCT @ 0x1C022AE50 (SfnINLPHELPINFOSTRUCT.c)
+ *     SfnINLPHLPSTRUCT @ 0x1C022B2C0 (SfnINLPHLPSTRUCT.c)
+ *     SfnINLPKDRAWSWITCHWND @ 0x1C022B720 (SfnINLPKDRAWSWITCHWND.c)
+ *     SfnINLPMDICREATESTRUCT @ 0x1C022BC60 (SfnINLPMDICREATESTRUCT.c)
+ *     SfnINPGESTURENOTIFYSTRUCT @ 0x1C022DA90 (SfnINPGESTURENOTIFYSTRUCT.c)
+ *     SfnPOPTINLPUINT @ 0x1C022F200 (SfnPOPTINLPUINT.c)
+ *     SfnPOUTLPINT @ 0x1C022F6C0 (SfnPOUTLPINT.c)
+ *     SfnTOUCHHITTESTING @ 0x1C02303B0 (SfnTOUCHHITTESTING.c)
+ *     xxxClientFindMnemChar @ 0x1C02322F0 (xxxClientFindMnemChar.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C02329DC (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C0232E44 (xxxClientPSMTextOut.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 unsigned __int8 *__fastcall AllocCallbackMessage(
@@ -73,7 +75,7 @@ unsigned __int8 *__fastcall AllocCallbackMessage(
         if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v13 + 32), 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
         {
           *((_QWORD *)v6 + 2) = *v14;
-          goto LABEL_10;
+          goto LABEL_8;
         }
         Win32FreePool(v6);
       }
@@ -82,7 +84,7 @@ unsigned __int8 *__fastcall AllocCallbackMessage(
     {
       if ( v8 + v9 <= Size )
       {
-        memset_0(a4, 0, Size);
+        memset(a4, 0, Size);
         goto LABEL_5;
       }
       v6 = (unsigned __int8 *)Win32AllocPoolWithQuotaZInit((unsigned int)(v9 + v8), 1667461973LL);
@@ -103,7 +105,7 @@ LABEL_7:
           *((_DWORD *)v6 + 6) = v7;
           return result;
         }
-LABEL_10:
+LABEL_8:
         *(_DWORD *)v6 = v8;
         goto LABEL_7;
       }

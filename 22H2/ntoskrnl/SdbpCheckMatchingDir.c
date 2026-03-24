@@ -1,93 +1,102 @@
 /*
- * XREFs of SdbpCheckMatchingDir @ 0x140A4F6A0
+ * XREFs of SdbpCheckMatchingDir @ 0x1409643C0
  * Callers:
  *     <none>
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbpInitializeSearchDBContext @ 0x140A51430 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140A517D0 (SdbpResolveMatchingFile.c)
- *     AslDoesDirectoryExistNtPath @ 0x140A540F8 (AslDoesDirectoryExistNtPath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F8D3C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     SdbpInitializeSearchDBContext @ 0x140752FF8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x1407531CC (SdbpResolveMatchingFile.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     AslDoesDirectoryExistNtPath @ 0x140967B74 (AslDoesDirectoryExistNtPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingDir(
-        _DWORD *a1,
+        unsigned int *a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
         unsigned int a5,
         const WCHAR *P)
 {
-  unsigned int v7; // ebx
-  int v8; // r12d
+  int v7; // ebp
+  unsigned int v8; // r12d
+  unsigned int DoesDirectoryExistNtPath; // esi
   unsigned int FirstTag; // eax
-  __int64 v10; // r8
+  __int64 v11; // r8
+  __int64 v12; // r9
   __int64 StringTagPtr; // rax
-  unsigned __int16 *v12; // r15
-  __int64 v13; // r14
-  const WCHAR *v14; // rsi
-  int *v15; // r13
-  int v16; // ebp
-  WCHAR *v17; // r12
-  unsigned __int64 v18; // rax
-  __int64 v19; // rcx
+  _WORD *v14; // r15
+  __int64 v15; // r14
+  const WCHAR *v16; // rdi
+  int *v17; // r13
+  WCHAR *v18; // r12
+  unsigned __int64 v19; // rax
+  __int64 v20; // rcx
 
   v7 = 0;
   v8 = 0;
-  FirstTag = SdbFindFirstTag(a3, a5, 24577LL);
+  DoesDirectoryExistNtPath = 0;
+  FirstTag = SdbFindFirstTag(a3, a5, 24577);
   if ( FirstTag )
   {
-    StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v10);
-    v12 = (unsigned __int16 *)StringTagPtr;
+    StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v11, v12);
+    v14 = (_WORD *)StringTagPtr;
     if ( !StringTagPtr )
       goto LABEL_3;
-    v13 = -1LL;
+    v15 = -1LL;
     do
-      ++v13;
-    while ( *(_WORD *)(StringTagPtr + 2 * v13) );
-    v14 = P;
-    if ( (*(_DWORD *)P & 1) == 0 && !(unsigned int)SdbpInitializeSearchDBContext(P) )
+      ++v15;
+    while ( *(_WORD *)(StringTagPtr + 2 * v15) );
+    v16 = P;
+    if ( (*(_DWORD *)P & 1) != 0 || (unsigned int)SdbpInitializeSearchDBContext((__int64)P) )
+    {
+      v17 = (int *)*((_QWORD *)v16 + 9);
+      if ( *v17 > 0 )
+      {
+        while ( 1 )
+        {
+          P = 0LL;
+          if ( !(unsigned int)SdbpResolveMatchingFile(a2, (__int64)v16, v14, v15, (__int64)&v17[12 * v7 + 2], &P) )
+          {
+            AslLogCallPrintf(1LL);
+            v8 = 0;
+            goto LABEL_18;
+          }
+          v18 = (WCHAR *)P;
+          DoesDirectoryExistNtPath = AslDoesDirectoryExistNtPath(P);
+          if ( v18 )
+            ExFreePoolWithTag(v18, 0x74705041u);
+          if ( DoesDirectoryExistNtPath )
+            break;
+          if ( ++v7 >= *v17 )
+            goto LABEL_14;
+        }
+        if ( v7 > 0 )
+          *((_DWORD *)v16 + 20) = 1;
+      }
+LABEL_14:
+      v19 = (unsigned __int16)*v14;
+      LOWORD(v19) = v19 - 37;
+      if ( (unsigned __int16)v19 <= 0x37u )
+      {
+        v20 = 0x80000000000201LL;
+        if ( _bittest64(&v20, v19) )
+          *((_DWORD *)v16 + 20) = 1;
+      }
+      v8 = 1;
+    }
+    else
     {
 LABEL_3:
       AslLogCallPrintf(1LL);
-      goto LABEL_18;
     }
-    v15 = (int *)*((_QWORD *)v14 + 9);
-    v16 = 0;
-    if ( *v15 > 0 )
-    {
-      do
-      {
-        P = 0LL;
-        if ( !(unsigned int)SdbpResolveMatchingFile(a2, v14, v12, (unsigned int)v13, &v15[12 * v16 + 2], &P) )
-          goto LABEL_3;
-        v17 = (WCHAR *)P;
-        LODWORD(P) = AslDoesDirectoryExistNtPath(P);
-        if ( v17 )
-          ExFreePoolWithTag(v17, 0x74705041u);
-        v8 = (int)P;
-        if ( (_DWORD)P )
-        {
-          if ( v16 > 0 )
-            *((_DWORD *)v14 + 20) = 1;
-          break;
-        }
-      }
-      while ( ++v16 < *v15 );
-    }
-    v18 = *v12;
-    LOWORD(v18) = v18 - 37;
-    if ( (unsigned __int16)v18 <= 0x37u )
-    {
-      v19 = 0x80000000000201LL;
-      if ( _bittest64(&v19, v18) )
-        *((_DWORD *)v14 + 20) = 1;
-    }
-    v7 = 1;
   }
 LABEL_18:
-  *a1 = v8;
-  return v7;
+  *a1 = DoesDirectoryExistNtPath;
+  if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() )
+    return v8;
+  return DoesDirectoryExistNtPath;
 }

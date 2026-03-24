@@ -1,34 +1,64 @@
 /*
- * XREFs of IopQueryInformation @ 0x14072A9B0
+ * XREFs of IopQueryInformation @ 0x1406886C0
  * Callers:
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
  * Callees:
- *     FsRtlGetSupportedFeatures @ 0x14025BC20 (FsRtlGetSupportedFeatures.c)
- *     MmIsDriverVerifying @ 0x1402D87B0 (MmIsDriverVerifying.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     FsRtlQueryOpen @ 0x1407F730C (FsRtlQueryOpen.c)
- *     VfFastIoCheckState @ 0x140A8A8D4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140A8A9AC (VfFastIoSnapState.c)
+ *     FsRtlGetSupportedFeatures @ 0x14029FA10 (FsRtlGetSupportedFeatures.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
-  void *v8; // rsi
-  _BYTE *v9; // r14
-  unsigned int v10; // r13d
-  PFAST_IO_DISPATCH FastIoDispatch; // rcx
-  __int64 (__fastcall *FastIoQueryOpen)(_QWORD, _QWORD, _QWORD); // r12
+  void *v8; // r14
   __int64 result; // rax
   int Open; // eax
+  unsigned int v11; // esi
+  _BYTE *v12; // r13
+  PFAST_IO_DISPATCH FastIoDispatch; // rcx
+  __int64 (__fastcall *FastIoQueryOpen)(_QWORD, _QWORD, _QWORD); // r12
   int v15; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = 0LL;
   v15 = 0;
-  if ( !*(_BYTE *)(a1 + 208) )
+  if ( *(_BYTE *)(a1 + 208) )
   {
-    v9 = a5;
+    result = FsRtlGetSupportedFeatures((__int64)a2, &v15);
+    if ( (int)result < 0 )
+      return result;
+    if ( (v15 & 4) == 0 )
+    {
+      *a5 = 0;
+      return 0LL;
+    }
+    --*(_BYTE *)(a3 + 67);
+    *(_QWORD *)(a3 + 184) -= 72LL;
+    Open = FsRtlQueryOpen(a2, a3, *(_QWORD *)(a1 + 112), a1 + 204, *(_DWORD *)(a1 + 200));
+    v11 = Open;
+    ++*(_BYTE *)(a3 + 67);
+    *(_QWORD *)(a3 + 184) += 72LL;
+    *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
+    if ( Open < 0 )
+    {
+      if ( Open == -1071906812 )
+      {
+        v11 = 0;
+        *a5 = 0;
+      }
+    }
+    else
+    {
+      *(_DWORD *)(a1 + 32) = -1096154543;
+      *a5 = 1;
+    }
+  }
+  else
+  {
+    v12 = a5;
     *a5 = 0;
-    v10 = 0;
+    v11 = 0;
     FastIoDispatch = a2->DriverObject->FastIoDispatch;
     if ( FastIoDispatch )
     {
@@ -40,13 +70,13 @@ __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __
           --*(_BYTE *)(a3 + 67);
           *(_QWORD *)(a3 + 184) -= 72LL;
           *(_QWORD *)(a4 + 40) = a2;
-          if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(a2->DriverObject) )
+          if ( (MmVerifierData & 0x10) != 0 )
             v8 = (void *)VfFastIoSnapState();
-          *v9 = FastIoQueryOpen(a3, *(_QWORD *)(a1 + 104), a2);
+          *v12 = FastIoQueryOpen(a3, *(_QWORD *)(a1 + 104), a2);
           if ( v8 )
             VfFastIoCheckState(v8);
           *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
-          if ( *v9 )
+          if ( *v12 )
           {
             *(_DWORD *)(a1 + 32) = -1096154543;
             if ( !*(_BYTE *)(a1 + 139) )
@@ -66,37 +96,6 @@ __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __
         }
       }
     }
-    return v10;
   }
-  result = FsRtlGetSupportedFeatures((__int64)a2, &v15);
-  if ( (int)result >= 0 )
-  {
-    if ( (v15 & 4) == 0 )
-    {
-      *a5 = 0;
-      return 0LL;
-    }
-    --*(_BYTE *)(a3 + 67);
-    *(_QWORD *)(a3 + 184) -= 72LL;
-    Open = FsRtlQueryOpen(a2, *(_DWORD *)(a1 + 200));
-    v10 = Open;
-    ++*(_BYTE *)(a3 + 67);
-    *(_QWORD *)(a3 + 184) += 72LL;
-    *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
-    if ( Open < 0 )
-    {
-      if ( Open == -1071906812 )
-      {
-        v10 = 0;
-        *a5 = 0;
-      }
-    }
-    else
-    {
-      *(_DWORD *)(a1 + 32) = -1096154543;
-      *a5 = 1;
-    }
-    return v10;
-  }
-  return result;
+  return v11;
 }

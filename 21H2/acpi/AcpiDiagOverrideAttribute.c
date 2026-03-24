@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiDiagOverrideAttribute @ 0x1C004782C
+ * XREFs of AcpiDiagOverrideAttribute @ 0x1C0049518
  * Callers:
- *     ACPIInitRecordEmOverrides @ 0x1C00BB9F0 (ACPIInitRecordEmOverrides.c)
+ *     ACPIInitRecordEmOverrides @ 0x1C00BB8B4 (ACPIInitRecordEmOverrides.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall AcpiDiagOverrideAttribute(__int16 a1)

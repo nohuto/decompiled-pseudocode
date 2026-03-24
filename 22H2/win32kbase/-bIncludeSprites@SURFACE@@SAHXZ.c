@@ -1,17 +1,19 @@
 /*
- * XREFs of ?bIncludeSprites@SURFACE@@SAHXZ @ 0x1C00C47E0
+ * XREFs of ?bIncludeSprites@SURFACE@@SAHXZ @ 0x1C00B0880
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
  */
 
-__int64 SURFACE::bIncludeSprites(void)
+bool SURFACE::bIncludeSprites(void)
 {
-  __int64 result; // rax
+  __int64 ThreadWin32Thread; // rcx
+  bool result; // al
 
-  result = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  if ( result )
-    return (*(_DWORD *)(result + 328) >> 1) & 1;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  result = 0;
+  if ( ThreadWin32Thread )
+    return -__CFSHR__(*(_DWORD *)(ThreadWin32Thread + 328), 2) == 1;
   return result;
 }

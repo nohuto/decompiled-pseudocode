@@ -1,12 +1,12 @@
 /*
- * XREFs of ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01EBB68
+ * XREFs of ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01F106C
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     IsTouchpadPointerInputMessage @ 0x1C01DCE78 (IsTouchpadPointerInputMessage.c)
- *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01EBAA4 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
- *     GetPTPShellListener @ 0x1C0212548 (GetPTPShellListener.c)
+ *     IsTouchpadPointerInputMessage @ 0x1C01E1F18 (IsTouchpadPointerInputMessage.c)
+ *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01F0F94 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ *     GetPTPShellListener @ 0x1C0213B68 (GetPTPShellListener.c)
  */
 
 __int64 __fastcall IsPTPAllowedOnThread(struct tagTHREADINFO *a1, int a2, __int16 a3)
@@ -18,12 +18,12 @@ __int64 __fastcall IsPTPAllowedOnThread(struct tagTHREADINFO *a1, int a2, __int1
   __int64 v10; // rcx
   __int64 v11; // rcx
 
-  v6 = *((_WORD *)a1 + 629) & 1;
+  v6 = *((_WORD *)a1 + 617) & 1;
   if ( !v6
     && CTouchProcessor::IsPointerMessageTouchpad(gpTouchProcessor, a1, 0LL, a3)
     && IsTouchpadPointerInputMessage(a2) )
   {
-    ThreadPointerData = FindThreadPointerData((struct _LIST_ENTRY *)((char *)a1 + 1112), a3);
+    ThreadPointerData = FindThreadPointerData((struct _LIST_ENTRY *)a1 + 68, a3);
     v6 = 0;
     if ( ThreadPointerData )
     {

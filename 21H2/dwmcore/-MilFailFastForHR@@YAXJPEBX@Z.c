@@ -1,22 +1,26 @@
 /*
- * XREFs of ?MilFailFastForHR@@YAXJPEBX@Z @ 0x18026BC90
+ * XREFs of ?MilFailFastForHR@@YAXJPEBX@Z @ 0x180216868
  * Callers:
- *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801931C0 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x180155A90 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  * Callees:
- *     ?IsOOM@@YA_NJ@Z @ 0x18007354C (-IsOOM@@YA_NJ@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?IsOOM@@YA_NJ@Z @ 0x1800DBC0C (-IsOOM@@YA_NJ@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
-void __fastcall MilFailFastForHR(DWORD a1, void *a2)
+void __fastcall MilFailFastForHR(int a1, void *a2)
 {
+  ULONG_PTR v2; // rbx
   struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+20h] [rbp-A8h] BYREF
 
+  v2 = a1;
   if ( IsOOM(a1) )
     TerminateProcessOnMemoryExhaustion(0LL);
   memset_0(&pExceptionRecord, 0, sizeof(pExceptionRecord));
-  pExceptionRecord.ExceptionCode = a1;
+  pExceptionRecord.ExceptionCode = -532265403;
   pExceptionRecord.ExceptionAddress = a2;
+  pExceptionRecord.NumberParameters = 1;
+  pExceptionRecord.ExceptionInformation[0] = v2;
   RaiseFailFastException(&pExceptionRecord, 0LL, 0);
   MEMORY[0] = 0;
 }

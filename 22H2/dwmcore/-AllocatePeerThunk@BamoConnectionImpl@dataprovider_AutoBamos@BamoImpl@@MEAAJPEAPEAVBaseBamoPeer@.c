@@ -1,41 +1,22 @@
 /*
- * XREFs of ?AllocatePeerThunk@BamoConnectionImpl@dataprovider_AutoBamos@BamoImpl@@MEAAJPEAPEAVBaseBamoPeer@Bamo@Microsoft@@@Z @ 0x1800AD8A0
+ * XREFs of ?AllocatePeerThunk@BamoConnectionImpl@dataprovider_AutoBamos@BamoImpl@@MEAAJPEAPEAVBaseBamoPeer@Bamo@Microsoft@@@Z @ 0x1800E03D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1800AD028 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
- *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800AD070 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl::AllocatePeerThunk(
         BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl *this,
-        struct Microsoft::Bamo::BaseBamoPeer **a2,
-        __int64 a3,
-        const char *a4)
+        struct Microsoft::Bamo::BaseBamoPeer **a2)
 {
-  __int64 v4; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  const char *v8; // r9
-  _BYTE v10[40]; // [rsp+20h] [rbp-28h] BYREF
-  struct Microsoft::Bamo::BaseBamoPeer *v11; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v2; // rcx
+  __int64 result; // rax
+  struct Microsoft::Bamo::BaseBamoPeer *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = *((_QWORD *)this + 2);
-  v11 = 0LL;
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v10,
-    this,
-    a3,
-    a4);
-  LODWORD(v4) = (*(__int64 (__fastcall **)(__int64, struct Microsoft::Bamo::BaseBamoPeer **))(*(_QWORD *)v4 + 80LL))(
-                  v4,
-                  &v11);
-  *a2 = v11;
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v10,
-    v6,
-    v7,
-    v8);
-  return (unsigned int)v4;
+  v2 = *((_QWORD *)this + 2);
+  v5 = 0LL;
+  result = (*(__int64 (__fastcall **)(__int64, struct Microsoft::Bamo::BaseBamoPeer **))(*(_QWORD *)v2 + 40LL))(v2, &v5);
+  *a2 = v5;
+  return result;
 }

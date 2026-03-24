@@ -1,20 +1,18 @@
 /*
- * XREFs of HalFreeAdapterObject @ 0x14050F020
+ * XREFs of HalFreeAdapterObject @ 0x1404C5EC0
  * Callers:
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     IoFreeAdapterChannelV3 @ 0x1405102C0 (IoFreeAdapterChannelV3.c)
+ *     IoFreeAdapterChannel @ 0x1404B8C60 (IoFreeAdapterChannel.c)
  */
 
-__int64 __fastcall HalFreeAdapterObject(__int64 a1, int a2)
+void __fastcall HalFreeAdapterObject(__int64 a1, int a2)
 {
-  __int64 result; // rax
-
   if ( a2 != 2 )
   {
     if ( a2 != 3 )
-      return result;
-    *(_DWORD *)(a1 + 248) = 0;
+      return;
+    *(_DWORD *)(a1 + 240) = 0;
   }
-  return IoFreeAdapterChannelV3(a1);
+  IoFreeAdapterChannel((PDMA_ADAPTER)a1);
 }

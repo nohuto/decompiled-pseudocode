@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessionEnd @ 0x1406D08F8
+ * XREFs of EtwpEventWriteTemplateSessionEnd @ 0x1406D08D8
  * Callers:
  *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessionEnd(

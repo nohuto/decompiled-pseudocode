@@ -1,28 +1,28 @@
 /*
- * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1407F27F4
+ * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1407762A8
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x1407F2400 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorInvokeStateMachine @ 0x140808E28 (PopPowerAggregatorInvokeStateMachine.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140809310 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorRecordIntent @ 0x140775F60 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeQueryInterruptTimePrecise @ 0x1402BF150 (KeQueryInterruptTimePrecise.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall PopPowerAggregatorAllocateLogEntry(__int64 a1, int a2)
 {
-  unsigned __int64 v4; // r9
+  __int64 v2; // r8
   __int64 v5; // rbx
   __int64 result; // rax
   LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = (unsigned __int64)*(unsigned int *)(a1 + 296) << 7;
-  *(_DWORD *)(a1 + 296) = ((unsigned __int8)*(_DWORD *)(a1 + 296) + 1) & 0x1F;
-  v5 = v4 + a1;
-  memset((void *)(v4 + a1 + 308), 0, 0x7CuLL);
-  *(_DWORD *)(v5 + 304) = a2;
-  *(_QWORD *)(v5 + 312) = RtlGetInterruptTimePrecise(&v7);
-  result = v5 + 304;
-  *(_QWORD *)(v5 + 320) = *(_QWORD *)a1;
+  v2 = *(unsigned int *)(a1 + 312);
+  *(_DWORD *)(a1 + 312) = ((_BYTE)v2 + 1) & 0x1F;
+  v5 = 144 * v2 + a1;
+  memset((void *)(144 * v2 + a1 + 324), 0, 0x8CuLL);
+  *(_DWORD *)(v5 + 320) = a2;
+  *(_QWORD *)(v5 + 328) = KeQueryInterruptTimePrecise(&v7);
+  result = v5 + 320;
+  *(_QWORD *)(v5 + 336) = *(_QWORD *)a1;
   return result;
 }

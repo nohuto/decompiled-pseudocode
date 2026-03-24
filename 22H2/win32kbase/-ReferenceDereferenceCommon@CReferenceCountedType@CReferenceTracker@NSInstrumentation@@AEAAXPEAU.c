@@ -1,23 +1,20 @@
 /*
- * XREFs of ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C016EC94
+ * XREFs of ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C014DC64
  * Callers:
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00408D0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
- *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C004193C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0041CF0 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     HmgShareLockCheck @ 0x1C0042BA0 (HmgShareLockCheck.c)
- *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0044470 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
- *     ?TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z @ 0x1C00444D0 (-TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z.c)
- *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C0044560 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C00478FC (-TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z.c)
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00483E0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C005B180 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C008B660 (HmgShareLockCheckIgnoreStockBit.c)
- *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0097060 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     hdevEnumerate @ 0x1C00122B0 (hdevEnumerate.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00123D0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C0022D50 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     HmgShareLockCheck @ 0x1C002F050 (HmgShareLockCheck.c)
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0031720 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C003173C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C0032E40 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C0081DB4 (-TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z.c)
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     ?AcquireBackTrace@CBackTraceStoreEx@NSInstrumentation@@QEAAPEAXPEAVCBackTrace@2@PEAI@Z @ 0x1C016FB04 (-AcquireBackTrace@CBackTraceStoreEx@NSInstrumentation@@QEAAPEAXPEAVCBackTrace@2@PEAI@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?Insert@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C014E220 (-Insert@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     ?Lookup@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEBAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C014E41C (-Lookup@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
  */
 
 void __fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::ReferenceDereferenceCommon(
@@ -27,23 +24,23 @@ void __fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::Ref
 {
   NSInstrumentation::CReferenceTracker::CReferenceCountedType *v4; // r13
   signed __int64 v5; // rbp
-  char v6; // r15
+  char v6; // r12
   __int64 v7; // rsi
   signed __int64 v8; // rdi
   char v9; // r14
-  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *Pool2; // rax
+  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *PoolWithTag; // rax
   struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **v11; // rcx
   struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **v12; // r14
   struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer ***v13; // rax
   volatile signed __int64 v14; // rax
   __int64 v15; // rbp
+  int v16; // edi
+  NSInstrumentation::CPrioritizedWriterLock *v17; // r14
+  __int64 v18; // rax
   unsigned __int16 CurrentThreadId; // ax
-  __int16 v17; // cx
+  __int16 v20; // cx
   PVOID BackTrace[27]; // [rsp+30h] [rbp-D8h] BYREF
-  unsigned int v20; // [rsp+118h] [rbp+10h] BYREF
-  unsigned __int8 v21; // [rsp+120h] [rbp+18h]
 
-  v21 = a3;
   v4 = this;
   v5 = _InterlockedIncrement64((volatile signed __int64 *)a2 + 5);
   v6 = 0;
@@ -88,16 +85,16 @@ void __fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::Ref
     KeClearEvent(*((PRKEVENT *)a2 + 3));
     if ( !v9 )
     {
-      Pool2 = (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *)ExAllocatePool2(262LL, 4096LL, 1648980821LL);
-      if ( Pool2 )
+      PoolWithTag = (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *)ExAllocatePoolWithTag(PagedPoolSession, 0x1000uLL, 0x62497355u);
+      if ( PoolWithTag )
       {
         v11 = (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **)*((_QWORD *)a2 + 1);
         if ( *v11 != a2 )
           goto LABEL_27;
-        *(_QWORD *)Pool2 = a2;
-        *((_QWORD *)Pool2 + 1) = v11;
-        *v11 = Pool2;
-        *((_QWORD *)a2 + 1) = Pool2;
+        *(_QWORD *)PoolWithTag = a2;
+        *((_QWORD *)PoolWithTag + 1) = v11;
+        *v11 = PoolWithTag;
+        *((_QWORD *)a2 + 1) = PoolWithTag;
       }
       else
       {
@@ -137,19 +134,30 @@ LABEL_27:
     __fastfail(3u);
   }
 LABEL_28:
-  v20 = -1;
   v15 = v5 % 1011;
-  NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-  if ( !NSInstrumentation::CBackTraceStoreEx::AcquireBackTrace(
-          *((NSInstrumentation::CBackTraceStoreEx **)v4 + 4),
-          (struct NSInstrumentation::CBackTrace *)BackTrace,
-          &v20) )
+  LOWORD(v16) = -1;
+  memset(BackTrace, 0, 0xA0uLL);
+  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
+  v17 = (NSInstrumentation::CPrioritizedWriterLock *)*((_QWORD *)v4 + 4);
+  v18 = NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Lookup(
+          v17,
+          (struct NSInstrumentation::CBackTrace *)BackTrace);
+  if ( v18
+    || (v18 = NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Insert(
+                v17,
+                (struct NSInstrumentation::CBackTrace *)BackTrace)) != 0 )
+  {
+    v16 = *(_DWORD *)(v18 + 180);
+  }
+  else
+  {
     _InterlockedExchange64((volatile __int64 *)a2 + 4, -v7);
-  *((_WORD *)a2 + 2 * v15 + 26) = (2 * v20) | *((_WORD *)a2 + 2 * v15 + 26) & 1;
+  }
+  *((_WORD *)a2 + 2 * v15 + 26) = (2 * v16) | *((_WORD *)a2 + 2 * v15 + 26) & 1;
   CurrentThreadId = (unsigned __int16)PsGetCurrentThreadId();
-  v17 = *((_WORD *)a2 + 2 * v15 + 26);
+  v20 = *((_WORD *)a2 + 2 * v15 + 26);
   *((_WORD *)a2 + 2 * v15 + 27) = CurrentThreadId;
-  *((_WORD *)a2 + 2 * v15 + 26) = v21 | v17 & 0xFFFE;
+  *((_WORD *)a2 + 2 * v15 + 26) = a3 | v20 & 0xFFFE;
   if ( _InterlockedIncrement((volatile signed __int32 *)a2 + 12) == 1011 )
     KeSetEvent(*((PRKEVENT *)a2 + 3), 0, 0);
 }

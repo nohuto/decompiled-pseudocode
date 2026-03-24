@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CImageLegacyMilBrush@@MEAA@XZ @ 0x1800CE434
+ * XREFs of ??1CImageLegacyMilBrush@@MEAA@XZ @ 0x1800CBA94
  * Callers:
- *     ??_ECImageLegacyMilBrush@@MEAAPEAXI@Z @ 0x1800CE3F0 (--_ECImageLegacyMilBrush@@MEAAPEAXI@Z.c)
+ *     ??_ECImageLegacyMilBrush@@MEAAPEAXI@Z @ 0x1800CBA50 (--_ECImageLegacyMilBrush@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifiers@CImageLegacyMilBrush@@UEAAXXZ @ 0x1800CEF20 (-UnRegisterNotifiers@CImageLegacyMilBrush@@UEAAXXZ.c)
+ *     ?UnRegisterNotifiers@CImageLegacyMilBrush@@UEAAXXZ @ 0x1800CBCF0 (-UnRegisterNotifiers@CImageLegacyMilBrush@@UEAAXXZ.c)
  */
 
 void __fastcall CImageLegacyMilBrush::~CImageLegacyMilBrush(CImageLegacyMilBrush *this)

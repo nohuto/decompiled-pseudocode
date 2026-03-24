@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MasterInputThreadDeactivated@CBaseProcessor@@UEAAXXZ @ 0x1C00CAEF0
+ * XREFs of ?MasterInputThreadDeactivated@CBaseProcessor@@UEAAXXZ @ 0x1C00BBD90
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CBaseProcessor::MasterInputThreadDeactivated(CBaseProcessor *this)
 {
-  *((_DWORD *)this + 2) = 1;
+  *((_DWORD *)this + 3) = 1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIDockIrpQueryInterface @ 0x1C007B750
+ * XREFs of ACPIDockIrpQueryInterface @ 0x1C00AC290
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     ACPIDockIntfReference @ 0x1C007A980 (ACPIDockIntfReference.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIDockIntfReference @ 0x1C00AB400 (ACPIDockIntfReference.c)
  */
 
 __int64 __fastcall ACPIDockIrpQueryInterface(PVOID Object, PIRP Irp)
@@ -61,7 +61,12 @@ __int64 __fastcall ACPIDockIrpQueryInterface(PVOID Object, PIRP Irp)
   }
   IofCompleteRequest(Irp, 0);
   if ( v10 )
+  {
+    v13 = 0x200000000000LL;
     v8 = v10;
+    if ( (*(_QWORD *)(v10 + 8) & 0x200000000000LL) != 0 )
+      v13 = 0x400000000000LL;
+  }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v13, MinorFunction);
@@ -72,7 +77,7 @@ __int64 __fastcall ACPIDockIrpQueryInterface(PVOID Object, PIRP Irp)
       0x17u,
       (__int64)&WPP_6625d3923c543510b1fa3235c3eeddfe_Traceguids,
       (char)Irp,
-      (__int64)IrpText,
+      IrpText,
       Status,
       v8,
       v15,

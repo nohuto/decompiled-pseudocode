@@ -1,55 +1,44 @@
 /*
- * XREFs of MiComputeIdealDpcGang @ 0x1405BFFD0
+ * XREFs of MiComputeIdealDpcGang @ 0x1405600BC
  * Callers:
- *     MiInitializeDpcGang @ 0x1405C04D4 (MiInitializeDpcGang.c)
+ *     MiInitializeDpcGang @ 0x140560550 (MiInitializeDpcGang.c)
  * Callees:
- *     MiGetClosestNodeWithProcessors @ 0x14026367C (MiGetClosestNodeWithProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1402E24C0 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
  */
 
-__int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2, char a3)
+__int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // rbx
   unsigned int ClosestNodeWithProcessors; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // r8d
-  __int64 v9; // r9
-  int i; // r10d
-  __int64 v11; // rdx
-  __int64 v12; // rdx
+  unsigned int v4; // ecx
+  unsigned int v5; // r9d
+  unsigned int v6; // r8d
+  __int64 v7; // rdx
+  __int64 v8; // rdx
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
-  USHORT Count; // [rsp+48h] [rbp+10h] BYREF
+  USHORT Count; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = a2;
   Affinity = 0LL;
   ClosestNodeWithProcessors = MiGetClosestNodeWithProcessors(a2);
-  v7 = ClosestNodeWithProcessors < (unsigned __int16)KeNumberNodes ? ClosestNodeWithProcessors : 0;
-  *(_DWORD *)(a1 + 192) = v7;
-  KeQueryNodeActiveAffinity(v7, &Affinity, &Count);
-  v8 = 0;
-  *(struct _GROUP_AFFINITY *)(a1 + 200) = Affinity;
-  v9 = 0LL;
-  for ( i = *(_DWORD *)((~a3 & 4 | 0x40LL) + *(_QWORD *)(120 * v4 + qword_140C506E0 + 112));
-        (unsigned int)v9 < (unsigned int)KeNumberProcessors_0;
-        v9 = (unsigned int)(v9 + 1) )
+  v4 = ClosestNodeWithProcessors < (unsigned __int16)KeNumberNodes ? ClosestNodeWithProcessors : 0;
+  *(_DWORD *)(a1 + 192) = v4;
+  KeQueryNodeActiveAffinity(v4, &Affinity, &Count);
+  v5 = 0;
+  v6 = 0;
+  for ( *(struct _GROUP_AFFINITY *)(a1 + 200) = Affinity; v6 < (unsigned int)KeNumberProcessors_0; ++v6 )
   {
-    v11 = KiProcessorBlock[v9];
-    if ( *(unsigned __int8 *)(v11 + 208) == Affinity.Group )
+    v7 = KiProcessorBlock[v6];
+    if ( *(unsigned __int8 *)(v7 + 208) == Affinity.Group )
     {
-      v12 = *(_QWORD *)(v11 + 34912);
-      if ( (v12 & Affinity.Mask) != 0 )
+      v8 = *(_QWORD *)(v7 + 33880);
+      if ( (v8 & Affinity.Mask) != 0 )
       {
-        ++v8;
-        if ( i )
-        {
-          if ( v8 == i )
-            break;
-        }
-        Affinity.Mask &= ~v12;
+        ++v5;
+        Affinity.Mask &= ~v8;
         if ( !Affinity.Mask )
           break;
       }
     }
   }
-  return v8;
+  return v5;
 }

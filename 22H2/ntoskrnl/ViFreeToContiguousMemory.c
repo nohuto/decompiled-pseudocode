@@ -1,20 +1,20 @@
 /*
- * XREFs of ViFreeToContiguousMemory @ 0x140AC9D34
+ * XREFs of ViFreeToContiguousMemory @ 0x1409CE660
  * Callers:
- *     ViAllocateMapRegisterFile @ 0x140AC8C84 (ViAllocateMapRegisterFile.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
+ *     ViAllocateMapRegisterFile @ 0x1409CD5D4 (ViAllocateMapRegisterFile.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rdi
   _QWORD *v5; // r8
-  volatile signed __int64 *v7; // rbx
+  KSPIN_LOCK *v7; // rbx
   unsigned __int64 v8; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -23,7 +23,7 @@ __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int
   bool v13; // zf
 
   v3 = a3;
-  v5 = *(_QWORD **)(a1 + 296);
+  v5 = *(_QWORD **)(a1 + 264);
   if ( !v5 )
     return 0LL;
   if ( (unsigned int)v3 >= 0x20 || v5[v3] != a2 )
@@ -37,22 +37,25 @@ __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int
         return 0LL;
     }
   }
-  v7 = (volatile signed __int64 *)(a1 + 312);
-  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 312));
-  RtlClearBits((PRTL_BITMAP)(a1 + 328), v3, 1u);
+  v7 = (KSPIN_LOCK *)(a1 + 280);
+  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 280));
+  RtlClearBits((PRTL_BITMAP)(a1 + 296), v3, 1u);
   KxReleaseSpinLock(v7);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v8);

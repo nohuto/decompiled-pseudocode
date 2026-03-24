@@ -1,12 +1,15 @@
 /*
- * XREFs of KeRundownQueue @ 0x140234660
+ * XREFs of KeRundownQueue @ 0x1402A9B70
  * Callers:
  *     <none>
  * Callees:
- *     KeRundownQueueEx @ 0x140234764 (KeRundownQueueEx.c)
+ *     KeRundownQueueEx @ 0x1402A9CF8 (KeRundownQueueEx.c)
  */
 
 PLIST_ENTRY __stdcall KeRundownQueue(PRKQUEUE Queue)
 {
-  return (PLIST_ENTRY)KeRundownQueueEx(Queue);
+  char v1; // dl
+
+  v1 = 1;
+  return (PLIST_ENTRY)KeRundownQueueEx(Queue, v1);
 }

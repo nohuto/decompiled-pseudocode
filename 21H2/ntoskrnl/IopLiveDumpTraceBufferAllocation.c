@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceBufferAllocation @ 0x14055A93C
+ * XREFs of IopLiveDumpTraceBufferAllocation @ 0x140508B68
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceBufferAllocation()

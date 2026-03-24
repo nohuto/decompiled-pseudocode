@@ -1,29 +1,32 @@
 /*
- * XREFs of ObpUseSystemDeviceMap @ 0x14067EA7C
+ * XREFs of ObpUseSystemDeviceMap @ 0x1405CF1CC
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
  * Callees:
- *     RtlGetNtSystemRoot @ 0x140695E40 (RtlGetNtSystemRoot.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA330 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     RtlGetNtSystemRoot @ 0x14069F2A0 (RtlGetNtSystemRoot.c)
  */
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
 {
-  WCHAR *NtSystemRoot; // rax
-  WCHAR v3; // di
-  WCHAR v4; // ax
-  __int64 v5; // rcx
+  __int64 NtSystemRoot; // rax
+  WCHAR *v3; // rcx
+  WCHAR *v4; // rdi
+  WCHAR v5; // bx
   bool result; // al
 
   result = 0;
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0 && *(_WORD *)a1 >= 0xEu )
   {
-    NtSystemRoot = (WCHAR *)RtlGetNtSystemRoot();
-    v3 = RtlUpcaseUnicodeChar(*NtSystemRoot);
-    v4 = RtlUpcaseUnicodeChar(*(_WORD *)(*(_QWORD *)(a1 + 8) + 8LL));
-    v5 = *(_QWORD *)(a1 + 8);
-    if ( *(_WORD *)(v5 + 10) == 58 && *(_WORD *)(v5 + 12) == 92 && v3 == v4 )
-      return 1;
+    NtSystemRoot = RtlGetNtSystemRoot();
+    v3 = *(WCHAR **)(a1 + 8);
+    v4 = (WCHAR *)NtSystemRoot;
+    if ( v3[5] == 58 && v3[6] == 92 )
+    {
+      v5 = RtlUpcaseUnicodeChar(v3[4]);
+      if ( RtlUpcaseUnicodeChar(*v4) == v5 )
+        return 1;
+    }
   }
   return result;
 }

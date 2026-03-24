@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreeInitializationCode @ 0x1406C783C
+ * XREFs of MiFreeInitializationCode @ 0x1406C781C
  * Callers:
- *     MiFreeDriverInitialization @ 0x1406C77AC (MiFreeDriverInitialization.c)
- *     MmDiscardDriverSection @ 0x1409F7A2C (MmDiscardDriverSection.c)
+ *     MiFreeDriverInitialization @ 0x1406C778C (MiFreeDriverInitialization.c)
+ *     MmDiscardDriverSection @ 0x1409F7A3C (MmDiscardDriverSection.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -14,12 +14,12 @@
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB0C (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1400DBD44 (MiLockLoaderEntry.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9AC (MiAddExpansionNonPagedPool.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiBadRefCount @ 0x1402BF798 (MiBadRefCount.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiBadRefCount @ 0x1402BF898 (MiBadRefCount.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
  */
 
 unsigned __int64 __fastcall MiFreeInitializationCode(__int64 a1, unsigned __int64 a2, __int64 a3)

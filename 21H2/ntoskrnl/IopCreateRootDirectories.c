@@ -1,35 +1,37 @@
 /*
- * XREFs of IopCreateRootDirectories @ 0x140B2931C
+ * XREFs of IopCreateRootDirectories @ 0x140A5B394
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     NtCreateDirectoryObject @ 0x1406C2A50 (NtCreateDirectoryObject.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     IopCreateUmdfDirectory @ 0x140B2940C (IopCreateUmdfDirectory.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     NtCreateDirectoryObject @ 0x1406A1B40 (NtCreateDirectoryObject.c)
+ *     IopCreateUmdfDirectory @ 0x140A5D080 (IopCreateUmdfDirectory.c)
  */
 
 bool IopCreateRootDirectories()
 {
   bool result; // al
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v2; // [rsp+30h] [rbp-30h]
-  __int64 v3; // [rsp+38h] [rbp-28h]
+  int v2; // [rsp+30h] [rbp-30h]
+  int v3; // [rsp+34h] [rbp-2Ch]
+  __int64 v4; // [rsp+38h] [rbp-28h]
   UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-20h]
-  int v5; // [rsp+48h] [rbp-18h]
-  int v6; // [rsp+4Ch] [rbp-14h]
-  __int128 v7; // [rsp+50h] [rbp-10h]
+  int v6; // [rsp+48h] [rbp-18h]
+  int v7; // [rsp+4Ch] [rbp-14h]
+  __int128 v8; // [rsp+50h] [rbp-10h]
   HANDLE Handle; // [rsp+70h] [rbp+10h] BYREF
 
   Handle = 0LL;
-  v6 = 0;
-  v2 = 48LL;
+  v3 = 0;
+  v7 = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Driver");
-  v3 = 0LL;
+  v4 = 0LL;
   p_DestinationString = &DestinationString;
-  v5 = 528;
-  v7 = 0LL;
+  v2 = 48;
+  v6 = 528;
+  v8 = 0LL;
   result = 0;
   if ( (int)NtCreateDirectoryObject((__int64)&Handle) >= 0 )
   {

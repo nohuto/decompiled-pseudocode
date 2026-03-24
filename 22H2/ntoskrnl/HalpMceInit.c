@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMceInit @ 0x140A8B178
+ * XREFs of HalpMceInit @ 0x1409A0B8C
  * Callers:
- *     HalpInitializeMce @ 0x140A8B600 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A0A8C (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     HalpHvInitMcaPcrContext @ 0x140380934 (HalpHvInitMcaPcrContext.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050B0F0 (HalpHvInitMcaStatusMsrCache.c)
- *     HalpHvSetMachineCheckHandlerState @ 0x14050BD10 (HalpHvSetMachineCheckHandlerState.c)
- *     HalpMceInitProcessor @ 0x140A8B2A8 (HalpMceInitProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     HalpHvInitMcaPcrContext @ 0x1403C5150 (HalpHvInitMcaPcrContext.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x1404C1FD0 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x1404C2B20 (HalpHvSetMachineCheckHandlerState.c)
+ *     HalpMceInitProcessor @ 0x1409A0CBC (HalpMceInitProcessor.c)
  */
 
 void __fastcall HalpMceInit(__int64 a1)
@@ -48,8 +48,8 @@ void __fastcall HalpMceInit(__int64 a1)
         p_PreviousAffinity = &PreviousAffinity;
       KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
       HalpHvInitMcaPcrContext();
-      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
-        HalpMceInitProcessor(a1, *(_QWORD *)(i + 172));
+      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
+        HalpMceInitProcessor(a1, *(_QWORD *)(i + 164));
       ++v2;
       ++v4;
     }

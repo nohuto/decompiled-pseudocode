@@ -1,256 +1,253 @@
 /*
- * XREFs of MiAllocateLargeZeroPages @ 0x1402E77E0
+ * XREFs of MiAllocateLargeZeroPages @ 0x14055D99C
  * Callers:
- *     MiAllocateSlabEntry @ 0x1402E6C40 (MiAllocateSlabEntry.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140388FF4 (MiAllocateFastLargePagesForMdl.c)
- *     MiCreateLargePfnList @ 0x140667A5C (MiCreateLargePfnList.c)
- *     MiCreatePagingFileMap @ 0x140747EA4 (MiCreatePagingFileMap.c)
- *     MiGetLargePagesForSystemMapping @ 0x140A32334 (MiGetLargePagesForSystemMapping.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533C24 (MiAllocateFastLargePagesForMdl.c)
+ *     MiCreateLargePfnList @ 0x14055DE3C (MiCreateLargePfnList.c)
+ *     MiCreatePagingFileMap @ 0x14061C968 (MiCreatePagingFileMap.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408C8A94 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     MiChangePageAttributeContiguous @ 0x14021A6C0 (MiChangePageAttributeContiguous.c)
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     MiGetFastLargePages @ 0x1402E86FC (MiGetFastLargePages.c)
- *     MiProcessPageGroupInfo @ 0x14032F370 (MiProcessPageGroupInfo.c)
- *     MiPfnBestZeroAttribute @ 0x1403393CC (MiPfnBestZeroAttribute.c)
- *     MiCreatePageChains @ 0x14035B130 (MiCreatePageChains.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403A5BB0 (MiInsertMdlPageNeedsZero.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B7D00 (MiConvertSmallPageRangeToLarge.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiZeroAndConvertPage @ 0x1406500A4 (MiZeroAndConvertPage.c)
- *     MiAddPageToHeatRanges @ 0x140653D64 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x14065466C (MiNotifyPageHeat.c)
- *     MiAssemblePfnList @ 0x140667758 (MiAssemblePfnList.c)
- *     MiFindLargePageMemory @ 0x140A497D8 (MiFindLargePageMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     MiProtectionToCacheAttribute @ 0x1402417B0 (MiProtectionToCacheAttribute.c)
+ *     MiIsFreshPfnFromZeroedList @ 0x14028439C (MiIsFreshPfnFromZeroedList.c)
+ *     MiZeroLargePage @ 0x14030E918 (MiZeroLargePage.c)
+ *     MiCreateColorAnchors @ 0x1403538F4 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1403542C0 (MiZeroInParallel.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403555A8 (MiInsertMdlPageNeedsZero.c)
+ *     MiDeleteColorAnchors @ 0x14035560C (MiDeleteColorAnchors.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403F5800 (MiConvertSmallPageRangeToLarge.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6158 (MiGetPfnPageSizeIndex.c)
+ *     MiGetFastLargePages @ 0x1403F71A0 (MiGetFastLargePages.c)
+ *     MiAssembleLargePagePfnList @ 0x14055DD60 (MiAssembleLargePagePfnList.c)
+ *     MiFindLargePageMemory @ 0x1408DA134 (MiFindLargePageMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiAllocateLargeZeroPages(unsigned int *a1)
+unsigned __int64 __fastcall MiAllocateLargeZeroPages(
+        __int64 a1,
+        unsigned __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        unsigned int a5,
+        __int64 a6,
+        char a7)
 {
-  unsigned __int64 v2; // r14
-  unsigned int v3; // ecx
-  int v4; // edx
-  _QWORD *v5; // r8
-  __int64 *v6; // r15
-  int v7; // r13d
-  unsigned int v8; // ebp
-  __int64 v9; // rdi
-  _QWORD *v10; // rax
-  __int64 v11; // rbx
-  __int64 result; // rax
-  __int64 v13; // rcx
-  int v14; // r14d
-  __int64 v15; // r12
-  int v16; // ecx
-  __int64 v17; // rcx
-  __int64 *v18; // rax
-  __int64 PageChains; // rax
-  unsigned int v20; // eax
+  char v7; // r13
+  unsigned int v10; // ecx
+  __int64 v11; // r9
+  __int64 v12; // r10
+  int v13; // r14d
+  unsigned __int64 v14; // r15
+  __int64 v15; // rdx
+  _QWORD *FastLargePages; // rdi
+  int v17; // esi
+  _QWORD *v18; // r13
+  unsigned int PfnPageSizeIndex; // r14d
+  int v20; // r8d
+  __int64 v21; // rdx
+  __int64 v22; // rdi
+  _QWORD *v23; // rax
+  _QWORD **v24; // rdx
+  __int64 v25; // r13
+  _QWORD *v26; // rdi
+  unsigned int v27; // ecx
+  unsigned int v28; // r14d
+  __int64 v29; // r13
+  _QWORD **v30; // rsi
+  _QWORD *v31; // rdx
+  _QWORD *v32; // rdi
+  unsigned __int64 *v33; // rax
   unsigned __int64 *i; // rbx
-  unsigned __int64 **v22; // rax
-  unsigned __int64 *v23; // r14
-  unsigned __int64 *v24; // rdx
-  unsigned __int64 *v25; // rcx
-  unsigned __int64 *v26; // rcx
-  unsigned __int64 v27; // r15
-  __int64 v28; // rbp
-  __int64 *v29; // rax
-  unsigned int j; // edi
-  __int64 v31; // rcx
-  int v32; // [rsp+40h] [rbp-138h]
-  unsigned int v33; // [rsp+44h] [rbp-134h]
-  _QWORD *v34; // [rsp+48h] [rbp-130h] BYREF
-  __int64 v35; // [rsp+50h] [rbp-128h] BYREF
-  int v36; // [rsp+58h] [rbp-120h]
-  _DWORD v37[32]; // [rsp+5Ch] [rbp-11Ch] BYREF
-  _BYTE v38[96]; // [rsp+E0h] [rbp-98h] BYREF
+  unsigned __int64 **v35; // rax
+  __int64 *v36; // rdi
+  unsigned __int64 *v37; // rdx
+  unsigned __int64 *v38; // rcx
+  unsigned __int64 *v39; // rcx
+  __int64 v40; // r8
+  _DWORD *v41; // r9
+  __int64 v42; // rdx
+  __int64 *v43; // rax
+  int v45; // [rsp+44h] [rbp-8Dh]
+  unsigned __int64 *v46; // [rsp+48h] [rbp-89h] BYREF
+  unsigned int v47; // [rsp+50h] [rbp-81h]
+  _QWORD *v48; // [rsp+58h] [rbp-79h] BYREF
+  _QWORD **v49; // [rsp+60h] [rbp-71h]
+  __int64 v50; // [rsp+68h] [rbp-69h]
+  __int64 v51; // [rsp+70h] [rbp-61h]
+  __int64 CurrentIrql; // [rsp+78h] [rbp-59h]
+  __int64 v53; // [rsp+80h] [rbp-51h]
+  __int64 v54; // [rsp+88h] [rbp-49h]
+  __int128 v55; // [rsp+90h] [rbp-41h] BYREF
+  __int128 v56; // [rsp+A0h] [rbp-31h]
+  __int128 v57; // [rsp+B0h] [rbp-21h]
 
-  memset(v37, 0, sizeof(v37));
-  memset(v38, 0, sizeof(v38));
-  v32 = 1;
-  v2 = 0LL;
-  v34 = 0LL;
-  if ( KeGetCurrentIrql() == 2 || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-    v32 = 0;
-  v3 = a1[9];
-  v35 = 1LL;
-  v36 = 16;
-  v33 = MiProtectionToCacheAttribute(v3);
-  if ( *((_QWORD *)a1 + 8) < *((_QWORD *)a1 + 2) )
+  v7 = a7;
+  v54 = a1;
+  v47 = a5;
+  v50 = a6;
+  v55 = 0LL;
+  v53 = a3;
+  v56 = 0LL;
+  v57 = 0LL;
+  CurrentIrql = KeGetCurrentIrql();
+  LODWORD(v46) = MiProtectionToCacheAttribute(a5);
+  v13 = 0;
+  v45 = 0;
+  v49 = &v48;
+  v14 = 0LL;
+  v48 = &v48;
+  if ( v15 )
   {
-    while ( 1 )
+    do
     {
-      MiGetFastLargePages(a1, v38);
-      v5 = 0LL;
-      v6 = MiLargePageSizes;
-      v7 = 0;
-      v8 = 0;
-      v9 = 0LL;
-      do
+      FastLargePages = (_QWORD *)MiGetFastLargePages(v12, a4, a2 - v14, v11, v10, v7);
+      if ( !FastLargePages )
       {
-        while ( 1 )
-        {
-          v10 = &v38[v9];
-          v11 = *(_QWORD *)&v38[v9];
-          if ( (_QWORD *)*v10 == v10 )
-            break;
-          v7 = 1;
-          if ( *(_QWORD **)(v11 + 8) != v10 )
-            goto LABEL_41;
-          v13 = *(_QWORD *)v11;
-          if ( *(_QWORD *)(*(_QWORD *)v11 + 8LL) != v11 )
-            goto LABEL_41;
-          *v10 = v13;
-          *(_QWORD *)(v13 + 8) = v10;
-          --v10[2];
-          if ( (*a1 & 8) == 0 && (*(_DWORD *)(v11 + 16) & 0x3E0LL) != 0 )
-            v14 = 1;
-          else
-            v14 = (int)v5;
-          v15 = *v6;
-          if ( (unsigned int)MiIsFreeZeroPfnCold(v11) && (HvlEnlightenments & 0x200000) != 0 )
-          {
-            if ( (unsigned int)MiAddPageToHeatRanges(&v35, 0xAAAAAAAAAAAAAAABuLL * ((v11 + 0x220000000000LL) >> 4), v8) )
-              MiNotifyPageHeat(&v35);
-            *(_QWORD *)(v11 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v11 + 16), 0LL);
-            v5 = 0LL;
-          }
-          if ( !v14 )
-            goto LABEL_23;
-          if ( (*(_BYTE *)(v11 + 34) & 0xC0) == 0xC0 )
-          {
-            v20 = MiPfnBestZeroAttribute(v11, v33, v5);
-            MiChangePageAttributeContiguous(0xAAAAAAAAAAAAAAABuLL * ((v11 + 0x220000000000LL) >> 4), v15, v20, 0);
-          }
-          v2 = (unsigned __int64)v34;
-          if ( v34 )
-          {
-LABEL_34:
-            MiInsertMdlPageNeedsZero(v2, v11, v15);
-            v5 = 0LL;
-          }
-          else
-          {
-            if ( v32 )
-            {
-              PageChains = MiCreatePageChains(*((_QWORD *)a1 + 1), a1[8], v33);
-              v34 = (_QWORD *)PageChains;
-              v2 = PageChains;
-              if ( PageChains )
-              {
-                *(_DWORD *)(PageChains + 16) = 1;
-                goto LABEL_34;
-              }
-            }
-            MiZeroAndConvertPage(v16, v11, v8, v33, 1);
-            v5 = 0LL;
-LABEL_23:
-            if ( (*a1 & 0x20) != 0 )
-            {
-              MiConvertEntireLargePageToSmall(v11, v8, 0, 1, (__int64)v5, v5, v5);
-              v5 = 0LL;
-            }
-            v17 = v9 + *((_QWORD *)a1 + 9);
-            v18 = *(__int64 **)(v17 + 8);
-            if ( *v18 != v17 )
-LABEL_41:
-              __fastfail(3u);
-            v2 = (unsigned __int64)v34;
-            *(_QWORD *)v11 = v17;
-            *(_QWORD *)(v11 + 8) = v18;
-            *v18 = v11;
-            *(_QWORD *)(v17 + 8) = v11;
-            ++*(_QWORD *)(*((_QWORD *)a1 + 9) + v9 + 16);
-          }
-        }
-        ++v8;
-        ++v6;
-        v9 += 24LL;
-      }
-      while ( v8 < 4 );
-      if ( !v7 || *((_QWORD *)a1 + 8) >= *((_QWORD *)a1 + 2) )
-      {
-        if ( HIDWORD(v35) )
-        {
-          MiNotifyPageHeat(&v35);
-          v5 = 0LL;
-        }
-        if ( v2 )
-        {
-          MiProcessPageGroupInfo(v2, *((_QWORD *)a1 + 9), (*a1 >> 5) & 1);
-          v5 = 0LL;
-        }
-        v4 = v32;
+        v13 = v45;
         break;
       }
-    }
-  }
-  result = *((_QWORD *)a1 + 2);
-  if ( *((_QWORD *)a1 + 8) != result )
-  {
-    if ( v4 )
-    {
-      result = *a1;
-      if ( (result & 0x10) == 0 )
+      v17 = v7 & 2;
+      do
       {
-        v34 = v5;
-        MiFindLargePageMemory(a1, &v34);
-        result = (__int64)v34;
-        i = 0LL;
-        if ( v34 )
+        v18 = (_QWORD *)*FastLargePages;
+        if ( !v17 )
+          MiIsFreshPfnFromZeroedList((__int64)FastLargePages);
+        PfnPageSizeIndex = MiGetPfnPageSizeIndex((__int64)FastLargePages);
+        v51 = MiLargePageSizes[PfnPageSizeIndex];
+        if ( v20 )
+        {
+          if ( (_DWORD)v56 )
+            goto LABEL_11;
+          if ( (unsigned __int8)CurrentIrql < 2u && (unsigned int)MiCreateColorAnchors((__int64)&v55, a4) )
+          {
+            HIDWORD(v55) = (_DWORD)v46;
+            DWORD2(v55) = v17 == 0 ? 2 : 0;
+LABEL_11:
+            v21 = (unsigned __int128)((__int64)(FastLargePages + 0xB000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+            v22 = v51;
+            MiInsertMdlPageNeedsZero((__int64)&v55, ((unsigned __int64)v21 >> 63) + (v21 >> 3), v51);
+            v13 = 1;
+            v45 = 1;
+            goto LABEL_15;
+          }
+          MiZeroLargePage((__int64)FastLargePages, PfnPageSizeIndex);
+        }
+        v23 = v49;
+        if ( *v49 != &v48 )
+          __fastfail(3u);
+        v13 = v45;
+        *FastLargePages = &v48;
+        FastLargePages[1] = v23;
+        *v23 = FastLargePages;
+        v49 = (_QWORD **)FastLargePages;
+        v22 = v51;
+LABEL_15:
+        v14 += v22;
+        FastLargePages = v18;
+      }
+      while ( v18 );
+      v7 = a7;
+      v10 = v47;
+      v12 = v54;
+      v11 = v53;
+    }
+    while ( v14 < a2 );
+  }
+  v24 = (_QWORD **)v48;
+  if ( v48 != &v48 )
+  {
+    v25 = v50;
+    do
+    {
+      v26 = *v24;
+      MiAssembleLargePagePfnList(v25);
+      v24 = (_QWORD **)v26;
+    }
+    while ( v26 != &v48 );
+    v7 = a7;
+  }
+  if ( v13 )
+  {
+    MiZeroInParallel((__int64 *)&v55);
+    v27 = v56;
+    v28 = 0;
+    if ( (_DWORD)v56 )
+    {
+      v29 = v50;
+      v30 = (_QWORD **)(v55 + 32);
+      do
+      {
+        v31 = *v30;
+        if ( *v30 != v30 )
         {
           do
           {
-            i = (unsigned __int64 *)result;
-            result = *(_QWORD *)result;
+            v32 = (_QWORD *)*v31;
+            MiAssembleLargePagePfnList(v29);
+            v31 = v32;
           }
-          while ( result );
+          while ( v32 != v30 );
+          v27 = v56;
         }
-        for ( ; i; result = MiAssemblePfnList(v31, v28, j) )
+        v30 += 6;
+        ++v28;
+      }
+      while ( v28 < v27 );
+      v7 = a7;
+    }
+    MiDeleteColorAnchors((__int64)&v55);
+  }
+  if ( v14 != a2 && (unsigned __int8)CurrentIrql < 2u && (v7 & 1) == 0 )
+  {
+    v46 = 0LL;
+    MiFindLargePageMemory(v54, a4, a2 - v14, v53, v47, v7, (__int64)&v46);
+    v33 = v46;
+    i = 0LL;
+    while ( v33 )
+    {
+      i = v33;
+      v33 = (unsigned __int64 *)*v33;
+    }
+    while ( i )
+    {
+      v35 = (unsigned __int64 **)i[1];
+      v36 = (__int64 *)(i - 3);
+      v37 = i;
+      v38 = i;
+      if ( v35 )
+      {
+        v39 = *v35;
+        for ( i = (unsigned __int64 *)i[1]; v39; v39 = (unsigned __int64 *)*v39 )
+          i = v39;
+      }
+      else
+      {
+        while ( 1 )
         {
-          v22 = (unsigned __int64 **)i[1];
-          v23 = i - 2;
-          v24 = i;
-          v25 = i;
-          if ( v22 )
-          {
-            v26 = *v22;
-            for ( i = (unsigned __int64 *)i[1]; v26; v26 = (unsigned __int64 *)*v26 )
-              i = v26;
-          }
-          else
-          {
-            for ( i = (unsigned __int64 *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-                  i;
-                  i = (unsigned __int64 *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL) )
-            {
-              if ( (unsigned __int64 *)*i == v25 )
-                break;
-              v25 = i;
-            }
-          }
-          RtlAvlRemoveNode((unsigned __int64 *)&v34, v24);
-          v27 = v23[1];
-          v28 = 48 * *v23 - 0x220000000000LL;
-          v29 = MiLargePageSizes;
-          for ( j = 0; j < 3; ++j )
-          {
-            if ( v27 == *v29 )
-              break;
-            ++v29;
-          }
-          if ( (*a1 & 0x20) == 0 )
-            MiConvertSmallPageRangeToLarge(*v23);
-          ExFreePoolWithTag(v23, 0);
-          v31 = *((_QWORD *)a1 + 9);
-          *((_QWORD *)a1 + 8) += v27;
+          i = (unsigned __int64 *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || (unsigned __int64 *)*i == v38 )
+            break;
+          v38 = i;
         }
       }
+      RtlAvlRemoveNode((unsigned __int64 *)&v46, v37);
+      if ( *((_BYTE *)v36 + 16) == 1 )
+      {
+        v42 = 0LL;
+        v43 = MiLargePageSizes;
+        do
+        {
+          if ( v36[1] == *v43 )
+            break;
+          v42 = (unsigned int)(v42 + 1);
+          ++v43;
+        }
+        while ( (unsigned int)v42 < 3 );
+        MiConvertSmallPageRangeToLarge(*v36, v42, v40, v41);
+      }
+      ExFreePoolWithTag(v36, 0);
+      v14 += MiAssembleLargePagePfnList(v50);
     }
   }
-  return result;
+  return v14;
 }

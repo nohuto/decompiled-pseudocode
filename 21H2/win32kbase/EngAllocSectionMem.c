@@ -1,10 +1,10 @@
 /*
- * XREFs of EngAllocSectionMem @ 0x1C01770F0
+ * XREFs of EngAllocSectionMem @ 0x1C014ACA0
  * Callers:
  *     <none>
  * Callees:
- *     Win32CreateSection @ 0x1C0055E80 (Win32CreateSection.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     Win32CreateSection @ 0x1C006BD78 (Win32CreateSection.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 PVOID __fastcall EngAllocSectionMem(PVOID *a1, char a2, __int64 a3)

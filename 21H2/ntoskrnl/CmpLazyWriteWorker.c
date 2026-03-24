@@ -1,16 +1,15 @@
 /*
- * XREFs of CmpLazyWriteWorker @ 0x1403CBDF0
+ * XREFs of CmpLazyWriteWorker @ 0x1403C00A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     CmpCompleteLazyWrite @ 0x1402554D8 (CmpCompleteLazyWrite.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpDiskFullWarning @ 0x14091D63C (CmpDiskFullWarning.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     CmpCompleteLazyWrite @ 0x1402CA940 (CmpCompleteLazyWrite.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpDiskFullWarning @ 0x140876BA8 (CmpDiskFullWarning.c)
  */
 
 void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)
@@ -22,16 +21,13 @@ void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)
   _DWORD *SchedulerAssist; // r9
   int v7; // eax
   bool v8; // zf
-  __int128 v9; // [rsp+30h] [rbp-18h] BYREF
-  char v10; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  char v9; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
 
-  v11 = 0LL;
-  v9 = 0LL;
-  v10 = 0;
+  v10 = 0LL;
+  v9 = 0;
   while ( 1 )
   {
-    CmpInitializeThreadInfo((__int64)&v9);
     KeWaitForSingleObject(&Timer[2], Executive, 1, 0, 0LL);
     v2 = KeAcquireSpinLockRaiseToDpc(&Timer[2].DueTime.QuadPart);
     Timer[2].TimerListEntry.Blink = (struct _LIST_ENTRY *)2;
@@ -54,15 +50,14 @@ void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)
       }
     }
     __writecr8(v2);
-    v3 = ((__int64 (__fastcall *)(char *, __int64 *))Timer[2].TimerListEntry.Flink)(&v10, &v11);
+    v3 = ((__int64 (__fastcall *)(char *, __int64 *))Timer[2].TimerListEntry.Flink)(&v9, &v10);
     if ( CmpCannotWriteConfiguration && Timer == &CmpLazyWriterData )
     {
-      if ( v10 )
+      if ( v9 )
         CmpDiskFullWarning();
       else
         CmpCannotWriteConfiguration = 0;
     }
-    CmpCompleteLazyWrite(Timer, (__int64 *)((unsigned __int64)&v11 & -(__int64)(v3 != 0)));
-    *(_QWORD *)&KeGetCurrentThread()[1].ResourceIndex = v9;
+    CmpCompleteLazyWrite(Timer, (__int64 *)((unsigned __int64)&v10 & -(__int64)(v3 != 0)));
   }
 }

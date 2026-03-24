@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C027EFEC
+ * XREFs of ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C0281378
  * Callers:
- *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C027F464 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
- *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C027F62C (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
- *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C027FA4C (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
- *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FE40 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
+ *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C0281908 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
+ *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C0281AD0 (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
+ *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C0281F18 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0282300 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C01571DC (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0165548 (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
  */
 
 __int64 __fastcall bSpTransferShape(struct SPRITE *a1, struct SPRITE *a2)
@@ -17,8 +17,9 @@ __int64 __fastcall bSpTransferShape(struct SPRITE *a1, struct SPRITE *a2)
   struct _SURFOBJ *v5; // r8
   __int64 v6; // rcx
   __int64 v7; // r9
+  __int64 v8; // rdx
   __int64 result; // rax
-  struct _XLATEOBJ *v9; // [rsp+70h] [rbp+8h] BYREF
+  struct _XLATEOBJ *v10; // [rsp+70h] [rbp+8h] BYREF
 
   *(_DWORD *)a1 |= *(_DWORD *)a2 & 0x10;
   v4 = 1;
@@ -42,9 +43,9 @@ __int64 __fastcall bSpTransferShape(struct SPRITE *a1, struct SPRITE *a2)
     {
       v6 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL);
       v7 = *((_QWORD *)a2 + 18);
-      v9 = 0LL;
+      v10 = 0LL;
       if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                           (__int64 *)&v9,
+                           (__int64 *)&v10,
                            0LL,
                            0,
                            v7,
@@ -59,13 +60,13 @@ __int64 __fastcall bSpTransferShape(struct SPRITE *a1, struct SPRITE *a2)
           a1,
           (struct _POINTL *)a2 + 17,
           *((struct _SURFOBJ **)a2 + 16),
-          v9,
+          v10,
           (struct _RECTL *)a2 + 6,
           *(struct PALETTE **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL) + 104LL),
           0,
           1u,
           0LL);
-      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v9);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v10, v8);
     }
     if ( *((_QWORD *)a1 + 16) )
     {

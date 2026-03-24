@@ -1,20 +1,20 @@
 /*
- * XREFs of FindBestPos @ 0x1C0245C74
+ * XREFs of FindBestPos @ 0x1C024A6B0
  * Callers:
- *     NtUserCalculatePopupWindowPosition @ 0x1C01F17C0 (NtUserCalculatePopupWindowPosition.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
- *     xxxTrackPopupMenuEx @ 0x1C024614C (xxxTrackPopupMenuEx.c)
+ *     NtUserCalculatePopupWindowPosition @ 0x1C01F6DC0 (NtUserCalculatePopupWindowPosition.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024ABB0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     GetMonitorWorkRectForWindow @ 0x1C0062244 (GetMonitorWorkRectForWindow.c)
- *     GetMonitorRectForWindow @ 0x1C0063604 (GetMonitorRectForWindow.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     GetMonitorRect @ 0x1C007CB08 (GetMonitorRect.c)
- *     GetMonitorWorkRect @ 0x1C007CB4C (GetMonitorWorkRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C0245B78 (-TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z.c)
- *     GetMonitorMenuRect @ 0x1C025A588 (GetMonitorMenuRect.c)
- *     GetMonitorMenuRectForWindow @ 0x1C025A5CC (GetMonitorMenuRectForWindow.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C002C560 (GetMonitorWorkRectForWindow.c)
+ *     GetMonitorWorkRect @ 0x1C0041430 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0041DF8 (GetMonitorRect.c)
+ *     GetMonitorRectForWindow @ 0x1C0042874 (GetMonitorRectForWindow.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C024A5C0 (-TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z.c)
+ *     GetMonitorMenuRect @ 0x1C025D9AC (GetMonitorMenuRect.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C025D9F0 (GetMonitorMenuRectForWindow.c)
  */
 
 __int64 __fastcall FindBestPos(
@@ -36,36 +36,42 @@ __int64 __fastcall FindBestPos(
   unsigned int *v18; // rcx
   BOOL v19; // edx
   __int64 CurrentProcessWin32Process; // rax
-  struct tagRECT *v21; // rax
-  struct tagRECT v22; // xmm0
+  __int128 *v21; // rax
+  __int128 v22; // xmm0
   unsigned int **v23; // rax
   int v24; // ecx
   int v25; // r15d
   int v26; // r14d
-  int v27; // r8d
-  int v28; // ecx
-  __int64 v29; // r15
-  int v30; // r14d
-  int v31; // r14d
-  int v32; // r14d
-  unsigned int *v33; // rcx
-  unsigned int v34; // eax
-  struct tagMONITOR *v36[2]; // [rsp+48h] [rbp-A1h] BYREF
-  int v37[2]; // [rsp+58h] [rbp-91h]
-  struct tagMONITOR *v38; // [rsp+60h] [rbp-89h]
-  struct tagPOINT v39; // [rsp+68h] [rbp-81h] BYREF
-  struct tagRECT v40; // [rsp+70h] [rbp-79h] BYREF
-  struct tagRECT v41; // [rsp+80h] [rbp-69h] BYREF
-  char v42[16]; // [rsp+90h] [rbp-59h] BYREF
-  __int128 v43; // [rsp+A0h] [rbp-49h] BYREF
-  struct tagRECT v44; // [rsp+B0h] [rbp-39h] BYREF
-  unsigned int v45[4]; // [rsp+C0h] [rbp-29h]
+  bool v27; // cf
+  int v28; // r8d
+  int v29; // ecx
+  int v30; // r15d
+  __int64 v31; // r14
+  unsigned int v32; // edx
+  unsigned int v33; // edx
+  unsigned int v34; // edx
+  unsigned int *v35; // rcx
+  unsigned int v36; // eax
+  __int128 v38; // [rsp+40h] [rbp-C0h] BYREF
+  int v39; // [rsp+50h] [rbp-B0h]
+  struct tagMONITOR *v40; // [rsp+58h] [rbp-A8h]
+  struct tagPOINT v41; // [rsp+60h] [rbp-A0h] BYREF
+  struct tagRECT v42; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v43; // [rsp+80h] [rbp-80h] BYREF
+  char v44[16]; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v45; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v46; // [rsp+B0h] [rbp-50h] BYREF
+  char v47[16]; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v48; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v49; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v50; // [rsp+F0h] [rbp-10h] BYREF
+  __int128 v51; // [rsp+100h] [rbp+0h] BYREF
+  unsigned int v52[4]; // [rsp+110h] [rbp+10h]
 
-  v39 = 0LL;
+  v41 = 0LL;
   v12 = *a7;
-  v37[0] = a3;
-  v38 = a8;
-  v40 = 0LL;
+  v40 = a8;
+  v42 = 0LL;
   if ( *v12 )
   {
     v16 = **a7;
@@ -73,28 +79,28 @@ __int64 __fastcall FindBestPos(
       v17 = (const struct tagWND *)*((_QWORD *)v16 + 7);
     else
       v17 = (const struct tagWND *)*((_QWORD *)v16 + 2);
-    v44 = *(struct tagRECT *)GetMonitorMenuRectForWindow(&v41);
-    v14 = *(_OWORD *)GetMonitorWorkRectForWindow((__int64)&v43, (__int64)v38, v17);
-    *(_OWORD *)v36 = v14;
-    MonitorRectForWindow = (__int128 *)GetMonitorRectForWindow((__int64)v42, (__int64)v38, v17);
+    v51 = *(_OWORD *)GetMonitorMenuRectForWindow(v47, v40, v17);
+    v14 = *GetMonitorWorkRectForWindow(&v48, (__int64)v40, v17);
+    v43 = v14;
+    MonitorRectForWindow = GetMonitorRectForWindow(&v49, (__int64)v40, v17);
   }
   else
   {
-    v44 = *(struct tagRECT *)GetMonitorMenuRect(&v44, a8);
-    v14 = *(_OWORD *)GetMonitorWorkRect((__int64)&v43, (__int64)a8);
-    *(_OWORD *)v36 = v14;
-    MonitorRectForWindow = (__int128 *)GetMonitorRect((__int64)&v41, (__int64)a8);
+    v51 = *(_OWORD *)GetMonitorMenuRect(v44, a8);
+    v14 = *GetMonitorWorkRect(&v45, (__int64)a8);
+    v43 = v14;
+    MonitorRectForWindow = GetMonitorRect(&v46, (__int64)a8);
   }
-  v43 = *MonitorRectForWindow;
+  v50 = *MonitorRectForWindow;
   if ( (a6 & 0x10000) != 0 )
     goto LABEL_12;
-  if ( PtInRect(v36, a9) )
+  if ( PtInRect(&v43, a9) )
   {
     if ( !**a7 || (v18 = **a7, (*v18 & 0x10000000) == 0) )
     {
-      v14 = *(_OWORD *)v36;
+      v14 = v43;
 LABEL_12:
-      *(_OWORD *)v36 = v14;
+      v38 = v14;
       goto LABEL_13;
     }
   }
@@ -110,124 +116,127 @@ LABEL_12:
     else
       v19 = 0;
   }
-  v21 = (struct tagRECT *)&v43;
+  v21 = &v50;
   if ( v19 )
-    v21 = &v44;
+    v21 = &v51;
   v22 = *v21;
   v23 = *a7;
-  *(struct tagRECT *)v36 = v22;
+  v38 = v22;
   if ( *v23 )
     ***a7 |= 0x10000000u;
 LABEL_13:
   if ( a5 )
   {
-    v40 = *a5;
-    IntersectRect(&v40, &v40.left, (int *)v36);
+    v42 = *a5;
+    IntersectRect(&v42, &v42.left, (int *)&v38);
   }
   else
   {
-    v40.left = a1;
-    v40.top = a2;
-    v40.right = a1;
-    v40.bottom = a2;
+    v42.left = a1;
+    v42.top = a2;
+    v42.right = a1;
+    v42.bottom = a2;
   }
-  if ( a3 + a1 > SLODWORD(v36[1]) )
+  if ( a1 + a3 > SDWORD2(v38) )
   {
-    a1 = LODWORD(v36[1]) - a3;
+    a1 = DWORD2(v38) - a3;
     if ( **a7 )
     {
       if ( (***a7 & 0x1800000) != 0 )
         ***a7 ^= (***a7 ^ 0xFF7FFFFF) & 0x1800000;
     }
   }
-  if ( a1 < SLODWORD(v36[0]) )
+  if ( a1 < (int)v38 )
   {
-    a1 = (LONG)v36[0];
+    a1 = v38;
     if ( **a7 )
     {
       if ( (***a7 & 0x1800000) != 0 )
         ***a7 ^= (***a7 ^ 0x800000) & 0x1800000;
     }
   }
-  if ( (a6 & 8) != 0 && a3 + a1 > SLODWORD(v36[1]) )
-    a1 = LODWORD(v36[1]) - a3;
-  v24 = HIDWORD(v36[1]);
-  if ( a4 + a2 > SHIDWORD(v36[1]) )
+  v39 = a6 & 8;
+  if ( (a6 & 8) != 0 && a1 + a3 > SDWORD2(v38) )
+    a1 = DWORD2(v38) - a3;
+  v24 = HIDWORD(v38);
+  if ( a4 + a2 > SHIDWORD(v38) )
   {
-    if ( (a6 & 0x20010) != 0 || a2 - a4 < SHIDWORD(v36[0]) || a2 >= SHIDWORD(v36[1]) )
-      a2 = HIDWORD(v36[1]) - a4;
+    if ( (a6 & 0x20010) != 0 || a2 - a4 < SDWORD1(v38) || a2 >= SHIDWORD(v38) )
+      a2 = HIDWORD(v38) - a4;
     else
       a2 -= a4;
     if ( **a7 && (***a7 & 0x6000000) != 0 )
       ***a7 ^= (***a7 ^ 0xFDFFFFFF) & 0x6000000;
-    v24 = HIDWORD(v36[1]);
+    v24 = HIDWORD(v38);
   }
-  if ( a2 < SHIDWORD(v36[0]) )
+  if ( a2 < SDWORD1(v38) )
   {
-    a2 = HIDWORD(v36[0]);
+    a2 = DWORD1(v38);
     if ( **a7 && (***a7 & 0x6000000) != 0 )
       ***a7 ^= (***a7 ^ 0x2000000) & 0x6000000;
-    v24 = HIDWORD(v36[1]);
+    v24 = HIDWORD(v38);
   }
   v25 = a6 & 0x20;
   if ( (a6 & 0x20) != 0 && a4 + a2 > v24 && (a6 & 0x20000) != 0 )
     a2 = v24 - a4;
-  if ( !(unsigned int)TryRect(4, a1, a2, v37[0], a4, &v40, &v39, v38) )
+  if ( !(unsigned int)TryRect(4, a1, a2, a3, a4, &v42, &v41, v40) )
   {
     v26 = a6 & 0x40;
-    v27 = (a6 & 8) == 0 ? 2 : 0;
-    *(unsigned int *)((char *)v45 + (v26 != 0 ? 8 : 0)) = v27;
-    *(unsigned int *)((char *)&v45[1] + (v26 != 0 ? 8 : 0)) = 2 - v27;
-    *(unsigned int *)((char *)v45 + (v26 == 0 ? 8 : 0)) = v25 != 0 ? 1 : 3;
-    v28 = v25 != 0 ? 3 : 1;
-    v29 = 0LL;
-    *(unsigned int *)((char *)&v45[3] + (-(__int64)(v26 != 0) & 0xFFFFFFFFFFFFFFF8uLL)) = v28;
-    while ( 1 )
+    v27 = v39 != 0;
+    v39 = -v39;
+    v28 = v27 ? 0 : 2;
+    *(unsigned int *)((char *)v52 + (v26 != 0 ? 8 : 0)) = v28;
+    *(unsigned int *)((char *)&v52[1] + (v26 != 0 ? 8 : 0)) = 2 - v28;
+    *(unsigned int *)((char *)v52 + (v26 == 0 ? 8 : 0)) = v25 != 0 ? 1 : 3;
+    v29 = v25 != 0 ? 3 : 1;
+    v30 = 0;
+    v31 = 0LL;
+    *(unsigned int *)((char *)&v52[3] + (-(__int64)((a6 & 0x40) != 0) & 0xFFFFFFFFFFFFFFF8uLL)) = v29;
+    while ( !(unsigned int)TryRect(v52[v31], a1, a2, a3, a4, &v42, &v41, v40) )
     {
-      v30 = v45[v29];
-      if ( (unsigned int)TryRect(v30, a1, a2, v37[0], a4, &v40, &v39, v38) )
-        break;
-      if ( ++v29 >= 4 )
+      ++v30;
+      if ( ++v31 >= 4 )
         return (unsigned __int16)a1 | ((unsigned __int16)a2 << 16);
     }
     if ( !**a7 )
       goto LABEL_70;
-    if ( v30 )
+    v32 = v52[v30];
+    if ( v32 )
     {
-      v31 = v30 - 1;
-      if ( v31 )
+      v33 = v32 - 1;
+      if ( v33 )
       {
-        v32 = v31 - 1;
-        if ( v32 )
+        v34 = v33 - 1;
+        if ( v34 )
         {
-          if ( v32 != 1 )
+          if ( v34 != 1 )
           {
 LABEL_70:
-            LOWORD(a1) = v39.x;
-            LOWORD(a2) = v39.y;
+            LOWORD(a1) = v41.x;
+            LOWORD(a2) = v41.y;
             return (unsigned __int16)a1 | ((unsigned __int16)a2 << 16);
           }
-          v33 = **a7;
-          v34 = *v33 & 0xF07FFFFF | 0x2000000;
+          v35 = **a7;
+          v36 = *v35 & 0xF07FFFFF | 0x2000000;
         }
         else
         {
-          v33 = **a7;
-          v34 = *v33 & 0xF07FFFFF | 0x800000;
+          v35 = **a7;
+          v36 = *v35 & 0xF07FFFFF | 0x800000;
         }
       }
       else
       {
-        v33 = **a7;
-        v34 = *v33 & 0xF07FFFFF | 0x4000000;
+        v35 = **a7;
+        v36 = *v35 & 0xF07FFFFF | 0x4000000;
       }
     }
     else
     {
-      v33 = **a7;
-      v34 = *v33 & 0xF07FFFFF | 0x1000000;
+      v35 = **a7;
+      v36 = *v35 & 0xF07FFFFF | 0x1000000;
     }
-    *v33 = v34;
+    *v35 = v36;
     goto LABEL_70;
   }
   return (unsigned __int16)a1 | ((unsigned __int16)a2 << 16);

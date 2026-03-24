@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TransformInput@CInteractionContextTransformHelper@@QEAAJAEBUtagPOINTER_INFO@@_NPEAU2@@Z @ 0x1802AE3B8
+ * XREFs of ?TransformInput@CInteractionContextTransformHelper@@QEAAJAEBUtagPOINTER_INFO@@_NPEAU2@@Z @ 0x18026B628
  * Callers:
- *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180273C70 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180230F00 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
  * Callees:
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800AEBA8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     s_TransformPointByMatrix @ 0x1802AED80 (s_TransformPointByMatrix.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800072B8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     s_TransformPointByMatrix @ 0x18026BFF0 (s_TransformPointByMatrix.c)
  */
 
 __int64 __fastcall CInteractionContextTransformHelper::TransformInput(

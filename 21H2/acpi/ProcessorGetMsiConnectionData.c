@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessorGetMsiConnectionData @ 0x1C009C1C4
+ * XREFs of ProcessorGetMsiConnectionData @ 0x1C00958E0
  * Callers:
- *     MsiGetTargetInfo @ 0x1C009C148 (MsiGetTargetInfo.c)
+ *     MsiGetTargetInfo @ 0x1C0095864 (MsiGetTargetInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ProcessorGetDestinationMode @ 0x1C009C258 (ProcessorGetDestinationMode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ProcessorGetDestinationMode @ 0x1C0095974 (ProcessorGetDestinationMode.c)
  */
 
 __int64 __fastcall ProcessorGetMsiConnectionData(__int64 a1)
@@ -15,24 +15,24 @@ __int64 __fastcall ProcessorGetMsiConnectionData(__int64 a1)
   int v4; // r10d
   __int64 v5; // r11
   int MessageRoutingInfo; // eax
-  int v8; // [rsp+20h] [rbp-50h] BYREF
-  _DWORD v9[4]; // [rsp+28h] [rbp-48h] BYREF
-  __int128 v10; // [rsp+38h] [rbp-38h]
-  int v11; // [rsp+48h] [rbp-28h]
-  __int128 v12; // [rsp+4Ch] [rbp-24h]
+  int v8; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v9; // [rsp+28h] [rbp-50h] BYREF
+  __int128 v10; // [rsp+38h] [rbp-40h]
+  __int128 v11; // [rsp+48h] [rbp-30h]
+  __int64 v12; // [rsp+58h] [rbp-20h]
 
-  v1 = 0;
-  v9[1] = 0;
-  v9[3] = 0;
-  v8 = 0;
   v12 = 0LL;
+  v1 = 0;
+  v8 = 0;
+  v9 = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
   ProcessorGetDestinationMode(a1, &v8);
   v3 = *v2;
-  v9[0] = 0;
+  DWORD2(v9) = v4;
   v10 = v3;
-  v9[2] = v4;
-  v11 = v8;
-  MessageRoutingInfo = HalGetMessageRoutingInfo(v9, v5);
+  LODWORD(v11) = v8;
+  MessageRoutingInfo = HalGetMessageRoutingInfo(&v9, v5);
   if ( MessageRoutingInfo < 0 )
     return (unsigned int)MessageRoutingInfo;
   return v1;

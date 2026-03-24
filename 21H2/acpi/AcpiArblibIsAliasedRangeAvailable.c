@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiArblibIsAliasedRangeAvailable @ 0x1C00ABF8C
+ * XREFs of AcpiArblibIsAliasedRangeAvailable @ 0x1C00AD37C
  * Callers:
- *     AcpiPortarbFindSuitableRange @ 0x1C00B1340 (AcpiPortarbFindSuitableRange.c)
+ *     AcpiPortarbFindSuitableRange @ 0x1C00B20F0 (AcpiPortarbFindSuitableRange.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiArblibGetNextAlias @ 0x1C00ABF58 (AcpiArblibGetNextAlias.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiArblibGetNextAlias @ 0x1C00AD2A0 (AcpiArblibGetNextAlias.c)
  */
 
 char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)

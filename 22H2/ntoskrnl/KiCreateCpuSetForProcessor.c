@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCreateCpuSetForProcessor @ 0x140A8D5D8
+ * XREFs of KiCreateCpuSetForProcessor @ 0x14099D7FC
  * Callers:
- *     KiCompleteKernelInit @ 0x140A8D340 (KiCompleteKernelInit.c)
- *     KiAllocateCpuSetData @ 0x140B49340 (KiAllocateCpuSetData.c)
+ *     KiCompleteKernelInit @ 0x14099D610 (KiCompleteKernelInit.c)
+ *     KiAllocateCpuSetData @ 0x140A3FD90 (KiAllocateCpuSetData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     RtlWriteReleaseTickLock @ 0x140381B70 (RtlWriteReleaseTickLock.c)
- *     RtlWriteAcquireTickLock @ 0x1403C1080 (RtlWriteAcquireTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlWriteAcquireTickLock @ 0x14035F214 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteReleaseTickLock @ 0x1403A6CF4 (RtlWriteReleaseTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
@@ -22,12 +22,11 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
   __int64 v8; // rbx
   unsigned __int64 *v9; // rdx
   _DWORD *SchedulerAssist; // r9
-  __int64 v11; // rax
-  unsigned __int8 v12; // al
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
+  _DWORD *v13; // r8
+  int v14; // eax
+  bool v15; // zf
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -38,10 +37,7 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v11) = 4;
-      if ( CurrentIrql != 2 )
-        v11 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v11;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     v4 = *(unsigned __int8 *)(a1 + 208);
     KxAcquireSpinLock(&KiCpuSetLock);
@@ -56,24 +52,27 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
     *((_QWORD *)KiCpuSetAffinitiesShadow + v8) = *(_QWORD *)(a1 + 200);
     KiSystemAllowedCpuSets[2 * (unsigned int)v6] |= 1LL << v5;
     KiNonParkedCpuSets[v6] |= 1LL << v5;
-    v9 = &PsInitialSystemProcess[2].Affinity.StaticBitmap[16];
+    v9 = &PsInitialSystemProcess[2].Affinity.Bitmap[16];
     if ( (HIDWORD(PsInitialSystemProcess[2].Header.WaitListHead.Flink) & 0x80u) != 0 )
       v9 = (unsigned __int64 *)*v9;
     v9[v6] |= 1LL << v5;
     RtlWriteReleaseTickLock(&KiCpuSetSequence);
-    KxReleaseSpinLock((volatile signed __int64 *)&KiCpuSetLock);
+    KxReleaseSpinLock(&KiCpuSetLock);
     if ( KiIrqlFlags )
     {
-      v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v14 = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v16 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v11 = KeGetCurrentIrql();
+        if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v13 = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v15 = (v14 & v13[5]) == 0;
+          v13[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     result = (_UNKNOWN **)CurrentIrql;

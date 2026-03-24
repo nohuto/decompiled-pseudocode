@@ -1,12 +1,13 @@
 /*
- * XREFs of ??$SetExpressionArray@UtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@V?$DynArrayIANoCtor@PEAVCBaseExpression@@$01$0A@@@@CBaseExpression@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@PEBXIPEAV?$DynArrayIANoCtor@PEAVCBaseExpression@@$01$0A@@@@Z @ 0x1800EAEA0
+ * XREFs of ??$SetExpressionArray@UtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@V?$DynArrayIANoCtor@PEAVCBaseExpression@@$01$0A@@@@CBaseExpression@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@PEBXIPEAV?$DynArrayIANoCtor@PEAVCBaseExpression@@$01$0A@@@@Z @ 0x1801D0DA0
  * Callers:
- *     ?ProcessAddExpressionResources@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@PEBXI@Z @ 0x18023A0CC (-ProcessAddExpressionResources@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRA.c)
+ *     ?ProcessAddExpressionResources@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES@@PEBXI@Z @ 0x1801D1454 (-ProcessAddExpressionResources@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRA.c)
+ *     ?ProcessAddInitialValueExpressions@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_ADDINITIALVALUEEXPRESSIONS@@PEBXI@Z @ 0x1801DA358 (-ProcessAddInitialValueExpressions@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEE.c)
  * Callees:
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@PEAVCBaseExpression@@$0A@@@QEAAJPEFBQEAVCBaseExpression@@I@Z @ 0x1800B882C (-AddMultipleAndSet@-$DynArray@PEAVCBaseExpression@@$0A@@@QEAAJPEFBQEAVCBaseExpression@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBaseExpression::SetExpressionArray<tagMILCMD_KEYFRAMEANIMATION_ADDEXPRESSIONRESOURCES,DynArrayIANoCtor<CBaseExpression *,2,0>>(
@@ -17,89 +18,68 @@ __int64 __fastcall CBaseExpression::SetExpressionArray<tagMILCMD_KEYFRAMEANIMATI
         __int64 a5,
         __int64 a6)
 {
-  int v6; // ebp
-  __int64 v11; // rsi
+  int v6; // esi
   struct CResource *ResourceWithoutType; // rax
-  __int64 v13; // rcx
-  struct CResource *v14; // rbx
-  unsigned int v15; // eax
-  unsigned int v16; // edx
-  int v17; // eax
-  __int64 v18; // rcx
-  unsigned int v19; // ebx
-  __int64 v21; // rcx
-  int v22; // edi
-  __int64 v23; // rcx
-  unsigned int v24; // [rsp+20h] [rbp-38h]
-  struct CResource *v25; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v12; // rcx
+  struct CResource *v13; // rdi
+  int v14; // eax
+  unsigned int v15; // ebx
+  int v17; // r9d
+  unsigned int v18; // [rsp+20h] [rbp-38h]
+  struct CResource *v19; // [rsp+70h] [rbp+18h] BYREF
 
   v6 = 0;
   if ( *(_DWORD *)(a3 + 8) )
   {
-    v11 = a6;
     while ( 1 )
     {
       ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *a4);
-      v14 = ResourceWithoutType;
+      v13 = ResourceWithoutType;
       if ( !ResourceWithoutType
         || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
               ResourceWithoutType,
-              60LL) )
+              58LL) )
       {
         break;
       }
-      if ( (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v14 + 224LL))(v14) )
+      if ( (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v13 + 240LL))(v13) )
       {
-        v24 = 318;
-        goto LABEL_20;
+        v18 = 306;
+        goto LABEL_15;
       }
-      v15 = *(_DWORD *)(v11 + 24);
-      v25 = v14;
-      v16 = v15 + 1;
-      if ( v15 + 1 < v15 )
+      v19 = v13;
+      v14 = DynArray<CBaseExpression *,0>::AddMultipleAndSet(a6, &v19);
+      v15 = v14;
+      if ( v14 < 0 )
       {
-        v22 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024362, 0xB5u, 0LL);
-        goto LABEL_17;
+        v18 = 309;
+        goto LABEL_12;
       }
-      if ( v16 > *(_DWORD *)(v11 + 20) )
+      (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v13 + 8LL))(v13);
+      (*(void (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)v13 + 232LL))(v13, a1);
+      v14 = (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v13 + 248LL))(v13);
+      v15 = v14;
+      if ( v14 < 0 )
       {
-        v22 = DynArrayImpl<0>::AddMultipleAndSet(v11, 8, 1, &v25);
-        if ( v22 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v22, 0xC0u, 0LL);
-LABEL_17:
-          v19 = v22;
-          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x141u, 0LL);
-          return v19;
-        }
-      }
-      else
-      {
-        *(_QWORD *)(*(_QWORD *)v11 + 8LL * v15) = v14;
-        *(_DWORD *)(v11 + 24) = v16;
-      }
-      (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v14 + 8LL))(v14);
-      (*(void (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)v14 + 216LL))(v14, a1);
-      v17 = (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v14 + 232LL))(v14);
-      v19 = v17;
-      if ( v17 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x149u, 0LL);
-        return v19;
+        v18 = 317;
+LABEL_12:
+        v17 = v14;
+        goto LABEL_16;
       }
       ++a4;
       if ( (unsigned int)++v6 >= *(_DWORD *)(a3 + 8) )
         return 0;
     }
-    v24 = 310;
-LABEL_20:
-    v19 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2003303421, v24, 0LL);
+    v18 = 298;
+LABEL_15:
+    v17 = -2003303421;
+    v15 = -2003303421;
+LABEL_16:
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v17, v18, 0LL);
   }
   else
   {
     return 0;
   }
-  return v19;
+  return v15;
 }

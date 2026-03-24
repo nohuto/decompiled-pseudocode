@@ -1,5 +1,5 @@
 /*
- * XREFs of QpcUtils::_anonymous_namespace_::_dynamic_initializer_for__c_performanceFrequency__ @ 0x180003E00
+ * XREFs of QpcUtils::_anonymous_namespace_::_dynamic_initializer_for__c_performanceFrequency__ @ 0x1800034E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,6 +13,6 @@ LARGE_INTEGER QpcUtils::_anonymous_namespace_::_dynamic_initializer_for__c_perfo
 
   QueryPerformanceFrequency(&Frequency);
   result = Frequency;
-  qword_1803E5B70 = Frequency.QuadPart;
+  qword_180347410 = Frequency.QuadPart;
   return result;
 }

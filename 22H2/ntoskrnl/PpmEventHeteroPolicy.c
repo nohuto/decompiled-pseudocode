@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroPolicy @ 0x14082EF40
+ * XREFs of PpmEventHeteroPolicy @ 0x1407BB838
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082E9E0 (PopInitializeHeteroProcessors.c)
- *     PpmEventTraceControlCallback @ 0x1408650B0 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB3CC (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5310 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHeteroPolicy(char a1)
@@ -30,7 +30,7 @@ char __fastcall PpmEventHeteroPolicy(char a1)
   void *v18; // [rsp+80h] [rbp+7h]
   int v19; // [rsp+88h] [rbp+Fh]
   int v20; // [rsp+8Ch] [rbp+13h]
-  int *v21; // [rsp+90h] [rbp+17h]
+  void *v21; // [rsp+90h] [rbp+17h]
   int v22; // [rsp+98h] [rbp+1Fh]
   int v23; // [rsp+9Ch] [rbp+23h]
   int *v24; // [rsp+A0h] [rbp+27h]
@@ -62,10 +62,10 @@ char __fastcall PpmEventHeteroPolicy(char a1)
       UserData.Ptr = (ULONGLONG)&PpmHeteroPolicy;
       v6 = &PopHeteroSystem;
       v9 = &KiDesiredHeteroCpuPolicy;
-      v12 = &unk_140D1D40C;
+      v12 = &unk_140CFB37C;
       v15 = &KiDynamicHeteroCpuPolicyMask;
-      v18 = &unk_140D1D3FC;
-      v21 = KiDynamicHeteroCpuPolicy;
+      v18 = &unk_140CFB36C;
+      v21 = &KiDynamicHeteroCpuPolicy;
       v24 = &KiDynamicHeteroCpuPolicyImportantPriority;
       v27 = &KiDynamicHeteroCpuPolicyExpectedRuntime;
       UserData.Size = 4;

@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfIoResourceListUpdateDescriptor @ 0x1C0034D60
+ * XREFs of imp_WdfIoResourceListUpdateDescriptor @ 0x1C005CC80
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0014B44 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_qdd @ 0x1C005CC6C (WPP_IFR_SF_qdd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qdd @ 0x1C003C938 (WPP_IFR_SF_qdd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0061964 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
  */
 
 void __fastcall imp_WdfIoResourceListUpdateDescriptor(
@@ -20,18 +20,18 @@ void __fastcall imp_WdfIoResourceListUpdateDescriptor(
 {
   unsigned __int8 v7; // r8
   _FX_DRIVER_GLOBALS *m_Globals; // rdi
-  _LIST_ENTRY **Entry; // rax
+  FxCollectionEntry *Entry; // rax
   unsigned __int8 v10; // r8
   FxNonPagedObject *v11; // r9
-  _LIST_ENTRY *v12; // rbx
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  FxObject *m_Object; // rbx
+  ULONG_PTR retaddr; // [rsp+58h] [rbp+0h]
   unsigned __int8 irql; // [rsp+60h] [rbp+8h] BYREF
   FxIoResList *pList; // [rsp+70h] [rbp+18h] BYREF
 
   pList = 0LL;
   irql = 0;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)ResourceList,
     0x1035u,
     (void **)&pList);
@@ -41,14 +41,14 @@ void __fastcall imp_WdfIoResourceListUpdateDescriptor(
   FxNonPagedObject::Lock(pList, &irql, v7);
   Entry = FxCollectionInternal::FindEntry(&pList->FxCollectionInternal, Index);
   if ( Entry )
-    v12 = *Entry;
+    m_Object = Entry->m_Object;
   else
-    v12 = 0LL;
+    m_Object = 0LL;
   FxNonPagedObject::Unlock(v11, irql, v10);
-  if ( v12 )
+  if ( m_Object )
   {
-    *(_LIST_ENTRY *)((char *)v12 + 104) = *(_LIST_ENTRY *)&Descriptor->Option;
-    *(_LIST_ENTRY *)((char *)v12 + 120) = *(_LIST_ENTRY *)&Descriptor->u.BusNumber.MaxBusNumber;
+    *(_OWORD *)&m_Object[1].__vftable = *(_OWORD *)&Descriptor->Option;
+    *(_OWORD *)&m_Object[1].m_Globals = *(_OWORD *)&Descriptor->u.BusNumber.MaxBusNumber;
     pList->m_Changed = 1;
     pList->m_OwningList->m_Changed = 1;
   }

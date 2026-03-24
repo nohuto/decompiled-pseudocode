@@ -1,14 +1,14 @@
 /*
- * XREFs of ExFastReplenishHandleTableEntry @ 0x140251008
+ * XREFs of ExFastReplenishHandleTableEntry @ 0x1402C9410
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x14071E230 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     ObWaitForMultipleObjects @ 0x1407A1400 (ObWaitForMultipleObjects.c)
+ *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
+ *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ExFastReplenishHandleTableEntry(volatile signed __int64 *a1, signed __int64 *a2, int a3)
+__int64 __fastcall ExFastReplenishHandleTableEntry(volatile signed __int64 *a1, unsigned __int64 *a2, int a3)
 {
   __int64 v4; // r11
   unsigned __int64 v5; // rdx
@@ -16,11 +16,10 @@ __int64 __fastcall ExFastReplenishHandleTableEntry(volatile signed __int64 *a1, 
   __int64 v8; // rcx
   int v9; // eax
   int v10; // r8d
-  signed __int64 v11; // rbx
-  unsigned __int64 v12; // rax
-  __int128 v13; // rt0
-  unsigned __int8 v14; // tt
-  __int128 v16; // [rsp+0h] [rbp-18h]
+  unsigned __int64 v11; // rax
+  __int128 v12; // rt0
+  unsigned __int8 v13; // tt
+  __int128 v15; // [rsp+0h] [rbp-18h]
 
   v4 = a3;
   v5 = *a2;
@@ -29,26 +28,25 @@ __int64 __fastcall ExFastReplenishHandleTableEntry(volatile signed __int64 *a1, 
   {
     v8 = v4 + (unsigned __int16)(v5 >> 1);
     v9 = v4 + (unsigned __int16)(v5 >> 1);
-    v16 = *(_OWORD *)a2;
+    v15 = *(_OWORD *)a2;
     if ( v8 > 0xFFFF )
       v9 = 0xFFFF;
     v10 = v8 - 0xFFFF;
     if ( v8 <= 0xFFFF )
       v10 = 0;
-    v11 = ((unsigned int)*a2 ^ (2 * v9)) & 0x1FFFE ^ (unsigned __int64)*a2;
-    v13 = *(_OWORD *)a2;
-    v14 = _InterlockedCompareExchange128(a1, *((signed __int64 *)&v16 + 1), v11, (signed __int64 *)&v13);
-    v12 = v13;
-    *(_OWORD *)a2 = v13;
-    if ( v14 )
+    *(_QWORD *)&v15 = ((unsigned int)*a2 ^ (2 * v9)) & 0x1FFFE ^ *a2;
+    v12 = *(_OWORD *)a2;
+    v13 = _InterlockedCompareExchange128(a1, *((signed __int64 *)&v15 + 1), v15, (signed __int64 *)&v12);
+    v11 = v12;
+    *(_OWORD *)a2 = v12;
+    if ( v13 )
     {
       LODWORD(v4) = v10;
       return (unsigned int)v4;
     }
-    v5 = v12;
+    v5 = v11;
   }
-  while ( v12 >> 20 == v7 && (v12 & 1) != 0 );
-  a2[1] = *((_QWORD *)&v16 + 1);
-  *a2 = v11;
+  while ( v11 >> 20 == v7 && (v11 & 1) != 0 );
+  *(_OWORD *)a2 = v15;
   return (unsigned int)v4;
 }

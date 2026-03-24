@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x180008D9C
+ * XREFs of ?IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18000C2BC
  * Callers:
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008CA8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A24 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
  * Callees:
  *     <none>
  */

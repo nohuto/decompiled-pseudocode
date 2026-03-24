@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C016D14C
+ * XREFs of ?EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C014A0BC
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C016CCBC (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C0144C54 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
  * Callees:
- *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C0003D0C (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
- *     ?MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C016D1D4 (-MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
- *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C016D2D0 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C000CA54 (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
+ *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C014A144 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C014A364 (-MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::EnsureContentRegionAndDWMClipBoxAreValid(CCD_TOPOLOGY *this)
@@ -13,8 +13,11 @@ __int64 __fastcall CCD_TOPOLOGY::EnsureContentRegionAndDWMClipBoxAreValid(CCD_TO
   unsigned int v2; // ebx
   unsigned int v3; // edx
   int CloneGroupContentResolutionValid; // eax
-  __int64 v5; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rsi
   int CloneGroupDWMClipBoxValid; // eax
+  __int64 v10; // rax
 
   v2 = 0;
   if ( !*(_WORD *)(*((_QWORD *)this + 8) + 20LL) )
@@ -24,17 +27,20 @@ __int64 __fastcall CCD_TOPOLOGY::EnsureContentRegionAndDWMClipBoxAreValid(CCD_TO
     if ( CCD_TOPOLOGY::IsPrimaryClonePathByModality(this, v2) )
     {
       CloneGroupContentResolutionValid = CCD_TOPOLOGY::MakeCloneGroupContentResolutionValid(this, v3);
-      v5 = CloneGroupContentResolutionValid;
+      v7 = CloneGroupContentResolutionValid;
       if ( CloneGroupContentResolutionValid < 0 )
         break;
       CloneGroupDWMClipBoxValid = CCD_TOPOLOGY::MakeCloneGroupDWMClipBoxValid(this, v2);
-      v5 = CloneGroupDWMClipBoxValid;
+      v7 = CloneGroupDWMClipBoxValid;
       if ( CloneGroupDWMClipBoxValid < 0 )
         break;
     }
     if ( ++v2 >= *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) )
       return 0LL;
   }
-  WdLogSingleEntry2(2LL, v2, v5);
-  return (unsigned int)v5;
+  v10 = WdLogNewEntry5_WdError(v6, v5);
+  *(_QWORD *)(v10 + 24) = v2;
+  *(_QWORD *)(v10 + 32) = v7;
+  WdLogEvent5_WdError(v10);
+  return (unsigned int)v7;
 }

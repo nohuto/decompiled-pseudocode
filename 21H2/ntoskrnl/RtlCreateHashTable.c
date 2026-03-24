@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCreateHashTable @ 0x14021FAF0
+ * XREFs of RtlCreateHashTable @ 0x1403767C0
  * Callers:
- *     SepInitializeLowBoxNumberTable @ 0x140695078 (SepInitializeLowBoxNumberTable.c)
- *     SepSetTokenCachedHandles @ 0x1406962A4 (SepSetTokenCachedHandles.c)
- *     SepInitializeSharedSidMap @ 0x140848B8C (SepInitializeSharedSidMap.c)
+ *     SepSetTokenCachedHandles @ 0x140717C04 (SepSetTokenCachedHandles.c)
+ *     SepInitializeLowBoxNumberTable @ 0x14078E558 (SepInitializeLowBoxNumberTable.c)
+ *     SepInitializeSharedSidMap @ 0x14079DEDC (SepInitializeSharedSidMap.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x14021FB10 (RtlpCreateHashTable.c)
+ *     RtlpCreateHashTable @ 0x1403767E0 (RtlpCreateHashTable.c)
  */
 
 BOOLEAN __stdcall RtlCreateHashTable(PRTL_DYNAMIC_HASH_TABLE *HashTable, ULONG Shift, ULONG Flags)

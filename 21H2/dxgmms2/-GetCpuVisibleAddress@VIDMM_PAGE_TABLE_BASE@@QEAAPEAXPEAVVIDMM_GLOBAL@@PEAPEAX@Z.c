@@ -1,71 +1,73 @@
 /*
- * XREFs of ?GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z @ 0x1C00A55BC
+ * XREFs of ?GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z @ 0x1C0072C24
  * Callers:
- *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C008CDE0 (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
+ *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C0072B4C (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
  * Callees:
- *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C001A140 (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C001A5B0 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00D53E0 (-BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTU.c)
+ *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00295C0 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0029668 (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00AE120 (-BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTU.c)
  */
 
-void *__fastcall VIDMM_PAGE_TABLE_BASE::GetCpuVisibleAddress(
+PVOID __fastcall VIDMM_PAGE_TABLE_BASE::GetCpuVisibleAddress(
         VIDMM_PAGE_TABLE_BASE *this,
         struct VIDMM_GLOBAL *a2,
-        void **a3)
+        PMDL *a3)
 {
   _QWORD *v3; // r9
   __int64 v6; // rax
   VIDMM_GLOBAL *v7; // rcx
-  void *result; // rax
-  VIDMM_CPU_HOST_APERTURE *v9; // rdi
-  struct VIDMM_ALLOC *v10; // rdx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  PVOID v12; // rsi
-  PVOID P; // [rsp+50h] [rbp+8h] BYREF
+  PVOID result; // rax
+  __int64 v9; // rax
+  VIDMM_CPU_HOST_APERTURE *v10; // rbp
+  struct VIDMM_ALLOC *v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  PMDL v14; // rdi
+  __int64 v15; // rax
+  PMDL MemoryDescriptorList; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = (_QWORD *)*((_QWORD *)this + 2);
   *a3 = 0LL;
-  v6 = v3[15];
+  v6 = v3[16];
   if ( !v6 )
     return 0LL;
   v7 = (VIDMM_GLOBAL *)*(unsigned int *)(v6 + 80);
   if ( ((unsigned __int16)v7 & 0x1001) != 0 )
-    return *(void **)(**((_QWORD **)this + 3) + 16LL);
+    return *(PVOID *)(**((_QWORD **)this + 3) + 16LL);
   if ( ((unsigned __int16)v7 & 0x2000) != 0 )
   {
-    v9 = *(VIDMM_CPU_HOST_APERTURE **)(v6 + 504);
-    v10 = (struct VIDMM_ALLOC *)*((_QWORD *)this + 3);
-    P = 0LL;
-    if ( VIDMM_GLOBAL::BuildMdlForAllocInCpuHostAperture(v7, v10, v9, (struct _MDL **)&P) >= 0 )
+    v10 = *(VIDMM_CPU_HOST_APERTURE **)(v6 + 488);
+    v11 = (struct VIDMM_ALLOC *)*((_QWORD *)this + 3);
+    MemoryDescriptorList = 0LL;
+    if ( VIDMM_GLOBAL::BuildMdlForAllocInCpuHostAperture(v7, v11, v10, &MemoryDescriptorList) >= 0 )
     {
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      v12 = P;
-      result = (void *)(*((__int64 (__fastcall **)(PVOID, _QWORD, __int64))VirtualMemoryInterface + 5))(P, 0LL, 2LL);
+      v14 = MemoryDescriptorList;
+      result = MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmWriteCombined, 0LL, 0, 0x40000010u);
       if ( result )
       {
-        *a3 = v12;
+        *a3 = v14;
         return result;
       }
-      VIDMM_CPU_HOST_APERTURE::UnmapRange(v9, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
-      VIDMM_CPU_HOST_APERTURE::ReleaseRange(v9, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
-      ExFreePoolWithTag(v12, 0);
-      WdLogSingleEntry0(3LL);
+      VIDMM_CPU_HOST_APERTURE::UnmapRange(v10, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
+      VIDMM_CPU_HOST_APERTURE::ReleaseRange(v10, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
+      ExFreePoolWithTag(v14, 0);
     }
-    else
-    {
-      WdLogSingleEntry0(3LL);
-    }
+    v15 = WdLogNewEntry5_WdWarning(v13, v12);
+    WdLogEvent5_WdWarning(v15);
     return 0LL;
   }
   if ( ((unsigned __int8)v7 & 4) == 0 )
   {
-    WdLogSingleEntry5(0LL, 270LL, 48LL, this, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdCriticalError(v7, a2);
+    *(_QWORD *)(v9 + 24) = 270LL;
+    *(_QWORD *)(v9 + 32) = 48LL;
+    *(_QWORD *)(v9 + 40) = this;
+    *(_OWORD *)(v9 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v9);
     return 0LL;
   }
-  result = (void *)(v3[16] + *(_QWORD *)(v6 + 32));
-  if ( (*(_DWORD *)(*((_QWORD *)a2 + 3) + 436LL) & 8) == 0 )
-    return (void *)MmMapIoSpaceEx(result, v3[2], 1028LL);
+  result = (PVOID)(v3[17] + *(_QWORD *)(v6 + 32));
+  if ( (*(_DWORD *)(*((_QWORD *)a2 + 3) + 348LL) & 8) == 0 )
+    return (PVOID)MmMapIoSpaceEx(result, v3[2], 1028LL);
   return result;
 }

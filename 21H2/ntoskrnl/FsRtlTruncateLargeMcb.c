@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlTruncateLargeMcb @ 0x14022BC70
+ * XREFs of FsRtlTruncateLargeMcb @ 0x14029D060
  * Callers:
- *     FsRtlTruncateMcb @ 0x140541740 (FsRtlTruncateMcb.c)
+ *     FsRtlTruncateMcb @ 0x1404EF600 (FsRtlTruncateMcb.c)
  * Callees:
- *     FsRtlTruncateBaseMcb @ 0x14022BCB0 (FsRtlTruncateBaseMcb.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     FsRtlTruncateBaseMcb @ 0x14029D0A0 (FsRtlTruncateBaseMcb.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 void __stdcall FsRtlTruncateLargeMcb(PLARGE_MCB Mcb, LONGLONG Vbn)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GetBiosNumLockStatus@@YAXXZ @ 0x1C011F9CC
+ * XREFs of ?GetBiosNumLockStatus@@YAXXZ @ 0x1C000903C
  * Callers:
- *     InitKeyboard @ 0x1C011F950 (InitKeyboard.c)
+ *     InitKeyboard @ 0x1C0008FC0 (InitKeyboard.c)
  * Callees:
  *     <none>
  */
 
 void GetBiosNumLockStatus(void)
 {
-  enum _INTERFACE_TYPE v0; // ebx
+  _INTERFACE_TYPE v0; // ebx
   int Context; // [rsp+50h] [rbp+8h] BYREF
   enum _CONFIGURATION_TYPE PeripheralType; // [rsp+58h] [rbp+10h] BYREF
   enum _CONFIGURATION_TYPE ControllerType; // [rsp+60h] [rbp+18h] BYREF
-  enum _INTERFACE_TYPE BusType; // [rsp+68h] [rbp+20h] BYREF
+  _INTERFACE_TYPE BusType; // [rsp+68h] [rbp+20h] BYREF
 
   Context = 0;
   v0 = Internal;

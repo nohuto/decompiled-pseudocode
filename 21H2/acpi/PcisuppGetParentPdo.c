@@ -1,9 +1,9 @@
 /*
- * XREFs of PcisuppGetParentPdo @ 0x1C00A0D0C
+ * XREFs of PcisuppGetParentPdo @ 0x1C009200C
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PcisuppGetParentPdo(__int64 a1, _QWORD *a2)

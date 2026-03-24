@@ -1,22 +1,16 @@
 /*
- * XREFs of ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C00A9680
+ * XREFs of ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C007CD10
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C00A8AE8 (MultiUserNtGreCleanup.c)
+ *     MultiUserNtGreCleanup @ 0x1C007D498 (MultiUserNtGreCleanup.c)
  * Callees:
- *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C41C (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePagedLookasideList @ 0x1C007DB20 (Win32FreePagedLookasideList.c)
  */
 
-void __fastcall RGNMEMOBJ::vDestroyScanLookAsideList(__int64 a1)
+void RGNMEMOBJ::vDestroyScanLookAsideList(void)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v1; // rcx
-  __int64 v2; // rbx
-  char *v3; // rdx
-
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = *(char **)(v2 + 6376);
-  if ( v3 )
+  if ( RGNMEMOBJ::s_pSCANLookAsideList )
   {
-    NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v1, v3);
-    *(_QWORD *)(v2 + 6376) = 0LL;
+    Win32FreePagedLookasideList();
+    RGNMEMOBJ::s_pSCANLookAsideList = 0LL;
   }
 }

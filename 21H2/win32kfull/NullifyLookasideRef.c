@@ -1,10 +1,10 @@
 /*
- * XREFs of NullifyLookasideRef @ 0x1C021B890
+ * XREFs of NullifyLookasideRef @ 0x1C0221750
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     MNFlushDestroyedPopups @ 0x1C021BC20 (MNFlushDestroyedPopups.c)
- *     xxxMNEndMenuState @ 0x1C021BF30 (xxxMNEndMenuState.c)
- *     xxxMNStartMenuState @ 0x1C021C5F4 (xxxMNStartMenuState.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     MNFlushDestroyedPopups @ 0x1C0221AF0 (MNFlushDestroyedPopups.c)
+ *     xxxMNEndMenuState @ 0x1C0222200 (xxxMNEndMenuState.c)
+ *     xxxMNStartMenuState @ 0x1C0222A90 (xxxMNStartMenuState.c)
  * Callees:
  *     <none>
  */

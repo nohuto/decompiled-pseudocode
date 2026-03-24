@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddRef@CHolographicExclusivePresentData@@W7EAAKXZ @ 0x180121A20
+ * XREFs of ?AddRef@CHolographicExclusivePresentData@@W7EAAKXZ @ 0x1800F5FA0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int __fastcall CHolographicExclusivePresentData::AddRef(__int64 a1)
+__int64 __fastcall CHolographicExclusivePresentData::AddRef(__int64 a1)
 {
-  return CSpectreCallbackRenderer::AddRef((CSpectreCallbackRenderer *)(a1 - 8));
+  return CInteraction::AddRef((CInteraction *)(a1 - 8));
 }

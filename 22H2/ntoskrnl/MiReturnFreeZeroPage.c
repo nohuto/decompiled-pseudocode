@@ -1,44 +1,51 @@
 /*
- * XREFs of MiReturnFreeZeroPage @ 0x1402E7F74
+ * XREFs of MiReturnFreeZeroPage @ 0x1402836D0
  * Callers:
- *     MiMigratePfn @ 0x140262FC0 (MiMigratePfn.c)
- *     MiGetPerfectColorHeadPage @ 0x14026DAF0 (MiGetPerfectColorHeadPage.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiFreeLargeInitializationCodePages @ 0x14039386C (MiFreeLargeInitializationCodePages.c)
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MiDemoteSlabEntry @ 0x1403CCD8C (MiDemoteSlabEntry.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1406518C4 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14065D730 (MiMakeVaRangePhysicallyContiguous.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660478 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1406608C8 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiGetPage @ 0x1402135D0 (MiGetPage.c)
+ *     MiMigratePfn @ 0x1402185B0 (MiMigratePfn.c)
+ *     MiCoalesceFreePages @ 0x140235610 (MiCoalesceFreePages.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1402EC698 (MiGetPerfectColorHeadPage.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140384A30 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiFreeLargeInitializationCodePages @ 0x1403BCC20 (MiFreeLargeInitializationCodePages.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x140551EB4 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402837A0 (MiIsFreeZeroPfnCold.c)
  */
 
-void __fastcall MiReturnFreeZeroPage(__int64 a1)
+__int64 __fastcall MiReturnFreeZeroPage(__int64 a1)
 {
-  char v1; // al
+  char v3; // cl
+  char v4; // al
   int IsFreeZeroPfnCold; // eax
-  __int16 v3; // r8
-  ULONG_PTR v4; // r9
-  __int16 v5; // r10
-  __int16 v6; // dx
+  __int16 v6; // r8
+  ULONG_PTR v7; // r10
+  __int16 v8; // r11
+  __int16 v9; // dx
 
-  if ( (*(_BYTE *)(a1 + 34) & 7) == 6 )
-    *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
+  v3 = *(_BYTE *)(a1 + 34);
+  if ( (v3 & 7) == 6 )
+  {
+    *(_BYTE *)(a1 + 34) = v3 & 0xF8 | 5;
+    v3 = *(_BYTE *)(a1 + 34);
+  }
   *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
-  v1 = *(_BYTE *)(a1 + 34) & 0xC7;
+  v4 = *(_BYTE *)(a1 + 35) & 0xDF;
+  *(_BYTE *)(a1 + 34) = v3 & 0xC7;
+  *(_BYTE *)(a1 + 35) = v4;
   *(_WORD *)(a1 + 32) = 0;
-  *(_BYTE *)(a1 + 34) = v1;
-  *(_BYTE *)(a1 + 35) &= ~0x20u;
-  *(_BYTE *)(a1 + 35) &= ~0x10u;
+  *(_BYTE *)(a1 + 35) = v4 & 0xEF;
   *(_QWORD *)(a1 + 24) &= 0xC000000000000000uLL;
-  IsFreeZeroPfnCold = MiIsFreeZeroPfnCold(a1);
-  v6 = v3 | 0x400;
+  IsFreeZeroPfnCold = MiIsFreeZeroPfnCold(
+                        a1,
+                        (unsigned __int128)((a1 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
+                        (unsigned int)((*(_DWORD *)(a1 + 16) & 0x3E0) != 0LL) + 1,
+                        a1);
+  v9 = v6 | 0x400;
   if ( !IsFreeZeroPfnCold )
-    v6 = v3;
-  MiInsertPageInFreeOrZeroedList(v4, v5 | v6);
+    v9 = v6;
+  return MiInsertPageInFreeOrZeroedList(v7, v8 | v9);
 }

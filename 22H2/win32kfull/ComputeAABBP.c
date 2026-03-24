@@ -1,9 +1,9 @@
 /*
- * XREFs of ComputeAABBP @ 0x1C025AFC8
+ * XREFs of ComputeAABBP @ 0x1C001D83C
  * Callers:
- *     SetupAAHeader @ 0x1C025B898 (SetupAAHeader.c)
+ *     SetupAAHeader @ 0x1C001CDD8 (SetupAAHeader.c)
  * Callees:
- *     IntersectRECTL @ 0x1C0251320 (IntersectRECTL.c)
+ *     IntersectRECTL @ 0x1C001DC54 (IntersectRECTL.c)
  */
 
 __int64 __fastcall ComputeAABBP(__int128 *a1, __int64 a2, __m128i *a3, int a4)
@@ -25,259 +25,261 @@ __int64 __fastcall ComputeAABBP(__int128 *a1, __int64 a2, __m128i *a3, int a4)
   int v19; // r9d
   int v20; // edx
   int v21; // edx
-  int v22; // r8d
-  char v23; // al
-  int v24; // r15d
-  __int64 (__fastcall *v25)(int, int, int, int, int); // rax
-  __int64 (__fastcall *v26)(); // r8
-  __int64 (__fastcall *v27)(); // rdx
-  void *v28; // r10
-  bool v29; // zf
+  __int64 (__fastcall *v22)(int, int, int, int, int, int, int, __int64, __int64, int); // r8
+  int v23; // r15d
+  char v24; // al
+  int v25; // ecx
+  __int64 (__fastcall *v26)(); // r9
+  __int64 (__fastcall *v27)(int, int, int, int, int); // rax
+  __int64 (__fastcall *v28)(); // rdx
+  __int64 (__fastcall *v29)(); // rcx
   int v30; // eax
   int v31; // eax
-  int v32; // eax
-  __int32 v33; // ecx
-  __int32 v34; // eax
-  int v35; // edx
-  int v36; // ecx
-  __m128i v37; // xmm0
+  bool v32; // zf
+  int v33; // eax
+  __m128i v34; // xmm0
   __int64 result; // rax
-  __m128i v39; // [rsp+28h] [rbp-99h] BYREF
-  int v40; // [rsp+38h] [rbp-89h]
-  __int128 v41; // [rsp+48h] [rbp-79h]
-  __m128i v42; // [rsp+58h] [rbp-69h]
-  __m128i v43; // [rsp+68h] [rbp-59h]
-  __int128 v44; // [rsp+78h] [rbp-49h] BYREF
-  __int128 v45; // [rsp+88h] [rbp-39h] BYREF
-  __int128 v46; // [rsp+98h] [rbp-29h]
-  __int64 v47; // [rsp+A8h] [rbp-19h]
-  int v48[2]; // [rsp+B8h] [rbp-9h] BYREF
-  __int128 v49; // [rsp+C0h] [rbp-1h]
-  int v50; // [rsp+128h] [rbp+67h]
+  __int32 v36; // ecx
+  __int32 v37; // eax
+  int v38; // edx
+  int v39; // ecx
+  __m128i v40; // [rsp+28h] [rbp-99h] BYREF
+  int v41; // [rsp+38h] [rbp-89h]
+  __int128 v42; // [rsp+48h] [rbp-79h]
+  __m128i v43; // [rsp+58h] [rbp-69h]
+  __m128i v44; // [rsp+68h] [rbp-59h]
+  __int128 v45; // [rsp+78h] [rbp-49h] BYREF
+  __int128 v46; // [rsp+88h] [rbp-39h] BYREF
+  __int128 v47; // [rsp+98h] [rbp-29h]
+  __int64 v48; // [rsp+A8h] [rbp-19h]
+  _DWORD v49[2]; // [rsp+B8h] [rbp-9h] BYREF
+  __int128 v50; // [rsp+C0h] [rbp-1h]
+  int v51; // [rsp+128h] [rbp+67h]
 
   v5 = a3->m128i_i32[0];
   v6 = a1[4];
   v7 = (__m128i)a1[1];
-  v41 = *a1;
+  v42 = *a1;
   v8 = (__m128i)a1[2];
-  v44 = a1[3];
+  v45 = a1[3];
   v9 = _mm_cvtsi128_si32(v8);
-  v46 = a1[5];
-  v43 = v8;
+  v47 = a1[5];
+  v44 = v8;
   v10 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 8));
-  v45 = v6;
+  v46 = v6;
   *(_QWORD *)&v6 = *((_QWORD *)a1 + 12);
-  v42 = v7;
-  v47 = v6;
-  v43.m128i_i32[2] = v10;
-  v43.m128i_i32[0] = v9;
+  v43 = v7;
+  v48 = v6;
+  v44.m128i_i32[2] = v10;
+  v44.m128i_i32[0] = v9;
   if ( v10 < v9 )
   {
-    v43.m128i_i32[0] = v10;
-    v43.m128i_i32[2] = v9;
+    v44.m128i_i32[0] = v10;
+    v44.m128i_i32[2] = v9;
     v9 = v10;
-    v8 = v43;
-    v10 = v43.m128i_i32[2];
+    v8 = v44;
+    v10 = v44.m128i_i32[2];
     v5 |= 1u;
   }
   v11 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 12));
   v12 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 4));
-  v43.m128i_i32[3] = v11;
-  v43.m128i_i32[1] = v12;
+  v44.m128i_i32[3] = v11;
+  v44.m128i_i32[1] = v12;
   if ( v11 < v12 )
   {
-    v43.m128i_i32[1] = v11;
-    v43.m128i_i32[3] = v12;
+    v44.m128i_i32[1] = v11;
+    v44.m128i_i32[3] = v12;
     v12 = v11;
-    v8 = v43;
-    v11 = v43.m128i_i32[3];
+    v8 = v44;
+    v11 = v44.m128i_i32[3];
     v5 |= 2u;
   }
   v13 = _mm_cvtsi128_si32(v7);
   v14 = _mm_cvtsi128_si32(_mm_srli_si128(v7, 8));
-  v42.m128i_i32[0] = v13;
-  v42.m128i_i32[2] = v14;
+  v43.m128i_i32[0] = v13;
+  v43.m128i_i32[2] = v14;
   if ( v14 < v13 )
   {
-    v42.m128i_i32[0] = v14;
-    v42.m128i_i32[2] = v13;
+    v43.m128i_i32[0] = v14;
+    v43.m128i_i32[2] = v13;
     v13 = v14;
-    v7 = v42;
-    v14 = v42.m128i_i32[2];
+    v7 = v43;
+    v14 = v43.m128i_i32[2];
     v5 ^= 1u;
   }
   v15 = _mm_cvtsi128_si32(_mm_srli_si128(v7, 12));
   v16 = _mm_cvtsi128_si32(_mm_srli_si128(v7, 4));
-  v42.m128i_i32[3] = v15;
-  v42.m128i_i32[1] = v16;
+  v43.m128i_i32[3] = v15;
+  v43.m128i_i32[1] = v16;
   if ( v15 < v16 )
   {
-    v42.m128i_i32[1] = v15;
-    v42.m128i_i32[3] = v16;
+    v43.m128i_i32[1] = v15;
+    v43.m128i_i32[3] = v16;
     v16 = v15;
-    v7 = v42;
-    v15 = v42.m128i_i32[3];
+    v7 = v43;
+    v15 = v43.m128i_i32[3];
     v5 ^= 2u;
   }
   if ( v13 >= v14 || v16 >= v15 || v9 >= v10 || v12 >= v11 )
     return 0LL;
   v17 = v14 - v13;
-  a3[8].m128i_i64[0] = v46;
+  a3[8].m128i_i64[0] = v47;
   v18 = v11 - v12;
-  v50 = v10 - v9;
+  v51 = v10 - v9;
   v19 = v15 - v16;
-  v40 = v11 - v12;
+  v41 = v11 - v12;
   if ( (1000 * (v10 - v9) + 500) / v17 > 667 && (1000 * v18 + 500) / v19 > 667 )
     v5 |= 0x40u;
   v20 = 524304;
-  if ( v50 * v18 >= v17 * v19 )
+  if ( v51 * v18 >= v17 * v19 )
     v20 = 8;
   v21 = v5 | v20;
+  v22 = BuildBltAAInfo;
   if ( v19 == v18 )
   {
-    v22 = a4;
+    v25 = a4;
     a3[2].m128i_i64[1] = (__int64)BltMask_CY;
-    a3[1].m128i_i64[1] = (__int64)BuildBltAAInfo;
-    v23 = 1;
     a3[3].m128i_i64[1] = (__int64)BltAV_CY;
-LABEL_32:
-    v24 = v21;
-    goto LABEL_33;
+    v24 = 1;
+    a3[1].m128i_i64[1] = (__int64)BuildBltAAInfo;
+LABEL_43:
+    v23 = v21;
+    goto LABEL_24;
   }
   if ( v19 >= v18 )
   {
-    v22 = a4;
+    a3[1].m128i_i64[1] = (__int64)BuildShrinkAAInfo;
+    v25 = a4;
     a3[2].m128i_i64[1] = (__int64)ShrinkMask_CY;
     a3[3].m128i_i64[1] = (__int64)ShrinkAV_CY;
-    a3[1].m128i_i64[1] = (__int64)BuildShrinkAAInfo;
-    if ( v50 >= v17 || (v23 = 3, a4) )
-      v23 = 2;
-    goto LABEL_32;
+    if ( v51 >= v17 || (v24 = 3, a4) )
+      v24 = 2;
+    goto LABEL_43;
   }
-  a3[1].m128i_i64[1] = (__int64)BuildExpandAAInfo;
   a3[2].m128i_i64[1] = (__int64)ExpandMask_CY;
   a3[3].m128i_i64[1] = (__int64)ExpandAV_CY;
-  v24 = v21;
-  if ( v50 <= v17 )
+  a3[1].m128i_i64[1] = (__int64)BuildExpandAAInfo;
+  v23 = v21;
+  if ( v51 <= v17 )
   {
-    v23 = 4;
+    v24 = 4;
   }
   else
   {
-    if ( (v21 & 0x200) == 0 && 5 * v19 >= v40 && 5 * v17 >= v50 )
-      v24 = v21 | 0x4000;
-    v23 = 5;
+    if ( (v21 & 0x200) == 0 && 5 * v19 >= v41 && 5 * v17 >= v51 )
+      v23 = v21 | 0x4000;
+    v24 = 5;
   }
-  v22 = a4;
-LABEL_33:
-  a3->m128i_i8[4] = v23;
-  if ( v17 == v50 )
+  v25 = a4;
+LABEL_24:
+  v26 = BltMask_CX;
+  a3->m128i_i8[4] = v24;
+  if ( v17 == v51 )
   {
     a3->m128i_i8[5] = 0;
-    v25 = GrayCopyDIB_CX;
-    if ( !v22 )
-      v25 = (__int64 (__fastcall *)(int, int, int, int, int))CopyDIB_CX;
-    v26 = BltMask_CX;
-    v27 = BltAV_CX;
-    v28 = BuildBltAAInfo;
+    v27 = GrayCopyDIB_CX;
+    if ( !v25 )
+      v27 = CopyDIB_CX;
+    v29 = BltAV_CX;
+    v28 = BltMask_CX;
   }
-  else if ( v17 >= v50 )
+  else if ( v17 >= v51 )
   {
     a3->m128i_i8[5] = 1;
-    v24 |= 0x2000u;
-    v25 = (__int64 (__fastcall *)(int, int, int, int, int))GrayShrinkDIB_CX;
-    v29 = v22 == 0;
-    v28 = BuildShrinkAAInfo;
-    v26 = ShrinkMask_CX;
-    if ( v29 )
-      v25 = ShrinkDIB_CX;
-    v27 = ShrinkAV_CX;
+    v23 |= 0x2000u;
+    v27 = GrayShrinkDIB_CX;
+    v32 = v25 == 0;
+    v22 = (__int64 (__fastcall *)(int, int, int, int, int, int, int, __int64, __int64, int))BuildShrinkAAInfo;
+    v29 = ShrinkAV_CX;
+    if ( v32 )
+      v27 = ShrinkDIB_CX;
+    v28 = ShrinkMask_CX;
   }
   else
   {
     a3->m128i_i8[5] = 2;
-    v25 = GrayExpandDIB_CX;
-    if ( !v22 )
-      v25 = ExpandDIB_CX;
-    v28 = BuildExpandAAInfo;
-    v27 = ExpandAV_CX;
-    v26 = ExpandMask_CX;
+    v27 = GrayExpandDIB_CX;
+    if ( !v25 )
+      v27 = ExpandDIB_CX;
+    v22 = BuildExpandAAInfo;
+    v28 = ExpandMask_CX;
+    v29 = ExpandAV_CX;
   }
-  a3[2].m128i_i64[0] = (__int64)v26;
-  a3[3].m128i_i64[0] = (__int64)v27;
-  a3[1].m128i_i64[0] = (__int64)v28;
-  a3->m128i_i64[1] = (__int64)v25;
-  if ( (v41 & 0x40) != 0 )
+  a3[2].m128i_i64[0] = (__int64)v28;
+  a3[3].m128i_i64[0] = (__int64)v29;
+  a3[1].m128i_i64[0] = (__int64)v22;
+  a3->m128i_i64[1] = (__int64)v27;
+  if ( (v42 & 0x40) != 0 )
   {
-    a3[2].m128i_i64[0] = (__int64)BltMask_CX;
+    a3[3].m128i_i64[0] = 0LL;
+    a3->m128i_i64[1] = 0LL;
     a3[2].m128i_i64[1] = (__int64)BltMask_CY;
     a3[3].m128i_i64[1] = (__int64)TileAV_CY;
     a3[1].m128i_i64[0] = (__int64)BuildTileAAInfo;
     a3[1].m128i_i64[1] = (__int64)BuildTileAAInfo;
     a3->m128i_i8[4] = 0;
-    a3[3].m128i_i64[0] = 0LL;
-    a3->m128i_i64[1] = 0LL;
+    a3[2].m128i_i64[0] = (__int64)BltMask_CX;
   }
-  v30 = DWORD2(v46) - v13;
-  a3->m128i_i32[0] = v24;
+  v30 = DWORD2(v47) - v13;
+  a3->m128i_i32[0] = v23;
   a3[8].m128i_i32[2] = v30;
-  v31 = HIDWORD(v46) - v16;
-  v29 = (v41 & 1) == 0;
+  v31 = HIDWORD(v47) - v16;
+  v32 = (v42 & 1) == 0;
   a3[4] = v7;
   a3[8].m128i_i32[3] = v31;
-  v39 = v8;
-  if ( !v29 && !IntersectRECTL(v39.m128i_i32, (int *)&v44) )
+  v40 = v8;
+  if ( !v32 && !(unsigned int)IntersectRECTL(&v40, &v45, v22, BltMask_CX) )
     return 0LL;
-  if ( (v41 & 0x10) != 0 )
+  if ( (v42 & 0x10) != 0 )
   {
-    if ( !IntersectRECTL(v39.m128i_i32, (int *)&v45) )
+    if ( !(unsigned int)IntersectRECTL(&v40, &v46, v22, v26) )
       return 0LL;
-    v9 -= v45;
-    v32 = DWORD1(v45);
-    v10 -= v45;
-    v39.m128i_i32[0] -= v45;
-    v12 -= DWORD1(v45);
-    v39.m128i_i32[2] -= v45;
-    v11 -= DWORD1(v45);
-    v39.m128i_i32[1] -= DWORD1(v45);
-    v39.m128i_i32[3] -= DWORD1(v45);
-    a3[8].m128i_i32[0] -= v45;
-    a3[8].m128i_i32[1] -= v32;
-    v43.m128i_i32[0] = v9;
-    *(__int64 *)((char *)v43.m128i_i64 + 4) = __PAIR64__(v10, v12);
-    v43.m128i_i32[3] = v11;
-    v8 = v43;
+    v9 -= v46;
+    v33 = DWORD1(v46);
+    v10 -= v46;
+    v40.m128i_i32[0] -= v46;
+    v12 -= DWORD1(v46);
+    v40.m128i_i32[2] -= v46;
+    v11 -= DWORD1(v46);
+    v40.m128i_i32[1] -= DWORD1(v46);
+    v40.m128i_i32[3] -= DWORD1(v46);
+    a3[8].m128i_i32[0] -= v46;
+    a3[8].m128i_i32[1] -= v33;
+    v44.m128i_i32[0] = v9;
+    *(__int64 *)((char *)v44.m128i_i64 + 4) = __PAIR64__(v10, v12);
+    v44.m128i_i32[3] = v11;
+    v8 = v44;
   }
-  v48[1] = 0;
-  v48[0] = 0;
-  *(_QWORD *)&v49 = *(_QWORD *)(a2 + 12);
-  if ( !IntersectRECTL(v39.m128i_i32, v48) )
+  v49[1] = 0;
+  v49[0] = 0;
+  *(_QWORD *)&v50 = *(_QWORD *)(a2 + 12);
+  if ( !(unsigned int)IntersectRECTL(&v40, v49, v22, v26) )
     return 0LL;
-  if ( (v24 & 1) != 0 )
+  if ( (v23 & 1) != 0 )
   {
-    v33 = v39.m128i_i32[2] - v39.m128i_i32[0];
-    v39.m128i_i32[0] = v10 - v39.m128i_i32[2];
-    v34 = v33 + v10 - v39.m128i_i32[2];
+    v36 = v40.m128i_i32[2] - v40.m128i_i32[0];
+    v40.m128i_i32[0] = v10 - v40.m128i_i32[2];
+    v37 = v36 + v10 - v40.m128i_i32[2];
     a3[7].m128i_i32[0] = v10;
-    v43.m128i_i32[0] = 0;
-    v43.m128i_i32[2] = v10 - v9;
-    v8 = v43;
-    v39.m128i_i32[2] = v34;
+    v44.m128i_i32[0] = 0;
+    v44.m128i_i32[2] = v10 - v9;
+    v8 = v44;
+    v40.m128i_i32[2] = v37;
   }
-  if ( (v24 & 2) != 0 )
+  if ( (v23 & 2) != 0 )
   {
-    v35 = v39.m128i_i32[3] - v39.m128i_i32[1];
-    v39.m128i_i32[1] = v11 - v39.m128i_i32[3];
-    v36 = v35 + v11 - v39.m128i_i32[3];
+    v38 = v40.m128i_i32[3] - v40.m128i_i32[1];
+    v40.m128i_i32[1] = v11 - v40.m128i_i32[3];
+    v39 = v38 + v11 - v40.m128i_i32[3];
     a3[7].m128i_i32[1] = v11;
-    v43.m128i_i32[1] = 0;
-    v43.m128i_i32[3] = v11 - v12;
-    v8 = v43;
-    v39.m128i_i32[3] = v36;
+    v44.m128i_i32[1] = 0;
+    v44.m128i_i32[3] = v11 - v12;
+    v8 = v44;
+    v40.m128i_i32[3] = v39;
   }
-  v37 = v39;
+  v34 = v40;
   result = 1LL;
   a3[6] = v8;
-  a3[5] = v37;
+  a3[5] = v34;
   return result;
 }

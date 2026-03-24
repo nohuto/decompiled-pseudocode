@@ -1,12 +1,11 @@
 /*
- * XREFs of ?InitializeVirtualGpuManager@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z @ 0x1C0371860
+ * XREFs of ?InitializeVirtualGpuManager@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z @ 0x1C0237C10
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?DdiSetGpuPartitionCount@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z @ 0x1C036D914 (-DdiSetGpuPartitionCount@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?DdiSetGpuPartitionCount@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z @ 0x1C0234DC8 (-DdiSetGpuPartitionCount@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETGPUPARTITIONCOUNT@@@Z.c)
  */
 
 __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::InitializeVirtualGpuManager(
@@ -14,48 +13,45 @@ __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::InitializeVirtualGpuManager(
         struct _DXGKARG_SETGPUPARTITIONCOUNT *a2,
         __int64 a3)
 {
-  void **v6; // rdi
-  unsigned __int64 v7; // rax
-  __int64 v8; // rax
-  int v9; // esi
+  __int64 v5; // rax
+  SIZE_T v7; // rax
+  PVOID v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r9
+  __int64 v12; // rax
+  int v13; // edi
 
   if ( *((_DWORD *)this + 4) )
   {
-    WdLogSingleEntry1(3LL, 400LL);
+    v5 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v5 + 24) = 374LL;
+    WdLogEvent5_WdWarning(v5);
     return 3221225485LL;
   }
-  v6 = (void **)((char *)this + 24);
   if ( a2->PartitionCount != *((_DWORD *)this + 3) )
   {
-    operator delete(*v6);
+    operator delete[](*((void **)this + 3));
     v7 = 8LL * a2->PartitionCount;
     if ( !is_mul_ok(a2->PartitionCount, 8uLL) )
       v7 = -1LL;
-    v8 = operator new[](v7, 0x4B677844u, 256LL);
-    *v6 = (void *)v8;
+    v8 = operator new(v7, 0x4B677844u, 1, PagedPool);
+    *((_QWORD *)this + 3) = v8;
     if ( !v8 )
     {
-      WdLogSingleEntry1(6LL, 410LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate memory for virtual GPUs",
-        410LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v12 = WdLogNewEntry5_WdLowResource(v10, v9, a3, v11);
+      *(_QWORD *)(v12 + 24) = 384LL;
+      WdLogEvent5_WdLowResource(v12);
       return 3221225495LL;
     }
     *((struct _DXGKARG_SETGPUPARTITIONCOUNT *)this + 3) = (struct _DXGKARG_SETGPUPARTITIONCOUNT)a2->PartitionCount;
   }
-  v9 = ADAPTER_RENDER::DdiSetGpuPartitionCount(*((ADAPTER_RENDER **)this + 4), a2, a3);
-  if ( v9 < 0 )
+  v13 = ADAPTER_RENDER::DdiSetGpuPartitionCount(*((ADAPTER_RENDER **)this + 4), a2, a3);
+  if ( v13 < 0 )
   {
-    operator delete(*v6);
+    operator delete[](*((void **)this + 3));
     *((_DWORD *)this + 3) = 0;
-    *v6 = 0LL;
+    *((_QWORD *)this + 3) = 0LL;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v13;
 }

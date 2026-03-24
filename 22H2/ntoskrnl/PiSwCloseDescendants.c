@@ -1,54 +1,39 @@
 /*
- * XREFs of PiSwCloseDescendants @ 0x14086A2DC
+ * XREFs of PiSwCloseDescendants @ 0x14074BCE8
  * Callers:
- *     PiSwIrpCleanup @ 0x14081CA34 (PiSwIrpCleanup.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
- *     PiSwProcessParentRemoveIrp @ 0x14086A324 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwProcessParentRemoveIrp @ 0x14074BC04 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwCloseDescendants @ 0x14074BCE8 (PiSwCloseDescendants.c)
+ *     PiSwIrpCleanup @ 0x1407734BC (PiSwIrpCleanup.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x140561388 (McTemplateK0z_EtwWriteTransfer.c)
- *     PiSwFindBusRelations @ 0x140798874 (PiSwFindBusRelations.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
- *     PiSwCloseDevice @ 0x140967170 (PiSwCloseDevice.c)
+ *     PiSwIsPdoAssociationsEmpty @ 0x1405CEF0C (PiSwIsPdoAssociationsEmpty.c)
+ *     PiSwCloseDevice @ 0x140734D40 (PiSwCloseDevice.c)
+ *     PiSwFindBusRelations @ 0x140743524 (PiSwFindBusRelations.c)
+ *     PiSwCloseDescendants @ 0x14074BCE8 (PiSwCloseDescendants.c)
  */
 
-int __fastcall PiSwCloseDescendants(__int64 a1, char a2)
+void __fastcall PiSwCloseDescendants(__int64 a1, char a2)
 {
   _QWORD *BusRelations; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  _QWORD *v8; // rdi
-  _QWORD **v9; // rdi
-  _QWORD *v10; // rbx
-  _QWORD *v11; // rsi
+  __int64 v4; // rdx
+  _QWORD *v5; // rdi
+  _QWORD *v6; // rbx
+  _DWORD *v7; // rsi
 
   BusRelations = PiSwFindBusRelations(a1);
-  v8 = BusRelations;
   if ( BusRelations )
   {
-    if ( (byte_140C0E20C & 8) != 0 )
-      LODWORD(BusRelations) = McTemplateK0z_EtwWriteTransfer(
-                                v6,
-                                (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_CloseDescendants,
-                                v7,
-                                *(const wchar_t **)(a1 + 8));
-    v9 = (_QWORD **)(v8 + 2);
-    v10 = *v9;
-    while ( v10 != v9 )
+    v5 = BusRelations + 2;
+    v6 = (_QWORD *)BusRelations[2];
+    while ( v6 != v5 )
     {
-      v11 = v10 - 12;
-      v10 = (_QWORD *)*v10;
-      LODWORD(BusRelations) = *((_DWORD *)v11 + 1);
-      if ( ((unsigned __int8)BusRelations & 1) == 0 )
+      v7 = v6 - 12;
+      v6 = (_QWORD *)*v6;
+      if ( (v7[1] & 1) == 0 && (!a2 || PiSwIsPdoAssociationsEmpty((__int64)v7)) )
       {
-        if ( !a2 || (BusRelations = v11 + 16, (_QWORD *)*BusRelations == BusRelations) )
-        {
-          LOBYTE(v5) = a2;
-          PiSwCloseDescendants(v11 + 9, v5);
-          LODWORD(BusRelations) = PiSwCloseDevice(v11);
-        }
+        LOBYTE(v4) = a2;
+        PiSwCloseDescendants(v7 + 18, v4);
+        PiSwCloseDevice(v7);
       }
     }
   }
-  return (int)BusRelations;
 }

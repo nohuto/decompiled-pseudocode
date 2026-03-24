@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4BA0
+ * XREFs of ?GetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EB10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4C0C (-GetProperty@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExp.c)
+ *     ?GetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EB80 (-GetProperty@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExp.c)
  */
 
 __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRoughnessMaterial,CScenePbrMaterial>::GetProperty(
-        const __m128i *a1,
+        __int64 a1,
         __int64 a2,
         __m128i *a3)
 {
@@ -19,15 +19,15 @@ __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRough
   switch ( (_DWORD)a2 )
   {
     case 0xA:
-      v5 = _mm_loadu_si128(a1 + 9);
+      v5 = _mm_loadu_si128((const __m128i *)(a1 + 136));
       a3[4].m128i_i32[2] = 69;
       *a3 = v5;
       goto LABEL_9;
     case 0xB:
-      v4 = a1[10].m128i_i32[0];
+      v4 = *(_DWORD *)(a1 + 152);
       goto LABEL_6;
     case 0xD:
-      v4 = a1[10].m128i_i32[1];
+      v4 = *(_DWORD *)(a1 + 156);
 LABEL_6:
       a3->m128i_i32[0] = v4;
       a3[4].m128i_i32[2] = 18;

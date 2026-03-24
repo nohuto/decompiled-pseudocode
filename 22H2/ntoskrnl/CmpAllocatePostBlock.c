@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpAllocatePostBlock @ 0x1407678F8
+ * XREFs of CmpAllocatePostBlock @ 0x1406DC750
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x140767040 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
+_DWORD *__fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
 {
-  unsigned int v7; // esi
-  __int64 Pool2; // rdi
+  POOL_TYPE v8; // esi
+  _DWORD *PoolWithQuotaTag; // rdi
   struct _KEVENT *v10; // rax
   int v11; // ebx
-  __int64 v13; // rax
+  _QWORD *v13; // rax
   _QWORD *v14; // rax
 
-  v7 = 257;
-  Pool2 = ExAllocatePool2(257LL, 72LL, 1651526979LL);
-  if ( Pool2 )
+  v8 = 9;
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x48uLL, 0x62704D43u);
+  if ( PoolWithQuotaTag )
   {
-    *(_DWORD *)(Pool2 + 56) = a2 | a1;
+    PoolWithQuotaTag[14] = a2 | a1;
     if ( ((a2 | a1) & 0x10000) != 0 )
     {
-      *(_QWORD *)(Pool2 + 48) = 0LL;
+      *((_QWORD *)PoolWithQuotaTag + 6) = 0LL;
       if ( (unsigned int)(a1 - 3) > 1 )
-        v7 = 65;
-      v10 = (struct _KEVENT *)ExAllocatePool2(v7, 112LL, 875842883LL);
-      *(_QWORD *)(Pool2 + 64) = v10;
+        v8 = 520;
+      v10 = (struct _KEVENT *)ExAllocatePoolWithQuotaTag(v8, 0x70uLL, 0x34344D43u);
+      *((_QWORD *)PoolWithQuotaTag + 8) = v10;
       if ( v10 )
       {
         v11 = a1 - 1;
@@ -44,24 +44,24 @@ __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
         {
           KeInitializeEvent(v10, SynchronizationEvent, 0);
         }
-        return Pool2;
+        return PoolWithQuotaTag;
       }
     }
     else
     {
-      *(_QWORD *)(Pool2 + 64) = *(_QWORD *)(a4 + 64);
-      v13 = ExAllocatePool2(257LL, 24LL, 892620099LL);
-      *(_QWORD *)(Pool2 + 48) = v13;
+      *((_QWORD *)PoolWithQuotaTag + 8) = *(_QWORD *)(a4 + 64);
+      v13 = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x18uLL, 0x35344D43u);
+      *((_QWORD *)PoolWithQuotaTag + 6) = v13;
       if ( v13 )
       {
-        *(_QWORD *)(v13 + 16) = a3;
-        v14 = *(_QWORD **)(Pool2 + 48);
+        v13[2] = a3;
+        v14 = (_QWORD *)*((_QWORD *)PoolWithQuotaTag + 6);
         v14[1] = v14;
         *v14 = v14;
-        return Pool2;
+        return PoolWithQuotaTag;
       }
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    ExFreePoolWithTag(PoolWithQuotaTag, 0);
   }
   return 0LL;
 }

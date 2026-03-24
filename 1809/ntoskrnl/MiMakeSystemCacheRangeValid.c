@@ -1,7 +1,7 @@
 /*
  * XREFs of MiMakeSystemCacheRangeValid @ 0x14004B5A0
  * Callers:
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
@@ -18,19 +18,19 @@
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
- *     PfSnReferenceProcessTrace @ 0x1400D4A90 (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4BE4 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLoggingForThread @ 0x1400D5320 (PfSnCheckLoggingForThread.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7780 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PsGetCurrentProcess @ 0x1400F1310 (PsGetCurrentProcess.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BD8 (MiEmptyDeferredWorkingSetEntries.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7448 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C064 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
+ *     PfSnReferenceProcessTrace @ 0x1400D4AB0 (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLoggingForThread @ 0x1400D5340 (PfSnCheckLoggingForThread.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

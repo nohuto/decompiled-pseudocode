@@ -4,7 +4,7 @@
  *     ExpWnfDeleteScopeById @ 0x140608860 (ExpWnfDeleteScopeById.c)
  *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  */
 
 _QWORD *__fastcall ExpWnfFindScopeInstance(_QWORD **a1, const void *a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemCaptureState @ 0x140392DE8
+ * XREFs of WdipSemCaptureState @ 0x14039E9DC
  * Callers:
- *     WdipSemDisableContextProvider @ 0x140831FF4 (WdipSemDisableContextProvider.c)
+ *     WdipSemDisableContextProvider @ 0x140789870 (WdipSemDisableContextProvider.c)
  * Callees:
- *     WdipSemEnableDisableTrace @ 0x1408337F0 (WdipSemEnableDisableTrace.c)
+ *     WdipSemEnableDisableTrace @ 0x140789AC8 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemCaptureState(__int64 a1, char a2)

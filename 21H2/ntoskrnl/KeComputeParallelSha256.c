@@ -1,10 +1,10 @@
 /*
- * XREFs of KeComputeParallelSha256 @ 0x140569F80
+ * XREFs of KeComputeParallelSha256 @ 0x1403BD330
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptParallelSha256Init @ 0x1403FD7F4 (SymCryptParallelSha256Init.c)
- *     SymCryptParallelSha256Process @ 0x1403FD830 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Init @ 0x1403EF098 (SymCryptParallelSha256Init.c)
+ *     SymCryptParallelSha256Process @ 0x1403EF0D4 (SymCryptParallelSha256Process.c)
  */
 
 __int64 __fastcall KeComputeParallelSha256(__int64 a1, unsigned __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall KeComputeParallelSha256(__int64 a1, unsigned __int64 a2)
   _QWORD *v7; // rdx
 
   v3 = (a1 + 399) & 0xFFFFFFFFFFFFFFF0uLL;
-  SymCryptParallelSha256Init(v3, a2);
+  SymCryptParallelSha256Init(v3);
   v5 = 0LL;
   if ( a2 )
   {
@@ -36,5 +36,5 @@ __int64 __fastcall KeComputeParallelSha256(__int64 a1, unsigned __int64 a2)
     }
     while ( v5 < a2 );
   }
-  return SymCryptParallelSha256Process(v3, a2, (int)v3 + 1024, 2 * a2, v3 + 1664, 2926LL);
+  return SymCryptParallelSha256Process(v3, a2, (int)v3 + 1024, 2 * (int)a2, v3 + 1664, 2926LL);
 }

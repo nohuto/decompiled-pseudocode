@@ -1,19 +1,18 @@
 /*
- * XREFs of MmSecureVirtualMemory @ 0x1406A2410
+ * XREFs of MmSecureVirtualMemory @ 0x14061FD90
  * Callers:
- *     RtlFileMapMapView @ 0x1403CB4C0 (RtlFileMapMapView.c)
- *     DifMmSecureVirtualMemoryWrapper @ 0x1406177B0 (DifMmSecureVirtualMemoryWrapper.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     MmSecureVirtualMemoryEx @ 0x1406A2440 (MmSecureVirtualMemoryEx.c)
+ *     MmSecureVirtualMemoryEx @ 0x14061FC20 (MmSecureVirtualMemoryEx.c)
  */
 
 HANDLE __stdcall MmSecureVirtualMemory(PVOID Address, SIZE_T Size, ULONG ProbeMode)
 {
-  __int64 v4; // r8
+  int v4; // r8d
 
-  v4 = 4LL;
+  v4 = 4;
   if ( ProbeMode == 2 )
-    v4 = 2LL;
-  return (HANDLE)MmSecureVirtualMemoryEx(Address, Size, v4, 0LL);
+    v4 = 2;
+  return (HANDLE)MmSecureVirtualMemoryEx((unsigned __int64)Address, Size, v4, 0);
 }

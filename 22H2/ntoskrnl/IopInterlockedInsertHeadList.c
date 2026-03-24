@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInterlockedInsertHeadList @ 0x140374ECC
+ * XREFs of IopInterlockedInsertHeadList @ 0x1403C4BB8
  * Callers:
- *     IoRegisterLastChanceShutdownNotification @ 0x140811030 (IoRegisterLastChanceShutdownNotification.c)
- *     IoRegisterShutdownNotification @ 0x1408110B0 (IoRegisterShutdownNotification.c)
+ *     IoRegisterLastChanceShutdownNotification @ 0x1407BE920 (IoRegisterLastChanceShutdownNotification.c)
+ *     IoRegisterShutdownNotification @ 0x1407BE9A0 (IoRegisterShutdownNotification.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IopInterlockedInsertHeadList(__int64 *a1, _QWORD *a2)

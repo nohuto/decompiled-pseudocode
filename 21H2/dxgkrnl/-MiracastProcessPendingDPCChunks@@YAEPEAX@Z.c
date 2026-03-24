@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C0060D70
+ * XREFs of ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C00530D0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0060B54 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
+ *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0052EA8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
  */
 
 unsigned __int8 __fastcall MiracastProcessPendingDPCChunks(_WORD *a1)

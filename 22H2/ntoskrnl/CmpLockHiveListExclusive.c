@@ -1,24 +1,16 @@
 /*
- * XREFs of CmpLockHiveListExclusive @ 0x14074EEC4
+ * XREFs of CmpLockHiveListExclusive @ 0x14071C674
  * Callers:
- *     CmpUnJoinClassOfTrust @ 0x140207A48 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x14036DBCC (CmpJoinClassOfTrust.c)
+ *     CmpJoinClassOfTrust @ 0x14032CBB4 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x140360E0C (CmpUnJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpLoadHiveVolatile @ 0x14087CFAC (CmpLoadHiveVolatile.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 CmpLockHiveListExclusive()
+void CmpLockHiveListExclusive()
 {
-  __int64 result; // rax
-  __int64 v1; // rbx
-
-  result = KeAbPreAcquire((__int64)&CmpHiveListHeadLock, 0LL);
-  v1 = result;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpHiveListHeadLock, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(&CmpHiveListHeadLock, result, (__int64)&CmpHiveListHeadLock);
-  if ( v1 )
-    *(_BYTE *)(v1 + 18) = 1;
-  return result;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
 }

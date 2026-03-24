@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetDmaTransferInfo @ 0x140A85D30
+ * XREFs of VfGetDmaTransferInfo @ 0x1409CC080
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x140A88738 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaTransferInfo(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, __int64 a6)

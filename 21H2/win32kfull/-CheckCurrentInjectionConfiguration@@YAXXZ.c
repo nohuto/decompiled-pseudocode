@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01D59A8
+ * XREFs of ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01DB4C4
  * Callers:
- *     xxxInjectTouchInput @ 0x1C01D73EC (xxxInjectTouchInput.c)
- *     NtUserInitializeTouchInjection @ 0x1C01F7EC0 (NtUserInitializeTouchInjection.c)
+ *     xxxInjectTouchInput @ 0x1C01DCDAC (xxxInjectTouchInput.c)
+ *     NtUserInitializeTouchInjection @ 0x1C01FD9D0 (NtUserInitializeTouchInjection.c)
  * Callees:
- *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01D5FF0 (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
+ *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01DBB4C (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
  */
 
 void CheckCurrentInjectionConfiguration(void)

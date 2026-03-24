@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCreateRegistryPath @ 0x1408252D0
+ * XREFs of PiCreateRegistryPath @ 0x1408252B0
  * Callers:
- *     PiCreateDriverRedirectedStateKey @ 0x140757218 (PiCreateDriverRedirectedStateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407571F8 (PiCreateDriverRedirectedStateKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PnpConcatenateUnicodeStrings @ 0x14070F85C (PnpConcatenateUnicodeStrings.c)
+ *     PnpConcatenateUnicodeStrings @ 0x14070F83C (PnpConcatenateUnicodeStrings.c)
  */
 
 __int64 __fastcall PiCreateRegistryPath(UNICODE_STRING *SourceString, __int64 a2, void *a3, HANDLE *a4)

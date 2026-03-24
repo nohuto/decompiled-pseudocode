@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhSetHubSelectiveSuspend @ 0x1C0046450
+ * XREFs of UsbhSetHubSelectiveSuspend @ 0x1C00477D0
  * Callers:
- *     UsbhSetWmiDataBlock @ 0x1C0049660 (UsbhSetWmiDataBlock.c)
+ *     UsbhSetWmiDataBlock @ 0x1C004AA10 (UsbhSetWmiDataBlock.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhSetPdoRegistryParameter @ 0x1C0046494 (UsbhSetPdoRegistryParameter.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0047814 (UsbhSetPdoRegistryParameter.c)
  */
 
 __int64 __fastcall UsbhSetHubSelectiveSuspend(__int64 a1, char a2)

@@ -1,32 +1,31 @@
 /*
- * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x1407F1650
+ * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x1406EE9DC
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x1407F0E60 (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0EA0 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x1406EE99C (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1406EEAEC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepFreeCapturedTokenSecurityAttributesInformation(_QWORD *P)
 {
   PVOID *v1; // rbx
-  __int64 i; // rbp
+  unsigned int i; // ebp
+  unsigned __int16 v4; // ax
 
   v1 = (PVOID *)P[1];
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)P + 1); i = (unsigned int)(i + 1) )
+  for ( i = 0; i < *((_DWORD *)P + 1); ++i )
   {
     ExFreePoolWithTag(v1[5 * i + 1], 0);
-    if ( LODWORD(v1[5 * i + 3])
-      && (LOWORD(v1[5 * i + 2]) == 1
-       || LOWORD(v1[5 * i + 2]) == 2
-       || LOWORD(v1[5 * i + 2]) == 3
-       || LOWORD(v1[5 * i + 2]) == 4
-       || LOWORD(v1[5 * i + 2]) == 5
-       || LOWORD(v1[5 * i + 2]) == 6
-       || LOWORD(v1[5 * i + 2]) == 16) )
+    if ( LODWORD(v1[5 * i + 3]) )
     {
-      ExFreePoolWithTag(v1[5 * i + 4], 0);
+      v4 = (unsigned __int16)v1[5 * i + 2];
+      if ( v4 )
+      {
+        if ( v4 <= 6u || v4 == 16 )
+          ExFreePoolWithTag(v1[5 * i + 4], 0);
+      }
     }
   }
   if ( v1 )

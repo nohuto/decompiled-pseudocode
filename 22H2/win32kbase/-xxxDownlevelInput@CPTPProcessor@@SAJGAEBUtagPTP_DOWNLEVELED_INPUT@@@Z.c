@@ -1,56 +1,42 @@
 /*
- * XREFs of ?xxxDownlevelInput@CPTPProcessor@@SAJGAEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01E1258
+ * XREFs of ?xxxDownlevelInput@CPTPProcessor@@SAJGAEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01A82D8
  * Callers:
- *     NtUserDownlevelTouchpad @ 0x1C0143C90 (NtUserDownlevelTouchpad.c)
+ *     NtUserDownlevelTouchpad @ 0x1C012DFA0 (NtUserDownlevelTouchpad.c)
  * Callees:
- *     ?ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z @ 0x1C01D1E38 (-ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z.c)
- *     ?UnreferenceFrameExternal@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z @ 0x1C01D8680 (-UnreferenceFrameExternal@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z.c)
- *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01E1090 (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
+ *     ?ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z @ 0x1C019AC30 (-ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z.c)
+ *     ?UnreferenceFrameExternal@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z @ 0x1C019F990 (-UnreferenceFrameExternal@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z.c)
+ *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01A7C5C (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
  */
 
-__int64 __fastcall CPTPProcessor::xxxDownlevelInput(
-        __int64 a1,
-        const struct tagPTP_DOWNLEVELED_INPUT *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CPTPProcessor::xxxDownlevelInput(CTouchProcessor *a1, const struct tagPTP_DOWNLEVELED_INPUT *a2)
 {
-  struct tagTHREADINFO *v4; // rbx
-  unsigned __int16 v6; // si
-  __int64 v7; // rax
-  const struct CPointerInputFrame *v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  const struct CPointerInputFrame *v12; // rdi
-  __int64 v13; // rdx
-  unsigned int v14; // ebx
-  __int64 v15; // rax
+  struct tagTHREADINFO *v2; // rdi
+  __int16 v4; // si
+  const struct CPointerInputFrame *v5; // rax
+  const struct CPointerInputFrame *v6; // rbx
+  unsigned int v7; // edi
 
-  v4 = gptiCurrent;
-  v6 = a1;
-  v7 = SGDGetUserSessionState(a1, a2, a3, a4);
-  v8 = CTouchProcessor::ReferenceFrameFromId(*(CTouchProcessor **)(v7 + 3424), v6);
-  v12 = v8;
-  if ( v8 )
+  v2 = gptiCurrent;
+  v4 = (__int16)a1;
+  v5 = CTouchProcessor::ReferenceFrameFromId(a1, (unsigned __int16)a1);
+  v6 = v5;
+  if ( v5 )
   {
-    v13 = *((unsigned int *)v8 + 57);
-    if ( (v13 & 0x80u) == 0LL )
+    if ( (*((_DWORD *)v5 + 31) & 0x80u) == 0 )
     {
-      v14 = -1073741811;
-LABEL_6:
-      v15 = SGDGetUserSessionState(v9, v13, v10, v11);
-      CTouchProcessor::UnreferenceFrameExternal(*(CTouchProcessor **)(v15 + 3424), v12);
-      return v14;
+      v7 = -1073741811;
+      goto LABEL_6;
     }
-    *((_WORD *)v4 + 584) = v6;
-    *((_QWORD *)v4 + 147) = *((_QWORD *)v8 + 8);
+    *((_WORD *)v2 + 564) = v4;
+    *((_QWORD *)v2 + 142) = *((_QWORD *)v5 + 8);
   }
-  else if ( v6 != *((_WORD *)v4 + 584) )
+  else if ( v4 != *((_WORD *)v2 + 564) )
   {
     return (unsigned int)-1073741790;
   }
-  v14 = CPTPProcessor::xxxDownlevelInput(v8, a2);
-  if ( v12 )
-    goto LABEL_6;
-  return v14;
+  v7 = CPTPProcessor::xxxDownlevelInput(v5, a2);
+LABEL_6:
+  if ( v6 )
+    CTouchProcessor::UnreferenceFrameExternal(gpTouchProcessor, v6);
+  return v7;
 }

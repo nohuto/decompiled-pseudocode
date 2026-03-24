@@ -1,27 +1,36 @@
 /*
- * XREFs of MiUnlockSystemVa @ 0x1402EED60
+ * XREFs of MiUnlockSystemVa @ 0x14029277C
  * Callers:
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
- *     MiSynchronizeSystemVa @ 0x140261890 (MiSynchronizeSystemVa.c)
- *     MmCopyMemory @ 0x1402EDB50 (MmCopyMemory.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiUnlockStealVm @ 0x1403BD420 (MiUnlockStealVm.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
+ *     MiSystemFault @ 0x140291A80 (MiSystemFault.c)
+ *     MiSynchronizeSystemVa @ 0x1402922C0 (MiSynchronizeSystemVa.c)
+ *     MmCopyMemory @ 0x14030C030 (MmCopyMemory.c)
+ *     MiTranslatePageForCopy @ 0x14030C534 (MiTranslatePageForCopy.c)
+ *     MiUnlockStealVm @ 0x140336320 (MiUnlockStealVm.c)
+ *     MiReleaseFaultSynchronization @ 0x140548E04 (MiReleaseFaultSynchronization.c)
  * Callees:
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockFaultPageTable @ 0x1402927C8 (MiUnlockFaultPageTable.c)
  */
 
-__int64 __fastcall MiUnlockSystemVa(__int64 a1, __int64 a2)
+void __fastcall MiUnlockSystemVa(__int64 a1)
 {
-  _QWORD *v2; // rbx
-  __int64 result; // rax
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  unsigned __int8 v3; // dl
 
-  v2 = (_QWORD *)(a1 + 24);
-  if ( *(_QWORD *)(a1 + 24) )
+  v1 = a1 + 24;
+  v2 = *(_QWORD *)(a1 + 24);
+  if ( v2 )
   {
-    LOBYTE(a2) = 17;
-    result = MiReleaseFaultState(a1 + 24, a2, 0LL);
-    *v2 = 0LL;
+    MiUnlockFaultPageTable(a1 + 24);
+    v3 = *(_BYTE *)(v1 + 12);
+    if ( (*(_BYTE *)(v1 + 13) & 1) != 0 )
+      MiUnlockWorkingSetExclusive(v2, v3);
+    else
+      MiUnlockWorkingSetShared(v2, v3);
+    *(_QWORD *)v1 = 0LL;
   }
-  return result;
 }

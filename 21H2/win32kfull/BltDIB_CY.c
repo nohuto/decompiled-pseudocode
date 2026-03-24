@@ -1,13 +1,13 @@
 /*
- * XREFs of BltDIB_CY @ 0x1C00058D0
+ * XREFs of BltDIB_CY @ 0x1C00C77E0
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
  */
 
 __int64 __fastcall BltDIB_CY(__int128 *a1)
@@ -29,43 +29,44 @@ __int64 __fastcall BltDIB_CY(__int128 *a1)
   __int128 v15; // xmm0
   int v16; // ebx
   __int64 FixupScan; // rax
-  __int16 v18; // ax
-  __int64 v19; // rcx
-  _WORD *v20; // rcx
-  __int64 v22; // rax
-  int v23; // [rsp+50h] [rbp-B0h] BYREF
-  char v24; // [rsp+58h] [rbp-A8h]
-  __int64 v25; // [rsp+D8h] [rbp-28h]
-  unsigned int v26; // [rsp+E4h] [rbp-1Ch]
-  int v27; // [rsp+ECh] [rbp-14h]
-  void (__fastcall *v28)(int *); // [rsp+110h] [rbp+10h]
-  void (__fastcall *v29)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+160h] [rbp+60h]
-  __int64 v30; // [rsp+168h] [rbp+68h]
-  void (__fastcall *v31)(__int64, __int64, __int64, __int64, int); // [rsp+170h] [rbp+70h]
-  __int64 v32; // [rsp+180h] [rbp+80h]
-  __int64 v33; // [rsp+188h] [rbp+88h]
-  __int64 v34; // [rsp+1D0h] [rbp+D0h]
-  __int64 v35; // [rsp+1D8h] [rbp+D8h]
-  __int64 v36; // [rsp+1E8h] [rbp+E8h]
-  __int64 v37; // [rsp+1F0h] [rbp+F0h]
-  __int64 v38; // [rsp+1F8h] [rbp+F8h]
-  int v39; // [rsp+200h] [rbp+100h]
-  int v40; // [rsp+204h] [rbp+104h]
-  int v41; // [rsp+208h] [rbp+108h]
-  __int64 v42; // [rsp+210h] [rbp+110h]
-  __int64 v43; // [rsp+218h] [rbp+118h]
-  __int64 v44; // [rsp+220h] [rbp+120h]
-  int v45; // [rsp+228h] [rbp+128h]
-  __int64 v46; // [rsp+268h] [rbp+168h]
-  _WORD *v47; // [rsp+270h] [rbp+170h]
-  unsigned __int64 v48; // [rsp+278h] [rbp+178h]
-  __int64 v49; // [rsp+280h] [rbp+180h]
-  __int64 v50; // [rsp+288h] [rbp+188h]
-  __int64 v51; // [rsp+290h] [rbp+190h]
-  __int64 v52; // [rsp+298h] [rbp+198h]
-  int v53; // [rsp+2A0h] [rbp+1A0h]
+  unsigned __int16 *v18; // rdx
+  __int16 v19; // ax
+  __int64 v20; // rcx
+  _WORD *v21; // rcx
+  __int64 v23; // rax
+  int v24; // [rsp+50h] [rbp-B0h] BYREF
+  char v25; // [rsp+58h] [rbp-A8h]
+  __int64 v26; // [rsp+D8h] [rbp-28h]
+  unsigned int v27; // [rsp+E4h] [rbp-1Ch]
+  int v28; // [rsp+ECh] [rbp-14h]
+  void (__fastcall *v29)(int *); // [rsp+110h] [rbp+10h]
+  void (__fastcall *v30)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+160h] [rbp+60h]
+  __int64 v31; // [rsp+168h] [rbp+68h]
+  void (__fastcall *v32)(__int64, __int64, __int64, __int64, int); // [rsp+170h] [rbp+70h]
+  __int64 v33; // [rsp+180h] [rbp+80h]
+  __int64 v34; // [rsp+188h] [rbp+88h]
+  __int64 v35; // [rsp+1D0h] [rbp+D0h]
+  __int64 v36; // [rsp+1D8h] [rbp+D8h]
+  __int64 v37; // [rsp+1E8h] [rbp+E8h]
+  __int64 v38; // [rsp+1F0h] [rbp+F0h]
+  __int64 v39; // [rsp+1F8h] [rbp+F8h]
+  int v40; // [rsp+200h] [rbp+100h]
+  int v41; // [rsp+204h] [rbp+104h]
+  int v42; // [rsp+208h] [rbp+108h]
+  __int64 v43; // [rsp+210h] [rbp+110h]
+  __int64 v44; // [rsp+218h] [rbp+118h]
+  __int64 v45; // [rsp+220h] [rbp+120h]
+  int v46; // [rsp+228h] [rbp+128h]
+  __int64 v47; // [rsp+268h] [rbp+168h]
+  _WORD *v48; // [rsp+270h] [rbp+170h]
+  unsigned __int64 v49; // [rsp+278h] [rbp+178h]
+  __int64 v50; // [rsp+280h] [rbp+180h]
+  __int64 v51; // [rsp+288h] [rbp+188h]
+  __int64 v52; // [rsp+290h] [rbp+190h]
+  __int64 v53; // [rsp+298h] [rbp+198h]
+  int v54; // [rsp+2A0h] [rbp+1A0h]
 
-  v1 = &v23;
+  v1 = &v24;
   v2 = 4LL;
   do
   {
@@ -101,47 +102,48 @@ __int64 __fastcall BltDIB_CY(__int128 *a1)
   *((_OWORD *)v1 + 3) = v14;
   *((_OWORD *)v1 + 4) = v15;
   *((_QWORD *)v1 + 10) = v11;
-  v16 = *(_DWORD *)(v33 + 4);
+  v16 = *(_DWORD *)(v34 + 4);
   while ( v16 )
   {
     --v16;
-    FixupScan = GetFixupScan(&v23, v46);
-    v31(v32, FixupScan, v51, v52, v53);
-    if ( (v24 & 4) != 0 )
+    FixupScan = GetFixupScan(&v24, v47);
+    v32(v33, FixupScan, v52, v53, v54);
+    if ( (v25 & 4) != 0 )
     {
-      v20 = v47;
+      v21 = v48;
       do
       {
-        *v20 = GrayIdxWORD[*(unsigned __int8 *)v20];
-        v20 += 2;
+        v18 = GrayIdxWORD;
+        *v21 = GrayIdxWORD[*(unsigned __int8 *)v21];
+        v21 += 2;
       }
-      while ( (unsigned __int64)v20 < v48 );
+      while ( (unsigned __int64)v21 < v49 );
     }
-    v18 = v23;
-    if ( (v23 & 0x80u) != 0 )
+    v19 = v24;
+    if ( (v24 & 0x80u) != 0 )
     {
-      v28(&v23);
-      v18 = v23;
+      v29(&v24);
+      v19 = v24;
     }
-    if ( (v18 & 0x800) != 0 )
+    if ( (v19 & 0x800) != 0 )
     {
-      AlphaBlendBGRF(&v23);
-      LOBYTE(v18) = v23;
+      AlphaBlendBGRF(&v24, v18);
+      LOBYTE(v19) = v24;
     }
-    if ( (v18 & 0x10) != 0 )
+    if ( (v19 & 0x10) != 0 )
     {
-      MappingBGRF(v47, v48, v35, v42);
-      v22 = v45 + v42;
-      if ( v22 == v43 )
-        v22 = v44;
-      v42 = v22;
+      MappingBGRF(v48, v49, v36, v43);
+      v23 = v46 + v43;
+      if ( v23 == v44 )
+        v23 = v45;
+      v43 = v23;
     }
-    v29(&v23, v49, v50, v25, v34, v36, v36 + v40, v41, v30);
-    v19 = v39 + v36;
-    if ( v19 == v37 )
-      v19 = v38;
-    v25 += v27;
-    v36 = v19;
+    v30(&v24, v50, v51, v26, v35, v37, v37 + v41, v42, v31);
+    v20 = v40 + v37;
+    if ( v20 == v38 )
+      v20 = v39;
+    v26 += v28;
+    v37 = v20;
   }
-  return v26;
+  return v27;
 }

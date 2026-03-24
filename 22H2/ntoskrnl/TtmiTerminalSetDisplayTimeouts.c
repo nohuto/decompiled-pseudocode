@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiTerminalSetDisplayTimeouts @ 0x1409AB68C
+ * XREFs of TtmiTerminalSetDisplayTimeouts @ 0x1408FDCBC
  * Callers:
- *     TtmpTerminal0PowerSettingCallback @ 0x1409A5D30 (TtmpTerminal0PowerSettingCallback.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1409A6B34 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpTerminal0PowerSettingCallback @ 0x1409003D0 (TtmpTerminal0PowerSettingCallback.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x1409011E0 (TtmpDispatchSetDisplayTimeouts.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x1409A4B54 (TtmiScheduleSessionWorker.c)
- *     TtmiLogTerminalDisplayTimeouts @ 0x1409AA460 (TtmiLogTerminalDisplayTimeouts.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF190 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogTerminalDisplayTimeouts @ 0x1409049E4 (TtmiLogTerminalDisplayTimeouts.c)
  */
 
-void __fastcall TtmiTerminalSetDisplayTimeouts(int *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TtmiTerminalSetDisplayTimeouts(_DWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int64 v5; // rdx
   unsigned __int64 v7; // r10
   __int64 v8; // rax
 
-  v5 = 10000000LL * (unsigned int)a4;
-  v7 = 10000000LL * (unsigned int)a3;
+  v5 = 10000000LL * a4;
+  v7 = 10000000LL * a3;
   *(_QWORD *)(a2 + 72) = v5;
   *(_QWORD *)(a2 + 64) = v7;
   v8 = v7;
@@ -24,7 +24,7 @@ void __fastcall TtmiTerminalSetDisplayTimeouts(int *a1, __int64 a2, __int64 a3, 
     *(_QWORD *)(a2 + 64) = 0LL;
     v8 = 0LL;
   }
-  TtmiLogTerminalDisplayTimeouts(*a1, *(unsigned int *)(a2 + 28), a3, a4, v8, 10000000LL * (unsigned int)a4);
+  TtmiLogTerminalDisplayTimeouts(*a1, *(_DWORD *)(a2 + 28), a3, a4, v8, 10000000LL * a4);
   *(_DWORD *)(a2 + 36) |= 4u;
-  TtmiScheduleSessionWorker((__int64)a1, 2);
+  return TtmiScheduleSessionWorker(a1, 2LL);
 }

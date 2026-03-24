@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x1408631D4
+ * XREFs of ObpInitStackAndObjectTables @ 0x1408631B4
  * Callers:
- *     ObpStartRuntimeStackTrace @ 0x140863818 (ObpStartRuntimeStackTrace.c)
+ *     ObpStartRuntimeStackTrace @ 0x1408637F8 (ObpStartRuntimeStackTrace.c)
  *     ObpInitStackTrace @ 0x1409DC46C (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

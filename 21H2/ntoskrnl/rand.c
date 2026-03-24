@@ -1,5 +1,5 @@
 /*
- * XREFs of rand @ 0x1403E2660
+ * XREFs of rand @ 0x1403D32B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 int __cdecl rand()
 {
-  dword_140C09480 = 214013 * dword_140C09480 + 2531011;
-  return (dword_140C09480 >> 16) & 0x7FFF;
+  dword_140C0F1A0 = 214013 * dword_140C0F1A0 + 2531011;
+  return (dword_140C0F1A0 >> 16) & 0x7FFF;
 }

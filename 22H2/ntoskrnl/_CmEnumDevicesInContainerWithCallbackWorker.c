@@ -1,27 +1,27 @@
 /*
- * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A63EA4
+ * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140975E90
  * Callers:
- *     _CmEnumDevicesInContainerWithCallback @ 0x140A63D54 (_CmEnumDevicesInContainerWithCallback.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140975D40 (_CmEnumDevicesInContainerWithCallback.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     _RegRtlEnumKey @ 0x14086B97C (_RegRtlEnumKey.c)
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumKey @ 0x14076619C (_RegRtlEnumKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmEnumDevicesInContainerWithCallbackWorker(
         __int64 a1,
         __int64 a2,
         void *a3,
-        __int64 (__fastcall *a4)(__int64, char *, __int64),
+        __int64 (__fastcall *a4)(__int64, unsigned int *, __int64),
         __int64 a5,
         int a6)
 {
-  char *Pool2; // rdi
+  unsigned int *PoolWithTag; // rdi
   int v7; // r12d
   int v11; // ebx
   HANDLE v12; // rdx
@@ -40,7 +40,7 @@ __int64 __fastcall CmEnumDevicesInContainerWithCallbackWorker(
   HANDLE v26; // [rsp+58h] [rbp-8h] BYREF
 
   v26 = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   KeyHandle = 0LL;
   v7 = 0;
   if ( (_WORD)a6 )
@@ -59,85 +59,81 @@ LABEL_6:
   else
     v13 = 0LL;
   v11 = SysCtxRegOpenKey(v13, (__int64)v12, (__int64)L"BaseContainers", 0, 8u, (__int64)&KeyHandle);
-  if ( v11 >= 0 )
+  if ( v11 < 0 )
   {
-    Pool2 = (char *)ExAllocatePool2(256LL, 400LL, 1380994640LL);
-    if ( Pool2 )
-    {
-      v14 = 0;
-      while ( 1 )
-      {
-        Handle = 0LL;
-        a6 = 200;
-        v15 = RegRtlEnumKey(KeyHandle, v14, Pool2, (unsigned int *)&a6);
-        v11 = v15;
-        if ( v15 == -2147483622 )
-          break;
-        if ( v15 != -1073741789 )
-        {
-          if ( v15 < 0 )
-            goto LABEL_41;
-          v16 = a1 ? *(_QWORD *)(a1 + 224) : 0LL;
-          v11 = SysCtxRegOpenKey(v16, (__int64)KeyHandle, (__int64)Pool2, 0, 1u, (__int64)&Handle);
-          if ( v11 < 0 )
-            goto LABEL_41;
-          for ( i = 0; ; ++i )
-          {
-            do
-            {
-              a6 = 200;
-              v19 = PnpCtxRegEnumValue(v17, Handle, i, Pool2, &a6, &v23, 0LL, 0LL);
-              v11 = v19;
-              if ( v19 == -2147483622 )
-              {
-                v11 = 0;
-                goto LABEL_33;
-              }
-            }
-            while ( v19 == -1073741789 );
-            if ( v19 < 0 )
-              goto LABEL_33;
-            v20 = a4(a1, Pool2, a5);
-            v7 = v20;
-            if ( v20 )
-              break;
-          }
-          if ( v20 != 1 && v20 != 2 )
-          {
-            if ( v20 == 3 )
-              v11 = -1073741248;
-            else
-              v11 = -1073741595;
-          }
-LABEL_33:
-          if ( Handle )
-            ZwClose(Handle);
-          if ( v11 < 0 )
-            goto LABEL_41;
-          if ( v7 == 2 )
-            goto LABEL_43;
-          v21 = v14 + 1;
-          v14 = 0;
-          if ( v7 != 1 )
-            v14 = v21;
-        }
-      }
-      v11 = 0;
-    }
-    else
-    {
-      v11 = -1073741801;
-    }
+LABEL_41:
+    if ( v11 == -1073741444 )
+      v11 = -1073741772;
     goto LABEL_43;
   }
-LABEL_41:
-  if ( v11 == -1073741444 )
-    v11 = -1073741772;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x52504E50u);
+  if ( PoolWithTag )
+  {
+    v14 = 0;
+    while ( 1 )
+    {
+      Handle = 0LL;
+      a6 = 200;
+      v15 = RegRtlEnumKey(KeyHandle, v14, PoolWithTag, (unsigned int *)&a6);
+      v11 = v15;
+      if ( v15 == -2147483622 )
+        break;
+      if ( v15 != -1073741789 )
+      {
+        if ( v15 < 0 )
+          goto LABEL_41;
+        v16 = a1 ? *(_QWORD *)(a1 + 224) : 0LL;
+        v11 = SysCtxRegOpenKey(v16, (__int64)KeyHandle, (__int64)PoolWithTag, 0, 1u, (__int64)&Handle);
+        if ( v11 < 0 )
+          goto LABEL_41;
+        for ( i = 0; ; ++i )
+        {
+          do
+          {
+            a6 = 200;
+            v19 = PnpCtxRegEnumValue(v17, Handle, i, PoolWithTag, &a6, &v23, 0LL, 0LL);
+            v11 = v19;
+            if ( v19 == -2147483622 )
+            {
+              v11 = 0;
+              goto LABEL_33;
+            }
+          }
+          while ( v19 == -1073741789 );
+          if ( v19 < 0 )
+            goto LABEL_33;
+          v20 = a4(a1, PoolWithTag, a5);
+          v7 = v20;
+          if ( v20 )
+            break;
+        }
+        if ( v20 != 1 && v20 != 2 )
+        {
+          if ( v20 == 3 )
+            v11 = -1073741248;
+          else
+            v11 = -1073741595;
+        }
+LABEL_33:
+        if ( Handle )
+          ZwClose(Handle);
+        if ( v11 < 0 || v7 == 2 )
+          goto LABEL_41;
+        v21 = v14 + 1;
+        v14 = 0;
+        if ( v7 != 1 )
+          v14 = v21;
+      }
+    }
+    v11 = 0;
+    goto LABEL_41;
+  }
+  v11 = -1073741801;
 LABEL_43:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   if ( v26 )
     ZwClose(v26);
   return (unsigned int)v11;

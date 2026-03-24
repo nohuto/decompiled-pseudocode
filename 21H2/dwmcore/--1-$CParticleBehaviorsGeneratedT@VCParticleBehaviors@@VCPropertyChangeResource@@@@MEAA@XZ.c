@@ -1,14 +1,16 @@
 /*
- * XREFs of ??1?$CParticleBehaviorsGeneratedT@VCParticleBehaviors@@VCPropertyChangeResource@@@@MEAA@XZ @ 0x18019D87C
+ * XREFs of ??1?$CParticleBehaviorsGeneratedT@VCParticleBehaviors@@VCPropertyChangeResource@@@@MEAA@XZ @ 0x18016B980
  * Callers:
- *     ??_ECParticleBehaviors@@UEAAPEAXI@Z @ 0x18019F100 (--_ECParticleBehaviors@@UEAAPEAXI@Z.c)
+ *     ??_ECParticleBehaviors@@UEAAPEAXI@Z @ 0x18016D600 (--_ECParticleBehaviors@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CParticleBehaviorsGeneratedT<CParticleBehaviors,CPropertyChangeResource>::~CParticleBehaviorsGeneratedT<CParticleBehaviors,CPropertyChangeResource>(
         struct CResource **this)
 {
+  CResource::UnRegisterNotifierInternal((CResource *)this, this[9]);
+  this[9] = 0LL;
   CResource::UnRegisterNotifierInternal((CResource *)this, this[10]);
   this[10] = 0LL;
   CResource::UnRegisterNotifierInternal((CResource *)this, this[11]);
@@ -29,8 +31,6 @@ void __fastcall CParticleBehaviorsGeneratedT<CParticleBehaviors,CPropertyChangeR
   this[18] = 0LL;
   CResource::UnRegisterNotifierInternal((CResource *)this, this[19]);
   this[19] = 0LL;
-  CResource::UnRegisterNotifierInternal((CResource *)this, this[20]);
-  this[20] = 0LL;
   *this = (struct CResource *)&CNotificationResource::`vftable';
   CResource::~CResource((CResource *)this);
 }

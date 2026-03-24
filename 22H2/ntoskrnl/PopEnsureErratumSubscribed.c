@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEnsureErratumSubscribed @ 0x14058DAC4
+ * XREFs of PopEnsureErratumSubscribed @ 0x14056EC64
  * Callers:
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
  * Callees:
- *     RtlpComputeCrcInternal @ 0x1403BE040 (RtlpComputeCrcInternal.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     RtlpComputeCrcInternal @ 0x140305D90 (RtlpComputeCrcInternal.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  */
 
 void __fastcall PopEnsureErratumSubscribed(unsigned __int64 *a1)

@@ -1,19 +1,17 @@
 /*
- * XREFs of HUBPDO_EvtDeviceReleaseHardware @ 0x1C0079DC0
+ * XREFs of HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0
  * Callers:
  *     <none>
  * Callees:
  *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBSM_AddDsmEvent @ 0x1C000A280 (HUBSM_AddDsmEvent.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     SleepstudyHelper_UnregisterComponent @ 0x1C0042348 (SleepstudyHelper_UnregisterComponent.c)
- *     DereferenceDeviceResetInterface @ 0x1C00423F0 (DereferenceDeviceResetInterface.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_DeleteUxdSettings @ 0x1C00823BC (HUBREG_DeleteUxdSettings.c)
- *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0086CB4 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
- *     TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C00895F0 (TUNNEL_ReleaseUsb4HostPowerReferenceForPort.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddDsmEvent @ 0x1C0009F80 (HUBSM_AddDsmEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     DereferenceDeviceResetInterface @ 0x1C00416F8 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
+ *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0085074 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
@@ -36,12 +34,12 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, const void *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   v3 = *(_QWORD *)(v2 + 24);
   if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       WdfDriverGlobals->Driver,
-                      off_1C00671E8)
+                      off_1C00661C0)
                   + 4) & 0x1000) != 0
     && EtwActivityIdControl(3u, (LPGUID)(v3 + 2176)) >= 0 )
   {
@@ -58,7 +56,7 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, const void *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   *(_BYTE *)v5 = 1;
   _InterlockedAnd((volatile signed __int32 *)(v3 + 1636), 0xFFFFBFFF);
   v14[0] = 0;
@@ -70,7 +68,7 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
     WdfDriverGlobals,
     v7,
     "ControllerPowerReference Tag",
-    94LL,
+    93LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
   (*(void (__fastcall **)(_QWORD, _BYTE *))(v6 + 560))(*(_QWORD *)(v6 + 248), v14);
   KeClearEvent((PRKEVENT)(v3 + 1584));
@@ -83,7 +81,7 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
     WdfDriverGlobals,
     v9,
     "ControllerPowerReference Tag",
-    130LL,
+    129LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
   v11 = *(_DWORD *)(v5 + 32);
   if ( (v11 & 0x400) != 0 )
@@ -103,8 +101,7 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
       _InterlockedAnd((volatile signed __int32 *)(v3 + 1632), 0xFFFBFFFF);
     }
     if ( (*(_DWORD *)(v3 + 1644) & 0x4000000) != 0 )
-      DereferenceDeviceResetInterface((_QWORD *)(v5 + 456));
-    TUNNEL_ReleaseUsb4HostPowerReferenceForPort(*(_QWORD *)(v3 + 8));
+      DereferenceDeviceResetInterface(v5 + 456);
   }
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
   {

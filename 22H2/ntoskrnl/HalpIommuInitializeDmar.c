@@ -1,39 +1,40 @@
 /*
- * XREFs of HalpIommuInitializeDmar @ 0x1403A8EAC
+ * XREFs of HalpIommuInitializeDmar @ 0x1403B37B8
  * Callers:
- *     HalpIommuInitSystem @ 0x140A8A420 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099EB40 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuGetHardwareDomain @ 0x1403A8F5C (HalpIommuGetHardwareDomain.c)
- *     HalpIommuAllocateDmaDomain @ 0x1403A91BC (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403B3818 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9534 (HalpIommuGetHardwareDomain.c)
  */
 
-__int64 HalpIommuInitializeDmar()
+__int64 __fastcall HalpIommuInitializeDmar(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  int v1; // r8d
-  unsigned int v2; // ecx
-  ULONG_PTR i; // rbx
-  __int64 v4; // [rsp+40h] [rbp+8h] BYREF
+  int v3; // r8d
+  unsigned int v4; // ecx
+  __int64 i; // rbx
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = 0LL;
+  v6 = 0LL;
   if ( HalpHvIommu )
     return 0LL;
-  result = HalpIommuAllocateDmaDomain(1, 0, 0, 0, (__int64)&HalpIommuBypassDomain);
-  v2 = result;
+  LOBYTE(a2) = 1;
+  result = HalpIommuAllocateDmaDomain(0LL, a2, &HalpIommuBypassDomain);
+  v4 = result;
   if ( (int)result >= 0 )
   {
-    for ( i = HalpIommuList; (ULONG_PTR *)i != &HalpIommuList; i = *(_QWORD *)i )
+    for ( i = HalpIommuList; (__int64 *)i != &HalpIommuList; i = *(_QWORD *)i )
     {
-      if ( (*(_DWORD *)(i + 488) & 0x180) != 0 )
+      if ( (*(_DWORD *)(i + 456) & 0x100) != 0 )
       {
-        LOBYTE(v1) = 1;
-        result = HalpIommuGetHardwareDomain(HalpIommuBypassDomain, i, v1, 0, 0, (__int64)&v4);
-        v2 = result;
+        LOBYTE(v3) = 1;
+        result = HalpIommuGetHardwareDomain(HalpIommuBypassDomain, i, v3, 0, (__int64)&v6);
+        v4 = result;
         if ( (int)result < 0 )
           return result;
       }
     }
-    return v2;
+    return v4;
   }
   return result;
 }

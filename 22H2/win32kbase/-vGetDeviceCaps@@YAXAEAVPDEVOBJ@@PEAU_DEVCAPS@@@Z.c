@@ -1,24 +1,27 @@
 /*
- * XREFs of ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C00197E8
+ * XREFs of ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C009A970
  * Callers:
- *     GreUpdateSharedDevCaps @ 0x1C00197AC (GreUpdateSharedDevCaps.c)
- *     ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C015F3D4 (-NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     InitVideo @ 0x1C009A7D8 (InitVideo.c)
+ *     ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C00CAC40 (-NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0137CE4 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0144BCC (-DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     IsGetColorManagementCapsSupported @ 0x1C0019970 (IsGetColorManagementCapsSupported.c)
- *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C00199A0 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     IsGetColorManagementCapsSupported @ 0x1C009AAF8 (IsGetColorManagementCapsSupported.c)
+ *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C009AB30 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vGetDeviceCaps(struct PDEVOBJ *this, struct _DEVCAPS *a2)
 {
   _DWORD *v3; // rdi
-  int v5; // ecx
+  int v5; // eax
   int v6; // ecx
   int v7; // eax
   int v8; // esi
   int v9; // eax
 
-  v3 = (_DWORD *)(*(_QWORD *)this + 2104LL);
+  v3 = (_DWORD *)(*(_QWORD *)this + 2136LL);
   *(_DWORD *)a2 = *v3;
   *((_DWORD *)a2 + 1) = v3[1];
   *((_DWORD *)a2 + 2) = (v3[2] + 500) / 0x3E8u;
@@ -30,8 +33,8 @@ void __fastcall vGetDeviceCaps(struct PDEVOBJ *this, struct _DEVCAPS *a2)
   v5 = v3[6];
   if ( v5 == 15 )
     v5 = 16;
-  *((_DWORD *)a2 + 8) = v5;
   v6 = -1;
+  *((_DWORD *)a2 + 8) = v5;
   *((_DWORD *)a2 + 9) = v3[7];
   v7 = v3[8];
   if ( v7 != -1 )
@@ -61,7 +64,7 @@ void __fastcall vGetDeviceCaps(struct PDEVOBJ *this, struct _DEVCAPS *a2)
   *((_DWORD *)a2 + 27) = v3[4];
   *((_DWORD *)a2 + 28) = v3[5];
   *((_DWORD *)a2 + 29) = v3[63];
-  if ( (int)IsGetColorManagementCapsSupported() >= 0 && qword_1C0294660 )
-    v8 = qword_1C0294660(*(_QWORD *)this);
+  if ( (int)IsGetColorManagementCapsSupported() >= 0 && qword_1C0255250 )
+    v8 = qword_1C0255250(*(_QWORD *)this);
   *((_DWORD *)a2 + 35) = v8;
 }

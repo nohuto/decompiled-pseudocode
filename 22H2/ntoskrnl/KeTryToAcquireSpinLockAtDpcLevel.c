@@ -1,17 +1,12 @@
 /*
- * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x1403CCA30
+ * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x140329D30
  * Callers:
  *     <none>
  * Callees:
- *     KiTryToAcquireSpinLockInstrumented @ 0x14045FE8C (KiTryToAcquireSpinLockInstrumented.c)
+ *     KxTryToAcquireSpinLock @ 0x140329D48 (KxTryToAcquireSpinLock.c)
  */
 
 BOOLEAN __stdcall KeTryToAcquireSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock)
 {
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-    return KiTryToAcquireSpinLockInstrumented(SpinLock);
-  if ( !_interlockedbittestandset64((volatile signed __int32 *)SpinLock, 0LL) )
-    return 1;
-  _mm_pause();
-  return 0;
+  return KxTryToAcquireSpinLock(SpinLock);
 }

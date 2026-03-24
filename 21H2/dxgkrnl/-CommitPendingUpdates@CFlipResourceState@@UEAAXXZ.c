@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CommitPendingUpdates@CFlipResourceState@@UEAAXXZ @ 0x1C007F010
+ * XREFs of ?CommitPendingUpdates@CFlipResourceState@@UEAAXXZ @ 0x1C006C590
  * Callers:
- *     ?CommitPendingUpdates@CContentResourceState@@UEAAXXZ @ 0x1C007F890 (-CommitPendingUpdates@CContentResourceState@@UEAAXXZ.c)
+ *     ?CommitPendingUpdates@CContentResourceState@@UEAAXXZ @ 0x1C006C4F0 (-CommitPendingUpdates@CContentResourceState@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CFlipResourceState::CommitPendingUpdates(CFlipResourceState *this)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C00E1954
+ * XREFs of ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C00D846C
  * Callers:
- *     xxxQueryInformationThread @ 0x1C00E21E4 (xxxQueryInformationThread.c)
+ *     xxxQueryInformationThread @ 0x1C00D8048 (xxxQueryInformationThread.c)
  * Callees:
  *     <none>
  */

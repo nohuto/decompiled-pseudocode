@@ -1,21 +1,21 @@
 /*
- * XREFs of PipCreateNewDependencyEdge @ 0x14055F904
+ * XREFs of PipCreateNewDependencyEdge @ 0x14050C5B0
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x14055F864 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C510 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PipAddRequestToEdge @ 0x140942760 (PipAddRequestToEdge.c)
- *     PipNotifyDependenciesChanged @ 0x140942D5C (PipNotifyDependenciesChanged.c)
- *     PipReferenceDependencyNode @ 0x140942DD8 (PipReferenceDependencyNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipAddRequestToEdge @ 0x14089D95C (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DF6C (PipNotifyDependenciesChanged.c)
+ *     PipReferenceDependencyNode @ 0x14089DFE8 (PipReferenceDependencyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v7; // rbx
   unsigned __int64 v9; // rsi
   _QWORD *v10; // rdx
@@ -27,17 +27,17 @@ _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3
   int v16; // eax
   bool v17; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 80LL, 1399877200LL);
-  v7 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x53706E50u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 48) = 0;
-    *(_QWORD *)(Pool2 + 64) = Pool2 + 56;
-    *(_QWORD *)(Pool2 + 56) = Pool2 + 56;
-    *(_QWORD *)(Pool2 + 40) = a1;
-    *(_QWORD *)(Pool2 + 32) = a2;
-    *(_BYTE *)(Pool2 + 72) = 0;
-    if ( PipAddRequestToEdge(Pool2, a3) )
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    PoolWithTag[8] = PoolWithTag + 7;
+    PoolWithTag[7] = PoolWithTag + 7;
+    PoolWithTag[5] = a1;
+    PoolWithTag[4] = a2;
+    *((_BYTE *)PoolWithTag + 72) = 0;
+    if ( PipAddRequestToEdge(PoolWithTag, a3) )
     {
       PipReferenceDependencyNode(a1);
       PipReferenceDependencyNode(a2);

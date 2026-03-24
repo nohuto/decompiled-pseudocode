@@ -1,47 +1,73 @@
 /*
- * XREFs of MiReferenceCloneProto @ 0x1402177A8
+ * XREFs of MiReferenceCloneProto @ 0x14055B4D8
  * Callers:
- *     MiIncrementCombinedPte @ 0x140217760 (MiIncrementCombinedPte.c)
- *     MiReferenceExistingCloneProto @ 0x14066541C (MiReferenceExistingCloneProto.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
  * Callees:
- *     MiChargeCrossPartitionSharedPage @ 0x140217844 (MiChargeCrossPartitionSharedPage.c)
- *     MiLockCloneBlockAtDpc @ 0x1402178A8 (MiLockCloneBlockAtDpc.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     MiLocateCloneAddress @ 0x14023E878 (MiLocateCloneAddress.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x14055A8C4 (MiGetCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x14055B620 (MiReturnCrossPartitionCloneCharges.c)
  */
 
-__int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5)
+__int64 __fastcall MiReferenceCloneProto(
+        __int64 a1,
+        volatile signed __int64 *a2,
+        char a3,
+        _QWORD *a4,
+        volatile signed __int64 **a5)
 {
-  unsigned int v6; // edi
+  struct _KTHREAD *CurrentThread; // rcx
+  _QWORD *CloneAddress; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  int v13; // ebp
+  __int64 v14; // rbx
 
-  v6 = a4 & 1;
-  MiLockCloneBlockAtDpc(a3);
-  if ( *(_QWORD *)(a3 + 24)
-    && (unsigned int)MiChargeCrossPartitionSharedPage(
-                       a2,
-                       *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(a1 + 174)),
-                       a3,
-                       v6) )
+  CurrentThread = KeGetCurrentThread();
+  *a5 = 0LL;
+  CloneAddress = MiLocateCloneAddress((__int64)CurrentThread->ApcState.Process, (unsigned __int64)a2);
+  if ( CloneAddress )
   {
-    ++*(_QWORD *)(a3 + 24);
-    if ( v6 )
+    v13 = 0;
+    v14 = *(_QWORD *)(CloneAddress[7] + 24LL);
+    if ( *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(v11 + 174)) != v14 )
     {
-      if ( (*(_QWORD *)(a3 + 16) & 0x2000000000000000LL) != 0 )
+      if ( (a3 & 1) != 0 )
       {
-        ++*a5;
+        if ( !(unsigned int)MiChargeCommit(v14, 1uLL, 0) )
+          return 0LL;
+        v13 = 1;
+      }
+      if ( !(unsigned int)MiGetCrossPartitionCloneCharges(v14, v10, v11, v12) )
+      {
+        if ( v13 )
+          MiReturnCommit(v14, 1LL);
+        return 0LL;
+      }
+      if ( _InterlockedIncrement64(a2 + 1) != 1 )
+        MiReturnCrossPartitionCloneCharges(v14);
+    }
+    _InterlockedAdd64(a2 + 3, 1uLL);
+    if ( (a3 & 1) != 0 )
+    {
+      if ( (_InterlockedIncrement64(a2 + 2) & 0x7FFFFFFFFFFFFFFLL) == 1 )
+      {
+        if ( v13 )
+          ++*a4;
+        else
+          ++a4[1];
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 7624), 1uLL);
       }
       else
       {
-        ++a5[1];
-        *(_QWORD *)(a3 + 16) |= 0x2000000000000000uLL;
-        _InterlockedIncrement64((volatile signed __int64 *)(a2 + 17848));
+        ++*a4;
+        if ( v13 )
+          MiReturnCommit(v14, 1LL);
       }
-      *(_QWORD *)(a3 + 16) ^= (*(_QWORD *)(a3 + 16) ^ (*(_QWORD *)(a3 + 16) + 1LL)) & 0x7FFFFFFFFFFFFFLL;
+      *a5 = a2;
     }
-    _InterlockedAnd64((volatile signed __int64 *)(a3 + 16), 0x7FFFFFFFFFFFFFFFuLL);
-    return 1LL;
   }
-  else
-  {
-    _InterlockedAnd64((volatile signed __int64 *)(a3 + 16), 0x7FFFFFFFFFFFFFFFuLL);
-    return 0LL;
-  }
+  return 1LL;
 }

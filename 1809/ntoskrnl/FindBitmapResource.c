@@ -3,9 +3,9 @@
  * Callers:
  *     BvgaDriverInitialize @ 0x1409D7020 (BvgaDriverInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     LdrAccessResource @ 0x140756B50 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x140756B70 (LdrFindResource_U.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     LdrAccessResource @ 0x140756B30 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x140756B50 (LdrFindResource_U.c)
  */
 
 PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)

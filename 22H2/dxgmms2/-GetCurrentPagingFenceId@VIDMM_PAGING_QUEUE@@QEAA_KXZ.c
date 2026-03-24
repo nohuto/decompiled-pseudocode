@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetCurrentPagingFenceId@VIDMM_PAGING_QUEUE@@QEAA_KXZ @ 0x1C00900E4
+ * XREFs of ?GetCurrentPagingFenceId@VIDMM_PAGING_QUEUE@@QEAA_KXZ @ 0x1C0087F7C
  * Callers:
- *     VidSchWaitForSingleSyncObject @ 0x1C0003B60 (VidSchWaitForSingleSyncObject.c)
+ *     VidSchWaitForSingleSyncObject @ 0x1C0006560 (VidSchWaitForSingleSyncObject.c)
  * Callees:
  *     <none>
  */

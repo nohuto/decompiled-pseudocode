@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02CA390
+ * XREFs of ?vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02CBBE0
  * Callers:
  *     <none>
  * Callees:
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C013C7F4 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C0150314 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vSrcCopyS16D24(struct BLTINFO *a1)
@@ -18,80 +18,89 @@ void __fastcall vSrcCopyS16D24(struct BLTINFO *a1)
   unsigned int v7; // r14d
   unsigned int v8; // r15d
   int v9; // r14d
-  unsigned int i; // ebx
-  __int64 v11; // rax
-  unsigned int v12; // r13d
-  int v13; // ebx
-  unsigned int v14; // edi
-  unsigned int v15; // ebx
-  int v16; // eax
+  unsigned int v10; // ebx
+  bool i; // zf
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  unsigned int v14; // r13d
+  int v15; // ebx
+  unsigned int v16; // edi
+  unsigned int v17; // ebx
+  int v18; // eax
   int j; // ebx
-  __int64 v18; // rax
-  int v19; // [rsp+20h] [rbp-58h]
-  __int64 (__fastcall *v20)(struct _XLATEOBJ *, unsigned int); // [rsp+28h] [rbp-50h]
-  int v21; // [rsp+80h] [rbp+8h]
-  unsigned int v22; // [rsp+90h] [rbp+18h]
-  int v23; // [rsp+98h] [rbp+20h]
+  __int64 v20; // rax
+  int v21; // [rsp+20h] [rbp-58h]
+  __int64 (__fastcall *v22)(struct _XLATEOBJ *, unsigned int); // [rsp+28h] [rbp-50h]
+  int v23; // [rsp+80h] [rbp+8h]
+  unsigned int v24; // [rsp+90h] [rbp+18h]
+  int v25; // [rsp+98h] [rbp+20h]
 
   v1 = *((_DWORD *)a1 + 7);
   v2 = *(struct _XLATEOBJ **)a1;
   v3 = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2 * *((_DWORD *)a1 + 12));
   v4 = *((_QWORD *)a1 + 2) + 3 * *((_DWORD *)a1 + 14);
-  v21 = *((_DWORD *)a1 + 8);
-  v23 = *((_DWORD *)a1 + 10) - 2 * v1;
-  v19 = *((_DWORD *)a1 + 11) - 3 * v1;
+  v23 = *((_DWORD *)a1 + 8);
+  v25 = *((_DWORD *)a1 + 10) - 2 * v1;
+  v21 = *((_DWORD *)a1 + 11) - 3 * v1;
   v5 = v1;
-  v20 = XLATE::pfnXlateBetweenBitfields(*(XLATE **)a1);
-  v6 = v20;
+  v22 = XLATE::pfnXlateBetweenBitfields(*(XLATE **)a1);
+  v6 = v22;
   if ( ((unsigned __int8)v4 & 3u) <= v1 )
     v5 = v4 & 3;
   v7 = v1 - v5;
-  v22 = v5;
+  v24 = v5;
   v8 = v7 >> 2;
   v9 = v7 & 3;
   while ( 1 )
   {
-    for ( i = v5; i; --i )
+    v10 = v5;
+    for ( i = v5 == 0; ; i = v10 == 0 )
     {
-      v11 = v6(v2, *v3);
-      *(_BYTE *)v4 = v11;
+      v13 = v4;
+      if ( i )
+        break;
+      v12 = v6(v2, *v3);
+      *(_BYTE *)v4 = v12;
       ++v3;
-      *(_BYTE *)(v4 + 1) = BYTE1(v11);
-      *(_BYTE *)(v4 + 2) = BYTE2(v11);
+      *(_BYTE *)(v4 + 1) = BYTE1(v12);
+      *(_BYTE *)(v4 + 2) = BYTE2(v12);
       v4 += 3LL;
+      --v10;
     }
     if ( v8 )
     {
-      v12 = v8;
+      v14 = v8;
       do
       {
-        v13 = v6(v2, *v3);
-        v14 = v6(v2, v3[1]);
-        *(_DWORD *)v4 = v13 | (v14 << 24);
-        v15 = v20(v2, v3[2]);
-        *(_DWORD *)(v4 + 4) = (v15 << 16) | (v14 >> 8);
-        v6 = v20;
-        v16 = v20(v2, v3[3]);
+        v15 = v6(v2, *v3);
+        v16 = v6(v2, v3[1]);
+        *(_DWORD *)v4 = v15 | (v16 << 24);
+        v17 = v22(v2, v3[2]);
+        *(_DWORD *)(v4 + 4) = (v17 << 16) | (v16 >> 8);
+        v6 = v22;
+        v18 = v22(v2, v3[3]);
         v3 += 4;
-        *(_DWORD *)(v4 + 8) = HIWORD(v15) | (v16 << 8);
+        *(_DWORD *)(v4 + 8) = HIWORD(v17) | (v18 << 8);
         v4 += 12LL;
-        --v12;
+        v13 = v4;
+        --v14;
       }
-      while ( v12 );
-      v5 = v22;
+      while ( v14 );
+      v5 = v24;
     }
     for ( j = v9; j; --j )
     {
-      v18 = v6(v2, *v3);
-      *(_BYTE *)v4 = v18;
+      v20 = v6(v2, *v3);
+      *(_BYTE *)v4 = v20;
       ++v3;
-      *(_BYTE *)(v4 + 1) = BYTE1(v18);
-      *(_BYTE *)(v4 + 2) = BYTE2(v18);
+      *(_BYTE *)(v4 + 1) = BYTE1(v20);
+      *(_BYTE *)(v4 + 2) = BYTE2(v20);
       v4 += 3LL;
+      v13 = v4;
     }
-    if ( !--v21 )
+    if ( !--v23 )
       break;
-    v3 = (unsigned __int16 *)((char *)v3 + v23);
-    v4 += v19;
+    v3 = (unsigned __int16 *)((char *)v3 + v25);
+    v4 = v13 + v21;
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReadImageHeaders @ 0x1406A79B8
+ * XREFs of MiReadImageHeaders @ 0x1406FF22C
  * Callers:
- *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140700CC4 (MiCreateImageFileMap.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     MiPageRead @ 0x1402A3A8C (MiPageRead.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiCopyFromDirectMapExtent @ 0x140A339BC (MiCopyFromDirectMapExtent.c)
+ *     MiIsRetryIoStatus @ 0x140255144 (MiIsRetryIoStatus.c)
+ *     MiPageRead @ 0x14027D14C (MiPageRead.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiCopyFromDirectMapExtent @ 0x1408CFFCC (MiCopyFromDirectMapExtent.c)
  */
 
 __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __int64 a3, __int64 a4)
@@ -23,11 +23,11 @@ __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __i
   __int64 **i; // rdi
   unsigned __int64 v15; // r9
   unsigned __int64 v16; // r10
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // r10
-  size_t v19; // r8
-  __int64 *v20; // rdx
-  void *v21; // rcx
+  char *v17; // rcx
+  unsigned __int64 v18; // r8
+  unsigned __int64 v19; // r10
+  size_t v20; // r8
+  __int64 *v21; // rdx
   unsigned __int64 v22; // r9
   struct _KEVENT Event; // [rsp+40h] [rbp-38h] BYREF
   __int64 v24; // [rsp+88h] [rbp+10h] BYREF
@@ -55,7 +55,7 @@ __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __i
   }
   if ( v11 < 0 )
   {
-    dword_140C65910 = 32;
+    dword_140C4CC18 = 32;
     if ( !MiIsRetryIoStatus(v11, 0LL) && v11 != -1073741740 && v11 != -1073741209 )
       return (unsigned int)-1073741792;
   }
@@ -70,26 +70,26 @@ __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __i
       v16 = (((_DWORD)i[3] & 0xFFF) + (unsigned __int64)*((unsigned int *)i + 10) + 4095) >> 12;
       if ( v6 < v16 + v15 && v8 + v6 > v15 )
       {
+        v17 = *(char **)(a3 + 24);
         if ( v15 > v6 )
         {
           v22 = v15 - v6;
-          v20 = i[3];
+          v21 = i[3];
           if ( v8 - v22 <= v16 )
             v16 = v8 - v22;
-          v19 = v16 << 12;
-          v21 = (void *)(*(_QWORD *)(a3 + 24) + (v22 << 12));
+          v17 += 4096 * v22;
+          v20 = v16 << 12;
         }
         else
         {
-          v17 = v8;
-          v18 = v16 - (v6 - v15);
-          if ( v18 <= v8 )
-            v17 = v18;
-          v19 = v17 << 12;
-          v20 = &i[3][512 * (v6 - v15)];
-          v21 = *(void **)(a3 + 24);
+          v18 = v8;
+          v19 = v16 - (v6 - v15);
+          if ( v19 <= v8 )
+            v18 = v19;
+          v20 = v18 << 12;
+          v21 = &i[3][512 * (v6 - v15)];
         }
-        memmove(v21, v20, v19);
+        memmove(v17, v21, v20);
       }
     }
   }

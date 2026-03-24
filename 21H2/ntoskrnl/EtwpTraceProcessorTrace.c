@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceProcessorTrace @ 0x140635854
+ * XREFs of EtwpTraceProcessorTrace @ 0x1405B04B8
  * Callers:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AB658 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 struct _KPRCB *__fastcall EtwpTraceProcessorTrace(__int64 a1, _QWORD *a2, struct _KTHREAD *a3, int a4)
@@ -29,7 +29,7 @@ struct _KPRCB *__fastcall EtwpTraceProcessorTrace(__int64 a1, _QWORD *a2, struct
   if ( result->IdleThread != CurrentThread && (a4 & 0x1800) != 0 )
   {
     v7[0] = a1;
-    v6 = *(_QWORD **)(a1 + 1032);
+    v6 = *(_QWORD **)(a1 + 1016);
     v12 = a4;
     if ( !a3 )
       a3 = CurrentThread;

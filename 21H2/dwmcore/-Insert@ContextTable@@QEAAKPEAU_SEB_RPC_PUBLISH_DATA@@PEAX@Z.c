@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Insert@ContextTable@@QEAAKPEAU_SEB_RPC_PUBLISH_DATA@@PEAX@Z @ 0x18001F718
+ * XREFs of ?Insert@ContextTable@@QEAAKPEAU_SEB_RPC_PUBLISH_DATA@@PEAX@Z @ 0x180024A3C
  * Callers:
- *     PubSebRegisterRpc @ 0x18001F600 (PubSebRegisterRpc.c)
+ *     PubSebRegisterRpc @ 0x180024930 (PubSebRegisterRpc.c)
  * Callees:
- *     ?Add@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@AEBQEAX@Z @ 0x18001F778 (-Add@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_D.c)
+ *     ?Add@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@AEBQEAX@Z @ 0x180024A9C (-Add@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_D.c)
  */
 
 __int64 __fastcall ContextTable::Insert(ContextTable *this, struct _SEB_RPC_PUBLISH_DATA *a2, void *a3)
@@ -16,12 +16,12 @@ __int64 __fastcall ContextTable::Insert(ContextTable *this, struct _SEB_RPC_PUBL
   v7 = a3;
   v6 = a2;
   v3 = 0;
-  RtlAcquireSRWLockExclusive(&unk_1803D39B0);
+  RtlAcquireSRWLockExclusive(&unk_18034B518);
   if ( !(unsigned int)ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::Add(
                         v4,
                         &v6,
                         &v7) )
     v3 = 1359;
-  RtlReleaseSRWLockExclusive(&unk_1803D39B0);
+  RtlReleaseSRWLockExclusive(&unk_18034B518);
   return v3;
 }

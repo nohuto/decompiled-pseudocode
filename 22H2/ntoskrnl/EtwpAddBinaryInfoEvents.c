@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddBinaryInfoEvents @ 0x1409EC1DC
+ * XREFs of EtwpAddBinaryInfoEvents @ 0x14093D058
  * Callers:
- *     EtwpFinalizeHeader @ 0x1407F64A8 (EtwpFinalizeHeader.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1407F6B28 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpAddLogHeader @ 0x1407F7BE4 (EtwpAddLogHeader.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140710C90 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpFinalizeHeader @ 0x140713010 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x140713C88 (EtwpAddLogHeader.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpAddEventToBuffer @ 0x1407F6964 (EtwpAddEventToBuffer.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpAddEventToBuffer @ 0x140712F90 (EtwpAddEventToBuffer.c)
  */
 
 __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char a4)
@@ -18,8 +18,8 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char 
   int v5; // r12d
   __int64 *v8; // rdi
   __int64 v9; // r12
-  int v10; // ebp
-  unsigned int v11; // r15d
+  int v10; // r14d
+  unsigned int v11; // ebp
   _DWORD *v12; // rax
   _DWORD *v15; // [rsp+88h] [rbp+10h]
   unsigned int v16; // [rsp+90h] [rbp+18h] BYREF
@@ -30,9 +30,9 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char 
   v5 = a4 & 2;
   v17 = v5;
   if ( (a4 & 2) != 0 )
-    ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  v8 = *(__int64 **)(a1 + 1040);
-  if ( v8 != (__int64 *)(a1 + 1040) )
+    ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+  v8 = *(__int64 **)(a1 + 1024);
+  if ( v8 != (__int64 *)(a1 + 1024) )
   {
     v9 = a2;
     v10 = a4 & 4;
@@ -64,14 +64,14 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char 
       }
       v8 = (__int64 *)*v8;
     }
-    while ( v8 != (__int64 *)(a1 + 1040) );
+    while ( v8 != (__int64 *)(a1 + 1024) );
     v5 = v17;
   }
   if ( v5 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 688), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 688));
-    KeAbPostRelease(a1 + 688);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 704), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 704));
+    KeAbPostRelease(a1 + 704);
   }
   return 0LL;
 }

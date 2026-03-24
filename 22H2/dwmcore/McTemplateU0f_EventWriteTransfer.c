@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0f_EventWriteTransfer @ 0x1802AE74C
+ * XREFs of McTemplateU0f_EventWriteTransfer @ 0x18025C3FC
  * Callers:
- *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802ACB50 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18025AC5C (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0f_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ ULONG __fastcall McTemplateU0f_EventWriteTransfer(__int64 a1, __int64 a2, __int6
   v8 = 0;
   v7 = 4;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE,
            a3,
            2u,

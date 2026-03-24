@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0010F80
+ * XREFs of ?OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0049E1C
  * Callers:
- *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0010D88 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0049C44 (-CitpLastInputUpdate@@YAXGI@Z.c)
  * Callees:
- *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C0010FB8 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
- *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0010FFC (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C0049E54 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0049E98 (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
  */
 
 void __fastcall CIT_USER_ACTIVE_TRACKER::OnUserActiveEvent(CIT_USER_ACTIVE_TRACKER *this, unsigned int a2)

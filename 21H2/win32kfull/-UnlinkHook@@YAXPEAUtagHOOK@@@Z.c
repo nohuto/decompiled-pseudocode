@@ -1,21 +1,20 @@
 /*
- * XREFs of ?UnlinkHook@@YAXPEAUtagHOOK@@@Z @ 0x1C0078120
+ * XREFs of ?UnlinkHook@@YAXPEAUtagHOOK@@@Z @ 0x1C00200A4
  * Callers:
- *     FreeHook @ 0x1C0070000 (FreeHook.c)
- *     FreeThreadsWindowHooks @ 0x1C00E8380 (FreeThreadsWindowHooks.c)
+ *     FreeHook @ 0x1C0020030 (FreeHook.c)
+ *     FreeThreadsWindowHooks @ 0x1C00FE400 (FreeThreadsWindowHooks.c)
  * Callees:
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00783CC (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ *     <none>
  */
 
 void __fastcall UnlinkHook(struct tagHOOK *a1)
 {
   __int64 v2; // rcx
-  __int64 v3; // r9
+  __int64 v3; // r10
   struct tagHOOK **i; // rcx
   struct tagHOOK *v5; // rax
   struct tagHOOK *v6; // rax
 
-  LockRefactorStagingAssertOwned(gDomainHookLock);
   if ( (*((_DWORD *)a1 + 16) & 1) != 0 )
   {
     v3 = *((int *)a1 + 12);

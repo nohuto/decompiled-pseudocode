@@ -1,13 +1,12 @@
 /*
- * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x14037CBF8
+ * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x1403CB0B4
  * Callers:
- *     HalpInterruptEnableNmi @ 0x14037BC04 (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x14037C728 (HalpInterruptRemap.c)
- *     HalpInterruptSetRemappedLineState @ 0x140504870 (HalpInterruptSetRemappedLineState.c)
+ *     HalpInterruptRemap @ 0x140378050 (HalpInterruptRemap.c)
+ *     HalpInterruptEnableNmi @ 0x1403A306C (HalpInterruptEnableNmi.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403AF294 (HalpTimerInitializeHypervisorTimer.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x14037CCA0 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403A397C (HalpInterruptGetPriority.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigned int *a2, __int64 a3)
@@ -29,13 +28,19 @@ __int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigne
     *(_OWORD *)(v7 + 16) = *(_OWORD *)(a3 + 16);
     *(_OWORD *)(v7 + 32) = *(_OWORD *)(a3 + 32);
     *(_QWORD *)(v7 + 48) = *(_QWORD *)(a3 + 48);
-    Priority = HalpInterruptGetPriority(a1);
+    Priority = HalpInterruptGetPriority(a1, *(_DWORD *)(a3 + 48));
     *(_DWORD *)(*(_QWORD *)(v9 + 40) + v10 + 52) = Priority;
     *(_BYTE *)(*(_QWORD *)(v9 + 48) + 16 * v11 + 12) = 1;
   }
   else
   {
-    HalpInterruptSetProblemEx(a1, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 3323);
+    HalpInterruptLastProblem = 18;
+    if ( a1 )
+    {
+      *(_QWORD *)(a1 + 292) = 18LL;
+      *(_QWORD *)(a1 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *(_DWORD *)(a1 + 312) = 3317;
+    }
     return (unsigned int)-1073741811;
   }
   return v4;

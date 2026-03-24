@@ -1,9 +1,9 @@
 /*
- * XREFs of CiNdisOpenDevice @ 0x1C000BC40
+ * XREFs of CiNdisOpenDevice @ 0x1C000BF70
  * Callers:
- *     CsInitialize @ 0x1C000D320 (CsInitialize.c)
+ *     CsInitialize @ 0x1C000D2D0 (CsInitialize.c)
  * Callees:
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
  */
 
 NTSTATUS CiNdisOpenDevice()
@@ -27,7 +27,7 @@ NTSTATUS CiNdisOpenDevice()
       WPP_SF_d(
         (__int64)WPP_GLOBAL_Control->AttachedDevice,
         0xCu,
-        (__int64)&WPP_d2897200c6e43cdc4e82ed4e6c32a2ac_Traceguids,
+        (__int64)&WPP_d82c60fe09533be4a3a87c1a21a9ae39_Traceguids,
         result);
     return v1;
   }

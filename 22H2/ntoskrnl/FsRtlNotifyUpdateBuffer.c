@@ -1,23 +1,24 @@
 /*
- * XREFs of FsRtlNotifyUpdateBuffer @ 0x1409401C8
+ * XREFs of FsRtlNotifyUpdateBuffer @ 0x140676004
  * Callers:
- *     FsRtlNotifyFilterReportChange @ 0x14084C6F0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1406746F0 (FsRtlNotifyFilterReportChange.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlOemToUnicodeN @ 0x140774840 (RtlOemToUnicodeN.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlOemToUnicodeN @ 0x140760460 (RtlOemToUnicodeN.c)
  */
 
 char __fastcall FsRtlNotifyUpdateBuffer(__int64 a1, int a2, PCCH *a3, PCCH *a4, PCCH *a5, char a6, int a7)
 {
   unsigned int v10; // edi
   ULONG v11; // edx
-  ULONG BytesInOemString; // eax
-  __int64 v14; // r8
+  ULONG BytesInOemString; // ecx
+  bool v13; // zf
+  __int64 v14; // rcx
   const void **v15; // rdx
-  __int64 v16; // rdi
-  WCHAR *v17; // rcx
-  ULONG v18; // ecx
+  void *v16; // rcx
+  __int64 v18; // r8
   __int64 v19; // rdi
+  __int64 v20; // rdi
   ULONG BytesInUnicodeString[5]; // [rsp+34h] [rbp-14h] BYREF
 
   v10 = 0;
@@ -34,20 +35,22 @@ char __fastcall FsRtlNotifyUpdateBuffer(__int64 a1, int a2, PCCH *a3, PCCH *a4, 
     if ( (_WORD)BytesInOemString )
     {
       RtlOemToUnicodeN((PWCH)(a1 + 12), v11, BytesInUnicodeString, a3[1], BytesInOemString);
-      v18 = BytesInUnicodeString[0];
+      BytesInOemString = BytesInUnicodeString[0];
       *(_WORD *)(BytesInUnicodeString[0] + a1 + 12) = 92;
-      v10 = v18 + 2;
+      v10 = BytesInOemString + 2;
+      LOWORD(BytesInOemString) = *(_WORD *)a3;
     }
-    v17 = (WCHAR *)(v10 + a1 + 12);
-    if ( *(_WORD *)a3 )
+    v13 = (_WORD)BytesInOemString == 0;
+    v14 = a1 + 12;
+    if ( !v13 )
     {
-      RtlOemToUnicodeN(v17, *(_DWORD *)(a1 + 8), BytesInUnicodeString, a4[1], *(unsigned __int16 *)a4);
+      RtlOemToUnicodeN((PWCH)(v10 + v14), *(_DWORD *)(a1 + 8), BytesInUnicodeString, a4[1], *(unsigned __int16 *)a4);
       if ( a5 )
       {
-        v19 = BytesInUnicodeString[0] + v10;
-        *(_WORD *)(v19 + a1 + 12) = 58;
+        v20 = BytesInUnicodeString[0] + v10;
+        *(_WORD *)(v20 + a1 + 12) = 58;
         RtlOemToUnicodeN(
-          (PWCH)(a1 + (unsigned int)v19 + 14LL),
+          (PWCH)(a1 + (unsigned int)v20 + 14LL),
           *(_DWORD *)(a1 + 8),
           BytesInUnicodeString,
           a5[1],
@@ -56,26 +59,27 @@ char __fastcall FsRtlNotifyUpdateBuffer(__int64 a1, int a2, PCCH *a3, PCCH *a4, 
       return 1;
     }
     v15 = (const void **)a5;
-    goto LABEL_14;
+    v16 = (void *)(v10 + v14);
+    goto LABEL_7;
   }
   if ( (_WORD)BytesInOemString )
   {
     memmove((void *)(a1 + 12), a3[1], *(unsigned __int16 *)a3);
-    v14 = *(unsigned __int16 *)a3;
-    if ( *(unsigned int *)(a1 + 8) < (unsigned __int64)(v14 + 2) )
+    v18 = *(unsigned __int16 *)a3;
+    if ( *(unsigned int *)(a1 + 8) < (unsigned __int64)(v18 + 2) )
       return 0;
-    *(_WORD *)(v14 + a1 + 12) = 92;
+    *(_WORD *)(v18 + a1 + 12) = 92;
     v10 = *(unsigned __int16 *)a3 + 2;
   }
   memmove((void *)(v10 + a1 + 12), a4[1], *(unsigned __int16 *)a4);
   v15 = (const void **)a5;
   if ( a5 )
   {
-    v16 = *(unsigned __int16 *)a4 + v10;
-    *(_WORD *)(v16 + a1 + 12) = 58;
-    v17 = (WCHAR *)((unsigned int)v16 + a1 + 14);
-LABEL_14:
-    memmove(v17, v15[1], *(unsigned __int16 *)v15);
+    v19 = *(unsigned __int16 *)a4 + v10;
+    *(_WORD *)(v19 + a1 + 12) = 58;
+    v16 = (void *)((unsigned int)v19 + a1 + 14);
+LABEL_7:
+    memmove(v16, v15[1], *(unsigned __int16 *)v15);
   }
   return 1;
 }

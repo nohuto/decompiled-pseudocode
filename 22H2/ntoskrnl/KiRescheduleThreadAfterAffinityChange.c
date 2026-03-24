@@ -1,151 +1,56 @@
 /*
- * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x140203570
+ * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x14035DB70
  * Callers:
- *     KiSetAffinityThread @ 0x14020327C (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x14039E750 (KiUpdateThreadCpuSets.c)
- *     KiSetHeteroPolicyThread @ 0x140577A9C (KiSetHeteroPolicyThread.c)
+ *     KiSetAffinityThread @ 0x14035D934 (KiSetAffinityThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x14035E53C (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C5C5C (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x14020666C (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiStartRescheduleContext @ 0x140238F00 (KiStartRescheduleContext.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x140242580 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B50 (KiFindRescheduleContextEntryForPrcb.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252640 (KiFlushSoftwareInterruptBatch.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1402BD220 (KiPrepareReadyThreadForRescheduling.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140307790 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307DDC (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiCommitRescheduleContext @ 0x140308444 (KiCommitRescheduleContext.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiSelectNextThread @ 0x1402568EC (KiSelectNextThread.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14035BA40 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiInsertDeferredReadyList @ 0x14035BAA0 (KiInsertDeferredReadyList.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x14035BAD0 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiPrcbInGroupAffinity @ 0x14035CFD4 (KiPrcbInGroupAffinity.c)
  */
 
-char __fastcall KiRescheduleThreadAfterAffinityChange(
+__int64 __fastcall KiRescheduleThreadAfterAffinityChange(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
-        unsigned __int8 a4,
+        char a3,
+        __int64 a4,
         __int64 a5,
-        __int64 a6,
-        volatile signed __int64 *a7,
-        __int64 a8)
+        __int64 a6)
 {
-  struct _KPRCB *CurrentPrcb; // r13
-  char v12; // r12
-  int v13; // ebx
-  __int64 v14; // rax
-  __int64 v15; // rbx
-  bool v16; // zf
-  bool v17; // zf
-  __int64 RescheduleContextEntryForPrcb; // rax
-  __int64 v19; // r9
-  __int64 v20; // rdx
-  __int64 v21; // rdx
-  __int64 v22; // r9
-  _DWORD *v23; // r11
-  char v24; // r10
-  unsigned int v25; // ebx
-  __int64 v26; // r10
-  _DWORD *v27; // rcx
-  _DWORD v29[84]; // [rsp+30h] [rbp-188h] BYREF
+  struct _KPRCB *v7; // rcx
+  __int64 v8; // r9
+  struct _KPRCB *v10; // rcx
+  unsigned int v11; // ebx
 
-  CurrentPrcb = KeGetCurrentPrcb();
-  v12 = 0;
-  v13 = a4;
-  LOBYTE(v14) = (unsigned __int8)memset(v29, 0, sizeof(v29));
-  switch ( v13 )
+  if ( a3 == 1 )
   {
-    case 1:
-      v25 = *(char *)(a1 + 195);
-      KiRemoveThreadFromAnyReadyQueue(a5, a7, a1, v25);
-      LOBYTE(v14) = KiPrepareReadyThreadForRescheduling(a1, v25, a8);
-      goto LABEL_4;
-    case 2:
-      if ( a2 )
-      {
-        LODWORD(v14) = KeCheckProcessorAffinityEx(a2, *(unsigned int *)(a5 + 36));
-        v16 = (_DWORD)v14 == 0;
-      }
-      else
-      {
-        if ( !a3 )
-          goto LABEL_4;
-        v14 = *(_QWORD *)a3 >> (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a5 + 36)] & 0x3F);
-        v16 = (((unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a5 + 36)] >> 6 == *(unsigned __int16 *)(a3 + 8)) & (unsigned __int8)v14) == 0;
-      }
-      if ( !v16 )
-      {
-LABEL_4:
-        v15 = a6;
-        goto LABEL_5;
-      }
-      LOBYTE(v14) = *(_BYTE *)(a1 + 388);
-      if ( (_BYTE)v14 != 2 )
-      {
-        *(_BYTE *)(a1 + 112) |= 8u;
-        goto LABEL_4;
-      }
-      _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), 0xCu);
-      v17 = *(_QWORD *)(a5 + 16) == 0LL;
-      break;
-    case 3:
-      if ( a2 )
-      {
-        LODWORD(v14) = KeCheckProcessorAffinityEx(a2, *(unsigned int *)(a5 + 36));
-        v17 = (_DWORD)v14 == 0;
-      }
-      else
-      {
-        if ( !a3 )
-          goto LABEL_4;
-        v14 = *(_QWORD *)a3 >> (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a5 + 36)] & 0x3F);
-        v17 = (((unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a5 + 36)] >> 6 == *(unsigned __int16 *)(a3 + 8)) & (unsigned __int8)v14) == 0;
-      }
-      break;
-    default:
-      goto LABEL_4;
+    v11 = *(char *)(a1 + 195);
+    KiRemoveThreadFromAnyReadyQueue(a4, a5, a1, v11);
+    KiPrepareReadyThreadForRescheduling((_KTHREAD *)a1, v11, a6);
+    return 0LL;
   }
-  if ( !v17 )
-    goto LABEL_4;
-  v15 = a6;
-  KiStartRescheduleContext(v29, a6, a1);
-  RescheduleContextEntryForPrcb = KiFindRescheduleContextEntryForPrcb(v29, a5);
-  LOBYTE(v19) = 1;
-  KiAdjustRescheduleContextEntryForThreadRemoval(RescheduleContextEntryForPrcb, v20, 0LL, v19);
-  if ( (v24 & 2) != 0 )
+  if ( a3 != 2 )
   {
-    LOBYTE(v21) = v29[0];
-    v26 = 0LL;
-    if ( LOBYTE(v29[0]) )
+    if ( a3 == 3 && !KiPrcbInGroupAffinity(a4, a2) )
     {
-      do
-      {
-        v27 = &v29[10 * v26 + 4];
-        if ( v27 != v23 )
-        {
-          LOBYTE(v22) = 1;
-          KiAdjustRescheduleContextEntryForThreadRemoval(v27, v21, 0LL, v22);
-          LOBYTE(v21) = v29[0];
-        }
-        v26 = (unsigned int)(v26 + 1);
-      }
-      while ( (unsigned int)v26 < (unsigned __int8)v21 );
+      KiSelectNextThread(v10, a6);
+      KiInsertDeferredReadyList(a6, a1);
     }
-    v29[1] = 0;
+    return 0LL;
   }
-  KiSearchForNewThreadsForRescheduleContext(v29, a8);
-  LOBYTE(v14) = KiCommitRescheduleContext(v29, CurrentPrcb, 0LL, a8);
-  v12 = v14;
-LABEL_5:
-  if ( a5 )
-    LOBYTE(v14) = KiReleasePrcbLocksForIsolationUnit(v15);
-  if ( a7 )
-    _InterlockedAnd64(a7, 0LL);
-  *(_QWORD *)(a1 + 64) = 0LL;
-  if ( v12 )
+  if ( KiPrcbInGroupAffinity(a4, a2) )
+    return 0LL;
+  if ( *(_BYTE *)(a1 + 388) != 2 )
   {
-    KiCompleteRescheduleContext(v29, (__int64)CurrentPrcb);
-    LOBYTE(v14) = KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts);
+    *(_BYTE *)(a1 + 112) |= 8u;
+    return 0LL;
   }
-  return v14;
+  _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), 0xCu);
+  if ( *(_QWORD *)(v8 + 16) )
+    return 0LL;
+  KiSelectNextThread(v7, a6);
+  return 1LL;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?reset@?$unique_storage@U?$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1?FreeLibrary@@YAH0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAUHINSTANCE__@@@Z @ 0x1801BD650
+ * XREFs of ?reset@?$unique_storage@U?$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1?FreeLibrary@@YAH0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAUHINSTANCE__@@@Z @ 0x1801689C4
  * Callers:
- *     ??1CSceneResourceManager@@QEAA@XZ @ 0x1801BC988 (--1CSceneResourceManager@@QEAA@XZ.c)
- *     ?EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ @ 0x1801BCA48 (-EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ.c)
+ *     ??1CSceneResourceManager@@QEAA@XZ @ 0x180168090 (--1CSceneResourceManager@@QEAA@XZ.c)
+ *     ?EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ @ 0x180168124 (-EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,24 @@
 /*
- * XREFs of PnprMapPhysicalPages @ 0x140A9CDA8
+ * XREFs of PnprMapPhysicalPages @ 0x1409ADD1C
  * Callers:
- *     PnprMapTargetSparePhysicalPages @ 0x140A9CF70 (PnprMapTargetSparePhysicalPages.c)
+ *     PnprMapTargetSparePhysicalPages @ 0x1409ADEF0 (PnprMapTargetSparePhysicalPages.c)
  * Callees:
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A6C20 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x14061E980 (MmUnmapReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8440 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x140531BD0 (MmUnmapReservedMapping.c)
  */
 
-__int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)
+__int64 __fastcall PnprMapPhysicalPages(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)
 {
   __int64 v6; // rdx
   int v9; // eax
   int v10; // eax
   __int64 result; // rax
   unsigned __int64 v12; // rdi
-  PMDL v13; // r8
+  PMDL v13; // rcx
   PMDL v14; // rcx
-  struct _MDL *v15; // rsi
-  struct _MDL *v16; // rax
-  unsigned __int64 i; // r8
+  unsigned __int64 v15; // rbp
+  unsigned __int64 v16; // r8
+  _QWORD *v17; // rax
   PVOID v18; // rax
   __int64 v19; // rcx
   int v20; // eax
@@ -31,40 +31,48 @@ __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned 
   {
     if ( (a2 & 0xFFF) != 0 || (v12 = *a3) == 0 || (v12 & 0xFFF) != 0 )
     {
-      v22 = *(_DWORD *)(PnprContext + 33272);
+      v22 = *(_DWORD *)(PnprContext + 20984);
       if ( !v22 )
-        v22 = 4085;
-      *(_DWORD *)(PnprContext + 33272) = v22;
-      v23 = *(_DWORD *)(v6 + 33276);
+        v22 = 4079;
+      *(_DWORD *)(PnprContext + 20984) = v22;
+      v23 = *(_DWORD *)(v6 + 20988);
       if ( !v23 )
         v23 = 8;
-      *(_DWORD *)(v6 + 33276) = v23;
+      *(_DWORD *)(v6 + 20988) = v23;
       return 3221225485LL;
     }
     else
     {
-      v13 = *a1;
+      v13 = *(PMDL *)a1;
       if ( v12 > 0x10000 )
         v12 = 0x10000LL;
       if ( (v13->MdlFlags & 1) != 0 )
-        MmUnmapReservedMapping(a1[1], 0x51706E50u, v13);
-      v14 = *a1;
-      v15 = (struct _MDL *)(a2 >> 12);
-      v14->Size = 8 * (((v12 + 4095) >> 12) + 6);
-      v14->Next = 0LL;
-      v14->MdlFlags = 0;
-      v14->StartVa = 0LL;
-      v14->ByteOffset = 0;
-      v14->ByteCount = v12;
-      v16 = *a1 + 1;
-      for ( i = v12 >> 12; i; --i )
       {
-        v16->Next = v15;
-        v16 = (struct _MDL *)((char *)v16 + 8);
-        v15 = (struct _MDL *)((char *)v15 + 1);
+        MmUnmapReservedMapping(*(PVOID *)(a1 + 8), 0x51706E50u, v13);
+        v13 = *(PMDL *)a1;
       }
-      (*a1)->MdlFlags |= *((_WORD *)a1 + 8);
-      v18 = MmMapLockedPagesWithReservedMapping(a1[1], 0x51706E50u, *a1, MmCached);
+      v13->Next = 0LL;
+      v13->MdlFlags = 0;
+      v13->Size = 8 * (((v12 + 4095) >> 12) + 6);
+      v13->StartVa = 0LL;
+      v13->ByteOffset = 0;
+      v13->ByteCount = v12;
+      v14 = *(PMDL *)a1;
+      v15 = a2 >> 12;
+      v16 = v12 >> 12;
+      v17 = (_QWORD *)(*(_QWORD *)a1 + 48LL);
+      if ( v12 >> 12 )
+      {
+        do
+        {
+          *v17++ = v15++;
+          --v16;
+        }
+        while ( v16 );
+        v14 = *(PMDL *)a1;
+      }
+      v14->MdlFlags |= *(_WORD *)(a1 + 16);
+      v18 = MmMapLockedPagesWithReservedMapping(*(PVOID *)(a1 + 8), 0x51706E50u, *(PMDL *)a1, MmCached);
       if ( v18 )
       {
         *a4 = v18;
@@ -74,28 +82,28 @@ __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned 
       else
       {
         v19 = PnprContext;
-        v20 = *(_DWORD *)(PnprContext + 33272);
+        v20 = *(_DWORD *)(PnprContext + 20984);
         if ( !v20 )
-          v20 = 4140;
-        *(_DWORD *)(PnprContext + 33272) = v20;
-        v21 = *(_DWORD *)(v19 + 33276);
+          v20 = 4134;
+        *(_DWORD *)(PnprContext + 20984) = v20;
+        v21 = *(_DWORD *)(v19 + 20988);
         if ( !v21 )
           v21 = 10;
-        *(_DWORD *)(v19 + 33276) = v21;
+        *(_DWORD *)(v19 + 20988) = v21;
         return 3221225626LL;
       }
     }
   }
   else
   {
-    v9 = *(_DWORD *)(PnprContext + 33272);
+    v9 = *(_DWORD *)(PnprContext + 20984);
     if ( !v9 )
-      v9 = 4077;
-    *(_DWORD *)(PnprContext + 33272) = v9;
-    v10 = *(_DWORD *)(v6 + 33276);
+      v9 = 4071;
+    *(_DWORD *)(PnprContext + 20984) = v9;
+    v10 = *(_DWORD *)(v6 + 20988);
     if ( !v10 )
       v10 = 8;
-    *(_DWORD *)(v6 + 33276) = v10;
+    *(_DWORD *)(v6 + 20988) = v10;
     return 3221225498LL;
   }
   return result;

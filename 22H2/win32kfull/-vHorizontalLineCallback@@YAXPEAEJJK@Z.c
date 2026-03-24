@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vHorizontalLineCallback@@YAXPEAEJJK@Z @ 0x1C02FC620
+ * XREFs of ?vHorizontalLineCallback@@YAXPEAEJJK@Z @ 0x1C015C2E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vHorizontalLineCallback(unsigned __int8 *a1, int a2, int a3, unsigned int a4)

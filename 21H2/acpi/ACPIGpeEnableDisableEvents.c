@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIGpeEnableDisableEvents @ 0x1C00200A4
+ * XREFs of ACPIGpeEnableDisableEvents @ 0x1C00265D0
  * Callers:
- *     ACPIGpeBuildEventMasks @ 0x1C001B8FC (ACPIGpeBuildEventMasks.c)
- *     ACPIGpeClearEventMasks @ 0x1C001FC84 (ACPIGpeClearEventMasks.c)
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
- *     ACPIGpeHalEnableDisableEvents @ 0x1C00564C0 (ACPIGpeHalEnableDisableEvents.c)
- *     ACPIInterruptDispatchEventDpc @ 0x1C0057880 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIInterruptServiceRoutine @ 0x1C0057E60 (ACPIInterruptServiceRoutine.c)
- *     ACPIVectorConnect @ 0x1C00618E0 (ACPIVectorConnect.c)
- *     ACPIVectorDisable @ 0x1C0061AC0 (ACPIVectorDisable.c)
- *     ACPIVectorDisconnect @ 0x1C0061BB0 (ACPIVectorDisconnect.c)
- *     ACPIVectorEnable @ 0x1C0061CF0 (ACPIVectorEnable.c)
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIGpeClearEventMasks @ 0x1C0025C40 (ACPIGpeClearEventMasks.c)
+ *     ACPIInterruptServiceRoutine @ 0x1C0025E90 (ACPIInterruptServiceRoutine.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIGpeHalEnableDisableEvents @ 0x1C0055F80 (ACPIGpeHalEnableDisableEvents.c)
+ *     ACPIVectorConnect @ 0x1C0060B20 (ACPIVectorConnect.c)
+ *     ACPIVectorDisable @ 0x1C0060D00 (ACPIVectorDisable.c)
+ *     ACPIVectorDisconnect @ 0x1C0060DF0 (ACPIVectorDisconnect.c)
+ *     ACPIVectorEnable @ 0x1C0060F30 (ACPIVectorEnable.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     ACPIWriteGpeEnableRegister @ 0x1C0020100 (ACPIWriteGpeEnableRegister.c)
+ *     ACPIWriteGpeEnableRegister @ 0x1C002662C (ACPIWriteGpeEnableRegister.c)
  */
 
 void *__fastcall ACPIGpeEnableDisableEvents(char a1, __int64 a2)

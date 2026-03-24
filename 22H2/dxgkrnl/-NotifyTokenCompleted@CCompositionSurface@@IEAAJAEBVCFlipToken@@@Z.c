@@ -1,119 +1,122 @@
 /*
- * XREFs of ?NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z @ 0x1C007CA58
+ * XREFs of ?NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z @ 0x1C000F63C
  * Callers:
- *     ?NotifyTokenCompleted@CompositionSurfaceObject@@QEAAJAEBVCFlipToken@@@Z @ 0x1C007A028 (-NotifyTokenCompleted@CompositionSurfaceObject@@QEAAJAEBVCFlipToken@@@Z.c)
+ *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C000F1B0 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
  * Callees:
- *     ?FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z @ 0x1C00016E8 (-FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C0010740 (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?PairBind@CCompositionSurface@@IEAAJPEAVCFlipExBuffer@@@Z @ 0x1C007CEA0 (-PairBind@CCompositionSurface@@IEAAJPEAVCFlipExBuffer@@@Z.c)
- *     ?NotifyFrame@CPresentRate@@QEAAXXZ @ 0x1C007D358 (-NotifyFrame@CPresentRate@@QEAAXXZ.c)
- *     ?InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z @ 0x1C007E3DC (-InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z.c)
- *     ?InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z @ 0x1C007E4B4 (-InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C001330C (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z @ 0x1C0066240 (-FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z.c)
+ *     ?PairBind@CCompositionSurface@@IEAAJPEAVCFlipExBuffer@@@Z @ 0x1C006649C (-PairBind@CCompositionSurface@@IEAAJPEAVCFlipExBuffer@@@Z.c)
+ *     ?InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z @ 0x1C0066FD8 (-InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z.c)
+ *     ?InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z @ 0x1C00670B0 (-InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z.c)
  */
 
 __int64 __fastcall CCompositionSurface::NotifyTokenCompleted(CCompositionSurface *this, const struct CFlipToken *a2)
 {
   int Buffer; // ebx
-  CFlipExBuffer *v5; // rsi
+  CFlipExBuffer *v6; // rdi
   int inserted; // eax
-  __int64 v7; // rdx
   __int64 v8; // rdx
-  _OWORD *v9; // rax
-  _OWORD *v10; // rcx
-  __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  unsigned __int64 v18; // r8
-  __int128 v19; // xmm1
-  unsigned __int64 v20; // rdx
-  __int128 v21; // xmm0
-  __int128 v22; // xmm1
-  __int64 v23; // rax
+  __int64 v9; // rdx
+  _OWORD *v10; // rax
+  _OWORD *v11; // rcx
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  unsigned __int64 v19; // r8
+  __int128 v20; // xmm1
+  unsigned __int64 v21; // rdx
+  __int128 v22; // xmm0
+  __int128 v23; // xmm1
+  int v24; // eax
   unsigned __int64 v25; // [rsp+30h] [rbp-D0h] BYREF
-  struct CCompositionBuffer *v26; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int64 v27[2]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v26; // [rsp+38h] [rbp-C8h] BYREF
+  struct CCompositionBuffer *v27; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE v28[464]; // [rsp+50h] [rbp-B0h] BYREF
 
   Buffer = 0;
-  v26 = 0LL;
-  CPresentRate::NotifyFrame((CCompositionSurface *)((char *)this + 56));
-  if ( *((_QWORD *)this + 13) )
+  v27 = 0LL;
+  if ( *((_QWORD *)this + 12) )
   {
-    Buffer = CCompositionSurface::FindBuffer(this, *((_QWORD *)a2 + 5), &v26);
+    Buffer = CCompositionSurface::FindBuffer(this, *((_QWORD *)a2 + 5), &v27);
     if ( Buffer >= 0 )
     {
-      v27[0] = 0LL;
+      v26 = 0LL;
       v25 = 0LL;
-      memset(v28, 0, 0x1C8uLL);
-      v5 = CFlipExBuffer::FromBuffer(v26);
-      inserted = CFlipExBuffer::InsertCascadedTokenWait(v5, v27, &v25);
+      v6 = CFlipExBuffer::FromBuffer(v27);
+      inserted = CFlipExBuffer::InsertCascadedTokenWait(v6, &v26, &v25);
       Buffer = inserted;
-      if ( inserted >= 0
-        || inserted == -1073741267
-        && (CFlipExBuffer::DisableCascadedSignaling(v5),
-            LOBYTE(v7) = 1,
-            Buffer = (*(__int64 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 32LL))(
-                       *((_QWORD *)this + 13),
-                       v7),
-            Buffer >= 0)
-        && (Buffer = CCompositionSurface::PairBind(this, v5), Buffer >= 0)
-        && (Buffer = CFlipExBuffer::InsertCascadedTokenWait(v5, v27, &v25), Buffer >= 0) )
+      if ( inserted < 0 )
       {
-        if ( (*(unsigned __int8 (__fastcall **)(const struct CFlipToken *))(*(_QWORD *)a2 + 168LL))(a2) )
+        if ( inserted == -1073741267 )
         {
-          v8 = 3LL;
-          v9 = (_OWORD *)((char *)a2 + 104);
-          v10 = v28;
-          do
-          {
-            v11 = v9[1];
-            *v10 = *v9;
-            v12 = v9[2];
-            v10[1] = v11;
-            v13 = v9[3];
-            v10[2] = v12;
-            v14 = v9[4];
-            v10[3] = v13;
-            v15 = v9[5];
-            v10[4] = v14;
-            v16 = v9[6];
-            v10[5] = v15;
-            v17 = v9[7];
-            v9 += 8;
-            v10[6] = v16;
-            v10 += 8;
-            *(v10 - 1) = v17;
-            --v8;
-          }
-          while ( v8 );
-          v18 = v25;
-          v19 = v9[1];
-          v20 = v27[0];
-          *v10 = *v9;
-          v21 = v9[2];
-          v10[1] = v19;
-          v22 = v9[3];
-          v23 = *((_QWORD *)v9 + 8);
-          v10[2] = v21;
-          v10[3] = v22;
-          *((_QWORD *)v10 + 8) = v23;
-          Buffer = (*(__int64 (__fastcall **)(_QWORD, unsigned __int64, unsigned __int64, _BYTE *))(**((_QWORD **)this + 13)
-                                                                                                  + 40LL))(
-                     *((_QWORD *)this + 13),
-                     v20,
-                     v18,
-                     v28);
+          CFlipExBuffer::DisableCascadedSignaling(v6);
+          LOBYTE(v8) = 1;
+          Buffer = (*(__int64 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 12) + 32LL))(
+                     *((_QWORD *)this + 12),
+                     v8);
           if ( Buffer < 0 )
-            CFlipExBuffer::InsertCascadedTokenSignal(v5, v25);
+            return (unsigned int)Buffer;
+          Buffer = CCompositionSurface::PairBind(this, v6);
+          if ( Buffer < 0 )
+            return (unsigned int)Buffer;
+          Buffer = CFlipExBuffer::InsertCascadedTokenWait(v6, &v26, &v25);
         }
+        if ( Buffer < 0 )
+          return (unsigned int)Buffer;
+      }
+      if ( (*(unsigned __int8 (__fastcall **)(const struct CFlipToken *))(*(_QWORD *)a2 + 160LL))(a2) )
+      {
+        v9 = 3LL;
+        v10 = (_OWORD *)((char *)a2 + 104);
+        v11 = v28;
+        do
+        {
+          v12 = v10[1];
+          *v11 = *v10;
+          v13 = v10[2];
+          v11[1] = v12;
+          v14 = v10[3];
+          v11[2] = v13;
+          v15 = v10[4];
+          v11[3] = v14;
+          v16 = v10[5];
+          v11[4] = v15;
+          v17 = v10[6];
+          v11[5] = v16;
+          v18 = v10[7];
+          v10 += 8;
+          v11[6] = v17;
+          v11 += 8;
+          *(v11 - 1) = v18;
+          --v9;
+        }
+        while ( v9 );
+        v19 = v25;
+        v20 = v10[1];
+        v21 = v26;
+        *v11 = *v10;
+        v22 = v10[2];
+        v11[1] = v20;
+        v23 = v10[3];
+        v24 = *((_DWORD *)v10 + 16);
+        v11[2] = v22;
+        v11[3] = v23;
+        *((_DWORD *)v11 + 16) = v24;
+        Buffer = (*(__int64 (__fastcall **)(_QWORD, unsigned __int64, unsigned __int64, _BYTE *))(**((_QWORD **)this + 12)
+                                                                                                + 40LL))(
+                   *((_QWORD *)this + 12),
+                   v21,
+                   v19,
+                   v28);
+        if ( Buffer < 0 )
+          CFlipExBuffer::InsertCascadedTokenSignal(v6, v25);
       }
     }
   }

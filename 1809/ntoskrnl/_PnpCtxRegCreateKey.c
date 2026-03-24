@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpCtxRegCreateKey @ 0x1406E6484
+ * XREFs of _PnpCtxRegCreateKey @ 0x1406E6464
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140181D80 (PipUpdateDeviceProducts.c)
+ *     PipUpdateDeviceProducts @ 0x140181DA0 (PipUpdateDeviceProducts.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E58 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _PnpSetPropertyWorker @ 0x1406E61F0 (_PnpSetPropertyWorker.c)
- *     _CmCreateOrdinalInstanceKey @ 0x1406E7CA0 (_CmCreateOrdinalInstanceKey.c)
- *     _CmAddDeviceToContainerWorker @ 0x1406E8194 (_CmAddDeviceToContainerWorker.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140704B20 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     PiDrvDbOverlayCopyKeys @ 0x14083D808 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x14083DDAC (PiDrvDbOverlayNodeHive.c)
- *     _CmAddPanelDeviceWorker @ 0x1408FB234 (_CmAddPanelDeviceWorker.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E38 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _PnpSetPropertyWorker @ 0x1406E61D0 (_PnpSetPropertyWorker.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1406E7C80 (_CmCreateOrdinalInstanceKey.c)
+ *     _CmAddDeviceToContainerWorker @ 0x1406E8174 (_CmAddDeviceToContainerWorker.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140704B00 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x14083D7E8 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x14083DD8C (PiDrvDbOverlayNodeHive.c)
+ *     _CmAddPanelDeviceWorker @ 0x1408FB214 (_CmAddPanelDeviceWorker.c)
  *     PipMigratePnpState @ 0x1409C8678 (PipMigratePnpState.c)
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
- *     PipCommitPendingOsExtensionResource @ 0x1409F5A60 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x1409F5C70 (PipCommitPendingService.c)
+ *     PipCommitPendingOsExtensionResource @ 0x1409F5A70 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x1409F5C80 (PipCommitPendingService.c)
  * Callees:
- *     _RegRtlCreateKeyTransacted @ 0x1406D37DC (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406D37BC (_RegRtlCreateKeyTransacted.c)
  */
 
 __int64 __fastcall PnpCtxRegCreateKey(

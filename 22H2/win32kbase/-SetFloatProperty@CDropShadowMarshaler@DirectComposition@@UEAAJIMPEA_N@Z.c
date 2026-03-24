@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetFloatProperty@CDropShadowMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000E440
+ * XREFs of ?SetFloatProperty@CDropShadowMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00B0620
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CDropShadowMarshaler::SetFloatProperty(
         DirectComposition::CDropShadowMarshaler *this,
-        unsigned int a2,
+        int a2,
         float a3,
         bool *a4)
 {
@@ -27,5 +27,5 @@ LABEL_3:
     *((float *)this + 28) = a3;
     goto LABEL_3;
   }
-  return DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
+  return 3221225485LL;
 }

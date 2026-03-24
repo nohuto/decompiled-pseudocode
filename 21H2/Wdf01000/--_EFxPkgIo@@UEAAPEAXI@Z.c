@@ -1,23 +1,25 @@
 /*
- * XREFs of ??_EFxPkgIo@@UEAAPEAXI@Z @ 0x1C00339A0
+ * XREFs of ??_EFxPkgIo@@UEAAPEAXI@Z @ 0x1C0074920
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxPkgIo@@UEAA@XZ @ 0x1C00339E0 (--1FxPkgIo@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPkgIo@@UEAA@XZ @ 0x1C0074848 (--1FxPkgIo@@UEAA@XZ.c)
  */
 
-FxPkgIo *__fastcall FxPkgIo::`vector deleting destructor'(FxPkgIo *this, char a2)
+FxPkgIo *__fastcall FxPkgIo::`vector deleting destructor'(FxPkgIo *this, unsigned int a2, unsigned int a3)
 {
-  FxPkgIo *v4; // rcx
+  char v3; // bl
+  FxPkgIo *v5; // rcx
 
-  FxPkgIo::~FxPkgIo(this);
-  if ( (a2 & 1) != 0 )
+  v3 = a2;
+  FxPkgIo::~FxPkgIo(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxPkgIo *)((char *)this - 48);
+    v5 = (FxPkgIo *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

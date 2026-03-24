@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmReinitializeHeteroEngine @ 0x140848BE8
+ * XREFs of PpmReinitializeHeteroEngine @ 0x1407B9AE8
  * Callers:
- *     PpmPerfClearBootOverrides @ 0x140225D70 (PpmPerfClearBootOverrides.c)
- *     PpmHeteroHgsBackupInit @ 0x1403DC9D4 (PpmHeteroHgsBackupInit.c)
- *     PpmHeteroHgsUpdateWorker @ 0x1405D90F0 (PpmHeteroHgsUpdateWorker.c)
- *     PpmEnableProfile @ 0x14083113C (PpmEnableProfile.c)
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140849690 (PpmCheckInitProcessors.c)
- *     PopPpmHeteroPolicyCallback @ 0x140863A40 (PopPpmHeteroPolicyCallback.c)
- *     PopSetupHighPerfPowerRequest @ 0x140864980 (PopSetupHighPerfPowerRequest.c)
- *     PpmUpdatePerfStates @ 0x14098EE60 (PpmUpdatePerfStates.c)
- *     PpmDisableProfile @ 0x14099D66C (PpmDisableProfile.c)
+ *     PpmPerfClearBootOverrides @ 0x1403A3300 (PpmPerfClearBootOverrides.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403CDC04 (PpmHeteroHgsBackupInit.c)
+ *     PpmHeteroHgsUpdateWorker @ 0x140577BA0 (PpmHeteroHgsUpdateWorker.c)
+ *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmEnableProfile @ 0x1407C5C14 (PpmEnableProfile.c)
+ *     PopPpmHeteroPolicyCallback @ 0x1407D3C00 (PopPpmHeteroPolicyCallback.c)
+ *     PopSetupHighPerfPowerRequest @ 0x1407D4A40 (PopSetupHighPerfPowerRequest.c)
+ *     PpmUpdatePerfStates @ 0x1408E6590 (PpmUpdatePerfStates.c)
+ *     PpmDisableProfile @ 0x1408F5C68 (PpmDisableProfile.c)
  * Callees:
- *     PpmReapplyPerfPolicy @ 0x140849940 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmReinitializeHeteroEngine(char a1)

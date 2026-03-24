@@ -1,354 +1,434 @@
 /*
- * XREFs of MiProcessCrcList @ 0x1406B02D0
+ * XREFs of MiProcessCrcList @ 0x140726CE0
  * Callers:
- *     MiCombineWorkingSet @ 0x140653488 (MiCombineWorkingSet.c)
- *     MiCombineWorkingSetTail @ 0x140653690 (MiCombineWorkingSetTail.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9DC0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSetTail @ 0x14055CD40 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727470 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiValidCombineProtection @ 0x140215B0C (MiValidCombineProtection.c)
- *     MiLocateCombineBlock @ 0x140215B40 (MiLocateCombineBlock.c)
- *     MiCompareActiveCrcEntries @ 0x140215CC4 (MiCompareActiveCrcEntries.c)
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
- *     MiSharePages @ 0x1402161D0 (MiSharePages.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     MiProtectionToCacheAttribute @ 0x1402417B0 (MiProtectionToCacheAttribute.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MiDecrementCombinedPte @ 0x140366814 (MiDecrementCombinedPte.c)
+ *     MiValidCombineProtection @ 0x140367730 (MiValidCombineProtection.c)
+ *     MiAllocateCombineProto @ 0x140367760 (MiAllocateCombineProto.c)
+ *     MiCompareActiveCrcEntries @ 0x1403679E8 (MiCompareActiveCrcEntries.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MiPushCombineBlock @ 0x14036A7D8 (MiPushCombineBlock.c)
+ *     MiFreeCombineBlock @ 0x14036B080 (MiFreeCombineBlock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     MiPopulateCombineMdls @ 0x140726B30 (MiPopulateCombineMdls.c)
+ *     MiFreeCombineMdls @ 0x140726C28 (MiFreeCombineMdls.c)
+ *     MiDereferenceCombineCrc @ 0x1407279FC (MiDereferenceCombineCrc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiProcessCrcList(__int64 a1, unsigned __int64 *a2, size_t a3, int a4)
+__int64 *__fastcall MiProcessCrcList(__int64 a1, __int64 *a2, size_t a3, int a4)
 {
-  unsigned __int64 *v4; // r12
-  __int64 v5; // r13
-  int v7; // ebx
-  __int64 v8; // rax
-  struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v10; // r9
-  __int64 v11; // rbx
-  unsigned __int64 *v12; // rdi
-  ULONG_PTR v13; // r13
-  unsigned __int64 v14; // r15
-  unsigned int v15; // esi
-  unsigned __int64 v16; // rdx
-  __int64 v17; // r8
-  unsigned __int64 v18; // r10
-  unsigned __int64 v19; // r11
-  unsigned __int64 v20; // rdx
-  unsigned __int64 *v21; // r14
-  _QWORD *CombineBlock; // rax
-  size_t v23; // r12
-  __int64 *v24; // r14
-  _QWORD *v25; // rax
-  __int64 v26; // r8
-  _QWORD *j; // rcx
-  _QWORD *i; // rax
-  _QWORD **v29; // rax
-  _QWORD *v30; // rdx
-  unsigned __int64 v31; // rax
-  unsigned __int64 v32; // r12
-  unsigned __int64 v33; // rcx
-  _QWORD *v34; // rsi
+  int v4; // ebx
+  __int64 *result; // rax
+  __int64 v7; // r12
+  __int64 v8; // r13
+  size_t v9; // r10
+  __int64 v10; // rdx
+  unsigned __int64 v11; // r8
+  __int64 *v12; // r14
+  PADAPTER_OBJECT v13; // rbx
+  __int64 CombineProto; // r13
+  ULONG_PTR v15; // rsi
+  unsigned __int64 v16; // r15
+  unsigned int v17; // edi
+  __int64 v18; // rdx
+  __int64 *v19; // r9
+  unsigned __int64 v20; // r11
+  __int64 v21; // rcx
+  char *v22; // rsi
+  __int64 v23; // rax
+  _QWORD *v24; // rdi
   _QWORD *Pool; // rax
+  char *v26; // rdx
+  bool v27; // r8
+  char *v28; // rax
+  char *v29; // r15
+  _QWORD *v30; // rax
+  __int64 v31; // r8
+  _QWORD *j; // rcx
+  __int64 i; // rax
+  _QWORD **v34; // rax
+  _QWORD *v35; // rdx
   _QWORD *v36; // rdx
-  bool v37; // r8
-  _QWORD *v38; // rax
-  unsigned __int64 v39; // rax
-  __int64 v40; // r15
-  _QWORD *v41; // rdx
-  size_t v42; // rdi
-  __int64 *v43; // rsi
-  __int64 v44; // r15
-  __int64 v45; // rdx
-  _QWORD *v46; // rdi
+  _QWORD *v37; // r12
+  size_t v38; // rsi
+  _QWORD **v39; // r14
+  _QWORD *v40; // rdi
+  unsigned __int64 v41; // r10
+  __int64 v42; // rdx
+  __int64 *v43; // r12
+  _QWORD *v44; // rdi
+  size_t v45; // r14
+  __int64 v46; // rsi
   _QWORD *v47; // rax
   size_t k; // rsi
-  size_t m; // rdx
-  _QWORD *v50; // r8
-  void *v51; // rcx
-  unsigned __int64 v52; // [rsp+48h] [rbp-39h]
-  PVOID P; // [rsp+50h] [rbp-31h] BYREF
-  int v54; // [rsp+58h] [rbp-29h] BYREF
-  PVOID Object; // [rsp+60h] [rbp-21h] BYREF
-  unsigned int v56; // [rsp+68h] [rbp-19h]
-  size_t NumOfElements; // [rsp+70h] [rbp-11h]
-  unsigned __int64 v58; // [rsp+78h] [rbp-9h] BYREF
-  unsigned __int64 v59; // [rsp+80h] [rbp-1h] BYREF
-  __int64 v60; // [rsp+88h] [rbp+7h]
-  struct _KTHREAD *v61; // [rsp+90h] [rbp+Fh]
-  __int64 v64; // [rsp+F8h] [rbp+77h]
-  int v65; // [rsp+F8h] [rbp+77h]
+  __int64 v49; // rcx
+  __int64 v50; // rdx
+  struct _DMA_ADAPTER *v51; // rcx
+  __int64 v52; // rcx
+  _QWORD *v53; // rdx
+  int v54; // eax
+  __int64 v55; // rax
+  size_t NumOfElements; // [rsp+48h] [rbp-79h]
+  PVOID P; // [rsp+50h] [rbp-71h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-69h] BYREF
+  __int64 *v59; // [rsp+60h] [rbp-61h]
+  int v60; // [rsp+68h] [rbp-59h] BYREF
+  int v61; // [rsp+6Ch] [rbp-55h]
+  __int64 v62[2]; // [rsp+70h] [rbp-51h] BYREF
+  __int64 v63; // [rsp+80h] [rbp-41h] BYREF
+  __int64 *v64; // [rsp+88h] [rbp-39h]
+  unsigned int v65; // [rsp+90h] [rbp-31h]
+  __int64 v66; // [rsp+98h] [rbp-29h]
+  unsigned __int64 v67; // [rsp+A0h] [rbp-21h] BYREF
+  unsigned __int64 v68; // [rsp+A8h] [rbp-19h]
+  __int64 v69; // [rsp+B0h] [rbp-11h] BYREF
+  __int128 v70; // [rsp+B8h] [rbp-9h] BYREF
+  __int64 v71; // [rsp+C8h] [rbp+7h]
 
+  v4 = a4;
+  v59 = a2;
+  v64 = (__int64 *)a1;
+  result = a2;
+  v61 = a4;
+  v67 = 0LL;
+  v60 = 0;
+  v63 = 0LL;
+  v71 = 0LL;
+  v70 = 0LL;
   if ( a3 )
   {
-    v4 = a2;
-    v5 = *(_QWORD *)a1;
-    v7 = a4;
-    v56 = *(_DWORD *)(a1 + 140);
-    v8 = *(_QWORD *)(a1 + 8);
-    v58 = 0LL;
-    v54 = 0;
-    v59 = 0LL;
+    v7 = *(_QWORD *)(a1 + 8);
+    v8 = *(_QWORD *)a1;
+    v65 = *(_DWORD *)(a1 + 60);
     P = 0LL;
-    v64 = v8;
-    v60 = v5;
+    v66 = v8;
+    v69 = v8;
     qsort(a2, a3, 0x28uLL, MiCombinePageSortByHash);
-    CurrentThread = KeGetCurrentThread();
-    v10 = 0LL;
-    v61 = CurrentThread;
+    DmaAdapter = (PADAPTER_OBJECT)KeGetCurrentThread();
+    v9 = 0LL;
     NumOfElements = 0LL;
-    v52 = (unsigned __int64)&v4[5 * a3 - 5];
-    if ( (unsigned __int64)v4 <= v52 )
+    v62[1] = (__int64)v62;
+    v10 = 0LL;
+    v11 = (unsigned __int64)&v59[5 * a3 - 5];
+    v12 = v59;
+    v68 = v11;
+    v62[0] = (__int64)v62;
+    if ( (unsigned __int64)v59 <= v11 )
     {
-      v11 = v64;
-      v12 = v4 + 1;
-LABEL_4:
-      if ( v11 && *(_DWORD *)(v11 + 4) || (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
-        goto LABEL_17;
-      v13 = 48 * v12[1] - 0x220000000000LL;
-      v14 = *(_QWORD *)(v13 + 8) | 0x8000000000000000uLL;
-      v15 = (*(_DWORD *)(v13 + 16) >> 5) & 0x1F;
-      if ( !MiValidCombineProtection(v15) || v14 < v18 || v14 > v19 )
+      v13 = DmaAdapter;
+      while ( 1 )
       {
-        *v12 = (unsigned __int64)v10;
-        goto LABEL_16;
-      }
-      v20 = *v12;
-      v21 = v12 - 1;
-      if ( (v12 - 1 == (unsigned __int64 *)v52 || v20 != v12[5]) && (v20 != v17 || v21 == v4) )
-      {
-        CombineBlock = MiLocateCombineBlock(v60, v20, v15, 0, v10);
-        v10 = 0LL;
-        if ( !CombineBlock )
+        if ( v7 && *(_DWORD *)(v7 + 4) || (*(_DWORD *)&v13[81].Version & 1) != 0 )
+        {
+LABEL_55:
+          v4 = v61;
+          v8 = v66;
+          goto LABEL_56;
+        }
+        CombineProto = 0LL;
+        v15 = 48 * v12[1] - 0x58000000000LL;
+        v16 = *(_QWORD *)(v15 + 8) | 0x8000000000000000uLL;
+        v17 = (*(_DWORD *)(v15 + 16) >> 5) & 0x1F;
+        if ( !MiValidCombineProtection(v17) || v16 < v20 || v16 > 0xFFFFF6FFFFFFFFFFuLL )
+          goto LABEL_15;
+        v21 = *v12;
+        if ( (v12 == (__int64 *)v11 || v21 != v12[5]) && (v21 != v18 || v12 == v19) )
+        {
+          CombineProto = MiAllocateCombineProto(v66, *v12, v17, 0LL, 0);
+          if ( !CombineProto )
+            goto LABEL_14;
+          v21 = *v12;
+        }
+        else if ( (*(_BYTE *)(v15 + 34) & 0xC0u) >= 0xC0 )
         {
           *v12 = 0LL;
           goto LABEL_15;
         }
-        v65 = 2;
-      }
-      else
-      {
-        v65 = 1;
-        if ( (*(_BYTE *)(v13 + 34) & 0xC0) == 0xC0 )
+        DmaAdapter = 0LL;
+        v22 = MiCapturePfnVm(v64, v15, v65, v21, (unsigned __int64 *)&DmaAdapter, &v67, &v60, &v63);
+        if ( !v22 || v67 != v16 || v60 != v17 )
         {
-          *v12 = (unsigned __int64)v10;
+          if ( DmaAdapter )
+            HalPutDmaAdapter(DmaAdapter);
+          if ( CombineProto )
+            MiDecrementCombinedPte(0LL, CombineProto + 48);
+LABEL_49:
+          *v12 = 0LL;
+LABEL_14:
+          v9 = NumOfElements;
           goto LABEL_15;
         }
+        if ( !CombineProto )
+          goto LABEL_23;
+        v23 = v63;
+        if ( *(_QWORD *)(CombineProto + 64) != v63 )
+          break;
+LABEL_24:
+        *((_DWORD *)v12 + 8) = v17;
+        v12[3] = v23;
+        if ( CombineProto )
+          v12[4] = CombineProto;
+        v24 = P;
+        if ( !P )
+          goto LABEL_34;
+        while ( (unsigned __int64)v22 > v24[4] )
+        {
+          v24 = (_QWORD *)v24[1];
+LABEL_33:
+          if ( !v24 )
+            goto LABEL_34;
+        }
+        if ( (unsigned __int64)v22 < v24[4] )
+        {
+          v24 = (_QWORD *)*v24;
+          goto LABEL_33;
+        }
+        if ( v24 )
+        {
+          if ( DmaAdapter )
+            HalPutDmaAdapter(DmaAdapter);
+          goto LABEL_42;
+        }
+LABEL_34:
+        Pool = MiAllocatePool(64, 0x38uLL, 0x6D56694Du);
+        v24 = Pool;
+        if ( !Pool )
+        {
+          if ( DmaAdapter )
+            HalPutDmaAdapter(DmaAdapter);
+          if ( CombineProto )
+          {
+            MiDecrementCombinedPte(0LL, CombineProto + 48);
+            v12[4] = 0LL;
+            goto LABEL_49;
+          }
+          goto LABEL_14;
+        }
+        v26 = (char *)P;
+        v27 = 0;
+        Pool[4] = v22;
+        Pool[5] = DmaAdapter;
+        if ( !v26 )
+          goto LABEL_41;
+        while ( 2 )
+        {
+          if ( v22 < v26 + 32 )
+          {
+            v28 = *(char **)v26;
+            if ( !*(_QWORD *)v26 )
+              goto LABEL_41;
+            goto LABEL_38;
+          }
+          v28 = (char *)*((_QWORD *)v26 + 1);
+          if ( v28 )
+          {
+LABEL_38:
+            v26 = v28;
+            continue;
+          }
+          break;
+        }
+        v27 = 1;
+LABEL_41:
+        RtlAvlInsertNodeEx((unsigned __int64 *)&P, (unsigned __int64)v26, v27, v24);
+LABEL_42:
+        v9 = NumOfElements + 1;
+        v12[2] = v24[6];
+        ++v24[3];
+        ++NumOfElements;
+        v24[6] = v12;
+        v12[1] = (__int64)(v16 << 25) >> 16;
+LABEL_15:
+        v10 = *v12;
+        v12 += 5;
+        if ( (unsigned __int64)v12 > v68 )
+          goto LABEL_55;
+        v11 = v68;
       }
-      Object = v10;
-      v31 = MiCapturePfnVm((__int64 *)a1, v13, v56, *v12, &Object, &v58, &v54, &v59);
-      v32 = v31;
-      if ( !v31 || v58 != v14 || v54 != v15 )
-        goto LABEL_94;
-      v33 = v59;
-      *((_DWORD *)v12 + 6) = v15;
-      v34 = P;
-      v12[2] = v33;
-      if ( v34 )
+      MiDecrementCombinedPte(0LL, CombineProto + 48);
+      CombineProto = MiAllocateCombineProto(v66, *v12, v17, &v63, 0);
+      if ( !CombineProto )
+      {
+        if ( !DmaAdapter )
+          goto LABEL_49;
+        HalPutDmaAdapter(DmaAdapter);
+        *v12 = 0LL;
+        goto LABEL_14;
+      }
+LABEL_23:
+      v23 = v63;
+      goto LABEL_24;
+    }
+LABEL_56:
+    v29 = 0LL;
+    if ( v9 && (v29 = (char *)MiAllocatePool(256, 8 * v9, 0x6D56694Du)) != 0LL )
+    {
+      v30 = P;
+      v31 = 0LL;
+      j = 0LL;
+      if ( P )
       {
         do
         {
-          if ( v31 > v34[4] )
-          {
-            v34 = (_QWORD *)v34[1];
-          }
-          else
-          {
-            if ( v31 >= v34[4] )
-              break;
-            v34 = (_QWORD *)*v34;
-          }
+          j = v30;
+          v30 = (_QWORD *)*v30;
         }
-        while ( v34 );
+        while ( v30 );
+      }
+      while ( j )
+      {
+        for ( i = j[6]; i; i = *(_QWORD *)(i + 16) )
+          *(_QWORD *)&v29[8 * v31++] = i;
+        v34 = (_QWORD **)j[1];
+        v35 = j;
         if ( v34 )
         {
-          if ( Object )
-            ObfDereferenceObject(Object);
-          goto LABEL_53;
-        }
-      }
-      Pool = MiAllocatePool(64, 0x38uLL, 0x6D56694Du);
-      v34 = Pool;
-      if ( !Pool )
-      {
-LABEL_94:
-        if ( Object )
-          ObfDereferenceObject(Object);
-        v4 = a2;
-        v10 = 0LL;
-        *v12 = 0LL;
-        goto LABEL_15;
-      }
-      v36 = P;
-      v37 = 0;
-      Pool[4] = v32;
-      Pool[5] = Object;
-      if ( !v36 )
-        goto LABEL_52;
-      while ( 1 )
-      {
-        if ( v32 < (unsigned __int64)(v36 + 4) )
-        {
-          v38 = (_QWORD *)*v36;
-          if ( !*v36 )
-            goto LABEL_52;
+          v36 = *v34;
+          for ( j = (_QWORD *)j[1]; v36; v36 = (_QWORD *)*v36 )
+            j = v36;
         }
         else
         {
-          v38 = (_QWORD *)v36[1];
-          if ( !v38 )
+          for ( j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL); j; j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL) )
           {
-            v37 = 1;
-LABEL_52:
-            RtlAvlInsertNodeEx((unsigned __int64 *)&P, (unsigned __int64)v36, v37, (unsigned __int64)v34);
-LABEL_53:
-            v39 = v34[6];
-            ++NumOfElements;
-            *v21 = v39;
-            ++v34[3];
-            v34[6] = v21;
-            v40 = (__int64)(v14 << 25) >> 16;
-            v12[1] = v40;
-            v4 = a2;
-            if ( v65 == 2 )
-              v12[1] = v40 | 1;
-            v10 = 0LL;
-LABEL_15:
-            v16 = v52;
-LABEL_16:
-            v12 += 5;
-            CurrentThread = v61;
-            if ( (unsigned __int64)(v12 - 1) > v16 )
-            {
-LABEL_17:
-              v7 = a4;
-              v5 = v60;
+            if ( (_QWORD *)*j == v35 )
               break;
-            }
-            goto LABEL_4;
+            v35 = j;
           }
         }
-        v36 = v38;
       }
-    }
-    v23 = NumOfElements;
-    v24 = v10;
-    if ( NumOfElements )
-    {
-      v24 = (__int64 *)MiAllocatePool(256, 8 * NumOfElements, 0x6D56694Du);
-      if ( v24 )
+      qsort(v29, NumOfElements, 8uLL, (int (__cdecl *)(const void *, const void *))MiCombineActiveCrcSortByHash);
+      v37 = 0LL;
+      v38 = 0LL;
+      if ( NumOfElements )
       {
-        v25 = P;
-        v26 = 0LL;
-        j = 0LL;
-        if ( P )
+        v39 = (_QWORD **)(v29 + 8);
+        while ( 1 )
         {
-          do
+          v40 = *(v39 - 1);
+          v41 = v40[4];
+          if ( v41 <= 0x100 )
           {
-            j = v25;
-            v25 = (_QWORD *)*v25;
-          }
-          while ( v25 );
-        }
-        while ( j )
-        {
-          for ( i = (_QWORD *)j[6]; i; ++v26 )
-          {
-            if ( i[1] )
-              v24[v26] = (__int64)i;
-            i = (_QWORD *)*i;
-          }
-          v29 = (_QWORD **)j[1];
-          v30 = j;
-          if ( v29 )
-          {
-            v41 = *v29;
-            for ( j = (_QWORD *)j[1]; v41; v41 = (_QWORD *)*v41 )
-              j = v41;
-          }
-          else
-          {
-            for ( j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL); j; j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL) )
+            if ( (v38 && !(unsigned int)MiCompareActiveCrcEntries(*(v39 - 1), *(v39 - 2))
+               || v38 != NumOfElements - 1 && !(unsigned int)MiCompareActiveCrcEntries(v40, *v39))
+              && v42 )
             {
-              if ( (_QWORD *)*j == v30 )
-                break;
-              v30 = j;
-            }
-          }
-        }
-        qsort(v24, v23, 8uLL, (int (__cdecl *)(const void *, const void *))MiCombineActiveCrcSortByHash);
-        v42 = 0LL;
-        if ( v23 )
-        {
-          v43 = v24 + 1;
-          do
-          {
-            v44 = *(v43 - 1);
-            if ( (*(_BYTE *)(v44 + 16) & 1) != 0 )
-            {
-              if ( !MiLocateCombineBlock(v5, *(_QWORD *)(v44 + 8), *(_DWORD *)(v44 + 32), 0, (_QWORD *)(v44 + 24)) )
-                *(_QWORD *)(v44 + 16) = -1LL;
-            }
-            else if ( !v42
-                   || (v45 = *(v43 - 2), *(_QWORD *)(v45 + 16) == -1LL)
-                   || (unsigned int)MiCompareActiveCrcEntries(*(v43 - 1), v45) )
-            {
-              if ( v42 == v23 - 1
-                || *(_QWORD *)(*v43 + 16) == -1LL
-                || (unsigned int)MiCompareActiveCrcEntries(v44, *v43) )
+              if ( v37 && !(unsigned int)MiCompareActiveCrcEntries(v37, v40) )
+                goto LABEL_79;
+              v53 = (_QWORD *)MiAllocateCombineProto(v8, *v40, v41, v40 + 3, 1);
+              if ( !v53 )
+                goto LABEL_79;
+LABEL_110:
+              if ( v53[3] )
               {
-                *(_QWORD *)(v44 + 16) = -1LL;
+                v40[4] = v53;
               }
+              else
+              {
+                MiPushCombineBlock(v62, v53);
+                v54 = MiProtectionToCacheAttribute(*((_DWORD *)v40 + 8));
+                ++*((_QWORD *)&v70 + v54);
+              }
+              v37 = v40;
+              goto LABEL_79;
             }
-            ++v42;
-            ++v43;
+            v53 = (_QWORD *)MiAllocateCombineProto(v8, *v40, v41, v40 + 3, 0);
+            if ( v53 )
+              goto LABEL_110;
+            v40[1] = -1LL;
           }
-          while ( v42 < v23 );
+LABEL_79:
+          ++v38;
+          ++v39;
+          if ( v38 >= NumOfElements )
+          {
+            v4 = v61;
+            break;
+          }
         }
       }
+      v43 = v64;
+      MiPopulateCombineMdls((char *)v64, v4, (__int64)&v70);
+    }
+    else
+    {
+      v43 = v64;
     }
     while ( P )
     {
-      v46 = P;
+      v44 = P;
       RtlAvlRemoveNode((unsigned __int64 *)&P, (unsigned __int64 *)P);
-      if ( v24 )
+      v45 = v44[3];
+      v46 = v44[6];
+      if ( v29 )
       {
-        v47 = (_QWORD *)v46[6];
-        for ( k = 0LL; v47; v47 = (_QWORD *)*v47 )
+        if ( v46 )
         {
-          if ( v47[2] == -1LL )
-            --v46[3];
-          else
-            v24[k++] = (__int64)v47;
-        }
-        qsort(v24, k, 8uLL, (int (__cdecl *)(const void *, const void *))MiCombineActiveCrcSortByVa);
-        v46[6] = 0LL;
-        for ( m = 0LL; m < k; ++m )
-        {
-          v50 = (_QWORD *)v24[m];
-          if ( m && v50[2] == *(_QWORD *)(v24[m - 1] + 16) )
+          v47 = v29;
+          do
           {
-            --v46[3];
+            *v47++ = v46;
+            v46 = *(_QWORD *)(v46 + 16);
+          }
+          while ( v46 );
+        }
+        qsort(v29, v45, 8uLL, (int (__cdecl *)(const void *, const void *))MiCombineActiveCrcSortByVa);
+        v44[6] = 0LL;
+        for ( k = 0LL; k < v45; ++k )
+        {
+          v49 = *(_QWORD *)&v29[8 * k];
+          v50 = *(_QWORD *)(v49 + 8);
+          if ( v50 == -1 || k && v50 == *(_QWORD *)(*(_QWORD *)&v29[8 * k - 8] + 8LL) )
+          {
+            MiDereferenceCombineCrc(v49);
+            --v44[3];
           }
           else
           {
-            *v50 = v46[6];
-            v46[6] = v50;
+            *(_QWORD *)(v49 + 16) = v44[6];
+            v44[6] = v49;
           }
         }
-        if ( v46[3] )
-        {
-          *(_QWORD *)(a1 + 112) = v46[4];
-          MiSharePages((__int64 *)a1, v46, v7);
-        }
+        if ( v44[3] )
+          MiSharePages((__int64)v43, v44, (unsigned __int64 *)v62, &v69, v4);
       }
-      v51 = (void *)v46[5];
+      else
+      {
+        for ( ; v46; v46 = *(_QWORD *)(v46 + 16) )
+          MiDereferenceCombineCrc(v46);
+      }
+      v51 = (struct _DMA_ADAPTER *)v44[5];
       if ( v51 )
-        ObfDereferenceObject(v51);
-      ExFreePoolWithTag(v46, 0);
+        HalPutDmaAdapter(v51);
+      ExFreePoolWithTag(v44, 0);
     }
-    if ( v24 )
-      ExFreePoolWithTag(v24, 0);
+    if ( v29 )
+      ExFreePoolWithTag(v29, 0);
+    if ( (*((_DWORD *)v43 + 15) & 2) == 0 )
+      MiFreeCombineMdls((__int64)v43, v10, v11);
+    while ( 1 )
+    {
+      v52 = v62[0];
+      result = v62;
+      if ( (__int64 *)v62[0] == v62 )
+        break;
+      if ( *(__int64 **)(v62[0] + 8) != v62 || (v55 = *(_QWORD *)v62[0], *(_QWORD *)(*(_QWORD *)v62[0] + 8LL) != v62[0]) )
+        __fastfail(3u);
+      v62[0] = *(_QWORD *)v62[0];
+      *(_QWORD *)(v55 + 8) = v62;
+      *(_QWORD *)(v52 + 32) = 0LL;
+      MiFreeCombineBlock(v52);
+    }
   }
+  return result;
 }

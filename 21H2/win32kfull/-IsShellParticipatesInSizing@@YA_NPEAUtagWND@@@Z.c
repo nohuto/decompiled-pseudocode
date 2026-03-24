@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00694C0
+ * XREFs of ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C0049790
  * Callers:
- *     ?PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z @ 0x1C00F4C7C (-PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z.c)
- *     NtUserUpdateWindowTrackingInfo @ 0x1C0200270 (NtUserUpdateWindowTrackingInfo.c)
- *     ?ReportMoveSizeCompletionToShell@@YAXPEBUMOVESIZEDATA@@W4tagINPUT_MESSAGE_DEVICE_TYPE@@@Z @ 0x1C020AD78 (-ReportMoveSizeCompletionToShell@@YAXPEBUMOVESIZEDATA@@W4tagINPUT_MESSAGE_DEVICE_TYPE@@@Z.c)
+ *     ?PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z @ 0x1C006A9E4 (-PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C0204320 (NtUserUpdateWindowTrackingInfo.c)
+ *     ?xxxReportMoveSizeCompletionToShell@@YAXPEAU_MOVESIZEDATA@@@Z @ 0x1C020FB64 (-xxxReportMoveSizeCompletionToShell@@YAXPEAU_MOVESIZEDATA@@@Z.c)
  * Callees:
- *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C006A158 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B630 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
  */
 
 char __fastcall IsShellParticipatesInSizing(struct tagWND *a1, __int64 a2, unsigned int a3)
@@ -28,7 +28,7 @@ char __fastcall IsShellParticipatesInSizing(struct tagWND *a1, __int64 a2, unsig
     v9 = *(_QWORD *)(v8 + 672);
     if ( v9 )
     {
-      if ( *(_QWORD *)(v9 + 16) == v7 && (*(_DWORD *)(v9 + 332) & 0xC) != 0 )
+      if ( *(_QWORD *)(v9 + 16) == v7 && (*(_DWORD *)(v9 + 280) & 4) != 0 )
         return 1;
     }
   }

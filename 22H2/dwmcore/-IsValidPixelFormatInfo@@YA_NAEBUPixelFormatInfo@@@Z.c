@@ -1,36 +1,47 @@
 /*
- * XREFs of ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x1800A8E18
+ * XREFs of ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x180032318
  * Callers:
- *     ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x1800A8214 (-HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z.c)
- *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802BC478 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
+ *     ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x1800321CC (-HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z.c)
+ *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x180219698 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
  * Callees:
- *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A8E7C (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A9504 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800322E8 (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033940 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
  */
 
-char __fastcall IsValidPixelFormatInfo(enum DXGI_FORMAT *a1)
+char __fastcall IsValidPixelFormatInfo(const struct PixelFormatInfo *a1)
 {
-  enum DXGI_FORMAT *v1; // rdx
-  int v2; // eax
-  _DWORD *v3; // rdx
-  char v4; // cl
-  int v6; // eax
+  enum DXGI_FORMAT v1; // ecx
+  __int64 v2; // rdx
+  int v3; // ecx
+  bool v4; // zf
+  char v5; // cl
+  bool v6; // al
+  int v7; // eax
 
-  if ( !(unsigned int)IsValidPixelFormat(*a1) )
+  if ( !IsValidPixelFormat(*(_DWORD *)a1) )
     return 0;
-  v2 = HasAlphaChannel(*v1);
-  v4 = 1;
-  if ( v2 )
+  if ( (unsigned int)HasAlphaChannel(v1) )
   {
-    if ( *v3 == 24 && v3[1] == 1 )
+    v4 = v3 == 24;
+    v5 = 1;
+    if ( v4 )
+    {
+      v6 = *(_DWORD *)(v2 + 4) != 1;
+      goto LABEL_5;
+    }
+  }
+  else
+  {
+    v5 = 1;
+    if ( (unsigned int)(*(_DWORD *)(v2 + 4) - 1) <= 1 )
       return 0;
   }
-  else if ( (unsigned int)(v3[1] - 1) <= 1 )
-  {
+  v6 = 1;
+LABEL_5:
+  if ( !v6 )
     return 0;
-  }
-  v6 = v3[2];
-  if ( v6 < 0 || v6 == 4 || v6 > 17 )
+  v7 = *(_DWORD *)(v2 + 8);
+  if ( v7 < 0 || v7 == 4 || v7 > 17 )
     return 0;
-  return v4;
+  return v5;
 }

@@ -1,75 +1,68 @@
 /*
- * XREFs of NtGdiFONTOBJ_pifi @ 0x1C02CCD00
+ * XREFs of NtGdiFONTOBJ_pifi @ 0x1C013C4B0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C013E724 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
- *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C013E734 (--1RFONTTMPOBJ@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     FONTOBJ_pifi @ 0x1C0298860 (FONTOBJ_pifi.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C0298B0C (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C02BFC6C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C00E7978 (--1RFONTTMPOBJ@@QEAA@XZ.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013C88C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013C9F4 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     FONTOBJ_pifi @ 0x1C013CA60 (FONTOBJ_pifi.c)
+ *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C016A238 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-void *__fastcall NtGdiFONTOBJ_pifi(__int64 a1)
+IFIMETRICS *__fastcall NtGdiFONTOBJ_pifi(__int64 a1)
 {
-  void *v2; // rsi
+  IFIMETRICS *v2; // rdi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v5; // rdi
-  _DWORD *v6; // rbx
-  void *result; // rax
-  struct PFT *v8; // rax
-  FONTOBJ *v9; // r14
-  IFIMETRICS *v10; // rax
-  IFIMETRICS *v11; // r14
-  char *v12; // rax
-  char v13; // [rsp+58h] [rbp+10h] BYREF
-  struct UMPDOBJ *v14; // [rsp+60h] [rbp+18h]
-  char *v15; // [rsp+68h] [rbp+20h]
+  struct UMPDOBJ *v5; // rbx
+  struct PFT *v6; // rax
+  FONTOBJ *v7; // rsi
+  IFIMETRICS *v8; // rsi
+  IFIMETRICS *v9; // rax
+  IFIMETRICS *result; // rax
+  char v11; // [rsp+48h] [rbp+10h] BYREF
+  struct UMPDOBJ *v12; // [rsp+50h] [rbp+18h]
 
   v2 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v5 = ThreadCurrentObj;
-  v14 = ThreadCurrentObj;
-  v6 = (_DWORD *)((char *)ThreadCurrentObj + 436);
-  if ( ThreadCurrentObj )
-    ++*v6;
-  v15 = (char *)ThreadCurrentObj + 436;
+  v12 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 0LL;
-  v8 = (struct PFT *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
-  v9 = (FONTOBJ *)v8;
-  if ( v8 )
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  v6 = (struct PFT *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>(ThreadCurrentObj, a1);
+  v7 = (FONTOBJ *)v6;
+  if ( v6 )
   {
-    v2 = (void *)*((_QWORD *)v5 + 40);
+    v2 = (IFIMETRICS *)*((_QWORD *)v5 + 40);
     if ( !v2 )
     {
-      PUBLIC_PFTOBJ::PUBLIC_PFTOBJ((PUBLIC_PFTOBJ *)&v13, v8);
-      UMPDAcquireRFONTSem((struct RFONTOBJ *)&v13, v5, 0, 0, 0LL);
-      v10 = FONTOBJ_pifi(v9);
-      v2 = v10;
-      if ( v10 && v10 >= MmSystemRangeStart )
+      PUBLIC_PFTOBJ::PUBLIC_PFTOBJ((PUBLIC_PFTOBJ *)&v11, v6);
+      UMPDAcquireRFONTSem((struct RFONTOBJ *)&v11, v5, 0, 0, 0LL);
+      v2 = FONTOBJ_pifi(v7);
+      if ( v2 && v2 >= MmSystemRangeStart )
       {
-        v11 = v10;
-        v12 = UMPDOBJ::_AllocUserMem(v5, v10->cjThis, 0);
-        v2 = v12;
-        if ( v12 )
+        v8 = v2;
+        v9 = (IFIMETRICS *)UMPDOBJ::_AllocUserMem(v5, v2->cjThis, 0);
+        v2 = v9;
+        if ( v9 )
         {
-          memmove(v12, v11, v11->cjThis);
+          memmove(v9, v8, v8->cjThis);
           *((_QWORD *)v5 + 40) = v2;
         }
       }
-      UMPDReleaseRFONTSem((struct RFONTOBJ *)&v13, v5, 0LL, 0LL, 0LL);
-      RFONTTMPOBJ::~RFONTTMPOBJ((RFONTTMPOBJ *)&v13);
+      UMPDReleaseRFONTSem((struct RFONTOBJ *)&v11, v5, 0LL, 0LL, 0LL);
+      RFONTTMPOBJ::~RFONTTMPOBJ((RFONTTMPOBJ *)&v11);
     }
   }
   result = v2;
-  --*v6;
+  --*((_DWORD *)v5 + 105);
   return result;
 }

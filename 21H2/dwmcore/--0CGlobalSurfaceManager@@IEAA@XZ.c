@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x18002CA0C
+ * XREFs of ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800B5624
  * Callers:
- *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x18002D868 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
+ *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800B5344 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
  * Callees:
- *     ??0CMmcssTask@@QEAA@XZ @ 0x18002BBE0 (--0CMmcssTask@@QEAA@XZ.c)
- *     ??0CLegacySurfaceManager@@QEAA@XZ @ 0x18002CAEC (--0CLegacySurfaceManager@@QEAA@XZ.c)
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800B5DB8 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CLegacySurfaceManager@@QEAA@XZ @ 0x1800B6660 (--0CLegacySurfaceManager@@QEAA@XZ.c)
  */
 
 CGlobalSurfaceManager *__fastcall CGlobalSurfaceManager::CGlobalSurfaceManager(CGlobalSurfaceManager *this)
@@ -16,18 +16,18 @@ CGlobalSurfaceManager *__fastcall CGlobalSurfaceManager::CGlobalSurfaceManager(C
   RtlInitializeGenericTable(
     (PRTL_GENERIC_TABLE)((char *)this + 24),
     CGenericTableMap<CLuid,CCompositionSurfaceManager::CCompositionSurfaceMap>::CompareTableData,
-    CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::AllocTableData,
+    (PRTL_GENERIC_ALLOCATE_ROUTINE)CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::AllocTableData,
     CGenericTableMap<void *,CLogicalSurfaceHandleMap::LSEENTRY>::FreeTableData,
     0LL);
-  *((_QWORD *)this + 12) = 0LL;
-  *((_QWORD *)this + 13) = 0LL;
-  *((_QWORD *)this + 14) = 0LL;
-  CLegacySurfaceManager::CLegacySurfaceManager((CGlobalSurfaceManager *)((char *)this + 120));
-  *(_QWORD *)this = &CGlobalSurfaceManager::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  CLegacySurfaceManager::CLegacySurfaceManager((CGlobalSurfaceManager *)((char *)this + 96));
+  *(_QWORD *)this = &CGlobalSurfaceManager::`vftable'{for `CMILRefCountBase'};
   *((_QWORD *)this + 2) = &CGlobalSurfaceManager::`vftable'{for `CCompositionSurfaceManager'};
-  *((_QWORD *)this + 15) = &CGlobalSurfaceManager::`vftable';
-  CMmcssTask::CMmcssTask((CGlobalSurfaceManager *)((char *)this + 352));
+  *((_QWORD *)this + 12) = &CGlobalSurfaceManager::`vftable';
+  CMmcssTask::CMmcssTask((CGlobalSurfaceManager *)((char *)this + 328));
   result = this;
+  *((_QWORD *)this + 52) = 0LL;
+  *((_QWORD *)this + 53) = 0LL;
+  *((_QWORD *)this + 54) = 0LL;
   *((_QWORD *)this + 55) = 0LL;
   *((_QWORD *)this + 56) = 0LL;
   *((_QWORD *)this + 57) = 0LL;

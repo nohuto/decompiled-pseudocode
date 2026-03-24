@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckLargePageOk @ 0x140B21BAC
+ * XREFs of MiCheckLargePageOk @ 0x140A67C78
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiCheckLargePageSystemImage @ 0x140B21CDC (MiCheckLargePageSystemImage.c)
- *     MiVerifyLargeSectionLayout @ 0x140B21E08 (MiVerifyLargeSectionLayout.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiCheckLargePageSystemImage @ 0x140A67DE0 (MiCheckLargePageSystemImage.c)
+ *     MiVerifyLargeSectionLayout @ 0x140A67EDC (MiVerifyLargeSectionLayout.c)
  */
 
 __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
@@ -19,10 +19,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   int v6; // eax
   unsigned int v7; // ecx
   __int64 v8; // rax
-  ULONG_PTR v9; // rdi
+  ULONG_PTR v9; // r12
   ULONG_PTR v10; // rcx
-  unsigned __int64 v11; // rdi
-  int v13; // eax
+  _QWORD *v11; // rsi
+  int v12; // ebp
+  unsigned __int64 v13; // rdi
+  int v15; // eax
 
   v1 = *(_QWORD *)(BugCheckParameter2 + 16);
   LODWORD(v2) = 0;
@@ -43,14 +45,14 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
     }
     else
     {
-      qword_140D68718 = v1;
+      qword_140D58728 = v1;
       PsNtosImageBase = v5;
       PsNtosImageEnd = v8;
     }
     v1 = *(_QWORD *)v1;
   }
   v9 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16) + 48LL);
-  qword_140C4F4D0 = *(_QWORD *)(BugCheckParameter2 + 16);
+  qword_140C4CD18 = *(_QWORD *)(BugCheckParameter2 + 16);
   v10 = *(unsigned int *)(RtlImageNtHeader(v9) + 56);
   if ( (_DWORD)v10 != 4096 )
     KeBugCheckEx(0x1Au, 0x3030207uLL, BugCheckParameter2, v10, 0LL);
@@ -59,15 +61,23 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
     return 0LL;
   if ( (_DWORD)v2 != 1 )
     KeBugCheckEx(0x1Au, 0x3030203uLL, BugCheckParameter2, v2, 0LL);
-  v11 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16) + 48LL);
-  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v11) != 1 )
+  v11 = *(_QWORD **)(BugCheckParameter2 + 16);
+  v12 = 0;
+  do
   {
-    v13 = MI_IS_PHYSICAL_ADDRESS(v11);
-    KeBugCheckEx(0x1Au, 0x3030204uLL, BugCheckParameter2, v11, v13);
+    v13 = v11[6];
+    if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v13) != 1 )
+    {
+      v15 = MI_IS_PHYSICAL_ADDRESS(v13);
+      KeBugCheckEx(0x1Au, 0x3030204uLL, BugCheckParameter2, v13, v15);
+    }
+    if ( ((v13 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL) != v13 )
+      KeBugCheckEx(0x1Au, 0x3030206uLL, BugCheckParameter2, v13, 0LL);
+    MiCheckLargePageSystemImage(BugCheckParameter2);
+    v11 = (_QWORD *)*v11;
+    ++v12;
   }
-  if ( ((v11 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL) != v11 )
-    KeBugCheckEx(0x1Au, 0x3030206uLL, BugCheckParameter2, v11, 0LL);
-  MiCheckLargePageSystemImage(BugCheckParameter2);
+  while ( !v12 );
   MiFlags |= 4u;
   return 1LL;
 }

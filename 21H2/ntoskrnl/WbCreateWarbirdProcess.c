@@ -1,26 +1,26 @@
 /*
- * XREFs of WbCreateWarbirdProcess @ 0x1406E1A90
+ * XREFs of WbCreateWarbirdProcess @ 0x1406C2B6C
  * Callers:
- *     WbGetWarbirdProcess @ 0x1407E2D60 (WbGetWarbirdProcess.c)
+ *     WbGetWarbirdProcess @ 0x14064F044 (WbGetWarbirdProcess.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     sub_1406E1BD4 @ 0x1406E1BD4 (sub_1406E1BD4.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     sub_14064F00C @ 0x14064F00C (sub_14064F00C.c)
  */
 
 __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
 {
-  void *v4; // rdi
+  volatile signed __int64 *v4; // rdi
   int v5; // esi
   _QWORD *v6; // rbx
   void *v8; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0LL;
   v8 = 0LL;
-  v5 = WbAlloc(240LL, &v8);
+  v5 = WbAlloc(0xF0uLL, &v8);
   if ( v5 < 0 )
   {
-    v4 = v8;
+    v4 = (volatile signed __int64 *)v8;
   }
   else
   {
@@ -30,7 +30,7 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     *v6 = a1;
     *((_DWORD *)v6 + 14) = 60;
     v5 = 0;
-    v6[5] = sub_1406AA4E0;
+    v6[5] = sub_14069DE10;
     v6[1] = 8LL;
     *((_DWORD *)v6 + 4) = 0;
     v6[3] = 0LL;
@@ -39,19 +39,19 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     v6[10] = 0LL;
     v6[9] = v6 + 8;
     v6[8] = v6 + 8;
-    v6[27] = sub_1406C9BB0;
+    v6[27] = sub_1406B94B0;
     v6[23] = 8LL;
     *((_DWORD *)v6 + 48) = 0;
     v6[25] = 0LL;
     *((_DWORD *)v6 + 52) = 10;
     v6[28] = 0LL;
-    v6[15] = sub_1406AFC80;
+    v6[15] = sub_1406A6450;
     v6[11] = 8LL;
     *((_DWORD *)v6 + 24) = 0;
     v6[13] = 0LL;
     *((_DWORD *)v6 + 28) = 10;
     v6[16] = 0LL;
-    v6[21] = sub_140A0F120;
+    v6[21] = sub_1405D89C0;
     v6[17] = 8LL;
     *((_DWORD *)v6 + 36) = 0;
     v6[19] = 0LL;
@@ -59,6 +59,6 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     v6[22] = 0LL;
     *a2 = v6;
   }
-  sub_1406E1BD4(v4);
+  sub_14064F00C(v4);
   return (unsigned int)v5;
 }

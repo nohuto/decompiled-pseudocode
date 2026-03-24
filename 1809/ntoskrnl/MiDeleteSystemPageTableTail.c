@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteSystemPageTableTail @ 0x140120710
+ * XREFs of MiDeleteSystemPageTableTail @ 0x140120730
  * Callers:
  *     <none>
  * Callees:
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiReturnSystemCharges @ 0x1401207B4 (MiReturnSystemCharges.c)
- *     MiFreeUnmappedPageTables @ 0x140120840 (MiFreeUnmappedPageTables.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiReturnSystemCharges @ 0x1401207D4 (MiReturnSystemCharges.c)
+ *     MiFreeUnmappedPageTables @ 0x140120860 (MiFreeUnmappedPageTables.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiDeleteSystemPageTableTail(__int64 a1)

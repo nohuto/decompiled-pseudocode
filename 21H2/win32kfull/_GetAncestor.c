@@ -1,12 +1,12 @@
 /*
- * XREFs of _GetAncestor @ 0x1C00FF684
+ * XREFs of _GetAncestor @ 0x1C010B068
  * Callers:
- *     NtUserShutdownBlockReasonCreate @ 0x1C00FF170 (NtUserShutdownBlockReasonCreate.c)
- *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C00FF328 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
- *     HasMessageRootWindow @ 0x1C0210758 (HasMessageRootWindow.c)
+ *     NtUserShutdownBlockReasonCreate @ 0x1C010AB70 (NtUserShutdownBlockReasonCreate.c)
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z @ 0x1C010AD38 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z.c)
+ *     HasMessageRootWindow @ 0x1C0209108 (HasMessageRootWindow.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     _GetParent @ 0x1C00DE714 (_GetParent.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     _GetParent @ 0x1C00D3774 (_GetParent.c)
  */
 
 _QWORD *__fastcall GetAncestor(__int64 a1, int a2)

@@ -1,19 +1,18 @@
 /*
- * XREFs of ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C0013A44
+ * XREFs of ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C005E594
  * Callers:
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C001229C (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
- *     NtDCompositionCommitChannel @ 0x1C0012460 (NtDCompositionCommitChannel.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005D8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     NtDCompositionCommitChannel @ 0x1C005DB90 (NtDCompositionCommitChannel.c)
+ *     ?SubmitDwmBatch@CDwmChannel@DirectComposition@@QEAAX_KPEBUSynchronizationObject@2@@Z @ 0x1C005E4DC (-SubmitDwmBatch@CDwmChannel@DirectComposition@@QEAAX_KPEBUSynchronizationObject@2@@Z.c)
  * Callees:
- *     ?PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z @ 0x1C0013BAC (-PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C0080AA4 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
- *     ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C0081EA0 (-SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00568CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C01D5C00 (-SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
         DirectComposition::CApplicationChannel *this,
-        LARGE_INTEGER *a2,
+        struct _SLIST_ENTRY *a2,
         struct DirectComposition::CBatch *a3,
         char a4,
         const struct DirectComposition::SynchronizationObject *a5)
@@ -21,14 +20,18 @@ void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
   LARGE_INTEGER PerformanceCounter; // rax
   struct _ERESOURCE *v9; // rbx
   struct _ERESOURCE *v10; // rbx
-  struct _ERESOURCE *v11; // rcx
-  struct DirectComposition::CBatch *QuadPart; // rbx
+  __int64 v11; // rdi
+  struct _ERESOURCE *v12; // rbx
+  struct _SLIST_ENTRY *Next; // rax
+  union _SLIST_HEADER *v14; // rbx
+  struct _ERESOURCE *v15; // rcx
+  struct DirectComposition::CBatch *v16; // rbx
 
   if ( a4 )
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
   else
     PerformanceCounter.QuadPart = 0LL;
-  a2[8] = PerformanceCounter;
+  a2[4].Next = (struct _SLIST_ENTRY *)PerformanceCounter.QuadPart;
   v9 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
   KeEnterCriticalRegion();
   ExAcquireResourceSharedLite(v9, 1u);
@@ -41,31 +44,41 @@ void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
     ExAcquireResourceExclusiveLite(v10, 1u);
   }
   if ( *((int *)this + 6) <= 0
-    && DirectComposition::CConnection::IsConnected(*((DirectComposition::CConnection **)this + 5)) )
+    && (v11 = *((_QWORD *)this + 5),
+        v12 = *(struct _ERESOURCE **)(v11 + 8),
+        KeEnterCriticalRegion(),
+        ExAcquireResourceSharedLite(v12, 1u),
+        LODWORD(v12) = *(_DWORD *)(v11 + 148),
+        ExReleaseResourceLite(*(PERESOURCE *)(v11 + 8)),
+        KeLeaveCriticalRegion(),
+        (_DWORD)v12) )
   {
-    DirectComposition::CConnection::PostBatch(
-      *((DirectComposition::CConnection **)this + 5),
-      (struct DirectComposition::CBatch *)a2,
-      a3);
+    Next = a2->Next;
+    v14 = (union _SLIST_HEADER *)*((_QWORD *)this + 5);
+    *((_QWORD *)&a2[1].Next + 1) = a2->Next;
+    if ( Next )
+      *((_QWORD *)&Next[1].Next + 1) = a3;
+    ExpInterlockedPushEntrySList(v14 + 6, a2);
+    KeSetEvent(*(PRKEVENT *)(v14[5].Alignment + 8), 1, 0);
   }
   else
   {
-    if ( (a2[4].LowPart & 1) != 0 )
+    if ( ((__int64)a2[2].Next & 1) != 0 )
       *((_BYTE *)this + 48) &= ~2u;
     do
     {
-      QuadPart = (struct DirectComposition::CBatch *)a2->QuadPart;
-      a2->QuadPart = 0LL;
+      v16 = (struct DirectComposition::CBatch *)a2->Next;
+      a2->Next = 0LL;
       DirectComposition::CBatch::ReturnToApplication((DirectComposition::CBatch *)a2, 0);
-      a2 = (LARGE_INTEGER *)QuadPart;
+      a2 = (struct _SLIST_ENTRY *)v16;
     }
-    while ( QuadPart );
+    while ( v16 );
     (*(void (__fastcall **)(DirectComposition::CApplicationChannel *))(*(_QWORD *)this + 16LL))(this);
   }
-  v11 = (struct _ERESOURCE *)*((_QWORD *)this + 46);
-  if ( v11 )
+  v15 = (struct _ERESOURCE *)*((_QWORD *)this + 46);
+  if ( v15 )
   {
-    ExReleaseResourceLite(v11);
+    ExReleaseResourceLite(v15);
     KeLeaveCriticalRegion();
   }
   ExReleaseResourceLite(*(PERESOURCE *)(*((_QWORD *)this + 5) + 8LL));

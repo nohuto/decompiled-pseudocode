@@ -6,7 +6,7 @@
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiWaitForVadDeletion @ 0x1402CB050 (MiWaitForVadDeletion.c)
+ *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
  *     MiUnmapVad @ 0x140617488 (MiUnmapVad.c)
  */
 

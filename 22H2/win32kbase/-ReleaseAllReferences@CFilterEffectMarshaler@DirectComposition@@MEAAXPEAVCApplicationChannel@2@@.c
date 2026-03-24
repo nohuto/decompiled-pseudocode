@@ -1,28 +1,36 @@
 /*
- * XREFs of ?ReleaseAllReferences@CFilterEffectMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C020EAD0
+ * XREFs of ?ReleaseAllReferences@CFilterEffectMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DFD90
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CFilterEffectMarshaler::ReleaseAllReferences(
         DirectComposition::CFilterEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  __int64 i; // rdi
-  char *v5; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdi
 
-  if ( *((_QWORD *)this + 10) )
+  v4 = *((_QWORD *)this + 10);
+  if ( v4 )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 18); i = (unsigned int)(i + 1) )
-      DirectComposition::CApplicationChannel::ReleaseResource(
-        a2,
-        *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 10) + 8 * i));
-    v5 = (char *)*((_QWORD *)this + 10);
-    if ( v5 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
+    v5 = 0LL;
+    if ( *((_DWORD *)this + 18) )
+    {
+      do
+      {
+        DirectComposition::CApplicationChannel::ReleaseResource(
+          a2,
+          *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 10) + 8 * v5));
+        v5 = (unsigned int)(v5 + 1);
+      }
+      while ( (unsigned int)v5 < *((_DWORD *)this + 18) );
+      v4 = *((_QWORD *)this + 10);
+    }
+    Win32FreePool(v4);
     *((_QWORD *)this + 10) = 0LL;
   }
 }

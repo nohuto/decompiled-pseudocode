@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetTr @ 0x140B14400
+ * XREFs of KiGetTr @ 0x140A10F90
  * Callers:
- *     sub_1403E51E0 @ 0x1403E51E0 (sub_1403E51E0.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AFB010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_1403DD750 @ 0x1403DD750 (sub_1403DD750.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
  * Callees:
  *     <none>
  */

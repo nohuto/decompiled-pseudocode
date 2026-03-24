@@ -1,21 +1,21 @@
 /*
- * XREFs of MiStoreEvictThread @ 0x1403CDBF0
+ * XREFs of MiStoreEvictThread @ 0x1403C1000
  * Callers:
  *     <none>
  * Callees:
- *     MiStoreEvictPageFile @ 0x14024FDF0 (MiStoreEvictPageFile.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
- *     KiInitializeTimer2 @ 0x1403588EC (KiInitializeTimer2.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     MiStoreEvictPageFile @ 0x1402C3A18 (MiStoreEvictPageFile.c)
+ *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiStoreEvictThread(_DWORD *P)
@@ -54,24 +54,24 @@ void __fastcall MiStoreEvictThread(_DWORD *P)
     v19[1] = -1LL;
     KeSetTimer2((__int64)v22, -600000000LL, 600000000LL, (__int64)v19);
     Object[1] = v22;
-    Object[0] = (PVOID)(v3 + 1216);
+    Object[0] = (PVOID)(v3 + 1200);
     while ( 1 )
     {
       if ( !KeWaitForMultipleObjects(2u, Object, WaitAny, WrVirtualMemory, 0, 0, 0LL, &WaitBlockArray) )
-        KeResetEvent((PRKEVENT)(v3 + 1216));
+        KeResetEvent((PRKEVENT)(v3 + 1200));
       while ( 1 )
       {
-        v5 = *(_DWORD *)(v3 + 1184);
+        v5 = *(_DWORD *)(v3 + 1168);
         v6 = 0LL;
-        v7 = *(_DWORD *)(v3 + 16728);
+        v7 = *(_DWORD *)(v3 + 6936);
         if ( v7 )
         {
           do
           {
-            v8 = *(_QWORD *)(v3 + 8 * v6 + 16736);
+            v8 = *(_QWORD *)(v3 + 8 * v6 + 6944);
             if ( (*(_BYTE *)(v8 + 204) & 0x40) != 0 )
             {
-              MiStoreEvictPageFile(*(_QWORD *)(v3 + 8 * v6 + 16736));
+              MiStoreEvictPageFile(*(_QWORD *)(v3 + 8 * v6 + 6944));
               if ( *(_DWORD *)(v8 + 200) >= 0x100u )
                 LODWORD(v6) = v6 - 1;
             }
@@ -79,10 +79,10 @@ void __fastcall MiStoreEvictThread(_DWORD *P)
           }
           while ( (unsigned int)v6 < v7 );
         }
-        v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 1200));
-        if ( v5 == *(_DWORD *)(v3 + 1184) )
+        v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 1184));
+        if ( v5 == *(_DWORD *)(v3 + 1168) )
           break;
-        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 1200));
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 1184));
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
@@ -104,10 +104,10 @@ void __fastcall MiStoreEvictThread(_DWORD *P)
       }
       if ( v5 )
       {
-        *(_DWORD *)(v3 + 1184) = 0;
-        KeSetEvent((PRKEVENT)(v3 + 1264), 0, 0);
+        *(_DWORD *)(v3 + 1168) = 0;
+        KeSetEvent((PRKEVENT)(v3 + 1248), 0, 0);
       }
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 1200));
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 1184));
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )

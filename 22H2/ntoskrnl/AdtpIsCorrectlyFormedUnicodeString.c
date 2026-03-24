@@ -1,7 +1,7 @@
 /*
- * XREFs of AdtpIsCorrectlyFormedUnicodeString @ 0x140399840
+ * XREFs of AdtpIsCorrectlyFormedUnicodeString @ 0x1403C0844
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
  *     <none>
  */

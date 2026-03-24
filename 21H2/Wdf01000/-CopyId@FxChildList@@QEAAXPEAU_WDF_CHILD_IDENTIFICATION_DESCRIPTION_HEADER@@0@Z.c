@@ -1,11 +1,12 @@
 /*
- * XREFs of ?CopyId@FxChildList@@QEAAXPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C000F270
+ * XREFs of ?CopyId@FxChildList@@QEAAXPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C00018F0
  * Callers:
- *     ?GetNextDevice@FxChildList@@QEAAJPEAPEAUWDFDEVICE__@@PEAU_WDF_CHILD_LIST_ITERATOR@@PEAU_WDF_CHILD_RETRIEVE_INFO@@@Z @ 0x1C0013918 (-GetNextDevice@FxChildList@@QEAAJPEAPEAUWDFDEVICE__@@PEAU_WDF_CHILD_LIST_ITERATOR@@PEAU_WDF_CHIL.c)
+ *     imp_WdfPdoRetrieveIdentificationDescription @ 0x1C0001860 (imp_WdfPdoRetrieveIdentificationDescription.c)
+ *     ?GetNextDevice@FxChildList@@QEAAJPEAPEAUWDFDEVICE__@@PEAU_WDF_CHILD_LIST_ITERATOR@@PEAU_WDF_CHILD_RETRIEVE_INFO@@@Z @ 0x1C003B4CC (-GetNextDevice@FxChildList@@QEAAJPEAPEAUWDFDEVICE__@@PEAU_WDF_CHILD_LIST_ITERATOR@@PEAU_WDF_CHIL.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall FxChildList::CopyId(
@@ -13,10 +14,10 @@ void __fastcall FxChildList::CopyId(
         _WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *Dest,
         _WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *Source)
 {
-  unsigned __int64 ObjectHandleUnchecked; // rax
+  void *ObjectHandleUnchecked; // rax
   __int64 v4; // r9
   __int64 v5; // r10
-  void (__fastcall *v6)(unsigned __int64, __int64, __int64); // r11
+  void (__fastcall *v6)(void *, __int64, __int64); // r11
 
   if ( this->m_EvtIdentificationDescriptionCopy )
   {

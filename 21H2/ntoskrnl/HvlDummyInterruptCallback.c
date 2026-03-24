@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDummyInterruptCallback @ 0x140543130
+ * XREFs of HvlDummyInterruptCallback @ 0x1404F1840
  * Callers:
- *     KiHvInterruptSubDispatch @ 0x1404270A0 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x140427200 (KiVmbusInterruptSubDispatch.c)
+ *     KiHvInterruptSubDispatch @ 0x140404CA0 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x140404E00 (KiVmbusInterruptSubDispatch.c)
  * Callees:
- *     HvlPerformEndOfInterrupt @ 0x140459C10 (HvlPerformEndOfInterrupt.c)
+ *     HvlPerformEndOfInterrupt @ 0x1404F5F40 (HvlPerformEndOfInterrupt.c)
  */
 
 __int64 HvlDummyInterruptCallback()

@@ -1,28 +1,28 @@
 /*
- * XREFs of ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C015B220
+ * XREFs of ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A1710
  * Callers:
- *     ?MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C015B840 (-MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
- *     ?MulCopyDeviceToDIB@@YAHPEAU_SURFOBJ@@PEAVSURFMEM@@PEAU_RECTL@@@Z @ 0x1C02AED3C (-MulCopyDeviceToDIB@@YAHPEAU_SURFOBJ@@PEAVSURFMEM@@PEAU_RECTL@@@Z.c)
+ *     ?MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C02A1D10 (-MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ *     ?MulCopyDeviceToDIB@@YAHPEAU_SURFOBJ@@PEAVSURFMEM@@PEAU_RECTL@@@Z @ 0x1C02A1FF8 (-MulCopyDeviceToDIB@@YAHPEAU_SURFOBJ@@PEAVSURFMEM@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     OffBitBlt @ 0x1C001AAC0 (OffBitBlt.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C001EF80 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C015AF18 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
- *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C015B158 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C015BDAA (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
- *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C015BE3E (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z @ 0x1C015C166 (-bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z.c)
- *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C015C1C0 (-bNextSurface@MSURF@@QEAAHXZ.c)
- *     ?OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z40401234@Z @ 0x1C015D38E (-OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C026BDD0 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
- *     ??1MULTISURF@@QEAA@XZ @ 0x1C0279AE0 (--1MULTISURF@@QEAA@XZ.c)
- *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C02AE588 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
- *     ?bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02B1F9C (-bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PE.c)
- *     ?bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02B2420 (-bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
- *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02B3088 (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vRestore@MSURF@@QEAAXXZ @ 0x1C02B3154 (-vRestore@MSURF@@QEAAXXZ.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B565C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
+ *     OffBitBlt @ 0x1C0129B40 (OffBitBlt.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C0273274 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
+ *     ??1MULTISURF@@QEAA@XZ @ 0x1C027D9F0 (--1MULTISURF@@QEAA@XZ.c)
+ *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C02A0AA0 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
+ *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A0EA0 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C02A0EE0 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
+ *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C02A54F4 (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
+ *     ?bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A5588 (-bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PE.c)
+ *     ?bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A5A18 (-bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
+ *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C02A61C0 (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z @ 0x1C02A64CC (-bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z.c)
+ *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A6614 (-bNextSurface@MSURF@@QEAAHXZ.c)
+ *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02A6B54 (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vRestore@MSURF@@QEAAXXZ @ 0x1C02A6C10 (-vRestore@MSURF@@QEAAXXZ.c)
+ *     OffCopyBits @ 0x1C02C84D8 (OffCopyBits.c)
  */
 
 int __fastcall MulBitBlt(
@@ -30,7 +30,7 @@ int __fastcall MulBitBlt(
         struct _SURFOBJ *a2,
         struct _SURFOBJ *a3,
         struct _CLIPOBJ *a4,
-        XLATEOBJ *pxlo,
+        struct _XLATEOBJ *pxlo,
         struct _RECTL *a6,
         struct _POINTL *a7,
         struct _POINTL *a8,
@@ -40,324 +40,317 @@ int __fastcall MulBitBlt(
 {
   int v13; // ebx
   struct _RECTL *v14; // rdx
-  Gre::Base *v15; // rcx
-  __int64 v16; // r8
-  char v17; // di
-  __int16 v18; // r14
-  USHORT iType; // ax
-  char v21; // r14
-  DHPDEV dhpdev; // rdi
-  struct _SURFOBJ *v23; // r8
-  int v24; // r10d
-  int v25; // ecx
-  struct _SURFOBJ *v26; // rdx
-  struct _RECTL *v27; // r8
+  struct _BRUSHOBJ *v15; // r8
+  struct _POINTL *v16; // r9
+  struct _SURFOBJ *v17; // r10
+  struct _SURFOBJ *v18; // r11
+  char v19; // cl
+  USHORT iType; // si
+  DHPDEV dhpdev; // r14
+  char v23; // r15
+  struct _SURFOBJ *v24; // r8
+  int v25; // r10d
+  int v26; // ecx
+  struct _SURFOBJ *v27; // rdx
+  struct _RECTL *v28; // r8
   LONG y; // ecx
-  int v29; // r12d
-  struct Gre::Base::SESSION_GLOBALS *v30; // r15
-  SURFOBJ *v31; // r8
-  struct _XLATEOBJ *v32; // rdi
-  struct _DISPSURF *v33; // rcx
-  int v34; // r9d
-  HDEV v35; // rcx
-  PVOID *p_pvScan0; // r14
-  struct _SURFOBJ *v37; // r11
-  HDEV hdev; // rdi
-  __int64 v39; // rdx
-  struct PALETTE *v40; // rax
-  int v41; // r8d
-  bool v42; // zf
-  struct Gre::Base::SESSION_GLOBALS *v43; // rax
-  FLONG flXlate; // r15d
-  int v45; // r9d
-  ULONG iUniq; // r10d
-  __int64 v47; // rax
-  __int64 v48; // rcx
-  ULONG *pulXlate; // r11
-  ULONG v50; // r14d
-  int inited; // eax
-  int (*v52)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *); // rcx
-  BOOL (__stdcall *v53)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
-  struct _POINTL v54; // [rsp+70h] [rbp-90h] BYREF
-  USHORT v55; // [rsp+78h] [rbp-88h]
-  struct Gre::Base::SESSION_GLOBALS *v56; // [rsp+80h] [rbp-80h]
-  struct _XLATEOBJ *v57; // [rsp+88h] [rbp-78h] BYREF
-  BRUSHOBJ *pbo; // [rsp+90h] [rbp-70h]
-  POINTL *pptlBrush; // [rsp+98h] [rbp-68h]
-  POINTL *pptlMask; // [rsp+A0h] [rbp-60h]
-  SURFOBJ *psoMask; // [rsp+A8h] [rbp-58h]
-  BOOL v62; // [rsp+B0h] [rbp-50h]
-  struct _SURFOBJ *v63; // [rsp+B8h] [rbp-48h]
-  _DWORD v64[4]; // [rsp+C0h] [rbp-40h] BYREF
-  _DWORD v65[12]; // [rsp+D0h] [rbp-30h] BYREF
-  struct _RECTL v66; // [rsp+100h] [rbp+0h] BYREF
-  _BYTE v67[56]; // [rsp+110h] [rbp+10h] BYREF
-  struct _DISPSURF *v68; // [rsp+148h] [rbp+48h]
-  struct _SURFOBJ *v69; // [rsp+150h] [rbp+50h]
-  struct _CLIPOBJ *v70; // [rsp+158h] [rbp+58h]
-  struct _POINTL *v71; // [rsp+160h] [rbp+60h]
-  _BYTE v72[40]; // [rsp+170h] [rbp+70h] BYREF
-  __int64 v73; // [rsp+198h] [rbp+98h]
-  char v74; // [rsp+1A0h] [rbp+A0h]
-  int v75; // [rsp+1A4h] [rbp+A4h]
+  struct _SURFOBJ *v30; // r12
+  int v31; // r13d
+  int Source; // eax
+  struct _DISPSURF *v33; // rdx
+  BOOL v34; // r14d
+  SURFOBJ *v35; // r8
+  struct _XLATEOBJ *v36; // rsi
+  int v37; // r9d
+  PVOID *p_pvScan0; // r15
+  __int64 v39; // rcx
+  HDEV hdev; // rsi
+  struct PALETTE *v41; // r10
+  struct PALETTE *v42; // rax
+  int v43; // r8d
+  ULONG iUniq; // r15d
+  int v45; // r14d
+  FLONG flXlate; // r9d
+  ULONG v47; // r11d
+  ULONG *pulXlate; // rdx
+  BOOL (__stdcall *v49)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rcx
+  BOOL (__stdcall *v50)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
+  struct _XLATEOBJ *v51; // [rsp+70h] [rbp-90h] BYREF
+  BOOL v52; // [rsp+78h] [rbp-88h]
+  BRUSHOBJ *pbo; // [rsp+80h] [rbp-80h]
+  struct _RECTL *v54; // [rsp+88h] [rbp-78h]
+  struct _SURFOBJ *v55; // [rsp+90h] [rbp-70h]
+  struct _SURFOBJ *v56; // [rsp+98h] [rbp-68h]
+  POINTL *pptlBrush; // [rsp+A0h] [rbp-60h]
+  POINTL *pptlMask; // [rsp+A8h] [rbp-58h]
+  SURFOBJ *psoMask; // [rsp+B0h] [rbp-50h]
+  _DWORD v60[4]; // [rsp+B8h] [rbp-48h] BYREF
+  _DWORD v61[12]; // [rsp+C8h] [rbp-38h] BYREF
+  struct _RECTL v62; // [rsp+F8h] [rbp-8h] BYREF
+  _BYTE v63[56]; // [rsp+110h] [rbp+10h] BYREF
+  struct _DISPSURF *v64; // [rsp+148h] [rbp+48h]
+  int v65[2]; // [rsp+150h] [rbp+50h]
+  struct _CLIPOBJ *v66; // [rsp+158h] [rbp+58h]
+  int v67[2]; // [rsp+160h] [rbp+60h]
+  _BYTE v68[40]; // [rsp+170h] [rbp+70h] BYREF
+  __int64 v69; // [rsp+198h] [rbp+98h]
+  char v70; // [rsp+1A0h] [rbp+A0h]
+  int v71; // [rsp+1A4h] [rbp+A4h]
   SURFOBJ *psoSrc; // [rsp+1C8h] [rbp+C8h]
   POINTL *pptlSrc; // [rsp+1D0h] [rbp+D0h]
-  _BYTE v78[40]; // [rsp+1E0h] [rbp+E0h] BYREF
-  __int64 v79; // [rsp+208h] [rbp+108h]
-  char v80; // [rsp+210h] [rbp+110h]
-  int v81; // [rsp+214h] [rbp+114h]
+  _BYTE v74[40]; // [rsp+1E0h] [rbp+E0h] BYREF
+  __int64 v75; // [rsp+208h] [rbp+108h]
+  char v76; // [rsp+210h] [rbp+110h]
+  int v77; // [rsp+214h] [rbp+114h]
   SURFOBJ *psoTrg; // [rsp+238h] [rbp+138h]
   RECTL *prclTrg; // [rsp+240h] [rbp+140h]
 
-  pbo = a9;
-  pptlMask = a8;
   psoMask = a3;
-  v63 = a2;
+  v56 = a2;
+  pbo = a9;
+  v54 = a6;
+  pptlMask = a8;
+  v55 = a1;
   pptlBrush = a10;
-  v54 = (struct _POINTL)a6;
   v13 = 0;
-  v62 = IsMetaDevBitmapForMirroring(a1);
-  if ( !v16 || (v17 = 1, *(_WORD *)(v16 + 76) != 1) )
-    v17 = 0;
-  v18 = *((_WORD *)v15 + 38);
-  v66 = *v14;
-  v56 = Gre::Base::Globals(v15);
-  if ( !v17 )
+  v52 = IsMetaDevBitmapForMirroring(a1);
+  if ( !v18 || (v19 = 1, v18->iType != 1) )
+    v19 = 0;
+  iType = v17->iType;
+  v62 = *v14;
+  if ( !v19 )
   {
-    iType = a1->iType;
-    v21 = 1;
-    dhpdev = a1->dhpdev;
-    LODWORD(v57) = 1;
-    v55 = iType;
-    if ( iType && (unsigned int)MSURF::bFindSurface((MSURF *)v67, a1, a4, *(struct _RECTL **)&v54) )
+    dhpdev = v17->dhpdev;
+    LODWORD(v51) = 1;
+    if ( iType && (unsigned int)MSURF::bFindSurface((MSURF *)v63, v17, a4, v14) )
     {
-      v23 = (struct _SURFOBJ *)*((_QWORD *)dhpdev + 6);
-      v24 = *((_DWORD *)dhpdev + 4);
-      v25 = ((unsigned __int16)rop4 ^ (unsigned __int16)(rop4 >> 4)) & 0xF0F;
+      v23 = 1;
+      v24 = (struct _SURFOBJ *)*((_QWORD *)dhpdev + 6);
+      v25 = *((_DWORD *)dhpdev + 4);
+      v26 = ((unsigned __int16)rop4 ^ (unsigned __int16)(rop4 >> 4)) & 0xF0F;
     }
     else
     {
-      v21 = 0;
-      v25 = 0;
-      v23 = 0LL;
+      v23 = 0;
+      v26 = 0;
+      v24 = 0LL;
       dhpdev = 0LL;
-      v24 = 0;
+      v25 = 0;
     }
     MULTIBRUSH::MULTIBRUSH(
-      (MULTIBRUSH *)v65,
-      (struct _BRUSHOBJ *)((unsigned __int64)pbo & -(__int64)(v21 != 0)),
-      v24,
+      (MULTIBRUSH *)v61,
+      (struct _BRUSHOBJ *)((unsigned __int64)pbo & -(__int64)(v23 != 0)),
+      v25,
       (struct _VDEV *)dhpdev,
-      v23,
-      v25);
-    v26 = v63;
-    v73 = 0LL;
-    v74 = 0;
-    v75 = 0;
-    if ( v63 )
+      v24,
+      v26);
+    v27 = v56;
+    v69 = 0LL;
+    v70 = 0;
+    v71 = 0;
+    if ( v56 )
     {
-      v27 = (struct _RECTL *)v64;
+      v28 = (struct _RECTL *)v60;
       y = a7->y;
-      v64[0] = a7->x;
-      v64[1] = y;
-      v64[3] = v66.bottom + y - v66.top;
-      v64[2] = v66.right + v64[0] - v66.left;
+      v60[0] = a7->x;
+      v60[1] = y;
+      v60[3] = v62.bottom + y - v62.top;
+      v60[2] = v62.right + v60[0] - v62.left;
     }
     else
     {
+      v28 = 0LL;
       v27 = 0LL;
-      v26 = 0LL;
     }
-    MULTISURF::vInit((MULTISURF *)v72, v26, v27);
-    if ( !v62 && v55 )
+    MULTISURF::vInit((MULTISURF *)v68, v27, v28);
+    if ( !v52 && iType )
     {
-      v29 = (int)v57;
+      v30 = v55;
+      v31 = (int)v51;
     }
     else
     {
-      v79 = 0LL;
-      v80 = 0;
-      v81 = 0;
-      MULTISURF::vInit((MULTISURF *)v78, a1, *(struct _RECTL **)&v54);
-      v29 = EngBitBlt(psoTrg, psoSrc, psoMask, a4, pxlo, prclTrg, pptlSrc, pptlMask, pbo, pptlBrush, rop4);
-      MULTISURF::~MULTISURF((MULTISURF *)v78);
+      v30 = v55;
+      v75 = 0LL;
+      v76 = 0;
+      v77 = 0;
+      MULTISURF::vInit((MULTISURF *)v74, v55, v54);
+      v31 = EngBitBlt(psoTrg, psoSrc, psoMask, a4, pxlo, prclTrg, pptlSrc, pptlMask, pbo, pptlBrush, rop4);
+      MULTISURF::~MULTISURF((MULTISURF *)v74);
     }
-    if ( !v21 )
+    if ( !v23 )
     {
-LABEL_67:
-      v13 = v29;
-      goto LABEL_68;
+LABEL_75:
+      v13 = v31;
+      goto LABEL_76;
     }
-    if ( !v65[0] )
+    if ( !v61[0] )
     {
-      MSURF::vRestore((MSURF *)v67);
-LABEL_68:
-      MULTISURF::~MULTISURF((MULTISURF *)v72);
+      MSURF::vRestore((MSURF *)v63);
+LABEL_76:
+      MULTISURF::~MULTISURF((MULTISURF *)v68);
       return v13;
     }
-    v30 = v56;
     while ( 1 )
     {
-      v57 = 0LL;
-      if ( !(unsigned int)MULTISURF::bLoadSource((MULTISURF *)v72, v68) )
-        goto LABEL_65;
-      v31 = psoSrc;
-      v32 = pxlo;
-      v33 = v68;
+      Source = MULTISURF::bLoadSource((MULTISURF *)v68, v64);
+      v51 = 0LL;
+      v34 = Source == 0;
+      if ( !Source )
+        goto LABEL_73;
+      v35 = psoSrc;
+      v36 = pxlo;
+      v33 = v64;
       if ( !psoSrc )
-        goto LABEL_56;
-      v34 = *((_DWORD *)v68 + 6);
-      if ( !v34 )
-        goto LABEL_56;
-      v35 = (HDEV)*((_QWORD *)v68 + 6);
+        goto LABEL_64;
+      v37 = *((_DWORD *)v64 + 6);
+      if ( !v37 )
+        goto LABEL_64;
       p_pvScan0 = &psoSrc[-1].pvScan0;
-      v37 = v69;
+      v39 = *((_QWORD *)v64 + 6);
       hdev = psoSrc[1].hdev;
-      v39 = *((_QWORD *)v30 + 750);
-      v42 = ((_DWORD)v35[535] & 0x100) == 0;
-      v54 = (struct _POINTL)v69;
-      if ( v42 )
+      v54 = *(struct _RECTL **)v65;
+      v41 = ppalDefault;
+      if ( (*(_DWORD *)(v39 + 2172) & 0x100) != 0 )
       {
-        if ( v34 > 0 && pxlo && *(_QWORD *)&pxlo[2].iSrcType )
-          v39 = *(_QWORD *)&pxlo[2].iSrcType;
+        v42 = DrvRealizeHalftonePalette((_QWORD *)v39, 0);
+        v35 = psoSrc;
+        v41 = v42;
+      }
+      else if ( v37 > 0 && pxlo && *(_QWORD *)&pxlo[2].iSrcType )
+      {
+        v41 = *(struct PALETTE **)&pxlo[2].iSrcType;
+      }
+      if ( hdev )
+        goto LABEL_42;
+      if ( !pxlo )
+        goto LABEL_40;
+      if ( pxlo[1].pulXlate )
+      {
+        hdev = (HDEV)pxlo[1].pulXlate;
       }
       else
       {
-        v40 = DrvRealizeHalftonePalette(v35, 0);
-        v31 = psoSrc;
-        v39 = (__int64)v40;
-        v37 = (struct _SURFOBJ *)v54;
-      }
-      if ( !hdev )
-      {
-        if ( !pxlo )
-          goto LABEL_39;
-        if ( pxlo[1].pulXlate )
-        {
-          hdev = (HDEV)pxlo[1].pulXlate;
-          v41 = 0;
-          goto LABEL_43;
-        }
         if ( (pxlo->flXlate & 1) != 0 )
         {
-LABEL_39:
-          v42 = v31 == v63;
+LABEL_40:
+          if ( v35 == v56 )
+            hdev = v30[1].hdev;
+LABEL_42:
+          if ( v34 )
+            goto LABEL_73;
+          goto LABEL_43;
         }
-        else
+        if ( !*(_QWORD *)&pxlo[2].iSrcType )
         {
-          v39 = *(_QWORD *)&pxlo[2].iSrcType;
-          if ( !v39 )
-            goto LABEL_65;
-          v42 = *((_DWORD *)p_pvScan0 + 24) == a1->iBitmapFormat;
+          v34 = 1;
+          goto LABEL_42;
         }
-        if ( v42 )
-          hdev = a1[1].hdev;
-      }
-      v41 = 0;
-      if ( !hdev )
-      {
-        v43 = v56;
-        goto LABEL_48;
+        v41 = *(struct PALETTE **)&pxlo[2].iSrcType;
+        if ( *((_DWORD *)p_pvScan0 + 24) == v30->iBitmapFormat )
+          hdev = v30[1].hdev;
       }
 LABEL_43:
-      v43 = v56;
-      if ( ((_DWORD)hdev[6] & 0x800) != 0 )
+      v43 = 0;
+      if ( hdev )
       {
-        if ( v39 == *((_QWORD *)v56 + 750) )
-          v41 = 0x2000;
-        else
-          v41 = 0x4000;
+        if ( ((_DWORD)hdev[6] & 0x800) != 0 )
+        {
+          v43 = 0x4000;
+          if ( v41 == ppalDefault )
+            v43 = 0x2000;
+        }
       }
-LABEL_48:
       if ( pxlo )
-      {
-        flXlate = pxlo[1].flXlate;
-        v45 = *(_DWORD *)&pxlo[1].iSrcType;
         iUniq = pxlo[1].iUniq;
-      }
       else
-      {
-        flXlate = 0;
-        v45 = 0;
         iUniq = 0;
-      }
-      v47 = *((_QWORD *)v43 + 750);
-      v48 = (__int64)v37[1].hdev;
       if ( pxlo )
-      {
-        pulXlate = pxlo[2].pulXlate;
-        v50 = pxlo[3].iUniq;
-      }
+        v45 = *(_DWORD *)&pxlo[1].iSrcType;
       else
-      {
+        v45 = 0;
+      if ( pxlo )
+        flXlate = pxlo[1].flXlate;
+      else
+        flXlate = 0;
+      if ( pxlo )
+        v47 = pxlo[3].iUniq;
+      else
+        v47 = 0;
+      if ( pxlo )
+        pulXlate = pxlo[2].pulXlate;
+      else
         pulXlate = 0LL;
-        v50 = 0;
-      }
-      inited = EXLATEOBJ::bInitXlateObj(
-                 (Gre::Base *)&v57,
-                 (__int64)pulXlate,
-                 v50,
-                 (__int64)hdev,
-                 v48,
-                 v47,
-                 v39,
-                 flXlate,
-                 v45,
-                 iUniq,
-                 v41);
-      v30 = v56;
-      if ( inited )
+      if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                           (__int64 *)&v51,
+                           (__int64)pulXlate,
+                           v47,
+                           (__int64)hdev,
+                           *(_QWORD *)&v54[6].right,
+                           (__int64)ppalDefault,
+                           (__int64)v41,
+                           flXlate,
+                           v45,
+                           iUniq,
+                           v43) )
       {
-        v32 = v57;
-        v33 = v68;
-        v31 = psoSrc;
-LABEL_56:
-        v54 = 0LL;
+        v36 = v51;
+        v33 = v64;
+        v35 = psoSrc;
+LABEL_64:
         if ( rop4 == 52428 )
         {
-          if ( ((__int64)v69[1].hsurf & 0x400) != 0 )
-            v52 = *(int (**)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*((_QWORD *)v33 + 7) + 2816LL);
+          if ( (*(_DWORD *)(*(_QWORD *)v65 + 88LL) & 0x400) != 0 )
+            v49 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*((_QWORD *)v33 + 7) + 2840LL);
           else
-            v52 = EngCopyBits;
-          v29 &= OffCopyBitsInternal(v52, v71, v69, &v54, v31, v70, v32, &v66, pptlSrc);
+            v49 = EngCopyBits;
+          v31 &= OffCopyBits(
+                   (int)v49,
+                   v67[0],
+                   v65[0],
+                   (int)&gptlZero,
+                   (__int64)v35,
+                   v66,
+                   (__int64)v36,
+                   (__int64)&v62,
+                   (__int64)pptlSrc);
         }
         else
         {
-          MULTIBRUSH::LoadElement((MULTIBRUSH *)v65, v33, (struct SURFACE *)&v69[-1].pvScan0);
-          v54 = 0LL;
-          if ( ((__int64)v69[1].hsurf & 1) != 0 )
-            v53 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*((_QWORD *)v68 + 7) + 2808LL);
+          MULTIBRUSH::LoadElement((MULTIBRUSH *)v61, v33, (struct SURFACE *)(*(_QWORD *)v65 - 24LL));
+          if ( (*(_DWORD *)(*(_QWORD *)v65 + 88LL) & 1) != 0 )
+            v50 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*((_QWORD *)v64 + 7) + 2832LL);
           else
-            v53 = EngBitBlt;
-          v29 &= OffBitBlt(
-                   (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v53,
-                   (int *)v71,
-                   (__int64)v69,
-                   &v54,
+            v50 = EngBitBlt;
+          v31 &= OffBitBlt(
+                   (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v50,
+                   *(LONG **)v67,
+                   *(__int64 *)v65,
+                   &gptlZero,
                    (__int64)psoSrc,
                    (__int64)psoMask,
-                   v70,
-                   (__int64)v32,
-                   &v66.left,
+                   v66,
+                   (__int64)v36,
+                   &v62.left,
                    (__int64 *)pptlSrc,
                    (__int64)pptlMask,
                    (__int64)pbo,
                    (__int64 *)pptlBrush,
                    rop4);
-          MULTIBRUSH::StoreElement((MULTIBRUSH *)v65, *((_DWORD *)v68 + 4));
+          MULTIBRUSH::StoreElement((MULTIBRUSH *)v61, *((_DWORD *)v64 + 4));
         }
-        goto LABEL_66;
+        goto LABEL_74;
       }
-LABEL_65:
-      v29 = 0;
-LABEL_66:
-      EXLATEOBJ::vAltUnlock((Gre::Base **)&v57);
-      if ( !(unsigned int)MSURF::bNextSurface((MSURF *)v67) )
-        goto LABEL_67;
+LABEL_73:
+      v31 = 0;
+LABEL_74:
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v51, (__int64)v33);
+      if ( !(unsigned int)MSURF::bNextSurface((MSURF *)v63) )
+        goto LABEL_75;
     }
   }
-  if ( v18 == 1 )
-    return bBitBltScreenToScreen(a1, psoMask, a4, pxlo, &v66, a7, pptlMask, pbo, pptlBrush, rop4);
+  if ( iType == 1 )
+    return bBitBltScreenToScreen(v17, a3, a4, pxlo, &v62, a7, v16, v15, a10, rop4);
   else
-    return bBitBltFromScreen(a1, v63, psoMask, a4, pxlo, &v66, a7, pptlMask, pbo, pptlBrush, rop4);
+    return bBitBltFromScreen(v17, v18, a3, a4, pxlo, &v62, a7, v16, v15, a10, rop4);
 }

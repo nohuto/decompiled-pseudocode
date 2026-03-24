@@ -3,7 +3,7 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
  */
 
 __int64 PnpMarkHalDeviceNode()

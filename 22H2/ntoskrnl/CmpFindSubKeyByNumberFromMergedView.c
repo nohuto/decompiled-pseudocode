@@ -1,107 +1,106 @@
 /*
- * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x140A196B8
+ * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x140870498
  * Callers:
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
- *     CmEnumerateKey @ 0x1406DC4F0 (CmEnumerateKey.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1406D8750 (CmpDelayDerefKeyControlBlock.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DB080 (CmpFindSubKeyByNumberEx.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpCompareKeysByName @ 0x140A1F774 (CmpCompareKeysByName.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpCompareKeysByName @ 0x140875DA4 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberFromMergedView(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         _QWORD *a6,
-        _DWORD *a7,
+        unsigned int *a7,
         ULONG_PTR *a8,
         _DWORD *a9)
 {
-  unsigned int v9; // r9d
-  unsigned int v10; // edi
-  char v11; // r14
-  unsigned int v12; // ebx
-  unsigned int v13; // r13d
-  unsigned int v14; // r12d
-  ULONG_PTR v15; // rsi
-  ULONG_PTR v16; // r15
-  __int64 v17; // r13
+  unsigned int v9; // r12d
+  int v10; // r14d
+  unsigned int v11; // edi
+  char v12; // r13
+  unsigned int v13; // ebx
+  ULONG_PTR v14; // rsi
+  ULONG_PTR v15; // r15
+  __int64 v16; // r12
   int SubKeyByNumber; // eax
+  int v18; // eax
   int v19; // eax
   int v20; // eax
-  __int64 v21; // r12
-  int v22; // eax
-  int v23; // r14d
-  ULONG_PTR v24; // rcx
-  __int64 v25; // rax
-  ULONG_PTR v26; // rcx
-  __int64 CellFlat; // rax
-  __int64 v28; // r8
-  __int64 v29; // rcx
-  char v30; // r12
-  int v31; // r14d
-  unsigned int v32; // eax
-  bool v33; // zf
-  int v34; // eax
-  bool v35; // sf
-  bool v36; // cc
-  __int64 v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // rcx
-  char v41; // [rsp+58h] [rbp-61h]
-  int v42; // [rsp+5Ch] [rbp-5Dh] BYREF
-  int v43; // [rsp+60h] [rbp-59h]
-  BOOL v44; // [rsp+68h] [rbp-51h]
-  int BugCheckParameter4; // [rsp+6Ch] [rbp-4Dh] BYREF
-  unsigned int BugCheckParameter4_4; // [rsp+70h] [rbp-49h]
-  unsigned int v47; // [rsp+74h] [rbp-45h]
-  __int64 v48; // [rsp+78h] [rbp-41h] BYREF
-  __int64 v49; // [rsp+80h] [rbp-39h]
-  __int64 v50; // [rsp+88h] [rbp-31h] BYREF
-  __int64 v51; // [rsp+90h] [rbp-29h]
-  ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp-21h] BYREF
-  ULONG_PTR v53; // [rsp+A0h] [rbp-19h] BYREF
+  __int64 v21; // rdx
+  int v22; // r14d
+  __int64 v23; // rcx
+  int v24; // r14d
+  unsigned int v25; // eax
+  bool v26; // zf
+  __int64 v27; // r14
+  unsigned int v28; // eax
+  char v29; // al
+  int v30; // eax
+  bool v31; // sf
+  bool v32; // cc
+  unsigned int v34; // [rsp+5Ch] [rbp-4Dh] BYREF
+  int v35; // [rsp+60h] [rbp-49h]
+  BOOL v36; // [rsp+64h] [rbp-45h]
+  int v37; // [rsp+68h] [rbp-41h] BYREF
+  unsigned int v38; // [rsp+6Ch] [rbp-3Dh]
+  unsigned int v39; // [rsp+70h] [rbp-39h]
+  __int64 v40; // [rsp+78h] [rbp-31h]
+  __int64 v41; // [rsp+80h] [rbp-29h]
+  ULONG_PTR v42; // [rsp+88h] [rbp-21h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+90h] [rbp-19h] BYREF
+  _DWORD v44[2]; // [rsp+98h] [rbp-11h] BYREF
+  _DWORD v45[18]; // [rsp+A0h] [rbp-9h] BYREF
+  unsigned int v48; // [rsp+108h] [rbp+5Fh]
 
-  HIDWORD(v50) = 0;
-  v9 = a3;
-  HIDWORD(v48) = 0;
-  BugCheckParameter4_4 = 0;
-  v10 = -1073741670;
-  v47 = 0;
-  v11 = 0;
-  v41 = 0;
-  *a6 = 0LL;
+  v48 = a3;
+  v45[0] = -1;
+  v44[0] = -1;
+  v45[1] = 0;
+  v9 = -1;
+  v44[1] = 0;
+  v10 = -1;
+  v11 = -1073741670;
+  v38 = 0;
+  v39 = 0;
   v12 = 0;
-  v13 = -1;
-  v49 = 0LL;
-  v14 = -1;
-  LODWORD(v50) = -1;
+  v13 = 0;
+  v40 = 0LL;
+  *a6 = 0LL;
+  v14 = 0LL;
   v15 = 0LL;
-  LODWORD(v48) = -1;
-  v16 = 0LL;
+  v37 = -1;
+  v34 = -1;
+  LOBYTE(v35) = 0;
   *a7 = -1;
-  BugCheckParameter4 = -1;
-  v44 = a2 == 0;
-  v42 = -1;
-  LOBYTE(v43) = 0;
+  v42 = 0LL;
   BugCheckParameter2 = 0LL;
-  v53 = 0LL;
+  v36 = a2 == 0;
 LABEL_2:
-  v51 = 0LL;
+  v41 = 0LL;
   while ( 1 )
   {
-    if ( v11 && v12 >= v9 )
+    if ( v12 && v13 >= (unsigned int)a3 )
     {
-LABEL_85:
-      v10 = -2147483622;
-      goto LABEL_36;
+LABEL_64:
+      v11 = -2147483622;
+LABEL_68:
+      v16 = a1;
+LABEL_69:
+      v27 = a2;
+      goto LABEL_70;
+    }
+    if ( v14 )
+    {
+      CmpDelayDerefKeyControlBlock(v14, a5);
+      v14 = 0LL;
+      v42 = 0LL;
     }
     if ( v15 )
     {
@@ -109,233 +108,225 @@ LABEL_85:
       v15 = 0LL;
       BugCheckParameter2 = 0LL;
     }
-    if ( v16 )
+    if ( !(_BYTE)v35 && v9 == -1 )
     {
-      CmpDelayDerefKeyControlBlock(v16, a5);
-      v16 = 0LL;
-      v53 = 0LL;
-    }
-    if ( !(_BYTE)v43 && v13 == -1 )
-    {
-      v17 = a1;
+      v16 = a1;
       SubKeyByNumber = CmpFindSubKeyByNumberEx(
                          *(_QWORD *)(a1 + 32),
                          *(unsigned int *)(a1 + 40),
-                         BugCheckParameter4_4,
-                         &BugCheckParameter4,
+                         v38,
+                         &v37,
                          a1 & -(__int64)(a4 != 0),
                          a2 & -(__int64)(a4 != 0),
                          a4,
                          a5,
-                         (ULONG_PTR *)((unsigned __int64)&BugCheckParameter2 & -(__int64)(a4 != 0)));
-      v15 = BugCheckParameter2;
-      v10 = SubKeyByNumber;
+                         (ULONG_PTR *)((unsigned __int64)&v42 & -(__int64)(a4 != 0)));
+      v14 = v42;
+      v11 = SubKeyByNumber;
       if ( SubKeyByNumber < 0 )
-        goto LABEL_37;
-      v13 = BugCheckParameter4;
-      v19 = (unsigned __int8)v43;
-      if ( BugCheckParameter4 == -1 )
-        v19 = 1;
-      v43 = v19;
+        goto LABEL_69;
+      v9 = v37;
+      v18 = (unsigned __int8)v35;
+      if ( v37 == -1 )
+        v18 = 1;
+      v35 = v18;
     }
-    LOBYTE(v20) = v44;
-    if ( !v44 && v14 == -1 )
+    LOBYTE(v19) = v36;
+    if ( v36 || v10 != -1 )
     {
-      v21 = a2;
-      v22 = CmpFindSubKeyByNumberEx(
+      v21 = v34;
+    }
+    else
+    {
+      v20 = CmpFindSubKeyByNumberEx(
               *(_QWORD *)(a2 + 32),
               *(unsigned int *)(a2 + 40),
-              v47,
-              &v42,
+              v39,
+              &v34,
               a2 & -(__int64)(a4 != 0),
               a1 & -(__int64)(a4 != 0),
               a4,
               a5,
-              (ULONG_PTR *)((unsigned __int64)&v53 & -(__int64)(a4 != 0)));
-      v16 = v53;
-      v10 = v22;
-      if ( v22 < 0 )
-        goto LABEL_56;
-      v14 = v42;
-      v20 = v44;
-      if ( v42 == -1 )
-        v20 = 1;
-      v44 = v20;
+              (ULONG_PTR *)((unsigned __int64)&BugCheckParameter2 & -(__int64)(a4 != 0)));
+      v15 = BugCheckParameter2;
+      v11 = v20;
+      if ( v20 < 0 )
+        goto LABEL_68;
+      v21 = v34;
+      v19 = v36;
+      if ( v34 == -1 )
+        v19 = 1;
+      v36 = v19;
     }
-    if ( (_BYTE)v43 )
+    if ( (_BYTE)v35 )
     {
-      if ( (_BYTE)v20 )
-        goto LABEL_85;
-      v23 = 2;
-    }
-    else
-    {
-      v23 = (_BYTE)v20 != 0;
-    }
-    if ( v14 != -1 )
-    {
-      v24 = *(_QWORD *)(a2 + 32);
-      v25 = (*(_BYTE *)(v24 + 140) & 1) != 0
-          ? HvpGetCellFlat(v24, v14, &v48)
-          : HvpGetCellPaged(v24, v14, (unsigned int *)&v48);
-      v51 = v25;
-      if ( !v25 )
-      {
-LABEL_35:
-        v11 = v41;
-LABEL_36:
-        v17 = a1;
-LABEL_37:
-        v21 = a2;
-        goto LABEL_38;
-      }
-    }
-    if ( v13 == -1 )
-    {
-      v28 = v49;
+      if ( (_BYTE)v19 )
+        goto LABEL_64;
+      v22 = 2;
     }
     else
     {
-      v26 = *(_QWORD *)(a1 + 32);
-      if ( (*(_BYTE *)(v26 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v26, v13, &v50);
-      else
-        CellFlat = HvpGetCellPaged(v26, v13, (unsigned int *)&v50);
-      v49 = CellFlat;
-      v28 = CellFlat;
-      if ( !CellFlat )
-        goto LABEL_35;
+      v22 = (_BYTE)v19 != 0;
     }
-    v30 = 0;
-    if ( !v23 )
-      break;
-    v31 = v23 - 1;
-    if ( !v31 )
+    if ( (_DWORD)v21 != -1 )
     {
-      v32 = v12 + 1;
-      v11 = 1;
-LABEL_58:
+      v41 = (*(__int64 (__fastcall **)(_QWORD, __int64, _DWORD *, _QWORD))(*(_QWORD *)(a2 + 32) + 8LL))(
+              *(_QWORD *)(a2 + 32),
+              v21,
+              v44,
+              0LL);
       if ( !v41 )
-        v32 = v12;
-      v12 = v32;
-      if ( v32 == a3 )
-        goto LABEL_61;
-LABEL_70:
-      ++BugCheckParameter4_4;
-      v13 = -1;
-      v41 = 1;
-      BugCheckParameter4 = -1;
-      if ( v30 )
-        goto LABEL_71;
-      v14 = v42;
-LABEL_74:
-      v28 = v49;
-      goto LABEL_75;
+        goto LABEL_68;
     }
-    if ( v31 == 1 )
+    if ( v9 == -1 )
     {
-      v32 = v12 + 1;
-      v11 = 1;
-      goto LABEL_50;
+      v23 = v40;
     }
-    v14 = v42;
-LABEL_75:
-    if ( v28 )
+    else
     {
-      v37 = *(_QWORD *)(a1 + 32);
-      if ( (*(_BYTE *)(v37 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v37, &v50);
-      else
-        HvpReleaseCellPaged(v37, (unsigned int *)&v50);
-      v49 = 0LL;
+      v40 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *, _QWORD))(*(_QWORD *)(a1 + 32) + 8LL))(
+              *(_QWORD *)(a1 + 32),
+              v9,
+              v45,
+              0LL);
+      v23 = v40;
+      if ( !v40 )
+        goto LABEL_68;
     }
-    v11 = v41;
-    v9 = a3;
-    if ( v51 )
+    if ( !v22 )
+      break;
+    v24 = v22 - 1;
+    if ( !v24 )
     {
-      v38 = *(_QWORD *)(a2 + 32);
-      if ( (*(_BYTE *)(v38 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v38, &v48);
-      else
-        HvpReleaseCellPaged(v38, (unsigned int *)&v48);
-      v9 = a3;
+      v26 = v12 == 0;
+      v28 = v13 + 1;
+      v12 = 1;
+      if ( v26 )
+        v28 = v13;
+      v13 = v28;
+      if ( v28 == v48 )
+        goto LABEL_65;
+      v29 = 0;
+      goto LABEL_55;
+    }
+    if ( v24 == 1 )
+    {
+      v25 = v13 + 1;
+      goto LABEL_36;
+    }
+    v10 = v34;
+LABEL_60:
+    if ( v23 )
+    {
+      (*(void (__fastcall **)(_QWORD, _DWORD *, __int64, _QWORD))(*(_QWORD *)(a1 + 32) + 16LL))(
+        *(_QWORD *)(a1 + 32),
+        v45,
+        a3,
+        0LL);
+      v40 = 0LL;
+    }
+    a3 = v48;
+    if ( v41 )
+    {
+      (*(void (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD))(*(_QWORD *)(a2 + 32) + 16LL))(
+        *(_QWORD *)(a2 + 32),
+        v44,
+        v48,
+        0LL);
+      a3 = v48;
       goto LABEL_2;
     }
   }
-  v34 = CmpCompareKeysByName(v28, v51);
-  v35 = v34 < 0;
-  v36 = v34 <= 0;
-  v32 = v12 + 1;
-  v11 = 1;
-  if ( v35 )
-    goto LABEL_58;
-  if ( v36 )
+  v30 = CmpCompareKeysByName(v23, v41);
+  v31 = v30 < 0;
+  v32 = v30 <= 0;
+  v25 = v13 + 1;
+  if ( v31 )
   {
-    if ( !v41 )
-      v32 = v12;
-    v12 = v32;
-    if ( v32 == a3 )
+    v26 = v12 == 0;
+    v12 = 1;
+    if ( v26 )
+      v25 = v13;
+    v13 = v25;
+    if ( v25 == v48 )
+      goto LABEL_65;
+    v29 = 0;
+    goto LABEL_55;
+  }
+  if ( v32 )
+  {
+    if ( !v12 )
+      v25 = v13;
+    v13 = v25;
+    v29 = 1;
+    v12 = 1;
+    if ( v13 == v48 )
     {
-LABEL_61:
+LABEL_65:
       *a6 = *(_QWORD *)(a1 + 32);
-      *a7 = v13;
+      *a7 = v9;
       if ( a8 )
       {
-        *a8 = v15;
-        v15 = 0LL;
+        *a8 = v14;
+        v14 = 0LL;
       }
-      v10 = 0;
-      goto LABEL_36;
+      v11 = 0;
+      goto LABEL_68;
     }
-    v30 = 1;
-    goto LABEL_70;
+LABEL_55:
+    v9 = -1;
+    v12 = 1;
+    ++v38;
+    v37 = -1;
+    if ( !v29 )
+    {
+      v10 = v34;
+      goto LABEL_59;
+    }
+LABEL_56:
+    v10 = -1;
+    v12 = 1;
+    ++v39;
+    v34 = -1;
+LABEL_59:
+    v23 = v40;
+    goto LABEL_60;
   }
-LABEL_50:
-  v33 = v41 == 0;
-  v41 = 1;
-  if ( v33 )
-    v32 = v12;
-  v12 = v32;
-  if ( v32 != a3 )
-  {
-LABEL_71:
-    v14 = -1;
-    ++v47;
-    v42 = -1;
-    goto LABEL_74;
-  }
-  v21 = a2;
+LABEL_36:
+  v26 = v12 == 0;
+  v12 = 1;
+  if ( v26 )
+    v25 = v13;
+  v13 = v25;
+  if ( v25 != v48 )
+    goto LABEL_56;
+  v27 = a2;
   *a6 = *(_QWORD *)(a2 + 32);
-  *a7 = v42;
+  *a7 = v34;
   if ( a8 )
   {
-    *a8 = v16;
-    v16 = 0LL;
+    *a8 = v15;
+    v15 = 0LL;
   }
-  v10 = 0;
-LABEL_56:
-  v17 = a1;
-LABEL_38:
+  v16 = a1;
+  v11 = 0;
+LABEL_70:
+  if ( v14 )
+    CmpDelayDerefKeyControlBlock(v14, a5);
   if ( v15 )
     CmpDelayDerefKeyControlBlock(v15, a5);
-  if ( v16 )
-    CmpDelayDerefKeyControlBlock(v16, a5);
-  if ( v51 )
-  {
-    v29 = *(_QWORD *)(v21 + 32);
-    if ( (*(_BYTE *)(v29 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v29, &v48);
-    else
-      HvpReleaseCellPaged(v29, (unsigned int *)&v48);
-  }
-  if ( v49 )
-  {
-    v39 = *(_QWORD *)(v17 + 32);
-    if ( (*(_BYTE *)(v39 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v39, &v50);
-    else
-      HvpReleaseCellPaged(v39, (unsigned int *)&v50);
-  }
-  *a9 = v11 != 0 ? v12 + 1 : 0;
-  return v10;
+  if ( v41 )
+    (*(void (__fastcall **)(_QWORD, _DWORD *, __int64, _QWORD))(*(_QWORD *)(v27 + 32) + 16LL))(
+      *(_QWORD *)(v27 + 32),
+      v44,
+      a3,
+      0LL);
+  if ( v40 )
+    (*(void (__fastcall **)(_QWORD, _DWORD *, __int64, _QWORD))(*(_QWORD *)(v16 + 32) + 16LL))(
+      *(_QWORD *)(v16 + 32),
+      v45,
+      a3,
+      0LL);
+  *a9 = v12 != 0 ? v13 + 1 : 0;
+  return v11;
 }

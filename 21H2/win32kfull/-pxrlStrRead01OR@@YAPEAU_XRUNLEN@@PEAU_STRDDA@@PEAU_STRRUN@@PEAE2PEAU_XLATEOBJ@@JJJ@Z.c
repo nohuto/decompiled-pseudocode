@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead01OR@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C1520
+ * XREFs of ?pxrlStrRead01OR@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C2C90
  * Callers:
  *     <none>
  * Callees:
@@ -26,9 +26,9 @@ struct _XRUNLEN *__fastcall pxrlStrRead01OR(
   int v16; // r11d
   int v17; // r12d
   unsigned int *v18; // r13
-  struct _XLATEOBJ *v19; // rax
+  __int64 v19; // r8
   __int64 v20; // rbp
-  __int64 v21; // r8
+  struct _XLATEOBJ *v21; // rax
   __int64 v22; // rcx
   _DWORD *v23; // r9
   _DWORD *v24; // r9
@@ -68,14 +68,14 @@ struct _XRUNLEN *__fastcall pxrlStrRead01OR(
     {
       v22 = *v18;
       v30 = v15 + 1;
-      v29 = (struct _XLATEOBJ *)((char *)&v19->iUniq + 1);
-      if ( (dword_1C02ED6E0[v20] & v17) != 0 )
+      v29 = (struct _XLATEOBJ *)((char *)&v21->iUniq + 1);
+      if ( (dword_1C02F0B60[v20] & v17) != 0 )
       {
         if ( (_DWORD)v22 )
         {
           v16 += v22;
-          v24 = (_DWORD *)((char *)a2 + 4 * v21 + 16);
-          v21 += v22;
+          v24 = (_DWORD *)((char *)a2 + 4 * v19 + 16);
+          v19 += v22;
           do
           {
             *v24++ |= v12;
@@ -85,14 +85,14 @@ struct _XRUNLEN *__fastcall pxrlStrRead01OR(
         }
         else
         {
-          *((_DWORD *)a2 + v21 + 4) |= v12;
+          *((_DWORD *)a2 + v19 + 4) |= v12;
         }
       }
       else if ( (_DWORD)v22 )
       {
         v16 += v22;
-        v23 = (_DWORD *)((char *)a2 + 4 * v21 + 16);
-        v21 += v22;
+        v23 = (_DWORD *)((char *)a2 + 4 * v19 + 16);
+        v19 += v22;
         do
         {
           *v23++ |= v11;
@@ -102,7 +102,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead01OR(
       }
       else
       {
-        *((_DWORD *)a2 + v21 + 4) |= v11;
+        *((_DWORD *)a2 + v19 + 4) |= v11;
       }
       ++v7;
       v25 = v9 + 1;
@@ -117,7 +117,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead01OR(
         v27 = v10;
       v9 = 0;
       v10 = v27;
-      v19 = v29;
+      v21 = v29;
       if ( (v25 & 0x20) == 0 )
         v9 = v25;
       v20 = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C01211CC
+ * XREFs of ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C01357F0
  * Callers:
- *     ?UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z @ 0x1C0011080 (-UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7AC0 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
  *     <none>
  */

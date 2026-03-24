@@ -1,8 +1,8 @@
 /*
- * XREFs of CompareUnicodeStrings @ 0x1406A2890
+ * XREFs of CompareUnicodeStrings @ 0x1406A2870
  * Callers:
- *     RtlInsertUnicodePrefix @ 0x1406A2620 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x1406A2780 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x1406A2600 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1406A2760 (RtlFindUnicodePrefix.c)
  * Callees:
  *     <none>
  */

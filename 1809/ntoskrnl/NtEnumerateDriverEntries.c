@@ -1,22 +1,22 @@
 /*
- * XREFs of NtEnumerateDriverEntries @ 0x1408D3F40
+ * XREFs of NtEnumerateDriverEntries @ 0x1408D3F20
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408211CC (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpSafeWcslen @ 0x1408D16FC (ExpSafeWcslen.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1408D272C (ExpTranslateDriverEntryNameToId.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x1408211AC (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpSafeWcslen @ 0x1408D16DC (ExpSafeWcslen.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1408D270C (ExpTranslateDriverEntryNameToId.c)
  */
 
 NTSTATUS __stdcall NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
@@ -68,7 +68,7 @@ NTSTATUS __stdcall NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 
   v2 = BufferLength;
   v4 = 0LL;
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
     return -1073741811;

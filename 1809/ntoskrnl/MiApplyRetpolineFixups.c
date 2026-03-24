@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyRetpolineFixups @ 0x140853728
+ * XREFs of MiApplyRetpolineFixups @ 0x140853708
  * Callers:
  *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     RtlApplyImportRelocationToPage @ 0x1402F6AE8 (RtlApplyImportRelocationToPage.c)
- *     RtlApplyIndirectRelocationToPage @ 0x1402F6B90 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6C2C (RtlApplySwitchJumpRelocationToPage.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE8 (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x1402F6C90 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6D2C (RtlApplySwitchJumpRelocationToPage.c)
  */
 
 void __fastcall MiApplyRetpolineFixups(

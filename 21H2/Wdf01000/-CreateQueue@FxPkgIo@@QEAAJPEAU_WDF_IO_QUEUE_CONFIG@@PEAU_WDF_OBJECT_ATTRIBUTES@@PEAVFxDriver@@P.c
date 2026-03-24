@@ -1,19 +1,19 @@
 /*
- * XREFs of ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0024C4C
+ * XREFs of ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0074DA8
  * Callers:
- *     imp_WdfIoQueueCreate @ 0x1C0024AC0 (imp_WdfIoQueueCreate.c)
- *     ?PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002684C (-PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     imp_WdfIoQueueCreate @ 0x1C0074190 (imp_WdfIoQueueCreate.c)
+ *     ?PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C008DFF0 (-PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C00193BC (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
- *     ?AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z @ 0x1C0024D94 (-AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z.c)
- *     ?_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CONFIG@@PEAVFxDriver@@PEAVFxPkgIo@@EPEAPEAV1@@Z @ 0x1C0024E8C (-_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CON.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C0013F60 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ?AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z @ 0x1C0074960 (-AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z.c)
+ *     ?_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CONFIG@@PEAVFxDriver@@PEAVFxPkgIo@@EPEAPEAV1@@Z @ 0x1C0077274 (-_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CON.c)
  */
 
 int __fastcall FxPkgIo::CreateQueue(
@@ -24,18 +24,19 @@ int __fastcall FxPkgIo::CreateQueue(
         FxIoQueue **ppQueue)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
-  WDFDRIVER__ *Driver; // rdx
-  int result; // eax
-  FxIoQueue *v12; // rbx
-  int v13; // esi
   void *ParentObject; // rdx
-  FxDeviceBase *v15; // rax
+  FxDeviceBase *v11; // rax
+  int result; // eax
   FxDeviceBase *m_DeviceBase; // rcx
-  FxObject *v17; // r8
-  const void *ObjectHandleUnchecked; // rax
+  FxObject *v14; // r8
+  const void *_a2; // rax
   __int64 _a3; // rdx
+  WDFDRIVER__ *Driver; // rdx
+  FxIoQueue *v18; // rbx
   FxCxDeviceInfo **p_m_ExecutionLevel; // rcx
   FxCxDeviceInfo *i; // rax
+  int v21; // esi
+  unsigned __int8 v22; // r8
   FxDriver *pDriver; // [rsp+50h] [rbp-28h] BYREF
   FxObject *pParent; // [rsp+80h] [rbp+8h] BYREF
   FxIoQueue *pQueue; // [rsp+90h] [rbp+18h] BYREF
@@ -47,25 +48,32 @@ int __fastcall FxPkgIo::CreateQueue(
   if ( QueueAttributes && (ParentObject = QueueAttributes->ParentObject) != 0LL )
   {
     FxObjectHandleGetPtr(this->m_Globals, (unsigned __int64)ParentObject, 0x1000u, (void **)&pParent);
-    v15 = FxDeviceBase::_SearchForDevice(pParent, 0LL);
-    if ( !v15 )
+    v11 = FxDeviceBase::_SearchForDevice(pParent, 0LL);
+    if ( !v11 )
     {
-      WPP_IFR_SF_qL(m_Globals, 2u, 0xDu, 0x1Bu, WPP_FxPkgIo_cpp_Traceguids, QueueAttributes->ParentObject, 0xC0000010);
+      WPP_IFR_SF_qL(
+        m_Globals,
+        2u,
+        0xDu,
+        0x1Bu,
+        (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids,
+        QueueAttributes->ParentObject,
+        0xC0000010);
       return -1073741808;
     }
     m_DeviceBase = this->m_DeviceBase;
-    if ( v15 != m_DeviceBase )
+    if ( v11 != m_DeviceBase )
     {
       FxObject::GetObjectHandleUnchecked(m_DeviceBase);
-      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(v17);
+      _a2 = (const void *)FxObject::GetObjectHandleUnchecked(v14);
       WPP_IFR_SF_qqqd(
         m_Globals,
         2u,
         0xDu,
         0x1Cu,
-        WPP_FxPkgIo_cpp_Traceguids,
+        (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids,
         QueueAttributes->ParentObject,
-        ObjectHandleUnchecked,
+        _a2,
         _a3,
         -1073741808);
       return -1073741808;
@@ -84,31 +92,31 @@ int __fastcall FxPkgIo::CreateQueue(
   result = FxIoQueue::_Create(m_Globals, QueueAttributes, Config, Caller, this, this->m_PowerStateOn, &pQueue);
   if ( result >= 0 )
   {
-    v12 = pQueue;
+    v18 = pQueue;
     if ( pDriver )
     {
       p_m_ExecutionLevel = (FxCxDeviceInfo **)&this->m_DeviceBase[1].m_ExecutionLevel;
       for ( i = *p_m_ExecutionLevel; i != (FxCxDeviceInfo *)p_m_ExecutionLevel; i = (FxCxDeviceInfo *)i->ListEntry.Flink )
       {
         if ( i->Driver == pDriver )
-          goto LABEL_23;
+          goto LABEL_19;
       }
       i = 0LL;
-LABEL_23:
+LABEL_19:
       pQueue->m_CxDeviceInfo = i;
     }
-    v13 = FxObject::Commit(v12, (_FX_DRIVER_GLOBALS *)QueueAttributes, 0LL, pParent, 1u);
-    if ( v13 < 0 )
+    v21 = FxObject::Commit(v18, (_FX_DRIVER_GLOBALS *)QueueAttributes, 0LL, pParent, 1u);
+    if ( v21 >= 0 )
     {
-      FxObject::ClearEvtCallbacks(v12);
-      ((void (*)(void))v12->DeleteObject)();
+      FxPkgIo::AddIoQueue(this, v18, v22);
+      *ppQueue = v18;
     }
     else
     {
-      FxPkgIo::AddIoQueue(this, v12);
-      *ppQueue = v12;
+      FxObject::ClearEvtCallbacks(v18);
+      ((void (*)(void))v18->DeleteObject)();
     }
-    return v13;
+    return v21;
   }
   return result;
 }

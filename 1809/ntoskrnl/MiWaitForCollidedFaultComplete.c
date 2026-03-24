@@ -4,7 +4,7 @@
  *     MiHandleCollidedFault @ 0x140003C24 (MiHandleCollidedFault.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
@@ -22,8 +22,8 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int64 a3, unsigned __int8 a4, int *a5)

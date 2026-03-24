@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0226C20
+ * XREFs of ?SetReferenceArrayProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01DDA10
  * Callers:
  *     <none>
  * Callees:
- *     ?Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00941A0 (-Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResou.c)
- *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C00AE080 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C005D4C0 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     ?Set@CResourceMarshalerArray@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C005D528 (-Set@CResourceMarshalerArray@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceM.c)
  */
 
 __int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetReferenceArrayProperty(
@@ -18,17 +18,13 @@ __int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetRefere
   __int64 result; // rax
 
   *a6 = 0;
-  if ( a3 != 76 )
+  if ( a3 != 74 )
     return DirectComposition::CVisualMarshaler::SetReferenceArrayProperty(this, a2, a3, a4, a5, a6);
-  result = DirectComposition::CResourceMarshalerArrayBase::Set(
-             (DirectComposition::CParticleEmitterVisualMarshaler *)((char *)this + 528),
-             a2,
-             (__int64)a4,
-             a5,
-             0x71u);
+  result = DirectComposition::CResourceMarshalerArray::Set((__int64)this + 512, a2, (__int64)a4, a5, 0x71u);
   if ( (int)result >= 0 )
   {
-    *((_DWORD *)this + 139) |= 0x1000000u;
+    *((_DWORD *)this + 134) = 0;
+    *((_DWORD *)this + 136) |= 0x1000000u;
     *a6 = 1;
   }
   return result;

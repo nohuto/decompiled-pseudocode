@@ -1,148 +1,141 @@
 /*
- * XREFs of MiDbgCopyMemory @ 0x14028FA14
+ * XREFs of MiDbgCopyMemory @ 0x1405458A4
  * Callers:
- *     MmDbgCopyMemory @ 0x14028F978 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x140546A9C (MmDbgCopyMemory.c)
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     MmIsAddressValidEx @ 0x14028FBF0 (MmIsAddressValidEx.c)
- *     KeIsUserVaAccessAllowed @ 0x140291158 (KeIsUserVaAccessAllowed.c)
- *     MiCopyFromUntrustedMemory @ 0x140291210 (MiCopyFromUntrustedMemory.c)
- *     MiDbgReleaseAddress @ 0x1403AD0A8 (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x1403AD16C (MiDbgWriteCheck.c)
- *     MiCopyToUntrustedMemory @ 0x1403AE6BC (MiCopyToUntrustedMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1405A4C68 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1405A4FB8 (MiDbgUnTranslatePhysicalAddress.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeIsUserVaAccessAllowed @ 0x140254F38 (KeIsUserVaAccessAllowed.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     MiCopyFromUntrustedMemory @ 0x140545640 (MiCopyFromUntrustedMemory.c)
+ *     MiCopyToUntrustedMemory @ 0x14054576C (MiCopyToUntrustedMemory.c)
+ *     MiDbgReleaseAddress @ 0x1405460BC (MiDbgReleaseAddress.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1405461F0 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1405465C4 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiDbgWriteCheck @ 0x1405466BC (MiDbgWriteCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall MiDbgCopyMemory(char *BaseAddress, __int64 a2, unsigned int a3, unsigned int a4, unsigned int a5)
+__int64 __fastcall MiDbgCopyMemory(char *BaseAddress, _BYTE *a2, unsigned int a3, unsigned int a4, unsigned int a5)
 {
   SIZE_T v6; // r13
-  unsigned int v9; // r14d
+  unsigned int v8; // r14d
   int v10; // r15d
-  __int64 v11; // r8
-  __int64 v12; // rdx
-  int v13; // edx
-  unsigned int v14; // ebx
-  __int64 v15; // r9
-  int v16; // r8d
-  unsigned int v17; // eax
-  unsigned int v18; // edi
+  int v11; // edx
+  unsigned int v12; // ebx
+  __int64 v13; // r9
+  int v14; // r8d
+  unsigned int v15; // eax
+  unsigned int v16; // edi
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  __int64 v21; // [rsp+20h] [rbp-78h] BYREF
-  _QWORD v22[2]; // [rsp+28h] [rbp-70h] BYREF
-  int v23; // [rsp+38h] [rbp-60h]
-  unsigned int v24; // [rsp+3Ch] [rbp-5Ch]
-  unsigned int v25; // [rsp+40h] [rbp-58h]
-  unsigned int v26; // [rsp+44h] [rbp-54h]
-  _BYTE v27[40]; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v18; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v19; // [rsp+28h] [rbp-60h] BYREF
+  _QWORD v20[2]; // [rsp+38h] [rbp-50h] BYREF
+  int v21; // [rsp+48h] [rbp-40h]
+  unsigned int v22; // [rsp+4Ch] [rbp-3Ch]
+  unsigned int v23; // [rsp+50h] [rbp-38h]
+  unsigned int v24; // [rsp+54h] [rbp-34h]
 
   v6 = a3;
-  v9 = a5;
-  v21 = 0LL;
-  memset(v27, 0, 32);
-  v26 = 0;
+  v8 = a5;
+  v18 = 0LL;
+  v19 = 0LL;
+  v24 = 0;
   if ( !a3 )
     return 3221225713LL;
   v10 = a5 & 2;
-  if ( (a5 & 0x40) != 0 )
+  if ( (a5 & 0x40) != 0 && ((a5 & 2) != 0 || (a5 & 1) == 0 || (a5 & 4) == 0) )
+    return 3221225714LL;
+  v12 = KeIsUserVaAccessAllowed(0LL) ? 2 : 0;
+  if ( v14 )
   {
-    if ( (a5 & 2) != 0 )
-      return 3221225714LL;
-    if ( (a5 & 1) == 0 )
-      return 3221225714LL;
-    v12 = a5 & 4;
-    v11 = 0LL;
-    if ( (a5 & 4) == 0 )
-      return 3221225714LL;
-  }
-  else
-  {
-    v11 = a5 & 2;
-    v12 = a5 & 4;
-  }
-  v14 = (unsigned __int8)KeIsUserVaAccessAllowed(0LL, v12, v11, a2, v21) != 0 ? 2 : 0;
-  if ( !v16 )
-  {
-    if ( v13 )
+    if ( v11 || KeGetCurrentIrql() <= 1u )
     {
-      if ( !(unsigned __int8)MmIsAddressValidEx(BaseAddress) )
-        return (unsigned int)-1073741585;
+      BaseAddress = (char *)MiDbgTranslatePhysicalAddress(BaseAddress, a5, &v19);
+      if ( !BaseAddress )
+        return 3221225473LL;
+LABEL_42:
+      v10 = v8 & 2;
+      if ( (v10 | 4) == 4 && KeSmapEnabled )
+        __asm { stac }
+      if ( (v8 & 1) != 0 )
+      {
+        BaseAddress = (char *)MiDbgWriteCheck(BaseAddress, &v18);
+        if ( !BaseAddress )
+        {
+          v16 = -1073741585;
+LABEL_26:
+          if ( (v10 | 4) == 4 && v12 < 2 && KeSmapEnabled )
+            __asm { clac }
+          if ( (v12 & 1) != 0 )
+            MiDbgReleaseAddress(BaseAddress, &v18, v8);
+          if ( v10 )
+            MiDbgUnTranslatePhysicalAddress(&v19);
+          return v16;
+        }
+        v12 |= 1u;
+        goto LABEL_49;
+      }
+      goto LABEL_24;
+    }
+    return 3221225714LL;
+  }
+  if ( v11 )
+  {
+    if ( MmIsAddressValidEx((__int64)BaseAddress) )
+    {
       if ( (a5 & 0x40) == 0 )
-        goto LABEL_8;
+        goto LABEL_42;
       PhysicalAddress = MmGetPhysicalAddress(BaseAddress);
       BaseAddress = (char *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))MiDbgTranslatePhysicalAddress)(
                               (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,
                               a5,
-                              v27);
-      if ( !BaseAddress )
-        return (unsigned int)-1073741823;
-      v9 = a5 | 2;
-LABEL_8:
-      v10 = v9 & 2;
-      if ( KeSmapEnabled && (v9 & 2 | 4) == 4 )
-        __asm { stac }
-      if ( (v9 & 1) == 0 )
+                              &v19);
+      if ( BaseAddress )
       {
-LABEL_10:
-        v17 = MiCopyFromUntrustedMemory(a2, BaseAddress, (unsigned int)v6, a4);
-LABEL_11:
-        v18 = v17;
-        goto LABEL_12;
+        v8 = a5 | 2;
+        goto LABEL_42;
       }
-      BaseAddress = (char *)MiDbgWriteCheck(BaseAddress, &v21);
-      if ( !BaseAddress )
-      {
-        v18 = -1073741585;
-LABEL_12:
-        if ( v14 < 2 && (v10 | 4) == 4 && KeSmapEnabled )
-          __asm { clac }
-        if ( (v14 & 1) != 0 )
-          MiDbgReleaseAddress(BaseAddress, &v21, v9);
-        if ( v10 )
-          MiDbgUnTranslatePhysicalAddress(v27);
-        return v18;
-      }
-      v14 |= 1u;
-LABEL_20:
-      v17 = MiCopyToUntrustedMemory(BaseAddress, a2, (unsigned int)v6, a4);
-      goto LABEL_11;
+      return (unsigned int)-1073741823;
     }
-    if ( KeGetCurrentIrql() <= 1u )
+    else
     {
-      if ( (unsigned __int64)BaseAddress < 0xFFFF800000000000uLL )
-      {
-        if ( (a5 & 1) != 0 )
-        {
-          ProbeForWrite(BaseAddress, v6, v6);
-        }
-        else
-        {
-          if ( (((_DWORD)v6 - 1) & (unsigned int)BaseAddress) != 0 )
-            ExRaiseDatatypeMisalignment();
-          if ( (unsigned __int64)&BaseAddress[v6] > 0x7FFFFFFF0000LL || &BaseAddress[v6] < BaseAddress )
-            MEMORY[0x7FFFFFFF0000] = 0;
-        }
-        if ( (a5 & 1) == 0 )
-          goto LABEL_10;
-        goto LABEL_20;
-      }
-      v22[0] = BaseAddress;
-      v23 = v6;
-      v22[1] = v15;
-      v24 = a4;
-      v25 = a5;
-      KeGenericCallDpc((__int64)MiDbgCopyMemoryTarget, (__int64)v22);
-      return v26;
+      return (unsigned int)-1073741585;
     }
-    return 3221225714LL;
   }
-  if ( !v13 && KeGetCurrentIrql() > 1u )
+  if ( KeGetCurrentIrql() > 1u )
     return 3221225714LL;
-  BaseAddress = (char *)MiDbgTranslatePhysicalAddress(BaseAddress, a5, v27);
-  if ( BaseAddress )
-    goto LABEL_8;
-  return 3221225473LL;
+  if ( (unsigned __int64)BaseAddress < 0xFFFF800000000000uLL )
+  {
+    if ( (a5 & 1) != 0 )
+    {
+      ProbeForWrite(BaseAddress, v6, v6);
+    }
+    else
+    {
+      if ( (((_DWORD)v6 - 1) & (unsigned int)BaseAddress) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( (unsigned __int64)&BaseAddress[v6] > 0x7FFFFFFF0000LL || &BaseAddress[v6] < BaseAddress )
+        MEMORY[0x7FFFFFFF0000] = 0;
+    }
+    if ( (a5 & 1) != 0 )
+    {
+LABEL_49:
+      v15 = MiCopyToUntrustedMemory(BaseAddress, a2, v6, a4);
+      goto LABEL_25;
+    }
+LABEL_24:
+    v15 = MiCopyFromUntrustedMemory(a2, BaseAddress, v6, a4);
+LABEL_25:
+    v16 = v15;
+    goto LABEL_26;
+  }
+  v20[0] = BaseAddress;
+  v21 = v6;
+  v20[1] = v13;
+  v22 = a4;
+  v23 = a5;
+  KeGenericCallDpc((__int64)MiDbgCopyMemoryTarget, (__int64)v20);
+  return v24;
 }

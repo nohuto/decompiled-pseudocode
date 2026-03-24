@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHTX_BootDevicePortStatusControlTransferComplete @ 0x1C0006290
+ * XREFs of HUBHTX_BootDevicePortStatusControlTransferComplete @ 0x1C0006010
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpLpComparison @ 0x140541274
+ * XREFs of HvlpLpComparison @ 0x1404F2E80
  * Callers:
- *     HvlpSelectLpSet @ 0x1405415C8 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x140541A1C (HvlpSelectVpSet.c)
+ *     HvlpSelectLpSet @ 0x1404F3194 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x1404F35FC (HvlpSelectVpSet.c)
  * Callees:
  *     <none>
  */
@@ -16,39 +16,31 @@ __int64 __fastcall HvlpLpComparison(__int64 a1, __int64 a2, unsigned int a3, uns
   unsigned int v8; // eax
 
   v4 = *(_DWORD *)(a2 + 40LL * a3 + 16);
-  if ( v4 >= *(_DWORD *)(a2 + 40LL * a4 + 16) )
-  {
-    if ( v4 > *(_DWORD *)(a2 + 40LL * a4 + 16) )
-      return 1LL;
-    v5 = *(_DWORD *)(a2 + 40LL * a3 + 20);
-    if ( v5 >= *(_DWORD *)(a2 + 40LL * a4 + 20) )
-    {
-      if ( v5 > *(_DWORD *)(a2 + 40LL * a4 + 20) )
-        return 1LL;
-      v6 = *(_DWORD *)(a2 + 40LL * a3 + 24);
-      if ( v6 <= *(_DWORD *)(a2 + 40LL * a4 + 24) )
-      {
-        if ( v6 < *(_DWORD *)(a2 + 40LL * a4 + 24) )
-          return 1LL;
-        v7 = *(_DWORD *)(a2 + 40LL * a3 + 28);
-        if ( v7 <= *(_DWORD *)(a2 + 40LL * a4 + 28) )
-        {
-          if ( v7 < *(_DWORD *)(a2 + 40LL * a4 + 28) )
-            return 1LL;
-          v8 = *(_DWORD *)(a2 + 40LL * a3 + 32);
-          if ( v8 <= *(_DWORD *)(a2 + 40LL * a4 + 32) )
-          {
-            if ( v8 >= *(_DWORD *)(a2 + 40LL * a4 + 32) )
-            {
-              if ( a3 >= a4 )
-                return a3 > a4;
-              return 0xFFFFFFFFLL;
-            }
-            return 1LL;
-          }
-        }
-      }
-    }
-  }
+  if ( v4 < *(_DWORD *)(a2 + 40LL * a4 + 16) )
+    return 0xFFFFFFFFLL;
+  if ( v4 > *(_DWORD *)(a2 + 40LL * a4 + 16) )
+    return 1LL;
+  v5 = *(_DWORD *)(a2 + 40LL * a3 + 20);
+  if ( v5 < *(_DWORD *)(a2 + 40LL * a4 + 20) )
+    return 0xFFFFFFFFLL;
+  if ( v5 > *(_DWORD *)(a2 + 40LL * a4 + 20) )
+    return 1LL;
+  v6 = *(_DWORD *)(a2 + 40LL * a3 + 24);
+  if ( v6 > *(_DWORD *)(a2 + 40LL * a4 + 24) )
+    return 0xFFFFFFFFLL;
+  if ( v6 < *(_DWORD *)(a2 + 40LL * a4 + 24) )
+    return 1LL;
+  v7 = *(_DWORD *)(a2 + 40LL * a3 + 28);
+  if ( v7 > *(_DWORD *)(a2 + 40LL * a4 + 28) )
+    return 0xFFFFFFFFLL;
+  if ( v7 < *(_DWORD *)(a2 + 40LL * a4 + 28) )
+    return 1LL;
+  v8 = *(_DWORD *)(a2 + 40LL * a3 + 32);
+  if ( v8 > *(_DWORD *)(a2 + 40LL * a4 + 32) )
+    return 0xFFFFFFFFLL;
+  if ( v8 < *(_DWORD *)(a2 + 40LL * a4 + 32) )
+    return 1LL;
+  if ( a3 >= a4 )
+    return a3 > a4;
   return 0xFFFFFFFFLL;
 }

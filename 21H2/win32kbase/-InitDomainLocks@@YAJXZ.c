@@ -1,25 +1,23 @@
 /*
- * XREFs of ?InitDomainLocks@@YAJXZ @ 0x1C005D2E4
+ * XREFs of ?InitDomainLocks@@YAJXZ @ 0x1C00ACB14
  * Callers:
- *     InitCreateUserCrit @ 0x1C02E3F18 (InitCreateUserCrit.c)
+ *     InitCreateUserCrit @ 0x1C029AC78 (InitCreateUserCrit.c)
  * Callees:
- *     ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C005D4E0 (-LockInitialize@tagDomLock@@QEBAJXZ.c)
+ *     ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C00ACD10 (-LockInitialize@tagDomLock@@QEBAJXZ.c)
  */
 
 __int64 InitDomainLocks(void)
 {
   __int64 result; // rax
 
-  gObjDummyLock = 0LL;
-  qword_1C0297188 = 0LL;
+  gObjDummyLock = 0uLL;
   gHidCountersLock = 0LL;
-  qword_1C02971C0 = 0LL;
-  gpsiLock = 0LL;
-  qword_1C02971A8 = 0LL;
+  qword_1C02523D0 = 0LL;
+  gpsiLock = 0uLL;
   gValidLockListEntryPushLock = 0LL;
-  dword_1C0297190 = 0;
-  dword_1C02971C8 = 0;
-  dword_1C02971B0 = 0;
+  LODWORD(qword_1C0252408) = 0;
+  dword_1C02523D8 = 0;
+  LODWORD(qword_1C02523F0) = 0;
   result = tagDomLock::LockInitialize((tagDomLock *)&gDomainProcessInfoLock);
   if ( (int)result >= 0 )
   {

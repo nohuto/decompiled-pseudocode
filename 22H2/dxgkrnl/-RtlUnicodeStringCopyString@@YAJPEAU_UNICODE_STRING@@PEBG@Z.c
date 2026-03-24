@@ -1,55 +1,30 @@
 /*
- * XREFs of ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C004ECE0
+ * XREFs of ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00410E8
  * Callers:
- *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C030D00C (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037FA00 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0242980 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02643C8 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C004ED88 (RtlUnicodeStringValidateDestWorker_0.c)
+ *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C0041164 (RtlUnicodeStringValidateDestWorker_0.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1C004121C (RtlWideCharArrayCopyStringWorker.c)
  */
 
-NTSTATUS __fastcall RtlUnicodeStringCopyString(struct _UNICODE_STRING *a1, wchar_t *a2)
+__int64 __fastcall RtlUnicodeStringCopyString(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)
 {
-  NTSTATUS result; // eax
-  size_t v5; // rdx
-  __int64 v6; // r8
-  wchar_t *v7; // r9
-  __int16 v8; // cx
-  size_t v9; // [rsp+20h] [rbp-18h]
-  ULONG v10; // [rsp+28h] [rbp-10h]
-  size_t v11; // [rsp+50h] [rbp+18h] BYREF
-  wchar_t *v12; // [rsp+58h] [rbp+20h] BYREF
+  NTSTATUS v4; // r8d
+  size_t cchToCopy; // [rsp+20h] [rbp-28h]
+  ULONG v7; // [rsp+28h] [rbp-20h]
+  size_t pcchNewDestLength[3]; // [rsp+30h] [rbp-18h] BYREF
+  size_t cchDest; // [rsp+60h] [rbp+18h] BYREF
+  wchar_t *pszDest; // [rsp+68h] [rbp+20h] BYREF
 
-  v12 = 0LL;
-  v11 = 0LL;
-  result = RtlUnicodeStringValidateDestWorker_0(a1, &v12, &v11, 0LL, v9, v10);
-  if ( result >= 0 )
+  pszDest = 0LL;
+  cchDest = 0LL;
+  v4 = RtlUnicodeStringValidateDestWorker_0(a1, &pszDest, &cchDest, 0LL, cchToCopy, v7);
+  if ( v4 >= 0 )
   {
-    v5 = v11;
-    v6 = 0x7FFFLL;
-    v7 = v12;
-    result = 0;
-    v8 = 0;
-    if ( !v11 )
-      goto LABEL_13;
-    do
-    {
-      if ( !v6 )
-        break;
-      if ( !*a2 )
-        break;
-      *v7++ = *a2++;
-      --v6;
-      ++v8;
-      --v5;
-    }
-    while ( v5 );
-    if ( !v5 && v6 )
-    {
-LABEL_13:
-      if ( *a2 )
-        result = -2147483643;
-    }
-    a1->Length = 2 * v8;
+    pcchNewDestLength[0] = 0LL;
+    v4 = RtlWideCharArrayCopyStringWorker(pszDest, cchDest, pcchNewDestLength, a2, 0x7FFFuLL);
+    a1->Length = 2 * LOWORD(pcchNewDestLength[0]);
   }
-  return result;
+  return (unsigned int)v4;
 }

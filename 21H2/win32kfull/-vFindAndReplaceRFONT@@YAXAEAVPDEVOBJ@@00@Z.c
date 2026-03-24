@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C029C730
+ * XREFs of ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C029DE44
  * Callers:
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C0299B94 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029C55C (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029B2BC (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029DC68 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C000AD50 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00153D0 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D690 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E4E8 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
  */
 
 void __fastcall vFindAndReplaceRFONT(struct PDEVOBJ *this, struct PDEVOBJ *a2, struct PDEVOBJ *a3)

@@ -1,212 +1,200 @@
 /*
- * XREFs of ?CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C01FAC70
+ * XREFs of ?CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C0191440
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GADAPTER_DISPLAY@@QEAAPEAXI@Z @ 0x1C003F740 (--_GADAPTER_DISPLAY@@QEAAPEAXI@Z.c)
- *     ?DriverSupportSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C01B25DC (-DriverSupportSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
- *     ??0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C01F8B00 (--0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01FEF00 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
- *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BBE10 (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??_GADAPTER_DISPLAY@@QEAAPEAXI@Z @ 0x1C00370B0 (--_GADAPTER_DISPLAY@@QEAAPEAXI@Z.c)
+ *     ?DriverSupportSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C011DA44 (-DriverSupportSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C018850C (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ??0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C019C644 (--0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0211CAC (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::CreateDisplayCore(
-        struct DXGADAPTER *a1,
-        struct ADAPTER_DISPLAY **a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall ADAPTER_DISPLAY::CreateDisplayCore(unsigned __int64 a1, struct ADAPTER_DISPLAY **a2)
 {
-  __int64 v6; // rdx
-  _BOOL8 v7; // rcx
-  char *v8; // rax
-  ADAPTER_DISPLAY *v9; // rax
-  ADAPTER_DISPLAY *v10; // rdi
-  int v11; // esi
-  __int64 result; // rax
-  bool v13; // zf
-  const wchar_t *v14; // r9
+  struct DXGADAPTER *v3; // rbx
+  __int64 v4; // rdx
+  BOOL v5; // eax
+  PVOID v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  ADAPTER_DISPLAY *v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // esi
   __int64 v15; // rax
-  const wchar_t *v16; // r9
+  __int64 result; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  _QWORD *v19; // rax
+  unsigned int v20; // ebx
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rcx
 
+  v3 = (struct DXGADAPTER *)a1;
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 4344LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_pAdapter != NULL", 4344LL, 0LL, 0LL, 0LL, 0LL);
+    v17 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v17 + 24) = 4145LL;
+    WdLogEvent5_WdAssertion(v17);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 4345LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"o_ppDisplayCore != NULL", 4345LL, 0LL, 0LL, 0LL, 0LL);
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v18 + 24) = 4146LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  v6 = *((_QWORD *)a1 + 76);
-  if ( !v6
-    || !*((_QWORD *)a1 + 77)
-    || !*((_QWORD *)a1 + 78)
-    || !*((_QWORD *)a1 + 80)
-    || !*((_QWORD *)a1 + 81) && !DXGADAPTER::DriverSupportSetTimingsFromVidPn(a1)
-    || !*((_QWORD *)a1 + 82) && *((int *)a1 + 705) < 2200
-    || !*((_QWORD *)a1 + 69)
-    || !*((_QWORD *)a1 + 70) )
+  v4 = *((_QWORD *)v3 + 65);
+  if ( !v4
+    || !*((_QWORD *)v3 + 66)
+    || !*((_QWORD *)v3 + 67)
+    || !*((_QWORD *)v3 + 69)
+    || !*((_QWORD *)v3 + 70) && !DXGADAPTER::DriverSupportSetTimingsFromVidPn(v3)
+    || !*((_QWORD *)v3 + 71) && *((int *)v3 + 649) < 2200
+    || !*((_QWORD *)v3 + 58)
+    || !*((_QWORD *)v3 + 59) )
   {
-    if ( *((int *)a1 + 705) >= 1200 || (*((_DWORD *)a1 + 109) & 0x10) != 0 )
+    if ( *((int *)v3 + 649) < 1200 && (*((_DWORD *)v3 + 87) & 0x10) == 0
+      || v4
+      || *((_QWORD *)v3 + 66)
+      || *((_QWORD *)v3 + 67)
+      || *((_QWORD *)v3 + 68)
+      || *((_QWORD *)v3 + 69)
+      || *((_QWORD *)v3 + 70)
+      || *((_QWORD *)v3 + 71)
+      || *((_QWORD *)v3 + 57)
+      || *((_QWORD *)v3 + 58)
+      || *((_QWORD *)v3 + 59)
+      || *((_QWORD *)v3 + 73)
+      || *((_QWORD *)v3 + 72)
+      || *((_QWORD *)v3 + 87)
+      || *((_QWORD *)v3 + 136)
+      || *((_QWORD *)v3 + 137)
+      || *((_QWORD *)v3 + 138)
+      || *((_QWORD *)v3 + 139) )
     {
-      if ( !v6
-        && !*((_QWORD *)a1 + 77)
-        && !*((_QWORD *)a1 + 78)
-        && !*((_QWORD *)a1 + 79)
-        && !*((_QWORD *)a1 + 80)
-        && !*((_QWORD *)a1 + 81)
-        && !*((_QWORD *)a1 + 82)
-        && !*((_QWORD *)a1 + 68)
-        && !*((_QWORD *)a1 + 69)
-        && !*((_QWORD *)a1 + 70)
-        && !*((_QWORD *)a1 + 84)
-        && !*((_QWORD *)a1 + 83)
-        && !*((_QWORD *)a1 + 98)
-        && !*((_QWORD *)a1 + 144)
-        && !*((_QWORD *)a1 + 145)
-        && !*((_QWORD *)a1 + 146)
-        && !*((_QWORD *)a1 + 147) )
+      goto LABEL_73;
+    }
+    if ( *((_DWORD *)v3 + 362) || *((_DWORD *)v3 + 363) )
+    {
+      v19 = (_QWORD *)WdLogNewEntry5_WdError(a1, 0LL);
+      v19[3] = *((unsigned int *)v3 + 362);
+      v24 = *((unsigned int *)v3 + 363);
+      v20 = -1073741735;
+      v19[5] = -1073741735LL;
+      v19[4] = v24;
+      goto LABEL_74;
+    }
+    goto LABEL_66;
+  }
+  if ( *((_QWORD *)v3 + 338) )
+  {
+    if ( DXGADAPTER::DriverSupportSetTimingsFromVidPn(v3) )
+    {
+      v5 = *((_QWORD *)v3 + 117) == 0LL;
+    }
+    else
+    {
+      if ( !*((_QWORD *)v3 + 68) )
       {
-        if ( !*((_DWORD *)a1 + 418) && !*((_DWORD *)a1 + 419) )
-          goto LABEL_64;
-        WdLogSingleEntry3(2LL, *((unsigned int *)a1 + 418), *((unsigned int *)a1 + 419), -1073741735LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Number of VidPn Source 0x%I64x or Target 0x%I64x are not 0 on render only adapter 0x%I64x (Status = 0x%I64x).",
-          *((unsigned int *)a1 + 418),
-          *((unsigned int *)a1 + 419),
-          -1073741735LL,
-          0LL,
-          0LL);
-        return 3221225561LL;
+LABEL_73:
+        v19 = (_QWORD *)WdLogNewEntry5_WdError(a1, v4);
+        v19[3] = v3;
+        v20 = -1073741735;
+        v19[4] = -1073741735LL;
+LABEL_74:
+        WdLogEvent5_WdError(v19);
+        return v20;
       }
-      WdLogSingleEntry2(2LL, a1, -1073741735LL);
-      v14 = L"Not all the display relevant DDIs on adapter 0x%I64x are NULL (Status = 0x%I64x).";
+      v5 = 0;
     }
-    else
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741735LL);
-      v14 = L"Miniport did not provide required DDIs on adapter 0x%I64x (Status = 0x%I64x).";
-    }
-LABEL_90:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v14, (__int64)a1, -1073741735LL, 0LL, 0LL, 0LL);
-    return 3221225561LL;
+    if ( v5 || !*((_QWORD *)v3 + 73) || !*((_QWORD *)v3 + 57) && *((int *)v3 + 649) < 1200 )
+      goto LABEL_73;
   }
-  if ( !*((_QWORD *)a1 + 366) )
-  {
-    if ( *((_QWORD *)a1 + 103) )
-    {
-      v7 = *((_QWORD *)a1 + 86) == 0LL;
-      if ( (*((_QWORD *)a1 + 84) == 0LL) == v7 )
-        goto LABEL_16;
-      WdLogSingleEntry2(2LL, a1, -1073741735LL);
-      v14 = L"Either both GetScanLine & ControlInterrupts must be implemented or neither, on adapter 0x%I64x are implement"
-             "ed (Status = 0x%I64x).";
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741735LL);
-      v14 = L"Not all the display only relevant DDIs on adapter 0x%I64x are implemented (Status = 0x%I64x).";
-    }
-    goto LABEL_90;
-  }
-  if ( DXGADAPTER::DriverSupportSetTimingsFromVidPn(a1) )
-    v13 = *((_QWORD *)a1 + 128) == 0LL;
   else
-    v13 = *((_QWORD *)a1 + 79) == 0LL;
-  if ( v13 || !*((_QWORD *)a1 + 84) || !*((_QWORD *)a1 + 68) && *((int *)a1 + 705) < 1200 )
   {
-    WdLogSingleEntry2(2LL, a1, -1073741735LL);
-    v14 = L"Not all the display relevant DDIs for full WDDM on adapter 0x%I64x are implemented 0x%I64x).";
-    goto LABEL_90;
+    if ( !*((_QWORD *)v3 + 92) )
+      goto LABEL_73;
+    a1 = *((_QWORD *)v3 + 75) == 0LL;
+    if ( (*((_QWORD *)v3 + 73) == 0LL) != (_DWORD)a1 )
+      goto LABEL_73;
   }
-LABEL_16:
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(v7, v6, a3, a4) + 24) = a1;
-  if ( *((int *)a1 + 705) >= 1200 && !*((_DWORD *)a1 + 418) && !*((_DWORD *)a1 + 419) )
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, v4) + 24) = v3;
+  if ( *((int *)v3 + 649) >= 1200 && !*((_DWORD *)v3 + 362) && !*((_DWORD *)v3 + 363) )
   {
-LABEL_64:
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, v6, a3, a4) + 24) = a1;
+LABEL_66:
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, v4) + 24) = v3;
     result = 0LL;
     *a2 = 0LL;
     return result;
   }
-  if ( (unsigned int)(*((_DWORD *)a1 + 418) - 1) > 0xF )
+  if ( (unsigned int)(*((_DWORD *)v3 + 362) - 1) > 0xF )
   {
-    WdLogSingleEntry2(2LL, a1, *((unsigned int *)a1 + 418));
-    v15 = *((unsigned int *)a1 + 418);
-    v16 = L"Adapter 0x%I64x: Incorrect number of outputs 0x%I64x";
-    goto LABEL_84;
+    v21 = WdLogNewEntry5_WdError(a1, v4);
+    *(_QWORD *)(v21 + 24) = v3;
+    v22 = *((unsigned int *)v3 + 362);
+    goto LABEL_87;
   }
-  if ( !*((_DWORD *)a1 + 419) )
+  if ( !*((_DWORD *)v3 + 363) )
   {
-    WdLogSingleEntry2(2LL, a1, 0LL);
-    v15 = *((unsigned int *)a1 + 419);
-    v16 = L"Adapter 0x%I64x: Incorrect number of targets 0x%I64x";
-LABEL_84:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v16, (__int64)a1, v15, 0LL, 0LL, 0LL);
+    v21 = WdLogNewEntry5_WdError(a1, v4);
+    *(_QWORD *)(v21 + 24) = v3;
+    v22 = *((unsigned int *)v3 + 363);
+LABEL_87:
+    *(_QWORD *)(v21 + 32) = v22;
+    goto LABEL_88;
+  }
+  if ( *((_BYTE *)v3 + 2608) && *((int *)v3 + 582) >= 4608 && (!*((_BYTE *)v3 + 2528) || !*((_BYTE *)v3 + 2529)) )
+  {
+    v21 = WdLogNewEntry5_WdError(a1, v4);
+    *(_QWORD *)(v21 + 24) = 4319LL;
+LABEL_88:
+    WdLogEvent5_WdError(v21);
     return 3221225485LL;
   }
-  if ( *((_BYTE *)a1 + 2832) && *((int *)a1 + 638) >= 4608 && (!*((_BYTE *)a1 + 2752) || !*((_BYTE *)a1 + 2753)) )
+  if ( !*((_QWORD *)v3 + 72) )
+    *((_QWORD *)v3 + 72) = W32kStub_UserRemoveWindowedSwapChain;
+  if ( !*((_QWORD *)v3 + 87) )
+    *((_QWORD *)v3 + 87) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+  if ( !*((_QWORD *)v3 + 124) )
+    *((_QWORD *)v3 + 124) = W32kStub_GreSfmOpenTokenEvent;
+  if ( !*((_QWORD *)v3 + 137) )
+    *((_QWORD *)v3 + 137) = W32kStub_GreSfmOpenTokenEvent;
+  if ( !*((_QWORD *)v3 + 138) )
+    *((_QWORD *)v3 + 138) = W32kStub_GreSfmOpenTokenEvent;
+  if ( !*((_QWORD *)v3 + 139) )
+    *((_QWORD *)v3 + 139) = W32kStub_GreSfmOpenTokenEvent;
+  v6 = operator new(0x398uLL, 0x4B677844u, 1, (POOL_TYPE)512);
+  if ( v6 )
+    v11 = ADAPTER_DISPLAY::ADAPTER_DISPLAY(v6, v3);
+  else
+    v11 = 0LL;
+  if ( !v11 )
   {
-    WdLogSingleEntry1(2LL, 4518LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Driver reports WDDM version 1.2 but does not implement all mandatory WDDM 1.2 display features.",
-      4518LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v23 = WdLogNewEntry5_WdLowResource(v8, v7, v9, v10);
+    v20 = -1073741801;
+    *(_QWORD *)(v23 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v23);
+    return v20;
   }
-  if ( !*((_QWORD *)a1 + 83) )
-    *((_QWORD *)a1 + 83) = W32kStub_UserRemoveWindowedSwapChain;
-  if ( !*((_QWORD *)a1 + 98) )
-    *((_QWORD *)a1 + 98) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  if ( !*((_QWORD *)a1 + 135) )
-    *((_QWORD *)a1 + 135) = W32kStub_GreSfmOpenTokenEvent;
-  if ( !*((_QWORD *)a1 + 145) )
-    *((_QWORD *)a1 + 145) = W32kStub_GreSfmOpenTokenEvent;
-  if ( !*((_QWORD *)a1 + 146) )
-    *((_QWORD *)a1 + 146) = W32kStub_GreSfmOpenTokenEvent;
-  if ( !*((_QWORD *)a1 + 147) )
-    *((_QWORD *)a1 + 147) = W32kStub_GreSfmOpenTokenEvent;
-  v8 = (char *)operator new[](0x400uLL, 0x4B677844u, 64LL);
-  if ( v8 && (v9 = ADAPTER_DISPLAY::ADAPTER_DISPLAY(v8, a1), (v10 = v9) != 0LL) )
+  v14 = ADAPTER_DISPLAY::Initialize(v11);
+  if ( v14 < 0 )
   {
-    v11 = ADAPTER_DISPLAY::Initialize(v9);
-    if ( v11 < 0 )
-    {
-      ADAPTER_DISPLAY::Destroy(v10);
-      ADAPTER_DISPLAY::`scalar deleting destructor'(v10);
-    }
-    else
-    {
-      WdLogSingleEntry2(4LL, v10, a1);
-      *a2 = v10;
-    }
-    return (unsigned int)v11;
+    ADAPTER_DISPLAY::Destroy(v11);
+    ADAPTER_DISPLAY::`scalar deleting destructor'(v11);
   }
   else
   {
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating ADAPTER_DISPLAY class, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225495LL;
+    v15 = WdLogNewEntry5_WdEvent(v13, v12);
+    *(_QWORD *)(v15 + 24) = v11;
+    *(_QWORD *)(v15 + 32) = v3;
+    WdLogEvent5_WdEvent(v15);
+    *a2 = v11;
   }
+  return (unsigned int)v14;
 }

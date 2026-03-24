@@ -1,58 +1,63 @@
 /*
- * XREFs of MmIsSessionInCurrentServerSilo @ 0x14025DEF0
+ * XREFs of MmIsSessionInCurrentServerSilo @ 0x1403A6A08
  * Callers:
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
 {
-  int SessionId; // eax
-  int v3; // edx
-  bool v4; // di
-  __int64 ThreadServerSilo; // rbp
-  _QWORD *v6; // rcx
-  unsigned int v7; // edx
+  unsigned int SessionId; // eax
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  bool v6; // di
+  __int64 ThreadServerSilo; // rsi
+  _QWORD *v8; // rcx
+  unsigned int v9; // eax
   unsigned __int64 OldIrql; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v13; // edx
-  bool v14; // zf
+  int v14; // edx
+  bool v15; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  SessionId = MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process);
-  v3 = 0;
+  SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+  v4 = 0LL;
   if ( SessionId != -1 )
-    v3 = SessionId;
-  if ( v3 == a1 )
+    v4 = SessionId;
+  if ( (_DWORD)v4 == a1 )
     return 1;
-  v4 = 0;
-  ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
+  v6 = 0;
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v3, v4) )
+    ThreadServerSilo = 0LL;
+  else
+    ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v6 = (_QWORD *)qword_140C50638;
-  while ( v6 )
+  v8 = (_QWORD *)qword_140C4DDE8;
+  while ( v8 )
   {
-    v7 = *((_DWORD *)v6 - 32);
-    if ( a1 > v7 )
+    v9 = *((_DWORD *)v8 - 34);
+    if ( a1 > v9 )
     {
-      v6 = (_QWORD *)v6[1];
+      v8 = (_QWORD *)v8[1];
     }
     else
     {
-      if ( a1 >= v7 )
+      if ( a1 >= v9 )
       {
-        if ( v6[93] == ThreadServerSilo && v7 == a1 && (*((_DWORD *)v6 - 33) & 2) == 0 )
-          v4 = *(v6 - 15) != (_QWORD)(v6 - 15);
+        if ( v8[113] == ThreadServerSilo && v9 == a1 && (*((_DWORD *)v8 - 35) & 2) == 0 )
+          v6 = *(v8 - 16) != (_QWORD)(v8 - 16);
         break;
       }
-      v6 = (_QWORD *)*v6;
+      v8 = (_QWORD *)*v8;
     }
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -66,14 +71,14 @@ char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v14 = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
-        if ( v14 )
+        v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(OldIrql);
-  return v4;
+  return v6;
 }

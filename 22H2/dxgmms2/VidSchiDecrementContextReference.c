@@ -1,39 +1,36 @@
 /*
- * XREFs of VidSchiDecrementContextReference @ 0x1C0001F40
+ * XREFs of VidSchiDecrementContextReference @ 0x1C0011630
  * Callers:
- *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C00016D0 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0008770 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C0013CC4 (VidSchiProcessDpcSystemRequest.c)
- *     VidSchiSetTransferContextRunningTime @ 0x1C0014770 (VidSchiSetTransferContextRunningTime.c)
- *     VidSchiReportHwHang @ 0x1C0047458 (VidSchiReportHwHang.c)
- *     VidSchTerminateContext @ 0x1C00897F0 (VidSchTerminateContext.c)
- *     VidSchiRun_PriorityTable @ 0x1C00B7870 (VidSchiRun_PriorityTable.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0009610 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013290 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0013A20 (VidSchiSetTransferContextRunningTime.c)
+ *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0033470 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
+ *     VidSchiReportHwHang @ 0x1C003D024 (VidSchiReportHwHang.c)
+ *     VidSchTerminateContext @ 0x1C0080050 (VidSchTerminateContext.c)
+ *     VidSchiRun_PriorityTable @ 0x1C008E0A0 (VidSchiRun_PriorityTable.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
  * Callees:
- *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0001CF4 (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
- *     VidSchiDecrementDeviceReference @ 0x1C0002C60 (VidSchiDecrementDeviceReference.c)
- *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007120 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007BA0 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     VidSchiDecrementDeviceReference @ 0x1C0011568 (VidSchiDecrementDeviceReference.c)
+ *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C00155BC (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
  */
 
 void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int a2)
 {
   __int64 v4; // rsi
   __int64 v5; // rax
-  __int64 v6; // rdx
-  struct _VIDSCH_CONTEXT **v7; // rcx
+  __int64 v6; // rcx
+  struct _VIDSCH_CONTEXT **v7; // rdx
   __int64 v8; // rdx
   struct _VIDSCH_CONTEXT **v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  int v12; // r8d
-  void *v13; // rcx
-  __int64 v14; // rax
+  _QWORD *v10; // rax
+  void *v11; // rcx
+  _QWORD *v12; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = *(_QWORD *)(*((_QWORD *)a1 + 12) + 24LL);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a2 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1728), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1712), &LockHandle);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 18, 0xFFFFFFFF) == 1 )
   {
     v5 = *((_QWORD *)a1 + 12);
@@ -54,27 +51,27 @@ void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int
     *(_QWORD *)(v8 + 8) = v9;
     while ( 1 )
     {
-      v10 = VidSchiInterlockedRemoveHeadListIfExist(v4 + 1736, (char *)a1 + 712, (char *)a1 + 728);
+      v10 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1720), (_QWORD **)a1 + 89, (_DWORD *)a1 + 182);
       if ( !v10 )
         break;
-      ExFreePoolWithTag((PVOID)(v10 - 8), 0);
+      ExFreePoolWithTag(v10 - 1, 0);
     }
     if ( (*((_DWORD *)a1 + 28) & 0x100) != 0 )
     {
       while ( 1 )
       {
-        v14 = VidSchiInterlockedRemoveHeadListIfExist(v4 + 1736, (char *)a1 + 736, (char *)a1 + 752);
-        if ( !v14 )
+        v12 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1720), (_QWORD **)a1 + 92, (_DWORD *)a1 + 188);
+        if ( !v12 )
           break;
-        ExFreePoolWithTag((PVOID)(v14 - 8), 0);
+        ExFreePoolWithTag(v12 - 1, 0);
       }
     }
     if ( bTracingEnabled )
-      VidSchiFlushGpuWorkEntries(a1, v11, v12);
-    v13 = (void *)*((_QWORD *)a1 + 124);
-    if ( v13 )
-      ExFreePoolWithTag(v13, 0);
-    VidSchiDecrementDeviceReference(*((PVOID *)a1 + 13));
+      VidSchiFlushGpuWorkEntries(a1);
+    v11 = (void *)*((_QWORD *)a1 + 123);
+    if ( v11 )
+      ExFreePoolWithTag(v11, 0);
+    VidSchiDecrementDeviceReference(*((char **)a1 + 13), 1);
     ExFreePoolWithTag(a1, 0);
   }
   if ( !a2 )

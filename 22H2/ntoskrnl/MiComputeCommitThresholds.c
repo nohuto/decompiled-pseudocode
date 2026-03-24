@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeCommitThresholds @ 0x1403945F8
+ * XREFs of MiComputeCommitThresholds @ 0x1403BF51C
  * Callers:
- *     MiIncreaseCommitLimits @ 0x1403944E4 (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x1406565CC (MiReduceCommitLimits.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF408 (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x14055057C (MiReduceCommitLimits.c)
+ *     MiInsertPartitionPages @ 0x140562480 (MiInsertPartitionPages.c)
  * Callees:
- *     MiSyncCommitSignals @ 0x140394660 (MiSyncCommitSignals.c)
+ *     MiSyncCommitSignals @ 0x1403BF584 (MiSyncCommitSignals.c)
  */
 
 __int64 __fastcall MiComputeCommitThresholds(_QWORD *a1)
@@ -14,14 +14,14 @@ __int64 __fastcall MiComputeCommitThresholds(_QWORD *a1)
   unsigned __int64 v2; // rdx
   __int64 v3; // rax
 
-  v1 = a1[2227];
+  v1 = a1[949];
   v2 = v1 / 0xA;
   if ( v1 / 0xA > 0x10000 )
     v2 = 0x10000LL;
-  a1[2052] = v1 - v2;
+  a1[780] = v1 - v2;
   v3 = v1 >> 2;
   if ( v1 >> 2 > 0x100000 )
     v3 = 0x100000LL;
-  a1[2051] = v1 - v3;
+  a1[779] = v1 - v3;
   return MiSyncCommitSignals(a1, 1LL);
 }

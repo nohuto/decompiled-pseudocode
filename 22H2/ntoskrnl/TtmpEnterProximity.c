@@ -1,25 +1,26 @@
 /*
- * XREFs of TtmpEnterProximity @ 0x1409AB8D8
+ * XREFs of TtmpEnterProximity @ 0x1408FDF08
  * Callers:
- *     TtmiTerminalMonitorControl @ 0x1409AB5FC (TtmiTerminalMonitorControl.c)
+ *     TtmiTerminalMonitorControl @ 0x1408FDC2C (TtmiTerminalMonitorControl.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x1409A4B54 (TtmiScheduleSessionWorker.c)
- *     TtmiLogEnterProximity @ 0x1409A8324 (TtmiLogEnterProximity.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF190 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogEnterProximity @ 0x140902A44 (TtmiLogEnterProximity.c)
  */
 
-void __fastcall TtmpEnterProximity(__int64 a1, __int64 a2)
+__int64 __fastcall TtmpEnterProximity(__int64 a1, __int64 a2)
 {
-  int v2; // eax
-  int v5; // ecx
+  __int64 result; // rax
+  __int64 v5; // rcx
 
-  v2 = *(_DWORD *)(a2 + 36);
-  if ( (v2 & 8) == 0 )
+  result = *(unsigned int *)(a2 + 36);
+  if ( (result & 8) == 0 )
   {
-    v5 = ++*(_DWORD *)(a2 + 268);
+    v5 = (unsigned int)++*(_DWORD *)(a2 + 268);
     *(_QWORD *)(a2 + 256) = -1LL;
-    *(_DWORD *)(a2 + 36) = v2 | 8;
+    *(_DWORD *)(a2 + 36) = result | 8;
     TtmiLogEnterProximity(v5);
     *(_DWORD *)(a2 + 36) |= 4u;
-    TtmiScheduleSessionWorker(a1, 2);
+    return TtmiScheduleSessionWorker(a1, 2LL);
   }
+  return result;
 }

@@ -1,37 +1,40 @@
 /*
- * XREFs of KiResetScb @ 0x140206598
+ * XREFs of KiResetScb @ 0x1402DE5CC
  * Callers:
- *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1402DDDA8 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402DE080 (KiUpdateCpuTargetByRate.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14030884C (KiMoveScbThreadsToNewReadylist.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x14035CD9C (KiRemoveSchedulingGroupQueue.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x14037D9BC (KiMoveScbThreadsToNewReadylist.c)
  */
 
-char __fastcall KiResetScb(__int64 a1, __int64 a2)
+void __fastcall KiResetScb(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // rax
+  bool v2; // zf
   __int64 v4; // rbx
-  __int64 v5; // rax
-  int v6; // eax
-  __int64 v7; // r8
+  _DWORD *v5; // rax
+  __int64 v6; // rax
+  int v7; // eax
+  __int64 v8; // r8
+  __int64 v9; // rax
 
-  LOBYTE(v2) = *(_BYTE *)(a1 + 112) & 0xF1;
+  *(_BYTE *)(a1 + 112) &= 0xF1u;
+  v2 = (*(_BYTE *)(a1 + 112) & 0x20) == 0;
+  v4 = a1;
   *(_QWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 24) = 0LL;
   *(_QWORD *)(a1 + 40) = 0LL;
-  v4 = a1;
   *(_QWORD *)(a1 + 56) = 0LL;
   *(_DWORD *)(a1 + 116) = 0;
-  *(_BYTE *)(a1 + 112) = v2;
-  if ( (v2 & 0x40) != 0 )
+  if ( v2 )
+  {
+    v5 = *(_DWORD **)(a1 + 120);
+    if ( v5 )
+      *v5 = 0;
+  }
+  else
   {
     *(_DWORD *)(a1 + 128) = 0;
-  }
-  else if ( *(_QWORD *)(a1 + 120) )
-  {
-    v2 = *(_QWORD *)(a1 + 120);
-    *(_DWORD *)v2 = 0;
   }
   if ( *(_WORD *)(a1 + 114) )
   {
@@ -39,35 +42,33 @@ char __fastcall KiResetScb(__int64 a1, __int64 a2)
     {
       do
       {
-        v5 = *(_QWORD *)(a1 + 408);
-        if ( !v5 )
+        v6 = *(_QWORD *)(a1 + 408);
+        if ( !v6 )
           break;
         a1 = *(_QWORD *)(a1 + 408);
       }
-      while ( !*(_DWORD *)(v5 + 116) );
+      while ( !*(_DWORD *)(v6 + 116) );
     }
-    v6 = *(_DWORD *)(a1 + 116);
-    v7 = 0LL;
-    if ( !v6 )
-      v7 = a2;
-    LOBYTE(v2) = KiMoveScbThreadsToNewReadylist(v4, a1 & -(__int64)(v6 != 0), v7, 0LL);
+    v7 = *(_DWORD *)(a1 + 116);
+    v8 = 0LL;
+    if ( !v7 )
+      v8 = a2;
+    KiMoveScbThreadsToNewReadylist(v4, a1 & -(__int64)(v7 != 0), v8, 0LL);
     if ( (*(_BYTE *)(v4 + 112) & 1) != 0 )
     {
-      v2 = *(_QWORD *)(v4 + 392);
+      v9 = *(_QWORD *)(v4 + 392);
       if ( (*(_BYTE *)(v4 + 400) & 1) != 0 )
       {
-        if ( !v2 )
+        if ( !v9 )
         {
-LABEL_13:
-          LOBYTE(v2) = KiRemoveSchedulingGroupQueue(a2, v4, 0LL);
-          return v2;
+LABEL_16:
+          KiRemoveSchedulingGroupQueue(a2, v4, 0LL);
+          return;
         }
-        v2 ^= v4 + 392;
+        v9 ^= v4 + 392;
       }
-      if ( v2 )
-        return v2;
-      goto LABEL_13;
+      if ( !v9 )
+        goto LABEL_16;
     }
   }
-  return v2;
 }

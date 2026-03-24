@@ -1,26 +1,27 @@
 /*
- * XREFs of IopLogBlockedDriverEvent @ 0x1409452FC
+ * XREFs of IopLogBlockedDriverEvent @ 0x140891B7C
  * Callers:
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     IoWriteErrorLogEntry @ 0x1403C6CB0 (IoWriteErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405567E8 (IoAllocateGenericErrorLogEntry.c)
+ *     RtlStringCchCopyNW @ 0x140371D50 (RtlStringCchCopyNW.c)
+ *     IoWriteErrorLogEntry @ 0x140380230 (IoWriteErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140505508 (IoAllocateGenericErrorLogEntry.c)
  */
 
 void __fastcall IopLogBlockedDriverEvent(__int64 a1, __int64 a2, int a3)
 {
-  __int64 GenericErrorLogEntry; // rax
-  PVOID v6; // r11
+  _WORD *GenericErrorLogEntry; // rax
+  void *v6; // rbx
 
   GenericErrorLogEntry = IoAllocateGenericErrorLogEntry(176);
+  v6 = GenericErrorLogEntry;
   if ( GenericErrorLogEntry )
   {
-    *(_DWORD *)(GenericErrorLogEntry + 2) = 0x10000;
-    *(_DWORD *)(GenericErrorLogEntry + 12) = -1073740764;
-    *(_WORD *)(GenericErrorLogEntry + 6) = 48;
-    *(_DWORD *)(GenericErrorLogEntry + 20) = a3;
-    RtlStringCchCopyNW((NTSTRSAFE_PWSTR)(GenericErrorLogEntry + 48), 0x40uLL, *(STRSAFE_PCNZWCH *)(a1 + 8), 0x3FuLL);
+    *(_DWORD *)(GenericErrorLogEntry + 1) = 0x10000;
+    *((_DWORD *)GenericErrorLogEntry + 3) = -1073740764;
+    GenericErrorLogEntry[3] = 48;
+    *((_DWORD *)GenericErrorLogEntry + 5) = a3;
+    RtlStringCchCopyNW(GenericErrorLogEntry + 24, 0x40uLL, *(STRSAFE_PCNZWCH *)(a1 + 8), 0x3FuLL);
     IoWriteErrorLogEntry(v6);
   }
 }

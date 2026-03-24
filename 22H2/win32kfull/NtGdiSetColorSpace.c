@@ -1,51 +1,47 @@
 /*
- * XREFs of NtGdiSetColorSpace @ 0x1C02CF7B0
+ * XREFs of NtGdiSetColorSpace @ 0x1C015BDA0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02CE3F0 (--0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02B55F0 (--0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z.c)
  */
 
 __int64 __fastcall NtGdiSetColorSpace(HDC a1, HCOLORSPACE a2)
 {
   unsigned int v3; // ebx
-  __int64 v4; // rcx
-  _BYTE v6[32]; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-40h]
-  _QWORD v8[2]; // [rsp+48h] [rbp-38h] BYREF
-  _BYTE v9[40]; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  _BYTE v7[32]; // [rsp+20h] [rbp-60h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-40h]
+  _QWORD v9[7]; // [rsp+48h] [rbp-38h] BYREF
 
   v3 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v8, a1);
-  v4 = v8[0];
-  if ( v8[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v9, a1);
+  if ( v9[0] )
   {
-    if ( a2 == *(HCOLORSPACE *)(*(_QWORD *)(v8[0] + 976LL) + 16LL) )
+    if ( a2 == *(HCOLORSPACE *)(*(_QWORD *)(v9[0] + 976LL) + 16LL) )
     {
       v3 = 1;
     }
     else
     {
-      COLORSPACEREF::COLORSPACEREF((COLORSPACEREF *)v6, a2);
-      if ( v7 )
+      COLORSPACEREF::COLORSPACEREF((COLORSPACEREF *)v7, a2);
+      if ( v8 )
       {
-        DEC_SHARE_REF_CNT(*(_QWORD *)(v8[0] + 96LL));
-        *(_QWORD *)(*(_QWORD *)(v8[0] + 976LL) + 16LL) = a2;
-        *(_QWORD *)(v8[0] + 96LL) = v7;
-        INC_SHARE_REF_CNT(v7);
+        DEC_SHARE_REF_CNT(*(_QWORD *)(v9[0] + 96LL), v4);
+        *(_QWORD *)(*(_QWORD *)(v9[0] + 976LL) + 16LL) = a2;
+        *(_QWORD *)(v9[0] + 96LL) = v8;
+        INC_SHARE_REF_CNT(v8);
         v3 = 1;
-        if ( v7 )
-          DEC_SHARE_REF_CNT(v7);
+        if ( v8 )
+          DEC_SHARE_REF_CNT(v8, v5);
       }
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
-      v4 = v8[0];
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v7);
     }
-    if ( v4 )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v8);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v9);
+  DCOBJ::~DCOBJ((DCOBJ *)v9);
   return v3;
 }

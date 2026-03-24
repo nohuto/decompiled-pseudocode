@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS4D1@@YAXPEAUBLTINFO@@@Z @ 0x1C02E98C0
+ * XREFs of ?vSrcCopyS4D1@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9110
  * Callers:
  *     <none>
  * Callees:
@@ -11,10 +11,10 @@ void __fastcall vSrcCopyS4D1(struct BLTINFO *a1)
   unsigned int v1; // edi
   char v2; // dl
   int v3; // r12d
-  _BYTE *v4; // rbx
+  _BYTE *v4; // r11
   __int64 v5; // r13
   unsigned __int8 *v6; // r10
-  int v7; // r11d
+  int v7; // ebx
   _BYTE *v8; // r14
   int v9; // r9d
   unsigned __int8 *v10; // rsi

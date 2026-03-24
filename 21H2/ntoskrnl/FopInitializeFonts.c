@@ -1,16 +1,16 @@
 /*
- * XREFs of FopInitializeFonts @ 0x140B56268
+ * XREFs of FopInitializeFonts @ 0x140A95F14
  * Callers:
- *     BgpFoInitialize @ 0x140B5616C (BgpFoInitialize.c)
+ *     BgpFoInitialize @ 0x140A95E18 (BgpFoInitialize.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x1403CE3FC (FioFwReadUlongAtOffset.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FopFreeFontData @ 0x140AAECA0 (FopFreeFontData.c)
- *     BgpRasInitializeRasterizer @ 0x140B563A4 (BgpRasInitializeRasterizer.c)
- *     FopReadMappingTable @ 0x140B565BC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x140B568E8 (FopValidateFontNameTable.c)
- *     FopGetTableOffsetAndSize @ 0x140B56C04 (FopGetTableOffsetAndSize.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x1403B17FC (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FopFreeFontData @ 0x1409F4294 (FopFreeFontData.c)
+ *     FopReadMappingTable @ 0x140A96050 (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x140A96228 (FopValidateFontNameTable.c)
+ *     BgpRasInitializeRasterizer @ 0x140A96518 (BgpRasInitializeRasterizer.c)
+ *     FopGetTableOffsetAndSize @ 0x140A968C8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall FopInitializeFonts(__int64 a1)
@@ -20,11 +20,14 @@ __int64 __fastcall FopInitializeFonts(__int64 a1)
   unsigned int i; // r14d
   _QWORD *Memory; // rax
   _QWORD *v6; // rbx
-  int v7; // edx
+  unsigned int v7; // edx
   int v8; // eax
   __int64 v9; // rcx
-  _QWORD *v10; // rcx
-  int v12; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  _QWORD *v13; // rcx
+  unsigned int v15; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = 0;
   v2 = 0;
@@ -47,32 +50,32 @@ LABEL_11:
     v6[13] = v6 + 13;
     *((_DWORD *)v6 + 10) = v2;
     v8 = *(_DWORD *)(a1 + 32);
-    v12 = 0;
+    v15 = 0;
     if ( (v8 & 1) != 0 )
     {
-      if ( (int)FioFwReadUlongAtOffset(*(_QWORD *)(a1 + 16), i, &v12) < 0 )
+      if ( (int)FioFwReadUlongAtOffset(*(_QWORD *)(a1 + 16), i, &v15) < 0 )
       {
 LABEL_13:
-        FopFreeFontData(v6);
+        FopFreeFontData(v6, v10, v11, v12);
         goto LABEL_11;
       }
-      v7 = v12;
+      v7 = v15;
     }
     *((_DWORD *)v6 + 11) = v7;
     v9 = *(_QWORD *)(a1 + 16);
-    v12 = 0;
-    if ( (int)FopGetTableOffsetAndSize(v9, v7, 1668112752, (int)v6 + 48, (__int64)&v12) >= 0
+    v15 = 0;
+    if ( (int)FopGetTableOffsetAndSize(v9, v7, 1668112752, (int)v6 + 48, (__int64)&v15) >= 0
       && (int)FopValidateFontNameTable(*(_QWORD *)(a1 + 16), *((unsigned int *)v6 + 11), v6 + 4) >= 0
       && (int)FopReadMappingTable(*(_QWORD *)(a1 + 16), *((unsigned int *)v6 + 12), v6 + 3) >= 0
       && (int)BgpRasInitializeRasterizer(v6) >= 0 )
     {
-      v10 = *(_QWORD **)(a1 + 48);
-      if ( *v10 != a1 + 40 )
+      v13 = *(_QWORD **)(a1 + 48);
+      if ( *v13 != a1 + 40 )
         __fastfail(3u);
       *v6 = a1 + 40;
       ++v1;
-      v6[1] = v10;
-      *v10 = v6;
+      v6[1] = v13;
+      *v13 = v6;
       *(_QWORD *)(a1 + 48) = v6;
       goto LABEL_11;
     }

@@ -1,106 +1,86 @@
 /*
- * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1408264D0
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1407ACD38
  * Callers:
- *     CmpFindPathByNameEx @ 0x14067EED0 (CmpFindPathByNameEx.c)
- *     CmpFindSubKeyByName @ 0x1408264AC (CmpFindSubKeyByName.c)
- *     CmpWalkUnicodeStringPath @ 0x140826710 (CmpWalkUnicodeStringPath.c)
- *     CmpFindControlSet @ 0x1408268A0 (CmpFindControlSet.c)
- *     CmpMarkCurrentValueDirty @ 0x140828F04 (CmpMarkCurrentValueDirty.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpCopySyncTree2 @ 0x140A21558 (CmpCopySyncTree2.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140A2314C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpFindPathByNameEx @ 0x1405CC874 (CmpFindPathByNameEx.c)
+ *     CmpMarkCurrentValueDirty @ 0x14079F0B0 (CmpMarkCurrentValueDirty.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407ACB78 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindSubKeyByName @ 0x1407ACD14 (CmpFindSubKeyByName.c)
+ *     CmpFindControlSet @ 0x1407ACF80 (CmpFindControlSet.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpCopySyncTree2 @ 0x1408785E0 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A2B8 (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     CmpFindSubKeyInRoot @ 0x1406D7F3C (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1406D9590 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x140826618 (CmpFindSubKeyByHashWithStatus.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyInRoot @ 0x1405ED60C (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407ACED0 (CmpFindSubKeyByHashWithStatus.c)
  */
 
-__int64 __fastcall CmpFindSubKeyByNameWithStatus(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall CmpFindSubKeyByNameWithStatus(__int64 a1, __int64 a2, unsigned __int16 *a3, _DWORD *a4)
 {
   __int64 v5; // rsi
   unsigned int v9; // ebx
-  ULONG_PTR v10; // rdx
-  _WORD *CellFlat; // rax
+  _WORD *v10; // rax
   unsigned int SubKeyByHashWithStatus; // eax
-  _QWORD v14[2]; // [rsp+30h] [rbp-10h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+70h] [rbp+30h] BYREF
-  unsigned int v16; // [rsp+88h] [rbp+48h] BYREF
+  _DWORD v13[4]; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int v14; // [rsp+70h] [rbp+30h] BYREF
+  int v15; // [rsp+88h] [rbp+48h] BYREF
 
-  LODWORD(BugCheckParameter4) = 0;
-  v16 = 0;
+  v14 = 0;
+  v15 = 0;
   v5 = 0LL;
-  v14[0] = 0xFFFFFFFFLL;
+  v13[0] = -1;
   v9 = -1073741772;
+  v13[1] = 0;
   *a4 = -1;
-  if ( !*(_DWORD *)(BugCheckParameter3 + 216) )
-    return v9;
-  while ( 1 )
+  if ( *(_DWORD *)(a1 + 208) )
   {
-    if ( !*(_DWORD *)(a2 + 4 * v5 + 20) )
-      goto LABEL_19;
-    v10 = *(unsigned int *)(a2 + 4 * v5 + 28);
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = (_WORD *)HvpGetCellFlat(BugCheckParameter3, v10, v14);
-    else
-      CellFlat = (_WORD *)HvpGetCellPaged(BugCheckParameter3, v10, (unsigned int *)v14);
-    if ( !CellFlat )
+    while ( 1 )
+    {
+      if ( !*(_DWORD *)(a2 + 4 * v5 + 20) )
+        goto LABEL_13;
+      v10 = (_WORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8))(
+                       a1,
+                       *(unsigned int *)(a2 + 4 * v5 + 28),
+                       v13);
+      if ( !v10 )
+        return (unsigned int)-1073741670;
+      if ( *v10 != 26994 )
+        goto LABEL_5;
+      if ( (int)CmpFindSubKeyInRoot(a1, (__int64)v10, (__int64)a3, 0, &v14) < 0 )
+      {
+        v9 = -1073741670;
+        goto LABEL_10;
+      }
+      (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v13);
+      if ( v14 != -1 )
+        break;
+LABEL_13:
+      v5 = (unsigned int)(v5 + 1);
+      if ( (unsigned int)v5 >= *(_DWORD *)(a1 + 208) )
+        return v9;
+    }
+    v10 = (_WORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8))(a1, v14, v13);
+    if ( !v10 )
       return (unsigned int)-1073741670;
-    if ( *CellFlat == 26994 )
-      break;
-LABEL_7:
-    if ( *CellFlat == 26732 )
-      SubKeyByHashWithStatus = CmpFindSubKeyByHashWithStatus(BugCheckParameter3, CellFlat, a3, &BugCheckParameter4);
+LABEL_5:
+    if ( *v10 == 26732 )
+      SubKeyByHashWithStatus = CmpFindSubKeyByHashWithStatus(a1, v10, a3, &v14);
     else
-      SubKeyByHashWithStatus = CmpFindSubKeyInLeafWithStatus(
-                                 BugCheckParameter3,
-                                 (__int64)CellFlat,
-                                 a3,
-                                 0,
-                                 &BugCheckParameter4,
-                                 &v16);
+      SubKeyByHashWithStatus = CmpFindSubKeyInLeafWithStatus(a1, (__int64)v10, a3, 0LL, &v14, &v15);
     v9 = SubKeyByHashWithStatus;
     if ( (int)(SubKeyByHashWithStatus + 0x80000000) >= 0 && SubKeyByHashWithStatus != -1073741772 )
-      goto LABEL_12;
-    if ( (_DWORD)BugCheckParameter4 != -1 )
+      goto LABEL_10;
+    if ( v14 != -1 )
     {
-      *a4 = BugCheckParameter4;
+      *a4 = v14;
       v9 = 0;
-      goto LABEL_12;
-    }
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, v14);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)v14);
-LABEL_19:
-    v5 = (unsigned int)(v5 + 1);
-    if ( (unsigned int)v5 >= *(_DWORD *)(BugCheckParameter3 + 216) )
+LABEL_10:
+      (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v13);
       return v9;
+    }
+    (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v13);
+    goto LABEL_13;
   }
-  if ( (int)CmpFindSubKeyInRoot(BugCheckParameter3, (__int64)CellFlat, a3, 0LL, (unsigned int *)&BugCheckParameter4) >= 0 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, v14);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)v14);
-    if ( (_DWORD)BugCheckParameter4 == -1 )
-      goto LABEL_19;
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = (_WORD *)HvpGetCellFlat(BugCheckParameter3, (unsigned int)BugCheckParameter4, v14);
-    else
-      CellFlat = (_WORD *)HvpGetCellPaged(BugCheckParameter3, BugCheckParameter4, (unsigned int *)v14);
-    if ( !CellFlat )
-      return (unsigned int)-1073741670;
-    goto LABEL_7;
-  }
-  v9 = -1073741670;
-LABEL_12:
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, v14);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)v14);
   return v9;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of _CmGetInstallerClassMappedProperty @ 0x14069AF98
+ * XREFs of _CmGetInstallerClassMappedProperty @ 0x14073B410
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14069B198 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14088161C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882F04 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140738768 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140739C14 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073B640 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073BA4C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedProperty(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        const WCHAR *a2,
+        void *a3,
         __int64 a4,
         __int64 a5,
-        __int64 a6,
-        __int64 a7,
+        _DWORD *a6,
+        unsigned __int64 a7,
         int a8,
         _DWORD *a9)
 {
-  unsigned int InstallerClassMappedPropertyFromRegValue; // r10d
+  unsigned int InstallerClassMappedPropertyFromRegProp; // r10d
   DEVPROPKEY **v13; // r8
   DEVPROPKEY *v14; // rdx
   DEVPROPKEY **v15; // r8
@@ -33,9 +33,8 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
   __int64 v23; // rcx
   __int64 v24; // rcx
   __int64 v25; // rax
-  unsigned int InstallerClassMappedPropertyFromRegProp; // eax
 
-  InstallerClassMappedPropertyFromRegValue = -1073741802;
+  InstallerClassMappedPropertyFromRegProp = -1073741802;
   *a9 = 0;
   if ( !a4 )
   {
@@ -58,18 +57,17 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
     }
     InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegProp(
                                                 a1,
-                                                a2,
-                                                a3,
+                                                (_DWORD)a2,
+                                                (_DWORD)a3,
                                                 a5,
-                                                a6,
+                                                (__int64)a6,
                                                 a7,
                                                 a8,
                                                 (__int64)a9);
-    InstallerClassMappedPropertyFromRegValue = InstallerClassMappedPropertyFromRegProp;
     if ( InstallerClassMappedPropertyFromRegProp != -1073741802 )
-      return InstallerClassMappedPropertyFromRegValue;
+      return InstallerClassMappedPropertyFromRegProp;
 LABEL_6:
-    v15 = &off_140A79DF0;
+    v15 = &off_140985730;
     v16 = 0;
     while ( 1 )
     {
@@ -87,17 +85,17 @@ LABEL_6:
       if ( v16 >= 0xD )
         goto LABEL_9;
     }
-    InstallerClassMappedPropertyFromRegValue = CmGetInstallerClassMappedPropertyFromRegValue(
-                                                 a1,
-                                                 a2,
-                                                 a3,
-                                                 a5,
-                                                 a6,
-                                                 a7,
-                                                 a8,
-                                                 a9);
-    if ( InstallerClassMappedPropertyFromRegValue != -1073741802 )
-      return InstallerClassMappedPropertyFromRegValue;
+    InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegValue(
+                                                a1,
+                                                a2,
+                                                a3,
+                                                a5,
+                                                a6,
+                                                a7,
+                                                a8,
+                                                a9);
+    if ( InstallerClassMappedPropertyFromRegProp != -1073741802 )
+      return InstallerClassMappedPropertyFromRegProp;
 LABEL_9:
     if ( *(_DWORD *)(a5 + 16) != 2 )
       goto LABEL_10;
@@ -105,18 +103,18 @@ LABEL_9:
     if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceClass_ClassCoInstallers.fmtid.Data1 )
       v25 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceClass_ClassCoInstallers.fmtid.Data4;
     if ( v25
-      || (InstallerClassMappedPropertyFromRegValue = CmGetInstallerClassMappedPropertyFromCoInstallers(
-                                                       a1,
-                                                       a2,
-                                                       v15,
-                                                       a6,
-                                                       a7,
-                                                       a8,
-                                                       a9),
-          InstallerClassMappedPropertyFromRegValue == -1073741802) )
+      || (InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromCoInstallers(
+                                                      a1,
+                                                      a2,
+                                                      (__int64)v15,
+                                                      a6,
+                                                      a7,
+                                                      a8,
+                                                      (__int64)a9),
+          InstallerClassMappedPropertyFromRegProp == -1073741802) )
     {
 LABEL_10:
-      v18 = &off_140A785E0;
+      v18 = &off_140983F40;
       v19 = 0;
       while ( 1 )
       {
@@ -132,10 +130,18 @@ LABEL_10:
         ++v19;
         v18 += 2;
         if ( v19 >= 4 )
-          return InstallerClassMappedPropertyFromRegValue;
+          return InstallerClassMappedPropertyFromRegProp;
       }
-      return (unsigned int)CmGetInstallerClassMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, (__int64)a9);
+      return (unsigned int)CmGetInstallerClassMappedPropertyFromComposite(
+                             a1,
+                             (_DWORD)a2,
+                             (_DWORD)a3,
+                             a5,
+                             (__int64)a6,
+                             a7,
+                             a8,
+                             (__int64)a9);
     }
   }
-  return InstallerClassMappedPropertyFromRegValue;
+  return InstallerClassMappedPropertyFromRegProp;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C001C6B0
+ * XREFs of HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C0019E40
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C001C460 (HUBPDO_SubmitDeviceWakeNotificationIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C0019BF0 (HUBPDO_SubmitDeviceWakeNotificationIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceEnableWakeAtBus(__int64 a1, int a2)
 {
   __int64 v3; // rax
   __int64 v4; // rdi
-  int v5; // edx
+  int v5; // r8d
   __int64 v6; // rcx
 
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   v4 = v3;
   v5 = 0;
   _InterlockedOr((volatile signed __int32 *)(v3 + 32), 8u);

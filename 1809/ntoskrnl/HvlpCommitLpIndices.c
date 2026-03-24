@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpCommitLpIndices @ 0x1401B3C9C
+ * XREFs of HvlpCommitLpIndices @ 0x1401B3CBC
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x14017EA70 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x140322450 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140322550 (HvcallInitiateHypercall.c)
  */
 
 __int64 HvlpCommitLpIndices()

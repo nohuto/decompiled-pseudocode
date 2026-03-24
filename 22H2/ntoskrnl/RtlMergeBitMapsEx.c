@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlMergeBitMapsEx @ 0x1403A4C10
+ * XREFs of RtlMergeBitMapsEx @ 0x1403C697C
  * Callers:
- *     MiMergePageNodes @ 0x14065AF80 (MiMergePageNodes.c)
- *     MiSelectRelocationStartHint @ 0x1406AACDC (MiSelectRelocationStartHint.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FA08 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     MiMergePageNodes @ 0x140562A24 (MiMergePageNodes.c)
+ *     MiSelectRelocationStartHint @ 0x14066AE90 (MiSelectRelocationStartHint.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EF0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall RtlMergeBitMapsEx(unsigned __int64 *a1, __int64 *a2)
 {
   unsigned __int64 v2; // r9
   __int64 result; // rax
-  __int64 i; // r10
+  __int64 v4; // r10
 
   v2 = *a1;
   result = *a2;
@@ -20,18 +20,24 @@ __int64 __fastcall RtlMergeBitMapsEx(unsigned __int64 *a1, __int64 *a2)
     v2 = *a2;
   if ( v2 )
   {
-    for ( i = 0LL; ; i += 8LL )
+    v4 = 0LL;
+    do
     {
       result = a2[1];
       if ( v2 < 0x40 )
-        break;
-      *(_QWORD *)(a1[1] + i) |= *(_QWORD *)(result + i);
-      v2 -= 64LL;
-      if ( !v2 )
-        return result;
+      {
+        result = ((1LL << v2) - 1) & *(_QWORD *)(v4 + result);
+        *(_QWORD *)(a1[1] + v4) |= result;
+        v2 = 0LL;
+      }
+      else
+      {
+        v2 -= 64LL;
+        *(_QWORD *)(a1[1] + v4) |= *(_QWORD *)(result + v4);
+        v4 += 8LL;
+      }
     }
-    result = ((1LL << v2) - 1) & *(_QWORD *)(i + result);
-    *(_QWORD *)(a1[1] + i) |= result;
+    while ( v2 );
   }
   return result;
 }

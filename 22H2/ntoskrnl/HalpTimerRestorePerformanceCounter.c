@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerRestorePerformanceCounter @ 0x1404FE94C
+ * XREFs of HalpTimerRestorePerformanceCounter @ 0x1403865D8
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A966C0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140995B1C (HalpAcpiPostSleep.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x14037AC68 (HalpTimerCalibratePerformanceCounter.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpTimerSetProblemEx @ 0x140509444 (HalpTimerSetProblemEx.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5564 (HalpTimerCalibratePerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpTimerSetProblemEx @ 0x1404C035C (HalpTimerSetProblemEx.c)
  */
 
 LARGE_INTEGER HalpTimerRestorePerformanceCounter()
@@ -38,7 +38,7 @@ LARGE_INTEGER HalpTimerRestorePerformanceCounter()
       v5 = (*(__int64 (__fastcall **)(__int64))(v3 + 104))(InternalData);
       if ( v5 < 0 )
       {
-        HalpTimerSetProblemEx(v3, 15, v5, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timer.c", 2242);
+        HalpTimerSetProblemEx(v3, 15, v5, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timer.c", 2246);
         KeBugCheckEx(v7 + 77, 0x110uLL, v3, v7, BugCheckParameter4);
       }
       if ( *(_DWORD *)(v3 + 228) != 5 && !Number )

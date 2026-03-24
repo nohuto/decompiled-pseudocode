@@ -1,27 +1,27 @@
 /*
- * XREFs of VrpUpdateKeyInformation @ 0x1407E06A0
+ * XREFs of VrpUpdateKeyInformation @ 0x1405D5B84
  * Callers:
- *     VrpPostQueryKey @ 0x14068CA48 (VrpPostQueryKey.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
  * Callees:
- *     RtlUIntAdd @ 0x1402504BC (RtlUIntAdd.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VrpUpdateKeyInformation(int a1, int *a2, UINT a3, UINT *a4, const void **a5, unsigned int a6)
+__int64 __fastcall VrpUpdateKeyInformation(int a1, int *a2, ULONG a3, ULONG *a4, const void **a5, unsigned int a6)
 {
   unsigned int v6; // esi
-  UINT *v7; // rbx
-  UINT *v8; // r11
+  ULONG *v7; // rbx
+  ULONG *v8; // r11
   unsigned __int64 v12; // rcx
   _WORD *v13; // r8
   const void **v14; // r15
   int *v15; // r12
   int *v16; // r13
   unsigned int v17; // r9d
-  UINT v18; // r9d
-  UINT v19; // ecx
+  ULONG v18; // r9d
+  ULONG v19; // ecx
   __int64 v20; // rcx
   unsigned int v21; // r9d
   __int64 v22; // rdi
@@ -31,10 +31,10 @@ __int64 __fastcall VrpUpdateKeyInformation(int a1, int *a2, UINT a3, UINT *a4, c
   __m128i v27; // xmm0
   unsigned __int64 v28; // rcx
   _WORD *v29; // rax
-  UINT *v30; // [rsp+20h] [rbp-48h]
+  ULONG *v30; // [rsp+20h] [rbp-48h]
   _DWORD *v31; // [rsp+28h] [rbp-40h]
   __m128i v32; // [rsp+30h] [rbp-38h] BYREF
-  UINT puResult; // [rsp+70h] [rbp+8h] BYREF
+  ULONG pulResult; // [rsp+70h] [rbp+8h] BYREF
 
   v6 = 0;
   v30 = 0LL;
@@ -77,7 +77,7 @@ LABEL_29:
       {
         if ( *v8 < v17 )
           return (unsigned int)-1073741789;
-        if ( RtlUIntAdd(*v8, v26, v8) < 0 )
+        if ( RtlULongAdd(*v8, v26, v8) < 0 )
           return (unsigned int)-2147483643;
         goto LABEL_18;
       }
@@ -94,8 +94,8 @@ LABEL_18:
         if ( !*v30 )
           goto LABEL_25;
         v19 = *v7;
-        puResult = 0;
-        if ( RtlUIntAdd(v19, v18, &puResult) >= 0 && puResult <= a3 )
+        pulResult = 0;
+        if ( RtlULongAdd(v19, v18, &pulResult) >= 0 && pulResult <= a3 )
         {
           v22 = (*(unsigned __int16 *)v14 + 31) & 0xFFFFFFF8;
           memmove((char *)a2 + v22, (char *)a2 + v20, v21);
@@ -110,8 +110,8 @@ LABEL_25:
       return (unsigned int)-2147483643;
     case 1:
       v17 = 24;
-      v7 = (UINT *)(a2 + 3);
-      v30 = (UINT *)(a2 + 4);
+      v7 = (ULONG *)(a2 + 3);
+      v30 = (ULONG *)(a2 + 4);
       v31 = a2 + 3;
       v24 = 6LL;
       v25 = 5LL;

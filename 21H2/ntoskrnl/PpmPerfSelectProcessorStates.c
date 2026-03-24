@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfSelectProcessorStates @ 0x14021FCD0
+ * XREFs of PpmPerfSelectProcessorStates @ 0x14028E740
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSelectProcessorState @ 0x14021FD60 (PpmPerfSelectProcessorState.c)
+ *     PpmPerfSelectProcessorState @ 0x14028E7D0 (PpmPerfSelectProcessorState.c)
  */
 
 char PpmPerfSelectProcessorStates()
@@ -14,12 +14,12 @@ char PpmPerfSelectProcessorStates()
 
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    v1 = *(_DWORD *)(i + 984);
+    v1 = *(_DWORD *)(i + 760);
     if ( v1 != -1 )
-      *(_DWORD *)(i + 984) = v1 + 1;
-    for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
+      *(_DWORD *)(i + 760) = v1 + 1;
+    for ( j = 0; j < *(_DWORD *)(i + 200); ++j )
     {
-      if ( *(_QWORD *)(136LL * j + *(_QWORD *)(i + 312)) )
+      if ( *(_QWORD *)(136LL * j + *(_QWORD *)(i + 216)) )
         PpmPerfSelectProcessorState();
     }
   }

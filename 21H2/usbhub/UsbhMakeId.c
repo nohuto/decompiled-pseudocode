@@ -1,15 +1,16 @@
 /*
- * XREFs of UsbhMakeId @ 0x1C0050478
+ * XREFs of UsbhMakeId @ 0x1C0051A64
  * Callers:
- *     UsbhBuildClassCompatibleID @ 0x1C004E528 (UsbhBuildClassCompatibleID.c)
- *     UsbhBuildCompatibleID @ 0x1C004EA50 (UsbhBuildCompatibleID.c)
- *     UsbhBuildContainerID @ 0x1C004EB84 (UsbhBuildContainerID.c)
- *     UsbhBuildDeviceID @ 0x1C004F128 (UsbhBuildDeviceID.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
- *     UsbhBuildUnknownIds @ 0x1C004F874 (UsbhBuildUnknownIds.c)
- *     UsbhGetLocationIdString @ 0x1C004FDBC (UsbhGetLocationIdString.c)
+ *     UsbhBuildClassCompatibleID @ 0x1C004F94C (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildContainerID @ 0x1C0050024 (UsbhBuildContainerID.c)
+ *     UsbhBuildDeviceID @ 0x1C005068C (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
+ *     UsbhBuildUnknownIds @ 0x1C0050E08 (UsbhBuildUnknownIds.c)
+ *     UsbhGetLocationIdString @ 0x1C0051374 (UsbhGetLocationIdString.c)
  * Callees:
- *     memmove @ 0x1C001F540 (memmove.c)
+ *     Feature_2473223486__private_IsEnabledDeviceUsage @ 0x1C001CFD8 (Feature_2473223486__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 char *__fastcall UsbhMakeId(
@@ -20,20 +21,24 @@ char *__fastcall UsbhMakeId(
         unsigned __int16 a5,
         __int16 a6,
         unsigned __int16 a7,
-        unsigned __int8 *a8)
+        char *Str)
 {
-  __int64 v8; // r10
-  __int64 v10; // r14
-  size_t v12; // r14
-  unsigned __int8 *v13; // rsi
-  __int64 v14; // r15
-  char *Pool2; // rax
-  char *v16; // r13
-  size_t v17; // rbx
-  char *v18; // rbx
-  int v19; // edi
+  __int64 v8; // rbx
+  __int64 v10; // r15
+  size_t v12; // r15
+  int IsEnabledDeviceUsage; // eax
+  char *v14; // rsi
+  __int64 v15; // rdx
+  SIZE_T v16; // rdi
+  SIZE_T v17; // rdi
+  char *PoolWithTag; // rax
+  char *v19; // rbx
+  size_t v20; // rbx
+  char *v21; // rbx
+  int v22; // ebp
   unsigned int i; // ecx
-  __int16 v21; // ax
+  __int16 v24; // ax
+  char *v26; // [rsp+20h] [rbp-38h]
 
   v8 = -1LL;
   v10 = -1LL;
@@ -41,69 +46,88 @@ char *__fastcall UsbhMakeId(
     ++v10;
   while ( a2[v10] );
   v12 = 2 * v10;
-  v13 = a8;
-  v14 = v12 + *(unsigned __int16 *)a4 + 2LL * a5;
-  if ( a1 == 2 && a8 )
+  IsEnabledDeviceUsage = Feature_2473223486__private_IsEnabledDeviceUsage();
+  v14 = Str;
+  v15 = 2LL * a5;
+  if ( IsEnabledDeviceUsage )
   {
-    do
-      ++v8;
-    while ( a8[v8] );
-    v14 = v14 + 2 * v8 - 2;
+    v16 = v12 + v15 + (unsigned int)*a4;
+    if ( a1 == 2 && Str )
+    {
+      v17 = v16 + 2 * strnlen(Str, 8uLL);
+LABEL_11:
+      v16 = v17 - 2;
+    }
   }
-  Pool2 = (char *)ExAllocatePool2(64LL, v14, 1112885333LL);
-  v16 = Pool2;
-  if ( Pool2 )
+  else
   {
-    v17 = (unsigned int)*a4;
-    memmove(Pool2, a3, v17);
-    v18 = &v16[v17];
-    memmove(v18, a2, v12);
-    *a4 = v14;
-    while ( *(_WORD *)v18 != 110 && a6 )
-      v18 += 2;
+    v16 = v12 + v15 + *(unsigned __int16 *)a4;
+    if ( a1 == 2 && Str )
+    {
+      do
+        ++v8;
+      while ( Str[v8] );
+      v17 = v16 + 2 * v8;
+      goto LABEL_11;
+    }
+  }
+  PoolWithTag = (char *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v16, 0x42554855u);
+  v26 = PoolWithTag;
+  v19 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, v16);
+    v20 = (unsigned int)*a4;
+    memmove(v26, a3, v20);
+    v21 = &v26[v20];
+    memmove(v21, a2, v12);
+    *a4 = v16;
+    while ( *(_WORD *)v21 != 110 && a6 )
+      v21 += 2;
     if ( a1 )
     {
-      v19 = a1 - 1;
-      if ( v19 )
+      v22 = a1 - 1;
+      if ( v22 )
       {
-        if ( v19 == 1 && a8 )
+        if ( v22 == 1 && Str )
         {
           for ( i = 0; i < 8; ++i )
           {
-            v21 = *v13;
-            if ( !(_BYTE)v21 )
+            v24 = (unsigned __int8)*v14;
+            if ( !(_BYTE)v24 )
               break;
-            *(_WORD *)v18 = v21;
-            v18 += 2;
-            ++v13;
+            *(_WORD *)v21 = v24;
+            v21 += 2;
+            ++v14;
           }
         }
       }
       else if ( a6 == 2 )
       {
-        *(_WORD *)v18 = ((unsigned __int8)a7 >> 4) + 48;
-        *((_WORD *)v18 + 1) = (a7 & 0xF) + 48;
+        *(_WORD *)v21 = ((unsigned __int8)a7 >> 4) + 48;
+        *((_WORD *)v21 + 1) = (a7 & 0xF) + 48;
       }
       else if ( a6 == 4 )
       {
-        *(_WORD *)v18 = (a7 >> 12) + 48;
-        *((_WORD *)v18 + 1) = (HIBYTE(a7) & 0xF) + 48;
-        *((_WORD *)v18 + 2) = ((unsigned __int8)a7 >> 4) + 48;
-        *((_WORD *)v18 + 3) = (a7 & 0xF) + 48;
+        *(_WORD *)v21 = (a7 >> 12) + 48;
+        *((_WORD *)v21 + 1) = (HIBYTE(a7) & 0xF) + 48;
+        *((_WORD *)v21 + 2) = ((unsigned __int8)a7 >> 4) + 48;
+        *((_WORD *)v21 + 3) = (a7 & 0xF) + 48;
       }
     }
     else if ( a6 == 2 )
     {
-      *(_WORD *)v18 = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 4) & 0xF];
-      *((_WORD *)v18 + 1) = (unsigned __int8)Nibble[a7 & 0xF];
+      *(_WORD *)v21 = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 4) & 0xF];
+      *((_WORD *)v21 + 1) = (unsigned __int8)Nibble[a7 & 0xF];
     }
     else if ( a6 == 4 )
     {
-      *(_WORD *)v18 = (unsigned __int8)Nibble[(unsigned __int64)a7 >> 12];
-      *((_WORD *)v18 + 1) = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 8) & 0xF];
-      *((_WORD *)v18 + 2) = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 4) & 0xF];
-      *((_WORD *)v18 + 3) = (unsigned __int8)Nibble[a7 & 0xF];
+      *(_WORD *)v21 = (unsigned __int8)Nibble[(unsigned __int64)a7 >> 12];
+      *((_WORD *)v21 + 1) = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 8) & 0xF];
+      *((_WORD *)v21 + 2) = (unsigned __int8)Nibble[((unsigned __int64)a7 >> 4) & 0xF];
+      *((_WORD *)v21 + 3) = (unsigned __int8)Nibble[a7 & 0xF];
     }
+    v19 = v26;
   }
   else
   {
@@ -111,5 +135,5 @@ char *__fastcall UsbhMakeId(
   }
   if ( a3 )
     ExFreePoolWithTag(a3, 0);
-  return v16;
+  return v19;
 }

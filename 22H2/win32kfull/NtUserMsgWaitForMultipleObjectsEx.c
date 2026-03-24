@@ -1,263 +1,273 @@
 /*
- * XREFs of NtUserMsgWaitForMultipleObjectsEx @ 0x1C011D490
+ * XREFs of NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052B00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxGetInputEvent @ 0x1C011DA20 (xxxGetInputEvent.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     xxxMsgWaitForMultipleObjectsEx @ 0x1C0139D9C (xxxMsgWaitForMultipleObjectsEx.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     _CancelQueueEventCompletionPacket @ 0x1C01B33C8 (_CancelQueueEventCompletionPacket.c)
- *     _ReassociateQueueEventCompletionPacket @ 0x1C01B3604 (_ReassociateQueueEventCompletionPacket.c)
- *     _SetWaitForQueueAttach @ 0x1C01B3660 (_SetWaitForQueueAttach.c)
- *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F48A4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     xxxHandleHealthyThread @ 0x1C00034F0 (xxxHandleHealthyThread.c)
+ *     xxxGetInputEvent @ 0x1C0053050 (xxxGetInputEvent.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxMsgWaitForMultipleObjectsEx @ 0x1C0166744 (xxxMsgWaitForMultipleObjectsEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     _CancelQueueEventCompletionPacket @ 0x1C01D2D20 (_CancelQueueEventCompletionPacket.c)
+ *     _ReassociateQueueEventCompletionPacket @ 0x1C01D2DD0 (_ReassociateQueueEventCompletionPacket.c)
+ *     _SetWaitForQueueAttach @ 0x1C01D2E80 (_SetWaitForQueueAttach.c)
  */
 
-__int64 __fastcall NtUserMsgWaitForMultipleObjectsEx(
-        unsigned int a1,
-        volatile void *a2,
-        int a3,
-        int a4,
-        unsigned int a5)
+__int64 __fastcall NtUserMsgWaitForMultipleObjectsEx(unsigned int a1, volatile void *a2, int a3, int a4, int a5)
 {
-  unsigned __int16 v5; // bx
-  __int64 v7; // rsi
-  unsigned int v8; // edi
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // r15
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int16 v14; // ax
-  PERESOURCE *v15; // rax
-  __int64 v16; // rbx
-  __int64 *ThreadWin32Thread; // rax
+  unsigned __int16 v5; // r14
+  volatile void *v6; // rbx
+  __int64 v7; // rdi
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 InputEvent; // r15
   __int64 CurrentProcess; // rax
-  __int64 v19; // r8
-  _OWORD *v20; // rax
-  _OWORD *v21; // rcx
-  __int64 v22; // rdx
-  char *v23; // rcx
-  _OWORD *v24; // rax
-  __int64 v25; // rdx
+  _OWORD *v15; // rax
+  _OWORD *v16; // rcx
+  __int64 v17; // rdx
+  char *v18; // rax
+  _OWORD *v19; // rcx
+  __int64 v20; // rdx
   __int64 CurrentProcessWow64Process; // rax
-  ULONG v27; // r8d
-  __int64 v28; // rbx
-  char *v29; // rax
-  char *v30; // r14
-  size_t v31; // rbx
-  char *v32; // rdx
-  unsigned int v33; // ecx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __int64 v36; // r10
-  int v37; // eax
-  __int64 v38; // rax
-  __int64 v39; // rbx
-  __int64 *v40; // rax
-  unsigned __int64 v41; // rbx
-  __int64 *v42; // rax
-  int v44; // [rsp+30h] [rbp-918h]
-  __int64 v45; // [rsp+38h] [rbp-910h]
-  char *v46; // [rsp+48h] [rbp-900h]
-  __int64 v47; // [rsp+50h] [rbp-8F8h] BYREF
-  char *v48; // [rsp+58h] [rbp-8F0h]
-  void (*v49)(void *); // [rsp+60h] [rbp-8E8h]
-  __int64 InputEvent; // [rsp+68h] [rbp-8E0h]
-  __int64 ProcessPeb; // [rsp+70h] [rbp-8D8h]
-  char v52; // [rsp+80h] [rbp-8C8h] BYREF
-  __int64 v53; // [rsp+A0h] [rbp-8A8h]
-  __int64 v54; // [rsp+A8h] [rbp-8A0h]
-  __int64 v55; // [rsp+B0h] [rbp-898h]
-  _BYTE v56[1104]; // [rsp+4D0h] [rbp-478h] BYREF
+  ULONG v22; // r8d
+  __int64 v23; // r14
+  _QWORD *v24; // rax
+  _QWORD *v25; // rbx
+  int *v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v30; // r10
+  int v31; // eax
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v33; // r14
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v38; // rcx
+  unsigned __int64 v39; // rdi
+  struct _KTHREAD *v40; // rdi
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  __int64 *v44; // rax
+  __int64 v46; // rax
+  int ProcessSessionId; // ebx
+  __int64 v48; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v50; // rax
+  int v51; // ebx
+  __int64 v52; // rcx
+  __int64 v53; // rax
+  int v54; // [rsp+30h] [rbp-8F8h]
+  void *v55; // [rsp+40h] [rbp-8E8h]
+  __int64 v56; // [rsp+48h] [rbp-8E0h]
+  __int64 v57; // [rsp+50h] [rbp-8D8h] BYREF
+  void *v58; // [rsp+58h] [rbp-8D0h]
+  void (*v59)(void *); // [rsp+60h] [rbp-8C8h]
+  __int64 ProcessPeb; // [rsp+68h] [rbp-8C0h]
+  char v61; // [rsp+70h] [rbp-8B8h] BYREF
+  __int64 v62; // [rsp+90h] [rbp-898h]
+  __int64 v63; // [rsp+98h] [rbp-890h]
+  __int64 v64; // [rsp+A0h] [rbp-888h]
+  _BYTE v65[1144]; // [rsp+4B0h] [rbp-478h] BYREF
 
   v5 = a4;
+  v6 = a2;
   v7 = a1;
-  v8 = -1;
-  v44 = -1;
-  EnterCrit(0LL, 0LL);
-  v11 = 0LL;
-  v12 = a5;
+  EnterCrit(0LL, 1LL);
+  v8 = 0LL;
   if ( (a5 & 0xFFFFFFE0) != 0 || (unsigned int)v7 > 0x3F )
   {
-    UserSetLastError(87);
-    goto LABEL_61;
+    LODWORD(v7) = -1;
+    UserSetLastError(87LL);
+    goto LABEL_56;
   }
-  v13 = *(_QWORD *)(gptiCurrent + 448LL);
-  if ( !v13
+  v9 = *(_QWORD *)(gptiCurrent + 448LL);
+  if ( !v9
     || (a5 & 1) != 0 && (_DWORD)v7
-    || ((a5 & 4) == 0 ? (v14 = 0) : (v14 = *(_WORD *)(v13 + 8)),
-        ((unsigned __int16)(*(_WORD *)(v13 + 4) | v14) & v5) == 0) )
+    || ((a5 & 4) == 0 ? (v10 = 0LL) : (v10 = *(unsigned __int16 *)(v9 + 6)),
+        ((unsigned __int16)(v10 | *(_WORD *)(v9 + 4)) & v5) == 0) )
   {
     InputEvent = xxxGetInputEvent(v5 | ((unsigned __int16)a5 << 16));
-    if ( !InputEvent )
-      goto LABEL_61;
-    if ( (a5 & 1) != 0 )
+    if ( InputEvent )
     {
-      v45 = 0LL;
-      CancelQueueEventCompletionPacket();
-    }
-    else
-    {
-      v15 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v13, v12, v9, v10);
-      if ( !ExIsResourceAcquiredSharedLite(*v15) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-      v16 = 0LL;
-      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( ThreadWin32Thread )
-        v16 = *ThreadWin32Thread;
-      v45 = *(_QWORD *)(v16 + 1472);
-      if ( !v45 )
+      if ( (a5 & 1) != 0 )
       {
-LABEL_58:
-        v8 = v44;
-        goto LABEL_61;
-      }
-    }
-    CurrentProcess = PsGetCurrentProcess(v13, v12, v9);
-    ProcessPeb = PsGetProcessPeb(CurrentProcess);
-    v20 = *(_OWORD **)(ProcessPeb + 32);
-    if ( (_OWORD *)((char *)v20 + 1096) < v20 || (unsigned __int64)v20 + 1096 > MmUserProbeAddress )
-      v20 = (_OWORD *)MmUserProbeAddress;
-    v21 = v56;
-    v22 = 8LL;
-    do
-    {
-      *v21 = *v20;
-      v21[1] = v20[1];
-      v21[2] = v20[2];
-      v21[3] = v20[3];
-      v21[4] = v20[4];
-      v21[5] = v20[5];
-      v21[6] = v20[6];
-      v21 += 8;
-      *(v21 - 1) = v20[7];
-      v20 += 8;
-      --v22;
-    }
-    while ( v22 );
-    *v21 = *v20;
-    v21[1] = v20[1];
-    v21[2] = v20[2];
-    v21[3] = v20[3];
-    *((_QWORD *)v21 + 8) = *((_QWORD *)v20 + 8);
-    v23 = &v52;
-    v24 = v56;
-    v25 = 8LL;
-    do
-    {
-      *(_OWORD *)v23 = *v24;
-      *((_OWORD *)v23 + 1) = v24[1];
-      *((_OWORD *)v23 + 2) = v24[2];
-      *((_OWORD *)v23 + 3) = v24[3];
-      *((_OWORD *)v23 + 4) = v24[4];
-      *((_OWORD *)v23 + 5) = v24[5];
-      *((_OWORD *)v23 + 6) = v24[6];
-      v23 += 128;
-      *((_OWORD *)v23 - 1) = v24[7];
-      v24 += 8;
-      --v25;
-    }
-    while ( v25 );
-    *(_OWORD *)v23 = *v24;
-    *((_OWORD *)v23 + 1) = v24[1];
-    *((_OWORD *)v23 + 2) = v24[2];
-    *((_OWORD *)v23 + 3) = v24[3];
-    *((_QWORD *)v23 + 8) = *((_QWORD *)v24 + 8);
-    if ( (_DWORD)v7 )
-    {
-      CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v23, 0LL, v19);
-      v27 = 4;
-      if ( CurrentProcessWow64Process )
-        v27 = 1;
-      v28 = v7;
-      ProbeForRead(a2, 8 * v7, v27);
-    }
-    else
-    {
-      v28 = v7;
-    }
-    v29 = (char *)Win32AllocPoolWithQuotaZInit(8LL * (unsigned int)(v7 + 1), 2037609301LL);
-    v30 = v29;
-    v46 = v29;
-    if ( !v29 )
-    {
-      UserSetLastError(8);
-      goto LABEL_61;
-    }
-    v31 = 8 * v28;
-    memmove(v29, (const void *)a2, v31);
-    v33 = 0;
-    v34 = v55;
-    v35 = v54;
-    v36 = v53;
-    while ( v33 < (unsigned int)v7 )
-    {
-      v32 = &v30[8 * v33];
-      v37 = *(_DWORD *)v32;
-      if ( *(_DWORD *)v32 >= 0xFFFFFFF4 )
-      {
-        switch ( v37 )
+        v56 = 0LL;
+        CancelQueueEventCompletionPacket();
+LABEL_12:
+        CurrentProcess = PsGetCurrentProcess(v10, v11, v12);
+        ProcessPeb = PsGetProcessPeb(CurrentProcess);
+        v15 = *(_OWORD **)(ProcessPeb + 32);
+        if ( v15 + 68 < v15 || (unsigned __int64)(v15 + 68) > MmUserProbeAddress )
+          v15 = (_OWORD *)MmUserProbeAddress;
+        v16 = v65;
+        v17 = 8LL;
+        do
         {
-          case -12:
-            *(_QWORD *)v32 = v34;
-            break;
-          case -11:
-            *(_QWORD *)v32 = v35;
-            break;
-          case -10:
-            *(_QWORD *)v32 = v36;
-            break;
+          *v16 = *v15;
+          v16[1] = v15[1];
+          v16[2] = v15[2];
+          v16[3] = v15[3];
+          v16[4] = v15[4];
+          v16[5] = v15[5];
+          v16[6] = v15[6];
+          v16 += 8;
+          *(v16 - 1) = v15[7];
+          v15 += 8;
+          --v17;
         }
+        while ( v17 );
+        *v16 = *v15;
+        v16[1] = v15[1];
+        v16[2] = v15[2];
+        v16[3] = v15[3];
+        v18 = &v61;
+        v19 = v65;
+        v20 = 8LL;
+        do
+        {
+          *(_OWORD *)v18 = *v19;
+          *((_OWORD *)v18 + 1) = v19[1];
+          *((_OWORD *)v18 + 2) = v19[2];
+          *((_OWORD *)v18 + 3) = v19[3];
+          *((_OWORD *)v18 + 4) = v19[4];
+          *((_OWORD *)v18 + 5) = v19[5];
+          *((_OWORD *)v18 + 6) = v19[6];
+          v18 += 128;
+          *((_OWORD *)v18 - 1) = v19[7];
+          v19 += 8;
+          --v20;
+        }
+        while ( v20 );
+        *(_OWORD *)v18 = *v19;
+        *((_OWORD *)v18 + 1) = v19[1];
+        *((_OWORD *)v18 + 2) = v19[2];
+        *((_OWORD *)v18 + 3) = v19[3];
+        if ( (_DWORD)v7 )
+        {
+          CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v19);
+          v22 = 4;
+          if ( CurrentProcessWow64Process )
+            v22 = 1;
+          v23 = v7;
+          ProbeForRead(v6, 8 * v7, v22);
+        }
+        else
+        {
+          v23 = 0LL;
+        }
+        v24 = (_QWORD *)Win32AllocPoolWithQuota(8LL * (unsigned int)(v7 + 1), 2037609301LL);
+        v25 = v24;
+        v55 = v24;
+        if ( v24 )
+        {
+          memmove(v24, (const void *)a2, 8 * v23);
+          v27 = 0LL;
+          v28 = v64;
+          v29 = v63;
+          v30 = v62;
+          while ( (unsigned int)v27 < (unsigned int)v7 )
+          {
+            v26 = (int *)&v25[(unsigned int)v27];
+            v31 = *v26;
+            if ( (unsigned int)*v26 >= 0xFFFFFFF4 )
+            {
+              switch ( v31 )
+              {
+                case -12:
+                  *(_QWORD *)v26 = v28;
+                  break;
+                case -11:
+                  *(_QWORD *)v26 = v29;
+                  break;
+                case -10:
+                  *(_QWORD *)v26 = v30;
+                  break;
+              }
+            }
+            v27 = (unsigned int)(v27 + 1);
+          }
+          if ( (a5 & 8) != 0 )
+            SetWaitForQueueAttach(1LL, v26, v28, v29);
+          if ( (a5 & 1) == 0 )
+            InputEvent = v56;
+          v25[v7] = InputEvent;
+          CurrentThread = KeGetCurrentThread();
+          v33 = 0LL;
+          if ( !(unsigned __int8)KeIsAttachedProcess(v27)
+            || (v46 = PsGetCurrentProcess(v35, v34, v36),
+                ProcessSessionId = PsGetProcessSessionIdEx(v46),
+                CurrentThreadProcess = PsGetCurrentThreadProcess(v48),
+                ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+          {
+            ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+            if ( ThreadWin32Thread )
+              v33 = *ThreadWin32Thread;
+          }
+          v57 = *(_QWORD *)(v33 + 16);
+          *(_QWORD *)(v33 + 16) = &v57;
+          v58 = v55;
+          v59 = Win32FreePool;
+          v54 = xxxMsgWaitForMultipleObjectsEx(v7, (_DWORD)v55, a3, a4, a5);
+          v38 = (unsigned int)_InterlockedExchange(
+                                (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 12LL),
+                                (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
+          if ( !*(_DWORD *)(gptiCurrent + 1176LL) )
+          {
+            v39 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+            if ( !(_DWORD)v39 )
+              LODWORD(v39) = -1;
+            EtwTraceMessageCheckDelay(gptiCurrent);
+            *(_DWORD *)(gptiCurrent + 1176LL) = v39;
+            if ( *(int *)(gptiCurrent + 488LL) < 0 )
+              xxxHandleHealthyThread(gptiCurrent);
+            *(_QWORD *)(gptiCurrent + 1232LL) &= ~0x400000000uLL;
+            EtwTraceProcessWindowInfo(gptiCurrent);
+          }
+          *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 10LL) = 0;
+          *(_DWORD *)(gptiCurrent + 1232LL) &= ~0x400u;
+          v40 = KeGetCurrentThread();
+          if ( !(unsigned __int8)KeIsAttachedProcess(v38)
+            || (v50 = PsGetCurrentProcess(v42, v41, v43),
+                v51 = PsGetProcessSessionIdEx(v50),
+                v53 = PsGetCurrentThreadProcess(v52),
+                v51 == (unsigned int)PsGetProcessSessionIdEx(v53)) )
+          {
+            v44 = (__int64 *)PsGetThreadWin32Thread(v40);
+            if ( v44 )
+              v8 = *v44;
+          }
+          *(_QWORD *)(v8 + 16) = v57;
+          ((void (__fastcall *)(void *))v59)(v58);
+          if ( (a5 & 1) != 0 )
+            ReassociateQueueEventCompletionPacket();
+          LODWORD(v7) = v54;
+        }
+        else
+        {
+          LODWORD(v7) = -1;
+          UserSetLastError(8LL);
+        }
+        goto LABEL_56;
       }
-      ++v33;
+      v10 = gptiCurrent;
+      v56 = *(_QWORD *)(gptiCurrent + 1432LL);
+      if ( v56 )
+      {
+        v6 = a2;
+        goto LABEL_12;
+      }
     }
-    if ( (a5 & 8) != 0 )
-      SetWaitForQueueAttach(1LL, v32, v34, v35);
-    v38 = v45;
-    if ( (a5 & 1) != 0 )
-      v38 = InputEvent;
-    *(_QWORD *)&v30[v31] = v38;
-    v39 = 0LL;
-    v40 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v40 )
-      v39 = *v40;
-    v47 = *(_QWORD *)(v39 + 16);
-    *(_QWORD *)(v39 + 16) = &v47;
-    v48 = v46;
-    v49 = Win32FreePool;
-    v44 = xxxMsgWaitForMultipleObjectsEx(v7, (_DWORD)v46, a3, a4, a5);
-    _InterlockedExchange(
-      (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 20LL),
-      (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
-    if ( !*(_DWORD *)(gptiCurrent + 1216LL) )
-    {
-      v41 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      EtwTraceMessageCheckDelay(gptiCurrent);
-      if ( (_DWORD)v41 )
-        v8 = v41;
-      *(_DWORD *)(gptiCurrent + 1216LL) = v8;
-      if ( *(int *)(gptiCurrent + 488LL) < 0 )
-        xxxHandleHealthyThread(gptiCurrent);
-      *(_QWORD *)(gptiCurrent + 1272LL) &= ~0x200000000uLL;
-      EtwTraceProcessWindowInfo(gptiCurrent);
-    }
-    _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 16LL), 0);
-    *(_DWORD *)(gptiCurrent + 1272LL) &= ~0x400u;
-    v42 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v42 )
-      v11 = *v42;
-    *(_QWORD *)(v11 + 16) = v47;
-    ((void (__fastcall *)(char *))v49)(v48);
-    if ( (a5 & 1) != 0 )
-      ReassociateQueueEventCompletionPacket();
-    goto LABEL_58;
+    LODWORD(v7) = -1;
   }
-  v8 = v7;
-LABEL_61:
-  UserSessionSwitchLeaveCrit(v13, v12, v9, v10);
-  return v8;
+LABEL_56:
+  UserSessionSwitchLeaveCrit(v10);
+  return (unsigned int)v7;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspExpandQuota @ 0x14012A8E8
+ * XREFs of PspExpandQuota @ 0x14012A908
  * Callers:
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x14012A9A8 (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x14012ABCC (PspLockQuotaExpansion.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PspReleaseReturnedQuota @ 0x1402E9904 (PspReleaseReturnedQuota.c)
+ *     PspUnlockQuotaExpansion @ 0x14012A9C8 (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x14012ABEC (PspLockQuotaExpansion.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PspReleaseReturnedQuota @ 0x1402E9A04 (PspReleaseReturnedQuota.c)
  */
 
 char __fastcall PspExpandQuota(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 *a5)

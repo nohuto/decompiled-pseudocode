@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpScenCtxPrefetchWait @ 0x140A6AACC
+ * XREFs of PfpScenCtxPrefetchWait @ 0x1409908C4
  * Callers:
- *     PfpProcessScenarioPhase @ 0x14081BB14 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PfpScenCtxWaiterTimedOut @ 0x140399288 (PfpScenCtxWaiterTimedOut.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x14038DC70 (PfpScenCtxWaiterTimedOut.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)
@@ -22,12 +22,12 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
   int v8; // r14d
   struct _KTHREAD *CurrentThread; // rax
   int v10; // ecx
-  int v11; // r12d
-  unsigned int v12; // ebx
-  __int64 v13; // rbx
-  unsigned int v14; // esi
-  NTSTATUS v15; // r10d
-  __int64 v16; // rax
+  int v12; // r12d
+  unsigned int v13; // ebx
+  __int64 v14; // rbx
+  unsigned int v15; // esi
+  NTSTATUS v16; // r10d
+  __int64 v17; // rax
   LARGE_INTEGER Timeout; // [rsp+70h] [rbp+8h] BYREF
   int v19; // [rsp+78h] [rbp+10h]
   unsigned int v20; // [rsp+80h] [rbp+18h]
@@ -39,7 +39,7 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
   v4 = 0;
   v5 = a3;
   v6 = a2;
-  v8 = dword_140C4EB78 < (unsigned int)dword_140C4EB7C ? 0x7D0 : 0;
+  v8 = dword_140C4FDD8 < (unsigned int)dword_140C4FDDC ? 0x7D0 : 0;
   while ( 1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -48,13 +48,13 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
     if ( *(_DWORD *)(BugCheckParameter2 + 48) != v6 || (*(_DWORD *)(BugCheckParameter2 + 8) & 0xC) == 8 )
       break;
     if ( v3 )
-      goto LABEL_18;
+      goto LABEL_22;
     KeResetEvent((PRKEVENT)(BugCheckParameter2 + 16));
     v10 = *(_DWORD *)(BugCheckParameter2 + 8) & 3;
     if ( v10 == 1 )
     {
-      v11 = 2;
-      v12 = v5 - v4;
+      v12 = 2;
+      v13 = v5 - v4;
     }
     else
     {
@@ -62,12 +62,12 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
         break;
       if ( !v8 )
       {
-LABEL_18:
+LABEL_22:
         PfpScenCtxWaiterTimedOut(BugCheckParameter2);
         break;
       }
-      v12 = v8;
-      v11 = 1;
+      v13 = v8;
+      v12 = 1;
       v8 = 0;
     }
     *(_DWORD *)(BugCheckParameter2 + 8) = *(_DWORD *)(BugCheckParameter2 + 8) & 0xFFFFFFF3 | 4;
@@ -75,20 +75,20 @@ LABEL_18:
       ExfTryToWakePushLock(BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
     KeLeaveCriticalRegion();
-    Timeout.QuadPart = -10000LL * v12;
-    v13 = MEMORY[0xFFFFF78000000320];
-    v14 = MEMORY[0xFFFFF78000000004];
-    v15 = KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 16), Executive, 0, 0, &Timeout);
-    v16 = (unsigned int)v13;
+    Timeout.QuadPart = -10000LL * v13;
+    v14 = MEMORY[0xFFFFF78000000320];
+    v15 = MEMORY[0xFFFFF78000000004];
+    v16 = KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 16), Executive, 0, 0, &Timeout);
+    v17 = (unsigned int)v14;
     v5 = v20;
     v4 += ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-        + ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324] - v14 * HIDWORD(v13)) << 8)
-        - ((v16 * (unsigned __int64)v14) >> 24);
-    if ( v15 == 258 || v4 >= v20 )
+        + ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324] - v15 * HIDWORD(v14)) << 8)
+        - ((v17 * (unsigned __int64)v15) >> 24);
+    if ( v16 == 258 || v4 >= v20 )
     {
       v3 = 1;
     }
-    else if ( v11 == 2 )
+    else if ( v12 == 2 )
     {
       return v4;
     }

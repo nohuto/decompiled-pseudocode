@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECD3DSurface@@MEAAPEAXI@Z @ 0x18028C340
+ * XREFs of ??_ECD3DSurface@@MEAAPEAXI@Z @ 0x18024A8B0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CD3DSurface@@MEAA@XZ @ 0x18028C208 (--1CD3DSurface@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD3DSurface@@MEAA@XZ @ 0x18024A7B0 (--1CD3DSurface@@MEAA@XZ.c)
  */
 
 CD3DSurface *__fastcall CD3DSurface::`vector deleting destructor'(CD3DSurface *this, char a2)

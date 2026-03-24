@@ -1,44 +1,40 @@
 /*
- * XREFs of MiDeleteHotPatchRecord @ 0x140A368D4
+ * XREFs of MiDeleteHotPatchRecord @ 0x1408C9A4C
  * Callers:
- *     MiUnloadHotPatch @ 0x140A3BFA4 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x140A3C0F0 (MiUnloadHotPatchForUserSid.c)
+ *     MiUnloadHotPatch @ 0x1408CE818 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408CE964 (MiUnloadHotPatchForUserSid.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiCompareHotPatchNodes @ 0x140A36674 (MiCompareHotPatchNodes.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37D40 (MiInsertPreviouslyRegisteredHotPatchRecord.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiCompareHotPatchNodes @ 0x1408C9880 (MiCompareHotPatchNodes.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiDeleteHotPatchRecord(unsigned __int64 *a1, int a2, int a3, int a4)
+__int64 __fastcall MiDeleteHotPatchRecord(unsigned __int64 *a1, ULONG_PTR a2, int a3, int a4)
 {
-  unsigned __int64 *v6; // rbp
-  unsigned int v7; // r15d
+  unsigned __int64 *v4; // rbp
+  int v5; // r14d
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  unsigned __int64 *v11; // rdi
-  int v12; // eax
-  bool v13; // zf
-  __int128 v15; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-48h]
-  int v17; // [rsp+38h] [rbp-40h]
-  int v18; // [rsp+3Ch] [rbp-3Ch]
-  __int128 v19; // [rsp+40h] [rbp-38h]
+  unsigned __int64 *v8; // rdi
+  int v9; // eax
+  int v10; // eax
+  __int128 v12; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-38h]
+  int v14; // [rsp+38h] [rbp-30h]
+  int v15; // [rsp+3Ch] [rbp-2Ch]
+  __int128 v16; // [rsp+40h] [rbp-28h]
 
+  v4 = 0LL;
+  v13 = 0LL;
+  v14 = a3;
+  v15 = a4;
+  v5 = a2;
+  v12 = 0LL;
   v16 = 0LL;
-  v17 = a3;
-  v18 = a4;
-  v6 = 0LL;
-  v7 = 0;
-  v15 = 0LL;
-  v19 = 0LL;
-  if ( a2 )
+  if ( (_DWORD)a2 )
   {
     CurrentThread = 0LL;
   }
@@ -46,46 +42,45 @@ __int64 __fastcall MiDeleteHotPatchRecord(unsigned __int64 *a1, int a2, int a3, 
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v9 = KeAbPreAcquire((__int64)&xmmword_140C69948, 0LL);
-    v10 = v9;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&xmmword_140C69948, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&xmmword_140C69948, v9, (__int64)&xmmword_140C69948);
-    if ( v10 )
-      *(_BYTE *)(v10 + 18) = 1;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&MiHotPatchListLock, a2);
   }
-  v11 = (unsigned __int64 *)*a1;
-  while ( v11 )
+  v8 = (unsigned __int64 *)*a1;
+  if ( *a1 )
   {
-    v12 = MiCompareHotPatchNodes((__int64)&v15, (__int64)v11);
-    if ( v12 >= 0 )
+    do
     {
-      if ( v12 <= 0 )
-        break;
-      v11 = (unsigned __int64 *)v11[1];
+      v9 = MiCompareHotPatchNodes((__int64)&v12, (__int64)v8);
+      if ( v9 >= 0 )
+      {
+        if ( v9 <= 0 )
+          break;
+        v8 = (unsigned __int64 *)v8[1];
+      }
+      else
+      {
+        v8 = (unsigned __int64 *)*v8;
+      }
     }
-    else
+    while ( v8 );
+    if ( v8 )
     {
-      v11 = (unsigned __int64 *)*v11;
+      v4 = v8;
+      RtlAvlRemoveNode(a1, v8);
+      v10 = 1;
+      if ( MiHotPatchGeneration != -1 )
+        v10 = MiHotPatchGeneration + 1;
+      MiHotPatchGeneration = v10;
     }
   }
-  if ( v11 )
+  if ( !v5 )
   {
-    v7 = 1;
-    v6 = v11;
-    RtlAvlRemoveNode(a1, v11);
-    if ( (unsigned int)MiInsertPreviouslyRegisteredHotPatchRecord(v11) )
-      v6 = 0LL;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&MiHotPatchListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&MiHotPatchListLock);
+    KeAbPostRelease((ULONG_PTR)&MiHotPatchListLock);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
-  if ( !a2 )
-  {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&xmmword_140C69948, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&xmmword_140C69948);
-    KeAbPostRelease((ULONG_PTR)&xmmword_140C69948);
-    v13 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v13 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-  }
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0);
-  return v7;
+  if ( !v4 )
+    return 0LL;
+  ExFreePoolWithTag(v4, 0);
+  return 1LL;
 }

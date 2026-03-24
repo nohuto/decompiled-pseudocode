@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIPowerNodeDiscoverDependencies @ 0x1C0025FA8
+ * XREFs of ACPIPowerNodeDiscoverDependencies @ 0x1C002971C
  * Callers:
- *     ACPIDeviceRecordDependencies @ 0x1C0025DD0 (ACPIDeviceRecordDependencies.c)
+ *     ACPIDeviceRecordDependencies @ 0x1C002953C (ACPIDeviceRecordDependencies.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1C001A120 (ExAllocateFromNPagedLookasideList.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0030C38 (ACPIInternalGetDeviceFromNSOBJ.c)
- *     WPP_RECORDER_SF_sL @ 0x1C004B8F4 (WPP_RECORDER_SF_sL.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C004CB4C (WPP_RECORDER_SF_sL.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0056ECC (ACPIInternalGetDeviceFromNSOBJ.c)
  */
 
 void __fastcall ACPIPowerNodeDiscoverDependencies(_QWORD **a1)
@@ -38,7 +38,7 @@ void __fastcall ACPIPowerNodeDiscoverDependencies(_QWORD **a1)
   __int64 *v21; // rdx
   _QWORD *v22; // rdx
   __int64 v23; // [rsp+28h] [rbp-30h]
-  volatile signed __int32 *v24; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v24; // [rsp+40h] [rbp-18h] BYREF
   PVOID Object[2]; // [rsp+48h] [rbp-10h] BYREF
   int v27; // [rsp+A8h] [rbp+50h] BYREF
   int v28; // [rsp+B0h] [rbp+58h] BYREF
@@ -76,7 +76,7 @@ LABEL_3:
     v7 = (__int64 *)(v5 + 10);
     while ( 1 )
     {
-      v8 = AMLIGetNameSpaceObject((_BYTE *)*v7, (__int64 *)v3[4], &v24, 0);
+      v8 = AMLIGetNameSpaceObject((_BYTE *)*v7, (__int64 *)v3[4], (unsigned __int64 *)&v24, 0);
       if ( v8 < 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -85,7 +85,7 @@ LABEL_3:
             v9,
             21,
             40,
-            (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+            (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
             *v7,
             v8);
         goto LABEL_31;
@@ -117,7 +117,7 @@ LABEL_31:
       v15 = v14[5];
       if ( v15 )
       {
-        v16 = *(_QWORD *)(v15 + 784);
+        v16 = *(_QWORD *)(v15 + 744);
         if ( v16 )
         {
           if ( v15 == DeviceExtension )
@@ -126,7 +126,7 @@ LABEL_31:
             v27 = 1;
             goto LABEL_23;
           }
-          v18 = IoTestDependency(*(_QWORD *)(DeviceExtension + 784), v16, &v28, &v27);
+          v18 = IoTestDependency(*(_QWORD *)(DeviceExtension + 744), v16, &v28, &v27);
           if ( v18 >= 0 )
           {
             v17 = v27;
@@ -160,7 +160,7 @@ LABEL_23:
                   2u,
                   0x15u,
                   0x2Au,
-                  (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids);
+                  (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids);
               }
             }
             goto LABEL_30;
@@ -168,12 +168,12 @@ LABEL_23:
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
             LODWORD(v23) = v18;
-            WPP_RECORDER_SF_D(
+            WPP_RECORDER_SF_L(
               (__int64)WPP_GLOBAL_Control->DeviceExtension,
               2u,
               0x15u,
               0x29u,
-              (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+              (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
               v23);
           }
         }

@@ -1,267 +1,284 @@
 /*
- * XREFs of PfpPrivSourceEnum @ 0x140711614
+ * XREFs of PfpPrivSourceEnum @ 0x1406CE0D0
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     MiFillSessionWorkingSetEntry @ 0x140254FD8 (MiFillSessionWorkingSetEntry.c)
- *     MmQuerySystemMemoryInformation @ 0x140257E80 (MmQuerySystemMemoryInformation.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     RtlStringCbCopyA @ 0x1402A1054 (RtlStringCbCopyA.c)
- *     SmStoreExistsForProcess @ 0x1402A10EC (SmStoreExistsForProcess.c)
- *     MmGetNextSession @ 0x1402A1770 (MmGetNextSession.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1402A188C (MmQueryProcessWorkingSetSwapPages.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsQueryProcessAttributes @ 0x14070BA00 (PsQueryProcessAttributes.c)
- *     PfpPrivSourceAdd @ 0x140711C6C (PfpPrivSourceAdd.c)
- *     PsGetProcessDeepFreezeStats @ 0x140711CD4 (PsGetProcessDeepFreezeStats.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExGetNextProcess @ 0x1407B69F0 (ExGetNextProcess.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407EF848 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     SmProcessQueryStoreStats @ 0x140882DDC (SmProcessQueryStoreStats.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiFillSessionWorkingSetEntry @ 0x1402C9D30 (MiFillSessionWorkingSetEntry.c)
+ *     MmQuerySystemMemoryInformation @ 0x1402CCEB8 (MmQuerySystemMemoryInformation.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1402D59A4 (MmQueryProcessWorkingSetSwapPages.c)
+ *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
+ *     RtlStringCbCopyA @ 0x1402D6260 (RtlStringCbCopyA.c)
+ *     SmStoreExistsForProcess @ 0x1402D6310 (SmStoreExistsForProcess.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsQueryProcessAttributes @ 0x140600F24 (PsQueryProcessAttributes.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x14067C238 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     MmGetSessionGlobalVA @ 0x1406CB504 (MmGetSessionGlobalVA.c)
+ *     ExGetNextProcess @ 0x1406CE748 (ExGetNextProcess.c)
+ *     PfpPrivSourceAdd @ 0x1406CE864 (PfpPrivSourceAdd.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1406CE8CC (PsGetProcessDeepFreezeStats.c)
+ *     SmProcessQueryStoreStats @ 0x140929E90 (SmProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
 {
-  __int64 *v5; // r15
+  __int64 v5; // r14
   __int64 v6; // rsi
-  unsigned __int64 v7; // r14
-  _DWORD *v8; // rbx
-  unsigned int v9; // eax
-  void *i; // rcx
+  unsigned __int64 v7; // r15
+  _DWORD *v8; // rdi
+  SIZE_T v9; // rax
+  int SystemInformation; // edi
+  int IsAppContainerOrIdentifyLevelContext; // eax
+  struct _DMA_ADAPTER *i; // rcx
   __int64 NextSession; // rax
   void *j; // rcx
   __int64 NextProcess; // rax
-  unsigned __int64 v14; // rcx
-  unsigned int v15; // eax
-  int SystemInformation; // ebx
-  __int64 v17; // rax
-  __int64 *k; // rcx
-  int v19; // ebx
-  unsigned __int64 v20; // rax
-  int v21; // ebx
-  __int64 v23; // rax
-  int IsAppContainerOrIdentifyLevelContext; // eax
-  char v25; // [rsp+20h] [rbp-208h]
-  char v26[3]; // [rsp+21h] [rbp-207h] BYREF
-  int v27; // [rsp+24h] [rbp-204h]
-  __int128 v28; // [rsp+28h] [rbp-200h] BYREF
-  __int64 v29; // [rsp+38h] [rbp-1F0h]
-  _QWORD v30[12]; // [rsp+40h] [rbp-1E8h] BYREF
-  unsigned __int64 v31; // [rsp+A0h] [rbp-188h] BYREF
-  _DWORD *v32; // [rsp+A8h] [rbp-180h]
-  __int64 v33; // [rsp+B0h] [rbp-178h]
-  _DWORD *v34; // [rsp+B8h] [rbp-170h]
-  PVOID Object; // [rsp+C0h] [rbp-168h]
-  _DWORD *v36; // [rsp+D0h] [rbp-158h]
-  __int128 v37; // [rsp+D8h] [rbp-150h] BYREF
-  __int128 v38; // [rsp+E8h] [rbp-140h]
-  __int64 v39; // [rsp+F8h] [rbp-130h]
-  __int128 v40; // [rsp+100h] [rbp-128h] BYREF
-  __int128 v41; // [rsp+110h] [rbp-118h]
-  __int128 v42; // [rsp+120h] [rbp-108h] BYREF
-  _QWORD v43[8]; // [rsp+140h] [rbp-E8h] BYREF
-  __int128 v44; // [rsp+180h] [rbp-A8h]
+  unsigned __int64 v16; // rcx
+  unsigned int v17; // eax
+  __int64 v18; // rax
+  struct _DMA_ADAPTER *k; // rcx
+  int v20; // edi
+  __int64 v21; // rax
+  unsigned __int64 v22; // rcx
+  unsigned __int64 v23; // rax
+  unsigned __int64 v24; // rax
+  int v25; // edi
+  __int64 v26; // rax
+  char v28; // [rsp+20h] [rbp-208h] BYREF
+  char v29; // [rsp+21h] [rbp-207h]
+  char v30[2]; // [rsp+22h] [rbp-206h] BYREF
+  int v31; // [rsp+24h] [rbp-204h]
+  __int128 v32; // [rsp+28h] [rbp-200h] BYREF
+  __int64 v33; // [rsp+38h] [rbp-1F0h]
+  _QWORD v34[12]; // [rsp+40h] [rbp-1E8h] BYREF
+  unsigned __int64 v35; // [rsp+A0h] [rbp-188h] BYREF
+  _DWORD *v36; // [rsp+A8h] [rbp-180h]
+  _DWORD *v37; // [rsp+B0h] [rbp-178h]
+  __int64 v38; // [rsp+B8h] [rbp-170h]
+  __int64 v39; // [rsp+C0h] [rbp-168h]
+  _DWORD *v40; // [rsp+D0h] [rbp-158h]
+  __int128 v41; // [rsp+D8h] [rbp-150h] BYREF
+  __int128 v42; // [rsp+E8h] [rbp-140h]
+  __int64 v43; // [rsp+F8h] [rbp-130h]
+  __int128 v44; // [rsp+100h] [rbp-128h] BYREF
+  __int128 v45; // [rsp+110h] [rbp-118h]
+  __int128 v46; // [rsp+120h] [rbp-108h] BYREF
+  _QWORD v47[8]; // [rsp+140h] [rbp-E8h] BYREF
+  __int128 v48; // [rsp+180h] [rbp-A8h]
 
-  v32 = a3;
-  v33 = a1;
   v36 = a3;
-  memset(v43, 0, sizeof(v43));
-  v42 = 0LL;
-  v37 = 0LL;
-  v38 = 0LL;
-  LODWORD(v39) = 0;
-  v25 = 0;
-  v40 = 0LL;
+  v38 = a1;
+  v40 = a3;
+  memset(v47, 0, sizeof(v47));
+  v46 = 0LL;
   v41 = 0LL;
-  v31 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
+  v42 = 0LL;
+  v43 = 0LL;
+  v28 = 0;
+  v44 = 0LL;
+  v45 = 0LL;
+  v35 = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
   v5 = 0LL;
-  Object = 0LL;
+  v39 = 0LL;
   v6 = 0LL;
   LODWORD(v7) = 0;
   v8 = *(_DWORD **)(a1 + 16);
-  v34 = v8;
-  v9 = *(_DWORD *)(a1 + 24);
-  if ( v9 < 0x10 )
+  v37 = v8;
+  v9 = *(unsigned int *)(a1 + 24);
+  if ( (unsigned int)v9 < 0x10 )
   {
     SystemInformation = -1073741789;
-    goto LABEL_45;
+    goto LABEL_63;
   }
   if ( a2 )
     ProbeForWrite(v8, v9, 8u);
-  v44 = *(_OWORD *)v8;
+  v48 = *(_OWORD *)v8;
   v8[2] = 0;
-  if ( (_DWORD)v44 != 8 || (DWORD1(v44) & 0xFFFFFFF8) != 0 || (BYTE4(v44) & 3) == 3 )
+  if ( (_DWORD)v48 != 8 || (DWORD1(v48) & 0xFFFFFFF8) != 0 || (BYTE4(v48) & 3) == 3 )
   {
     SystemInformation = -1073741811;
-    goto LABEL_45;
+    goto LABEL_63;
   }
-  if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
+  if ( SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
   {
-    IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL);
+    v29 = 1;
+  }
+  else
+  {
+    IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL, &v28);
     SystemInformation = IsAppContainerOrIdentifyLevelContext;
     if ( IsAppContainerOrIdentifyLevelContext == -1073741659 )
     {
-      v25 = 1;
-      goto LABEL_11;
+      v28 = 1;
     }
-    if ( IsAppContainerOrIdentifyLevelContext < 0 )
-      goto LABEL_45;
+    else if ( IsAppContainerOrIdentifyLevelContext < 0 )
+    {
+      goto LABEL_63;
+    }
+    v29 = 0;
+    v8 = v37;
   }
-  *((_QWORD *)&v28 + 1) = 1LL;
-  for ( i = 0LL; ; i = (void *)NextSession )
+  if ( !v28 )
   {
-    NextSession = MmGetNextSession(i);
-    v5 = (__int64 *)NextSession;
-    if ( !NextSession )
-      break;
-    ++*((_QWORD *)&v28 + 1);
+    *((_QWORD *)&v32 + 1) = 1LL;
+    for ( i = 0LL; ; i = (struct _DMA_ADAPTER *)NextSession )
+    {
+      NextSession = MmGetNextSession(i);
+      v5 = NextSession;
+      if ( !NextSession )
+        break;
+      ++*((_QWORD *)&v32 + 1);
+    }
   }
-LABEL_11:
   for ( j = 0LL; ; j = (void *)NextProcess )
   {
     NextProcess = ExGetNextProcess(j);
     v6 = NextProcess;
     if ( !NextProcess )
       break;
-    ++*((_QWORD *)&v28 + 1);
+    ++*((_QWORD *)&v32 + 1);
   }
-  if ( *((_QWORD *)&v28 + 1) > 0xFFFFFFFFuLL || (v14 = 96LL * *((_QWORD *)&v28 + 1) + 16, v14 > 0xFFFFFFFF) )
+  if ( *((_QWORD *)&v32 + 1) > 0xFFFFFFFFuLL || (v16 = 96LL * *((_QWORD *)&v32 + 1) + 16, v16 > 0xFFFFFFFF) )
   {
     SystemInformation = -1073741670;
-    goto LABEL_45;
+    goto LABEL_63;
   }
-  LODWORD(v7) = 96 * DWORD2(v28) + 16;
-  v15 = *(_DWORD *)(v33 + 24);
-  if ( (unsigned int)v14 > v15 )
+  LODWORD(v7) = 96 * DWORD2(v32) + 16;
+  v17 = *(_DWORD *)(v38 + 24);
+  if ( (unsigned int)v16 > v17 )
   {
     SystemInformation = -1073741789;
-    goto LABEL_45;
+    goto LABEL_63;
   }
-  HIDWORD(v29) = (v15 - 16) / 0x60;
-  *(_QWORD *)&v28 = v34;
-  if ( !v25 )
+  HIDWORD(v33) = (v17 - 16) / 0x60;
+  *(_QWORD *)&v32 = v8;
+  if ( !v28 )
   {
-    memset(v30, 0, sizeof(v30));
-    HIDWORD(v30[0]) = -1;
-    v30[3] = 0xFFFFFFFFLL;
-    RtlStringCbCopyA((NTSTRSAFE_PSTR)&v30[6] + 4, 0x10uLL, "KernelSpace");
-    SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v43);
+    memset(v34, 0, sizeof(v34));
+    RtlStringCbCopyA((NTSTRSAFE_PSTR)&v34[6] + 4, 0x10uLL, "KernelSpace");
+    SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v47);
     if ( SystemInformation < 0 )
-      goto LABEL_45;
-    SystemInformation = MmQuerySystemMemoryInformation(&v42);
+      goto LABEL_63;
+    SystemInformation = MmQuerySystemMemoryInformation(&v46);
     if ( SystemInformation < 0 )
-      goto LABEL_45;
-    v30[4] = v43[0] >> 12;
-    v17 = v42;
-    if ( (unsigned __int64)v42 <= v43[0] >> 12 )
-      v17 = v43[0] >> 12;
-    v30[5] = v17;
-    SystemInformation = PfpPrivSourceAdd(&v28, v30);
+      goto LABEL_63;
+    v34[4] = v47[0] >> 12;
+    v18 = v46;
+    if ( (unsigned __int64)v46 <= v47[0] >> 12 )
+      v18 = v47[0] >> 12;
+    v34[5] = v18;
+    SystemInformation = PfpPrivSourceAdd(&v32, v34);
     if ( SystemInformation < 0 )
-      goto LABEL_45;
-    for ( k = 0LL; ; k = v5 )
+      goto LABEL_63;
+    for ( k = 0LL; ; k = (struct _DMA_ADAPTER *)v5 )
     {
-      v5 = (__int64 *)MmGetNextSession(k);
+      v5 = MmGetNextSession(k);
       if ( !v5 )
         break;
-      memset(v30, 0, sizeof(v30));
-      LODWORD(v30[0]) = 1;
-      HIDWORD(v30[0]) = MmGetSessionIdEx((__int64)v5);
-      v30[3] = HIDWORD(v30[0]);
-      MiFillSessionWorkingSetEntry((__int64)&v37, v5[171]);
-      v30[4] = v39;
-      v30[10] = *((_QWORD *)&v37 + 1);
-      v30[9] = *((_QWORD *)&v38 + 1);
-      v30[5] = v38;
-      RtlStringCbCopyA((NTSTRSAFE_PSTR)&v30[6] + 4, 0x10uLL, "Session");
-      SystemInformation = PfpPrivSourceAdd(&v28, v30);
+      memset(v34, 0, sizeof(v34));
+      LODWORD(v34[0]) = 1;
+      HIDWORD(v34[0]) = MmGetSessionIdEx(v5);
+      if ( v29 )
+        v34[3] = MmGetSessionGlobalVA(v5);
+      MiFillSessionWorkingSetEntry((__int64)&v41, *(_QWORD *)(v5 + 1368));
+      v34[4] = v43;
+      v34[10] = *((_QWORD *)&v41 + 1);
+      v34[9] = *((_QWORD *)&v42 + 1);
+      v34[5] = v42;
+      RtlStringCbCopyA((NTSTRSAFE_PSTR)&v34[6] + 4, 0x10uLL, "Session");
+      SystemInformation = PfpPrivSourceAdd(&v32, v34);
       if ( SystemInformation < 0 )
-        goto LABEL_45;
+        goto LABEL_63;
     }
   }
   v6 = ExGetNextProcess(0LL);
   if ( v6 )
   {
-    v19 = BYTE4(v44) & 4;
-    v27 = v19;
+    v20 = BYTE4(v48) & 4;
+    v31 = v20;
     do
     {
-      memset(v30, 0, sizeof(v30));
-      if ( !v19 || (*(_DWORD *)(v6 + 2172) & 1) == 0 )
+      memset(v34, 0, sizeof(v34));
+      if ( !v20 || (*(_DWORD *)(v6 + 2172) & 1) == 0 )
       {
-        LODWORD(v30[0]) = 2;
-        HIDWORD(v30[0]) = *(_DWORD *)(v6 + 1088);
-        LODWORD(v30[1]) = *(_DWORD *)(v6 + 1524);
-        v30[2] = (*(_QWORD *)(v6 + 1088) ^ *(_QWORD *)(v6 + 1128)) & 0x1FFFFFFFFFFFFFFFLL;
-        v30[3] = HIDWORD(v30[0]);
-        v30[4] = *(_QWORD *)(v6 + 1816);
-        if ( v30[4] > *(_QWORD *)(v6 + 1808) )
-          v30[10] = v30[4];
-        else
-          v30[10] = *(_QWORD *)(v6 + 1808);
-        v20 = *(_QWORD *)(v6 + 1272);
-        v30[5] = v20;
-        if ( v20 <= v30[4] )
-          v20 = v30[4];
-        v30[5] = v20;
-        LODWORD(v30[6]) = MmGetSessionIdEx(v6);
-        v26[0] = 0;
-        PsQueryProcessAttributes(v6, (__int64)v26, 0LL);
-        v21 = HIDWORD(v30[11]) & 0xFFFFFFF6 | v26[0] & 1 | (8 * SmStoreExistsForProcess());
-        HIDWORD(v30[11]) = v21;
-        PsGetProcessDeepFreezeStats(v6, &v40);
-        if ( *((_QWORD *)&v41 + 1) )
+        LODWORD(v34[0]) = 2;
+        HIDWORD(v34[0]) = *(_DWORD *)(v6 + 1088);
+        LODWORD(v34[1]) = *(_DWORD *)(v6 + 1524);
+        v34[2] = (*(_QWORD *)(v6 + 1088) ^ *(_QWORD *)(v6 + 1128)) & 0x1FFFFFFFFFFFFFFFLL;
+        v21 = v34[3];
+        if ( v29 )
+          v21 = v6;
+        v34[3] = v21;
+        v22 = *(_QWORD *)(v6 + 1808);
+        v34[4] = v22;
+        v23 = *(_QWORD *)(v6 + 1800);
+        if ( v22 > v23 )
+          v23 = v22;
+        v34[10] = v23;
+        v24 = *(_QWORD *)(v6 + 1272);
+        v34[5] = v24;
+        if ( v24 <= v34[4] )
+          v24 = v34[4];
+        v34[5] = v24;
+        LODWORD(v34[6]) = MmGetSessionIdEx(v6);
+        v30[0] = 0;
+        PsQueryProcessAttributes((struct _KPROCESS *)v6, (__int64)v30, 0LL);
+        v25 = HIDWORD(v34[11]) & 0xFFFFFFF6 | v30[0] & 1 | (8 * SmStoreExistsForProcess());
+        HIDWORD(v34[11]) = v25;
+        PsGetProcessDeepFreezeStats(v6, &v44);
+        if ( *((_QWORD *)&v45 + 1) )
         {
-          v21 |= 2u;
-          HIDWORD(v30[11]) = v21;
-          LODWORD(v30[11]) = *((_QWORD *)&v41 + 1) / 0x2710uLL;
+          v25 |= 2u;
+          HIDWORD(v34[11]) = v25;
+          LODWORD(v34[11]) = *((_QWORD *)&v45 + 1) / 0x2710uLL;
         }
         if ( *(_BYTE *)(v6 + 1850) == 2 )
-          HIDWORD(v30[11]) = v21 | 4;
-        RtlStringCbCopyA((NTSTRSAFE_PSTR)&v30[6] + 4, 0x10uLL, (NTSTRSAFE_PCSTR)(v6 + 1448));
-        if ( (BYTE4(v44) & 1) != 0 )
+          HIDWORD(v34[11]) = v25 | 4;
+        RtlStringCbCopyA((NTSTRSAFE_PSTR)&v34[6] + 4, 0x10uLL, (NTSTRSAFE_PCSTR)(v6 + 1448));
+        if ( (BYTE4(v48) & 1) != 0 )
         {
-          MmQueryProcessWorkingSetSwapPages(v6, &v30[9]);
+          MmQueryProcessWorkingSetSwapPages(v6, &v34[9]);
         }
-        else if ( (BYTE4(v44) & 2) != 0 && (int)SmProcessQueryStoreStats(v6, &v31, 0LL) >= 0 )
+        else if ( (BYTE4(v48) & 2) != 0 && (int)SmProcessQueryStoreStats(v6, &v35, 0LL) >= 0 )
         {
-          v30[9] = v31 >> 12;
+          v34[9] = v35 >> 12;
         }
-        SystemInformation = PfpPrivSourceAdd(&v28, v30);
+        SystemInformation = PfpPrivSourceAdd(&v32, v34);
         if ( SystemInformation < 0 )
-          goto LABEL_45;
-        v19 = v27;
+          goto LABEL_63;
+        v20 = v31;
       }
       v6 = ExGetNextProcess((PVOID)v6);
     }
     while ( v6 );
   }
-  LODWORD(v7) = 96 * v29 + 16;
+  LODWORD(v7) = 96 * v33 + 16;
   SystemInformation = 0;
-LABEL_45:
+LABEL_63:
   if ( v5 )
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v5);
   if ( v6 )
     ObfDereferenceObjectWithTag((PVOID)v6, 0x6E457350u);
   if ( SystemInformation == -1073741789 )
   {
-    v23 = *((_QWORD *)&v28 + 1);
-    if ( (unsigned __int64)(unsigned int)(v29 + 1) > *((_QWORD *)&v28 + 1) )
-      v23 = (unsigned int)(v29 + 1);
-    v7 = 96 * v23 + 16;
+    v26 = *((_QWORD *)&v32 + 1);
+    if ( (unsigned __int64)(unsigned int)(v33 + 1) > *((_QWORD *)&v32 + 1) )
+      v26 = (unsigned int)(v33 + 1);
+    v7 = 96 * v26 + 16;
     if ( v7 > 0xFFFFFFFF )
     {
       LODWORD(v7) = 0;
       SystemInformation = -1073741670;
     }
   }
-  *v32 = v7;
+  *v36 = v7;
   return (unsigned int)SystemInformation;
 }

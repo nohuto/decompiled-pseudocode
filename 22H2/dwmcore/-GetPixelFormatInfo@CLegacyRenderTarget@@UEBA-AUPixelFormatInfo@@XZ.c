@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CLegacyRenderTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x18008BA10
+ * XREFs of ?GetPixelFormatInfo@CLegacyRenderTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x18009298C
  * Callers:
- *     ?GetClearMode@CLegacyRenderTarget@@MEBA?AW4Enum@ClearMode@@XZ @ 0x18008B980 (-GetClearMode@CLegacyRenderTarget@@MEBA-AW4Enum@ClearMode@@XZ.c)
- *     ?GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011C600 (-GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@BA@EBA?AUPixelFormatInfo@@XZ @ 0x18011C620 (-GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@BA@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetClearMode@CLegacyRenderTarget@@MEBA?AW4Enum@ClearMode@@XZ @ 0x1800928F0 (-GetClearMode@CLegacyRenderTarget@@MEBA-AW4Enum@ClearMode@@XZ.c)
+ *     ?GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F47B0 (-GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@BA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F47C0 (-GetPixelFormatInfo@CLegacyRenderTarget@@$4PPPPPPPM@BA@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::GetPixelFormatInfo(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall CLegacyRenderTarget::GetPixelFormatInfo(__int64 a1, __int64 a
   __int64 v3; // rdx
   void (__fastcall ***v4)(_QWORD, __int64); // rcx
 
-  v3 = *(_QWORD *)(a1 - 18544);
+  v3 = *(_QWORD *)(a1 - 18480);
   if ( v3 )
   {
     v4 = (void (__fastcall ***)(_QWORD, __int64))(v3 + 8 + *(int *)(*(_QWORD *)(v3 + 8) + 8LL));
@@ -21,8 +21,8 @@ __int64 __fastcall CLegacyRenderTarget::GetPixelFormatInfo(__int64 a1, __int64 a
   }
   else
   {
-    *(_QWORD *)a2 = *(_QWORD *)(a1 - 18616);
-    *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 - 18608);
+    *(_QWORD *)a2 = *(_QWORD *)(a1 - 18552);
+    *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 - 18544);
   }
   return a2;
 }

@@ -1,29 +1,31 @@
 /*
- * XREFs of HalpIommuDetermineReservedPciRid @ 0x14051A924
+ * XREFs of HalpIommuDetermineReservedPciRid @ 0x1404C920C
  * Callers:
- *     HalpIommuProcessReservationsInternal @ 0x14051B720 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1404C9BA0 (HalpIommuProcessReservationsInternal.c)
  * Callees:
- *     HalpPciConvertDevicePathToRid @ 0x1405186B0 (HalpPciConvertDevicePathToRid.c)
+ *     HalpPciConvertDevicePathToRid @ 0x1404CC560 (HalpPciConvertDevicePathToRid.c)
  */
 
 __int64 __fastcall HalpIommuDetermineReservedPciRid(unsigned int *a1)
 {
-  int v2; // r8d
+  __int64 v2; // r8
   unsigned int i; // ebx
-  unsigned __int16 **v4; // rdx
-  unsigned __int16 *v5; // rcx
+  _QWORD *v4; // rdx
+  _DWORD *v5; // rcx
+  int v6; // eax
 
-  v2 = 0;
+  v2 = 0LL;
   for ( i = 0; i < *a1; ++i )
   {
-    v4 = *(unsigned __int16 ***)&a1[2 * i + 2];
-    v5 = *v4;
+    v4 = *(_QWORD **)&a1[2 * i + 2];
+    v5 = (_DWORD *)*v4;
     if ( *(_DWORD *)*v4 == 1 )
     {
-      if ( v5[7] )
+      if ( *((_WORD *)v5 + 7) )
       {
-        v2 = HalpPciConvertDevicePathToRid(v5 + 4);
-        if ( v2 < 0 )
+        v6 = HalpPciConvertDevicePathToRid(v5 + 2, v4, v2);
+        v2 = (unsigned int)v6;
+        if ( v6 < 0 )
           break;
       }
     }

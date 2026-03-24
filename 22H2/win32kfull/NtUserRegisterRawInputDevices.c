@@ -1,57 +1,57 @@
 /*
- * XREFs of NtUserRegisterRawInputDevices @ 0x1C009EA80
+ * XREFs of NtUserRegisterRawInputDevices @ 0x1C01079D0
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtUserRegisterRawInputDevices(void *Src, unsigned int a2, int a3)
 {
   __int64 v6; // rcx
-  __int64 v7; // r13
-  SIZE_T v8; // r14
-  unsigned int v9; // ebx
-  __int64 v10; // rax
-  unsigned int *v11; // rdi
-  __int64 v12; // rdx
-  __int64 v13; // r8
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r13
+  SIZE_T v10; // r14
+  unsigned int v11; // ebx
+  __int64 v12; // rax
+  unsigned int *v13; // rdi
   unsigned int v14; // ebx
   unsigned int *v15; // rsi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int128 v21; // [rsp+78h] [rbp-40h] BYREF
-  __int64 v22; // [rsp+88h] [rbp-30h]
-  char v23; // [rsp+C0h] [rbp+8h] BYREF
-  __int64 v24; // [rsp+D8h] [rbp+20h]
+  __int64 v16; // rcx
+  _BYTE v18[8]; // [rsp+70h] [rbp-78h] BYREF
+  __int128 v19; // [rsp+78h] [rbp-70h] BYREF
+  __int64 v20; // [rsp+88h] [rbp-60h]
+  SIZE_T v21; // [rsp+90h] [rbp-58h]
+  __int128 v22; // [rsp+A0h] [rbp-48h]
+  __int64 v23; // [rsp+B0h] [rbp-38h]
 
-  v21 = 0LL;
-  v22 = 0LL;
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v23);
+  v19 = 0LL;
+  v20 = 0LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v18);
   PsGetCurrentProcessWin32Process(v6);
-  v24 = gptiCurrent;
-  if ( Src && a2 && a3 == 16 && (v7 = a2, v8 = 16LL * a2, ProbeForRead(Src, v8, 8u), v8 <= 0xFFFFFFFF) )
+  if ( Src && a2 && a3 == 16 && (v9 = a2, v10 = 16LL * a2, ProbeForRead(Src, v10, 8u), v21 = v10, v10 <= 0xFFFFFFFF) )
   {
-    v9 = v8;
-    v10 = Win32AllocPoolWithQuotaZInit((unsigned int)v8, 1769108309LL);
-    v11 = (unsigned int *)v10;
-    if ( !v10 )
+    v11 = v10;
+    v12 = Win32AllocPoolWithQuota((unsigned int)v10, 1769108309LL);
+    v13 = (unsigned int *)v12;
+    if ( !v12 )
       ExRaiseStatus(-1073741801);
-    PushW32ThreadLock(v10, &v21, (__int64)Win32FreePool);
-    if ( (unsigned int)v8 >= v8 )
-      v9 = 16 * a2;
-    memmove(v11, Src, v9);
-    v14 = RegisterRawInputDevices(v11, a2, 0LL);
-    v15 = v11 + 1;
+    PushW32ThreadLock(v12, &v19, (__int64)Win32FreePool);
+    if ( (unsigned int)v10 >= v10 )
+      v11 = 16 * a2;
+    memmove(v13, Src, v11);
+    v22 = gObjDummyLock;
+    v23 = *((_QWORD *)&gObjDummyLock + 2);
+    v14 = RegisterRawInputDevices(v13, a2, 0LL);
+    v15 = v13 + 1;
     do
     {
       EtwTraceAuditApiRegisterRawInputDevices(
@@ -60,23 +60,23 @@ __int64 __fastcall NtUserRegisterRawInputDevices(void *Src, unsigned int a2, int
         *((unsigned __int16 *)v15 - 1),
         *v15,
         *(_QWORD *)(v15 + 1),
-        v24,
-        *(_QWORD *)(*(_QWORD *)v24 + 1312LL),
-        *(_QWORD *)(*(_QWORD *)v24 + 1152LL),
-        *(_DWORD *)(*(_QWORD *)v24 + 1232LL));
+        gptiCurrent,
+        *(_QWORD *)(*gptiCurrent + 1232LL),
+        *(_QWORD *)(*gptiCurrent + 1072LL),
+        *(_DWORD *)(*gptiCurrent + 1152LL));
       v15 += 4;
-      --v7;
+      --v9;
     }
-    while ( v7 );
-    if ( v11 )
-      PopAndFreeAlwaysW32ThreadLock((__int64)&v21);
+    while ( v9 );
+    if ( v13 )
+      PopAndFreeAlwaysW32ThreadLock((__int64)&v19);
   }
   else
   {
     v14 = 0;
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, v7, v8);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v23, v12, v13);
-  UserSessionSwitchLeaveCrit(v17, v16, v18, v19);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v18);
+  UserSessionSwitchLeaveCrit(v16);
   return (int)v14;
 }

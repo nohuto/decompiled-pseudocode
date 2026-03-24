@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CCD_TOPOLOGY@@QEAA@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01ADDE8
+ * XREFs of ??0CCD_TOPOLOGY@@QEAA@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C013588C
  * Callers:
- *     DxgkEnumerateModesForPathsModality @ 0x1C02F9C50 (DxgkEnumerateModesForPathsModality.c)
+ *     DxgkEnumerateModesForPathsModality @ 0x1C0295190 (DxgkEnumerateModesForPathsModality.c)
  * Callees:
  *     <none>
  */
@@ -22,6 +22,5 @@ CCD_TOPOLOGY *__fastcall CCD_TOPOLOGY::CCD_TOPOLOGY(CCD_TOPOLOGY *this, struct D
   *((_DWORD *)this + 19) = 0;
   *((_DWORD *)this + 20) = 1;
   *(_QWORD *)((char *)this + 84) = 0LL;
-  *((_QWORD *)this + 12) = 0LL;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetDefaultBootEntryIdentifier @ 0x140A5C764
+ * XREFs of BiGetDefaultBootEntryIdentifier @ 0x14096F218
  * Callers:
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783ACC (BcdCloseObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
  */
 
 __int64 __fastcall BiGetDefaultBootEntryIdentifier(__int64 a1, _OWORD *a2)

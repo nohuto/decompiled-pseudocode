@@ -1,7 +1,7 @@
 /*
- * XREFs of WerKernelCloseHandle @ 0x1C0051B54
+ * XREFs of WerKernelCloseHandle @ 0x1C0050F58
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C0078BE8 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetEngageNetworkRefresh @ 0x140998678
+ * XREFs of PopNetEngageNetworkRefresh @ 0x1408F1D68
  * Callers:
- *     PopNetRefreshTimerWorkerCallback @ 0x140998800 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x1408F1F70 (PopNetRefreshTimerWorkerCallback.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140998888 (PopNetSetResiliencyPhaseBias.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x1408F1FF8 (PopNetSetResiliencyPhaseBias.c)
  */
 
 __int64 __fastcall PopNetEngageNetworkRefresh(__int64 a1)

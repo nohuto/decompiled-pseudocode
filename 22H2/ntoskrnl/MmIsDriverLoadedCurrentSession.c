@@ -1,11 +1,10 @@
 /*
- * XREFs of MmIsDriverLoadedCurrentSession @ 0x140695E68
+ * XREFs of MmIsDriverLoadedCurrentSession @ 0x14078E158
  * Callers:
- *     MiAttachToSessionForBaseImage @ 0x140641C04 (MiAttachToSessionForBaseImage.c)
- *     VfThunkApplyPristineToAllSession @ 0x140ADC2CC (VfThunkApplyPristineToAllSession.c)
- *     VfThunkApplyWdmThunkToAllSession @ 0x140ADC44C (VfThunkApplyWdmThunkToAllSession.c)
+ *     VfThunkApplyMandatoryThunks @ 0x1409D8B7C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x1409D8C64 (VfThunkApplyThunks.c)
  * Callees:
- *     MiSessionLookupImage @ 0x14020AB88 (MiSessionLookupImage.c)
+ *     MiSessionLookupImage @ 0x140328A98 (MiSessionLookupImage.c)
  */
 
 _BOOL8 __fastcall MmIsDriverLoadedCurrentSession(unsigned __int64 a1)

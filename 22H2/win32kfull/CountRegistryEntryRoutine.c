@@ -1,5 +1,5 @@
 /*
- * XREFs of CountRegistryEntryRoutine @ 0x1C0131340
+ * XREFs of CountRegistryEntryRoutine @ 0x1C01379F0
  * Callers:
  *     <none>
  * Callees:

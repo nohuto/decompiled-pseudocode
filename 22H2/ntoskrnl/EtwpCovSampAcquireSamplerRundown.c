@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampAcquireSamplerRundown @ 0x1408A894C
+ * XREFs of EtwpCovSampAcquireSamplerRundown @ 0x140941EE4
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408A8AB4 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampImageNotify @ 0x1408A9D00 (EtwpCovSampImageNotify.c)
- *     EtwpCoverageSamplerQuery @ 0x1408AA478 (EtwpCoverageSamplerQuery.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F2BF4 (EtwpCovSampSampleBufferProcess.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x1409F3A3C (EtwpCoverageSamplerUnloadImage.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1409421E0 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampImageNotify @ 0x1409450A0 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140945B94 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946474 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x140947740 (EtwpCoverageSamplerUnloadImage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
 __int64 __fastcall EtwpCovSampAcquireSamplerRundown(_QWORD *a1)
@@ -18,9 +18,9 @@ __int64 __fastcall EtwpCovSampAcquireSamplerRundown(_QWORD *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( ExAcquireRundownProtection_0(&stru_140C31CA0) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&stru_140C198C0) )
   {
-    *a1 = qword_140C31C98;
+    *a1 = qword_140C198B8;
     return 0LL;
   }
   else

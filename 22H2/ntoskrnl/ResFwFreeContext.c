@@ -1,49 +1,49 @@
 /*
- * XREFs of ResFwFreeContext @ 0x140AF2ED4
+ * XREFs of ResFwFreeContext @ 0x1409F107C
  * Callers:
- *     BgFreeContext @ 0x140AF2228 (BgFreeContext.c)
+ *     BgFreeContext @ 0x1409F1038 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     LogFwReport @ 0x140AED0B8 (LogFwReport.c)
- *     AnFwFadeCompletion @ 0x140AEDF7C (AnFwFadeCompletion.c)
- *     RaspClearCache @ 0x140AEE500 (RaspClearCache.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
- *     ResFwpPageOutBackground @ 0x140AF0490 (ResFwpPageOutBackground.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140AF06E8 (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpFwReservePoolSwap @ 0x140AF2E38 (BgpFwReservePoolSwap.c)
+ *     MmFreePagesFromMdl @ 0x1403294B0 (MmFreePagesFromMdl.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     BgpFwReservePoolSwap @ 0x1409F11AC (BgpFwReservePoolSwap.c)
+ *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
+ *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     ResFwBackgroundTransition @ 0x1409F3408 (ResFwBackgroundTransition.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     RaspClearCache @ 0x1409F35FC (RaspClearCache.c)
  */
 
 void __fastcall ResFwFreeContext(__int64 a1)
 {
-  struct _MDL *v2; // rcx
-  _UNKNOWN **v3; // rbx
-  __int64 v4; // rax
+  _QWORD *v2; // rbx
+  __int64 v3; // rax
+  struct _MDL *v4; // rcx
 
-  if ( (dword_140C0E4B0 & 0x100000) != 0 )
+  if ( (dword_140C134F0 & 0x100000) != 0 )
   {
-    v3 = (_UNKNOWN **)TxtpTextCache;
-    v4 = *(_QWORD *)TxtpTextCache;
+    v2 = TxtpTextCache;
+    v3 = *(_QWORD *)TxtpTextCache;
     if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
-LABEL_6:
+LABEL_15:
       __fastfail(3u);
     while ( 1 )
     {
-      if ( *(_UNKNOWN ***)(v4 + 8) != v3 )
-        goto LABEL_6;
-      TxtpTextCache = (_UNKNOWN *)v4;
-      *(_QWORD *)(v4 + 8) = &TxtpTextCache;
-      if ( v3 == &TxtpTextCache )
+      if ( *(_QWORD **)(v3 + 8) != v2 )
+        goto LABEL_15;
+      TxtpTextCache = (_UNKNOWN *)v3;
+      *(_QWORD *)(v3 + 8) = &TxtpTextCache;
+      if ( v2 == &TxtpTextCache )
         break;
-      BgpGxRectangleDestroy((__int64)v3[6]);
-      BgpFwFreeMemory((__int64)v3);
-      v3 = (_UNKNOWN **)TxtpTextCache;
+      BgpGxRectangleDestroy(v2[6]);
+      BgpFwFreeMemory((__int64)v2);
+      v2 = TxtpTextCache;
       if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
-        goto LABEL_6;
-      v4 = *(_QWORD *)TxtpTextCache;
+        goto LABEL_15;
+      v3 = *(_QWORD *)TxtpTextCache;
     }
-    dword_140C043D8 = 0;
+    dword_140C02CA8 = 0;
     if ( RasterizerInitialized )
       RaspClearCache();
     AnFwDisableBackgroundUpdateTimer();
@@ -51,24 +51,24 @@ LABEL_6:
     LogFwReport();
     if ( *(_QWORD *)(a1 + 16) )
     {
-      BgpFwReservePoolSwap(1, 0LL, 0, 0LL);
+      BgpFwReservePoolSwap(1LL, 0LL, 0LL, 0LL);
       MmFreePagesFromMdl(*(PMDL *)(a1 + 8));
       ExFreePoolWithTag(*(PVOID *)(a1 + 8), 0);
     }
-    dword_140C0E4B0 &= 0xFFEFF7FD;
-    qword_140C0E570 = BgpAnimationRegionSave;
-    qword_140C0E578 = BgpTextRegionSave;
-    qword_140C0E460 = 0LL;
+    dword_140C134F0 &= 0xFFEFF7FD;
+    qword_140C135B0 = BgpAnimationRegionSave;
+    qword_140C135B8 = BgpTextRegionSave;
+    qword_140C134A0 = 0LL;
     BgInternal = 0LL;
-    xmmword_140C0E450 = 0LL;
-    ResFwpPageOutBackground();
+    xmmword_140C13490 = 0LL;
+    ResFwBackgroundTransition(1LL);
   }
   else
   {
-    v2 = *(struct _MDL **)(a1 + 8);
-    if ( v2 )
+    v4 = *(struct _MDL **)(a1 + 8);
+    if ( v4 )
     {
-      MmFreePagesFromMdl(v2);
+      MmFreePagesFromMdl(v4);
       ExFreePoolWithTag(*(PVOID *)(a1 + 8), 0);
     }
   }

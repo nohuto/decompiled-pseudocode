@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0077340
+ * XREFs of Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0075F40
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     XilCommonBuffer_ReleaseBuffer @ 0x1C0019034 (XilCommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C00329F0 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
- *     Controller_UpdateSqmDatapoints @ 0x1C0076F30 (Controller_UpdateSqmDatapoints.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001A008 (XilCommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0032970 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ *     Controller_UpdateSqmDatapoints @ 0x1C0075B1C (Controller_UpdateSqmDatapoints.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoCleanup(__int64 a1)
@@ -22,12 +22,12 @@ __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoCleanup(__int64 a1)
   v3 = *(__int64 **)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                        WdfDriverGlobals,
                        a1,
-                       off_1C00613D8)
+                       off_1C00603D8)
                    + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v2) = 5;
-    WPP_RECORDER_SF_i(v3[9], v2, 4, 60, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v1);
+    WPP_RECORDER_SF_i(v3[9], v2, 4, 60, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v1);
   }
   v4 = (void *)v3[68];
   if ( v4 )

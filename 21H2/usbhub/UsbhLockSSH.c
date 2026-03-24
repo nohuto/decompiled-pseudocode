@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhLockSSH @ 0x1C005873C
+ * XREFs of UsbhLockSSH @ 0x1C0059E0C
  * Callers:
- *     Usbh_SSH_HubPendingSuspend @ 0x1C0003974 (Usbh_SSH_HubPendingSuspend.c)
- *     Usbh_SSH_HubPendingResume @ 0x1C00041F0 (Usbh_SSH_HubPendingResume.c)
- *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C0058DF8 (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00140B0 (Usbh_SSH_HubPendingResume.c)
+ *     Usbh_SSH_HubPendingSuspend @ 0x1C0015704 (Usbh_SSH_HubPendingSuspend.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C005A4C8 (Usbh_SSH_HubPendingResumeAfterSuspend.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 __int64 __fastcall UsbhLockSSH(__int64 a1, int a2)

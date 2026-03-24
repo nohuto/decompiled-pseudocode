@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlOsDeploymentState @ 0x1409C1E30
+ * XREFs of RtlOsDeploymentState @ 0x1409190F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 __int64 RtlOsDeploymentState()
@@ -15,9 +15,9 @@ __int64 RtlOsDeploymentState()
   unsigned int v0; // ebx
   HANDLE KeyHandle; // [rsp+30h] [rbp-88h] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-80h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-78h] BYREF
-  UNICODE_STRING v5; // [rsp+70h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-38h] BYREF
+  UNICODE_STRING v4; // [rsp+40h] [rbp-78h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-68h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-58h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-28h] BYREF
   int v8; // [rsp+94h] [rbp-24h]
   int v9; // [rsp+98h] [rbp-20h]
@@ -26,13 +26,15 @@ __int64 RtlOsDeploymentState()
   KeyHandle = 0LL;
   v0 = 1;
   ResultLength = 0;
-  memset(&ObjectAttributes.Length + 1, 0, 44);
-  v5 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v4 = 0LL;
   DestinationString = 0LL;
-  RtlInitUnicodeString(&v5, L"\\Registry\\Machine\\System\\Setup");
+  RtlInitUnicodeString(&v4, L"\\Registry\\Machine\\System\\Setup");
   ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
-  ObjectAttributes.ObjectName = &v5;
+  ObjectAttributes.ObjectName = &v4;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"Compact");

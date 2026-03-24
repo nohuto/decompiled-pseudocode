@@ -2,7 +2,7 @@
  * XREFs of AlpcpFormatConnectionRequest @ 0x140614A64
  * Callers:
  *     AlpcpProcessConnectionRequest @ 0x1406136BC (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1406A5B40 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
  * Callees:
  *     AlpcpValidateConnectionMessage @ 0x1406154F8 (AlpcpValidateConnectionMessage.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)

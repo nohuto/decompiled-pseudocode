@@ -1,59 +1,61 @@
 /*
- * XREFs of MiLocatePagefileSubsection @ 0x140273720
+ * XREFs of MiLocatePagefileSubsection @ 0x14029737C
  * Callers:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiOffsetToProtos @ 0x140288420 (MiOffsetToProtos.c)
- *     MiAdvanceVadView @ 0x14030BABC (MiAdvanceVadView.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140347C78 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiSkipEntirePagefileRegions @ 0x1403584B4 (MiSkipEntirePagefileRegions.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MmCommitSessionMappedView @ 0x1407488B0 (MmCommitSessionMappedView.c)
+ *     MiAdvanceVadView @ 0x14027EC74 (MiAdvanceVadView.c)
+ *     MiOffsetToProtos @ 0x1402A11E0 (MiOffsetToProtos.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403326D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiSkipEntirePagefileRegions @ 0x140547690 (MiSkipEntirePagefileRegions.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140637780 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MmCommitSessionMappedView @ 0x140688320 (MmCommitSessionMappedView.c)
  * Callees:
  *     <none>
  */
 
 unsigned int *__fastcall MiLocatePagefileSubsection(unsigned int *a1, unsigned __int64 *a2)
 {
-  unsigned __int64 v3; // r8
-  unsigned __int64 v5; // r11
-  unsigned __int64 v6; // r11
-  unsigned __int64 v7; // r9
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // rdx
-  unsigned int *v10; // rcx
+  unsigned __int64 v3; // r11
+  unsigned int *v4; // r9
+  unsigned __int64 v5; // rbx
+  bool v6; // cf
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // r8
 
   v3 = *a2;
-  if ( (*(_DWORD *)(*(_QWORD *)a1 + 56LL) & 0x1000) != 0 || a1[12] >= 0x40000000 )
+  v4 = a1;
+  v5 = *(unsigned int *)(*(_QWORD *)a1 + 96LL);
+  if ( (*(_DWORD *)(*(_QWORD *)a1 + 56LL) & 0x1000) != 0 )
   {
-    v5 = 0x100000LL;
-    if ( a1[12] >= 0x40000000 )
-      v5 = 0x200000LL;
-    v6 = v5 >> 3;
-    if ( v6 == 0x20000 )
-      v7 = v3 >> 17;
-    else
-      v7 = v3 / v6;
-    if ( v6 == 0x20000 )
-      v8 = *a2 & 0x1FFFF;
-    else
-      v8 = v3 % v6;
-    v9 = (unsigned int)v7 + 1LL;
-    if ( !v8 )
-      v9 = (unsigned int)v7;
-    if ( v9 <= *(unsigned int *)(*(_QWORD *)a1 + 96LL) )
+    v6 = a1[12] < 0x40000000;
+  }
+  else
+  {
+    v6 = a1[12] < 0x40000000;
+    if ( a1[12] < 0x40000000 )
     {
-      v10 = &a1[22 * v7];
-      if ( v8 < v10[11] )
-      {
-        *a2 = v8;
-        return v10;
-      }
+      if ( v3 < a1[11] )
+        return v4;
+      return 0LL;
     }
   }
-  else if ( v3 < a1[11] )
+  v8 = (-(__int64)v6 & 0xFFFFFFFFFFFE0000uLL) + 0x40000;
+  v9 = v3 / v8;
+  v10 = v3 % v8;
+  v11 = (unsigned int)(v3 / v8);
+  v12 = v11 + 1;
+  if ( !v10 )
+    v12 = v11;
+  if ( v12 <= v5 )
   {
-    return a1;
+    v4 += 22 * v9;
+    if ( v10 < v4[11] )
+    {
+      *a2 = v10;
+      return v4;
+    }
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xdx_EtwWriteTransfer @ 0x1C013ECBC
+ * XREFs of McTemplateK0xdx_EtwWriteTransfer @ 0x1C012770C
  * Callers:
- *     QueuePowerRequest @ 0x1C00108E0 (QueuePowerRequest.c)
+ *     QueuePowerRequest @ 0x1C0077DE0 (QueuePowerRequest.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xdx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

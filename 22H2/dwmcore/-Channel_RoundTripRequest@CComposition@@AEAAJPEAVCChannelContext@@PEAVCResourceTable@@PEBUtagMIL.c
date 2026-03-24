@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800FF370
+ * XREFs of ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800DBC44
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McTemplateU0qqx_EventWriteTransfer @ 0x1801B549C (McTemplateU0qqx_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     McTemplateU0qqx_EventWriteTransfer @ 0x180155F3C (McTemplateU0qqx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CComposition::Channel_RoundTripRequest(
@@ -15,41 +15,45 @@ __int64 __fastcall CComposition::Channel_RoundTripRequest(
         struct CResourceTable *a3,
         const struct tagMILCMD_CHANNEL_ROUNDTRIPREQUEST *a4)
 {
-  unsigned int v4; // eax
-  unsigned int v5; // edx
-  unsigned int v6; // ebx
-  int v8; // eax
-  __int64 v9; // rcx
-  __int64 v10; // rcx
+  char *v4; // r10
+  unsigned int v5; // eax
+  unsigned int v6; // edx
+  int v7; // ebx
+  __int64 v8; // rcx
+  int v10; // eax
   __int128 v11; // [rsp+30h] [rbp-28h] BYREF
 
+  v4 = (char *)this + 424;
   v11 = *((unsigned int *)a4 + 1) | 0x100000000uLL;
-  v4 = *((_DWORD *)this + 150);
-  v5 = v4 + 1;
-  if ( v4 + 1 < v4 )
+  v5 = *((_DWORD *)this + 112);
+  v6 = v5 + 1;
+  if ( v5 + 1 < v5 )
   {
-    v6 = -2147024362;
+    v7 = -2147024362;
     MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
-    goto LABEL_10;
   }
-  v6 = 0;
-  if ( v5 <= *((_DWORD *)this + 149) )
+  else
   {
-    *(_OWORD *)(*((_QWORD *)this + 72) + 16LL * v4) = v11;
-    *((_DWORD *)this + 150) = v5;
-    goto LABEL_4;
+    v7 = 0;
+    if ( v6 <= *((_DWORD *)this + 111) )
+    {
+      LODWORD(v8) = 2 * v5;
+      *(_OWORD *)(*(_QWORD *)v4 + 16LL * v5) = v11;
+      *((_DWORD *)v4 + 6) = v6;
+      goto LABEL_4;
+    }
+    v10 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 424, 16, 1, &v11);
+    v7 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v10, 0xC0u, 0LL);
   }
-  v8 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 576, 16, 1, &v11);
-  v6 = v8;
-  if ( v8 < 0 )
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC0u, 0LL);
-LABEL_10:
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v6, 0x5D4u, 0LL);
-    return v6;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x61Eu, 0LL);
+    return (unsigned int)v7;
   }
 LABEL_4:
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
-    McTemplateU0qqx_EventWriteTransfer(DWORD2(v11), v5, DWORD1(v11), v11, SBYTE8(v11));
-  return v6;
+    McTemplateU0qqx_EventWriteTransfer(v8, v6, DWORD1(v11), v11, SBYTE8(v11));
+  return (unsigned int)v7;
 }

@@ -1,11 +1,12 @@
 /*
- * XREFs of CiLogSchedulerEvent @ 0x1C0003F10
+ * XREFs of CiLogSchedulerEvent @ 0x1C0003C60
  * Callers:
- *     CiSchedulerWait @ 0x1C0001630 (CiSchedulerWait.c)
- *     CiSchedulerTaskIndexYield @ 0x1C00021C0 (CiSchedulerTaskIndexYield.c)
- *     CiSchedulerSetPriority @ 0x1C0002A60 (CiSchedulerSetPriority.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0001170 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerSetPriority @ 0x1C0001940 (CiSchedulerSetPriority.c)
+ *     CiSchedulerWait @ 0x1C00021A0 (CiSchedulerWait.c)
+ *     CiSchedulerThreadFunction @ 0x1C0002D50 (CiSchedulerThreadFunction.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogSchedulerEvent(__int64 a1, int a2)

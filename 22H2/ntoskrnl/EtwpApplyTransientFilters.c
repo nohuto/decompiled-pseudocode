@@ -1,37 +1,51 @@
 /*
- * XREFs of EtwpApplyTransientFilters @ 0x1409F51C8
+ * XREFs of EtwpApplyTransientFilters @ 0x1406A5CC0
  * Callers:
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpIsRegEntryAllowed @ 0x1407813B8 (EtwpIsRegEntryAllowed.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpIsRegEntryAllowed @ 0x1407177BC (EtwpIsRegEntryAllowed.c)
  * Callees:
- *     EtwpApplyContainerFilter @ 0x1409F4DA8 (EtwpApplyContainerFilter.c)
- *     EtwpApplyExeFilter @ 0x1409F4EF4 (EtwpApplyExeFilter.c)
- *     EtwpApplyPackageIdFilter @ 0x1409F4FC8 (EtwpApplyPackageIdFilter.c)
+ *     EtwpApplyExeFilter @ 0x140940804 (EtwpApplyExeFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x1409408CC (EtwpApplyPackageIdFilter.c)
  */
 
-bool __fastcall EtwpApplyTransientFilters(__int64 a1, __int64 a2)
+char __fastcall EtwpApplyTransientFilters(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  unsigned int *v5; // rcx
-  unsigned int v6; // edx
-  int v7; // eax
-  _DWORD *i; // rcx
+  char v4; // r11
+  unsigned int v9; // ebx
+  __int64 v10; // rdx
+  _DWORD *v12; // rcx
+  unsigned int v13; // edx
 
-  if ( (*(_BYTE *)(a1 + 98) & 1) != 0 )
-    return 1;
-  v5 = *(unsigned int **)(a2 + 8);
-  if ( v5 )
+  v4 = 1;
+  if ( (*(_BYTE *)(a1 + 98) & 1) == 0 )
   {
-    v6 = *v5;
-    v7 = 0;
-    if ( !*v5 )
-      return 0;
-    for ( i = v5 + 1; *i != *(_DWORD *)(*(_QWORD *)(a1 + 80) + 1088LL); ++i )
+    v9 = 0;
+    if ( !*a4 || (v4 = EtwpApplyExeFilter()) != 0 )
     {
-      if ( ++v7 >= v6 )
-        return 0;
+      v10 = a4[1];
+      if ( v10 || a4[2] )
+        v4 = EtwpApplyPackageIdFilter(a1, v10, a4[2]);
+      if ( v4 )
+      {
+        if ( a3 )
+        {
+          v4 = 0;
+          v12 = (_DWORD *)(a2 + *(_QWORD *)a3);
+          v13 = *(_DWORD *)(a3 + 8) >> 2;
+          if ( v13 )
+          {
+            while ( *v12 != *(_DWORD *)(*(_QWORD *)(a1 + 80) + 1088LL) )
+            {
+              ++v9;
+              ++v12;
+              if ( v9 >= v13 )
+                return v4;
+            }
+            return 1;
+          }
+        }
+      }
     }
   }
-  if ( !EtwpApplyExeFilter(a1, *(_WORD **)(a2 + 16)) || !EtwpApplyContainerFilter(a1, *(_WORD **)(a2 + 40)) )
-    return 0;
-  return EtwpApplyPackageIdFilter(a1, *(_WORD **)(a2 + 24), *(_WORD **)(a2 + 32)) != 0;
+  return v4;
 }

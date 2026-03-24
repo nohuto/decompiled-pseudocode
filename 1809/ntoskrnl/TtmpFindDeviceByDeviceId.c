@@ -1,8 +1,8 @@
 /*
- * XREFs of TtmpFindDeviceByDeviceId @ 0x14087E03C
+ * XREFs of TtmpFindDeviceByDeviceId @ 0x14087E01C
  * Callers:
- *     TtmiAssignDevice @ 0x14087D4FC (TtmiAssignDevice.c)
- *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE9C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmiAssignDevice @ 0x14087D4DC (TtmiAssignDevice.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE7C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
  * Callees:
  *     <none>
  */

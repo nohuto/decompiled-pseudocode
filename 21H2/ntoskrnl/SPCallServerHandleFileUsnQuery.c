@@ -1,237 +1,283 @@
 /*
- * XREFs of SPCallServerHandleFileUsnQuery @ 0x14065EE94
+ * XREFs of SPCallServerHandleFileUsnQuery @ 0x14072854C
  * Callers:
- *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     FsRtlKernelFsControlFile @ 0x1406A4560 (FsRtlKernelFsControlFile.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     FsRtlKernelFsControlFile @ 0x14068A050 (FsRtlKernelFsControlFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleFileUsnQuery(__int64 a1, void *a2, int a3, __int64 a4)
 {
-  __int128 v4; // xmm6
-  unsigned int *v7; // rax
-  void **v8; // rax
-  _DWORD *v9; // rax
-  NTSTATUS v10; // eax
-  struct _FILE_OBJECT *v11; // r14
-  int v12; // ebx
-  __int64 *v13; // rsi
-  unsigned __int64 Pool2; // rax
-  unsigned int v15; // r8d
-  __int64 v16; // r9
-  unsigned int v17; // ecx
-  unsigned __int64 m; // rdx
-  unsigned int v19; // eax
-  __int64 v21; // r10
-  unsigned int *v22; // r9
-  unsigned int *v23; // rax
+  __int64 v4; // r12
+  void *v5; // rsi
+  int v6; // r14d
+  __int128 v7; // xmm6
+  unsigned int *v9; // rdx
+  unsigned int *v10; // rax
   unsigned int i; // r8d
-  __int64 v25; // r10
-  unsigned int *v26; // r9
-  unsigned int *v27; // rax
+  __int64 v12; // r11
+  unsigned int *v13; // r9
+  signed int v14; // ebx
+  unsigned int *v15; // rax
+  unsigned int *v16; // rax
   unsigned int j; // r8d
-  __int64 v29; // rax
-  unsigned int *v30; // r8
-  unsigned int *v31; // rcx
-  unsigned int k; // edx
-  unsigned int v33; // r9d
-  unsigned int *v34; // r8
-  __int64 v35; // r12
-  unsigned int v36; // r9d
-  void **v37; // r8
-  void *v38; // r10
-  unsigned int v39; // r8d
-  __int64 v40; // r15
-  __int64 v41; // rax
-  unsigned int v42; // eax
-  __int128 v43; // [rsp+40h] [rbp-20h]
+  __int64 v18; // r11
+  unsigned int *v19; // r9
+  void **v20; // rax
+  unsigned int k; // r8d
+  unsigned int v22; // r9d
+  unsigned int *v23; // r8
+  unsigned int v24; // r9d
+  void **v25; // r8
+  unsigned int v26; // r9d
+  int *v27; // rax
+  NTSTATUS v28; // eax
+  struct _FILE_OBJECT *v29; // r14
+  __int64 *PoolWithTag; // rsi
+  char *v31; // rax
+  unsigned int v32; // r8d
+  __int64 v33; // r9
+  unsigned int v34; // ecx
+  unsigned __int64 m; // rdx
+  unsigned int v36; // eax
+  __int64 v37; // r15
+  __int64 v39; // rax
+  __int64 v40; // rax
+  unsigned int *v41; // r9
+  unsigned int v42; // edx
+  int v43; // eax
+  unsigned int v44; // ecx
+  __int128 v45; // [rsp+40h] [rbp-20h]
   PVOID Object; // [rsp+98h] [rbp+38h] BYREF
-  __int64 v45; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v47; // [rsp+A0h] [rbp+40h] BYREF
 
-  LODWORD(v45) = a3;
+  LODWORD(v47) = a3;
   Object = a2;
   v4 = 0LL;
-  if ( !a1 || !a4 || (v31 = *(unsigned int **)(a1 + 8)) == 0LL || *(_DWORD *)a1 <= 3u )
+  v5 = 0LL;
+  v6 = 0;
+  v7 = 0LL;
+  if ( !a1 || !a4 )
     return (unsigned int)-1073741811;
-  v23 = v31;
-  for ( i = 0; i < 3; ++i )
+  v9 = *(unsigned int **)(a1 + 8);
+  if ( v9 && *(_DWORD *)a1 > 3u )
   {
-    v21 = *v23;
-    v22 = v23 + 1;
-    if ( v23 + 1 < v23 )
-      return (unsigned int)-1073741675;
-    v23 = (unsigned int *)((char *)v22 + v21);
-    if ( (unsigned int *)((char *)v22 + v21) < v22 )
-      return (unsigned int)-1073741675;
-  }
-  v33 = *v23;
-  v34 = v23 + 1;
-  if ( v23 + 1 >= v23 )
-  {
-    v7 = 0LL;
-    if ( v33 )
-      v7 = v34;
-    if ( v33 != 8 )
+    v10 = *(unsigned int **)(a1 + 8);
+    for ( i = 0; i < 3; ++i )
+    {
+      v12 = *v10;
+      v13 = v10 + 1;
+      if ( v10 + 1 < v10 )
+        goto LABEL_7;
+      v10 = (unsigned int *)((char *)v13 + v12);
+      if ( (unsigned int *)((char *)v13 + v12) < v13 )
+        goto LABEL_7;
+    }
+    v22 = *v10;
+    v23 = v10 + 1;
+    if ( v10 + 1 < v10 )
+    {
+LABEL_7:
+      v14 = -1073741675;
+      goto LABEL_12;
+    }
+    v15 = 0LL;
+    if ( v22 )
+      v15 = v23;
+    v14 = 0;
+    if ( v22 != 8 )
       return (unsigned int)-1073741789;
-    v35 = *(_QWORD *)v7;
-    if ( *(_DWORD *)a1 <= 4u )
-      return (unsigned int)-1073741811;
-    v27 = v31;
+    v4 = *(_QWORD *)v15;
+  }
+  else
+  {
+    v14 = -1073741811;
+  }
+LABEL_12:
+  if ( v14 < 0 )
+    return (unsigned int)v14;
+  if ( v9 && *(_DWORD *)a1 > 4u )
+  {
+    v16 = *(unsigned int **)(a1 + 8);
     for ( j = 0; j < 4; ++j )
     {
-      v25 = *v27;
-      v26 = v27 + 1;
-      if ( v27 + 1 < v27 )
-        return (unsigned int)-1073741675;
-      v27 = (unsigned int *)((char *)v26 + v25);
-      if ( (unsigned int *)((char *)v26 + v25) < v26 )
-        return (unsigned int)-1073741675;
+      v18 = *v16;
+      v19 = v16 + 1;
+      if ( v16 + 1 < v16 )
+        goto LABEL_17;
+      v16 = (unsigned int *)((char *)v19 + v18);
+      if ( (unsigned int *)((char *)v19 + v18) < v19 )
+        goto LABEL_17;
     }
-    v36 = *v27;
-    v37 = (void **)(v27 + 1);
-    if ( v27 + 1 >= v27 )
+    v24 = *v16;
+    v25 = (void **)(v16 + 1);
+    if ( v16 + 1 < v16 )
     {
-      v8 = 0LL;
-      if ( v36 )
-        v8 = v37;
-      if ( v36 != 8 )
-        return (unsigned int)-1073741762;
-      v38 = *v8;
-      if ( *(_DWORD *)a1 > 5u )
+LABEL_17:
+      v14 = -1073741675;
+      goto LABEL_22;
+    }
+    v20 = 0LL;
+    if ( v24 )
+      v20 = v25;
+    v14 = 0;
+    if ( v24 != 8 )
+      return (unsigned int)-1073741762;
+    v5 = *v20;
+  }
+  else
+  {
+    v14 = -1073741811;
+  }
+LABEL_22:
+  if ( v14 < 0 )
+    return (unsigned int)v14;
+  if ( v9 && *(_DWORD *)a1 > 5u )
+  {
+    for ( k = 0; k < 5; ++k )
+    {
+      v40 = *v9;
+      v41 = v9 + 1;
+      if ( v9 + 1 < v9 )
+        goto LABEL_85;
+      v9 = (unsigned int *)((char *)v41 + v40);
+      if ( (unsigned int *)((char *)v41 + v40) < v41 )
+        goto LABEL_85;
+    }
+    v26 = *v9;
+    if ( v9 + 1 < v9 )
+    {
+LABEL_85:
+      v14 = -1073741675;
+      goto LABEL_39;
+    }
+    v27 = 0LL;
+    if ( v26 )
+      v27 = (int *)(v9 + 1);
+    v14 = 0;
+    if ( v26 == 4 )
+    {
+      v6 = *v27;
+      goto LABEL_39;
+    }
+    return (unsigned int)-1073741789;
+  }
+  v14 = -1073741811;
+LABEL_39:
+  if ( v14 < 0 )
+    return (unsigned int)v14;
+  if ( v6 != 16 )
+    return (unsigned int)-1073741762;
+  if ( !v5 )
+    return (unsigned int)-1073741811;
+  Object = 0LL;
+  v28 = ObReferenceObjectByHandle(v5, 0, (POBJECT_TYPE)IoFileObjectType, 1, &Object, 0LL);
+  v29 = (struct _FILE_OBJECT *)Object;
+  v14 = v28;
+  if ( v28 >= 0 )
+  {
+    LODWORD(v47) = 0;
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
+    if ( !PoolWithTag )
+    {
+      v14 = -1073741801;
+      goto LABEL_45;
+    }
+    v14 = FsRtlKernelFsControlFile(v29, 590068, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v47);
+    if ( v14 < 0 )
+      goto LABEL_56;
+    if ( (unsigned int)v47 < 0x40 )
+    {
+      v14 = -1073741762;
+LABEL_56:
+      ExFreePoolWithTag(PoolWithTag, 0x20534C53u);
+      goto LABEL_45;
+    }
+    v37 = *PoolWithTag;
+    if ( v29->WriteAccess )
+    {
+      v14 = FsRtlKernelFsControlFile(v29, 590063, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v47);
+      if ( v14 < 0 )
+        goto LABEL_56;
+      if ( (unsigned int)v47 < 8 )
       {
-        for ( k = 0; k < 5; ++k )
-        {
-          v29 = *v31;
-          v30 = v31 + 1;
-          if ( v31 + 1 < v31 )
-            return (unsigned int)-1073741675;
-          v31 = (unsigned int *)((char *)v30 + v29);
-          if ( (unsigned int *)((char *)v30 + v29) < v30 )
-            return (unsigned int)-1073741675;
-        }
-        v39 = *v31;
-        if ( v31 + 1 < v31 )
-          return (unsigned int)-1073741675;
-        v9 = 0LL;
-        if ( v39 )
-          v9 = v31 + 1;
-        if ( v39 != 4 )
-          return (unsigned int)-1073741789;
-        if ( *v9 != 16 )
-          return (unsigned int)-1073741762;
-        if ( !v38 )
-          return (unsigned int)-1073741811;
-        Object = 0LL;
-        v10 = ObReferenceObjectByHandle(v38, 0, (POBJECT_TYPE)IoFileObjectType, 1, &Object, 0LL);
-        v11 = (struct _FILE_OBJECT *)Object;
-        v12 = v10;
-        if ( v10 < 0 )
-        {
-LABEL_21:
-          if ( v11 )
-            ObfDereferenceObject(v11);
-          if ( v12 < 0 )
-            return (unsigned int)v12;
-          *(_DWORD *)(a4 + 4) = 32;
-          Pool2 = ExAllocatePool2(256LL, 32LL, 542329939LL);
-          if ( !Pool2 )
-            return (unsigned int)-1073741801;
-          *(_QWORD *)(a4 + 8) = Pool2;
-          *(_DWORD *)a4 = 0;
-          if ( Pool2 + 4 < Pool2 )
-            return (unsigned int)-1073741675;
-          if ( Pool2 + 12 > Pool2 + *(unsigned int *)(a4 + 4) )
-            return (unsigned int)-1073741789;
-          *(_DWORD *)Pool2 = 8;
-          *(_QWORD *)(Pool2 + 4) = v35;
-          v15 = ++*(_DWORD *)a4;
-          v16 = *(_QWORD *)(a4 + 8);
-          if ( !v16 )
-          {
-            v42 = *(_DWORD *)(a4 + 4);
-            if ( v42 + 20 >= v42 )
-            {
-              *(_DWORD *)(a4 + 4) = v42 + 20;
-              *(_DWORD *)a4 = v15 + 1;
-              return 0;
-            }
-            *(_DWORD *)(a4 + 4) = -1;
-            return (unsigned int)-1073741675;
-          }
-          v17 = 0;
-          for ( m = *(_QWORD *)(a4 + 8); v17 < v15; m += v19 )
-          {
-            v19 = *(_DWORD *)m + 4;
-            if ( *(_DWORD *)m >= 0xFFFFFFFC || m + v19 < m )
-              return (unsigned int)-1073741675;
-            ++v17;
-          }
-          if ( m + 4 < m )
-            return (unsigned int)-1073741675;
-          v12 = 0;
-          if ( m + 20 <= v16 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
-          {
-            *(_DWORD *)m = 16;
-            *(_OWORD *)(m + 4) = v4;
-            ++*(_DWORD *)a4;
-            return (unsigned int)v12;
-          }
-          return (unsigned int)-1073741789;
-        }
-        LODWORD(v45) = 0;
-        v13 = (__int64 *)ExAllocatePool2(256LL, 584LL, 542329939LL);
-        if ( !v13 )
-        {
-          v12 = -1073741801;
-          goto LABEL_21;
-        }
-        v12 = FsRtlKernelFsControlFile(v11, v13, 0x248u, (__int64)&v45);
-        if ( v12 >= 0 )
-        {
-          if ( (unsigned int)v45 < 0x40 )
-          {
-LABEL_71:
-            v12 = -1073741762;
-            goto LABEL_20;
-          }
-          v40 = *v13;
-          if ( !v11->WriteAccess )
-          {
-            v12 = FsRtlKernelFsControlFile(v11, v13, 0x248u, (__int64)&v45);
-            if ( v12 < 0 )
-              goto LABEL_20;
-            if ( (unsigned int)v45 >= 0x40 )
-            {
-              v41 = v13[3];
-              goto LABEL_75;
-            }
-            goto LABEL_71;
-          }
-          v12 = FsRtlKernelFsControlFile(v11, v13, 0x248u, (__int64)&v45);
-          if ( v12 >= 0 )
-          {
-            if ( (unsigned int)v45 >= 8 )
-            {
-              v41 = *v13;
-LABEL_75:
-              *(_QWORD *)&v43 = v40;
-              *((_QWORD *)&v43 + 1) = v41;
-              v4 = v43;
-              goto LABEL_20;
-            }
-            goto LABEL_71;
-          }
-        }
-LABEL_20:
-        ExFreePoolWithTag(v13, 0);
-        goto LABEL_21;
+LABEL_63:
+        v14 = -1073741762;
+        goto LABEL_56;
       }
-      return (unsigned int)-1073741811;
+      v39 = *PoolWithTag;
+    }
+    else
+    {
+      v14 = FsRtlKernelFsControlFile(v29, 590059, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v47);
+      if ( v14 < 0 )
+        goto LABEL_56;
+      if ( (unsigned int)v47 < 0x40 )
+        goto LABEL_63;
+      v39 = PoolWithTag[3];
+    }
+    *(_QWORD *)&v45 = v37;
+    *((_QWORD *)&v45 + 1) = v39;
+    v7 = v45;
+    goto LABEL_56;
+  }
+LABEL_45:
+  if ( v29 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)v29);
+  if ( v14 >= 0 )
+  {
+    *(_DWORD *)(a4 + 4) = 32;
+    v31 = (char *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20534C53u);
+    if ( !v31 )
+      return (unsigned int)-1073741801;
+    *(_QWORD *)(a4 + 8) = v31;
+    *(_DWORD *)a4 = 0;
+    if ( v31 + 4 < v31 )
+      return (unsigned int)-1073741675;
+    if ( v31 + 12 > &v31[*(unsigned int *)(a4 + 4)] )
+      return (unsigned int)-1073741789;
+    *(_DWORD *)v31 = 8;
+    *(_QWORD *)(v31 + 4) = v4;
+    v32 = ++*(_DWORD *)a4;
+    v33 = *(_QWORD *)(a4 + 8);
+    if ( v33 )
+    {
+      v34 = 0;
+      for ( m = *(_QWORD *)(a4 + 8); v34 < v32; m += v36 )
+      {
+        v36 = *(_DWORD *)m + 4;
+        if ( *(_DWORD *)m >= 0xFFFFFFFC || m + v36 < m )
+          return (unsigned int)-1073741675;
+        ++v34;
+      }
+      if ( m + 4 < m )
+        return (unsigned int)-1073741675;
+      v14 = 0;
+      if ( m + 20 <= v33 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+      {
+        *(_DWORD *)m = 16;
+        *(_OWORD *)(m + 4) = v7;
+        ++*(_DWORD *)a4;
+        return (unsigned int)v14;
+      }
+      return (unsigned int)-1073741789;
+    }
+    v42 = *(_DWORD *)(a4 + 4);
+    v43 = -1;
+    v44 = v42 + 20;
+    if ( v42 + 20 >= v42 )
+      v43 = v42 + 20;
+    v14 = v44 < v42 ? 0xC0000095 : 0;
+    *(_DWORD *)(a4 + 4) = v43;
+    if ( v44 >= v42 )
+    {
+      v14 = 0;
+      *(_DWORD *)a4 = v32 + 1;
     }
   }
-  return (unsigned int)-1073741675;
+  return (unsigned int)v14;
 }

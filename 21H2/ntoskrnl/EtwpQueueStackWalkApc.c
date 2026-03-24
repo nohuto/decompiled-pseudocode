@@ -1,67 +1,56 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x1406314E0
+ * XREFs of EtwpQueueStackWalkApc @ 0x1405A6C40
  * Callers:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpStackTraceDispatcher @ 0x140460770 (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x140631A30 (EtwpStackWalkDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x1405A70E0 (EtwpStackWalkDpc.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x14024EC10 (KeRemoveQueueApc.c)
- *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x1402F47B0 (KeInitializeApc.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1402F69F0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402FE2A0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     KeTryToInsertQueueApc @ 0x140570750 (KeTryToInsertQueueApc.c)
- *     EtwpPopFreeApcEntry @ 0x140631448 (EtwpPopFreeApcEntry.c)
- *     EtwpQueueStackWalkDpc @ 0x140631710 (EtwpQueueStackWalkDpc.c)
+ *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
+ *     KeRemoveQueueApc @ 0x1402C4D4C (KeRemoveQueueApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     KeTryToInsertQueueApc @ 0x14051A810 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1405A6E1C (EtwpQueueStackWalkDpc.c)
  */
 
-char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, char a4, _SLIST_ENTRY **a5)
+void __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, unsigned int *a4)
 {
-  char v5; // r13
-  struct _SLIST_ENTRY *v6; // rbp
-  unsigned int v7; // esi
-  PSLIST_ENTRY v12; // rax
-  __int64 v13; // r15
+  char v4; // r12
+  struct _SLIST_ENTRY *v5; // rsi
+  unsigned int v10; // ebp
+  __int64 v11; // r8
+  __int64 v12; // rdx
   char inserted; // al
-  signed int v16; // ecx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  signed int v17; // eax
 
-  v5 = 0;
-  v6 = 0LL;
-  v7 = 0;
-  if ( (struct _KTHREAD *)a1 != KeGetCurrentThread()
-    || *(_DWORD *)(*(_QWORD *)(a1 + 544) + 888LL) + ((*(_DWORD *)(*(_QWORD *)(a1 + 544) + 632LL) >> 3) & 1)
-    || *(_BYTE *)(a1 + 644) )
-  {
-    return 0;
-  }
-  if ( a4 )
-  {
-    if ( _bittest((const signed __int32 *)(a1 + 120), 0x17u) )
-      return 0;
-  }
-  else
-  {
-    v7 = (*((_WORD *)a3 + 409) & 7) + 24;
-    if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), v7) )
-      return 0;
-  }
+  v4 = 0;
+  v5 = 0LL;
+  if ( (struct _KTHREAD *)a1 != KeGetCurrentThread() )
+    return;
+  if ( *(_DWORD *)(*(_QWORD *)(a1 + 544) + 888LL) + ((*(_DWORD *)(*(_QWORD *)(a1 + 544) + 632LL) >> 3) & 1) )
+    return;
+  if ( *(_BYTE *)(a1 + 644) )
+    return;
+  v10 = (*((_WORD *)a3 + 417) & 7) + 24;
+  if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), v10) )
+    return;
   if ( (*(_DWORD *)(a1 + 116) & 0x4000) == 0 )
-    goto LABEL_18;
+    goto LABEL_15;
   if ( !ExAcquireRundownProtectionCacheAwareEx(
-          *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)a3 + 137) + 448LL) + 8LL * *a3),
+          *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)a3 + 135) + 448LL) + 8LL * *a3),
           1u) )
-    goto LABEL_18;
-  v5 = 1;
-  v12 = EtwpPopFreeApcEntry((__int64)a3, a2);
-  v6 = v12;
-  if ( !v12 || !a3[80] )
-    goto LABEL_18;
-  v13 = (__int64)&v12[-7];
-  *((_BYTE *)&v12[1].Next + 8) = a4;
-  v12[1].Next = *a5;
+    goto LABEL_15;
+  v4 = 1;
+  v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)a3 + 58);
+  if ( !v5 )
+    goto LABEL_15;
   KeInitializeApc(
-    (__int64)&v12[-7],
+    (__int64)v5,
     a1,
     0,
     (__int64)EtwpStackWalkApc,
@@ -69,47 +58,36 @@ char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned i
     (__int64)EtwpStackWalkApc,
     0,
     (__int64)a3);
+  if ( !a3[84] )
+    goto LABEL_15;
+  v11 = a4[1];
+  v12 = *a4;
   if ( a2 <= 2u )
-    inserted = KeInsertQueueApc(v13, 0LL, 0LL, 0);
+    inserted = KeInsertQueueApc((__int64)v5, v12, v11, 0);
   else
-    inserted = KeTryToInsertQueueApc(v13, 0LL);
-  if ( !a3[80] )
+    inserted = KeTryToInsertQueueApc((__int64)v5, v12, v11);
+  if ( !a3[84] )
   {
-    if ( inserted && !KeRemoveQueueApc(v13) )
-      return 0;
-    goto LABEL_18;
+    if ( inserted && !KeRemoveQueueApc((__int64)v5, v14, v15, v16) )
+      return;
+    goto LABEL_15;
   }
   if ( !inserted )
   {
     if ( a2 > 2u )
-    {
-      if ( a4 )
-      {
-LABEL_21:
-        RtlpInterlockedPushEntrySList((PSLIST_HEADER)a3 + 58, v6);
-LABEL_22:
-        if ( v5 )
-          ExReleaseRundownProtectionCacheAwareEx(
-            *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)a3 + 137) + 448LL) + 8LL * *a3),
-            1u);
-        return 0;
-      }
-      EtwpQueueStackWalkDpc(a1, a3, a5);
-LABEL_19:
-      _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), v7);
-LABEL_20:
-      if ( !v6 )
-        goto LABEL_22;
-      goto LABEL_21;
-    }
-LABEL_18:
-    if ( a4 )
-      goto LABEL_20;
-    goto LABEL_19;
+      EtwpQueueStackWalkDpc(a1, a3, a4);
+LABEL_15:
+    _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), v10);
+    if ( v4 )
+      ExReleaseRundownProtectionCacheAwareEx(
+        *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)a3 + 135) + 448LL) + 8LL * *a3),
+        1u);
+    if ( v5 )
+      RtlpInterlockedPushEntrySList((PSLIST_HEADER)a3 + 58, v5);
+    return;
   }
-  _InterlockedIncrement((volatile signed __int32 *)a3 + 243);
-  v16 = a3[243];
-  if ( v16 > (int)a3[244] )
-    a3[244] = v16;
-  return 1;
+  _InterlockedIncrement((volatile signed __int32 *)a3 + 240);
+  v17 = a3[240];
+  if ( v17 > (int)a3[241] )
+    a3[241] = v17;
 }

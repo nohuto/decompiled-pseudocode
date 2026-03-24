@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0240F90
+ * XREFs of ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0245024
  * Callers:
- *     xxxSBTrackInit @ 0x1C0241B74 (xxxSBTrackInit.c)
+ *     xxxSBTrackInit @ 0x1C0245C00 (xxxSBTrackInit.c)
  * Callees:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     SystoChar @ 0x1C00FC260 (SystoChar.c)
- *     xxxTranslateMessage @ 0x1C010081C (xxxTranslateMessage.c)
- *     xxxCallMsgFilter @ 0x1C013EB60 (xxxCallMsgFilter.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
+ *     SystoChar @ 0x1C010B830 (SystoChar.c)
+ *     xxxTranslateMessage @ 0x1C01107D0 (xxxTranslateMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     xxxCallMsgFilter @ 0x1C01E6F9C (xxxCallMsgFilter.c)
  */
 
 void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *a3)
@@ -18,7 +18,7 @@ void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *
   __int64 v6; // rdi
   void (__fastcall *v7)(struct tagWND *, __int64, _QWORD, __int64, struct tagSBCALC *); // rbp
   struct tagWND *v8; // rdx
-  int v9; // ecx
+  unsigned int v9; // eax
   unsigned int v10; // r8d
   __int64 v11; // rdx
   unsigned int v12; // eax
@@ -38,7 +38,7 @@ void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *
     if ( v7 )
     {
       if ( (*(_DWORD *)v6 & 2) != 0 )
-        SetOrClrWF(1, a1, 0x620u, 1);
+        SetOrClrWF(1, (__int64)a1, 0x620u, 1);
       if ( gpqForeground )
       {
         v8 = *(struct tagWND **)(gpqForeground + 112LL);

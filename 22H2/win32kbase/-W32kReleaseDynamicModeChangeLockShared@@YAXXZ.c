@@ -1,9 +1,9 @@
 /*
- * XREFs of ?W32kReleaseDynamicModeChangeLockShared@@YAXXZ @ 0x1C01693D0
+ * XREFs of ?W32kReleaseDynamicModeChangeLockShared@@YAXXZ @ 0x1C014AB00
  * Callers:
  *     <none>
  * Callees:
- *     DxEngUnlockShareSem @ 0x1C0169440 (DxEngUnlockShareSem.c)
+ *     DxEngUnlockShareSem @ 0x1C014AB60 (DxEngUnlockShareSem.c)
  */
 
 void W32kReleaseDynamicModeChangeLockShared(void)

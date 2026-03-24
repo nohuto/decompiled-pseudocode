@@ -1,31 +1,29 @@
 /*
- * XREFs of ExCreateCallback @ 0x1407DC8B0
+ * XREFs of ExCreateCallback @ 0x1406A0050
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     DifExCreateCallbackWrapper @ 0x1405D81B0 (DifExCreateCallbackWrapper.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822950 (KeRegisterProcessorChangeCallback.c)
- *     HaliInitPowerManagement @ 0x1408365C0 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x1408559F0 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x140863D30 (IoRegisterBootDriverCallback.c)
- *     ExInitLicenseCallback @ 0x140865F2C (ExInitLicenseCallback.c)
- *     KiFilterFiberContext @ 0x140B18C30 (KiFilterFiberContext.c)
- *     PiCslInitialize @ 0x140B3F384 (PiCslInitialize.c)
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
- *     SshpAlpcInitialize @ 0x140B680A4 (SshpAlpcInitialize.c)
- *     ExpInitializeCallbacks @ 0x140B6C95C (ExpInitializeCallbacks.c)
- *     PopUmpoInitializeChannel @ 0x140B70C0C (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140B72254 (PopUmpoInitializeMonitorChannel.c)
- *     IopInitializeSessionNotifications @ 0x140B75F78 (IopInitializeSessionNotifications.c)
- *     PopSetupKsrCallbacks @ 0x140B76B3C (PopSetupKsrCallbacks.c)
- *     PiKsrNotifyInitialize @ 0x140B96390 (PiKsrNotifyInitialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     HaliInitPowerManagement @ 0x1407AE5E0 (HaliInitPowerManagement.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8720 (KeRegisterProcessorChangeCallback.c)
+ *     HalpMiscInitializeKsr @ 0x1407C8B48 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x1407D3860 (IoRegisterBootDriverCallback.c)
+ *     ExInitLicenseCallback @ 0x1407D4DC8 (ExInitLicenseCallback.c)
+ *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
+ *     PiCslInitialize @ 0x140A53224 (PiCslInitialize.c)
+ *     ExpInitializeCallbacks @ 0x140A6E368 (ExpInitializeCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
+ *     IopInitializeSessionNotifications @ 0x140A733CC (IopInitializeSessionNotifications.c)
+ *     PopSetupKsrCallbacks @ 0x140A73FF0 (PopSetupKsrCallbacks.c)
+ *     PiKsrNotifyInitialize @ 0x140A91350 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExpUnlockCallbackListExclusive @ 0x140364750 (ExpUnlockCallbackListExclusive.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1403A5F6C (ExpUnlockCallbackListExclusive.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(
@@ -34,75 +32,80 @@ NTSTATUS __stdcall ExCreateCallback(
         BOOLEAN Create,
         BOOLEAN AllowMultipleCallbacks)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  __m128i v5; // xmm1
-  __int128 v8; // xmm0
+  struct _KTHREAD *CurrentThread; // rsi
+  __int128 v7; // xmm0
+  HANDLE v9; // rdi
   __int128 v10; // xmm0
-  NTSTATUS inserted; // ebx
-  char *v13; // rbx
-  _QWORD *v14; // rax
-  _QWORD *v15; // rcx
-  PVOID *Object; // [rsp+20h] [rbp-39h]
-  PVOID v17; // [rsp+50h] [rbp-9h] BYREF
-  __int128 v18; // [rsp+58h] [rbp-1h] BYREF
-  __m128i v19; // [rsp+68h] [rbp+Fh]
-  __int128 v20; // [rsp+78h] [rbp+1Fh]
-  HANDLE Handle; // [rsp+C8h] [rbp+6Fh] BYREF
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // ebx
+  PADAPTER_OBJECT v14; // rbx
+  _DMA_OPERATIONS ***v15; // rcx
+  _DMA_OPERATIONS **p_DmaOperations; // rax
+  NTSTATUS inserted; // eax
+  char *Object; // [rsp+28h] [rbp-39h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-9h] BYREF
+  PVOID v20; // [rsp+60h] [rbp-1h] BYREF
+  __int128 v21; // [rsp+68h] [rbp+7h] BYREF
+  __m128i v22; // [rsp+78h] [rbp+17h]
+  __int128 v23; // [rsp+88h] [rbp+27h]
+  HANDLE Handle; // [rsp+D0h] [rbp+6Fh] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = *(__m128i *)&ObjectAttributes->ObjectName;
-  v8 = *(_OWORD *)&ObjectAttributes->Length;
+  v7 = *(_OWORD *)&ObjectAttributes->Length;
+  v9 = 0LL;
+  v22 = *(__m128i *)&ObjectAttributes->ObjectName;
   Handle = 0LL;
-  v19 = v5;
-  v17 = 0LL;
-  v18 = v8;
+  v21 = v7;
+  DmaAdapter = 0LL;
   v10 = *(_OWORD *)&ObjectAttributes->SecurityDescriptor;
-  v19.m128i_i32[2] = _mm_cvtsi128_si32(_mm_srli_si128(v5, 8)) | 0x200;
-  v20 = v10;
-  if ( v5.m128i_i64[0] )
+  v22.m128i_i32[2] = _mm_cvtsi128_si32(_mm_srli_si128(v22, 8)) | 0x200;
+  v23 = v10;
+  if ( v22.m128i_i64[0] )
   {
-    inserted = ObOpenObjectByName((__int64)&v18, (__int64)ExCallbackObjectType, 0, 0LL, 0, 0LL, (__int64)&Handle);
-    if ( inserted >= 0 )
-    {
-LABEL_3:
-      v17 = 0LL;
-      inserted = ObReferenceObjectByHandle(Handle, 0, ExCallbackObjectType, 0, &v17, 0LL);
-      ZwClose(Handle);
-      if ( inserted >= 0 )
-        *CallbackObject = (PCALLBACK_OBJECT)v17;
-      return inserted;
-    }
+    v11 = ObOpenObjectByName((unsigned int)&v21, (_DWORD)ExCallbackObjectType, 0, 0, 0, 0LL, (__int64)&Handle);
+    v9 = Handle;
+    v12 = v11;
   }
   else
   {
-    inserted = -1073741823;
+    v12 = -1073741823;
   }
+  if ( v12 >= 0 )
+    goto LABEL_6;
   if ( Create )
   {
-    inserted = ObCreateObjectEx(0, ExCallbackObjectType, (__int64)&v18, 0, (__int64)Object, 56, 0, 0, &v17, 0LL);
-    if ( inserted >= 0 )
-    {
-      v13 = (char *)v17;
-      *(_DWORD *)v17 = 1819042115;
-      v13[32] = AllowMultipleCallbacks;
-      *((_QWORD *)v13 + 3) = v13 + 16;
-      *((_QWORD *)v13 + 2) = v13 + 16;
-      *((_QWORD *)v13 + 1) = 0LL;
-      --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
-      v14 = (_QWORD *)qword_140C2D6F8;
-      v15 = v13 + 40;
-      if ( *(__int64 **)qword_140C2D6F8 != &ExpCallbackListHead )
-        __fastfail(3u);
-      *v15 = &ExpCallbackListHead;
-      *((_QWORD *)v13 + 6) = v14;
-      *v14 = v15;
-      qword_140C2D6F8 = (__int64)(v13 + 40);
-      ExpUnlockCallbackListExclusive((__int64)CurrentThread);
-      inserted = ObInsertObjectEx(v13, 0LL, 1, 0, 0, 0LL, &Handle);
-      if ( inserted >= 0 )
-        goto LABEL_3;
-    }
+    v12 = ObCreateObjectEx(0, ExCallbackObjectType, (int)&v21, 0, Object, 56, 0, 0, &DmaAdapter, 0LL);
+    if ( v12 < 0 )
+      return v12;
+    v14 = DmaAdapter;
+    *(_DWORD *)&DmaAdapter->Version = 1819042115;
+    LOBYTE(v14[2].Version) = AllowMultipleCallbacks;
+    v14[1].DmaOperations = (_DMA_OPERATIONS *)&v14[1];
+    *(_QWORD *)&v14[1].Version = v14 + 1;
+    v14->DmaOperations = 0LL;
+    --CurrentThread->SpecialApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
+    v15 = (_DMA_OPERATIONS ***)qword_140C19448;
+    p_DmaOperations = &v14[2].DmaOperations;
+    if ( *(__int64 **)qword_140C19448 != &ExpCallbackListHead )
+      __fastfail(3u);
+    *(_QWORD *)&v14[3].Version = qword_140C19448;
+    *p_DmaOperations = (_DMA_OPERATIONS *)&ExpCallbackListHead;
+    *v15 = p_DmaOperations;
+    qword_140C19448 = (__int64)&v14[2].DmaOperations;
+    ExpUnlockCallbackListExclusive((__int64)CurrentThread);
+    inserted = ObInsertObjectEx(v14, 0LL, 1u, 0, 0, 0LL, (unsigned __int64 *)&Handle);
+    v9 = Handle;
+    v12 = inserted;
   }
-  return inserted;
+  if ( v12 >= 0 )
+  {
+LABEL_6:
+    v20 = 0LL;
+    v12 = ObReferenceObjectByHandle(v9, 0, ExCallbackObjectType, 0, &v20, 0LL);
+    ZwClose(v9);
+    if ( v12 >= 0 )
+      *CallbackObject = (PCALLBACK_OBJECT)v20;
+  }
+  return v12;
 }

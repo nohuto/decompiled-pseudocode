@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004F988
+ * XREFs of McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004EBF4
  * Callers:
- *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02FA9A8 (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
- *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FAAA0 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02BF83C (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BF934 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(

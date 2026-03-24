@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulSynchronizeRedirectionBitmaps@@YAJPEAUDHPDEV__@@PEA_K@Z @ 0x1C02B1660
+ * XREFs of ?MulSynchronizeRedirectionBitmaps@@YAJPEAUDHPDEV__@@PEA_K@Z @ 0x1C02A4BA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulSynchronizeRedirectionBitmaps(struct DHPDEV__ *a1, unsigned __int64 *a2)
@@ -19,9 +19,9 @@ __int64 __fastcall MulSynchronizeRedirectionBitmaps(struct DHPDEV__ *a1, unsigne
   while ( 1 )
   {
     v5 = v2[6];
-    if ( (*(_DWORD *)(v5 + 1792) & 0x8000000) == 0 )
+    if ( (*(_DWORD *)(v5 + 1824) & 0x8000000) == 0 )
     {
-      if ( *(_QWORD *)(v5 + 3440) )
+      if ( *(_QWORD *)(v5 + 3464) )
         break;
     }
     v2 = (_QWORD *)*v2;
@@ -29,8 +29,8 @@ __int64 __fastcall MulSynchronizeRedirectionBitmaps(struct DHPDEV__ *a1, unsigne
     if ( !(_DWORD)v4 )
       return v3;
   }
-  return (*(unsigned int (__fastcall **)(_QWORD, unsigned __int64 *, _QWORD *, __int64))(v5 + 3440))(
-           *(_QWORD *)(v5 + 1768),
+  return (*(unsigned int (__fastcall **)(_QWORD, unsigned __int64 *, _QWORD *, __int64))(v5 + 3464))(
+           *(_QWORD *)(v5 + 1800),
            a2,
            v2,
            v4);

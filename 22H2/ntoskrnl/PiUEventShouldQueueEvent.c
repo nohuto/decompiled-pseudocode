@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventShouldQueueEvent @ 0x14031D6C0
+ * XREFs of PiUEventShouldQueueEvent @ 0x140360970
  * Callers:
- *     PiUEventNotifyUserMode @ 0x140783EFC (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x14071A80C (PiUEventNotifyUserMode.c)
  * Callees:
  *     <none>
  */
@@ -9,46 +9,38 @@
 bool __fastcall PiUEventShouldQueueEvent(__int64 a1)
 {
   char v1; // dl
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  bool v8; // zf
+  int v3; // eax
+  bool v4; // zf
 
   v1 = 1;
   if ( !PiUEventBroadcastSubscriberPresent )
   {
-    v3 = *(_DWORD *)(a1 + 128) - 1;
-    if ( v3 )
+    v3 = *(_DWORD *)(a1 + 128);
+    if ( v3 != 1 )
     {
-      v4 = v3 - 1;
-      if ( !v4 )
+      if ( v3 == 4 )
+        goto LABEL_11;
+      if ( v3 == 2 )
       {
-        v8 = PiUEventDevInterfaceClientCount == 0;
-        return !v8;
+        v4 = PiUEventDevInterfaceClientCount == 0;
+        return !v4;
       }
-      v5 = v4 - 1;
-      if ( v5 )
+      if ( v3 != 3 )
       {
-        v6 = v5 - 1;
-        if ( v6 )
+        if ( v3 == 9 )
         {
-          v7 = v6 - 5;
-          if ( !v7 )
-          {
-            v8 = PiUEventDevInstancePropertyClientCount == 0;
-            return !v8;
-          }
-          if ( (unsigned int)(v7 - 1) > 1 )
-            return v1;
+          v4 = PiUEventDevInstancePropertyClientCount == 0;
+          return !v4;
         }
-        v8 = PiUEventDevInstanceClientCount == 0;
-        return !v8;
+        if ( v3 <= 9 || v3 > 11 )
+          return v1;
+LABEL_11:
+        v4 = PiUEventDevInstanceClientCount == 0;
+        return !v4;
       }
     }
-    v8 = PiUEventDevHandleClientCount == 0;
-    return !v8;
+    v4 = PiUEventDevHandleClientCount == 0;
+    return !v4;
   }
   return v1;
 }

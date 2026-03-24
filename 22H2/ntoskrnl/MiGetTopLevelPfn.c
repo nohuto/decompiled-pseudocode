@@ -1,68 +1,72 @@
 /*
- * XREFs of MiGetTopLevelPfn @ 0x140215FC0
+ * XREFs of MiGetTopLevelPfn @ 0x140333500
  * Callers:
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
- *     MiIdentifyPfn @ 0x14023E4A0 (MiIdentifyPfn.c)
- *     MiGetPagePrivilege @ 0x140282C40 (MiGetPagePrivilege.c)
- *     MiRestoreTransitionPte @ 0x14033501C (MiRestoreTransitionPte.c)
- *     MiReferenceOwningSession @ 0x140348B5C (MiReferenceOwningSession.c)
- *     MiRecheckCombineVm @ 0x140359F64 (MiRecheckCombineVm.c)
- *     MiLockStealUserVm @ 0x1403BD8B8 (MiLockStealUserVm.c)
- *     MiStoreCheckCandidatePage @ 0x14046CFE0 (MiStoreCheckCandidatePage.c)
+ *     MiGetPagePrivilege @ 0x1402A8D80 (MiGetPagePrivilege.c)
+ *     MiIdentifyPfn @ 0x1402C9940 (MiIdentifyPfn.c)
+ *     MiReferenceOwningSession @ 0x1402EC5CC (MiReferenceOwningSession.c)
+ *     MiRestoreTransitionPte @ 0x1402FB620 (MiRestoreTransitionPte.c)
+ *     MiStoreCheckCandidatePage @ 0x14033166C (MiStoreCheckCandidatePage.c)
+ *     MiLockStealUserVm @ 0x140333FE4 (MiLockStealUserVm.c)
+ *     MiRecheckCombineVm @ 0x140367420 (MiRecheckCombineVm.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v1; // edi
-  __int64 v2; // rbx
-  unsigned int v3; // ebp
-  __int64 v5; // rsi
-  __int64 v6; // rcx
-  __int64 *v7; // rcx
-  __int64 v8; // rax
-  int v10; // [rsp+30h] [rbp-58h] BYREF
-  _OWORD v11[2]; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v4; // r8
+  unsigned int v5; // edi
+  int v6; // ebp
+  __int64 v7; // r8
+  __int64 v8; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rsi
+  __int64 *v12; // rcx
+  __int64 v13; // rax
+  int v15; // [rsp+30h] [rbp-58h] BYREF
+  _OWORD v16[2]; // [rsp+38h] [rbp-50h] BYREF
 
-  v1 = 0;
-  v2 = BugCheckParameter2;
-  memset(v11, 0, sizeof(v11));
-  v3 = 0;
-  if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFFLL) != 0xAAAAAAAAAAAAAAABuLL
-                                                                * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4) )
+  v4 = *(_QWORD *)(BugCheckParameter2 + 40);
+  v5 = 0;
+  v6 = 0;
+  memset(v16, 0, sizeof(v16));
+  v7 = v4 & 0xFFFFFFFFFLL;
+  v8 = BugCheckParameter2;
+  v10 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
+  if ( v7 != v10 )
   {
     do
     {
-      v5 = *(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFLL;
-      v6 = v3;
-      v2 = 48 * v5 - 0x220000000000LL;
-      if ( ++v3 > 4 )
+      v11 = v7;
+      v8 = 48 * v7 - 0x58000000000LL;
+      if ( (unsigned int)++v6 > 4 )
         KeBugCheckEx(0x1Au, 0x9696uLL, BugCheckParameter2, 0LL, 0LL);
-      *((_QWORD *)v11 + v6) = v2;
-      v10 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 24), 0x3FuLL) )
+      v15 = 0;
+      *((_QWORD *)v16 + (unsigned int)(v6 - 1)) = v8;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v10);
-        while ( *(__int64 *)(v2 + 24) < 0 );
+          KeYieldProcessorEx(&v15, v10, v7, a4);
+        while ( *(__int64 *)(v8 + 24) < 0 );
       }
+      v7 = *(_QWORD *)(v8 + 40) & 0xFFFFFFFFFLL;
     }
-    while ( (*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFLL) != v5 );
+    while ( v7 != v11 );
   }
-  v7 = (__int64 *)v11;
+  v12 = (__int64 *)v16;
   do
   {
-    v8 = *v7;
-    if ( !*v7 )
+    v13 = *v12;
+    if ( !*v12 )
       break;
-    if ( v8 != v2 )
-      _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    ++v1;
-    ++v7;
+    if ( v13 != v8 )
+      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    ++v5;
+    ++v12;
   }
-  while ( v1 < 4 );
-  return v2;
+  while ( v5 < 4 );
+  return v8;
 }

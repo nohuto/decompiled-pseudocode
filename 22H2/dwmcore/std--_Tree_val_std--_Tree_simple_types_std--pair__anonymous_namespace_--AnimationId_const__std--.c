@@ -1,39 +1,33 @@
 /*
- * XREFs of std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Rrotate @ 0x18002008C
+ * XREFs of std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800290B0
  * Callers:
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Insert_node @ 0x1800FE6BC (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_ea_1800FE6BC.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign @ 0x180028A98 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0xd209ef2d--Animat.c)
+ *     _anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo @ 0x180028FC4 (_anonymous_namespace_--FrameSequenceInfo--_FrameSequenceInfo.c)
+ *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800290B0 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__std--.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B9C4 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800D3944 (_anonymous_namespace_--FramesReport--_FramesReport.c)
  * Callees:
- *     <none>
+ *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800290B0 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__std--.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
-_QWORD *__fastcall std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Rrotate(
+__int64 __fastcall std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______(
         __int64 a1,
-        _QWORD *a2)
+        __int64 a2,
+        __int64 *a3)
 {
-  __int64 v2; // r8
-  __int64 v3; // rax
-  _QWORD *result; // rax
+  __int64 *i; // rbx
+  __int64 *v6; // rcx
+  __int64 result; // rax
 
-  v2 = *a2;
-  *a2 = *(_QWORD *)(*a2 + 16LL);
-  v3 = *(_QWORD *)(v2 + 16);
-  if ( !*(_BYTE *)(v3 + 25) )
-    *(_QWORD *)(v3 + 8) = a2;
-  *(_QWORD *)(v2 + 8) = a2[1];
-  result = *(_QWORD **)a1;
-  if ( a2 == *(_QWORD **)(*(_QWORD *)a1 + 8LL) )
+  for ( i = a3; !*((_BYTE *)i + 25); result = std::_Deallocate<16,0>(v6, 56LL) )
   {
-    result[1] = v2;
+    std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______(
+      a1,
+      a2,
+      i[2]);
+    v6 = i;
+    i = (__int64 *)*i;
   }
-  else
-  {
-    result = (_QWORD *)a2[1];
-    if ( a2 == (_QWORD *)result[2] )
-      result[2] = v2;
-    else
-      *result = v2;
-  }
-  *(_QWORD *)(v2 + 16) = a2;
-  a2[1] = v2;
   return result;
 }

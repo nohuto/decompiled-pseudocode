@@ -1,45 +1,45 @@
 /*
- * XREFs of PnpDiagnosticTraceObject @ 0x1403229A0
+ * XREFs of PnpDiagnosticTraceObject @ 0x1403645B8
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140322760 (PnpDeviceCompletionRoutine.c)
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PipEnumerateDevice @ 0x14079528C (PipEnumerateDevice.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x1407E8B60 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     IopUnloadDriver @ 0x1408585F4 (IopUnloadDriver.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140867450 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14096E100 (PnpQueueQueryAndRemoveEvent.c)
- *     PnpRebalance @ 0x14096E968 (PnpRebalance.c)
- *     PnpInitializeBootStartDriver @ 0x140B41100 (PnpInitializeBootStartDriver.c)
- *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140B678F0 (PnpEarlyLaunchImageNotificationPreProcess.c)
- *     PnpEarlyLaunchImageNotificationPostProcess @ 0x140B68AC0 (PnpEarlyLaunchImageNotificationPostProcess.c)
+ *     PnpDeviceCompletionRoutine @ 0x14036ECE0 (PnpDeviceCompletionRoutine.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140725BC0 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725C90 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F89C (PnpQueueQueryAndRemoveEvent.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PipEnumerateDevice @ 0x1407432C8 (PipEnumerateDevice.c)
+ *     IopUnloadDriver @ 0x140768DB8 (IopUnloadDriver.c)
+ *     PnpRebalance @ 0x1408B87F4 (PnpRebalance.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
+ *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140A6AD90 (PnpEarlyLaunchImageNotificationPreProcess.c)
+ *     PnpEarlyLaunchImageNotificationPostProcess @ 0x140A6B200 (PnpEarlyLaunchImageNotificationPostProcess.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObject(PCEVENT_DESCRIPTOR EventDescriptor, unsigned __int16 *a2)
 {
   REGHANDLE v2; // rbx
-  int v5; // r8d
-  __int16 v7; // [rsp+30h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+48h] [rbp-20h]
-  int v10; // [rsp+50h] [rbp-18h]
-  int v11; // [rsp+54h] [rbp-14h]
+  int v6; // r8d
+  __int16 v7; // [rsp+40h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v9; // [rsp+58h] [rbp-20h]
+  int v10; // [rsp+60h] [rbp-18h]
+  int v11; // [rsp+64h] [rbp-14h]
 
   v2 = PnpEtwHandle;
   if ( !PnpEtwHandle || !EtwEventEnabled(PnpEtwHandle, EventDescriptor) )
     return 0;
-  v5 = *a2;
+  v6 = *a2;
   UserData.Reserved = 0;
   v11 = 0;
-  v7 = (unsigned __int16)v5 >> 1;
+  v7 = (unsigned __int16)v6 >> 1;
   UserData.Ptr = (ULONGLONG)&v7;
   v9 = *((_QWORD *)a2 + 1);
-  v10 = v5;
   UserData.Size = 2;
-  return EtwWrite(v2, EventDescriptor, 0LL, 2u, &UserData);
+  v10 = v6;
+  return EtwWriteEx(v2, EventDescriptor, 0LL, 0, 0LL, 0LL, 2u, &UserData);
 }

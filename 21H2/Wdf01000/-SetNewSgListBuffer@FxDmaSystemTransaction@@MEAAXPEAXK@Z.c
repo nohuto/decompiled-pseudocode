@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetNewSgListBuffer@FxDmaSystemTransaction@@MEAAXPEAXK@Z @ 0x1C00589A0
+ * XREFs of ?SetNewSgListBuffer@FxDmaSystemTransaction@@MEAAXPEAXK@Z @ 0x1C0035D50
  * Callers:
  *     <none>
  * Callees:

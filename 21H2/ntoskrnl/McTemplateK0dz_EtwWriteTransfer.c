@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0dz_EtwWriteTransfer @ 0x1405643B8
+ * XREFs of McTemplateK0dz_EtwWriteTransfer @ 0x14050FE88
  * Callers:
- *     PiCMQueryRemove @ 0x14065F7D4 (PiCMQueryRemove.c)
- *     PipProcessStartPhase1 @ 0x1407491FC (PipProcessStartPhase1.c)
- *     PipProcessStartPhase2 @ 0x140768EA8 (PipProcessStartPhase2.c)
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
- *     PipProcessRestartPhase1 @ 0x14095B2D4 (PipProcessRestartPhase1.c)
- *     PipProcessRestartPhase2 @ 0x14095B398 (PipProcessRestartPhase2.c)
+ *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
+ *     PipProcessStartPhase2 @ 0x14073DCFC (PipProcessStartPhase2.c)
+ *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
+ *     PipProcessRestartPhase1 @ 0x1408B526C (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x1408B5330 (PipProcessRestartPhase2.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0dz_EtwWriteTransfer(

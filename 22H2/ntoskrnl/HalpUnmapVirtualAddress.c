@@ -1,20 +1,21 @@
 /*
- * XREFs of HalpUnmapVirtualAddress @ 0x14037E7D0
+ * XREFs of HalpUnmapVirtualAddress @ 0x1403BB230
  * Callers:
- *     HalpAcpiCheckAndMapTable @ 0x14033564C (HalpAcpiCheckAndMapTable.c)
- *     HalpAcpiGetRsdt @ 0x140336C28 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetTableWork @ 0x140336ED0 (HalpAcpiGetTableWork.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x140337078 (HalpAcpiIsCachedTableCompromised.c)
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     HalUnmapIoSpace @ 0x14051F9C0 (HalUnmapIoSpace.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x140521130 (HalpUsbLegacyStopOhciInterrupt.c)
- *     WdHwDestroyHardwareRegister @ 0x14052A434 (WdHwDestroyHardwareRegister.c)
- *     HalpCheckLowMemoryPostSleep @ 0x140A96CCC (HalpCheckLowMemoryPostSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140A96E08 (HalpCheckLowMemoryPreSleep.c)
- *     HalpAcpiTableCacheInit @ 0x140B4C428 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetRsdt @ 0x1402E7690 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x1402E7850 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x1402E79EC (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiCheckAndMapTable @ 0x1402E7D28 (HalpAcpiCheckAndMapTable.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalUnmapIoSpace @ 0x1404D5590 (HalUnmapIoSpace.c)
+ *     HalpSfiTimerInitialize @ 0x1404D57B0 (HalpSfiTimerInitialize.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D72BC (HalpUsbLegacyStopOhciInterrupt.c)
+ *     WdHwDestroyHardwareRegister @ 0x1404DE3F4 (WdHwDestroyHardwareRegister.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     HalpAcpiPostSleep @ 0x140995B1C (HalpAcpiPostSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x1409A81DC (HalpCheckLowMemoryPreSleep.c)
+ *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpFlushTLB @ 0x14037EAEC (HalpFlushTLB.c)
+ *     HalpFlushTLB @ 0x1403BB550 (HalpFlushTLB.c)
  */
 
 char *__fastcall HalpUnmapVirtualAddress(unsigned __int64 a1, __int64 a2, __int64 a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of CcExitPartition @ 0x14026B4B0
+ * XREFs of CcExitPartition @ 0x14026B5B0
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0EAC (MiDeletePartitionResources.c)
- *     MiDrainCrossPartitionUsage @ 0x1402D1624 (MiDrainCrossPartitionUsage.c)
+ *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
+ *     MiDrainCrossPartitionUsage @ 0x1402D1724 (MiDrainCrossPartitionUsage.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcNotifyWriteBehindInternal @ 0x14012BF1C (CcNotifyWriteBehindInternal.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C3C (CcWaitForCurrentLazyWriterActivityInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcPostDeferredWrites @ 0x1402698B0 (CcPostDeferredWrites.c)
- *     CcDeletePartition @ 0x14026B0A0 (CcDeletePartition.c)
- *     CcDeleteSectionsForPartition @ 0x14026B254 (CcDeleteSectionsForPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcNotifyWriteBehindInternal @ 0x14012BF3C (CcNotifyWriteBehindInternal.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C5C (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     CcDeletePartition @ 0x14026B1A0 (CcDeletePartition.c)
+ *     CcDeleteSectionsForPartition @ 0x14026B354 (CcDeleteSectionsForPartition.c)
  */
 
 void __fastcall CcExitPartition(struct _KEVENT **a1, int a2)

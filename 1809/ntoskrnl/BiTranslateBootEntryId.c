@@ -1,11 +1,11 @@
 /*
- * XREFs of BiTranslateBootEntryId @ 0x1408F463C
+ * XREFs of BiTranslateBootEntryId @ 0x1408F461C
  * Callers:
- *     BiBindEfiBootManager @ 0x1408F1F8C (BiBindEfiBootManager.c)
- *     BiTranslateBootOrder @ 0x1408F469C (BiTranslateBootOrder.c)
+ *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
+ *     BiTranslateBootOrder @ 0x1408F467C (BiTranslateBootOrder.c)
  * Callees:
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiLookupObjectByBootEntry @ 0x1408F4210 (BiLookupObjectByBootEntry.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiLookupObjectByBootEntry @ 0x1408F41F0 (BiLookupObjectByBootEntry.c)
  */
 
 __int64 __fastcall BiTranslateBootEntryId(__int64 **a1, int a2)

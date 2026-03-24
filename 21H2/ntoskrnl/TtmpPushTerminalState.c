@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpPushTerminalState @ 0x1409A2BAC
+ * XREFs of TtmpPushTerminalState @ 0x1408FD150
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A1E04 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC3A4 (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     TtmpCallSetInputMode @ 0x1409A229C (TtmpCallSetInputMode.c)
- *     TtmpQueueTerminalDisplayStateOntoDevice @ 0x1409A2C7C (TtmpQueueTerminalDisplayStateOntoDevice.c)
- *     TtmiGetTerminalById @ 0x1409A3220 (TtmiGetTerminalById.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     TtmpCallSetInputMode @ 0x1408FC83C (TtmpCallSetInputMode.c)
+ *     TtmpQueueTerminalDisplayStateOntoDevice @ 0x1408FD220 (TtmpQueueTerminalDisplayStateOntoDevice.c)
+ *     TtmiGetTerminalById @ 0x1408FD7DC (TtmiGetTerminalById.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 char __fastcall TtmpPushTerminalState(__int64 a1, __int64 a2)
@@ -45,7 +45,7 @@ char __fastcall TtmpPushTerminalState(__int64 a1, __int64 a2)
     }
     else
     {
-      TtmiLogError("TtmpPushTerminalState", 3179LL, (unsigned int)TerminalById, 0xFFFFFFFFLL);
+      TtmiLogError("TtmpPushTerminalState", 3175LL, (unsigned int)TerminalById, 0xFFFFFFFFLL);
     }
   }
   return v3;

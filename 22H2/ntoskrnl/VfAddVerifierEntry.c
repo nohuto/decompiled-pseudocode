@@ -1,56 +1,43 @@
 /*
- * XREFs of VfAddVerifierEntry @ 0x140ADE630
+ * XREFs of VfAddVerifierEntry @ 0x1409EC9E8
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverEnableVerifierForAll @ 0x140ACB618 (VfDriverEnableVerifierForAll.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADB394 (VfSuspectDriversAllocateEntry.c)
- *     MmEnableOrDisableVerifierForDriver @ 0x140AE903C (MmEnableOrDisableVerifierForDriver.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     MmEnableVerifierForDriver @ 0x1409C5BC4 (MmEnableVerifierForDriver.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87C8 (VfDriverEnableVerifierForAll.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9838 (VfSuspectDriversAllocateEntry.c)
  */
 
 __int64 __fastcall VfAddVerifierEntry(const void **String2)
 {
   unsigned int v2; // edi
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v3; // rcx
   struct _KTHREAD *Lock; // rbx
-  __int64 Entry; // rax
-  void *v9; // rbx
+  void **Entry; // rax
+  void **v6; // rbx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  int v11; // [rsp+48h] [rbp+10h] BYREF
+  int v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v11 = 0;
+  v9 = 0;
   DestinationString = 0LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( VfSafeMode )
   {
-    v2 = -1073738742;
-LABEL_13:
-    if ( ViWdmThunksWithIatIndex )
-    {
-      ExFreePoolWithTag(ViWdmThunksWithIatIndex, 0x6D4D7644u);
-      ViWdmThunksWithIatIndex = 0LL;
-    }
-    return v2;
+    return (unsigned int)-1073740961;
   }
-  if ( ViWdmThunksWithIatIndex )
-    return 3221228555LL;
-  VfDriverLock();
-  VfInitSystemNoRebootNeeded(v4, 0, v5, v6);
-  ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
-  ViWdmThunksWithIatIndex = (PVOID)ExAllocatePool2(64LL, 24LL * (unsigned int)ViNumberOfWdmThunks, 0x6D4D7644u);
-  if ( ViWdmThunksWithIatIndex )
+  else
   {
+    VfDriverLock();
+    VfInitSystemNoRebootNeeded(v3, 0);
+    ViDriversLoadLockOwner = 0LL;
+    KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
     RtlInitUnicodeString(&DestinationString, L"*");
     if ( RtlEqualUnicodeString(&DestinationString, (PCUNICODE_STRING)String2, 1u) )
     {
@@ -61,19 +48,18 @@ LABEL_13:
     else
     {
       Entry = VfSuspectDriversAllocateEntry(String2);
-      v9 = (void *)Entry;
+      v6 = Entry;
       if ( Entry )
       {
-        v2 = MmEnableOrDisableVerifierForDriver(Entry, &v11, 1LL);
-        if ( !v11 )
-          ExFreePoolWithTag(v9, 0);
+        v2 = MmEnableVerifierForDriver((__int64)Entry, &v9);
+        if ( !v9 )
+          ExFreePoolWithTag(v6, 0);
       }
       else
       {
-        v2 = -1073741670;
+        return (unsigned int)-1073741670;
       }
     }
-    goto LABEL_13;
   }
-  return (unsigned int)-1073741801;
+  return v2;
 }

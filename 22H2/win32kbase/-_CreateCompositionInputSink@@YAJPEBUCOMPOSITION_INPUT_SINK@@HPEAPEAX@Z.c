@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z @ 0x1C00A333C
+ * XREFs of ?_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z @ 0x1C009504C
  * Callers:
- *     NtCreateImplicitCompositionInputSink @ 0x1C00A3300 (NtCreateImplicitCompositionInputSink.c)
- *     NtCreateCompositionInputSink @ 0x1C00A3320 (NtCreateCompositionInputSink.c)
+ *     NtCreateImplicitCompositionInputSink @ 0x1C0095010 (NtCreateImplicitCompositionInputSink.c)
+ *     NtCreateCompositionInputSink @ 0x1C0095030 (NtCreateCompositionInputSink.c)
  * Callees:
- *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C00A3588 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C0095294 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall _CreateCompositionInputSink(const struct COMPOSITION_INPUT_SINK *a1, int a2, void **a3)

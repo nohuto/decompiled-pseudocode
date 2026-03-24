@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UsbDevice_GetPortStatus @ 0x1C00502E8
+ * XREFs of Crashdump_UsbDevice_GetPortStatus @ 0x1C004D810
  * Callers:
- *     Crashdump_UsbDevice_GetPortType @ 0x1C0050484 (Crashdump_UsbDevice_GetPortType.c)
- *     Crashdump_UsbDevice_ResetPort @ 0x1C0050940 (Crashdump_UsbDevice_ResetPort.c)
+ *     Crashdump_UsbDevice_GetPortType @ 0x1C004D9AC (Crashdump_UsbDevice_GetPortType.c)
+ *     Crashdump_UsbDevice_ResetPort @ 0x1C004DE70 (Crashdump_UsbDevice_ResetPort.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F424 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_GetPortStatus(_QWORD *a1, int a2, _QWORD *a3)

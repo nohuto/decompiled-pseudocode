@@ -10,13 +10,13 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpCancelMessagesByRequestor @ 0x140619A3C (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpWalkConnectionList @ 0x1406C3570 (AlpcpWalkConnectionList.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x1406C840C (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpSignalPortAndUnlock @ 0x1406C9B1C (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpWalkConnectionList @ 0x1406C3550 (AlpcpWalkConnectionList.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1406C83EC (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1406C9AFC (AlpcpSignalPortAndUnlock.c)
  */
 
 __int64 __fastcall AlpcpDisconnectPort(char *Object, char a2)

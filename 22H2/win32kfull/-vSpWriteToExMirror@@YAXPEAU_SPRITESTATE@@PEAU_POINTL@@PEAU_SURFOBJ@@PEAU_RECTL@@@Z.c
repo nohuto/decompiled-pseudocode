@@ -1,50 +1,45 @@
 /*
- * XREFs of ?vSpWriteToExMirror@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02832EC
+ * XREFs of ?vSpWriteToExMirror@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0284D58
  * Callers:
- *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0281D9C (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0283848 (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C00F55E8 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0279AAC (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
- *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027D4BC (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
- *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C027FFE0 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0098730 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0164400 (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
+ *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C01644D4 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027FA90 (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
  */
 
 void __fastcall vSpWriteToExMirror(struct _SPRITESTATE *a1, struct _POINTL *a2, struct _SURFOBJ *a3, struct _RECTL *a4)
 {
   struct _CLIPOBJ *v4; // rax
-  struct REGION *v9; // r14
+  struct REGION *v7; // rbp
   int v10; // eax
-  struct _POINTL v11; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v12[4]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v13[52]; // [rsp+54h] [rbp-ACh] BYREF
-  __int64 v14; // [rsp+88h] [rbp-78h]
-  __int64 v15; // [rsp+A0h] [rbp-60h]
-  int v16; // [rsp+A8h] [rbp-58h]
-  int v17; // [rsp+D0h] [rbp-30h]
-  __int64 v18; // [rsp+E0h] [rbp-20h]
-  int v19; // [rsp+E8h] [rbp-18h]
+  REGION *v11[11]; // [rsp+40h] [rbp-D8h] BYREF
+  int v12; // [rsp+98h] [rbp-80h]
+  int v13; // [rsp+C0h] [rbp-58h]
+  __int64 v14; // [rsp+D0h] [rbp-48h]
+  int v15; // [rsp+D8h] [rbp-40h]
 
-  v15 = 0LL;
+  v11[10] = 0LL;
   v4 = 0LL;
-  v16 = 0;
-  v18 = 0LL;
+  v12 = 0;
   v14 = 0LL;
-  v19 = 0;
-  v9 = (struct REGION *)*((_QWORD *)a1 + 129);
-  v17 = 1;
-  if ( !v9 )
+  v7 = (struct REGION *)*((_QWORD *)a1 + 129);
+  v13 = 1;
+  v11[7] = 0LL;
+  v15 = 0;
+  if ( !v7 )
     goto LABEL_4;
   v10 = bConcurrent(a1);
-  ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v12, v10, v9, (struct ERECTL *)a4, 0);
-  if ( !ERECTL::bEmpty((ERECTL *)v13) )
+  ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v11, v10, v7, (struct ERECTL *)a4, 0);
+  if ( !ERECTL::bEmpty((ERECTL *)((char *)v11 + 4)) )
   {
-    v4 = (struct _CLIPOBJ *)v12;
+    v4 = (struct _CLIPOBJ *)v11;
 LABEL_4:
     a3->iUniq = 0;
-    v11 = 0LL;
-    INVOKEOFFCOPYBITS(&v11, *((struct _SURFOBJ **)a1 + 166), a2, a3, v4, 0LL, a4, (struct _POINTL *)a4);
+    INVOKEOFFCOPYBITS(&gptlZero, *((struct _SURFOBJ **)a1 + 166), a2, a3, v4, 0LL, a4, (struct _POINTL *)a4);
   }
-  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v12);
+  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED(v11);
 }

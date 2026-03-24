@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternHashBucketsFree @ 0x140762F7C
+ * XREFs of RtlpInternHashBucketsFree @ 0x140762F5C
  * Callers:
- *     RtlInternTableIntern @ 0x14069EE7C (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x14069EE5C (RtlInternTableIntern.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpInternHashBucketsFree(__int64 a1, __int64 a2)

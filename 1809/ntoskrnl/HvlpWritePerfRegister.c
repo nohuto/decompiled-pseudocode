@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpWritePerfRegister @ 0x1401B3DEC
+ * XREFs of HvlpWritePerfRegister @ 0x1401B3E0C
  * Callers:
- *     HvlWritePerfIoPort @ 0x1401B3C00 (HvlWritePerfIoPort.c)
- *     HvlWritePerfMsr @ 0x1401B3C70 (HvlWritePerfMsr.c)
+ *     HvlWritePerfIoPort @ 0x1401B3C20 (HvlWritePerfIoPort.c)
+ *     HvlWritePerfMsr @ 0x1401B3C90 (HvlWritePerfMsr.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7270 (HvcallpExtendedFastHypercall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlpHvToNtStatus @ 0x140279480 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpWritePerfRegister(int a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B07D0
+ * XREFs of ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C007C9F0
  * Callers:
  *     <none>
  * Callees:
- *     EngFreeMem @ 0x1C00486B0 (EngFreeMem.c)
- *     ?EngDeletePaletteInternal@@YAHPEAUHPALETTE__@@K@Z @ 0x1C00B0820 (-EngDeletePaletteInternal@@YAHPEAUHPALETTE__@@K@Z.c)
+ *     EngFreeMem @ 0x1C007CAF0 (EngFreeMem.c)
+ *     EngDeletePalette @ 0x1C007CC10 (EngDeletePalette.c)
  */
 
 void __fastcall StubDispDisablePDEV(_QWORD *pv)
@@ -13,6 +13,6 @@ void __fastcall StubDispDisablePDEV(_QWORD *pv)
 
   v2 = (HPALETTE)pv[3];
   if ( v2 )
-    EngDeletePaletteInternal(v2, 0);
+    EngDeletePalette(v2);
   EngFreeMem(pv);
 }

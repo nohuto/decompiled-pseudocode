@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCheckQuerySetVolumeInformation @ 0x1408803D0
+ * XREFs of IoCheckQuerySetVolumeInformation @ 0x14077B010
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ NTSTATUS __stdcall IoCheckQuerySetVolumeInformation(
   __int64 *v3; // r9
   ULONG v4; // ecx
 
-  if ( (unsigned int)FsInformationClass >= 0x10 )
+  if ( (unsigned int)FsInformationClass >= FileFsMaximumInformation )
     return -1073741821;
   v3 = IopSetFsOperationLength;
   if ( !SetOperation )

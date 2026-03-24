@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x1401298EC
+ * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x14012990C
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1401060E0 (NtSetInformationWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  */

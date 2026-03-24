@@ -1,29 +1,24 @@
 /*
- * XREFs of PopHandleSystemIdleReset @ 0x1403B4408
+ * XREFs of PopHandleSystemIdleReset @ 0x140577564
  * Callers:
- *     PopResetIdleTime @ 0x1403B43D8 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x140329C20 (PopResetIdleTime.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x14032C984 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032C9D8 (PopCheckForWork.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140410BB4 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopCheckForWork @ 0x14034A290 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14034AB20 (PopGetPolicyWorker.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall PopHandleSystemIdleReset(__int64 a1, __int64 a2)
+__int64 __fastcall PopHandleSystemIdleReset(int a1)
 {
-  int v2; // ebx
   __int64 result; // rax
 
-  v2 = a1;
   if ( !PopPlatformAoAc )
-    result = Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage(a1, a2);
-  if ( PopIdleScanInterval )
+    KeBugCheckEx(0xA0u, 0xAuLL, 0x102uLL, 0LL, 0LL);
+  if ( a1 == 2 )
   {
-    if ( v2 == 2 )
-    {
-      _InterlockedOr(&PopPendingSystemIdleResetMask, 4u);
-      PopGetPolicyWorker(128);
-      return PopCheckForWork();
-    }
+    _InterlockedOr(&PopPendingSystemIdleResetMask, 4u);
+    PopGetPolicyWorker(128);
+    return PopCheckForWork();
   }
   return result;
 }

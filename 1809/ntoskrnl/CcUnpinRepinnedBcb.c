@@ -1,5 +1,5 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x140269CD0
+ * XREFs of CcUnpinRepinnedBcb @ 0x140269DD0
  * Callers:
  *     <none>
  * Callees:
@@ -10,11 +10,11 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     CcReferenceSharedCacheMapFileObject @ 0x14007DF6C (CcReferenceSharedCacheMapFileObject.c)
  *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     CcIsFatalWriteError @ 0x14012D990 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x1401874A0 (CcPerfLogFlushSection.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402698B0 (CcPostDeferredWrites.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x1401874C0 (CcPerfLogFlushSection.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

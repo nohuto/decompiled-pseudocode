@@ -1,13 +1,13 @@
 /*
- * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x140B07074
+ * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x140A506C4
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x140B04F8C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     RtlUpdateImportRelocationsInImage @ 0x1403C3548 (RtlUpdateImportRelocationsInImage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6C78 (RtlUpdateImportRelocationsInImage.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
   int updated; // eax
   _QWORD v9[14]; // [rsp+40h] [rbp-98h] BYREF
 
-  v1 = ((unsigned int)dword_140C4F478 >> 12) + ((dword_140C4F478 & 0xFFF) != 0);
+  v1 = ((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0);
   if ( (KiSpeculationFeatures & 0x40000000000LL) != 0 )
   {
     v2 = (__int64 *)(a1 + 16);
@@ -36,7 +36,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
           v6 = v3[6] + *((_DWORD *)v3 + 16) + (v1 << 12);
         else
           v6 = 0LL;
-        if ( (MiFlags & 0x8000) != 0 )
+        if ( (MiFlags & 0x10000) != 0 )
         {
           memset(v9, 0, 0x68uLL);
           v9[1] = v5;

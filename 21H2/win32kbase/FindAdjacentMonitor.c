@@ -1,9 +1,9 @@
 /*
- * XREFs of FindAdjacentMonitor @ 0x1C00D01F4
+ * XREFs of FindAdjacentMonitor @ 0x1C00C09A8
  * Callers:
- *     TransformOffscreenAdjacentRect @ 0x1C00D00F8 (TransformOffscreenAdjacentRect.c)
+ *     TransformOffscreenAdjacentRect @ 0x1C00C08AC (TransformOffscreenAdjacentRect.c)
  * Callees:
- *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C006F314 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
+ *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C00713A8 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
  */
 
 __int64 __fastcall FindAdjacentMonitor(int *a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall FindAdjacentMonitor(int *a1, unsigned int a2)
 
   v2 = 0LL;
   v3 = 0;
-  v6 = *((_QWORD *)gpDispInfo + 13);
+  v6 = *(_QWORD *)(gpDispInfo + 104);
   if ( v6 )
   {
     v7 = *a1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorSetPep @ 0x1403B4D20
+ * XREFs of PopProcessorSetPep @ 0x1403CE980
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PopProcessorSetPep(unsigned int a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PopProcessorSetPep(unsigned int a1, __int64 a2)
   if ( v2 && *(_QWORD *)(v2 + 104) )
   {
     PopFxProcessorPlugin = *(_QWORD *)(a2 + 64);
-    *(_QWORD *)(KeGetPrcb(a1) + 34088) = a2;
+    *(_QWORD *)(KeGetPrcb(a1) + 33240) = a2;
   }
   else
   {

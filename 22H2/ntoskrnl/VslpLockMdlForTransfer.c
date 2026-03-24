@@ -1,31 +1,32 @@
 /*
- * XREFs of VslpLockMdlForTransfer @ 0x1403CE600
+ * XREFs of VslpLockMdlForTransfer @ 0x140393B4C
  * Callers:
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslLoadEnclaveData @ 0x14094297C (VslLoadEnclaveData.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     VslLoadEnclaveData @ 0x14088FE0C (VslLoadEnclaveData.c)
+ *     VslLoadEnclaveModule @ 0x14088FF08 (VslLoadEnclaveModule.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14020D970 (MmBuildMdlForNonPagedPool.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140264870 (MmBuildMdlForNonPagedPool.c)
  */
 
 __int64 __fastcall VslpLockMdlForTransfer(__int64 a1, __int64 a2, char a3)
 {
-  __int64 v5; // r11
-  struct _MDL *v6; // rcx
+  __int64 v3; // r10
+  struct _MDL *v4; // rcx
 
   *(_QWORD *)a1 = a2;
-  v5 = *(__int16 *)(a2 + 8);
-  v6 = (struct _MDL *)(a1 + 8);
-  v6->Next = 0LL;
-  v6->Size = 8 * ((((unsigned __int64)(a2 & 0xFFF) + v5 + 4095) >> 12) + 6);
-  v6->MdlFlags = 0;
-  v6->StartVa = (PVOID)(a2 & 0xFFFFFFFFFFFFF000uLL);
-  v6->ByteOffset = a2 & 0xFFF;
-  v6->ByteCount = v5;
-  if ( (a3 & 0x24) != 0 )
-    MmBuildMdlForNonPagedPool(v6);
+  *(_DWORD *)(a1 + 64) = 0;
+  v3 = *(__int16 *)(a2 + 8);
+  v4 = (struct _MDL *)(a1 + 8);
+  v4->Next = 0LL;
+  v4->Size = 8 * ((((unsigned __int64)(a2 & 0xFFF) + v3 + 4095) >> 12) + 6);
+  v4->MdlFlags = 0;
+  v4->StartVa = (PVOID)(a2 & 0xFFFFFFFFFFFFF000uLL);
+  v4->ByteOffset = a2 & 0xFFF;
+  v4->ByteCount = v3;
+  if ( (a3 & 4) != 0 )
+    MmBuildMdlForNonPagedPool(v4);
   else
-    MiProbeAndLockPages((__int64)v6, 0, 0);
-  *(_DWORD *)(a1 + 64) = a3 & 0x20;
+    MiProbeAndLockPages((__int64)v4, 0, 0);
   return 0LL;
 }

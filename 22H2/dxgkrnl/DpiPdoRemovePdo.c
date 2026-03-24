@@ -1,114 +1,132 @@
 /*
- * XREFs of DpiPdoRemovePdo @ 0x1C03A9CBC
+ * XREFs of DpiPdoRemovePdo @ 0x1C02D9BC0
  * Callers:
- *     DpiPdoHandleChildConnectionChange @ 0x1C020F55C (DpiPdoHandleChildConnectionChange.c)
- *     DpiPdoAddPdo @ 0x1C0210B20 (DpiPdoAddPdo.c)
- *     DpiPdoRemovePdoObjects @ 0x1C03A9F40 (DpiPdoRemovePdoObjects.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0178898 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiPdoAddPdo @ 0x1C0178A0C (DpiPdoAddPdo.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C02D9E68 (DpiPdoRemovePdoObjects.c)
  * Callees:
- *     ?DmmResetOrginalVideoOutputTechnologies@@YAJQEAXI@Z @ 0x1C03AEC30 (-DmmResetOrginalVideoOutputTechnologies@@YAJQEAXI@Z.c)
- *     MonitorRemovePhysicalMonitor @ 0x1C03C4890 (MonitorRemovePhysicalMonitor.c)
+ *     ?DmmResetBaseVideoOutputTechnology@@YAJQEAXI@Z @ 0x1C02DF2D8 (-DmmResetBaseVideoOutputTechnology@@YAJQEAXI@Z.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C02F4814 (MonitorRemovePhysicalMonitor.c)
  */
 
-__int64 __fastcall DpiPdoRemovePdo(__int64 a1, __int64 a2, char a3, __int64 a4, PLARGE_INTEGER a5)
+__int64 __fastcall DpiPdoRemovePdo(__int64 a1, __int64 a2, __int64 a3, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a4)
 {
-  __int64 v5; // rbp
-  unsigned int v6; // esi
-  _QWORD **v9; // r10
-  _QWORD *v10; // rdi
-  _QWORD *v11; // rcx
-  int v12; // r8d
-  unsigned int v13; // edx
-  int v15; // eax
-  int v16; // eax
-  __int64 v17; // rcx
-  _QWORD *v18; // rax
-  void *v19; // rcx
-  NTSTATUS v20; // eax
-  _QWORD *v21; // rcx
+  __int64 v4; // rbp
+  __int64 v5; // rsi
+  __int64 v6; // r14
+  _QWORD **v7; // rcx
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rax
+  __int64 v10; // rax
+  __int64 v12; // rax
+  _QWORD *v13; // rcx
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rbx
+  __int64 v18; // rax
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  void *v24; // rcx
+  __int64 v25; // rax
+  NTSTATUS v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  _QWORD *v29; // rax
+  _QWORD *v30; // rcx
 
-  v5 = *(_QWORD *)(a1 + 64);
-  v6 = 0;
-  v9 = *(_QWORD ***)(v5 + 3664);
-  v10 = v9;
-  v11 = *v9;
-  if ( *v9 == v9 )
+  v4 = *(_QWORD *)(a1 + 64);
+  LODWORD(v5) = 0;
+  v6 = a2;
+  v7 = *(_QWORD ***)(v4 + 3648);
+  v8 = v7;
+  v9 = *v7;
+  if ( *v7 == v7 )
   {
 LABEL_5:
-    v6 = -1073741811;
-    WdLogSingleEntry1(3LL, *(unsigned int *)(a2 + 24));
-    return v6;
+    LODWORD(v5) = -1073741811;
+    v10 = WdLogNewEntry5_WdWarning(v7, a2, a3);
+    *(_QWORD *)(v10 + 24) = *(unsigned int *)(v6 + 24);
+    WdLogEvent5_WdWarning(v10);
+    return (unsigned int)v5;
   }
-  v12 = *(_DWORD *)(a2 + 24);
-  while ( 1 )
+  a2 = *(unsigned int *)(a2 + 24);
+  while ( *((_DWORD *)v8 + 126) != (_DWORD)a2 )
   {
-    v13 = *((_DWORD *)v10 + 126);
-    if ( v13 == v12 )
-      break;
-    v10 = v11;
-    v11 = (_QWORD *)*v11;
-    if ( v11 == v9 )
+    v8 = v9;
+    v9 = (_QWORD *)*v9;
+    if ( v9 == v7 )
       goto LABEL_5;
   }
-  if ( !a3 || *((_DWORD *)v10 + 124) != 1 || *((_BYTE *)v10 + 511) )
+  v12 = *v8;
+  if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v13 = (_QWORD *)v8[1], (_QWORD *)*v13 != v8) )
+LABEL_24:
+    __fastfail(3u);
+  *v13 = v12;
+  *(_QWORD *)(v12 + 8) = v13;
+  --*(_DWORD *)(v4 + 3664);
+  *((_BYTE *)v8 + 508) = 0;
+  if ( (_BYTE)a3 && *((_DWORD *)v8 + 124) == 1 && !*((_BYTE *)v8 + 511) )
   {
-LABEL_16:
-    v17 = *v10;
-    if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-      goto LABEL_28;
-    v18 = (_QWORD *)v10[1];
-    if ( (_QWORD *)*v18 != v10 )
-      goto LABEL_28;
-    *v18 = v17;
-    *(_QWORD *)(v17 + 8) = v18;
-    --*(_DWORD *)(v5 + 3680);
-    if ( *((_DWORD *)v10 + 124) == 1 )
-      --*(_DWORD *)(v5 + 3684);
-    *((_BYTE *)v10 + 508) = 0;
-    KeWaitForSingleObject((PVOID)(v5 + 3424), Executive, 0, 0, 0LL);
-    *(_QWORD *)(a2 + 48) = 0LL;
-    KeReleaseMutex((PRKMUTEX)(v5 + 3424), 0);
-    v19 = (void *)v10[116];
-    if ( v19 )
+    v14 = MonitorRemovePhysicalMonitor(*(void **)(v4 + 3896), *((_DWORD *)v8 + 126), 0, a4);
+    v17 = v14;
+    if ( v14 < 0 )
     {
-      ExFreePoolWithTag(v19, 0);
-      v10[116] = 0LL;
+      v18 = WdLogNewEntry5_WdError(v16, v15);
+      *(_QWORD *)(v18 + 24) = v17;
+      WdLogEvent5_WdError(v18);
     }
-    WdLogSingleEntry1(4LL, v10[3]);
-    if ( !*((_BYTE *)v10 + 509) )
+    v19 = DmmResetBaseVideoOutputTechnology(*(void *const *)(v4 + 3896), *((_DWORD *)v8 + 126));
+    v5 = v19;
+    if ( v19 < 0 )
     {
-      v20 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)v10 + 2, (PVOID)a2, File, 1u, 0x20u);
-      v6 = v20;
-      if ( v20 >= 0 )
-      {
-        IoReleaseRemoveLockAndWaitEx((PIO_REMOVE_LOCK)v10 + 2, (PVOID)a2, 0x20u);
-        IoQueueWorkItem((PIO_WORKITEM)v10[119], (PIO_WORKITEM_ROUTINE)DpiPdoDestroyPdo, DelayedWorkQueue, 0LL);
-      }
-      else
-      {
-        WdLogSingleEntry3(0LL, 275LL, 21LL, v20);
-      }
-      return v6;
+      v22 = WdLogNewEntry5_WdError(v21, v20);
+      *(_QWORD *)(v22 + 24) = v5;
+      WdLogEvent5_WdError(v22);
     }
-    v21 = *(_QWORD **)(v5 + 3696);
-    if ( *v21 != v5 + 3688 )
-LABEL_28:
-      __fastfail(3u);
-    *v10 = v5 + 3688;
-    v10[1] = v21;
-    *v21 = v10;
-    *(_QWORD *)(v5 + 3696) = v10;
-    return v6;
   }
-  v15 = MonitorRemovePhysicalMonitor(*(void **)(v5 + 3912), v13, (__int64)a5);
-  if ( v15 != 128 )
+  KeWaitForSingleObject((PVOID)(v4 + 3408), Executive, 0, 0, 0LL);
+  *(_QWORD *)(v6 + 48) = 0LL;
+  KeReleaseMutex((PRKMUTEX)(v4 + 3408), 0);
+  v24 = (void *)v8[116];
+  if ( v24 )
   {
-    if ( v15 < 0 )
-      WdLogSingleEntry1(2LL, v15);
-    v16 = DmmResetOrginalVideoOutputTechnologies(*(void *const *)(v5 + 3912), *((_DWORD *)v10 + 126));
-    v6 = v16;
-    if ( v16 < 0 )
-      WdLogSingleEntry1(2LL, v16);
-    goto LABEL_16;
+    ExFreePoolWithTag(v24, 0);
+    v8[116] = 0LL;
   }
-  return 128LL;
+  v25 = WdLogNewEntry5_WdEvent(v24, v23);
+  *(_QWORD *)(v25 + 24) = v8[3];
+  WdLogEvent5_WdEvent(v25);
+  if ( *((_BYTE *)v8 + 509) )
+  {
+    v30 = *(_QWORD **)(v4 + 3680);
+    if ( *v30 == v4 + 3672 )
+    {
+      *v8 = v4 + 3672;
+      v8[1] = v30;
+      *v30 = v8;
+      *(_QWORD *)(v4 + 3680) = v8;
+      return (unsigned int)v5;
+    }
+    goto LABEL_24;
+  }
+  v26 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)v8 + 2, (PVOID)v6, File, 1u, 0x20u);
+  v5 = v26;
+  if ( v26 >= 0 )
+  {
+    IoReleaseRemoveLockAndWaitEx((PIO_REMOVE_LOCK)v8 + 2, (PVOID)v6, 0x20u);
+    IoQueueWorkItem((PIO_WORKITEM)v8[119], (PIO_WORKITEM_ROUTINE)DpiPdoDestroyPdo, DelayedWorkQueue, 0LL);
+  }
+  else
+  {
+    v29 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v28, v27);
+    v29[3] = 275LL;
+    v29[4] = 21LL;
+    v29[5] = v5;
+    WdLogEvent5_WdCriticalError(v29);
+  }
+  return (unsigned int)v5;
 }

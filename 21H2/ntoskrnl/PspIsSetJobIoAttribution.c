@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIsSetJobIoAttribution @ 0x1406D4C5C
+ * XREFs of PspIsSetJobIoAttribution @ 0x1406803E0
  * Callers:
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
- *     PspSetJobIoAttribution @ 0x1406D4A68 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x1406801F0 (PspSetJobIoAttribution.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)
@@ -12,15 +12,18 @@ char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)
   __int64 v3; // rax
   char v4; // bl
 
-  v3 = a1[158];
+  v3 = a1[134];
   v4 = 0;
   while ( v3 )
   {
-    if ( *(_DWORD *)(v3 + 1540) )
+    if ( *(_DWORD *)(v3 + 1348) )
       return 1;
-    v3 = *(_QWORD *)(v3 + 1264);
+    v3 = *(_QWORD *)(v3 + 1072);
   }
-  if ( !a3 && (int)PspEnumJobsAndProcessesInJobHierarchy(a1, (__int64)a1, 5) < 0 )
+  if ( !a3
+    && (int)PspEnumJobsAndProcessesInJobHierarchy(a1, (int)PspIsSetJobIoAttributionJobPreCallback, 0, 0, (__int64)a1, 5) < 0 )
+  {
     return 1;
+  }
   return v4;
 }

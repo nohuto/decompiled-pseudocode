@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPccCallbackDpc @ 0x1C0031330
+ * XREFs of AcpiPccCallbackDpc @ 0x1C0059A70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AcpiPccCallbackDpc(
@@ -25,9 +25,9 @@ void __fastcall AcpiPccCallbackDpc(
   KSPIN_LOCK v15; // rcx
   unsigned int v16; // edx
 
-  v4 = DeferredContext + 81;
+  v4 = DeferredContext + 80;
   v5 = (unsigned int)SystemArgument1;
-  v7 = KeAcquireSpinLockRaiseToDpc(DeferredContext + 81);
+  v7 = KeAcquireSpinLockRaiseToDpc(DeferredContext + 80);
   v8 = *((_DWORD *)DeferredContext + 1);
   v9 = 0LL;
   v10 = (void (__fastcall *)(_QWORD, KSPIN_LOCK))DeferredContext[31];

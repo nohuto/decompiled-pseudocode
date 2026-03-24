@@ -1,7 +1,7 @@
 /*
- * XREFs of IopDeviceObjectFromSymbolicName @ 0x14070A75C
+ * XREFs of IopDeviceObjectFromSymbolicName @ 0x14070A73C
  * Callers:
- *     IopGetSessionIdFromSymbolicName @ 0x14070A700 (IopGetSessionIdFromSymbolicName.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

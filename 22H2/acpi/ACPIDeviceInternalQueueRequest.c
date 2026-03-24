@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDeviceInternalQueueRequest @ 0x1C001D4C0
+ * XREFs of ACPIDeviceInternalQueueRequest @ 0x1C001CC50
  * Callers:
- *     ACPIDeviceInitializePowerRequest @ 0x1C001CFB8 (ACPIDeviceInitializePowerRequest.c)
- *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0D8 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C0050B7C (ACPIDeviceIrpWaitWakeRequestComplete.c)
  * Callees:
- *     ACPIPowerScheduleDpc @ 0x1C0022734 (ACPIPowerScheduleDpc.c)
+ *     ACPIPowerScheduleDpc @ 0x1C001CD7C (ACPIPowerScheduleDpc.c)
  */
 
 _QWORD *__fastcall ACPIDeviceInternalQueueRequest(__int64 a1, _QWORD *a2, __int16 a3)
@@ -25,54 +25,54 @@ _QWORD *__fastcall ACPIDeviceInternalQueueRequest(__int64 a1, _QWORD *a2, __int1
       a2[1] = &AcpiPowerSynchronizeList;
       result[1] = a2;
       AcpiPowerSynchronizeList = (__int64)a2;
-      goto LABEL_14;
+      goto LABEL_4;
     }
-LABEL_12:
+LABEL_14:
     __fastfail(3u);
   }
-  result = (_QWORD *)(a1 + 584);
+  result = (_QWORD *)(a1 + 544);
   v5 = a2 + 2;
   if ( (_QWORD *)*result == result )
   {
     v6 = (_QWORD *)result[1];
     if ( (_QWORD *)*v6 != result )
-      goto LABEL_12;
+      goto LABEL_14;
     *v5 = result;
     a2[3] = v6;
     *v6 = v5;
     result[1] = v5;
     if ( (v3 & 1) != 0 )
     {
-      result = (_QWORD *)qword_1C006F198;
-      if ( *(__int64 **)qword_1C006F198 != &AcpiPowerDelayedQueueList )
-        goto LABEL_12;
+      result = (_QWORD *)qword_1C00820F8;
+      if ( *(__int64 **)qword_1C00820F8 != &AcpiPowerDelayedQueueList )
+        goto LABEL_14;
       *a2 = &AcpiPowerDelayedQueueList;
       a2[1] = result;
       *result = a2;
-      qword_1C006F198 = (__int64)a2;
+      qword_1C00820F8 = (__int64)a2;
     }
     else
     {
-      result = (_QWORD *)qword_1C006F1A8;
-      if ( *(__int64 **)qword_1C006F1A8 != &AcpiPowerQueueList )
-        goto LABEL_12;
+      result = (_QWORD *)qword_1C0082108;
+      if ( *(__int64 **)qword_1C0082108 != &AcpiPowerQueueList )
+        goto LABEL_14;
       *a2 = &AcpiPowerQueueList;
       a2[1] = result;
       *result = a2;
-      qword_1C006F1A8 = (__int64)a2;
+      qword_1C0082108 = (__int64)a2;
     }
   }
   else
   {
     v7 = (_QWORD *)result[1];
     if ( (_QWORD *)*v7 != result )
-      goto LABEL_12;
+      goto LABEL_14;
     *v5 = result;
     v5[1] = v7;
     *v7 = v5;
     result[1] = v5;
   }
-LABEL_14:
+LABEL_4:
   AcpiPowerDpcFlags |= 2u;
   if ( (v3 & 1) == 0 )
     return (_QWORD *)ACPIPowerScheduleDpc();

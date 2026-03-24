@@ -1,20 +1,20 @@
 /*
- * XREFs of XmCmpsOp @ 0x140533EF0
+ * XREFs of XmCmpsOp @ 0x1404E6550
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
- *     XmCompareOperands @ 0x140533F9C (XmCompareOperands.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
+ *     XmCompareOperands @ 0x1404E65FC (XmCompareOperands.c)
  */
 
 void __fastcall XmCmpsOp(__int64 a1)
 {
   int v2; // edi
-  unsigned __int16 *StringAddress; // rax
+  int *StringAddress; // rax
   __int64 v4; // rcx
-  unsigned __int16 *v5; // rax
+  int *v5; // rax
 
   v2 = 1;
   if ( !*(_BYTE *)(a1 + 139) )
@@ -26,10 +26,10 @@ void __fastcall XmCmpsOp(__int64 a1)
   while ( v2 )
   {
 LABEL_5:
-    StringAddress = (unsigned __int16 *)XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
-    XmSetSourceValue(a1, StringAddress);
-    v5 = (unsigned __int16 *)XmGetStringAddress(v4, 0, 7u);
-    XmSetDestinationValue(a1, v5);
+    StringAddress = XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
+    XmSetSourceValue(a1, (unsigned __int16 *)StringAddress);
+    v5 = XmGetStringAddress(v4, 0, 7u);
+    XmSetDestinationValue(a1, (unsigned __int16 *)v5);
     XmCompareOperands();
     --v2;
     if ( ((*(_DWORD *)(a1 + 16) & 0x40) != 0) != *(_BYTE *)(a1 + 141) )

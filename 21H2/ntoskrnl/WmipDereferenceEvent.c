@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipDereferenceEvent @ 0x1409DCFD4
+ * XREFs of WmipDereferenceEvent @ 0x1409323EC
  * Callers:
- *     WmipProcessEvent @ 0x14075DD3C (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140757D80 (WmipProcessEvent.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     WmipAlign @ 0x1402E09E0 (WmipAlign.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1407839B4 (WmipSendWmiIrp.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     WmipAlign @ 0x140264F60 (WmipAlign.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14075751C (WmipSendWmiIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall WmipDereferenceEvent(__int64 a1)
@@ -26,10 +26,10 @@ char *__fastcall WmipDereferenceEvent(__int64 a1)
   unsigned int v8; // r14d
   unsigned int v9; // ebp
   unsigned int v10; // ecx
-  int v11; // r15d
+  unsigned int v11; // r15d
   size_t v12; // rax
   char *PoolWithTag; // rax
-  __int64 v14; // rcx
+  int v14; // ecx
   char *v15; // rcx
   int v16; // r15d
   int v17; // ecx
@@ -97,7 +97,7 @@ LABEL_28:
           *(_DWORD *)v2 = v11;
           *((_DWORD *)v2 + 1) = *(_DWORD *)(a1 + 4);
           *(_OWORD *)(v2 + 24) = *(_OWORD *)(a1 + 48);
-          v14 = *(unsigned int *)(a1 + 8);
+          v14 = *(_DWORD *)(a1 + 8);
           *((_DWORD *)v2 + 11) = v7 | 2;
           *((_DWORD *)v2 + 14) = v20;
           *((_DWORD *)v2 + 2) = v14;
@@ -113,8 +113,7 @@ LABEL_28:
             *(_WORD *)v15 = v8;
             memmove(v15 + 2, (const void *)(a1 + 70), v8);
           }
-          LOBYTE(v14) = 1;
-          v16 = WmipSendWmiIrp(v14, *(unsigned int *)(i + 56), (__int64)(v2 + 24), v11, (__int64)v2, v19);
+          v16 = WmipSendWmiIrp(1u, *(_DWORD *)(i + 56), (UNICODE_STRING *)(v2 + 24), v11, (__int64)v2, v19);
           if ( v16 >= 0 )
           {
             v17 = *((_DWORD *)v2 + 11);

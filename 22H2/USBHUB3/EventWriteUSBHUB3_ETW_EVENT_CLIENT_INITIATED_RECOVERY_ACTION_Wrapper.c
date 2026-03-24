@@ -1,18 +1,18 @@
 /*
- * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001CFD0
+ * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001A758
  * Callers:
- *     HUBPDO_EvtIoInternalDeviceControl @ 0x1C0015C30 (HUBPDO_EvtIoInternalDeviceControl.c)
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018420 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
- *     HUBPDO_ReEnumerationCallback @ 0x1C001D570 (HUBPDO_ReEnumerationCallback.c)
+ *     HUBPDO_EvtIoInternalDeviceControl @ 0x1C0014760 (HUBPDO_EvtIoInternalDeviceControl.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_ReEnumerationCallback @ 0x1C001ACF0 (HUBPDO_ReEnumerationCallback.c)
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C00146C4 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C0013198 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
  */
 
 void __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper(__int64 a1, __int64 a2, int a3)
 {
   int v4; // r15d
-  const GUID *v6; // r14
+  const GUID *v6; // rbp
   __int64 v7; // rbx
   __int64 v8; // rcx
   int v9; // eax
@@ -25,7 +25,7 @@ void __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wra
   if ( !*(_QWORD *)a1 )
     return;
   v6 = (const GUID *)(a1 + 1516);
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400000) != 0 )
+  if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x40) != 0 )
     McTemplateK0pqq_EtwWriteTransfer(
       a1,
       &USBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION,
@@ -38,13 +38,13 @@ void __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wra
     switch ( a3 )
     {
       case 30:
-        v7 = 2676LL;
+        v7 = 2668LL;
         break;
       case 48:
-        v7 = 2680LL;
+        v7 = 2672LL;
         break;
       case 49:
-        v7 = 2684LL;
+        v7 = 2676LL;
         break;
       default:
         return;
@@ -55,18 +55,18 @@ void __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wra
   {
     if ( v4 == 2228255 )
     {
-      v7 = 2692LL;
+      v7 = 2684LL;
       goto LABEL_17;
     }
     if ( v4 != 2232243 )
       return;
   }
-  v7 = 2688LL;
+  v7 = 2680LL;
 LABEL_17:
   v8 = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(v7 + a1));
   if ( (_DWORD)v8 == 1 || (_DWORD)v8 == 1001 )
   {
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400000) != 0 )
+    if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x40) != 0 )
     {
       v9 = 1000;
       if ( (_DWORD)v8 == 1 )

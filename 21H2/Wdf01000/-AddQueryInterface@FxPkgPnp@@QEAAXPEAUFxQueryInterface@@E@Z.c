@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z @ 0x1C002BEF4
+ * XREFs of ?AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z @ 0x1C007F280
  * Callers:
- *     imp_WdfDeviceAddQueryInterface @ 0x1C002BCA0 (imp_WdfDeviceAddQueryInterface.c)
+ *     imp_WdfDeviceAddQueryInterface @ 0x1C0041090 (imp_WdfDeviceAddQueryInterface.c)
  * Callees:
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
  */
 
 void __fastcall FxPkgPnp::AddQueryInterface(FxPkgPnp *this, _FX_DRIVER_GLOBALS *QI, unsigned __int8 a3)

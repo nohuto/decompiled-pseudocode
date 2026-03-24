@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSetSystemPagePriorityThread @ 0x14029C6F4
+ * XREFs of PsSetSystemPagePriorityThread @ 0x1402DE530
  * Callers:
- *     SmSetThreadSystemPagePriority @ 0x140392084 (SmSetThreadSystemPagePriority.c)
- *     MiValidateSectionCreate @ 0x1406B79C8 (MiValidateSectionCreate.c)
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     SmSetThreadSystemPagePriority @ 0x1402DE4EC (SmSetThreadSystemPagePriority.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)
@@ -15,11 +15,10 @@ __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)
   int v4; // edx
   unsigned int v5; // ebx
   unsigned int v6; // eax
-  bool v7; // zf
 
   --*(_WORD *)(a1 + 486);
-  v2 = *(unsigned __int8 *)(a1 + 1385);
-  v3 = *(_DWORD *)(a1 + 1384);
+  v2 = *(unsigned __int8 *)(a1 + 1305);
+  v3 = *(_DWORD *)(a1 + 1304);
   v4 = a2 << 9;
   if ( (v2 & 1) != 0 )
   {
@@ -31,9 +30,7 @@ __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)
     v5 = -1;
     v6 = v3 | 0x100;
   }
-  *(_DWORD *)(a1 + 1384) = v4 | v6;
-  v7 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
-  if ( v7 && *(_QWORD *)(a1 + 152) != a1 + 152 )
-    KiCheckForKernelApcDelivery();
+  *(_DWORD *)(a1 + 1304) = v4 | v6;
+  KiLeaveGuardedRegionUnsafe(a1);
   return v5;
 }

@@ -4,7 +4,7 @@
  *     KdTrap @ 0x1400A33EC (KdTrap.c)
  *     KdpStub @ 0x1400A3420 (KdpStub.c)
  * Callees:
- *     KdpReport @ 0x14028CA00 (KdpReport.c)
+ *     KdpReport @ 0x14028CB00 (KdpReport.c)
  *     KdpCommandString @ 0x140918164 (KdpCommandString.c)
  *     KdpPrint @ 0x140918224 (KdpPrint.c)
  *     KdpPrompt @ 0x140918398 (KdpPrompt.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IsHypervisorLpiCapable @ 0x1C0002648
+ * XREFs of IsHypervisorLpiCapable @ 0x1C00319D0
  * Callers:
- *     AcpiRootIsFeatureSupported @ 0x1C0002730 (AcpiRootIsFeatureSupported.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     AcpiRootIsFeatureSupported @ 0x1C002DD00 (AcpiRootIsFeatureSupported.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 bool IsHypervisorLpiCapable()

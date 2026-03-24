@@ -1,304 +1,328 @@
 /*
- * XREFs of DpiFdoHandleDevicePower @ 0x1C01F0950
+ * XREFs of DpiFdoHandleDevicePower @ 0x1C01771F0
  * Callers:
- *     DpiFdoDispatchPower @ 0x1C01F02B0 (DpiFdoDispatchPower.c)
+ *     DpiFdoDispatchPower @ 0x1C0176930 (DpiFdoDispatchPower.c)
  * Callees:
- *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0024370 (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
- *     DxgkReportDeviceDirectedPowerDown @ 0x1C0046CF4 (DxgkReportDeviceDirectedPowerDown.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiIsPowerRuntimeDStateTransition @ 0x1C01B45A0 (DpiIsPowerRuntimeDStateTransition.c)
- *     DpiFdoSetAdapterPowerState @ 0x1C01EFEE0 (DpiFdoSetAdapterPowerState.c)
- *     DpiFdoStopMiracastSession @ 0x1C01F0830 (DpiFdoStopMiracastSession.c)
- *     DpiRequestIoPowerState @ 0x1C01F0D70 (DpiRequestIoPowerState.c)
- *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01F43EC (DpiAcquirePostDisplayInfoFromBgfx.c)
- *     DxgkStartPnPTransition @ 0x1C01FD15C (DxgkStartPnPTransition.c)
- *     DxgkCompletePnPTransition @ 0x1C0217CD4 (DxgkCompletePnPTransition.c)
- *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z @ 0x1C02CEAA0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z.c)
- *     DpiFdoDetermineAffectedSession @ 0x1C0388968 (DpiFdoDetermineAffectedSession.c)
- *     DpiFdoIsDevicePresent @ 0x1C038A94C (DpiFdoIsDevicePresent.c)
- *     DpiFdoRebootForSurpriseRemoval @ 0x1C038AF7C (DpiFdoRebootForSurpriseRemoval.c)
- *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C0396530 (DpiLdaPowerDownAllAdaptersInChain.c)
- *     DpiLdaPowerUpAdapterInChain @ 0x1C03966BC (DpiLdaPowerUpAdapterInChain.c)
- *     DpiDxgkDdiNotifySurpriseRemoval @ 0x1C0396F08 (DpiDxgkDdiNotifySurpriseRemoval.c)
+ *     DxgkReportDeviceDirectedPowerDown @ 0x1C003C198 (DxgkReportDeviceDirectedPowerDown.c)
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0051C9C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiIsPowerRuntimeDStateTransition @ 0x1C0121ADC (DpiIsPowerRuntimeDStateTransition.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C0176470 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01770D0 (DpiFdoStopMiracastSession.c)
+ *     DpiRequestIoPowerState @ 0x1C01775E0 (DpiRequestIoPowerState.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C017B43C (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DxgkStartPnPTransition @ 0x1C0183154 (DxgkStartPnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C019C734 (DxgkCompletePnPTransition.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0220DE0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
+ *     DpiFdoDetermineAffectedSession @ 0x1C02C8168 (DpiFdoDetermineAffectedSession.c)
+ *     DpiFdoIsDevicePresent @ 0x1C02CB3E4 (DpiFdoIsDevicePresent.c)
+ *     DpiFdoRebootForSurpriseRemoval @ 0x1C02CB98C (DpiFdoRebootForSurpriseRemoval.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C02D7EAC (DpiLdaPowerDownAllAdaptersInChain.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C02D8058 (DpiLdaPowerUpAdapterInChain.c)
+ *     DpiDxgkDdiNotifySurpriseRemoval @ 0x1C02D88B0 (DpiDxgkDdiNotifySurpriseRemoval.c)
  */
 
 __int64 __fastcall DpiFdoHandleDevicePower(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
-  __int64 v3; // rbx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // r14
+  char v3; // r12
   unsigned int *DeviceExtension; // rdi
-  struct _DEVICE_OBJECT *v6; // r14
-  __int64 Status; // rsi
+  __int64 Status; // rbp
   bool v8; // r15
-  int v9; // ebx
-  int v10; // eax
-  struct _IO_STACK_LOCATION *v11; // rax
+  __int64 LowPart; // rbx
+  _QWORD *v10; // rax
+  int v11; // eax
   struct _IO_STACK_LOCATION *v12; // rax
-  NTSTATUS v13; // eax
-  bool v14; // r12
-  DWORD LowPart; // ebx
-  int v16; // eax
-  CCHAR v17; // dl
-  char v19; // r12
-  __int64 v20; // rax
+  struct _IO_STACK_LOCATION *v13; // rax
+  NTSTATUS v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  bool v17; // r12
+  POWER_STATE v18; // ebx
+  int v19; // eax
+  char v20; // cl
+  CCHAR v21; // dl
+  __int64 v23; // rbx
+  _QWORD *v24; // rax
+  __int64 v25; // rax
   int IsDevicePresent; // eax
-  int v22; // ecx
-  __int64 v23; // rdx
-  __int64 v24; // r15
-  char v25; // al
-  char v26; // al
-  unsigned __int64 v27; // rax
+  int v27; // ecx
+  __int64 v28; // rdx
+  __int64 v29; // r14
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  char v32; // al
+  _QWORD *v33; // rax
+  char v34; // al
+  unsigned __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // r9
   void *started; // r15
-  unsigned int v29; // eax
-  __int64 v30; // r8
-  struct _DEVICE_OBJECT *v31; // rcx
-  unsigned int v32; // eax
-  __int64 v33; // rcx
-  unsigned int v34; // eax
-  __int64 v35; // rcx
-  union _LARGE_INTEGER v36; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v41; // rax
+  unsigned int v42; // eax
+  __int64 v43; // r8
+  struct _DEVICE_OBJECT *v44; // rcx
+  unsigned int v45; // eax
+  __int64 v46; // rcx
+  unsigned int v47; // eax
+  __int64 v48; // rax
+  __int64 v49; // rcx
+  union _LARGE_INTEGER v50; // [rsp+30h] [rbp-68h] BYREF
   struct _KEVENT Event; // [rsp+38h] [rbp-60h] BYREF
-  bool v39; // [rsp+A8h] [rbp+10h]
-  unsigned __int8 v40; // [rsp+B0h] [rbp+18h] BYREF
-  int v41; // [rsp+B8h] [rbp+20h]
+  bool v52; // [rsp+A0h] [rbp+8h]
+  unsigned __int8 v53; // [rsp+A8h] [rbp+10h] BYREF
+  int v54; // [rsp+B0h] [rbp+18h]
+  struct _IO_STACK_LOCATION *v55; // [rsp+B8h] [rbp+20h]
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v3 = 0LL;
+  v3 = 0;
   DeviceExtension = (unsigned int *)DeviceObject->DeviceExtension;
-  v6 = DeviceObject;
-  v39 = 0;
+  v52 = 0;
   LODWORD(Status) = 0;
+  v55 = CurrentStackLocation;
   v8 = 0;
   if ( CurrentStackLocation->MinorFunction != 2 )
   {
     if ( CurrentStackLocation->MinorFunction == 3 )
     {
 LABEL_17:
-      memset(&Event, 0, sizeof(Event));
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
-      v11 = Irp->Tail.Overlay.CurrentStackLocation;
-      *(_OWORD *)&v11[-1].MajorFunction = *(_OWORD *)&v11->MajorFunction;
-      *(_OWORD *)&v11[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v11->Parameters.NotifyDirectoryEx.CompletionFilter;
-      *(_OWORD *)(&v11[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v11->Parameters.SetQuota + 6);
-      v11[-1].FileObject = v11->FileObject;
-      v11[-1].Control = 0;
       v12 = Irp->Tail.Overlay.CurrentStackLocation;
-      v12[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)DpiFdoPowerCompletionRoutine;
-      v12[-1].Context = &Event;
-      v12[-1].Control = -32;
+      *(_OWORD *)&v12[-1].MajorFunction = *(_OWORD *)&v12->MajorFunction;
+      *(_OWORD *)&v12[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v12->Parameters.NotifyDirectoryEx.CompletionFilter;
+      *(_OWORD *)(&v12[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v12->Parameters.SetQuota + 6);
+      v12[-1].FileObject = v12->FileObject;
+      v12[-1].Control = 0;
+      v13 = Irp->Tail.Overlay.CurrentStackLocation;
+      v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)DpiFdoPowerCompletionRoutine;
+      v13[-1].Context = &Event;
+      v13[-1].Control = -32;
       PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), Irp);
-      v13 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      Status = v13;
-      if ( v13 )
-        goto LABEL_109;
+      v14 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      Status = v14;
+      if ( v14 )
+        goto LABEL_20;
       Status = Irp->IoStatus.Status;
       if ( (_DWORD)Status != -1073741810 )
       {
         if ( (int)Status >= 0 )
         {
-LABEL_20:
-          v14 = v39;
-          goto LABEL_21;
+LABEL_21:
+          v17 = v52;
+          goto LABEL_22;
         }
-LABEL_109:
-        WdLogSingleEntry1(2LL, Status);
-        goto LABEL_20;
+LABEL_20:
+        v48 = WdLogNewEntry5_WdError(v16, v15);
+        *(_QWORD *)(v48 + 24) = Status;
+        WdLogEvent5_WdError(v48);
+        goto LABEL_21;
       }
-      v19 = 0;
-      WdLogSingleEntry4(
-        2LL,
-        DpiFdoHandleDevicePower,
-        v6,
-        (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart,
-        -1073741810LL);
+      v23 = 0LL;
+      v24 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+      v24[3] = DpiFdoHandleDevicePower;
+      v24[4] = DeviceObject;
+      v24[5] = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+      v24[6] = -1073741810LL;
+      WdLogEvent5_WdError(v24);
       if ( !DeviceExtension[126] || *((_BYTE *)DeviceExtension + 508) )
       {
-        v3 = (__int64)DeviceExtension;
+        v23 = (__int64)DeviceExtension;
       }
       else
       {
-        v20 = *((_QWORD *)DeviceExtension + 341);
-        if ( v20 )
-          v3 = *(_QWORD *)(v20 + 64);
+        v25 = *((_QWORD *)DeviceExtension + 341);
+        if ( v25 )
+          v23 = *(_QWORD *)(v25 + 64);
       }
       KeEnterCriticalRegion();
       if ( *((_BYTE *)DeviceExtension + 484) )
-        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4088LL));
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4080LL));
       ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-      v40 = 0;
-      IsDevicePresent = DpiFdoIsDevicePresent(DeviceExtension, &v40);
-      v22 = v40;
-      v23 = 0LL;
+      v53 = 0;
+      IsDevicePresent = DpiFdoIsDevicePresent(DeviceExtension, &v53);
+      v27 = v53;
+      v28 = 0LL;
       if ( IsDevicePresent < 0 )
-        v22 = 0;
-      v41 = v22;
-      v40 = v22;
-      if ( !(_BYTE)v22 )
-        *((_BYTE *)DeviceExtension + 1161) = 1;
+        v27 = 0;
+      v54 = v27;
+      v53 = v27;
+      if ( !(_BYTE)v27 )
+        *((_BYTE *)DeviceExtension + 1160) = 1;
       if ( DeviceExtension[59] == 6 )
       {
         if ( v8 || !*((_QWORD *)DeviceExtension + 61) )
           goto LABEL_95;
-        DpiSetDevicePowerTransitionStateAtPassiveLevel(v3, 0, 1);
+        DpiSetDevicePowerTransitionStateAtPassiveLevel(v23, 0, 1);
       }
       else
       {
-        if ( v3 )
+        if ( v23 )
         {
-          if ( !(_BYTE)v22 || (*(_BYTE *)(v3 + 3904) & 0x18) != 0 )
+          if ( !(_BYTE)v27 || (*(_BYTE *)(v23 + 3904) & 0x18) != 0 )
           {
-            v24 = *((_QWORD *)DeviceExtension + 5);
+            v29 = *((_QWORD *)DeviceExtension + 5);
             if ( DeviceExtension[4] == 1953656900 && DeviceExtension[5] == 2 )
             {
               if ( DpiIsPowerRuntimeDStateTransition((__int64)DeviceExtension) )
               {
-                v25 = *(_BYTE *)(v3 + 3904);
-                if ( (v25 & 0x10) == 0 && ((v25 & 8) == 0 || *(int *)(v3 + 3912) < 0x2000) )
-                  WdLogSingleEntry5(
-                    0LL,
-                    275LL,
-                    25LL,
-                    2LL - (*((_BYTE *)DeviceExtension + 1152) != 0),
-                    DeviceExtension[281],
-                    DeviceExtension[282]);
+                v32 = *(_BYTE *)(v23 + 3904);
+                if ( (v32 & 0x10) == 0 && ((v32 & 8) == 0 || *(int *)(v23 + 3912) < 0x2000) )
+                {
+                  v33 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v31, v30);
+                  v33[3] = 275LL;
+                  v33[4] = 25LL;
+                  v33[5] = 2LL - (*((_BYTE *)DeviceExtension + 1152) != 0);
+                  v33[6] = DeviceExtension[281];
+                  v33[7] = DeviceExtension[282];
+                  WdLogEvent5_WdCriticalError(v33);
+                }
               }
             }
-            if ( (int)DpiDxgkDdiNotifySurpriseRemoval(v24, *((_QWORD *)DeviceExtension + 6), v3, 0LL) >= 0
-              || (*(_BYTE *)(v3 + 3904) & 0x10) != 0 )
+            if ( (int)DpiDxgkDdiNotifySurpriseRemoval(v29, *((_QWORD *)DeviceExtension + 6), v23, 0LL) >= 0
+              || (*(_BYTE *)(v23 + 3904) & 0x10) != 0 )
             {
-              v19 = 1;
+              v3 = 1;
             }
-            v26 = *((_BYTE *)DeviceExtension + 1152);
-            if ( v26 || !v19 )
-              DpiFdoRebootForSurpriseRemoval(v6, v26 != 0 ? 1 : 3);
+            v34 = *((_BYTE *)DeviceExtension + 1152);
+            if ( v34 || !v3 )
+              DpiFdoRebootForSurpriseRemoval(DeviceObject, v34 != 0 ? 1 : 3);
           }
           else
           {
-            v19 = 1;
+            v3 = 1;
           }
-          v27 = DpiFdoDetermineAffectedSession(*((_QWORD *)DeviceExtension + 3));
-          started = (void *)DxgkStartPnPTransition(0LL, v27);
+          v35 = DpiFdoDetermineAffectedSession(*((_QWORD *)DeviceExtension + 3));
+          started = (void *)DxgkStartPnPTransition(0LL, v35);
           if ( !started )
-            WdLogSingleEntry1(6LL, -1073741670LL);
-          KeEnterCriticalRegion();
-          ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3792), 1u);
-          if ( !v19 )
-            *((_BYTE *)DeviceExtension + 1162) = 1;
-          DeviceExtension[(DeviceExtension[69] & 7) + 61] = DeviceExtension[60];
-          v29 = DeviceExtension[59];
-          ++DeviceExtension[69];
-          DeviceExtension[60] = v29;
-          DeviceExtension[59] = 6;
-          ExReleaseResourceLite((PERESOURCE)(v3 + 3792));
-          KeLeaveCriticalRegion();
-          v14 = v39;
-          if ( !v39 && *((_QWORD *)DeviceExtension + 61) )
-            DpiSetDevicePowerTransitionStateAtPassiveLevel(v3, 0, 1);
-          DpiRequestIoPowerState(*(_QWORD *)(v3 + 24), 4LL, v30, 0LL);
-          DxgkCompletePnPTransition(started);
-          if ( (unsigned int *)v3 != DeviceExtension )
           {
-            v31 = *(struct _DEVICE_OBJECT **)(v3 + 152);
-            *(_BYTE *)(v3 + 232) = 1;
-            IoInvalidateDeviceState(v31);
-            DxgCreateLiveDumpWithWdLogs(403LL, 2051LL);
+            v41 = WdLogNewEntry5_WdLowResource(v37, v36, v38, v39);
+            *(_QWORD *)(v41 + 24) = -1073741670LL;
+            WdLogEvent5_WdLowResource(v41);
           }
-          LOBYTE(v22) = v41;
-          v6 = DeviceObject;
+          KeEnterCriticalRegion();
+          ExAcquireResourceExclusiveLite((PERESOURCE)(v23 + 3792), 1u);
+          if ( !v3 )
+            *((_BYTE *)DeviceExtension + 1161) = 1;
+          DeviceExtension[(DeviceExtension[69] & 7) + 61] = DeviceExtension[60];
+          v42 = DeviceExtension[59];
+          ++DeviceExtension[69];
+          DeviceExtension[60] = v42;
+          DeviceExtension[59] = 6;
+          ExReleaseResourceLite((PERESOURCE)(v23 + 3792));
+          KeLeaveCriticalRegion();
+          v17 = v52;
+          if ( !v52 && *((_QWORD *)DeviceExtension + 61) )
+            DpiSetDevicePowerTransitionStateAtPassiveLevel(v23, 0, 1);
+          DpiRequestIoPowerState(*(_QWORD *)(v23 + 24), 4LL, v43, 0LL);
+          DxgkCompletePnPTransition(started);
+          if ( (unsigned int *)v23 != DeviceExtension )
+          {
+            v44 = *(struct _DEVICE_OBJECT **)(v23 + 152);
+            *(_BYTE *)(v23 + 232) = 1;
+            IoInvalidateDeviceState(v44);
+            DxgCreateLiveDumpWithWdLogs(
+              0x193u,
+              0x803uLL,
+              0xFFFFFFFFC000000EuLL,
+              *(int *)(v23 + 236),
+              *(int *)(v23 + 240),
+              0);
+          }
+          LOBYTE(v27) = v54;
+          CurrentStackLocation = v55;
           goto LABEL_96;
         }
-        v32 = DeviceExtension[60];
-        v33 = DeviceExtension[69] & 7;
-        *((_BYTE *)DeviceExtension + 1162) = 1;
-        DeviceExtension[v33 + 61] = v32;
-        v34 = DeviceExtension[59];
+        v45 = DeviceExtension[60];
+        v46 = DeviceExtension[69] & 7;
+        *((_BYTE *)DeviceExtension + 1161) = 1;
+        DeviceExtension[v46 + 61] = v45;
+        v47 = DeviceExtension[59];
         ++DeviceExtension[69];
-        DeviceExtension[60] = v34;
+        DeviceExtension[60] = v47;
         DeviceExtension[59] = 6;
       }
-      LOBYTE(v22) = v41;
+      LOBYTE(v27) = v54;
 LABEL_95:
-      v14 = v39;
+      v17 = v52;
 LABEL_96:
-      if ( (struct _DEVICE_OBJECT *)qword_1C0130740 == v6 )
+      if ( (PDEVICE_OBJECT)qword_1C00B2DB8 == DeviceObject )
       {
-        if ( (_BYTE)v22 )
+        if ( (_BYTE)v27 )
         {
-          if ( dword_1C01307F0 == 3 && byte_1C0130810 )
+          if ( dword_1C00B2E68 == 3 && byte_1C00B2E88 )
           {
-            LOBYTE(v23) = 1;
-            DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C0130750, v23, 0LL);
-            byte_1C0130810 = 0;
-            dword_1C013083C = 1;
+            LOBYTE(v28) = 1;
+            DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C00B2DC8, v28, 0LL);
+            byte_1C00B2E88 = 0;
+            dword_1C00B2EB4 = 1;
           }
         }
         else
         {
-          qword_1C0130740 = 0LL;
+          qword_1C00B2DB8 = 0LL;
         }
       }
       if ( *((_BYTE *)DeviceExtension + 484) )
         DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
       ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
       KeLeaveCriticalRegion();
-LABEL_21:
+LABEL_22:
       KeEnterCriticalRegion();
       if ( *((_BYTE *)DeviceExtension + 484) )
-        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4088LL));
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4080LL));
       ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
       if ( (int)Status < 0 )
       {
-        if ( v14 )
+        if ( v17 )
           *((_BYTE *)DeviceExtension + 496) = 0;
       }
       else
       {
         if ( CurrentStackLocation->MinorFunction != 2 )
         {
-LABEL_41:
+LABEL_37:
           if ( *((_BYTE *)DeviceExtension + 484) )
             DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
           ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
           KeLeaveCriticalRegion();
           PoStartNextPowerIrp(Irp);
-          v17 = 1;
-          goto LABEL_44;
+          v21 = 1;
+          goto LABEL_40;
         }
-        LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-        if ( !v14 )
+        v18.SystemState = (SYSTEM_POWER_STATE)CurrentStackLocation->Parameters.Power.State;
+        if ( !v17 )
           *((_BYTE *)DeviceExtension + 496) = 0;
-        if ( (int)LowPart < (int)DeviceExtension[71] )
+        if ( v18.SystemState < (int)DeviceExtension[71] )
         {
           if ( DeviceExtension[126] )
-            v16 = DpiLdaPowerUpAdapterInChain(v6, Irp);
+            v19 = DpiLdaPowerUpAdapterInChain(DeviceObject, Irp);
           else
-            v16 = DpiFdoSetAdapterPowerState(
-                    v6,
-                    LowPart,
+            v19 = DpiFdoSetAdapterPowerState(
+                    DeviceObject,
+                    v18,
                     (unsigned __int8)HIBYTE(LOWORD(CurrentStackLocation->Parameters.Create.SecurityContext)) >> 4,
                     HIWORD(CurrentStackLocation->Parameters.Read.Length) & 0xF,
                     CurrentStackLocation->Parameters.Create.EaLength);
-          LODWORD(Status) = v16;
+          LODWORD(Status) = v19;
         }
-        if ( *((_BYTE *)DeviceExtension + 482) )
+        v20 = *((_BYTE *)DeviceExtension + 482);
+        if ( v20 && !DeviceExtension[126] && v18.SystemState == PowerSystemWorking )
         {
-          if ( LowPart != 1
-            || DeviceExtension[126]
-            || (DpiSetDevicePowerTransitionStateAtPassiveLevel((__int64)DeviceExtension, 0, 1),
-                *((_BYTE *)DeviceExtension + 482)) )
-          {
-            if ( LowPart == 4 && *((_BYTE *)DeviceExtension + 4152) )
-            {
-              v35 = *((_QWORD *)DeviceExtension + 487);
-              *((_BYTE *)DeviceExtension + 4152) = 0;
-              DxgkReportDeviceDirectedPowerDown(v35);
-            }
-          }
+          DpiSetDevicePowerTransitionStateAtPassiveLevel((__int64)DeviceExtension, 0, 1);
+          v20 = *((_BYTE *)DeviceExtension + 482);
+        }
+        if ( v20 && v18.SystemState == PowerSystemSleeping3 && *((_BYTE *)DeviceExtension + 4144) )
+        {
+          v49 = *((_QWORD *)DeviceExtension + 487);
+          *((_BYTE *)DeviceExtension + 4144) = 0;
+          DxgkReportDeviceDirectedPowerDown(v49);
         }
       }
       if ( CurrentStackLocation->MinorFunction == 2 )
       {
-        if ( v14 )
+        if ( v17 )
         {
           KeClearEvent((PRKEVENT)(DeviceExtension + 310));
           KeClearEvent((PRKEVENT)(DeviceExtension + 316));
@@ -308,57 +332,60 @@ LABEL_41:
           KeSetEvent((PRKEVENT)(DeviceExtension + 316), 0, 0);
         }
       }
-      goto LABEL_41;
+      goto LABEL_37;
     }
-LABEL_52:
+LABEL_47:
     ++Irp->CurrentLocation;
     ++Irp->Tail.Overlay.CurrentStackLocation;
     LODWORD(Status) = PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), Irp);
     return (unsigned int)Status;
   }
-  v9 = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-  v8 = v9 > 1;
-  v39 = v9 > 1;
-  WdLogSingleEntry3(9LL, DeviceExtension, v9, (int)DeviceExtension[71]);
-  if ( v9 > 1 && !DpiIsPowerRuntimeDStateTransition((__int64)DeviceExtension) )
+  LowPart = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+  v8 = (int)LowPart > 1;
+  v52 = (int)LowPart > 1;
+  v10 = (_QWORD *)WdLogNewEntry5_WdPower();
+  v10[3] = DeviceObject->DeviceExtension;
+  v10[4] = LowPart;
+  v10[5] = (int)DeviceExtension[71];
+  WdLogEvent5_WdPower(v10);
+  if ( (int)LowPart > 1 && !DpiIsPowerRuntimeDStateTransition((__int64)DeviceExtension) )
   {
-    v36.QuadPart = -300000000LL;
-    DpiFdoStopMiracastSession((__int64)v6, 1, &v36, 0x83u);
+    v50.QuadPart = -300000000LL;
+    DpiFdoStopMiracastSession((__int64)DeviceObject, 1, &v50, 0x83u);
   }
   KeEnterCriticalRegion();
   if ( *((_BYTE *)DeviceExtension + 484) )
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4088LL));
+    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 3) + 64LL) + 4080LL));
   ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-  if ( v9 <= (int)DeviceExtension[71]
+  if ( (int)LowPart <= (int)DeviceExtension[71]
     || (DeviceExtension[126]
-      ? (v10 = DpiLdaPowerDownAllAdaptersInChain(v6, Irp))
-      : (v10 = DpiFdoSetAdapterPowerState(
-                 v6,
-                 (unsigned int)v9,
+      ? (v11 = DpiLdaPowerDownAllAdaptersInChain(DeviceObject, Irp))
+      : (v11 = DpiFdoSetAdapterPowerState(
+                 DeviceObject,
+                 (POWER_STATE)LowPart,
                  (unsigned __int8)HIBYTE(LOWORD(CurrentStackLocation->Parameters.Create.SecurityContext)) >> 4,
                  HIWORD(CurrentStackLocation->Parameters.Read.Length) & 0xF,
                  CurrentStackLocation->Parameters.Create.EaLength)),
-        LODWORD(Status) = v10,
-        v10 >= 0) )
+        LODWORD(Status) = v11,
+        v11 >= 0) )
   {
-    if ( v9 <= 1 )
+    if ( (int)LowPart <= 1 )
       KeSetEvent((PRKEVENT)(DeviceExtension + 310), 0, 0);
     else
       *((_BYTE *)DeviceExtension + 496) = 1;
   }
-  v3 = 0LL;
   if ( *((_BYTE *)DeviceExtension + 484) )
     DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
   ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
   KeLeaveCriticalRegion();
   if ( (_DWORD)Status == -1073741637 )
-    goto LABEL_52;
+    goto LABEL_47;
   if ( (int)Status >= 0 )
     goto LABEL_17;
   PoStartNextPowerIrp(Irp);
-  v17 = 0;
+  v21 = 0;
   Irp->IoStatus.Status = Status;
-LABEL_44:
-  IofCompleteRequest(Irp, v17);
+LABEL_40:
+  IofCompleteRequest(Irp, v21);
   return (unsigned int)Status;
 }

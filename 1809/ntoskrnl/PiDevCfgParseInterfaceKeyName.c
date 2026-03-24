@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgParseInterfaceKeyName @ 0x140289290
+ * XREFs of PiDevCfgParseInterfaceKeyName @ 0x140289390
  * Callers:
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FC4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4 (PiDevCfgConfigureDeviceInterfaces.c)
  * Callees:
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  */

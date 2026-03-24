@@ -1,10 +1,11 @@
 /*
- * XREFs of RtlpGetLegacyContextLength @ 0x14029A240
+ * XREFs of RtlpGetLegacyContextLength @ 0x140276670
  * Callers:
- *     PspWow64InitThread @ 0x1406747FC (PspWow64InitThread.c)
- *     RtlWow64GetCpuAreaInfo @ 0x140704D58 (RtlWow64GetCpuAreaInfo.c)
- *     RtlpWriteExtendedContext @ 0x140704E2C (RtlpWriteExtendedContext.c)
- *     PspWow64SetupCpuArea @ 0x140705D0C (PspWow64SetupCpuArea.c)
+ *     RtlGetExtendedContextLength2 @ 0x1402765C0 (RtlGetExtendedContextLength2.c)
+ *     PspWow64InitThread @ 0x1406959A0 (PspWow64InitThread.c)
+ *     PspWow64SetupCpuArea @ 0x140695C88 (PspWow64SetupCpuArea.c)
+ *     RtlpWriteExtendedContext @ 0x140696398 (RtlpWriteExtendedContext.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x140696BE4 (RtlWow64GetCpuAreaInfo.c)
  * Callees:
  *     <none>
  */
@@ -20,26 +21,28 @@ __int64 __fastcall RtlpGetLegacyContextLength(int a1, int *a2, _DWORD *a3)
   {
     result = 4LL;
     v3 = 716;
-    goto LABEL_3;
   }
-  if ( (a1 & 0x100000) != 0 )
+  else
   {
-    v3 = 1232;
-LABEL_10:
-    result = 16LL;
-    goto LABEL_3;
+    if ( (a1 & 0x100000) != 0 )
+    {
+      v3 = 1232;
+LABEL_4:
+      result = 16LL;
+      goto LABEL_5;
+    }
+    if ( (a1 & 0x200000) != 0 )
+    {
+      result = 8LL;
+      v3 = 416;
+    }
+    else if ( (a1 & 0x400000) != 0 )
+    {
+      v3 = 912;
+      goto LABEL_4;
+    }
   }
-  if ( (a1 & 0x200000) != 0 )
-  {
-    result = 8LL;
-    v3 = 416;
-  }
-  else if ( (a1 & 0x400000) != 0 )
-  {
-    v3 = 912;
-    goto LABEL_10;
-  }
-LABEL_3:
+LABEL_5:
   if ( a2 )
     *a2 = v3;
   if ( a3 )

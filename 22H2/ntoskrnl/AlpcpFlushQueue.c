@@ -1,38 +1,34 @@
 /*
- * XREFs of AlpcpFlushQueue @ 0x140718B1C
+ * XREFs of AlpcpFlushQueue @ 0x1405E24D0
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x140718960 (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1405E2314 (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
  */
 
-signed __int32 __fastcall AlpcpFlushQueue(volatile signed __int64 *a1, ULONG_PTR *a2, int a3)
+char __fastcall AlpcpFlushQueue(volatile signed __int64 *a1, ULONG_PTR *a2, unsigned int a3)
 {
   __int64 v6; // rax
-  ULONG_PTR v7; // r15
-  int v8; // edi
-  int v9; // edi
-  volatile signed __int64 *v10; // rdi
-  volatile signed __int64 *v12; // r14
-  __int64 v13; // rax
+  ULONG_PTR v7; // r14
+  volatile signed __int64 *v8; // rdi
+  volatile signed __int64 *v10; // rbp
+  __int64 v11; // rax
 
-  if ( a3 == 1 || a3 == 2 )
+  if ( a3 <= 2 )
   {
     v6 = 17LL;
   }
-  else if ( a3 == 3 )
-  {
-    v6 = 22LL;
-  }
   else
   {
-    v6 = 25LL;
+    v6 = 22LL;
+    if ( a3 != 3 )
+      v6 = 25LL;
   }
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&a1[v6], 0LL);
   while ( 1 )
@@ -41,54 +37,50 @@ signed __int32 __fastcall AlpcpFlushQueue(volatile signed __int64 *a1, ULONG_PTR
     if ( (ULONG_PTR *)*a2 == a2 )
       break;
     AlpcpReferenceBlob(*a2);
-    if ( a3 == 1 || a3 == 2 )
+    if ( a3 > 2 )
     {
-      v12 = a1 + 17;
-    }
-    else if ( a3 == 3 )
-    {
-      v12 = a1 + 22;
+      if ( a3 == 3 )
+        v10 = a1 + 22;
+      else
+        v10 = a1 + 25;
     }
     else
     {
-      v12 = a1 + 25;
+      v10 = a1 + 17;
     }
-    if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v12);
-    KeAbPostRelease((ULONG_PTR)v12);
+    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v10);
+    KeAbPostRelease((ULONG_PTR)v10);
     AlpcpLockForCachedReferenceBlob(v7);
     --*(_WORD *)(v7 - 30);
     if ( *(volatile signed __int64 **)(v7 + 16) == a1 )
       AlpcpCancelMessage(a1, v7, 0x10000LL);
     else
       AlpcpUnlockMessage(v7);
-    if ( a3 == 1 || a3 == 2 )
+    if ( a3 > 2 )
     {
-      v13 = 17LL;
-    }
-    else if ( a3 == 3 )
-    {
-      v13 = 22LL;
+      v11 = 22LL;
+      if ( a3 != 3 )
+        v11 = 25LL;
     }
     else
     {
-      v13 = 25LL;
+      v11 = 17LL;
     }
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&a1[v13], 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&a1[v11], 0LL);
   }
-  v8 = a3 - 1;
-  if ( v8 && (v9 = v8 - 1) != 0 )
+  if ( a3 > 2 )
   {
-    if ( v9 == 1 )
-      v10 = a1 + 22;
+    if ( a3 == 3 )
+      v8 = a1 + 22;
     else
-      v10 = a1 + 25;
+      v8 = a1 + 25;
   }
   else
   {
-    v10 = a1 + 17;
+    v8 = a1 + 17;
   }
-  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v10);
-  return KeAbPostRelease((ULONG_PTR)v10);
+  if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v8);
+  return KeAbPostRelease((ULONG_PTR)v8);
 }

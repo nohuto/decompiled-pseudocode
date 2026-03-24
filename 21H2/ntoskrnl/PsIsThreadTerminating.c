@@ -1,7 +1,8 @@
 /*
- * XREFs of PsIsThreadTerminating @ 0x1402949E0
+ * XREFs of PsIsThreadTerminating @ 0x1402754A0
  * Callers:
- *     <none>
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

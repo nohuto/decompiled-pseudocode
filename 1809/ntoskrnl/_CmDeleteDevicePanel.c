@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDevicePanel @ 0x1408FB5F8
+ * XREFs of _CmDeleteDevicePanel @ 0x1408FB5D8
  * Callers:
- *     _CmAddPanelDeviceWorker @ 0x1408FB234 (_CmAddPanelDeviceWorker.c)
+ *     _CmAddPanelDeviceWorker @ 0x1408FB214 (_CmAddPanelDeviceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmDeleteDevicePanelWorker @ 0x1408FBB80 (_CmDeleteDevicePanelWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmDeleteDevicePanelWorker @ 0x1408FBB60 (_CmDeleteDevicePanelWorker.c)
  */
 
 __int64 __fastcall CmDeleteDevicePanel(__int64 a1, __int64 a2)

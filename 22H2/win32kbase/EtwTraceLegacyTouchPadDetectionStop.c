@@ -1,9 +1,10 @@
 /*
- * XREFs of EtwTraceLegacyTouchPadDetectionStop @ 0x1C006CAC0
+ * XREFs of EtwTraceLegacyTouchPadDetectionStop @ 0x1C00B8230
  * Callers:
- *     RIMApiSetCheckForLegacyTouchPad @ 0x1C006D074 (RIMApiSetCheckForLegacyTouchPad.c)
+ *     RIMCreateDev @ 0x1C0055530 (RIMCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C014FC98 (RIMVirtCreateDev.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceLegacyTouchPadDetectionStop(__int64 a1)

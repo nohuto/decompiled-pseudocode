@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptLocalErrorService @ 0x14037B830
+ * XREFs of HalpInterruptLocalErrorService @ 0x1403A6050
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char HalpInterruptLocalErrorService()
@@ -24,7 +24,7 @@ char HalpInterruptLocalErrorService()
   bool v11; // zf
 
   v0 = 0;
-  v1 = (unsigned __int8)HalpAcquireHighLevelLock(&HalpInterruptLocalUnitErrorLock);
+  v1 = HalpAcquireHighLevelLock(&HalpInterruptLocalUnitErrorLock);
   v2 = HalpInterruptLocalUnitErrorCount & 0x7F;
   v3 = *(__int64 (__fastcall **)(__int64))(HalpInterruptController + 56);
   v4 = *(void (__fastcall **)(__int64))(HalpInterruptController + 64);
@@ -36,19 +36,22 @@ char HalpInterruptLocalErrorService()
     v4(v5);
   HalpInterruptLocalUnitErrorLog[v2] = v0;
   HalpInterruptLocalUnitErrorLogProcessor[v2] = KeGetPcr()->Prcb.Number;
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLocalUnitErrorLock);
+  KxReleaseSpinLock(&HalpInterruptLocalUnitErrorLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___ @ 0x18029D0AC
+ * XREFs of CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___ @ 0x18025AA70
  * Callers:
- *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x18029D930 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
+ *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x18025B210 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
  * Callees:
- *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x18002BBBC (-ResetEvent@details@wil@@YAXPEAX@Z.c)
- *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18029CDF0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
- *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18029D08C (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18029E414 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x1801A69D8 (-ResetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18025A7D0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
+ *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18025AA50 (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025BBAC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 PSLIST_ENTRY __fastcall CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___(

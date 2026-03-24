@@ -1,18 +1,18 @@
 /*
- * XREFs of SeExamineGlobalSacl @ 0x1408A390C
+ * XREFs of SeExamineGlobalSacl @ 0x1408A38EC
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     SeObjectReferenceAuditAlarm @ 0x1405C992C (SeObjectReferenceAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761E00 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407F5148 (CmpExamineSaclForAuditEvent.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089C614 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0AA0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761DE0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407F5128 (CmpExamineSaclForAuditEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089C5F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SepRmGlobalSaclFind @ 0x1408A3AD8 (SepRmGlobalSaclFind.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SepRmGlobalSaclFind @ 0x1408A3AB8 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeExamineGlobalSacl(

@@ -1,70 +1,259 @@
 /*
- * XREFs of ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C02395E8
+ * XREFs of ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C013EAC8
  * Callers:
- *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C012E518 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C013E53C (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
  * Callees:
- *     ?DrawBottomLogicallyRightCorner@@YAXPEAXJHJ@Z @ 0x1C02393AC (-DrawBottomLogicallyRightCorner@@YAXPEAXJHJ@Z.c)
- *     ?DrawBottomSide@@YAXPEAXJHJ@Z @ 0x1C0239460 (-DrawBottomSide@@YAXPEAXJHJ@Z.c)
- *     ?DrawLogicallyRightSide@@YAXPEAXJJHJ@Z @ 0x1C0239510 (-DrawLogicallyRightSide@@YAXPEAXJJHJ@Z.c)
- *     ?DrawTopLogicallyRightCorner@@YAXPEAXJJHJ@Z @ 0x1C02396FC (-DrawTopLogicallyRightCorner@@YAXPEAXJJHJ@Z.c)
+ *     <none>
  */
 
-void __fastcall DrawRoundedRectangularShadow(char *a1, int a2, int a3, int a4, int a5)
+void __fastcall DrawRoundedRectangularShadow(_DWORD *a1, int a2, int a3, int a4, int a5)
 {
-  int v9; // ecx
-  int *v10; // rdx
-  int v11; // ecx
-  int *v12; // r9
-  __int64 v13; // r10
-  char *v14; // r8
-  int v15; // eax
+  int v5; // esi
+  int v10; // r10d
+  int v11; // edx
+  _DWORD *v12; // rdi
+  int v13; // eax
+  __int128 v14; // xmm0
+  __int64 v15; // rcx
   int v16; // edx
-  _DWORD *v17; // r8
-  int v18; // eax
-  __int128 v19; // xmm0
-  __int64 v20; // rcx
+  __int64 v17; // rdx
+  char *v18; // rcx
+  _DWORD *v19; // rdi
+  int v20; // edx
+  int v21; // eax
+  __int128 v22; // xmm0
+  __int64 v23; // rcx
+  int v24; // r8d
+  __int128 *v25; // rdx
+  int v26; // r9d
+  __int64 v27; // rbx
+  __int64 v28; // rcx
+  _DWORD *v29; // rdi
+  int v30; // eax
+  _DWORD *v31; // rdx
+  int v32; // eax
+  __int128 v33; // xmm0
+  __int64 v34; // rcx
+  int v35; // ecx
+  int *v36; // rdx
+  int *v37; // r8
+  __int64 v38; // r9
+  _DWORD *v39; // rdi
+  int v40; // eax
+  __int64 v41; // r8
+  __int64 v42; // rdi
+  __int64 v43; // rcx
+  _DWORD *v44; // rdx
+  int v45; // eax
+  int v46; // ecx
+  int *v47; // rdx
+  int *v48; // r8
+  __int64 v49; // r9
+  _DWORD *v50; // rdi
+  int v51; // eax
+  __int64 v52; // rbx
+  __int64 v53; // rcx
+  _DWORD *v54; // rdi
+  int v55; // eax
+  int *v56; // rcx
+  int v57; // r10d
+  int *v58; // rdi
+  __int64 v59; // r8
+  _DWORD *v60; // rdx
+  int v61; // eax
 
-  DrawTopLogicallyRightCorner(a1, a2, a3, a4, a5);
-  DrawLogicallyRightSide(a1, a2, a3, a4, a5);
-  DrawBottomLogicallyRightCorner(a1, a2, a4, a5);
-  DrawBottomSide(a1, a2, a4, a5);
-  v9 = 5 * a5;
+  v5 = -a2;
+  v10 = 5 * a5;
   if ( a4 )
   {
-    v10 = (int *)&unk_1C02F4890;
-    v11 = a2 * v9;
+    v35 = a2 * (a3 - 6);
+    v36 = (int *)&unk_1C02F0DF0;
     do
     {
-      v12 = v10;
-      v13 = 5LL;
-      v14 = &a1[4 * v11 - 40];
+      v37 = v36;
+      v38 = 5LL;
+      v39 = &a1[v10 - 5 + v35];
       do
       {
-        v15 = *v12--;
-        *(_DWORD *)v14 = v15;
-        v14 += 4;
-        --v13;
+        v40 = *v37--;
+        *v39++ = v40;
+        --v38;
       }
-      while ( v13 );
-      v11 -= a2;
-      v10 += 5;
+      while ( v38 );
+      v35 += v5;
+      v36 += 5;
     }
-    while ( (__int64)v10 < (__int64)((int *)&xmmword_1C02F48E8 + 3) );
+    while ( (__int64)v36 < (__int64)dword_1C02F0E54 );
   }
   else
   {
-    v16 = a2 * (v9 - 1);
-    v17 = &unk_1C02F4880;
+    v11 = a2 * (a3 - 5);
+    v12 = &unk_1C02F0DE0;
     do
     {
-      v18 = v17[4];
-      v19 = *(_OWORD *)v17;
-      v20 = v16;
-      v17 += 5;
-      v16 -= a2;
-      *(_OWORD *)&a1[4 * v20 + 20] = v19;
-      *(_DWORD *)&a1[4 * v20 + 36] = v18;
+      v13 = v12[4];
+      v14 = *(_OWORD *)v12;
+      v12 += 5;
+      v15 = v11 - (__int64)v10;
+      v11 += v5;
+      *(_OWORD *)&a1[v15] = v14;
+      a1[v15 + 4] = v13;
     }
-    while ( (__int64)v17 < (__int64)&dword_1C02F48E4 );
+    while ( (__int64)v12 < (__int64)&dword_1C02F0E44 );
+  }
+  v16 = a3 - v10;
+  if ( a3 - v10 > 10 )
+  {
+    if ( a4 )
+    {
+      v41 = (unsigned int)(v16 - 10);
+      v42 = a2 * (a3 - 11);
+      do
+      {
+        v43 = 16LL;
+        v44 = &a1[v42 - 5 + v10];
+        do
+        {
+          v45 = *(_DWORD *)((char *)&xmmword_1C02F0CE0 + v43);
+          v43 -= 4LL;
+          *v44++ = v45;
+        }
+        while ( v43 > -4 );
+        v42 += v5;
+        --v41;
+      }
+      while ( v41 );
+    }
+    else
+    {
+      v17 = (unsigned int)(v16 - 10);
+      v18 = (char *)&a1[a2 * (a3 - 10) - (__int64)v10];
+      do
+      {
+        *(_OWORD *)v18 = xmmword_1C02F0CE0;
+        *((_DWORD *)v18 + 4) = 50331648;
+        v18 += 4 * v5;
+        --v17;
+      }
+      while ( v17 );
+    }
+  }
+  if ( a4 )
+  {
+    v46 = a2 * (v10 - 1);
+    v47 = (int *)&unk_1C02F0D80;
+    do
+    {
+      v48 = v47;
+      v49 = 5LL;
+      v50 = &a1[v10 - 5 + v46];
+      do
+      {
+        v51 = *v48--;
+        *v50++ = v51;
+        --v49;
+      }
+      while ( v49 );
+      v46 += v5;
+      v47 += 5;
+    }
+    while ( (__int64)v47 < (__int64)dword_1C02F0DE4 );
+  }
+  else
+  {
+    v19 = &unk_1C02F0D70;
+    v20 = a2 * v10;
+    do
+    {
+      v21 = v19[4];
+      v22 = *(_OWORD *)v19;
+      v19 += 5;
+      v23 = v20 - (__int64)v10;
+      v20 += v5;
+      *(_OWORD *)&a1[v23] = v22;
+      a1[v23 + 4] = v21;
+    }
+    while ( (__int64)v19 < (__int64)dword_1C02F0DD4 );
+  }
+  v24 = a2 * (v10 - 1);
+  v25 = &xmmword_1C02F0CE0;
+  v26 = v24;
+  if ( a4 )
+  {
+    v52 = a2 - 10;
+    do
+    {
+      if ( v10 < v52 )
+      {
+        v53 = v52 - v10;
+        v54 = &a1[v10 + (__int64)v26];
+        v55 = *(_DWORD *)v25;
+        while ( v53 )
+        {
+          *v54++ = v55;
+          --v53;
+        }
+      }
+      v26 += v5;
+      v25 = (__int128 *)((char *)v25 + 4);
+    }
+    while ( (__int64)v25 < (__int64)&unk_1C02F0CF4 );
+  }
+  else
+  {
+    v27 = a2 - v10;
+    do
+    {
+      if ( v27 > 10 )
+      {
+        v28 = v27 - 10;
+        v29 = &a1[v26 + 10];
+        v30 = *(_DWORD *)v25;
+        while ( v28 )
+        {
+          *v29++ = v30;
+          --v28;
+        }
+      }
+      v26 += v5;
+      v25 = (__int128 *)((char *)v25 + 4);
+    }
+    while ( (__int64)v25 < (__int64)&unk_1C02F0CF4 );
+  }
+  if ( a4 )
+  {
+    v56 = (int *)&unk_1C02F0D10;
+    v57 = a2 * v10;
+    do
+    {
+      v58 = v56;
+      v59 = 5LL;
+      v60 = &a1[v57 - 10];
+      do
+      {
+        v61 = *v58--;
+        *v60++ = v61;
+        --v59;
+      }
+      while ( v59 );
+      v57 += v5;
+      v56 += 5;
+    }
+    while ( (__int64)v56 < (__int64)dword_1C02F0D74 );
+  }
+  else
+  {
+    v31 = &unk_1C02F0D00;
+    do
+    {
+      v32 = v31[4];
+      v33 = *(_OWORD *)v31;
+      v34 = v24;
+      v31 += 5;
+      v24 += v5;
+      *(_OWORD *)&a1[v34 + 5] = v33;
+      a1[v34 + 9] = v32;
+    }
+    while ( (__int64)v31 < (__int64)dword_1C02F0D64 );
   }
 }

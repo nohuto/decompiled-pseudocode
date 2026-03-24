@@ -1,25 +1,26 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1405A23C4
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x14057F32C
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A10B4 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FAA30 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPepWorkorderBlackboxInformation()
 {
-  unsigned int v0; // edi
-  void *v1; // rbx
+  unsigned int v0; // esi
+  _DWORD *v1; // rbx
   unsigned __int64 v2; // rbp
   __int64 *v3; // rax
   __int64 v4; // rcx
-  __int64 v5; // rsi
-  _DWORD *Pool2; // rax
+  SIZE_T v5; // rdi
+  _DWORD *PoolWithTag; // rax
   _DWORD *v7; // r8
   __int64 *i; // r9
   unsigned __int64 v9; // kr00_8
@@ -56,14 +57,15 @@ LABEL_13:
   else
   {
     v5 = 48 * v4 + 64;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, v5, 1111641936LL);
-    v1 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x42424F50u);
+    v1 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      v7 = Pool2 + 4;
-      Pool2[1] = v5;
-      Pool2[2] = v0;
+      memset(PoolWithTag, 0, v5);
+      *v1 = 1;
+      v7 = v1 + 4;
+      v1[1] = v5;
+      v1[2] = v0;
       for ( i = (__int64 *)PopWorkOrderList; i != &PopWorkOrderList; v7 += 12 )
       {
         v9 = MEMORY[0xFFFFF78000000008] - i[20];
@@ -90,19 +92,22 @@ LABEL_13:
       }
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PopWorkOrderLock);
+  KxReleaseSpinLock(&PopWorkOrderLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

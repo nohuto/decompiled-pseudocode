@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlTraceDatabaseCreate @ 0x1405B1310
+ * XREFs of RtlTraceDatabaseCreate @ 0x14058E800
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     RtlpTraceDatabaseAllocate @ 0x1405B16A8 (RtlpTraceDatabaseAllocate.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpTraceDatabaseAllocate @ 0x14058EBC0 (RtlpTraceDatabaseAllocate.c)
  */
 
 __int64 __fastcall RtlTraceDatabaseCreate(
         unsigned int a1,
         __int64 a2,
         int a3,
-        unsigned int a4,
+        int a4,
         __int64 (__fastcall *a5)(unsigned int a1, __int64 a2))
 {
   __int64 v9; // rax
@@ -24,7 +24,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
 
   if ( a1 > 0x100000 )
     return 0LL;
-  v9 = RtlpTraceDatabaseAllocate((8LL * a1 + 4368) & 0xFFFFFFFFFFFFF000uLL, 6LL, a4);
+  v9 = RtlpTraceDatabaseAllocate((8LL * a1 + 4368) & 0xFFFFFFFFFFFFF000uLL);
   v10 = v9;
   if ( !v9 )
     return 0LL;

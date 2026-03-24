@@ -1,9 +1,9 @@
 /*
- * XREFs of WriteIoMemRaw @ 0x1C005B350
+ * XREFs of WriteIoMemRaw @ 0x1C005A4F0
  * Callers:
- *     AcpiPccRingDoorbell @ 0x1C005B060 (AcpiPccRingDoorbell.c)
+ *     AcpiPccRingDoorbell @ 0x1C005A200 (AcpiPccRingDoorbell.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
  */
 
 char __fastcall WriteIoMemRaw(_BYTE *a1, int a2, int a3, __int64 a4)
@@ -44,7 +44,7 @@ LABEL_17:
                            2u,
                            0x15u,
                            v5,
-                           (__int64)&WPP_cb83180b771632eba63c2d8b4b5a28e5_Traceguids,
+                           (__int64)&WPP_79609623c0e33e2afa48dee71fa9caab_Traceguids,
                            v8);
             return (char)v4;
           }

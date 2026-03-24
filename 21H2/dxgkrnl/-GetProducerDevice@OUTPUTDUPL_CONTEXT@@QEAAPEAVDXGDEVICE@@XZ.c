@@ -1,48 +1,47 @@
 /*
- * XREFs of ?GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ @ 0x1C0326990
+ * XREFs of ?GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ @ 0x1C02A0FB4
  * Callers:
- *     ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C0187480 (-ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z.c)
- *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C019F49C (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
+ *     ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C01049D0 (-ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z.c)
+ *     _lambda_593c7b7db45d2905858a3969fb7431d6_::_lambda_invoker_cdecl_ @ 0x1C0116CC0 (_lambda_593c7b7db45d2905858a3969fb7431d6_--_lambda_invoker_cdecl_.c)
+ *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C015CAD4 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 struct DXGDEVICE *__fastcall OUTPUTDUPL_CONTEXT::GetProducerDevice(OUTPUTDUPL_CONTEXT *this)
 {
-  __int64 v1; // rdx
-  __int64 i; // rbx
-  __int64 v4; // rcx
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  __int64 v4; // rdx
   __int64 v5; // rax
-  __int64 v6; // rsi
+  __int64 v6; // rax
 
   v1 = 0LL;
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 10); i = (unsigned int)(i + 1) )
+  v2 = 0LL;
+  if ( *((_DWORD *)this + 10) )
   {
-    v4 = *((_QWORD *)this + i + 6);
-    v5 = *(_QWORD *)(v4 + 8);
-    if ( v1 )
+    while ( 1 )
     {
-      v6 = v1;
-      if ( v5 && v1 != v5 )
-      {
-        WdLogSingleEntry1(1LL, 2094LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"!pCurrentMutexDevice || (pDeviceFound == pCurrentMutexDevice)",
-          2094LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v1 = v6;
-      }
+      v4 = *((_QWORD *)this + v2 + 6);
+      v5 = *(_QWORD *)(v4 + 8);
+      if ( v1 )
+        goto LABEL_5;
+      if ( v5 )
+        break;
+LABEL_8:
+      v2 = (unsigned int)(v2 + 1);
+      if ( (unsigned int)v2 >= *((_DWORD *)this + 10) )
+        return (struct DXGDEVICE *)v1;
     }
-    else if ( v5 )
+    v1 = *(_QWORD *)(v4 + 8);
+LABEL_5:
+    if ( v5 && v1 != v5 )
     {
-      v1 = *(_QWORD *)(v4 + 8);
+      v6 = WdLogNewEntry5_WdAssertion(this, v4);
+      *(_QWORD *)(v6 + 24) = 2085LL;
+      WdLogEvent5_WdAssertion(v6);
     }
+    goto LABEL_8;
   }
   return (struct DXGDEVICE *)v1;
 }

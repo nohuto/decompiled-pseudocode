@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiWriteEventToAllQueues @ 0x1409A5188
+ * XREFs of TtmiWriteEventToAllQueues @ 0x1408FF578
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1409A29D4 (TtmpPublishDeviceEvent.c)
- *     TtmpWriteDisplayStateChangedEvent @ 0x1409A4084 (TtmpWriteDisplayStateChangedEvent.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A61C4 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FCF70 (TtmpPublishDeviceEvent.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x1408FE478 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409005E8 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  * Callees:
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiCloseEventQueue @ 0x1409AB08C (TtmiCloseEventQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x1409AB3EC (TtmiWriteEventToSingleQueue.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiCloseEventQueue @ 0x14090538C (TtmiCloseEventQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1409056FC (TtmiWriteEventToSingleQueue.c)
  */
 
 void __fastcall TtmiWriteEventToAllQueues(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ void __fastcall TtmiWriteEventToAllQueues(__int64 a1, __int64 a2)
     v6 = TtmiWriteEventToSingleQueue(v5, a2);
     if ( v6 < 0 )
     {
-      TtmiLogError("TtmiWriteEventToAllQueues", 2194LL, (unsigned int)v6, 0xFFFFFFFFLL);
+      TtmiLogError("TtmiWriteEventToAllQueues", 2198LL, (unsigned int)v6, 0xFFFFFFFFLL);
       TtmiCloseEventQueue(v5);
     }
   }

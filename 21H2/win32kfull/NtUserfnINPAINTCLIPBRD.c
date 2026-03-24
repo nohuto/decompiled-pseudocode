@@ -1,12 +1,11 @@
 /*
- * XREFs of NtUserfnINPAINTCLIPBRD @ 0x1C0202B30
+ * XREFs of NtUserfnINPAINTCLIPBRD @ 0x1C02063A0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtUserfnINPAINTCLIPBRD(__int64 a1, unsigned int a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
@@ -14,7 +13,6 @@ __int64 __fastcall NtUserfnINPAINTCLIPBRD(__int64 a1, unsigned int a2, __int64 a
   _OWORD v11[5]; // [rsp+40h] [rbp-88h] BYREF
 
   memset(v11, 0, 0x48uLL);
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a4 >= MmUserProbeAddress )
     a4 = MmUserProbeAddress;
   v11[0] = *(_OWORD *)a4;

@@ -1,17 +1,17 @@
 /*
- * XREFs of Interrupter_InterruptDisable @ 0x1C000F80C
+ * XREFs of Interrupter_InterruptDisable @ 0x1C000A8B8
  * Callers:
- *     Interrupter_WdfEvtInterruptDisable @ 0x1C000F780 (Interrupter_WdfEvtInterruptDisable.c)
+ *     Interrupter_WdfEvtInterruptDisable @ 0x1C000A840 (Interrupter_WdfEvtInterruptDisable.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
  */
 
 __int64 __fastcall Interrupter_InterruptDisable(__int64 a1)
 {
   int *v2; // rdx
-  __int64 v3; // rbx
+  __int64 v3; // rdi
   int Ulong; // eax
   _DWORD *v5; // rdx
   __int64 result; // rax
@@ -22,8 +22,8 @@ __int64 __fastcall Interrupter_InterruptDisable(__int64 a1)
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       4,
       9,
-      40,
-      (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+      39,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       *(_DWORD *)(a1 + 32));
   v2 = *(int **)(a1 + 24);
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL);

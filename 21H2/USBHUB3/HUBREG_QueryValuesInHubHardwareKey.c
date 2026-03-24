@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_QueryValuesInHubHardwareKey @ 0x1C00805C0
+ * XREFs of HUBREG_QueryValuesInHubHardwareKey @ 0x1C007F054
  * Callers:
- *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0075090 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
@@ -123,7 +123,7 @@ LABEL_25:
              2u,
              3u,
              v4,
-             (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+             (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
              v5);
 LABEL_26:
   if ( v7 )

@@ -1,26 +1,25 @@
 /*
- * XREFs of PoSetPowerState @ 0x140364FD0
+ * XREFs of PoSetPowerState @ 0x14037C310
  * Callers:
- *     IopPowerDispatch @ 0x140562950 (IopPowerDispatch.c)
+ *     IopPowerDispatch @ 0x14038AAA0 (IopPowerDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_TYPE Type, POWER_STATE State)
 {
-  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // r14
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rbp
   int v6; // edi
-  unsigned __int64 v7; // rbp
-  ULONG PowerFlags; // eax
-  unsigned int v9; // eax
-  int v10; // ebx
+  unsigned __int64 v7; // r14
+  unsigned int v8; // eax
+  int v9; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v15; // edx
-  bool v16; // zf
+  int v14; // edx
+  bool v15; // zf
 
   DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
   v6 = 0;
@@ -30,36 +29,38 @@ POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_T
     v6 = DeviceObjectExtension->PowerFlags & 0xF;
     if ( v6 == State.SystemState )
       goto LABEL_6;
-    v9 = DeviceObjectExtension->PowerFlags & 0xFFFFFFF0;
-    v10 = State.SystemState & 0xF;
+    v8 = DeviceObjectExtension->PowerFlags & 0xFFFFFFF0;
+    v9 = State.SystemState & 0xF;
     goto LABEL_5;
   }
   if ( Type == DevicePowerState )
   {
-    PowerFlags = DeviceObjectExtension->PowerFlags;
-    v6 = (unsigned __int8)PowerFlags >> 4;
+    v6 = (DeviceObjectExtension->PowerFlags >> 4) & 0xF;
     if ( v6 != State.SystemState )
     {
-      v9 = PowerFlags & 0xFFFFFF0F;
-      v10 = 16 * (State.SystemState & 0xF);
+      v8 = DeviceObjectExtension->PowerFlags & 0xFFFFFF0F;
+      v9 = 16 * (State.SystemState & 0xF);
 LABEL_5:
-      DeviceObjectExtension->PowerFlags = v9 | v10;
+      DeviceObjectExtension->PowerFlags = v8 | v9;
     }
   }
 LABEL_6:
-  KxReleaseSpinLock((volatile signed __int64 *)&PopIrpSerialLock);
+  KxReleaseSpinLock(&PopIrpSerialLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

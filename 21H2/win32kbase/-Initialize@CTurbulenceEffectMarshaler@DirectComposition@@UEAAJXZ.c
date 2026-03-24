@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0217350
+ * XREFs of ?Initialize@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E11A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C0215C70 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01DFE20 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::Initialize(
@@ -14,13 +14,13 @@ __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::Initialize(
   result = DirectComposition::CFilterEffectMarshaler::Initialize(this);
   if ( (int)result >= 0 )
   {
-    *((_QWORD *)this + 15) = 0LL;
-    *((_DWORD *)this + 32) = 1008981770;
+    *((_QWORD *)this + 14) = 0LL;
+    *((_DWORD *)this + 30) = 1008981770;
     result = 0LL;
-    *(_QWORD *)((char *)this + 132) = 1008981770LL;
-    *((_DWORD *)this + 35) = 0;
+    *(_QWORD *)((char *)this + 124) = 1008981770LL;
+    *((_DWORD *)this + 33) = 0;
   }
-  *((_QWORD *)this + 18) = 1LL;
-  *((_QWORD *)this + 19) = 0LL;
+  *((_QWORD *)this + 17) = 1LL;
+  *((_QWORD *)this + 18) = 0LL;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x140A35084
+ * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x14098102C
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x140654FBC (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x1405CA89C (RtlpMuiRegValidateConfigNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403C5DE0 (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     RtlCultureNameToLCID @ 0x140830F20 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x1409BB670 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A35494 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x140A35814 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403AD474 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x140793140 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981438 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1409817B0 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall RtlpMuiRegConfigMatchesInstalled(
@@ -23,9 +23,9 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
         unsigned __int16 *a7)
 {
   __int64 v7; // r15
-  unsigned int v8; // r13d
+  unsigned int v8; // r12d
   __int64 v9; // r14
-  wchar_t *v11; // r12
+  wchar_t *v11; // r13
   bool v12; // zf
   char v13; // bl
   unsigned __int16 *v14; // rdi
@@ -59,7 +59,7 @@ LABEL_3:
     goto LABEL_22;
   }
   if ( !a2 || !a4 )
-    goto LABEL_44;
+    goto LABEL_47;
   v14 = a7;
   if ( a7 )
     *a7 = -1;
@@ -70,7 +70,7 @@ LABEL_3:
       if ( (a3 & 0x8000u) == 0LL )
       {
         v15 = *(_QWORD *)(a1 + 24);
-        if ( (__int16)a3 < (unsigned int)*(unsigned __int16 *)(v15 + 6) )
+        if ( (__int16)a3 < (int)*(unsigned __int16 *)(v15 + 6) )
         {
           LOBYTE(a3) = a4;
           v7 = *(_QWORD *)(v15 + 16) + 28 * v9;
@@ -79,7 +79,7 @@ LABEL_3:
         }
       }
     }
-    goto LABEL_44;
+    goto LABEL_47;
   }
   if ( a4 != 2 )
   {
@@ -89,20 +89,17 @@ LABEL_3:
       if ( a4 == 3 )
       {
         v20 = *(_QWORD *)(a1 + 32);
-        if ( v20 )
+        if ( v20 && (a5 & 0x8000u) == 0 && (__int16)a5 < (int)*(unsigned __int16 *)(v20 + 6) )
+          v21 = (const WCHAR *)(*(_QWORD *)(v20 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v20 + 16) + 2LL * (__int16)a5));
+        else
+          v21 = 0LL;
+        if ( v21 )
         {
-          if ( (a5 & 0x8000u) == 0 && (__int16)a5 < (unsigned int)*(unsigned __int16 *)(v20 + 6) )
+          RtlInitUnicodeString(&DestinationString, v21);
+          if ( RtlCultureNameToLCID(&DestinationString.Length, &v29) )
           {
-            v21 = (const WCHAR *)(*(_QWORD *)(v20 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v20 + 16) + 2LL * (__int16)a5));
-            if ( v21 )
-            {
-              RtlInitUnicodeString(&DestinationString, v21);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v29) )
-              {
-                v12 = (_WORD)v9 == (unsigned __int16)v29;
-                goto LABEL_3;
-              }
-            }
+            v12 = (_WORD)v9 == (unsigned __int16)v29;
+            goto LABEL_3;
           }
         }
       }
@@ -118,39 +115,32 @@ LABEL_3:
         if ( RtlLCIDToCultureName((__int16)a5, &DestinationString) )
         {
           v23 = *(_QWORD *)(a1 + 32);
-          if ( !v23
-            || (v9 & 0x8000u) != 0LL
-            || (unsigned int)v9 >= *(unsigned __int16 *)(v23 + 6)
-            || (v24 = (const wchar_t *)(*(_QWORD *)(v23 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v23 + 16) + 2 * v9))) == 0LL
-            || wcsicmp(DestinationString.Buffer, v24) )
-          {
-            v13 = 0;
-          }
-          goto LABEL_45;
+          if ( v23 && (v9 & 0x8000u) == 0LL && (int)v9 < *(unsigned __int16 *)(v23 + 6) )
+            v24 = (const wchar_t *)(*(_QWORD *)(v23 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v23 + 16) + 2 * v9));
+          else
+            v24 = 0LL;
+          if ( v24 && !wcsicmp(DestinationString.Buffer, v24) )
+            goto LABEL_48;
         }
       }
     }
-LABEL_44:
+LABEL_47:
     v13 = 0;
-    if ( !v11 )
-    {
-LABEL_46:
-      v11 = 0LL;
-      v7 = 0LL;
-      goto LABEL_22;
-    }
-LABEL_45:
-    ExFreePoolWithTag(v11, 0);
-    goto LABEL_46;
+LABEL_48:
+    if ( v11 )
+      ExFreePoolWithTag(v11, 0);
+    v11 = 0LL;
+    v7 = 0LL;
+    goto LABEL_22;
   }
   if ( !a1 )
-    goto LABEL_44;
+    goto LABEL_47;
   v16 = a5;
   if ( (a5 & 0x8000u) != 0 )
-    goto LABEL_44;
+    goto LABEL_47;
   v17 = *(_QWORD *)(a1 + 24);
-  if ( (__int16)a5 >= (unsigned int)*(unsigned __int16 *)(v17 + 6) )
-    goto LABEL_44;
+  if ( (__int16)a5 >= (int)*(unsigned __int16 *)(v17 + 6) )
+    goto LABEL_47;
   v18 = (unsigned __int16)a3;
   LOBYTE(a3) = v8;
   v11 = (wchar_t *)(*(_QWORD *)(v17 + 16) + 28LL * (__int16)a5);

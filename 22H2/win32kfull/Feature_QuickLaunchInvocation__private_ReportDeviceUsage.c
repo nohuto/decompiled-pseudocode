@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_QuickLaunchInvocation__private_ReportDeviceUsage @ 0x1C013AE0C
+ * XREFs of Feature_QuickLaunchInvocation__private_ReportDeviceUsage @ 0x1C0167EC8
  * Callers:
- *     ?IsPenQuickLaunchAndShouldBeDisabled@@YA_NIE@Z @ 0x1C0014F98 (-IsPenQuickLaunchAndShouldBeDisabled@@YA_NIE@Z.c)
+ *     ?IsPenQuickLaunchAndShouldBeDisabled@@YA_NII@Z @ 0x1C010590C (-IsPenQuickLaunchAndShouldBeDisabled@@YA_NII@Z.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C01390CC (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0139344 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00D3450 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0165E18 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_QuickLaunchInvocation__private_ReportDeviceUsage()
@@ -18,7 +18,7 @@ void Feature_QuickLaunchInvocation__private_ReportDeviceUsage()
     wil_details_FeatureReporting_ReportUsageToService(
       (__int64)&Feature_QuickLaunchInvocation__private_descriptor,
       v0,
-      3LL);
+      3);
     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
       v0,
       3,

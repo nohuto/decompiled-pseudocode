@@ -1,25 +1,29 @@
 /*
- * XREFs of AcpiAllocateNativeMethodOutputBuffer @ 0x1C005B790
+ * XREFs of AcpiAllocateNativeMethodOutputBuffer @ 0x1C005A880
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall AcpiAllocateNativeMethodOutputBuffer(_QWORD *a1, void *a2, __int64 a3, __int64 *a4)
+__int64 __fastcall AcpiAllocateNativeMethodOutputBuffer(_QWORD *a1, void *a2, SIZE_T a3, _QWORD *a4)
 {
   unsigned int v4; // ebx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v9; // rcx
 
   v4 = 0;
   if ( a2 )
     ExFreePoolWithTag(a2, 0x4E706341u);
-  Pool2 = ExAllocatePool2(64LL, a3, 1315988289LL);
-  a1[7] = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a3, 0x4E706341u);
+  a1[7] = PoolWithTag;
+  if ( PoolWithTag )
   {
+    memset(PoolWithTag, 0, a3);
+    v9 = a1[7];
     a1[6] = a3;
-    *a4 = Pool2;
+    *a4 = v9;
   }
   else
   {
@@ -30,7 +34,7 @@ __int64 __fastcall AcpiAllocateNativeMethodOutputBuffer(_QWORD *a1, void *a2, __
         2u,
         0x13u,
         0x11u,
-        (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+        (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
         a1[1],
         -1073741670);
   }

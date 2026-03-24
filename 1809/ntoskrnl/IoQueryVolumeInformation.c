@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryVolumeInformation @ 0x1406CEFC0
+ * XREFs of IoQueryVolumeInformation @ 0x1406CEFA0
  * Callers:
  *     <none>
  * Callees:
- *     IopQueryXxxInformation @ 0x140661740 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryVolumeInformation(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSynchronousPageWrite @ 0x1400DE6C0
+ * XREFs of IoSynchronousPageWrite @ 0x1400DE6E0
  * Callers:
- *     SmKmStoreFileWriteHeader @ 0x1408AE470 (SmKmStoreFileWriteHeader.c)
+ *     SmKmStoreFileWriteHeader @ 0x1408AE450 (SmKmStoreFileWriteHeader.c)
  * Callees:
- *     IoSynchronousPageWriteEx @ 0x1400DEA00 (IoSynchronousPageWriteEx.c)
+ *     IoSynchronousPageWriteEx @ 0x1400DEA20 (IoSynchronousPageWriteEx.c)
  */
 
 NTSTATUS __stdcall IoSynchronousPageWrite(

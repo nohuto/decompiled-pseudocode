@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x140174B20
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x140174B40
  * Callers:
- *     LdrpGetRcConfig @ 0x1400F3F10 (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F404C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x14071B1A4 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1400F3F30 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KeReleaseMutant @ 0x1400BF9F0 (KeReleaseMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4418 (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)

@@ -1,163 +1,144 @@
 /*
- * XREFs of NtGetNlsSectionPtr @ 0x1407A23B0
+ * XREFs of NtGetNlsSectionPtr @ 0x14069CEC0
  * Callers:
- *     RtlpInitUppercaseTables @ 0x140822E9C (RtlpInitUppercaseTables.c)
- *     RtlpInitCodePageTables @ 0x140823520 (RtlpInitCodePageTables.c)
+ *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ZwOpenSection @ 0x14041AD80 (ZwOpenSection.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     RtlpInitNlsSectionName @ 0x1407A278C (RtlpInitNlsSectionName.c)
- *     MmMapViewOfSection @ 0x1407A2850 (MmMapViewOfSection.c)
- *     RtlpInitNlsFileName @ 0x1407A5798 (RtlpInitNlsFileName.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x1403FA100 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     MmMapViewOfSection @ 0x1406128D0 (MmMapViewOfSection.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     RtlpInitNlsSectionName @ 0x14069D240 (RtlpInitNlsSectionName.c)
+ *     RtlpInitNlsFileName @ 0x14069D2A8 (RtlpInitNlsFileName.c)
+ *     MmMapViewInSystemSpace @ 0x1406A2470 (MmMapViewInSystemSpace.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *a3, _QWORD *a4, _QWORD *a5)
+NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigned __int64 a3, PVOID *a4, ULONG_PTR *a5)
 {
-  char PreviousMode; // r12
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
+  char PreviousMode; // r14
+  __int64 v9; // rcx
+  __int64 v10; // rcx
   NTSTATUS result; // eax
-  NTSTATUS v14; // ebx
-  NTSTATUS v15; // eax
-  PVOID Object; // [rsp+58h] [rbp-220h] BYREF
-  HANDLE SectionHandle; // [rsp+60h] [rbp-218h] BYREF
-  HANDLE FileHandle; // [rsp+68h] [rbp-210h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-208h] BYREF
-  unsigned __int64 v20; // [rsp+78h] [rbp-200h] BYREF
-  __int64 v21; // [rsp+80h] [rbp-1F8h] BYREF
-  __int64 v22; // [rsp+88h] [rbp-1F0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-1E0h] BYREF
-  __int128 v24; // [rsp+C8h] [rbp-1B0h] BYREF
-  __int128 v25; // [rsp+D8h] [rbp-1A0h] BYREF
-  OBJECT_ATTRIBUTES v26; // [rsp+E8h] [rbp-190h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+118h] [rbp-160h] BYREF
-  _BYTE v28[128]; // [rsp+130h] [rbp-148h] BYREF
-  _BYTE v29[128]; // [rsp+1B0h] [rbp-C8h] BYREF
+  NTSTATUS v12; // ebx
+  struct _DMA_ADAPTER *v13; // rdi
+  NTSTATUS v14; // eax
+  HANDLE SectionHandle; // [rsp+58h] [rbp-200h] BYREF
+  HANDLE FileHandle; // [rsp+60h] [rbp-1F8h] BYREF
+  PVOID Section; // [rsp+68h] [rbp-1F0h] BYREF
+  PVOID MappedBase; // [rsp+70h] [rbp-1E8h] BYREF
+  ULONG_PTR ViewSize; // [rsp+78h] [rbp-1E0h] BYREF
+  __int64 v20; // [rsp+80h] [rbp-1D8h] BYREF
+  __int128 v21; // [rsp+90h] [rbp-1C8h] BYREF
+  __int128 v22; // [rsp+A0h] [rbp-1B8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-1A8h] BYREF
+  OBJECT_ATTRIBUTES v24; // [rsp+E0h] [rbp-178h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+110h] [rbp-148h] BYREF
+  _BYTE v26[128]; // [rsp+120h] [rbp-138h] BYREF
+  _BYTE v27[128]; // [rsp+1A0h] [rbp-B8h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v24 = 0LL;
+  v21 = 0LL;
   FileHandle = 0LL;
   SectionHandle = 0LL;
   IoStatusBlock = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
-  if ( !a4 && !a3 )
-    return -1073741811;
+  MappedBase = 0LL;
+  ViewSize = 0LL;
+  if ( !a4 )
+    return -1073741582;
+  if ( !a5 )
+    return -1073741581;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v10 = 0x7FFFFFFF0000LL;
-    if ( a4 )
-    {
-      v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a4;
-      *(_QWORD *)v11 = *(_QWORD *)v11;
-    }
-    if ( a5 )
-    {
-      v12 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a5;
-      *(_QWORD *)v12 = *(_QWORD *)v12;
-    }
+    v9 = (__int64)a4;
+    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+      v9 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v9 = *(_QWORD *)v9;
+    v10 = (__int64)a5;
+    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+      v10 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v10 = *(_QWORD *)v10;
     if ( a3 )
     {
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a3;
-      *(_QWORD *)v10 = *(_QWORD *)v10;
+      if ( (a3 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+        MEMORY[0x7FFFFFFF0000] = 0;
     }
-    if ( a3 )
-      return -1073741583;
   }
-  result = RtlpInitNlsSectionName(a1, a2, v28);
+  result = RtlpInitNlsSectionName(a1, a2, v26);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 720;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v24;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v21;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ((a1 - 11) & 0xFFFFFFFC) != 0 || a1 == 13 )
+    if ( a1 - 11 > 1 )
     {
-      v14 = -1073741823;
+      v12 = -1073741823;
     }
     else
     {
-      v14 = ZwOpenSection(&SectionHandle, 4u, &ObjectAttributes);
-      if ( v14 < 0 )
+      v12 = ZwOpenSection(&SectionHandle, 4u, &ObjectAttributes);
+      if ( v12 < 0 )
       {
-        *(&v26.Length + 1) = 0;
-        *(&v26.Attributes + 1) = 0;
-        v25 = 0LL;
-        result = RtlpInitNlsFileName(a1, a2, v29);
+        *(&v24.Length + 1) = 0;
+        *(&v24.Attributes + 1) = 0;
+        v22 = 0LL;
+        result = RtlpInitNlsFileName(a1, a2, v27);
         if ( result < 0 )
           return result;
-        v26.Length = 48;
-        v26.RootDirectory = 0LL;
-        v26.Attributes = 576;
-        v26.ObjectName = (PUNICODE_STRING)&v25;
-        *(_OWORD *)&v26.SecurityDescriptor = 0LL;
-        result = ZwOpenFile(&FileHandle, 0x100000u, &v26, &IoStatusBlock, 1u, 0);
+        v24.Length = 48;
+        v24.RootDirectory = 0LL;
+        v24.Attributes = 576;
+        v24.ObjectName = (PUNICODE_STRING)&v22;
+        *(_OWORD *)&v24.SecurityDescriptor = 0LL;
+        result = ZwOpenFile(&FileHandle, 0x100000u, &v24, &IoStatusBlock, 1u, 0);
         if ( result < 0 )
           return result;
-        v14 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
+        v12 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
         ZwClose(FileHandle);
       }
     }
-    if ( v14 >= 0 )
+    if ( v12 >= 0 )
     {
-      Object = 0LL;
-      v14 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
+      Section = 0LL;
+      v12 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Section, 0LL);
       ZwClose(SectionHandle);
-      if ( v14 >= 0 )
+      if ( v12 >= 0 )
       {
-        if ( a4 )
+        v20 = 0LL;
+        v13 = (struct _DMA_ADAPTER *)Section;
+        if ( PreviousMode )
+          v14 = MmMapViewOfSection(
+                  (int)Section,
+                  (__int64)KeGetCurrentThread()->ApcState.Process,
+                  &MappedBase,
+                  0LL,
+                  0,
+                  (__int64)&v20,
+                  (__int64 *)&ViewSize,
+                  1,
+                  0x400000,
+                  2);
+        else
+          v14 = MmMapViewInSystemSpace(Section, &MappedBase, &ViewSize);
+        v12 = v14;
+        HalPutDmaAdapter(v13);
+        if ( v12 >= 0 )
         {
-          v21 = 0LL;
-          if ( PreviousMode )
-          {
-            v15 = MmMapViewOfSection(
-                    Object,
-                    KeGetCurrentThread()->ApcState.Process,
-                    &v19,
-                    0LL,
-                    0LL,
-                    &v21,
-                    &v20,
-                    1,
-                    0x400000,
-                    2);
-          }
-          else
-          {
-            v22 = 0LL;
-            v15 = MiMapViewInSystemSpace((__int64)Object, &v19, &v20, &v22, 0LL, 0LL);
-          }
-          v14 = v15;
-        }
-        if ( !a3 )
-          ObfDereferenceObject(Object);
-        if ( v14 >= 0 )
-        {
-          if ( a4 )
-            *a4 = v19;
-          if ( a5 )
-            *a5 = v20;
-          if ( a3 )
-            *a3 = Object;
+          *a4 = MappedBase;
+          *a5 = ViewSize;
         }
       }
     }
-    return v14;
+    return v12;
   }
   return result;
 }

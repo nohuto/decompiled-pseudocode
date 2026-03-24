@@ -1,11 +1,11 @@
 /*
- * XREFs of SeSetPrivateNameSpaceToken @ 0x14089BD84
+ * XREFs of SeSetPrivateNameSpaceToken @ 0x14089BD64
  * Callers:
  *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall SeSetPrivateNameSpaceToken(__int64 a1, int a2)

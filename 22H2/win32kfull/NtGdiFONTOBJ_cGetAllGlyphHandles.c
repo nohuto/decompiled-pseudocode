@@ -1,29 +1,27 @@
 /*
- * XREFs of NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02CC6F0
+ * XREFs of NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02B3FB0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     FONTOBJ_cGetAllGlyphHandles @ 0x1C0298730 (FONTOBJ_cGetAllGlyphHandles.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C0298B0C (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02C7D6C (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013C9F4 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0154D24 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     FONTOBJ_cGetAllGlyphHandles @ 0x1C0292F70 (FONTOBJ_cGetAllGlyphHandles.c)
  */
 
 __int64 __fastcall NtGdiFONTOBJ_cGetAllGlyphHandles(__int64 a1, char *a2)
 {
-  ULONG v4; // esi
-  HGLYPH *v5; // rbx
-  ULONG v6; // ebp
+  ULONG v4; // ebp
+  HGLYPH *v5; // rdi
+  ULONG v6; // esi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v9; // rdi
+  struct UMPDOBJ *v9; // rbx
   FONTOBJ *v10; // rax
-  FONTOBJ *v11; // r15
+  FONTOBJ *v11; // r14
   ULONG AllGlyphHandles; // eax
-  __int64 v13; // r8
-  __int64 v14; // r9
-  unsigned int v16; // eax
 
   v4 = 0;
   v5 = 0LL;
@@ -32,8 +30,8 @@ __int64 __fastcall NtGdiFONTOBJ_cGetAllGlyphHandles(__int64 a1, char *a2)
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v9 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
-    return 0LL;
-  ++*((_DWORD *)ThreadCurrentObj + 109);
+    return v6;
+  ++*((_DWORD *)ThreadCurrentObj + 105);
   v10 = (FONTOBJ *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
   v11 = v10;
   if ( v10 )
@@ -45,31 +43,26 @@ __int64 __fastcall NtGdiFONTOBJ_cGetAllGlyphHandles(__int64 a1, char *a2)
       if ( AllGlyphHandles )
       {
         if ( AllGlyphHandles > 0x9C4000 )
-        {
-          --*((_DWORD *)v9 + 109);
-          return 0LL;
-        }
-        v16 = 4 * AllGlyphHandles;
-        if ( v16 )
-          v5 = (HGLYPH *)Win32AllocPool(v16, 1886221639LL, v13, v14);
+          goto LABEL_13;
+        v5 = (HGLYPH *)PALLOCMEM2(4 * AllGlyphHandles, 1886221639LL, 0);
       }
     }
     v6 = FONTOBJ_cGetAllGlyphHandles(v11, v5);
-    if ( v6 && a2 )
+    if ( !v6 || !a2 )
     {
+LABEL_11:
       if ( v5 )
-      {
-        if ( !(unsigned int)bSafeCopyBits(a2, v5, 4 * v4) )
-          v6 = 0;
-        goto LABEL_16;
-      }
+        Win32FreePool(v5);
+      goto LABEL_13;
     }
-    else if ( v5 )
+    if ( v5 )
     {
-LABEL_16:
-      Win32FreePool(v5);
+      v6 &= -((unsigned int)bSafeCopyBits(a2, v5, 4 * v4) != 0);
+      goto LABEL_11;
     }
   }
-  --*((_DWORD *)v9 + 109);
+LABEL_13:
+  if ( v9 )
+    --*((_DWORD *)v9 + 105);
   return v6;
 }

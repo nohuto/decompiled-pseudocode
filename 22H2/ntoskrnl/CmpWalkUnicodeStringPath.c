@@ -1,52 +1,43 @@
 /*
- * XREFs of CmpWalkUnicodeStringPath @ 0x140826710
+ * XREFs of CmpWalkUnicodeStringPath @ 0x1407ACB78
  * Callers:
- *     CmpWalkPath @ 0x1408266C8 (CmpWalkPath.c)
- *     CmpFindHiveSubKey @ 0x140B5C068 (CmpFindHiveSubKey.c)
+ *     CmpWalkPath @ 0x1407ACB30 (CmpWalkPath.c)
+ *     CmpFindHiveSubKey @ 0x140A5F704 (CmpFindHiveSubKey.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408264D0 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpGetNextName @ 0x1408267D4 (CmpGetNextName.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpGetNextName @ 0x1407ACC24 (CmpGetNextName.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACD38 (CmpFindSubKeyByNameWithStatus.c)
  */
 
-__int64 __fastcall CmpWalkUnicodeStringPath(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, __int128 *a3)
+__int64 __fastcall CmpWalkUnicodeStringPath(__int64 a1, unsigned int a2, __int128 *a3)
 {
-  unsigned int v3; // edi
-  __int64 CellFlat; // rax
+  __int64 v5; // rax
   __int128 v7; // [rsp+20h] [rbp-20h] BYREF
   __int128 v8; // [rsp+30h] [rbp-10h] BYREF
   unsigned int v9; // [rsp+68h] [rbp+28h] BYREF
-  __int64 v10; // [rsp+70h] [rbp+30h] BYREF
+  int v10; // [rsp+70h] [rbp+30h] BYREF
+  int v11; // [rsp+74h] [rbp+34h]
 
-  v10 = 0xFFFFFFFFLL;
-  v3 = BugCheckParameter4;
+  v10 = -1;
   v7 = 0LL;
+  v11 = 0;
   v8 = *a3;
   while ( 1 )
   {
     CmpGetNextName(&v8, &v7, &v9);
     if ( !(_WORD)v7 )
       break;
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, v3, &v10);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3, v3, (unsigned int *)&v10);
-    if ( CellFlat )
+    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8))(a1, a2, &v10);
+    if ( v5 )
     {
       v9 = 0;
-      CmpFindSubKeyByNameWithStatus(BugCheckParameter3, CellFlat, (__int64)&v7, &v9);
-      v3 = v9;
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(BugCheckParameter3, &v10);
-      else
-        HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v10);
-      if ( v3 != -1 )
+      CmpFindSubKeyByNameWithStatus(a1, v5, &v7, &v9);
+      a2 = v9;
+      (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v10);
+      if ( a2 != -1 )
         continue;
     }
     return 0xFFFFFFFFLL;
   }
-  return v3;
+  return a2;
 }

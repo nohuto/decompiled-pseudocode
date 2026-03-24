@@ -1,13 +1,14 @@
 /*
- * XREFs of IrqLibAllocateMessageTarget @ 0x1C0098FB0
+ * XREFs of IrqLibAllocateMessageTarget @ 0x1C00B6480
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     IrqLibAcquireArbiterLock @ 0x1C005CCA8 (IrqLibAcquireArbiterLock.c)
- *     IrqLibReleaseArbiterLock @ 0x1C005CD48 (IrqLibReleaseArbiterLock.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005E010 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall IrqLibAllocateMessageTarget(
@@ -20,9 +21,9 @@ __int64 __fastcall IrqLibAllocateMessageTarget(
         _BYTE *a7,
         _DWORD *a8)
 {
-  NTSTATUS Range; // edi
-  char *Pool2; // rax
-  void *v13; // rbx
+  NTSTATUS Range; // ebx
+  char *PoolWithTag; // rax
+  char *v13; // rdi
   int v14; // eax
   ULONGLONG End; // [rsp+58h] [rbp-81h] BYREF
   int v18; // [rsp+60h] [rbp-79h]
@@ -66,18 +67,18 @@ __int64 __fastcall IrqLibAllocateMessageTarget(
                 &v21);
       if ( Range >= 0 )
       {
-        Pool2 = (char *)ExAllocatePool2(256LL, 120LL, 1232102209LL);
-        v13 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x49706341u);
+        v13 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          *(_DWORD *)Pool2 = 1;
-          *((_DWORD *)Pool2 + 1) = 2;
-          *((_DWORD *)Pool2 + 2) = 3;
-          Pool2[26] = v18;
-          *((_DWORD *)Pool2 + 11) = 0;
-          *((_DWORD *)Pool2 + 12) = a4 == 1;
-          *(_OWORD *)(Pool2 + 56) = v21;
-          Range = RtlAddRange(RangeList, End, End, 0, 0x10u, Pool2, Owner);
+          memset(PoolWithTag, 0, 0x78uLL);
+          v13[26] = v18;
+          *(_DWORD *)v13 = 1;
+          *((_DWORD *)v13 + 1) = 2;
+          *((_DWORD *)v13 + 2) = 3;
+          *((_DWORD *)v13 + 12) = a4 == 1;
+          *(_OWORD *)(v13 + 56) = v21;
+          Range = RtlAddRange(RangeList, End, End, 0, 0x10u, v13, Owner);
           if ( Range >= 0 )
           {
             *a7 = HalConvertDeviceIdtToIrql(DWORD1(v22));

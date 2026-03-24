@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteSessionDriverProtos @ 0x140682C1C
+ * XREFs of MiDeleteSessionDriverProtos @ 0x140779528
  * Callers:
- *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiCreateSessionDriverProtos @ 0x140A45E40 (MiCreateSessionDriverProtos.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiMapSystemImage @ 0x14075C8B4 (MiMapSystemImage.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA828 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x1402A25C4 (MiGetSubsectionDriverProtos.c)
- *     MiDeletePerSessionProtos @ 0x14033E9C4 (MiDeletePerSessionProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x14027D460 (MiGetSubsectionDriverProtos.c)
+ *     MiDeletePerSessionProtos @ 0x1403285B0 (MiDeletePerSessionProtos.c)
  */
 
 __int64 __fastcall MiDeleteSessionDriverProtos(__int64 *a1)
 {
   __int64 v1; // rdi
   _QWORD *i; // rbx
-  _QWORD *SubsectionDriverProtos; // rax
+  unsigned __int64 *SubsectionDriverProtos; // rax
   __int64 result; // rax
 
   v1 = *a1;
@@ -21,11 +21,11 @@ __int64 __fastcall MiDeleteSessionDriverProtos(__int64 *a1)
   {
     if ( (*((_BYTE *)i + 34) & 2) == 0 )
     {
-      SubsectionDriverProtos = (_QWORD *)MiGetSubsectionDriverProtos(i);
+      SubsectionDriverProtos = (unsigned __int64 *)MiGetSubsectionDriverProtos(i);
       if ( SubsectionDriverProtos )
       {
         i[3] = 0LL;
-        SubsectionDriverProtos[8] = i;
+        SubsectionDriverProtos[8] = (unsigned __int64)i;
         MiDeletePerSessionProtos(SubsectionDriverProtos);
       }
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnmapLargeDriver @ 0x14085D99C
+ * XREFs of MiUnmapLargeDriver @ 0x14085D97C
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiUseLargeDriverPage @ 0x140683280 (MiUseLargeDriverPage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPdeAddress @ 0x1400EDB44 (MiGetPdeAddress.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiUnmapLargePages @ 0x1402C5AA4 (MiUnmapLargePages.c)
+ *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiUnmapLargePages @ 0x1402C5BA4 (MiUnmapLargePages.c)
  */
 
 unsigned __int64 __fastcall MiUnmapLargeDriver(unsigned __int64 a1, __int64 a2)

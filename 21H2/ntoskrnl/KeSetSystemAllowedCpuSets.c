@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetSystemAllowedCpuSets @ 0x14020E0AC
+ * XREFs of KeSetSystemAllowedCpuSets @ 0x1402AAC7C
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     KiInitializeReservedCpuSets @ 0x140B2EDD8 (KiInitializeReservedCpuSets.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     KiInitializeReservedCpuSets @ 0x140A4CD9C (KiInitializeReservedCpuSets.c)
  * Callees:
- *     KeCpuSetReportParkedProcessors @ 0x14020E1DC (KeCpuSetReportParkedProcessors.c)
- *     RtlWriteAcquireTickLock @ 0x14020F26C (RtlWriteAcquireTickLock.c)
- *     KiValidateCpuSetMasks @ 0x14020F30C (KiValidateCpuSetMasks.c)
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1402AAD9C (KeCpuSetReportParkedProcessors.c)
+ *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
+ *     KiValidateCpuSetMasks @ 0x1402AB540 (KiValidateCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)
@@ -40,14 +40,14 @@ __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
     }
-    v8 = 32;
-    if ( v6 < 0x20 )
+    v8 = 20;
+    if ( v6 < 0x14 )
       v8 = v6;
     v9 = 0;
     KxAcquireSpinLock(&KiCpuSetLock);
     RtlWriteAcquireTickLock(&KiCpuSetSequence);
     LODWORD(v10) = 0;
-    v11 = (char *)&qword_140D06E48 - v3;
+    v11 = (char *)qword_140CFC848 - v3;
     v12 = &KiReservedCpuSets - (_UNKNOWN *)v3;
     v13 = &KiSystemAllowedCpuSets[v4];
     do
@@ -71,7 +71,7 @@ __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)
       v3 += 8;
       v13 += 2;
     }
-    while ( (unsigned int)v10 < 0x20 );
+    while ( (unsigned int)v10 < 0x14 );
     if ( !(_DWORD)v4 )
       KiRestrictedSystemCpuSetsActive = v9;
     LOBYTE(v14) = CurrentIrql;

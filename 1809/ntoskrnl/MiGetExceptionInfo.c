@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetExceptionInfo @ 0x1402AA654
+ * XREFs of MiGetExceptionInfo @ 0x1402AA754
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1402BD0D4 (MiDecommitHardwareEnclavePages.c)
- *     MmCopyVirtualMemory @ 0x1406447B0 (MmCopyVirtualMemory.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402BD1D4 (MiDecommitHardwareEnclavePages.c)
+ *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
  * Callees:
  *     <none>
  */

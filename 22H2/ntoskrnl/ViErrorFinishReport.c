@@ -1,40 +1,34 @@
 /*
- * XREFs of ViErrorFinishReport @ 0x140AD4724
+ * XREFs of ViErrorFinishReport @ 0x1409D826C
  * Callers:
- *     ViErrorReport1 @ 0x1405CFEB4 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405CFF38 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x1405CFFCC (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x1405D0070 (ViErrorReport6.c)
- *     ViGenericVerifyIrpStackDownward @ 0x140AC40C0 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyNewIrp @ 0x140AC4390 (ViGenericVerifyNewIrp.c)
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
- *     VfIoDetachDevice @ 0x140AD3398 (VfIoDetachDevice.c)
- *     VfErrorReport7 @ 0x140AD4564 (VfErrorReport7.c)
- *     VfErrorReport8 @ 0x140AD45FC (VfErrorReport8.c)
- *     VerifierNtCreateFile @ 0x140AE4BA0 (VerifierNtCreateFile.c)
- *     VerifierNtReadFile @ 0x140AE4D50 (VerifierNtReadFile.c)
- *     VerifierNtWriteFile @ 0x140AE4EA0 (VerifierNtWriteFile.c)
+ *     ViErrorReport1 @ 0x1405A1E58 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405A1EDC (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x1405A1F70 (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x1405A2014 (ViErrorReport6.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x1409C7550 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyNewIrp @ 0x1409C7820 (ViGenericVerifyNewIrp.c)
+ *     VfIoDetachDevice @ 0x1409D6234 (VfIoDetachDevice.c)
+ *     VfErrorReport7 @ 0x1409D8030 (VfErrorReport7.c)
+ *     VfErrorReport8 @ 0x1409D80C8 (VfErrorReport8.c)
+ *     VfErrorReport9 @ 0x1409D8150 (VfErrorReport9.c)
+ *     VerifierNtCreateFile @ 0x1409E76E0 (VerifierNtCreateFile.c)
+ *     VerifierNtReadFile @ 0x1409E7890 (VerifierNtReadFile.c)
+ *     VerifierNtWriteFile @ 0x1409E79E0 (VerifierNtWriteFile.c)
  * Callees:
- *     DbgPrompt @ 0x1405A7800 (DbgPrompt.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x140AD4684 (VfErrorStoreTriageInformation.c)
+ *     DbgPrompt @ 0x1405854B0 (DbgPrompt.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x1409D81CC (VfErrorStoreTriageInformation.c)
  */
 
-__int64 __fastcall ViErrorFinishReport(int a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)
+__int64 __fastcall ViErrorFinishReport(int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4)
 {
   ULONG_PTR v4; // rsi
-  unsigned int v8; // ebx
-  _DWORD *v9; // rdi
   __int64 result; // rax
   _DWORD *i; // r10
-  int v12; // eax
-  CHAR Response[2]; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = a1;
   VfUtilDbgPrint("************************************************************\n\n");
-  v8 = 0;
-  v9 = &ViErrorDescriptions;
   result = 0LL;
   for ( i = &ViErrorDescriptions; *i != (_DWORD)v4; i += 4 )
   {
@@ -47,42 +41,9 @@ __int64 __fastcall ViErrorFinishReport(int a1, ULONG_PTR a2, ULONG_PTR a3, ULONG
   {
     if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
     {
-      v12 = VfErrorStoreTriageInformation(201LL, v4, a2, a3, a4);
+      VfErrorStoreTriageInformation(201LL, v4, a2, a3, a4);
       __debugbreak();
-      if ( v12 )
-        _InterlockedExchange(&VfErrorBugcheckDataReady, 0);
-      while ( 1 )
-      {
-        DbgPrompt("How would you like to proceed: Resume execution, Disable break, or Bugcheck (rdb)? ", Response, 2u);
-        result = *(unsigned __int16 *)Response;
-        if ( Response[0] == 66 )
-          break;
-        switch ( Response[0] )
-        {
-          case 'D':
-            goto LABEL_17;
-          case 'R':
-            return result;
-          case 'b':
-            goto LABEL_21;
-          case 'd':
-LABEL_17:
-            while ( *v9 != (_DWORD)v4 )
-            {
-              ++v8;
-              v9 += 4;
-              if ( v8 >= 0x3F )
-                return result;
-            }
-            result = 2LL * v8;
-            _InterlockedOr((volatile signed __int32 *)&unk_140D67D94 + 4 * v8, 1u);
-            return result;
-          case 'r':
-            return result;
-        }
-      }
     }
-LABEL_21:
     result = (unsigned int)MmVerifierData;
     if ( (MmVerifierData & 0x10) != 0 )
       return VerifierBugCheckIfAppropriate(0xC9u, v4, a2, a3, a4);

@@ -1,20 +1,28 @@
 /*
- * XREFs of ?CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x1801A3FB0
+ * XREFs of ?CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x180233C10
  * Callers:
  *     <none>
  * Callees:
- *     ?CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x1801AB758 (-CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUI.c)
+ *     ?CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x18022B39C (-CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUI.c)
  */
 
 __int64 __fastcall CInteractionRoot::CalculateDetectedInteractions(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
+        unsigned int *a4,
         __int64 a5,
-        __int64 a6,
+        int *a6,
         __int64 a7,
-        __int64 a8)
+        _DWORD *a8)
 {
-  return CInteractionProcessor::CalculateDetectedInteractions((CInteractionProcessor *)(a1 + 24), a5, a6, a7, a8);
+  return CInteractionProcessor::CalculateDetectedInteractions(
+           (CInteractionProcessor *)(a1 + 32),
+           a2,
+           a3,
+           a4,
+           a5,
+           a6,
+           a7,
+           a8);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x1802B43C4
+ * XREFs of ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x180265DC8
  * Callers:
- *     ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801230A0 (-GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F89E0 (-GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall CDxHandleYUVBitmapRealization::GetPresentAllowedTearing(CDxHandleYUVBitmapRealization *this)
 {
-  return (*((_DWORD *)this - 68) & 0x1000) != 0;
+  return (*((_DWORD *)this - 67) & 0x1000) != 0;
 }

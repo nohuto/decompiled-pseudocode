@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C01A0440
+ * XREFs of ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C016BD0C
  * Callers:
- *     RIMGetExtendedPointerDeviceProperty @ 0x1C01A0464 (RIMGetExtendedPointerDeviceProperty.c)
- *     RIMSetExtendedPointerDeviceProperty @ 0x1C01A0910 (RIMSetExtendedPointerDeviceProperty.c)
+ *     RIMGetExtendedPointerDeviceProperty @ 0x1C016BD30 (RIMGetExtendedPointerDeviceProperty.c)
+ *     RIMSetExtendedPointerDeviceProperty @ 0x1C016C00C (RIMSetExtendedPointerDeviceProperty.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall ValidateProperty(
   __int64 result; // rax
 
   result = 0LL;
-  if ( *(int *)a2 >= 7 || *(_DWORD *)a2 <= 6u && *((_DWORD *)a1 + 6) != 7 )
+  if ( *(int *)a2 >= 4 || *(_DWORD *)a2 <= 3u && *((_DWORD *)a1 + 6) != 7 )
     return 3221225485LL;
   return result;
 }

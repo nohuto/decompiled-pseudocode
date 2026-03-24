@@ -1,17 +1,18 @@
 /*
- * XREFs of ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B7AA0
+ * XREFs of ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B97AC
  * Callers:
- *     ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02B7DC4 (-bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z.c)
- *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B80C0 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
- *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02B8220 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
+ *     ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02B9AC8 (-bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z.c)
+ *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B9DE0 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
+ *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02B9F40 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall STACKOBJ::bExpandScanline(STACKOBJ *this, unsigned int a2, int a3)
 {
-  unsigned int *v5; // rbp
-  unsigned int v6; // esi
+  unsigned int *v5; // rsi
+  unsigned int v6; // ebp
   _DWORD *v7; // rax
   _DWORD *v8; // rdi
 
@@ -22,9 +23,7 @@ __int64 __fastcall STACKOBJ::bExpandScanline(STACKOBJ *this, unsigned int a2, in
   v6 = a2 + 160;
   if ( a2 + 160 < a2 )
     return 0LL;
-  if ( a2 == -160 )
-    return 0LL;
-  v7 = (_DWORD *)Win32AllocPool(v6, 1684817479LL);
+  v7 = PALLOCMEM2(v6, 1684817479LL, 0);
   v8 = v7;
   if ( !v7 )
     return 0LL;

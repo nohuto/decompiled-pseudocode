@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSharedStarveExclusive @ 0x1400AE080 (ExAcquireSharedStarveExclusive.c)
- *     CcPinFileData @ 0x1400AE2B0 (CcPinFileData.c)
- *     CcFreeVirtualAddress @ 0x1400AF6B0 (CcFreeVirtualAddress.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400AE0A0 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     CcFreeVirtualAddress @ 0x1400AF6D0 (CcFreeVirtualAddress.c)
  *     CcUnpinData @ 0x1405DEDF0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x140706EF0 (CcAllocateObcb.c)
+ *     CcAllocateObcb @ 0x140706ED0 (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPinMappedData(

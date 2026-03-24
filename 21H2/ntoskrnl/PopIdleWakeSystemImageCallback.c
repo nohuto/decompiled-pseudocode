@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeSystemImageCallback @ 0x14099BFB0
+ * XREFs of PopIdleWakeSystemImageCallback @ 0x1408F4860
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopIdleWakeSystemImageCallback(__int64 a1, unsigned __int64 *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PopIdleWakeSystemImageCallback(__int64 a1, unsigned __int64 *
   _DWORD *v9; // r15
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // r14
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v2 = (_DWORD *)a2[3];
   v3 = 0;
@@ -37,9 +37,9 @@ __int64 __fastcall PopIdleWakeSystemImageCallback(__int64 a1, unsigned __int64 *
       v11 = *(unsigned __int16 *)(a1 + 88) + 24LL;
       if ( v11 > 0xFFFF )
         return (unsigned int)-2147483643;
-      Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(a1 + 88) + 24LL, 1734960208LL);
-      *((_QWORD *)v9 + 2) = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned __int16 *)(a1 + 88) + 24LL, 0x67696450u);
+      *((_QWORD *)v9 + 2) = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
       *((_WORD *)v9 + 4) = 0;
       *((_WORD *)v9 + 5) = v11;

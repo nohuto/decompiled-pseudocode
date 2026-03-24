@@ -1,9 +1,9 @@
 /*
- * XREFs of IopEtwEnableCallback @ 0x140944A00
+ * XREFs of IopEtwEnableCallback @ 0x140891660
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpExtensionControl @ 0x1405559D0 (IopIrpExtensionControl.c)
+ *     IopIrpExtensionControl @ 0x140500B18 (IopIrpExtensionControl.c)
  */
 
 void __fastcall IopEtwEnableCallback(LPCGUID SourceId, int ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

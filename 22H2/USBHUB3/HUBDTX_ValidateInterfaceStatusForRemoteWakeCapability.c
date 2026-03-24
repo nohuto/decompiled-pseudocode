@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C002A518
+ * XREFs of HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C0027890
  * Callers:
- *     HUBDSM_ValidatingInterfaceStatusForRemoteWake @ 0x1C00256B0 (HUBDSM_ValidatingInterfaceStatusForRemoteWake.c)
+ *     HUBDSM_ValidatingInterfaceStatusForRemoteWake @ 0x1C0022ED0 (HUBDSM_ValidatingInterfaceStatusForRemoteWake.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000CDD4 (McTemplateK0pqqh_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_q @ 0x1C00150D4 (WPP_RECORDER_SF_q.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000BD24 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 __int64 __fastcall HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability(__int64
         2u,
         5u,
         0x1Fu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         *(_DWORD *)(a1 + 256));
     return 4065;
   }
@@ -42,11 +42,11 @@ __int64 __fastcall HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability(__int64
           3u,
           5u,
           0x21u,
-          (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+          (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
           a1);
       if ( (*(_DWORD *)(a1 + 2436) & 0x10) != 0 )
         HUBMISC_VerifierDbgBreak("DeviceHwVerifierInterfaceWakeCapabilityMismatch", a1 + 504);
-      if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x200) != 0 )
+      if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
       {
         v4 = (*(_DWORD *)(a1 + 1632) >> 8) & 1;
         v8 = *(_WORD *)(a1 + 1732) & 1;
@@ -64,11 +64,11 @@ __int64 __fastcall HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability(__int64
         3u,
         5u,
         0x20u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         a1);
     if ( (*(_DWORD *)(a1 + 2436) & 0x10) != 0 )
       HUBMISC_VerifierDbgBreak("DeviceHwVerifierInterfaceWakeCapabilityMismatch", a1 + 504);
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
     {
       v4 = *(unsigned __int16 *)(a1 + 1732);
       LOWORD(v4) = *(_WORD *)(a1 + 1732) & 1;

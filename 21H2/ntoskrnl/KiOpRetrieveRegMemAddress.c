@@ -1,11 +1,11 @@
 /*
- * XREFs of KiOpRetrieveRegMemAddress @ 0x14057BA34
+ * XREFs of KiOpRetrieveRegMemAddress @ 0x1403CD400
  * Callers:
- *     KiOp_Div @ 0x14057BBA0 (KiOp_Div.c)
- *     KiOp_SGDTSIDT @ 0x14057BE70 (KiOp_SGDTSIDT.c)
- *     KiOp_SLDTSTRSMSW @ 0x14057C030 (KiOp_SLDTSTRSMSW.c)
+ *     KiOp_Div @ 0x1403CD300 (KiOp_Div.c)
+ *     KiOp_SGDTSIDT @ 0x140524A40 (KiOp_SGDTSIDT.c)
+ *     KiOp_SLDTSTRSMSW @ 0x140524C00 (KiOp_SLDTSTRSMSW.c)
  * Callees:
- *     KiOpComputeLinearAddress @ 0x14057B5C0 (KiOpComputeLinearAddress.c)
+ *     KiOpComputeLinearAddress @ 0x1405245AC (KiOpComputeLinearAddress.c)
  */
 
 __int64 __fastcall KiOpRetrieveRegMemAddress(__int64 a1, __int64 *a2, _BYTE *a3, int *a4)
@@ -17,16 +17,16 @@ __int64 __fastcall KiOpRetrieveRegMemAddress(__int64 a1, __int64 *a2, _BYTE *a3,
   int v12; // ebx
   unsigned int v13; // ecx
   __int64 v14; // r11
-  unsigned int v15; // r9d
-  char v16; // r8
-  unsigned int v17; // eax
-  unsigned int v18; // edx
-  __int64 v19; // rax
-  unsigned int v20; // edx
-  __int64 v21; // rcx
-  unsigned int v22; // edx
-  __int64 v23; // rcx
-  unsigned int v24; // eax
+  unsigned int v15; // edx
+  __int64 v16; // rcx
+  unsigned int v18; // r9d
+  char v19; // r8
+  unsigned int v20; // eax
+  unsigned int v21; // edx
+  __int64 v22; // rax
+  unsigned int v23; // edx
+  __int64 v24; // rcx
+  unsigned int v25; // eax
   __int64 v26; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = *(_BYTE *)(a1 + 81);
@@ -47,56 +47,56 @@ __int64 __fastcall KiOpRetrieveRegMemAddress(__int64 a1, __int64 *a2, _BYTE *a3,
   {
     if ( (v6 & 7) == 4 )
     {
-      v15 = *(unsigned __int8 *)(a1 + 66);
+      v18 = *(unsigned __int8 *)(a1 + 66);
       if ( (*(_BYTE *)(a1 + 66) & 7) == 5 && v6 < 0x40u )
       {
-        v16 = *(_BYTE *)(a1 + 64);
+        v19 = *(_BYTE *)(a1 + 64);
       }
       else
       {
-        v16 = *(_BYTE *)(a1 + 64);
-        v17 = (v15 & 7) + 8;
-        if ( (v16 & 1) == 0 )
-          v17 = v15 & 7;
-        v7 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * v17 + 120);
+        v19 = *(_BYTE *)(a1 + 64);
+        v20 = (v18 & 7) + 8;
+        if ( (v19 & 1) == 0 )
+          v20 = v18 & 7;
+        v7 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * v20 + 120);
       }
-      v18 = (v15 >> 3) & 7;
-      v19 = v18 + 8;
-      if ( (v16 & 2) == 0 )
-        v19 = v18;
-      if ( (_DWORD)v19 != 4 )
-        v8 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8 * v19 + 120) << (*(_BYTE *)(a1 + 66) >> 6);
+      v21 = (v18 >> 3) & 7;
+      v22 = v21 + 8;
+      if ( (v19 & 2) == 0 )
+        v22 = v21;
+      if ( (_DWORD)v22 != 4 )
+        v8 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8 * v22 + 120) << (*(_BYTE *)(a1 + 66) >> 6);
     }
     else
     {
-      v20 = v6 & 7;
-      if ( v6 < 0x40u && v20 == 5 )
+      v23 = v6 & 7;
+      if ( v6 < 0x40u && v23 == 5 )
       {
         if ( !*(_BYTE *)(a1 + 58) )
           v7 = *(_QWORD *)(a1 + 16);
       }
       else
       {
-        v21 = v20 + 8;
+        v24 = v23 + 8;
         if ( (*(_BYTE *)(a1 + 64) & 1) == 0 )
-          v21 = v20;
-        v7 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8 * v21 + 120);
+          v24 = v23;
+        v7 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8 * v24 + 120);
       }
     }
     v12 = 0;
   }
-  v22 = 0;
-  v23 = v7 + v8 + *(int *)(a1 + 68);
-  v26 = v23;
+  v15 = 0;
+  v16 = v7 + v8 + *(int *)(a1 + 68);
+  v26 = v16;
   if ( !v12 && (*(_DWORD *)(a1 + 52) & 1) != 0 )
   {
-    v24 = KiOpComputeLinearAddress(a1, &v26);
-    v23 = v26;
-    v22 = v24;
+    v25 = KiOpComputeLinearAddress(a1, &v26);
+    v16 = v26;
+    v15 = v25;
   }
-  *a2 = v23;
+  *a2 = v16;
   *a3 = v4;
   if ( a4 )
     *a4 = v12;
-  return v22;
+  return v15;
 }

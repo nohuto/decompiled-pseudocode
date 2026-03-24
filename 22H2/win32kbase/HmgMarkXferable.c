@@ -1,10 +1,10 @@
 /*
- * XREFs of HmgMarkXferable @ 0x1C01593D0
+ * XREFs of HmgMarkXferable @ 0x1C009C350
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
  */
 
 __int64 __fastcall HmgMarkXferable(unsigned int a1, char a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00B36D0
+ * XREFs of ?SetIntegerProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E8DC0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00986F0 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009F3C0 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
  */
 
 __int64 __fastcall DirectComposition::CPathGeometryMarshaler::SetIntegerProperty(
@@ -20,14 +20,15 @@ __int64 __fastcall DirectComposition::CPathGeometryMarshaler::SetIntegerProperty
   if ( a3 == 5 )
   {
     *((_DWORD *)this + 26) = a4;
+    goto LABEL_6;
   }
-  else
+  if ( a3 == 6 )
   {
-    if ( a3 != 6 )
-      return (unsigned int)DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
     *((_DWORD *)this + 27) = a4;
+LABEL_6:
+    *((_DWORD *)this + 4) |= 0x800u;
+    *a5 = 1;
+    return v5;
   }
-  *((_DWORD *)this + 4) |= 0x800u;
-  *a5 = 1;
-  return v5;
+  return (unsigned int)DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
 }

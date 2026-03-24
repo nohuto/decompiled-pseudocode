@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipSendGuidUpdateNotifications @ 0x14086B17C
+ * XREFs of WmipSendGuidUpdateNotifications @ 0x14075740C
  * Callers:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AF18 (WmipGenerateRegistrationNotification.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757110 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD **a3)
@@ -15,7 +15,7 @@ void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD 
   __int64 v3; // rbp
   int v6; // edi
   unsigned int v7; // r14d
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v9; // rbx
   __int64 v10; // rdx
   _WORD *v11; // rcx
@@ -29,11 +29,11 @@ void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD 
   v3 = a2;
   v6 = 16 * a2 + 8;
   v7 = 16 * a2 + 110;
-  Pool2 = (char *)ExAllocatePool2(256LL, v7, 1885957463LL);
-  v9 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v7, 0x70696D57u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, v7);
+    memset(PoolWithTag, 0, v7);
     *(_OWORD *)v9 = 0LL;
     *((_OWORD *)v9 + 1) = 0LL;
     *((_OWORD *)v9 + 2) = 0LL;

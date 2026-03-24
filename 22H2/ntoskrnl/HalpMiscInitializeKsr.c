@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMiscInitializeKsr @ 0x1408559F0
+ * XREFs of HalpMiscInitializeKsr @ 0x1407C8B48
  * Callers:
- *     HalpMiscInitSystem @ 0x140A91720 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x1409A1190 (HalpMiscInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x140367250 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037E950 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
  */
 
 NTSTATUS HalpMiscInitializeKsr()
@@ -18,8 +18,8 @@ NTSTATUS HalpMiscInitializeKsr()
 
   CallbackObject = 0LL;
   v4 = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
   result = KsrGetFirmwareInformation(&v4);
   if ( result >= 0 )

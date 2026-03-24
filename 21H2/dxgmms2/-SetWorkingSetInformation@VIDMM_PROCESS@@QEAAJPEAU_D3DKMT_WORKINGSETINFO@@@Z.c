@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetWorkingSetInformation@VIDMM_PROCESS@@QEAAJPEAU_D3DKMT_WORKINGSETINFO@@@Z @ 0x1C00E0244
+ * XREFs of ?SetWorkingSetInformation@VIDMM_PROCESS@@QEAAJPEAU_D3DKMT_WORKINGSETINFO@@@Z @ 0x1C00BA7F8
  * Callers:
- *     VidMmSetWorkingSetInformation @ 0x1C002D550 (VidMmSetWorkingSetInformation.c)
+ *     VidMmSetWorkingSetInformation @ 0x1C0023110 (VidMmSetWorkingSetInformation.c)
  * Callees:
- *     McTemplateK0tqq_EtwWriteTransfer @ 0x1C002FE10 (McTemplateK0tqq_EtwWriteTransfer.c)
+ *     McTemplateK0tqq_EtwWriteTransfer @ 0x1C0025CEC (McTemplateK0tqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VIDMM_PROCESS::SetWorkingSetInformation(
@@ -11,7 +11,9 @@ __int64 __fastcall VIDMM_PROCESS::SetWorkingSetInformation(
         struct _D3DKMT_WORKINGSETINFO *a2,
         __int64 a3)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // esi
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
   v3 = 0;
   if ( (*(_DWORD *)&a2->Flags & 1) != 0 )
@@ -26,10 +28,11 @@ __int64 __fastcall VIDMM_PROCESS::SetWorkingSetInformation(
   }
   else
   {
-    WdLogSingleEntry0(3LL);
+    v7 = WdLogNewEntry5_WdWarning(v6, a2);
+    WdLogEvent5_WdWarning(v7);
     v3 = -1073741790;
   }
-  if ( bTracingEnabled && (byte_1C006E941 & 1) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0tqq_EtwWriteTransfer(
       *((unsigned int *)this + 26),
       (__int64)a2,

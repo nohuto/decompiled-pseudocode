@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetControlAreaSystemVa @ 0x14013A17C
+ * XREFs of MiSetControlAreaSystemVa @ 0x14013A19C
  * Callers:
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetControlAreaSystemVa(__int64 a1, int a2)

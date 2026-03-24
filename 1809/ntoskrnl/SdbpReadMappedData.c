@@ -3,13 +3,13 @@
  * Callers:
  *     SdbpOpenDatabaseInMemory @ 0x1405A22C0 (SdbpOpenDatabaseInMemory.c)
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbpReadTagData @ 0x14067CF60 (SdbpReadTagData.c)
- *     SdbGetTagDataSize @ 0x14067D30C (SdbGetTagDataSize.c)
- *     SdbpGetTagHeadSize @ 0x14067D3C0 (SdbpGetTagHeadSize.c)
- *     SdbOpenDatabaseEx @ 0x1408E59F4 (SdbOpenDatabaseEx.c)
+ *     SdbpReadTagData @ 0x14067CF40 (SdbpReadTagData.c)
+ *     SdbGetTagDataSize @ 0x14067D2EC (SdbGetTagDataSize.c)
+ *     SdbpGetTagHeadSize @ 0x14067D3A0 (SdbpGetTagHeadSize.c)
+ *     SdbOpenDatabaseEx @ 0x1408E59D4 (SdbOpenDatabaseEx.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadMappedData(__int64 a1, unsigned int a2, void *a3, unsigned int a4)

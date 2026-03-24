@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenIoCompletion @ 0x140936D60
+ * XREFs of NtOpenIoCompletion @ 0x140894460
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenIoCompletion(_QWORD *a1, int a2, __int64 a3)

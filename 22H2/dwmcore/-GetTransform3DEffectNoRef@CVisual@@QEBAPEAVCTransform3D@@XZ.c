@@ -1,13 +1,14 @@
 /*
- * XREFs of ?GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ @ 0x1800539F8
+ * XREFs of ?GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ @ 0x18006CB28
  * Callers:
- *     ?PostSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B6F4 (-PostSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z @ 0x1800C3B8C (-SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z.c)
- *     ?GetRootTransform@CVisual@@QEBA_NPEAVCMILMatrix@@_N1@Z @ 0x1800E8118 (-GetRootTransform@CVisual@@QEBA_NPEAVCMILMatrix@@_N1@Z.c)
+ *     ?GetRootTransform@CVisual@@QEBAXPEAVCMILMatrix@@@Z @ 0x18006C578 (-GetRootTransform@CVisual@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?ConvertInnerToOuterBounds@CVisual@@IEAAJPEBVCVisualTree@@@Z @ 0x18008C5A0 (-ConvertInnerToOuterBounds@CVisual@@IEAAJPEBVCVisualTree@@@Z.c)
+ *     ??$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCHitTestContext@@W4WalkReason@@@Z @ 0x18009DED0 (--$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCHitTestContext@@W4.c)
+ *     ?SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z @ 0x1800CCC54 (-SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z.c)
  * Callees:
- *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800C3C54 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800A0088 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct CTransform3D *__fastcall CVisual::GetTransform3DEffectNoRef(CVisual *this)
@@ -16,20 +17,20 @@ struct CTransform3D *__fastcall CVisual::GetTransform3DEffectNoRef(CVisual *this
   struct CEffect *EffectInternal; // rdi
 
   v1 = 0LL;
-  if ( (**((_DWORD **)this + 29) & 0x400000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x400000) != 0 )
   {
     EffectInternal = CVisual::GetEffectInternal(this);
     if ( (*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)EffectInternal + 56LL))(
            EffectInternal,
-           187LL) )
+           186LL) )
     {
       return EffectInternal;
     }
     else if ( (*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)EffectInternal + 56LL))(
                 EffectInternal,
-                58LL) )
+                56LL) )
     {
-      return (struct CTransform3D *)*((_QWORD *)EffectInternal + 11);
+      return (struct CTransform3D *)*((_QWORD *)EffectInternal + 10);
     }
   }
   return (struct CTransform3D *)v1;

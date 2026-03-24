@@ -1,78 +1,77 @@
 /*
- * XREFs of ?ActivateStoringInvalidModesForTestPurposes@ADAPTER_DISPLAY@@QEAAJH@Z @ 0x1C02BEFB0
+ * XREFs of ?ActivateStoringInvalidModesForTestPurposes@ADAPTER_DISPLAY@@QEAAJH@Z @ 0x1C02105E8
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::ActivateStoringInvalidModesForTestPurposes(ADAPTER_DISPLAY *this, int a2)
 {
-  __int64 v3; // rdi
-  __int64 v4; // r9
+  __int64 v4; // rdx
   void **v5; // rcx
-  int v6; // edx
-  const wchar_t *v7; // r9
-  unsigned int v8; // ebx
-  unsigned __int64 v9; // rax
-  __int64 v10; // rax
+  __int64 v6; // rax
+  unsigned int v7; // ebx
+  SIZE_T v8; // rax
+  PVOID v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rax
   __int64 i; // rbx
-  _BYTE v13[24]; // [rsp+50h] [rbp-18h] BYREF
+  _BYTE v16[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = (__int64)this;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (ADAPTER_DISPLAY *)((char *)this + 296), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-  v5 = *(void ***)(v3 + 344);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, (ADAPTER_DISPLAY *)((char *)this + 256), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
+  v5 = (void **)*((_QWORD *)this + 37);
   if ( a2 )
   {
     if ( v5 )
     {
-      v3 = 8606LL;
-      WdLogSingleEntry1(2LL, 8606LL);
-      v6 = 0x40000;
-      v7 = L"Invalid modes already activated.";
-      v8 = -1073740008;
-LABEL_8:
-      DxgkLogInternalTriageEvent(0LL, v6, -1, (__int64)v7, v3, 0LL, 0LL, 0LL, 0LL);
+      v6 = WdLogNewEntry5_WdError(v5, v4);
+      *(_QWORD *)(v6 + 24) = 8439LL;
+      WdLogEvent5_WdError(v6);
+      v7 = -1073740008;
       goto LABEL_16;
     }
-    v9 = 24LL * *(unsigned int *)(v3 + 96);
-    if ( !is_mul_ok(*(unsigned int *)(v3 + 96), 0x18uLL) )
-      v9 = -1LL;
-    v10 = operator new[](v9, 0x4B677844u, 256LL, v4);
-    *(_QWORD *)(v3 + 344) = v10;
-    if ( !v10 )
+    v8 = 24LL * *((unsigned int *)this + 20);
+    if ( !is_mul_ok(*((unsigned int *)this + 20), 0x18uLL) )
+      v8 = -1LL;
+    v9 = operator new[](v8, 0x4B677844u, PagedPool);
+    *((_QWORD *)this + 37) = v9;
+    if ( !v9 )
     {
-      WdLogSingleEntry1(6LL, v3);
-      v6 = 262145;
-      v7 = L"Adapter 0x%I64x: Out of memory allocating m_pCachedInvalidDisplayModeList";
-      v8 = -1073741801;
-      goto LABEL_8;
+      v13 = WdLogNewEntry5_WdLowResource(0LL, v10, v11, v12);
+      *(_QWORD *)(v13 + 24) = this;
+      WdLogEvent5_WdLowResource(v13);
+      v7 = -1073741801;
+      goto LABEL_16;
     }
+    memset(v9, 0, 24LL * *((unsigned int *)this + 20));
   }
   else if ( v5 )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v3 + 96); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 20); i = (unsigned int)(i + 1) )
     {
-      v5 = *(void ***)(v3 + 344);
+      v5 = (void **)*((_QWORD *)this + 37);
       if ( v5[3 * i + 1] )
       {
         operator delete[](v5[3 * i + 1]);
-        *(_QWORD *)(*(_QWORD *)(v3 + 344) + 24 * i + 8) = 0LL;
-        v5 = *(void ***)(v3 + 344);
+        *(_QWORD *)(*((_QWORD *)this + 37) + 24 * i + 8) = 0LL;
+        v5 = (void **)*((_QWORD *)this + 37);
       }
     }
     operator delete[](v5);
-    *(_QWORD *)(v3 + 344) = 0LL;
+    *((_QWORD *)this + 37) = 0LL;
   }
-  v8 = 0;
+  v7 = 0;
 LABEL_16:
-  if ( v13[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
-  return v8;
+  if ( v16[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16, v4);
+  return v7;
 }

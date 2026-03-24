@@ -1,7 +1,7 @@
 /*
- * XREFs of GreFillFontDir @ 0x1C02B95C8
+ * XREFs of GreFillFontDir @ 0x1C02BB1A8
  * Callers:
- *     GreMakeFontDir @ 0x1C02B99A8 (GreMakeFontDir.c)
+ *     GreMakeFontDir @ 0x1C02BB588 (GreMakeFontDir.c)
  * Callees:
  *     <none>
  */
@@ -31,8 +31,8 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   __int64 v26; // rax
   const WCHAR *v27; // r9
 
-  *(_QWORD *)a3 = qword_1C03310F0;
-  *(_WORD *)(a3 + 8) = word_1C03310F8;
+  *(_QWORD *)a3 = qword_1C0335D98;
+  *(_WORD *)(a3 + 8) = word_1C0335DA0;
   strcpy((char *)(a3 + 10), "Windows! Windows! Windows!");
   if ( a2 )
   {
@@ -45,7 +45,7 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   *(_OWORD *)(a3 + 37) = 0LL;
   *(_OWORD *)(a3 + 53) = 0LL;
   *(_BYTE *)(a3 + 69) = 0;
-  *(_DWORD *)(a3 + 37) = dword_1C03310FC;
+  *(_DWORD *)(a3 + 37) = dword_1C0335D94;
   v7 = 67;
   if ( a2 != 2 )
     v7 = 3;

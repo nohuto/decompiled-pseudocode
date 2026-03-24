@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetCurrentTarget@CManipulationContext@@UEBA?AUTargetingInfo@@XZ @ 0x1801A45A0
+ * XREFs of ?GetCurrentTarget@CManipulationContext@@UEBA?AUTargetingInfo@@XZ @ 0x1802341E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0TargetingInfo@@QEAA@AEBU0@@Z @ 0x18012D792 (--0TargetingInfo@@QEAA@AEBU0@@Z.c)
+ *     ??0TargetingInfo@@QEAA@AEBU0@@Z @ 0x1802334E8 (--0TargetingInfo@@QEAA@AEBU0@@Z.c)
  */
 
 TargetingInfo *__fastcall CManipulationContext::GetCurrentTarget(__int64 a1, TargetingInfo *a2)

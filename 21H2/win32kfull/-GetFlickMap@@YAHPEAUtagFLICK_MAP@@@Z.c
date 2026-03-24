@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00A122C
+ * XREFs of ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00E1B38
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C00A08E4 (ReadPointerDeviceSettingsFull.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0A64 (ReadPointerDeviceSettingsFull.c)
  * Callees:
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00A0C7C (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C0118634 (-ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E14E0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C00E2040 (-ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall GetFlickMap(struct tagFLICK_MAP *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -40,12 +40,12 @@ _BOOL8 __fastcall GetFlickMap(struct tagFLICK_MAP *a1, __int64 a2, __int64 a3, _
   v20[10] = (char *)a1 + 80;
   v20[12] = (char *)a1 + 96;
   v20[14] = (char *)a1 + 112;
-  if ( (unsigned int)RIMIsDefaultUILanguageRTL(a1, a2, a3, a4) != dword_1C0326024 )
+  if ( (unsigned int)RIMIsDefaultUILanguageRTL(a1, a2, a3, a4) != dword_1C032B024 )
   {
-    v15 = xmmword_1C0326748;
-    xmmword_1C0326748 = xmmword_1C03266E8;
-    dword_1C0326024 = dword_1C0326024 == 0;
-    xmmword_1C03266E8 = v15;
+    v15 = xmmword_1C032B788;
+    xmmword_1C032B788 = xmmword_1C032B728;
+    dword_1C032B024 = dword_1C032B024 == 0;
+    xmmword_1C032B728 = v15;
   }
   PointerDeviceCfgStringSetting = OpenDeviceCfgKey(
                                     0x7Cu,
@@ -55,7 +55,7 @@ _BOOL8 __fastcall GetFlickMap(struct tagFLICK_MAP *a1, __int64 a2, __int64 a3, _
                                     0);
   if ( PointerDeviceCfgStringSetting >= 0 )
   {
-    v8 = &xmmword_1C03266E8;
+    v8 = &xmmword_1C032B728;
     v9 = (GUID **)v20;
     while ( PointerDeviceCfgStringSetting >= 0 )
     {
@@ -96,14 +96,14 @@ _BOOL8 __fastcall GetFlickMap(struct tagFLICK_MAP *a1, __int64 a2, __int64 a3, _
   {
 LABEL_2:
     PointerDeviceCfgStringSetting = 0;
-    *(_OWORD *)a1 = xmmword_1C03266E8;
-    *((_OWORD *)a1 + 1) = xmmword_1C0326700;
-    *((_OWORD *)a1 + 2) = xmmword_1C0326718;
-    *((_OWORD *)a1 + 3) = xmmword_1C0326730;
-    *((_OWORD *)a1 + 4) = xmmword_1C0326748;
-    *((_OWORD *)a1 + 5) = xmmword_1C0326760;
-    *((_OWORD *)a1 + 6) = xmmword_1C0326778;
-    *((_OWORD *)a1 + 7) = xmmword_1C0326790;
+    *(_OWORD *)a1 = xmmword_1C032B728;
+    *((_OWORD *)a1 + 1) = xmmword_1C032B740;
+    *((_OWORD *)a1 + 2) = xmmword_1C032B758;
+    *((_OWORD *)a1 + 3) = xmmword_1C032B770;
+    *((_OWORD *)a1 + 4) = xmmword_1C032B788;
+    *((_OWORD *)a1 + 5) = xmmword_1C032B7A0;
+    *((_OWORD *)a1 + 6) = xmmword_1C032B7B8;
+    *((_OWORD *)a1 + 7) = xmmword_1C032B7D0;
   }
   return PointerDeviceCfgStringSetting >= 0;
 }

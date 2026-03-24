@@ -1,110 +1,108 @@
 /*
- * XREFs of OSNotifyDeviceWakeByInterrupt @ 0x1C00334AC
+ * XREFs of OSNotifyDeviceWakeByInterrupt @ 0x1C0059198
  * Callers:
- *     ACPIWakeEmulationInterruptServiceRoutine @ 0x1C002F3A0 (ACPIWakeEmulationInterruptServiceRoutine.c)
+ *     ACPIWakeEmulationInterruptServiceRoutine @ 0x1C0057200 (ACPIWakeEmulationInterruptServiceRoutine.c)
  * Callees:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     OSNotifyDeviceWakeCallBack @ 0x1C0033690 (OSNotifyDeviceWakeCallBack.c)
- *     ACPIWakeDisableAsync @ 0x1C0044CE8 (ACPIWakeDisableAsync.c)
- *     ACPIWakeEmulationDisable @ 0x1C0045274 (ACPIWakeEmulationDisable.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0059380 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0061DEC (ACPIWakeEmulationDisable.c)
  */
 
 void __fastcall OSNotifyDeviceWakeByInterrupt(__int64 a1)
 {
-  _QWORD *Pool2; // rax
-  int v3; // edx
-  _QWORD *v4; // rbx
-  __int64 v5; // rdi
-  __int64 *v6; // rsi
-  __int64 v7; // r15
-  __int64 v8; // rax
-  _QWORD *v9; // r14
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v3; // rbx
+  __int64 v4; // rdi
+  __int64 *v5; // rsi
+  __int64 v6; // r15
+  __int64 v7; // rax
+  _QWORD *v8; // r14
   _QWORD *i; // rax
-  _QWORD *v11; // rdi
-  __int64 v12; // r8
-  __int64 v13; // rcx
+  _QWORD *v10; // rdi
+  __int64 v11; // r8
+  __int64 v12; // rcx
   KIRQL Irql; // [rsp+78h] [rbp+10h] BYREF
 
   Irql = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_qD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      4,
-      17,
-      34,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0x11u,
+      0x22u,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a1,
       *(_DWORD *)(a1 + 32));
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 16LL, 1299211073LL);
-  v4 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x4D706341u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2[1] = Pool2;
-    *Pool2 = Pool2;
+    PoolWithTag[1] = PoolWithTag;
+    *PoolWithTag = PoolWithTag;
     IoAcquireCancelSpinLock(&Irql);
     KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
-    v5 = v4[1];
-    if ( v5 )
+    v4 = v3[1];
+    if ( v4 )
     {
       do
       {
-        v6 = (__int64 *)AcpiPowerWaitWakeList;
-        v7 = v5;
-        v8 = v5;
+        v5 = (__int64 *)AcpiPowerWaitWakeList;
+        v6 = v4;
+        v7 = v4;
         if ( (__int64 *)AcpiPowerWaitWakeList != &AcpiPowerWaitWakeList )
         {
-          v9 = (_QWORD *)(a1 + 16);
+          v8 = (_QWORD *)(a1 + 16);
           do
           {
-            for ( i = (_QWORD *)*v9; i != v9; i = (_QWORD *)*i )
+            for ( i = (_QWORD *)*v8; i != v8; i = (_QWORD *)*i )
             {
-              if ( v6 == (__int64 *)i[2] )
+              if ( v5 == (__int64 *)i[2] )
               {
-                ACPIWakeRemoveDevicesAndUpdate(v6[5], (__int64)v4);
+                ACPIWakeRemoveDevicesAndUpdate(v5[5], (__int64)v3);
                 break;
               }
             }
-            v8 = v4[1];
-            if ( v5 != v8 )
+            v7 = v3[1];
+            if ( v4 != v7 )
               break;
-            v6 = (__int64 *)*v6;
+            v5 = (__int64 *)*v5;
           }
-          while ( v6 != &AcpiPowerWaitWakeList );
+          while ( v5 != &AcpiPowerWaitWakeList );
         }
-        v5 = v8;
+        v4 = v7;
       }
-      while ( v8 != v7 );
+      while ( v7 != v6 );
     }
     KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
     IoReleaseCancelSpinLock(Irql);
-    v11 = (_QWORD *)*v4;
-    if ( (_QWORD *)*v4 == v4 )
+    v10 = (_QWORD *)*v3;
+    if ( (_QWORD *)*v3 == v3 )
     {
-      ExFreePoolWithTag(v4, 0);
+      ExFreePoolWithTag(v3, 0);
     }
     else
     {
       do
       {
-        ACPIWakeEmulationDisable(v11);
-        v13 = v11[5];
-        v11 = (_QWORD *)*v11;
+        ACPIWakeEmulationDisable(v10);
+        v12 = v10[5];
+        v10 = (_QWORD *)*v10;
       }
-      while ( v11 != v4 );
-      if ( !v13 || (unsigned int)ACPIWakeDisableAsync(v13, v4, v12, v4) != 259 )
-        OSNotifyDeviceWakeCallBack(0LL, 0LL, 0LL, v4);
+      while ( v10 != v3 );
+      if ( !v12 || (unsigned int)ACPIWakeDisableAsync(v12, v3, v11, v3) != 259 )
+        OSNotifyDeviceWakeCallBack(0LL, 0LL, 0LL, v3);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v3) = 2;
     WPP_RECORDER_SF_(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v3,
-      22,
-      35,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0x16u,
+      0x23u,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids);
   }
 }

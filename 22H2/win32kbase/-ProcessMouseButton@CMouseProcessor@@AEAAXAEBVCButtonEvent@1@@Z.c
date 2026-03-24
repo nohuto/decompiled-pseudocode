@@ -1,722 +1,642 @@
 /*
- * XREFs of ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C01F9484
+ * XREFs of ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C004ABB0
  * Callers:
- *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01F5920 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
+ *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C009CC80 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
  * Callees:
- *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C000921C (_anonymous_namespace_--InMouseRawInputMode.c)
- *     _anonymous_namespace_::GetPtiFromInputDest @ 0x1C00092AC (_anonymous_namespace_--GetPtiFromInputDest.c)
- *     isChildPartition @ 0x1C004FE70 (isChildPartition.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0052DB0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
- *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C0055BE0 (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
- *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C00563C4 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
- *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C005649C (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
- *     ??1EndStreamToken@CMouseProcessor@@QEAA@XZ @ 0x1C00569FC (--1EndStreamToken@CMouseProcessor@@QEAA@XZ.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0056A68 (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C0057318 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
- *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C0058B74 (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
- *     SendMessageTo @ 0x1C006A100 (SendMessageTo.c)
- *     UpdateAsyncKeyState @ 0x1C0089620 (UpdateAsyncKeyState.c)
- *     IsPTPIVEnabled @ 0x1C00A8700 (IsPTPIVEnabled.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     IsTouchpadDevice @ 0x1C00E5A9C (IsTouchpadDevice.c)
- *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C00E5CDE (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
- *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C01B52E4 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
- *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C01B53BC (--1CThreadLockInputDest@@QEAA@XZ.c)
- *     ??4CInputDest@@QEAAAEAV0@AEBV0@@Z @ 0x1C01B540C (--4CInputDest@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ @ 0x1C01B59C8 (-ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ.c)
- *     _anonymous_namespace_::CancelCoolSwitchWithForegroundCheck @ 0x1C01F5608 (_anonymous_namespace_--CancelCoolSwitchWithForegroundCheck.c)
- *     ?DeliverMouseButtonToInputDest@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F632C (-DeliverMouseButtonToInputDest@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@AEBVCInputDest@@AEBUInpu.c)
- *     ?DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01F695C (-DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ @ 0x1C01F7048 (-GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ.c)
- *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C01F70AC (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
- *     ?GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C01F72C8 (-GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ.c)
- *     _anonymous_namespace_::GetRawMouseInputDestination @ 0x1C01F7904 (_anonymous_namespace_--GetRawMouseInputDestination.c)
- *     ?GetVKey@CButtonEvent@CMouseProcessor@@QEBAEXZ @ 0x1C01F79BC (-GetVKey@CButtonEvent@CMouseProcessor@@QEBAEXZ.c)
- *     ?HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA?AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@Z @ 0x1C01F7A48 (-HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA-AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@.c)
- *     ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C01F7C08 (-HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtag.c)
- *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01F7FE8 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
- *     ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C01F821C (-InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z.c)
- *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C01F90A8 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
- *     ?ProcessButton@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IPEAUHWND__@@@Z @ 0x1C01F9380 (-ProcessButton@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IPEAUHWND__@@@Z.c)
- *     ?UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z @ 0x1C01FB4F8 (-UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z.c)
- *     ?UpdateTargetForCapture@Mouse@InputTraceLogging@@SAX_KPEAUHWND__@@@Z @ 0x1C01FB614 (-UpdateTargetForCapture@Mouse@InputTraceLogging@@SAX_KPEAUHWND__@@@Z.c)
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C01FB800 (_anonymous_namespace_--ValidateUIPI.c)
- *     IsPointerPromotedMouseMessage @ 0x1C01FB9D4 (IsPointerPromotedMouseMessage.c)
- *     ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C020604C (ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick.c)
- *     ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C02062D4 (ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent.c)
- *     ApiSetEditionLLMouseButtonHook @ 0x1C0206C24 (ApiSetEditionLLMouseButtonHook.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     isChildPartition @ 0x1C00423A0 (isChildPartition.c)
+ *     ApiSetEditionForegroundQAccessibleToMouseProducer @ 0x1C0043318 (ApiSetEditionForegroundQAccessibleToMouseProducer.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0043EC0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C00446B0 (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
+ *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C0044A10 (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
+ *     _anonymous_namespace_::GetPtiFromInputDest @ 0x1C00457FC (_anonymous_namespace_--GetPtiFromInputDest.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C004597C (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C00491D4 (_anonymous_namespace_--InMouseRawInputMode.c)
+ *     ?GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C004B13C (-GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ.c)
+ *     ?GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ @ 0x1C004B164 (-GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?DeliverMouseButtonToInputDest@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C004C9DC (-DeliverMouseButtonToInputDest@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@AEBVCInputDest@@AEBUInpu.c)
+ *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C004CD08 (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
+ *     ?UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z @ 0x1C004CDB0 (-UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z.c)
+ *     ?ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ @ 0x1C004CE94 (-ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ.c)
+ *     UpdateAsyncKeyState @ 0x1C004D680 (UpdateAsyncKeyState.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004DFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA?AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@Z @ 0x1C0072BC8 (-HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA-AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C0095988 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     IsPointerPromotedMouseMessage @ 0x1C00960A0 (IsPointerPromotedMouseMessage.c)
+ *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C009C1E4 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
+ *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C009D00C (--1CThreadLockInputDest@@QEAA@XZ.c)
+ *     ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C009F078 (-HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtag.c)
+ *     ??4CInputDest@@QEAAAEAV0@AEBV0@@Z @ 0x1C009F1DC (--4CInputDest@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C009F974 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
+ *     ApiSetEditionLLMouseButtonHook @ 0x1C00A0FBC (ApiSetEditionLLMouseButtonHook.c)
+ *     ApiSetEditionCancelCoolSwitch @ 0x1C00A2650 (ApiSetEditionCancelCoolSwitch.c)
+ *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C00A28B4 (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
+ *     ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C00A3B68 (ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick.c)
+ *     ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C00A5438 (-InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z.c)
+ *     ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C00A6258 (ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent.c)
+ *     IsPTPIVEnabled @ 0x1C00A9B40 (IsPTPIVEnabled.c)
+ *     ?GetVKey@CButtonEvent@CMouseProcessor@@QEBAEXZ @ 0x1C00AB280 (-GetVKey@CButtonEvent@CMouseProcessor@@QEBAEXZ.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADF68 (_anonymous_namespace_--ValidateUIPI.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     IsTouchpadDevice @ 0x1C01AEA50 (IsTouchpadDevice.c)
+ *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C01BB020 (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
+ *     ?DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01BF51C (-DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     _anonymous_namespace_::GetRawMouseInputDestination @ 0x1C01C0364 (_anonymous_namespace_--GetRawMouseInputDestination.c)
+ *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01C0514 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
  */
 
 void __fastcall CMouseProcessor::ProcessMouseButton(
         CMouseProcessor *this,
         const struct CMouseProcessor::CButtonEvent *a2)
 {
-  const struct CMouseProcessor::CButtonEvent *v2; // r14
-  char v4; // r13
-  char v5; // si
-  __int64 v6; // rcx
-  __int64 v7; // xmm0_8
-  int v8; // eax
-  int v9; // edx
+  const struct CMouseProcessor::CButtonEvent *v2; // rdi
+  __int64 v4; // rax
+  int v5; // r14d
+  int v6; // ebx
+  __int64 v7; // rdx
   unsigned int ButtonMessage; // r12d
-  unsigned int v11; // edx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  int v14; // eax
-  char v15; // al
-  struct tagPOINT v16; // rbx
-  int v17; // edx
-  HWND WindowHandle; // rax
+  unsigned int v9; // edx
+  struct tagPOINT v10; // rbx
+  __int64 v11; // r8
   int MessageWParamInfo; // eax
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  int v22; // edi
-  int v23; // ebx
-  int v24; // eax
-  int v25; // edx
-  int v26; // edx
-  __int128 *RawMouseInputDestination; // rax
-  __int128 v28; // xmm1
-  __int128 v29; // xmm0
-  __int128 v30; // xmm1
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int128 v33; // xmm0
-  int v34; // ebx
-  struct tagTHREADINFO *ThreadInfo; // rax
-  __int64 v36; // r8
-  __int64 v37; // rdx
-  __int64 v38; // r9
-  int v39; // edx
-  __int64 v40; // r9
-  __int64 v41; // rdi
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  int v15; // eax
+  BOOL v16; // ebx
+  unsigned int v17; // eax
+  int v18; // edx
+  int v19; // edx
+  __int64 v20; // r9
+  char v21; // r15
+  __int64 v22; // r14
+  int v23; // edx
+  bool v24; // bl
+  struct tagTHREADINFO *v25; // rax
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  int v28; // edx
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  __int64 v31; // r9
+  unsigned __int8 v32; // bl
+  int v33; // edx
+  unsigned __int64 v34; // rax
+  _QWORD *HasMouseOwner; // rax
+  __int64 v36; // rdx
+  int v37; // eax
+  int v38; // eax
+  unsigned __int8 v39; // al
+  int v40; // ecx
+  char v41; // r8
   int v42; // edx
-  CInputDest *v43; // rax
-  HWND v44; // rax
-  int v45; // ebx
-  struct tagTHREADINFO *v46; // rax
-  __int64 v47; // r8
-  __int64 v48; // rdx
-  __int64 v49; // r9
-  __int64 v50; // r9
-  __int64 v51; // rax
-  bool ShouldSkipForegroundActivation; // al
-  CMouseProcessor *v53; // rcx
-  __int64 v54; // r9
-  int v55; // edx
-  unsigned __int8 v56; // bl
-  bool updated; // al
-  PDEVICE_OBJECT v58; // rcx
-  bool v59; // r8
-  __int16 v60; // ax
+  __int64 v43; // r9
+  __int64 v44; // r10
+  _OWORD *RawMouseInputDestination; // rax
+  __int128 v46; // xmm1
+  __int128 v47; // xmm0
+  __int128 v48; // xmm1
+  __int128 v49; // xmm0
+  __int128 v50; // xmm1
+  __int128 v51; // xmm0
+  bool v52; // bl
+  struct tagTHREADINFO *ThreadInfo; // rax
+  __int64 v54; // r8
+  __int64 v55; // rdx
+  int v56; // edx
+  __int64 v57; // rdx
+  int v58; // eax
+  int v59; // eax
+  int v60; // r9d
   __int64 PtiFromInputDest; // rax
-  int v62; // edx
-  __int64 v63; // rax
-  __int64 v64; // [rsp+40h] [rbp-C0h] BYREF
-  int v65; // [rsp+48h] [rbp-B8h]
-  struct tagPOINT v66; // [rsp+50h] [rbp-B0h] BYREF
-  struct tagPOINT v67; // [rsp+58h] [rbp-A8h] BYREF
-  CMouseProcessor *v68[2]; // [rsp+60h] [rbp-A0h] BYREF
-  char v69; // [rsp+70h] [rbp-90h]
-  int v70; // [rsp+74h] [rbp-8Ch]
-  __int64 v71; // [rsp+78h] [rbp-88h] BYREF
-  _QWORD v72[4]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v73[2]; // [rsp+A0h] [rbp-60h] BYREF
-  int v74; // [rsp+B0h] [rbp-50h]
-  int v75; // [rsp+B4h] [rbp-4Ch]
-  int v76; // [rsp+B8h] [rbp-48h]
-  int v77; // [rsp+BCh] [rbp-44h]
-  _OWORD v78[7]; // [rsp+E0h] [rbp-20h] BYREF
-  _OWORD v79[6]; // [rsp+150h] [rbp+50h] BYREF
-  __int128 v80; // [rsp+1B0h] [rbp+B0h]
-  __int64 v81; // [rsp+1D0h] [rbp+D0h] BYREF
-  int v82; // [rsp+1D8h] [rbp+D8h]
-  struct tagPOINT v83; // [rsp+1E0h] [rbp+E0h] BYREF
-  int v84; // [rsp+1E8h] [rbp+E8h]
-  int v85; // [rsp+1ECh] [rbp+ECh]
-  int v86; // [rsp+1F0h] [rbp+F0h]
-  int v87; // [rsp+1F4h] [rbp+F4h]
-  __int64 ExtraInfoForHook; // [rsp+1F8h] [rbp+F8h]
-  __int128 v89; // [rsp+200h] [rbp+100h] BYREF
-  __int128 v90; // [rsp+210h] [rbp+110h]
-  __int128 v91; // [rsp+220h] [rbp+120h]
-  __int128 v92; // [rsp+230h] [rbp+130h]
-  __int128 v93; // [rsp+240h] [rbp+140h]
-  __int128 v94; // [rsp+250h] [rbp+150h]
-  __int128 v95; // [rsp+260h] [rbp+160h]
-  _DWORD v96[32]; // [rsp+270h] [rbp+170h] BYREF
+  int v62; // [rsp+40h] [rbp-C0h] BYREF
+  struct tagPOINT v63; // [rsp+48h] [rbp-B8h] BYREF
+  struct tagPOINT v64; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v65; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v66; // [rsp+60h] [rbp-A0h] BYREF
+  int v67; // [rsp+64h] [rbp-9Ch] BYREF
+  __int64 v68; // [rsp+68h] [rbp-98h] BYREF
+  HWND WindowHandle; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v70; // [rsp+78h] [rbp-88h] BYREF
+  struct tagPOINT v71; // [rsp+80h] [rbp-80h] BYREF
+  int v72; // [rsp+88h] [rbp-78h]
+  __int64 v73; // [rsp+90h] [rbp-70h] BYREF
+  int v74; // [rsp+98h] [rbp-68h]
+  _QWORD v75[3]; // [rsp+A0h] [rbp-60h] BYREF
+  _QWORD v76[2]; // [rsp+B8h] [rbp-48h] BYREF
+  int v77; // [rsp+C8h] [rbp-38h]
+  __int64 v78; // [rsp+CCh] [rbp-34h]
+  int v79; // [rsp+D4h] [rbp-2Ch]
+  _OWORD v80[7]; // [rsp+E0h] [rbp-20h] BYREF
+  _BYTE v81[64]; // [rsp+150h] [rbp+50h] BYREF
+  char v82[112]; // [rsp+190h] [rbp+90h] BYREF
+  _OWORD v83[6]; // [rsp+200h] [rbp+100h] BYREF
+  __int128 v84; // [rsp+260h] [rbp+160h]
+  struct tagPOINT v85; // [rsp+280h] [rbp+180h] BYREF
+  int v86; // [rsp+288h] [rbp+188h]
+  int v87; // [rsp+28Ch] [rbp+18Ch]
+  int v88; // [rsp+290h] [rbp+190h]
+  int v89; // [rsp+294h] [rbp+194h]
+  unsigned __int64 ExtraInfoForHook; // [rsp+298h] [rbp+198h]
+  _OWORD v91[7]; // [rsp+2A0h] [rbp+1A0h] BYREF
+  _DWORD v92[32]; // [rsp+310h] [rbp+210h] BYREF
+  _BYTE v93[128]; // [rsp+390h] [rbp+290h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v94; // [rsp+410h] [rbp+310h] BYREF
+  __int64 *v95; // [rsp+430h] [rbp+330h]
+  __int64 v96; // [rsp+438h] [rbp+338h]
+  __int64 *v97; // [rsp+440h] [rbp+340h]
+  __int64 v98; // [rsp+448h] [rbp+348h]
+  int *v99; // [rsp+450h] [rbp+350h]
+  __int64 v100; // [rsp+458h] [rbp+358h]
+  unsigned int *v101; // [rsp+460h] [rbp+360h]
+  __int64 v102; // [rsp+468h] [rbp+368h]
+  HWND *p_WindowHandle; // [rsp+470h] [rbp+370h]
+  __int64 v104; // [rsp+478h] [rbp+378h]
 
   v2 = a2;
-  v4 = 0;
-  v5 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(
       WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
+      (_DWORD)a2,
       6,
-      23,
-      (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-  v6 = *((_QWORD *)v2 + 1);
-  v68[0] = this;
-  v68[1] = v2;
-  v69 = 0;
-  v7 = *(_QWORD *)(v6 + 132);
-  v8 = *(_DWORD *)(v6 + 140);
-  LOBYTE(a2) = *(_DWORD *)(v6 + 108) == 1;
-  v70 = 0;
-  v81 = v7;
-  v82 = v8;
-  if ( !anonymous_namespace_::CancelCoolSwitchWithForegroundCheck(v6, (__int64)a2, &v81) )
+      22,
+      (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+  }
+  v4 = *((_QWORD *)v2 + 1);
+  v62 = 0;
+  v5 = *(_DWORD *)(v4 + 140);
+  v6 = *(_DWORD *)(v4 + 108);
+  v64 = *(struct tagPOINT *)(v4 + 132);
+  ApiSetEditionCancelCoolSwitch(&v62);
+  if ( v62 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+    if ( v6 != 1 )
     {
-      v5 = 0;
+      v71 = v64;
+      v72 = v5;
+      if ( !(unsigned int)ApiSetEditionForegroundQAccessibleToMouseProducer((__int64)&v71, v7, 0) )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v7) = 3;
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v7,
+            6,
+            23,
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+        }
+        v36 = 14LL;
+LABEL_42:
+        InputTraceLogging::Mouse::DropButton(*(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL), v36);
+        return;
+      }
     }
-    if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v9) = v5;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v9,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
-        6,
-        24,
-        (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-    }
-LABEL_68:
-    InputTraceLogging::Mouse::DropButton();
-    goto LABEL_171;
   }
   if ( !*((_QWORD *)v2 + 5) )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v5 = 0;
-    }
-    if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v9) = v5;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v9,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+      LOBYTE(v7) = 3;
+      WPP_RECORDER_SF_(
         WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
+        v7,
         6,
-        25,
-        (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
+        24,
+        (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
     }
-    goto LABEL_68;
+    v36 = 15LL;
+    goto LABEL_42;
   }
   ButtonMessage = CMouseProcessor::CButtonEvent::GetButtonMessage(v2);
-  if ( !IsPTPIVEnabled() || !isChildPartition() || !IsTouchpadDevice(*(_QWORD *)(*((_QWORD *)v2 + 1) + 8LL)) )
-    goto LABEL_31;
-  v14 = *((_DWORD *)v2 + 8);
-  if ( v14 != 1 )
+  if ( !(unsigned __int8)IsPTPIVEnabled()
+    || !isChildPartition()
+    || !(unsigned __int8)IsTouchpadDevice(*(_QWORD *)(*((_QWORD *)v2 + 1) + 8LL)) )
   {
-    if ( v14 == 2 && *((_BYTE *)this + 3560) )
+    goto LABEL_7;
+  }
+  v37 = *((_DWORD *)v2 + 8);
+  if ( v37 == 1 )
+  {
+    v38 = CMouseProcessor::InertiaEndSuppression::HandleMake(
+            (char *)this + 3552,
+            *(_QWORD *)(*((_QWORD *)v2 + 1) + 96LL));
+  }
+  else
+  {
+    if ( v37 != 2 )
+      goto LABEL_7;
+    if ( *((_BYTE *)this + 3552) )
     {
-      *((_BYTE *)this + 3560) = 0;
-      goto LABEL_38;
+      *((_BYTE *)this + 3552) = 0;
+      goto LABEL_54;
     }
-LABEL_31:
-    if ( (gpdwCPUserPreferencesMask & 0x80008000) == 0x80008000 )
+    v38 = 1;
+  }
+  if ( v38 )
+  {
+LABEL_7:
+    if ( (gpdwCPUserPreferencesMask & 0x80008000) != 0x80008000 )
     {
-      if ( ButtonMessage == 513 )
+LABEL_8:
+      v10 = (struct tagPOINT)*((_QWORD *)gpsi + 620);
+      v63 = v10;
+      v68 = *((_QWORD *)gpsi + 619);
+      v64 = v10;
+      CMouseProcessor::InformUMObservers(this, v2, &v64, &v64);
+      if ( (*(_DWORD *)(*((_QWORD *)v2 + 1) + 112LL) & 0x80u) == 0 && CBaseProcessor::IsUMSuppressed(this) )
       {
-        if ( *((_BYTE *)this + 3564) )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v15 = 0;
-        }
-        else
-        {
-          v15 = 1;
-          *((_DWORD *)this + 892) = *(_DWORD *)(*((_QWORD *)v2 + 1) + 80LL);
-        }
-        *((_BYTE *)this + 3564) = v15;
-        if ( !v15 )
-          goto LABEL_47;
-      }
-      else if ( ButtonMessage == 514 && *((_BYTE *)this + 3564) )
-      {
-        v11 = *(_DWORD *)(*((_QWORD *)v2 + 1) + 80LL) - *((_DWORD *)this + 892);
-        if ( v11 > dword_1C0289A00 )
-        {
-LABEL_47:
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-          {
-            v5 = 0;
-          }
-          if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v11) = v5;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v11,
-              WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              4,
-              6,
-              27,
-              (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-          }
-          goto LABEL_68;
-        }
-        *((_BYTE *)this + 3564) = 0;
-      }
-    }
-    v16 = (struct tagPOINT)*((_QWORD *)gpsi + 620);
-    v66 = v16;
-    v71 = *((_QWORD *)gpsi + 619);
-    v67 = v16;
-    CMouseProcessor::InformUMObservers(this, v2, &v67, &v67);
-    if ( (*(_DWORD *)(*((_QWORD *)v2 + 1) + 112LL) & 0x80u) == 0 && CBaseProcessor::IsUMSuppressed(this) )
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v5 = 0;
-      }
-      if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v17) = v5;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v17,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          6,
-          28,
-          (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-      }
-      goto LABEL_68;
-    }
-    CMouseProcessor::MouseHitTest((__int64)this, (__int64)v79, (__int64 *)&v66, (__int64)&v71, v2, 0, 0LL);
-    v70 = DWORD1(v79[0]);
-    v69 = 1;
-    WindowHandle = CInputDest::GetWindowHandle((CInputDest *)v79);
-    InputTraceLogging::Mouse::ProcessButton(
-      *(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL),
-      (const struct tagPOINT *)(*((_QWORD *)v2 + 1) + 52LL),
-      ButtonMessage,
-      WindowHandle);
-    v83 = v16;
-    MessageWParamInfo = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(v2);
-    v20 = *((_QWORD *)v2 + 1);
-    v84 = MessageWParamInfo;
-    v85 = *(unsigned __int8 *)(v20 + 112) >> 7;
-    v86 = *(_DWORD *)(v20 + 80);
-    v87 = 0;
-    ExtraInfoForHook = CMouseProcessor::CMouseEvent::GetExtraInfoForHook(v2);
-    CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v73, (struct CInputDest *)v79);
-    v21 = *((_QWORD *)v2 + 1);
-    v22 = *(_DWORD *)(v21 + 112);
-    v23 = *(_DWORD *)(v21 + 140);
-    v64 = *(_QWORD *)(v21 + 132);
-    v24 = CMouseProcessor::CButtonEvent::GetButtonMessage(v2);
-    v65 = v23;
-    if ( (unsigned int)ApiSetEditionLLMouseButtonHook(
-                         (unsigned int)v79,
-                         (unsigned int)&v83,
-                         v24,
-                         (unsigned int)&v64,
-                         (v22 & 1) == 0) )
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v5 = 0;
-      }
-      if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v25) = v5;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v25,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          6,
-          29,
-          (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-      }
-      InputTraceLogging::Mouse::DropButton();
-      CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v73);
-      goto LABEL_170;
-    }
-    CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v73);
-    CMouseProcessor::CMouseRawInput::PostRawMouse((__int64)this + 3464, 0, 3);
-    if ( anonymous_namespace_::InMouseRawInputMode(0LL, 1LL, 0) )
-    {
-      RawMouseInputDestination = anonymous_namespace_::GetRawMouseInputDestination(v78);
-      v28 = RawMouseInputDestination[1];
-      v89 = *RawMouseInputDestination;
-      v29 = RawMouseInputDestination[2];
-      v90 = v28;
-      v30 = RawMouseInputDestination[3];
-      v91 = v29;
-      v31 = RawMouseInputDestination[4];
-      v92 = v30;
-      v32 = RawMouseInputDestination[5];
-      v93 = v31;
-      v33 = RawMouseInputDestination[6];
-      v94 = v32;
-      v95 = v33;
-      CInputDest::CInputDest((CInputDest *)v96, (const struct tagINPUTDEST *)&v89);
-      if ( v96[0] )
-      {
-        v34 = *((_DWORD *)v2 + 8);
-        CMouseProcessor::CButtonEvent::GetVKey(v2);
-        ThreadInfo = CInputDest::GetThreadInfo((CInputDest *)v96);
-        LOBYTE(v36) = v34 == 2;
-        UpdateAsyncKeyState(*((_QWORD *)ThreadInfo + 54), v37, v36, v38);
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-          || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-        {
-          v5 = 0;
-        }
-        if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v39) = v5;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v39,
-            WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+          LOBYTE(v42) = 4;
+          WPP_RECORDER_SF_(
             WPP_MAIN_CB.Queue.ListEntry.Flink,
-            4,
+            v42,
+            6,
+            27,
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+        }
+        v36 = 4LL;
+        goto LABEL_42;
+      }
+      CMouseProcessor::MouseHitTest((__int64)this, (__int64)v83, &v63, (__int64)&v68, v2, 0, 0LL);
+      if ( (unsigned int)dword_1C024AA90 > 4
+        && (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 64LL, v11, *((_QWORD *)v2 + 1)) )
+      {
+        WindowHandle = CInputDest::GetWindowHandle((CInputDest *)v83);
+        v67 = *(_DWORD *)(v43 + 56);
+        LODWORD(v65) = *(_DWORD *)(v43 + 52);
+        v70 = *(_QWORD *)(v43 + 88);
+        p_WindowHandle = &WindowHandle;
+        v101 = &v66;
+        v99 = &v67;
+        v97 = &v65;
+        v95 = &v70;
+        v66 = ButtonMessage;
+        v104 = 8LL;
+        v102 = v44;
+        v100 = v44;
+        v98 = v44;
+        v96 = 8LL;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C021FC8F, 0, 0, 7u, &v94);
+      }
+      v85 = v10;
+      MessageWParamInfo = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(v2);
+      v13 = *((_QWORD *)v2 + 1);
+      v86 = MessageWParamInfo;
+      v87 = *(unsigned __int8 *)(v13 + 112) >> 7;
+      v88 = *(_DWORD *)(v13 + 80);
+      v89 = 0;
+      ExtraInfoForHook = CMouseProcessor::CMouseEvent::GetExtraInfoForHook(v2);
+      CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v81, (struct CInputDest *)v83);
+      v14 = *((_QWORD *)v2 + 1);
+      v15 = *(_DWORD *)(v14 + 140);
+      v16 = (*(_DWORD *)(v14 + 112) & 1) == 0;
+      v73 = *(_QWORD *)(v14 + 132);
+      v74 = v15;
+      v17 = CMouseProcessor::CButtonEvent::GetButtonMessage(v2);
+      if ( (unsigned int)ApiSetEditionLLMouseButtonHook(
+                           (unsigned int)v83,
+                           (unsigned int)&v85,
+                           v17,
+                           (unsigned int)&v73,
+                           v16) )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v18) = 4;
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v18,
+            6,
+            28,
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+        }
+        InputTraceLogging::Mouse::DropButton(*(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL), 0LL);
+        CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v81);
+        goto LABEL_28;
+      }
+      CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v81);
+      CMouseProcessor::CMouseRawInput::PostRawMouse((char *)this + 3456, 0LL, 3LL);
+      if ( anonymous_namespace_::InMouseRawInputMode(0LL, 1, 0) )
+      {
+        RawMouseInputDestination = (_OWORD *)anonymous_namespace_::GetRawMouseInputDestination(v82);
+        v46 = RawMouseInputDestination[1];
+        v80[0] = *RawMouseInputDestination;
+        v47 = RawMouseInputDestination[2];
+        v80[1] = v46;
+        v48 = RawMouseInputDestination[3];
+        v80[2] = v47;
+        v49 = RawMouseInputDestination[4];
+        v80[3] = v48;
+        v50 = RawMouseInputDestination[5];
+        v80[4] = v49;
+        v51 = RawMouseInputDestination[6];
+        v80[5] = v50;
+        v80[6] = v51;
+        CInputDest::CInputDest((CInputDest *)v92, (const struct tagINPUTDEST *)v80);
+        if ( v92[0] )
+        {
+          v52 = *((_DWORD *)v2 + 8) == 2;
+          CMouseProcessor::CButtonEvent::GetVKey(v2);
+          ThreadInfo = CInputDest::GetThreadInfo((CInputDest *)v92);
+          LOBYTE(v54) = v52;
+          UpdateAsyncKeyState(*((_QWORD *)ThreadInfo + 54), v55, v54);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v56) = 4;
+            WPP_RECORDER_SF_(
+              WPP_MAIN_CB.Queue.ListEntry.Flink,
+              v56,
+              6,
+              29,
+              (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+          }
+          InputTraceLogging::Mouse::DropButton(*(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL), 19LL);
+          CInputDest::SetEmpty((CInputDest *)v92);
+          goto LABEL_28;
+        }
+        CInputDest::SetEmpty((CInputDest *)v92);
+      }
+      if ( !LODWORD(v83[0]) )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v19) = 3;
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v19,
             6,
             30,
-            (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
         }
-        InputTraceLogging::Mouse::DropButton();
-        CInputDest::SetEmpty((CInputDest *)v96);
-        goto LABEL_170;
+        v57 = 13LL;
+        goto LABEL_114;
       }
-      CInputDest::SetEmpty((CInputDest *)v96);
-    }
-    if ( !LODWORD(v79[0]) )
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+      if ( (unsigned int)IsPointerPromotedMouseMessage(ButtonMessage, *((_QWORD *)v2 + 1) + 104LL) )
       {
-        v5 = 0;
-      }
-      if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v26) = v5;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v26,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          3,
-          6,
-          31,
-          (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-      }
-      goto LABEL_167;
-    }
-    if ( (unsigned int)IsPointerPromotedMouseMessage(ButtonMessage, *((_QWORD *)v2 + 1) + 104LL) )
-    {
-      v4 = 1;
-      if ( !(unsigned __int8)anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v40 + 132), v79) )
-      {
-LABEL_167:
-        InputTraceLogging::Mouse::DropButton();
-LABEL_170:
-        CInputDest::SetEmpty((CInputDest *)v79);
-        goto LABEL_171;
-      }
-    }
-    v41 = LOWORD(v66.x) | (LOWORD(v66.y) << 16);
-    ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick(v79, *((_DWORD *)v2 + 8) == 2);
-    if ( _InterlockedCompareExchange((volatile signed __int32 *)this + 924, 1, 1) )
-    {
-      if ( v4
-        && !(unsigned __int8)anonymous_namespace_::ValidateUIPI(
-                               *(_QWORD *)(*((_QWORD *)v2 + 1) + 132LL),
-                               (char *)this + 3576) )
-      {
-        goto LABEL_167;
-      }
-      v89 = v79[0];
-      v91 = v79[2];
-      v90 = v79[1];
-      v93 = v79[4];
-      v92 = v79[3];
-      v95 = v80;
-      v94 = v79[5];
-      if ( *((_DWORD *)v2 + 8) == 1 )
-      {
-        if ( !*((_DWORD *)v2 + 7) )
-        {
-          LODWORD(v64) = 0x20000;
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7397);
-        }
-        *((_DWORD *)this + 893) |= *((_DWORD *)v2 + 7);
-        CInputDest::operator=((__int64)v79, (__int64)this + 3576);
+        v21 = 1;
+        if ( !(unsigned __int8)anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v20 + 132), v83) )
+          goto LABEL_88;
       }
       else
       {
-        v43 = CMouseProcessor::HandleCapture_BreakHasMouseOwner(
-                (__int64)this,
-                (CInputDest *)v96,
-                (CInputDest *)v79,
-                (__int64)v2);
-        CInputDest::operator=((__int64)v79, v43);
-        CInputDest::SetEmpty((CInputDest *)v96);
+        v21 = 0;
       }
-      v44 = CInputDest::GetWindowHandle((CInputDest *)v79);
-      InputTraceLogging::Mouse::UpdateTargetForCapture(*(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL), v44);
-      if ( !LODWORD(v79[0]) )
+      v22 = LOWORD(v63.x) | (LOWORD(v63.y) << 16);
+      ApiSetEditionFinalizeKoreanImeCompStrOnMouseClick(v83, *((_DWORD *)v2 + 8) == 2);
+      if ( _InterlockedCompareExchange((volatile signed __int32 *)this + 922, 1, 1) )
       {
-        LODWORD(v64) = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3823);
-      }
-      ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent(
-        (unsigned int)v79,
-        (unsigned int)&v89,
-        v67.x,
-        v66.x,
-        (__int64)&v66);
-      v41 = LOWORD(v66.x) | (LOWORD(v66.y) << 16);
-    }
-    else if ( *((_DWORD *)v2 + 8) == 1 )
-    {
-      if ( !CMouseProcessor::HandleCapture_MakeNoMouseOwner(
-              this,
-              (const struct CInputDest *)v79,
-              v2,
-              v41,
-              v67,
-              ButtonMessage) )
-      {
-        v42 = 32;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-          || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+        if ( v21
+          && !(unsigned __int8)anonymous_namespace_::ValidateUIPI(
+                                 *(_QWORD *)(*((_QWORD *)v2 + 1) + 132LL),
+                                 (char *)this + 3568) )
         {
-          v5 = 0;
+          goto LABEL_88;
         }
-        if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        v91[0] = v83[0];
+        v91[2] = v83[2];
+        v91[1] = v83[1];
+        v91[4] = v83[4];
+        v91[3] = v83[3];
+        v91[6] = v84;
+        v91[5] = v83[5];
+        if ( *((_DWORD *)v2 + 8) == 1 )
         {
-          LOBYTE(v42) = v5;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v42,
-            WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            3,
-            6,
-            32,
-            (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-        }
-        goto LABEL_167;
-      }
-    }
-    else
-    {
-      if ( !*((_DWORD *)v2 + 7) )
-      {
-        LODWORD(v64) = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7397);
-      }
-      *((_DWORD *)this + 893) &= ~*((_DWORD *)v2 + 7);
-    }
-    v45 = *((_DWORD *)v2 + 8);
-    CMouseProcessor::CButtonEvent::GetVKey(v2);
-    v46 = CInputDest::GetThreadInfo((CInputDest *)v79);
-    LOBYTE(v47) = v45 == 2;
-    UpdateAsyncKeyState(*((_QWORD *)v46 + 54), v48, v47, v49);
-    if ( *((_DWORD *)v2 + 8) == 1 )
-    {
-      v77 = 0;
-      v73[0] = v80;
-      v51 = *((_QWORD *)v2 + 1);
-      v75 = (__int16)v41;
-      v74 = 4;
-      v73[1] = *(_QWORD *)(v51 + 8);
-      v76 = SWORD1(v41);
-      SendMessageTo(5LL, (__int64)v73, 32LL, v50);
-    }
-    if ( (*(_DWORD *)(*((_QWORD *)v2 + 1) + 112LL) & 0x100) != 0 )
-    {
-      v55 = 0;
-    }
-    else
-    {
-      ShouldSkipForegroundActivation = CInputDest::ShouldSkipForegroundActivation((CInputDest *)v79);
-      v55 = 0;
-      if ( !ShouldSkipForegroundActivation )
-      {
-        v56 = 0;
-        updated = CMouseProcessor::UpdateForegroundForInput(v53, (struct CInputDest *)v79, v2, v54);
-        v55 = 0;
-        if ( !updated )
-        {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+          v59 = *((_DWORD *)v2 + 7);
+          if ( !v59 )
           {
-            v5 = 0;
+            v62 = 0x20000;
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 7103LL);
+            v59 = *((_DWORD *)v2 + 7);
           }
-          if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v55) = v5;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v55,
-              WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              3,
-              6,
-              33,
-              (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-          }
-          goto LABEL_167;
-        }
-LABEL_139:
-        if ( LODWORD(v79[0]) )
-        {
-          if ( !v4
-            || (PtiFromInputDest = anonymous_namespace_::GetPtiFromInputDest((__int64)v79, 2)) == 0
-            || (*(_DWORD *)(PtiFromInputDest + 488) & 1) == 0 )
-          {
-            if ( !anonymous_namespace_::InMouseRawInputMode((__int64)v79, 1LL, 1) )
-            {
-              v72[0] = v56;
-              v72[1] = v41;
-              v72[2] = 0LL;
-              v63 = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(v2);
-              if ( (unsigned int)CMouseProcessor::ForwardInputToISM(
-                                   (__int64)this,
-                                   (__int64)v79,
-                                   v2,
-                                   (struct CMouseProcessor::InputDeliveryContext *)v72,
-                                   &v67,
-                                   0,
-                                   ButtonMessage,
-                                   v63) == 1 )
-                CMouseProcessor::DeliverMouseButtonToInputDest(
-                  this,
-                  v2,
-                  (const struct CInputDest *)v79,
-                  (const struct CMouseProcessor::InputDeliveryContext *)v72);
-              goto LABEL_170;
-            }
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-              || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
-            {
-              v5 = 0;
-            }
-            if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LOBYTE(v62) = v5;
-              WPP_RECORDER_AND_TRACE_SF_(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v62,
-                WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                WPP_MAIN_CB.Queue.ListEntry.Flink,
-                3,
-                6,
-                36,
-                (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-            }
-            goto LABEL_167;
-          }
-          v58 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
-          {
-            v5 = 0;
-          }
-          v59 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( !v5 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_167;
-          v60 = 35;
+          *((_DWORD *)this + 891) |= v59;
+          CInputDest::operator=(v83, (char *)this + 3568);
         }
         else
         {
-          v58 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
-          {
-            v5 = 0;
-          }
-          v59 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( !v5 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_167;
-          v60 = 34;
+          HasMouseOwner = (_QWORD *)CMouseProcessor::HandleCapture_BreakHasMouseOwner(this, v93, v83, v2);
+          CInputDest::operator=((__int64)v83, HasMouseOwner);
+          CInputDest::SetEmpty((CInputDest *)v93);
         }
-        LOBYTE(v55) = v5;
-        WPP_RECORDER_AND_TRACE_SF_(
-          v58->AttachedDevice,
-          v55,
-          v59,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          3,
-          6,
-          v60,
-          (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
-        goto LABEL_167;
+        if ( !LODWORD(v83[0]) )
+        {
+          v62 = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3674LL);
+        }
+        ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent(
+          (unsigned int)v83,
+          (unsigned int)v91,
+          v64.x,
+          v63.x,
+          (__int64)&v63);
+        v22 = LOWORD(v63.x) | (LOWORD(v63.y) << 16);
       }
+      else if ( *((_DWORD *)v2 + 8) == 1 )
+      {
+        if ( !CMouseProcessor::HandleCapture_MakeNoMouseOwner(
+                this,
+                (const struct CInputDest *)v83,
+                v2,
+                v22,
+                v64,
+                ButtonMessage) )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v23) = 3;
+            WPP_RECORDER_SF_(
+              WPP_MAIN_CB.Queue.ListEntry.Flink,
+              v23,
+              6,
+              31,
+              (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+          }
+          v57 = 17LL;
+          goto LABEL_114;
+        }
+      }
+      else
+      {
+        v58 = *((_DWORD *)v2 + 7);
+        if ( !v58 )
+        {
+          v62 = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 7103LL);
+          v58 = *((_DWORD *)v2 + 7);
+        }
+        *((_DWORD *)this + 891) &= ~v58;
+      }
+      v24 = *((_DWORD *)v2 + 8) == 2;
+      CMouseProcessor::CButtonEvent::GetVKey(v2);
+      v25 = CInputDest::GetThreadInfo((CInputDest *)v83);
+      LOBYTE(v26) = v24;
+      UpdateAsyncKeyState(*((_QWORD *)v25 + 54), v27, v26);
+      if ( *((_DWORD *)v2 + 8) == 1 )
+      {
+        v76[0] = v84;
+        v29 = *((_QWORD *)v2 + 1);
+        v79 = 0;
+        v77 = 4;
+        v30 = *(_QWORD *)(v29 + 8);
+        LODWORD(v65) = (__int16)v22;
+        HIDWORD(v65) = SWORD1(v22);
+        v78 = v65;
+        v76[1] = v30;
+        InputExtensibilityCallout::CoreMsgSendMessage(v30, 6LL, v76);
+      }
+      if ( (*(_DWORD *)(*((_QWORD *)v2 + 1) + 112LL) & 0x100) != 0
+        || CInputDest::ShouldSkipForegroundActivation((CInputDest *)v83) )
+      {
+        v32 = 1;
+        goto LABEL_23;
+      }
+      v32 = 0;
+      if ( CMouseProcessor::UpdateForegroundForInput(this, (struct CInputDest *)v83, v2, v31) )
+      {
+LABEL_23:
+        if ( !LODWORD(v83[0]) )
+        {
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+LABEL_106:
+            v57 = 18LL;
+            goto LABEL_114;
+          }
+          v60 = 33;
+LABEL_105:
+          LOBYTE(v28) = 3;
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v28,
+            6,
+            v60,
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+          goto LABEL_106;
+        }
+        if ( v21 )
+        {
+          PtiFromInputDest = anonymous_namespace_::GetPtiFromInputDest((__int64)v83, 2);
+          if ( PtiFromInputDest )
+          {
+            if ( (*(_DWORD *)(PtiFromInputDest + 488) & 1) != 0 )
+            {
+              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                goto LABEL_106;
+              v60 = 34;
+              goto LABEL_105;
+            }
+          }
+        }
+        if ( !anonymous_namespace_::InMouseRawInputMode((__int64)v83, 1, 1) )
+        {
+          v75[0] = v32;
+          v75[1] = v22;
+          v75[2] = 0LL;
+          v34 = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(v2);
+          if ( (unsigned int)CMouseProcessor::ForwardInputToISM(this, v83, v2, v75, &v64, 0, ButtonMessage, v34) == 1 )
+            CMouseProcessor::DeliverMouseButtonToInputDest(
+              this,
+              v2,
+              (const struct CInputDest *)v83,
+              (const struct CMouseProcessor::InputDeliveryContext *)v75);
+          goto LABEL_28;
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v33) = 3;
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v33,
+            6,
+            35,
+            (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+        }
+        v57 = 12LL;
+LABEL_114:
+        InputTraceLogging::Mouse::DropButton(*(_QWORD *)(*((_QWORD *)v2 + 1) + 88LL), v57);
+LABEL_28:
+        CInputDest::SetEmpty((CInputDest *)v83);
+        return;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v28) = 3;
+        WPP_RECORDER_SF_(
+          WPP_MAIN_CB.Queue.ListEntry.Flink,
+          v28,
+          6,
+          32,
+          (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+      }
+LABEL_88:
+      v57 = 10LL;
+      goto LABEL_114;
     }
-    v56 = 1;
-    goto LABEL_139;
+    if ( ButtonMessage == 513 )
+    {
+      if ( *((_BYTE *)this + 3556) )
+      {
+        v39 = 0;
+      }
+      else
+      {
+        v39 = 1;
+        *((_DWORD *)this + 890) = *(_DWORD *)(*((_QWORD *)v2 + 1) + 80LL);
+      }
+      *((_BYTE *)this + 3556) = v39;
+      v40 = v39;
+    }
+    else
+    {
+      if ( ButtonMessage != 514 )
+        goto LABEL_8;
+      v41 = *((_BYTE *)this + 3556);
+      if ( v41 )
+      {
+        v9 = *(_DWORD *)(*((_QWORD *)v2 + 1) + 80LL) - *((_DWORD *)this + 890);
+        if ( v9 <= dword_1C024B220 )
+        {
+          *((_BYTE *)this + 3556) = 0;
+          v41 = 0;
+        }
+        if ( v41 )
+        {
+LABEL_68:
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v9) = 4;
+            WPP_RECORDER_SF_(
+              WPP_MAIN_CB.Queue.ListEntry.Flink,
+              v9,
+              6,
+              26,
+              (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+          }
+          v36 = 16LL;
+          goto LABEL_42;
+        }
+      }
+      v40 = 1;
+    }
+    if ( v40 )
+      goto LABEL_8;
+    goto LABEL_68;
   }
-  if ( (unsigned int)CMouseProcessor::InertiaEndSuppression::HandleMake(
-                       (_BYTE *)this + 3560,
-                       *(_QWORD *)(*((_QWORD *)v2 + 1) + 96LL),
-                       v12,
-                       v13) )
-    goto LABEL_31;
-LABEL_38:
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+LABEL_54:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = 0;
-  }
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v11) = v5;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v11,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+    LOBYTE(v9) = 4;
+    WPP_RECORDER_SF_(
       WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
+      v9,
       6,
-      26,
-      (__int64)&WPP_f645abfb8f443aa578495af70e8984ab_Traceguids);
+      25,
+      (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
   }
-LABEL_171:
-  CMouseProcessor::EndStreamToken::~EndStreamToken(v68);
 }

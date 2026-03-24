@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSelectRelocationStartHint @ 0x140709C0C
+ * XREFs of MiSelectRelocationStartHint @ 0x1407148F4
  * Callers:
- *     MiSelectImageBase @ 0x1407092C0 (MiSelectImageBase.c)
- *     MiObtainRelocationBits @ 0x1407095A8 (MiObtainRelocationBits.c)
+ *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
+ *     MiObtainRelocationBits @ 0x140714818 (MiObtainRelocationBits.c)
  * Callees:
- *     RtlCopyBitMapEx @ 0x140230180 (RtlCopyBitMapEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     RtlFindClearBitsEx @ 0x14030B090 (RtlFindClearBitsEx.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlMergeBitMapsEx @ 0x1403D5CAC (RtlMergeBitMapsEx.c)
+ *     RtlFindClearBitsEx @ 0x1402285A0 (RtlFindClearBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlCopyBitMapEx @ 0x14035FEA0 (RtlCopyBitMapEx.c)
+ *     RtlMergeBitMapsEx @ 0x1403C6FAC (RtlMergeBitMapsEx.c)
  */
 
 unsigned __int64 __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, unsigned __int64 a3, int a4)
@@ -18,6 +18,7 @@ unsigned __int64 __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __i
   unsigned __int64 v6; // r15
   struct _KTHREAD *CurrentThread; // rdi
   unsigned __int64 ClearBits; // rsi
+  char v11; // bl
 
   v6 = a2;
   if ( !*(_QWORD *)(a1 + 8) )
@@ -26,21 +27,18 @@ unsigned __int64 __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __i
   if ( !a4 )
   {
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4F300, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB48, 0LL);
   }
-  RtlCopyBitMapEx(*(unsigned __int64 **)a1, &qword_140C4F388, 0LL);
-  RtlMergeBitMapsEx((unsigned __int64 *)&qword_140C4F388, *(__int64 **)(a1 + 8));
-  ClearBits = RtlFindClearBitsEx((unsigned __int64 *)&qword_140C4F388, v6, a3);
+  RtlCopyBitMapEx(*(_QWORD *)a1, &qword_140C4CBD0, 0LL);
+  RtlMergeBitMapsEx((unsigned __int64 *)&qword_140C4CBD0, *(__int64 **)(a1 + 8));
+  ClearBits = RtlFindClearBitsEx((unsigned __int64 *)&qword_140C4CBD0, v6, a3);
   if ( !a4 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4F300, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C4F300);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4F300);
-    if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    {
-      KiCheckForKernelApcDelivery();
-    }
+    v11 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB48, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
+      ExfTryToWakePushLock(&qword_140C4CB48);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4CB48);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   return ClearBits;
 }

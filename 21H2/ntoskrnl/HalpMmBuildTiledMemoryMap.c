@@ -1,35 +1,46 @@
 /*
- * XREFs of HalpMmBuildTiledMemoryMap @ 0x140A54CD8
+ * XREFs of HalpMmBuildTiledMemoryMap @ 0x14099A1BC
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403B8E60 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpBuildResumeStructures @ 0x14099835C (HalpBuildResumeStructures.c)
+ *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HalpAllocateCR3Root @ 0x1403B9174 (HalpAllocateCR3Root.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpMapCR3Ex @ 0x140A54D70 (HalpMapCR3Ex.c)
- *     HalpCommitCR3Worker @ 0x140A5A2A4 (HalpCommitCR3Worker.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HalpAllocateCR3Root @ 0x1403CBAC8 (HalpAllocateCR3Root.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
+ *     HalpMmFreeTiledMemoryMap @ 0x14099A150 (HalpMmFreeTiledMemoryMap.c)
+ *     HalpMapCR3Ex @ 0x14099A2A0 (HalpMapCR3Ex.c)
  */
 
-__int64 HalpMmBuildTiledMemoryMap()
+__int64 __fastcall HalpMmBuildTiledMemoryMap(unsigned int *a1, __int64 a2, unsigned int a3)
 {
-  PVOID v0; // rdi
-  int v1; // ebx
+  __int64 v3; // rax
+  __int64 v5; // rsi
+  void *v6; // rbx
+  int v7; // edi
 
-  HalpAllocateCR3Root();
-  v0 = HalpCR3Root;
-  if ( !HalpCR3Root )
-    return 3221225495LL;
-  memset(HalpCR3Root, 0, 0x1000uLL);
-  v1 = HalpMapCR3Ex(HalpLowStubPhysicalAddress);
-  if ( v1 >= 0 )
+  v3 = HalpCR3Root;
+  v5 = a3;
+  *a1 = a3;
+  v6 = *(void **)(v3 + 8LL * a3);
+  if ( !v6 )
   {
-    v1 = HalpMapCR3Ex(HalpLMStub);
-    if ( v1 >= 0 )
-    {
-      v1 = 0;
-      HalpCommitCR3Worker(HalpCR3Root, 3LL);
-      dword_140C4BFDC = MmGetPhysicalAddress(v0).LowPart;
-    }
+    HalpAllocateCR3Root(a3);
+    v6 = *(void **)(HalpCR3Root + 8 * v5);
+    if ( !v6 )
+      return 3221225495LL;
   }
-  return (unsigned int)v1;
+  memset(v6, 0, 0x1000uLL);
+  v7 = HalpMapCR3Ex(HalpLowStubPhysicalAddress);
+  if ( v7 < 0 || (v7 = HalpMapCR3Ex(HalpLMStub), v7 < 0) )
+  {
+    HalpMmFreeTiledMemoryMap(a1);
+  }
+  else
+  {
+    v7 = 0;
+    HalpCommitCR3Worker(*(void ***)(HalpCR3Root + 8 * v5), 3u);
+    a1[1] = MmGetPhysicalAddress(v6).LowPart;
+  }
+  return (unsigned int)v7;
 }

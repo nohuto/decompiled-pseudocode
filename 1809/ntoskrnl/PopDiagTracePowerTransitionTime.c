@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionTime @ 0x1406DD3FC
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x1406DD3DC
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     PopPowerTransitionTimesInMs @ 0x140142BA4 (PopPowerTransitionTimesInMs.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     PopPowerTransitionTimesInMs @ 0x140142BC4 (PopPowerTransitionTimesInMs.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerTransitionTime()

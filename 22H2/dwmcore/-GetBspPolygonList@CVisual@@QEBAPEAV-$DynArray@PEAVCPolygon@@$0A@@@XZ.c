@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18009A3DC
+ * XREFs of ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18009F93C
  * Callers:
- *     ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B9C0 (-PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009A39C (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
- *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x1801D3818 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
- *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x180210640 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
- *     ?GetBspPolygonListCount@CVisual@@IEBAIXZ @ 0x180210B94 (-GetBspPolygonListCount@CVisual@@IEBAIXZ.c)
- *     ?HasBspPolygonList@CVisual@@IEBA_NXZ @ 0x1802110E8 (-HasBspPolygonList@CVisual@@IEBA_NXZ.c)
+ *     ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009E540 (-PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009F8FC (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
+ *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x180174CB4 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
+ *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x1801ACD54 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
+ *     ?GetBspPolygonListCount@CVisual@@IEBAIXZ @ 0x1801AD654 (-GetBspPolygonListCount@CVisual@@IEBAIXZ.c)
+ *     ?HasBspPolygonList@CVisual@@IEBA_NXZ @ 0x1801ADD30 (-HasBspPolygonList@CVisual@@IEBA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall CVisual::GetBspPolygonList(__int64 a1)
   __int64 v5; // rcx
   unsigned int i; // eax
 
-  v1 = *(_DWORD **)(a1 + 232);
+  v1 = *(_DWORD **)(a1 + 224);
   if ( (*v1 & 0x20000000) == 0 )
     return 0LL;
   v3 = (unsigned int)v1[1];

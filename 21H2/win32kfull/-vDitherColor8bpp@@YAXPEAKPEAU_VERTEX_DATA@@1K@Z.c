@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0285148
+ * XREFs of ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0288590
  * Callers:
- *     EngDitherColor @ 0x1C0285400 (EngDitherColor.c)
+ *     EngDitherColor @ 0x1C0288840 (EngDitherColor.c)
  * Callees:
  *     <none>
  */

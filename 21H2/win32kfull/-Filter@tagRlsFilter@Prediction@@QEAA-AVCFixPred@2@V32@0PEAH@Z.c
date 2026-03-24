@@ -1,25 +1,25 @@
 /*
- * XREFs of ?Filter@tagRlsFilter@Prediction@@QEAA?AVCFixPred@2@V32@0PEAH@Z @ 0x1C01E6A88
+ * XREFs of ?Filter@tagRlsFilter@Prediction@@QEAA?AVCFixPred@2@V32@0PEAH@Z @ 0x1C01EC2B4
  * Callers:
- *     ?InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01E712C (-InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTI.c)
- *     ?UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01E7BC0 (-UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_I.c)
+ *     ?InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01EC958 (-InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTI.c)
+ *     ?UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01ED4FC (-UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_I.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C016BB40 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV1.c)
- *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@AEBVCFixPred@0@@Z @ 0x1C016BCB8 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction_ea_1C016BCB8.c)
- *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AVCFixPred@0@AEBV?$Vector@VCFixPred@Prediction@@$02@0@0@Z @ 0x1C016BDD2 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AVCFixPred@0@AEBV-$Vector@VCFixPred@Prediction@@$0.c)
- *     ??$?HVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C016BECA (--$-HVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV10@0@Z.c)
- *     ??$?TVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV?$Vector@VCFixPred@Prediction@@$02@0@0@Z @ 0x1C016BF32 (--$-TVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV-.c)
- *     ??$Tri@VCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@@Z @ 0x1C016C052 (--$Tri@VCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEB.c)
- *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C016C12C (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
- *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV10@AEBVCFixPred@0@@Z @ 0x1C01E63B8 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV10@AEBV.c)
- *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@@Z @ 0x1C01E64B8 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV-$Squar.c)
- *     ??$?GVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C01E65DC (--$-GVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV1.c)
- *     ??0?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAA@XZ @ 0x1C01E6654 (--0-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAA@XZ.c)
- *     ??4?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z @ 0x1C01E6704 (--4-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z.c)
- *     ??4?$Vector@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z @ 0x1C01E6740 (--4-$Vector@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z.c)
- *     ?diag@?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z @ 0x1C01E8A04 (-diag@-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C01EB594 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV1.c)
+ *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@AEBVCFixPred@0@@Z @ 0x1C01EB6F8 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction_ea_1C01EB6F8.c)
+ *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV10@AEBVCFixPred@0@@Z @ 0x1C01EB808 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV10@AEBV.c)
+ *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@@Z @ 0x1C01EB900 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV-$Squar.c)
+ *     ??$?DVCFixPred@Prediction@@$02@Prediction@@YA?AVCFixPred@0@AEBV?$Vector@VCFixPred@Prediction@@$02@0@0@Z @ 0x1C01EBA18 (--$-DVCFixPred@Prediction@@$02@Prediction@@YA-AVCFixPred@0@AEBV-$Vector@VCFixPred@Prediction@@$0.c)
+ *     ??$?GVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C01EBB08 (--$-GVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV1.c)
+ *     ??$?HVCFixPred@Prediction@@$02@Prediction@@YA?AV?$Vector@VCFixPred@Prediction@@$02@0@AEBV10@0@Z @ 0x1C01EBB80 (--$-HVCFixPred@Prediction@@$02@Prediction@@YA-AV-$Vector@VCFixPred@Prediction@@$02@0@AEBV10@0@Z.c)
+ *     ??$?TVCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV?$Vector@VCFixPred@Prediction@@$02@0@0@Z @ 0x1C01EBBE8 (--$-TVCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV-.c)
+ *     ??$Tri@VCFixPred@Prediction@@$02@Prediction@@YA?AV?$SquareMatrix@VCFixPred@Prediction@@$02@0@AEBV10@@Z @ 0x1C01EBCFC (--$Tri@VCFixPred@Prediction@@$02@Prediction@@YA-AV-$SquareMatrix@VCFixPred@Prediction@@$02@0@AEB.c)
+ *     ??0?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAA@XZ @ 0x1C01EBD8C (--0-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAA@XZ.c)
+ *     ??4?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z @ 0x1C01EBE3C (--4-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ??4?$Vector@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z @ 0x1C01EBE78 (--4-$Vector@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C01EC210 (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
+ *     ?diag@?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z @ 0x1C01EE384 (-diag@-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z.c)
  */
 
 _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4, _DWORD *a5)
@@ -73,8 +73,8 @@ _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __in
   unsigned __int64 v52; // rdx
   signed __int64 v53; // r8
   __int64 v54; // rcx
-  unsigned __int64 v55; // r8
-  __int64 v56; // rdi
+  __int64 v55; // rdi
+  unsigned __int64 v56; // r8
   unsigned __int64 v57; // r10
   unsigned __int64 v58; // r11
   unsigned __int64 v59; // rbx
@@ -89,7 +89,7 @@ _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __in
   unsigned __int64 v68; // rax
   char *v69; // rdi
   char *v70; // rax
-  unsigned __int64 *v71; // rbx
+  __int64 *v71; // rbx
   char *v72; // rax
   unsigned __int64 *v73; // rax
   unsigned __int64 *v74; // rax
@@ -251,14 +251,15 @@ _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __in
   v46 = -v43;
   if ( v43 >= 0 )
     v46 = *v35;
-  v47 = (unsigned int)v46 * (unsigned __int64)(unsigned int)v44;
-  v48 = (unsigned int)v44 * HIDWORD(v46);
+  v47 = (unsigned int)v44 * (unsigned __int64)(unsigned int)v46;
+  v48 = HIDWORD(v46);
   v49 = HIDWORD(v44) * HIDWORD(v46);
   v50 = HIDWORD(v47) + (unsigned int)v46 * HIDWORD(v44);
   v51 = a1[50];
-  v52 = v45 ^ ((unsigned int)(v50 + v48) | ((unsigned __int64)(unsigned int)((((unsigned int)v50 + v48) >> 32)
-                                                                           + v49
-                                                                           + HIDWORD(v50)) << 32));
+  v52 = v45 ^ ((unsigned int)(v50 + v44 * v48) | ((unsigned __int64)(unsigned int)((((unsigned int)v50
+                                                                                   + (unsigned int)v44 * v48) >> 32)
+                                                                                 + v49
+                                                                                 + HIDWORD(v50)) << 32));
   v53 = v52 - v45;
   if ( (_DWORD)v47 )
     v53 = v52;
@@ -269,21 +270,21 @@ _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __in
       v51 = a1[51];
   }
   v54 = a1[52];
-  v55 = -v54;
-  v56 = (v51 ^ v54) >> 63;
+  v55 = (v54 ^ v51) >> 63;
+  v56 = -v54;
   if ( v54 >= 0 )
-    v55 = a1[52];
+    v56 = a1[52];
   v57 = abs64(v51);
-  v58 = HIDWORD(v55);
-  v59 = (unsigned int)v57 * (unsigned __int64)(unsigned int)v55;
-  v60 = HIDWORD(v59) + (unsigned int)v57 * HIDWORD(v55);
-  v61 = (unsigned int)v60 + (unsigned int)v55 * HIDWORD(v57);
+  v58 = HIDWORD(v56);
+  v59 = (unsigned int)v57 * (unsigned __int64)(unsigned int)v56;
+  v60 = HIDWORD(v59) + (unsigned int)v57 * HIDWORD(v56);
+  v61 = (unsigned int)v60 + (unsigned int)v56 * HIDWORD(v57);
   v62 = v58 * HIDWORD(v57) + HIDWORD(v60);
   v63 = (unsigned int)v61;
   HIDWORD(v60) = HIDWORD(v61);
   v64 = *v28;
-  v65 = v56 ^ (v63 | ((unsigned __int64)(unsigned int)(HIDWORD(v60) + v62) << 32));
-  v66 = v65 - v56;
+  v65 = v55 ^ (v63 | ((unsigned __int64)(unsigned int)(HIDWORD(v60) + v62) << 32));
+  v66 = v65 - v55;
   if ( (_DWORD)v59 )
     v66 = v65;
   v67 = v64 + v66;
@@ -297,7 +298,7 @@ _QWORD *__fastcall Prediction::tagRlsFilter::Filter(_QWORD *a1, _QWORD *a2, __in
     a1[49] = v68;
   v69 = Prediction::operator^<Prediction::CFixPred,3>((char *)v103, (__int64)(a1 + 9), (__int64)(a1 + 9));
   v70 = Prediction::operator^<Prediction::CFixPred,3>(v102, (__int64)a1, (__int64)(a1 + 9));
-  v71 = (unsigned __int64 *)Prediction::operator-<Prediction::CFixPred,3>(v101, (__int64)(a1 + 36), (__int64)v70);
+  v71 = (__int64 *)Prediction::operator-<Prediction::CFixPred,3>(v101, (__int64)(a1 + 36), (__int64)v70);
   v72 = Prediction::operator^<Prediction::CFixPred,3>(v106, (__int64)(a1 + 9), (__int64)a1);
   v73 = (unsigned __int64 *)Prediction::operator-<Prediction::CFixPred,3>(v107, (__int64)(a1 + 36), (__int64)v72);
   v74 = (unsigned __int64 *)Prediction::operator*<Prediction::CFixPred,3>((__int64)v108, v73, a1 + 27);

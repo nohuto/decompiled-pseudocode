@@ -1,66 +1,92 @@
 /*
- * XREFs of MiMarkKernelImageCfgBits @ 0x1406970A4
+ * XREFs of MiMarkKernelImageCfgBits @ 0x140772E64
  * Callers:
- *     MiProcessKernelCfgImage @ 0x140367C60 (MiProcessKernelCfgImage.c)
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
+ *     MiProcessKernelCfgImage @ 0x1403725A4 (MiProcessKernelCfgImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiSnapDriverRange @ 0x1407037A8 (MiSnapDriverRange.c)
- *     MiCompleteSecureDriverLoad @ 0x140885D58 (MiCompleteSecureDriverLoad.c)
- *     MiAcquireKernelCfgLock @ 0x140A43E58 (MiAcquireKernelCfgLock.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43EBC (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiReleaseKernelCfgLock @ 0x140A44124 (MiReleaseKernelCfgLock.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiFlushKernelCfgBitmap @ 0x14055392C (MiFlushKernelCfgBitmap.c)
+ *     MiSnapDriverRange @ 0x14075E738 (MiSnapDriverRange.c)
+ *     VslCompleteSecureDriverLoad @ 0x14077D304 (VslCompleteSecureDriverLoad.c)
+ *     MiUnlockDriverPages @ 0x1408C4E10 (MiUnlockDriverPages.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x1408D77E0 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiReleaseKernelCfgLock @ 0x1408D7958 (MiReleaseKernelCfgLock.c)
  */
 
 __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)
 {
-  int KernelCfgBitmapPageTables; // edi
-  int v5; // edx
-  __int64 v6; // rax
-  __int64 v7; // rsi
-  int v8; // edx
-  unsigned __int64 v9; // r8
-  unsigned int v10; // [rsp+38h] [rbp-49h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-39h] BYREF
-  _QWORD v13[14]; // [rsp+58h] [rbp-29h] BYREF
+  NTSTATUS KernelCfgBitmapPageTables; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  unsigned int v8; // eax
+  int v9; // edx
+  __int64 v10; // rax
+  __int64 v11; // rsi
+  unsigned int v12; // edx
+  unsigned __int64 v13; // r8
+  __int64 v14; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned __int64 v15; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned __int64 v16; // [rsp+48h] [rbp-C0h] BYREF
+  _QWORD v17[2]; // [rsp+58h] [rbp-B0h] BYREF
+  int v18; // [rsp+68h] [rbp-A0h]
+  __int64 v19; // [rsp+6Ch] [rbp-9Ch]
+  int v20; // [rsp+74h] [rbp-94h]
+  __int64 v21; // [rsp+78h] [rbp-90h]
+  __int64 v22; // [rsp+80h] [rbp-88h]
+  __int64 v23; // [rsp+88h] [rbp-80h]
+  __int64 v24; // [rsp+90h] [rbp-78h]
+  _QWORD v25[14]; // [rsp+98h] [rbp-70h] BYREF
 
-  v12 = 0LL;
-  v11 = 0LL;
-  v10 = 0;
+  v16 = 0LL;
+  v19 = 0LL;
+  v20 = 0;
+  v22 = 0LL;
+  v24 = 0LL;
+  v15 = 0LL;
+  LODWORD(v14) = 0;
   if ( a2 )
   {
-    MiAcquireKernelCfgLock();
-    KernelCfgBitmapPageTables = MiAllocateKernelCfgBitmapPageTables(
-                                  *(_QWORD *)(a1 + 48),
-                                  *(unsigned int *)(a1 + 64),
-                                  1LL);
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->SpecialApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CC40, 0LL);
+    KernelCfgBitmapPageTables = MiAllocateKernelCfgBitmapPageTables(*(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64));
     MiReleaseKernelCfgLock();
     if ( KernelCfgBitmapPageTables >= 0 )
     {
-      KernelCfgBitmapPageTables = MiCompleteSecureDriverLoad(a1);
+      v6 = *(unsigned int *)(a1 + 64);
+      v7 = *(_QWORD *)(a1 + 48);
+      v8 = *(_DWORD *)(a1 + 64);
+      v17[0] = a1;
+      v17[1] = 0LL;
+      v21 = 0LL;
+      v23 = 0LL;
+      v18 = (v8 >> 12) + ((v6 & 0xFFF) != 0);
+      KernelCfgBitmapPageTables = VslCompleteSecureDriverLoad(*(_QWORD *)(a1 + 112), v7, v6);
+      MiUnlockDriverPages(v17);
       if ( KernelCfgBitmapPageTables >= 0 )
       {
-        LOBYTE(v5) = 1;
-        v6 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), v5, 10, (int)&v10);
-        v7 = v6;
-        if ( v6 && v10 >= 0xB0 && *(_QWORD *)(v6 + 168) )
+        LOBYTE(v9) = 1;
+        v10 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), v9, 10, (int)&v14);
+        v11 = v10;
+        if ( v10 && (unsigned int)v14 >= 0xB0 && *(_QWORD *)(v10 + 168) )
         {
-          v8 = 0;
+          v12 = 0;
           while ( 1 )
           {
-            v8 = MiSnapDriverRange(a1, v8, 2, 0, (__int64)&v11, (__int64)&v12);
-            if ( v11 )
+            v12 = MiSnapDriverRange(a1, v12, 2, 0LL, &v15, &v16);
+            if ( v15 )
             {
-              v9 = *(_QWORD *)(v7 + 160);
-              if ( v9 >= v11 << 25 >> 16 && v9 <= ((v12 << 25) | 0xFFF0000) >> 16 )
+              v13 = *(_QWORD *)(v11 + 160);
+              if ( v13 >= (__int64)(v15 << 25) >> 16 && v13 <= (__int64)((v16 << 25) | 0xFFF0000) >> 16 )
                 break;
             }
-            if ( !v8 )
+            if ( !v12 )
               return (unsigned int)KernelCfgBitmapPageTables;
           }
           *(_DWORD *)(a1 + 104) |= 0x800u;
@@ -72,11 +98,13 @@ __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)
       }
     }
   }
-  else if ( (MiFlags & 0x4000) != 0 )
+  else if ( (MiFlags & 0x8000) != 0 )
   {
-    memset(v13, 0, 0x68uLL);
-    v13[1] = *(_QWORD *)(a1 + 48);
-    return (unsigned int)VslpEnterIumSecureMode(2u, 217, 0, (__int64)v13);
+    memset(v25, 0, 0x68uLL);
+    v25[1] = *(_QWORD *)(a1 + 48);
+    KernelCfgBitmapPageTables = VslpEnterIumSecureMode(2u, 217, 0, (__int64)v25);
+    if ( (MiFlags & 0x80000) != 0 )
+      MiFlushKernelCfgBitmap(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64));
   }
   else
   {

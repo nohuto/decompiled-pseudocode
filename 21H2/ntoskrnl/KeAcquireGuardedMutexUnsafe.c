@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAcquireGuardedMutexUnsafe @ 0x140459FA0
+ * XREFs of KeAcquireGuardedMutexUnsafe @ 0x1403B5710
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
  */
 
 void __stdcall KeAcquireGuardedMutexUnsafe(PKGUARDED_MUTEX FastMutex)

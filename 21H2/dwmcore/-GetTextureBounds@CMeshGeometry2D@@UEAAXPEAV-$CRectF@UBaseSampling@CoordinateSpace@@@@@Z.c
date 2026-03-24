@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetTextureBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x180225070
+ * XREFs of ?GetTextureBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x1801D6AC0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x180114510 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D6BA0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 void __fastcall CMeshGeometry2D::GetTextureBounds(__int64 a1, _OWORD *a2)
@@ -22,12 +22,12 @@ void __fastcall CMeshGeometry2D::GetTextureBounds(__int64 a1, _OWORD *a2)
   float v15; // xmm1_4
   float v16; // xmm2_4
 
-  if ( (*(_BYTE *)(a1 + 80) & 2) != 0 )
+  if ( (*(_BYTE *)(a1 + 72) & 2) != 0 )
   {
     VertexCount = CMeshGeometry2D::GetVertexCount((CMeshGeometry2D *)a1);
     if ( VertexCount )
     {
-      v5 = *(double **)(a1 + 144);
+      v5 = *(double **)(a1 + 136);
       v6 = *v5;
       v7 = v5[1];
       v8 = *v5;
@@ -64,11 +64,11 @@ void __fastcall CMeshGeometry2D::GetTextureBounds(__int64 a1, _OWORD *a2)
       v16 = 0.0;
       v14 = 0.0;
     }
-    *(float *)(a1 + 108) = v14;
-    *(float *)(a1 + 112) = v16;
-    *(float *)(a1 + 116) = v15;
-    *(float *)(a1 + 104) = v13;
-    *(_DWORD *)(a1 + 80) &= ~2u;
+    *(float *)(a1 + 100) = v14;
+    *(float *)(a1 + 104) = v16;
+    *(float *)(a1 + 108) = v15;
+    *(float *)(a1 + 96) = v13;
+    *(_DWORD *)(a1 + 72) &= ~2u;
   }
-  *a2 = *(_OWORD *)(a1 + 104);
+  *a2 = *(_OWORD *)(a1 + 96);
 }

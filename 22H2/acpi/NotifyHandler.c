@@ -1,19 +1,19 @@
 /*
- * XREFs of NotifyHandler @ 0x1C0004EE0
+ * XREFs of NotifyHandler @ 0x1C002EE50
  * Callers:
- *     AcpiNativeNotifyEventHandler @ 0x1C00376E0 (AcpiNativeNotifyEventHandler.c)
+ *     AcpiNativeNotifyEventHandler @ 0x1C005B440 (AcpiNativeNotifyEventHandler.c)
  * Callees:
- *     WPP_RECORDER_SF_DDD @ 0x1C0004A4C (WPP_RECORDER_SF_DDD.c)
- *     DispatchNotification @ 0x1C0004C6E (DispatchNotification.c)
- *     OSNotifyDeviceCheck @ 0x1C0032CA0 (OSNotifyDeviceCheck.c)
- *     OSNotifyDeviceEject @ 0x1C0032E28 (OSNotifyDeviceEject.c)
- *     OSNotifyDeviceEnum @ 0x1C0032EBC (OSNotifyDeviceEnum.c)
- *     OSNotifyDeviceWake @ 0x1C003301C (OSNotifyDeviceWake.c)
+ *     DispatchNotification @ 0x1C002EF54 (DispatchNotification.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C002EFC8 (WPP_RECORDER_SF_DDD.c)
+ *     OSNotifyDeviceEnum @ 0x1C002F0AC (OSNotifyDeviceEnum.c)
+ *     OSNotifyDeviceCheck @ 0x1C0058AC4 (OSNotifyDeviceCheck.c)
+ *     OSNotifyDeviceEject @ 0x1C0058C58 (OSNotifyDeviceEject.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
  */
 
-__int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall NotifyHandler(__int64 a1, unsigned int a2, __int64 a3)
 {
-  int v4; // esi
+  unsigned int v4; // esi
   __int64 v5; // rdi
   KIRQL v6; // al
   __int64 v7; // r8
@@ -38,13 +38,13 @@ __int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
   {
     switch ( v4 )
     {
-      case 1:
+      case 1u:
         OSNotifyDeviceCheck(a3);
         break;
-      case 2:
+      case 2u:
         OSNotifyDeviceWake(a3);
         break;
-      case 3:
+      case 3u:
         OSNotifyDeviceEject(a3);
         break;
     }
@@ -57,9 +57,9 @@ __int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   v7 = *(_QWORD *)(*(_QWORD *)a3 + 104LL);
   if ( v7 && *(_DWORD *)(v7 + 16) == 1599293264 )
-    v5 = v7 + 376;
+    v5 = v7 + 336;
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v6);
   if ( v5 )
-    DispatchNotification(v5 - 376, v4);
+    DispatchNotification(v5 - 336, v4);
   return 0LL;
 }

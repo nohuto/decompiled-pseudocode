@@ -1,36 +1,41 @@
 /*
- * XREFs of ?DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C02BCFA8
+ * XREFs of ?DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0212BBC
  * Callers:
- *     DxgkSetDodIndirectSwapchain @ 0x1C02D5720 (DxgkSetDodIndirectSwapchain.c)
+ *     DxgkSetDodIndirectSwapchain @ 0x1C02268F0 (DxgkSetDodIndirectSwapchain.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     DxgkMiracastStopAllMiracastSessions @ 0x1C01E4710 (DxgkMiracastStopAllMiracastSessions.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C016A200 (DxgkMiracastStopAllMiracastSessions.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::DodTerminateIndirectOutput(ADAPTER_DISPLAY *this, __int64 a2)
+__int64 __fastcall ADAPTER_DISPLAY::DodTerminateIndirectOutput(ADAPTER_DISPLAY *this, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rcx
-  unsigned int (__fastcall *v4)(_QWORD); // rax
+  __int64 v4; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  unsigned int (__fastcall *v8)(_QWORD, _QWORD); // rax
 
-  if ( !*((_QWORD *)this + 56) )
+  v4 = (unsigned int)a2;
+  if ( !*((_QWORD *)this + 48) )
     return 3221225485LL;
-  if ( (unsigned int)a2 >= *((_DWORD *)this + 24) )
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    a2 = (unsigned int)a2;
+    v6 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v6 + 24) = v4;
 LABEL_5:
-    WdLogSingleEntry1(3LL, a2);
+    WdLogEvent5_WdWarning(v6);
     return 3221225485LL;
   }
-  v3 = *((_QWORD *)this + 2);
-  if ( (*(_DWORD *)(v3 + 436) & 0x100) == 0 )
+  v7 = *((_QWORD *)this + 2);
+  if ( (*(_DWORD *)(v7 + 348) & 0x100) == 0 )
   {
-    a2 = v3;
+    v6 = WdLogNewEntry5_WdWarning(v7, a2, a3);
+    *(_QWORD *)(v6 + 24) = *((_QWORD *)this + 2);
     goto LABEL_5;
   }
-  v4 = *(unsigned int (__fastcall **)(_QWORD))(v3 + 2176);
-  if ( !v4 )
+  v8 = *(unsigned int (__fastcall **)(_QWORD, _QWORD))(v7 + 1952);
+  if ( !v8 )
     return 3221225659LL;
-  if ( v4(*(_QWORD *)(v3 + 2112)) == -1073741637 )
+  if ( v8(*(_QWORD *)(v7 + 1888), (unsigned int)a2) == -1073741637 )
     DxgkMiracastStopAllMiracastSessions(0, 0LL, 0x90u);
   return 0LL;
 }

@@ -1,11 +1,10 @@
 /*
- * XREFs of ?PowerD0Starting@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C002FD50
+ * XREFs of ?PowerD0Starting@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007D720
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@@Z @ 0x1C001120C (-InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@@Z @ 0x1C0016E78 (-InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerD0Starting(FxPkgPnp *This)
@@ -13,7 +12,7 @@ __int64 __fastcall FxPkgPnp::PowerD0Starting(FxPkgPnp *This)
   unsigned __int64 ObjectHandleUnchecked; // rax
   int v3; // edx
   __int64 v4; // r9
-  _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rax
+  _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rcx
   FxCxCallbackProgress progress; // [rsp+30h] [rbp+8h] BYREF
 
   progress = FxCxCallbackProgressInitialized;
@@ -28,10 +27,7 @@ __int64 __fastcall FxPkgPnp::PowerD0Starting(FxPkgPnp *This)
     if ( m_SleepStudy )
     {
       if ( m_SleepStudy->ComponentPowerRef )
-      {
-        if ( unk_1C00AB348 )
-          unk_1C00AB348();
-      }
+        SleepstudyHelper_ResetComponentsStartTime();
     }
   }
   return 784LL;

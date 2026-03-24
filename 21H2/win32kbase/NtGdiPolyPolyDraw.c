@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGdiPolyPolyDraw @ 0x1C00949C0
+ * XREFs of NtGdiPolyPolyDraw @ 0x1C00BD420
  * Callers:
  *     <none>
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     AllocFreeTmpBuffer @ 0x1C002FCF0 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C0030FE0 (FreeTmpBuffer.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     GreCreatePolyPolygonRgnInternal @ 0x1C00CDB30 (GreCreatePolyPolygonRgnInternal.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     AllocFreeTmpBuffer @ 0x1C0022520 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0022780 (FreeTmpBuffer.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BD804 (GreCreatePolyPolygonRgnInternal.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned int a4, int a5)
@@ -36,9 +36,9 @@ __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned in
   __int64 v26; // [rsp+38h] [rbp-E0h]
   unsigned int v27; // [rsp+40h] [rbp-D8h]
   int v28; // [rsp+44h] [rbp-D4h]
-  unsigned int *v29; // [rsp+48h] [rbp-D0h]
-  unsigned int v30; // [rsp+50h] [rbp-C8h]
-  __int64 v31; // [rsp+58h] [rbp-C0h]
+  unsigned int v29; // [rsp+48h] [rbp-D0h]
+  __int64 v30; // [rsp+50h] [rbp-C8h]
+  unsigned int *v31; // [rsp+58h] [rbp-C0h]
   struct _POINTL *v32; // [rsp+60h] [rbp-B8h]
   void *Src; // [rsp+68h] [rbp-B0h]
   void *v34; // [rsp+70h] [rbp-A8h]
@@ -50,18 +50,18 @@ __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned in
   v34 = a2;
   v26 = a1;
   v35 = a1;
-  v30 = a4;
+  v29 = a4;
   v27 = 0;
   PolyPolygonRgnInternal = 1LL;
-  v31 = 1LL;
+  v30 = 1LL;
   v25 = 0;
   if ( !a4 )
     return 0LL;
   if ( a5 == 2 )
   {
-    if ( qword_1C029B660 )
+    if ( qword_1C02568F0 )
     {
-      v22 = qword_1C029B660();
+      v22 = qword_1C02568F0();
       v9 = -1073741637;
       a1 = v26;
     }
@@ -72,9 +72,9 @@ __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned in
     }
     if ( v22 < 0 )
       return PolyPolygonRgnInternal;
-    v23 = (int)qword_1C029B668;
-    if ( qword_1C029B668 )
-      v23 = qword_1C029B668(a1, a2, a3, (unsigned int)v5);
+    v23 = (int)qword_1C02568F8;
+    if ( qword_1C02568F8 )
+      v23 = qword_1C02568F8(a1, a2, a3, (unsigned int)v5);
     if ( v23 )
       return PolyPolygonRgnInternal;
   }
@@ -92,19 +92,14 @@ __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned in
     if ( (unsigned int)v5 > 0x9C4000 )
     {
       EngSetLastError(0x57u);
+      v10 = 0LL;
     }
-    else if ( 4 * (_DWORD)v5 )
+    else
     {
-      v10 = (unsigned int *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-                              260LL,
-                              (unsigned int)(4 * v5),
-                              1886221383);
-      goto LABEL_6;
+      v10 = (unsigned int *)PALLOCMEM2((unsigned int)(4 * v5), 1886221383LL, 0);
     }
-    v10 = 0LL;
 LABEL_6:
-    v29 = v10;
+    v31 = v10;
     if ( v10 )
     {
       v11 = &v36;
@@ -144,27 +139,27 @@ LABEL_6:
       {
 LABEL_21:
         PolyPolygonRgnInternal = 0LL;
-        v31 = 0LL;
+        v30 = 0LL;
       }
       if ( !PolyPolygonRgnInternal )
         goto LABEL_31;
       switch ( a5 )
       {
         case 1:
-          if ( qword_1C029B650 )
-            v9 = qword_1C029B650(a4, v26);
+          if ( qword_1C02568E0 )
+            v9 = qword_1C02568E0(a4, v26);
           if ( v9 >= 0 )
           {
-            v18 = (__int64 (__fastcall *)(__int64, struct _POINTL *, unsigned int *, _QWORD, unsigned int))qword_1C029B658;
+            v18 = (__int64 (__fastcall *)(__int64, struct _POINTL *, unsigned int *, _QWORD, unsigned int))qword_1C02568E8;
             goto LABEL_28;
           }
-          goto LABEL_68;
+          goto LABEL_67;
         case 2:
-          if ( qword_1C029B680 )
-            v9 = qword_1C029B680(a4, v26);
+          if ( qword_1C0256910 )
+            v9 = qword_1C0256910(a4, v26);
           if ( v9 >= 0 )
           {
-            v18 = (__int64 (__fastcall *)(__int64, struct _POINTL *, unsigned int *, _QWORD, unsigned int))qword_1C029B688;
+            v18 = (__int64 (__fastcall *)(__int64, struct _POINTL *, unsigned int *, _QWORD, unsigned int))qword_1C0256918;
 LABEL_28:
             if ( v18 )
             {
@@ -173,29 +168,29 @@ LABEL_30:
               PolyPolygonRgnInternal = v19;
               goto LABEL_31;
             }
-            goto LABEL_77;
+            goto LABEL_75;
           }
-          goto LABEL_68;
+          goto LABEL_67;
         case 3:
-          if ( qword_1C029B670 )
-            v9 = qword_1C029B670(a4, v26);
+          if ( qword_1C0256900 )
+            v9 = qword_1C0256900(a4, v26);
           if ( v9 < 0 )
-            goto LABEL_68;
-          v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C029B678;
+            goto LABEL_67;
+          v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C0256908;
           break;
         case 4:
-          if ( qword_1C029B6A0 )
-            v9 = qword_1C029B6A0(a4, v26);
+          if ( qword_1C0256930 )
+            v9 = qword_1C0256930(a4, v26);
           if ( v9 < 0 )
-            goto LABEL_68;
-          v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C029B6A8;
+            goto LABEL_67;
+          v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C0256938;
           break;
         case 5:
-          if ( qword_1C029B690 )
-            v9 = qword_1C029B690(a4, v26);
+          if ( qword_1C0256920 )
+            v9 = qword_1C0256920(a4, v26);
           if ( v9 >= 0 )
           {
-            v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C029B698;
+            v21 = (__int64 (__fastcall *)(__int64, struct _POINTL *, _QWORD))qword_1C0256928;
             break;
           }
           break;
@@ -203,15 +198,13 @@ LABEL_30:
           PolyPolygonRgnInternal = GreCreatePolyPolygonRgnInternal(v11, v14);
           goto LABEL_31;
         default:
-LABEL_68:
+LABEL_67:
           PolyPolygonRgnInternal = 0LL;
 LABEL_31:
           if ( v11 && v11 != &v36 )
             FreeTmpBuffer((char *)v11);
           if ( v10 != &v25 )
-            NSInstrumentation::CLeakTrackingAllocator::Free(
-              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-              (char *)v10);
+            Win32FreePool((__int64)v10);
           return PolyPolygonRgnInternal;
       }
       if ( v21 )
@@ -219,7 +212,7 @@ LABEL_31:
         v19 = v21(v26, v11, v25);
         goto LABEL_30;
       }
-LABEL_77:
+LABEL_75:
       v19 = 0;
       goto LABEL_30;
     }

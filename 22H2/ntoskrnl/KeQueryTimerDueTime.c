@@ -1,56 +1,56 @@
 /*
- * XREFs of KeQueryTimerDueTime @ 0x140570E20
+ * XREFs of KeQueryTimerDueTime @ 0x140515D48
  * Callers:
- *     ExGetNextWakeTimeForDeepSleep @ 0x14060B620 (ExGetNextWakeTimeForDeepSleep.c)
- *     ExGetWakeTimerList @ 0x14060B698 (ExGetWakeTimerList.c)
- *     NtQueryTimer @ 0x1409FB7C0 (NtQueryTimer.c)
- *     ExGetNextWakeTime @ 0x140AAAFAC (ExGetNextWakeTime.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x1405B6014 (ExGetNextWakeTimeForDeepSleep.c)
+ *     ExGetWakeTimerList @ 0x1405B6088 (ExGetWakeTimerList.c)
+ *     NtQueryTimer @ 0x14094F260 (NtQueryTimer.c)
+ *     ExGetNextWakeTime @ 0x1409B2F28 (ExGetNextWakeTime.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeQueryTimerDueTime(__int64 a1)
+__int64 __fastcall KeQueryTimerDueTime(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v2; // rbp
-  unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r9
-  int v5; // eax
-  unsigned __int8 v6; // al
+  __int64 v5; // rbp
+  unsigned __int8 CurrentIrql; // di
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v8; // r9
-  int v9; // edx
-  bool v10; // zf
+  _DWORD *v9; // r9
+  int v10; // edx
+  bool v11; // zf
 
-  v2 = 0LL;
+  v5 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v5 = 4;
-    if ( CurrentIrql != 2 )
-      v5 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v5;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1);
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, a2, a3, (__int64)SchedulerAssist);
   if ( (*(_BYTE *)(a1 + 3) & 0x40) != 0 )
-    v2 = *(_QWORD *)(a1 + 24);
+    v5 = *(_QWORD *)(a1 + 24);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   if ( KiIrqlFlags )
   {
-    v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v8 = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v10 = (v9 & v8[5]) == 0;
-      v8[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v7 = KeGetCurrentIrql();
+      if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v9 = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v10 & v9[5]) == 0;
+        v9[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  return v2;
+  return v5;
 }

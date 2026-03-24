@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x140176A4C
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x140176A6C
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInitializePrivateFixupBitmap @ 0x1405A8B60 (MiInitializePrivateFixupBitmap.c)
- *     MiCreateSessionDriverProtos @ 0x14085F13C (MiCreateSessionDriverProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
  */
 
 __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(_DWORD *a1, unsigned __int64 a2)

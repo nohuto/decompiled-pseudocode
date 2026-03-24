@@ -1,11 +1,12 @@
 /*
- * XREFs of ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C0062280
+ * XREFs of ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C007C9E4
  * Callers:
- *     GetMonitorWorkRectForWindow @ 0x1C0062244 (GetMonitorWorkRectForWindow.c)
- *     GetMonitorRectForWindow @ 0x1C0063604 (GetMonitorRectForWindow.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0063E00 (xxxInitSendValidateMinMaxInfoEx.c)
- *     GetMonitorMenuRectForWindow @ 0x1C025A5CC (GetMonitorMenuRectForWindow.c)
- *     GetScreenRectForWindow @ 0x1C025A608 (GetScreenRectForWindow.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C002C560 (GetMonitorWorkRectForWindow.c)
+ *     GetMaxTrackSizeForWindow @ 0x1C00424BC (GetMaxTrackSizeForWindow.c)
+ *     GetMonitorRectForWindow @ 0x1C0042874 (GetMonitorRectForWindow.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C025D9F0 (GetMonitorMenuRectForWindow.c)
+ *     GetScreenRectForWindow @ 0x1C025DA2C (GetScreenRectForWindow.c)
  * Callees:
  *     <none>
  */

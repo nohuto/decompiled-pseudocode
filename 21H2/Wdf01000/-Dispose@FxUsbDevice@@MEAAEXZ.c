@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Dispose@FxUsbDevice@@MEAAEXZ @ 0x1C007CD50
+ * XREFs of ?Dispose@FxUsbDevice@@MEAAEXZ @ 0x1C0070580
  * Callers:
  *     <none>
  * Callees:
- *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0034F20 (-Dispose@FxIoTarget@@MEAAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0064A70 (-Dispose@FxIoTarget@@MEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall FxUsbDevice::Dispose(FxUsbDevice *this)
@@ -26,7 +26,7 @@ unsigned __int8 __fastcall FxUsbDevice::Dispose(FxUsbDevice *this)
           v3(*((_QWORD *)m_USBDHandle + 6));
         ExFreePoolWithTag(m_USBDHandle, *((_DWORD *)m_USBDHandle + 16));
       }
-      else if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+      else if ( g_EnableDbgPrints )
       {
         DbgPrintEx(0x4Du, 0, "UsbdHandleInfo->PendingDelete should be set here UsbdHandleInfo 0x%p\n", m_USBDHandle);
       }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockHotPatchPages @ 0x1408583BC
+ * XREFs of MiUnlockHotPatchPages @ 0x14085839C
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1408540A0 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140858134 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
- *     KeReservePrivilegedPages @ 0x14028DB0C (KeReservePrivilegedPages.c)
+ *     KeReservePrivilegedPages @ 0x14028DC0C (KeReservePrivilegedPages.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

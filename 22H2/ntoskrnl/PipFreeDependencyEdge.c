@@ -1,16 +1,16 @@
 /*
- * XREFs of PipFreeDependencyEdge @ 0x14055FC7C
+ * XREFs of PipFreeDependencyEdge @ 0x14050C660
  * Callers:
- *     PipDeleteAllDependencyRelations @ 0x1409544C0 (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x1409547C8 (PipMergeDependencyEdgeList.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD520 (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DDC0 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PipDereferenceDependencyNode @ 0x140839BE0 (PipDereferenceDependencyNode.c)
- *     PipNotifyDependenciesChanged @ 0x140839DCC (PipNotifyDependenciesChanged.c)
- *     PipFreeBindingRequestEntry @ 0x14095477C (PipFreeBindingRequestEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipDereferenceDependencyNode @ 0x140748F60 (PipDereferenceDependencyNode.c)
+ *     PipFreeBindingRequestEntry @ 0x14089DD1C (PipFreeBindingRequestEntry.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DFBC (PipNotifyDependenciesChanged.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipFreeDependencyEdge(_DWORD *P, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall PipFreeDependencyEdge(_DWORD *P, __int64 a2)
   _QWORD *v8; // r8
   PVOID *v9; // rdx
   _DWORD **v10; // r8
-  PVOID *v11; // rax
+  PVOID *v11; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -57,19 +57,22 @@ LABEL_20:
   }
   *v11 = v10;
   v10[1] = v11;
-  KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
+  KxReleaseSpinLock(&PiDependencyEdgeWriteLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

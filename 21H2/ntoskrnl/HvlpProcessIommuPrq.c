@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpProcessIommuPrq @ 0x14054B620
+ * XREFs of HvlpProcessIommuPrq @ 0x1404F9890
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
  */
 
 __int64 __fastcall HvlpProcessIommuPrq(_DWORD *a1)
@@ -12,7 +12,7 @@ __int64 __fastcall HvlpProcessIommuPrq(_DWORD *a1)
   _DWORD v3[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v3[0] = *a1;
-  result = HvcallFastExtended(65731LL, (__int64)v3, 8u, 0LL, 0);
+  result = HvcallFastExtended(65731LL, (__int64)v3, 8u, 0, 0);
   a1[1] = 1;
   return result;
 }

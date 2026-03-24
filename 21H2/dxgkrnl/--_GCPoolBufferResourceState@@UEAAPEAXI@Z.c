@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C007EF60
+ * XREFs of ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C006C0A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C007EDB4 (--1CFlipResourceState@@MEAA@XZ.c)
+ *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BF5C (--1CFlipResourceState@@MEAA@XZ.c)
  */
 
 CFlipResourceState *__fastcall CPoolBufferResourceState::`scalar deleting destructor'(CFlipResourceState *P, char a2)

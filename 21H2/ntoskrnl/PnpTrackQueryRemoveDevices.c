@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpTrackQueryRemoveDevices @ 0x140950DA4
+ * XREFs of PnpTrackQueryRemoveDevices @ 0x1407344D0
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
- *     PnpProcessCompletedEject @ 0x140947450 (PnpProcessCompletedEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x1408A24B0 (PnpProcessCompletedEject.c)
  * Callees:
- *     PipClearDevNodeUserFlags @ 0x14074A08C (PipClearDevNodeUserFlags.c)
- *     IopEnumerateRelations @ 0x1407667B0 (IopEnumerateRelations.c)
- *     PipSetDevNodeUserFlags @ 0x140767220 (PipSetDevNodeUserFlags.c)
+ *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
+ *     PipClearDevNodeUserFlags @ 0x140749BB4 (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeUserFlags @ 0x14074C32C (PipSetDevNodeUserFlags.c)
  */
 
-bool __fastcall PnpTrackQueryRemoveDevices(unsigned int **a1, char a2)
+__int64 __fastcall PnpTrackQueryRemoveDevices(int a1, char a2)
 {
-  bool result; // al
+  __int64 result; // rax
   __int64 v5; // rcx
   int v6; // [rsp+50h] [rbp+18h] BYREF
   int v7; // [rsp+54h] [rbp+1Ch]
@@ -22,17 +22,17 @@ bool __fastcall PnpTrackQueryRemoveDevices(unsigned int **a1, char a2)
   v7 = 0;
   while ( 1 )
   {
-    result = IopEnumerateRelations(a1, &v6, &v8, 0LL, 0LL);
-    if ( !result )
+    result = IopEnumerateRelations(a1, (unsigned int)&v6, (unsigned int)&v8, 0, 0LL);
+    if ( !(_BYTE)result )
       break;
     if ( v8 )
       v5 = *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL);
     else
       v5 = 0LL;
     if ( a2 )
-      PipSetDevNodeUserFlags(v5, 256);
+      PipSetDevNodeUserFlags(v5, 256LL);
     else
-      PipClearDevNodeUserFlags(v5, 256);
+      PipClearDevNodeUserFlags(v5, 256LL);
   }
   return result;
 }

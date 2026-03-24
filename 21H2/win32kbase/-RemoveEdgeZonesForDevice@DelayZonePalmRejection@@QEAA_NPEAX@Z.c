@@ -1,53 +1,40 @@
 /*
- * XREFs of ?RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E6DF0
+ * XREFs of ?RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01ADAB8
  * Callers:
- *     RemoveAllEdgePalmRejectionZonesForDevice @ 0x1C01E71D0 (RemoveAllEdgePalmRejectionZonesForDevice.c)
+ *     RemoveAllEdgePalmRejectionZonesForDevice @ 0x1C01ADE40 (RemoveAllEdgePalmRejectionZonesForDevice.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C01BD200 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C01BD260 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ?RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z @ 0x1C01E6CA0 (-RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCB00 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C01874D8 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z @ 0x1C01AD9B8 (-RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z.c)
  */
 
 char __fastcall DelayZonePalmRejection::RemoveEdgeZonesForDevice(DelayZonePalmRejection *this, void *a2)
 {
   int v4; // edx
-  int v5; // r8d
-  struct CPalmRejectZoneInfo *v6; // rbx
-  struct CPalmRejectZoneInfo *v7; // rax
-  PERESOURCE *v9[8]; // [rsp+50h] [rbp-48h] BYREF
-  struct CPalmRejectZoneInfo *v10; // [rsp+A0h] [rbp+8h] BYREF
+  struct CPalmRejectZoneInfo *v5; // rbx
+  struct CPalmRejectZoneInfo *v6; // rax
+  CInpLockGuard *v8[8]; // [rsp+30h] [rbp-48h] BYREF
+  struct CPalmRejectZoneInfo *v9; // [rsp+80h] [rbp+8h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v9,
+    (CInpLockGuardExclusiveIfNeeded *)v8,
     (DelayZonePalmRejection *)((char *)this + 112),
     0LL);
-  v6 = (struct CPalmRejectZoneInfo *)*((_QWORD *)this + 9);
-  LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v5 = (struct CPalmRejectZoneInfo *)*((_QWORD *)this + 9);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      v5,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      8,
-      29,
-      (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-      (char)a2);
+    LOBYTE(v4) = 4;
+    WPP_RECORDER_SF_q((_DWORD)gBaseLog, v4, 8, 29, (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids, a2);
   }
-  while ( v6 != (DelayZonePalmRejection *)((char *)this + 72) )
+  while ( v5 != (DelayZonePalmRejection *)((char *)this + 72) )
   {
-    v7 = v6;
-    v10 = v6;
-    v6 = *(struct CPalmRejectZoneInfo **)v6;
-    if ( *((void **)v7 + 12) == a2 )
-      DelayZonePalmRejection::RemoveDelayZoneFromListInternal(this, &v10);
+    v6 = v5;
+    v9 = v5;
+    v5 = *(struct CPalmRejectZoneInfo **)v5;
+    if ( *((void **)v6 + 12) == a2 )
+      DelayZonePalmRejection::RemoveDelayZoneFromListInternal(this, &v9);
   }
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v9);
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v8);
   return 1;
 }

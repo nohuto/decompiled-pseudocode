@@ -1,12 +1,11 @@
 /*
- * XREFs of PopBatteryInitPhaseTwo @ 0x140B521E0
+ * XREFs of PopBatteryInitPhaseTwo @ 0x140A6F604
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x140383B10 (PopReadUlongPowerKey.c)
- *     EtwRegister @ 0x14078DD90 (EtwRegister.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PopBatteryReadOscBits @ 0x140B76714 (PopBatteryReadOscBits.c)
+ *     PopReadUlongPowerKey @ 0x1403CB244 (PopReadUlongPowerKey.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
+ *     EtwRegister @ 0x1407622D0 (EtwRegister.c)
  */
 
 NTSTATUS PopBatteryInitPhaseTwo()
@@ -14,34 +13,21 @@ NTSTATUS PopBatteryInitPhaseTwo()
   NTSTATUS result; // eax
   char v1; // [rsp+40h] [rbp+8h] BYREF
 
-  PopReadUlongPowerKey(
-    L"ChargerWeakDetectionThresholdPercent",
-    (unsigned int *)&WeakChargerChargeDropMilliPercent,
-    1u,
-    1u,
-    0xAu,
-    100);
+  PopReadUlongPowerKey(L"ChargerWeakDetectionThresholdPercent", &WeakChargerChargeDropMilliPercent);
   WeakChargerChargeDropMilliPercent *= 1000;
-  PopReadUlongPowerKey(
-    L"BatteryChargeTrajectoryThresholdPercent",
-    (unsigned int *)&BatteryChargeTrajectoryThresholdMilliPercent,
-    1u,
-    1u,
-    0xAu,
-    100);
+  PopReadUlongPowerKey(L"BatteryChargeTrajectoryThresholdPercent", &BatteryChargeTrajectoryThresholdMilliPercent);
   BatteryChargeTrajectoryThresholdMilliPercent *= 1000;
   result = EtwRegister(&BATTERY_ETW_PROVIDER, (PETWENABLECALLBACK)PopBatteryEtwCallback, 0LL, &PopBatteryEtwHandle);
   if ( result >= 0 )
   {
     PopBatteryEtwRegistered = 1;
-    ExSubscribeWnfStateChange(
-      (__int64)&v1,
-      (__int64)&WNF_USB_ERROR_NOTIFICATION,
-      1,
-      0,
-      (__int64)PopUsbErrorWNFNotificationCallback,
-      0LL);
-    return PopBatteryReadOscBits();
+    return ExSubscribeWnfStateChange(
+             (__int64)&v1,
+             (__int64)&WNF_USB_ERROR_NOTIFICATION,
+             1,
+             0,
+             (__int64)PopUsbErrorWNFNotificationCallback,
+             0LL);
   }
   return result;
 }

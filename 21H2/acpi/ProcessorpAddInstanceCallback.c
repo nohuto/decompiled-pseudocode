@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessorpAddInstanceCallback @ 0x1C006CA20
+ * XREFs of ProcessorpAddInstanceCallback @ 0x1C006C600
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibAcquireArbiterLock @ 0x1C0023884 (IrqLibAcquireArbiterLock.c)
- *     ProcessorAddInstance @ 0x1C009DCC0 (ProcessorAddInstance.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     ProcessorAddInstance @ 0x1C0097B80 (ProcessorAddInstance.c)
  */
 
 void __fastcall ProcessorpAddInstanceCallback(

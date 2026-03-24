@@ -1,15 +1,16 @@
 /*
- * XREFs of _PostThreadMessage @ 0x1C009C5A0
+ * XREFs of _PostThreadMessage @ 0x1C00DA3F8
  * Callers:
- *     zzzCancelJournalling @ 0x1C006EED0 (zzzCancelJournalling.c)
- *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C009C3C0 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
- *     xxxSysCommand @ 0x1C00A7BFC (xxxSysCommand.c)
- *     ?EndShutdown@@YAXJ@Z @ 0x1C00B83C0 (-EndShutdown@@YAXJ@Z.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     xxxProcessEventMessage @ 0x1C0125270 (xxxProcessEventMessage.c)
- *     EditionPostInertiaMessage @ 0x1C01F7730 (EditionPostInertiaMessage.c)
+ *     zzzCancelJournalling @ 0x1C00292F8 (zzzCancelJournalling.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxProcessEventMessage @ 0x1C00C15B8 (xxxProcessEventMessage.c)
+ *     ?EndShutdown@@YAXJ@Z @ 0x1C00D76E0 (-EndShutdown@@YAXJ@Z.c)
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C00D7C60 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ *     NtUserPostThreadMessage @ 0x1C00DA2F0 (NtUserPostThreadMessage.c)
+ *     xxxSysCommand @ 0x1C0130364 (xxxSysCommand.c)
+ *     EditionPostInertiaMessage @ 0x1C0217CF0 (EditionPostInertiaMessage.c)
  * Callees:
- *     _PostThreadMessageEx @ 0x1C0115548 (_PostThreadMessageEx.c)
+ *     _PostThreadMessageEx @ 0x1C00DA464 (_PostThreadMessageEx.c)
  */
 
 __int64 __fastcall PostThreadMessage(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

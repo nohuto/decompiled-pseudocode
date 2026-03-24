@@ -1,80 +1,79 @@
 /*
- * XREFs of IopGetRegistryValue @ 0x14067B838
+ * XREFs of IopGetRegistryValue @ 0x140742A98
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x1403B83F0 (IopInitializeOfflineCrashDump.c)
- *     PnpBootDeviceWait @ 0x1403C5C64 (PnpBootDeviceWait.c)
- *     IopReadDumpRegistry @ 0x1403CF9A0 (IopReadDumpRegistry.c)
- *     PnpGetRegistryDword @ 0x1403D2D2C (PnpGetRegistryDword.c)
- *     SecureDump_ReadRegistry @ 0x1403DB834 (SecureDump_ReadRegistry.c)
- *     IopIsBitlockerOn @ 0x1403DD580 (IopIsBitlockerOn.c)
- *     IopAllowRemoteDASD @ 0x140559190 (IopAllowRemoteDASD.c)
- *     PiDevCfgQueryResolveValue @ 0x140561D38 (PiDevCfgQueryResolveValue.c)
- *     PnpPrepareDriverLoading @ 0x1406797C8 (PnpPrepareDriverLoading.c)
- *     PiDevCfgVerifyService @ 0x14067996C (PiDevCfgVerifyService.c)
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
- *     IopQuerySecureDeviceClassState @ 0x14067A4C4 (IopQuerySecureDeviceClassState.c)
- *     IoOpenDriverRegistryKey @ 0x14067A670 (IoOpenDriverRegistryKey.c)
- *     PiFindDevInstMatch @ 0x14067A98C (PiFindDevInstMatch.c)
- *     IopBuildFullDriverPath @ 0x14067B1DC (IopBuildFullDriverPath.c)
- *     IopGetDriverNameFromKeyNode @ 0x14067B694 (IopGetDriverNameFromKeyNode.c)
- *     PiDevCfgResolveVariable @ 0x14069A1F8 (PiDevCfgResolveVariable.c)
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     IopGetRegistryValues @ 0x1406DE9B8 (IopGetRegistryValues.c)
- *     PiDevCfgMigrateDevice @ 0x1406E2EEC (PiDevCfgMigrateDevice.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1406E67F0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PiRearrangeDeviceInstances @ 0x1406E74D0 (PiRearrangeDeviceInstances.c)
- *     PiDevCfgBuildIndirectString @ 0x1407468A0 (PiDevCfgBuildIndirectString.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x140748B18 (PnpGetDeviceResourcesFromRegistry.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     PipCheckForDenyExecute @ 0x14076A520 (PipCheckForDenyExecute.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x14076B1A8 (PnpGetDeviceInstanceCsConfigFlags.c)
- *     PiDevCfgResolveVariableExpression @ 0x140804350 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x140804E80 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140805024 (PiDevCfgResolveVariableKeyHandle.c)
- *     PiDevCfgResolveVariableConstant @ 0x140805210 (PiDevCfgResolveVariableConstant.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14080A890 (PiDevCfgResolveMultiSzValue.c)
- *     NtEnableLastKnownGood @ 0x14080B090 (NtEnableLastKnownGood.c)
- *     PipUpdateAsyncOptionsCallback @ 0x140811B60 (PipUpdateAsyncOptionsCallback.c)
- *     IopIsReportedAlready @ 0x14081EFBC (IopIsReportedAlready.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     PnpReadDeviceConfiguration @ 0x14084D6C0 (PnpReadDeviceConfiguration.c)
- *     PnpCheckPossibleBootStartDriver @ 0x140851818 (PnpCheckPossibleBootStartDriver.c)
- *     PipApplyFunctionToServiceInstances @ 0x140851A60 (PipApplyFunctionToServiceInstances.c)
- *     IopInitializeDumpPolicySettings @ 0x140860A10 (IopInitializeDumpPolicySettings.c)
- *     PipUpdateSetupInProgress @ 0x140862728 (PipUpdateSetupInProgress.c)
- *     PnpDriverLoadingFailed @ 0x140862BA0 (PnpDriverLoadingFailed.c)
- *     IopSafebootDriverLoad @ 0x140934EA4 (IopSafebootDriverLoad.c)
- *     IopLiveDumpInitRegistrySettings @ 0x14093CA08 (IopLiveDumpInitRegistrySettings.c)
- *     PipGetDriverKsrGuidRegistryValue @ 0x140941588 (PipGetDriverKsrGuidRegistryValue.c)
- *     PiGetDeviceRegistryProperty @ 0x140943248 (PiGetDeviceRegistryProperty.c)
- *     PnpGetDeviceInstanceRegistryValue @ 0x140945E70 (PnpGetDeviceInstanceRegistryValue.c)
- *     PipServiceInstanceToDeviceInstance @ 0x140946900 (PipServiceInstanceToDeviceInstance.c)
- *     PipDmgInitReadGroupPolicy @ 0x140949330 (PipDmgInitReadGroupPolicy.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14094C79C (PiDevCfgMakeServiceBootStart.c)
- *     PiDevCfgMigrateRootDevice @ 0x14094C9C4 (PiDevCfgMigrateRootDevice.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14094CFE8 (PiDevCfgQueryIncludedDriverNode.c)
- *     PiDevCfgQueryPolicyEnabled @ 0x14094D458 (PiDevCfgQueryPolicyEnabled.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14094D4C8 (PiDevCfgQueryPolicyStringList.c)
- *     PiDevCfgResolveVariableFormatString @ 0x14094DE60 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyCopy @ 0x14094E490 (PiDevCfgResolveVariableKeyCopy.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x14094E570 (PiDevCfgResolveVariableSwitchCase.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x14095D488 (PiDrvDbResolveFilePathKeyValues.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     PipCheckSystemFirmwareUpdated @ 0x140B10490 (PipCheckSystemFirmwareUpdated.c)
- *     PiInitCacheGroupInformation @ 0x140B10A4C (PiInitCacheGroupInformation.c)
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
- *     PipGetDriverTagPriority @ 0x140B1131C (PipGetDriverTagPriority.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
- *     PpInitGetGroupOrderIndex @ 0x140B1244C (PpInitGetGroupOrderIndex.c)
- *     PipCheckDependencies @ 0x140B12560 (PipCheckDependencies.c)
- *     PipHardwareConfigInit @ 0x140B28AB0 (PipHardwareConfigInit.c)
+ *     PnpGetRegistryDword @ 0x1403B738C (PnpGetRegistryDword.c)
+ *     PnpBootDeviceWait @ 0x1403B83B4 (PnpBootDeviceWait.c)
+ *     IopReadDumpRegistry @ 0x1403BFF74 (IopReadDumpRegistry.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403C9E88 (IopInitializeOfflineCrashDump.c)
+ *     SecureDump_ReadRegistry @ 0x1403CC588 (SecureDump_ReadRegistry.c)
+ *     IopIsBitlockerOn @ 0x1403CE3C0 (IopIsBitlockerOn.c)
+ *     IopAllowRemoteDASD @ 0x140507A10 (IopAllowRemoteDASD.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E4A4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgBuildIndirectString @ 0x14073D1AC (PiDevCfgBuildIndirectString.c)
+ *     PnpPrepareDriverLoading @ 0x14073D9FC (PnpPrepareDriverLoading.c)
+ *     IopQuerySecureDeviceClassState @ 0x14073FB9C (IopQuerySecureDeviceClassState.c)
+ *     PiFindDevInstMatch @ 0x14073FE24 (PiFindDevInstMatch.c)
+ *     IopBuildFullDriverPath @ 0x140740308 (IopBuildFullDriverPath.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
+ *     PipCheckForDenyExecute @ 0x140748B10 (PipCheckForDenyExecute.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x140750824 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpReadDeviceConfiguration @ 0x140750DD0 (PnpReadDeviceConfiguration.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x140752D7C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgMigrateDevice @ 0x14076E804 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B33C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B570 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgVerifyService @ 0x14077BC80 (PiDevCfgVerifyService.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x14077BE90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     NtEnableLastKnownGood @ 0x14077C3F0 (NtEnableLastKnownGood.c)
+ *     PiRearrangeDeviceInstances @ 0x140781044 (PiRearrangeDeviceInstances.c)
+ *     IopGetRegistryValues @ 0x14078B474 (IopGetRegistryValues.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     PipUpdateSetupInProgress @ 0x1407A2FD0 (PipUpdateSetupInProgress.c)
+ *     IopIsReportedAlready @ 0x1407AEDC8 (IopIsReportedAlready.c)
+ *     PnpCheckPossibleBootStartDriver @ 0x1407BD104 (PnpCheckPossibleBootStartDriver.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C0F30 (PipApplyFunctionToServiceInstances.c)
+ *     IoOpenDriverRegistryKey @ 0x1407C4790 (IoOpenDriverRegistryKey.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2C50 (PnpDriverLoadingFailed.c)
+ *     IopSafebootDriverLoad @ 0x140891F24 (IopSafebootDriverLoad.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x1408984C0 (IopLiveDumpInitRegistrySettings.c)
+ *     PipGetDriverKsrGuidRegistryValue @ 0x14089C88C (PipGetDriverKsrGuidRegistryValue.c)
+ *     PiGetDeviceRegistryProperty @ 0x14089E518 (PiGetDeviceRegistryProperty.c)
+ *     PnpGetDeviceInstanceRegistryValue @ 0x1408A0E90 (PnpGetDeviceInstanceRegistryValue.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408A17A0 (PipServiceInstanceToDeviceInstance.c)
+ *     PipDmgInitReadGroupPolicy @ 0x1408A3530 (PipDmgInitReadGroupPolicy.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x1408A6DF4 (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgMigrateRootDevice @ 0x1408A701C (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7648 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryPolicyEnabled @ 0x1408A7AD4 (PiDevCfgQueryPolicyEnabled.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x1408A7B44 (PiDevCfgQueryPolicyStringList.c)
+ *     PiDevCfgResolveVariableConstant @ 0x1408A8040 (PiDevCfgResolveVariableConstant.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A9380 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyCopy @ 0x1408A99B0 (PiDevCfgResolveVariableKeyCopy.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9A8C (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1408AA260 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA440 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B71B8 (PiDrvDbResolveFilePathKeyValues.c)
+ *     IopQueryDeviceResetRegistrySettings @ 0x140A51260 (IopQueryDeviceResetRegistrySettings.c)
+ *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140A5CA78 (PipCheckSystemFirmwareUpdated.c)
+ *     PiInitCacheGroupInformation @ 0x140A5CE20 (PiInitCacheGroupInformation.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     PipGetDriverTagPriority @ 0x140A5D9BC (PipGetDriverTagPriority.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     PpInitGetGroupOrderIndex @ 0x140A5EC00 (PpInitGetGroupOrderIndex.c)
+ *     PipCheckDependencies @ 0x140A5ED14 (PipCheckDependencies.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, int a3, _QWORD *a4)
@@ -83,9 +82,9 @@ NTSTATUS __fastcall IopGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, int a
   __int64 v9; // rax
   int v10; // ebx
   ULONG Length; // ebx
-  void *Pool2; // rdi
+  PVOID Pool; // rdi
   NTSTATUS v13; // ebx
-  void *v14; // rbx
+  PVOID v14; // rbx
   NTSTATUS v15; // edi
   ULONG ResultLength; // [rsp+30h] [rbp-28h] BYREF
   UNICODE_STRING ValueName; // [rsp+38h] [rbp-20h] BYREF
@@ -104,19 +103,19 @@ NTSTATUS __fastcall IopGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, int a
       Length = (a3 + v10 + 7) & 0xFFFFFFF8;
     else
       Length = v10 + 4;
-    Pool2 = (void *)ExAllocatePool2(256LL, Length, 538996553LL);
-    if ( Pool2 )
+    Pool = IopVerifierExAllocatePool(PagedPool, Length);
+    if ( Pool )
     {
-      v13 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, Pool2, Length, &ResultLength);
+      v13 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, Pool, Length, &ResultLength);
       if ( v13 >= 0 )
       {
-        *a4 = Pool2;
+        *a4 = Pool;
         return 0;
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(Pool, 0);
       if ( v13 != -2147483643 && v13 != -1073741789 )
         return v13;
-      v14 = (void *)ExAllocatePool2(256LL, ResultLength, 538996553LL);
+      v14 = IopVerifierExAllocatePool(PagedPool, ResultLength);
       if ( v14 )
       {
         v15 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, v14, ResultLength, &ResultLength);

@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhHandleOvercurrent @ 0x1C004C3B4
+ * XREFs of UsbhHandleOvercurrent @ 0x1C004D7C4
  * Callers:
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhWaitConnect @ 0x1C0019D60 (UsbhWaitConnect.c)
- *     UsbhHandleSuspend @ 0x1C001B878 (UsbhHandleSuspend.c)
- *     UsbhEnumerate1 @ 0x1C001EDD0 (UsbhEnumerate1.c)
- *     UsbhEnumerate2 @ 0x1C004BE8C (UsbhEnumerate2.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhWaitConnect @ 0x1C000ABD0 (UsbhWaitConnect.c)
+ *     UsbhHandleSuspend @ 0x1C001BDDC (UsbhHandleSuspend.c)
+ *     UsbhEnumerate1 @ 0x1C001C7A8 (UsbhEnumerate1.c)
+ *     UsbhEnumerate2 @ 0x1C004D298 (UsbhEnumerate2.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhCancelEnumeration @ 0x1C001EB50 (UsbhCancelEnumeration.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     Usbh_OvercurrentRefHubBusy @ 0x1C004E2D8 (Usbh_OvercurrentRefHubBusy.c)
+ *     UsbhCancelEnumeration @ 0x1C00023E0 (UsbhCancelEnumeration.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     Usbh_OvercurrentRefHubBusy @ 0x1C004F6E8 (Usbh_OvercurrentRefHubBusy.c)
  */
 
 __int64 __fastcall UsbhHandleOvercurrent(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)

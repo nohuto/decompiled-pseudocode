@@ -1,5 +1,5 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x1406A4880
+ * XREFs of PsReferenceImpersonationToken @ 0x1406A4860
  * Callers:
  *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
  * Callees:

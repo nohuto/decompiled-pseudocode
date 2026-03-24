@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpNumaParseHmat @ 0x140B923E4
+ * XREFs of HalpNumaParseHmat @ 0x140A8D0E4
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpNumaQueryProximityNode @ 0x1403B5770 (HalpNumaQueryProximityNode.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpVerifyHmatEntryValidity @ 0x140B92910 (HalpVerifyHmatEntryValidity.c)
+ *     HalpNumaQueryProximityNode @ 0x1403CF0F0 (HalpNumaQueryProximityNode.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpVerifyHmatEntryValidity @ 0x140A8D578 (HalpVerifyHmatEntryValidity.c)
  */
 
 __int64 __fastcall HalpNumaParseHmat(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int *a4)
@@ -14,33 +14,38 @@ __int64 __fastcall HalpNumaParseHmat(__int64 a1, _QWORD *a2, unsigned int a3, un
   __int64 v4; // rbx
   size_t v6; // rdi
   _QWORD *v8; // rax
-  unsigned int v9; // r12d
+  unsigned int v9; // ecx
   unsigned int v10; // ebx
-  unsigned int v11; // r15d
+  unsigned int v11; // r12d
   unsigned __int64 v12; // rbp
   __int64 v13; // rbx
   int *v14; // r13
-  __int64 v15; // rax
-  void *Base; // [rsp+20h] [rbp-48h]
-  _QWORD *v18; // [rsp+70h] [rbp+8h]
-  unsigned __int16 v19; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v15; // rsi
+  _QWORD *v17; // [rsp+20h] [rbp-48h]
+  void *Base; // [rsp+28h] [rbp-40h]
+  int v19; // [rsp+70h] [rbp+8h]
+  unsigned __int16 v20; // [rsp+80h] [rbp+18h] BYREF
 
   v4 = HalpAcpiHmat;
-  v19 = 0;
   v6 = a3;
+  v20 = 0;
   Base = 0LL;
   v8 = 0LL;
   v9 = 8;
+  v19 = 8;
   if ( a3 )
   {
     if ( a3 < 8 )
     {
 LABEL_3:
       v10 = -1073741789;
-LABEL_24:
-      memset(a2, 0, v6);
-      if ( a4 )
-        *a4 = v6;
+LABEL_25:
+      if ( (_DWORD)v6 )
+      {
+        memset(a2, 0, v6);
+        if ( a4 )
+          *a4 = v6;
+      }
       return v10;
     }
     *a2 = 0LL;
@@ -53,45 +58,49 @@ LABEL_24:
   v14 = (int *)(v13 + 8);
   if ( v13 + 8 <= v12 )
   {
-    v18 = v8 + 1;
+    v17 = v8 + 1;
     do
     {
       v15 = *(unsigned int *)(v13 + 4);
       if ( (unsigned int)v15 < 8 || v13 + v15 > v12 )
         break;
       if ( !(unsigned __int8)HalpVerifyHmatEntryValidity(v13) )
-        goto LABEL_23;
+        goto LABEL_24;
       if ( *(_WORD *)v13 == 2 )
       {
-        if ( (int)HalpNumaQueryProximityNode(*v14, &v19) < 0 )
+        if ( (int)HalpNumaQueryProximityNode(*v14, &v20) < 0 )
         {
-LABEL_23:
+LABEL_24:
           v10 = -1073741216;
-          if ( !(_DWORD)v6 )
-            return v10;
-          goto LABEL_24;
+          goto LABEL_25;
         }
-        v9 += 40;
+        v9 = v19 + 40;
+        v19 += 40;
         if ( (_DWORD)v6 )
         {
           if ( (unsigned int)v6 < v9 )
             goto LABEL_3;
           ++v11;
-          *(_OWORD *)(v18 - 1) = 0LL;
-          *(_OWORD *)(v18 + 1) = 0LL;
-          v18[3] = 0LL;
-          *((_DWORD *)v18 - 2) = v19;
-          *((_DWORD *)v18 - 1) = *v14;
-          *v18 = *(_QWORD *)(v13 + 16);
-          *((_DWORD *)v18 + 2) = *(_DWORD *)(v13 + 24) & 0xF;
-          *((_DWORD *)v18 + 3) = (*(_DWORD *)(v13 + 24) >> 4) & 0xF;
-          *((_DWORD *)v18 + 4) = (*(_DWORD *)(v13 + 24) >> 8) & 0xF;
-          *((_DWORD *)v18 + 5) = (unsigned __int8)HIBYTE(*(_WORD *)(v13 + 24)) >> 4;
-          *((_DWORD *)v18 + 6) = *(unsigned __int16 *)(v13 + 26);
-          v18 += 5;
+          *(_OWORD *)(v17 - 1) = 0LL;
+          *(_OWORD *)(v17 + 1) = 0LL;
+          v17[3] = 0LL;
+          *((_DWORD *)v17 - 2) = v20;
+          *((_DWORD *)v17 - 1) = *v14;
+          *v17 = *(_QWORD *)(v13 + 16);
+          *((_DWORD *)v17 + 2) = *(_DWORD *)(v13 + 24) & 0xF;
+          *((_DWORD *)v17 + 3) = (*(_DWORD *)(v13 + 24) >> 4) & 0xF;
+          *((_DWORD *)v17 + 4) = (*(_DWORD *)(v13 + 24) >> 8) & 0xF;
+          *((_DWORD *)v17 + 5) = (unsigned __int8)HIBYTE(*(_WORD *)(v13 + 24)) >> 4;
+          *((_DWORD *)v17 + 6) = *(unsigned __int16 *)(v13 + 26);
+          LODWORD(v15) = *(_DWORD *)(v13 + 4);
+          v17 += 5;
         }
       }
-      v13 += *(unsigned int *)(v13 + 4);
+      else
+      {
+        v9 = v19;
+      }
+      v13 += (unsigned int)v15;
       v14 = (int *)(v13 + 8);
     }
     while ( v13 + 8 <= v12 );

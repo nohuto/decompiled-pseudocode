@@ -1,24 +1,24 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140983798
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x1408E339C
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x140983EC4 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3AC8 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x1403C381C (IoControlPnpDeviceActionQueue.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140588C94 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x140589DE4 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PopPowerAggregatorHandleIntent @ 0x1407A991C (PopPowerAggregatorHandleIntent.c)
- *     PopDirectedDripsQueryMitigationStatus @ 0x140885BC0 (PopDirectedDripsQueryMitigationStatus.c)
- *     PoInitializeBroadcast @ 0x14098BC94 (PoInitializeBroadcast.c)
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099FE48 (PopDirectedDripsBuildBroadcastTreePartial.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     IoControlPnpDeviceActionQueue @ 0x14032038C (IoControlPnpDeviceActionQueue.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569350 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056A770 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PoInitializeBroadcast @ 0x140778138 (PoInitializeBroadcast.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x1408E37F8 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1408EE358 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8D40 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)
 {
-  char v2; // r15
+  char v2; // r13
   char v3; // si
-  unsigned int v4; // r13d
+  unsigned int v4; // r12d
   int v5; // ebx
   volatile signed __int32 *v6; // rdx
   volatile signed __int32 *i; // rax
@@ -36,22 +36,21 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
   int v19; // ecx
   __int64 v20; // rdx
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int128 v24; // [rsp+20h] [rbp-18h] BYREF
-  int v25; // [rsp+80h] [rbp+48h] BYREF
-  int v26; // [rsp+88h] [rbp+50h] BYREF
-  int v27; // [rsp+90h] [rbp+58h] BYREF
-  int v28; // [rsp+98h] [rbp+60h] BYREF
+  __int128 v23; // [rsp+20h] [rbp-18h] BYREF
+  int v24; // [rsp+80h] [rbp+48h] BYREF
+  int v25; // [rsp+88h] [rbp+50h] BYREF
+  int v26; // [rsp+90h] [rbp+58h] BYREF
+  int v27; // [rsp+98h] [rbp+60h] BYREF
 
-  v28 = 0;
-  v24 = 0LL;
   v27 = 0;
-  v25 = 0;
+  v23 = 0LL;
+  v26 = 0;
+  v24 = 0;
   _InterlockedOr(a1, 0);
   v2 = 0;
-  PopDirectedDripsQueryMitigationStatus(&v27, &v28, &v25);
-  v3 = v25;
-  v4 = v25 | v28 & v27;
+  PopDirectedDripsQueryMitigationStatus(&v26, &v27, &v24);
+  v3 = v24;
+  v4 = v24 | v27 & v26;
   if ( v4 )
   {
     IoControlPnpDeviceActionQueue(1);
@@ -90,17 +89,17 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
         }
       }
       while ( v6 != IopRootDeviceNode );
-      v3 = v25;
+      v3 = v24;
     }
-    PopFxBuildDirectedDripsCandidateDeviceList(&v24);
-    v10 = (__int128 *)v24;
-    v26 = 0;
+    PopFxBuildDirectedDripsCandidateDeviceList(&v23);
+    v10 = (__int128 *)v23;
+    v25 = 0;
     v11 = 0;
-    if ( (__int128 *)v24 == &v24 )
+    if ( (__int128 *)v23 == &v23 )
       goto LABEL_42;
     do
     {
-      v12 = PopDirectedDripsBuildBroadcastTreePartial(*((_QWORD *)v10 - 103), v4, &v26);
+      v12 = PopDirectedDripsBuildBroadcastTreePartial(*((_QWORD *)v10 - 103), v4, &v25);
       v5 = v12;
       if ( v12 < 0 )
       {
@@ -113,14 +112,14 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
       }
       v10 = *(__int128 **)v10;
     }
-    while ( v10 != &v24 );
-    if ( v11 && (v13 = v26, v26) )
+    while ( v10 != &v23 );
+    if ( v11 && (v13 = v25, v25) )
     {
-      if ( (v26 & 1) != 0 && (v3 & 1) == 0 )
+      if ( (v25 & 1) != 0 && (v3 & 1) == 0 )
       {
         _InterlockedOr(a1, 0x400u);
-        v3 = v25;
-        v13 = v26;
+        v3 = v24;
+        v13 = v25;
       }
       if ( (v13 & 2) != 0 && (v3 & 2) == 0 )
       {
@@ -165,7 +164,7 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
             v14 = (PVOID)*((_QWORD *)v14 + 2);
           }
         }
-        v5 = PoInitializeBroadcast(1LL);
+        v5 = PoInitializeBroadcast();
       }
     }
     else
@@ -174,14 +173,14 @@ LABEL_42:
       v5 = -1073741823;
     }
 LABEL_43:
-    PopFxDestroyDirectedDripsCandidateDeviceList((struct _KEVENT **)&v24);
+    PopFxDestroyDirectedDripsCandidateDeviceList((struct _KEVENT **)&v23);
     if ( v5 < 0 )
       IoControlPnpDeviceActionQueue(0);
     if ( v2 )
     {
       PopAcquirePolicyLock(v19);
-      PopPowerAggregatorHandleIntent(4u, 0LL, 0, 0x2Au);
-      PopReleasePolicyLock(v21, v20, v22);
+      PopPowerAggregatorHandleIntent(4LL, 0LL, 42LL);
+      PopReleasePolicyLock(v21, v20);
     }
   }
   else

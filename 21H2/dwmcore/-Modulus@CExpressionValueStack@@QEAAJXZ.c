@@ -1,98 +1,100 @@
 /*
- * XREFs of ?Modulus@CExpressionValueStack@@QEAAJXZ @ 0x18024EAD8
+ * XREFs of ?Modulus@CExpressionValueStack@@QEAAJXZ @ 0x1801FF7D0
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     _o_fmodf_0 @ 0x180101910 (_o_fmodf_0.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     fmodf_0 @ 0x1800F477B (fmodf_0.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Modulus(CExpressionValueStack *this)
 {
-  unsigned int v2; // ebx
-  unsigned __int8 IsEnabled; // al
-  float *v4; // rbp
-  unsigned int v5; // edx
-  CExpressionValue *v6; // rax
-  _DWORD *v7; // r14
-  unsigned __int8 v8; // al
-  unsigned int v9; // edx
-  CExpressionValue *v10; // rax
-  int v11; // eax
-  double v12; // xmm0_8
+  __int64 v2; // rcx
+  unsigned int v3; // esi
+  unsigned int v4; // edx
+  __int64 v5; // rax
+  float *v6; // rbx
+  CExpressionValue *v7; // rax
+  _DWORD *v8; // rbp
+  CExpressionValue *v9; // rax
+  int v10; // eax
+  float v11; // xmm1_4
+  float v12; // xmm0_4
   unsigned int v14; // [rsp+20h] [rbp-68h]
   _BYTE v15[80]; // [rsp+30h] [rbp-58h] BYREF
 
-  if ( *((_DWORD *)this + 4) >= 2u )
+  v2 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v2 >= 2 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v4 = (float *)&CExpressionValueStack::s_emptyValue;
-    v5 = *((_DWORD *)this + 4) - 2;
-    if ( IsEnabled && v5 >= *((_DWORD *)this + 12) )
+    v4 = *((_DWORD *)this + 12);
+    v5 = (unsigned int)(v2 - 2);
+    v6 = (float *)&CExpressionValueStack::s_emptyValue;
+    if ( (unsigned int)v5 < v4 )
     {
-      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
-      v7 = &CExpressionValueStack::s_emptyValue;
+      v8 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v5);
     }
     else
     {
-      v7 = (_DWORD *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v5);
-    }
-    v8 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v9 = *((_DWORD *)this + 4) - 1;
-    if ( v8 && v9 >= *((_DWORD *)this + 12) )
-    {
-      v10 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v10);
+      v7 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v7);
       CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
+      LODWORD(v2) = *((_DWORD *)this + 4);
+      v8 = &CExpressionValueStack::s_emptyValue;
+      v4 = *((_DWORD *)this + 12);
+    }
+    v2 = (unsigned int)(v2 - 1);
+    if ( (unsigned int)v2 < v4 )
+    {
+      v6 = (float *)(*((_QWORD *)this + 3) + 80 * v2);
     }
     else
     {
-      v4 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v9);
+      v9 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v9);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
     }
-    v11 = v7[18];
-    v2 = 0;
-    if ( v11 == *((_DWORD *)v4 + 18) )
+    v10 = v8[18];
+    v3 = 0;
+    if ( v10 == *((_DWORD *)v6 + 18) )
     {
-      if ( v11 == 18 )
+      if ( v10 == 18 )
       {
-        if ( *v4 > 0.0 )
+        v11 = *v6;
+        if ( *v6 > 0.0 )
         {
-          v7[18] = 18;
-          v12 = o_fmodf_0((__int64)this);
-          *v7 = LODWORD(v12);
-          *((_BYTE *)v7 + 76) = 1;
+          v12 = *(float *)v8;
+          v8[18] = 18;
+          *(float *)v8 = fmodf_0(v12, v11);
+          *((_BYTE *)v8 + 76) = 1;
           --*((_DWORD *)this + 4);
-          return v2;
+          return v3;
         }
-        v14 = 1463;
+        v14 = 1457;
       }
       else
       {
-        v14 = 1479;
+        v14 = 1473;
       }
     }
     else
     {
-      v14 = 1448;
+      v14 = 1442;
     }
   }
   else
   {
-    v14 = 1425;
+    v14 = 1419;
   }
-  v2 = -2147467259;
+  v3 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
-    (__int64)this,
+    v2,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-    1LL,
+    1u,
     -2147467259,
-    v14);
-  return v2;
+    v14,
+    0LL);
+  return v3;
 }

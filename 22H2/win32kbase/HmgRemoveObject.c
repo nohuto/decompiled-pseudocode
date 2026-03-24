@@ -1,112 +1,134 @@
 /*
- * XREFs of HmgRemoveObject @ 0x1C0047F80
+ * XREFs of HmgRemoveObject @ 0x1C0032640
  * Callers:
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00605C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
- *     bDeleteBrush @ 0x1C00C64F0 (bDeleteBrush.c)
- *     ?bDeletePalette@XEPALOBJ@@QEAAHW4_CLEANUPTYPE@@@Z @ 0x1C00D2508 (-bDeletePalette@XEPALOBJ@@QEAAHW4_CLEANUPTYPE@@@Z.c)
- *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00D33D8 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
- *     EngDeleteDriverObj @ 0x1C016B1A0 (EngDeleteDriverObj.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000DEF0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001D0C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     bDeleteBrush @ 0x1C001D7B0 (bDeleteBrush.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CB468 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ *     ?bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z @ 0x1C013E8C0 (-bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z.c)
+ *     EngDeleteDriverObj @ 0x1C014C420 (EngDeleteDriverObj.c)
  * Callees:
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C0043040 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C00443E0 (--1HANDLELOCK@@QEAA@XZ.c)
- *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0044470 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0045760 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C002FE00 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z @ 0x1C0030850 (-ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C00316A0 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0033220 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 __int64 __fastcall HmgRemoveObject(__int64 a1, __int16 a2, int a3, int a4, char a5, _DWORD *a6)
 {
-  unsigned int v9; // ebp
-  __int64 v10; // rcx
-  __int64 v11; // rdi
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  _DWORD *v14; // rsi
-  __int64 v15; // rbx
-  unsigned int v16; // eax
-  __int64 v17; // r9
-  unsigned __int64 v18; // rdx
-  unsigned int v19; // r8d
-  unsigned int v20; // ecx
-  __int64 v21; // r9
-  __int64 v22; // rbx
-  __int64 v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rcx
-  _DWORD *v31; // [rsp+30h] [rbp-38h] BYREF
-  int v32; // [rsp+38h] [rbp-30h]
+  unsigned int v9; // ebx
+  __int64 v10; // rsi
+  __int64 v11; // rcx
+  _DWORD *v12; // rdi
+  GdiHandleManager *v13; // r13
+  unsigned int v14; // eax
+  __int64 v15; // r8
+  unsigned __int64 v16; // rdx
+  unsigned int v17; // r10d
+  __int64 v18; // rcx
+  __int64 v19; // r9
+  int v20; // edx
+  GdiHandleManager *v21; // rbx
+  unsigned int v22; // eax
+  __int64 v23; // r9
+  unsigned __int64 v24; // rdx
+  unsigned int v25; // r8d
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  struct OBJECT *v28; // rdx
+  struct _ENTRY *EntryFromObject; // rax
+  __int64 v31; // rcx
+  _DWORD *v32; // [rsp+30h] [rbp-48h] BYREF
+  int v33; // [rsp+38h] [rbp-40h]
 
   v9 = a1;
-  SGDGetSessionState(a1);
-  GreAcquireHmgrSemaphore(v10);
-  v11 = 0LL;
-  v31 = 0LL;
-  v32 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v31, (unsigned __int16)v9 | (v9 >> 8) & 0xFF0000, 1, 0, 0);
-  if ( !v32 )
+  GreAcquireHmgrSemaphore(a1);
+  v10 = 0LL;
+  v32 = 0LL;
+  v33 = 0;
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v32, (unsigned __int16)v9 | (v9 >> 8) & 0xFF0000, 1, 0, 0);
+  if ( !v33 )
   {
-    HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v31);
-    goto LABEL_20;
+    GreReleaseHmgrSemaphore(v11);
+    return 0LL;
   }
-  v13 = SGDGetSessionState(v12);
-  v14 = v31;
-  v15 = *(_QWORD *)(*(_QWORD *)(v13 + 24) + 8008LL);
-  v16 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v15, *v31 & 0xFFFFFF);
-  v17 = *(_QWORD *)(v15 + 16);
-  v18 = v16;
-  v19 = *(_DWORD *)(v17 + 2056);
-  if ( v16 >= v19 + ((*(unsigned __int16 *)(v17 + 2) + 0xFFFF) << 16) )
-    goto LABEL_23;
-  if ( v16 >= v19 )
-    v20 = ((v16 - v19) >> 16) + 1;
-  else
-    v20 = 0;
-  v21 = *(_QWORD *)(v17 + 8LL * v20 + 8);
-  if ( v20 )
-    v18 = ((1 - v20) << 16) - v19 + v16;
-  if ( (unsigned int)v18 >= *(_DWORD *)(v21 + 20) )
-LABEL_23:
-    v22 = 0LL;
-  else
-    v22 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v21 + 24) + 8 * (v18 >> 8)) + 16LL * (unsigned __int8)v18 + 8);
-  if ( *((_BYTE *)v14 + 14) == a5 && *((_WORD *)v14 + 6) == HIWORD(v9) )
+  v12 = v32;
+  v13 = gpHandleManager;
+  v14 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, *v32 & 0xFFFFFF);
+  v15 = *((_QWORD *)v13 + 2);
+  v16 = v14;
+  v17 = *(_DWORD *)(v15 + 2056);
+  if ( v14 < v17 + ((*(unsigned __int16 *)(v15 + 2) + 0xFFFF) << 16) )
   {
-    v23 = *(unsigned int *)(v22 + 8);
-    if ( (_DWORD)v23 == a3 && *(_WORD *)(v22 + 12) == a2 )
+    v18 = ((v14 - v17) >> 16) + 1;
+    if ( v14 < v17 )
+      v18 = 0LL;
+    v19 = *(_QWORD *)(v15 + 8 * v18 + 8);
+    if ( (_DWORD)v18 )
+      v16 = ((1 - (_DWORD)v18) << 16) - v17 + v14;
+    if ( (unsigned int)v16 < *(_DWORD *)(v19 + 20) )
+      v10 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v19 + 24) + 8 * (v16 >> 8)) + 16LL * (unsigned __int8)v16 + 8);
+  }
+  if ( *((_BYTE *)v12 + 14) == a5 && *((_WORD *)v12 + 6) == HIWORD(v9) )
+  {
+    v20 = *(_DWORD *)(v10 + 8);
+    if ( v20 == a3 && *(_WORD *)(v10 + 12) == a2 )
     {
-      if ( a4 || (*((_BYTE *)v14 + 15) & 1) == 0 )
+      if ( a4 || (*((_BYTE *)v12 + 15) & 1) == 0 )
       {
-        v24 = SGDGetSessionState(v23);
-        LOBYTE(v25) = *((_BYTE *)GdiHandleManager::GetEntryFromObject(
-                                   *(GdiHandleEntryDirectory ***)(*(_QWORD *)(v24 + 24) + 8008LL),
-                                   (struct OBJECT *)v22)
-                      + 14);
-        TrackHmgrReferenceDecrement(v25, (struct OBJECT *)v22);
-        HANDLELOCK::vUnlockAndRelease((HANDLELOCK *)&v31, v26, v27, v28);
-        HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v31);
-        v11 = v22;
-        goto LABEL_20;
+        EntryFromObject = GdiHandleManager::GetEntryFromObject((GdiHandleEntryDirectory **)v13, (struct OBJECT *)v10);
+        TrackHmgrReferenceDecrement(*((_BYTE *)EntryFromObject + 14), (struct OBJECT *)v10);
+        HANDLELOCK::vUnlockAndRelease((HANDLELOCK *)&v32);
+        if ( v33 )
+          HANDLELOCK::vUnlock((HANDLELOCK *)&v32);
+        GreReleaseHmgrSemaphore(v31);
+        return v10;
       }
     }
     else
     {
-      *((_BYTE *)v14 + 15) |= 8u;
+      *((_BYTE *)v12 + 15) |= 8u;
       if ( a6 )
-        *a6 = v23;
+        *a6 = v20;
     }
   }
-  HANDLELOCK::vUnlock((HANDLELOCK *)&v31);
-  if ( v32 )
-    HANDLELOCK::vUnlock((HANDLELOCK *)&v31);
-LABEL_20:
-  GreReleaseHmgrSemaphore(v29);
-  return v11;
+  v21 = gpHandleManager;
+  v22 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, *v12 & 0xFFFFFF);
+  v23 = *((_QWORD *)v21 + 2);
+  v24 = v22;
+  v25 = *(_DWORD *)(v23 + 2056);
+  v26 = v25 + ((*(unsigned __int16 *)(v23 + 2) + 0xFFFF) << 16);
+  if ( v22 >= (unsigned int)v26 )
+    goto LABEL_31;
+  v26 = ((v22 - v25) >> 16) + 1;
+  if ( v22 < v25 )
+    v26 = 0LL;
+  v27 = *(_QWORD *)(v23 + 8 * v26 + 8);
+  if ( (_DWORD)v26 )
+    v24 = ((1 - (_DWORD)v26) << 16) - v25 + (unsigned int)v24;
+  if ( (unsigned int)v24 >= *(_DWORD *)(v27 + 20) )
+  {
+LABEL_31:
+    v28 = 0LL;
+  }
+  else
+  {
+    v26 = 2LL * (unsigned __int8)v24;
+    v28 = *(struct OBJECT **)(*(_QWORD *)(**(_QWORD **)(v27 + 24) + 8 * (v24 >> 8)) + 16LL * (unsigned __int8)v24 + 8);
+  }
+  GdiHandleManager::ReleaseEntryLock((GdiHandleManager *)v26, v28);
+  KeLeaveCriticalRegion();
+  EtwTraceGreLockReleaseSemaphore(L"ghsemHmgr", ghsemHmgr);
+  if ( ghsemHmgr )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion(ghsemHmgr);
+    PsLeavePriorityRegion();
+  }
+  return 0LL;
 }

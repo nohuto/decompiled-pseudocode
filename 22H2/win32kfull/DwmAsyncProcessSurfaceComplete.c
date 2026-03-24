@@ -1,22 +1,21 @@
 /*
- * XREFs of DwmAsyncProcessSurfaceComplete @ 0x1C026D404
+ * XREFs of DwmAsyncProcessSurfaceComplete @ 0x1C0274AE4
  * Callers:
- *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C0265774 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026D214 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncProcessSurfaceComplete(PVOID Object, __int64 a2)
 {
-  unsigned int i; // r14d
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  __int64 v7; // rdi
-  unsigned int v8; // ecx
-  __int64 v9; // rbp
-  _OWORD *v10; // rax
+  unsigned int i; // esi
+  unsigned int v5; // ebx
+  unsigned int v6; // r8d
+  __int64 v7; // r14
+  char *v8; // r14
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
   __int128 v11; // xmm1
   __int128 v12; // xmm0
   __int128 v13; // xmm1
@@ -26,135 +25,111 @@ __int64 __fastcall DwmAsyncProcessSurfaceComplete(PVOID Object, __int64 a2)
   __int128 v17; // xmm1
   __int128 v18; // xmm0
   __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  unsigned int v22; // eax
-  int v23; // edx
-  unsigned int v24; // r10d
-  __int64 v25; // r8
-  __int64 v26; // rcx
-  _OWORD *v27; // rax
-  __int128 v28; // xmm1
-  _OWORD *v29; // rcx
+  int v20; // eax
+  __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned int v23; // eax
+  unsigned int v24; // r9d
+  char *v25; // rcx
+  _OWORD *v26; // rax
+  __int128 v27; // xmm1
+  __int128 v28; // xmm0
+  __int128 v29; // xmm1
   __int128 v30; // xmm0
   __int128 v31; // xmm1
   __int128 v32; // xmm0
   __int128 v33; // xmm1
-  __int128 v34; // xmm0
-  __int128 v35; // xmm1
-  __int128 v36; // xmm0
-  __int128 v37; // xmm1
-  __int128 v38; // xmm0
-  __int128 v39; // xmm1
-  int v41; // [rsp+20h] [rbp-128h] BYREF
-  __int16 v42; // [rsp+24h] [rbp-124h]
-  char v43[34]; // [rsp+26h] [rbp-122h] BYREF
-  __int128 v44; // [rsp+48h] [rbp-100h]
-  __int128 v45; // [rsp+58h] [rbp-F0h]
-  __int128 v46; // [rsp+68h] [rbp-E0h]
-  __int128 v47; // [rsp+78h] [rbp-D0h]
-  __int128 v48; // [rsp+88h] [rbp-C0h]
-  __int128 v49; // [rsp+98h] [rbp-B0h]
-  __int128 v50; // [rsp+A8h] [rbp-A0h]
-  __int128 v51; // [rsp+B8h] [rbp-90h]
-  __int128 v52; // [rsp+C8h] [rbp-80h]
-  __int128 v53; // [rsp+D8h] [rbp-70h]
-  __int128 v54; // [rsp+E8h] [rbp-60h]
-  __int128 v55; // [rsp+F8h] [rbp-50h]
-  int v56; // [rsp+108h] [rbp-40h]
+  __int128 v34; // xmm1
+  __int128 v35; // xmm0
+  __int128 v36; // xmm1
+  _QWORD v38[30]; // [rsp+20h] [rbp-128h] BYREF
 
   i = -1073741823;
-  IncrementDWMWindowUniqueness((__int64)Object);
-  v6 = 0;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
+  v5 = 0;
   if ( Object )
   {
-    v7 = *(_QWORD *)(SGDGetSessionState(v5) + 32);
-    v8 = *(_DWORD *)(v7 + 9316);
-    if ( v8 )
+    v6 = g_cDelayedUpdateSpriteNotifications;
+    if ( g_cDelayedUpdateSpriteNotifications )
     {
       do
       {
-        v9 = 196LL * v6;
-        if ( a2 == *(_QWORD *)(v7 + v9 + 9488) )
+        v7 = 196LL * v5;
+        if ( a2 == *(_QWORD *)((char *)&g_rgDelayedUpdateSpriteNotifications + v7 + 168) )
         {
-          memset_0(v43, 0, 0xE6uLL);
-          v41 = 15466692;
-          v42 = 0x8000;
-          v10 = (_OWORD *)(v9 + v7 + 9320);
-          v11 = v10[1];
-          v44 = *v10;
-          v12 = v10[2];
-          v45 = v11;
-          v13 = v10[3];
-          v46 = v12;
-          v14 = v10[4];
-          v47 = v13;
-          v15 = v10[5];
-          v48 = v14;
-          v16 = v10[6];
-          v49 = v15;
-          v17 = v10[7];
-          v10 += 8;
-          v50 = v16;
-          v18 = *v10;
-          v51 = v17;
-          v19 = v10[1];
-          v52 = v18;
-          v20 = v10[2];
-          v53 = v19;
-          v21 = v10[3];
-          LODWORD(v10) = *((_DWORD *)v10 + 16);
-          v54 = v20;
-          v55 = v21;
-          v56 = (int)v10;
-          HIDWORD(v44) |= 0x100u;
-          EtwUpdateEvent(*(_QWORD *)((char *)&v44 + 4), 1073741830LL);
-          v22 = LpcRequestPort(Object, &v41);
-          v23 = *(_DWORD *)(v7 + 9316);
-          v24 = v6;
-          for ( i = v22; v24 < v23 - 1; v23 = *(_DWORD *)(v7 + 9316) )
+          memset(v38, 0, 0xECuLL);
+          LODWORD(v38[0]) = 15466692;
+          v8 = (char *)&g_rgDelayedUpdateSpriteNotifications + v7;
+          WORD2(v38[0]) = 0x8000;
+          v9 = *((_OWORD *)v8 + 1);
+          *(_OWORD *)&v38[5] = *(_OWORD *)v8;
+          v10 = *((_OWORD *)v8 + 2);
+          *(_OWORD *)&v38[7] = v9;
+          v11 = *((_OWORD *)v8 + 3);
+          *(_OWORD *)&v38[9] = v10;
+          v12 = *((_OWORD *)v8 + 4);
+          *(_OWORD *)&v38[11] = v11;
+          v13 = *((_OWORD *)v8 + 5);
+          *(_OWORD *)&v38[13] = v12;
+          v14 = *((_OWORD *)v8 + 6);
+          *(_OWORD *)&v38[15] = v13;
+          v15 = *((_OWORD *)v8 + 7);
+          *(_OWORD *)&v38[17] = v14;
+          v16 = *((_OWORD *)v8 + 8);
+          *(_OWORD *)&v38[19] = v15;
+          v17 = *((_OWORD *)v8 + 9);
+          *(_OWORD *)&v38[21] = v16;
+          v18 = *((_OWORD *)v8 + 10);
+          *(_OWORD *)&v38[23] = v17;
+          v19 = *((_OWORD *)v8 + 11);
+          v20 = *((_DWORD *)v8 + 48);
+          *(_OWORD *)&v38[25] = v18;
+          *(_OWORD *)&v38[27] = v19;
+          LODWORD(v38[29]) = v20;
+          HIDWORD(v38[6]) |= 0x100u;
+          EtwUpdateEvent(*(_QWORD *)((char *)&v38[5] + 4), 1073741830LL, v21, v22);
+          v23 = LpcRequestPort(Object, v38);
+          v24 = v5;
+          v6 = g_cDelayedUpdateSpriteNotifications - 1;
+          for ( i = v23; v24 < v6; *((_DWORD *)v25 + 16) = (_DWORD)v26 )
           {
-            v25 = 196LL * (v24 + 1);
-            v26 = v24++;
-            v27 = (_OWORD *)(v25 + v7 + 9320);
-            v28 = v27[1];
-            v29 = (_OWORD *)(196 * v26 + v7 + 9320);
-            *v29 = *v27;
-            v30 = v27[2];
-            v29[1] = v28;
-            v31 = v27[3];
-            v29[2] = v30;
-            v32 = v27[4];
-            v29[3] = v31;
-            v33 = v27[5];
-            v29[4] = v32;
-            v34 = v27[6];
-            v29[5] = v33;
-            v35 = v27[7];
-            v27 += 8;
-            v29[6] = v34;
-            v29 += 8;
-            v36 = *v27;
-            *(v29 - 1) = v35;
-            v37 = v27[1];
-            *v29 = v36;
-            v38 = v27[2];
-            v29[1] = v37;
-            v39 = v27[3];
-            LODWORD(v27) = *((_DWORD *)v27 + 16);
-            v29[2] = v38;
-            v29[3] = v39;
-            *((_DWORD *)v29 + 16) = (_DWORD)v27;
+            ++v24;
+            v25 = v8 + 128;
+            v26 = (_OWORD *)((char *)&g_rgDelayedUpdateSpriteNotifications + 196 * v24);
+            v27 = v26[1];
+            *(_OWORD *)v8 = *v26;
+            v28 = v26[2];
+            *((_OWORD *)v8 + 1) = v27;
+            v29 = v26[3];
+            *((_OWORD *)v8 + 2) = v28;
+            v30 = v26[4];
+            *((_OWORD *)v8 + 3) = v29;
+            v31 = v26[5];
+            *((_OWORD *)v8 + 4) = v30;
+            v32 = v26[6];
+            *((_OWORD *)v8 + 5) = v31;
+            v33 = v26[7];
+            v26 += 8;
+            *((_OWORD *)v8 + 6) = v32;
+            v8 += 196;
+            *((_OWORD *)v25 - 1) = v33;
+            v34 = v26[1];
+            *(_OWORD *)v25 = *v26;
+            v35 = v26[2];
+            *((_OWORD *)v25 + 1) = v34;
+            v36 = v26[3];
+            LODWORD(v26) = *((_DWORD *)v26 + 16);
+            *((_OWORD *)v25 + 2) = v35;
+            *((_OWORD *)v25 + 3) = v36;
           }
-          v8 = v23 - 1;
-          *(_DWORD *)(v7 + 9316) = v23 - 1;
+          g_cDelayedUpdateSpriteNotifications = v6;
         }
         else
         {
-          ++v6;
+          ++v5;
         }
       }
-      while ( v6 < v8 );
+      while ( v5 < v6 );
     }
     ObfDereferenceObject(Object);
   }

@@ -1,87 +1,82 @@
 /*
- * XREFs of PointerInfoCopyOutHelperInternal @ 0x1C01C6B70
+ * XREFs of PointerInfoCopyOutHelperInternal @ 0x1C01F1EE0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GetDPITransformationMonitor @ 0x1C01B9BB4 (GetDPITransformationMonitor.c)
- *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01B9DD8 (RemapHimetricPointsForMultiMonDigitizers.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     GetDPITransformationMonitor @ 0x1C01E50B0 (GetDPITransformationMonitor.c)
+ *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01E562C (RemapHimetricPointsForMultiMonDigitizers.c)
  */
 
 __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, ULONG64 a6)
 {
-  unsigned int v9; // edi
-  int AdjustedPointerLocations; // r14d
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  int v16; // r14d
-  int v17; // r14d
-  ULONG64 v18; // rax
-  _OWORD *v19; // rdx
-  _OWORD *v20; // rax
-  __int64 v22; // [rsp+58h] [rbp-C0h] BYREF
-  __int64 DPITransformationMonitor; // [rsp+60h] [rbp-B8h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-B0h] BYREF
-  __int64 v25; // [rsp+70h] [rbp-A8h] BYREF
-  _QWORD v26[5]; // [rsp+78h] [rbp-A0h] BYREF
-  __int128 v27; // [rsp+A0h] [rbp-78h] BYREF
-  __int128 v28; // [rsp+B0h] [rbp-68h] BYREF
-  __int128 v29; // [rsp+C0h] [rbp-58h] BYREF
+  int AdjustedPointerLocations; // esi
+  __int64 v10; // rax
+  int v11; // esi
+  int v12; // esi
+  ULONG64 v13; // rax
+  _OWORD *v14; // rdx
+  _OWORD *v15; // rax
+  unsigned int v17; // [rsp+50h] [rbp-B8h]
+  __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 DPITransformationMonitor; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v21; // [rsp+70h] [rbp-98h] BYREF
+  _QWORD v22[5]; // [rsp+78h] [rbp-90h] BYREF
+  __int128 v23; // [rsp+A0h] [rbp-68h] BYREF
+  __int128 v24; // [rsp+B0h] [rbp-58h] BYREF
+  __int128 v25; // [rsp+C0h] [rbp-48h] BYREF
 
-  v9 = 0;
-  v22 = 0LL;
+  v17 = 0;
+  v18 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
+  v22[0] = 0LL;
   v24 = 0LL;
   v25 = 0LL;
-  v26[0] = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
   AdjustedPointerLocations = GetAdjustedPointerLocations(
                                *(_QWORD *)(a1 + 40),
                                *(_QWORD *)(a1 + 48),
                                *(_QWORD *)(a1 + 56),
                                *(_QWORD *)(a1 + 64),
                                a2,
-                               &v22,
-                               &v25,
-                               &v24,
-                               v26,
-                               a3,
-                               0);
-  if ( (*((_DWORD *)PtiCurrentShared(v12, v11, v13, v14) + 318) & 0x2000) != 0 )
+                               &v18,
+                               &v21,
+                               &v20,
+                               v22,
+                               a3);
+  if ( (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1232) & 0x2000) != 0 )
     AdjustedPointerLocations = 0;
   if ( a4 == 2 || a4 == 5 )
   {
-    v28 = *(_OWORD *)(a1 + 112);
-    v29 = *(_OWORD *)(a1 + 128);
+    v24 = *(_OWORD *)(a1 + 112);
+    v25 = *(_OWORD *)(a1 + 128);
   }
-  v15 = HMValidateHandleNoSecure(*(_QWORD *)(a1 + 32), 1);
-  if ( v15 && (*(_DWORD *)(*(_QWORD *)(v15 + 40) + 288LL) & 0xF) != 2 )
+  v10 = HMValidateHandleNoSecure(*(_QWORD *)(a1 + 32), 1);
+  if ( v10 && (*(_DWORD *)(*(_QWORD *)(v10 + 40) + 288LL) & 0xF) != 2 )
   {
     if ( !AdjustedPointerLocations )
     {
-      v22 = *(_QWORD *)(a1 + 40);
-      v25 = *(_QWORD *)(a1 + 48);
-      v24 = *(_QWORD *)(a1 + 56);
-      v26[0] = *(_QWORD *)(a1 + 64);
+      v18 = *(_QWORD *)(a1 + 40);
+      v21 = *(_QWORD *)(a1 + 48);
+      v20 = *(_QWORD *)(a1 + 56);
+      v22[0] = *(_QWORD *)(a1 + 64);
     }
-    DPITransformationMonitor = GetDPITransformationMonitor(v22, v15);
-    v16 = PhysicalToLogicalDPIPoint(&v22, &v22, 0LL, &DPITransformationMonitor) | AdjustedPointerLocations;
-    AdjustedPointerLocations = PhysicalToLogicalDPIPoint(&v24, &v24, 0LL, &DPITransformationMonitor) | v16;
+    DPITransformationMonitor = GetDPITransformationMonitor(v18, v10);
+    v11 = PhysicalToLogicalDPIPoint(&v18, &v18, 0LL, &DPITransformationMonitor) | AdjustedPointerLocations;
+    AdjustedPointerLocations = PhysicalToLogicalDPIPoint(&v20, &v20, 0LL, &DPITransformationMonitor) | v11;
     if ( a4 == 2 || a4 == 5 )
     {
-      v17 = PhysicalToLogicalDPIRect(&v28, &v28, 0LL, &DPITransformationMonitor) | AdjustedPointerLocations;
-      AdjustedPointerLocations = PhysicalToLogicalDPIRect(&v29, &v29, 0LL, &DPITransformationMonitor) | v17;
+      v12 = PhysicalToLogicalDPIRect(&v24, &v24, 0LL, &DPITransformationMonitor) | AdjustedPointerLocations;
+      AdjustedPointerLocations = PhysicalToLogicalDPIRect(&v25, &v25, 0LL, &DPITransformationMonitor) | v12;
     }
-    if ( *(_DWORD *)*gpDispInfo > 1u && a3 && !*(_DWORD *)(*(_QWORD *)(a3 + 16) + 1336LL) && *(_DWORD *)(a3 + 24) != 7 )
+    if ( *(_DWORD *)*gpDispInfo > 1u && a3 && !*(_DWORD *)(*(_QWORD *)(a3 + 16) + 1344LL) && *(_DWORD *)(a3 + 24) != 7 )
     {
-      v27 = *(_OWORD *)(a3 + 176);
-      RemapHimetricPointsForMultiMonDigitizers((__int64)&v27, DPITransformationMonitor, &v25, v26);
+      v23 = *(_OWORD *)(a3 + 176);
+      RemapHimetricPointsForMultiMonDigitizers((__int64)&v23, DPITransformationMonitor, &v21, v22);
       AdjustedPointerLocations = 1;
     }
   }
@@ -90,69 +85,69 @@ __int64 __fastcall PointerInfoCopyOutHelperInternal(__int64 a1, __int64 a2, __in
     case 1:
       if ( a5 != 96 )
         goto LABEL_36;
-      v20 = (_OWORD *)a6;
+      v15 = (_OWORD *)a6;
       if ( a6 >= MmUserProbeAddress )
-        v20 = (_OWORD *)MmUserProbeAddress;
-      *v20 = *(_OWORD *)(a1 + 8);
-      v20[1] = *(_OWORD *)(a1 + 24);
-      v20[2] = *(_OWORD *)(a1 + 40);
-      v20[3] = *(_OWORD *)(a1 + 56);
-      v20[4] = *(_OWORD *)(a1 + 72);
-      v20[5] = *(_OWORD *)(a1 + 88);
+        v15 = (_OWORD *)MmUserProbeAddress;
+      *v15 = *(_OWORD *)(a1 + 8);
+      v15[1] = *(_OWORD *)(a1 + 24);
+      v15[2] = *(_OWORD *)(a1 + 40);
+      v15[3] = *(_OWORD *)(a1 + 56);
+      v15[4] = *(_OWORD *)(a1 + 72);
+      v15[5] = *(_OWORD *)(a1 + 88);
       goto LABEL_35;
     case 2:
       goto LABEL_27;
     case 3:
       if ( a5 != 120 )
         goto LABEL_36;
-      v18 = a6;
+      v13 = a6;
       if ( a6 >= MmUserProbeAddress )
-        v18 = MmUserProbeAddress;
-      *(_OWORD *)v18 = *(_OWORD *)(a1 + 8);
-      *(_OWORD *)(v18 + 16) = *(_OWORD *)(a1 + 24);
-      *(_OWORD *)(v18 + 32) = *(_OWORD *)(a1 + 40);
-      *(_OWORD *)(v18 + 48) = *(_OWORD *)(a1 + 56);
-      *(_OWORD *)(v18 + 64) = *(_OWORD *)(a1 + 72);
-      *(_OWORD *)(v18 + 80) = *(_OWORD *)(a1 + 88);
-      *(_OWORD *)(v18 + 96) = *(_OWORD *)(a1 + 104);
-      *(_QWORD *)(v18 + 112) = *(_QWORD *)(a1 + 120);
+        v13 = MmUserProbeAddress;
+      *(_OWORD *)v13 = *(_OWORD *)(a1 + 8);
+      *(_OWORD *)(v13 + 16) = *(_OWORD *)(a1 + 24);
+      *(_OWORD *)(v13 + 32) = *(_OWORD *)(a1 + 40);
+      *(_OWORD *)(v13 + 48) = *(_OWORD *)(a1 + 56);
+      *(_OWORD *)(v13 + 64) = *(_OWORD *)(a1 + 72);
+      *(_OWORD *)(v13 + 80) = *(_OWORD *)(a1 + 88);
+      *(_OWORD *)(v13 + 96) = *(_OWORD *)(a1 + 104);
+      *(_QWORD *)(v13 + 112) = *(_QWORD *)(a1 + 120);
 LABEL_35:
-      v9 = 1;
+      v17 = 1;
       goto LABEL_36;
     case 5:
 LABEL_27:
       if ( a5 != 144 )
         goto LABEL_36;
-      v19 = (_OWORD *)a6;
+      v14 = (_OWORD *)a6;
       if ( a6 >= MmUserProbeAddress )
-        v19 = (_OWORD *)MmUserProbeAddress;
-      *v19 = *(_OWORD *)(a1 + 8);
-      v19[1] = *(_OWORD *)(a1 + 24);
-      v19[2] = *(_OWORD *)(a1 + 40);
-      v19[3] = *(_OWORD *)(a1 + 56);
-      v19[4] = *(_OWORD *)(a1 + 72);
-      v19[5] = *(_OWORD *)(a1 + 88);
-      v19[6] = *(_OWORD *)(a1 + 104);
-      v19[7] = *(_OWORD *)(a1 + 120);
-      v19[8] = *(_OWORD *)(a1 + 136);
+        v14 = (_OWORD *)MmUserProbeAddress;
+      *v14 = *(_OWORD *)(a1 + 8);
+      v14[1] = *(_OWORD *)(a1 + 24);
+      v14[2] = *(_OWORD *)(a1 + 40);
+      v14[3] = *(_OWORD *)(a1 + 56);
+      v14[4] = *(_OWORD *)(a1 + 72);
+      v14[5] = *(_OWORD *)(a1 + 88);
+      v14[6] = *(_OWORD *)(a1 + 104);
+      v14[7] = *(_OWORD *)(a1 + 120);
+      v14[8] = *(_OWORD *)(a1 + 136);
       goto LABEL_35;
   }
-  v9 = 0;
+  v17 = 0;
 LABEL_36:
-  if ( v9 )
+  if ( v17 )
   {
     if ( AdjustedPointerLocations )
     {
-      *(_QWORD *)(a6 + 32) = v22;
-      *(_QWORD *)(a6 + 40) = v25;
-      *(_QWORD *)(a6 + 48) = v24;
-      *(_QWORD *)(a6 + 56) = v26[0];
+      *(_QWORD *)(a6 + 32) = v18;
+      *(_QWORD *)(a6 + 40) = v21;
+      *(_QWORD *)(a6 + 48) = v20;
+      *(_QWORD *)(a6 + 56) = v22[0];
       if ( a4 == 2 || a4 == 5 )
       {
-        *(_OWORD *)(a6 + 104) = v28;
-        *(_OWORD *)(a6 + 120) = v29;
+        *(_OWORD *)(a6 + 104) = v24;
+        *(_OWORD *)(a6 + 120) = v25;
       }
     }
   }
-  return v9;
+  return v17;
 }

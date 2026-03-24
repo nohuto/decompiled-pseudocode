@@ -1,101 +1,106 @@
 /*
- * XREFs of PopValidateRTCWake @ 0x140A519DC
+ * XREFs of PopValidateRTCWake @ 0x1409985FC
  * Callers:
- *     PopHandleWakeSources @ 0x140A51888 (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140998410 (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x140396640 (PopDiagTraceRtcWakeInfo.c)
- *     PopCurrentPowerStatePrecise @ 0x1407ED930 (PopCurrentPowerStatePrecise.c)
- *     PopCalculateWakeTimeAdjustment @ 0x1408052DC (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x14038BD68 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E444 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x1408E693C (PopCalculateWakeTimeAdjustment.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
 {
   unsigned __int64 v1; // rbp
-  int v2; // r14d
-  unsigned __int8 v3; // r15
-  unsigned __int8 v4; // r12
-  int v5; // eax
+  int v2; // eax
+  int v3; // r14d
+  unsigned __int8 v4; // r15
+  unsigned __int8 v5; // r12
   int v7; // ebx
   int v8; // ecx
   unsigned __int64 v9; // rsi
-  __int64 v10; // rbp
+  __int64 v11; // rbp
   __int128 v12; // [rsp+40h] [rbp-38h] BYREF
 
   v1 = 0LL;
-  v2 = 0;
+  v2 = PopFixedWakeSourceMask & 0x18;
+  *a1 = 0;
   v3 = 0;
   v4 = 0;
-  v5 = PopFixedWakeSourceMask & 0x18;
+  v5 = 0;
   v7 = 1;
-  *a1 = 1;
-  if ( v5 == 16 )
+  if ( v2 == 16 )
   {
     v8 = 1;
-    dword_140C22820 = 1;
-    *a1 = 0;
+    dword_140C234A0 = 1;
     goto LABEL_6;
   }
-  if ( v5 == 8 )
+  if ( v2 == 8 )
   {
     v8 = 0;
-    v3 = 1;
-    dword_140C22820 = 0;
-    *a1 = 0;
+    v4 = 1;
+    dword_140C234A0 = 0;
     goto LABEL_6;
   }
-  if ( v5 )
+  if ( v2 )
   {
     PopCurrentPowerStatePrecise(&v12, 0LL);
-    dword_140C22820 = dword_140C232CC;
+    dword_140C234A0 = dword_140C23E8C;
   }
-  v8 = dword_140C22820;
-  if ( dword_140C22820 >= 0 )
+  v8 = dword_140C234A0;
+  if ( dword_140C234A0 >= 0 )
   {
 LABEL_6:
     if ( (unsigned __int64)v8 < 3 )
-      goto LABEL_10;
+      goto LABEL_11;
   }
-  if ( qword_140C22848 && qword_140C22830[0] > (unsigned __int64)qword_140C22848 )
+  if ( (PopFixedWakeSourceMask & 4) == 0 )
+    *a1 = 1;
+  if ( qword_140C234C8 && qword_140C234B0[0] > (unsigned __int64)qword_140C234C8 )
   {
     v8 = 1;
-    dword_140C22820 = 1;
+    dword_140C234A0 = 1;
   }
   else
   {
     v8 = 0;
-    v3 = 1;
-    dword_140C22820 = 0;
+    *a1 = 0;
+    dword_140C234A0 = 0;
+    v4 = 1;
   }
-LABEL_10:
-  v9 = qword_140C22830[3 * v8];
+LABEL_11:
+  v9 = qword_140C234B0[3 * v8];
   if ( v9 )
   {
-    v10 = qword_140C22808;
-    v1 = v10 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
-    if ( v9 < v1 + 100000000 )
+    v11 = qword_140C23488;
+    v1 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
+    if ( v9 - 100000000 < v1 )
     {
       if ( v1 <= v9
         || v1 - v9 < (-(__int64)(PopPendingUserPresenceDuringSystemSleep != 0) & 0xFFFFFFFFBE6F5500uLL) + 1200000000 )
       {
-        v4 = 1;
-        v7 = 0;
-        goto LABEL_15;
+        v5 = 1;
       }
-      v2 = 3;
+      else
+      {
+        dword_140C234A0 = 3;
+        v3 = 3;
+        *a1 = 0;
+      }
     }
     else
     {
-      v2 = 2;
+      dword_140C234A0 = 3;
+      v3 = 2;
+      *a1 = 0;
     }
     v7 = 0;
   }
   else
   {
-    v2 = 1;
+    dword_140C234A0 = 3;
+    v3 = 1;
+    *a1 = 0;
   }
-  dword_140C22820 = 3;
-  *a1 = 0;
-LABEL_15:
-  PopDiagTraceRtcWakeInfo(v3, v4, v2, (unsigned __int8)*a1, v7, v3, v1);
-  return v4;
+  PopDiagTraceRtcWakeInfo(v4, v5, v3, (unsigned __int8)*a1, v7, v4, v1);
+  return v5;
 }

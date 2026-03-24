@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBusIrpQueryCapabilities @ 0x1C009FC40
+ * XREFs of ACPIBusIrpQueryCapabilities @ 0x1C00A19D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpInvokeDispatchRoutine @ 0x1C009FC64 (ACPIIrpInvokeDispatchRoutine.c)
+ *     ACPIIrpInvokeDispatchRoutine @ 0x1C00A19F4 (ACPIIrpInvokeDispatchRoutine.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryCapabilities(__int64 a1, __int64 a2, __int64 a3)

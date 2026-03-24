@@ -1,14 +1,14 @@
 /*
- * XREFs of AslRegistryBuildUserPath @ 0x14084F51C
+ * XREFs of AslRegistryBuildUserPath @ 0x1407C26D4
  * Callers:
- *     AslRegistryGetKey @ 0x14084F2CC (AslRegistryGetKey.c)
+ *     AslRegistryGetKey @ 0x1407C253C (AslRegistryGetKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlFormatCurrentUserKeyPath @ 0x1407FB180 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1406EFAC0 (RtlFormatCurrentUserKeyPath.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
  */
 
 __int64 __fastcall AslRegistryBuildUserPath(PUNICODE_STRING Destination, PCWSTR Source)
@@ -49,6 +49,6 @@ __int64 __fastcall AslRegistryBuildUserPath(PUNICODE_STRING Destination, PCWSTR 
       AslLogCallPrintf(1LL);
     }
   }
-  RtlFreeUnicodeString(&Sourcea);
+  RtlFreeAnsiString(&Sourcea);
   return (unsigned int)v5;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z @ 0x1C02B0170
+ * XREFs of ?MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z @ 0x1C02A36D0
  * Callers:
  *     <none>
  * Callees:
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C006DC80 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002A998 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulIcmSetDeviceGammaRamp(struct DHPDEV__ *a1, unsigned int a2, void *a3)
@@ -27,11 +27,11 @@ __int64 __fastcall MulIcmSetDeviceGammaRamp(struct DHPDEV__ *a1, unsigned int a2
   {
     v9 = v3[6];
     v12 = v9;
-    v10 = *(__int64 (__fastcall **)(_QWORD, _QWORD, void *))(v9 + 3200);
-    if ( v10 && (*(_DWORD *)(v9 + 2096) & 0x10) != 0 && (a3 || (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v12)) )
+    v10 = *(__int64 (__fastcall **)(_QWORD, _QWORD, void *))(v9 + 3224);
+    if ( v10 && (*(_DWORD *)(v9 + 2128) & 0x10) != 0 && (a3 || (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v12)) )
     {
       v4 = 1;
-      v8 &= v10(*(_QWORD *)(v9 + 1768), a2, a3);
+      v8 &= v10(*(_QWORD *)(v9 + 1800), a2, a3);
     }
     v3 = (_QWORD *)*v3;
   }

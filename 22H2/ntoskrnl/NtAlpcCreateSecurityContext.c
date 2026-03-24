@@ -1,47 +1,46 @@
 /*
- * XREFs of NtAlpcCreateSecurityContext @ 0x14071C5F0
+ * XREFs of NtAlpcCreateSecurityContext @ 0x1406DB380
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C18C (AlpcpDeleteBlob.c)
- *     AlpcpCreateSecurityContext @ 0x14071CA38 (AlpcpCreateSecurityContext.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D93AC (AlpcpCreateSecurityContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  KPROCESSOR_MODE PreviousMode; // r15
+  KPROCESSOR_MODE PreviousMode; // r14
   __int64 v7; // rcx
   __m128i v8; // xmm1
   unsigned __int64 v9; // xmm1_8
   unsigned __int64 v10; // rbx
   __int64 v11; // rax
-  NTSTATUS SecurityContext; // edi
-  PVOID v13; // r14
+  int v12; // edi
+  struct _DMA_ADAPTER *v13; // r15
   ULONG_PTR v14; // rbx
-  unsigned __int64 v16; // xmm1_8
+  struct _SECURITY_QUALITY_OF_SERVICE *v16; // xmm1_8
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-40h]
-  int v19; // [rsp+40h] [rbp-38h]
-  __int128 v20; // [rsp+48h] [rbp-30h]
-  __int64 v21; // [rsp+58h] [rbp-20h]
+  struct _SECURITY_QUALITY_OF_SERVICE v18; // [rsp+38h] [rbp-40h] BYREF
+  __int128 v19; // [rsp+48h] [rbp-30h]
+  __int64 v20; // [rsp+58h] [rbp-20h]
   PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
+  v19 = 0LL;
   v20 = 0LL;
-  LODWORD(v21) = 0;
-  v18 = 0LL;
-  v19 = 0;
+  *(_QWORD *)&v18.Length = 0LL;
+  *(_DWORD *)&v18.ContextTrackingMode = 0;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( a2 )
   {
-    SecurityContext = -1073741811;
+    v12 = -1073741811;
   }
   else
   {
@@ -56,7 +55,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
       *(_BYTE *)v7 = *(_BYTE *)v7;
       *(_BYTE *)(v7 + 23) = *(_BYTE *)(v7 + 23);
       v8 = *a3;
-      v21 = a3[1].m128i_i64[0];
+      v20 = a3[1].m128i_i64[0];
       v9 = _mm_srli_si128(v8, 8).m128i_u64[0];
       v10 = v9;
       if ( v9 )
@@ -64,40 +63,38 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
         v11 = v9;
         if ( v9 >= 0x7FFFFFFF0000LL )
           v11 = 0x7FFFFFFF0000LL;
-        v18 = *(_QWORD *)v11;
-        v19 = *(_DWORD *)(v11 + 8);
+        v18 = *(struct _SECURITY_QUALITY_OF_SERVICE *)v11;
       }
     }
     else
     {
-      v16 = _mm_srli_si128(*a3, 8).m128i_u64[0];
-      v10 = v16;
+      v16 = (struct _SECURITY_QUALITY_OF_SERVICE *)_mm_srli_si128(*a3, 8).m128i_u64[0];
+      v10 = (unsigned __int64)v16;
       if ( v16 )
-      {
-        v18 = *(_QWORD *)v16;
-        v19 = *(_DWORD *)(v16 + 8);
-      }
+        v18 = *v16;
     }
     Object = 0LL;
-    SecurityContext = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-    if ( SecurityContext >= 0 )
+    v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    if ( v12 >= 0 )
     {
       if ( !v10 )
-      {
-        v18 = *(_QWORD *)((char *)Object + 260);
-        v19 = *((_DWORD *)Object + 67);
-      }
-      v13 = Object;
-      SecurityContext = AlpcpCreateSecurityContext(Object, KeGetCurrentThread(), (__int64)&BugCheckParameter2);
-      if ( SecurityContext >= 0 )
+        v18 = *(struct _SECURITY_QUALITY_OF_SERVICE *)((char *)Object + 260);
+      v13 = (struct _DMA_ADAPTER *)Object;
+      v12 = AlpcpCreateSecurityContext(
+              (volatile signed __int64 *)Object,
+              KeGetCurrentThread(),
+              1,
+              &v18,
+              &BugCheckParameter2);
+      if ( v12 >= 0 )
       {
         v14 = BugCheckParameter2;
         a3[1].m128i_i64[0] = *(_QWORD *)(BugCheckParameter2 + 8);
-        AlpcpDereferenceBlobEx(v14);
+        AlpcpDereferenceBlobEx(v14, 1);
       }
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter(v13);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)SecurityContext;
+  return (unsigned int)v12;
 }

@@ -1,32 +1,32 @@
 /*
- * XREFs of NtUserDisableImmersiveOwner @ 0x1C01F2550
+ * XREFs of NtUserDisableImmersiveOwner @ 0x1C01F7B40
  * Callers:
  *     <none>
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
- *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C00AECA8 (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
- *     IsImmersiveBandOrShellManaged @ 0x1C01000F4 (IsImmersiveBandOrShellManaged.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     IsImmersiveBandOrShellManaged @ 0x1C012C918 (IsImmersiveBandOrShellManaged.c)
+ *     xxxDisableImmersiveOwner @ 0x1C0209148 (xxxDisableImmersiveOwner.c)
  */
 
 __int64 __fastcall NtUserDisableImmersiveOwner(__int64 a1)
 {
   __int64 v2; // rax
   __int64 v3; // rcx
-  __int64 v4; // rbx
+  int v4; // ebx
   __int64 v5; // rdi
   __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
+  __int64 v7; // r8
+  __int64 v8; // rcx
   __int128 v10; // [rsp+20h] [rbp-28h] BYREF
   __int64 v11; // [rsp+30h] [rbp-18h]
 
   v11 = 0LL;
   v10 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = ValidateHwnd(a1);
-  v4 = 0LL;
+  v4 = 0;
   v5 = v2;
   if ( v2 )
   {
@@ -35,21 +35,19 @@ __int64 __fastcall NtUserDisableImmersiveOwner(__int64 a1)
     *((_QWORD *)&v10 + 1) = v2;
     HMLockObject(v2);
     if ( (unsigned int)IsImmersiveBandOrShellManaged(v5)
-      && IsTopLevelWindow(v5)
+      && (unsigned int)IsTopLevelWindow(v5)
       && !(unsigned int)IsWindowBeingDestroyed(v5)
       && (*(_BYTE *)(*(_QWORD *)(v5 + 40) + 31LL) & 0x18) == 0x10
       && ((unsigned int)IsImmersiveBroker(*(_QWORD *)(gptiCurrent + 424LL))
-       || *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL))
-      && !(unsigned int)xxxEnableWindowWorker((struct tagWND *)v5, 0) )
+       || *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL)) )
     {
-      *(_DWORD *)(v5 + 320) |= 0x100u;
-      v4 = 1LL;
+      v4 = xxxDisableImmersiveOwner(v5);
     }
     else
     {
-      UserSetLastError(5LL, v6);
+      UserSetLastError(5LL, v6, v7);
     }
-    ThreadUnlock1(v7, v6, v8);
+    ThreadUnlock1(v8);
   }
   UserSessionSwitchLeaveCrit(v3);
   return v4;

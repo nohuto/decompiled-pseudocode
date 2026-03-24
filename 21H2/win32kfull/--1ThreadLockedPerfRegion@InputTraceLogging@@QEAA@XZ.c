@@ -1,18 +1,20 @@
 /*
- * XREFs of ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C007EDA8
+ * XREFs of ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00C14A4
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     NtUserSendInput @ 0x1C007EAF0 (NtUserSendInput.c)
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C009B280 (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
- *     NtUserSetCursorPos @ 0x1C009BCC0 (NtUserSetCursorPos.c)
- *     EditionLLMouseButtonHook @ 0x1C00EA420 (EditionLLMouseButtonHook.c)
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C00FDC20 (-OnPointerCursorOperation@@YAXXZ.c)
- *     ProcessHidRawInput @ 0x1C01D11E0 (ProcessHidRawInput.c)
- *     EditionLLMouseWheelHook @ 0x1C01D41E0 (EditionLLMouseWheelHook.c)
- *     NtUserInjectTouchInput @ 0x1C01F8300 (NtUserInjectTouchInput.c)
+ *     NtUserSetCursorPos @ 0x1C00131C0 (NtUserSetCursorPos.c)
+ *     EditionLLMouseButtonHook @ 0x1C00234F0 (EditionLLMouseButtonHook.c)
+ *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C0028340 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C003145C (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     NtUserSendInput @ 0x1C00C0450 (NtUserSendInput.c)
+ *     EditionHandleMitSignal @ 0x1C00C1400 (EditionHandleMitSignal.c)
+ *     ProcessHidRawInput @ 0x1C01D5720 (ProcessHidRawInput.c)
+ *     EditionLLMouseWheelHook @ 0x1C01D9A20 (EditionLLMouseWheelHook.c)
+ *     NtUserInjectTouchInput @ 0x1C01FDDA0 (NtUserInjectTouchInput.c)
+ *     OnPTPMouseOperation @ 0x1C0213C10 (OnPTPMouseOperation.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ @ 0x1C01D092C (-Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ @ 0x1C01D4CDC (-Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ.c)
  */
 
 void __fastcall InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion(

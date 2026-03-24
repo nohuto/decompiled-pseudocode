@@ -1,9 +1,9 @@
 /*
- * XREFs of ?scRGBTosRGB@@YAMM@Z @ 0x18026F88C
+ * XREFs of ?scRGBTosRGB@@YAMM@Z @ 0x18021F5C4
  * Callers:
- *     ?FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x180278740 (-FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOL.c)
+ *     ?FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18023C3B0 (-FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOL.c)
  * Callees:
- *     powf @ 0x18010194C (powf.c)
+ *     powf @ 0x1800E81C8 (powf.c)
  */
 
 float __fastcall scRGBTosRGB(float a1)

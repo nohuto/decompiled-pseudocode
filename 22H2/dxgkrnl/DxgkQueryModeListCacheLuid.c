@@ -1,138 +1,122 @@
 /*
- * XREFs of DxgkQueryModeListCacheLuid @ 0x1C02D4400
+ * XREFs of DxgkQueryModeListCacheLuid @ 0x1C016CE20
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?QueryModeListCacheLuid@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z @ 0x1C0047054 (-QueryModeListCacheLuid@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01AC934 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01C71F0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?QueryModeListCacheLuid@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z @ 0x1C001AC24 (-QueryModeListCacheLuid@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C0101E70 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C0121C38 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
  */
 
-__int64 __fastcall DxgkQueryModeListCacheLuid(struct _LUID *a1, unsigned int a2, struct _LUID *a3)
+__int64 __fastcall DxgkQueryModeListCacheLuid(struct _LUID *a1, __int64 a2, struct _LUID *a3)
 {
-  __int64 v3; // rbx
-  __int64 v6; // rbx
-  const wchar_t *v7; // r9
+  __int64 v3; // rsi
   DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v10; // rsi
-  __int64 PairingAdapters; // rdi
-  struct DXGADAPTER *v12; // rsi
-  __int64 v13; // rcx
-  struct DXGADAPTER *v14; // [rsp+50h] [rbp-D8h] BYREF
-  unsigned __int64 v15; // [rsp+58h] [rbp-D0h] BYREF
-  _BYTE v16[144]; // [rsp+60h] [rbp-C8h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGADAPTER *v9; // rdi
+  __int64 PairingAdapters; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  struct DXGADAPTER *v13; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 v19; // rax
+  _QWORD *v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  struct DXGADAPTER *v25; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned __int64 v26; // [rsp+48h] [rbp-C0h] BYREF
+  _BYTE v27[144]; // [rsp+50h] [rbp-B8h] BYREF
 
-  v3 = a2;
+  v3 = (unsigned int)a2;
   if ( !a1 )
   {
-    v6 = 8158LL;
-    WdLogSingleEntry1(2LL, 8158LL);
-    v7 = L"Caller specified a NULL pointer to DxgkAdapter LUID in DxgkQueryModeListCacheLuid function.";
-LABEL_3:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v7, v6, 0LL, 0LL, 0LL, 0LL);
+    v19 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v19 + 24) = 7733LL;
+LABEL_16:
+    WdLogEvent5_WdError(v19);
     return 3221225485LL;
   }
   if ( !a3 )
   {
-    v6 = 8165LL;
-    WdLogSingleEntry1(2LL, 8165LL);
-    v7 = L"Caller specified a NULL pointer in pModeListCacheLuid in DxgkQueryModeListCacheLuid function.";
-    goto LABEL_3;
+    v19 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v19 + 24) = 7740LL;
+    goto LABEL_16;
   }
-  Global = DXGGLOBAL::GetGlobal();
-  v10 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, (unsigned __int64 *)&v14);
-  if ( !v10 )
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  v9 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, (unsigned __int64 *)&v25);
+  if ( !v9 )
   {
-    WdLogSingleEntry2(2LL, a1->HighPart, a1->LowPart);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkQueryModeListCacheLuid function.",
-      a1->HighPart,
-      a1->LowPart,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v19 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v19 + 24) = a1->HighPart;
+    *(_QWORD *)(v19 + 32) = a1->LowPart;
+    goto LABEL_16;
   }
-  v14 = 0LL;
-  PairingAdapters = (int)DxgkpGetPairingAdapters(v10, v3, 0LL, 0LL, &v14, &v15, 0);
-  DXGADAPTER::ReleaseReference(v10);
-  if ( (int)PairingAdapters >= 0 )
+  v25 = 0LL;
+  PairingAdapters = (int)DxgkpGetPairingAdapters(v9, (unsigned int)v3, 0LL, 0LL, &v25, &v26, 0);
+  DXGADAPTER::ReleaseReference(v9);
+  if ( (int)PairingAdapters < 0 )
   {
-    v12 = v14;
-    if ( !v14 )
-    {
-      WdLogSingleEntry1(1LL, 8212LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDisplayAdapter != NULL", 8212LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v16, v12, 0LL);
-    PairingAdapters = (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v16, 0LL);
-    DXGADAPTER::ReleaseReference(v12);
-    if ( (int)PairingAdapters >= 0 )
-    {
-      if ( !*((_QWORD *)v12 + 365) )
-      {
-        WdLogSingleEntry1(1LL, 8234LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pDisplayAdapter->IsDisplayAdapter()",
-          8234LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-      v13 = *((_QWORD *)v12 + 365);
-      if ( (unsigned int)v3 < *(_DWORD *)(v13 + 96) )
-      {
-        LODWORD(PairingAdapters) = ADAPTER_DISPLAY::QueryModeListCacheLuid((DXGADAPTER **)v13, v3, a3);
-      }
-      else
-      {
-        WdLogSingleEntry2(2LL, v3, v12);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Caller specified an invalid VidPnSourceId 0x%I64x on DxgAdapter 0x%I64x.",
-          v3,
-          (__int64)v12,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(PairingAdapters) = -1073741811;
-      }
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, v12, PairingAdapters);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to acquire shared lock on DxgkAdapter 0x%I64x (Status = 0x%I64x).",
-        (__int64)v12,
-        PairingAdapters,
-        0LL,
-        0LL,
-        0LL);
-    }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v16);
+    v20 = (_QWORD *)WdLogNewEntry5_WdEvent(v12, v11);
+    v20[3] = 0LL;
+    v20[4] = v3;
+    v20[5] = PairingAdapters;
+    WdLogEvent5_WdEvent(v20);
   }
   else
   {
-    WdLogSingleEntry3(4LL, 0LL, v3, PairingAdapters);
+    v13 = v25;
+    if ( !v25 )
+    {
+      v21 = WdLogNewEntry5_WdAssertion(v12, v11);
+      *(_QWORD *)(v21 + 24) = 7787LL;
+      WdLogEvent5_WdAssertion(v21);
+    }
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v27, v13, 0LL);
+    PairingAdapters = (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v27, 0LL);
+    DXGADAPTER::ReleaseReference(v13);
+    if ( (int)PairingAdapters < 0 )
+    {
+      v22 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v22 + 24) = v13;
+      *(_QWORD *)(v22 + 32) = PairingAdapters;
+      WdLogEvent5_WdError(v22);
+    }
+    else
+    {
+      v16 = *((_QWORD *)v13 + 337);
+      if ( !v16 )
+      {
+        v23 = WdLogNewEntry5_WdAssertion(0LL, v14);
+        *(_QWORD *)(v23 + 24) = 7809LL;
+        WdLogEvent5_WdAssertion(v23);
+        v16 = *((_QWORD *)v13 + 337);
+      }
+      if ( (unsigned int)v3 >= *(_DWORD *)(v16 + 80) )
+      {
+        v24 = WdLogNewEntry5_WdError(v16, v14);
+        *(_QWORD *)(v24 + 24) = v3;
+        *(_QWORD *)(v24 + 32) = v13;
+        WdLogEvent5_WdError(v24);
+        LODWORD(PairingAdapters) = -1073741811;
+      }
+      else
+      {
+        LODWORD(PairingAdapters) = ADAPTER_DISPLAY::QueryModeListCacheLuid((DXGADAPTER **)v16, v3, a3);
+      }
+    }
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v27, v17);
   }
   return (unsigned int)PairingAdapters;
 }

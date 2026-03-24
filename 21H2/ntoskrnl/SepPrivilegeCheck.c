@@ -1,14 +1,14 @@
 /*
- * XREFs of SepPrivilegeCheck @ 0x1402A70F0
+ * XREFs of SepPrivilegeCheck @ 0x14027C450
  * Callers:
- *     SepAccessCheck @ 0x1402FA820 (SepAccessCheck.c)
- *     SePrivilegePolicyCheck @ 0x1402FD4DC (SePrivilegePolicyCheck.c)
- *     SepAccessCheckEx @ 0x1403841DC (SepAccessCheckEx.c)
- *     SeCheckAuditPrivilege @ 0x140724008 (SeCheckAuditPrivilege.c)
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
- *     SePrivilegeCheck @ 0x14072B5E0 (SePrivilegeCheck.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     NtPrivilegeCheck @ 0x14079E490 (NtPrivilegeCheck.c)
+ *     SePrivilegePolicyCheck @ 0x14027E410 (SePrivilegePolicyCheck.c)
+ *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
+ *     SepAccessCheckEx @ 0x1403737C0 (SepAccessCheckEx.c)
+ *     NtPrivilegeCheck @ 0x140607B40 (NtPrivilegeCheck.c)
+ *     SeCheckAuditPrivilege @ 0x14062759C (SeCheckAuditPrivilege.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
+ *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     IopCheckBackupRestorePrivilege @ 0x140702EF0 (IopCheckBackupRestorePrivilege.c)
  * Callees:
  *     <none>
  */

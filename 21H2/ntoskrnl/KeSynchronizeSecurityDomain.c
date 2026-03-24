@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSynchronizeSecurityDomain @ 0x140255E2C
+ * XREFs of KeSynchronizeSecurityDomain @ 0x1402BC338
  * Callers:
- *     PspCombineSecurityDomains @ 0x1407527F4 (PspCombineSecurityDomains.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     PspCombineSecurityDomains @ 0x1406A0F84 (PspCombineSecurityDomains.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     KiSynchronizeSecurityDomainTarget @ 0x14025CE00 (KiSynchronizeSecurityDomainTarget.c)
- *     KiIpiSendPacket @ 0x1402F38C4 (KiIpiSendPacket.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402F4410 (KeRemoveProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
+ *     KiSynchronizeSecurityDomainTarget @ 0x1402D3650 (KiSynchronizeSecurityDomainTarget.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
@@ -26,9 +26,9 @@ __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
   _DWORD *v9; // r8
   int v10; // eax
   bool v11; // zf
-  _DWORD v12[68]; // [rsp+30h] [rbp-138h] BYREF
+  unsigned __int16 v12[88]; // [rsp+30h] [rbp-C8h] BYREF
 
-  memset(&v12[2], 0, 0x100uLL);
+  memset(v12, 0, 0xA8uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -37,16 +37,14 @@ __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v12[0] = 2097153;
-  memset(&v12[1], 0, 0x104uLL);
-  KiCopyAffinityEx(v12, 32LL, &a1->ActiveProcessors);
+  KeCopyAffinityEx(v12, &a1->ActiveProcessors);
   KeRemoveProcessorAffinityEx(v12, CurrentPrcb->Number);
   v4 = KeCountSetBitsAffinityEx(v12);
   if ( a1 == KeGetCurrentThread()->ApcState.Process )
     KiSynchronizeSecurityDomainTarget(0LL, 0LL, 0LL, 0LL);
   if ( v4 )
   {
-    KiIpiSendPacket(0, (unsigned int)v12, (unsigned int)KiSynchronizeSecurityDomainTarget, 1, 0LL, 0LL);
+    KiIpiSendPacket(0, (int)v12, (__int64)KiSynchronizeSecurityDomainTarget, 1LL, 0LL, 0LL);
     while ( CurrentPrcb->PacketBarrier )
       _mm_pause();
   }

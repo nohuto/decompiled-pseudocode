@@ -1,14 +1,14 @@
 /*
- * XREFs of PiGetRelatedDevice @ 0x1406F884C
+ * XREFs of PiGetRelatedDevice @ 0x1406F882C
  * Callers:
- *     PiCMGetRelatedDeviceInstance @ 0x1406E91C4 (PiCMGetRelatedDeviceInstance.c)
- *     PiControlGetRelatedDevice @ 0x1406F8710 (PiControlGetRelatedDevice.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406E91A4 (PiCMGetRelatedDeviceInstance.c)
+ *     PiControlGetRelatedDevice @ 0x1406F86F0 (PiControlGetRelatedDevice.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)

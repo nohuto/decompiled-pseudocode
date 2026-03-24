@@ -1,5 +1,5 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x14084DC60
+ * XREFs of MmAllocateNonCachedMemory @ 0x14084DC40
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MmFreePagesFromMdl @ 0x1401373B0 (MmFreePagesFromMdl.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

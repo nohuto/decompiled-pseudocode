@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreatePrimaryBuffer@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUD2D_SIZE_U@@_NAEBUDDisplayTargetResources@@PEAUIDisplayPrimaryDescription@Core@Display@Devices@Windows@@IPEAUDDisplayPrimaryBufferResources@@@Z @ 0x1802844E4
+ * XREFs of ?CreatePrimaryBuffer@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUD2D_SIZE_U@@_NAEBUDDisplayTargetResources@@PEAUIDisplayPrimaryDescription@Core@Display@Devices@Windows@@IPEAUDDisplayPrimaryBufferResources@@@Z @ 0x180243D7C
  * Callers:
- *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180283F0C (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180243824 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
  * Callees:
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1DDisplayPrimaryBufferResources@@QEAA@XZ @ 0x180279F4C (--1DDisplayPrimaryBufferResources@@QEAA@XZ.c)
- *     ??4DDisplayPrimaryBufferResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180282C8C (--4DDisplayPrimaryBufferResources@@QEAAAEAU0@$$QEAU0@@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1DDisplayPrimaryBufferResources@@QEAA@XZ @ 0x1802392C8 (--1DDisplayPrimaryBufferResources@@QEAA@XZ.c)
+ *     ??4DDisplayPrimaryBufferResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180242B84 (--4DDisplayPrimaryBufferResources@@QEAAAEAU0@$$QEAU0@@Z.c)
  */
 
 __int64 __fastcall CDDisplayManager::CreatePrimaryBuffer(
@@ -45,15 +45,15 @@ __int64 __fastcall CDDisplayManager::CreatePrimaryBuffer(
   v9 = *(_QWORD *)a5;
   v10 = *(__int64 (__fastcall **)(__int64, _QWORD, struct Windows::Devices::Display::Core::IDisplayPrimaryDescription *, __int128 *))(**(_QWORD **)a5 + 56LL);
   wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v23);
-  v11 = v10(v9, *((_QWORD *)a5 + 5), a6, &v23);
+  v11 = v10(v9, *((_QWORD *)a5 + 4), a6, &v23);
   v13 = v11;
   if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x217u);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x19Eu, 0LL);
   }
   else
   {
-    v14 = *((_QWORD *)a5 + 3);
+    v14 = *((_QWORD *)a5 + 2);
     v15 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64, _QWORD, char *))(*(_QWORD *)v14 + 24LL);
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
       (void **)&v23 + 1,
@@ -62,18 +62,18 @@ __int64 __fastcall CDDisplayManager::CreatePrimaryBuffer(
     v13 = v16;
     if ( v16 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x21Fu);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1A6u, 0LL);
     }
     else
     {
-      v18 = *((_QWORD *)a2 + 69);
+      v18 = *((_QWORD *)a2 + 74);
       v19 = *(__int64 (__fastcall **)(__int64, _QWORD, GUID *, __int64 *))(*(_QWORD *)v18 + 384LL);
       wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset(&v24);
       v20 = v19(v18, *((_QWORD *)&v23 + 1), &GUID_6f15aaf2_d208_4e89_9ab4_489535d34f9c, &v24);
       v13 = v20;
       if ( v20 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x224u);
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x1ABu, 0LL);
       }
       else
       {

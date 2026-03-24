@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedProperty @ 0x1406EA1C4
+ * XREFs of _CmGetDeviceContainerMappedProperty @ 0x1406EA1A4
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1406EA070 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x1406EA050 (_PnpDispatchDeviceContainer.c)
  * Callees:
- *     _CmIsLocalMachineContainer @ 0x1406DB4C0 (_CmIsLocalMachineContainer.c)
- *     _CmGetContainerBooleanProperty @ 0x1408F9258 (_CmGetContainerBooleanProperty.c)
+ *     _CmIsLocalMachineContainer @ 0x1406DB4A0 (_CmIsLocalMachineContainer.c)
+ *     _CmGetContainerBooleanProperty @ 0x1408F9238 (_CmGetContainerBooleanProperty.c)
  */
 
 __int64 __fastcall CmGetDeviceContainerMappedProperty(

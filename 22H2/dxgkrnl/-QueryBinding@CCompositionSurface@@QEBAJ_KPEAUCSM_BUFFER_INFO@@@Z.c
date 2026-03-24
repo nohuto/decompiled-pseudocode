@@ -1,10 +1,11 @@
 /*
- * XREFs of ?QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z @ 0x1C00103A0
+ * XREFs of ?QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z @ 0x1C0010CF4
  * Callers:
- *     NtQueryCompositionSurfaceBinding @ 0x1C000FEB0 (NtQueryCompositionSurfaceBinding.c)
+ *     NtUnBindCompositionSurface @ 0x1C000F6C0 (NtUnBindCompositionSurface.c)
+ *     NtQueryCompositionSurfaceBinding @ 0x1C000FEC0 (NtQueryCompositionSurfaceBinding.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionSurface::QueryBinding(
@@ -20,9 +21,9 @@ __int64 __fastcall CCompositionSurface::QueryBinding(
   *(_DWORD *)a3 = 0;
   *((_QWORD *)a3 + 1) = 0LL;
   if ( !a2 )
-    a2 = *((_QWORD *)this + 5);
+    a2 = *((_QWORD *)this + 6);
   result = CCompositionSurface::FindBuffer(this, a2, &v5);
   if ( (int)result >= 0 )
-    return (*(__int64 (__fastcall **)(struct CCompositionBuffer *, __int64))(*(_QWORD *)v5 + 48LL))(v5, v4);
+    return (*(__int64 (__fastcall **)(struct CCompositionBuffer *, __int64))(*(_QWORD *)v5 + 40LL))(v5, v4);
   return result;
 }

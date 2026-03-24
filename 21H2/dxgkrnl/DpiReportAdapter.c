@@ -1,157 +1,162 @@
 /*
- * XREFs of DpiReportAdapter @ 0x1C01FC5E0
+ * XREFs of DpiReportAdapter @ 0x1C01825AC
  * Callers:
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FD460 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02BA5BC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
- *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02BD52C (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183448 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020BED8 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020EB6C (-ReportState@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     __chkstk_0 @ 0x1C002CAF0 (__chkstk_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer @ 0x1C005F99C (McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     __chkstk_0 @ 0x1C0028AD0 (__chkstk_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer @ 0x1C0051E00 (McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer.c)
  */
 
 void __fastcall DpiReportAdapter(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx
-  unsigned int v4; // eax
-  __int64 v5; // rsi
-  __int64 v6; // r14
+  unsigned int v4; // esi
+  __int64 v5; // r14
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   _QWORD *PoolWithTag; // rdi
-  _QWORD *v8; // rsi
   __int64 v9; // r8
-  __int64 v10; // rbx
-  __int128 *v11; // rax
-  __int64 v12; // rdx
-  __int64 (__fastcall *v13)(_QWORD, _QWORD, char *); // rax
-  __int64 v14; // rdx
-  _OWORD *v15; // rcx
-  __int128 v16; // xmm0
-  int v17; // eax
-  __int64 v18; // r8
-  __int64 v19; // [rsp+20h] [rbp-E0h]
-  __int64 v20; // [rsp+30h] [rbp-D0h]
-  __int64 v21; // [rsp+38h] [rbp-C8h]
-  __int64 v22; // [rsp+40h] [rbp-C0h]
-  __int64 v23; // [rsp+48h] [rbp-B8h]
-  __int64 v24; // [rsp+50h] [rbp-B0h]
-  __int64 v25; // [rsp+58h] [rbp-A8h]
-  __int64 v26; // [rsp+60h] [rbp-A0h]
-  __int64 v27; // [rsp+68h] [rbp-98h]
-  __int64 v28; // [rsp+70h] [rbp-90h]
-  _DWORD v29[1028]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v10; // r9
+  _QWORD *v11; // rsi
+  __int64 v12; // r8
+  __int64 v13; // rbx
+  __int128 *v14; // rax
+  __int64 v15; // rdx
+  __int64 (__fastcall *v16)(_QWORD, _QWORD, char *); // rax
+  __int64 v17; // rdx
+  _OWORD *v18; // rcx
+  __int128 v19; // xmm0
+  int v20; // eax
+  __int64 v21; // rax
+  __int64 v22; // r8
+  __int64 v23; // [rsp+20h] [rbp-E0h]
+  __int64 v24; // [rsp+30h] [rbp-D0h]
+  __int64 v25; // [rsp+38h] [rbp-C8h]
+  __int64 v26; // [rsp+40h] [rbp-C0h]
+  __int64 v27; // [rsp+48h] [rbp-B8h]
+  __int64 v28; // [rsp+50h] [rbp-B0h]
+  __int64 v29; // [rsp+58h] [rbp-A8h]
+  __int64 v30; // [rsp+60h] [rbp-A0h]
+  __int64 v31; // [rsp+68h] [rbp-98h]
+  __int64 v32; // [rsp+70h] [rbp-90h]
+  _DWORD v33[1028]; // [rsp+80h] [rbp-80h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
   if ( bTracingEnabled )
   {
-    v4 = *(_DWORD *)(v3 + 2736);
-    v5 = 1LL;
-    if ( v4 )
-      v5 = v4;
-    v6 = (unsigned int)v5;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v5, 0x74727044u);
+    v4 = 1;
+    if ( *(_DWORD *)(v3 + 2736) )
+      v4 = *(_DWORD *)(v3 + 2736);
+    v5 = v4;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v4, 0x74727044u);
     if ( PoolWithTag )
     {
       if ( *(_DWORD *)(v3 + 2736) )
       {
-        v18 = 0LL;
+        v22 = 0LL;
         do
         {
-          PoolWithTag[v18] = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 2728) + 8 * v18) + 64LL);
-          v18 = (unsigned int)(v18 + 1);
+          PoolWithTag[v22] = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 2728) + 8 * v22) + 64LL);
+          v22 = (unsigned int)(v22 + 1);
         }
-        while ( (unsigned int)v18 < *(_DWORD *)(v3 + 2736) );
+        while ( (unsigned int)v22 < *(_DWORD *)(v3 + 2736) );
       }
       else
       {
         *PoolWithTag = v3;
       }
-      v8 = PoolWithTag;
+      v11 = PoolWithTag;
       do
       {
-        memset(v29, 0, sizeof(v29));
-        v10 = *v8;
-        v29[1025] = *(_DWORD *)(*v8 + 500LL);
-        v29[1026] = *(_DWORD *)(v10 + 504);
-        LOBYTE(v29[1027]) = *(_BYTE *)(v10 + 508);
-        v11 = (__int128 *)(v10 + 1112);
-        v12 = *(_QWORD *)(v10 + 1112);
-        if ( v12 )
+        memset(v33, 0, sizeof(v33));
+        v13 = *v11;
+        v33[1025] = *(_DWORD *)(*v11 + 500LL);
+        v33[1026] = *(_DWORD *)(v13 + 504);
+        LOBYTE(v33[1027]) = *(_BYTE *)(v13 + 508);
+        v14 = (__int128 *)(v13 + 1112);
+        v15 = *(_QWORD *)(v13 + 1112);
+        if ( v15 )
         {
-          v15 = v29;
-          v9 = 2LL;
+          v18 = v33;
+          v12 = 2LL;
           do
           {
-            v16 = *v11;
-            v11 += 8;
-            *v15 = v16;
-            v15 += 8;
-            *(v15 - 7) = *(v11 - 7);
-            *(v15 - 6) = *(v11 - 6);
-            *(v15 - 5) = *(v11 - 5);
-            *(v15 - 4) = *(v11 - 4);
-            *(v15 - 3) = *(v11 - 3);
-            *(v15 - 2) = *(v11 - 2);
-            *(v15 - 1) = *(v11 - 1);
-            --v9;
+            v19 = *v14;
+            v14 += 8;
+            *v18 = v19;
+            v18 += 8;
+            *(v18 - 7) = *(v14 - 7);
+            *(v18 - 6) = *(v14 - 6);
+            *(v18 - 5) = *(v14 - 5);
+            *(v18 - 4) = *(v14 - 4);
+            *(v18 - 3) = *(v14 - 3);
+            *(v18 - 2) = *(v14 - 2);
+            *(v18 - 1) = *(v14 - 1);
+            --v12;
           }
-          while ( v9 );
-          v29[1024] = 256;
+          while ( v12 );
+          v33[1024] = 256;
         }
-        v13 = *(__int64 (__fastcall **)(_QWORD, _QWORD, char *))(v10 + 616);
-        if ( v13 )
+        v16 = *(__int64 (__fastcall **)(_QWORD, _QWORD, char *))(v13 + 616);
+        if ( v16 )
         {
-          v17 = v13(*(_QWORD *)(v10 + 568), 0LL, (char *)v29 + (v12 != 0 ? 0x100 : 0));
-          v14 = (unsigned int)(v17 + v29[1024]);
+          v20 = v16(*(_QWORD *)(v13 + 568), 0LL, (char *)v33 + (v15 != 0 ? 0x100 : 0));
+          v17 = (unsigned int)(v20 + v33[1024]);
         }
         else
         {
-          v14 = 0LL;
+          v17 = 0LL;
         }
-        v29[1024] = v14;
+        v33[1024] = v17;
         if ( bTracingEnabled )
         {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
           {
-            LODWORD(v28) = *(_DWORD *)(v10 + 1140);
-            LODWORD(v27) = *(_DWORD *)(v10 + 1136);
-            LODWORD(v26) = *(_DWORD *)(v10 + 1132);
-            LODWORD(v25) = *(_DWORD *)(v10 + 1128);
-            LODWORD(v24) = *(_DWORD *)(v10 + 1124);
-            LODWORD(v23) = *(_DWORD *)(v10 + 1120);
-            LODWORD(v22) = LOBYTE(v29[1027]);
-            LODWORD(v21) = v29[1026];
-            LODWORD(v20) = v29[1025];
-            LODWORD(v19) = v14;
+            LODWORD(v32) = *(_DWORD *)(v13 + 1140);
+            LODWORD(v31) = *(_DWORD *)(v13 + 1136);
+            LODWORD(v30) = *(_DWORD *)(v13 + 1132);
+            LODWORD(v29) = *(_DWORD *)(v13 + 1128);
+            LODWORD(v28) = *(_DWORD *)(v13 + 1124);
+            LODWORD(v27) = *(_DWORD *)(v13 + 1120);
+            LODWORD(v26) = LOBYTE(v33[1027]);
+            LODWORD(v25) = v33[1026];
+            LODWORD(v24) = v33[1025];
+            LODWORD(v23) = v17;
             McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer(
-              LOBYTE(v29[1027]),
-              v14,
-              v9,
+              LOBYTE(v33[1027]),
+              v17,
+              v12,
               a2,
-              v19,
-              v29,
-              v20,
-              v21,
-              v22,
               v23,
+              v33,
               v24,
               v25,
               v26,
               v27,
               v28,
-              *(_QWORD *)(a2 + 404));
+              v29,
+              v30,
+              v31,
+              v32,
+              *(_QWORD *)(a2 + 316));
           }
         }
-        ++v8;
-        --v6;
+        ++v11;
+        --v5;
       }
-      while ( v6 );
+      while ( v5 );
       ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {
-      WdLogSingleEntry1(6LL, -1073741801LL);
+      v21 = WdLogNewEntry5_WdLowResource(v7, v6, v9, v10);
+      *(_QWORD *)(v21 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v21);
     }
   }
 }

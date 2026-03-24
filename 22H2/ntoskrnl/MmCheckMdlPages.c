@@ -1,19 +1,19 @@
 /*
- * XREFs of MmCheckMdlPages @ 0x140AE9264
+ * XREFs of MmCheckMdlPages @ 0x1409C5DAC
  * Callers:
- *     ViMmMapLockedPagesSanityChecks @ 0x140AE4A58 (ViMmMapLockedPagesSanityChecks.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1409E7598 (ViMmMapLockedPagesSanityChecks.c)
  * Callees:
- *     MiIsPfn @ 0x14023F0A0 (MiIsPfn.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MmCheckMdlPages(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int64 *v1; // rbx
-  __int16 v2; // bp
-  ULONG_PTR v3; // r14
+  __int16 v2; // r14
+  ULONG_PTR v3; // rbp
   ULONG_PTR v5; // r15
-  __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   __int64 result; // rax
 
   v1 = (unsigned __int64 *)(BugCheckParameter2 + 48);
@@ -28,23 +28,18 @@ __int64 __fastcall MmCheckMdlPages(ULONG_PTR BugCheckParameter2)
     result = MiIsPfn(*v1);
     if ( v2 )
     {
-      if ( !(_DWORD)result )
-        goto LABEL_9;
+      if ( (_DWORD)result != 1 )
+        goto LABEL_8;
     }
     else if ( !(_DWORD)result )
     {
       VerifierBugCheckIfAppropriate(0xC4u, 0x89uLL, BugCheckParameter2, (ULONG_PTR)v1, v6);
       v6 = *v1;
     }
-    result = 48 * v6;
-    if ( !*(_WORD *)(48 * v6 - 0x21FFFFFFFFE0LL) )
-      result = VerifierBugCheckIfAppropriate(
-                 0xC4u,
-                 0x85uLL,
-                 BugCheckParameter2,
-                 v3,
-                 0xAAAAAAAAAAAAAAABuLL * (result >> 4));
-LABEL_9:
+    result = 0xFFFFFA8000000020uLL;
+    if ( !*(_WORD *)(48 * v6 - 0x57FFFFFFFE0LL) )
+      result = VerifierBugCheckIfAppropriate(0xC4u, 0x85uLL, BugCheckParameter2, v3, (__int64)(48 * v6) / 48);
+LABEL_8:
     ++v1;
   }
   while ( (unsigned __int64)v1 < v5 );

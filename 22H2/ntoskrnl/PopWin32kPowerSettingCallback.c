@@ -1,10 +1,10 @@
 /*
- * XREFs of PopWin32kPowerSettingCallback @ 0x140387E20
+ * XREFs of PopWin32kPowerSettingCallback @ 0x1403A94F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x140825E74 (PopBroadcastSessionInfo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x140791634 (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopWin32kPowerSettingCallback(__int128 *a1, int *a2, int a3)
@@ -13,7 +13,6 @@ __int64 __fastcall PopWin32kPowerSettingCallback(__int128 *a1, int *a2, int a3)
   __int128 v5; // [rsp+20h] [rbp-28h] BYREF
   int v6; // [rsp+30h] [rbp-18h]
 
-  v5 = 0uLL;
   if ( a3 != 4 || !a2 )
     return 3221225485LL;
   v3 = *a1;

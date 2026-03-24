@@ -1,155 +1,152 @@
 /*
- * XREFs of ?PushD2DLayer@CDrawingContext@@QEAAJPEBVCVisual@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUID2D1Geometry@@PEBUD2D_MATRIX_3X2_F@@M_NI@Z @ 0x18007EB04
+ * XREFs of ?PushD2DLayer@CDrawingContext@@QEAAJPEBVCVisual@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUID2D1Geometry@@PEBUD2D_MATRIX_3X2_F@@M_NI@Z @ 0x1800625F4
  * Callers:
- *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18005D0D0 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
- *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180079350 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x1801D3818 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
- *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801D4794 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
- *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180225AF0 (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18007FA30 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV-.c)
+ *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x1800945D0 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z.c)
+ *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x180174CB4 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x180175DC8 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801BBBC0 (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Push@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@CDrawingContext@@@Z @ 0x18005B5F4 (-Push@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@.c)
- *     ?ApplyDeferredD2DLayersInScope@CScopedClipStack@@QEAAJPEAVCDrawingContext@@@Z @ 0x180076330 (-ApplyDeferredD2DLayersInScope@CScopedClipStack@@QEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCD2DLayer@@@Z @ 0x18007B7B0 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCD2DLayer@@@Z.c)
- *     ??_GCD2DLayer@@UEAAPEAXI@Z @ 0x18007EAA0 (--_GCD2DLayer@@UEAAPEAXI@Z.c)
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x18007ED98 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?SetDeferredD2DLayerForTopCpuClip@CScopedClipStack@@QEAAXPEAVCD2DLayer@@@Z @ 0x1801DAC44 (-SetDeferredD2DLayerForTopCpuClip@CScopedClipStack@@QEAAXPEAVCD2DLayer@@@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800627D4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ?Create@CD2DLayer@@SAJAEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEBUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@PEAPEAV1@@Z @ 0x1800628EC (-Create@CD2DLayer@@SAJAEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEBUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS.c)
+ *     ??_GCD2DLayer@@UEAAPEAXI@Z @ 0x180062A20 (--_GCD2DLayer@@UEAAPEAXI@Z.c)
+ *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006BD48 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?Push@?$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackBackfaceVisibilityEntry@CDrawingContext@@@Z @ 0x18007AAC0 (-Push@-$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUSta.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CDrawingContext::PushD2DLayer(
-        struct CDrawingContext *a1,
-        const struct CVisual *a2,
-        __int128 *a3,
-        __int64 a4,
-        __int64 a5,
+        CDrawingContext *this,
+        struct CVisual *a2,
+        struct D2D_RECT_F *a3,
+        struct ID2D1Geometry *a4,
+        struct D2D_MATRIX_3X2_F *a5,
         float a6,
         char a7,
         unsigned int a8)
 {
-  char *v8; // rbx
-  __int64 v9; // rdx
-  int v11; // esi
-  __int64 v12; // rax
-  int v13; // r13d
-  char v14; // r15
-  __int64 (__fastcall ***v17)(_QWORD, _BYTE *); // rcx
-  struct CD2DLayer *v18; // rcx
-  struct CObjectCache *ObjectCache; // rax
-  int v20; // edx
-  struct CLayer *v21; // rsi
-  __int64 v22; // rcx
-  int v23; // eax
-  unsigned int v24; // ecx
-  int v26; // eax
-  unsigned int v27; // ecx
-  unsigned int v28; // ecx
-  unsigned int v29; // ecx
-  BOOL v30; // [rsp+34h] [rbp-4Ch]
-  __int128 v32; // [rsp+40h] [rbp-40h] BYREF
-  _BYTE v33[16]; // [rsp+50h] [rbp-30h] BYREF
+  bool v9; // zf
+  int v10; // ebx
+  __int64 v11; // rdx
+  enum D2D1_LAYER_OPTIONS1 v12; // r14d
+  float v13; // xmm1_4
+  char v14; // si
+  __int64 v17; // rax
+  __int64 (__fastcall ***v18)(_QWORD, struct D2D_RECT_F *); // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  unsigned int v21; // eax
+  unsigned int v22; // r8d
+  __int64 v24; // rcx
+  int v25; // eax
+  enum D2D1_ANTIALIAS_MODE v26; // [rsp+20h] [rbp-71h]
+  CD2DLayer *v27; // [rsp+40h] [rbp-51h] BYREF
+  enum D2D1_PRIMITIVE_BLEND v28; // [rsp+48h] [rbp-49h]
+  enum D2D1_ANTIALIAS_MODE v29; // [rsp+4Ch] [rbp-45h]
+  struct CVisual *v30; // [rsp+50h] [rbp-41h]
+  struct D2D_MATRIX_3X2_F *v31; // [rsp+58h] [rbp-39h]
+  struct D2D_RECT_F v32; // [rsp+60h] [rbp-31h] BYREF
+  struct D2D_RECT_F v33; // [rsp+70h] [rbp-21h] BYREF
 
-  v8 = 0LL;
-  v9 = *((_QWORD *)a1 + 4);
-  v30 = *((_DWORD *)a1 + 84) != 0;
-  v11 = 0;
-  v12 = *(_QWORD *)(v9 + 8);
-  v13 = 0;
-  v32 = 0LL;
+  v31 = a5;
+  v9 = *((_DWORD *)this + 69) == 0;
+  v27 = 0LL;
+  v10 = 0;
+  v30 = a2;
+  v11 = *((_QWORD *)this + 4);
+  v12 = D2D1_LAYER_OPTIONS1_NONE;
+  LODWORD(v13) = COERCE_UNSIGNED_INT(a6 - 1.0) & _xmm;
   v14 = 0;
-  v17 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(v9 + 8 + *(int *)(v12 + 12));
-  if ( *(_DWORD *)((**v17)(v17, v33) + 4) == 3 )
+  v29 = !v9;
+  v28 = D2D1_PRIMITIVE_BLEND_SOURCE_OVER;
+  v17 = *(_QWORD *)(v11 + 8);
+  v32 = 0LL;
+  v18 = (__int64 (__fastcall ***)(_QWORD, struct D2D_RECT_F *))(v11 + 8 + *(int *)(v17 + 12));
+  if ( *(_DWORD *)((**v18)(v18, &v33) + 4) == 3 )
   {
-    v11 = 3;
+    v12 = D2D1_LAYER_OPTIONS1_IGNORE_ALPHA|D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND;
   }
-  else if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a6 - 1.0) & _xmm) < 0.0000011920929 )
+  else if ( v13 < 0.0000011920929 )
   {
-    v11 = 1;
-    v13 = 1;
+    v28 = D2D1_PRIMITIVE_BLEND_COPY;
+    v12 = D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND;
   }
   if ( a3 )
     v32 = *a3;
   else
-    CDrawingContext::GetClipBoundsWorld(a1, &v32);
-  if ( *((float *)&v32 + 2) <= *(float *)&v32 || *((float *)&v32 + 3) <= *((float *)&v32 + 1) )
+    CDrawingContext::GetClipBoundsWorld(this, &v32);
+  if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v32.left) )
   {
-    *((_QWORD *)&v32 + 1) = a2;
-    LODWORD(v32) = 7;
-    CWatermarkStack<CDrawingContext::StackStateEntry,64,2,10>::Push((unsigned int *)a1 + 92, &v32);
-    return (unsigned int)v8;
-  }
-  ObjectCache = CThreadContext::GetObjectCache(v18);
-  v20 = *((_DWORD *)ObjectCache + 1);
-  if ( v20 )
-  {
-    v8 = (char *)*((_QWORD *)ObjectCache + 1);
-    *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v8;
-    *((_DWORD *)ObjectCache + 1) = v20 - 1;
-  }
-  if ( !v8 )
-  {
-    v8 = (char *)DefaultHeap::Alloc(0x50uLL);
-    if ( !v8 )
+    v33 = v32;
+    v19 = CD2DLayer::Create(&v33, a4, v31, a6, v29, v12, v28, &v27);
+    v10 = v19;
+    if ( v19 < 0 )
     {
-      LODWORD(v8) = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, -2147024882, 0x1Du, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, -2147024882, 0xFC0u, 0LL);
-      return (unsigned int)v8;
+      v26 = 3820;
+LABEL_30:
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, v26, 0LL);
+      goto LABEL_18;
     }
-  }
-  *(_QWORD *)v8 = &CD2DLayer::`vftable';
-  *(_OWORD *)(v8 + 8) = v32;
-  *((_QWORD *)v8 + 3) = a4;
-  if ( a4 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)a4 + 8LL))(a4);
-  *((_DWORD *)v8 + 14) = v30;
-  *((float *)v8 + 17) = a6;
-  v8[72] = a5 != 0;
-  *((_DWORD *)v8 + 15) = v11;
-  *((_DWORD *)v8 + 16) = v13;
-  if ( a5 )
-  {
-    *((_OWORD *)v8 + 2) = *(_OWORD *)a5;
-    *((_QWORD *)v8 + 6) = *(_QWORD *)(a5 + 16);
-  }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-    McTemplateU0q_EventWriteTransfer(
-      &Microsoft_Windows_Dwm_Core_Provider_Context,
-      &EVTDESC_ETWGUID_D2DLAYERCREATEREASON,
-      a8);
-  v21 = (struct CLayer *)v8;
-  if ( a7 && a4 && COERCE_FLOAT(COERCE_UNSIGNED_INT(a6 - 1.0) & _xmm) < 0.0000011920929 )
-  {
-    v22 = *((_QWORD *)a1 + 346);
-    if ( *(_QWORD *)(v22 - 16) )
-      --*(_QWORD *)(*((_QWORD *)a1 + 113) - 160LL);
-    *(_QWORD *)(v22 - 16) = v8;
-    v14 = 1;
-    ++*(_QWORD *)(*((_QWORD *)a1 + 113) - 160LL);
-  }
-  else
-  {
-    v26 = CScopedClipStack::ApplyDeferredD2DLayersInScope((struct CDrawingContext *)((char *)a1 + 896), a1);
-    LODWORD(v8) = v26;
-    if ( v26 < 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+      McTemplateU0q_EventWriteTransfer(v20, &EVTDESC_ETWGUID_D2DLAYERCREATEREASON, a8);
+    if ( !a7 || !a4 || v13 >= 0.0000011920929 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xFD3u, 0LL);
-      goto LABEL_32;
+LABEL_16:
+      v19 = CDrawingContext::PushLayer(this, v30, v27, v14 != 1, 1);
+      v10 = v19;
+      if ( v19 >= 0 )
+      {
+        v27 = 0LL;
+        goto LABEL_18;
+      }
+      v26 = 3840;
+      goto LABEL_30;
     }
+    v21 = *((_DWORD *)this + 140);
+    v22 = v21 + 1;
+    if ( v21 + 1 < v21 )
+    {
+      v10 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    }
+    else
+    {
+      if ( v22 <= *((_DWORD *)this + 139) )
+      {
+        *(_QWORD *)(*((_QWORD *)this + 67) + 8LL * v21) = v27;
+        *((_DWORD *)this + 140) = v22;
+LABEL_15:
+        v14 = 1;
+        goto LABEL_16;
+      }
+      v25 = DynArrayImpl<0>::AddMultipleAndSet((char *)this + 536, 8LL, 1LL, &v27);
+      v10 = v25;
+      if ( v25 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v25, 0xC0u, 0LL);
+    }
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v10, 0xEF7u, 0LL);
+      goto LABEL_18;
+    }
+    goto LABEL_15;
   }
-  v23 = CDrawingContext::PushLayer(a1, a2, v21, v14 != 1, 1);
-  LODWORD(v8) = v23;
-  if ( v23 >= 0 )
-    return (unsigned int)v8;
-  MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0xFDAu, 0LL);
-LABEL_32:
-  if ( v14 )
-    CScopedClipStack::SetDeferredD2DLayerForTopCpuClip((struct CDrawingContext *)((char *)a1 + 896), 0LL);
-  CD2DLayer::`scalar deleting destructor'(v21, 1);
-  return (unsigned int)v8;
+  *(_QWORD *)&v32.right = v30;
+  LODWORD(v32.left) = 7;
+  CWatermarkStack<CDrawingContext::StackBackfaceVisibilityEntry,64,2,10>::Push((char *)this + 376, &v32);
+LABEL_18:
+  if ( v10 < 0 )
+  {
+    if ( v14 )
+      --*((_DWORD *)this + 140);
+    if ( v27 )
+      CD2DLayer::`scalar deleting destructor'(v27, 1u);
+  }
+  return (unsigned int)v10;
 }

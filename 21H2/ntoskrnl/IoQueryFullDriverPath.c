@@ -1,23 +1,23 @@
 /*
- * XREFs of IoQueryFullDriverPath @ 0x1403B5230
+ * XREFs of IoQueryFullDriverPath @ 0x1403A6DE0
  * Callers:
- *     PiGetDriverImageDirectory @ 0x1409440D0 (PiGetDriverImageDirectory.c)
+ *     PiGetDriverImageDirectory @ 0x14089F384 (PiGetDriverImageDirectory.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall IoQueryFullDriverPath(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v2; // rbx
-  __int64 Pool2; // rax
+  wchar_t *Pool; // rax
 
   v2 = *(_QWORD *)(a1 + 40);
   if ( !v2 )
     return 3221226021LL;
-  Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(v2 + 74), 538996553LL);
-  a2->Buffer = (wchar_t *)Pool2;
-  if ( !Pool2 )
+  Pool = (wchar_t *)IopVerifierExAllocatePool(PagedPool, *(unsigned __int16 *)(v2 + 74));
+  a2->Buffer = Pool;
+  if ( !Pool )
     return 3221225626LL;
   a2->MaximumLength = *(_WORD *)(v2 + 74);
   RtlCopyUnicodeString(a2, (PCUNICODE_STRING)(v2 + 72));

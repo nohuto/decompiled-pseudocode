@@ -1,5 +1,5 @@
 /*
- * XREFs of ?InDxPowerUpFailure@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000BF00
+ * XREFs of ?InDxPowerUpFailure@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000DE40
  * Callers:
  *     <none>
  * Callees:

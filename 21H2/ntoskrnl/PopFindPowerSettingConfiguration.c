@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFindPowerSettingConfiguration @ 0x140751880
+ * XREFs of PopFindPowerSettingConfiguration @ 0x14067AD78
  * Callers:
- *     PopGetPowerSettingValue @ 0x140255D5C (PopGetPowerSettingValue.c)
- *     PopInitilizeAcDcSettings @ 0x1403C0FF4 (PopInitilizeAcDcSettings.c)
- *     PopGetSettingValue @ 0x1406C0510 (PopGetSettingValue.c)
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
- *     PopQueryPowerSettingUlong @ 0x140808344 (PopQueryPowerSettingUlong.c)
+ *     PopGetPowerSettingValue @ 0x140281EC4 (PopGetPowerSettingValue.c)
+ *     PopInitilizeAcDcSettings @ 0x1403AE404 (PopInitilizeAcDcSettings.c)
+ *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
+ *     PopGetSettingValue @ 0x14067CA24 (PopGetSettingValue.c)
+ *     PopQueryPowerSettingUlong @ 0x140779B64 (PopQueryPowerSettingUlong.c)
  * Callees:
- *     PopGetListHead @ 0x140751908 (PopGetListHead.c)
- *     PopStateIsSessionSpecific @ 0x14075197C (PopStateIsSessionSpecific.c)
+ *     PopGetListHead @ 0x14067AE00 (PopGetListHead.c)
+ *     PopStateIsSessionSpecific @ 0x14067AE74 (PopStateIsSessionSpecific.c)
  */
 
 __int64 *__fastcall PopFindPowerSettingConfiguration(_QWORD *a1, int a2)

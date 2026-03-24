@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDisableLastKnownGood @ 0x140706AB0
+ * XREFs of NtDisableLastKnownGood @ 0x140706A90
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IopCreateRegistryKeyEx @ 0x1407096E4 (IopCreateRegistryKeyEx.c)
+ *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 NtDisableLastKnownGood()

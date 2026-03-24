@@ -1,5 +1,5 @@
 /*
- * XREFs of IoIsIoPriorityBoostActive @ 0x14023A6F0
+ * XREFs of IoIsIoPriorityBoostActive @ 0x1402B2DE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall IoIsIoPriorityBoostActive(__int64 a1)
 {
-  return *(_DWORD *)(a1 + 1444) != 0;
+  return *(_DWORD *)(a1 + 1364) != 0;
 }

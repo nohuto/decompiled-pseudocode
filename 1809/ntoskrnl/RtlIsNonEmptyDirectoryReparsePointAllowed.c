@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1401341F0
+ * XREFs of RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140134210
  * Callers:
- *     FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1401341D0 (FsRtlIsNonEmptyDirectoryReparsePointAllowed.c)
+ *     FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1401341F0 (FsRtlIsNonEmptyDirectoryReparsePointAllowed.c)
  * Callees:
  *     <none>
  */

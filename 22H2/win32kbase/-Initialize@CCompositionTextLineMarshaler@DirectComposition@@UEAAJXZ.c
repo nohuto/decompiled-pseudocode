@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionTextLineMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021CAD0
+ * XREFs of ?Initialize@CCompositionTextLineMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBE30
  * Callers:
  *     <none>
  * Callees:

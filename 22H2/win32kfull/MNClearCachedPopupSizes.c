@@ -1,12 +1,12 @@
 /*
- * XREFs of MNClearCachedPopupSizes @ 0x1C0238548
+ * XREFs of MNClearCachedPopupSizes @ 0x1C010251C
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
- *     xxxMenuBarCompute @ 0x1C0239240 (xxxMenuBarCompute.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxMenuBarCompute @ 0x1C0102284 (xxxMenuBarCompute.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     MNRefreshUAHCachedSizes @ 0x1C02385C8 (MNRefreshUAHCachedSizes.c)
+ *     MNRefreshUAHCachedSizes @ 0x1C010259C (MNRefreshUAHCachedSizes.c)
  */
 
 __int64 __fastcall MNClearCachedPopupSizes(_QWORD *a1)

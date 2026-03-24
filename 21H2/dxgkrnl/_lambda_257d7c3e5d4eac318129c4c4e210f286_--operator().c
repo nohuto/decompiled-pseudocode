@@ -1,7 +1,7 @@
 /*
- * XREFs of _lambda_257d7c3e5d4eac318129c4c4e210f286_::operator() @ 0x1C00603AC
+ * XREFs of _lambda_257d7c3e5d4eac318129c4c4e210f286_::operator() @ 0x1C00529E0
  * Callers:
- *     DpiFdoValidateDxgkColorimetry @ 0x1C02177F0 (DpiFdoValidateDxgkColorimetry.c)
+ *     DpiFdoValidateDxgkColorimetry @ 0x1C02CC7D4 (DpiFdoValidateDxgkColorimetry.c)
  * Callees:
  *     <none>
  */

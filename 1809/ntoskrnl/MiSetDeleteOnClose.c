@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x1402A320C
+ * XREFs of MiSetDeleteOnClose @ 0x1402A330C
  * Callers:
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
  * Callees:
  *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)

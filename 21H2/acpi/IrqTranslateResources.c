@@ -1,14 +1,14 @@
 /*
- * XREFs of IrqTranslateResources @ 0x1C009A040
+ * XREFs of IrqTranslateResources @ 0x1C0093510
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dDDq @ 0x1C00237A0 (WPP_RECORDER_SF_dDDq.c)
- *     IrqLibReleaseArbiterLock @ 0x1C002385C (IrqLibReleaseArbiterLock.c)
- *     IrqLibAcquireArbiterLock @ 0x1C0023884 (IrqLibAcquireArbiterLock.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009A1D0 (ProcessorGetDeviceIdtAssignment.c)
- *     IrqArbGsivFromIrq @ 0x1C009A2C0 (IrqArbGsivFromIrq.c)
- *     IrqTranslatepQueryDeviceIrql @ 0x1C009B9F8 (IrqTranslatepQueryDeviceIrql.c)
+ *     WPP_RECORDER_SF_dDDq @ 0x1C000F2A8 (WPP_RECORDER_SF_dDDq.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C00924E4 (IrqTranslatepQueryDeviceIrql.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
 __int64 __fastcall IrqTranslateResources(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6, _OWORD *a7)
@@ -56,7 +56,7 @@ __int64 __fastcall IrqTranslateResources(__int64 a1, __int64 a2, int a3, __int64
       *(_QWORD *)((char *)v7 + 12) = v20;
       *((_DWORD *)v7 + 2) = v18;
       DeviceIdtAssignment = 288;
-      *((_WORD *)v7 + 2) = (unsigned __int8)IrqTranslatepQueryDeviceIrql(*(unsigned int *)(a2 + 8));
+      *((_WORD *)v7 + 2) = (unsigned __int8)IrqTranslatepQueryDeviceIrql(*(_DWORD *)(a2 + 8), v18);
     }
     else
     {

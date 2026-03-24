@@ -1,111 +1,111 @@
 /*
- * XREFs of PspWriteTebIdealProcessor @ 0x14076FF4C
+ * XREFs of PspWriteTebIdealProcessor @ 0x1406C0488
  * Callers:
- *     NtSetInformationThread @ 0x140733AB0 (NtSetInformationThread.c)
- *     PspUserThreadStartup @ 0x14076FBF0 (PspUserThreadStartup.c)
+ *     NtSetInformationThread @ 0x14064A5A0 (NtSetInformationThread.c)
+ *     PspUserThreadStartup @ 0x1406BFC00 (PspUserThreadStartup.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KeGetProcessorNumberFromIndex @ 0x14030CCE0 (KeGetProcessorNumberFromIndex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     KeGetProcessorNumberFromIndex @ 0x14033E500 (KeGetProcessorNumberFromIndex.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
+void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  struct _PROCESSOR_NUMBER *v4; // r13
-  struct _PROCESSOR_NUMBER *v5; // r15
-  struct _PROCESSOR_NUMBER *v6; // rax
-  __int64 v7; // rsi
-  char v8; // di
-  char v9; // r14
-  struct _PROCESSOR_NUMBER *v10; // r12
-  struct _PROCESSOR_NUMBER v11; // eax
-  struct _PROCESSOR_NUMBER *v12; // rax
-  signed __int32 v13[8]; // [rsp+0h] [rbp-C8h] BYREF
-  char v14; // [rsp+20h] [rbp-A8h]
-  char v15; // [rsp+21h] [rbp-A7h]
+  struct _PROCESSOR_NUMBER *v6; // r15
+  struct _PROCESSOR_NUMBER *v7; // r14
+  struct _PROCESSOR_NUMBER *v8; // rax
+  _KPROCESS *v9; // r12
+  unsigned __int64 v10; // rcx
+  char v11; // di
+  char v12; // si
+  struct _PROCESSOR_NUMBER *v13; // r13
+  struct _PROCESSOR_NUMBER *i; // r12
+  struct _PROCESSOR_NUMBER v15; // eax
+  struct _PROCESSOR_NUMBER *v16; // rax
+  signed __int32 v17[8]; // [rsp+0h] [rbp-C8h] BYREF
+  char v18; // [rsp+20h] [rbp-A8h]
+  char v19; // [rsp+21h] [rbp-A7h]
   struct _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
-  struct _PROCESSOR_NUMBER v17; // [rsp+28h] [rbp-A0h] BYREF
-  struct _PROCESSOR_NUMBER *v18; // [rsp+30h] [rbp-98h]
-  struct _PROCESSOR_NUMBER *v19; // [rsp+38h] [rbp-90h]
-  struct _PROCESSOR_NUMBER *v20; // [rsp+40h] [rbp-88h]
-  struct _PROCESSOR_NUMBER *v21; // [rsp+48h] [rbp-80h]
-  __int64 v22; // [rsp+50h] [rbp-78h]
-  __int64 v23; // [rsp+58h] [rbp-70h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+60h] [rbp-68h]
-  $115DCDF994C6370D29323EAB0E0C9502 v25; // [rsp+68h] [rbp-60h] BYREF
+  struct _PROCESSOR_NUMBER v21; // [rsp+28h] [rbp-A0h] BYREF
+  struct _PROCESSOR_NUMBER *v22; // [rsp+30h] [rbp-98h]
+  struct _PROCESSOR_NUMBER *v23; // [rsp+38h] [rbp-90h]
+  struct _PROCESSOR_NUMBER *v24; // [rsp+40h] [rbp-88h]
+  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
+  struct _PROCESSOR_NUMBER *v26; // [rsp+50h] [rbp-78h]
+  __int64 v27; // [rsp+58h] [rbp-70h]
+  _OWORD v28[3]; // [rsp+60h] [rbp-68h] BYREF
 
-  v22 = a2;
-  memset(&v25, 0, sizeof(v25));
+  v27 = a2;
+  memset(v28, 0, sizeof(v28));
   ProcNumber = 0;
-  v17 = 0;
-  v4 = 0LL;
-  v19 = 0LL;
-  v5 = 0LL;
-  v20 = 0LL;
-  v6 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
-  v18 = v6;
-  v21 = v6;
-  v7 = *(_QWORD *)(a2 + 544);
+  v21 = 0;
+  v6 = 0LL;
+  v23 = 0LL;
+  v7 = 0LL;
+  v24 = 0LL;
+  v8 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
+  v22 = v8;
+  v26 = v8;
+  v9 = *(_KPROCESS **)(a2 + 544);
   p_ProcNumber = &ProcNumber;
-  if ( *(_QWORD *)(v7 + 1408) )
+  v10 = v9[1].AffinityPadding[10];
+  if ( v10 )
   {
-    v12 = v6 + 2048;
-    if ( *(_WORD *)(v7 + 2412) == 0x8664 )
+    v16 = v8 + 2048;
+    if ( *(_WORD *)(v10 + 8) == 0x8664 )
     {
-      v5 = v12;
-      v20 = v12;
+      v7 = v16;
+      v24 = v16;
     }
     else
     {
-      v4 = v12;
-      v19 = v12;
+      v6 = v16;
+      v23 = v16;
     }
   }
-  v8 = 0;
-  v15 = 0;
+  v11 = 0;
+  v19 = 0;
   if ( a2 != a1 )
   {
-    if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1352)) )
+    if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1272)) )
       return;
-    v8 = 1;
-    v15 = 1;
+    v11 = 1;
+    v19 = 1;
   }
-  v9 = 0;
-  v14 = 0;
-  if ( v7 != *(_QWORD *)(a1 + 184) )
+  v12 = 0;
+  v18 = 0;
+  if ( v9 != *(_KPROCESS **)(a1 + 184) )
   {
-    KiStackAttachProcess((_KPROCESS *)v7, 0, (__int64)&v25);
-    v9 = 1;
-    v14 = 1;
+    KiStackAttachProcess(v9, 0LL, (__int64)v28, a4);
+    v12 = 1;
+    v18 = 1;
   }
-  v23 = a2 + 196;
   KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &ProcNumber);
-  v10 = v18;
-  while ( 1 )
+  v13 = v22;
+  for ( i = p_ProcNumber; ; *i = v21 )
   {
     ProcNumber.Reserved = ProcNumber.Number;
-    v11 = ProcNumber;
-    v10[1489] = ProcNumber;
-    if ( v5 )
-      v5[1489] = v11;
-    if ( v4 )
+    v15 = ProcNumber;
+    v13[1489] = ProcNumber;
+    if ( v7 )
+      v7[1489] = v15;
+    if ( v6 )
     {
-      LOWORD(v18) = v11.Group;
-      BYTE2(v18) = v11.Number & 0x1F;
-      BYTE3(v18) = v11.Reserved & 0x1F;
-      v4[989] = (struct _PROCESSOR_NUMBER)v18;
+      LOWORD(v22) = v15.Group;
+      BYTE2(v22) = v15.Number & 0x1F;
+      BYTE3(v22) = v15.Reserved & 0x1F;
+      v6[989] = (struct _PROCESSOR_NUMBER)v22;
     }
-    _InterlockedOr(v13, 0);
-    KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v17);
-    if ( v17.Group == ProcNumber.Group && v17.Number == ProcNumber.Number )
+    _InterlockedOr(v17, 0);
+    KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v21);
+    if ( v21.Group == ProcNumber.Group && v21.Number == ProcNumber.Number )
       break;
-    *p_ProcNumber = v17;
   }
-  if ( v9 )
-    KiUnstackDetachProcess(&v25);
-  if ( v8 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1352));
+  if ( v12 )
+    KiUnstackDetachProcess((__int64)v28, 0);
+  if ( v11 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1272));
 }

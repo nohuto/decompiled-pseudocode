@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtStringIntern @ 0x14069EA74
+ * XREFs of PopEtStringIntern @ 0x14069EA54
  * Callers:
  *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlInternTableIntern @ 0x14069EE7C (RtlInternTableIntern.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlInternTableIntern @ 0x14069EE5C (RtlInternTableIntern.c)
  */
 
 __int64 __fastcall PopEtStringIntern(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViHalFreeDomainCommonBuffer @ 0x140ACA1E4
+ * XREFs of ViHalFreeDomainCommonBuffer @ 0x1409CEB64
  * Callers:
- *     VfFreeCommonBuffer @ 0x140AC7280 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x1409CBBA0 (VfFreeCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
@@ -25,7 +25,7 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
 
   v2 = 0;
   v3 = 0LL;
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C369D0);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A370);
   v5 = ViDomainCommonBufferList;
   if ( (__int64 *)ViDomainCommonBufferList != &ViDomainCommonBufferList )
   {
@@ -47,19 +47,22 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
     v6[1] = (__int64)v13;
   }
 LABEL_4:
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C369D0);
+  KxReleaseSpinLock(&qword_140D4A370);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

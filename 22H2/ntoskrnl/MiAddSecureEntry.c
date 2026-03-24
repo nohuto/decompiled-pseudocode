@@ -1,35 +1,35 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x140746294
+ * XREFs of MiAddSecureEntry @ 0x14061FBE0
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A518 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiSecureVad @ 0x1407BAFAC (MiSecureVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CD0F4 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateVad @ 0x1407D0138 (MiAllocateVad.c)
- *     MiCloneNoChange @ 0x140A31EA8 (MiCloneNoChange.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiSecureVad @ 0x14061FAD0 (MiSecureVad.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140683A58 (MiAllocateNewSubAllocatedRegion.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406DAFE8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiAllocateVad @ 0x1406FC4B8 (MiAllocateVad.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiCloneNoChange @ 0x1408C86D8 (MiCloneNoChange.c)
  * Callees:
- *     MiSetVadFlags @ 0x140287590 (MiSetVadFlags.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MmGetCurrentProcessorColor @ 0x140328DA0 (MmGetCurrentProcessorColor.c)
- *     MiLocateExclusiveSecure @ 0x14035A350 (MiLocateExclusiveSecure.c)
+ *     MiSetVadFlags @ 0x14025B120 (MiSetVadFlags.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x14025BAB0 (MiLocateExclusiveSecure.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x1402F4110 (MmGetCurrentProcessorColor.c)
  */
 
 _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   int v9; // eax
   _DWORD *PoolMm; // rax
-  __int64 v11; // r9
-  _DWORD *v12; // rbx
+  _DWORD *v11; // rbx
+  _DWORD *v12; // r9
 
   if ( (*(_DWORD *)(a1 + 48) & 8) != 0 && ((a5 & 1) != 0 || MiLocateExclusiveSecure(a1)) )
     return 0LL;
   LOWORD(v9) = MmGetCurrentProcessorColor();
   PoolMm = ExAllocatePoolMm(64, 0x48uLL, 0x65536D4Du, v9 | 0x80000000);
-  v12 = PoolMm;
+  v11 = PoolMm;
   if ( !PoolMm )
     return 0LL;
   PoolMm[16] = 2;
@@ -37,29 +37,48 @@ _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, 
   *((_QWORD *)PoolMm + 2) = a3;
   if ( (a4 & 1) != 0 )
   {
-    PoolMm[2] |= 8u;
+    LODWORD(a2) = a2 | 8;
+    goto LABEL_8;
   }
-  else if ( (a4 & 4) != 0 )
+  if ( (a4 & 4) != 0 )
   {
-    PoolMm[2] |= 0xAu;
+    LODWORD(a2) = a2 | 0xA;
+    goto LABEL_8;
   }
-  else if ( (a4 & 2) != 0 )
+  if ( (a4 & 2) != 0 )
   {
-    PoolMm[2] |= 9u;
+    LODWORD(a2) = a2 | 9;
+LABEL_8:
+    PoolMm[2] = a2;
   }
   if ( (a5 & 1) != 0 )
-    PoolMm[2] |= 0x20u;
+  {
+    LODWORD(a2) = a2 | 0x20;
+    PoolMm[2] = a2;
+  }
   if ( (a5 & 4) != 0 )
-    PoolMm[2] |= 0x40u;
+  {
+    LODWORD(a2) = a2 | 0x40;
+    PoolMm[2] = a2;
+  }
   if ( (a5 & 8) != 0 )
-    PoolMm[2] |= 0x80u;
+  {
+    LODWORD(a2) = a2 | 0x80;
+    PoolMm[2] = a2;
+  }
   if ( a4 < 0 )
-    PoolMm[2] |= 4u;
+  {
+    LODWORD(a2) = a2 | 4;
+    PoolMm[2] = a2;
+  }
   if ( (a4 & 0x40000000) != 0 )
-    PoolMm[2] |= 0x10u;
+  {
+    LODWORD(a2) = a2 | 0x10;
+    PoolMm[2] = a2;
+  }
   if ( (a4 & 0x20000000) != 0 )
-    PoolMm[2] |= 0x100u;
-  MiInsertVadEvent(a1, (unsigned __int64 *)PoolMm, 1LL, v11);
-  MiSetVadFlags(a1, 1LL, 1);
-  return v12;
+    PoolMm[2] = a2 | 0x100;
+  MiInsertVadEvent(a1, PoolMm, 1);
+  MiSetVadFlags(a1, 1LL, 1LL, v12);
+  return v11;
 }

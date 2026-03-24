@@ -1,82 +1,43 @@
 /*
- * XREFs of ?ReleaseAllReferences@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0021640
+ * XREFs of ?ReleaseAllReferences@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A54D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ @ 0x1C0021814 (-ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ.c)
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0022CDC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C0026E54 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00668DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ @ 0x1C00A5510 (-ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 void __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseAllReferences(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  unsigned __int64 v2; // rdi
-  DirectComposition::CDCompDynamicArrayBase *i; // r14
-  unsigned __int64 j; // rdi
-  unsigned __int64 k; // rdi
-  unsigned __int64 m; // rsi
-  struct DirectComposition::CWeakReferenceBase **v9; // rsi
-  size_t v10; // r8
-  struct DirectComposition::CWeakReferenceBase *v11; // rdx
-  struct DirectComposition::CWeakReferenceBase *v12; // rdx
-  struct DirectComposition::CWeakReferenceBase *v13; // rdx
-  __int64 Src; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v3; // rdi
+  DirectComposition::CDCompDynamicArrayBase *v4; // rsi
+  __int64 v5; // rcx
+  size_t v6; // r8
+  __int64 Src; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0LL;
-  for ( i = (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 200); v2 < *((_QWORD *)this + 28); ++v2 )
+  if ( *((_QWORD *)this + 28) )
   {
-    v9 = *(struct DirectComposition::CWeakReferenceBase ***)(*((_QWORD *)i + 4) * v2 + *(_QWORD *)i);
-    if ( v9 )
+    v3 = 0LL;
+    v4 = (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 200);
+    do
     {
-      if ( *v9 )
+      v5 = *(_QWORD *)(v3 * *((_QWORD *)v4 + 4) + *(_QWORD *)v4);
+      if ( v5 )
       {
-        DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, *v9);
-        *v9 = 0LL;
+        Win32FreePool(v5);
+        v6 = *((_QWORD *)v4 + 4);
+        Src = 0LL;
+        memmove((void *)(*(_QWORD *)v4 + v3 * v6), &Src, v6);
       }
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v9);
-      v10 = *((_QWORD *)i + 4);
-      Src = 0LL;
-      memmove((void *)(*(_QWORD *)i + v2 * v10), &Src, v10);
+      ++v3;
     }
+    while ( v3 < *((_QWORD *)this + 28) );
+    *((_DWORD *)this + 60) = 0;
+    DirectComposition::CDCompDynamicArrayBase::SetCount(v4, 0LL, 0x6D6C4344u);
   }
-  *((_DWORD *)this + 60) = 0;
-  DirectComposition::CDCompDynamicArrayBase::SetCount(i, 0LL, 0x6D6C4344u);
-  for ( j = 0LL; j < *((_QWORD *)this + 10); ++j )
-  {
-    v11 = *(struct DirectComposition::CWeakReferenceBase **)(*((_QWORD *)this + 11) * j + *((_QWORD *)this + 7));
-    if ( v11 )
-      DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v11);
-  }
-  *((_DWORD *)this + 24) = 0;
-  DirectComposition::CDCompDynamicArrayBase::SetCount(
-    (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 56),
-    0LL,
-    0x6D6C4344u);
-  for ( k = 0LL; k < *((_QWORD *)this + 16); ++k )
-  {
-    v12 = *(struct DirectComposition::CWeakReferenceBase **)(*((_QWORD *)this + 17) * k + *((_QWORD *)this + 13));
-    if ( v12 )
-      DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v12);
-  }
-  *((_DWORD *)this + 36) = 0;
-  DirectComposition::CDCompDynamicArrayBase::SetCount(
-    (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 104),
-    0LL,
-    0x6D6C4344u);
-  for ( m = 0LL; m < *((_QWORD *)this + 22); ++m )
-  {
-    v13 = *(struct DirectComposition::CWeakReferenceBase **)(*((_QWORD *)this + 23) * m + *((_QWORD *)this + 19));
-    if ( v13 )
-      DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v13);
-  }
-  *((_DWORD *)this + 48) = 0;
-  DirectComposition::CDCompDynamicArrayBase::SetCount(
-    (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 152),
-    0LL,
-    0x6D6C4344u);
   DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseCompositorComment(this);
 }

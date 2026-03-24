@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpCmdHiveClose @ 0x14068B0E4
+ * XREFs of CmpCmdHiveClose @ 0x14071C1E4
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E8C (CmShutdownSystem2.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpAdjustFileCFSafety @ 0x140419130 (CmpAdjustFileCFSafety.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwSetInformationObject @ 0x14041B220 (ZwSetInformationObject.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAdjustFileCFSafety @ 0x1403EFE7C (CmpAdjustFileCFSafety.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     ZwSetInformationObject @ 0x1403FA5A0 (ZwSetInformationObject.c)
  */
 
 BOOLEAN __fastcall CmpCmdHiveClose(__int64 a1)
 {
-  __int64 *v2; // rsi
+  __int64 *v2; // rdi
   BOOLEAN v3; // r14
-  void *v4; // rbx
+  void *v4; // rsi
   __int64 v5; // rcx
   unsigned int i; // ebx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+38h] [rbp-48h] BYREF
@@ -30,7 +30,7 @@ BOOLEAN __fastcall CmpCmdHiveClose(__int64 a1)
   IoStatusBlock = 0LL;
   FileInformation = 0LL;
   v10 = 0LL;
-  v2 = (__int64 *)(a1 + 1544);
+  v2 = (__int64 *)(a1 + 1536);
   v3 = IoSetThreadHardErrorMode(0);
   v4 = (void *)*v2;
   if ( *v2 )
@@ -44,14 +44,14 @@ BOOLEAN __fastcall CmpCmdHiveClose(__int64 a1)
       else
       {
         v5 = v10;
-        if ( *(_QWORD *)(a1 + 4184) )
-          v5 = *(_QWORD *)(a1 + 4184);
+        if ( *(_QWORD *)(a1 + 4224) )
+          v5 = *(_QWORD *)(a1 + 4224);
         *(_QWORD *)&v10 = v5;
       }
       *((_QWORD *)&FileInformation + 1) = MEMORY[0xFFFFF78000000014];
       ZwSetInformationFile(v4, &IoStatusBlock, &FileInformation, 0x28u, FileBasicInformation);
     }
-    if ( (*(_DWORD *)(a1 + 4112) & 0x10000) != 0 )
+    if ( (*(_DWORD *)(a1 + 4152) & 0x10000) != 0 )
       CmpAdjustFileCFSafety(v4, 0);
   }
   for ( i = 0; i < 6; ++i )

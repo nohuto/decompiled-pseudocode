@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qDDDdddddd @ 0x1C0013E04
+ * XREFs of WPP_RECORDER_SF_qDDDdddddd @ 0x1C001383C
  * Callers:
- *     HUBPDO_CreatePdoInternal @ 0x1C007ABD4 (HUBPDO_CreatePdoInternal.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qDDDdddddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -60,7 +60,7 @@ __int64 WPP_RECORDER_SF_qDDDdddddd(__int64 a1, __int64 a2, __int64 a3, __int64 a
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      &WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       124LL,
       (__int64 *)va,
       8LL,
@@ -84,5 +84,5 @@ __int64 WPP_RECORDER_SF_qDDDdddddd(__int64 a1, __int64 a2, __int64 a3, __int64 a
       4LL,
       0LL);
   LOWORD(v7) = 124;
-  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids, v7, (__int64 *)va);
 }

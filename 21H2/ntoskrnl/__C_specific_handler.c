@@ -1,12 +1,12 @@
 /*
- * XREFs of __C_specific_handler @ 0x1403DF790
+ * XREFs of __C_specific_handler @ 0x1403D0490
  * Callers:
- *     __GSHandlerCheck_SEH @ 0x14041AE88 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck_SEH @ 0x1403F9ABC (__GSHandlerCheck_SEH.c)
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x140236890 (KeCheckStackAndTargetAddress.c)
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
- *     _NLG_Notify @ 0x1403E0D20 (_NLG_Notify.c)
- *     __NLG_Return2 @ 0x1403E0D50 (__NLG_Return2.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
+ *     KeCheckStackAndTargetAddress @ 0x1402B2030 (KeCheckStackAndTargetAddress.c)
+ *     _NLG_Notify @ 0x1403D1960 (_NLG_Notify.c)
+ *     __NLG_Return2 @ 0x1403D1990 (__NLG_Return2.c)
  */
 
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
@@ -102,11 +102,11 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
 LABEL_10:
           NLG_Notify(v8 + v10[4 * v11 + 4], EstablisherFrame, 1LL);
           RtlUnwindEx(
-            (ULONG_PTR)EstablisherFrame,
+            (unsigned __int64)EstablisherFrame,
             v8 + v10[4 * v11 + 4],
             ExceptionRecord,
             ExceptionRecord->ExceptionCode,
-            *((unsigned int **)DispatcherContext + 5),
+            *((_QWORD *)DispatcherContext + 5),
             *((_QWORD *)DispatcherContext + 8));
           _NLG_Return2();
         }

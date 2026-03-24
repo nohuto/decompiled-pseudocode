@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Arrange@StretchAlign@@QEBA?AUD2D_RECT_F@@AEBUD2D_SIZE_F@@0PEAU2@@Z @ 0x1801349EE
+ * XREFs of ?Arrange@StretchAlign@@QEBA?AUD2D_RECT_F@@AEBUD2D_SIZE_F@@0PEAU2@@Z @ 0x180212018
  * Callers:
- *     ?GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1802555D0 (-GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1801F1400 (-GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,60 +14,67 @@ struct D2D_RECT_F *__fastcall StretchAlign::Arrange(
         struct D2D_RECT_F *a5)
 {
   int v5; // r10d
+  float v6; // xmm0_4
   float width; // xmm2_4
   float height; // xmm3_4
-  int v8; // r10d
-  float v9; // xmm1_4
-  __m128 v10; // xmm2
-  unsigned int v11; // xmm1_4
-  __m128 v13; // [rsp+0h] [rbp-18h]
-  __m128 v14; // [rsp+0h] [rbp-18h]
+  struct D2D_RECT_F v9; // xmm1
+  struct D2D_RECT_F *result; // rax
+  struct D2D_RECT_F v11; // [rsp+0h] [rbp-20h]
+  __m128 v12; // [rsp+0h] [rbp-20h]
+  struct D2D_RECT_F v13; // [rsp+10h] [rbp-10h]
+  __int64 v14; // [rsp+30h] [rbp+10h]
 
+  v14 = 0LL;
   v5 = *((_DWORD *)this + 2);
-  width = 0.0;
-  height = 0.0;
   if ( !v5 )
-    goto LABEL_10;
-  v8 = v5 - 1;
-  if ( v8 )
   {
-    if ( (unsigned int)(v8 - 1) > 1 )
-      goto LABEL_11;
-    width = a4->width;
-    if ( a3->width != a4->width || a3->height != a4->height )
+    v14 = (__int64)*a3;
+    goto LABEL_9;
+  }
+  if ( v5 != 1 )
+  {
+    if ( (unsigned int)(v5 - 2) <= 1 )
     {
-      v9 = a3->width / a3->height;
-      height = width / v9;
-      if ( (float)(width / v9) >= a4->height != (*((_DWORD *)this + 2) == 3) )
+      v6 = a3->width / a3->height;
+      width = a4->width;
+      height = a4->width / v6;
+      if ( height >= a4->height != (v5 == 3) )
       {
         height = a4->height;
-        width = height * v9;
+        width = height * v6;
       }
-      goto LABEL_11;
+      goto LABEL_10;
     }
+LABEL_9:
+    width = *(float *)&v14;
+    height = *((float *)&v14 + 1);
 LABEL_10:
-    LODWORD(width) = *(const struct D2D_SIZE_F *)&a3->width;
-    LODWORD(height) = HIDWORD(*(unsigned __int64 *)a3);
-LABEL_11:
-    v14.m128_f32[1] = (float)(a4->height - height) * *((float *)this + 1);
-    v14.m128_f32[0] = (float)(a4->width - width) * *(float *)this;
-    v14.m128_f32[3] = v14.m128_f32[1] + height;
-    v14.m128_f32[2] = width + v14.m128_f32[0];
-    v10 = v14;
-    *(float *)&v11 = fminf(_mm_shuffle_ps(v14, v14, 170).m128_f32[0], a4->width);
-    v14.m128_u64[0] = __PAIR64__(
-                        COERCE_UNSIGNED_INT(fmaxf(0.0, _mm_shuffle_ps(v10, v10, 85).m128_f32[0])),
-                        COERCE_UNSIGNED_INT(fmaxf(0.0, v14.m128_f32[0])));
-    v14.m128_u64[1] = __PAIR64__(COERCE_UNSIGNED_INT(fminf(_mm_shuffle_ps(v10, v10, 255).m128_f32[0], a4->height)), v11);
-    *retstr = (struct D2D_RECT_F)v14;
+    v12.m128_f32[1] = (float)(a4->height - height) * *((float *)this + 1);
+    v12.m128_f32[0] = (float)(a4->width - width) * *(float *)this;
+    v12.m128_f32[3] = v12.m128_f32[1] + height;
+    v12.m128_f32[2] = width + v12.m128_f32[0];
+    v13.left = v12.m128_f32[0];
+    LODWORD(v13.right) = _mm_shuffle_ps(v12, v12, 170).m128_u32[0];
+    LODWORD(v13.bottom) = _mm_shuffle_ps(v12, v12, 255).m128_u32[0];
+    LODWORD(v13.top) = _mm_shuffle_ps(v12, v12, 85).m128_u32[0];
+    v12.m128_u64[0] = __PAIR64__(
+                        COERCE_UNSIGNED_INT(fmaxf(0.0, v13.top)),
+                        COERCE_UNSIGNED_INT(fmaxf(0.0, v12.m128_f32[0])));
+    v12.m128_u64[1] = __PAIR64__(
+                        COERCE_UNSIGNED_INT(fminf(v13.bottom, a4->height)),
+                        COERCE_UNSIGNED_INT(fminf(v13.right, a4->width)));
+    v9 = (struct D2D_RECT_F)v12;
     if ( a5 )
-      *a5 = (struct D2D_RECT_F)v10;
-    return retstr;
+      *a5 = v13;
+    goto LABEL_12;
   }
-  v13.m128_u64[0] = 0LL;
-  *(struct D2D_SIZE_F *)&v13.m128_u16[4] = *a4;
-  *retstr = (struct D2D_RECT_F)v13;
+  *(_QWORD *)&v11.left = 0LL;
+  *(struct D2D_SIZE_F *)&v11.right = *a4;
+  v9 = v11;
   if ( a5 )
-    *a5 = (struct D2D_RECT_F)v13;
-  return retstr;
+    *a5 = v11;
+LABEL_12:
+  result = retstr;
+  *retstr = v9;
+  return result;
 }

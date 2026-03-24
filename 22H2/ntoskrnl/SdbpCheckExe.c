@@ -1,20 +1,28 @@
 /*
- * XREFs of SdbpCheckExe @ 0x140863760
+ * XREFs of SdbpCheckExe @ 0x1407D212C
  * Callers:
- *     SdbpSearchDB @ 0x140752714 (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x14077E6B4 (SdbpSearchDB.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckForMatch @ 0x140756F0C (SdbpCheckForMatch.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SdbpCheckForMatch @ 0x140753F94 (SdbpCheckForMatch.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall SdbpCheckExe(int a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5, int a6, int *a7, void *a8)
+__int64 __fastcall SdbpCheckExe(
+        int a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int *a4,
+        __int64 a5,
+        int a6,
+        int *a7,
+        void *a8)
 {
-  unsigned int v9; // ebx
+  unsigned int v9; // esi
   int v10; // ebp
-  int v12; // edi
-  __int64 v13; // rdx
-  int v14; // eax
+  int v11; // ebx
+  unsigned int v12; // edx
+  int v13; // eax
   int v15; // [rsp+30h] [rbp-18h] BYREF
   int v16[5]; // [rsp+34h] [rbp-14h] BYREF
 
@@ -24,31 +32,31 @@ __int64 __fastcall SdbpCheckExe(int a1, __int64 a2, __int64 a3, _DWORD *a4, __in
   v10 = a3;
   if ( (unsigned int)SdbpCheckForMatch(a1, a2, a3, a5, &v15, (__int64)v16) )
   {
-    v12 = v15;
+    v11 = v15;
     if ( (a6 != 1 || v15 == 2) && (a6 != 2 || v15 != 2) )
     {
       if ( v15 == 1 )
       {
         memset(a8, 0, 0x80uLL);
-        *a4 = 0;
-      }
-      v13 = (unsigned int)*a4;
-      if ( (unsigned int)v13 < 0x10 )
-      {
-        v14 = v16[0];
-        *((_DWORD *)a8 + 2 * v13) = v10;
-        *((_DWORD *)a8 + 2 * v13 + 1) = v14;
-        *a4 = v13 + 1;
-        v9 = 1;
-        if ( a7 )
-          *a7 = v12;
+        v12 = 0;
       }
       else
       {
-        AslLogCallPrintf(1LL);
-        ++*a4;
-        return 0;
+        v12 = *a4;
+        if ( *a4 >= 0x10 )
+        {
+          AslLogCallPrintf(1LL);
+          ++*a4;
+          return 0;
+        }
       }
+      v13 = v16[0];
+      *((_DWORD *)a8 + 2 * v12) = v10;
+      *((_DWORD *)a8 + 2 * v12 + 1) = v13;
+      *a4 = v12 + 1;
+      v9 = 1;
+      if ( a7 )
+        *a7 = v11;
     }
   }
   return v9;

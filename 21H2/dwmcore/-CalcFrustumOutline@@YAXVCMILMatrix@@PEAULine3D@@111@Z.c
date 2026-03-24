@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x180200188
+ * XREFs of ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x1801F41EC
  * Callers:
- *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x1801FFDCC (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
+ *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x18002068C (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     floorf @ 0x1801018F8 (floorf.c)
- *     _o_log10f_0 @ 0x180101928 (_o_log10f_0.c)
- *     powf @ 0x18010194C (powf.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x1801FFBF0 (--0Line3D@@QEAA@UMilPoint4F@@0@Z.c)
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x180261134 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000BA0C (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     powf @ 0x1800E81C8 (powf.c)
+ *     floorf_0 @ 0x1800F476F (floorf_0.c)
+ *     log10f_0 @ 0x1800F4787 (log10f_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x1801F4118 (--0Line3D@@QEAA@UMilPoint4F@@0@Z.c)
  */
 
 __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __int64 a4, _OWORD *a5)
@@ -57,18 +57,16 @@ __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __
   v34 = a5;
   do
   {
-    v15 = *v5;
     if ( *v5 == 0.0 )
       goto LABEL_9;
-    o_log10f_0();
-    o_log10f_0();
-    v16 = COERCE_FLOAT(LODWORD(v15) & _xmm) / 2.0;
+    v15 = log10f_0(COERCE_FLOAT(*(_DWORD *)v5 & _xmm));
+    v16 = v15 / log10f_0(2.0);
     *v5 = v16;
     if ( v11 )
     {
       if ( v16 > v12 )
       {
-        v12 = COERCE_FLOAT(LODWORD(v15) & _xmm) / 2.0;
+        v12 = v16;
         goto LABEL_9;
       }
       v16 = fminf(v16, v13);
@@ -76,7 +74,7 @@ __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __
     else
     {
       v11 = 1;
-      v12 = COERCE_FLOAT(LODWORD(v15) & _xmm) / 2.0;
+      v12 = v16;
     }
     v13 = v16;
 LABEL_9:
@@ -84,8 +82,8 @@ LABEL_9:
     --v14;
   }
   while ( v14 );
-  v17 = o_sqrtf_0(v12 - v13);
-  v18 = floorf(v17);
+  v17 = sqrtf_0(v12 - v13);
+  v18 = floorf_0(v17);
   v19 = powf(2.0, v18);
   v20 = (float *)v37 + 2;
   v37[0] = _xmm;
@@ -109,7 +107,7 @@ LABEL_9:
     --v22;
   }
   while ( v22 );
-  CMILMatrix::Transform(a1, (const struct MilPoint4F *)v37, (struct MilPoint4F *)v38, 8u);
+  CMILMatrix::Transform(a1, (const struct MilPoint4F *)v37, (struct MilPoint4F *)v38, 8);
   v36 = v38[4];
   *(_OWORD *)&v33[1] = v38[0];
   v25 = Line3D::Line3D((__int64)v35, (float *)&v33[1], (float *)&v36);

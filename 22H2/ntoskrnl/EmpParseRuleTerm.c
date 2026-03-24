@@ -1,22 +1,22 @@
 /*
- * XREFs of EmpParseRuleTerm @ 0x140B55838
+ * XREFs of EmpParseRuleTerm @ 0x140A45F28
  * Callers:
- *     EmpParseRuleExpression @ 0x140B5599C (EmpParseRuleExpression.c)
+ *     EmpParseRuleExpression @ 0x140A4608C (EmpParseRuleExpression.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x14032D74C (EmpSearchRuleDatabase.c)
- *     EmpSearchCallbackDatabase @ 0x1403879A8 (EmpSearchCallbackDatabase.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strchr @ 0x1403DAA40 (strchr.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     EmpInfParseGetGuidFromName @ 0x140B562B0 (EmpInfParseGetGuidFromName.c)
- *     EmpParseRuleTermArgMapping @ 0x140B56C78 (EmpParseRuleTermArgMapping.c)
+ *     EmpSearchRuleDatabase @ 0x14034AB74 (EmpSearchRuleDatabase.c)
+ *     EmpSearchCallbackDatabase @ 0x1403B3E84 (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strchr @ 0x1403D2FF0 (strchr.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140A469DC (EmpInfParseGetGuidFromName.c)
+ *     EmpParseRuleTermArgMapping @ 0x140A47370 (EmpParseRuleTermArgMapping.c)
  */
 
 __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, unsigned int *a5)
 {
   __int64 v5; // rbx
-  void *Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   char *v11; // rax
   char *v12; // r12
   int GuidFromName; // ebx
@@ -29,7 +29,7 @@ __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *
   __int128 v21; // [rsp+38h] [rbp-60h] BYREF
 
   v5 = a2 + 1;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v21 = 0LL;
   v11 = strchr((const char *)(a2 + 1), 40);
   v12 = v11;
@@ -67,17 +67,17 @@ LABEL_6:
   v18 = v17 + v15 + v16;
   if ( v18 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, 4LL * v18, 0x74734D45u);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4LL * v18, 0x74734D45u);
+    if ( !PoolWithTag )
       return (unsigned int)-1073741670;
     if ( !(unsigned __int8)EmpParseRuleTermArgMapping(v12, v17) )
     {
       GuidFromName = -1073741811;
-      ExFreePoolWithTag(Pool2, 0x74734D45u);
+      ExFreePoolWithTag(PoolWithTag, 0x74734D45u);
       return (unsigned int)GuidFromName;
     }
   }
-  *a4 = Pool2;
+  *a4 = PoolWithTag;
   *a5 = v18;
   return (unsigned int)GuidFromName;
 }

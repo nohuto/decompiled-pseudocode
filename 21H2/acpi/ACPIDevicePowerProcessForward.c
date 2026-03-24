@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDevicePowerProcessForward @ 0x1C002AAC0
+ * XREFs of ACPIDevicePowerProcessForward @ 0x1C002C660
  * Callers:
  *     <none>
  * Callees:

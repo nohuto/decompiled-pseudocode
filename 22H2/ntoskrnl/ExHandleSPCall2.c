@@ -1,14 +1,14 @@
 /*
- * XREFs of ExHandleSPCall2 @ 0x1407BB880
+ * XREFs of ExHandleSPCall2 @ 0x1406C8260
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     sub_1407BBAA4 @ 0x1407BBAA4 (sub_1407BBAA4.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     sub_1406C8488 @ 0x1406C8488 (sub_1406C8488.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
   unsigned int v7; // ecx
   unsigned __int64 v8; // r8
   unsigned int v9; // r15d
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   volatile void *v11; // r15
   unsigned int v12; // r12d
   void *Src[2]; // [rsp+48h] [rbp-50h]
@@ -56,11 +56,11 @@ __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
   {
     v5 = v7;
     v9 = v7;
-    Pool2 = (void *)ExAllocatePool2(256LL, v7, 542329939LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v7, 0x20534C53u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, Src[0], v9);
+      memmove(PoolWithTag, Src[0], v9);
       v11 = Src[1];
       if ( Src[1] )
         v6 = v15.m128i_i32[1];
@@ -76,7 +76,7 @@ __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
 LABEL_17:
   if ( v3 >= 0 )
   {
-    v3 = sub_1407BBAA4((_DWORD)v4, v5, v6, (unsigned int)&P, (__int64)&Length);
+    v3 = sub_1406C8488((_DWORD)v4, v5, v6, (unsigned int)&P, (__int64)&Length);
     if ( v3 >= 0 )
     {
       if ( v11 )
@@ -103,6 +103,6 @@ LABEL_24:
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
   if ( P )
-    ExFreePoolWithTag(P, 0);
+    ExFreePoolWithTag(P, 0x20534C53u);
   return (unsigned int)v3;
 }

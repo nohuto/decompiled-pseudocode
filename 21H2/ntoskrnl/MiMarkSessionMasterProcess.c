@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkSessionMasterProcess @ 0x14036D9B8
+ * XREFs of MiMarkSessionMasterProcess @ 0x14039DE5C
  * Callers:
- *     MiSessionCreateInternal @ 0x1407F336C (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140786C10 (MiSessionCreateInternal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiSessionAddProcess @ 0x1407F3518 (MiSessionAddProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSessionAddProcess @ 0x1406C3F2C (MiSessionAddProcess.c)
  */
 
 __int64 __fastcall MiMarkSessionMasterProcess(__int64 a1, __int64 a2)

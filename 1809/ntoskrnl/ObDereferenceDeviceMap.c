@@ -2,14 +2,14 @@
  * XREFs of ObDereferenceDeviceMap @ 0x140608F0C
  * Callers:
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     PspAssignPrimaryToken @ 0x140748988 (PspAssignPrimaryToken.c)
+ *     PspAssignPrimaryToken @ 0x140748968 (PspAssignPrimaryToken.c)
  * Callees:
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ObfDereferenceDeviceMap @ 0x1406719E0 (ObfDereferenceDeviceMap.c)
+ *     ObfDereferenceDeviceMap @ 0x1406719C0 (ObfDereferenceDeviceMap.c)
  */
 
 __int64 __fastcall ObDereferenceDeviceMap(__int64 a1)

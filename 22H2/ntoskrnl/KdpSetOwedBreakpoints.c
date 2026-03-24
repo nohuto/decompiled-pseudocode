@@ -1,83 +1,80 @@
 /*
- * XREFs of KdpSetOwedBreakpoints @ 0x140AB6B70
+ * XREFs of KdpSetOwedBreakpoints @ 0x1409BA5E0
  * Callers:
- *     KdSetOwedBreakpoints @ 0x1405680D0 (KdSetOwedBreakpoints.c)
+ *     KdSetOwedBreakpoints @ 0x140511E20 (KdSetOwedBreakpoints.c)
  * Callees:
- *     KdExitDebugger @ 0x140AB1008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140AB1144 (KdEnterDebugger.c)
- *     KdpCopyCodeStream @ 0x140AB6650 (KdpCopyCodeStream.c)
- *     KdpInsertBreakpoint @ 0x140AB68C0 (KdpInsertBreakpoint.c)
- *     KdpRemoveBreakpoint @ 0x140AB6AAC (KdpRemoveBreakpoint.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x1409BA334 (KdpInsertBreakpoint.c)
+ *     KdpRemoveBreakpoint @ 0x1409BA520 (KdpRemoveBreakpoint.c)
  */
 
-_UNKNOWN **__fastcall KdpSetOwedBreakpoints(__int64 a1)
+void __fastcall KdpSetOwedBreakpoints(__int64 a1)
 {
-  _UNKNOWN **result; // rax
-  _KPROCESS **v2; // rdx
-  unsigned __int64 v3; // rcx
+  char *v1; // rdx
+  unsigned __int64 v2; // rcx
   _KPROCESS *Process; // rbp
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // r8
-  char v9; // si
-  unsigned __int8 *v10; // rbx
-  unsigned __int64 v11; // rax
-  __int64 v12; // rcx
+  unsigned __int64 v4; // r8
+  unsigned __int64 v5; // r9
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // r8
+  char v8; // si
+  unsigned __int8 *v9; // rbx
+  unsigned __int64 v10; // rdx
+  __int64 v11; // rcx
   int inserted; // eax
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
-  __int64 v15; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
-  result = &retaddr;
-  v15 = 0LL;
+  v13 = 0LL;
   if ( KdpOweBreakpoint )
   {
-    v2 = (_KPROCESS **)&unk_140C49928;
-    v3 = a1 & 0xFFFFFFFFFFFFF000uLL;
+    v1 = (char *)&unk_140C34288;
+    v2 = a1 & 0xFFFFFFFFFFFFF000uLL;
     Process = KeGetCurrentThread()->ApcState.Process;
     while ( 1 )
     {
-      if ( ((_DWORD)v2[3] & 0xA) != 0 )
+      if ( (*((_DWORD *)v1 + 6) & 0xA) != 0 )
       {
-        v5 = (unsigned __int64)*(v2 - 1);
-        if ( v5 >= 0xFFFF800000000000uLL || *v2 == Process )
+        v4 = *((_QWORD *)v1 - 1);
+        if ( v4 >= 0xFFFF800000000000uLL || *(_KPROCESS **)v1 == Process )
         {
-          v6 = v3 + 4096;
-          v7 = v5 & ~(unsigned __int64)*((unsigned __int8 *)v2 + 29);
-          if ( v7 >= v3 && v7 < v6 )
+          v5 = v2 + 4096;
+          v6 = v4 & ~(unsigned __int64)(unsigned __int8)v1[29];
+          if ( v6 >= v2 && v6 < v5 )
             break;
-          v8 = v7 + *((unsigned __int8 *)v2 + 28);
-          if ( v8 >= v7 && v8 > v3 && v8 <= v6 )
+          v7 = v6 + (unsigned __int8)v1[28];
+          if ( v7 >= v6 && v7 > v2 && v7 <= v5 )
             break;
         }
       }
-      v2 += 5;
-      if ( (__int64)v2 >= (__int64)&unk_140C49E28 )
-        return (_UNKNOWN **)KdpBreakpointChangeCount;
+      v1 += 40;
+      if ( (__int64)v1 >= (__int64)&KdpControlCPressed )
+        return;
     }
-    v9 = KdEnterDebugger(0LL);
+    v8 = KdEnterDebugger(0LL);
     KdpOweBreakpoint = 0;
-    v10 = (unsigned __int8 *)&unk_140C49945;
+    v9 = (unsigned __int8 *)&unk_140C342A5;
     do
     {
-      if ( (*(_DWORD *)(v10 - 5) & 0xA) != 0 )
+      if ( (*(_DWORD *)(v9 - 5) & 0xA) != 0 )
       {
-        v11 = *(_QWORD *)(v10 - 37);
-        if ( v11 >= 0xFFFF800000000000uLL || *(_KPROCESS **)(v10 - 29) == Process )
+        v10 = *(_QWORD *)(v9 - 37);
+        if ( v10 >= 0xFFFF800000000000uLL || *(_KPROCESS **)(v9 - 29) == Process )
         {
-          if ( (int)KdpCopyCodeStream((char *)(v11 & ~(unsigned __int64)*v10), (__int64)&v15, *(v10 - 1), 4) >= 0 )
+          if ( (int)KdpCopyCodeStream((PVOID)(v10 & ~(unsigned __int64)*v9), (__int64)&v13, *(v9 - 1), 4) >= 0 )
           {
-            v12 = (__int64)(v10 - 37);
-            if ( (*(_DWORD *)(v10 - 5) & 2) != 0 )
+            v11 = (__int64)(v9 - 37);
+            if ( (*(_DWORD *)(v9 - 5) & 2) != 0 )
             {
-              *(_QWORD *)(v10 - 13) = v15;
-              inserted = KdpInsertBreakpoint(v12, &v15);
+              *(_QWORD *)(v9 - 13) = v13;
+              inserted = KdpInsertBreakpoint(v11, &v13);
               if ( inserted )
-                *(_DWORD *)(v10 - 5) = inserted;
+                *(_DWORD *)(v9 - 5) = inserted;
             }
             else
             {
-              KdpRemoveBreakpoint(v12, &v15);
+              KdpRemoveBreakpoint(v11, &v13);
             }
           }
         }
@@ -86,10 +83,9 @@ _UNKNOWN **__fastcall KdpSetOwedBreakpoints(__int64 a1)
           KdpOweBreakpoint = 1;
         }
       }
-      v10 += 40;
+      v9 += 40;
     }
-    while ( (__int64)v10 < (__int64)byte_140C49E45 );
-    return (_UNKNOWN **)KdExitDebugger(v9);
+    while ( (__int64)v9 < (__int64)((unsigned __int8 *)&KdpSearchAddressRangeStart + 5) );
+    KdExitDebugger(v8);
   }
-  return result;
 }

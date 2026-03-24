@@ -1,45 +1,44 @@
 /*
- * XREFs of McTemplateU0xq_EventWriteTransfer @ 0x18012E24C
+ * XREFs of McTemplateU0xq_EventWriteTransfer @ 0x180152914
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180036054 (_anonymous_namespace_--SealCurrentFrameSequence.c)
- *     ?Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@MAEBV?$span@PEAVCOverlayContext@@$0?0@4@@Z @ 0x180086EC0 (-Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3D.c)
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087434 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
- *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x18008BF64 (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
- *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z @ 0x1800C4FF8 (-PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z.c)
- *     ?ClearDirectFlip@COverlayContext@@AEAAXXZ @ 0x1800CACBC (-ClearDirectFlip@COverlayContext@@AEAAXXZ.c)
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800D7A20 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
- *     ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800FE8DC (-CheckOcclusionState@CLegacySwapChain@@UEBAJXZ.c)
- *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x1801304AE (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
- *     ?PostRender@CComputeScribbleRenderer@@QEAAXXZ @ 0x1801319CE (-PostRender@CComputeScribbleRenderer@@QEAAXXZ.c)
- *     ?AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1AEBUDXGI_MULTIPLANE_OVERLAY_GROUP_CAPS@@_N@Z @ 0x1801DB7B0 (-AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1AEBU.c)
- *     ?AcquireForRender@CComputeScribbleFramebuffer@@QEAAX_K@Z @ 0x1802049BC (-AcquireForRender@CComputeScribbleFramebuffer@@QEAAX_K@Z.c)
- *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x180204D4C (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
- *     ?LockForDraw@CComputeScribbleFramebuffer@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@XZ @ 0x1802051F8 (-LockForDraw@CComputeScribbleFramebuffer@@AEAA-AV-$unique_any_t@V-$unique_storage@U-$resource_po.c)
- *     ?NotifyUnpinComplete@CGlobalCompositionSurfaceInfo@@UEAAXXZ @ 0x18025B660 (-NotifyUnpinComplete@CGlobalCompositionSurfaceInfo@@UEAAXXZ.c)
- *     ?NotifyUnpinPending@CGlobalCompositionSurfaceInfo@@UEAAXXZ @ 0x18025B6B0 (-NotifyUnpinPending@CGlobalCompositionSurfaceInfo@@UEAAXXZ.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028600 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     ?Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@MAEBV?$span@PEAVCOverlayContext@@$0?0@4@@Z @ 0x180076FE4 (-Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3D.c)
+ *     ?PreCompute@CVisualTree@@IEAAJXZ @ 0x18008E8A8 (-PreCompute@CVisualTree@@IEAAJXZ.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1800905F0 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
+ *     ?ApplyConfiguration@COverlayContext@@QEAAJPEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N1@Z @ 0x18009258C (-ApplyConfiguration@COverlayContext@@QEAAJPEAV-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@s.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800C17A4 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800C3BD8 (-CheckOcclusionState@CLegacySwapChain@@UEBAJXZ.c)
+ *     ?ClearDirectFlip@COverlayContext@@AEAAXXZ @ 0x1800E0538 (-ClearDirectFlip@COverlayContext@@AEAAXXZ.c)
+ *     _lambda_18e6b4387c3745596cadcb99ee9f0265_::operator() @ 0x1800EF1E4 (_lambda_18e6b4387c3745596cadcb99ee9f0265_--operator().c)
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIUnknown@@AEAV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1800EF4C0 (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1_N@Z @ 0x180179E84 (-AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1_N@Z.c)
+ *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180182F54 (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
+ *     ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x1801A4AD0 (-ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ.c)
+ *     ?LockForDraw@CComputeScribbleFramebuffer@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@XZ @ 0x1801A64A4 (-LockForDraw@CComputeScribbleFramebuffer@@AEAA-AV-$unique_any_t@V-$unique_storage@U-$resource_po.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
+ULONG __fastcall McTemplateU0xq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4)
 {
-  _QWORD v5[3]; // [rsp+30h] [rbp-48h] BYREF
-  int v6; // [rsp+48h] [rbp-30h]
-  int v7; // [rsp+4Ch] [rbp-2Ch]
-  int *v8; // [rsp+50h] [rbp-28h]
-  int v9; // [rsp+58h] [rbp-20h]
-  int v10; // [rsp+5Ch] [rbp-1Ch]
-  __int64 v11; // [rsp+90h] [rbp+18h] BYREF
-  int v12; // [rsp+98h] [rbp+20h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-48h] BYREF
+  __int64 *v6; // [rsp+40h] [rbp-38h]
+  int v7; // [rsp+48h] [rbp-30h]
+  int v8; // [rsp+4Ch] [rbp-2Ch]
+  int *v9; // [rsp+50h] [rbp-28h]
+  int v10; // [rsp+58h] [rbp-20h]
+  int v11; // [rsp+5Ch] [rbp-1Ch]
+  __int64 v12; // [rsp+90h] [rbp+18h] BYREF
+  int v13; // [rsp+98h] [rbp+20h] BYREF
 
-  v12 = a4;
-  v11 = a3;
-  v5[2] = &v11;
-  v7 = 0;
-  v6 = 8;
-  v8 = &v12;
-  v10 = 0;
-  v9 = 4;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 3LL, v5);
+  v13 = a4;
+  v12 = a3;
+  v6 = &v12;
+  v8 = 0;
+  v7 = 8;
+  v9 = &v13;
+  v11 = 0;
+  v10 = 4;
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 3u, &v5);
 }

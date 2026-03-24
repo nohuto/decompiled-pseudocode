@@ -1,52 +1,63 @@
 /*
- * XREFs of ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C006DC70
+ * XREFs of ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C008A4D4
  * Callers:
- *     HandleInputThreadActivated @ 0x1C006DB3C (HandleInputThreadActivated.c)
- *     UserDeactivateMITInputProcessing @ 0x1C0087D08 (UserDeactivateMITInputProcessing.c)
+ *     UserActivateMITInputProcessing @ 0x1C0088848 (UserActivateMITInputProcessing.c)
+ *     UserDeactivateMITInputProcessing @ 0x1C01B1E78 (UserDeactivateMITInputProcessing.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ?ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z @ 0x1C006C548 (-ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z.c)
- *     GetKnownRIMDeviceKind @ 0x1C006D78C (GetKnownRIMDeviceKind.c)
- *     RimInputTypeToDeviceInputType @ 0x1C006EEF0 (RimInputTypeToDeviceInputType.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     RimInputTypeToDeviceInputType @ 0x1C00573DC (RimInputTypeToDeviceInputType.c)
+ *     ?ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z @ 0x1C008A674 (-ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z.c)
+ *     GetKnownRIMDeviceKind @ 0x1C008A8A8 (GetKnownRIMDeviceKind.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CBaseInput::HandleInputThreadStateChange(__int64 a1, int a2)
+__int64 __fastcall CBaseInput::HandleInputThreadStateChange(int *a1, int a2)
 {
-  __int64 v4; // rbx
-  int v5; // ebp
-  __int64 i; // rdi
+  CInputThread *v2; // rdi
+  bool v5; // bl
+  int v6; // eax
+  struct DEVICEINFO *v7; // rbx
+  int v8; // edi
   __int64 result; // rax
-  int KnownRIMDeviceKind; // eax
+  unsigned int KnownRIMDeviceKind; // eax
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1449LL);
+  v2 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v2, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v2);
+  ExReleasePushLockSharedEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1404LL);
   if ( a2 )
   {
     if ( a2 != 1 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1484LL);
-    result = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 8LL))(a1);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1440LL);
+    result = (*(__int64 (__fastcall **)(int *))(*(_QWORD *)a1 + 8LL))(a1);
     if ( result )
       return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)result + 8LL))(result);
   }
   else
   {
-    v4 = *(_QWORD *)(a1 + 1256);
     KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(v4, 0LL);
-    v5 = RimInputTypeToDeviceInputType(*(unsigned int *)(a1 + 144));
-    for ( i = **(_QWORD **)(a1 + 1264); i; i = *(_QWORD *)(i + 56) )
+    ExAcquirePushLockSharedEx(&CBaseInput::_sLock, 0LL);
+    v6 = RimInputTypeToDeviceInputType(a1[36]);
+    v7 = CBaseInput::_spDevList;
+    v8 = v6;
+    while ( v7 )
     {
-      if ( *(unsigned __int8 *)(i + 48) == v5 )
+      if ( *((unsigned __int8 *)v7 + 48) == v8 && (*((_QWORD *)v7 + 29) || (*((_DWORD *)v7 + 46) & 0x2000) != 0) )
       {
-        KnownRIMDeviceKind = GetKnownRIMDeviceKind(i);
-        CBaseInput::ForwardPnpNotificationToISM(KnownRIMDeviceKind, i, *(_QWORD *)i, 2);
+        KnownRIMDeviceKind = GetKnownRIMDeviceKind(v7);
+        if ( KnownRIMDeviceKind )
+          CBaseInput::ForwardPnpNotificationToISM(KnownRIMDeviceKind, v7, *(_QWORD *)v7, 2LL);
       }
+      v7 = (struct DEVICEINFO *)*((_QWORD *)v7 + 7);
     }
-    ExReleasePushLockSharedEx(v4, 0LL);
+    ExReleasePushLockSharedEx(&CBaseInput::_sLock, 0LL);
     KeLeaveCriticalRegion();
-    result = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 8LL))(a1);
+    result = (*(__int64 (__fastcall **)(int *))(*(_QWORD *)a1 + 8LL))(a1);
     if ( result )
       return (**(__int64 (__fastcall ***)(__int64))result)(result);
   }

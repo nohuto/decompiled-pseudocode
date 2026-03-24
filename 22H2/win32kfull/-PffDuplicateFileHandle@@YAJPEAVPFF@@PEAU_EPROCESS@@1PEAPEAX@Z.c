@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PffDuplicateFileHandle@@YAJPEAVPFF@@PEAU_EPROCESS@@1PEAPEAX@Z @ 0x1C026ABD8
+ * XREFs of ?PffDuplicateFileHandle@@YAJPEAVPFF@@PEAU_EPROCESS@@1PEAPEAX@Z @ 0x1C027235C
  * Callers:
- *     ?GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z @ 0x1C00A0C88 (-GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z.c)
+ *     ?GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z @ 0x1C00A5058 (-GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z.c)
  * Callees:
- *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C0079744 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
+ *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C00A84B0 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
  */
 
 __int64 __fastcall PffDuplicateFileHandle(struct PFF *a1, struct _EPROCESS *a2, struct _EPROCESS *a3, void **a4)

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpUpdateGroupMasks @ 0x140725E68
+ * XREFs of EtwpUpdateGroupMasks @ 0x140725E48
  * Callers:
- *     EtwpUpdateLoggerGroupMasks @ 0x140725DBC (EtwpUpdateLoggerGroupMasks.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140725D9C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwpCheckSiloGroupMasks @ 0x140312578 (EtwpCheckSiloGroupMasks.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpCheckSiloGroupMasks @ 0x140312678 (EtwpCheckSiloGroupMasks.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpMapEnableFlags @ 0x1406CBBCC (EtwpMapEnableFlags.c)
- *     EtwpLogGroupMask @ 0x140726114 (EtwpLogGroupMask.c)
- *     EtwpKernelTraceRundown @ 0x140726194 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140726380 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpCCSwapStart @ 0x140726D0C (EtwpCCSwapStart.c)
- *     EtwpCCSwapStop @ 0x140726DCC (EtwpCCSwapStop.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
+ *     EtwpLogGroupMask @ 0x1407260F4 (EtwpLogGroupMask.c)
+ *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140726360 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpCCSwapStart @ 0x140726CEC (EtwpCCSwapStart.c)
+ *     EtwpCCSwapStop @ 0x140726DAC (EtwpCCSwapStop.c)
  */
 
 __int64 __fastcall EtwpUpdateGroupMasks(__int64 a1, __int64 a2)

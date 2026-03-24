@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaPrependTranslations @ 0x140457720
+ * XREFs of HalpDmaPrependTranslations @ 0x1404C7D70
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140512C04 (HalpDmaAllocateMapRegistersAtHighLevel.c)
- *     HalpDmaCommitScatterMapBuffers @ 0x14051314C (HalpDmaCommitScatterMapBuffers.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6CEC (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x1404C7234 (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140865078 (HalpDmaAllocateLocalScatterPool.c)
  * Callees:
  *     <none>
  */

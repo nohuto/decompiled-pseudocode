@@ -1,69 +1,79 @@
 /*
- * XREFs of ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00D53E0
+ * XREFs of ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00AE120
  * Callers:
- *     ?GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z @ 0x1C00A55BC (-GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z.c)
- *     ?LockAllocInCpuHostAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@@Z @ 0x1C00D7CA0 (-LockAllocInCpuHostAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@@Z.c)
+ *     ?GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z @ 0x1C0072C24 (-GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z.c)
+ *     ?LockAllocInCpuHostAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@@Z @ 0x1C00B0DF8 (-LockAllocInCpuHostAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@@Z.c)
  * Callees:
- *     ?BuildMdlFromRange@VIDMM_CPU_HOST_APERTURE@@QEBAPEAU_MDL@@PEAXPEBUVIDMM_CPU_HOST_APERTURE_RANGE@@_K2@Z @ 0x1C0019230 (-BuildMdlFromRange@VIDMM_CPU_HOST_APERTURE@@QEBAPEAU_MDL@@PEAXPEBUVIDMM_CPU_HOST_APERTURE_RANGE@.c)
- *     ?MapRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0019C1C (-MapRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C001A46C (-AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033358 (-ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0028C84 (-AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?BuildMdlFromRange@VIDMM_CPU_HOST_APERTURE@@QEBAPEAU_MDL@@PEAXPEBUVIDMM_CPU_HOST_APERTURE_RANGE@@_K2@Z @ 0x1C0028F74 (-BuildMdlFromRange@VIDMM_CPU_HOST_APERTURE@@QEBAPEAU_MDL@@PEAXPEBUVIDMM_CPU_HOST_APERTURE_RANGE@.c)
+ *     ?MapRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0029244 (-MapRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C002956C (-ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::BuildMdlForAllocInCpuHostAperture(
         VIDMM_GLOBAL *this,
         __int64 **a2,
-        VIDMM_SEGMENT **a3,
+        struct VIDMM_CPU_HOST_APERTURE *a3,
         struct _MDL **a4)
 {
   __int64 *v4; // r15
   __int64 v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  struct _MDL *v12; // rax
-  __int64 v13; // rcx
+  __int64 v8; // rcx
+  struct _MDL *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rax
   int v14; // edi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
 
   v4 = *a2;
   v7 = **a2;
-  if ( VIDMM_CPU_HOST_APERTURE::ReclaimRange((VIDMM_CPU_HOST_APERTURE *)a3, (struct _VIDMM_GLOBAL_ALLOC *)v7) )
+  if ( VIDMM_CPU_HOST_APERTURE::ReclaimRange(a3, (struct _VIDMM_GLOBAL_ALLOC *)v7) )
   {
     if ( g_IsInternalReleaseOrDbg )
-      WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
+      WdLogNewEntry5_WdTrace(v8);
   }
   else
   {
-    v14 = VIDMM_CPU_HOST_APERTURE::AcquireRange((unsigned __int64)a3, (struct _VIDMM_GLOBAL_ALLOC *)v7);
+    v14 = VIDMM_CPU_HOST_APERTURE::AcquireRange(a3, (struct _VIDMM_GLOBAL_ALLOC *)v7);
     if ( v14 < 0 )
     {
-      WdLogSingleEntry1(3LL, v7);
+      v17 = WdLogNewEntry5_WdWarning(v16, v15);
+      *(_QWORD *)(v17 + 24) = v7;
+      WdLogEvent5_WdWarning(v17);
       return (unsigned int)v14;
     }
-    v14 = VIDMM_CPU_HOST_APERTURE::MapRange(a3, (struct _VIDMM_GLOBAL_ALLOC *)v7);
+    v14 = VIDMM_CPU_HOST_APERTURE::MapRange((VIDMM_SEGMENT **)a3, (struct _VIDMM_GLOBAL_ALLOC *)v7);
     if ( v14 < 0 )
     {
-      WdLogSingleEntry1(3LL, v7);
+      v21 = WdLogNewEntry5_WdWarning(v20, v19);
+      *(_QWORD *)(v21 + 24) = v7;
+      WdLogEvent5_WdWarning(v21);
       goto LABEL_6;
     }
   }
-  v12 = VIDMM_CPU_HOST_APERTURE::BuildMdlFromRange(
-          (VIDMM_CPU_HOST_APERTURE *)a3,
-          (void *)v4[2],
-          (const struct VIDMM_CPU_HOST_APERTURE_RANGE *)(v7 + 488),
-          *(_QWORD *)(v7 + 128),
-          *(_QWORD *)(v7 + 16));
-  if ( !v12 )
+  v9 = VIDMM_CPU_HOST_APERTURE::BuildMdlFromRange(
+         a3,
+         (void *)v4[2],
+         (const struct VIDMM_CPU_HOST_APERTURE_RANGE *)(v7 + 480),
+         *(_QWORD *)(v7 + 136),
+         *(_QWORD *)(v7 + 16));
+  if ( !v9 )
   {
-    WdLogSingleEntry1(1LL, 23698LL);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
+    v13 = WdLogNewEntry5_WdAssertion(v11, v10, v12);
+    *(_QWORD *)(v13 + 24) = 23547LL;
+    WdLogEvent5_WdAssertion(v13);
     v14 = -1073741801;
 LABEL_6:
     *a4 = 0LL;
     return (unsigned int)v14;
   }
-  *a4 = v12;
+  *a4 = v9;
   return 0LL;
 }

@@ -1,19 +1,24 @@
 /*
- * XREFs of MiSlabAllocatorRecentFailure @ 0x1405B19C8
+ * XREFs of MiSlabAllocatorRecentFailure @ 0x140392AC4
  * Callers:
- *     MiGetSlabPage @ 0x1402EB440 (MiGetSlabPage.c)
- *     MiAllocateSlabEntry @ 0x1405B0B24 (MiAllocateSlabEntry.c)
+ *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
+ *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x1404192EC (MiGetSlabCurrentTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 __fastcall MiSlabAllocatorRecentFailure(__int64 a1)
 {
-  if ( *(_QWORD *)(a1 + 160) )
+  __int64 UnbiasedInterruptTime; // rax
+  __int64 v3; // r11
+
+  if ( !*(_QWORD *)(a1 + 112) )
+    return 0LL;
+  UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
+  if ( (unsigned __int64)(UnbiasedInterruptTime - *(_QWORD *)(v3 + 112)) >= 0x11E1A300 )
   {
-    if ( MiGetSlabCurrentTime() - *(_QWORD *)(a1 + 160) < 0x23C34600 )
-      return 1LL;
-    *(_QWORD *)(a1 + 160) = 0LL;
+    *(_QWORD *)(v3 + 112) = 0LL;
+    return 0LL;
   }
-  return 0LL;
+  return 1LL;
 }

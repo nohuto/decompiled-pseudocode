@@ -1,18 +1,18 @@
 /*
- * XREFs of PoGetPerfStateAndParkingInfo @ 0x1402485E0
+ * XREFs of PoGetPerfStateAndParkingInfo @ 0x1402C3774
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x1406D14BC (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x14064E480 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     PpmPerfGetCurrentState @ 0x140248720 (PpmPerfGetCurrentState.c)
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmGetThroughputInfoCallback @ 0x14045E870 (PpmGetThroughputInfoCallback.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PpmPerfGetCurrentState @ 0x1402C38B4 (PpmPerfGetCurrentState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmGetThroughputInfoCallback @ 0x1405770B0 (PpmGetThroughputInfoCallback.c)
  */
 
 char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __int64 a3, _QWORD *a4)
@@ -34,31 +34,31 @@ char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int
   int v22; // eax
   bool v23; // zf
   ULONG v24; // eax
-  int v26; // [rsp+30h] [rbp-178h] BYREF
-  _DWORD v27[68]; // [rsp+40h] [rbp-168h] BYREF
+  int v26; // [rsp+30h] [rbp-118h] BYREF
+  _DWORD v27[44]; // [rsp+40h] [rbp-108h] BYREF
 
-  memset(&v27[2], 0, 0x100uLL);
+  memset(&v27[2], 0, 0xA0uLL);
   v26 = 0;
   *(_OWORD *)a2 = 0LL;
   *(_OWORD *)(a2 + 16) = 0LL;
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(ProcNumber);
   Prcb = KeGetPrcb(ProcessorIndexFromNumber);
-  v10 = *(_DWORD **)(Prcb + 33968);
+  v10 = *(_DWORD **)(Prcb + 33128);
   v11 = Prcb;
   PpmPerfGetCurrentState(Prcb, a2 + 4, (unsigned int)&v26, a2 + 8, a2, a2 + 24);
   if ( v10 )
   {
-    v12 = v10[110];
-    *(_DWORD *)(a2 + 12) = v10[132];
-    v13 = v10[130];
-    if ( v13 >= v10[131] )
-      v13 = v10[131];
+    v12 = v10[79];
+    *(_DWORD *)(a2 + 12) = v10[96];
+    v13 = v10[94];
+    if ( v13 >= v10[95] )
+      v13 = v10[95];
     *(_DWORD *)(a2 + 16) = v13;
-    if ( v10[111] != v10[113] )
+    if ( v10[80] != v10[82] )
       *(_BYTE *)(a2 + 28) = 1;
     if ( v13 < 0x64 )
       *(_DWORD *)(a2 + 24) |= 1u;
-    LODWORD(v14) = (unsigned int)(100 * v26) / v10[110];
+    LODWORD(v14) = (unsigned int)(100 * v26) / v10[79];
   }
   else
   {
@@ -66,11 +66,11 @@ char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int
     LODWORD(v14) = 100;
   }
   *(_DWORD *)(a2 + 20) = v14;
-  LOBYTE(v14) = *(_BYTE *)(v11 + 34060);
+  LOBYTE(v14) = *(_BYTE *)(v11 + 33212);
   *(_BYTE *)(a2 + 29) = v14;
   if ( a4 )
   {
-    v14 = *(_QWORD *)(v11 + 34064);
+    v14 = *(_QWORD *)(v11 + 33216);
     *a4 = v14;
   }
   if ( a3 )
@@ -83,7 +83,7 @@ char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     v17 = v12;
-    ThroughputInfoCallback = PpmGetThroughputInfoCallback(v11, a3, v12);
+    ThroughputInfoCallback = PpmGetThroughputInfoCallback(v11);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -105,11 +105,11 @@ char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int
     __writecr8(CurrentIrql);
     if ( ThroughputInfoCallback < 0 )
     {
-      v27[0] = 2097153;
-      memset(&v27[1], 0, 0x104uLL);
+      v27[0] = 1310721;
+      memset(&v27[1], 0, 0xA4uLL);
       v24 = KeGetProcessorIndexFromNumber(ProcNumber);
       KeAddProcessorAffinityEx(v27, v24);
-      LOBYTE(v14) = PopExecuteOnTargetProcessors(v27, PpmGetThroughputInfoCallback, a3, v17);
+      LOBYTE(v14) = PopExecuteOnTargetProcessors((__int64)v27, (__int64)PpmGetThroughputInfoCallback, a3, v17);
     }
   }
   return v14;

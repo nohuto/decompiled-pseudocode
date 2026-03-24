@@ -1,22 +1,22 @@
 /*
- * XREFs of dllmain_crt_process_attach @ 0x180100C68
+ * XREFs of dllmain_crt_process_attach @ 0x1800E7458
  * Callers:
- *     dllmain_crt_dispatch @ 0x180100C10 (dllmain_crt_dispatch.c)
+ *     dllmain_crt_dispatch @ 0x1800E7400 (dllmain_crt_dispatch.c)
  * Callees:
- *     __scrt_acquire_startup_lock @ 0x180100810 (__scrt_acquire_startup_lock.c)
- *     __scrt_dllmain_after_initialize_c @ 0x180100850 (__scrt_dllmain_after_initialize_c.c)
- *     __scrt_dllmain_before_initialize_c @ 0x18010088C (__scrt_dllmain_before_initialize_c.c)
- *     __scrt_initialize_crt @ 0x1801009B8 (__scrt_initialize_crt.c)
- *     __scrt_is_nonwritable_in_current_image @ 0x180100A9C (__scrt_is_nonwritable_in_current_image.c)
- *     __scrt_release_startup_lock @ 0x180100B3C (__scrt_release_startup_lock.c)
- *     __scrt_fastfail @ 0x180101484 (__scrt_fastfail.c)
- *     ?__scrt_initialize_type_info@@YAXXZ @ 0x1801016A0 (-__scrt_initialize_type_info@@YAXXZ.c)
- *     __scrt_initialize_default_local_stdio_options @ 0x1801016C8 (__scrt_initialize_default_local_stdio_options.c)
- *     __scrt_get_dyn_tls_init_callback @ 0x1801016EC (__scrt_get_dyn_tls_init_callback.c)
- *     _RTC_Initialize @ 0x1801016FC (_RTC_Initialize.c)
- *     _initterm_0 @ 0x180101796 (_initterm_0.c)
- *     _initterm_e_0 @ 0x1801017A2 (_initterm_e_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __scrt_acquire_startup_lock @ 0x1800E6FE0 (__scrt_acquire_startup_lock.c)
+ *     __scrt_dllmain_after_initialize_c @ 0x1800E7020 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_dllmain_before_initialize_c @ 0x1800E705C (__scrt_dllmain_before_initialize_c.c)
+ *     __scrt_initialize_crt @ 0x1800E7180 (__scrt_initialize_crt.c)
+ *     __scrt_is_nonwritable_in_current_image @ 0x1800E7288 (__scrt_is_nonwritable_in_current_image.c)
+ *     __scrt_release_startup_lock @ 0x1800E7328 (__scrt_release_startup_lock.c)
+ *     __scrt_fastfail @ 0x1800E7B60 (__scrt_fastfail.c)
+ *     ?__scrt_initialize_type_info@@YAXXZ @ 0x1800E7F20 (-__scrt_initialize_type_info@@YAXXZ.c)
+ *     __scrt_initialize_default_local_stdio_options @ 0x1800E7F48 (__scrt_initialize_default_local_stdio_options.c)
+ *     __scrt_get_dyn_tls_init_callback @ 0x1800E7F6C (__scrt_get_dyn_tls_init_callback.c)
+ *     _RTC_Initialize @ 0x1800E7F7C (_RTC_Initialize.c)
+ *     _initterm_0 @ 0x1800E8096 (_initterm_0.c)
+ *     _initterm_e_0 @ 0x1800E80A2 (_initterm_e_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 dllmain_crt_process_attach()
@@ -33,7 +33,7 @@ __int64 dllmain_crt_process_attach()
   {
     _scrt_fastfail(7LL);
     __debugbreak();
-    JUMPOUT(0x180100D88LL);
+    JUMPOUT(0x1800E756ELL);
   }
   _scrt_current_native_startup_state = 1;
   if ( _scrt_dllmain_before_initialize_c() )
@@ -58,8 +58,8 @@ __int64 dllmain_crt_process_attach()
   if ( *dyn_tls_init_callback )
   {
     if ( _scrt_is_nonwritable_in_current_image((__int64)dyn_tls_init_callback) )
-      _guard_xfg_dispatch_icall_fptr();
+      _guard_dispatch_icall_fptr();
   }
-  ++dword_1803D2DA4;
+  ++dword_180346E54;
   return 1LL;
 }

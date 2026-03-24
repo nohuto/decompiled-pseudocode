@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIRootIrpQueryBusRelations @ 0x1C0091924
+ * XREFs of ACPIRootIrpQueryBusRelations @ 0x1C009DB7C
  * Callers:
- *     ACPIFilterIrpQueryDeviceRelations @ 0x1C008E6C0 (ACPIFilterIrpQueryDeviceRelations.c)
- *     ACPIRootIrpQueryDeviceRelations @ 0x1C00A08E0 (ACPIRootIrpQueryDeviceRelations.c)
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C0090110 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIRootIrpQueryDeviceRelations @ 0x1C00A2B60 (ACPIRootIrpQueryDeviceRelations.c)
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIDetectPdoDevices @ 0x1C0006CE8 (ACPIDetectPdoDevices.c)
- *     ACPIDetectDockDevices @ 0x1C000A628 (ACPIDetectDockDevices.c)
- *     AcpiCheckExternalConnection @ 0x1C00918BC (AcpiCheckExternalConnection.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIDetectPdoDevices @ 0x1C0019338 (ACPIDetectPdoDevices.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
+ *     AcpiCheckExternalConnection @ 0x1C009DB14 (AcpiCheckExternalConnection.c)
  */
 
 __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID 
   v7 = *(_QWORD *)(a2 + 184);
   v8 = DeviceExtension;
   v9 = *(_BYTE *)(v7 + 1);
-  if ( *(_QWORD *)(DeviceExtension + 760) )
+  if ( *(_QWORD *)(DeviceExtension + 720) )
   {
     AcpiCheckExternalConnection();
     v10 = ACPIDetectPdoDevices(a1, a3);
@@ -47,7 +47,7 @@ __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID 
           2u,
           5u,
           0xDu,
-          (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+          (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
           a2,
           IrpText,
           v10,
@@ -67,7 +67,7 @@ __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID 
           2u,
           0x12u,
           0xEu,
-          (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+          (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
           a2,
           v18,
           v10,
@@ -88,7 +88,7 @@ __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID 
         2u,
         5u,
         0xCu,
-        (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
         a2,
         v12,
         0,

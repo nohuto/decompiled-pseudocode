@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetSceneLightRealization@CCompositionAmbientLight@@UEBAJAEBVCMILMatrix@@PEAPEAUISpectreLightNode@@@Z @ 0x18020B850
+ * XREFs of ?GetSceneLightRealization@CCompositionAmbientLight@@UEBAJAEBVCMILMatrix@@PEAPEAUISpectreLightNode@@@Z @ 0x1801B8DF0
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CCompositionAmbientLight::GetSceneLightRealization(
@@ -19,22 +19,22 @@ __int64 __fastcall CCompositionAmbientLight::GetSceneLightRealization(
   __int64 v9; // rdx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  *a3 = (struct ISpectreLightNode *)*((_QWORD *)this + 22);
-  v4 = *((_QWORD *)this + 22);
+  *a3 = (struct ISpectreLightNode *)*((_QWORD *)this + 21);
+  v4 = *((_QWORD *)this + 21);
   if ( v4 )
   {
-    v5 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v4 + 80LL))(v4, (char *)this + 256);
+    v5 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v4 + 80LL))(v4, (char *)this + 248);
     v6 = v5;
     if ( v5 < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)0xB0,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionambientlight.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionambientlight.cpp",
         (const char *)(unsigned int)v5);
       return v6;
     }
-    v8 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 22) + 88LL))(*((_QWORD *)this + 22));
+    v8 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 88LL))(*((_QWORD *)this + 21));
     if ( v8 >= 0 )
       return 0LL;
     v9 = 177LL;
@@ -47,7 +47,7 @@ __int64 __fastcall CCompositionAmbientLight::GetSceneLightRealization(
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v9,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionambientlight.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionambientlight.cpp",
     (const char *)(unsigned int)v8);
   return (unsigned int)v8;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ADAPTER_RENDER_DdiDestroyProcess@@YAJPEAVADAPTER_RENDER@@PEAX@Z @ 0x1C0048C50
+ * XREFs of ?ADAPTER_RENDER_DdiDestroyProcess@@YAJPEAVADAPTER_RENDER@@PEAX@Z @ 0x1C0042300
  * Callers:
  *     <none>
  * Callees:
- *     ?DdiDestroyProcess@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C01E405C (-DdiDestroyProcess@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
+ *     ?DdiDestroyProcess@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C016570C (-DdiDestroyProcess@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER_DdiDestroyProcess(struct ADAPTER_RENDER *a1, void *a2)

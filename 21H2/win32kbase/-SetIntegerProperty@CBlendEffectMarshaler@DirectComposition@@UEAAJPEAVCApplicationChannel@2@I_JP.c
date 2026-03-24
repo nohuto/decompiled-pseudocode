@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CBlendEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0219810
+ * XREFs of ?SetIntegerProperty@CBlendEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E3520
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0215D90 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DFF40 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
  */
 
 __int64 __fastcall DirectComposition::CBlendEffectMarshaler::SetIntegerProperty(
@@ -22,8 +22,8 @@ __int64 __fastcall DirectComposition::CBlendEffectMarshaler::SetIntegerProperty(
   }
   else
   {
-    *a5 = *((_DWORD *)this + 30) != a4;
-    *((_DWORD *)this + 30) = a4;
+    *a5 = *((_DWORD *)this + 28) != a4;
+    *((_DWORD *)this + 28) = a4;
   }
   return v5;
 }

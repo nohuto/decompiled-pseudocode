@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpInitializeResource @ 0x1403C4950
+ * XREFs of ExpInitializeResource @ 0x140399590
  * Callers:
- *     ExInitializeFastResource @ 0x1403C4890 (ExInitializeFastResource.c)
+ *     ExInitializeFastResource @ 0x1403994A0 (ExInitializeFastResource.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     RtlStdLogStackTrace @ 0x1405A9584 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x1405A9610 (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A9A04 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlStdLogStackTrace @ 0x140585C50 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x140585CDC (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405860E0 (RtlpStdGetRecordedStackTraceIndex.c)
  */
 
 void *__fastcall ExpInitializeResource(_QWORD *a1)
 {
   void *result; // rax
   __int64 v3; // rbx
-  __int64 v4; // rsi
+  KSPIN_LOCK *v4; // rsi
   void *v5; // r14
   __int16 v6; // bp
 
@@ -28,11 +28,11 @@ void *__fastcall ExpInitializeResource(_QWORD *a1)
     v4 = RtlpStackTraceDatabase;
     if ( RtlpStackTraceDatabase )
     {
-      result = (void *)RtlStdLogStackTrace(RtlpStackTraceDatabase, 1LL);
+      result = (void *)RtlStdLogStackTrace(RtlpStackTraceDatabase);
       v5 = result;
       if ( result )
       {
-        result = (void *)RtlpStdGetRecordedStackTraceIndex(v4, result);
+        result = (void *)RtlpStdGetRecordedStackTraceIndex(v4);
         v6 = (__int16)result;
         if ( !(_DWORD)result )
           result = (void *)RtlStdReleaseStackTrace(v4, v5);

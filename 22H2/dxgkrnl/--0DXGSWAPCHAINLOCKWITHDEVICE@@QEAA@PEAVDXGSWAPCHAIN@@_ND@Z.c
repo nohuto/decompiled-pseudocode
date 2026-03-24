@@ -1,15 +1,14 @@
 /*
- * XREFs of ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C0356E08
+ * XREFs of ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C02AA0A8
  * Callers:
- *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z @ 0x1C035A5A4 (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z.c)
- *     DxgkAcquireSwapChain @ 0x1C035ABF0 (DxgkAcquireSwapChain.c)
- *     DxgkAddSurfaceToSwapChain @ 0x1C035B1F0 (DxgkAddSurfaceToSwapChain.c)
- *     DxgkCreateSwapChain @ 0x1C035B600 (DxgkCreateSwapChain.c)
- *     DxgkGetSwapChainSurfacePhysicalAddress @ 0x1C035C190 (DxgkGetSwapChainSurfacePhysicalAddress.c)
- *     DxgkRemoveSurfaceFromSwapChain @ 0x1C035CFA0 (DxgkRemoveSurfaceFromSwapChain.c)
- *     DxgkUnOrderedPresentSwapChain @ 0x1C035D290 (DxgkUnOrderedPresentSwapChain.c)
+ *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C02AD11C (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     DxgkAcquireSwapChain @ 0x1C02AD640 (DxgkAcquireSwapChain.c)
+ *     DxgkAddSurfaceToSwapChain @ 0x1C02ADBD0 (DxgkAddSurfaceToSwapChain.c)
+ *     DxgkCreateSwapChain @ 0x1C02ADFB0 (DxgkCreateSwapChain.c)
+ *     DxgkRemoveSurfaceFromSwapChain @ 0x1C02AF580 (DxgkRemoveSurfaceFromSwapChain.c)
+ *     DxgkUnOrderedPresentSwapChain @ 0x1C02AF840 (DxgkUnOrderedPresentSwapChain.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 DXGSWAPCHAINLOCKWITHDEVICE *__fastcall DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE(

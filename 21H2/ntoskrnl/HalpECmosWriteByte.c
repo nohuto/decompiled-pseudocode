@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpECmosWriteByte @ 0x140518380
+ * XREFs of HalpECmosWriteByte @ 0x1404CC230
  * Callers:
  *     <none>
  * Callees:
- *     HalpIoDelay @ 0x14041B0A0 (HalpIoDelay.c)
- *     WRITE_PORT_USHORT_PAIR @ 0x14050A55C (WRITE_PORT_USHORT_PAIR.c)
+ *     HalpIoDelay @ 0x1403F9CD0 (HalpIoDelay.c)
+ *     WRITE_PORT_USHORT_PAIR @ 0x1404BDAEC (WRITE_PORT_USHORT_PAIR.c)
  */
 
 void __fastcall HalpECmosWriteByte(__int16 a1, unsigned __int8 a2)

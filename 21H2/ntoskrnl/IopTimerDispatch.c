@@ -1,19 +1,19 @@
 /*
- * XREFs of IopTimerDispatch @ 0x1403A06D0
+ * XREFs of IopTimerDispatch @ 0x140501130
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _local_unwind @ 0x1403E0F50 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1403FAD10 (RtlpComputeEpilogueOffset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine1 @ 0x14042BD90 (KiCustomAccessRoutine1.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwTraceTimedEvent @ 0x14045FBE2 (EtwTraceTimedEvent.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403EBB64 (RtlpComputeEpilogueOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine1 @ 0x140409D10 (KiCustomAccessRoutine1.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall IopTimerDispatch(
@@ -24,7 +24,7 @@ void __fastcall IopTimerDispatch(
 {
   int v8; // r14d
   unsigned __int64 v9; // rsi
-  int v10; // r15d
+  unsigned int v10; // r15d
   struct _LIST_ENTRY *i; // rbx
   struct _LIST_ENTRY *v12; // r12
   unsigned __int8 CurrentIrql; // al
@@ -53,7 +53,7 @@ void __fastcall IopTimerDispatch(
     *(_QWORD *)&v20[33] = __ROR8__(Dpc, SystemArgument1);
     Dpc->SystemArgument1 = (PVOID)((unsigned __int64)Dpc->SystemArgument1 ^ SystemArgument2);
     Dpc->SystemArgument2 = (PVOID)((unsigned __int64)Dpc->SystemArgument2 ^ SystemArgument1);
-    KiCustomAccessRoutine1(DeferredContext);
+    KiCustomAccessRoutine1((unsigned int *)DeferredContext);
   }
   if ( *(_DWORD *)DeferredContext )
   {
@@ -67,9 +67,9 @@ void __fastcall IopTimerDispatch(
         if ( v8 )
         {
           memset(v22, 0, sizeof(v22));
-          EtwGetKernelTraceTimestamp((unsigned __int64)v22, 0x40800000uLL);
+          EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v22, 0x40800000u);
           ((void (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY *))v12->Flink)(i[2].Flink, i[1].Blink);
-          EtwTraceTimedEvent(3910, 1082130432, (_DWORD)i + 16, 8, 4196866, (__int64)v22);
+          EtwTraceTimedEvent(3910, 0x40800000u, (__int64)&i[1], 8, 4196866, (__int64)v22);
         }
         else
         {
@@ -92,7 +92,7 @@ void __fastcall IopTimerDispatch(
           v17 = (v16 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v16;
           if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }

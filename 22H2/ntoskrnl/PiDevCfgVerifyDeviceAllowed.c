@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgVerifyDeviceAllowed @ 0x1408792EC
+ * XREFs of PiDevCfgVerifyDeviceAllowed @ 0x14077C228
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C655C (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     PiDevCfgQueryResolveValue @ 0x140562368 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgInitResolveContext @ 0x14087D384 (PiDevCfgInitResolveContext.c)
- *     PiDevCfgFreeResolveContext @ 0x14087D72C (PiDevCfgFreeResolveContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039A2C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E3E4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgFreeResolveContext @ 0x140766D9C (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgInitResolveContext @ 0x14076732C (PiDevCfgInitResolveContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgVerifyDeviceAllowed(__int64 a1, void *a2)
@@ -28,18 +28,19 @@ __int64 __fastcall PiDevCfgVerifyDeviceAllowed(__int64 a1, void *a2)
   ObjectAttributes.RootDirectory = a2;
   v8[1] = 0;
   v13 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   v9 = L"Status";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  v8[0] = 917516;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v8;
   memset(v10, 0, sizeof(v10));
   v5 = 0;
-  v8[0] = 917516;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    inited = PiDevCfgInitResolveContext(a1, a2, v10);
+    inited = PiDevCfgInitResolveContext(a1, a2, (__int64)v10);
     if ( inited >= 0 && (int)PiDevCfgQueryResolveValue((__int64)v10, KeyHandle, (__int64)L"Blocked", &v13) >= 0 )
     {
       if ( PnpValidateRegistryDword(v13) )
@@ -49,7 +50,7 @@ __int64 __fastcall PiDevCfgVerifyDeviceAllowed(__int64 a1, void *a2)
         inited = -1073740948;
     }
   }
-  PiDevCfgFreeResolveContext(v10);
+  PiDevCfgFreeResolveContext((__int64)v10);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   return (unsigned int)inited;

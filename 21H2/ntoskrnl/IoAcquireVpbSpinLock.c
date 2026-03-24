@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAcquireVpbSpinLock @ 0x140251D90
+ * XREFs of IoAcquireVpbSpinLock @ 0x140360CD0
  * Callers:
- *     <none>
+ *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __stdcall IoAcquireVpbSpinLock(PKIRQL Irql)

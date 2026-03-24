@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ProcessStatusChange@DXGPROCESS@@IEAAXXZ @ 0x1C0183478
+ * XREFs of ?ProcessStatusChange@DXGPROCESS@@IEAAXXZ @ 0x1C011C298
  * Callers:
- *     ?DxgkpProcessStatusChangeWork@@YAXPEAX@Z @ 0x1C01DD2C0 (-DxgkpProcessStatusChangeWork@@YAXPEAX@Z.c)
+ *     ?DxgkpProcessStatusChangeWork@@YAXPEAX@Z @ 0x1C011F3E0 (-DxgkpProcessStatusChangeWork@@YAXPEAX@Z.c)
  * Callees:
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C00096EC (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0009730 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000A924 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C000BC90 (--1COREACCESS@@QEAA@XZ.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C000BD28 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C000BD4C (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C000C040 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ @ 0x1C01DD328 (-NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C00040C0 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0004300 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0006CE0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C00072DC (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0007300 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0007464 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007514 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ @ 0x1C011F448 (-NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall DXGPROCESS::ProcessStatusChange(DXGPROCESS *this)
@@ -35,13 +35,13 @@ void __fastcall DXGPROCESS::ProcessStatusChange(DXGPROCESS *this)
   v2 = (struct _KPROCESS *)*((_QWORD *)this + 7);
   memset(&ApcState_8, 0, sizeof(ApcState_8));
   KeStackAttachProcess(v2, &ApcState_8);
-  v3 = (char *)this + 216;
+  v3 = (char *)this + 176;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx((char *)this + 216, 0LL);
-  *((_QWORD *)this + 28) = KeGetCurrentThread();
-  _InterlockedExchange((volatile __int32 *)this + 109, 0);
-  v4 = (_QWORD *)*((_QWORD *)this + 40);
-  v10[0] = (char *)this + 320;
+  ExAcquirePushLockExclusiveEx((char *)this + 176, 0LL);
+  *((_QWORD *)this + 23) = KeGetCurrentThread();
+  _InterlockedExchange((volatile __int32 *)this + 89, 0);
+  v4 = (_QWORD *)*((_QWORD *)this + 35);
+  v10[0] = (char *)this + 280;
   while ( 1 )
   {
     v10[1] = v4;

@@ -1,91 +1,63 @@
 /*
- * XREFs of KiSetPageAttributesTable @ 0x140A8D010
+ * XREFs of KiSetPageAttributesTable @ 0x14099965C
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BFE4 (KeRestoreProcessorSpecificFeatures.c)
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383DBC (KeRestoreProcessorSpecificFeatures.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x14039AAE0 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0380 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 unsigned __int64 KiSetPageAttributesTable()
 {
-  int v0; // r8d
-  volatile signed __int32 *SchedulerAssist; // rcx
-  bool v2; // di
-  unsigned int v3; // ecx
+  int v0; // ebx
+  bool v1; // di
   unsigned __int64 result; // rax
-  char v5; // dl
-  int v6; // ebx
-  struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v8; // r8
-  int v9; // ett
-  unsigned __int64 v10; // [rsp+20h] [rbp-28h]
-  unsigned __int64 v11; // [rsp+28h] [rbp-20h]
-  int v12; // [rsp+40h] [rbp-8h]
+  unsigned int v3; // r9d
+  __int64 v4; // rdx
+  char v5; // r8
+  int v6; // ecx
+  int v7; // ebx
+  unsigned __int64 v8; // [rsp+20h] [rbp-28h]
+  unsigned __int64 v9; // [rsp+28h] [rbp-20h]
+  int v10; // [rsp+40h] [rbp-8h]
 
+  v8 = 0x7010600070106LL;
   v0 = 0;
-  v10 = 0x7010600070106LL;
   _disable();
-  SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-  if ( SchedulerAssist )
-    _InterlockedOr(SchedulerAssist, 0x200000u);
-  v2 = (v12 & 0x200) != 0;
+  v1 = (v10 & 0x200) != 0;
+  result = __readmsr(0x277u);
   v3 = 0;
-  v11 = __readmsr(0x277u);
-  result = 0LL;
-  do
+  v9 = result;
+  v4 = 0LL;
+  while ( 1 )
   {
-    v5 = *((_BYTE *)&v11 + result);
-    if ( v5 == 6 )
-    {
-      if ( *((_BYTE *)&v10 + result) != 6 )
-      {
-        v6 = 2;
-LABEL_17:
-        __wbinvd();
-        goto LABEL_14;
-      }
-    }
-    else if ( v5 != *((_BYTE *)&v10 + result) )
-    {
-      v0 |= 1u;
-    }
+    v5 = *((_BYTE *)&v9 + v4);
+    if ( v5 == 6 && *((_BYTE *)&v8 + v4) != 6 )
+      break;
+    v6 = v0 | 1;
+    if ( v5 == *((_BYTE *)&v8 + v4) )
+      v6 = v0;
     ++v3;
-    ++result;
+    ++v4;
+    v0 = v6;
+    if ( v3 >= 8 )
+      goto LABEL_6;
   }
-  while ( v3 < 8 );
-  if ( !v0 )
-    goto LABEL_9;
-  v6 = v0 & 2;
-  if ( (v0 & 2) != 0 )
-    goto LABEL_17;
-LABEL_14:
-  KeFlushCurrentTbImmediately();
-  __writemsr(0x277u, v10);
-  if ( v6 )
-    __wbinvd();
-  result = KeFlushCurrentTbImmediately();
-LABEL_9:
-  if ( v2 )
+  v0 = 3;
+LABEL_6:
+  if ( v0 )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v8 = CurrentPrcb->SchedulerAssist;
-    if ( v8 )
-    {
-      _m_prefetchw(v8);
-      LODWORD(result) = *v8;
-      do
-      {
-        v9 = result;
-        result = (unsigned int)_InterlockedCompareExchange(v8, result & 0xFFDFFFFF, result);
-      }
-      while ( v9 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-    }
-    _enable();
+    v7 = v0 & 2;
+    if ( v7 )
+      __wbinvd();
+    KeFlushCurrentTbImmediately();
+    __writemsr(0x277u, v8);
+    if ( v7 )
+      __wbinvd();
+    result = KeFlushCurrentTbImmediately();
   }
+  if ( v1 )
+    _enable();
   return result;
 }

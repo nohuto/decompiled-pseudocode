@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetSystemWriteConstraintInformation @ 0x1408624E8
+ * XREFs of ExpGetSystemWriteConstraintInformation @ 0x1407D23B8
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041B840 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
 __int64 __fastcall ExpGetSystemWriteConstraintInformation(_QWORD *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall ExpGetSystemWriteConstraintInformation(_QWORD *a1)
   v7.ObjectName = (PUNICODE_STRING)L"*,";
   *(_QWORD *)&v7.Attributes = 576LL;
   *(_OWORD *)&v7.SecurityDescriptor = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
   OutputBuffer = 0LL;
   v2 = ZwCreateFile(&FileHandle, 0x100000u, &v7, &IoStatusBlock, 0LL, 0x80u, 0, 1u, 0x20u, 0LL, 0);

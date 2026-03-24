@@ -1,17 +1,17 @@
 /*
- * XREFs of IopAllocateBootResourcesInternal @ 0x140820308
+ * XREFs of IopAllocateBootResourcesInternal @ 0x1407B46D0
  * Callers:
- *     IopReleaseResources @ 0x14081F6E0 (IopReleaseResources.c)
- *     IopAllocateBootResources @ 0x140820280 (IopAllocateBootResources.c)
+ *     IopReleaseResources @ 0x1407533CC (IopReleaseResources.c)
+ *     IopAllocateBootResources @ 0x1407B4640 (IopAllocateBootResources.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     IopFreeReqList @ 0x14082045C (IopFreeReqList.c)
- *     PnpBuildCmResourceList @ 0x14082071C (PnpBuildCmResourceList.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     IopBootAllocation @ 0x140821AAC (IopBootAllocation.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PnpBuildCmResourceList @ 0x140751180 (PnpBuildCmResourceList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     IopFreeReqList @ 0x140753068 (IopFreeReqList.c)
+ *     IopBootAllocation @ 0x1407B4804 (IopBootAllocation.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateBootResourcesInternal(int a1, __int64 a2, __int64 a3)
@@ -38,20 +38,16 @@ __int64 __fastcall IopAllocateBootResourcesInternal(int a1, __int64 a2, __int64 
     HIDWORD(v15[1]) = a1;
     v15[3] = v8;
     v15[0] = a2;
-    v10 = IopResourceRequirementsListToReqList(v15, &v15[4]);
+    v10 = IopResourceRequirementsListToReqList((__int64)v15, &v15[4]);
     if ( v10 >= 0 )
     {
       if ( !v15[4] )
-      {
-LABEL_16:
-        ExFreePoolWithTag(v9, 0);
-        goto LABEL_17;
-      }
+        goto LABEL_15;
       v10 = IopBootAllocation();
       if ( v10 >= 0 )
       {
         PipSetDevNodeFlags(v7, 128);
-        PnpBuildCmResourceList(v15, 0LL);
+        PnpBuildCmResourceList((__int64)v15, 0);
         v10 = v15[7];
         if ( SLODWORD(v15[7]) >= 0 )
         {
@@ -84,10 +80,10 @@ LABEL_16:
     v10 = -1073741823;
   }
   if ( v15[4] )
-    IopFreeReqList((PVOID)v15[4]);
+    IopFreeReqList((_QWORD *)v15[4]);
+LABEL_15:
   if ( v9 )
-    goto LABEL_16;
-LABEL_17:
+    ExFreePoolWithTag(v9, 0);
   if ( v10 < 0 )
   {
     v13 = *(void **)(v7 + 544);

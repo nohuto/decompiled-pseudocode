@@ -1,204 +1,209 @@
 /*
- * XREFs of xxxSetWindowLong @ 0x1C00E4444
+ * XREFs of xxxSetWindowLong @ 0x1C00FB008
  * Callers:
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00A3BCC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     NtUserSetWindowLong @ 0x1C00E4340 (NtUserSetWindowLong.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C004639C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     NtUserSetWindowLong @ 0x1C00FAF00 (NtUserSetWindowLong.c)
  * Callees:
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     FCallerOk @ 0x1C00E464C (FCallerOk.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     safe_cast_wf_to_PDIALOG @ 0x1C014DE84 (safe_cast_wf_to_PDIALOG.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ??1CProcessAttachDetach@@QEAA@XZ @ 0x1C008A21C (--1CProcessAttachDetach@@QEAA@XZ.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
+ *     FCallerOk @ 0x1C00FB3FC (FCallerOk.c)
+ *     ??8?$RedirectedFieldcbWndServerExtra@I@tagWND@@QEBAE$$QEAI@Z @ 0x1C0124E4C (--8-$RedirectedFieldcbWndServerExtra@I@tagWND@@QEBAE$$QEAI@Z.c)
+ *     safe_cast_wf_to_PDIALOG @ 0x1C01624D8 (safe_cast_wf_to_PDIALOG.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall xxxSetWindowLong(struct tagWND *a1, int a2, unsigned int a3, unsigned int a4, int a5)
 {
-  __int64 v6; // r14
-  __int64 v7; // rdi
-  char v9; // bl
+  __int64 v6; // r15
+  __int64 v7; // rsi
+  unsigned int v9; // edi
   __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
-  __int64 v12; // r15
-  __int64 v13; // r8
-  unsigned __int64 v14; // r9
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  int v17; // edi
-  __int64 v18; // rdx
-  unsigned int *v19; // rax
-  unsigned int v20; // edi
-  int v22; // ecx
-  unsigned int *v23; // rax
-  __int64 v24; // rcx
-  int v25; // r8d
-  __int64 v26; // rcx
+  __int64 v11; // r8
+  unsigned __int64 v12; // rcx
+  __int64 v13; // rbx
+  __int64 v14; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v28; // rcx
-  __int64 v29; // rcx
-  __int64 v30; // r9
-  int v31; // r8d
+  __int64 v16; // rcx
+  unsigned int *v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // r9
+  unsigned int v21; // ebx
+  __int64 v23; // r9
+  unsigned __int64 v24; // r9
+  int v25; // ecx
+  _WORD *v26; // rdx
+  unsigned int v27; // ecx
+  _DWORD *v28; // r10
+  int v29; // esi
+  __int64 v30; // rdx
+  unsigned int *v31; // rax
   __int64 v32; // rcx
-  _DWORD *v33; // r10
-  __int64 v34; // rcx
+  _BYTE v33[4]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v34; // [rsp+24h] [rbp-54h]
+  _DWORD v35[20]; // [rsp+28h] [rbp-50h] BYREF
 
   v6 = a3;
   v7 = a2;
   v9 = 0;
+  v33[0] = 0;
   if ( !(unsigned int)FCallerOk(a1) )
-    goto LABEL_57;
+    goto LABEL_53;
   if ( (int)v7 >= 0 )
   {
-    v11 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 248LL);
+    v12 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 252LL);
     v10 = v7 + 4;
-    if ( v7 + 4 > v11 )
+    if ( v7 + 4 > v12 )
     {
-      v12 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
-      if ( v12 != PsGetCurrentProcessWin32Process(v11) )
+      v13 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
+      if ( v13 != PsGetCurrentProcessWin32Process(v12) && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x800) == 0 )
       {
-        v26 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 232LL);
-        if ( (v26 & 0x10) == 0 )
+        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v14);
+        if ( !(unsigned __int8)CheckAccess(CurrentProcessWin32Process + 880, v13 + 880)
+          && *(int *)(PsGetCurrentProcessWin32Process(v16) + 12) >= 0 )
         {
-          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v26);
-          if ( (unsigned __int8)CheckAccess(CurrentProcessWin32Process + 880, v12 + 880)
-            || *(int *)(PsGetCurrentProcessWin32Process(v28) + 12) < 0 )
-          {
-            KeAttachProcess(**(PRKPROCESS **)(*((_QWORD *)a1 + 2) + 424LL));
-            v9 = 1;
-            goto LABEL_5;
-          }
-LABEL_57:
-          UserSetLastError(5LL, v10);
-          return 0LL;
+          goto LABEL_53;
         }
+        KeAttachProcess(**(PRKPROCESS **)(*((_QWORD *)a1 + 2) + 424LL));
+        v33[0] = 1;
       }
     }
   }
-LABEL_5:
   if ( (*(_WORD *)(*((_QWORD *)a1 + 5) + 42LL) & 0x2FFF) == 0 )
-    goto LABEL_6;
-  v23 = (unsigned int *)safe_cast_wf_to_PDIALOG(a1);
-  v10 = (__int64)v23;
-  if ( v23 )
+    goto LABEL_34;
+  v17 = (unsigned int *)safe_cast_wf_to_PDIALOG(a1);
+  if ( v17 )
   {
     if ( !(_DWORD)v7 )
     {
-      v20 = *v23;
-      *(_QWORD *)v23 = (int)v6;
-      goto LABEL_14;
+      v21 = *v17;
+      v34 = *v17;
+      *(_QWORD *)v17 = (int)v6;
+LABEL_24:
+      CProcessAttachDetach::~CProcessAttachDetach((CProcessAttachDetach *)v33);
+      return v21;
     }
     if ( (_DWORD)v7 == 16 )
     {
-      v24 = *((_QWORD *)a1 + 5);
-      v25 = *(_DWORD *)(v24 + 248);
-      if ( v25 || *(int *)(v24 + 200) < 30 )
+      v35[0] = 0;
+      if ( (unsigned __int8)tagWND::RedirectedFieldcbWndServerExtra<unsigned int>::operator==((char *)a1 + 321, v35)
+        && *(int *)(*((_QWORD *)a1 + 5) + 200LL) >= 30 )
       {
-        v20 = 0;
-        if ( v25 )
-        {
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v24);
-          v24 = *((_QWORD *)a1 + 5);
-        }
-        if ( *(int *)(v24 + 200) < 30 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v24);
+        v9 = *(_DWORD *)(v20 + 16);
+        v34 = v9;
+        *(_QWORD *)(v20 + 16) = (int)v6;
       }
       else
       {
-        v20 = v23[4];
-        *((_QWORD *)v23 + 2) = (int)v6;
+        v35[0] = 0;
+        if ( !(unsigned __int8)tagWND::RedirectedFieldcbWndServerExtra<unsigned int>::operator==(v19, v35) )
+        {
+          v35[0] = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 687LL);
+        }
+        if ( *(int *)(*((_QWORD *)a1 + 5) + 200LL) < 30 )
+        {
+          v35[0] = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 688LL);
+        }
       }
-      goto LABEL_14;
+      goto LABEL_55;
     }
     if ( (unsigned int)v7 <= 0x1D )
     {
-      v29 = 1415LL;
-      goto LABEL_54;
-    }
-    goto LABEL_6;
-  }
-  if ( (int)v7 < 0 )
-    goto LABEL_19;
-  v30 = *((_QWORD *)a1 + 5);
-  v31 = *(_WORD *)(v30 + 42) & 0x2FFF;
-  v10 = (unsigned int)(v31 - 666);
-  if ( (int)v7 >= *(unsigned __int16 *)(gpsi + 2 * v10 + 328) - 328 )
-  {
-LABEL_6:
-    if ( (int)v7 >= 0 )
-      goto LABEL_7;
-LABEL_19:
-    if ( (unsigned int)(v7 + 21) <= 9 )
-    {
-      v22 = 547;
-      if ( _bittest(&v22, v7 + 21) )
-      {
-        v20 = xxxSetWindowData(a1, v7, v6, a4);
-        goto LABEL_14;
-      }
-    }
-LABEL_45:
-    v29 = 1413LL;
-    goto LABEL_54;
-  }
-  if ( v31 != 679
-    || (_DWORD)v7 && ((_DWORD)v7 != 8 || **(_DWORD **)(v30 + 296) && *(char *)(*((_QWORD *)a1 + 5) + 19LL) >= 0) )
-  {
-    goto LABEL_45;
-  }
-LABEL_7:
-  v13 = *((_QWORD *)a1 + 5);
-  v14 = *(unsigned int *)(v13 + 248);
-  if ( (unsigned __int64)(unsigned int)v7 + 4 > (unsigned int)(v14 + *(_DWORD *)(v13 + 200)) )
-    goto LABEL_45;
-  if ( a5 )
-  {
-    v15 = *(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL);
-    if ( _bittest16((const signed __int16 *)(v15 + 6), 8u) )
-    {
-      v32 = 0LL;
-      v33 = &gDefaultServerClasses;
-      while ( *(_WORD *)v15 != *(_WORD *)(gpsi + 2LL * ((*v33 >> 3) & 0x1F) + 868) )
-      {
-        v32 = (unsigned int)(v32 + 1);
-        v33 += 12;
-        if ( (unsigned int)v32 >= 8 )
-          goto LABEL_10;
-      }
-      if ( (int)v7 < *((_DWORD *)&gDefaultServerClasses + 12 * v32 + 6) )
-      {
-        v10 = *v33 & 0xF8;
-        if ( (*(_BYTE *)v33 & 0xF8) != 0xB0 || (unsigned __int64)((int)v7 + 4LL) > 0xFFFFFFFFFFFFFEE8uLL )
-        {
-          v29 = 5LL;
+      v18 = 1415LL;
 LABEL_54:
-          UserSetLastError(v29, v10);
-          if ( v9 )
-            KeDetachProcess();
-          return 0LL;
+      UserSetLastError(v18, v10, v11);
+      goto LABEL_55;
+    }
+    goto LABEL_34;
+  }
+  if ( (int)v7 >= 0 )
+  {
+    v23 = *((_QWORD *)a1 + 5);
+    v11 = *(_WORD *)(v23 + 42) & 0x2FFF;
+    v10 = (unsigned int)(v11 - 666);
+    if ( (int)v7 < *(unsigned __int16 *)(gpsi + 2 * v10 + 328) - 320 )
+    {
+      if ( (_DWORD)v11 != 679 )
+        goto LABEL_33;
+      if ( (_DWORD)v7 )
+      {
+        if ( (_DWORD)v7 != 8 )
+          goto LABEL_33;
+        v34 = **(_DWORD **)(v23 + 296);
+        if ( v34 )
+        {
+          if ( *(char *)(*((_QWORD *)a1 + 5) + 19LL) >= 0 )
+            goto LABEL_33;
         }
       }
+      goto LABEL_32;
     }
+LABEL_34:
+    if ( (int)v7 < 0 )
+      goto LABEL_35;
+LABEL_32:
+    v11 = *((_QWORD *)a1 + 5);
+    v24 = *(unsigned int *)(v11 + 252);
+    if ( (unsigned __int64)(unsigned int)v7 + 4 > (unsigned int)(v24 + *(_DWORD *)(v11 + 200)) )
+    {
+LABEL_33:
+      v18 = 1413LL;
+      goto LABEL_54;
+    }
+    if ( !a5 )
+      goto LABEL_47;
+    v26 = *(_WORD **)(*((_QWORD *)a1 + 17) + 8LL);
+    if ( (v26[3] & 0x100) == 0 )
+      goto LABEL_47;
+    v27 = 0;
+    v28 = &gDefaultServerClasses;
+    while ( *v26 != *(_WORD *)(gpsi + 2LL * ((*v28 >> 3) & 0x1F) + 868) )
+    {
+      ++v27;
+      v28 += 12;
+      if ( v27 >= 8 )
+        goto LABEL_47;
+    }
+    if ( (int)v7 >= *((_DWORD *)&gDefaultServerClasses + 12 * v27 + 6)
+      || (v10 = *v28 & 0xF8, (*(_BYTE *)v28 & 0xF8) == 0xB0)
+      && (unsigned __int64)((int)v7 + 4LL) <= 0xFFFFFFFFFFFFFEE0uLL )
+    {
+LABEL_47:
+      if ( (int)v7 + 4LL <= v24 )
+      {
+        v32 = *((_QWORD *)a1 + 35);
+        v21 = *(_DWORD *)((int)v7 + v32);
+        *(_DWORD *)((int)v7 + v32) = v6;
+      }
+      else
+      {
+        v29 = v7 - v24;
+        v30 = *(_QWORD *)(v11 + 296);
+        if ( (*(_DWORD *)(v11 + 232) & 0x800) != 0 )
+          v31 = (unsigned int *)(v30 + v29 + *(_QWORD *)(*((_QWORD *)a1 + 3) + 128LL));
+        else
+          v31 = (unsigned int *)(v29 + v30);
+        v21 = *v31;
+        v34 = *v31;
+        *v31 = v6;
+      }
+      goto LABEL_24;
+    }
+LABEL_53:
+    v18 = 5LL;
+    goto LABEL_54;
   }
-LABEL_10:
-  v16 = (int)v7;
-  if ( (int)v7 + 4LL <= v14 )
-  {
-    v34 = *((_QWORD *)a1 + 35);
-    v20 = *(_DWORD *)((int)v7 + v34);
-    *(_DWORD *)(v16 + v34) = v6;
-  }
-  else
-  {
-    v17 = v7 - v14;
-    v18 = *(_QWORD *)(v13 + 296);
-    if ( (*(_DWORD *)(v13 + 232) & 0x10) != 0 )
-      v19 = (unsigned int *)(v18 + v17 + *(_QWORD *)(*((_QWORD *)a1 + 3) + 128LL));
-    else
-      v19 = (unsigned int *)(v17 + v18);
-    v20 = *v19;
-    *v19 = v6;
-  }
-LABEL_14:
-  if ( v9 )
-    KeDetachProcess();
-  return v20;
+LABEL_35:
+  if ( (unsigned int)(v7 + 21) > 9 )
+    goto LABEL_33;
+  v25 = 547;
+  if ( !_bittest(&v25, v7 + 21) )
+    goto LABEL_33;
+  v9 = xxxSetWindowData(a1, v7, v6, a4);
+LABEL_55:
+  CProcessAttachDetach::~CProcessAttachDetach((CProcessAttachDetach *)v33);
+  return v9;
 }

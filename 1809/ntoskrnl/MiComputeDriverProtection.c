@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeDriverProtection @ 0x14072B960
+ * XREFs of MiComputeDriverProtection @ 0x14072B940
  * Callers:
- *     MiProtectSystemImage @ 0x14072B684 (MiProtectSystemImage.c)
+ *     MiProtectSystemImage @ 0x14072B664 (MiProtectSystemImage.c)
  * Callees:
  *     <none>
  */

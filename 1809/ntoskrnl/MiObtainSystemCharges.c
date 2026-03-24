@@ -2,7 +2,7 @@
  * XREFs of MiObtainSystemCharges @ 0x140026DC8
  * Callers:
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F90 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)

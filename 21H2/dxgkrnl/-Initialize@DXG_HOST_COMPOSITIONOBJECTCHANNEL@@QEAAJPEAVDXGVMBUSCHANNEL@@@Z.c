@@ -1,48 +1,62 @@
 /*
- * XREFs of ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02DFAD0
+ * XREFs of ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C028D018
  * Callers:
- *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0350B5C (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B4E30 (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C004B314 (-ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C0356550 (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C0040E48 (-ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C02B3A8C (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
  */
 
 __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::Initialize(struct _EPROCESS **this, struct DXGVMBUSCHANNEL *a2)
 {
   DXGSESSIONMGR *v4; // rbx
-  __int64 v5; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   unsigned int CurrentProcessSessionId; // eax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   __int64 v11; // r8
-  __int64 v12; // r9
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // rax
   struct _EPROCESS *CurrentProcess; // rax
-  int v14; // eax
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // rax
 
-  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  CurrentProcessSessionId = PsGetCurrentProcessSessionId(v5);
+  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2) + 102);
+  CurrentProcessSessionId = PsGetCurrentProcessSessionId(v6, v5);
   SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v4, CurrentProcessSessionId);
-  if ( !SessionDataForSpecifiedSession )
+  if ( SessionDataForSpecifiedSession )
   {
-    v10 = -1073741790LL;
-LABEL_6:
-    WdLogSingleEntry1(3LL, v10);
-    return (unsigned int)v10;
+    LODWORD(v14) = DXGSESSIONDATA::ReferenceDwmProcess(SessionDataForSpecifiedSession, this + 3);
   }
-  LODWORD(v10) = DXGSESSIONDATA::ReferenceDwmProcess(SessionDataForSpecifiedSession, this + 3);
-  if ( (int)v10 >= 0 )
+  else
   {
-    CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v9, v8, v11, v12);
+    LODWORD(v14) = -1073741790;
+    v15 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+    *(_QWORD *)(v15 + 24) = -1073741790LL;
+    WdLogEvent5_WdWarning(v15);
+  }
+  if ( (int)v14 >= 0 )
+  {
+    CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v13, v12);
     this[4] = CurrentProcess;
     ObfReferenceObject(CurrentProcess);
-    v14 = DXGVMBUSCHANNEL::RegisterSubscriber(a2, 0x706D6F63u, (struct IDXGCHANNELSUBSCRIBER *)this, this + 1);
-    v10 = v14;
-    if ( v14 < 0 )
-      goto LABEL_6;
+    v17 = DXGVMBUSCHANNEL::RegisterSubscriber(a2, 0x706D6F63u, (struct IDXGCHANNELSUBSCRIBER *)this, this + 1);
+    v14 = v17;
+    if ( v17 < 0 )
+    {
+      v21 = WdLogNewEntry5_WdWarning(v19, v18, v20);
+      *(_QWORD *)(v21 + 24) = v14;
+      WdLogEvent5_WdWarning(v21);
+    }
   }
-  return (unsigned int)v10;
+  return (unsigned int)v14;
 }

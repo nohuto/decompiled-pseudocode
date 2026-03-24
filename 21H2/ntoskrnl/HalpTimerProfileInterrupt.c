@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerProfileInterrupt @ 0x140521CB0
+ * XREFs of HalpTimerProfileInterrupt @ 0x1404D4990
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     DefaultOverflowHandler @ 0x14050FCB0 (DefaultOverflowHandler.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     DefaultOverflowHandler @ 0x1404BE740 (DefaultOverflowHandler.c)
  */
 
 char __fastcall HalpTimerProfileInterrupt(__int64 a1)

@@ -1,18 +1,19 @@
 /*
- * XREFs of ACPIInternalSendSynchronousIrp @ 0x1C008823C
+ * XREFs of ACPIInternalSendSynchronousIrp @ 0x1C009E0DC
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C002E2FC (ACPIQueryGedDeviceInterface.c)
- *     ACPIInternalQueryExtendedAddress @ 0x1C002ECE0 (ACPIInternalQueryExtendedAddress.c)
- *     ACPIWakeInitializePmeRouting @ 0x1C0045E48 (ACPIWakeInitializePmeRouting.c)
- *     ACPIBusIrpDeviceUsageNotification @ 0x1C007E830 (ACPIBusIrpDeviceUsageNotification.c)
- *     ACPIFilterQueryBusD3ColdSupport @ 0x1C0086F48 (ACPIFilterQueryBusD3ColdSupport.c)
- *     ACPIInternalGetDeviceCapabilities @ 0x1C0087F70 (ACPIInternalGetDeviceCapabilities.c)
- *     ACPIMatchHardwareId @ 0x1C0088E10 (ACPIMatchHardwareId.c)
- *     AcpiQueryPciBusInterface @ 0x1C008A39C (AcpiQueryPciBusInterface.c)
- *     PcisuppInitializePciRouting @ 0x1C0099E7C (PcisuppInitializePciRouting.c)
+ *     ACPIWakeInitializePmeRouting @ 0x1C000CB58 (ACPIWakeInitializePmeRouting.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
+ *     ACPIInternalQueryExtendedAddress @ 0x1C002D3A0 (ACPIInternalQueryExtendedAddress.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     PcisuppInitializePciRouting @ 0x1C00907B0 (PcisuppInitializePciRouting.c)
+ *     AcpiQueryPciBusInterface @ 0x1C0098B00 (AcpiQueryPciBusInterface.c)
+ *     ACPIFilterQueryBusD3ColdSupport @ 0x1C0098CEC (ACPIFilterQueryBusD3ColdSupport.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     ACPIMatchHardwareId @ 0x1C00A141C (ACPIMatchHardwareId.c)
+ *     ACPIInternalGetDeviceCapabilities @ 0x1C00A226C (ACPIInternalGetDeviceCapabilities.c)
+ *     ACPIBusIrpDeviceUsageNotification @ 0x1C00A2490 (ACPIBusIrpDeviceUsageNotification.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
  */
 
 __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, __int64 a2, unsigned __int64 *a3)
@@ -20,30 +21,31 @@ __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, _
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rsi
   PIRP v7; // rax
   IRP *v8; // rdx
-  NTSTATUS Status; // ebx
-  __int64 v10; // rax
+  __int64 v9; // rax
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-38h] BYREF
+  NTSTATUS Status; // ebx
+  PIO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h]
+  struct _IO_STATUS_BLOCK v14; // [rsp+40h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+50h] [rbp-28h] BYREF
 
   memset(&Object, 0, sizeof(Object));
-  IoStatusBlock = 0LL;
+  v14 = 0LL;
   KeInitializeEvent(&Object, SynchronizationEvent, 0);
   AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
-  v7 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Object, &IoStatusBlock);
+  v7 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Object, &v14);
   v8 = v7;
   if ( v7 )
   {
     v7->IoStatus.Information = 0LL;
     v7->IoStatus.Status = -1073741637;
-    v10 = (__int64)&v7->Tail.Overlay.CurrentStackLocation[-1];
-    if ( v10 )
+    v9 = (__int64)&v7->Tail.Overlay.CurrentStackLocation[-1];
+    if ( v9 )
     {
-      *(_OWORD *)v10 = *(_OWORD *)a2;
-      *(_OWORD *)(v10 + 16) = *(_OWORD *)(a2 + 16);
-      *(_OWORD *)(v10 + 32) = *(_OWORD *)(a2 + 32);
-      *(_OWORD *)(v10 + 48) = *(_OWORD *)(a2 + 48);
-      *(_QWORD *)(v10 + 64) = *(_QWORD *)(a2 + 64);
+      *(_OWORD *)v9 = *(_OWORD *)a2;
+      *(_OWORD *)(v9 + 16) = *(_OWORD *)(a2 + 16);
+      *(_OWORD *)(v9 + 32) = *(_OWORD *)(a2 + 32);
+      *(_OWORD *)(v9 + 48) = *(_OWORD *)(a2 + 48);
+      *(_QWORD *)(v9 + 64) = *(_QWORD *)(a2 + 64);
       CurrentStackLocation = v8->Tail.Overlay.CurrentStackLocation;
       CurrentStackLocation[-1].CompletionRoutine = 0LL;
       CurrentStackLocation[-1].Context = 0LL;
@@ -52,10 +54,10 @@ __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, _
       if ( Status == 259 )
       {
         KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-        Status = IoStatusBlock.Status;
+        Status = v14.Status;
       }
       if ( Status >= 0 && a3 )
-        *a3 = IoStatusBlock.Information;
+        *a3 = v14.Information;
     }
     else
     {
@@ -68,15 +70,15 @@ __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, _
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v8) = 4;
+    LODWORD(IoStatusBlock) = Status;
     WPP_RECORDER_SF_qD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      (_DWORD)v8,
-      5,
-      12,
-      (__int64)&WPP_95d701b52be23d9498d45ac18e77591e_Traceguids,
-      (char)DeviceObject,
-      Status);
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      5u,
+      0xCu,
+      (__int64)&WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids,
+      DeviceObject,
+      IoStatusBlock);
   }
   ObfDereferenceObject(AttachedDeviceReference);
   return (unsigned int)Status;

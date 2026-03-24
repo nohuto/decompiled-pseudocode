@@ -1,18 +1,18 @@
 /*
- * XREFs of SeExamineGlobalSacl @ 0x1408A6BEA
+ * XREFs of SeExamineGlobalSacl @ 0x140924A68
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeObjectReferenceAuditAlarm @ 0x1406C3280 (SeObjectReferenceAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862CC0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA0C4 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE210 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     CmpExamineSaclForAuditEvent @ 0x140A1B918 (CmpExamineSaclForAuditEvent.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406D9E3C (SeObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x1407D2660 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140871CD0 (CmpExamineSaclForAuditEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D39C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921860 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     SeExamineSacl @ 0x1408A6730 (SeExamineSacl.c)
- *     SepRmGlobalSaclFind @ 0x1408A6A92 (SepRmGlobalSaclFind.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     SeExamineSacl @ 0x140921470 (SeExamineSacl.c)
+ *     SepRmGlobalSaclFind @ 0x140924C40 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeExamineGlobalSacl(
@@ -29,19 +29,20 @@ void __stdcall SeExamineGlobalSacl(
   struct _KTHREAD *CurrentThread; // rax
   ACL *v14; // rcx
   char v15; // al
-  BOOLEAN v16[16]; // [rsp+40h] [rbp-28h] BYREF
+  BOOLEAN v16[8]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-20h] BYREF
 
   v7 = GenerateAudit;
   v8 = 0;
   if ( GenerateAudit && !*GenerateAudit )
   {
-    GenerateAudit = 0LL;
+    v17 = 0LL;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
-    if ( (int)SepRmGlobalSaclFind((__int64 **)&GenerateAudit, 0LL, ObjectType, 0) >= 0 )
+    if ( (int)SepRmGlobalSaclFind(&v17, 0LL, ObjectType, 0LL) >= 0 )
     {
-      v14 = (ACL *)*((_QWORD *)GenerateAudit + 3);
+      v14 = *(ACL **)(v17 + 24);
       if ( v14 )
       {
         LOBYTE(GenerateAudit) = 0;

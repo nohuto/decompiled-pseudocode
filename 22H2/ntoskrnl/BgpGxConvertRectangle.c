@@ -1,14 +1,14 @@
 /*
- * XREFs of BgpGxConvertRectangle @ 0x140383DDC
+ * XREFs of BgpGxConvertRectangle @ 0x1403CDF94
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x140383D58 (BgpGxProcessQrCodeBitmap.c)
- *     BgConvertResources @ 0x140AF2198 (BgConvertResources.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CDF10 (BgpGxProcessQrCodeBitmap.c)
+ *     BgConvertResources @ 0x1409F6550 (BgConvertResources.c)
  * Callees:
- *     BgpGxConvertRectangleEx @ 0x140384C9C (BgpGxConvertRectangleEx.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
+ *     BgpGxConvertRectangleEx @ 0x14039BD6C (BgpGxConvertRectangleEx.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
  */
 
-__int64 __fastcall BgpGxConvertRectangle(_QWORD *a1, __int64 a2)
+__int64 __fastcall BgpGxConvertRectangle(__int64 *a1, __int64 a2)
 {
   int v3; // edi
   __int64 v4; // rcx
@@ -19,7 +19,7 @@ __int64 __fastcall BgpGxConvertRectangle(_QWORD *a1, __int64 a2)
   if ( *(_DWORD *)(v4 + 8) != (_DWORD)a2 )
   {
     v6 = 0LL;
-    v3 = BgpGxConvertRectangleEx(v4, a2, &v6, 0LL);
+    v3 = BgpGxConvertRectangleEx(v4, a2, &v6, 0);
     if ( v3 >= 0 )
     {
       BgpGxRectangleDestroy(*a1);

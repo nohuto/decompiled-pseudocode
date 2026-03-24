@@ -3,7 +3,7 @@
  * Callers:
  *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
  * Callees:
- *     ZwQuerySection @ 0x1401B8B90 (ZwQuerySection.c)
+ *     ZwQuerySection @ 0x1401B8BB0 (ZwQuerySection.c)
  */
 
 NTSTATUS __fastcall CmSiGetSectionLength(void *a1, _QWORD *a2)

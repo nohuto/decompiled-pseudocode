@@ -1,7 +1,7 @@
 /*
- * XREFs of PspUnlockProcessShared @ 0x140160EE4
+ * XREFs of PspUnlockProcessShared @ 0x140160F04
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)

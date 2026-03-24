@@ -4,8 +4,8 @@
  *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1405890BC (PopAvlFindOrMakeStatsForPowerRequest.c)
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PsGetCurrentProcess @ 0x1400F1310 (PsGetCurrentProcess.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
  *     PopUnicodeStringDeepCopy @ 0x140588974 (PopUnicodeStringDeepCopy.c)
  *     PopAnsiStringToUnicodeString @ 0x140588D18 (PopAnsiStringToUnicodeString.c)
  */

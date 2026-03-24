@@ -1,56 +1,64 @@
 /*
- * XREFs of ListTableIteratorNext @ 0x1C00E37FA
+ * XREFs of ListTableIteratorNext @ 0x1C0182808
  * Callers:
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
- *     ListTableBegin @ 0x1C01B4F04 (ListTableBegin.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     ListTableBegin @ 0x1C01826B8 (ListTableBegin.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ListTableEnd @ 0x1C00E375E (ListTableEnd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ListTableEnd @ 0x1C018276C (ListTableEnd.c)
  */
 
-__int64 *__fastcall ListTableIteratorNext(__int64 *a1, __int64 a2)
+__int64 __fastcall ListTableIteratorNext(__int64 a1, __int64 *a2)
 {
-  __int64 v4; // rcx
-  __int64 *v5; // r8
-  unsigned int v6; // edx
-  __int64 v7; // r9
-  unsigned int v8; // r8d
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // xmm1_8
-  _BYTE v14[40]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v2; // rax
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  unsigned int v7; // edx
+  __int64 v8; // r10
+  unsigned int v9; // r9d
+  _QWORD *v10; // rcx
+  _QWORD *v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // xmm1_8
+  _BYTE v15[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !*(_QWORD *)a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 81);
-  if ( *(_DWORD *)(a2 + 8) >= *(_DWORD *)(*(_QWORD *)a2 + 8LL) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 82);
-  v4 = **(_QWORD **)(a2 + 16);
-  *(_OWORD *)a1 = *(_OWORD *)a2;
-  v5 = (__int64 *)*a1;
-  v6 = *((_DWORD *)a1 + 2);
-  a1[2] = v4;
-  v7 = *v5;
-  if ( v4 == *v5 + 16LL * v6 )
+  v2 = *a2;
+  if ( !*a2 )
   {
-    v8 = *((_DWORD *)v5 + 2);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 81);
+    v2 = *a2;
+  }
+  if ( *((_DWORD *)a2 + 2) >= *(_DWORD *)(v2 + 8) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 82);
+  v5 = *(_QWORD *)a2[2];
+  *(_OWORD *)a1 = *(_OWORD *)a2;
+  v6 = *(_QWORD *)a1;
+  v7 = *(_DWORD *)(a1 + 8);
+  *(_QWORD *)(a1 + 16) = v5;
+  v8 = *(_QWORD *)v6;
+  if ( v5 == *(_QWORD *)v6 + 16LL * v7 )
+  {
+    v9 = *(_DWORD *)(v6 + 8);
     while ( 1 )
     {
-      *((_DWORD *)a1 + 2) = ++v6;
-      if ( v6 >= v8 )
+      *(_DWORD *)(a1 + 8) = ++v7;
+      if ( v7 >= v9 )
         break;
-      v9 = (_QWORD *)(v7 + 16LL * v6);
-      v10 = (_QWORD *)*v9;
-      a1[2] = *v9;
-      if ( v10 != v9 )
+      v10 = (_QWORD *)(v8 + 16LL * v7);
+      v11 = (_QWORD *)*v10;
+      *(_QWORD *)(a1 + 16) = *v10;
+      if ( v11 != v10 )
         return a1;
     }
-    if ( v6 != v8 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 99);
-    v11 = ListTableEnd((__int64)v14, *a1);
-    v12 = *(_QWORD *)(v11 + 16);
-    *(_OWORD *)a1 = *(_OWORD *)v11;
-    a1[2] = v12;
+    if ( v7 != v9 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 99);
+      v6 = *(_QWORD *)a1;
+    }
+    v12 = ListTableEnd((__int64)v15, v6);
+    v13 = *(_QWORD *)(v12 + 16);
+    *(_OWORD *)a1 = *(_OWORD *)v12;
+    *(_QWORD *)(a1 + 16) = v13;
   }
   return a1;
 }

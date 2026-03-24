@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDisplayPowerRequestSet @ 0x140883D20
+ * XREFs of TtmiLogDisplayPowerRequestSet @ 0x140883D00
  * Callers:
- *     TtmiSetDisplayPowerRequest @ 0x140880344 (TtmiSetDisplayPowerRequest.c)
+ *     TtmiSetDisplayPowerRequest @ 0x140880324 (TtmiSetDisplayPowerRequest.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDisplayPowerRequestSet(int a1, int a2, int a3, int a4)
@@ -63,7 +63,7 @@ char __fastcall TtmiLogDisplayPowerRequestSet(int a1, int a2, int a3, int a4)
       v24 = 4;
       v27 = 4;
       v30 = 4;
-      LOBYTE(v4) = TlgWrite(&stru_14096D820, &unk_1403721EB, 0LL, 0LL, 7u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_14096D820, &unk_140372215, 0LL, 0LL, 7u, &pData);
     }
   }
   return (char)v4;

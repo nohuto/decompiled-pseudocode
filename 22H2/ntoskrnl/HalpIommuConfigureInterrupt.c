@@ -1,83 +1,76 @@
 /*
- * XREFs of HalpIommuConfigureInterrupt @ 0x1403A9778
+ * XREFs of HalpIommuConfigureInterrupt @ 0x1404CBBC0
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099B3C4 (HalpIommuInitializeAll.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x140221D10 (KeFindFirstSetRightGroupAffinity.c)
- *     HalpInterruptRemap @ 0x14037C728 (HalpInterruptRemap.c)
- *     HalpInterruptGenerateMessage @ 0x14037D374 (HalpInterruptGenerateMessage.c)
- *     HalpInterruptIsMsiSupported @ 0x140380F6C (HalpInterruptIsMsiSupported.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpIommuSetupMessageInterruptRouting @ 0x140A911E0 (HalpIommuSetupMessageInterruptRouting.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140344540 (KeFindFirstSetRightGroupAffinity.c)
+ *     HalpInterruptGenerateMessage @ 0x140377EB8 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptRemap @ 0x140378050 (HalpInterruptRemap.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C94D8 (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpIommuSetupMessageInterruptRouting @ 0x1409A775C (HalpIommuSetupMessageInterruptRouting.c)
  */
 
 __int64 __fastcall HalpIommuConfigureInterrupt(__int64 a1, int a2, __int128 *a3)
 {
   __int128 v6; // xmm0
-  int Message; // ebx
-  int v8; // eax
+  unsigned int Message; // ebx
+  int v8; // ecx
+  unsigned int v9; // edx
+  unsigned int v10; // ecx
   __int64 result; // rax
-  unsigned int v10; // edx
-  unsigned int v11; // ecx
-  __int64 v12; // [rsp+30h] [rbp-69h] BYREF
-  int FirstSetRightGroupAffinity; // [rsp+38h] [rbp-61h]
-  int v14; // [rsp+3Ch] [rbp-5Dh]
-  __int128 *v15; // [rsp+40h] [rbp-59h]
-  __int128 v16; // [rsp+48h] [rbp-51h] BYREF
-  _QWORD v17[12]; // [rsp+60h] [rbp-39h] BYREF
+  int v12[4]; // [rsp+30h] [rbp-69h] BYREF
+  __int128 *v13; // [rsp+40h] [rbp-59h]
+  __int128 v14; // [rsp+48h] [rbp-51h] BYREF
+  _QWORD v15[12]; // [rsp+60h] [rbp-39h] BYREF
 
-  v14 = 0;
-  v12 = 6LL;
-  v16 = 0LL;
-  memset(v17, 0, 0x58uLL);
+  v12[1] = 0;
+  v12[3] = 0;
+  v14 = 0LL;
+  memset(v15, 0, 0x58uLL);
   v6 = *a3;
-  HIDWORD(v17[0]) = 206;
-  LOBYTE(v17[1]) = 12;
-  LODWORD(v17[5]) = a2 & 0x3FFFFFFF | v17[5] & 0xC0000000 | 0x40000000;
-  *(_OWORD *)&v17[3] = v6;
-  FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity((__int64)a3);
-  v15 = &v16;
+  HIDWORD(v15[0]) = 206;
+  LOBYTE(v15[1]) = 12;
+  v12[0] = 6;
+  LODWORD(v15[5]) = a2 & 0x3FFFFFFF | v15[5] & 0xC0000000 | 0x40000000;
+  *(_OWORD *)&v15[3] = v6;
+  v12[2] = KeFindFirstSetRightGroupAffinity((__int64)a3);
+  v13 = &v14;
   Message = -1073741637;
-  LODWORD(v16) = a2 & 0x3FFFFFFF;
-  if ( (*(_DWORD *)(a1 + 488) & 2) == 0 || !HalpInterruptIsMsiSupported(1) )
-    return (unsigned int)Message;
-  v8 = *(_DWORD *)(a1 + 392);
-  if ( (v8 & 1) == 0 )
+  LODWORD(v14) = a2 & 0x3FFFFFFF;
+  if ( (*(_DWORD *)(a1 + 456) & 2) == 0 )
+    return Message;
+  if ( !HalpInterruptIsMsiSupported(1) )
+    return Message;
+  v8 = *(_DWORD *)(a1 + 360);
+  if ( (v8 & 3) == 1 )
+    return Message;
+  if ( (v8 & 1) != 0 )
+    goto LABEL_10;
+  if ( a2 == 1073741822 )
   {
-    if ( a2 == 1073741822 )
-    {
-      Message = HalpInterruptGenerateMessage((__int64)&v12, (__int64)v17, (_QWORD *)(a1 + 512), (_QWORD *)(a1 + 520));
-      if ( Message >= 0 )
-      {
-LABEL_6:
-        *(_DWORD *)(a1 + 392) |= 1u;
-        goto LABEL_7;
-      }
-    }
-    else
-    {
-      v10 = *(_DWORD *)(a1 + 504);
-      v11 = *(_DWORD *)(a1 + 500);
-      HIDWORD(v17[1]) = 0;
-      LODWORD(v17[0]) = 3;
-      LODWORD(v17[2]) = 1;
-      Message = HalpInterruptRemap(v11, v10, 0LL, 0, (unsigned int *)v17, 1u);
-      if ( Message >= 0 )
-      {
-        *(_DWORD *)(a1 + 516) = HIDWORD(v17[5]);
-        *(_DWORD *)(a1 + 512) = v17[6];
-        *(_QWORD *)(a1 + 520) = HIDWORD(v17[6]);
-        goto LABEL_6;
-      }
-    }
-    return (unsigned int)Message;
+    Message = HalpInterruptGenerateMessage(v12, (__int64)v15, (_QWORD *)(a1 + 480), (_QWORD *)(a1 + 488));
+    if ( (Message & 0x80000000) == 0 )
+      goto LABEL_9;
+    return Message;
   }
-  if ( (v8 & 2) == 0 )
-    return (unsigned int)Message;
-LABEL_7:
+  v9 = *(_DWORD *)(a1 + 472);
+  v10 = *(_DWORD *)(a1 + 468);
+  HIDWORD(v15[1]) = 0;
+  LODWORD(v15[0]) = 3;
+  LODWORD(v15[2]) = 1;
+  Message = HalpInterruptRemap(v10, v9, 0LL, 0, (unsigned int *)v15, 1u);
+  if ( (Message & 0x80000000) != 0 )
+    return Message;
+  *(_DWORD *)(a1 + 484) = HIDWORD(v15[5]);
+  *(_DWORD *)(a1 + 480) = v15[6];
+  *(_QWORD *)(a1 + 488) = WORD2(v15[6]);
+LABEL_9:
+  *(_DWORD *)(a1 + 360) |= 1u;
+LABEL_10:
   result = HalpIommuSetupMessageInterruptRouting(a1);
   if ( (int)result >= 0 )
-    *(_DWORD *)(a1 + 392) |= 2u;
+    *(_DWORD *)(a1 + 360) |= 2u;
   return result;
 }

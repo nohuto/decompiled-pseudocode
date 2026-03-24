@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateMirrorBitmaps @ 0x1406DFAEC
+ * XREFs of MiUpdateMirrorBitmaps @ 0x1406DFACC
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     MiInitializeMirroring @ 0x1409BCF88 (MiInitializeMirroring.c)
  * Callees:
- *     MiActOnMirrorBitmap @ 0x1406DFB2C (MiActOnMirrorBitmap.c)
+ *     MiActOnMirrorBitmap @ 0x1406DFB0C (MiActOnMirrorBitmap.c)
  */
 
 __int64 MiUpdateMirrorBitmaps()

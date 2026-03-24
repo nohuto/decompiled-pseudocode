@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DestroyAdapterInfo@VIDMM_PROCESS@@QEAAXK@Z @ 0x1C0091334
+ * XREFs of ?DestroyAdapterInfo@VIDMM_PROCESS@@QEAAXK@Z @ 0x1C0082BD0
  * Callers:
- *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C008F5F4 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0082668 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
  * Callees:
- *     ??_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0004C40 (--_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C009DDA0 (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C001240C (--_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z.c)
+ *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0081278 (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS::DestroyAdapterInfo(VIDMM_PROCESS *this, unsigned int a2)
@@ -16,8 +16,8 @@ void __fastcall VIDMM_PROCESS::DestroyAdapterInfo(VIDMM_PROCESS *this, unsigned 
   __int64 *v6; // rcx
   __int64 v7; // rax
   struct _PCW_INSTANCE *v8; // rcx
-  VIDMM_GLOBAL *v9; // r8
-  VIDMM_GLOBAL ***v10; // rcx
+  VIDMM_GLOBAL *v9; // rcx
+  VIDMM_GLOBAL ***v10; // r8
   __int64 v11; // rcx
   __int64 **v12; // rdx
 
@@ -25,8 +25,8 @@ void __fastcall VIDMM_PROCESS::DestroyAdapterInfo(VIDMM_PROCESS *this, unsigned 
   v4 = *(VIDMM_GLOBAL ***)(*((_QWORD *)this + 2) + 8LL * a2);
   if ( v4 )
   {
-    DXGPUSHLOCK::AcquireExclusive((VIDMM_GLOBAL *)((char *)*v4 + 41072));
-    for ( i = 0; i < *((_DWORD *)*v4 + 1754); ++i )
+    DXGPUSHLOCK::AcquireExclusive((VIDMM_GLOBAL *)((char *)*v4 + 41040));
+    for ( i = 0; i < *((_DWORD *)*v4 + 1750); ++i )
     {
       v6 = (__int64 *)((char *)v4[6] + 296 * i);
       v7 = *v6;
@@ -53,7 +53,7 @@ LABEL_11:
     *v10 = (VIDMM_GLOBAL **)v9;
     *((_QWORD *)v9 + 1) = v10;
     *(_QWORD *)(*((_QWORD *)this + 2) + 8 * v3) = 0LL;
-    v11 = (__int64)*v4 + 41072;
+    v11 = (__int64)*v4 + 41040;
     *(_QWORD *)(v11 + 8) = 0LL;
     ExReleasePushLockExclusiveEx(v11, 0LL);
     KeLeaveCriticalRegion();

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckInitialSessions@@YAJXZ @ 0x1C005B520
+ * XREFs of ?CheckInitialSessions@@YAJXZ @ 0x1C00B5190
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 CheckInitialSessions(void)
   NTSTATUS v1; // eax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-59h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-49h] BYREF
-  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+70h] [rbp-19h] BYREF
+  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+70h] [rbp-19h] BYREF
   __int64 v6; // [rsp+A8h] [rbp+1Fh]
   int v7; // [rsp+B0h] [rbp+27h]
   __int64 v8; // [rsp+B8h] [rbp+2Fh]

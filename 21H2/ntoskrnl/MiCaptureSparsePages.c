@@ -1,35 +1,40 @@
 /*
- * XREFs of MiCaptureSparsePages @ 0x14097E614
+ * XREFs of MiCaptureSparsePages @ 0x1408D8564
  * Callers:
- *     MiDeleteSparseRange @ 0x14097E850 (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408D8750 (MiDeleteSparseRange.c)
  * Callees:
- *     MiLockAndDecrementShareCount @ 0x140228660 (MiLockAndDecrementShareCount.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x140313D14 (MiSetPfnLink.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockAndDecrementShareCount @ 0x1402D5EE0 (MiLockAndDecrementShareCount.c)
+ *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
+ *     MiSetPfnLink @ 0x14031818C (MiSetPfnLink.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiCaptureSparsePages(unsigned __int64 a1, __int64 a2)
 {
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rbx
-  unsigned __int64 i; // rbp
-  unsigned __int64 v6; // rax
+  __int64 v3; // rbp
+  unsigned __int64 v4; // rdi
+  unsigned __int64 i; // r14
+  unsigned __int64 PteShadow; // rbx
   __int64 v7; // rcx
   __int64 v8; // rax
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v9; // r8
+  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
 
   v3 = 0LL;
   v4 = a1;
-  for ( i = MiMakeValidPte(a1, qword_140C53290, 1); a2; --a2 )
+  for ( i = MiMakeValidPte(a1, qword_140C4ED80, 1); a2; --a2 )
   {
-    v10 = MI_READ_PTE_LOCK_FREE(v4);
-    if ( v10 != i )
+    v11 = MI_READ_PTE_LOCK_FREE(v4);
+    PteShadow = v11;
+    if ( v11 != i )
     {
-      v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v10);
-      MiSetPfnLink((_QWORD *)(48 * ((v6 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL), v3);
+      if ( MiPteInShadowRange((unsigned __int64)&v11) )
+        PteShadow = MiReadPteShadow((unsigned __int64)&v11, PteShadow);
+      MiSetPfnLink((_QWORD *)(48 * ((PteShadow >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL), v3);
       v3 = v7;
-      MiLockAndDecrementShareCount(48 * v8 - 0x220000000000LL, 0);
+      MiLockAndDecrementShareCount(48 * v8 - 0x58000000000LL, 0LL, v9);
     }
     v4 += 8LL;
   }

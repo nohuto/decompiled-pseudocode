@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetNearestInterchangeFormat@@YA?AW4DXGI_FORMAT@@W41@@Z @ 0x1802BD17C
+ * XREFs of ?GetNearestInterchangeFormat@@YA?AW4DXGI_FORMAT@@W41@@Z @ 0x18021A34C
  * Callers:
- *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802BCC50 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
+ *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x180219E24 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,23 +9,13 @@
 __int64 __fastcall GetNearestInterchangeFormat(enum DXGI_FORMAT a1)
 {
   __int64 result; // rax
-  int v2; // ecx
-  int v3; // ecx
-  int v4; // ecx
 
   result = 2LL;
-  v2 = a1 - 2;
-  if ( v2 )
+  if ( a1 != DXGI_FORMAT_R32G32B32A32_FLOAT && a1 != DXGI_FORMAT_R16G16B16A16_FLOAT )
   {
-    v3 = v2 - 8;
-    if ( v3 )
-    {
-      v4 = v3 - 1;
-      if ( !v4 || v4 == 13 )
-        return 11LL;
-      else
-        return 87LL;
-    }
+    result = 11LL;
+    if ( a1 != DXGI_FORMAT_R16G16B16A16_UNORM && a1 != DXGI_FORMAT_R10G10B10A2_UNORM )
+      return 87LL;
   }
   return result;
 }

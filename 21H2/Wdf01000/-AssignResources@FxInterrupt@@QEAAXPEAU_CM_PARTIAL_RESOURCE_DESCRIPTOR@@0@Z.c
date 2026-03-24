@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C001F048
+ * XREFs of ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C0089110
  * Callers:
- *     ?Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C001EC3C (-Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
- *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C0021924 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
+ *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C007B7F8 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
+ *     ?Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C0089758 (-Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
  * Callees:
- *     WPP_IFR_SF_ddLLdiDD @ 0x1C001F1B4 (WPP_IFR_SF_ddLLdiDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ddLLdiDD @ 0x1C0089F48 (WPP_IFR_SF_ddLLdiDD.c)
  */
 
 void __fastcall FxInterrupt::AssignResources(
@@ -20,12 +20,14 @@ void __fastcall FxInterrupt::AssignResources(
   unsigned __int8 Class; // cl
   __int16 v10; // cx
   unsigned __int8 v11; // al
-  $3BEA515B54D16529C9D1A7889B68552E *v12; // rdi
+  $AF440A2136141E766E0CF852D056DAC4 *v12; // rdi
+  __int64 v13; // rdx
   FxDeviceBase *m_DeviceBase; // rcx
-  __int64 v14; // rdx
-  void (__fastcall *SetDeviceTelemetryInfoFlags)(FxDeviceBase *, FxDeviceInfoFlags); // rax
+  FxDeviceBase_vtbl *v15; // rax
   unsigned __int16 v16; // r9
-  const _GUID *v17; // [rsp+20h] [rbp-58h]
+  __int64 v17; // rdx
+  void (__fastcall *SetDeviceTelemetryInfoFlags)(FxDeviceBase *, FxDeviceInfoFlags); // rax
+  const _GUID *v19; // [rsp+20h] [rbp-58h]
 
   MessageCount = CmDescTrans->u.MessageInterrupt.Raw.MessageCount;
   if ( MessageCount && !FxLibraryGlobals.ProcessorGroupSupport )
@@ -51,28 +53,30 @@ void __fastcall FxInterrupt::AssignResources(
   if ( v10 && CmDescRaw->u.MessageInterrupt.Raw.MessageCount > 1u )
   {
     v12 = &this->96;
-    v14 = 8LL;
+    v13 = 8LL;
     m_DeviceBase = this->m_DeviceBase;
     this->m_InterruptInfo.Vector = CmDescTrans->u.Generic.Start.HighPart + this->m_InterruptInfo.MessageNumber;
-    goto LABEL_11;
+    v15 = m_DeviceBase->FxNonPagedObject::FxObject::__vftable;
+LABEL_12:
+    v15->SetDeviceTelemetryInfoFlags(m_DeviceBase, (FxDeviceInfoFlags)v13);
+    goto LABEL_18;
   }
   v12 = &this->96;
   v8 = v10 == 0;
   this->m_InterruptInfo.Vector = CmDescTrans->u.Interrupt.Vector;
   m_DeviceBase = this->m_DeviceBase;
+  v15 = m_DeviceBase->FxNonPagedObject::FxObject::__vftable;
   if ( !v8 )
   {
-    v14 = 4LL;
-LABEL_11:
-    SetDeviceTelemetryInfoFlags = m_DeviceBase->SetDeviceTelemetryInfoFlags;
+    v13 = 4LL;
     goto LABEL_12;
   }
-  v14 = 1LL;
-  SetDeviceTelemetryInfoFlags = m_DeviceBase->SetDeviceTelemetryInfoFlags;
+  v17 = 1LL;
+  SetDeviceTelemetryInfoFlags = v15->SetDeviceTelemetryInfoFlags;
   if ( (CmDescTrans->Flags & 1) != 0 )
-    v14 = 2LL;
-LABEL_12:
-  SetDeviceTelemetryInfoFlags(m_DeviceBase, (FxDeviceInfoFlags)v14);
+    v17 = 2LL;
+  SetDeviceTelemetryInfoFlags(m_DeviceBase, (FxDeviceInfoFlags)v17);
+LABEL_18:
   if ( this->m_PassiveHandling )
     v12->m_DeviceBase->SetDeviceTelemetryInfoFlags(v12->m_DeviceBase, DeviceInfoPassiveLevelInterrupt);
   this->m_CmTranslatedResource = CmDescTrans;
@@ -81,7 +85,7 @@ LABEL_12:
     this->m_InterruptInfo.Group,
     this->m_InterruptInfo.MessageSignaled,
     v16,
-    v17,
+    v19,
     this->m_InterruptInfo.MessageSignaled,
     this->m_InterruptInfo.MessageNumber,
     this->m_Policy,

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0075F00
+ * XREFs of ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0063B50
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0008920 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001F12C (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012260 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001AECC (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
  */
 
 __int64 __fastcall CTokenManager::GetAnalogExclusiveTokenEvent(void **this, void **a2)
@@ -13,17 +13,17 @@ __int64 __fastcall CTokenManager::GetAnalogExclusiveTokenEvent(void **this, void
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
   CTokenManager::AcquireTokenManagerLock((CTokenManager *)this);
-  if ( this[10]
+  if ( this[9]
     || (memset(&ObjectAttributes.Length + 1, 0, 20),
         memset(&ObjectAttributes.Attributes + 1, 0, 20),
         ObjectAttributes.Length = 48,
         ObjectAttributes.Attributes = 512,
-        v4 = ZwCreateEvent(this + 10, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0),
+        v4 = ZwCreateEvent(this + 9, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0),
         v4 >= 0) )
   {
-    v4 = CTokenManager::OpenEventForSynchonize(this[10], a2);
+    v4 = CTokenManager::OpenEventForSynchonize(this[9], a2);
   }
-  this[13] = 0LL;
-  ExReleasePushLockExclusiveEx(this + 12, 0LL);
+  this[12] = 0LL;
+  ExReleasePushLockExclusiveEx(this + 11, 0LL);
   return (unsigned int)v4;
 }

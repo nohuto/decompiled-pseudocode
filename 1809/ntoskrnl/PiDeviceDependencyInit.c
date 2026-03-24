@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
  *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140739DE4 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x140739DC4 (PnpReleaseDependencyRelationsLock.c)
  */
 
 __int64 PiDeviceDependencyInit()

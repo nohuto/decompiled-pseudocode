@@ -1,27 +1,26 @@
 /*
- * XREFs of RIMGetContainerId @ 0x1C006D15C
+ * XREFs of RIMGetContainerId @ 0x1C015D800
  * Callers:
- *     RIMApiSetCheckForLegacyTouchPad @ 0x1C006D074 (RIMApiSetCheckForLegacyTouchPad.c)
- *     RIMGetDeviceLocationInfo @ 0x1C0188F30 (RIMGetDeviceLocationInfo.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01907FC (rimFindMonitorForDigitizerWithQDCData.c)
+ *     RIMGetDeviceLocationInfo @ 0x1C015DC48 (RIMGetDeviceLocationInfo.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165580 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
- *     RIMGetPointerDevicePDO @ 0x1C006E3E4 (RIMGetPointerDevicePDO.c)
+ *     RIMGetPointerDevicePDO @ 0x1C006DD34 (RIMGetPointerDevicePDO.c)
  */
 
 __int64 __fastcall RIMGetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD *a3)
 {
   int v4; // ebx
-  NTSTATUS DevicePropertyData; // edi
+  int DevicePropertyData; // edi
   struct _DEVICE_OBJECT *v7; // r14
   PVOID Data; // [rsp+28h] [rbp-28h]
   ULONG Type; // [rsp+40h] [rbp-10h] BYREF
   ULONG RequiredSize; // [rsp+44h] [rbp-Ch] BYREF
-  PDEVICE_OBJECT Pdo; // [rsp+48h] [rbp-8h]
+  PDEVICE_OBJECT Pdo; // [rsp+48h] [rbp-8h] BYREF
   char v13; // [rsp+88h] [rbp+38h] BYREF
 
   v4 = 0;
   Pdo = 0LL;
-  DevicePropertyData = RIMGetPointerDevicePDO(a1);
+  DevicePropertyData = RIMGetPointerDevicePDO(a1, &Pdo);
   if ( DevicePropertyData >= 0 )
   {
     v13 = 0;

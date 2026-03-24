@@ -1,5 +1,5 @@
 /*
- * XREFs of ?cTotalPts@EPATHOBJ@@QEAAKXZ @ 0x1C01539E0
+ * XREFs of ?cTotalPts@EPATHOBJ@@QEAAKXZ @ 0x1C013D360
  * Callers:
  *     <none>
  * Callees:

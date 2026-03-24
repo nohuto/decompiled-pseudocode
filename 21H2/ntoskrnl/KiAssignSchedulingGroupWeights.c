@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAssignSchedulingGroupWeights @ 0x140207880
+ * XREFs of KiAssignSchedulingGroupWeights @ 0x140287F00
  * Callers:
- *     KeRemoveSchedulingGroup @ 0x1402075A4 (KeRemoveSchedulingGroup.c)
- *     KeSetSchedulingGroupCpuRates @ 0x1402077B0 (KeSetSchedulingGroupCpuRates.c)
- *     KeInsertSchedulingGroup @ 0x140208434 (KeInsertSchedulingGroup.c)
- *     KeSetSchedulingGroupWeights @ 0x14025D01C (KeSetSchedulingGroupWeights.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1403DB3E0 (KeUpdateGroupSchedulingConstants.c)
+ *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x140287B64 (KeRemoveSchedulingGroup.c)
+ *     KeSetSchedulingGroupWeights @ 0x140287D40 (KeSetSchedulingGroupWeights.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x140287E30 (KeSetSchedulingGroupCpuRates.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403CC28C (KeUpdateGroupSchedulingConstants.c)
  * Callees:
- *     KiUpdateCpuTargetByWeight @ 0x140207A84 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByWeight @ 0x140287FB8 (KiUpdateCpuTargetByWeight.c)
  */
 
 __int64 __fastcall KiAssignSchedulingGroupWeights(int a1, char a2, __int64 a3)
@@ -23,38 +23,35 @@ __int64 __fastcall KiAssignSchedulingGroupWeights(int a1, char a2, __int64 a3)
   result = (__int64)&retaddr;
   if ( a1 )
   {
-    if ( !a3 )
-    {
+    if ( a3 )
+      v6 = *(_DWORD *)(a3 + 12);
+    else
       v6 = KiGroupSchedulingMinimumRate;
-LABEL_6:
-      v7 = (__int64 *)KiSchedulingGroupList;
-      v8 = &KiSchedulingGroupList;
-      goto LABEL_7;
-    }
-    v6 = *(_DWORD *)(a3 + 12);
+  }
+  else if ( a3 )
+  {
+    if ( !*(_DWORD *)(a3 + 20) )
+      return result;
+    v6 = *(_DWORD *)(a3 + 16);
   }
   else
   {
-    if ( a3 )
-    {
-      if ( !*(_DWORD *)(a3 + 20) )
-        return result;
-      v6 = *(_DWORD *)(a3 + 16);
-    }
-    else
-    {
-      if ( !KiGroupSchedulingTotalWeight )
-        return result;
-      v6 = KiGroupSchedulingMinimumWeight;
-    }
-    if ( !a3 )
-      goto LABEL_6;
+    if ( !KiGroupSchedulingTotalWeight )
+      return result;
+    v6 = KiGroupSchedulingMinimumWeight;
   }
-  v8 = (__int64 *)(a3 + 80);
-  v7 = *(__int64 **)(a3 + 80);
+  if ( a3 )
+  {
+    v8 = (__int64 *)(a3 + 80);
+    v7 = *(__int64 **)(a3 + 80);
+  }
+  else
+  {
+    v7 = (__int64 *)KiSchedulingGroupList;
+    v8 = &KiSchedulingGroupList;
+  }
   do
   {
-LABEL_7:
     v9 = v7 - 7;
     result = *((_DWORD *)v7 - 13) & 1;
     if ( (_DWORD)result == a1 )

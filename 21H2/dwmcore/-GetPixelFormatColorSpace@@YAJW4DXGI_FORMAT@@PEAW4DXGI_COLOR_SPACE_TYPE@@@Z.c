@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18028C5D0
+ * XREFs of ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18024AB10
  * Callers:
- *     ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18028C6C8 (-Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z.c)
- *     ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x1802B3730 (-Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z.c)
+ *     ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18024ABC0 (-Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z.c)
+ *     ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x18026D7A0 (-Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall GetPixelFormatColorSpace(int a1, enum DXGI_COLOR_SPACE_TYPE *
   v2 = 0;
   if ( a1 > 61 )
   {
-    if ( a1 == 65 || a1 > 86 && (a1 <= 88 || a1 == 91 || a1 > 102 && (a1 <= 104 || (unsigned int)(a1 - 106) <= 1)) )
+    if ( a1 == 65 || a1 > 86 && (a1 <= 88 || a1 == 91 || a1 == 103 || (unsigned int)(a1 - 106) <= 1) )
       goto LABEL_9;
     return (unsigned int)-2003292344;
   }

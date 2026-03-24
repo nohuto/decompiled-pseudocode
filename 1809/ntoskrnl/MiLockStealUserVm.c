@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLockStealUserVm @ 0x1400EDBF4
+ * XREFs of MiLockStealUserVm @ 0x1400EDC14
  * Callers:
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
@@ -15,14 +15,14 @@
  *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiUnlockStealVm @ 0x1400ECD44 (MiUnlockStealVm.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EDFF8 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MiPrepareAttachThread @ 0x1400EEA1C (MiPrepareAttachThread.c)
- *     MiSmallVaStillMapsFrame @ 0x1401349D4 (MiSmallVaStillMapsFrame.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiClusterVadActive @ 0x1402C5EF0 (MiClusterVadActive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlockStealVm @ 0x1400ECD64 (MiUnlockStealVm.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EE018 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
+ *     MiSmallVaStillMapsFrame @ 0x1401349F4 (MiSmallVaStillMapsFrame.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClusterVadActive @ 0x1402C5FF0 (MiClusterVadActive.c)
  */
 
 __int64 __fastcall MiLockStealUserVm(__int64 BugCheckParameter2, unsigned __int8 a2, unsigned __int64 a3, __int64 a4)

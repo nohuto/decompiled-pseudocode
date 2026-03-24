@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmEndDmaBufferCPUAccess @ 0x1C00189D0
+ * XREFs of VidMmEndDmaBufferCPUAccess @ 0x1C00161E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00B0AA0 (-Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z.c)
+ *     ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00855E0 (-Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z.c)
  */
 
 void __fastcall VidMmEndDmaBufferCPUAccess(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)

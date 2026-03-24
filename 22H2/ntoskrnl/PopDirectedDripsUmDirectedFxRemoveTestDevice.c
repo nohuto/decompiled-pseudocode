@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x14099F800
+ * XREFs of PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x1408F8704
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x14099FA30 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1408F8934 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x14031E7F0 (RtlDeleteElementGenericTableAvl.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14032DA20 (RtlDeleteElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmDirectedFxRemoveTestDevice(unsigned int a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall PopDirectedDripsUmDirectedFxRemoveTestDevice(unsigned int a1,
       _InterlockedDecrement(&PopDirectedDripsUmTestDeviceCount);
     else
       v5 = -1073741275;
-    PopReleaseRwLock((__int64 *)&PopDirectedDripsUmLock);
+    PopReleaseRwLock((ULONG_PTR)&PopDirectedDripsUmLock);
   }
   return v5;
 }

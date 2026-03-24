@@ -1,8 +1,8 @@
 /*
- * XREFs of _SysCtxGetCachedContextBaseKey @ 0x1406D7C74
+ * XREFs of _SysCtxGetCachedContextBaseKey @ 0x1406B2D20
  * Callers:
- *     _PnpCtxGetCachedNodeBaseKey @ 0x1407801B8 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140642874 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
  * Callees:
  *     <none>
  */

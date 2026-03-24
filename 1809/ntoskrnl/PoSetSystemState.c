@@ -1,9 +1,9 @@
 /*
- * XREFs of PoSetSystemState @ 0x1402DBBA0
+ * XREFs of PoSetSystemState @ 0x1402DBCA0
  * Callers:
- *     PoRegisterSystemState @ 0x1402DBAC0 (PoRegisterSystemState.c)
+ *     PoRegisterSystemState @ 0x1402DBBC0 (PoRegisterSystemState.c)
  * Callees:
- *     PopSetSystemState @ 0x140177794 (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  */

@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierObfDereferenceObject @ 0x140A7F9F0
+ * XREFs of VerifierObfDereferenceObject @ 0x1409E7D80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
  */
 
-__int64 VerifierObfDereferenceObject()
+__int64 __fastcall VerifierObfDereferenceObject(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvObfDereferenceObject)();
+  VfUtilCheckKernelAddress(a1, 8uLL);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvObfDereferenceObject)(a1);
 }

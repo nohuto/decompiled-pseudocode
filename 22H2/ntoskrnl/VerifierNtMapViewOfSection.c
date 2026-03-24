@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierNtMapViewOfSection @ 0x140AE4900
+ * XREFs of VerifierNtMapViewOfSection @ 0x1409E7440
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x140AC4848 (VfCheckPageProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x1409C7CCC (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierNtMapViewOfSection(

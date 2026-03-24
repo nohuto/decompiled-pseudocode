@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ModifyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_KPEAE@Z @ 0x1C008D3C0
+ * XREFs of ?ModifyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_KPEAE@Z @ 0x1C00732F0
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008CEB0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0072D68 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
  * Callees:
  *     <none>
  */
@@ -15,45 +15,44 @@ void __fastcall VIDMM_PAGE_TABLE::ModifyPageTable(
         unsigned __int64 a6,
         unsigned __int8 *a7)
 {
-  int v8; // r13d
-  __int64 v9; // r14
-  unsigned __int64 v10; // r10
-  __int64 v11; // rdi
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  unsigned __int64 v14; // rbx
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  unsigned __int64 v17; // r10
-  __int64 v18; // rdi
-  __int64 v19; // rbp
-  __int64 v20; // r9
-  __int64 v21; // rdx
-  unsigned __int64 v22; // rbx
-  __int64 v23; // rax
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // r8
-  __int64 v28; // rdx
+  int v9; // r15d
+  __int64 v10; // r10
+  __int64 v11; // rbp
+  __int64 v12; // rsi
+  unsigned __int64 v13; // r9
+  __int64 v14; // rcx
+  __int64 v15; // r10
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  unsigned __int64 v18; // rbx
+  __int64 v19; // rax
+  unsigned __int64 v20; // r9
+  __int64 v21; // rbx
+  __int64 v22; // r8
+  __int64 v23; // rcx
+  unsigned __int64 v24; // r10
+  __int64 v25; // rax
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  __int64 v28; // rcx
   int v29; // eax
 
-  v8 = 0;
-  if ( *((_DWORD *)a3 + 15) == -2 )
+  v9 = 0;
+  v10 = a4;
+  if ( *((_DWORD *)a3 + 13) == -2 )
   {
     if ( a4 < a4 + a5 )
     {
-      v25 = a4;
       v26 = a5;
-      v27 = 16 * v25;
+      v27 = 16LL * a4;
       do
       {
         v28 = *((_QWORD *)this + 4);
-        v29 = v8 + 1;
+        v29 = v9 + 1;
         v27 += 16LL;
         if ( (*(_BYTE *)(v28 + v27 - 16) & 1) == 0 )
-          v29 = v8;
-        v8 = v29;
+          v29 = v9;
+        v9 = v29;
         *(_QWORD *)(v28 + v27 - 16) = *(_QWORD *)a3;
         --v26;
       }
@@ -62,78 +61,70 @@ void __fastcall VIDMM_PAGE_TABLE::ModifyPageTable(
   }
   else
   {
-    v9 = *((_QWORD *)a3 + 4);
-    if ( !v9 )
+    v11 = *((_QWORD *)a3 + 4);
+    if ( v11 )
     {
-      v10 = a6;
-      if ( a4 < a4 + a5 )
+      v12 = 1LL;
+      if ( (*(_DWORD *)this & 0x40) != 0 )
+        v12 = 16LL;
+      v13 = a6;
+      if ( (unsigned int)v10 < (unsigned int)v10 + a5 )
       {
-        v11 = a5;
-        v12 = 16LL * a4;
+        v14 = v10;
+        v15 = a5;
+        v16 = 16 * v14;
         do
         {
-          v13 = *((_QWORD *)this + 4);
-          if ( (*(_BYTE *)(v13 + v12) & 1) != 0 )
-            ++v8;
-          *(_QWORD *)(v13 + v12) = *(_QWORD *)a3;
-          v14 = *((_QWORD *)a3 + 9);
-          if ( v14 )
-            *(_QWORD *)(v12 + *((_QWORD *)this + 4) + 8) = *((_QWORD *)a3 + 3) + (v10 - *((_QWORD *)a3 + 3)) % v14;
+          v17 = *((_QWORD *)this + 4);
+          if ( (*(_BYTE *)(v17 + v16) & 1) != 0 )
+            ++v9;
+          *(_QWORD *)(v17 + v16) = *(_QWORD *)a3;
+          v18 = *((_QWORD *)a3 + 8);
+          if ( v18 )
+            v19 = *(_QWORD *)(v11
+                            + 8LL
+                            * ((unsigned int)*((_QWORD *)a3 + 3) + (unsigned int)((v13 - *((_QWORD *)a3 + 3)) % v18))
+                            + 48);
           else
-            *(_QWORD *)(v12 + *((_QWORD *)this + 4) + 8) = v10;
-          v12 += 16LL;
-          v15 = 16LL;
-          if ( (*(_DWORD *)this & 0x40) == 0 )
-            v15 = 1LL;
-          v10 += v15;
-          --v11;
+            v19 = *(_QWORD *)(v11 + 8 * v13 + 48);
+          v13 += v12;
+          *(_QWORD *)(v16 + *((_QWORD *)this + 4) + 8) = v19;
+          v16 += 16LL;
+          --v15;
         }
-        while ( v11 );
+        while ( v15 );
       }
-      goto LABEL_12;
     }
-    v16 = 1LL;
-    if ( (*(_DWORD *)this & 0x40) != 0 )
-      v16 = 16LL;
-    v17 = a6;
-    if ( a4 < a4 + a5 )
+    else
     {
-      v18 = a5;
-      v19 = *((unsigned int *)a3 + 10);
-      v20 = 16LL * a4;
-      while ( 1 )
+      v20 = a6;
+      if ( (unsigned int)v10 < (unsigned int)v10 + a5 )
       {
-        v21 = *((_QWORD *)this + 4);
-        if ( (*(_BYTE *)(v21 + v20) & 1) != 0 )
-          ++v8;
-        *(_QWORD *)(v21 + v20) = *(_QWORD *)a3;
-        v22 = *((_QWORD *)a3 + 9);
-        if ( v22 )
-          break;
-        v23 = (unsigned int)v17;
-        if ( v19 )
-          goto LABEL_26;
-        v24 = *(_QWORD *)(v9 + 8LL * (unsigned int)v17 + 48);
-LABEL_24:
-        v17 += v16;
-        *(_QWORD *)(v20 + *((_QWORD *)this + 4) + 8) = v24;
-        v20 += 16LL;
-        if ( !--v18 )
-          goto LABEL_12;
+        v21 = a5;
+        v22 = 16 * v10;
+        do
+        {
+          v23 = *((_QWORD *)this + 4);
+          if ( (*(_BYTE *)(v23 + v22) & 1) != 0 )
+            ++v9;
+          *(_QWORD *)(v23 + v22) = *(_QWORD *)a3;
+          v24 = *((_QWORD *)a3 + 8);
+          if ( v24 )
+            *(_QWORD *)(v22 + *((_QWORD *)this + 4) + 8) = *((_QWORD *)a3 + 3) + (v20 - *((_QWORD *)a3 + 3)) % v24;
+          else
+            *(_QWORD *)(v22 + *((_QWORD *)this + 4) + 8) = v20;
+          v22 += 16LL;
+          v25 = 16LL;
+          if ( (*(_DWORD *)this & 0x40) == 0 )
+            v25 = 1LL;
+          v20 += v25;
+          --v21;
+        }
+        while ( v21 );
       }
-      v23 = (unsigned int)*((_QWORD *)a3 + 3) + (unsigned int)((v17 - *((_QWORD *)a3 + 3)) % v22);
-      if ( !v19 )
-      {
-        v24 = *(_QWORD *)(v9 + 8 * v23 + 48);
-        goto LABEL_24;
-      }
-LABEL_26:
-      v24 = v23 + v19;
-      goto LABEL_24;
     }
   }
-LABEL_12:
-  *((_DWORD *)this + 1) += a5 - v8;
-  if ( v8 )
+  *((_DWORD *)this + 1) += a5 - v9;
+  if ( v9 )
     *a7 = 1;
 }

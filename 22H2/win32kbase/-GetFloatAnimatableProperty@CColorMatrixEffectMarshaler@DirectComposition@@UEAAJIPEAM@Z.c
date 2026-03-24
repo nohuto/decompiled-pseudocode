@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020F440
+ * XREFs of ?GetFloatAnimatableProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E0670
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::GetFloatAnimatableProperty(
@@ -11,12 +11,12 @@ __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::GetFloatAnima
         int a2,
         float *a3)
 {
-  unsigned int v3; // r10d
+  unsigned int v3; // r9d
 
   v3 = 0;
-  if ( (unsigned int)(a2 - 3) > 0x13 )
-    return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
-  else
+  if ( (unsigned int)(a2 - 3) <= 0x13 )
     *a3 = *((float *)this + 4 * ((unsigned __int64)(unsigned int)(a2 - 3) >> 2) + (((_BYTE)a2 + 1) & 3) + 28);
+  else
+    return (unsigned int)-1073741811;
   return v3;
 }

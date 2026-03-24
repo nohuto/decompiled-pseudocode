@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Push@?$CWatermarkStack@M$01$01$09@@QEAAJAEBM@Z @ 0x1800CFE38
+ * XREFs of ?Push@?$CWatermarkStack@M$01$01$09@@QEAAJAEBM@Z @ 0x18008F330
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z @ 0x1800CF85C (-PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z @ 0x18008E370 (-PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall CWatermarkStack<float,2,2,10>::Push(unsigned int *a1, _DWORD *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall CWatermarkStack<float,2,2,10>::Push(unsigned int *a1, _DWORD 
   if ( v9 > 0xFFFFFFFF )
   {
     v7 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024362, 0x64u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024362, 0x4Cu, 0LL);
     return v7;
   }
   if ( (unsigned int)v9 <= 2 )
@@ -42,7 +42,7 @@ __int64 __fastcall CWatermarkStack<float,2,2,10>::Push(unsigned int *a1, _DWORD 
   v7 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x6Bu);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x53u, 0LL);
   }
   else
   {
@@ -51,7 +51,7 @@ __int64 __fastcall CWatermarkStack<float,2,2,10>::Push(unsigned int *a1, _DWORD 
     {
       v13 = v15;
       memcpy_0(v15, *((const void **)a1 + 2), (unsigned int)v12);
-      DefaultHeap::Free(*((void **)a1 + 2));
+      operator delete(*((void **)a1 + 2));
       v2 = *a1;
       *((_QWORD *)a1 + 2) = v13;
       v3 = 0LL;
@@ -67,7 +67,7 @@ LABEL_2:
       goto LABEL_5;
     }
     v7 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2147024362, 0x6Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0x55u, 0LL);
   }
   v3 = v15;
 LABEL_5:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Pop@CRenderDataBuilder@@UEAAJXZ @ 0x1800F9F50
+ * XREFs of ?Pop@CRenderDataBuilder@@UEAAJXZ @ 0x1800D76C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::Pop(CRenderDataBuilder *this)
@@ -14,7 +14,7 @@ __int64 __fastcall CRenderDataBuilder::Pop(CRenderDataBuilder *this)
   unsigned int v4; // edi
   _DWORD *v5; // rcx
 
-  v2 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 8, 0, 0LL);
+  v2 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 8, 0, 0LL);
   v4 = v2;
   if ( v2 < 0 )
   {
@@ -24,7 +24,7 @@ __int64 __fastcall CRenderDataBuilder::Pop(CRenderDataBuilder *this)
   {
     v5 = (_DWORD *)(*((_QWORD *)this + 2) + *((unsigned int *)this + 10));
     *v5 = 8;
-    v5[1] = 452;
+    v5[1] = 469;
     *((_DWORD *)this + 10) += 8;
     --*((_DWORD *)this + 2);
   }

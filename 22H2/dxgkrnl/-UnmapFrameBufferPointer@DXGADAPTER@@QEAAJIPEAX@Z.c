@@ -1,34 +1,27 @@
 /*
- * XREFs of ?UnmapFrameBufferPointer@DXGADAPTER@@QEAAJIPEAX@Z @ 0x1C02BA9F0
+ * XREFs of ?UnmapFrameBufferPointer@DXGADAPTER@@QEAAJIPEAX@Z @ 0x1C02107A0
  * Callers:
- *     DxgkUnmapFrameBufferPointerCB @ 0x1C00533E0 (DxgkUnmapFrameBufferPointerCB.c)
+ *     DxgkUnmapFrameBufferPointerCB @ 0x1C00434C0 (DxgkUnmapFrameBufferPointerCB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGADAPTER::UnmapFrameBufferPointer(DXGADAPTER *this, unsigned int a2, void *a3)
+__int64 __fastcall DXGADAPTER::UnmapFrameBufferPointer(DXGADAPTER *this, __int64 a2, void *a3)
 {
   __int64 v3; // rbx
+  __int64 v4; // rax
 
-  if ( a2 < *((_DWORD *)this + 72) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 < *((_DWORD *)this + 70) )
   {
     MmUnmapViewInSystemSpace(a3);
     return 0LL;
   }
   else
   {
-    v3 = a2;
-    WdLogSingleEntry1(2LL, a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"UnmapFrameBufferPointer Invalid physical adapter index. Index=%u",
-      v3,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v4 + 24) = v3;
+    WdLogEvent5_WdError(v4);
     return 3221225485LL;
   }
 }

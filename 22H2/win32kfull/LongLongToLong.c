@@ -1,14 +1,13 @@
 /*
- * XREFs of LongLongToLong @ 0x1C00149AC
+ * XREFs of LongLongToLong @ 0x1C01585F0
  * Callers:
- *     ?bMakePathRecords@@YAHPEAU_PATHRECORD@@PEBKJPEAU_POINTL@@KJJPEAU_RECTFX@@PEAPEAU1@@Z @ 0x1C000D148 (-bMakePathRecords@@YAHPEAU_PATHRECORD@@PEBKJPEAU_POINTL@@KJJPEAU_RECTFX@@PEAPEAU1@@Z.c)
- *     EngCopyBits @ 0x1C0030980 (EngCopyBits.c)
- *     _TTHmToPixels @ 0x1C0157B3A (_TTHmToPixels.c)
- *     _TTPixelsToHm @ 0x1C0157B80 (_TTPixelsToHm.c)
- *     ?ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z @ 0x1C01A4578 (-ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z.c)
- *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266478 (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F1580 (-bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
+ *     ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C0140D50 (-bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ?bMakePathRecords@@YAHPEAU_PATHRECORD@@PEBKJPEAU_POINTL@@KJJPEAU_RECTFX@@PEAPEAU1@@Z @ 0x1C014287C (-bMakePathRecords@@YAHPEAU_PATHRECORD@@PEBKJPEAU_POINTL@@KJJPEAU_RECTFX@@PEAPEAU1@@Z.c)
+ *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C015695C (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     ?ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z @ 0x1C01CDE04 (-ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z.c)
+ *     _TTHmToPixels @ 0x1C0260088 (_TTHmToPixels.c)
+ *     _TTPixelsToHm @ 0x1C02600D0 (_TTPixelsToHm.c)
+ *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C026DF64 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
  * Callees:
  *     <none>
  */

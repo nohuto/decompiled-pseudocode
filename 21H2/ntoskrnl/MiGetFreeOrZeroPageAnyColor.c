@@ -1,57 +1,45 @@
 /*
- * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x14022FD10
+ * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x1402990B4
  * Callers:
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
  * Callees:
- *     MiGetPageSlist @ 0x140220360 (MiGetPageSlist.c)
- *     MiRemovePageAnyColor @ 0x14022FDA0 (MiRemovePageAnyColor.c)
- *     MiDemoteLocalLargePage @ 0x1402CA210 (MiDemoteLocalLargePage.c)
+ *     MiDemoteLocalLargePage @ 0x140232110 (MiDemoteLocalLargePage.c)
+ *     MiRemovePageAnyColor @ 0x14029914C (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14029932C (MiGetPageSlist.c)
  */
 
-__int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v3; // ebx
-  unsigned int v4; // esi
-  unsigned __int64 v6; // r9
+  unsigned __int64 v3; // r9
+  unsigned __int64 v7; // r9
   __int64 result; // rax
-  unsigned int v8; // ebp
-  __int64 v9; // r8
+  __int64 v9; // r9
+  unsigned int v10; // ebx
 
-  v3 = a3;
-  v4 = a2;
-  if ( (a3 & 1) != 0 )
-    goto LABEL_5;
-  v6 = *(int *)(a1 + 16188);
-  if ( v6 >= 0x10 )
-    v6 = 16LL;
-  result = MiDemoteLocalLargePage(a1, a2, a3, (unsigned int)dword_140C50738 * v6);
-  if ( !result )
+  v3 = *(int *)(a1 + 6300);
+  if ( v3 >= 0x10 )
+    v3 = 16LL;
+  v7 = (unsigned int)dword_140C4DEF8 * v3;
+  if ( (a3 & 0x10001) != 0 || (result = MiDemoteLocalLargePage(a1, a2, a3, v7)) == 0 )
   {
-LABEL_5:
-    result = MiRemovePageAnyColor(a1, v4, v3);
-    if ( result == 1 )
-      return 1LL;
-    if ( result )
-      return result;
-    result = (__int64)MiGetPageSlist(a1, v4, v3);
-    if ( result )
-      return result;
-    v8 = v3 & 0xFFFFBFFF;
-    if ( (v3 & 0x4000) == 0 )
-      v8 = v3;
-    v9 = v8;
-    LODWORD(v9) = v8 | 0x40000;
-    result = MiRemovePageAnyColor(a1, v4, v9);
-    if ( result == 1 )
-      return 1LL;
-    if ( !result )
+    result = MiRemovePageAnyColor(a1, a2, a3, v7);
+    if ( result != 1 )
     {
-      if ( (v8 & 0x4000) == 0 )
-        return 0LL;
-      result = (__int64)MiGetPageSlist(a1, v4, v8);
-      if ( !result )
-        return 0LL;
+      if ( result )
+        return result;
+      result = MiGetPageSlist(a1, a2, a3);
+      if ( result || (a3 & 0x4000) == 0 )
+        return result;
+      v10 = a3 & 0xFFFFBFFF;
+      result = MiRemovePageAnyColor(a1, a2, v10, v9);
+      if ( result != 1 )
+      {
+        if ( !result )
+          return MiGetPageSlist(a1, a2, v10);
+        return result;
+      }
     }
+    return 1LL;
   }
   return result;
 }

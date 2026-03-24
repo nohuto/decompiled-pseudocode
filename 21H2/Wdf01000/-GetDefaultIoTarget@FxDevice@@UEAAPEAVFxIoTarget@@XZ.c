@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDefaultIoTarget@FxDevice@@UEAAPEAVFxIoTarget@@XZ @ 0x1C0002890
+ * XREFs of ?GetDefaultIoTarget@FxDevice@@UEAAPEAVFxIoTarget@@XZ @ 0x1C0018400
  * Callers:
  *     <none>
  * Callees:

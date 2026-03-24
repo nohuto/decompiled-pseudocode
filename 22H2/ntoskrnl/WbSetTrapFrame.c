@@ -1,27 +1,24 @@
 /*
- * XREFs of WbSetTrapFrame @ 0x140763558
+ * XREFs of WbSetTrapFrame @ 0x1406C65CC
  * Callers:
- *     sub_140762D7C @ 0x140762D7C (sub_140762D7C.c)
- *     WbHeapExecuteCall @ 0x140763120 (WbHeapExecuteCall.c)
+ *     WbHeapExecuteCall @ 0x1406C63F8 (WbHeapExecuteCall.c)
+ *     sub_1406C6918 @ 0x1406C6918 (sub_1406C6918.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140770CE4 (PspGetContextThreadInternal.c)
- *     WbSetWowTrapFrame @ 0x140A4DCB0 (WbSetWowTrapFrame.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
+ *     WbSetWowTrapFrame @ 0x140963C2C (WbSetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)
 {
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v4; // rax
   struct _KTHREAD *CurrentThread; // rax
-  int ContextThreadInternal; // edi
-  struct _KTHREAD *v7; // rax
-  bool v8; // zf
-  __int16 v10; // ax
+  int ContextThreadInternal; // ebx
+  __int16 v8; // ax
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30]
-    && ((v10 = WORD2(Process[2].Affinity.StaticBitmap[20]), v10 == 332) || v10 == 452) )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v4 && ((v8 = *(_WORD *)(v4 + 8), v8 == 332) || v8 == 452) )
   {
     return (unsigned int)WbSetWowTrapFrame(a1);
   }
@@ -30,18 +27,15 @@ __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
     *(_DWORD *)(a1 + 96) = 1048577;
-    ContextThreadInternal = PspGetContextThreadInternal((unsigned int)KeGetCurrentThread(), (int)a1 + 48, 0, 1, 1);
+    ContextThreadInternal = PspGetContextThreadInternal((__int64)KeGetCurrentThread(), a1 + 48, 0, 1, 1);
     if ( ContextThreadInternal >= 0 )
     {
       *(_QWORD *)(a1 + 296) = *(_QWORD *)(a2 + 8);
       *(_QWORD *)(a1 + 200) = *(_QWORD *)a2;
       *(_DWORD *)(a1 + 116) = *(_DWORD *)(a2 + 16);
-      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), 3);
+      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), a1 + 48, 0, 1, 3);
     }
-    v7 = KeGetCurrentThread();
-    v8 = v7->SpecialApcDisable++ == -1;
-    if ( v8 && ($C71981A45BEB2B45F82C232A7085991E *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
-      KiCheckForKernelApcDelivery();
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
   return (unsigned int)ContextThreadInternal;
 }

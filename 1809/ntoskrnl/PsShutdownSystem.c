@@ -1,5 +1,5 @@
 /*
- * XREFs of PsShutdownSystem @ 0x14088AFC4
+ * XREFs of PsShutdownSystem @ 0x14088AFA4
  * Callers:
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
  * Callees:
@@ -8,19 +8,19 @@
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     SmIsCompressionProcess @ 0x14011AFC8 (SmIsCompressionProcess.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14012F2E0 (ExfAcquireReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     SmIsCompressionProcess @ 0x14011AFE8 (SmIsCompressionProcess.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14012F300 (ExfAcquireReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
  *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     PsTerminateServerSilo @ 0x140886A90 (PsTerminateServerSilo.c)
- *     PspWaitForUsermodeExit @ 0x14088B888 (PspWaitForUsermodeExit.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     PsTerminateServerSilo @ 0x140886A70 (PsTerminateServerSilo.c)
+ *     PspWaitForUsermodeExit @ 0x14088B868 (PspWaitForUsermodeExit.c)
  */
 
 __int64 PsShutdownSystem()

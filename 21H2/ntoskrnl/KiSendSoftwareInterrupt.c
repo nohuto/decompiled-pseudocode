@@ -1,17 +1,20 @@
 /*
- * XREFs of KiSendSoftwareInterrupt @ 0x14022BA48
+ * XREFs of KiSendSoftwareInterrupt @ 0x140293DEC
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x14020E464 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetAffinityThread @ 0x14020EC24 (KiSetAffinityThread.c)
- *     KiRequestTimer2Expiration @ 0x14022B980 (KiRequestTimer2Expiration.c)
- *     KiSignalThreadForApc @ 0x1402EE894 (KiSignalThreadForApc.c)
- *     KiSetPriorityThread @ 0x140344A30 (KiSetPriorityThread.c)
- *     KiApplyForegroundBoostThread @ 0x14035CAD8 (KiApplyForegroundBoostThread.c)
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403D30D0 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
- *     KiSetHeteroPolicyThread @ 0x140574FA4 (KiSetHeteroPolicyThread.c)
+ *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     KiSignalThreadForApc @ 0x14027A6C0 (KiSignalThreadForApc.c)
+ *     KiRequestTimer2Expiration @ 0x140293D24 (KiRequestTimer2Expiration.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x1402AAFD4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
+ *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C61EC (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     HalSendSoftwareInterrupt @ 0x140342650 (HalSendSoftwareInterrupt.c)
+ *     HalSendSoftwareInterrupt @ 0x140293E10 (HalSendSoftwareInterrupt.c)
  */
 
 __int64 KiSendSoftwareInterrupt()

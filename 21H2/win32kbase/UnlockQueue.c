@@ -1,16 +1,16 @@
 /*
- * XREFs of UnlockQueue @ 0x1C0141DE0
+ * XREFs of UnlockQueue @ 0x1C00C7430
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C008AF34 (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002BAA0 (Win32FreeToPagedLookasideList.c)
  */
 
-void __fastcall UnlockQueue(NSInstrumentation::CLeakTrackingAllocator *a1)
+__int64 (*__fastcall UnlockQueue(__int64 a1))(void)
 {
-  if ( (*((_DWORD *)a1 + 98))-- == 1 && (*((_DWORD *)a1 + 97) & 0x4000000) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(
-      a1,
-      (char *)QLookaside,
-      (struct _SLIST_ENTRY *)a1);
+  __int64 (*result)(void); // rax
+
+  if ( (*(_DWORD *)(a1 + 396))-- == 1 && (*(_DWORD *)(a1 + 388) & 0x4000000) != 0 )
+    return Win32FreeToPagedLookasideList((__int64)QLookaside, a1);
+  return result;
 }

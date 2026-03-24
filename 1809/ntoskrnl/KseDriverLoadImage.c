@@ -1,18 +1,18 @@
 /*
- * XREFs of KseDriverLoadImage @ 0x14067DF60
+ * XREFs of KseDriverLoadImage @ 0x14067DF40
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  *     IopInitializeBuiltinDriver @ 0x1409CBA80 (IopInitializeBuiltinDriver.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepEvntLogShimsApplied @ 0x14029FB88 (KsepEvntLogShimsApplied.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     KsepGetShimsForDriver @ 0x14067DBCC (KsepGetShimsForDriver.c)
- *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
- *     KsepStringDuplicateUnicode @ 0x14067E1A4 (KsepStringDuplicateUnicode.c)
- *     KsepApplyShimsToDriver @ 0x14084817C (KsepApplyShimsToDriver.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepEvntLogShimsApplied @ 0x14029FC88 (KsepEvntLogShimsApplied.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
+ *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14067E184 (KsepStringDuplicateUnicode.c)
+ *     KsepApplyShimsToDriver @ 0x14084815C (KsepApplyShimsToDriver.c)
  */
 
 __int64 __fastcall KseDriverLoadImage(__int64 a1)

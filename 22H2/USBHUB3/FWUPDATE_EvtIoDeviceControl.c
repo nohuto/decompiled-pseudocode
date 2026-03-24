@@ -1,9 +1,9 @@
 /*
- * XREFs of FWUPDATE_EvtIoDeviceControl @ 0x1C003FE70
+ * XREFs of FWUPDATE_EvtIoDeviceControl @ 0x1C003DB90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FWUPDATE_EvtIoDeviceControl(__int64 a1, __int64 a2)

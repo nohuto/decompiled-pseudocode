@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x1403D6C20
+ * XREFs of MiFindLargeNodePage @ 0x140394ED0
  * Callers:
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1409811F0 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x140235E10 (MiGetPfnPageSizeIndex.c)
- *     MiSetPfnOwnedAndActive @ 0x14024EA68 (MiSetPfnOwnedAndActive.c)
- *     MiGetLargePagesDemoteAsNeeded @ 0x1402662A0 (MiGetLargePagesDemoteAsNeeded.c)
- *     MiUpdateLargePageBitMap @ 0x1402C38D0 (MiUpdateLargePageBitMap.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402C6AA0 (MiConvertEntireLargePageToSmall.c)
- *     MiUnlinkNodeLargePages @ 0x1402CA5E0 (MiUnlinkNodeLargePages.c)
+ *     MiSetPfnOwnedAndActive @ 0x14023BC40 (MiSetPfnOwnedAndActive.c)
+ *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x1403F5870 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
+ *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiFindLargeNodePage(
@@ -18,44 +18,44 @@ __int64 __fastcall MiFindLargeNodePage(
         unsigned int *a3,
         int a4,
         int a5,
-        char a6,
+        unsigned int a6,
         unsigned int a7)
 {
-  unsigned __int64 v9; // r11
+  __int64 v9; // r11
   unsigned int *v10; // rbx
   __int64 v11; // rbp
-  int v13; // r8d
+  int v13; // ecx
   int v14; // r14d
-  unsigned __int64 v15; // rcx
+  __int64 v15; // rcx
   int v16; // eax
   __int64 v17; // rax
   __int64 v18; // rdi
   unsigned int PfnPageSizeIndex; // eax
-  unsigned __int64 v20; // r14
+  unsigned __int64 v21; // r14
   __int64 v22; // rbx
   unsigned __int64 v23; // rbp
   int v24; // esi
-  unsigned __int64 v25; // [rsp+50h] [rbp-38h]
-  unsigned __int64 v26; // [rsp+A0h] [rbp+18h]
-  int v27; // [rsp+B0h] [rbp+28h]
+  int v25; // [rsp+40h] [rbp-38h]
+  int v26; // [rsp+90h] [rbp+18h]
+  int v27; // [rsp+A0h] [rbp+28h]
 
   v9 = MiLargePageSizes[*a3];
   v26 = v9;
-  if ( a2 < (unsigned __int16)KeNumberNodes )
+  if ( a2 >= (unsigned __int16)KeNumberNodes )
+  {
+    a2 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 32532);
+    v10 = (unsigned int *)(qword_140C4DE98 + 4LL * a2 * (unsigned __int16)KeNumberNodes);
+    v11 = (__int64)&v10[(unsigned __int16)KeNumberNodes];
+  }
+  else
   {
     v10 = 0LL;
     v11 = 4LL;
   }
-  else
-  {
-    a2 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 33364);
-    v10 = (unsigned int *)(qword_140C506D8 + 4LL * a2 * (unsigned __int16)KeNumberNodes);
-    v11 = (__int64)&v10[(unsigned __int16)KeNumberNodes];
-  }
-  v13 = (4 * ((a5 & 1) == 0) + 2) | 1;
+  v13 = (4 * ((a5 & 1) == 0)) | 1;
   if ( (a5 & 0x8000) == 0 )
-    v13 = 4 * ((a5 & 1) == 0) + 2;
-  v14 = v13 | 0x40;
+    v13 = 4 * ((a5 & 1) == 0);
+  v14 = v13 | 0x10;
   if ( (a5 & 8) != 0 )
     v14 = v13;
   v15 = MiLargePageSizes[a4];
@@ -65,8 +65,8 @@ __int64 __fastcall MiFindLargeNodePage(
   while ( 1 )
   {
     v17 = v16
-        ? MiUnlinkNodeLargePages(a1, 0LL, *a3, 1LL, a2, 4, a7, v14, 0LL)
-        : MiGetLargePagesDemoteAsNeeded(a1, a2, v9, v15, 0LL, 0, v14, a7);
+        ? MiGetFreeZeroLargePages(a1, *a3, 1, v14, a2, 0, 4, a7)
+        : MiGetLargePagesDemoteAsNeeded(a1, a2, v9, v15, 0, v14, a7);
     v18 = v17;
     if ( v17 )
       break;
@@ -74,18 +74,18 @@ __int64 __fastcall MiFindLargeNodePage(
       return 0LL;
     a2 = *v10;
     v16 = v27;
-    v9 = v26;
-    v15 = v25;
+    LODWORD(v9) = v26;
+    LODWORD(v15) = v25;
   }
   PfnPageSizeIndex = MiGetPfnPageSizeIndex(v17);
   *a3 = PfnPageSizeIndex;
-  v20 = MiLargePageSizes[PfnPageSizeIndex];
-  MiUpdateLargePageBitMap(a1, 0xAAAAAAAAAAAAAAABuLL * ((v18 + 0x220000000000LL) >> 4), v20, 1, 1);
-  MiConvertEntireLargePageToSmall(v18, *a3, 0, 1, 0LL, 0LL, 0LL);
+  v21 = MiLargePageSizes[PfnPageSizeIndex];
+  MiUpdateLargePageBitMap(a1, (v18 + 0x58000000000LL) / 48, v21, 1, 1);
+  MiConvertEntireLargePageToSmall(v18, *a3, 0, 1, 0LL, 0LL);
   if ( (a5 & 0x40000000) == 0 )
   {
     v22 = *(_QWORD *)(v18 + 16);
-    v23 = v20;
+    v23 = v21;
     v24 = ((a5 & 0x100000) != 0) + 1;
     do
     {
@@ -95,7 +95,7 @@ __int64 __fastcall MiFindLargeNodePage(
       --v23;
     }
     while ( v23 );
-    v18 += -48LL * v20;
+    v18 += -48LL * v21;
   }
   return v18;
 }

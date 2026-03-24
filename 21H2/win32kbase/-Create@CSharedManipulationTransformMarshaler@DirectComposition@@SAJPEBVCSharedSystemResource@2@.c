@@ -1,87 +1,50 @@
 /*
- * XREFs of ?Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A88C0
+ * XREFs of ?Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0095490
  * Callers:
- *     CreateSharedManipulationTransformMarshaler @ 0x1C00A8880 (CreateSharedManipulationTransformMarshaler.c)
+ *     CreateSharedManipulationTransformMarshaler @ 0x1C0095450 (CreateSharedManipulationTransformMarshaler.c)
  * Callees:
- *     ?InitializeFromSharedResource@CSharedManipulationTransformMarshaler@DirectComposition@@QEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00A8988 (-InitializeFromSharedResource@CSharedManipulationTransformMarshaler@DirectComposition@@QEAAJPEBV.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?InitializeFromSharedResource@CSharedManipulationTransformMarshaler@DirectComposition@@QEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C0095528 (-InitializeFromSharedResource@CSharedManipulationTransformMarshaler@DirectComposition@@QEAAJPEBV.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall DirectComposition::CSharedManipulationTransformMarshaler::Create(
         const struct DirectComposition::CSharedSystemResource *a1,
         struct DirectComposition::CSharedManipulationTransformMarshaler **a2)
 {
-  PVOID v2; // rdi
-  __int64 Pool2; // rbx
+  DirectComposition::CSharedManipulationTransformMarshaler *v4; // rax
+  DirectComposition::CSharedManipulationTransformMarshaler *v5; // rbx
   int v6; // edi
-  __int64 v8; // rax
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-A8h] BYREF
 
-  v2 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x626D4344) != 0x626D4344
-    || (v8 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  v4 = (DirectComposition::CSharedManipulationTransformMarshaler *)Win32AllocPoolWithQuotaZInit(0x88uLL, 0x626D4344u);
+  v5 = v4;
+  if ( v4 )
   {
-LABEL_2:
-    Pool2 = ExAllocatePool2(261LL, 144LL);
-LABEL_3:
-    if ( !Pool2 )
+    memset(v4, 0, 0x88uLL);
+    *((_DWORD *)v5 + 5) = 1;
+    *(_QWORD *)v5 = &DirectComposition::CSharedManipulationTransformMarshaler::`vftable';
+    *((_DWORD *)v5 + 10) = 103;
+  }
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( v5 )
+  {
+    v6 = DirectComposition::CSharedManipulationTransformMarshaler::InitializeFromSharedResource(v5, a1);
+    if ( v6 < 0 )
     {
-LABEL_14:
-      v6 = -1073741801;
-LABEL_15:
-      Pool2 = 0LL;
-      goto LABEL_5;
+      (*(void (__fastcall **)(DirectComposition::CSharedManipulationTransformMarshaler *, __int64))(*(_QWORD *)v5 + 80LL))(
+        v5,
+        1LL);
+      v5 = 0LL;
     }
-    goto LABEL_4;
   }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v8) != 1651327812 )
+  else
   {
-    if ( ++v8 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_2;
+    v6 = -1073741801;
   }
-  Pool2 = ExAllocatePool2(261LL, 160LL);
-  if ( !Pool2 )
-    goto LABEL_14;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                             v2,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_13;
-    Pool2 += 16LL;
-    goto LABEL_3;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v2,
-                           Pool2,
-                           BackTrace) )
-  {
-LABEL_13:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    goto LABEL_14;
-  }
-LABEL_4:
-  memset((void *)Pool2, 0, 0x90uLL);
-  *(_DWORD *)(Pool2 + 32) = 0;
-  *(_QWORD *)(Pool2 + 56) = 0LL;
-  *(_QWORD *)Pool2 = &DirectComposition::CSharedManipulationTransformMarshaler::`vftable';
-  *(_QWORD *)(Pool2 + 24) = 1LL;
-  *(_DWORD *)(Pool2 + 48) = 103;
-  v6 = DirectComposition::CSharedManipulationTransformMarshaler::InitializeFromSharedResource(
-         (DirectComposition::CSharedManipulationTransformMarshaler *)Pool2,
-         a1);
-  if ( v6 < 0 )
-  {
-    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)Pool2 + 80LL))(Pool2, 1LL);
-    goto LABEL_15;
-  }
-LABEL_5:
-  *a2 = (struct DirectComposition::CSharedManipulationTransformMarshaler *)Pool2;
+  *a2 = v5;
   return (unsigned int)v6;
 }

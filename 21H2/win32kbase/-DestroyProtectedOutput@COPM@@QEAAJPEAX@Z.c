@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C016CC10
+ * XREFs of ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C013FD00
  * Callers:
- *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C016CF00 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C013FFC8 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00CEDBC (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
- *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtectedOutput@@KPEAVCMutex@2@@Z @ 0x1C016CB70 (-DestroyHandleInternal@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtec.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00BF6F0 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtectedOutput@@KPEAVCMutex@2@@Z @ 0x1C013FC60 (-DestroyHandleInternal@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtec.c)
  */
 
 __int64 __fastcall COPM::DestroyProtectedOutput(COPM *this, unsigned __int64 a2)
@@ -17,8 +17,8 @@ __int64 __fastcall COPM::DestroyProtectedOutput(COPM *this, unsigned __int64 a2)
   OPM::CMonitorPDO *v8; // [rsp+40h] [rbp+8h] BYREF
 
   v8 = this;
-  v2 = qword_1C0296A08;
-  OPM::CMutex::Lock((void **)qword_1C0296A08 + 7);
+  v2 = qword_1C0251C30;
+  OPM::CMutex::Lock((void **)qword_1C0251C30 + 7);
   v8 = 0LL;
   HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject((__int64)v2 + 24, a2, &v8);
   if ( HandleObject >= 0 )

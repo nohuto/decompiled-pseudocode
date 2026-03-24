@@ -1,31 +1,37 @@
 /*
- * XREFs of DpiReadPnpRegistryValue @ 0x1C01DCD70
+ * XREFs of DpiReadPnpRegistryValue @ 0x1C01842D4
  * Callers:
- *     DpiQueryAdapterRegistryInfo @ 0x1C015C760 (DpiQueryAdapterRegistryInfo.c)
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01D4AE8 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
- *     DpiFdoHandleStartDevice @ 0x1C01F6B40 (DpiFdoHandleStartDevice.c)
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FECEC (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
- *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C020FEC0 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0211BD0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
- *     ?_ReadConfiguration@VIDPN_MGR@@AEAAJXZ @ 0x1C0212F94 (-_ReadConfiguration@VIDPN_MGR@@AEAAJXZ.c)
- *     DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C021BD54 (DpiFdoIsCompatibleWithHighResolutionBoot.c)
- *     ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02FA418 (-OemSpecifiedViewDist@@YAIQEAX@Z.c)
- *     ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C031654C (-OemSpecifiedViewDist@Win81@@YAIQEAX@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0145660 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
+ *     DpiFdoHandleStartDevice @ 0x1C017B870 (DpiFdoHandleStartDevice.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C0183850 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?_ReadConfiguration@VIDPN_MGR@@AEAAJXZ @ 0x1C0183F0C (-_ReadConfiguration@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01845A8 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0193CC0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C019FA88 (DpiFdoIsCompatibleWithHighResolutionBoot.c)
+ *     ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02A9604 (-OemSpecifiedViewDist@@YAIQEAX@Z.c)
+ *     ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C02AFE38 (-OemSpecifiedViewDist@Win81@@YAIQEAX@Z.c)
+ *     DpiQueryAdapterRegistryInfo @ 0x1C02C6F60 (DpiQueryAdapterRegistryInfo.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiOpenPnpRegistryKey @ 0x1C01DCED0 (DpiOpenPnpRegistryKey.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiOpenPnpRegistryKey @ 0x1C0184420 (DpiOpenPnpRegistryKey.c)
  */
 
 __int64 __fastcall DpiReadPnpRegistryValue(__int64 a1, const WCHAR *a2, char *a3, unsigned int a4, unsigned int a5)
 {
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   _DWORD *PoolWithTag; // rdi
-  int v9; // ebx
-  NTSTATUS v10; // eax
-  unsigned int v12; // ecx
-  size_t v13; // r8
-  __int64 v14; // rax
+  __int64 v11; // r8
+  __int64 v12; // r9
+  NTSTATUS v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  __int64 v17; // rax
+  unsigned int v18; // ecx
+  size_t v19; // r8
+  __int64 v20; // rax
   struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-28h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp+8h] BYREF
   ULONG Length; // [rsp+78h] [rbp+20h] BYREF
@@ -37,37 +43,43 @@ __int64 __fastcall DpiReadPnpRegistryValue(__int64 a1, const WCHAR *a2, char *a3
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4 + 16, 0x74727044u);
   if ( PoolWithTag )
   {
-    v9 = DpiOpenPnpRegistryKey(a1, a5, 131097LL, &KeyHandle);
-    if ( v9 >= 0 )
+    LODWORD(a1) = DpiOpenPnpRegistryKey(a1, a5, 131097LL, &KeyHandle);
+    if ( (int)a1 >= 0 )
     {
-      v10 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, PoolWithTag, Length, &Length);
-      v9 = v10;
-      if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
+      v13 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, PoolWithTag, Length, &Length);
+      a1 = v13;
+      if ( (int)(v13 + 0x80000000) < 0 || v13 == -2147483643 )
       {
-        v12 = PoolWithTag[2];
-        v13 = a4;
-        if ( a4 > v12 )
-          v13 = v12;
-        memmove(a3, PoolWithTag + 3, v13);
-        v14 = (unsigned int)PoolWithTag[2];
-        if ( a4 > (unsigned int)v14 )
-          memset(&a3[v14], 0, a4 - (unsigned int)v14);
-        v9 = 0;
+        v18 = PoolWithTag[2];
+        v19 = a4;
+        if ( a4 > v18 )
+          v19 = v18;
+        memmove(a3, PoolWithTag + 3, v19);
+        v20 = (unsigned int)PoolWithTag[2];
+        if ( a4 > (unsigned int)v20 )
+          memset(&a3[v20], 0, a4 - (unsigned int)v20);
+        LODWORD(a1) = 0;
       }
       else
       {
-        WdLogSingleEntry4(4LL, v10, (int)a5, 0LL, 0LL);
+        v15 = WdLogNewEntry5_WdEvent(0x80000000LL, v14);
+        *(_QWORD *)(v15 + 32) = (int)a5;
+        *(_QWORD *)(v15 + 24) = a1;
+        *(_OWORD *)(v15 + 40) = 0LL;
+        WdLogEvent5_WdEvent(v15);
       }
     }
   }
   else
   {
-    v9 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
+    v17 = WdLogNewEntry5_WdLowResource(v9, v8, v11, v12);
+    LODWORD(a1) = -1073741801;
+    *(_QWORD *)(v17 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v17);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
-  return (unsigned int)v9;
+  return (unsigned int)a1;
 }

@@ -1,112 +1,102 @@
 /*
- * XREFs of ObpCaptureObjectName @ 0x1407CD000
+ * XREFs of ObpCaptureObjectName @ 0x1406566B0
  * Callers:
- *     ObReferenceObjectByName @ 0x14071EEC0 (ObReferenceObjectByName.c)
- *     ObpCaptureObjectCreateInformation @ 0x1407CCD80 (ObpCaptureObjectCreateInformation.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
+ *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCaptureObjectName(char a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  const void *v5; // rsi
-  unsigned __int64 v6; // rcx
-  unsigned __int16 v7; // cx
-  unsigned __int16 v8; // di
-  size_t v9; // r14
-  unsigned int v10; // r15d
-  struct _KPRCB *CurrentPrcb; // rsi
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // rdx
+  __int16 v7; // di
+  unsigned int v8; // r14d
+  struct _KPRCB *CurrentPrcb; // r13
   _GENERAL_LOOKASIDE *P; // rdi
-  _DWORD *Pool2; // rbx
+  _DWORD *PoolWithTag; // rbx
   _GENERAL_LOOKASIDE *L; // rdi
-  unsigned int v16; // [rsp+24h] [rbp-64h]
-  unsigned __int16 v17; // [rsp+2Ch] [rbp-5Ch]
-  int Src; // [rsp+48h] [rbp-40h]
-  const void *Src_8; // [rsp+50h] [rbp-38h]
+  unsigned int v14; // [rsp+24h] [rbp-64h]
+  void *Src[2]; // [rsp+48h] [rbp-40h]
 
   *(_QWORD *)(a3 + 8) = 0LL;
   *(_DWORD *)a3 = 0;
-  v16 = 0;
+  v14 = 0;
   if ( a1 && KeGetCurrentThread()->PreviousMode )
   {
     if ( a2 >= 0x7FFFFFFF0000LL )
       a2 = 0x7FFFFFFF0000LL;
-    Src = *(_DWORD *)a2;
-    v5 = *(const void **)(a2 + 8);
-    Src_8 = v5;
+    LODWORD(Src[0]) = *(_DWORD *)a2;
+    v5 = *(_QWORD *)(a2 + 8);
+    Src[1] = (void *)v5;
     if ( (unsigned __int16)*(_DWORD *)a2 )
     {
-      if ( ((unsigned __int8)v5 & 1) != 0 )
+      if ( (v5 & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v6 = (unsigned __int64)v5 + (unsigned __int16)*(_DWORD *)a2;
-      if ( v6 > 0x7FFFFFFF0000LL || v6 < (unsigned __int64)v5 )
+      v6 = v5 + (unsigned __int16)*(_DWORD *)a2;
+      if ( v6 > 0x7FFFFFFF0000LL || v6 < v5 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    v7 = Src;
   }
   else
   {
-    v5 = *(const void **)(a2 + 8);
-    Src_8 = v5;
-    v7 = *(_WORD *)a2;
+    *(_OWORD *)Src = *(_OWORD *)a2;
   }
-  if ( v7 )
+  if ( LOWORD(Src[0]) )
   {
-    v8 = v7;
-    v17 = v7;
-    if ( (v7 & 1) != 0 || v7 == 65534 )
+    v7 = (__int16)Src[0];
+    if ( ((__int64)Src[0] & 1) != 0 || LOWORD(Src[0]) == 65534 )
     {
       return (unsigned int)-1073741773;
     }
     else
     {
-      if ( (unsigned int)v7 + 2 < v7 )
+      if ( (unsigned int)LOWORD(Src[0]) + 2 < LOWORD(Src[0]) )
         return (unsigned int)-1073741670;
-      v9 = v7;
-      v10 = v7 + 2;
-      if ( a4 && v10 <= 0xF8 )
+      v8 = LOWORD(Src[0]) + 2;
+      if ( a4 && v8 <= 0xF8 )
       {
-        LOWORD(v10) = 248;
+        LOWORD(v8) = 248;
         CurrentPrcb = KeGetCurrentPrcb();
         P = CurrentPrcb->PPLookasideList[5].P;
         ++P->TotalAllocates;
-        Pool2 = RtlpInterlockedPopEntrySList(&P->ListHead);
-        if ( !Pool2 )
+        PoolWithTag = RtlpInterlockedPopEntrySList(&P->ListHead);
+        if ( !PoolWithTag )
         {
           ++P->AllocateMisses;
           L = CurrentPrcb->PPLookasideList[5].L;
           ++L->TotalAllocates;
-          Pool2 = RtlpInterlockedPopEntrySList(&L->ListHead);
-          if ( !Pool2 )
+          PoolWithTag = RtlpInterlockedPopEntrySList(&L->ListHead);
+          if ( !PoolWithTag )
           {
             ++L->AllocateMisses;
-            Pool2 = (_DWORD *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))L->AllocateEx)(
-                                (unsigned int)L->Type,
-                                L->Size,
-                                L->Tag);
+            PoolWithTag = (_DWORD *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))L->AllocateEx)(
+                                      (unsigned int)L->Type,
+                                      L->Size,
+                                      L->Tag);
           }
         }
-        if ( Pool2 )
-          *Pool2 = CurrentPrcb->Number;
-        v5 = Src_8;
-        v8 = v17;
+        if ( PoolWithTag )
+          *PoolWithTag = CurrentPrcb->Number;
+        v7 = (__int16)Src[0];
       }
       else
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(256LL, v10, 1833853519LL);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x6D4E624Fu);
       }
-      *(_WORD *)a3 = v8;
-      *(_WORD *)(a3 + 2) = v10;
-      *(_QWORD *)(a3 + 8) = Pool2;
-      if ( Pool2 )
+      *(_WORD *)a3 = v7;
+      *(_WORD *)(a3 + 2) = v8;
+      *(_QWORD *)(a3 + 8) = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, v5, v9);
-        *((_WORD *)Pool2 + (v9 >> 1)) = 0;
+        memmove(PoolWithTag, Src[1], LOWORD(Src[0]));
+        *((_WORD *)PoolWithTag + ((unsigned __int64)LOWORD(Src[0]) >> 1)) = 0;
       }
       else
       {
@@ -114,5 +104,5 @@ __int64 __fastcall ObpCaptureObjectName(char a1, unsigned __int64 a2, __int64 a3
       }
     }
   }
-  return v16;
+  return v14;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlHpKInitializeHeapManager @ 0x1403C445C
+ * XREFs of RtlHpKInitializeHeapManager @ 0x1403C3DE8
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1403C3FA0 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3924 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     RtlHpHeapManagerStart @ 0x14036EDD4 (RtlHpHeapManagerStart.c)
- *     RtlHpHeapManagerInitialize @ 0x14036FB38 (RtlHpHeapManagerInitialize.c)
- *     RtlHpGlobalsInitialize @ 0x1403C44EC (RtlHpGlobalsInitialize.c)
+ *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x14039DD3C (RtlHpHeapManagerInitialize.c)
+ *     RtlHpGlobalsInitialize @ 0x1403C3E70 (RtlHpGlobalsInitialize.c)
  */
 
-__int64 RtlHpKInitializeHeapManager()
+NTSTATUS RtlHpKInitializeHeapManager()
 {
   union _RTL_RUN_ONCE v1; // [rsp+40h] [rbp+8h] BYREF
 
   RtlHpGlobalsInitialize();
   v1.Value = 0x500010200LL;
   RtlHpHeapManagerInitialize(ExPoolState, &v1);
-  dword_140C5EA20 = (unsigned __int16)KeNumberNodes;
+  dword_140C58090 = (unsigned __int16)KeNumberNodes;
   if ( (unsigned __int16)KeNumberNodes > 0x40u )
-    dword_140C5EA20 = 64;
-  return RtlHpHeapManagerStart(ExPoolState, 1, 1LL, (union _RTL_RUN_ONCE)0xFFFF800000000000uLL, 0x800000000000uLL, 2);
+    dword_140C58090 = 64;
+  return RtlHpHeapManagerStart(ExPoolState, 1u, (union _RTL_RUN_ONCE)0xFFFF800000000000uLL, 0x800000000000uLL, 2);
 }

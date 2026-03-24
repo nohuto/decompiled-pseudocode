@@ -1,12 +1,12 @@
 /*
- * XREFs of IopValidateQueryInformationParameters @ 0x1407B0890
+ * XREFs of IopValidateQueryInformationParameters @ 0x1405FB810
  * Callers:
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
- *     IoQueryInformationByName @ 0x1407F69E0 (IoQueryInformationByName.c)
+ *     IoQueryInformationByName @ 0x1405D8B10 (IoQueryInformationByName.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
  * Callees:
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseAccessViolation @ 0x140A021F0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall IopValidateQueryInformationParameters(
@@ -18,14 +18,14 @@ __int64 __fastcall IopValidateQueryInformationParameters(
         signed int a6)
 {
   unsigned int v6; // eax
-  __int64 v7; // rax
+  __int64 v7; // rdx
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rcx
-  __int16 v11; // dx
+  __int16 v11; // ax
 
   if ( !a1 )
     return 0LL;
-  if ( (unsigned int)a6 >= 0x4D )
+  if ( (unsigned int)a6 >= 0x4C )
     return 3221225475LL;
   v6 = *((unsigned __int8 *)IopQueryOperationLength + a6);
   if ( !(_BYTE)v6 )
@@ -35,8 +35,8 @@ __int64 __fastcall IopValidateQueryInformationParameters(
     if ( a3 >= 0x7FFFFFFF0000LL )
       a3 = 0x7FFFFFFF0000LL;
     *(_DWORD *)a3 = *(_DWORD *)a3;
-    v7 = *(_QWORD *)(a2 + 184);
-    if ( *(_QWORD *)(v7 + 1408) && ((v11 = *(_WORD *)(v7 + 2412), v11 == 332) || v11 == 452) )
+    v7 = *(_QWORD *)(*(_QWORD *)(a2 + 184) + 1408LL);
+    if ( v7 && ((v11 = *(_WORD *)(v7 + 8), v11 == 332) || v11 == 452) )
     {
       ProbeForWrite((volatile void *)a4, Length, 4u);
     }

@@ -1,70 +1,57 @@
 /*
- * XREFs of DestroySMWP @ 0x1C00A1B10
+ * XREFs of DestroySMWP @ 0x1C006F450
  * Callers:
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0029418 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     NtUserDeferWindowPosAndBand @ 0x1C0029610 (NtUserDeferWindowPosAndBand.c)
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
- *     ?UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z @ 0x1C01A6310 (-UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z.c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C00320C0 (NtUserDeferWindowPosAndBand.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C006B9F0 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     ?UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z @ 0x1C01CFF30 (-UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z.c)
  * Callees:
- *     ?Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z @ 0x1C011B808 (-Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z.c)
+ *     <none>
  */
 
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall DestroySMWP(__int64 a1)
 {
-  int v1; // eax
-  char v2; // bl
-  struct _HANDLEENTRY *v4; // rax
-  BOOL v5; // esi
-  __int64 v6; // r14
-  int v7; // ebp
-  _QWORD *v8; // r14
-  __int64 v9; // rsi
-  char v10; // [rsp+40h] [rbp+8h] BYREF
+  BOOL v2; // edi
+  __int64 v3; // rsi
+  int v4; // ebp
+  _QWORD *v5; // rsi
+  __int64 v6; // rdi
 
-  v1 = *(_DWORD *)(a1 + 24);
-  v2 = 0;
-  v10 = 0;
-  if ( (v1 & 2) != 0 )
-  {
-    v4 = (struct _HANDLEENTRY *)_HMPheFromObjectWorker(a1);
-    IdentifyPrimaryDestroyTarget::Identify((IdentifyPrimaryDestroyTarget *)&v10, v4);
-    v2 = v10;
-  }
   if ( (*(_DWORD *)(a1 + 24) & 2) != 0 )
   {
     if ( !(unsigned int)HMMarkObjectDestroy(a1) )
-      goto LABEL_16;
-    v5 = 1;
+      return;
+    v2 = 1;
   }
   else
   {
-    v5 = a1 != gSMWP;
+    v2 = a1 != gSMWP;
   }
-  v6 = *(_QWORD *)(a1 + 40);
-  if ( v6 )
+  v3 = *(_QWORD *)(a1 + 40);
+  if ( v3 )
   {
-    v7 = *(_DWORD *)(a1 + 28) - 1;
-    if ( v7 >= 0 )
+    v4 = *(_DWORD *)(a1 + 28) - 1;
+    if ( v4 >= 0 )
     {
-      v8 = (_QWORD *)(v6 + 120);
+      v5 = (_QWORD *)(v3 + 120);
       do
       {
-        if ( *v8 )
-          GreDeleteObject(*v8);
-        v8 += 21;
-        --v7;
+        if ( *v5 )
+          GreDeleteObject(*v5);
+        v5 += 21;
+        --v4;
       }
-      while ( v7 >= 0 );
+      while ( v4 >= 0 );
     }
-    if ( v5 )
+    if ( v2 )
       Win32FreePool(*(void **)(a1 + 40));
   }
   if ( (*(_DWORD *)(a1 + 24) & 2) != 0 )
   {
     HMFreeObject(a1);
   }
-  else if ( v5 )
+  else if ( v2 )
   {
     Win32FreePool((void *)a1);
   }
@@ -73,17 +60,14 @@ void __fastcall DestroySMWP(__int64 a1)
     gdwPUDFlags &= ~0x40000000u;
     if ( *(int *)(a1 + 32) > 8 )
     {
-      v9 = Win32AllocPoolZInit(672LL, 2004054869LL);
-      if ( v9 )
+      v6 = Win32AllocPool(672LL, 2004054869LL);
+      if ( v6 )
       {
         Win32FreePool(*(void **)(a1 + 40));
-        *(_QWORD *)(a1 + 40) = v9;
+        *(_QWORD *)(a1 + 40) = v6;
         *(_DWORD *)(a1 + 32) = 4;
       }
     }
     *(_DWORD *)(a1 + 24) &= ~4u;
   }
-LABEL_16:
-  if ( v2 )
-    gphePrimaryDestroyTarget = 0LL;
 }

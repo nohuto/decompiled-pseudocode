@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetProperty@CPropertySet@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800C65F0
+ * XREFs of ?GetProperty@CPropertySet@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800B8CC0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x1801E30D8 (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x18018066C (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CPropertySet::GetProperty(CPropertySet *this, __int64 a2, struct CExpressionValue *a3)
@@ -29,52 +29,59 @@ __int64 __fastcall CPropertySet::GetProperty(CPropertySet *this, __int64 a2, str
   __int64 v19; // r9
   __int64 v20; // r10
   __int64 v21; // r11
-  __int64 *v22; // rax
-  __int64 v23; // xmm0_8
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // r10
-  __int64 v28; // r11
-  __int64 v29; // rax
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // xmm0_8
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // r10
+  __int64 v29; // r11
   __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 v33; // r10
-  __int64 v34; // r11
-  __int128 *v35; // rax
-  __int128 v36; // xmm0
+  __int64 v31; // rax
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // r9
+  __int64 v35; // r10
+  __int64 v36; // r11
   __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // r10
-  __int64 v41; // r11
-  __int128 *v42; // rax
-  __int128 v43; // xmm0
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  __int64 v47; // r10
-  __int64 v48; // r11
-  __int128 *v49; // rax
-  __int128 v50; // xmm0
-  __int64 v51; // rcx
-  __int64 v52; // r8
-  __int64 v53; // r9
-  __int64 v54; // r10
-  __int64 v55; // r11
-  __int64 v56; // rax
-  __int64 v57; // xmm1_8
-  __int64 v58; // rcx
-  __int64 v59; // r8
-  __int64 v60; // r9
-  __int64 v61; // r10
-  __int64 v62; // r11
-  _OWORD *v63; // rax
-  __int128 v64; // xmm1
+  __int64 v38; // rax
+  __int128 v39; // xmm0
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // r9
+  __int64 v43; // r10
+  __int64 v44; // r11
+  __int64 v45; // rcx
+  __int64 v46; // rax
+  __int128 v47; // xmm0
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  __int64 v50; // r9
+  __int64 v51; // r10
+  __int64 v52; // r11
+  __int64 v53; // rcx
+  __int64 v54; // rax
+  __int128 v55; // xmm0
+  __int64 v56; // rcx
+  __int64 v57; // r8
+  __int64 v58; // r9
+  __int64 v59; // r10
+  __int64 v60; // r11
+  __int64 v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // xmm1_8
+  __int64 v64; // rcx
+  __int64 v65; // r8
+  __int64 v66; // r9
+  __int64 v67; // r10
+  __int64 v68; // r11
+  __int64 v69; // rdx
+  __int64 v70; // rax
+  __int128 v71; // xmm1
   void *retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( (unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId((char *)this + 88) )
+  if ( (unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId((char *)this + 80) )
   {
     if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v3) )
       ModuleFailFastForHRESULT(2147942487LL, retaddr);
@@ -105,87 +112,94 @@ __int64 __fastcall CPropertySet::GetProperty(CPropertySet *this, __int64 a2, str
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v17) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v22 = (__int64 *)(*(_QWORD *)(v19 + 32) + (*(_DWORD *)(v21 + 8 * v20 + 4) & 0x1FFFFFFF));
+        v22 = *(_QWORD *)(v19 + 32);
+        v23 = *(_DWORD *)(v21 + 8 * v20 + 4) & 0x1FFFFFFF;
         *(_DWORD *)(v18 + 72) = 35;
-        v23 = *v22;
+        v24 = *(_QWORD *)(v23 + v22);
         result = 0LL;
-        *(_QWORD *)v18 = v23;
+        *(_QWORD *)v18 = v24;
         *(_BYTE *)(v18 + 76) = 1;
         break;
       case 0x34:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v24) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v25) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v29 = *(_QWORD *)(v26 + 32) + (*(_DWORD *)(v28 + 8 * v27 + 4) & 0x1FFFFFFF);
-        *(_DWORD *)(v25 + 72) = 52;
-        *(_QWORD *)v25 = *(_QWORD *)v29;
-        *(_DWORD *)(v25 + 8) = *(_DWORD *)(v29 + 8);
+        v30 = *(_QWORD *)(v27 + 32);
+        v31 = *(_DWORD *)(v29 + 8 * v28 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v26 + 72) = 52;
+        *(_QWORD *)v26 = *(_QWORD *)(v31 + v30);
+        *(_DWORD *)(v26 + 8) = *(_DWORD *)(v31 + v30 + 8);
         result = 0LL;
-        *(_BYTE *)(v25 + 76) = 1;
+        *(_BYTE *)(v26 + 76) = 1;
         break;
       case 0x45:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v30) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v32) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v35 = (__int128 *)(*(_QWORD *)(v32 + 32) + (*(_DWORD *)(v34 + 8 * v33 + 4) & 0x1FFFFFFF));
-        *(_DWORD *)(v31 + 72) = 69;
-        v36 = *v35;
-        *(_BYTE *)(v31 + 76) = 1;
+        v37 = *(_QWORD *)(v34 + 32);
+        v38 = *(_DWORD *)(v36 + 8 * v35 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v33 + 72) = 69;
+        v39 = *(_OWORD *)(v38 + v37);
+        *(_BYTE *)(v33 + 76) = 1;
         result = 0LL;
-        *(_OWORD *)v31 = v36;
+        *(_OWORD *)v33 = v39;
         break;
       case 0x46:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v37) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v40) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v42 = (__int128 *)(*(_QWORD *)(v39 + 32) + (*(_DWORD *)(v41 + 8 * v40 + 4) & 0x1FFFFFFF));
-        *(_DWORD *)(v38 + 72) = 70;
-        v43 = *v42;
-        *(_BYTE *)(v38 + 76) = 1;
+        v45 = *(_QWORD *)(v42 + 32);
+        v46 = *(_DWORD *)(v44 + 8 * v43 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v41 + 72) = 70;
+        v47 = *(_OWORD *)(v46 + v45);
+        *(_BYTE *)(v41 + 76) = 1;
         result = 0LL;
-        *(_OWORD *)v38 = v43;
+        *(_OWORD *)v41 = v47;
         break;
       case 0x47:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v44) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v48) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v49 = (__int128 *)(*(_QWORD *)(v46 + 32) + (*(_DWORD *)(v48 + 8 * v47 + 4) & 0x1FFFFFFF));
-        *(_DWORD *)(v45 + 72) = 71;
-        v50 = *v49;
-        *(_BYTE *)(v45 + 76) = 1;
+        v53 = *(_QWORD *)(v50 + 32);
+        v54 = *(_DWORD *)(v52 + 8 * v51 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v49 + 72) = 71;
+        v55 = *(_OWORD *)(v54 + v53);
+        *(_BYTE *)(v49 + 76) = 1;
         result = 0LL;
-        *(_OWORD *)v45 = v50;
+        *(_OWORD *)v49 = v55;
         break;
       case 0x68:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v51) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v56) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v56 = *(_QWORD *)(v53 + 32) + (*(_DWORD *)(v55 + 8 * v54 + 4) & 0x1FFFFFFF);
-        *(_DWORD *)(v52 + 72) = 104;
-        *(_OWORD *)v52 = *(_OWORD *)v56;
-        v57 = *(_QWORD *)(v56 + 16);
+        v61 = *(_QWORD *)(v58 + 32);
+        v62 = *(_DWORD *)(v60 + 8 * v59 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v57 + 72) = 104;
+        *(_OWORD *)v57 = *(_OWORD *)(v62 + v61);
+        v63 = *(_QWORD *)(v62 + v61 + 16);
         result = 0LL;
-        *(_QWORD *)(v52 + 16) = v57;
-        *(_BYTE *)(v52 + 76) = 1;
+        *(_QWORD *)(v57 + 16) = v63;
+        *(_BYTE *)(v57 + 76) = 1;
         break;
       case 0x109:
         if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v58) )
+        if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v64) )
           ModuleFailFastForHRESULT(2147942487LL, retaddr);
-        v63 = (_OWORD *)(*(_QWORD *)(v60 + 32) + (*(_DWORD *)(v62 + 8 * v61 + 4) & 0x1FFFFFFF));
-        *(_DWORD *)(v59 + 72) = 265;
-        *(_OWORD *)v59 = *v63;
-        *(_OWORD *)(v59 + 16) = v63[1];
-        *(_OWORD *)(v59 + 32) = v63[2];
-        v64 = v63[3];
-        *(_BYTE *)(v59 + 76) = 1;
-        *(_OWORD *)(v59 + 48) = v64;
+        v69 = *(_QWORD *)(v66 + 32);
+        v70 = *(_DWORD *)(v68 + 8 * v67 + 4) & 0x1FFFFFFF;
+        *(_DWORD *)(v65 + 72) = 265;
+        *(_OWORD *)v65 = *(_OWORD *)(v70 + v69);
+        *(_OWORD *)(v65 + 16) = *(_OWORD *)(v70 + v69 + 16);
+        *(_OWORD *)(v65 + 32) = *(_OWORD *)(v70 + v69 + 32);
+        v71 = *(_OWORD *)(v70 + v69 + 48);
+        *(_BYTE *)(v65 + 76) = 1;
+        *(_OWORD *)(v65 + 48) = v71;
         result = 0LL;
         break;
       default:
@@ -194,7 +208,7 @@ __int64 __fastcall CPropertySet::GetProperty(CPropertySet *this, __int64 a2, str
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024809, 0xB5u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024809, 0xB6u, 0LL);
     return 2147942487LL;
   }
   return result;

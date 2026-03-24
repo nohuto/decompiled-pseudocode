@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlInterlockedSetClearBits @ 0x14008F8E0 (RtlInterlockedSetClearBits.c)
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
  */
 
 __int64 __fastcall PspAssociateCompletionPortCallback(__int64 a1, __int64 a2)

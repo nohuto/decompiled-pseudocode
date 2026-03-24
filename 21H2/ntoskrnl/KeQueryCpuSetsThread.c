@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsThread @ 0x1405725CC
+ * XREFs of KeQueryCpuSetsThread @ 0x14051C790
  * Callers:
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiGetThreadCpuSetMaskPointer @ 0x140293090 (KiGetThreadCpuSetMaskPointer.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiGetThreadCpuSetMaskPointer @ 0x1402EBCB8 (KiGetThreadCpuSetMaskPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsThread(__int64 a1, _QWORD *a2)
@@ -33,9 +33,9 @@ __int64 __fastcall KeQueryCpuSetsThread(__int64 a1, _QWORD *a2)
   unsigned int v24; // [rsp+60h] [rbp+18h] BYREF
 
   v24 = 0;
-  v4 = 32;
+  v4 = 20;
   ThreadCpuSetMaskPointer = KiGetThreadCpuSetMaskPointer(a1, &v24);
-  if ( v24 <= 0x20 )
+  if ( v24 <= 0x14 )
     v4 = v24;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);

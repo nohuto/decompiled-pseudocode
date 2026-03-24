@@ -1,12 +1,12 @@
 /*
- * XREFs of MiImageUnused @ 0x140242580
+ * XREFs of MiImageUnused @ 0x1402BBF0C
  * Callers:
- *     MiCheckControlArea @ 0x140287660 (MiCheckControlArea.c)
- *     MiRelocateImageAgain @ 0x1406FF49C (MiRelocateImageAgain.c)
+ *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
+ *     MiRelocateImageAgain @ 0x1407142BC (MiRelocateImageAgain.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
@@ -26,7 +26,7 @@ int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
   *(_QWORD *)a3 = -1LL;
   if ( *(_QWORD *)(v4 + 32) )
   {
-    if ( a2 )
+    if ( a2 == 1 )
       v6 = 17;
     else
       v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
@@ -38,9 +38,9 @@ int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
       *(_DWORD *)(a3 + 8) = (unsigned __int16)v7;
       *(_DWORD *)(a3 + 16) = (v7 >> 20) & 3;
       LODWORD(v4) = *(_DWORD *)(a1 + 56);
-      if ( (v4 & 0x20000000) != 0 )
+      if ( (v4 & 0x10000000) != 0 )
       {
-        LODWORD(v4) = v4 & 0xDFFFFFFF;
+        LODWORD(v4) = v4 & 0xEFFFFFFF;
         *(_DWORD *)(a1 + 56) = v4;
         *(_BYTE *)(a3 + 13) = BYTE2(v7) & 1;
         *(_BYTE *)(a3 + 12) = 1;

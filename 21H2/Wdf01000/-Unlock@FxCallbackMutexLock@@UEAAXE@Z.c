@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Unlock@FxCallbackMutexLock@@UEAAXE@Z @ 0x1C0012480
+ * XREFs of ?Unlock@FxCallbackMutexLock@@UEAAXE@Z @ 0x1C0019E20
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckOwnership@FxCallbackLock@@QEAAXXZ @ 0x1C0012550 (-CheckOwnership@FxCallbackLock@@QEAAXXZ.c)
- *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C006DC28 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ *     ?CheckOwnership@FxCallbackLock@@QEAAXXZ @ 0x1C0019E84 (-CheckOwnership@FxCallbackLock@@QEAAXXZ.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C005AC78 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
  */
 
 void __fastcall FxCallbackMutexLock::Unlock(FxCallbackMutexLock *this, unsigned __int8 PreviousIrql)

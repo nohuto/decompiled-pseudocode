@@ -1,33 +1,29 @@
 /*
- * XREFs of ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050
+ * XREFs of ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A8D0
  * Callers:
- *     ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C0089A2C (-TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_AL.c)
- *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C009B6CC (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
- *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C009C5B0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
- *     ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C009D860 (-DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
- *     ?OpenLocalAllocation@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_PROCESS@@PEAXPEAE@Z @ 0x1C00AA340 (-OpenLocalAllocation@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDM.c)
- *     ?CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AAEE0 (-CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDI.c)
- *     ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C00B1DA4 (-CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@.c)
- *     ?DestroyContextAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C00B294C (-DestroyContextAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_CONTEXT_ALLOC@@@Z.c)
- *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B2CD4 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
- *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C00B2FC8 (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
+ *     ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C005F7B8 (-DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0060B54 (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0069DC0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A770 (-CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDI.c)
+ *     ?OpenLocalAllocation@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_PROCESS@@PEAXPEAE@Z @ 0x1C0077200 (-OpenLocalAllocation@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDM.c)
+ *     ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C0086BCC (-TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_AL.c)
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008A300 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C008A578 (-CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@.c)
+ *     ?DestroyContextAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C008B274 (-DestroyContextAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_CONTEXT_ALLOC@@@Z.c)
+ *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C008B81C (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E430 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
- *     ?FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C008BC90 (-FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C008E868 (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
- *     ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0092BE0 (-QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGIN.c)
- *     ?WaitForAllPagingOperations@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00931CC (-WaitForAllPagingOperations@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C00AEB20 (-TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@.c)
- *     ?UncommitLocalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C00B1214 (-UncommitLocalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_N@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0pppppppppppp_EtwWriteTransfer @ 0x1C0023F90 (McTemplateK0pppppppppppp_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00689C0 (-FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z @ 0x1C006BAE0 (-xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z.c)
+ *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C006F08C (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
+ *     ?QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0073EA4 (-QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C0086F18 (-TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@.c)
+ *     ?UncommitLocalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C0088EDC (-UncommitLocalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_N@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_GLOBAL::CloseOneAllocation(
         VIDMM_GLOBAL *this,
         struct _KEVENT *a2,
@@ -37,7 +33,7 @@ __int64 __fastcall VIDMM_GLOBAL::CloseOneAllocation(
         struct _KEVENT **a6)
 {
   __int64 *v6; // rax
-  int v7; // r15d
+  struct _LIST_ENTRY *v7; // r12
   struct _LIST_ENTRY *Flink; // rdx
   __int64 v12; // rsi
   struct _LIST_ENTRY *Blink; // rax
@@ -45,75 +41,90 @@ __int64 __fastcall VIDMM_GLOBAL::CloseOneAllocation(
   __int64 v16; // rax
   int v17; // ecx
   __int64 v18; // rcx
-  __int64 v19; // rbp
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  struct _KEVENT **v23; // rdx
-  struct VIDMM_ALLOC **v24; // rcx
-  __int64 *v25; // rdi
-  __int64 v26; // r13
-  bool v27; // zf
-  __int64 v28; // rdx
-  __int64 **v29; // rcx
-  __int64 v30; // rdx
-  struct _LIST_ENTRY *v31; // rax
-  struct _LIST_ENTRY *v32; // r15
-  struct _LIST_ENTRY *v33; // r15
-  struct _LIST_ENTRY *v34; // r12
-  __int64 v35; // rbp
-  struct _LIST_ENTRY *v36; // rdi
-  HANDLE CurrentProcessId; // rax
-  struct _LIST_ENTRY *v38; // rcx
-  struct _LIST_ENTRY **p_Blink; // rdi
+  __int64 v19; // rdx
+  __int64 v20; // rdi
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  int v26; // eax
+  struct _LIST_ENTRY *v27; // rdx
+  struct _LIST_ENTRY ***v28; // rcx
+  __int64 v29; // rdi
+  BOOL v30; // ebp
+  __int64 v31; // r13
+  __int64 v32; // r14
+  int v34; // ecx
+  struct _LIST_ENTRY **v35; // rdx
+  __int64 v36; // rdi
+  int v37; // eax
+  int v38; // eax
+  __int64 v39; // rdx
   __int64 v40; // rcx
   __int64 v41; // r8
-  struct _LIST_ENTRY **v42; // rax
-  struct _LIST_ENTRY *v43; // rdx
-  struct _LIST_ENTRY *v44; // rcx
+  struct _LIST_ENTRY *v42; // rax
+  struct _LIST_ENTRY *v43; // rcx
+  struct _LIST_ENTRY *v44; // r14
+  struct _LIST_ENTRY *v45; // rdi
+  __int64 v46; // rbp
+  HANDLE CurrentProcessId; // rax
+  struct _LIST_ENTRY *v48; // rdi
+  struct _LIST_ENTRY **p_Blink; // rdi
+  __int64 v50; // rcx
+  __int64 v51; // r8
+  struct _LIST_ENTRY **v52; // rax
+  struct _LIST_ENTRY *v53; // rdx
+  struct _LIST_ENTRY *v54; // rcx
   __int64 result; // rax
-  struct _LIST_ENTRY *v46; // rax
-  unsigned int v47; // ecx
-  __int64 v48; // rdi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v50; // eax
-  __int64 v51; // rdx
-  __int64 v52; // rax
-  int v53; // r9d
-  __int64 v54; // rax
-  struct _LIST_ENTRY *v55; // rdx
-  LIST_ENTRY *p_WaitListHead; // rax
-  struct _LIST_ENTRY *v57; // rcx
-  struct _KTHREAD **VirtualAddressAllocator; // rax
-  __int64 v59; // rcx
-  int v60; // r9d
+  bool v56; // r8
+  __int64 v57; // rdx
+  __int64 v58; // rax
+  struct _LIST_ENTRY *v59; // rax
+  __int64 v60; // rdx
   __int64 v61; // rcx
-  __int64 v62; // rcx
-  __int64 v63; // rcx
+  __int64 v62; // rax
+  int v63; // r9d
   __int64 v64; // rcx
-  __int64 Blink_low; // rcx
-  struct _LIST_ENTRY *v66; // [rsp+80h] [rbp-C8h]
-  __int64 v67; // [rsp+88h] [rbp-C0h]
-  __int64 v68; // [rsp+90h] [rbp-B8h]
-  __int64 v69; // [rsp+A0h] [rbp-A8h]
-  _QWORD v70[12]; // [rsp+B0h] [rbp-98h] BYREF
-  unsigned int v71; // [rsp+158h] [rbp+10h]
-  unsigned int v72; // [rsp+160h] [rbp+18h]
+  int v65; // r9d
+  int v66; // eax
+  __int64 v67; // rax
+  struct _LIST_ENTRY *v68; // rdx
+  LIST_ENTRY *p_WaitListHead; // rax
+  struct _LIST_ENTRY *v70; // rcx
+  struct _KTHREAD **VirtualAddressAllocator; // rax
+  __int64 v72; // rax
+  __int64 v73; // rax
+  __int64 v74; // rax
+  __int64 v75; // rax
+  _QWORD *v76; // rax
+  _QWORD *v77; // rax
+  _QWORD *v78; // rax
+  __int64 v79; // rax
+  __int64 v80; // rax
+  __int64 Blink_low; // rdi
+  _QWORD *v82; // rax
+  struct _LIST_ENTRY *v83; // [rsp+80h] [rbp-B8h]
+  __int64 v84; // [rsp+88h] [rbp-B0h]
+  __int64 v85; // [rsp+90h] [rbp-A8h]
+  _QWORD v86[12]; // [rsp+A0h] [rbp-98h] BYREF
+  unsigned int v87; // [rsp+148h] [rbp+10h]
+  unsigned int v88; // [rsp+150h] [rbp+18h]
 
   v6 = *(__int64 **)&a2->Header.Lock;
-  v7 = 0;
-  v72 = 0;
+  v7 = 0LL;
+  v88 = 0;
   Flink = a2->Header.WaitListHead.Flink;
-  v66 = Flink;
+  v83 = Flink;
   v12 = *v6;
-  v71 = 0;
-  v68 = 0LL;
-  v67 = 0LL;
+  v87 = 0;
+  v85 = 0LL;
+  v84 = 0LL;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v54 = WdLogNewEntry5_WdTrace(this);
-    Flink = v66;
-    *(_QWORD *)(v54 + 24) = a2;
+    v67 = WdLogNewEntry5_WdTrace(this);
+    Flink = v83;
+    *(_QWORD *)(v67 + 24) = a2;
   }
   if ( a3 )
     *a3 = *(struct _VIDMM_LOCAL_ALLOC **)&a2->Header.Lock;
@@ -122,80 +133,83 @@ __int64 __fastcall VIDMM_GLOBAL::CloseOneAllocation(
     Blink = a2->Header.WaitListHead.Blink;
     if ( Blink )
     {
-      v72 = (unsigned int)Blink[1].Flink;
+      v88 = (unsigned int)Blink[1].Flink;
       v15 = Blink[2].Blink;
       if ( v15 )
       {
-        v71 = (unsigned int)v15[1].Flink;
-        v68 = (__int64)v15[3].Flink;
+        v87 = (unsigned int)v15[1].Flink;
+        v85 = (__int64)v15[3].Flink;
       }
     }
-    if ( (**(_DWORD **)(v12 + 536) & 8) != 0 )
-      v16 = *(_QWORD *)(v12 + 392);
+    if ( (**(_DWORD **)(v12 + 496) & 8) != 0 )
+      v16 = *(_QWORD *)(v12 + 360);
     else
       v16 = *(_QWORD *)(*(_QWORD *)&a2->Header.Lock + 16LL);
-    v67 = v16;
+    v84 = v16;
   }
   v17 = (int)a2[1].Header.WaitListHead.Flink;
-  if ( (v17 & 1) == 0 )
+  if ( (v17 & 1) != 0 )
+    goto LABEL_13;
+  v59 = a2->Header.WaitListHead.Flink;
+  if ( v59 && v59[1].Blink || (*(_DWORD *)(v12 + 84) & 4) != 0 )
   {
-    v46 = a2->Header.WaitListHead.Flink;
-    if ( v46 && v46[1].Blink || (*(_DWORD *)(v12 + 76) & 4) != 0 )
+    if ( (*(_DWORD *)(v12 + 84) & 4) == 0 )
     {
-      if ( (*(_DWORD *)(v12 + 76) & 4) == 0 )
-      {
-        VIDMM_GLOBAL::TerminateOneAllocation(this, (struct VIDMM_ALLOC *)a2, (unsigned int)a3, a5, 0LL);
-        goto LABEL_13;
-      }
-      a2[1].Header.SignalState |= 4u;
-      LODWORD(a2[1].Header.WaitListHead.Flink) = v17 | 1;
+      VIDMM_GLOBAL::TerminateOneAllocation(this, (struct VIDMM_ALLOC *)a2, (unsigned int)a3, a5, 0LL);
+      goto LABEL_13;
     }
-    else
-    {
-      v50 = a2[1].Header.SignalState | 4;
-      a2[1].Header.SignalState = v50;
-      if ( (v50 & 3) == 1 )
-      {
-        v55 = a2[2].Header.WaitListHead.Flink;
-        p_WaitListHead = &a2[2].Header.WaitListHead;
-        if ( v55->Blink != &a2[2].Header.WaitListHead )
-          goto LABEL_119;
-        v57 = a2[2].Header.WaitListHead.Blink;
-        if ( v57->Flink != p_WaitListHead )
-          goto LABEL_119;
-        v57->Flink = v55;
-        v55->Blink = v57;
-        a2[1].Header.SignalState &= 0xFFFFFFFC;
-        Flink = v66;
-        a2[2].Header.WaitListHead.Blink = 0LL;
-        p_WaitListHead->Flink = 0LL;
-      }
-      if ( (*(_DWORD *)(v12 + 68) & 0x100) != 0 && (struct _KEVENT *)Flink[16].Flink == a2 )
-        Flink[16].Flink = 0LL;
-    }
-    KeSetEvent(a2 + 3, 0, 0);
+    a2[1].Header.SignalState |= 4u;
+    LODWORD(a2[1].Header.WaitListHead.Flink) = v17 | 1;
   }
+  else
+  {
+    a2[1].Header.SignalState |= 4u;
+    if ( (a2[1].Header.SignalState & 3) == 1 )
+    {
+      v68 = a2[2].Header.WaitListHead.Flink;
+      p_WaitListHead = &a2[2].Header.WaitListHead;
+      if ( v68->Blink != &a2[2].Header.WaitListHead )
+        goto LABEL_115;
+      v70 = a2[2].Header.WaitListHead.Blink;
+      if ( v70->Flink != p_WaitListHead )
+        goto LABEL_115;
+      v70->Flink = v68;
+      v68->Blink = v70;
+      a2[1].Header.SignalState &= 0xFFFFFFFC;
+      Flink = v83;
+      a2[2].Header.WaitListHead.Blink = 0LL;
+      p_WaitListHead->Flink = 0LL;
+    }
+    if ( (*(_DWORD *)(v12 + 76) & 0x100) != 0 && (struct _KEVENT *)Flink[15].Blink == a2 )
+      Flink[15].Blink = 0LL;
+  }
+  KeSetEvent(a2 + 3, 0, 0);
 LABEL_13:
   if ( a4 && ((__int64)a2[1].Header.WaitListHead.Flink & 1) != 0 && !KeReadStateEvent(a2 + 3) )
   {
-    WdLogSingleEntry2(4LL, a2, -1071775486LL);
+    v62 = WdLogNewEntry5_WdEvent(v61, v60);
+    *(_QWORD *)(v62 + 24) = a2;
+    *(_QWORD *)(v62 + 32) = -1071775486LL;
+    WdLogEvent5_WdEvent(v62);
     result = 3223191810LL;
     *a6 = a2 + 3;
     return result;
   }
   KeWaitForSingleObject(&a2[3], Executive, 0, 0, 0LL);
-  VIDMM_GLOBAL::WaitForAllPagingOperations(this, (struct _VIDMM_GLOBAL_ALLOC *)v12);
+  VIDMM_GLOBAL::xWaitForAllPagingEngines(
+    this,
+    (struct _VIDSCH_SYNC_OBJECT **)this + (*(_DWORD *)(v12 + 76) & 0x3F) + 747,
+    (const unsigned __int64 *)(v12 + 168),
+    1u,
+    (const unsigned __int64 *)this + (*(_DWORD *)(v12 + 76) & 0x3F) + 683,
+    *(_DWORD *)(v12 + 76) & 0x3F);
   if ( g_IsInternalReleaseOrDbg )
     *(_QWORD *)(WdLogNewEntry5_WdTrace(v18) + 24) = a2;
   v19 = *(_QWORD *)&a2[6].Header.Lock;
   if ( v19 )
   {
-    if ( (**(_DWORD **)(v12 + 536) & 0x10000008) != 0 )
-    {
-      v48 = **(_QWORD **)(*(_QWORD *)&a2->Header.Lock + 8LL);
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      (*((void (__fastcall **)(__int64, __int64))VirtualMemoryInterface + 4))(v48, v19);
-    }
+    if ( (**(_DWORD **)(v12 + 496) & 0x10000008) != 0 )
+      MmUnmapViewOfSection(**(_QWORD **)(*(_QWORD *)&a2->Header.Lock + 8LL), v19);
     *(_QWORD *)&a2[6].Header.Lock = 0LL;
   }
   if ( a2[5].Header.WaitListHead.Flink != &a2[5].Header.WaitListHead )
@@ -204,242 +218,260 @@ LABEL_13:
     {
       VirtualAddressAllocator = (struct _KTHREAD **)VIDMM_PROCESS::GetVirtualAddressAllocator(
                                                       *(VIDMM_PROCESS **)(*(_QWORD *)&a2->Header.Lock + 8LL),
-                                                      *(_DWORD *)(*((_QWORD *)this + 3) + 240LL),
-                                                      *(_DWORD *)(v12 + 68) & 0x3F);
+                                                      *(_DWORD *)(*((_QWORD *)this + 3) + 232LL),
+                                                      *(_DWORD *)(v12 + 76) & 0x3F);
       CVirtualAddressAllocator::FreeAllocMappedVaRangeList(VirtualAddressAllocator, (struct VIDMM_ALLOC *)a2);
     }
     else
     {
-      memset(v70, 0, 0x58uLL);
-      v20 = *((_QWORD *)this + 5049);
-      v70[0] = -4294967175LL;
-      v70[2] = a2;
-      VIDMM_GLOBAL::QueueSystemCommandAndWaitInternal(
-        this,
-        (struct _VIDMM_SYSTEM_COMMAND *)v70,
-        *(struct VIDMM_PAGING_QUEUE **)(v20 + 88),
-        *(struct _VIDSCH_SYNC_OBJECT **)(176LL * *(unsigned int *)(*(_QWORD *)(v20 + 88) + 144LL)
-                                       + *(_QWORD *)(v20 + 88)
-                                       + 152),
-        1);
+      memset(v86, 0, 0x58uLL);
+      v86[0] = -4294967175LL;
+      v86[2] = a2;
+      VIDMM_GLOBAL::QueueSystemCleanupCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v86, v56);
     }
   }
+  v20 = *(_QWORD *)(v12 + 312);
   KeEnterCriticalRegion();
-  if ( *(struct _KTHREAD **)(v12 + 320) == KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(v20 + 16) == KeGetCurrentThread() )
   {
-    if ( *(int *)(v12 + 328) <= 0 )
+    v66 = *(_DWORD *)(v20 + 24);
+    if ( v66 <= 0 )
     {
-      WdLogSingleEntry1(1LL, 491LL);
-      DxgkLogInternalTriageEvent(v59, 262146LL);
+      v72 = WdLogNewEntry5_WdAssertion(v22, v21, v23);
+      *(_QWORD *)(v72 + 24) = 661LL;
+      WdLogEvent5_WdAssertion(v72);
+      v66 = *(_DWORD *)(v20 + 24);
     }
-    ++*(_DWORD *)(v12 + 328);
+    v26 = v66 + 1;
   }
   else
   {
-    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v12 + 304, 0LL) )
+    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v20, 0LL) )
     {
       if ( bTracingEnabled )
       {
-        v60 = *(_DWORD *)(v12 + 332);
-        if ( v60 != -1 && (byte_1C0076981 & 1) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v21, (__int64)&EventBlockThread, v22, v60);
+        v65 = *(_DWORD *)(v20 + 28);
+        if ( v65 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v25, (const EVENT_DESCRIPTOR *)"g", v23, v65);
       }
-      _InterlockedIncrement64((volatile signed __int64 *)(v12 + 312));
-      ExAcquirePushLockExclusiveEx(v12 + 304, 0LL);
+      _InterlockedIncrement64((volatile signed __int64 *)(v20 + 8));
+      ExAcquirePushLockExclusiveEx(v20, 0LL);
     }
-    if ( *(_QWORD *)(v12 + 320) )
+    if ( *(_QWORD *)(v20 + 16) )
     {
-      WdLogSingleEntry1(1LL, 515LL);
-      DxgkLogInternalTriageEvent(v61, 262146LL);
+      v73 = WdLogNewEntry5_WdAssertion(v25, v24, v23);
+      *(_QWORD *)(v73 + 24) = 685LL;
+      WdLogEvent5_WdAssertion(v73);
     }
-    if ( *(_DWORD *)(v12 + 328) )
+    if ( *(_DWORD *)(v20 + 24) )
     {
-      WdLogSingleEntry1(1LL, 516LL);
-      DxgkLogInternalTriageEvent(v62, 262146LL);
+      v74 = WdLogNewEntry5_WdAssertion(v25, v24, v23);
+      *(_QWORD *)(v74 + 24) = 686LL;
+      WdLogEvent5_WdAssertion(v74);
     }
-    *(_QWORD *)(v12 + 320) = KeGetCurrentThread();
-    *(_DWORD *)(v12 + 328) = 1;
+    *(_QWORD *)(v20 + 16) = KeGetCurrentThread();
+    v26 = 1;
   }
-  v23 = (struct _KEVENT **)a2[1].Header.WaitListHead.Blink;
-  if ( v23[1] != (struct _KEVENT *)&a2[1].Header.WaitListHead.Blink )
-    goto LABEL_119;
-  v24 = *(struct VIDMM_ALLOC ***)&a2[2].Header.Lock;
-  if ( *v24 != (struct VIDMM_ALLOC *)&a2[1].Header.WaitListHead.Blink )
-    goto LABEL_119;
-  *v24 = (struct VIDMM_ALLOC *)v23;
-  v23[1] = (struct _KEVENT *)v24;
-  v25 = *(__int64 **)&a2->Header.Lock;
-  if ( !a3 )
-    v7 = 1;
-  v26 = *v25;
-  v69 = v25[3];
+  *(_DWORD *)(v20 + 24) = v26;
+  v27 = a2[1].Header.WaitListHead.Blink;
+  if ( (struct _LIST_ENTRY **)v27->Blink != &a2[1].Header.WaitListHead.Blink )
+    goto LABEL_115;
+  v28 = *(struct _LIST_ENTRY ****)&a2[2].Header.Lock;
+  if ( *v28 != &a2[1].Header.WaitListHead.Blink )
+    goto LABEL_115;
+  *v28 = &v27->Flink;
+  v27->Blink = (struct _LIST_ENTRY *)v28;
+  v29 = *(_QWORD *)&a2->Header.Lock;
+  v30 = a3 == 0LL;
+  v31 = *(_QWORD *)(*(_QWORD *)&a2->Header.Lock + 24LL);
+  v32 = **(_QWORD **)&a2->Header.Lock;
   if ( g_IsInternalReleaseOrDbg )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v24) + 24) = *((unsigned int *)v25 + 9);
-  if ( !v7 )
   {
-    *(_DWORD *)(v26 + 76) |= 1u;
-    ++*((_DWORD *)v25 + 18);
-    ++*(_DWORD *)(v26 + 404);
+    v75 = WdLogNewEntry5_WdTrace(v28);
+    v28 = (struct _LIST_ENTRY ***)*(unsigned int *)(v29 + 36);
+    *(_QWORD *)(v75 + 24) = v28;
   }
-  v27 = (*((_DWORD *)v25 + 9))-- == 1;
-  if ( v27 )
+  if ( !v30 )
   {
-    if ( *((int *)v25 + 19) > 0 )
+    *(_DWORD *)(v32 + 84) |= 1u;
+    ++*(_DWORD *)(v29 + 72);
+    ++*(_DWORD *)(v32 + 372);
+  }
+  if ( (*(_DWORD *)(v29 + 36))-- == 1 )
+  {
+    v34 = *(_DWORD *)(v29 + 76);
+    if ( v34 )
     {
-      v47 = -*((_DWORD *)v25 + 19);
-      if ( (int)(v47 + _InterlockedExchangeAdd((volatile signed __int32 *)(v26 + 360), v47)) < 0 )
+      v64 = (unsigned int)-v34;
+      if ( (int)v64 + _InterlockedExchangeAdd((volatile signed __int32 *)(v32 + 336), v64) < 0 )
       {
         if ( g_IsInternalRelease )
         {
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+          v76 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v64, v27);
+          v76[3] = 270LL;
+          v76[4] = 9LL;
+          v76[5] = 0LL;
+          v76[6] = 0LL;
+          v76[7] = 0LL;
+          WdLogEvent5_WdCriticalError(v76);
         }
       }
     }
-    if ( (*(_DWORD *)(v26 + 76) & 0x20) != 0 )
-      VIDMM_GLOBAL::UncommitLocalBackingStore(this, (struct _VIDMM_LOCAL_ALLOC *)v25, v7 != 0);
-    --*(_DWORD *)(v26 + 288);
-    v28 = v25[7];
-    if ( *(__int64 **)(v28 + 8) != v25 + 7 )
-      goto LABEL_119;
-    v29 = (__int64 **)v25[8];
-    if ( *v29 != v25 + 7 )
-      goto LABEL_119;
-    *v29 = (__int64 *)v28;
-    *(_QWORD *)(v28 + 8) = v29;
-    if ( *(_DWORD *)(v26 + 112) )
+    if ( (*(_DWORD *)(v32 + 84) & 0x40) != 0 )
+      VIDMM_GLOBAL::UncommitLocalBackingStore(this, (struct _VIDMM_LOCAL_ALLOC *)v29, v30);
+    --*(_DWORD *)(v32 + 304);
+    v35 = *(struct _LIST_ENTRY ***)(v29 + 56);
+    if ( v35[1] != (struct _LIST_ENTRY *)(v29 + 56) )
+      goto LABEL_115;
+    v28 = *(struct _LIST_ENTRY ****)(v29 + 64);
+    if ( *v28 != (struct _LIST_ENTRY **)(v29 + 56) )
+      goto LABEL_115;
+    *v28 = v35;
+    v35[1] = (struct _LIST_ENTRY *)v28;
+    if ( *(_DWORD *)(v32 + 120) )
     {
-      v51 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v25[1] + 16) + 8LL * *(unsigned int *)(*((_QWORD *)this + 3) + 240LL))
-                      + 48LL)
-          + 296LL * (*(_DWORD *)(v26 + 68) & 0x3F);
-      v52 = *(_QWORD *)(v26 + 16);
-      if ( (*(_DWORD *)(*(_QWORD *)(v26 + 120) + 80LL) & 0x1001) != 0 )
-        *(_QWORD *)(v51 + 240) -= v52;
+      v28 = *(struct _LIST_ENTRY ****)(*(_QWORD *)(v29 + 8) + 16LL);
+      v23 = (__int64)v28[*(unsigned int *)(*((_QWORD *)this + 3) + 232LL)];
+      v57 = *(_QWORD *)(v23 + 48) + 296LL * (*(_DWORD *)(v32 + 76) & 0x3F);
+      v58 = *(_QWORD *)(v32 + 16);
+      if ( (*(_DWORD *)(*(_QWORD *)(v32 + 128) + 80LL) & 0x1001) != 0 )
+        *(_QWORD *)(v57 + 240) -= v58;
       else
-        *(_QWORD *)(v51 + 232) -= v52;
+        *(_QWORD *)(v57 + 232) -= v58;
     }
-    v30 = *v25;
-    if ( (**(_DWORD **)(*v25 + 536) & 0x20000000) != 0
-      && v25 == *(__int64 **)(v30 + 88)
-      && (*(_DWORD *)(v30 + 76) & 4) == 0 )
+    v27 = *(struct _LIST_ENTRY **)v29;
+    if ( (**(_DWORD **)(*(_QWORD *)v29 + 496LL) & 0x20000000) != 0
+      && (struct _LIST_ENTRY *)v29 == v27[6].Flink
+      && (HIDWORD(v27[5].Flink) & 4) == 0 )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 26LL, v25, 0LL, 0LL);
+      v77 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v28, v27);
+      v77[3] = 270LL;
+      v77[4] = 26LL;
+      v77[5] = v29;
+      v77[6] = 0LL;
+      v77[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v77);
     }
-    if ( v7 )
+    if ( v30 )
     {
-      *((_BYTE *)v25 + 32) |= 4u;
-      operator delete(v25);
+      *(_BYTE *)(v29 + 32) |= 4u;
+      operator delete((void *)v29);
     }
   }
-  if ( *(struct _KTHREAD **)(v12 + 320) != KeGetCurrentThread() )
-    WdLogSingleEntry5(0LL, 275LL, 4LL, v12 + 296, 0LL, 0LL);
-  if ( *(int *)(v12 + 328) <= 0 )
+  v36 = *(_QWORD *)(v12 + 312);
+  if ( *(struct _KTHREAD **)(v36 + 16) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 535LL);
-    DxgkLogInternalTriageEvent(v63, 262146LL);
+    v78 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v28, v27);
+    v78[3] = 275LL;
+    v78[4] = 4LL;
+    v78[5] = v36;
+    v78[6] = 0LL;
+    v78[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v78);
   }
-  v27 = (*(_DWORD *)(v12 + 328))-- == 1;
-  if ( v27 )
+  v37 = *(_DWORD *)(v36 + 24);
+  if ( v37 <= 0 )
   {
-    *(_QWORD *)(v12 + 320) = 0LL;
-    ExReleasePushLockExclusiveEx(v12 + 304, 0LL);
+    v79 = WdLogNewEntry5_WdAssertion(v28, v27, v23);
+    *(_QWORD *)(v79 + 24) = 705LL;
+    WdLogEvent5_WdAssertion(v79);
+    v37 = *(_DWORD *)(v36 + 24);
+  }
+  v38 = v37 - 1;
+  *(_DWORD *)(v36 + 24) = v38;
+  if ( !v38 )
+  {
+    *(_QWORD *)(v36 + 16) = 0LL;
+    ExReleasePushLockExclusiveEx(v36, 0LL);
   }
   KeLeaveCriticalRegion();
-  if ( !bTracingEnabled )
-    goto LABEL_60;
-  v31 = a2->Header.WaitListHead.Blink;
-  if ( v31 )
+  if ( bTracingEnabled )
   {
-    v32 = v31[2].Blink;
-    if ( v32 )
+    v42 = a2->Header.WaitListHead.Blink;
+    if ( v42 )
     {
-      v33 = v32[3].Blink;
-      goto LABEL_55;
+      v43 = v42[2].Blink;
+      if ( v43 )
+        v7 = v43[3].Blink;
+      v44 = v42[2].Blink;
     }
+    else
+    {
+      v44 = 0LL;
+    }
+    v45 = v83;
+    if ( v83 )
+      v45 = v83[1].Blink;
+    v46 = *((_QWORD *)this + 3);
+    CurrentProcessId = PsGetCurrentProcessId();
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+      McTemplateK0pppppppppppp_EtwWriteTransfer(
+        v87,
+        &EventDestroyDeviceAllocation,
+        v85,
+        CurrentProcessId,
+        v45,
+        v46,
+        a2,
+        v12,
+        v44,
+        v7,
+        v88,
+        v87,
+        v85,
+        v84,
+        v31);
   }
-  v33 = 0LL;
-  if ( v31 )
+  *((_QWORD *)this + 962) += *(_QWORD *)(v12 + 16);
+  ++*((_DWORD *)this + 1922);
+  v48 = a2->Header.WaitListHead.Flink[1].Flink;
+  if ( !v48 )
+    goto LABEL_67;
+  p_Blink = &v48[22].Blink;
+  if ( p_Blink && p_Blink[1] == (struct _LIST_ENTRY *)KeGetCurrentThread() )
   {
-LABEL_55:
-    v34 = v31[2].Blink;
-    goto LABEL_56;
+    v80 = WdLogNewEntry5_WdAssertion(v40, v39, v41);
+    *(_QWORD *)(v80 + 24) = 1571LL;
+    WdLogEvent5_WdAssertion(v80);
   }
-  v34 = 0LL;
-LABEL_56:
-  v35 = *((_QWORD *)this + 3);
-  if ( v66 )
-    v36 = v66[1].Blink;
-  else
-    v36 = 0LL;
-  CurrentProcessId = PsGetCurrentProcessId();
-  if ( (byte_1C0076981 & 8) != 0 )
-    McTemplateK0ppppppppppppq_EtwWriteTransfer(
-      v71,
-      &EventDestroyDeviceAllocation,
-      v68,
-      CurrentProcessId,
-      v36,
-      v35,
-      a2,
-      v12,
-      v34,
-      v33,
-      v72,
-      v71,
-      v68,
-      v67,
-      v69);
-LABEL_60:
-  *((_QWORD *)this + 963) += *(_QWORD *)(v12 + 16);
-  ++*((_DWORD *)this + 1924);
-  v38 = a2->Header.WaitListHead.Flink[1].Flink;
-  if ( v38 )
+  KeEnterCriticalRegion();
+  if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(p_Blink, 0LL) )
   {
-    p_Blink = &v38[22].Blink;
-    if ( v38 != (struct _LIST_ENTRY *)-360LL && (struct _KTHREAD *)v38[23].Flink == KeGetCurrentThread() )
+    if ( bTracingEnabled )
     {
-      WdLogSingleEntry1(1LL, 1453LL);
-      DxgkLogInternalTriageEvent(v64, 262146LL);
+      v63 = *((_DWORD *)p_Blink + 6);
+      if ( v63 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v50, (const EVENT_DESCRIPTOR *)"g", v51, v63);
     }
-    KeEnterCriticalRegion();
-    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(p_Blink, 0LL) )
-    {
-      if ( bTracingEnabled )
-      {
-        v53 = *((_DWORD *)p_Blink + 6);
-        if ( v53 != -1 && (byte_1C0076981 & 1) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v40, (__int64)&EventBlockThread, v41, v53);
-      }
-      ExAcquirePushLockExclusiveEx(p_Blink, 0LL);
-    }
-    p_Blink[1] = (struct _LIST_ENTRY *)KeGetCurrentThread();
-    v42 = &a2[4].Header.WaitListHead.Blink;
-    v43 = a2[4].Header.WaitListHead.Blink;
-    if ( (struct _LIST_ENTRY **)v43->Blink == &a2[4].Header.WaitListHead.Blink )
-    {
-      v44 = *(struct _LIST_ENTRY **)&a2[5].Header.Lock;
-      if ( (struct _LIST_ENTRY **)v44->Flink == v42 )
-      {
-        v44->Flink = v43;
-        v43->Blink = v44;
-        *(_QWORD *)&a2[5].Header.Lock = 0LL;
-        *v42 = 0LL;
-        p_Blink[1] = 0LL;
-        ExReleasePushLockExclusiveEx(p_Blink, 0LL);
-        KeLeaveCriticalRegion();
-        goto LABEL_68;
-      }
-    }
-LABEL_119:
+    ExAcquirePushLockExclusiveEx(p_Blink, 0LL);
+  }
+  p_Blink[1] = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  v52 = &a2[4].Header.WaitListHead.Blink;
+  v53 = a2[4].Header.WaitListHead.Blink;
+  if ( (struct _LIST_ENTRY **)v53->Blink != &a2[4].Header.WaitListHead.Blink
+    || (v54 = *(struct _LIST_ENTRY **)&a2[5].Header.Lock, (struct _LIST_ENTRY **)v54->Flink != v52) )
+  {
+LABEL_115:
     __fastfail(3u);
   }
-LABEL_68:
+  v54->Flink = v53;
+  v53->Blink = v54;
+  *(_QWORD *)&a2[5].Header.Lock = 0LL;
+  *v52 = 0LL;
+  p_Blink[1] = 0LL;
+  ExReleasePushLockExclusiveEx(p_Blink, 0LL);
+  KeLeaveCriticalRegion();
+LABEL_67:
   if ( LODWORD(a2[6].Header.WaitListHead.Blink) )
   {
     Blink_low = SLODWORD(a2[6].Header.WaitListHead.Blink);
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 56LL, a2, Blink_low, 0LL);
+    v82 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v40, v39);
+    v82[3] = 270LL;
+    v82[4] = 56LL;
+    v82[5] = a2;
+    v82[6] = Blink_low;
+    v82[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v82);
   }
   operator delete(a2);
   return 0LL;

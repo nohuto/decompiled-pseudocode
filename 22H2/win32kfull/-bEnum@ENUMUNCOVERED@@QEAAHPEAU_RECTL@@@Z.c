@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C001EBD0
+ * XREFs of ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C00F084C
  * Callers:
- *     ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C001EA6C (-vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00F06D4 (-vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
  * Callees:
  *     <none>
  */

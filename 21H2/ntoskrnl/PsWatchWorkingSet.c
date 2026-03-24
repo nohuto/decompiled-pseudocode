@@ -1,17 +1,17 @@
 /*
- * XREFs of PsWatchWorkingSet @ 0x1405E0600
+ * XREFs of PsWatchWorkingSet @ 0x140581550
  * Callers:
- *     KiPageFault @ 0x140430000 (KiPageFault.c)
+ *     KiPageFault @ 0x14040DD00 (KiPageFault.c)
  * Callees:
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
  */
 
-char __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
+signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  signed __int64 Process; // rax
-  signed __int32 *v7; // r9
+  signed __int64 result; // rax
+  __int64 v7; // r9
   unsigned __int64 v8; // rdi
   signed __int32 v9; // ecx
   unsigned __int8 CurrentIrql; // si
@@ -27,16 +27,16 @@ char __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
   bool v20; // zf
 
   CurrentThread = KeGetCurrentThread();
-  Process = (signed __int64)CurrentThread->ApcState.Process;
-  v7 = *(signed __int32 **)(Process + 1328);
+  result = (signed __int64)CurrentThread->ApcState.Process;
+  v7 = *(_QWORD *)(result + 1328);
   if ( v7 )
   {
     v8 = 0x4000000000000000LL;
-    LOBYTE(Process) = 0;
+    result = 0x8000000000000000uLL;
     if ( a1 >= 276 )
       v8 = 0x8000000000000000uLL;
-    _m_prefetchw(v7);
-    v9 = *v7;
+    _m_prefetchw((const void *)v7);
+    v9 = *(_DWORD *)v7;
     CurrentIrql = KeGetCurrentIrql();
     if ( !CurrentIrql )
       --CurrentThread->KernelApcDisable;
@@ -44,32 +44,35 @@ char __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
       goto LABEL_19;
     do
     {
-      LODWORD(Process) = v9 & 0xFFFE;
-      if ( (unsigned int)Process >= 0x800 )
+      result = (unsigned __int16)v9 & 0xFFFE;
+      if ( (unsigned int)result >= 0x800 )
         break;
       v11 = v9;
       v12 = ((unsigned __int16)v9 ^ (unsigned __int16)(v9 + 2)) & 0xFFFE ^ v9;
       v13 = v11;
-      LODWORD(Process) = _InterlockedCompareExchange(v7, (v12 ^ (v12 + 0x10000)) & 0x7FFF0000 ^ v12, v11);
-      v9 = Process;
-      if ( v13 == (_DWORD)Process )
+      result = (unsigned int)_InterlockedCompareExchange(
+                               (volatile signed __int32 *)v7,
+                               (v12 ^ (v12 + 0x10000)) & 0x7FFF0000 ^ v12,
+                               v11);
+      v9 = result;
+      if ( v13 == (_DWORD)result )
         break;
     }
-    while ( (Process & 1) == 0 );
-    if ( (v9 & 1) != 0 || (LODWORD(Process) = v9 & 0xFFFE, (unsigned int)Process >= 0x800) )
+    while ( (result & 1) == 0 );
+    if ( (v9 & 1) != 0 || (result = (unsigned __int16)v9 & 0xFFFE, (unsigned int)result >= 0x800) )
     {
 LABEL_19:
-      _m_prefetchw(v7 + 2);
-      v19 = *((_QWORD *)v7 + 1);
+      _m_prefetchw((const void *)(v7 + 8));
+      v19 = *(_QWORD *)(v7 + 8);
       if ( v19 != -1 )
       {
         do
         {
-          Process = _InterlockedCompareExchange64((volatile signed __int64 *)v7 + 1, v19 + 1, v19);
-          v20 = v19 == Process;
-          v19 = Process;
+          result = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 8), v19 + 1, v19);
+          v20 = v19 == result;
+          v19 = result;
         }
-        while ( !v20 && Process != -1 );
+        while ( !v20 && result != -1 );
       }
     }
     else
@@ -80,18 +83,18 @@ LABEL_19:
       if ( a1 >= 276 )
         v16 = v14;
       v17 = 3 * v15;
-      *(_QWORD *)&v7[2 * v17 + 10] = a2;
-      *(_QWORD *)&v7[6 * v15 + 12] = v16;
-      *(_QWORD *)&v7[2 * v17 + 14] = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
-      v18 = _InterlockedExchangeAdd(v7, 0xFFFF0000);
+      *(_QWORD *)(v7 + 8 * v17 + 40) = a2;
+      *(_QWORD *)(v7 + 24 * v15 + 48) = v16;
+      *(_QWORD *)(v7 + 8 * v17 + 56) = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
+      v18 = _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFF0000);
       if ( (v18 & 1) != 0 && (v18 & 0x7FFF0000) == 0x10000 )
-        KeSignalGate(v7 + 4, 0);
-      Process = (signed __int64)CurrentThread->WaitBlock[0].SparePtr;
-      if ( Process )
-        _InterlockedOr64((volatile signed __int64 *)Process, v8);
+        KeSignalGate(v7 + 16, 0LL, v16, (_DWORD *)v7);
+      result = (signed __int64)CurrentThread->WaitBlock[0].SparePtr;
+      if ( result )
+        _InterlockedOr64((volatile signed __int64 *)result, v8);
     }
     if ( !CurrentIrql )
-      LOBYTE(Process) = KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+      return (signed __int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
-  return Process;
+  return result;
 }

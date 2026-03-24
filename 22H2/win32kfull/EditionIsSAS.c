@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionIsSAS @ 0x1C0155B70
+ * XREFs of EditionIsSAS @ 0x1C01619F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C00506D4 (-IsSAS@@YA_NEPEAI@Z.c)
+ *     IsSAS @ 0x1C0105608 (IsSAS.c)
  */
 
-_BOOL8 __fastcall EditionIsSAS(__int64 a1, unsigned int *a2)
+__int64 __fastcall EditionIsSAS(unsigned __int8 a1, _DWORD *a2)
 {
   return IsSAS(a1, a2);
 }

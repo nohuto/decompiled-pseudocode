@@ -1,20 +1,19 @@
 /*
- * XREFs of CmpTraceSecurityChanging @ 0x14070DD5C
+ * XREFs of CmpTraceSecurityChanging @ 0x1406E6BF8
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x14070CFC8 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406E5AEC (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     RtlLengthSecurityDescriptorStrict @ 0x1402973F4 (RtlLengthSecurityDescriptorStrict.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     RtlFindUnicodeSubstring @ 0x1406D93E0 (RtlFindUnicodeSubstring.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1403F7CEC (RtlLengthSecurityDescriptorStrict.c)
+ *     RtlFindUnicodeSubstring @ 0x1405ED870 (RtlFindUnicodeSubstring.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
  */
 
-__int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)
 {
-  int v7; // r13d
   int v8; // eax
   unsigned __int16 *v9; // rdi
   unsigned int v10; // ebx
@@ -45,13 +44,12 @@ __int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, __int64 a3, 
   _DWORD v36[2]; // [rsp+E8h] [rbp+7h] BYREF
 
   v17[0] = 0LL;
-  v7 = a3;
-  v8 = CmpConstructNameWithStatus(a1, v17, a3);
+  v8 = CmpConstructNameWithStatus(a1, v17);
   v9 = v17[0];
   v10 = v8;
   if ( v8 >= 0 )
   {
-    if ( RtlFindUnicodeSubstring(v17[0]) )
+    if ( RtlFindUnicodeSubstring(v17[0], &CmMpsSvcKeySubstring.Length, 1) )
     {
       v12 = RtlLengthSecurityDescriptorStrict();
       if ( v12 > 0xFFFF )
@@ -60,7 +58,7 @@ __int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, __int64 a3, 
       if ( v13 > 0xFFFF )
         LOWORD(v13) = -1;
       RtlLengthSecurityDescriptorStrict();
-      if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 2LL) )
+      if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 2LL) )
       {
         v16 = *v9;
         v21 = *((_QWORD *)v9 + 1);
@@ -80,15 +78,15 @@ __int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, __int64 a3, 
         v20 = v15;
         v24 = v15;
         v25 = a2;
-        LODWORD(v17[0]) = v7;
+        LODWORD(v17[0]) = a3;
         v28 = 4LL;
         v30 = v15;
         v31 = a4;
         v34 = v15;
         v35 = a5;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04390,
-          (unsigned __int8 *)word_1400372CA,
+          (__int64)&dword_140C02130,
+          (unsigned __int8 *)&word_140023106,
           0LL,
           0LL,
           0xBu,

@@ -1,17 +1,17 @@
 /*
- * XREFs of CcDeleteSectionsForPartition @ 0x14026B254
+ * XREFs of CcDeleteSectionsForPartition @ 0x14026B354
  * Callers:
- *     CcExitPartition @ 0x14026B4B0 (CcExitPartition.c)
+ *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MmGetControlAreaPartition @ 0x1400E8860 (MmGetControlAreaPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MmGetControlAreaPartition @ 0x1400E8880 (MmGetControlAreaPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcDeleteSectionsForPartition(_QWORD **a1, __int64 a2)

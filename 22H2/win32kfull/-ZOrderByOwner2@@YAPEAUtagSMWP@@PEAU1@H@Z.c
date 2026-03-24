@@ -1,141 +1,117 @@
 /*
- * XREFs of ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0025DF0
+ * XREFs of ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0036760
  * Callers:
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025824 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0035FF8 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
  * Callees:
- *     ?IsOwnee@@YAHPEAUtagWND@@0@Z @ 0x1C00261AC (-IsOwnee@@YAHPEAUtagWND@@0@Z.c)
- *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00261E4 (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0028480 (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
- *     PWInsertAfter @ 0x1C00F3840 (PWInsertAfter.c)
+ *     ?IsOwnee@@YAHPEAUtagWND@@0@Z @ 0x1C0036978 (-IsOwnee@@YAHPEAUtagWND@@0@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036B5C (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
+ *     NextOwnedWindow @ 0x1C00370AC (NextOwnedWindow.c)
+ *     PWInsertAfter @ 0x1C0037474 (PWInsertAfter.c)
+ *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C003853C (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
  */
 
 struct tagSMWP *__fastcall ZOrderByOwner2(struct tagSMWP *a1, int a2)
 {
-  __int64 v2; // r15
-  struct tagSMWP *v3; // rbp
-  __int64 v5; // rsi
-  struct tagWND *v7; // r14
-  __int64 v8; // rbx
-  struct tagWND *v9; // r8
-  struct tagWND *v10; // rcx
-  struct tagWND *v11; // rax
-  bool i; // zf
+  __int64 v2; // rbp
+  struct tagSMWP *v3; // rsi
+  __int64 v4; // r14
+  __int64 v6; // r12
+  __int64 v7; // r13
+  __int64 OwnedWindow; // rax
+  __int64 v9; // rbx
   struct tagWND *RealOwner; // rax
-  struct tagWND *v14; // r10
-  struct tagWND *v15; // r11
-  struct tagWND *v16; // rdi
-  __int64 v17; // r8
-  struct tagWND *v18; // r9
-  struct tagSMWP *v19; // rax
-  struct tagWND *j; // r8
-  struct tagWND **v21; // r8
-  struct tagWND *v22; // r8
-  int v23; // eax
-  struct tagWND *v24; // r9
-  __int64 v25; // r8
-  struct tagWND *v26; // rax
+  struct tagWND *i; // r15
+  struct tagWND *v12; // r10
+  struct tagWND *v13; // rdi
+  struct tagWND *v14; // r9
+  __int64 v15; // r11
+  struct tagSMWP *v16; // rax
+  struct tagWND *v17; // r9
+  __int64 v18; // r9
+  __int64 v19; // r9
+  int v20; // eax
+  struct tagWND *v21; // r11
+  __int64 v22; // r9
+  struct tagWND *v23; // rax
 
   v2 = *((_QWORD *)a1 + 5);
   v3 = a1;
-  v5 = 168LL * a2;
-  if ( (*(_DWORD *)(v5 + v2 + 32) & 0x204) == 0 )
+  v4 = 168LL * a2;
+  if ( (*(_DWORD *)(v4 + v2 + 32) & 0x204) != 0 )
+    return v3;
+  v6 = _HMObjectFromHandle(*(_QWORD *)(v4 + v2));
+  PWInsertAfter(*(_QWORD *)(v4 + v2 + 8));
+  v7 = *(_QWORD *)(v6 + 104);
+  OwnedWindow = NextOwnedWindow(0LL, v6, v7);
+  v9 = 0LL;
+  if ( !*(_QWORD *)(v6 + 120) && !OwnedWindow )
+    return v3;
+  RealOwner = (struct tagWND *)v6;
+  for ( i = (struct tagWND *)v6; ; i = RealOwner )
   {
-    v7 = (struct tagWND *)_HMObjectFromHandle(*(_QWORD *)(v5 + v2));
-    PWInsertAfter(*(_QWORD *)(v5 + v2 + 8));
-    v8 = 0LL;
-    v9 = *(struct tagWND **)(*((_QWORD *)v7 + 13) + 112LL);
-    if ( v9 )
+    RealOwner = GetRealOwner(RealOwner);
+    if ( !RealOwner )
+      break;
+  }
+  v13 = v12;
+  if ( !v12 )
+    goto LABEL_10;
+  if ( v12 == (struct tagWND *)1 )
+  {
+    v19 = *(_QWORD *)(v7 + 112);
+    while ( v19 && (*(_BYTE *)(*(_QWORD *)(v19 + 40) + 20LL) & 0x20) == 0 )
     {
-      do
-      {
-        v10 = (struct tagWND *)*((_QWORD *)v9 + 15);
-        v11 = v9;
-        for ( i = v9 == v10; !i; i = v10 == *((struct tagWND **)v9 + 13) )
-        {
-          v11 = v10;
-          if ( !v10 )
-            break;
-          v10 = (struct tagWND *)*((_QWORD *)v10 + 13);
-        }
-        if ( v7 == v11 )
-          break;
-        v9 = (struct tagWND *)*((_QWORD *)v9 + 11);
-      }
-      while ( v9 );
+      v20 = IsOwnee((struct tagWND *)v19, i);
+      v19 = *(_QWORD *)(v22 + 88);
+      if ( v20 )
+        v21 = v13;
+      v13 = v21;
     }
-    else
+    if ( v13 == (struct tagWND *)1 )
+      *(_DWORD *)(v4 + v2 + 32) |= 4u;
+    goto LABEL_10;
+  }
+  if ( !(unsigned int)IsOwnee(v12, i) )
+  {
+LABEL_10:
+    if ( (*(_DWORD *)(v4 + v2 + 32) & 4) == 0 )
     {
-      v9 = 0LL;
-    }
-    if ( *((_QWORD *)v7 + 15) || v9 )
-    {
-      RealOwner = v7;
-      do
-        RealOwner = GetRealOwner(RealOwner);
-      while ( RealOwner );
-      v16 = v15;
-      if ( !v15 )
-        goto LABEL_17;
-      if ( v15 == (struct tagWND *)1 )
+      --*((_DWORD *)v3 + 7);
+      v16 = AddSelfAndOwnees(
+              v3,
+              i,
+              (struct tagWND *)v6,
+              v12,
+              a2,
+              *(_DWORD *)(v4 + v2 + 32) & 0x40000 | (*(_DWORD *)(v4 + v2 + 32) >> 7) & 0x400u);
+      v3 = v16;
+      if ( v16 )
       {
-        v22 = *(struct tagWND **)(*((_QWORD *)v7 + 13) + 112LL);
-        if ( !v22 )
-          goto LABEL_35;
-        do
-        {
-          if ( (*(_BYTE *)(*((_QWORD *)v22 + 5) + 20LL) & 0x20) != 0 )
-            break;
-          v23 = IsOwnee(v22, v14);
-          v22 = *(struct tagWND **)(v25 + 88);
-          if ( v23 )
-            v24 = v16;
-          v16 = v24;
-        }
-        while ( v22 );
-        if ( v16 == (struct tagWND *)1 )
-LABEL_35:
-          *(_DWORD *)(v5 + v2 + 32) |= 4u;
-        goto LABEL_17;
+        if ( v13 )
+          v9 = *(_QWORD *)v13;
+        *(_QWORD *)(*((_QWORD *)v16 + 5) + v4 + 8) = v9;
       }
-      if ( !(unsigned int)IsOwnee(v15, v14) )
-      {
+    }
+    return v3;
+  }
+  if ( v15 )
+  {
 LABEL_17:
-        if ( (*(_DWORD *)(v5 + v2 + 32) & 4) == 0 )
-        {
-          --*((_DWORD *)v3 + 7);
-          v19 = AddSelfAndOwnees(
-                  v3,
-                  v14,
-                  v7,
-                  v15,
-                  a2,
-                  *(_DWORD *)(v5 + v2 + 32) & 0x40000 | (*(_DWORD *)(v5 + v2 + 32) >> 7) & 0x400u);
-          v3 = v19;
-          if ( v19 )
-          {
-            if ( v16 )
-              v8 = *(_QWORD *)v16;
-            *(_QWORD *)(*((_QWORD *)v19 + 5) + v5 + 8) = v8;
-          }
-        }
-        return v3;
-      }
-      if ( v17 )
-      {
-LABEL_23:
-        v16 = 0LL;
-        for ( j = *(struct tagWND **)(*((_QWORD *)v7 + 13) + 112LL); j && !(unsigned int)IsOwnee(j, v14); j = v21[11] )
-          v16 = (struct tagWND *)v21;
-        goto LABEL_17;
-      }
-      v26 = v15;
-      while ( v26 != v18 )
-      {
-        v26 = (struct tagWND *)*((_QWORD *)v26 + 11);
-        if ( !v26 )
-          goto LABEL_23;
-      }
+    v17 = *(struct tagWND **)(v7 + 112);
+    v13 = 0LL;
+    while ( v17 && !(unsigned int)IsOwnee(v17, i) )
+    {
+      v13 = (struct tagWND *)v18;
+      v17 = *(struct tagWND **)(v18 + 88);
     }
+    goto LABEL_10;
+  }
+  v23 = v12;
+  while ( v23 != v14 )
+  {
+    v23 = (struct tagWND *)*((_QWORD *)v23 + 11);
+    if ( !v23 )
+      goto LABEL_17;
   }
   return v3;
 }

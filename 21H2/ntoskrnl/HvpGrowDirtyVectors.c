@@ -1,40 +1,40 @@
 /*
- * XREFs of HvpGrowDirtyVectors @ 0x14020C5E4
+ * XREFs of HvpGrowDirtyVectors @ 0x140363AEC
  * Callers:
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x14091ADA0 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlCopyBitMap @ 0x140209CA0 (RtlCopyBitMap.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     RtlCopyBitMap @ 0x140253B10 (RtlCopyBitMap.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // esi
-  __int64 v3; // r15
-  ULONG v4; // r13d
-  unsigned int v5; // r14d
+  __int64 v3; // r14
+  ULONG v4; // r12d
+  unsigned int v5; // ebp
   unsigned int v7; // ebx
   __int64 v8; // rax
   __int64 v9; // rax
-  unsigned int *v11; // r12
+  unsigned int *v11; // r15
   unsigned int *v12; // rax
-  unsigned int *v13; // r13
-  __int64 v14; // rcx
+  ULONG v13; // r13d
+  unsigned int *v14; // r12
   __int64 v15; // rcx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-20h] BYREF
-  RTL_BITMAP v17; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int *v18; // [rsp+80h] [rbp+40h]
-  ULONG NumberToClear; // [rsp+88h] [rbp+48h]
+  __int64 v16; // rcx
+  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-48h] BYREF
+  RTL_BITMAP v18; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int *v19; // [rsp+70h] [rbp+8h]
 
   v2 = 0;
   v3 = a1 + 88;
   v4 = *(_DWORD *)(a1 + 88);
   v5 = a2 >> 9;
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
-  *(&v17.SizeOfBitMap + 1) = 0;
+  *(&v18.SizeOfBitMap + 1) = 0;
   v7 = ((a2 >> 12) + 3) & 0xFFFFFFFC;
   if ( *(_DWORD *)(a1 + 108) < v7 )
   {
@@ -42,18 +42,18 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
     if ( v11 )
     {
       v12 = (unsigned int *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(a1 + 24))(v7, 0LL, 959532355LL);
-      v18 = v12;
+      v19 = v12;
       if ( v12 )
       {
-        v17.Buffer = v12;
+        v18.Buffer = v12;
+        v13 = v5 - v4;
         BitMapHeader.SizeOfBitMap = v5;
         BitMapHeader.Buffer = v11;
-        v17.SizeOfBitMap = v5;
-        NumberToClear = v5 - v4;
+        v18.SizeOfBitMap = v5;
         if ( *(_QWORD *)(a1 + 96) )
         {
           RtlCopyBitMap((unsigned int *)v3, (__int64)&BitMapHeader, 0);
-          RtlClearBits(&BitMapHeader, v4, NumberToClear);
+          RtlClearBits(&BitMapHeader, v4, v13);
         }
         else
         {
@@ -61,25 +61,25 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
         }
         if ( *(_QWORD *)(a1 + 120) )
         {
-          RtlCopyBitMap((unsigned int *)(a1 + 112), (__int64)&v17, 0);
-          RtlClearBits(&v17, v4, NumberToClear);
-          v13 = v18;
+          RtlCopyBitMap((unsigned int *)(a1 + 112), (__int64)&v18, 0);
+          RtlClearBits(&v18, v4, v13);
+          v14 = v19;
         }
         else
         {
-          v13 = v18;
-          memset(v18, 0, v7);
+          v14 = v19;
+          memset(v19, 0, v7);
         }
-        v14 = *(_QWORD *)(a1 + 96);
-        if ( v14 )
-          (*(void (__fastcall **)(__int64, _QWORD))(a1 + 32))(v14, *(unsigned int *)(a1 + 108));
-        v15 = *(_QWORD *)(a1 + 120);
+        v15 = *(_QWORD *)(a1 + 96);
         if ( v15 )
           (*(void (__fastcall **)(__int64, _QWORD))(a1 + 32))(v15, *(unsigned int *)(a1 + 108));
+        v16 = *(_QWORD *)(a1 + 120);
+        if ( v16 )
+          (*(void (__fastcall **)(__int64, _QWORD))(a1 + 32))(v16, *(unsigned int *)(a1 + 108));
         *(_DWORD *)v3 = v5;
         *(_QWORD *)(v3 + 8) = v11;
         *(_DWORD *)(a1 + 112) = v5;
-        *(_QWORD *)(a1 + 120) = v13;
+        *(_QWORD *)(a1 + 120) = v14;
         *(_DWORD *)(a1 + 108) = v7;
       }
       else

@@ -1,54 +1,70 @@
 /*
- * XREFs of ?ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A8320
+ * XREFs of ?ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C008C700
  * Callers:
  *     <none>
  * Callees:
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00039B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003A80 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00856F4 (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0086108 (-ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?VidMmGetMDLForRange@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1@Z @ 0x1C00A8444 (-VidMmGetMDLForRange@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1@Z.c)
- *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C00A8498 (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006030 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00060DC (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C006802C (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00750FC (-ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?VidMmGetMDLForRange@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1@Z @ 0x1C008C818 (-VidMmGetMDLForRange@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1@Z.c)
+ *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C008C86C (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
  */
 
 void __fastcall VIDMM_SYSMEM_SEGMENT::ReleaseTemporaryResource(
         VIDMM_SYSMEM_SEGMENT *this,
-        struct _VIDMM_GLOBAL_ALLOC *a2,
-        __int64 a3,
-        __int64 a4)
+        struct _VIDMM_GLOBAL_ALLOC *a2)
 {
-  void (__fastcall *v6)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, _QWORD, _QWORD, struct _MDL *); // rbx
+  struct _VIDMM_GLOBAL_ALLOC *v2; // rdi
+  VIDMM_GLOBAL *v4; // rbx
   struct _MDL *MDLForRange; // rax
-  __int64 v8; // r8
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  _QWORD *v8; // rax
   _QWORD *v9; // rax
 
+  v2 = a2;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v9 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-    v9[3] = *((_QWORD *)a2 + 28);
-    v9[4] = *((int *)a2 + 59);
-    v9[5] = *((unsigned int *)a2 + 58);
+    v8 = (_QWORD *)WdLogNewEntry5_WdTrace(this);
+    v8[3] = *((_QWORD *)v2 + 30);
+    v8[4] = *((int *)v2 + 63);
+    a2 = (struct _VIDMM_GLOBAL_ALLOC *)*((unsigned int *)v2 + 62);
+    v8[5] = a2;
   }
-  if ( *((_QWORD *)a2 + 26) || *((_QWORD *)a2 + 27) )
-    WdLogSingleEntry5(0LL, 270LL, 27LL, a2, this, 0LL);
-  VIDMM_GLOBAL::WaitForAllPagingEngines(*((VIDMM_GLOBAL **)this + 1), a2);
-  VIDMM_GLOBAL::FlushScratchGpuVaRanges(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95));
-  DXGFASTMUTEX::Acquire((struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 296));
-  (*(void (__fastcall **)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *))(*(_QWORD *)this + 64LL))(this, a2);
-  if ( *((_BYTE *)a2 + 265) )
+  if ( *((_QWORD *)v2 + 28) || *((_QWORD *)v2 + 29) )
   {
-    v6 = *(void (__fastcall **)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, _QWORD, _QWORD, struct _MDL *))(*(_QWORD *)this + 120LL);
-    MDLForRange = VidMmGetMDLForRange(a2, *((_QWORD *)a2 + 31), *((_QWORD *)a2 + 32));
-    v6(this, a2, *((_QWORD *)a2 + 31), *((_QWORD *)a2 + 32), MDLForRange);
-    LOBYTE(v8) = 1;
+    v9 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v9[7] = 0LL;
+    v9[3] = 270LL;
+    v9[4] = 27LL;
+    v9[5] = v2;
+    v9[6] = this;
+    WdLogEvent5_WdCriticalError(v9);
+  }
+  VIDMM_GLOBAL::WaitForAllPagingEngines(*((VIDMM_GLOBAL **)this + 1), v2);
+  VIDMM_GLOBAL::FlushScratchGpuVaRanges(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95));
+  DXGFASTMUTEX::Acquire(*((DXGFASTMUTEX **)v2 + 39));
+  (*(void (__fastcall **)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *))(*(_QWORD *)this + 64LL))(this, v2);
+  if ( *((_BYTE *)v2 + 281) )
+  {
+    v4 = *(VIDMM_GLOBAL **)this;
+    MDLForRange = VidMmGetMDLForRange(v2, *((_QWORD *)v2 + 33), *((_QWORD *)v2 + 34));
+    (*((void (__fastcall **)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, _QWORD, _QWORD, struct _MDL *))v4 + 15))(
+      this,
+      v2,
+      *((_QWORD *)v2 + 33),
+      *((_QWORD *)v2 + 34),
+      MDLForRange);
+    LOBYTE(v6) = 1;
     (*(void (__fastcall **)(VIDMM_SYSMEM_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, __int64))(*(_QWORD *)this + 104LL))(
       this,
-      a2,
-      v8);
+      v2,
+      v6);
   }
-  *((_QWORD *)a2 + 28) = 0LL;
-  *((_QWORD *)a2 + 30) = 0LL;
-  VIDMM_GLOBAL::ResetBackingStore(*((VIDMM_GLOBAL **)this + 1), a2);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)a2 + 37);
+  *((_QWORD *)v2 + 30) = 0LL;
+  *((_QWORD *)v2 + 32) = 0LL;
+  VIDMM_GLOBAL::ResetBackingStore(*((VIDMM_GLOBAL **)this + 1), v2);
+  DXGFASTMUTEX::Release(*((struct _KTHREAD ***)v2 + 39), v7);
 }

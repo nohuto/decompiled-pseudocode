@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpStringCheck @ 0x140B61FB8
+ * XREFs of ExpStringCheck @ 0x140A69180
  * Callers:
- *     ExInitSystem @ 0x140B617A4 (ExInitSystem.c)
+ *     ExInitSystem @ 0x140A68944 (ExInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpSingleStringCheck @ 0x140B6229C (ExpSingleStringCheck.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpSingleStringCheck @ 0x140A69464 (ExpSingleStringCheck.c)
  */
 
 __int64 __fastcall ExpStringCheck(
@@ -73,7 +73,7 @@ __int64 __fastcall ExpStringCheck(
   v34[28] = ExpSingleStringCheck(a29);
   for ( i = 0LL; i < 29; ++i )
   {
-    result = *(unsigned int *)((char *)qword_140020850 + i * 4);
+    result = *(unsigned int *)((char *)qword_140020440 + i * 4);
     if ( v34[i] != (_DWORD)result )
       LODWORD(KdDumpEnableOffset) = 8;
   }

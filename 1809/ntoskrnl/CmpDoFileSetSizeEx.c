@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileSetSizeEx @ 0x1406B8960
+ * XREFs of CmpDoFileSetSizeEx @ 0x1406B8940
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvTruncateCurrentLogFileIfRequired @ 0x1405A605C (HvTruncateCurrentLogFileIfRequired.c)
  *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     HvWriteLogFile @ 0x1406B85FC (HvWriteLogFile.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1406CF7F4 (HvTruncateAllLogFilesIfRequired.c)
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B50 (CmpLoadHiveThread.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
- *     HvWriteExternal @ 0x1407FAD94 (HvWriteExternal.c)
+ *     HvWriteLogFile @ 0x1406B85DC (HvWriteLogFile.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1406CF7D4 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvWriteExternal @ 0x1407FAD74 (HvWriteExternal.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x1400EED30 (IoSetThreadHardErrorMode.c)
- *     ZwSetInformationFile @ 0x1401B8650 (ZwSetInformationFile.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
+ *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
  *     HvpLogTypeToLogArrayIndex @ 0x1405A62AC (HvpLogTypeToLogArrayIndex.c)
- *     CmpAdjustRequestedFileSize @ 0x1406B8A98 (CmpAdjustRequestedFileSize.c)
+ *     CmpAdjustRequestedFileSize @ 0x1406B8A78 (CmpAdjustRequestedFileSize.c)
  */
 
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4)

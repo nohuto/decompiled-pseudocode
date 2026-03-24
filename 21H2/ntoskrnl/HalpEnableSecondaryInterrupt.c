@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpEnableSecondaryInterrupt @ 0x140909678
+ * XREFs of HalpEnableSecondaryInterrupt @ 0x1408654E4
  * Callers:
- *     HalEnableInterrupt @ 0x1403B02C0 (HalEnableInterrupt.c)
+ *     HalEnableInterrupt @ 0x140377B30 (HalEnableInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404593D2 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpCheckInterruptType @ 0x14051CF8C (HalpCheckInterruptType.c)
- *     HalpFindSecondaryIcEntry @ 0x14051D24C (HalpFindSecondaryIcEntry.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpCheckInterruptType @ 0x1404D097C (HalpCheckInterruptType.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0C58 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
@@ -18,7 +18,6 @@ __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
   __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD, _QWORD, __int64); // r10
   __int64 v7; // rcx
   __int64 v8; // rsi
-  __int64 v9; // rdx
 
   if ( SecondaryIcServicesEnabled )
   {
@@ -42,8 +41,7 @@ __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
           *(_DWORD *)(v5 + 8 * v8 + 168) |= 0x80000000;
           *(_BYTE *)(v5 + 8 * v8 + 172) = 0;
         }
-        LOBYTE(v9) = 1;
-        HalpReleaseSecondaryIcEntryShared(v5, v9);
+        HalpReleaseSecondaryIcEntryShared(v5, 1);
       }
       else
       {

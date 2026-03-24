@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReturnToApplication@CBatchListProxy@CBatch@DirectComposition@@UEAAX_N@Z @ 0x1C0214CB0
+ * XREFs of ?ReturnToApplication@CBatchListProxy@CBatch@DirectComposition@@UEAAX_N@Z @ 0x1C01D5170
  * Callers:
  *     <none>
  * Callees:
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C0080AA4 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00568CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
  */
 
 void __fastcall DirectComposition::CBatch::CBatchListProxy::ReturnToApplication(

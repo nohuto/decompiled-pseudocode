@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcStartDeviceCompletion @ 0x1C0025560
+ * XREFs of ACPIEcStartDeviceCompletion @ 0x1C0053AD0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 void __fastcall ACPIEcStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
@@ -24,20 +24,20 @@ void __fastcall ACPIEcStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
   v7 = (char)a2;
   MinorFunction = a2->Tail.Overlay.CurrentStackLocation->MinorFunction;
   a2->IoStatus.Status = a3;
-  if ( a3 < 0 || (unsigned int)(*(_DWORD *)(a1 + 368) - 2) <= 1 )
+  if ( a3 < 0 || (unsigned int)(*(_DWORD *)(a1 + 328) - 2) <= 1 )
   {
     IofCompleteRequest(a2, 0);
-    v9 = (const char *)&unk_1C00622D0;
-    v10 = (const char *)&unk_1C00622D0;
+    v9 = (const char *)&unk_1C00701BA;
+    v10 = (const char *)&unk_1C00701BA;
     if ( a1 )
     {
       v11 = *(_QWORD *)(a1 + 8);
       v5 = a1;
       if ( (v11 & 0x200000000000LL) != 0 )
       {
-        v9 = *(const char **)(a1 + 608);
+        v9 = *(const char **)(a1 + 568);
         if ( (v11 & 0x400000000000LL) != 0 )
-          v10 = *(const char **)(a1 + 616);
+          v10 = *(const char **)(a1 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -50,9 +50,9 @@ void __fastcall ACPIEcStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
         4u,
         5u,
         0xAu,
-        (__int64)&WPP_6057e56858b93eac69fe3741b9c48703_Traceguids,
+        (__int64)&WPP_1c376abaf53c383d7a89b72da0be5001_Traceguids,
         v7,
-        (__int64)(&ACPIDispatchPnpTableNames)[v12],
+        ACPIDispatchPnpTableNames[v12],
         v6,
         v5,
         v9,
@@ -61,11 +61,11 @@ void __fastcall ACPIEcStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
   }
   else
   {
-    *(_DWORD *)(a1 + 368) = 2;
+    *(_DWORD *)(a1 + 328) = 2;
     v4->WorkerRoutine = (void (__fastcall *)(void *))ACPIEcStartDeviceWorker;
     v4->Parameter = v4;
     v4->List.Flink = 0LL;
-    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 768);
+    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 728);
     v4[1].List.Blink = (_LIST_ENTRY *)a2;
     ExQueueWorkItem(v4, DelayedWorkQueue);
   }

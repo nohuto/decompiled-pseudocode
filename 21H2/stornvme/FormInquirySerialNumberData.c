@@ -1,22 +1,22 @@
 /*
- * XREFs of FormInquirySerialNumberData @ 0x1C000D738
+ * XREFs of FormInquirySerialNumberData @ 0x1C0012140
  * Callers:
- *     ScsiInquiryRequest @ 0x1C00056F8 (ScsiInquiryRequest.c)
+ *     ScsiInquiryRequest @ 0x1C0005E04 (ScsiInquiryRequest.c)
  * Callees:
- *     SerialNumberFromNvmeId @ 0x1C000D9BC (SerialNumberFromNvmeId.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     SerialNumberFromNvmeId @ 0x1C00172DC (SerialNumberFromNvmeId.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall FormInquirySerialNumberData(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v3; // r8
-  __int64 v4; // r13
-  unsigned __int8 v7; // dl
-  __int64 v8; // r15
+  __int64 v3; // r13
+  char v5; // dl
+  unsigned __int8 v7; // cl
+  __int64 v8; // r12
   __int64 v9; // rax
   _QWORD *v10; // rcx
-  _QWORD *v11; // r14
+  _QWORD *v11; // r15
   __int64 v12; // rax
   bool v13; // zf
   bool v14; // r11
@@ -24,21 +24,22 @@ __int64 __fastcall FormInquirySerialNumberData(__int64 a1, __int64 a2, __int64 a
   __int64 v16; // r9
   unsigned int v17; // edi
   __int64 v18; // rdx
-  unsigned int *v19; // rsi
-  _OWORD *v20; // r8
-  __int64 v21; // rdx
+  __int64 v19; // rsi
   __int64 result; // rax
-  unsigned __int64 v23; // rcx
+  unsigned int v21; // r10d
+  _OWORD *v22; // r8
+  __int64 v23; // rdx
   unsigned __int64 v24; // rcx
+  unsigned __int64 v25; // rcx
 
-  v3 = *(_BYTE *)(a2 + 2);
-  v4 = *(_QWORD *)(a1 + 1640);
-  if ( v3 == 40 )
+  v3 = *(_QWORD *)(a1 + 1624);
+  v5 = *(_BYTE *)(a2 + 2);
+  if ( v5 == 40 )
     v7 = *(_BYTE *)(*(unsigned int *)(a2 + 52) + a2 + 10);
   else
     v7 = *(_BYTE *)(a2 + 7);
   v8 = v7;
-  v9 = *(_QWORD *)(a1 + 8LL * v7 + 1752);
+  v9 = *(_QWORD *)(a1 + 8LL * v7 + 1736);
   v10 = (_QWORD *)(v9 + 68);
   v11 = (_QWORD *)(v9 + 84);
   v12 = *(_QWORD *)(v9 + 68);
@@ -62,17 +63,17 @@ __int64 __fastcall FormInquirySerialNumberData(__int64 a1, __int64 a2, __int64 a
     v15 = 30;
   }
   v17 = v15 + 4;
-  if ( v3 == 40 )
+  if ( v5 == 40 )
   {
     v18 = *(_QWORD *)(a2 + 64);
-    v19 = (unsigned int *)(a2 + 60);
+    v19 = 60LL;
   }
   else
   {
     v18 = *(_QWORD *)(a2 + 24);
-    v19 = (unsigned int *)(a2 + 16);
+    v19 = 16LL;
   }
-  if ( *v19 < v17 )
+  if ( *(_DWORD *)(a2 + v19) < v17 )
   {
     LOBYTE(v16) = 36;
     LOBYTE(a3) = 5;
@@ -80,40 +81,41 @@ __int64 __fastcall FormInquirySerialNumberData(__int64 a1, __int64 a2, __int64 a
     NVMeSetSenseData(a2, v18, a3, v16);
     return 3238002694LL;
   }
+  v21 = 0;
   *(_WORD *)v18 = 0x8000;
-  v20 = (_OWORD *)(v18 + 4);
   *(_BYTE *)(v18 + 3) = v15;
+  v22 = (_OWORD *)(v18 + 4);
   if ( !v13 )
   {
-    v21 = 16LL;
-LABEL_14:
-    result = SerialNumberFromNvmeId(v10, v21, v20, v16);
-    if ( (_DWORD)result )
-      return result;
-    goto LABEL_15;
+    v23 = 16LL;
+LABEL_20:
+    v21 = SerialNumberFromNvmeId(v10, v23, v22, v16);
+    goto LABEL_22;
   }
   if ( v14 )
   {
+    v23 = 8LL;
     v10 = v11;
-    v21 = 8LL;
-    goto LABEL_14;
+    goto LABEL_20;
   }
-  *v20 = *(_OWORD *)(v4 + 4);
-  *(_DWORD *)(v18 + 20) = *(_DWORD *)(v4 + 20);
+  *v22 = *(_OWORD *)(v3 + 4);
+  *(_DWORD *)(v18 + 20) = *(_DWORD *)(v3 + 20);
   *(_BYTE *)(v18 + 24) = 95;
-  v23 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8 * v8 + 1752) + 18LL);
-  *(_BYTE *)(v18 + 28) = `HexFromUchar'::`2'::hexDigits[*(_WORD *)(*(_QWORD *)(a1 + 8 * v8 + 1752) + 18LL) & 0xF];
-  *(_BYTE *)(v18 + 27) = `HexFromUchar'::`2'::hexDigits[(unsigned __int8)v23 >> 4];
-  *(_BYTE *)(v18 + 26) = `HexFromUchar'::`2'::hexDigits[((unsigned int)v23 >> 8) & 0xF];
-  *(_BYTE *)(v18 + 25) = `HexFromUchar'::`2'::hexDigits[v23 >> 12];
-  v24 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8 * v8 + 1752) + 16LL);
-  *(_BYTE *)(v18 + 32) = `HexFromUchar'::`2'::hexDigits[*(_WORD *)(*(_QWORD *)(a1 + 8 * v8 + 1752) + 16LL) & 0xF];
-  *(_BYTE *)(v18 + 31) = `HexFromUchar'::`2'::hexDigits[(unsigned __int8)v24 >> 4];
-  *(_BYTE *)(v18 + 30) = `HexFromUchar'::`2'::hexDigits[((unsigned int)v24 >> 8) & 0xF];
-  *(_BYTE *)(v18 + 29) = `HexFromUchar'::`2'::hexDigits[v24 >> 12];
+  v24 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8 * v8 + 1736) + 18LL);
+  *(_BYTE *)(v18 + 28) = `HexFromUchar'::`2'::hexDigits[*(_WORD *)(*(_QWORD *)(a1 + 8 * v8 + 1736) + 18LL) & 0xF];
+  *(_BYTE *)(v18 + 27) = `HexFromUchar'::`2'::hexDigits[(unsigned __int8)v24 >> 4];
+  *(_BYTE *)(v18 + 26) = `HexFromUchar'::`2'::hexDigits[((unsigned int)v24 >> 8) & 0xF];
+  *(_BYTE *)(v18 + 25) = `HexFromUchar'::`2'::hexDigits[v24 >> 12];
+  v25 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8 * v8 + 1736) + 16LL);
+  *(_BYTE *)(v18 + 32) = `HexFromUchar'::`2'::hexDigits[*(_WORD *)(*(_QWORD *)(a1 + 8 * v8 + 1736) + 16LL) & 0xF];
+  *(_BYTE *)(v18 + 31) = `HexFromUchar'::`2'::hexDigits[(unsigned __int8)v25 >> 4];
+  *(_BYTE *)(v18 + 30) = `HexFromUchar'::`2'::hexDigits[((unsigned int)v25 >> 8) & 0xF];
+  *(_BYTE *)(v18 + 29) = `HexFromUchar'::`2'::hexDigits[v25 >> 12];
   *(_BYTE *)(v18 + 33) = 46;
-LABEL_15:
-  *v19 = v17;
+LABEL_22:
+  if ( v21 )
+    return v21;
+  *(_DWORD *)(a2 + v19) = v17;
   result = 0LL;
   *(_BYTE *)(a2 + 3) = 1;
   return result;

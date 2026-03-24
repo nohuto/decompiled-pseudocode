@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C0208498
+ * XREFs of ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C020800C
  * Callers:
- *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C016D61C (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
+ *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0208620 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Edgy::_GetDWordFromRegistry(

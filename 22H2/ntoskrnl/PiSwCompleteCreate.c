@@ -1,162 +1,141 @@
 /*
- * XREFs of PiSwCompleteCreate @ 0x14081BD64
+ * XREFs of PiSwCompleteCreate @ 0x14074DC58
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14081B050 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x14074E8B0 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563944 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563D00 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1406C9F70 (_CmGetDeviceInterfaceClassGuid.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PnpFreeDevPropertyArray @ 0x140789BA8 (PnpFreeDevPropertyArray.c)
- *     PiSwPropertySet @ 0x14079CF70 (PiSwPropertySet.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1407C5E58 (_CmGetDeviceInterfaceReferenceString.c)
- *     PnpCopyDevPropertyArray @ 0x14081C0E0 (PnpCopyDevPropertyArray.c)
- *     PiSwFreeInterfaceList @ 0x14081C66C (PiSwFreeInterfaceList.c)
- *     PiSwInterfaceCreate @ 0x14081D8E8 (PiSwInterfaceCreate.c)
- *     IoRegisterDeviceInterface @ 0x140867290 (IoRegisterDeviceInterface.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpFreeDevPropertyArray @ 0x1406AC460 (PnpFreeDevPropertyArray.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406B6CD4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14072C2C8 (_CmGetDeviceInterfaceReferenceString.c)
+ *     PiSwPropertySet @ 0x1407447F8 (PiSwPropertySet.c)
+ *     IoRegisterDeviceInterface @ 0x140745370 (IoRegisterDeviceInterface.c)
+ *     PnpCopyDevPropertyArray @ 0x14074D2EC (PnpCopyDevPropertyArray.c)
+ *     PiSwFreeInterfaceList @ 0x14074DF0C (PiSwFreeInterfaceList.c)
+ *     PiSwInterfaceCreate @ 0x14076E730 (PiSwInterfaceCreate.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiSwCompleteCreate(_QWORD *Object)
+void __fastcall PiSwCompleteCreate(struct _DEVICE_OBJECT *Object)
 {
-  __int64 v2; // r14
+  size_t v1; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int16 *v4; // r13
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 *v7; // rax
-  __int64 v8; // rdi
-  __int64 v9; // rax
-  void *v10; // rcx
-  const wchar_t *v11; // rcx
-  size_t v12; // rdx
-  int PWSTR; // ebx
+  __int64 v4; // r14
+  struct _DEVICE_OBJECT *v5; // r12
+  _DWORD *DeviceExtension; // rax
+  __int64 v7; // rsi
+  void *v8; // rcx
+  const WCHAR **v9; // rdi
+  const wchar_t *v10; // rcx
+  size_t v11; // rdx
+  int PWSTR; // edi
+  __int64 v13; // r8
   __int64 v14; // rcx
+  __int64 v15; // r15
+  __int64 *v16; // r15
   __int64 *i; // rsi
-  __int64 v16; // rcx
-  char *v17; // r15
-  _QWORD *v18; // rsi
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r11
-  size_t v22; // rax
-  _QWORD *v23; // rcx
-  _QWORD *v24; // rax
-  struct _DEVICE_OBJECT *v25; // r12
-  __int64 v26; // rcx
+  __int64 v18; // rcx
+  char *v19; // r15
+  __int64 *j; // rsi
+  __int64 **v21; // rcx
+  __int64 **v22; // rax
+  __int64 v23; // rcx
   int DeviceInterfaceReferenceString; // eax
-  char v28; // bl
-  __int64 v29; // [rsp+38h] [rbp-D0h] BYREF
-  _QWORD *v30; // [rsp+40h] [rbp-C8h] BYREF
-  _QWORD **v31; // [rsp+48h] [rbp-C0h]
-  __int64 v32; // [rsp+50h] [rbp-B8h] BYREF
-  PVOID Objecta; // [rsp+58h] [rbp-B0h]
-  PCWSTR SourceString; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD *v35; // [rsp+68h] [rbp-A0h]
-  __int64 v36; // [rsp+70h] [rbp-98h] BYREF
+  char v25; // di
+  __int64 v26; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 *v27; // [rsp+40h] [rbp-C8h] BYREF
+  __int64 **v28; // [rsp+48h] [rbp-C0h]
+  __int64 v29; // [rsp+50h] [rbp-B8h] BYREF
+  PCWSTR SourceString; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 ***v31; // [rsp+60h] [rbp-A8h]
+  __int64 v32; // [rsp+68h] [rbp-A0h] BYREF
+  const WCHAR **v33; // [rsp+70h] [rbp-98h]
   size_t pcbLength[3]; // [rsp+78h] [rbp-90h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+90h] [rbp-78h] BYREF
-  __int128 v39; // [rsp+A0h] [rbp-68h] BYREF
-  __int128 v40; // [rsp+B0h] [rbp-58h]
-  __int128 v41; // [rsp+C0h] [rbp-48h]
-  GUID InterfaceClassGuid; // [rsp+D0h] [rbp-38h] BYREF
-  WCHAR v43[264]; // [rsp+E8h] [rbp-20h] BYREF
+  GUID InterfaceClassGuid; // [rsp+A0h] [rbp-68h] BYREF
+  WCHAR v37[264]; // [rsp+B8h] [rbp-50h] BYREF
 
-  v31 = &v30;
-  v39 = 0LL;
-  v30 = &v30;
+  v1 = 0LL;
+  v28 = &v27;
+  v33 = 0LL;
+  v27 = (__int64 *)&v27;
   InterfaceClassGuid = 0LL;
-  v40 = 0LL;
-  v2 = 0LL;
-  v41 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v4 = 0LL;
-  v36 = 0LL;
-  v29 = 0LL;
-  LODWORD(v32) = 0;
+  v32 = 0LL;
+  LODWORD(v26) = 0;
+  v5 = 0LL;
+  LODWORD(v29) = 0;
   --CurrentThread->KernelApcDisable;
   memset(pcbLength, 0, sizeof(pcbLength));
-  v35 = 0LL;
-  Objecta = 0LL;
+  v31 = 0LL;
   UnicodeString = 0LL;
   ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-  v7 = (__int64 *)Object[8];
-  v8 = *v7;
-  if ( *v7 )
+  DeviceExtension = Object->DeviceExtension;
+  v7 = *(_QWORD *)DeviceExtension;
+  if ( *(_QWORD *)DeviceExtension )
   {
-    *((_DWORD *)v7 + 2) &= 0xFFFFFFF9;
-    v9 = Object[39];
-    v4 = (unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 40LL);
-    if ( (byte_140C0E20C & 8) != 0 )
-      McTemplateK0zzz_EtwWriteTransfer(
-        v5,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_DeviceEnumerated,
-        v6,
-        *(const wchar_t **)(v8 + 8),
-        *(const wchar_t **)(v8 + 16),
-        *(const wchar_t **)(*(_QWORD *)(v9 + 40) + 48LL));
-    v10 = *(void **)(v8 + 80);
-    if ( v10 )
+    DeviceExtension[2] &= 0xFFFFFFF9;
+    v8 = *(void **)(v7 + 80);
+    v9 = (const WCHAR **)((char *)Object->DeviceObjectExtension->DeviceNode + 40);
+    v33 = v9;
+    if ( v8 )
     {
-      ExFreePoolWithTag(v10, 0x57706E50u);
-      *(_OWORD *)(v8 + 72) = 0LL;
+      ExFreePoolWithTag(v8, 0x57706E50u);
+      *(_OWORD *)(v7 + 72) = 0LL;
     }
-    v11 = (const wchar_t *)*((_QWORD *)v4 + 1);
-    v12 = ((unsigned __int64)*v4 >> 1) + 1;
+    v10 = v9[1];
+    v11 = ((unsigned __int64)*(unsigned __int16 *)v9 >> 1) + 1;
     SourceString = 0LL;
-    PWSTR = PnpAllocatePWSTR(v11, v12, 0x57706E50u, (PVOID *)&SourceString);
+    PWSTR = PnpAllocatePWSTR(v10, v11, 0x57706E50u, (PVOID *)&SourceString);
     if ( PWSTR >= 0 )
     {
-      RtlInitUnicodeString((PUNICODE_STRING)(v8 + 72), SourceString);
-      *(_DWORD *)(v8 + 4) |= 4u;
-      if ( !*(_QWORD *)(v8 + 88) )
+      RtlInitUnicodeString((PUNICODE_STRING)(v7 + 72), SourceString);
+      *(_DWORD *)(v7 + 4) |= 4u;
+      if ( !*(_QWORD *)(v7 + 88) )
       {
-        v14 = *(_QWORD *)(v8 + 144);
+        v14 = *(_QWORD *)(v7 + 144);
         if ( !v14
           || !_InterlockedExchange64((volatile __int64 *)(v14 + 104), 0LL)
-          || (v2 = *(_QWORD *)(v8 + 144), *(_QWORD *)(v8 + 144) = 0LL, !v2)
-          || (PWSTR = RtlStringCbCopyW(
-                        *(NTSTRSAFE_PWSTR *)(v2 + 24),
-                        *(unsigned int *)(*(_QWORD *)(v2 + 184) + 8LL),
-                        *(NTSTRSAFE_PCWSTR *)(v8 + 80)),
+          || (v4 = *(_QWORD *)(v7 + 144), *(_QWORD *)(v7 + 144) = 0LL, !v4)
+          || (v15 = *(_QWORD *)(v4 + 184),
+              PWSTR = RtlStringCbCopyW(
+                        *(NTSTRSAFE_PWSTR *)(v4 + 24),
+                        *(unsigned int *)(v15 + 8),
+                        *(NTSTRSAFE_PCWSTR *)(v7 + 80)),
               PWSTR >= 0)
-          && (PWSTR = RtlStringCbLengthW(*(STRSAFE_PCNZWCH *)(v2 + 24), *(unsigned int *)(v21 + 8), pcbLength),
+          && (PWSTR = RtlStringCbLengthW(*(STRSAFE_PCNZWCH *)(v4 + 24), *(unsigned int *)(v15 + 8), pcbLength),
               PWSTR >= 0) )
         {
-          HIDWORD(v29) = *(_DWORD *)(v8 + 164);
-          v40 = 0x19uLL;
-          *((_QWORD *)&v41 + 1) = (char *)&v29 + 4;
-          v39 = DEVPKEY_Device_CreatorProcessId;
-          *(_QWORD *)&v41 = 0x400000007LL;
-          PWSTR = PnpCopyDevPropertyArray(*(unsigned int *)(v8 + 176), (__int64)&v36);
+          PWSTR = PnpCopyDevPropertyArray(*(unsigned int *)(v7 + 176), *(_QWORD *)(v7 + 168), v13, &v26, (void **)&v32);
           if ( PWSTR >= 0 )
           {
-            for ( i = *(__int64 **)(v8 + 184); i != (__int64 *)(v8 + 184); i = (__int64 *)*i )
+            v16 = (__int64 *)(v7 + 184);
+            for ( i = *(__int64 **)(v7 + 184); i != v16; i = (__int64 *)*i )
             {
               PWSTR = PiSwInterfaceCreate((NTSTRSAFE_PCWSTR)i[2]);
               if ( PWSTR < 0 )
-                goto LABEL_13;
-              v23 = v31;
-              if ( *v31 != &v30 )
+                goto LABEL_15;
+              v21 = v28;
+              if ( *v28 != (__int64 *)&v27 )
                 __fastfail(3u);
-              v24 = v35;
-              *v35 = &v30;
-              v24[1] = v23;
-              *v23 = v24;
-              v31 = (_QWORD **)v24;
+              v22 = (__int64 **)v31;
+              *v31 = &v27;
+              v22[1] = (__int64 *)v21;
+              *v21 = (__int64 *)v22;
+              v28 = v22;
             }
-            Objecta = Object;
+            v5 = Object;
             ObfReferenceObject(Object);
           }
         }
@@ -167,81 +146,62 @@ void __fastcall PiSwCompleteCreate(_QWORD *Object)
   {
     PWSTR = -1073741811;
   }
-LABEL_13:
+LABEL_15:
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
-  v17 = (char *)v36;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v19 = (char *)v32;
   if ( PWSTR >= 0 )
   {
-    if ( !*((_QWORD *)&v41 + 1)
-      || (PWSTR = PiSwPropertySet(*((const WCHAR **)v4 + 1), 1u, (__int64)&v39, 1u), PWSTR >= 0) )
+    if ( !v32 || (PWSTR = PiSwPropertySet(v33[1], 1u, v32, v26), PWSTR >= 0) )
     {
-      if ( !v17 || (PWSTR = PiSwPropertySet(*((const WCHAR **)v4 + 1), 1u, (__int64)v17, v29), PWSTR >= 0) )
+      for ( j = v27; j != (__int64 *)&v27; j = (__int64 *)*j )
       {
-        v18 = v30;
-        if ( v30 != &v30 )
+        PWSTR = CmGetDeviceInterfaceClassGuid(v18, j[2], &InterfaceClassGuid);
+        if ( PWSTR < 0 )
+          break;
+        DeviceInterfaceReferenceString = CmGetDeviceInterfaceReferenceString(
+                                           v23,
+                                           (const WCHAR *)j[2],
+                                           v37,
+                                           0x104u,
+                                           &v29);
+        PWSTR = DeviceInterfaceReferenceString;
+        if ( DeviceInterfaceReferenceString == -1073741772 )
         {
-          v25 = (struct _DEVICE_OBJECT *)Objecta;
-          do
-          {
-            PWSTR = CmGetDeviceInterfaceClassGuid(v16, v18[2], &InterfaceClassGuid);
-            if ( PWSTR < 0 )
-              break;
-            DeviceInterfaceReferenceString = CmGetDeviceInterfaceReferenceString(v26, v18[2], v43, 0x104u, &v32);
-            PWSTR = DeviceInterfaceReferenceString;
-            if ( DeviceInterfaceReferenceString == -1073741772 )
-            {
-              v28 = 0;
-            }
-            else
-            {
-              if ( DeviceInterfaceReferenceString < 0 )
-                break;
-              v28 = 1;
-              RtlInitUnicodeString((PUNICODE_STRING)&pcbLength[1], v43);
-            }
-            PWSTR = IoRegisterDeviceInterface(
-                      v25,
-                      &InterfaceClassGuid,
-                      (PUNICODE_STRING)((unsigned __int64)&pcbLength[1] & -(__int64)(v28 != 0)),
-                      &UnicodeString);
-            if ( PWSTR < 0 )
-              break;
-            PWSTR = PiSwPropertySet((const WCHAR *)v18[2], 3u, v18[3], *((_DWORD *)v18 + 8));
-            if ( PWSTR < 0 )
-              break;
-            v18 = (_QWORD *)*v18;
-          }
-          while ( v18 != &v30 );
+          v25 = 0;
         }
+        else
+        {
+          if ( DeviceInterfaceReferenceString < 0 )
+            break;
+          v25 = 1;
+          RtlInitUnicodeString((PUNICODE_STRING)&pcbLength[1], v37);
+        }
+        PWSTR = IoRegisterDeviceInterface(
+                  v5,
+                  &InterfaceClassGuid,
+                  (PUNICODE_STRING)((unsigned __int64)&pcbLength[1] & -(__int64)(v25 != 0)),
+                  &UnicodeString);
+        if ( PWSTR < 0 )
+          break;
+        PWSTR = PiSwPropertySet((const WCHAR *)j[2], 3u, j[3], *((_DWORD *)j + 8));
+        if ( PWSTR < 0 )
+          break;
       }
     }
   }
-  if ( Objecta )
-    ObfDereferenceObject(Objecta);
-  if ( v17 )
-    PnpFreeDevPropertyArray(v29, v17, 0x57706E50u);
-  PiSwFreeInterfaceList(&v30);
-  RtlFreeUnicodeString(&UnicodeString);
-  if ( v2 )
+  if ( v5 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)v5);
+  if ( v19 )
+    PnpFreeDevPropertyArray(v26, v19, 0x57706E50u);
+  PiSwFreeInterfaceList(&v27);
+  RtlFreeAnsiString(&UnicodeString);
+  if ( v4 )
   {
-    if ( PWSTR < 0 )
-      v22 = 0LL;
-    else
-      v22 = pcbLength[0] + 2;
-    *(_QWORD *)(v2 + 56) = v22;
-    *(_DWORD *)(v2 + 48) = PWSTR;
-    IofCompleteRequest((PIRP)v2, 0);
-  }
-  if ( v8 )
-  {
-    if ( (byte_140C0E20C & 8) != 0 )
-      McTemplateK0zzd_EtwWriteTransfer(
-        v19,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_DeviceEnumerated_Status,
-        v20,
-        *(const wchar_t **)(v8 + 8),
-        *(const wchar_t **)(v8 + 16),
-        PWSTR);
+    if ( PWSTR >= 0 )
+      v1 = pcbLength[0] + 2;
+    *(_QWORD *)(v4 + 56) = v1;
+    *(_DWORD *)(v4 + 48) = PWSTR;
+    IofCompleteRequest((PIRP)v4, 0);
   }
 }

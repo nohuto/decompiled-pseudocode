@@ -1,95 +1,78 @@
 /*
- * XREFs of RIMCmDeactivateContact @ 0x1C01B064C
+ * XREFs of RIMCmDeactivateContact @ 0x1C01800E0
  * Callers:
- *     rimEndAllActiveContactsWorker @ 0x1C018E494 (rimEndAllActiveContactsWorker.c)
- *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01A75A0 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
- *     rimProcessMissingPointerDeviceContacts @ 0x1C01AB398 (rimProcessMissingPointerDeviceContacts.c)
- *     rimProcessPointerDeviceContact @ 0x1C01ABBB4 (rimProcessPointerDeviceContact.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D000 (RIMEndAllActiveContacts.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C017889C (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C017C108 (rimProcessMissingPointerDeviceContacts.c)
+ *     rimProcessPointerDeviceContact @ 0x1C017C758 (rimProcessPointerDeviceContact.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     rimFindLastDeviceFrame @ 0x1C01A4478 (rimFindLastDeviceFrame.c)
- *     rimReleaseCursor @ 0x1C01B0C5C (rimReleaseCursor.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
+ *     rimReleaseCursor @ 0x1C0180720 (rimReleaseCursor.c)
  */
 
-_QWORD *__fastcall RIMCmDeactivateContact(__int64 a1, __int64 a2)
+_QWORD *__fastcall RIMCmDeactivateContact(_DWORD *a1, __int64 a2)
 {
-  __int64 v3; // rdx
-  __int64 LastDeviceFrame; // rax
-  __int64 v6; // rsi
-  unsigned int v7; // edi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r14
-  int v11; // esi
-  _QWORD *v12; // rdi
-  __int64 v13; // rax
-  _QWORD *v14; // rcx
+  _DWORD *v2; // rsi
+  int v5; // ebp
+  _QWORD *v6; // rbx
+  __int64 v7; // rax
+  _QWORD *v8; // rcx
+  int v9; // eax
+  int IsContactSuppressed; // eax
+  unsigned int v11; // ecx
   _QWORD *result; // rax
 
-  v3 = *(_QWORD *)(a1 + 16);
-  if ( v3 )
-  {
-    LastDeviceFrame = rimFindLastDeviceFrame(*(_QWORD *)(v3 + 336), v3);
-    v6 = LastDeviceFrame;
-    if ( LastDeviceFrame )
-    {
-      v7 = 0;
-      if ( *(_DWORD *)(LastDeviceFrame + 24) )
-      {
-        do
-        {
-          v8 = *(_QWORD *)(v6 + 232);
-          v9 = 192LL * v7;
-          if ( *(unsigned __int16 *)(v9 + v8 + 8) == *(_DWORD *)(a2 + 4) && (*(_DWORD *)(v9 + v8 + 28) & 0x2000006) != 0 )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 332);
-          ++v7;
-        }
-        while ( v7 != *(_DWORD *)(v6 + 24) );
-      }
-    }
-  }
-  v10 = a1 + 976;
-  v11 = -__CFSHR__(*(_DWORD *)(a2 + 32), 3);
+  v2 = a1 + 230;
+  v5 = -__CFSHR__(*(_DWORD *)(a2 + 32), 3);
   if ( (*(_DWORD *)(a2 + 32) & 2) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 341);
-  v12 = (_QWORD *)(a2 + 16);
-  v13 = *(_QWORD *)(a2 + 16);
-  if ( *(_QWORD *)(v13 + 8) != a2 + 16 )
-    goto LABEL_28;
-  v14 = *(_QWORD **)(a2 + 24);
-  if ( (_QWORD *)*v14 != v12 )
-    goto LABEL_28;
-  *v14 = v13;
-  *(_QWORD *)(v13 + 8) = v14;
-  if ( !*(_DWORD *)(a1 + 1008) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 345);
-  --*(_DWORD *)(a1 + 1008);
-  if ( !(unsigned int)RIMCmIsContactSuppressed(a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 318);
+  v6 = (_QWORD *)(a2 + 16);
+  v7 = *(_QWORD *)(a2 + 16);
+  if ( *(_QWORD *)(v7 + 8) != a2 + 16 )
+    goto LABEL_21;
+  v8 = *(_QWORD **)(a2 + 24);
+  if ( (_QWORD *)*v8 != v6 )
+    goto LABEL_21;
+  *v8 = v7;
+  *(_QWORD *)(v7 + 8) = v8;
+  v9 = a1[238];
+  if ( !v9 )
   {
-    if ( !*(_DWORD *)(a1 + 1012) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 349);
-    --*(_DWORD *)(a1 + 1012);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 322);
+    v9 = a1[238];
   }
-  if ( *(_DWORD *)(a1 + 1008) < *(_DWORD *)(a1 + 1012) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 352);
-  if ( !v11 && (*(_DWORD *)(a1 + 768) > 1u || (*(_DWORD *)(a1 + 360) & 0x20) != 0) )
-    rimReleaseCursor(a1, *(unsigned int *)(a2 + 4));
-  result = memset((void *)a2, 0, 0xB30uLL);
-  if ( !v11 )
+  a1[238] = v9 - 1;
+  IsContactSuppressed = RIMCmIsContactSuppressed(a2);
+  v11 = a1[239];
+  if ( !IsContactSuppressed )
   {
-    result = *(_QWORD **)v10;
-    if ( *(_QWORD *)(*(_QWORD *)v10 + 8LL) == v10 )
+    if ( !v11 )
     {
-      *v12 = result;
-      *(_QWORD *)(a2 + 24) = v10;
-      result[1] = v12;
-      *(_QWORD *)v10 = v12;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 326);
+      v11 = a1[239];
+    }
+    a1[239] = --v11;
+  }
+  if ( a1[238] < v11 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 329);
+  if ( !v5 && (a1[180] > 1u || (a1[78] & 0x20) != 0) )
+    rimReleaseCursor(a1, *(unsigned int *)(a2 + 4));
+  result = memset((void *)a2, 0, 0xB18uLL);
+  if ( !v5 )
+  {
+    result = *(_QWORD **)v2;
+    if ( *(_DWORD **)(*(_QWORD *)v2 + 8LL) == v2 )
+    {
+      *v6 = result;
+      *(_QWORD *)(a2 + 24) = v2;
+      result[1] = v6;
+      *(_QWORD *)v2 = v6;
       return result;
     }
-LABEL_28:
+LABEL_21:
     __fastfail(3u);
   }
   return result;

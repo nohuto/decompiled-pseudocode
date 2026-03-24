@@ -1,54 +1,33 @@
 /*
- * XREFs of ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C020C68C
+ * XREFs of ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C01CE900
  * Callers:
- *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01A6FEC (rimGetCompleteFrameAndReleaseHoldingFrame.c)
+ *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C0172298 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     EtwTraceBeginPointerFrameCommit @ 0x1C014C710 (EtwTraceBeginPointerFrameCommit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     EtwTraceBeginPointerFrameCommit @ 0x1C0121930 (EtwTraceBeginPointerFrameCommit.c)
  */
 
-NTSTATUS __fastcall ApiSetEtwTraceBeginPointerFrameCommit(__int64 a1, char a2, __int64 a3)
+__int64 __fastcall ApiSetEtwTraceBeginPointerFrameCommit(__int64 a1, char a2, int a3)
 {
-  char v4; // bl
-  bool v5; // dl
-  NTSTATUS result; // eax
-  int v7; // r8d
-  bool v8; // dl
+  __int64 result; // rax
 
-  v4 = 1;
-  v5 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            && LOWORD(WPP_GLOBAL_Control->DeviceType);
-  if ( v5 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      a3,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
       5,
       10,
       32,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  result = EtwTraceBeginPointerFrameCommit(0LL, a2, a3);
-  v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v4 = 0;
-  if ( v8 || v4 )
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  result = EtwTraceBeginPointerFrameCommit(0, a2, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v7) = v4;
-    return WPP_RECORDER_AND_TRACE_SF_(
-             WPP_GLOBAL_Control->AttachedDevice,
-             v8,
-             v7,
-             WPP_GLOBAL_Control->DeviceExtension,
-             5,
-             10,
-             33,
-             (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               5,
+               10,
+               33,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return result;
 }

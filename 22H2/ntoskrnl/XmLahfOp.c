@@ -1,9 +1,9 @@
 /*
- * XREFs of XmLahfOp @ 0x140533BD0
+ * XREFs of XmLahfOp @ 0x1404E6230
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmLahfOp(__int64 a1)

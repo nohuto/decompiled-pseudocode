@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_ResettingHubOnResume @ 0x1C0008EE0
+ * XREFs of HUBHSM_ResettingHubOnResume @ 0x1C0008720
  * Callers:
  *     <none>
  * Callees:
- *     HUBPARENT_ResetHub @ 0x1C0007D60 (HUBPARENT_ResetHub.c)
+ *     HUBPARENT_ResetHub @ 0x1C00075F0 (HUBPARENT_ResetHub.c)
  */
 
 __int64 __fastcall HUBHSM_ResettingHubOnResume(__int64 a1)

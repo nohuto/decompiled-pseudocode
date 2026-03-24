@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetInverse@MILMatrix3x2@@QEAAXAEBV1@@Z @ 0x180075FCC
+ * XREFs of ?SetInverse@MILMatrix3x2@@QEAAXAEBV1@@Z @ 0x1800538EC
  * Callers:
- *     ?DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVMILMatrix3x2@@_NHM@Z @ 0x18000F0A4 (-DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_ea_18000F0A4.c)
- *     ?FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@Z @ 0x1800775F0 (-FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@.c)
+ *     ?FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@Z @ 0x1800535AC (-FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@.c)
+ *     ?DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1_NH@Z @ 0x1801749EC (-DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_@MUMilRectF@.c)
  * Callees:
  *     <none>
  */
@@ -13,11 +13,11 @@ void __fastcall MILMatrix3x2::SetInverse(MILMatrix3x2 *this, const struct MILMat
 
   v2 = 1.0 / (float)((float)(*((float *)a2 + 3) * *(float *)a2) - (float)(*((float *)a2 + 1) * *((float *)a2 + 2)));
   *(float *)this = *((float *)a2 + 3) * v2;
-  *((float *)this + 1) = COERCE_FLOAT(*((_DWORD *)a2 + 1) ^ _xmm) * v2;
-  *((float *)this + 2) = COERCE_FLOAT(*((_DWORD *)a2 + 2) ^ _xmm) * v2;
+  *((_DWORD *)this + 1) = COERCE_UNSIGNED_INT(v2 * *((float *)a2 + 1)) ^ _xmm;
+  *((_DWORD *)this + 2) = COERCE_UNSIGNED_INT(v2 * *((float *)a2 + 2)) ^ _xmm;
   *((float *)this + 3) = v2 * *(float *)a2;
   *((float *)this + 4) = (float)((float)(*((float *)a2 + 2) * *((float *)a2 + 5))
-                               - (float)(*((float *)a2 + 3) * *((float *)a2 + 4)))
+                               - (float)(*((float *)a2 + 4) * *((float *)a2 + 3)))
                        * v2;
   *((float *)this + 5) = (float)((float)(*((float *)a2 + 1) * *((float *)a2 + 4))
                                - (float)(*(float *)a2 * *((float *)a2 + 5)))

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceFxDeviceAccounting @ 0x1405D2284
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x140571F14
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x140395BDC (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x140990C30 (PopDiagQueryDevicePropertyString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408E80F8 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3, ...)
@@ -65,20 +65,18 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
   __int64 v52; // [rsp+1A8h] [rbp+A8h]
   __int64 v53; // [rsp+1B0h] [rbp+B0h]
   _DWORD v54[2]; // [rsp+1B8h] [rbp+B8h] BYREF
-  UNICODE_STRING *p_DestinationString; // [rsp+1C0h] [rbp+C0h]
-  __int64 v56; // [rsp+1C8h] [rbp+C8h]
-  va_list va; // [rsp+238h] [rbp+138h] BYREF
+  va_list va; // [rsp+228h] [rbp+128h] BYREF
 
   va_start(va, a3);
   v15 = a1;
   DestinationString = 0LL;
   v17 = 0LL;
-  RtlInitUnicodeString(&DestinationString, &cchOriginalDestLength);
-  RtlInitUnicodeString(&v17, &cchOriginalDestLength);
-  if ( PopDiagSleepStudyHandleRegistered )
+  RtlInitUnicodeString(&DestinationString, (PCWSTR)&cchOriginalDestLength);
+  RtlInitUnicodeString(&v17, (PCWSTR)&cchOriginalDestLength);
+  if ( PopDiagHandleRegistered )
   {
-    v5 = PopDiagSleepStudyHandle;
-    if ( EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING) )
+    v5 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_ACCOUNTING) )
     {
       v14 = PopWnfCsEnterScenarioId;
       *(_QWORD *)&UserData.Size = 1LL;
@@ -89,7 +87,7 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
       va_copy(v24, va);
       v27 = 8LL;
       v26 = &PopWnfCsEnterScenarioId;
-      EtwWriteEx(v5, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+      EtwWriteEx(v5, &POP_ETW_EVENT_DEVICE_ACCOUNTING, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       if ( *(_DWORD *)(a2 + 12) < 5u && !PopDiagFxAccountingTelemetryDisabled )
       {
         v6 = *(struct _DEVICE_OBJECT **)(v15 + 32);
@@ -98,7 +96,7 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
         Buffer = DestinationString.Buffer;
         v10 = DevicePropertyString >= 0;
         v11 = v17.Buffer;
-        if ( (unsigned int)dword_140C04570 > 5 && tlgKeywordOn((__int64)&dword_140C04570, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
         {
           v18 = PopWnfCsEnterScenarioId;
           v30 = 8LL;
@@ -119,7 +117,6 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
           v51 = v54;
           v53 = *((_QWORD *)a3 + 1);
           v54[0] = *a3;
-          p_DestinationString = &DestinationString;
           v33 = v13;
           v34[0] = v12;
           v32 = 2LL;
@@ -136,14 +133,12 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
           v50[1] = 0;
           v52 = 2LL;
           v54[1] = 0;
-          *(_QWORD *)&DestinationString.Length = 0x1000000LL;
-          v56 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C04570,
-            (unsigned __int8 *)byte_14002FC91,
+            (__int64)&dword_140C02228,
+            (unsigned __int8 *)&byte_14002892F,
             0LL,
             0LL,
-            0x10u,
+            0xFu,
             &v28);
         }
         if ( v7 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of __stdio_common_vswprintf_s @ 0x1801017DE
+ * XREFs of __stdio_common_vswprintf_s @ 0x1800E80DE
  * Callers:
- *     swprintf_s @ 0x180101A20 (swprintf_s.c)
+ *     swprintf_s @ 0x1800E8290 (swprintf_s.c)
  * Callees:
  *     <none>
  */

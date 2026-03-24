@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpMarkHvlPagesForHibernation @ 0x1405470E0
+ * XREFs of HvlpMarkHvlPagesForHibernation @ 0x1404F8148
  * Callers:
- *     HvlMarkHiberPhase @ 0x1405469A4 (HvlMarkHiberPhase.c)
+ *     HvlMarkHiberPhase @ 0x1404F7B30 (HvlMarkHiberPhase.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
  */
 
 void HvlpMarkHvlPagesForHibernation()
@@ -36,7 +36,7 @@ void HvlpMarkHvlPagesForHibernation()
     do
     {
       Prcb = KeGetPrcb(v2);
-      PoSetHiberRange(0LL, 0x10000u, *(PVOID *)(Prcb + 34560), 0x6000uLL, 0x646C7648u);
+      PoSetHiberRange(0LL, 0x10000u, *(PVOID *)(Prcb + 33664), 0x6000uLL, 0x646C7648u);
       ++v2;
     }
     while ( v2 < ActiveProcessorCount );

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180004320
+ * XREFs of ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x1800047B8
  * Callers:
- *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180003F78 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
- *     ?ColorHsl@CExpressionValueStack@@QEAAJXZ @ 0x18024A360 (-ColorHsl@CExpressionValueStack@@QEAAJXZ.c)
- *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x1802575B8 (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
+ *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180004450 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ColorHsl@CExpressionValueStack@@QEAAJXZ @ 0x1801FBAC4 (-ColorHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180206E98 (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
  * Callees:
- *     _o_fmod_0 @ 0x180101904 (_o_fmod_0.c)
+ *     _o_fmod_0 @ 0x1800E81A4 (_o_fmod_0.c)
  */
 
 void __fastcall ColorSpaceHelpers::Color_RGBAfromHSLA(

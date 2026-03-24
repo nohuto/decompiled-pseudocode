@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSetIrtEntry @ 0x14051A658
+ * XREFs of HalpSetIrtEntry @ 0x1404D14B8
  * Callers:
- *     HalpInterruptUnmap @ 0x1409334A8 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x140760E58 (HalpInterruptUnmap.c)
  * Callees:
- *     HalpIommuUpdateRemappingTableEntry @ 0x14036779C (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5574 (HalpIommuUpdateRemappingTableEntry.c)
  */
 
 void __fastcall HalpSetIrtEntry(char a1, _DWORD *a2, __int64 a3)

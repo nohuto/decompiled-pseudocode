@@ -11,8 +11,8 @@
  *     AlpcpDeleteBlob @ 0x140618BF4 (AlpcpDeleteBlob.c)
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
  *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     MmGetSectionInformation @ 0x14066D870 (MmGetSectionInformation.c)
- *     AlpcpDereferenceView @ 0x140849934 (AlpcpDereferenceView.c)
+ *     MmGetSectionInformation @ 0x14066D850 (MmGetSectionInformation.c)
+ *     AlpcpDereferenceView @ 0x140849914 (AlpcpDereferenceView.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)

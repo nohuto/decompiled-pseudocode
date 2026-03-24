@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateMdl @ 0x1407084B0
+ * XREFs of MiCreateMdl @ 0x1406D3A74
  * Callers:
- *     MiCreateImageFileMap @ 0x140707E70 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     MiGetPageForHeader @ 0x1402E57FC (MiGetPageForHeader.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     MiDeleteImageCreationMdls @ 0x140705E1C (MiDeleteImageCreationMdls.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiGetPageForHeader @ 0x14026E62C (MiGetPageForHeader.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     MiDeleteImageCreationMdls @ 0x1406D4ED4 (MiDeleteImageCreationMdls.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int a4)
+struct _MDL *__fastcall MiCreateMdl(ULONG_PTR *a1, int a2, SIZE_T a3, int a4)
 {
   ULONG v4; // edi
   SIZE_T v5; // rbp
@@ -20,7 +20,7 @@ struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int 
   struct _MDL *v9; // rdi
   SIZE_T v10; // rsi
   _QWORD *p_Next; // r14
-  unsigned __int64 PageForHeader; // rax
+  __int64 PageForHeader; // rax
   PVOID MappedSystemVa; // rax
   PVOID Pool; // rax
   void *v16; // rbx
@@ -41,7 +41,7 @@ struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int 
         while ( 1 )
         {
           PageForHeader = MiGetPageForHeader(a1, a2);
-          if ( PageForHeader == -1LL )
+          if ( PageForHeader == -1 )
             break;
           if ( !v10 )
             v9->MdlFlags |= 0x4002u;
@@ -62,7 +62,7 @@ LABEL_8:
       if ( !MappedSystemVa )
       {
 LABEL_16:
-        MiDeleteImageCreationMdls(v9, 1);
+        MiDeleteImageCreationMdls(v9);
         return 0LL;
       }
       return v9;

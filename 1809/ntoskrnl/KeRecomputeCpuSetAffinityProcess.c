@@ -1,21 +1,21 @@
 /*
- * XREFs of KeRecomputeCpuSetAffinityProcess @ 0x14029673C
+ * XREFs of KeRecomputeCpuSetAffinityProcess @ 0x14029683C
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018C9C8 (KiUpdateThreadCpuSetAffinitiesProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F50 (KiSwapContext.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018C9E8 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
  */
 
 char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)

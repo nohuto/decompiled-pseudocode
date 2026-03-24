@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRewritePteWithLockBit @ 0x1402BF57C
+ * XREFs of MiRewritePteWithLockBit @ 0x1402BF67C
  * Callers:
- *     MiProtectAweRegion @ 0x1402B14BC (MiProtectAweRegion.c)
- *     MiWriteAwePtes @ 0x1402B2178 (MiWriteAwePtes.c)
- *     MiDeleteLargeUserPde @ 0x1402C73C0 (MiDeleteLargeUserPde.c)
- *     MiScrubLargeMappedPage @ 0x1402CF138 (MiScrubLargeMappedPage.c)
+ *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
+ *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
+ *     MiDeleteLargeUserPde @ 0x1402C74C0 (MiDeleteLargeUserPde.c)
+ *     MiScrubLargeMappedPage @ 0x1402CF238 (MiScrubLargeMappedPage.c)
  * Callees:
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)

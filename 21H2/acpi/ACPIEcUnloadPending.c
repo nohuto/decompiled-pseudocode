@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIEcUnloadPending @ 0x1C00537E4
+ * XREFs of ACPIEcUnloadPending @ 0x1C00AF030
  * Callers:
- *     ACPIEcDispatchQueries @ 0x1C00535B8 (ACPIEcDispatchQueries.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
+ *     ACPIEcDispatchQueries @ 0x1C0053F08 (ACPIEcDispatchQueries.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  * Callees:
  *     <none>
  */

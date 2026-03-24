@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18006E7CC
+ * XREFs of ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18003BD98
  * Callers:
- *     ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x18006D4B0 (-CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
- *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18028FB00 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
- *     ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802A8460 (-CopyPixels@CColorKeyBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniquen.c)
- *     ?CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802A9570 (-CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rect.c)
+ *     ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x18003D5E0 (-CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18019C490 (-CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rect.c)
+ *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x180248CB0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
+ *     ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x180267A30 (-CopyPixels@CColorKeyBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniquen.c)
  * Callees:
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x180070044 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003C160 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall CBitmap::CopyPixelsHelper(
@@ -42,14 +42,14 @@ __int64 __fastcall CBitmap::CopyPixelsHelper(
   v15 = v13;
   if ( v13 < 0 )
   {
-    v23 = 62;
+    v23 = 70;
     goto LABEL_21;
   }
   v13 = HrCheckBufferSize(a1, a7, a2, v12, a8);
   v15 = v13;
   if ( v13 < 0 )
   {
-    v23 = 69;
+    v23 = 77;
 LABEL_21:
     MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, v23, 0LL);
     return v15;
@@ -58,14 +58,14 @@ LABEL_21:
   if ( !PixelFormatSize || a2 > 0x7FFFFFF8u / PixelFormatSize )
   {
     v15 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0x47u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0x4Fu, 0LL);
     return v15;
   }
   v18 = (a2 * PixelFormatSize + 7) >> 3;
   if ( v18 > a7 )
   {
     v15 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024809, 0x4Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024809, 0x54u, 0LL);
   }
   else
   {
@@ -74,7 +74,7 @@ LABEL_21:
       if ( !is_mul_ok(v10, (unsigned int)v12) )
       {
         v15 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024362, 0x59u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024362, 0x61u, 0LL);
         return v15;
       }
       memcpy_0(a9, Src, v10 * (unsigned int)v12);

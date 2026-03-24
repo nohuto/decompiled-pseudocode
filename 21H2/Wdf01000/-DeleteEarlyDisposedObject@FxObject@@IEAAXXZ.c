@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DeleteEarlyDisposedObject@FxObject@@IEAAXXZ @ 0x1C000AE74
+ * XREFs of ?DeleteEarlyDisposedObject@FxObject@@IEAAXXZ @ 0x1C001559C
  * Callers:
- *     ?PostProcessCompletion@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C000AF14 (-PostProcessCompletion@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z.c)
+ *     ?PostProcessCompletion@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C0015564 (-PostProcessCompletion@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z.c)
  * Callees:
- *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C000AA34 (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
- *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C000AB04 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
- *     ?RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C006D224 (-RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z.c)
+ *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C00041EC (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C00155E4 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
+ *     ?RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C005A288 (-RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z.c)
  */
 
 void __fastcall FxObject::DeleteEarlyDisposedObject(FxObject *this)

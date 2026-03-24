@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$InitLookAsideRef@UtagPOPUPMENU@@@@YAEPEAUtagPOPUPMENU@@@Z @ 0x1C01FE668
+ * XREFs of ??$InitLookAsideRef@UtagPOPUPMENU@@@@YAEPEAUtagPOPUPMENU@@@Z @ 0x1C0220858
  * Callers:
- *     MNAllocPopup @ 0x1C01FF218 (MNAllocPopup.c)
+ *     MNAllocPopup @ 0x1C02213C8 (MNAllocPopup.c)
  * Callees:
  *     <none>
  */

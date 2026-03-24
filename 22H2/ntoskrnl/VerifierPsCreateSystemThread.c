@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPsCreateSystemThread @ 0x140AD0E60
+ * XREFs of VerifierPsCreateSystemThread @ 0x1409D3B40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierPsCreateSystemThread(__int64 a1, __int64 a2, __int64 a3)

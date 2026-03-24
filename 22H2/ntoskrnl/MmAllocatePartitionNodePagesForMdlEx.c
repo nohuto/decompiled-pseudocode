@@ -1,21 +1,19 @@
 /*
- * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0
+ * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x140354850
  * Callers:
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x14038F344 (HalpAllocateCommonBufferDmaThin.c)
- *     MmAllocateNodePagesForMdlEx @ 0x1403C39A0 (MmAllocateNodePagesForMdlEx.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x14050F530 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140512490 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x140513C18 (HalpAllocateCommonBufferDmarThin.c)
- *     HvlpDepositPages @ 0x140540C44 (HvlpDepositPages.c)
- *     EtwpAllocatePartitionMemory @ 0x140601354 (EtwpAllocatePartitionMemory.c)
- *     MmAllocateSecureKernelPages @ 0x14065781C (MmAllocateSecureKernelPages.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094D8D4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     KiComputeNumaCosts @ 0x140B76CB4 (KiComputeNumaCosts.c)
+ *     MmAllocatePagesForMdlEx @ 0x1403547F0 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1403CE260 (MmAllocateNodePagesForMdlEx.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5640 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB230 (HalpAllocateCommonBufferThin.c)
+ *     HvlpDepositPages @ 0x1404F2884 (HvlpDepositPages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553314 (MmAllocateSecureKernelPages.c)
+ *     EtwpAllocatePartitionMemory @ 0x1405B0548 (EtwpAllocatePartitionMemory.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897960 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     KiComputeNumaCosts @ 0x140A4D2E0 (KiComputeNumaCosts.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
+ *     MiPartitionObjectToPartition @ 0x1403574E0 (MiPartitionObjectToPartition.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(
@@ -59,17 +57,7 @@ __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(
   {
     v14 = MiPartitionObjectToPartition(BugCheckParameter2);
     if ( v14 )
-      return MiAllocatePagesForMdl(
-               v14,
-               a1,
-               a2,
-               v9,
-               a4,
-               v12,
-               a6,
-               v13,
-               (__int64)KeGetCurrentThread()->ApcState.Process,
-               0LL);
+      return MiAllocatePagesForMdl(v14, a1, a2, v9, a4, v12, a6, v13);
   }
   return 0LL;
 }

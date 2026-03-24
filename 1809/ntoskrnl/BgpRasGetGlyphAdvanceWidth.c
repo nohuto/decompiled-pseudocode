@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpRasGetGlyphAdvanceWidth @ 0x140328DA4
+ * XREFs of BgpRasGetGlyphAdvanceWidth @ 0x140328EA4
  * Callers:
- *     BgpFoGetAdvanceWidth @ 0x1403278C4 (BgpFoGetAdvanceWidth.c)
- *     BgpFoGetStringAdvanceWidth @ 0x1403278E4 (BgpFoGetStringAdvanceWidth.c)
- *     BcpDisplayCriticalString @ 0x140327C54 (BcpDisplayCriticalString.c)
+ *     BgpFoGetAdvanceWidth @ 0x1403279C4 (BgpFoGetAdvanceWidth.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x1403279E4 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
  * Callees:
- *     RaspGetXExtent @ 0x14017A754 (RaspGetXExtent.c)
+ *     RaspGetXExtent @ 0x14017A774 (RaspGetXExtent.c)
  */
 
 __int64 __fastcall BgpRasGetGlyphAdvanceWidth(__int64 a1, unsigned __int16 a2, _DWORD *a3, __int64 a4, __int64 *a5)

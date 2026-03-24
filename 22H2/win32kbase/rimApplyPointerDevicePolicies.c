@@ -1,26 +1,26 @@
 /*
- * XREFs of rimApplyPointerDevicePolicies @ 0x1C00E2D30
+ * XREFs of rimApplyPointerDevicePolicies @ 0x1C0178FB0
  * Callers:
- *     rimProcessPointerDeviceContact @ 0x1C01ABBB4 (rimProcessPointerDeviceContact.c)
+ *     rimProcessPointerDeviceContact @ 0x1C017C758 (rimProcessPointerDeviceContact.c)
  * Callees:
- *     RIMIsInputSuppressed @ 0x1C00053B0 (RIMIsInputSuppressed.c)
- *     rimPointerTransitionsPolicyUpdateStateAndApply @ 0x1C00E3264 (rimPointerTransitionsPolicyUpdateStateAndApply.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01A7D40 (rimConfidenceBitPolicyUpdateStateAndApply.c)
- *     rimDigitizerActiveBitPolicyUpdateStateAndApply @ 0x1C01A8108 (rimDigitizerActiveBitPolicyUpdateStateAndApply.c)
- *     rimDisplayOffPolicyUpdateStateAndApply @ 0x1C01A822C (rimDisplayOffPolicyUpdateStateAndApply.c)
- *     rimLidClosedPolicyUpdateStateAndApply @ 0x1C01AAAC4 (rimLidClosedPolicyUpdateStateAndApply.c)
- *     rimNullXYPolicyUpdateStateAndApply @ 0x1C01AAC08 (rimNullXYPolicyUpdateStateAndApply.c)
- *     rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C01AAD98 (rimOutOfBoundsPolicyUpdateStateAndApply.c)
- *     rimPenButtonsPolicyUpdateState @ 0x1C01AAEE0 (rimPenButtonsPolicyUpdateState.c)
- *     rimPredictionPolicyUpdateStateAndApply @ 0x1C01AB2D0 (rimPredictionPolicyUpdateStateAndApply.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01AFF90 (RIMCmAddContactSuppressionReasons.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     RIMIsInputSuppressed @ 0x1C0166400 (RIMIsInputSuppressed.c)
+ *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C0179220 (rimConfidenceBitPolicyUpdateStateAndApply.c)
+ *     rimDigitizerActiveBitPolicyUpdateStateAndApply @ 0x1C01794A4 (rimDigitizerActiveBitPolicyUpdateStateAndApply.c)
+ *     rimDisplayOffPolicyUpdateStateAndApply @ 0x1C0179558 (rimDisplayOffPolicyUpdateStateAndApply.c)
+ *     rimLidClosedPolicyUpdateStateAndApply @ 0x1C017B9F8 (rimLidClosedPolicyUpdateStateAndApply.c)
+ *     rimNullXYPolicyUpdateStateAndApply @ 0x1C017BA9C (rimNullXYPolicyUpdateStateAndApply.c)
+ *     rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C017BB9C (rimOutOfBoundsPolicyUpdateStateAndApply.c)
+ *     rimPenButtonsPolicyUpdateState @ 0x1C017BCE4 (rimPenButtonsPolicyUpdateState.c)
+ *     rimPredictionPolicyUpdateStateAndApply @ 0x1C017C040 (rimPredictionPolicyUpdateStateAndApply.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FDC4 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
  */
 
 __int64 __fastcall rimApplyPointerDevicePolicies(
         __int64 a1,
-        __int64 a2,
+        _DWORD *a2,
         unsigned int a3,
         unsigned int a4,
         unsigned int a5,
@@ -28,41 +28,62 @@ __int64 __fastcall rimApplyPointerDevicePolicies(
         int a7,
         __int64 a8)
 {
-  unsigned int v12; // esi
-  int v13; // ecx
-  unsigned int v15; // [rsp+58h] [rbp+20h] BYREF
+  _DWORD *v10; // rbx
+  int v12; // eax
+  unsigned int v13; // esi
+  unsigned int v14; // esi
+  int v15; // ecx
+  unsigned int v17; // [rsp+60h] [rbp+18h] BYREF
 
-  v15 = 0;
-  rimPointerTransitionsPolicyUpdateStateAndApply();
-  if ( (unsigned int)RIMIsInputSuppressed(*(_QWORD *)(a1 + 16)) && (*(_DWORD *)(a2 + 8) & 0x400) == 0 )
+  v17 = 0;
+  v10 = a2;
+  if ( a3 && (a2[605] & 0x1000000) == 0 )
   {
-    RIMCmAddContactSuppressionReasons(a1, a2);
-    *(_DWORD *)(a2 + 2444) |= 0x8000u;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v12 = *a2;
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_d(
+        (_DWORD)gRimLog,
+        (_DWORD)a2,
+        1,
+        40,
+        (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids,
+        v12);
+    }
+    RIMCmAddContactSuppressionReasons(a1, v10, 4LL);
+    v10[605] |= 0x8000u;
   }
-  rimDisplayOffPolicyUpdateStateAndApply(a1, a2);
-  rimLidClosedPolicyUpdateStateAndApply(a1, a2);
-  rimNullXYPolicyUpdateStateAndApply(a1, a2, a4, a5);
-  rimConfidenceBitPolicyUpdateStateAndApply(a1, a2, a6);
-  rimDigitizerActiveBitPolicyUpdateStateAndApply(a1, a2);
-  if ( (unsigned int)(*(_DWORD *)(a1 + 24) - 5) <= 1 )
-    rimPenButtonsPolicyUpdateState(a1, a2, a3);
-  if ( a4 || a5 || (*(_DWORD *)(a2 + 8) & 0x40) != 0 )
+  if ( (unsigned int)RIMIsInputSuppressed(*(_QWORD *)(a1 + 16)) && (v10[2] & 0x400) == 0 )
   {
-    v12 = 1;
+    RIMCmAddContactSuppressionReasons(a1, v10, 1024LL);
+    v10[605] |= 0x8000u;
+  }
+  rimDisplayOffPolicyUpdateStateAndApply(a1, v10);
+  rimLidClosedPolicyUpdateStateAndApply(a1, v10);
+  v13 = a5;
+  rimNullXYPolicyUpdateStateAndApply(a1, v10, a4, a5);
+  rimConfidenceBitPolicyUpdateStateAndApply(a1, v10, a6);
+  rimDigitizerActiveBitPolicyUpdateStateAndApply(a1, v10);
+  if ( (unsigned int)(*(_DWORD *)(a1 + 24) - 5) <= 1 )
+    rimPenButtonsPolicyUpdateState(a1, v10, a3);
+  if ( a4 || v13 || (v10[2] & 0x40) != 0 )
+  {
+    v14 = 1;
   }
   else
   {
-    rimOutOfBoundsPolicyUpdateStateAndApply(a1, a2, a7, a8, (__int64)&v15);
-    v12 = v15;
+    rimOutOfBoundsPolicyUpdateStateAndApply(a1, (_DWORD)v10, a7, a8, (__int64)&v17);
+    v14 = v17;
   }
-  if ( (unsigned int)RIMCmIsContactSuppressed(a2) && (unsigned int)RIMCmIsContactDeliveringPointerData(a2) )
-    *(_DWORD *)(a2 + 2444) &= 0xFFFFFFE9;
-  v13 = *(_DWORD *)(a2 + 2684);
-  if ( (v13 & 4) != 0 && (*(_DWORD *)(a2 + 2444) & 4) == 0 || (v13 & 2) != 0 && (*(_DWORD *)(a2 + 2444) & 2) == 0 )
+  if ( (unsigned int)RIMCmIsContactSuppressed(v10) && (unsigned int)RIMCmIsContactDeliveringPointerData(v10) )
+    v10[605] &= 0xFFFFFFE9;
+  v15 = v10[665];
+  if ( (v15 & 4) != 0 && (v10[605] & 4) == 0 || (v15 & 2) != 0 && (v10[605] & 2) == 0 )
   {
-    v12 = 1;
-    *(_QWORD *)(a2 + 2480) = *(_QWORD *)(a2 + 2720);
-    *(_QWORD *)(a2 + 2488) = *(_QWORD *)(a2 + 2728);
+    v14 = 1;
+    *((_QWORD *)v10 + 307) = *((_QWORD *)v10 + 337);
+    *((_QWORD *)v10 + 308) = *((_QWORD *)v10 + 338);
   }
-  return rimPredictionPolicyUpdateStateAndApply(a1, a2, a3, v12);
+  return rimPredictionPolicyUpdateStateAndApply(a1, v10, a3, v14);
 }

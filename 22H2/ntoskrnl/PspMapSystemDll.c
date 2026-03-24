@@ -1,107 +1,93 @@
 /*
- * XREFs of PspMapSystemDll @ 0x1407A37F0
+ * XREFs of PspMapSystemDll @ 0x1406FCA38
  * Callers:
- *     PsMapSystemDlls @ 0x1407A36D8 (PsMapSystemDlls.c)
- *     PsLocateSystemDlls @ 0x140801B58 (PsLocateSystemDlls.c)
- *     PspLocateSystemDll @ 0x140801BE0 (PspLocateSystemDll.c)
- *     PspInitPhase3 @ 0x140B76BC0 (PspInitPhase3.c)
+ *     PsMapSystemDlls @ 0x1406FC94C (PsMapSystemDlls.c)
+ *     PspLocateSystemDll @ 0x140793A08 (PspLocateSystemDll.c)
+ *     PspInitPhase3 @ 0x140A4B0C0 (PspInitPhase3.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     MmMapViewOfSectionEx @ 0x14032A17C (MmMapViewOfSectionEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PspReferenceSystemDll @ 0x1407A39B4 (PspReferenceSystemDll.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     MmMapViewOfSectionEx @ 0x1403529F0 (MmMapViewOfSectionEx.c)
+ *     ZwSetInformationVirtualMemory @ 0x1403FCE20 (ZwSetInformationVirtualMemory.c)
+ *     PspReferenceSystemDll @ 0x1406FD074 (PspReferenceSystemDll.c)
  */
 
 __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int a4)
 {
-  __int64 v8; // r12
-  int v9; // r8d
-  int v10; // edx
-  unsigned __int64 v11; // xmm0_8
-  int v12; // ecx
-  __int64 v13; // rax
-  unsigned int v14; // edi
-  __int64 v16; // rsi
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // [rsp+58h] [rbp-51h]
-  __int64 v20; // [rsp+70h] [rbp-39h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-31h] BYREF
-  __int64 v22; // [rsp+80h] [rbp-29h] BYREF
-  __int128 v23; // [rsp+88h] [rbp-21h] BYREF
-  __int64 v24; // [rsp+98h] [rbp-11h]
-  _QWORD v25[4]; // [rsp+A0h] [rbp-9h] BYREF
-  __int128 v26; // [rsp+C0h] [rbp+17h]
+  struct _DMA_ADAPTER *v8; // r14
+  bool v9; // zf
+  unsigned __int64 v10; // rax
+  unsigned int v11; // edi
+  __int64 v13; // rsi
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // [rsp+68h] [rbp-19h] BYREF
+  __int64 v17; // [rsp+70h] [rbp-11h] BYREF
+  _QWORD v18[3]; // [rsp+78h] [rbp-9h] BYREF
+  __int128 v19; // [rsp+90h] [rbp+Fh] BYREF
+  __int64 v20; // [rsp+A0h] [rbp+1Fh]
+  _QWORD v21[2]; // [rsp+A8h] [rbp+27h] BYREF
+  __int128 v22; // [rsp+B8h] [rbp+37h]
 
-  v8 = PspReferenceSystemDll(*(_QWORD *)a2);
-  if ( v8 )
+  v8 = (struct _DMA_ADAPTER *)PspReferenceSystemDll(a2);
+  if ( !v8 )
+    return 3221225473LL;
+  v16 = 0LL;
+  v18[0] = 0LL;
+  v17 = 0LL;
+  v21[0] = 1LL;
+  v21[1] = &v19;
+  v20 = 0LL;
+  v22 = 0LL;
+  LOBYTE(v22) = 5;
+  v9 = (*(_BYTE *)(a2 + 16) & 8) == 0;
+  v19 = 0LL;
+  *((_QWORD *)&v22 + 1) = 32LL;
+  v10 = _mm_srli_si128((__m128i)0LL, 8).m128i_u64[0];
+  if ( v9 )
+    v10 = 0x7FFFFFFEFFFFLL;
+  *((_QWORD *)&v19 + 1) = v10;
+  v11 = MmMapViewOfSectionEx(
+          (int)v8,
+          (int)a1,
+          (int)&v16,
+          (__int64)v18,
+          (__int64)&v17,
+          a3 != 0 ? 0x20000000 : 0,
+          4,
+          v21,
+          2,
+          0,
+          0LL);
+  ObFastDereferenceObject((signed __int64 *)a2, v8);
+  if ( v11 != 1073741827 )
+    goto LABEL_5;
+  if ( a1 != PsInitialSystemProcess )
   {
-    v20 = 0LL;
-    v22 = 0LL;
-    v21 = 0LL;
-    v9 = *(_DWORD *)(a2 + 8);
-    v10 = 2;
-    v25[0] = 1LL;
-    v25[1] = &v23;
-    v25[2] = 5LL;
-    v25[3] = 32LL;
-    v26 = 0LL;
-    if ( (v9 & 0x20) != 0 )
-    {
-      v10 = 3;
-      *((_QWORD *)&v26 + 1) = *(unsigned __int16 *)(a2 + 10);
-      LOBYTE(v26) = 6;
-    }
-    v24 = 0LL;
-    v23 = 0LL;
-    v11 = _mm_srli_si128((__m128i)0LL, 8).m128i_u64[0];
-    v12 = (a3 != 0 ? 0x20000000 : 0) | 0x40000;
-    if ( !a4 )
-      v12 = a3 != 0 ? 0x20000000 : 0;
-    v13 = v11;
-    if ( (v9 & 8) == 0 )
-      v13 = 0x7FFFFFFEFFFFLL;
-    *((_QWORD *)&v23 + 1) = v13;
-    v14 = MmMapViewOfSectionEx(
-            v8,
-            (int)a1,
-            (int)&v20,
-            (__int64)&v22,
-            (__int64)&v21,
-            v12,
-            2,
-            v25,
-            v10,
-            0,
-            0LL,
-            v19,
-            0x2000000);
-    ObFastDereferenceObject(*(signed __int64 **)a2, v8, 0x64537350u);
-    if ( v14 == 1073741827 )
-    {
-      if ( a1 != PsInitialSystemProcess )
-        return (unsigned int)-1073741800;
-    }
-    else if ( (v14 & 0x80000000) != 0 )
-    {
-      return v14;
-    }
-    if ( a4 )
-    {
-      v16 = v20;
-      v14 = 0;
-      v17 = RtlImageNtHeader(v20);
-      if ( *(_WORD *)(v17 + 24) == 267 )
-        v18 = *(unsigned int *)(v17 + 52);
-      else
-        v18 = *(_QWORD *)(v17 + 48);
-      *(_QWORD *)(a2 + 32) = v18;
-      *(_QWORD *)(a2 + 40) = v16;
-      return v14;
-    }
-    if ( *(_QWORD *)(a2 + 32) == v20 )
-      return v14;
+    v11 = -1073741800;
+LABEL_5:
+    if ( (v11 & 0x80000000) != 0 )
+      return v11;
+  }
+  if ( a4 )
+  {
+    v13 = v16;
+    v11 = 0;
+    v14 = RtlImageNtHeader(v16);
+    if ( *(_WORD *)(v14 + 24) == 267 )
+      v15 = *(unsigned int *)(v14 + 52);
+    else
+      v15 = *(_QWORD *)(v14 + 48);
+    *(_QWORD *)(a2 + 40) = v15;
+    *(_QWORD *)(a2 + 48) = v13;
+    return v11;
+  }
+  if ( *(_QWORD *)(a2 + 40) == v16 )
+  {
+    v18[1] = v16;
+    v18[2] = 4096LL;
+    ZwSetInformationVirtualMemory(-1LL, 4LL);
+    return v11;
   }
   return 3221225473LL;
 }

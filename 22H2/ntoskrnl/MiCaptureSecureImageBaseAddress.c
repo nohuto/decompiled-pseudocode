@@ -1,30 +1,30 @@
 /*
- * XREFs of MiCaptureSecureImageBaseAddress @ 0x140A47FE4
+ * XREFs of MiCaptureSecureImageBaseAddress @ 0x1408D7BB0
  * Callers:
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
  * Callees:
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1402101B0 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14021022C (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1402F9E90 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1402FA08C (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall MiCaptureSecureImageBaseAddress(__int64 a1)
+__int64 __fastcall MiCaptureSecureImageBaseAddress(_QWORD *a1)
 {
   __int64 v1; // rbx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v3; // rdi
-  unsigned __int64 v4; // rbx
-  unsigned int v5; // ebx
+  __int64 v4; // rdi
+  unsigned __int64 v5; // rbx
+  unsigned int v6; // ebx
 
-  v1 = *(_QWORD *)(a1 + 96);
+  v1 = a1[12];
   CurrentThread = KeGetCurrentThread();
-  v3 = *(_QWORD *)(v1 + 32);
-  v4 = *(_QWORD *)(v1 + 40) & 0xFFFFFFFFFFFFFFF8uLL;
-  MI_LOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v3);
-  if ( qword_140C37A40 )
-    v5 = qword_140C37A40(v4);
+  v4 = *(_QWORD *)(v1 + 32);
+  v5 = *(_QWORD *)(v1 + 40) & 0xFFFFFFFFFFFFFFF8uLL;
+  MI_LOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v4);
+  if ( qword_140C1DB60 )
+    v6 = qword_140C1DB60(v5, *(_QWORD *)(*a1 + 32LL));
   else
-    v5 = -1073741637;
-  MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v3);
-  return v5;
+    v6 = -1073741637;
+  MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v4);
+  return v6;
 }

@@ -2,13 +2,13 @@
  * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1405ED0B0
  * Callers:
  *     NtAllocateVirtualMemory @ 0x1405ECE60 (NtAllocateVirtualMemory.c)
- *     MiAllocateVirtualMemoryCommon @ 0x140675D10 (MiAllocateVirtualMemoryCommon.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x140675CF0 (MiAllocateVirtualMemoryCommon.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     MiValidateAllocationType @ 0x1405ED550 (MiValidateAllocationType.c)
- *     MiValidateZeroBits @ 0x14067744C (MiValidateZeroBits.c)
- *     MiGetUserReservationHighestAddress @ 0x14069626C (MiGetUserReservationHighestAddress.c)
+ *     MiValidateZeroBits @ 0x14067742C (MiValidateZeroBits.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryPrepare(

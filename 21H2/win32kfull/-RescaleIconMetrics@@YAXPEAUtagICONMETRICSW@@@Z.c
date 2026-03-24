@@ -1,25 +1,23 @@
 /*
- * XREFs of ?RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z @ 0x1C01D23E4
+ * XREFs of ?RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z @ 0x1C01D662C
  * Callers:
- *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01D2534 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01D6A78 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
  * Callees:
- *     GetDpiForSystem @ 0x1C006878C (GetDpiForSystem.c)
+ *     <none>
  */
 
-void __fastcall RescaleIconMetrics(struct tagICONMETRICSW *a1, __int64 a2)
+void __fastcall RescaleIconMetrics(struct tagICONMETRICSW *a1)
 {
-  INT DpiForSystem; // eax
-  INT v4; // ebx
-  INT v5; // edx
+  INT v2; // r8d
+  INT v3; // ebx
 
-  DpiForSystem = GetDpiForSystem((__int64)a1, a2);
-  v4 = DpiForSystem;
-  v5 = *(unsigned __int16 *)(gpsi + 6998LL);
-  if ( DpiForSystem != v5 )
+  v2 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(a1) + 284);
+  if ( (_WORD)v2 != *(_WORD *)(gpsi + 6998LL) )
   {
-    *((_DWORD *)a1 + 1) = EngMulDiv(*((_DWORD *)a1 + 1), v5, DpiForSystem);
-    *((_DWORD *)a1 + 2) = EngMulDiv(*((_DWORD *)a1 + 2), *(unsigned __int16 *)(gpsi + 6998LL), v4);
-    *((_DWORD *)a1 + 5) = EngMulDiv(*((_DWORD *)a1 + 5), *(unsigned __int16 *)(gpsi + 6998LL), v4);
-    *((_DWORD *)a1 + 4) = EngMulDiv(*((_DWORD *)a1 + 4), *(unsigned __int16 *)(gpsi + 6998LL), v4);
+    v3 = v2;
+    *((_DWORD *)a1 + 1) = EngMulDiv(*((_DWORD *)a1 + 1), *(unsigned __int16 *)(gpsi + 6998LL), v2);
+    *((_DWORD *)a1 + 2) = EngMulDiv(*((_DWORD *)a1 + 2), *(unsigned __int16 *)(gpsi + 6998LL), v3);
+    *((_DWORD *)a1 + 5) = EngMulDiv(*((_DWORD *)a1 + 5), *(unsigned __int16 *)(gpsi + 6998LL), v3);
+    *((_DWORD *)a1 + 4) = EngMulDiv(*((_DWORD *)a1 + 4), *(unsigned __int16 *)(gpsi + 6998LL), v3);
   }
 }

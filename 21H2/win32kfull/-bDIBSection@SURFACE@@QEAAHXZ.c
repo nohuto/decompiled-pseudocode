@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C008A7DC
+ * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C00A9BCC
  * Callers:
- *     GreMakeBitmapStock @ 0x1C008A560 (GreMakeBitmapStock.c)
- *     GreGetDIBColorTable @ 0x1C008A670 (GreGetDIBColorTable.c)
- *     GreSetDIBColorTable @ 0x1C02B6140 (GreSetDIBColorTable.c)
- *     NtGdiGetColorSpaceforBitmap @ 0x1C02B9570 (NtGdiGetColorSpaceforBitmap.c)
+ *     GreMakeBitmapStock @ 0x1C00A9660 (GreMakeBitmapStock.c)
+ *     GreGetDIBColorTable @ 0x1C00A9A60 (GreGetDIBColorTable.c)
+ *     GreSetDIBColorTable @ 0x1C02B7FE0 (GreSetDIBColorTable.c)
+ *     NtGdiGetColorSpaceforBitmap @ 0x1C02BB150 (NtGdiGetColorSpaceforBitmap.c)
  * Callees:
  *     <none>
  */

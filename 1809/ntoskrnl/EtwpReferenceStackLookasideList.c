@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpReferenceStackLookasideList @ 0x1408B7088
+ * XREFs of EtwpReferenceStackLookasideList @ 0x1408B7068
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpInitializeStackTracing @ 0x1408B6F24 (EtwpInitializeStackTracing.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpInitializeStackTracing @ 0x1408B6F04 (EtwpInitializeStackTracing.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

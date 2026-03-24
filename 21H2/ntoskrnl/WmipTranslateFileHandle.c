@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipTranslateFileHandle @ 0x1409DE060
+ * XREFs of WmipTranslateFileHandle @ 0x140933408
  * Callers:
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1406C1A74 (WmipGetGuidObjectInstanceInfo.c)
- *     WmipGetFilePDO @ 0x1406C1BD4 (WmipGetFilePDO.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x14078D2A4 (WmipGetGuidObjectInstanceInfo.c)
+ *     WmipGetFilePDO @ 0x14078D404 (WmipGetFilePDO.c)
  */
 
 __int64 __fastcall WmipTranslateFileHandle(__int64 a1, unsigned int *a2)
@@ -22,14 +22,14 @@ __int64 __fastcall WmipTranslateFileHandle(__int64 a1, unsigned int *a2)
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-10h] BYREF
   int v12; // [rsp+70h] [rbp+30h] BYREF
   PVOID Object; // [rsp+80h] [rbp+40h] BYREF
-  PVOID v14; // [rsp+88h] [rbp+48h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp+48h] BYREF
 
   v12 = 0;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   v4 = *(void **)a1;
-  v14 = 0LL;
+  DmaAdapter = 0LL;
   UnicodeString.Buffer = 0LL;
-  FilePDO = WmipGetFilePDO(v4, 1, &v14);
+  FilePDO = WmipGetFilePDO(v4, 1, &DmaAdapter);
   if ( FilePDO < 0 )
     return (unsigned int)FilePDO;
   v6 = *(void **)(a1 + 8);
@@ -37,12 +37,12 @@ __int64 __fastcall WmipTranslateFileHandle(__int64 a1, unsigned int *a2)
   FilePDO = ObReferenceObjectByHandle(v6, 1u, WmipGuidObjectType, 1, &Object, 0LL);
   if ( FilePDO >= 0 )
   {
-    FilePDO = WmipGetGuidObjectInstanceInfo((__int64)Object, (ULONG_PTR)v14, &UnicodeString, &v12);
+    FilePDO = WmipGetGuidObjectInstanceInfo((__int64)Object, (ULONG_PTR)DmaAdapter, &UnicodeString, &v12);
     if ( FilePDO < 0 )
     {
 LABEL_12:
       if ( Object )
-        ObfDereferenceObject(Object);
+        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       goto LABEL_14;
     }
     Length = UnicodeString.Length;
@@ -69,11 +69,11 @@ LABEL_12:
     FilePDO = 0;
 LABEL_10:
     if ( UnicodeString.Buffer )
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
     goto LABEL_12;
   }
 LABEL_14:
-  if ( v14 )
-    ObfDereferenceObject(v14);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return (unsigned int)FilePDO;
 }

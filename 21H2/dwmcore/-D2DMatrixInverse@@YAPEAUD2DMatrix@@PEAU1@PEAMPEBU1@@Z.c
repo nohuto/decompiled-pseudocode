@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18026CB5C
+ * XREFs of ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18021C760
  * Callers:
- *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x18018C6F0 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
- *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x180226294 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
- *     ?Inverse@CExpressionValueStack@@QEAAJXZ @ 0x18024B4CC (-Inverse@CExpressionValueStack@@QEAAJXZ.c)
- *     ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180266E54 (-ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7C08 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?Inverse@CExpressionValueStack@@QEAAJXZ @ 0x1801FCB6C (-Inverse@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180215D9C (-ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z.c)
+ *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x18022CFB8 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, c
   float v15; // xmm5_4
   float v16; // xmm6_4
   float v17; // xmm2_4
-  float v18; // xmm1_4
+  float v18; // xmm4_4
   float v19; // xmm2_4
   float v20; // xmm4_4
   float v21; // xmm11_4
@@ -34,10 +34,10 @@ struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, c
   float v24; // xmm12_4
   float v25; // xmm6_4
   float v26; // xmm7_4
-  float v27; // xmm8_4
-  float v28; // xmm1_4
-  float v29; // xmm15_4
-  float v30; // xmm0_4
+  float v27; // xmm0_4
+  float v28; // xmm8_4
+  float v29; // xmm1_4
+  float v30; // xmm15_4
   float v31; // xmm5_4
   float v32; // xmm9_4
   float v33; // xmm10_4
@@ -84,10 +84,10 @@ struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, c
   v43 = (float)((float)(v10 * v17) - (float)(v8 * v16)) - (float)(v49 * v51);
   v42 = (float)((float)(v15 * v5) - (float)(v14 * v7)) - (float)(v16 * v4);
   v41 = (float)((float)(v17 * v4) - (float)(v47 * v5)) + (float)(v14 * v6);
-  v18 = (float)((float)(v47 * v7) - (float)(v15 * v6)) - (float)(v51 * v4);
-  v52 = (float)((float)(v51 * v5) - (float)(v17 * v7)) + (float)(v16 * v6);
+  v18 = (float)(v51 * v5) - (float)(v17 * v7);
+  v48 = (float)((float)(v47 * v7) - (float)(v15 * v6)) - (float)(v51 * v4);
   v19 = (float)(v9 * v5) - (float)(v49 * v4);
-  v48 = v18;
+  v52 = v18 + (float)(v16 * v6);
   v20 = (float)(v9 * v7) - (float)(v10 * v4);
   v21 = (float)(v9 * v6) - (float)(v8 * v4);
   v22 = (float)(v49 * v7) - (float)(v10 * v5);
@@ -95,19 +95,19 @@ struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, c
   v24 = (float)(v10 * v6) - (float)(v8 * v7);
   v25 = *((float *)a3 + 4);
   v26 = (float)((float)(v20 * *((float *)a3 + 5)) - (float)(v19 * v11)) - (float)(v22 * v13);
-  v27 = (float)((float)(v23 * v13) - (float)(v21 * *((float *)a3 + 5))) + (float)(v19 * v12);
-  v28 = v24 * v13;
-  v29 = v23;
+  v27 = v23 * v11;
+  v28 = (float)((float)(v23 * v13) - (float)(v21 * *((float *)a3 + 5))) + (float)(v19 * v12);
+  v29 = v24 * v13;
   v30 = v23;
   v31 = *((float *)a3 + 8);
-  v32 = (float)((float)(v21 * v11) - (float)(v20 * v12)) - v28;
-  v33 = (float)((float)(v24 * *((float *)a3 + 5)) - (float)(v30 * v11)) + (float)(v22 * v12);
+  v32 = (float)((float)(v21 * v11) - (float)(v20 * v12)) - v29;
+  v33 = (float)((float)(v24 * *((float *)a3 + 5)) - v27) + (float)(v22 * v12);
   v34 = (float)((float)(v22 * *(float *)a3) - (float)(v20 * v25)) + (float)(v19 * v31);
   v35 = *((float *)a3 + 12);
-  v36 = (float)((float)(v21 * v25) - (float)(v19 * v35)) - (float)(v29 * *(float *)a3);
-  v37 = (float)((float)(v29 * v31) - (float)(v22 * v35)) - (float)(v24 * v25);
+  v36 = (float)((float)(v21 * v25) - (float)(v19 * v35)) - (float)(v30 * *(float *)a3);
+  v37 = (float)((float)(v30 * v31) - (float)(v22 * v35)) - (float)(v24 * v25);
   v50 = (float)((float)(v24 * *(float *)a3) - (float)(v21 * v31)) + (float)(v20 * v35);
-  v38 = (float)((float)((float)(v26 * v35) + (float)(v27 * v31)) + (float)(v32 * v25)) + (float)(v33 * *(float *)a3);
+  v38 = (float)((float)((float)(v26 * v35) + (float)(v28 * v31)) + (float)(v32 * v25)) + (float)(v33 * *(float *)a3);
   if ( a2 )
     *a2 = v38;
   if ( v38 == 0.0 )
@@ -125,7 +125,7 @@ struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, c
   *(float *)a1 = v33 * v39;
   *((float *)a1 + 1) = v32 * v39;
   *((float *)a1 + 11) = v42 * v39;
-  *((float *)a1 + 2) = v27 * v39;
+  *((float *)a1 + 2) = v28 * v39;
   *((float *)a1 + 3) = v26 * v39;
   *((float *)a1 + 12) = v43 * v39;
   *((float *)a1 + 7) = v39 * v34;

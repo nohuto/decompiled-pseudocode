@@ -1,43 +1,29 @@
 /*
- * XREFs of HalpMceRecoveryRequired @ 0x1405194CC
+ * XREFs of HalpMceRecoveryRequired @ 0x1404D0698
  * Callers:
- *     HalpMceRecovery @ 0x140518F10 (HalpMceRecovery.c)
+ *     HalpMceRecovery @ 0x1404D01E0 (HalpMceRecovery.c)
  * Callees:
- *     HalpMcaAMDIsMemoryError @ 0x140505F44 (HalpMcaAMDIsMemoryError.c)
- *     HalpMceRecoveryMemoryErrorAmd @ 0x1405190F0 (HalpMceRecoveryMemoryErrorAmd.c)
- *     HalpMceRecoveryMemoryErrorIntel @ 0x14051920C (HalpMceRecoveryMemoryErrorIntel.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x1404D02B0 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x1404D039C (HalpMceRecoveryMemoryErrorIntel.c)
  */
 
 __int64 __fastcall HalpMceRecoveryRequired(__int64 a1)
 {
-  unsigned int v2; // r10d
-  __int16 v3; // cx
-  int v4; // edx
-  __int64 v5; // r9
-  __int64 v6; // rcx
+  __int16 v1; // r8
+  unsigned int v2; // edx
 
+  v1 = *(_WORD *)(a1 + 40);
   v2 = -1073741637;
-  v3 = *(_WORD *)(a1 + 40);
-  v4 = *(_DWORD *)(a1 + 4);
-  if ( v4 == 2 )
+  if ( (v1 & 0xEF00) == 0x100 )
   {
-    if ( HalpMcaAMDIsMemoryError(a1, v3) )
-    {
-      v6 = v5;
-      return (unsigned int)HalpMceRecoveryMemoryErrorAmd(v6);
-    }
+    if ( *(_DWORD *)(a1 + 4) == 1 )
+      return (unsigned int)HalpMceRecoveryMemoryErrorIntel(a1);
+    else
+      return (unsigned int)HalpMceRecoveryMemoryErrorAmd(a1);
   }
-  else
+  else if ( (v1 & 0xE800) == 0x800 )
   {
-    if ( (v3 & 0xEF00) == 0x100 )
-    {
-      v6 = a1;
-      if ( v4 == 1 )
-        return (unsigned int)HalpMceRecoveryMemoryErrorIntel(a1);
-      return (unsigned int)HalpMceRecoveryMemoryErrorAmd(v6);
-    }
-    if ( (v3 & 0xE800) == 0x800 && *(_DWORD *)a1 >= 3u )
-      *(_DWORD *)(a1 + 272) |= 1u;
+    return (unsigned int)-1073741637;
   }
   return v2;
 }

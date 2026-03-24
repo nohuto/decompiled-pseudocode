@@ -1,48 +1,48 @@
 /*
- * XREFs of KsepPoolAllocatePaged @ 0x140209ED0
+ * XREFs of KsepPoolAllocatePaged @ 0x140371F2C
  * Callers:
- *     KsepEvntLogShimsApplied @ 0x1403AF0FC (KsepEvntLogShimsApplied.c)
- *     KseAddHardwareId @ 0x140693960 (KseAddHardwareId.c)
- *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
- *     KsepStringDuplicate @ 0x1406942D4 (KsepStringDuplicate.c)
- *     KsepStringConcatenate @ 0x140694384 (KsepStringConcatenate.c)
- *     KsepEngineGetShimsFromRegistry @ 0x1406945C4 (KsepEngineGetShimsFromRegistry.c)
- *     KsepStringDuplicateUnicode @ 0x140694900 (KsepStringDuplicateUnicode.c)
- *     KsepDbGetDriverShims @ 0x140694A54 (KsepDbGetDriverShims.c)
- *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDevice @ 0x14080AA9C (KsepDbCacheReadDevice.c)
- *     KseRegisterShimEx @ 0x14080ACB0 (KseRegisterShimEx.c)
- *     KsepGetLoadedModulesList @ 0x14080AEDC (KsepGetLoadedModulesList.c)
- *     KsepCacheDeviceInsertData @ 0x14080B2A8 (KsepCacheDeviceInsertData.c)
- *     KsepCacheInitialize @ 0x1408462B4 (KsepCacheInitialize.c)
- *     KsepRegistryQuerySZ @ 0x14084646C (KsepRegistryQuerySZ.c)
- *     KsepDbGetShimInfo @ 0x140856450 (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x14085AEAC (KsepStringSplitMultiString.c)
- *     KsepSdbBootInitialize @ 0x140861F18 (KsepSdbBootInitialize.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140976DF8 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepRegistryEnumValue @ 0x140977ADC (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x140977BD8 (KsepRegistryQueryKeyInformation.c)
- *     KsepRegistryQueryValue @ 0x140977CCC (KsepRegistryQueryValue.c)
+ *     KsepEvntLogShimsApplied @ 0x140526E6C (KsepEvntLogShimsApplied.c)
+ *     KsepDbCacheReadDevice @ 0x14075566C (KsepDbCacheReadDevice.c)
+ *     KsepGetShimsForDriver @ 0x140758368 (KsepGetShimsForDriver.c)
+ *     KsepDbGetDriverShims @ 0x140758450 (KsepDbGetDriverShims.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075867C (KsepDbGetDriverShimsInternal.c)
+ *     KsepStringDuplicate @ 0x14075AA64 (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x14075AB14 (KsepStringConcatenate.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075AF3C (KsepEngineGetShimsFromRegistry.c)
+ *     KsepStringDuplicateUnicode @ 0x14075B024 (KsepStringDuplicateUnicode.c)
+ *     KseAddHardwareId @ 0x14075EE8C (KseAddHardwareId.c)
+ *     KseRegisterShimEx @ 0x1407BDC00 (KseRegisterShimEx.c)
+ *     KsepGetLoadedModulesList @ 0x1407BDF54 (KsepGetLoadedModulesList.c)
+ *     KsepCacheInitialize @ 0x1407BEF40 (KsepCacheInitialize.c)
+ *     KsepRegistryQuerySZ @ 0x1407BF100 (KsepRegistryQuerySZ.c)
+ *     KsepCacheDeviceInsertData @ 0x1407CC610 (KsepCacheDeviceInsertData.c)
+ *     KsepSdbBootInitialize @ 0x1407D1DF8 (KsepSdbBootInitialize.c)
+ *     KsepDbGetShimInfo @ 0x1408BF86C (KsepDbGetShimInfo.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFB10 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepStringSplitMultiString @ 0x1408C0E74 (KsepStringSplitMultiString.c)
+ *     KsepRegistryEnumValue @ 0x1408C145C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x1408C1558 (KsepRegistryQueryKeyInformation.c)
+ *     KsepRegistryQueryValue @ 0x1408C161C (KsepRegistryQueryValue.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall KsepPoolAllocatePaged(size_t Size)
+PVOID __fastcall KsepPoolAllocatePaged(size_t Size)
 {
-  void *Pool2; // rax
-  void *v3; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v3; // rbx
 
-  Pool2 = (void *)ExAllocatePool2(256LL, Size, 1631933259LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, Size, 0x6145534Bu);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    _InterlockedIncrement(&dword_140C407C0);
-    memset(Pool2, 0, Size);
+    _InterlockedIncrement(&dword_140C2AA80);
+    memset(PoolWithTag, 0, Size);
   }
   else
   {
-    _InterlockedIncrement(&dword_140C407D0);
+    _InterlockedIncrement(&dword_140C2AA90);
   }
   return v3;
 }

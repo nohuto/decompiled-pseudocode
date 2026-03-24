@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x14075BD80
+ * XREFs of RtlRunOnceExecuteOnce @ 0x14068A9B0
  * Callers:
- *     RtlpHpMetadataHeapStart @ 0x140371378 (RtlpHpMetadataHeapStart.c)
- *     ExPoolSetLimit @ 0x14063AFCC (ExPoolSetLimit.c)
- *     RtlpLogCapabilityCheckLatency @ 0x140660E0C (RtlpLogCapabilityCheckLatency.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406D75F4 (ExCheckFullProcessInformationAccess.c)
- *     SdbGetIndex @ 0x14075BCC0 (SdbGetIndex.c)
- *     ExpCheckTestsigningEnabled @ 0x1407F7D3C (ExpCheckTestsigningEnabled.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x140842AF4 (SdbpGetStringTableItemFromStringRef.c)
- *     ExQueryBootEntropyInformation @ 0x14086423C (ExQueryBootEntropyInformation.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC784 (ExpFirmwareAccessAppContainerCheck.c)
+ *     RtlpHpMetadataHeapStart @ 0x1402A5E1C (RtlpHpMetadataHeapStart.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406BAC8C (ExCheckFullProcessInformationAccess.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140756650 (SdbpGetStringTableItemFromStringRef.c)
+ *     SdbGetIndex @ 0x14075A670 (SdbGetIndex.c)
+ *     ExQueryBootEntropyInformation @ 0x14079EB94 (ExQueryBootEntropyInformation.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x14091B674 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpCheckTestsigningEnabled @ 0x14094F56C (ExpCheckTestsigningEnabled.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950400 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlRunOnceBeginInitialize @ 0x14075BE60 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x14075BF10 (RtlRunOnceComplete.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlRunOnceBeginInitialize @ 0x14068AA90 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x14068AB40 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(

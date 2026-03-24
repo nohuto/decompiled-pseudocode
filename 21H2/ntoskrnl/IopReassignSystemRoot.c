@@ -1,17 +1,17 @@
 /*
- * XREFs of IopReassignSystemRoot @ 0x140B2BC5C
+ * XREFs of IopReassignSystemRoot @ 0x140A700D8
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     NtOpenSymbolicLinkObject @ 0x1406A0F30 (NtOpenSymbolicLinkObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1406C4D40 (NtCreateSymbolicLinkObject.c)
- *     NtMakeTemporaryObject @ 0x1406E1680 (NtMakeTemporaryObject.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     NtQuerySymbolicLinkObject @ 0x1407B0FE0 (NtQuerySymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     NtMakeTemporaryObject @ 0x14062D0A0 (NtMakeTemporaryObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x140686360 (NtOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x140686650 (NtQuerySymbolicLinkObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406ABF60 (NtCreateSymbolicLinkObject.c)
  */
 
 char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
@@ -47,7 +47,7 @@ char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
     v10 = 0LL;
     v12 = 576;
     v14 = 0LL;
-    v4 = NtOpenSymbolicLinkObject((unsigned __int64)&Handle, 983041, (__int64)v9);
+    v4 = NtOpenSymbolicLinkObject((unsigned __int64)&Handle, 0xF0001u, (__int64)v9);
     if ( v4 == -1073741788 )
       break;
     if ( v4 >= 0 )
@@ -68,7 +68,7 @@ char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
   v10 = 0LL;
   v12 = 576;
   v14 = 0LL;
-  if ( (int)NtOpenSymbolicLinkObject((unsigned __int64)&Handle, 983041, (__int64)v9) < 0 )
+  if ( (int)NtOpenSymbolicLinkObject((unsigned __int64)&Handle, 0xF0001u, (__int64)v9) < 0 )
     return 0;
   NtMakeTemporaryObject(Handle);
   ObCloseHandle(Handle, 0);

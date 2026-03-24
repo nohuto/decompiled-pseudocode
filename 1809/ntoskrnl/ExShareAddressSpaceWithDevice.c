@@ -1,5 +1,5 @@
 /*
- * XREFs of ExShareAddressSpaceWithDevice @ 0x14031D260
+ * XREFs of ExShareAddressSpaceWithDevice @ 0x14031D360
  * Callers:
  *     <none>
  * Callees:
@@ -10,18 +10,18 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmEnableProcessSvm @ 0x1402A5400 (MmEnableProcessSvm.c)
- *     ExpAllocateAsid @ 0x14031DA78 (ExpAllocateAsid.c)
- *     ExpPrepareNewSvmDevice @ 0x14031DDF0 (ExpPrepareNewSvmDevice.c)
- *     ExpSvmDereferenceDevice @ 0x14031E0F0 (ExpSvmDereferenceDevice.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmEnableProcessSvm @ 0x1402A5500 (MmEnableProcessSvm.c)
+ *     ExpAllocateAsid @ 0x14031DB78 (ExpAllocateAsid.c)
+ *     ExpPrepareNewSvmDevice @ 0x14031DEF0 (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x14031E1F0 (ExpSvmDereferenceDevice.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoQueryInterface @ 0x140755AC0 (IoQueryInterface.c)
- *     ExpAssignPasid @ 0x1408D710C (ExpAssignPasid.c)
+ *     IoQueryInterface @ 0x140755AA0 (IoQueryInterface.c)
+ *     ExpAssignPasid @ 0x1408D70EC (ExpAssignPasid.c)
  */
 
 __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)

@@ -1,47 +1,45 @@
 /*
- * XREFs of CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A262C8
+ * XREFs of CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14087FF84
  * Callers:
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A269A0 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A26B3C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmpPromoteSubtree @ 0x140A26C60 (CmpPromoteSubtree.c)
+ *     CmpPromoteSubtree @ 0x14072A0A8 (CmpPromoteSubtree.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408805CC (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880768 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     CmpAddSubKeyEx @ 0x140708618 (CmpAddSubKeyEx.c)
- *     CmpFreeKeyByCell @ 0x14070B2C4 (CmpFreeKeyByCell.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21188 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpAddSubKeyEx @ 0x1406E19D4 (CmpAddSubKeyEx.c)
+ *     CmpFreeKeyByCell @ 0x1406E4070 (CmpFreeKeyByCell.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x14072A360 (CmpCopyMergeOfLayeredKeyNode.c)
  */
 
 __int64 __fastcall CmpPartialPromoteSingleKeyFromKeyNodeStacks(__int16 *a1, __int64 a2)
 {
   __int16 v3; // dx
-  __int64 EntryAtLayerHeight; // r14
+  __int64 EntryAtLayerHeight; // r12
   __int16 v5; // dx
-  __int64 v6; // r9
+  __int64 v6; // r8
   __int16 v7; // dx
   __int16 *v8; // r10
-  __int64 v9; // r15
+  __int64 v9; // r14
   int v10; // esi
-  __int64 v11; // r13
+  __int64 v11; // r15
   __int64 v12; // rax
   __int16 v13; // dx
   signed int v14; // r8d
-  unsigned int v15; // eax
+  int v15; // eax
   ULONG_PTR v16; // rbp
-  unsigned int v17; // edi
-  __int64 v18; // rax
-  char v19; // cl
-  unsigned __int16 v20; // dx
-  unsigned __int16 v21; // ax
-  __int64 v22; // rdx
-  unsigned int *v23; // r8
-  __int64 CellFlat; // rax
-  ULONG_PTR BugCheckParameter4; // [rsp+60h] [rbp+8h] BYREF
+  char v17; // al
+  unsigned int v18; // edi
+  __int64 v19; // rax
+  char v20; // cl
+  unsigned __int16 v21; // dx
+  unsigned __int16 v22; // ax
+  __int64 v23; // rdx
+  ULONG_PTR BugCheckParameter3; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = *a1;
-  LODWORD(BugCheckParameter4) = -1;
+  LODWORD(BugCheckParameter3) = -1;
   EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight(a2, v3);
   v9 = CmpKeyNodeStackGetEntryAtLayerHeight(v6, v5);
   if ( *(_DWORD *)(EntryAtLayerHeight + 8) == -1 )
@@ -67,40 +65,49 @@ LABEL_8:
     else
       v15 = 1;
     v16 = *(_QWORD *)v9;
-    v10 = CmpCopyMergeOfLayeredKeyNode(v8, *(_QWORD *)v9, v14, 2, v15, (unsigned int *)&BugCheckParameter4);
-    if ( v10 < 0 || (v10 = HvpMarkCellDirty(v16, *(unsigned int *)(v9 + 8), 0), v10 < 0) )
+    v10 = CmpCopyMergeOfLayeredKeyNode(v8, *(_QWORD *)v9, v14, 2, v15, (unsigned int *)&BugCheckParameter3);
+    if ( v10 < 0 )
     {
-      v17 = BugCheckParameter4;
+      v18 = BugCheckParameter3;
     }
     else
     {
-      v17 = BugCheckParameter4;
-      v10 = CmpAddSubKeyEx(v16, *(unsigned int *)(v9 + 8), BugCheckParameter4, 0);
-      if ( v10 >= 0 )
+      v17 = HvpMarkCellDirty(v16, *(unsigned int *)(v9 + 8), 0);
+      v18 = BugCheckParameter3;
+      if ( v17 )
       {
-        v18 = *(_QWORD *)(v11 + 16);
-        v19 = *(_BYTE *)(v18 + 2);
-        v20 = *(_WORD *)(v18 + 72);
-        v21 = 2 * v20;
-        if ( (v19 & 0x20) == 0 )
-          v21 = v20;
-        v22 = *(_QWORD *)(v9 + 16);
-        if ( (unsigned __int16)*(_DWORD *)(v22 + 52) < (unsigned int)v21 )
-          *(_WORD *)(v22 + 52) = v21;
-        *(_QWORD *)EntryAtLayerHeight = v16;
-        v23 = (unsigned int *)(EntryAtLayerHeight + 24);
-        *(_DWORD *)(EntryAtLayerHeight + 8) = v17;
-        if ( (*(_BYTE *)(v16 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(v16, v17, v23);
+        if ( CmpAddSubKeyEx(v16, *(unsigned int *)(v9 + 8), BugCheckParameter3, 0) )
+        {
+          v19 = *(_QWORD *)(v11 + 16);
+          v20 = *(_BYTE *)(v19 + 2);
+          v21 = *(_WORD *)(v19 + 72);
+          v22 = 2 * v21;
+          if ( (v20 & 0x20) == 0 )
+            v22 = v21;
+          v23 = *(_QWORD *)(v9 + 16);
+          if ( (unsigned __int16)*(_DWORD *)(v23 + 52) < (unsigned int)v22 )
+            *(_WORD *)(v23 + 52) = v22;
+          *(_QWORD *)EntryAtLayerHeight = v16;
+          *(_DWORD *)(EntryAtLayerHeight + 8) = v18;
+          *(_QWORD *)(EntryAtLayerHeight + 16) = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, __int64))(v16 + 8))(
+                                                   v16,
+                                                   v18,
+                                                   EntryAtLayerHeight + 24);
+          v18 = -1;
+          v10 = 0;
+        }
         else
-          CellFlat = HvpGetCellPaged(v16, v17, v23);
-        *(_QWORD *)(EntryAtLayerHeight + 16) = CellFlat;
-        v17 = -1;
-        v10 = 0;
+        {
+          v10 = -1073741670;
+        }
+      }
+      else
+      {
+        v10 = -1073741443;
       }
     }
-    if ( v17 != -1 )
-      CmpFreeKeyByCell(v16, v17, 0);
+    if ( v18 != -1 )
+      CmpFreeKeyByCell(v16, v18, 0);
   }
   else
   {

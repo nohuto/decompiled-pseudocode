@@ -4,8 +4,8 @@
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     MiInitializeUltraSpace @ 0x1409D9CD4 (MiInitializeUltraSpace.c)
  */

@@ -1,208 +1,219 @@
 /*
- * XREFs of ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x18008DD30
+ * XREFs of ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x180077430
  * Callers:
- *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x18008D934 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
- *     ?AddShadowToShape@CCursorState@@AEAA?AV?$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z @ 0x18027954C (-AddShadowToShape@CCursorState@@AEAA-AV-$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076964 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?DrawCustomCallbackRendererInternal@CD2DContext@@AEAAJPEAUID2D1PrivateCompositorRenderer@@@Z @ 0x18008D100 (-DrawCustomCallbackRendererInternal@CD2DContext@@AEAAJPEAUID2D1PrivateCompositorRenderer@@@Z.c)
- *     ?CloseCurrentDrawListEntryBatch@CDrawListBatchManager@@IEAA?AV?$com_ptr_t@VCDrawListEntryBatch@@Uerr_returncode_policy@wil@@@wil@@XZ @ 0x18008E064 (-CloseCurrentDrawListEntryBatch@CDrawListBatchManager@@IEAA-AV-$com_ptr_t@VCDrawListEntryBatch@@.c)
- *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x180092028 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??0CD2DTarget@@QEAA@PEBVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@PEAUID2D1PrivateDepthBuffer@@@Z @ 0x1800E32E4 (--0CD2DTarget@@QEAA@PEBVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@.c)
- *     ??$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z @ 0x1800E66E4 (--$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z.c)
- *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x1800E6710 (--_GCD2DTarget@@QEAAPEAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z @ 0x180029F70 (--$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z.c)
+ *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x180029F9C (--_GCD2DTarget@@QEAAPEAXI@Z.c)
+ *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x18002C850 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008FFF8 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
+ *     ?DrawCustomCallbackRendererInternal@CD2DContext@@AEAAJPEAUID2D1PrivateCompositorRenderer@@@Z @ 0x180090368 (-DrawCustomCallbackRendererInternal@CD2DContext@@AEAAJPEAUID2D1PrivateCompositorRenderer@@@Z.c)
+ *     ?QueueForRender@CDrawListEntryBatch@@QEAAXPEAVIDeviceTarget@@@Z @ 0x180090468 (-QueueForRender@CDrawListEntryBatch@@QEAAXPEAVIDeviceTarget@@@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ??0CD2DTarget@@QEAA@PEAVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@PEAUID2D1PrivateDepthBuffer@@@Z @ 0x1800CDAF0 (--0CD2DTarget@@QEAA@PEAVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CD2DContext::PushTarget(
-        unsigned __int64 this,
-        struct ID2DContextOwner *a2,
-        struct IDeviceTarget *a3)
+__int64 __fastcall CD2DContext::PushTarget(CD2DContext *this, struct ID2DContextOwner *a2, struct IDeviceTarget *a3)
 {
   char *v3; // rsi
   int v4; // eax
   struct ID2D1PrivateDepthBuffer *v5; // r15
-  __int64 v6; // r13
-  unsigned __int64 v9; // rdi
-  struct ID2D1PrivateCompositorRenderer *v10; // rbx
-  __int64 v11; // rax
+  CD2DTarget *v6; // rbp
+  __int64 v7; // r13
+  struct ID2DContextOwner *v9; // r14
+  CD2DContext *v10; // rdi
+  __int64 v11; // rdx
   int v12; // ebx
   char *v13; // rcx
   int v14; // eax
-  unsigned int v15; // ecx
-  struct ID2D1PrivateCompositorRenderer **v16; // r14
-  _QWORD *v17; // rax
+  __int64 v15; // rax
+  CD2DTarget **v16; // r14
+  struct ID2DContextOwner **v17; // rdx
   struct ID2D1Bitmap1 *v18; // rcx
   unsigned int v19; // eax
-  struct ID2D1PrivateCompositorRenderer *v20; // r8
+  CD2DTarget *v20; // r8
   unsigned int v21; // edx
-  int v22; // ebp
-  CD2DTarget *v24; // rax
-  struct ID2D1PrivateCompositorRenderer *v25; // rax
-  CD2DTarget *v26; // r14
-  unsigned int v27; // eax
-  unsigned int v28; // edx
-  int v29; // ebp
-  int v30; // eax
-  unsigned int v31; // ecx
+  CD2DTarget *v23; // rax
+  unsigned int v24; // eax
+  unsigned int v25; // edx
+  __int64 v26; // rbx
+  int v27; // eax
+  __int64 v28; // rdx
+  int v29; // eax
+  __int64 v30; // rcx
+  int v31; // r9d
   int v32; // eax
-  unsigned int v33; // ecx
-  int v34; // eax
-  unsigned int v35; // ecx
-  unsigned int v36; // ecx
-  unsigned int v37; // ecx
-  unsigned int v38; // edx
-  unsigned int v39; // [rsp+20h] [rbp-48h]
-  struct ID2D1Bitmap1 *v40; // [rsp+70h] [rbp+8h] BYREF
-  struct ID2D1PrivateCompositorRenderer *v41; // [rsp+88h] [rbp+20h] BYREF
+  int v33; // esi
+  __int64 v34; // rcx
+  int v35; // eax
+  unsigned int v36; // [rsp+20h] [rbp-48h]
+  struct ID2D1Bitmap1 *v37; // [rsp+70h] [rbp+8h] BYREF
+  struct ID2DContextOwner *v38; // [rsp+78h] [rbp+10h]
+  CD2DTarget *v39; // [rsp+88h] [rbp+20h] BYREF
 
-  v40 = 0LL;
-  v3 = (char *)(this + 328);
-  v4 = *(_DWORD *)(this + 352);
+  v38 = a2;
+  v37 = 0LL;
+  v3 = (char *)this + 376;
+  v4 = *((_DWORD *)this + 100);
   v5 = 0LL;
   v6 = 0LL;
-  v9 = this;
+  v7 = 0LL;
+  v9 = a2;
+  v10 = this;
   if ( v4 )
-  {
-    this = (unsigned int)(v4 - 1);
-    v6 = *(_QWORD *)(*(_QWORD *)v3 + 8 * this);
-  }
-  if ( *(_QWORD *)(v9 + 152) )
+    v7 = *(_QWORD *)(*(_QWORD *)v3 + 8LL * (unsigned int)(v4 - 1));
+  if ( *((_QWORD *)this + 24) )
   {
     v12 = -2003292412;
-    v39 = 610;
-    goto LABEL_47;
+    v36 = 600;
+LABEL_41:
+    v31 = v12;
+LABEL_43:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v31, v36, 0LL);
+    goto LABEL_15;
   }
-  CDrawListBatchManager::CloseCurrentDrawListEntryBatch(v9 + 8, &v41);
-  v10 = v41;
-  if ( v41 )
+  v11 = *((_QWORD *)this + 22);
+  if ( v11 )
   {
-    v30 = CD2DContext::DrawCustomCallbackRendererInternal((CD2DContext *)v9, v41);
-    if ( v30 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x21Eu, 0LL);
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease((char *)v10 + 8);
+    this = (CD2DContext *)*((_QWORD *)this + 23);
+    if ( this )
+    {
+      CBatchOptimizer::Flush(this);
+      v11 = *((_QWORD *)v10 + 22);
+    }
+    *(_DWORD *)(v11 + 52) = *((_DWORD *)v10 + 8);
+    v26 = *((_QWORD *)v10 + 22);
+    *((_QWORD *)v10 + 22) = 0LL;
+    if ( v26 )
+    {
+      v27 = *((_DWORD *)v3 + 6);
+      v28 = 0LL;
+      if ( v27 )
+        v28 = *(_QWORD *)(*(_QWORD *)v3 + 8LL * (unsigned int)(v27 - 1));
+      CDrawListEntryBatch::QueueForRender((CDrawListEntryBatch *)v26, *(struct IDeviceTarget **)(v28 + 24));
+      v29 = CD2DContext::DrawCustomCallbackRendererInternal(v10, (struct ID2D1PrivateCompositorRenderer *)v26);
+      if ( v29 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x225u, 0LL);
+      CDrawListEntry::Release((CDrawListEntry *)(v26 + 8));
+    }
   }
-  v11 = v9 + 1072;
-  LODWORD(this) = 1088;
-  if ( !v9 )
-    v11 = 1088LL;
-  v12 = *(_DWORD *)v11;
-  if ( *(int *)v11 < 0 )
+  v12 = *((_DWORD *)v10 + 278);
+  if ( v12 < 0 )
   {
-    v39 = 615;
-    goto LABEL_47;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v12, 0x25Du, 0LL);
+    goto LABEL_55;
   }
   v13 = (char *)a3 + *(int *)(*((_QWORD *)a3 + 1) + 16LL) + 8;
-  v14 = (*(__int64 (__fastcall **)(char *, struct ID2D1Bitmap1 **, _QWORD))(*(_QWORD *)v13 + 16LL))(v13, &v40, 0LL);
+  v14 = (*(__int64 (__fastcall **)(char *, struct ID2D1Bitmap1 **, _QWORD))(*(_QWORD *)v13 + 16LL))(v13, &v37, 0LL);
   v12 = v14;
   if ( v14 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x269u, 0LL);
-    goto LABEL_17;
+    v31 = v14;
+    v36 = 607;
+    goto LABEL_43;
   }
-  v5 = (struct ID2D1PrivateDepthBuffer *)(*(__int64 (__fastcall **)(struct IDeviceTarget *))(*(_QWORD *)a3 + 48LL))(a3);
-  if ( v6 )
+  v15 = (*(__int64 (__fastcall **)(struct IDeviceTarget *))(*(_QWORD *)a3 + 48LL))(a3);
+  v5 = (struct ID2D1PrivateDepthBuffer *)v15;
+  if ( !v7 )
   {
-LABEL_23:
-    v24 = (CD2DTarget *)operator new(0x50uLL);
-    if ( v24 )
+    v16 = (CD2DTarget **)((char *)v10 + 472);
+    v17 = (struct ID2DContextOwner **)*((_QWORD *)v10 + 59);
+    if ( v17 )
     {
-      v25 = CD2DTarget::CD2DTarget(v24, a2, *(struct CD2DFactory **)(v9 + 176), a3, v40, v5);
-      v26 = v25;
-      if ( v25 )
+      v18 = v17[4];
+      if ( v37 == v18 && (struct ID2DContextOwner *)v15 == v17[5] )
       {
-        v41 = v25;
-        v27 = *((_DWORD *)v3 + 6);
-        v28 = v27 + 1;
-        if ( v27 + 1 < v27 )
+        *v17 = v38;
+        v19 = *((_DWORD *)v3 + 6);
+        v20 = *v16;
+        v39 = *v16;
+        v21 = v19 + 1;
+        if ( v19 + 1 < v19 )
         {
           v12 = -2147024362;
-          v29 = -2147024362;
-          MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v18, 0LL, 0, -2147024362, 0xB5u, 0LL);
         }
         else
         {
-          v29 = 0;
-          if ( v28 <= *((_DWORD *)v3 + 5) )
+          if ( v21 <= *((_DWORD *)v3 + 5) )
           {
-            *(_QWORD *)(*(_QWORD *)v3 + 8LL * v27) = v26;
-            *((_DWORD *)v3 + 6) = v28;
-            goto LABEL_28;
+            v12 = 0;
+            *(_QWORD *)(*(_QWORD *)v3 + 8LL * v19) = v20;
+            *((_DWORD *)v3 + 6) = v21;
+LABEL_14:
+            *v16 = 0LL;
+            goto LABEL_15;
           }
-          v34 = DynArrayImpl<0>::AddMultipleAndSet(v3, 8LL, 1LL, &v41);
-          v29 = v34;
-          v12 = v34;
-          if ( v34 >= 0 )
-          {
-LABEL_28:
-            v12 = v29;
-            if ( *(_BYTE *)(v9 + 437) )
-            {
-              if ( v6 )
-                *(_BYTE *)(v6 + 73) = 0;
-              CD2DTarget::ApplyState(v26, (struct CD2DContext *)v9);
-            }
-            goto LABEL_17;
-          }
-          MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0xC0u, 0LL);
+          v32 = DynArrayImpl<0>::AddMultipleAndSet(v3, 8LL, 1LL, &v39);
+          v12 = v32;
+          if ( v32 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v32, 0xC0u, 0LL);
         }
-        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v29, 0x294u, 0LL);
-        CD2DTarget::`scalar deleting destructor'(v26, v38);
-        goto LABEL_17;
+        if ( v12 >= 0 )
+          goto LABEL_14;
+        v36 = 625;
+        goto LABEL_41;
       }
     }
+    SAFE_DELETE<CD2DTarget>((CD2DTarget **)v10 + 59, (unsigned int)v17);
+    v9 = v38;
+  }
+  v23 = (CD2DTarget *)operator new(0x50uLL);
+  if ( v23 )
+    v6 = CD2DTarget::CD2DTarget(v23, v9, *((struct CD2DFactory **)v10 + 27), a3, v37, v5);
+  if ( !v6 )
+  {
     v12 = -2147024882;
-    v39 = 655;
-LABEL_47:
-    MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, v12, v39, 0LL);
-    goto LABEL_17;
+    v36 = 645;
+    goto LABEL_41;
   }
-  v16 = (struct ID2D1PrivateCompositorRenderer **)(v9 + 424);
-  v17 = *(_QWORD **)(v9 + 424);
-  if ( !v17 || (v18 = (struct ID2D1Bitmap1 *)v17[4], v40 != v18) || v5 != (struct ID2D1PrivateDepthBuffer *)v17[5] )
+  v24 = *((_DWORD *)v3 + 6);
+  v39 = v6;
+  v25 = v24 + 1;
+  if ( v24 + 1 < v24 )
   {
-    SAFE_DELETE<CD2DTarget>(v9 + 424);
-    goto LABEL_23;
-  }
-  *v17 = a2;
-  v19 = *((_DWORD *)v3 + 6);
-  v20 = *v16;
-  v41 = *v16;
-  v21 = v19 + 1;
-  if ( v19 + 1 < v19 )
-  {
-    v12 = -2147024362;
-    v22 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v18, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    v33 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   else
   {
-    v22 = 0;
-    if ( v21 <= *((_DWORD *)v3 + 5) )
+    if ( v25 <= *((_DWORD *)v3 + 5) )
     {
-      *(_QWORD *)(*(_QWORD *)v3 + 8LL * v19) = v20;
-      *((_DWORD *)v3 + 6) = v21;
-LABEL_16:
-      v12 = v22;
-      *v16 = 0LL;
-      goto LABEL_17;
+      v12 = 0;
+      *(_QWORD *)(*(_QWORD *)v3 + 8LL * v24) = v6;
+      *((_DWORD *)v3 + 6) = v25;
+      goto LABEL_27;
     }
-    v32 = DynArrayImpl<0>::AddMultipleAndSet(v3, 8LL, 1LL, &v41);
-    v22 = v32;
-    v12 = v32;
-    if ( v32 >= 0 )
-      goto LABEL_16;
-    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0xC0u, 0LL);
+    v35 = DynArrayImpl<0>::AddMultipleAndSet(v3, 8LL, 1LL, &v39);
+    v33 = v35;
+    if ( v35 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v35, 0xC0u, 0LL);
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v22, 0x27Bu, 0LL);
-LABEL_17:
-  if ( v40 )
-    (*(void (__fastcall **)(struct ID2D1Bitmap1 *))(*(_QWORD *)v40 + 16LL))(v40);
+  v12 = v33;
+  if ( v33 >= 0 )
+  {
+LABEL_27:
+    if ( *((_BYTE *)v10 + 485) )
+    {
+      if ( v7 )
+        *(_BYTE *)(v7 + 48) = 0;
+      CD2DTarget::ApplyState(v6, v10);
+    }
+    goto LABEL_15;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0x28Au, 0LL);
+LABEL_55:
+  if ( v6 )
+    CD2DTarget::`scalar deleting destructor'(v6);
+LABEL_15:
+  if ( v37 )
+    (*(void (__fastcall **)(struct ID2D1Bitmap1 *))(*(_QWORD *)v37 + 16LL))(v37);
   if ( v5 )
     (*(void (__fastcall **)(struct ID2D1PrivateDepthBuffer *))(*(_QWORD *)v5 + 16LL))(v5);
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext((v9 - 16) & -(__int64)(v9 != 0), v12, 0);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((char *)v10 - 16, (unsigned int)v12, 0LL);
 }

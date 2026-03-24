@@ -1,12 +1,12 @@
 /*
- * XREFs of LogDiagSDCAccessDenied @ 0x1C0175448
+ * XREFs of LogDiagSDCAccessDenied @ 0x1C0148398
  * Callers:
- *     xxxUserSetDisplayConfig @ 0x1C005C190 (xxxUserSetDisplayConfig.c)
+ *     xxxUserSetDisplayConfig @ 0x1C0075A10 (xxxUserSetDisplayConfig.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall LogDiagSDCAccessDenied(unsigned __int16 *a1, unsigned __int16 *a2)
@@ -42,5 +42,5 @@ __int64 __fastcall LogDiagSDCAccessDenied(unsigned __int16 *a1, unsigned __int16
       memmove(&v9[10], v7, v4);
     }
   }
-  return ((__int64 (__fastcall *)(_QWORD *))qword_1C0296790)(v9);
+  return ((__int64 (__fastcall *)(_QWORD *))qword_1C02519A0)(v9);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x18007E754
+ * XREFs of ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x180093670
  * Callers:
- *     ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002400C (--0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z.c)
+ *     ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002A14C (--0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,30 @@
 /*
- * XREFs of Simulator_EvaluateNode @ 0x1C00491C0
+ * XREFs of Simulator_EvaluateNode @ 0x1C0063B00
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0048FD0 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
  */
 
 __int64 __fastcall Simulator_EvaluateNode(__int64 a1)
 {
-  unsigned int NameSpaceObject; // esi
-  __int64 v2; // rdx
+  int NameSpaceObject; // eax
+  unsigned __int64 v3; // rbx
+  unsigned int v4; // esi
+  unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  NameSpaceObject = GetNameSpaceObject(*(void **)(a1 + 16));
-  DereferenceObjectEx(0LL, v2);
-  return NameSpaceObject;
+  v6 = 0LL;
+  NameSpaceObject = GetNameSpaceObject(*(_BYTE **)(a1 + 16), 0LL, (__int64 *)&v6, 0);
+  v3 = v6;
+  v4 = NameSpaceObject;
+  if ( NameSpaceObject >= 0 && v6 )
+    v4 = AMLIEvalNameSpaceObject(
+           (unsigned __int64 *)(v6 + 120),
+           *(_QWORD *)(a1 + 40),
+           *(_DWORD *)(a1 + 24),
+           *(_QWORD *)(a1 + 32));
+  DereferenceObjectEx(v3);
+  return v4;
 }

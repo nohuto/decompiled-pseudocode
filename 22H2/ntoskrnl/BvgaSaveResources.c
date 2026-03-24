@@ -1,11 +1,11 @@
 /*
- * XREFs of BvgaSaveResources @ 0x140B714F8
+ * XREFs of BvgaSaveResources @ 0x140A6B7D8
  * Callers:
- *     BvgaDriverInitialize @ 0x140B525E0 (BvgaDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140A6B640 (BvgaDriverInitialize.c)
  * Callees:
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeBugCheck @ 0x1403FD550 (KeBugCheck.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void BvgaSaveResources()
@@ -13,8 +13,8 @@ void BvgaSaveResources()
   const void **v0; // rbx
   unsigned __int64 v1; // rsi
   unsigned int *v2; // rdi
-  void *Pool2; // rax
-  const void *v4; // rbp
+  PVOID PoolWithTag; // rax
+  PVOID v4; // rbp
 
   v0 = (const void **)ResourceList;
   v1 = 4LL;
@@ -23,11 +23,11 @@ void BvgaSaveResources()
   {
     if ( *v0 )
     {
-      Pool2 = (void *)ExAllocatePool2(64LL, *v2, 0x6D427642u);
-      v4 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, *v2, 0x6D427642u);
+      v4 = PoolWithTag;
+      if ( !PoolWithTag )
         KeBugCheck(0x7Du);
-      memmove(Pool2, *v0, *v2);
+      memmove(PoolWithTag, *v0, *v2);
       *v0 = v4;
     }
     v1 += 4LL;

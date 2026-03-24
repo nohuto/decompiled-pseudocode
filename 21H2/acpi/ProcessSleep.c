@@ -1,9 +1,9 @@
 /*
- * XREFs of ProcessSleep @ 0x1C00319A0
+ * XREFs of ProcessSleep @ 0x1C0067430
  * Callers:
  *     <none>
  * Callees:
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
  */
 
 __int64 __fastcall ProcessSleep(__int64 a1, __int64 a2, unsigned int a3)

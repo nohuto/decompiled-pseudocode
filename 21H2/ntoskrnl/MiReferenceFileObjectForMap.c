@@ -1,12 +1,11 @@
 /*
- * XREFs of MiReferenceFileObjectForMap @ 0x1406FC03C
+ * XREFs of MiReferenceFileObjectForMap @ 0x1406ECC40
  * Callers:
- *     MiInsertInSystemSpace @ 0x14026D460 (MiInsertInSystemSpace.c)
- *     MiAllowImageMap @ 0x1406F884C (MiAllowImageMap.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
+ *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
 void *__fastcall MiReferenceFileObjectForMap(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmObliterateRMTxArray @ 0x1409193DC
+ * XREFs of CmObliterateRMTxArray @ 0x140872A14
  * Callers:
- *     CmpTryToRundownHive @ 0x140208D94 (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
+ *     CmpTryToRundownHive @ 0x140361574 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     CmpCleanupTransactionState @ 0x140742300 (CmpCleanupTransactionState.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
  */
 
 _QWORD ***__fastcall CmObliterateRMTxArray(__int64 a1)
@@ -51,7 +51,7 @@ LABEL_13:
     }
   }
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   while ( 1 )
   {
     v8 = v11;
@@ -65,6 +65,6 @@ LABEL_13:
     result = &v11;
     if ( v8 == &v11 )
       return result;
-    CmpCleanupTransactionState(a1, v8 - 4, 8, 0);
+    CmpCleanupTransactionState(a1, v8 - 4, 8LL, 0LL);
   }
 }

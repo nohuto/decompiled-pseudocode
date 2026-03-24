@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MarkFullDirty@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXXZ @ 0x18010BE30
+ * XREFs of ?MarkFullDirty@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXXZ @ 0x1800F5FB0
  * Callers:
  *     <none>
  * Callees:

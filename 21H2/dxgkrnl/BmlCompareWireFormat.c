@@ -1,34 +1,38 @@
 /*
- * XREFs of BmlCompareWireFormat @ 0x1C03AB024
+ * XREFs of BmlCompareWireFormat @ 0x1C02EBAF4
  * Callers:
- *     BmlCompareTargetModes @ 0x1C01B5A18 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModes @ 0x1C013B4E4 (BmlCompareTargetModes.c)
  * Callees:
- *     BmlCompareSingleWireFormatType @ 0x1C03AAFEC (BmlCompareSingleWireFormatType.c)
+ *     BmlCompareSingleWireFormatType @ 0x1C02EBA14 (BmlCompareSingleWireFormatType.c)
  */
 
 __int64 __fastcall BmlCompareWireFormat(__int64 a1, __int64 a2)
 {
+  __int64 v4; // rax
   __int64 result; // rax
-  char v5; // r10^1
-  char v6; // r11^1
-  unsigned int v7; // r10d
-  unsigned int v8; // r11d
-  unsigned int v9; // r10d
-  unsigned int v10; // r11d
+  char v6; // r10^1
+  char v7; // r11^1
+  unsigned int v8; // r10d
+  unsigned int v9; // r11d
+  unsigned int v10; // r10d
+  unsigned int v11; // r11d
 
   if ( a1 == a2 )
-    WdLogSingleEntry0(1LL);
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v4);
+  }
   result = BmlCompareSingleWireFormatType(
              (*(_DWORD *)(a1 + 128) >> 2) & 0x3F,
              (unsigned __int8)*(_DWORD *)(a2 + 128) >> 2);
   if ( !(_DWORD)result )
   {
-    result = BmlCompareSingleWireFormatType(v5 & 0x3F, v6 & 0x3F);
+    result = BmlCompareSingleWireFormatType(v6 & 0x3F, v7 & 0x3F);
     if ( !(_DWORD)result )
     {
-      result = BmlCompareSingleWireFormatType((v7 >> 14) & 0x3F, (v8 >> 14) & 0x3F);
+      result = BmlCompareSingleWireFormatType((v8 >> 14) & 0x3F, (v9 >> 14) & 0x3F);
       if ( !(_DWORD)result )
-        return BmlCompareSingleWireFormatType((v9 >> 20) & 0x3F, (v10 >> 20) & 0x3F);
+        return BmlCompareSingleWireFormatType((v10 >> 20) & 0x3F, (v11 >> 20) & 0x3F);
     }
   }
   return result;

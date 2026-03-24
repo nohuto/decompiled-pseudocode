@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetInformationKey @ 0x1401BB390
+ * XREFs of ZwSetInformationKey @ 0x1401BB3B0
  * Callers:
- *     CmpDoReDoSetKeyUserFlags @ 0x140807484 (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x1408074EC (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x140807464 (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408074CC (CmpDoReDoSetLastWriteTime.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x1409D6F7C
+ * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x14092CA60
  * Callers:
- *     SmKmStoreFileCreateForIoType @ 0x1409D69A8 (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C48C (SmKmStoreFileCreateForIoType.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ACL **a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x14068A714
+ * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x14068A6F4
  * Callers:
- *     AlpcpAssociateIoCompletionPort @ 0x1406B146C (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x1406D4C00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406B144C (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
- *     IoAllocateMiniCompletionPacket @ 0x14068A7F0 (IoAllocateMiniCompletionPacket.c)
+ *     IoAllocateMiniCompletionPacket @ 0x14068A7D0 (IoAllocateMiniCompletionPacket.c)
  */
 
 char *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64 a2, __int64 a3)

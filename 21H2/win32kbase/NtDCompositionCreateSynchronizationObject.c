@@ -1,45 +1,44 @@
 /*
- * XREFs of NtDCompositionCreateSynchronizationObject @ 0x1C0211480
+ * XREFs of NtDCompositionCreateSynchronizationObject @ 0x1C01D22C0
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C00163FC (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C00164EC (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
- *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C00908E0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
- *     DCompositionCreateSynchronizationObject @ 0x1C0210D70 (DCompositionCreateSynchronizationObject.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0049B40 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005C370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C005C904 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     DCompositionCreateSynchronizationObject @ 0x1C01D1EC0 (DCompositionCreateSynchronizationObject.c)
  */
 
 __int64 __fastcall NtDCompositionCreateSynchronizationObject(_QWORD *a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v2; // rcx
   struct DirectComposition::CConnection *DefaultConnection; // rax
-  PERESOURCE *v7; // rdi
-  int v8; // ebx
-  struct _ERESOURCE *v9; // rbx
-  unsigned int v10; // edx
+  PERESOURCE *v4; // rdi
+  int v5; // ebx
+  struct _ERESOURCE *v6; // rbx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned int v9; // edx
   HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
-  CompositionObject *v13; // [rsp+50h] [rbp+18h] BYREF
-  struct DirectComposition::CConnection *v14; // [rsp+58h] [rbp+20h]
+  CompositionObject *v12; // [rsp+50h] [rbp+18h] BYREF
+  struct DirectComposition::CConnection *v13; // [rsp+58h] [rbp+20h]
 
   KeEnterCriticalRegion();
-  v13 = 0LL;
-  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection(v3, v2, v4, v5);
-  v7 = (PERESOURCE *)DefaultConnection;
-  v14 = DefaultConnection;
+  v12 = 0LL;
+  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection(v2);
+  v4 = (PERESOURCE *)DefaultConnection;
+  v13 = DefaultConnection;
   if ( DefaultConnection )
   {
-    v9 = (struct _ERESOURCE *)*((_QWORD *)DefaultConnection + 1);
+    v6 = (struct _ERESOURCE *)*((_QWORD *)DefaultConnection + 1);
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite(v9, 1u);
-    v8 = DCompositionCreateSynchronizationObject(&v13);
-    if ( v8 >= 0 )
+    ExAcquireResourceExclusiveLite(v6, 1u);
+    v5 = DCompositionCreateSynchronizationObject(&v12);
+    if ( v5 >= 0 )
     {
       Handle = 0LL;
-      v8 = CompositionObject::OpenDwmHandle(v13, &Handle);
-      if ( v8 >= 0 )
+      v5 = CompositionObject::OpenDwmHandle(v12, &Handle, v7, v8);
+      if ( v5 >= 0 )
       {
         if ( (unsigned __int64)a1 >= MmUserProbeAddress )
           a1 = (_QWORD *)MmUserProbeAddress;
@@ -49,14 +48,14 @@ __int64 __fastcall NtDCompositionCreateSynchronizationObject(_QWORD *a1)
   }
   else
   {
-    v8 = -1073741790;
+    v5 = -1073741790;
   }
-  if ( v7 )
+  if ( v4 )
   {
-    ExReleaseResourceLite(v7[1]);
+    ExReleaseResourceLite(v4[1]);
     KeLeaveCriticalRegion();
-    DirectComposition::CConnection::Release((DirectComposition::CConnection *)v7, v10);
+    DirectComposition::CConnection::Release((DirectComposition::CConnection *)v4, v9);
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v8;
+  return (unsigned int)v5;
 }

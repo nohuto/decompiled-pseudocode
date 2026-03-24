@@ -1,7 +1,7 @@
 /*
- * XREFs of MmAllocateSpecialPool @ 0x1402ACA64
+ * XREFs of MmAllocateSpecialPool @ 0x1402ACB64
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -16,20 +16,20 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetPteLink @ 0x1400AD784 (MiGetPteLink.c)
- *     RemoveListHeadPte @ 0x1400AD7C0 (RemoveListHeadPte.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiInitializeColorBaseSession @ 0x1400E76D0 (MiInitializeColorBaseSession.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiNumberWsSwapPagefiles @ 0x1400F0468 (MiNumberWsSwapPagefiles.c)
- *     MiInitializePfn @ 0x140109410 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiExpandSpecialPool @ 0x1402AC35C (MiExpandSpecialPool.c)
+ *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
+ *     RemoveListHeadPte @ 0x1400AD7E0 (RemoveListHeadPte.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiInitializeColorBaseSession @ 0x1400E76F0 (MiInitializeColorBaseSession.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiNumberWsSwapPagefiles @ 0x1400F0488 (MiNumberWsSwapPagefiles.c)
+ *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiExpandSpecialPool @ 0x1402AC45C (MiExpandSpecialPool.c)
  */
 
 unsigned __int64 __fastcall MmAllocateSpecialPool(ULONG_PTR BugCheckParameter3, int a2, int a3, int a4)

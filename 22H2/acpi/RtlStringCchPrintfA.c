@@ -1,58 +1,63 @@
 /*
- * XREFs of RtlStringCchPrintfA @ 0x1C000B5D8
+ * XREFs of RtlStringCchPrintfA @ 0x1C000C948
  * Callers:
- *     ACPIAmliDoubleToName @ 0x1C000B48C (ACPIAmliDoubleToName.c)
- *     ACPIBuildDockExtension @ 0x1C000CEDC (ACPIBuildDockExtension.c)
- *     ACPIBuildProcessorExtension @ 0x1C0012FA8 (ACPIBuildProcessorExtension.c)
- *     ACPICMButtonStartWorker @ 0x1C0018F20 (ACPICMButtonStartWorker.c)
- *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298C4 (ACPIGetConvertToCompatibleIDWide.c)
- *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D40 (ACPIGetConvertToDeviceIDWide.c)
- *     ACPIGetConvertToHardwareIDWide @ 0x1C002A14C (ACPIGetConvertToHardwareIDWide.c)
- *     ACPIGetConvertToInstanceIDWide @ 0x1C002A424 (ACPIGetConvertToInstanceIDWide.c)
- *     ACPIGetConvertToPnpIDWide @ 0x1C002A670 (ACPIGetConvertToPnpIDWide.c)
- *     ACPIGetConvertToStringWide @ 0x1C002A994 (ACPIGetConvertToStringWide.c)
- *     ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA84 (ACPIGetConvertToStringWideWithPrepend.c)
- *     ACPIGetProcessorIDWide @ 0x1C002ABF0 (ACPIGetProcessorIDWide.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     ConvertToString @ 0x1C0059B40 (ConvertToString.c)
- *     ACPIRegReadEntireAcpiTable @ 0x1C008D6AC (ACPIRegReadEntireAcpiTable.c)
- *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C008D930 (ACPIRegReadEntireSimulatorAcpiTable.c)
- *     OSOpenAMLINamespaceOverrideHandle @ 0x1C008DDC4 (OSOpenAMLINamespaceOverrideHandle.c)
- *     ACPIInitReadRegistryKeys @ 0x1C00A89A8 (ACPIInitReadRegistryKeys.c)
- *     ACPIRegDumpAcpiTable @ 0x1C00A9FFC (ACPIRegDumpAcpiTable.c)
+ *     ACPIAmliDoubleToName @ 0x1C000C478 (ACPIAmliDoubleToName.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C000C70C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPICMButtonStartWorker @ 0x1C000CC70 (ACPICMButtonStartWorker.c)
+ *     ACPIBuildProcessorExtension @ 0x1C0016024 (ACPIBuildProcessorExtension.c)
+ *     ACPIGetProcessorIDWide @ 0x1C00276E0 (ACPIGetProcessorIDWide.c)
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0028368 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToInstanceIDWide @ 0x1C002866C (ACPIGetConvertToInstanceIDWide.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     ACPIBuildDockExtension @ 0x1C004B57C (ACPIBuildDockExtension.c)
+ *     ACPIGetConvertToStringWide @ 0x1C0055C48 (ACPIGetConvertToStringWide.c)
+ *     ACPIGetConvertToStringWideWithPrepend @ 0x1C0055D3C (ACPIGetConvertToStringWideWithPrepend.c)
+ *     ConvertToString @ 0x1C006B458 (ConvertToString.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C00B24BC (ACPIRegReadEntireAcpiTable.c)
+ *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2740 (ACPIRegReadEntireSimulatorAcpiTable.c)
+ *     OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2958 (OSOpenAMLINamespaceOverrideHandle.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00BC6F4 (ACPIRegDumpAcpiTable.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00BD2FC (ACPIInitReadRegistryKeys.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS RtlStringCchPrintfA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszFormat, ...)
 {
-  NTSTATUS v4; // ebx
-  size_t v5; // rdi
+  NTSTATUS v3; // edi
+  size_t v5; // rbx
   int v6; // eax
   va_list Args; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(Args, pszFormat);
-  if ( cchDest - 1 <= 0x7FFFFFFE )
+  v3 = 0;
+  if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
   {
-    v5 = cchDest - 1;
-    v4 = 0;
-    v6 = _vsnprintf(pszDest, cchDest - 1, pszFormat, Args);
-    if ( v6 < 0 || v6 > v5 )
-    {
-      pszDest[v5] = 0;
-      return -2147483643;
-    }
-    else if ( v6 == v5 )
-    {
-      pszDest[v5] = 0;
-    }
-  }
-  else
-  {
-    v4 = -1073741811;
     if ( cchDest )
       *pszDest = 0;
   }
-  return v4;
+  else
+  {
+    v5 = cchDest - 1;
+    v3 = 0;
+    v6 = _vsnprintf(pszDest, cchDest - 1, pszFormat, Args);
+    if ( v6 < 0 )
+      goto LABEL_9;
+    if ( v6 == v5 )
+    {
+      pszDest[v5] = 0;
+      return v3;
+    }
+    if ( v6 > v5 )
+    {
+LABEL_9:
+      pszDest[v5] = 0;
+      return -2147483643;
+    }
+  }
+  return v3;
 }

@@ -1,10 +1,12 @@
 /*
- * XREFs of MagpFindThreadContext @ 0x1C014E84A
+ * XREFs of MagpFindThreadContext @ 0x1C007C4C8
  * Callers:
- *     MagContextThreadCallout @ 0x1C01A2E60 (MagContextThreadCallout.c)
- *     MagControl @ 0x1C01A30A4 (MagControl.c)
- *     MagGetLensContextInformation @ 0x1C01A31B0 (MagGetLensContextInformation.c)
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     MagContextThreadCallout @ 0x1C01CC1F0 (MagContextThreadCallout.c)
+ *     MagControl @ 0x1C01CC43C (MagControl.c)
+ *     MagGetLensContextInformation @ 0x1C01CC540 (MagGetLensContextInformation.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
+ *     MagSlicerControl @ 0x1C01CDA34 (MagSlicerControl.c)
  * Callees:
  *     <none>
  */

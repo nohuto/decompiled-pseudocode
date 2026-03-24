@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ReportInactive@FxInterrupt@@QEAAXE@Z @ 0x1C008D88C
+ * XREFs of ?ReportInactive@FxInterrupt@@QEAAXE@Z @ 0x1C008A4E0
  * Callers:
- *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C000D374 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
- *     imp_WdfInterruptReportInactive @ 0x1C0082F50 (imp_WdfInterruptReportInactive.c)
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C00048C0 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ *     imp_WdfInterruptReportInactive @ 0x1C00787E0 (imp_WdfInterruptReportInactive.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
  */
 
 void __fastcall FxInterrupt::ReportInactive(FxInterrupt *this, unsigned __int8 Internal)

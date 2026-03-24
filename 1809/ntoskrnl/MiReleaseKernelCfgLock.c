@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReleaseKernelCfgLock @ 0x14085BF20
+ * XREFs of MiReleaseKernelCfgLock @ 0x14085BF00
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x14070F3B4 (MiMarkKernelImageCfgBits.c)
+ *     MiMarkKernelImageCfgBits @ 0x14070F394 (MiMarkKernelImageCfgBits.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

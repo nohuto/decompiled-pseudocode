@@ -1,9 +1,8 @@
 /*
- * XREFs of ??1CProcessAttachDetach@@QEAA@XZ @ 0x1C00CA914
+ * XREFs of ??1CProcessAttachDetach@@QEAA@XZ @ 0x1C008A18C
  * Callers:
- *     xxxSetWindowLong @ 0x1C00C9D14 (xxxSetWindowLong.c)
- *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C00CA358 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
- *     ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022CF04 (-xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z.c)
+ *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C0089BE8 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
+ *     xxxSetWindowLong @ 0x1C00FACB8 (xxxSetWindowLong.c)
  * Callees:
  *     <none>
  */

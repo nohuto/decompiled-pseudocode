@@ -1,16 +1,16 @@
 /*
- * XREFs of WerKernelSubmitReport @ 0x1C0053FE0
+ * XREFs of WerKernelSubmitReport @ 0x1C005121C
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C007AF98 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     RtlStringCchCopyNW @ 0x1C0053CA0 (RtlStringCchCopyNW.c)
- *     WerStartSystemErrorHandler @ 0x1C0054598 (WerStartSystemErrorHandler.c)
- *     WerWaitForSystemErrorHandler @ 0x1C00546D0 (WerWaitForSystemErrorHandler.c)
- *     WerpAllocateAndInitializeSid @ 0x1C00547A4 (WerpAllocateAndInitializeSid.c)
- *     WerpGetRegistryKey @ 0x1C0054A0C (WerpGetRegistryKey.c)
- *     WerpParseKeyName @ 0x1C0054B28 (WerpParseKeyName.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     RtlStringCchCopyNW @ 0x1C0050EC0 (RtlStringCchCopyNW.c)
+ *     WerStartSystemErrorHandler @ 0x1C00517E0 (WerStartSystemErrorHandler.c)
+ *     WerWaitForSystemErrorHandler @ 0x1C0051918 (WerWaitForSystemErrorHandler.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C00519EC (WerpAllocateAndInitializeSid.c)
+ *     WerpGetRegistryKey @ 0x1C0051C70 (WerpGetRegistryKey.c)
+ *     WerpParseKeyName @ 0x1C0051D88 (WerpParseKeyName.c)
  */
 
 __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
@@ -21,57 +21,56 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
   int v6; // ebx
   __int64 v7; // r9
   const CHAR *v8; // r8
+  char v9; // r14
   _DWORD *PoolWithTag; // rsi
   NTSTATUS started; // eax
-  __int64 v11; // r9
-  const CHAR *v12; // r8
-  char v13; // dl
+  __int64 v12; // r9
+  const CHAR *v13; // r8
   __int64 *v14; // rdi
   size_t v15; // r9
   size_t v16; // r9
   int v17; // eax
-  PULONG ResultLength; // [rsp+28h] [rbp-E0h]
-  PULONG ResultLengtha; // [rsp+28h] [rbp-E0h]
-  int v20; // [rsp+30h] [rbp-D8h]
-  int v21; // [rsp+38h] [rbp-D0h]
-  int v22; // [rsp+40h] [rbp-C8h]
-  int v23; // [rsp+48h] [rbp-C0h]
-  int v24; // [rsp+50h] [rbp-B8h]
-  ULONG Length; // [rsp+68h] [rbp-A0h] BYREF
-  size_t cchToCopy; // [rsp+6Ch] [rbp-9Ch] BYREF
-  HANDLE KeyHandlea; // [rsp+78h] [rbp-90h] BYREF
-  __int64 SystemInformation; // [rsp+80h] [rbp-88h] BYREF
-  PVOID P; // [rsp+88h] [rbp-80h] BYREF
-  HANDLE Handle; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v31; // [rsp+98h] [rbp-70h] BYREF
-  STRSAFE_PCNZWCH pszSrc; // [rsp+A0h] [rbp-68h] BYREF
-  STRSAFE_PCNZWCH v33; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v34; // [rsp+B0h] [rbp-58h] BYREF
-  __int128 v35; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v36; // [rsp+C8h] [rbp-40h]
-  __int128 v37; // [rsp+D8h] [rbp-30h]
-  struct _UNICODE_STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
-  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+F8h] [rbp-10h] BYREF
-  _QWORD v40[10]; // [rsp+108h] [rbp+0h] BYREF
-  _DWORD v41[352]; // [rsp+158h] [rbp+50h] BYREF
-  _DWORD v42[352]; // [rsp+6D8h] [rbp+5D0h] BYREF
+  PULONG ResultLength; // [rsp+20h] [rbp-E0h]
+  PULONG ResultLengtha; // [rsp+20h] [rbp-E0h]
+  int v20; // [rsp+28h] [rbp-D8h]
+  int v21; // [rsp+30h] [rbp-D0h]
+  int v22; // [rsp+38h] [rbp-C8h]
+  int v23; // [rsp+40h] [rbp-C0h]
+  int v24; // [rsp+48h] [rbp-B8h]
+  ULONG Length; // [rsp+60h] [rbp-A0h] BYREF
+  size_t cchToCopy; // [rsp+64h] [rbp-9Ch] BYREF
+  HANDLE KeyHandlea; // [rsp+70h] [rbp-90h] BYREF
+  __int64 SystemInformation; // [rsp+78h] [rbp-88h] BYREF
+  PVOID P; // [rsp+80h] [rbp-80h] BYREF
+  HANDLE Handle; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v31; // [rsp+90h] [rbp-70h] BYREF
+  STRSAFE_PCNZWCH pszSrc; // [rsp+98h] [rbp-68h] BYREF
+  STRSAFE_PCNZWCH v33; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v34; // [rsp+A8h] [rbp-58h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 v36; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v37; // [rsp+D0h] [rbp-30h]
+  __int128 v38; // [rsp+E0h] [rbp-20h]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD v40[10]; // [rsp+100h] [rbp+0h] BYREF
+  _DWORD v41[352]; // [rsp+150h] [rbp+50h] BYREF
+  _DWORD v42[352]; // [rsp+6D0h] [rbp+5D0h] BYREF
 
   Handle = 0LL;
   memset(v41, 0, 0x578uLL);
   memset(v42, 0, 0x578uLL);
   v34 = 0LL;
   P = 0LL;
-  *(_QWORD *)&v37 = 0LL;
-  DWORD2(v37) = 0;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  DestinationString = 0LL;
   v31 = 0LL;
-  v35 = 0LL;
+  DestinationString = 0LL;
   Length = 0;
   v36 = 0LL;
   pszSrc = 0LL;
+  v37 = 0LL;
   v33 = 0LL;
+  v38 = 0LL;
   cchToCopy = 0LL;
   KeyHandlea = 0LL;
   memset(v40, 0, 0x48uLL);
@@ -89,16 +88,17 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
     v6 = RegistryKey;
     if ( RegistryKey != -2147483643 && RegistryKey != -1073741789 )
     {
-      v7 = 1001LL;
+      v7 = 1003LL;
       v8 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed while determining the size with 0x%x\n";
       goto LABEL_5;
     }
-    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, (int)Length, 0x7765726Bu);
+    v9 = 1;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)Length, 0x7765726Bu);
     if ( !PoolWithTag )
     {
-      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR OOM\n", 1009);
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR OOM\n", 1011);
       v6 = -1073741801;
-      goto LABEL_49;
+      goto LABEL_48;
     }
     started = ZwQueryKey(KeyHandle, KeyNameInformation, PoolWithTag, Length, &Length);
     v6 = started;
@@ -126,7 +126,7 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                v24,
                (__int64)&P);
         if ( v6 < 0 )
-          goto LABEL_48;
+          goto LABEL_47;
         started = WerStartSystemErrorHandler();
         v6 = started;
         if ( started >= 0 )
@@ -142,39 +142,35 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
               if ( started == 258 )
               {
                 started = -1073740973;
-                v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler timed out, failing the call with 0x%x\n";
+                v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler timed out, failing the call with 0x%x\n";
                 v6 = -1073740973;
-                v11 = 1101LL;
+                v12 = 1103LL;
               }
               else
               {
-                v37 = 0LL;
-                LODWORD(v35) = 48;
-                *((_QWORD *)&v35 + 1) = 0LL;
-                DWORD2(v36) = 512;
-                *(_QWORD *)&v36 = 0LL;
-                if ( HIDWORD(SystemInformation) == -1 )
+                v38 = 0LL;
+                LODWORD(v36) = 48;
+                *((_QWORD *)&v36 + 1) = 0LL;
+                DWORD2(v37) = 512;
+                *(_QWORD *)&v37 = 0LL;
+                if ( HIDWORD(SystemInformation) != -1 )
                 {
-                  v13 = 1;
-                }
-                else
-                {
-                  v13 = 0;
+                  v9 = 0;
                   v31 = -10000LL * SHIDWORD(SystemInformation);
                 }
                 v14 = &v31;
-                if ( v13 )
+                if ( v9 )
                   v14 = 0LL;
-                started = ZwAlpcConnectPort(&Handle, &DestinationString, &v35, v40, 0x20000, P, 0LL, 0LL, 0LL, 0LL, v14);
+                started = ZwAlpcConnectPort(&Handle, &DestinationString, &v36, v40, 0x20000, P, 0LL, 0LL, 0LL, 0LL, v14);
                 v6 = started;
                 if ( started >= 0 )
                 {
                   if ( started == 258 )
                   {
                     started = -1073740973;
-                    v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort timed out, failing the call with 0x%x\n";
+                    v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort timed out, failing the call with 0x%x\n";
                     v6 = -1073740973;
-                    v11 = 1138LL;
+                    v12 = 1140LL;
                   }
                   else
                   {
@@ -196,6 +192,7 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                       v6 = started;
                       if ( started >= 0 )
                       {
+                        memset(&v42[1], 0, 0x574uLL);
                         v42[0] = 91751760;
                         v34 = 1400LL;
                         v17 = ZwAlpcSendWaitReceivePort(Handle, 0LL, v41, 0LL, v42, &v34, 0LL, v14);
@@ -206,7 +203,7 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                             0x96u,
                             0,
                             "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcSendWaitReceivePort failed\n",
-                            1194);
+                            1196);
                         }
                         else if ( v42[11] >= 0 )
                         {
@@ -214,69 +211,69 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                         }
                         else
                         {
-                          DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Service returned failure\n", 1200);
+                          DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Service returned failure\n", 1202);
                           v6 = -1073741823;
                         }
-                        goto LABEL_48;
+                        goto LABEL_47;
                       }
-                      v11 = 1175LL;
-                      v12 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for id with 0x%x\n";
+                      v12 = 1177LL;
+                      v13 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for id with 0x%x\n";
                     }
                     else
                     {
-                      v11 = 1163LL;
-                      v12 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for key with 0x%x\n";
+                      v12 = 1165LL;
+                      v13 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for key with 0x%x\n";
                     }
                   }
                 }
                 else
                 {
-                  v11 = 1131LL;
-                  v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort failed with 0x%x\n";
+                  v12 = 1133LL;
+                  v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort failed with 0x%x\n";
                 }
               }
             }
             else
             {
-              v11 = 1094LL;
-              v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler failed with 0x%x\n";
+              v12 = 1096LL;
+              v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler failed with 0x%x\n";
             }
           }
           else
           {
-            v11 = 1087LL;
-            v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQuerySysInfo(ErrorPortTimeouts) failed with 0x%x\n";
+            v12 = 1089LL;
+            v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQuerySysInfo(ErrorPortTimeouts) failed with 0x%x\n";
           }
         }
         else
         {
-          v11 = 1073LL;
-          v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerStartSystemErrorHandler failed with 0x%x\n";
+          v12 = 1075LL;
+          v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerStartSystemErrorHandler failed with 0x%x\n";
         }
       }
       else
       {
-        v11 = 1040LL;
-        v12 = "WERLIVEKERNELREPORTING:%u: ERROR ParseKeyName failed with 0x%x\n";
+        v12 = 1042LL;
+        v13 = "WERLIVEKERNELREPORTING:%u: ERROR ParseKeyName failed with 0x%x\n";
       }
     }
     else
     {
-      v11 = 1027LL;
-      v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n";
+      v12 = 1029LL;
+      v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n";
     }
     LODWORD(ResultLengtha) = started;
-    DbgPrintEx(0x96u, 0, v12, v11, ResultLengtha);
-LABEL_48:
+    DbgPrintEx(0x96u, 0, v13, v12, ResultLengtha);
+LABEL_47:
     ExFreePoolWithTag(PoolWithTag, 0);
-    goto LABEL_49;
+    goto LABEL_48;
   }
-  v7 = 979LL;
+  v7 = 981LL;
   v8 = "WERLIVEKERNELREPORTING:%u: ERROR WerpGetRegistryKey failed for the busy key 0x%x\n";
 LABEL_5:
   LODWORD(ResultLength) = RegistryKey;
   DbgPrintEx(0x96u, 0, v8, v7, ResultLength);
-LABEL_49:
+LABEL_48:
   if ( KeyHandlea )
   {
     ZwClose(KeyHandlea);

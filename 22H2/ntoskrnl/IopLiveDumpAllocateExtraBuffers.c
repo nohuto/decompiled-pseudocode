@@ -1,150 +1,133 @@
 /*
- * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x14094D250
+ * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x1408976C4
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14094C61C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896C0C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvlPrepareLivedumpDescriptor @ 0x140547B54 (HvlPrepareLivedumpDescriptor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559DDC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x140559E54 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure @ 0x14055ACCC (IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DFC4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x1404F8B34 (HvlPrepareLivedumpDescriptor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140508908 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x140508980 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140897FDC (IopLiveDumpDiscardVirtualAddressRange.c)
  */
 
-__int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1)
+__int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 MillisecondCounter; // rax
-  unsigned __int64 v3; // r13
-  _QWORD *v4; // r12
-  unsigned int v5; // r15d
-  __int64 v6; // rdi
-  unsigned __int64 v7; // rbx
+  unsigned int v4; // edi
+  __int64 MillisecondCounter; // rbp
+  __int64 v7; // rsi
   unsigned __int64 v8; // rax
-  int v9; // esi
-  __int64 v10; // rdi
-  unsigned __int64 v11; // rdx
-  _QWORD *v12; // r13
-  int v13; // ebx
-  bool v14; // al
-  __int64 v15; // rcx
-  unsigned __int64 v16; // r9
-  __int64 v17; // r8
-  unsigned __int64 v18; // r8
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // r14
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rcx
+  unsigned __int64 v14; // rcx
+  __int64 v15; // rax
+  unsigned __int64 *v16; // r15
+  unsigned __int64 *v17; // r13
+  int v18; // r14d
   unsigned __int64 v19; // rcx
-  __int64 v20; // rbx
-  unsigned __int64 v21; // rbx
+  unsigned __int64 v20; // r8
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rcx
+  unsigned __int64 v23; // r9
+  __int64 v24; // rsi
+  unsigned __int64 v25; // rsi
   __int64 IndependentPages; // rax
-  void *v23; // rcx
-  bool v25; // [rsp+58h] [rbp-49h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-41h]
-  int v27; // [rsp+68h] [rbp-39h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-31h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v29; // [rsp+78h] [rbp-29h] BYREF
-  __int64 *v30; // [rsp+98h] [rbp-9h]
-  __int64 v31; // [rsp+A0h] [rbp-1h]
-  bool *v32; // [rsp+A8h] [rbp+7h]
-  __int64 v33; // [rsp+B0h] [rbp+Fh]
-  int *v34; // [rsp+B8h] [rbp+17h]
-  __int64 v35; // [rsp+C0h] [rbp+1Fh]
+  __int64 v27; // r8
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r10
+  void *v31; // rcx
+  int v33; // [rsp+80h] [rbp+8h]
 
-  MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
-  v3 = *(_QWORD *)(a1 + 696);
-  v4 = (_QWORD *)(a1 + 704);
-  v5 = 0;
-  v26 = MillisecondCounter;
-  v6 = MillisecondCounter;
-  if ( v3 || *v4 )
+  v4 = 0;
+  MillisecondCounter = 0LL;
+  v7 = 0LL;
+  if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
+    MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
+  v8 = *(_QWORD *)(a1 + 696);
+  if ( v8 || *(_QWORD *)(a1 + 704) )
   {
-    v7 = (unsigned int)BufferChunkSizeInPages;
-    v8 = *v4 / (unsigned __int64)(unsigned int)BufferChunkSizeInPages;
+    v9 = (unsigned int)BufferChunkSizeInPages;
+    v10 = v8 / (unsigned int)BufferChunkSizeInPages;
     *(_QWORD *)(a1 + 240) = 0LL;
-    v9 = v8;
+    v11 = v10;
     *(_QWORD *)(a1 + 272) = 0LL;
+    v12 = *(_QWORD *)(a1 + 704) / v9;
+    v13 = *(_QWORD *)(a1 + 744) - v12;
+    v33 = v12;
+    LODWORD(v12) = *(_DWORD *)(a1 + 80);
+    v14 = v13 - v11;
+    *(_QWORD *)(a1 + 216) = v14;
     *(_QWORD *)(a1 + 248) = 0LL;
     *(_QWORD *)(a1 + 280) = 0LL;
-    v10 = IopLiveDumpGetMillisecondCounter(0);
-    v11 = v3 / v7;
-    v12 = (_QWORD *)(a1 + 232);
-    v13 = HvlPrepareLivedumpDescriptor(
-            *(_QWORD *)(a1 + 752) + 8 * *(_QWORD *)(a1 + 216),
+    if ( (v12 & 0x80u) != 0LL )
+    {
+      v15 = IopLiveDumpGetMillisecondCounter(0);
+      v14 = *(_QWORD *)(a1 + 216);
+      v7 = v15;
+    }
+    v16 = (unsigned __int64 *)(a1 + 256);
+    v17 = (unsigned __int64 *)(a1 + 224);
+    v18 = HvlPrepareLivedumpDescriptor(
+            *(_QWORD *)(a1 + 752) + 8 * v14,
             v11,
-            v9,
-            a1 + 256,
+            v33,
+            a4,
             a1 + 232,
             a1 + 224,
             (_QWORD *)(a1 + 264),
             (_QWORD *)(a1 + 256),
             a1 + 208);
-    *(_QWORD *)(a1 + 296) = IopLiveDumpGetMillisecondCounter(0) - v10;
-    if ( v13 >= 0 )
+    if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
+      *(_QWORD *)(a1 + 296) = IopLiveDumpGetMillisecondCounter(0) - v7;
+    if ( v18 >= 0 )
     {
-      v15 = *v12 << 12;
-      v16 = *(_QWORD *)(a1 + 224) << 12;
-      *(_QWORD *)(a1 + 224) = v16;
-      v17 = *(_QWORD *)(a1 + 256);
-      *v12 = v15;
-      v18 = v17 << 12;
-      *(_QWORD *)(a1 + 256) = v18;
+      v19 = *v17;
+      v20 = (unsigned int)BufferChunkSizeInBytes;
+      v21 = *v16;
+      *(_QWORD *)(a1 + 232) <<= 12;
+      v22 = v19 << 12;
       *(_QWORD *)(a1 + 264) <<= 12;
-      v19 = (unsigned int)BufferChunkSizeInBytes;
-      if ( v16 % (unsigned int)BufferChunkSizeInBytes )
-        *(_QWORD *)(a1 + 248) = *(_QWORD *)(a1 + 216) + v16 / (unsigned int)BufferChunkSizeInBytes;
-      if ( v18 % v19 )
-        *(_QWORD *)(a1 + 280) = *(_QWORD *)(a1 + 216) + v18 / v19;
+      v23 = v21 << 12;
+      *v17 = v22;
+      *v16 = v23;
+      if ( v22 % v20 )
+        *(_QWORD *)(a1 + 248) = *(_QWORD *)(a1 + 216) + v22 / v20;
+      if ( v23 % v20 )
+        *(_QWORD *)(a1 + 280) = *(_QWORD *)(a1 + 216) + v23 / v20;
     }
     else
     {
-      *(_DWORD *)(a1 + 80) |= 0x4000u;
       *(_QWORD *)(a1 + 696) = 0LL;
-      *v4 = 0LL;
-      IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure(v13);
-      if ( (unsigned int)dword_140C03870 > 5 && tlgKeywordOn((__int64)&dword_140C03870, 0x400000000000LL) )
-      {
-        v28 = 0x1000000LL;
-        v30 = &v28;
-        v14 = (*(_DWORD *)(a1 + 80) & 0x4000) != 0;
-        v31 = 8LL;
-        v25 = v14;
-        v33 = 1LL;
-        v32 = &v25;
-        v34 = &v27;
-        v27 = v13;
-        v35 = 4LL;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03870,
-          (unsigned __int8 *)byte_14002C065,
-          (const GUID *)(a1 + 968),
-          (const GUID *)(a1 + 952),
-          5u,
-          &v29);
-      }
+      *(_QWORD *)(a1 + 704) = 0LL;
     }
-    v6 = v26;
   }
-  v20 = *(_QWORD *)(a1 + 136);
-  if ( v20 )
+  v24 = *(_QWORD *)(a1 + 136);
+  if ( v24 )
   {
-    v21 = v20 << 12;
-    IndependentPages = MmAllocateIndependentPagesEx(v21, -1, 0LL, 0);
+    v25 = v24 << 12;
+    IndependentPages = MmAllocateIndependentPagesEx(v25, -1, 0LL, 0LL);
     *(_QWORD *)(a1 + 144) = IndependentPages;
     if ( IndependentPages )
     {
-      *(_DWORD *)(a1 + 152) = v21;
-      if ( IopLiveDumpIsUnderMemoryPressure(a1) )
+      v27 = *(_QWORD *)(a1 + 840);
+      v28 = *(_QWORD *)(a1 + 832);
+      v29 = *(_QWORD *)(a1 + 824);
+      *(_DWORD *)(a1 + 152) = v25;
+      if ( IopLiveDumpIsUnderMemoryPressure(v29, v28, v27) )
       {
-        v5 = -1073741248;
+        v4 = -1073741248;
       }
       else
       {
-        IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 144), v21);
-        v23 = *(void **)(a1 + 144);
-        *(_QWORD *)(a1 + 176) = v23;
+        IopLiveDumpDiscardVirtualAddressRange(a1, v30, v25);
+        v31 = *(void **)(a1 + 144);
+        *(_QWORD *)(a1 + 176) = v31;
         *(_DWORD *)(a1 + 184) = 0;
-        memset(v23, 0, v21);
+        memset(v31, 0, v25);
       }
     }
     else
@@ -154,6 +137,7 @@ __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1)
       *(_DWORD *)(a1 + 152) = 0;
     }
   }
-  *(_QWORD *)(a1 + 776) = IopLiveDumpGetMillisecondCounter(0) - v6;
-  return v5;
+  if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
+    *(_QWORD *)(a1 + 776) = IopLiveDumpGetMillisecondCounter(0) - MillisecondCounter;
+  return v4;
 }

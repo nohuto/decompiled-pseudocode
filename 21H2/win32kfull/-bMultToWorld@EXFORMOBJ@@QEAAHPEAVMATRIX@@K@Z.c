@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bMultToWorld@EXFORMOBJ@@QEAAHPEAVMATRIX@@K@Z @ 0x1C02B5748
+ * XREFs of ?bMultToWorld@EXFORMOBJ@@QEAAHPEAVMATRIX@@K@Z @ 0x1C02B7770
  * Callers:
- *     ?bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z @ 0x1C00396E0 (-bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z.c)
+ *     NtGdiModifyWorldTransform @ 0x1C0098420 (NtGdiModifyWorldTransform.c)
  * Callees:
- *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C013067C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C014047C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 int __fastcall EXFORMOBJ::bMultToWorld(struct MATRIX **this, struct MATRIX *a2, int a3)

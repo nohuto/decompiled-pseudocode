@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x1402D5824
+ * XREFs of ExpSetTimer2 @ 0x140280144
  * Callers:
- *     NtSetIRTimer @ 0x14025D390 (NtSetIRTimer.c)
- *     NtSetTimer2 @ 0x1402D5800 (NtSetTimer2.c)
- *     NtCancelTimer2 @ 0x1402D6200 (NtCancelTimer2.c)
+ *     NtSetTimer2 @ 0x140280120 (NtSetTimer2.c)
+ *     NtCancelTimer2 @ 0x1402D2580 (NtCancelTimer2.c)
+ *     NtSetIRTimer @ 0x1402D2C30 (NtSetIRTimer.c)
  * Callees:
- *     ExpSetTimerObject2 @ 0x1402D594C (ExpSetTimerObject2.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ExpSetTimerObject2 @ 0x14028026C (ExpSetTimerObject2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
-  __int64 v5; // rcx
+  __int64 v4; // rax
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
   PVOID Object; // [rsp+48h] [rbp-30h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-28h]
+  __int128 v8; // [rsp+50h] [rbp-28h]
 
-  v9 = 0LL;
+  v8 = 0LL;
   if ( a2 )
   {
     if ( KeGetCurrentThread()->PreviousMode )
     {
-      v5 = 0x7FFFFFFF0000LL;
+      v4 = a4;
       if ( a4 )
       {
-        if ( a4 < 0x7FFFFFFF0000LL )
-          v5 = a4;
-        v9 = *(_OWORD *)v5;
+        if ( a4 >= 0x7FFFFFFF0000LL )
+          v4 = 0x7FFFFFFF0000LL;
+        v8 = *(_OWORD *)v4;
       }
     }
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C01DD3D8
+ * XREFs of ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C01615D4
  * Callers:
- *     ?ADAPTER_RENDER_DdiSetRootPageTable@@YAXPEAVADAPTER_RENDER@@PEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C001D140 (-ADAPTER_RENDER_DdiSetRootPageTable@@YAXPEAVADAPTER_RENDER@@PEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
+ *     ?ADAPTER_RENDER_DdiSetRootPageTable@@YAXPEAVADAPTER_RENDER@@PEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C00193C0 (-ADAPTER_RENDER_DdiSetRootPageTable@@YAXPEAVADAPTER_RENDER@@PEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C000B800 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
- *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C000B8C0 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
- *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C000BB00 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C017D000 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0003ED0 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
+ *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C0003F90 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C0004030 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
 void __fastcall ADAPTER_RENDER::DdiSetRootPageTable(
@@ -19,69 +19,85 @@ void __fastcall ADAPTER_RENDER::DdiSetRootPageTable(
         struct _DXGKARG_SETROOTPAGETABLE *a2,
         __int64 a3)
 {
-  KIRQL CurrentIrql; // al
-  __int64 v6; // r14
-  struct DXGTHREAD *v7; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  unsigned __int8 CurrentIrql; // r14
+  struct DXGTHREAD *v8; // rbx
   struct DXGTHREAD *Current; // rax
-  int v9; // esi
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  KIRQL v13; // al
-  int v14; // [rsp+30h] [rbp-29h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-21h]
-  char v16; // [rsp+40h] [rbp-19h]
-  _BYTE v17[8]; // [rsp+48h] [rbp-11h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-9h] BYREF
+  int v10; // esi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  _QWORD *v16; // rax
+  unsigned __int8 v17; // cl
+  _QWORD *v18; // rax
+  __int64 v19; // rcx
+  int v20; // [rsp+20h] [rbp-60h] BYREF
+  __int64 v21; // [rsp+28h] [rbp-58h]
+  char v22; // [rsp+30h] [rbp-50h]
+  _BYTE v23[8]; // [rsp+38h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+40h] [rbp-40h] BYREF
 
-  v14 = -1;
-  v15 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v20 = -1;
+  v21 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v16 = 1;
-    v14 = 5059;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v22 = 1;
+    v20 = 5059;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 5059);
   }
   else
   {
-    v16 = 0;
+    v22 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v14, 5059);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v20, 5059LL);
   DXGADAPTER::AcquireDdiSync(*((_QWORD *)this + 2), 1);
-  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4484LL));
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
   CurrentIrql = KeGetCurrentIrql();
-  v6 = CurrentIrql;
-  v7 = 0LL;
-  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v7 = Current) != 0LL) )
-    v9 = *((_DWORD *)Current + 12);
+  v8 = 0LL;
+  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(v6, v5), (v8 = Current) != 0LL) )
+    v10 = *((_DWORD *)Current + 8);
   else
-    v9 = 0;
+    v10 = 0;
   DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
-    (DXGVALIDATIONPROCESSATTACH *)v17,
+    (DXGVALIDATIONPROCESSATTACH *)v23,
     *((struct DXGADAPTER **)this + 2));
-  (*(void (__fastcall **)(_QWORD, struct _DXGKARG_SETROOTPAGETABLE *))(*((_QWORD *)this + 2) + 936LL))(
-    *(_QWORD *)(*((_QWORD *)this + 2) + 280LL),
+  (*(void (__fastcall **)(_QWORD, struct _DXGKARG_SETROOTPAGETABLE *))(*((_QWORD *)this + 2) + 848LL))(
+    *(_QWORD *)(*((_QWORD *)this + 2) + 272LL),
     a2);
-  if ( v17[0] )
+  if ( v23[0] )
     KeUnstackDetachProcess(&ApcState);
-  if ( (_BYTE)v6 != KeGetCurrentIrql() )
+  if ( CurrentIrql != KeGetCurrentIrql() )
   {
-    v13 = KeGetCurrentIrql();
-    WdLogSingleEntry5(0LL, 275LL, 16LL, this, v6, v13);
+    v16 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+    v16[3] = 275LL;
+    v16[4] = 16LL;
+    v16[5] = this;
+    v16[6] = CurrentIrql;
+    v17 = KeGetCurrentIrql();
+    v16[7] = v17;
+    WdLogEvent5_WdCriticalError(v16);
   }
-  if ( v7 )
+  if ( v8 && *((_DWORD *)v8 + 8) != v10 )
   {
-    v10 = *((int *)v7 + 12);
-    if ( (_DWORD)v10 != v9 )
-      WdLogSingleEntry5(0LL, 275LL, 38LL, v10, v9, 0LL);
+    v18 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+    v18[3] = 275LL;
+    v18[4] = 38LL;
+    v19 = *((int *)v8 + 8);
+    v18[7] = 0LL;
+    v18[5] = v19;
+    v18[6] = v10;
+    WdLogEvent5_WdCriticalError(v18);
   }
-  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4484LL));
+  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
   DXGADAPTER::ReleaseDdiSync(*((DXGADAPTER **)this + 2));
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v14);
-  if ( v16 )
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20, v13);
+  if ( v22 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit, v12, v14);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v20);
   }
 }

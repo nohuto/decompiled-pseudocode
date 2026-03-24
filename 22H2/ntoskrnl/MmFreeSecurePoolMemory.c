@@ -1,24 +1,22 @@
 /*
- * XREFs of MmFreeSecurePoolMemory @ 0x140641AC8
+ * XREFs of MmFreeSecurePoolMemory @ 0x140544E48
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     MmAllocateSecurePoolMemory @ 0x14064195C (MmAllocateSecurePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140544D00 (MmAllocateSecurePoolMemory.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     MiClearNonPagedPtes @ 0x140212478 (MiClearNonPagedPtes.c)
- *     MiReturnSystemVa @ 0x140213B74 (MiReturnSystemVa.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiIsSystemVaAllocated @ 0x140636F6C (MiIsSystemVaAllocated.c)
+ *     MiReturnSystemVa @ 0x14027AC68 (MiReturnSystemVa.c)
+ *     MiCountSystemPool @ 0x14028BFA0 (MiCountSystemPool.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiClearNonPagedPtes @ 0x1402E9388 (MiClearNonPagedPtes.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiIsSystemVaAllocated @ 0x14053D854 (MiIsSystemVaAllocated.c)
  */
 
-unsigned __int64 __fastcall MmFreeSecurePoolMemory(
-        ULONG_PTR BugCheckParameter2,
-        ULONG_PTR BugCheckParameter3,
-        unsigned int a3)
+__int64 __fastcall MmFreeSecurePoolMemory(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned int a3)
 {
   int SystemRegionType; // eax
   unsigned int v7; // esi
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
   SystemRegionType = MiGetSystemRegionType(BugCheckParameter2);
   if ( SystemRegionType != 15 )
@@ -30,8 +28,8 @@ unsigned __int64 __fastcall MmFreeSecurePoolMemory(
     v7 = a3;
   result = MiClearNonPagedPtes(BugCheckParameter2, BugCheckParameter3 >> 12, v7, 3u);
   if ( result )
-    result = _InterlockedExchangeAdd64(&qword_140C65590, -(__int64)result);
+    result = MiCountSystemPool(15, result, 0);
   if ( (v7 & 0x8000) != 0 )
-    return MiReturnSystemVa(BugCheckParameter2, BugCheckParameter2 + BugCheckParameter3, 15, 0LL);
+    return MiReturnSystemVa(BugCheckParameter2, BugCheckParameter2 + BugCheckParameter3, 15);
   return result;
 }

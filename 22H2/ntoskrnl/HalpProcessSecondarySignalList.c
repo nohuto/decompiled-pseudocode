@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcessSecondarySignalList @ 0x14051A3E0
+ * XREFs of HalpProcessSecondarySignalList @ 0x1404D11C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 HalpProcessSecondarySignalList()
@@ -37,38 +37,44 @@ __int64 HalpProcessSecondarySignalList()
       __fastfail(3u);
     SecondarySignalList = *(_QWORD *)SecondarySignalList;
     *(_QWORD *)(v3 + 8) = &SecondarySignalList;
-    KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
+    KxReleaseSpinLock(&SecondarySignalListLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v7 = ~(unsigned __int16)(-1LL << (v2 + 1));
-        v8 = (v7 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v7;
-        if ( v8 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << (v2 + 1));
+          v8 = (v7 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v2);
     KeSetEvent((PRKEVENT)(v1 - 24), 0, 0);
   }
   SecondarySignalDpcRunning = 0;
-  KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
+  KxReleaseSpinLock(&SecondarySignalListLock);
   if ( KiIrqlFlags )
   {
-    v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v10 = KeGetCurrentPrcb();
-      v11 = v10->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << (v2 + 1));
-      v8 = (v12 & v11[5]) == 0;
-      v11[5] &= v12;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick(v10);
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
+      {
+        v10 = KeGetCurrentPrcb();
+        v11 = v10->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (v2 + 1));
+        v8 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v8 )
+          KiRemoveSystemWorkPriorityKick((__int64)v10);
+      }
     }
   }
   result = v2;

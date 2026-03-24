@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ForceSetHardwareProtection@CDeviceTextureTarget@@UEAAX_N@Z @ 0x1801086C0
+ * XREFs of ?ForceSetHardwareProtection@CDeviceTextureTarget@@UEAAX_N@Z @ 0x1800E3490
  * Callers:
  *     <none>
  * Callees:

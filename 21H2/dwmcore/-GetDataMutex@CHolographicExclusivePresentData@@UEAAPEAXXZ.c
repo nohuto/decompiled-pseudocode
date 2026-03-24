@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDataMutex@CHolographicExclusivePresentData@@UEAAPEAXXZ @ 0x1800FCA70
+ * XREFs of ?GetDataMutex@CHolographicExclusivePresentData@@UEAAPEAXXZ @ 0x1800E3A10
  * Callers:
  *     <none>
  * Callees:

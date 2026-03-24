@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1801A9220
+ * XREFs of ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5648
  * Callers:
- *     ?RestoreCursors@CComposition@@QEAAXXZ @ 0x18003CD8C (-RestoreCursors@CComposition@@QEAAXXZ.c)
- *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800F7F34 (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
- *     ?FindCursorVisual@CComposition@@QEAAPEAVCExcludeVisualReference@@PEBVCVisual@@@Z @ 0x1801037BC (-FindCursorVisual@CComposition@@QEAAPEAVCExcludeVisualReference@@PEBVCVisual@@@Z.c)
- *     CComposition::ForEachCursorVisualReference__lambda_c2c4320ca1e41092fdbc0b7f07aa0d93___ @ 0x180103A80 (CComposition--ForEachCursorVisualReference__lambda_c2c4320ca1e41092fdbc0b7f07aa0d93___.c)
- *     _lambda_c2c4320ca1e41092fdbc0b7f07aa0d93_::operator() @ 0x180103B2C (_lambda_c2c4320ca1e41092fdbc0b7f07aa0d93_--operator().c)
- *     ?RemoveCursorVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x1801937E4 (-RemoveCursorVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
- *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801A9238 (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
- *     ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x1801A9280 (-Restore@CExcludeVisualReference@@UEAAXXZ.c)
- *     ?Show@CExcludeVisualReference@@UEAAXXZ @ 0x1801A92C0 (-Show@CExcludeVisualReference@@UEAAXXZ.c)
- *     ?AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z @ 0x1801FEFF8 (-AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z.c)
- *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801FF0F8 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
- *     ?RemoveVisual@CVisualGroup@@IEAAXPEBVCVisual@@@Z @ 0x1801FF458 (-RemoveVisual@CVisualGroup@@IEAAXPEBVCVisual@@@Z.c)
- *     ?RestoreVisuals@CVisualGroup@@QEAAXXZ @ 0x1801FF4C0 (-RestoreVisuals@CVisualGroup@@QEAAXXZ.c)
+ *     ?RestoreCursors@CComposition@@QEAAXXZ @ 0x180043434 (-RestoreCursors@CComposition@@QEAAXXZ.c)
+ *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800DF22C (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
+ *     ?FindCursorVisual@CComposition@@QEAAPEAVCCursorVisualReference@@PEBVCVisual@@@Z @ 0x1800E1910 (-FindCursorVisual@CComposition@@QEAAPEAVCCursorVisualReference@@PEBVCVisual@@@Z.c)
+ *     ?AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z @ 0x1800E4DDC (-AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z.c)
+ *     CComposition::ForEachCursorVisual__lambda_f30d7ccad3626cf56a10f5441da8a523___ @ 0x1800EDA1C (CComposition--ForEachCursorVisual__lambda_f30d7ccad3626cf56a10f5441da8a523___.c)
+ *     ?RemoveCursorVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x180155F28 (-RemoveCursorVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801742FC (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
+ *     ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x180174340 (-Restore@CExcludeVisualReference@@UEAAXXZ.c)
+ *     ?Show@CExcludeVisualReference@@UEAAXXZ @ 0x180174380 (-Show@CExcludeVisualReference@@UEAAXXZ.c)
+ *     ?Show@CCursorVisualReference@@UEAAXXZ @ 0x180174460 (-Show@CCursorVisualReference@@UEAAXXZ.c)
+ *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801AC150 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
+ *     ?RemoveVisual@CVisualGroup@@IEAAXPEBVCVisual@@@Z @ 0x1801AC554 (-RemoveVisual@CVisualGroup@@IEAAXPEBVCVisual@@@Z.c)
+ *     ?RestoreVisuals@CVisualGroup@@QEAAXXZ @ 0x1801AC5BC (-RestoreVisuals@CVisualGroup@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

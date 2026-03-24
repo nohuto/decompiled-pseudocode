@@ -1,116 +1,119 @@
 /*
- * XREFs of ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001D9F0
+ * XREFs of ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F02F8
  * Callers:
- *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C001D98C (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
- *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0034764 (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
- *     GreDeleteSpriteOverlapPresent @ 0x1C00F72B4 (GreDeleteSpriteOverlapPresent.c)
- *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027AC24 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
+ *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0074C9C (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
+ *     GreDeleteSpriteOverlapPresent @ 0x1C007C220 (GreDeleteSpriteOverlapPresent.c)
+ *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00F02A4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
+ *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027EAD4 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
  * Callees:
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001DAA8 (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vStamp@REGION@@QEAAXXZ @ 0x1C001EA38 (-vStamp@REGION@@QEAAXXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C011BD38 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     UserGetClientRgn @ 0x1C01BDDA8 (UserGetClientRgn.c)
- *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C026F140 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B2D1C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F03AC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     UserGetClientRgn @ 0x1C01E8598 (UserGetClientRgn.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C02762C8 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
  */
 
-void __fastcall vSpComputeNoPresentRegion(REGION **a1, int a2)
+void __fastcall vSpComputeNoPresentRegion(struct _SPRITESTATE *a1, int a2)
 {
-  REGION *v2; // rbx
-  REGION *v5; // rcx
-  REGION *v6; // rsi
+  __int64 v2; // rbx
+  REGION *v4; // rcx
+  _QWORD *v6; // rsi
   REGION *v7; // rcx
   HRGN ClientRgn; // rax
   int v9; // eax
   struct RGNOBJ *v10; // r8
-  REGION *v11; // [rsp+20h] [rbp-49h] BYREF
-  struct _POINTL v12; // [rsp+28h] [rbp-41h] BYREF
-  REGION *v13; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-31h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-29h] BYREF
-  _QWORD v16[7]; // [rsp+48h] [rbp-21h] BYREF
-  struct _RECTL v17; // [rsp+80h] [rbp+17h] BYREF
-  struct _RECTL v18; // [rsp+90h] [rbp+27h] BYREF
+  __int64 v11; // rdx
+  struct _POINTL v12; // [rsp+28h] [rbp-79h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-71h] BYREF
+  int v14; // [rsp+38h] [rbp-69h]
+  __int64 v15; // [rsp+40h] [rbp-61h] BYREF
+  __int64 v16; // [rsp+48h] [rbp-59h] BYREF
+  _QWORD v17[2]; // [rsp+50h] [rbp-51h] BYREF
+  _QWORD v18[2]; // [rsp+60h] [rbp-41h] BYREF
+  _QWORD v19[7]; // [rsp+70h] [rbp-31h] BYREF
+  struct _RECTL v20; // [rsp+B8h] [rbp+17h] BYREF
+  struct _RECTL v21; // [rsp+C8h] [rbp+27h] BYREF
 
-  v2 = *a1;
-  v17 = 0LL;
-  v13 = v2;
-  Gre::Base::Globals((Gre::Base *)a1);
-  v5 = a1[131];
-  if ( v5 )
+  v2 = *(_QWORD *)a1;
+  v4 = (REGION *)*((_QWORD *)a1 + 131);
+  v16 = v2;
+  v20 = 0LL;
+  if ( v4 )
   {
-    REGION::vDeleteREGION(v5);
-    a1[131] = 0LL;
+    REGION::vDeleteREGION(v4);
+    *((_QWORD *)a1 + 131) = 0LL;
   }
   if ( !a2 )
   {
-    v7 = a1[130];
+    v7 = (REGION *)*((_QWORD *)a1 + 130);
     if ( v7 )
     {
       REGION::vDeleteREGION(v7);
-      a1[130] = 0LL;
+      *((_QWORD *)a1 + 130) = 0LL;
     }
   }
-  v6 = a1[10];
+  v6 = (_QWORD *)*((_QWORD *)a1 + 10);
   if ( v6 )
   {
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v11);
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v15);
-    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v15);
-    if ( v11 && v15 )
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v13, 0, 1);
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v18, 0, 1);
+    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v18);
+    if ( v13 && v18[0] )
     {
-      *(_QWORD *)&v17.left = 0LL;
-      *(_QWORD *)&v17.right = **(_QWORD **)&PDEVOBJ::sizl((PDEVOBJ *)&v13);
-      RGNOBJ::vSet((RGNOBJ *)&v11, &v17);
-      RGNOBJ::vSet((RGNOBJ *)&v15, &v17);
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v14);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v14);
-      if ( v14 )
+      *(_QWORD *)&v20.right = **(_QWORD **)&PDEVOBJ::sizl((PDEVOBJ *)&v16);
+      RGNOBJ::vSet((RGNOBJ *)&v13, &v20);
+      RGNOBJ::vSet((RGNOBJ *)v18, &v20);
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17, 0, 1);
+      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
+      if ( v17[0] )
       {
         do
         {
-          v18 = 0LL;
-          ClientRgn = (HRGN)UserGetClientRgn(*(_QWORD *)v6, &v18, 0LL);
-          RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v16, ClientRgn, 0, 0);
-          if ( v16[0] )
+          v21 = 0LL;
+          ClientRgn = (HRGN)UserGetClientRgn(*v6, &v21, 0LL);
+          RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v19, ClientRgn, 0, 0);
+          if ( v19[0] )
           {
-            v12.x = -*((_DWORD *)v2 + 640);
-            v12.y = -*((_DWORD *)v2 + 641);
-            RGNOBJ::bOffset((RGNOBJ *)v16, &v12);
-            v13 = a1[88];
-            RGNOBJ::vSet((RGNOBJ *)&v13, &v18);
-            v12.x = -*((_DWORD *)v2 + 640);
-            v12.y = -*((_DWORD *)v2 + 641);
-            RGNOBJ::bOffset((RGNOBJ *)v16, &v12);
-            RGNOBJ::bOffset((RGNOBJ *)&v13, &v12);
-            v9 = RGNOBJ::iComplexity((RGNOBJ *)v16);
-            v10 = (struct RGNOBJ *)&v13;
+            v12.x = -*(_DWORD *)(v2 + 2584);
+            v12.y = -*(_DWORD *)(v2 + 2588);
+            RGNOBJ::bOffset((RGNOBJ *)v19, &v12);
+            v15 = *((_QWORD *)a1 + 88);
+            RGNOBJ::vSet((RGNOBJ *)&v15, &v21);
+            v12.x = -*(_DWORD *)(v2 + 2584);
+            v12.y = -*(_DWORD *)(v2 + 2588);
+            RGNOBJ::bOffset((RGNOBJ *)v19, &v12);
+            RGNOBJ::bOffset((RGNOBJ *)&v15, &v12);
+            v9 = RGNOBJ::iComplexity((RGNOBJ *)v19);
+            v10 = (struct RGNOBJ *)&v15;
             if ( v9 != 1 )
-              v10 = (struct RGNOBJ *)v16;
-            if ( RGNOBJ::bMerge((RGNOBJ *)&v14, (struct RGNOBJ *)&v11, v10, 4u) )
-              RGNOBJ::vSwap((RGNOBJ *)&v14, (struct RGNOBJ *)&v11);
-            RGNOBJAPI::bDeleteRGNOBJAPI((RGNOBJAPI *)v16);
+              v10 = (struct RGNOBJ *)v19;
+            if ( RGNOBJ::bMerge((RGNOBJ *)v17, (struct RGNOBJ *)&v13, v10, 4u) )
+              RGNOBJ::vSwap((RGNOBJ *)v17, (struct RGNOBJ *)&v13);
+            RGNOBJAPI::bDeleteRGNOBJAPI((RGNOBJAPI *)v19);
           }
-          v6 = (REGION *)*((_QWORD *)v6 + 1);
-          RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v16);
+          v6 = (_QWORD *)v6[1];
+          RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v19);
         }
         while ( v6 );
       }
-      REGION::vStamp(v11);
+      v11 = v13;
+      *(_DWORD *)(v11 + 28) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
       if ( a2 )
-        a1[131] = v11;
+        *((_QWORD *)a1 + 131) = v13;
       else
-        a1[130] = v11;
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v14);
+        *((_QWORD *)a1 + 130) = v13;
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
     }
     else
     {
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v11);
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v13);
     }
-    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v15);
+    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v18);
+    if ( v14 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v13);
   }
   if ( !a2 )
-    vSpComputeUnlockedRegion((struct _SPRITESTATE *)a1);
+    vSpComputeUnlockedRegion(a1);
 }

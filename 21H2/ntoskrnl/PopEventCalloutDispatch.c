@@ -1,45 +1,45 @@
 /*
- * XREFs of PopEventCalloutDispatch @ 0x1403B69DC
+ * XREFs of PopEventCalloutDispatch @ 0x1403A777C
  * Callers:
- *     PopUserPresentSetWorker @ 0x1407F32E0 (PopUserPresentSetWorker.c)
- *     PopPolicyTimeChange @ 0x1408088B0 (PopPolicyTimeChange.c)
- *     PopDispatchCallout @ 0x1408654A0 (PopDispatchCallout.c)
- *     PopDispatchShutdownEvent @ 0x140997EE0 (PopDispatchShutdownEvent.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopDispatchFullWake @ 0x14077A190 (PopDispatchFullWake.c)
+ *     PopPolicyTimeChange @ 0x14077A2F0 (PopPolicyTimeChange.c)
+ *     PopDispatchCallout @ 0x1407D5750 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x1408F1470 (PopDispatchShutdownEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
  */
 
 struct _KTHREAD *__fastcall PopEventCalloutDispatch(int a1, __int64 a2)
 {
+  __int64 v2; // r8
+  __int64 *v3; // r9
   struct _KTHREAD *result; // rax
-  __int64 v3; // r8
-  int *v4; // r9
-  int v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v5; // [rsp+20h] [rbp-28h] BYREF
   _DWORD v6[2]; // [rsp+28h] [rbp-20h] BYREF
   __int64 v7; // [rsp+30h] [rbp-18h]
 
-  result = 0LL;
-  v6[0] = a1;
   v6[1] = 0;
+  v6[0] = a1;
   v7 = a2;
   if ( PsWin32CalloutsEstablished )
   {
-    v3 = 1LL;
+    v2 = 1LL;
     if ( a1 == 1 )
     {
-      v5 = 0;
-      v4 = &v5;
+      LODWORD(v5) = 0;
+      v3 = &v5;
     }
     else
     {
-      v4 = 0LL;
+      v3 = 0LL;
       if ( a1 == 10 )
-        v3 = 0LL;
+        v2 = 0LL;
       else
-        v3 = 2LL;
+        v2 = 2LL;
     }
-    ((void (__fastcall *)(__int64, _DWORD *, __int64, int *, int))PopInvokeWin32Callout)(3LL, v6, v3, v4, v5);
+    ((void (__fastcall *)(__int64, _DWORD *, __int64, __int64 *, __int64))PopInvokeWin32Callout)(3LL, v6, v2, v3, v5);
     result = KeGetCurrentThread();
     if ( result->WaitBlock[3].SpareLong )
       __fastfail(0x20u);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvCounterUpdateCallback @ 0x140521D90
+ * XREFs of HalpHvCounterUpdateCallback @ 0x1404D4A70
  * Callers:
  *     <none>
  * Callees:
- *     HalSocRequestApi @ 0x1403B38C8 (HalSocRequestApi.c)
+ *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
  */
 
 __int64 __fastcall HalpHvCounterUpdateCallback(__int64 a1)

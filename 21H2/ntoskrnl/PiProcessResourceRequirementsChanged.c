@@ -1,18 +1,18 @@
 /*
- * XREFs of PiProcessResourceRequirementsChanged @ 0x140947934
+ * XREFs of PiProcessResourceRequirementsChanged @ 0x1408A26E8
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x1402D2848 (PoFxActivateDevice.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PipClearDevNodeProblem @ 0x140764FE4 (PipClearDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
+ *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
  */
 
 __int64 __fastcall PiProcessResourceRequirementsChanged(__int64 *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall PiProcessResourceRequirementsChanged(__int64 *a1)
   else
     v3 = 0LL;
   ObfReferenceObjectWithTag(v2, 0x65706E50u);
-  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 789) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 787) <= 1 )
   {
     v5 = -1073741738;
   }
@@ -41,7 +41,7 @@ __int64 __fastcall PiProcessResourceRequirementsChanged(__int64 *a1)
     PipClearDevNodeFlags(v3, 256);
     PipSetDevNodeFlags(v3, 1024);
     PipClearDevNodeProblem(v3);
-    if ( *(_DWORD *)(v3 + 300) == 778 )
+    if ( *(_DWORD *)(v3 + 300) == 776 )
     {
       if ( a1[4] )
         PipClearDevNodeFlags(v3, 2048);

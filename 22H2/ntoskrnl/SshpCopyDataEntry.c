@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpCopyDataEntry @ 0x1405A2D10
+ * XREFs of SshpCopyDataEntry @ 0x14057FB30
  * Callers:
- *     SleepstudyHelperCreateBlockerData @ 0x1409A1D80 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x1408FB810 (SleepstudyHelperCreateBlockerData.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x140206C90 (RtlUnicodeStringCopy.c)
+ *     SSHSupportAllocatePaged @ 0x14069D95C (SSHSupportAllocatePaged.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SshpCopyDataEntry(ULONG Tag, PCUNICODE_STRING SourceString, PUNICODE_STRING DestinationString)

@@ -1,101 +1,98 @@
 /*
- * XREFs of ?SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z @ 0x18008A898
+ * XREFs of ?SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z @ 0x180076DE8
  * Callers:
- *     ?UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z @ 0x180019834 (-UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z.c)
- *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_NPEAVCVisual@@@Z @ 0x180087B2C (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
+ *     ?UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z @ 0x180019398 (-UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z.c)
+ *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_N@Z @ 0x1800754F0 (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
  * Callees:
- *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x180031760 (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateDeviceRect@CZOrderedRect@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800E8E80 (-UpdateDeviceRect@CZOrderedRect@@QEAAXPEBVCMILMatrix@@@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800E8FC4 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     ?SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z @ 0x18003E07C (-SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x18008D638 (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
+ *     ?SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800C38A0 (-SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z.c)
  */
 
 __int64 __fastcall COcclusionContext::SetDeviceTransform(COcclusionContext *this, const struct CMILMatrix *a2)
 {
-  unsigned int v2; // ebx
-  const struct CMILMatrix *v3; // rsi
-  unsigned int v5; // r14d
-  char v6; // bp
-  __int128 v8; // xmm0
-  __int128 v9; // xmm1
-  __int128 v10; // xmm0
+  const struct CMILMatrix *v2; // rdi
+  unsigned int v4; // ebp
+  char v5; // si
+  const struct CMILMatrix *v6; // rdx
+  __int64 v8; // rcx
+  __int128 v9; // xmm0
+  int v10; // eax
   __int128 v11; // xmm1
-  unsigned int v12; // ecx
-  float *v13; // rcx
-  __int128 v14; // xmm0
-  int v15; // eax
-  __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  int v18; // eax
-  __int128 v19; // xmm1
-  __int128 v20; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-48h]
-  __int128 v22; // [rsp+50h] [rbp-38h]
-  __int128 v23; // [rsp+60h] [rbp-28h]
-  int v24; // [rsp+70h] [rbp-18h]
+  __int128 v12; // xmm0
+  int v13; // eax
+  __int128 v14; // xmm1
+  _OWORD v15[4]; // [rsp+30h] [rbp-58h] BYREF
+  int v16; // [rsp+70h] [rbp-18h]
 
-  v2 = 0;
-  v3 = a2;
+  v2 = a2;
+  v4 = 0;
   v5 = 0;
-  v6 = 0;
-  if ( a2 && !CMILMatrix::IsIdentity<0>((__int64)a2) )
+  if ( a2 && !(unsigned __int8)CMILMatrix::IsIdentity<0>(a2) )
   {
-    v8 = *(_OWORD *)v3;
-    v9 = *((_OWORD *)v3 + 1);
-    v24 = *((_DWORD *)v3 + 16);
-    v20 = v8;
-    v10 = *((_OWORD *)v3 + 2);
-    v21 = v9;
-    v11 = *((_OWORD *)v3 + 3);
-    v22 = v10;
-    v23 = v11;
-    if ( CMILMatrix::Invert((CMILMatrix *)&v20) )
+    v16 = 0;
+    if ( CMILMatrix::SetToInverse((CMILMatrix *)v15, v6) )
     {
-      v13 = (float *)((char *)this + 1208);
-      if ( !*((_BYTE *)this + 1204) || !CMILMatrix::IsEqualTo<0>(v13, (float *)v3) )
-        v6 = 1;
-      *(_OWORD *)v13 = *(_OWORD *)v3;
-      *((_OWORD *)v13 + 1) = *((_OWORD *)v3 + 1);
-      *((_OWORD *)v13 + 2) = *((_OWORD *)v3 + 2);
-      v14 = v20;
-      *((_OWORD *)v13 + 3) = *((_OWORD *)v3 + 3);
-      v15 = *((_DWORD *)v3 + 16);
-      v16 = v21;
-      *(_OWORD *)((char *)this + 1276) = v14;
-      *((_DWORD *)v13 + 16) = v15;
-      v17 = v22;
-      v18 = v24;
-      *(_OWORD *)((char *)this + 1292) = v16;
-      *((_BYTE *)this + 1204) = 1;
-      v19 = v23;
-      *(_OWORD *)((char *)this + 1308) = v17;
-      *(_OWORD *)((char *)this + 1324) = v19;
-      *((_DWORD *)this + 335) = v18;
+      if ( !*((_BYTE *)this + 1244) || !(unsigned __int8)CMILMatrix::IsEqualTo<0>((char *)this + 1248, v2) )
+        v5 = 1;
+      *((_OWORD *)this + 78) = *(_OWORD *)v2;
+      *((_OWORD *)this + 79) = *((_OWORD *)v2 + 1);
+      *((_OWORD *)this + 80) = *((_OWORD *)v2 + 2);
+      v9 = v15[0];
+      *((_OWORD *)this + 81) = *((_OWORD *)v2 + 3);
+      v10 = *((_DWORD *)v2 + 16);
+      v11 = v15[1];
+      *(_OWORD *)((char *)this + 1316) = v9;
+      *((_DWORD *)this + 328) = v10;
+      v12 = v15[2];
+      v13 = v16;
+      *(_OWORD *)((char *)this + 1332) = v11;
+      *((_BYTE *)this + 1244) = 1;
+      v14 = v15[3];
+      *(_OWORD *)((char *)this + 1348) = v12;
+      *(_OWORD *)((char *)this + 1364) = v14;
+      *((_DWORD *)this + 345) = v13;
     }
     else
     {
-      v5 = -2003304441;
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003304441, 0x4Bu, 0LL);
+      v4 = -2003304441;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003304441, 0x4Eu, 0LL);
     }
   }
   else
   {
-    if ( *((_BYTE *)this + 1204) )
+    if ( *((_BYTE *)this + 1244) )
     {
-      *((_BYTE *)this + 1204) = 0;
-      v6 = 1;
+      *((_BYTE *)this + 1244) = 0;
+      v5 = 1;
     }
-    v3 = 0LL;
-    CMILMatrix::SetToIdentity((COcclusionContext *)((char *)this + 1208));
-    CMILMatrix::SetToIdentity((COcclusionContext *)((char *)this + 1276));
+    v2 = 0LL;
+    *((_QWORD *)this + 156) = 1065353216LL;
+    *((_QWORD *)this + 157) = 0LL;
+    *((_DWORD *)this + 316) = 0;
+    *(_QWORD *)((char *)this + 1268) = 1065353216LL;
+    *(_QWORD *)((char *)this + 1276) = 0LL;
+    *((_DWORD *)this + 321) = 0;
+    *((_QWORD *)this + 161) = 1065353216LL;
+    *((_QWORD *)this + 162) = 0LL;
+    *((_DWORD *)this + 326) = 0;
+    *((_DWORD *)this + 327) = 1065353216;
+    *((_WORD *)this + 656) = 32085;
+    *(_QWORD *)((char *)this + 1316) = 1065353216LL;
+    *(_QWORD *)((char *)this + 1324) = 0LL;
+    *((_DWORD *)this + 333) = 0;
+    *((_QWORD *)this + 167) = 1065353216LL;
+    *((_QWORD *)this + 168) = 0LL;
+    *((_DWORD *)this + 338) = 0;
+    *(_QWORD *)((char *)this + 1356) = 1065353216LL;
+    *(_QWORD *)((char *)this + 1364) = 0LL;
+    *((_DWORD *)this + 343) = 0;
+    *((_DWORD *)this + 344) = 1065353216;
+    *((_WORD *)this + 690) = 32085;
   }
-  if ( v6 && *((_DWORD *)this + 118) )
-  {
-    do
-      CZOrderedRect::UpdateDeviceRect((CZOrderedRect *)(*((_QWORD *)this + 56) + 36LL * v2++), v3);
-    while ( v2 < *((_DWORD *)this + 118) );
-  }
-  return v5;
+  if ( v5 )
+    CArrayBasedCoverageSet::SetDeviceTransform((COcclusionContext *)((char *)this + 408), v2);
+  return v4;
 }

@@ -1,111 +1,145 @@
 /*
- * XREFs of CmpConstructNameWithStatus @ 0x1407C0690
+ * XREFs of CmpConstructNameWithStatus @ 0x1405F2FF0
  * Callers:
- *     CmQueryLayeredKey @ 0x140226200 (CmQueryLayeredKey.c)
- *     CmpTraceHiveSaveStart @ 0x14065C91C (CmpTraceHiveSaveStart.c)
- *     CmpSetSecurityDescriptorInfo @ 0x140677DC0 (CmpSetSecurityDescriptorInfo.c)
- *     CmpTraceSecurityChanging @ 0x140678454 (CmpTraceSecurityChanging.c)
- *     CmpLinkHiveToMaster @ 0x14067C9E8 (CmpLinkHiveToMaster.c)
- *     CmpDoWritethroughReparse @ 0x140680100 (CmpDoWritethroughReparse.c)
- *     CmpConstructAndCacheName @ 0x1406815C0 (CmpConstructAndCacheName.c)
- *     CmAddLogForAction @ 0x14071784C (CmAddLogForAction.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x140720E20 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpConstructName @ 0x1407C05CC (CmpConstructName.c)
- *     CmpLoadHiveVolatile @ 0x14090D4E8 (CmpLoadHiveVolatile.c)
- *     CmEtwRunDown @ 0x1409103FC (CmEtwRunDown.c)
- *     CmpEtwDumpKcb @ 0x140910724 (CmpEtwDumpKcb.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1409147B4 (CmpIsHiveAlreadyLoaded.c)
- *     CmpDumpKeyBodyList @ 0x140914E64 (CmpDumpKeyBodyList.c)
- *     CmVirtualKCBToRealPath @ 0x140916454 (CmVirtualKCBToRealPath.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1409188E8 (CmpReportAuditVirtualizationEvent.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpConstructName @ 0x1405F2FBC (CmpConstructName.c)
+ *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140665BF0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmpTraceSecurityChanging @ 0x14066DE08 (CmpTraceSecurityChanging.c)
+ *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
+ *     CmAddLogForAction @ 0x1406AFE4C (CmAddLogForAction.c)
+ *     CmpConstructAndCacheName @ 0x1406BB054 (CmpConstructAndCacheName.c)
+ *     CmpTraceHiveSaveStart @ 0x14072A388 (CmpTraceHiveSaveStart.c)
+ *     CmEtwRunDown @ 0x14086A368 (CmEtwRunDown.c)
+ *     CmpEtwDumpKcb @ 0x14086A678 (CmpEtwDumpKcb.c)
+ *     CmpDumpKeyBodyList @ 0x14086EC48 (CmpDumpKeyBodyList.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FAD8 (CmVirtualKCBToRealPath.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871D98 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpSetKcbAtLayerHeight @ 0x1406B98FC (CmpSetKcbAtLayerHeight.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1406E137C (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpStartKcbStack @ 0x1407C07F4 (CmpStartKcbStack.c)
- *     CmpConstructNameFromKeyNodes @ 0x1407C8830 (CmpConstructNameFromKeyNodes.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778C38 (CmpConstructNameFromKcbNameBlocks.c)
  */
 
-__int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2)
 {
-  char v5; // bp
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  int started; // ebx
-  __int64 v9; // r8
-  __int16 v10; // dx
-  __int64 i; // r10
-  __int64 v12; // r10
-  __int16 v13; // dx
-  struct _PRIVILEGE_SET *v14; // rdi
-  unsigned __int16 j; // cx
+  struct _KTHREAD *CurrentThread; // rax
+  struct _LOOKASIDE_LIST_EX *v5; // r9
+  BOOLEAN v6; // r14
+  int v7; // ebx
+  struct _PRIVILEGE_SET *v8; // rdi
+  __int16 v9; // dx
+  SIZE_T v10; // rbp
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  unsigned int v12; // ebx
+  __int64 v13; // r10
+  __int64 v14; // r10
+  __int16 v15; // dx
   PPRIVILEGE_SET v16; // rax
   int v17; // eax
-  __int128 v19; // [rsp+20h] [rbp-38h] BYREF
+  struct _KTHREAD *v18; // rcx
+  __int128 v21; // [rsp+20h] [rbp-38h] BYREF
   PPRIVILEGE_SET Privileges[2]; // [rsp+30h] [rbp-28h]
-  __int64 v21; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v23; // [rsp+60h] [rbp+8h] BYREF
 
   v21 = 0LL;
-  v19 = 0LL;
-  WORD1(v19) = -1;
+  WORD1(v21) = -1;
+  CurrentThread = KeGetCurrentThread();
   *(_OWORD *)Privileges = 0LL;
-  v5 = CmpAcquireShutdownRundown(a1, a2, a3);
-  started = CmpStartKcbStack(&v19, *(unsigned __int16 *)(a1 + 66));
-  if ( started < 0 )
+  --CurrentThread->KernelApcDisable;
+  v23 = 0LL;
+  v6 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( !v6 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v7 = *(__int16 *)(a1 + 66);
+  v8 = 0LL;
+  v9 = *(_WORD *)(a1 + 66);
+  if ( v7 >= 2 )
   {
-    v14 = Privileges[1];
+    v10 = 8LL * (unsigned int)(v7 - 1);
+    TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(PagedPool, v10, 0x35364D43u, v5);
+    v8 = TransientPoolWithTag;
+    if ( !TransientPoolWithTag )
+    {
+      v8 = Privileges[1];
+      v12 = -1073741670;
+      goto LABEL_24;
+    }
+    memset(TransientPoolWithTag, 0, v10);
+    v9 = *(_WORD *)(a1 + 66);
+  }
+  LOWORD(v21) = v7;
+  Privileges[1] = v8;
+  WORD1(v21) = v9;
+  if ( v9 )
+  {
+    v13 = *(_QWORD *)(a1 + 192);
+    if ( v13 )
+    {
+      do
+      {
+        CmpSetKcbAtLayerHeight((__int64)&v21, v9, *(_QWORD *)(v13 + 16));
+        v13 = *(_QWORD *)(v14 + 24);
+        v9 = v15 - 1;
+      }
+      while ( v13 );
+      v8 = Privileges[1];
+      v9 = WORD1(v21);
+    }
   }
   else
   {
-    v10 = *(_WORD *)(a1 + 66);
-    WORD1(v19) = v10;
-    if ( v10 )
+    *((_QWORD *)&v21 + 1) = a1;
+  }
+  if ( v6 && v9 >= 0 )
+  {
+    do
     {
-      for ( i = *(_QWORD *)(a1 + 192); i; v10 = v13 - 1 )
+      v16 = v9 < 2 ? Privileges[v9 - 1] : (PPRIVILEGE_SET)*((_QWORD *)v8 + v9 - 2);
+      if ( HIWORD(v16[3].Control) && BYTE1(v16[3].Control) == 1 )
+        break;
+      if ( v16[2].PrivilegeCount != -1 )
       {
-        CmpSetKcbAtLayerHeight((__int64)&v19, v10, *(_QWORD *)(i + 16));
-        i = *(_QWORD *)(v12 + 24);
-      }
-    }
-    else
-    {
-      *((_QWORD *)&v19 + 1) = a1;
-    }
-    v14 = Privileges[1];
-    if ( v5 )
-    {
-      for ( j = WORD1(v19); (j & 0x8000u) == 0; --j )
-      {
-        v16 = j < 2u ? Privileges[j - 1] : (PPRIVILEGE_SET)*((_QWORD *)Privileges[1] + j - 2);
-        if ( HIWORD(v16[3].Control) && BYTE1(v16[3].Control) == 1 )
-          break;
-        if ( v16[2].PrivilegeCount != -1 )
+        if ( *(_DWORD *)(a1 + 40) != -1 || (*(_DWORD *)(a1 + 184) & 0x40000) == 0 )
         {
-          if ( *(_DWORD *)(a1 + 40) != -1 || (*(_DWORD *)(a1 + 184) & 0x40000) == 0 )
-          {
-            v17 = CmpConstructNameFromKeyNodes(&v19, &v21);
-            v14 = Privileges[1];
-            goto LABEL_16;
-          }
-          break;
+          v17 = CmpConstructNameFromKeyNodes(&v21, &v23);
+          v8 = Privileges[1];
+          goto LABEL_22;
         }
+        break;
       }
+      --v9;
     }
-    v17 = CmpConstructNameFromKcbNameBlocks(a1, &v21);
-LABEL_16:
-    started = v17;
-    if ( v17 >= 0 )
+    while ( v9 >= 0 );
+  }
+  v17 = CmpConstructNameFromKcbNameBlocks(a1, &v23);
+LABEL_22:
+  v12 = v17;
+  if ( v17 >= 0 )
+  {
+    v12 = 0;
+    *a2 = v23;
+  }
+LABEL_24:
+  if ( v8 )
+    CmSiFreeMemory(v8);
+  if ( v6 )
+  {
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    v18 = KeGetCurrentThread();
+    if ( v18->KernelApcDisable++ == -1
+      && ($C459BD0D405E8E46662177FB3D0A143F *)v18->ApcState.ApcListHead[0].Flink != &v18->152
+      && !v18->SpecialApcDisable )
     {
-      started = 0;
-      *a2 = v21;
+      KiCheckForKernelApcDelivery((__int64)v18);
     }
   }
-  if ( v14 )
-    CmSiFreeMemory(v14);
-  if ( v5 )
-    CmpReleaseShutdownRundown(v7, v6, v9);
-  return (unsigned int)started;
+  return v12;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAcquireSecondaryInterruptConnectLock @ 0x14045A41A
+ * XREFs of KiAcquireSecondaryInterruptConnectLock @ 0x140518F2C
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x1403AF3B4 (KiDisconnectInterruptCommon.c)
- *     KiConnectSecondaryInterrupt @ 0x14056ECDC (KiConnectSecondaryInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x14056EE94 (KiDisconnectSecondaryInterrupt.c)
- *     KiMaskSecondaryInterruptInternal @ 0x14056F190 (KiMaskSecondaryInterruptInternal.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x14056F494 (KiUnmaskSecondaryInterruptInternal.c)
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     KiDisconnectInterruptCommon @ 0x1403770AC (KiDisconnectInterruptCommon.c)
+ *     KiConnectSecondaryInterrupt @ 0x140519054 (KiConnectSecondaryInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14051920C (KiDisconnectSecondaryInterrupt.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140519508 (KiMaskSecondaryInterruptInternal.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140519814 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KiInterruptDispatchCommon @ 0x140521428 (KiInterruptDispatchCommon.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KiAcquireSecondaryInterruptConnectLock(PKSPIN_LOCK SpinLock, unsigned __int8 *a2)

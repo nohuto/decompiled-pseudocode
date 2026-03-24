@@ -1,28 +1,29 @@
 /*
- * XREFs of ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C007DFEC
+ * XREFs of ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C004849C
  * Callers:
- *     ?UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C007DB30 (-UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z.c)
- *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C007DBA0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0048090 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     ?UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0049B70 (-UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z.c)
  * Callees:
- *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C01509B8 (McTemplateK0qhq_EtwWriteTransfer.c)
+ *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C0126328 (McTemplateK0qhq_EtwWriteTransfer.c)
  */
 
 char __fastcall CInputGlobals::_UpdateLastInputTime(__int64 a1, __int64 a2, int a3)
 {
-  int v3; // r9d
+  int v4; // r9d
   unsigned __int128 v5; // rax
 
-  v3 = 1;
   *(_QWORD *)(a1 + 16) = a2;
-  if ( a3 == 1 || a3 > 2 && (a3 <= 5 || a3 == 9 || a3 == 11 || a3 > 12 && (a3 <= 14 || a3 > 15 && a3 <= 17)) )
+  v4 = 1;
+  LOBYTE(v5) = a3 == 1 || a3 > 2 && (a3 <= 5 || a3 == 9 || a3 == 11 || a3 > 12 && (a3 <= 14 || a3 > 15 && a3 <= 17));
+  if ( (_BYTE)v5 )
     *(_QWORD *)(a1 + 24) = a2;
   if ( (W32kEtwEnabledKeyword & 0x2000000000008000LL) != 0 )
   {
-    LOBYTE(v5) = byte_1C028DB38 - 1;
-    if ( (unsigned __int8)(byte_1C028DB38 - 1) > 2u && (qword_1C028DB20 & 0x2000000000008000LL) != 0 )
+    LOBYTE(v5) = byte_1C024A738 - 1;
+    if ( (unsigned __int8)(byte_1C024A738 - 1) > 2u && (qword_1C024A720 & 0x2000000000008000LL) != 0 )
     {
       LOBYTE(v5) = 0;
-      if ( (qword_1C028DB28 & 0x2000000000008000LL) == qword_1C028DB28 && giPowerOffTimeOutMs > 0 )
+      if ( (qword_1C024A728 & 0x2000000000008000LL) == qword_1C024A728 && giPowerOffTimeOutMs > 0 )
       {
         v5 = ((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
            * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8);
@@ -30,13 +31,13 @@ char __fastcall CInputGlobals::_UpdateLastInputTime(__int64 a1, __int64 a2, int 
           && (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
         {
           if ( gProtocolType )
-            v3 = 0;
+            v4 = 0;
           LOBYTE(v5) = McTemplateK0qhq_EtwWriteTransfer(
                          giPowerOffTimeOutMs,
                          (unsigned int)&DisplayTimeoutResetEvent,
-                         0,
-                         v3,
-                         v3,
+                         a3,
+                         v4,
+                         v4,
                          giPowerOffTimeOutMs);
         }
       }

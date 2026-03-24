@@ -1,21 +1,21 @@
 /*
- * XREFs of NtAccessCheckByTypeResultList @ 0x1405F3FA0
+ * XREFs of NtAccessCheckByTypeResultList @ 0x140595D20
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14027DF60 (SeAccessCheckByType.c)
  */
 
 __int64 __fastcall NtAccessCheckByTypeResultList(
         __int16 *a1,
         void *a2,
         void *a3,
-        int a4,
+        unsigned int a4,
         __int64 a5,
         unsigned int a6,
-        _OWORD *a7,
+        __int128 *a7,
         _DWORD *a8,
-        PERESOURCE *a9,
+        unsigned int *a9,
         unsigned int *a10,
         int *a11)
 {

@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY MiInitializeDecayPfns()

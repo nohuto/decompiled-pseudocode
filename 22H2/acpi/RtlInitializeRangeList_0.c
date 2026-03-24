@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlInitializeRangeList_0 @ 0x1C0001A31
+ * XREFs of RtlInitializeRangeList_0 @ 0x1C0031CE1
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x1C00A1BA4 (ArbInitializeArbiterInstance.c)
- *     ArbInitializeRangeList @ 0x1C00A1FB0 (ArbInitializeRangeList.c)
+ *     ArbInitializeArbiterInstance @ 0x1C009FCF0 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeRangeList @ 0x1C00B7CE0 (ArbInitializeRangeList.c)
  * Callees:
  *     <none>
  */

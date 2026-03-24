@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpRotateFastOwnerEntrySublistHead @ 0x1403CA74C
+ * XREFs of ExpRotateFastOwnerEntrySublistHead @ 0x14038E448
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403CA3F0 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseFastResourceExclusive @ 0x1403CAD54 (ExpReleaseFastResourceExclusive.c)
- *     ExDisownFastResource @ 0x1403CBDA0 (ExDisownFastResource.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14060A734 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038DEEC (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseFastResourceShared @ 0x14038E280 (ExpReleaseFastResourceShared.c)
+ *     ExDisownFastResource @ 0x14038F020 (ExDisownFastResource.c)
+ *     ExpReleaseFastResourceExclusive @ 0x14038F4C0 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B49D0 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     ExpReplaceListEntry @ 0x1403CAC10 (ExpReplaceListEntry.c)
+ *     ExpReplaceListEntry @ 0x14038E4F4 (ExpReplaceListEntry.c)
  */
 
 __int64 __fastcall ExpRotateFastOwnerEntrySublistHead(__int64 a1, __int64 a2, char a3)
 {
-  _QWORD *v3; // rbx
-  __int64 *v5; // r10
-  __int64 v6; // rax
-  char v7; // al
-  __int64 v8; // r10
-  __int64 *v9; // rdx
-  _QWORD *v10; // r9
-  __int64 v11; // r10
+  _QWORD *v3; // rdi
+  __int64 *v5; // r11
+  __int64 v7; // rax
+  char v8; // al
+  __int64 v9; // r11
+  __int64 *v10; // rdx
+  _QWORD *v11; // r10
   __int64 v12; // r11
   __int64 v13; // rax
   __int64 *v14; // rdx
@@ -29,37 +29,37 @@ __int64 __fastcall ExpRotateFastOwnerEntrySublistHead(__int64 a1, __int64 a2, ch
   v5 = *(__int64 **)(a2 + 40);
   if ( v5[1] != a2 + 40 )
     goto LABEL_6;
-  v6 = *v5;
+  v7 = *v5;
   if ( *(__int64 **)(*v5 + 8) != v5 )
     goto LABEL_6;
-  *v3 = v6;
-  *(_QWORD *)(v6 + 8) = v3;
+  *v3 = v7;
+  *(_QWORD *)(v7 + 8) = v3;
   *((_BYTE *)v5 + 18) = 1;
-  v7 = *(_BYTE *)(a2 + 16);
+  v8 = *(_BYTE *)(a2 + 16);
   *(_BYTE *)(a2 + 18) = 0;
-  *((_BYTE *)v5 + 16) = v7;
+  *((_BYTE *)v5 + 16) = v8;
   *(_BYTE *)(a2 + 16) = 0;
   ExpReplaceListEntry(a2, v5);
-  ExpReplaceListEntry(v3, v8 + 40);
-  v13 = *v9;
-  if ( *(__int64 **)(*v9 + 8) != v9 )
+  ExpReplaceListEntry(v3, v9 + 40);
+  v13 = *v10;
+  if ( *(__int64 **)(*v10 + 8) != v10 )
     goto LABEL_6;
-  v10[1] = v9;
-  *v10 = v13;
-  *(_QWORD *)(v13 + 8) = v10;
-  *v9 = (__int64)v10;
-  v14 = (__int64 *)(v11 + 56);
+  v11[1] = v10;
+  *v11 = v13;
+  *(_QWORD *)(v13 + 8) = v11;
+  *v10 = (__int64)v11;
+  v14 = (__int64 *)(v12 + 56);
   if ( a3 )
-    return ExpReplaceListEntry(v10 + 7, v14);
-  ++*(_DWORD *)(v12 + 64);
-  result = v12 + 48;
-  v16 = *(__int64 ***)(v12 + 56);
-  if ( *v16 != (__int64 *)(v12 + 48) )
+    return ExpReplaceListEntry(v11 + 7, v14);
+  ++*(_DWORD *)(a1 + 64);
+  result = a1 + 48;
+  v16 = *(__int64 ***)(a1 + 56);
+  if ( *v16 != (__int64 *)(a1 + 48) )
 LABEL_6:
     __fastfail(3u);
   *v14 = result;
-  *(_QWORD *)(v11 + 64) = v16;
+  *(_QWORD *)(v12 + 64) = v16;
   *v16 = v14;
-  *(_QWORD *)(v12 + 56) = v14;
+  *(_QWORD *)(a1 + 56) = v14;
   return result;
 }

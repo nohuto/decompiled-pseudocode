@@ -1,31 +1,38 @@
 /*
- * XREFs of TtmpScheduledEvaluationWorker @ 0x1409A3B80
+ * XREFs of TtmpScheduledEvaluationWorker @ 0x1408FE040
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     TtmiSetTerminalPendingEvaluation @ 0x1409A36FC (TtmiSetTerminalPendingEvaluation.c)
- *     TtmiAcquireTerminalSession @ 0x1409A4BF0 (TtmiAcquireTerminalSession.c)
- *     TtmiReleaseSession @ 0x1409A4D48 (TtmiReleaseSession.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
  */
 
-LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)
+void __fastcall TtmpScheduledEvaluationWorker(PADAPTER_OBJECT DmaAdapter)
 {
-  LONG_PTR result; // rax
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v3; // rcx
+  int v4; // eax
 
-  v3 = 0LL;
-  result = (unsigned int)_InterlockedExchange(Object + 62, 0);
-  if ( (_DWORD)result )
+  if ( _InterlockedExchange((volatile __int32 *)&DmaAdapter[15].DmaOperations, 0) )
   {
-    TtmiAcquireTerminalSession(&v3, Object);
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquireResourceExclusiveLite(&TtmpSessionLock, 1u);
+    v3 = *(_QWORD *)&DmaAdapter[1].Version;
     if ( v3 )
     {
-      if ( (Object[9] & 3) == 0 )
-        TtmiSetTerminalPendingEvaluation(v3, (__int64)Object);
+      v4 = *(_DWORD *)(&DmaAdapter[2].Size + 1);
+      if ( (v4 & 1) == 0 && (v4 & 2) == 0 )
+      {
+        *(_DWORD *)(&DmaAdapter[2].Size + 1) = v4 | 4;
+        TtmiScheduleSessionWorker(v3, 2LL);
+      }
     }
-    TtmiReleaseSession(&v3);
-    return ObfDereferenceObject((PVOID)Object);
+    ExReleaseResourceLite(&TtmpSessionLock);
+    KeLeaveCriticalRegion();
+    HalPutDmaAdapter(DmaAdapter);
   }
-  return result;
 }

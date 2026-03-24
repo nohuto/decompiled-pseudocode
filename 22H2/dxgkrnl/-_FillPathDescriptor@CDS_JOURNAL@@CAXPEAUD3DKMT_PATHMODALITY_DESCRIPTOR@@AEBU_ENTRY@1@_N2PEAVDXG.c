@@ -1,164 +1,214 @@
 /*
- * XREFs of ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C03BFE94
+ * XREFs of ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C014CDE4
  * Callers:
- *     ?FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@@_N2PEAVDXGADAPTER@@@Z @ 0x1C03BF28C (-FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@.c)
- *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C03BF648 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
- *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C03BF7D8 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
+ *     ?FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@@_N2PEAVDXGADAPTER@@@Z @ 0x1C014FD6C (-FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@.c)
+ *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C0150028 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C02F1678 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
  * Callees:
- *     ??$_GetPixelFormatFromDevMode@U_unnamed_type_Mode_@_ENTRY@CDS_JOURNAL@@@CDS_JOURNAL@@CAJAEBU_unnamed_type_Mode_@_ENTRY@0@PEAW4_D3DDDIFORMAT@@@Z @ 0x1C006B788 (--$_GetPixelFormatFromDevMode@U_unnamed_type_Mode_@_ENTRY@CDS_JOURNAL@@@CDS_JOURNAL@@CAJAEBU_unn.c)
- *     ??$_GetRotationFromDevMode@U_unnamed_type_Mode_@_ENTRY@CDS_JOURNAL@@@CDS_JOURNAL@@CAJAEBU_unnamed_type_Mode_@_ENTRY@0@PEAW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C006B88C (--$_GetRotationFromDevMode@U_unnamed_type_Mode_@_ENTRY@CDS_JOURNAL@@@CDS_JOURNAL@@CAJAEBU_unname.c)
- *     ?_IsCDSJWidthAndHeightSwapped@CDS_JOURNAL@@CA_NPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C006B994 (-_IsCDSJWidthAndHeightSwapped@CDS_JOURNAL@@CA_NPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
- *     EnforceDriverModelScalingPolicy @ 0x1C016C3B0 (EnforceDriverModelScalingPolicy.c)
- *     _EnforceDriverModelScalingPolicy @ 0x1C016C484 (_EnforceDriverModelScalingPolicy.c)
- *     DxgkGetAdapterDefaultScaling @ 0x1C016D5A0 (DxgkGetAdapterDefaultScaling.c)
- *     ConvertGdiScalingToDMMScaling @ 0x1C0301650 (ConvertGdiScalingToDMMScaling.c)
- *     ?DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C03AD150 (-DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?_IsCDSJWidthAndHeightSwapped@CDS_JOURNAL@@CA_NPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C000D384 (-_IsCDSJWidthAndHeightSwapped@CDS_JOURNAL@@CA_NPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     EnforceDriverModelScalingPolicy @ 0x1C014EA18 (EnforceDriverModelScalingPolicy.c)
+ *     DxgkGetAdapterDefaultScaling @ 0x1C014EAF0 (DxgkGetAdapterDefaultScaling.c)
+ *     _EnforceDriverModelScalingPolicy @ 0x1C014F760 (_EnforceDriverModelScalingPolicy.c)
+ *     ConvertGdiScalingToDMMScaling @ 0x1C0150558 (ConvertGdiScalingToDMMScaling.c)
+ *     ?DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C02DD188 (-DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
  */
 
 void __fastcall CDS_JOURNAL::_FillPathDescriptor(
         struct D3DKMT_PATHMODALITY_DESCRIPTOR *a1,
         const struct CDS_JOURNAL::_ENTRY *a2,
-        char a3,
+        __int64 a3,
         char a4,
         struct DXGADAPTER *a5)
 {
   unsigned int *v5; // rdi
-  __int64 v7; // r10
-  int v11; // eax
-  int v12; // eax
-  __int64 v13; // r9
-  int v14; // r9d
-  __int64 v15; // r10
-  __int64 v16; // r9
-  int v17; // r10d
-  unsigned int v18; // ecx
-  struct DXGADAPTER *v19; // rbp
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *v20; // rdx
-  _DWORD *v21; // r14
+  int v6; // eax
+  __int64 v8; // r10
+  char v10; // r15
+  int v12; // ecx
+  int v13; // ecx
+  int v14; // eax
+  int v15; // eax
+  int v16; // eax
+  __int64 v17; // r11
+  int v18; // r9d
+  __int64 v19; // r11
+  int v20; // r9d
+  __int64 v21; // r10
   enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *v22; // rdx
-  char v23; // cl
-  unsigned int v24; // eax
-  __int64 v25; // rdx
+  char *v23; // rdx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  unsigned int v27; // eax
+  int v28; // eax
+  unsigned int v29; // ecx
+  int v30; // eax
+  int v31; // ecx
+  __int64 v32; // rcx
+  _QWORD *v33; // rax
+  __int64 v34; // rcx
+  _QWORD *v35; // rax
 
   *(_QWORD *)a1 &= 0xFFFFFFFFFF7DFE78uLL;
   v5 = (unsigned int *)((char *)a2 + 44);
-  v7 = *(_QWORD *)a1;
-  if ( (*((_DWORD *)a2 + 11) & 0x80u) != 0 )
+  v6 = *((_DWORD *)a2 + 11);
+  v8 = *(_QWORD *)a1;
+  v10 = a3;
+  v12 = v6;
+  if ( (v6 & 0x80u) != 0 )
   {
-    CDS_JOURNAL::_GetRotationFromDevMode<CDS_JOURNAL::_ENTRY::_unnamed_type_Mode_>(v5, (_DWORD *)a1 + 33);
+    v13 = *((_DWORD *)a2 + 14);
+    if ( v13 )
+    {
+      v31 = v13 - 1;
+      if ( !v31 )
+      {
+        *((_DWORD *)a1 + 33) = 2;
+        goto LABEL_4;
+      }
+      v32 = (unsigned int)(v31 - 1);
+      if ( !(_DWORD)v32 )
+      {
+        *((_DWORD *)a1 + 33) = 3;
+        goto LABEL_4;
+      }
+      if ( (_DWORD)v32 == 1 )
+      {
+        *((_DWORD *)a1 + 33) = 4;
+        goto LABEL_4;
+      }
+      v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v32, a2, a3);
+      v33[3] = v5;
+      v33[4] = *v5;
+      v33[5] = v5[3];
+      WdLogEvent5_WdWarning(v33);
+    }
+    *((_DWORD *)a1 + 33) = 1;
+LABEL_4:
     *(_QWORD *)a1 |= 0x200uLL;
     *((_QWORD *)a1 + 1) |= 0x200uLL;
-    v7 = *(_QWORD *)a1;
+    v6 = *v5;
+    v12 = *v5;
+    v8 = *(_QWORD *)a1;
   }
-  if ( _bittest((const signed __int32 *)v5, 0x13u) )
+  if ( (v6 & 0x80000) != 0 )
   {
-    v11 = *((_DWORD *)a2 + 17);
-    v7 |= 0x20000uLL;
-    *(_QWORD *)a1 = v7;
-    *((_DWORD *)a1 + 38) = v11;
+    v14 = *((_DWORD *)a2 + 17);
+    v8 |= 0x20000uLL;
+    *(_QWORD *)a1 = v8;
+    *((_DWORD *)a1 + 38) = v14;
+    v6 = *v5;
+    v12 = *v5;
   }
-  if ( _bittest((const signed __int32 *)v5, 0x14u) )
+  if ( (v6 & 0x100000) != 0 )
   {
-    v12 = *((_DWORD *)a2 + 18);
-    v7 |= 0x20000uLL;
-    *(_QWORD *)a1 = v7;
-    *((_DWORD *)a1 + 39) = v12;
+    v15 = *((_DWORD *)a2 + 18);
+    v8 |= 0x20000uLL;
+    *(_QWORD *)a1 = v8;
+    *((_DWORD *)a1 + 39) = v15;
+    v12 = *v5;
   }
   if ( (*((_DWORD *)a2 + 4) & 0x10) == 0 )
   {
-    v13 = v7;
-    if ( _bittest((const signed __int32 *)v5, 0x13u) )
+    v16 = v12;
+    v17 = v8;
+    if ( (v12 & 0x80000) != 0 )
     {
       if ( CDS_JOURNAL::_IsCDSJWidthAndHeightSwapped(a1) )
-        *((_DWORD *)a1 + 25) = v14;
+        *((_DWORD *)a1 + 25) = v18;
       else
-        *((_DWORD *)a1 + 24) = v14;
-      v13 = v15 | 0x40000000000100LL;
+        *((_DWORD *)a1 + 24) = v18;
+      v17 = v19 | 0x40000000000100LL;
       *((_QWORD *)a1 + 1) |= 0x100uLL;
-      *(_QWORD *)a1 = v15 | 0x40000000000100LL;
+      *(_QWORD *)a1 = v17;
+      v12 = *v5;
+      v16 = *v5;
     }
-    v7 = v13;
-    if ( _bittest((const signed __int32 *)v5, 0x14u) )
+    v8 = v17;
+    if ( (v16 & 0x100000) != 0 )
     {
       if ( CDS_JOURNAL::_IsCDSJWidthAndHeightSwapped(a1) )
-        *((_DWORD *)a1 + 24) = v17;
+        *((_DWORD *)a1 + 24) = v20;
       else
-        *((_DWORD *)a1 + 25) = v17;
-      v7 = v16 | 0x40000000000100LL;
+        *((_DWORD *)a1 + 25) = v20;
+      v8 = v21 | 0x40000000000100LL;
       *((_QWORD *)a1 + 1) |= 0x100uLL;
-      *(_QWORD *)a1 = v16 | 0x40000000000100LL;
+      *(_QWORD *)a1 = v8;
+      v12 = *v5;
     }
   }
-  if ( (*v5 & 0x20) != 0 )
+  if ( (v12 & 0x20) != 0 )
   {
-    v7 |= 0x800uLL;
+    v8 |= 0x800uLL;
     *((_QWORD *)a1 + 18) = *((_QWORD *)a2 + 6);
-    *(_QWORD *)a1 = v7;
+    *(_QWORD *)a1 = v8;
+    v12 = *v5;
   }
-  if ( (*v5 & 0x20000000) != 0 )
+  if ( (v12 & 0x20000000) != 0 && (v34 = *((unsigned int *)a2 + 15), (_DWORD)v34) )
   {
-    v18 = *((_DWORD *)a2 + 15);
-    if ( v18 )
-    {
-      ConvertGdiScalingToDMMScaling(v18, (_DWORD *)a1 + 35);
-      goto LABEL_23;
-    }
+    ConvertGdiScalingToDMMScaling(v34, (char *)a1 + 140);
   }
-  if ( (v7 & 0x10000) != 0 )
+  else if ( (v8 & 0x10000) == 0 )
   {
-LABEL_23:
-    v19 = a5;
-    v20 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)((char *)a1 + 140);
-    v21 = (_DWORD *)((char *)a1 + 140);
+    v22 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)((char *)a1 + 140);
     if ( a5 )
-    {
-LABEL_24:
-      EnforceDriverModelScalingPolicy((__int64)v19, v20);
-      goto LABEL_30;
-    }
-    goto LABEL_29;
+      DmmGetDefaultScaling(a5, v22);
+    else
+      DxgkGetAdapterDefaultScaling((char *)a2 + 20, v22);
   }
-  v19 = a5;
-  v22 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)((char *)a1 + 140);
+  v23 = (char *)a1 + 140;
   if ( a5 )
-  {
-    DmmGetDefaultScaling(a5, v22);
-    v20 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)((char *)a1 + 140);
-    v21 = (_DWORD *)((char *)a1 + 140);
-    goto LABEL_24;
-  }
-  DxgkGetAdapterDefaultScaling((struct _LUID *)((char *)a2 + 20), v22);
-  v20 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)((char *)a1 + 140);
-  v21 = (_DWORD *)((char *)a1 + 140);
-LABEL_29:
-  EnforceDriverModelScalingPolicy((struct _LUID *)((char *)a2 + 20), (__int64)v20);
-LABEL_30:
-  *((_DWORD *)a1 + 34) = *v21;
+    EnforceDriverModelScalingPolicy(a5, v23);
+  else
+    EnforceDriverModelScalingPolicy((char *)a2 + 20, v23);
+  *((_DWORD *)a1 + 34) = *((_DWORD *)a1 + 35);
   *(_QWORD *)a1 |= 0x40000010000uLL;
   if ( (*v5 & 0x40000) != 0 )
-    CDS_JOURNAL::_GetPixelFormatFromDevMode<CDS_JOURNAL::_ENTRY::_unnamed_type_Mode_>(v5, (_DWORD *)a1 + 29);
+  {
+    v27 = v5[5];
+    switch ( v27 )
+    {
+      case 0x20u:
+LABEL_28:
+        *((_DWORD *)a1 + 29) = 21;
+        break;
+      case 8u:
+        *((_DWORD *)a1 + 29) = 41;
+        break;
+      case 0x10u:
+        *((_DWORD *)a1 + 29) = 23;
+        break;
+      case 0x18u:
+        *((_DWORD *)a1 + 29) = 20;
+        break;
+      default:
+        v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v25, v24, v26);
+        v35[3] = v5;
+        v35[4] = *v5;
+        v35[5] = v5[5];
+        WdLogEvent5_WdWarning(v35);
+        goto LABEL_28;
+    }
+  }
+  v28 = *v5;
   if ( (*v5 & 0x200000) != 0 )
   {
-    v23 = -((*v5 & 0x200000) != 0 && (*((_BYTE *)a2 + 76) & 2) != 0);
-    v24 = *((_DWORD *)a1 + 20) & 0xFFFFFFF8;
+    v29 = *((_DWORD *)a1 + 20) & 0xFFFFFFF8 | (((*((_DWORD *)a2 + 20) & 2) != 0) + 1);
     *(_QWORD *)a1 |= 4uLL;
-    *((_DWORD *)a1 + 20) = v24 | ((v23 != 0) + 1);
+    *((_DWORD *)a1 + 20) = v29;
+    v28 = *v5;
   }
-  if ( (*v5 & 0x400000) != 0 )
+  if ( (v28 & 0x400000) != 0 )
   {
-    v25 = *(_QWORD *)a1;
-    *((_QWORD *)a1 + 28) = *((_QWORD *)a2 + 10);
-    if ( (v25 & 4) != 0 && (unsigned int)(((int)(*((_DWORD *)a1 + 20) << 29) >> 29) - 2) <= 1 )
-    {
-      if ( (unsigned int)(2 * *((_DWORD *)a2 + 20)) <= *((_DWORD *)a2 + 20) )
-        *((_DWORD *)a1 + 57) >>= 1;
-      else
-        *((_DWORD *)a1 + 56) *= 2;
-    }
-    *((_DWORD *)a1 + 60) = 1;
-    *(_QWORD *)a1 = v25 | 0x1000000;
+    if ( (*(_BYTE *)a1 & 4) != 0 && (unsigned int)(((int)(*((_DWORD *)a1 + 20) << 29) >> 29) - 2) <= 1 )
+      v30 = 2 * *((_DWORD *)a2 + 19);
+    else
+      v30 = *((_DWORD *)a2 + 19);
+    *((_DWORD *)a1 + 13) = v30;
+    *(_QWORD *)a1 |= 2uLL;
+    *((_DWORD *)a1 + 14) = 1;
   }
-  if ( !a4 && !a3 )
+  if ( !a4 && !v10 )
   {
     *((_DWORD *)a1 + 33) = 0;
     *(_QWORD *)a1 &= ~0x200uLL;

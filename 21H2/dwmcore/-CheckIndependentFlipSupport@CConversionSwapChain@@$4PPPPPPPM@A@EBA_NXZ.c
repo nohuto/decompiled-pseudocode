@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckIndependentFlipSupport@CConversionSwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x180109CF0
+ * XREFs of ?CheckIndependentFlipSupport@CConversionSwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F7940
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CConversionSwapChain::CheckIndependentFlipSupport(__int64 a1)
 {
-  return CLegacyStereoSwapChain::CheckIndependentFlipSupport((CLegacyStereoSwapChain *)(a1 - *(int *)(a1 - 4)));
+  return CWICBitmapRealization::IsProtected((CWICBitmapRealization *)(a1 - *(int *)(a1 - 4)));
 }

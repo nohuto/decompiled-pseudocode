@@ -1,19 +1,17 @@
 /*
- * XREFs of ExtEnvFreeMemory @ 0x14051F66C
+ * XREFs of ExtEnvFreeMemory @ 0x1404D52FC
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     IvtCreateDevice @ 0x14037FF50 (IvtCreateDevice.c)
- *     HalpIvtCreateReservedDevice @ 0x140380150 (HalpIvtCreateReservedDevice.c)
- *     IvtFreeScalableModePasidTables @ 0x14052C888 (IvtFreeScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x14052ED60 (HsaAllocateRemappingTableEntry.c)
- *     HsaCreateDevice @ 0x14052F540 (HsaCreateDevice.c)
- *     HsaDeleteDevice @ 0x14052F660 (HsaDeleteDevice.c)
- *     HsaFreeRemappingTableEntry @ 0x14052FEC0 (HsaFreeRemappingTableEntry.c)
- *     IvtDeleteDevice @ 0x140534BE0 (IvtDeleteDevice.c)
- *     DmrFreeRmrrTree @ 0x14053512C (DmrFreeRmrrTree.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2000 (HsaAllocateRemappingTableEntry.c)
+ *     HsaCreateDevice @ 0x1404E27E0 (HsaCreateDevice.c)
+ *     IvtDeleteDevice @ 0x1404E2930 (IvtDeleteDevice.c)
+ *     HsaFreeRemappingTableEntry @ 0x1404E34D0 (HsaFreeRemappingTableEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     IvtCreateDevice @ 0x1404E7970 (IvtCreateDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7C20 (HalpIvtCreateReservedDevice.c)
+ *     DmrFreeRmrrTree @ 0x1404E87F4 (DmrFreeRmrrTree.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     HalpMmIsInsideHalVa @ 0x140505794 (HalpMmIsInsideHalVa.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmIsInsideHalVa @ 0x1404BC974 (HalpMmIsInsideHalVa.c)
  */
 
 __int64 __fastcall ExtEnvFreeMemory(__int64 a1, unsigned __int64 a2)

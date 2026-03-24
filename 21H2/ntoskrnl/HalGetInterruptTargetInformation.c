@@ -1,11 +1,10 @@
 /*
- * XREFs of HalGetInterruptTargetInformation @ 0x1403D8950
+ * XREFs of HalGetInterruptTargetInformation @ 0x1403C9A60
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptIsMsiSupported @ 0x1403D8A98 (HalpInterruptIsMsiSupported.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C9BA8 (HalpInterruptIsMsiSupported.c)
  */
 
 __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
@@ -22,7 +21,7 @@ __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
 
   if ( a1 && a1 != 2 )
   {
-    HalpInterruptSetProblemEx(0, 19, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 420);
+    HalpInterruptLastProblem = 19;
     return 3221225485LL;
   }
   *(_QWORD *)(a3 + 4) = 0LL;
@@ -54,7 +53,7 @@ __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
     v12 = HalpInterruptTargets;
     v13 = 3LL * ProcessorIndexFromNumber;
     if ( v7 == 1
-      || (v14 = qword_140C4DD68[*(unsigned __int16 *)(i + 16)], _bittest64(&v14, *(unsigned __int8 *)(i + 18))) )
+      || (v14 = qword_140C4BA48[*(unsigned __int16 *)(i + 16)], _bittest64(&v14, *(unsigned __int8 *)(i + 18))) )
     {
       *(_DWORD *)(a3 + 12) = 0;
       *(_DWORD *)(a3 + 20) = 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z @ 0x1C007C5C0
+ * XREFs of ?ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z @ 0x1C001E298
  * Callers:
- *     ?ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z @ 0x1C007967C (-ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z.c)
+ *     ?ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z @ 0x1C001E200 (-ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionSurface::ConfirmIndependentFlipEntry(
@@ -23,7 +23,7 @@ __int64 __fastcall CCompositionSurface::ConfirmIndependentFlipEntry(
   v11 = 0LL;
   Buffer = CCompositionSurface::FindBuffer(this, a2, &v11);
   if ( Buffer >= 0 )
-    (*(void (__fastcall **)(struct CCompositionBuffer *, __int64, __int64, _QWORD, unsigned int, unsigned __int64))(*(_QWORD *)v11 + 208LL))(
+    (*(void (__fastcall **)(struct CCompositionBuffer *, __int64, __int64, _QWORD, unsigned int, unsigned __int64))(*(_QWORD *)v11 + 192LL))(
       v11,
       a3,
       v9,

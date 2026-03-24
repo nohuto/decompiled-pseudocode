@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetPortableOperatingSystem @ 0x1402EFAC0
+ * XREFs of RtlSetPortableOperatingSystem @ 0x1402EFBC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteRegistryValue @ 0x1406C2280 (RtlWriteRegistryValue.c)
+ *     RtlWriteRegistryValue @ 0x1406C2260 (RtlWriteRegistryValue.c)
  */
 
 NTSTATUS __fastcall RtlSetPortableOperatingSystem(char a1)

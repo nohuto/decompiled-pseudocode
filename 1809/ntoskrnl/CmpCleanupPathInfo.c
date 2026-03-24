@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCleanupPathInfo @ 0x140640F10
+ * XREFs of CmpCleanupPathInfo @ 0x140640EF0
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)

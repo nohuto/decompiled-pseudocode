@@ -3,10 +3,10 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KiInitializeMutant @ 0x1400DD358 (KiInitializeMutant.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 bool __fastcall ExpProfileInitialization(__int64 a1, __int64 a2, __int64 a3)

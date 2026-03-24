@@ -1,77 +1,74 @@
 /*
- * XREFs of ?VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0384020
+ * XREFs of ?VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0245EB0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B7A4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C02CEFF4 (-DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDX.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0005218 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00269AC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C00D6980 (-DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDX.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusQueryClockCalibration(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
-  __int64 v5; // rcx
-  __int64 v6; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  __int64 v11; // r8
+  __int64 v12; // r9
   struct DXGPROCESS *Current; // rax
   int ClockCalibrationInternal; // eax
-  struct VMBPACKETCOMPLETION__ *v9; // rcx
-  _BYTE v10[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v11; // [rsp+58h] [rbp-40h]
-  int v12; // [rsp+60h] [rbp-38h]
-  _OWORD v13[2]; // [rsp+68h] [rbp-30h] BYREF
+  struct VMBPACKETCOMPLETION__ *v15; // rcx
+  _BYTE v16[8]; // [rsp+20h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v17; // [rsp+28h] [rbp-40h]
+  int v18; // [rsp+30h] [rbp-38h]
+  _OWORD v19[2]; // [rsp+38h] [rbp-30h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v10, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v11);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v12 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v17);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v18 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v6 = CastToVmBusCommand<DXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC>((__int64)a1);
-    if ( v6 )
+    v10 = CastToVmBusCommand<DXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC>((__int64)a1);
+    if ( v10 )
     {
-      memset(v13, 0, sizeof(v13));
-      Current = DXGPROCESS::GetCurrent(v5);
+      memset(v19, 0, sizeof(v19));
+      Current = DXGPROCESS::GetCurrent(v9, v8, v11, v12);
       if ( Current )
       {
         ClockCalibrationInternal = DxgkQueryClockCalibrationInternal(
                                      Current,
-                                     (struct _D3DKMT_QUERYCLOCKCALIBRATION *)(v6 + 24),
-                                     *(struct DXGADAPTER **)(*((_QWORD *)a1 + 10) + 16LL));
-        v9 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-        LODWORD(v13[0]) = ClockCalibrationInternal;
-        *(_OWORD *)((char *)v13 + 4) = *(_OWORD *)(v6 + 36);
-        *(_QWORD *)((char *)&v13[1] + 4) = *(_QWORD *)(v6 + 52);
-        HIDWORD(v13[1]) = *(_DWORD *)(v6 + 60);
-        VmBusCompletePacket(v9, v13, 0x20u);
+                                     (struct _D3DKMT_QUERYCLOCKCALIBRATION *)(v10 + 24),
+                                     *(struct DXGADAPTER **)(*((_QWORD *)a1 + 5) + 16LL));
+        v15 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+        LODWORD(v19[0]) = ClockCalibrationInternal;
+        *(_OWORD *)((char *)v19 + 4) = *(_OWORD *)(v10 + 36);
+        *(_QWORD *)((char *)&v19[1] + 4) = *(_QWORD *)(v10 + 52);
+        HIDWORD(v19[1]) = *(_DWORD *)(v10 + 60);
+        VmBusCompletePacket(v15, v19, 0x20u);
         goto LABEL_4;
       }
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 3267LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      3267LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 2826LL;
+    WdLogEvent5_WdError(v6);
   }
-  v3 = 0;
+  v5 = 0;
 LABEL_4:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v10);
-  return v3;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16);
+  return v5;
 }

@@ -1,26 +1,22 @@
 /*
- * XREFs of DrvGetHDEV @ 0x1C005AF70
+ * XREFs of DrvGetHDEV @ 0x1C0022770
  * Callers:
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
+ *     hdcOpenDCW @ 0x1C0022A00 (hdcOpenDCW.c)
  * Callees:
- *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0041CF0 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     DrvGetDeviceFromName @ 0x1C005B090 (DrvGetDeviceFromName.c)
+ *     DrvGetDeviceFromName @ 0x1C0022870 (DrvGetDeviceFromName.c)
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0031720 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
-__int64 *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
+struct PDEV *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
 {
-  __int64 *v1; // rsi
-  __int64 v2; // rcx
+  struct PDEV *v1; // rsi
   __int64 DeviceFromName; // rbp
-  __int64 *v4; // rdi
-  __int64 v5; // r14
-  __int64 v6; // rcx
-  __int64 *v7; // rbx
-  __int64 v8; // rax
-  struct _ERESOURCE *v9; // rcx
+  struct PDEV *v3; // rdi
+  struct PDEV *v4; // rbx
+  __int64 v5; // rax
 
   v1 = 0LL;
   if ( a1 )
@@ -28,49 +24,43 @@ __int64 *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
     DeviceFromName = DrvGetDeviceFromName(a1);
     if ( DeviceFromName )
     {
-      v4 = 0LL;
-      v5 = *(_QWORD *)(SGDGetSessionState(v2) + 24);
-      EngAcquireSemaphore(*(HSEMAPHORE *)(v5 + 8));
-      EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v5 + 8), 16);
-      v7 = *(__int64 **)(*(_QWORD *)(SGDGetSessionState(v6) + 24) + 6080LL);
-      if ( v7 )
+      v3 = 0LL;
+      EngAcquireSemaphore(ghsemDriverMgmt);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+      v4 = gppdevList;
+      if ( gppdevList )
       {
         do
         {
-          v8 = v7[319];
-          if ( v8 && v8 == DeviceFromName )
+          v5 = *((_QWORD *)v4 + 322);
+          if ( v5 && v5 == DeviceFromName )
           {
-            if ( (v7[5] & 0x400) == 0 )
+            if ( (*((_DWORD *)v4 + 10) & 0x400) == 0 )
             {
-              ++*((_DWORD *)v7 + 2);
-              TrackObjectReferenceIncrement(
-                1LL,
-                (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *)v7[440]);
-              v1 = v7;
+              ++*((_DWORD *)v4 + 2);
+              TrackObjectReferenceIncrement(1LL, *((_QWORD *)v4 + 443));
+              v1 = v4;
               goto LABEL_8;
             }
-            if ( !v4 )
-              v4 = v7;
+            if ( !v3 )
+              v3 = v4;
           }
-          v7 = (__int64 *)*v7;
+          v4 = *(struct PDEV **)v4;
         }
-        while ( v7 );
-        if ( v4 )
+        while ( v4 );
+        if ( v3 )
         {
-          v4[4] = 0LL;
-          ++*((_DWORD *)v4 + 2);
-          TrackObjectReferenceIncrement(
-            1LL,
-            (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *)v4[440]);
-          v1 = v4;
+          *((_QWORD *)v3 + 4) = 0LL;
+          ++*((_DWORD *)v3 + 2);
+          TrackObjectReferenceIncrement(1LL, *((_QWORD *)v3 + 443));
+          v1 = v3;
         }
       }
 LABEL_8:
-      EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v5 + 8));
-      v9 = *(struct _ERESOURCE **)(v5 + 8);
-      if ( v9 )
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+      if ( ghsemDriverMgmt )
       {
-        ExReleaseResourceAndLeaveCriticalRegion(v9);
+        ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
         PsLeavePriorityRegion();
       }
     }

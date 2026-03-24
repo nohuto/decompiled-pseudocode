@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddNotificationTokens@SfmTokenArray@@QEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@I@Z @ 0x1C00AB690
+ * XREFs of ?AddNotificationTokens@SfmTokenArray@@QEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@I@Z @ 0x1C0097DB0
  * Callers:
- *     ?TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z @ 0x1C00AB660 (-TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z.c)
+ *     ?TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z @ 0x1C0097D80 (-TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z.c)
  * Callees:
- *     ?EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z @ 0x1C00AB794 (-EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z @ 0x1C0097EB4 (-EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall SfmTokenArray::AddNotificationTokens(

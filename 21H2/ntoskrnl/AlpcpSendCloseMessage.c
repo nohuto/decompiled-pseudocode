@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpSendCloseMessage @ 0x14074E73C
+ * XREFs of AlpcpSendCloseMessage @ 0x1405E1FC8
  * Callers:
- *     AlpcpDeletePort @ 0x14074D800 (AlpcpDeletePort.c)
- *     AlpcpClosePort @ 0x14074DA90 (AlpcpClosePort.c)
+ *     AlpcpClosePort @ 0x1405E2CA0 (AlpcpClosePort.c)
+ *     AlpcpDeletePort @ 0x1405E2D20 (AlpcpDeletePort.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     AlpcpDispatchCloseMessage @ 0x14074E85C (AlpcpDispatchCloseMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpDispatchCloseMessage @ 0x1405DF2D0 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpSendCloseMessage(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall AlpcpSendCloseMessage(__int64 a1)
   __int64 result; // rax
   int v3; // edx
   ULONG_PTR v4; // rbx
-  _QWORD v5[8]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v5[8]; // [rsp+20h] [rbp-48h] BYREF
 
   memset(v5, 0, sizeof(v5));
   result = *(unsigned int *)(a1 + 416);

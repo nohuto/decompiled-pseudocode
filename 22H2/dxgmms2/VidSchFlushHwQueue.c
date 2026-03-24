@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchFlushHwQueue @ 0x1C0107400
+ * XREFs of VidSchFlushHwQueue @ 0x1C0034D00
  * Callers:
- *     VidSchTerminateHwQueue @ 0x1C00451A0 (VidSchTerminateHwQueue.c)
+ *     VidSchTerminateHwQueue @ 0x1C003AB90 (VidSchTerminateHwQueue.c)
  * Callees:
- *     VidSchiInterlockedReadUlong @ 0x1C000258C (VidSchiInterlockedReadUlong.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ??$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C003D030 (--$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@.c)
- *     VidSchiWaitFlushCompletion @ 0x1C0087DCC (VidSchiWaitFlushCompletion.c)
+ *     VidSchiInterlockedReadUlong @ 0x1C0011B4C (VidSchiInterlockedReadUlong.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ??$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0032678 (--$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C008049C (VidSchiWaitFlushCompletion.c)
  */
 
 __int64 __fastcall VidSchFlushHwQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -20,15 +20,15 @@ __int64 __fastcall VidSchFlushHwQueue(__int64 a1, __int64 a2, __int64 a3, __int6
   v4 = *(_QWORD *)(a1 + 40);
   v6 = *(_QWORD *)(*(_QWORD *)(v4 + 8) + 32LL);
   VidSchRundownUnorderedWaiter<VIDSCH_HW_QUEUE>(a1, v6, a3, a4, v9);
-  memset(v10, 0, sizeof(v10));
   v7 = (_DWORD *)(a1 + 148);
   if ( *v7 )
   {
+    memset(v10, 0, sizeof(v10));
     LODWORD(v10[4]) |= 0x50u;
     LODWORD(v10[2]) = 1;
     v10[5] = v7;
     LODWORD(v10[6]) = *(unsigned __int16 *)(*(_QWORD *)(v4 + 16) + 4LL);
-    VidSchiWaitFlushCompletion(v6, (__int64)v10, 0x16u);
+    VidSchiWaitFlushCompletion(v6, v10, 22LL);
   }
-  return VidSchiInterlockedReadUlong((KSPIN_LOCK *)(v6 + 1728), v7);
+  return VidSchiInterlockedReadUlong((KSPIN_LOCK *)(v6 + 1712), v7);
 }

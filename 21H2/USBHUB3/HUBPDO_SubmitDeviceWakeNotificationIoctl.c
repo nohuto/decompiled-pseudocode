@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C001A140
+ * XREFs of HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C0019BF0
  * Callers:
- *     HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C001A390 (HUBPDO_EvtDeviceEnableWakeAtBus.c)
+ *     HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C0019E40 (HUBPDO_EvtDeviceEnableWakeAtBus.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
@@ -38,19 +38,19 @@ __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v7 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v6);
   }
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v5,
-         off_1C0067300);
+         off_1C00662B8);
   *(_OWORD *)v8 = 0LL;
   *(_QWORD *)(v8 + 16) = 0LL;
   *(_WORD *)(v8 + 2) = 24;
@@ -85,7 +85,7 @@ __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
         4u,
         5u,
         0x82u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v11);
     }
   }

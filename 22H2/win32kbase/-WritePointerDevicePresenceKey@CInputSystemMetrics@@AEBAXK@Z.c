@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C0082EA4
+ * XREFs of ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C008C444
  * Callers:
- *     InitializeInputComponents @ 0x1C00821D8 (InitializeInputComponents.c)
- *     ForceUpdatePointerDeviceSystemMetrics @ 0x1C0082D10 (ForceUpdatePointerDeviceSystemMetrics.c)
- *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01FCA08 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
+ *     ?Initialize@CInputSystemMetrics@@SAJXZ @ 0x1C008C24C (-Initialize@CInputSystemMetrics@@SAJXZ.c)
+ *     ForceUpdatePointerDeviceSystemMetrics @ 0x1C008C2B0 (ForceUpdatePointerDeviceSystemMetrics.c)
+ *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01BDAC8 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputSystemMetrics::WritePointerDevicePresenceKey(CInputSystemMetrics *this, int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of Bulk_Stage_FreeScatterGatherList @ 0x1C00118F4
+ * XREFs of Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8
  * Callers:
- *     Bulk_CompleteTransfers @ 0x1C000E638 (Bulk_CompleteTransfers.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046EFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_CompleteTransfers @ 0x1C000C2F0 (Bulk_CompleteTransfers.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     TR_SendCompleteStageRequest @ 0x1C0041B60 (TR_SendCompleteStageRequest.c)
- *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C00520B0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_SendCompleteStageRequest @ 0x1C003F64C (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004F3D0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
  */
 
 void __fastcall Bulk_Stage_FreeScatterGatherList(__int64 a1, __int64 a2)

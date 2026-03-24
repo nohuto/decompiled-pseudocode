@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateUltraThreadContextHelper @ 0x14013CB2C
+ * XREFs of MiCreateUltraThreadContextHelper @ 0x14013CB4C
  * Callers:
- *     MiCreateUltraThreadContext @ 0x14013CAC4 (MiCreateUltraThreadContext.c)
- *     MiGetUltraMdlContext @ 0x1402CDEEC (MiGetUltraMdlContext.c)
+ *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
+ *     MiGetUltraMdlContext @ 0x1402CDFEC (MiGetUltraMdlContext.c)
  * Callees:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x14013DA0C (MiAcquireNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceInputQueueUnLocked @ 0x1C00D0330
+ * XREFs of EtwTraceInputQueueUnLocked @ 0x1C00B67A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cpq_EtwWriteTransfer @ 0x1C014F674 (McTemplateK0cpq_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cpq_EtwWriteTransfer @ 0x1C0124D1C (McTemplateK0cpq_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceInputQueueUnLocked(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall EtwTraceInputQueueUnLocked(__int64 a1)
     ThreadId = 0;
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    LOBYTE(v4) = GetCallbackCount();
+    LOBYTE(v4) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
     McTemplateK0cpq_EtwWriteTransfer(v5, (unsigned int)&InputQueueUnLocked, v6, v4, v1, ThreadId);
   }
 }

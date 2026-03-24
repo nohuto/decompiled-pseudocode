@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbBacktrackAllocation @ 0x1C00B76C0
+ * XREFs of ArbBacktrackAllocation @ 0x1C00B7BC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteRange_0 @ 0x1C002F20D (RtlDeleteRange_0.c)
+ *     RtlDeleteRange_0 @ 0x1C0031D4D (RtlDeleteRange_0.c)
  */
 
 NTSTATUS __fastcall ArbBacktrackAllocation(__int64 a1, ULONGLONG *a2)

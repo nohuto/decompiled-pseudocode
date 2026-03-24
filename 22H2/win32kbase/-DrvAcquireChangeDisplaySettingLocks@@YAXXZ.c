@@ -1,33 +1,25 @@
 /*
- * XREFs of ?DrvAcquireChangeDisplaySettingLocks@@YAXXZ @ 0x1C0019A60
+ * XREFs of ?DrvAcquireChangeDisplaySettingLocks@@YAXXZ @ 0x1C00158D4
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     IsGetghsemEnableEUDCSupported @ 0x1C0019A08 (IsGetghsemEnableEUDCSupported.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void DrvAcquireChangeDisplaySettingLocks(void)
 {
-  int v0; // eax
-  HSEMAPHORE v1; // rcx
-  HSEMAPHORE *v2; // rbx
+  HSEMAPHORE v0; // rax
 
-  v0 = IsGetghsemEnableEUDCSupported();
-  v1 = 0LL;
-  if ( v0 >= 0 )
-  {
-    if ( qword_1C0294808 )
-      v1 = (HSEMAPHORE)qword_1C0294808(0LL);
-    EngAcquireSemaphore(v1);
-  }
-  v2 = *(HSEMAPHORE **)(SGDGetSessionState(v1) + 24);
-  EngAcquireSemaphore(v2[10]);
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDynamicModeChange", v2[10], 1LL);
-  EngAcquireSemaphore(v2[15]);
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemGreLock", v2[15], 2LL);
-  EngAcquireSemaphore(v2[11]);
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDCVisRgn", v2[11], 3LL);
+  v0 = 0LL;
+  if ( qword_1C02553F8 )
+    v0 = (HSEMAPHORE)qword_1C02553F8();
+  EngAcquireSemaphore(v0);
+  EngAcquireSemaphore(ghsemDynamicModeChange);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
+  EngAcquireSemaphore(ghsemGreLock);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
+  EngAcquireSemaphore(ghsemDCVisRgn);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnTransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@K_NPEAU2@@Z @ 0x1802AE9A0
+ * XREFs of ?UnTransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@K_NPEAU2@@Z @ 0x18026BC10
  * Callers:
- *     ?GetGlobalMotion@CInteractionContextWrapper@@UEAA?AUInteractionMotion@@XZ @ 0x180273610 (-GetGlobalMotion@CInteractionContextWrapper@@UEAA-AUInteractionMotion@@XZ.c)
+ *     ?GetGlobalMotion@CInteractionContextWrapper@@UEAA?AUInteractionMotion@@XZ @ 0x180230880 (-GetGlobalMotion@CInteractionContextWrapper@@UEAA-AUInteractionMotion@@XZ.c)
  * Callees:
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800AEBA8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     TransformTranslateDelta @ 0x1802AE918 (TransformTranslateDelta.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800072B8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     TransformTranslateDelta @ 0x18026BB88 (TransformTranslateDelta.c)
  */
 
 void __fastcall CInteractionContextTransformHelper::UnTransformOutput(

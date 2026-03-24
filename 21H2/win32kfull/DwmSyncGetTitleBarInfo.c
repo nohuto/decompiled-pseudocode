@@ -1,16 +1,16 @@
 /*
- * XREFs of DwmSyncGetTitleBarInfo @ 0x1C00CC71C
+ * XREFs of DwmSyncGetTitleBarInfo @ 0x1C002E654
  * Callers:
- *     xxxGetTitleBarInfoEx @ 0x1C00CC5FC (xxxGetTitleBarInfoEx.c)
+ *     xxxGetTitleBarInfoEx @ 0x1C002E528 (xxxGetTitleBarInfoEx.c)
  * Callees:
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C00CCA80 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EB28 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmSyncGetTitleBarInfo(PVOID Object, __int64 a2, __int64 a3, ULONG *a4)
 {
-  int v8; // edi
+  signed int v8; // edi
   union _PORT_MESSAGE::$C6BC508B531A81D74C33985719C23F49 v9; // xmm0
   __int128 v10; // xmm1
   __int64 v11; // rax
@@ -34,6 +34,7 @@ __int64 __fastcall DwmSyncGetTitleBarInfo(PVOID Object, __int64 a2, __int64 a3, 
   v8 = -1073741823;
   if ( Object )
   {
+    v8 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
     if ( !gbInVideoPnpCallout )
     {
       memset(v28, 0, 0xC4uLL);

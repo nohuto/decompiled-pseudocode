@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpSegMgrAllocate @ 0x14031491C
+ * XREFs of RtlpHpSegMgrAllocate @ 0x1402FD630
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x140312098 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x1402FC658 (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x14024F060 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrReserve @ 0x1403149D4 (RtlpHpSegMgrReserve.c)
- *     RtlpHpSegMgrRelease @ 0x1403150E8 (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x140355BA8 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrCommit @ 0x14028AC90 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrReserve @ 0x1402FD6E8 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x1402FDBE0 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrRelease @ 0x140389454 (RtlpHpSegMgrRelease.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
+__int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
 {
   int v6; // r9d
-  unsigned __int64 v7; // rbx
-  unsigned __int64 v8; // rdi
+  __int64 v7; // rbx
+  __int64 v8; // rdi
   int v10; // [rsp+20h] [rbp-38h]
   unsigned int v11; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp-10h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-10h] BYREF
   unsigned int v13; // [rsp+78h] [rbp+20h] BYREF
 
   v11 = 0;
@@ -45,6 +45,6 @@ unsigned __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
     }
   }
   if ( v7 )
-    RtlpHpSegMgrRelease(a1, v7, 0LL);
+    RtlpHpSegMgrRelease(a1);
   return v8;
 }

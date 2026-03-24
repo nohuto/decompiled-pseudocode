@@ -1,60 +1,60 @@
 /*
- * XREFs of VfDeadlockAcquireResource @ 0x140A97900
+ * XREFs of VfDeadlockAcquireResource @ 0x1409DD5C8
  * Callers:
- *     VerifierKeAcquireInStackQueuedSpinLock @ 0x140A7F1D0 (VerifierKeAcquireInStackQueuedSpinLock.c)
- *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x140A7F280 (VerifierKeAcquireSpinLockRaiseToDpc.c)
- *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140A95B00 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140A95B80 (VerifierKeAcquireInStackQueuedSpinLockForDpc.c)
- *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x140A95C00 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
- *     VerifierKeAcquireSpinLockAtDpcLevel @ 0x140A95D30 (VerifierKeAcquireSpinLockAtDpcLevel.c)
- *     VerifierKeInitializeMutant @ 0x140A95E00 (VerifierKeInitializeMutant.c)
- *     VerifierKeTryToAcquireSpinLockAtDpcLevel @ 0x140A963C0 (VerifierKeTryToAcquireSpinLockAtDpcLevel.c)
- *     ViKeObjectAcquired @ 0x140A96904 (ViKeObjectAcquired.c)
- *     VerifierExAcquireFastMutex @ 0x140A9C1E0 (VerifierExAcquireFastMutex.c)
- *     VerifierExAcquireFastMutexUnsafe @ 0x140A9C250 (VerifierExAcquireFastMutexUnsafe.c)
- *     VerifierExTryToAcquireFastMutex @ 0x140A9C3A0 (VerifierExTryToAcquireFastMutex.c)
- *     VerifierExAcquireResourceExclusiveLite @ 0x140AA1070 (VerifierExAcquireResourceExclusiveLite.c)
- *     VerifierExAcquireResourceSharedLite @ 0x140AA10E0 (VerifierExAcquireResourceSharedLite.c)
- *     VerifierExAcquireSharedStarveExclusive @ 0x140AA1150 (VerifierExAcquireSharedStarveExclusive.c)
- *     VerifierExAcquireSharedWaitForExclusive @ 0x140AA11C0 (VerifierExAcquireSharedWaitForExclusive.c)
- *     VerifierExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140AA1250 (VerifierExEnterCriticalRegionAndAcquireResourceExclusive.c)
- *     VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x140AA12B0 (VerifierExEnterCriticalRegionAndAcquireResourceShared.c)
- *     VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x140AA1310 (VerifierExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     VerifierExEnterPriorityRegionAndAcquireResourceShared @ 0x140AA1370 (VerifierExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     VerifierKeAcquireInStackQueuedSpinLock @ 0x1409DA500 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1409DA550 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x1409DA720 (VerifierKeAcquireInStackQueuedSpinLockForDpc.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1409DA820 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeAcquireSpinLockAtDpcLevel @ 0x1409DA990 (VerifierKeAcquireSpinLockAtDpcLevel.c)
+ *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x1409DAA00 (VerifierKeAcquireSpinLockRaiseToDpc.c)
+ *     VerifierKeInitializeMutant @ 0x1409DABD0 (VerifierKeInitializeMutant.c)
+ *     VerifierKeTryToAcquireSpinLockAtDpcLevel @ 0x1409DB860 (VerifierKeTryToAcquireSpinLockAtDpcLevel.c)
+ *     ViKeObjectAcquired @ 0x1409DC204 (ViKeObjectAcquired.c)
+ *     VerifierExAcquireResourceExclusiveLite @ 0x1409E1AE0 (VerifierExAcquireResourceExclusiveLite.c)
+ *     VerifierExAcquireResourceSharedLite @ 0x1409E1BB0 (VerifierExAcquireResourceSharedLite.c)
+ *     VerifierExAcquireSharedStarveExclusive @ 0x1409E1C80 (VerifierExAcquireSharedStarveExclusive.c)
+ *     VerifierExAcquireSharedWaitForExclusive @ 0x1409E1D50 (VerifierExAcquireSharedWaitForExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1409E1FC0 (VerifierExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x1409E2060 (VerifierExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1409E2100 (VerifierExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     VerifierExEnterPriorityRegionAndAcquireResourceShared @ 0x1409E2180 (VerifierExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E4710 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexUnsafe @ 0x1409E4840 (VerifierExAcquireFastMutexUnsafe.c)
+ *     VerifierExTryToAcquireFastMutex @ 0x1409E4A30 (VerifierExTryToAcquireFastMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x140601864 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1406018DC (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140A7F8F2 (ViDeadlockCanProceed.c)
- *     ViDeadlockAddResource @ 0x140A98ACC (ViDeadlockAddResource.c)
- *     ViDeadlockAddThread @ 0x140A98D0C (ViDeadlockAddThread.c)
- *     ViDeadlockAllocate @ 0x140A98DCC (ViDeadlockAllocate.c)
- *     ViDeadlockAnalyze @ 0x140A98E28 (ViDeadlockAnalyze.c)
- *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140A992BC (ViDeadlockCheckDuplicatesAmongChildren.c)
- *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140A9933C (ViDeadlockCheckDuplicatesAmongRoots.c)
- *     ViDeadlockDetectionLock @ 0x140A994C4 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140A994FC (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140A997C0 (ViDeadlockFree.c)
- *     ViDeadlockPreprocessOptions @ 0x140A99A38 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveThread @ 0x140A99E14 (ViDeadlockRemoveThread.c)
- *     ViDeadlockSearchResource @ 0x140A99F58 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140A9A000 (ViDeadlockSearchThread.c)
- *     ViDeadlockSimilarNode @ 0x140A9A090 (ViDeadlockSimilarNode.c)
- *     ViDeadlockUpdateChildrenCount @ 0x140A9A13C (ViDeadlockUpdateChildrenCount.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x140A9A170 (ViIsThreadInsidePagingCodePaths.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x1405A24B8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2530 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockAddResource @ 0x1409DE838 (ViDeadlockAddResource.c)
+ *     ViDeadlockAddThread @ 0x1409DEA78 (ViDeadlockAddThread.c)
+ *     ViDeadlockAllocate @ 0x1409DEB38 (ViDeadlockAllocate.c)
+ *     ViDeadlockAnalyze @ 0x1409DEB94 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCanProceed @ 0x1409DEE08 (ViDeadlockCanProceed.c)
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x1409DF0A0 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x1409DF120 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2AC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2E4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x1409DF5A8 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF818 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x1409DFBE8 (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x1409DFD30 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x1409DFDD8 (ViDeadlockSearchThread.c)
+ *     ViDeadlockSimilarNode @ 0x1409DFE68 (ViDeadlockSimilarNode.c)
+ *     ViDeadlockUpdateChildrenCount @ 0x1409DFF14 (ViDeadlockUpdateChildrenCount.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x1409DFF48 (ViIsThreadInsidePagingCodePaths.c)
  */
 
-PVOID __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, __int64 a3, unsigned int a4, PVOID a5)
+PVOID __fastcall VfDeadlockAcquireResource(ULONG_PTR a1, int a2, __int64 a3, unsigned int a4, PVOID a5)
 {
   ULONG_PTR v6; // r13
   PVOID result; // rax
   void *v9; // rdi
   __int64 v10; // r14
   USHORT v11; // ax
-  int v12; // ecx
+  unsigned int v12; // ecx
   __int64 v13; // rbx
   __int64 v14; // rax
   void *v15; // rsi
@@ -139,13 +139,9 @@ PVOID __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, __int64 a3, unsigne
   {
     BackTrace[0] = a5;
     v12 = 1;
-LABEL_12:
-    BackTrace[v12] = 0LL;
-    goto LABEL_13;
   }
-  if ( v11 < 8u )
-    goto LABEL_12;
-LABEL_13:
+  if ( v12 < 8 )
+    BackTrace[v12] = 0LL;
   v44 = ViRaiseIrqlToDpcLevel();
   ViDeadlockDetectionLock(1LL);
   v13 = MEMORY[0xFFFFF78000000320];
@@ -177,7 +173,7 @@ LABEL_50:
     if ( !v17 )
     {
       v15 = v46;
-      if ( !(unsigned int)ViDeadlockAddResource((int)a1, (__int64)&v53, (__int64)&Entry) )
+      if ( !(unsigned int)ViDeadlockAddResource(a1, (__int64)&v53, (__int64)&Entry) )
       {
         if ( (_DWORD)v9 )
         {
@@ -199,10 +195,10 @@ LABEL_51:
       if ( ((unsigned int)(v6 - 3) > 1 || (unsigned int)(v21 - 3) > 1) && (v21 != 7 || (unsigned int)(v6 - 5) > 1) )
       {
         ViDeadlockPreprocessOptions(
-          byte_140C0D9D4,
+          byte_140C12F54,
           "Acquiring lock 0x%p using mismatched API for this lock type.",
           (const void *)0x1008);
-        VfReportIssueWithOptions(0xC4u, 0x1008uLL, (ULONG_PTR)a1, *v19, v6, byte_140C0D9D4);
+        VfReportIssueWithOptions(0xC4u, 0x1008uLL, a1, *v19, v6, byte_140C12F54);
         goto LABEL_35;
       }
       *v19 = v6;
@@ -224,10 +220,10 @@ LABEL_51:
         if ( (v51 & 1) != 0 )
           goto LABEL_20;
         ViDeadlockPreprocessOptions(
-          &dword_140C0D9D8,
+          &dword_140C12F50,
           "Lock 0x%p doesn't support recursive acquire.",
           (const void *)0x1000);
-        VfReportIssueWithOptions(0xC4u, 0x1000uLL, (ULONG_PTR)a1, (ULONG_PTR)v19, v10, &dword_140C0D9D8);
+        VfReportIssueWithOptions(0xC4u, 0x1000uLL, a1, (ULONG_PTR)v19, v10, &dword_140C12F50);
 LABEL_35:
         v15 = v46;
         v16 = 0;
@@ -246,14 +242,14 @@ LABEL_35:
             goto LABEL_47;
         }
         ViDeadlockCheckDuplicatesAmongChildren(v22, v27, &Entry);
-        goto LABEL_83;
+        goto LABEL_85;
       }
 LABEL_47:
       if ( *((_WORD *)v19 + 2) )
       {
         if ( !(_DWORD)v25 )
         {
-          v29 = ViDeadlockAnalyze((_DWORD)a1, v22, 1, 0, v54);
+          v29 = ViDeadlockAnalyze(a1, v22, 1, 0, v54);
           v18 = 0LL;
           if ( v29 )
             goto LABEL_50;
@@ -280,14 +276,7 @@ LABEL_47:
             goto LABEL_76;
         }
         ViDeadlockCheckDuplicatesAmongRoots(v27, &Entry);
-LABEL_83:
-        if ( !v27 )
-        {
-          v15 = v46;
-          v16 = 0;
-          goto LABEL_52;
-        }
-        goto LABEL_87;
+        goto LABEL_85;
       }
 LABEL_76:
       v49 = 1;
@@ -331,31 +320,34 @@ LABEL_76:
       ++*((_WORD *)v19 + 2);
       if ( (unsigned __int16)v19[1] > 0xFFF0u )
         ViDeadlockState |= 0x20u;
-LABEL_87:
-      v27[18] |= 1u;
-      *((_QWORD *)v27 + 8) = v10;
-      if ( (unsigned int)(v6 - 5) <= 1 )
-        *(_QWORD *)(v10 + 8) = v27;
-      else
-        *(_QWORD *)(v10 + 16) = v27;
-      ++*(_DWORD *)(v10 + 40);
-      v42 = *(_OWORD **)v27;
-      if ( *(_QWORD *)v27 )
+LABEL_85:
+      if ( v27 )
       {
-        *((_OWORD *)v27 + 9) = v42[5];
-        *((_OWORD *)v27 + 10) = v42[6];
-        *((_OWORD *)v27 + 11) = v42[7];
-        *((_OWORD *)v27 + 12) = v42[8];
+        v27[18] |= 1u;
+        *((_QWORD *)v27 + 8) = v10;
+        if ( (unsigned int)(v6 - 5) <= 1 )
+          *(_QWORD *)(v10 + 8) = v27;
+        else
+          *(_QWORD *)(v10 + 16) = v27;
+        ++*(_DWORD *)(v10 + 40);
+        v42 = *(_OWORD **)v27;
+        if ( *(_QWORD *)v27 )
+        {
+          *((_OWORD *)v27 + 9) = v42[5];
+          *((_OWORD *)v27 + 10) = v42[6];
+          *((_OWORD *)v27 + 11) = v42[7];
+          *((_OWORD *)v27 + 12) = v42[8];
+        }
+        v43 = *((_QWORD *)v27 + 7);
+        *((_OWORD *)v27 + 5) = *(_OWORD *)BackTrace;
+        *((_OWORD *)v27 + 6) = *(_OWORD *)&BackTrace[2];
+        *((_OWORD *)v27 + 7) = *(_OWORD *)&BackTrace[4];
+        *((_OWORD *)v27 + 8) = *(_OWORD *)&BackTrace[6];
+        *(_OWORD *)(v43 + 120) = *((_OWORD *)v27 + 5);
+        *(_OWORD *)(v43 + 136) = *((_OWORD *)v27 + 6);
+        *(_OWORD *)(v43 + 152) = *((_OWORD *)v27 + 7);
+        *(_OWORD *)(v43 + 168) = *((_OWORD *)v27 + 8);
       }
-      v43 = *((_QWORD *)v27 + 7);
-      *((_OWORD *)v27 + 5) = *(_OWORD *)BackTrace;
-      *((_OWORD *)v27 + 6) = *(_OWORD *)&BackTrace[2];
-      *((_OWORD *)v27 + 7) = *(_OWORD *)&BackTrace[4];
-      *((_OWORD *)v27 + 8) = *(_OWORD *)&BackTrace[6];
-      *(_OWORD *)(v43 + 120) = *((_OWORD *)v27 + 5);
-      *(_OWORD *)(v43 + 136) = *((_OWORD *)v27 + 6);
-      *(_OWORD *)(v43 + 152) = *((_OWORD *)v27 + 7);
-      *(_OWORD *)(v43 + 168) = *((_OWORD *)v27 + 8);
       goto LABEL_20;
     }
 LABEL_81:

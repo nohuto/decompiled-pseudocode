@@ -1,13 +1,13 @@
 /*
- * XREFs of ?HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z @ 0x1802711EC
+ * XREFs of ?HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z @ 0x180217E3C
  * Callers:
- *     ?HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z @ 0x180270D4C (-HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z.c)
- *     ?HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x180270EE0 (-HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z.c)
+ *     ?HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z @ 0x1802178E8 (-HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z.c)
+ *     ?HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x180217A90 (-HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBitmap::HrInitDataFromIBitmapSource(CBitmap *this, struct IBitmapSource *a2, struct WICRect *a3)
@@ -16,78 +16,83 @@ __int64 __fastcall CBitmap::HrInitDataFromIBitmapSource(CBitmap *this, struct IB
   unsigned int *v5; // r14
   int v8; // eax
   __int64 v9; // rcx
-  unsigned int v10; // ebx
+  int v10; // ebx
   __int64 v11; // rax
   unsigned __int8 PixelFormatSize; // al
-  __int64 v13; // rcx
-  unsigned __int8 v14; // al
-  unsigned int v15; // r8d
-  __int64 v16; // rax
-  int v17; // eax
-  __int64 v18; // rcx
-  float v19; // xmm1_4
-  unsigned int v21; // [rsp+20h] [rbp-58h]
-  double v22; // [rsp+30h] [rbp-48h] BYREF
-  double v23[2]; // [rsp+38h] [rbp-40h] BYREF
+  unsigned __int8 v13; // al
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  int v16; // eax
+  __int64 v17; // rcx
+  float v18; // xmm1_4
+  double v20; // [rsp+30h] [rbp-48h] BYREF
+  double v21[2]; // [rsp+38h] [rbp-40h] BYREF
 
-  v3 = (INT *)((char *)this + 108);
-  v5 = (unsigned int *)((char *)this + 104);
+  v3 = (INT *)((char *)this + 188);
+  v5 = (unsigned int *)((char *)this + 184);
   v8 = (*(__int64 (__fastcall **)(struct IBitmapSource *, char *, char *))(*(_QWORD *)a2 + 8LL))(
          a2,
-         (char *)this + 104,
-         (char *)this + 108);
+         (char *)this + 184,
+         (char *)this + 188);
   v10 = v8;
   if ( v8 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x241u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x355u, 0LL);
   if ( a3 )
   {
     *v5 = a3->Width;
     *v3 = a3->Height;
   }
-  v11 = (**(__int64 (__fastcall ***)(struct IBitmapSource *, double *))a2)(a2, v23);
-  *((_QWORD *)this + 15) = *(_QWORD *)v11;
-  *((_DWORD *)this + 32) = *(_DWORD *)(v11 + 8);
-  if ( (v10 & 0x80000000) == 0 )
+  v11 = (**(__int64 (__fastcall ***)(struct IBitmapSource *, double *))a2)(a2, v21);
+  *((_QWORD *)this + 25) = *(_QWORD *)v11;
+  *((_DWORD *)this + 52) = *(_DWORD *)(v11 + 8);
+  if ( v10 >= 0 )
   {
-    PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 30));
-    v13 = PixelFormatSize;
-    if ( !PixelFormatSize )
+    PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 50));
+    if ( PixelFormatSize )
+    {
+      if ( *v5 >= 0x7FFFFFFFu / PixelFormatSize )
+      {
+        v10 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(PixelFormatSize, 0LL, 0, -2147024362, 0x36Fu, 0LL);
+      }
+      if ( v10 >= 0 )
+      {
+        v13 = GetPixelFormatSize(*((_DWORD *)this + 50));
+        if ( v13 && *v5 <= 0x7FFFFFF8u / v13 )
+        {
+          v10 = 0;
+          v14 = (((*v5 * v13 + 7) >> 3) + 3) & 0xFFFFFFFC;
+          if ( *v3 && (unsigned int)v14 >= 0x7FFFFFFFu / *v3 )
+          {
+            v10 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024362, 0x382u, 0LL);
+          }
+          if ( v10 >= 0 )
+          {
+            v15 = *(_QWORD *)a2;
+            v20 = 0.0;
+            v21[0] = 0.0;
+            v16 = (*(__int64 (__fastcall **)(struct IBitmapSource *, double *, double *))(v15 + 16))(a2, &v20, v21);
+            v10 = v16;
+            if ( v16 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x38Cu, 0LL);
+            v18 = v21[0];
+            *((float *)this + 48) = v20;
+            *((float *)this + 49) = v18;
+          }
+        }
+        else
+        {
+          v10 = -2147024362;
+          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024362, 0x37Cu, 0LL);
+        }
+      }
+    }
+    else
     {
       v10 = -2003292409;
-      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, -2003292409, 0x257u);
-      return v10;
+      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003292409, 0x36Bu, 0LL);
     }
-    if ( *v5 >= 0x7FFFFFFFu / PixelFormatSize )
-    {
-      v21 = 603;
-LABEL_19:
-      v10 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, -2147024362, v21);
-      return v10;
-    }
-    v14 = GetPixelFormatSize(*((_DWORD *)this + 30));
-    v13 = v14;
-    if ( !v14 || *v5 > 0x7FFFFFF8u / v14 )
-    {
-      v21 = 616;
-      goto LABEL_19;
-    }
-    v13 = (((*v5 * v14 + 7) >> 3) + 3) & 0xFFFFFFFC;
-    if ( *v3 && (unsigned int)v13 >= v15 / *v3 )
-    {
-      v21 = 622;
-      goto LABEL_19;
-    }
-    v16 = *(_QWORD *)a2;
-    v22 = 0.0;
-    v23[0] = 0.0;
-    v17 = (*(__int64 (__fastcall **)(struct IBitmapSource *, double *, double *))(v16 + 16))(a2, &v22, v23);
-    v10 = v17;
-    if ( v17 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x278u);
-    v19 = v23[0];
-    *((float *)this + 28) = v22;
-    *((float *)this + 29) = v19;
   }
-  return v10;
+  return (unsigned int)v10;
 }

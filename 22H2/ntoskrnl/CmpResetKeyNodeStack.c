@@ -1,39 +1,33 @@
 /*
- * XREFs of CmpResetKeyNodeStack @ 0x140A201EC
+ * XREFs of CmpResetKeyNodeStack @ 0x14072A96C
  * Callers:
- *     CmpSubtreeEnumeratorReset @ 0x140A20780 (CmpSubtreeEnumeratorReset.c)
- *     CmpKeyEnumStackReset @ 0x140A2428C (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackReset @ 0x14072A90C (CmpKeyEnumStackReset.c)
+ *     CmpSubtreeEnumeratorReset @ 0x1408767C8 (CmpSubtreeEnumeratorReset.c)
  * Callees:
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpResetKeyNodeStack(__int16 *a1)
 {
-  __int16 i; // di
-  __int64 *EntryAtLayerHeight; // rax
-  __int64 *v4; // rbx
-  __int64 v5; // rcx
-  unsigned int *v6; // rdx
+  __int16 i; // si
+  _QWORD *EntryAtLayerHeight; // rax
+  _QWORD *v4; // rbx
 
-  for ( i = 0; i <= *a1; ++i )
+  for ( i = 0; i <= *a1; *((_WORD *)v4 + 14) = 0 )
   {
-    EntryAtLayerHeight = (__int64 *)CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a1, i);
+    EntryAtLayerHeight = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a1, i);
     v4 = EntryAtLayerHeight;
     if ( EntryAtLayerHeight[2] )
-    {
-      v5 = *EntryAtLayerHeight;
-      v6 = (unsigned int *)(EntryAtLayerHeight + 3);
-      if ( (*(_BYTE *)(*EntryAtLayerHeight + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v5, v6);
-      else
-        HvpReleaseCellPaged(v5, v6);
-    }
-    *(_OWORD *)v4 = 0LL;
-    *((_OWORD *)v4 + 1) = 0LL;
+      (*(void (__fastcall **)(_QWORD, _QWORD *))(*EntryAtLayerHeight + 16LL))(
+        *EntryAtLayerHeight,
+        EntryAtLayerHeight + 3);
+    *v4 = 0LL;
+    *(_QWORD *)((char *)v4 + 12) = 0LL;
+    ++i;
+    *((_DWORD *)v4 + 5) = 0;
     *((_DWORD *)v4 + 2) = -1;
-    HvpGetCellContextReinitialize(v4 + 3);
+    v4[3] = 0LL;
+    *((_DWORD *)v4 + 6) = -1;
   }
 }

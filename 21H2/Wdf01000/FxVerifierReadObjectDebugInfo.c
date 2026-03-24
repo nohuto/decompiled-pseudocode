@@ -1,11 +1,11 @@
 /*
- * XREFs of FxVerifierReadObjectDebugInfo @ 0x1C006BDB0
+ * XREFs of FxVerifierReadObjectDebugInfo @ 0x1C00584C8
  * Callers:
- *     FxVerifierGetObjectDebugInfo @ 0x1C006BA84 (FxVerifierGetObjectDebugInfo.c)
+ *     FxVerifierGetObjectDebugInfo @ 0x1C0058184 (FxVerifierGetObjectDebugInfo.c)
  * Callees:
- *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C0015510 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
- *     ?_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z @ 0x1C002D58C (-_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z.c)
- *     FxVerifyAllocateDebugInfo @ 0x1C006BF10 (FxVerifyAllocateDebugInfo.c)
+ *     FxVerifyAllocateDebugInfo @ 0x1C0058628 (FxVerifyAllocateDebugInfo.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C005F7C4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
+ *     ?_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z @ 0x1C0060FCC (-_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z.c)
  */
 
 __int64 __fastcall FxVerifierReadObjectDebugInfo(
@@ -18,7 +18,7 @@ __int64 __fastcall FxVerifierReadObjectDebugInfo(
 {
   int v9; // eax
   int DebugInfo; // ebx
-  void *Value; // rdi
+  PVOID Value; // rdi
   unsigned int length; // [rsp+40h] [rbp-20h] BYREF
   unsigned int type; // [rsp+44h] [rbp-1Ch] BYREF
   _UNICODE_STRING valueName; // [rsp+48h] [rbp-18h] BYREF
@@ -31,7 +31,7 @@ __int64 __fastcall FxVerifierReadObjectDebugInfo(
   DebugInfo = v9;
   if ( v9 != -2147483643 && v9 != -1073741789 )
     goto LABEL_9;
-  Value = (void *)ExAllocatePool2(256LL, length, FxDriverGlobals->Tag);
+  Value = ExAllocatePoolWithTag(PagedPool, length, FxDriverGlobals->Tag);
   if ( Value )
   {
     DebugInfo = FxRegKey::_QueryValue(FxDriverGlobals, Key, &valueName, length, Value, &length, &type);

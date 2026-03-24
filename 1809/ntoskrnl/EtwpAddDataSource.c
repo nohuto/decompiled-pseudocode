@@ -4,7 +4,7 @@
  *     EtwpAddNotificationEvent @ 0x1405C02F4 (EtwpAddNotificationEvent.c)
  *     EtwpQueueNotification @ 0x1405C054C (EtwpQueueNotification.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

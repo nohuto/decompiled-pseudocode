@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetBiosDate @ 0x140B18084
+ * XREFs of CmpGetBiosDate @ 0x140A59980
  * Callers:
- *     CmpSetVideoBiosInformation @ 0x140B179D4 (CmpSetVideoBiosInformation.c)
- *     CmpSetSystemBiosInformation @ 0x140B17BA4 (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140A592D0 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140A594A0 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     strtoul @ 0x1403E08C8 (strtoul.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D1500 (strtoul.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 char __fastcall CmpGetBiosDate(__int64 a1, unsigned int a2, __int64 a3, char a4)

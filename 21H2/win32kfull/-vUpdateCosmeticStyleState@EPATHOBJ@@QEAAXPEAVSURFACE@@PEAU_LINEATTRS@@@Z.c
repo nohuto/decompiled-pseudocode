@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C0143480
+ * XREFs of ?vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C014BF08
  * Callers:
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0134298 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0146E94 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
  * Callees:
- *     ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C0143FCC (-bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C014B900 (-bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFACE *a2, struct _LINEATTRS *a3)
@@ -13,8 +13,8 @@ void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFA
   FLONG fl; // eax
   _DWORD *v7; // rax
   int v8; // esi
+  int v9; // r12d
   PFLOAT_LONG pstyle; // rdx
-  int v10; // r12d
   union _FLOAT_LONG *i; // rcx
   struct _POINTFIX *j; // rbx
   FIX x; // eax
@@ -27,38 +27,39 @@ void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFA
   FIX v20; // eax
   int v21; // ecx
   __int64 v22; // rdx
-  __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rax
-  unsigned int v26; // [rsp+20h] [rbp-88h]
-  unsigned int v27; // [rsp+24h] [rbp-84h]
-  unsigned int v28; // [rsp+28h] [rbp-80h]
-  _OWORD v30[2]; // [rsp+38h] [rbp-70h] BYREF
-  __int128 v31; // [rsp+58h] [rbp-50h]
+  bool v23; // al
+  __int64 v24; // rcx
+  int v25; // eax
+  __int64 v26; // rax
+  unsigned int v27; // [rsp+20h] [rbp-88h]
+  unsigned int v28; // [rsp+24h] [rbp-84h]
+  unsigned int v29; // [rsp+28h] [rbp-80h]
+  _OWORD v31[2]; // [rsp+38h] [rbp-70h] BYREF
+  __int128 v32; // [rsp+58h] [rbp-50h]
 
   v4 = 2;
-  memset(v30, 0, sizeof(v30));
+  memset(v31, 0, sizeof(v31));
   fl = a3->fl;
-  v31 = 0LL;
+  v32 = 0LL;
   if ( (fl & 2) != 0 )
   {
-    v26 = 1;
-    v10 = 1;
     v27 = 1;
+    v9 = 1;
     v28 = 1;
+    v29 = 1;
   }
   else
   {
     v7 = (_DWORD *)*((_QWORD *)a2 + 6);
     v8 = 0;
+    v9 = v7[555];
+    v28 = v7[554];
     pstyle = a3->pstyle;
-    v10 = v7[547];
-    v26 = v7[545];
-    v27 = v7[546];
-    v28 = v10;
+    v27 = v7[553];
+    v29 = v9;
     for ( i = &pstyle[a3->cstyle]; i > pstyle; v8 += i->l )
       --i;
-    v4 = 2 * v10 * v8;
+    v4 = 2 * v9 * v8;
   }
   for ( j = *(struct _POINTFIX **)(*((_QWORD *)this + 1) + 40LL); ; j = (struct _POINTFIX *)j[1] )
   {
@@ -68,7 +69,7 @@ void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFA
   }
   LODWORD(v14) = 0;
   if ( (x & 4) == 0 )
-    LODWORD(v14) = LOWORD(a3->elStyleState.e) + v10 * HIWORD(a3->elStyleState.l);
+    LODWORD(v14) = LOWORD(a3->elStyleState.e) + v9 * HIWORD(a3->elStyleState.l);
   v15 = j + 3;
   v16 = j + 4;
   while ( 2 )
@@ -76,8 +77,8 @@ void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFA
     v17 = (unsigned __int64)&j[(unsigned int)j[2].y + 3];
     while ( (unsigned __int64)v16 < v17 )
     {
-      if ( !(unsigned int)DDA_CLIPLINE::bInit((DDA_CLIPLINE *)v30, v15, v16) )
-        goto LABEL_25;
+      if ( !(unsigned int)DDA_CLIPLINE::bInit((DDA_CLIPLINE *)v31, v15, v16) )
+        goto LABEL_26;
       y = v15->y;
       v19 = v15->x - v16->x;
       v20 = v16->y;
@@ -87,41 +88,46 @@ void __fastcall EPATHOBJ::vUpdateCosmeticStyleState(EPATHOBJ *this, struct SURFA
       v22 = (unsigned int)(y - v20);
       if ( v21 >= 0 )
         v22 = (unsigned int)v21;
-      if ( v26 == v27 )
+      if ( v27 == v28 )
       {
-        if ( v19 >= (int)v22 )
-          goto LABEL_20;
-      }
-      else if ( v26 * (unsigned __int64)(unsigned int)v19 >= (unsigned __int64)v27 * v22 )
-      {
-LABEL_20:
-        if ( (v30[0] & 5) == 0 )
-          goto LABEL_21;
-        goto LABEL_33;
-      }
-      if ( (v30[0] & 5) != 0 )
-      {
-LABEL_21:
-        v23 = v26;
-        v24 = DWORD2(v31) - v31;
-        goto LABEL_22;
-      }
-LABEL_33:
-      v23 = v27;
-      v24 = HIDWORD(v31) - DWORD1(v31);
-LABEL_22:
-      v25 = (unsigned int)(v24 + 1);
-      if ( (v25 & 0xFFFF0000) != 0 )
-      {
-        v14 = ((int)v14 + v23 * v25) % (unsigned __int64)(unsigned int)v4;
+        v23 = v19 >= (int)v22;
       }
       else
       {
-        LODWORD(v14) = v23 * v25 + v14;
+        if ( v27 * (unsigned __int64)(unsigned int)v19 >= (unsigned __int64)v28 * v22 )
+        {
+LABEL_21:
+          if ( (v31[0] & 5) == 0 )
+            goto LABEL_22;
+          goto LABEL_35;
+        }
+        v23 = 0;
+      }
+      if ( v23 )
+        goto LABEL_21;
+      if ( (v31[0] & 5) != 0 )
+      {
+LABEL_22:
+        v24 = v27;
+        v25 = DWORD2(v32) - v32;
+        goto LABEL_23;
+      }
+LABEL_35:
+      v24 = v28;
+      v25 = HIDWORD(v32) - DWORD1(v32);
+LABEL_23:
+      v26 = (unsigned int)(v25 + 1);
+      if ( (v26 & 0xFFFF0000) != 0 )
+      {
+        v14 = ((int)v14 + v24 * v26) % (unsigned __int64)(unsigned int)v4;
+      }
+      else
+      {
+        LODWORD(v14) = v24 * v26 + v14;
         if ( (int)v14 >= v4 )
           LODWORD(v14) = (int)v14 % v4;
       }
-LABEL_25:
+LABEL_26:
       v15 = v16++;
     }
     j = (struct _POINTFIX *)*j;
@@ -132,5 +138,5 @@ LABEL_25:
     }
     break;
   }
-  a3->elStyleState.l = (unsigned __int16)((unsigned int)v14 % v28) | ((unsigned __int16)((unsigned int)v14 / v28) << 16);
+  a3->elStyleState.l = (unsigned __int16)((unsigned int)v14 % v29) | ((unsigned __int16)((unsigned int)v14 / v29) << 16);
 }

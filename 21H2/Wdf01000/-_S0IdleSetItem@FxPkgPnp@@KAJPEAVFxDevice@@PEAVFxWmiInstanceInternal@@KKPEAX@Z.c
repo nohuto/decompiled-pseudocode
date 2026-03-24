@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_S0IdleSetItem@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KKPEAX@Z @ 0x1C0088F10
+ * XREFs of ?_S0IdleSetItem@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KKPEAX@Z @ 0x1C00833C0
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z @ 0x1C001C1D0 (-PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z @ 0x1C000E878 (-PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::_S0IdleSetItem(

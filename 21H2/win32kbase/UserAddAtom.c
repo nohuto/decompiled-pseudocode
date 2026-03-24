@@ -1,9 +1,9 @@
 /*
- * XREFs of UserAddAtom @ 0x1C00C4BA0
+ * XREFs of UserAddAtom @ 0x1C00B6F10
  * Callers:
  *     <none>
  * Callees:
- *     UserAddAtomToAtomTable @ 0x1C00C4BBC (UserAddAtomToAtomTable.c)
+ *     UserAddAtomToAtomTable @ 0x1C00B6F2C (UserAddAtomToAtomTable.c)
  */
 
 __int64 __fastcall UserAddAtom(__int64 a1, unsigned int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlLookupLastMcbEntry @ 0x14053CC50
+ * XREFs of FsRtlLookupLastMcbEntry @ 0x1404EF110
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlLookupLastLargeMcbEntry @ 0x14053CBD0 (FsRtlLookupLastLargeMcbEntry.c)
+ *     FsRtlLookupLastLargeMcbEntry @ 0x1404EF000 (FsRtlLookupLastLargeMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLastMcbEntry(PMCB Mcb, PVBN Vbn, PLBN Lbn)

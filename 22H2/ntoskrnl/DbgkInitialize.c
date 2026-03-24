@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkInitialize @ 0x140B524F0
+ * XREFs of DbgkInitialize @ 0x140A6D4AC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     DbgkpInitializePhase0 @ 0x140B6C29C (DbgkpInitializePhase0.c)
- *     DbgkpInitializePhase1 @ 0x140B6C3E4 (DbgkpInitializePhase1.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     DbgkpInitializePhase0 @ 0x140A6D4E0 (DbgkpInitializePhase0.c)
+ *     DbgkpInitializePhase1 @ 0x140A6D628 (DbgkpInitializePhase1.c)
  */
 
 __int64 DbgkInitialize()

@@ -4,7 +4,7 @@
  *     IovpExamineIrpStackForwarding @ 0x14092FB98 (IovpExamineIrpStackForwarding.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IovUtilMultipleDevicesSameDriver(__int64 a1)

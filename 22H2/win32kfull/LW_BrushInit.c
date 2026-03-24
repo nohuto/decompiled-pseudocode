@@ -1,5 +1,5 @@
 /*
- * XREFs of LW_BrushInit @ 0x1C00BB6A0
+ * XREFs of LW_BrushInit @ 0x1C0134B00
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 LW_BrushInit()
   __int64 v1; // rbx
   __int64 SolidBrush; // rax
 
-  Bitmap = GreCreateBitmap(8LL, 8LL, 1LL, 1LL, &unk_1C0311F60);
+  Bitmap = GreCreateBitmap(8LL, 8LL, 1LL);
   v1 = Bitmap;
   if ( !Bitmap )
     return 0LL;

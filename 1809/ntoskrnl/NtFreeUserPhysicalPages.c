@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFreeUserPhysicalPages @ 0x140850F30
+ * XREFs of NtFreeUserPhysicalPages @ 0x140850F10
  * Callers:
  *     <none>
  * Callees:
@@ -12,15 +12,15 @@
  *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     MiFreePhysicalPages @ 0x1402B07E0 (MiFreePhysicalPages.c)
- *     MiPreparePhysicalPagesMdlForFree @ 0x1402B1288 (MiPreparePhysicalPagesMdlForFree.c)
- *     MiReferenceAweHandle @ 0x1402B1A6C (MiReferenceAweHandle.c)
- *     MiCaptureUlongPtrArray @ 0x14084F71C (MiCaptureUlongPtrArray.c)
- *     MiGetAweInfoPartition @ 0x14084FEF0 (MiGetAweInfoPartition.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
+ *     MiPreparePhysicalPagesMdlForFree @ 0x1402B1388 (MiPreparePhysicalPagesMdlForFree.c)
+ *     MiReferenceAweHandle @ 0x1402B1B6C (MiReferenceAweHandle.c)
+ *     MiCaptureUlongPtrArray @ 0x14084F6FC (MiCaptureUlongPtrArray.c)
+ *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
  */
 
 NTSTATUS __stdcall NtFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)

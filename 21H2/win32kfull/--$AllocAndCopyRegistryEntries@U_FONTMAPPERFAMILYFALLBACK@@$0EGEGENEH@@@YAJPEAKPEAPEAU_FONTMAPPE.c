@@ -1,9 +1,10 @@
 /*
- * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C029C874
+ * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C029DF88
  * Callers:
- *     QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C0392770 (QueryRegistryFontMapperFamilyFallbackListRoutine.c)
+ *     QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C0395690 (QueryRegistryFontMapperFamilyFallbackListRoutine.c)
  * Callees:
- *     PREALLOCMEM2 @ 0x1C011D46C (PREALLOCMEM2.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C0132890 (PREALLOCMEM2.c)
  */
 
 __int64 __fastcall AllocAndCopyRegistryEntries<_FONTMAPPERFAMILYFALLBACK,1179012423>(
@@ -13,30 +14,24 @@ __int64 __fastcall AllocAndCopyRegistryEntries<_FONTMAPPERFAMILYFALLBACK,1179012
         _OWORD *a4)
 {
   unsigned int v6; // esi
-  unsigned int v7; // eax
-  char *v8; // rax
+  size_t v7; // rcx
+  void *v8; // rax
   char *v9; // rax
   unsigned __int64 v10; // rcx
 
   if ( gcfmffTable < *a3 )
-    goto LABEL_8;
+    goto LABEL_7;
   v6 = gcfmffTable + 32;
   v7 = (gcfmffTable + 32) << 7;
   if ( gpfmffTable )
-  {
     v8 = PREALLOCMEM2(gpfmffTable, gcfmffTable << 7, v7, 0x46464D47u);
-  }
   else
-  {
-    if ( !v7 )
-      return 3221225495LL;
-    v8 = (char *)Win32AllocPoolZInit(v7, 1179012423LL);
-  }
+    v8 = PALLOCMEM2(v7, 1179012423LL, 1);
   if ( v8 )
   {
     gpfmffTable = v8;
     *a3 = v6;
-LABEL_8:
+LABEL_7:
     v9 = (char *)gpfmffTable;
     v10 = (unsigned __int64)gcfmffTable << 7;
     *(_OWORD *)((char *)gpfmffTable + v10) = *a4;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180095AB0
+ * XREFs of ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180068FEC
  * Callers:
- *     ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x180094990 (-Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z.c)
+ *     ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x1800692C0 (-Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z.c)
  * Callees:
- *     ?Invalidate@CDrawListCache@@QEAAXXZ @ 0x180030838 (-Invalidate@CDrawListCache@@QEAAXXZ.c)
- *     ?EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z @ 0x180078E18 (-EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z.c)
- *     ?Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z @ 0x18007D13C (-Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z.c)
- *     ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x180095D44 (-Reset@CDrawListEntryBuilder@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z @ 0x180092A8C (-Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z.c)
+ *     ?Invalidate@CDrawListCache@@QEAAXXZ @ 0x1800931E8 (-Invalidate@CDrawListCache@@QEAAXXZ.c)
+ *     ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x1800934F0 (-Reset@CDrawListEntryBuilder@@QEAAXXZ.c)
+ *     ?EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z @ 0x1800935B8 (-EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z.c)
  */
 
 __int64 __fastcall CRenderData::FlushDrawListCache(
@@ -18,18 +18,18 @@ __int64 __fastcall CRenderData::FlushDrawListCache(
 {
   unsigned int v4; // edi
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
 
   v4 = 0;
-  if ( (unsigned int)((__int64)(*((_QWORD *)a4 + 12) - *((_QWORD *)a4 + 11)) >> 3) )
+  if ( (unsigned int)((__int64)(*((_QWORD *)a4 + 6) - *((_QWORD *)a4 + 5)) >> 3) )
     CDrawListCache::Update(a3, a2, a4);
   CDrawListEntryBuilder::Reset(a4);
-  if ( *((_QWORD *)a3 + 4) )
+  if ( *((_QWORD *)a3 + 3) )
   {
     v8 = CDrawingContext::EmitDrawListCache(a2, a3);
     v4 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x4A2u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x4D7u, 0LL);
   }
   if ( (*((_DWORD *)a3 + 22) & 0x100) != 0 )
     CDrawListCache::Invalidate(a3);

@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_AcquireDoubleBuffer @ 0x1C000EEC4
+ * XREFs of TR_AcquireDoubleBuffer @ 0x1C000D28C
  * Callers:
- *     Control_MapTransfer @ 0x1C000605C (Control_MapTransfer.c)
- *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C000EE44 (Bulk_TransferData_DetermineTransferMechanism.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
+ *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C000D20C (Bulk_TransferData_DetermineTransferMechanism.c)
  * Callees:
- *     CommonBuffer_AcquireBuffer @ 0x1C000FA9C (CommonBuffer_AcquireBuffer.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
  */
 
 _QWORD *__fastcall TR_AcquireDoubleBuffer(__int64 a1)

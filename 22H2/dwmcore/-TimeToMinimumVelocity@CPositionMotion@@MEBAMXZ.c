@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TimeToMinimumVelocity@CPositionMotion@@MEBAMXZ @ 0x18026F9A0
+ * XREFs of ?TimeToMinimumVelocity@CPositionMotion@@MEBAMXZ @ 0x18020F280
  * Callers:
  *     <none>
  * Callees:
- *     logf_0 @ 0x18011B914 (logf_0.c)
+ *     logf_0 @ 0x1800F3FC3 (logf_0.c)
  */
 
 float __fastcall CPositionMotion::TimeToMinimumVelocity(CPositionMotion *this)

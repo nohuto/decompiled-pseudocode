@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiMiracastGetForcedMode @ 0x1C01EEE84
+ * XREFs of DpiMiracastGetForcedMode @ 0x1C01762A4
  * Callers:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01EECBC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0175F44 (DxgkMiracastQueryMiracastSupportInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 __int64 DpiMiracastGetForcedMode()

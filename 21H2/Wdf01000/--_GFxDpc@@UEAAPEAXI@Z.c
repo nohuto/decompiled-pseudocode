@@ -1,25 +1,25 @@
 /*
- * XREFs of ??_GFxDpc@@UEAAPEAXI@Z @ 0x1C005B8D0
+ * XREFs of ??_GFxDpc@@UEAAPEAXI@Z @ 0x1C003A3B0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxDpc@@UEAA@XZ @ 0x1C005B860 (--1FxDpc@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDpc@@UEAA@XZ @ 0x1C003A348 (--1FxDpc@@UEAA@XZ.c)
  */
 
-FxDpc *__fastcall FxDpc::`scalar deleting destructor'(FxDpc *this, unsigned int a2)
+FxDpc *__fastcall FxDpc::`scalar deleting destructor'(FxDpc *this, unsigned int a2, unsigned int a3)
 {
-  char v2; // bl
-  FxDpc *v4; // rcx
+  char v3; // bl
+  FxDpc *v5; // rcx
 
-  v2 = a2;
-  FxDpc::~FxDpc(this, a2);
-  if ( (v2 & 1) != 0 )
+  v3 = a2;
+  FxDpc::~FxDpc(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxDpc *)((char *)this - 48);
+    v5 = (FxDpc *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

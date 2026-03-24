@@ -1,19 +1,19 @@
 /*
- * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x140962A18
+ * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C
  * Callers:
- *     KiTpIsSupportedKernelTracepointLocation @ 0x140962AC8 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x1408BCB0C (KiTpIsSupportedKernelTracepointLocation.c)
  * Callees:
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     RtlFindRange @ 0x14083BD60 (RtlFindRange.c)
- *     KiTpBuildExcludedKernelTracepointRangeList @ 0x140962930 (KiTpBuildExcludedKernelTracepointRangeList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlFindRange @ 0x140760360 (RtlFindRange.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
+ *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BC974 (KiTpBuildExcludedKernelTracepointRangeList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(unsigned __int64 a1)
 {
   unsigned int v2; // ebx
   __int64 v3; // rcx
-  void *v4; // rdi
+  _QWORD *v4; // rdi
   unsigned __int64 v6; // [rsp+68h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -25,7 +25,7 @@ __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(unsigned __int64 a1)
     {
       if ( v4 )
       {
-        RtlFreeRangeList((__int64)v4);
+        RtlFreeRangeList(v4);
         ExFreePoolWithTag(v4, 0x70727446u);
       }
     }

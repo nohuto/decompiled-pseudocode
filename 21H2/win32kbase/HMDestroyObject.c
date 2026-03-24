@@ -1,33 +1,30 @@
 /*
- * XREFs of HMDestroyObject @ 0x1C004E3A0
+ * XREFs of HMDestroyObject @ 0x1C0007ED0
  * Callers:
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00C7F94 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
- *     ?HMNullFnDestroy@@YAXPEAX@Z @ 0x1C00D05C0 (-HMNullFnDestroy@@YAXPEAX@Z.c)
- *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C01480C0 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     DestroyBaseWindow @ 0x1C01662F0 (DestroyBaseWindow.c)
+ *     ?HMNullFnDestroy@@YAXPEAX@Z @ 0x1C0007E70 (-HMNullFnDestroy@@YAXPEAX@Z.c)
+ *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011B760 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E658 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     DestroyBaseWindow @ 0x1C0138D20 (DestroyBaseWindow.c)
  * Callees:
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C004E70C (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0008348 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall HMDestroyObject(void *a1)
 {
-  void *v2; // rcx
-  __int64 result; // rax
-  char v4; // [rsp+38h] [rbp+10h] BYREF
+  int v2; // eax
+  void *v3; // rcx
+  unsigned int v4; // edx
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v4, a1);
-  if ( (unsigned int)HMMarkObjectDestroyWorker(a1) )
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v6);
+  v2 = HMMarkObjectDestroyWorker(a1);
+  v4 = 0;
+  if ( v2 )
   {
-    HMFreeObject(v2);
-    result = 1LL;
+    HMFreeObject(v3);
+    return 1;
   }
-  else
-  {
-    result = 0LL;
-  }
-  if ( v4 )
-    gphePrimaryDestroyTarget = 0LL;
-  return result;
+  return v4;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpUpdateFileInfoDriverRegistration @ 0x14085BB8C
+ * XREFs of EtwpUpdateFileInfoDriverRegistration @ 0x14079351C
  * Callers:
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5BF0 (EtwpUpdateFileInfoDriverState.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140793488 (EtwpUpdateFileInfoDriverState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
  */
 
 __int64 __fastcall EtwpUpdateFileInfoDriverRegistration(int a1)
@@ -24,12 +24,12 @@ __int64 __fastcall EtwpUpdateFileInfoDriverRegistration(int a1)
   HANDLE FileHandle; // [rsp+D0h] [rbp+77h] BYREF
 
   InputBuffer = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   IoStatusBlock = 0LL;
   DestinationString = 0LL;
-  v2 = (struct _LIST_ENTRY *)PdcCreateWatchdogAroundClientCall();
+  v2 = (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry();
   v3 = PsAttachSiloToCurrentThread(v2);
   RtlInitUnicodeString(&DestinationString, L"\\Device\\FileInfo");
   ObjectAttributes.RootDirectory = 0LL;

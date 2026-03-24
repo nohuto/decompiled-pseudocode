@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetSessionLocaleId @ 0x14076FCD4
+ * XREFs of MmGetSessionLocaleId @ 0x140620660
  * Callers:
- *     PspUserThreadStartup @ 0x14076FBF0 (PspUserThreadStartup.c)
- *     NtQueryDefaultLocale @ 0x1407CC480 (NtQueryDefaultLocale.c)
+ *     NtQueryDefaultLocale @ 0x140684000 (NtQueryDefaultLocale.c)
+ *     PspUserThreadStartup @ 0x1406BFC00 (PspUserThreadStartup.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,9 @@ __int64 MmGetSessionLocaleId()
   unsigned __int64 v1; // rax
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  v1 = Process[1].Affinity.StaticBitmap[25];
+  v1 = Process[1].AffinityPadding[5];
   if ( !v1 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     return (unsigned int)PsDefaultThreadLocaleId;
   else
-    return *(unsigned int *)(v1 + 72);
+    return *(unsigned int *)(v1 + 96);
 }

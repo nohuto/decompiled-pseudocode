@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDeleteDevice @ 0x140774EC0
+ * XREFs of IopDeleteDevice @ 0x1406B2FD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IopCleanupNotifications @ 0x1403D87A8 (IopCleanupNotifications.c)
- *     IopDestroyDeviceNode @ 0x140774F24 (IopDestroyDeviceNode.c)
- *     PnpDeleteAllDependencyRelations @ 0x14077503C (PnpDeleteAllDependencyRelations.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IopCleanupNotifications @ 0x14037C458 (IopCleanupNotifications.c)
+ *     IopDestroyDeviceNode @ 0x1406B3034 (IopDestroyDeviceNode.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1406B314C (PnpDeleteAllDependencyRelations.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteDevice(__int64 a1)
 {
   void *v2; // rcx
-  void *v3; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
 
   PnpDeleteAllDependencyRelations(a1);
   IopDestroyDeviceNode(*(PVOID *)(*(_QWORD *)(a1 + 312) + 40LL));
@@ -22,7 +22,7 @@ void __fastcall IopDeleteDevice(__int64 a1)
   v2 = (void *)_InterlockedExchange64((volatile __int64 *)(a1 + 56), 0LL);
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
-  v3 = *(void **)(a1 + 8);
+  v3 = *(struct _DMA_ADAPTER **)(a1 + 8);
   if ( v3 )
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
 }

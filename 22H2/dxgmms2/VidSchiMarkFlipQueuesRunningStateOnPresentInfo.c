@@ -1,44 +1,47 @@
 /*
- * XREFs of VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C000160C
+ * XREFs of VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C002FC38
  * Callers:
- *     VidSchiResumeFlipQueues @ 0x1C0086E6C (VidSchiResumeFlipQueues.c)
- *     VidSchiSuspendFlipQueues @ 0x1C0086ED0 (VidSchiSuspendFlipQueues.c)
+ *     VidSchiResumeFlipQueues @ 0x1C00CEEB0 (VidSchiResumeFlipQueues.c)
+ *     VidSchiSuspendFlipQueues @ 0x1C00CF510 (VidSchiSuspendFlipQueues.c)
  * Callees:
  *     <none>
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall VidSchiMarkFlipQueuesRunningStateOnPresentInfo(__int64 a1, __int64 a2, unsigned __int8 a3, bool *a4)
+void __fastcall VidSchiMarkFlipQueuesRunningStateOnPresentInfo(__int64 a1, __int64 a2, unsigned __int8 a3)
 {
-  __int64 v4; // rsi
+  __int64 v4; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   int v8; // eax
-  int v9; // eax
-  _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v9; // rax
+  int v10; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = a3;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-  v8 = *(_DWORD *)(a2 + 78792);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
+  v8 = *(_DWORD *)(a2 + 66440);
   if ( (_BYTE)v4 )
   {
     if ( !v8 )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 281LL, 4096LL, a1, a2, v4);
+      v9 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v7, v6);
+      v9[3] = 281LL;
+      v9[4] = 4096LL;
+      v9[5] = a1;
+      v9[6] = a2;
+      v9[7] = v4;
+      v8 = WdLogEvent5_WdCriticalError(v9);
       __debugbreak();
-      JUMPOUT(0x1C001DF34LL);
     }
-    v9 = v8 - 1;
-    *(_DWORD *)(a2 + 78792) = v9;
-    if ( !v9 )
-      *(_BYTE *)(a2 + 78788) = 1;
+    v10 = v8 - 1;
+    *(_DWORD *)(a2 + 66440) = v10;
+    if ( !v10 )
+      *(_BYTE *)(a2 + 66436) = 1;
   }
   else
   {
-    *(_BYTE *)(a2 + 78788) = 0;
-    *(_DWORD *)(a2 + 78792) = v8 + 1;
-    if ( a4 )
-      *a4 = *(_DWORD *)(a2 + 3092) != 0;
+    *(_BYTE *)(a2 + 66436) = 0;
+    *(_DWORD *)(a2 + 66440) = v8 + 1;
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

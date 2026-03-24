@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalcTransformChange@CCompositionBuffer@@SA?AW4TransformComparison@1@PEBM0@Z @ 0x1C007D514
+ * XREFs of ?CalcTransformChange@CCompositionBuffer@@SA?AW4TransformComparison@1@PEBM0@Z @ 0x1C001CAE8
  * Callers:
- *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C007DA78 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
+ *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0018678 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 __fastcall CCompositionBuffer::CalcTransformChange(float *a1, float *a2)
 {
   float v2; // xmm5_4
   __int64 result; // rax
-  float v4; // xmm3_4
+  float v4; // xmm4_4
 
   v2 = a1[1];
   result = 3LL;

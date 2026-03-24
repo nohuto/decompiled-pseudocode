@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceLatencyModeSwitchStart @ 0x1C014DFD0
+ * XREFs of EtwTraceLatencyModeSwitchStart @ 0x1C0122B70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceLatencyModeSwitchStart(__int64 a1)

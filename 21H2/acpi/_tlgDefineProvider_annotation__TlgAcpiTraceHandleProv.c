@@ -1,5 +1,5 @@
 /*
- * XREFs of _tlgDefineProvider_annotation__TlgAcpiTraceHandleProv @ 0x1C0048F9C
+ * XREFs of _tlgDefineProvider_annotation__TlgAcpiTraceHandleProv @ 0x1C004A5BC
  * Callers:
  *     <none>
  * Callees:

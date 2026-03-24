@@ -1,112 +1,99 @@
 /*
- * XREFs of PopDripsWatchdogCallbackWorker @ 0x14099C240
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x1408EEFD0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14035DF84 (PopDirectedDripsSetDisengageReason.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14035DFE8 (PopDirectedDripsClearDisengageReason.c)
- *     PopCalculateIdleInformation @ 0x1403C76E0 (PopCalculateIdleInformation.c)
- *     PopDripsWatchdogCallbackHandler @ 0x14099C0A0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14099C758 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x140379F4C (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x140379FB4 (PopDirectedDripsSetDisengageReason.c)
+ *     PopCalculateIdleInformation @ 0x140570350 (PopCalculateIdleInformation.c)
+ *     PopDripsWatchdogAcquireContextLock @ 0x1408EEE00 (PopDripsWatchdogAcquireContextLock.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEE28 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogReleaseContextLock @ 0x1408EF510 (PopDripsWatchdogReleaseContextLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF534 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-_QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
+__int64 __fastcall PopDripsWatchdogCallbackWorker(__int64 a1)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  struct _OWNER_ENTRY *v3; // rsi
-  ULONG v4; // r15d
+  char v2; // bp
+  __int64 v3; // rsi
+  int v4; // r14d
   __int128 v5; // xmm0
   int v6; // eax
-  OWNER_ENTRY v7; // xmm1
-  unsigned int Flink; // eax
-  int Reserved2_high; // eax
-  int Flink_high; // r12d
-  unsigned int SpinLock; // r13d
-  __int64 v12; // rbp
-  unsigned __int64 v13; // r14
-  int v14; // ecx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  struct _KTHREAD *v18; // rax
-  __int128 v20; // [rsp+30h] [rbp-58h] BYREF
-  OWNER_ENTRY v21; // [rsp+40h] [rbp-48h]
-  char ActiveCount; // [rsp+90h] [rbp+8h]
-  __int64 v23; // [rsp+98h] [rbp+10h]
+  __int128 v7; // xmm1
+  unsigned int v8; // eax
+  int v9; // eax
+  int v10; // r13d
+  __int64 v11; // r15
+  unsigned __int64 v12; // r12
+  int v13; // ecx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int128 v17; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v18; // [rsp+40h] [rbp-48h]
+  char v19; // [rsp+90h] [rbp+8h]
+  unsigned int v20; // [rsp+98h] [rbp+10h]
+  __int64 v21; // [rsp+A0h] [rbp+18h]
 
-  CurrentThread = KeGetCurrentThread();
-  v20 = 0LL;
-  --CurrentThread->KernelApcDisable;
-  v21 = 0LL;
-  ExAcquireResourceExclusiveLite(Resource, 1u);
-  if ( ((__int64)Resource[1].SystemResourcesList.Flink & 4) != 0 && (HIDWORD(Resource[2].Reserved2) & 2) != 0 )
+  v17 = 0LL;
+  v18 = 0LL;
+  PopDripsWatchdogAcquireContextLock((struct _ERESOURCE *)a1);
+  if ( (*(_DWORD *)(a1 + 104) & 4) != 0 && (*(_DWORD *)(a1 + 292) & 2) != 0 )
   {
-    ++LODWORD(Resource[6].OwnerTable);
-    ++HIDWORD(Resource[2].SpinLock);
-    PopDripsWatchdogScheduleNextTimer(&Resource[1].SystemResourcesList.Blink);
-    v3 = (struct _OWNER_ENTRY *)MEMORY[0xFFFFF78000000008];
-    PopCalculateIdleInformation((__int64)&v20);
-    v4 = v21.TableSize - Resource[3].OwnerEntry.TableSize;
-    if ( v21.TableSize != Resource[3].OwnerEntry.TableSize )
+    v2 = 1;
+    ++*(_DWORD *)(a1 + 640);
+    ++*(_DWORD *)(a1 + 308);
+    PopDripsWatchdogScheduleNextTimer(a1 + 112);
+    v3 = MEMORY[0xFFFFF78000000008];
+    PopCalculateIdleInformation((__int64)&v17);
+    v4 = DWORD2(v18) - *(_DWORD *)(a1 + 368);
+    if ( DWORD2(v18) != *(_DWORD *)(a1 + 368) )
     {
-      v5 = v20;
+      v5 = v17;
       v6 = PopDripsWatchdogDebounceTickInterval;
-      v7 = v21;
-      HIDWORD(Resource[2].SpinLock) = 0;
-      *(_OWORD *)&Resource[3].SharedWaiters = v5;
-      Resource[3].OwnerTable = v3;
-      Resource[3].OwnerEntry = v7;
-      LODWORD(Resource[3].SystemResourcesList.Flink) = v6;
-      Resource[3].SystemResourcesList.Blink = (struct _LIST_ENTRY *)v3;
+      v7 = v18;
+      *(_DWORD *)(a1 + 308) = 0;
+      *(_OWORD *)(a1 + 344) = v5;
+      *(_QWORD *)(a1 + 328) = v3;
+      *(_OWORD *)(a1 + 360) = v7;
+      *(_DWORD *)(a1 + 312) = v6;
+      *(_QWORD *)(a1 + 320) = v3;
     }
-    Flink = (unsigned int)Resource[3].SystemResourcesList.Flink;
-    if ( Flink )
+    v8 = *(_DWORD *)(a1 + 312);
+    if ( v8 )
     {
-      if ( HIDWORD(Resource[2].SpinLock) < Flink )
+      if ( *(_DWORD *)(a1 + 308) < v8 )
       {
         PopDirectedDripsClearDisengageReason(0);
       }
       else
       {
         PopDirectedDripsSetDisengageReason(0);
-        LODWORD(Resource[3].SystemResourcesList.Flink) = PopDripsWatchdogDebounceTickInterval
-                                                       + HIDWORD(Resource[2].SpinLock);
+        *(_DWORD *)(a1 + 312) = PopDripsWatchdogDebounceTickInterval + *(_DWORD *)(a1 + 308);
       }
     }
-    Reserved2_high = HIDWORD(Resource[2].Reserved2);
-    if ( (Reserved2_high & 4) == 0 )
+    v9 = *(_DWORD *)(a1 + 292);
+    if ( (v9 & 4) == 0 )
     {
-      Flink_high = HIDWORD(Resource[1].SystemResourcesList.Flink);
-      SpinLock = Resource[2].SpinLock;
-      v12 = (char *)v3 - (char *)Resource[3].SystemResourcesList.Blink;
-      v13 = (char *)v3 - (char *)Resource[3].OwnerTable;
-      v23 = *(_QWORD *)&Resource[6].ActiveCount;
-      ActiveCount = Resource[3].ActiveCount;
-      HIDWORD(Resource[2].Reserved2) = Reserved2_high | 4;
-      ExReleaseResourceLite(Resource);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      PopAcquirePolicyLock(v14);
-      if ( v4 || qword_140CF7D18 )
-      {
-        PopReleasePolicyLock(v16, v15, v17);
-      }
-      else
-      {
-        PopReleasePolicyLock(v16, v15, v17);
-        PopDripsWatchdogCallbackHandler(Flink_high, SpinLock, v12, v13, v23, ActiveCount);
-      }
-      v18 = KeGetCurrentThread();
-      --v18->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(Resource, 1u);
-      Resource[3].SystemResourcesList.Blink = (struct _LIST_ENTRY *)v3;
-      HIDWORD(Resource[2].Reserved2) &= ~4u;
+      v10 = *(_DWORD *)(a1 + 108);
+      v11 = v3 - *(_QWORD *)(a1 + 320);
+      v12 = v3 - *(_QWORD *)(a1 + 328);
+      v20 = *(_DWORD *)(a1 + 304);
+      v21 = *(_QWORD *)(a1 + 648);
+      v19 = *(_BYTE *)(a1 + 336);
+      *(_DWORD *)(a1 + 292) = v9 | 4;
+      PopDripsWatchdogReleaseContextLock(a1);
+      PopAcquirePolicyLock(v13);
+      if ( v4 || qword_140C4FF58 )
+        v2 = 0;
+      PopReleasePolicyLock(v15, v14);
+      if ( v2 )
+        PopDripsWatchdogCallbackHandler(v10, v20, v11, v12, v21, v19);
+      PopDripsWatchdogAcquireContextLock((struct _ERESOURCE *)a1);
+      *(_QWORD *)(a1 + 320) = v3;
+      *(_DWORD *)(a1 + 292) &= ~4u;
     }
   }
-  ExReleaseResourceLite(Resource);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return PopDripsWatchdogReleaseContextLock(a1);
 }

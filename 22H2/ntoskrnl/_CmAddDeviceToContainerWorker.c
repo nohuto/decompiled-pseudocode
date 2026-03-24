@@ -1,122 +1,108 @@
 /*
- * XREFs of _CmAddDeviceToContainerWorker @ 0x1407956A8
+ * XREFs of _CmAddDeviceToContainerWorker @ 0x140758A70
  * Callers:
- *     _CmAddDeviceToContainer @ 0x14079BC88 (_CmAddDeviceToContainer.c)
+ *     _CmAddDeviceToContainer @ 0x140758914 (_CmAddDeviceToContainer.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpCtxRegCreateKey @ 0x1407983D0 (_PnpCtxRegCreateKey.c)
- *     _CmCreateDeviceContainer @ 0x14079B8DC (_CmCreateDeviceContainer.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140863068 (_RegRtlDeleteKeyTransacted.c)
- *     _CmDeleteDeviceContainer @ 0x140A636A4 (_CmDeleteDeviceContainer.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x1406B4340 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _CmDeleteDeviceContainer @ 0x14072CD3C (_CmDeleteDeviceContainer.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmCreateDeviceContainer @ 0x140758C54 (_CmCreateDeviceContainer.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766378 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
-__int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, int a3, const WCHAR *a4, _BYTE *a5)
+__int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, __int64 a3, const WCHAR *a4, _BYTE *a5)
 {
   _BYTE *v5; // rsi
-  int DeviceContainer; // ebx
+  int DeviceContainer; // eax
+  HANDLE v11; // r15
+  int Key; // ebx
   int Value; // eax
-  __int64 v13; // rax
-  __int64 v14; // r8
   __int64 v15; // rax
   __int64 v16; // r8
-  _BYTE v17[4]; // [rsp+40h] [rbp-30h] BYREF
-  int v18; // [rsp+44h] [rbp-2Ch] BYREF
-  int v19; // [rsp+48h] [rbp-28h] BYREF
+  __int64 v17; // rax
+  __int64 v18; // r8
+  _BYTE v19[4]; // [rsp+40h] [rbp-30h] BYREF
+  int v20; // [rsp+44h] [rbp-2Ch] BYREF
+  int v21; // [rsp+48h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
-  HANDLE v21; // [rsp+58h] [rbp-18h] BYREF
-  HANDLE v22; // [rsp+60h] [rbp-10h] BYREF
+  HANDLE v23; // [rsp+58h] [rbp-18h] BYREF
+  HANDLE v24; // [rsp+60h] [rbp-10h] BYREF
 
   v5 = a5;
-  v22 = 0LL;
-  v21 = 0LL;
+  v24 = 0LL;
+  v23 = 0LL;
   Handle = 0LL;
   *a5 = 0;
-  v17[0] = 0;
-  v19 = 0;
-  v18 = 0;
-  DeviceContainer = CmCreateDeviceContainer(a1, a2, a3, (unsigned int)&v22, (__int64)v17);
+  v19[0] = 0;
+  v21 = 0;
+  v20 = 0;
+  DeviceContainer = CmCreateDeviceContainer(a1, a2, a3, (unsigned int)&v24, (__int64)v19);
+  v11 = v24;
+  Key = DeviceContainer;
   if ( DeviceContainer >= 0 )
   {
-    DeviceContainer = PnpCtxRegCreateKey(
-                        a1,
-                        (_DWORD)v22,
-                        (unsigned int)L"BaseContainers",
-                        0,
-                        4,
-                        0LL,
-                        (__int64)&v21,
-                        (__int64)&v19);
-    if ( DeviceContainer >= 0 )
+    Key = PnpCtxRegCreateKey(a1, (__int64)v24, (__int64)L"BaseContainers", 0, 4u, 0LL, (__int64)&v23, (__int64)&v21);
+    if ( Key >= 0 )
     {
-      DeviceContainer = PnpCtxRegCreateKey(a1, (_DWORD)v21, a3, 0, 3, 0LL, (__int64)&Handle, (__int64)&v18);
-      if ( DeviceContainer >= 0 )
+      Key = PnpCtxRegCreateKey(a1, (__int64)v23, a3, 0, 3u, 0LL, (__int64)&Handle, (__int64)&v20);
+      if ( Key >= 0 )
       {
-        if ( v18 == 2 )
+        if ( v20 == 2 )
         {
           LODWORD(a5) = 0;
           Value = RegRtlQueryValue(Handle, a4, 0LL, 0LL, (unsigned int *)&a5);
-          DeviceContainer = Value;
+          Key = Value;
           if ( Value == -1073741772 || Value == -1073741444 )
           {
-            DeviceContainer = 0;
+            Key = 0;
           }
-          else if ( Value )
-          {
-            if ( Value < 0 )
-              goto LABEL_14;
-          }
-          else
+          else if ( !Value )
           {
             *v5 = 1;
+            goto LABEL_9;
           }
         }
-        if ( *v5 )
+        if ( Key >= 0 && !*v5 )
         {
-LABEL_14:
-          if ( DeviceContainer >= 0 )
-            goto LABEL_15;
-          goto LABEL_24;
-        }
-        DeviceContainer = RegRtlSetValue(Handle, 0);
-        if ( DeviceContainer >= 0 )
-        {
-          PnpObjectRaisePropertyChangeEvent(a1, (_DWORD)a4, 1, 0, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
-          goto LABEL_15;
+          Key = RegRtlSetValue(Handle, 0);
+          if ( Key >= 0 )
+            PnpObjectRaisePropertyChangeEvent(a1, (__int64)a4, 1LL, 0LL, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
         }
       }
     }
   }
-  if ( DeviceContainer != -1073741444 )
-    goto LABEL_14;
-  DeviceContainer = -1073741772;
-LABEL_24:
-  if ( v18 == 1 )
+  if ( Key == -1073741444 )
+    Key = -1073741772;
+  if ( Key < 0 )
   {
-    if ( a1 && (v13 = *(_QWORD *)(a1 + 224)) != 0 )
-      v14 = *(_QWORD *)(v13 + 8);
-    else
-      v14 = 0LL;
-    RegRtlDeleteKeyTransacted(Handle, 0LL, v14);
+    if ( v20 == 1 )
+    {
+      if ( a1 && (v15 = *(_QWORD *)(a1 + 224)) != 0 )
+        v16 = *(_QWORD *)(v15 + 8);
+      else
+        v16 = 0LL;
+      RegRtlDeleteKeyTransacted(Handle, 0LL, v16);
+    }
+    if ( v21 == 1 )
+    {
+      if ( a1 && (v17 = *(_QWORD *)(a1 + 224)) != 0 )
+        v18 = *(_QWORD *)(v17 + 8);
+      else
+        v18 = 0LL;
+      RegRtlDeleteKeyTransacted(v23, 0LL, v18);
+    }
+    if ( v19[0] == 1 )
+      CmDeleteDeviceContainer(a1, a2);
   }
-  if ( v19 == 1 )
-  {
-    if ( a1 && (v15 = *(_QWORD *)(a1 + 224)) != 0 )
-      v16 = *(_QWORD *)(v15 + 8);
-    else
-      v16 = 0LL;
-    RegRtlDeleteKeyTransacted(v21, 0LL, v16);
-  }
-  if ( v17[0] == 1 )
-    CmDeleteDeviceContainer(a1, a2);
-LABEL_15:
+LABEL_9:
   if ( Handle )
     ZwClose(Handle);
-  if ( v21 )
-    ZwClose(v21);
-  if ( v22 )
-    ZwClose(v22);
-  return (unsigned int)DeviceContainer;
+  if ( v23 )
+    ZwClose(v23);
+  if ( v11 )
+    ZwClose(v11);
+  return (unsigned int)Key;
 }

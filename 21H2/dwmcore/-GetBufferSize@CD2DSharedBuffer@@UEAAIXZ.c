@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBufferSize@CD2DSharedBuffer@@UEAAIXZ @ 0x1800FC3A0
+ * XREFs of ?GetBufferSize@CD2DSharedBuffer@@UEAAIXZ @ 0x1800E2210
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CD2DSharedBuffer::GetBufferSize(CD2DSharedBuffer *this)
 {
-  return *((unsigned int *)this + 6);
+  return *((unsigned int *)this + 4);
 }

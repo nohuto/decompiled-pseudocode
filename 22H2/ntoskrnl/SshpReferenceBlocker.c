@@ -1,7 +1,7 @@
 /*
- * XREFs of SshpReferenceBlocker @ 0x1407E87E0
+ * XREFs of SshpReferenceBlocker @ 0x1406A3514
  * Callers:
- *     SleepstudyHelperSetBlockerParentHandle @ 0x14036B0A0 (SleepstudyHelperSetBlockerParentHandle.c)
+ *     SleepstudyHelperSetBlockerParentHandle @ 0x14032B180 (SleepstudyHelperSetBlockerParentHandle.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 __fastcall SshpReferenceBlocker(__int64 a1)
 {
   __int64 result; // rax
 
-  result = *(_QWORD *)(a1 + 296);
-  _InterlockedIncrement((volatile signed __int32 *)(result + 112));
+  result = *(_QWORD *)(a1 + 288);
+  _InterlockedIncrement((volatile signed __int32 *)(result + 96));
   return result;
 }

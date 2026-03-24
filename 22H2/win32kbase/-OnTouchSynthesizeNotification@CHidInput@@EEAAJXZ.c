@@ -1,19 +1,13 @@
 /*
- * XREFs of ?OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ @ 0x1C01E2D50
+ * XREFs of ?OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ @ 0x1C01AA1F0
  * Callers:
  *     <none>
  * Callees:
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0052D0C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0052D50 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     SynthesizeTouchInputContainer @ 0x1C01EFFC0 (SynthesizeTouchInputContainer.c)
+ *     SynthesizeTouchInputContainer @ 0x1C01B3B90 (SynthesizeTouchInputContainer.c)
  */
 
-__int64 __fastcall CHidInput::OnTouchSynthesizeNotification(struct RIMCOMPLETEFRAME **this)
+__int64 __fastcall CHidInput::OnTouchSynthesizeNotification(void **this)
 {
-  __int64 *v3; // [rsp+30h] [rbp+8h] BYREF
-
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v3, "OnTouchSynthesizeNotification", 0LL);
-  SynthesizeTouchInputContainer(this[178]);
-  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v3);
+  SynthesizeTouchInputContainer(this[169]);
   return 0LL;
 }

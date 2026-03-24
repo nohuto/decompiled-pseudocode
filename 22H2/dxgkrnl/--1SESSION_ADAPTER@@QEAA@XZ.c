@@ -1,14 +1,15 @@
 /*
- * XREFs of ??1SESSION_ADAPTER@@QEAA@XZ @ 0x1C01DFAB4
+ * XREFs of ??1SESSION_ADAPTER@@QEAA@XZ @ 0x1C0164B34
  * Callers:
- *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C001515C (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
+ *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C0019FFC (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?DeallocateElements@?$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ @ 0x1C01EA5B0 (-DeallocateElements@-$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ.c)
+ *     ?DeallocateElements@?$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ @ 0x1C016D768 (-DeallocateElements@-$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ.c)
  */
 
-void __fastcall SESSION_ADAPTER::~SESSION_ADAPTER(SESSION_ADAPTER *this)
+void __fastcall SESSION_ADAPTER::~SESSION_ADAPTER(SESSION_ADAPTER *this, __int64 a2)
 {
+  __int64 v3; // rax
+
   if ( *((_DWORD *)this + 12)
     || *((_QWORD *)this + 2)
     || *((_QWORD *)this + 7)
@@ -17,18 +18,9 @@ void __fastcall SESSION_ADAPTER::~SESSION_ADAPTER(SESSION_ADAPTER *this)
     || *((_DWORD *)this + 26)
     || *((SESSION_ADAPTER **)this + 14) != (SESSION_ADAPTER *)((char *)this + 112) )
   {
-    WdLogSingleEntry1(1LL, 2190LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(m_RefCount == 0) && (m_DisplayAdapter == NULL) && (m_DxgCddDevice == NULL) && (m_DxgCddContext == NULL) "
-                "&& (m_NumDisplaySources == 0) && (m_SourcesMask == 0) && IsListEmpty(&m_DisplaySourceListHead)",
-      2190LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 2149LL;
+    WdLogEvent5_WdAssertion(v3);
   }
   PagedPoolZeroedArray<DXGHWQUEUE *,2>::DeallocateElements((char *)this + 72);
 }

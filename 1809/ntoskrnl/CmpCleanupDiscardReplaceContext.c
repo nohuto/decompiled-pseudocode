@@ -1,14 +1,14 @@
 /*
  * XREFs of CmpCleanupDiscardReplaceContext @ 0x1405AA51C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmpCleanupLightWeightUoWData @ 0x14069490C (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803798 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804288 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpCleanupLightWeightUoWData @ 0x1406948EC (CmpCleanupLightWeightUoWData.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803778 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804268 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
- *     CmpCleanupDiscardReplacePost @ 0x1407F9950 (CmpCleanupDiscardReplacePost.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpCleanupDiscardReplacePost @ 0x1407F9930 (CmpCleanupDiscardReplacePost.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 __int64 __fastcall CmpCleanupDiscardReplaceContext(_QWORD *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$insert@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@1@Z @ 0x1801DB254
+ * XREFs of ??$insert@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@1@Z @ 0x180179650
  * Callers:
- *     ??$assign@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXV?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@0@Z @ 0x1801DAECC (--$assign@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X.c)
+ *     ??$assign@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXV?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@0@Z @ 0x180179268 (--$assign@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X.c)
  * Callees:
- *     ??0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z @ 0x18012F2C8 (--0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z.c)
- *     ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x1801DEE38 (-reserve_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneI.c)
+ *     ??0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z @ 0x180179940 (--0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z.c)
+ *     ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x18017D0EC (-reserve_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneI.c)
  */
 
 _QWORD *__fastcall detail::vector_facade<COverlayContext::OverlayPlaneInfo,detail::buffer_impl<COverlayContext::OverlayPlaneInfo,16,1,detail::liberal_expansion_policy>>::insert<std::move_iterator<detail::basic_iterator<COverlayContext::OverlayPlaneInfo>>,void>(
@@ -16,26 +16,24 @@ _QWORD *__fastcall detail::vector_facade<COverlayContext::OverlayPlaneInfo,detai
 {
   __int64 v8; // rbp
   __int64 v9; // rax
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // r10
-  __int64 v15; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  __int64 i; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
 
-  v8 = 0x6DB6DB6DB6DB6DB7LL * ((__int64)(*a3 - *a1) >> 5);
+  v8 = (*a3 - *a1) / 224LL;
   v9 = detail::vector_facade<COverlayContext::OverlayPlaneInfo,detail::buffer_impl<COverlayContext::OverlayPlaneInfo,16,1,detail::liberal_expansion_policy>>::reserve_region(
          a1,
          v8,
-         0x6DB6DB6DB6DB6DB7LL * ((*a5 - *a4) >> 5));
-  v10 = *a5;
-  v11 = v9;
-  v12 = *a4;
-  while ( v12 != v10 )
+         (*a5 - *a4) / 224);
+  v11 = *a5;
+  v12 = v9;
+  for ( i = *a4; i != v11; i = v15 + 224 )
   {
-    COverlayContext::OverlayPlaneInfo::OverlayPlaneInfo(v11, v12);
-    v12 = v14 + v13;
-    v11 = v14 + v15;
+    COverlayContext::OverlayPlaneInfo::OverlayPlaneInfo(v12, i, v10, v11);
+    v12 = v14 + 224;
   }
   *a2 = *a1 + 224 * v8;
   return a2;

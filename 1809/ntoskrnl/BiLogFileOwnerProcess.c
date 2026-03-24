@@ -1,17 +1,17 @@
 /*
- * XREFs of BiLogFileOwnerProcess @ 0x1403272F0
+ * XREFs of BiLogFileOwnerProcess @ 0x1403273F0
  * Callers:
- *     BiLoadSystemStore @ 0x140710E48 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x140710E28 (BiLoadSystemStore.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
- *     ZwQueryInformationProcess @ 0x1401B8490 (ZwQueryInformationProcess.c)
- *     ZwOpenProcess @ 0x1401B8630 (ZwOpenProcess.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
+ *     ZwQueryInformationProcess @ 0x1401B84B0 (ZwQueryInformationProcess.c)
+ *     ZwOpenProcess @ 0x1401B8650 (ZwOpenProcess.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopDmaOverrideConflict @ 0x1406D3E80 (IopDmaOverrideConflict.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     IopDmaOverrideConflict @ 0x1406D3E60 (IopDmaOverrideConflict.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801FF0F8
+ * XREFs of ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801AC150
  * Callers:
- *     ?HideDDAVisuals@CComposition@@QEBAXXZ @ 0x180111BE2 (-HideDDAVisuals@CComposition@@QEBAXXZ.c)
- *     ?HideVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x1801C7A40 (-HideVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
+ *     ?HideDDAVisuals@CComposition@@QEBAXXZ @ 0x180155AF0 (-HideDDAVisuals@CComposition@@QEBAXXZ.c)
+ *     ?HideVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x18018B630 (-HideVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
  * Callees:
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1801A9220 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
- *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801A9238 (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
- *     ?erase@?$vector@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@V?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@std@@@std@@@2@@Z @ 0x1801FF5D4 (-erase@-$vector@V-$unique_ptr@VCExcludeVisualReference@@U-$default_delete@VCExcludeVisualReferen.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5648 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801742FC (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
+ *     ?erase@?$vector@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@V?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@std@@@std@@@2@@Z @ 0x1801AC694 (-erase@-$vector@V-$unique_ptr@VCExcludeVisualReference@@U-$default_delete@VCExcludeVisualReferen.c)
  */
 
 void __fastcall CVisualGroup::HideVisuals(CVisualGroup *this)
@@ -16,8 +16,8 @@ void __fastcall CVisualGroup::HideVisuals(CVisualGroup *this)
   __int64 v4; // r9
   char v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = (CExcludeVisualReference **)*((_QWORD *)this + 8);
-  while ( v1 != *((CExcludeVisualReference ***)this + 9) )
+  v1 = (CExcludeVisualReference **)*((_QWORD *)this + 7);
+  while ( v1 != *((CExcludeVisualReference ***)this + 8) )
   {
     if ( CExcludeVisualReference::GetVisual(*v1) )
     {
@@ -27,7 +27,7 @@ void __fastcall CVisualGroup::HideVisuals(CVisualGroup *this)
     else
     {
       v1 = *(CExcludeVisualReference ***)std::vector<std::unique_ptr<CExcludeVisualReference>>::erase(
-                                           (char *)this + 64,
+                                           (char *)this + 56,
                                            &v5);
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEnableWmiInterface @ 0x1408565CC
+ * XREFs of PpmEnableWmiInterface @ 0x1407C76AC
  * Callers:
- *     PopNewProcessorCallback @ 0x1409893F0 (PopNewProcessorCallback.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PopNewProcessorCallback @ 0x1408E0EA0 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     KeQueryGroupAffinity @ 0x1402D75B0 (KeQueryGroupAffinity.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     IoWMIRegistrationControl @ 0x1406C8220 (IoWMIRegistrationControl.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
+ *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
  */
 
 int PpmEnableWmiInterface()
@@ -24,9 +24,9 @@ int PpmEnableWmiInterface()
       v2 = GroupAffinity;
       if ( GroupAffinity )
       {
-        LODWORD(GroupAffinity) = _InterlockedCompareExchange((volatile signed __int32 *)(GroupAffinity + 33840), 1, 0);
+        LODWORD(GroupAffinity) = _InterlockedCompareExchange((volatile signed __int32 *)(GroupAffinity + 33000), 1, 0);
         if ( !(_DWORD)GroupAffinity )
-          LODWORD(GroupAffinity) = IoWMIRegistrationControl((PDEVICE_OBJECT)(v2 + 33832), 0x80000001);
+          LODWORD(GroupAffinity) = IoWMIRegistrationControl((PDEVICE_OBJECT)(v2 + 32992), 0x80000001);
       }
     }
   }

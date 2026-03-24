@@ -4,13 +4,13 @@
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     IoDeleteDevice @ 0x1400DAAC0 (IoDeleteDevice.c)
- *     IoDetachDevice @ 0x1400DCA30 (IoDetachDevice.c)
- *     IoAcquireRemoveLockEx @ 0x1400FE2F0 (IoAcquireRemoveLockEx.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x14016D020 (IoReleaseRemoveLockAndWaitEx.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
+ *     IoDetachDevice @ 0x1400DCA50 (IoDetachDevice.c)
+ *     IoAcquireRemoveLockEx @ 0x1400FE310 (IoAcquireRemoveLockEx.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14016D040 (IoReleaseRemoveLockAndWaitEx.c)
  */
 
 NTSTATUS __fastcall ViFilterDispatchPnp(PDEVICE_OBJECT DeviceObject, PIRP Irp)

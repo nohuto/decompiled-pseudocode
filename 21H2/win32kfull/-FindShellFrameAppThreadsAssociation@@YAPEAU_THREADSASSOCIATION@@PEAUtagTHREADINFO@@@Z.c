@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z @ 0x1C00DD4F4
+ * XREFs of ?FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z @ 0x1C0030D64
  * Callers:
- *     DisassociateShellFrameAppThreads @ 0x1C00DD4CC (DisassociateShellFrameAppThreads.c)
- *     FindShellFrameThreadFromAssociation @ 0x1C01D996C (FindShellFrameThreadFromAssociation.c)
+ *     DisassociateShellFrameAppThreads @ 0x1C0030D3C (DisassociateShellFrameAppThreads.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01D2E4C (FindShellFrameThreadFromAssociation.c)
  * Callees:
  *     <none>
  */

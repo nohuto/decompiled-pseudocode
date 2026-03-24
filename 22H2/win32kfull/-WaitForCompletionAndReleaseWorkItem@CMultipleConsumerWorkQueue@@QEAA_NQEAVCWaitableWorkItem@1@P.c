@@ -1,63 +1,53 @@
 /*
- * XREFs of ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C0307510
+ * XREFs of ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C00F39E0
  * Callers:
- *     ?UmfdClientSignalServerAndWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C0306420 (-UmfdClientSignalServerAndWaitForCompletion@@YAJPEAX0PEBI@Z.c)
+ *     UmfdQueryFontData @ 0x1C00F36C0 (UmfdQueryFontData.c)
+ *     ?UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C02DE4E8 (-UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z.c)
  * Callees:
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C00B72BC (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
- *     ??1?$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C015F500 (--1-$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
- *     _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C015F524 (_CMultipleConsumerWorkQueue--WaitForCompletionAndReleaseWorkItem_--_2_--CEventPoolEntryAutoDestr.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E364 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  */
 
-char __fastcall CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem(
+bool __fastcall CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem(
         CMultipleConsumerWorkQueue *this,
         struct CMultipleConsumerWorkQueue::CWaitableWorkItem *const a2,
         const unsigned int *a3,
         bool *a4)
 {
-  bool v8; // zf
-  __int64 v9; // rbx
-  __int64 v10; // rdi
-  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
-  void *v13; // [rsp+50h] [rbp+8h] BYREF
+  void *v7; // r11
+  __int64 v8; // rbx
+  __int64 v9; // rdi
+  bool v10; // bp
+  union _LARGE_INTEGER Timeout; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( (unsigned int)WdSetEventAndWaitForSingleObject(
-                       **(_QWORD **)(*(_QWORD *)this + 8LL),
-                       **(_QWORD **)(*((_QWORD *)a2 + 5) + 8LL),
-                       0LL,
-                       0LL,
-                       a3) == 258
-    && a3 )
+  v7 = **(void ***)(*((_QWORD *)a2 + 5) + 8LL);
+  if ( !a3 )
   {
-    if ( a4 )
-      *a4 = 1;
+    KeWaitForSingleObject(v7, Executive, 0, 0, 0LL);
+    goto LABEL_3;
   }
-  else
+  Timeout.QuadPart = -10000LL * *a3;
+  if ( KeWaitForSingleObject(v7, Executive, 0, 0, &Timeout) != 258 )
   {
+LABEL_3:
     if ( a4 )
       *a4 = 0;
-    v8 = *((_DWORD *)a2 + 2) == 3;
-    v9 = *((_QWORD *)this + 1);
-    v10 = *((_QWORD *)a2 + 5);
-    v12[0] = v9;
-    v12[1] = v10;
-    v13 = a2;
-    if ( v8 )
-    {
-      CAutoDestroy<CMultipleConsumerWorkQueue::CWaitableWorkItem>::~CAutoDestroy<CMultipleConsumerWorkQueue::CWaitableWorkItem>(&v13);
-      CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy((__int64)v12);
-      return 1;
-    }
+    v8 = *((_QWORD *)this + 1);
+    v9 = *((_QWORD *)a2 + 5);
+    v10 = *((_DWORD *)a2 + 2) == 3;
     EngFreeMem(a2);
-    if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)v9) > 8 )
+    if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)v8) > 8 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)v9);
-      CEventPool::CEventPoolEntry::Destroy((_QWORD *)v10);
+      _InterlockedDecrement((volatile signed __int32 *)v8);
+      CEventPool::CEventPoolEntry::Destroy((PVOID)v9);
     }
     else
     {
-      KeResetEvent(**(PRKEVENT **)(v10 + 8));
-      ExpInterlockedPushEntrySList((PSLIST_HEADER)(v9 + 16), (PSLIST_ENTRY)v10);
+      KeResetEvent(**(PRKEVENT **)(v9 + 8));
+      ExpInterlockedPushEntrySList((PSLIST_HEADER)(v8 + 16), (PSLIST_ENTRY)v9);
     }
+    return v10;
   }
+  if ( a4 )
+    *a4 = 1;
   return 0;
 }

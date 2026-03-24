@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x1406D9F90
+ * XREFs of RtlUnicodeToMultiByteN @ 0x1405EDEA0
  * Callers:
- *     wcstombs @ 0x1403DB5A0 (wcstombs.c)
- *     _wctomb_s_l @ 0x1403DB8C4 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x1403E0348 (_safecrt_wctomb_s.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
+ *     wcstombs @ 0x1403D3B00 (wcstombs.c)
+ *     _wctomb_s_l @ 0x1403D3E34 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x1403D8760 (_safecrt_wctomb_s.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteN(
@@ -18,96 +17,86 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  char *CurrentServerSiloGlobals; // rax
-  PCWCH v10; // r10
-  ULONG *v11; // r8
-  ULONG v12; // r9d
-  PCHAR v13; // rdx
-  __int128 *v14; // rax
-  ULONG v15; // ecx
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // rax
-  __int64 i; // rdi
-  __int64 v21; // rax
-  __int16 v22; // r11
-  unsigned int v23; // eax
-  signed __int32 v24[8]; // [rsp+0h] [rbp-38h] BYREF
-  char v25; // [rsp+48h] [rbp+10h] BYREF
+  ULONG v9; // edx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  ULONG *v14; // r8
+  int v15; // r10d
+  int v16; // r8d
+  PCHAR v17; // r9
+  __int64 v18; // rcx
+  __int16 v19; // r11
+  ULONG v20; // eax
+  char v21; // [rsp+30h] [rbp-18h] BYREF
 
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
-    v14 = &Utf8TableInfo;
-    v13 = MultiByteString;
-    v10 = UnicodeString;
-    v11 = BytesInMultiByteString;
-    v12 = MaxBytesInMultiByteString;
+    v14 = (ULONG *)&v21;
+    if ( BytesInMultiByteString )
+      v14 = BytesInMultiByteString;
+    if ( BytesInUnicodeString )
+      RtlUnicodeToUTF8N(MultiByteString, MaxBytesInMultiByteString, v14, UnicodeString, BytesInUnicodeString);
+    else
+      *v14 = 0;
   }
   else
   {
-    _InterlockedOr(v24, 0);
-    CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
-    v10 = UnicodeString;
-    v11 = BytesInMultiByteString;
-    v12 = MaxBytesInMultiByteString;
-    v13 = MultiByteString;
-    v14 = (__int128 *)(CurrentServerSiloGlobals + 1064);
-    if ( !v14 )
+    v9 = BytesInUnicodeString >> 1;
+    if ( (_BYTE)NlsMbCodePageTag )
     {
-LABEL_14:
-      if ( !BytesInMultiByteString )
-        v11 = (ULONG *)&v25;
-      if ( BytesInUnicodeString )
-        RtlUnicodeToUTF8N(MultiByteString, MaxBytesInMultiByteString, v11, UnicodeString, BytesInUnicodeString);
-      else
-        *v11 = 0;
-      return 0;
-    }
-  }
-  if ( *(_WORD *)v14 == 0xFDE9 )
-    goto LABEL_14;
-  v15 = BytesInUnicodeString >> 1;
-  if ( *((_WORD *)v14 + 6) )
-  {
-    for ( i = *((_QWORD *)v14 + 5); v15; --v15 )
-    {
-      if ( !v12 )
-        break;
-      v21 = *v10++;
-      v22 = *(_WORD *)(i + 2 * v21);
-      if ( HIBYTE(v22) )
+      v15 = (int)MultiByteString;
+      v16 = (int)MultiByteString;
+      if ( v9 )
       {
-        v23 = v12--;
-        if ( v23 < 2 )
-          break;
-        *v13++ = HIBYTE(v22);
+        v17 = MultiByteString;
+        do
+        {
+          v16 = (int)v17;
+          if ( !MaxBytesInMultiByteString )
+            break;
+          v18 = *UnicodeString++;
+          v19 = *(_WORD *)(NlsUnicodeToMbAnsiData + 2 * v18);
+          if ( HIBYTE(v19) )
+          {
+            v20 = MaxBytesInMultiByteString--;
+            if ( v20 < 2 )
+              break;
+            *MultiByteString = HIBYTE(v19);
+            MultiByteString = ++v17;
+          }
+          *MultiByteString = v19;
+          --MaxBytesInMultiByteString;
+          MultiByteString = v17 + 1;
+          v17 = MultiByteString;
+          v16 = (int)MultiByteString;
+          --v9;
+        }
+        while ( v9 );
       }
-      *v13 = v22;
-      --v12;
-      ++v13;
+      if ( BytesInMultiByteString )
+        *BytesInMultiByteString = v16 - v15;
     }
-    if ( BytesInMultiByteString )
-      *BytesInMultiByteString = (_DWORD)v13 - (_DWORD)MultiByteString;
-  }
-  else
-  {
-    if ( v15 < MaxBytesInMultiByteString )
-      MaxBytesInMultiByteString = BytesInUnicodeString >> 1;
-    if ( BytesInMultiByteString )
-      *BytesInMultiByteString = MaxBytesInMultiByteString;
-    v16 = *((_QWORD *)v14 + 5);
-    if ( MaxBytesInMultiByteString )
+    else
     {
-      v17 = MaxBytesInMultiByteString;
-      do
+      if ( v9 < MaxBytesInMultiByteString )
+        MaxBytesInMultiByteString = BytesInUnicodeString >> 1;
+      if ( BytesInMultiByteString )
+        *BytesInMultiByteString = MaxBytesInMultiByteString;
+      v10 = NlsUnicodeToAnsiData;
+      if ( MaxBytesInMultiByteString )
       {
-        v18 = *UnicodeString;
-        ++MultiByteString;
-        ++UnicodeString;
-        *(MultiByteString - 1) = *(_BYTE *)(v18 + v16);
-        --v17;
+        v11 = MaxBytesInMultiByteString;
+        do
+        {
+          v12 = *UnicodeString;
+          ++MultiByteString;
+          ++UnicodeString;
+          *(MultiByteString - 1) = *(_BYTE *)(v12 + v10);
+          --v11;
+        }
+        while ( v11 );
       }
-      while ( v17 );
     }
   }
   return 0;

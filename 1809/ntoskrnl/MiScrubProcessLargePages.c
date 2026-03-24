@@ -1,7 +1,7 @@
 /*
- * XREFs of MiScrubProcessLargePages @ 0x1402CFA3C
+ * XREFs of MiScrubProcessLargePages @ 0x1402CFB3C
  * Callers:
- *     MiScrubProcesses @ 0x14085FBE0 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
  * Callees:
  *     MiUnlockVadShared @ 0x14001AF48 (MiUnlockVadShared.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -9,9 +9,9 @@
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiScrubLargeMappedPage @ 0x1402CF138 (MiScrubLargeMappedPage.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiScrubLargeMappedPage @ 0x1402CF238 (MiScrubLargeMappedPage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

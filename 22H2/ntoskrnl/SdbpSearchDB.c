@@ -1,230 +1,188 @@
 /*
- * XREFs of SdbpSearchDB @ 0x140752714
+ * XREFs of SdbpSearchDB @ 0x14077E6B4
  * Callers:
- *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x14077E548 (SdbGetDatabaseMatch.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetIndex @ 0x1407559D8 (SdbGetIndex.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1407575F8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140758F00 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x1407CB8AC (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x14084B144 (SdbFindNextStringIndexedTag.c)
- *     SdbpCheckExe @ 0x140863760 (SdbpCheckExe.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51BB0 (SdbpFindFirstNamedTagHelper.c)
- *     SdbpFindNextNamedTagHelper @ 0x140A51C90 (SdbpFindNextNamedTagHelper.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140752DDC (SdbpFindNextIndexedWildCardTag.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758F78 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x1407593F0 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbGetIndex @ 0x140759E60 (SdbGetIndex.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407C14DC (SdbFindNextStringIndexedTag.c)
+ *     SdbFindFirstNamedTag @ 0x1407C214C (SdbFindFirstNamedTag.c)
+ *     SdbpCheckExe @ 0x1407D212C (SdbpCheckExe.c)
+ *     SdbpFindNextNamedTag @ 0x140966120 (SdbpFindNextNamedTag.c)
  */
 
-__int64 __fastcall SdbpSearchDB(__int64 a1, void *a2, __int16 a3, __int64 a4, unsigned int *a5, __int64 a6)
+__int64 __fastcall SdbpSearchDB(int a1, union _RTL_RUN_ONCE *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
 {
-  unsigned int *v6; // r13
-  wchar_t *Str1; // rdi
-  unsigned int v9; // esi
-  unsigned int v10; // r15d
-  __int64 v11; // r12
-  __int64 v12; // r12
+  unsigned int *v6; // r15
+  unsigned int v9; // edi
+  WCHAR *Str1; // r14
+  __int64 v12; // r8
+  __int64 v13; // rsi
+  __int64 v14; // r12
   int FirstStringIndexedTag; // eax
-  int v14; // edi
-  __int64 v15; // rdi
-  __int64 v16; // r12
-  int v18; // eax
-  __int64 v19; // rdi
-  int FirstIndexedWildCardTag; // eax
-  int v21; // edi
-  int v22; // eax
-  int v23; // eax
-  __int64 v24; // r12
-  int FirstNamedTagHelper; // eax
-  int v26; // eax
-  int v27; // edi
-  int NextIndexedWildCardTag; // eax
-  int v29; // eax
-  int v30; // edi
-  unsigned int v31; // eax
-  int FirstTag; // [rsp+40h] [rbp-40h]
-  wchar_t *v33; // [rsp+48h] [rbp-38h]
-  __int64 v34[2]; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v35; // [rsp+60h] [rbp-20h]
-  __int64 v36; // [rsp+70h] [rbp-10h]
-  int v38; // [rsp+D0h] [rbp+50h] BYREF
-  __int64 v39; // [rsp+D8h] [rbp+58h]
+  int v16; // r14d
+  __int64 v17; // r8
+  int v19; // eax
+  unsigned int v20; // eax
+  __int64 v21; // r8
+  __int64 v22; // r9
+  int i; // eax
+  int v24; // eax
+  int FirstTag; // eax
+  __int64 v26; // r12
+  int FirstNamedTag; // eax
+  int v28; // eax
+  int v29; // r14d
+  int j; // eax
+  int v31; // eax
+  wchar_t *v32; // [rsp+40h] [rbp-30h]
+  _OWORD v33[2]; // [rsp+48h] [rbp-28h] BYREF
+  __int64 v34; // [rsp+68h] [rbp-8h]
+  int v36; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v37; // [rsp+C8h] [rbp+58h] BYREF
 
-  v39 = a4;
-  LOWORD(v38) = a3;
   v6 = a5;
-  Str1 = *(wchar_t **)(a4 + 40);
-  LODWORD(a6) = 0;
+  LODWORD(v37) = 0;
+  a6 = 0;
+  v34 = 0LL;
   v9 = 0;
-  v36 = 0LL;
-  v38 = 0;
-  *(_OWORD *)v34 = 0LL;
-  v35 = 0LL;
+  v36 = 0;
+  memset(v33, 0, sizeof(v33));
   memset(a5, 0, 0x80uLL);
-  v33 = Str1;
-  FirstTag = SdbFindFirstTag(a2, 0LL, 28673LL);
-  if ( !FirstTag )
+  Str1 = *(WCHAR **)(a4 + 40);
+  v32 = Str1;
+  v13 = 16LL;
+  if ( (unsigned int)SdbGetIndex(a2, 28679, 24587, 0LL) )
   {
-    AslLogCallPrintf(1LL);
-    goto LABEL_11;
-  }
-  v10 = 16;
-  if ( (unsigned int)SdbGetIndex(a2) )
-  {
-    v11 = 1LL;
-    FirstIndexedWildCardTag = SdbpFindFirstIndexedWildCardTag(a2, (__int64)v34);
-    goto LABEL_21;
-  }
-  v11 = 0LL;
-  if ( a2 != *(void **)(a1 + 8) )
-  {
-    FirstIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, Str1, 1);
-LABEL_21:
-    while ( 1 )
+    for ( i = SdbpFindFirstIndexedWildCardTag(a2, 28679LL, v12, (__int64)Str1, (unsigned int *)v33);
+          i;
+          i = SdbpFindNextIndexedWildCardTag((__int64)a2, (unsigned int *)v33) )
     {
-      v21 = FirstIndexedWildCardTag;
-      if ( !FirstIndexedWildCardTag )
-        break;
-      v22 = SdbpCheckExe(a1, (int)a2, FirstIndexedWildCardTag, (int)&v38, v39, 1, (__int64)&a6, v6);
-      v9 = v38;
-      if ( v22 )
+      v24 = SdbpCheckExe(a1, (int)a2, i, (int)&v36, a4, 1, (__int64)&v37, v6);
+      v9 = v36;
+      if ( v24 )
       {
-        if ( (_DWORD)a6 != 2 )
-          goto LABEL_10;
+        if ( (_DWORD)v37 != 2 )
+          goto LABEL_7;
       }
-      else if ( (unsigned int)v38 > 0x10 )
+      else if ( (unsigned int)v36 > 0x10 )
       {
-        goto LABEL_17;
+        goto LABEL_15;
       }
-      if ( v11 )
-        FirstIndexedWildCardTag = SdbpFindNextIndexedWildCardTag(a2, v34);
-      else
-        FirstIndexedWildCardTag = SdbpFindNextNamedTagHelper((int)a2, FirstTag, v21, 24587, v33, 1);
     }
-    Str1 = v33;
   }
-  if ( (unsigned int)SdbGetIndex(a2) )
+  if ( (unsigned int)SdbGetIndex(a2, 28679, 24577, 0LL) )
   {
-    v12 = 1LL;
-    FirstStringIndexedTag = SdbFindFirstStringIndexedTag(a2, 28679LL, 24577LL, Str1, v34);
+    v14 = 1LL;
+    FirstStringIndexedTag = SdbFindFirstStringIndexedTag(a2, 28679LL, 24577, Str1, (unsigned int *)v33);
+    goto LABEL_4;
   }
-  else
-  {
-    v12 = 0LL;
-    FirstStringIndexedTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24577, Str1, 0);
-  }
+  v14 = 0LL;
+  FirstTag = SdbFindFirstTag((__int64)a2, 0LL, 28673);
+  a6 = FirstTag;
+  if ( !FirstTag )
+    goto LABEL_28;
+  FirstStringIndexedTag = SdbFindFirstNamedTag((int)a2, FirstTag, 28679, 24577, Str1);
+LABEL_4:
   while ( 1 )
   {
-    v14 = FirstStringIndexedTag;
+    v16 = FirstStringIndexedTag;
     if ( !FirstStringIndexedTag )
       break;
-    v18 = SdbpCheckExe(a1, (int)a2, FirstStringIndexedTag, (int)&v38, v39, 0, (__int64)&a6, v6);
-    v9 = v38;
-    if ( v18 )
+    v19 = SdbpCheckExe(a1, (int)a2, FirstStringIndexedTag, (int)&v36, a4, 0, (__int64)&v37, v6);
+    v9 = v36;
+    if ( v19 )
     {
-      if ( (_DWORD)a6 != 2 )
-        goto LABEL_10;
+      if ( (_DWORD)v37 != 2 )
+        goto LABEL_7;
     }
-    else if ( (unsigned int)v38 > 0x10 )
+    else if ( (unsigned int)v36 > 0x10 )
     {
-      goto LABEL_17;
+      goto LABEL_15;
     }
-    if ( v12 )
-      FirstStringIndexedTag = SdbFindNextStringIndexedTag(a2, v34);
+    if ( v14 )
+      FirstStringIndexedTag = SdbFindNextStringIndexedTag(a2, v33);
     else
-      FirstStringIndexedTag = SdbpFindNextNamedTagHelper((int)a2, FirstTag, v14, 24577, v33, 0);
+      FirstStringIndexedTag = SdbpFindNextNamedTag((int)a2, a6, v16, 24577, v32);
   }
-  v15 = v39;
-  if ( *(_QWORD *)(v39 + 48) )
+  if ( *(_QWORD *)(a4 + 48) )
   {
-    if ( (unsigned int)SdbGetIndex(a2) )
+    if ( (unsigned int)SdbGetIndex(a2, 28679, 24608, 0LL) )
     {
-      v23 = 1;
-      v24 = 1LL;
+      v26 = 1LL;
+      FirstNamedTag = SdbFindFirstStringIndexedTag(a2, 28679LL, 24608, *(const WCHAR **)(a4 + 48), (unsigned int *)v33);
+      goto LABEL_42;
     }
-    else
+    v26 = 0LL;
+    a6 = SdbFindFirstTag((__int64)a2, 0LL, 28673);
+    if ( a6 )
     {
-      v23 = 0;
-      v24 = 0LL;
+LABEL_28:
+      AslLogCallPrintf(1LL);
+      goto LABEL_7;
     }
-    if ( v23 )
-      FirstNamedTagHelper = SdbFindFirstStringIndexedTag(a2, 28679LL, 24608LL, *(_QWORD *)(v15 + 48), v34);
-    else
-      FirstNamedTagHelper = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24608, *(wchar_t **)(v15 + 48), 0);
+    FirstNamedTag = SdbFindFirstNamedTag((int)a2, 0, 28679, 24608, *(wchar_t **)(a4 + 48));
+LABEL_42:
     while ( 1 )
     {
-      v27 = FirstNamedTagHelper;
-      if ( !FirstNamedTagHelper )
+      v29 = FirstNamedTag;
+      if ( !FirstNamedTag )
         break;
-      v26 = SdbpCheckExe(a1, (int)a2, FirstNamedTagHelper, (int)&v38, v39, 0, (__int64)&a6, v6);
-      v9 = v38;
+      v28 = SdbpCheckExe(a1, (int)a2, FirstNamedTag, (int)&v36, a4, 0, (__int64)&v37, v6);
+      v9 = v36;
+      if ( v28 )
+      {
+        if ( (_DWORD)v37 != 2 )
+          goto LABEL_7;
+      }
+      else if ( (unsigned int)v36 > 0x10 )
+      {
+        goto LABEL_15;
+      }
       if ( v26 )
-      {
-        if ( (_DWORD)a6 != 2 )
-          goto LABEL_10;
-      }
-      else if ( (unsigned int)v38 > 0x10 )
-      {
-        goto LABEL_17;
-      }
-      if ( v24 )
-        FirstNamedTagHelper = SdbFindNextStringIndexedTag(a2, v34);
+        FirstNamedTag = SdbFindNextStringIndexedTag(a2, v33);
       else
-        FirstNamedTagHelper = SdbpFindNextNamedTagHelper((int)a2, FirstTag, v27, 24608, *(wchar_t **)(v39 + 48), 0);
+        FirstNamedTag = SdbpFindNextNamedTag((int)a2, a6, v29, 24608, *(wchar_t **)(a4 + 48));
     }
   }
-  if ( (unsigned int)SdbGetIndex(a2) )
+  if ( (unsigned int)SdbGetIndex(a2, 28679, 24587, 0LL) )
   {
-    v16 = 1LL;
-    NextIndexedWildCardTag = SdbpFindFirstIndexedWildCardTag(a2, (__int64)v34);
-    goto LABEL_58;
-  }
-  v16 = 0LL;
-  if ( a2 != *(void **)(a1 + 8) )
-  {
-    NextIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, v33, 1);
-LABEL_58:
-    while ( 1 )
+    for ( j = SdbpFindFirstIndexedWildCardTag(a2, 28679LL, v17, (__int64)v32, (unsigned int *)v33);
+          j;
+          j = SdbpFindNextIndexedWildCardTag((__int64)a2, (unsigned int *)v33) )
     {
-      v30 = NextIndexedWildCardTag;
-      if ( !NextIndexedWildCardTag )
-        break;
-      v29 = SdbpCheckExe(a1, (int)a2, NextIndexedWildCardTag, (int)&v38, v39, 2, (__int64)&a6, v6);
-      v9 = v38;
-      if ( v29 )
+      v31 = SdbpCheckExe(a1, (int)a2, j, (int)&v36, a4, 2, (__int64)&v37, v6);
+      v9 = v36;
+      if ( v31 )
       {
-        if ( (_DWORD)a6 != 2 )
+        if ( (_DWORD)v37 != 2 )
           break;
       }
-      else if ( (unsigned int)v38 > 0x10 )
+      else if ( (unsigned int)v36 > 0x10 )
       {
-        goto LABEL_17;
+        goto LABEL_15;
       }
-      if ( v16 )
-        NextIndexedWildCardTag = SdbpFindNextIndexedWildCardTag(a2, v34);
-      else
-        NextIndexedWildCardTag = SdbpFindNextNamedTagHelper((int)a2, FirstTag, v30, 24587, v33, 1);
     }
   }
-LABEL_10:
-  if ( v9 <= 0x10 )
+LABEL_7:
+  if ( v9 > 0x10 || (v13 = v9) != 0 )
   {
-LABEL_11:
-    v10 = v9;
-    if ( !v9 )
-      return v9;
+    do
+    {
+LABEL_15:
+      v20 = SdbFindFirstTag((__int64)a2, *v6, 24582);
+      if ( v20 )
+        SdbGetStringTagPtr((__int64)a2, v20, v21, v22);
+      v6 += 2;
+      --v13;
+    }
+    while ( v13 );
   }
-LABEL_17:
-  v19 = v10;
-  do
-  {
-    v31 = SdbFindFirstTag(a2, *v6, 24582LL);
-    if ( v31 )
-      SdbGetStringTagPtr(a2, v31);
-    v6 += 2;
-    --v19;
-  }
-  while ( v19 );
   return v9;
 }

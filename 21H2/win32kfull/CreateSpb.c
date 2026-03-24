@@ -1,60 +1,60 @@
 /*
- * XREFs of CreateSpb @ 0x1C00C92A0
+ * XREFs of CreateSpb @ 0x1C0161F90
  * Callers:
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     zzzLockWindowUpdate2 @ 0x1C00DBFA8 (zzzLockWindowUpdate2.c)
+ *     zzzLockWindowUpdate2 @ 0x1C003DDFC (zzzLockWindowUpdate2.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
  * Callees:
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     _MonitorFromRect @ 0x1C007B570 (_MonitorFromRect.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
- *     SubtractRect @ 0x1C00C1550 (SubtractRect.c)
- *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C00C9674 (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
- *     SpbCheck @ 0x1C00DC1F8 (SpbCheck.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreSaveScreenBits @ 0x1C029D748 (GreSaveScreenBits.c)
+ *     _MonitorFromRect @ 0x1C0042310 (_MonitorFromRect.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
+ *     SubtractRect @ 0x1C010B0E8 (SubtractRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C021A180 (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
+ *     SpbCheck @ 0x1C021A72C (SpbCheck.c)
+ *     GreSaveScreenBits @ 0x1C029EE44 (GreSaveScreenBits.c)
  */
 
-char __fastcall CreateSpb(struct tagWND *a1, int a2, HDC a3)
+void __fastcall CreateSpb(struct tagWND *a1, int a2, HDC a3)
 {
   struct tagWND *v4; // rsi
   __int64 DesktopWindow; // rax
+  __int64 v6; // rdx
   _QWORD *i; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // rax
-  LONG *v9; // r14
-  __int64 *v10; // r12
-  __int64 v11; // r8
-  struct tagWND *v12; // r9
-  struct tagWND *v13; // rdx
-  __int64 v14; // rdx
+  _QWORD *v8; // rdi
+  __int64 v9; // rax
+  LONG *v10; // r14
+  __int64 *v11; // r12
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rax
   int v15; // r15d
   int v16; // r13d
   LONG v17; // ebx
   __int64 CompatibleBitmapInternal; // rax
   __int64 v19; // rbp
   int v20; // ebx
-  __int64 v21; // rax
-  __int64 v22; // rbx
-  __int64 v23; // rcx
-  __int64 v24; // rax
+  __int64 v21; // r8
+  int v22; // eax
+  __int64 v23; // r9
+  __int64 v24; // rcx
+  struct tagWND *v25; // rdx
   __int128 v27; // [rsp+70h] [rbp-68h] BYREF
   __int128 v28; // [rsp+80h] [rbp-58h] BYREF
 
   v4 = a1;
-  LODWORD(DesktopWindow) = IsWindowDesktopComposed(a1);
-  if ( (_DWORD)DesktopWindow && a2 != 2 )
-    return DesktopWindow;
+  if ( (unsigned int)IsWindowDesktopComposed(a1) && a2 != 2 )
+    return;
   if ( (a2 & 2) == 0 )
   {
     if ( *((_QWORD *)v4 + 13) )
     {
       DesktopWindow = GetDesktopWindow((__int64)v4);
-      if ( v14 != DesktopWindow )
-        return DesktopWindow;
+      if ( v6 != DesktopWindow )
+        return;
     }
   }
   if ( *(_QWORD *)(gpDispInfo + 32LL) )
@@ -68,109 +68,105 @@ char __fastcall CreateSpb(struct tagWND *a1, int a2, HDC a3)
       GreGetBounds(i[1], 0LL, 1LL);
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
   }
-  DesktopWindow = Win32AllocPoolWithQuotaZInit(72LL, 1651733333LL);
-  v7 = DesktopWindow;
-  if ( !DesktopWindow )
-    return DesktopWindow;
-  v8 = Win32AllocPoolNonPagedZInit(88LL, 1651733333LL);
-  *(_QWORD *)(v7 + 64) = v8;
+  v8 = (_QWORD *)Win32AllocPoolWithQuota(72LL, 1651733333LL);
   if ( !v8 )
+    return;
+  v9 = Win32AllocPoolNonPaged(88LL, 1651733333LL);
+  v8[8] = v9;
+  if ( !v9 )
   {
-LABEL_42:
-    LOBYTE(DesktopWindow) = Win32FreePool(v7);
-    return DesktopWindow;
+LABEL_39:
+    Win32FreePool(v8);
+    return;
   }
-  v9 = (LONG *)(v7 + 24);
-  v10 = (__int64 *)(v7 + 8);
-  *(_QWORD *)(v7 + 8) = 0LL;
-  *(_OWORD *)(v7 + 24) = *(_OWORD *)(*((_QWORD *)v4 + 5) + 88LL);
+  v10 = (LONG *)(v8 + 3);
+  v11 = v8 + 1;
+  v8[1] = 0LL;
+  *(_OWORD *)(v8 + 3) = *(_OWORD *)(*((_QWORD *)v4 + 5) + 88LL);
   v27 = *(_OWORD *)(*gpDispInfo + 24LL);
-  if ( !(unsigned int)IntersectRect((_DWORD *)(v7 + 24), (int *)(v7 + 24), (int *)&v27) )
+  if ( !(unsigned int)IntersectRect((_DWORD *)v8 + 6, (int *)v8 + 6, (int *)&v27) )
   {
-LABEL_41:
-    Win32FreePool(*(_QWORD *)(v7 + 64));
-    goto LABEL_42;
+LABEL_38:
+    Win32FreePool((void *)v8[8]);
+    goto LABEL_39;
   }
-  *(_QWORD *)(v7 + 40) = 0LL;
-  *(_QWORD *)(v7 + 16) = 0LL;
-  *(_DWORD *)(v7 + 48) = a2;
-  *(_QWORD *)&v27 = v7 + 8;
+  v8[5] = 0LL;
+  v8[2] = 0LL;
+  *((_DWORD *)v8 + 12) = a2;
+  *(_QWORD *)&v27 = v8 + 1;
   *((_QWORD *)&v27 + 1) = v4;
-  HMAssignmentLock(&v27, 0LL);
+  HMAssignmentLock(&v27);
   if ( (a2 & 2) == 0 )
   {
-    v28 = *(_OWORD *)v9;
-    if ( !*(_DWORD *)(gpsi + 2220LL) )
+    v28 = *(_OWORD *)v10;
+    if ( *(_DWORD *)(gpsi + 2220LL)
+      || ((v12 = MonitorFromRect((struct tagRECT *)(v8 + 3), 1u, 0),
+           v27 = 0LL,
+           v13 = v12,
+           !SubtractRect((__int64)&v27, (int *)v8 + 6, (int *)(*(_QWORD *)(v12 + 40) + 28LL)))
+       || !(unsigned int)GreRectInRegion(*(_QWORD *)(gpDispInfo + 120LL), &v27))
+      && (unsigned int)IntersectRect((_DWORD *)v8 + 6, (int *)v8 + 6, (int *)(*(_QWORD *)(v13 + 40) + 28LL))
+      && v13 == *(_QWORD *)(gpDispInfo + 96LL) )
     {
-      v21 = MonitorFromRect((struct tagRECT *)(v7 + 24), 1u, 0);
-      v27 = 0LL;
-      v22 = v21;
-      if ( SubtractRect((__int64)&v27, (int *)(v7 + 24), (int *)(*(_QWORD *)(v21 + 40) + 28LL)) )
+      if ( !*(_QWORD *)(*((_QWORD *)v4 + 5) + 168LL) )
       {
-        if ( (unsigned int)GreRectInRegion(*(_QWORD *)(gpDispInfo + 120LL), &v27) )
-          goto LABEL_38;
-      }
-      if ( !(unsigned int)IntersectRect((_DWORD *)(v7 + 24), (int *)(v7 + 24), (int *)(*(_QWORD *)(v22 + 40) + 28LL))
-        || v22 != *(_QWORD *)(gpDispInfo + 96LL) )
-      {
-        goto LABEL_38;
-      }
-    }
-    if ( *(_QWORD *)(*((_QWORD *)v4 + 5) + 168LL)
-      && (v24 = GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 0LL, 0LL, &v28), (*(_QWORD *)(v7 + 56) = v24) != 0LL) )
-    {
-      *(_DWORD *)(v7 + 48) |= 1u;
-    }
-    else
-    {
-      v15 = *(_DWORD *)(v7 + 32) - *v9;
-      v16 = *(_DWORD *)(v7 + 36) - *(_DWORD *)(v7 + 28);
-      v17 = *v9 & 7;
-      CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(a3, v15 + v17, v16, 0, 0LL, 0LL);
-      *(_QWORD *)(v7 + 16) = CompatibleBitmapInternal;
-      if ( !CompatibleBitmapInternal
-        || (v19 = GreSelectBitmap(ghdcMem, CompatibleBitmapInternal)) == 0
-        || (v20 = NtGdiBitBltInternal(ghdcMem, v17, 0, v15, v16, a3, *v9, *(_DWORD *)(v7 + 28), 13369344, 0, 0),
-            GreSelectBitmap(ghdcMem, v19),
-            !v20) )
-      {
-LABEL_38:
-        v23 = *(_QWORD *)(v7 + 16);
-        if ( v23 )
-          GreDeleteObject(v23);
-        HMAssignmentUnlock(v7 + 8);
-        goto LABEL_41;
-      }
-      GreSetBitmapOwner(*(_QWORD *)(v7 + 16), 0LL);
-    }
-    SetOrClrWF(1, v4, 0x80u, 1);
-    v4 = (struct tagWND *)*((_QWORD *)v4 + 11);
-  }
-  *(_QWORD *)v7 = *(_QWORD *)(gpDispInfo + 32LL);
-  *(_QWORD *)(gpDispInfo + 32LL) = v7;
-  SetRectRgnIndirect(ghrgnSPB2, v7 + 24);
-  v11 = *(_QWORD *)(*(_QWORD *)(*v10 + 40) + 168LL);
-  if ( !v11 || (LODWORD(DesktopWindow) = GreCombineRgn(ghrgnSPB2, ghrgnSPB2, v11, 1LL), (_DWORD)DesktopWindow) )
-  {
-    LOBYTE(DesktopWindow) = IsDesktopWindow(*v10);
-    if ( (_DWORD)DesktopWindow || (DesktopWindow = *((_QWORD *)v12 + 5), (*(_BYTE *)(DesktopWindow + 26) & 8) == 0) )
-    {
-      v13 = (struct tagWND *)*((_QWORD *)v12 + 13);
-      if ( !v13 || (LODWORD(DesktopWindow) = SpbTransfer((struct tagSPB *)v7, v13, 0), (_DWORD)DesktopWindow) )
-      {
-        while ( v4 )
+        v14 = GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 0LL, 0LL, &v28);
+        v8[7] = v14;
+        if ( v14 )
         {
-          LODWORD(DesktopWindow) = SpbTransfer((struct tagSPB *)v7, v4, 1);
-          if ( !(_DWORD)DesktopWindow )
-            break;
+          *((_DWORD *)v8 + 12) |= 1u;
+LABEL_29:
+          SetOrClrWF(1, (__int64)v4, 0x80u, 1);
           v4 = (struct tagWND *)*((_QWORD *)v4 + 11);
+          goto LABEL_30;
+        }
+      }
+      v15 = *((_DWORD *)v8 + 8) - *v10;
+      v16 = *((_DWORD *)v8 + 9) - *((_DWORD *)v8 + 7);
+      v17 = *v10 & 7;
+      CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(a3, v15 + v17, v16, 0, 0LL, 0LL);
+      v8[2] = CompatibleBitmapInternal;
+      if ( CompatibleBitmapInternal )
+      {
+        v19 = GreSelectBitmap(*(_QWORD *)ghdcMem, CompatibleBitmapInternal);
+        if ( v19 )
+        {
+          v20 = NtGdiBitBltInternal(*(HDC *)ghdcMem, v17, 0, v15, v16, a3, *v10, *((_DWORD *)v8 + 7), 13369344, 0, 0);
+          GreSelectBitmap(*(_QWORD *)ghdcMem, v19);
+          if ( v20 )
+          {
+            GreSetBitmapOwner(v8[2], 0LL);
+            goto LABEL_29;
+          }
         }
       }
     }
+    v24 = v8[2];
+    if ( v24 )
+      GreDeleteObject(v24);
+    HMAssignmentUnlock(v8 + 1);
+    goto LABEL_38;
+  }
+LABEL_30:
+  *v8 = *(_QWORD *)(gpDispInfo + 32LL);
+  *(_QWORD *)(gpDispInfo + 32LL) = v8;
+  SetRectRgnIndirect(ghrgnSPB2, v8 + 3);
+  v21 = *(_QWORD *)(*(_QWORD *)(*v11 + 40) + 168LL);
+  if ( !v21 || (unsigned int)GreCombineRgn(ghrgnSPB2, ghrgnSPB2, v21, 1LL) )
+  {
+    LOBYTE(v22) = IsDesktopWindow(*v11);
+    if ( v22 || (*(_BYTE *)(*(_QWORD *)(v23 + 40) + 26LL) & 8) == 0 )
+    {
+      v25 = *(struct tagWND **)(v23 + 104);
+      if ( !v25 || (unsigned int)SpbTransfer((struct tagSPB *)v8, v25, 0) )
+      {
+        while ( v4 && (unsigned int)SpbTransfer((struct tagSPB *)v8, v4, 1) )
+          v4 = (struct tagWND *)*((_QWORD *)v4 + 11);
+      }
+    }
     else
     {
-      LOBYTE(DesktopWindow) = SpbTransfer((struct tagSPB *)v7, v12, 1);
+      SpbTransfer((struct tagSPB *)v8, (struct tagWND *)v23, 1);
     }
   }
-  return DesktopWindow;
 }

@@ -1,99 +1,99 @@
 /*
- * XREFs of SeIsTokenAssignableToProcess @ 0x1406BA488
+ * XREFs of SeIsTokenAssignableToProcess @ 0x14070DAF4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspAssignPrimaryToken @ 0x140841EB8 (PspAssignPrimaryToken.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PspAssignPrimaryToken @ 0x1407BC200 (PspAssignPrimaryToken.c)
  * Callees:
- *     RtlSidDominates @ 0x140226A50 (RtlSidDominates.c)
- *     SepCopyTokenIntegrity @ 0x140226B60 (SepCopyTokenIntegrity.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
- *     SepIsSiblingTokenByPointer @ 0x1407C7544 (SepIsSiblingTokenByPointer.c)
- *     SepIsChildTokenByPointer @ 0x1407DD4A0 (SepIsChildTokenByPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlSidDominates @ 0x1402520F0 (RtlSidDominates.c)
+ *     SepCopyTokenIntegrity @ 0x1402521FC (SepCopyTokenIntegrity.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SepIsSiblingTokenByPointer @ 0x14070DCB4 (SepIsSiblingTokenByPointer.c)
+ *     SepIsChildTokenByPointer @ 0x14070DDA8 (SepIsChildTokenByPointer.c)
  */
 
 __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // di
-  _KPROCESS *Process; // r15
-  ULONG_PTR v6; // rbx
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v8; // r12
-  struct _KTHREAD *v9; // rax
-  int v10; // ebx
-  int v11; // r15d
-  __int64 v12; // r13
+  struct _KPROCESS *Process; // rcx
+  PACCESS_TOKEN v6; // rbx
   __int64 result; // rax
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v9; // r12
+  struct _KTHREAD *v10; // rax
+  int v11; // ebx
+  int v12; // r15d
+  __int64 v13; // r13
   char v14; // bl
-  void *Buf2[2]; // [rsp+20h] [rbp-20h] BYREF
-  void *Buf1[2]; // [rsp+30h] [rbp-10h] BYREF
-  bool v17; // [rsp+88h] [rbp+48h] BYREF
-  char v18; // [rsp+90h] [rbp+50h] BYREF
-  char v19; // [rsp+98h] [rbp+58h] BYREF
+  bool v15; // [rsp+88h] [rbp+48h] BYREF
+  char v16; // [rsp+90h] [rbp+50h] BYREF
+  char v17; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = 0;
   *a2 = 0;
-  v18 = 0;
-  v19 = 0;
+  v16 = 0;
   v17 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  *(_OWORD *)Buf2 = 0LL;
-  *(_OWORD *)Buf1 = 0LL;
-  v6 = PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
+  v15 = 0;
+  v6 = PsReferencePrimaryToken(Process);
   if ( !v6 )
     return 3221225473LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceSharedLite(*(PERESOURCE *)(v6 + 48), 1u);
-  SepCopyTokenIntegrity(v6, (__int64)Buf1);
-  v8 = *(_QWORD *)(v6 + 1104);
-  ExReleaseResourceLite(*(PERESOURCE *)(v6 + 48));
+  ExAcquireResourceSharedLite(*((PERESOURCE *)v6 + 6), 1u);
+  SepCopyTokenIntegrity((__int64)v6);
+  v9 = *((_QWORD *)v6 + 138);
+  ExReleaseResourceLite(*((PERESOURCE *)v6 + 6));
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.StaticBitmap[5], v6, 0x746C6644u);
-  v9 = KeGetCurrentThread();
-  --v9->KernelApcDisable;
+  ObFastDereferenceObject(
+    (signed __int64 *)&KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5],
+    (struct _DMA_ADAPTER *)v6);
+  v10 = KeGetCurrentThread();
+  --v10->KernelApcDisable;
   ExAcquireResourceSharedLite(*(PERESOURCE *)(a1 + 48), 1u);
-  SepCopyTokenIntegrity(a1, (__int64)Buf2);
-  v10 = *(_DWORD *)(a1 + 192);
-  v11 = *(_DWORD *)(a1 + 196);
-  v12 = *(_QWORD *)(a1 + 1104);
+  SepCopyTokenIntegrity(a1);
+  v11 = *(_DWORD *)(a1 + 192);
+  v12 = *(_DWORD *)(a1 + 196);
+  v13 = *(_QWORD *)(a1 + 1104);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v10 == 2 && v11 < 2 )
+  if ( v11 == 2 && v12 < 2 )
     return 3221225637LL;
-  result = RtlSidDominates((_DWORD *)Buf1[0], (_DWORD *)Buf2[0], &v17);
+  result = RtlSidDominates(0LL, 0LL, &v15);
   if ( (int)result >= 0 )
   {
-    if ( !v17 )
-      goto LABEL_16;
-    v17 = 0;
-    result = RtlSidDominatesForTrust(v8, v12, &v17);
+    if ( !v15 )
+      goto LABEL_13;
+    v15 = 0;
+    result = RtlSidDominatesForTrust(v9, v13, &v15);
     if ( (int)result < 0 )
       return result;
-    if ( !v17 )
+    if ( v15 )
     {
-LABEL_16:
-      v14 = v18;
-LABEL_11:
-      if ( v14 || v19 )
-        v2 = 1;
-      *a2 = v2;
-      return result;
+      result = SepIsChildTokenByPointer(a1, &v16);
+      v14 = v16;
+      if ( !v16 )
+      {
+        if ( (int)result < 0 )
+          return result;
+        result = SepIsSiblingTokenByPointer(a1, &v17);
+      }
     }
-    result = SepIsChildTokenByPointer(a1, &v18);
-    v14 = v18;
-    if ( !v18 )
+    else
     {
-      if ( (int)result < 0 )
-        return result;
-      result = SepIsSiblingTokenByPointer(a1, &v19);
+LABEL_13:
+      v14 = v16;
     }
     if ( (int)result >= 0 )
-      goto LABEL_11;
+    {
+      if ( v14 || v17 )
+        v2 = 1;
+      *a2 = v2;
+    }
   }
   return result;
 }

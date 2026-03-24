@@ -1,35 +1,35 @@
 /*
- * XREFs of rimFreePointerRawDataListWorker @ 0x1C01A6F7C
+ * XREFs of rimFreePointerRawDataListWorker @ 0x1C0172218
  * Callers:
- *     RawInputManagerObjectDelete @ 0x1C004926C (RawInputManagerObjectDelete.c)
- *     rimReclaimHoldingFrame @ 0x1C01A7B2C (rimReclaimHoldingFrame.c)
+ *     RawInputManagerObjectDelete @ 0x1C005187C (RawInputManagerObjectDelete.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172A50 (rimReclaimHoldingFrame.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall rimFreePointerRawDataListWorker(_QWORD *a1, __int64 a2, __int64 a3)
+void __fastcall rimFreePointerRawDataListWorker(__int64 a1)
 {
-  _QWORD *v3; // rbx
-  void *v4; // rdi
-  char *v5; // rdx
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  __int64 v3; // rcx
 
   if ( a1 )
   {
-    v3 = a1;
+    v1 = a1;
     do
     {
-      v4 = v3;
-      v3 = (_QWORD *)v3[2];
-      v5 = (char *)*((_QWORD *)v4 + 1);
-      if ( v5 || (MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, 0LL, a3), (v5 = (char *)*((_QWORD *)v4 + 1)) != 0LL) )
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v5);
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v4);
+      v2 = v1;
+      v1 = *(_QWORD *)(v1 + 16);
+      v3 = *(_QWORD *)(v2 + 8);
+      if ( !v3 )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 448);
+        v3 = *(_QWORD *)(v2 + 8);
+      }
+      Win32FreePool(v3);
+      Win32FreePool(v2);
     }
-    while ( v3 );
+    while ( v1 );
   }
 }

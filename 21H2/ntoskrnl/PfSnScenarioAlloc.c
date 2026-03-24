@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnScenarioAlloc @ 0x1406E1D10
+ * XREFs of PfSnScenarioAlloc @ 0x1406BEDB0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfSnScenarioAlloc(unsigned int a1)
+PVOID __fastcall PfSnScenarioAlloc(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(256LL, a1, 1884316483LL);
+  return ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x70506343u);
 }

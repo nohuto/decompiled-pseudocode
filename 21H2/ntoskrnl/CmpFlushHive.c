@@ -1,493 +1,454 @@
 /*
- * XREFs of CmpFlushHive @ 0x1406885A4
+ * XREFs of CmpFlushHive @ 0x14062A0D8
  * Callers:
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpDoFlushAll @ 0x14022EA80 (CmpDoFlushAll.c)
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
- *     NtFlushKey @ 0x1406A5C00 (NtFlushKey.c)
- *     CmpDoReconcileNextHive @ 0x1406D6E10 (CmpDoReconcileNextHive.c)
- *     CmpInitHiveFromFile @ 0x1407122B0 (CmpInitHiveFromFile.c)
- *     CmpDoFlushNextHive @ 0x1407174E0 (CmpDoFlushNextHive.c)
- *     CmpTransMgrPrepare @ 0x1407424F0 (CmpTransMgrPrepare.c)
- *     CmpTransMgrSyncHive @ 0x140742834 (CmpTransMgrSyncHive.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     CmReplaceKey @ 0x1409136B4 (CmReplaceKey.c)
- *     CmFreezeRegistry @ 0x140918C40 (CmFreezeRegistry.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpDoFlushAll @ 0x14037DE9C (CmpDoFlushAll.c)
+ *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
+ *     CmpDoFlushNextHive @ 0x140672310 (CmpDoFlushNextHive.c)
+ *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpDoReconcileNextHive @ 0x140725080 (CmpDoReconcileNextHive.c)
+ *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrSyncHive @ 0x14076901C (CmpTransMgrSyncHive.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
+ *     CmFreezeRegistry @ 0x1408720F0 (CmFreezeRegistry.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     CmpIsWriteQueueActive @ 0x14020AA74 (CmpIsWriteQueueActive.c)
- *     CmpAcquireWriteQueue @ 0x14020AA84 (CmpAcquireWriteQueue.c)
- *     HvMarkDirtyForFlush @ 0x14020AEB4 (HvMarkDirtyForFlush.c)
- *     RtlMergeBitMaps @ 0x14020AF90 (RtlMergeBitMaps.c)
- *     HvUnCOWReconciledPages @ 0x14020B270 (HvUnCOWReconciledPages.c)
- *     CmpArmLazyWriter @ 0x1402A4320 (CmpArmLazyWriter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmpTraceHiveFlushStop @ 0x140688EC0 (CmpTraceHiveFlushStop.c)
- *     CmpLogFlushPhaseEnd @ 0x140688F1C (CmpLogFlushPhaseEnd.c)
- *     CmpLogFlushPhaseStart @ 0x140688FB8 (CmpLogFlushPhaseStart.c)
- *     CmpWakeWriteQueueWaiters @ 0x140689034 (CmpWakeWriteQueueWaiters.c)
- *     CmpReleaseWriteQueue @ 0x140689074 (CmpReleaseWriteQueue.c)
- *     CmpGenerateFlushControlData @ 0x1406890A0 (CmpGenerateFlushControlData.c)
- *     CmpLockRegistryFreezeAware @ 0x140689388 (CmpLockRegistryFreezeAware.c)
- *     HvStoreModifiedData @ 0x140689424 (HvStoreModifiedData.c)
- *     HvFreeDirtyData @ 0x140689A8C (HvFreeDirtyData.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x140689B38 (HvTruncateCurrentLogFileIfRequired.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140689DAC (HvpLogTypeToLogArrayIndex.c)
- *     HvWriteLogFile @ 0x14068A060 (HvWriteLogFile.c)
- *     CmpFileFlushAndPurge @ 0x14068A23C (CmpFileFlushAndPurge.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14068EE60 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvWriteHivePrimaryFile @ 0x14068F1F8 (HvWriteHivePrimaryFile.c)
- *     HvFreeUnreconciledData @ 0x1406D92CC (HvFreeUnreconciledData.c)
- *     HvSwapLogFiles @ 0x1406DFF64 (HvSwapLogFiles.c)
- *     HvIsCurrentLogSwappable @ 0x1406E72CC (HvIsCurrentLogSwappable.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1406E9C5C (HvTruncateAllLogFilesIfRequired.c)
- *     HvResetLogFileStatusAll @ 0x1406E9D84 (HvResetLogFileStatusAll.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140808680 (HvExtendHivePrimaryFileValidDataLength.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140919170 (CmpWaitOnHiveWriteQueue.c)
- *     HvFoldBackDirtyData @ 0x14091D3F0 (HvFoldBackDirtyData.c)
- *     HvFoldBackUnreconciledData @ 0x14091D4B0 (HvFoldBackUnreconciledData.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AB41E0 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x140AB4370 (CmpLockRegistry.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
+ *     KeQueryUnbiasedInterruptTime @ 0x1402E9880 (KeQueryUnbiasedInterruptTime.c)
+ *     CmpArmLazyWriter @ 0x140358040 (CmpArmLazyWriter.c)
+ *     HvUnCOWReconciledPages @ 0x140362560 (HvUnCOWReconciledPages.c)
+ *     RtlMergeBitMaps @ 0x1403629A8 (RtlMergeBitMaps.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
+ *     CmpLogFlushPhaseEnd @ 0x1406B1808 (CmpLogFlushPhaseEnd.c)
+ *     CmpLogFlushPhaseStart @ 0x1406B2B80 (CmpLogFlushPhaseStart.c)
+ *     HvFreeUnreconciledData @ 0x1406B412C (HvFreeUnreconciledData.c)
+ *     CmpTraceHiveFlushStop @ 0x1406B5860 (CmpTraceHiveFlushStop.c)
+ *     CmpAcquireReconcilerQueue @ 0x1406B6E7C (CmpAcquireReconcilerQueue.c)
+ *     CmpAcquireFlusherQueue @ 0x1406B6E98 (CmpAcquireFlusherQueue.c)
+ *     CmpWakeWriteQueueWaiters @ 0x1406BBC78 (CmpWakeWriteQueueWaiters.c)
+ *     HvResetLogFileStatusAll @ 0x1406C19C8 (HvResetLogFileStatusAll.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
+ *     HvFreeDirtyData @ 0x14071C81C (HvFreeDirtyData.c)
+ *     HvWriteLogFile @ 0x14071DA5C (HvWriteLogFile.c)
+ *     CmpFileFlushAndPurge @ 0x14071DC38 (CmpFileFlushAndPurge.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x14071E188 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x14071E1C0 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveWriter @ 0x140720A6C (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x140720A9C (HvLockHiveWriter.c)
+ *     HvStoreModifiedData @ 0x140721060 (HvStoreModifiedData.c)
+ *     CmpGenerateFlushControlData @ 0x140724134 (CmpGenerateFlushControlData.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1407243E8 (HvTruncateCurrentLogFileIfRequired.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
+ *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
+ *     HvIsCurrentLogSwappable @ 0x1407254F4 (HvIsCurrentLogSwappable.c)
+ *     HvSwapLogFiles @ 0x140725538 (HvSwapLogFiles.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14072570C (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x140725808 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14087263C (CmpWaitOnHiveWriteQueue.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x1408768E4 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvFoldBackDirtyData @ 0x140876964 (HvFoldBackDirtyData.c)
+ *     HvFoldBackUnreconciledData @ 0x140876A24 (HvFoldBackUnreconciledData.c)
+ *     HvMarkDirty @ 0x14087BD00 (HvMarkDirty.c)
  */
 
 __int64 __fastcall CmpFlushHive(ULONG_PTR BugCheckParameter2, unsigned int a2)
 {
-  __int64 valid; // r15
-  REGHANDLE v5; // rbx
+  __int64 valid; // r14
+  REGHANDLE v5; // rdi
   int v6; // eax
-  unsigned int v7; // ebx
-  unsigned int v8; // r13d
+  unsigned int v7; // r13d
+  unsigned int v8; // edi
   int v9; // eax
-  _QWORD *v10; // rdx
-  int v11; // r8d
-  unsigned int v12; // r14d
-  volatile signed __int64 *v13; // rbx
-  char v14; // r13
-  int v15; // eax
-  __int64 v16; // rcx
-  unsigned int v17; // r12d
-  unsigned int v18; // ebx
-  __int64 v19; // rdx
-  __int64 v20; // rcx
+  int v10; // edx
+  __int64 v11; // rcx
+  unsigned int Ptr; // esi
+  int v13; // eax
+  unsigned int v14; // r15d
+  unsigned int Ptr_high; // edi
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  unsigned int v19; // r12d
+  __int64 v20; // rdx
   __int64 v21; // r8
-  __int64 v22; // r9
+  __int64 v22; // rcx
   __int64 v23; // rcx
-  int v24; // esi
-  __int64 v25; // rdx
-  __int64 v26; // r8
+  __int64 v24; // rcx
+  struct _KEVENT *v25; // rdx
+  __int64 v26; // rdx
   __int64 v27; // rcx
-  __int64 v28; // rcx
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // rcx
-  struct _KEVENT *v32; // rdx
-  __int64 v33; // rdx
+  int v28; // r15d
+  char v29; // al
+  bool v30; // si
+  __int64 v31; // rdx
+  __int64 v32; // rcx
   __int64 v34; // rcx
-  __int64 v35; // r8
-  __int64 v36; // r9
-  unsigned int v37; // ebx
-  int v38; // r12d
-  bool v39; // al
-  bool v40; // r14
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  _QWORD *v46; // rcx
-  __int64 v47; // rcx
-  __int64 v48; // rcx
-  __int64 v49; // r8
+  int v35; // ecx
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rdx
+  __int64 v39; // r8
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // rcx
+  ULONGLONG v45; // rax
+  unsigned int v46; // r9d
+  __int64 v47; // rax
+  unsigned int v48; // r9d
+  ULONGLONG v49; // rax
   __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // rdx
-  __int64 v53; // rcx
-  unsigned int v54; // ebx
-  __int64 v55; // rcx
-  ULONGLONG v56; // rax
-  unsigned int v57; // r9d
-  __int64 v58; // rax
-  unsigned int v59; // r9d
-  ULONGLONG v60; // rax
-  __int64 v61; // rcx
-  __int64 v62; // rax
-  unsigned int v63; // r9d
-  __int64 v64; // rax
-  __int64 v65; // rdx
-  __int64 v66; // rcx
-  __int64 v67; // r8
-  __int64 v68; // r9
-  __int64 v69; // rdx
-  __int64 v70; // rcx
-  __int64 v71; // r8
-  __int64 v72; // r9
-  int v73; // esi
-  int v74; // eax
-  PEVENT_DATA_DESCRIPTOR UserData; // [rsp+28h] [rbp-E0h]
-  __int64 v76; // [rsp+30h] [rbp-D8h]
-  _WORD v77[2]; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned int v78; // [rsp+3Ch] [rbp-CCh]
-  PRKEVENT Event; // [rsp+40h] [rbp-C8h] BYREF
-  PRKEVENT Event_8[2]; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v81; // [rsp+58h] [rbp-B0h]
-  int v82; // [rsp+60h] [rbp-A8h]
-  __int64 v83; // [rsp+68h] [rbp-A0h] BYREF
-  PRKEVENT v84; // [rsp+70h] [rbp-98h] BYREF
-  unsigned int v85; // [rsp+78h] [rbp-90h] BYREF
-  unsigned int v86; // [rsp+80h] [rbp-88h] BYREF
-  int v87; // [rsp+88h] [rbp-80h] BYREF
-  EVENT_DESCRIPTOR EventDescriptor; // [rsp+90h] [rbp-78h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v89[5]; // [rsp+A8h] [rbp-60h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v90[2]; // [rsp+F8h] [rbp-10h] BYREF
-  PRKEVENT *p_Event; // [rsp+118h] [rbp+10h]
-  int v92; // [rsp+120h] [rbp+18h]
-  int v93; // [rsp+124h] [rbp+1Ch]
-  PRKEVENT *v94; // [rsp+128h] [rbp+20h]
-  int v95; // [rsp+130h] [rbp+28h]
-  int v96; // [rsp+134h] [rbp+2Ch]
-  struct _EVENT_DATA_DESCRIPTOR v97; // [rsp+138h] [rbp+30h] BYREF
-  _DWORD *v98; // [rsp+158h] [rbp+50h]
-  __int64 v99; // [rsp+160h] [rbp+58h]
-  __int64 v100; // [rsp+168h] [rbp+60h]
-  _DWORD v101[2]; // [rsp+170h] [rbp+68h] BYREF
-  _DWORD *v102; // [rsp+178h] [rbp+70h]
-  __int64 v103; // [rsp+180h] [rbp+78h]
-  __int64 v104; // [rsp+188h] [rbp+80h]
-  _DWORD v105[2]; // [rsp+190h] [rbp+88h] BYREF
-  unsigned int *v106; // [rsp+198h] [rbp+90h]
-  __int64 v107; // [rsp+1A0h] [rbp+98h]
+  __int64 v51; // rax
+  unsigned int v52; // r9d
+  __int64 v53; // rax
+  int v54; // esi
+  int v55; // eax
+  unsigned int v56; // edi
+  __int64 v57; // rcx
+  unsigned int v58; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v59; // [rsp+40h] [rbp-C8h] BYREF
+  __int64 v60; // [rsp+48h] [rbp-C0h] BYREF
+  PRKEVENT EventDescriptor; // [rsp+50h] [rbp-B8h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor_8; // [rsp+58h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v63; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v64; // [rsp+78h] [rbp-90h]
+  int v65; // [rsp+80h] [rbp-88h]
+  EVENT_DESCRIPTOR *p_EventDescriptor_8; // [rsp+88h] [rbp-80h]
+  __int64 v67; // [rsp+90h] [rbp-78h]
+  struct _EVENT_DATA_DESCRIPTOR UserData[2]; // [rsp+98h] [rbp-70h] BYREF
+  int *v69; // [rsp+B8h] [rbp-50h]
+  __int64 v70; // [rsp+C0h] [rbp-48h]
+  PRKEVENT *p_EventDescriptor; // [rsp+C8h] [rbp-40h]
+  int v72; // [rsp+D0h] [rbp-38h] BYREF
+  int v73; // [rsp+D4h] [rbp-34h]
+  _DWORD *v74; // [rsp+D8h] [rbp-30h]
+  __int64 v75; // [rsp+E0h] [rbp-28h]
+  __int64 v76; // [rsp+E8h] [rbp-20h]
+  _DWORD v77[2]; // [rsp+F0h] [rbp-18h] BYREF
+  unsigned int *v78; // [rsp+F8h] [rbp-10h]
+  __int64 v79; // [rsp+100h] [rbp-8h]
 
-  v81 = 0LL;
-  v82 = 0;
-  LODWORD(v83) = 0;
-  *(_OWORD *)Event_8 = 0LL;
+  v64 = 0LL;
+  v65 = 0;
+  LODWORD(v60) = 0;
+  v63 = 0LL;
   LODWORD(valid) = 0;
-  if ( (unsigned int)dword_140C03868 > 4 )
+  if ( (unsigned int)dword_140C02130 > 4 )
   {
-    v85 = a2;
-    v98 = v101;
-    v100 = *(_QWORD *)(BugCheckParameter2 + 1864);
-    v101[0] = *(unsigned __int16 *)(BugCheckParameter2 + 1856);
-    v102 = v105;
-    v104 = *(_QWORD *)(BugCheckParameter2 + 1848);
-    v105[0] = *(unsigned __int16 *)(BugCheckParameter2 + 1840);
-    v106 = &v85;
-    v99 = 2LL;
-    v101[1] = 0;
-    v103 = 2LL;
-    v105[1] = 0;
-    v107 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)&word_140029676, 0LL, 0LL, 7u, &v97);
+    v58 = a2;
+    v69 = &v72;
+    p_EventDescriptor = *(PRKEVENT **)(BugCheckParameter2 + 1856);
+    v72 = *(unsigned __int16 *)(BugCheckParameter2 + 1848);
+    v74 = v77;
+    v76 = *(_QWORD *)(BugCheckParameter2 + 1840);
+    v77[0] = *(unsigned __int16 *)(BugCheckParameter2 + 1832);
+    v78 = &v58;
+    v70 = 2LL;
+    v73 = 0;
+    v75 = 2LL;
+    v77[1] = 0;
+    v79 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C02130,
+      (unsigned __int8 *)&byte_140023207,
+      0LL,
+      0LL,
+      7u,
+      UserData);
   }
   v5 = EtwpRegTraceHandle;
-  v86 = a2;
-  EventDescriptor = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_FLUSH_START;
-  if ( EtwEventEnabled(EtwpRegTraceHandle, &EventDescriptor) )
+  v59 = a2;
+  EventDescriptor_8 = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_FLUSH_START;
+  if ( EtwEventEnabled(EtwpRegTraceHandle, &EventDescriptor_8) )
   {
-    v56 = *(_QWORD *)(BugCheckParameter2 + 1848);
-    v57 = 0;
-    v77[0] = 0;
-    if ( v56 )
+    v45 = *(_QWORD *)(BugCheckParameter2 + 1840);
+    v46 = 0;
+    LOWORD(v58) = 0;
+    if ( v45 )
     {
-      v89[0].Ptr = v56;
-      v57 = 1;
-      v89[0].Size = *(unsigned __int16 *)(BugCheckParameter2 + 1840);
-      v89[0].Reserved = 0;
+      UserData[0].Ptr = v45;
+      v46 = 1;
+      UserData[0].Size = *(unsigned __int16 *)(BugCheckParameter2 + 1832);
+      UserData[0].Reserved = 0;
     }
-    v58 = v57;
-    v59 = v57 + 1;
-    v89[v58].Ptr = (ULONGLONG)v77;
-    *(_QWORD *)&v89[v58].Size = 2LL;
-    v60 = *(_QWORD *)(BugCheckParameter2 + 1864);
-    if ( v60 )
+    v47 = v46;
+    v48 = v46 + 1;
+    UserData[v47].Ptr = (ULONGLONG)&v58;
+    *(_QWORD *)&UserData[v47].Size = 2LL;
+    v49 = *(_QWORD *)(BugCheckParameter2 + 1856);
+    if ( v49 )
     {
-      v61 = v59++;
-      v89[v61].Ptr = v60;
-      v89[v61].Size = *(unsigned __int16 *)(BugCheckParameter2 + 1856);
-      *(&v89[0].Reserved + 1 * v61) = 0;
+      v50 = v48++;
+      UserData[v50].Ptr = v49;
+      UserData[v50].Size = *(unsigned __int16 *)(BugCheckParameter2 + 1848);
+      *(&UserData[0].Reserved + 1 * v50) = 0;
     }
-    v62 = v59;
-    v63 = v59 + 1;
-    v89[v62].Ptr = (ULONGLONG)v77;
-    *(_QWORD *)&v89[v62].Size = 2LL;
-    v64 = v63;
-    v89[v64].Ptr = (ULONGLONG)&v86;
-    *(_QWORD *)&v89[v64].Size = 4LL;
-    EtwWrite(v5, &EventDescriptor, 0LL, v63 + 1, v89);
+    v51 = v48;
+    v52 = v48 + 1;
+    UserData[v51].Ptr = (ULONGLONG)&v58;
+    *(_QWORD *)&UserData[v51].Size = 2LL;
+    v53 = v52;
+    UserData[v53].Ptr = (ULONGLONG)&v59;
+    *(_QWORD *)&UserData[v53].Size = 4LL;
+    EtwWrite(v5, &EventDescriptor_8, 0LL, v52 + 1, UserData);
   }
   v6 = *(_DWORD *)(BugCheckParameter2 + 160);
   if ( (v6 & 0x8001) != 0 )
-    goto LABEL_74;
-  if ( !*(_QWORD *)(BugCheckParameter2 + 1544) )
+    goto LABEL_71;
+  if ( !*(_QWORD *)(BugCheckParameter2 + 1536) )
   {
     LODWORD(valid) = -1073741811;
-    goto LABEL_74;
+    goto LABEL_71;
   }
-  v7 = a2 | 0xC;
-  v8 = 0;
+  v7 = 0;
+  v8 = a2 | 0xC;
   if ( (v6 & 2) == 0 )
-    v7 = a2;
-  v78 = (v7 >> 4) & 1;
-  v9 = v7 & 1;
-  LODWORD(Event) = v9;
-  while ( 1 )
+    v8 = a2;
+  v58 = (v8 >> 4) & 1;
+  v9 = v8 & 1;
+  for ( *(_DWORD *)&EventDescriptor_8.Id = v9; ; v9 = *(_DWORD *)&EventDescriptor_8.Id )
   {
     if ( v9 )
       CmpLockRegistry();
     else
       CmpLockRegistryFreezeAware(0LL);
     HvLockHiveFlusherExclusive(BugCheckParameter2);
-    if ( (*(_DWORD *)(BugCheckParameter2 + 164) & 4) != 0 && (v7 & 0x40) == 0 )
+    if ( (v8 & 2) != 0
+      && (PoIsInitializedStopWatch((_QWORD *)(BugCheckParameter2 + 4248))
+       || PoIsInitializedStopWatch((_QWORD *)(BugCheckParameter2 + 4232)) && (v8 & 4) == 0) )
     {
+LABEL_88:
       HvUnlockHiveFlusherExclusive(BugCheckParameter2);
-      CmpUnlockRegistry(v66, v65, v67, v68, UserData, v76);
-      LODWORD(valid) = -1073741431;
-      goto LABEL_74;
+      CmpUnlockRegistry(v37, v36);
+      LODWORD(valid) = 0;
+      goto LABEL_71;
     }
-    if ( (v7 & 2) != 0 )
-    {
-      if ( CmpIsWriteQueueActive((_QWORD *)(BugCheckParameter2 + 4208))
-        || CmpIsWriteQueueActive((_QWORD *)(BugCheckParameter2 + 4192)) && (v7 & 4) == 0 )
-      {
-        goto LABEL_120;
-      }
-    }
-    else
-    {
-      v10 = (_QWORD *)(BugCheckParameter2 + 4208);
-    }
-    if ( (v7 & 4) != 0 && CmpIsWriteQueueActive(v10) )
-      goto LABEL_128;
-    if ( !CmpIsWriteQueueActive((_QWORD *)(BugCheckParameter2 + 4192)) )
+    if ( (v8 & 4) != 0 && PoIsInitializedStopWatch((_QWORD *)(BugCheckParameter2 + 4248)) )
+      goto LABEL_118;
+    if ( !PoIsInitializedStopWatch((_QWORD *)(BugCheckParameter2 + 4232)) )
       break;
-    if ( v11 )
+    if ( v10 )
     {
-      v73 = 0;
+      v54 = 0;
     }
-    else if ( *(_DWORD *)(BugCheckParameter2 + 104) || (v73 = 2, *(_BYTE *)(BugCheckParameter2 + 195)) )
+    else if ( *(_DWORD *)(BugCheckParameter2 + 104) || (v54 = 2, *(_BYTE *)(BugCheckParameter2 + 191)) )
     {
-      v73 = 1;
+      v54 = 1;
     }
-    LODWORD(valid) = CmpWaitOnHiveWriteQueue(BugCheckParameter2);
+    LODWORD(valid) = CmpWaitOnHiveWriteQueue(BugCheckParameter2, v11);
     if ( (int)valid >= 0 )
-      v8 += v73;
-LABEL_129:
-    if ( v8 >= 2 )
-      goto LABEL_74;
-    v9 = (int)Event;
+      v7 += v54;
+LABEL_119:
+    if ( v7 >= 2 )
+      goto LABEL_71;
   }
-  CmpGenerateFlushControlData(BugCheckParameter2, v7, Event_8);
-  v12 = (unsigned int)Event_8[0];
-  if ( (unsigned int)dword_140C03868 > 4 )
+  CmpGenerateFlushControlData(BugCheckParameter2, v8, &v63);
+  Ptr = v63.Ptr;
+  if ( (unsigned int)dword_140C02130 > 4 )
   {
-    v93 = 0;
-    v96 = 0;
-    LODWORD(v84) = Event_8[1];
-    p_Event = (PRKEVENT *)&v87;
-    v94 = &v84;
-    v92 = 4;
-    v95 = 4;
-    v87 = (int)Event_8[0];
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)byte_1400296AD, 0LL, 0LL, 4u, v90);
+    v73 = 0;
+    LODWORD(EventDescriptor) = v63.Size;
+    v69 = (int *)&v59;
+    p_EventDescriptor = &EventDescriptor;
+    v70 = 4LL;
+    v72 = 4;
+    v59 = v63.Ptr;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C02130,
+      (unsigned __int8 *)&word_14002323E,
+      0LL,
+      0LL,
+      4u,
+      UserData);
   }
-  if ( (v12 & 0x358) == 0 )
-  {
-LABEL_120:
-    HvUnlockHiveFlusherExclusive(BugCheckParameter2);
-    CmpUnlockRegistry(v70, v69, v71, v72, UserData, v76);
-    LODWORD(valid) = 0;
-    goto LABEL_74;
-  }
-  if ( (v12 & 2) == 0 )
+  if ( (Ptr & 0x358) == 0 )
+    goto LABEL_88;
+  if ( (Ptr & 2) == 0 )
     goto LABEL_20;
-  if ( CmpIsWriteQueueActive((_QWORD *)(BugCheckParameter2 + 4208)) )
+  if ( PoIsInitializedStopWatch((_QWORD *)(BugCheckParameter2 + 4248)) )
   {
-LABEL_128:
-    CmpWaitOnHiveWriteQueue(BugCheckParameter2);
-    goto LABEL_129;
+LABEL_118:
+    CmpWaitOnHiveWriteQueue(BugCheckParameter2, BugCheckParameter2 + 4248);
+    goto LABEL_119;
   }
-  CmpAcquireWriteQueue(v46);
+  CmpAcquireReconcilerQueue(BugCheckParameter2);
 LABEL_20:
-  if ( (v12 & 1) != 0 )
-    CmpAcquireWriteQueue((_QWORD *)(BugCheckParameter2 + 4192));
-  if ( (v12 & 8) == 0 )
+  if ( (Ptr & 1) != 0 )
+    CmpAcquireFlusherQueue(BugCheckParameter2);
+  if ( (Ptr & 8) == 0 )
   {
-LABEL_27:
-    v14 = (char)Event_8[1];
-    if ( (v12 & 0x158) != 0 )
+LABEL_25:
+    if ( (Ptr & 0x158) != 0 )
+      v13 = HvStoreModifiedData(BugCheckParameter2);
+    else
+      v13 = 0;
+    if ( v13 )
     {
-      v15 = HvStoreModifiedData(BugCheckParameter2);
-      if ( v15 )
+      v55 = v13 - 1;
+      if ( !v55 )
       {
-        v74 = v15 - 1;
-        if ( !v74 )
-        {
-          LODWORD(valid) = 0;
-          LOBYTE(v24) = BYTE4(Event_8[0]) | 2;
-          goto LABEL_63;
-        }
-        LODWORD(valid) = -1073741823;
-        if ( v74 == 1 )
-        {
-          LOBYTE(v24) = BYTE4(Event_8[0]);
-          goto LABEL_63;
-        }
+        LODWORD(valid) = 0;
+        LOBYTE(Ptr_high) = BYTE4(v63.Ptr) | 2;
+        goto LABEL_61;
       }
+      LODWORD(valid) = -1073741823;
+      if ( v55 == 1 )
+        goto LABEL_122;
     }
-    if ( (v12 & 0x80u) != 0 )
+    if ( (Ptr & 0x80u) != 0 )
     {
-      v54 = *(_DWORD *)(BugCheckParameter2 + 280);
-      v17 = *(_DWORD *)(BugCheckParameter2 + 4228);
-      if ( v54 > v17 )
+      v56 = *(_DWORD *)(BugCheckParameter2 + 272);
+      v14 = *(_DWORD *)(BugCheckParameter2 + 4268);
+      if ( v56 > v14 )
       {
-        v18 = v54 + 4096;
-        *(_DWORD *)(BugCheckParameter2 + 4228) = 0;
-LABEL_31:
+        Ptr_high = v56 + 4096;
+        *(_DWORD *)(BugCheckParameter2 + 4268) = 0;
+LABEL_30:
         HvUnlockHiveFlusherExclusive(BugCheckParameter2);
-        CmpUnlockRegistry(v20, v19, v21, v22, UserData, v76);
-        if ( (v12 & 0x80u) != 0 )
+        CmpUnlockRegistry(v17, v16);
+        if ( (Ptr & 0x80u) != 0 )
         {
-          CmpLogFlushPhaseStart(v23, 1LL);
-          valid = (unsigned int)HvExtendHivePrimaryFileValidDataLength(BugCheckParameter2, v18, v78);
-          CmpLogFlushPhaseEnd(v55, 1LL, valid);
-          LOBYTE(v24) = BYTE4(Event_8[0]);
+          CmpLogFlushPhaseStart(v18, 1LL);
+          v19 = v58;
+          valid = (unsigned int)HvExtendHivePrimaryFileValidDataLength(BugCheckParameter2, Ptr_high, v58);
+          CmpLogFlushPhaseEnd(v57, 1LL, valid);
+          LOBYTE(Ptr_high) = BYTE4(v63.Ptr);
           if ( (int)valid < 0 )
-            goto LABEL_48;
-          v24 = HIDWORD(Event_8[0]) | 0x21;
-          HIDWORD(Event_8[0]) |= 0x21u;
+            goto LABEL_46;
+          Ptr_high = HIDWORD(v63.Ptr) | 0x21;
+          HIDWORD(v63.Ptr) |= 0x21u;
         }
         else
         {
-          v24 = HIDWORD(Event_8[0]);
+          Ptr_high = HIDWORD(v63.Ptr);
+          v19 = v58;
         }
-        if ( (v12 & 8) != 0 )
+        if ( (Ptr & 8) != 0 )
         {
-          CmpLogFlushPhaseStart(v23, 2LL);
-          valid = (unsigned int)HvWriteLogFile(BugCheckParameter2, v25, v26, &v83);
-          CmpLogFlushPhaseEnd(v27, 2LL, valid);
+          CmpLogFlushPhaseStart(v18, 2LL);
+          valid = (unsigned int)HvWriteLogFile(BugCheckParameter2, v20, v21, &v60);
+          CmpLogFlushPhaseEnd(v22, 2LL, valid);
           if ( (int)valid < 0 )
-            goto LABEL_48;
+            goto LABEL_46;
           HvTruncateCurrentLogFileIfRequired(BugCheckParameter2);
-          v24 |= 2u;
-          HIDWORD(Event_8[0]) = v24;
+          Ptr_high |= 2u;
+          HIDWORD(v63.Ptr) = Ptr_high;
         }
-        if ( (v12 & 0x10) != 0 )
+        if ( (Ptr & 0x10) != 0 )
         {
-          CmpLogFlushPhaseStart(v23, 3LL);
-          LOBYTE(v49) = 1;
-          valid = (unsigned int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, 0LL, v49, v78);
-          CmpLogFlushPhaseEnd(v50, 3LL, valid);
+          CmpLogFlushPhaseStart(v18, 3LL);
+          LOBYTE(v39) = 1;
+          valid = (unsigned int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, 0LL, v39, v19);
+          CmpLogFlushPhaseEnd(v40, 3LL, valid);
           if ( (int)valid < 0 )
           {
-            v12 |= 0x400u;
-            goto LABEL_48;
+            Ptr |= 0x400u;
+            goto LABEL_46;
           }
-          v24 |= 0x20u;
-          HIDWORD(Event_8[0]) = v24;
+          Ptr_high |= 0x20u;
+          HIDWORD(v63.Ptr) = Ptr_high;
         }
-        CmpLogFlushPhaseStart(v23, 4LL);
-        if ( (v12 & 0x448) == 0x48 )
+        CmpLogFlushPhaseStart(v18, 4LL);
+        if ( (Ptr & 0x448) == 0x48 )
         {
-          RtlMergeBitMaps(BugCheckParameter2 + 1736, (unsigned int *)(BugCheckParameter2 + 1688));
+          RtlMergeBitMaps(BugCheckParameter2 + 1728, (unsigned int *)(BugCheckParameter2 + 1680));
           HvFreeDirtyData(BugCheckParameter2);
-          v24 |= 4u;
-          HIDWORD(Event_8[0]) = v24;
+          Ptr_high |= 4u;
+          HIDWORD(v63.Ptr) = Ptr_high;
         }
-        CmpLogFlushPhaseEnd(v28, 4LL, (unsigned int)valid);
-        if ( (v12 & 0x20) != 0 )
+        CmpLogFlushPhaseEnd(v23, 4LL, (unsigned int)valid);
+        if ( (Ptr & 0x20) != 0 )
         {
-          LOBYTE(v29) = (v14 & 4) != 0;
-          HvSwapLogFiles(BugCheckParameter2, v29);
-          v24 |= 8u;
-          HIDWORD(Event_8[0]) = v24;
+          v38 = v63.Size >> 2;
+          LOBYTE(v38) = (v63.Size & 4) != 0;
+          HvSwapLogFiles(BugCheckParameter2, v38);
+          Ptr_high |= 8u;
+          HIDWORD(v63.Ptr) = Ptr_high;
         }
-        if ( (v12 & 0x45) == 0x41 )
+        if ( (Ptr & 0x45) == 0x41 )
         {
           CmpLockRegistry();
           HvLockHiveFlusherExclusive(BugCheckParameter2);
-          v32 = (struct _KEVENT *)CmpReleaseWriteQueue(v31, BugCheckParameter2 + 4192);
-          CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4192, v32);
-          LOBYTE(v24) = v24 | 0x10;
+          v25 = *(struct _KEVENT **)(BugCheckParameter2 + 4240);
+          *(_QWORD *)(BugCheckParameter2 + 4240) = 0LL;
+          *(_QWORD *)(BugCheckParameter2 + 4232) = 0LL;
+          CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4232, v25);
+          LOBYTE(Ptr_high) = Ptr_high | 0x10;
           HvUnlockHiveFlusherExclusive(BugCheckParameter2);
-          CmpUnlockRegistry(v34, v33, v35, v36, UserData, v76);
+          CmpUnlockRegistry(v27, v26);
         }
-        if ( (v12 & 0x40) != 0 )
+        if ( (Ptr & 0x40) != 0 )
         {
-          CmpLogFlushPhaseStart(v30, 5LL);
-          v37 = v78;
+          CmpLogFlushPhaseStart(v24, 5LL);
           valid = (unsigned int)HvWriteHivePrimaryFile(BugCheckParameter2);
-          CmpLogFlushPhaseEnd(v47, 5LL, valid);
+          CmpLogFlushPhaseEnd(v34, 5LL, valid);
           if ( (int)valid < 0 )
-            goto LABEL_48;
-          LOBYTE(v24) = v24 | 0x20;
+            goto LABEL_46;
+          LOBYTE(Ptr_high) = Ptr_high | 0x20;
         }
-        else
+        if ( (Ptr & 0x100) != 0 )
         {
-          v37 = v78;
-        }
-        if ( (v12 & 0x100) != 0 )
-        {
-          CmpLogFlushPhaseStart(v30, 6LL);
-          LOBYTE(v51) = 1;
-          LOBYTE(v52) = 1;
-          valid = (unsigned int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, v52, v51, v37);
-          CmpLogFlushPhaseEnd(v53, 6LL, valid);
+          CmpLogFlushPhaseStart(v24, 6LL);
+          LOBYTE(v41) = 1;
+          LOBYTE(v42) = 1;
+          valid = (unsigned int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, v42, v41, v19);
+          CmpLogFlushPhaseEnd(v43, 6LL, valid);
           if ( (int)valid < 0 )
-            goto LABEL_48;
-          LOBYTE(v24) = v24 | 0x20;
+            goto LABEL_46;
+          LOBYTE(Ptr_high) = Ptr_high | 0x20;
           HvTruncateAllLogFilesIfRequired(BugCheckParameter2);
         }
-        if ( (v12 & 0x200) != 0 && (v24 & 0x20) == 0 )
+        if ( (Ptr & 0x200) != 0 && (Ptr_high & 0x20) == 0 )
         {
-          CmpLogFlushPhaseStart(v30, 7LL);
+          CmpLogFlushPhaseStart(v24, 7LL);
           if ( (int)CmpFileFlushAndPurge(BugCheckParameter2, 0LL) >= 0 )
-            LOBYTE(v24) = v24 | 0x20;
-          CmpLogFlushPhaseEnd(v48, 7LL, (v24 & 0x20) == 0 ? 0xC0000001 : 0);
+            LOBYTE(Ptr_high) = Ptr_high | 0x20;
+          CmpLogFlushPhaseEnd(v44, 7LL, (Ptr_high & 0x20) == 0 ? 0xC0000001 : 0);
         }
         LODWORD(valid) = 0;
-LABEL_48:
+LABEL_46:
         CmpLockRegistry();
         HvLockHiveFlusherExclusive(BugCheckParameter2);
-        if ( (int)valid < 0 && (v12 & 0x80u) != 0 && (v24 & 1) == 0 )
-          *(_DWORD *)(BugCheckParameter2 + 4228) = v17;
-        if ( (v24 & 0x20) != 0 )
+        if ( (int)valid < 0 && (Ptr & 0x80u) != 0 && (Ptr_high & 1) == 0 )
+          *(_DWORD *)(BugCheckParameter2 + 4268) = v14;
+        if ( (Ptr_high & 0x20) != 0 )
         {
-          *(_DWORD *)(BugCheckParameter2 + 4228) = 0;
-          *(_DWORD *)(BugCheckParameter2 + 4224) |= 1u;
+          *(_DWORD *)(BugCheckParameter2 + 4264) |= 1u;
+          *(_DWORD *)(BugCheckParameter2 + 4268) = 0;
         }
         if ( (int)valid < 0 )
         {
-          if ( (v24 & 2) != 0 && (v12 & 0x400) != 0 )
+          if ( (Ptr_high & 2) != 0 && (Ptr & 0x400) != 0 )
           {
-            *(_DWORD *)(BugCheckParameter2 + 180) -= v83;
-            --*(_DWORD *)(BugCheckParameter2 + 172);
-            LOBYTE(v24) = v24 & 0xFD;
+            *(_DWORD *)(BugCheckParameter2 + 176) -= v60;
+            --*(_DWORD *)(BugCheckParameter2 + 168);
+            LOBYTE(Ptr_high) = Ptr_high & 0xFD;
           }
-          goto LABEL_54;
+          goto LABEL_52;
         }
-        if ( (v12 & 0x800) != 0 )
+        if ( (Ptr & 0x800) != 0 )
         {
-          *(_QWORD *)(BugCheckParameter2 + 4144) = KiQueryUnbiasedInterruptTime();
-          if ( (v12 & 0x1000) != 0 )
-            goto LABEL_105;
+          *(_QWORD *)(BugCheckParameter2 + 4184) = KeQueryUnbiasedInterruptTime();
+          if ( (Ptr & 0x1000) != 0 )
+            goto LABEL_101;
           CmpArmLazyWriter(1, 0LL, 0);
         }
-        if ( (v12 & 0x1000) == 0 )
+        if ( (Ptr & 0x1000) == 0 )
         {
-LABEL_54:
-          v38 = (v12 >> 6) & 1;
-          if ( v38 )
+LABEL_52:
+          v28 = (Ptr >> 6) & 1;
+          if ( v28 )
           {
             if ( (int)valid < 0 )
             {
@@ -497,33 +458,32 @@ LABEL_54:
             {
               HvUnCOWReconciledPages(BugCheckParameter2);
               HvFreeUnreconciledData(BugCheckParameter2);
-              if ( (v12 & 1) != 0 && (v24 & 0x10) == 0 )
+              if ( (Ptr & 1) != 0 && (Ptr_high & 0x10) == 0 )
               {
                 HvResetLogFileStatusAll(BugCheckParameter2);
-                *(_DWORD *)(BugCheckParameter2 + 180) = 0;
+                *(_DWORD *)(BugCheckParameter2 + 176) = 0;
                 if ( (unsigned __int8)HvIsCurrentLogSwappable(BugCheckParameter2) )
                   HvSwapLogFiles(BugCheckParameter2, 0LL);
               }
               else
               {
-                v16 = *(unsigned int *)(BugCheckParameter2 + 168);
-                if ( (unsigned int)(v16 - 4) <= 1 )
-                {
-                  v16 = (unsigned int)HvpLogTypeToLogArrayIndex(5 - (unsigned int)((_DWORD)v16 != 4));
-                  *(_BYTE *)(v16 + BugCheckParameter2 + 192) = 0;
-                }
+                v35 = *(_DWORD *)(BugCheckParameter2 + 164);
+                if ( (unsigned int)(v35 - 4) <= 1 )
+                  *(_BYTE *)((unsigned int)HvpLogTypeToLogArrayIndex(5 - (unsigned int)(v35 != 4))
+                           + BugCheckParameter2
+                           + 188) = 0;
               }
             }
           }
-          if ( (v12 & 0x110) != 0 )
+          if ( (Ptr & 0x110) != 0 )
             HvFreeUnreconciledData(BugCheckParameter2);
-          if ( (v12 & 8) != 0 && (v24 & 4) == 0 )
+          if ( (Ptr & 8) != 0 && (Ptr_high & 4) == 0 )
           {
-            if ( (v24 & 2) != 0 )
+            if ( (Ptr_high & 2) != 0 )
             {
-              if ( !v38 )
+              if ( !v28 )
               {
-                RtlMergeBitMaps(BugCheckParameter2 + 112, (unsigned int *)(BugCheckParameter2 + 1688));
+                RtlMergeBitMaps(BugCheckParameter2 + 112, (unsigned int *)(BugCheckParameter2 + 1680));
                 *(_DWORD *)(BugCheckParameter2 + 128) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 112));
               }
               HvFreeDirtyData(BugCheckParameter2);
@@ -533,60 +493,61 @@ LABEL_54:
               HvFoldBackDirtyData(BugCheckParameter2);
             }
           }
-          goto LABEL_63;
+          goto LABEL_61;
         }
-LABEL_105:
+LABEL_101:
         CmpArmLazyWriter(1, 0LL, 1);
-        goto LABEL_54;
+        goto LABEL_52;
       }
-      v12 &= ~0x80u;
+      Ptr &= ~0x80u;
     }
-    v17 = v81;
-    v18 = HIDWORD(v81);
-    goto LABEL_31;
+    v14 = v64;
+    Ptr_high = HIDWORD(v64);
+    goto LABEL_30;
   }
-  v13 = (volatile signed __int64 *)(BugCheckParameter2 + 80);
-  ExAcquirePushLockExclusiveEx(BugCheckParameter2 + 80, 0LL);
-  LODWORD(valid) = HvMarkDirtyForFlush(BugCheckParameter2);
-  if ( (int)valid >= 0 )
+  HvLockHiveWriter(BugCheckParameter2);
+  if ( (unsigned __int8)HvMarkDirty(BugCheckParameter2, 0LL, 4096LL) )
   {
-    if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(BugCheckParameter2 + 80);
-    KeAbPostRelease(BugCheckParameter2 + 80);
-    v12 = (unsigned int)Event_8[0];
-    goto LABEL_27;
+    HvUnlockHiveWriter(BugCheckParameter2);
+    goto LABEL_25;
   }
-  if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(BugCheckParameter2 + 80);
-  KeAbPostRelease(BugCheckParameter2 + 80);
-  LOBYTE(v24) = BYTE4(Event_8[0]);
+  HvUnlockHiveWriter(BugCheckParameter2);
   LODWORD(valid) = -1073741823;
-  LOBYTE(v12) = Event_8[0];
-LABEL_63:
-  Event = 0LL;
-  v84 = 0LL;
-  v39 = (v12 & 1) != 0 && (v24 & 0x10) == 0;
-  v40 = (v12 & 2) != 0;
-  LOBYTE(v77[0]) = v39;
-  if ( v39 )
-    Event = (PRKEVENT)CmpReleaseWriteQueue(v16, BugCheckParameter2 + 4192);
-  if ( v40 )
-    v84 = (PRKEVENT)CmpReleaseWriteQueue(v16, BugCheckParameter2 + 4208);
-  HvUnlockHiveFlusherExclusive(BugCheckParameter2);
-  CmpUnlockRegistry(v42, v41, v43, v44, UserData, v76);
-  if ( LOBYTE(v77[0]) )
-    CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4192, Event);
-  if ( v40 )
-    CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4208, v84);
-LABEL_74:
-  CmpTraceHiveFlushStop((unsigned int)valid);
-  if ( (unsigned int)dword_140C03868 > 4 )
+LABEL_122:
+  LOBYTE(Ptr_high) = BYTE4(v63.Ptr);
+LABEL_61:
+  *(_QWORD *)&EventDescriptor_8.Id = 0LL;
+  EventDescriptor = 0LL;
+  if ( (Ptr & 1) == 0 || (v29 = 1, (Ptr_high & 0x10) != 0) )
+    v29 = 0;
+  v30 = (Ptr & 2) != 0;
+  LOBYTE(v58) = v29;
+  if ( v29 )
   {
-    v93 = 0;
-    p_Event = &Event;
-    LODWORD(Event) = valid;
-    v92 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)byte_140029653, 0LL, 0LL, 3u, v90);
+    *(_QWORD *)&EventDescriptor_8.Id = *(_QWORD *)(BugCheckParameter2 + 4240);
+    *(_QWORD *)(BugCheckParameter2 + 4240) = 0LL;
+    *(_QWORD *)(BugCheckParameter2 + 4232) = 0LL;
+  }
+  if ( v30 )
+  {
+    EventDescriptor = *(PRKEVENT *)(BugCheckParameter2 + 4256);
+    *(_QWORD *)(BugCheckParameter2 + 4256) = 0LL;
+    *(_QWORD *)(BugCheckParameter2 + 4248) = 0LL;
+  }
+  HvUnlockHiveFlusherExclusive(BugCheckParameter2);
+  CmpUnlockRegistry(v32, v31);
+  if ( (_BYTE)v58 )
+    CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4232, *(PRKEVENT *)&EventDescriptor_8.Id);
+  if ( v30 )
+    CmpWakeWriteQueueWaiters(BugCheckParameter2 + 4248, EventDescriptor);
+LABEL_71:
+  CmpTraceHiveFlushStop((unsigned int)valid);
+  if ( (unsigned int)dword_140C02130 > 4 )
+  {
+    *(_DWORD *)&EventDescriptor_8.Id = valid;
+    p_EventDescriptor_8 = &EventDescriptor_8;
+    v67 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023289, 0LL, 0LL, 3u, &v63);
   }
   return (unsigned int)valid;
 }

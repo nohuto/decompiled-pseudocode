@@ -1,10 +1,10 @@
 /*
- * XREFs of ExHeapLookasideReplenish @ 0x1401B74F4
+ * XREFs of ExHeapLookasideReplenish @ 0x1401B7514
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpVsContextMultiAlloc @ 0x1401B6C20 (RtlpHpVsContextMultiAlloc.c)
- *     InterlockedPushListSList @ 0x1401C5460 (InterlockedPushListSList.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x1401B6C40 (RtlpHpVsContextMultiAlloc.c)
+ *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
  */
 
 PSLIST_ENTRY *__fastcall ExHeapLookasideReplenish(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)

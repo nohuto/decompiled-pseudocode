@@ -1,98 +1,104 @@
 /*
- * XREFs of ?IsWindowVisible@ADAPTER_DISPLAY@@QEBAJQEBUtagRECT@@@Z @ 0x1C01E17B4
+ * XREFs of ?IsWindowVisible@ADAPTER_DISPLAY@@QEBAJQEBUtagRECT@@@Z @ 0x1C0163EC0
  * Callers:
- *     ?IsWindowVisible@DXGGLOBAL@@QEAAEQEBUtagRECT@@@Z @ 0x1C01E1638 (-IsWindowVisible@DXGGLOBAL@@QEAAEQEBUtagRECT@@@Z.c)
- *     ?CheckVisRgn@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEAUHDEV__@@PEBVDXGDEVICE@@IIW4_D3DDDIFORMAT@@H@Z @ 0x1C033CAF0 (-CheckVisRgn@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEAUHDEV__@@PEBVDXGDEVICE@@IIW4_D3.c)
+ *     ?IsWindowVisible@DXGGLOBAL@@QEAAEQEBUtagRECT@@@Z @ 0x1C0163D4C (-IsWindowVisible@DXGGLOBAL@@QEAAEQEBUtagRECT@@@Z.c)
  * Callees:
- *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0002AE8 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C00049B8 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?DmmIsTargetNonStandard@@YA_NPEAVDXGADAPTER@@I@Z @ 0x1C0185D50 (-DmmIsTargetNonStandard@@YA_NPEAVDXGADAPTER@@I@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A4B4 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000B9F0 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DmmIsTargetNonStandard@@YA_NPEAVDXGADAPTER@@I@Z @ 0x1C014A6F0 (-DmmIsTargetNonStandard@@YA_NPEAVDXGADAPTER@@I@Z.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::IsWindowVisible(ADAPTER_DISPLAY *this, const struct tagRECT *const a2)
+__int64 __fastcall ADAPTER_DISPLAY::IsWindowVisible(
+        struct DXGADAPTER **this,
+        const struct tagRECT *const a2,
+        __int64 a3,
+        __int64 a4)
 {
   DXGPROCESS *Current; // rax
-  unsigned int v5; // ebp
-  __int64 *v6; // rdi
-  unsigned int v8; // eax
-  unsigned int v9; // r14d
-  __int64 v10; // r9
+  unsigned int v7; // eax
+  unsigned int v8; // esi
+  __int64 v10; // rax
+  unsigned int v11; // ebp
+  struct DXGADAPTER *v12; // r9
   LONG right; // ecx
   LONG left; // r8d
-  __int64 v13; // rbp
+  __int64 v15; // rsi
   LONG bottom; // ecx
   LONG top; // r8d
-  __int64 v16; // rcx
+  struct DXGADAPTER *v18; // rcx
 
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 2493LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pWindowClientRect != NULL", 2493LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v10 + 24) = 2447LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   if ( a2->left == a2->right )
     return 0LL;
   if ( a2->top == a2->bottom )
     return 0LL;
-  Current = DXGPROCESS::GetCurrent((__int64)this);
+  Current = DXGPROCESS::GetCurrent((__int64)this, (__int64)a2, a3, a4);
   if ( DXGPROCESS::IsRemoteConnection(Current) )
     return 0LL;
-  v5 = 0;
-  if ( *((_DWORD *)this + 24) )
+  v7 = *((_DWORD *)this + 20);
+  v8 = 0;
+  if ( v7 )
   {
-    v6 = (__int64 *)((char *)this + 128);
-    while ( *(_DWORD *)(4000LL * v5 + *v6 + 736) != 1 || !ADAPTER_DISPLAY::IsVidPnSourceActive(this, v5) )
+    while ( *((_DWORD *)this[14] + 992 * v8 + 174) != 1
+         || !ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v8) )
     {
-      v8 = *((_DWORD *)this + 24);
-      if ( ++v5 >= v8 )
-      {
-        v9 = 0;
-        if ( !v8 )
-          return 261LL;
-        while ( 1 )
-        {
-          if ( !ADAPTER_DISPLAY::IsVidPnSourceActive(this, v9)
-            || !DmmIsTargetNonStandard(*((struct DXGADAPTER **)this + 2), *(unsigned int *)(4000LL * v9 + *v6 + 1088)) )
-          {
-            v10 = *v6;
-            right = a2->right;
-            left = a2->left;
-            v13 = 4000LL * v9;
-            if ( right >= *(_DWORD *)(*v6 + v13 + 636) )
-              right = *(_DWORD *)(*v6 + v13 + 636);
-            if ( left <= *(_DWORD *)(*v6 + v13 + 628) )
-              left = *(_DWORD *)(*v6 + v13 + 628);
-            if ( left < right )
-            {
-              bottom = a2->bottom;
-              top = a2->top;
-              if ( bottom >= *(_DWORD *)(v10 + v13 + 640) )
-                bottom = *(_DWORD *)(v10 + v13 + 640);
-              if ( top <= *(_DWORD *)(v10 + v13 + 632) )
-                top = *(_DWORD *)(v10 + v13 + 632);
-              if ( top < bottom )
-              {
-                if ( !*(_DWORD *)(v10 + v13 + 736) && ADAPTER_DISPLAY::IsVidPnSourceActive(this, v9) )
-                  return 0LL;
-                v16 = *v6;
-                if ( a2->left >= *(_DWORD *)(*v6 + v13 + 628)
-                  && a2->right <= *(_DWORD *)(v16 + v13 + 636)
-                  && a2->top >= *(_DWORD *)(v16 + v13 + 632)
-                  && a2->bottom <= *(_DWORD *)(v16 + v13 + 640) )
-                {
-                  break;
-                }
-              }
-            }
-          }
-          if ( ++v9 >= *((_DWORD *)this + 24) )
-            return 261LL;
-        }
-        return 3221225473LL;
-      }
+      v7 = *((_DWORD *)this + 20);
+      if ( ++v8 >= v7 )
+        goto LABEL_11;
     }
     return 0LL;
   }
-  return 261LL;
+LABEL_11:
+  v11 = 0;
+  if ( !v7 )
+    return 261LL;
+  while ( 1 )
+  {
+    if ( !ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v11)
+      || !DmmIsTargetNonStandard(this[2], *((unsigned int *)this[14] + 992 * v11 + 267)) )
+    {
+      v12 = this[14];
+      right = a2->right;
+      left = a2->left;
+      v15 = 3968LL * v11;
+      if ( right >= *(_DWORD *)((char *)v12 + v15 + 636) )
+        right = *(_DWORD *)((char *)v12 + v15 + 636);
+      if ( left <= *(_DWORD *)((char *)v12 + v15 + 628) )
+        left = *(_DWORD *)((char *)v12 + v15 + 628);
+      if ( left < right )
+      {
+        bottom = a2->bottom;
+        top = a2->top;
+        if ( bottom >= *(_DWORD *)((char *)v12 + v15 + 640) )
+          bottom = *(_DWORD *)((char *)v12 + v15 + 640);
+        if ( top <= *(_DWORD *)((char *)v12 + v15 + 632) )
+          top = *(_DWORD *)((char *)v12 + v15 + 632);
+        if ( top < bottom )
+        {
+          if ( !*(_DWORD *)((char *)v12 + v15 + 696)
+            && ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v11) )
+          {
+            return 0LL;
+          }
+          v18 = this[14];
+          if ( a2->left >= *(_DWORD *)((char *)v18 + v15 + 628)
+            && a2->right <= *(_DWORD *)((char *)v18 + v15 + 636)
+            && a2->top >= *(_DWORD *)((char *)v18 + v15 + 632)
+            && a2->bottom <= *(_DWORD *)((char *)v18 + v15 + 640) )
+          {
+            break;
+          }
+        }
+      }
+    }
+    if ( ++v11 >= *((_DWORD *)this + 20) )
+      return 261LL;
+  }
+  return 3221225473LL;
 }

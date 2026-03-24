@@ -1,46 +1,57 @@
 /*
- * XREFs of HalpIommuCreateDeviceInternal @ 0x14038F8D4
+ * XREFs of HalpIommuCreateDeviceInternal @ 0x1404C53C4
  * Callers:
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140864A14 (HalpIommuCreateDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpIommuCreateDeviceInternal(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR **a4)
+__int64 __fastcall HalpIommuCreateDeviceInternal(__int64 a1, int a2, _QWORD *a3, __int64 *a4, _BYTE *a5)
 {
-  ULONG_PTR *i; // rbx
-  __int64 result; // rax
-  __int64 (__fastcall *v10)(ULONG_PTR, __int64, _QWORD, __int64, _QWORD *, _QWORD); // r10
-  __int64 (__fastcall *v11)(ULONG_PTR, __int64, __int64, __int64, _QWORD *, _QWORD); // r10
+  int v9; // esi
+  __int64 i; // rbx
+  __int64 (__fastcall *v11)(_QWORD, __int64, _QWORD, _QWORD *, _QWORD); // rax
+  __int64 (__fastcall *v12)(_QWORD, __int64, __int64, _QWORD *, _QWORD); // rax
+  int v13; // eax
 
   *a3 = 0LL;
   *a4 = 0LL;
-  i = (ULONG_PTR *)HalpIommuList;
-  result = 3221226021LL;
-  while ( i != &HalpIommuList )
+  v9 = -1073741275;
+  if ( a5 )
+    *a5 = 0;
+  for ( i = HalpIommuList; (__int64 *)i != &HalpIommuList; i = *(_QWORD *)i )
   {
-    v10 = (__int64 (__fastcall *)(ULONG_PTR, __int64, _QWORD, __int64, _QWORD *, _QWORD))i[11];
-    if ( v10 )
-    {
-      result = v10(i[2], a1, 0LL, a2, a3, 0LL);
-      if ( (int)result >= 0 )
-      {
-LABEL_5:
-        *a4 = i;
-        return result;
-      }
-    }
-    i = (ULONG_PTR *)*i;
-  }
-  for ( i = (ULONG_PTR *)HalpIommuList; i != &HalpIommuList; i = (ULONG_PTR *)*i )
-  {
-    v11 = (__int64 (__fastcall *)(ULONG_PTR, __int64, __int64, __int64, _QWORD *, _QWORD))i[11];
+    v11 = *(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD *, _QWORD))(i + 88);
     if ( v11 )
     {
-      result = v11(i[2], a1, 1LL, a2, a3, 0LL);
-      if ( (int)result >= 0 )
-        goto LABEL_5;
+      v9 = v11(*(_QWORD *)(i + 16), a1, 0LL, a3, 0LL);
+      if ( v9 >= 0 )
+      {
+LABEL_14:
+        v13 = a2 & *(_DWORD *)(i + 456);
+        *a4 = i;
+        if ( v13 != a2 )
+        {
+          v9 = -1073741811;
+          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(i + 96))(*(_QWORD *)(i + 16), *a3, 0LL);
+          *a3 = 0LL;
+          *a4 = 0LL;
+          if ( a5 )
+            *a5 |= 1u;
+        }
+        return (unsigned int)v9;
+      }
     }
   }
-  return result;
+  for ( i = HalpIommuList; (__int64 *)i != &HalpIommuList; i = *(_QWORD *)i )
+  {
+    v12 = *(__int64 (__fastcall **)(_QWORD, __int64, __int64, _QWORD *, _QWORD))(i + 88);
+    if ( v12 )
+    {
+      v9 = v12(*(_QWORD *)(i + 16), a1, 1LL, a3, 0LL);
+      if ( v9 >= 0 )
+        goto LABEL_14;
+    }
+  }
+  return (unsigned int)v9;
 }

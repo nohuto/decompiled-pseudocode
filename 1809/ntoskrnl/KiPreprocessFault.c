@@ -4,9 +4,9 @@
  *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
  * Callees:
  *     KiOpDecode @ 0x1400A3648 (KiOpDecode.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiOpPreprocessSecureFault @ 0x14028F3B0 (KiOpPreprocessSecureFault.c)
- *     KiCheckForAtlThunk @ 0x14029C2FC (KiCheckForAtlThunk.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiOpPreprocessSecureFault @ 0x14028F4B0 (KiOpPreprocessSecureFault.c)
+ *     KiCheckForAtlThunk @ 0x14029C3FC (KiCheckForAtlThunk.c)
  */
 
 char __fastcall KiPreprocessFault(ULONG_PTR a1, ULONG_PTR a2, char a3)

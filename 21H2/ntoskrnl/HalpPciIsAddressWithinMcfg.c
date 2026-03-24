@@ -1,8 +1,7 @@
 /*
- * XREFs of HalpPciIsAddressWithinMcfg @ 0x14045951C
+ * XREFs of HalpPciIsAddressWithinMcfg @ 0x1404D27DC
  * Callers:
- *     HalpPciHandleSecureAccess @ 0x14045945E (HalpPciHandleSecureAccess.c)
- *     HalpPciGetDeviceLocationFromPhysicalAddress @ 0x14051F680 (HalpPciGetDeviceLocationFromPhysicalAddress.c)
+ *     HalpPciHandleSecureAccess @ 0x1404D271C (HalpPciHandleSecureAccess.c)
  * Callees:
  *     <none>
  */

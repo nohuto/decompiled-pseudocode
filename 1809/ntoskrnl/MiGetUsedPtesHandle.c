@@ -8,13 +8,13 @@
  *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
  *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
  *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBD8 (MiUpdatePageTableUseCount.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE60 (MiInsertPhysicalPteMapping.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1402A5AB8 (MiUpdatePrivateDemandZeroView.c)
- *     MiDeleteAwePageTable @ 0x1402B0134 (MiDeleteAwePageTable.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
- *     MiCommitHotPatchTable @ 0x1402B92A0 (MiCommitHotPatchTable.c)
- *     MiDeleteLargeUserPde @ 0x1402C73C0 (MiDeleteLargeUserPde.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1402A5BB8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiDeleteAwePageTable @ 0x1402B0234 (MiDeleteAwePageTable.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
+ *     MiCommitHotPatchTable @ 0x1402B93A0 (MiCommitHotPatchTable.c)
+ *     MiDeleteLargeUserPde @ 0x1402C74C0 (MiDeleteLargeUserPde.c)
  * Callees:
  *     <none>
  */

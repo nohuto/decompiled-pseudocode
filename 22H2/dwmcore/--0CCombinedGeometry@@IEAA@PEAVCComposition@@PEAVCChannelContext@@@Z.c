@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18000C084
+ * XREFs of ??0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016A084
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x18000C18C (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
+ *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x18001B1F4 (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
  */
 
 CCombinedGeometry *__fastcall CCombinedGeometry::CCombinedGeometry(
@@ -11,8 +11,9 @@ CCombinedGeometry *__fastcall CCombinedGeometry::CCombinedGeometry(
         struct CComposition *a2,
         struct CResourceTable **a3)
 {
-  CCombinedGeometry *v3; // r11
-  _QWORD *v4; // r10
+  _QWORD *v3; // r9
+  CCombinedGeometry *v4; // r10
+  CCombinedGeometry *result; // rax
 
   *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 2) = a2;
@@ -20,14 +21,15 @@ CCombinedGeometry *__fastcall CCombinedGeometry::CCombinedGeometry(
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
   *(_QWORD *)this = &CPropertyChangeResource::`vftable';
-  *((_QWORD *)this + 13) = 0LL;
-  *((_BYTE *)this + 112) = 0;
-  *((_QWORD *)this + 15) = 0LL;
-  *((_BYTE *)this + 128) = 0;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_BYTE *)this + 104) = 0;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_BYTE *)this + 120) = 0;
   *((_DWORD *)this + 8) |= 1u;
-  *((_DWORD *)this + 23) = 1065353216;
-  CCyclicResourceListEntry::CCyclicResourceListEntry((CCombinedGeometry *)((char *)this + 144), a3[4]);
-  *(_QWORD *)v3 = &CCombinedGeometry::`vftable'{for `CGeometry'};
-  *v4 = &CCombinedGeometry::`vftable'{for `CCyclicResourceListEntry'};
-  return v3;
+  *((_DWORD *)this + 21) = 1065353216;
+  CCyclicResourceListEntry::CCyclicResourceListEntry((CCombinedGeometry *)((char *)this + 136), a3[3]);
+  *v3 = &CCombinedGeometry::`vftable'{for `CCyclicResourceListEntry'};
+  result = v4;
+  *(_QWORD *)v4 = &CCombinedGeometry::`vftable'{for `CGeometry'};
+  return result;
 }

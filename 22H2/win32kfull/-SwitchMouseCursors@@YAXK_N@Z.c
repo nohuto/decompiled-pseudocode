@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01AD938
+ * XREFs of ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01DA81C
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
- *     ?ForceHidePenCursor@Feedback@@YAXH@Z @ 0x1C01AD4DC (-ForceHidePenCursor@Feedback@@YAXH@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ForceHidePenCursor@Feedback@@YAXH@Z @ 0x1C01DA2BC (-ForceHidePenCursor@Feedback@@YAXH@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall SwitchMouseCursors(int a1, unsigned __int8 a2)
@@ -21,7 +21,7 @@ void __fastcall SwitchMouseCursors(int a1, unsigned __int8 a2)
       if ( v3 == 1 )
         _InterlockedOr((volatile signed __int32 *)&Feedback::gdwPointerCursorOps, 1u);
       else
-        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1490);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1487);
     }
     else
     {

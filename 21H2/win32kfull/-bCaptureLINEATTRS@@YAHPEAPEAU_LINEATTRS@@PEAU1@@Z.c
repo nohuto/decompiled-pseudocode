@@ -1,11 +1,12 @@
 /*
- * XREFs of ?bCaptureLINEATTRS@@YAHPEAPEAU_LINEATTRS@@PEAU1@@Z @ 0x1C02B079C
+ * XREFs of ?bCaptureLINEATTRS@@YAHPEAPEAU_LINEATTRS@@PEAU1@@Z @ 0x1C02B1C08
  * Callers:
- *     NtGdiEngStrokeAndFillPath @ 0x1C02B2510 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02B2830 (NtGdiEngStrokePath.c)
- *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B3A90 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3E30 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B4290 (NtGdiEngStrokePath.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B56D0 (NtGdiPATHOBJ_vEnumStartClipLines.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall bCaptureLINEATTRS(struct _LINEATTRS **a1, struct _LINEATTRS *a2)
@@ -15,8 +16,8 @@ __int64 __fastcall bCaptureLINEATTRS(struct _LINEATTRS **a1, struct _LINEATTRS *
   PFLOAT_LONG pstyle; // r9
   __int64 cstyle; // rcx
   __int64 v9; // rax
-  __int64 v10; // rcx
-  union _FLOAT_LONG *v11; // rsi
+  union _FLOAT_LONG *v10; // rax
+  union _FLOAT_LONG *v11; // r14
 
   v4 = 1;
   v5 = (ULONG64)*a1;
@@ -39,14 +40,11 @@ __int64 __fastcall bCaptureLINEATTRS(struct _LINEATTRS **a1, struct _LINEATTRS *
         *(_BYTE *)MmUserProbeAddress = 0;
         LODWORD(cstyle) = a2->cstyle;
       }
-      v10 = (unsigned int)(4 * cstyle);
-      if ( (_DWORD)v10 )
-        v11 = (union _FLOAT_LONG *)Win32AllocPool(v10, 1886221639LL);
-      else
-        v11 = 0LL;
-      if ( v11 )
+      v10 = (union _FLOAT_LONG *)PALLOCMEM2((unsigned int)(4 * cstyle), 1886221639LL, 0);
+      v11 = v10;
+      if ( v10 )
       {
-        memmove(v11, a2->pstyle, 4LL * a2->cstyle);
+        memmove(v10, a2->pstyle, 4LL * a2->cstyle);
         a2->pstyle = v11;
       }
       else

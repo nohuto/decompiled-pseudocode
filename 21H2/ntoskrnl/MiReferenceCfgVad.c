@@ -1,37 +1,42 @@
 /*
- * XREFs of MiReferenceCfgVad @ 0x14075876C
+ * XREFs of MiReferenceCfgVad @ 0x140712A8C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
- *     MiCfgInitializeProcess @ 0x140755A24 (MiCfgInitializeProcess.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MiCfgInitializeProcess @ 0x1407120DC (MiCfgInitializeProcess.c)
  * Callees:
- *     MiUnlockVadShared @ 0x140280EF8 (MiUnlockVadShared.c)
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
+ *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
  */
 
-_QWORD *__fastcall MiReferenceCfgVad(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall MiReferenceCfgVad(__int64 a1, unsigned __int64 a2, int a3)
 {
-  __int64 v3; // r15
-  __int64 v7; // rsi
-  __int64 v8; // rbp
-  __int64 v9; // r8
-  unsigned __int64 v10; // r9
+  __int64 v6; // rsi
+  _KPROCESS *Process; // r14
+  unsigned __int64 v8; // rbp
+  volatile signed __int32 *v9; // rdx
+  unsigned __int64 v10; // r8
   int v11; // eax
-  int v13; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int64 v13; // rcx
+  __int16 v14; // cx
+  int v15; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 184);
-  v7 = 32LL * a3;
-  v8 = *(_QWORD *)(v3 + 1680);
-  v9 = MiObtainReferencedVadEx(a2, 2, &v13);
-  v10 = *(unsigned int *)(v9 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 33) << 32);
-  *(_QWORD *)(v7 + v8 + 440) = v9;
-  *(_QWORD *)(v7 + v8 + 424) = a2;
+  v6 = 32LL * a3;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v8 = Process[1].ActiveProcessorsPadding[8];
+  v9 = MiObtainReferencedVadEx(a2, 2, &v15);
+  v10 = *((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32);
+  *(_QWORD *)(v6 + v8 + 456) = v9;
+  *(_QWORD *)(v6 + v8 + 440) = a2;
   v11 = 0;
-  *(_DWORD *)(v7 + v8 + 448) = 0;
-  *(_QWORD *)(v7 + v8 + 432) = ((v10 + 1) << 12) - a2;
+  *(_DWORD *)(v6 + v8 + 464) = 0;
+  *(_QWORD *)(v6 + v8 + 448) = ((v10 + 1) << 12) - a2;
   if ( a3 == 1 )
   {
-    LOBYTE(v11) = *(_WORD *)(v3 + 2412) == 452;
-    *(_DWORD *)(v7 + v8 + 448) = v11;
+    v13 = Process[1].AffinityPadding[10];
+    if ( !v13 || (v14 = *(_WORD *)(v13 + 8)) == 0 )
+      v14 = -31132;
+    LOBYTE(v11) = v14 == 452;
+    *(_DWORD *)(v6 + v8 + 464) = v11;
   }
-  return MiUnlockVadShared(a1, v9);
+  return MiUnlockVadShared(a1, (__int64)v9);
 }

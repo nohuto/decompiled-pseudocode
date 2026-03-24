@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C009D910
+ * XREFs of ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C007E0D0
  * Callers:
  *     <none>
  * Callees:
- *     EngFreeMem @ 0x1C0077DB0 (EngFreeMem.c)
- *     EngDeletePalette @ 0x1C009D940 (EngDeletePalette.c)
+ *     EngFreeMem @ 0x1C007E1D0 (EngFreeMem.c)
+ *     EngDeletePalette @ 0x1C007E2F0 (EngDeletePalette.c)
  */
 
 void __fastcall StubDispDisablePDEV(_QWORD *pv)

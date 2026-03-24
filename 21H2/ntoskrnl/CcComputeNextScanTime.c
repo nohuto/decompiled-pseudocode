@@ -1,44 +1,37 @@
 /*
- * XREFs of CcComputeNextScanTime @ 0x140258774
+ * XREFs of CcComputeNextScanTime @ 0x1402CEE98
  * Callers:
- *     CcLazyWriteScan @ 0x140275670 (CcLazyWriteScan.c)
- *     CcLazyWriteScanVolume @ 0x140538E4C (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
  * Callees:
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1402768B4 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     <none>
  */
 
-__int64 __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)
+unsigned __int64 __fastcall CcComputeNextScanTime(_DWORD *a1, __int64 *a2, _QWORD *a3)
 {
-  __int64 result; // rax
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  unsigned __int64 *v8; // r11
-  unsigned __int64 v9; // rax
-  _DWORD *v10; // r8
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
+  unsigned __int64 result; // rax
+  signed __int64 v5; // r9
+  __int64 v6; // rdx
+  unsigned int v7; // r8d
 
-  *a4 = 0LL;
-  result = CcIsWriteBehindThreadpoolAtLowPriority(a1, a2, a2);
-  if ( (_BYTE)result )
+  *a3 = 0LL;
+  result = (unsigned int)a1[50];
+  if ( a1[240] < (unsigned int)result )
   {
-    v9 = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
-    if ( CcEnablePerVolumeLazyWriter == 1 )
-      v10 = (_DWORD *)(v7 + 708);
-    else
-      v10 = (_DWORD *)(v6 + 716);
-    v11 = *a3;
-    if ( *a3 != 0x7FFFFFFFFFFFFFFFLL && (__int64)(v11 + v9) > MEMORY[0xFFFFF78000000320] )
+    v5 = MEMORY[0xFFFFF78000000320];
+    result = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+    v6 = *a2;
+    v7 = a1[34] + 1;
+    a1[34] = v7;
+    if ( v6 != 0x7FFFFFFFFFFFFFFFLL && (__int64)(v6 + result) > v5 )
     {
-      v12 = v9 + v11 - MEMORY[0xFFFFF78000000320];
-      *v10 = 0;
-      *v8 = v12;
+      a1[34] = 0;
+      *a3 = result + v6 - v5;
+      v7 = 0;
     }
-    result = (unsigned int)CcMaxWorklessLazywriteScans;
-    if ( *v10 >= (unsigned int)CcMaxWorklessLazywriteScans )
+    if ( v7 >= CcMaxWorklessLazywriteScans )
     {
-      *v10 = 0;
-      *v8 = 0x7FFFFFFFFFFFFFFFLL;
+      a1[34] = 0;
+      *a3 = 0x7FFFFFFFFFFFFFFFLL;
     }
   }
   return result;

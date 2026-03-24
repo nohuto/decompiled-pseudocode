@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetProximityBlocking@@YAXXZ @ 0x1C0147350
+ * XREFs of ?SetProximityBlocking@@YAXXZ @ 0x1C0118E94
  * Callers:
- *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C00D0788 (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
- *     PowerOffMonitor @ 0x1C00D1C90 (PowerOffMonitor.c)
+ *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C0078BE4 (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
+ *     PowerOffMonitor @ 0x1C00C1E70 (PowerOffMonitor.c)
  * Callees:
  *     <none>
  */
 
 void SetProximityBlocking(void)
 {
-  if ( !HIDWORD(qword_1C0296FD4) )
+  if ( !HIDWORD(qword_1C02521FC) )
   {
     gProximityLastPowerPressTime = -1LL;
     ++gProximityScenarioCount;
-    HIDWORD(qword_1C0296FD4) = 1;
+    HIDWORD(qword_1C02521FC) = 1;
   }
 }

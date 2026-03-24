@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CDeviceTextureTarget@@WHA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180109870
+ * XREFs of ?QueryInterface@CDeviceTextureTarget@@WHA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F6330
  * Callers:
  *     <none>
  * Callees:

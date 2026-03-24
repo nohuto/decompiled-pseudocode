@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020E40
+ * XREFs of HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020A40
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0031650 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
- *     HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0031824 (HUBMISC_TypeCCompanionHasIdenticalDeviceAttached.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C007D7A0 (HUBCONNECTOR_GetConnectorMapNodeForPort.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0030F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0031144 (HUBMISC_TypeCCompanionHasIdenticalDeviceAttached.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C007C1C4 (HUBCONNECTOR_GetConnectorMapNodeForPort.c)
  */
 
 __int64 __fastcall HUBDSM_AddingDeviceToGlobalChildList(__int64 a1)
@@ -54,14 +54,14 @@ __int64 __fastcall HUBDSM_AddingDeviceToGlobalChildList(__int64 a1)
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
       WdfDriverGlobals,
       WdfDriverGlobals->Driver,
-      off_1C00671E8);
+      off_1C00661C0);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_(
         *(_QWORD *)(*(_QWORD *)(v1 + 8) + 1432LL),
         2u,
         5u,
         0x25u,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     HUBMISC_LogDescriptorValidationErrorForDevice(v1, 234LL);
   }
   return 4065LL;

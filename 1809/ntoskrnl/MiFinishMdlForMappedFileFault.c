@@ -10,8 +10,8 @@
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     MiFlowThroughInsertNode @ 0x14010F5C0 (MiFlowThroughInsertNode.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     MiFlowThroughInsertNode @ 0x14010F5E0 (MiFlowThroughInsertNode.c)
  */
 
 __int16 __fastcall MiFinishMdlForMappedFileFault(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)

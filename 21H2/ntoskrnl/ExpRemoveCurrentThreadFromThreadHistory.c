@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x1402445C8
+ * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x1402BEB5C
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1402D4530 (NtSetInformationWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140285C70 (NtSetInformationWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 unsigned __int8 __fastcall ExpRemoveCurrentThreadFromThreadHistory(__int64 a1)
@@ -13,7 +13,7 @@ unsigned __int8 __fastcall ExpRemoveCurrentThreadFromThreadHistory(__int64 a1)
   struct _KTHREAD *CurrentThread; // rcx
   __int64 v4; // rdi
 
-  result = *(_DWORD *)(a1 + 408) & 7;
+  result = *(_DWORD *)(a1 + 312) & 7;
   if ( result != 4 )
   {
     CurrentThread = KeGetCurrentThread();

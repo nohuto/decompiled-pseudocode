@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C029A530
+ * XREFs of ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0293704
  * Callers:
- *     GreMaskBlt @ 0x1C001C9BC (GreMaskBlt.c)
+ *     GreMaskBlt @ 0x1C010941C (GreMaskBlt.c)
  * Callees:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00DC274 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B6050 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
  */
 
 __int64 __fastcall BLTRECORD::Msk(struct _POINTL *this, LONG a2, LONG a3, LONG a4, LONG a5)
@@ -12,20 +12,20 @@ __int64 __fastcall BLTRECORD::Msk(struct _POINTL *this, LONG a2, LONG a3, LONG a
   __int64 result; // rax
   int v10; // ecx
 
-  v5 = this + 21;
-  this[21].y = 0;
-  this[21].x = 0;
-  this[23].x = a2;
-  this[23].y = a3;
-  this[22].y = a5;
-  this[22].x = a4;
-  result = EXFORMOBJ::bXform((EXFORMOBJ *)&this[2], this + 21, 2LL);
+  v5 = this + 22;
+  this[22].y = 0;
+  this[22].x = 0;
+  this[24].x = a2;
+  this[24].y = a3;
+  this[23].y = a5;
+  this[23].x = a4;
+  result = EXFORMOBJ::bXform((EXFORMOBJ *)&this[2], this + 22, 2LL);
   if ( (_DWORD)result )
   {
     result = 1LL;
-    v10 = this[22].y - this[21].y;
-    this[24].x = this[22].x + a2 - v5->x;
-    this[24].y = a3 + v10;
+    v10 = this[23].y - this[22].y;
+    this[25].x = this[23].x + a2 - v5->x;
+    this[25].y = a3 + v10;
   }
   return result;
 }

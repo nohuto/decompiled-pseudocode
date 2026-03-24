@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwUnloadKeyEx @ 0x14041F200
+ * XREFs of ZwUnloadKeyEx @ 0x1403FDD00
  * Callers:
- *     PiDrvDbUnloadHive @ 0x1407F405C (PiDrvDbUnloadHive.c)
+ *     PiDrvDbUnloadHive @ 0x140726048 (PiDrvDbUnloadHive.c)
  * Callees:
  *     <none>
  */

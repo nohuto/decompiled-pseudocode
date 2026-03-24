@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIrpExtensionControl @ 0x140556DE0
+ * XREFs of IopIrpExtensionControl @ 0x140500E98
  * Callers:
- *     IopEtwEnableCallback @ 0x140934260 (IopEtwEnableCallback.c)
- *     IoRegisterIoTracking @ 0x140937E50 (IoRegisterIoTracking.c)
- *     IoUnregisterIoTracking @ 0x140937F70 (IoUnregisterIoTracking.c)
+ *     IopEtwEnableCallback @ 0x140891610 (IopEtwEnableCallback.c)
+ *     IoRegisterIoTracking @ 0x140895650 (IoRegisterIoTracking.c)
+ *     IoUnregisterIoTracking @ 0x140895760 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopUpdateFunctionPointers @ 0x14055712C (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x140501958 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IopIrpExtensionControl(int a1, int a2)
@@ -30,9 +30,9 @@ __int64 __fastcall IopIrpExtensionControl(int a1, int a2)
     v6 = IopIrpExtensionStatus == 0;
     IopIrpExtensionStatus |= a1;
     if ( (a1 & 1) != 0 )
-      ++dword_140D01114;
+      ++dword_140CF4D44;
     if ( (a1 & 2) != 0 )
-      ++dword_140D01118;
+      ++dword_140CF4D48;
     if ( v6 )
     {
       LOBYTE(v4) = 1;
@@ -43,9 +43,9 @@ LABEL_16:
   }
   else
   {
-    if ( (a1 & 1) != 0 && !--dword_140D01114 )
+    if ( (a1 & 1) != 0 && !--dword_140CF4D44 )
       IopIrpExtensionStatus &= ~1u;
-    if ( (a1 & 2) != 0 && !--dword_140D01118 )
+    if ( (a1 & 2) != 0 && !--dword_140CF4D48 )
       IopIrpExtensionStatus &= ~2u;
     if ( !IopIrpExtensionStatus )
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z @ 0x18002CF54
+ * XREFs of ??0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z @ 0x180027994
  * Callers:
- *     ?Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z @ 0x18002CE44 (-Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z.c)
+ *     ?Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z @ 0x180027888 (-Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,14 +15,16 @@ CChannel *__fastcall CChannel::CChannel(CChannel *this, struct CInternalMilCmdCo
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 2) = &HANDLE_TABLE::`vftable';
   *((_DWORD *)this + 8) = 1;
-  *((_DWORD *)this + 6) = 16;
+  *((_DWORD *)this + 6) = 12;
   InitializeCriticalSection((LPCRITICAL_SECTION)((char *)this + 88));
   InitializeCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   *((_QWORD *)this + 6) = a2;
+  if ( a2 )
+    _InterlockedIncrement((volatile signed __int32 *)a2 + 2);
+  *((_DWORD *)this + 14) = a3;
   *((_QWORD *)this + 9) = (char *)this + 64;
   *((_QWORD *)this + 8) = (char *)this + 64;
   result = this;
-  *((_DWORD *)this + 14) = a3;
   *((_DWORD *)this + 2) = 1;
   return result;
 }

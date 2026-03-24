@@ -1,70 +1,62 @@
 /*
- * XREFs of PnpWatchdogEtwWrite @ 0x140950084
+ * XREFs of PnpWatchdogEtwWrite @ 0x1408AB894
  * Callers:
- *     PnpCallDriverEntry @ 0x140747DDC (PnpCallDriverEntry.c)
- *     PnpCallAddDevice @ 0x140749DA0 (PnpCallAddDevice.c)
- *     PnpDisableWatchdog @ 0x14074D6EC (PnpDisableWatchdog.c)
- *     PnpDelayedRemoveWorker @ 0x14080EBD0 (PnpDelayedRemoveWorker.c)
- *     PnpProcessCompletedEject @ 0x140947450 (PnpProcessCompletedEject.c)
- *     PnpWatchdogWorkItem @ 0x1409502B0 (PnpWatchdogWorkItem.c)
+ *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
+ *     PnpCallDriverEntry @ 0x1407703C4 (PnpCallDriverEntry.c)
+ *     PnpWatchdogWorkItem @ 0x1408ABA90 (PnpWatchdogWorkItem.c)
  * Callees:
- *     PsGetCurrentThreadId @ 0x140231BE0 (PsGetCurrentThreadId.c)
- *     McTemplateK0izzx_EtwWriteTransfer @ 0x1405622A4 (McTemplateK0izzx_EtwWriteTransfer.c)
- *     PnpWatchdogExtractTriageInformation @ 0x14056274C (PnpWatchdogExtractTriageInformation.c)
- *     PnpWatchdogGetElapsedTime @ 0x140562834 (PnpWatchdogGetElapsedTime.c)
- *     PnpTraceWatchdogViolation @ 0x140957CB8 (PnpTraceWatchdogViolation.c)
+ *     PsGetCurrentThreadId @ 0x1402AA4D0 (PsGetCurrentThreadId.c)
+ *     McTemplateK0izzx_EtwWriteTransfer @ 0x14050EA78 (McTemplateK0izzx_EtwWriteTransfer.c)
+ *     PnpWatchdogExtractTriageInformation @ 0x14050EF40 (PnpWatchdogExtractTriageInformation.c)
+ *     PnpWatchdogGetElapsedTime @ 0x14050F028 (PnpWatchdogGetElapsedTime.c)
  */
 
 int __fastcall PnpWatchdogEtwWrite(__int64 a1, char a2)
 {
-  __int64 ElapsedTime; // r14
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  _QWORD *v8; // rdi
+  __int64 ElapsedTime; // rsi
+  __int64 v5; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // r8
   HANDLE CurrentThreadId; // rax
-  _QWORD *v10; // rbx
-  HANDLE v11; // rsi
-  unsigned int v12; // r10d
-  unsigned int v13; // r10d
-  unsigned int v14; // r10d
-  unsigned int v15; // r10d
-  unsigned int v16; // r10d
+  HANDLE v11; // r9
+  int v12; // edx
+  int v13; // edx
+  int v14; // edx
+  int v15; // edx
+  int v16; // edx
   __int64 *v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // rcx
-  __int64 *v20; // rdx
-  __int64 v22; // [rsp+40h] [rbp-20h] BYREF
-  _QWORD v23[3]; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v24; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v25; // [rsp+B8h] [rbp+58h] BYREF
+  int v18; // edx
+  int v19; // edx
+  int v20; // edx
+  int v21; // edx
+  __int64 *v22; // rdx
+  _QWORD v24[7]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v26; // [rsp+98h] [rbp+20h] BYREF
 
-  v23[0] = 0x20000LL;
-  v24 = 0LL;
   v25 = 0LL;
-  v23[1] = &word_140867F00;
-  v22 = 0LL;
+  v26 = 0LL;
+  v24[0] = 0LL;
   ElapsedTime = (unsigned int)PnpWatchdogGetElapsedTime((_QWORD *)a1);
-  PnpWatchdogExtractTriageInformation(v5, &v24, &v22, 0LL, &v25);
-  v8 = (_QWORD *)(v24 + 40);
-  if ( !v24 )
-    v8 = v23;
-  LODWORD(CurrentThreadId) = v25;
+  v5 = 0LL;
+  v6 = 0LL;
+  PnpWatchdogExtractTriageInformation(v7, &v25, v24, 0LL, &v26);
   if ( v25 )
+    v5 = *(_QWORD *)(v25 + 48);
+  LODWORD(CurrentThreadId) = v26;
+  if ( v26 && (v8 = *(_QWORD *)(v26 + 48), *(_WORD *)(v8 + 24)) )
   {
-    v10 = (_QWORD *)(*(_QWORD *)(v25 + 48) + 24LL);
+    v6 = *(_QWORD *)(v8 + 32);
   }
-  else if ( v24 )
+  else if ( v25 && *(_WORD *)(v25 + 56) )
   {
-    v10 = (_QWORD *)(v24 + 56);
+    v6 = *(_QWORD *)(v25 + 64);
   }
-  else
+  if ( v24[0] )
   {
-    v10 = v23;
-  }
-  if ( v22 )
-  {
-    v11 = *(HANDLE *)(v22 + 1232);
+    v11 = *(HANDLE *)(v24[0] + 1152LL);
   }
   else
   {
@@ -74,122 +66,121 @@ int __fastcall PnpWatchdogEtwWrite(__int64 a1, char a2)
   v12 = *(_DWORD *)(a1 + 16);
   if ( !a2 )
   {
-    LODWORD(CurrentThreadId) = PnpTraceWatchdogViolation(v12, (unsigned int)ElapsedTime, v8, v10);
-    v19 = (unsigned int)(*(_DWORD *)(a1 + 16) - 1);
-    if ( *(_DWORD *)(a1 + 16) == 1 )
+    v18 = v12 - 1;
+    if ( v18 )
     {
-      if ( (byte_140C0DD4B & 0x40) == 0 )
-        return (int)CurrentThreadId;
-      v20 = KMPnPEvt_Watchdog_EventWorker_Stop;
-    }
-    else
-    {
-      v19 = (unsigned int)(*(_DWORD *)(a1 + 16) - 2);
-      if ( *(_DWORD *)(a1 + 16) == 2 )
+      v19 = v18 - 1;
+      if ( v19 )
       {
-        if ( (byte_140C0DD4B & 0x40) == 0 )
-          return (int)CurrentThreadId;
-        v20 = KMPnPEvt_Watchdog_CompletionQueue_Stop;
-      }
-      else
-      {
-        v19 = (unsigned int)(*(_DWORD *)(a1 + 16) - 3);
-        if ( *(_DWORD *)(a1 + 16) == 3 )
+        v20 = v19 - 1;
+        if ( v20 )
         {
-          if ( (byte_140C0DD4B & 0x40) == 0 )
-            return (int)CurrentThreadId;
-          v20 = KMPnPEvt_Watchdog_DelayedRemoveWorker_Stop;
-        }
-        else
-        {
-          v19 = (unsigned int)(*(_DWORD *)(a1 + 16) - 4);
-          if ( *(_DWORD *)(a1 + 16) == 4 )
+          v21 = v20 - 1;
+          if ( v21 )
           {
-            if ( (byte_140C0DD4B & 0x40) == 0 )
+            if ( v21 != 1 )
+              goto LABEL_35;
+            if ( (byte_140C1327B & 0x40) == 0 )
               return (int)CurrentThreadId;
-            v20 = KMPnPEvt_Watchdog_AddDevice_Stop;
+            v22 = KMPnPEvt_Watchdog_DriverEntry_Stop;
           }
           else
           {
-            if ( *(_DWORD *)(a1 + 16) != 5 )
-              goto LABEL_34;
-            if ( (byte_140C0DD4B & 0x40) == 0 )
+            if ( (byte_140C1327B & 0x40) == 0 )
               return (int)CurrentThreadId;
-            v20 = KMPnPEvt_Watchdog_DriverEntry_Stop;
+            v22 = KMPnPEvt_Watchdog_AddDevice_Stop;
           }
         }
+        else
+        {
+          if ( (byte_140C1327B & 0x40) == 0 )
+            return (int)CurrentThreadId;
+          v22 = KMPnPEvt_Watchdog_DelayedRemoveWorker_Stop;
+        }
+      }
+      else
+      {
+        if ( (byte_140C1327B & 0x40) == 0 )
+          return (int)CurrentThreadId;
+        v22 = KMPnPEvt_Watchdog_CompletionQueue_Stop;
       }
     }
+    else
+    {
+      if ( (byte_140C1327B & 0x40) == 0 )
+        return (int)CurrentThreadId;
+      v22 = KMPnPEvt_Watchdog_EventWorker_Stop;
+    }
     LODWORD(CurrentThreadId) = McTemplateK0izzx_EtwWriteTransfer(
-                                 v19,
-                                 (const EVENT_DESCRIPTOR *)v20,
-                                 v18,
+                                 v8,
+                                 (const EVENT_DESCRIPTOR *)v22,
+                                 v9,
                                  v11,
-                                 v8[1],
-                                 v10[1],
+                                 v5,
+                                 v6,
                                  ElapsedTime);
     return (int)CurrentThreadId;
   }
   v13 = v12 - 1;
   if ( !v13 )
   {
-    if ( (byte_140C0DD4B & 0x20) != 0 )
+    if ( (byte_140C1327B & 0x20) != 0 )
     {
       v17 = KMPnPEvt_Watchdog_EventWorker_Start;
-      goto LABEL_27;
+      goto LABEL_28;
     }
-    goto LABEL_28;
+    goto LABEL_29;
   }
   v14 = v13 - 1;
   if ( !v14 )
   {
-    if ( (byte_140C0DD4B & 0x20) != 0 )
+    if ( (byte_140C1327B & 0x20) != 0 )
     {
       v17 = KMPnPEvt_Watchdog_CompletionQueue_Start;
-      goto LABEL_27;
+      goto LABEL_28;
     }
-    goto LABEL_28;
+    goto LABEL_29;
   }
   v15 = v14 - 1;
   if ( !v15 )
   {
-    if ( (byte_140C0DD4B & 0x20) != 0 )
+    if ( (byte_140C1327B & 0x20) != 0 )
     {
       v17 = KMPnPEvt_Watchdog_DelayedRemoveWorker_Start;
-      goto LABEL_27;
+      goto LABEL_28;
     }
-    goto LABEL_28;
+    goto LABEL_29;
   }
   v16 = v15 - 1;
   if ( v16 )
   {
     if ( v16 == 1 )
     {
-      if ( (byte_140C0DD4B & 0x20) != 0 )
+      if ( (byte_140C1327B & 0x20) != 0 )
       {
         v17 = KMPnPEvt_Watchdog_DriverEntry_Start;
-LABEL_27:
+LABEL_28:
         LODWORD(CurrentThreadId) = McTemplateK0izzx_EtwWriteTransfer(
-                                     v6,
+                                     v8,
                                      (const EVENT_DESCRIPTOR *)v17,
-                                     v7,
+                                     v9,
                                      v11,
-                                     v8[1],
-                                     v10[1],
+                                     v5,
+                                     v6,
                                      ElapsedTime);
-        goto LABEL_28;
+        goto LABEL_29;
       }
-      goto LABEL_28;
+      goto LABEL_29;
     }
-LABEL_34:
+LABEL_35:
     __fastfail(5u);
   }
-  if ( (byte_140C0DD4B & 0x20) != 0 )
+  if ( (byte_140C1327B & 0x20) != 0 )
   {
     v17 = KMPnPEvt_Watchdog_AddDevice_Start;
-    goto LABEL_27;
+    goto LABEL_28;
   }
-LABEL_28:
+LABEL_29:
   *(_BYTE *)(a1 + 32) = 1;
   return (int)CurrentThreadId;
 }

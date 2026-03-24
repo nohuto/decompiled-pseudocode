@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0izzx_EtwWriteTransfer @ 0x1405622A4
+ * XREFs of McTemplateK0izzx_EtwWriteTransfer @ 0x14050EA78
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x140950084 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0izzx_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

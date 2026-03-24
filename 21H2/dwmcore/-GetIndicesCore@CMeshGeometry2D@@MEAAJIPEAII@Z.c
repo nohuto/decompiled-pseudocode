@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetIndicesCore@CMeshGeometry2D@@MEAAJIPEAII@Z @ 0x180224FF0
+ * XREFs of ?GetIndicesCore@CMeshGeometry2D@@MEAAJIPEAII@Z @ 0x1801D6A40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CMeshGeometry2D::GetIndicesCore(CMeshGeometry2D *this, int a2, unsigned int *a3, unsigned int a4)
@@ -13,7 +13,7 @@ __int64 __fastcall CMeshGeometry2D::GetIndicesCore(CMeshGeometry2D *this, int a2
   __int64 v8; // rdx
   __int64 v9; // r8
 
-  v5 = *((_DWORD *)this + 42) >> 2;
+  v5 = *((_DWORD *)this + 40) >> 2;
   if ( a4 >= v5 )
   {
     v7 = 0;
@@ -23,7 +23,7 @@ __int64 __fastcall CMeshGeometry2D::GetIndicesCore(CMeshGeometry2D *this, int a2
       v9 = v5;
       do
       {
-        a3[v8] = a2 + *(_DWORD *)(*((_QWORD *)this + 22) + v8 * 4);
+        a3[v8] = a2 + *(_DWORD *)(*((_QWORD *)this + 21) + v8 * 4);
         ++v8;
         --v9;
       }
@@ -33,7 +33,7 @@ __int64 __fastcall CMeshGeometry2D::GetIndicesCore(CMeshGeometry2D *this, int a2
   else
   {
     v7 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0xF9u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0xF9u, 0LL);
   }
   return v7;
 }

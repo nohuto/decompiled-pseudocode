@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408C3B68
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408C3B48
  * Callers:
- *     EtwpCovSampCaptureUserAddresses @ 0x1408C4418 (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408C43F8 (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     EtwpCovSampCaptureBufferIsEmpty @ 0x1403162E0 (EtwpCovSampCaptureBufferIsEmpty.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x140316360 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140316428 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408C398C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1408C7280 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x1408C7754 (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x1403163E0 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140316460 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140316528 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408C396C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1408C7260 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x1408C7734 (EtwpCovSampStackHashCheck.c)
  */
 
 void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
@@ -59,7 +59,7 @@ void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64
     EtwpCovSampCaptureBufferRelease(a1, v4);
   if ( v3 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409E20);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409DE0);
     KeLeaveCriticalRegion();
   }
 }

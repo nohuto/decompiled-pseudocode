@@ -1,83 +1,65 @@
 /*
- * XREFs of ?VmBusSignalGuestEventPassive@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0393380
+ * XREFs of ?VmBusSignalGuestEventPassive@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C024FC60
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 unsigned __int8 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusSignalGuestEventPassive(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v1; // rdi
+  __int64 v1; // rbx
   NTSTATUS v2; // eax
-  __int64 v3; // rbx
-  __int64 v4; // rdx
-  void *v5; // rcx
-  NTSTATUS v6; // eax
-  PVOID v7; // rbx
-  PEPROCESS Process; // [rsp+50h] [rbp+7h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+Fh] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+60h] [rbp+17h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdi
+  __int64 v6; // rax
+  void *v7; // rcx
+  NTSTATUS v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  PVOID v11; // rdi
+  __int64 v12; // rax
+  PEPROCESS Process; // [rsp+30h] [rbp-50h] BYREF
+  PVOID Object; // [rsp+38h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+40h] [rbp-40h] BYREF
 
-  v1 = *((_QWORD *)a1 + 17);
+  v1 = *((_QWORD *)a1 + 10);
   Process = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
   v2 = PsLookupProcessByProcessId(*(HANDLE *)(v1 + 32), &Process);
+  v5 = v2;
   if ( v2 >= 0 )
   {
-    v4 = *(_QWORD *)(v1 + 24);
-    if ( (unsigned __int64)(v4 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+    KeStackAttachProcess(Process, &ApcState);
+    v7 = *(void **)(v1 + 24);
+    Object = 0LL;
+    v8 = ObReferenceObjectByHandle(v7, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+    v11 = Object;
+    if ( v8 < 0 )
     {
-      WdLogSingleEntry1(3LL, v4);
+      v12 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v12 + 24) = *(_QWORD *)(v1 + 24);
+      *(_QWORD *)(v12 + 32) = Process;
+      WdLogEvent5_WdError(v12);
     }
     else
     {
-      KeStackAttachProcess(Process, &ApcState);
-      v5 = *(void **)(v1 + 24);
-      Object = 0LL;
-      v6 = ObReferenceObjectByHandle(v5, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-      v7 = Object;
-      if ( v6 < 0 )
-      {
-        WdLogSingleEntry2(2LL, *(_QWORD *)(v1 + 24), Process);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid event handle: 0x%I64x DXGPROCESS: 0x%I64x",
-          *(_QWORD *)(v1 + 24),
-          (__int64)Process,
-          0LL,
-          0LL,
-          0LL);
-      }
+      if ( *(_BYTE *)(v1 + 41) )
+        KePulseEvent((PRKEVENT)Object, 0, 0);
       else
-      {
-        if ( *(_BYTE *)(v1 + 41) )
-          KePulseEvent((PRKEVENT)Object, 0, 0);
-        else
-          KeSetEvent((PRKEVENT)Object, 0, 0);
-        ObfDereferenceObject(v7);
-      }
-      KeUnstackDetachProcess(&ApcState);
-      ObfDereferenceObject(Process);
+        KeSetEvent((PRKEVENT)Object, 0, 0);
+      ObfDereferenceObject(v11);
     }
+    KeUnstackDetachProcess(&ApcState);
+    ObfDereferenceObject(Process);
   }
   else
   {
-    v3 = v2;
-    WdLogSingleEntry2(2LL, *(_QWORD *)(v1 + 32), v2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Unable to reference EPROCESS from process handle 0x%I64x Status: 0xI64x",
-      *(_QWORD *)(v1 + 32),
-      v3,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v6 + 24) = *(_QWORD *)(v1 + 32);
+    *(_QWORD *)(v6 + 32) = v5;
+    WdLogEvent5_WdError(v6);
   }
   return 0;
 }

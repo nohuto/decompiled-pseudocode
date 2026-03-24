@@ -1,22 +1,22 @@
 /*
- * XREFs of _RegRtlEnumKey @ 0x1406F97E8
+ * XREFs of _RegRtlEnumKey @ 0x1406F97C8
  * Callers:
- *     _CmGetDeviceContainerIdFromBase @ 0x1406EA68C (_CmGetDeviceContainerIdFromBase.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406FA568 (_PnpGetGenericStorePropertyKeys.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     _PnpCtxRegEnumKey @ 0x14073C3B0 (_PnpCtxRegEnumKey.c)
- *     _RegRtlEnumKeyWithCallback @ 0x14074BB8C (_RegRtlEnumKeyWithCallback.c)
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x14082ADCC (PiDqDeleteUserObjectFromLoadedHives.c)
- *     PiCMDeleteDeviceKey @ 0x1408375AC (PiCMDeleteDeviceKey.c)
- *     PiCMEnumerateSubKeys @ 0x140837C9C (PiCMEnumerateSubKeys.c)
- *     PiDrvDbOverlayCopyKeys @ 0x14083D808 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x14083DDAC (PiDrvDbOverlayNodeHive.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x1408F8FE8 (_CmEnumDevicesInContainerWithCallbackWorker.c)
- *     _RegRtlCopyTreeInternal @ 0x140900520 (_RegRtlCopyTreeInternal.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406EA66C (_CmGetDeviceContainerIdFromBase.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406FA548 (_PnpGetGenericStorePropertyKeys.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     _PnpCtxRegEnumKey @ 0x14073C390 (_PnpCtxRegEnumKey.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x14074BB6C (_RegRtlEnumKeyWithCallback.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14082ADAC (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     PiCMDeleteDeviceKey @ 0x14083758C (PiCMDeleteDeviceKey.c)
+ *     PiCMEnumerateSubKeys @ 0x140837C7C (PiCMEnumerateSubKeys.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x14083D7E8 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x14083DD8C (PiDrvDbOverlayNodeHive.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x1408F8FC8 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     _RegRtlCopyTreeInternal @ 0x140900500 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMGetContainerId @ 0x1C0192030
+ * XREFs of RIMGetContainerId @ 0x1C015D8D0
  * Callers:
- *     RIMGetDeviceLocationInfo @ 0x1C01928F4 (RIMGetDeviceLocationInfo.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01990C8 (rimFindMonitorForDigitizerWithQDCData.c)
+ *     RIMGetDeviceLocationInfo @ 0x1C015DD18 (RIMGetDeviceLocationInfo.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165650 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
- *     RIMGetPointerDevicePDO @ 0x1C00A1C34 (RIMGetPointerDevicePDO.c)
+ *     RIMGetPointerDevicePDO @ 0x1C006D284 (RIMGetPointerDevicePDO.c)
  */
 
 __int64 __fastcall RIMGetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD *a3)
@@ -20,7 +20,7 @@ __int64 __fastcall RIMGetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD
 
   v4 = 0;
   Pdo = 0LL;
-  DevicePropertyData = RIMGetPointerDevicePDO(a1, &Pdo, (__int64)a3);
+  DevicePropertyData = RIMGetPointerDevicePDO(a1, &Pdo);
   if ( DevicePropertyData >= 0 )
   {
     v13 = 0;

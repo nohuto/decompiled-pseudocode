@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetMaxBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMAXBLURRADIUS@@@Z @ 0x18024BE94
+ * XREFs of ?ProcessSetMaxBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMAXBLURRADIUS@@@Z @ 0x1801E4AD0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x180004688 (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CBAC (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessSetMaxBlurRadius(

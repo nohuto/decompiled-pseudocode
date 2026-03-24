@@ -3,7 +3,7 @@
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  */
 
 void CmpInitializeRegistryNames()

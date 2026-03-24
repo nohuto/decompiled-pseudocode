@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ResetHeap@UMPDOBJ@@QEAAXXZ @ 0x1C015E2F0
+ * XREFs of ?ResetHeap@UMPDOBJ@@QEAAXXZ @ 0x1C016BC90
  * Callers:
- *     ?UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z @ 0x1C02A7C80 (-UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z.c)
+ *     ?UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z @ 0x1C02A9508 (-UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z.c)
  * Callees:
  *     <none>
  */

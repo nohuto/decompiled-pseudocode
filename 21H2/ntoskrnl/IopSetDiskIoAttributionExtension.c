@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetDiskIoAttributionExtension @ 0x14020C178
+ * XREFs of IopSetDiskIoAttributionExtension @ 0x1402EDF0C
  * Callers:
- *     IoUpdateIrpIoAttributionHandle @ 0x14020B7B0 (IoUpdateIrpIoAttributionHandle.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x14020B7D4 (IopSetDiskIoAttributionFromProcess.c)
- *     IoMakeAssociatedIrpPriv @ 0x14020BA48 (IoMakeAssociatedIrpPriv.c)
- *     IoPropagateIrpExtensionEx @ 0x14020C270 (IoPropagateIrpExtensionEx.c)
- *     IoAsynchronousPageWrite @ 0x14020C810 (IoAsynchronousPageWrite.c)
- *     IoSynchronousPageWriteEx @ 0x140340130 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x140342C50 (IoPageReadEx.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1403437A0 (IoSetDiskIoAttributionFromThread.c)
+ *     IoUpdateIrpIoAttributionHandle @ 0x1402010C0 (IoUpdateIrpIoAttributionHandle.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1402C40E8 (IopSetDiskIoAttributionFromProcess.c)
+ *     IoAsynchronousPageWrite @ 0x1402CB1EC (IoAsynchronousPageWrite.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1402ED8C8 (IoMakeAssociatedIrpPriv.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402EE000 (IoPropagateIrpExtensionEx.c)
+ *     IoSynchronousPageWriteEx @ 0x14031BE0C (IoSynchronousPageWriteEx.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14031BFE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
  * Callees:
- *     IopAllocateIrpExtension @ 0x14020C420 (IopAllocateIrpExtension.c)
- *     IopReferenceIoAttributionFromProcess @ 0x1402F5F14 (IopReferenceIoAttributionFromProcess.c)
+ *     IopAllocateIrpExtension @ 0x1402EE1B0 (IopAllocateIrpExtension.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1402F895C (IopReferenceIoAttributionFromProcess.c)
  */
 
 __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -26,7 +26,7 @@ __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __in
   if ( !IrpExtension )
     return 3221225626LL;
   v8 = *(_QWORD *)(a3 + 544);
-  if ( (*(_DWORD *)(v8 + 2172) & 0x1000) != 0 && *(_QWORD *)(v8 + 1296) && *(_QWORD *)(*(_QWORD *)(v8 + 1296) + 1544LL) )
+  if ( (*(_DWORD *)(v8 + 2172) & 0x1000) != 0 && *(_QWORD *)(v8 + 1296) && *(_QWORD *)(*(_QWORD *)(v8 + 1296) + 1352LL) )
   {
     LOBYTE(v6) = 1;
     if ( (a4 & 1) == 0 )

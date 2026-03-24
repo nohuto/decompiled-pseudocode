@@ -2,7 +2,7 @@
  * XREFs of AlpcpCaptureViewAttributeInternal @ 0x140617818
  * Callers:
  *     AlpcpCaptureViewAttribute @ 0x1406177D8 (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureViewAttribute32 @ 0x1406CD360 (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x1406CD340 (AlpcpCaptureViewAttribute32.c)
  * Callees:
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpPrepareViewForDelivery @ 0x140617954 (AlpcpPrepareViewForDelivery.c)

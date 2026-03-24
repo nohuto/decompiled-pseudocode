@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCrimsonStackWalkApc @ 0x14030E280
+ * XREFs of EtwpCrimsonStackWalkApc @ 0x14030E380
  * Callers:
  *     <none>
  * Callees:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

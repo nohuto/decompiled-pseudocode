@@ -1,103 +1,96 @@
 /*
- * XREFs of ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C000AD70
+ * XREFs of ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C009EF04
  * Callers:
- *     RFONTOBJ_vDeleteRFONTWrap @ 0x1C000A7E0 (RFONTOBJ_vDeleteRFONTWrap.c)
- *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C000A940 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
- *     bUnloadEudcFont @ 0x1C00119A4 (bUnloadEudcFont.c)
- *     vKillRFONTList @ 0x1C027108C (vKillRFONTList.c)
- *     ?vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z @ 0x1C0271130 (-vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z.c)
- *     ?RestartInactiveHelper@@YAXPEAVRFONT@@@Z @ 0x1C02A62A0 (-RestartInactiveHelper@@YAXPEAVRFONT@@@Z.c)
- *     ?vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z @ 0x1C02A7330 (-vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z.c)
- *     vRemoveAllInactiveRFONTs @ 0x1C02A7404 (vRemoveAllInactiveRFONTs.c)
+ *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C009D160 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
+ *     bUnloadEudcFont @ 0x1C00A1EB0 (bUnloadEudcFont.c)
+ *     RFONTOBJ_vDeleteRFONTWrap @ 0x1C012F0B0 (RFONTOBJ_vDeleteRFONTWrap.c)
+ *     vKillRFONTList @ 0x1C027320C (vKillRFONTList.c)
+ *     ?vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z @ 0x1C02732B0 (-vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z.c)
+ *     ?RestartInactiveHelper@@YAXPEAVRFONT@@@Z @ 0x1C02A7FA0 (-RestartInactiveHelper@@YAXPEAVRFONT@@@Z.c)
+ *     ?vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z @ 0x1C02A8BA0 (-vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z.c)
+ *     vRemoveAllInactiveRFONTs @ 0x1C02A8C74 (vRemoveAllInactiveRFONTs.c)
  * Callees:
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C000AD50 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C000B034 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C000B0DC (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C000B10C (-vDeleteCache@RFONTOBJ@@QEAAXXZ.c)
- *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C000B1C8 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
- *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C000B238 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
- *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C000B438 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
- *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C000B48C (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C000B524 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C000B838 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0027858 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0082DF4 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D690 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EE30 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009F174 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C009F21C (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C009F24C (-vDeleteCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C009F308 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z @ 0x1C009F378 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z.c)
+ *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C009F3CC (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009F460 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C00E8DF0 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
  */
 
 void __fastcall RFONTOBJ::vDeleteRFONT(struct _FONTOBJ **this, struct PDEVOBJ *a2, struct PFFOBJ *a3, int a4)
 {
   struct _FONTOBJ *v6; // rdx
-  __int64 iTTUniq_high; // rax
-  struct _FONTOBJ *v10; // rcx
-  __int64 v11; // rax
-  BOOL v12; // ecx
-  bool v13; // si
-  __int64 v14; // rdx
-  unsigned int v15; // eax
-  __int64 v16; // rdx
-  unsigned int v17; // eax
-  struct _FONTOBJ *v18; // rcx
-  PVOID v19[2]; // [rsp+50h] [rbp-10h] BYREF
-  struct RFONT *sizLogResPpi; // [rsp+90h] [rbp+30h] BYREF
-  __int64 v21; // [rsp+98h] [rbp+38h] BYREF
-  char v22; // [rsp+A0h] [rbp+40h] BYREF
+  struct _FONTOBJ *v9; // rcx
+  __int64 v10; // rax
+  bool v11; // si
+  __int64 v12; // rdx
+  struct _FONTOBJ *v13; // rcx
+  unsigned int v14; // eax
+  __int64 v15; // rdx
+  unsigned int v16; // eax
+  __int64 *pvProducer; // [rsp+20h] [rbp-10h] BYREF
+  struct RFONT *sizLogResPpi; // [rsp+60h] [rbp+30h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+38h] BYREF
+  char v20; // [rsp+70h] [rbp+40h] BYREF
 
   v6 = *this;
-  v19[0] = (*this)[1].pvProducer;
-  iTTUniq_high = SHIDWORD(v6[10].iTTUniq);
-  if ( (_DWORD)iTTUniq_high )
-  {
-    DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 356LL, 49LL, iTTUniq_high, 0LL, 0LL, 0LL, 0LL, 0);
-    v6 = *this;
-  }
-  v10 = v6;
+  v9 = v6;
+  pvProducer = (__int64 *)v6[1].pvProducer;
   sizLogResPpi = (struct RFONT *)v6[1].sizLogResPpi;
-  if ( *((_QWORD *)sizLogResPpi + 376) && a4 )
+  if ( *((_QWORD *)sizLogResPpi + 379) && a4 )
   {
     PDEVOBJ::DestroyFont((PDEVOBJ *)&sizLogResPpi, v6);
-    v10 = *this;
+    v9 = *this;
   }
-  v11 = *(_QWORD *)&v10[1].ulStyleSize;
-  if ( v11 )
+  v10 = *(_QWORD *)&v9[1].ulStyleSize;
+  if ( v10 )
   {
-    v21 = *(_QWORD *)&v10[1].ulStyleSize;
-    v12 = *(_DWORD *)(v11 + 40) & 1;
-    v13 = v12 && *(_DWORD *)(v11 + 8);
-    NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&sizLogResPpi, v12);
-    NEEDGRELOCK::vLock((NEEDGRELOCK *)&v22, (struct PDEVOBJ *)&v21);
-    if ( v13 )
+    v19 = *(_QWORD *)&v9[1].ulStyleSize;
+    v11 = (*(_DWORD *)(v10 + 40) & 1) != 0 && *(_DWORD *)(v10 + 8);
+    NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK(
+      (NEEDDYNAMICMODECHANGESHARELOCK *)&sizLogResPpi,
+      *(_DWORD *)(v10 + 40) & 1);
+    NEEDGRELOCK::vLock((NEEDGRELOCK *)&v20, (struct PDEVOBJ *)&v19);
+    if ( v11 )
     {
-      GreAcquireSemaphore(*(_QWORD *)(v21 + 48));
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"pdoCon.hsemDevLock()", *(_QWORD *)(v21 + 48), 11LL);
+      GreAcquireSemaphore(*(_QWORD *)(v19 + 48));
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"pdoCon.hsemDevLock()", *(_QWORD *)(v19 + 48), 11LL);
     }
-    v14 = v21;
-    if ( *(_QWORD *)(v21 + 3008) && a4 )
+    v12 = v19;
+    if ( *(_QWORD *)(v19 + 3032) && a4 )
     {
-      PDEVOBJ::DestroyFont((PDEVOBJ *)&v21, *this);
-      v14 = v21;
+      PDEVOBJ::DestroyFont((PDEVOBJ *)&v19, *this);
+      v12 = v19;
     }
-    if ( v13 )
+    if ( v11 )
     {
-      EtwTraceGreLockReleaseSemaphore(L"pdoCon.hsemDevLock()", *(_QWORD *)(v14 + 48));
-      GreReleaseSemaphoreInternal(*(_QWORD *)(v21 + 48));
+      EtwTraceGreLockReleaseSemaphore(L"pdoCon.hsemDevLock()", *(_QWORD *)(v12 + 48));
+      GreReleaseSemaphoreInternal(*(_QWORD *)(v19 + 48));
     }
-    NEEDGRELOCK::vUnlock((NEEDGRELOCK *)&v22);
+    NEEDGRELOCK::vUnlock((NEEDGRELOCK *)&v20);
     NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&sizLogResPpi);
   }
-  v21 = ghsemRFONTList;
+  v19 = ghsemRFONTList;
   GreAcquireSemaphore(ghsemRFONTList);
   if ( a2 )
   {
     sizLogResPpi = PDEVOBJ::prfntInactive(a2);
     RFONTOBJ::vRemove(this, &sizLogResPpi, 1LL);
     PDEVOBJ::prfntInactive(a2, sizLogResPpi);
-    v15 = PDEVOBJ::cInactive(a2);
-    v16 = *(_QWORD *)a2;
-    v17 = v15 - 1;
+    v14 = PDEVOBJ::cInactive(a2);
+    v15 = *(_QWORD *)a2;
+    v16 = v14 - 1;
     if ( (*(_DWORD *)(*(_QWORD *)a2 + 40LL) & 0x800000) != 0 )
-      *(_DWORD *)(*(_QWORD *)(v16 + 3496) + 1528LL) = v17;
+      *(_DWORD *)(*(_QWORD *)(v15 + 3520) + 1536LL) = v16;
     else
-      *(_DWORD *)(v16 + 1528) = v17;
+      *(_DWORD *)(v15 + 1536) = v16;
   }
   if ( a3 )
   {
@@ -105,23 +98,23 @@ void __fastcall RFONTOBJ::vDeleteRFONT(struct _FONTOBJ **this, struct PDEVOBJ *a
     RFONTOBJ::vRemove(this, &sizLogResPpi, 0LL);
     *(_QWORD *)(*(_QWORD *)a3 + 72LL) = sizLogResPpi;
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v21);
-  PFEOBJ::vFreepfdg((PFEOBJ *)v19);
+  SEMOBJ::vUnlock((SEMOBJ *)&v19);
+  PFEOBJ::vFreepfdg(&pvProducer);
   if ( a3 )
     PFFOBJ::vDeleteRFONTRef(a3);
   RFONTOBJ::vDeleteCache((RFONTOBJ *)this);
-  v18 = *this;
+  v13 = *this;
   if ( (*this)[10].pvConsumer )
   {
     Win32FreePool((*this)[10].pvConsumer);
-    v18 = *this;
+    v13 = *this;
   }
-  if ( v18[13].iTTUniq )
+  if ( v13[13].iTTUniq )
   {
-    GreDeleteSemaphore(v18[13].iTTUniq);
-    v18 = *this;
+    GreDeleteSemaphore(v13[13].iTTUniq);
+    v13 = *this;
   }
-  GreDeleteSemaphore(v18[7].pvProducer);
+  GreDeleteSemaphore(v13[7].pvProducer);
   FreeIsolatedType<NSInstrumentation::CTypeIsolation<233472,912>>(*this);
   *this = 0LL;
 }

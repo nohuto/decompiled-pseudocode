@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@@Z @ 0x1C031643C
+ * XREFs of ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFD28
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0316668 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFF48 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0315BF0 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C02AF640 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 void __fastcall Win81::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(
@@ -22,14 +22,14 @@ void __fastcall Win81::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(
   __int64 v11; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = 100 * (_DWORD)this;
-  v5 = &unk_1C00DDDB8;
+  v5 = &unk_1C0085A40;
   v6 = 100 * HIDWORD(this);
   do
   {
     LODWORD(v10) = v4 / *v5;
     HIDWORD(v10) = v6 / *v5;
     v11 = v10;
-    if ( Win81::operator>=(&v11, dword_1C0086AE0) )
+    if ( Win81::operator>=(&v11, dword_1C00728C0) )
       break;
     v5 = (_DWORD *)(v9 - 4);
     --v8;

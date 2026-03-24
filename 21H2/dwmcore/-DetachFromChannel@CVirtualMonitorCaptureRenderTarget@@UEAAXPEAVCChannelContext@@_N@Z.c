@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DetachFromChannel@CVirtualMonitorCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1801C5E80
+ * XREFs of ?DetachFromChannel@CVirtualMonitorCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180188A10
  * Callers:
  *     <none>
  * Callees:

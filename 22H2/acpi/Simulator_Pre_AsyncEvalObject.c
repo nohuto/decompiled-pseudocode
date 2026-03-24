@@ -1,11 +1,12 @@
 /*
- * XREFs of Simulator_Pre_AsyncEvalObject @ 0x1C004961C
+ * XREFs of Simulator_Pre_AsyncEvalObject @ 0x1C0063F4C
  * Callers:
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0048EE4 (Simulator_AllocAndInitTestData.c)
- *     Simulator_Copy_Arguments @ 0x1C00490A8 (Simulator_Copy_Arguments.c)
- *     Simulator_TestNotify @ 0x1C0049990 (Simulator_TestNotify.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_Copy_Arguments @ 0x1C00639E8 (Simulator_Copy_Arguments.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 __fastcall Simulator_Pre_AsyncEvalObject(
@@ -19,7 +20,7 @@ __int64 __fastcall Simulator_Pre_AsyncEvalObject(
         __int64 a8)
 {
   __int64 v9; // rsi
-  void *inited; // rax
+  PVOID inited; // rax
   int v13; // ecx
   __int64 v14; // rdx
   _DWORD *v15; // rcx

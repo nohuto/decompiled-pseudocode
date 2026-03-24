@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetDirectFlip@CFlipExBuffer@@UEAAX_N0@Z @ 0x1C001A2D0
+ * XREFs of ?SetDirectFlip@CFlipExBuffer@@UEAAX_N0@Z @ 0x1C001BAD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 void __fastcall CFlipExBuffer::SetDirectFlip(CFlipExBuffer *this, char a2, char a3)
 {
-  *((_BYTE *)this + 627) = a2;
-  *((_BYTE *)this + 629) = a3;
+  *((_BYTE *)this + 571) = a2;
+  *((_BYTE *)this + 573) = a3;
 }

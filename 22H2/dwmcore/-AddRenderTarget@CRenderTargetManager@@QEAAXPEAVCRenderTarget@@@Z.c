@@ -1,61 +1,55 @@
 /*
- * XREFs of ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6D74
+ * XREFs of ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DFCAC
  * Callers:
- *     ?CheckOcclusionState@CRenderTargetManager@@QEAAJXZ @ 0x1800500C0 (-CheckOcclusionState@CRenderTargetManager@@QEAAJXZ.c)
- *     ?Initialize@CRenderTarget@@MEAAJXZ @ 0x180104A30 (-Initialize@CRenderTarget@@MEAAJXZ.c)
- *     ?ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_CREATE@@@Z @ 0x1801EB190 (-ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTAR.c)
- *     ?Initialize@CCaptureRenderTarget@@MEAAJXZ @ 0x1801ED520 (-Initialize@CCaptureRenderTarget@@MEAAJXZ.c)
- *     ?Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBVRenderTargetInfo@@AEBVCMonitorTransform@@PEAPEAV1@@Z @ 0x1801F95FC (-Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBVRenderTargetInfo@@AEBVCMo.c)
- *     ?NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ @ 0x180256130 (-NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ.c)
- *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x1802A560C (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
- *     ?ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETFLAGS@@@Z @ 0x1802A7E3C (-ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180072020 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?Initialize@CRenderTarget@@MEAAJXZ @ 0x1800E0330 (-Initialize@CRenderTarget@@MEAAJXZ.c)
+ *     ?Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@AEBVRenderTargetInfo@@PEAPEAV1@@Z @ 0x1800EEB48 (-Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBV-$TMilRect_@HUtagRECT@@UM.c)
+ *     ?ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_CREATE@@@Z @ 0x180186448 (-ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTAR.c)
+ *     ?Initialize@CCaptureRenderTarget@@MEAAJXZ @ 0x1801877E0 (-Initialize@CCaptureRenderTarget@@MEAAJXZ.c)
+ *     ?NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ @ 0x1801F1EA0 (-NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ.c)
+ *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x180253600 (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
+ *     ?ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETFLAGS@@@Z @ 0x18025645C (-ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180051778 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ??$_Emplace_reallocate@AEBQEAVCRenderTarget@@@?$vector@PEAVCRenderTarget@@V?$allocator@PEAVCRenderTarget@@@std@@@std@@QEAAPEAPEAVCRenderTarget@@QEAPEAV2@AEBQEAV2@@Z @ 0x180101FD0 (--$_Emplace_reallocate@AEBQEAVCRenderTarget@@@-$vector@PEAVCRenderTarget@@V-$allocator@PEAVCRend.c)
+ *     ??$_Emplace_reallocate@AEBU_LUID@@@?$vector@U_LUID@@V?$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LUID@@QEAU2@AEBU2@@Z @ 0x18001C694 (--$_Emplace_reallocate@AEBU_LUID@@@-$vector@U_LUID@@V-$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LU.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006EFD0 (-InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
  */
 
 void __fastcall CRenderTargetManager::AddRenderTarget(CRenderTargetManager *this, struct CRenderTarget *a2)
 {
-  _QWORD *v4; // rdx
-  _QWORD *v5; // rdx
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  _BYTE *v4; // rdx
+  _BYTE *v5; // rdx
+  void *v6; // [rsp+30h] [rbp+8h] BYREF
   struct CRenderTarget *v7; // [rsp+38h] [rbp+10h] BYREF
 
   v7 = a2;
-  if ( *((_BYTE *)this + 576) || *((_QWORD *)this + 71) == GetCurrentFrameId() )
+  if ( *((_BYTE *)this + 128) || *((_QWORD *)this + 15) == GetCurrentFrameId() )
   {
-    v5 = (_QWORD *)*((_QWORD *)this + 5);
-    if ( v5 == *((_QWORD **)this + 6) )
+    v5 = (_BYTE *)*((_QWORD *)this + 5);
+    if ( *((_BYTE **)this + 6) == v5 )
     {
-      std::vector<CRenderTarget *>::_Emplace_reallocate<CRenderTarget * const &>((char *)this + 32, v5, &v7);
+      std::vector<_LUID>::_Emplace_reallocate<_LUID const &>((_QWORD *)this + 4, v5, &v7);
     }
     else
     {
-      *v5 = a2;
+      *(_QWORD *)v5 = a2;
       *((_QWORD *)this + 5) += 8LL;
     }
   }
   else
   {
     v6 = 0LL;
-    if ( (int)CMILCOMBaseT<IUnknown>::InternalQueryInterface(
-                (__int64)a2,
-                &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9,
-                &v6) >= 0 )
+    if ( (int)CMILCOMBase::InternalQueryInterface(a2, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v6) >= 0 )
+      *((_BYTE *)this + 130) = 1;
+    v4 = (_BYTE *)*((_QWORD *)this + 2);
+    if ( *((_BYTE **)this + 3) == v4 )
     {
-      *((_BYTE *)this + 578) = 1;
-      *((_BYTE *)this + 580) = 1;
-    }
-    v4 = (_QWORD *)*((_QWORD *)this + 2);
-    if ( v4 == *((_QWORD **)this + 3) )
-    {
-      std::vector<CRenderTarget *>::_Emplace_reallocate<CRenderTarget * const &>((char *)this + 8, v4, &v7);
+      std::vector<_LUID>::_Emplace_reallocate<_LUID const &>((_QWORD *)this + 1, v4, &v7);
     }
     else
     {
-      *v4 = a2;
+      *(_QWORD *)v4 = a2;
       *((_QWORD *)this + 2) += 8LL;
     }
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v6);

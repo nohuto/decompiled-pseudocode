@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreateUsermodeParameters@QueryGlyphAttrsRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0306F30
+ * XREFs of ?CreateUsermodeParameters@QueryGlyphAttrsRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C02DECA0
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00760C4 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00A6694 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
  */
 
 __int64 __fastcall QueryGlyphAttrsRequest::CreateUsermodeParameters(

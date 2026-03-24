@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C0041684
+ * XREFs of McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C00399DC
  * Callers:
- *     VidSchiSerializeSchedulingLog @ 0x1C00F61F8 (VidSchiSerializeSchedulingLog.c)
+ *     VidSchiSerializeSchedulingLog @ 0x1C00D39A0 (VidSchiSerializeSchedulingLog.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqqxxxxqbr7_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

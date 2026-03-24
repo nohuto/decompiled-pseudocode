@@ -1,10 +1,10 @@
 /*
- * XREFs of InterlockedPushListSList @ 0x1404288A0
+ * XREFs of InterlockedPushListSList @ 0x140407060
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2B0 (ExAllocateHeapPool.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
- *     EtwpCovSampPushListSList @ 0x140469C1E (EtwpCovSampPushListSList.c)
- *     HvlpSetupCachedHypercallPages @ 0x14054218C (HvlpSetupCachedHypercallPages.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
+ *     ExAllocateHeapPool @ 0x1402BC8A0 (ExAllocateHeapPool.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1404F3CA8 (HvlpSetupCachedHypercallPages.c)
+ *     EtwpCovSampPushListSList @ 0x1405AF6D0 (EtwpCovSampPushListSList.c)
  * Callees:
  *     <none>
  */

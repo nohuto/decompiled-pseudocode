@@ -1,12 +1,12 @@
 /*
- * XREFs of ProcessSuspendedEventMessage @ 0x1C004F2B4
+ * XREFs of ProcessSuspendedEventMessage @ 0x1C0126488
  * Callers:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     NtUserScheduleDispatchNotification @ 0x1C011CF40 (NtUserScheduleDispatchNotification.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     _ScheduleDispatchNotification @ 0x1C0053AC0 (_ScheduleDispatchNotification.c)
  * Callees:
- *     ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C000AAD8 (-FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z.c)
- *     ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C000FEC4 (-ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z.c)
+ *     ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C00088A4 (-ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C0126610 (-FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall ProcessSuspendedEventMessage(
@@ -17,34 +17,42 @@ __int64 __fastcall ProcessSuspendedEventMessage(
         unsigned __int64 a5,
         __int64 a6)
 {
-  HWND v8; // rsi
-  struct tagQMSG *v9; // rbx
+  unsigned int v9; // ebx
+  HWND v10; // rbp
+  struct tagQMSG *v11; // rdi
   struct tagQMSG *QMsgForCoalesce; // rax
-  int v11; // edx
-  int v12; // r11d
+  int v13; // edx
+  _BYTE v14[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  if ( a2 != 9 || a4 >= 0x400 )
+  if ( a2 != 9 )
     return 1LL;
-  if ( (((unsigned __int16)MessageTable[a4] >> 10) & 7) != 0 )
+  if ( a4 >= 0x400 )
+    v9 = 1;
+  else
+    v9 = ((unsigned __int16)MessageTable[a4] >> 10) & 7;
+  if ( v9 )
   {
-    if ( (((unsigned __int16)MessageTable[a4] >> 10) & 7u) >= 2 )
+    if ( v9 >= 2 )
     {
       if ( a3 )
-        v8 = *a3;
+        v10 = *a3;
       else
-        v8 = 0LL;
-      v9 = 0LL;
+        v10 = 0LL;
+      v11 = 0LL;
+      CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>(
+        (__int64)v14,
+        *(_QWORD *)(a1 + 432));
       while ( 1 )
       {
-        QMsgForCoalesce = FindQMsgForCoalesce((struct tagMLIST *)(*(_QWORD *)(a1 + 432) + 24LL), a4, v8, v9);
-        v9 = QMsgForCoalesce;
+        QMsgForCoalesce = FindQMsgForCoalesce((struct tagMLIST *)(*(_QWORD *)(a1 + 432) + 24LL), a4, v10, v11);
+        v11 = QMsgForCoalesce;
         if ( !QMsgForCoalesce )
           break;
         if ( *((_DWORD *)QMsgForCoalesce + 24) == 9
           && *((_QWORD *)QMsgForCoalesce + 13) == a1
           && !ProcessComplexCoalescence(
-                v12,
-                v11,
+                v9,
+                v13,
                 a5,
                 a6,
                 (unsigned __int64 *)QMsgForCoalesce + 4,

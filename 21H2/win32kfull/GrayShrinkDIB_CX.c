@@ -1,5 +1,5 @@
 /*
- * XREFs of GrayShrinkDIB_CX @ 0x1C016E6B0
+ * XREFs of GrayShrinkDIB_CX @ 0x1C026B3E0
  * Callers:
  *     <none>
  * Callees:
@@ -9,23 +9,23 @@
 void __fastcall GrayShrinkDIB_CX(__int64 a1, unsigned __int8 *a2, _BYTE *a3, __int64 a4, int a5)
 {
   int v7; // r10d
-  unsigned __int16 v8; // bp
+  unsigned __int16 v8; // si
   _WORD *v9; // r11
   int v10; // r8d
-  __int64 v11; // r14
+  __int64 v11; // r15
   unsigned int v12; // ecx
-  __int64 v13; // r9
-  __int64 v14; // rsi
+  __int64 v13; // r14
+  int v14; // r9d
   int v15; // ecx
   int v16; // r9d
-  int v17; // esi
+  int v17; // r14d
   __int64 v18; // rax
   __int64 v19; // r8
   int v20; // ecx
   int v21; // eax
   unsigned int v22; // ecx
   int v23; // ecx
-  _BYTE v24[12]; // [rsp+0h] [rbp-28h]
+  _BYTE v24[12]; // [rsp+0h] [rbp-10h]
 
   if ( a2 )
   {
@@ -48,18 +48,18 @@ void __fastcall GrayShrinkDIB_CX(__int64 a1, unsigned __int8 *a2, _BYTE *a3, __i
       {
         v12 = (unsigned __int16)*v9++;
         v13 = *a2++;
-        v14 = v11 + ((v12 >> 5) & 0x400);
+        v14 = *(_DWORD *)(v11 + ((v12 >> 5) & 0x400) + 4 * v13);
         if ( (v12 & 0x4000) != 0 )
         {
           v15 = v13 * (v12 & 0x3FFF);
           *(_DWORD *)&v24[8] = v15 + v7;
-          v7 = *(_DWORD *)(v14 + 4 * v13) - v15;
+          v7 = v14 - v15;
           --v10;
           *(_QWORD *)v24 = *(_QWORD *)&v24[4];
         }
         else
         {
-          v7 += *(_DWORD *)(v14 + 4 * v13);
+          v7 += v14;
         }
       }
       while ( v10 );

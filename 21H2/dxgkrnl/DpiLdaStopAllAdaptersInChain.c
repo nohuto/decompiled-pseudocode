@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiLdaStopAllAdaptersInChain @ 0x1C0396A78
+ * XREFs of DpiLdaStopAllAdaptersInChain @ 0x1C02D83D4
  * Callers:
- *     DpiFdoHandleStopDevice @ 0x1C0389B60 (DpiFdoHandleStopDevice.c)
- *     DpiKsrStopAdapter @ 0x1C03945BC (DpiKsrStopAdapter.c)
+ *     DpiFdoHandleStopDevice @ 0x1C02CA620 (DpiFdoHandleStopDevice.c)
+ *     DpiKsrStopAdapters @ 0x1C02D30D0 (DpiKsrStopAdapters.c)
  * Callees:
- *     DpiFdoStopAdapter @ 0x1C038B430 (DpiFdoStopAdapter.c)
+ *     DpiFdoStopAdapter @ 0x1C02CBE84 (DpiFdoStopAdapter.c)
  */
 
 __int64 __fastcall DpiLdaStopAllAdaptersInChain(struct _DEVICE_OBJECT *a1, __int64 a2)

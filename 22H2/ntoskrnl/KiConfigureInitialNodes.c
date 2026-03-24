@@ -1,56 +1,36 @@
 /*
- * XREFs of KiConfigureInitialNodes @ 0x1403A8410
+ * XREFs of KiConfigureInitialNodes @ 0x1403B53DC
  * Callers:
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     KiAssignProcessorNumberToPrcb @ 0x140376C90 (KiAssignProcessorNumberToPrcb.c)
- *     KiAllocateProcessorNumber @ 0x140377908 (KiAllocateProcessorNumber.c)
- *     KiInitializeSchedulerSubNode @ 0x1403A8560 (KiInitializeSchedulerSubNode.c)
+ *     KiAddProcessorToGroupDatabase @ 0x1403B5478 (KiAddProcessorToGroupDatabase.c)
+ *     KiCommitNodeAssignment @ 0x1403B587C (KiCommitNodeAssignment.c)
  */
 
 __int64 __fastcall KiConfigureInitialNodes(__int64 a1)
 {
-  _QWORD *v2; // rdx
-  _WORD *v3; // rcx
   __int64 result; // rax
-  int v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v3; // rdx
+  _WORD *v4; // rcx
 
-  dword_140D4AAC4 = -1;
-  byte_140D4AACA |= 2u;
-  byte_140D0E585 |= 5u;
+  byte_140D254F5 |= 2u;
+  qword_140D254E0 |= 1uLL;
+  byte_140D254F4 = KiMaximumGroupSize;
   KeNodeBlock[0] = (__int64)&ExNode0;
-  v5 = 0;
-  ExNode0 = 0;
-  KiInitialNodeStructures = 0;
-  qword_140D0E590 = 0LL;
-  word_140D0E586 = 0;
-  KiSubNodeCount = 1;
-  word_140D4AAC8 = KiMaximumGroupSize;
-  xmmword_140D4ABD8 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
-  KiSubNodeConfigBlock = (__int64)&KiInitialNodeStructures;
-  dword_140D4ABE8 = _mm_cvtsi128_si32((__m128i)xmmword_140D4ABD8);
-  KiSubNodes = (__int64)&qword_140D0F1C0;
-  byte_140D0E584 = KiMaximumGroupSize;
-  KiInitializeSchedulerSubNode(&unk_140D0E5C0);
-  byte_140D0E679 = 8;
-  qword_140D0E680 = (__int64)&unk_140D0E740;
-  qword_140D0F1C0 = (__int64)&unk_140D0E5C0;
-  qword_140D4AAD8 = (__int64)&unk_140D0E5C0;
-  KiAllocateProcessorNumber(0, (__int64)&v5);
-  KiAssignProcessorNumberToPrcb(a1, (char *)&v5, 0);
-  qword_140D0E660 |= 1uLL;
-  v2 = &unk_140D496C8;
-  qword_140D0E610 |= 1uLL;
-  v3 = &unk_140D55E80;
+  KiCommitNodeAssignment(&ExNode0);
+  *(_QWORD *)(a1 + 192) = &ExNode0;
+  qword_140D25490 |= 1uLL;
   *(_BYTE *)(a1 + 35) = 1;
+  KiAddProcessorToGroupDatabase(a1, 0LL);
   LODWORD(result) = 1;
-  qword_140D20580 |= 1uLL;
+  v3 = &unk_140D23388;
+  v4 = &unk_140D2FFC0;
   do
   {
-    *v2++ = v3;
-    *v3 = result;
+    *v3++ = v4;
+    v4[73] = result;
     result = (unsigned int)(result + 1);
-    v3 += 152;
+    v4 += 192;
   }
   while ( (unsigned int)result < 0x40 );
   return result;

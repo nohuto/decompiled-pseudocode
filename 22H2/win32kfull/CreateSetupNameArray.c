@@ -1,5 +1,5 @@
 /*
- * XREFs of CreateSetupNameArray @ 0x1C00BDBD0
+ * XREFs of CreateSetupNameArray @ 0x1C0136B80
  * Callers:
  *     <none>
  * Callees:
@@ -28,7 +28,7 @@ void CreateSetupNameArray()
   v1 = ProfileValue;
   if ( ProfileValue )
   {
-    v2 = (unsigned __int16 *)Win32AllocPoolZInit(ProfileValue, 2020897621LL);
+    v2 = (unsigned __int16 *)Win32AllocPool(ProfileValue, 2020897621LL);
     glpSetupPrograms = v2;
     if ( v2 )
     {
@@ -61,7 +61,7 @@ void CreateSetupNameArray()
         while ( v7 < v5 );
       }
       giSetupExe = v6;
-      gpastrSetupExe = (struct _UNICODE_STRING *)Win32AllocPoolZInit(16LL * v6, 2020897621LL);
+      gpastrSetupExe = (struct _UNICODE_STRING *)Win32AllocPool(16LL * v6, 2020897621LL);
       if ( !gpastrSetupExe )
       {
         Win32FreePool(glpSetupPrograms);

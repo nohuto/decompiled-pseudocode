@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z @ 0x180280150
+ * XREFs of ?AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z @ 0x1802208E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FB80 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x1802801B4 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5A28 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x180220944 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
  */
 
 void __fastcall CPathData::AddQuadraticBeziers(
@@ -25,7 +25,7 @@ void __fastcall CPathData::AddQuadraticBeziers(
     do
     {
       v8 = *(_OWORD *)(p_y - 1);
-      CPathData::AppendSegment(this, (struct Path::Segment *)v7);
+      CPathData::AppendSegment((CPathData *)((char *)this - 16), (struct Path::Segment *)v7);
       p_y += 4;
       --v4;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhValidateMsOs20VendorRevision @ 0x1C0052670
+ * XREFs of UsbhValidateMsOs20VendorRevision @ 0x1C0053CC0
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 char __fastcall UsbhValidateMsOs20VendorRevision(__int64 a1, int *a2, _WORD *a3)

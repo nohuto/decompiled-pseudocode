@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRequestTerminationProcess @ 0x14084338C
+ * XREFs of KeRequestTerminationProcess @ 0x14084336C
  * Callers:
- *     MiForceCrashForInvalidAccess @ 0x14084BEC4 (MiForceCrashForInvalidAccess.c)
- *     MiCommitRequestFailed @ 0x14085B8FC (MiCommitRequestFailed.c)
+ *     MiForceCrashForInvalidAccess @ 0x14084BEA4 (MiForceCrashForInvalidAccess.c)
+ *     MiCommitRequestFailed @ 0x14085B8DC (MiCommitRequestFailed.c)
  * Callees:
- *     KeRequestTerminationThread @ 0x1400F1328 (KeRequestTerminationThread.c)
+ *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
  */
 
 void __fastcall KeRequestTerminationProcess(__int64 a1, int a2)

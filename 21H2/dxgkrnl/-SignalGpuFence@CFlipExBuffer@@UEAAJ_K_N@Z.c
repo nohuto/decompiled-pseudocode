@@ -1,107 +1,99 @@
 /*
- * XREFs of ?SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z @ 0x1C000DA20
+ * XREFs of ?SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z @ 0x1C0017540
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C01961F0 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
- *     DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C019AB18 (DxgkImmediateSignalSynchronizationObjectByReference.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C00EF1F4 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
+ *     DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C0171F94 (DxgkImmediateSignalSynchronizationObjectByReference.c)
  */
 
 __int64 __fastcall CFlipExBuffer::SignalGpuFence(CFlipExBuffer *this, __int64 a2, char a3)
 {
-  int v3; // ebx
+  int v3; // esi
+  __int64 *v6; // r14
   struct DXGSESSIONDATA *SessionData; // rax
-  __int64 v7; // rdi
-  void (__fastcall **v8)(_QWORD); // rax
-  __int64 v9; // rdx
-  __int64 v10; // r9
-  __int64 v12; // rcx
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  __int64 v16; // rcx
-  int v17; // ebx
-  __int64 v18; // [rsp+78h] [rbp+10h] BYREF
+  __int64 *v8; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r9
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rdi
+  int v16; // ebx
+  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
 
   v3 = 0;
   if ( a2 )
   {
     if ( a3 )
-      goto LABEL_11;
+      goto LABEL_14;
+    v6 = 0LL;
+    v3 = -1073741823;
     if ( !DXGGLOBAL::m_pGlobal )
     {
-      WdLogSingleEntry1(1LL, 2373LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v14,
-            v13,
-            v15,
-            0,
-            2,
-            -1,
-            (__int64)L"m_pGlobal != NULL",
-            2373LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v14 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v14 + 24) = 2238LL;
+      WdLogEvent5_WdAssertion(v14);
     }
     SessionData = DXGGLOBAL::GetSessionData((DXGGLOBAL *)DXGGLOBAL::m_pGlobal);
-    if ( SessionData && (v7 = *((_QWORD *)SessionData + 2343)) != 0 )
+    if ( SessionData )
     {
-      (**(void (__fastcall ***)(_QWORD))v7)(*((_QWORD *)SessionData + 2343));
-      if ( *((_DWORD *)this + 159)
-        && ((v16 = *((_QWORD *)this + 85),
-             *((_BYTE *)this + 688) = 1,
-             v17 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v16 + 24LL))(v16),
-             v17 == (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v7 + 160LL))(v7))
-          ? (v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(**((_QWORD **)this + 85) + 48LL))(
-                    *((_QWORD *)this + 85),
-                    *((unsigned int *)this + 164),
-                    *((_QWORD *)this + 43),
-                    a2))
-          : (v3 = -1073741823),
-            --*((_DWORD *)this + 159),
-            v3 >= 0) )
+      v8 = (__int64 *)*((_QWORD *)SessionData + 2340);
+      if ( v8 )
       {
-        *((_BYTE *)this + 688) = 0;
+        (*(void (__fastcall **)(_QWORD))*v8)(*((_QWORD *)SessionData + 2340));
+        v3 = 0;
+        v6 = v8;
+      }
+    }
+    if ( v3 >= 0 )
+    {
+      if ( !*((_BYTE *)this + 580) )
+        goto LABEL_10;
+      v15 = *((_QWORD *)this + 77);
+      *((_BYTE *)this + 624) = 1;
+      v16 = (*(__int64 (__fastcall **)(__int64 *))(*v6 + 152))(v6);
+      if ( (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v15 + 24LL))(v15) != v16 )
+        v3 = -1073741823;
+      if ( v3 >= 0 )
+        v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(**((_QWORD **)this + 77) + 48LL))(
+               *((_QWORD *)this + 77),
+               *((unsigned int *)this + 149),
+               *((_QWORD *)this + 39),
+               a2);
+      *((_BYTE *)this + 580) = 0;
+      if ( v3 >= 0 )
+      {
+        *((_BYTE *)this + 624) = 0;
       }
       else
       {
-        v8 = *(void (__fastcall ***)(_QWORD))v7;
-        v9 = *((_QWORD *)this + 45);
-        v18 = 0LL;
-        v3 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))v8[19])(v7, v9, &v18);
+LABEL_10:
+        v9 = *v6;
+        v10 = *((_QWORD *)this + 41);
+        v17 = 0LL;
+        v3 = (*(__int64 (__fastcall **)(__int64 *, __int64, __int64 *))(v9 + 144))(v6, v10, &v17);
         if ( v3 >= 0 )
         {
-          LOBYTE(v10) = *((_DWORD *)this + 164) == 0;
-          v3 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64))(*(_QWORD *)v18 + 16LL))(
-                 v18,
-                 *((_QWORD *)this + 43),
+          LOBYTE(v11) = *((_DWORD *)this + 149) == 0;
+          v3 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64))(*(_QWORD *)v17 + 16LL))(
+                 v17,
+                 *((_QWORD *)this + 39),
                  a2,
-                 v10);
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 8LL))(v18);
+                 v11);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 8LL))(v17);
         }
       }
     }
-    else
-    {
-      v3 = -1073741823;
-      v7 = 0LL;
-    }
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
+    (*(void (__fastcall **)(__int64 *))(*v6 + 8))(v6);
     if ( v3 < 0 )
     {
-LABEL_11:
-      v12 = *((_QWORD *)this + 43);
+LABEL_14:
+      v13 = *((_QWORD *)this + 39);
       v3 = -1073741637;
-      if ( v12 )
-        return (unsigned int)DxgkImmediateSignalSynchronizationObjectByReference(v12, a2);
+      if ( v13 )
+        return (unsigned int)DxgkImmediateSignalSynchronizationObjectByReference(v13, a2);
     }
   }
   return (unsigned int)v3;

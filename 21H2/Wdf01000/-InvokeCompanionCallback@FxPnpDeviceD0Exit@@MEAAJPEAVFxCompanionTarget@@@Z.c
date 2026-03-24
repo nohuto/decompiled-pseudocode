@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InvokeCompanionCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C008E0C0
+ * XREFs of ?InvokeCompanionCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C008B6C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
  */
 
 __int64 __fastcall FxPnpDeviceD0Exit::InvokeCompanionCallback(
@@ -17,14 +17,14 @@ __int64 __fastcall FxPnpDeviceD0Exit::InvokeCompanionCallback(
   _a3 = CompanionTarget->m_RdDeviceCompanion->SendD0Exit(CompanionTarget->m_RdDeviceCompanion, this->m_TargetState);
   v4 = _a3;
   if ( _a3 < 0 )
-    WPP_IFR_SF_qqd(
+    WPP_IFR_SF_qid(
       this->m_PkgPnp->m_Globals,
       2u,
       0xCu,
       0xBu,
       WPP_PnPCallbacksKm_cpp_Traceguids,
       this->m_Device,
-      this->m_PkgPnp->m_DeviceBase->m_DeviceObject.m_DeviceObject,
+      (__int64)this->m_PkgPnp->m_DeviceBase->m_DeviceObject.m_DeviceObject,
       _a3);
   return v4;
 }

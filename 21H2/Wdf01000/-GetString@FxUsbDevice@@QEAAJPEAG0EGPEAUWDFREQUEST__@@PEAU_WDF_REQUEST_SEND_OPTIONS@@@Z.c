@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z @ 0x1C007F720
+ * XREFs of ?GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z @ 0x1C0072F00
  * Callers:
- *     imp_WdfUsbTargetDeviceAllocAndQueryString @ 0x1C0077EC0 (imp_WdfUsbTargetDeviceAllocAndQueryString.c)
- *     imp_WdfUsbTargetDeviceQueryString @ 0x1C0078760 (imp_WdfUsbTargetDeviceQueryString.c)
+ *     imp_WdfUsbTargetDeviceAllocAndQueryString @ 0x1C006AA70 (imp_WdfUsbTargetDeviceAllocAndQueryString.c)
+ *     imp_WdfUsbTargetDeviceQueryString @ 0x1C006B310 (imp_WdfUsbTargetDeviceQueryString.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C0006F0C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
- *     ??0FxSyncRequest@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAUFxRequestContext@@PEAUWDFREQUEST__@@@Z @ 0x1C001A138 (--0FxSyncRequest@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAUFxRequestContext@@PEAUWDFREQUEST__@@@Z.c)
- *     ??1FxSyncRequest@@UEAA@XZ @ 0x1C001A228 (--1FxSyncRequest@@UEAA@XZ.c)
- *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C001A8A0 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z @ 0x1C00393BA (-FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z.c)
+ *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C0001D10 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C000B79C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
+ *     ??0FxSyncRequest@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAUFxRequestContext@@PEAUWDFREQUEST__@@@Z @ 0x1C0017BC0 (--0FxSyncRequest@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAUFxRequestContext@@PEAUWDFREQUEST__@@@Z.c)
+ *     ??1FxSyncRequest@@UEAA@XZ @ 0x1C0017C64 (--1FxSyncRequest@@UEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z @ 0x1C006EBCC (-FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z.c)
  */
 
 __int64 __fastcall FxUsbDevice::GetString(
@@ -29,22 +29,17 @@ __int64 __fastcall FxUsbDevice::GetString(
   _FX_DRIVER_GLOBALS *m_Globals; // rdx
   FX_POOL_TRACKER *v12; // rdi
   int v13; // ebx
-  int v14; // eax
-  _FX_DRIVER_GLOBALS *v15; // rcx
-  unsigned int v16; // ebx
-  void *v17; // rax
-  FX_POOL **v18; // rax
+  unsigned int v14; // ebx
+  FX_POOL **v15; // rax
   _USB_COMMON_DESCRIPTOR *p_common; // rsi
   __int64 bLength; // rax
-  unsigned __int64 v21; // rdx
-  unsigned int v22; // eax
-  __int64 v23; // r8
+  unsigned __int64 v18; // rdx
+  unsigned __int16 v19; // ax
   _USB_COMMON_DESCRIPTOR common; // [rsp+34h] [rbp-CCh] BYREF
-  __m128i v27; // [rsp+40h] [rbp-C0h] BYREF
-  _URB_CONTROL_DESCRIPTOR_REQUEST urb; // [rsp+50h] [rbp-B0h] BYREF
-  FxSyncRequest request; // [rsp+E0h] [rbp-20h] BYREF
-  _WDF_REQUEST_SEND_OPTIONS options; // [rsp+210h] [rbp+110h] BYREF
-  void *retaddr; // [rsp+268h] [rbp+168h]
+  _URB_CONTROL_DESCRIPTOR_REQUEST urb; // [rsp+40h] [rbp-C0h] BYREF
+  FxSyncRequest request; // [rsp+D0h] [rbp-30h] BYREF
+  _WDF_REQUEST_SEND_OPTIONS options; // [rsp+200h] [rbp+100h] BYREF
+  void *Caller; // [rsp+258h] [rbp+158h]
 
   p_options = Options;
   memset(&urb, 0, sizeof(urb));
@@ -58,26 +53,26 @@ __int64 __fastcall FxUsbDevice::GetString(
   {
     if ( String )
     {
-      v14 = *NumCharacters;
-      v15 = this->m_Globals;
-      v27.m128i_i64[0] = 0LL;
-      v27.m128i_i64[1] = 64LL;
-      v16 = 2 * v14 + 2;
-      v17 = retaddr;
-      if ( !v15->FxPoolTrackingOn )
-        v17 = 0LL;
-      v18 = FxPoolAllocator(v15, &v15->FxPoolFrameworks, &v27, v16, v15->Tag, v17);
-      v12 = (FX_POOL_TRACKER *)v18;
-      if ( !v18 )
+      v14 = 2 * *NumCharacters + 2;
+      v15 = FxPoolAllocator(
+              this->m_Globals,
+              &this->m_Globals->FxPoolFrameworks,
+              ExDefaultNonPagedPoolType,
+              v14,
+              this->m_Globals->Tag,
+              Caller);
+      v12 = (FX_POOL_TRACKER *)v15;
+      if ( !v15 )
       {
         v13 = -1073741670;
-        goto $Done_63;
+        goto $Done_54;
       }
-      p_common = (_USB_COMMON_DESCRIPTOR *)v18;
+      memset(v15, 0, v14);
+      p_common = (_USB_COMMON_DESCRIPTOR *)v12;
     }
     else
     {
-      v16 = 2;
+      v14 = 2;
       p_common = &common;
     }
     urb.TransferBufferMDL = 0LL;
@@ -85,7 +80,7 @@ __int64 __fastcall FxUsbDevice::GetString(
     urb.Index = StringIndex;
     urb.LanguageId = LangID;
     *(_DWORD *)&urb.Hdr.Length = 721032;
-    urb.TransferBufferLength = v16;
+    urb.TransferBufferLength = v14;
     urb.TransferBuffer = p_common;
     urb.DescriptorType = 3;
     if ( !Options )
@@ -95,7 +90,7 @@ __int64 __fastcall FxUsbDevice::GetString(
       options.Flags = 1;
       options.Timeout = -20000000LL;
     }
-    FxFormatUsbRequest(request.m_TrueRequest, (_FILE_OBJECT *)&urb, FxUrbTypeLegacy, 0LL);
+    FxFormatUsbRequest(request.m_TrueRequest, (_FILE_OBJECT *)&urb, 0, 0LL);
     v13 = FxIoTarget::SubmitSync(this, request.m_TrueRequest, p_options, 0LL);
     if ( v13 >= 0 )
     {
@@ -106,29 +101,28 @@ __int64 __fastcall FxUsbDevice::GetString(
       }
       else
       {
-        v21 = (unsigned __int64)(bLength - 2) >> 1;
+        v18 = (unsigned __int64)(bLength - 2) >> 1;
         if ( String )
         {
-          v22 = *NumCharacters;
-          v23 = (unsigned __int16)v21;
-          *NumCharacters = v21;
-          if ( (unsigned __int16)v22 < (unsigned __int16)v21 )
+          v19 = *NumCharacters;
+          *NumCharacters = v18;
+          if ( v19 < (unsigned __int16)v18 )
           {
+            LOWORD(v18) = v19;
             v13 = -2147483643;
-            v23 = v22;
           }
-          memmove(String, &p_common[1], 2 * v23);
+          memmove(String, &p_common[1], 2LL * (unsigned __int16)v18);
         }
         else
         {
-          *NumCharacters = v21;
+          *NumCharacters = v18;
         }
       }
     }
     if ( v12 )
       FxPoolFree(v12);
   }
-$Done_63:
+$Done_54:
   FxSyncRequest::~FxSyncRequest(&request);
   return (unsigned int)v13;
 }

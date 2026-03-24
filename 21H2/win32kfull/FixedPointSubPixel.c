@@ -1,9 +1,9 @@
 /*
- * XREFs of FixedPointSubPixel @ 0x1C01DF7EC
+ * XREFs of FixedPointSubPixel @ 0x1C01E563C
  * Callers:
- *     ?DCEInverseTransform@@YA_NPEBUtagRECT@@PEBU_D3DVERTEX@@PEBU_SUBPIXELS@@PEAUtagPOINT@@@Z @ 0x1C016B6B8 (-DCEInverseTransform@@YA_NPEBUtagRECT@@PEBU_D3DVERTEX@@PEBU_SUBPIXELS@@PEAUtagPOINT@@@Z.c)
- *     PhysicalToLogicalInPlacePointWithParent @ 0x1C016B98A (PhysicalToLogicalInPlacePointWithParent.c)
- *     TransformVector @ 0x1C02073DC (TransformVector.c)
+ *     DCEInverseTransform @ 0x1C01E4D10 (DCEInverseTransform.c)
+ *     PhysicalToLogicalInPlacePointWithParent @ 0x1C01E5ACC (PhysicalToLogicalInPlacePointWithParent.c)
+ *     TransformVector @ 0x1C021757C (TransformVector.c)
  * Callees:
  *     <none>
  */

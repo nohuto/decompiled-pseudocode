@@ -3,11 +3,11 @@
  * Callers:
  *     RtlOwnerAcesPresent @ 0x1400133A0 (RtlOwnerAcesPresent.c)
  *     SeComputeCreatorDeniedRights @ 0x14004D520 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  */
 
 char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)

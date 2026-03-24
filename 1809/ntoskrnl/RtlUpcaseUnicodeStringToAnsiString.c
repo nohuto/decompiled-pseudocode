@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x140890230
+ * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x140890210
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BEB0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2E0 (RtlUpcaseUnicodeToMultiByteN.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2C0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToAnsiString(

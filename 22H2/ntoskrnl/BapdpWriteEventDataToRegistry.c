@@ -1,14 +1,14 @@
 /*
- * XREFs of BapdpWriteEventDataToRegistry @ 0x140A89198
+ * XREFs of BapdpWriteEventDataToRegistry @ 0x1409994A4
  * Callers:
- *     BapdWriteEtwEvents @ 0x140373E08 (BapdWriteEtwEvents.c)
- *     BapdRecordFirmwareBootStats @ 0x140A88E78 (BapdRecordFirmwareBootStats.c)
+ *     BapdWriteEtwEvents @ 0x14039A928 (BapdWriteEtwEvents.c)
+ *     BapdRecordFirmwareBootStats @ 0x140999250 (BapdRecordFirmwareBootStats.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
 int __fastcall BapdpWriteEventDataToRegistry(PVOID Data, __int64 a2, UNICODE_STRING *a3)
@@ -20,15 +20,16 @@ int __fastcall BapdpWriteEventDataToRegistry(PVOID Data, __int64 a2, UNICODE_STR
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+1Fh] BYREF
   HANDLE KeyHandle; // [rsp+C0h] [rbp+7Fh] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
   if ( result >= 0 )

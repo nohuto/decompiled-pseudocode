@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800EAF14
+ * XREFs of ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800D7F28
  * Callers:
- *     ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800EAEE0 (-ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z.c)
+ *     ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800D7EF4 (-ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180045318 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800634E0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  */
 
 void __fastcall CVisual::SetTopLevelWindow(CVisual *this, __int64 a2)
@@ -12,7 +12,7 @@ void __fastcall CVisual::SetTopLevelWindow(CVisual *this, __int64 a2)
   __int64 v3; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = a2;
-  v2 = (CVisual *)((char *)this + 224);
+  v2 = (CVisual *)((char *)this + 216);
   if ( a2 == `CVisual::SetRelativeLayoutSizeInternal'::`2'::sc_defaultValue )
     *(_DWORD *)(*(_QWORD *)v2 + 4LL) &= ~0x80000000;
   else

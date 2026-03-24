@@ -1,10 +1,10 @@
 /*
- * XREFs of ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C0029900
+ * XREFs of ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C00847B0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C0019CCC (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
- *     ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C002996C (-CreatePowerThread@FxPkgPnp@@IEAAJXZ.c)
+ *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C004F890 (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C007FF80 (-CreatePowerThread@FxPkgPnp@@IEAAJXZ.c)
  */
 
 int __fastcall FxPkgFdo::QueryForPowerThread(FxPkgFdo *this)

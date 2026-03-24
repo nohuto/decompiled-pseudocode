@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpReportNotify @ 0x140695458
+ * XREFs of CmpReportNotify @ 0x140695438
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)

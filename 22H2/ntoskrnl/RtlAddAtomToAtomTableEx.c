@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddAtomToAtomTableEx @ 0x140297670
+ * XREFs of RtlAddAtomToAtomTableEx @ 0x140259BB0
  * Callers:
- *     NtAddAtomEx @ 0x1407D1D40 (NtAddAtomEx.c)
- *     RtlAddAtomToAtomTable @ 0x1407E47B0 (RtlAddAtomToAtomTable.c)
+ *     NtAddAtomEx @ 0x140684130 (NtAddAtomEx.c)
+ *     RtlAddAtomToAtomTable @ 0x1406A1920 (RtlAddAtomToAtomTable.c)
  * Callees:
- *     RtlpReferenceAtom @ 0x140297614 (RtlpReferenceAtom.c)
- *     RtlpAllocateAtomTableEntry @ 0x1402F8528 (RtlpAllocateAtomTableEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpInsertStringAtom @ 0x140715060 (RtlpInsertStringAtom.c)
- *     RtlpUnlockAtomTable @ 0x140717CC8 (RtlpUnlockAtomTable.c)
- *     RtlpHashStringToAtom @ 0x140717FE0 (RtlpHashStringToAtom.c)
- *     RtlpLockAtomTable @ 0x140718140 (RtlpLockAtomTable.c)
- *     RtlGetIntegerAtom @ 0x140718180 (RtlGetIntegerAtom.c)
+ *     RtlpReferenceAtom @ 0x140316714 (RtlpReferenceAtom.c)
+ *     RtlpAllocateAtomTableEntry @ 0x14032D428 (RtlpAllocateAtomTableEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpUnlockAtomTable @ 0x14061A87C (RtlpUnlockAtomTable.c)
+ *     RtlGetIntegerAtom @ 0x14061BB40 (RtlGetIntegerAtom.c)
+ *     RtlpLockAtomTable @ 0x14061BE34 (RtlpLockAtomTable.c)
+ *     RtlpHashStringToAtom @ 0x14061BF80 (RtlpHashStringToAtom.c)
+ *     RtlpFreeAtom @ 0x1406862EC (RtlpFreeAtom.c)
+ *     RtlpInsertStringAtom @ 0x14068FC0C (RtlpInsertStringAtom.c)
  */
 
 __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
@@ -24,7 +24,7 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   __int64 v12; // rsi
   unsigned __int64 v13; // rbx
   __int64 v14; // rcx
-  unsigned __int16 v15; // cx
+  unsigned __int16 v15; // ax
   unsigned __int16 v17[2]; // [rsp+40h] [rbp-58h] BYREF
   int v18; // [rsp+44h] [rbp-54h]
   size_t Size; // [rsp+48h] [rbp-50h] BYREF
@@ -104,7 +104,7 @@ LABEL_27:
           else
           {
             if ( v20 && v20 != v12 + 16 )
-              RtlpFreeAtom(v20);
+              ((void (*)(void))RtlpFreeAtom)();
             RtlpFreeAtom(v12);
           }
         }

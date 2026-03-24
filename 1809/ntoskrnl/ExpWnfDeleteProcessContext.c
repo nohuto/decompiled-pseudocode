@@ -2,7 +2,7 @@
  * XREFs of ExpWnfDeleteProcessContext @ 0x140607AA4
  * Callers:
  *     ExWnfExitProcess @ 0x140607A48 (ExWnfExitProcess.c)
- *     ExpWnfCreateProcessContext @ 0x1406B3108 (ExpWnfCreateProcessContext.c)
+ *     ExpWnfCreateProcessContext @ 0x1406B30E8 (ExpWnfCreateProcessContext.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
@@ -13,7 +13,7 @@
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpWnfDeleteSubscription @ 0x140607CA4 (ExpWnfDeleteSubscription.c)
  *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfDeleteNameInstance @ 0x1406AB6E8 (ExpWnfDeleteNameInstance.c)
+ *     ExpWnfDeleteNameInstance @ 0x1406AB6C8 (ExpWnfDeleteNameInstance.c)
  */
 
 void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)

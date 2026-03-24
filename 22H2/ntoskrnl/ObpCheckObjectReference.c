@@ -1,44 +1,43 @@
 /*
- * XREFs of ObpCheckObjectReference @ 0x1406C301C
+ * XREFs of ObpCheckObjectReference @ 0x1406D9CFC
  * Callers:
- *     ObReferenceObjectByName @ 0x1406C2D00 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x1407153CC (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x1406D9EC0 (ObReferenceObjectByName.c)
  * Callees:
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C3160 (ObReleaseObjectSecurityEx.c)
- *     SeUnlockSubjectContext @ 0x1406C31E0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     SeObjectReferenceAuditAlarm @ 0x1406C3280 (SeObjectReferenceAuditAlarm.c)
- *     ObpGetObjectSecurity @ 0x140736720 (ObpGetObjectSecurity.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406435B0 (SeUnlockSubjectContext.c)
+ *     ObReleaseObjectSecurity @ 0x1406D81D0 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x1406D85C0 (ObpGetObjectSecurity.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406D9E3C (SeObjectReferenceAuditAlarm.c)
  */
 
-BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, char a3, __int64 a4, PNTSTATUS AccessStatus)
+BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, BOOLEAN a3, char a4, PNTSTATUS AccessStatus)
 {
-  KPROCESSOR_MODE AccessMode; // r15
   unsigned __int64 v7; // r10
+  int v8; // r15d
   __int64 v9; // rdi
   int ObjectSecurity; // eax
   GENERIC_MAPPING *GenericMapping; // rcx
   PSECURITY_DESCRIPTOR v12; // rdi
   int v13; // ecx
-  BOOLEAN v14; // r14
+  BOOLEAN v14; // bp
   ACCESS_MASK v15; // ecx
-  __int64 v16; // rdx
   BOOLEAN Privileges; // [rsp+28h] [rbp-60h]
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+50h] [rbp-38h] BYREF
-  PPRIVILEGE_SET v20; // [rsp+58h] [rbp-30h] BYREF
+  PPRIVILEGE_SET v19; // [rsp+58h] [rbp-30h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+90h] [rbp+8h] BYREF
-  char v22; // [rsp+A0h] [rbp+18h] BYREF
+  BOOLEAN MemoryAllocated; // [rsp+A0h] [rbp+18h] BYREF
 
-  v22 = a3;
+  MemoryAllocated = a3;
   GrantedAccess = 0;
-  v20 = 0LL;
+  v19 = 0LL;
   SecurityDescriptor = 0LL;
-  AccessMode = a4;
   v7 = *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
-  v22 = 0;
+  MemoryAllocated = 0;
+  v8 = a1;
   v9 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v7];
-  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &v22, a4);
+  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &MemoryAllocated, a4);
   if ( ObjectSecurity < 0 )
   {
     *AccessStatus = ObjectSecurity;
@@ -55,9 +54,9 @@ BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, char a3, __in
             1u,
             *(_DWORD *)(a2 + 16),
             *(_DWORD *)(a2 + 20),
-            &v20,
+            &v19,
             GenericMapping,
-            AccessMode,
+            a4,
             &GrantedAccess,
             AccessStatus);
     if ( v14 )
@@ -70,16 +69,15 @@ BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, char a3, __in
     if ( v12 )
       SeObjectReferenceAuditAlarm(
         v13,
-        a1,
+        v8,
         (int)v12,
         a2 + 32,
         *(_DWORD *)(a2 + 16) | *(_DWORD *)(a2 + 20),
         Privileges,
         v14,
-        AccessMode);
+        a4);
     SeUnlockSubjectContext((PSECURITY_SUBJECT_CONTEXT)(a2 + 32));
-    LOBYTE(v16) = v22;
-    ObReleaseObjectSecurityEx(v12, v16, a1);
+    ObReleaseObjectSecurity(v12, MemoryAllocated);
     return v14;
   }
 }

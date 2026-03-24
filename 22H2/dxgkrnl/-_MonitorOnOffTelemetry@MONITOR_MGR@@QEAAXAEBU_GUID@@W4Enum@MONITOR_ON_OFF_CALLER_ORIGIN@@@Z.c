@@ -1,62 +1,63 @@
 /*
- * XREFs of ?_MonitorOnOffTelemetry@MONITOR_MGR@@QEAAXAEBU_GUID@@W4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z @ 0x1C01F6910
+ * XREFs of ?_MonitorOnOffTelemetry@MONITOR_MGR@@QEAAXAEBU_GUID@@W4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z @ 0x1C017A4F0
  * Callers:
- *     LogMonitorOnOffTelemetry @ 0x1C01F6890 (LogMonitorOnOffTelemetry.c)
+ *     LogMonitorOnOffTelemetry @ 0x1C017A470 (LogMonitorOnOffTelemetry.c)
  * Callees:
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C0014EC8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     ?LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z @ 0x1C01DD314 (-LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z.c)
+ *     ?LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z @ 0x1C016B70C (-LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z.c)
  */
 
 void __fastcall MONITOR_MGR::_MonitorOnOffTelemetry(__int64 a1, __int64 a2, char a3)
 {
-  struct DXGFASTMUTEX *v3; // rbp
-  _QWORD *v5; // rsi
-  _QWORD *v7; // rax
-  __int64 v8; // rbx
-  DXGFASTMUTEX **i; // rcx
-  _QWORD *v10; // rax
-  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
-  char v12; // [rsp+68h] [rbp+20h] BYREF
+  struct _FAST_MUTEX *v3; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  struct _ERESOURCE *v12; // rbp
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
 
-  v3 = (struct DXGFASTMUTEX *)(a1 + 80);
-  v5 = (_QWORD *)(a1 + 40);
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v11, (struct DXGFASTMUTEX *)(a1 + 80));
-  v7 = (_QWORD *)*v5;
-  if ( (_QWORD *)*v5 == v5 )
+  v3 = (struct _FAST_MUTEX *)(a1 + 168);
+  if ( a1 == -168 )
   {
-    v8 = 0LL;
+    v14 = WdLogNewEntry5_WdAssertion(-168LL, a2);
+    WdLogEvent5_WdAssertion(v14);
   }
-  else
+  KeAcquireGuardedMutex(v3);
+  v9 = a1 + 128;
+  v10 = *(_QWORD *)(a1 + 128);
+  if ( v10 != a1 + 128 )
   {
-    v8 = (__int64)(v7 - 19);
-    if ( !v7 )
-      v8 = 0LL;
-  }
-  for ( i = (DXGFASTMUTEX **)&v11; ; i = (DXGFASTMUTEX **)&v12 )
-  {
-    MUTEX_LOCK::~MUTEX_LOCK(i);
-    if ( !v8 )
-      break;
-    RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v11, v8, 0);
-    DXGMONITOR::LogMonitorObjectOnOffState(v8, a2, 0, a3);
-    if ( v11 )
+    v11 = v10 - 16;
+    if ( !v10 )
+      v11 = 0LL;
+    while ( v11 )
     {
-      ExReleaseResourceLite((PERESOURCE)(v11 + 24));
+      v12 = (struct _ERESOURCE *)(v11 + 296);
+      KeEnterCriticalRegion();
+      ExAcquireResourceSharedLite((PERESOURCE)(v11 + 296), 1u);
+      DXGMONITOR::LogMonitorObjectOnOffState((char *)v11, a2, 0, a3);
+      v13 = *(_QWORD *)(v11 + 16);
+      if ( v13 == v9 )
+      {
+        v11 = 0LL;
+      }
+      else
+      {
+        v11 = v13 - 16;
+        if ( !v13 )
+          v11 = 0LL;
+      }
+      ExReleaseResourceLite(v12);
       KeLeaveCriticalRegion();
     }
-    MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v12, v3);
-    v10 = *(_QWORD **)(v8 + 152);
-    if ( v10 == v5 )
-    {
-      v8 = 0LL;
-    }
-    else
-    {
-      v8 = (__int64)(v10 - 19);
-      if ( !v10 )
-        v8 = 0LL;
-    }
   }
+  if ( !v3 )
+  {
+    v15 = WdLogNewEntry5_WdAssertion(v8, v7);
+    WdLogEvent5_WdAssertion(v15);
+  }
+  KeReleaseGuardedMutex(v3);
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of WPP_RECORDER_SF_qss @ 0x1C00077E8
+ * XREFs of WPP_RECORDER_SF_qss @ 0x1C001DAB8
  * Callers:
- *     ACPICMButtonStartWorker @ 0x1C00029E0 (ACPICMButtonStartWorker.c)
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C0007924 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIBuildProcessDevicePhaseEjd @ 0x1C00093E0 (ACPIBuildProcessDevicePhaseEjd.c)
- *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C000ECC0 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
- *     ACPIBuildProcessRunMethodPhaseRunMethod @ 0x1C000EF00 (ACPIBuildProcessRunMethodPhaseRunMethod.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004BEC8 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPIFanFSTCallback @ 0x1C0054AC0 (ACPIFanFSTCallback.c)
- *     ACPIFilterFastIoDetachCallback @ 0x1C0055B50 (ACPIFilterFastIoDetachCallback.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C0057188 (ACPIQueryGedDeviceInterface.c)
- *     ACPIInternalEvaluateOST @ 0x1C00573B4 (ACPIInternalEvaluateOST.c)
- *     OSNotifyDeviceWake @ 0x1C0059B80 (OSNotifyDeviceWake.c)
- *     ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C00941D8 (ACPIDevicePowerDetermineSupportedDeviceStates.c)
- *     PcisuppReleasePciInterfaces @ 0x1C00B61A0 (PcisuppReleasePciInterfaces.c)
+ *     ACPICMButtonStartWorker @ 0x1C000CC70 (ACPICMButtonStartWorker.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     ACPIBuildProcessDevicePhaseEjd @ 0x1C001A5C0 (ACPIBuildProcessDevicePhaseEjd.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C001EFD0 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
+ *     ACPIBuildProcessRunMethodPhaseRunMethod @ 0x1C001F520 (ACPIBuildProcessRunMethodPhaseRunMethod.c)
+ *     ACPIFilterFastIoDetachCallback @ 0x1C002CEB0 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIFanFSTCallback @ 0x1C0055370 (ACPIFanFSTCallback.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
+ *     ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C009E3F4 (ACPIDevicePowerDetermineSupportedDeviceStates.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C00B6B38 (PcisuppReleasePciInterfaces.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qss(
@@ -30,7 +30,7 @@ __int64 __fastcall WPP_RECORDER_SF_qss(
         const char *a8)
 {
   __int64 v8; // rdi
-  const char *v9; // rsi
+  __int64 v9; // rsi
   unsigned __int64 v11; // r14
   unsigned int v12; // r15d
   unsigned int v13; // r12d
@@ -49,7 +49,7 @@ __int64 __fastcall WPP_RECORDER_SF_qss(
 
   v26 = a1;
   v8 = (__int64)a8;
-  v9 = a7;
+  v9 = (__int64)a7;
   v11 = (unsigned __int64)a3 >> 16;
   v12 = a2;
   v13 = a4;
@@ -110,10 +110,8 @@ __int64 __fastcall WPP_RECORDER_SF_qss(
   {
     do
       ++v14;
-    while ( v9[v14] );
+    while ( *(_BYTE *)(v9 + v14) );
   }
-  if ( !v9 )
-    v9 = "NULL";
   LOWORD(v25) = v13;
-  return WppAutoLogTrace(a1, v12, a3, a5, v25, &a6, 8LL, v9);
+  return WppAutoLogTrace(a1, v12, a3, a5, v25, &a6);
 }

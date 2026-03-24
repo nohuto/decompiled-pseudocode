@@ -1,20 +1,21 @@
 /*
- * XREFs of ExInterlockedAddLargeInteger @ 0x14063F230
+ * XREFs of ExInterlockedAddLargeInteger @ 0x1405B6E60
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x140243164 (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14024319C (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1402A03F4 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1402A04C4 (ExpAcquireSpinLockDisabled.c)
  */
 
 LARGE_INTEGER __stdcall ExInterlockedAddLargeInteger(PLARGE_INTEGER Addend, LARGE_INTEGER Increment, PKSPIN_LOCK Lock)
 {
-  char v6; // al
-  LARGE_INTEGER v7; // rbx
+  __int64 v3; // r9
+  char v7; // al
+  LARGE_INTEGER v8; // rbx
 
-  v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
-  v7 = *Addend;
+  v7 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, Increment.QuadPart, (__int64)Lock, v3);
+  v8 = *Addend;
   Addend->QuadPart += Increment.QuadPart;
-  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v6);
-  return v7;
+  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v7);
+  return v8;
 }

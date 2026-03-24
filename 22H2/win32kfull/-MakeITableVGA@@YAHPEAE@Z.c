@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MakeITableVGA@@YAHPEAE@Z @ 0x1C02A384C
+ * XREFs of ?MakeITableVGA@@YAHPEAE@Z @ 0x1C029AFD0
  * Callers:
- *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A35F4 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4124 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
  * Callees:
- *     ?MapVGA@@YAEEEE@Z @ 0x1C02A38BC (-MapVGA@@YAEEEE@Z.c)
+ *     ?MapVGA@@YAEEEE@Z @ 0x1C029B040 (-MapVGA@@YAEEEE@Z.c)
  */
 
 __int64 __fastcall MakeITableVGA(unsigned __int8 *a1)

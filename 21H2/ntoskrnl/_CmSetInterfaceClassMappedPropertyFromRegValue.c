@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A2CD54
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14097BF24
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x140A2CC38 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BDE0 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140787DE8 (_CmOpenInterfaceClassRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
@@ -18,63 +18,83 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
         void *a6,
         ULONG a7)
 {
-  int v7; // ebx
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  int v13; // edi
-  __int64 v15; // [rsp+28h] [rbp-30h]
-  HANDLE v16[3]; // [rsp+40h] [rbp-18h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v7; // edi
+  int v8; // ebx
+  int v12; // r11d
+  DEVPROPKEY **v13; // rcx
+  DEVPROPKEY *v14; // rsi
+  __int64 v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // rax
+  int v18; // edi
+  __int64 v20; // [rsp+28h] [rbp-40h]
+  HANDLE v21[5]; // [rsp+40h] [rbp-28h] BYREF
+  HANDLE Handle; // [rsp+88h] [rbp+20h] BYREF
 
-  v7 = 0;
-  v16[0] = 0LL;
+  v7 = *(_DWORD *)(a4 + 16);
+  v8 = 0;
+  v21[0] = 0LL;
   Handle = 0LL;
-  v10 = *(unsigned int *)(a4 + 16);
-  if ( (unsigned int)v10 < 2 || (_DWORD)v10 != DEVPKEY_DeviceInterfaceClass_DefaultInterface.pid )
+  if ( v7 < 2 )
     return (unsigned int)-1073741264;
-  v11 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1;
-  if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1 )
-    v11 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data4;
-  if ( v11 )
-    return (unsigned int)-1073741264;
-  if ( a5 != 18 )
-    return (unsigned int)-1073741811;
-  if ( (_DWORD)v10 == 2 )
+  v12 = 0;
+  v13 = &off_1409836A8;
+  do
   {
-    v12 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1;
+    v14 = *v13;
+    v15 = (__int64)v13;
+    if ( v7 == (*v13)->pid )
+    {
+      v16 = *(_QWORD *)a4 - *(_QWORD *)&v14->fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&v14->fmtid.Data1 )
+        v16 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v14->fmtid.Data4;
+      if ( !v16 )
+        break;
+    }
+    v15 = 0LL;
+    ++v12;
+    v13 += 2;
+  }
+  while ( !v12 );
+  if ( !v15 )
+    return (unsigned int)-1073741264;
+  if ( a5 != *(_DWORD *)(v15 + 8) )
+    return (unsigned int)-1073741811;
+  if ( v7 == 2 )
+  {
+    v17 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1;
     if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1 )
-      v12 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data4;
-    if ( !v12 )
+      v17 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data4;
+    if ( !v17 )
     {
       if ( !a3 )
       {
-        v7 = CmOpenInterfaceClassRegKey(a1, a2, v10, a4, 1, 0, (__int64)v16, 0LL);
-        if ( v7 < 0 )
+        v8 = CmOpenInterfaceClassRegKey(a1, a2, v15, a4, 1, 0, (__int64)v21, 0LL);
+        if ( v8 < 0 )
         {
-LABEL_20:
-          if ( v16[0] )
-            ZwClose(v16[0]);
-          return (unsigned int)v7;
+LABEL_24:
+          if ( v21[0] )
+            ZwClose(v21[0]);
+          return (unsigned int)v8;
         }
-        a3 = v16[0];
+        a3 = v21[0];
       }
-      v7 = PnpOpenPropertiesKey(a1, (__int64)a3, 0LL, 2u, 1, v15, &Handle);
-      if ( v7 >= 0 )
+      v8 = PnpOpenPropertiesKey(a1, (__int64)a3, 0LL, 2u, 1, v20, &Handle);
+      if ( v8 >= 0 )
       {
-        v13 = RegRtlSetValue(Handle, L"Default", 1u, a6, a7);
+        v18 = RegRtlSetValue(Handle, L"Default", 1u, a6, a7);
         ZwClose(Handle);
-        if ( v13 == -1073741444 )
+        if ( v18 == -1073741444 )
         {
-          v7 = -1073741772;
+          v8 = -1073741772;
         }
-        else if ( v13 < 0 )
+        else if ( v18 < 0 )
         {
-          v7 = v13;
+          v8 = v18;
         }
       }
-      goto LABEL_20;
+      goto LABEL_24;
     }
   }
-  return (unsigned int)v7;
+  return (unsigned int)v8;
 }

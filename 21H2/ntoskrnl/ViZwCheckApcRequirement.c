@@ -1,35 +1,26 @@
 /*
- * XREFs of ViZwCheckApcRequirement @ 0x140A95858
+ * XREFs of ViZwCheckApcRequirement @ 0x1409EC7F4
  * Callers:
- *     VfZwDeviceIoControlFile_Entry @ 0x140A95030 (VfZwDeviceIoControlFile_Entry.c)
- *     VfZwQueryDirectoryFileEx_Entry @ 0x140A95480 (VfZwQueryDirectoryFileEx_Entry.c)
- *     VfZwQueryDirectoryFile_Entry @ 0x140A954F0 (VfZwQueryDirectoryFile_Entry.c)
- *     VfZwWriteFile_Entry @ 0x140A956D0 (VfZwWriteFile_Entry.c)
+ *     VfZwDeviceIoControlFile @ 0x1409E9540 (VfZwDeviceIoControlFile.c)
+ *     VfZwFsControlFile @ 0x1409E9B50 (VfZwFsControlFile.c)
+ *     VfZwQueryDirectoryFile @ 0x1409EABD0 (VfZwQueryDirectoryFile.c)
+ *     VfZwReadFile @ 0x1409EB950 (VfZwReadFile.c)
+ *     VfZwWriteFile @ 0x1409EC6F0 (VfZwWriteFile.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140281980 (KeAreAllApcsDisabled.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
-BOOLEAN __fastcall ViZwCheckApcRequirement(ULONG_PTR BugCheckParameter2)
+void __fastcall ViZwCheckApcRequirement(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int8 CurrentIrql; // bl
-  BOOLEAN result; // al
 
   CurrentIrql = KeGetCurrentIrql();
-  if ( CurrentIrql )
-    return VerifierBugCheckIfAppropriate(
-             0xC4u,
-             0xE6uLL,
-             BugCheckParameter2,
-             CurrentIrql,
-             KeGetCurrentThread()->SpecialApcDisable);
-  result = KeAreAllApcsDisabled();
-  if ( result )
-    return VerifierBugCheckIfAppropriate(
-             0xC4u,
-             0xE6uLL,
-             BugCheckParameter2,
-             CurrentIrql,
-             KeGetCurrentThread()->SpecialApcDisable);
-  return result;
+  if ( (MmVerifierData & 0x100) != 0 && (CurrentIrql || KeAreAllApcsDisabled()) )
+    VerifierBugCheckIfAppropriate(
+      0xC4u,
+      0xE6uLL,
+      BugCheckParameter2,
+      CurrentIrql,
+      KeGetCurrentThread()->SpecialApcDisable);
 }

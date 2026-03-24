@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C00ADD88
+ * XREFs of AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C00AF138
  * Callers:
- *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C0049974 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
+ *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C004AEB4 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiCheckExternalConnection @ 0x1C00918BC (AcpiCheckExternalConnection.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiCheckExternalConnection @ 0x1C009DB14 (AcpiCheckExternalConnection.c)
  */
 
 __int64 __fastcall AcpiExternalQueryTranslatedDescriptorForGsiv(unsigned int a1, __int64 a2)

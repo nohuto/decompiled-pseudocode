@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CCBD8
+ * XREFs of ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14026886C
  * Callers:
- *     MiStoreEvictThread @ 0x1403A7F20 (MiStoreEvictThread.c)
- *     SmPageRead @ 0x1405C9B90 (SmPageRead.c)
- *     MiStoreWriteIssue @ 0x14065CD64 (MiStoreWriteIssue.c)
+ *     MiStoreWriteIssue @ 0x1402657D0 (MiStoreWriteIssue.c)
+ *     SmPageRead @ 0x1403070AC (SmPageRead.c)
+ *     MiStoreEvictPageFile @ 0x14031CD88 (MiStoreEvictPageFile.c)
  * Callees:
  *     <none>
  */

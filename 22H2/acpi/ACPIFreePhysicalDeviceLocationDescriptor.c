@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C0097DC0
+ * XREFs of ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C009A20C
  * Callers:
- *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C0097E04 (ACPIFreePhysicalDeviceLocationDescriptors.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098144 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C009A1C8 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  * Callees:
  *     <none>
  */

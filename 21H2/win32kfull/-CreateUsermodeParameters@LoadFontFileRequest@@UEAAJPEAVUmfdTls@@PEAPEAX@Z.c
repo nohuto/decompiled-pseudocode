@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C000C160
+ * XREFs of ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5D30
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C000CB7C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     EngFntCacheLookUp @ 0x1C000CCE0 (EngFntCacheLookUp.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A66DC (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     EngFntCacheLookUp @ 0x1C00A6A70 (EngFntCacheLookUp.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
@@ -18,22 +18,18 @@ __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
   ULONG v7; // esi
   unsigned int v8; // ecx
   ULONG v9; // edi
-  int v10; // eax
-  int v11; // edx
-  char v12; // r8
-  unsigned int v13; // eax
-  unsigned int v14; // ecx
-  _DWORD *v15; // rbx
-  unsigned int i; // r9d
-  ULONG v17; // eax
-  ULONG v18; // eax
-  __int64 v19; // rax
-  ULONG v21[10]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v10; // eax
+  _DWORD *v11; // rbx
+  unsigned int i; // r8d
+  ULONG v13; // eax
+  ULONG v14; // eax
+  __int64 v15; // rax
+  ULONG v17[10]; // [rsp+30h] [rbp-28h] BYREF
 
   if ( (unsigned int)(*((_DWORD *)this + 10) - 1) > 2 )
     return 3221225495LL;
-  v6 = EngFntCacheLookUp(*((_DWORD *)this + 34), v21);
-  v7 = v6 != 0LL ? v21[0] : 0;
+  v6 = EngFntCacheLookUp(*((_DWORD *)this + 34), v17);
+  v7 = v6 != 0LL ? v17[0] : 0;
   if ( v7 <= 0x10 )
   {
     v9 = 0;
@@ -44,70 +40,56 @@ __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
     v8 = v7 - 16;
     v9 = 0;
   }
-  v10 = v8 + 7;
   if ( v8 + 7 < v8 )
-  {
-    v10 = -1;
-    v11 = -2147024362;
-    v12 = 0;
-  }
-  else
-  {
-    v11 = 0;
-    v12 = 1;
-  }
-  v13 = v10 & 0xFFFFFFF8;
-  v14 = 0;
-  if ( v11 >= 0 )
-    v14 = v13;
-  if ( !v12 )
     return 3221225495LL;
-  v15 = v14 >= 0xFFFFFF30 ? 0LL : UmfdTls::CommitUMBuffer(a2, v14 + 208, 0);
-  if ( !v15 )
+  v10 = (v8 + 7) & 0xFFFFFFF8;
+  v11 = v10 >= 0xFFFFFF30 ? 0LL : UmfdTls::CommitUMBuffer(a2, v10 + 208, 0);
+  if ( !v11 )
     return 3221225495LL;
-  *((_QWORD *)v15 + 25) = v15 + 52;
-  memset(v15, 0, 0xD0uLL);
-  *((_QWORD *)v15 + 1) = v15 + 4;
-  *((_QWORD *)v15 + 5) = v15 + 12;
-  *((_QWORD *)v15 + 9) = v15 + 20;
-  *v15 = *((_DWORD *)this + 10);
+  *((_QWORD *)v11 + 25) = v11 + 52;
+  memset(v11, 0, 0xD0uLL);
+  *((_QWORD *)v11 + 1) = v11 + 4;
+  *((_QWORD *)v11 + 5) = v11 + 12;
+  *((_QWORD *)v11 + 9) = v11 + 20;
+  *v11 = *((_DWORD *)this + 10);
   for ( i = 0; i < *((_DWORD *)this + 10); ++i )
   {
-    *(_QWORD *)(*((_QWORD *)v15 + 1) + 8LL * i) = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 6) + 8LL * i) + 64LL);
-    *(_QWORD *)(*((_QWORD *)v15 + 5) + 8LL * i) = *(_QWORD *)(*((_QWORD *)this + 10) + 8LL * i);
-    *(_DWORD *)(*((_QWORD *)v15 + 9) + 4LL * i) = *(_DWORD *)(*((_QWORD *)this + 14) + 4LL * i);
+    *(_QWORD *)(*((_QWORD *)v11 + 1) + 8LL * i) = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 6) + 8LL * i) + 64LL);
+    *(_QWORD *)(*((_QWORD *)v11 + 5) + 8LL * i) = *(_QWORD *)(*((_QWORD *)this + 10) + 8LL * i);
+    *(_DWORD *)(*((_QWORD *)v11 + 9) + 4LL * i) = *(_DWORD *)(*((_QWORD *)this + 14) + 4LL * i);
   }
   if ( *((_QWORD *)this + 19) )
   {
-    *((_QWORD *)v15 + 14) = v15 + 30;
-    v19 = *((_QWORD *)this + 19);
-    *(_OWORD *)(v15 + 30) = *(_OWORD *)v19;
-    *(_OWORD *)(v15 + 34) = *(_OWORD *)(v19 + 16);
-    *(_OWORD *)(v15 + 38) = *(_OWORD *)(v19 + 32);
-    *(_OWORD *)(v15 + 42) = *(_OWORD *)(v19 + 48);
-    *((_QWORD *)v15 + 23) = *(_QWORD *)(v19 + 64);
+    *((_QWORD *)v11 + 14) = v11 + 30;
+    v15 = *((_QWORD *)this + 19);
+    *(_OWORD *)(v11 + 30) = *(_OWORD *)v15;
+    *(_OWORD *)(v11 + 34) = *(_OWORD *)(v15 + 16);
+    *(_OWORD *)(v11 + 38) = *(_OWORD *)(v15 + 32);
+    *(_OWORD *)(v11 + 42) = *(_OWORD *)(v15 + 48);
+    *((_QWORD *)v11 + 23) = *(_QWORD *)(v15 + 64);
   }
-  v15[23] = *((_DWORD *)this + 33);
-  v15[24] = *((_DWORD *)this + 34);
+  v11[23] = *((_DWORD *)this + 33);
+  v11[24] = *((_DWORD *)this + 34);
   if ( v7 <= 0x10 )
-    v17 = 0;
+    v13 = 0;
   else
-    v17 = v7 - 16;
-  if ( v17 )
+    v13 = v7 - 16;
+  if ( v13 )
   {
-    v15[25] = *v6;
-    v18 = v7 - 16;
+    v11[25] = *v6;
     if ( v7 <= 0x10 )
-      v18 = 0;
-    v15[48] = v18;
+      v14 = 0;
+    else
+      v14 = v7 - 16;
+    v11[48] = v14;
     if ( v7 > 0x10 )
       v9 = v7 - 16;
-    memmove(v15 + 50, v6 + 4, v9);
+    memmove(v11 + 50, v6 + 4, v9);
   }
   else
   {
-    v15[25] = -1;
+    v11[25] = -1;
   }
-  *a3 = v15;
+  *a3 = v11;
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C0295E5C
+ * XREFs of ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C029139C
  * Callers:
- *     ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C0297808 (-vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z.c)
+ *     ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C0292DC8 (-vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z.c)
  * Callees:
- *     ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029601C (-StartPixel@@YAPEAEPEAEKK@Z.c)
+ *     ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029155C (-StartPixel@@YAPEAEPEAEKK@Z.c)
  */
 
 __int64 __fastcall ReadScanLine(

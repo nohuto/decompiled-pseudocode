@@ -1,11 +1,11 @@
 /*
- * XREFs of SeFilterToken @ 0x140757A90
+ * XREFs of SeFilterToken @ 0x140757A70
  * Callers:
- *     CmpCreateRegistryProcessToken @ 0x140757934 (CmpCreateRegistryProcessToken.c)
+ *     CmpCreateRegistryProcessToken @ 0x140757914 (CmpCreateRegistryProcessToken.c)
  * Callees:
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
  */
 
 NTSTATUS __stdcall SeFilterToken(

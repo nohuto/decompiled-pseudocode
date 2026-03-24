@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIMatchHardwareId @ 0x1C0088E10
+ * XREFs of ACPIMatchHardwareId @ 0x1C00A141C
  * Callers:
- *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00824B0 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     WPP_RECORDER_SF_SqLL @ 0x1C0032348 (WPP_RECORDER_SF_SqLL.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C008823C (ACPIInternalSendSynchronousIrp.c)
+ *     WPP_RECORDER_SF_SqLL @ 0x1C002BAA8 (WPP_RECORDER_SF_SqLL.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall ACPIMatchHardwareId(PDEVICE_OBJECT DeviceObject, PCUNICODE_STRING String2, _BYTE *a3)

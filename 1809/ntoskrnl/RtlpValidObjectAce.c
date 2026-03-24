@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpValidObjectAce @ 0x14089359C
+ * XREFs of RtlpValidObjectAce @ 0x14089357C
  * Callers:
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
  * Callees:

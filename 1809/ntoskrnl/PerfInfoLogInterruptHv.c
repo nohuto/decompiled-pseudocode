@@ -1,10 +1,10 @@
 /*
- * XREFs of PerfInfoLogInterruptHv @ 0x1403121A0
+ * XREFs of PerfInfoLogInterruptHv @ 0x1403122A0
  * Callers:
- *     KiHvInterruptSubDispatch @ 0x1401C27C0 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x1401C2920 (KiVmbusInterruptSubDispatch.c)
+ *     KiHvInterruptSubDispatch @ 0x1401C27E0 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x1401C2940 (KiVmbusInterruptSubDispatch.c)
  * Callees:
- *     EtwTraceTimedEvent @ 0x14011BC4C (EtwTraceTimedEvent.c)
+ *     EtwTraceTimedEvent @ 0x14011BC6C (EtwTraceTimedEvent.c)
  */
 
 void __fastcall PerfInfoLogInterruptHv(__int64 a1, int a2, __int64 a3)

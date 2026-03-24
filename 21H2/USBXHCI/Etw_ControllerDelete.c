@@ -1,9 +1,9 @@
 /*
- * XREFs of Etw_ControllerDelete @ 0x1C0048104
+ * XREFs of Etw_ControllerDelete @ 0x1C0047E70
  * Callers:
- *     Controller_WdfEvtCleanupCallback @ 0x1C0034C30 (Controller_WdfEvtCleanupCallback.c)
+ *     Controller_WdfEvtCleanupCallback @ 0x1C00349C0 (Controller_WdfEvtCleanupCallback.c)
  * Callees:
- *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C0048F38 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C0048D00 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ControllerDelete(__int64 a1, __int64 a2)

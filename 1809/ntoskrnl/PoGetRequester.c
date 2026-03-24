@@ -4,7 +4,7 @@
  *     PoCaptureReasonContext @ 0x1400020AC (PoCaptureReasonContext.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     PopUnicodeStringDeepCopy @ 0x140588974 (PopUnicodeStringDeepCopy.c)
  */
 

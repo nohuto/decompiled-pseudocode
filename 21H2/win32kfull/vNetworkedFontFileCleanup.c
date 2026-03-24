@@ -1,42 +1,42 @@
 /*
- * XREFs of vNetworkedFontFileCleanup @ 0x1C0122D70
+ * XREFs of vNetworkedFontFileCleanup @ 0x1C0137570
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 vNetworkedFontFileCleanup()
+PVOID __fastcall vNetworkedFontFileCleanup(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
-  struct _RTL_AVL_TABLE *v1; // rbx
+  PVOID result; // rax
+  struct _RTL_AVL_TABLE *v5; // rbx
   BOOLEAN i; // dl
-  HANDLE *v3; // rax
-  HANDLE *v4; // rdi
+  HANDLE *v7; // rax
+  HANDLE *v8; // rdi
 
-  result = UserIsCurrentSessionHostServiceSession();
-  if ( (_DWORD)result )
+  result = (PVOID)RtlGetCurrentServiceSessionId(a1, a2, a3, a4);
+  if ( gSessionId == (_DWORD)result )
   {
     result = gpxsGlobals;
     if ( gpxsGlobals )
     {
-      *gpxsGlobals = 0LL;
+      *(_QWORD *)gpxsGlobals = 0LL;
       result = gpxsGlobals;
-      v1 = *(struct _RTL_AVL_TABLE **)(gpxsGlobals + 8LL);
-      if ( v1 )
+      v5 = (struct _RTL_AVL_TABLE *)*((_QWORD *)gpxsGlobals + 1);
+      if ( v5 )
       {
         for ( i = 1; ; i = 0 )
         {
-          v3 = (HANDLE *)RtlEnumerateGenericTableAvl(v1, i);
-          v4 = v3;
-          if ( !v3 )
+          v7 = (HANDLE *)RtlEnumerateGenericTableAvl(v5, i);
+          v8 = v7;
+          if ( !v7 )
             break;
-          ZwClose(*v3);
-          RtlDeleteElementGenericTableAvl(v1, v4);
+          ZwClose(*v7);
+          RtlDeleteElementGenericTableAvl(v5, v8);
         }
-        Win32FreePool(*(_QWORD *)(gpxsGlobals + 8LL));
+        Win32FreePool(*((void **)gpxsGlobals + 1));
         result = gpxsGlobals;
-        *(_QWORD *)(gpxsGlobals + 8LL) = 0LL;
+        *((_QWORD *)gpxsGlobals + 1) = 0LL;
       }
     }
   }

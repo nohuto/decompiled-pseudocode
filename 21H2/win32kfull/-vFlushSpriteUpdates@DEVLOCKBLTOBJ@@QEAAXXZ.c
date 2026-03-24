@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C027137C
+ * XREFs of ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273624
  * Callers:
- *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0275B60 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0278350 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
  * Callees:
- *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0037530 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0090370 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
  */
 
 void __fastcall DEVLOCKBLTOBJ::vFlushSpriteUpdates(DEVLOCKBLTOBJ *this)

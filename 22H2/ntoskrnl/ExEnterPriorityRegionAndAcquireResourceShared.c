@@ -1,75 +1,51 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x140338340
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402F01D0
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x1405D8B40 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
+ *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     ExpAcquireResourceSharedLite @ 0x14023DDA0 (ExpAcquireResourceSharedLite.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1403C8284 (ExpFastResourceLegacyAcquireShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     ExAcquireFastResourceShared @ 0x14038EC80 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038F46C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR BugCheckParameter2)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int16 v5; // dx
+  struct _KTHREAD *CurrentThread; // rbx
+  __int64 v3; // rcx
+  __int16 v4; // ax
   unsigned __int8 CurrentIrql; // dl
-  struct _KTHREAD *v7; // rcx
-  struct _KTHREAD *v8; // rdx
+  struct _KTHREAD *v7; // r8
+  void *OwnerEntryForLegacyShim; // rsi
 
   CurrentThread = KeGetCurrentThread();
   PsBoostThreadIoEx((__int64)CurrentThread, 0, 0, 0LL);
   --CurrentThread->KernelApcDisable;
-  v5 = *(_WORD *)(BugCheckParameter2 + 26);
-  if ( FeatureFastResource2 )
-  {
-    if ( (v5 & 0x41) != 1 )
-    {
-      if ( (v5 & 1) == 0 )
-        goto LABEL_20;
-      CurrentIrql = KeGetCurrentIrql();
-      v7 = KeGetCurrentThread();
-      if ( CurrentIrql > 1u )
-        KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-      if ( (v7->ApcState.InProgressFlags & 2) == 0 )
-      {
-        if ( CurrentIrql || (v7->MiscFlags & 0x400) != 0 || v7->WaitBlock[3].SpareLong )
-        {
-          v5 = *(_WORD *)(BugCheckParameter2 + 26);
-          goto LABEL_18;
-        }
-LABEL_25:
-        KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-      }
-LABEL_24:
-      KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-    }
-LABEL_22:
+  if ( (*(_WORD *)(BugCheckParameter2 + 26) & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, BugCheckParameter2, 0LL, 0LL);
-  }
-  if ( (v5 & 0x41) == 1 )
-    goto LABEL_22;
-  if ( (v5 & 1) != 0 )
+  v4 = *(_WORD *)(BugCheckParameter2 + 26) & 1;
+  if ( v4 )
   {
-    v3 = KeGetCurrentIrql();
-    v8 = KeGetCurrentThread();
-    if ( (unsigned __int8)v3 > 1u )
-      KeBugCheckEx(0x1C6u, 0LL, (unsigned __int8)v3, 1uLL, 0LL);
-    if ( (v8->ApcState.InProgressFlags & 2) != 0 )
-      goto LABEL_24;
-    if ( !(_BYTE)v3 && (v8->MiscFlags & 0x400) == 0 && !v8->WaitBlock[3].SpareLong )
-      goto LABEL_25;
-    LOBYTE(v5) = *(_WORD *)(BugCheckParameter2 + 26);
+    CurrentIrql = KeGetCurrentIrql();
+    v7 = KeGetCurrentThread();
+    if ( CurrentIrql > 1u )
+      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
+    if ( (v7->ApcState.InProgressFlags & 2) != 0 )
+      KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
+    if ( !CurrentIrql && (v7->MiscFlags & 0x400) == 0 && !v7->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   }
-LABEL_18:
-  if ( (v5 & 1) != 0 )
+  if ( v4 )
   {
-    ExpFastResourceLegacyAcquireShared(BugCheckParameter2);
-    return CurrentThread->WaitBlock[2].SparePtr;
+    OwnerEntryForLegacyShim = (void *)ExpAllocateOwnerEntryForLegacyShim(v3);
+    if ( !(unsigned __int8)ExAcquireFastResourceShared(BugCheckParameter2, (ULONG_PTR)OwnerEntryForLegacyShim) )
+      ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
   }
-LABEL_20:
-  ExpAcquireResourceSharedLite(BugCheckParameter2, 1, v3, v4);
+  else
+  {
+    ExpAcquireResourceSharedLite(BugCheckParameter2, 1);
+  }
   return CurrentThread->WaitBlock[2].SparePtr;
 }

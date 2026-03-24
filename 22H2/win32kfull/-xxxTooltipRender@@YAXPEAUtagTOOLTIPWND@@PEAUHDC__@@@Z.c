@@ -1,73 +1,68 @@
 /*
- * XREFs of ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0225E60
+ * XREFs of ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0242A6C
  * Callers:
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
  * Callees:
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GetDPIMETRICSForDpi @ 0x1C0041198 (GetDPIMETRICSForDpi.c)
- *     GreExtTextOutW @ 0x1C00A1DB0 (GreExtTextOutW.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     GreSetBkMode @ 0x1C0115C14 (GreSetBkMode.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     xxxClientExtTextOutW @ 0x1C021212C (xxxClientExtTextOutW.c)
- *     CALL_LPK @ 0x1C0225FD4 (CALL_LPK.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     GreSetBkMode @ 0x1C0045E9C (GreSetBkMode.c)
+ *     GetDPIMETRICSForDpi @ 0x1C00480F0 (GetDPIMETRICSForDpi.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAC5C (GreExtTextOutWInternal.c)
+ *     CALL_LPK @ 0x1C0158EEC (CALL_LPK.c)
+ *     xxxClientExtTextOutW @ 0x1C0158F28 (xxxClientExtTextOutW.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-void __fastcall xxxTooltipRender(const WCHAR **a1, Gre::Base *a2)
+void __fastcall xxxTooltipRender(WCHAR **a1, HDC a2)
 {
-  __int64 DPIMETRICSForDpi; // rax
-  unsigned int v5; // edi
-  _DWORD *v6; // r9
-  int v7; // r8d
-  int v8; // ecx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned int v13; // edi
-  struct tagTHREADINFO *v14; // rax
-  int v15; // eax
-  const WCHAR *SourceString; // r10
-  __int64 v17; // rcx
-  RECT v18; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int v4; // edi
+  _DWORD *v5; // r9
+  int v6; // r8d
+  int v7; // ecx
+  int v8; // edi
+  __int64 ThreadWin32Thread; // rax
+  int v10; // eax
+  WCHAR *SourceString; // r9
+  __int64 v12; // rcx
+  RECT v13; // [rsp+50h] [rbp-38h] BYREF
 
   if ( a1[6] )
   {
-    DPIMETRICSForDpi = GetDPIMETRICSForDpi();
-    GreSelectFontInternal((__int64)a2, *(_QWORD *)(DPIMETRICSForDpi + 56), 1);
-    GreSetTextColor((__int64)a2, *(_DWORD *)(gpsi + 4660LL));
-    v5 = *(_DWORD *)(gpsi + 4664LL);
-    v6 = (_DWORD *)*((_QWORD *)*a1 + 5);
-    v7 = v6[27];
-    v8 = v6[26];
-    v18.left = 0;
-    v18.right = v6[28] - v8;
-    v18.top = v6[27] - v7;
-    v18.bottom = v6[29] - v7;
-    if ( v5 == (unsigned int)GreGetNearestColor(a2, v5) )
+    GetDPIMETRICSForDpi(*(unsigned __int16 *)(*((_QWORD *)*a1 + 5) + 284LL));
+    GreSelectFont(a2);
+    GreSetTextColor(a2, *(_DWORD *)(gpsi + 4660LL));
+    v4 = *(_DWORD *)(gpsi + 4664LL);
+    v5 = (_DWORD *)*((_QWORD *)*a1 + 5);
+    v6 = v5[27];
+    v7 = v5[26];
+    v13.left = 0;
+    v13.right = v5[28] - v7;
+    v13.top = v5[27] - v6;
+    v13.bottom = v5[29] - v6;
+    if ( v4 == (unsigned int)GreGetNearestColor(a2, v4) )
     {
-      GreSetBkColor((HDC)a2, v5);
-      v13 = 2;
+      GreSetBkColor(a2, v4);
+      v8 = 2;
     }
     else
     {
-      FillRect((HDC)a2, &v18, *(HBRUSH *)(gpsi + 4888LL));
-      GreSetBkMode((HDC)a2, 1);
-      v13 = 4;
+      FillRect(a2, &v13, *(HBRUSH *)(gpsi + 4888LL));
+      GreSetBkMode(a2, 1);
+      v8 = 4;
     }
-    v14 = PtiCurrentShared(v10, v9, v11, v12);
-    v15 = CALL_LPK(v14);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v10 = CALL_LPK(ThreadWin32Thread);
     SourceString = a1[6];
-    v17 = -1LL;
+    v12 = -1LL;
     do
-      ++v17;
-    while ( SourceString[v17] );
-    if ( v15 )
-      xxxClientExtTextOutW(a2, 2, 1, v13, &v18, SourceString, v17);
+      ++v12;
+    while ( SourceString[v12] );
+    if ( v10 )
+      xxxClientExtTextOutW(a2, 2, 1, v8, &v13, SourceString, v12);
     else
-      GreExtTextOutW((__int64)a2, 2u, 1u, v13, (__int64)&v18, (__int64)SourceString, v17);
+      GreExtTextOutWInternal(a2, 2, 1, v8, &v13, SourceString, v12, 0LL, 0LL, 0);
   }
 }

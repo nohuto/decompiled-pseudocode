@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkpCalibrateGpuTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0046920
+ * XREFs of ?DxgkpCalibrateGpuTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C003ECF0
  * Callers:
  *     <none>
  * Callees:
- *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0042B7C (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C003BE9C (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
  */
 
 void __fastcall DxgkpCalibrateGpuTimerDpc(

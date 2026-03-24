@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlPrivateLock @ 0x140327350
+ * XREFs of FsRtlPrivateLock @ 0x1402D8B40
  * Callers:
- *     FsRtlProcessFileLock @ 0x14053DA60 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1404EFC10 (FsRtlProcessFileLock.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x14023E430 (KeReleaseSpinLock.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     FsRtlPrivateInsertLock @ 0x14032761C (FsRtlPrivateInsertLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x1403276FC (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140328294 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlPrivateInitializeFileLock @ 0x140328450 (FsRtlPrivateInitializeFileLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14045EB20 (FsRtlCompleteLockIrpReal.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x14053D830 (FsRtlPrivateCancelFileLockIrp.c)
- *     FsRtlPrivateRemoveLock @ 0x14053DA08 (FsRtlPrivateRemoveLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlPrivateInsertLock @ 0x1402D93EC (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402D9E4C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     KeReleaseSpinLock @ 0x1402E0C70 (KeReleaseSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1403052A4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x140328B78 (FsRtlPrivateInitializeFileLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF5B0 (FsRtlCompleteLockIrpReal.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x1404EF9F0 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404EFBC0 (FsRtlPrivateRemoveLock.c)
  */
 
 BOOLEAN __stdcall FsRtlPrivateLock(
@@ -35,8 +35,8 @@ BOOLEAN __stdcall FsRtlPrivateLock(
         BOOLEAN AlreadySynchronized)
 {
   PFILE_OBJECT v14; // r15
-  volatile signed __int64 *v16; // rsi
-  char *LockInformation; // r14
+  KSPIN_LOCK *v16; // rsi
+  KSPIN_LOCK *LockInformation; // r14
   LONGLONG QuadPart; // r8
   char *v19; // rcx
   char v20; // al
@@ -49,72 +49,74 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   bool v28; // zf
   __int64 v29; // r8
   NTSTATUS v30; // edi
-  int NewIrql; // [rsp+40h] [rbp-78h]
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // [rsp+48h] [rbp-70h] BYREF
-  char *v33; // [rsp+50h] [rbp-68h]
-  volatile signed __int64 *v34; // [rsp+58h] [rbp-60h]
-  __int128 v35; // [rsp+60h] [rbp-58h] BYREF
-  __int128 v36; // [rsp+70h] [rbp-48h]
-  __int128 v37; // [rsp+80h] [rbp-38h]
+  KIRQL NewIrql; // [rsp+40h] [rbp-88h]
+  BOOLEAN v32; // [rsp+41h] [rbp-87h]
+  char v33; // [rsp+42h] [rbp-86h]
+  int v34; // [rsp+48h] [rbp-80h] BYREF
+  KSPIN_LOCK *v35; // [rsp+50h] [rbp-78h]
+  KSPIN_LOCK *v36; // [rsp+58h] [rbp-70h]
+  __int128 v37; // [rsp+60h] [rbp-68h] BYREF
+  __int128 v38; // [rsp+70h] [rbp-58h]
+  __int128 v39; // [rsp+80h] [rbp-48h]
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // [rsp+90h] [rbp-38h]
 
   v14 = FileObject;
-  BYTE2(NewIrql) = 0;
-  v33 = 0LL;
-  v16 = 0LL;
-  v34 = 0LL;
-  LOBYTE(NewIrql) = -1;
+  v33 = 0;
   v35 = 0LL;
+  v16 = 0LL;
   v36 = 0LL;
+  NewIrql = -1;
   v37 = 0LL;
-  LockInformation = (char *)FileLock->LockInformation;
-  v33 = LockInformation;
+  v38 = 0LL;
+  v39 = 0LL;
+  LockInformation = (KSPIN_LOCK *)FileLock->LockInformation;
+  v35 = LockInformation;
   if ( !LockInformation )
   {
     LOBYTE(FileObject) = Irp == 0LL;
     if ( !(unsigned __int8)FsRtlPrivateInitializeFileLock(FileLock, FileObject) )
       goto LABEL_14;
     FileLock->FastIoIsQuestionable = 1;
-    LockInformation = (char *)FileLock->LockInformation;
-    v33 = LockInformation;
+    LockInformation = (KSPIN_LOCK *)FileLock->LockInformation;
+    v35 = LockInformation;
   }
-  *(LARGE_INTEGER *)&v35 = *FileOffset;
+  *(LARGE_INTEGER *)&v37 = *FileOffset;
   QuadPart = Length->QuadPart;
-  *((_QWORD *)&v35 + 1) = QuadPart;
-  *((_QWORD *)&v37 + 1) = QuadPart + v35 - 1;
-  DWORD1(v36) = Key;
-  *((_QWORD *)&v36 + 1) = v14;
-  *(_QWORD *)&v37 = ProcessId;
-  LOBYTE(v36) = ExclusiveLock;
-  v16 = (volatile signed __int64 *)(LockInformation + 24);
-  v34 = (volatile signed __int64 *)(LockInformation + 24);
-  if ( *((_QWORD *)&v37 + 1) < (unsigned __int64)v35 && QuadPart )
+  *((_QWORD *)&v37 + 1) = QuadPart;
+  *((_QWORD *)&v39 + 1) = v37 + QuadPart - 1;
+  DWORD1(v38) = Key;
+  *((_QWORD *)&v38 + 1) = v14;
+  *(_QWORD *)&v39 = ProcessId;
+  LOBYTE(v38) = ExclusiveLock;
+  v16 = LockInformation + 3;
+  v36 = LockInformation + 3;
+  if ( *((_QWORD *)&v39 + 1) < (unsigned __int64)v37 && QuadPart )
   {
     v21 = Iosb;
     Iosb->Status = -1073741407;
     goto LABEL_10;
   }
-  BYTE2(NewIrql) = 1;
-  LOBYTE(NewIrql) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)LockInformation + 3);
-  v19 = LockInformation + 24;
+  v33 = 1;
+  NewIrql = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
+  v19 = (char *)(LockInformation + 3);
   if ( ExclusiveLock )
-    v20 = FsRtlPrivateCheckForExclusiveLockAccess(v19, &v35);
+    v20 = FsRtlPrivateCheckForExclusiveLockAccess(v19, &v37);
   else
-    v20 = FsRtlPrivateCheckForSharedLockAccess(v19, &v35);
-  HIBYTE(NewIrql) = v20;
+    v20 = FsRtlPrivateCheckForSharedLockAccess(v19, &v37);
   if ( v20 )
   {
-    if ( (unsigned __int8)FsRtlPrivateInsertLock(LockInformation, v14, &v35) )
+    if ( (unsigned __int8)FsRtlPrivateInsertLock(LockInformation, v14, &v37) )
     {
       v21 = Iosb;
       Iosb->Status = 0;
 LABEL_10:
-      BYTE1(NewIrql) = 1;
+      v32 = 1;
       goto LABEL_29;
     }
     if ( Irp )
     {
-      KeReleaseSpinLock((PKSPIN_LOCK)LockInformation + 3, NewIrql);
-      RtlRaiseStatus(-1073741670);
+      KeReleaseSpinLock(LockInformation + 3, NewIrql);
+      RtlRaiseStatus(3221225626LL);
     }
   }
   else
@@ -130,79 +132,75 @@ LABEL_10:
       v22 = ExAllocateFromNPagedLookasideList(&FsRtlWaitingLockLookasideList);
       if ( !v22 )
       {
-        KeReleaseSpinLock((PKSPIN_LOCK)LockInformation + 3, NewIrql);
-        RtlRaiseStatus(-1073741670);
+        KeReleaseSpinLock(LockInformation + 3, NewIrql);
+        RtlRaiseStatus(3221225626LL);
       }
       v22[3] = Irp;
       v22[2] = Context;
-      v22[1] = *((_QWORD *)LockInformation + 1);
+      v22[1] = LockInformation[1];
       CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
       CurrentStackLocation->Control |= 1u;
       *v22 = 0LL;
-      if ( *((_QWORD *)LockInformation + 6) )
-        **((_QWORD **)LockInformation + 7) = v22;
+      if ( LockInformation[6] )
+        *(_QWORD *)LockInformation[7] = v22;
       else
-        *((_QWORD *)LockInformation + 6) = v22;
-      *((_QWORD *)LockInformation + 7) = v22;
+        LockInformation[6] = (KSPIN_LOCK)v22;
+      LockInformation[7] = (KSPIN_LOCK)v22;
       Irp->IoStatus.Information = (ULONG_PTR)LockInformation;
       _InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, (__int64)FsRtlPrivateCancelFileLockIrp);
       if ( Irp->Cancel && _InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, 0LL) )
       {
         Irp->CancelIrql = NewIrql;
         FsRtlPrivateCancelFileLockIrp(0LL, Irp);
-        BYTE2(NewIrql) = 0;
+        v33 = 0;
       }
       v21 = Iosb;
       Iosb->Status = 259;
-      LockInformation = v33;
-      v16 = v34;
+      LockInformation = v35;
+      v16 = v36;
       goto LABEL_10;
     }
   }
 LABEL_14:
-  BYTE1(NewIrql) = 0;
+  v32 = 0;
   v21 = Iosb;
 LABEL_29:
-  if ( BYTE2(NewIrql) )
+  if ( v33 )
   {
     KxReleaseSpinLock(v16);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)NewIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)NewIrql + 1));
-        v28 = (v27 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v27;
-        if ( v28 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        LockInformation = v33;
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && NewIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v27 = ~(unsigned __int16)(-1LL << (NewIrql + 1));
+          v28 = (v27 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v27;
+          if ( v28 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          LockInformation = v35;
+        }
       }
     }
-    __writecr8((unsigned __int8)NewIrql);
+    __writecr8(NewIrql);
   }
   if ( Irp && v21->Status != 259 )
   {
-    LODWORD(CurrentStackLocation) = 0;
+    v34 = 0;
     ObfReferenceObjectWithTag(v14, 0x746C6644u);
-    FsRtlCompleteLockIrpReal(
-      *((_QWORD *)LockInformation + 1),
-      Context,
-      Irp,
-      (unsigned int)v21->Status,
-      &CurrentStackLocation,
-      v14,
-      NewIrql);
-    v30 = (int)CurrentStackLocation;
-    if ( (int)CurrentStackLocation < 0 && v21->Status >= 0 )
+    FsRtlCompleteLockIrpReal(LockInformation[1], Context, Irp, (unsigned int)v21->Status, &v34, v14);
+    v30 = v34;
+    if ( v34 < 0 && v21->Status >= 0 )
     {
       LOBYTE(v29) = 1;
-      FsRtlPrivateRemoveLock(LockInformation, &v35, v29);
+      FsRtlPrivateRemoveLock(LockInformation, &v37, v29);
     }
     ObfDereferenceObjectWithTag(v14, 0x746C6644u);
     v21->Status = v30;
   }
-  return BYTE1(NewIrql);
+  return v32;
 }

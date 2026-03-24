@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWriteEnclavePte @ 0x1402BE928
+ * XREFs of MiWriteEnclavePte @ 0x1402BEA28
  * Callers:
- *     MiAddPagesToEnclave @ 0x1402BC7E4 (MiAddPagesToEnclave.c)
- *     MiProtectEnclavePages @ 0x1402BE020 (MiProtectEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x1408594AC (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x1402BC8E4 (MiAddPagesToEnclave.c)
+ *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -11,10 +11,10 @@
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiWriteEnclavePte(ULONG_PTR a1, __int64 a2, __int64 a3, int a4, int a5)

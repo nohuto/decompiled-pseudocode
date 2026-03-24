@@ -1,15 +1,14 @@
 /*
- * XREFs of ?PrepareUnpinnedPathsFromSource@@YAJQEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IEEEQEA_KPEAY0BA@IPEAE@Z @ 0x1C01F6D58
+ * XREFs of ?PrepareUnpinnedPathsFromSource@@YAJQEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IEEEQEA_KPEAY0BA@IPEAE@Z @ 0x1C00E16E0
  * Callers:
- *     ?CreateFunctionalVidPnWithEnabledVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EPEAU_DXGK_DISPLAYMODE_INFO@@PEAPEAUD3DKMDT_HVIDPN__@@PEAPEBU_DXGDMM_VIDPN_INTERFACE@@PEAY0BA@I@Z @ 0x1C01F40B0 (-CreateFunctionalVidPnWithEnabledVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIW4_D3DKMDT_VIDPN_PR.c)
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C021D210 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C00E12BC (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     CreateFunctionalVidPnWithEnabledVidPnSource @ 0x1C025EC9C (CreateFunctionalVidPnWithEnabledVidPnSource.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?UnpinCofuncModalityOnPathsFromSource@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_K@Z @ 0x1C0225974 (-UnpinCofuncModalityOnPathsFromSource@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEA.c)
- *     ?AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IEQEA_KPEAY0BA@I@Z @ 0x1C02FFF98 (-AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNT.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?UnpinCofuncModalityOnPathsFromSource@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_K@Z @ 0x1C00E195C (-UnpinCofuncModalityOnPathsFromSource@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEA.c)
+ *     ?AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IEQEA_KPEAY0BA@I@Z @ 0x1C025CEF8 (-AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNT.c)
  */
 
 __int64 __fastcall PrepareUnpinnedPathsFromSource(
@@ -27,116 +26,122 @@ __int64 __fastcall PrepareUnpinnedPathsFromSource(
         __m128i *a12,
         unsigned __int8 *a13)
 {
-  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v13; // r15
+  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v13; // rdi
   __m128i si128; // xmm0
   __int64 (__fastcall *v18)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD, unsigned __int64 *); // rax
-  char v19; // bl
+  char v19; // r13
   int v20; // eax
-  __int64 v21; // r14
-  __int64 v22; // r15
-  int v23; // eax
-  __int64 v24; // rdx
-  int v25; // eax
-  __int64 v26; // rdi
-  __int64 v27; // rdi
-  unsigned __int64 v28; // rbx
-  struct D3DKMDT_HVIDPN__ *v29; // r14
-  int v30; // eax
-  __int64 v31; // rsi
-  void *v32; // rcx
-  __int64 v34; // rbx
-  int v35; // eax
-  __int64 v36; // r15
-  int v37; // eax
-  unsigned int v38; // ebx
-  char v39; // [rsp+50h] [rbp-B0h]
-  _BYTE v40[7]; // [rsp+51h] [rbp-AFh] BYREF
-  unsigned __int64 v41; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v42; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v43; // [rsp+68h] [rbp-98h] BYREF
-  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v44; // [rsp+70h] [rbp-90h]
-  struct _DXGDMM_INTERFACE *v45; // [rsp+78h] [rbp-88h]
-  struct _DXGDMM_VIDPN_INTERFACE *v46; // [rsp+80h] [rbp-80h]
-  struct D3DKMDT_HVIDPN__ *v47; // [rsp+88h] [rbp-78h]
-  unsigned __int64 *v48; // [rsp+90h] [rbp-70h]
-  void *v49; // [rsp+98h] [rbp-68h]
-  unsigned __int8 *v50; // [rsp+A0h] [rbp-60h]
-  _OWORD Src[4]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbx
+  __int64 v24; // rbx
+  __int64 (__fastcall *v25)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD, __int64, unsigned __int64 *); // rax
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rdi
+  __int64 v30; // rdx
+  int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  unsigned __int64 v37; // rdi
+  struct D3DKMDT_HVIDPN__ *v38; // rsi
+  int v39; // eax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // rax
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int64 v50; // rax
+  __int64 v51; // rax
+  _QWORD *v52; // rax
+  __int64 v53; // rax
+  _QWORD *v54; // rax
+  _QWORD *v55; // rax
+  __int64 v56; // rax
+  int v57; // eax
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  int v60; // eax
+  __int64 v61; // rdx
+  __int64 v62; // rcx
+  __int64 v63; // rax
+  __int64 v64; // rax
+  __int64 v65; // rax
+  _QWORD *v66; // rax
+  __int64 v67; // rax
+  _BYTE v68[8]; // [rsp+50h] [rbp-99h] BYREF
+  unsigned __int64 v69; // [rsp+58h] [rbp-91h] BYREF
+  unsigned __int64 v70; // [rsp+60h] [rbp-89h] BYREF
+  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v71; // [rsp+68h] [rbp-81h]
+  struct _DXGDMM_INTERFACE *v72; // [rsp+70h] [rbp-79h]
+  struct _DXGDMM_VIDPN_INTERFACE *v73; // [rsp+78h] [rbp-71h]
+  struct D3DKMDT_HVIDPN__ *v74; // [rsp+80h] [rbp-69h]
+  unsigned __int64 *v75; // [rsp+88h] [rbp-61h]
+  unsigned __int8 *v76; // [rsp+90h] [rbp-59h]
+  _OWORD Src[4]; // [rsp+A0h] [rbp-49h] BYREF
 
   v13 = a6;
-  v44 = a6;
-  v48 = a11;
-  v49 = a12;
-  v50 = a13;
-  v46 = a4;
-  v47 = a3;
-  v45 = a1;
+  v74 = a3;
+  v71 = a6;
+  v75 = a11;
+  v76 = a13;
+  v73 = a4;
+  v72 = a1;
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 4487LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_pDxgDmmInterface != NULL", 4487LL, 0LL, 0LL, 0LL, 0LL);
+    v43 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v43 + 24) = 4323LL;
+    WdLogEvent5_WdAssertion(v43);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 4488LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hDxgAdapter != NULL", 4488LL, 0LL, 0LL, 0LL, 0LL);
+    v44 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v44 + 24) = 4324LL;
+    WdLogEvent5_WdAssertion(v44);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 4489LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hVidPn != NULL", 4489LL, 0LL, 0LL, 0LL, 0LL);
+    v45 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v45 + 24) = 4325LL;
+    WdLogEvent5_WdAssertion(v45);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 4490LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_pDmmVidPnInterface != NULL", 4490LL, 0LL, 0LL, 0LL, 0LL);
+    v46 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v46 + 24) = 4326LL;
+    WdLogEvent5_WdAssertion(v46);
   }
   if ( !a5 )
   {
-    WdLogSingleEntry1(1LL, 4491LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hVidPnTopology != NULL", 4491LL, 0LL, 0LL, 0LL, 0LL);
+    v47 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v47 + 24) = 4327LL;
+    WdLogEvent5_WdAssertion(v47);
   }
   if ( !a6 )
   {
-    WdLogSingleEntry1(1LL, 4492LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"i_pDmmVidPnTopologyInterface != NULL",
-      4492LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v48 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v48 + 24) = 4328LL;
+    WdLogEvent5_WdAssertion(v48);
   }
   if ( a7 == -1 )
   {
-    WdLogSingleEntry1(1LL, 4493LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"i_VidPnSourceId != D3DDDI_ID_UNINITIALIZED",
-      4493LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v49 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v49 + 24) = 4329LL;
+    WdLogEvent5_WdAssertion(v49);
   }
   if ( !a11 )
   {
-    WdLogSingleEntry1(1LL, 4494LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"o_pNumVidPnPresentPathsFromSource != NULL",
-      4494LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v50 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v50 + 24) = 4330LL;
+    WdLogEvent5_WdAssertion(v50);
   }
   *a11 = 0LL;
   if ( a12 )
@@ -148,117 +153,89 @@ __int64 __fastcall PrepareUnpinnedPathsFromSource(
     a12[3] = si128;
   }
   v18 = *(__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD, unsigned __int64 *))a6;
+  v69 = 0LL;
   v19 = 0;
-  v41 = 0LL;
-  v39 = 0;
-  v20 = v18(a5, a7, &v41);
-  v21 = v20;
+  v20 = v18(a5, a7, &v69);
+  v23 = v20;
   if ( v20 == -1071774919 )
   {
-    if ( v41 )
+    if ( v69 )
     {
-      WdLogSingleEntry1(1LL, 4525LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"sztNumPathsFromSource == 0", 4525LL, 0LL, 0LL, 0LL, 0LL);
+      v51 = WdLogNewEntry5_WdAssertion(v22, v21);
+      *(_QWORD *)(v51 + 24) = 4361LL;
+      WdLogEvent5_WdAssertion(v51);
     }
     v19 = 1;
-    v39 = 1;
-    v27 = a7;
-    WdLogSingleEntry2(7LL, a5, a7);
+    v34 = WdLogNewEntry5_WdDmmEvent();
+    v24 = a7;
+    *(_QWORD *)(v34 + 24) = a5;
+    *(_QWORD *)(v34 + 32) = a7;
   }
   else
   {
     if ( v20 < 0 )
     {
-      WdLogSingleEntry3(2LL, a7, a5, v20);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to determine number of paths originating from source 0x%I64x in topology 0x%I64x (status = 0x%I64x)",
-        a7,
-        (__int64)a5,
-        v21,
-        0LL,
-        0LL);
-      return (unsigned int)v21;
+      v52 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+      v52[3] = a7;
+      v52[4] = a5;
+      v52[5] = v23;
+      WdLogEvent5_WdError(v52);
+      return (unsigned int)v23;
     }
-    v22 = 0LL;
-    if ( v41 )
+    v24 = 0LL;
+    if ( v69 )
     {
       while ( 1 )
       {
-        v42 = -1;
-        v23 = (*((__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD, __int64, unsigned int *))v44 + 1))(
-                a5,
-                a7,
-                v22,
-                &v42);
-        LODWORD(v43) = v23;
-        if ( v23 < 0 )
+        v25 = (__int64 (__fastcall *)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD, __int64, unsigned __int64 *))*((_QWORD *)v13 + 1);
+        LODWORD(v70) = -1;
+        v26 = v25(a5, a7, v24, &v70);
+        v29 = v26;
+        if ( v26 < 0 )
           break;
-        v24 = v42;
-        if ( v42 == -1 )
+        v30 = (unsigned int)v70;
+        if ( (_DWORD)v70 == -1 )
         {
-          WdLogSingleEntry1(1LL, 4568LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"ConnectedVidPnTargetId != D3DDDI_ID_UNINITIALIZED",
-            4568LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v24 = v42;
+          v53 = WdLogNewEntry5_WdAssertion(v28, 0xFFFFFFFFLL);
+          *(_QWORD *)(v53 + 24) = 4404LL;
+          WdLogEvent5_WdAssertion(v53);
+          v30 = (unsigned int)v70;
         }
-        v40[0] = 0;
-        v25 = (*((__int64 (__fastcall **)(void *const, __int64, _BYTE *))v45 + 9))(a2, v24, v40);
-        v26 = v25;
-        if ( v25 < 0 )
+        v68[0] = 0;
+        v31 = (*((__int64 (__fastcall **)(void *const, __int64, _BYTE *))v72 + 9))(a2, v30, v68);
+        v29 = v31;
+        if ( v31 < 0 )
         {
-          WdLogSingleEntry2(2LL, a2, v25);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to acquire target set of adapter 0x%I64x (status = 0x%I64x)",
-            (__int64)a2,
-            v26,
-            0LL,
-            0LL,
-            0LL);
-          return (unsigned int)v26;
+          v55 = (_QWORD *)WdLogNewEntry5_WdError(v33, v32);
+          v55[3] = a2;
+          goto LABEL_48;
         }
-        if ( !v40[0] )
+        if ( !v68[0] )
         {
           v19 = 1;
-          v39 = 1;
-          WdLogSingleEntry3(7LL, a5, a7, v42);
+          v54 = (_QWORD *)WdLogNewEntry5_WdDmmEvent();
+          v54[3] = a5;
+          v54[4] = a7;
+          v54[5] = (unsigned int)v70;
+          WdLogEvent5_WdDmmEvent(v54);
+          v13 = v71;
           goto LABEL_28;
         }
-        if ( ++v22 >= v41 )
+        v13 = v71;
+        if ( ++v24 >= v69 )
           goto LABEL_28;
       }
-      v34 = v23;
-      WdLogSingleEntry3(2LL, v22, a7, v23);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to enumerate target of %I64d'th path originating from source 0x%I64x (status = 0x%I64x)",
-        v22,
-        a7,
-        v34,
-        0LL,
-        0LL);
-      return (unsigned int)v43;
+      v55 = (_QWORD *)WdLogNewEntry5_WdError(v28, v27);
+      v55[4] = a7;
+      goto LABEL_51;
     }
 LABEL_28:
-    v27 = a7;
-    WdLogSingleEntry2(7LL, a7, a5);
-    v13 = v44;
+    v34 = WdLogNewEntry5_WdDmmEvent();
+    v24 = a7;
+    *(_QWORD *)(v34 + 24) = a7;
+    *(_QWORD *)(v34 + 32) = a5;
   }
+  WdLogEvent5_WdDmmEvent(v34);
   Src[0] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
   Src[1] = Src[0];
   Src[2] = Src[0];
@@ -267,108 +244,102 @@ LABEL_28:
   {
     if ( !a8 )
     {
-      WdLogSingleEntry2(7LL, v27, a2);
+      v56 = WdLogNewEntry5_WdDmmEvent();
+      *(_QWORD *)(v56 + 24) = v24;
+      *(_QWORD *)(v56 + 32) = a2;
+      WdLogEvent5_WdDmmEvent(v56);
       return 3223192403LL;
     }
-    if ( v41
-      && (v35 = (*((__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD))v13 + 7))(a5, a7),
-          v36 = v35,
-          v35 < 0) )
+    if ( v69 )
     {
-      WdLogSingleEntry3(2LL, v27, a5, v35);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to remove all paths from source 0x%I64x in topology 0x%I64x (status = 0x%I64x)",
-        v27,
-        (__int64)a5,
-        v36,
-        0LL,
-        0LL);
+      v57 = (*((__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, _QWORD))v13 + 7))(a5, a7);
+      v29 = v57;
+      if ( v57 < 0 )
+      {
+        v55 = (_QWORD *)WdLogNewEntry5_WdError(v59, v58);
+        v55[4] = a5;
+LABEL_51:
+        v55[3] = v24;
+        v55[5] = v29;
+LABEL_53:
+        WdLogEvent5_WdError(v55);
+        return (unsigned int)v29;
+      }
     }
-    else
+    v70 = 0LL;
+    v60 = AugmentVidPnTopology(v74, v73, a5, v71, a2, v72, a7, a10, &v70, (unsigned int (*)[16])Src);
+    v29 = v60;
+    if ( v60 == -1071774925 )
     {
-      v43 = 0LL;
-      v37 = AugmentVidPnTopology(v47, v46, a5, v44, a2, v45, a7, a10, &v43, (unsigned int (*)[16])Src);
-      v36 = v37;
-      v38 = -1071774925;
-      if ( v37 == -1071774925 || (v38 = -1071774886, v37 == -1071774886) )
-      {
-        WdLogSingleEntry2(7LL, a5, v27);
-        return v38;
-      }
-      if ( v37 >= 0 )
-      {
-        v28 = v43;
-        if ( !v43 )
-        {
-          WdLogSingleEntry1(1LL, 4681LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"sztNumAugmentedPathsFromSource > 0",
-            4681LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        WdLogSingleEntry4(7LL, a2, v28, v27, v41);
-        v41 = v28;
-        goto LABEL_31;
-      }
-      WdLogSingleEntry2(2LL, v27, v37);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to augment VidPN topology  on source 0x%I64x (status = 0x%I64x).",
-        v27,
-        v36,
-        0LL,
-        0LL,
-        0LL);
+      v63 = WdLogNewEntry5_WdDmmEvent();
+      *(_QWORD *)(v63 + 24) = a5;
+      *(_QWORD *)(v63 + 32) = v24;
+      WdLogEvent5_WdDmmEvent(v63);
+      return (unsigned int)v29;
     }
-    return (unsigned int)v36;
+    if ( v60 == -1071774886 )
+    {
+      v64 = WdLogNewEntry5_WdDmmEvent();
+      *(_QWORD *)(v64 + 24) = a5;
+      *(_QWORD *)(v64 + 32) = v24;
+      WdLogEvent5_WdDmmEvent(v64);
+      return 3223192410LL;
+    }
+    if ( v60 < 0 )
+    {
+      v55 = (_QWORD *)WdLogNewEntry5_WdError(v62, v61);
+      v55[3] = v24;
+LABEL_48:
+      v55[4] = v29;
+      goto LABEL_53;
+    }
+    v37 = v70;
+    if ( !v70 )
+    {
+      v65 = WdLogNewEntry5_WdAssertion(v62, v61);
+      *(_QWORD *)(v65 + 24) = 4517LL;
+      WdLogEvent5_WdAssertion(v65);
+    }
+    v66 = (_QWORD *)WdLogNewEntry5_WdDmmEvent();
+    v66[3] = a2;
+    v66[4] = v37;
+    v66[5] = v24;
+    v66[6] = v69;
+    WdLogEvent5_WdDmmEvent(v66);
+    v69 = v37;
   }
-  v28 = v41;
-LABEL_31:
-  if ( !v28 )
+  else
   {
-    WdLogSingleEntry1(1LL, 4691LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"sztNumPathsFromSource > 0", 4691LL, 0LL, 0LL, 0LL, 0LL);
-    v28 = v41;
+    v37 = v69;
+  }
+  if ( !v37 )
+  {
+    v67 = WdLogNewEntry5_WdAssertion(v36, v35);
+    *(_QWORD *)(v67 + 24) = 4527LL;
+    WdLogEvent5_WdAssertion(v67);
+    v37 = v69;
   }
   if ( a9 )
   {
-    v29 = v47;
-    v30 = UnpinCofuncModalityOnPathsFromSource(v47, v46, a5, v44, a7, v28);
-    v31 = v30;
-    if ( v30 < 0 )
+    v38 = v74;
+    v39 = UnpinCofuncModalityOnPathsFromSource(v74, v73, a5, v71, a7, v37);
+    v29 = v39;
+    if ( v39 < 0 )
     {
-      WdLogSingleEntry5(2LL, v41, v27, v29, a2, v30);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to unpin modality of %I64d present path(s) originating from source 0x%I64x in VidPN 0x%I64x of a"
-                  "dapter 0x%I64x (status = 0x%I64x)",
-        v41,
-        v27,
-        (__int64)v29,
-        (__int64)a2,
-        v31);
-      return (unsigned int)v31;
+      v55 = (_QWORD *)WdLogNewEntry5_WdError(v41, v40);
+      v55[3] = v69;
+      v55[4] = v24;
+      v55[5] = v38;
+      v55[6] = a2;
+      v55[7] = v29;
+      goto LABEL_53;
     }
-    v28 = v41;
+    v37 = v69;
   }
-  v32 = v49;
-  *v48 = v28;
-  if ( v32 )
-    memmove(v32, Src, 0x40uLL);
-  if ( v50 )
-    *v50 = v39;
+  *v75 = v37;
+  if ( a12 )
+    memmove(a12, Src, 0x40uLL);
+  if ( v76 )
+    *v76 = v19;
   return 0LL;
 }

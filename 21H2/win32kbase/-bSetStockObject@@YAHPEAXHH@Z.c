@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00643E0
+ * XREFs of ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0015DD0
  * Callers:
- *     bInitBrush @ 0x1C02E518C (bInitBrush.c)
- *     bInitBRUSHOBJ @ 0x1C02E523C (bInitBRUSHOBJ.c)
- *     bInitPALOBJ @ 0x1C02E572C (bInitPALOBJ.c)
- *     bInitICM @ 0x1C02E5C44 (bInitICM.c)
- *     bInitBMOBJ @ 0x1C02E5FA0 (bInitBMOBJ.c)
+ *     bInitBrush @ 0x1C02981F0 (bInitBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C02982A0 (bInitBRUSHOBJ.c)
+ *     bInitICM @ 0x1C029A608 (bInitICM.c)
+ *     bInitBMOBJ @ 0x1C029A888 (bInitBMOBJ.c)
+ *     bInitPALOBJ @ 0x1C029A9B8 (bInitPALOBJ.c)
  * Callees:
- *     HmgModifyHandleType @ 0x1C0064660 (HmgModifyHandleType.c)
+ *     HmgModifyHandleType @ 0x1C0016060 (HmgModifyHandleType.c)
  */
 
 __int64 __fastcall bSetStockObject(unsigned __int64 a1, int a2, int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Free@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00D1DE8
+ * XREFs of ?Free@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00C8EF8
  * Callers:
- *     ?Free@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00D1E9C (-Free@-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00C8FAC (-Free@-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  * Callees:
- *     GreEnterCriticalRegionAndAcquirePushLockExclusive @ 0x1C0044300 (GreEnterCriticalRegionAndAcquirePushLockExclusive.c)
- *     GreLeaveCriticalRegionAndReleasePushLockExclusive @ 0x1C00443B0 (GreLeaveCriticalRegionAndReleasePushLockExclusive.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockExclusive @ 0x1C00309D0 (GreLeaveCriticalRegionAndReleasePushLockExclusive.c)
+ *     GreEnterCriticalRegionAndAcquirePushLockExclusive @ 0x1C0031430 (GreEnterCriticalRegionAndAcquirePushLockExclusive.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 void __fastcall NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Free(__int64 a1, void *a2)

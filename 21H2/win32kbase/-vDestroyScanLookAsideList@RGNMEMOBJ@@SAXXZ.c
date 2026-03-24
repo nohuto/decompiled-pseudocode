@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C008FEC0
+ * XREFs of ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C007B630
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C008F7E4 (MultiUserNtGreCleanup.c)
+ *     MultiUserNtGreCleanup @ 0x1C007BDB8 (MultiUserNtGreCleanup.c)
  * Callees:
- *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C0089198 (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePagedLookasideList @ 0x1C007C440 (Win32FreePagedLookasideList.c)
  */
 
-void __fastcall RGNMEMOBJ::vDestroyScanLookAsideList(NSInstrumentation::CLeakTrackingAllocator *a1)
+void RGNMEMOBJ::vDestroyScanLookAsideList(void)
 {
   if ( RGNMEMOBJ::s_pSCANLookAsideList )
   {
-    NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(a1, (char *)RGNMEMOBJ::s_pSCANLookAsideList);
+    Win32FreePagedLookasideList();
     RGNMEMOBJ::s_pSCANLookAsideList = 0LL;
   }
 }

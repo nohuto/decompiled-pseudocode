@@ -1,7 +1,7 @@
 /*
- * XREFs of BmlCompareSingleWireFormatType @ 0x1C03BCF7C
+ * XREFs of BmlCompareSingleWireFormatType @ 0x1C02EBFA4
  * Callers:
- *     BmlCompareWireFormat @ 0x1C03BD360 (BmlCompareWireFormat.c)
+ *     BmlCompareWireFormat @ 0x1C02EC084 (BmlCompareWireFormat.c)
  * Callees:
  *     <none>
  */

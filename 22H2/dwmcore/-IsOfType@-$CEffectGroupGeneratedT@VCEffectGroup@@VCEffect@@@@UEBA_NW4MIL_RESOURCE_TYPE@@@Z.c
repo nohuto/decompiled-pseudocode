@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D79F0
+ * XREFs of ?IsOfType@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800BA6F0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall CEffectGroupGeneratedT<CEffectGroup,CEffect>::IsOfType(__int64 a
   __int64 v3; // rcx
   bool result; // al
 
-  v2 = (unsigned int)(a2 - 56);
-  result = (unsigned int)v2 <= 0x3A && (v3 = 0x400000000000005LL, _bittest64(&v3, v2)) || a2 == 134;
+  v2 = (unsigned int)(a2 - 54);
+  result = (unsigned int)v2 <= 0x3A && (v3 = 0x400000000000005LL, _bittest64(&v3, v2)) || a2 == 133;
   return result;
 }

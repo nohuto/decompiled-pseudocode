@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFindUCREntry @ 0x1405F2358
+ * XREFs of RtlpFindUCREntry @ 0x140593D10
  * Callers:
- *     RtlpFindAndCommitPages @ 0x1405E9E8C (RtlpFindAndCommitPages.c)
- *     RtlpInsertUCRBlock @ 0x1405EAD20 (RtlpInsertUCRBlock.c)
+ *     RtlpFindAndCommitPages @ 0x14058A938 (RtlpFindAndCommitPages.c)
+ *     RtlpInsertUCRBlock @ 0x14058B6F0 (RtlpInsertUCRBlock.c)
  * Callees:
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
- *     RtlpHeapFindListLookupEntry @ 0x1405F24B0 (RtlpHeapFindListLookupEntry.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
+ *     RtlpHeapFindListLookupEntry @ 0x140593E68 (RtlpHeapFindListLookupEntry.c)
  */
 
 _QWORD *__fastcall RtlpFindUCREntry(__int64 a1, unsigned __int64 a2)

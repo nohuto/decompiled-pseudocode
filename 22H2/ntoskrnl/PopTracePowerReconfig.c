@@ -1,67 +1,85 @@
 /*
- * XREFs of PopTracePowerReconfig @ 0x140595600
+ * XREFs of PopTracePowerReconfig @ 0x1405735F4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void PopTracePowerReconfig()
 {
   int v0; // r9d
   int v1; // r10d
-  int v2; // [rsp+30h] [rbp-69h] BYREF
-  int v3; // [rsp+34h] [rbp-65h] BYREF
-  int v4; // [rsp+38h] [rbp-61h] BYREF
-  int v5; // [rsp+3Ch] [rbp-5Dh] BYREF
-  int v6; // [rsp+40h] [rbp-59h] BYREF
-  int v7; // [rsp+44h] [rbp-55h] BYREF
-  _DWORD v8[2]; // [rsp+48h] [rbp-51h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+50h] [rbp-49h] BYREF
-  _DWORD *v10; // [rsp+70h] [rbp-29h]
-  __int64 v11; // [rsp+78h] [rbp-21h]
-  int *v12; // [rsp+80h] [rbp-19h]
-  __int64 v13; // [rsp+88h] [rbp-11h]
-  int *v14; // [rsp+90h] [rbp-9h]
-  __int64 v15; // [rsp+98h] [rbp-1h]
-  int *v16; // [rsp+A0h] [rbp+7h]
-  __int64 v17; // [rsp+A8h] [rbp+Fh]
-  int *v18; // [rsp+B0h] [rbp+17h]
-  __int64 v19; // [rsp+B8h] [rbp+1Fh]
-  int *v20; // [rsp+C0h] [rbp+27h]
-  __int64 v21; // [rsp+C8h] [rbp+2Fh]
-  int *v22; // [rsp+D0h] [rbp+37h]
-  __int64 v23; // [rsp+D8h] [rbp+3Fh]
+  int v2; // [rsp+30h] [rbp-D0h] BYREF
+  int v3; // [rsp+34h] [rbp-CCh] BYREF
+  int v4; // [rsp+38h] [rbp-C8h] BYREF
+  int v5; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v6; // [rsp+40h] [rbp-C0h] BYREF
+  int v7; // [rsp+44h] [rbp-BCh] BYREF
+  int v8; // [rsp+48h] [rbp-B8h] BYREF
+  int v9; // [rsp+4Ch] [rbp-B4h] BYREF
+  _DWORD v10[4]; // [rsp+50h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v11; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD *v12; // [rsp+80h] [rbp-80h]
+  __int64 v13; // [rsp+88h] [rbp-78h]
+  int *v14; // [rsp+90h] [rbp-70h]
+  __int64 v15; // [rsp+98h] [rbp-68h]
+  int *v16; // [rsp+A0h] [rbp-60h]
+  __int64 v17; // [rsp+A8h] [rbp-58h]
+  int *v18; // [rsp+B0h] [rbp-50h]
+  __int64 v19; // [rsp+B8h] [rbp-48h]
+  int *v20; // [rsp+C0h] [rbp-40h]
+  __int64 v21; // [rsp+C8h] [rbp-38h]
+  int *v22; // [rsp+D0h] [rbp-30h]
+  __int64 v23; // [rsp+D8h] [rbp-28h]
+  int *v24; // [rsp+E0h] [rbp-20h]
+  __int64 v25; // [rsp+E8h] [rbp-18h]
+  int *v26; // [rsp+F0h] [rbp-10h]
+  __int64 v27; // [rsp+F8h] [rbp-8h]
+  int *v28; // [rsp+100h] [rbp+0h]
+  __int64 v29; // [rsp+108h] [rbp+8h]
 
-  v8[0] = MEMORY[0xFFFFF78000000014];
-  v8[1] = MEMORY[0xFFFFF78000000018];
-  if ( (unsigned int)dword_140C03950 > 5 )
+  v10[0] = MEMORY[0xFFFFF78000000014];
+  v10[1] = MEMORY[0xFFFFF78000000018];
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v5 = v0;
-      v10 = v8;
-      v2 = dword_140C3D0F4;
-      v11 = 8LL;
-      v12 = &v2;
-      v3 = xmmword_140C3D144;
-      v14 = &v3;
-      v16 = &v4;
-      v18 = &v5;
-      v6 = (unsigned __int8)byte_140C3D288;
-      v20 = &v6;
-      v7 = qword_140C3D29C;
-      v22 = &v7;
-      v13 = 4LL;
+      v12 = v10;
+      v2 = dword_140C23C34;
+      v13 = 8LL;
+      v14 = &v2;
+      v3 = xmmword_140C23C84;
+      v16 = &v3;
+      v18 = &v4;
+      v20 = &v5;
+      v6 = (unsigned __int8)byte_140C23DBC;
+      v22 = &v6;
+      v7 = (unsigned __int8)byte_140C23DA8;
+      v24 = &v7;
+      v8 = (unsigned __int8)byte_140C23DC4;
+      v26 = &v8;
+      v9 = dword_140C23DC0;
+      v28 = &v9;
       v15 = 4LL;
-      v4 = v1;
       v17 = 4LL;
+      v4 = v1;
       v19 = 4LL;
       v21 = 4LL;
       v23 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_14002F24D, 0LL, 0LL, 9u, &v9);
+      v25 = 4LL;
+      v27 = 4LL;
+      v29 = 4LL;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)byte_140027EF1,
+        0LL,
+        0LL,
+        0xBu,
+        &v11);
     }
   }
 }

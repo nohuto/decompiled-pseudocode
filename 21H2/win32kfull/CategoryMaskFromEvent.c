@@ -1,7 +1,7 @@
 /*
- * XREFs of CategoryMaskFromEvent @ 0x1C0074128
+ * XREFs of CategoryMaskFromEvent @ 0x1C0081D64
  * Callers:
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
  * Callees:
  *     <none>
  */
@@ -38,10 +38,10 @@ __int64 __fastcall CategoryMaskFromEvent(unsigned int a1)
     return 2LL;
   if ( a1 == 32779 )
     return 64LL;
-  if ( a1 == 32778 )
-    return 32LL;
   if ( a1 != 32773 )
   {
+    if ( a1 == 32778 )
+      return 32LL;
     if ( a1 == 32780 )
       return 8LL;
     return 0x8000LL;

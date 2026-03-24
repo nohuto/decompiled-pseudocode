@@ -1,17 +1,17 @@
 /*
- * XREFs of KeRemoveSchedulingGroup @ 0x140115800
+ * XREFs of KeRemoveSchedulingGroup @ 0x140115820
  * Callers:
  *     PspEstablishJobHierarchy @ 0x140604FE0 (PspEstablishJobHierarchy.c)
- *     PspRemoveCpuRateControl @ 0x140698974 (PspRemoveCpuRateControl.c)
- *     MiSessionObjectDelete @ 0x1408520D0 (MiSessionObjectDelete.c)
- *     PspEstablishDfssHierarchy @ 0x140889B30 (PspEstablishDfssHierarchy.c)
+ *     PspRemoveCpuRateControl @ 0x140698954 (PspRemoveCpuRateControl.c)
+ *     MiSessionObjectDelete @ 0x1408520B0 (MiSessionObjectDelete.c)
+ *     PspEstablishDfssHierarchy @ 0x140889B10 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiAssignSchedulingGroupWeights @ 0x140115E8C (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateMinimumWeight @ 0x140116108 (KiUpdateMinimumWeight.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiAssignSchedulingGroupWeights @ 0x140115EAC (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x140116128 (KiUpdateMinimumWeight.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRemoveSchedulingGroup(unsigned __int16 *a1)

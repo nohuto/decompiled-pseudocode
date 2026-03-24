@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01E1924
+ * XREFs of ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01A92A8
  * Callers:
- *     NtUserReportInertia @ 0x1C0002E00 (NtUserReportInertia.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
  * Callees:
- *     sqrt_0 @ 0x1C00DD7AD (sqrt_0.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01E0E4C (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
+ *     sqrt_0 @ 0x1C00CE87D (sqrt_0.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01A89D0 (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
  */
 
 char __fastcall CInertiaManager::ValidateInertiaInfo(

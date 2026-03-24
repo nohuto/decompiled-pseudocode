@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x140589DE4
+ * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056A770
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140983798 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E339C (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 _QWORD *__fastcall PopFxDestroyDirectedDripsCandidateDeviceList(struct _KEVENT **a1)
@@ -28,6 +28,6 @@ _QWORD *__fastcall PopFxDestroyDirectedDripsCandidateDeviceList(struct _KEVENT *
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)&v2[-27].Header.WaitListHead.Blink + 1, 0xFFFFFFFF) == 1 )
       KeSetEvent(v2 - 26, 0, 0);
   }
-  ExReleasePushLockEx((__int64 *)&PopFxBlockingDeviceListLock, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&PopFxBlockingDeviceListLock, 0LL);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

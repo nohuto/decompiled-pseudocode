@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021DDB0
+ * XREFs of ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DCCB0
  * Callers:
- *     ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021D5F0 (-SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
+ *     ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DC7B0 (-SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
  * Callees:
  *     <none>
  */
@@ -24,14 +24,15 @@ __int64 __fastcall DirectComposition::CTextObjectMarshaler::SetBufferProperty(
   v7 = a3 - 1;
   if ( v7 )
   {
-    if ( v7 == 1 && a4 && a5 == 8 )
+    if ( v7 != 1 )
+      return 3221225485LL;
+    if ( a4 && a5 == 8 )
     {
       v8 = *a4;
       *((_DWORD *)this + 4) |= 0x80u;
       *((_QWORD *)this + 9) = v8;
-LABEL_9:
+LABEL_10:
       *a6 = 1;
-      return result;
     }
   }
   else if ( a4 && a5 == 8 )
@@ -39,7 +40,7 @@ LABEL_9:
     v9 = *a4;
     *((_DWORD *)this + 4) |= 0x40u;
     *((_QWORD *)this + 8) = v9;
-    goto LABEL_9;
+    goto LABEL_10;
   }
-  return 3221225485LL;
+  return result;
 }

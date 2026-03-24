@@ -1,15 +1,27 @@
 /*
- * XREFs of ??_G?$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@UEAAPEAXI@Z @ 0x1C00685C0
+ * XREFs of ??_G?$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@UEAAPEAXI@Z @ 0x1C005B720
  * Callers:
- *     ??_E?$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@WBI@EAAPEAXI@Z @ 0x1C0028B40 (--_E-$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@WBI@EAAPEAXI@Z.c)
+ *     ??_E?$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@WBI@EAAPEAXI@Z @ 0x1C00290E0 (--_E-$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@WBI@EAAPEAXI@Z.c)
  * Callees:
- *     ??1?$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ @ 0x1C0067C70 (--1-$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ.c)
+ *     <none>
  */
 
 _QWORD *__fastcall DMM::AutoBuffer<_DMM_MONITOR_SERIALIZATION>::`scalar deleting destructor'(_QWORD *P, char a2)
 {
-  DMM::AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>::~AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>(P);
-  if ( (a2 & 1) != 0 && P )
+  void *v4; // rcx
+
+  *P = &DMM::AutoBuffer<_DMM_MONITOR_SERIALIZATION>::`vftable'{for `SetElement'};
+  P[3] = &DMM::AutoBuffer<_DMM_VIDPNPATHANDTARGETMODESET_SERIALIZATION>::`vftable'{for `NonReferenceCounted'};
+  v4 = (void *)P[4];
+  if ( v4 )
+  {
+    ExFreePoolWithTag(v4, 0);
+    P[4] = 0LL;
+    P[5] = 0LL;
+  }
+  P[3] = &SetElement::`vftable';
+  *P = &SetElement::`vftable';
+  if ( (a2 & 1) != 0 )
     ExFreePoolWithTag(P, 0);
   return P;
 }

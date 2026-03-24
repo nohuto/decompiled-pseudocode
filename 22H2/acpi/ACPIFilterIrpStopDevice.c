@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIFilterIrpStopDevice @ 0x1C0086CB0
+ * XREFs of ACPIFilterIrpStopDevice @ 0x1C00AFB30
  * Callers:
- *     ACPIFilterIrpSurpriseRemoval @ 0x1C0086E50 (ACPIFilterIrpSurpriseRemoval.c)
+ *     ACPIFilterIrpSurpriseRemoval @ 0x1C00A3290 (ACPIFilterIrpSurpriseRemoval.c)
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
- *     IsNsobjPciBus @ 0x1C008A688 (IsNsobjPciBus.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  */
 
 __int64 __fastcall ACPIFilterIrpStopDevice(ULONG_PTR a1, IRP *a2)
@@ -15,30 +15,26 @@ __int64 __fastcall ACPIFilterIrpStopDevice(ULONG_PTR a1, IRP *a2)
   __int64 DeviceExtension; // rax
   __int64 v4; // rbx
   unsigned int v5; // edi
-  __int64 v6; // rcx
-  __int64 v7; // rdi
-  bool v8; // bp
-  __int64 v9; // rax
-  __int64 v10; // r8
+  __int64 v6; // rdi
+  char v7; // bp
+  __int64 v8; // rax
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  _IO_STACK_LOCATION *v12; // rax
+  _IO_STACK_LOCATION *v10; // rax
+  __int64 v11; // rcx
   char *IrpText; // rax
-  unsigned __int8 v14; // dl
-  const char *v15; // r8
-  const char *v16; // r10
+  unsigned __int8 v13; // dl
+  const char *v14; // r8
+  const char *v15; // r10
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = DeviceExtension;
-  if ( *(_DWORD *)(DeviceExtension + 368) == 1 )
+  if ( *(_DWORD *)(DeviceExtension + 328) == 1 )
   {
-    v7 = *(_QWORD *)(DeviceExtension + 1008) & 0x8000LL;
-    v8 = (*(_QWORD *)(DeviceExtension + 1008) & 0x8000) != 0;
-    v9 = ACPIInternalGetDeviceExtension(*(_QWORD *)(DeviceExtension + 768));
-    if ( (unsigned __int8)IsNsobjPciBus(*(_QWORD *)(v9 + 760)) || v7 )
-    {
-      LOBYTE(v10) = v8;
-      EnableDisableRegions(*(_QWORD *)(v4 + 760), 0LL, v10);
-    }
+    v6 = *(_QWORD *)(DeviceExtension + 960) & 0x8000LL;
+    v7 = (*(_QWORD *)(DeviceExtension + 960) & 0x8000) != 0;
+    v8 = ACPIInternalGetDeviceExtension(*(_QWORD *)(DeviceExtension + 728));
+    if ( IsNsobjPciBus(*(volatile signed __int32 **)(v8 + 720)) || v6 )
+      EnableDisableRegions(*(__int64 **)(v4 + 720), 0, v7);
     CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
     *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
     *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
@@ -46,12 +42,12 @@ __int64 __fastcall ACPIFilterIrpStopDevice(ULONG_PTR a1, IRP *a2)
                                                                                + 6);
     CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
     CurrentStackLocation[-1].Control = 0;
-    v12 = a2->Tail.Overlay.CurrentStackLocation;
-    v12[-1].Context = 0LL;
-    v12[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIFilterIrpStopDeviceCompletion;
-    v12[-1].Control = -32;
-    _InterlockedIncrement((volatile signed __int32 *)(v4 + 728));
-    v5 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 776), a2);
+    v10 = a2->Tail.Overlay.CurrentStackLocation;
+    v10[-1].Context = 0LL;
+    v10[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIFilterIrpStopDeviceCompletion;
+    v10[-1].Control = -32;
+    _InterlockedIncrement((volatile signed __int32 *)(v4 + 688));
+    v5 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 736), a2);
   }
   else
   {
@@ -59,21 +55,24 @@ __int64 __fastcall ACPIFilterIrpStopDevice(ULONG_PTR a1, IRP *a2)
     a2->IoStatus.Status = -1073741808;
     IofCompleteRequest(a2, 0);
   }
+  v11 = 0x200000000000LL;
+  if ( (*(_QWORD *)(v4 + 8) & 0x200000000000LL) != 0 )
+    v11 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v6, 4u);
+    IrpText = ACPIDebugGetIrpText(v11, 4u);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v14,
+      v13,
       5u,
       0x1Du,
-      (__int64)&WPP_da1e537e7f723164eef71e38dd98447a_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       (char)a2,
-      (__int64)IrpText,
+      IrpText,
       v5,
       v4,
-      v15,
-      v16);
+      v14,
+      v15);
   }
   return v5;
 }

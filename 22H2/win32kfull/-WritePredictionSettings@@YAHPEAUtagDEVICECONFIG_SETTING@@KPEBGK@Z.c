@@ -1,12 +1,12 @@
 /*
- * XREFs of ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F38A0
+ * XREFs of ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C02094A8
  * Callers:
- *     WritePointerDeviceSettingsFull @ 0x1C01F3ABC (WritePointerDeviceSettingsFull.c)
+ *     WritePointerDeviceSettingsFull @ 0x1C020967C (WritePointerDeviceSettingsFull.c)
  * Callees:
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0043C68 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C01F3830 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1678 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C0209438 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
  */
 
 _BOOL8 __fastcall WritePredictionSettings(
@@ -15,7 +15,7 @@ _BOOL8 __fastcall WritePredictionSettings(
         const unsigned __int16 *a3)
 {
   unsigned int v3; // edi
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   const unsigned __int16 **v5; // rsi
   void *KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
   struct _UNICODE_STRING v8; // [rsp+40h] [rbp-C8h] BYREF
@@ -31,7 +31,7 @@ _BOOL8 __fastcall WritePredictionSettings(
   v4 = RtlUnicodeStringCopyString(&v8, a2);
   if ( v4 >= 0 )
   {
-    v4 = RtlUnicodeStringCatString(&v8, (wchar_t *)L"\\Software\\Microsoft\\TouchPrediction");
+    v4 = RtlUnicodeStringCatString(&v8, L"\\Software\\Microsoft\\TouchPrediction");
     if ( v4 >= 0 )
     {
       ObjectAttributes.Length = 48;
@@ -45,7 +45,7 @@ _BOOL8 __fastcall WritePredictionSettings(
         v5 = (const unsigned __int16 **)&gaPredictionSettings;
         do
         {
-          v4 = WritePointerDeviceCfgSetting(KeyHandle, *v5, 4u, (unsigned __int8 *)&dword_1C03542CC[4 * v3], 4u);
+          v4 = WritePointerDeviceCfgSetting(KeyHandle, *v5, 4u, (unsigned __int8 *)&dword_1C032A68C[4 * v3], 4u);
           if ( v4 < 0 )
             break;
           ++v3;

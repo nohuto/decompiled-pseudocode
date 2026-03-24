@@ -1,25 +1,27 @@
 /*
- * XREFs of SLQueryLicenseValueInternal @ 0x140811814
+ * XREFs of SLQueryLicenseValueInternal @ 0x1407AB444
  * Callers:
- *     ntoskrnl_27 @ 0x1407AF810 (ntoskrnl_27.c)
+ *     ntoskrnl_27 @ 0x14071F4A0 (ntoskrnl_27.c)
+ *     NtQueryLicenseValue @ 0x14071F530 (NtQueryLicenseValue.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     sub_140374F20 @ 0x140374F20 (sub_140374F20.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x140811DEC (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     SLGetSubscriptionPfn @ 0x1409FA3D8 (SLGetSubscriptionPfn.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     sub_1403B7A0C @ 0x1403B7A0C (sub_1403B7A0C.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1407ABA14 (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     SLGetSubscriptionPfn @ 0x14094DF88 (SLGetSubscriptionPfn.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SLQueryLicenseValueInternal(
@@ -36,7 +38,7 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   int v10; // r9d
   __int64 v11; // rcx
   unsigned __int16 v12; // ax
-  __int64 (**v13)[10]; // rbx
+  __int64 (**v13)[9]; // rbx
   size_t v14; // rdx
   __int64 *v15; // rax
   __int64 v16; // r12
@@ -47,7 +49,7 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   unsigned int v21; // r12d
   __int64 v22; // rcx
   unsigned __int16 v23; // ax
-  __int64 (**v24)[10]; // r11
+  __int64 (**v24)[9]; // r11
   size_t v25; // rdx
   unsigned int v27; // eax
   _WORD *v28; // r10
@@ -60,37 +62,37 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   int v35; // eax
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v37; // r13d
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   unsigned int v39; // r14d
   const wchar_t **v40; // r12
   char v41; // al
   int v42; // eax
   struct _KTHREAD *v43; // rax
   int v44; // eax
-  char v45; // [rsp+61h] [rbp-1A7h] BYREF
-  char v46; // [rsp+62h] [rbp-1A6h]
-  int v47; // [rsp+64h] [rbp-1A4h]
-  unsigned __int16 v48; // [rsp+6Ah] [rbp-19Eh]
-  unsigned int v49; // [rsp+6Ch] [rbp-19Ch] BYREF
-  wchar_t *Str1; // [rsp+70h] [rbp-198h]
-  unsigned int *v51; // [rsp+78h] [rbp-190h]
-  __int64 v52; // [rsp+80h] [rbp-188h]
-  int v53; // [rsp+88h] [rbp-180h]
-  __int64 v54; // [rsp+90h] [rbp-178h]
-  __int64 v55; // [rsp+98h] [rbp-170h]
-  __int64 (**v56)[10]; // [rsp+A0h] [rbp-168h]
-  int v57; // [rsp+A8h] [rbp-160h]
-  int v58; // [rsp+ACh] [rbp-15Ch] BYREF
-  PVOID P; // [rsp+B0h] [rbp-158h] BYREF
-  __int128 v60; // [rsp+B8h] [rbp-150h] BYREF
-  __int64 *v61; // [rsp+C8h] [rbp-140h]
-  __int64 v62; // [rsp+D8h] [rbp-130h]
-  __int64 v63; // [rsp+E8h] [rbp-120h]
-  const UNICODE_STRING *v64; // [rsp+F0h] [rbp-118h]
-  __int64 v65; // [rsp+F8h] [rbp-110h]
-  const void **p_Buffer; // [rsp+108h] [rbp-100h]
-  _QWORD v67[8]; // [rsp+110h] [rbp-F8h] BYREF
-  _BYTE Buf1[112]; // [rsp+150h] [rbp-B8h] BYREF
+  char v45; // [rsp+61h] [rbp-207h] BYREF
+  char v46; // [rsp+62h] [rbp-206h]
+  int v47; // [rsp+64h] [rbp-204h]
+  unsigned __int16 v48; // [rsp+6Ah] [rbp-1FEh]
+  unsigned int v49; // [rsp+6Ch] [rbp-1FCh] BYREF
+  wchar_t *Str1; // [rsp+70h] [rbp-1F8h]
+  unsigned int *v51; // [rsp+78h] [rbp-1F0h]
+  __int64 v52; // [rsp+80h] [rbp-1E8h]
+  int v53; // [rsp+88h] [rbp-1E0h]
+  __int64 v54; // [rsp+90h] [rbp-1D8h]
+  __int64 v55; // [rsp+98h] [rbp-1D0h]
+  __int64 (**v56)[9]; // [rsp+A0h] [rbp-1C8h]
+  int v57; // [rsp+A8h] [rbp-1C0h]
+  int v58; // [rsp+ACh] [rbp-1BCh] BYREF
+  PVOID P; // [rsp+B0h] [rbp-1B8h] BYREF
+  __int128 v60; // [rsp+B8h] [rbp-1B0h] BYREF
+  __int64 *v61; // [rsp+C8h] [rbp-1A0h]
+  __int64 v62; // [rsp+D8h] [rbp-190h]
+  __int64 v63; // [rsp+E8h] [rbp-180h]
+  const UNICODE_STRING *v64; // [rsp+F0h] [rbp-178h]
+  __int64 v65; // [rsp+F8h] [rbp-170h]
+  _QWORD v66[7]; // [rsp+108h] [rbp-160h] BYREF
+  _BYTE Buf1[112]; // [rsp+140h] [rbp-128h] BYREF
+  _BYTE v68[112]; // [rsp+1B0h] [rbp-B8h] BYREF
 
   v55 = a4;
   v52 = a3;
@@ -108,7 +110,7 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   Str1 = 0LL;
   P = 0LL;
   v58 = 0;
-  if ( !a2 || !a6 || (v9 = 0, v47 = 0, p_Buffer = (const void **)&a2->Buffer, !a2->Buffer) || a2->Length < 2u )
+  if ( !a2 || !a6 || (v9 = 0, v47 = 0, !a2->Buffer) || a2->Length < 2u )
   {
     v9 = -1073741811;
     goto LABEL_85;
@@ -124,8 +126,8 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   v11 = *((_QWORD *)&v60 + 1);
   v12 = **((_WORD **)&v60 + 1);
   v48 = **((_WORD **)&v60 + 1);
-  v56 = &off_140A77770;
-  v13 = &off_140A77770;
+  v56 = &off_140983320;
+  v13 = &off_140983320;
   while ( 1 )
   {
     v14 = *((unsigned __int16 *)v13 + 4);
@@ -226,9 +228,9 @@ LABEL_11:
   }
   v47 = 0;
   v49 = 0;
-  v9 = sub_140374F20(v7, (__int64)&qword_140A781C0, 0LL, (__int64)&v49, 4, (__int64)&v58);
+  v9 = sub_1403B7A0C(v7, (__int64)&qword_140983C30, 0LL, (__int64)&v49, 4, (__int64)&v58);
   v47 = v9;
-  if ( !qword_140D533F8 || !v49 || RtlEqualUnicodeString(a2, &stru_140A781B0, 0) )
+  if ( !qword_140D2D3E8 || !v49 || RtlEqualUnicodeString(a2, &stru_140983C40, 0) )
   {
 LABEL_15:
     v16 = v52;
@@ -236,26 +238,27 @@ LABEL_15:
     goto LABEL_16;
   }
   v37 = a2->Length + 2;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v37, 542329939LL);
-  v8 = Pool2;
-  Str1 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v37, 0x20534C53u);
+  v8 = PoolWithTag;
+  Str1 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v9 = -1073741801;
 LABEL_85:
     v47 = v9;
     goto LABEL_27;
   }
-  memmove(Pool2, *p_Buffer, a2->Length);
-  v67[0] = L"Security-SPP-GenuineLocalStatus";
-  v67[1] = L"Security-SPP-Action-StateData";
-  v67[2] = L"Security-SPP-LastWindowsActivationHResult";
-  v67[3] = L"Security-SPP-LastWindowsActivationTime";
-  v67[4] = L"Kernel-ExpirationDate";
-  v67[5] = L"SMR-HostManaged-Enabled";
-  v67[6] = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
+  memset(PoolWithTag, 0, v37);
+  memmove(v8, a2->Buffer, a2->Length);
+  v66[0] = L"Security-SPP-GenuineLocalStatus";
+  v66[1] = L"Security-SPP-Action-StateData";
+  v66[2] = L"Security-SPP-LastWindowsActivationHResult";
+  v66[3] = L"Security-SPP-LastWindowsActivationTime";
+  v66[4] = L"Kernel-ExpirationDate";
+  v66[5] = L"SMR-HostManaged-Enabled";
+  v66[6] = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
   v39 = 0;
-  v40 = (const wchar_t **)v67;
+  v40 = (const wchar_t **)v66;
   while ( wcsicmp(Str1, *v40) )
   {
     ++v39;
@@ -276,7 +279,7 @@ LABEL_68:
   SLGetSubscriptionPfn(v54, &P);
   v16 = v52;
   v17 = (__int64)v51;
-  v42 = qword_140D533F8(P, 0LL, 0LL, 0LL, Str1, v37, v55, a5, v51, v52, 0LL);
+  v42 = qword_140D2D3E8(P, 0LL, 0LL, 0LL, Str1, v37, v55, a5, v51, v52, 0LL);
   if ( (int)(v42 + 0x80000000) < 0 || v42 == -1073741789 )
   {
     v9 = v42;
@@ -294,7 +297,7 @@ LABEL_16:
   }
   if ( v18 )
   {
-    v9 = sub_140374F20(v7, (__int64)&v60, v16, v55, a5, v17);
+    v9 = sub_1403B7A0C(v7, (__int64)&v60, v16, v55, a5, v17);
     v47 = v9;
     if ( v9 == -1073741762 )
     {
@@ -315,7 +318,7 @@ LABEL_16:
   v22 = *((_QWORD *)&v60 + 1);
   v23 = **((_WORD **)&v60 + 1);
   v48 = **((_WORD **)&v60 + 1);
-  v24 = &off_140A77770;
+  v24 = &off_140983320;
   while ( 2 )
   {
     v25 = *((unsigned __int16 *)v24 + 4);
@@ -336,8 +339,8 @@ LABEL_22:
   v31 = v23 >> 1;
   if ( v31 )
   {
-    v32 = Buf1;
-    v33 = *(_QWORD *)(v22 + 8) - (_QWORD)Buf1;
+    v32 = v68;
+    v33 = *(_QWORD *)(v22 + 8) - (_QWORD)v68;
     v34 = v31;
     do
     {
@@ -349,7 +352,7 @@ LABEL_22:
     while ( v34 );
     v7 = v54;
   }
-  if ( memcmp(Buf1, *v24, v25) )
+  if ( memcmp(v68, *v24, v25) )
   {
     v22 = *((_QWORD *)&v60 + 1);
     v24 = v56;

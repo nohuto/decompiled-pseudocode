@@ -1,9 +1,9 @@
 /*
- * XREFs of MagnificationTransformPoint @ 0x1C01F6C64
+ * XREFs of MagnificationTransformPoint @ 0x1C0213A44
  * Callers:
- *     TransformForInputMagnification @ 0x1C014E870 (TransformForInputMagnification.c)
- *     ApplyMagInputTransform @ 0x1C01A5470 (ApplyMagInputTransform.c)
- *     EditionMagnificationMousePosition @ 0x1C01F6B70 (EditionMagnificationMousePosition.c)
+ *     ApplyMagInputTransform @ 0x1C01CECF0 (ApplyMagInputTransform.c)
+ *     TransformForInputMagnification @ 0x1C01CF0D0 (TransformForInputMagnification.c)
+ *     EditionMagnificationMousePosition @ 0x1C0213930 (EditionMagnificationMousePosition.c)
  * Callees:
  *     <none>
  */
@@ -11,30 +11,30 @@
 void __fastcall MagnificationTransformPoint(__int128 *a1, int *a2)
 {
   int v2; // r9d
-  int v3; // r11d
-  int v4; // r10d
-  int v5; // eax
-  __int128 v6; // [rsp+0h] [rbp-28h]
-  __int128 v7; // [rsp+10h] [rbp-18h]
+  int v4; // r11d
+  int v5; // r10d
+  int v6; // edx
+  __int128 v7; // [rsp+0h] [rbp-28h]
+  __int128 v8; // [rsp+10h] [rbp-18h]
 
   if ( a1 )
   {
     v2 = *((_DWORD *)a1 + 10);
-    v6 = *a1;
-    v7 = a1[1];
+    v7 = *a1;
+    v8 = a1[1];
     if ( v2 )
     {
-      v3 = *((_DWORD *)a1 + 11);
-      if ( v3 )
+      v4 = *((_DWORD *)a1 + 11);
+      if ( v4 )
       {
-        v4 = (((*a2 - (int)v7) << 8) + v2 / 2) / v2 + v6;
-        v5 = DWORD1(v6) + (((a2[1] - DWORD1(v7)) << 8) + v3 / 2) / v3;
-        if ( v4 >= DWORD2(v6) - 1 )
-          v4 = DWORD2(v6) - 1;
-        *a2 = v4;
-        if ( v5 >= HIDWORD(v6) - 1 )
-          v5 = HIDWORD(v6) - 1;
-        a2[1] = v5;
+        v5 = (((*a2 - (int)v8) << 8) + v2 / 2) / v2 + v7;
+        v6 = (((a2[1] - DWORD1(v8)) << 8) + v4 / 2) / v4 + DWORD1(v7);
+        if ( v5 >= DWORD2(v7) - 1 )
+          v5 = DWORD2(v7) - 1;
+        *a2 = v5;
+        if ( v6 >= HIDWORD(v7) - 1 )
+          v6 = HIDWORD(v7) - 1;
+        a2[1] = v6;
       }
     }
   }

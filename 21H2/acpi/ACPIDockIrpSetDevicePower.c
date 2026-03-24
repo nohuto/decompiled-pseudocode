@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDockIrpSetDevicePower @ 0x1C0049450
+ * XREFs of ACPIDockIrpSetDevicePower @ 0x1C002D924
  * Callers:
- *     ACPIBusIrpSetPower @ 0x1C0030A30 (ACPIBusIrpSetPower.c)
- *     ACPIDockIrpSetPower @ 0x1C00494B0 (ACPIDockIrpSetPower.c)
- *     ACPICMLidSetPower @ 0x1C004DC00 (ACPICMLidSetPower.c)
+ *     ACPIBusIrpSetPower @ 0x1C002D8F0 (ACPIBusIrpSetPower.c)
+ *     ACPIDockIrpSetPower @ 0x1C004A9D0 (ACPIDockIrpSetPower.c)
+ *     ACPICMLidSetPower @ 0x1C004EFB0 (ACPICMLidSetPower.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceIrpDeviceRequest @ 0x1C004F888 (ACPIDeviceIrpDeviceRequest.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceIrpDeviceRequest @ 0x1C002D984 (ACPIDeviceIrpDeviceRequest.c)
  */
 
 __int64 __fastcall ACPIDockIrpSetDevicePower(ULONG_PTR a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall ACPIDockIrpSetDevicePower(ULONG_PTR a1, __int64 a2)
   v5 = *(_QWORD *)(a2 + 184);
   *(_DWORD *)(a2 + 48) = 0;
   *(_BYTE *)(v5 + 3) |= 1u;
-  _InterlockedIncrement((volatile signed __int32 *)(DeviceExtension + 728));
+  _InterlockedIncrement((volatile signed __int32 *)(DeviceExtension + 688));
   result = ACPIDeviceIrpDeviceRequest(a1, a2, ACPIDeviceIrpCompleteRequest);
   if ( (_DWORD)result == -1073741802 )
     return 259LL;

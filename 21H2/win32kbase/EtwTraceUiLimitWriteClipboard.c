@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceUiLimitWriteClipboard @ 0x1C014F230
+ * XREFs of EtwTraceUiLimitWriteClipboard @ 0x1C0124540
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qm_EtwWriteTransfer @ 0x1C00CB650 (McTemplateK0qm_EtwWriteTransfer.c)
+ *     McTemplateK0qm_EtwWriteTransfer @ 0x1C00C7A28 (McTemplateK0qm_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall EtwTraceUiLimitWriteClipboard(__int64 a1, __int64 a2, __int64 a3)

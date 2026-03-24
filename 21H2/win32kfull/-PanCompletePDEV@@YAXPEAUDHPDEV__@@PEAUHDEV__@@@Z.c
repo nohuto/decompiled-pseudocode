@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PanCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C0292930
+ * XREFs of ?PanCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C0294F20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0294FAC (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0297528 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall PanCompletePDEV(struct DHPDEV__ *a1, HDEV a2)

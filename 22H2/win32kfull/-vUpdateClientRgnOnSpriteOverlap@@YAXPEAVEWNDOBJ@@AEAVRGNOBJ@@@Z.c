@@ -1,87 +1,74 @@
 /*
- * XREFs of ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C028789C
+ * XREFs of ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C0286ABC
  * Callers:
- *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0282EA4 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
- *     ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0283550 (-vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
+ *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0284904 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0284E4C (-vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
  * Callees:
- *     ?vStamp@REGION@@QEAAXXZ @ 0x1C001EA38 (-vStamp@REGION@@QEAAXXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0287334 (-bValid@EWNDOBJ@@QEBAHXZ.c)
- *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0287848 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0286578 (-bValid@EWNDOBJ@@QEBAHXZ.c)
+ *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0286A68 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
  */
 
 void __fastcall vUpdateClientRgnOnSpriteOverlap(struct EWNDOBJ *a1, struct RGNOBJ *a2)
 {
   _QWORD *v4; // rdx
   __int64 v5; // rcx
-  BOOL v6; // edi
-  Gre::Base *v7; // rcx
-  REGION *v8; // rcx
-  struct REGION *v9; // rdx
-  REGION *v10; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v13; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+80h] [rbp+30h] BYREF
-  __int64 v15; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v6; // r8
+  struct REGION *v7; // rdx
+  __int64 v8; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v9; // [rsp+28h] [rbp-28h] BYREF
+  _QWORD v10[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v11; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v12; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+28h] BYREF
 
   if ( EWNDOBJ::bValid(a1) && (*(_DWORD *)(v5 + 184) & 0x200) != 0 )
   {
-    v10 = *(REGION **)(v5 + 56);
-    v15 = *(_QWORD *)(v5 + 192);
-    if ( v15 )
+    v13 = *(_QWORD *)(v5 + 56);
+    v12 = *(_QWORD *)(v5 + 192);
+    if ( v12 )
     {
       if ( *v4 )
       {
-        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v14);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v14);
-        if ( v14 )
+        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v10);
+        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v10);
+        if ( v10[0] )
         {
-          v6 = 0;
           if ( (unsigned int)RGNOBJ::iComplexity(a2) == 1 )
           {
-            RGNOBJ::bCopy((RGNOBJ *)&v14, (struct RGNOBJ *)&v15);
+            RGNOBJ::bCopy((RGNOBJ *)v10, (struct RGNOBJ *)&v12);
           }
-          else
+          else if ( !RGNOBJ::bMerge((RGNOBJ *)v10, a2, (struct RGNOBJ *)&v12, 8u)
+                 || (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v10) == 1
+                 || (RGNOBJ::vSwap((RGNOBJ *)v10, a2), !RGNOBJ::bMerge((RGNOBJ *)v10, (struct RGNOBJ *)&v12, a2, 4u))
+                 || (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v10) == 1 )
           {
-            if ( RGNOBJ::bMerge((RGNOBJ *)&v14, a2, (struct RGNOBJ *)&v15, 8u) )
-            {
-              if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v14) != 1 )
-              {
-                RGNOBJ::vSwap((RGNOBJ *)&v14, a2);
-                if ( RGNOBJ::bMerge((RGNOBJ *)&v14, (struct RGNOBJ *)&v15, a2, 4u) )
-                  v6 = RGNOBJ::iComplexity((RGNOBJ *)&v14) != 1;
-              }
-            }
-            if ( !v6 )
-            {
-              RGNOBJ::vSet((RGNOBJ *)&v14);
-              goto LABEL_16;
-            }
+            RGNOBJ::vSet((RGNOBJ *)v10);
+            goto LABEL_15;
           }
-          if ( !RGNOBJ::bEqual((RGNOBJ *)&v10, (struct RGNOBJ *)&v14) )
+          if ( !RGNOBJ::bEqual((RGNOBJ *)&v13, (struct RGNOBJ *)v10) )
           {
-            v12 = *((_QWORD *)Gre::Base::Globals(v7) + 7);
-            GreAcquireSemaphore(v12);
-            v11 = *((_QWORD *)a1 + 25);
-            GreAcquireSemaphore(v11);
-            RGNOBJ::vSwap((RGNOBJ *)&v14, (struct RGNOBJ *)&v10);
-            v8 = v10;
-            *((_QWORD *)a1 + 7) = v10;
-            REGION::vStamp(v8);
-            v9 = (struct REGION *)*((_QWORD *)a1 + 7);
-            v13 = *((_OWORD *)a1 + 2);
-            EWNDOBJ::vSetClip((__int64)a1, v9, &v13);
+            v9 = ghsemWndobj;
+            GreAcquireSemaphore(ghsemWndobj);
+            v8 = *((_QWORD *)a1 + 25);
+            GreAcquireSemaphore(v8);
+            RGNOBJ::vSwap((RGNOBJ *)v10, (struct RGNOBJ *)&v13);
+            v6 = v13;
+            *((_QWORD *)a1 + 7) = v13;
+            *(_DWORD *)(v6 + 28) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
+            v7 = (struct REGION *)*((_QWORD *)a1 + 7);
+            v11 = *((_OWORD *)a1 + 2);
+            EWNDOBJ::vSetClip((__int64)a1, v7, &v11);
             (*(void (__fastcall **)(struct EWNDOBJ *, __int64))(*((_QWORD *)a1 + 21) + 40LL))(a1, 512LL);
-            SEMOBJ::vUnlock((SEMOBJ *)&v11);
-            SEMOBJ::vUnlock((SEMOBJ *)&v12);
+            SEMOBJ::vUnlock((SEMOBJ *)&v8);
+            SEMOBJ::vUnlock((SEMOBJ *)&v9);
           }
         }
-LABEL_16:
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v14);
+LABEL_15:
+        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v10);
       }
     }
   }

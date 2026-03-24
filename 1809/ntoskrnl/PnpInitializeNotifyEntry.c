@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpInitializeNotifyEntry @ 0x1407035E4
+ * XREFs of PnpInitializeNotifyEntry @ 0x1407035C4
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140703160 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwOpenSession @ 0x1401BA630 (ZwOpenSession.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwOpenSession @ 0x1401BA650 (ZwOpenSession.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

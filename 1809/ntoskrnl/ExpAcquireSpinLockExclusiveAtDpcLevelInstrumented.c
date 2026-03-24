@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4
+ * XREFs of ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4
  * Callers:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
@@ -30,21 +30,21 @@
  *     MiCheckPurgeAndUpMapCount @ 0x140077DD0 (MiCheckPurgeAndUpMapCount.c)
  *     MiRemoveWsleList @ 0x14007AF50 (MiRemoveWsleList.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIdentifyPfn @ 0x1400A7EC0 (MiIdentifyPfn.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     CcCanIWrite @ 0x140104D00 (CcCanIWrite.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x140111F00 (MmDoesFileHaveUserWritableReferences.c)
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
+ *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140111F20 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x1400BC680 (ExpAcquireSpinLockExclusive.c)
- *     PerfLogSpinLockAcquire @ 0x1403139C4 (PerfLogSpinLockAcquire.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
+ *     PerfLogSpinLockAcquire @ 0x140313AC4 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(

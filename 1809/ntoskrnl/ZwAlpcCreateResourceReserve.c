@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcCreateResourceReserve @ 0x1401B90D0
+ * XREFs of ZwAlpcCreateResourceReserve @ 0x1401B90F0
  * Callers:
  *     <none>
  * Callees:

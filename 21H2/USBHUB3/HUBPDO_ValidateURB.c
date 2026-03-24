@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_ValidateURB @ 0x1C00162F8
+ * XREFs of HUBPDO_ValidateURB @ 0x1C0015E30
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
  * Callees:
- *     McTemplateK0ppn_EtwWriteTransfer @ 0x1C00131B0 (McTemplateK0ppn_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0013B2C (WPP_RECORDER_SF_dq.c)
- *     WPP_RECORDER_SF_dqd @ 0x1C0013C0C (WPP_RECORDER_SF_dqd.c)
+ *     McTemplateK0ppn_EtwWriteTransfer @ 0x1C0012CAC (McTemplateK0ppn_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0013564 (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C0013644 (WPP_RECORDER_SF_dqd.c)
  */
 
 __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -72,7 +72,7 @@ __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 
         3u,
         a3,
         0x2Eu,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v10,
         a2);
     }

@@ -1,15 +1,15 @@
 /*
- * XREFs of FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003E270
+ * XREFs of FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003DBF0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_Ld @ 0x1C000C19C (WPP_RECORDER_SF_Ld.c)
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230 (McTemplateK0ppqq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C000BDB4 (WPP_RECORDER_SF_Ld.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -55,7 +55,7 @@ NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, 
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           v9,
-          off_1C0067170);
+          off_1C0066148);
   v11 = *(_QWORD *)v10;
   if ( *(_BYTE *)(v10 + 24) == 1 )
   {
@@ -65,7 +65,7 @@ NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, 
         2u,
         3u,
         0x17u,
-        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
     v7 = -1073741810;
     goto LABEL_81;
   }
@@ -94,7 +94,7 @@ NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, 
           2u,
           3u,
           0x21u,
-          (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+          (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
           Prioritya);
       }
       v14 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(WdfDriverGlobals, a2);
@@ -110,7 +110,7 @@ NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, 
         2u,
         3u,
         0x22u,
-        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
         a5);
     goto LABEL_80;
   }
@@ -150,7 +150,7 @@ NTSTATUS __fastcall FWUPDATE_EvtIoInternalDeviceControl(__int64 a1, __int64 a2, 
           4u,
           3u,
           0x1Bu,
-          (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+          (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
       }
       goto LABEL_63;
     case 1:
@@ -206,7 +206,7 @@ LABEL_78:
             2u,
             3u,
             v20,
-            (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+            (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
           goto LABEL_79;
         }
         goto LABEL_79;
@@ -217,7 +217,7 @@ LABEL_78:
         if ( v22 > 0x12 )
           v22 = 18;
         v23 = v22;
-        memmove(v19, FwUpdateDeviceDescriptor, v22);
+        memmove(v19, &FwUpdateDeviceDescriptor, v22);
         *((_WORD *)v19 + 4) = *(_WORD *)(v11 + 2464);
         *((_WORD *)v19 + 5) = *(_WORD *)(v11 + 2466);
         *((_WORD *)v19 + 6) = *(_WORD *)(v11 + 2468);
@@ -238,7 +238,7 @@ LABEL_37:
             2u,
             3u,
             v21,
-            (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+            (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
             Priority);
           goto LABEL_79;
         }
@@ -289,7 +289,7 @@ LABEL_53:
           v25,
           3u,
           0x1Fu,
-          (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+          (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
           *(unsigned __int16 *)(v8 + 2),
           v31);
       }
@@ -310,7 +310,7 @@ LABEL_53:
         2u,
         3u,
         0x20u,
-        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
         v17);
     goto LABEL_79;
   }
@@ -320,7 +320,7 @@ LABEL_50:
   v7 = -1073741811;
   *(_DWORD *)(v8 + 4) = -2147482880;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(v11 + 2520), 2u, 3u, 0x1Eu, (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(v11 + 2520), 2u, 3u, 0x1Eu, (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
 LABEL_81:
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2104))(
              WdfDriverGlobals,

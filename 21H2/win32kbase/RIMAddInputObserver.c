@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMAddInputObserver @ 0x1C0181670
+ * XREFs of RIMAddInputObserver @ 0x1C0154D30
  * Callers:
  *     <none>
  * Callees:
- *     rimObsAddInputObserver @ 0x1C01B320C (rimObsAddInputObserver.c)
+ *     rimObsAddInputObserver @ 0x1C017D8AC (rimObsAddInputObserver.c)
  */
 
 __int64 __fastcall RIMAddInputObserver(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, __int64 a9)

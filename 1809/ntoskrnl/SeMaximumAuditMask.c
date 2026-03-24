@@ -1,9 +1,9 @@
 /*
- * XREFs of SeMaximumAuditMask @ 0x1402FE770
+ * XREFs of SeMaximumAuditMask @ 0x1402FE870
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     SeSecurityDescriptorChangedAuditAlarm @ 0x1405BA094 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A20 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfEvtDeviceUsageNotification @ 0x1C00C6130
+ * XREFs of VfEvtDeviceUsageNotification @ 0x1C00C50B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     VerifyCriticalRegionEntry @ 0x1C0061A6C (VerifyCriticalRegionEntry.c)
- *     VerifyCriticalRegionExit @ 0x1C0061AA0 (VerifyCriticalRegionExit.c)
- *     VerifyIrqlExit @ 0x1C0061B08 (VerifyIrqlExit.c)
- *     VfWdfObjectGetTypedContext @ 0x1C00C5534 (VfWdfObjectGetTypedContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     VerifyCriticalRegionEntry @ 0x1C004406C (VerifyCriticalRegionEntry.c)
+ *     VerifyCriticalRegionExit @ 0x1C0044098 (VerifyCriticalRegionExit.c)
+ *     VerifyIrqlExit @ 0x1C00440F8 (VerifyIrqlExit.c)
+ *     VfWdfObjectGetTypedContext @ 0x1C00C4514 (VfWdfObjectGetTypedContext.c)
  */
 
 void __fastcall VfEvtDeviceUsageNotification(
@@ -17,11 +17,11 @@ void __fastcall VfEvtDeviceUsageNotification(
 {
   char *TypedContext; // rdi
   void (__fastcall *v7)(WDFDEVICE__ *, _QWORD, __int64); // rsi
-  KIRQL CurrentIrql; // bl
+  unsigned __int8 CurrentIrql; // bl
   __int64 v9; // r8
   unsigned __int8 critRegion; // [rsp+58h] [rbp+20h] BYREF
 
-  TypedContext = VfWdfObjectGetTypedContext((unsigned __int64)Device, &WDF_VF_WDFDEVICECREATE_CONTEXT_TYPE_INFO);
+  TypedContext = VfWdfObjectGetTypedContext(Device, &WDF_VF_WDFDEVICECREATE_CONTEXT_TYPE_INFO);
   v7 = (void (__fastcall *)(WDFDEVICE__ *, _QWORD, __int64))*((_QWORD *)TypedContext + 16);
   if ( v7 )
   {

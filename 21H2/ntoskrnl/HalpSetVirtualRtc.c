@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetVirtualRtc @ 0x14022DA40
+ * XREFs of HalpSetVirtualRtc @ 0x1402B617C
  * Callers:
- *     HalQueryRealTimeClock @ 0x14022D360 (HalQueryRealTimeClock.c)
- *     HalCalibratePerformanceCounter @ 0x14038B8D0 (HalCalibratePerformanceCounter.c)
- *     HalpSetResumeTime @ 0x14039157C (HalpSetResumeTime.c)
- *     HalSetRealTimeClock @ 0x140503420 (HalSetRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x1402B5570 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x140383F60 (HalCalibratePerformanceCounter.c)
+ *     HalpSetResumeTime @ 0x140386740 (HalpSetResumeTime.c)
+ *     HalSetRealTimeClock @ 0x1404B6B40 (HalSetRealTimeClock.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14022DB00 (RtlGetSystemTimePrecise.c)
- *     RtlpTimeToTimeFields @ 0x1402D1A48 (RtlpTimeToTimeFields.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
+ *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
  */
 
 char __fastcall HalpSetVirtualRtc(__int64 *a1, __int64 a2, __int64 a3)
@@ -30,18 +30,18 @@ char __fastcall HalpSetVirtualRtc(__int64 *a1, __int64 a2, __int64 a3)
   {
     if ( SystemPowerPhase )
       return 0;
-    SystemTimePrecise = RtlGetSystemTimePrecise(0LL, a2, a3);
+    SystemTimePrecise = RtlGetSystemTimePrecise();
     v8 = SystemTimePrecise;
   }
-  RtlpTimeToTimeFields(&v8, &v7);
+  RtlpTimeToTimeFields(&v8, &v7, a3);
   if ( (__int16)v7 <= 1601 )
     return 0;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  dword_140C4C700 = PerformanceCounter.HighPart;
-  qword_140C4C6F8 = PerformanceCounter.QuadPart;
-  dword_140C4C6F4 = HIDWORD(v8);
-  qword_140C4C6EC = SystemTimePrecise;
-  dword_140C4C6E8 = PerformanceCounter.HighPart;
+  dword_140C4A600 = PerformanceCounter.HighPart;
+  qword_140C4A5F8 = PerformanceCounter.QuadPart;
+  dword_140C4A5F4 = HIDWORD(v8);
+  qword_140C4A5EC = SystemTimePrecise;
+  dword_140C4A5E8 = PerformanceCounter.HighPart;
   VrtcTime = PerformanceCounter.QuadPart;
   if ( a1 )
     HalpVrtcTimeStale = 0;

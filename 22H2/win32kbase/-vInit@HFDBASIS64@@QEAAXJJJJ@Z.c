@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C015E268
+ * XREFs of ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C0141564
  * Callers:
- *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C015D730 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
- *     ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C015E0F0 (-vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C0140E30 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C01413E0 (-vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,33 +11,31 @@ void __fastcall HFDBASIS64::vInit(HFDBASIS64 *this, int a2, int a3, int a4, int 
 {
   __int64 v5; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // r9
+  __int64 v8; // r8
+  __int64 v9; // rax
   __int64 v10; // r8
-  __int64 v11; // r8
-  __int64 v12; // rax
+  __int64 v11; // rax
 
   v5 = a3;
-  v7 = a4;
-  v8 = a3;
-  v9 = 2LL;
-  v10 = 2LL;
+  v7 = 2LL;
+  v8 = 2LL;
+  v9 = v5;
   do
   {
-    v8 -= v7;
-    --v10;
+    v9 -= a4;
+    --v8;
   }
-  while ( v10 );
-  v11 = a5 + v8;
-  v12 = a2;
+  while ( v8 );
+  v10 = a5 + v9;
+  v11 = a2;
   do
   {
-    v12 -= v5;
-    --v9;
+    v11 -= v5;
+    --v7;
   }
-  while ( v9 );
+  while ( v7 );
   *(_QWORD *)this = (__int64)a2 << 28;
-  *((_QWORD *)this + 2) = 1610612736 * v11;
-  *((_QWORD *)this + 3) = 1610612736 * (v12 + v7);
+  *((_QWORD *)this + 2) = 1610612736 * v10;
+  *((_QWORD *)this + 3) = 1610612736 * (v11 + a4);
   *((_QWORD *)this + 1) = (a5 - (__int64)a2) << 28;
 }

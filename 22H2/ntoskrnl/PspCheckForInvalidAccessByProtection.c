@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCheckForInvalidAccessByProtection @ 0x1406B825C
+ * XREFs of PspCheckForInvalidAccessByProtection @ 0x140607A2C
  * Callers:
- *     PsTestProtectedProcessIncompatibility @ 0x1406B8204 (PsTestProtectedProcessIncompatibility.c)
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x1406079D8 (PsTestProtectedProcessIncompatibility.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
  * Callees:
- *     RtlTestProtectedAccess @ 0x1406B828C (RtlTestProtectedAccess.c)
+ *     RtlTestProtectedAccess @ 0x140607A5C (RtlTestProtectedAccess.c)
  */
 
 bool __fastcall PspCheckForInvalidAccessByProtection(__int64 a1, __int64 a2, char a3)

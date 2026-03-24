@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpAeMeasureContention @ 0x1403CB204
+ * XREFs of ExpAeMeasureContention @ 0x1403BD064
  * Callers:
- *     ExpAeThresholdInitWorker @ 0x1403CB160 (ExpAeThresholdInitWorker.c)
- *     ExpAeThresholdInitialization @ 0x140B1A290 (ExpAeThresholdInitialization.c)
+ *     ExpAeThresholdInitWorker @ 0x1403BCFC0 (ExpAeThresholdInitWorker.c)
+ *     ExpAeThresholdInitialization @ 0x140A66D28 (ExpAeThresholdInitialization.c)
  * Callees:
  *     <none>
  */

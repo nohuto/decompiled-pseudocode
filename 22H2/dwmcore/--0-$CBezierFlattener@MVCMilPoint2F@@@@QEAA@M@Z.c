@@ -1,23 +1,31 @@
 /*
- * XREFs of ??0?$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z @ 0x1800159A8
+ * XREFs of ??0?$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z @ 0x1801B5928
  * Callers:
- *     ??0CTrimPathOperation@@QEAA@XZ @ 0x18001536C (--0CTrimPathOperation@@QEAA@XZ.c)
- *     ??0CPathLengthOperation@@QEAA@XZ @ 0x1800158E8 (--0CPathLengthOperation@@QEAA@XZ.c)
+ *     ??0CTrimPathOperation@@QEAA@XZ @ 0x1801B59B4 (--0CTrimPathOperation@@QEAA@XZ.c)
+ *     ??0CPathLengthOperation@@QEAA@XZ @ 0x18025E1AC (--0CPathLengthOperation@@QEAA@XZ.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
-float *__fastcall CBezierFlattener<float,CMilPoint2F>::CBezierFlattener<float,CMilPoint2F>(float *a1, float a2)
+__int64 __fastcall CBezierFlattener<float,CMilPoint2F>::CBezierFlattener<float,CMilPoint2F>(__int64 a1, float a2)
 {
-  float *result; // rax
+  __int64 result; // rax
   float v4; // xmm6_4
 
-  `vector constructor iterator'(a1, 8uLL, 4uLL, (void *(*)(void *))CMilPoint2F::CMilPoint2F);
-  `vector constructor iterator'(a1 + 12, 8uLL, 4uLL, (void *(*)(void *))CMilPoint2F::CMilPoint2F);
+  `vector constructor iterator'(
+    (char *)a1,
+    8LL,
+    4LL,
+    (void (__fastcall *)(char *))Microsoft::BamoImpl::BamoPrincipalImpl::AsPrincipal);
+  `vector constructor iterator'(
+    (char *)(a1 + 48),
+    8LL,
+    4LL,
+    (void (__fastcall *)(char *))Microsoft::BamoImpl::BamoPrincipalImpl::AsPrincipal);
   result = a1;
   v4 = fmaxf(a2, 0.0) * 6.0;
-  a1[11] = (float)(a2 * a2) * 0.000099999997;
-  a1[8] = v4;
-  a1[10] = v4 * 0.25;
+  *(float *)(a1 + 44) = (float)(a2 * a2) * 0.000099999997;
+  *(float *)(a1 + 32) = v4;
+  *(float *)(a1 + 40) = v4 * 0.25;
   return result;
 }

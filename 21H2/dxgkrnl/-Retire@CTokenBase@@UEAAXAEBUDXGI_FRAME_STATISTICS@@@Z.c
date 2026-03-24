@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Retire@CTokenBase@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C0020530
+ * XREFs of ?Retire@CTokenBase@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C001B930
  * Callers:
  *     <none>
  * Callees:

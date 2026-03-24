@@ -1,20 +1,20 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x14067EB10
+ * XREFs of PiIsDriverBlocked @ 0x14067EAF0
  * Callers:
- *     PiLookupInDDB @ 0x14067EE2C (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14067EE0C (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ExIsProcessorFeaturePresent @ 0x140139700 (ExIsProcessorFeaturePresent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     SdbGetDatabaseMatch @ 0x14067E81C (SdbGetDatabaseMatch.c)
- *     PiUpdateDriverDBCache @ 0x14067EC88 (PiUpdateDriverDBCache.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbTagRefToTagID @ 0x14072276C (SdbTagRefToTagID.c)
- *     SdbQueryDataExTagID @ 0x1407229A4 (SdbQueryDataExTagID.c)
- *     SdbReadEntryInformation @ 0x140722BC0 (SdbReadEntryInformation.c)
- *     PiIsHVCIEnabled @ 0x1407639B0 (PiIsHVCIEnabled.c)
- *     PnpLogEvent @ 0x140827E0C (PnpLogEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ExIsProcessorFeaturePresent @ 0x140139720 (ExIsProcessorFeaturePresent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     SdbGetDatabaseMatch @ 0x14067E7FC (SdbGetDatabaseMatch.c)
+ *     PiUpdateDriverDBCache @ 0x14067EC68 (PiUpdateDriverDBCache.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbTagRefToTagID @ 0x14072274C (SdbTagRefToTagID.c)
+ *     SdbQueryDataExTagID @ 0x140722984 (SdbQueryDataExTagID.c)
+ *     SdbReadEntryInformation @ 0x140722BA0 (SdbReadEntryInformation.c)
+ *     PiIsHVCIEnabled @ 0x140763990 (PiIsHVCIEnabled.c)
+ *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)

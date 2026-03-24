@@ -1,16 +1,16 @@
 /*
- * XREFs of Command_ASMediaGetFirmwareVersionHighCommandCompletion @ 0x1C002F5B0
+ * XREFs of Command_ASMediaGetFirmwareVersionHighCommandCompletion @ 0x1C002DC00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a1)
 {
   __int64 *v1; // rbx
-  __int64 v2; // rsi
+  __int64 v2; // rdi
   int v3; // edx
 
   v1 = *(__int64 **)(a1 + 48);
@@ -21,12 +21,12 @@ LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a
     {
       v3 = *((unsigned __int8 *)v1 + 42);
       LOBYTE(v3) = 4;
-      WPP_RECORDER_SF_DDD(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(v2 + 16),
         v3,
         7,
         23,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
         *((_BYTE *)v1 + 42),
         *((_BYTE *)v1 + 41),
         *((_DWORD *)v1 + 10));
@@ -42,7 +42,7 @@ LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a
         3,
         7,
         24,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
         *((_BYTE *)v1 + 43));
   }
   return KeSetEvent((PRKEVENT)(v1 + 13), 0, 0);

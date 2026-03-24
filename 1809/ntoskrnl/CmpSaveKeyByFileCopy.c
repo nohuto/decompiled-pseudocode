@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSaveKeyByFileCopy @ 0x1408032B0
+ * XREFs of CmpSaveKeyByFileCopy @ 0x140803290
  * Callers:
- *     CmSaveKey @ 0x140801F50 (CmSaveKey.c)
+ *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpFileFlush @ 0x1406B8938 (CmpFileFlush.c)
- *     CmpFileRead @ 0x1406C28C0 (CmpFileRead.c)
- *     CmpFileWrite @ 0x1406C8080 (CmpFileWrite.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736470 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407368A0 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFileFlush @ 0x1406B8918 (CmpFileFlush.c)
+ *     CmpFileRead @ 0x1406C28A0 (CmpFileRead.c)
+ *     CmpFileWrite @ 0x1406C8060 (CmpFileWrite.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736450 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140736880 (CmpBecomeActiveFlusherAndReconciler.c)
  */
 
 __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)

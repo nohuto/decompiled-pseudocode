@@ -3,7 +3,7 @@
  * Callers:
  *     PopStatsMarkPowerRequestInactive @ 0x14058866C (PopStatsMarkPowerRequestInactive.c)
  *     PopPausePowerRequestStats @ 0x14058878C (PopPausePowerRequestStats.c)
- *     PopStatsNotifyAudioState @ 0x1406DB6EC (PopStatsNotifyAudioState.c)
+ *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
  * Callees:
  *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x140001E98 (PopInternalUpdateActiveStopWatchesCollectionState.c)
  *     PopInternalUpdateStopWatchState @ 0x140001EF8 (PopInternalUpdateStopWatchState.c)

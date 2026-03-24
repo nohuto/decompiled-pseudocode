@@ -1,309 +1,271 @@
 /*
- * XREFs of ?ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@AEAAXPEAUHighResourceUsageReport@1@@Z @ 0x1800E6E7C
+ * XREFs of ?ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@AEAAXPEAUHighResourceUsageReport@1@@Z @ 0x1800EAAAC
  * Callers:
- *     ?ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800E6D70 (-ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@CAXPEAU_TP_CALLBACK_INSTANCE.c)
+ *     ?ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800DF020 (-ReportHighResourceUsageWorker@CProcessResourceAttributionReporter@@CAXPEAU_TP_CALLBACK_INSTANCE.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ??$_Emplace_reallocate@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@?$vector@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@V?$allocator@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800E7214 (--$_Emplace_reallocate@V-$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResource.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U1@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@443444444@Z @ 0x1800E72FC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U1@U2@U2@U2@U2@U2@U2@@-$_tlgWri.c)
- *     ?IsLessThan@ResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@SA_NAEBV?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@_K@Z @ 0x1800EA758 (-IsLessThan@ResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@SA_NA.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??$?4U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@$0A@@?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801D2618 (--$-4U-$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionRep.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?IsLessThan@ResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@SA_NAEBV?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@_K@Z @ 0x1800CDA88 (-IsLessThan@ResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@SA_NA.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U1@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@443444444@Z @ 0x180152E78 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U1@U2@U2@U2@U2@U2@U2@@-$_tlgWri.c)
+ *     ??$emplace@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@?$vector@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@V?$allocator@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@@std@@@std@@@1@$$QEAV?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@1@@Z @ 0x180153138 (--$emplace@V-$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionR.c)
+ *     ??1?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@QEAA@XZ @ 0x1801531FC (--1-$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@.c)
+ *     ??4?$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@U?$default_delete@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801532E4 (--4-$unique_ptr@UResourceThresholdForProcessSequenceNumber@CProcessResourceAttributionReporter@@.c)
  */
 
 void __fastcall CProcessResourceAttributionReporter::ReportHighResourceUsageWorker(
         CProcessResourceAttributionReporter *this,
-        struct CProcessResourceAttributionReporter::HighResourceUsageReport *a2)
+        struct CProcessResourceAttributionReporter::HighResourceUsageReport *a2,
+        _DWORD *a3)
 {
-  int *v3; // rbx
-  _QWORD *v4; // rax
-  _QWORD *v5; // rsi
-  unsigned __int64 v6; // rdi
-  int v7; // r9d
-  int v8; // r10d
-  int v9; // r11d
-  int v10; // edi
-  int v11; // r12d
-  int v12; // r13d
-  _DWORD *v13; // rax
-  __int64 v14; // r15
-  _DWORD *v15; // rax
-  int v16; // ecx
-  int v17; // r8d
-  int v18; // r9d
-  int v19; // r10d
-  int v20; // r11d
-  _QWORD *v21; // rax
-  _DWORD *v22; // r8
-  int v23; // edx
-  _QWORD *v24; // rcx
-  void *v25; // rcx
-  _QWORD *v26; // rdi
-  void *v27; // rcx
-  int v28; // ecx
-  int v29; // r8d
-  _QWORD *v30; // rdi
-  __int64 v31; // rax
-  _QWORD *v32; // rcx
-  int v33; // [rsp+80h] [rbp-39h] BYREF
-  int v34; // [rsp+84h] [rbp-35h] BYREF
-  int v35; // [rsp+88h] [rbp-31h] BYREF
-  int v36; // [rsp+8Ch] [rbp-2Dh] BYREF
-  int v37; // [rsp+90h] [rbp-29h] BYREF
-  int v38; // [rsp+94h] [rbp-25h] BYREF
-  int v39; // [rsp+98h] [rbp-21h] BYREF
-  int v40; // [rsp+9Ch] [rbp-1Dh] BYREF
-  void *v41; // [rsp+A0h] [rbp-19h] BYREF
-  int v42; // [rsp+A8h] [rbp-11h]
-  __int64 v43; // [rsp+B0h] [rbp-9h] BYREF
-  __int64 v44; // [rsp+B8h] [rbp-1h] BYREF
-  int *v45; // [rsp+C0h] [rbp+7h]
-  char *v46; // [rsp+C8h] [rbp+Fh]
-  void *v47; // [rsp+D0h] [rbp+17h] BYREF
-  char v48; // [rsp+128h] [rbp+6Fh]
-  int v49; // [rsp+130h] [rbp+77h]
-  int v50; // [rsp+138h] [rbp+7Fh]
+  CProcessResourceAttributionReporter *v3; // r14
+  int *v4; // rbx
+  __int64 *v5; // rax
+  __int64 v6; // rsi
+  __int64 v7; // rax
+  __int64 v8; // rdi
+  int v9; // edx
+  int v10; // r9d
+  int v11; // edi
+  int v12; // r15d
+  int v13; // r12d
+  int v14; // r13d
+  __int64 v15; // r10
+  char v16; // al
+  _DWORD *v18; // rax
+  _DWORD *v19; // r8
+  __int64 v20; // r15
+  __int64 v21; // rdi
+  int v22; // [rsp+80h] [rbp-29h] BYREF
+  int v23; // [rsp+84h] [rbp-25h] BYREF
+  int v24; // [rsp+88h] [rbp-21h] BYREF
+  int v25; // [rsp+8Ch] [rbp-1Dh] BYREF
+  int v26; // [rsp+90h] [rbp-19h] BYREF
+  int v27; // [rsp+94h] [rbp-15h] BYREF
+  int v28; // [rsp+98h] [rbp-11h] BYREF
+  int v29; // [rsp+9Ch] [rbp-Dh] BYREF
+  _DWORD *v30; // [rsp+A0h] [rbp-9h] BYREF
+  __int64 v31; // [rsp+A8h] [rbp-1h] BYREF
+  __int64 v32; // [rsp+B0h] [rbp+7h] BYREF
+  int *v33; // [rsp+B8h] [rbp+Fh]
+  char v34[64]; // [rsp+C0h] [rbp+17h] BYREF
+  char v35; // [rsp+118h] [rbp+6Fh]
+  int v36; // [rsp+120h] [rbp+77h]
+  int v37; // [rsp+128h] [rbp+7Fh]
 
-  v3 = (int *)*((_QWORD *)a2 + 2);
-  v45 = (int *)*((_QWORD *)a2 + 3);
-  if ( v3 != v45 )
+  v3 = this;
+  v4 = (int *)*((_QWORD *)a2 + 2);
+  v33 = (int *)*((_QWORD *)a2 + 3);
+  if ( v4 != v33 )
   {
-    v4 = (_QWORD *)((char *)this + 32);
-    while ( 1 )
+    v5 = (__int64 *)((char *)this + 32);
+    do
     {
-      v5 = (_QWORD *)*v4;
-      v48 = 0;
-      v6 = (__int64)(*((_QWORD *)this + 5) - *v4) >> 3;
-      while ( (__int64)v6 > 0 )
+      v6 = *v5;
+      v7 = *((_QWORD *)v3 + 5);
+      v35 = 0;
+      v8 = (v7 - v6) >> 3;
+      if ( v8 > 0 )
       {
-        if ( (unsigned __int8)CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber::IsLessThan(
-                                &v5[v6 >> 1],
-                                *((_QWORD *)v3 + 1)) )
+        do
         {
-          v5 += (v6 >> 1) + 1;
-          v6 += -1LL - (v6 >> 1);
-        }
-        else
-        {
-          v6 >>= 1;
-        }
-      }
-      v7 = v3[23];
-      v8 = v3[19];
-      v9 = v3[22];
-      v10 = v3[21];
-      v11 = v3[24];
-      v12 = v3[20];
-      v49 = v7;
-      v50 = v8;
-      v42 = v9;
-      if ( v5 != *((_QWORD **)this + 5) )
-      {
-        v13 = (_DWORD *)*v5;
-        v14 = *((_QWORD *)v3 + 1);
-        if ( *(_QWORD *)*v5 == v14 )
-        {
-          v48 = 1;
-          if ( v10 > v13[2] || v11 > v13[3] || v12 > v13[4] || v7 > v13[5] || v8 > v13[6] || v9 > v13[7] )
+          if ( CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber::IsLessThan(
+                 (unsigned __int64 **)(v6 + 8 * (v8 >> 1)),
+                 *((_QWORD *)v4 + 1)) )
           {
-            if ( (unsigned int)dword_1803E3B40 > 5 && tlgKeywordOn((__int64)&dword_1803E3B40, 0x400000000000LL) )
-            {
-              v39 = *v3;
-              v40 = v39;
-              LODWORD(v41) = v39;
-              v33 = v9;
-              v34 = v8;
-              v35 = v7;
-              v36 = v12;
-              v37 = v11;
-              v38 = v10;
-              v43 = v14;
-              v44 = 0x1000000LL;
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                v28,
-                (unsigned int)&unk_18037F3FA,
-                v29,
-                v7,
-                (__int64)&v44,
-                (__int64)&v41,
-                (__int64)&v40,
-                (__int64)&v39,
-                (__int64)&v43,
-                (__int64)&v38,
-                (__int64)&v37,
-                (__int64)&v36,
-                (__int64)&v35,
-                (__int64)&v34,
-                (__int64)&v33);
-              v7 = v49;
-              v8 = v50;
-              v9 = v42;
-            }
-            *(_DWORD *)(*v5 + 8LL) = 5000
-                                   * (((int)((unsigned __int64)(1759218605LL * v10) >> 32) >> 11)
-                                    + 1
-                                    + ((unsigned int)((unsigned __int64)(1759218605LL * v10) >> 32) >> 31));
-            *(_DWORD *)(*v5 + 12LL) = 1000
-                                    * (((int)((unsigned __int64)(274877907LL * v11) >> 32) >> 6)
-                                     + 1
-                                     + ((unsigned int)((unsigned __int64)(274877907LL * v11) >> 32) >> 31));
-            *(_DWORD *)(*v5 + 16LL) = 10000
-                                    * (((int)((unsigned __int64)(1759218605LL * v12) >> 32) >> 12)
-                                     + 1
-                                     + ((unsigned int)((unsigned __int64)(1759218605LL * v12) >> 32) >> 31));
-            *(_DWORD *)(*v5 + 20LL) = 200
-                                    * (((int)((unsigned __int64)(1374389535LL * v7) >> 32) >> 6)
-                                     + 1
-                                     + ((unsigned int)((unsigned __int64)(1374389535LL * v7) >> 32) >> 31));
-            *(_DWORD *)(*v5 + 24LL) = 500
-                                    * (((int)((unsigned __int64)(274877907LL * v8) >> 32) >> 5)
-                                     + 1
-                                     + ((unsigned int)((unsigned __int64)(274877907LL * v8) >> 32) >> 31));
-            *(_DWORD *)(*v5 + 28LL) = 1000
-                                    * (((int)((unsigned __int64)(274877907LL * v9) >> 32) >> 6)
-                                     + ((unsigned int)((unsigned __int64)(274877907LL * v9) >> 32) >> 31)
-                                     + 1);
+            v6 += 8 * (v8 >> 1) + 8;
+            v8 += -1 - (v8 >> 1);
           }
-          v15 = v3 + 25;
-          goto LABEL_14;
+          else
+          {
+            v8 >>= 1;
+          }
+        }
+        while ( v8 > 0 );
+        v7 = *((_QWORD *)v3 + 5);
+      }
+      v9 = v4[19];
+      v10 = v4[22];
+      v11 = v4[21];
+      v12 = v4[24];
+      v13 = v4[20];
+      v14 = v4[23];
+      v36 = v9;
+      v37 = v10;
+      if ( v6 == v7 || (a3 = *(_DWORD **)v6, v15 = *((_QWORD *)v4 + 1), **(_QWORD **)v6 != v15) )
+      {
+        if ( !v4[25] )
+        {
+          if ( (unsigned int)dword_180344EF0 > 5
+            && (qword_180344F00 & 0x400000000000LL) != 0
+            && (qword_180344F08 & 0x400000000000LL) == qword_180344F08 )
+          {
+            v32 = *((_QWORD *)v4 + 1);
+            v24 = *v4;
+            v23 = v24;
+            v22 = v24;
+            v29 = v9;
+            LODWORD(v30) = v10;
+            v28 = v14;
+            v27 = v13;
+            v26 = v12;
+            v25 = v11;
+            v31 = 0x1000000LL;
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+              (_DWORD)this,
+              (unsigned int)&unk_1802E39FD,
+              (_DWORD)a3,
+              v10,
+              (__int64)&v31,
+              (__int64)&v22,
+              (__int64)&v23,
+              (__int64)&v24,
+              (__int64)&v32,
+              (__int64)&v25,
+              (__int64)&v26,
+              (__int64)&v27,
+              (__int64)&v28,
+              (__int64)&v29,
+              (__int64)&v30);
+          }
+          v18 = operator new(0x20uLL);
+          v19 = v18;
+          if ( v18 )
+          {
+            *(_QWORD *)v18 = 0LL;
+            v18[2] = 5000;
+            v18[3] = 1000;
+            v18[7] = 1000;
+            v18[4] = 10000;
+            v18[5] = 200;
+            v18[6] = 500;
+          }
+          else
+          {
+            v19 = 0LL;
+          }
+          *(_QWORD *)v19 = *((_QWORD *)v4 + 1);
+          v30 = v19;
+          v19[2] = 5000
+                 * (((int)((unsigned __int64)(1759218605LL * v11) >> 32) >> 11)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(1759218605LL * v11) >> 32) >> 31));
+          v19[3] = 1000
+                 * (((int)((unsigned __int64)(274877907LL * v12) >> 32) >> 6)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(274877907LL * v12) >> 32) >> 31));
+          v19[4] = 10000
+                 * (((int)((unsigned __int64)(1759218605LL * v13) >> 32) >> 12)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(1759218605LL * v13) >> 32) >> 31));
+          v19[5] = 200
+                 * (((int)((unsigned __int64)(1374389535LL * v14) >> 32) >> 6)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(1374389535LL * v14) >> 32) >> 31));
+          v19[6] = 500
+                 * (((int)((unsigned __int64)(274877907LL * v36) >> 32) >> 5)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(274877907LL * v36) >> 32) >> 31));
+          v19[7] = 1000
+                 * (((int)((unsigned __int64)(274877907LL * v37) >> 32) >> 6)
+                  + 1
+                  + ((unsigned int)((unsigned __int64)(274877907LL * v37) >> 32) >> 31));
+          std::vector<std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>>::emplace<std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>>(
+            (char *)v3 + 32,
+            v34,
+            v6,
+            &v30);
+          std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::~unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>(&v30);
         }
       }
-      v15 = v3 + 25;
-      if ( !v3[25] )
-        break;
-LABEL_14:
-      if ( *v15 && v48 )
+      else
       {
-        v26 = (_QWORD *)*((_QWORD *)this + 5);
-        while ( ++v5 != v26 )
-          std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::operator=<std::default_delete<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>,0>(
-            v5 - 1,
-            v5);
-        v27 = *(void **)(*((_QWORD *)this + 5) - 8LL);
-        if ( v27 )
-          operator delete(v27, 0x20uLL);
-        *((_QWORD *)this + 5) -= 8LL;
+        v16 = 1;
+        v35 = 1;
+        if ( v11 <= a3[2] && v12 <= a3[3] && v13 <= a3[4] && v14 <= a3[5] && v9 <= a3[6] && v10 <= a3[7] )
+          goto LABEL_35;
+        if ( (unsigned int)dword_180344EF0 > 5
+          && (qword_180344F00 & 0x400000000000LL) != 0
+          && (qword_180344F08 & 0x400000000000LL) == qword_180344F08 )
+        {
+          v28 = *v4;
+          v29 = v28;
+          LODWORD(v30) = v28;
+          v23 = v9;
+          v22 = v10;
+          v24 = v14;
+          v25 = v13;
+          v26 = v12;
+          v27 = v11;
+          v31 = v15;
+          v32 = 0x1000000LL;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+            (_DWORD)this,
+            (unsigned int)&unk_1802E39FD,
+            (_DWORD)a3,
+            v10,
+            (__int64)&v32,
+            (__int64)&v30,
+            (__int64)&v29,
+            (__int64)&v28,
+            (__int64)&v31,
+            (__int64)&v27,
+            (__int64)&v26,
+            (__int64)&v25,
+            (__int64)&v24,
+            (__int64)&v23,
+            (__int64)&v22);
+          a3 = *(_DWORD **)v6;
+          v10 = v37;
+        }
+        a3[2] = 5000
+              * (((int)((unsigned __int64)(1759218605LL * v11) >> 32) >> 11)
+               + 1
+               + ((unsigned int)((unsigned __int64)(1759218605LL * v11) >> 32) >> 31));
+        *(_DWORD *)(*(_QWORD *)v6 + 12LL) = 1000
+                                          * (((int)((unsigned __int64)(274877907LL * v12) >> 32) >> 6)
+                                           + 1
+                                           + ((unsigned int)((unsigned __int64)(274877907LL * v12) >> 32) >> 31));
+        *(_DWORD *)(*(_QWORD *)v6 + 16LL) = 10000
+                                          * (((int)((unsigned __int64)(1759218605LL * v13) >> 32) >> 12)
+                                           + 1
+                                           + ((unsigned int)((unsigned __int64)(1759218605LL * v13) >> 32) >> 31));
+        *(_DWORD *)(*(_QWORD *)v6 + 20LL) = 200
+                                          * (((int)((unsigned __int64)(1374389535LL * v14) >> 32) >> 6)
+                                           + 1
+                                           + ((unsigned int)((unsigned __int64)(1374389535LL * v14) >> 32) >> 31));
+        *(_DWORD *)(*(_QWORD *)v6 + 24LL) = 500
+                                          * (((int)((unsigned __int64)(274877907LL * v36) >> 32) >> 5)
+                                           + 1
+                                           + ((unsigned int)((unsigned __int64)(274877907LL * v36) >> 32) >> 31));
+        LODWORD(this) = 1000
+                      * (((int)((unsigned __int64)(274877907LL * v10) >> 32) >> 6)
+                       + ((unsigned int)((unsigned __int64)(274877907LL * v10) >> 32) >> 31)
+                       + 1);
+        *(_DWORD *)(*(_QWORD *)v6 + 28LL) = (_DWORD)this;
       }
-      v3 += 26;
-      v4 = (_QWORD *)((char *)this + 32);
-      if ( v3 == v45 )
-        return;
-    }
-    if ( (unsigned int)dword_1803E3B40 > 5 && tlgKeywordOn((__int64)&dword_1803E3B40, 0x400000000000LL) )
-    {
-      v44 = *((_QWORD *)v3 + 1);
-      v35 = *v3;
-      v34 = v35;
-      v33 = v35;
-      LODWORD(v41) = v20;
-      v40 = v19;
-      v39 = v18;
-      v38 = v12;
-      v37 = v11;
-      v36 = v10;
-      v43 = 0x1000000LL;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v16,
-        (unsigned int)&unk_18037F3FA,
-        v17,
-        v18,
-        (__int64)&v43,
-        (__int64)&v33,
-        (__int64)&v34,
-        (__int64)&v35,
-        (__int64)&v44,
-        (__int64)&v36,
-        (__int64)&v37,
-        (__int64)&v38,
-        (__int64)&v39,
-        (__int64)&v40,
-        (__int64)&v41);
-    }
-    v21 = operator new(0x20uLL);
-    v22 = v21;
-    if ( v21 )
-    {
-      *v21 = 0LL;
-      *((_DWORD *)v21 + 2) = 5000;
-      *((_DWORD *)v21 + 3) = 1000;
-      *((_DWORD *)v21 + 7) = 1000;
-      *((_DWORD *)v21 + 4) = 10000;
-      *((_DWORD *)v21 + 5) = 200;
-      *((_DWORD *)v21 + 6) = 500;
-    }
-    else
-    {
-      v22 = 0LL;
-    }
-    *(_QWORD *)v22 = *((_QWORD *)v3 + 1);
-    v41 = v22;
-    v22[2] = 5000
-           * (((int)((unsigned __int64)(1759218605LL * v10) >> 32) >> 11)
-            + 1
-            + ((unsigned int)((unsigned __int64)(1759218605LL * v10) >> 32) >> 31));
-    v22[3] = 1000
-           * (((int)((unsigned __int64)(274877907LL * v11) >> 32) >> 6)
-            + 1
-            + ((unsigned int)((unsigned __int64)(274877907LL * v11) >> 32) >> 31));
-    v22[4] = 10000
-           * (((int)((unsigned __int64)(1759218605LL * v12) >> 32) >> 12)
-            + 1
-            + ((unsigned int)((unsigned __int64)(1759218605LL * v12) >> 32) >> 31));
-    v22[5] = 200
-           * (((int)((unsigned __int64)(1374389535LL * v49) >> 32) >> 6)
-            + 1
-            + ((unsigned int)((unsigned __int64)(1374389535LL * v49) >> 32) >> 31));
-    v23 = (unsigned __int64)(274877907LL * v42) >> 32;
-    v22[6] = 500
-           * (((int)((unsigned __int64)(274877907LL * v50) >> 32) >> 5)
-            + 1
-            + ((unsigned int)((unsigned __int64)(274877907LL * v50) >> 32) >> 31));
-    v22[7] = 1000 * ((v23 >> 6) + ((unsigned int)v23 >> 31) + 1);
-    v24 = (_QWORD *)*((_QWORD *)this + 5);
-    if ( v24 == *((_QWORD **)this + 6) )
-    {
-      std::vector<std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>>::_Emplace_reallocate<std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>>(
-        (char *)this + 32,
-        v5,
-        &v41);
-      v25 = v41;
-      v15 = v3 + 25;
-      if ( !v41 )
-        goto LABEL_14;
-    }
-    else
-    {
-      if ( v5 == v24 )
+      v16 = v35;
+LABEL_35:
+      if ( v4[25] && v16 )
       {
-        *v24 = v22;
-        *((_QWORD *)this + 5) += 8LL;
-LABEL_47:
-        v15 = v3 + 25;
-        goto LABEL_14;
+        v20 = *((_QWORD *)v3 + 5);
+        v21 = v6 + 8;
+        if ( v6 + 8 != v20 )
+        {
+          do
+          {
+            std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::operator=(
+              v21 - 8,
+              v21);
+            v21 += 8LL;
+          }
+          while ( v21 != v20 );
+          v20 = *((_QWORD *)v3 + 5);
+        }
+        std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::~unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>(v20 - 8);
+        *((_QWORD *)v3 + 5) -= 8LL;
       }
-      v47 = v22;
-      v30 = v24 - 1;
-      v46 = (char *)this + 32;
-      v31 = *(v24 - 1);
-      *(v24 - 1) = 0LL;
-      *v24 = v31;
-      *((_QWORD *)this + 5) += 8LL;
-      while ( v30 != v5 )
-      {
-        v32 = v30--;
-        std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::operator=<std::default_delete<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>,0>(
-          v32,
-          v30);
-      }
-      std::unique_ptr<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>::operator=<std::default_delete<CProcessResourceAttributionReporter::ResourceThresholdForProcessSequenceNumber>,0>(
-        v5,
-        &v47);
-      v25 = v47;
-      if ( !v47 )
-        goto LABEL_47;
+      v4 += 26;
+      v5 = (__int64 *)((char *)v3 + 32);
     }
-    operator delete(v25, 0x20uLL);
-    goto LABEL_47;
+    while ( v4 != v33 );
   }
 }

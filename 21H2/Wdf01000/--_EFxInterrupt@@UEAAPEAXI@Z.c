@@ -1,25 +1,25 @@
 /*
- * XREFs of ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C008CDF0
+ * XREFs of ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C00890A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxInterrupt@@UEAA@XZ @ 0x1C008CD58 (--1FxInterrupt@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxInterrupt@@UEAA@XZ @ 0x1C0089000 (--1FxInterrupt@@UEAA@XZ.c)
  */
 
-FxInterrupt *__fastcall FxInterrupt::`vector deleting destructor'(FxInterrupt *this, unsigned int a2)
+FxInterrupt *__fastcall FxInterrupt::`vector deleting destructor'(FxInterrupt *this, unsigned int a2, unsigned int a3)
 {
-  char v2; // bl
-  FxInterrupt *v4; // rcx
+  char v3; // bl
+  FxInterrupt *v5; // rcx
 
-  v2 = a2;
-  FxInterrupt::~FxInterrupt(this, a2);
-  if ( (v2 & 1) != 0 )
+  v3 = a2;
+  FxInterrupt::~FxInterrupt(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxInterrupt *)((char *)this - 48);
+    v5 = (FxInterrupt *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

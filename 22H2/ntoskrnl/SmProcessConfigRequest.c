@@ -1,119 +1,88 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x14085C000
+ * XREFs of SmProcessConfigRequest @ 0x1407CE8CC
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmCreatePartition @ 0x1407064D8 (SmCreatePartition.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
- *     SmpSystemStoreCreate @ 0x14085C174 (SmpSystemStoreCreate.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmpSystemStoreCreate @ 0x1407CE9E0 (SmpSystemStoreCreate.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)
 {
+  unsigned int v4; // edi
   __int64 v5; // rcx
-  unsigned int v6; // eax
-  unsigned int v7; // ecx
-  __int64 ProcessPartition; // rdx
+  unsigned __int64 v6; // rbx
+  unsigned int v7; // eax
+  unsigned __int64 v8; // rbx
   unsigned int v9; // ecx
-  int Partition; // ebx
-  unsigned int v12; // eax
-  __int64 v13; // rsi
-  __int128 v14; // [rsp+30h] [rbp-18h]
-  __int64 v15; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v11; // eax
+  unsigned __int64 v12; // rbx
+  unsigned __int64 v13; // rbx
 
-  v15 = 0LL;
-  if ( a2 != 16 )
-  {
-    Partition = -1073741306;
-    goto LABEL_22;
-  }
+  v4 = 0;
+  if ( a2 != 8 )
+    return (unsigned int)-1073741306;
   if ( a3 )
   {
-    if ( (a1 & 7) != 0 )
+    if ( (a1 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v5 = 0x7FFFFFFF0000LL;
     if ( a1 < 0x7FFFFFFF0000LL )
       v5 = a1;
     *(_BYTE *)v5 = *(_BYTE *)v5;
-    *(_BYTE *)(v5 + 15) = *(_BYTE *)(v5 + 15);
+    *(_BYTE *)(v5 + 7) = *(_BYTE *)(v5 + 7);
   }
-  v14 = *(_OWORD *)a1;
-  if ( (unsigned __int8)*(_OWORD *)a1 != 5 )
+  v6 = *(_QWORD *)a1;
+  if ( (_BYTE)v6 != 4 )
+    return (unsigned int)-1073741735;
+  if ( (v6 & 0xFFFF00) != 0 )
+    return (unsigned int)-1073741811;
+  v7 = BYTE3(v6);
+  if ( BYTE3(v6) >= 3u )
+    return (unsigned int)-1073741811;
+  if ( v7 )
   {
-    Partition = -1073741735;
-    goto LABEL_22;
-  }
-  if ( (*(_QWORD *)a1 & 0xFFFF00) != 0 )
-    goto LABEL_40;
-  v6 = BYTE3(v14);
-  if ( BYTE3(v14) >= 3u )
-    goto LABEL_40;
-  if ( v6 )
-  {
-    if ( !*((_QWORD *)&v14 + 1) )
+    v11 = v7 - 1;
+    if ( v11 )
     {
-      v12 = v6 - 1;
-      if ( v12 )
+      if ( v11 != 1 )
+        return v4;
+      v12 = HIDWORD(v6);
+      if ( (unsigned int)(v12 - 4) <= 0x1C && (((_DWORD)v12 - 1) & (unsigned int)v12) == 0 )
       {
-        if ( v12 == 1 )
-        {
-          if ( (unsigned int)(DWORD1(v14) - 4) > 0x1C || ((DWORD1(v14) - 1) & DWORD1(v14)) != 0 )
-            goto LABEL_40;
-          dword_140C69754 = HIDWORD(*(_QWORD *)a1);
-        }
-LABEL_21:
-        Partition = 0;
-        goto LABEL_22;
-      }
-      if ( DWORD1(v14) <= 1 )
-      {
-        PspOutSwapSharedPages = HIDWORD(*(_QWORD *)a1);
-        goto LABEL_21;
+        dword_140C4ECBC = v12;
+        return v4;
       }
     }
-LABEL_40:
-    Partition = -1073741811;
-    goto LABEL_22;
-  }
-  if ( DWORD1(v14) >= 0x100 )
-    goto LABEL_40;
-  if ( ((DWORD1(v14) >> 2) & 3) == 3 )
-    goto LABEL_40;
-  v7 = HIDWORD(*(_QWORD *)a1) & 0x30;
-  if ( v7 >= 0x30 )
-    goto LABEL_40;
-  if ( (((DWORD1(v14) >> 2) & 3) == 2 || v7 == 32) && !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a3) )
-  {
-    Partition = -1073741790;
-    goto LABEL_22;
-  }
-  if ( !*((_QWORD *)&v14 + 1) )
-  {
-    ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-    goto LABEL_19;
-  }
-  Partition = PsReferencePartitionByHandle(*((ULONG_PTR *)&v14 + 1), 2, a3, 0x52436D53u, &v15);
-  if ( Partition >= 0 )
-  {
-    v13 = v15;
-    Partition = SmCreatePartition(v15);
-    if ( Partition >= 0 )
+    else
     {
-      ProcessPartition = *(_QWORD *)(v13 + 24);
-LABEL_19:
-      v9 = BYTE4(v14) & 0xC0 | *(_DWORD *)(ProcessPartition + 2064) & 0xFFFFFF00 | (DWORD1(v14) >> 2) & 0xF | (16 * (BYTE4(v14) & 3));
-      *(_DWORD *)(ProcessPartition + 2064) = v9;
-      if ( (v9 & 3) != 0 )
-        SmpSystemStoreCreate(ProcessPartition);
-      goto LABEL_21;
+      v13 = HIDWORD(v6);
+      if ( (unsigned int)v13 <= 1 )
+      {
+        PspOutSwapSharedPages = v13;
+        return v4;
+      }
     }
+    return (unsigned int)-1073741811;
   }
-LABEL_22:
-  if ( v15 )
-    PsDereferencePartition(v15);
-  return (unsigned int)Partition;
+  v8 = HIDWORD(v6);
+  if ( (unsigned int)v8 >= 0x100 )
+    return (unsigned int)-1073741811;
+  if ( (((unsigned int)v8 >> 2) & 3) == 3 )
+    return (unsigned int)-1073741811;
+  v9 = v8 & 0x30;
+  if ( v9 >= 0x30 )
+    return (unsigned int)-1073741811;
+  if ( ((((unsigned int)v8 >> 2) & 3) == 2 || v9 == 32) && !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a3) )
+  {
+    return (unsigned int)-1073741790;
+  }
+  else
+  {
+    dword_140D24180 = v8 & 0xC0 | dword_140D24180 & 0xFFFFFF00 | ((unsigned int)v8 >> 2) & 0xF | (16 * (v8 & 3));
+    if ( (dword_140D24180 & 3) != 0 )
+      SmpSystemStoreCreate();
+  }
+  return v4;
 }

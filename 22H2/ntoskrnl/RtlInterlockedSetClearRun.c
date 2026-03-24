@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInterlockedSetClearRun @ 0x140295C50
+ * XREFs of RtlInterlockedSetClearRun @ 0x140331470
  * Callers:
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     MiQueuePinDriverAddressLog @ 0x14029589C (MiQueuePinDriverAddressLog.c)
- *     RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B4BE0 (RtlpFcAddDelayedUsageReportToBuffer.c)
- *     MiDecommitHardwareEnclavePages @ 0x140647550 (MiDecommitHardwareEnclavePages.c)
- *     EtwpFindUserBufferSpace @ 0x14070916C (EtwpFindUserBufferSpace.c)
+ *     MiGetPageFromSlabEntry @ 0x1403799E4 (MiGetPageFromSlabEntry.c)
+ *     MiQueuePinDriverAddressLog @ 0x1403A3B54 (MiQueuePinDriverAddressLog.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549968 (MiDecommitHardwareEnclavePages.c)
+ *     RtlpFcAddDelayedUsageReportToBuffer @ 0x14058F17C (RtlpFcAddDelayedUsageReportToBuffer.c)
+ *     EtwpFindUserBufferSpace @ 0x1406BEE00 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpFlushEventBuffers @ 0x1407D9BE8
+ * XREFs of PfpFlushEventBuffers @ 0x1406CA380
  * Callers:
- *     PfpFlushBuffers @ 0x1407D9F00 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
  * Callees:
- *     PfTFullEventListAdd @ 0x14024029C (PfTFullEventListAdd.c)
- *     PfFbBufferListInsertInFree @ 0x14035FAE8 (PfFbBufferListInsertInFree.c)
- *     PfFbBufferListFlushStandby @ 0x14035FB90 (PfFbBufferListFlushStandby.c)
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PfpCopyEvent @ 0x1407D9CC0 (PfpCopyEvent.c)
+ *     PfTFullEventListAdd @ 0x1402B7E4C (PfTFullEventListAdd.c)
+ *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListFlushStandby @ 0x1402D4738 (PfFbBufferListFlushStandby.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PfpCopyEvent @ 0x1406CA480 (PfpCopyEvent.c)
  */
 
 __int64 PfpFlushEventBuffers()
@@ -17,14 +17,14 @@ __int64 PfpFlushEventBuffers()
   int v1; // esi
   PSLIST_ENTRY v2; // rcx
   struct _SLIST_ENTRY *v3; // rax
-  struct _SLIST_ENTRY *v4; // rdi
-  struct _SLIST_ENTRY *v5; // r14
+  struct _SLIST_ENTRY *v4; // rbp
+  struct _SLIST_ENTRY *v5; // rdi
   struct _SLIST_ENTRY *v8; // rcx
 
   v0 = 0LL;
   v1 = 0;
-  PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4EAC0);
-  v2 = RtlpInterlockedFlushSList(&stru_140C4EB40);
+  PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4FD20);
+  v2 = RtlpInterlockedFlushSList(&stru_140C4FDA0);
   if ( v2 )
   {
     do
@@ -43,8 +43,10 @@ __int64 PfpFlushEventBuffers()
       if ( *((_DWORD *)&v4[2].Next + 2) )
         break;
 LABEL_6:
+      if ( v1 < 0 )
+        goto LABEL_9;
       PfFbBufferListInsertInFree(
-        (_SLIST_ENTRY *)&stru_140C4EAC0,
+        (_SLIST_ENTRY *)&stru_140C4FD20,
         v4,
         LODWORD(v4[2].Next) - (_DWORD)v4,
         *((_DWORD *)&v4[2].Next + 3),
@@ -61,15 +63,14 @@ LABEL_6:
       if ( (*((_DWORD *)&v4[2].Next + 2))-- == 1 )
         goto LABEL_6;
     }
+LABEL_9:
     memmove(&v4[3], v5, (unsigned int)(LODWORD(v4[2].Next) - (_DWORD)v5));
-    v8 = v4;
-    while ( 1 )
+    PfTFullEventListAdd(v4);
+    while ( v0 )
     {
-      PfTFullEventListAdd(v8);
-      if ( !v0 )
-        break;
       v8 = v0;
       v0 = v0->Next;
+      PfTFullEventListAdd(v8);
     }
   }
   return (unsigned int)v1;

@@ -1,92 +1,85 @@
 /*
- * XREFs of NtUserfnINOUTNCCALCSIZE @ 0x1C0095330
+ * XREFs of NtUserfnINOUTNCCALCSIZE @ 0x1C00FD690
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtUserfnINOUTNCCALCSIZE(__int64 a1, __int64 a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
+__int64 __fastcall NtUserfnINOUTNCCALCSIZE(__int64 a1, unsigned int a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
 {
-  unsigned int v8; // r15d
-  PERESOURCE *v10; // rax
-  _BYTE *v11; // rdx
-  _BYTE *v12; // rdx
-  __int128 *v13; // rdi
+  __int128 *v8; // rdi
+  _OWORD *v9; // rax
+  __int128 *v10; // rax
   __int64 result; // rax
-  __int128 v15; // [rsp+48h] [rbp-C0h] BYREF
-  __int128 v16; // [rsp+58h] [rbp-B0h]
-  __int64 v17; // [rsp+68h] [rbp-A0h]
-  __int128 v18; // [rsp+80h] [rbp-88h]
-  __int128 v19; // [rsp+90h] [rbp-78h]
-  __int128 v20; // [rsp+A0h] [rbp-68h]
-  __int128 *v21; // [rsp+B0h] [rbp-58h]
-  __int128 v22; // [rsp+B8h] [rbp-50h]
+  __int128 v12; // [rsp+48h] [rbp-A0h] BYREF
+  __int128 v13; // [rsp+58h] [rbp-90h]
+  __int64 v14; // [rsp+68h] [rbp-80h]
+  __int128 v15; // [rsp+80h] [rbp-68h]
+  __int128 v16; // [rsp+90h] [rbp-58h]
+  __int128 v17; // [rsp+A0h] [rbp-48h]
+  __int128 *v18; // [rsp+B0h] [rbp-38h]
+  __int128 v19; // [rsp+B8h] [rbp-30h]
 
-  v8 = a2;
-  v18 = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
   v15 = 0LL;
   v16 = 0LL;
   v17 = 0LL;
-  v22 = 0LL;
-  v10 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-  if ( !ExIsResourceAcquiredSharedLite(*v10) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  PsGetThreadWin32Thread(KeGetCurrentThread());
-  v11 = (_BYTE *)a4;
+  v18 = 0LL;
+  v12 = 0LL;
+  v13 = 0LL;
+  v14 = 0LL;
+  v8 = 0LL;
+  v19 = 0LL;
   if ( a3 )
   {
     if ( a4 >= MmUserProbeAddress )
-      v11 = (_BYTE *)MmUserProbeAddress;
-    *v11 = *v11;
-    v11[55] = v11[55];
-    v18 = *(_OWORD *)a4;
-    v19 = *(_OWORD *)(a4 + 16);
-    v20 = *(_OWORD *)(a4 + 32);
-    v21 = *(__int128 **)(a4 + 48);
-    v12 = v21;
-    if ( (unsigned __int64)v21 >= MmUserProbeAddress )
-      v12 = (_BYTE *)MmUserProbeAddress;
-    *v12 = *v12;
-    v12[39] = v12[39];
-    v13 = v21;
-    v15 = *v21;
-    v16 = v21[1];
-    v17 = *((_QWORD *)v21 + 4);
-    v21 = &v15;
+      *(_DWORD *)MmUserProbeAddress = 0;
+    *(_OWORD *)a4 = *(_OWORD *)a4;
+    *(_OWORD *)(a4 + 16) = *(_OWORD *)(a4 + 16);
+    *(_OWORD *)(a4 + 32) = *(_OWORD *)(a4 + 32);
+    *(_QWORD *)(a4 + 48) = *(_QWORD *)(a4 + 48);
+    v15 = *(_OWORD *)a4;
+    v16 = *(_OWORD *)(a4 + 16);
+    v17 = *(_OWORD *)(a4 + 32);
+    v18 = *(__int128 **)(a4 + 48);
+    v10 = v18;
+    if ( (unsigned __int64)v18 >= MmUserProbeAddress )
+    {
+      *(_DWORD *)MmUserProbeAddress = 0;
+      v10 = v18;
+    }
+    *v10 = *v10;
+    v10[1] = v10[1];
+    *((_QWORD *)v10 + 4) = *((_QWORD *)v10 + 4);
+    v8 = v18;
+    v12 = *v18;
+    v13 = v18[1];
+    v14 = *((_QWORD *)v18 + 4);
+    v18 = &v12;
   }
   else
   {
+    v9 = (_OWORD *)a4;
     if ( a4 >= MmUserProbeAddress )
-      v11 = (_BYTE *)MmUserProbeAddress;
-    *v11 = *v11;
-    v11[15] = v11[15];
-    v22 = *(_OWORD *)a4;
-    v13 = 0LL;
+      v9 = (_OWORD *)MmUserProbeAddress;
+    *v9 = *v9;
+    v19 = *(_OWORD *)a4;
   }
-  result = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64))&WPP_MAIN_CB.SectorSize + ((a6 + 6) & 0x1F)))(
-             a1,
-             v8,
-             a3);
+  result = ((__int64 (__fastcall *)(__int64, _QWORD, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(a1, a2, a3);
   if ( a3 )
   {
-    *(_OWORD *)a4 = v18;
-    *(_OWORD *)(a4 + 16) = v19;
-    *(_OWORD *)(a4 + 32) = v20;
-    *(_QWORD *)(a4 + 48) = v13;
-    *v13 = v15;
-    v13[1] = v16;
-    *((_QWORD *)v13 + 4) = v17;
+    *(_OWORD *)a4 = v15;
+    *(_OWORD *)(a4 + 16) = v16;
+    *(_OWORD *)(a4 + 32) = v17;
+    *(_QWORD *)(a4 + 48) = v8;
+    *v8 = v12;
+    v8[1] = v13;
+    *((_QWORD *)v8 + 4) = v14;
   }
   else
   {
-    *(_OWORD *)a4 = v22;
+    *(_OWORD *)a4 = v19;
   }
   return result;
 }

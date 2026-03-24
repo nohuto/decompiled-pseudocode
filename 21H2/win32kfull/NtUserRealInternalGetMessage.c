@@ -1,54 +1,45 @@
 /*
- * XREFs of NtUserRealInternalGetMessage @ 0x1C00F5DD0
+ * XREFs of NtUserRealInternalGetMessage @ 0x1C00545B0
  * Callers:
  *     <none>
  * Callees:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserRealInternalGetMessage(
-        _OWORD *a1,
-        unsigned __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        int a5,
-        unsigned int a6)
+__int64 __fastcall NtUserRealInternalGetMessage(_OWORD *a1, int a2, int a3, int a4, int a5, int a6)
 {
-  __int64 v10; // rdx
   int Message; // ebx
-  __int128 v12; // xmm1
-  __int128 v13; // xmm2
-  ULONG64 v14; // rcx
-  unsigned __int64 v16; // [rsp+20h] [rbp-68h]
-  __int128 v17; // [rsp+48h] [rbp-40h] BYREF
-  __int128 v18; // [rsp+58h] [rbp-30h]
-  __int128 v19; // [rsp+68h] [rbp-20h]
+  __int128 v11; // xmm1
+  __int128 v12; // xmm2
+  ULONG64 v13; // rcx
+  __int128 v16; // [rsp+48h] [rbp-40h] BYREF
+  __int128 v17; // [rsp+58h] [rbp-30h]
+  __int128 v18; // [rsp+68h] [rbp-20h]
 
+  v16 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
-  v19 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (a5 & 0xE300FFFC) != 0 )
   {
-    UserSetLastError(1004LL, v10);
+    UserSetLastError(1004LL);
     Message = 0;
   }
   else
   {
-    LODWORD(v16) = a5;
-    Message = xxxRealInternalGetMessage(&v17, a2, a3, a4, v16, a6);
-    HIDWORD(v17) = 0;
-    HIDWORD(v19) = 0;
+    Message = xxxRealInternalGetMessage((unsigned int)&v16, a2, a3, a4, a5, a6);
+    HIDWORD(v16) = 0;
+    HIDWORD(v18) = 0;
+    v11 = v17;
     v12 = v18;
-    v13 = v19;
-    v14 = MmUserProbeAddress;
+    v13 = MmUserProbeAddress;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
       a1 = (_OWORD *)MmUserProbeAddress;
-    *a1 = v17;
-    a1[1] = v12;
-    a1[2] = v13;
+    *a1 = v16;
+    a1[1] = v11;
+    a1[2] = v12;
   }
-  UserSessionSwitchLeaveCrit(v14);
+  UserSessionSwitchLeaveCrit(v13);
   return Message;
 }

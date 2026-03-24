@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerReleasePendingDeviceIrp@FxPkgPdo@@EEAAXE@Z @ 0x1C000CA70
+ * XREFs of ?PowerReleasePendingDeviceIrp@FxPkgPdo@@EEAAXE@Z @ 0x1C000FF90
  * Callers:
  *     <none>
  * Callees:
- *     ?CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C000CDE4 (-CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
+ *     ?CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C001029C (-CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
  */
 
 void __fastcall FxPkgPdo::PowerReleasePendingDeviceIrp(FxPkgPdo *this, unsigned __int8 IrpMustBePresent)

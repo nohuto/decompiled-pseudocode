@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01EBCF8
+ * XREFs of ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F11FC
  * Callers:
- *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01EBC1C (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F1120 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     GetDPITransformationMonitor @ 0x1C01DF820 (GetDPITransformationMonitor.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     GetDPITransformationMonitor @ 0x1C01E5670 (GetDPITransformationMonitor.c)
  */
 
 __int64 __fastcall MakePointerMessageWorker(
@@ -30,7 +30,7 @@ __int64 __fastcall MakePointerMessageWorker(
   __int64 v22; // rcx
   HWND v23; // rdx
   __int64 DPITransformationMonitor; // [rsp+20h] [rbp-10h] BYREF
-  unsigned __int64 v25; // [rsp+60h] [rbp+30h] BYREF
+  __int64 v25; // [rsp+60h] [rbp+30h] BYREF
 
   v13 = 0;
   v25 = 0LL;

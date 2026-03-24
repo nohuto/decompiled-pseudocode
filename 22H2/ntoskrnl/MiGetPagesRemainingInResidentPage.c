@@ -1,49 +1,48 @@
 /*
- * XREFs of MiGetPagesRemainingInResidentPage @ 0x14064F2B4
+ * XREFs of MiGetPagesRemainingInResidentPage @ 0x1403F6038
  * Callers:
- *     MiAddPhysicalPagesToCrashDump @ 0x14062F78C (MiAddPhysicalPagesToCrashDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x140537BD8 (MiAddPhysicalPagesToCrashDump.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPageForBugCheck @ 0x14064F234 (MiGetBaseResidentPageForBugCheck.c)
+ *     MiGetBaseResidentPageForBugCheck @ 0x1403F5F0C (MiGetBaseResidentPageForBugCheck.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6158 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6188 (MiGetPfnPageSizeIndexUnsynchronized.c)
  */
 
-unsigned __int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, int *a3)
+__int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, unsigned int *a3)
 {
-  unsigned __int64 v6; // rdi
+  __int64 v6; // rdi
   __int64 v7; // rax
-  unsigned int v8; // ebx
   int PfnPageSizeIndex; // eax
-  int v10; // ecx
-  int v11; // ebx
+  unsigned int v9; // r8d
+  unsigned int v10; // ecx
+  int v11; // r8d
   __int64 v12; // rdx
   int v14; // [rsp+40h] [rbp+8h] BYREF
-  int v15; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v15; // [rsp+48h] [rbp+10h] BYREF
 
   v14 = 0;
   v15 = 0;
-  v6 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
+  v6 = (a1 + 0x58000000000LL) / 48;
   if ( (KiBugCheckActive & 3) != 0 )
   {
     v7 = MiGetBaseResidentPageForBugCheck(a1);
     if ( v7 )
     {
-      v8 = *(unsigned __int8 *)(v7 + 34);
       PfnPageSizeIndex = MiGetPfnPageSizeIndex(v7);
     }
     else
     {
-      v8 = *(unsigned __int8 *)(a1 + 34);
+      v9 = *(unsigned __int8 *)(a1 + 34);
       PfnPageSizeIndex = 3;
     }
-    v10 = v8 >> 6;
-    v11 = v8 & 7;
+    v10 = v9 >> 6;
+    v11 = v9 & 7;
   }
   else
   {
     PfnPageSizeIndex = MiGetPfnPageSizeIndexUnsynchronized(a1, &v14, &v15);
-    v10 = v15;
     v11 = v14;
+    v10 = v15;
   }
   if ( PfnPageSizeIndex == 3 )
     v12 = 1LL;

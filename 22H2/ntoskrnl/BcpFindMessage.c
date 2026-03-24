@@ -1,10 +1,10 @@
 /*
- * XREFs of BcpFindMessage @ 0x140B9D35C
+ * XREFs of BcpFindMessage @ 0x140A96E2C
  * Callers:
- *     BcpGetProgressMessages @ 0x140383E30 (BcpGetProgressMessages.c)
- *     BgpBcInitializeCriticalMode @ 0x140B9D3E8 (BgpBcInitializeCriticalMode.c)
+ *     BcpGetProgressMessages @ 0x1403BC3DC (BcpGetProgressMessages.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     ResFwFindMessage @ 0x140AEE06C (ResFwFindMessage.c)
+ *     ResFwFindMessage @ 0x1409F47C0 (ResFwFindMessage.c)
  */
 
 unsigned __int16 *__fastcall BcpFindMessage(unsigned int a1)

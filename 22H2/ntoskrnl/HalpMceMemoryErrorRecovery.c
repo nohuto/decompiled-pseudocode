@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMceMemoryErrorRecovery @ 0x140518EB0
+ * XREFs of HalpMceMemoryErrorRecovery @ 0x1404D0198
  * Callers:
- *     HalpMceRecoveryMemoryErrorAmd @ 0x1405190F0 (HalpMceRecoveryMemoryErrorAmd.c)
- *     HalpMceRecoveryMemoryErrorIntel @ 0x14051920C (HalpMceRecoveryMemoryErrorIntel.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x1404D02B0 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x1404D039C (HalpMceRecoveryMemoryErrorIntel.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall HalpMceMemoryErrorRecovery(char a1, char a2, __int64 a3)
 {
-  unsigned int v3; // r11d
-  __int64 v4; // r10
+  unsigned int v3; // r10d
+  __int64 v4; // rax
 
   v3 = -1073741823;
   v4 = *(_QWORD *)(*(_QWORD *)&KeGetPcr()->HalReserved[6] + 32LL);
@@ -23,9 +23,7 @@ __int64 __fastcall HalpMceMemoryErrorRecovery(char a1, char a2, __int64 a3)
       *(_DWORD *)v4 |= 5u;
       *(_QWORD *)(v4 + 8) = a3;
     }
-    v3 = 0;
-    if ( (*(_DWORD *)v4 & 0x10) != 0 && !a2 )
-      return (unsigned int)-1073741823;
+    return 0;
   }
   return v3;
 }

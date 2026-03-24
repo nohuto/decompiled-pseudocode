@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01ADA64
+ * XREFs of ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01DA94C
  * Callers:
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C008C350 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C00282E8 (-HandlePointerCursorSideOp@@YAXXZ.c)
  * Callees:
- *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00217E0 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
- *     SetPointerMetaVisibility @ 0x1C003DA0C (SetPointerMetaVisibility.c)
+ *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024700 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
+ *     SetPointerMetaVisibility @ 0x1C0028D8C (SetPointerMetaVisibility.c)
  */
 
 void __fastcall Feedback::xxxRestoreMouseCursors(Feedback *this)

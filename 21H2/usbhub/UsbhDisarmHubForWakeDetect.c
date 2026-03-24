@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhDisarmHubForWakeDetect @ 0x1C001D300
+ * XREFs of UsbhDisarmHubForWakeDetect @ 0x1C001B180
  * Callers:
- *     Usbh_SSH_HubPendingResume @ 0x1C00041F0 (Usbh_SSH_HubPendingResume.c)
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
- *     UsbhArmHubForWakeDetect @ 0x1C000AE98 (UsbhArmHubForWakeDetect.c)
- *     UsbhUninitialize @ 0x1C002D6F0 (UsbhUninitialize.c)
- *     UsbhDisarmHubWakeOnConnect @ 0x1C003B5DC (UsbhDisarmHubWakeOnConnect.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhArmHubForWakeDetect @ 0x1C0010064 (UsbhArmHubForWakeDetect.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00140B0 (Usbh_SSH_HubPendingResume.c)
+ *     UsbhUninitialize @ 0x1C002EB00 (UsbhUninitialize.c)
+ *     UsbhDisarmHubWakeOnConnect @ 0x1C003C90C (UsbhDisarmHubWakeOnConnect.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhDisarmHubForWakeDetect(__int64 a1)
@@ -19,26 +19,24 @@ void __fastcall UsbhDisarmHubForWakeDetect(__int64 a1)
   __int64 v3; // rcx
   __int64 v4; // rbx
 
-  if ( (UsbhLogMask & 0x10) == 0 )
+  if ( (UsbhLogMask & 0x10) != 0 )
   {
-    if ( a1 )
-      goto LABEL_5;
-LABEL_13:
-    UsbhTrapFatal_Dbg(a1, a1);
+    if ( !a1 )
+      goto LABEL_13;
+    v2 = *(_QWORD *)(a1 + 64);
+    if ( v2 )
+    {
+      v3 = *(_QWORD *)(v2 + 888)
+         + 32LL * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v2 + 880)) & *(_DWORD *)(v2 + 884));
+      *(_DWORD *)v3 = 760698728;
+      *(_QWORD *)(v3 + 8) = 0LL;
+      *(_QWORD *)(v3 + 16) = 0LL;
+      *(_QWORD *)(v3 + 24) = 0LL;
+    }
   }
   if ( !a1 )
-    goto LABEL_13;
-  v2 = *(_QWORD *)(a1 + 64);
-  if ( v2 )
-  {
-    v3 = *(_QWORD *)(v2 + 888)
-       + 32LL * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v2 + 880)) & *(_DWORD *)(v2 + 884));
-    *(_DWORD *)v3 = 760698728;
-    *(_QWORD *)(v3 + 8) = 0LL;
-    *(_QWORD *)(v3 + 16) = 0LL;
-    *(_QWORD *)(v3 + 24) = 0LL;
-  }
-LABEL_5:
+LABEL_13:
+    UsbhTrapFatal_Dbg(a1, a1);
   v4 = *(_QWORD *)(a1 + 64);
   if ( !v4 )
     UsbhTrapFatal_Dbg(a1, 0LL);

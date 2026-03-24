@@ -1,43 +1,47 @@
 /*
- * XREFs of ?ProcessHandledInteractions@CInteraction@@UEAAJ_K_NW4InertiaFrameType@@UManipulationThreadTelemetryData@@PEAW4PointerResult@@@Z @ 0x18020C590
+ * XREFs of ?ProcessHandledInteractions@CInteraction@@UEAAJ_K_NW4InertiaFrameType@@UManipulationThreadTelemetryData@@PEAW4PointerResult@@@Z @ 0x1801C6530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ProcessHandledInteractions@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@_K_NW4InertiaFrameType@@AEBUManipulationThreadTelemetryData@@PEAVIDCompositionInteractionStats@@PEAW4PointerResult@@@Z @ 0x1801AED44 (-ProcessHandledInteractions@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@_K_NW4Inertia.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@@XZ @ 0x1801C6034 (-GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@@XZ.c)
+ *     ?ProcessHandledInteractions@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@_K_NW4InertiaFrameType@@PEAUIManipulationTelemetryData@@PEAW4PointerResult@@@Z @ 0x18022DC34 (-ProcessHandledInteractions@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@_K_NW4Inertia.c)
  */
 
 __int64 __fastcall CInteraction::ProcessHandledInteractions(
-        _QWORD *a1,
+        CInteraction *a1,
         __int64 a2,
-        bool a3,
+        char a3,
         int a4,
-        struct ManipulationThreadTelemetryData *a5,
+        unsigned int *a5,
         _DWORD *a6)
 {
-  __int64 result; // rax
-  struct IDCompositionInteractionStats *v11; // rsi
+  unsigned int v6; // ebx
+  struct IManipulationTelemetryData *TelemetryDataNoRef; // rax
+  __int64 v12; // r9
+  struct IManipulationTelemetryData *v13; // rsi
 
-  result = 0LL;
+  v6 = 0;
   if ( a6 )
     *a6 = 1;
-  if ( a1[26] )
+  if ( *((_QWORD *)a1 + 33) )
   {
-    v11 = (struct IDCompositionInteractionStats *)a1[208];
-    if ( a3 )
+    TelemetryDataNoRef = CInteraction::GetTelemetryDataNoRef(a1);
+    v13 = TelemetryDataNoRef;
+    if ( a3 && TelemetryDataNoRef )
     {
-      if ( v11 )
-        *((_DWORD *)a5 + 45) = (*(__int64 (__fastcall **)(_QWORD *, _QWORD))(*a1 + 120LL))(a1, *(unsigned int *)a5);
+      a5[19] = (*(__int64 (__fastcall **)(CInteraction *, _QWORD))(*(_QWORD *)a1 + 120LL))(a1, *a5);
+      (*(void (__fastcall **)(struct IManipulationTelemetryData *, unsigned int *))(*(_QWORD *)v13 + 40LL))(v13, a5);
     }
-    return CInteractionProcessor::ProcessHandledInteractions(
-             (__int64)(a1 + 36),
-             (struct IManipulationResource *)((a1[26] + 72LL) & ((unsigned __int128)-(__int128)(unsigned __int64)a1[26] >> 64)),
-             a2,
-             a3,
-             a4,
-             a5,
-             v11,
-             a6);
+    LOBYTE(v12) = a3;
+    return (unsigned int)CInteractionProcessor::ProcessHandledInteractions(
+                           (char *)a1 + 344,
+                           (*((_QWORD *)a1 + 33) + 64LL) & ((unsigned __int128)-(__int128)*((unsigned __int64 *)a1 + 33) >> 64),
+                           a2,
+                           v12,
+                           a4,
+                           v13,
+                           a6);
   }
-  return result;
+  return v6;
 }

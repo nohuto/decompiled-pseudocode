@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsIsTagTarget @ 0x140A976F4
+ * XREFs of ViFaultsIsTagTarget @ 0x1409DD3BC
  * Callers:
- *     VfFaultsInjectPoolAllocationFailure @ 0x140A96A2C (VfFaultsInjectPoolAllocationFailure.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x1409DC74C (VfFaultsInjectPoolAllocationFailure.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14063A59C (ExCheckSingleFilter.c)
- *     ViFaultsIsTagPresentInList @ 0x140A976A8 (ViFaultsIsTagPresentInList.c)
+ *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
+ *     ViFaultsIsTagPresentInList @ 0x1409DD370 (ViFaultsIsTagPresentInList.c)
  */
 
 __int64 __fastcall ViFaultsIsTagTarget(int a1)
@@ -20,9 +20,9 @@ __int64 __fastcall ViFaultsIsTagTarget(int a1)
   {
     IsTagPresentInList = ViFaultsIsTagPresentInList(v2);
     if ( IsTagPresentInList )
-      ++dword_140D57840;
+      ++dword_140D4A408;
     else
-      ++dword_140D5783C;
+      ++dword_140D4A404;
   }
   return IsTagPresentInList;
 }

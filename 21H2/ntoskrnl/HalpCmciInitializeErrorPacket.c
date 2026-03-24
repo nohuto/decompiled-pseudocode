@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpCmciInitializeErrorPacket @ 0x1403D2750
+ * XREFs of HalpCmciInitializeErrorPacket @ 0x1409A136C
  * Callers:
- *     HalpInitializeCmc @ 0x140A5AA64 (HalpInitializeCmc.c)
- *     HalpCmciInit @ 0x140A5AAF0 (HalpCmciInit.c)
+ *     HalpInitializeCmc @ 0x1409A11B8 (HalpInitializeCmc.c)
+ *     HalpCmciInit @ 0x1409A1244 (HalpCmciInit.c)
  * Callees:
- *     HalpGetMcaPcrContext @ 0x1403AAB1C (HalpGetMcaPcrContext.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpCmcInitializeErrorPacketContents @ 0x1403D2818 (HalpCmcInitializeErrorPacketContents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpGetMcaPcrContext @ 0x1403A0BC8 (HalpGetMcaPcrContext.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x1403C5548 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rbx
+  GUID *v3; // rbx
   __int64 v4; // rcx
   __int64 McaPcrContext; // rsi
   unsigned __int8 CurrentIrql; // di
@@ -29,9 +29,9 @@ __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)
   McaPcrContext = HalpGetMcaPcrContext(a2);
   if ( !*(_QWORD *)(McaPcrContext + 16) )
   {
-    v3 = HalpMmAllocCtxAlloc(v4, 372LL);
+    v3 = (GUID *)HalpMmAllocCtxAlloc(v4, 352LL);
     if ( !v3 )
-      KeBugCheckEx(0xACu, 0x174uLL, 0xDA00uLL, 0LL, 0LL);
+      KeBugCheckEx(0xACu, 0x160uLL, 0xDA00uLL, 0LL, 0LL);
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
@@ -43,7 +43,7 @@ __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)
   if ( v3 )
     *(_QWORD *)(McaPcrContext + 16) = v3;
   else
-    v3 = *(_QWORD *)(McaPcrContext + 16);
+    v3 = *(GUID **)(McaPcrContext + 16);
   HalpCmcInitializeErrorPacketContents(v3);
   *(_OWORD *)(*(_QWORD *)(McaPcrContext + 16) + 32LL) = CMCI_NOTIFY_TYPE_GUID;
   *(_QWORD *)(McaPcrContext + 24) = a1;
@@ -60,7 +60,7 @@ __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)
         v13 = (v12 & v11[5]) == 0;
         v11[5] &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

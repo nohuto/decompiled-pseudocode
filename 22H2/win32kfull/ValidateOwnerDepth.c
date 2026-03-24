@@ -1,8 +1,8 @@
 /*
- * XREFs of ValidateOwnerDepth @ 0x1C00C8100
+ * XREFs of ValidateOwnerDepth @ 0x1C011B824
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
  * Callees:
  *     <none>
  */

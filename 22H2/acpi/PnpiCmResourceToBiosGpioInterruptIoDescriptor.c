@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosGpioInterruptIoDescriptor @ 0x1C00932E0
+ * XREFs of PnpiCmResourceToBiosGpioInterruptIoDescriptor @ 0x1C00B4DD0
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */

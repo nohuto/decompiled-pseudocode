@@ -1,383 +1,435 @@
 /*
- * XREFs of ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18003F9D8
+ * XREFs of ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004A3BC
  * Callers:
- *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18002A16C (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AF38 (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
  * Callees:
- *     ??1CRenderingTechniqueFragment@@QEAA@XZ @ 0x180029DF8 (--1CRenderingTechniqueFragment@@QEAA@XZ.c)
- *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18002A16C (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
- *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18002A2D8 (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
- *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18002D854 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
- *     ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x18003F77C (-GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@.c)
- *     ?AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBUGraphInputParameters@CBrushRenderingGraph@@@Z @ 0x18003F91C (-AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBU.c)
- *     ??0CRenderingTechniqueFragment@@QEAA@PEAUIEffectInstance@Composition@UI@Windows@@PEAVCShaderCache@@IW4Enum@CompiledEffectSubgraphFlags@234@_N@Z @ 0x18003FF94 (--0CRenderingTechniqueFragment@@QEAA@PEAUIEffectInstance@Composition@UI@Windows@@PEAVCShaderCach.c)
- *     ??1?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@QEAA@XZ @ 0x18004008C (--1-$unique_ptr@VCRenderingTechniqueFragment@@U-$default_delete@VCRenderingTechniqueFragment@@@s.c)
- *     ??$_Emplace_reallocate@UFragmentInput@CRenderingTechniqueFragment@@@?$vector@UFragmentInput@CRenderingTechniqueFragment@@V?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@QEAAPEAUFragmentInput@CRenderingTechniqueFragment@@QEAU23@$$QEAU23@@Z @ 0x18004023C (--$_Emplace_reallocate@UFragmentInput@CRenderingTechniqueFragment@@@-$vector@UFragmentInput@CRen.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddIntermediateInput@CRenderingTechniqueFragment@@QEAAXI@Z @ 0x1800D2550 (-AddIntermediateInput@CRenderingTechniqueFragment@@QEAAXI@Z.c)
- *     ??$_Resize@U_Value_init_tag@std@@@?$vector@USubgraphOutput@CBrushRenderingGraphBuilder@@V?$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1800EB2C4 (--$_Resize@U_Value_init_tag@std@@@-$vector@USubgraphOutput@CBrushRenderingGraphBuilder@@V-$alloc.c)
- *     ??$?4U?$default_delete@VCRenderingTechniqueFragment@@@std@@$0A@@?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1800F5534 (--$-4U-$default_delete@VCRenderingTechniqueFragment@@@std@@$0A@@-$unique_ptr@VCRenderingTechniqu.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_30193979@@@details@wil@@QEAA_NXZ @ 0x180119D94 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_30193979@@@details@wil@@QEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ??1?$vector@USubgraphOutput@CBrushRenderingGraphBuilder@@V?$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@std@@@std@@QEAA@XZ @ 0x18026DF48 (--1-$vector@USubgraphOutput@CBrushRenderingGraphBuilder@@V-$allocator@USubgraphOutput@CBrushRend.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??4?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x180047F9C (--4-$unique_ptr@VCRenderingTechniqueFragment@@U-$default_delete@VCRenderingTechniqueFragment@@@s.c)
+ *     ??$_Destroy_range@V?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFragmentInput@CRenderingTechniqueFragment@@0AEAV?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@0@@Z @ 0x180048E98 (--$_Destroy_range@V-$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFr.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@USubgraphOutput@CBrushRenderingGraphBuilder@@V?$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x180049384 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@USubgraphOutput@CBrushRenderingGraphBuilde.c)
+ *     ?AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBUGraphInputParameters@CBrushRenderingGraph@@@Z @ 0x18004969C (-AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBU.c)
+ *     ??$_Emplace_reallocate@UFragmentInput@CRenderingTechniqueFragment@@@?$vector@UFragmentInput@CRenderingTechniqueFragment@@V?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@QEAAPEAUFragmentInput@CRenderingTechniqueFragment@@QEAU23@$$QEAU23@@Z @ 0x180049A7C (--$_Emplace_reallocate@UFragmentInput@CRenderingTechniqueFragment@@@-$vector@UFragmentInput@CRen.c)
+ *     ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x180049FB8 (-GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@.c)
+ *     ??_GCRenderingTechniqueFragment@@QEAAPEAXI@Z @ 0x18004A230 (--_GCRenderingTechniqueFragment@@QEAAPEAXI@Z.c)
+ *     ??0CRenderingTechniqueFragment@@QEAA@PEAUIEffectInstance@Composition@UI@Windows@@PEAVCCompiledEffectCache@@IW4Enum@CompiledEffectSubgraphFlags@234@_N@Z @ 0x18004A788 (--0CRenderingTechniqueFragment@@QEAA@PEAUIEffectInstance@Composition@UI@Windows@@PEAVCCompiledEf.c)
+ *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AF38 (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18004B080 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18004B3B8 (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@std@@@std@@YAXPEAUSubgraphOutput@CBrushRenderingGraphBuilder@@0AEAV?$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@0@@Z @ 0x1800D260C (--$_Destroy_range@V-$allocator@USubgraphOutput@CBrushRenderingGraphBuilder@@@std@@@std@@YAXPEAUS.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBrushRenderingGraphBuilder::AddEffectBrush(
-        struct CBrushRenderingGraph **this,
+        CBrushRenderingGraphBuilder *this,
         struct CEffectBrush *a2,
         char a3,
         struct CRenderingTechniqueFragment **a4)
 {
-  CCompiledEffectTemplate *v4; // rbx
-  char v5; // r13
-  struct CRenderingTechniqueFragment *v7; // r15
-  __int64 v8; // rsi
+  CCompiledEffectTemplate *v4; // rdi
+  __int64 *v6; // rbx
+  __int64 v7; // r15
   const struct Windows::UI::Composition::ICompiledEffect *CompiledEffectNoRef; // rax
-  __int64 v10; // rbx
-  const struct Windows::UI::Composition::ICompiledEffect *v11; // r12
-  struct _TP_WORK *v12; // rcx
-  unsigned int v13; // eax
-  unsigned int v14; // ebx
-  unsigned int v15; // edi
-  unsigned int v16; // r14d
-  unsigned int v17; // ebx
-  int v18; // esi
-  bool v19; // r13
-  void *v20; // rax
-  unsigned int v21; // ecx
-  struct CRenderingTechniqueFragment *v22; // rdi
-  CRenderingTechniqueFragment *v23; // rbx
+  __int64 v9; // rdi
+  const struct Windows::UI::Composition::ICompiledEffect *v10; // rsi
+  struct _TP_WORK *v11; // rcx
+  unsigned int v12; // eax
+  __int64 v13; // r15
+  unsigned int v14; // edi
+  unsigned int v15; // r13d
+  __int64 v16; // r14
+  unsigned int v17; // r12d
+  int v18; // edi
+  void *v19; // rax
+  unsigned int v20; // ecx
+  bool v21; // cl
+  __int64 *v22; // r13
+  __int64 *v23; // rdi
   unsigned int v24; // eax
-  unsigned int v25; // r12d
-  unsigned __int64 v26; // rbx
-  const char *v27; // r9
-  __int64 v28; // rbx
-  __int64 v29; // rcx
-  _QWORD *v30; // rdx
-  __int64 *v31; // rcx
-  const char *v32; // r9
-  __int64 v33; // rax
-  struct CBrush *v34; // rsi
-  bool v35; // r8
-  unsigned int v36; // ecx
-  int v37; // ebx
-  CRenderingTechniqueFragment *v38; // rsi
-  __int64 v39; // rcx
-  _QWORD *v40; // rdx
-  int v41; // eax
-  _DWORD *v42; // rcx
-  CRenderingTechniqueFragment *v43; // rbx
-  _DWORD *v44; // rcx
-  CRenderingTechniqueFragment *v45; // rbx
-  int v46; // r9d
-  unsigned int v48[2]; // [rsp+28h] [rbp-B9h]
-  unsigned int v49; // [rsp+28h] [rbp-B9h]
-  int v50; // [rsp+30h] [rbp-B1h]
-  char v51; // [rsp+38h] [rbp-A9h] BYREF
-  unsigned int v52; // [rsp+3Ch] [rbp-A5h]
-  __int64 v53; // [rsp+40h] [rbp-A1h] BYREF
-  struct CRenderingTechniqueFragment *v54; // [rsp+48h] [rbp-99h] BYREF
-  CRenderingTechniqueFragment **v55; // [rsp+50h] [rbp-91h] BYREF
-  struct CRenderingTechniqueFragment *v56; // [rsp+58h] [rbp-89h] BYREF
-  int v57; // [rsp+60h] [rbp-81h]
-  unsigned int v58; // [rsp+68h] [rbp-79h]
-  int v59; // [rsp+6Ch] [rbp-75h]
-  int v60; // [rsp+70h] [rbp-71h] BYREF
-  unsigned int v61; // [rsp+74h] [rbp-6Dh]
-  const struct Windows::UI::Composition::ICompiledEffect *v62; // [rsp+78h] [rbp-69h]
-  struct CRenderingTechniqueFragment *v63; // [rsp+80h] [rbp-61h]
-  __int128 v64; // [rsp+88h] [rbp-59h] BYREF
-  __int64 v65; // [rsp+98h] [rbp-49h]
-  __int64 v66; // [rsp+A0h] [rbp-41h] BYREF
-  __int64 v67; // [rsp+A8h] [rbp-39h] BYREF
-  __int64 v68; // [rsp+B0h] [rbp-31h] BYREF
-  __int64 v69; // [rsp+B8h] [rbp-29h] BYREF
-  __int64 v70; // [rsp+C0h] [rbp-21h]
-  __int64 v71; // [rsp+C8h] [rbp-19h]
-  int v72; // [rsp+D0h] [rbp-11h]
-  CRenderingTechniqueFragment *v73; // [rsp+D8h] [rbp-9h] BYREF
-  int v74; // [rsp+E0h] [rbp-1h]
-  CRenderingTechniqueFragment *v75; // [rsp+E8h] [rbp+7h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+140h] [rbp+5Fh]
+  unsigned int v25; // edx
+  unsigned int v26; // eax
+  __int64 v27; // rsi
+  __int64 *v28; // rcx
+  int *v29; // rdx
+  int v30; // eax
+  CRenderingTechniqueFragment *v31; // r8
+  _QWORD *v32; // rdx
+  CRenderingTechniqueFragment *v33; // rcx
+  int v34; // eax
+  unsigned int v35; // ecx
+  int v36; // edi
+  _DWORD *v37; // rdi
+  CRenderingTechniqueFragment **v38; // rcx
+  struct CRenderingTechniqueFragment *v39; // rax
+  __int64 v41; // rax
+  struct CBrush *v42; // rdi
+  _QWORD *v43; // rdx
+  int v44; // eax
+  unsigned int v45; // ecx
+  CRenderingTechniqueFragment **v46; // rcx
+  void *v47; // rcx
+  __int64 v48; // rsi
+  bool v49; // r8
+  unsigned int v50; // ecx
+  __int64 *v51; // rsi
+  void *v52; // rcx
+  __int64 v53; // r14
+  CRenderingTechniqueFragment *v54; // r8
+  _QWORD *v55; // rdx
+  void *v56; // rcx
+  __int64 v57; // rsi
+  int v58; // [rsp+30h] [rbp-D8h]
+  int v59; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v60; // [rsp+3Ch] [rbp-CCh]
+  __int64 v61; // [rsp+40h] [rbp-C8h]
+  CRenderingTechniqueFragment *v62; // [rsp+48h] [rbp-C0h] BYREF
+  _DWORD *v63; // [rsp+50h] [rbp-B8h]
+  __int64 *v64; // [rsp+58h] [rbp-B0h] BYREF
+  CRenderingTechniqueFragment **v65; // [rsp+60h] [rbp-A8h] BYREF
+  struct CRenderingTechniqueFragment *v66; // [rsp+68h] [rbp-A0h] BYREF
+  int v67; // [rsp+70h] [rbp-98h]
+  unsigned int v68; // [rsp+78h] [rbp-90h]
+  int v69; // [rsp+7Ch] [rbp-8Ch]
+  int v70; // [rsp+80h] [rbp-88h] BYREF
+  unsigned int v71; // [rsp+84h] [rbp-84h]
+  const struct Windows::UI::Composition::ICompiledEffect *v72; // [rsp+88h] [rbp-80h]
+  struct CRenderingTechniqueFragment *v73; // [rsp+90h] [rbp-78h]
+  __int64 v74; // [rsp+98h] [rbp-70h] BYREF
+  CRenderingTechniqueFragment *v75; // [rsp+A0h] [rbp-68h]
+  __int64 v76; // [rsp+A8h] [rbp-60h] BYREF
+  CRenderingTechniqueFragment *v77; // [rsp+B0h] [rbp-58h]
+  __int64 v78; // [rsp+B8h] [rbp-50h] BYREF
+  CRenderingTechniqueFragment *v79; // [rsp+C0h] [rbp-48h]
+  __int128 v80; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v81; // [rsp+D8h] [rbp-30h]
+  __int64 v82; // [rsp+E0h] [rbp-28h]
+  __int64 v83; // [rsp+E8h] [rbp-20h]
+  int v84; // [rsp+F0h] [rbp-18h]
+  CRenderingTechniqueFragment *v85; // [rsp+F8h] [rbp-10h] BYREF
+  int v86; // [rsp+100h] [rbp-8h]
+  CRenderingTechniqueFragment *v87; // [rsp+108h] [rbp+0h] BYREF
 
-  v4 = (CCompiledEffectTemplate *)*((_QWORD *)a2 + 12);
-  v5 = a3;
-  v7 = 0LL;
-  v8 = *(_QWORD *)(*((_QWORD *)v4 + 10) + 48LL);
-  v71 = v8;
+  v4 = (CCompiledEffectTemplate *)*((_QWORD *)a2 + 11);
+  v6 = 0LL;
+  v7 = *(_QWORD *)(*((_QWORD *)v4 + 9) + 48LL);
+  v83 = v7;
   CompiledEffectNoRef = CCompiledEffectTemplate::GetCompiledEffectNoRef(v4);
-  v10 = *((_QWORD *)v4 + 10);
-  v11 = CompiledEffectNoRef;
-  v62 = CompiledEffectNoRef;
-  v12 = *(struct _TP_WORK **)(v10 + 56);
-  if ( v12 )
+  v9 = *((_QWORD *)v4 + 9);
+  v10 = CompiledEffectNoRef;
+  v72 = CompiledEffectNoRef;
+  v11 = *(struct _TP_WORK **)(v9 + 56);
+  if ( v11 )
   {
-    WaitForThreadpoolWorkCallbacks(v12, 0);
-    CloseThreadpoolWork(*(PTP_WORK *)(v10 + 56));
-    *(_QWORD *)(v10 + 56) = 0LL;
+    WaitForThreadpoolWorkCallbacks(v11, 0);
+    CloseThreadpoolWork(*(PTP_WORK *)(v9 + 56));
+    *(_QWORD *)(v9 + 56) = 0LL;
   }
-  v70 = *(_QWORD *)(v10 + 72);
-  v63 = (struct CRenderingTechniqueFragment *)*((_QWORD *)a2 + 14);
-  v13 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v8 + 32LL))(v8);
-  v65 = 0LL;
-  v61 = v13;
-  v14 = v13;
-  v15 = v13 - 1;
-  v52 = v13 - 1;
-  v64 = 0LL;
-  std::vector<CBrushRenderingGraphBuilder::SubgraphOutput>::_Resize<std::_Value_init_tag>(&v64, v13 - 1);
-  v16 = 0;
+  v82 = *(_QWORD *)(v9 + 72);
+  v73 = (struct CRenderingTechniqueFragment *)*((_QWORD *)a2 + 13);
+  v12 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 32LL))(v7);
+  v13 = 0LL;
+  v14 = v12;
+  v71 = v12;
+  v80 = 0LL;
+  v15 = v12 - 1;
+  v81 = 0LL;
+  LODWORD(v61) = v12 - 1;
+  if ( v12 != 1 )
+  {
+    std::vector<CBrushRenderingGraphBuilder::SubgraphOutput>::_Resize_reallocate<std::_Value_init_tag>(
+      (__int64 *)&v80,
+      v12 - 1);
+    v13 = v81;
+  }
+  v16 = v80;
+  v17 = 0;
   if ( !v14 )
   {
-LABEL_65:
-    v54 = 0LL;
-    v37 = 0;
-    *a4 = v7;
-    goto LABEL_66;
+LABEL_29:
+    v39 = (struct CRenderingTechniqueFragment *)v6;
+    v6 = 0LL;
+    v36 = 0;
+    *a4 = v39;
+    goto LABEL_30;
   }
+  v63 = (_DWORD *)v80;
   while ( 1 )
   {
-    v17 = (*(__int64 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD))(*(_QWORD *)v11 + 40LL))(
-            v11,
-            v16);
-    v18 = v17 & 8;
-    v59 = v18;
-    v19 = v5 && (v16 == v15 || (v17 & 8) != 0);
-    v20 = DefaultHeap::Alloc(0x80uLL);
-    if ( v20 )
+    v69 = (*(__int64 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD))(*(_QWORD *)v10 + 40LL))(
+            v10,
+            v17);
+    v18 = v69;
+    v19 = DefaultHeap::Alloc(0x80uLL);
+    if ( v19 )
     {
-      LOBYTE(v50) = v19;
-      v48[0] = v17;
-      v22 = (struct CRenderingTechniqueFragment *)CRenderingTechniqueFragment::CRenderingTechniqueFragment(
-                                                    v20,
-                                                    v63,
-                                                    v70,
-                                                    v16,
-                                                    *(_QWORD *)v48,
-                                                    v50);
+      v21 = a3 && v17 == v15;
+      LOBYTE(v58) = v21;
+      v22 = (__int64 *)CRenderingTechniqueFragment::CRenderingTechniqueFragment(v19, v73, v82, v17, v18, v58);
     }
     else
     {
       v22 = 0LL;
     }
-    v23 = v7;
-    v54 = v22;
-    v7 = v22;
+    v23 = v6;
+    v6 = v22;
+    v64 = v22;
     if ( v23 )
     {
-      CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v23);
-      operator delete(v23, 0x80uLL);
+      v47 = (void *)v23[14];
+      if ( v47 )
+        operator delete(v47);
+      v48 = v23[4];
+      if ( v48 )
+      {
+        std::_Destroy_range<std::allocator<CRenderingTechniqueFragment::FragmentInput>>(v23[4], v23[5]);
+        std::_Deallocate<16,0>(v48, (v23[6] - v48) & 0xFFFFFFFFFFFFFFF0uLL);
+        v23[4] = 0LL;
+        v23[5] = 0LL;
+        v23[6] = 0LL;
+      }
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v23);
+      operator delete(v23);
+      v10 = v72;
     }
     if ( !v22 )
     {
-      v37 = -2147024882;
-      v46 = -2147024882;
-      v49 = 234;
-      goto LABEL_64;
+      v36 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024882, 0xD8u, 0LL);
+      goto LABEL_30;
     }
-    v24 = (*(__int64 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD))(*(_QWORD *)v11 + 32LL))(
-            v11,
-            v16);
+    v24 = (*(__int64 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD))(*(_QWORD *)v10 + 32LL))(
+            v10,
+            v17);
     v25 = 0;
-    v58 = v24;
+    v68 = v24;
+    v60 = 0;
     if ( v24 )
       break;
-LABEL_48:
-    if ( v16 != v52 )
+LABEL_21:
+    if ( v17 == (_DWORD)v61 )
     {
-      v41 = CBrushRenderingGraphBuilder::CheckFragmentSize(this, v22);
-      v37 = v41;
-      if ( v41 < 0 )
+      v37 = v63;
+    }
+    else
+    {
+      v34 = CBrushRenderingGraphBuilder::CheckFragmentSize(this, (struct CRenderingTechniqueFragment *)v22);
+      v36 = v34;
+      if ( v34 < 0 )
       {
-        v49 = 315;
-LABEL_62:
-        v46 = v41;
-LABEL_64:
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v46, v49, 0LL);
-        goto LABEL_66;
+        MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0x11Fu, 0LL);
+        goto LABEL_30;
       }
-      if ( v18 )
+      if ( (v69 & 8) != 0 )
       {
-        v44 = (_DWORD *)(v64 + 16LL * v16);
-        v7 = 0LL;
-        v74 = -1;
-        v75 = v22;
-        *v44 = -1;
-        std::unique_ptr<CRenderingTechniqueFragment>::operator=<std::default_delete<CRenderingTechniqueFragment>,0>(
-          v44 + 2,
-          &v75);
-        v45 = v75;
-        if ( v75 )
-        {
-          CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v75);
-          operator delete(v45, 0x80uLL);
-        }
+        v37 = v63;
+        v87 = (CRenderingTechniqueFragment *)v22;
+        v86 = -1;
+        v6 = 0LL;
+        v38 = (CRenderingTechniqueFragment **)(v63 + 2);
+        *v63 = -1;
+        std::unique_ptr<CRenderingTechniqueFragment>::operator=(v38, &v87);
+        if ( v87 )
+          CRenderingTechniqueFragment::`scalar deleting destructor'(v87);
       }
       else
       {
-        v41 = CBrushRenderingGraphBuilder::CreateTechniqueForFragment(this, (__int64)&v54, &v60);
-        v37 = v41;
-        if ( v41 < 0 )
+        v44 = CBrushRenderingGraphBuilder::CreateTechniqueForFragment(this, &v64, &v70);
+        v36 = v44;
+        if ( v44 < 0 )
         {
-          v49 = 320;
-          goto LABEL_62;
+          MilInstrumentationCheckHR_MaybeFailFast(v45, 0LL, 0, v44, 0x124u, 0LL);
+          v6 = v64;
+          goto LABEL_30;
         }
-        v42 = (_DWORD *)(v64 + 16LL * v16);
-        v72 = v60;
-        v73 = 0LL;
-        *v42 = v60;
-        std::unique_ptr<CRenderingTechniqueFragment>::operator=<std::default_delete<CRenderingTechniqueFragment>,0>(
-          v42 + 2,
-          &v73);
-        v43 = v73;
-        if ( v73 )
-        {
-          CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v73);
-          operator delete(v43, 0x80uLL);
-        }
-        v7 = v54;
+        v37 = v63;
+        v85 = 0LL;
+        v84 = v70;
+        v46 = (CRenderingTechniqueFragment **)(v63 + 2);
+        *v63 = v70;
+        std::unique_ptr<CRenderingTechniqueFragment>::operator=(v46, &v85);
+        if ( v85 )
+          CRenderingTechniqueFragment::`scalar deleting destructor'(v85);
+        v6 = v64;
       }
     }
-    if ( ++v16 >= v61 )
-      goto LABEL_65;
-    v11 = v62;
-    v15 = v52;
-    v5 = a3;
+    ++v17;
+    v63 = v37 + 4;
+    if ( v17 >= v71 )
+      goto LABEL_29;
+    v15 = v61;
   }
   while ( 1 )
   {
-    v26 = (*(unsigned int (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD, _QWORD, char *))(*(_QWORD *)v62 + 48LL))(
-            v62,
-            v16,
+    v26 = (*(__int64 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD, _QWORD, int *))(*(_QWORD *)v10 + 48LL))(
+            v10,
+            v17,
             v25,
-            &v51);
-    if ( !v51 )
+            &v59);
+    v27 = v26;
+    if ( !(_BYTE)v59 )
       break;
-    if ( (unsigned __int8)wil::details::FeatureImpl<__WilFeatureTraits_Feature_30193979>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_30193979>::GetImpl'::`2'::impl)
-      && v26 >= (__int64)(*((_QWORD *)&v64 + 1) - v64) >> 4 )
+    v28 = v22 + 4;
+    v29 = (int *)(v16 + 16LL * v26);
+    v30 = *v29;
+    if ( *v29 == -1 )
     {
-      wil::details::in1diag3::_FailFast_Unexpected(
-        retaddr,
-        (void *)0xFA,
-        (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\brushrenderinggraphbuilder.cpp",
-        v27);
-    }
-    v28 = v64 + 16 * v26;
-    if ( *(_DWORD *)v28 == -1 )
-    {
-      v29 = *(_QWORD *)(v28 + 8);
-      *(_QWORD *)(v28 + 8) = 0LL;
-      v30 = (_QWORD *)*((_QWORD *)v22 + 5);
-      v67 = v29;
-      if ( v30 == *((_QWORD **)v22 + 6) )
+      v31 = (CRenderingTechniqueFragment *)*((_QWORD *)v29 + 1);
+      *((_QWORD *)v29 + 1) = 0LL;
+      v32 = (_QWORD *)v22[5];
+      v77 = v31;
+      if ( (_QWORD *)v22[6] == v32 )
       {
         std::vector<CRenderingTechniqueFragment::FragmentInput>::_Emplace_reallocate<CRenderingTechniqueFragment::FragmentInput>(
-          (char *)v22 + 32,
-          v30,
-          &v66);
+          v28,
+          (__int64)v32,
+          &v76);
+        v33 = v77;
+        goto LABEL_18;
       }
-      else
-      {
-        v67 = 0LL;
-        *v30 = v66;
-        v30[1] = v29;
-        *((_QWORD *)v22 + 5) += 16LL;
-      }
-      v31 = &v67;
-LABEL_41:
-      std::unique_ptr<CRenderingTechniqueFragment>::~unique_ptr<CRenderingTechniqueFragment>(v31);
-      goto LABEL_46;
-    }
-    CRenderingTechniqueFragment::AddIntermediateInput(v22, *(_DWORD *)v28);
-LABEL_46:
-    if ( ++v25 >= v58 )
-    {
-      v18 = v59;
-      goto LABEL_48;
-    }
-  }
-  if ( (unsigned __int8)wil::details::FeatureImpl<__WilFeatureTraits_Feature_30193979>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_30193979>::GetImpl'::`2'::impl)
-    && (unsigned int)v26 >= *((_DWORD *)a2 + 36) )
-  {
-    wil::details::in1diag3::_FailFast_Unexpected(
-      retaddr,
-      (void *)0x216,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\effectbrush.cpp",
-      v32);
-  }
-  v33 = *((_QWORD *)a2 + 15);
-  v34 = *(struct CBrush **)(v33 + 8 * v26);
-  if ( !v34 || !*((_BYTE *)v34 + 80) )
-  {
-    v55 = *(CRenderingTechniqueFragment ***)(v33 + 8 * v26);
-    if ( (*(unsigned __int8 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v71 + 48LL))(v71, (unsigned int)v26) )
-    {
-      v56 = v63;
-      v57 = v26;
+      v77 = 0LL;
+      *v32 = v76;
+      v32[1] = v31;
     }
     else
     {
-      v56 = 0LL;
-      v57 = 0;
+      v75 = 0LL;
+      v43 = (_QWORD *)v22[5];
+      LODWORD(v74) = v30;
+      BYTE4(v74) = 1;
+      if ( (_QWORD *)v22[6] == v43 )
+      {
+        std::vector<CRenderingTechniqueFragment::FragmentInput>::_Emplace_reallocate<CRenderingTechniqueFragment::FragmentInput>(
+          v28,
+          (__int64)v43,
+          &v74);
+        v33 = v75;
+LABEL_18:
+        if ( v33 )
+          CRenderingTechniqueFragment::`scalar deleting destructor'(v33);
+        goto LABEL_20;
+      }
+      *v43 = v74;
+      v43[1] = 0LL;
+    }
+    v22[5] += 16LL;
+LABEL_20:
+    v10 = v72;
+    v25 = v60 + 1;
+    v60 = v25;
+    if ( v25 >= v68 )
+      goto LABEL_21;
+  }
+  v41 = *((_QWORD *)a2 + 14);
+  v42 = *(struct CBrush **)(v41 + 8 * v27);
+  if ( !v42 || !*((_BYTE *)v42 + 72) )
+  {
+    v65 = *(CRenderingTechniqueFragment ***)(v41 + 8 * v27);
+    if ( (*(unsigned __int8 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v83 + 48LL))(v83, (unsigned int)v27) )
+    {
+      v66 = v73;
+      v67 = v27;
+    }
+    else
+    {
+      v66 = 0LL;
+      v67 = 0;
     }
     CBrushRenderingGraphBuilder::AddNamedInputToFragment(
-      (CBrushRenderingGraphBuilder *)this,
-      v22,
-      (const struct CBrushRenderingGraph::GraphInputParameters *)&v55);
-    goto LABEL_46;
+      this,
+      (struct CRenderingTechniqueFragment *)v22,
+      (const struct CBrushRenderingGraph::GraphInputParameters *)&v65);
+    goto LABEL_20;
   }
-  v35 = v19
-     || (*(unsigned __int8 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v62 + 56LL))(
-          v62,
-          v16,
-          v25,
+  v49 = a3
+     || (*(unsigned __int8 (__fastcall **)(const struct Windows::UI::Composition::ICompiledEffect *, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v72 + 56LL))(
+          v72,
+          v17,
+          v60,
           0LL,
           0LL);
-  v53 = 0LL;
-  v56 = 0LL;
-  v55 = (CRenderingTechniqueFragment **)&v53;
-  LOBYTE(v57) = 1;
-  v37 = CBrushRenderingGraphBuilder::AddBrush((CBrushRenderingGraphBuilder *)this, v34, v35, &v56);
-  if ( (_BYTE)v57 )
+  v62 = 0LL;
+  v66 = 0LL;
+  v65 = &v62;
+  LOBYTE(v67) = 1;
+  v36 = CBrushRenderingGraphBuilder::AddBrush(this, v42, v49, &v66);
+  if ( (_BYTE)v67 )
   {
-    v38 = *v55;
-    *v55 = v56;
-    if ( v38 )
+    v50 = (unsigned int)v66;
+    v51 = (__int64 *)*v65;
+    *v65 = v66;
+    if ( v51 )
     {
-      CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v38);
-      operator delete(v38, 0x80uLL);
+      v52 = (void *)v51[14];
+      if ( v52 )
+        operator delete(v52);
+      v53 = v51[4];
+      if ( v53 )
+      {
+        std::_Destroy_range<std::allocator<CRenderingTechniqueFragment::FragmentInput>>(v51[4], v51[5]);
+        std::_Deallocate<16,0>(v53, (v51[6] - v53) & 0xFFFFFFFFFFFFFFF0uLL);
+        v51[4] = 0LL;
+        v51[5] = 0LL;
+        v51[6] = 0LL;
+      }
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v51);
+      operator delete(v51);
+      v16 = v80;
     }
   }
-  if ( v37 >= 0 )
+  if ( v36 >= 0 )
   {
-    v39 = v53;
-    v53 = 0LL;
-    v40 = (_QWORD *)*((_QWORD *)v22 + 5);
-    v69 = v39;
-    if ( v40 == *((_QWORD **)v22 + 6) )
+    v54 = v62;
+    v62 = 0LL;
+    v55 = (_QWORD *)v22[5];
+    v79 = v54;
+    if ( (_QWORD *)v22[6] == v55 )
     {
       std::vector<CRenderingTechniqueFragment::FragmentInput>::_Emplace_reallocate<CRenderingTechniqueFragment::FragmentInput>(
-        (char *)v22 + 32,
-        v40,
-        &v68);
+        v22 + 4,
+        (__int64)v55,
+        &v78);
+      if ( v79 )
+        CRenderingTechniqueFragment::`scalar deleting destructor'(v79);
     }
     else
     {
-      v69 = 0LL;
-      *v40 = v68;
-      v40[1] = v39;
-      *((_QWORD *)v22 + 5) += 16LL;
+      v79 = 0LL;
+      *v55 = v78;
+      v55[1] = v54;
+      v22[5] += 16LL;
     }
-    std::unique_ptr<CRenderingTechniqueFragment>::~unique_ptr<CRenderingTechniqueFragment>(&v69);
-    v31 = &v53;
-    goto LABEL_41;
+    v33 = v62;
+    goto LABEL_18;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v37, 0x11Du, 0LL);
-  std::unique_ptr<CRenderingTechniqueFragment>::~unique_ptr<CRenderingTechniqueFragment>(&v53);
-LABEL_66:
-  std::vector<CBrushRenderingGraphBuilder::SubgraphOutput>::~vector<CBrushRenderingGraphBuilder::SubgraphOutput>(&v64);
-  std::unique_ptr<CRenderingTechniqueFragment>::~unique_ptr<CRenderingTechniqueFragment>(&v54);
-  return (unsigned int)v37;
+  MilInstrumentationCheckHR_MaybeFailFast(v50, 0LL, 0, v36, 0x103u, 0LL);
+  if ( v62 )
+    CRenderingTechniqueFragment::`scalar deleting destructor'(v62);
+LABEL_30:
+  if ( v16 )
+  {
+    std::_Destroy_range<std::allocator<CBrushRenderingGraphBuilder::SubgraphOutput>>(v16, *((_QWORD *)&v80 + 1));
+    std::_Deallocate<16,0>(v16, (v13 - v16) & 0xFFFFFFFFFFFFFFF0uLL);
+  }
+  if ( v6 )
+  {
+    v56 = (void *)v6[14];
+    if ( v56 )
+      operator delete(v56);
+    v57 = v6[4];
+    if ( v57 )
+    {
+      std::_Destroy_range<std::allocator<CRenderingTechniqueFragment::FragmentInput>>(v6[4], v6[5]);
+      std::_Deallocate<16,0>(v57, (v6[6] - v57) & 0xFFFFFFFFFFFFFFF0uLL);
+      v6[4] = 0LL;
+      v6[5] = 0LL;
+      v6[6] = 0LL;
+    }
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v6);
+    operator delete(v6);
+  }
+  return (unsigned int)v36;
 }

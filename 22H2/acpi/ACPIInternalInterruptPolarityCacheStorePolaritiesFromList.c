@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C002EA20
+ * XREFs of ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C0016430
  * Callers:
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080990 (ACPIBusIrpQueryResourceRequirements.c)
- *     ACPIBusIrpQueryResources @ 0x1C0080E90 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
- *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C002EAC0 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C0016300 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
  */
 
 __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(__int64 a1, __int64 a2)
@@ -26,10 +26,7 @@ __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(__i
       {
         if ( *(_BYTE *)(v6 + 1) == 2 )
         {
-          result = ACPIInternalInterruptPolarityCacheStorePolarity(
-                     a1,
-                     *(unsigned int *)(v6 + 12),
-                     *(unsigned int *)(v6 + 16));
+          result = ACPIInternalInterruptPolarityCacheStorePolarity(a1, *(_DWORD *)(v6 + 12), *(_DWORD *)(v6 + 16));
           if ( (int)result < 0 )
             return result;
         }

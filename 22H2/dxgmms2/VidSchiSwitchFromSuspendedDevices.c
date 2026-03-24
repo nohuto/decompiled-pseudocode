@@ -1,121 +1,124 @@
 /*
- * XREFs of VidSchiSwitchFromSuspendedDevices @ 0x1C00046B0
+ * XREFs of VidSchiSwitchFromSuspendedDevices @ 0x1C0016990
  * Callers:
  *     <none>
  * Callees:
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiSubmitPreemptionCommand @ 0x1C0087458 (VidSchiSubmitPreemptionCommand.c)
- *     VidSchiSwitchNodeFromContext @ 0x1C0087640 (VidSchiSwitchNodeFromContext.c)
- *     VidSchiWaitForCompletePreemption @ 0x1C0106E4C (VidSchiWaitForCompletePreemption.c)
- *     VidSchiWaitForEmptyHwQueue @ 0x1C0106F10 (VidSchiWaitForEmptyHwQueue.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C0086D2C (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008B130 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C00CF594 (VidSchiWaitForCompletePreemption.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C00CF730 (VidSchiWaitForEmptyHwQueue.c)
  */
 
-void __fastcall VidSchiSwitchFromSuspendedDevices(__int64 a1)
+void __fastcall VidSchiSwitchFromSuspendedDevices(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r14
-  unsigned int v3; // esi
-  __int64 *v4; // rdi
-  __int64 v5; // rdi
-  char v6; // r15
-  unsigned int i; // ebp
-  unsigned int v8; // eax
-  unsigned int v9; // edi
-  __int64 *v10; // rbp
-  __int64 v11; // rbp
-  __int64 v12; // rsi
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // rcx
+  __int64 v2; // rbx
+  unsigned int v3; // eax
+  __int64 v4; // r15
+  unsigned int i; // esi
+  __int64 *v6; // rdi
+  __int64 v7; // rdi
+  char v8; // r12
+  __int64 v9; // rcx
+  unsigned int j; // ebp
+  unsigned int v11; // edi
+  __int64 *v12; // rbp
+  __int64 v13; // rbp
+  __int64 v14; // rsi
+  __int64 v15; // rax
+  __int64 v16; // r14
+  __int64 v17; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
-  if ( !*(_DWORD *)(a1 + 3012) )
+  v2 = a1;
+  if ( !*(_DWORD *)(a1 + 2916) )
   {
-    if ( (*(_DWORD *)(a1 + 2536) & 1) != 0 )
+    if ( (*(_DWORD *)(a1 + 2448) & 1) != 0 )
     {
-      v2 = 0LL;
-      v3 = 0;
-      if ( *(_DWORD *)(a1 + 80) )
+      v3 = *(_DWORD *)(a1 + 72);
+      v4 = 0LL;
+      for ( i = 0; i < v3; ++i )
+      {
+        v6 = *(__int64 **)(v2 + 624);
+        if ( i < *(_DWORD *)(v2 + 696) )
+          v6 += i;
+        v7 = *v6;
+        v8 = 0;
+        KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 1712), &LockHandle);
+        for ( j = *(_DWORD *)(v7 + 1552); j != *(_DWORD *)(v7 + 1544); j = ((_BYTE)j + 1) & 0xF )
+        {
+          v16 = *(_QWORD *)(v7 + 8LL * j + 1560);
+          if ( v16 )
+          {
+            if ( (*(_DWORD *)(v16 + 184) & 0x200) != 0
+              || (v9 = *(_QWORD *)(v16 + 104), *(_BYTE *)(v9 + 204))
+              || _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 200), 0, 0) )
+            {
+              v8 = 1;
+              v17 = WdLogNewEntry5_WdEvent(v9, 0LL);
+              *(_QWORD *)(v17 + 24) = v7;
+              *(_QWORD *)(v17 + 32) = v16;
+              WdLogEvent5_WdEvent(v17);
+            }
+          }
+        }
+        KeReleaseInStackQueuedSpinLock(&LockHandle);
+        if ( v8 )
+        {
+          _InterlockedIncrement((volatile signed __int32 *)(v2 + 724));
+          if ( _InterlockedIncrement((volatile signed __int32 *)(v7 + 2888)) == 1 )
+          {
+            *(_QWORD *)(v7 + 232) = 0LL;
+            VidSchiSubmitPreemptionCommand(v7);
+            _bittestandset64(&v4, i);
+          }
+          else
+          {
+            _InterlockedDecrement((volatile signed __int32 *)(v7 + 2888));
+            _bittestandset64(&v4, i);
+            _InterlockedDecrement((volatile signed __int32 *)(v2 + 724));
+          }
+        }
+        v3 = *(_DWORD *)(v2 + 72);
+      }
+      v11 = 0;
+      if ( v3 )
       {
         do
         {
-          v4 = *(__int64 **)(a1 + 632);
-          if ( v3 < *(_DWORD *)(a1 + 704) )
-            v4 += v3;
-          v5 = *v4;
-          v6 = 0;
-          memset(&LockHandle, 0, sizeof(LockHandle));
-          KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-          for ( i = *(_DWORD *)(v5 + 1560); i != *(_DWORD *)(v5 + 1552); i = ((_BYTE)i + 1) & 0xF )
+          v12 = *(__int64 **)(v2 + 624);
+          if ( v11 < *(_DWORD *)(v2 + 696) )
+            v12 += v11;
+          v13 = *v12;
+          if ( _bittest64(&v4, v11) )
           {
-            v13 = *(_QWORD *)(v5 + 8LL * i + 1568);
-            if ( v13 )
+            if ( *(_DWORD *)(v13 + 2892) )
+              VidSchiWaitForCompletePreemption(v13);
+            if ( VidSchIsTDRPending(v2) )
+              break;
+          }
+          if ( *(_BYTE *)(v2 + 52) )
+          {
+            v14 = *(_QWORD *)(v13 + 224);
+            if ( v14 )
             {
-              if ( (*(_DWORD *)(v13 + 184) & 0x200) != 0
-                || (v14 = *(_QWORD *)(v13 + 104), *(_BYTE *)(v14 + 204))
-                || _InterlockedCompareExchange((volatile signed __int32 *)(v14 + 200), 0, 0) )
+              if ( (*(_DWORD *)(v14 + 184) & 0x100) != 0
+                || (a1 = *(_QWORD *)(v14 + 104), *(_BYTE *)(a1 + 204))
+                || _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 200), 0, 0) )
               {
-                v6 = 1;
-                WdLogSingleEntry2(4LL, v5, v13);
+                v15 = WdLogNewEntry5_WdEvent(a1, a2);
+                *(_QWORD *)(v15 + 24) = v13;
+                *(_QWORD *)(v15 + 32) = v14;
+                WdLogEvent5_WdEvent(v15);
+                VidSchiSwitchNodeFromContext(v14);
+                if ( VidSchIsTDRPending(v2) )
+                  break;
               }
             }
           }
-          KeReleaseInStackQueuedSpinLock(&LockHandle);
-          if ( v6 )
-          {
-            _InterlockedIncrement((volatile signed __int32 *)(a1 + 732));
-            if ( _InterlockedIncrement((volatile signed __int32 *)(v5 + 2896)) == 1 )
-            {
-              *(_QWORD *)(v5 + 232) = 0LL;
-              VidSchiSubmitPreemptionCommand(v5);
-              _bittestandset64(&v2, v3);
-            }
-            else
-            {
-              _InterlockedDecrement((volatile signed __int32 *)(v5 + 2896));
-              _bittestandset64(&v2, v3);
-              _InterlockedDecrement((volatile signed __int32 *)(a1 + 732));
-            }
-          }
-          v8 = *(_DWORD *)(a1 + 80);
-          ++v3;
+          ++v11;
         }
-        while ( v3 < v8 );
-        v9 = 0;
-        if ( v8 )
-        {
-          do
-          {
-            v10 = *(__int64 **)(a1 + 632);
-            if ( v9 < *(_DWORD *)(a1 + 704) )
-              v10 += v9;
-            v11 = *v10;
-            if ( _bittest64(&v2, v9) )
-            {
-              if ( *(_DWORD *)(v11 + 2900) )
-                VidSchiWaitForCompletePreemption(v11);
-              if ( (unsigned __int8)VidSchIsTDRPending(a1) )
-                break;
-            }
-            if ( *(_BYTE *)(a1 + 52) )
-            {
-              v12 = *(_QWORD *)(v11 + 224);
-              if ( v12 )
-              {
-                if ( (*(_DWORD *)(v12 + 184) & 0x100) != 0
-                  || (v15 = *(_QWORD *)(v12 + 104), *(_BYTE *)(v15 + 204))
-                  || _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 200), 0, 0) )
-                {
-                  WdLogSingleEntry2(4LL, v11, v12);
-                  VidSchiSwitchNodeFromContext(v12);
-                  if ( (unsigned __int8)VidSchIsTDRPending(a1) )
-                    break;
-                }
-              }
-            }
-            ++v9;
-          }
-          while ( v9 < *(_DWORD *)(a1 + 80) );
-        }
+        while ( v11 < *(_DWORD *)(v2 + 72) );
       }
     }
     else

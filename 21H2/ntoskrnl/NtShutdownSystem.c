@@ -1,11 +1,11 @@
 /*
- * XREFs of NtShutdownSystem @ 0x1406398E0
+ * XREFs of NtShutdownSystem @ 0x1405B28C0
  * Callers:
  *     <none>
  * Callees:
- *     ExRebootSystemForRecovery @ 0x1406396B8 (ExRebootSystemForRecovery.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     NtSetSystemPowerState @ 0x140A53010 (NtSetSystemPowerState.c)
+ *     ExRebootSystemForRecovery @ 0x1405B2614 (ExRebootSystemForRecovery.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     NtSetSystemPowerState @ 0x140999130 (NtSetSystemPowerState.c)
  */
 
 __int64 __fastcall NtShutdownSystem(int a1)
@@ -37,6 +37,6 @@ __int64 __fastcall NtShutdownSystem(int a1)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
     return 3221225569LL;
-  ExRebootSystemForRecovery();
+  ExRebootSystemForRecovery(0);
   return 3221225473LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExWnfCleanupServerSiloState @ 0x140A06120
+ * XREFs of ExWnfCleanupServerSiloState @ 0x14095CAE0
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409ACF40 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409062FC (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ExpWnfDeleteScopeInstances @ 0x140A074E8 (ExpWnfDeleteScopeInstances.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ExpWnfDeleteScopeInstances @ 0x14095CC4C (ExpWnfDeleteScopeInstances.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 int __fastcall ExWnfCleanupServerSiloState(PVOID *a1)

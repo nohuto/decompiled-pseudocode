@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C00160DC
+ * XREFs of ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C0019CDC
  * Callers:
- *     ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@H@Z @ 0x1C0013F84 (-FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DP.c)
+ *     ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@H@Z @ 0x1C000CE5C (-FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DP.c)
  * Callees:
- *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C00161AC (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0019DAC (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 void __fastcall DpiInternal::CalculateMinMaxOverride(
@@ -14,13 +14,13 @@ void __fastcall DpiInternal::CalculateMinMaxOverride(
         int *a5)
 {
   int v6; // esi
-  int v7; // r10d
-  int *v8; // r11
+  int v7; // r11d
+  int *v8; // r10
   __int64 v9; // r9
   unsigned int v10; // ecx
   __int64 v11; // r8
   __int64 v12; // rdi
-  unsigned int v13; // r10d
+  unsigned int v13; // r11d
   unsigned int v14; // esi
   unsigned int v15; // ecx
   int v16; // r8d

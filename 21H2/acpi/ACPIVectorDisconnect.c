@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIVectorDisconnect @ 0x1C0061BB0
+ * XREFs of ACPIVectorDisconnect @ 0x1C0060DF0
  * Callers:
- *     ACPIVectorDisconnect2 @ 0x1C0061CD0 (ACPIVectorDisconnect2.c)
- *     ACPIEcDisconnectGpeVector @ 0x1C00AD5C8 (ACPIEcDisconnectGpeVector.c)
+ *     ACPIVectorDisconnect2 @ 0x1C0060F10 (ACPIVectorDisconnect2.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00AE940 (ACPIEcDisconnectGpeVector.c)
  * Callees:
- *     ACPIGpeInstallRemoveIndex @ 0x1C001D2F0 (ACPIGpeInstallRemoveIndex.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIGpeIndexToByteIndex @ 0x1C0030BE0 (ACPIGpeIndexToByteIndex.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C00172E4 (ACPIGpeInstallRemoveIndex.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C002697C (ACPIGpeIndexToByteIndex.c)
  */
 
 __int64 __fastcall ACPIVectorDisconnect(char *P)

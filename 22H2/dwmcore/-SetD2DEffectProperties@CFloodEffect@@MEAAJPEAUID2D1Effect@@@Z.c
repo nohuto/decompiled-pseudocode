@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CFloodEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801C6910
+ * XREFs of ?SetD2DEffectProperties@CFloodEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180170690
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFloodEffect::SetD2DEffectProperties(CFloodEffect *this, struct ID2D1Effect *a2)
@@ -12,6 +12,6 @@ __int64 __fastcall CFloodEffect::SetD2DEffectProperties(CFloodEffect *this, stru
            a2,
            0LL,
            0LL,
-           (char *)this + 176,
+           (char *)this + 152,
            16);
 }

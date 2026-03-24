@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpComputeMergedAcl2 @ 0x140894624
+ * XREFs of RtlpComputeMergedAcl2 @ 0x140894604
  * Callers:
- *     RtlpComputeMergedAcl @ 0x1408944FC (RtlpComputeMergedAcl.c)
+ *     RtlpComputeMergedAcl @ 0x1408944DC (RtlpComputeMergedAcl.c)
  * Callees:
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpCopyAces @ 0x14062FDC0 (RtlpCopyAces.c)

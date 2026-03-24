@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkDdiGetBackingResource @ 0x1C03595A0
+ * XREFs of DxgkDdiGetBackingResource @ 0x1C0230FA4
  * Callers:
- *     DpiIovGetBackingResource @ 0x1C03914F0 (DpiIovGetBackingResource.c)
+ *     DpiIovGetBackingResource @ 0x1C02D41D0 (DpiIovGetBackingResource.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?GetBackingResource@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETBACKINGRESOURCE@@@Z @ 0x1C035770C (-GetBackingResource@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETBACKINGRESOURCE.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetBackingResource@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETBACKINGRESOURCE@@@Z @ 0x1C022F97C (-GetBackingResource@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETBACKINGRESOURCE.c)
  */
 
 __int64 __fastcall DxgkDdiGetBackingResource(_QWORD *a1, int a2, __int64 a3)
@@ -13,7 +13,7 @@ __int64 __fastcall DxgkDdiGetBackingResource(_QWORD *a1, int a2, __int64 a3)
   unsigned int v7; // [rsp+28h] [rbp-20h]
   int v8; // [rsp+30h] [rbp-18h]
 
-  BackingResource = ADAPTER_RENDER::GetBackingResource(a1[350], a2, (unsigned int *)a3);
+  BackingResource = ADAPTER_RENDER::GetBackingResource(a1[338], a2, (unsigned int *)a3);
   if ( bTracingEnabled )
   {
     v8 = *(unsigned __int16 *)(a3 + 4);

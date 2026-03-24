@@ -1,23 +1,21 @@
 /*
- * XREFs of ??0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z @ 0x1800FCF54
+ * XREFs of ??0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z @ 0x1800B4178
  * Callers:
- *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FCEE4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3F44 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CMessageConversationHost *__fastcall CMessageConversationHost::CMessageConversationHost(
         CMessageConversationHost *this,
         struct IMessageSession *a2)
 {
-  CMILRefCountImpl *v3; // rcx
-
-  v3 = (CMessageConversationHost *)((char *)this + 8);
-  *(_QWORD *)this = &CMessageConversationHost::`vftable';
-  *(_DWORD *)v3 = 0;
-  CMILRefCountImpl::AddReference(v3);
-  *((_QWORD *)this + 2) = a2;
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = &CMessageConversationHost::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CMessageConversationHost::`vftable'{for `IMessageConversationHost'};
+  CMILCOMBase::InternalAddRef(this);
+  *((_QWORD *)this + 3) = a2;
   (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)a2 + 8LL))(a2);
   return this;
 }

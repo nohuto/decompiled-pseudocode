@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C0392218
+ * XREFs of ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C02D4F2C
  * Callers:
- *     DpiIndirectOpenDevice @ 0x1C0392AF0 (DpiIndirectOpenDevice.c)
+ *     DpiIndirectOpenDevice @ 0x1C02D58AC (DpiIndirectOpenDevice.c)
  * Callees:
  *     <none>
  */

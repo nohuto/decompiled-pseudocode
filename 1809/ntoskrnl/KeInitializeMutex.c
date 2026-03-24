@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializeMutex @ 0x1400DD320
+ * XREFs of KeInitializeMutex @ 0x1400DD340
  * Callers:
- *     EtwpInitLoggerContext @ 0x14065B14C (EtwpInitLoggerContext.c)
- *     KeAllocateCalloutStackEx @ 0x14070CCC0 (KeAllocateCalloutStackEx.c)
+ *     EtwpInitLoggerContext @ 0x14065B12C (EtwpInitLoggerContext.c)
+ *     KeAllocateCalloutStackEx @ 0x14070CCA0 (KeAllocateCalloutStackEx.c)
  *     WmipDriverEntry @ 0x1409D4020 (WmipDriverEntry.c)
  * Callees:
- *     KiInitializeMutant @ 0x1400DD358 (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
  */
 
 void __stdcall KeInitializeMutex(PRKMUTEX Mutex, ULONG Level)

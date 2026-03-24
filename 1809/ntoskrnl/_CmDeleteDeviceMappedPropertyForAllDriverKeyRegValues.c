@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x1408FCDC0
+ * XREFs of _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x1408FCDA0
  * Callers:
- *     _CmDeleteDeviceRegKeyWorker @ 0x1408F710C (_CmDeleteDeviceRegKeyWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x1408F70EC (_CmDeleteDeviceRegKeyWorker.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues(__int64 a1, __int64 a2)
@@ -11,7 +11,7 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues(__int64 
   __int64 *v3; // rbx
   __int64 v5; // rdi
 
-  v3 = (__int64 *)&off_14090BD70;
+  v3 = (__int64 *)&off_14090BD50;
   v5 = 13LL;
   do
   {

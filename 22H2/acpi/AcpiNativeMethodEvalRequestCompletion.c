@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiNativeMethodEvalRequestCompletion @ 0x1C00375E0
+ * XREFs of AcpiNativeMethodEvalRequestCompletion @ 0x1C005B340
  * Callers:
  *     <none>
  * Callees:
- *     AMLIRestartContext @ 0x1C0048D2C (AMLIRestartContext.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
  */
 
 __int64 __fastcall AcpiNativeMethodEvalRequestCompletion(__int64 a1, int a2)

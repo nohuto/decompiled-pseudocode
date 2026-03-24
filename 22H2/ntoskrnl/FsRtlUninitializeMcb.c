@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlUninitializeMcb @ 0x14093DAA0
+ * XREFs of FsRtlUninitializeMcb @ 0x14088B720
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlUninitializeLargeMcb @ 0x140364630 (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlUninitializeLargeMcb @ 0x1402F6080 (FsRtlUninitializeLargeMcb.c)
  */
 
 void __stdcall FsRtlUninitializeMcb(PMCB Mcb)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpKsrCallback @ 0x1409ECB90
+ * XREFs of EtwpKsrCallback @ 0x140948720
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
- *     EtwpCancelMemoryPreservation @ 0x1409EC988 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1409ECCCC (EtwpPreserveLogger.c)
- *     EtwpSavePersistedLoggers @ 0x1409ED690 (EtwpSavePersistedLoggers.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCancelMemoryPreservation @ 0x140948510 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x14094885C (EtwpPreserveLogger.c)
+ *     EtwpSavePersistedLoggers @ 0x14094920C (EtwpSavePersistedLoggers.c)
  */
 
 void __fastcall EtwpKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
@@ -17,7 +17,7 @@ void __fastcall EtwpKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Ar
   bool v4; // al
   unsigned int v5; // esi
   __int64 i; // rax
-  __int64 v7; // rax
+  unsigned int *v7; // rax
   unsigned int *v8; // rbx
   __int64 v9; // rbp
   char v10; // r14
@@ -51,15 +51,15 @@ LABEL_9:
   for ( i = EtwpHostSiloState; v5 < *(_DWORD *)(EtwpHostSiloState + 16); ++v5 )
   {
     v7 = EtwpAcquireLoggerContextByLoggerId(i, v5, 0);
-    v8 = (unsigned int *)v7;
+    v8 = v7;
     if ( v7 )
     {
-      v9 = *(_QWORD *)(v7 + 1088);
+      v9 = *((_QWORD *)v7 + 134);
       v10 = 0;
       if ( v9 )
       {
         v10 = 1;
-        KeWaitForSingleObject((PVOID)(v7 + 632), Executive, 0, 0, 0LL);
+        KeWaitForSingleObject(v7 + 162, Executive, 0, 0, 0LL);
         if ( !v3 || v3 == 3 )
         {
           if ( *(_BYTE *)(v9 + 32) )

@@ -1,10 +1,10 @@
 /*
- * XREFs of EdgyUnregisterListener @ 0x1C01E8A84
+ * XREFs of EdgyUnregisterListener @ 0x1C02085E0
  * Callers:
- *     NtUserRegisterEdgy @ 0x1C01D90E0 (NtUserRegisterEdgy.c)
+ *     NtUserRegisterEdgy @ 0x1C0200490 (NtUserRegisterEdgy.c)
  * Callees:
- *     ?_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C01E7BD0 (-_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z.c)
- *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E88F8 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
+ *     ?_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C02075F0 (-_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z.c)
+ *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208398 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
  */
 
 __int64 __fastcall EdgyUnregisterListener(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall EdgyUnregisterListener(__int64 a1)
   v1 = 0;
   if ( !a1 )
     return 0LL;
-  v4 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 248LL);
+  v4 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 240LL);
   if ( v4 )
   {
     Listener = (struct tagEDGY_DATA *)Edgy::_FindListener(v4, *(_QWORD *)a1, *(_DWORD *)(a1 + 16));

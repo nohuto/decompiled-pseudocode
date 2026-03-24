@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ShouldCreateSecure@WDFDEVICE_INIT@@QEAAEXZ @ 0x1C00265EC
+ * XREFs of ?ShouldCreateSecure@WDFDEVICE_INIT@@QEAAEXZ @ 0x1C004FDEC
  * Callers:
- *     ?CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002640C (-CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0051960 (-CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
  */
 
 unsigned __int8 __fastcall WDFDEVICE_INIT::ShouldCreateSecure(WDFDEVICE_INIT *this)

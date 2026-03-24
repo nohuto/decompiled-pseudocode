@@ -1,326 +1,345 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x1402F0FA0
+ * XREFs of CcSetFileSizesEx @ 0x14022DA90
  * Callers:
- *     CcSetFileSizes @ 0x1402F2580 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x14032C7E0 (CcSetFileSizes.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14023CB90 (KeReleaseInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MmFlushSection @ 0x140287370 (MmFlushSection.c)
- *     CcDecrementOpenCount @ 0x14029CA00 (CcDecrementOpenCount.c)
- *     CcUnmapVacbArray @ 0x14029ECA0 (CcUnmapVacbArray.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     CcPurgeAndClearCacheSection @ 0x1402F12D4 (CcPurgeAndClearCacheSection.c)
- *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
- *     CcDeleteMbcb @ 0x1402F3E04 (CcDeleteMbcb.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x140359700 (FsRtlIsNtstatusExpected.c)
- *     CcDeleteBcbs @ 0x1403C6008 (CcDeleteBcbs.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022CF70 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPurgeAndClearCacheSection @ 0x14026F814 (CcPurgeAndClearCacheSection.c)
+ *     CcPurgeCacheSection @ 0x140270FA0 (CcPurgeCacheSection.c)
+ *     CcDeleteMbcb @ 0x140272FBC (CcDeleteMbcb.c)
+ *     CcUnmapVacbArray @ 0x1402934F0 (CcUnmapVacbArray.c)
+ *     CcDecrementOpenCount @ 0x1402937BC (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     CcExtendVacbArray @ 0x1402F2054 (CcExtendVacbArray.c)
+ *     FsRtlIsNtstatusExpected @ 0x14031B530 (FsRtlIsNtstatusExpected.c)
+ *     CcDeleteBcbs @ 0x14032B8C0 (CcDeleteBcbs.c)
+ *     MmFlushSection @ 0x14033D70C (MmFlushSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)
 {
-  PSECTION_OBJECT_POINTERS SectionObjectPointer; // rsi
-  _LARGE_INTEGER AllocationSize; // r14
-  _LARGE_INTEGER ValidDataLength; // rbx
-  __int64 SharedCacheMap; // rdi
+  LARGE_INTEGER AllocationSize; // r14
+  LARGE_INTEGER ValidDataLength; // rbx
+  PFILE_OBJECT v4; // rsi
+  PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
   char v6; // r13
-  unsigned __int64 v7; // r14
+  LARGE_INTEGER *SharedCacheMap; // rdi
   unsigned __int64 v8; // r14
-  KSPIN_LOCK *v9; // r14
-  LARGE_INTEGER v10; // rcx
-  NTSTATUS v11; // ebx
-  unsigned __int64 v12; // rdi
+  unsigned __int64 v9; // r14
+  KSPIN_LOCK *v10; // r14
+  LARGE_INTEGER v11; // rcx
+  NTSTATUS v12; // ebx
+  unsigned __int64 v13; // rdi
   NTSTATUS result; // eax
-  unsigned __int64 v14; // rbx
+  unsigned __int64 v15; // rbx
   unsigned __int64 OldIrql; // r14
-  unsigned __int64 v16; // r14
-  __int64 v17; // rcx
-  NTSTATUS v18; // eax
-  int v19; // r14d
-  unsigned __int64 v20; // rbx
+  unsigned __int64 v17; // r14
+  LARGE_INTEGER v18; // rcx
+  NTSTATUS v19; // eax
+  int v20; // r14d
+  struct _KPRCB *v21; // r9
+  unsigned __int64 v22; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v24; // eax
-  bool v25; // zf
-  unsigned __int8 v26; // al
-  struct _KPRCB *v27; // r10
-  _DWORD *v28; // r9
-  int v29; // eax
-  unsigned __int64 v30; // rbx
-  unsigned __int8 v31; // al
-  struct _KPRCB *v32; // r9
-  _DWORD *v33; // r8
-  int v34; // eax
-  unsigned __int8 v35; // al
-  struct _KPRCB *v36; // r10
-  _DWORD *v37; // r9
-  int v38; // eax
-  unsigned __int8 v39; // al
-  struct _KPRCB *v40; // r10
-  _DWORD *v41; // r9
-  int v42; // eax
-  unsigned __int8 v43; // al
-  struct _KPRCB *v44; // r10
-  _DWORD *v45; // r9
-  int v46; // eax
-  unsigned __int8 v47; // al
-  struct _KPRCB *v48; // r9
-  _DWORD *v49; // r8
-  int v50; // eax
-  unsigned __int8 v51; // al
-  struct _KPRCB *v52; // r9
-  _DWORD *v53; // r8
-  int v54; // eax
-  struct _IO_STATUS_BLOCK v55; // [rsp+30h] [rbp-40h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v56; // [rsp+40h] [rbp-30h] BYREF
+  int v26; // eax
+  bool v27; // zf
+  unsigned __int8 v28; // al
+  struct _KPRCB *v29; // r10
+  _DWORD *v30; // r9
+  int v31; // eax
+  unsigned __int64 v32; // rbx
+  unsigned __int8 v33; // al
+  struct _KPRCB *v34; // r9
+  _DWORD *v35; // r8
+  int v36; // eax
+  unsigned __int8 v37; // al
+  struct _KPRCB *v38; // r10
+  _DWORD *v39; // r9
+  int v40; // eax
+  unsigned __int8 v41; // al
+  struct _KPRCB *v42; // r10
+  _DWORD *v43; // r9
+  int v44; // eax
+  unsigned __int8 v45; // al
+  struct _KPRCB *v46; // r10
+  _DWORD *v47; // r9
+  int v48; // eax
+  unsigned __int8 v49; // al
+  struct _KPRCB *v50; // r9
+  _DWORD *v51; // r8
+  int v52; // eax
+  unsigned __int8 v53; // al
+  _DWORD *v54; // r8
+  int v55; // eax
+  __int128 v56; // [rsp+30h] [rbp-40h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v57; // [rsp+40h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-18h] BYREF
-  LARGE_INTEGER FileOffset; // [rsp+B0h] [rbp+40h] BYREF
-  _LARGE_INTEGER v59; // [rsp+B8h] [rbp+48h] BYREF
-  PSECTION_OBJECT_POINTERS v60; // [rsp+C0h] [rbp+50h]
+  LARGE_INTEGER FileOffset; // [rsp+B8h] [rbp+48h] BYREF
+  LARGE_INTEGER v61; // [rsp+C0h] [rbp+50h] BYREF
   PKSPIN_LOCK SpinLock; // [rsp+C8h] [rbp+58h]
 
-  SectionObjectPointer = FileObject->SectionObjectPointer;
   AllocationSize = FileSizes->AllocationSize;
   ValidDataLength = FileSizes->ValidDataLength;
+  v4 = FileObject;
   FileOffset = FileSizes->FileSize;
-  v55 = 0LL;
-  v60 = SectionObjectPointer;
+  v56 = 0LL;
+  v61 = AllocationSize;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v59 = AllocationSize;
-  memset(&v56, 0, sizeof(v56));
+  memset(&v57, 0, sizeof(v57));
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
-  SharedCacheMap = (__int64)SectionObjectPointer->SharedCacheMap;
+  SectionObjectPointer = v4->SectionObjectPointer;
   v6 = 1;
-  if ( SharedCacheMap && *(_QWORD *)(SharedCacheMap + 176) )
+  SharedCacheMap = (LARGE_INTEGER *)SectionObjectPointer->SharedCacheMap;
+  if ( SharedCacheMap && SharedCacheMap[21].QuadPart )
   {
-    SpinLock = (PKSPIN_LOCK)(*(_QWORD *)(SharedCacheMap + 536) + 768LL);
-    KeAcquireInStackQueuedSpinLock(SpinLock, &v56);
-    if ( AllocationSize.QuadPart <= *(_QWORD *)(SharedCacheMap + 32) )
+    SpinLock = (PKSPIN_LOCK)(CcGetPartition(SectionObjectPointer->SharedCacheMap) + 128);
+    KeAcquireInStackQueuedSpinLock(SpinLock, &v57);
+    if ( AllocationSize.QuadPart <= SharedCacheMap[4].QuadPart )
       goto LABEL_4;
-    ++*(_DWORD *)(SharedCacheMap + 4);
-    ++*(_DWORD *)(SharedCacheMap + 544);
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
-    OldIrql = v56.OldIrql;
+    ++SharedCacheMap->HighPart;
+    ++SharedCacheMap[67].LowPart;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v57);
+    OldIrql = v57.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v56.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v24 = ~(unsigned __int16)(-1LL << (v56.OldIrql + 1));
-        v25 = (v24 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v24;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v57.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v26 = ~(unsigned __int16)(-1LL << (v57.OldIrql + 1));
+          v27 = (v26 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v26;
+          if ( v27 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    v16 = LockHandle.OldIrql;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    v17 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v27 = KeGetCurrentPrcb();
-        v28 = v27->SchedulerAssist;
-        v29 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v25 = (v29 & v28[5]) == 0;
-        v28[5] &= v29;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v27);
+        v28 = KeGetCurrentIrql();
+        if ( v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+        {
+          v29 = KeGetCurrentPrcb();
+          v30 = v29->SchedulerAssist;
+          v31 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v27 = (v31 & v30[5]) == 0;
+          v30[5] &= v31;
+          if ( v27 )
+            KiRemoveSystemWorkPriorityKick(v29);
+        }
       }
     }
-    __writecr8(v16);
-    v59.QuadPart += 0xFFFFFLL;
-    v17 = *(_QWORD *)(SharedCacheMap + 176);
-    v59.LowPart &= 0xFFF00000;
+    __writecr8(v17);
+    v61.QuadPart += 0xFFFFFLL;
+    v18 = SharedCacheMap[21];
+    v61.LowPart &= 0xFFF00000;
     v6 = 0;
-    v18 = MmExtendSection(v17, &v59, 1LL);
-    v19 = v18;
-    if ( v18 < 0 )
+    v19 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))MmExtendSection)((LARGE_INTEGER)v18.QuadPart, &v61, 1LL);
+    v20 = v19;
+    if ( v19 < 0 )
     {
-      if ( !FsRtlIsNtstatusExpected(v18) )
-        v19 = -1073741588;
+      if ( !FsRtlIsNtstatusExpected(v19) )
+        v20 = -1073741588;
     }
     else
     {
-      v19 = ((__int64 (__fastcall *)(_QWORD, _QWORD))CcExtendVacbArray)(SharedCacheMap, (_LARGE_INTEGER)v59.QuadPart);
+      v20 = ((__int64 (__fastcall *)(_QWORD, _QWORD))CcExtendVacbArray)(SharedCacheMap, (LARGE_INTEGER)v61.QuadPart);
     }
-    KeAcquireInStackQueuedSpinLock(SpinLock, &v56);
+    KeAcquireInStackQueuedSpinLock(SpinLock, &v57);
     CcDecrementOpenCount(SharedCacheMap);
-    if ( v19 < 0 )
+    if ( v20 < 0 )
     {
-      KeReleaseInStackQueuedSpinLock(&v56);
-      RtlRaiseStatus((unsigned int)v19);
+      KeReleaseInStackQueuedSpinLock(&v57);
+      RtlRaiseStatus((unsigned int)v20);
     }
-    SharedCacheMap = (__int64)v60->SharedCacheMap;
+    SharedCacheMap = (LARGE_INTEGER *)FileObject->SectionObjectPointer->SharedCacheMap;
     if ( SharedCacheMap )
     {
 LABEL_4:
-      ++*(_DWORD *)(SharedCacheMap + 4);
-      ++*(_DWORD *)(SharedCacheMap + 544);
+      ++SharedCacheMap->HighPart;
+      ++SharedCacheMap[67].LowPart;
       if ( v6 )
       {
-        KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
-        v7 = v56.OldIrql;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&v57);
+        v8 = v57.OldIrql;
         if ( KiIrqlFlags )
         {
-          v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && v56.OldIrql <= 0xFu && v35 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v36 = KeGetCurrentPrcb();
-            v37 = v36->SchedulerAssist;
-            v38 = ~(unsigned __int16)(-1LL << (v56.OldIrql + 1));
-            v25 = (v38 & v37[5]) == 0;
-            v37[5] &= v38;
-            if ( v25 )
-              KiRemoveSystemWorkPriorityKick(v36);
-          }
-        }
-        __writecr8(v7);
-        KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-        v8 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
-        {
-          v39 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && LockHandle.OldIrql <= 0xFu && v39 >= 2u )
-          {
-            v40 = KeGetCurrentPrcb();
-            v41 = v40->SchedulerAssist;
-            v42 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v25 = (v42 & v41[5]) == 0;
-            v41[5] &= v42;
-            if ( v25 )
-              KiRemoveSystemWorkPriorityKick(v40);
+            v37 = KeGetCurrentIrql();
+            if ( v37 <= 0xFu && v57.OldIrql <= 0xFu && v37 >= 2u )
+            {
+              v38 = KeGetCurrentPrcb();
+              v39 = v38->SchedulerAssist;
+              v40 = ~(unsigned __int16)(-1LL << (v57.OldIrql + 1));
+              v27 = (v40 & v39[5]) == 0;
+              v39[5] &= v40;
+              if ( v27 )
+                KiRemoveSystemWorkPriorityKick(v38);
+            }
           }
         }
         __writecr8(v8);
-        v9 = SpinLock;
-        KeAcquireInStackQueuedSpinLock(SpinLock, &v56);
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        v9 = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v41 = KeGetCurrentIrql();
+            if ( v41 <= 0xFu && LockHandle.OldIrql <= 0xFu && v41 >= 2u )
+            {
+              v42 = KeGetCurrentPrcb();
+              v43 = v42->SchedulerAssist;
+              v44 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v27 = (v44 & v43[5]) == 0;
+              v43[5] &= v44;
+              if ( v27 )
+                KiRemoveSystemWorkPriorityKick(v42);
+            }
+          }
+        }
+        __writecr8(v9);
+        v10 = SpinLock;
+        KeAcquireInStackQueuedSpinLock(SpinLock, &v57);
       }
       else
       {
-        v9 = SpinLock;
+        v10 = SpinLock;
       }
-      v10 = *(LARGE_INTEGER *)(SharedCacheMap + 40);
-      if ( v10.QuadPart != 0x7FFFFFFFFFFFFFFFLL )
+      v11 = SharedCacheMap[5];
+      if ( v11.QuadPart != 0x7FFFFFFFFFFFFFFFLL )
       {
-        if ( FileOffset.QuadPart < v10.QuadPart )
-          *(LARGE_INTEGER *)(SharedCacheMap + 40) = FileOffset;
-        *(_LARGE_INTEGER *)(SharedCacheMap + 48) = ValidDataLength;
+        if ( FileOffset.QuadPart < v11.QuadPart )
+          SharedCacheMap[5] = FileOffset;
+        SharedCacheMap[6] = ValidDataLength;
       }
-      v11 = 0;
-      if ( FileOffset.QuadPart < *(_QWORD *)(SharedCacheMap + 8) && (*(_DWORD *)(SharedCacheMap + 152) & 4) == 0 )
+      v12 = 0;
+      if ( FileOffset.QuadPart < SharedCacheMap[1].QuadPart && (SharedCacheMap[19].LowPart & 4) == 0 )
       {
-        KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
-        v14 = v56.OldIrql;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&v57);
+        v15 = v57.OldIrql;
         if ( KiIrqlFlags )
         {
-          v43 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v56.OldIrql <= 0xFu && v43 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v44 = KeGetCurrentPrcb();
-            v45 = v44->SchedulerAssist;
-            v46 = ~(unsigned __int16)(-1LL << (v56.OldIrql + 1));
-            v25 = (v46 & v45[5]) == 0;
-            v45[5] &= v46;
-            if ( v25 )
-              KiRemoveSystemWorkPriorityKick(v44);
+            v45 = KeGetCurrentIrql();
+            if ( v45 <= 0xFu && v57.OldIrql <= 0xFu && v45 >= 2u )
+            {
+              v46 = KeGetCurrentPrcb();
+              v47 = v46->SchedulerAssist;
+              v48 = ~(unsigned __int16)(-1LL << (v57.OldIrql + 1));
+              v27 = (v48 & v47[5]) == 0;
+              v47[5] &= v48;
+              if ( v27 )
+                KiRemoveSystemWorkPriorityKick(v46);
+            }
           }
         }
-        __writecr8(v14);
-        v11 = 0;
-        if ( CcUnmapVacbArray(SharedCacheMap, (__int64 *)&FileOffset, 0, 0, 0, 0) )
+        __writecr8(v15);
+        v12 = 0;
+        if ( (unsigned __int8)CcUnmapVacbArray((_DWORD)SharedCacheMap, (unsigned int)&FileOffset, 0, 0, 0, 0) )
         {
           if ( !FileOffset.QuadPart )
           {
-            if ( *(_QWORD *)(SharedCacheMap + 168) )
+            if ( SharedCacheMap[20].QuadPart )
               CcDeleteMbcb(SharedCacheMap);
-            if ( *(_QWORD *)(SharedCacheMap + 16) != SharedCacheMap + 16 )
+            if ( (LARGE_INTEGER *)SharedCacheMap[2].QuadPart != &SharedCacheMap[2] )
               CcDeleteBcbs(SharedCacheMap);
           }
-          v11 = CcPurgeAndClearCacheSection(SharedCacheMap, &FileOffset);
+          v12 = CcPurgeAndClearCacheSection(SharedCacheMap, &FileOffset);
         }
-        KeAcquireInStackQueuedSpinLock(v9, &v56);
+        KeAcquireInStackQueuedSpinLock(v10, &v57);
       }
-      *(LARGE_INTEGER *)(SharedCacheMap + 8) = FileOffset;
+      SharedCacheMap[1] = FileOffset;
       CcDecrementOpenCount(SharedCacheMap);
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
-      v12 = v56.OldIrql;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v57);
+      v13 = v57.OldIrql;
       if ( KiIrqlFlags )
       {
-        v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v56.OldIrql <= 0xFu && v47 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v48 = KeGetCurrentPrcb();
-          v49 = v48->SchedulerAssist;
-          v50 = ~(unsigned __int16)(-1LL << (v56.OldIrql + 1));
-          v25 = (v50 & v49[5]) == 0;
-          v49[5] &= v50;
-          if ( v25 )
-            KiRemoveSystemWorkPriorityKick(v48);
+          v49 = KeGetCurrentIrql();
+          if ( v49 <= 0xFu && v57.OldIrql <= 0xFu && v49 >= 2u )
+          {
+            v50 = KeGetCurrentPrcb();
+            v51 = v50->SchedulerAssist;
+            v52 = ~(unsigned __int16)(-1LL << (v57.OldIrql + 1));
+            v27 = (v52 & v51[5]) == 0;
+            v51[5] &= v52;
+            if ( v27 )
+              KiRemoveSystemWorkPriorityKick(v50);
+          }
         }
       }
-      __writecr8(v12);
-      return v11;
+      __writecr8(v13);
+      return v12;
     }
     else
     {
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
-      v30 = v56.OldIrql;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v57);
+      v32 = v57.OldIrql;
       if ( KiIrqlFlags )
       {
-        v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v56.OldIrql <= 0xFu && v31 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v32 = KeGetCurrentPrcb();
-          v33 = v32->SchedulerAssist;
-          v34 = ~(unsigned __int16)(-1LL << (v56.OldIrql + 1));
-          v25 = (v34 & v33[5]) == 0;
-          v33[5] &= v34;
-          if ( v25 )
-            KiRemoveSystemWorkPriorityKick(v32);
+          v33 = KeGetCurrentIrql();
+          if ( v33 <= 0xFu && v57.OldIrql <= 0xFu && v33 >= 2u )
+          {
+            v34 = KeGetCurrentPrcb();
+            v35 = v34->SchedulerAssist;
+            v36 = ~(unsigned __int16)(-1LL << (v57.OldIrql + 1));
+            v27 = (v36 & v35[5]) == 0;
+            v35[5] &= v36;
+            if ( v27 )
+              KiRemoveSystemWorkPriorityKick(v34);
+          }
         }
       }
-      __writecr8(v30);
+      __writecr8(v32);
       return 0;
     }
   }
   else
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    v20 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    v22 = LockHandle.OldIrql;
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 )
     {
-      v51 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      v53 = KeGetCurrentIrql();
+      if ( v53 <= 0xFu && LockHandle.OldIrql <= 0xFu && v53 >= 2u )
       {
-        if ( v51 <= 0xFu && LockHandle.OldIrql <= 0xFu && v51 >= 2u )
-        {
-          v52 = KeGetCurrentPrcb();
-          v53 = v52->SchedulerAssist;
-          v54 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v25 = (v54 & v53[5]) == 0;
-          v53[5] &= v54;
-          if ( v25 )
-            KiRemoveSystemWorkPriorityKick(v52);
-        }
-        SectionObjectPointer = v60;
+        v21 = KeGetCurrentPrcb();
+        v54 = v21->SchedulerAssist;
+        v55 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v27 = (v55 & v54[5]) == 0;
+        v54[5] &= v55;
+        if ( v27 )
+          KiRemoveSystemWorkPriorityKick(v21);
       }
+      v4 = FileObject;
     }
-    __writecr8(v20);
+    __writecr8(v22);
     if ( (FileOffset.LowPart & 0xFFF) == 0 )
-      return CcPurgeCacheSection(SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
-    MmFlushSection((int)SectionObjectPointer, (__int64 *)&FileOffset, 1uLL, 0LL, &v55, 0);
-    result = v55.Status;
-    if ( v55.Status >= 0 )
-      return CcPurgeCacheSection(SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
+      return CcPurgeCacheSection(v4->SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
+    MmFlushSection(v4->SectionObjectPointer, (unsigned int)&FileOffset, 1, (_DWORD)v21, (__int64)&v56, 0);
+    result = v56;
+    if ( (int)v56 >= 0 )
+      return CcPurgeCacheSection(v4->SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GreUpdateSpriteCallout@@YAXPEAX@Z @ 0x1C0265920
+ * XREFs of ?GreUpdateSpriteCallout@@YAXPEAX@Z @ 0x1C026D3F0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
  */
 
 void __fastcall GreUpdateSpriteCallout(PVOID Parameter)
 {
-  *((_DWORD *)Parameter + 27) = GreUpdateSpriteInternal(
+  *((_DWORD *)Parameter + 26) = GreUpdateSpriteInternal(
                                   *(HDEV *)Parameter,
                                   *((HWND *)Parameter + 1),
                                   *((void **)Parameter + 2),
@@ -23,6 +23,5 @@ void __fastcall GreUpdateSpriteCallout(PVOID Parameter)
                                   *((struct tagRECT **)Parameter + 9),
                                   *((struct tagMINIWINDOWINFO **)Parameter + 10),
                                   *((_DWORD *)Parameter + 24),
-                                  *((_DWORD *)Parameter + 25),
-                                  *((_DWORD *)Parameter + 26));
+                                  *((_DWORD *)Parameter + 25));
 }

@@ -1,19 +1,20 @@
 /*
- * XREFs of MiAddMdlTracker @ 0x140584030
+ * XREFs of MiAddMdlTracker @ 0x140530854
  * Callers:
- *     MiProbeAndLockComplete @ 0x14031A4F0 (MiProbeAndLockComplete.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockComplete @ 0x1402B76D0 (MiProbeAndLockComplete.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402210C0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiGetInstructionPointer @ 0x14057F9F0 (MiGetInstructionPointer.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiGetInstructionPointer @ 0x14052DFC4 (MiGetInstructionPointer.c)
  */
 
 __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
@@ -39,12 +40,12 @@ __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( v3 || (v3 = PsInitialSystemProcess) != 0LL )
   {
-    v8 = v3[1].ActiveProcessors.StaticBitmap[11];
+    v8 = v3[1].ActiveProcessors.Bitmap[11];
     if ( v8 )
     {
       if ( *(_DWORD *)(v8 + 32) )
       {
-        result = (__int64)ExAllocateFromNPagedLookasideList(&stru_140C52E80);
+        result = (__int64)ExAllocateFromNPagedLookasideList(&stru_140C4EA40);
         v9 = result;
         if ( result )
         {
@@ -55,11 +56,7 @@ __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int
           *(_DWORD *)(result + 52) = *(_DWORD *)(BugCheckParameter3 + 40);
           *(_QWORD *)(result + 64) = *(_QWORD *)(BugCheckParameter3 + 48);
           v20 = 0LL;
-          MetroHash64::Hash(
-            (const unsigned __int8 *)(BugCheckParameter3 + 48),
-            8 * a2,
-            (unsigned __int8 *const)&v20,
-            0LL);
+          MetroHash64::Hash((const unsigned __int8 *)(BugCheckParameter3 + 48), 8 * a2, (unsigned __int8 *const)&v20);
           *(_DWORD *)(v9 + 60) = v20;
           BackTraceHash = 0;
           memset((void *)(v9 + 72), 0, 0x40uLL);
@@ -77,7 +74,13 @@ __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int
           {
             while ( 1 )
             {
-              if ( BugCheckParameter3 >= v10[3] )
+              if ( BugCheckParameter3 < v10[3] )
+              {
+                v12 = (_QWORD *)*v10;
+                if ( !*v10 )
+                  break;
+              }
+              else
               {
                 if ( BugCheckParameter3 <= v10[3] )
                   KeBugCheckEx(0xD9u, 1uLL, (ULONG_PTR)v10, BugCheckParameter3, *(_QWORD *)(v8 + 16));
@@ -87,12 +90,6 @@ __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int
                   v11 = 1;
                   break;
                 }
-              }
-              else
-              {
-                v12 = (_QWORD *)*v10;
-                if ( !*v10 )
-                  break;
               }
               v10 = v12;
             }

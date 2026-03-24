@@ -1,23 +1,24 @@
 /*
- * XREFs of ?GreGetBaseUFIBits@@YAHPEAU_UNIVERSAL_FONT_ID@@PEAU_FONTFILEVIEW@@@Z @ 0x1C0275EFC
+ * XREFs of ?GreGetBaseUFIBits@@YAHPEAU_UNIVERSAL_FONT_ID@@PEAU_FONTFILEVIEW@@@Z @ 0x1C027B4E8
  * Callers:
- *     NtGdiAddRemoteMMInstanceToDC @ 0x1C0277FC0 (NtGdiAddRemoteMMInstanceToDC.c)
+ *     NtGdiAddRemoteMMInstanceToDC @ 0x1C027C8B0 (NtGdiAddRemoteMMInstanceToDC.c)
  * Callees:
- *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C02775C0 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C027BE50 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
  */
 
 __int64 __fastcall GreGetBaseUFIBits(struct _UNIVERSAL_FONT_ID *a1, struct _FONTFILEVIEW *a2)
 {
+  struct PFE *PFEFromUFI; // rcx
   __int64 result; // rax
   _OWORD **v5; // rcx
   _OWORD *v6; // rax
   __int64 v7; // xmm1_8
 
-  SGDGetSessionState(a1);
-  result = (__int64)ppfeGetPFEFromUFI(a1, 0, 0);
-  if ( result )
+  PFEFromUFI = ppfeGetPFEFromUFI(a1, 0, 0);
+  result = 0LL;
+  if ( PFEFromUFI )
   {
-    v5 = *(_OWORD ***)(*(_QWORD *)result + 200LL);
+    v5 = *(_OWORD ***)(*(_QWORD *)PFEFromUFI + 200LL);
     v6 = *v5;
     *(_OWORD *)a2 = **v5;
     *((_OWORD *)a2 + 1) = v6[1];

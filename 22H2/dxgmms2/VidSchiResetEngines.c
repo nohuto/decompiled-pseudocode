@@ -1,15 +1,15 @@
 /*
- * XREFs of VidSchiResetEngines @ 0x1C0106348
+ * XREFs of VidSchiResetEngines @ 0x1C00CED04
  * Callers:
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
- *     VidSchiCheckHwProgress @ 0x1C00AE3E0 (VidSchiCheckHwProgress.c)
+ *     VidSchiCheckHwProgress @ 0x1C007EFE0 (VidSchiCheckHwProgress.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
  * Callees:
- *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0004A6C (VidSchiDriverNodeEngineToSchedulerNode.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0019678 (VidSchiSchedulerNodeToDriverEngine.c)
- *     VidSchiCompletePreemption @ 0x1C003A478 (VidSchiCompletePreemption.c)
- *     VidSchiResetEngine @ 0x1C003B80C (VidSchiResetEngine.c)
- *     VidSchiResetHwEngine @ 0x1C0045F40 (VidSchiResetHwEngine.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00018E8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0011480 (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiCompletePreemption @ 0x1C002F28C (VidSchiCompletePreemption.c)
+ *     VidSchiResetEngine @ 0x1C0030B80 (VidSchiResetEngine.c)
+ *     VidSchiResetHwEngine @ 0x1C003B970 (VidSchiResetHwEngine.c)
  */
 
 char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
@@ -22,8 +22,8 @@ char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v10; // rbx
   unsigned int i; // r13d
   unsigned int v12; // eax
-  unsigned __int64 *v13; // r14
-  unsigned __int64 v14; // r14
+  __int64 *v13; // r14
+  __int64 v14; // r14
   char v15; // al
   int v16; // ebp
   unsigned int v17; // eax
@@ -35,7 +35,7 @@ char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
   v6 = a2;
   v7 = 1;
   v8 = VidSchiSchedulerNodeToDriverEngine(v5, *(unsigned __int16 *)(a1 + 4));
-  *(_QWORD *)(v5 + 3024) = a1;
+  *(_QWORD *)(v5 + 2928) = a1;
   v9 = 0;
   v10 = 0LL;
   for ( i = v8; a2; a2 >>= 1 )
@@ -43,8 +43,8 @@ char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
     if ( (a2 & 1) != 0 )
     {
       v12 = VidSchiDriverNodeEngineToSchedulerNode(v5, v9, i);
-      v13 = *(unsigned __int64 **)(v5 + 632);
-      if ( v12 < *(_DWORD *)(v5 + 704) )
+      v13 = *(__int64 **)(v5 + 624);
+      if ( v12 < *(_DWORD *)(v5 + 696) )
         v13 += v12;
       v14 = *v13;
       if ( (*(_DWORD *)(v14 + 12) & 2) != 0 )
@@ -59,7 +59,7 @@ char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
     }
     ++v9;
   }
-  *(_QWORD *)(v5 + 3024) = 0LL;
+  *(_QWORD *)(v5 + 2928) = 0LL;
   if ( v7 )
   {
     v16 = 0;
@@ -70,8 +70,8 @@ char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
         if ( (v10 & 1) != 0 )
         {
           v17 = VidSchiDriverNodeEngineToSchedulerNode(v5, v16, i);
-          v18 = *(__int64 **)(v5 + 632);
-          if ( v17 < *(_DWORD *)(v5 + 704) )
+          v18 = *(__int64 **)(v5 + 624);
+          if ( v17 < *(_DWORD *)(v5 + 696) )
             v18 += v17;
           VidSchiCompletePreemption(*v18);
           if ( VidSchIsTDRPending(v5) )

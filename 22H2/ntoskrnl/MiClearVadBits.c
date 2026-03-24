@@ -1,9 +1,10 @@
 /*
- * XREFs of MiClearVadBits @ 0x14028A890
+ * XREFs of MiClearVadBits @ 0x14027E680
  * Callers:
- *     MiRemoveVad @ 0x14028A350 (MiRemoveVad.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
  * Callees:
- *     MiClearVadCellBits @ 0x14028A9B0 (MiClearVadCellBits.c)
+ *     MiClearVadCellBits @ 0x14027E7A0 (MiClearVadCellBits.c)
  */
 
 struct _KTHREAD *__fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -37,8 +38,8 @@ struct _KTHREAD *__fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64
   v9 = 0;
   v12 = 0;
   Process = result->ApcState.Process;
-  v11 = Process[1].ActiveProcessors.StaticBitmap[28] + 48;
-  if ( *(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 264) )
+  v11 = Process[1].ActiveProcessorsPadding[8] + 48;
+  if ( *(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 264) )
   {
     LODWORD(result) = 0;
     do

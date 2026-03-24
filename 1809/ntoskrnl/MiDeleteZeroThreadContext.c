@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteZeroThreadContext @ 0x140185094
+ * XREFs of MiDeleteZeroThreadContext @ 0x1401850B4
  * Callers:
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14017F3E0 (MiZeroNodePages.c)
- *     MiZeroLargePageThread @ 0x140185020 (MiZeroLargePageThread.c)
- *     MiInitializePartitionThreads @ 0x140851E70 (MiInitializePartitionThreads.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14017F400 (MiZeroNodePages.c)
+ *     MiZeroLargePageThread @ 0x140185040 (MiZeroLargePageThread.c)
+ *     MiInitializePartitionThreads @ 0x140851E50 (MiInitializePartitionThreads.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiDeleteUltraThreadContext @ 0x1400E17EC (MiDeleteUltraThreadContext.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     MiDecrementHugeContext @ 0x140185A28 (MiDecrementHugeContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteZeroThreadContext(__int64 a1)

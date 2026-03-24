@@ -1,5 +1,5 @@
 /*
- * XREFs of GetSessionDpiServerInfo @ 0x1C00AF940
+ * XREFs of GetSessionDpiServerInfo @ 0x1C009D260
  * Callers:
  *     <none>
  * Callees:

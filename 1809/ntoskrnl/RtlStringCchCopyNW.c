@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlStringCchCopyNW @ 0x1400F5074
+ * XREFs of RtlStringCchCopyNW @ 0x1400F5094
  * Callers:
- *     PiDevCfgParsePropertyKeyName @ 0x140289318 (PiDevCfgParsePropertyKeyName.c)
- *     AslPathSplit @ 0x14067E618 (AslPathSplit.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7F0 (PiUEventHandleVetoEvent.c)
- *     WmipBuildInstanceSet @ 0x140707908 (WmipBuildInstanceSet.c)
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
- *     SdbQueryDataExTagID @ 0x1407229A4 (SdbQueryDataExTagID.c)
- *     IopLogBlockedDriverEvent @ 0x14081A418 (IopLogBlockedDriverEvent.c)
- *     PoQueryProcessEnergyTrackingState @ 0x140877A14 (PoQueryProcessEnergyTrackingState.c)
- *     EtwpCoverageSamplerQuery @ 0x1408C7E84 (EtwpCoverageSamplerQuery.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x140289418 (PiDevCfgParsePropertyKeyName.c)
+ *     AslPathSplit @ 0x14067E5F8 (AslPathSplit.c)
+ *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
+ *     WmipBuildInstanceSet @ 0x1407078E8 (WmipBuildInstanceSet.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
+ *     SdbQueryDataExTagID @ 0x140722984 (SdbQueryDataExTagID.c)
+ *     IopLogBlockedDriverEvent @ 0x14081A3F8 (IopLogBlockedDriverEvent.c)
+ *     PoQueryProcessEnergyTrackingState @ 0x1408779F4 (PoQueryProcessEnergyTrackingState.c)
+ *     EtwpCoverageSamplerQuery @ 0x1408C7E64 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     RtlStringCopyWorkerW_1 @ 0x1400F50CC (RtlStringCopyWorkerW_1.c)
+ *     RtlStringCopyWorkerW_1 @ 0x1400F50EC (RtlStringCopyWorkerW_1.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNW(

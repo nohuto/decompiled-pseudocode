@@ -1,7 +1,7 @@
 /*
- * XREFs of SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_ @ 0x1C015AE6C
+ * XREFs of SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_ @ 0x1C00BF0C0
  * Callers:
- *     NtGdiGetOPMRandomNumber @ 0x1C015CBE0 (NtGdiGetOPMRandomNumber.c)
+ *     NtGdiGetOPMRandomNumber @ 0x1C00BF060 (NtGdiGetOPMRandomNumber.c)
  * Callees:
  *     <none>
  */

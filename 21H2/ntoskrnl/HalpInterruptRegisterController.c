@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptRegisterController @ 0x1403BDD00
+ * XREFs of HalpInterruptRegisterController @ 0x1403AB844
  * Callers:
- *     HalpApicRegisterIoUnit @ 0x1403BD0FC (HalpApicRegisterIoUnit.c)
- *     HalpPicDiscover @ 0x1403BD3FC (HalpPicDiscover.c)
+ *     HalpApicRegisterIoUnit @ 0x1403AAC70 (HalpApicRegisterIoUnit.c)
+ *     HalpPicDiscover @ 0x1403AAF70 (HalpPicDiscover.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x140252134 (HalpInterruptLookupController.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalpIsPartitionCpuManager @ 0x1403BAEA4 (HalpIsPartitionCpuManager.c)
- *     HalpInterruptBuildKnownResourceIdString @ 0x1403BE068 (HalpInterruptBuildKnownResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
+ *     HalpInterruptBuildKnownResourceIdString @ 0x1403ABBAC (HalpInterruptBuildKnownResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
@@ -22,16 +22,17 @@ __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
   int v4; // ecx
   __int64 v5; // rdx
   __int16 v6; // r9
+  __int64 v7; // rcx
   unsigned __int16 Length; // bp
-  unsigned int v8; // r14d
+  unsigned int v9; // r14d
   void *MemoryInternal; // rax
-  __int64 v10; // rsi
-  unsigned __int64 v11; // rcx
+  __int64 v11; // rsi
   unsigned __int64 v12; // rcx
-  unsigned int v13; // eax
-  const void *v14; // rdx
-  __int64 *v15; // rax
-  int v17; // r11d
+  unsigned __int64 v13; // rcx
+  unsigned int v14; // eax
+  const void *v15; // rdx
+  __int64 *v16; // rax
+  int v18; // r11d
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-D8h] BYREF
   WCHAR SourceString[80]; // [rsp+30h] [rbp-C8h] BYREF
 
@@ -43,16 +44,16 @@ __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
       return (unsigned int)-1073741811;
     if ( *(_DWORD *)a1 != 1 )
       return (unsigned int)-1073741811;
-    if ( *(_DWORD *)(a1 + 4) != 240 )
+    if ( *(_DWORD *)(a1 + 4) != 232 )
       return (unsigned int)-1073741811;
-    if ( (*(_DWORD *)(a1 + 220) & 0xFFFFF800) != 0 )
+    if ( (*(_DWORD *)(a1 + 212) & 0xFFFFF800) != 0 )
       return (unsigned int)-1073741811;
-    v3 = *(_DWORD *)(a1 + 212);
+    v3 = *(_DWORD *)(a1 + 204);
     if ( !v3 )
       return (unsigned int)-1073741811;
     if ( (unsigned int)(v3 - 1) > 1 )
       return (unsigned int)-1073741637;
-    v4 = *(_DWORD *)(a1 + 216);
+    v4 = *(_DWORD *)(a1 + 208);
     if ( v4 == -1 )
       return (unsigned int)-1073741811;
     if ( HalpInterruptLookupController(v4) )
@@ -62,68 +63,68 @@ __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
       && !*(_QWORD *)(a1 + 64)
       && ((v6 & 1) == 0 || *(_QWORD *)(a1 + 8))
       && *(_QWORD *)(a1 + 16)
-      && ((v6 & 2) == 0 || *(_QWORD *)(a1 + 24) && *(_DWORD *)(a1 + 224))
-      && (!*(_DWORD *)(a1 + 236) || *(_QWORD *)(a1 + 128) && *(_QWORD *)(a1 + 136))
+      && ((v6 & 2) == 0 || *(_QWORD *)(a1 + 24) && *(_DWORD *)(a1 + 216))
+      && (!*(_DWORD *)(a1 + 228) || *(_QWORD *)(a1 + 128) && *(_QWORD *)(a1 + 136))
       && ((v6 & 0x400) == 0 || *(_QWORD *)(a1 + 176)) )
     {
       HalpInterruptBuildKnownResourceIdString(a1, v5, SourceString);
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( (*(_DWORD *)(a1 + 220) & 0x100) != 0 && HalpIsPartitionCpuManager() && qword_140C4C4A8 )
-        *(_DWORD *)(a1 + 220) ^= v17;
+      if ( (*(_DWORD *)(a1 + 212) & 0x100) != 0 && HalpIsPartitionCpuManager(v7) && qword_140C4A1A8 )
+        *(_DWORD *)(a1 + 212) ^= v18;
       Length = DestinationString.Length;
-      v8 = (((*(_DWORD *)(a1 + 208) + 367) & 0xFFFFFFF8) + DestinationString.Length + 9) & 0xFFFFFFF8;
-      MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v8, 1LL);
-      v10 = (__int64)MemoryInternal;
+      v9 = (((*(_DWORD *)(a1 + 200) + 359) & 0xFFFFFFF8) + DestinationString.Length + 9) & 0xFFFFFFF8;
+      MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v9, 1LL);
+      v11 = (__int64)MemoryInternal;
       if ( MemoryInternal )
       {
-        memset(MemoryInternal, 0, v8);
-        v11 = (v10 + 367) & 0xFFFFFFFFFFFFFFF8uLL;
-        *(_QWORD *)(v10 + 16) = v11;
-        v12 = *(unsigned int *)(a1 + 208) + 7LL + v11;
-        *(_QWORD *)(v10 + 256) = v10 + 248;
-        *(_QWORD *)(v10 + 248) = v10 + 248;
-        *(_QWORD *)(v10 + 272) = v10 + 264;
-        *(_QWORD *)(v10 + 264) = v10 + 264;
-        *(_QWORD *)(v10 + 344) = v12 & 0xFFFFFFFFFFFFFFF8uLL;
-        *(_DWORD *)(v10 + 24) = *(_DWORD *)(a1 + 208);
-        *(_OWORD *)(v10 + 32) = *(_OWORD *)(a1 + 8);
-        *(_OWORD *)(v10 + 48) = *(_OWORD *)(a1 + 24);
-        *(_OWORD *)(v10 + 64) = *(_OWORD *)(a1 + 40);
-        *(_OWORD *)(v10 + 80) = *(_OWORD *)(a1 + 56);
-        *(_OWORD *)(v10 + 96) = *(_OWORD *)(a1 + 72);
-        *(_OWORD *)(v10 + 112) = *(_OWORD *)(a1 + 88);
-        *(_OWORD *)(v10 + 128) = *(_OWORD *)(a1 + 104);
-        *(_OWORD *)(v10 + 144) = *(_OWORD *)(a1 + 120);
-        *(_OWORD *)(v10 + 160) = *(_OWORD *)(a1 + 136);
-        *(_OWORD *)(v10 + 176) = *(_OWORD *)(a1 + 152);
-        *(_OWORD *)(v10 + 192) = *(_OWORD *)(a1 + 168);
-        *(_OWORD *)(v10 + 208) = *(_OWORD *)(a1 + 184);
-        *(_DWORD *)(v10 + 228) = *(_DWORD *)(a1 + 220);
-        *(_DWORD *)(v10 + 224) = *(_DWORD *)(a1 + 212);
-        *(_DWORD *)(v10 + 236) = *(_DWORD *)(a1 + 224);
-        *(_DWORD *)(v10 + 240) = *(_DWORD *)(a1 + 216);
-        *(_DWORD *)(v10 + 288) = *(_DWORD *)(a1 + 228);
-        *(_DWORD *)(v10 + 292) = *(_DWORD *)(a1 + 232);
-        *(_QWORD *)(v10 + 280) = 0LL;
-        *(_DWORD *)(v10 + 296) = *(_DWORD *)(a1 + 236);
-        v13 = *(_DWORD *)(a1 + 208);
-        if ( v13 )
+        memset(MemoryInternal, 0, v9);
+        v12 = (v11 + 359) & 0xFFFFFFFFFFFFFFF8uLL;
+        *(_QWORD *)(v11 + 16) = v12;
+        v13 = *(unsigned int *)(a1 + 200) + 7LL + v12;
+        *(_QWORD *)(v11 + 248) = v11 + 240;
+        *(_QWORD *)(v11 + 240) = v11 + 240;
+        *(_QWORD *)(v11 + 264) = v11 + 256;
+        *(_QWORD *)(v11 + 256) = v11 + 256;
+        *(_QWORD *)(v11 + 336) = v13 & 0xFFFFFFFFFFFFFFF8uLL;
+        *(_DWORD *)(v11 + 24) = *(_DWORD *)(a1 + 200);
+        *(_OWORD *)(v11 + 32) = *(_OWORD *)(a1 + 8);
+        *(_OWORD *)(v11 + 48) = *(_OWORD *)(a1 + 24);
+        *(_OWORD *)(v11 + 64) = *(_OWORD *)(a1 + 40);
+        *(_OWORD *)(v11 + 80) = *(_OWORD *)(a1 + 56);
+        *(_OWORD *)(v11 + 96) = *(_OWORD *)(a1 + 72);
+        *(_OWORD *)(v11 + 112) = *(_OWORD *)(a1 + 88);
+        *(_OWORD *)(v11 + 128) = *(_OWORD *)(a1 + 104);
+        *(_OWORD *)(v11 + 144) = *(_OWORD *)(a1 + 120);
+        *(_OWORD *)(v11 + 160) = *(_OWORD *)(a1 + 136);
+        *(_OWORD *)(v11 + 176) = *(_OWORD *)(a1 + 152);
+        *(_OWORD *)(v11 + 192) = *(_OWORD *)(a1 + 168);
+        *(_QWORD *)(v11 + 208) = *(_QWORD *)(a1 + 184);
+        *(_DWORD *)(v11 + 220) = *(_DWORD *)(a1 + 212);
+        *(_DWORD *)(v11 + 216) = *(_DWORD *)(a1 + 204);
+        *(_DWORD *)(v11 + 228) = *(_DWORD *)(a1 + 216);
+        *(_DWORD *)(v11 + 232) = *(_DWORD *)(a1 + 208);
+        *(_DWORD *)(v11 + 280) = *(_DWORD *)(a1 + 220);
+        *(_DWORD *)(v11 + 284) = *(_DWORD *)(a1 + 224);
+        *(_QWORD *)(v11 + 272) = 0LL;
+        *(_DWORD *)(v11 + 288) = *(_DWORD *)(a1 + 228);
+        v14 = *(_DWORD *)(a1 + 200);
+        if ( v14 )
         {
-          v14 = *(const void **)(a1 + 200);
-          if ( v14 )
-            memmove(*(void **)(v10 + 16), v14, v13);
+          v15 = *(const void **)(a1 + 192);
+          if ( v15 )
+            memmove(*(void **)(v11 + 16), v15, v14);
         }
-        *(_WORD *)(v10 + 336) = 0;
-        *(_WORD *)(v10 + 338) = Length + 2;
-        RtlCopyUnicodeString((PUNICODE_STRING)(v10 + 336), &DestinationString);
-        v15 = (__int64 *)qword_140C4DE78;
-        if ( *(ULONG_PTR **)qword_140C4DE78 != &HalpRegisteredInterruptControllers )
+        *(_WORD *)(v11 + 328) = 0;
+        *(_WORD *)(v11 + 330) = Length + 2;
+        RtlCopyUnicodeString((PUNICODE_STRING)(v11 + 328), &DestinationString);
+        v16 = (__int64 *)qword_140C4BAF8;
+        if ( *(ULONG_PTR **)qword_140C4BAF8 != &HalpRegisteredInterruptControllers )
           __fastfail(3u);
         ++HalpInterruptControllerCount;
-        *(_QWORD *)v10 = &HalpRegisteredInterruptControllers;
-        *(_QWORD *)(v10 + 8) = v15;
-        *v15 = v10;
-        qword_140C4DE78 = v10;
+        *(_QWORD *)v11 = &HalpRegisteredInterruptControllers;
+        *(_QWORD *)(v11 + 8) = v16;
+        *v16 = v11;
+        qword_140C4BAF8 = v11;
       }
       else
       {

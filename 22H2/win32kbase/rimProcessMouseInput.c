@@ -1,29 +1,25 @@
 /*
- * XREFs of rimProcessMouseInput @ 0x1C00E29D0
+ * XREFs of rimProcessMouseInput @ 0x1C0175D20
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     rimStackAttachAndProcessInput @ 0x1C00058FC (rimStackAttachAndProcessInput.c)
+ *     rimStackAttachAndProcessInput @ 0x1C01760E4 (rimStackAttachAndProcessInput.c)
  */
 
-void __fastcall rimProcessMouseInput(__int64 a1, __int64 a2)
+NTSTATUS __fastcall rimProcessMouseInput(__int64 a1, __int64 a2)
 {
-  int v3; // eax
+  NTSTATUS result; // eax
 
-  if ( (*(_QWORD *)(a1 + 832) || *(_DWORD *)(a1 + 1056))
-    && (v3 = *(_DWORD *)(a2 + 184), (v3 & 0x2000) != 0)
-    && (v3 & 0x80000) != 0
-    && (v3 & 0x1000000) == 0 )
+  if ( !*(_QWORD *)(a1 + 640) && !*(_DWORD *)(a1 + 864) )
+    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 476, (int)a2 + 256, 0);
+  result = *(_DWORD *)(a2 + 184);
+  if ( (result & 0x2000) == 0 || (result & 0x20000) == 0 || (result & 0x400000) != 0 )
+    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 476, (int)a2 + 256, 0);
+  if ( (result & 0x100000) == 0 )
   {
-    if ( (v3 & 0x400000) == 0 )
-    {
-      *(_DWORD *)(a2 + 184) = v3 | 0x400000;
-      ZwSetEvent(*(HANDLE *)(a1 + 344), 0LL);
-    }
-    *(_BYTE *)(a1 + 776) = 1;
+    *(_DWORD *)(a2 + 184) = result | 0x100000;
+    result = ZwSetEvent(*(HANDLE *)(a1 + 384), 0LL);
   }
-  else
-  {
-    rimStackAttachAndProcessInput(a1, a2, a2 + 468, a2 + 256, 0);
-  }
+  *(_BYTE *)(a1 + 584) = 1;
+  return result;
 }

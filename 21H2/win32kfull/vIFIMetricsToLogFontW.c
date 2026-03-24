@@ -1,10 +1,10 @@
 /*
- * XREFs of vIFIMetricsToLogFontW @ 0x1C02A50C8
+ * XREFs of vIFIMetricsToLogFontW @ 0x1C02A76AC
  * Callers:
- *     GetFontResourceInfoInternalW @ 0x1C02D9AD8 (GetFontResourceInfoInternalW.c)
+ *     GetFontResourceInfoInternalW @ 0x1C02DB648 (GetFontResourceInfoInternalW.c)
  * Callees:
- *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C000F320 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
- *     ?lfOutPrecision@IFIOBJ@@QEBAEXZ @ 0x1C001F114 (-lfOutPrecision@IFIOBJ@@QEBAEXZ.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C00626B8 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     ?lfOutPrecision@IFIOBJ@@QEBAEXZ @ 0x1C011B040 (-lfOutPrecision@IFIOBJ@@QEBAEXZ.c)
  */
 
 errno_t __fastcall vIFIMetricsToLogFontW(__int64 a1, __int64 a2)

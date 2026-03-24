@@ -1,10 +1,10 @@
 /*
  * XREFs of ViFreeTrackedPool @ 0x140925838
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1402BA31C (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

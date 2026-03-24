@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMapNewSession @ 0x140715F58
+ * XREFs of MiMapNewSession @ 0x140715F38
  * Callers:
- *     MiSessionCreateInternal @ 0x140715C88 (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140715C68 (MiSessionCreateInternal.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
@@ -12,13 +12,13 @@
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiGetSystemPage @ 0x1400935E4 (MiGetSystemPage.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiGetPfnLink @ 0x1400E1040 (MiGetPfnLink.c)
- *     MiInitializePfn @ 0x140109410 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x140134CC8 (MiPartitionIdToPointer.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D988 (MiSetPageTablePfnBuddy.c)
- *     MiWriteTopLevelPxe @ 0x140170930 (MiWriteTopLevelPxe.c)
+ *     MiGetPfnLink @ 0x1400E1060 (MiGetPfnLink.c)
+ *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
+ *     MiWriteTopLevelPxe @ 0x140170950 (MiWriteTopLevelPxe.c)
  */
 
 __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)

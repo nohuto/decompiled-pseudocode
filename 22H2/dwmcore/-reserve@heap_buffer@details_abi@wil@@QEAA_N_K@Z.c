@@ -1,13 +1,13 @@
 /*
- * XREFs of ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800F9FBC
+ * XREFs of ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AF464
  * Callers:
- *     ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800FA1B8 (-ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
+ *     ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AFB20 (-ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
  * Callees:
- *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800FA07C (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
- *     memcpy_s @ 0x1800FA15C (memcpy_s.c)
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x180104770 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
- *     ??0last_error_context@wil@@QEAA@XZ @ 0x180197D48 (--0last_error_context@wil@@QEAA@XZ.c)
- *     ??1last_error_context@wil@@QEAA@XZ @ 0x1801981E8 (--1last_error_context@wil@@QEAA@XZ.c)
+ *     memcpy_s @ 0x1800AFAC4 (memcpy_s.c)
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800AFB50 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE2A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x18014CAC8 (--0last_error_context@wil@@QEAA@XZ.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x18014CB9C (--1last_error_context@wil@@QEAA@XZ.c)
  */
 
 char __fastcall wil::details_abi::heap_buffer::reserve(wil::details_abi::heap_buffer *this, unsigned __int64 a2)

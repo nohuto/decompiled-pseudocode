@@ -1,202 +1,174 @@
 /*
- * XREFs of DxgkGetPostCompositionCaps @ 0x1C0178BC0
+ * XREFs of DxgkGetPostCompositionCaps @ 0x1C015DDD0
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0007998 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?GetPostCompositionCaps@ADAPTER_DISPLAY@@QEAAJIPEAM0@Z @ 0x1C0176540 (-GetPostCompositionCaps@ADAPTER_DISPLAY@@QEAAJIPEAM0@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01C71F0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0008C9C (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C0101E70 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetPostCompositionCaps@ADAPTER_DISPLAY@@QEAAJIPEAM0@Z @ 0x1C015E248 (-GetPostCompositionCaps@ADAPTER_DISPLAY@@QEAAJIPEAM0@Z.c)
  */
 
 __int64 __fastcall DxgkGetPostCompositionCaps(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  _OWORD *v4; // rax
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int128 *v7; // rax
   struct _KTHREAD **Current; // rax
-  struct DXGADAPTER *v6; // r14
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  struct DXGADAPTER *v16; // r14
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v21; // rdx
+  __int64 v22; // rcx
   int PairingAdapters; // esi
-  struct DXGADAPTER *v8; // rbx
-  struct DXGADAPTER *v9; // rsi
-  _DWORD *v10; // rdx
-  _DWORD *v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  bool v17; // sf
-  __int64 v18; // rbx
-  int v19; // [rsp+50h] [rbp-118h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-110h]
-  char v21; // [rsp+60h] [rbp-108h]
-  struct DXGADAPTER *v22; // [rsp+68h] [rbp-100h] BYREF
-  unsigned int v23[4]; // [rsp+70h] [rbp-F8h] BYREF
-  struct DXGADAPTER *v24; // [rsp+80h] [rbp-E8h] BYREF
-  DXGADAPTER *v25; // [rsp+88h] [rbp-E0h] BYREF
-  unsigned __int64 v26; // [rsp+98h] [rbp-D0h] BYREF
-  unsigned __int64 v27; // [rsp+A0h] [rbp-C8h] BYREF
-  _BYTE v28[144]; // [rsp+B0h] [rbp-B8h] BYREF
+  struct DXGADAPTER *v24; // rbx
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rax
+  struct DXGADAPTER *v30; // rsi
+  __int64 v31; // rax
+  _DWORD *v32; // rdx
+  _DWORD *v33; // rdx
+  int v34; // [rsp+40h] [rbp-118h] BYREF
+  __int64 v35; // [rsp+48h] [rbp-110h]
+  char v36; // [rsp+50h] [rbp-108h]
+  struct DXGADAPTER *v37; // [rsp+58h] [rbp-100h] BYREF
+  __int128 v38; // [rsp+60h] [rbp-F8h] BYREF
+  struct DXGADAPTER *v39; // [rsp+70h] [rbp-E8h] BYREF
+  DXGADAPTER *v40; // [rsp+78h] [rbp-E0h] BYREF
+  unsigned __int64 v41; // [rsp+88h] [rbp-D0h] BYREF
+  unsigned __int64 v42; // [rsp+90h] [rbp-C8h] BYREF
+  _BYTE v43[144]; // [rsp+A0h] [rbp-B8h] BYREF
 
-  v19 = -1;
-  v20 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v34 = -1;
+  v35 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v21 = 1;
-    v19 = 2146;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v36 = 1;
+    v34 = 2146;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2146);
   }
   else
   {
-    v21 = 0;
+    v36 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 2146);
-  v4 = (_OWORD *)a1;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v34, 2146LL);
+  v7 = (__int128 *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v4 = (_OWORD *)MmUserProbeAddress;
-  *(_OWORD *)v23 = *v4;
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
+    v7 = (__int128 *)MmUserProbeAddress;
+  v38 = *v7;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(MmUserProbeAddress, v4, v5, v6);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-    if ( !v21 )
-      return 3221225485LL;
-    v17 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_39:
-    if ( v17 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v19);
+    v11 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v11 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v11);
+LABEL_12:
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v34, v12);
+    if ( v36 )
+    {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v34);
+    }
     return 3221225485LL;
   }
-  v22 = 0LL;
-  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v25, v23[0], Current, &v22, 1);
-  v6 = v22;
-  if ( !v22 )
+  v37 = 0LL;
+  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v40, (unsigned int)v38, Current, &v37, 1);
+  v16 = v37;
+  if ( !v37 )
   {
-    WdLogSingleEntry2(3LL, v23[0], -1073741811LL);
-    if ( v25 )
-      DXGADAPTER::ReleaseReference(v25);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-    if ( !v21 )
-      return 3221225485LL;
-    LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v17 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_39;
+    v17 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v17 + 24) = (unsigned int)v38;
+    *(_QWORD *)(v17 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v17);
+    if ( v40 )
+      DXGADAPTER::ReleaseReference(v40);
+    goto LABEL_12;
   }
-  v22 = 0LL;
-  v24 = 0LL;
-  PairingAdapters = DxgkpGetPairingAdapters(v6, v23[1], &v22, &v26, &v24, &v27, 0);
-  if ( PairingAdapters < 0 )
+  v37 = 0LL;
+  v39 = 0LL;
+  PairingAdapters = DxgkpGetPairingAdapters(v16, DWORD1(v38), &v37, &v41, &v39, &v42, 0);
+  if ( PairingAdapters >= 0 )
   {
-    v8 = 0LL;
-    PairingAdapters = DxgkpGetPairingAdapters(v6, v23[1], &v22, &v26, 0LL, 0LL, 0);
+    v24 = v39;
   }
   else
   {
-    v8 = v24;
+    v24 = 0LL;
+    PairingAdapters = DxgkpGetPairingAdapters(v16, DWORD1(v38), &v37, &v41, 0LL, 0LL, 0);
   }
-  if ( PairingAdapters < 0 )
+  if ( PairingAdapters >= 0 )
   {
-    v18 = v23[1];
-    WdLogSingleEntry2(2LL, v6, v23[1]);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to get pairing adapters from adapter 0x%I64x VidPn source 0x%I64x!",
-      (__int64)v6,
-      v18,
-      0LL,
-      0LL,
-      0LL);
-  }
-  else
-  {
-    if ( v8 && !*((_QWORD *)v8 + 365) )
+    if ( v24 && !*((_QWORD *)v24 + 337) )
     {
-      WdLogSingleEntry1(1LL, 11641LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(pDisplayAdapter == NULL) || (pDisplayAdapter->IsDisplayAdapter())",
-        11641LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v29 = WdLogNewEntry5_WdAssertion(v22, v21);
+      *(_QWORD *)(v29 + 24) = 11287LL;
+      WdLogEvent5_WdAssertion(v29);
     }
-    v9 = v22;
-    if ( !v22 || !*((_QWORD *)v22 + 366) )
+    v30 = v37;
+    if ( !v37 || !*((_QWORD *)v37 + 338) )
     {
-      WdLogSingleEntry1(1LL, 11643LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(pRenderAdapter != NULL) && (pRenderAdapter->IsRenderAdapter())",
-        11643LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v31 = WdLogNewEntry5_WdAssertion(v22, v21);
+      *(_QWORD *)(v31 + 24) = 11289LL;
+      WdLogEvent5_WdAssertion(v31);
     }
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v28, v9, v8);
-    DXGADAPTER::ReleaseReference(v9);
-    if ( v8 )
-      DXGADAPTER::ReleaseReference(v8);
-    PairingAdapters = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v28, 0LL);
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v43, v30, v24);
+    DXGADAPTER::ReleaseReference(v30);
+    if ( v24 )
+      DXGADAPTER::ReleaseReference(v24);
+    PairingAdapters = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v43, 0LL);
     if ( PairingAdapters >= 0 )
     {
-      if ( !v8 || (**((_DWORD **)v8 + 353) & 0x800000) != 0 )
-      {
-        v23[2] = 1065353216;
-        v23[3] = 1065353216;
-      }
+      if ( !v24 || (**((_DWORD **)v24 + 325) & 0x80000) != 0 )
+        *((_QWORD *)&v38 + 1) = 0x3F8000003F800000LL;
       else
-      {
         PairingAdapters = ADAPTER_DISPLAY::GetPostCompositionCaps(
-                            *((ADAPTER_DISPLAY **)v8 + 365),
-                            v23[1],
-                            (float *)&v23[2],
-                            (float *)&v23[3]);
-      }
-      v10 = (_DWORD *)(a1 + 8);
+                            *((ADAPTER_DISPLAY **)v24 + 337),
+                            DWORD1(v38),
+                            (float *)&v38 + 2,
+                            (float *)&v38 + 3);
+      v33 = (_DWORD *)(a1 + 8);
       if ( a1 + 8 >= MmUserProbeAddress )
-        v10 = (_DWORD *)MmUserProbeAddress;
-      *v10 = v23[2];
-      v11 = (_DWORD *)(a1 + 12);
+        v33 = (_DWORD *)MmUserProbeAddress;
+      *v33 = DWORD2(v38);
+      v32 = (_DWORD *)(a1 + 12);
       if ( a1 + 12 >= MmUserProbeAddress )
-        v11 = (_DWORD *)MmUserProbeAddress;
-      *v11 = v23[3];
+        v32 = (_DWORD *)MmUserProbeAddress;
+      *v32 = HIDWORD(v38);
     }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v28);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v43, (__int64)v32);
   }
-  if ( v25 )
-    DXGADAPTER::ReleaseReference(v25);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-  if ( v21 )
+  else
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v19);
+    v25 = WdLogNewEntry5_WdError(v22, v21);
+    *(_QWORD *)(v25 + 24) = v16;
+    *(_QWORD *)(v25 + 32) = DWORD1(v38);
+    WdLogEvent5_WdError(v25);
   }
+  if ( v40 )
+    DXGADAPTER::ReleaseReference(v40);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v34, v26);
+  if ( v36 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v27, &EventProfilerExit, v28, v34);
   return (unsigned int)PairingAdapters;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x1409C820C
+ * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x14091A534
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A273A0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpFcApplyUpdateAndAddFeature @ 0x1409C7BC8 (RtlpFcApplyUpdateAndAddFeature.c)
- *     RtlpFcAreSortedFeatureUpdatesValid @ 0x1409C7C3C (RtlpFcAreSortedFeatureUpdatesValid.c)
- *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409C7CD4 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
- *     RtlpFcCompareFeatureToUpdate @ 0x1409C7F64 (RtlpFcCompareFeatureToUpdate.c)
- *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C802C (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x140919C48 (RtlpFcApplyUpdateAndAddFeature.c)
+ *     RtlpFcAreSortedFeatureUpdatesValid @ 0x140919CC8 (RtlpFcAreSortedFeatureUpdatesValid.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919D78 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x14091A00C (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14091A0B0 (RtlpFcCreateAndAddFeatureFromUpdate.c)
  */
 
 NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
@@ -22,18 +22,18 @@ NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
 {
   NTSTATUS result; // eax
   _DWORD *v10; // rsi
-  _OWORD *v11; // r8
+  size_t v11; // r8
   unsigned __int64 v12; // rbx
   size_t v13; // rbp
   unsigned __int64 v14; // rax
   _DWORD *v15; // rdx
   unsigned __int64 v16; // rcx
-  __int128 *v17; // r14
-  _DWORD *v18; // r12
+  __int64 *v17; // r14
+  _DWORD *v18; // r15
   int v19; // eax
-  __int128 *v20; // r8
-  __int128 *v21; // rcx
-  __int128 v22; // xmm0
+  __int64 v20; // r8
+  _DWORD *v21; // rcx
+  int v22; // eax
   __int64 v23; // rbx
   size_t v24; // rdi
   size_t Size; // [rsp+58h] [rbp+10h] BYREF
@@ -58,7 +58,7 @@ NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
     v10 = a5;
     memset(a5, 0, Size);
     *v10 = 0;
-    v11 = v10 + 1;
+    v11 = (size_t)(v10 + 1);
     v12 = 0LL;
     Size = (size_t)(v10 + 1);
     v13 = 0LL;
@@ -69,7 +69,7 @@ NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
       if ( (_DWORD)v14 )
       {
         LODWORD(v16) = *a1;
-        v17 = (__int128 *)(a1 + 1);
+        v17 = (__int64 *)(a1 + 1);
         v18 = a3;
         while ( 1 )
         {
@@ -86,22 +86,23 @@ LABEL_19:
             if ( v19 != 1 )
             {
               ++v12;
-              *v20 = *v17;
+              *(_QWORD *)v20 = *v17;
+              *(_DWORD *)(v20 + 8) = *((_DWORD *)v17 + 2);
+              v11 = v20 + 12;
               ++*v10;
-              v11 = v20 + 1;
-              Size = (size_t)v11;
-              ++v17;
+              Size = v11;
+              v17 = (__int64 *)((char *)v17 + 12);
               goto LABEL_18;
             }
-            RtlpFcCreateAndAddFeatureFromUpdate((__int64)v18, &Size);
+            RtlpFcCreateAndAddFeatureFromUpdate((__int64)v18);
           }
           else
           {
-            RtlpFcApplyUpdateAndAddFeature((__int64)v18, v17, (__int64)&Size, v10);
+            RtlpFcApplyUpdateAndAddFeature((__int64)v18, v17);
             ++v12;
-            ++v17;
+            v17 = (__int64 *)((char *)v17 + 12);
           }
-          v11 = (_OWORD *)Size;
+          v11 = Size;
           ++v13;
           v18 += 8;
 LABEL_18:
@@ -113,18 +114,19 @@ LABEL_18:
       }
       if ( v12 < v14 )
       {
-        v21 = (__int128 *)&v15[4 * v12];
+        v21 = &v15[3 * v12];
         do
         {
-          v22 = *v21;
           ++v12;
-          ++v21;
-          *v11 = v22;
+          *(_QWORD *)v11 = *(_QWORD *)v21;
+          v22 = v21[2];
+          v21 += 3;
+          *(_DWORD *)(v11 + 8) = v22;
+          v11 += 12LL;
           ++*v10;
-          ++v11;
         }
         while ( v12 < (unsigned int)*a1 );
-        Size = (size_t)v11;
+        Size = v11;
       }
     }
     if ( v13 < a4 )
@@ -133,7 +135,7 @@ LABEL_18:
       v24 = a4 - v13;
       do
       {
-        RtlpFcCreateAndAddFeatureFromUpdate(v23, &Size);
+        RtlpFcCreateAndAddFeatureFromUpdate(v23);
         v23 += 32LL;
         --v24;
       }

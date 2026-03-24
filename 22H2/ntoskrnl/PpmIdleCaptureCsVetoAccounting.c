@@ -1,28 +1,28 @@
 /*
- * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x140584360
+ * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x140565CF0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14058506C (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x140594C0C (PopDiagTraceSleepStudyBlocker.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14056689C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x140572FB4 (PopDiagTraceSleepStudyBlocker.c)
  */
 
 __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax
-  __int64 v3; // rsi
+  __int64 v3; // rdi
   KIRQL v4; // al
   __int64 v5; // r8
   unsigned int v6; // ebx
-  unsigned __int64 i; // rdi
+  unsigned __int64 i; // rsi
   __int64 v8; // rdx
   __int64 v9; // rcx
-  unsigned int v10; // ebx
-  __int64 v11; // rsi
+  __int64 v10; // rbx
+  unsigned int v11; // edi
   unsigned __int64 v12; // rax
   __int64 v13; // rcx
   struct _KPRCB *CurrentPrcb; // r10
@@ -36,7 +36,7 @@ __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
   int v22; // [rsp+80h] [rbp+Fh]
   int v23; // [rsp+84h] [rbp+13h]
   __int128 *v24; // [rsp+88h] [rbp+17h]
-  __int64 v25; // [rsp+90h] [rbp+1Fh]
+  __int64 j; // [rsp+90h] [rbp+1Fh]
   unsigned __int64 v26; // [rsp+98h] [rbp+27h]
   __int64 v27; // [rsp+A0h] [rbp+2Fh]
   __int64 *v28; // [rsp+A8h] [rbp+37h]
@@ -55,7 +55,7 @@ __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
     v6 = 0;
     for ( i = v4; v6 < *(_DWORD *)PpmPlatformStates; ++v6 )
     {
-      v8 = 448LL * v6;
+      v8 = 384LL * v6;
       v9 = v8 + v5 + 80;
       LOBYTE(v8) = 4;
       PpmIdleCsVetoAccountingUpdateBlock(v9, v8, 0LL);
@@ -63,59 +63,54 @@ __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
     }
     if ( (_DWORD)v3 != -1 )
     {
-      v10 = 0;
       v17 = v19;
-      WORD2(v20) = v3;
       v21[0] = &v17;
       v21[2] = &GUID_SLEEPSTUDY_BLOCKER_PARENT_PREVETO;
-      v11 = v5 + 448 * v3;
+      v10 = v5 + 384 * v3;
+      WORD2(v20) = v3;
+      v24 = &v20;
+      v11 = 0;
       LODWORD(v20) = -1429427508;
       v21[1] = 1LL;
       v21[3] = 16LL;
-      v24 = &v20;
-      v25 = 16LL;
-      if ( *(_DWORD *)(v11 + 108) )
+      for ( j = 16LL; v11 < *(_DWORD *)(v10 + 108); ++v11 )
       {
-        do
+        v12 = *(_QWORD *)(v10 + 112) + ((unsigned __int64)v11 << 6);
+        if ( *(_QWORD *)(v12 + 56) )
         {
-          v12 = *(_QWORD *)(v11 + 112) + ((unsigned __int64)v10 << 6);
-          if ( *(_QWORD *)(v12 + 56) )
-          {
-            DWORD2(v20) = *(_DWORD *)(v12 + 16);
-            v18 = *((unsigned __int16 *)PpmIdleVetoList + 12 * v10 + 8) >> 1;
-            v21[4] = &v18;
-            v21[5] = 4LL;
-            v13 = *((unsigned __int16 *)PpmIdleVetoList + 12 * v10 + 8);
-            v21[6] = *((_QWORD *)PpmIdleVetoList + 3 * v10 + 3);
-            v28 = &v19;
-            v22 = v13;
-            v23 = 0;
-            v26 = v12 + 56;
-            v27 = 8LL;
-            v29 = 8LL;
-            PopDiagTraceSleepStudyBlocker(v13, v21);
-          }
-          ++v10;
+          DWORD2(v20) = *(_DWORD *)(v12 + 16);
+          v18 = *(unsigned __int16 *)(PpmIdleVetoList + 16LL * v11 + 8) >> 1;
+          v21[4] = &v18;
+          v21[5] = 4LL;
+          v13 = *(unsigned __int16 *)(PpmIdleVetoList + 16LL * v11 + 8);
+          v21[6] = *(_QWORD *)(PpmIdleVetoList + 16LL * v11 + 16);
+          v28 = &v19;
+          v22 = v13;
+          v23 = 0;
+          v26 = v12 + 56;
+          v27 = 8LL;
+          v29 = 8LL;
+          PopDiagTraceSleepStudyBlocker(v13, v21);
         }
-        while ( v10 < *(_DWORD *)(v11 + 108) );
       }
     }
-    result = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+    KxReleaseSpinLock(&PpmIdleVetoLock);
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)i <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)i + 1));
-        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v16 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)i <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)i + 1));
+          v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v16 )
+            result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(i);

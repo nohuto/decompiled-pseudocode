@@ -1,0 +1,45 @@
+/*
+ * XREFs of ApiSetEditionContactVisualization @ 0x1C01CAB34
+ * Callers:
+ *     ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C018DAA0 (-DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ApiSetEditionContactVisualization(unsigned int a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
+{
+  __int64 v6; // rsi
+  unsigned int v8; // ebx
+  int v9; // eax
+
+  v6 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      262,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  v8 = 0;
+  if ( qword_1C02577C8 )
+    v9 = qword_1C02577C8();
+  else
+    v9 = -1073741637;
+  if ( v9 >= 0 && qword_1C02577D0 )
+    v8 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD, int))qword_1C02577D0)(a1, v6, 480LL, a4, a5);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      263,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v8;
+}

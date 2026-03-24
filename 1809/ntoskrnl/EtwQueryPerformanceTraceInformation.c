@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x1408B9380
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x1408B9360
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)
- *     PsGetProcessId @ 0x1400A56F0 (PsGetProcessId.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
  *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
  *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1405C1EEC (EtwpDereferenceLoggerSecurityDescriptor.c)
@@ -20,12 +20,12 @@
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
  *     EtwpReferenceLoggerSecurityDescriptor @ 0x1405C5324 (EtwpReferenceLoggerSecurityDescriptor.c)
  *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     EtwpMapEnableFlags @ 0x1406CBBCC (EtwpMapEnableFlags.c)
- *     EtwpCheckSystemTraceAccess @ 0x140726EDC (EtwpCheckSystemTraceAccess.c)
- *     EtwpUMGLEnabled @ 0x1408B574C (EtwpUMGLEnabled.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x1408C91D8 (EtwpQueryCoverageSamplerInformation.c)
- *     EtwpGetSoftRestartInformation @ 0x1408C9E84 (EtwpGetSoftRestartInformation.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140726EBC (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUMGLEnabled @ 0x1408B572C (EtwpUMGLEnabled.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1408C91B8 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpGetSoftRestartInformation @ 0x1408C9E64 (EtwpGetSoftRestartInformation.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(

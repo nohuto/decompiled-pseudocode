@@ -1,56 +1,44 @@
 /*
- * XREFs of RIMFindTouchDigitizerWithSize @ 0x1C018F700
+ * XREFs of RIMFindTouchDigitizerWithSize @ 0x1C0164590
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     RawInputManagerDeviceObjectReference @ 0x1C0078960 (RawInputManagerDeviceObjectReference.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C006B1E0 (RawInputManagerDeviceObjectReference.c)
  */
 
-void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4)
+void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, __int64 **a2)
 {
-  _QWORD **v6; // rsi
-  _QWORD *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  _QWORD *v17; // rbx
-  __int64 v18; // rax
+  __int64 *v2; // rdi
+  __int64 *v5; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
-  v6 = (_QWORD **)(SGDGetUserSessionState(a1, a2, a3, a4) + 320);
-  v7 = *v6;
+  v2 = (__int64 *)gObRimDevList;
   *a2 = 0LL;
-  v12 = SGDGetUserSessionState(v9, v8, v10, v11);
-  RIMLockExclusive(v12 + 240);
-  while ( v7 != v6 )
+  RIMLockExclusive((__int64)&gObListLock);
+  while ( v2 != &gObRimDevList )
   {
-    v17 = v7 - 2;
-    if ( *((_BYTE *)v7 + 104) == 2 && (*((_DWORD *)v17 + 68) & 0x80u) != 0 && (v17[32] & 0x400) == 0 )
+    v5 = v2 - 2;
+    if ( *((_BYTE *)v2 + 120) == 2 && (*((_DWORD *)v5 + 72) & 0x80u) != 0 && (v5[34] & 0x400) == 0 )
     {
-      v13 = v17[68];
-      if ( (unsigned int)(*(_DWORD *)(v13 + 24) - 1) <= 3 )
+      v6 = v5[71];
+      if ( (unsigned int)(*(_DWORD *)(v6 + 24) - 1) <= 3 )
       {
-        v14 = *(_QWORD *)(v13 + 140) - *a1;
-        if ( !v14 )
-          v14 = *(_QWORD *)(v13 + 148) - a1[1];
-        if ( !v14 )
+        v7 = *(_QWORD *)(v6 + 140) - *a1;
+        if ( !v7 )
+          v7 = *(_QWORD *)(v6 + 148) - a1[1];
+        if ( !v7 )
         {
-          RawInputManagerDeviceObjectReference(v7 - 2);
-          *a2 = v17;
+          RawInputManagerDeviceObjectReference(v2 - 2);
+          *a2 = v5;
           break;
         }
       }
     }
-    v7 = (_QWORD *)*v7;
+    v2 = (__int64 *)*v2;
   }
-  v18 = SGDGetUserSessionState(v14, v13, v15, v16);
-  *(_QWORD *)(v18 + 248) = 0LL;
-  ExReleasePushLockExclusiveEx(v18 + 240, 0LL);
+  qword_1C0254458 = 0LL;
+  ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

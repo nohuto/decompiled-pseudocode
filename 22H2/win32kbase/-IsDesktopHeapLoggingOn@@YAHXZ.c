@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDesktopHeapLoggingOn@@YAHXZ @ 0x1C007E84C
+ * XREFs of ?IsDesktopHeapLoggingOn@@YAHXZ @ 0x1C0068AC4
  * Callers:
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 IsDesktopHeapLoggingOn(void)
@@ -25,25 +25,25 @@ __int64 IsDesktopHeapLoggingOn(void)
   DestinationString = 0LL;
   while ( 1 )
   {
-    v2 = OpenCacheKeyEx(0LL, 2LL, 131097LL, &v4);
+    v2 = OpenCacheKeyEx(0LL, 2LL, 0x20019u, &v4);
     if ( !v2 )
       break;
     RtlInitUnicodeString(&DestinationString, L"DesktopHeapLogging");
-    if ( ZwQueryValueKey(v2, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
+    if ( ZwQueryValueKey(v2, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) < 0 )
+    {
+      v1 = v4 != 0 ? v1 : 0;
+    }
+    else
     {
       v1 = v8;
       v4 = 0;
     }
-    else
-    {
-      v1 = v4 != 0 ? v1 : 0;
-    }
     ZwClose(v2);
     if ( !v4 )
-      goto LABEL_6;
+      goto LABEL_9;
   }
   v1 = 0;
-LABEL_6:
+LABEL_9:
   LOBYTE(v0) = v1 != 0;
   return v0;
 }

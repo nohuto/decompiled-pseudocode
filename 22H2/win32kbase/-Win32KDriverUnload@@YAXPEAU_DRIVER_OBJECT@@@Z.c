@@ -1,151 +1,98 @@
 /*
- * XREFs of ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0134470
+ * XREFs of ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011BB50
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0037ECC (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
- *     Win32FreePool @ 0x1C0038570 (Win32FreePool.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     DCompositionSessionUninitialize @ 0x1C0083D38 (DCompositionSessionUninitialize.c)
- *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C008BA00 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
- *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C41C (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SAXPEAPEAE@Z @ 0x1C0091404 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTypeIsolat.c)
- *     UnloadWin32kCall @ 0x1C00A5E04 (UnloadWin32kCall.c)
- *     MultiUserNtGreCleanup @ 0x1C00A8AE8 (MultiUserNtGreCleanup.c)
- *     ?IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ @ 0x1C00A95E0 (-IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ.c)
- *     ??1COPM@@QEAA@XZ @ 0x1C00A96BC (--1COPM@@QEAA@XZ.c)
- *     ?OPMFreeMemory@OPM@@YAXPEAX@Z @ 0x1C00A9840 (-OPMFreeMemory@OPM@@YAXPEAX@Z.c)
- *     UninitializeTelemetryAssertsKM @ 0x1C00ADE88 (UninitializeTelemetryAssertsKM.c)
- *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00B1AE4 (-Win32kNtUserCleanup@@YAHXZ.c)
- *     InputUnInitialize @ 0x1C00B72FC (InputUnInitialize.c)
- *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00BC1F4 (-CleanupDomainLocks@@YAXXZ.c)
- *     CoreMsgUninitialize @ 0x1C00C115C (CoreMsgUninitialize.c)
- *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00C14E8 (-FreeWin32KSyscallFilter@@YAXXZ.c)
- *     RIMUnInitialize @ 0x1C00C1D30 (RIMUnInitialize.c)
- *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00C2990 (-UninitializeBaseWppLog@@YAXXZ.c)
- *     ??_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z @ 0x1C00C4400 (--_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z.c)
- *     IsUserkTraceLoggingSupported @ 0x1C00C49BC (IsUserkTraceLoggingSupported.c)
- *     IsTelemetryAssertsSupported @ 0x1C00C49E8 (IsTelemetryAssertsSupported.c)
- *     ?UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00C5304 (-UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ.c)
- *     McGenEventUnregister_EtwUnregister @ 0x1C00C53A4 (McGenEventUnregister_EtwUnregister.c)
- *     ?GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z @ 0x1C00C581C (-GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z.c)
- *     ?Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00C5850 (-Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     FreeIndex @ 0x1C0131DE4 (FreeIndex.c)
- *     ?PoolLeakCaptureLiveDump@@YAX_KPEAK0@Z @ 0x1C014FD78 (-PoolLeakCaptureLiveDump@@YAX_KPEAK0@Z.c)
- *     ?Enumerate@?$CSortedVector@PEAXPEAX@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C016E398 (-Enumerate@-$CSortedVector@PEAXPEAX@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
- *     ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C016F13C (-Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
- *     TlgUnregisterAggregateProvider @ 0x1C02BF740 (TlgUnregisterAggregateProvider.c)
- *     WppCleanupKm @ 0x1C02BFC08 (WppCleanupKm.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00743A8 (-Win32kNtUserCleanup@@YAHXZ.c)
+ *     RIMUnInitialize @ 0x1C0074670 (RIMUnInitialize.c)
+ *     WinSqmEndSession @ 0x1C0079D8C (WinSqmEndSession.c)
+ *     MultiUserNtGreCleanup @ 0x1C007D498 (MultiUserNtGreCleanup.c)
+ *     Win32FreePagedLookasideList @ 0x1C007DB20 (Win32FreePagedLookasideList.c)
+ *     UnloadWin32kCall @ 0x1C009CB30 (UnloadWin32kCall.c)
+ *     DCompositionSessionUninitialize @ 0x1C00AB5BC (DCompositionSessionUninitialize.c)
+ *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00AFB24 (-CleanupDomainLocks@@YAXXZ.c)
+ *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SAXPEAPEAE@Z @ 0x1C00B11D4 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@V-$CTypeIsolat.c)
+ *     ?Destroy@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B154C (-Destroy@-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ??1COPM@@QEAA@XZ @ 0x1C00B2D24 (--1COPM@@QEAA@XZ.c)
+ *     ?OPMFreeMemory@OPM@@YAXPEAX@Z @ 0x1C00B2E30 (-OPMFreeMemory@OPM@@YAXPEAX@Z.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C00B3320 (UninitializeTelemetryAssertsKM.c)
+ *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00B4938 (-FreeWin32KSyscallFilter@@YAXXZ.c)
+ *     CoreMsgUninitialize @ 0x1C00B4A80 (CoreMsgUninitialize.c)
+ *     InputUnInitialize @ 0x1C00B4F7C (InputUnInitialize.c)
+ *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00B5EB0 (-UninitializeBaseWppLog@@YAXXZ.c)
+ *     ??_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z @ 0x1C00B778C (--_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z.c)
+ *     IsTelemetryAssertsSupported @ 0x1C00B7FB0 (IsTelemetryAssertsSupported.c)
+ *     IsUserkTraceLoggingSupported @ 0x1C00B7FDC (IsUserkTraceLoggingSupported.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C00B84A4 (McGenEventUnregister_EtwUnregister.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C027E8D8 (TlgUnregisterAggregateProvider.c)
+ *     WppCleanupKm @ 0x1C027EA94 (WppCleanupKm.c)
  */
 
-void __fastcall Win32KDriverUnload(struct _DRIVER_OBJECT *a1)
+void __fastcall Win32KDriverUnload(struct _DRIVER_OBJECT *a1, char a2)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  PDEVICE_OBJECT v3; // rcx
-  Gre::Base *v4; // rcx
-  Gre::Base *v5; // rcx
-  __int64 v6; // rdi
-  OPM *v7; // rbx
-  void *v8; // rdx
-  char *v9; // rcx
-  char *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  void (*i)(void); // rdi
-  unsigned int v15; // ebx
-  NSInstrumentation::CLeakTrackingAllocator *v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  void *v19; // rdx
-  PVOID v20; // rcx
-  REGHANDLE v21; // rcx
-  REGHANDLE v22; // rcx
-  REGHANDLE v23; // rcx
-  REGHANDLE v24; // rcx
-  REGHANDLE v25; // rcx
-  NSInstrumentation::CLeakTrackingAllocator *v26; // rcx
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 v31; // rdx
-  CAsyncKeyEventMonitor *v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  __int64 v39; // rdx
-  __int64 v40; // r8
-  __int64 v41; // r9
-  PVOID v42; // rcx
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  __int64 v47; // rdx
-  __int64 v48; // r8
-  __int64 v49; // r9
-  NSInstrumentation::CLeakTrackingAllocator *v50; // rcx
-  unsigned __int64 OutstandingPoolTags; // rax
-  unsigned __int64 v52; // rbx
-  unsigned int *Pool2; // rax
-  unsigned int *v54; // rdi
-  NSInstrumentation::CLeakTrackingAllocator *v55; // rbx
-  NSInstrumentation::CPointerHashTable *v56; // rcx
-  __int64 v57; // rcx
-  __int64 v58; // rdx
-  __int64 v59; // rcx
-  __int64 v60; // r8
-  __int64 v61; // r9
-  PVOID v62; // rbx
-  unsigned __int64 v63; // [rsp+40h] [rbp-F8h] BYREF
-  _BYTE v64[208]; // [rsp+50h] [rbp-E8h] BYREF
+  int v2; // edi
+  int v3; // eax
+  int v4; // eax
+  int v5; // eax
+  OPM *v6; // rbx
+  void *v7; // rdx
+  _QWORD *v8; // rcx
+  _QWORD *v9; // rbx
+  void (*i)(void); // rsi
+  unsigned int v11; // ebx
+  int v12; // eax
+  PVOID v13; // rbx
+  int v14; // eax
+  REGHANDLE v15; // rcx
+  REGHANDLE v16; // rcx
+  REGHANDLE v17; // rcx
+  REGHANDLE v18; // rcx
+  REGHANDLE v19; // rcx
+  int v20; // eax
+  int v21; // eax
+  int v22; // ebx
+  int v23; // eax
+  PDRIVER_OBJECT v24; // rbx
 
-  CTempW32ThreadNonPaged::CTempW32ThreadNonPaged((CTempW32ThreadNonPaged *)v64);
-  v3 = WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) == 0
-    || (LOBYTE(v1) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    LOBYTE(v1) = 0;
-  }
-  LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v1 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      v2,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(
       WPP_MAIN_CB.Queue.ListEntry.Flink,
       4,
-      14,
       15,
-      (__int64)&WPP_ac18f6c865c032c1f7ac00466daa9397_Traceguids);
-  if ( qword_1C02961A0 && (int)qword_1C02961A0(v3, v1, v2) >= 0 && qword_1C02961A8 )
-    qword_1C02961A8();
-  if ( qword_1C02950F8 && (int)qword_1C02950F8(v3, v1, v2) >= 0 && qword_1C0295100 )
-    qword_1C0295100();
-  DCompositionSessionUninitialize((__int64)v3, v1);
-  if ( qword_1C0295118 && (int)qword_1C0295118() >= 0 && qword_1C0295120 )
-    qword_1C0295120();
-  if ( Gre::Base::IsSessionGlobalsAreaAllocated(v4) )
+      15,
+      (__int64)&WPP_a844338296dc32a54b50029aac15bf9a_Traceguids);
+  v2 = -1073741637;
+  if ( qword_1C0256EC0 )
+    v3 = qword_1C0256EC0(a1);
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 && qword_1C0256EC8 )
+    qword_1C0256EC8();
+  if ( qword_1C0255C40 )
+    v4 = qword_1C0255C40();
+  else
+    v4 = -1073741637;
+  if ( v4 >= 0 && qword_1C0255C48 )
+    qword_1C0255C48();
+  DCompositionSessionUninitialize((__int64)a1, a2);
+  if ( qword_1C0255C60 )
+    v5 = qword_1C0255C60();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 && qword_1C0255C68 )
+    qword_1C0255C68();
+  v6 = qword_1C0250C58;
+  if ( qword_1C0250C58 )
   {
-    v6 = *(_QWORD *)(SGDGetSessionState(v5) + 24);
-    v7 = *(OPM **)(v6 + 3824);
-    if ( v7 )
-    {
-      COPM::~COPM(*(COPM **)(v6 + 3824));
-      OPM::OPMFreeMemory(v7, v8);
-    }
-    *(_QWORD *)(v6 + 3824) = 0LL;
+    COPM::~COPM(qword_1C0250C58);
+    OPM::OPMFreeMemory(v6, v7);
   }
   gdwHydraHint |= 0x80u;
-  MultiUserNtGreCleanup(v5);
+  qword_1C0250C58 = 0LL;
+  MultiUserNtGreCleanup();
   gdwHydraHint |= 0x100u;
   if ( gpepCSRSS )
   {
@@ -154,52 +101,57 @@ void __fastcall Win32KDriverUnload(struct _DRIVER_OBJECT *a1)
   }
   if ( gpDispInfo )
   {
-    v9 = (char *)*((_QWORD *)gpDispInfo + 3);
-    if ( v9 )
+    v8 = *(_QWORD **)(gpDispInfo + 24);
+    if ( v8 )
     {
       do
       {
-        v10 = *(char **)v9;
-        Win32FreePool(v9);
-        v9 = v10;
+        v9 = (_QWORD *)*v8;
+        Win32FreePool((__int64)v8);
+        v8 = v9;
       }
-      while ( v10 );
-      *((_QWORD *)gpDispInfo + 3) = 0LL;
+      while ( v9 );
+      *(_QWORD *)(gpDispInfo + 24) = 0LL;
     }
   }
   InputUnInitialize();
-  Win32kNtUserCleanup(v12, v11, v13);
-  if ( qword_1C028FE68 )
+  Win32kNtUserCleanup();
+  if ( qword_1C024FA38 )
   {
     gbInDestroyHandleTableObjects = 1;
     for ( i = (void (*)(void))DestroyHandleFirstPass; ; i = (void (*)(void))DestroyHandleSecondPass )
     {
-      v15 = 0;
+      v11 = 0;
       do
       {
-        if ( *((_BYTE *)qword_1C028FE68 + 32 * v15 + 24) )
+        if ( *((_BYTE *)qword_1C024FA38 + 32 * v11 + 24) )
           i();
-        ++v15;
+        ++v11;
       }
-      while ( v15 <= giheLast );
+      while ( v11 <= giheLast );
       if ( (char *)i != (char *)DestroyHandleFirstPass )
         break;
     }
     gbInDestroyHandleTableObjects = 0;
   }
-  if ( qword_1C0295750 && (int)qword_1C0295750() >= 0 && qword_1C0295758 )
-    qword_1C0295758();
+  if ( qword_1C02562F0 )
+    v12 = qword_1C02562F0();
+  else
+    v12 = -1073741637;
+  if ( v12 >= 0 && qword_1C02562F8 )
+    qword_1C02562F8();
   CleanupDomainLocks();
-  EnterLeaveCritMitRitHandOffHazard::UnInitialize();
-  v19 = gpStackRefLookAside;
   gdwHydraHint |= 0x200u;
   if ( gpStackRefLookAside )
-    NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v16, (char *)gpStackRefLookAside);
-  if ( WPP_MAIN_CB.Dpc.ProcessorHistory )
+    Win32FreePagedLookasideList((__int64)gpStackRefLookAside);
+  v13 = gpUserTypeIsolation;
+  if ( gpUserTypeIsolation )
   {
-    TypeIsolationFactory<NSInstrumentation::CTypeIsolation<36864,144>,NSInstrumentation::CTypeIsolation<40960,160>,NSInstrumentation::CTypeIsolation<86016,336>,NSInstrumentation::CTypeIsolation<81920,160>,NSInstrumentation::CTypeIsolation<24576,96>,NSInstrumentation::CTypeIsolation<28672,112>>::Destroy();
-    ExFreePoolWithTag((PVOID)WPP_MAIN_CB.Dpc.ProcessorHistory, 0);
-    WPP_MAIN_CB.Dpc.ProcessorHistory = 0LL;
+    if ( *(_QWORD *)gpUserTypeIsolation )
+      NSInstrumentation::CTypeIsolation<36864,144>::Destroy(*(PVOID *)gpUserTypeIsolation);
+    TypeIsolationFactory<NSInstrumentation::CTypeIsolation<40960,160>,NSInstrumentation::CTypeIsolation<86016,336>,NSInstrumentation::CTypeIsolation<81920,160>,NSInstrumentation::CTypeIsolation<24576,96>,NSInstrumentation::CTypeIsolation<28672,112>>::Destroy((__int64)v13);
+    ExFreePoolWithTag(gpUserTypeIsolation, 0);
+    gpUserTypeIsolation = 0LL;
   }
   if ( CsrApiPort )
   {
@@ -217,150 +169,121 @@ void __fastcall Win32KDriverUnload(struct _DRIVER_OBJECT *a1)
     ObfDereferenceObject(ghSectionShared);
   }
   if ( gpDispInfo )
-    Win32FreePool((char *)gpDispInfo);
-  v20 = gpkdiStatic;
+    Win32FreePool(gpDispInfo);
   if ( gpkdiStatic )
-    Win32FreePool((char *)gpkdiStatic);
+    Win32FreePool(gpkdiStatic);
   if ( ghSectionKernelHandleTable )
   {
     if ( gpKernelHandleTable )
       MmUnmapViewInSessionSpace(gpKernelHandleTable);
     ObfDereferenceObject(ghSectionKernelHandleTable);
   }
-  if ( qword_1C0295128 && (int)qword_1C0295128() >= 0 && qword_1C0295130 )
-    qword_1C0295130(&gMagnContext);
+  if ( qword_1C0255C70 )
+    v14 = qword_1C0255C70();
+  else
+    v14 = -1073741637;
+  if ( v14 >= 0 && qword_1C0255C78 )
+    qword_1C0255C78(&gMagnContext);
+  WinSqmEndSession();
+  if ( (int)IsUserkTraceLoggingSupported() >= 0 && qword_1C0256EE0 )
+    qword_1C0256EE0();
   if ( gbTraceLoggingInitialized )
   {
-    if ( (int)IsUserkTraceLoggingSupported() >= 0 && qword_1C02961C0 )
-      qword_1C02961C0();
-    v21 = qword_1C02883F8;
-    qword_1C02883F8 = 0LL;
-    dword_1C02883D8 = 0;
-    EtwUnregister(v21);
-    v22 = qword_1C02883C0;
-    qword_1C02883C0 = 0LL;
-    dword_1C02883A0 = 0;
-    EtwUnregister(v22);
-    v23 = qword_1C0288350;
-    qword_1C0288350 = 0LL;
-    dword_1C0288330 = 0;
-    EtwUnregister(v23);
-    v24 = qword_1C0288318;
-    qword_1C0288318 = 0LL;
-    dword_1C02882F8 = 0;
-    EtwUnregister(v24);
-    v25 = qword_1C0289830;
-    qword_1C0289830 = 0LL;
-    dword_1C0289810 = 0;
-    EtwUnregister(v25);
-    if ( WPP_MAIN_CB.Dpc.SystemArgument2 )
+    v15 = qword_1C0249270;
+    qword_1C0249270 = 0LL;
+    dword_1C0249250 = 0;
+    EtwUnregister(v15);
+    v16 = qword_1C0249238;
+    qword_1C0249238 = 0LL;
+    dword_1C0249218 = 0;
+    EtwUnregister(v16);
+    v17 = qword_1C02491C8;
+    qword_1C02491C8 = 0LL;
+    dword_1C02491A8 = 0;
+    EtwUnregister(v17);
+    v18 = qword_1C0249190;
+    qword_1C0249190 = 0LL;
+    dword_1C0249170 = 0;
+    EtwUnregister(v18);
+    v19 = qword_1C024AAB0;
+    qword_1C024AAB0 = 0LL;
+    dword_1C024AA90 = 0;
+    EtwUnregister(v19);
+    if ( InputTraceLogging::ThreadLockedPerfRegion::s_pLookaside )
     {
-      NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v26, (char *)WPP_MAIN_CB.Dpc.SystemArgument2);
-      WPP_MAIN_CB.Dpc.SystemArgument2 = 0LL;
+      Win32FreePagedLookasideList((__int64)InputTraceLogging::ThreadLockedPerfRegion::s_pLookaside);
+      InputTraceLogging::ThreadLockedPerfRegion::s_pLookaside = 0LL;
     }
-    TlgUnregisterAggregateProvider(&dword_1C0288368);
-    TlgUnregisterAggregateProvider(&dword_1C0283098);
   }
-  if ( *(_QWORD *)(SGDGetUserSessionState(v20, v19, v17, v18) + 14152) )
+  TlgUnregisterAggregateProvider(&dword_1C02491E0);
+  if ( gpAsyncKeyEventMonitor )
   {
-    v32 = *(CAsyncKeyEventMonitor **)(SGDGetUserSessionState(v28, v27, v29, v30) + 14152);
-    if ( v32 )
-      CAsyncKeyEventMonitor::`scalar deleting destructor'(v32);
-    *(_QWORD *)(SGDGetUserSessionState(v32, v31, v33, v34) + 14152) = 0LL;
+    CAsyncKeyEventMonitor::`scalar deleting destructor'(gpAsyncKeyEventMonitor);
+    gpAsyncKeyEventMonitor = 0LL;
   }
   McGenEventUnregister_EtwUnregister();
-  if ( qword_1C0295138 && (int)qword_1C0295138() >= 0 && qword_1C0295140 )
-    qword_1C0295140();
+  if ( qword_1C0255C80 )
+    v20 = qword_1C0255C80();
+  else
+    v20 = -1073741637;
+  if ( v20 >= 0 && qword_1C0255C88 )
+    qword_1C0255C88();
   CoreMsgUninitialize();
-  RIMUnInitialize(v36, v35, v37, v38);
-  v42 = gpW32FastMutex;
+  RIMUnInitialize();
   if ( gpW32FastMutex )
   {
     ExFreePoolWithTag(gpW32FastMutex, 0);
     gpW32FastMutex = 0LL;
   }
-  if ( !*(_DWORD *)SGDGetUserSessionState(v42, v39, v40, v41) )
+  if ( !gSessionId )
+  {
     KeRemoveSystemServiceTable(1LL);
-  if ( !*(_DWORD *)SGDGetUserSessionState(v44, v43, v45, v46) )
-    KeRemoveSystemServiceTable(2LL);
+    if ( !gSessionId )
+      KeRemoveSystemServiceTable(2LL);
+  }
   if ( gpCountTable )
   {
     ExFreePoolWithTag(gpCountTable, 0);
     gpCountTable = 0LL;
   }
   FreeWin32KSyscallFilter();
-  v50 = gpLeakTrackingAllocator;
-  if ( gpLeakTrackingAllocator )
+  if ( qword_1C0256CF0 )
+    v21 = qword_1C0256CF0();
+  else
+    v21 = -1073741637;
+  if ( v21 >= 0 && qword_1C0256CF8 )
+    v22 = qword_1C0256CF8();
+  else
+    v22 = 0;
+  if ( qword_1C0255D30 )
+    v23 = qword_1C0255D30();
+  else
+    v23 = -1073741637;
+  if ( v23 >= 0 && qword_1C0255D38 )
+    qword_1C0255D38();
+  if ( !v22 )
   {
-    v63 = 0LL;
-    OutstandingPoolTags = NSInstrumentation::CLeakTrackingAllocator::GetOutstandingPoolTags(
-                            gpLeakTrackingAllocator,
-                            0LL,
-                            0LL,
-                            0LL);
-    v52 = OutstandingPoolTags;
-    if ( OutstandingPoolTags )
-    {
-      Pool2 = (unsigned int *)ExAllocatePool2(64LL, 4 * OutstandingPoolTags, 1953264469LL);
-      v54 = Pool2;
-      if ( Pool2 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::GetOutstandingPoolTags(gpLeakTrackingAllocator, Pool2, v52, &v63);
-        PoolLeakCaptureLiveDump(v63, v54, v52);
-        ExFreePoolWithTag(v54, 0);
-      }
-    }
-    v55 = gpLeakTrackingAllocator;
-    v56 = (NSInstrumentation::CPointerHashTable *)*((_QWORD *)gpLeakTrackingAllocator + 11);
-    if ( v56 )
-      NSInstrumentation::CPointerHashTable::Enumerate(
-        v56,
-        (void (*)(void *, void *, void *))NSInstrumentation::CLeakTrackingAllocator::CleanupCallback,
-        gpLeakTrackingAllocator);
-    v57 = *((_QWORD *)v55 + 12);
-    if ( v57 )
-      NSInstrumentation::CSortedVector<void *,void *>::Enumerate(
-        v57,
-        NSInstrumentation::CLeakTrackingAllocator::CleanupCallback,
-        v55);
-    NSInstrumentation::CLeakTrackingAllocator::Destroy(gpLeakTrackingAllocator);
-    gpLeakTrackingAllocator = 0LL;
+    if ( qword_1C0255D10 )
+      v2 = qword_1C0255D10();
+    if ( v2 >= 0 && qword_1C0255D18 )
+      qword_1C0255D18();
   }
-  v59 = *(unsigned int *)SGDGetUserSessionState(v50, v47, v48, v49);
-  if ( (_DWORD)v59 == gServiceSessionId && !gServiceSessionId )
-    FreeIndex(v59, v58, v60, v61);
-  if ( gpxsGlobals )
-  {
-    MmUnmapViewInSessionSpace(gpxsGlobals);
-    gpxsGlobals = 0LL;
-  }
-  if ( gxsSection )
-  {
-    ObfDereferenceObject(gxsSection);
-    gxsSection = 0LL;
-  }
-  if ( gxsSectionHandle )
-  {
-    ZwClose(gxsSectionHandle);
-    gxsSectionHandle = 0LL;
-  }
+  TlgUnregisterAggregateProvider(&dword_1C0245378);
   UninitializeTelemetryAssertsKM();
-  v62 = gpWin32kDriverObject;
+  v24 = gpWin32kDriverObject;
   if ( gpWin32kDriverObject )
   {
     UninitializeBaseWppLog();
-    if ( qword_1C0296D68 )
-      qword_1C0296D68(v62);
-    WppCleanupKm(v62);
+    if ( qword_1C0257AD0 )
+      qword_1C0257AD0(v24);
+    WppCleanupKm(v24);
   }
-  if ( (int)IsTelemetryAssertsSupported() >= 0 && qword_1C02961D8 )
-    qword_1C02961D8();
+  if ( (int)IsTelemetryAssertsSupported() >= 0 && qword_1C0256EF8 )
+    qword_1C0256EF8();
   UnloadWin32kCall();
-  if ( g_wil_details_featureChangeNotification )
+  if ( wil_details_featureChangeNotification )
   {
     RtlUnregisterFeatureConfigurationChangeNotification();
-    g_wil_details_featureChangeNotification = 0LL;
+    wil_details_featureChangeNotification = 0LL;
   }
-  g_wil_details_isFeatureStagingInitialized = 0;
-  CTempW32ThreadNonPaged::~CTempW32ThreadNonPaged((CTempW32ThreadNonPaged *)v64);
 }

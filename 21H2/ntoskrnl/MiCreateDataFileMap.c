@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x1406FA990
+ * XREFs of MiCreateDataFileMap @ 0x14061BFD4
  * Callers:
- *     MiCreateNewSection @ 0x1406F914C (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
  * Callees:
- *     MiInsertSubsectionNode @ 0x140281F60 (MiInsertSubsectionNode.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     FsRtlSetFileSize @ 0x1406A443C (FsRtlSetFileSize.c)
- *     FsRtlGetFileSize @ 0x1406FF640 (FsRtlGetFileSize.c)
- *     MiComputeIdealFirstSubsection @ 0x14096FF98 (MiComputeIdealFirstSubsection.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiInsertSubsectionNode @ 0x1402A15FC (MiInsertSubsectionNode.c)
+ *     FsRtlSetFileSize @ 0x140689B90 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
+ *     MiComputeIdealFirstSubsection @ 0x1408CFD6C (MiComputeIdealFirstSubsection.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-int __fastcall MiCreateDataFileMap(
+NTSTATUS __fastcall MiCreateDataFileMap(
         PFILE_OBJECT FileObject,
         _WORD *a2,
         LARGE_INTEGER **a3,
@@ -25,36 +25,35 @@ int __fastcall MiCreateDataFileMap(
   unsigned __int64 v12; // r15
   LARGE_INTEGER *Pool; // rdi
   LARGE_INTEGER *v14; // rsi
-  __int64 v15; // rcx
+  __int64 v15; // rdx
   int v16; // ebx
-  unsigned int v17; // r13d
-  int v18; // eax
-  LARGE_INTEGER *v19; // rdx
-  unsigned __int64 v20; // r12
-  unsigned int v21; // r14d
-  __int16 v22; // cx
+  LARGE_INTEGER *v17; // r8
+  unsigned __int64 v18; // r13
+  unsigned int v19; // r14d
+  __int16 v20; // cx
   ULONG LowPart; // ecx
-  __int16 v24; // r14
-  __int64 v25; // rdx
-  char v26; // cl
-  __int64 v27; // rbx
-  __int16 v28; // ax
-  __int16 v29; // r14
-  __int64 *v30; // rdi
-  __int64 v31; // r8
-  __int16 v32; // ax
-  bool v33; // zf
-  int v34; // eax
-  int result; // eax
-  LARGE_INTEGER *v36; // rcx
+  __int16 v22; // r14
+  __int64 v23; // rdx
+  char v24; // cl
+  __int64 v25; // rbx
+  __int16 v26; // ax
+  __int16 v27; // r14
+  __int64 *v28; // rdi
+  __int16 v29; // ax
+  int v30; // r8d
+  bool v31; // zf
+  __int16 v32; // cx
+  int v33; // eax
+  NTSTATUS result; // eax
+  LARGE_INTEGER *v35; // rcx
   _QWORD *QuadPart; // rcx
-  _QWORD *v38; // rbx
+  _QWORD *v37; // rbx
   LARGE_INTEGER FileSize; // [rsp+20h] [rbp-48h] BYREF
-  int v42; // [rsp+A8h] [rbp+40h]
+  int v41; // [rsp+A8h] [rbp+40h]
 
   FileSize.QuadPart = 0LL;
-  v42 = a8 & 1;
-  if ( v42 )
+  v41 = a8 & 1;
+  if ( v41 )
   {
     v11 = a4;
     goto LABEL_3;
@@ -73,7 +72,7 @@ int __fastcall MiCreateDataFileMap(
         return -1073741760;
       FileSize = a4;
       v11 = a4;
-      result = FsRtlSetFileSize(FileObject, (__int64 *)&FileSize);
+      result = FsRtlSetFileSize(FileObject);
       if ( result < 0 )
         return result;
     }
@@ -84,40 +83,30 @@ LABEL_3:
       Pool = (LARGE_INTEGER *)MiAllocatePool(256, 0x30uLL, 0x6D536D4Du);
       if ( !Pool )
         return -1073741670;
-      v14 = (LARGE_INTEGER *)MiAllocatePool(64, 0x130uLL, 0x61436D4Du);
+      v14 = (LARGE_INTEGER *)MiAllocatePool(64, 0x128uLL, 0x61436D4Du);
       if ( !v14 )
       {
-        v36 = Pool;
-        goto LABEL_53;
+        v35 = Pool;
+        goto LABEL_52;
       }
       v15 = 0LL;
       v16 = a8 & 0x10000;
-      if ( v16 )
-      {
-        if ( v12 > 0x200 )
-          v15 = 8 * MiComputeIdealFirstSubsection(FileObject);
-        v18 = 0x200000;
-        v17 = 0x200000;
-      }
-      else
-      {
-        v17 = 0x100000;
-        v18 = 0x100000;
-      }
-      v19 = 0LL;
-      v20 = 8 * v12;
+      if ( v16 && v12 > 0x200 )
+        v15 = 8 * MiComputeIdealFirstSubsection(FileObject, 0LL);
+      v17 = 0LL;
       FileSize.QuadPart = 0LL;
+      v18 = 8 * v12;
       if ( !v15 )
-        LODWORD(v15) = v18;
+        LODWORD(v15) = v16 != 0 ? 0x200000 : 0x100000;
       while ( 1 )
       {
-        v21 = v20;
-        if ( v20 >= (unsigned int)v15 )
-          v21 = v15;
-        if ( v19 )
+        v19 = v18;
+        if ( v18 >= (unsigned int)v15 )
+          v19 = v15;
+        if ( v17 )
         {
-          v19 = (LARGE_INTEGER *)MiAllocatePool(64, 0x98uLL, 0x63536D4Du);
-          if ( !v19 )
+          v17 = (LARGE_INTEGER *)MiAllocatePool(64, 0x90uLL, 0x63536D4Du);
+          if ( !v17 )
           {
             ExFreePoolWithTag(Pool, 0);
             QuadPart = (_QWORD *)v14[18].QuadPart;
@@ -125,30 +114,27 @@ LABEL_3:
             {
               do
               {
-                v38 = (_QWORD *)QuadPart[2];
+                v37 = (_QWORD *)QuadPart[2];
                 ExFreePoolWithTag(QuadPart, 0);
-                QuadPart = v38;
+                QuadPart = v37;
               }
-              while ( v38 );
+              while ( v37 );
             }
-            v36 = v14;
-LABEL_53:
-            ExFreePoolWithTag(v36, 0);
+            v35 = v14;
+LABEL_52:
+            ExFreePoolWithTag(v35, 0);
             return -1073741670;
           }
-          *(_QWORD *)(FileSize.QuadPart + 16) = v19;
+          *(_QWORD *)(FileSize.QuadPart + 16) = v17;
         }
         else
         {
-          v19 = v14 + 16;
+          v17 = v14 + 16;
         }
-        FileSize.QuadPart = (LONGLONG)v19;
-        v19[5].HighPart = v21 >> 3;
-        v20 -= v21;
-        if ( v21 < v17 )
-          v21 = v17;
-        LODWORD(v15) = v21;
-        if ( !v20 )
+        FileSize.QuadPart = (LONGLONG)v17;
+        v17[5].HighPart = v19 >> 3;
+        v18 -= v19;
+        if ( !v18 )
         {
           *(_OWORD *)&Pool->LowPart = 0LL;
           *(_OWORD *)&Pool[2].LowPart = 0LL;
@@ -156,72 +142,76 @@ LABEL_53:
           *(_OWORD *)&Pool[4].LowPart = 0LL;
           v14[2].QuadPart = (LONGLONG)&v14[1];
           v14[1].QuadPart = (LONGLONG)&v14[1];
-          v14[3].QuadPart = 1LL;
           v14->QuadPart = (LONGLONG)Pool;
           v14[14].QuadPart = 1LL;
-          v22 = WORD2(v14[7].QuadPart) ^ *a2;
+          v14[3].QuadPart = 1LL;
+          v20 = WORD2(v14[7].QuadPart) ^ *a2;
           v14[13].QuadPart = 0LL;
-          WORD2(v14[7].QuadPart) ^= v22 & 0x3FF;
+          WORD2(v14[7].QuadPart) ^= v20 & 0x3FF;
           LowPart = v14[7].LowPart;
-          if ( v42 )
+          if ( v41 )
             LowPart |= 0x8000u;
           else
             v14[6].QuadPart = 1LL;
-          v24 = 6;
-          v14[7].LowPart = LowPart ^ (LowPart ^ (a7 << 20)) & 0x7F00000 | 0x82;
+          v22 = 6;
+          v14[7].LowPart = LowPart ^ (LowPart ^ (a7 << 20)) & 0x3F00000 | 0x82;
           if ( v16 )
           {
-            BYTE6(v14[7].QuadPart) = BYTE6(v14[7].QuadPart) & 0xF3 | 4;
+            v14[7].LowPart = LowPart ^ (LowPart ^ (a7 << 20)) & 0x3F00000 | 0x40000082;
           }
           else if ( (a6 & 0x10000000) != 0 )
           {
             WORD2(Pool[1].QuadPart) |= 0x8000u;
-            v24 = 14;
+            v22 = 14;
           }
           else if ( (a6 & 0x40000000) != 0 )
           {
-            v24 = 30;
+            v22 = 30;
             WORD2(Pool[1].QuadPart) |= 0x4000u;
           }
-          v25 = (__int64)&v14[16];
-          v26 = BYTE6(Pool[1].QuadPart) & 0xC1;
+          v23 = (__int64)&v14[16];
+          v24 = BYTE6(Pool[1].QuadPart) & 0xC1;
           Pool->QuadPart = (LONGLONG)v14;
           Pool[3] = v11;
-          v27 = 0LL;
-          v28 = (WORD2(Pool[1].QuadPart) ^ WORD2(v12)) & 0x3FF;
+          v25 = 0LL;
+          v26 = (WORD2(Pool[1].QuadPart) ^ WORD2(v12)) & 0x3FF;
           Pool[1].LowPart = v12;
-          WORD2(Pool[1].QuadPart) ^= v28;
-          BYTE6(Pool[1].QuadPart) = (2 * v24) | v26;
-          v29 = 2 * v24;
+          WORD2(Pool[1].QuadPart) ^= v26;
+          BYTE6(Pool[1].QuadPart) = (2 * v22) | v24;
+          v27 = 2 * v22;
           do
           {
-            v30 = (__int64 *)(v25 + 16);
-            v31 = *(unsigned int *)(v25 + 44);
-            v32 = *(_WORD *)(v25 + 32) & 1;
-            *(_QWORD *)v25 = v14;
-            *(_DWORD *)(v25 + 36) = v27;
-            v33 = *(_QWORD *)(v25 + 16) == 0LL;
-            *(_WORD *)(v25 + 32) = v29 | v32 & 0xFFC1 | (WORD2(v27) << 6);
-            if ( v33 )
+            v28 = (__int64 *)(v23 + 16);
+            v29 = *(_WORD *)(v23 + 32) & 1;
+            *(_QWORD *)v23 = v14;
+            v30 = *(_DWORD *)(v23 + 44);
+            *(_DWORD *)(v23 + 36) = v25;
+            v31 = *(_QWORD *)(v23 + 16) == 0LL;
+            *(_WORD *)(v23 + 32) = v27 | v29 & 0xFFC1 | (WORD2(v25) << 6);
+            if ( v31 )
             {
-              *(_WORD *)(v25 + 34) = (16 * LOWORD(v11.LowPart)) | *(_WORD *)(v25 + 34) & 0xF;
-              *(_DWORD *)(v25 + 52) ^= (*(_DWORD *)(v25 + 52) ^ (v27 + v31 - v12)) & 0x3FFFFFFF;
-              v34 = ((unsigned __int64)v11.QuadPart >> 12) - v27;
+              v32 = *(_WORD *)(v23 + 34);
+              *(_DWORD *)(v23 + 52) ^= (*(_DWORD *)(v23 + 52) ^ (v25 + v30 - v12)) & 0x3FFFFFFF;
+              *(_WORD *)(v23 + 34) = (16 * LOWORD(v11.LowPart)) | v32 & 0xF;
+              v33 = ((unsigned __int64)v11.QuadPart >> 12) - v25;
             }
             else
             {
-              v34 = v31;
+              v33 = v30;
             }
-            *(_DWORD *)(v25 + 40) = v34;
-            v27 += v31;
-            *(_QWORD *)(v25 + 88) = v25 + 80;
-            *(_QWORD *)(v25 + 80) = v25 + 80;
-            MiInsertSubsectionNode((__int64)v14, v25, 0LL);
-            v25 = *v30;
+            *(_DWORD *)(v23 + 40) = v33;
+            v25 += *(unsigned int *)(v23 + 44);
+            *(_QWORD *)(v23 + 88) = v23 + 80;
+            *(_QWORD *)(v23 + 80) = v23 + 80;
+            MiInsertSubsectionNode((__int64)v14, v23, 0LL);
+            v23 = *v28;
           }
-          while ( *v30 );
+          while ( *v28 );
           return 0;
         }
+        LODWORD(v15) = v16 != 0 ? 0x200000 : 0x100000;
+        if ( v19 >= (unsigned int)v15 )
+          LODWORD(v15) = v19;
       }
     }
     return -1073741760;

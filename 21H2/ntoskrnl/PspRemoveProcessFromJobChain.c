@@ -1,148 +1,144 @@
 /*
- * XREFs of PspRemoveProcessFromJobChain @ 0x140684158
+ * XREFs of PspRemoveProcessFromJobChain @ 0x140616398
  * Callers:
- *     PspRundownSingleProcess @ 0x140683990 (PspRundownSingleProcess.c)
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
- *     PspTerminateProcessesJobCallback @ 0x1406CA8B0 (PspTerminateProcessesJobCallback.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x1406ABD40 (PspTerminateProcessesJobCallback.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     PspSendJobNotification @ 0x14025863C (PspSendJobNotification.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PspRequestProcessExecutionState @ 0x140683844 (PspRequestProcessExecutionState.c)
- *     PspUnlinkJobProcess @ 0x140683ED4 (PspUnlinkJobProcess.c)
- *     PspFoldProcessAccountingIntoJob @ 0x140683FE0 (PspFoldProcessAccountingIntoJob.c)
- *     PspLockJobConditionally @ 0x14068565C (PspLockJobConditionally.c)
- *     PspLockRootJobFromProcess @ 0x140687598 (PspLockRootJobFromProcess.c)
- *     PspChangeProcessExecutionState @ 0x140687754 (PspChangeProcessExecutionState.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PsQueryStatisticsProcess @ 0x1407B81B0 (PsQueryStatisticsProcess.c)
- *     PsTerminateProcess @ 0x1407D80A4 (PsTerminateProcess.c)
- *     PspSubtractAccountingValues @ 0x1407F7E04 (PspSubtractAccountingValues.c)
- *     EtwTraceJobRemoveProcess @ 0x1409E237C (EtwTraceJobRemoveProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     PspLockRootJobFromProcess @ 0x1406162D4 (PspLockRootJobFromProcess.c)
+ *     PspLockJobConditionally @ 0x140616368 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
+ *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1406AD32C (PspFoldProcessAccountingIntoJob.c)
+ *     PspUnlinkJobProcess @ 0x1406B40E8 (PspUnlinkJobProcess.c)
+ *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
+ *     PspSubtractAccountingValues @ 0x140909BE8 (PspSubtractAccountingValues.c)
+ *     EtwTraceJobRemoveProcess @ 0x140935ED8 (EtwTraceJobRemoveProcess.c)
  */
 
-void __fastcall PspRemoveProcessFromJobChain(
-        ULONG_PTR BugCheckParameter1,
-        _QWORD *a2,
-        unsigned int a3,
-        unsigned int a4)
+_QWORD *__fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, unsigned int a3, unsigned int a4)
 {
-  char v4; // r15
-  bool v6; // zf
-  unsigned int v7; // r14d
+  _QWORD *result; // rax
+  char v5; // r15
+  bool v7; // zf
+  unsigned int v8; // r14d
   struct _KTHREAD *CurrentThread; // rsi
   bool v11; // r12
-  __int64 v12; // rbx
-  int v13; // esi
-  _QWORD *v14; // rax
-  char v15; // [rsp+20h] [rbp-79h]
-  __int64 v16; // [rsp+28h] [rbp-71h] BYREF
-  int v17; // [rsp+30h] [rbp-69h]
-  __int64 v18; // [rsp+38h] [rbp-61h] BYREF
-  struct _KTHREAD *v19; // [rsp+40h] [rbp-59h]
-  __int64 v20[20]; // [rsp+50h] [rbp-49h] BYREF
-  char v21; // [rsp+110h] [rbp+77h]
+  int v12; // r13d
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  _QWORD *v17; // rax
+  char v18; // [rsp+28h] [rbp-69h]
+  __int64 v19; // [rsp+30h] [rbp-61h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-59h] BYREF
+  struct _KTHREAD *v21; // [rsp+40h] [rbp-51h]
+  _BYTE v22[160]; // [rsp+48h] [rbp-49h] BYREF
+  _UNKNOWN *retaddr; // [rsp+F0h] [rbp+5Fh] BYREF
+  char v25; // [rsp+108h] [rbp+77h]
 
-  v21 = a3;
-  v4 = 0;
-  v6 = (*(_DWORD *)(BugCheckParameter1 + 2172) & 0x1000) == 0;
-  v7 = a3;
-  v18 = 0LL;
-  v16 = 0LL;
-  if ( v6 || (a3 & 1) != 0 )
+  result = &retaddr;
+  v25 = a3;
+  v5 = 0;
+  v7 = (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0;
+  v8 = a3;
+  v20 = 0LL;
+  v19 = 0LL;
+  if ( v7 || (a3 & 1) != 0 )
   {
-    memset(v20, 0, 0x68uLL);
+    memset(v22, 0, 0x68uLL);
     CurrentThread = KeGetCurrentThread();
-    v19 = CurrentThread;
-    v11 = !_interlockedbittestandset((volatile signed __int32 *)(BugCheckParameter1 + 1120), 0);
-    v15 = 0;
-    if ( (v7 & 2) != 0
-      && (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x4000000) != 0
-      && (*(_BYTE *)(BugCheckParameter1 + 2172) & 0x40) == 0 )
+    v21 = CurrentThread;
+    v11 = !_interlockedbittestandset((volatile signed __int32 *)&Process[1].DirectoryTableBase, 0);
+    v18 = 0;
+    if ( (v8 & 2) != 0
+      && (Process[1].DirectoryTableBase & 0x400000000000000LL) != 0
+      && (BYTE4(Process[2].Header.WaitListHead.Flink) & 0x40) == 0 )
     {
-      PsTerminateProcess(BugCheckParameter1, a4);
-      v15 = 1;
+      PsTerminateProcess(Process, a4);
+      v18 = 1;
     }
-    v17 = 1;
-    PspLockRootJobFromProcess(BugCheckParameter1, CurrentThread, &v18, &v16);
+    v12 = 1;
+    PspLockRootJobFromProcess((__int64)Process, (__int64)CurrentThread, &v20, &v19);
     if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-      EtwTraceJobRemoveProcess(BugCheckParameter1, v7, a4);
-    if ( (v7 & 4) != 0 && !_interlockedbittestandset((volatile signed __int32 *)(BugCheckParameter1 + 1120), 1u) )
+      EtwTraceJobRemoveProcess(Process, v8, a4);
+    if ( (v8 & 4) != 0 && !_interlockedbittestandset((volatile signed __int32 *)&Process[1].DirectoryTableBase, 1u) )
     {
-      _InterlockedAnd((volatile signed __int32 *)(BugCheckParameter1 + 1120), 0xFFFFFFDF);
-      PsQueryStatisticsProcess(BugCheckParameter1, v20);
-      v4 = 1;
+      _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase, 0xFFFFFFDF);
+      PsQueryStatisticsProcess(Process, v22);
+      v5 = 1;
     }
-    v12 = v18;
-    if ( v18 )
+    v13 = v20;
+    if ( v20 )
     {
-      v13 = v17;
       do
       {
-        PspLockJobConditionally(v12, &v16);
+        PspLockJobConditionally(v13, &v19);
         if ( v11 )
         {
-          --*(_DWORD *)(v12 + 216);
-          if ( (*(_DWORD *)(BugCheckParameter1 + 2172) & 0x20) != 0 )
-            --*(_DWORD *)(v12 + 1420);
+          --*(_DWORD *)(v13 + 216);
+          if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x20) != 0 )
+            --*(_DWORD *)(v13 + 1228);
         }
-        if ( (v7 & 8) != 0 && v11 )
-          ++*(_DWORD *)(v12 + 220);
-        if ( a2 && (!*a2 || *a2 == v12) && *(_QWORD *)(v12 + 552) && ((1 << a2[1]) & *(_DWORD *)(v12 + 1068)) != 0 )
-          PspSendJobNotification(v12, a2[1], a2[2], 0);
-        if ( v4 )
+        if ( (v8 & 8) != 0 && v11 )
+          ++*(_DWORD *)(v13 + 220);
+        if ( a2 && (!*a2 || *a2 == v13) && *(_QWORD *)(v13 + 456) && ((1 << a2[1]) & *(_DWORD *)(v13 + 876)) != 0 )
+          PspSendJobNotification(v13, a2[1], a2[2], 0);
+        if ( v5 )
         {
-          PspFoldProcessAccountingIntoJob(v12, BugCheckParameter1, v20);
-          if ( v12 == *(_QWORD *)(BugCheckParameter1 + 1296) && *(_DWORD *)(v12 + 1424) != PspEnforcementSequenceNumber )
+          PspFoldProcessAccountingIntoJob(v13, Process, v22);
+          if ( v13 == Process[1].Affinity.Bitmap[16] && *(_DWORD *)(v13 + 1232) != PspEnforcementSequenceNumber )
+            v12 = 0;
+          if ( v12 == 1 )
           {
-            v13 = 0;
-          }
-          else if ( v13 == 1 )
-          {
-            v14 = (_QWORD *)(v12 + 1312);
-            if ( v12 + 1312 < (unsigned __int64)(v12 + 1416) )
+            v17 = (_QWORD *)(v13 + 1120);
+            if ( v13 + 1120 < (unsigned __int64)(v13 + 1224) )
             {
-              while ( !*v14 )
+              while ( !*v17 )
               {
-                if ( (unsigned __int64)++v14 >= v12 + 1416 )
-                  goto LABEL_14;
+                if ( (unsigned __int64)++v17 >= v13 + 1224 )
+                  goto LABEL_13;
               }
-              PspSubtractAccountingValues(v12 + 1312, v20);
-              v13 = 2;
+              PspSubtractAccountingValues(v13 + 1120, v22);
+              v12 = 2;
             }
           }
         }
-LABEL_14:
-        if ( v12 != v16 )
-          ExReleaseResourceLite((PERESOURCE)(v12 + 56));
-        v12 = *(_QWORD *)(v12 + 1264);
+LABEL_13:
+        PspUnlockJobConditionally(v13, &v19);
+        v13 = *(_QWORD *)(v13 + 1072);
       }
-      while ( v12 );
-      v12 = v18;
-      CurrentThread = v19;
-      LOBYTE(v7) = v21;
+      while ( v13 );
+      v13 = v20;
+      CurrentThread = v21;
+      LOBYTE(v8) = v25;
     }
-    PspLockJobConditionally(v12, &v16);
-    if ( (v7 & 1) != 0 )
+    PspLockJobConditionally(v13, &v19);
+    if ( (v8 & 1) != 0 )
     {
-      PspUnlinkJobProcess(v12, BugCheckParameter1);
-      if ( v12 != v16 )
-        ExReleaseResourceLite((PERESOURCE)(v12 + 56));
-      PspUnlockJob(v16, CurrentThread);
+      PspUnlinkJobProcess(v13, Process);
+      PspUnlockJobConditionally(v13, &v19);
+      return (_QWORD *)PspUnlockJob(v19, CurrentThread);
     }
     else
     {
-      if ( v11 && (*(_DWORD *)(BugCheckParameter1 + 1120) & 4) != 0 && !v15 )
-        PspRequestProcessExecutionState(BugCheckParameter1, 0, 0);
-      if ( v12 != v16 )
-        ExReleaseResourceLite((PERESOURCE)(v12 + 56));
-      PspUnlockJob(v16, CurrentThread);
+      if ( v11 && (Process[1].DirectoryTableBase & 4) != 0 && !v18 )
+        PspRequestProcessExecutionState((__int64)Process, 0, 0);
+      PspUnlockJobConditionally(v13, &v19);
+      PspUnlockJob(v19, CurrentThread);
       --CurrentThread->KernelApcDisable;
-      PspChangeProcessExecutionState(BugCheckParameter1);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      PspChangeProcessExecutionState(Process, v14, v15, v16);
+      return KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
   }
+  return result;
 }

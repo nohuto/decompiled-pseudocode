@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CitpPostUpdateUseInfoCalculate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_POST_UPDATE_USE_INFO@@@Z @ 0x1C00A4FEC
+ * XREFs of ?CitpPostUpdateUseInfoCalculate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_POST_UPDATE_USE_INFO@@@Z @ 0x1C008D9E0
  * Callers:
- *     ?CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00A42A4 (-CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
- *     ?CitpPostUpdateUseInfoSave@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_POST_UPDATE_USE_INFO@@@Z @ 0x1C00A4900 (-CitpPostUpdateUseInfoSave@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_POST_UPDATE_USE_INFO@@@Z.c)
+ *     ?CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C008D088 (-CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpPostUpdateUseInfoSave@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_POST_UPDATE_USE_INFO@@@Z @ 0x1C008D76C (-CitpPostUpdateUseInfoSave@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_POST_UPDATE_USE_INFO@@@Z.c)
  * Callees:
- *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0016918 (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
- *     ?Citp100NSToMS@@YAI_K@Z @ 0x1C00A5444 (-Citp100NSToMS@@YAI_K@Z.c)
+ *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0048838 (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
+ *     ?Citp100NSToMS@@YAI_K@Z @ 0x1C008DC0C (-Citp100NSToMS@@YAI_K@Z.c)
  */
 
 void __fastcall CitpPostUpdateUseInfoCalculate(struct _CIT_IMPACT_CONTEXT *a1, struct _CIT_POST_UPDATE_USE_INFO *a2)
@@ -41,16 +41,16 @@ void __fastcall CitpPostUpdateUseInfoCalculate(struct _CIT_IMPACT_CONTEXT *a1, s
   *((_DWORD *)a2 + 19) += HIDWORD(v7) & 0x7FFFFFFF;
   *((_DWORD *)a2 + 4) += (unsigned int)v8 / 0x3E8;
   *((_DWORD *)a2 + 5) += (unsigned int)v8 / 0x3E8;
-  *((_DWORD *)a2 + 9) += ((int)v4 - DWORD2(xmmword_1C029A250)) / 0x3E8u;
-  v10 = Citp100NSToMS(v6 - *((_QWORD *)&xmmword_1C029A240 + 1) - v5);
+  *((_DWORD *)a2 + 9) += ((int)v4 - DWORD2(xmmword_1C0255580)) / 0x3E8u;
+  v10 = Citp100NSToMS(v6 - *((_QWORD *)&xmmword_1C0255570 + 1) - v5);
   *((_DWORD *)a2 + 10) += (unsigned int)((v10 * (unsigned __int64)v11) >> 32) >> 6;
   *((_DWORD *)a2 + 11) += *((unsigned __int16 *)a1 + 132);
   *((_DWORD *)a2 + 12) += *((unsigned __int16 *)a1 + 136);
   *((_DWORD *)a2 + 13) += *((unsigned __int16 *)a1 + 133);
   *((_DWORD *)a2 + 14) += *((unsigned __int16 *)a1 + 134);
   *((_DWORD *)a2 + 15) += *((unsigned __int16 *)a1 + 139);
-  *((_DWORD *)a2 + 16) += *((unsigned __int16 *)a1 + 145);
-  *((_DWORD *)a2 + 17) += (unsigned int)((*((unsigned int *)a1 + 83) * (unsigned __int64)v11) >> 32) >> 6;
-  *((_DWORD *)a2 + 18) += *((_DWORD *)a1 + 82);
+  *((_DWORD *)a2 + 16) += *((unsigned __int16 *)a1 + 144);
+  *((_DWORD *)a2 + 17) += (unsigned int)((*((unsigned int *)a1 + 82) * (unsigned __int64)v11) >> 32) >> 6;
+  *((_DWORD *)a2 + 18) += *((_DWORD *)a1 + 81);
   *((_QWORD *)a2 + 10) = MEMORY[0xFFFFF78000000014];
 }

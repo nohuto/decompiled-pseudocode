@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C009AEB0
+ * XREFs of ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0092158
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C009AFC0 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C0135690 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C00921E0 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C011E0A0 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
  */
 
 void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, struct tagTHREADINFO *a2)
@@ -17,7 +17,7 @@ void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, s
 
   v2 = 0;
   v3 = (__int64 *)gpKernelHandleTable;
-  v4 = (char *)qword_1C028FE68 + 24;
+  v4 = (char *)qword_1C024FA38 + 24;
   do
   {
     v6 = *v3;
@@ -25,13 +25,13 @@ void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, s
     {
       if ( !*(_DWORD *)(v6 + 260) || *(DelegationAPI **)(v6 + 264) != this )
         goto LABEL_4;
-      v7 = anonymous_namespace_::ScrubDelegatedWindow_tagWND___(v6, a2);
+      v7 = anonymous_namespace_::ScrubDelegatedWindow_tagWND___(v6);
     }
     else
     {
       if ( *v4 != 23 || !*(_DWORD *)(v6 + 72) || *(DelegationAPI **)(v6 + 64) != this )
         goto LABEL_4;
-      v7 = anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(v6, a2);
+      v7 = anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(v6);
     }
     if ( v7 )
       break;

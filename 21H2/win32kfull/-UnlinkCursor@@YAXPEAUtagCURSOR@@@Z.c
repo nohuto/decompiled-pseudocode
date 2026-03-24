@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C0108864
+ * XREFs of ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C011C500
  * Callers:
- *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C002331C (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     ZombieCursor @ 0x1C01E6140 (ZombieCursor.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B7F4 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ZombieCursor @ 0x1C01EB310 (ZombieCursor.c)
  * Callees:
- *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0023CB0 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B714 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
  */
 
 void __fastcall UnlinkCursor(struct tagCURSOR *a1)
@@ -58,7 +58,7 @@ LABEL_7:
     }
     if ( v2 )
       break;
-    CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread();
+    CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread((__int64)v5);
     v2 = 1;
     v5 = (struct tagCURSOR **)(*((_QWORD *)CurrentLogicalCursorThread + 53) + 736LL);
   }

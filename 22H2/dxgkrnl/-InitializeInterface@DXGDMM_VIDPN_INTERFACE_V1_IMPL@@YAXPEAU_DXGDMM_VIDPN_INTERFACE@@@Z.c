@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z @ 0x1C0216124
+ * XREFs of ?InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z @ 0x1C017CFEC
  * Callers:
- *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215E98 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017CC20 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,13 @@ void __fastcall DXGDMM_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(
         DXGDMM_VIDPN_INTERFACE_V1_IMPL *this,
         struct _DXGDMM_VIDPN_INTERFACE *a2)
 {
+  __int64 v3; // rax
+
   if ( !this )
-    WdLogSingleEntry0(1LL);
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v3);
+  }
   *(_QWORD *)this = DXGDMM_VIDPN_INTERFACE_V1_IMPL::GetTopology;
   *((_QWORD *)this + 1) = DXGDMM_VIDPN_INTERFACE_V1_IMPL::AcquireSourceModeSet;
   *((_QWORD *)this + 2) = DXGDMM_VIDPN_INTERFACE_V1_IMPL::ReleaseSourceModeSet;

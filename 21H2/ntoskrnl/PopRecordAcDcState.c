@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRecordAcDcState @ 0x1409899DC
+ * XREFs of PopRecordAcDcState @ 0x1408E13A8
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x1407EE90C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1403697C8 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F8020 (PopBsdHandleRequest.c)
  */
 
 void __fastcall PopRecordAcDcState(char a1)

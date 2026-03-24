@@ -1,73 +1,80 @@
 /*
- * XREFs of KeIdleSpecCtrl @ 0x140571090
+ * XREFs of KeIdleSpecCtrl @ 0x1403655E0
  * Callers:
- *     <none>
+ *     PoIdle @ 0x140221ED0 (PoIdle.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KeIdleSpecCtrl(__int64 a1, int a2, _WORD *a3, char a4)
+__int64 __fastcall KeIdleSpecCtrl(__int64 a1, int a2, _DWORD *a3, char a4)
 {
-  __int16 v5; // ax
-  unsigned __int16 v6; // r9
-  __int16 v7; // ax
-  __int64 v8; // rdx
-  signed __int16 v9; // tt
+  unsigned __int16 v5; // bx
+  int v6; // eax
+  unsigned __int16 v7; // r9
+  unsigned __int16 v8; // ax
+  __int64 v9; // rdx
+  signed __int16 v10; // tt
   __int64 result; // rax
-  __int64 v11; // rdx
-  signed __int16 v12; // tt
-  __int16 v13; // cx
+  __int64 v12; // rdx
+  signed __int16 v13; // tt
+  __int16 v14; // cx
+  int v15; // [rsp+10h] [rbp+10h]
 
   if ( a2 )
   {
+    v5 = 0;
     if ( (*(_BYTE *)(a1 + 1762) & 1) != 0 )
     {
-      v5 = *(_WORD *)(a1 + 1764);
-      if ( v5 )
+      v6 = *(unsigned __int16 *)(a1 + 1764);
+      if ( (_WORD)v6 )
       {
         *(_WORD *)(a1 + 1760) |= 1u;
-        *a3 = v5;
+        *a3 = v6;
       }
     }
     _m_prefetchw((const void *)(a1 + 1772));
-    v6 = *(_WORD *)(a1 + 1772);
-    if ( (v6 & 4) != 0 )
+    v7 = *(_WORD *)(a1 + 1772);
+    if ( (v7 & 4) != 0 )
     {
       if ( (*(_BYTE *)(a1 + 1760) & 1) != 0 )
       {
-        v7 = *(_WORD *)(a1 + 1764);
-        if ( (v7 & 3) == 0 )
+        v8 = *(_WORD *)(a1 + 1764);
+        if ( (v8 & 3) == 0 )
         {
-          *(_WORD *)(a1 + 1764) = v7 | 2;
-          *a3 |= 2u;
-          __writemsr(0x48u, *(unsigned __int16 *)(a1 + 1764));
+          v5 = 2;
+          *(_WORD *)(a1 + 1764) = v8 | 2;
+          __writemsr(0x48u, v8 | 2u);
         }
       }
       _InterlockedOr16((volatile signed __int16 *)(a1 + 1772), 2u);
-      v8 = *(_QWORD *)(a1 + 11696);
-      _m_prefetchw((const void *)(v8 + 1772));
+      v9 = *(_QWORD *)(a1 + 11696);
+      _m_prefetchw((const void *)(v9 + 1772));
       do
-        v9 = *(_WORD *)(v8 + 1772);
-      while ( v9 != _InterlockedCompareExchange16((volatile signed __int16 *)(v8 + 1772), v9 & 0xFFE4 | 0xA, v9) );
+        v10 = *(_WORD *)(v9 + 1772);
+      while ( v10 != _InterlockedCompareExchange16((volatile signed __int16 *)(v9 + 1772), v10 & 0xFFE4 | 0xA, v10) );
     }
-    return v6;
+    v15 = v5;
+    if ( (*(_BYTE *)(a1 + 1762) & 0x40) != 0 )
+      HIWORD(v15) = *(_WORD *)(a1 + 36522);
+    result = v7;
+    *a3 = v15;
   }
   else
   {
     if ( (a4 & 4) != 0 )
     {
-      v11 = *(_QWORD *)(a1 + 11696);
-      _m_prefetchw((const void *)(v11 + 1772));
+      v12 = *(_QWORD *)(a1 + 11696);
+      _m_prefetchw((const void *)(v12 + 1772));
       do
-        v12 = *(_WORD *)(v11 + 1772);
-      while ( v12 != _InterlockedCompareExchange16((volatile signed __int16 *)(v11 + 1772), v12 & 0xFFF5 | 2, v12) );
+        v13 = *(_WORD *)(v12 + 1772);
+      while ( v13 != _InterlockedCompareExchange16((volatile signed __int16 *)(v12 + 1772), v13 & 0xFFF5 | 2, v13) );
       if ( (*(_WORD *)(a1 + 1772) & 0x10) == 0 )
       {
-        v13 = *(_WORD *)(a1 + 1764);
-        if ( (v13 & 2) != 0 )
+        v14 = *(_WORD *)(a1 + 1764);
+        if ( (v14 & 2) != 0 )
         {
-          *(_WORD *)(a1 + 1764) = v13 & 0xFFFD;
-          __writemsr(0x48u, v13 & 0xFFFD);
+          *(_WORD *)(a1 + 1764) = v14 & 0xFFFD;
+          __writemsr(0x48u, v14 & 0xFFFD);
         }
       }
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoReplacePartitionUnit @ 0x140AD02D0
+ * XREFs of VerifierIoReplacePartitionUnit @ 0x1409D2EE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoReplacePartitionUnit()

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuRegisterDispatchTable @ 0x140B76E70
+ * XREFs of HalpIommuRegisterDispatchTable @ 0x140A742F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall HalpIommuRegisterDispatchTable(ULONG_PTR BugCheckParameter2)

@@ -1,122 +1,75 @@
 /*
- * XREFs of IopLiveDumpFreeDumpBuffers @ 0x14093C2FC
+ * XREFs of IopLiveDumpFreeDumpBuffers @ 0x140898020
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14093B1CC (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpReleaseResources @ 0x14093CFC8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x14093D590 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14093DA18 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140897254 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpReleaseResources @ 0x1408986EC (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x140221A10 (MmFreePagesFromMdl.c)
- *     VslIsSecureKernelRunning @ 0x14025E6F8 (VslIsSecureKernelRunning.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     VslAbortLiveDump @ 0x14054D9C4 (VslAbortLiveDump.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14093C544 (IopLiveDumpFreeIoSpaceRanges.c)
- *     MmFreeIndependentPages @ 0x14096ED20 (MmFreeIndependentPages.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
+ *     VslIsSecureKernelRunning @ 0x1402D3F0C (VslIsSecureKernelRunning.c)
+ *     VslAbortLiveDump @ 0x1404FBD90 (VslAbortLiveDump.c)
+ *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpFreeDumpBuffers(__int64 a1)
 {
-  _QWORD *v1; // r14
-  unsigned __int64 v3; // rdi
-  __int64 v4; // r8
-  struct _MDL *v5; // rcx
-  __int64 v6; // rax
-  struct _MDL *v7; // rsi
-  struct _MDL *Next; // rbp
-  struct _MDL *v9; // rsi
-  struct _MDL *v10; // rbp
-  void *v11; // rcx
-  void *v12; // rcx
+  __int64 v2; // rdi
+  struct _MDL *v3; // rcx
+  __int64 v4; // rax
+  unsigned __int64 v5; // rcx
+  void *v6; // rcx
+  void *v7; // rcx
 
-  v1 = (_QWORD *)(a1 + 680);
-  v3 = 0LL;
-  if ( a1 != -680 )
+  if ( a1 )
   {
     if ( VslIsSecureKernelRunning() )
       VslAbortLiveDump();
-    if ( *(_QWORD *)(a1 + 744) )
+    v2 = 0LL;
+    if ( *(_QWORD *)(a1 + 64) )
     {
-      do
+      while ( 1 )
       {
-        v4 = *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * v3);
-        if ( v4 )
+        v3 = *(struct _MDL **)(*(_QWORD *)(a1 + 80) + 8 * v2);
+        if ( v3 )
+          break;
+        v5 = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 8 * v2);
+        if ( v5 )
         {
-          v5 = *(struct _MDL **)(*(_QWORD *)(a1 + 760) + 8 * v3);
-          if ( v5 )
-          {
-            MmFreePagesFromMdl(v5);
-            ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(a1 + 760) + 8 * v3), 0x706D644Cu);
-            v6 = *(_QWORD *)(a1 + 760);
-          }
-          else
-          {
-            if ( *(_QWORD *)(a1 + 808) && v3 == *(_QWORD *)(a1 + 800) )
-            {
-              v7 = *(struct _MDL **)(a1 + 816);
-              if ( v7 )
-              {
-                do
-                {
-                  Next = v7->Next;
-                  if ( (v7->MdlFlags & 1) != 0 )
-                    MmUnmapLockedPages(v7->MappedSystemVa, v7);
-                  ExFreePoolWithTag(v7, 0x706D644Cu);
-                  v7 = Next;
-                }
-                while ( Next );
-              }
-              IopLiveDumpFreeIoSpaceRanges(a1 + 824, *(unsigned int *)(a1 + 832));
-              while ( v3 < *(_QWORD *)(a1 + 800) + *(_QWORD *)(a1 + 808) )
-                *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * v3++) = 0LL;
-              continue;
-            }
-            if ( *(_QWORD *)(a1 + 848) && v3 == *(_QWORD *)(a1 + 840) )
-            {
-              v9 = *(struct _MDL **)(a1 + 856);
-              if ( v9 )
-              {
-                do
-                {
-                  v10 = v9->Next;
-                  if ( (v9->MdlFlags & 1) != 0 )
-                    MmUnmapLockedPages(v9->MappedSystemVa, v9);
-                  ExFreePoolWithTag(v9, 0x706D644Cu);
-                  v9 = v10;
-                }
-                while ( v10 );
-              }
-              IopLiveDumpFreeIoSpaceRanges(a1 + 864, *(unsigned int *)(a1 + 872));
-              while ( v3 < *(_QWORD *)(a1 + 840) + *(_QWORD *)(a1 + 848) )
-                *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * v3++) = 0LL;
-              continue;
-            }
-            MmFreeIndependentPages(v4, (unsigned int)BufferChunkSizeInBytes);
-            v6 = *(_QWORD *)(a1 + 752);
-          }
-          *(_QWORD *)(v6 + 8 * v3) = 0LL;
+          MmFreeIndependentPages(v5, (unsigned int)BufferChunkSizeInBytes);
+          v4 = *(_QWORD *)(a1 + 72);
+          goto LABEL_9;
         }
-        ++v3;
+LABEL_10:
+        if ( (unsigned __int64)++v2 >= *(_QWORD *)(a1 + 64) )
+          goto LABEL_11;
       }
-      while ( v3 < *(_QWORD *)(a1 + 744) );
+      MmFreePagesFromMdl(v3);
+      ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(a1 + 80) + 8 * v2), 0);
+      v4 = *(_QWORD *)(a1 + 80);
+LABEL_9:
+      *(_QWORD *)(v4 + 8 * v2) = 0LL;
+      goto LABEL_10;
     }
-    v11 = *(void **)(a1 + 752);
-    if ( v11 )
+LABEL_11:
+    v6 = *(void **)(a1 + 72);
+    if ( v6 )
     {
-      ExFreePoolWithTag(v11, 0x706D644Cu);
-      *(_QWORD *)(a1 + 752) = 0LL;
+      ExFreePoolWithTag(v6, 0x706D644Cu);
+      *(_QWORD *)(a1 + 72) = 0LL;
     }
-    v12 = *(void **)(a1 + 760);
-    if ( v12 )
+    v7 = *(void **)(a1 + 80);
+    if ( v7 )
     {
-      ExFreePoolWithTag(v12, 0x706D644Cu);
-      *(_QWORD *)(a1 + 760) = 0LL;
+      ExFreePoolWithTag(v7, 0x706D644Cu);
+      *(_QWORD *)(a1 + 80) = 0LL;
     }
-    *(_QWORD *)(a1 + 744) = 0LL;
-    *(_DWORD *)(a1 + 720) = 0;
-    *v1 = 0LL;
-    *(_QWORD *)(a1 + 688) = 0LL;
-    *(_QWORD *)(a1 + 696) = 0LL;
-    *(_QWORD *)(a1 + 704) = 0LL;
+    *(_QWORD *)(a1 + 64) = 0LL;
+    *(_DWORD *)(a1 + 40) = 0;
+    *(_QWORD *)a1 = 0LL;
+    *(_QWORD *)(a1 + 8) = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
+    *(_QWORD *)(a1 + 24) = 0LL;
   }
 }

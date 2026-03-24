@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDispatchPowerIrpSuccess @ 0x1C0052450
+ * XREFs of ACPIDispatchPowerIrpSuccess @ 0x1C0052EA0
  * Callers:
- *     ACPIDockIrpQueryPower @ 0x1C00490D0 (ACPIDockIrpQueryPower.c)
- *     ACPIDockIrpSetSystemPower @ 0x1C00494E4 (ACPIDockIrpSetSystemPower.c)
- *     ACPIBusIrpQueryPower @ 0x1C004C270 (ACPIBusIrpQueryPower.c)
- *     ACPIBusIrpSetSystemPower @ 0x1C004C714 (ACPIBusIrpSetSystemPower.c)
+ *     ACPIDockIrpQueryPower @ 0x1C004A630 (ACPIDockIrpQueryPower.c)
+ *     ACPIDockIrpSetSystemPower @ 0x1C004AA04 (ACPIDockIrpSetSystemPower.c)
+ *     ACPIBusIrpQueryPower @ 0x1C004D4F0 (ACPIBusIrpQueryPower.c)
+ *     ACPIBusIrpSetSystemPower @ 0x1C004D9C4 (ACPIBusIrpSetSystemPower.c)
  * Callees:
  *     <none>
  */

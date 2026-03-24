@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x140755F60
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x140679000
  * Callers:
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140756020 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1408745A0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140678B50 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140678EB0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x14022D3F0 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1403A52CC (UpcaseUnicodeToUTF8NHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x140463564 (UpcaseUnicodeToMultiByteNHelper.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x140206A00 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140585904 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x1405859F8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(
@@ -19,29 +18,23 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(
         ULONG BytesInUnicodeString)
 {
   ULONG v6; // ebx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  __int16 v11; // r8
-  signed __int32 v13[8]; // [rsp+0h] [rbp-48h] BYREF
 
   v6 = BytesInUnicodeString >> 1;
-  if ( RtlpIsUtf8Process() )
+  if ( RtlpIsUtf8Process(1) )
     return UpcaseUnicodeToUTF8NHelper(OemString, MaxBytesInOemString, BytesInOemString, (__int64)UnicodeString, v6);
-  _InterlockedOr(v13, 0);
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  if ( *((_WORD *)CurrentServerSiloGlobals + 570) == v11 )
-    return UpcaseUnicodeToSingleByteNHelper(
-             OemString,
-             MaxBytesInOemString,
-             BytesInOemString,
-             (unsigned __int16 *)UnicodeString,
-             v6,
-             CurrentServerSiloGlobals[146],
-             CurrentServerSiloGlobals[145]);
-  else
+  if ( (_BYTE)NlsMbOemCodePageTag )
     return UpcaseUnicodeToMultiByteNHelper(
-             OemString,
+             (int)OemString,
              MaxBytesInOemString,
              BytesInOemString,
              (unsigned __int16 *)UnicodeString,
              v6);
+  return UpcaseUnicodeToSingleByteNHelper(
+           (__int64)OemString,
+           MaxBytesInOemString,
+           BytesInOemString,
+           (unsigned __int16 *)UnicodeString,
+           v6,
+           NlsUnicodeToOemData,
+           NlsOemToUnicodeData);
 }

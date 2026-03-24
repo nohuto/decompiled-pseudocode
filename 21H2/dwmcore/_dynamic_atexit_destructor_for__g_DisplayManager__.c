@@ -1,12 +1,13 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x18010DAF0
+ * XREFs of _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x1800F9960
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void dynamic_atexit_destructor_for__g_DisplayManager__()
+// attributes: thunk
+void __fastcall dynamic_atexit_destructor_for__g_DisplayManager__(CDisplayManager *a1)
 {
-  CDisplayManager::~CDisplayManager((CDisplayManager *)&g_DisplayManager);
+  CDisplayManager::~CDisplayManager(a1);
 }

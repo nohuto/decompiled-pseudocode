@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpBuildProcessEvent @ 0x14066CA4C
+ * XREFs of EtwpBuildProcessEvent @ 0x14066CA2C
  * Callers:
- *     EtwpWriteProcessEvent @ 0x14066C6E4 (EtwpWriteProcessEvent.c)
- *     EtwpTraceProcessRundown @ 0x14072685C (EtwpTraceProcessRundown.c)
+ *     EtwpWriteProcessEvent @ 0x14066C6C4 (EtwpWriteProcessEvent.c)
+ *     EtwpTraceProcessRundown @ 0x14072683C (EtwpTraceProcessRundown.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
- *     EtwpQueryProcessOtherInfo @ 0x14066CA0C (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD6C (EtwpQueryTokenPackageInfo.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14066C9EC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
  */
 
 unsigned int *__fastcall EtwpBuildProcessEvent(

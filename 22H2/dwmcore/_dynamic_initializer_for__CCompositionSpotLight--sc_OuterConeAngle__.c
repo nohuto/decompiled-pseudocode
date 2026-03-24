@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeAngle__ @ 0x180002470
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeAngle__ @ 0x180001F90
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeAngle__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E41D8 = (unsigned __int64)CCompositionSpotLight::SetOuterConeAngle;
-  qword_1803E41E8 = v1;
+  xmmword_1803458B0 = (unsigned __int64)CCompositionSpotLight::SetOuterConeAngle;
+  qword_1803458C0 = v1;
   return result;
 }

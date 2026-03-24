@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoResourceListInsertDescriptor @ 0x1C006F9A0
+ * XREFs of imp_WdfIoResourceListInsertDescriptor @ 0x1C005CA60
  * Callers:
  *     <none>
  * Callees:
- *     FxIoResourceListInsertDescriptor @ 0x1C006F410 (FxIoResourceListInsertDescriptor.c)
+ *     FxIoResourceListInsertDescriptor @ 0x1C005C2FC (FxIoResourceListInsertDescriptor.c)
  */
 
 int __fastcall imp_WdfIoResourceListInsertDescriptor(

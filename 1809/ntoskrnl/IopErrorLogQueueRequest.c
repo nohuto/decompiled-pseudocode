@@ -1,12 +1,12 @@
 /*
- * XREFs of IopErrorLogQueueRequest @ 0x140821154
+ * XREFs of IopErrorLogQueueRequest @ 0x140821134
  * Callers:
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     IopVerifierExAllocatePool_3 @ 0x1402862F8 (IopVerifierExAllocatePool_3.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     IopVerifierExAllocatePool_3 @ 0x1402863F8 (IopVerifierExAllocatePool_3.c)
  */
 
 char IopErrorLogQueueRequest()

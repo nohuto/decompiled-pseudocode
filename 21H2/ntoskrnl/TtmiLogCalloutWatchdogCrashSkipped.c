@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x1409A7248
+ * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x1409016E4
  * Callers:
- *     TtmpCalloutWatchdogCallback @ 0x1409A24C0 (TtmpCalloutWatchdogCallback.c)
+ *     TtmpCalloutWatchdogCallback @ 0x1408FCA60 (TtmpCalloutWatchdogCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x1402445B0 (PsGetProcessSessionIdEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -45,9 +45,9 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+4Fh] BYREF
 
   v6 = &retaddr;
-  if ( (unsigned int)dword_140D3B8D0 > 5 )
+  if ( (unsigned int)dword_140D2D890 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140D3B8D0, 0x400000000001LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140D2D890, 0x400000000001LL);
     if ( (_BYTE)v6 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -80,8 +80,8 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
       v16 = a3;
       v17 = a4;
       LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140D3B8D0,
-                     (unsigned __int8 *)&unk_140033088,
+                     (__int64)&dword_140D2D890,
+                     (unsigned __int8 *)byte_14002B8C5,
                      0LL,
                      0LL,
                      9u,

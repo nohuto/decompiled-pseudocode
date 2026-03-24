@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventNotifyClientPendingEvent @ 0x14078BD64
+ * XREFs of PiUEventNotifyClientPendingEvent @ 0x1406E6E60
  * Callers:
- *     PiUEventNotifyClient @ 0x14078BC74 (PiUEventNotifyClient.c)
- *     PiUEventHandleGetEvent @ 0x14078C678 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleGetEvent @ 0x1406E1D18 (PiUEventHandleGetEvent.c)
+ *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PiUEventEstimateRequiredClientBufferSize @ 0x1402E0880 (PiUEventEstimateRequiredClientBufferSize.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     PiUEventEstimateRequiredClientBufferSize @ 0x1402EE5C0 (PiUEventEstimateRequiredClientBufferSize.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PiUEventNotifyClientPendingEvent(__int64 a1)

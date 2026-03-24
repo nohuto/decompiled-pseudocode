@@ -1,17 +1,17 @@
 /*
- * XREFs of KiTpWriteUmMemory @ 0x14057F120
+ * XREFs of KiTpWriteUmMemory @ 0x14051D564
  * Callers:
- *     KiTpWriteMemory @ 0x14057EFFC (KiTpWriteMemory.c)
+ *     KiTpWriteMemory @ 0x14051D43C (KiTpWriteMemory.c)
  * Callees:
- *     MmCopyVirtualMemory @ 0x1406F7980 (MmCopyVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1406F9820 (MmProtectVirtualMemory.c)
+ *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
  */
 
-__int64 __fastcall KiTpWriteUmMemory(int a1, __int64 a2, int a3, unsigned int a4)
+__int64 __fastcall KiTpWriteUmMemory(int a1, __int64 a2, int a3, size_t Size)
 {
   int v4; // esi
   int v5; // r14d
-  __int64 v7; // r15
+  size_t v7; // r15
   int v9; // ebx
   __int64 v11; // [rsp+40h] [rbp-10h] BYREF
   __int64 v12; // [rsp+90h] [rbp+40h] BYREF
@@ -22,9 +22,9 @@ __int64 __fastcall KiTpWriteUmMemory(int a1, __int64 a2, int a3, unsigned int a4
   v11 = 0LL;
   v5 = a2;
   v14 = 0;
-  v7 = a4;
+  v7 = (unsigned int)Size;
   v13 = a2;
-  v12 = a4;
+  v12 = (unsigned int)Size;
   v9 = MmProtectVirtualMemory(
          (_DWORD)PsInitialSystemProcess,
          a1,

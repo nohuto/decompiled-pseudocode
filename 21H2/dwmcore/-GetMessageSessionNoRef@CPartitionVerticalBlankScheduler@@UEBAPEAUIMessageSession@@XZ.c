@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMessageSessionNoRef@CPartitionVerticalBlankScheduler@@UEBAPEAUIMessageSession@@XZ @ 0x1800FA640
+ * XREFs of ?GetMessageSessionNoRef@CPartitionVerticalBlankScheduler@@UEBAPEAUIMessageSession@@XZ @ 0x1800E1C60
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 struct IMessageSession *__fastcall CPartitionVerticalBlankScheduler::GetMessageSessionNoRef(
         CPartitionVerticalBlankScheduler *this)
 {
-  return (struct IMessageSession *)*((_QWORD *)this + 16);
+  return (struct IMessageSession *)*((_QWORD *)this + 17);
 }

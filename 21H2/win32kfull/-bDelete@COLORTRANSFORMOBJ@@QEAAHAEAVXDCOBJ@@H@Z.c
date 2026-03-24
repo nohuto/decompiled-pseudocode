@@ -1,16 +1,16 @@
 /*
- * XREFs of ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C02918A8
+ * XREFs of ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0293E94
  * Callers:
- *     XDCOBJ_vCleanupColorTransformWrap @ 0x1C00E8460 (XDCOBJ_vCleanupColorTransformWrap.c)
- *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C0291ACC (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
- *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02B4748 (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
+ *     XDCOBJ_vCleanupColorTransformWrap @ 0x1C00FE920 (XDCOBJ_vCleanupColorTransformWrap.c)
+ *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02940B8 (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02B64EC (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0291A6C (-bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0294058 (-bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z.c)
  */
 
 __int64 __fastcall COLORTRANSFORMOBJ::bDelete(COLORTRANSFORMOBJ *this, struct XDCOBJ *a2, int a3)
@@ -67,10 +67,10 @@ __int64 __fastcall COLORTRANSFORMOBJ::bDelete(COLORTRANSFORMOBJ *this, struct XD
               GreAcquireSemaphore(v16);
               EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v16, 11LL);
             }
-            v13 = *(unsigned int (__fastcall **)(_QWORD, __int64))(v11 + 3184);
+            v13 = *(unsigned int (__fastcall **)(_QWORD, __int64))(v11 + 3208);
             if ( v13 )
             {
-              if ( v13(*(_QWORD *)(v11 + 1768), v10) || (*(_DWORD *)(v11 + 40) & 0x8000) != 0 )
+              if ( v13(*(_QWORD *)(v11 + 1800), v10) || (*(_DWORD *)(v11 + 40) & 0x8000) != 0 )
                 *(_QWORD *)(*((_QWORD *)this + 4) + 24LL) = 0LL;
             }
             else

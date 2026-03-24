@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalProcessorHalt @ 0x140372E40
+ * XREFs of xHalProcessorHalt @ 0x140365510
  * Callers:
  *     <none>
  * Callees:

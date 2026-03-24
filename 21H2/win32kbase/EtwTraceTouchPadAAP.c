@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchPadAAP @ 0x1C014E860
+ * XREFs of EtwTraceTouchPadAAP @ 0x1C0123C20
  * Callers:
- *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DEAD0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A67E0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
  * Callees:
- *     McTemplateK0qqqtq_EtwWriteTransfer @ 0x1C015112C (McTemplateK0qqqtq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqtq_EtwWriteTransfer @ 0x1C0126B24 (McTemplateK0qqqtq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchPadAAP(int a1, int a2, int a3, char a4, char a5)

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C029F2B0
+ * XREFs of ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C00A0F24
  * Callers:
- *     bDeleteFlEntry @ 0x1C029F7D0 (bDeleteFlEntry.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     bDeleteFlEntry @ 0x1C0298040 (bDeleteFlEntry.c)
  * Callees:
- *     ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C029F3F4 (-ParseFontScaleFactor@@YA_NPEBGPEAJ@Z.c)
+ *     ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C00A2FEC (-ParseFontScaleFactor@@YA_NPEBGPEAJ@Z.c)
  */
 
-bool __fastcall ParseFontLinkEntry(unsigned __int16 *a1, struct FontLinkData *a2)
+char __fastcall ParseFontLinkEntry(unsigned __int16 *a1, struct FontLinkData *a2)
 {
   unsigned __int16 *v3; // rbx
   wchar_t *v4; // rbx
   wchar_t *v5; // rbx
-  wchar_t *v6; // rsi
   wchar_t *v7; // rsi
-  bool result; // al
+  wchar_t *v8; // rsi
 
   *((_QWORD *)a2 + 1) = 0LL;
   *((_QWORD *)a2 + 2) = 0LL;
@@ -27,18 +27,18 @@ bool __fastcall ParseFontLinkEntry(unsigned __int16 *a1, struct FontLinkData *a2
   {
     *((_QWORD *)a2 + 1) = v4;
     v5 = &v4[wcscspn(v4, L",")];
-    if ( *v5 )
-    {
-      *v5 = 0;
-      v4 = &v5[wcsspn(v5 + 1, L" ") + 1];
-      goto LABEL_5;
-    }
-    return 1;
+    if ( !*v5 )
+      return 1;
+    *v5 = 0;
+    v4 = &v5[wcsspn(v5 + 1, L" ") + 1];
   }
-LABEL_5:
-  v6 = &v4[wcscspn(v4, L",")];
-  result = *v6
-        && (*v6 = 0, v7 = &v6[wcsspn(v6 + 1, L" ") + 1], ParseFontScaleFactor(v4, (int *)a2 + 4))
-        && ParseFontScaleFactor(v7, (int *)a2 + 5);
-  return result;
+  v7 = &v4[wcscspn(v4, L",")];
+  if ( *v7 )
+  {
+    *v7 = 0;
+    v8 = &v7[wcsspn(v7 + 1, L" ") + 1];
+    if ( ParseFontScaleFactor(v4, (int *)a2 + 4) && ParseFontScaleFactor(v8, (int *)a2 + 5) )
+      return 1;
+  }
+  return 0;
 }

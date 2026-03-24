@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlGetMultiTimePrecise @ 0x1402622C0
+ * XREFs of RtlGetMultiTimePrecise @ 0x1402ECFA0
  * Callers:
- *     RtlConvertHostPerfCounterToPerfCounter @ 0x1405E3EC0 (RtlConvertHostPerfCounterToPerfCounter.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x140633018 (EtwpGetTimeStampAndQpcDelta.c)
- *     EtwpInitializeTimeStamp @ 0x1406EFBC8 (EtwpInitializeTimeStamp.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB7A4 (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpInitializeTimeStamp @ 0x1406DDD64 (EtwpInitializeTimeStamp.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     HvlGetSharedPageVa @ 0x140262490 (HvlGetSharedPageVa.c)
- *     RtlBeginReadTickLock @ 0x140292B8C (RtlBeginReadTickLock.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
+ *     HvlGetSharedPageVa @ 0x1402ED170 (HvlGetSharedPageVa.c)
  */
 
 __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
@@ -47,7 +46,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
     SharedPageVa = HvlGetSharedPageVa();
     while ( 1 )
     {
-      TickLock = RtlBeginReadTickLock(0xFFFFF78000000340uLL);
+      TickLock = RtlBeginReadTickLock((__int64 *)0xFFFFF78000000340LL);
       if ( v7 )
       {
         v16 = MEMORY[0xFFFFF78000000348];

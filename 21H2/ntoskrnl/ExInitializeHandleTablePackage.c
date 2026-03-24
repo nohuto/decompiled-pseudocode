@@ -1,19 +1,19 @@
 /*
- * XREFs of ExInitializeHandleTablePackage @ 0x140B31380
+ * XREFs of ExInitializeHandleTablePackage @ 0x140A74084
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14036FA30 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
  */
 
-__int64 ExInitializeHandleTablePackage()
+__int64 __fastcall ExInitializeHandleTablePackage(__int64 a1)
 {
   __int64 result; // rax
 
   HandleTableListLock = 0LL;
-  qword_140D3CEB0 = (__int64)&HandleTableListHead;
+  qword_140D2EB48 = (__int64)&HandleTableListHead;
   HandleTableListHead = (__int64)&HandleTableListHead;
-  result = HalQueryMaximumProcessorCount();
+  result = HalQueryMaximumProcessorCount(a1);
   ExpFreeListCount = result;
   return result;
 }

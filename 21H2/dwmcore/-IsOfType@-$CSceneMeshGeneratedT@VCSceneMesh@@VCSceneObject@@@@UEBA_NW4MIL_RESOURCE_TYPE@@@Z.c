@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CSceneMeshGeneratedT@VCSceneMesh@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023BC70
+ * XREFs of ?IsOfType@?$CSceneMeshGeneratedT@VCSceneMesh@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E8D60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSceneMeshGeneratedT<CSceneMesh,CSceneObject>::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 156 || a2 == 161;
+  return a2 == 157 || a2 == 162;
 }

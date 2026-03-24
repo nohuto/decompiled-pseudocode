@@ -1,7 +1,7 @@
 /*
- * XREFs of UpdatePointerDeviceCount @ 0x1C01E9288
+ * XREFs of UpdatePointerDeviceCount @ 0x1C01EEDC8
  * Callers:
- *     Win32kRIMDevChangeCallback @ 0x1C01CD100 (Win32kRIMDevChangeCallback.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D670 (Win32kRIMDevChangeCallback.c)
  * Callees:
  *     <none>
  */

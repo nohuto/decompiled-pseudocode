@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFindTriageDriverTargets @ 0x140B981A0
+ * XREFs of ViFindTriageDriverTargets @ 0x140A93A6C
  * Callers:
- *     VfTriageSystem @ 0x140B6AC28 (VfTriageSystem.c)
+ *     VfTriageSystem @ 0x140A6FCE4 (VfTriageSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
  */
 
 _DWORD *__fastcall ViFindTriageDriverTargets(__int64 a1, __int64 a2)

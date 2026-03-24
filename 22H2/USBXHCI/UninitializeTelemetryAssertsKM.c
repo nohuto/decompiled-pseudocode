@@ -1,7 +1,7 @@
 /*
- * XREFs of UninitializeTelemetryAssertsKM @ 0x1C0053A08
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C0050B14
  * Callers:
- *     DriverCleanup @ 0x1C00798D0 (DriverCleanup.c)
+ *     DriverCleanup @ 0x1C0076110 (DriverCleanup.c)
  * Callees:
  *     <none>
  */
@@ -44,15 +44,15 @@ NTSTATUS UninitializeTelemetryAssertsKM()
     }
     v4 = RegHandle;
     RegHandle = 0LL;
-    dword_1C006C078 = 0;
+    dword_1C0069078 = 0;
     EtwUnregister(v4);
-    v5 = qword_1C006C028;
-    qword_1C006C028 = 0LL;
-    dword_1C006C008 = 0;
+    v5 = qword_1C0069028;
+    qword_1C0069028 = 0LL;
+    dword_1C0069008 = 0;
     EtwUnregister(v5);
-    v6 = qword_1C006C060;
-    qword_1C006C060 = 0LL;
-    dword_1C006C040 = 0;
+    v6 = qword_1C0069060;
+    qword_1C0069060 = 0LL;
+    dword_1C0069040 = 0;
     return EtwUnregister(v6);
   }
   return result;

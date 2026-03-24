@@ -1,25 +1,25 @@
 /*
- * XREFs of KeQueryKvaShadowInformation @ 0x140975538
+ * XREFs of KeQueryKvaShadowInformation @ 0x1408BCCD8
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     VslpIumPhase0Initialize @ 0x140B945CC (VslpIumPhase0Initialize.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     VslpIumPhase0Initialize @ 0x140A8F5C8 (VslpIumPhase0Initialize.c)
  * Callees:
- *     KeKvaShadowingActive @ 0x140369AB8 (KeKvaShadowingActive.c)
- *     KeQueryImplementedPhysicalBits @ 0x140579270 (KeQueryImplementedPhysicalBits.c)
+ *     KeKvaShadowingActive @ 0x1403289B8 (KeKvaShadowingActive.c)
+ *     KeQueryImplementedPhysicalBits @ 0x140522144 (KeQueryImplementedPhysicalBits.c)
  */
 
-__int64 __fastcall KeQueryKvaShadowInformation(BOOL *a1, unsigned int a2, _DWORD *a3)
+__int64 __fastcall KeQueryKvaShadowInformation(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
   int ImplementedPhysicalBits; // eax
-  int v6; // edi
-  char v7; // si
-  BOOL v8; // ebx
-  int v9; // edi
+  int v6; // esi
+  __int16 v7; // di
+  unsigned int v8; // ebx
+  unsigned int v9; // esi
   char v10; // al
-  int v11; // ecx
-  int v12; // edx
-  int v13; // edx
-  int v14; // esi
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  int v13; // edi
+  int v14; // eax
 
   *a3 = 4;
   if ( a2 < 4 )
@@ -29,26 +29,26 @@ __int64 __fastcall KeQueryKvaShadowInformation(BOOL *a1, unsigned int a2, _DWORD
   v7 = 0;
   if ( ImplementedPhysicalBits > 0 )
     v7 = ImplementedPhysicalBits - 1;
-  *a1 = 0;
-  v8 = KiKvaShadow != 0;
+  v8 = (KiKvaShadow != 0) | *a1 & 0xFFFFFFFE;
   *a1 = v8;
   if ( (unsigned int)KeKvaShadowingActive() == 2 )
     v6 = 2;
-  v9 = v8 | v6;
+  v9 = v8 & 0xFFFFFFFD | v6;
   *a1 = v9;
   v10 = KiFlushPcid;
-  v11 = v9 | (4 * (KiFlushPcid & 1));
+  v11 = v9 & 0xFFFFFFFB | (4 * (KiFlushPcid & 1));
   *a1 = v11;
-  v12 = v11 | (4 * (v10 & 2));
+  *a1 = v11 & 0xFFFFFFF7 | (4 * (v10 & 2));
+  v12 = (KiKvaLeakage != 0 ? 0x10 : 0) | v11 & 0xFFFFFFE7 | (4 * (v10 & 2)) & 0xEF;
   *a1 = v12;
-  v13 = (KiKvaLeakage != 0 ? 0x10 : 0) | v12;
+  v12 |= 0x20u;
+  *a1 = v12;
+  v12 |= 0x2000u;
+  *a1 = v12;
+  v13 = v12 ^ ((unsigned __int16)v12 ^ (unsigned __int16)(v7 << 6)) & 0xFC0;
   *a1 = v13;
-  v13 |= 0x20u;
-  *a1 = v13;
-  v13 |= 0x2000u;
-  *a1 = v13;
-  v14 = v13 | ((v7 & 0x3F) << 6);
+  v14 = v13 ^ ((unsigned __int16)v13 ^ (unsigned __int16)((_WORD)KeFeatureBits2 << 12)) & 0x1000;
   *a1 = v14;
-  *a1 = v14 | ((KeFeatureBits2 & 1) << 12);
+  *a1 = v14 & 0x3FFF;
   return 0LL;
 }

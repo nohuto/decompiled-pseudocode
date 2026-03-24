@@ -1,19 +1,19 @@
 /*
  * XREFs of MmUnsecureVirtualMemory @ 0x1405F3430
  * Callers:
- *     RtlFileMapFree @ 0x1400F5124 (RtlFileMapFree.c)
+ *     RtlFileMapFree @ 0x1400F5144 (RtlFileMapFree.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  *     AlpcViewDestroyProcedure @ 0x140616E90 (AlpcViewDestroyProcedure.c)
  *     AlpcpPrepareViewForDelivery @ 0x140617954 (AlpcpPrepareViewForDelivery.c)
  *     AlpcpExposeViewAttributeInSenderContext @ 0x140617B88 (AlpcpExposeViewAttributeInSenderContext.c)
  *     AlpcpRestoreWriteAccess @ 0x140618FC0 (AlpcpRestoreWriteAccess.c)
- *     WbFreeMemoryBlock @ 0x140691044 (WbFreeMemoryBlock.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0BB0 (MmStoreAllocateVirtualMemory.c)
- *     AlpcpForceUnlinkSecureView @ 0x14084B1A8 (AlpcpForceUnlinkSecureView.c)
- *     MiDeleteHotPatchEntry @ 0x140854B58 (MiDeleteHotPatchEntry.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
- *     VmUnsecureBackingMemory @ 0x1408B05E0 (VmUnsecureBackingMemory.c)
- *     AslpFilePartialViewFree @ 0x1408EE338 (AslpFilePartialViewFree.c)
+ *     WbFreeMemoryBlock @ 0x140691024 (WbFreeMemoryBlock.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
+ *     AlpcpForceUnlinkSecureView @ 0x14084B188 (AlpcpForceUnlinkSecureView.c)
+ *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     VmUnsecureBackingMemory @ 0x1408B05C0 (VmUnsecureBackingMemory.c)
+ *     AslpFilePartialViewFree @ 0x1408EE318 (AslpFilePartialViewFree.c)
  * Callees:
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiRemoveSecureEntry @ 0x1400860C0 (MiRemoveSecureEntry.c)

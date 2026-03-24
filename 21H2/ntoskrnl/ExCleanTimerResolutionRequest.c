@@ -1,15 +1,15 @@
 /*
- * XREFs of ExCleanTimerResolutionRequest @ 0x14025D2C4
+ * XREFs of ExCleanTimerResolutionRequest @ 0x14036CDE4
  * Callers:
- *     PspExitProcess @ 0x1407DB734 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwSetTimerResolution @ 0x14041EEC0 (ZwSetTimerResolution.c)
- *     PoDiagFreeUsermodeStack @ 0x1406EA338 (PoDiagFreeUsermodeStack.c)
- *     ExReleaseTimeRefreshLock @ 0x1407D6CBC (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetTimerResolution @ 0x1403FD9E0 (ZwSetTimerResolution.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     PoDiagFreeUsermodeStack @ 0x140733434 (PoDiagFreeUsermodeStack.c)
  */
 
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   unsigned __int64 v2; // rdi
   unsigned __int64 KernelWaitTime; // rax
   _KPROCESS **UserWaitTime; // r8
-  unsigned __int64 LastRebalanceQpc; // rdi
+  unsigned __int64 v5; // rdi
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -62,10 +62,10 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
     }
   }
   __writecr8(v2);
-  LastRebalanceQpc = Process[1].LastRebalanceQpc;
-  Process[1].LastRebalanceQpc = 0LL;
+  v5 = Process[1].EndPadding[0];
+  Process[1].EndPadding[0] = 0LL;
   result = ExReleaseTimeRefreshLock();
-  if ( LastRebalanceQpc )
-    return PoDiagFreeUsermodeStack(LastRebalanceQpc);
+  if ( v5 )
+    return PoDiagFreeUsermodeStack(v5);
   return result;
 }

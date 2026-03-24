@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemFreePool @ 0x1408B1294
+ * XREFs of WdipSemFreePool @ 0x1408B1274
  * Callers:
- *     WdipSemShutdown @ 0x1408B0E90 (WdipSemShutdown.c)
+ *     WdipSemShutdown @ 0x1408B0E70 (WdipSemShutdown.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

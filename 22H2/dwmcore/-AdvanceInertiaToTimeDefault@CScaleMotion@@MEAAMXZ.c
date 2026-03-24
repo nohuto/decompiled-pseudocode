@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18026FB30
+ * XREFs of ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18020F400
  * Callers:
  *     <none>
  * Callees:
- *     ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18026FD70 (-UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z.c)
+ *     ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18020F5B0 (-UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z.c)
  */
 
 float __fastcall CScaleMotion::AdvanceInertiaToTimeDefault(CScaleMotion *this)

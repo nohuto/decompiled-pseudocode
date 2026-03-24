@@ -1,5 +1,5 @@
 /*
- * XREFs of ?LinkTrainingTimeoutDpc@DMMVIDEOPRESENTTARGET@@SAXPEAU_KDPC@@PEAX11@Z @ 0x1C006A160
+ * XREFs of ?LinkTrainingTimeoutDpc@DMMVIDEOPRESENTTARGET@@SAXPEAU_KDPC@@PEAX11@Z @ 0x1C005D040
  * Callers:
  *     <none>
  * Callees:

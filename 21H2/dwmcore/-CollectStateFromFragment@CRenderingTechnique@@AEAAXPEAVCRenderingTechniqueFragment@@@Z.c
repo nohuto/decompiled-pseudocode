@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CollectStateFromFragment@CRenderingTechnique@@AEAAXPEAVCRenderingTechniqueFragment@@@Z @ 0x180037F0C
+ * XREFs of ?CollectStateFromFragment@CRenderingTechnique@@AEAAXPEAVCRenderingTechniqueFragment@@@Z @ 0x18004D3AC
  * Callers:
- *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x180037844 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
+ *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18004DB0C (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
  * Callees:
- *     ??8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z @ 0x180037CC0 (--8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z.c)
- *     ?GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceDescription@1@@Z @ 0x18003805C (-GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceD.c)
+ *     ??8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z @ 0x18004A68C (--8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z.c)
+ *     ?GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceDescription@1@@Z @ 0x18004B0C0 (-GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceD.c)
  */
 
 void __fastcall CRenderingTechnique::CollectStateFromFragment(
@@ -17,19 +17,19 @@ void __fastcall CRenderingTechnique::CollectStateFromFragment(
   _QWORD *v7; // rcx
   __int64 v8; // rdx
   bool v9; // zf
+  unsigned int v10; // eax
   unsigned int i; // ebp
-  __int64 v11; // r9
-  unsigned int v12; // r8d
-  const struct CBrushRenderingGraph *v13; // rdx
-  __int64 v14; // rcx
-  int v15; // eax
-  unsigned int v16; // r8d
-  unsigned int v17; // eax
-  __int64 v18; // xmm0_8
-  __int64 v19; // rcx
-  int v20; // eax
-  int v21; // eax
-  unsigned int v22; // r9d
+  int v12; // eax
+  __int64 v13; // r9
+  unsigned int v14; // r8d
+  const struct CBrushRenderingGraph *v15; // rdx
+  __int64 v16; // rcx
+  int v17; // eax
+  unsigned int v18; // r9d
+  unsigned int j; // r8d
+  __int64 v20; // xmm0_8
+  __int64 v21; // rcx
+  int v22; // eax
   __int64 v23; // [rsp+20h] [rbp-18h] BYREF
   int v24; // [rsp+28h] [rbp-10h]
 
@@ -43,72 +43,67 @@ void __fastcall CRenderingTechnique::CollectStateFromFragment(
     do
     {
       v9 = *v7 == 0LL;
+      v10 = v4 + 1;
       v7 += 2;
-      if ( v9 )
-        ++v4;
+      if ( !v9 )
+        v10 = v4;
+      v4 = v10;
       --v8;
     }
     while ( v8 );
   }
   for ( i = 0; i < v4; ++i )
   {
-    v11 = *((_QWORD *)a2 + 4);
-    v12 = 0;
-    LODWORD(v13) = i;
-    v14 = (*((_QWORD *)a2 + 5) - v11) >> 4;
-    if ( (_DWORD)v14 )
+    v13 = *((_QWORD *)a2 + 4);
+    v14 = 0;
+    LODWORD(v15) = i;
+    v16 = (*((_QWORD *)a2 + 5) - v13) >> 4;
+    if ( (_DWORD)v16 )
     {
       while ( 1 )
       {
-        if ( !*(_QWORD *)(v11 + 16LL * v12 + 8) )
+        if ( !*(_QWORD *)(v13 + 16LL * v14 + 8) )
         {
-          v15 = (int)v13;
-          v13 = (const struct CBrushRenderingGraph *)(unsigned int)((_DWORD)v13 - 1);
-          if ( !v15 )
+          v17 = (int)v15;
+          v15 = (const struct CBrushRenderingGraph *)(unsigned int)((_DWORD)v15 - 1);
+          if ( !v17 )
             break;
         }
-        if ( ++v12 >= (unsigned int)v14 )
-          goto LABEL_11;
+        if ( ++v14 >= (unsigned int)v16 )
+          goto LABEL_14;
       }
       CRenderingTechniqueFragment::GetSurfaceDescription(
         a2,
-        v13,
-        v12,
+        v15,
+        v14,
         (struct CRenderingTechniqueFragment::SurfaceDescription *)&v23);
     }
-LABEL_11:
-    if ( !BYTE4(v23) )
+LABEL_14:
+    if ( BYTE4(v23) )
+      goto LABEL_17;
+    v18 = *((_DWORD *)this + 15);
+    for ( j = 0; j < v18; ++j )
     {
-      v16 = 0;
-      v17 = *((_DWORD *)this + 15);
-      if ( v17 )
-      {
-        while ( !CRenderingTechniqueFragment::SurfaceDescription::operator==(
-                   (__int64)&v23,
-                   (__int64)this + 44 * v16 + 68) )
-        {
-          ++v16;
-          v17 = v22;
-          if ( v16 >= v22 )
-            goto LABEL_13;
-        }
-LABEL_24:
-        *((_WORD *)this + 22 * v16 + 39) |= HIWORD(v24);
-        continue;
-      }
-LABEL_13:
-      if ( v16 < v17 )
-        goto LABEL_24;
+      if ( CRenderingTechniqueFragment::SurfaceDescription::operator==((__int64)&v23, (__int64)this + 44 * j + 68) )
+        break;
     }
-    v18 = v23;
-    v19 = 44LL * (unsigned int)(*((_DWORD *)this + 15))++;
-    v20 = v24;
-    *(_QWORD *)((char *)this + v19 + 68) = v18;
-    *(_DWORD *)((char *)this + v19 + 76) = v20;
+    if ( j >= v18 )
+    {
+LABEL_17:
+      v20 = v23;
+      v21 = 44LL * (unsigned int)(*((_DWORD *)this + 15))++;
+      v22 = v24;
+      *(_QWORD *)((char *)this + v21 + 68) = v20;
+      *(_DWORD *)((char *)this + v21 + 76) = v22;
+    }
+    else
+    {
+      *((_WORD *)this + 22 * j + 39) |= HIWORD(v24);
+    }
   }
   *((_DWORD *)this + 16) |= *((_DWORD *)a2 + 7);
-  v21 = *((_DWORD *)a2 + 5);
-  if ( (v21 & 0xF) != 0 )
-    v21 = v21 - (*((_DWORD *)a2 + 5) & 0xF) + 16;
-  *((_DWORD *)this + 14) += v21;
+  v12 = *((_DWORD *)a2 + 5);
+  if ( (v12 & 0xF) != 0 )
+    v12 = v12 - (*((_DWORD *)a2 + 5) & 0xF) + 16;
+  *((_DWORD *)this + 14) += v12;
 }

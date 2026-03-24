@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLock @ 0x140421380
+ * XREFs of KiInterruptSubDispatchNoLock @ 0x1403FFCE0
  * Callers:
- *     KiInterruptDispatchNoLock @ 0x140421A20 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoEOI @ 0x1404222A0 (KiInterruptDispatchNoEOI.c)
+ *     KiInterruptDispatchNoLock @ 0x140400330 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoEOI @ 0x140400B10 (KiInterruptDispatchNoEOI.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     PerfInfoLogInterrupt @ 0x140223B10 (PerfInfoLogInterrupt.c)
- *     KiEntropyQueueDpc @ 0x14024B080 (KiEntropyQueueDpc.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KiEndThreadAccountingPeriod @ 0x1402B9660 (KiEndThreadAccountingPeriod.c)
- *     KzSetIrqlUnsafe @ 0x140569E70 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterrupt @ 0x14029BD60 (PerfInfoLogInterrupt.c)
+ *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
+ *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
  */
 
 unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()
@@ -23,14 +23,14 @@ unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()
   unsigned int EntropyCount; // r11d
   unsigned int *v7; // r10
   __int64 CurrentThread; // r8
-  __int64 v9; // rax
+  unsigned __int64 v9; // rax
   __int64 v10; // rdx
   unsigned __int64 v11; // rdx
   int v12; // ecx
   bool v13; // zf
   unsigned __int8 result; // al
   int v15; // edx
-  _BYTE v16[40]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v16[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = *(unsigned __int8 *)(v1 + 93);
   if ( KiIrqlFlags )
@@ -64,7 +64,7 @@ unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()
     if ( HIDWORD(v11) )
       v12 = -1;
     *(_DWORD *)(CurrentThread + 80) = v12;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
       KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v9);
   }
   _enable();
@@ -74,7 +74,7 @@ unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()
   v13 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v13 )
-    EtwGetKernelTraceTimestamp((unsigned __int64)v16, 0x20004000uLL);
+    EtwGetKernelTraceTimestamp(v16, 0x20004000u);
   result = KiCallInterruptServiceRoutine(v1, 0);
   if ( *(_BYTE *)(v0 + 243) )
   {

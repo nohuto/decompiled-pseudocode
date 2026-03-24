@@ -1,16 +1,16 @@
 /*
- * XREFs of MmLogSystemShareablePfnInfo @ 0x140978990
+ * XREFs of MmLogSystemShareablePfnInfo @ 0x1408D17F0
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiGetWorkingSetInfoEx @ 0x1405A6204 (MiGetWorkingSetInfoEx.c)
- *     MiGetAggregateWorkingSetSize @ 0x1405B2D58 (MiGetAggregateWorkingSetSize.c)
- *     EtwLogPfnInfoRundown @ 0x1409E9D54 (EtwLogPfnInfoRundown.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiGetWorkingSetInfoEx @ 0x140546DE0 (MiGetWorkingSetInfoEx.c)
+ *     MiGetAggregateWorkingSetSize @ 0x1405501E8 (MiGetAggregateWorkingSetSize.c)
+ *     EtwLogPfnInfoRundown @ 0x14093D658 (EtwLogPfnInfoRundown.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmLogSystemShareablePfnInfo(__int64 a1, unsigned int a2)

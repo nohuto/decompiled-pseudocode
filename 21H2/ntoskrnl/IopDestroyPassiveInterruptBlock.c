@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDestroyPassiveInterruptBlock @ 0x1409467F8
+ * XREFs of IopDestroyPassiveInterruptBlock @ 0x1408A16A0
  * Callers:
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
  * Callees:
- *     IopDereferencePassiveInterruptBlock @ 0x140560880 (IopDereferencePassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x1405609F8 (IopFindPassiveInterruptBlock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x14050D230 (IopDereferencePassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x14050D3A8 (IopFindPassiveInterruptBlock.c)
  */
 
-void __fastcall IopDestroyPassiveInterruptBlock(int a1)
+void __fastcall IopDestroyPassiveInterruptBlock(unsigned int a1)
 {
   volatile signed __int32 *PassiveInterruptBlock; // rax
 

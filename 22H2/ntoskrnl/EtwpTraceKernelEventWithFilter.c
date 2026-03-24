@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceKernelEventWithFilter @ 0x1405FE598
+ * XREFs of EtwpTraceKernelEventWithFilter @ 0x1405A9A4C
  * Callers:
- *     EtwTraceObjectOperation @ 0x1405FD0A4 (EtwTraceObjectOperation.c)
- *     EtwTraceDuplicateHandle @ 0x1409E516C (EtwTraceDuplicateHandle.c)
- *     EtwTraceObject @ 0x1409E5C88 (EtwTraceObject.c)
- *     EtwpTraceHandle @ 0x1409E6C3C (EtwpTraceHandle.c)
+ *     EtwTraceObjectOperation @ 0x1405A78F0 (EtwTraceObjectOperation.c)
+ *     EtwTraceDuplicateHandle @ 0x140935B4C (EtwTraceDuplicateHandle.c)
+ *     EtwTraceObject @ 0x140936674 (EtwTraceObject.c)
+ *     EtwpTraceHandle @ 0x1409376CC (EtwpTraceHandle.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
  */
 
 void __fastcall EtwpTraceKernelEventWithFilter(
@@ -19,10 +19,10 @@ void __fastcall EtwpTraceKernelEventWithFilter(
   unsigned int v8; // ebx
   bool i; // zf
 
-  v8 = a3 & *(_DWORD *)(EtwpHostSiloState + 4248);
+  v8 = a3 & *(_DWORD *)(EtwpHostSiloState + 4224);
   for ( i = !_BitScanForward((unsigned int *)&a3, v8); !i; i = !_BitScanForward((unsigned int *)&a3, v8) )
   {
     v8 &= v8 - 1;
-    EtwpLogKernelEvent(a1, EtwpHostSiloState, *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4232), a2, a4, a5);
+    EtwpLogKernelEvent(a1, EtwpHostSiloState, *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4208), a2, a4, a5);
   }
 }

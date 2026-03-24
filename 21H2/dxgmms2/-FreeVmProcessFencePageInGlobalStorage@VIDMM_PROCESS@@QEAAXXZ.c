@@ -1,25 +1,25 @@
 /*
- * XREFs of ?FreeVmProcessFencePageInGlobalStorage@VIDMM_PROCESS@@QEAAXXZ @ 0x1C00E14B0
+ * XREFs of ?FreeVmProcessFencePageInGlobalStorage@VIDMM_PROCESS@@QEAAXXZ @ 0x1C00BBA64
  * Callers:
- *     ??1VIDMM_PROCESS@@QEAA@XZ @ 0x1C008245C (--1VIDMM_PROCESS@@QEAA@XZ.c)
+ *     ??1VIDMM_PROCESS@@QEAA@XZ @ 0x1C007A500 (--1VIDMM_PROCESS@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ @ 0x1C00A7084 (-FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ.c)
+ *     ?FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ @ 0x1C008B194 (-FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ.c)
  */
 
-void __fastcall VIDMM_PROCESS::FreeVmProcessFencePageInGlobalStorage(VIDMM_PROCESS *this)
+void __fastcall VIDMM_PROCESS::FreeVmProcessFencePageInGlobalStorage(VIDMM_PROCESS *this, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rcx
+  __int64 v4; // rax
   _QWORD *i; // rbx
 
-  if ( (*(_DWORD *)(*((_QWORD *)this + 4) + 424LL) & 0x100) == 0 )
+  if ( (*(_BYTE *)(*((_QWORD *)this + 4) + 347LL) & 0x20) == 0 )
   {
-    WdLogSingleEntry1(1LL, 1417LL);
-    DxgkLogInternalTriageEvent(v2, 262146LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v4 + 24) = 1390LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   for ( i = (_QWORD *)((char *)this + 48);
         (_QWORD *)*i != i;
-        VIDMM_FENCE_STORAGE_PAGE::FreeVmMapping((VIDMM_FENCE_STORAGE_PAGE *)(*i - 16LL)) )
+        VIDMM_FENCE_STORAGE_PAGE::FreeVmMapping((VIDMM_FENCE_STORAGE_PAGE *)(*i - 16LL), a2, a3) )
   {
     ;
   }

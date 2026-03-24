@@ -1,20 +1,20 @@
 /*
- * XREFs of PspCreatePicoThread @ 0x1409B5840
+ * XREFs of PspCreatePicoThread @ 0x14090BFA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
- *     PspCreateUserContext @ 0x14077124C (PspCreateUserContext.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspCreateUserContext @ 0x1406C1520 (PspCreateUserContext.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
  */
 
 __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
@@ -26,21 +26,21 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
   __int64 v10; // rcx
   _QWORD *v11; // rdx
   __int64 v13; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v14; // [rsp+68h] [rbp-98h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-98h] BYREF
   PVOID Object; // [rsp+70h] [rbp-90h] BYREF
   __int64 v16; // [rsp+78h] [rbp-88h] BYREF
   __int64 v17[2]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v18; // [rsp+90h] [rbp-70h]
-  _QWORD v19[64]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v20[154]; // [rsp+2A0h] [rbp+1A0h] BYREF
-  _BYTE AccessState[400]; // [rsp+770h] [rbp+670h] BYREF
+  _QWORD v19[66]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v20[154]; // [rsp+2B0h] [rbp+1B0h] BYREF
+  __int64 v21[50]; // [rsp+780h] [rbp+680h] BYREF
 
-  memset(v19, 0, 0x1F5uLL);
+  memset(v19, 0, 0x208uLL);
   v6 = 0LL;
   LODWORD(v13) = 0;
   v16 = 0LL;
-  memset(AccessState, 0, sizeof(AccessState));
-  v14 = 0LL;
+  memset(v21, 0, sizeof(v21));
+  DmaAdapter = 0LL;
   v18 = 0LL;
   *(_OWORD *)v17 = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -50,115 +50,114 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
   {
     v6 = (struct _EX_RUNDOWN_REF *)Object;
     inserted = -1073741811;
-    goto LABEL_20;
+    goto LABEL_18;
   }
-  inserted = ObpReferenceObjectByHandleWithTag(
-               *(_QWORD *)a1,
-               2,
-               (__int64)PsProcessType,
+  inserted = ObReferenceObjectByHandleWithTag(
+               *(HANDLE *)a1,
+               2u,
+               (POBJECT_TYPE)PsProcessType,
                0,
                0x72437350u,
                &Object,
-               0LL,
                0LL);
-  if ( inserted < 0 )
-  {
-LABEL_14:
-    if ( v14 )
-      ObfDereferenceObject(v14);
-    if ( v8 < 2 )
-      goto LABEL_18;
-    goto LABEL_17;
-  }
-  v6 = (struct _EX_RUNDOWN_REF *)Object;
-  if ( !*((_QWORD *)Object + 280) )
-  {
-    inserted = -1073741816;
-    goto LABEL_14;
-  }
-  --CurrentThread->KernelApcDisable;
-  v8 = 1;
-  if ( !ExAcquireRundownProtection_0(v6 + 139) )
-  {
-    inserted = -1073741558;
-    goto LABEL_14;
-  }
-  v8 = 3;
-  ObfReferenceObjectWithTag(v6, 0x72437350u);
-  memset(v20, 0, sizeof(v20));
-  PspCreateUserContext((__int64)v20, 0, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 32));
-  v10 = *(_QWORD *)(a1 + 8);
-  HIWORD(v20[7]) = *(_WORD *)(a1 + 56);
-  LOWORD(v20[8]) = *(_WORD *)(a1 + 58);
-  v17[1] = *(_QWORD *)(a1 + 40);
-  v18 = *(_QWORD *)(a1 + 48);
-  v20[15] = *(_QWORD *)(a1 + 64);
-  v20[18] = *(_QWORD *)(a1 + 72);
-  v20[22] = *(_QWORD *)(a1 + 96);
-  v20[21] = *(_QWORD *)(a1 + 104);
-  v20[20] = *(_QWORD *)(a1 + 112);
-  v20[23] = *(_QWORD *)(a1 + 120);
-  v20[24] = *(_QWORD *)(a1 + 128);
-  v20[25] = *(_QWORD *)(a1 + 136);
-  v20[26] = *(_QWORD *)(a1 + 144);
-  v20[27] = *(_QWORD *)(a1 + 152);
-  v20[28] = *(_QWORD *)(a1 + 160);
-  v20[29] = *(_QWORD *)(a1 + 168);
-  v20[30] = *(_QWORD *)(a1 + 176);
-  v20[19] = v10;
-  LODWORD(v13) = 1;
-  v17[0] = 0LL;
-  inserted = PspAllocateThread(
-               (ULONG_PTR)v6,
-               0LL,
-               0,
-               0LL,
-               (__int64)v20,
-               v17,
-               0LL,
-               0LL,
-               (int *)&v13,
-               &v14,
-               0LL,
-               (size_t)AccessState);
   if ( inserted >= 0 )
   {
-    v11 = 0LL;
-    if ( a2 )
+    v6 = (struct _EX_RUNDOWN_REF *)Object;
+    if ( *((_QWORD *)Object + 280) )
     {
-      memset(v19, 0, 0x1F8uLL);
-      v11 = v19;
-      v19[54] = a2;
-    }
-    *((_QWORD *)v14 + 198) = *(_QWORD *)(a1 + 184);
-    inserted = PspInsertThread(
-                 (char *)v14,
-                 (PEPROCESS)v6,
-                 0LL,
-                 &v13,
-                 0x1FFFFF,
-                 0LL,
-                 (__int64)v11,
-                 0LL,
-                 (PACCESS_STATE)AccessState,
-                 (PVOID *)&v16,
-                 0LL);
-    if ( inserted >= 0 )
-    {
-      _interlockedbittestandset((volatile signed __int32 *)v14 + 344, 0x14u);
-      inserted = 0;
-      v6 = (struct _EX_RUNDOWN_REF *)Object;
-      *a3 = v16;
-    }
-    goto LABEL_14;
-  }
-  v14 = 0LL;
+      --CurrentThread->KernelApcDisable;
+      v8 = 1;
+      if ( ExAcquireRundownProtection(v6 + 139) )
+      {
+        v8 = 3;
+        ObfReferenceObjectWithTag(v6, 0x72437350u);
+        memset(v20, 0, sizeof(v20));
+        PspCreateUserContext((__int64)v20, 0, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 32));
+        v10 = *(_QWORD *)(a1 + 8);
+        HIWORD(v20[7]) = *(_WORD *)(a1 + 56);
+        LOWORD(v20[8]) = *(_WORD *)(a1 + 58);
+        v17[1] = *(_QWORD *)(a1 + 40);
+        v18 = *(_QWORD *)(a1 + 48);
+        v20[15] = *(_QWORD *)(a1 + 64);
+        v20[18] = *(_QWORD *)(a1 + 72);
+        v20[22] = *(_QWORD *)(a1 + 96);
+        v20[21] = *(_QWORD *)(a1 + 104);
+        v20[20] = *(_QWORD *)(a1 + 112);
+        v20[23] = *(_QWORD *)(a1 + 120);
+        v20[24] = *(_QWORD *)(a1 + 128);
+        v20[25] = *(_QWORD *)(a1 + 136);
+        v20[26] = *(_QWORD *)(a1 + 144);
+        v20[27] = *(_QWORD *)(a1 + 152);
+        v20[28] = *(_QWORD *)(a1 + 160);
+        v20[29] = *(_QWORD *)(a1 + 168);
+        v20[30] = *(_QWORD *)(a1 + 176);
+        v20[19] = v10;
+        LODWORD(v13) = 1;
+        v17[0] = 0LL;
+        inserted = PspAllocateThread(
+                     (ULONG_PTR)v6,
+                     0LL,
+                     0,
+                     0LL,
+                     (__int64)v20,
+                     v17,
+                     0LL,
+                     0LL,
+                     (int *)&v13,
+                     &DmaAdapter,
+                     0LL,
+                     (_DMA_OPERATIONS **)v21);
+        if ( inserted < 0 )
+        {
+          DmaAdapter = 0LL;
 LABEL_17:
-  ExReleaseRundownProtection_0(v6 + 139);
+          ExReleaseRundownProtection(v6 + 139);
+          goto LABEL_18;
+        }
+        v11 = 0LL;
+        if ( a2 )
+        {
+          v19[57] = a2;
+          v11 = v19;
+        }
+        *(_QWORD *)&DmaAdapter[94].Version = *(_QWORD *)(a1 + 184);
+        inserted = PspInsertThread(
+                     (char *)DmaAdapter,
+                     (ULONG_PTR)v6,
+                     0LL,
+                     &v13,
+                     0x1FFFFFu,
+                     0LL,
+                     (__int64)v11,
+                     0LL,
+                     (__int64)v21,
+                     &v16,
+                     0LL);
+        if ( inserted >= 0 )
+        {
+          _interlockedbittestandset((volatile signed __int32 *)&DmaAdapter[81], 0x14u);
+          inserted = 0;
+          v6 = (struct _EX_RUNDOWN_REF *)Object;
+          *a3 = v16;
+        }
+      }
+      else
+      {
+        inserted = -1073741558;
+      }
+    }
+    else
+    {
+      inserted = -1073741816;
+    }
+  }
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  if ( v8 >= 2 )
+    goto LABEL_17;
 LABEL_18:
   if ( (v8 & 1) != 0 )
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
-LABEL_20:
   if ( v6 )
     ObfDereferenceObjectWithTag(v6, 0x72437350u);
   return (unsigned int)inserted;

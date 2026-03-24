@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z @ 0x1C006EC9C
+ * XREFs of ??0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z @ 0x1C00B6120
  * Callers:
- *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C006F340 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
- *     RIMDeviceIoControl @ 0x1C0070F20 (RIMDeviceIoControl.c)
+ *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C0049F30 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
+ *     RIMDeviceIoControl @ 0x1C0052E70 (RIMDeviceIoControl.c)
  * Callees:
  *     <none>
  */

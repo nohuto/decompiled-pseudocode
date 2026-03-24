@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetOwningProcessId@CResource@@UEBAKXZ @ 0x180017BB0
+ * XREFs of ?GetOwningProcessId@CResource@@UEBAKXZ @ 0x1801633B0
  * Callers:
- *     ?ProcessInitialize@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_INITIALIZE@@@Z @ 0x1802AC04C (-ProcessInitialize@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_.c)
+ *     ?ProcessInitialize@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_INITIALIZE@@@Z @ 0x18025A25C (-ProcessInitialize@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_.c)
  * Callees:
  *     <none>
  */

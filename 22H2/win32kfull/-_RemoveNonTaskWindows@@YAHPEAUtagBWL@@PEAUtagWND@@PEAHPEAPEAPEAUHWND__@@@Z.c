@@ -1,79 +1,82 @@
 /*
- * XREFs of ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01C94F0
+ * XREFs of ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01F2B28
  * Callers:
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01C9060 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2678 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?_IsTaskWindow@@YAHPEAUtagWND@@0@Z @ 0x1C01C946C (-_IsTaskWindow@@YAHPEAUtagWND@@0@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     ?_IsTaskWindow@@YAHPEAUtagWND@@0@Z @ 0x1C01F2AA4 (-_IsTaskWindow@@YAHPEAUtagWND@@0@Z.c)
  */
 
 __int64 __fastcall _RemoveNonTaskWindows(struct tagBWL *a1, struct tagWND *a2, unsigned int *a3, HWND **a4)
 {
   unsigned int v4; // ebp
-  HWND *v5; // r14
+  unsigned __int64 *v5; // r14
   HWND *v6; // rdi
   struct tagWND *v10; // rax
   struct tagWND *v11; // rsi
-  __int64 v12; // rax
-  struct tagWND *v13; // rdx
-  __int64 v14; // rcx
-  struct tagWND *v15; // r8
-  struct tagWND *v16; // rbx
+  struct tagWND *v12; // rdx
+  __int64 v13; // rax
+  struct tagWND *v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rbx
   __int64 result; // rax
 
   v4 = 0;
-  v5 = (HWND *)((char *)a1 + 32);
+  v5 = (unsigned __int64 *)((char *)a1 + 32);
   *a3 = -1;
   v6 = (HWND *)((char *)a1 + 32);
-  while ( *v5 != (HWND)1 )
+  while ( *v5 != 1 )
   {
-    v10 = (struct tagWND *)HMValidateHandleNoSecure((int)*v5, 1);
+    v10 = (struct tagWND *)HMValidateHandleNoSecure(*v5, 1);
     v11 = v10;
     if ( v10 && (unsigned int)_IsTaskWindow(v10, a2) )
     {
-      v12 = *((_QWORD *)v11 + 5);
-      v13 = v11;
-      while ( (*(_BYTE *)(v12 + 26) & 4) == 0 )
+      v12 = v11;
+      if ( (*(_BYTE *)(*((_QWORD *)v11 + 5) + 26LL) & 4) == 0 )
       {
-        v14 = *((_QWORD *)v13 + 15);
-        if ( !v14 )
+        do
         {
+          v13 = *((_QWORD *)v12 + 15);
           if ( !v13 )
-            goto LABEL_23;
-          break;
+            break;
+          v14 = v12;
+          v12 = (struct tagWND *)*((_QWORD *)v12 + 15);
+          v15 = *(_QWORD *)(v13 + 40);
+          if ( *(char *)(v15 + 24) < 0 )
+          {
+            if ( (*(_BYTE *)(*((_QWORD *)v14 + 5) + 26LL) & 1) == 0 || *((_QWORD *)v12 + 15) )
+              v12 = 0LL;
+            else
+              v12 = v11;
+            break;
+          }
         }
-        v12 = *(_QWORD *)(v14 + 40);
-        v15 = v13;
-        v13 = (struct tagWND *)*((_QWORD *)v13 + 15);
-        if ( *(char *)(v12 + 24) < 0 )
-        {
-          if ( (*(_BYTE *)(*((_QWORD *)v15 + 5) + 26LL) & 1) == 0 || *(_QWORD *)(v14 + 120) )
-            goto LABEL_23;
-          v13 = v11;
-          break;
-        }
+        while ( (*(_BYTE *)(v15 + 26) & 4) == 0 );
       }
-      v16 = (struct tagWND *)*((_QWORD *)v13 + 25);
-      if ( v16 )
+      if ( v12 )
       {
-        while ( !(unsigned int)_IsTaskWindow(v16, a2) )
+        v16 = *((_QWORD *)v12 + 25);
+        if ( v16 )
         {
-          v16 = (struct tagWND *)*((_QWORD *)v16 + 15);
-          if ( !v16 )
-            goto LABEL_18;
+          do
+          {
+            if ( (unsigned int)_IsTaskWindow((struct tagWND *)v16, a2) )
+              break;
+            v16 = *(_QWORD *)(v16 + 120);
+          }
+          while ( v16 );
+          if ( !v16 || (struct tagWND *)v16 == v11 )
+          {
+            if ( v6 < (HWND *)v5 )
+              *v6 = (HWND)*v5;
+            if ( a2 == v11 )
+              *a3 = v4;
+            ++v4;
+            ++v6;
+          }
         }
-        if ( v16 != v11 )
-          goto LABEL_23;
-LABEL_18:
-        if ( v6 < v5 )
-          *v6 = *v5;
-        if ( a2 == v11 )
-          *a3 = v4;
-        ++v4;
-        ++v6;
       }
     }
-LABEL_23:
     ++v5;
   }
   *v6 = (HWND)1;

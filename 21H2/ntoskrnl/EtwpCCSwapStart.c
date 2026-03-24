@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCCSwapStart @ 0x14085D3E0
+ * XREFs of EtwpCCSwapStart @ 0x1407987B0
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x1403AAEF4 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
  * Callees:
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCCSwapStart(unsigned int a1)
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpCCSwapStart(unsigned int a1)
   int v3; // eax
   unsigned int v4; // esi
   __int64 v5; // rbx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int i; // ebp
   __int64 v9; // rbx
 
@@ -30,19 +30,19 @@ LABEL_7:
   }
   while ( 1 )
   {
-    v5 = *(_QWORD *)(KeGetPrcb(v4) + 34472);
-    if ( *(_QWORD *)(v5 + 8 * v2 + 392) )
+    v5 = *(_QWORD *)(KeGetPrcb(v4) + 33576);
+    if ( *(_QWORD *)(v5 + 8 * v2 + 296) )
     {
-      *(_BYTE *)(v2 + v5 + 384) = 0;
+      *(_BYTE *)(v2 + v5 + 288) = 0;
       goto LABEL_5;
     }
-    Pool2 = ExAllocatePool2(64LL, 1024LL, 2004042563LL);
-    *(_QWORD *)(v5 + 8 * v2 + 392) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x400uLL, 0x77734343u);
+    *(_QWORD *)(v5 + 8 * v2 + 296) = PoolWithTag;
+    if ( !PoolWithTag )
       break;
 LABEL_5:
     ++v4;
-    **(_DWORD **)(v5 + 8 * v2 + 392) = 0;
+    **(_DWORD **)(v5 + 8 * v2 + 296) = 0;
     if ( v4 >= v1 )
     {
       v3 = CCSwapNumLoggersPerClockType[v2];
@@ -51,9 +51,9 @@ LABEL_5:
   }
   for ( i = 0; i < v4; ++i )
   {
-    v9 = *(_QWORD *)(KeGetPrcb(i) + 34472);
-    ExFreePoolWithTag(*(PVOID *)(v9 + 8 * v2 + 392), 0);
-    *(_QWORD *)(v9 + 8 * v2 + 392) = 0LL;
+    v9 = *(_QWORD *)(KeGetPrcb(i) + 33576);
+    ExFreePoolWithTag(*(PVOID *)(v9 + 8 * v2 + 296), 0);
+    *(_QWORD *)(v9 + 8 * v2 + 296) = 0LL;
   }
   return 3221225495LL;
 }

@@ -1,15 +1,16 @@
 /*
- * XREFs of MBToWCSEx @ 0x1C024BCF4
+ * XREFs of MBToWCSEx @ 0x1C00D31A0
  * Callers:
- *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00246CC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
- *     SfnIMECONTROL @ 0x1C0206A40 (SfnIMECONTROL.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C002452C (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     SfnOUTSTRING @ 0x1C00D25F0 (SfnOUTSTRING.c)
+ *     SfnIMECONTROL @ 0x1C0229020 (SfnIMECONTROL.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MBToWCSEx(__int64 a1, const CHAR *a2, signed int BytesInMultiByteString, PWCH *a4, int a5)
 {
-  __int64 v5; // rax
+  __int64 v6; // rax
   ULONG BytesInUnicodeString; // [rsp+40h] [rbp+8h] BYREF
 
   BytesInUnicodeString = 0;
@@ -23,11 +24,11 @@ __int64 __fastcall MBToWCSEx(__int64 a1, const CHAR *a2, signed int BytesInMulti
   {
     if ( BytesInMultiByteString < -2 )
       return 0LL;
-    v5 = -1LL;
+    v6 = -1LL;
     do
-      ++v5;
-    while ( a2[v5] );
-    BytesInMultiByteString += v5 + 2;
+      ++v6;
+    while ( a2[v6] );
+    BytesInMultiByteString += v6 + 2;
     if ( !BytesInMultiByteString )
       return 0LL;
   }

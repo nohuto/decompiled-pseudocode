@@ -1,25 +1,25 @@
 /*
- * XREFs of ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180006310
+ * XREFs of ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013694
  * Callers:
- *     ?Draw@CCompositionSurfaceBitmap@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180105B30 (-Draw@CCompositionSurfaceBitmap@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4DD0 (-Draw@CCompositionSurfaceBitmap@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
  * Callees:
- *     ?DrawLetterboxingMarginsInternal@CCompositionSurfaceBitmap@@AEAAJPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x180006498 (-DrawLetterboxingMarginsInternal@CCompositionSurfaceBitmap@@AEAAJPEAVCDrawingContext@@AEBV-$TMil.c)
- *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180006798 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
- *     ?UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z @ 0x18000687C (-UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z.c)
- *     ?GetSizePreference@CCompositionSurfaceBitmap@@QEBA?AW4SizePreference@@XZ @ 0x1800068A4 (-GetSizePreference@CCompositionSurfaceBitmap@@QEBA-AW4SizePreference@@XZ.c)
- *     ?BeginStatsInstance@CDrawingContext@@QEBAXPEAVIBitmapResource@@@Z @ 0x180006BFC (-BeginStatsInstance@CDrawingContext@@QEBAXPEAVIBitmapResource@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18008A870 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x1800B2A90 (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800D8EF8 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?IsProtected@CCompositionSurfaceBitmap@@UEBA_NXZ @ 0x180103910 (-IsProtected@CCompositionSurfaceBitmap@@UEBA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0pppffff_EventWriteTransfer @ 0x180113CB6 (McTemplateU0pppffff_EventWriteTransfer.c)
- *     ?DrawContentBorders@CCompositionSurfaceBitmap@@SAJPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1AEBU_D3DCOLORVALUE@@@Z @ 0x18020FE68 (-DrawContentBorders@CCompositionSurfaceBitmap@@SAJPEAVCDrawingContext@@AEBV-$TMilRect_@MUMilRect.c)
- *     ?GetBorderColor@CCompositionSurfaceBitmap@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x18021011C (-GetBorderColor@CCompositionSurfaceBitmap@@QEBA-AU_D3DCOLORVALUE@@XZ.c)
+ *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180013BB8 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
+ *     ?UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z @ 0x180013C78 (-UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z.c)
+ *     ?GetSizePreference@CCompositionSurfaceBitmap@@QEBA?AW4SizePreference@@XZ @ 0x180013CA0 (-GetSizePreference@CCompositionSurfaceBitmap@@QEBA-AW4SizePreference@@XZ.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x18006858C (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18008CDF0 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800BA744 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA7B0 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?IsProtected@CCompositionSurfaceBitmap@@UEBA_NXZ @ 0x1800EBA50 (-IsProtected@CCompositionSurfaceBitmap@@UEBA_NXZ.c)
+ *     ?DrawSolidRectangle@CDrawingContext@@UEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x180176D50 (-DrawSolidRectangle@CDrawingContext@@UEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801852C4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetBorderColor@CCompositionSurfaceBitmap@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x1801BCB3C (-GetBorderColor@CCompositionSurfaceBitmap@@QEBA-AU_D3DCOLORVALUE@@XZ.c)
+ *     McTemplateU0pppffff_EventWriteTransfer @ 0x1801BCC54 (McTemplateU0pppffff_EventWriteTransfer.c)
+ *     ?Draw@CSynchronousSuperWetInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801EFAB8 (-Draw@CSynchronousSuperWetInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  */
 
 __int64 __fastcall CCompositionSurfaceBitmap::Draw(
@@ -33,106 +33,175 @@ __int64 __fastcall CCompositionSurfaceBitmap::Draw(
   char v10; // dl
   int v11; // eax
   unsigned int v12; // ecx
-  int v13; // eax
-  unsigned int v14; // ecx
-  float v16; // xmm7_4
-  float v17; // xmm6_4
+  __int64 v13; // rcx
+  unsigned int CurrentVisual; // eax
+  int v16; // edx
+  int v17; // ecx
   int v18; // eax
-  int v19; // edx
-  int v20; // ecx
-  int v21; // eax
-  unsigned int v22; // ecx
-  float height; // xmm1_4
-  float v24; // xmm0_4
-  struct _D3DCOLORVALUE *BorderColor; // rax
+  unsigned int v19; // ecx
+  float v20; // xmm0_4
+  float v21; // xmm6_4
+  float v22; // xmm8_4
+  int v23; // eax
+  unsigned int v24; // ecx
+  float v25; // xmm1_4
   int v26; // eax
   unsigned int v27; // ecx
-  _BYTE v28[64]; // [rsp+58h] [rbp-B0h] BYREF
-  int v29; // [rsp+98h] [rbp-70h]
-  __int128 v30; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v31; // [rsp+B8h] [rbp-50h] BYREF
-  _DWORD v32[4]; // [rsp+C8h] [rbp-40h] BYREF
-  struct _D3DCOLORVALUE v33; // [rsp+D8h] [rbp-30h] BYREF
+  int v28; // eax
+  unsigned int v29; // ecx
+  int v30; // eax
+  unsigned int v31; // ecx
+  int v32; // eax
+  int v33; // [rsp+28h] [rbp-E0h]
+  float v34; // [rsp+40h] [rbp-C8h]
+  float v35; // [rsp+48h] [rbp-C0h]
+  struct _D3DCOLORVALUE v36; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE v37[64]; // [rsp+68h] [rbp-A0h] BYREF
+  int v38; // [rsp+A8h] [rbp-60h]
+  __int128 v39; // [rsp+B8h] [rbp-50h] BYREF
+  int v40; // [rsp+C8h] [rbp-40h] BYREF
+  float v41; // [rsp+CCh] [rbp-3Ch]
+  float v42; // [rsp+D0h] [rbp-38h]
+  float v43; // [rsp+D4h] [rbp-34h]
+  __int128 v44; // [rsp+D8h] [rbp-30h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+160h] [rbp+58h]
 
   v5 = (CCompositionSurfaceBitmap *)((char *)this - 224);
   v9 = 0;
-  v29 = 0;
-  v31 = 0LL;
+  v38 = 0;
+  v44 = 0LL;
   CCompositionSurfaceBitmap::CalcImageTransform(
     (CCompositionSurfaceBitmap *)((char *)this - 224),
     a3,
-    (CMILMatrix *)v28);
-  if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v31) )
+    (CMILMatrix *)v37);
+  if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v44) )
   {
-    v30 = 0LL;
+    v39 = 0LL;
     if ( v10 )
-      CMILMatrix::Transform2DBoundsHelper<0>(v28, &v31, &v30);
+      CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v37);
     else
-      v30 = v31;
+      v39 = v44;
     CDrawingContext::EtwLogCurrentState(a2);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400) != 0 )
     {
-      v16 = *((float *)&v30 + 3) - *((float *)&v30 + 1);
-      v17 = *((float *)&v30 + 2) - *(float *)&v30;
-      v18 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 32LL))((char *)a2 + 24);
-      McTemplateU0pppffff_EventWriteTransfer(v20, v19, v18, (_DWORD)v5, (char)v5, 0, 0, SLOBYTE(v17), SLOBYTE(v16));
+      CurrentVisual = (unsigned int)CDrawingContext::GetCurrentVisual((struct CDrawingContext *)((char *)a2 + 24));
+      v35 = *((float *)&v39 + 3) - *((float *)&v39 + 1);
+      v34 = *((float *)&v39 + 2) - *(float *)&v39;
+      McTemplateU0pppffff_EventWriteTransfer(
+        v17,
+        v16,
+        CurrentVisual,
+        (_DWORD)v5,
+        (char)v5,
+        0,
+        0,
+        SLOBYTE(v34),
+        SLOBYTE(v35));
     }
-    if ( *(_BYTE *)(*((_QWORD *)this - 26) + 1274LL) && CCompositionSurfaceBitmap::IsProtected(v5) )
+    if ( *(_BYTE *)(*((_QWORD *)this - 26) + 1129LL) && CCompositionSurfaceBitmap::IsProtected(v5) )
     {
-      v21 = (*(__int64 (__fastcall **)(char *, __int128 *, const struct _D3DCOLORVALUE *))(*((_QWORD *)a2 + 2) + 16LL))(
-              (char *)a2 + 16,
-              &v30,
-              &stru_180377378);
-      v9 = v21;
-      if ( v21 < 0 )
+      v18 = CDrawingContext::DrawSolidRectangle((char *)a2 + 16, &v39, &stru_1802F0AE0);
+      v9 = v18;
+      if ( v18 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0xF7u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0xE7u, 0LL);
         return v9;
       }
-      *((_BYTE *)a2 + 7967) = 1;
+      *((_BYTE *)a2 + 5951) = 1;
     }
-    else
+    else if ( !CDrawingContext::DrawAsOverlay(
+                 a2,
+                 (struct IBitmapResource *)(((unsigned __int64)this - 160) & ((unsigned __int128)-(__int128)(unsigned __int64)v5 >> 64))) )
     {
-      CDrawingContext::BeginStatsInstance(
-        a2,
-        (struct IBitmapResource *)(((unsigned __int64)this - 152) & ((unsigned __int128)-(__int128)(unsigned __int64)v5 >> 64)));
-      if ( !CDrawingContext::DrawAsOverlay(
-              a2,
-              (struct IBitmapResource *)(((unsigned __int64)this - 152) & ((unsigned __int128)-(__int128)(unsigned __int64)v5 >> 64))) )
+      v11 = CContent::Draw((CCompositionSurfaceBitmap *)((char *)this - 136), a2, a3, a4);
+      v9 = v11;
+      if ( v11 < 0 )
       {
-        v11 = CContent::Draw((CCompositionSurfaceBitmap *)((char *)this - 128), a2, a3, a4);
-        v9 = v11;
-        if ( v11 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xDEu, 0LL);
+        return v9;
+      }
+    }
+    if ( (unsigned int)CCompositionSurfaceBitmap::GetSizePreference(v5)
+      && CCompositionSurfaceBitmap::UseLayoutSizeForBounds(v5, a3) )
+    {
+      CCompositionSurfaceBitmap::GetBorderColor(v5, &v36);
+      v20 = *((float *)&v39 + 1);
+      v21 = a3->width + 0.0;
+      v22 = a3->height + 0.0;
+      if ( *((float *)&v39 + 1) > 0.0 )
+      {
+        v41 = 0.0;
+        v40 = 0;
+        v43 = *((float *)&v39 + 1);
+        v42 = v21;
+        v23 = CDrawingContext::DrawSolidRectangle((char *)a2 + 16, &v40, &v36);
+        v9 = v23;
+        if ( v23 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xEEu, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x101u, 0LL);
+          return v9;
+        }
+        v20 = *((float *)&v39 + 1);
+      }
+      v25 = *((float *)&v39 + 3);
+      if ( v22 > *((float *)&v39 + 3) )
+      {
+        v40 = 0;
+        v41 = *((float *)&v39 + 3);
+        v43 = v22;
+        v42 = v21;
+        v26 = CDrawingContext::DrawSolidRectangle((char *)a2 + 16, &v40, &v36);
+        v9 = v26;
+        if ( v26 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x10Cu, 0LL);
+          return v9;
+        }
+        v25 = *((float *)&v39 + 3);
+        v20 = *((float *)&v39 + 1);
+      }
+      if ( *(float *)&v39 > 0.0 && v25 > v20 )
+      {
+        v40 = 0;
+        v41 = v20;
+        v43 = v25;
+        v42 = *(float *)&v39;
+        v28 = CDrawingContext::DrawSolidRectangle((char *)a2 + 16, &v40, &v36);
+        v9 = v28;
+        if ( v28 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x118u, 0LL);
+          return v9;
+        }
+        v25 = *((float *)&v39 + 3);
+        v20 = *((float *)&v39 + 1);
+      }
+      if ( v21 > *((float *)&v39 + 2) && v25 > v20 )
+      {
+        v41 = v20;
+        v43 = v25;
+        v40 = DWORD2(v39);
+        v42 = v21;
+        v30 = CDrawingContext::DrawSolidRectangle((char *)a2 + 16, &v40, &v36);
+        v9 = v30;
+        if ( v30 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x124u, 0LL);
           return v9;
         }
       }
     }
-    if ( !(unsigned int)CCompositionSurfaceBitmap::GetSizePreference(v5) )
-      goto LABEL_10;
-    if ( !CCompositionSurfaceBitmap::UseLayoutSizeForBounds(v5, a3) )
-      goto LABEL_10;
-    height = a3->height;
-    v24 = a3->width + 0.0;
-    v32[0] = 0;
-    v32[1] = 0;
-    *(float *)&v32[2] = v24;
-    *(float *)&v32[3] = height + 0.0;
-    BorderColor = CCompositionSurfaceBitmap::GetBorderColor(v5, &v33);
-    v26 = CCompositionSurfaceBitmap::DrawContentBorders(a2, v32, &v30, BorderColor);
-    v9 = v26;
-    if ( v26 < 0 )
+    v13 = *((_QWORD *)this - 5);
+    if ( v13 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x108u, 0LL);
-    }
-    else
-    {
-LABEL_10:
-      v13 = CCompositionSurfaceBitmap::DrawLetterboxingMarginsInternal(v5, a2, &v31, v28);
-      v9 = v13;
-      if ( v13 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x10Cu, 0LL);
+      v32 = CSynchronousSuperWetInk::Draw((CSynchronousSuperWetInk *)(v13 + 280), a2, a3, 0LL);
+      if ( v32 < 0 )
+        wil::details::in1diag3::_Log_Hr(
+          retaddr,
+          (void *)0x12D,
+          (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionsurfacebitmap.cpp",
+          (const char *)(unsigned int)v32,
+          v33);
     }
   }
   return v9;

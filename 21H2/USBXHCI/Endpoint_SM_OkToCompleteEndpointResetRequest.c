@@ -1,10 +1,10 @@
 /*
- * XREFs of Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C0039CD0
+ * XREFs of Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C00399CC
  * Callers:
- *     ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C004F7C0 (ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval.c)
- *     ESM_WaitingForControllerResetCompletion @ 0x1C004FC40 (ESM_WaitingForControllerResetCompletion.c)
+ *     ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C004ECA0 (ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval.c)
+ *     ESM_WaitingForControllerResetCompletion @ 0x1C004F0F0 (ESM_WaitingForControllerResetCompletion.c)
  * Callees:
- *     Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039BA0 (Endpoint_SM_CompleteResetRequestFromClient.c)
+ *     Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039920 (Endpoint_SM_CompleteResetRequestFromClient.c)
  */
 
 __int64 __fastcall Endpoint_SM_OkToCompleteEndpointResetRequest(__int64 a1, __int64 a2, int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_SendUrbAsync @ 0x1C004AE70
+ * XREFs of Crashdump_SendUrbAsync @ 0x1C004A3E0
  * Callers:
  *     <none>
  * Callees:
- *     Crashdump_DoBulkTransfer @ 0x1C004A0C8 (Crashdump_DoBulkTransfer.c)
- *     Crashdump_ResetPipe @ 0x1C004AD00 (Crashdump_ResetPipe.c)
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004D3D8 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     Crashdump_DoBulkTransfer @ 0x1C0049600 (Crashdump_DoBulkTransfer.c)
+ *     Crashdump_ResetPipe @ 0x1C004A270 (Crashdump_ResetPipe.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
  */
 
 __int64 __fastcall Crashdump_SendUrbAsync(__int64 a1, __int64 a2, __int64 a3)

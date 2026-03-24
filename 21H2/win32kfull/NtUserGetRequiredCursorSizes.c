@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserGetRequiredCursorSizes @ 0x1C0107FC0
+ * XREFs of NtUserGetRequiredCursorSizes @ 0x1C0119B10
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     ?HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z @ 0x1C010806C (-HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     ?HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z @ 0x1C0119BBC (-HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z.c)
  */
 
-__int64 __fastcall NtUserGetRequiredCursorSizes(__int64 a1, volatile void *a2)
+__int64 __fastcall NtUserGetRequiredCursorSizes(unsigned __int64 a1, volatile void *a2)
 {
   __int64 v4; // rax
   __int64 v5; // rcx
@@ -16,7 +16,7 @@ __int64 __fastcall NtUserGetRequiredCursorSizes(__int64 a1, volatile void *a2)
   __int64 CurrentProcessWow64Process; // rax
   CCursorSizes *v9; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = HMValidateHandle(a1, 3u);
   v6 = v4;
   v7 = 0;

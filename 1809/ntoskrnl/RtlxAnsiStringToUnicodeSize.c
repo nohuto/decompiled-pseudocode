@@ -3,7 +3,7 @@
  * Callers:
  *     PopAnsiStringToUnicodeString @ 0x140588D18 (PopAnsiStringToUnicodeString.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     AslStringAnsiToUnicode @ 0x1408E9284 (AslStringAnsiToUnicode.c)
+ *     AslStringAnsiToUnicode @ 0x1408E9264 (AslStringAnsiToUnicode.c)
  * Callees:
  *     RtlMultiByteToUnicodeSize @ 0x1405AAF50 (RtlMultiByteToUnicodeSize.c)
  */

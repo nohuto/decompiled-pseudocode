@@ -1,13 +1,13 @@
 /*
- * XREFs of HKLtoPKL @ 0x1C006C150
+ * XREFs of HKLtoPKL @ 0x1C000B4F0
  * Callers:
- *     NtUserVkKeyScanEx @ 0x1C0007F80 (NtUserVkKeyScanEx.c)
- *     ?xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C0064AFC (-xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C00673D0 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
- *     xxxActivateKeyboardLayout @ 0x1C0069C00 (xxxActivateKeyboardLayout.c)
- *     NtUserMapVirtualKeyEx @ 0x1C006BAD0 (NtUserMapVirtualKeyEx.c)
- *     xxxInternalToUnicode @ 0x1C006BCF0 (xxxInternalToUnicode.c)
- *     NtUserUnloadKeyboardLayout @ 0x1C014D840 (NtUserUnloadKeyboardLayout.c)
+ *     ?xxxInternalUnloadKeyboardLayout@@YAHPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C00090AC (-xxxInternalUnloadKeyboardLayout@@YAHPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0009AD8 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     xxxActivateKeyboardLayout @ 0x1C000A840 (xxxActivateKeyboardLayout.c)
+ *     NtUserVkKeyScanEx @ 0x1C000AAA0 (NtUserVkKeyScanEx.c)
+ *     xxxInternalToUnicode @ 0x1C000B170 (xxxInternalToUnicode.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C003E200 (NtUserMapVirtualKeyEx.c)
+ *     xxxUnloadKeyboardLayout @ 0x1C01AB0F0 (xxxUnloadKeyboardLayout.c)
  * Callees:
  *     <none>
  */

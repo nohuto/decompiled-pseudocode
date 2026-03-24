@@ -1,7 +1,7 @@
 /*
- * XREFs of __C_specific_handler_0 @ 0x1C0023E8D
+ * XREFs of __C_specific_handler_0 @ 0x1C00248ED
  * Callers:
- *     __GSHandlerCheck_SEH @ 0x1C0028044 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck_SEH @ 0x1C0028B14 (__GSHandlerCheck_SEH.c)
  * Callees:
  *     <none>
  */

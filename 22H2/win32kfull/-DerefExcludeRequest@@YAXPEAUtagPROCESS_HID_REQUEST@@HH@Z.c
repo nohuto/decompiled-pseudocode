@@ -1,37 +1,28 @@
 /*
- * XREFs of ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01A9564
+ * XREFs of ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D4824
  * Callers:
- *     FreeHidProcessRequest @ 0x1C009F158 (FreeHidProcessRequest.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01A9A00 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     FreeHidProcessRequest @ 0x1C010790C (FreeHidProcessRequest.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D4B6C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  * Callees:
- *     FreeHidTLCInfo @ 0x1C009ED94 (FreeHidTLCInfo.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C009FBE0 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C009FC90 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     FreeHidTLCInfo @ 0x1C01D5000 (FreeHidTLCInfo.c)
  */
 
 void __fastcall DerefExcludeRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, int a3)
 {
-  __int64 v6; // rax
-  char *v7; // rcx
-  __int64 v9; // rcx
-  char v10; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v3; // rax
+  bool v4; // zf
 
-  v6 = SGDGetUserSessionState(a1);
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v10, (struct _KTHREAD **)(v6 + 288));
   if ( !a2 )
   {
-    v7 = (char *)a1 + 24;
     if ( (*((_DWORD *)a1 + 5) & 8) != 0 )
-      --*(_DWORD *)(*(_QWORD *)v7 + 40LL);
-    if ( (*(_DWORD *)(*(_QWORD *)v7 + 36LL))-- == 1 )
+      --*(_DWORD *)(*((_QWORD *)a1 + 3) + 40LL);
+    v3 = *((_QWORD *)a1 + 3);
+    v4 = (*(_DWORD *)(v3 + 36))-- == 1;
+    if ( v4
+      && a3
+      && !(*(_DWORD *)(*((_QWORD *)a1 + 3) + 20LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 24LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 32LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 36LL)) )
     {
-      if ( a3 )
-      {
-        v9 = *(_QWORD *)v7;
-        if ( !(*(_DWORD *)(v9 + 20) | *(_DWORD *)(v9 + 24) | *(_DWORD *)(v9 + 32) | *(_DWORD *)(v9 + 36)) )
-          FreeHidTLCInfo((_QWORD *)v9);
-      }
+      FreeHidTLCInfo();
     }
   }
-  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v10);
 }

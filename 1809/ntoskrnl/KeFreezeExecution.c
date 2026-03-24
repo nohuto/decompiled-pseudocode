@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFreezeExecution @ 0x140296EC8
+ * XREFs of KeFreezeExecution @ 0x140296FC8
  * Callers:
- *     ExpWaitForBootDevices @ 0x14031A0E0 (ExpWaitForBootDevices.c)
+ *     ExpWaitForBootDevices @ 0x14031A1E0 (ExpWaitForBootDevices.c)
  *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     KxTryToAcquireSpinLock @ 0x14011BAB4 (KxTryToAcquireSpinLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiSendFreeze @ 0x1402978B0 (KiSendFreeze.c)
- *     KiSetDebuggerOwner @ 0x140297B00 (KiSetDebuggerOwner.c)
- *     KiStartDebugAccumulation @ 0x140297B58 (KiStartDebugAccumulation.c)
- *     RtlWriteTryAcquireTickLock @ 0x1402F621C (RtlWriteTryAcquireTickLock.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiSendFreeze @ 0x1402979B0 (KiSendFreeze.c)
+ *     KiSetDebuggerOwner @ 0x140297C00 (KiSetDebuggerOwner.c)
+ *     KiStartDebugAccumulation @ 0x140297C58 (KiStartDebugAccumulation.c)
+ *     RtlWriteTryAcquireTickLock @ 0x1402F631C (RtlWriteTryAcquireTickLock.c)
  */
 
 bool KeFreezeExecution()

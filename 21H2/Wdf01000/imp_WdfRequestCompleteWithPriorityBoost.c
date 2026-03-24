@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfRequestCompleteWithPriorityBoost @ 0x1C0038490
+ * XREFs of imp_WdfRequestCompleteWithPriorityBoost @ 0x1C004A140
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?CompleteWithPriority@FxRequest@@QEAAJJD@Z @ 0x1C00383B4 (-CompleteWithPriority@FxRequest@@QEAAJJD@Z.c)
- *     Vf_VerifyRequestComplete @ 0x1C00C7064 (Vf_VerifyRequestComplete.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?CompleteWithPriority@FxRequest@@QEAAJJD@Z @ 0x1C0049BBC (-CompleteWithPriority@FxRequest@@QEAAJJD@Z.c)
+ *     Vf_VerifyRequestComplete @ 0x1C00C5F60 (Vf_VerifyRequestComplete.c)
  */
 
 void __fastcall imp_WdfRequestCompleteWithPriorityBoost(
@@ -14,17 +14,31 @@ void __fastcall imp_WdfRequestCompleteWithPriorityBoost(
         unsigned int RequestStatus,
         char PriorityBoost)
 {
-  FxRequest *v6; // rcx
+  __int64 v6; // r8
+  unsigned __int16 v7; // r9
+  FxRequest *v8; // rcx
+  int v9; // eax
   FxRequest *pRequest; // [rsp+30h] [rbp+8h] BYREF
 
   pRequest = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Request, 0x1008u, (void **)&pRequest);
-  v6 = pRequest;
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Request,
+    0x1008u,
+    (void **)&pRequest);
+  v8 = pRequest;
   if ( pRequest->m_Globals->FxVerifierOn )
   {
-    if ( Vf_VerifyRequestComplete(pRequest->m_Globals, pRequest) < 0 )
-      return;
-    v6 = pRequest;
+    v9 = Vf_VerifyRequestComplete(pRequest->m_Globals, pRequest);
+    v8 = pRequest;
   }
-  FxRequest::CompleteWithPriority(v6, RequestStatus, PriorityBoost);
+  else
+  {
+    v9 = 0;
+  }
+  if ( v9 >= 0 )
+  {
+    LOBYTE(v6) = PriorityBoost;
+    FxRequest::CompleteWithPriority(v8, RequestStatus, v6, v7);
+  }
 }

@@ -1,266 +1,287 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x140A3F2E0
+ * XREFs of NtLoadEnclaveData @ 0x1408D44A0
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x1407A42CC (DbgkMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
- *     MiDereferenceEnclaveModule @ 0x140A3DE74 (MiDereferenceEnclaveModule.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140A3E144 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140A3E508 (MiLoadSectionIntoVsmEnclave.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MmSizeOfMdl @ 0x1402EB830 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     DbgkMapViewOfSection @ 0x1406FCFD4 (DbgkMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D21D8 (MiCopyPagesIntoEnclave.c)
+ *     MiDereferenceEnclaveModule @ 0x1408D2F4C (MiDereferenceEnclaveModule.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x1408D3214 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D35C0 (MiLoadSectionIntoVsmEnclave.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR BugCheckParameter1,
+        void *a1,
         __int64 a2,
         void *a3,
-        SIZE_T a4,
+        __int64 a4,
         int a5,
-        char *Src,
+        unsigned __int64 Src,
         size_t Size,
         unsigned __int64 a8,
-        _DWORD *a9)
+        unsigned __int64 a9)
 {
-  SIZE_T v9; // rdi
-  ULONG_PTR v10; // r11
-  char *v11; // r9
-  struct _MDL *Pool; // r14
-  char *v13; // r15
-  char PreviousMode; // r10
+  HANDLE v9; // rbx
+  __int64 v10; // r9
+  char *v11; // r13
+  struct _MDL *v12; // r14
+  KPROCESSOR_MODE PreviousMode; // r15
+  __int64 v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
-  int v17; // edi
-  struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR Process; // rbx
-  PVOID v20; // r12
-  __int64 *v21; // rax
-  void *v22; // rbx
-  int v23; // r12d
-  ULONG_PTR v24; // rbx
-  volatile signed __int32 *v25; // rbx
-  __int64 Tag; // [rsp+20h] [rbp-188h]
-  KPROCESSOR_MODE v28; // [rsp+60h] [rbp-148h]
-  int v29; // [rsp+64h] [rbp-144h] BYREF
-  int v30; // [rsp+68h] [rbp-140h]
-  ULONG_PTR v31; // [rsp+70h] [rbp-138h]
-  int v32; // [rsp+78h] [rbp-130h]
-  PVOID Object; // [rsp+80h] [rbp-128h] BYREF
-  __int64 v34; // [rsp+88h] [rbp-120h] BYREF
-  __int64 v35; // [rsp+90h] [rbp-118h]
-  PVOID v36; // [rsp+98h] [rbp-110h]
-  __int64 v37; // [rsp+A0h] [rbp-108h] BYREF
-  PVOID P; // [rsp+A8h] [rbp-100h]
-  SIZE_T v39; // [rsp+B0h] [rbp-F8h]
-  PVOID Base; // [rsp+B8h] [rbp-F0h]
-  __int64 v41; // [rsp+C0h] [rbp-E8h] BYREF
-  _QWORD *v42; // [rsp+C8h] [rbp-E0h]
-  _DWORD *v43; // [rsp+D0h] [rbp-D8h]
-  char *v44; // [rsp+D8h] [rbp-D0h]
-  ULONG_PTR v45; // [rsp+F0h] [rbp-B8h]
-  unsigned __int64 v46; // [rsp+F8h] [rbp-B0h]
-  $115DCDF994C6370D29323EAB0E0C9502 v47; // [rsp+110h] [rbp-98h] BYREF
-  _BYTE v48[32]; // [rsp+140h] [rbp-68h] BYREF
+  int DataIntoVsmEnclave; // edi
+  SIZE_T v17; // rax
+  struct _MDL *Pool; // rax
+  __int64 v19; // rdi
+  struct _KPROCESS *Process; // rbx
+  PVOID v21; // r15
+  volatile signed __int32 *v22; // rax
+  struct _DMA_ADAPTER *v23; // rbx
+  int v24; // r15d
+  _DWORD *v25; // r12
+  volatile signed __int32 *v26; // rbx
+  __int64 Tag; // [rsp+20h] [rbp-168h]
+  KPROCESSOR_MODE AccessMode; // [rsp+60h] [rbp-128h]
+  int v30; // [rsp+64h] [rbp-124h] BYREF
+  int v31; // [rsp+68h] [rbp-120h]
+  unsigned __int64 v32; // [rsp+70h] [rbp-118h]
+  HANDLE Handle; // [rsp+78h] [rbp-110h]
+  PVOID Object; // [rsp+80h] [rbp-108h] BYREF
+  _DWORD v35[3]; // [rsp+8Ch] [rbp-FCh] BYREF
+  PMDL MemoryDescriptorList; // [rsp+98h] [rbp-F0h]
+  _QWORD *v37; // [rsp+A0h] [rbp-E8h]
+  __int64 v38[4]; // [rsp+A8h] [rbp-E0h] BYREF
+  __int64 v39; // [rsp+C8h] [rbp-C0h]
+  PVOID Base; // [rsp+D0h] [rbp-B8h]
+  _QWORD v41[4]; // [rsp+D8h] [rbp-B0h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+F8h] [rbp-90h] BYREF
+  int v43[8]; // [rsp+128h] [rbp-60h] BYREF
 
-  v9 = a4;
   v39 = a4;
   Base = a3;
-  v35 = a2;
-  v10 = BugCheckParameter1;
-  v31 = BugCheckParameter1;
-  v42 = (_QWORD *)a8;
-  v45 = BugCheckParameter1;
-  v11 = Src;
-  v44 = Src;
-  v32 = Size;
-  v46 = a8;
-  v43 = a9;
-  memset(&v47, 0, sizeof(v47));
-  v29 = 0;
-  v37 = 0LL;
-  LODWORD(v34) = 0;
-  Pool = 0LL;
-  v13 = 0LL;
+  *(_QWORD *)&v35[1] = a2;
+  v9 = a1;
+  Handle = a1;
+  v38[3] = (__int64)a1;
+  v10 = a8;
+  v37 = (_QWORD *)a8;
+  v32 = a9;
+  v38[1] = a9;
+  memset(&ApcState, 0, sizeof(ApcState));
   v30 = 0;
-  LODWORD(v36) = 0;
+  v38[0] = 0LL;
+  v35[0] = 0;
+  v11 = 0LL;
+  v31 = 0;
   Object = 0LL;
-  v41 = 0LL;
+  v12 = 0LL;
+  v41[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v28 = PreviousMode;
+  AccessMode = PreviousMode;
   if ( PreviousMode == 1 )
   {
     if ( a9 )
     {
-      v15 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a9;
-      *(_DWORD *)v15 = *(_DWORD *)v15;
+      v14 = a9;
+      if ( a9 >= 0x7FFFFFFF0000LL )
+        v14 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v14 = *(_DWORD *)v14;
     }
     if ( a8 )
     {
-      v16 = 0x7FFFFFFF0000LL;
-      if ( a8 < 0x7FFFFFFF0000LL )
-        v16 = a8;
-      *(_QWORD *)v16 = *(_QWORD *)v16;
+      v15 = a8;
+      if ( a8 >= 0x7FFFFFFF0000LL )
+        v15 = 0x7FFFFFFF0000LL;
+      *(_QWORD *)v15 = *(_QWORD *)v15;
     }
   }
-  if ( (_DWORD)Size )
+  if ( !(_DWORD)Size )
+    goto LABEL_23;
+  if ( (unsigned int)Size <= 0xFFFF )
   {
-    if ( (unsigned int)Size > 0xFFFF )
-    {
-LABEL_12:
-      v17 = -1073741820;
-LABEL_41:
-      v29 = v17;
-      goto LABEL_42;
-    }
+    if ( PreviousMode == 1 && (Src + (unsigned int)Size > 0x7FFFFFFF0000LL || Src + (unsigned int)Size < Src) )
+      MEMORY[0x7FFFFFFF0000] = 0;
     if ( (unsigned int)Size > 0x20 )
     {
-      Pool = (struct _MDL *)MiAllocatePool(64, (unsigned int)Size, 0x49506E45u);
-      P = Pool;
+      v17 = MmSizeOfMdl((PVOID)Src, (unsigned int)Size);
+      Pool = (struct _MDL *)MiAllocatePool(64, v17, 0x6C646D4Du);
+      v12 = Pool;
+      MemoryDescriptorList = Pool;
       if ( !Pool )
       {
-        v17 = -1073741670;
-        goto LABEL_41;
+        DataIntoVsmEnclave = -1073741670;
+        goto LABEL_13;
       }
-      v11 = v44;
-      PreviousMode = v28;
+      Pool->Next = 0LL;
+      Pool->Size = 8 * ((((Src & 0xFFF) + (unsigned int)Size + 4095LL) >> 12) + 6);
+      Pool->MdlFlags = 0;
+      Pool->StartVa = (PVOID)(Src & 0xFFFFFFFFFFFFF000uLL);
+      Pool->ByteOffset = Src & 0xFFF;
+      Pool->ByteCount = Size;
+      MmProbeAndLockPages(Pool, PreviousMode, IoReadAccess);
     }
     else
     {
-      Pool = (struct _MDL *)v48;
-      P = v48;
+      memmove(v43, (const void *)Src, (unsigned int)Size);
     }
-    if ( PreviousMode == 1
-      && ((unsigned __int64)&v11[(unsigned int)Size] > 0x7FFFFFFF0000LL || &v11[(unsigned int)Size] < v11) )
+LABEL_23:
+    if ( (v35[1] & 0xFFF) != 0 )
     {
-      MEMORY[0x7FFFFFFF0000] = 0;
+      DataIntoVsmEnclave = -1073741584;
     }
-    memmove(Pool, v11, (unsigned int)Size);
-    v9 = v39;
-    PreviousMode = v28;
-    v10 = v31;
-  }
-  if ( (v35 & 0xFFF) != 0 )
-  {
-    v17 = -1073741584;
-    goto LABEL_41;
-  }
-  if ( (v9 & 0xFFF) != 0 )
-  {
-LABEL_26:
-    v17 = -1073741582;
-    goto LABEL_41;
-  }
-  CurrentThread = KeGetCurrentThread();
-  Process = (ULONG_PTR)CurrentThread->ApcState.Process;
-  if ( v10 == -1LL )
-  {
-    Object = CurrentThread->ApcState.Process;
-    goto LABEL_31;
-  }
-  v17 = ObpReferenceObjectByHandleWithTag(v10, 8, (__int64)PsProcessType, PreviousMode, 0x6D566D4Du, &Object, 0LL, 0LL);
-  v29 = v17;
-  if ( v17 >= 0 )
-  {
-    v9 = v39;
-LABEL_31:
-    v20 = Object;
-    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v47);
-    v30 = 1;
-    v21 = MiObtainReferencedVadEx(v35, 0, &v29);
-    v13 = (char *)v21;
-    if ( !v21 || (v21[6] & 0x6200000) != 0x4200000 )
+    else
     {
-      v17 = -1073741800;
-      goto LABEL_41;
-    }
-    if ( (v21[8] & 1) == 0 )
-    {
-      if ( *(_BYTE *)(v21[9] + 76) )
+      v19 = v39;
+      if ( (v39 & 0xFFF) == 0 )
       {
-        v17 = MiLoadDataIntoVsmEnclave(
-                (__int64)Object,
-                Process,
-                (ULONG_PTR)v21,
-                v28,
-                v35,
-                v32,
-                (int *)Pool,
-                (unsigned __int64)Base,
-                v9,
-                a5,
-                &v37);
-      }
-      else
-      {
-        v22 = (void *)PsReferencePrimaryTokenWithTag(Process, 0x746C6644u);
-        v17 = MiLoadSectionIntoVsmEnclave((__int64)v20, (ULONG_PTR)v13, v28, (__int64)v22, v35, v32, Pool, &v41);
-        v13 = 0LL;
-        ObfDereferenceObject(v22);
-      }
-      goto LABEL_41;
-    }
-    if ( v32 )
-      goto LABEL_12;
-    if ( v9 )
-    {
-      KiUnstackDetachProcess(&v47);
-      v23 = 0;
-      v17 = MiCopyPagesIntoEnclave(
-              (_KPROCESS *)Object,
-              (__int64)v13,
-              v28,
-              v35,
-              (unsigned __int64)Base,
-              v9,
-              a5,
-              &v37,
-              &v34);
-      v29 = v17;
-      goto LABEL_43;
-    }
-    goto LABEL_26;
-  }
-LABEL_42:
-  v23 = v30;
+        Process = KeGetCurrentThread()->ApcState.Process;
+        if ( Handle == (HANDLE)-1LL )
+        {
+          Object = Process;
+        }
+        else
+        {
+          DataIntoVsmEnclave = ObReferenceObjectByHandleWithTag(
+                                 Handle,
+                                 8u,
+                                 (POBJECT_TYPE)PsProcessType,
+                                 PreviousMode,
+                                 0x6D566D4Du,
+                                 &Object,
+                                 0LL);
+          v30 = DataIntoVsmEnclave;
+          if ( DataIntoVsmEnclave < 0 )
+          {
 LABEL_43:
+            v9 = Handle;
+            goto LABEL_44;
+          }
+          v19 = v39;
+        }
+        v21 = Object;
+        KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
+        v31 = 1;
+        v22 = MiObtainReferencedVadEx(*(unsigned __int64 *)&v35[1], 0, &v30);
+        v11 = (char *)v22;
+        if ( !v22 || (v22[12] & 0x3100000) != 0x2100000 )
+        {
+          DataIntoVsmEnclave = -1073741800;
+          goto LABEL_42;
+        }
+        if ( (v22[16] & 1) == 0 )
+        {
+          if ( *(_BYTE *)(*((_QWORD *)v22 + 9) + 76LL) )
+          {
+            DataIntoVsmEnclave = MiLoadDataIntoVsmEnclave(
+                                   (__int64)Object,
+                                   (ULONG_PTR)Process,
+                                   (ULONG_PTR)v22,
+                                   AccessMode,
+                                   *(__int64 *)&v35[1],
+                                   Size,
+                                   v43,
+                                   (unsigned __int64)Base,
+                                   v19,
+                                   a5,
+                                   v38);
+          }
+          else
+          {
+            v23 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
+            DataIntoVsmEnclave = MiLoadSectionIntoVsmEnclave(
+                                   (__int64)v21,
+                                   (ULONG_PTR)v11,
+                                   AccessMode,
+                                   (__int64)v23,
+                                   *(unsigned __int64 *)&v35[1],
+                                   Size,
+                                   v43,
+                                   v12,
+                                   v41);
+            v11 = 0LL;
+            HalPutDmaAdapter(v23);
+          }
+          goto LABEL_42;
+        }
+        if ( (_DWORD)Size )
+        {
+          DataIntoVsmEnclave = -1073741820;
+          goto LABEL_42;
+        }
+        if ( v19 )
+        {
+          KeUnstackDetachProcess(&ApcState);
+          v24 = 0;
+          DataIntoVsmEnclave = MiCopyPagesIntoEnclave(
+                                 (_KPROCESS *)Object,
+                                 (__int64)v11,
+                                 AccessMode,
+                                 *(unsigned __int64 *)&v35[1],
+                                 Base,
+                                 v19,
+                                 a5,
+                                 v38,
+                                 v35);
+          v30 = DataIntoVsmEnclave;
+          v9 = Handle;
+          goto LABEL_45;
+        }
+      }
+      DataIntoVsmEnclave = -1073741582;
+    }
+LABEL_42:
+    v30 = DataIntoVsmEnclave;
+    goto LABEL_43;
+  }
+  DataIntoVsmEnclave = -1073741820;
+LABEL_13:
+  v30 = DataIntoVsmEnclave;
+LABEL_44:
   v24 = v31;
-  if ( v13 )
-    MiUnlockAndDereferenceVad(v13);
-  if ( v23 )
-    KiUnstackDetachProcess(&v47);
-  if ( Object && v24 != -1LL )
+LABEL_45:
+  v25 = (_DWORD *)v32;
+  if ( v11 )
+    MiUnlockAndDereferenceVad(v11);
+  if ( v24 )
+    KeUnstackDetachProcess(&ApcState);
+  if ( Object && v9 != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
-  if ( Pool && Pool != (struct _MDL *)v48 )
-    ExFreePoolWithTag(Pool, 0);
-  v25 = (volatile signed __int32 *)v41;
-  if ( v41 )
+  if ( v12 )
+  {
+    if ( (v12->MdlFlags & 2) != 0 )
+      MmUnlockPages(v12);
+    ExFreePoolWithTag(v12, 0);
+  }
+  v26 = (volatile signed __int32 *)v41[0];
+  if ( v41[0] )
   {
     DbgkMapViewOfSection(
       (_KPROCESS *)Object,
       0LL,
-      *(_QWORD *)(v41 + 16),
-      (__int64)v11,
+      *(_QWORD *)(v41[0] + 16LL),
+      v10,
       Tag,
-      *(_DWORD *)(v41 + 36),
-      *(_DWORD *)(v41 + 40));
-    MiDereferenceEnclaveModule(v25);
+      *(_DWORD *)(v41[0] + 36LL),
+      *(_DWORD *)(v41[0] + 40LL));
+    MiDereferenceEnclaveModule(v26);
   }
-  if ( v42 )
-    *v42 = v37;
-  if ( a9 )
-    *a9 = v34;
-  return (unsigned int)v17;
+  if ( v37 )
+    *v37 = v38[0];
+  if ( v25 )
+    *v25 = v35[0];
+  return (unsigned int)DataIntoVsmEnclave;
 }

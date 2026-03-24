@@ -1,12 +1,12 @@
 /*
- * XREFs of OSInterruptVector @ 0x1C00BE3B0
+ * XREFs of OSInterruptVector @ 0x1C00BD980
  * Callers:
- *     ACPIInterruptInitialize @ 0x1C009E0C8 (ACPIInterruptInitialize.c)
+ *     ACPIInterruptInitialize @ 0x1C0097F74 (ACPIInterruptInitialize.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C009D86C (AcpiIrqLibSetupSciInterrupt.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  */
 
 __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
@@ -21,7 +21,7 @@ __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
   NTSTATUS v10; // [rsp+28h] [rbp-60h]
   struct _IO_CONNECT_INTERRUPT_PARAMETERS Parameters; // [rsp+30h] [rbp-58h] BYREF
 
-  memset(&Parameters, 0, 0x4CuLL);
+  memset(&Parameters, 0, sizeof(Parameters));
   DeviceExtension = ACPIInternalGetDeviceExtension(BugCheckParameter3);
   KeInitializeDpc(
     (PRKDPC)(DeviceExtension + 96),
@@ -29,19 +29,19 @@ __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
     (PVOID)DeviceExtension);
   v3 = AcpiIrqLibSetupSciInterrupt(
          *(_WORD *)(*((_QWORD *)AcpiInformation + 1) + 46LL),
-         *(void **)(DeviceExtension + 784));
+         *(void **)(DeviceExtension + 744));
   v4 = v3;
   if ( v3 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v9 = v3;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x16u,
         0xAu,
-        (__int64)&WPP_3dd25c6642953b52ee099d888ce7445f_Traceguids,
+        (__int64)&WPP_cae08db89bbe32cf0838cd0f6fe71f40_Traceguids,
         v9);
     }
     return v4;
@@ -50,7 +50,7 @@ __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
   {
     Parameters.Version = 2;
     Parameters.FullySpecified.InterruptObject = (PKINTERRUPT *)(DeviceExtension + 80);
-    v5 = *(struct _DEVICE_OBJECT **)(DeviceExtension + 784);
+    v5 = *(struct _DEVICE_OBJECT **)(DeviceExtension + 744);
     *(_WORD *)&Parameters.MessageBased.SynchronizeIrql = 0;
     Parameters.FullySpecified.PhysicalDeviceObject = v5;
     Parameters.FullySpecified.ServiceRoutine = (PKSERVICE_ROUTINE)ACPIInterruptServiceRoutine;
@@ -60,12 +60,12 @@ __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
     if ( v6 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v10 = v6;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x16u,
         0xBu,
-        (__int64)&WPP_3dd25c6642953b52ee099d888ce7445f_Traceguids,
+        (__int64)&WPP_cae08db89bbe32cf0838cd0f6fe71f40_Traceguids,
         v10);
     }
     return v7;

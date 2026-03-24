@@ -1,10 +1,10 @@
 /*
- * XREFs of zzzHideCaret @ 0x1C023AA44
+ * XREFs of zzzHideCaret @ 0x1C02418BC
  * Callers:
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  * Callees:
- *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C00726A8 (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
- *     zzzInternalHideCaret @ 0x1C00C33BC (zzzInternalHideCaret.c)
+ *     zzzInternalHideCaret @ 0x1C0067540 (zzzInternalHideCaret.c)
+ *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C0069C9C (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall zzzHideCaret(struct tagWND *a1)

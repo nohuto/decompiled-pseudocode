@@ -1,46 +1,30 @@
 /*
- * XREFs of RIMValidatePTPProperties @ 0x1C01B7D4C
+ * XREFs of RIMValidatePTPProperties @ 0x1C0181DB4
  * Callers:
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C0196000 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160150 (RIMVirtCreatePointerDeviceInfo.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMValidatePTPProperties(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMValidatePTPProperties(int a1, __int64 a2)
 {
-  __int64 v3; // rbx
-  int v4; // esi
-  unsigned int v5; // edi
+  __int64 v2; // rbx
+  unsigned int v4; // edi
 
-  v3 = a2;
-  v4 = a1;
-  v5 = -1073741668;
+  v2 = a2;
+  v4 = -1073741668;
   if ( *(_DWORD *)(a2 + 24) != 7 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( v4 == 3 && (*(_DWORD *)(v3 + 360) & 0x80u) != 0 && *(_DWORD *)(v3 + 768) <= 6u )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 21);
+  if ( a1 == 3 && (*(_DWORD *)(v2 + 312) & 0x80u) != 0 && *(_DWORD *)(v2 + 720) <= 6u )
   {
     return 0;
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        10,
-        (__int64)&WPP_26e1085b54653ae3afd03bd178f52632_Traceguids);
-    }
+    LOBYTE(a2) = 3;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 10, (__int64)&WPP_09f3a69173bf3f521b10e986f86340e6_Traceguids);
   }
-  return v5;
+  return v4;
 }

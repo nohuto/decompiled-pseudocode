@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadVPRConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B592C
+ * XREFs of ?ReadVPRConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C009517C
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadVPRConfiguration(void)
@@ -92,22 +92,22 @@ void VIDMM_GLOBAL::ReadVPRConfiguration(void)
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v8, 0LL, 0LL);
   if ( v0 > v1 && v1 )
   {
-    dword_1C006E538 = v1;
-    dword_1C006E53C = v0;
+    dword_1C00504C8 = v1;
+    dword_1C00504CC = v0;
   }
   else
   {
-    dword_1C006E538 = 4;
-    dword_1C006E53C = 5;
+    dword_1C00504C8 = 4;
+    dword_1C00504CC = 5;
   }
   if ( v2 > v3 && v3 )
   {
-    dword_1C006E540 = v3;
-    dword_1C006E544 = v2;
+    dword_1C00504D0 = v3;
+    dword_1C00504D4 = v2;
   }
   else
   {
-    dword_1C006E540 = 4;
-    dword_1C006E544 = 5;
+    dword_1C00504D0 = 4;
+    dword_1C00504D4 = 5;
   }
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of RamdiskStart @ 0x1409F9D3C
+ * XREFs of RamdiskStart @ 0x1409F9D4C
  * Callers:
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     RtlStringCbPrintfA @ 0x14017DE94 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _strupr @ 0x140194BB0 (_strupr.c)
- *     strstr @ 0x140194EA0 (strstr.c)
- *     _atoi64 @ 0x140194F00 (_atoi64.c)
- *     atol @ 0x140194F50 (atol.c)
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     RtlStringCbPrintfA @ 0x14017DEB4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _strupr @ 0x140194BD0 (_strupr.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
+ *     _atoi64 @ 0x140194F20 (_atoi64.c)
+ *     atol @ 0x140194F70 (atol.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlStringFromGUID @ 0x14058B220 (RtlStringFromGUID.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IoCreateSymbolicLink @ 0x1406CB810 (IoCreateSymbolicLink.c)
+ *     IoCreateSymbolicLink @ 0x1406CB7F0 (IoCreateSymbolicLink.c)
  */
 
 __int64 __fastcall RamdiskStart(__int64 a1)

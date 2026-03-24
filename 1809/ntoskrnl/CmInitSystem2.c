@@ -3,9 +3,9 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CmpRegisterTraceLoggingProvider @ 0x140737920 (CmpRegisterTraceLoggingProvider.c)
- *     IoCreateDriver @ 0x14073A0B0 (IoCreateDriver.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x140737900 (CmpRegisterTraceLoggingProvider.c)
+ *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
  */
 
 int CmInitSystem2()

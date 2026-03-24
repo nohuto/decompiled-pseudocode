@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCancelThreadIo @ 0x14079FC78
+ * XREFs of IoCancelThreadIo @ 0x14064C9B0
  * Callers:
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
  * Callees:
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopDisassociateThreadIrp @ 0x1405566C0 (IopDisassociateThreadIrp.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopDisassociateThreadIrp @ 0x14050072C (IopDisassociateThreadIrp.c)
  */
 
 struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
@@ -18,16 +18,16 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
   unsigned int v5; // r15d
   unsigned int v6; // r14d
   unsigned __int8 v7; // di
-  unsigned __int8 v8; // al
+  unsigned int v8; // eax
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
-  unsigned __int8 v13; // al
-  struct _KPRCB *v14; // r10
-  _DWORD *v15; // r9
-  int v16; // eax
-  unsigned int v17; // eax
+  int v12; // eax
+  bool v13; // zf
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r10
+  _DWORD *v16; // r9
+  int v17; // eax
   unsigned __int8 v18; // al
   struct _KPRCB *v19; // r9
   _DWORD *v20; // r8
@@ -50,15 +50,15 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v8 = KeGetCurrentIrql();
-        if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        v9 = KeGetCurrentIrql();
+        if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
+          v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
@@ -74,23 +74,23 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v13 = KeGetCurrentIrql();
-          if ( v13 <= 0xFu && v7 <= 0xFu && v13 >= 2u )
+          v14 = KeGetCurrentIrql();
+          if ( v14 <= 0xFu && v7 <= 0xFu && v14 >= 2u )
           {
-            v14 = KeGetCurrentPrcb();
-            v15 = v14->SchedulerAssist;
-            v16 = ~(unsigned __int16)(-1LL << (v7 + 1));
-            v12 = (v16 & v15[5]) == 0;
-            v15[5] &= v16;
-            if ( v12 )
-              KiRemoveSystemWorkPriorityKick((__int64)v14);
+            v15 = KeGetCurrentPrcb();
+            v16 = v15->SchedulerAssist;
+            v17 = ~(unsigned __int16)(-1LL << (v7 + 1));
+            v13 = (v17 & v16[5]) == 0;
+            v16[5] &= v17;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick((__int64)v15);
           }
         }
       }
       __writecr8(v7);
       KeDelayExecutionThread(0, 0, &Interval);
-      v17 = v6++;
-      if ( v17 > v5 )
+      v8 = v6++;
+      if ( v8 > v5 )
         IopDisassociateThreadIrp();
     }
     if ( KiIrqlFlags )
@@ -103,9 +103,9 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
           v19 = KeGetCurrentPrcb();
           v20 = v19->SchedulerAssist;
           v21 = ~(unsigned __int16)(-1LL << (v7 + 1));
-          v12 = (v21 & v20[5]) == 0;
+          v13 = (v21 & v20[5]) == 0;
           v20[5] &= v21;
-          if ( v12 )
+          if ( v13 )
             KiRemoveSystemWorkPriorityKick((__int64)v19);
         }
       }

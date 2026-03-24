@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpBuildKeyPath @ 0x14068DE10
+ * XREFs of VrpBuildKeyPath @ 0x1405D5420
  * Callers:
- *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
- *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
+ *     VrpTranslatePath @ 0x1405D4E34 (VrpTranslatePath.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpBuildKeyPath(PCUNICODE_STRING SourceString, PCUNICODE_STRING Source, PUNICODE_STRING Destination)
@@ -23,7 +23,7 @@ __int64 __fastcall VrpBuildKeyPath(PCUNICODE_STRING SourceString, PCUNICODE_STRI
   USHORT *v8; // r8
   NTSTATUS v9; // ebx
   unsigned __int16 *v10; // r8
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = (PCUNICODE_STRING)v13;
@@ -44,9 +44,9 @@ __int64 __fastcall VrpBuildKeyPath(PCUNICODE_STRING SourceString, PCUNICODE_STRI
   }
   else
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, *v10, 1734693462LL);
-    Destination->Buffer = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, *v10, 0x67655256u);
+    Destination->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
       RtlCopyUnicodeString(Destination, v3);
       if ( Source->Length )

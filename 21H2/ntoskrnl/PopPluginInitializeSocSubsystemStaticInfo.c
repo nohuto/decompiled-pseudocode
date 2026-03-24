@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPluginInitializeSocSubsystemStaticInfo @ 0x14098E51C
+ * XREFs of PopPluginInitializeSocSubsystemStaticInfo @ 0x1408E5C0C
  * Callers:
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x14098D0C0 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4720 (PopFxInitializeSocSubsystemStaticInfo.c)
  * Callees:
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxValidateReturnedUnicodeString @ 0x14098E284 (PopFxValidateReturnedUnicodeString.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x1408E5974 (PopFxValidateReturnedUnicodeString.c)
  */
 
 char __fastcall PopPluginInitializeSocSubsystemStaticInfo(__int64 a1, __int64 a2)

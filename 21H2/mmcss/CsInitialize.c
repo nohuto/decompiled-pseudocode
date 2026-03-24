@@ -1,28 +1,28 @@
 /*
- * XREFs of CsInitialize @ 0x1C000D320
+ * XREFs of CsInitialize @ 0x1C000D2D0
  * Callers:
- *     DriverEntry @ 0x1C000D080 (DriverEntry.c)
+ *     DriverEntry @ 0x1C000D290 (DriverEntry.c)
  * Callees:
- *     WPP_SF_D @ 0x1C0004654 (WPP_SF_D.c)
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
- *     WppLoadTracingSupport @ 0x1C000BA80 (WppLoadTracingSupport.c)
- *     WppInitKm @ 0x1C000BBD0 (WppInitKm.c)
- *     CiNdisOpenDevice @ 0x1C000BC40 (CiNdisOpenDevice.c)
- *     CiSystemInitialize @ 0x1C000D0B0 (CiSystemInitialize.c)
- *     CiSchedulerInitialize @ 0x1C000D140 (CiSchedulerInitialize.c)
- *     CiDispatchInitialize @ 0x1C000D270 (CiDispatchInitialize.c)
- *     CiConfigInitialize @ 0x1C000D4E0 (CiConfigInitialize.c)
+ *     WPP_SF_D @ 0x1C00043A4 (WPP_SF_D.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
+ *     WppLoadTracingSupport @ 0x1C000BDB0 (WppLoadTracingSupport.c)
+ *     WppInitKm @ 0x1C000BF00 (WppInitKm.c)
+ *     CiNdisOpenDevice @ 0x1C000BF70 (CiNdisOpenDevice.c)
+ *     CiConfigInitialize @ 0x1C000D490 (CiConfigInitialize.c)
+ *     CiDispatchInitialize @ 0x1C000E050 (CiDispatchInitialize.c)
+ *     CiSchedulerInitialize @ 0x1C000E100 (CiSchedulerInitialize.c)
+ *     CiSystemInitialize @ 0x1C000E230 (CiSystemInitialize.c)
  */
 
-__int64 __fastcall CsInitialize(struct _DRIVER_OBJECT *a1)
+__int64 __fastcall CsInitialize(__int64 a1)
 {
   __int64 v2; // rdx
-  int ThreadNotifyRoutine; // ebx
+  NTSTATUS ThreadNotifyRoutine; // ebx
   __int64 v4; // r8
   _DWORD v6[2]; // [rsp+20h] [rbp-28h] BYREF
   __int64 (__fastcall **v7)(); // [rsp+28h] [rbp-20h]
   __int64 *v8; // [rsp+30h] [rbp-18h]
-  struct _DRIVER_OBJECT *v9; // [rsp+38h] [rbp-10h]
+  __int64 v9; // [rsp+38h] [rbp-10h]
 
   WPP_MAIN_CB.Timer = (PIO_TIMER)1;
   *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;
@@ -69,10 +69,13 @@ __int64 __fastcall CsInitialize(struct _DRIVER_OBJECT *a1)
         else
         {
           CiThreadCallbackRegistered = 1;
-          v7 = &CiKernelCalloutTable;
+        }
+        if ( ThreadNotifyRoutine >= 0 )
+        {
           v6[1] = 1;
+          v7 = &CiKernelCalloutTable;
+          v6[0] = 65545;
           v8 = &CiKernelInterface;
-          v6[0] = 131081;
           v9 = a1;
           ThreadNotifyRoutine = ExRegisterExtension(&CiKernelExtensionRegistration, 0x10000LL, v6);
           if ( ThreadNotifyRoutine >= 0 )

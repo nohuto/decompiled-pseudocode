@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmAllocCtxMarkHiberPhase @ 0x140A957DC
+ * XREFs of HalpMmAllocCtxMarkHiberPhase @ 0x1409A7010
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A95D60 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140996610 (HaliLocateHiberRanges.c)
  * Callees:
- *     RtlAreBitsClear @ 0x140220900 (RtlAreBitsClear.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     RtlAreBitsClear @ 0x1403621A0 (RtlAreBitsClear.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
  */
 
 void HalpMmAllocCtxMarkHiberPhase()
@@ -12,8 +12,8 @@ void HalpMmAllocCtxMarkHiberPhase()
   __int64 i; // rbx
   unsigned __int64 v1; // rdi
   ULONG v2; // r14d
-  char *j; // rbp
-  __int64 v4; // rsi
+  char *j; // rsi
+  __int64 v4; // rbp
 
   for ( i = HalpNPPoolAllocCtx; (__int64 *)i != &HalpNPPoolAllocCtx; i = *(_QWORD *)i )
   {

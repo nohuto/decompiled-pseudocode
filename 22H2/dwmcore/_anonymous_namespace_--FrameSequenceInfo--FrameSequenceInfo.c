@@ -1,25 +1,23 @@
 /*
- * XREFs of _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x1800365F4
+ * XREFs of _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x1800501EC
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180036054 (_anonymous_namespace_--SealCurrentFrameSequence.c)
- *     std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const_&_ @ 0x1800F5E80 (std--vector__anonymous_namespace_--FrameSequenceInfo_std--allocator__anonymous_namespace_--Frame.c)
+ *     std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const_&_ @ 0x1800283F0 (std--vector__anonymous_namespace_--FrameSequenceInfo_std--allocator__anonymous_namespace_--Frame.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028600 (_anonymous_namespace_--SealCurrentFrameSequence.c)
  * Callees:
- *     ??$_Get_size_of_n@$0CI@@std@@YA_K_K@Z @ 0x180036A74 (--$_Get_size_of_n@$0CI@@std@@YA_K_K@Z.c)
- *     ??$_Copy@U_Copy_tag@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@IEAAXAEBV01@U_Copy_tag@01@@Z @ 0x180036AA4 (--$_Copy@U_Copy_tag@-$_Tree@V-$_Tset_traits@_KU-$less@_K@std@@V-$allocator@_K@2@$0A@@std@@@std@@.c)
- *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036F08 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0x155a666c--Animat.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x18004FCA0 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0xd20_ea_18004FCA0.c)
+ *     ??$_Copy@U_Copy_tag@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@IEAAXAEBV01@U_Copy_tag@01@@Z @ 0x180050630 (--$_Copy@U_Copy_tag@-$_Tree@V-$_Tset_traits@_KU-$less@_K@std@@V-$allocator@_K@2@$0A@@std@@@std@@.c)
+ *     ??$_Buyheadnode@V?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@std@@@?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@SAPEAU01@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@1@@Z @ 0x180050AD8 (--$_Buyheadnode@V-$allocator@U-$_Tree_node@U-$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEA.c)
  */
 
 __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo(__int64 a1, __int64 a2)
 {
   __int64 *v4; // rbx
-  SIZE_T size_of; // rax
-  __int64 v6; // rax
-  __int64 v7; // r8
-  SIZE_T v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // r8
-  char v12; // [rsp+30h] [rbp+8h]
+  __int64 v5; // rax
+  __int64 v6; // r8
+  __int64 v7; // rax
+  __int64 v8; // r8
+  char v9; // r8
+  char v11; // [rsp+30h] [rbp+8h]
 
   *(_DWORD *)a1 = *(_DWORD *)a2;
   *(_DWORD *)(a1 + 4) = *(_DWORD *)(a2 + 4);
@@ -114,35 +112,26 @@ __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo(__
   *(_DWORD *)(a1 + 404) = *(_DWORD *)(a2 + 404);
   *(_QWORD *)(a1 + 408) = 0LL;
   *(_QWORD *)(a1 + 416) = 0LL;
-  size_of = std::_Get_size_of_n<40>(1LL);
-  v6 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  LOBYTE(v7) = v12;
-  *(_QWORD *)v6 = v6;
-  *(_QWORD *)(v6 + 8) = v6;
-  *(_QWORD *)(v6 + 16) = v6;
-  *(_WORD *)(v6 + 24) = 257;
-  *v4 = v6;
+  v5 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
+  LOBYTE(v6) = v11;
+  *v4 = v5;
   std::_Tree<std::_Tset_traits<unsigned __int64,std::less<unsigned __int64>,std::allocator<unsigned __int64>,0>>::_Copy<std::_Tree<std::_Tset_traits<unsigned __int64,std::less<unsigned __int64>,std::allocator<unsigned __int64>,0>>::_Copy_tag>(
     v4,
     a2 + 408,
-    v7);
+    v6);
   *(_QWORD *)(a1 + 424) = 0LL;
   *(_QWORD *)(a1 + 432) = 0LL;
-  v8 = std::_Get_size_of_n<40>(1LL);
-  v9 = std::_Allocate<16,std::_Default_allocate_traits,0>(v8);
-  LOBYTE(v10) = v12;
-  *(_QWORD *)v9 = v9;
-  *(_QWORD *)(v9 + 8) = v9;
-  *(_QWORD *)(v9 + 16) = v9;
-  *(_WORD *)(v9 + 24) = 257;
-  *(_QWORD *)(a1 + 424) = v9;
+  v7 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
+  LOBYTE(v8) = v11;
+  *(_QWORD *)(a1 + 424) = v7;
   std::_Tree<std::_Tset_traits<unsigned __int64,std::less<unsigned __int64>,std::allocator<unsigned __int64>,0>>::_Copy<std::_Tree<std::_Tset_traits<unsigned __int64,std::less<unsigned __int64>,std::allocator<unsigned __int64>,0>>::_Copy_tag>(
     a1 + 424,
     a2 + 424,
-    v10);
-  std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______(
+    v8);
+  std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______(
     a1 + 440,
-    a2 + 440);
+    a2 + 440,
+    v9);
   *(_QWORD *)(a1 + 464) = *(_QWORD *)(a2 + 464);
   *(_QWORD *)(a1 + 472) = *(_QWORD *)(a2 + 472);
   return a1;

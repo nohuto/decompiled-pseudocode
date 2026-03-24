@@ -1,75 +1,68 @@
 /*
- * XREFs of ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5D28
+ * XREFs of ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x18005E384
  * Callers:
- *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E57F0 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x18005DEE8 (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
+ *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x18005F348 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0B2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180027588 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
- *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800275DC (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180046014 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x180046068 (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, __int64 a2, unsigned int *a3)
+__int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, int a2, unsigned int *a3)
 {
-  unsigned int v3; // ebx
-  unsigned int v5; // edx
-  int v6; // r8d
-  int v7; // eax
-  unsigned int v8; // edi
-  char *v9; // r9
+  unsigned int v4; // edi
+  unsigned int v7; // edx
+  __int64 i; // rax
+  unsigned int v9; // esi
   int v10; // eax
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // eax
+  unsigned int v12; // eax
+  int v13; // eax
+  __int64 v14; // rcx
   int v15; // eax
   __int64 v16; // rcx
 
-  v3 = 0;
-  if ( dword_1803E3B2C >= 0x400
-    || (v12 = HANDLE_TABLE::Resize((HANDLE_TABLE *)&CInteraction::s_InteractionHandleTable, 0x400u), v3 = v12, v12 >= 0) )
+  v4 = 0;
+  if ( *((_DWORD *)this + 3) >= 0x400u || (v13 = HANDLE_TABLE::Resize(this, 0x400u), v4 = v13, v13 >= 0) )
   {
     *a3 = 0;
-    v5 = dword_1803E3B30;
-    v6 = Size;
-    v7 = dword_1803E3B30;
-    v8 = dword_1803E3B2C;
-    v9 = (char *)lpMem;
-    while ( *(_DWORD *)((char *)lpMem + (unsigned int)(Size * v7)) )
+    v7 = *((_DWORD *)this + 4);
+    for ( i = v7 * *((_DWORD *)this + 2); *(_DWORD *)(i + *((_QWORD *)this + 3)); i = *((_DWORD *)this + 2) * v7 )
     {
-      v14 = v5 + 1;
-      v5 = 1;
-      if ( v14 != dword_1803E3B2C )
-        v5 = v14;
-      if ( v5 == dword_1803E3B30 )
+      v12 = v7 + 1;
+      v7 = 1;
+      if ( v12 != *((_DWORD *)this + 3) )
+        v7 = v12;
+      if ( v7 == *((_DWORD *)this + 4) )
       {
-        v5 = 0;
+        v7 = 0;
         break;
       }
-      v7 = v5;
     }
-    v10 = v5 + 1;
-    if ( v5 + 1 == dword_1803E3B2C )
+    v9 = *((_DWORD *)this + 3);
+    v10 = v7 + 1;
+    if ( v7 + 1 == v9 )
       v10 = 1;
-    dword_1803E3B30 = v10;
-    if ( !v5 )
+    *((_DWORD *)this + 4) = v10;
+    if ( !v7 )
     {
-      v15 = HANDLE_TABLE::ResizeToFit((HANDLE_TABLE *)&CInteraction::s_InteractionHandleTable, dword_1803E3B2C);
-      v3 = v15;
+      v15 = HANDLE_TABLE::ResizeToFit(this, v9);
+      v4 = v15;
       if ( v15 < 0 )
       {
         MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x154u, 0LL);
-        return v3;
+        return v4;
       }
-      v9 = (char *)lpMem;
-      v6 = Size;
-      v5 = v8;
-      dword_1803E3B30 = v8 + 1;
+      v7 = v9;
+      *((_DWORD *)this + 4) = v9 + 1;
     }
-    *(_DWORD *)&v9[v6 * v5] = 89;
-    *a3 = v5;
+    *(_DWORD *)(v7 * *((_DWORD *)this + 2) + *((_QWORD *)this + 3)) = a2;
+    *a3 = v7;
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x11Eu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x11Eu, 0LL);
   }
-  return v3;
+  return v4;
 }

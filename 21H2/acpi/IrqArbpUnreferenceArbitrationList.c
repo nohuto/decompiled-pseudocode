@@ -1,17 +1,17 @@
 /*
- * XREFs of IrqArbpUnreferenceArbitrationList @ 0x1C009A974
+ * XREFs of IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC
  * Callers:
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009C700 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_DDq @ 0x1C0023C70 (WPP_RECORDER_SF_DDq.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C006C894 (ProcessorDeleteDeviceIdtAssignment.c)
- *     IcGetPossibleInput @ 0x1C0097288 (IcGetPossibleInput.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009A1D0 (ProcessorGetDeviceIdtAssignment.c)
- *     IrqArbGsivFromIrq @ 0x1C009A2C0 (IrqArbGsivFromIrq.c)
- *     LinkNodeGetPossibleGsiv @ 0x1C00B5F4C (LinkNodeGetPossibleGsiv.c)
- *     IcRemovePossibleReference @ 0x1C00B7154 (IcRemovePossibleReference.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_DDq @ 0x1C000F830 (WPP_RECORDER_SF_DDq.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     IcRemovePossibleReference @ 0x1C0096A68 (IcRemovePossibleReference.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C00B68E4 (LinkNodeGetPossibleGsiv.c)
  */
 
 __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, __int64 ***a2)
@@ -60,7 +60,7 @@ __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, __int64 ***a2)
           4u,
           0x14u,
           0x14u,
-          (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
+          (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
       if ( Range->Owner == j[4] )
       {
         v11 = UserData[1];
@@ -80,7 +80,7 @@ __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, __int64 ***a2)
                   4u,
                   v18 + 20,
                   v18 + 21,
-                  (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
+                  (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
               LOBYTE(v17) = Range->Attributes & 1;
               IcRemovePossibleReference(v16, v17);
             }
@@ -93,7 +93,7 @@ __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, __int64 ***a2)
                   4u,
                   0x14u,
                   0x16u,
-                  (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
+                  (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
               ProcessorDeleteDeviceIdtAssignment(j[4], v16, v19, 1);
             }
             v12 = Range;

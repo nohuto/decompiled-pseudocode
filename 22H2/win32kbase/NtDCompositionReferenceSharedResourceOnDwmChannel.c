@@ -1,39 +1,37 @@
 /*
- * XREFs of NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C00318F0
+ * XREFs of NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005DFD0
  * Callers:
  *     <none>
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C001B580 (UserIsCurrentProcessDwm.c)
- *     ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C002671C (-IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYP.c)
- *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C002715C (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
- *     ?AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z @ 0x1C0030FAC (-AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z.c)
- *     ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0031D40 (-ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserIsCurrentProcessDwm @ 0x1C0048F20 (UserIsCurrentProcessDwm.c)
+ *     ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C005E140 (-IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYP.c)
+ *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C005EAF4 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ *     ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005FC30 (-ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z @ 0x1C006048C (-AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionReferenceSharedResourceOnDwmChannel(
         __int64 a1,
         void *a2,
-        __int64 a3,
+        unsigned int a3,
         _DWORD *a4,
-        int *a5)
+        unsigned int *a5)
 {
-  unsigned int v6; // r13d
   unsigned int v8; // edi
   int v9; // r12d
-  int v10; // ebx
+  unsigned int v10; // ebx
   int v11; // edi
-  PVOID v12; // r14
-  struct DirectComposition::CDwmChannel *v13; // rsi
-  struct DirectComposition::CDwmChannel *v15; // [rsp+20h] [rbp-28h] BYREF
-  PVOID Object; // [rsp+28h] [rbp-20h] BYREF
+  _QWORD *v12; // rsi
+  struct DirectComposition::CDwmChannel *v13; // r14
+  struct DirectComposition::CDwmChannel *v15; // [rsp+28h] [rbp-30h] BYREF
+  PVOID Object; // [rsp+30h] [rbp-28h] BYREF
 
-  v6 = a3;
   v8 = a1;
   v9 = 0;
   v10 = 0;
-  if ( UserIsCurrentProcessDwm(a1, (__int64)a2, a3) )
+  if ( UserIsCurrentProcessDwm(a1, (__int64)a2) )
   {
     v15 = 0LL;
     v11 = DirectComposition::CDwmChannel::ReferenceHandleAndLock(v8, &v15);
@@ -48,13 +46,13 @@ __int64 __fastcall NtDCompositionReferenceSharedResourceOnDwmChannel(
       if ( v11 >= 0 )
       {
         v12 = Object;
-        if ( DirectComposition::CConnection::IsSystemResourceOfType(
-               *((_QWORD *)Object + 6),
-               *((_DWORD *)Object + 10),
-               v6) )
+        if ( (unsigned __int8)DirectComposition::CConnection::IsSystemResourceOfType(
+                                *((_QWORD *)Object + 5),
+                                *((unsigned int *)Object + 12),
+                                a3) )
         {
-          v9 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v12 + 6) + 152LL) + 28LL);
-          v10 = *((_DWORD *)v12 + 10);
+          v9 = *(_DWORD *)(*(_QWORD *)(v12[5] + 152LL) + 28LL);
+          v10 = *((_DWORD *)v12 + 12);
           v13 = v15;
           DirectComposition::CApplicationChannel::PreallocateNextBatch(v15);
           v11 = DirectComposition::CBatch::AddSystemResourceRef(*((_QWORD *)v13 + 21), v10);

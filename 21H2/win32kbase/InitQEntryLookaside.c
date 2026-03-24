@@ -1,28 +1,16 @@
 /*
- * XREFs of InitQEntryLookaside @ 0x1C02E364C
+ * XREFs of InitQEntryLookaside @ 0x1C0299EC0
  * Callers:
- *     Win32UserInitialize @ 0x1C02E231C (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0298BBC (Win32UserInitialize.c)
  * Callees:
- *     ?AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z @ 0x1C00BC680 (-AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z.c)
+ *     Win32AllocPagedLookasideList @ 0x1C006B6E0 (Win32AllocPagedLookasideList.c)
  */
 
-__int64 __fastcall InitQEntryLookaside(NSInstrumentation::CLeakTrackingAllocator *a1)
+__int64 InitQEntryLookaside()
 {
-  NSInstrumentation::CLeakTrackingAllocator *v1; // rcx
-
-  QEntryLookaside = NSInstrumentation::CLeakTrackingAllocator::AllocatePagedLookasideList(
-                      a1,
-                      0xA0uLL,
-                      1634497365,
-                      0x6D717355u,
-                      0x10u);
+  QEntryLookaside = Win32AllocPagedLookasideList(160LL, 0x616C7355u, 0x6D717355u, 0x10u);
   if ( QEntryLookaside
-    && (QLookaside = NSInstrumentation::CLeakTrackingAllocator::AllocatePagedLookasideList(
-                       v1,
-                       0x1E8uLL,
-                       1634497365,
-                       0x75717355u,
-                       0x10u)) != 0LL )
+    && (QLookaside = (void *)Win32AllocPagedLookasideList(488LL, 0x616C7355u, 0x75717355u, 0x10u)) != 0LL )
   {
     return 0LL;
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnPrefetchCacheCtxStart @ 0x14075937C
+ * XREFs of PfSnPrefetchCacheCtxStart @ 0x14075935C
  * Callers:
- *     PfSnPrefetchCacheEntryGet @ 0x140668158 (PfSnPrefetchCacheEntryGet.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140668138 (PfSnPrefetchCacheEntryGet.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */

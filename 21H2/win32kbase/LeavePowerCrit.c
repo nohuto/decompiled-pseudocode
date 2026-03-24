@@ -1,5 +1,5 @@
 /*
- * XREFs of LeavePowerCrit @ 0x1C007E730
+ * XREFs of LeavePowerCrit @ 0x1C0077C50
  * Callers:
  *     <none>
  * Callees:

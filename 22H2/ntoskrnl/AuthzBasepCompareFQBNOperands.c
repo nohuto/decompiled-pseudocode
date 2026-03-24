@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepCompareFQBNOperands @ 0x14066F2D0
+ * XREFs of AuthzBasepCompareFQBNOperands @ 0x1405C17D0
  * Callers:
- *     AuthzBasepEvaluateExpression @ 0x14030BD74 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepValueInSet @ 0x14030BE18 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024EC90 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024F7D8 (AuthzBasepValueInSet.c)
  * Callees:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D1B0 (AuthzBasepUnicodeStringFromOperandValue.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14030C1D0 (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     RtlIsNameInExpression @ 0x14030C230 (RtlIsNameInExpression.c)
- *     AuthzBasepGetConstantOperand @ 0x140355170 (AuthzBasepGetConstantOperand.c)
- *     AuthzBasepCompareUnsigned @ 0x14066F7C0 (AuthzBasepCompareUnsigned.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14024E730 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepGetConstantOperand @ 0x14024EBE8 (AuthzBasepGetConstantOperand.c)
+ *     RtlIsNameInExpression @ 0x14024F160 (RtlIsNameInExpression.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14024F780 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     AuthzBasepCompareUnsigned @ 0x1405C1CC4 (AuthzBasepCompareUnsigned.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
@@ -46,8 +46,7 @@ __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
 
   v25 = 0;
   memset(v31, 0, sizeof(v31));
-  LODWORD(v32) = 0;
-  WORD2(v32) = 0;
+  v32 = 0LL;
   v27 = 0LL;
   v28 = 0LL;
   v24[0] = 0;
@@ -81,7 +80,7 @@ __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
           goto LABEL_4;
         }
         OperandStringCaseForEvaluation = AuthzBasepGetConstantOperand(
-                                           *(unsigned __int8 **)(v12 + 8),
+                                           *(char **)(v12 + 8),
                                            *(_DWORD *)v12,
                                            (__int64)v31,
                                            (int *)&v25);
@@ -97,7 +96,7 @@ __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
         if ( OperandStringCaseForEvaluation < 0 )
           goto LABEL_4;
         OperandStringCaseForEvaluation = AuthzBasepGetConstantOperand(
-                                           (unsigned __int8 *)(*(_QWORD *)(v12 + 8) + v25),
+                                           (char *)(*(_QWORD *)(v12 + 8) + v25),
                                            *(_DWORD *)v12 - v25,
                                            (__int64)v31,
                                            (int *)&v25);

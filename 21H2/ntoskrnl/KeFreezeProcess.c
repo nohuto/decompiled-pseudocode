@@ -1,31 +1,37 @@
 /*
- * XREFs of KeFreezeProcess @ 0x1402443D8
+ * XREFs of KeFreezeProcess @ 0x1402830E8
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x140580DB8 (MiReAcquireOutSwappedProcessCommit.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
  * Callees:
- *     KiFreezeSingleThread @ 0x140244508 (KiFreezeSingleThread.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiFreezeSingleThread @ 0x1402831E8 (KiFreezeSingleThread.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
 {
-  char CurrentIrql; // bp
-  struct _KPRCB *CurrentPrcb; // r14
-  volatile LONG *v6; // r12
-  __int64 v7; // r8
-  int v8; // ecx
-  unsigned int v9; // esi
-  _QWORD *v10; // rdi
+  unsigned __int8 CurrentIrql; // di
+  struct _KPRCB *CurrentPrcb; // r15
+  volatile LONG *v6; // r14
+  int v7; // eax
+  unsigned int v8; // esi
+  _QWORD *v9; // rsi
   _QWORD *i; // rbx
+  _QWORD *v11; // rdx
   _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // rax
+  _DWORD *v16; // r9
+  int v17; // edx
+  bool v18; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
@@ -33,27 +39,51 @@ __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
   CurrentPrcb = KeGetCurrentPrcb();
   v6 = (volatile LONG *)(a1 + 64);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  v8 = *(_DWORD *)(a1 + 888);
-  v9 = v8 + ((*(_DWORD *)(a1 + 632) >> 3) & 1);
+  v7 = *(_DWORD *)(a1 + 888);
+  v8 = v7 + ((*(_DWORD *)(a1 + 632) >> 3) & 1);
   if ( a2 )
   {
-    *(_QWORD *)(a1 + 72) = KiQueryUnbiasedInterruptTime(0LL);
+    *(_QWORD *)(a1 + 72) = KiQueryUnbiasedInterruptTime();
     _interlockedbittestandset((volatile signed __int32 *)(a1 + 632), 3u);
   }
   else
   {
-    *(_DWORD *)(a1 + 888) = v8 + 1;
-    if ( v8 )
-      goto LABEL_7;
+    *(_DWORD *)(a1 + 888) = v7 + 1;
   }
-  v10 = (_QWORD *)(a1 + 48);
-  for ( i = *(_QWORD **)(a1 + 48); i != v10; i = (_QWORD *)*i )
+  if ( v8 )
   {
-    LOBYTE(v7) = a2;
-    KiFreezeSingleThread(CurrentPrcb, i - 95, v7);
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v14 = KeGetCurrentIrql();
+        if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+        {
+          v15 = KeGetCurrentPrcb();
+          v16 = v15->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v18 = (v17 & v16[5]) == 0;
+          v16[5] &= v17;
+          if ( v18 )
+            KiRemoveSystemWorkPriorityKick(v15);
+        }
+      }
+    }
+    __writecr8(CurrentIrql);
+    return v8;
   }
-LABEL_7:
-  ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
-  return v9;
+  else
+  {
+    v9 = (_QWORD *)(a1 + 48);
+    for ( i = *(_QWORD **)(a1 + 48); i != v9; i = (_QWORD *)*i )
+    {
+      v11 = i - 95;
+      if ( a2 || (*((_DWORD *)v11 + 29) & 0x200000) == 0 )
+        KiFreezeSingleThread(CurrentPrcb, v11);
+    }
+    ExReleaseSpinLockExclusiveFromDpcLevel(v6);
+    KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
+    return 0LL;
+  }
 }

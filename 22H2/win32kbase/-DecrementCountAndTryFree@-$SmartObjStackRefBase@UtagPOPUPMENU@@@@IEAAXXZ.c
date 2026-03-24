@@ -1,18 +1,27 @@
 /*
- * XREFs of ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ @ 0x1C012CF04
+ * XREFs of ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ @ 0x1C011C654
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C012CD1C (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ??1?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C011C53C (--1-$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ.c)
  * Callees:
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C00946EC (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002CF10 (Win32FreeToPagedLookasideList.c)
  */
 
-void __fastcall SmartObjStackRefBase<tagPOPUPMENU>::DecrementCountAndTryFree(
-        NSInstrumentation::CLeakTrackingAllocator *a1)
+__int64 (*__fastcall SmartObjStackRefBase<tagPOPUPMENU>::DecrementCountAndTryFree(__int64 *a1))(void)
 {
-  if ( *(_UNKNOWN **)a1 != &gSmartObjNullRef && !--*(_DWORD *)(*(_QWORD *)a1 + 8LL) )
+  __int64 (*result)(void); // rax
+
+  result = (__int64 (*)(void))*a1;
+  if ( (_UNKNOWN *)*a1 != &gSmartObjNullRef )
   {
-    if ( *(_BYTE *)(*(_QWORD *)a1 + 12LL) )
-      NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(a1, (char *)gpStackRefLookAside, *(char **)a1);
+    --*(_DWORD *)(*a1 + 8);
+    result = (__int64 (*)(void))*a1;
+    if ( !*(_DWORD *)(*a1 + 8) )
+    {
+      result = (__int64 (*)(void))*a1;
+      if ( *(_BYTE *)(*a1 + 12) )
+        return Win32FreeToPagedLookasideList((__int64)gpStackRefLookAside, *a1);
+    }
   }
+  return result;
 }

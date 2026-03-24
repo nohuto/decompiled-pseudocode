@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCSparseBitmapStart @ 0x140372070
+ * XREFs of RtlCSparseBitmapStart @ 0x14039D950
  * Callers:
- *     RtlHpHeapManagerStart @ 0x14036EDD4 (RtlHpHeapManagerStart.c)
- *     RtlpHpVaMgrCtxStart @ 0x140371D3C (RtlpHpVaMgrCtxStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
+ *     RtlpHpVaMgrCtxStart @ 0x14039D858 (RtlpHpVaMgrCtxStart.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x140352090 (RtlpHpEnvAllocVA.c)
- *     RtlpEnvRegisterFaultRange @ 0x1403721D8 (RtlpEnvRegisterFaultRange.c)
+ *     RtlpHpEnvAllocVA @ 0x14030AF2C (RtlpHpEnvAllocVA.c)
+ *     RtlpEnvRegisterFaultRange @ 0x14039DABC (RtlpEnvRegisterFaultRange.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, unsigned __int8 a3, int a4)
@@ -19,11 +19,13 @@ __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, unsign
   int v11; // r9d
   int v12; // r8d
   __int64 v13; // rcx
-  __int64 v14; // [rsp+38h] [rbp-30h]
-  __int64 v15; // [rsp+38h] [rbp-30h]
+  unsigned __int64 v14; // [rsp+38h] [rbp-30h]
+  unsigned __int64 v15; // [rsp+38h] [rbp-30h]
   unsigned __int64 v16; // [rsp+70h] [rbp+8h] BYREF
   unsigned __int64 v17; // [rsp+78h] [rbp+10h] BYREF
+  int v18; // [rsp+80h] [rbp+18h]
 
+  v18 = 0;
   *(_QWORD *)(a1 + 24) = 0LL;
   *(_QWORD *)(a1 + 40) = 0LL;
   *(_BYTE *)(a1 + 49) = a3;
@@ -40,7 +42,16 @@ __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, unsign
     return 2147483653LL;
   v8 = (__int64 *)(a1 + 8);
   v16 = v6 + v5;
-  result = RtlpHpEnvAllocVA((__int64 *)(a1 + 8), (__int64 *)&v16, 0LL, 1056768, 4, a3, (unsigned __int8)a4, v14, 0);
+  result = RtlpHpEnvAllocVA(
+             (unsigned __int64 *)(a1 + 8),
+             (__int64 *)&v16,
+             0LL,
+             1056768,
+             4,
+             a3,
+             (unsigned __int8)a4,
+             v14,
+             0);
   if ( (int)result >= 0 )
   {
     _BitScanForward64(&v10, v16);
@@ -55,7 +66,7 @@ __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, unsign
       if ( v6 <= 0x1000 )
       {
         result = RtlpHpEnvAllocVA(
-                   (__int64 *)a1,
+                   (unsigned __int64 *)a1,
                    (__int64 *)&v17,
                    0LL,
                    1073745920,

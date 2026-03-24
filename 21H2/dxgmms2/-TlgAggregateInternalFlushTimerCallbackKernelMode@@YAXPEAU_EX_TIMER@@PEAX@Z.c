@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0047120
+ * XREFs of ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003E520
  * Callers:
  *     <none>
  * Callees:
- *     EnableFlushTimer @ 0x1C0046BA4 (EnableFlushTimer.c)
+ *     EnableFlushTimer @ 0x1C003DFB0 (EnableFlushTimer.c)
  */
 
 void __fastcall TlgAggregateInternalFlushTimerCallbackKernelMode(struct _EX_TIMER *a1, volatile signed __int16 *a2)

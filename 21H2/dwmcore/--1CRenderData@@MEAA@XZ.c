@@ -1,48 +1,32 @@
 /*
- * XREFs of ??1CRenderData@@MEAA@XZ @ 0x180043E4C
+ * XREFs of ??1CRenderData@@MEAA@XZ @ 0x18003721C
  * Callers:
- *     ??_GCRenderData@@MEAAPEAXI@Z @ 0x180041B40 (--_GCRenderData@@MEAAPEAXI@Z.c)
+ *     ??_GCRenderData@@MEAAPEAXI@Z @ 0x180036F40 (--_GCRenderData@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800055CC (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@s.c)
- *     ?DestroyRenderData@CRenderData@@AEAAXXZ @ 0x180044574 (-DestroyRenderData@CRenderData@@AEAAXXZ.c)
- *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1800446D4 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?DestroyRenderData@CRenderData@@AEAAXXZ @ 0x18003771C (-DestroyRenderData@CRenderData@@AEAAXXZ.c)
+ *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x180037848 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180062734 (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
-void __fastcall CRenderData::~CRenderData(CRenderData *this)
+void __fastcall CRenderData::~CRenderData(struct _LIST_ENTRY *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  char *v4; // rcx
+  __int64 Flink_high; // rdx
+  __int64 Blink_low; // rcx
+  CDataStreamWriter *v4; // rcx
   CDataStreamWriter *v5; // rcx
-  CDataStreamWriter *v6; // rcx
 
-  *(_QWORD *)this = &CRenderData::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CRenderData::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CRenderData::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 248;
-  v3 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 264;
-  CRenderData::DestroyRenderData(this);
-  v4 = (char *)*((_QWORD *)this + 21);
-  if ( v4 )
-  {
-    std::_Destroy_range<std::allocator<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>>(
-      v4,
-      *((char **)this + 22));
-    std::_Deallocate<16,0>(
-      *((_QWORD *)this + 21),
-      (*((_QWORD *)this + 23) - *((_QWORD *)this + 21)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 21) = 0LL;
-    *((_QWORD *)this + 22) = 0LL;
-    *((_QWORD *)this + 23) = 0LL;
-  }
-  DynArrayImpl<1>::~DynArrayImpl<1>((char *)this + 136);
-  CDataStreamWriter::FreeBlocks(v5, (struct _LIST_ENTRY *)((char *)this + 72));
-  DefaultHeap::Free(*((void **)this + 13));
-  CDataStreamWriter::FreeBlocks(v6, (struct _LIST_ENTRY *)((char *)this + 88));
-  CResource::~CResource(this);
+  this->Flink = (struct _LIST_ENTRY *)&CRenderData::`vftable';
+  *(struct _LIST_ENTRY **)((char *)&this[3].Blink + SHIDWORD(this[3].Blink->Flink)) = (struct _LIST_ENTRY *)&CWICBitmapWrapper::`vftable'{for `IUnknown'};
+  *(struct _LIST_ENTRY **)((char *)&this[3].Blink + SLODWORD(this[3].Blink->Blink)) = (struct _LIST_ENTRY *)&CRenderData::`vftable'{for `IContent'};
+  Flink_high = SHIDWORD(this[3].Blink->Flink);
+  *(_DWORD *)((char *)&this[3].Flink + Flink_high + 4) = Flink_high - 224;
+  Blink_low = SLODWORD(this[3].Blink->Blink);
+  *(_DWORD *)((char *)&this[3].Flink + Blink_low + 4) = Blink_low - 240;
+  CRenderData::DestroyRenderData((CRenderData *)this);
+  DynArrayImpl<1>::~DynArrayImpl<1>(&this[8]);
+  CDataStreamWriter::FreeBlocks(v4, this + 4);
+  operator delete(this[6].Flink);
+  CDataStreamWriter::FreeBlocks(v5, this + 5);
+  CResource::~CResource((CResource *)this);
 }

@@ -1,66 +1,58 @@
 /*
- * XREFs of PpmReleaseLock @ 0x14032C0A0
+ * XREFs of PpmReleaseLock @ 0x14022A470
  * Callers:
- *     PoNotifyVSyncChange @ 0x14032BE00 (PoNotifyVSyncChange.c)
- *     PpmCheckRun @ 0x14032C010 (PpmCheckRun.c)
- *     PpmHeteroHgsBackupInit @ 0x1403ABBD4 (PpmHeteroHgsBackupInit.c)
- *     PpmMediaBufferingWorker @ 0x1403AC410 (PpmMediaBufferingWorker.c)
- *     PpmClearExitLatencySamplingPercentage @ 0x140584094 (PpmClearExitLatencySamplingPercentage.c)
- *     PpmSetExitLatencySamplingPercentage @ 0x140585C1C (PpmSetExitLatencySamplingPercentage.c)
- *     PpmPerfGetVmPerfConfig @ 0x14058D1B4 (PpmPerfGetVmPerfConfig.c)
- *     PpmPerfGetVmPerfSupport @ 0x14058D3B4 (PpmPerfGetVmPerfSupport.c)
- *     PpmRegisterPerfCap @ 0x14058D4A0 (PpmRegisterPerfCap.c)
- *     PpmCheckPausePpmEngineForSx @ 0x140596418 (PpmCheckPausePpmEngineForSx.c)
- *     PpmCheckResumePpmEngineFromSx @ 0x14059645C (PpmCheckResumePpmEngineFromSx.c)
- *     PopDeepSleepEvaluateCallback @ 0x1405984E0 (PopDeepSleepEvaluateCallback.c)
- *     PpmParkSetLpiCap @ 0x14059D31C (PpmParkSetLpiCap.c)
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6860 (PpmPerfUpdateDomainPolicy.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PpmInfoReleaseLocks @ 0x14082E150 (PpmInfoReleaseLocks.c)
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PpmPerfGetFrequencyBandStats @ 0x140841B88 (PpmPerfGetFrequencyBandStats.c)
- *     PpmRegisterProfiles @ 0x14084AD78 (PpmRegisterProfiles.c)
- *     PpmIdleGetPackageIdleIntervalStats @ 0x14084F5E0 (PpmIdleGetPackageIdleIntervalStats.c)
- *     PpmIdleGetConcurrencyStats @ 0x14085E95C (PpmIdleGetConcurrencyStats.c)
- *     PopPpmHeteroPolicyCallback @ 0x1408646F0 (PopPpmHeteroPolicyCallback.c)
- *     PpmEventTraceControlCallback @ 0x1408650B0 (PpmEventTraceControlCallback.c)
- *     PpmPerfTelemetryWorker @ 0x140885130 (PpmPerfTelemetryWorker.c)
- *     PopWnfFullscreenVideoCallback @ 0x1409846C0 (PopWnfFullscreenVideoCallback.c)
- *     PpmClearSimulatedLoad @ 0x1409868A0 (PpmClearSimulatedLoad.c)
- *     PpmPerfGetBrandedFrequency @ 0x1409869C8 (PpmPerfGetBrandedFrequency.c)
- *     PpmSetSimulatedLoad @ 0x140986C54 (PpmSetSimulatedLoad.c)
- *     PpmUpdatePerfStates @ 0x140986D70 (PpmUpdatePerfStates.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140992EFC (PpmCompareAndApplyPolicySettings.c)
- *     PopEnforceResiliencyScenarios @ 0x1409942E8 (PopEnforceResiliencyScenarios.c)
- *     PdcPoPpmResetProfile @ 0x140997A80 (PdcPoPpmResetProfile.c)
- *     PpmParkApplyForcedMask @ 0x140999F04 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x14099A004 (PpmParkClearForcedMask.c)
- *     PpmApplyProfile @ 0x14099D0D0 (PpmApplyProfile.c)
- *     PpmDisableProfile @ 0x14099D234 (PpmDisableProfile.c)
- *     PpmRegisterSpmSettings @ 0x14099D6D0 (PpmRegisterSpmSettings.c)
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DAC0 (PpmPerfRegisterHvPerfStateCounters.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
- *     PpmInitPolicyConfiguration @ 0x140B5EF90 (PpmInitPolicyConfiguration.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x140B71AE0 (PopDetectSimulatedHeteroProcessors.c)
+ *     PpmCheckRun @ 0x14022A3C0 (PpmCheckRun.c)
+ *     PoNotifyVSyncChange @ 0x14034A7F0 (PoNotifyVSyncChange.c)
+ *     PpmMediaBufferingWorker @ 0x14036BF90 (PpmMediaBufferingWorker.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x14038D59C (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x14038D62C (PpmCheckPausePpmEngineForSx.c)
+ *     PpmRegisterPerfCap @ 0x1403923F0 (PpmRegisterPerfCap.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403CD504 (PpmHeteroHgsBackupInit.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x140565744 (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x140567604 (PpmSetExitLatencySamplingPercentage.c)
+ *     PopDeepSleepEvaluateCallback @ 0x1405775C0 (PopDeepSleepEvaluateCallback.c)
+ *     PpmParkSetLpiCap @ 0x14057D954 (PpmParkSetLpiCap.c)
+ *     PpmPerfTelemetryWorker @ 0x1406A36D0 (PpmPerfTelemetryWorker.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PpmInfoReleaseLocks @ 0x1406F3F08 (PpmInfoReleaseLocks.c)
+ *     PopEnforceResiliencyScenarios @ 0x140779AFC (PopEnforceResiliencyScenarios.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B4DC (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PpmRegisterProfiles @ 0x1407C5F28 (PpmRegisterProfiles.c)
+ *     PopPpmHeteroPolicyCallback @ 0x1407D3B20 (PopPpmHeteroPolicyCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5310 (PpmEventTraceControlCallback.c)
+ *     PopWnfFullscreenVideoCallback @ 0x1408E41A0 (PopWnfFullscreenVideoCallback.c)
+ *     PpmClearSimulatedLoad @ 0x1408E6134 (PpmClearSimulatedLoad.c)
+ *     PpmPerfGetBrandedFrequency @ 0x1408E625C (PpmPerfGetBrandedFrequency.c)
+ *     PpmSetSimulatedLoad @ 0x1408E64C0 (PpmSetSimulatedLoad.c)
+ *     PpmUpdatePerfStates @ 0x1408E65E0 (PpmUpdatePerfStates.c)
+ *     PdcPoPpmResetProfile @ 0x1408EF9A0 (PdcPoPpmResetProfile.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1408F0810 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmApplyProfile @ 0x1408F5B4C (PpmApplyProfile.c)
+ *     PpmDisableProfile @ 0x1408F5CB8 (PpmDisableProfile.c)
+ *     PpmRegisterSpmSettings @ 0x1408F6140 (PpmRegisterSpmSettings.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1408F69D0 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmParkApplyForcedMask @ 0x1408F92F4 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1408F93F4 (PpmParkClearForcedMask.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
+ *     PpmInitPolicyConfiguration @ 0x140A6B864 (PpmInitPolicyConfiguration.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KiClearSystemPriority @ 0x140345AF0 (KiClearSystemPriority.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-void __fastcall PpmReleaseLock(__int64 *a1)
+LONG __fastcall PpmReleaseLock(__int64 *a1)
 {
   __int64 v1; // rbx
+  LONG result; // eax
 
   v1 = *a1;
   *a1 = 0LL;
-  KeSetEvent((PRKEVENT)(a1 + 1), 0, 0);
+  result = KeSetEvent((PRKEVENT)(a1 + 1), 0, 0);
   if ( v1 )
-  {
-    KiClearSystemPriority((ULONG_PTR)KeGetCurrentThread());
-    KeLeaveCriticalRegion();
-  }
+    return KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
+  return result;
 }

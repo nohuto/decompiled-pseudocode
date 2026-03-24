@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIVectorInstall @ 0x1C0061EF8
+ * XREFs of ACPIVectorInstall @ 0x1C0061154
  * Callers:
- *     ACPIVectorConnect @ 0x1C00618E0 (ACPIVectorConnect.c)
+ *     ACPIVectorConnect @ 0x1C0060B20 (ACPIVectorConnect.c)
  * Callees:
- *     ACPIGpeIndexToByteIndex @ 0x1C0030BE0 (ACPIGpeIndexToByteIndex.c)
- *     ACPIVectorGetEntry @ 0x1C0061DDC (ACPIVectorGetEntry.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C002697C (ACPIGpeIndexToByteIndex.c)
+ *     ACPIVectorGetEntry @ 0x1C006101C (ACPIVectorGetEntry.c)
  */
 
 char __fastcall ACPIVectorInstall(unsigned int a1, __int64 a2)

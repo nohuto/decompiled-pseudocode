@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlHvDebuggerPowerHandler @ 0x1402741E0
+ * XREFs of HvlHvDebuggerPowerHandler @ 0x1402742E0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvlpHvToNtStatus @ 0x140279480 (HvlpHvToNtStatus.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlHvDebuggerPowerHandler(char a1)

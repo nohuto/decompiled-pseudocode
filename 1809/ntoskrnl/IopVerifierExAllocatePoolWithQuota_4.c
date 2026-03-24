@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_4 @ 0x1402859E0
+ * XREFs of IopVerifierExAllocatePoolWithQuota_4 @ 0x140285AE0
  * Callers:
- *     NtQueryQuotaInformationFile @ 0x14081E860 (NtQueryQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x14081E840 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePoolWithQuota_4(POOL_TYPE a1, SIZE_T a2)

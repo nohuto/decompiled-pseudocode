@@ -1,24 +1,24 @@
 /*
- * XREFs of ?Vector3Cross@CExpressionValueStack@@QEAAJXZ @ 0x180262728
+ * XREFs of ?Vector3Cross@CExpressionValueStack@@QEAAJXZ @ 0x180201EBC
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18027EB6C (-D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18021DE24 (-D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Vector3Cross(CExpressionValueStack *this)
 {
-  unsigned int v1; // eax
+  __int64 v2; // rcx
   unsigned int v3; // ebx
-  __int64 v4; // rax
-  _DWORD *v5; // rbx
-  CExpressionValue *v6; // rax
-  _DWORD *v7; // rdi
-  __int64 v8; // rax
+  unsigned int v4; // edx
+  __int64 v5; // rax
+  _DWORD *v6; // rbx
+  CExpressionValue *v7; // rax
+  _DWORD *v8; // rsi
   CExpressionValue *v9; // rax
   int v10; // eax
   __int64 v11; // xmm0_8
@@ -34,26 +34,29 @@ __int64 __fastcall CExpressionValueStack::Vector3Cross(CExpressionValueStack *th
   int v22; // [rsp+60h] [rbp-1h]
   _BYTE v23[80]; // [rsp+68h] [rbp+7h] BYREF
 
-  v1 = *((_DWORD *)this + 4);
-  if ( v1 >= 2 )
+  v2 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v2 >= 2 )
   {
-    v4 = v1 - 2;
-    v5 = &CExpressionValueStack::s_emptyValue;
-    if ( (unsigned int)v4 < *((_DWORD *)this + 12) )
+    v4 = *((_DWORD *)this + 12);
+    v5 = (unsigned int)(v2 - 2);
+    v6 = &CExpressionValueStack::s_emptyValue;
+    if ( (unsigned int)v5 < v4 )
     {
-      v7 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v4);
+      v8 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v5);
     }
     else
     {
-      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v23);
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
+      v7 = CExpressionValue::CExpressionValue((CExpressionValue *)v23);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v7);
       CExpressionValue::~CExpressionValue((CExpressionValue *)v23);
-      v7 = &CExpressionValueStack::s_emptyValue;
+      LODWORD(v2) = *((_DWORD *)this + 4);
+      v8 = &CExpressionValueStack::s_emptyValue;
+      v4 = *((_DWORD *)this + 12);
     }
-    v8 = (unsigned int)(*((_DWORD *)this + 4) - 1);
-    if ( (unsigned int)v8 < *((_DWORD *)this + 12) )
+    v2 = (unsigned int)(v2 - 1);
+    if ( (unsigned int)v2 < v4 )
     {
-      v5 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v8);
+      v6 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v2);
     }
     else
     {
@@ -61,24 +64,24 @@ __int64 __fastcall CExpressionValueStack::Vector3Cross(CExpressionValueStack *th
       CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v9);
       CExpressionValue::~CExpressionValue((CExpressionValue *)v23);
     }
-    if ( v7[18] == 52 )
+    if ( v8[18] == 52 )
     {
-      if ( v5[18] == 52 )
+      if ( v6[18] == 52 )
       {
-        v10 = v7[2];
-        v19 = *(_QWORD *)v7;
-        v11 = *(_QWORD *)v5;
+        v10 = v8[2];
+        v19 = *(_QWORD *)v8;
+        v11 = *(_QWORD *)v6;
         v20 = v10;
-        v12 = v5[2];
+        v12 = v6[2];
         v17 = v11;
         v18 = v12;
         D3DXVec3Cross((struct D2DVector3 *)&v21, (const struct D2DVector3 *)&v19, (const struct D2DVector3 *)&v17);
         v13 = v21;
         v14 = v22;
-        v7[18] = 52;
-        *(_QWORD *)v7 = v13;
-        v7[2] = v14;
-        *((_BYTE *)v7 + 76) = 1;
+        v8[18] = 52;
+        *(_QWORD *)v8 = v13;
+        v8[2] = v14;
+        *((_BYTE *)v8 + 76) = 1;
         --*((_DWORD *)this + 4);
         return 0;
       }
@@ -95,7 +98,7 @@ __int64 __fastcall CExpressionValueStack::Vector3Cross(CExpressionValueStack *th
   }
   v3 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
-    (__int64)this,
+    v2,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
     1u,
     -2147467259,

@@ -1,21 +1,18 @@
 /*
- * XREFs of PopFxAddRefDevice @ 0x1403122C4
+ * XREFs of PopFxAddRefDevice @ 0x14025FFDC
  * Callers:
- *     PopFxQueueWorkOrder @ 0x14028C0AC (PopFxQueueWorkOrder.c)
- *     PopFxActivateComponentWorker @ 0x140312240 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x140312AD8 (PopFxIdleWorkerTail.c)
- *     PopFxActivateDevice @ 0x140322A80 (PopFxActivateDevice.c)
- *     PoFxAddComponentRelation @ 0x140587700 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x140587B20 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x1405881A0 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588590 (PoFxRemoveDeviceRelation.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140588C94 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588D84 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxClearDeviceConstraints @ 0x140589310 (PopFxClearDeviceConstraints.c)
- *     PopFxIssueDirectedPowerTransition @ 0x14058AE84 (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxActivateComponentWorker @ 0x14025FF40 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140260720 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateDevice @ 0x14036F190 (PopFxActivateDevice.c)
+ *     PopFxQueueWorkOrder @ 0x140380F98 (PopFxQueueWorkOrder.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569350 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxClearDeviceConstraints @ 0x140569D04 (PopFxClearDeviceConstraints.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x14056B4D4 (PopFxIssueDirectedPowerTransition.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1408E45A0 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x140312310 (IoAcquireRemoveLockEx.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     IoAcquireRemoveLockEx @ 0x140260020 (IoAcquireRemoveLockEx.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
 NTSTATUS __fastcall PopFxAddRefDevice(ULONG_PTR BugCheckParameter2)

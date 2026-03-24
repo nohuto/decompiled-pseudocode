@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckRecordAllUtility @ 0x14021BC70
+ * XREFs of PpmCheckRecordAllUtility @ 0x1402892F0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfRecordUtility @ 0x14021BD70 (PpmPerfRecordUtility.c)
- *     PpmParkRecordNodeStatistics @ 0x14021C050 (PpmParkRecordNodeStatistics.c)
+ *     PpmPerfRecordUtility @ 0x1402893F0 (PpmPerfRecordUtility.c)
+ *     PpmParkRecordNodeStatistics @ 0x1402896A0 (PpmParkRecordNodeStatistics.c)
  */
 
 char PpmCheckRecordAllUtility()
@@ -18,7 +18,7 @@ char PpmCheckRecordAllUtility()
   unsigned int j; // ebx
   __int64 v7; // rcx
 
-  v0 = qword_140C0B8E8[0];
+  v0 = qword_140C113E8[0];
   v1 = 0;
   while ( v0 )
   {
@@ -30,19 +30,19 @@ LABEL_3:
       v4 = 0LL;
     else
       v4 = KiProcessorBlock[v3];
-    PpmPerfRecordUtility(v4 + 33968);
+    PpmPerfRecordUtility(v4 + 33128);
   }
   while ( ++v1 < (unsigned int)(unsigned __int16)PpmCheckRegistered )
   {
-    v0 = qword_140C0B8E8[v1];
+    v0 = qword_140C113E8[v1];
     if ( v0 )
       goto LABEL_3;
   }
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
+    for ( j = 0; j < *(_DWORD *)(i + 200); ++j )
     {
-      v7 = *(_QWORD *)(i + 312) + 136LL * j;
+      v7 = *(_QWORD *)(i + 216) + 136LL * j;
       if ( *(_DWORD *)(v7 + 16) == 1 )
         PpmPerfRecordUtility(*(_QWORD *)v7);
     }

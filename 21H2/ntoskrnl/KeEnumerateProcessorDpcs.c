@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEnumerateProcessorDpcs @ 0x14056F81C
+ * XREFs of KeEnumerateProcessorDpcs @ 0x140519C0C
  * Callers:
- *     DbgkpLkmdSnapGlobals @ 0x1405402EC (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapGlobals @ 0x1404EE1AC (DbgkpLkmdSnapGlobals.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
@@ -32,15 +32,15 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  v7 = (KSPIN_LOCK *)(v4 + 13136);
+  v7 = (KSPIN_LOCK *)(v4 + 12496);
   v8 = 2LL;
   do
   {
     KxAcquireSpinLock(v7);
     for ( i = (_QWORD *)*(v7 - 2); i; i = (_QWORD *)*i )
-      (*(void (__fastcall **)(__int64, _QWORD *, __int64))(a3 + 16448))(a3 + 0x4000, i - 1, 64LL);
+      (*(void (__fastcall **)(__int64, _QWORD *, __int64))(a3 + 10304))(a3 + 10240, i - 1, 64LL);
     KxReleaseSpinLock(v7);
-    v7 += 6;
+    v7 += 5;
     --v8;
   }
   while ( v8 );

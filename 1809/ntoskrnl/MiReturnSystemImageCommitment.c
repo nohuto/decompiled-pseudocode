@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReturnSystemImageCommitment @ 0x14070F35C
+ * XREFs of MiReturnSystemImageCommitment @ 0x14070F33C
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)

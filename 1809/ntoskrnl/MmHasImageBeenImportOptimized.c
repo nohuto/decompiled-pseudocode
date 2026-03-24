@@ -4,8 +4,8 @@
  *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B8F08 (MiDoesControlAreaRequireRetpolineFixups.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B9008 (MiDoesControlAreaRequireRetpolineFixups.c)
  */
 
 _BOOL8 MmHasImageBeenImportOptimized()

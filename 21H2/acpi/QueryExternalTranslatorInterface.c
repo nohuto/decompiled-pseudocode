@@ -1,17 +1,17 @@
 /*
- * XREFs of QueryExternalTranslatorInterface @ 0x1C009EFFC
+ * XREFs of QueryExternalTranslatorInterface @ 0x1C009F8E4
  * Callers:
- *     AcpiCheckExternalConnection @ 0x1C00918BC (AcpiCheckExternalConnection.c)
+ *     AcpiCheckExternalConnection @ 0x1C009DB14 (AcpiCheckExternalConnection.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     RegisterExternalTranslatorInterface @ 0x1C009F2F0 (RegisterExternalTranslatorInterface.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RegisterExternalTranslatorInterface @ 0x1C009FBD4 (RegisterExternalTranslatorInterface.c)
  */
 
 __int64 QueryExternalTranslatorInterface()
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // r14
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   NTSTATUS Status; // ebx
   PDEVICE_OBJECT *v3; // rsi
   __int64 v4; // rcx
@@ -34,7 +34,7 @@ __int64 QueryExternalTranslatorInterface()
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&ResourceHubDeviceName;
   memset(&Event, 0, sizeof(Event));
   AttachedDeviceReference = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   IoStatusBlock = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   Status = ZwOpenFile(&FileHandle, 0x100003u, &ObjectAttributes, &IoStatusBlock, 3u, 0x10u);
@@ -70,28 +70,28 @@ LABEL_29:
   if ( Status < 0 )
     goto LABEL_14;
   AttachedDeviceReference = IoGetAttachedDeviceReference(v3[1]);
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 120LL, 1483760449LL);
-  if ( Pool2
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x58706341u);
+  if ( PoolWithTag
     && (DestinationString.MaximumLength = 42,
-        (DestinationString.Buffer = (wchar_t *)ExAllocatePool2(256LL, 42LL, 1483760449LL)) != 0LL) )
+        (DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x2AuLL, 0x58706341u)) != 0LL) )
   {
     RtlCopyUnicodeString(&DestinationString, &ResourceHubDeviceName);
-    memset(Pool2, 0, 0x78uLL);
-    *Pool2 = 65656;
-    *((_WORD *)Pool2 + 16) = 80;
-    v4 = *(_QWORD *)(RootDeviceExtension + 768);
-    *((_QWORD *)Pool2 + 11) = AcpiExternalInterfaceUnload;
-    *((_QWORD *)Pool2 + 13) = AcpiAllocateGsivForSecondaryInterrupt;
-    *((_QWORD *)Pool2 + 12) = &AcpiGetFullyQualifiedBiosName;
-    *((_QWORD *)Pool2 + 10) = v4;
-    *((_QWORD *)Pool2 + 14) = AcpiUpdateInterruptProperties;
+    memset(PoolWithTag, 0, 0x78uLL);
+    *PoolWithTag = 65656;
+    *((_WORD *)PoolWithTag + 16) = 80;
+    v4 = *(_QWORD *)(RootDeviceExtension + 728);
+    *((_QWORD *)PoolWithTag + 11) = AcpiExternalInterfaceUnload;
+    *((_QWORD *)PoolWithTag + 13) = AcpiAllocateGsivForSecondaryInterrupt;
+    *((_QWORD *)PoolWithTag + 12) = &AcpiGetFullyQualifiedBiosName;
+    *((_QWORD *)PoolWithTag + 10) = v4;
+    *((_QWORD *)PoolWithTag + 14) = AcpiUpdateInterruptProperties;
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
     v5 = IoBuildDeviceIoControlRequest(
            0x2AC028u,
            AttachedDeviceReference,
-           Pool2,
+           PoolWithTag,
            0x78u,
-           Pool2,
+           PoolWithTag,
            0x78u,
            0,
            &Event,
@@ -111,9 +111,9 @@ LABEL_20:
     }
     if ( Status >= 0 )
     {
-      if ( *((_WORD *)Pool2 + 1) && *(_WORD *)Pool2 >= 0x78u && *((_QWORD *)Pool2 + 7) )
+      if ( *((_WORD *)PoolWithTag + 1) && *(_WORD *)PoolWithTag >= 0x78u && *((_QWORD *)PoolWithTag + 7) )
       {
-        RegisterExternalTranslatorInterface(Pool2, v3, &DestinationString);
+        RegisterExternalTranslatorInterface(PoolWithTag, v3, &DestinationString);
         goto LABEL_14;
       }
       goto LABEL_20;
@@ -130,8 +130,8 @@ LABEL_14:
     ObfDereferenceObject(AttachedDeviceReference);
   if ( Status < 0 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x58706341u);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x58706341u);
     goto LABEL_29;
   }
   return (unsigned int)Status;

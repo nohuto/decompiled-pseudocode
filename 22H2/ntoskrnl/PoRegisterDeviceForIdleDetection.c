@@ -1,13 +1,13 @@
 /*
- * XREFs of PoRegisterDeviceForIdleDetection @ 0x140305040
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x140360670
  * Callers:
- *     PoRunDownDeviceObject @ 0x140304F58 (PoRunDownDeviceObject.c)
+ *     PoRunDownDeviceObject @ 0x140360358 (PoRunDownDeviceObject.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopCheckForWork @ 0x14032C9D8 (PopCheckForWork.c)
- *     PopGetDope @ 0x1403C4BE8 (PopGetDope.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopCheckForWork @ 0x14034A290 (PopCheckForWork.c)
+ *     PopGetDope @ 0x140399604 (PopGetDope.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PULONG __stdcall PoRegisterDeviceForIdleDetection(
@@ -21,18 +21,18 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
   struct _DEVICE_OBJECT_POWER_EXTENSION *Dope; // rdx
   _LIST_ENTRY *p_IdleList; // rax
   struct _LIST_ENTRY *Flink; // rcx
+  ULONG DeviceType; // eax
+  int v15; // r14d
+  __int64 v16; // rsi
+  unsigned __int64 v17; // rbp
+  _QWORD *v18; // rax
+  _QWORD *v19; // rcx
   struct _LIST_ENTRY *Blink; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v18; // eax
-  bool v19; // zf
-  ULONG DeviceType; // eax
-  int v21; // r14d
-  __int64 v22; // rsi
-  unsigned __int64 v23; // rbp
-  _QWORD *v24; // rax
-  _QWORD *v25; // rcx
+  int v24; // eax
+  bool v25; // zf
   unsigned __int8 v26; // al
   struct _KPRCB *v27; // r10
   _DWORD *v28; // r8
@@ -65,73 +65,79 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
       Dope->IdleList.Blink = &Dope->IdleList;
       p_IdleList->Flink = p_IdleList;
 LABEL_4:
-      KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+      KxReleaseSpinLock(&PopDopeGlobalLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v19 = (v18 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v18;
-          if ( v19 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v25 = (v24 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v24;
+            if ( v25 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v9);
       return v4;
     }
-LABEL_35:
+LABEL_30:
     __fastfail(3u);
   }
   if ( (unsigned int)(State - 2) > 2 )
     return v4;
   DeviceType = DeviceObject->DeviceType;
-  v21 = 0;
+  v15 = 0;
   if ( DeviceType == 7 || DeviceType == 45 )
   {
     if ( !PopPlatformAoAc && (DeviceObject->Characteristics & 1) != 0 )
       return v4;
-    v21 = 1;
+    v15 = 1;
   }
-  v22 = PopGetDope();
-  if ( !v22 )
+  v16 = PopGetDope();
+  if ( !v16 )
     return v4;
-  v23 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  v24 = (_QWORD *)(v22 + 32);
-  *(_DWORD *)(v22 + 16) = ConservationIdleTime;
-  *(_DWORD *)(v22 + 20) = PerformanceIdleTime;
-  *(_DWORD *)(v22 + 52) = State;
-  *(_DWORD *)(v22 + 48) = v21;
-  if ( (_QWORD *)*v24 == v24 )
+  v17 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
+  v18 = (_QWORD *)(v16 + 32);
+  *(_DWORD *)(v16 + 16) = ConservationIdleTime;
+  *(_DWORD *)(v16 + 20) = PerformanceIdleTime;
+  *(_DWORD *)(v16 + 52) = State;
+  *(_DWORD *)(v16 + 48) = v15;
+  if ( (_QWORD *)*v18 == v18 )
   {
-    *(_DWORD *)(v22 + 56) = 1;
-    v25 = (_QWORD *)qword_140C3D6A8;
-    if ( *(__int64 **)qword_140C3D6A8 != &PopIdleDetectList )
-      goto LABEL_35;
-    *v24 = &PopIdleDetectList;
-    *(_QWORD *)(v22 + 40) = v25;
-    *v25 = v24;
-    qword_140C3D6A8 = v22 + 32;
+    *(_DWORD *)(v16 + 56) = 1;
+    v19 = (_QWORD *)qword_140C22FA8;
+    if ( *(__int64 **)qword_140C22FA8 != &PopIdleDetectList )
+      goto LABEL_30;
+    *v18 = &PopIdleDetectList;
+    *(_QWORD *)(v16 + 40) = v19;
+    *v19 = v18;
+    qword_140C22FA8 = v16 + 32;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+  KxReleaseSpinLock(&PopDopeGlobalLock);
   if ( KiIrqlFlags )
   {
-    v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v26 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v27 = KeGetCurrentPrcb();
-      v28 = v27->SchedulerAssist;
-      v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));
-      v19 = (v29 & v28[5]) == 0;
-      v28[5] &= v29;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(v27);
+      v26 = KeGetCurrentIrql();
+      if ( v26 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v26 >= 2u )
+      {
+        v27 = KeGetCurrentPrcb();
+        v28 = v27->SchedulerAssist;
+        v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+        v25 = (v29 & v28[5]) == 0;
+        v28[5] &= v29;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(v27);
+      }
     }
   }
-  __writecr8(v23);
+  __writecr8(v17);
   PopCheckForWork();
-  return (PULONG)v22;
+  return (PULONG)v16;
 }

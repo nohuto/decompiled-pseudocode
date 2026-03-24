@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DrawRegionalShadow@@YAXPEAXJJ@Z @ 0x1C01572D2
+ * XREFs of ?DrawRegionalShadow@@YAXPEAXJJ@Z @ 0x1C0141ACC
  * Callers:
- *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C02210E4 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C013E05C (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,8 @@
 void __fastcall DrawRegionalShadow(char *a1, int a2, int a3)
 {
   __int64 v3; // r11
-  __int64 v4; // rbx
-  __int64 v5; // rdi
+  __int64 v4; // rdi
+  __int64 v5; // rbx
   char *v6; // r9
   char *v7; // rdx
   __int64 v8; // r10
@@ -33,7 +33,7 @@ void __fastcall DrawRegionalShadow(char *a1, int a2, int a3)
         {
           for ( i = 0LL; i < 5; ++i )
           {
-            v10 = byte_1C0321284[i];
+            v10 = *((unsigned __int8 *)&dword_1C02EFD64 + i);
             if ( *(_DWORD *)v7 == (v10 | ((v10 | (v10 << 8)) << 8)) )
               *(_DWORD *)v7 = -16777216 - (v10 << 24);
           }

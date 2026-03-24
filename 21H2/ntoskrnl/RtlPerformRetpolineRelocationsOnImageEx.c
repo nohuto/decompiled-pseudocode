@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x1405EF24C
+ * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FEBC
  * Callers:
- *     RtlPerformRetpolineRelocationsOnImage @ 0x1405EF20C (RtlPerformRetpolineRelocationsOnImage.c)
- *     MiReloadBootLoadedDrivers @ 0x140B04F8C (MiReloadBootLoadedDrivers.c)
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B06F28 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x14058FE7C (RtlPerformRetpolineRelocationsOnImage.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5054C (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     RtlpApplyGenericRetpolineFixup @ 0x1402DB3F0 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlApplyImportRelocationToImage @ 0x1403C378C (RtlApplyImportRelocationToImage.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403C3840 (RtlpCaptureRetpolineBinaryInfoForImage.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1403C38EC (RtlpCaptureDynamicRelocationTableRva.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpConstructIndirectRelocationFixup @ 0x1405EF618 (RtlpConstructIndirectRelocationFixup.c)
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x1405EF7C8 (RtlpConstructSwitchJumpRelocationFixup.c)
- *     RtlpIsAddressInIgnoreRegion @ 0x1405EF890 (RtlpIsAddressInIgnoreRegion.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x14029C850 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlApplyImportRelocationToImage @ 0x1403B6EBC (RtlApplyImportRelocationToImage.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403B6F70 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1403B701C (RtlpCaptureDynamicRelocationTableRva.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x1405902AC (RtlpConstructIndirectRelocationFixup.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x140590464 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     RtlpIsAddressInIgnoreRegion @ 0x14059052C (RtlpIsAddressInIgnoreRegion.c)
  */
 
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(

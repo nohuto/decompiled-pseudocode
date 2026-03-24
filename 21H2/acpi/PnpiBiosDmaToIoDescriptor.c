@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiBiosDmaToIoDescriptor @ 0x1C00B32F4
+ * XREFs of PnpiBiosDmaToIoDescriptor @ 0x1C00A3360
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosDmaToIoDescriptor(__int64 a1, unsigned __int8 a2, __int64 a3, unsigned int a4, __int16 a5)
@@ -18,7 +18,7 @@ __int64 __fastcall PnpiBiosDmaToIoDescriptor(__int64 a1, unsigned __int8 a2, __i
 
   v13 = 0LL;
   v6 = a2;
-  updated = PnpiUpdateResourceList(a3 + 8LL * a4, &v13);
+  updated = PnpiUpdateResourceList((const void **)(a3 + 8LL * a4), &v13);
   if ( updated >= 0 )
   {
     v8 = v13;

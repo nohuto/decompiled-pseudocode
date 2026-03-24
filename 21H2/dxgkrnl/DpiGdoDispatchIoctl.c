@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiGdoDispatchIoctl @ 0x1C03985E0
+ * XREFs of DpiGdoDispatchIoctl @ 0x1C02DA060
  * Callers:
  *     <none>
  * Callees:
- *     DpiGdoHandleVideoParameters @ 0x1C0398640 (DpiGdoHandleVideoParameters.c)
+ *     DpiGdoHandleVideoParameters @ 0x1C02DA0C0 (DpiGdoHandleVideoParameters.c)
  */
 
 __int64 __fastcall DpiGdoDispatchIoctl(__int64 a1, IRP *a2)

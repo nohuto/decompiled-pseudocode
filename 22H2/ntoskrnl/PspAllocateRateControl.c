@@ -1,41 +1,43 @@
 /*
- * XREFs of PspAllocateRateControl @ 0x140684EF8
+ * XREFs of PspAllocateRateControl @ 0x14065CBDC
  * Callers:
- *     PspAddSchedulingGroupToJobChain @ 0x140683BA8 (PspAddSchedulingGroupToJobChain.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobRateControl @ 0x1409B2E8C (PspSetJobRateControl.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x14065C6DC (PspAddSchedulingGroupToJobChain.c)
+ *     PspSetJobRateControl @ 0x140909700 (PspSetJobRateControl.c)
  * Callees:
- *     PspGetRateControlSize @ 0x140684F74 (PspGetRateControlSize.c)
- *     PsChargeSharedPoolQuota @ 0x14075C654 (PsChargeSharedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspGetRateControlSize @ 0x14065CC70 (PspGetRateControlSize.c)
+ *     PsChargeSharedPoolQuota @ 0x1406D90F8 (PsChargeSharedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 *__fastcall PspAllocateRateControl(__int64 a1)
+_QWORD *__fastcall PspAllocateRateControl(__int64 a1)
 {
-  __int64 RateControlSize; // rdi
-  unsigned int v2; // r9d
+  SIZE_T RateControlSize; // rdi
+  POOL_TYPE v2; // r9d
   int v3; // ecx
-  __int64 *Pool2; // rbx
-  __int64 v5; // rax
+  _QWORD *PoolWithTag; // rbx
+  __int64 v5; // rsi
 
   RateControlSize = PspGetRateControlSize(a1);
-  v2 = 64;
+  v2 = NonPagedPoolNx;
   if ( v3 != 2 )
-    v2 = 256;
-  Pool2 = (__int64 *)ExAllocatePool2(v2, RateControlSize, 1649046352LL);
-  if ( Pool2 )
+    v2 = PagedPool;
+  PoolWithTag = ExAllocatePoolWithTag(v2, RateControlSize, 0x624A7350u);
+  if ( PoolWithTag )
   {
     v5 = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, RateControlSize, 0LL);
     if ( v5 )
     {
-      *Pool2 = v5;
+      memset(PoolWithTag, 0, RateControlSize);
+      *PoolWithTag = v5;
     }
     else
     {
-      ExFreePoolWithTag(Pool2, 0x624A7350u);
+      ExFreePoolWithTag(PoolWithTag, 0x624A7350u);
       return 0LL;
     }
   }
-  return Pool2;
+  return PoolWithTag;
 }

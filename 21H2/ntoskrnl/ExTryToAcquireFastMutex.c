@@ -1,16 +1,14 @@
 /*
- * XREFs of ExTryToAcquireFastMutex @ 0x140233370
+ * XREFs of ExTryToAcquireFastMutex @ 0x14028DD70
  * Callers:
- *     FsRtlTryToAcquireHeaderMutex @ 0x140233310 (FsRtlTryToAcquireHeaderMutex.c)
- *     KeTryToAcquireGuardedMutex @ 0x140233350 (KeTryToAcquireGuardedMutex.c)
- *     DifExTryToAcquireFastMutexWrapper @ 0x140609960 (DifExTryToAcquireFastMutexWrapper.c)
- *     DifKeTryToAcquireGuardedMutexWrapper @ 0x140615BB0 (DifKeTryToAcquireGuardedMutexWrapper.c)
- *     RawScanDeletedList @ 0x14074C258 (RawScanDeletedList.c)
- *     CreateMiniNtBootKey @ 0x140B4B5E0 (CreateMiniNtBootKey.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14028AF30 (FsRtlTryToAcquireHeaderMutex.c)
+ *     KeTryToAcquireGuardedMutex @ 0x14028DD50 (KeTryToAcquireGuardedMutex.c)
+ *     RawScanDeletedList @ 0x14071B3D8 (RawScanDeletedList.c)
+ *     CreateMiniNtBootKey @ 0x140A8C0B0 (CreateMiniNtBootKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
@@ -25,14 +23,14 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   int v9; // eax
   bool v10; // zf
 
-  v2 = KeAbPreAcquire(FastMutex, 0LL, 1LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex);
   v3 = v2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( _interlockedbittestandreset(&FastMutex->Count, 0) )
   {
     if ( v2 )
-      *(_BYTE *)(v2 + 18) = 1;
+      *(_BYTE *)(v2 + 26) |= 1u;
     result = 1;
     FastMutex->Owner = KeGetCurrentThread();
     FastMutex->OldIrql = CurrentIrql;

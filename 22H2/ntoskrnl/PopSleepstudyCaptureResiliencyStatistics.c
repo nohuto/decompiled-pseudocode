@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSleepstudyCaptureResiliencyStatistics @ 0x140993304
+ * XREFs of PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA0C4
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140775738 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopCalculateTotalHwDripsResidency @ 0x140591920 (PopCalculateTotalHwDripsResidency.c)
- *     PopDiagTraceCsResiliencyEnter @ 0x14059218C (PopDiagTraceCsResiliencyEnter.c)
- *     PopDiagTraceCsResiliencyExit @ 0x1405922E4 (PopDiagTraceCsResiliencyExit.c)
- *     PopGetEnergyCounter @ 0x140875C9C (PopGetEnergyCounter.c)
- *     PopDiagTraceCsResiliencyStats @ 0x14098E080 (PopDiagTraceCsResiliencyStats.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x140570464 (PopCalculateTotalHwDripsResidency.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x1405710DC (PopDiagTraceCsResiliencyEnter.c)
+ *     PopDiagTraceCsResiliencyExit @ 0x140571234 (PopDiagTraceCsResiliencyExit.c)
+ *     PopDiagTraceCsResiliencyStats @ 0x1408E9A38 (PopDiagTraceCsResiliencyStats.c)
+ *     PopGetEnergyCounter @ 0x1408EDCC0 (PopGetEnergyCounter.c)
  */
 
 char __fastcall PopSleepstudyCaptureResiliencyStatistics(_QWORD *a1, __int64 a2, char a3, char a4)
@@ -21,28 +21,26 @@ char __fastcall PopSleepstudyCaptureResiliencyStatistics(_QWORD *a1, __int64 a2,
   __int64 v12; // r14
   __int128 v13; // [rsp+40h] [rbp-C0h] BYREF
   _OWORD v14[2]; // [rsp+50h] [rbp-B0h] BYREF
-  int v15; // [rsp+70h] [rbp-90h]
-  _DWORD v16[60]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v15; // [rsp+70h] [rbp-90h]
+  _BYTE v16[240]; // [rsp+80h] [rbp-80h] BYREF
 
-  v15 = 0;
-  v16[1] = 0;
   memset(v14, 0, sizeof(v14));
-  *(_QWORD *)&v13 = 0LL;
-  DWORD2(v13) = 0;
+  v15 = 0LL;
+  v13 = 0LL;
   PopGetEnergyCounter(&v13);
   if ( a4 )
     return PopDiagTraceCsResiliencyEnter(a2, a3, &v13);
-  v9 = (a1[12] - a1[2]) / 0xAuLL;
-  v10 = PopCalculateTotalHwDripsResidency(a1[8], a1[10], v9);
+  v9 = (a1[11] - a1[2]) / 0xAuLL;
+  v10 = PopCalculateTotalHwDripsResidency(a1[7], a1[8], v9);
   v11 = 0LL;
   if ( v10 != -1 )
     v11 = v10;
-  qword_140CF7D48 += v11;
-  v12 = a1[11] - a1[9];
-  qword_140CF7D50 += v12;
-  if ( qword_140C6B078 )
-    qword_140C6B078(v14);
-  memset(v16, 0, sizeof(v16));
+  qword_140C4FF88 += v11;
+  v12 = a1[10] - a1[8];
+  qword_140C4FF90 += v12;
+  if ( qword_140C54428 )
+    qword_140C54428(v14);
+  memset(v16, 0, 0xE8uLL);
   PopDiagTraceCsResiliencyExit((__int64)v16, a2, a3, (__int64)&v13, v9, v11, v12, (__int64)v14);
   return PopDiagTraceCsResiliencyStats((__int64)v16);
 }

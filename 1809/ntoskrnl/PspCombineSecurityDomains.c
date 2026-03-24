@@ -1,15 +1,15 @@
 /*
  * XREFs of PspCombineSecurityDomains @ 0x14061104C
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
- *     KeSynchronizeSecurityDomain @ 0x14013841C (KeSynchronizeSecurityDomain.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeSynchronizeSecurityDomain @ 0x14013843C (KeSynchronizeSecurityDomain.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall PspCombineSecurityDomains(PVOID Object, _DWORD *a2)

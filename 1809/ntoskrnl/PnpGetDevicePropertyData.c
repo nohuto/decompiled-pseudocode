@@ -5,13 +5,13 @@
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     PnpCompareInterruptInformation @ 0x14071D424 (PnpCompareInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
+ *     PnpCompareInterruptInformation @ 0x14071D404 (PnpCompareInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDevicePropertyData(

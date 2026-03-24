@@ -1,137 +1,97 @@
 /*
- * XREFs of ?reserve_region@?$vector_facade@PEAUIDXGIResource@@V?$buffer_impl@PEAUIDXGIResource@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAUIDXGIResource@@_K0@Z @ 0x180008C50
+ * XREFs of ?reserve_region@?$vector_facade@PEAUIDXGIResource@@V?$buffer_impl@PEAUIDXGIResource@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAUIDXGIResource@@_K0@Z @ 0x180163FC4
  * Callers:
- *     ?PinResources@CD3DDevice@@QEAAJV?$span@PEAUIDXGIResource@@$0?0@gsl@@@Z @ 0x180008AA0 (-PinResources@CD3DDevice@@QEAAJV-$span@PEAUIDXGIResource@@$0-0@gsl@@@Z.c)
+ *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FEAC (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
+ *     ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FF10 (-InitCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
+ *     ?SyncLockForParallelMode@CRenderTargetManager@@QEAAXXZ @ 0x18006C314 (-SyncLockForParallelMode@CRenderTargetManager@@QEAAXXZ.c)
+ *     ?PinResources@CD3DDevice@@QEAAJV?$span@PEAUIDXGIResource@@$0?0@gsl@@@Z @ 0x1802401C8 (-PinResources@CD3DDevice@@QEAAJV-$span@PEAUIDXGIResource@@$0-0@gsl@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x1800C8E70 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
- *     ??$uninitialized_move@V?$move_iterator@PEAPEAVOverlayPlaneInfo@COverlayContext@@@std@@V?$checked_array_iterator@PEAPEAVOverlayPlaneInfo@COverlayContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAPEAVOverlayPlaneInfo@COverlayContext@@@stdext@@V?$move_iterator@PEAPEAVOverlayPlaneInfo@COverlayContext@@@0@0V12@@Z @ 0x180111B30 (--$uninitialized_move@V-$move_iterator@PEAPEAVOverlayPlaneInfo@COverlayContext@@@std@@V-$checked.c)
- *     ??$move_backward@V?$move_iterator@PEAUD2D_POINT_2F@@@std@@V?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@V?$move_iterator@PEAUD2D_POINT_2F@@@0@0V12@@Z @ 0x180191CC0 (--$move_backward@V-$move_iterator@PEAUD2D_POINT_2F@@@std@@V-$checked_array_iterator@PEAUD2D_POIN.c)
+ *     ??$move_backward@V?$move_iterator@PEAUD2D_POINT_2F@@@std@@V?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@V?$move_iterator@PEAUD2D_POINT_2F@@@0@0V12@@Z @ 0x180154F00 (--$move_backward@V-$move_iterator@PEAUD2D_POINT_2F@@@std@@V-$checked_array_iterator@PEAUD2D_POIN.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@UD2D_VECTOR_2F@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180163EB0 (-ensure_extra_capacity@-$buffer_impl@UD2D_VECTOR_2F@@$0BA@$00Vliberal_expansion_policy@detail@@@.c)
  */
 
 char *__fastcall detail::vector_facade<IDXGIResource *,detail::buffer_impl<IDXGIResource *,7,1,detail::liberal_expansion_policy>>::reserve_region(
-        detail::liberal_expansion_policy *a1,
+        __int64 a1,
         __int64 a2)
 {
-  _QWORD *v2; // rsi
-  __int64 v5; // rdx
-  char *v6; // rbx
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  unsigned __int64 v9; // r8
+  __int64 v4; // rcx
+  _BYTE *v5; // rbx
+  char *v6; // r9
+  __int64 v7; // r8
+  unsigned __int64 v8; // rdx
+  __int64 v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
-  _QWORD *v12; // r9
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rdi
-  void *v17; // rax
-  __int64 v18; // r8
-  char *v19; // rdx
-  void *v20; // rbx
-  char *v21; // rcx
-  bool v22; // zf
-  __int64 v23; // rax
-  __int64 v24; // r10
-  __int64 v25; // rdx
-  __int128 v26; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v27; // [rsp+30h] [rbp-30h]
-  __int128 v28; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v29; // [rsp+50h] [rbp-10h]
+  char *v11; // r10
+  __int64 v12; // r11
+  bool v13; // sf
+  __int128 v15; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-30h]
+  __int128 v17; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-10h]
 
-  v2 = (_QWORD *)*((_QWORD *)a1 + 1);
-  v5 = *((_QWORD *)a1 + 2);
-  if ( !((v5 - (__int64)v2) >> 3) )
+  detail::buffer_impl<D2D_VECTOR_2F,16,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
+    (const void **)a1,
+    1uLL);
+  v5 = *(_BYTE **)a1;
+  v6 = *(char **)(a1 + 8);
+  *((_QWORD *)&v15 + 1) = 1LL;
+  v7 = (v6 - v5) >> 3;
+  v8 = v7 - a2;
+  *(_QWORD *)&v15 = &v5[8 * v7];
+  if ( !(_QWORD)v15 )
+    goto LABEL_18;
+  v16 = 1LL;
+  v9 = v7 - a2;
+  if ( v8 > 1 )
+    v9 = 1LL;
+  v17 = v15;
+  v10 = 8 * v9;
+  v11 = &v6[-v10];
+  v18 = 1LL;
+  if ( v6 != &v6[-v10] )
   {
-    v14 = ((__int64)v2 - *(_QWORD *)a1) >> 3;
-    v15 = v14 + 1;
-    if ( v14 + 1 < v14 )
-    {
-      std::_Xoverflow_error("overflow");
-      __debugbreak();
-    }
-    v16 = detail::liberal_expansion_policy::expand(a1, (v5 - *(_QWORD *)a1) >> 3, v15);
-    v17 = operator new(saturated_mul(v16, 8uLL));
-    v18 = *((_QWORD *)a1 + 1);
-    v19 = *(char **)a1;
-    *(_QWORD *)&v26 = v17;
-    v20 = v17;
-    *((_QWORD *)&v26 + 1) = v14;
-    v27 = 0LL;
-    v28 = v26;
-    v29 = 0LL;
-    ((void (__fastcall *)(__int128 *, char *, __int64, __int128 *))std::uninitialized_move<std::move_iterator<COverlayContext::OverlayPlaneInfo * *>,stdext::checked_array_iterator<COverlayContext::OverlayPlaneInfo * *>>)(
-      &v26,
-      v19,
-      v18,
-      &v28);
-    v21 = *(char **)a1;
-    v22 = *(_QWORD *)a1 == (_QWORD)a1 + 24;
-    *(_QWORD *)a1 = v20;
-    if ( v22 )
-      v21 = 0LL;
-    DefaultHeap::Free(v21);
-    v2 = (_QWORD *)(*(_QWORD *)a1 + 8 * v14);
-    v23 = *(_QWORD *)a1 + 8 * v16;
-    *((_QWORD *)a1 + 1) = v2;
-    *((_QWORD *)a1 + 2) = v23;
-  }
-  v6 = *(char **)a1;
-  v7 = (__int64)v2 - *(_QWORD *)a1;
-  *((_QWORD *)&v26 + 1) = 1LL;
-  v8 = v7 >> 3;
-  v9 = v8 - a2;
-  *(_QWORD *)&v26 = &v6[8 * v8];
-  if ( !(_QWORD)v26 )
-    goto LABEL_23;
-  v27 = 1LL;
-  v10 = v8 - a2;
-  if ( v9 > 1 )
-    v10 = 1LL;
-  v28 = v26;
-  v11 = 8 * v10;
-  v12 = &v2[v11 / 0xFFFFFFFFFFFFFFF8uLL];
-  v29 = 1LL;
-  if ( v2 != &v2[v11 / 0xFFFFFFFFFFFFFFF8uLL] )
-  {
-    v24 = v28;
-    v25 = v29;
+    v12 = v17;
+    v4 = v18;
     do
     {
-      --v2;
-      if ( !v24 )
-        goto LABEL_23;
-      if ( !v25 )
-        goto LABEL_23;
-      if ( (unsigned __int64)--v25 >= *((_QWORD *)&v28 + 1) )
-        goto LABEL_23;
-      *(_QWORD *)(v24 + 8 * v25) = *v2;
+      v6 -= 8;
+      if ( !v12 )
+        goto LABEL_18;
+      if ( !v4 )
+        goto LABEL_18;
+      if ( (unsigned __int64)--v4 >= *((_QWORD *)&v17 + 1) )
+        goto LABEL_18;
+      *(_QWORD *)(v12 + 8 * v4) = *(_QWORD *)v6;
     }
-    while ( v2 != v12 );
+    while ( v6 != v11 );
   }
-  if ( v9 > 1 )
+  if ( v8 > 1 )
   {
-    *(_QWORD *)&v28 = v6;
-    *((_QWORD *)&v28 + 1) = v8;
-    if ( !v8 || v6 && v8 >= 0 )
+    *(_QWORD *)&v17 = v5;
+    *((_QWORD *)&v17 + 1) = v7;
+    v13 = v7 < 0;
+    if ( v7 )
     {
-      v29 = v8;
-      v26 = v28;
-      v27 = v8;
-      ((void (__fastcall *)(__int128 *, char *, char *, __int128 *))std::move_backward<std::move_iterator<D2D_POINT_2F *>,stdext::checked_array_iterator<D2D_POINT_2F *>>)(
-        &v28,
-        &v6[8 * a2],
-        &v6[8 * v8 - 8],
-        &v26);
-      goto LABEL_7;
+      if ( !v5 )
+        goto LABEL_18;
+      v13 = v7 < 0;
     }
-LABEL_23:
-    _o__invalid_parameter_noinfo_noreturn(v8);
-    __debugbreak();
-    JUMPOUT(0x18011852FLL);
+    if ( v13 && v7 )
+    {
+LABEL_18:
+      _o__invalid_parameter_noinfo_noreturn(v4, v8);
+      __debugbreak();
+      JUMPOUT(0x180164108LL);
+    }
+    v18 = v7;
+    v15 = v17;
+    v16 = v7;
+    std::move_backward<std::move_iterator<D2D_POINT_2F *>,stdext::checked_array_iterator<D2D_POINT_2F *>>(
+      (__int64)&v17,
+      &v5[8 * a2],
+      (__int64)&v5[8 * v7 - 8],
+      (__int64 *)&v15);
   }
-LABEL_7:
-  *((_QWORD *)a1 + 1) += 8LL;
-  return &v6[8 * a2];
+  *(_QWORD *)(a1 + 8) += 8LL;
+  return &v5[8 * a2];
 }

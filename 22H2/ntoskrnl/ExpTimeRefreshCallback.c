@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTimeRefreshCallback @ 0x1403D6AB0
+ * XREFs of ExpTimeRefreshCallback @ 0x14032CFF0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
  */
 
 __int64 ExpTimeRefreshCallback()

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z @ 0x1C02D9D9C
+ * XREFs of ?bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z @ 0x1C02DB90C
  * Callers:
- *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C003BF70 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0087360 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
  * Callees:
  *     <none>
  */

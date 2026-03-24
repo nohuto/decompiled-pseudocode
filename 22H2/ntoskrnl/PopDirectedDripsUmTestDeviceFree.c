@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsUmTestDeviceFree @ 0x14099FBE0
+ * XREFs of PopDirectedDripsUmTestDeviceFree @ 0x1408F8AF0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDirectedDripsUmTestDeviceFree(struct _RTL_AVL_TABLE *Table, PVOID Buffer)

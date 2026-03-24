@@ -1,20 +1,20 @@
 /*
- * XREFs of ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C00840D8
+ * XREFs of ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C0016490
  * Callers:
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C0037EE0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
- *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C01547D8 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
- *     ?bSpDwmUpdateMaskCursor@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@3PEAU_RECTL@@PEAKPEAPEAV3@@Z @ 0x1C026C464 (-bSpDwmUpdateMaskCursor@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@3PEA.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C0090830 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C00EC3B4 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
+ *     ?bSpDwmUpdateMaskCursor@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@3PEAU_RECTL@@PEAKPEAPEAV3@@Z @ 0x1C026E770 (-bSpDwmUpdateMaskCursor@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@3PEA.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C0038B90 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C00843F8 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
- *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0084420 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C026C90C (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C0016760 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0016788 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C0091470 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C026EC1C (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
  */
 
 __int64 __fastcall bSpDwmUpdateSpriteShape(
@@ -28,16 +28,16 @@ __int64 __fastcall bSpDwmUpdateSpriteShape(
         struct _RECTL *a8,
         struct SFMLOGICALSURFACE **a9)
 {
-  unsigned int v13; // r14d
+  unsigned int v13; // ebx
   LONG left; // ecx
   int top; // edx
   LONG right; // r9d
   LONG bottom; // r10d
-  struct SFMLOGICALSURFACE *v18; // rbx
+  struct SFMLOGICALSURFACE *v18; // r14
   struct _SURFOBJ *v19; // rdx
   LONG v20; // edi
   LONG v21; // esi
-  __int64 v22; // r8
+  struct tagSIZE v22; // r8
   XLATEOBJ *v23; // rsi
   unsigned int inited; // eax
   int v25; // eax
@@ -81,16 +81,16 @@ __int64 __fastcall bSpDwmUpdateSpriteShape(
             v38[0] = 0LL;
             SURFREFVIEW::bMap((SURFREFVIEW *)v38, a4);
             if ( !v38[0] )
-              goto LABEL_25;
+              goto LABEL_27;
             v13 = bSpDwmCreateLogicalSurface(a1, a2, a3, &v32, a9);
             if ( !v13 )
-              goto LABEL_25;
+              goto LABEL_27;
             v18 = *a9;
             v19 = (struct _SURFOBJ *)*((_QWORD *)*a9 + 23);
             v37[0] = 0LL;
             SURFREFVIEW::bMap((SURFREFVIEW *)v37, v19);
             if ( !v37[0] )
-              goto LABEL_24;
+              goto LABEL_26;
             v20 = v39.left;
             v21 = v39.top;
             v39.right -= v39.left;
@@ -100,40 +100,32 @@ __int64 __fastcall bSpDwmUpdateSpriteShape(
             *(_QWORD *)&v39.left = 0LL;
             if ( a8 )
             {
-              ERECTL::operator*=(&v39.left, &a8->left);
+              ERECTL::operator*=(&v39);
               v33 = v39.left + v20;
               v34 = v39.top + v21;
             }
-            if ( ERECTL::bEmpty((ERECTL *)&v39) )
+            if ( (unsigned int)ERECTL::bEmpty((ERECTL *)&v39) )
             {
-LABEL_24:
+LABEL_26:
               SURFREFVIEW::bUnMap((SURFREFVIEW *)v37);
-LABEL_25:
+LABEL_27:
               SURFREFVIEW::bUnMap((SURFREFVIEW *)v38);
               return v13;
             }
             v23 = xloIdent;
-            v32 = (struct tagSIZE)v22;
-            if ( !a6
-              || (inited = EXLATEOBJ::bInitXlateObj(
-                             (__int64 *)&v32,
-                             0LL,
-                             0,
-                             (__int64)a6,
-                             (__int64)gppalRGB,
-                             (__int64)ppalDefault,
-                             (__int64)ppalDefault,
-                             v22,
-                             v22,
-                             v22,
-                             v22),
-                  v23 = (XLATEOBJ *)v32,
-                  (v13 = inited) != 0) )
+            v32 = v22;
+            if ( a6 )
             {
-              if ( (*((_DWORD *)a2 + 35) & 0x20) != 0 )
+              inited = EXLATEOBJ::bInitXlateObj(&v32, 0LL, 0LL);
+              v23 = (XLATEOBJ *)v32;
+              v13 = inited;
+            }
+            if ( v13 )
+            {
+              if ( (*((_DWORD *)a2 + 41) & 0x20) != 0 )
               {
                 v40 = v39;
-                ERECTL::vScale((ERECTL *)&v39, (struct DWMSPRITE *)((char *)a2 + 132));
+                ERECTL::vScale((ERECTL *)&v39, (struct DWMSPRITE *)((char *)a2 + 156));
                 if ( (HIDWORD(a4[1].hsurf) & 0x800) != 0 )
                 {
                   v36 = *(_QWORD *)&a4[7].iType;
@@ -147,7 +139,7 @@ LABEL_25:
                 }
                 else if ( (*(_DWORD *)(v30 + 88) & 2) != 0 )
                 {
-                  v31 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, COLORADJUSTMENT *, POINTL *, RECTL *, RECTL *, POINTL *, ULONG))*((_QWORD *)a1 + 353);
+                  v31 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, COLORADJUSTMENT *, POINTL *, RECTL *, RECTL *, POINTL *, ULONG))*((_QWORD *)a1 + 356);
                 }
                 else
                 {
@@ -165,8 +157,6 @@ LABEL_25:
                         &v40,
                         0LL,
                         3);
-                if ( !v13 )
-                  goto LABEL_23;
               }
               else
               {
@@ -185,7 +175,7 @@ LABEL_25:
                 else if ( (*(_DWORD *)(v26 + 88) & 0x400) != 0 )
                 {
                   v27 = (*((__int64 (__fastcall **)(__int64, struct _SURFOBJ *, _QWORD, XLATEOBJ *, struct tagRECT *, LONG *))a1
-                         + 352))(
+                         + 355))(
                           v26,
                           a4,
                           0LL,
@@ -205,14 +195,15 @@ LABEL_25:
                 }
                 v13 = v27;
                 if ( !v27 )
-                  goto LABEL_23;
-                vSpUpdateDirtyRgn(a2, v18, 0LL, (struct _RECTL *)&v39, a7, 0);
+                  goto LABEL_25;
+                vSpUpdateDirtyRgn(a2, v18, 0LL, &v39, a7, 0);
               }
-              vSpUpdateDirtyRgn(a2, v18, 0LL, (struct _RECTL *)&v39, a7, 0);
+              if ( v13 )
+                vSpUpdateDirtyRgn(a2, v18, 0LL, &v39, a7, 0);
             }
-LABEL_23:
+LABEL_25:
             EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v32);
-            goto LABEL_24;
+            goto LABEL_26;
           }
         }
       }

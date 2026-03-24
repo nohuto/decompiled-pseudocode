@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFlushBuffersFile @ 0x1406BF5C0
+ * XREFs of NtFlushBuffersFile @ 0x140698CD0
  * Callers:
  *     <none>
  * Callees:
- *     NtFlushBuffersFileEx @ 0x1406BF5F0 (NtFlushBuffersFileEx.c)
+ *     NtFlushBuffersFileEx @ 0x140698D00 (NtFlushBuffersFileEx.c)
  */
 
 __int64 __fastcall NtFlushBuffersFile(int a1, __int64 a2)

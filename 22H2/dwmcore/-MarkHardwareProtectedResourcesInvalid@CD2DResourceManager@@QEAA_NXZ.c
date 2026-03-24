@@ -1,28 +1,27 @@
 /*
- * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18029C9BC
+ * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18024C8EC
  * Callers:
- *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x18028CB5C (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180072020 (-PreRender@CComposition@@IEAAJXZ.c)
  * Callees:
- *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D334 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18028C19C (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18002A9A8 (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003A158 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-bool __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DResourceManager *this)
+char __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DResourceManager *this)
 {
   CD2DContext *v1; // rdi
-  bool result; // al
+  char v2; // bp
   char *v3; // rbx
-  struct CD2DResource *v5; // rbp
+  struct CD2DResource *v5; // r13
   CD2DContext *v6; // r14
   bool v7; // zf
   char *v8; // r12
   CD2DContext *v9; // rcx
   CD2DContext **v10; // rax
-  bool v11; // bp
 
   v1 = *(CD2DContext **)this;
-  result = 0;
+  v2 = 0;
   v3 = 0LL;
   if ( *(CD2DResourceManager **)this != this )
   {
@@ -50,16 +49,12 @@ bool __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DR
         CD2DResource::MarkInvalid(v5);
         if ( v8 )
           (*(void (__fastcall **)(char *))(*(_QWORD *)v8 + 16LL))(v8);
-        result = 1;
+        v2 = 1;
       }
-      v11 = result;
     }
     while ( v1 != this );
     if ( v3 )
-    {
       (*(void (__fastcall **)(char *))(*(_QWORD *)v3 + 16LL))(v3);
-      return v11;
-    }
   }
-  return result;
+  return v2;
 }

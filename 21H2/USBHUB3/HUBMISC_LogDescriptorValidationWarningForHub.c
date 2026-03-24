@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C00317E0
+ * XREFs of HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C0031100
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
  */
 
 char __fastcall HUBMISC_LogDescriptorValidationWarningForHub(__int64 a1)

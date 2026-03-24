@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmUpdateProcessorIdleVeto @ 0x140586960
+ * XREFs of PpmUpdateProcessorIdleVeto @ 0x1405683E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmUpdateIdleVeto @ 0x1405864C0 (PpmUpdateIdleVeto.c)
- *     PpmEventProcessorVetoRequest @ 0x14059B3B0 (PpmEventProcessorVetoRequest.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140344E90 (KeGetProcessorIndexFromNumber.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmUpdateIdleVeto @ 0x140567F10 (PpmUpdateIdleVeto.c)
+ *     PpmEventProcessorVetoRequest @ 0x14057A20C (PpmEventProcessorVetoRequest.c)
  */
 
 __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
@@ -35,11 +35,11 @@ __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
   struct _KPRCB *v17; // r10
   _DWORD *v18; // r8
   int v19; // eax
-  char v20[16]; // [rsp+20h] [rbp-148h] BYREF
-  _DWORD v21[68]; // [rsp+30h] [rbp-138h] BYREF
+  char v20[16]; // [rsp+20h] [rbp-E8h] BYREF
+  _DWORD v21[44]; // [rsp+30h] [rbp-D8h] BYREF
 
   v20[0] = 0;
-  memset(&v21[2], 0, 0x100uLL);
+  memset(&v21[2], 0, 0xA0uLL);
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(a1 + 4));
   Prcb = (struct _KPRCB *)KeGetPrcb(ProcessorIndexFromNumber);
   if ( ProcessorIndexFromNumber == -1 )
@@ -57,19 +57,22 @@ __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
   {
     updated = -1073741811;
 LABEL_5:
-    KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+    KxReleaseSpinLock(&PpmIdleVetoLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v7);
@@ -86,25 +89,28 @@ LABEL_5:
   PpmEventProcessorVetoRequest(Prcb, *(unsigned int *)(a1 + 8), *(unsigned int *)(a1 + 12), v15);
   if ( !v20[0] || Prcb == KeGetCurrentPrcb() )
     goto LABEL_5;
-  KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+  KxReleaseSpinLock(&PpmIdleVetoLock);
   if ( KiIrqlFlags )
   {
-    v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentPrcb();
-      v18 = v17->SchedulerAssist;
-      v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v12 = (v19 & v18[5]) == 0;
-      v18[5] &= v19;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)v17);
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+      {
+        v17 = KeGetCurrentPrcb();
+        v18 = v17->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v12 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)v17);
+      }
     }
   }
   __writecr8(v7);
-  v21[0] = 2097153;
-  memset(&v21[1], 0, 0x104uLL);
-  KeAddProcessorAffinityEx((unsigned __int16 *)v21, ProcessorIndexFromNumber);
-  PopExecuteOnTargetProcessors((__int64)v21, (__int64)PdcCreateWatchdogAroundClientCall, 0LL, 0LL);
+  v21[0] = 1310721;
+  memset(&v21[1], 0, 0xA4uLL);
+  KeAddProcessorAffinityEx(v21, ProcessorIndexFromNumber);
+  PopExecuteOnTargetProcessors((__int64)v21, (__int64)HalSystemVectorDispatchEntry, 0LL, 0LL);
   return (unsigned int)updated;
 }

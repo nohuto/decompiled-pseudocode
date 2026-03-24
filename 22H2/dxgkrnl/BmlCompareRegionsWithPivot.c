@@ -1,14 +1,14 @@
 /*
- * XREFs of BmlCompareRegionsWithPivot @ 0x1C01775B0
+ * XREFs of BmlCompareRegionsWithPivot @ 0x1C01477DC
  * Callers:
- *     BmlCompareTargetModesWithConstraint @ 0x1C01762D4 (BmlCompareTargetModesWithConstraint.c)
- *     BmlCompareTargetModes @ 0x1C0177B08 (BmlCompareTargetModes.c)
- *     BmlCompareSourceModesWithConstraint @ 0x1C03BD18C (BmlCompareSourceModesWithConstraint.c)
- *     BmlGetRecommendedContentSizeForPath @ 0x1C03BD650 (BmlGetRecommendedContentSizeForPath.c)
+ *     BmlCompareTargetModes @ 0x1C0144980 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C0144AC8 (BmlCompareTargetModesWithConstraint.c)
+ *     BmlCompareSourceModesWithConstraint @ 0x1C0147190 (BmlCompareSourceModesWithConstraint.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x1C02EC318 (BmlGetRecommendedContentSizeForPath.c)
  * Callees:
- *     ??$DIFF@H@@YAHHH@Z @ 0x1C0002C80 (--$DIFF@H@@YAHHH@Z.c)
- *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C017AAA8 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
- *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C017AADC (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
+ *     ??$DIFF@H@@YAHHH@Z @ 0x1C000C44C (--$DIFF@H@@YAHHH@Z.c)
+ *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C01478B4 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
+ *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C01483C8 (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
  */
 
 __int64 __fastcall BmlCompareRegionsWithPivot(
@@ -21,10 +21,10 @@ __int64 __fastcall BmlCompareRegionsWithPivot(
   __int128 v8; // rax
   signed __int64 v9; // rax
   int ScaledAspectRatio; // edi
-  int v11; // eax
-  unsigned int v12; // ebx
-  int v13; // eax
-  unsigned int v14; // eax
+  int v12; // eax
+  unsigned int v13; // ebx
+  int v14; // eax
+  unsigned int v15; // eax
 
   v6 = a3->cx * (unsigned __int64)a3->cy;
   v7 = abs64(a1->cx * (unsigned __int64)a1->cy - v6);
@@ -33,18 +33,18 @@ __int64 __fastcall BmlCompareRegionsWithPivot(
   if ( v7 == v9 )
   {
     ScaledAspectRatio = BmlGetScaledAspectRatio(a3);
-    v11 = BmlGetScaledAspectRatio(a1);
-    v12 = DIFF<int>(v11, ScaledAspectRatio);
-    v13 = BmlGetScaledAspectRatio(a2);
-    v14 = DIFF<int>(v13, ScaledAspectRatio);
-    return BmlCompareValues<int>(v14, v12);
+    v12 = BmlGetScaledAspectRatio(a1);
+    v13 = DIFF<int>(v12, ScaledAspectRatio);
+    v14 = BmlGetScaledAspectRatio(a2);
+    v15 = DIFF<int>(v14, ScaledAspectRatio);
+    return BmlCompareValues<int>(v15, v13);
   }
-  else if ( v7 < v9 )
+  else if ( v7 >= v9 )
   {
-    return 1LL;
+    return (unsigned int)(v9 >= v7) - 1;
   }
   else
   {
-    return (unsigned int)(v9 >= v7) - 1;
+    return 1LL;
   }
 }

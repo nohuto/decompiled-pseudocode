@@ -1,51 +1,49 @@
 /*
- * XREFs of FsRtlpWaitForIoAtEof @ 0x14035D3E0
+ * XREFs of FsRtlpWaitForIoAtEof @ 0x140290A2C
  * Callers:
- *     FsRtlAcquireEofLock @ 0x14035D230 (FsRtlAcquireEofLock.c)
- *     FsRtlGetIoAtEof @ 0x14035D610 (FsRtlGetIoAtEof.c)
+ *     FsRtlGetIoAtEof @ 0x140290760 (FsRtlGetIoAtEof.c)
+ *     FsRtlAcquireEofLock @ 0x1402907F0 (FsRtlAcquireEofLock.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402AE130 (FsRtlReleaseHeaderMutex.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     KeSetPriorityBoost @ 0x1403438F0 (KeSetPriorityBoost.c)
- *     FsRtlAcquireHeaderMutex @ 0x140347B70 (FsRtlAcquireHeaderMutex.c)
- *     KeQueryPriorityThread @ 0x14035D5C0 (KeQueryPriorityThread.c)
+ *     KeSetPriorityBoost @ 0x14022F6F0 (KeSetPriorityBoost.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     FsRtlReleaseHeaderMutex @ 0x140348BA0 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlAcquireHeaderMutex @ 0x140349070 (FsRtlAcquireHeaderMutex.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
  */
 
-char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3)
+char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  KSPIN_LOCK *v6; // r14
+  struct _KTHREAD *v6; // r14
   int IoPriorityThread; // esi
   int v8; // eax
   int v9; // r8d
   KPRIORITY PriorityThread; // edi
-  __int64 v11; // r8
-  _DWORD *v12; // r9
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 **v15; // rax
-  KPRIORITY v17; // ecx
-  KPRIORITY v18; // eax
-  int v19; // ecx
-  int v20; // eax
-  __int64 v21; // [rsp+30h] [rbp-40h] BYREF
-  __int64 **v22; // [rsp+38h] [rbp-38h]
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _QWORD *v13; // rax
+  KPRIORITY v15; // ecx
+  KPRIORITY v16; // eax
+  int v17; // ecx
+  int v18; // eax
+  __int64 v19; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD *v20; // [rsp+38h] [rbp-38h]
   __int16 Object; // [rsp+40h] [rbp-30h] BYREF
-  char v24; // [rsp+42h] [rbp-2Eh]
-  char v25; // [rsp+43h] [rbp-2Dh]
-  int v26; // [rsp+44h] [rbp-2Ch]
-  _QWORD v27[4]; // [rsp+48h] [rbp-28h] BYREF
-  KPRIORITY v28; // [rsp+68h] [rbp-8h]
-  int v29; // [rsp+6Ch] [rbp-4h]
+  char v22; // [rsp+42h] [rbp-2Eh]
+  char v23; // [rsp+43h] [rbp-2Dh]
+  int v24; // [rsp+44h] [rbp-2Ch]
+  _QWORD v25[4]; // [rsp+48h] [rbp-28h] BYREF
+  KPRIORITY v26; // [rsp+68h] [rbp-8h]
+  int v27; // [rsp+6Ch] [rbp-4h]
 
-  v21 = 0LL;
-  v22 = 0LL;
-  v25 = 0;
+  v19 = 0LL;
+  v20 = 0LL;
+  v23 = 0;
   CurrentThread = KeGetCurrentThread();
-  v6 = *(KSPIN_LOCK **)a1;
+  v6 = *(struct _KTHREAD **)a1;
   IoPriorityThread = PsGetIoPriorityThread((__int64)CurrentThread);
   if ( IoPriorityThread >= 2 )
     IoPriorityThread = 2;
@@ -54,8 +52,8 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
     v8 = PsGetIoPriorityThread((__int64)v6);
     if ( v8 < v9 )
     {
-      PsBoostThreadIoEx((__int64)v6, 0, 0, 0LL);
-      IoBoostThreadIoPriority(v6, IoPriorityThread, 0);
+      PsBoostThreadIoEx(v6, 0LL, 0LL, 0LL);
+      IoBoostThreadIoPriority(v6, (unsigned int)IoPriorityThread, 0LL);
       *(_BYTE *)(a1 + 36) = 1;
     }
   }
@@ -65,51 +63,51 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
   if ( PriorityThread > *(_DWORD *)(a1 + 32) )
   {
     *(_DWORD *)(a1 + 32) = PriorityThread;
-    if ( PriorityThread > KeQueryPriorityThread((PKTHREAD)v6) )
-      KeSetPriorityBoost((__int64)v6, (unsigned int)PriorityThread, v11, v12);
+    if ( PriorityThread > KeQueryPriorityThread(v6) )
+      KeSetPriorityBoost((__int64)v6, PriorityThread);
   }
-  v13 = *(_QWORD *)(a1 + 16);
-  v14 = a1 + 8;
-  while ( v13 != v14 )
+  v11 = *(_QWORD *)(a1 + 16);
+  v12 = a1 + 8;
+  while ( v11 != v12 )
   {
-    v17 = *(_DWORD *)(v13 + 56);
-    if ( v17 >= PriorityThread && *(_DWORD *)(v13 + 60) >= IoPriorityThread )
+    v15 = *(_DWORD *)(v11 + 56);
+    if ( v15 >= PriorityThread && *(_DWORD *)(v11 + 60) >= IoPriorityThread )
       break;
-    v18 = PriorityThread;
-    if ( PriorityThread <= v17 )
-      v18 = *(_DWORD *)(v13 + 56);
-    v19 = *(_DWORD *)(v13 + 60);
-    *(_DWORD *)(v13 + 56) = v18;
-    v20 = IoPriorityThread;
-    if ( IoPriorityThread <= v19 )
-      v20 = v19;
-    *(_DWORD *)(v13 + 60) = v20;
-    v13 = *(_QWORD *)(v13 + 8);
+    v16 = PriorityThread;
+    if ( PriorityThread <= v15 )
+      v16 = *(_DWORD *)(v11 + 56);
+    v17 = *(_DWORD *)(v11 + 60);
+    *(_DWORD *)(v11 + 56) = v16;
+    v18 = IoPriorityThread;
+    if ( IoPriorityThread <= v17 )
+      v18 = v17;
+    *(_DWORD *)(v11 + 60) = v18;
+    v11 = *(_QWORD *)(v11 + 8);
   }
-  v26 = 0;
-  v27[1] = v27;
-  v27[0] = v27;
-  v15 = *(__int64 ***)(a1 + 16);
+  v24 = 0;
+  v25[1] = v25;
+  v25[0] = v25;
+  v13 = *(_QWORD **)(a1 + 16);
   Object = 1;
-  v24 = 6;
-  v27[3] = CurrentThread;
-  v28 = PriorityThread;
-  v29 = IoPriorityThread;
-  v27[2] = a3;
-  if ( *v15 != (__int64 *)v14 )
+  v22 = 6;
+  v25[3] = CurrentThread;
+  v26 = PriorityThread;
+  v27 = IoPriorityThread;
+  v25[2] = a3;
+  if ( *v13 != v12 )
     __fastfail(3u);
-  v22 = v15;
-  v21 = a1 + 8;
-  *v15 = &v21;
-  *(_QWORD *)(a1 + 16) = &v21;
+  v20 = v13;
+  v19 = a1 + 8;
+  *v13 = &v19;
+  *(_QWORD *)(a1 + 16) = &v19;
   FsRtlReleaseHeaderMutex(a1, a2);
   KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   FsRtlAcquireHeaderMutex(a1, a2);
   if ( a3 >= 0 && a3 <= *(_QWORD *)(*(_QWORD *)(a1 + 24) + 40LL) )
     return 0;
-  if ( IoPriorityThread < 2 && v29 >= 2 && !*(_BYTE *)(a1 + 36) )
+  if ( IoPriorityThread < 2 && v27 >= 2 && !*(_BYTE *)(a1 + 36) )
   {
-    PsBoostThreadIoEx((__int64)CurrentThread, 0, 0, 0LL);
+    PsBoostThreadIoEx(CurrentThread, 0LL, 0LL, 0LL);
     *(_BYTE *)(a1 + 36) = 1;
   }
   return 1;

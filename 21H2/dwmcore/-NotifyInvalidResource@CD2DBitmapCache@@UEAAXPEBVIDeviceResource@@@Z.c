@@ -1,13 +1,13 @@
 /*
- * XREFs of ?NotifyInvalidResource@CD2DBitmapCache@@UEAAXPEBVIDeviceResource@@@Z @ 0x1800FF27C
+ * XREFs of ?NotifyInvalidResource@CD2DBitmapCache@@UEAAXPEBVIDeviceResource@@@Z @ 0x1800DEDFC
  * Callers:
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z @ 0x18010B270 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BDI@EAAXPEBVIDeviceResource@@@Z @ 0x18010B290 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BDI@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BFI@EAAXPEBVIDeviceResource@@@Z @ 0x18010B2B0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BFI@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@PA@EAAXPEBVIDeviceResource@@@Z @ 0x18010B2D0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@PA@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@CA@EAAXPEBVIDeviceResource@@@Z @ 0x18010B430 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@CA@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BHI@EAAXPEBVIDeviceResource@@@Z @ 0x18010B610 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BHI@EAAXPEBVIDeviceResource@@@Z.c)
- *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z @ 0x18010BBD0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z @ 0x1800F5FC0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BBI@EAAXPEBVIDeviceResource@@@Z @ 0x1800F87F0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BBI@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BDI@EAAXPEBVIDeviceResource@@@Z @ 0x1800F8810 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BDI@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@NA@EAAXPEBVIDeviceResource@@@Z @ 0x1800F8830 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@NA@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@CA@EAAXPEBVIDeviceResource@@@Z @ 0x1800F88D0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@CA@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BFI@EAAXPEBVIDeviceResource@@@Z @ 0x1800F89D0 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BFI@EAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z @ 0x1800F8D20 (-NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeLargePageTable @ 0x1402B4FE8
+ * XREFs of MiMakeLargePageTable @ 0x1402B50E8
  * Callers:
  *     MiCreateSystemPageTable @ 0x140026730 (MiCreateSystemPageTable.c)
  * Callees:
@@ -10,10 +10,10 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiTransformValidPteInPlace @ 0x14016A6EC (MiTransformValidPteInPlace.c)
- *     MiDemotePfnListChain @ 0x1402C52D0 (MiDemotePfnListChain.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
+ *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
  */
 
 __int64 __fastcall MiMakeLargePageTable(__int64 a1, volatile signed __int64 *a2, int a3)

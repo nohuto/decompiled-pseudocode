@@ -7,13 +7,13 @@
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     MmIsSessionInCurrentServerSilo @ 0x140158F54 (MmIsSessionInCurrentServerSilo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmIsSessionInCurrentServerSilo @ 0x140158F74 (MmIsSessionInCurrentServerSilo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopFindPowerSettingConfiguration @ 0x14058B7CC (PopFindPowerSettingConfiguration.c)
  *     PopStateIsSessionSpecific @ 0x14058B8C8 (PopStateIsSessionSpecific.c)
- *     PopCreateNotificationName @ 0x1406CE5C0 (PopCreateNotificationName.c)
- *     PsIsServiceSession @ 0x1406CEEA0 (PsIsServiceSession.c)
- *     PopValidateContextMembership @ 0x14071E664 (PopValidateContextMembership.c)
+ *     PopCreateNotificationName @ 0x1406CE5A0 (PopCreateNotificationName.c)
+ *     PsIsServiceSession @ 0x1406CEE80 (PsIsServiceSession.c)
+ *     PopValidateContextMembership @ 0x14071E644 (PopValidateContextMembership.c)
  */
 
 __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)

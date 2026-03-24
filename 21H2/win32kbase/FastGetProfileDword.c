@@ -1,12 +1,12 @@
 /*
- * XREFs of FastGetProfileDword @ 0x1C00C14D0
+ * XREFs of FastGetProfileDword @ 0x1C0069400
  * Callers:
  *     <none>
  * Callees:
- *     FastGetProfileDwordEx @ 0x1C00169B0 (FastGetProfileDwordEx.c)
+ *     FastGetProfileDwordEx @ 0x1C0069430 (FastGetProfileDwordEx.c)
  */
 
-int __fastcall FastGetProfileDword(__int64 a1, unsigned int a2, const WCHAR *a3, int a4, _DWORD *a5)
+__int64 __fastcall FastGetProfileDword(__int64 a1, __int64 a2, __int64 a3)
 {
-  return FastGetProfileDwordEx(a1, a2, a3, a4, 0, a5, 0LL);
+  return FastGetProfileDwordEx(a1, a2, a3);
 }

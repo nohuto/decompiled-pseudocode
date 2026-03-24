@@ -1,34 +1,30 @@
 /*
- * XREFs of WmipDisableCollectionForRemovedGuid @ 0x1408838E4
+ * XREFs of WmipDisableCollectionForRemovedGuid @ 0x140757904
  * Callers:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AF18 (WmipGenerateRegistrationNotification.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757110 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WmipFindGEByGuid @ 0x1406C64B4 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7448 (WmipSendWmiIrp.c)
- *     WmipDoDisableRequest @ 0x1407D6368 (WmipDoDisableRequest.c)
- *     WmipReleaseCollectionEnabled @ 0x1408758FC (WmipReleaseCollectionEnabled.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x1406B7FB0 (WmipFindGEByGuid.c)
+ *     WmipSendWmiIrp @ 0x140756D0C (WmipSendWmiIrp.c)
+ *     WmipDoDisableRequest @ 0x14077A6EC (WmipDoDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x140781894 (WmipReleaseCollectionEnabled.c)
  */
 
 int __fastcall WmipDisableCollectionForRemovedGuid(_QWORD *a1, __int64 a2)
 {
-  volatile signed __int64 *GEByGuid; // rax
-  volatile signed __int64 *v5; // rbx
-  __int128 v6; // xmm0
-  __int64 v7; // rax
-  LARGE_INTEGER *v8; // rcx
-  __int64 v9; // rax
-  LARGE_INTEGER *v10; // rcx
-  __int128 v12; // [rsp+30h] [rbp-50h] BYREF
-  LARGE_INTEGER v13[2]; // [rsp+40h] [rbp-40h] BYREF
-  _OWORD v14[2]; // [rsp+50h] [rbp-30h] BYREF
+  _QWORD *GEByGuid; // rax
+  _QWORD *v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int128 v10; // [rsp+30h] [rbp-50h] BYREF
+  LARGE_INTEGER v11[6]; // [rsp+40h] [rbp-40h] BYREF
 
-  *(_OWORD *)&v13[0].LowPart = 0LL;
-  memset(v14, 0, sizeof(v14));
+  memset(v11, 0, sizeof(v11));
   GEByGuid = WmipFindGEByGuid(a1, 0);
   v5 = GEByGuid;
   if ( GEByGuid )
@@ -39,41 +35,43 @@ int __fastcall WmipDisableCollectionForRemovedGuid(_QWORD *a1, __int64 a2)
       *(_DWORD *)(a2 + 16) &= ~0x2000u;
       *((_DWORD *)v5 + 4) |= 2u;
       KeReleaseMutex(&WmipSMMutex, 0);
-      v6 = *(_OWORD *)a1;
-      v7 = *(_QWORD *)(a2 + 64);
-      v8 = v13;
-      v13[0].LowPart = 48;
-      *(_OWORD *)((char *)v14 + 8) = v6;
-      LOBYTE(v8) = 5;
-      WmipSendWmiIrp((__int64)v8, *(unsigned int *)(v7 + 56), (__int64)v14 + 8, 48, (__int64)v13, &v12);
+      v6 = *(_QWORD *)(a2 + 64);
+      v11[5].QuadPart = 0LL;
+      memset((char *)&v11[0].QuadPart + 4, 0, 20);
+      v11[0].LowPart = 48;
+      *(_OWORD *)&v11[3].LowPart = *(_OWORD *)a1;
+      WmipSendWmiIrp(5u, *(_DWORD *)(v6 + 56), (UNICODE_STRING *)&v11[3], 0x30u, (__int64)v11, &v10);
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       if ( *((_DWORD *)v5 + 22) )
+      {
         *((_DWORD *)v5 + 4) &= ~2u;
+      }
       else
-        WmipDoDisableRequest(v5, 1, 2LL);
+      {
+        LOBYTE(v7) = 1;
+        WmipDoDisableRequest(v5, v7);
+      }
     }
     if ( *((_DWORD *)v5 + 23) && (*(_DWORD *)(a2 + 16) & 0x4000) != 0 )
     {
       *((_DWORD *)v5 + 4) |= 4u;
       *(_DWORD *)(a2 + 16) &= ~0x4000u;
       KeReleaseMutex(&WmipSMMutex, 0);
-      v9 = *(_QWORD *)(a2 + 64);
-      *(_OWORD *)&v13[0].LowPart = 0LL;
-      v10 = v13;
-      v13[0].LowPart = 48;
-      memset(v14, 0, sizeof(v14));
-      LOBYTE(v10) = 7;
-      *(_OWORD *)((char *)v14 + 8) = *(_OWORD *)a1;
-      WmipSendWmiIrp((__int64)v10, *(unsigned int *)(v9 + 56), (__int64)v14 + 8, 48, (__int64)v13, &v12);
+      v8 = *(_QWORD *)(a2 + 64);
+      v11[5].QuadPart = 0LL;
+      memset((char *)&v11[0].QuadPart + 4, 0, 20);
+      v11[0].LowPart = 48;
+      *(_OWORD *)&v11[3].LowPart = *(_OWORD *)a1;
+      WmipSendWmiIrp(7u, *(_DWORD *)(v8 + 56), (UNICODE_STRING *)&v11[3], 0x30u, (__int64)v11, &v10);
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       if ( *((_DWORD *)v5 + 23) )
       {
         *((_DWORD *)v5 + 4) &= ~4u;
-        WmipReleaseCollectionEnabled((__int64)v5);
+        WmipReleaseCollectionEnabled(v5);
       }
       else
       {
-        WmipDoDisableRequest(v5, 0, 4LL);
+        WmipDoDisableRequest(v5, 0LL);
       }
     }
     WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, v5);

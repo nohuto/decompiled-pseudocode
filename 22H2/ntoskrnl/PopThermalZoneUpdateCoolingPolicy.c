@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalZoneUpdateCoolingPolicy @ 0x14098B21C
+ * XREFs of PopThermalZoneUpdateCoolingPolicy @ 0x1408E7F2C
  * Callers:
- *     PopThermalCoolingPowerSettingCallback @ 0x1403C71B0 (PopThermalCoolingPowerSettingCallback.c)
+ *     PopThermalCoolingPowerSettingCallback @ 0x14039A830 (PopThermalCoolingPowerSettingCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
  */
 
 void PopThermalZoneUpdateCoolingPolicy()
@@ -21,7 +21,7 @@ void PopThermalZoneUpdateCoolingPolicy()
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&i[2].Flags);
     IoCancelIrp((PIRP)i->IoStatus.Information);
-    PopReleaseRwLock((__int64 *)&i[2].Flags);
+    PopReleaseRwLock((ULONG_PTR)&i[2].Flags);
   }
-  PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
+  PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
 }

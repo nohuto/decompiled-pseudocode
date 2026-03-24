@@ -1,12 +1,11 @@
 /*
- * XREFs of ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C00BA8E8
+ * XREFs of ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C011CA30
  * Callers:
- *     ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C00BA884 (-xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C011C9CC (-xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C00A9418 (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
- *     ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C00BA9AC (-TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowT.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E22C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C011CAE4 (-TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowT.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall NotifyShell::TrackedWindowTrackingInfo(
@@ -14,17 +13,27 @@ void __fastcall NotifyShell::TrackedWindowTrackingInfo(
         struct tagWND *a2,
         const struct tagMINMAXINFO *const a3)
 {
-  __int64 v5; // [rsp+20h] [rbp-19h] BYREF
-  _QWORD v6[11]; // [rsp+28h] [rbp-11h] BYREF
+  int v4; // eax
+  __int64 v5; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-48h] BYREF
+  __int128 v7; // [rsp+30h] [rbp-40h] BYREF
+  __int128 v8; // [rsp+40h] [rbp-30h]
+  __int128 v9; // [rsp+50h] [rbp-20h]
+  __int64 v10; // [rsp+60h] [rbp-10h]
 
-  memset(&v6[1], 0, 0x50uLL);
+  v10 = 0LL;
   v5 = *((_QWORD *)a2 + 4);
-  v6[0] = *((_QWORD *)a2 + 3);
-  v6[1] = *(_QWORD *)this;
-  LODWORD(v6[2]) = 1;
-  ShellWindowManagement::TransformWindowTrackInfo(this, &v5, v6, 0LL);
-  v6[4] = v5;
-  v6[3] = v6[0];
-  LOWORD(v6[5]) = *(_WORD *)(*((_QWORD *)this + 5) + 284LL);
-  anonymous_namespace_::NotifyIAMWindowManagementEvent();
+  LODWORD(v6) = *((_DWORD *)a2 + 6);
+  v4 = *((_DWORD *)a2 + 7);
+  v7 = 0LL;
+  HIDWORD(v6) = v4;
+  *(_QWORD *)&v7 = *(_QWORD *)this;
+  v8 = 0LL;
+  DWORD2(v7) = 1;
+  v9 = 0LL;
+  ShellWindowManagement::TransformWindowTrackInfo(this, &v5, &v6, 0LL);
+  *((_QWORD *)&v8 + 1) = v5;
+  *(_QWORD *)&v8 = v6;
+  LOWORD(v9) = *(_WORD *)(*((_QWORD *)this + 5) + 284LL);
+  anonymous_namespace_::NotifyIAMWindowManagementEvent((int)&v7);
 }

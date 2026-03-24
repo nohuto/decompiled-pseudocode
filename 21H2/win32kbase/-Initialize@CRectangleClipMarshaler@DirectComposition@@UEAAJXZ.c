@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CRectangleClipMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B42B0
+ * XREFs of ?Initialize@CRectangleClipMarshaler@DirectComposition@@UEAAJXZ @ 0x1C009F230
  * Callers:
  *     <none>
  * Callees:
@@ -12,11 +12,11 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::Initialize(
   __int64 result; // rax
 
   *((_DWORD *)this + 4) |= 2u;
-  *((_DWORD *)this + 26) = -905969664;
-  *((_DWORD *)this + 27) = -905969664;
-  *((_DWORD *)this + 28) = 1241513984;
-  *((_DWORD *)this + 29) = 1241513984;
+  *((_DWORD *)this + 24) = -905969664;
+  *((_DWORD *)this + 25) = -905969664;
+  *((_DWORD *)this + 26) = 1241513984;
+  *((_DWORD *)this + 27) = 1241513984;
   result = 0LL;
-  *((_DWORD *)this + 23) = 1065353216;
+  *((_DWORD *)this + 21) = 1065353216;
   return result;
 }

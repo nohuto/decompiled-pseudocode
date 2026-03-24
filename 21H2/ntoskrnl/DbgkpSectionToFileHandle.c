@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpSectionToFileHandle @ 0x14092AAC4
+ * XREFs of DbgkpSectionToFileHandle @ 0x140887B94
  * Callers:
- *     DbgkCreateThread @ 0x140702604 (DbgkCreateThread.c)
- *     DbgkMapViewOfSection @ 0x140757090 (DbgkMapViewOfSection.c)
- *     DbgkpPostFakeThreadMessages @ 0x140927D44 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     DbgkMapViewOfSection @ 0x1407129A4 (DbgkMapViewOfSection.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884E94 (DbgkpPostFakeThreadMessages.c)
  * Callees:
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     MmGetFileNameForSection @ 0x14096B158 (MmGetFileNameForSection.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     MmGetFileNameForSection @ 0x1408C415C (MmGetFileNameForSection.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 HANDLE __fastcall DbgkpSectionToFileHandle(__int64 a1)
@@ -19,10 +19,10 @@ HANDLE __fastcall DbgkpSectionToFileHandle(__int64 a1)
   PVOID P; // [rsp+88h] [rbp+18h] BYREF
   HANDLE FileHandle; // [rsp+90h] [rbp+20h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
   P = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   IoStatusBlock = 0LL;
   if ( (int)MmGetFileNameForSection(a1, &P) < 0 )
     return 0LL;

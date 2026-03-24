@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIBusIrpCancelRemoveOrStopDevice @ 0x1C00AC7F0
+ * XREFs of ACPIBusIrpCancelRemoveOrStopDevice @ 0x1C00ADC20
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C0005398 (ACPIThermalAcquireCoolingInterfaces.c)
- *     EnableDisableRegionSpacesForDevice @ 0x1C005D840 (EnableDisableRegionSpacesForDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C005C920 (EnableDisableRegionSpacesForDevice.c)
  */
 
 __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
@@ -26,18 +26,21 @@ __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
   v5 = (__int64)DeviceExtension;
   if ( (DeviceExtension[2] & 0x204000) != 0x200000LL )
   {
-    if ( DeviceExtension[92] == 1 )
+    if ( DeviceExtension[82] == 1 )
     {
-      v6 = DeviceExtension[93];
-      DeviceExtension[92] = v6;
-      if ( v6 == 3 && (DeviceExtension[167] & 0x300) != 0 )
+      v6 = DeviceExtension[83];
+      DeviceExtension[82] = v6;
+      if ( v6 == 3 && (DeviceExtension[157] & 0x300) != 0 )
         EnableDisableRegionSpacesForDevice((__int64)DeviceExtension, 1);
     }
-    if ( !*(_QWORD *)(v5 + 656) )
+    if ( !*(_QWORD *)(v5 + 616) )
       ACPIThermalAcquireCoolingInterfaces(v5);
   }
   a2->IoStatus.Status = 0;
   IofCompleteRequest(a2, 0);
+  v7 = 0x200000000000LL;
+  if ( (*(_QWORD *)(v5 + 8) & 0x200000000000LL) != 0 )
+    v7 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
@@ -46,7 +49,7 @@ __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
       4u,
       5u,
       0x19u,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
       IrpText,
       0,

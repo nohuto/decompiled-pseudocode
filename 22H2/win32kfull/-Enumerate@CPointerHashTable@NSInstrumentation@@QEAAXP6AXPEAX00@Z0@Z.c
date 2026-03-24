@@ -1,9 +1,11 @@
 /*
- * XREFs of ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00A602C
+ * XREFs of ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00F4814
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?Dump@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAU_DUMP_CONTEXT@2@@Z @ 0x1C02DD1DC (-Dump@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAU_DUMP_CONTEXT@2@@Z.c)
+ *     ?FreeAll@CLeakTrackingAllocator@NSInstrumentation@@QEAAXXZ @ 0x1C02DD370 (-FreeAll@CLeakTrackingAllocator@NSInstrumentation@@QEAAXXZ.c)
  * Callees:
- *     ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C00A3270 (-_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall NSInstrumentation::CPointerHashTable::Enumerate(
@@ -12,29 +14,29 @@ void __fastcall NSInstrumentation::CPointerHashTable::Enumerate(
         void *a3)
 {
   unsigned int v3; // edi
-  unsigned int v5; // ebp
-  unsigned int v6; // ebx
-  __int64 v7; // rax
-  void *v8; // rcx
+  unsigned int v7; // ebp
+  unsigned int v8; // ebx
+  __int64 v9; // rax
+  __int64 v10; // rcx
 
   v3 = *((_DWORD *)this + 12);
   if ( v3 )
   {
-    v5 = 0;
-    v6 = 0;
+    v7 = 0;
+    v8 = 0;
     do
     {
-      if ( v6 >= *((_DWORD *)this + 10) )
+      if ( v8 >= *((_DWORD *)this + 10) )
         break;
-      v7 = *((_QWORD *)this + 4);
-      v8 = *(void **)(v7 + 16LL * v6);
-      if ( v8 )
+      v9 = *((_QWORD *)this + 4);
+      v10 = *(_QWORD *)(v9 + 16LL * v8);
+      if ( v10 )
       {
-        UmfdAllocation::_RemoveAllocationFromLookup(v8, *(char **)(v7 + 16LL * v6 + 8), 0LL);
-        ++v5;
+        ((void (__fastcall *)(__int64, _QWORD, void *))a2)(v10, *(_QWORD *)(v9 + 16LL * v8 + 8), a3);
+        ++v7;
       }
-      ++v6;
+      ++v8;
     }
-    while ( v5 < v3 );
+    while ( v7 < v3 );
   }
 }

@@ -1,59 +1,29 @@
 /*
- * XREFs of WheaWmiDispatch @ 0x1403AEFE0
+ * XREFs of WheaWmiDispatch @ 0x1403CC380
  * Callers:
  *     <none>
  * Callees:
- *     WheapWmiRegisterInfo @ 0x1403AF03C (WheapWmiRegisterInfo.c)
- *     WheapWmiExecuteMethod @ 0x140613FD0 (WheapWmiExecuteMethod.c)
- *     WheapWmiGetAllData @ 0x14061441C (WheapWmiGetAllData.c)
- *     WheapWmiGetSingleInstance @ 0x140614480 (WheapWmiGetSingleInstance.c)
+ *     WheapWmiRegisterInfo @ 0x1403CC3DC (WheapWmiRegisterInfo.c)
+ *     WheapWmiExecuteMethod @ 0x1405BDCF0 (WheapWmiExecuteMethod.c)
+ *     WheapWmiGetAllData @ 0x1405BDF18 (WheapWmiGetAllData.c)
+ *     WheapWmiGetSingleInstance @ 0x1405BDF7C (WheapWmiGetSingleInstance.c)
  */
 
 __int64 __fastcall WheaWmiDispatch(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, _DWORD *a6)
 {
-  int v6; // ecx
-  int v7; // ecx
-  __int64 v8; // rcx
-  __int64 v10; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
 
-  if ( (int)a1 <= 5 )
-  {
-    if ( (_DWORD)a1 == 5 )
-      goto LABEL_6;
-    if ( (_DWORD)a1 )
-    {
-      v10 = (unsigned int)(a1 - 1);
-      if ( (_DWORD)v10 )
-        goto LABEL_6;
-      return WheapWmiGetSingleInstance(v10, a3, a4, a6);
-    }
-    else
-    {
-      return WheapWmiGetAllData(a1, a3, a4, a6);
-    }
-  }
-  else
-  {
-    v6 = a1 - 6;
-    if ( !v6 )
-      goto LABEL_6;
-    v7 = v6 - 1;
-    if ( !v7 )
-      goto LABEL_6;
-    v8 = (unsigned int)(v7 - 1);
-    if ( (_DWORD)v8 )
-    {
-      if ( (_DWORD)v8 != 1 )
-      {
-LABEL_6:
-        *a6 = 0;
-        return 3221225488LL;
-      }
-      return WheapWmiExecuteMethod(a2, a3, a4, a6);
-    }
-    else
-    {
-      return WheapWmiRegisterInfo(v8, a3, a4, a6);
-    }
-  }
+  if ( !(_DWORD)a1 )
+    return WheapWmiGetAllData(a1, a3, a4, a6);
+  v6 = (unsigned int)(a1 - 1);
+  if ( !(_DWORD)v6 )
+    return WheapWmiGetSingleInstance(v6, a3, a4, a6);
+  v7 = (unsigned int)(v6 - 7);
+  if ( !(_DWORD)v7 )
+    return WheapWmiRegisterInfo(v7, a3, a4, a6);
+  if ( (_DWORD)v7 == 1 )
+    return WheapWmiExecuteMethod(a2, a3, a4, a6);
+  *a6 = 0;
+  return 3221225488LL;
 }

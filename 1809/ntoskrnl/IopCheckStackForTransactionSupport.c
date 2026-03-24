@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckStackForTransactionSupport @ 0x140169C20
+ * XREFs of IopCheckStackForTransactionSupport @ 0x140169C40
  * Callers:
  *     IopAllocateFoExtensionsOnCreate @ 0x1405F9484 (IopAllocateFoExtensionsOnCreate.c)
  *     IopRetrieveTransactionParameters @ 0x140639970 (IopRetrieveTransactionParameters.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopCheckStackForTransactionSupport(__int64 a1)

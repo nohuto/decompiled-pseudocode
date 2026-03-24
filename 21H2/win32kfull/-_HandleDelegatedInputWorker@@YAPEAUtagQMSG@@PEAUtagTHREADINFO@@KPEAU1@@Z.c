@@ -1,99 +1,81 @@
 /*
- * XREFs of ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C016B120
+ * XREFs of ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860
  * Callers:
- *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C0004798 (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01E177C (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     DelQEntry @ 0x1C005BE3C (DelQEntry.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C0078850 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     IsPointerInputMessage @ 0x1C00AC3A0 (IsPointerInputMessage.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00F6110 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
- *     ?HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z @ 0x1C016AFAE (-HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z.c)
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
- *     DelegateReleasePointerMessage @ 0x1C01EA234 (DelegateReleasePointerMessage.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F354 (WPP_RECORDER_SF_qq.c)
+ *     DelQEntry @ 0x1C006684C (DelQEntry.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     IsPointerInputMessage @ 0x1C006B374 (IsPointerInputMessage.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D880 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z @ 0x1C01E08F4 (-HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     DelegateReleasePointerMessage @ 0x1C01EF99C (DelegateReleasePointerMessage.c)
  */
 
 struct tagQMSG *__fastcall _HandleDelegatedInputWorker(struct tagTHREADINFO *a1, unsigned int a2, struct tagQMSG *a3)
 {
-  __int64 v3; // r14
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  char v9; // di
-  int v10; // eax
+  __int64 v3; // rbp
+  int v7; // eax
+  unsigned __int64 v8; // rcx
+  __int64 v9; // rax
+  int v10; // ecx
   __int64 v11; // rcx
-  __int64 v12; // rax
-  int v13; // ecx
-  int v14; // edx
-  __int64 v15; // r8
-  __int64 v17; // [rsp+48h] [rbp-20h]
-  char v18; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v12; // rdx
+  char v14; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = *(_QWORD *)a3;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v18);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v14);
   if ( (*((_DWORD *)a3 + 25) & 0x100) == 0 )
   {
     EtwTraceBeginDelegatedInputWorker(a3, a2);
     InputTraceLogging::DManip::HandleDelegatedInput(a3);
-    v9 = 1;
     if ( a2 == 1 )
     {
-      v10 = *((_DWORD *)a3 + 25);
-      if ( (v10 & 0x20) != 0 )
+      v7 = *((_DWORD *)a3 + 25);
+      if ( (v7 & 0x20) != 0 )
       {
-        v11 = *((_QWORD *)a3 + 2);
-        *((_DWORD *)a3 + 25) = v10 & 0xFFFFFF9F | 0x40;
-        v12 = HMValidateHandleNoSecure(v11, 1);
-        if ( v12 )
+        v8 = *((_QWORD *)a3 + 2);
+        *((_DWORD *)a3 + 25) = v7 & 0xFFFFFF9F | 0x40;
+        v9 = HMValidateHandleNoSecure(v8, 1);
+        if ( v9 )
         {
-          v13 = *((_DWORD *)a3 + 25);
-          if ( (v13 & 0x200) != 0 )
+          v10 = *((_DWORD *)a3 + 25);
+          if ( (v10 & 0x400) != 0 )
           {
             *((_QWORD *)a3 + 2) = 0LL;
-            *((_DWORD *)a3 + 25) = v13 & 0xFFFFFDFF;
+            *((_DWORD *)a3 + 25) = v10 & 0xFFFFFBFF;
           }
-          ReassignInputMessage(a1, *(struct tagTHREADINFO **)(v12 + 16), a3);
-          goto LABEL_25;
+          ReassignInputMessage(a1, *(struct tagTHREADINFO **)(v9 + 16), a3);
+          goto LABEL_18;
         }
 LABEL_9:
         if ( !IsPointerInputMessage(*((_DWORD *)a3 + 6)) || !(unsigned int)DelegateReleasePointerMessage(a1, a3) )
         {
           CleanEventMessage(a3);
-          DelQEntry(*((_QWORD *)a1 + 54) + 24LL, (__int64)a3, 1);
+          DelQEntry((unsigned int **)(*((_QWORD *)a1 + 54) + 24LL), (unsigned int *)a3, 1);
         }
-        v15 = *((_QWORD *)a1 + 54);
-        if ( *(struct tagQMSG **)(v15 + 80) == a3 )
+        v11 = *((_QWORD *)a1 + 54);
+        if ( *(struct tagQMSG **)(v11 + 80) == a3 )
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-            || (LOBYTE(v14) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+          v12 = *((_QWORD *)a1 + 54);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+            && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           {
-            LOBYTE(v14) = 0;
+            WPP_RECORDER_SF_qq(
+              v11,
+              5u,
+              0x12u,
+              0xCu,
+              (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+              v11,
+              *(_QWORD *)(v11 + 80));
+            v12 = *((_QWORD *)a1 + 54);
           }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-          {
-            v9 = 0;
-          }
-          if ( (_BYTE)v14 || v9 )
-          {
-            v17 = *(_QWORD *)(v15 + 80);
-            LOBYTE(v15) = v9;
-            WPP_RECORDER_AND_TRACE_SF_qq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v14,
-              v15,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              5,
-              18,
-              12,
-              (__int64)&WPP_2f2057662fc63cc3a929ce6289f6f23a_Traceguids,
-              *((_QWORD *)a1 + 54),
-              v17);
-          }
-          *(_QWORD *)(*((_QWORD *)a1 + 54) + 80LL) = 0LL;
+          *(_QWORD *)(v12 + 80) = 0LL;
         }
       }
     }
@@ -103,9 +85,9 @@ LABEL_9:
         goto LABEL_9;
       *((_DWORD *)a3 + 25) |= 0x10u;
     }
-LABEL_25:
+LABEL_18:
     EtwTraceEndDelegatedInputWorker(a3, a2);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v18, v7, v8);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v14);
   return (struct tagQMSG *)v3;
 }

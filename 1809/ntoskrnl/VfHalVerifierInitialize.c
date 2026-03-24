@@ -3,7 +3,7 @@
  * Callers:
  *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ViHalApplySettings @ 0x14092DBCC (ViHalApplySettings.c)
  */
 

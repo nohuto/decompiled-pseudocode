@@ -1,23 +1,18 @@
 /*
- * XREFs of GetRemoteHDEV @ 0x1C0203084
+ * XREFs of GetRemoteHDEV @ 0x1C0225D68
  * Callers:
- *     CtxDisplayIOCtl @ 0x1C0202F7C (CtxDisplayIOCtl.c)
- *     RemotePassthruDisable @ 0x1C02030CC (RemotePassthruDisable.c)
- *     RemoteShadowCleanup @ 0x1C0203220 (RemoteShadowCleanup.c)
- *     RemoteShadowStart @ 0x1C020342C (RemoteShadowStart.c)
+ *     CtxDisplayIOCtl @ 0x1C0225CA4 (CtxDisplayIOCtl.c)
+ *     RemotePassthruDisable @ 0x1C0225E40 (RemotePassthruDisable.c)
+ *     RemoteShadowCleanup @ 0x1C0225F40 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C0226110 (RemoteShadowStart.c)
  * Callees:
- *     DrvFindRemoteDriverhdevInMDEV @ 0x1C026BF38 (DrvFindRemoteDriverhdevInMDEV.c)
+ *     DrvFindRemoteDriverhdevInMDEV @ 0x1C02733CC (DrvFindRemoteDriverhdevInMDEV.c)
  */
 
 __int64 __fastcall GetRemoteHDEV(__int16 a1, __int64 a2)
 {
-  __int64 v2; // rcx
-
-  if ( (unsigned __int16)(a1 - 1) > 0xFFFDu )
-    return *(_QWORD *)(gpDispInfo + 40LL);
-  v2 = *(_QWORD *)(gpDispInfo + 16LL);
-  if ( *(_DWORD *)(v2 + 20) == 1 )
+  if ( (unsigned __int16)(a1 - 1) > 0xFFFDu || *(_DWORD *)(*(_QWORD *)(gpDispInfo + 16LL) + 20LL) == 1 )
     return *(_QWORD *)(gpDispInfo + 40LL);
   else
-    return DrvFindRemoteDriverhdevInMDEV(v2, a2, a2);
+    return DrvFindRemoteDriverhdevInMDEV(*(_QWORD *)(gpDispInfo + 16LL), a2, a2);
 }

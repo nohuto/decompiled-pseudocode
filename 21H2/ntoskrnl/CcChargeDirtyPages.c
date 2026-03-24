@@ -1,26 +1,62 @@
 /*
- * XREFs of CcChargeDirtyPages @ 0x14029D818
+ * XREFs of CcChargeDirtyPages @ 0x140336210
  * Callers:
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x140392670 (CcAddDirtyPagesToExternalCache.c)
  * Callees:
- *     CcChargeDirtyPagesInternal @ 0x14029E120 (CcChargeDirtyPagesInternal.c)
+ *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
+ *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall CcChargeDirtyPages(__int64 a1, int a2, int a3, int a4)
+__int64 __fastcall CcChargeDirtyPages(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v4; // r10
-  __int64 v5; // rax
+  unsigned __int64 v4; // rsi
+  __int64 v8; // rdi
 
-  v4 = 0LL;
+  v4 = (unsigned int)a4;
   if ( a1 )
   {
-    v5 = *(_QWORD *)(a1 + 528);
-    if ( CcEnablePerVolumeLazyWriter == 1 )
-      v4 = *(_QWORD *)(a1 + 592);
+    v8 = *(_QWORD *)(a1 + 528);
+    if ( *(_QWORD *)(a1 + 168)
+      && v8 != *(_QWORD *)(MmGetControlAreaPartition(
+                             *(_QWORD *)((*(_QWORD *)(a1 + 96) & 0xFFFFFFFFFFFFFFF0uLL) + 0x28),
+                             a2,
+                             a3,
+                             a4)
+                         + 8) )
+    {
+      KeBugCheckEx(0x34u, 0x1314uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    }
   }
   else
   {
-    v5 = *((_QWORD *)PspSystemPartition + 1);
+    v8 = *((_QWORD *)PspSystemPartition + 1);
   }
-  return CcChargeDirtyPagesInternal(a1, a2, a3, a4, v5, v4);
+  *(_QWORD *)(v8 + 640) += v4;
+  if ( a2 )
+    *(_DWORD *)(a2 + 8) += v4;
+  if ( a3 )
+    *(_DWORD *)(a3 + 32) += v4;
+  if ( a1 )
+  {
+    *(_DWORD *)(a1 + 112) += v4;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 504) + 32LL), v4);
+    if ( (*(_DWORD *)(a1 + 152) & 0x1000000) != 0 )
+    {
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 240) + 24LL), v4);
+      if ( *(_QWORD *)(*(_QWORD *)(a1 + 240) + 136LL) == -1LL )
+        *(_QWORD *)(*(_QWORD *)(a1 + 240) + 136LL) = MEMORY[0xFFFFF78000000320];
+    }
+  }
+  if ( *(_BYTE *)(v8 + 964) && *(_QWORD *)(v8 + 640) >= 0x2000uLL )
+    CcScheduleLazyWriteScan(v8, 1, 0);
+  if ( *(_BYTE *)(v8 + 140) )
+  {
+    CcScheduleLazyWriteScan(v8, 0, 0);
+    *(_BYTE *)(v8 + 140) = 0;
+  }
+  return CcAdjustWriteBehindThreadPoolIfNeeded(v8, 0LL);
 }

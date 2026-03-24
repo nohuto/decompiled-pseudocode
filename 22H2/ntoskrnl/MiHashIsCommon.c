@@ -1,10 +1,11 @@
 /*
- * XREFs of MiHashIsCommon @ 0x140215F50
+ * XREFs of MiHashIsCommon @ 0x14036967C
  * Callers:
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MiPerformCombineScan @ 0x1403695D0 (MiPerformCombineScan.c)
  * Callees:
- *     RtlCompareMemoryUlong @ 0x1404291E0 (RtlCompareMemoryUlong.c)
+ *     RtlCompareMemoryUlong @ 0x1404078B0 (RtlCompareMemoryUlong.c)
  */
 
 _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)
@@ -13,8 +14,8 @@ _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)
   unsigned int v5; // r8d
   __int64 v6; // rax
 
-  v3 = *(_QWORD **)(a1 + 120);
-  v5 = *(_DWORD *)(a1 + 136);
+  v3 = *(_QWORD **)(a1 + 40);
+  v5 = *(_DWORD *)(a1 + 56);
   v6 = 0LL;
   if ( !v5 )
     return 0LL;
@@ -25,5 +26,5 @@ _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)
     if ( (unsigned int)v6 >= v5 )
       return 0LL;
   }
-  return !a3 || RtlCompareMemoryUlong(a3, 0x1000uLL, *(_DWORD *)(*(_QWORD *)(a1 + 128) + 4 * v6)) == 4096;
+  return !a3 || RtlCompareMemoryUlong(a3, 0x1000uLL, *(_DWORD *)(*(_QWORD *)(a1 + 48) + 4 * v6)) == 4096;
 }

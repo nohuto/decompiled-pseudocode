@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaFlushDriverMdl @ 0x1404FFC44
+ * XREFs of HalpDmaFlushDriverMdl @ 0x1404B764C
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1405144A0 (HalFlushAdapterBuffersEx.c)
- *     HalMapTransferEx @ 0x140514730 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x14039EFE0 (HalMapTransferEx.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2630 (HalFlushAdapterBuffersEx.c)
  * Callees:
- *     KeFlushIoBuffers @ 0x140346DC0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x1403007D0 (KeFlushIoBuffers.c)
  */
 
 char __fastcall HalpDmaFlushDriverMdl(_QWORD *BugCheckParameter4, char a2, __int64 a3, __int64 a4)
@@ -17,7 +17,8 @@ char __fastcall HalpDmaFlushDriverMdl(_QWORD *BugCheckParameter4, char a2, __int
     v5 = BugCheckParameter4;
     do
     {
-      result = KeFlushIoBuffers((ULONG_PTR)v5, a2, 1, a4);
+      LOBYTE(a3) = 1;
+      result = KeFlushIoBuffers((ULONG_PTR)v5, a2, a3, a4);
       v5 = (_QWORD *)*v5;
     }
     while ( v5 );

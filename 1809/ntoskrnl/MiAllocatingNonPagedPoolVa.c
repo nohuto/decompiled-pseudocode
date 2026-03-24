@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAllocatingNonPagedPoolVa @ 0x140164040
+ * XREFs of MiAllocatingNonPagedPoolVa @ 0x140164060
  * Callers:
- *     MiScanLeafNonPagedPool @ 0x1401637D0 (MiScanLeafNonPagedPool.c)
- *     MiReplenishNonPagedSlists @ 0x140163E84 (MiReplenishNonPagedSlists.c)
+ *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
+ *     MiReplenishNonPagedSlists @ 0x140163EA4 (MiReplenishNonPagedSlists.c)
  * Callees:
  *     <none>
  */

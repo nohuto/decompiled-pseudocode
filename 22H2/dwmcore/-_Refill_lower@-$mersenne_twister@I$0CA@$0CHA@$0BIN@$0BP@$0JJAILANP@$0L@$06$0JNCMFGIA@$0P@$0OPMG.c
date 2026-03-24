@@ -1,54 +1,50 @@
 /*
- * XREFs of ?_Refill_lower@?$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@std@@IEAAXXZ @ 0x180247260
+ * XREFs of ?_Refill_lower@?$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@std@@IEAAXXZ @ 0x1801E1C18
  * Callers:
- *     ??R?$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@std@@QEAAIXZ @ 0x180243DF8 (--R-$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@s.c)
+ *     ??R?$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@std@@QEAAIXZ @ 0x1801DE768 (--R-$mersenne_twister@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@@s.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall std::mersenne_twister<unsigned int,32,624,397,31,2567483615,11,7,2636928640,15,4022730752,18>::_Refill_lower(
-        _DWORD *a1)
+        __int64 a1)
 {
-  _DWORD *v1; // r10
-  int v3; // eax
-  __int64 v4; // r11
-  unsigned int v5; // edx
-  _DWORD *v6; // r10
-  __int64 v7; // r11
-  int v8; // eax
-  unsigned int v9; // edx
-  unsigned int v10; // edx
+  __int64 v1; // r10
+  int v2; // eax
+  __int64 v3; // r11
+  unsigned int v4; // edx
+  __int64 v5; // r10
+  __int64 v6; // r11
+  int v7; // eax
+  unsigned int v8; // edx
   char result; // al
-  int v12; // ecx
 
-  v1 = a1 + 625;
-  v3 = a1[625];
-  v4 = 227LL;
+  v1 = a1 + 2500;
+  v2 = *(_DWORD *)(a1 + 2500);
+  v3 = 227LL;
   do
   {
-    v5 = v3 ^ (v3 ^ v1[1]) & 0x7FFFFFFF;
-    v3 = v1[1];
-    *(v1 - 624) = (v5 >> 1) ^ v1[397] ^ ((v1[1] & 1) != 0 ? 0x9908B0DF : 0);
-    ++v1;
-    --v4;
+    v4 = v2 ^ (v2 ^ *(_DWORD *)(v1 + 4)) & 0x7FFFFFFF;
+    v2 = *(_DWORD *)(v1 + 4);
+    *(_DWORD *)(v1 - 2496) = (v4 >> 1) ^ *(_DWORD *)(v1 + 1588) ^ ((*(_BYTE *)(v1 + 4) & 1) != 0 ? 0x9908B0DF : 0);
+    v1 += 4LL;
+    --v3;
   }
-  while ( v4 );
-  v6 = a1 + 852;
-  v7 = 396LL;
-  v8 = a1[852];
+  while ( v3 );
+  v5 = a1 + 3408;
+  v6 = 396LL;
+  v7 = *(_DWORD *)(a1 + 3408);
   do
   {
-    v9 = v8 ^ (v8 ^ v6[1]) & 0x7FFFFFFF;
-    v8 = v6[1];
-    *(v6 - 624) = (v9 >> 1) ^ *(v6 - 851) ^ ((v6[1] & 1) != 0 ? 0x9908B0DF : 0);
-    ++v6;
-    --v7;
+    v8 = v7 ^ (v7 ^ *(_DWORD *)(v5 + 4)) & 0x7FFFFFFF;
+    v7 = *(_DWORD *)(v5 + 4);
+    *(_DWORD *)(v5 - 2496) = (v8 >> 1) ^ *(_DWORD *)(v5 - 3404) ^ ((*(_BYTE *)(v5 + 4) & 1) != 0 ? 0x9908B0DF : 0);
+    v5 += 4LL;
+    --v6;
   }
-  while ( v7 );
-  v10 = a1[1248] ^ (a1[1] ^ a1[1248]) & 0x7FFFFFFF;
-  result = -(a1[1] & 1);
-  v12 = -((a1[1] & 1) != 0);
-  *a1 = 0;
-  a1[624] = (v10 >> 1) ^ a1[397] ^ v12 & 0x9908B0DF;
+  while ( v6 );
+  result = -(*(_BYTE *)(a1 + 4) & 1);
+  *(_DWORD *)(a1 + 2496) = ((*(_DWORD *)(a1 + 4992) ^ (*(_DWORD *)(a1 + 4) ^ *(_DWORD *)(a1 + 4992)) & 0x7FFFFFFFu) >> 1) ^ *(_DWORD *)(a1 + 1588) ^ ((*(_BYTE *)(a1 + 4) & 1) != 0 ? 0x9908B0DF : 0);
+  *(_DWORD *)a1 = 0;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateMousewheelConfiguration@CInteractionConfigurationGroup@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A7324
+ * XREFs of ?EmitUpdateMousewheelConfiguration@CInteractionConfigurationGroup@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065098
  * Callers:
- *     ?EmitUpdateCommands@CInteractionConfigurationGroup@DirectComposition@@QEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A72AC (-EmitUpdateCommands@CInteractionConfigurationGroup@DirectComposition@@QEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionConfigurationGroup@DirectComposition@@QEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065020 (-EmitUpdateCommands@CInteractionConfigurationGroup@DirectComposition@@QEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionConfigurationGroup::EmitUpdateMousewheelConfiguration(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CInteractionConfigurationGroup::EmitUpdateMou
     *(_DWORD *)v5 = 36;
     *(_OWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 5) = 0;
-    *((_DWORD *)v4 + 1) = 194;
-    *((_DWORD *)v4 + 2) = *(_DWORD *)(*(_QWORD *)this + 32LL);
+    *((_DWORD *)v4 + 1) = 204;
+    *((_DWORD *)v4 + 2) = *(_DWORD *)(*(_QWORD *)this + 24LL);
     *((_DWORD *)v4 + 3) = 1;
     *((_DWORD *)v4 + 4) = *((_DWORD *)this + 2);
     *((_DWORD *)v4 + 5) = 5;

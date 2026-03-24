@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x140A19614
+ * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x14096B8E0
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14084192C (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140841A58 (AslFileMappingEnsure.c)
- *     AslStringXmlSanitize @ 0x140841E14 (AslStringXmlSanitize.c)
- *     AslpFileGetExeWrapper @ 0x140A18CD0 (AslpFileGetExeWrapper.c)
- *     AslpFileGetExportName @ 0x140A18E64 (AslpFileGetExportName.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
+ *     AslStringXmlSanitize @ 0x1407B2D50 (AslStringXmlSanitize.c)
+ *     AslpFileGetExeWrapper @ 0x14096AFB0 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExportName @ 0x14096B144 (AslpFileGetExportName.c)
  */
 
 __int64 __fastcall AslpFileGetPeExportNameExeWrapper(__int64 a1, __int64 a2)
@@ -43,7 +43,7 @@ LABEL_5:
     *(_QWORD *)(a1 + 808) = 4LL;
   }
   *(_DWORD *)(a1 + 824) |= v6;
-  if ( (int)AslpFileGetExportName(&v10) < 0 )
+  if ( (int)AslpFileGetExportName(&v10, a2) < 0 )
     goto LABEL_5;
   v4 = AslStringXmlSanitize(v10);
   if ( v4 >= 0 )

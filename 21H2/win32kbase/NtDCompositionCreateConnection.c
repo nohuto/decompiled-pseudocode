@@ -1,35 +1,32 @@
 /*
- * XREFs of NtDCompositionCreateConnection @ 0x1C02113F0
+ * XREFs of NtDCompositionCreateConnection @ 0x1C00AA620
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00953E0 (-DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
- *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00DD2FC (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00AA6BC (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     ?DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00B68D8 (-DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
  */
 
-__int64 __fastcall NtDCompositionCreateConnection(
-        void *a1,
-        struct HDCOMPOSITIONCONNECTION__ **a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall NtDCompositionCreateConnection(void *a1, struct HDCOMPOSITIONCONNECTION__ **a2)
 {
-  struct HDCOMPOSITIONCONNECTION__ *v5; // rdx
-  signed int v6; // ebx
-  struct HDCOMPOSITIONCONNECTION__ *v8; // [rsp+38h] [rbp+10h] BYREF
+  struct HDCOMPOSITIONCONNECTION__ **v2; // rdi
+  int v3; // ebx
+  struct HDCOMPOSITIONCONNECTION__ *v5; // [rsp+50h] [rbp+18h] BYREF
 
+  v2 = a2;
   v5 = 0LL;
-  v8 = 0LL;
-  v6 = a2 == 0LL ? 0xC000000D : 0;
   if ( a2 )
   {
-    v6 = DirectComposition::CConnection::Create(a1, &v8, a3, a4);
-    v5 = v8;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (struct HDCOMPOSITIONCONNECTION__ **)MmUserProbeAddress;
+    *a2 = *a2;
+    v3 = DirectComposition::CConnection::Create(a1, &v5);
+    if ( v3 >= 0 )
+      *v2 = v5;
   }
-  if ( v6 >= 0 )
+  else
   {
-    if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v5;
+    return (unsigned int)-1073741811;
   }
-  return (unsigned int)v6;
+  return (unsigned int)v3;
 }

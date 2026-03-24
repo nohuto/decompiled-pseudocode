@@ -1,201 +1,213 @@
 /*
- * XREFs of ?MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z @ 0x1C00A18FC
+ * XREFs of ?MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z @ 0x1C0099398
  * Callers:
- *     CoreUICallSendVaList @ 0x1C00A12B0 (CoreUICallSendVaList.c)
+ *     CoreUICallSendVaList @ 0x1C0099270 (CoreUICallSendVaList.c)
  * Callees:
- *     ?MarshalLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBG@Z @ 0x1C00A1B1C (-MarshalLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBG@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z @ 0x1C02369A8 (-MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z.c)
- *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C0236A04 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
+ *     ?MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z @ 0x1C0099A74 (-MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C0200DC8 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::MarshalSend(
         CoreMessaging::Calling::SendProcessor *this,
         char *a2,
-        unsigned int a3,
+        int a3,
         double *a4)
 {
-  char *v6; // rcx
+  __int64 v6; // rax
   char *v7; // rcx
-  bool v8; // zf
-  unsigned int v9; // r8d
-  _DWORD *v10; // r9
-  int v11; // ecx
-  unsigned int v12; // r8d
-  int *v13; // r9
-  unsigned __int8 *v14; // rax
-  int v15; // ecx
-  unsigned __int8 *v16; // r8
+  char *v8; // rcx
+  bool v9; // zf
+  char *v10; // rax
+  _DWORD *v11; // rdx
+  int v12; // ecx
+  unsigned int v13; // edx
+  int *v14; // r9
+  unsigned __int8 *v15; // rax
+  int v16; // ecx
   int v17; // ecx
   int v18; // ecx
   int v19; // ecx
   int v20; // ecx
   int v21; // ecx
-  int v22; // ecx
-  const void *v23; // rdx
-  __int64 v24; // rax
-  char *v25; // rax
-  char v26; // cl
-  const unsigned __int16 *v28; // r8
+  const void *v22; // rdx
+  size_t v23; // r8
+  char v24; // cl
+  const void *v26; // r8
+  int v27; // ecx
+  int v28; // ecx
   int v29; // ecx
   int v30; // ecx
   int v31; // ecx
   int v32; // ecx
   int v33; // ecx
-  int v34; // ecx
-  char *v35; // rax
-  char v36; // cl
-  _BYTE *v37; // rax
+  int v34; // eax
+  double v35; // xmm0_8
+  int v36; // ecx
+  char *v37; // rax
+  char v38; // cl
+  _BYTE *v39; // rax
+  __int64 v40; // rax
 
   if ( ((a3 + 3) & 0xFFFFFFFC) != a3 )
-LABEL_48:
-    CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp", 0xB4uLL);
+    goto LABEL_46;
   *((_BYTE *)this + 112) = 0;
+  v6 = -1LL;
   *((_QWORD *)this + 11) = a2;
   *((_QWORD *)this + 12) = a2;
-  v6 = &a2[a3];
-  if ( v6 < a2 )
-  {
-    *((_QWORD *)this + 13) = -1LL;
-    goto LABEL_48;
-  }
+  v7 = &a2[a3];
+  if ( v7 >= a2 )
+    v6 = (__int64)&a2[a3];
   *((_QWORD *)this + 13) = v6;
-  if ( a3 >= 8 )
+  if ( v7 < a2 )
+LABEL_46:
+    CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp", 0xB4uLL);
+  if ( (unsigned int)(v6 - (_DWORD)a2) >= 8 )
   {
-    v7 = a2;
+    v8 = a2;
     *((_QWORD *)this + 12) = a2 + 8;
   }
   else
   {
-    v7 = 0LL;
+    v8 = 0LL;
   }
-  *(_DWORD *)v7 = *((_DWORD *)this + 36);
-  *((_WORD *)v7 + 2) = *((_WORD *)this + 74);
-  *((_WORD *)v7 + 3) = *((_WORD *)this + 75);
+  *(_DWORD *)v8 = *((_DWORD *)this + 36);
+  *((_WORD *)v8 + 2) = *((_WORD *)this + 74);
+  *((_WORD *)v8 + 3) = *((_WORD *)this + 75);
   *((_DWORD *)this + 31) = 0;
-  v8 = *((_DWORD *)this + 20) == 0;
+  v9 = *((_DWORD *)this + 20) == 0;
+  v10 = *(char **)this;
   *((_QWORD *)this + 1) = *(_QWORD *)this;
-  if ( !v8 )
+  if ( !v9 )
   {
-    v9 = 0;
     while ( 1 )
     {
       if ( (unsigned int)(*((_DWORD *)this + 26) - *((_DWORD *)this + 24)) < 4
-        || (v10 = (_DWORD *)*((_QWORD *)this + 12), *((_QWORD *)this + 12) = v10 + 1, !v10) )
+        || (v11 = (_DWORD *)*((_QWORD *)this + 12), *((_QWORD *)this + 12) = v11 + 1, !v11) )
       {
         CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp", 0xE2uLL);
       }
-      v11 = *((_DWORD *)this + v9 + 4);
-      *v10 = v11;
-      *((_DWORD *)this + 21) = v11;
-      v12 = (v11 + 3) & 0xFFFFFFFC;
-      if ( *((_DWORD *)this + 26) - *((_DWORD *)this + 24) < v12
-        || (v13 = (int *)*((_QWORD *)this + 12), *((_QWORD *)this + 12) = (char *)v13 + v12, !v13) )
+      v12 = *((_DWORD *)this + *((unsigned int *)this + 31) + 4);
+      *v11 = v12;
+      *((_DWORD *)this + 21) = v12;
+      v13 = (v12 + 3) & 0xFFFFFFFC;
+      if ( *((_DWORD *)this + 26) - *((_DWORD *)this + 24) < v13
+        || (v14 = (int *)*((_QWORD *)this + 12), *((_QWORD *)this + 12) = (char *)v14 + v13, !v14) )
       {
         CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp", 0xECuLL);
       }
-      v14 = (unsigned __int8 *)*((_QWORD *)this + 1);
-      v15 = *v14;
-      v16 = v14 + 1;
-      *((_QWORD *)this + 1) = v14 + 1;
-      if ( (unsigned __int8)v15 <= 8u )
-        break;
-      v17 = v15 - 9;
-      if ( !v17 )
+      v15 = (unsigned __int8 *)*((_QWORD *)this + 1);
+      v16 = *v15;
+      *((_QWORD *)this + 1) = v15 + 1;
+      if ( (unsigned __int8)v16 <= 9u )
       {
-        *(float *)v13 = *a4;
-        goto LABEL_37;
-      }
-      v18 = v17 - 1;
-      if ( !v18 )
-        goto LABEL_38;
-      v19 = v18 - 1;
-      if ( !v19 )
-        goto LABEL_36;
-      v20 = v19 - 1;
-      if ( !v20 )
-        goto LABEL_36;
-      v21 = v20 - 1;
-      if ( v21 )
-      {
-        v22 = v21 - 1;
-        if ( v22 )
+        if ( (_BYTE)v16 == 9 )
         {
-          v34 = v22 - 1;
-          if ( !v34 )
-            CoreMessaging::Calling::FailFast::Error(
-              (ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp",
-              0x178uLL);
-          if ( v34 != 1 )
-LABEL_44:
-            CoreMessaging::Calling::FailFast::Error(
-              (ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp",
-              0x19DuLL);
-          CoreMessaging::Calling::SendProcessor::MarshalArray(this, v13, *(const void **)a4);
-          v35 = (char *)*((_QWORD *)this + 1);
-          a4 += 2;
-          v36 = *v35;
-          v37 = v35 + 1;
-          *((_QWORD *)this + 1) = v37;
-          if ( v36 == 14 )
-            *((_QWORD *)this + 1) = v37 + 2;
+          v35 = *a4++;
+          *(float *)v14 = v35;
+          goto LABEL_19;
         }
-        else
+        v27 = v16 - 1;
+        if ( v27 )
         {
-          v23 = *(const void **)a4;
-          v24 = 2LL;
-          ++a4;
-          do
+          v28 = v27 - 1;
+          if ( v28 )
           {
-            ++v16;
-            --v24;
+            v29 = v28 - 1;
+            if ( v29 )
+            {
+              v30 = v29 - 1;
+              if ( !v30 )
+                goto LABEL_41;
+              v31 = v30 - 1;
+              if ( v31 )
+              {
+                v32 = v31 - 1;
+                if ( v32 )
+                {
+                  v33 = v32 - 1;
+                  if ( v33 )
+                  {
+                    if ( v33 != 1 )
+                      goto LABEL_35;
+LABEL_41:
+                    v40 = *(_QWORD *)a4++;
+                    *(_QWORD *)v14 = v40;
+                    goto LABEL_19;
+                  }
+                }
+              }
+            }
           }
-          while ( v24 );
-          *((_QWORD *)this + 1) = v16;
-          memmove(v13, v23, *((unsigned int *)this + 21));
         }
       }
       else
       {
-        v28 = *(const unsigned __int16 **)a4++;
-        CoreMessaging::Calling::SendProcessor::MarshalLPCWSTR(this, v13, v28);
+        v17 = v16 - 10;
+        if ( !v17 )
+          goto LABEL_41;
+        v18 = v17 - 1;
+        if ( v18 )
+        {
+          v19 = v18 - 1;
+          if ( v19 )
+          {
+            v20 = v19 - 1;
+            if ( v20 )
+            {
+              v21 = v20 - 1;
+              if ( v21 )
+              {
+                v36 = v21 - 1;
+                if ( !v36 )
+                  CoreMessaging::Calling::FailFast::Error(
+                    (ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp",
+                    0x178uLL);
+                if ( v36 != 1 )
+LABEL_35:
+                  CoreMessaging::Calling::FailFast::Error(
+                    (ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp",
+                    0x19DuLL);
+                CoreMessaging::Calling::SendProcessor::MarshalArray(this, v14, *(const void **)a4);
+                v37 = (char *)*((_QWORD *)this + 1);
+                a4 += 2;
+                v38 = *v37;
+                v39 = v37 + 1;
+                *((_QWORD *)this + 1) = v39;
+                if ( v38 == 14 )
+                  *((_QWORD *)this + 1) = v39 + 2;
+              }
+              else
+              {
+                v22 = *(const void **)a4;
+                v23 = *((unsigned int *)this + 21);
+                ++a4;
+                *((_QWORD *)this + 1) = v15 + 3;
+                memmove(v14, v22, v23);
+              }
+            }
+            else
+            {
+              v26 = *(const void **)a4++;
+              CoreMessaging::Calling::SendProcessor::MarshalArray(this, v14, v26);
+            }
+            goto LABEL_19;
+          }
+        }
       }
-LABEL_21:
-      v9 = ++*((_DWORD *)this + 31);
-      if ( v9 >= *((_DWORD *)this + 20) )
-        goto LABEL_22;
-    }
-    if ( (_BYTE)v15 != 8 )
-    {
-      if ( !v15 )
-        goto LABEL_44;
-      v29 = v15 - 1;
-      if ( !v29 || (v30 = v29 - 1) == 0 || (v31 = v30 - 1) == 0 )
+      v34 = *(_DWORD *)a4++;
+      *v14 = v34;
+LABEL_19:
+      if ( ++*((_DWORD *)this + 31) >= *((_DWORD *)this + 20) )
       {
-LABEL_36:
-        *v13 = *(_DWORD *)a4;
-LABEL_37:
-        ++a4;
-        goto LABEL_21;
-      }
-      v32 = v31 - 1;
-      if ( v32 )
-      {
-        v33 = v32 - 1;
-        if ( v33 && (unsigned int)(v33 - 1) > 1 )
-          goto LABEL_44;
-        goto LABEL_36;
+        v10 = (char *)*((_QWORD *)this + 1);
+        break;
       }
     }
-LABEL_38:
-    *(double *)v13 = *a4;
-    goto LABEL_37;
   }
-LABEL_22:
-  v25 = (char *)*((_QWORD *)this + 1);
-  v26 = *v25;
-  *((_QWORD *)this + 1) = v25 + 1;
-  if ( v26 )
+  v24 = *v10;
+  *((_QWORD *)this + 1) = v10 + 1;
+  if ( v24 )
     CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\sendprocessor.cpp", 0x1AFuLL);
   return 0LL;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KePrepareClockTimerForIdle @ 0x1400FC850
+ * XREFs of KePrepareClockTimerForIdle @ 0x1400FC870
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
  *     KiGetNextTimerExpirationDueTime @ 0x140061FF0 (KiGetNextTimerExpirationDueTime.c)
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     KeIsForceIdleEngaged @ 0x1400FC3FC (KeIsForceIdleEngaged.c)
- *     PoAllProcessorsDeepIdle @ 0x1400FCB74 (PoAllProcessorsDeepIdle.c)
- *     KiEventClockStateChange @ 0x1400FCF14 (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x1400FCF54 (KiSetPendingTick.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     KeIsForceIdleEngaged @ 0x1400FC41C (KeIsForceIdleEngaged.c)
+ *     PoAllProcessorsDeepIdle @ 0x1400FCB94 (PoAllProcessorsDeepIdle.c)
+ *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1400FCF74 (KiSetPendingTick.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KePrepareClockTimerForIdle(char a1, unsigned __int64 a2, char a3)

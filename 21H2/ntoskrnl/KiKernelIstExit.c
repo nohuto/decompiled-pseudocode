@@ -1,8 +1,8 @@
 /*
- * XREFs of KiKernelIstExit @ 0x140AB6C40
+ * XREFs of KiKernelIstExit @ 0x140A15C40
  * Callers:
- *     KiDebugTrapOrFault @ 0x14042C940 (KiDebugTrapOrFault.c)
- *     KiNmiInterruptStart @ 0x14042CF40 (KiNmiInterruptStart.c)
+ *     KiDebugTrapOrFault @ 0x14040A940 (KiDebugTrapOrFault.c)
+ *     KiNmiInterruptStart @ 0x14040AE40 (KiNmiInterruptStart.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ void __fastcall KiKernelIstExit(
   v8 = v15;
   if ( (v15 & 1) != 0 )
   {
-    if ( !_interlockedbittestandreset(MK_FP(__GS__, 40984LL), 0) )
+    if ( !_interlockedbittestandreset(MK_FP(__GS__, 36888LL), 0) )
     {
       v12 = __readcr3();
       if ( v12 == v15 )

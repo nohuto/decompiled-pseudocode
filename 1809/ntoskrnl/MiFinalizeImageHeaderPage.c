@@ -1,5 +1,5 @@
 /*
- * XREFs of MiFinalizeImageHeaderPage @ 0x14012DD90
+ * XREFs of MiFinalizeImageHeaderPage @ 0x14012DDB0
  * Callers:
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
  * Callees:
@@ -9,9 +9,9 @@
  *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
  *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReplaceTransitionPage @ 0x14011844C (MiReplaceTransitionPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
+ *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiFinalizeImageHeaderPage(__int64 a1)

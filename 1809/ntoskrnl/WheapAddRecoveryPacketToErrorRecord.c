@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAddRecoveryPacketToErrorRecord @ 0x140320724
+ * XREFs of WheapAddRecoveryPacketToErrorRecord @ 0x140320824
  * Callers:
- *     WheapCreateRecordFromGenericErrorData @ 0x140320954 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140320A54 (WheapCreateRecordFromGenericErrorData.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall WheapAddRecoveryPacketToErrorRecord(_DWORD *a1, __int64 a2, int a3)

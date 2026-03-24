@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetBootDiskInformationLite @ 0x140823950
+ * XREFs of IoGetBootDiskInformationLite @ 0x14079D3E0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetBootDiskInformationLite @ 0x140B55268 (IopGetBootDiskInformationLite.c)
+ *     IopGetBootDiskInformationLite @ 0x140A45940 (IopGetBootDiskInformationLite.c)
  */
 
 NTSTATUS __stdcall IoGetBootDiskInformationLite(PBOOTDISK_INFORMATION_LITE *BootDiskInformation)

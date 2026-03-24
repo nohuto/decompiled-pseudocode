@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSyncCommitSignals @ 0x140187FCC
+ * XREFs of MiSyncCommitSignals @ 0x140187FEC
  * Callers:
  *     MiUnlockMdlWritePages @ 0x14001E4F0 (MiUnlockMdlWritePages.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiReplenishLocalCommit @ 0x140123B74 (MiReplenishLocalCommit.c)
- *     MiComputeCommitThresholds @ 0x140187F64 (MiComputeCommitThresholds.c)
+ *     MiReplenishLocalCommit @ 0x140123B94 (MiReplenishLocalCommit.c)
+ *     MiComputeCommitThresholds @ 0x140187F84 (MiComputeCommitThresholds.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiSyncCommitSignals(__int64 a1, int a2)

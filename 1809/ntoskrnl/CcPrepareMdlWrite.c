@@ -1,7 +1,7 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x1400E1A20
+ * XREFs of CcPrepareMdlWrite @ 0x1400E1A40
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x140814B00 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140814AE0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     CcCanIWriteStream @ 0x1400213FC (CcCanIWriteStream.c)
@@ -10,15 +10,15 @@
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400B00E0 (CcMapAndRead.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1400B0100 (CcMapAndRead.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwStopProfile @ 0x1401BB7B0
+ * XREFs of ZwStopProfile @ 0x1401BB7D0
  * Callers:
  *     <none>
  * Callees:

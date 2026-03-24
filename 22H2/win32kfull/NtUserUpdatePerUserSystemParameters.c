@@ -1,33 +1,26 @@
 /*
- * XREFs of NtUserUpdatePerUserSystemParameters @ 0x1C0072B30
+ * XREFs of NtUserUpdatePerUserSystemParameters @ 0x1C0134170
  * Callers:
  *     <none>
  * Callees:
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall NtUserUpdatePerUserSystemParameters(unsigned int a1)
+__int64 __fastcall NtUserUpdatePerUserSystemParameters(int a1)
 {
   __int64 updated; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  _BYTE v8[8]; // [rsp+20h] [rbp-68h] BYREF
-  GUID ActivityId; // [rsp+28h] [rbp-60h] BYREF
-  int v10; // [rsp+38h] [rbp-50h]
-  char v11; // [rsp+50h] [rbp-38h]
-  __int64 v12; // [rsp+60h] [rbp-28h]
+  __int64 v3; // rcx
+  _QWORD v5[10]; // [rsp+20h] [rbp-68h] BYREF
 
-  memset_0(v8, 0, 0x48uLL);
-  EtwActivityIdControl(3u, &ActivityId);
-  v12 = MEMORY[0xFFFFF78000000014];
-  v10 = 32;
-  v11 = -1;
-  EnterCrit(0LL, 0LL);
-  updated = (int)xxxUpdatePerUserSystemParameters(a1, v8);
-  UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
+  memset(v5, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v5[1]);
+  v5[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v5[3]) = 32;
+  LOBYTE(v5[6]) = -1;
+  EnterCrit(0LL, 1LL);
+  updated = (int)xxxUpdatePerUserSystemParameters(a1, (__int64)v5);
+  UserSessionSwitchLeaveCrit(v3);
   return updated;
 }

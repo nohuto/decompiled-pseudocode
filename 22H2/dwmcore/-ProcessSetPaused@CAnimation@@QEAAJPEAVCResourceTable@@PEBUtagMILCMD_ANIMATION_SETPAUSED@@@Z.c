@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetPaused@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPAUSED@@@Z @ 0x1800FCD4C
+ * XREFs of ?ProcessSetPaused@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPAUSED@@@Z @ 0x1800D7C50
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,28 +11,22 @@ __int64 __fastcall CAnimation::ProcessSetPaused(
         struct CResourceTable *a2,
         const struct tagMILCMD_ANIMATION_SETPAUSED *a3)
 {
-  unsigned __int64 v3; // rdx
-  bool v4; // zf
+  unsigned __int64 v4; // rcx
+  __int64 result; // rax
 
-  v3 = *(_QWORD *)(*((_QWORD *)this + 2) + 608LL);
-  if ( v3 < *((_QWORD *)this + 17) )
-    goto LABEL_6;
-  if ( *((_BYTE *)this + 124) )
+  v4 = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL);
+  if ( v4 >= *((_QWORD *)this + 17) )
   {
-    v4 = *((_BYTE *)a3 + 8) == 0;
-    if ( *((_BYTE *)a3 + 8) )
-      goto LABEL_4;
-    *((_QWORD *)this + 26) = v3;
-    goto LABEL_6;
+    if ( (*((_BYTE *)this + 112) & 0x10) == 0 && *((_BYTE *)a3 + 8) )
+    {
+      *((_QWORD *)this + 25) += v4 - *((_QWORD *)this + 26);
+    }
+    else if ( (*((_BYTE *)this + 112) & 0x10) != 0 && !*((_BYTE *)a3 + 8) )
+    {
+      *((_QWORD *)this + 26) = v4;
+    }
   }
-  v4 = *((_BYTE *)a3 + 8) == 0;
-  if ( *((_BYTE *)a3 + 8) )
-  {
-    *((_QWORD *)this + 25) += v3 - *((_QWORD *)this + 26);
-LABEL_6:
-    v4 = *((_BYTE *)a3 + 8) == 0;
-  }
-LABEL_4:
-  *((_BYTE *)this + 124) = !v4;
-  return 0LL;
+  result = 0LL;
+  *((_BYTE *)this + 112) = *((_BYTE *)this + 112) & 0xEF | (*((_BYTE *)a3 + 8) != 0 ? 0x10 : 0);
+  return result;
 }

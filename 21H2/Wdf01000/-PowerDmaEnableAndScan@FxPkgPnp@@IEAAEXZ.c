@@ -1,53 +1,57 @@
 /*
- * XREFs of ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C0017578
+ * XREFs of ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C001C194
  * Callers:
- *     ?PowerWakingDmaEnable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000E830 (-PowerWakingDmaEnable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerWakingDmaEnableNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000F450 (-PowerWakingDmaEnableNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerD0StartingDmaEnable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0033150 (-PowerD0StartingDmaEnable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerWakingDmaEnable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0018D80 (-PowerWakingDmaEnable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerWakingDmaEnableNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C001A400 (-PowerWakingDmaEnableNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerD0StartingDmaEnable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007D870 (-PowerD0StartingDmaEnable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0010C88 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
- *     ?PowerUp@FxDmaEnabler@@QEAAJXZ @ 0x1C00143D4 (-PowerUp@FxDmaEnabler@@QEAAJXZ.c)
- *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018170 (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018234 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?PowerUp@FxDmaEnabler@@QEAAJXZ @ 0x1C0004CF0 (-PowerUp@FxDmaEnabler@@QEAAJXZ.c)
+ *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010A9C (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010B60 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0016E48 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall FxPkgPnp::PowerDmaEnableAndScan(FxPkgPnp *this)
 {
-  char v2; // di
+  char v2; // si
   FxSpinLockTransactionedList *m_DmaEnablerList; // rcx
-  FxEnumerationInfo *m_EnumInfo; // rcx
-  FxTransactionedEntry *v5; // rdi
-  FxTransactionedEntry *v6; // rax
-  __int64 v7; // r8
-  unsigned __int64 ObjectHandleUnchecked; // rcx
-  __int64 v9; // rdx
-  void (__fastcall *v10)(unsigned __int64); // rax
-  FxTransactionedEntry *v12; // rsi
+  FxSpinLockTransactionedList *v4; // r8
+  FxTransactionedEntry *i; // rdx
+  int v6; // eax
   FxTransactionedEntry *NextEntryLocked; // rax
-  FxSpinLockTransactionedList *v14; // r8
+  FxTransactionedEntry *v8; // rdi
+  FxEnumerationInfo *m_EnumInfo; // rcx
+  FxTransactionedEntry *j; // rdx
+  unsigned __int64 ObjectHandleUnchecked; // rcx
+  __int64 v13; // rdx
+  void (__fastcall *v14)(unsigned __int64); // rax
+  FxTransactionedEntry *v15; // rax
+  __int64 v16; // r8
+  FxTransactionedEntry *v17; // rdi
 
   v2 = 1;
   m_DmaEnablerList = this->m_DmaEnablerList;
   if ( m_DmaEnablerList )
   {
     FxTransactionedList::LockForEnum(m_DmaEnablerList, this->m_Globals);
-    v12 = 0LL;
-    while ( 1 )
+    v4 = this->m_DmaEnablerList;
+    for ( i = 0LL; ; i = v8 )
     {
-      NextEntryLocked = FxTransactionedList::GetNextEntryLocked(this->m_DmaEnablerList, v12);
-      v12 = NextEntryLocked;
+      NextEntryLocked = FxTransactionedList::GetNextEntryLocked(v4, i);
+      v8 = NextEntryLocked;
       if ( !NextEntryLocked )
         break;
-      if ( (int)FxDmaEnabler::PowerUp((FxDmaEnabler *)NextEntryLocked->m_TransactionedObject) < 0 )
+      v6 = FxDmaEnabler::PowerUp((FxDmaEnabler *)NextEntryLocked->m_TransactionedObject);
+      v4 = this->m_DmaEnablerList;
+      if ( v6 < 0 )
       {
-        v14 = this->m_DmaEnablerList;
         v2 = 0;
         break;
       }
     }
-    FxTransactionedList::UnlockFromEnum(v14, this->m_Globals);
+    FxTransactionedList::UnlockFromEnum(v4, this->m_Globals);
     if ( !v2 )
       return 0;
   }
@@ -55,19 +59,18 @@ unsigned __int8 __fastcall FxPkgPnp::PowerDmaEnableAndScan(FxPkgPnp *this)
   if ( m_EnumInfo )
   {
     FxTransactionedList::LockForEnum(&m_EnumInfo->m_ChildListList, this->m_Globals);
-    v5 = 0LL;
-    while ( 1 )
+    for ( j = 0LL; ; j = v17 )
     {
-      v6 = FxTransactionedList::GetNextEntryLocked(&this->m_EnumInfo->m_ChildListList, v5);
-      v5 = v6;
-      if ( !v6 )
+      v15 = FxTransactionedList::GetNextEntryLocked(&this->m_EnumInfo->m_ChildListList, j);
+      v17 = v15;
+      if ( !v15 )
         break;
-      ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(v6->m_TransactionedObject);
-      v10 = *(void (__fastcall **)(unsigned __int64))(v9 + 192);
-      if ( v10 )
-        v10(ObjectHandleUnchecked);
+      ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(v15->m_TransactionedObject);
+      v14 = *(void (__fastcall **)(unsigned __int64))(v13 + 192);
+      if ( v14 )
+        v14(ObjectHandleUnchecked);
     }
-    FxTransactionedList::UnlockFromEnum((FxTransactionedList *)(v7 + 40), this->m_Globals);
+    FxTransactionedList::UnlockFromEnum((FxTransactionedList *)(v16 + 40), this->m_Globals);
   }
   return 1;
 }

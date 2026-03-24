@@ -1,52 +1,44 @@
 /*
- * XREFs of EtwpFlushBuffer @ 0x1406BD950
+ * XREFs of EtwpFlushBuffer @ 0x1406BD8DC
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1408A7F08 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x1406BC9F0 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     EtwpFileModeCompress @ 0x1403A601C (EtwpFileModeCompress.c)
- *     EtwpFlushBufferToLogfile @ 0x1406BB3D0 (EtwpFlushBufferToLogfile.c)
- *     EtwpFlushBufferToRealtime @ 0x1406BD8AC (EtwpFlushBufferToRealtime.c)
- *     EtwpPrepareHeader @ 0x1406BDA3C (EtwpPrepareHeader.c)
- *     EtwpSendSessionNotification @ 0x14077ED30 (EtwpSendSessionNotification.c)
+ *     EtwpFlushBufferToLogfile @ 0x14068E954 (EtwpFlushBufferToLogfile.c)
+ *     EtwpPrepareHeader @ 0x1406BD9A4 (EtwpPrepareHeader.c)
+ *     EtwpFlushBufferToRealtime @ 0x1406BE9F4 (EtwpFlushBufferToRealtime.c)
+ *     EtwpSendSessionNotification @ 0x140714D88 (EtwpSendSessionNotification.c)
  */
 
-__int64 __fastcall EtwpFlushBuffer(__int64 a1, unsigned int *a2, __int64 a3)
+__int64 __fastcall EtwpFlushBuffer(__int64 a1, unsigned int *a2, char a3)
 {
-  int v3; // edi
-  char v4; // r14
-  int v5; // esi
-  unsigned int *v6; // rbp
+  unsigned int v3; // ebx
+  int v4; // edi
+  char v7; // bp
   int v8; // eax
-  char v9; // r14
-  int v11; // eax
+  int v10; // eax
 
   v3 = -1073741823;
-  v4 = a3;
-  v5 = -1073741823;
-  v6 = a2;
-  v8 = EtwpPrepareHeader(a1, a2, a3);
-  v9 = v4 & 1;
-  if ( v8 == -2147483614 && !v9 )
+  v4 = -1073741823;
+  v7 = a3 & 1;
+  if ( (unsigned int)EtwpPrepareHeader() == -2147483614 && !v7 )
     return 0LL;
-  if ( (*(_DWORD *)(a1 + 816) & 8) != 0 )
+  if ( (*(_DWORD *)(a1 + 832) & 8) != 0 )
   {
-    v3 = EtwpFlushBufferToRealtime(a1, (__int64)v6, v8 == -2147483614);
-    if ( v3 < 0 )
-      EtwpSendSessionNotification(a1, 4LL);
+    v8 = EtwpFlushBufferToRealtime(a1, a2);
+    v3 = v8;
+    if ( v8 < 0 )
+      EtwpSendSessionNotification(a1, 4LL, (unsigned int)v8);
   }
-  if ( *(_QWORD *)(a1 + 800) )
+  if ( *(_QWORD *)(a1 + 816) )
   {
-    v11 = *(_DWORD *)(a1 + 12);
-    if ( (v11 & 0x4000000) != 0 && (v11 & 1) != 0 && !(unsigned int)EtwpFileModeCompress(a1, (__int64)v6) )
-      v6 = *(unsigned int **)(a1 + 1152);
-    v5 = EtwpFlushBufferToLogfile(a1, v6);
-    if ( v5 < 0 )
-      EtwpSendSessionNotification(a1, 3LL);
+    v10 = EtwpFlushBufferToLogfile(a1, a2);
+    v4 = v10;
+    if ( v10 < 0 )
+      EtwpSendSessionNotification(a1, 3LL, (unsigned int)v10);
   }
-  if ( (int)(v3 + 0x80000000) < 0 || v3 == -1073741432 || v5 >= 0 )
+  if ( (int)(v3 + 0x80000000) < 0 || v3 == -1073741432 || v4 >= 0 )
     return 0LL;
-  if ( v5 != -1073741823 )
-    return (unsigned int)v5;
-  return (unsigned int)v3;
+  if ( v4 != -1073741823 )
+    return (unsigned int)v4;
+  return v3;
 }

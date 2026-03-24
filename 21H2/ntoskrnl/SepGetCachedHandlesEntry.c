@@ -1,16 +1,16 @@
 /*
- * XREFs of SepGetCachedHandlesEntry @ 0x140696468
+ * XREFs of SepGetCachedHandlesEntry @ 0x140717DC4
  * Callers:
- *     SepSetTokenCachedHandles @ 0x1406962A4 (SepSetTokenCachedHandles.c)
+ *     SepSetTokenCachedHandles @ 0x140717C04 (SepSetTokenCachedHandles.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x140205950 (RtlInsertEntryHashTable.c)
- *     SepFindMatchingCachedHandlesEntry @ 0x14069654C (SepFindMatchingCachedHandlesEntry.c)
- *     SepAllocateAndInitializeCachedHandleEntry @ 0x140696E04 (SepAllocateAndInitializeCachedHandleEntry.c)
- *     RtlHashUnicodeString @ 0x14078C240 (RtlHashUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInsertEntryHashTable @ 0x1402515F0 (RtlInsertEntryHashTable.c)
+ *     RtlHashUnicodeString @ 0x140636CA0 (RtlHashUnicodeString.c)
+ *     SepAllocateAndInitializeCachedHandleEntry @ 0x140715FB4 (SepAllocateAndInitializeCachedHandleEntry.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x140717EA8 (SepFindMatchingCachedHandlesEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4)
+__int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, __int64 a2, _BYTE *a3, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4)
 {
   struct _RTL_DYNAMIC_HASH_TABLE *v4; // rbp
   unsigned int v5; // ebx
@@ -27,7 +27,7 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL
 
   v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   v5 = 0;
-  v6 = *a2;
+  v6 = *(_DWORD *)a2;
   v17 = 0LL;
   Entry = 0LL;
   HashValue = 0;
@@ -36,13 +36,13 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL
   {
     if ( v6 == 1 )
     {
-      RtlHashUnicodeString((PCUNICODE_STRING)(a2 + 2), 1u, 0, &HashValue);
+      RtlHashUnicodeString((PCUNICODE_STRING)(a2 + 8), 1u, 0, &HashValue);
       v10 = HashValue;
     }
   }
   else
   {
-    v11 = *((_QWORD *)a2 + 1);
+    v11 = *(_QWORD *)(a2 + 8);
     v12 = (unsigned int)*(unsigned __int8 *)(v11 + 1) - 1;
     v13 = *(unsigned int *)(v11 + 4 * v12 + 8);
     v10 = v13 + 1;
@@ -61,7 +61,7 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL
   }
   else
   {
-    result = SepAllocateAndInitializeCachedHandleEntry(a2, &Entry);
+    result = SepAllocateAndInitializeCachedHandleEntry((int *)a2, &Entry);
     if ( (int)result >= 0 )
     {
       v15 = Entry;

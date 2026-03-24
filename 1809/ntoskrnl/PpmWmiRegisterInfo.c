@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmWmiRegisterInfo @ 0x140757C14
+ * XREFs of PpmWmiRegisterInfo @ 0x140757BF4
  * Callers:
- *     PpmWmiDispatch @ 0x140757BA0 (PpmWmiDispatch.c)
+ *     PpmWmiDispatch @ 0x140757B80 (PpmWmiDispatch.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS __fastcall PpmWmiRegisterInfo(int a1, __int64 a2, unsigned int a3, _DWORD *a4, int *a5)

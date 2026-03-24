@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C022A330
+ * XREFs of ?SetReferenceProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01EA5F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetReferenceProperty(
@@ -31,7 +31,7 @@ __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetReferencePrope
   }
   else
   {
-    v9 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
+    v9 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
     if ( a4 != v9 )
     {
       if ( v9 )
@@ -39,11 +39,11 @@ __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetReferencePrope
       if ( a4 )
         DirectComposition::CResourceMarshaler::AddRef(a4);
       v10 = *((_DWORD *)this + 4) | 0x20;
-      *((_QWORD *)this + 8) = a4;
+      *((_QWORD *)this + 7) = a4;
       *((_DWORD *)this + 4) = v10;
       if ( a4 )
       {
-        *((_BYTE *)this + 100) = 0;
+        *((_BYTE *)this + 92) = 0;
         *((_DWORD *)this + 4) = v10 | 0x400;
       }
       *a5 = 1;

@@ -1,7 +1,7 @@
 /*
- * XREFs of vConvertCodePageToCharSet @ 0x1C0090424
+ * XREFs of vConvertCodePageToCharSet @ 0x1C007D028
  * Callers:
- *     InitializeGreCSRSS @ 0x1C009000C (InitializeGreCSRSS.c)
+ *     InitializeGreCSRSS @ 0x1C007CC28 (InitializeGreCSRSS.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,7 @@ char __fastcall vConvertCodePageToCharSet(unsigned __int16 a1)
     if ( (unsigned int)v1 >= 0x11 )
       return v1;
   }
-  gfsCurSignature = dword_1C025A110[v1];
+  gfsCurSignature = dword_1C0218160[v1];
   LOBYTE(v1) = charsets[4 * (unsigned int)v1];
   gjCurCharset = v1;
   return v1;

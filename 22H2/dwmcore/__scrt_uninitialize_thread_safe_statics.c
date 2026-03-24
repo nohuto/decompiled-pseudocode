@@ -1,5 +1,5 @@
 /*
- * XREFs of __scrt_uninitialize_thread_safe_statics @ 0x18010F990
+ * XREFs of __scrt_uninitialize_thread_safe_statics @ 0x1800E7620
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 void __fastcall _scrt_uninitialize_thread_safe_statics()
 {
-  DeleteCriticalSection(&stru_1803E5698);
+  DeleteCriticalSection(&stru_180346E58);
   if ( hHandle )
     CloseHandle(hHandle);
 }

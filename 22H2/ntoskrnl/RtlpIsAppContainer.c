@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpIsAppContainer @ 0x1409BD33C
+ * XREFs of RtlpIsAppContainer @ 0x140914C78
  * Callers:
- *     RtlpCapabilityCheckSystemCapability @ 0x1407EF4A0 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x140913CBC (RtlpCapabilityCheckSystemCapability.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenThreadTokenEx @ 0x14041AC80 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14041ACA0 (ZwOpenProcessTokenEx.c)
- *     ZwDuplicateToken @ 0x14041AEE0 (ZwDuplicateToken.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x1403FA000 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x1403FA020 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x1403FA260 (ZwDuplicateToken.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2)
@@ -24,12 +24,10 @@ __int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2)
   LODWORD(TokenInformation) = 0;
   TokenHandle = 0LL;
   Token = 0LL;
-  ObjectAttributes.SecurityDescriptor = 0LL;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   v9 = 0LL;
   v10 = 0;
   *a2 = 0;
-  memset(&ObjectAttributes, 0, 32);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( a1 )
   {
 LABEL_7:

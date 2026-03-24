@@ -1,8 +1,8 @@
 /*
- * XREFs of _set_fpsr @ 0x1C00DE5C0
+ * XREFs of _set_fpsr @ 0x1C00CF6A0
  * Callers:
- *     _ctrlfp @ 0x1C00DE4F4 (_ctrlfp.c)
- *     _set_statfp @ 0x1C00DE578 (_set_statfp.c)
+ *     _ctrlfp @ 0x1C00CF5D0 (_ctrlfp.c)
+ *     _set_statfp @ 0x1C00CF654 (_set_statfp.c)
  * Callees:
  *     <none>
  */

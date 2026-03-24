@@ -1,16 +1,18 @@
 /*
- * XREFs of ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x180020B94
+ * XREFs of ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800306FC
  * Callers:
- *     ?GetBits@CaptureBitsResponse@@IEAAJXZ @ 0x1800209F4 (-GetBits@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?GetBits@CaptureBitsResponse@@IEAAJXZ @ 0x180043334 (-GetBits@CaptureBitsResponse@@IEAAJXZ.c)
  * Callees:
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D70 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180091420 (-IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x1800CEB6C (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180285F4C (-GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
+ *     ?IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800308D8 (-IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x180030F34 (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060D74 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x18023897C (-GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
  */
 
 __int64 __fastcall CaptureBitsResponse::CreateRenderTargetBitmap(CaptureBitsResponse *this)
@@ -18,99 +20,117 @@ __int64 __fastcall CaptureBitsResponse::CreateRenderTargetBitmap(CaptureBitsResp
   int v1; // eax
   enum DXGI_COLOR_SPACE_TYPE v3; // edi
   int v4; // xmm0_4
+  CDeviceManager *v5; // rcx
   int Device; // eax
-  unsigned int v6; // ecx
-  CD3DDevice *v7; // rdi
-  unsigned int v8; // esi
-  char *v9; // rbx
-  int v10; // eax
-  unsigned int v11; // ecx
-  CDeviceManager *v13; // rcx
+  unsigned int v7; // ecx
+  CD3DDevice *v8; // rdi
+  unsigned int v9; // esi
+  _QWORD *v10; // rbx
+  __int64 v11; // rdx
+  int v12; // eax
+  unsigned int v13; // ecx
+  __int64 v15; // rcx
+  CDeviceManager *v16; // rcx
   int WarpDevice; // eax
-  unsigned int v15; // ecx
-  CD3DDevice *v16; // rbx
-  int v17; // eax
   unsigned int v18; // ecx
-  CD3DDevice *v19; // rcx
-  char *v20; // [rsp+30h] [rbp-50h]
-  __int64 v21; // [rsp+40h] [rbp-40h] BYREF
-  enum DXGI_COLOR_SPACE_TYPE v22; // [rsp+48h] [rbp-38h]
-  const char *v23; // [rsp+50h] [rbp-30h] BYREF
-  int v24; // [rsp+58h] [rbp-28h]
-  struct _LUID v25; // [rsp+60h] [rbp-20h] BYREF
-  int v26; // [rsp+68h] [rbp-18h]
-  int v27; // [rsp+6Ch] [rbp-14h]
-  int v28; // [rsp+70h] [rbp-10h]
-  char v29; // [rsp+74h] [rbp-Ch]
-  int v30; // [rsp+A0h] [rbp+20h] BYREF
-  int v31; // [rsp+A4h] [rbp+24h]
-  CD3DDevice *v32; // [rsp+A8h] [rbp+28h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  CD3DDevice *v21; // rbx
+  int v22; // eax
+  unsigned int v23; // ecx
+  CD3DDevice *v24; // rcx
+  _QWORD *v25; // [rsp+38h] [rbp-19h]
+  CD3DDevice *v26; // [rsp+48h] [rbp-9h] BYREF
+  int v27; // [rsp+50h] [rbp-1h]
+  __int64 v28; // [rsp+58h] [rbp+7h] BYREF
+  enum DXGI_COLOR_SPACE_TYPE v29; // [rsp+60h] [rbp+Fh]
+  _DWORD v30[2]; // [rsp+68h] [rbp+17h] BYREF
+  struct _LUID v31; // [rsp+70h] [rbp+1Fh] BYREF
+  int v32; // [rsp+78h] [rbp+27h]
+  int v33; // [rsp+7Ch] [rbp+2Bh]
+  int v34; // [rsp+80h] [rbp+2Fh]
+  char v35; // [rsp+84h] [rbp+33h]
+  const char *v36; // [rsp+88h] [rbp+37h] BYREF
+  int v37; // [rsp+90h] [rbp+3Fh]
 
-  v1 = *((_DWORD *)this + 409);
-  v3 = *((_DWORD *)this + 413);
-  v21 = *(_QWORD *)((char *)this + 1644);
-  v30 = v1;
-  v31 = *((_DWORD *)this + 410);
-  v22 = v3;
-  if ( (_DWORD)v21 == 88 )
-    v21 = 0x300000057LL;
+  v1 = *((_DWORD *)this + 417);
+  v3 = *((_DWORD *)this + 421);
+  v28 = *(_QWORD *)((char *)this + 1676);
+  v30[0] = v1;
+  v30[1] = *((_DWORD *)this + 418);
+  v29 = v3;
+  if ( (_DWORD)v28 == 88 )
+    v28 = 0x300000057LL;
   CDisplayManager::GetPrimaryAdapterLuid(this);
-  v27 = 0;
-  v26 = DisplayId::All;
+  v33 = 0;
+  v32 = DisplayId::All;
   if ( IsDXGIColorSpaceHDR(v3) )
     v4 = (int)FLOAT_1_0;
   else
     v4 = 0;
-  v32 = 0LL;
-  v28 = v4;
-  v29 = 0;
-  Device = CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, v25, &v32);
-  v7 = v32;
-  v8 = Device;
+  v26 = 0LL;
+  v34 = v4;
+  v35 = 0;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v26);
+  Device = CDeviceManager::GetDevice(v5, v31, &v26);
+  v8 = v26;
+  v9 = Device;
   if ( Device < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, Device, 0x13Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, Device, 0x134u, 0LL);
+    goto LABEL_9;
   }
-  else
+  v10 = (_QWORD *)((char *)this + 64);
+  v11 = *v10;
+  *v10 = 0LL;
+  if ( v11 )
   {
-    v9 = (char *)this + 64;
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v9);
-    v23 = "DWM Scratch Rendertarget (capturebits)";
-    v24 = 38;
-    v10 = CD3DDevice::CreateRenderTargetBitmap(v7, &v23, &v30, &v21, &v25, 1, v9);
-    v8 = v10;
-    if ( v10 >= 0 )
-      goto LABEL_7;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x142u, 0LL);
-    v32 = 0LL;
-    WarpDevice = CDeviceManager::GetWarpDevice(v13, &v32);
-    v8 = WarpDevice;
+    v15 = v11 + 8 + *(int *)(*(_QWORD *)(v11 + 8) + 4LL);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
+  }
+  v26 = (CD3DDevice *)"DWM Scratch Rendertarget (capturebits)";
+  v27 = 38;
+  v12 = CD3DDevice::CreateRenderTargetBitmap(v8, &v26, v30, &v28, &v31, 1, v10);
+  v9 = v12;
+  if ( v12 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x13Cu, 0LL);
+    v26 = 0LL;
+    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v26);
+    WarpDevice = CDeviceManager::GetWarpDevice(v16, &v26);
+    v9 = WarpDevice;
     if ( WarpDevice < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, WarpDevice, 0x148u, 0LL);
-      v19 = v32;
-      if ( !v32 )
-        goto LABEL_7;
-      goto LABEL_17;
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, WarpDevice, 0x142u, 0LL);
+      v24 = v26;
+      if ( !v26 )
+        goto LABEL_9;
     }
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v9);
-    v20 = v9;
-    v16 = v32;
-    v23 = "DWM Scratch Rendertarget (capturebits)";
-    v24 = 38;
-    v17 = CD3DDevice::CreateRenderTargetBitmap(v32, &v23, &v30, &v21, &v25, 1, v20);
-    v8 = v17;
-    if ( v17 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x14Fu, 0LL);
-    if ( v16 )
+    else
     {
-      v19 = v16;
-LABEL_17:
-      CD3DDevice::Release(v19);
+      v19 = *v10;
+      *v10 = 0LL;
+      if ( v19 )
+      {
+        v20 = v19 + 8 + *(int *)(*(_QWORD *)(v19 + 8) + 4LL);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+      }
+      v25 = v10;
+      v21 = v26;
+      v36 = "DWM Scratch Rendertarget (capturebits)";
+      v37 = 38;
+      v22 = CD3DDevice::CreateRenderTargetBitmap(v26, &v36, v30, &v28, &v31, 1, v25);
+      v9 = v22;
+      if ( v22 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x149u, 0LL);
+      if ( !v21 )
+        goto LABEL_9;
+      v24 = v21;
     }
+    CD3DDevice::Release(v24);
   }
-LABEL_7:
-  if ( v7 )
-    CD3DDevice::Release(v7);
-  return v8;
+LABEL_9:
+  if ( v8 )
+    CD3DDevice::Release(v8);
+  return v9;
 }

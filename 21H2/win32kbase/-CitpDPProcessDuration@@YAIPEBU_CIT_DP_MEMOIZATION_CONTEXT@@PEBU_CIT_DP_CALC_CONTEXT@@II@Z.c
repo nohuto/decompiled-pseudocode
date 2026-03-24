@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C023FB3C
+ * XREFs of ?CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C01FDEA8
  * Callers:
- *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C023F4AC (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C01FD7E4 (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     ?CitpDPGetDurationBucket@@YAIII@Z @ 0x1C023FA78 (-CitpDPGetDurationBucket@@YAIII@Z.c)
- *     ?CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C023FADC (-CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z.c)
- *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C023FC00 (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
+ *     ?CitpDPGetDurationBucket@@YAIII@Z @ 0x1C01FDDE4 (-CitpDPGetDurationBucket@@YAIII@Z.c)
+ *     ?CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C01FDE48 (-CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z.c)
+ *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C01FDF6C (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
  */
 
 __int64 __fastcall CitpDPProcessDuration(
@@ -29,7 +29,7 @@ __int64 __fastcall CitpDPProcessDuration(
     v11 = v9 >> 31;
   else
     v11 = (v9 >> 30) & 1;
-  if ( (qword_1C029A224 & 2) != 0 )
+  if ( (qword_1C0255554 & 2) != 0 )
   {
     if ( ((1 << CitpDPGetDurationBucket(a4, v10)) & *((_DWORD *)a1 + v7 + 2)) != 0 )
       v12 = *((_DWORD *)a1 + v7 + 1);

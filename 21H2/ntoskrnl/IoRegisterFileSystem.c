@@ -1,15 +1,15 @@
 /*
- * XREFs of IoRegisterFileSystem @ 0x14080F4B0
+ * XREFs of IoRegisterFileSystem @ 0x1407808C0
  * Callers:
- *     RawInitialize @ 0x140B229D0 (RawInitialize.c)
+ *     RawInitialize @ 0x140A69840 (RawInitialize.c)
  * Callees:
- *     IopIncrementDeviceObjectRefCount @ 0x1402A6E00 (IopIncrementDeviceObjectRefCount.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopSetFsRegistrationInProgress @ 0x1403A5A30 (IopSetFsRegistrationInProgress.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     FsRtlSetDriverBacking @ 0x14080F640 (FsRtlSetDriverBacking.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x140354BA0 (IopIncrementDeviceObjectRefCount.c)
+ *     IopSetFsRegistrationInProgress @ 0x14039A064 (IopSetFsRegistrationInProgress.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     FsRtlSetDriverBacking @ 0x140780A60 (FsRtlSetDriverBacking.c)
  */
 
 void __stdcall IoRegisterFileSystem(PDEVICE_OBJECT DeviceObject)
@@ -22,10 +22,12 @@ void __stdcall IoRegisterFileSystem(PDEVICE_OBJECT DeviceObject)
   struct _LIST_ENTRY *v7; // r8
   union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *v8; // rax
   __int64 *v9; // rdi
-  void (__fastcall *v10)(PDEVICE_OBJECT, struct _LIST_ENTRY *); // rax
+  __int64 v10; // r8
+  _DWORD *v11; // r9
+  void (__fastcall *v12)(PDEVICE_OBJECT, struct _LIST_ENTRY *); // rax
   union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *p_Queue; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *v13; // rax
+  union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *v15; // rax
 
   FsRtlSetDriverBacking(DeviceObject->DriverObject, 1LL);
   CurrentThread = KeGetCurrentThread();
@@ -75,19 +77,19 @@ LABEL_26:
   Flink = (struct _LIST_ENTRY *)*v5;
   if ( (Flags & 0x200) != 0 )
   {
-    v13 = &DeviceObject->Queue;
+    v15 = &DeviceObject->Queue;
     if ( (__int64 *)Flink->Blink == v5 )
     {
-      v13->ListEntry.Flink = Flink;
+      v15->ListEntry.Flink = Flink;
       DeviceObject->Queue.ListEntry.Blink = (struct _LIST_ENTRY *)v5;
-      Flink->Blink = &v13->ListEntry;
-      *v5 = (__int64)v13;
+      Flink->Blink = &v15->ListEntry;
+      *v5 = (__int64)v15;
       goto LABEL_13;
     }
     goto LABEL_26;
   }
   v7 = (struct _LIST_ENTRY *)v5;
-  while ( Flink != (struct _LIST_ENTRY *)v5 && _bittest((const signed __int32 *)&Flink[-2], 9u) )
+  while ( Flink != (struct _LIST_ENTRY *)v5 && ((__int64)Flink[-2].Flink & 0x200) != 0 )
   {
     v7 = Flink;
     Flink = Flink->Flink;
@@ -106,14 +108,14 @@ LABEL_13:
   v9 = (__int64 *)IopFsNotifyChangeQueueHead;
   while ( v9 != &IopFsNotifyChangeQueueHead )
   {
-    v10 = (void (__fastcall *)(PDEVICE_OBJECT, struct _LIST_ENTRY *))v9[3];
+    v12 = (void (__fastcall *)(PDEVICE_OBJECT, struct _LIST_ENTRY *))v9[3];
     LOBYTE(Flink) = 1;
     v9 = (__int64 *)*v9;
-    v10(DeviceObject, Flink);
+    v12(DeviceObject, Flink);
   }
   IopSetFsRegistrationInProgress(0);
   ExReleaseResourceLite(&IopDatabaseResource);
   IopSetFsRegistrationInProgress(0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  IopIncrementDeviceObjectRefCount((ULONG_PTR)DeviceObject, 1);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  IopIncrementDeviceObjectRefCount((ULONG_PTR)DeviceObject, 1, v10, v11);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiDeleteRegistryValue @ 0x140711814
+ * XREFs of BiDeleteRegistryValue @ 0x1407117F4
  * Callers:
- *     BiSetFirmwareModified @ 0x14016E4A8 (BiSetFirmwareModified.c)
- *     BiMarkTreatAsSystemStore @ 0x140711184 (BiMarkTreatAsSystemStore.c)
+ *     BiSetFirmwareModified @ 0x14016E4C8 (BiSetFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x140711164 (BiMarkTreatAsSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14013B3B0 (BiSanitizeHandle.c)
- *     CmSiCloseSection @ 0x14016E5A8 (CmSiCloseSection.c)
- *     BiZwDeleteValueKey @ 0x14016E658 (BiZwDeleteValueKey.c)
- *     BiOpenKey @ 0x1407137A0 (BiOpenKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
+ *     CmSiCloseSection @ 0x14016E5C8 (CmSiCloseSection.c)
+ *     BiZwDeleteValueKey @ 0x14016E678 (BiZwDeleteValueKey.c)
+ *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
  */
 
 __int64 __fastcall BiDeleteRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3)

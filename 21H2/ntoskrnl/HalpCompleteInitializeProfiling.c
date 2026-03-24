@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpCompleteInitializeProfiling @ 0x140A54F8C
+ * XREFs of HalpCompleteInitializeProfiling @ 0x14099B5B4
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140A54EF0 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x14099B540 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*HalpCompleteInitializeProfiling())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = HalpProfileInterface[16];
+  result = (__int64 (*)(void))*((_QWORD *)HalpProfileInterface[0] + 15);
   if ( result )
     return (__int64 (*)(void))result();
   return result;

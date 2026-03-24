@@ -1,15 +1,12 @@
 /*
- * XREFs of ExReleaseSpinLockExclusive @ 0x140229990
+ * XREFs of ExReleaseSpinLockExclusive @ 0x14033BCF0
  * Callers:
- *     PfSnNameQueryWorker @ 0x1402298D0 (PfSnNameQueryWorker.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x1403B1020 (PopFxHandleReportDevicePoweredOn.c)
- *     PoFxAddDeviceRelation @ 0x140419310 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140419580 (PoFxRemoveDeviceRelation.c)
- *     MiFlushControlArea @ 0x14058B0C8 (MiFlushControlArea.c)
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14056AFC0 (PopFxIsDevicePotentialDripsConstraint.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14063D8B0 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 void __stdcall ExReleaseSpinLockExclusive(PEX_SPIN_LOCK SpinLock, KIRQL OldIrql)

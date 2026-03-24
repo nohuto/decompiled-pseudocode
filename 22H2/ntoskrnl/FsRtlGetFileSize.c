@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlGetFileSize @ 0x1406AA1A0
+ * XREFs of FsRtlGetFileSize @ 0x140702130
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x140305100 (FsRtlCreateSectionForDataScan.c)
- *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
- *     MiShareExistingControlArea @ 0x140723D4C (MiShareExistingControlArea.c)
- *     MiCreateDataFileMap @ 0x140745EF0 (MiCreateDataFileMap.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6910 (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1409F6B50 (ExpQueryElamCertInfo.c)
+ *     FsRtlCreateSectionForDataScan @ 0x14035A570 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateDataFileMap @ 0x14061C3F4 (MiCreateDataFileMap.c)
+ *     MiShareExistingControlArea @ 0x14065547C (MiShareExistingControlArea.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
+ *     MiCreateImageFileMap @ 0x140700CC4 (MiCreateImageFileMap.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A6EC (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x14094A928 (ExpQueryElamCertInfo.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER FileSize)
@@ -31,8 +31,8 @@ NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER File
   BOOLEAN v11; // al
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdx
   BOOLEAN v13; // r14
-  NTSTATUS v14; // ecx
-  NTSTATUS v15; // eax
+  NTSTATUS v14; // ebx
+  NTSTATUS v15; // ecx
   __int128 v16; // [rsp+30h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-40h] BYREF
   __int128 v18; // [rsp+58h] [rbp-28h] BYREF
@@ -70,16 +70,11 @@ NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER File
     CurrentStackLocation[-1].Parameters.Create.Options = 5;
     v14 = IofCallDriver(RelatedDeviceObject, Irp);
     if ( v14 == 259 )
-    {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    }
-    else
-    {
-      v15 = v16;
-      if ( v14 < 0 )
-        v15 = v14;
-      LODWORD(v16) = v15;
-    }
+    v15 = v16;
+    if ( v14 < 0 )
+      v15 = v14;
+    LODWORD(v16) = v15;
     IoSetThreadHardErrorMode(v13);
   }
   result = v16;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EngDebugPrint @ 0x1C0177210
+ * XREFs of EngDebugPrint @ 0x1C014ADC0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __stdcall EngDebugPrint(PCHAR StandardPrefix, PCHAR DebugMessage, va_list ap)

@@ -3,14 +3,14 @@
  * Callers:
  *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2EF4 (reg_FeatureDescriptors_SkipPadding.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2F14 (reg_FeatureDescriptors_SkipPadding.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
- *     CmpWalkPath @ 0x14073D6B0 (CmpWalkPath.c)
- *     CmpFindValueByName @ 0x14073D878 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D8A8 (CmpValueToData.c)
+ *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
+ *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
  */
 
 _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsigned int a2)

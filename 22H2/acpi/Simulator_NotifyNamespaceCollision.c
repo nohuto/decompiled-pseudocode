@@ -1,16 +1,16 @@
 /*
- * XREFs of Simulator_NotifyNamespaceCollision @ 0x1C00493C0
+ * XREFs of Simulator_NotifyNamespaceCollision @ 0x1C0063CF0
  * Callers:
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0048EE4 (Simulator_AllocAndInitTestData.c)
- *     Simulator_TestNotify @ 0x1C0049990 (Simulator_TestNotify.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 __fastcall Simulator_NotifyNamespaceCollision(__int64 a1, __int64 a2)
 {
-  void *ObjectPath; // rsi
+  _QWORD *ObjectPath; // rsi
   _DWORD *inited; // rbx
   unsigned int v6; // edi
   char v8; // [rsp+40h] [rbp+18h] BYREF
@@ -20,7 +20,7 @@ __int64 __fastcall Simulator_NotifyNamespaceCollision(__int64 a1, __int64 a2)
   if ( inited )
   {
     if ( a2 )
-      ObjectPath = (void *)GetObjectPath(a2);
+      ObjectPath = GetObjectPath(a2);
     v8 = 0;
     *inited = 1;
     inited[2] = 1;

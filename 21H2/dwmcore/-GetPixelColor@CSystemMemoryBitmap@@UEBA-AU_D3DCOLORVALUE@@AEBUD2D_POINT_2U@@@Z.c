@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPixelColor@CSystemMemoryBitmap@@UEBA?AU_D3DCOLORVALUE@@AEBUD2D_POINT_2U@@@Z @ 0x180270B60
+ * XREFs of ?GetPixelColor@CSystemMemoryBitmap@@UEBA?AU_D3DCOLORVALUE@@AEBUD2D_POINT_2U@@@Z @ 0x180217700
  * Callers:
  *     <none>
  * Callees:
@@ -23,11 +23,11 @@ struct _D3DCOLORVALUE *__fastcall CSystemMemoryBitmap::GetPixelColor(
   *(_OWORD *)&retstr->r = 0LL;
   if ( v3 )
   {
-    v5 = *((_DWORD *)this - 8);
-    if ( (unsigned int)(v5 - 87) <= 1 && a3->x < *((_DWORD *)this - 12) )
+    v5 = *((_DWORD *)this - 14);
+    if ( (unsigned int)(v5 - 87) <= 1 && a3->x < *((_DWORD *)this - 18) )
     {
       y = a3->y;
-      if ( y < *((_DWORD *)this - 11) )
+      if ( y < *((_DWORD *)this - 17) )
       {
         v7 = (unsigned __int8 *)(v3 + y * *((_DWORD *)this + 4) + 4 * a3->x);
         v8 = v7[1];
@@ -36,7 +36,7 @@ struct _D3DCOLORVALUE *__fastcall CSystemMemoryBitmap::GetPixelColor(
         v10 = v7[2];
         retstr->g = v9 / 255.0;
         retstr->r = GammaLUT_sRGB_to_scRGB[v10] / 255.0;
-        if ( v5 != 87 || *((_DWORD *)this - 7) == 3 )
+        if ( v5 != 87 || *((_DWORD *)this - 13) == 3 )
           retstr->a = 1.0;
         else
           retstr->a = (float)v7[3] / 255.0;

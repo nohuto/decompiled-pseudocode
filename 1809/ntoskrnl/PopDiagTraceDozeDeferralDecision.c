@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1408723B0
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x140872390
  * Callers:
- *     PopDeferDoze @ 0x14086F730 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x14086F710 (PopDeferDoze.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -75,10 +75,10 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v12 = a6;
       v13 = a7;
       v14 = PopPlatformRole;
-      v21 = (unsigned __int8)byte_140418254;
-      v15 = byte_140418253;
-      v16 = BYTE8(xmmword_140418270);
-      v17 = qword_140418280;
+      v21 = (unsigned __int8)byte_140418234;
+      v15 = byte_140418233;
+      v16 = BYTE8(xmmword_140418250);
+      v17 = qword_140418260;
       v26 = &v18;
       v28 = &v19;
       v30 = &v22;
@@ -109,7 +109,7 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v49 = 1LL;
       v51 = 1LL;
       v53 = 1LL;
-      TlgWrite(&pCallbackContext, &unk_14036FBB7, 0LL, 0LL, 0x11u, &pData);
+      TlgWrite(&pCallbackContext, &unk_14036FB0E, 0LL, 0LL, 0x11u, &pData);
     }
   }
 }

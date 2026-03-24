@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_PARAM@@@Z @ 0x1801C8220
+ * XREFs of ?ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_PARAM@@@Z @ 0x18018BDF4
  * Callers:
- *     ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x1801C7BE4 (-ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERREN.c)
+ *     ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x18018B7B8 (-ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERREN.c)
  * Callees:
- *     ?ProcessUpdate@CMatrixTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXTRANSFORM@@@Z @ 0x180041B84 (-ProcessUpdate@CMatrixTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXTRANSFORM@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcmp_0 @ 0x180105173 (memcmp_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ProcessUpdate@CMatrixTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXTRANSFORM@@@Z @ 0x180036F84 (-ProcessUpdate@CMatrixTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXTRANSFORM@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcmp_0 @ 0x1800F47CF (memcmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::ProcessUpdateParams(
@@ -30,24 +30,24 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessUpdateParams(
   __int64 v19; // [rsp+44h] [rbp-14h]
   int v20; // [rsp+4Ch] [rbp-Ch]
 
-  v4 = (char *)this + 2072;
+  v4 = (char *)this + 2088;
   v6 = 0;
-  if ( memcmp_0((char *)this + 2072, a3, 0x28uLL) )
+  if ( memcmp_0((char *)this + 2088, a3, 0x28uLL) )
   {
-    v7 = *((_QWORD *)this + 19);
+    v7 = *((_QWORD *)this + 18);
     *(_OWORD *)v4 = *(_OWORD *)a3;
     *((_OWORD *)v4 + 1) = *((_OWORD *)a3 + 1);
     *((_QWORD *)v4 + 4) = *((_QWORD *)a3 + 4);
-    *((float *)this + 44) = (float)*(int *)a3;
-    *((float *)this + 45) = (float)*((int *)a3 + 1);
+    *((float *)this + 39) = (float)*(int *)a3;
+    *((float *)this + 40) = (float)*((int *)a3 + 1);
     if ( v7 )
     {
       if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v7 + 56LL))(v7, 107LL) )
       {
         v10 = *((double *)a3 + 2);
-        v11 = (CMatrixTransform *)*((_QWORD *)this + 19);
+        v11 = (CMatrixTransform *)*((_QWORD *)this + 18);
         v18 = 0LL;
-        v17 = 486;
+        v17 = 491;
         v12 = *((double *)a3 + 1);
         v19 = 0LL;
         *(float *)&v10 = v10;
@@ -60,12 +60,12 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessUpdateParams(
         v14 = CMatrixTransform::ProcessUpdate(v11, v8, (const struct tagMILCMD_MATRIXTRANSFORM *)&v17);
         v6 = v14;
         if ( v14 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0xEDu);
+          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xEEu, 0LL);
       }
       else
       {
         v6 = -2003303421;
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2003303421, 0xE3u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0xE4u, 0LL);
       }
     }
   }

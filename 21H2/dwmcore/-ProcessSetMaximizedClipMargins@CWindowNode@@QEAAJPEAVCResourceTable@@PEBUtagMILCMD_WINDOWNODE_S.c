@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetMaximizedClipMargins@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS@@@Z @ 0x1800E2EE4
+ * XREFs of ?ProcessSetMaximizedClipMargins@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS@@@Z @ 0x18003162C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetMaximizedClipMargins(
@@ -11,13 +11,13 @@ __int64 __fastcall CWindowNode::ProcessSetMaximizedClipMargins(
         struct CResourceTable *a2,
         const struct tagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS *a3)
 {
-  if ( *((_DWORD *)this + 220) != *((_DWORD *)a3 + 2)
-    || *((_DWORD *)this + 221) != *((_DWORD *)a3 + 3)
-    || *((_DWORD *)this + 222) != *((_DWORD *)a3 + 4)
-    || *((_DWORD *)this + 223) != *((_DWORD *)a3 + 5) )
+  if ( *((_DWORD *)this + 210) != *((_DWORD *)a3 + 2)
+    || *((_DWORD *)this + 211) != *((_DWORD *)a3 + 3)
+    || *((_DWORD *)this + 212) != *((_DWORD *)a3 + 4)
+    || *((_DWORD *)this + 213) != *((_DWORD *)a3 + 5) )
   {
-    *((_OWORD *)this + 55) = *(_OWORD *)((char *)a3 + 8);
-    CVisual::PropagateFlags((__int64)this, 5u);
+    *(_OWORD *)((char *)this + 840) = *(_OWORD *)((char *)a3 + 8);
+    CVisual::PropagateFlags(this, 5LL);
   }
   return 0LL;
 }

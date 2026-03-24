@@ -1,16 +1,16 @@
 /*
- * XREFs of VfUtilGetDriverName @ 0x140A81D40
+ * XREFs of VfUtilGetDriverName @ 0x1409C6770
  * Callers:
- *     CarInitializeTelemetryData @ 0x140603A00 (CarInitializeTelemetryData.c)
+ *     <none>
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140A8ABF8 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D6E40 (VfTargetDriversGetVerifierData.c)
  */
 
-__int64 __fastcall VfUtilGetDriverName(__int64 a1)
+__int64 VfUtilGetDriverName()
 {
   __int64 result; // rax
 
-  result = VfTargetDriversGetVerifierData(a1);
+  result = VfTargetDriversGetVerifierData();
   if ( result )
     return *(_QWORD *)(*(_QWORD *)result + 32LL);
   return result;

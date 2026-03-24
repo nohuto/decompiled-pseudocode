@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPILoadProcessFADT @ 0x1C00BEF88
+ * XREFs of ACPILoadProcessFADT @ 0x1C00BECCC
  * Callers:
- *     ACPILoadProcessRSDT @ 0x1C00BD9F8 (ACPILoadProcessRSDT.c)
+ *     ACPILoadProcessRSDT @ 0x1C00BE744 (ACPILoadProcessRSDT.c)
  * Callees:
- *     ACPIGpeClearRegisters @ 0x1C001FDEC (ACPIGpeClearRegisters.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIProcessHardwareInformation @ 0x1C0096E88 (ACPIProcessHardwareInformation.c)
- *     ACPILoadProcessFACS @ 0x1C00BD604 (ACPILoadProcessFACS.c)
- *     ACPILoadProcessDSDT @ 0x1C00BF044 (ACPILoadProcessDSDT.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     ACPIProcessHardwareInformation @ 0x1C009F214 (ACPIProcessHardwareInformation.c)
+ *     ACPILoadProcessFACS @ 0x1C00BEB28 (ACPILoadProcessFACS.c)
+ *     ACPILoadProcessDSDT @ 0x1C00BEC08 (ACPILoadProcessDSDT.c)
  */
 
 __int64 ACPILoadProcessFADT()
@@ -44,7 +44,7 @@ __int64 ACPILoadProcessFADT()
           2u,
           6u,
           0x11u,
-          (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+          (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
       KeBugCheckEx(0xA5u, 0x11uLL, 0xCuLL, *(unsigned int *)(v0 + 112), 0LL);
     }
     return ACPILoadProcessDSDT();

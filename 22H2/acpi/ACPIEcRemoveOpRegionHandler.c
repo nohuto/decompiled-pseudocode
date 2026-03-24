@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcRemoveOpRegionHandler @ 0x1C0083744
+ * XREFs of ACPIEcRemoveOpRegionHandler @ 0x1C00AEB8C
  * Callers:
- *     ACPIEcStopRemoveDeviceCommon @ 0x1C00258B0 (ACPIEcStopRemoveDeviceCommon.c)
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0053E40 (ACPIEcStopRemoveDeviceCommon.c)
  * Callees:
- *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
- *     UnRegisterOperationRegionHandler @ 0x1C008BE00 (UnRegisterOperationRegionHandler.c)
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C00118BC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C00B1C74 (UnRegisterOperationRegionHandler.c)
  */
 
 __int64 __fastcall ACPIEcRemoveOpRegionHandler(ULONG_PTR *a1)

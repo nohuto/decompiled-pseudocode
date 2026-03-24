@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwpCompressBuffer @ 0x1406021D0
+ * XREFs of EtwpCompressBuffer @ 0x1405AC654
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x140602554 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x1405AC9DC (EtwpCompressPendingBuffers.c)
  * Callees:
- *     RtlCompressBuffer @ 0x140363480 (RtlCompressBuffer.c)
- *     EtwpUpdateEventsLostCount @ 0x140366014 (EtwpUpdateEventsLostCount.c)
- *     EtwpGetNextEventOffsetType @ 0x1403A19B8 (EtwpGetNextEventOffsetType.c)
- *     EtwpRotateCompressionTarget @ 0x140602B28 (EtwpRotateCompressionTarget.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x140602B94 (EtwpRotateCompressionTargetIfNeeded.c)
+ *     RtlCompressBuffer @ 0x140268980 (RtlCompressBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036C6C8 (EtwpUpdateEventsLostCount.c)
+ *     EtwpGetNextEventOffsetType @ 0x1405AD390 (EtwpGetNextEventOffsetType.c)
+ *     EtwpRotateCompressionTarget @ 0x1405AD704 (EtwpRotateCompressionTarget.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x1405AD770 (EtwpRotateCompressionTargetIfNeeded.c)
  */
 
 __int64 __fastcall EtwpCompressBuffer(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d
-  ULONG v5; // edi
+  ULONG v5; // ebx
   unsigned int v6; // esi
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  __int64 v9; // r15
-  __int64 v10; // r12
-  __int64 v11; // r8
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // r15
+  __int64 v11; // r12
   __int64 CompressedBufferSize; // r9
   NTSTATUS v13; // eax
   unsigned int v14; // eax
-  unsigned int v15; // edi
+  unsigned int v15; // ebx
   ULONG i; // r13d
   int NextEventOffsetType; // r10d
   ULONG v18; // eax
@@ -51,67 +51,67 @@ LABEL_5:
   EtwpRotateCompressionTargetIfNeeded();
   while ( 1 )
   {
-    v19 = *(_QWORD *)(a1 + 1152);
+    v19 = *(_QWORD *)(a1 + 1136);
     if ( !v19 )
     {
-      ++*(_DWORD *)(a1 + 252);
+      ++*(_DWORD *)(a1 + 268);
       return 3221225495LL;
     }
-    v8 = *(unsigned int *)(v19 + 8);
-    v9 = *(_QWORD *)(a1 + 1152);
-    v10 = (unsigned int)v8;
-    v11 = v8 + 72;
-    CompressedBufferSize = (unsigned int)(*(_DWORD *)(a1 + 4) - *(_DWORD *)(v9 + 8) - 72);
-    v22 = *(_DWORD *)(a1 + 4) - *(_DWORD *)(v9 + 8) - 72;
-    if ( *(_DWORD *)(v9 + 8) == 72 || v5 < *(_DWORD *)(a1 + 1172) * (int)CompressedBufferSize )
+    v9 = *(unsigned int *)(v19 + 8);
+    v10 = *(_QWORD *)(a1 + 1136);
+    v11 = (unsigned int)v9;
+    v7 = v9 + 72;
+    CompressedBufferSize = (unsigned int)(*(_DWORD *)(a1 + 4) - *(_DWORD *)(v10 + 8) - 72);
+    v22 = *(_DWORD *)(a1 + 4) - *(_DWORD *)(v10 + 8) - 72;
+    if ( *(_DWORD *)(v10 + 8) == 72 || v5 < (int)CompressedBufferSize * *(_DWORD *)(a1 + 1156) )
     {
       v13 = RtlCompressBuffer(
               3u,
               (PUCHAR)(a2 + v6),
               v5,
-              (PUCHAR)(v11 + v9),
+              (PUCHAR)(v7 + v10),
               CompressedBufferSize,
               0,
               &FinalCompressedSize,
-              *(PVOID *)(a1 + 1160));
+              *(PVOID *)(a1 + 1144));
       v7 = (unsigned int)v13;
       if ( v13 >= 0 )
       {
-        *(_OWORD *)(v10 + v9) = *(_OWORD *)a2;
-        *(_OWORD *)(v10 + v9 + 16) = *(_OWORD *)(a2 + 16);
-        *(_OWORD *)(v10 + v9 + 32) = *(_OWORD *)(a2 + 32);
-        *(_OWORD *)(v10 + v9 + 48) = *(_OWORD *)(a2 + 48);
-        *(_QWORD *)(v10 + v9 + 64) = *(_QWORD *)(a2 + 64);
+        *(_OWORD *)(v10 + v11) = *(_OWORD *)a2;
+        *(_OWORD *)(v10 + v11 + 16) = *(_OWORD *)(a2 + 16);
+        *(_OWORD *)(v10 + v11 + 32) = *(_OWORD *)(a2 + 32);
+        *(_OWORD *)(v10 + v11 + 48) = *(_OWORD *)(a2 + 48);
+        *(_QWORD *)(v10 + v11 + 64) = *(_QWORD *)(a2 + 64);
         v21 = FinalCompressedSize;
-        *(_QWORD *)(v10 + v9 + 24) = 0LL;
-        *(_DWORD *)(v10 + v9) = v21 + 72;
-        *(_DWORD *)(v10 + v9 + 8) = v5 + 72;
-        *(_DWORD *)(v10 + v9 + 4) = v5 + 72;
-        *(_DWORD *)(v10 + v9 + 12) = 0;
-        *(_DWORD *)(v10 + v9 + 44) = 3;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += 72;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += FinalCompressedSize;
+        *(_QWORD *)(v10 + v11 + 24) = 0LL;
+        *(_DWORD *)(v10 + v11) = v21 + 72;
+        *(_DWORD *)(v10 + v11 + 8) = v5 + 72;
+        *(_DWORD *)(v10 + v11 + 4) = v5 + 72;
+        *(_DWORD *)(v10 + v11 + 12) = 0;
+        *(_DWORD *)(v10 + v11 + 44) = 3;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += 72;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += FinalCompressedSize;
         return (unsigned int)v7;
       }
       CompressedBufferSize = v22;
     }
     LOBYTE(v14) = 1;
     v25 = 1;
-    if ( *(_DWORD *)(a1 + 1176) )
+    if ( *(_DWORD *)(a1 + 1160) )
       break;
 LABEL_27:
     v5 = v4 - v6;
-    EtwpRotateCompressionTarget(a1, v7, v11, CompressedBufferSize);
+    EtwpRotateCompressionTarget(a1, v8, v7, CompressedBufferSize);
   }
   while ( 1 )
   {
     v15 = v6 + (v5 >> v14);
     for ( i = 0; ; i += v24 )
     {
-      NextEventOffsetType = EtwpGetNextEventOffsetType((unsigned int *)a2, v6 + i, &v24);
+      NextEventOffsetType = EtwpGetNextEventOffsetType(a2, v6 + i, &v24);
       if ( !NextEventOffsetType )
         break;
-      v7 = v24;
+      v8 = v24;
       if ( v24 + v6 + i > v15 )
         break;
     }
@@ -121,33 +121,34 @@ LABEL_27:
              3u,
              (PUCHAR)(a2 + v6),
              i,
-             (PUCHAR)(v10 + v9 + 72),
+             (PUCHAR)(v11 + v10 + 72),
              CompressedBufferSize,
              0,
              &FinalCompressedSize,
-             *(PVOID *)(a1 + 1160)) >= 0 )
+             *(PVOID *)(a1 + 1144)) >= 0 )
       {
         v6 += i;
-        *(_OWORD *)(v10 + v9) = *(_OWORD *)a2;
-        *(_OWORD *)(v10 + v9 + 16) = *(_OWORD *)(a2 + 16);
-        *(_OWORD *)(v10 + v9 + 32) = *(_OWORD *)(a2 + 32);
-        *(_OWORD *)(v10 + v9 + 48) = *(_OWORD *)(a2 + 48);
-        *(_QWORD *)(v10 + v9 + 64) = *(_QWORD *)(a2 + 64);
+        *(_OWORD *)(v10 + v11) = *(_OWORD *)a2;
+        *(_OWORD *)(v10 + v11 + 16) = *(_OWORD *)(a2 + 16);
+        *(_OWORD *)(v10 + v11 + 32) = *(_OWORD *)(a2 + 32);
+        *(_OWORD *)(v10 + v11 + 48) = *(_OWORD *)(a2 + 48);
+        *(_QWORD *)(v10 + v11 + 64) = *(_QWORD *)(a2 + 64);
         v18 = FinalCompressedSize;
-        *(_QWORD *)(v10 + v9 + 24) = 0LL;
-        *(_DWORD *)(v10 + v9) = v18 + 72;
-        *(_DWORD *)(v10 + v9 + 8) = i + 72;
-        *(_DWORD *)(v10 + v9 + 4) = i + 72;
-        *(_DWORD *)(v10 + v9 + 12) = 0;
-        *(_DWORD *)(v10 + v9 + 44) = 3;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += 72;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += FinalCompressedSize;
+        *(_QWORD *)(v10 + v11 + 24) = 0LL;
+        *(_DWORD *)(v10 + v11) = v18 + 72;
+        *(_DWORD *)(v10 + v11 + 8) = i + 72;
+        *(_DWORD *)(v10 + v11 + 4) = i + 72;
+        *(_DWORD *)(v10 + v11 + 12) = 0;
+        *(_DWORD *)(v10 + v11 + 44) = 3;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += 72;
+        v8 = FinalCompressedSize + *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL);
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) = v8;
         goto LABEL_27;
       }
       v14 = ++v25;
       goto LABEL_24;
     }
-    if ( *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) != 72 )
+    if ( *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) != 72 )
       goto LABEL_27;
     if ( !NextEventOffsetType )
       break;
@@ -160,10 +161,10 @@ LABEL_27:
     v14 = v25;
 LABEL_24:
     v5 = v4 - v6;
-    if ( v14 > *(_DWORD *)(a1 + 1176) )
+    if ( v14 > *(_DWORD *)(a1 + 1160) )
       goto LABEL_27;
   }
-  ++*(_DWORD *)(a1 + 252);
+  ++*(_DWORD *)(a1 + 268);
 LABEL_30:
   LODWORD(v7) = -1073741566;
   return (unsigned int)v7;

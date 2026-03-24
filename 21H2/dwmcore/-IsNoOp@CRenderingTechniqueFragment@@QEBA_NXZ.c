@@ -1,12 +1,13 @@
 /*
- * XREFs of ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800553C8
+ * XREFs of ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800CA1FC
  * Callers:
- *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x18005464C (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
- *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800553C8 (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
- *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x180058AC0 (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z.c)
+ *     ?DoesIntermediateContributeToSubgraph@CBrushRenderingGraph@@AEBA_NII@Z @ 0x180040858 (-DoesIntermediateContributeToSubgraph@CBrushRenderingGraph@@AEBA_NII@Z.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056A18 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@AEBA_NIPEA_N@Z @ 0x1800CA11C (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@AEBA_NIPEA_N@Z.c)
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800CA1FC (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
  * Callees:
- *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800553C8 (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800CA1FC (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CRenderingTechniqueFragment::IsNoOp(CRenderingTechniqueFragment *this)

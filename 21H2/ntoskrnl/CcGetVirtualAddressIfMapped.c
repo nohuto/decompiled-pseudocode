@@ -1,12 +1,12 @@
 /*
- * XREFs of CcGetVirtualAddressIfMapped @ 0x140282C5C
+ * XREFs of CcGetVirtualAddressIfMapped @ 0x14030F444
  * Callers:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
  * Callees:
- *     CcGetVacbLargeOffset @ 0x140282064 (CcGetVacbLargeOffset.c)
- *     CcIncrementVacbActiveCount @ 0x140285D50 (CcIncrementVacbActiveCount.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
+ *     CcGetVacbLargeOffset @ 0x1402AE538 (CcGetVacbLargeOffset.c)
+ *     CcIncrementVacbActiveCount @ 0x140310D64 (CcIncrementVacbActiveCount.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -19,10 +19,10 @@ __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *
   *a4 = 0x40000 - (a2 & 0x3FFFF);
   v8 = 0LL;
   ExAcquirePushLockSharedEx(a1 + 104, 0LL);
-  if ( *(__int64 *)(a1 + 32) <= 0x2000000 )
-    VacbLargeOffset = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * ((unsigned __int64)(unsigned int)a2 >> 18));
-  else
+  if ( *(__int64 *)(a1 + 32) > 0x2000000 )
     VacbLargeOffset = CcGetVacbLargeOffset(a1, a2);
+  else
+    VacbLargeOffset = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * ((unsigned __int64)(unsigned int)a2 >> 18));
   *a3 = VacbLargeOffset;
   if ( VacbLargeOffset )
   {

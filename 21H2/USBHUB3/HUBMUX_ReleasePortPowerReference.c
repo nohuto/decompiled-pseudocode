@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMUX_ReleasePortPowerReference @ 0x1C000FA54
+ * XREFs of HUBMUX_ReleasePortPowerReference @ 0x1C000F638
  * Callers:
- *     HUBPSM20_PoweredOffSuspended @ 0x1C00111B0 (HUBPSM20_PoweredOffSuspended.c)
- *     HUBPSM30_ReleasingPowerReferenceOnHubS0IdleInD3Cold @ 0x1C0011460 (HUBPSM30_ReleasingPowerReferenceOnHubS0IdleInD3Cold.c)
+ *     HUBPSM20_PoweredOffSuspended @ 0x1C0010DA0 (HUBPSM20_PoweredOffSuspended.c)
+ *     HUBPSM30_ReleasingPowerReferenceOnHubS0IdleInD3Cold @ 0x1C0011050 (HUBPSM30_ReleasingPowerReferenceOnHubS0IdleInD3Cold.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMUX_ReleasePortPowerReference(volatile signed __int32 *a1)

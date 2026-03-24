@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExpHwidAppendDeviceInfoBlock @ 0x14058628C (ExpHwidAppendDeviceInfoBlock.c)
  */
 

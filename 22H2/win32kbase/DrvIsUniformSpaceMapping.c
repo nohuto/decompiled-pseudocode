@@ -1,21 +1,20 @@
 /*
- * XREFs of DrvIsUniformSpaceMapping @ 0x1C00628A0
+ * XREFs of DrvIsUniformSpaceMapping @ 0x1C0011110
  * Callers:
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00624B4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
- *     ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C006283C (-TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z.c)
- *     NtUserGetUniformSpaceMapping @ 0x1C0063EA0 (NtUserGetUniformSpaceMapping.c)
+ *     NtUserGetUniformSpaceMapping @ 0x1C000E9B0 (NtUserGetUniformSpaceMapping.c)
+ *     ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C00110B0 (-TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z.c)
+ *     IsValidKernelDpiAwarenessContext @ 0x1C0094F64 (IsValidKernelDpiAwarenessContext.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DrvIsUniformSpaceMapping(__int64 a1)
 {
-  __int64 v2; // rax
-  unsigned int v3; // r8d
+  unsigned int v1; // edx
 
-  v2 = SGDGetSessionState(a1);
-  v3 = 0;
-  if ( *(_DWORD *)(*(_QWORD *)(v2 + 24) + 1320LL) && a1 )
+  v1 = 0;
+  if ( gbUniformSpaceDpiMode && a1 )
     return (*(_DWORD *)(a1 + 16) & 2) != 0;
-  return v3;
+  return v1;
 }

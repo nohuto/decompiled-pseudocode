@@ -1,1 +1,12 @@
-/*\n * XREFs of nullsub_1 @ 0x1C0002944\n * Callers:\n *     KeyboardClassDequeueRead @ 0x1C0002900 (KeyboardClassDequeueRead.c)\n * Callees:\n *     <none>\n */\n\nvoid nullsub_1()\n{\n  ;\n}\n
+/*
+ * XREFs of nullsub_1 @ 0x1C0002944
+ * Callers:
+ *     KeyboardClassDequeueRead @ 0x1C0002900 (KeyboardClassDequeueRead.c)
+ * Callees:
+ *     <none>
+ */
+
+void nullsub_1()
+{
+  ;
+}

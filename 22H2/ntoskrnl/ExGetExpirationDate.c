@@ -1,13 +1,13 @@
 /*
- * XREFs of ExGetExpirationDate @ 0x140812204
+ * XREFs of ExGetExpirationDate @ 0x1407AAC50
  * Callers:
- *     ExInitLicenseData @ 0x1408114F8 (ExInitLicenseData.c)
- *     ExInitializeTimeRefresh @ 0x140B3CBEC (ExInitializeTimeRefresh.c)
+ *     ExInitLicenseData @ 0x1407AB138 (ExInitLicenseData.c)
+ *     ExInitializeTimeRefresh @ 0x140A5B1EC (ExInitializeTimeRefresh.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlTimeFieldsToTime @ 0x14033B150 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
+ *     RtlTimeFieldsToTime @ 0x14030D050 (RtlTimeFieldsToTime.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
  */
 
 __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)
@@ -25,26 +25,35 @@ __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)
   DestinationString = 0LL;
   v8 = 0LL;
   v9 = 0LL;
-  if ( !Time )
-    return (unsigned int)-1073741811;
-  RtlInitUnicodeString(&DestinationString, L"Kernel-ExpirationDate");
-  LicenseValue = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v5);
-  if ( LicenseValue < 0 )
-    goto LABEL_8;
-  v3 = v9 - v8;
-  if ( (_QWORD)v9 == (_QWORD)v8 )
-    v3 = *((_QWORD *)&v9 + 1) - *((_QWORD *)&v8 + 1);
-  if ( !v3 )
-    goto LABEL_8;
-  TimeFields.Year = v8;
-  *(_DWORD *)&TimeFields.Month = *(_DWORD *)((char *)&v8 + 2);
-  TimeFields.Hour = WORD3(v8);
-  *(_DWORD *)&TimeFields.Minute = DWORD2(v8);
-  if ( !RtlTimeFieldsToTime(&TimeFields, Time) )
+  if ( Time )
   {
-    LicenseValue = -1073741823;
-LABEL_8:
-    Time->QuadPart = 0LL;
+    RtlInitUnicodeString(&DestinationString, L"Kernel-ExpirationDate");
+    LicenseValue = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v5);
+    if ( LicenseValue < 0 )
+      goto LABEL_13;
+    v3 = v9 - v8;
+    if ( (_QWORD)v9 == (_QWORD)v8 )
+      v3 = *((_QWORD *)&v9 + 1) - *((_QWORD *)&v8 + 1);
+    if ( v3 )
+    {
+      TimeFields.Year = v8;
+      *(_DWORD *)&TimeFields.Month = *(_DWORD *)((char *)&v8 + 2);
+      TimeFields.Hour = WORD3(v8);
+      *(_DWORD *)&TimeFields.Minute = DWORD2(v8);
+      if ( !RtlTimeFieldsToTime(&TimeFields, Time) )
+        LicenseValue = -1073741823;
+    }
+    else
+    {
+      Time->QuadPart = 0LL;
+    }
+    if ( LicenseValue < 0 )
+LABEL_13:
+      Time->QuadPart = 0LL;
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
   }
   return (unsigned int)LicenseValue;
 }

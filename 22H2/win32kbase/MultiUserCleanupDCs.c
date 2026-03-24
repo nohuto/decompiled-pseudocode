@@ -1,62 +1,61 @@
 /*
- * XREFs of MultiUserCleanupDCs @ 0x1C00A08D4
+ * XREFs of MultiUserCleanupDCs @ 0x1C000EB58
  * Callers:
- *     DrvCleanupAndDestroyMDEV @ 0x1C00A074C (DrvCleanupAndDestroyMDEV.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C000BDDC (DrvCleanupAndDestroyMDEV.c)
  * Callees:
- *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C0035E00 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
- *     ?vCleanupDCs@@YAXK@Z @ 0x1C0035FD4 (-vCleanupDCs@@YAXK@Z.c)
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0044030 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C000BF70 (-vCleanupDCs@@YAXK@Z.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C000F1D0 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
 void MultiUserCleanupDCs()
 {
   unsigned int CurrentProcessId; // eax
-  unsigned int v1; // esi
-  int v2; // edi
-  unsigned int v3; // ebx
-  __int64 v4; // rcx
-  __int64 v5; // r14
-  GdiHandleEntryDirectory **v6; // rbp
+  GdiHandleManager *v1; // rcx
+  unsigned int v2; // esi
+  int v3; // ebp
+  unsigned int v4; // edi
   unsigned int NextEntryIndex; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // eax
+  __int64 v6; // rcx
+  GdiHandleManager *v7; // rbx
+  unsigned int v8; // eax
   struct _ENTRY *Entry; // rax
-  int v11; // edx
+  int v10; // edx
   __int64 CurrentProcessWin32Process; // rax
-  struct _ENTRY *v13; // [rsp+40h] [rbp+8h] BYREF
+  struct _ENTRY *v12; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
-  v13 = 0LL;
-  v1 = 0;
+  v12 = 0LL;
   v2 = 0;
-  v3 = CurrentProcessId & 0xFFFFFFFC;
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 24);
-  if ( *(_QWORD *)(v5 + 8008) )
+  v3 = 0;
+  v4 = CurrentProcessId & 0xFFFFFFFC;
+  if ( gpHandleManager )
   {
     while ( 1 )
     {
-      v6 = *(GdiHandleEntryDirectory ***)(v5 + 8008);
-      NextEntryIndex = GdiHandleManager::GetNextEntryIndex((GdiHandleManager *)v6, v1, &v13);
-      v1 = NextEntryIndex;
+      NextEntryIndex = GdiHandleManager::GetNextEntryIndex(v1, v2, &v12);
+      v2 = NextEntryIndex;
       if ( !NextEntryIndex )
         break;
-      v9 = GdiHandleManager::DecodeIndex(v6, NextEntryIndex);
-      Entry = GdiHandleEntryDirectory::GetEntry(v6[2], v9, 0);
-      v13 = Entry;
+      v7 = gpHandleManager;
+      v8 = GdiHandleManager::DecodeIndex(gpHandleManager, NextEntryIndex);
+      Entry = GdiHandleEntryDirectory::GetEntry(*((GdiHandleEntryDirectory **)v7 + 2), v8, 0);
+      v12 = Entry;
       if ( *((_BYTE *)Entry + 14) == 1 )
       {
-        v11 = *((_DWORD *)Entry + 2);
-        if ( (v11 & 0xFFFFFFFE) != v3 )
+        v10 = *((_DWORD *)Entry + 2);
+        v1 = (GdiHandleManager *)(v10 & 0xFFFFFFFE);
+        if ( (_DWORD)v1 != v4 )
         {
-          *((_DWORD *)Entry + 2) = v3 | v11 & 1;
-          ++v2;
+          *((_DWORD *)Entry + 2) = v4 | v10 & 1;
+          ++v3;
         }
       }
     }
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v8);
-    if ( CurrentProcessWin32Process && *(_QWORD *)CurrentProcessWin32Process )
-      *(_DWORD *)(CurrentProcessWin32Process + 60) += v2;
-    vCleanupDCs(v3);
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
+    if ( CurrentProcessWin32Process )
+      *(_DWORD *)(CurrentProcessWin32Process + 60) += v3;
+    vCleanupDCs(v4);
   }
 }

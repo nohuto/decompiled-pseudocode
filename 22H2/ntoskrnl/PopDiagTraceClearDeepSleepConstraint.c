@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagTraceClearDeepSleepConstraint @ 0x14028E6CC
+ * XREFs of PopDiagTraceClearDeepSleepConstraint @ 0x14034A704
  * Callers:
- *     PopDeepSleepClearDisengageReason @ 0x14028E63C (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceClearDeepSleepConstraint(int a1)
 {
   REGHANDLE v1; // rbx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-28h] BYREF
-  int v3; // [rsp+60h] [rbp+8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
+  int v3; // [rsp+70h] [rbp+8h] BYREF
 
   v3 = a1;
   if ( PopDiagHandleRegistered )
@@ -23,7 +23,7 @@ void __fastcall PopDiagTraceClearDeepSleepConstraint(int a1)
       UserData.Reserved = 0;
       UserData.Ptr = (ULONGLONG)&v3;
       UserData.Size = 4;
-      EtwWrite(v1, &POP_ETW_DEEP_SLEEP_CLEAR_CONSTRAINT, 0LL, 1u, &UserData);
+      EtwWriteEx(v1, &POP_ETW_DEEP_SLEEP_CLEAR_CONSTRAINT, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

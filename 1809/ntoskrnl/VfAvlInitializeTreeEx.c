@@ -1,7 +1,7 @@
 /*
  * XREFs of VfAvlInitializeTreeEx @ 0x1409214B4
  * Callers:
- *     VfAvlInitializeTree @ 0x14030B4CC (VfAvlInitializeTree.c)
+ *     VfAvlInitializeTree @ 0x14030B5CC (VfAvlInitializeTree.c)
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)

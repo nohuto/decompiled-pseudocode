@@ -1,1 +1,310 @@
-/*\n * XREFs of DriverEntry @ 0x1C000F080\n * Callers:\n *     GsDriverEntry @ 0x1C000F010 (GsDriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_d @ 0x1C0001B20 (WPP_RECORDER_SF_d.c)\n *     __security_check_cookie @ 0x1C0002980 (__security_check_cookie.c)\n *     memmove @ 0x1C0002AC0 (memmove.c)\n *     memset @ 0x1C0002E00 (memset.c)\n *     KeyboardClassLogError @ 0x1C00044FC (KeyboardClassLogError.c)\n *     WPP_RECORDER_SF_ @ 0x1C00053A0 (WPP_RECORDER_SF_.c)\n *     KeyboardAddDeviceEx @ 0x1C000C550 (KeyboardAddDeviceEx.c)\n *     KbdDeterminePortsServiced @ 0x1C000C6F0 (KbdDeterminePortsServiced.c)\n *     KbdCreateClassObject @ 0x1C000CC80 (KbdCreateClassObject.c)\n *     WppInitKm @ 0x1C000CF50 (WppInitKm.c)\n *     WppLoadTracingSupport @ 0x1C000CFF0 (WppLoadTracingSupport.c)\n *     WppCleanupKm @ 0x1C000E714 (WppCleanupKm.c)\n *     KbdConfiguration @ 0x1C000F4E0 (KbdConfiguration.c)\n */\n\nNTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)\n{\n  NTSTATUS j; // edi\n  PVOID v3; // r14\n  __int64 v6; // rdx\n  GUID v7; // xmm0\n  PVOID PoolWithTag; // rax\n  __int64 v9; // rdx\n  __int64 Length; // rdx\n  int v11; // edx\n  int v12; // r8d\n  WCHAR *v13; // rax\n  __int64 v14; // rdx\n  unsigned int i; // edi\n  __int64 *v16; // rax\n  const WCHAR *v18; // rdx\n  _BYTE *DeviceExtension; // rcx\n  int v20; // eax\n  char *v21; // rsi\n  void *v22; // rcx\n  const WCHAR *v23; // rdx\n  int v24; // r15d\n  void *v25; // rcx\n  _QWORD *v26; // rax\n  _QWORD *v27; // rsi\n  void *v28; // rcx\n  char v29[4]; // [rsp+20h] [rbp-E0h]\n  PDEVICE_OBJECT v30; // [rsp+40h] [rbp-C0h] BYREF\n  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF\n  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF\n  unsigned int v33; // [rsp+68h] [rbp-98h] BYREF\n  PFILE_OBJECT FileObject; // [rsp+70h] [rbp-90h] BYREF\n  GUID ProviderId; // [rsp+78h] [rbp-88h] BYREF\n  PVOID P[3]; // [rsp+88h] [rbp-78h] BYREF\n  _BYTE v37[512]; // [rsp+A0h] [rbp-60h] BYREF\n\n  WPP_MAIN_CB.Timer = (PIO_TIMER)1;\n  v30 = 0LL;\n  j = 0;\n  P[0] = 0LL;\n  v3 = 0LL;\n  *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;\n  WPP_MAIN_CB.DriverObject = (struct _DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_KbdClassTraceGuid;\n  WPP_MAIN_CB.NextDevice = 0LL;\n  WPP_MAIN_CB.CurrentIrp = 0LL;\n  WPP_MAIN_CB.DeviceExtension = 0LL;\n  WPP_MAIN_CB.DeviceType = 0;\n  WppLoadTracingSupport();\n  WPP_MAIN_CB.CurrentIrp = 0LL;\n  WppInitKm((__int64)DriverObject, (__int64)RegistryPath);\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v6) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v6, 1LL);\n  }\n  v7 = (GUID)*((_OWORD *)EventInformation - 1);\n  qword_1C0009038 = 0LL;\n  qword_1C0009040 = 0LL;\n  ProviderId = v7;\n  if ( !EtwRegister(&ProviderId, TlgEnableCallback, &dword_1C0009010, &RegHandle) )\n    EtwSetInformation(RegHandle, EventProviderSetTraits, EventInformation, *(unsigned __int16 *)EventInformation);\n  memset(&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0, 0x418uLL);\n  Destination.MaximumLength = 0;\n  Destination.Buffer = 0LL;\n  qword_1C00094F0 = (__int64)&qword_1C00094E8;\n  qword_1C00094E8 = (__int64)&qword_1C00094E8;\n  LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 1;\n  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;\n  LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) = 0;\n  KeInitializeEvent((PRKEVENT)&WPP_MAIN_CB.AlignmentRequirement, SynchronizationEvent, 0);\n  *(_DWORD *)&::DestinationString.Length = 0x2000000;\n  ::DestinationString.Buffer = (PWSTR)&unk_1C00092E8;\n  memset(v37, 0, sizeof(v37));\n  *(_DWORD *)&DestinationString.Length = 0x2000000;\n  DestinationString.Buffer = (PWSTR)v37;\n  word_1C00092C8 = RegistryPath->Length;\n  word_1C00092CA = RegistryPath->Length + 2;\n  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, (unsigned __int16)word_1C00092CA, 0x4364624Bu);\n  ::P = PoolWithTag;\n  if ( !PoolWithTag )\n  {\n    LOBYTE(v9) = 2;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v9, 1LL);\n    LODWORD(P[0]) = RegistryPath->Length + 2;\n    KeyboardClassLogError(DriverObject, -1073414143, 10002, -1073741823, 1u, P, 0);\n    goto LABEL_12;\n  }\n  memmove(PoolWithTag, RegistryPath->Buffer, RegistryPath->Length);\n  *((_WORD *)::P + ((unsigned __int64)RegistryPath->Length >> 1)) = 0;\n  KbdConfiguration();\n  if ( !LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )\n  {\n    j = KbdCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.Dpc, &v30, (__int64 *)P, 1);\n    if ( j < 0 )\n    {\n      v3 = P[0];\n      goto LABEL_12;\n    }\n    v18 = (const WCHAR *)P[0];\n    DeviceExtension = v30->DeviceExtension;\n    *(_QWORD *)DeviceExtension = v30;\n    *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = DeviceExtension;\n    DeviceExtension[64] = 0;\n    KeyboardAddDeviceEx((__int64)DeviceExtension, v18, 0LL);\n    ExFreePoolWithTag(P[0], 0);\n    P[0] = 0LL;\n    v30->Flags &= ~0x80u;\n  }\n  RtlCopyUnicodeString(&DestinationString, &::DestinationString);\n  DestinationString.Length -= 10;\n  RtlAppendUnicodeToString(&DestinationString, L"Port");\n  Length = DestinationString.Length;\n  if ( DestinationString.MaximumLength < (unsigned __int64)DestinationString.Length + 2 )\n  {\n    j = -1073741823;\n  }\n  else\n  {\n    DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) + 1] = 0;\n    KbdDeterminePortsServiced(&DestinationString.Length, &v33);\n    LOBYTE(v11) = 4;\n    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 12, *(_DWORD *)v29, v33);\n    RtlInitUnicodeString(&Destination, 0LL);\n    Destination.MaximumLength = DestinationString.Length + 20;\n    v13 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(DestinationString.Length + 20), 0x4364624Bu);\n    Destination.Buffer = v13;\n    if ( v13 )\n    {\n      memset(v13, 0, Destination.MaximumLength);\n      RtlAppendUnicodeToString(&Destination, L"\\Device\\");\n      RtlAppendUnicodeToString(&Destination, DestinationString.Buffer);\n      RtlAppendUnicodeToString(&Destination, L"0");\n      for ( i = 0; i < *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy; ++i )\n      {\n        if ( i >= v33 )\n          break;\n        Destination.Buffer[((unsigned __int64)Destination.Length >> 1) - 1] = i + 48;\n        v20 = KbdCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.Dpc, &v30, (__int64 *)P, 1);\n        if ( v20 >= 0 )\n        {\n          v21 = (char *)v30->DeviceExtension;\n          *(_QWORD *)v21 = v30;\n          v21[64] = 0;\n          v30->Flags &= ~0x80u;\n          if ( IoGetDeviceObjectPointer(&Destination, 0x80u, &FileObject, (PDEVICE_OBJECT *)v21 + 2) >= 0 )\n          {\n            v3 = P[0];\n            v23 = (const WCHAR *)P[0];\n            v30->StackSize = *(_BYTE *)(*((_QWORD *)v21 + 2) + 76LL) + 1;\n            v24 = KeyboardAddDeviceEx((__int64)v21, v23, (__int64)FileObject);\n            if ( v3 )\n            {\n              ExFreePoolWithTag(v3, 0);\n              v3 = 0LL;\n              P[0] = 0LL;\n            }\n            if ( v24 >= 0 )\n            {\n              v26 = (_QWORD *)qword_1C00094F0;\n              v27 = v21 + 336;\n              if ( *(__int64 **)qword_1C00094F0 != &qword_1C00094E8 )\n                __fastfail(3u);\n              *v27 = &qword_1C00094E8;\n              v27[1] = v26;\n              *v26 = v27;\n              qword_1C00094F0 = (__int64)v27;\n            }\n            else\n            {\n              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n              {\n                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine\n                                           + 3 * *((unsigned int *)v21 + 49));\n                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v21 + 49)) = 0LL;\n                *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *((unsigned int *)v21 + 49) + 19) = 1;\n                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v21 + 49) + 1) = 0LL;\n                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n              }\n              else if ( *((_QWORD *)v21 + 44) )\n              {\n                FileObject = (PFILE_OBJECT)*((_QWORD *)v21 + 44);\n                *((_QWORD *)v21 + 44) = 0LL;\n              }\n              if ( FileObject )\n                ObfDereferenceObject(FileObject);\n              v25 = (void *)*((_QWORD *)v21 + 13);\n              if ( v25 )\n              {\n                ExFreePoolWithTag(v25, 0);\n                *((_QWORD *)v21 + 15) = 0LL;\n                *((_QWORD *)v21 + 14) = 0LL;\n                *((_QWORD *)v21 + 13) = 0LL;\n              }\n              IoDeleteDevice(*(PDEVICE_OBJECT *)v21);\n            }\n          }\n          else\n          {\n            v22 = (void *)*((_QWORD *)v21 + 13);\n            if ( v22 )\n            {\n              ExFreePoolWithTag(v22, 0);\n              *((_QWORD *)v21 + 15) = 0LL;\n              *((_QWORD *)v21 + 14) = 0LL;\n              *((_QWORD *)v21 + 13) = 0LL;\n            }\n            IoDeleteDevice(*(PDEVICE_OBJECT *)v21);\n            v3 = P[0];\n          }\n        }\n        else\n        {\n          KeyboardClassLogError(DriverEntry, -1073414143, 10008, v20, 0, 0LL, 0);\n          v3 = P[0];\n        }\n      }\n      v16 = (__int64 *)qword_1C00094E8;\n      for ( j = 0; v16 != &qword_1C00094E8; v16 = (__int64 *)*v16 )\n        ++WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;\n    }\n    else\n    {\n      LOBYTE(v14) = 2;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 1LL);\n      j = -1073741823;\n      LODWORD(P[0]) = Destination.MaximumLength;\n      KeyboardClassLogError(DriverObject, -1073414143, 10006, -1073741823, 1u, P, 0);\n    }\n  }\nLABEL_12:\n  if ( Destination.Buffer )\n    ExFreePoolWithTag(Destination.Buffer, 0);\n  if ( v3 )\n    ExFreePoolWithTag(v3, 0);\n  if ( j < 0 )\n  {\n    if ( ::P )\n    {\n      ExFreePoolWithTag(::P, 0);\n      ::P = 0LL;\n    }\n    if ( WPP_MAIN_CB.Queue.Wcb.DeviceRoutine )\n    {\n      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);\n      WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = 0LL;\n    }\n    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n    {\n      v28 = *(void **)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL);\n      if ( v28 )\n      {\n        ExFreePoolWithTag(v28, 0);\n        *(_OWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 112LL) = 0uLL;\n        *(_QWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL) = 0LL;\n      }\n      IoDeleteDevice(**(PDEVICE_OBJECT **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);\n      *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = 0LL;\n    }\n  }\n  else\n  {\n    IoRegisterDriverReinitialization(DriverObject, (PDRIVER_REINITIALIZE)KeyboardClassFindMorePorts, 0LL);\n    j = 0;\n    DriverObject->MajorFunction[0] = (PDRIVER_DISPATCH)KeyboardClassCreate;\n    DriverObject->MajorFunction[2] = (PDRIVER_DISPATCH)KeyboardClassClose;\n    DriverObject->MajorFunction[3] = (PDRIVER_DISPATCH)KeyboardClassRead;\n    DriverObject->MajorFunction[9] = (PDRIVER_DISPATCH)KeyboardClassFlush;\n    DriverObject->MajorFunction[14] = (PDRIVER_DISPATCH)KeyboardClassDeviceControl;\n    DriverObject->MajorFunction[15] = (PDRIVER_DISPATCH)KeyboardClassPassThrough;\n    DriverObject->MajorFunction[18] = (PDRIVER_DISPATCH)KeyboardClassCleanup;\n    DriverObject->MajorFunction[27] = (PDRIVER_DISPATCH)KeyboardPnP;\n    DriverObject->MajorFunction[22] = (PDRIVER_DISPATCH)KeyboardClassPower;\n    DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)KeyboardClassSystemControl;\n    DriverObject->DriverExtension->AddDevice = (PDRIVER_ADD_DEVICE)KeyboardAddDevice;\n  }\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(Length) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, Length, 1LL);\n  }\n  if ( j < 0 )\n  {\n    EtwUnregister(RegHandle);\n    RegHandle = 0LL;\n    dword_1C0009010 = 0;\n    WppCleanupKm((__int64)DriverObject);\n  }\n  return j;\n}\n
+/*
+ * XREFs of DriverEntry @ 0x1C000F080
+ * Callers:
+ *     GsDriverEntry @ 0x1C000F010 (GsDriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0001B20 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0002980 (__security_check_cookie.c)
+ *     memmove @ 0x1C0002AC0 (memmove.c)
+ *     memset @ 0x1C0002E00 (memset.c)
+ *     KeyboardClassLogError @ 0x1C00044FC (KeyboardClassLogError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C00053A0 (WPP_RECORDER_SF_.c)
+ *     KeyboardAddDeviceEx @ 0x1C000C550 (KeyboardAddDeviceEx.c)
+ *     KbdDeterminePortsServiced @ 0x1C000C6F0 (KbdDeterminePortsServiced.c)
+ *     KbdCreateClassObject @ 0x1C000CC80 (KbdCreateClassObject.c)
+ *     WppInitKm @ 0x1C000CF50 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C000CFF0 (WppLoadTracingSupport.c)
+ *     WppCleanupKm @ 0x1C000E714 (WppCleanupKm.c)
+ *     KbdConfiguration @ 0x1C000F4E0 (KbdConfiguration.c)
+ */
+
+NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
+{
+  NTSTATUS j; // edi
+  PVOID v3; // r14
+  __int64 v6; // rdx
+  GUID v7; // xmm0
+  PVOID PoolWithTag; // rax
+  __int64 v9; // rdx
+  __int64 Length; // rdx
+  int v11; // edx
+  int v12; // r8d
+  WCHAR *v13; // rax
+  __int64 v14; // rdx
+  unsigned int i; // edi
+  __int64 *v16; // rax
+  const WCHAR *v18; // rdx
+  _BYTE *DeviceExtension; // rcx
+  int v20; // eax
+  char *v21; // rsi
+  void *v22; // rcx
+  const WCHAR *v23; // rdx
+  int v24; // r15d
+  void *v25; // rcx
+  _QWORD *v26; // rax
+  _QWORD *v27; // rsi
+  void *v28; // rcx
+  char v29[4]; // [rsp+20h] [rbp-E0h]
+  PDEVICE_OBJECT v30; // [rsp+40h] [rbp-C0h] BYREF
+  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v33; // [rsp+68h] [rbp-98h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+70h] [rbp-90h] BYREF
+  GUID ProviderId; // [rsp+78h] [rbp-88h] BYREF
+  PVOID P[3]; // [rsp+88h] [rbp-78h] BYREF
+  _BYTE v37[512]; // [rsp+A0h] [rbp-60h] BYREF
+
+  WPP_MAIN_CB.Timer = (PIO_TIMER)1;
+  v30 = 0LL;
+  j = 0;
+  P[0] = 0LL;
+  v3 = 0LL;
+  *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;
+  WPP_MAIN_CB.DriverObject = (struct _DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_KbdClassTraceGuid;
+  WPP_MAIN_CB.NextDevice = 0LL;
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WPP_MAIN_CB.DeviceExtension = 0LL;
+  WPP_MAIN_CB.DeviceType = 0;
+  WppLoadTracingSupport();
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WppInitKm((__int64)DriverObject, (__int64)RegistryPath);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v6) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v6, 1LL);
+  }
+  v7 = (GUID)*((_OWORD *)EventInformation - 1);
+  qword_1C0009038 = 0LL;
+  qword_1C0009040 = 0LL;
+  ProviderId = v7;
+  if ( !EtwRegister(&ProviderId, TlgEnableCallback, &dword_1C0009010, &RegHandle) )
+    EtwSetInformation(RegHandle, EventProviderSetTraits, EventInformation, *(unsigned __int16 *)EventInformation);
+  memset(&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0, 0x418uLL);
+  Destination.MaximumLength = 0;
+  Destination.Buffer = 0LL;
+  qword_1C00094F0 = (__int64)&qword_1C00094E8;
+  qword_1C00094E8 = (__int64)&qword_1C00094E8;
+  LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 1;
+  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
+  LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) = 0;
+  KeInitializeEvent((PRKEVENT)&WPP_MAIN_CB.AlignmentRequirement, SynchronizationEvent, 0);
+  *(_DWORD *)&::DestinationString.Length = 0x2000000;
+  ::DestinationString.Buffer = (PWSTR)&unk_1C00092E8;
+  memset(v37, 0, sizeof(v37));
+  *(_DWORD *)&DestinationString.Length = 0x2000000;
+  DestinationString.Buffer = (PWSTR)v37;
+  word_1C00092C8 = RegistryPath->Length;
+  word_1C00092CA = RegistryPath->Length + 2;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, (unsigned __int16)word_1C00092CA, 0x4364624Bu);
+  ::P = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+    LOBYTE(v9) = 2;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v9, 1LL);
+    LODWORD(P[0]) = RegistryPath->Length + 2;
+    KeyboardClassLogError(DriverObject, -1073414143, 10002, -1073741823, 1u, P, 0);
+    goto LABEL_12;
+  }
+  memmove(PoolWithTag, RegistryPath->Buffer, RegistryPath->Length);
+  *((_WORD *)::P + ((unsigned __int64)RegistryPath->Length >> 1)) = 0;
+  KbdConfiguration();
+  if ( !LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+  {
+    j = KbdCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.Dpc, &v30, (__int64 *)P, 1);
+    if ( j < 0 )
+    {
+      v3 = P[0];
+      goto LABEL_12;
+    }
+    v18 = (const WCHAR *)P[0];
+    DeviceExtension = v30->DeviceExtension;
+    *(_QWORD *)DeviceExtension = v30;
+    *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = DeviceExtension;
+    DeviceExtension[64] = 0;
+    KeyboardAddDeviceEx((__int64)DeviceExtension, v18, 0LL);
+    ExFreePoolWithTag(P[0], 0);
+    P[0] = 0LL;
+    v30->Flags &= ~0x80u;
+  }
+  RtlCopyUnicodeString(&DestinationString, &::DestinationString);
+  DestinationString.Length -= 10;
+  RtlAppendUnicodeToString(&DestinationString, L"Port");
+  Length = DestinationString.Length;
+  if ( DestinationString.MaximumLength < (unsigned __int64)DestinationString.Length + 2 )
+  {
+    j = -1073741823;
+  }
+  else
+  {
+    DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) + 1] = 0;
+    KbdDeterminePortsServiced(&DestinationString.Length, &v33);
+    LOBYTE(v11) = 4;
+    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 12, *(_DWORD *)v29, v33);
+    RtlInitUnicodeString(&Destination, 0LL);
+    Destination.MaximumLength = DestinationString.Length + 20;
+    v13 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(DestinationString.Length + 20), 0x4364624Bu);
+    Destination.Buffer = v13;
+    if ( v13 )
+    {
+      memset(v13, 0, Destination.MaximumLength);
+      RtlAppendUnicodeToString(&Destination, L"\\Device\\");
+      RtlAppendUnicodeToString(&Destination, DestinationString.Buffer);
+      RtlAppendUnicodeToString(&Destination, L"0");
+      for ( i = 0; i < *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy; ++i )
+      {
+        if ( i >= v33 )
+          break;
+        Destination.Buffer[((unsigned __int64)Destination.Length >> 1) - 1] = i + 48;
+        v20 = KbdCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.Dpc, &v30, (__int64 *)P, 1);
+        if ( v20 >= 0 )
+        {
+          v21 = (char *)v30->DeviceExtension;
+          *(_QWORD *)v21 = v30;
+          v21[64] = 0;
+          v30->Flags &= ~0x80u;
+          if ( IoGetDeviceObjectPointer(&Destination, 0x80u, &FileObject, (PDEVICE_OBJECT *)v21 + 2) >= 0 )
+          {
+            v3 = P[0];
+            v23 = (const WCHAR *)P[0];
+            v30->StackSize = *(_BYTE *)(*((_QWORD *)v21 + 2) + 76LL) + 1;
+            v24 = KeyboardAddDeviceEx((__int64)v21, v23, (__int64)FileObject);
+            if ( v3 )
+            {
+              ExFreePoolWithTag(v3, 0);
+              v3 = 0LL;
+              P[0] = 0LL;
+            }
+            if ( v24 >= 0 )
+            {
+              v26 = (_QWORD *)qword_1C00094F0;
+              v27 = v21 + 336;
+              if ( *(__int64 **)qword_1C00094F0 != &qword_1C00094E8 )
+                __fastfail(3u);
+              *v27 = &qword_1C00094E8;
+              v27[1] = v26;
+              *v26 = v27;
+              qword_1C00094F0 = (__int64)v27;
+            }
+            else
+            {
+              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+              {
+                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine
+                                           + 3 * *((unsigned int *)v21 + 49));
+                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v21 + 49)) = 0LL;
+                *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *((unsigned int *)v21 + 49) + 19) = 1;
+                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v21 + 49) + 1) = 0LL;
+                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+              }
+              else if ( *((_QWORD *)v21 + 44) )
+              {
+                FileObject = (PFILE_OBJECT)*((_QWORD *)v21 + 44);
+                *((_QWORD *)v21 + 44) = 0LL;
+              }
+              if ( FileObject )
+                ObfDereferenceObject(FileObject);
+              v25 = (void *)*((_QWORD *)v21 + 13);
+              if ( v25 )
+              {
+                ExFreePoolWithTag(v25, 0);
+                *((_QWORD *)v21 + 15) = 0LL;
+                *((_QWORD *)v21 + 14) = 0LL;
+                *((_QWORD *)v21 + 13) = 0LL;
+              }
+              IoDeleteDevice(*(PDEVICE_OBJECT *)v21);
+            }
+          }
+          else
+          {
+            v22 = (void *)*((_QWORD *)v21 + 13);
+            if ( v22 )
+            {
+              ExFreePoolWithTag(v22, 0);
+              *((_QWORD *)v21 + 15) = 0LL;
+              *((_QWORD *)v21 + 14) = 0LL;
+              *((_QWORD *)v21 + 13) = 0LL;
+            }
+            IoDeleteDevice(*(PDEVICE_OBJECT *)v21);
+            v3 = P[0];
+          }
+        }
+        else
+        {
+          KeyboardClassLogError(DriverEntry, -1073414143, 10008, v20, 0, 0LL, 0);
+          v3 = P[0];
+        }
+      }
+      v16 = (__int64 *)qword_1C00094E8;
+      for ( j = 0; v16 != &qword_1C00094E8; v16 = (__int64 *)*v16 )
+        ++WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;
+    }
+    else
+    {
+      LOBYTE(v14) = 2;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 1LL);
+      j = -1073741823;
+      LODWORD(P[0]) = Destination.MaximumLength;
+      KeyboardClassLogError(DriverObject, -1073414143, 10006, -1073741823, 1u, P, 0);
+    }
+  }
+LABEL_12:
+  if ( Destination.Buffer )
+    ExFreePoolWithTag(Destination.Buffer, 0);
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
+  if ( j < 0 )
+  {
+    if ( ::P )
+    {
+      ExFreePoolWithTag(::P, 0);
+      ::P = 0LL;
+    }
+    if ( WPP_MAIN_CB.Queue.Wcb.DeviceRoutine )
+    {
+      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);
+      WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = 0LL;
+    }
+    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+    {
+      v28 = *(void **)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL);
+      if ( v28 )
+      {
+        ExFreePoolWithTag(v28, 0);
+        *(_OWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 112LL) = 0uLL;
+        *(_QWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL) = 0LL;
+      }
+      IoDeleteDevice(**(PDEVICE_OBJECT **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+      *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = 0LL;
+    }
+  }
+  else
+  {
+    IoRegisterDriverReinitialization(DriverObject, (PDRIVER_REINITIALIZE)KeyboardClassFindMorePorts, 0LL);
+    j = 0;
+    DriverObject->MajorFunction[0] = (PDRIVER_DISPATCH)KeyboardClassCreate;
+    DriverObject->MajorFunction[2] = (PDRIVER_DISPATCH)KeyboardClassClose;
+    DriverObject->MajorFunction[3] = (PDRIVER_DISPATCH)KeyboardClassRead;
+    DriverObject->MajorFunction[9] = (PDRIVER_DISPATCH)KeyboardClassFlush;
+    DriverObject->MajorFunction[14] = (PDRIVER_DISPATCH)KeyboardClassDeviceControl;
+    DriverObject->MajorFunction[15] = (PDRIVER_DISPATCH)KeyboardClassPassThrough;
+    DriverObject->MajorFunction[18] = (PDRIVER_DISPATCH)KeyboardClassCleanup;
+    DriverObject->MajorFunction[27] = (PDRIVER_DISPATCH)KeyboardPnP;
+    DriverObject->MajorFunction[22] = (PDRIVER_DISPATCH)KeyboardClassPower;
+    DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)KeyboardClassSystemControl;
+    DriverObject->DriverExtension->AddDevice = (PDRIVER_ADD_DEVICE)KeyboardAddDevice;
+  }
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(Length) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, Length, 1LL);
+  }
+  if ( j < 0 )
+  {
+    EtwUnregister(RegHandle);
+    RegHandle = 0LL;
+    dword_1C0009010 = 0;
+    WppCleanupKm((__int64)DriverObject);
+  }
+  return j;
+}

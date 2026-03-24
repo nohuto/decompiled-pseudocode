@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x14023A820
+ * XREFs of PpmParkReportUnparkedCores @ 0x1402B0500
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KiSubtractAffinityEx @ 0x1402FEDA0 (KiSubtractAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     PpmPerfQueueAction @ 0x140345110 (PpmPerfQueueAction.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x1403990CC (PpmPerfQueueAction.c)
  */
 
 char PpmParkReportUnparkedCores()
 {
   __int64 Prcb; // rax
-  _QWORD v2[2]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int16 *v2[2]; // [rsp+20h] [rbp-28h] BYREF
   __int16 v3; // [rsp+30h] [rbp-18h]
   int v4; // [rsp+32h] [rbp-16h]
   __int16 v5; // [rsp+36h] [rbp-12h]
@@ -23,18 +23,17 @@ char PpmParkReportUnparkedCores()
   v5 = 0;
   v6 = 0;
   if ( !PpmIsParkingEnabled
-    || !(unsigned int)KiSubtractAffinityEx(
-                        &PpmPerfChangedCoreParkingMask,
-                        &PpmPerfNewCoreParkingMask,
-                        &PpmPerfNewUnparkedMask,
-                        HIWORD(PpmPerfNewUnparkedMask)) )
+    || !(unsigned int)KeSubtractAffinityEx(
+                        PpmPerfChangedCoreParkingMask,
+                        (unsigned __int16 *)&PpmPerfNewCoreParkingMask,
+                        &PpmPerfNewUnparkedMask) )
   {
     return 1;
   }
-  PpmCheckCount = KeCountSetBitsAffinityEx(&PpmPerfNewUnparkedMask);
-  v2[1] = qword_140C0D118;
+  PpmCheckCount = KeCountSetBitsAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask);
+  v2[1] = (unsigned __int16 *)qword_140C12BB8;
   v3 = 0;
-  v2[0] = &PpmPerfNewUnparkedMask;
+  v2[0] = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v6, v2) )
   {
     Prcb = KeGetPrcb(v6);

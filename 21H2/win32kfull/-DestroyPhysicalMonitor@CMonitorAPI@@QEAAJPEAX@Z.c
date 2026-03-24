@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C026F91C
+ * XREFs of ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C0271CFC
  * Callers:
- *     NtGdiDestroyPhysicalMonitor @ 0x1C026FD30 (NtGdiDestroyPhysicalMonitor.c)
+ *     NtGdiDestroyPhysicalMonitor @ 0x1C0272130 (NtGdiDestroyPhysicalMonitor.c)
  * Callees:
- *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C026F888 (-DestroyHandleInternal@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysic.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026F9D4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C0271C68 (-DestroyHandleInternal@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysic.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C0271DB4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
  */
 
 __int64 __fastcall CMonitorAPI::DestroyPhysicalMonitor(CMonitorAPI *this, void *a2)
@@ -16,8 +16,8 @@ __int64 __fastcall CMonitorAPI::DestroyPhysicalMonitor(CMonitorAPI *this, void *
   char v8; // [rsp+50h] [rbp+18h] BYREF
 
   v7 = this;
-  v2 = (struct OPM::CMutex *)P;
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v8, (struct OPM::CMutex *)((char *)P + 32));
+  v2 = (struct OPM::CMutex *)qword_1C033B068;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v8, (struct OPM::CMutex *)((char *)qword_1C033B068 + 32));
   v7 = 0LL;
   HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject((char *)v2 + 8, a2, &v7);
   if ( HandleObject >= 0 )

@@ -1,40 +1,29 @@
 /*
- * XREFs of ?NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z @ 0x1800E8BA8
+ * XREFs of ?NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z @ 0x18009F260
  * Callers:
- *     ?FinalRelease@CVisual@@MEAAXXZ @ 0x18009A480 (-FinalRelease@CVisual@@MEAAXXZ.c)
- *     ?SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z @ 0x1800E8904 (-SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z.c)
- *     ?DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800E8B60 (-DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
+ *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009F3E8 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x18009F990 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
+ *     ?Release@CVisual@@UEAAKXZ @ 0x1800A0140 (-Release@CVisual@@UEAAKXZ.c)
+ *     ?SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z @ 0x1800E15C4 (-SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z.c)
+ *     ?DirtyForVisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x1801AD5DC (-DirtyForVisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800319D0 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800E8C9C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
- *     ?QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@@@Z @ 0x1801A04DC (-QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x18027C9A4 (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x180062AE8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@@@Z @ 0x18022650C (-QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@.c)
  */
 
-void __fastcall CVisual::NotifyMidManipulationUpdate(__int64 a1, unsigned int a2, CVisual *a3)
+void __fastcall CVisual::NotifyMidManipulationUpdate(__int64 a1, unsigned int a2, __int64 a3)
 {
-  CInteraction *InteractionInternal; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  CComposition *v10; // rbx
-  struct CManipulationManager *v11; // [rsp+40h] [rbp+18h] BYREF
+  CComposition *v5; // rbx
+  struct CManipulationManager *v6; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (*((_BYTE *)a3 + 101) & 0x40) == 0 )
+  if ( (*(_BYTE *)(a3 + 94) & 1) != 0 )
   {
-    if ( a2 != 1 )
-      return;
-    InteractionInternal = CVisual::GetInteractionInternal(a3);
-    if ( !InteractionInternal || !CInteraction::GetTotalNumContacts(InteractionInternal) )
-      return;
-    MicrosoftTelemetryAssertTriggeredNoArgs(v8, v7, v9);
+    v5 = *(CComposition **)(a1 + 16);
+    v6 = 0LL;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v6);
+    if ( (int)CComposition::GetManipulationManager(v5, &v6) >= 0 )
+      CManipulationManager::QueueMidManipulationUpdate(v6, a2, a3);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v6);
   }
-  v11 = 0LL;
-  v10 = *(CComposition **)(a1 + 16);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v11);
-  if ( (int)CComposition::GetManipulationManager(v10, &v11) >= 0 )
-    CManipulationManager::QueueMidManipulationUpdate(v11, a2, a3);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v11);
 }

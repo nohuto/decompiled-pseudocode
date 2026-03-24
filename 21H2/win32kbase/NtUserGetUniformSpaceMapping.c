@@ -1,74 +1,71 @@
 /*
- * XREFs of NtUserGetUniformSpaceMapping @ 0x1C00B1C60
+ * XREFs of NtUserGetUniformSpaceMapping @ 0x1C000D540
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C0029AC4 (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     HMValidateSharedHandle @ 0x1C0030048 (HMValidateSharedHandle.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     DrvIsUniformSpaceMapping @ 0x1C00B1D90 (DrvIsUniformSpaceMapping.c)
+ *     HMValidateSharedHandle @ 0x1C000F9A8 (HMValidateSharedHandle.c)
+ *     DrvIsUniformSpaceMapping @ 0x1C000FCA0 (DrvIsUniformSpaceMapping.c)
+ *     EnterSharedCrit @ 0x1C0035E30 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetUniformSpaceMapping(unsigned __int64 a1, _OWORD *a2)
+__int64 __fastcall NtUserGetUniformSpaceMapping(__int64 a1, _OWORD *a2)
 {
-  int v4; // edi
-  __int64 v5; // rdx
+  __int128 v4; // xmm6
+  int v5; // edi
   __int64 v6; // rax
-  ULONG64 v7; // rdx
-  ULONG64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rsi
-  __int64 v12; // rbx
-  int v13; // r14d
-  __int128 *v15; // rax
-  __int128 v16; // [rsp+38h] [rbp-20h]
+  ULONG64 v7; // rcx
+  __int64 v8; // rsi
+  __int64 v9; // rbx
+  int v10; // r14d
+  __int128 *v12; // rax
+  __int64 v13; // rdx
+  _OWORD *v14; // rax
 
-  v16 = 0LL;
-  v4 = 0;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal();
-  v6 = HMValidateSharedHandle(a1, v5);
+  v4 = 0LL;
+  v5 = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v6 = HMValidateSharedHandle(a1);
   if ( v6 )
   {
-    v11 = *(_QWORD *)(v6 + 88);
-    if ( v11 )
+    v8 = *(_QWORD *)(v6 + 240);
+    if ( v8 )
     {
-      v12 = *((_QWORD *)gpDispInfo + 2);
-      v13 = 0;
-      if ( (unsigned int)DrvIsUniformSpaceMapping(v12) )
+      v9 = *(_QWORD *)(gpDispInfo + 16);
+      v10 = 0;
+      if ( (unsigned int)DrvIsUniformSpaceMapping(v9) )
       {
-        v8 = *(unsigned int *)(v12 + 20);
-        if ( (_DWORD)v8 )
+        v7 = *(unsigned int *)(v9 + 20);
+        if ( (_DWORD)v7 )
         {
-          v15 = (__int128 *)(v12 + 76);
-          v7 = (unsigned int)v8;
+          v12 = (__int128 *)(v9 + 76);
+          v13 = (unsigned int)v7;
           do
           {
-            if ( *(_QWORD *)((char *)v15 - 36) == v11 )
+            if ( *(_QWORD *)((char *)v12 - 36) == v8 )
             {
-              v16 = *v15;
-              v13 = 1;
+              v4 = *v12;
+              v10 = 1;
             }
-            v15 = (__int128 *)((char *)v15 + 56);
-            --v7;
+            v12 = (__int128 *)((char *)v12 + 56);
+            --v13;
           }
-          while ( v7 );
+          while ( v13 );
         }
       }
-      if ( v13 )
+      if ( v10 )
       {
-        v4 = 1;
-        v8 = MmUserProbeAddress;
-        v7 = (ULONG64)a2;
+        v5 = 1;
+        v7 = MmUserProbeAddress;
+        v14 = a2;
         if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-          v7 = MmUserProbeAddress;
-        *(_BYTE *)v7 = *(_BYTE *)v7;
-        *(_BYTE *)(v7 + 15) = *(_BYTE *)(v7 + 15);
-        *a2 = v16;
+          v14 = (_OWORD *)MmUserProbeAddress;
+        *v14 = *v14;
+        *a2 = v4;
       }
     }
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v4;
+  UserSessionSwitchLeaveCrit(v7);
+  return v5;
 }

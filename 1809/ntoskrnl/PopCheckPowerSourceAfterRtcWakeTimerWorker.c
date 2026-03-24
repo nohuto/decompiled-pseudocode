@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PopOkayToQueueNextWorkItem @ 0x14013BA20 (PopOkayToQueueNextWorkItem.c)
- *     NtInitiatePowerAction @ 0x1406DDEF0 (NtInitiatePowerAction.c)
- *     PopQueryPowerSettingUlong @ 0x1406E1FEC (PopQueryPowerSettingUlong.c)
- *     PopCurrentPowerStatePrecise @ 0x14071C1B0 (PopCurrentPowerStatePrecise.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
+ *     NtInitiatePowerAction @ 0x1406DDED0 (NtInitiatePowerAction.c)
+ *     PopQueryPowerSettingUlong @ 0x1406E1FCC (PopQueryPowerSettingUlong.c)
+ *     PopCurrentPowerStatePrecise @ 0x14071C190 (PopCurrentPowerStatePrecise.c)
  */
 
 LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
@@ -27,6 +27,6 @@ LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
         NtInitiatePowerAction(SystemAction, MinSystemState, 0x80000000, 1u);
     }
   }
-  PopOkayToQueueNextWorkItem((__int64)&unk_140416A08);
+  PopOkayToQueueNextWorkItem((__int64)&unk_1404169E8);
   return KeSetEvent(&PopCheckPowerSourceAfterRtcWakeCompleted, 0, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInputFlags@CIgnoreInputQueue@@EEBAJPEAW4CompositionInputFlags@@@Z @ 0x1C00C9FD0
+ * XREFs of ?GetInputFlags@CIgnoreInputQueue@@EEBAJPEAW4CompositionInputFlags@@@Z @ 0x1C00BC620
  * Callers:
  *     <none>
  * Callees:

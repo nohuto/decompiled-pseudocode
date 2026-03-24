@@ -1,17 +1,20 @@
 /*
- * XREFs of IopCloseIoCompletion @ 0x1406ACB40
+ * XREFs of IopCloseIoCompletion @ 0x14068FA20
  * Callers:
  *     <none>
  * Callees:
- *     IopDeleteIoCompletionInternal @ 0x140234678 (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1402A9B88 (IopDeleteIoCompletionInternal.c)
  */
 
-__int64 __fastcall IopCloseIoCompletion(__int64 a1, KSPIN_LOCK *a2, __int64 a3, __int64 a4)
+KSPIN_LOCK *__fastcall IopCloseIoCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  KSPIN_LOCK *result; // rax
 
-  result = (__int64)a2;
+  result = (KSPIN_LOCK *)a2;
   if ( a4 == 1 )
-    return IopDeleteIoCompletionInternal(a2, 1);
+  {
+    LOBYTE(a2) = 1;
+    return (KSPIN_LOCK *)IopDeleteIoCompletionInternal(result, a2);
+  }
   return result;
 }

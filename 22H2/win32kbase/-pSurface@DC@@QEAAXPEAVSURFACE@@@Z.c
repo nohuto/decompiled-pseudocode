@@ -1,22 +1,22 @@
 /*
- * XREFs of ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C005FD78
+ * XREFs of ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0021968
  * Callers:
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     vDynamicConvertNewSurfaceDCs @ 0x1C00B41E0 (vDynamicConvertNewSurfaceDCs.c)
- *     bDynamicModeChange @ 0x1C00C75B0 (bDynamicModeChange.c)
- *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C0152020 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C0155C9C (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     vDynamicConvertNewSurfaceDCs @ 0x1C000EC20 (vDynamicConvertNewSurfaceDCs.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C0021840 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     bDynamicModeChange @ 0x1C00BAA30 (bDynamicModeChange.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DEC4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
  * Callees:
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C005FDE0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
- *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C0152204 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0152254 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0021A1C (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C013CA14 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013CA64 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
  */
 
 void __fastcall DC::pSurface(DC *this, struct SURFACE *a2)
 {
   __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v3; // r8
   int v4; // eax
 
   *((_QWORD *)this + 62) = a2;
@@ -33,8 +33,8 @@ void __fastcall DC::pSurface(DC *this, struct SURFACE *a2)
     {
       *(_DWORD *)(v3 + 36) |= 0x10u;
       *(_QWORD *)(v3 + 524) = 0LL;
-      *(_DWORD *)(v3 + 520) = v4 & 0xFFFFFFF8 | 4;
       *(_QWORD *)(v3 + 532) = 0LL;
+      *(_DWORD *)(v3 + 520) = v4 & 0xFFFFFFF8 | 4;
       DC::vUpdateCachedDPIScaleValue((DC *)v3);
     }
   }

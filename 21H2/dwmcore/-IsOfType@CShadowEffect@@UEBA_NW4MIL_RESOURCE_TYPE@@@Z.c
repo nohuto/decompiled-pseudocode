@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CShadowEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1620
+ * XREFs of ?IsOfType@CShadowEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016FAF0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A12A0 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001BE80 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CShadowEffect::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CShadowEffect::IsOfType(__int64 a1, int a2)
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 166 )
+  if ( a2 == 167 )
     return 1;
   v2 = CFilterEffect::IsOfType(a1, a2);
   v3 = 0;

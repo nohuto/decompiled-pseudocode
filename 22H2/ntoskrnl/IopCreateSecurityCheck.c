@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCreateSecurityCheck @ 0x14035A14C
+ * XREFs of IopCreateSecurityCheck @ 0x140201880
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     SeOpenObjectAuditAlarm @ 0x1406C0520 (SeOpenObjectAuditAlarm.c)
- *     SeUnlockSubjectContext @ 0x1406C31E0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     SeAppendPrivileges @ 0x1407B6990 (SeAppendPrivileges.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406435B0 (SeUnlockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __fastcall IopCreateSecurityCheck(
@@ -28,26 +28,26 @@ BOOLEAN __fastcall IopCreateSecurityCheck(
         char a11)
 {
   int v11; // ebx
-  __int64 v16; // r13
-  PACCESS_MASK v17; // rsi
-  BOOLEAN v18; // bp
-  int v20; // eax
+  int v16; // eax
+  __int64 v17; // r13
+  PACCESS_MASK v18; // rsi
+  BOOLEAN v19; // bp
   NTSTATUS AccessStatus; // [rsp+98h] [rbp+20h] BYREF
 
   AccessStatus = 0;
   v11 = 0;
   if ( a5 != 1 )
   {
-    v20 = *(_DWORD *)(a1 + 52);
-    if ( (v20 & 0x40001) != 0 || IopRequireDeviceAccessCheck && (v20 & 0x100000) != 0 )
+    v16 = *(_DWORD *)(a1 + 52);
+    if ( (v16 & 0x40001) != 0 || IopRequireDeviceAccessCheck && (v16 & 0x100000) != 0 )
       v11 = 2;
   }
-  v16 = a10;
+  v17 = a10;
   --*(_WORD *)(a10 + 484);
   ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
   SeLockSubjectContext(&a3->SubjectSecurityContext);
-  v17 = GrantedAccess;
-  v18 = SeAccessCheck(
+  v18 = GrantedAccess;
+  v19 = SeAccessCheck(
           *(PSECURITY_DESCRIPTOR *)(a1 + 272),
           &a3->SubjectSecurityContext,
           1u,
@@ -64,11 +64,11 @@ BOOLEAN __fastcall IopCreateSecurityCheck(
     ExFreePoolWithTag(Privileges, 0);
   }
   if ( v11 && (v11 & a4) == 0 )
-    *v17 &= ~v11;
-  if ( a11 && v18 )
+    *v18 &= ~v11;
+  if ( a11 && v19 )
   {
-    a3->PreviouslyGrantedAccess |= *v17;
-    a3->RemainingDesiredAccess &= ~(*v17 | 0x2000000);
+    a3->PreviouslyGrantedAccess |= *v18;
+    a3->RemainingDesiredAccess &= ~(*v18 | 0x2000000);
   }
   if ( a2 )
     SeOpenObjectAuditAlarm(
@@ -78,11 +78,11 @@ BOOLEAN __fastcall IopCreateSecurityCheck(
       *(PSECURITY_DESCRIPTOR *)(a1 + 272),
       a3,
       0,
-      v18,
+      v19,
       1,
       &a3->GenerateOnClose);
   SeUnlockSubjectContext(&a3->SubjectSecurityContext);
   ExReleaseResourceLite(&IopSecurityResource);
-  KeLeaveCriticalRegionThread(v16);
-  return v18;
+  KeLeaveCriticalRegionThread(v17);
+  return v19;
 }

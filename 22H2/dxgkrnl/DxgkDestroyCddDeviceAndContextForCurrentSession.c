@@ -1,67 +1,63 @@
 /*
- * XREFs of DxgkDestroyCddDeviceAndContextForCurrentSession @ 0x1C0356970
+ * XREFs of DxgkDestroyCddDeviceAndContextForCurrentSession @ 0x1C02A04F8
  * Callers:
- *     DxgkDisplayOnOff @ 0x1C0186080 (DxgkDisplayOnOff.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0193D3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
- *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C01E00A0 (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
- *     ?DxgkCddDestroy@@YAJIIIQEAXE@Z @ 0x1C01E6A40 (-DxgkCddDestroy@@YAJIIIQEAXE@Z.c)
+ *     DxgkDisplayOnOff @ 0x1C00DFF10 (DxgkDisplayOnOff.c)
+ *     ?DxgkCddDestroy@@YAJIIIQEAXE@Z @ 0x1C00E2470 (-DxgkCddDestroy@@YAJIIIQEAXE@Z.c)
+ *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C00E361C (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00EBB74 (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01AB278 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
- *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01DFBA8 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C012E0D0 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C0164C10 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
  */
 
 __int64 __fastcall DxgkDestroyCddDeviceAndContextForCurrentSession(struct _LUID *a1, struct DXGDEVICE *a2)
 {
-  __int64 v4; // rcx
-  DXGSESSIONMGR *v5; // rbx
-  unsigned int v6; // eax
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  SESSION_ADAPTER *SessionAdapterFromLuid; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  DXGSESSIONMGR *v6; // rdi
   unsigned int CurrentProcessSessionId; // eax
+  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rdx
   __int64 v11; // rcx
-  unsigned int v12; // eax
+  _QWORD *v12; // rcx
+  SESSION_ADAPTER *SessionAdapterFromLuid; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
 
-  v5 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v5
-    && (v6 = PsGetCurrentProcessSessionId(v4),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v5, v6)) != 0LL) )
+  v6 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2) + 102);
+  if ( v6 )
   {
-    SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid(SessionDataForSpecifiedSession, a1);
-    if ( SessionAdapterFromLuid )
-    {
-      SESSION_ADAPTER::DestroyCddDeviceAndContext(SessionAdapterFromLuid, a2);
-      return 0LL;
-    }
-    WdLogSingleEntry3(2LL, a1->HighPart, a1->LowPart, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot find the caller specified session adapter 0x%I64x%08I64x, returning 0x%I64x.",
-      a1->HighPart,
-      a1->LowPart,
-      -1073741811LL,
-      0LL,
-      0LL);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v5, v4);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v6, CurrentProcessSessionId);
   }
   else
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v4);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v12 = PsGetCurrentProcessSessionId(v11);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-      v12,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    SessionDataForSpecifiedSession = 0LL;
   }
-  return 3221225485LL;
+  if ( !SessionDataForSpecifiedSession )
+  {
+    v9 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v9 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v11, v10);
+    v12 = (_QWORD *)v9;
+    *(_QWORD *)(v9 + 32) = -1073741811LL;
+LABEL_6:
+    WdLogEvent5_WdError(v12);
+    return 3221225485LL;
+  }
+  SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid(SessionDataForSpecifiedSession, a1);
+  if ( !SessionAdapterFromLuid )
+  {
+    v17 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v17[3] = a1->HighPart;
+    v17[4] = a1->LowPart;
+    v12 = v17;
+    v17[5] = -1073741811LL;
+    goto LABEL_6;
+  }
+  SESSION_ADAPTER::DestroyCddDeviceAndContext(SessionAdapterFromLuid, a2);
+  return 0LL;
 }

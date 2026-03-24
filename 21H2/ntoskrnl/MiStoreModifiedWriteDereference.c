@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreModifiedWriteDereference @ 0x14037AF3C
+ * XREFs of MiStoreModifiedWriteDereference @ 0x1402DAAA0
  * Callers:
- *     SmIoRequestComplete @ 0x14037ADB8 (SmIoRequestComplete.c)
- *     MiStoreWriteModifiedPages @ 0x14037B44C (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
+ *     SmIoRequestComplete @ 0x1402DA7B4 (SmIoRequestComplete.c)
  * Callees:
- *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x1402F47B0 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
  */
 
 char __fastcall MiStoreModifiedWriteDereference(__int64 a1)
@@ -21,7 +21,7 @@ char __fastcall MiStoreModifiedWriteDereference(__int64 a1)
     v4 = *(unsigned int *)(a1 + 248);
     *(_DWORD *)(a1 + 16) = 0;
     *(_QWORD *)(a1 + 24) = v4;
-    KeInitializeApc(a1 + 48, *(_QWORD *)(v3 + 968), 0, (__int64)MiStoreWriteModifiedCompleteApc, 0LL, 0LL, 0, 0LL);
+    KeInitializeApc(a1 + 48, *(_QWORD *)(v3 + 944), 0, (__int64)MiStoreWriteModifiedCompleteApc, 0LL, 0LL, 0, 0LL);
     LOBYTE(v2) = KeInsertQueueApc(a1 + 48, a1, 0LL, 0);
   }
   return v2;

@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortPutByte @ 0x14032C374
+ * XREFs of InbvPortPutByte @ 0x14032C474
  * Callers:
  *     HdlspPutData @ 0x14094CEA8 (HdlspPutData.c)
  *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void *__fastcall InbvPortPutByte(unsigned int a1, __int64 a2, __int64 a3)

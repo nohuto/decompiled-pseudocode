@@ -1,86 +1,90 @@
 /*
- * XREFs of PnpAddVetoInformation @ 0x140964024
+ * XREFs of PnpAddVetoInformation @ 0x1408ABB0C
  * Callers:
- *     PnpCollectOpenHandlesCallBack @ 0x140964210 (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x1408ABCF0 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PnpAddVetoInformation(PVOID Object, _QWORD *a2, unsigned int a3)
 {
-  _QWORD *v4; // rbx
-  _QWORD *v5; // rdi
-  char v8; // dl
-  __int64 v9; // r9
-  _QWORD *v10; // rax
-  PVOID *v11; // rcx
-  _QWORD *v12; // rax
-  __int64 Pool2; // rax
-  _QWORD *v14; // rax
-  _QWORD *v15; // rcx
-  _QWORD *v16; // rsi
-  _QWORD *v17; // rax
-  _QWORD *v18; // rcx
+  _QWORD *v3; // rax
+  _QWORD *v4; // rsi
+  _QWORD *v5; // rbx
+  _QWORD *v6; // rdi
+  char v9; // r8
+  __int64 v10; // rdx
+  _QWORD *v11; // rax
+  PVOID *v12; // rcx
+  _QWORD *v13; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v15; // rax
+  _QWORD *v16; // rdx
+  _QWORD *v17; // rsi
+  _QWORD *v18; // rax
+  _QWORD *v19; // rcx
 
-  v4 = 0LL;
+  v3 = (_QWORD *)*a2;
+  v4 = a2;
   v5 = 0LL;
-  v8 = 1;
-  v9 = *a2 - 24LL;
-  if ( a2 == (_QWORD *)*a2 )
+  v6 = 0LL;
+  v9 = 1;
+  v10 = *a2 - 24LL;
+  if ( v4 == v3 )
     goto LABEL_15;
   while ( 1 )
   {
-    if ( *(_DWORD *)(v9 + 16) == a3 )
+    if ( *(_DWORD *)(v10 + 16) == a3 )
     {
-      v10 = *(_QWORD **)v9;
-      v5 = (_QWORD *)v9;
-      v8 = 0;
+      v11 = *(_QWORD **)v10;
+      v6 = (_QWORD *)v10;
+      v9 = 0;
       while ( 1 )
       {
-        v11 = (PVOID *)(v10 - 1);
-        if ( (_QWORD *)v9 == v10 )
+        v12 = (PVOID *)(v11 - 1);
+        if ( (_QWORD *)v10 == v11 )
           goto LABEL_11;
-        if ( *v11 == Object )
+        if ( *v12 == Object )
           return;
-        if ( *v11 > Object )
+        if ( *v12 > Object )
         {
-          v5 = v10;
+          v6 = v11;
           goto LABEL_11;
         }
-        v10 = (_QWORD *)*v10;
+        v11 = (_QWORD *)*v11;
       }
     }
-    if ( *(_DWORD *)(v9 + 16) > a3 )
+    if ( *(_DWORD *)(v10 + 16) > a3 )
       break;
 LABEL_11:
-    v12 = *(_QWORD **)(v9 + 24);
-    v9 = (__int64)(v12 - 3);
-    if ( a2 == v12 )
+    v13 = *(_QWORD **)(v10 + 24);
+    v10 = (__int64)(v13 - 3);
+    if ( v4 == v13 )
       goto LABEL_14;
   }
-  a2 = (_QWORD *)(v9 + 24);
+  v4 = (_QWORD *)(v10 + 24);
 LABEL_14:
-  if ( v8 )
+  if ( v9 )
   {
 LABEL_15:
-    Pool2 = ExAllocatePool2(256LL, 40LL, 1332768336LL);
-    v4 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x4F706E50u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 16) = a3;
-      v14 = (_QWORD *)(Pool2 + 24);
-      v15 = (_QWORD *)a2[1];
-      if ( (_QWORD *)*v15 == a2 )
+      *((_DWORD *)PoolWithTag + 4) = a3;
+      v15 = PoolWithTag + 3;
+      v16 = (_QWORD *)v4[1];
+      if ( (_QWORD *)*v16 == v4 )
       {
-        *v14 = a2;
-        v5 = v4;
-        v14[1] = v15;
-        *v15 = v14;
-        a2[1] = v14;
-        v4[1] = v4;
-        *v4 = v4;
+        *v15 = v4;
+        v6 = v5;
+        v15[1] = v16;
+        *v16 = v15;
+        v4[1] = v15;
+        v5[1] = v5;
+        *v5 = v5;
         goto LABEL_18;
       }
 LABEL_24:
@@ -90,23 +94,23 @@ LABEL_24:
   else
   {
 LABEL_18:
-    v16 = (_QWORD *)ExAllocatePool2(64LL, 24LL, 1349545552LL);
-    if ( v16 )
+    v17 = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x50706E50u);
+    if ( v17 )
     {
       ObfReferenceObject(Object);
-      *v16 = Object;
-      v17 = v16 + 1;
-      v18 = (_QWORD *)v5[1];
-      if ( (_QWORD *)*v18 != v5 )
+      *v17 = Object;
+      v18 = v17 + 1;
+      v19 = (_QWORD *)v6[1];
+      if ( (_QWORD *)*v19 != v6 )
         goto LABEL_24;
-      *v17 = v5;
-      v16[2] = v18;
-      *v18 = v17;
-      v5[1] = v17;
+      *v18 = v6;
+      v17[2] = v19;
+      *v19 = v18;
+      v6[1] = v18;
     }
-    else if ( v4 )
+    else if ( v5 )
     {
-      ExFreePoolWithTag(v4, 0x4F706E50u);
+      ExFreePoolWithTag(v5, 0x4F706E50u);
     }
   }
 }

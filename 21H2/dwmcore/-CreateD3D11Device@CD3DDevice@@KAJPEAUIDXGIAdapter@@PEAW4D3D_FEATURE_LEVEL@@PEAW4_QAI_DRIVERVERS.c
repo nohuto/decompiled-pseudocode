@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@PEAPEAUID3D11Device1@@@Z @ 0x1800230F4
+ * XREFs of ?CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@PEAPEAUID3D11Device1@@@Z @ 0x18002DA08
  * Callers:
- *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x180021A88 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
+ *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x18002ACA4 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ @ 0x18002377C (-CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ.c)
- *     ?GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@@Z @ 0x18002387C (-GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVER.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsOOM@@YA_NJ@Z @ 0x18007354C (-IsOOM@@YA_NJ@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ @ 0x18002DFF8 (-CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ.c)
+ *     ?GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@@Z @ 0x18002E0F8 (-GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVER.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsOOM@@YA_NJ@Z @ 0x1800DBC0C (-IsOOM@@YA_NJ@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateD3D11Device(
@@ -46,7 +46,7 @@ __int64 __fastcall CD3DDevice::CreateD3D11Device(
   v9 = MaxFeatureLevel;
   if ( MaxFeatureLevel < 0 )
   {
-    pFeatureLevels = 187;
+    pFeatureLevels = 237;
     goto LABEL_20;
   }
   v10 = 169;
@@ -93,14 +93,14 @@ LABEL_7:
       *a2 = pFeatureLevel;
       goto LABEL_12;
     }
-    pFeatureLevels = 287;
+    pFeatureLevels = 340;
 LABEL_20:
     MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, MaxFeatureLevel, pFeatureLevels, 0LL);
     goto LABEL_12;
   }
   if ( IsOOM(v16) )
     ModuleFailFastForHRESULT(2291662989LL, retaddr);
-  MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v9, 0x129u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v9, 0x15Eu, 0LL);
 LABEL_12:
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&ppDevice);
   return v9;

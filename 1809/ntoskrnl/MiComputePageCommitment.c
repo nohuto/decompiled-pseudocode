@@ -5,14 +5,14 @@
  *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
  *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiCountCommittedPages @ 0x1402BD054 (MiCountCommittedPages.c)
+ *     MiCountCommittedPages @ 0x1402BD154 (MiCountCommittedPages.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
  */
 
 __int64 __fastcall MiComputePageCommitment(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Close@PROXYPORT@@QEAAXXZ @ 0x1C014E86C
+ * XREFs of ?Close@PROXYPORT@@QEAAXXZ @ 0x1C0110EC4
  * Callers:
- *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C00FE2E8 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0110E78 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
  * Callees:
- *     Win32UnmapViewInSessionSpace @ 0x1C01E4170 (Win32UnmapViewInSessionSpace.c)
+ *     Win32UnmapViewInSessionSpace @ 0x1C01E9960 (Win32UnmapViewInSessionSpace.c)
  */
 
 void __fastcall PROXYPORT::Close(PROXYPORT *this)
@@ -26,5 +26,5 @@ void __fastcall PROXYPORT::Close(PROXYPORT *this)
     ObfDereferenceObject(*(PVOID *)v2);
     v2 = *(_QWORD *)this;
   }
-  Win32FreePool(v2);
+  Win32FreePool((void *)v2);
 }

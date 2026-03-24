@@ -1,11 +1,12 @@
 /*
- * XREFs of xxxAdjustSize @ 0x1C013CBD4
+ * XREFs of xxxAdjustSize @ 0x1C004B248
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
  * Callees:
- *     ConstrainWindowSize @ 0x1C00B03C8 (ConstrainWindowSize.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064CA0 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     ConstrainWindowSize @ 0x1C006A18C (ConstrainWindowSize.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxxAdjustSize(struct tagWND *a1, int *a2, int *a3)
@@ -18,18 +19,16 @@ __int64 __fastcall xxxAdjustSize(struct tagWND *a1, int *a2, int *a3)
   int v11; // edx
   __int64 v12; // rax
   unsigned __int64 v13; // rcx
-  _BYTE v14[40]; // [rsp+20h] [rbp-48h] BYREF
 
   result = 0LL;
   v5 = *((_QWORD *)a1 + 5);
-  memset(v14, 0, sizeof(v14));
   if ( (*(_BYTE *)(v5 + 31) & 0xC0) == 0 || (*(_BYTE *)(v5 + 30) & 4) != 0 )
   {
-    xxxInitSendValidateMinMaxInfoEx(a1, (__int64)v14, 0LL);
+    xxxInitSendValidateMinMaxInfoEx(a1);
     if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x20) != 0 )
-      v8 = *(_OWORD *)v14;
+      v8 = 0LL;
     else
-      v8 = *(_OWORD *)&v14[24];
+      v8 = 0uLL;
     v9 = DWORD2(v8);
     if ( *a2 < SDWORD2(v8) )
       v9 = *a2;

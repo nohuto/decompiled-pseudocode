@@ -1,12 +1,12 @@
 /*
- * XREFs of SeOpenObjectAuditAlarm @ 0x1406C0520
+ * XREFs of SeOpenObjectAuditAlarm @ 0x1405D99E0
  * Callers:
- *     IopCreateSecurityCheck @ 0x14035A14C (IopCreateSecurityCheck.c)
- *     CmpCheckCreateAccess @ 0x1406C0898 (CmpCheckCreateAccess.c)
- *     ObCheckObjectAccess @ 0x1407B6810 (ObCheckObjectAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140A1B198 (CmpCheckKeyBodyAccess.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarm(

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferIsEmpty @ 0x140460C72
+ * XREFs of EtwpCovSampCaptureBufferIsEmpty @ 0x1405AE668
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409EE8FC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094207C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspQueryJobIoAttribution @ 0x14068CEA4
+ * XREFs of PspQueryJobIoAttribution @ 0x14068CE84
  * Callers:
  *     NtQueryInformationJobObject @ 0x1405FE8F0 (NtQueryInformationJobObject.c)
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x1401053C4 (IoDiskIoAttributionQuery.c)
+ *     IoDiskIoAttributionQuery @ 0x1401053E4 (IoDiskIoAttributionQuery.c)
  */
 
 __int64 __fastcall PspQueryJobIoAttribution(__int64 a1, __int64 a2)

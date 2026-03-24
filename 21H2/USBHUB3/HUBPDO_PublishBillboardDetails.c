@@ -1,11 +1,12 @@
 /*
- * XREFs of HUBPDO_PublishBillboardDetails @ 0x1C007A2C4
+ * XREFs of HUBPDO_PublishBillboardDetails @ 0x1C0078DB0
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E6E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E2E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 void __fastcall HUBPDO_PublishBillboardDetails(__int64 a1)
@@ -14,47 +15,47 @@ void __fastcall HUBPDO_PublishBillboardDetails(__int64 a1)
   __int64 v3; // rbx
   __int64 v4; // r12
   __int64 v5; // rsi
-  unsigned int v6; // r14d
-  _BYTE *Pool2; // rax
-  _WORD *v8; // rdi
+  unsigned int v6; // ebp
+  _BYTE *PoolWithTag; // rax
+  _BYTE *v8; // rdi
   __int64 i; // r10
   int DeviceInterfaceForBillboard; // edx
   unsigned __int16 v11; // r9
   int updated; // r8d
-  __int64 v13; // [rsp+28h] [rbp-48h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-30h] BYREF
-  int v15; // [rsp+50h] [rbp-20h] BYREF
-  int v16; // [rsp+54h] [rbp-1Ch]
-  void *v17; // [rsp+58h] [rbp-18h]
-  __int64 v18; // [rsp+60h] [rbp-10h]
+  __int64 v13; // [rsp+28h] [rbp-60h]
+  struct _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-48h] BYREF
+  int v15; // [rsp+50h] [rbp-38h] BYREF
+  int v16; // [rsp+54h] [rbp-34h]
+  void *v17; // [rsp+58h] [rbp-30h]
+  __int64 v18; // [rsp+60h] [rbp-28h]
 
-  LODWORD(v18) = 0;
   v16 = 0;
-  *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;
-  LODWORD(BitMapHeader.Buffer) = 0;
+  v18 = 0LL;
+  BitMapHeader = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, a1);
   v3 = *(_QWORD *)(a1 + 24);
   v4 = v2;
   v5 = **(_QWORD **)(v3 + 2640);
   v6 = 8 * *(unsigned __int8 *)(v5 + 4) + 4;
-  Pool2 = (_BYTE *)ExAllocatePool2(256LL, v6, 1681082453LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x64334855u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = *(_BYTE *)(v5 + 4);
-    Pool2[1] = *(_BYTE *)(v5 + 5);
+    memset(PoolWithTag, 0, v6);
+    *v8 = *(_BYTE *)(v5 + 4);
+    v8[1] = *(_BYTE *)(v5 + 5);
     RtlInitializeBitMap(&BitMapHeader, (PULONG)(v5 + 8), 0x20u);
     for ( i = 0LL; (unsigned int)i < *(unsigned __int8 *)(v5 + 4); i = (unsigned int)(i + 1) )
     {
-      v8[4 * i + 2] = *(_WORD *)(v5 + 4 * i + 44);
-      LOBYTE(v8[4 * i + 3]) = *(_BYTE *)(v5 + 4 * i + 46);
-      *(_DWORD *)&v8[4 * i + 4] = _bittest64((const signed __int64 *)BitMapHeader.Buffer, (unsigned int)(2 * i)) | (2 * _bittest64((const signed __int64 *)BitMapHeader.Buffer, (unsigned int)(2 * i + 1)));
+      *(_WORD *)&v8[8 * i + 4] = *(_WORD *)(v5 + 4 * i + 44);
+      v8[8 * i + 6] = *(_BYTE *)(v5 + 4 * i + 46);
+      *(_DWORD *)&v8[8 * i + 8] = _bittest64((const signed __int64 *)BitMapHeader.Buffer, (unsigned int)(2 * i)) | (2 * _bittest64((const signed __int64 *)BitMapHeader.Buffer, (unsigned int)(2 * i + 1)));
     }
     v16 = 0;
     v18 = 0LL;
     v17 = &DEVPKEY_Device_UsbBillboardInfo;
     v15 = 24;
-    DeviceInterfaceForBillboard = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, int *, __int64, unsigned int, _WORD *))(WdfFunctions_01015 + 3480))(
+    DeviceInterfaceForBillboard = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, int *, __int64, unsigned int, _BYTE *))(WdfFunctions_01015 + 3480))(
                                     WdfDriverGlobals,
                                     v4,
                                     &v15,
@@ -96,7 +97,7 @@ LABEL_16:
         2u,
         2u,
         v11,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v13);
     }
 LABEL_17:
@@ -109,6 +110,6 @@ LABEL_17:
       2u,
       2u,
       0x59u,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v6);
 }

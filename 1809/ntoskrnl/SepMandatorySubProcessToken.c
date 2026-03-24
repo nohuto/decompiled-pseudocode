@@ -1,19 +1,19 @@
 /*
- * XREFs of SepMandatorySubProcessToken @ 0x1400D9E74
+ * XREFs of SepMandatorySubProcessToken @ 0x1400D9E94
  * Callers:
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     SepLocateTokenIntegrity @ 0x1400A902C (SepLocateTokenIntegrity.c)
- *     RtlSidDominates @ 0x1400A9210 (RtlSidDominates.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     SepLocateTokenIntegrity @ 0x1400A904C (SepLocateTokenIntegrity.c)
+ *     RtlSidDominates @ 0x1400A9230 (RtlSidDominates.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeTokenIsAdmin @ 0x1405BBCD0 (SeTokenIsAdmin.c)
  *     PsReferenceProcessFilePointer @ 0x14061CB90 (PsReferenceProcessFilePointer.c)
- *     ObQuerySecurityObject @ 0x14064FE14 (ObQuerySecurityObject.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
+ *     ObQuerySecurityObject @ 0x14064FDF4 (ObQuerySecurityObject.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
  */
 
 __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, _QWORD *a4)

@@ -1,81 +1,91 @@
 /*
- * XREFs of PiGetDmaAdapterFromBusInterface @ 0x140829C88
+ * XREFs of PiGetDmaAdapterFromBusInterface @ 0x1407644B8
  * Callers:
- *     IoGetDmaAdapter @ 0x140829B90 (IoGetDmaAdapter.c)
+ *     IoGetDmaAdapter @ 0x1407643C0 (IoGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
  */
 
-__int64 __fastcall PiGetDmaAdapterFromBusInterface(_QWORD *Object, __int64 a2, __int64 a3)
+__int64 __fastcall PiGetDmaAdapterFromBusInterface(struct _DEVICE_OBJECT *MaxDataSize, __int64 a2, __int64 a3)
 {
   __int64 v6; // rbx
-  __int64 v7; // rcx
-  __int64 v9; // rcx
-  _WORD *v10; // rcx
-  __int64 v11; // rcx
+  _DWORD *DeviceNode; // rcx
+  struct _DRIVER_OBJECT *DriverObject; // rcx
+  UNICODE_STRING *p_DriverName; // rcx
+  char *v11; // rcx
   unsigned __int16 *v12; // rsi
-  _WORD *v13; // rcx
-  __int64 v14; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v14; // rcx
   __int64 v15; // rcx
-  _QWORD v16[8]; // [rsp+30h] [rbp-48h] BYREF
+  _WORD *v16; // rcx
+  __int64 v17; // rcx
+  _QWORD v18[8]; // [rsp+30h] [rbp-48h] BYREF
 
-  memset(v16, 0, sizeof(v16));
+  memset(v18, 0, sizeof(v18));
   v6 = 0LL;
-  if ( !Object )
+  if ( !MaxDataSize )
     goto LABEL_20;
-  v7 = *(_QWORD *)(Object[39] + 40LL);
-  if ( !v7 || (*(_DWORD *)(v7 + 396) & 0x20000) != 0 )
+  DeviceNode = MaxDataSize->DeviceObjectExtension->DeviceNode;
+  if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
-    IoAddTriageDumpDataBlock((ULONG)Object, (PVOID)*((unsigned __int16 *)Object + 1));
-    v9 = Object[1];
-    if ( v9 )
+    IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)MaxDataSize->Size);
+    DriverObject = MaxDataSize->DriverObject;
+    if ( DriverObject )
     {
-      IoAddTriageDumpDataBlock(v9, (PVOID)(unsigned int)*(__int16 *)(v9 + 2));
-      v10 = (_WORD *)(Object[1] + 56LL);
-      if ( *v10 )
+      IoAddTriageDumpDataBlock((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
+      p_DriverName = &MaxDataSize->DriverObject->DriverName;
+      if ( p_DriverName->Length )
       {
-        IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(Object[1] + 64LL), (PVOID)*(unsigned __int16 *)(Object[1] + 56LL));
+        IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
+        IoAddTriageDumpDataBlock(
+          (ULONG)MaxDataSize->DriverObject->DriverName.Buffer,
+          (PVOID)MaxDataSize->DriverObject->DriverName.Length);
       }
     }
-    v11 = *(_QWORD *)(Object[39] + 40LL);
+    v11 = (char *)MaxDataSize->DeviceObjectExtension->DeviceNode;
     if ( v11 )
     {
       v12 = (unsigned __int16 *)(v11 + 40);
-      IoAddTriageDumpDataBlock(v11, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x310);
       if ( *v12 )
       {
         IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
       }
-      v13 = (_WORD *)(*(_QWORD *)(Object[39] + 40LL) + 56LL);
-      if ( *v13 )
+      DeviceObjectExtension = MaxDataSize->DeviceObjectExtension;
+      v14 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v14 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
         IoAddTriageDumpDataBlock(
-          *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 64LL),
-          (PVOID)*(unsigned __int16 *)(*(_QWORD *)(Object[39] + 40LL) + 56LL));
+          *((_QWORD *)MaxDataSize->DeviceObjectExtension->DeviceNode + 8),
+          (PVOID)*((unsigned __int16 *)MaxDataSize->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = MaxDataSize->DeviceObjectExtension;
       }
-      v14 = *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 16LL);
-      if ( v14 && *(_WORD *)(v14 + 56) )
+      v15 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v15 )
       {
-        IoAddTriageDumpDataBlock(v14 + 56, (PVOID)2);
-        v15 = *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 16LL);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v15 + 64), (PVOID)*(unsigned __int16 *)(v15 + 56));
+        v16 = (_WORD *)(v15 + 56);
+        if ( *v16 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+          v17 = *((_QWORD *)MaxDataSize->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+        }
       }
     }
 LABEL_20:
-    KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Object, 0LL, 0LL);
+    KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)MaxDataSize, 0LL, 0LL);
   }
-  if ( (int)PnpQueryInterface(Object, (ULONG_PTR)&GUID_BUS_INTERFACE_STANDARD, 1u, 0x40u, 0LL, (USHORT *)v16) >= 0 )
+  if ( (int)PnpQueryInterface(MaxDataSize, 0LL, v18) >= 0 )
   {
-    if ( v16[5] )
-      v6 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64))v16[5])(v16[1], a2, a3);
-    ((void (__fastcall *)(_QWORD))v16[3])(v16[1]);
+    if ( v18[5] )
+      v6 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64))v18[5])(v18[1], a2, a3);
+    ((void (__fastcall *)(_QWORD))v18[3])(v18[1]);
   }
   return v6;
 }

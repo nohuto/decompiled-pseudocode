@@ -1,30 +1,26 @@
 /*
- * XREFs of GreIsReusedDeviceDependentBitmap @ 0x1C008E90C
+ * XREFs of GreIsReusedDeviceDependentBitmap @ 0x1C00F28A0
  * Callers:
- *     zzzUpdateWindowsAfterModeChange @ 0x1C008E138 (zzzUpdateWindowsAfterModeChange.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1018 (zzzUpdateWindowsAfterModeChange.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreIsReusedDeviceDependentBitmap(HSURF a1)
 {
+  __int64 v1; // rdx
   unsigned int v2; // ebx
-  _BYTE v3[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v4; // [rsp+40h] [rbp-18h]
+  _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-18h]
 
-  SURFREF::SURFREF((SURFREF *)v3, a1);
-  if ( v4 )
+  SURFREF::SURFREF((SURFREF *)v4, a1);
+  v2 = 0;
+  if ( v5 )
   {
-    v2 = *(_DWORD *)(v4 + 116) & 0x2000;
-    DEC_SHARE_REF_CNT(v4);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v3);
-    return v2;
+    v2 = *(_DWORD *)(v5 + 116) & 0x2000;
+    DEC_SHARE_REF_CNT(v5, v1);
   }
-  else
-  {
-    SURFREF::~SURFREF((SURFREF *)v3);
-    return 0LL;
-  }
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v4);
+  return v2;
 }

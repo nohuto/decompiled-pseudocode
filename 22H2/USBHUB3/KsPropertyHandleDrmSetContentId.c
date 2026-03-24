@@ -1,10 +1,10 @@
 /*
- * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C008E3E8
+ * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C0085DAC
  * Callers:
- *     HUBPDO_EvtIoDeviceControl @ 0x1C0015BA0 (HUBPDO_EvtIoDeviceControl.c)
+ *     HUBPDO_EvtIoDeviceControl @ 0x1C00146D0 (HUBPDO_EvtIoDeviceControl.c)
  * Callees:
- *     HUBPDO_DrmSetContentId @ 0x1C0015B8C (HUBPDO_DrmSetContentId.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
+ *     HUBPDO_DrmSetContentId @ 0x1C00146BC (HUBPDO_DrmSetContentId.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
@@ -30,13 +30,13 @@ __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
     if ( v4 < 0x18 || (unsigned int)v6 < v5 || (unsigned int)v6 + v4 < (unsigned int)v6 )
       return 3221225990LL;
     v8 = *(_DWORD *)(*(_QWORD *)(v3 + 32) + 20LL);
-    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)1536, (unsigned int)v6 + v4, 0x7070534Bu);
+    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag(NonPagedPoolNx, (unsigned int)v6 + v4, 0x7070534Bu);
     *(_QWORD *)(a1 + 24) = PoolWithQuotaTag;
     if ( PoolWithQuotaTag )
     {
       *(_DWORD *)(a1 + 16) |= 0x30u;
       memmove(&PoolWithQuotaTag[v6], *(const void **)(v3 + 32), v4);
-      *(_DWORD *)(v6 + *(_QWORD *)(a1 + 24) + 20) = v8;
+      *(_DWORD *)(*(_QWORD *)(a1 + 24) + v6 + 20) = v8;
       if ( v8 == 2 )
       {
         if ( v5 )

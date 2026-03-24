@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C01514E0
+ * XREFs of ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C00C03C0
  * Callers:
- *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C015B014 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
- *     ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C015BFE0 (-IsDestroyed@COPMProtectedOutput@@UEAAEXZ.c)
+ *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C00C0278 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
+ *     ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C00C0360 (-IsDestroyed@COPMProtectedOutput@@UEAAEXZ.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
 char __fastcall OPM::CMonitorPDO::IsDestroyed(OPM::CMonitorPDO *this)

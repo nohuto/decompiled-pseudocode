@@ -1,18 +1,18 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x1400ED920
+ * XREFs of KeCountSetBitsAffinityEx @ 0x1400ED940
  * Callers:
  *     KiForwardTick @ 0x140061720 (KiForwardTick.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFD8 (KeFlushProcessWriteBuffers.c)
- *     PpmParkUnblockIdle @ 0x1401222E0 (PpmParkUnblockIdle.c)
- *     PpmParkReportParkedCores @ 0x140122330 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x140122380 (PpmParkReportUnparkedCores.c)
- *     KeSynchronizeAddressPolicy @ 0x14012DC28 (KeSynchronizeAddressPolicy.c)
- *     KeSynchronizeSecurityDomain @ 0x14013841C (KeSynchronizeSecurityDomain.c)
- *     PpmPerfApplyProcessorStates @ 0x140175170 (PpmPerfApplyProcessorStates.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x14018A244 (PpmHeteroUpdateHgsConfiguration.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14029B200 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
+ *     PpmParkUnblockIdle @ 0x140122300 (PpmParkUnblockIdle.c)
+ *     PpmParkReportParkedCores @ 0x140122350 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x1401223A0 (PpmParkReportUnparkedCores.c)
+ *     KeSynchronizeAddressPolicy @ 0x14012DC48 (KeSynchronizeAddressPolicy.c)
+ *     KeSynchronizeSecurityDomain @ 0x14013843C (KeSynchronizeSecurityDomain.c)
+ *     PpmPerfApplyProcessorStates @ 0x140175190 (PpmPerfApplyProcessorStates.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x14018A264 (PpmHeteroUpdateHgsConfiguration.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14029B300 (KiForceIdleUpdateSchedulerParkState.c)
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
- *     PpmIdleInitializeConcurrency @ 0x14074FD24 (PpmIdleInitializeConcurrency.c)
+ *     PpmIdleInitializeConcurrency @ 0x14074FD04 (PpmIdleInitializeConcurrency.c)
  * Callees:
  *     <none>
  */

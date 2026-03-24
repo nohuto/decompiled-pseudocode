@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHalExtInitSystem @ 0x140A91860
+ * XREFs of HalpHalExtInitSystem @ 0x1409A1340
  * Callers:
  *     <none>
  * Callees:
- *     HalpExtInitExtensions @ 0x140B6F1A8 (HalpExtInitExtensions.c)
+ *     HalpExtInitExtensions @ 0x140A6EE38 (HalpExtInitExtensions.c)
  */
 
 __int64 __fastcall HalpHalExtInitSystem(int a1, __int64 a2, __int64 a3)

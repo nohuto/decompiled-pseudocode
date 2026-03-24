@@ -1,30 +1,19 @@
 /*
- * XREFs of RtlpGetStackLimitsEx @ 0x140294D50
+ * XREFs of RtlpGetStackLimitsEx @ 0x140277280
  * Callers:
- *     RtlDispatchException @ 0x140295210 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x140275570 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x1402AB9C0 (KeQueryCurrentStackInformationEx.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1403504A0 (KeQueryCurrentStackInformationEx.c)
  */
 
-__int64 __fastcall RtlpGetStackLimitsEx(
-        ULONG_PTR BugCheckParameter1,
-        __int64 a2,
-        __int64 a3,
-        ULONG_PTR a4,
-        ULONG_PTR BugCheckParameter4)
+__int64 __fastcall RtlpGetStackLimitsEx(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
-  ULONG_PTR BugCheckParameter2[3]; // [rsp+30h] [rbp-18h] BYREF
+  char v4; // [rsp+48h] [rbp+20h] BYREF
 
-  LODWORD(BugCheckParameter2[0]) = 0;
-  result = KeQueryCurrentStackInformationEx(BugCheckParameter1, BugCheckParameter2, a2, a3);
+  result = KeQueryCurrentStackInformationEx(a1, &v4, a2, a3);
   if ( !(_BYTE)result )
-  {
-    if ( BugCheckParameter4 )
-      KeBugCheckEx(0x1AAu, BugCheckParameter1, LODWORD(BugCheckParameter2[0]), a4, BugCheckParameter4);
-    KeBugCheckEx(0x1ABu, BugCheckParameter1, LODWORD(BugCheckParameter2[0]), a4, 0LL);
-  }
+    __fastfail(4u);
   return result;
 }

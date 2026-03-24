@@ -5,13 +5,13 @@
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
- *     SeGetTrustLabelAce @ 0x1400AA930 (SeGetTrustLabelAce.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D94F4 (MiGetControlAreaLoadConfig.c)
+ *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
  *     ObReleaseObjectSecurity @ 0x1405C93E0 (ObReleaseObjectSecurity.c)
  *     ObpGetObjectSecurity @ 0x1405C9580 (ObpGetObjectSecurity.c)
- *     SeQueryMandatoryLabel @ 0x140654E4C (SeQueryMandatoryLabel.c)
- *     EtwpTimLogMitigationForProcess @ 0x1406BF1BC (EtwpTimLogMitigationForProcess.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1408BCCA0 (EtwTimLogProhibitLowILImageMap.c)
+ *     SeQueryMandatoryLabel @ 0x140654E2C (SeQueryMandatoryLabel.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1406BF19C (EtwpTimLogMitigationForProcess.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1408BCC80 (EtwTimLogProhibitLowILImageMap.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

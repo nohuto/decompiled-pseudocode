@@ -1,11 +1,13 @@
 /*
- * XREFs of NVMeGetPowerState @ 0x1C000A1AC
+ * XREFs of NVMeGetPowerState @ 0x1C000EBE0
  * Callers:
- *     NVMeMaxOperationalPower @ 0x1C0009354 (NVMeMaxOperationalPower.c)
- *     NVMeLogTelemetryControllerInfo @ 0x1C0009604 (NVMeLogTelemetryControllerInfo.c)
- *     NVMePowerInitialize @ 0x1C0009B20 (NVMePowerInitialize.c)
- *     NVMeSetPowerState @ 0x1C000A084 (NVMeSetPowerState.c)
- *     NVMeValidatePowerStates @ 0x1C000A58C (NVMeValidatePowerStates.c)
+ *     NVMeLogTelemetryControllerInfo @ 0x1C000F6F0 (NVMeLogTelemetryControllerInfo.c)
+ *     NVMeMaxOperationalPower @ 0x1C000FCC0 (NVMeMaxOperationalPower.c)
+ *     NVMePowerInitialize @ 0x1C000FEB4 (NVMePowerInitialize.c)
+ *     NVMePowerSetFState @ 0x1C00105A8 (NVMePowerSetFState.c)
+ *     NVMePowerSetPerfState @ 0x1C00106D0 (NVMePowerSetPerfState.c)
+ *     NVMeValidatePowerStates @ 0x1C0010F10 (NVMeValidatePowerStates.c)
+ *     NVMeSetPowerState @ 0x1C001BEC4 (NVMeSetPowerState.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +16,7 @@ __int64 __fastcall NVMeGetPowerState(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // r8
 
-  v2 = *(_QWORD *)(a1 + 1640);
+  v2 = *(_QWORD *)(a1 + 1624);
   if ( a2 > 0x1Fu || a2 > *(_BYTE *)(v2 + 263) )
     return 0LL;
   else

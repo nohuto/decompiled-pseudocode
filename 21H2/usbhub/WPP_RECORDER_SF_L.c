@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_L @ 0x1C005C674
+ * XREFs of WPP_RECORDER_SF_L @ 0x1C005DCF8
  * Callers:
- *     CheckUSBFnIncludeDefaultCfg @ 0x1C005BC48 (CheckUSBFnIncludeDefaultCfg.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C005D2E8 (CheckUSBFnIncludeDefaultCfg.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_L(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)
@@ -13,7 +13,7 @@ __int64 WPP_RECORDER_SF_L(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4,
 
   va_start(va, a5);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_5169c4c8089132207a438b4341aed5b6_Traceguids,

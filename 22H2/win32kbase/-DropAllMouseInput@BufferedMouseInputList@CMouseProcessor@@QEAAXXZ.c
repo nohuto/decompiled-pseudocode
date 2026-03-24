@@ -1,40 +1,34 @@
 /*
- * XREFs of ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00C21F0
+ * XREFs of ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00B5A80
  * Callers:
- *     ?MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ @ 0x1C00C2180 (-MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ.c)
- *     ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01FAE14 (-ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z.c)
+ *     ?HandleMITTermination@CMouseProcessor@@AEAAXXZ @ 0x1C00B59EC (-HandleMITTermination@CMouseProcessor@@AEAAXXZ.c)
+ *     ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01C1F44 (-ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01F4DEC (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
+ *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01BE76C (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CMouseProcessor::BufferedMouseInputList::DropAllMouseInput(
         CMouseProcessor::BufferedMouseInputList *this,
         unsigned int a2)
 {
-  CMouseProcessor::MouseInputMessage **v3; // rbx
-  CMouseProcessor::MouseInputMessage *v4; // rcx
-  CMouseProcessor::MouseInputMessage *v5; // rax
-  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-38h] BYREF
+  CMouseProcessor::MouseInputMessage **v2; // rbx
+  CMouseProcessor::MouseInputMessage *v3; // rcx
+  CMouseProcessor::MouseInputMessage *v4; // rax
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 64LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0289810, (unsigned __int8 *)dword_1C025EBB5, 0LL, 0LL, 2u, &v6);
-  v3 = (CMouseProcessor::MouseInputMessage **)((char *)this + 8);
+  v2 = (CMouseProcessor::MouseInputMessage **)((char *)this + 8);
   while ( 1 )
   {
-    v4 = *v3;
-    if ( *v3 == (CMouseProcessor::MouseInputMessage *)v3 )
+    v3 = *v2;
+    if ( *v2 == (CMouseProcessor::MouseInputMessage *)v2 )
       break;
-    if ( *((CMouseProcessor::MouseInputMessage ***)v4 + 1) != v3
-      || (v5 = *(CMouseProcessor::MouseInputMessage **)v4,
-          *(CMouseProcessor::MouseInputMessage **)(*(_QWORD *)v4 + 8LL) != v4) )
+    if ( *((CMouseProcessor::MouseInputMessage ***)v3 + 1) != v2
+      || (v4 = *(CMouseProcessor::MouseInputMessage **)v3,
+          *(CMouseProcessor::MouseInputMessage **)(*(_QWORD *)v3 + 8LL) != v3) )
     {
       __fastfail(3u);
     }
-    *v3 = v5;
-    *((_QWORD *)v5 + 1) = v3;
-    CMouseProcessor::MouseInputMessage::`scalar deleting destructor'(v4, a2);
+    *v2 = v4;
+    *((_QWORD *)v4 + 1) = v2;
+    CMouseProcessor::MouseInputMessage::`scalar deleting destructor'(v3, a2);
   }
 }

@@ -1,58 +1,64 @@
 /*
- * XREFs of ?Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z @ 0x1C008CA28
+ * XREFs of ?Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z @ 0x1C0081A7C
  * Callers:
- *     ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C008C6C8 (-Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z.c)
+ *     ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C0081728 (-Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchCreateSyncObject @ 0x1C008CCC0 (VidSchCreateSyncObject.c)
- *     ?InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAGING_QUEUE_TYPE@@@Z @ 0x1C008E718 (-InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAG.c)
- *     ?MapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJXZ @ 0x1C00EBF84 (-MapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAGING_QUEUE_TYPE@@@Z @ 0x1C00790D8 (-InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAG.c)
+ *     VidSchCreateSyncObject @ 0x1C0081D80 (VidSchCreateSyncObject.c)
+ *     ?MapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJXZ @ 0x1C00B6ACC (-MapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJXZ.c)
  */
 
-__int64 __fastcall VIDMM_DEVICE_PAGING_QUEUE::Initialize(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)
+__int64 __fastcall VIDMM_DEVICE_PAGING_QUEUE::Initialize(__int64 a1, __int64 a2, int a3, int a4, char a5)
 {
-  __int64 v7; // rbx
-  int v8; // eax
-  unsigned int v9; // ebp
+  __int64 v7; // r9
+  __int64 v9; // rbp
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rdi
   int SyncObject; // eax
-  int v11; // esi
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
   __int64 result; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  int v15[20]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v20; // rax
+  int v21[20]; // [rsp+40h] [rbp-58h] BYREF
 
-  v7 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 16LL) + 744LL);
+  v7 = *(_QWORD *)a2;
+  v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 16LL) + 624LL);
   *(_DWORD *)(a1 + 160) = a3;
-  v8 = VIDMM_PAGING_QUEUE::InitializePagingQueue(a1);
-  v9 = v8;
-  if ( v8 < 0 )
+  v10 = VIDMM_PAGING_QUEUE::InitializePagingQueue(a1, a2, a3, v7, a4);
+  v14 = v10;
+  if ( v10 < 0 )
   {
-    WdLogSingleEntry2(1LL, a2, v8);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
-    return v9;
+    v20 = WdLogNewEntry5_WdAssertion(v12, v11, v13);
+    *(_QWORD *)(v20 + 24) = a2;
+LABEL_7:
+    *(_QWORD *)(v20 + 32) = v14;
+    WdLogEvent5_WdAssertion(v20);
+    return (unsigned int)v14;
   }
-  else
+  memset(v21, 0, sizeof(v21));
+  v21[0] = 5;
+  *(_QWORD *)&v21[2] = 4294962295LL;
+  SyncObject = VidSchCreateSyncObject(v9, 0, (int)v21, 2, 0LL, a1, (PVOID)(a1 + 152), 0LL);
+  v14 = SyncObject;
+  if ( SyncObject < 0 )
   {
-    memset(v15, 0, sizeof(v15));
-    v15[0] = 5;
-    *(_QWORD *)&v15[2] = 4294962295LL;
-    SyncObject = VidSchCreateSyncObject(v7, 0, (int)v15, 2, 0LL, a1, (PVOID)(a1 + 152), 0LL);
-    v11 = SyncObject;
-    if ( SyncObject < 0 )
-    {
-      WdLogSingleEntry2(1LL, a1, SyncObject);
-      DxgkLogInternalTriageEvent(v14, 0x40000LL);
-    }
-    else if ( !*(_BYTE *)(v7 + 55)
-           || a5
-           || (v11 = VIDMM_DEVICE_PAGING_QUEUE::MapGpuVA((VIDMM_DEVICE_PAGING_QUEUE *)a1), v11 >= 0) )
-    {
-      *(_QWORD *)(a1 + 88) = *(_QWORD *)(a1 + 152);
-      result = 0LL;
-      *(_QWORD *)(a1 + 96) = 4294962295LL;
-      return result;
-    }
-    return (unsigned int)v11;
+    v20 = WdLogNewEntry5_WdAssertion(v17, v16, v18);
+    *(_QWORD *)(v20 + 24) = a1;
+    goto LABEL_7;
   }
+  if ( !*(_BYTE *)(v9 + 55)
+    || a5
+    || (LODWORD(v14) = VIDMM_DEVICE_PAGING_QUEUE::MapGpuVA((VIDMM_DEVICE_PAGING_QUEUE *)a1), (int)v14 >= 0) )
+  {
+    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a1 + 152);
+    result = 0LL;
+    *(_QWORD *)(a1 + 96) = 4294962295LL;
+    return result;
+  }
+  return (unsigned int)v14;
 }

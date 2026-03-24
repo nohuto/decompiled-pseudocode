@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpDeleteBreakpoint @ 0x140A7042C
+ * XREFs of KdpDeleteBreakpoint @ 0x1409BA248
  * Callers:
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
- *     KdpDeleteBreakpointRange @ 0x140A70018 (KdpDeleteBreakpointRange.c)
- *     KdpRestoreBreakPointEx @ 0x140A73514 (KdpRestoreBreakPointEx.c)
- *     KdpWriteBreakPointEx @ 0x140A73D80 (KdpWriteBreakPointEx.c)
+ *     KdpRestoreBreakPointEx @ 0x1409B7F08 (KdpRestoreBreakPointEx.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpWriteBreakPointEx @ 0x1409B9090 (KdpWriteBreakPointEx.c)
+ *     KdpDeleteBreakpointRange @ 0x1409BA2B0 (KdpDeleteBreakpointRange.c)
  * Callees:
- *     KdpLowWriteContent @ 0x140A749D0 (KdpLowWriteContent.c)
+ *     KdpLowWriteContent @ 0x1409BA450 (KdpLowWriteContent.c)
  */
 
 char __fastcall KdpDeleteBreakpoint(int a1)
@@ -19,17 +19,17 @@ char __fastcall KdpDeleteBreakpoint(int a1)
   if ( (unsigned int)(a1 - 1) > 0x1F )
     return 0;
   v2 = 5 * v1;
-  v3 = *((_DWORD *)&unk_140C33EE0 + 10 * v1);
+  v3 = *((_DWORD *)&unk_140C34220 + 10 * v1);
   if ( !v3 )
     return 0;
   if ( (v3 & 0xC) == 4 )
   {
-    *((_DWORD *)&unk_140C33EE0 + 10 * v1) = 0;
+    *((_DWORD *)&unk_140C34220 + 10 * v1) = 0;
     ++KdpBreakpointChangeCount;
   }
   else if ( (unsigned __int8)KdpLowWriteContent((unsigned int)v1) )
   {
-    *((_DWORD *)&unk_140C33EE0 + 2 * v2) = 0;
+    *((_DWORD *)&unk_140C34220 + 2 * v2) = 0;
   }
   return 1;
 }

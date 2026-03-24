@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C0126FF0
+ * XREFs of ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C01547B0
  * Callers:
  *     <none>
  * Callees:
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C01267F4 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C0129B98 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0129CE0 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0129D50 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C012A154 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C012A484 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C012B224 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AB3A8 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DF14 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001EE10 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F188 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F4C4 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A1750 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A19A4 (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1AD8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02ACC48 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDINFO *a2)
@@ -21,8 +21,8 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
   int v5; // r14d
   UMPDOBJ *v7; // rbx
   void *v8; // rax
-  _DWORD *KernelPtr; // rax
-  _DWORD *v10; // rax
+  char *KernelPtr; // rax
+  char *v10; // rax
   unsigned int v12; // eax
   size_t Size; // [rsp+20h] [rbp-49h]
   unsigned int v14; // [rsp+40h] [rbp-29h] BYREF
@@ -60,7 +60,7 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
       *(_QWORD *)&v20 = 0x4B00000028LL;
       v21[0] = *(struct _SURFOBJ **)v7;
       v21[1] = a1;
-      if ( (unsigned int)UMPDOBJ::pso(v7, (UMPDOBJ *)((char *)v7 + 64), &v21[1], v5) )
+      if ( (unsigned int)UMPDOBJ::pso(v7, (UMPDOBJ *)((char *)v7 + 64), &v21[1]) )
       {
         v8 = UMPDOBJ::_AllocUserMem(v7, 0x14u, 0);
         v22 = v8;
@@ -68,16 +68,16 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
         {
           if ( a2 )
           {
-            KernelPtr = UMPDOBJ::GetKernelPtr(v7, v8);
+            KernelPtr = UMPDOBJ::GetKernelPtr(v7, (char *)v8);
             *(_OWORD *)KernelPtr = *(_OWORD *)&a2->bRepeatThisBand;
-            KernelPtr[4] = a2->ulVertRes;
+            *((_DWORD *)KernelPtr + 4) = a2->ulVertRes;
           }
           LODWORD(Size) = 4;
-          if ( UMPDOBJ::Thunk(v7, &v20, 0x28u, &v14, Size) != -1 && a2 )
+          if ( (unsigned int)UMPDOBJ::Thunk(v7, &v20, 0x28u, &v14, Size) != -1 && a2 )
           {
-            v10 = UMPDOBJ::GetKernelPtr(v7, v22);
+            v10 = UMPDOBJ::GetKernelPtr(v7, (char *)v22);
             *(_OWORD *)&a2->bRepeatThisBand = *(_OWORD *)v10;
-            a2->ulVertRes = v10[4];
+            a2->ulVertRes = *((_DWORD *)v10 + 4);
           }
           v4 = v14;
         }
@@ -92,6 +92,6 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
     }
     v2 = v4;
   }
-  XUMPDOBJ::~XUMPDOBJ((XUMPDOBJ *)&v19);
+  XUMPDOBJ::~XUMPDOBJ(&v19);
   return v2;
 }

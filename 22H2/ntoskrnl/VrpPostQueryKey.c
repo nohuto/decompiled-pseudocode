@@ -1,35 +1,35 @@
 /*
- * XREFs of VrpPostQueryKey @ 0x14068CA48
+ * XREFs of VrpPostQueryKey @ 0x1405D551C
  * Callers:
- *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     ExGetPreviousMode @ 0x140208C20 (ExGetPreviousMode.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VrpCleanupBufferParameter @ 0x14068CC68 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x14068CCA0 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x14068F3B8 (VrpProcessBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x1407E06A0 (VrpUpdateKeyInformation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExGetPreviousMode @ 0x1402F62C0 (ExGetPreviousMode.c)
+ *     EtwActivityIdControl @ 0x140308D90 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VrpCleanupBufferParameter @ 0x1405D5748 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1405D57FC (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1405D5AEC (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x1405D5B84 (VrpUpdateKeyInformation.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
 {
-  __int64 v2; // rdi
-  __int64 v3; // r14
+  __int64 v2; // r14
+  __int64 v3; // rsi
   KPROCESSOR_MODE PreviousMode; // al
   __int64 v5; // rcx
   int v6; // ebx
-  __int64 *v7; // r15
-  KPROCESSOR_MODE v8; // si
+  __int64 *v7; // r13
+  KPROCESSOR_MODE v8; // di
   unsigned int v9; // eax
   __int64 v10; // rcx
   int v12; // eax
   int v13; // eax
-  __int64 *v14; // rcx
-  char *v15; // rdx
+  int v14; // eax
+  __int64 *v15; // rcx
   bool v16; // zf
-  ULONG v17; // [rsp+28h] [rbp-79h]
+  __int64 *v17; // rcx
   int updated; // [rsp+38h] [rbp-69h] BYREF
   int v19; // [rsp+3Ch] [rbp-65h] BYREF
   __int64 v20; // [rsp+40h] [rbp-61h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
   __int64 v26; // [rsp+90h] [rbp-11h]
   _QWORD *v27; // [rsp+98h] [rbp-9h]
   __int64 v28; // [rsp+A0h] [rbp-1h] BYREF
-  int *v29; // [rsp+A8h] [rbp+7h]
+  int *p_updated; // [rsp+A8h] [rbp+7h]
   _QWORD v30[3]; // [rsp+B0h] [rbp+Fh] BYREF
 
   v22 = a1;
@@ -56,28 +56,28 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
   v21 = 0LL;
   v8 = PreviousMode;
   if ( v6 < 0 && v6 != -1073741789 && v6 != -2147483643 )
-    goto LABEL_29;
+    goto LABEL_4;
   v9 = *(_DWORD *)(v3 + 8);
   if ( v9 > 8 )
     goto LABEL_4;
   v5 = 283LL;
   if ( !_bittest((const int *)&v5, v9) )
     goto LABEL_4;
-  if ( (unsigned int)dword_140C04420 > 5 )
+  if ( (unsigned int)dword_140C02168 > 5 )
   {
-    v14 = (__int64 *)(v2 + 16);
+    v15 = (__int64 *)(v2 + 16);
     v19 = *(_DWORD *)(v3 + 8);
     v26 = 4LL;
     v25 = (__int64 *)&v19;
     if ( !*(_QWORD *)(v2 + 24) )
-      v14 = &EmptyUnicodeString;
+      v15 = &EmptyUnicodeString;
     v28 = 2LL;
     v27 = v30;
-    v29 = (int *)v14[1];
-    v30[0] = *(unsigned __int16 *)v14;
+    p_updated = (int *)v15[1];
+    v30[0] = *(unsigned __int16 *)v15;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04420,
-      (unsigned __int8 *)&dword_14003A36C,
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)&dword_1400240D4,
       &ActivityId,
       0LL,
       5u,
@@ -87,79 +87,102 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
   {
     v12 = *(_DWORD *)(v3 + 8);
     if ( v12 != 3 && v12 != 8 )
-    {
-LABEL_4:
-      if ( v6 >= 0 )
-        goto LABEL_5;
-      goto LABEL_29;
-    }
+      goto LABEL_4;
   }
   LOBYTE(v5) = v8;
   v6 = VrpProcessBufferParameter(v5, *(_QWORD *)(v3 + 16), *(unsigned int *)(v3 + 24), &v20);
-  if ( v6 < 0 )
-    goto LABEL_29;
-  LOBYTE(v5) = v8;
-  v6 = VrpOutputBufferParameter(v5, v20, *(unsigned int *)(v3 + 24), v3 + 16);
-  if ( v6 < 0
-    || (LOBYTE(v5) = v8, v6 = VrpProcessBufferParameter(v5, *(_QWORD *)(v3 + 32), 4LL, &v21), v6 < 0)
-    || (LOBYTE(v5) = v8, v6 = VrpOutputBufferParameter(v5, v21, 4LL, v3 + 32), v6 < 0)
-    || (updated = VrpUpdateKeyInformation(
-                    *(unsigned int *)(v3 + 8),
-                    v20,
-                    *(unsigned int *)(v3 + 24),
-                    v21,
-                    v2 + 16,
-                    *(_DWORD *)(v2 + 36)),
-        v6 = updated,
-        updated < 0)
-    && updated != -2147483643
-    && updated != -1073741789 )
+  if ( v6 >= 0 )
   {
-LABEL_29:
-    if ( v6 != -1073740541 && (unsigned int)dword_140C04420 > 2 )
+    LOBYTE(v5) = v8;
+    v6 = VrpOutputBufferParameter(v5, v20, *(unsigned int *)(v3 + 24), v3 + 16);
+    if ( v6 >= 0 )
     {
-      if ( *(_QWORD *)(v2 + 24) )
-        v7 = (__int64 *)(v2 + 16);
-      updated = v6;
-      v25 = &v28;
-      v15 = byte_14003A3F5;
-      v27 = (_QWORD *)v7[1];
-      LODWORD(v28) = *(unsigned __int16 *)v7;
-      v29 = &updated;
-      v17 = 5;
-LABEL_34:
-      v26 = 2LL;
-      HIDWORD(v28) = 0;
-      v30[0] = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04420, (unsigned __int8 *)v15, &ActivityId, 0LL, v17, v24);
-      goto LABEL_5;
+      LOBYTE(v5) = v8;
+      v6 = VrpProcessBufferParameter(v5, *(_QWORD *)(v3 + 32), 4LL, &v21);
+      if ( v6 >= 0 )
+      {
+        LOBYTE(v5) = v8;
+        v6 = VrpOutputBufferParameter(v5, v21, 4LL, v3 + 32);
+        if ( v6 >= 0 )
+        {
+          updated = VrpUpdateKeyInformation(
+                      *(unsigned int *)(v3 + 8),
+                      v20,
+                      *(unsigned int *)(v3 + 24),
+                      v21,
+                      v2 + 16,
+                      *(_DWORD *)(v2 + 36));
+          v6 = updated;
+          if ( updated >= 0 || updated == -2147483643 || updated == -1073741789 )
+          {
+            LOBYTE(v5) = v8;
+            v13 = VrpOutputBufferParameter(v5, *(_QWORD *)(v3 + 16), *(unsigned int *)(v3 + 24), &v20);
+            if ( v13 < 0 )
+            {
+              v6 = v13;
+            }
+            else
+            {
+              LOBYTE(v5) = v8;
+              v14 = VrpOutputBufferParameter(v5, *(_QWORD *)(v3 + 32), 4LL, &v21);
+              if ( v14 < 0 )
+              {
+                v6 = v14;
+              }
+              else
+              {
+                *(_DWORD *)(v22 + 24) = updated;
+                v6 = -1073740541;
+                if ( (unsigned int)dword_140C02168 <= 5 )
+                  goto LABEL_5;
+                v16 = *(_QWORD *)(v2 + 24) == 0LL;
+                v17 = &EmptyUnicodeString;
+                v26 = 2LL;
+                if ( !v16 )
+                  v17 = (__int64 *)(v2 + 16);
+                v30[0] = 4LL;
+                v25 = &v28;
+                v30[2] = 4LL;
+                v27 = (_QWORD *)v17[1];
+                v28 = *(unsigned __int16 *)v17;
+                v19 = *(_DWORD *)(v3 + 8);
+                p_updated = &v19;
+                v30[1] = &updated;
+                tlgWriteTransfer_EtwWriteTransfer(
+                  (__int64)&dword_140C02168,
+                  (unsigned __int8 *)byte_1400243B1,
+                  &ActivityId,
+                  0LL,
+                  6u,
+                  v24);
+              }
+            }
+          }
+LABEL_4:
+          if ( v6 >= 0 )
+            goto LABEL_5;
+        }
+      }
     }
-    goto LABEL_5;
   }
-  LOBYTE(v5) = v8;
-  v13 = VrpOutputBufferParameter(v5, *(_QWORD *)(v3 + 16), *(unsigned int *)(v3 + 24), &v20);
-  if ( v13 < 0 || (LOBYTE(v5) = v8, v13 = VrpOutputBufferParameter(v5, *(_QWORD *)(v3 + 32), 4LL, &v21), v13 < 0) )
+  if ( v6 != -1073740541 && (unsigned int)dword_140C02168 > 2 )
   {
-    v6 = v13;
-    goto LABEL_29;
-  }
-  *(_DWORD *)(v22 + 24) = updated;
-  v6 = -1073740541;
-  if ( (unsigned int)dword_140C04420 > 5 )
-  {
-    v16 = *(_QWORD *)(v2 + 24) == 0LL;
-    v30[2] = 4LL;
-    v15 = &byte_14003A577;
-    if ( !v16 )
+    if ( *(_QWORD *)(v2 + 24) )
       v7 = (__int64 *)(v2 + 16);
+    v26 = 2LL;
     v25 = &v28;
     v27 = (_QWORD *)v7[1];
-    LODWORD(v28) = *(unsigned __int16 *)v7;
-    v19 = *(_DWORD *)(v3 + 8);
-    v29 = &v19;
-    v30[1] = &updated;
-    v17 = 6;
-    goto LABEL_34;
+    v28 = *(unsigned __int16 *)v7;
+    p_updated = &updated;
+    updated = v6;
+    v30[0] = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)&unk_1400242C0,
+      &ActivityId,
+      0LL,
+      5u,
+      v24);
   }
 LABEL_5:
   LOBYTE(v5) = v8;

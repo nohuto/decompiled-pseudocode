@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCChannelTable@@UEAAPEAXI@Z @ 0x1801A9A10
+ * XREFs of ??_GCChannelTable@@UEAAPEAXI@Z @ 0x18014F3E0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CChannelTable@@UEAA@XZ @ 0x1801A99C8 (--1CChannelTable@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CChannelTable@@UEAA@XZ @ 0x18014F39C (--1CChannelTable@@UEAA@XZ.c)
  */
 
 struct _RTL_CRITICAL_SECTION *__fastcall CChannelTable::`scalar deleting destructor'(

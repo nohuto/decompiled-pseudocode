@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxValidateReturnedUnicodeString @ 0x140986164
+ * XREFs of PopFxValidateReturnedUnicodeString @ 0x1408E59C4
  * Callers:
- *     PopPluginInitializeSocSubsystemStaticInfo @ 0x1409863F8 (PopPluginInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x140986664 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x1408E5C5C (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1408E5EDC (PopPluginQuerySocSubsystemMetadata.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
  */
 
 char __fastcall PopFxValidateReturnedUnicodeString(unsigned __int16 *a1, __int64 a2, unsigned int a3)
 {
   char v3; // r14
   const wchar_t *v4; // rsi
-  char v6; // r10
+  char v6; // r11
   char v7; // dl
   size_t pcbLength; // [rsp+40h] [rbp+8h] BYREF
 

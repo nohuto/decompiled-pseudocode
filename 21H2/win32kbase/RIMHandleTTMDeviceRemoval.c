@@ -1,34 +1,19 @@
 /*
- * XREFs of RIMHandleTTMDeviceRemoval @ 0x1C01B8270
+ * XREFs of RIMHandleTTMDeviceRemoval @ 0x1C0182344
  * Callers:
- *     rimDoRimDevChange @ 0x1C00A1F28 (rimDoRimDevChange.c)
+ *     rimDoRimDevChange @ 0x1C00523E4 (rimDoRimDevChange.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMHandleTTMDeviceRemoval(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMHandleTTMDeviceRemoval(__int64 a1)
 {
   if ( !gbTtmEnabled )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( !*(_DWORD *)(a1 + 1312) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 141);
+  if ( !*(_DWORD *)(a1 + 1320) )
     TtmNotifyDeviceDeparture(2LL, a1);
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      13,
-      (__int64)&WPP_e19c1f9dc6ba3a4e002eb4dd1e679f56_Traceguids,
-      0);
-  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, 4, 1, 13, (__int64)&WPP_aac38269f52f3d1812b82afa174c5f16_Traceguids, 0);
   return 0LL;
 }

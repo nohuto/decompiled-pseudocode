@@ -1,71 +1,36 @@
 /*
- * XREFs of rimLidClosedPolicyUpdateStateAndApply @ 0x1C01AAAC4
+ * XREFs of rimLidClosedPolicyUpdateStateAndApply @ 0x1C017B9F8
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E2D30 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0178FB0 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0059AE0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
- *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C005CD30 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
- *     ApiSetGetPowerTransitionsState @ 0x1C00C9CF4 (ApiSetGetPowerTransitionsState.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01AFF90 (RIMCmAddContactSuppressionReasons.c)
+ *     ApiSetGetPowerTransitionsState @ 0x1C00AD424 (ApiSetGetPowerTransitionsState.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FDC4 (RIMCmAddContactSuppressionReasons.c)
  */
 
-void __fastcall rimLidClosedPolicyUpdateStateAndApply(__int64 a1, __int64 a2)
+__int64 __fastcall rimLidClosedPolicyUpdateStateAndApply(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  char *v9; // rbx
-  int v10; // esi
-  PERESOURCE *v11; // rcx
-  PERESOURCE *DomainLockRef; // [rsp+20h] [rbp-39h]
-  char v13; // [rsp+28h] [rbp-31h] BYREF
-  PVOID *v14; // [rsp+30h] [rbp-29h]
-  char v15; // [rsp+38h] [rbp-21h]
-  __int64 v16; // [rsp+40h] [rbp-19h]
-  char v17; // [rsp+48h] [rbp-11h]
-  _DWORD v18[16]; // [rsp+50h] [rbp-9h] BYREF
+  __int64 result; // rax
+  _OWORD v5[3]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v6; // [rsp+50h] [rbp-28h]
+  int v7; // [rsp+58h] [rbp-20h]
 
-  memset(v18, 0, sizeof(v18));
-  v4 = *(_QWORD *)(a1 + 16);
-  if ( *(_BYTE *)(SGDGetUserSessionState(v6, v5, v7, v8) + 355) && !*(_DWORD *)(v4 + 2136) )
+  result = 0LL;
+  v6 = 0LL;
+  memset(v5, 0, sizeof(v5));
+  v7 = 0;
+  if ( gbEnableLidClosedInputSuppression )
   {
-    DomainLockRef = GetDomainLockRef(13);
-    v9 = &v13;
-    v13 = 0;
-    v14 = &gDomainDummyLock;
-    v16 = 0LL;
-    v10 = 0;
-    v17 = 0;
-    v15 = 0;
-    do
+    result = *(_QWORD *)(a1 + 16);
+    if ( !*(_DWORD *)(result + 2128) )
     {
-      v11 = (PERESOURCE *)*((_QWORD *)v9 - 1);
-      if ( v11 )
+      result = ApiSetGetPowerTransitionsState((__int64)v5);
+      if ( !HIDWORD(v6) && (*(_DWORD *)(a2 + 8) & 0x100) == 0 )
       {
-        if ( *v9 )
-          tagDomLock::LockExclusive(v11);
-        else
-          ExEnterCriticalRegionAndAcquireResourceShared(*v11);
+        result = RIMCmAddContactSuppressionReasons(a1, a2, 256LL);
+        *(_DWORD *)(a2 + 2420) |= 0x8000u;
       }
-      ++v10;
-      v9 += 16;
-    }
-    while ( !v10 );
-    v17 = 1;
-    ApiSetGetPowerTransitionsState(v18);
-    if ( !v18[13] && (*(_DWORD *)(a2 + 8) & 0x100) == 0 )
-    {
-      RIMCmAddContactSuppressionReasons(a1, a2);
-      *(_DWORD *)(a2 + 2444) |= 0x8000u;
-    }
-    if ( v17 )
-    {
-      if ( DomainLockRef )
-        ExReleaseResourceAndLeaveCriticalRegion(*DomainLockRef);
     }
   }
+  return result;
 }

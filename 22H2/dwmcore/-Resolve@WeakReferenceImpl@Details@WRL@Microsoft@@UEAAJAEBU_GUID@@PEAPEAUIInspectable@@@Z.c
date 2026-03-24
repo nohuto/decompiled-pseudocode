@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Resolve@WeakReferenceImpl@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAUIInspectable@@@Z @ 0x180298390
+ * XREFs of ?Resolve@WeakReferenceImpl@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAUIInspectable@@@Z @ 0x1802477E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Microsoft::WRL::Details::WeakReferenceImpl::Resolve(
@@ -22,10 +22,7 @@ __int64 __fastcall Microsoft::WRL::Details::WeakReferenceImpl::Resolve(
       break;
     if ( (_DWORD)result == _InterlockedCompareExchange((volatile signed __int32 *)this + 4, result + 1, result) )
     {
-      v5 = (***((__int64 (__fastcall ****)(_QWORD, const struct _GUID *, struct IInspectable **))this + 3))(
-             *((_QWORD *)this + 3),
-             a2,
-             a3);
+      v5 = (***((__int64 (__fastcall ****)(_QWORD, const struct _GUID *))this + 3))(*((_QWORD *)this + 3), a2);
       (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 3) + 16LL))(*((_QWORD *)this + 3));
       return v5;
     }

@@ -1,63 +1,63 @@
 /*
- * XREFs of ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C01CCC30
+ * XREFs of ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C0196A18
  * Callers:
- *     ?GetQueueForCurrentNode@CTouchProcessor@@AEAAPEAUtagQ@@PEAUtagTHREADINFO@@HIHPEBUCPointerInfoNode@@@Z @ 0x1C00E446E (-GetQueueForCurrentNode@CTouchProcessor@@AEAAPEAUtagQ@@PEAUtagTHREADINFO@@HIHPEBUCPointerInfoNod.c)
- *     ?HandlePointerNodeWithTarget@CTouchProcessor@@AEAA?AW4PointerNodeWithTargetHandling@1@PEBUCPointerInfoNode@@IPEAU3@@Z @ 0x1C01CC3D4 (-HandlePointerNodeWithTarget@CTouchProcessor@@AEAA-AW4PointerNodeWithTargetHandling@1@PEBUCPoint.c)
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D4AC0 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?GetQueueForCurrentNode@CTouchProcessor@@AEAAPEAUtagQ@@PEAUtagTHREADINFO@@HIHPEBUCPointerInfoNode@@@Z @ 0x1C0195C18 (-GetQueueForCurrentNode@CTouchProcessor@@AEAAPEAUtagQ@@PEAUtagTHREADINFO@@HIHPEBUCPointerInfoNod.c)
+ *     ?HandlePointerNodeWithTarget@CTouchProcessor@@AEAA?AW4PointerNodeWithTargetHandling@1@PEBUCPointerInfoNode@@IPEAU3@@Z @ 0x1C0196188 (-HandlePointerNodeWithTarget@CTouchProcessor@@AEAA-AW4PointerNodeWithTargetHandling@1@PEBUCPoint.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CA50 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     IsPointerInputMessage @ 0x1C00E4CA2 (IsPointerInputMessage.c)
- *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01CCC0C (-IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01969F4 (-IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z.c)
+ *     IsPointerInputMessage @ 0x1C01A11E8 (IsPointerInputMessage.c)
  */
 
-_BOOL8 __fastcall CPointerInfoNode::IsMessageDelegated(CPointerInfoNode *this, int a2)
+_BOOL8 __fastcall CPointerInfoNode::IsMessageDelegated(CPointerInfoNode *this, __int64 a2, __int64 a3, __int64 a4)
 {
-  CPointerInfoNode *v4; // rcx
-  int v5; // eax
-  int v6; // r9d
-  int v7; // r8d
-  bool v8; // cf
-  int v9; // edx
-  int v10; // edx
+  int v5; // ebx
+  CPointerInfoNode *v6; // rcx
+  int v7; // eax
+  int v8; // r9d
+  int v9; // r8d
+  bool v10; // cf
+  int v11; // edx
+  int v12; // edx
 
-  if ( !IsPointerInputMessage(a2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 301);
-  if ( !gbIgnoreStressedOutStuff && (*(_DWORD *)this & 0x80000) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 302);
-  switch ( a2 )
+  v5 = a2;
+  if ( !(unsigned int)IsPointerInputMessage((unsigned int)a2, a2, a3, a4) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 302);
+  switch ( v5 )
   {
     case 585:
-      v5 = -__CFSHR__(*(_DWORD *)this, 27);
-      v6 = -__CFSHR__(*(_DWORD *)this, 26);
-      v7 = -__CFSHR__(*(_DWORD *)this, 25);
-      v8 = __CFSHR__(*(_DWORD *)this, 24);
+      v7 = -__CFSHR__(*(_DWORD *)this, 27);
+      v8 = -__CFSHR__(*(_DWORD *)this, 26);
+      v9 = -__CFSHR__(*(_DWORD *)this, 25);
+      v10 = __CFSHR__(*(_DWORD *)this, 24);
       break;
     case 586:
-      v5 = (2 * *(_DWORD *)this) >> 31;
-      v6 = (4 * *(_DWORD *)this) >> 31;
-      v7 = (8 * *(_DWORD *)this) >> 31;
-      v8 = __CFSHR__(*(_DWORD *)this, 28);
+      v7 = (2 * *(_DWORD *)this) >> 31;
+      v8 = -__CFSHR__(*(_DWORD *)this, 30);
+      v9 = -__CFSHR__(*(_DWORD *)this, 29);
+      v10 = __CFSHR__(*(_DWORD *)this, 28);
       break;
     case 593:
-      v5 = -__CFSHR__(*((_DWORD *)this + 1), 3);
-      v6 = -__CFSHR__(*((_DWORD *)this + 1), 2);
-      v7 = -(*((_DWORD *)this + 1) & 1);
-      v9 = *(int *)this >> 31;
-      return CPointerInfoNode::IsMessageDelegated(v4, v9, v7, v6, v5);
+      v7 = -__CFSHR__(*((_DWORD *)this + 1), 3);
+      v8 = -__CFSHR__(*((_DWORD *)this + 1), 2);
+      v9 = -(*((_DWORD *)this + 1) & 1);
+      v11 = *(int *)this >> 31;
+      return CPointerInfoNode::IsMessageDelegated(v6, v11, v9, v8, v7);
     case 594:
-      v10 = *((_DWORD *)this + 1);
-      v5 = -__CFSHR__(v10, 7);
-      v6 = -__CFSHR__(v10, 6);
-      v7 = -__CFSHR__(v10, 5);
-      v8 = __CFSHR__(v10, 4);
+      v12 = *((_DWORD *)this + 1);
+      v7 = -__CFSHR__(v12, 7);
+      v8 = -__CFSHR__(v12, 6);
+      v9 = -__CFSHR__(v12, 5);
+      v10 = __CFSHR__(v12, 4);
       break;
     default:
-      v9 = 1;
-      v5 = -__CFSHR__(*(_DWORD *)this, 23);
-      v6 = -__CFSHR__(*(_DWORD *)this, 22);
-      v7 = -__CFSHR__(*(_DWORD *)this, 21);
-      return CPointerInfoNode::IsMessageDelegated(v4, v9, v7, v6, v5);
+      v11 = 1;
+      v7 = -__CFSHR__(*(_DWORD *)this, 23);
+      v8 = -__CFSHR__(*(_DWORD *)this, 22);
+      v9 = -__CFSHR__(*(_DWORD *)this, 21);
+      return CPointerInfoNode::IsMessageDelegated(v6, v11, v9, v8, v7);
   }
-  v9 = -v8;
-  return CPointerInfoNode::IsMessageDelegated(v4, v9, v7, v6, v5);
+  v11 = -v10;
+  return CPointerInfoNode::IsMessageDelegated(v6, v11, v9, v8, v7);
 }

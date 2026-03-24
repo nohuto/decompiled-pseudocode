@@ -1,34 +1,33 @@
 /*
- * XREFs of SepAddTokenLogonSession @ 0x1409CFEC0
+ * XREFs of SepAddTokenLogonSession @ 0x140923720
  * Callers:
- *     SepCreateTokenEx @ 0x140229730 (SepCreateTokenEx.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     SepSetServerSiloToken @ 0x1409C9AD0 (SepSetServerSiloToken.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     SepSetServerSiloToken @ 0x14091CCB4 (SepSetServerSiloToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SepAddTokenLogonSession(__int64 a1)
 {
-  unsigned int v1; // edx
   struct _KTHREAD *CurrentThread; // rax
+  unsigned int v3; // edx
   __int64 v4; // rbx
   struct _ERESOURCE *v5; // rsi
   __int64 *v6; // rbx
-  __int64 **Pool2; // rax
+  __int64 *PoolWithTag; // rax
   __int64 *v8; // rbx
   __int64 **v9; // rdx
 
-  v1 = 1529154084 * *(_DWORD *)(a1 + 24);
   CurrentThread = KeGetCurrentThread();
+  v3 = (unsigned int)(1529154084 * *(_DWORD *)(a1 + 24)) >> 28;
   --CurrentThread->KernelApcDisable;
-  v1 >>= 28;
-  v4 = v1;
-  v5 = &SepRmDbLock + (v1 & 3);
+  v4 = v3;
+  v5 = &SepRmDbLock + (v3 & 3);
   ExAcquireResourceExclusiveLite(v5, 1u);
   v6 = *(__int64 **)(SepLogonSessions + 8 * v4);
   if ( v6 )
@@ -41,20 +40,20 @@ void __fastcall SepAddTokenLogonSession(__int64 a1)
       if ( !v6 )
         goto LABEL_11;
     }
-    Pool2 = (__int64 **)ExAllocatePool2(256LL, 24LL, 1934386515LL);
-    if ( Pool2 )
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x734C6553u);
+    if ( PoolWithTag )
     {
-      *Pool2 = 0LL;
+      *PoolWithTag = 0LL;
       v8 = v6 + 22;
-      Pool2[1] = 0LL;
-      Pool2[2] = (__int64 *)a1;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[2] = a1;
       v9 = (__int64 **)v8[1];
       if ( *v9 != v8 )
         __fastfail(3u);
-      *Pool2 = v8;
-      Pool2[1] = (__int64 *)v9;
-      *v9 = (__int64 *)Pool2;
-      v8[1] = (__int64)Pool2;
+      *PoolWithTag = (__int64)v8;
+      PoolWithTag[1] = (__int64)v9;
+      *v9 = PoolWithTag;
+      v8[1] = (__int64)PoolWithTag;
     }
   }
 LABEL_11:

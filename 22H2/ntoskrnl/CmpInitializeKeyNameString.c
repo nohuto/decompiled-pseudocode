@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitializeKeyNameString @ 0x140A22004
+ * XREFs of CmpInitializeKeyNameString @ 0x1408791D8
  * Callers:
- *     CmpCopySyncTree2 @ 0x140A21558 (CmpCopySyncTree2.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140A2314C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpCopySyncTree2 @ 0x1408785E0 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A2B8 (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     CmSiBugCheck @ 0x1406177C4 (CmSiBugCheck.c)
- *     CmpCopyCompressedName @ 0x140708D60 (CmpCopyCompressedName.c)
+ *     CmSiBugCheck @ 0x1404EDDF4 (CmSiBugCheck.c)
+ *     CmpCopyCompressedName @ 0x1406E2D64 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpInitializeKeyNameString(ULONG_PTR BugCheckParameter3, __int64 a2, _WORD *a3)

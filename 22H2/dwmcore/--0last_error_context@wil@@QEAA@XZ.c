@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0last_error_context@wil@@QEAA@XZ @ 0x180197D48
+ * XREFs of ??0last_error_context@wil@@QEAA@XZ @ 0x18014CAC8
  * Callers:
- *     ?EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x1800AFCDC (-EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ.c)
- *     ?QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureReportingCache@@@Z @ 0x1800B0088 (-QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureRep.c)
- *     ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800F9FBC (-reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
- *     ?QueueBackgroundSRUMUsageReporting@FeatureStateManager@details@wil@@QEAAXIGI@Z @ 0x1801994D0 (-QueueBackgroundSRUMUsageReporting@FeatureStateManager@details@wil@@QEAAXIGI@Z.c)
- *     ?RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_K@Z @ 0x180199900 (-RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_.c)
+ *     ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AF464 (-reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
+ *     ?QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureReportingCache@@@Z @ 0x1800AFCCC (-QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureRep.c)
+ *     ?RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_K@Z @ 0x1800AFE34 (-RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_.c)
+ *     ?EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x1800B0010 (-EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ.c)
+ *     ?QueueBackgroundSRUMUsageReporting@FeatureStateManager@details@wil@@QEAAXIGI@Z @ 0x18014DE5C (-QueueBackgroundSRUMUsageReporting@FeatureStateManager@details@wil@@QEAAXIGI@Z.c)
  * Callees:
  *     <none>
  */

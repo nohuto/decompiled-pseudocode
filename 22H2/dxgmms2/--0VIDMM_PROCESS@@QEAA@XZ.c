@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0VIDMM_PROCESS@@QEAA@XZ @ 0x1C009BF5C
+ * XREFs of ??0VIDMM_PROCESS@@QEAA@XZ @ 0x1C0078A7C
  * Callers:
- *     VidMmCreateProcess @ 0x1C0005530 (VidMmCreateProcess.c)
+ *     VidMmCreateProcess @ 0x1C00022F0 (VidMmCreateProcess.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 VIDMM_PROCESS *__fastcall VIDMM_PROCESS::VIDMM_PROCESS(VIDMM_PROCESS *this)
@@ -20,12 +20,12 @@ VIDMM_PROCESS *__fastcall VIDMM_PROCESS::VIDMM_PROCESS(VIDMM_PROCESS *this)
   *((_DWORD *)this + 22) = -1;
   *(_QWORD *)((char *)this + 100) = 0LL;
   *((_QWORD *)this + 27) = 0LL;
-  *((_DWORD *)this + 61) = 66;
+  *((_DWORD *)this + 61) = 53;
   *((_QWORD *)this + 28) = 0LL;
   *((_QWORD *)this + 29) = 0LL;
   *((_DWORD *)this + 62) = -1;
   *((_DWORD *)this + 60) = 0;
-  *((_DWORD *)this + 69) = 66;
+  *((_DWORD *)this + 69) = 53;
   *((_QWORD *)this + 32) = 0LL;
   *((_QWORD *)this + 33) = 0LL;
   *((_DWORD *)this + 70) = -1;

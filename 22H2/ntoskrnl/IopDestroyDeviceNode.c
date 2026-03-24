@@ -1,25 +1,25 @@
 /*
- * XREFs of IopDestroyDeviceNode @ 0x14078E9E0
+ * XREFs of IopDestroyDeviceNode @ 0x140695FF4
  * Callers:
- *     IopDeleteDevice @ 0x14078E900 (IopDeleteDevice.c)
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
- *     IopRemoveLegacyDeviceNode @ 0x140817EE8 (IopRemoveLegacyDeviceNode.c)
+ *     IopDeleteDevice @ 0x140695F90 (IopDeleteDevice.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
+ *     IopRemoveLegacyDeviceNode @ 0x140752D98 (IopRemoveLegacyDeviceNode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpFreeDeviceInstancePath @ 0x14078EC18 (PnpFreeDeviceInstancePath.c)
- *     IopUncacheInterfaceInformation @ 0x140790DB0 (IopUncacheInterfaceInformation.c)
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IopUncacheInterfaceInformation @ 0x14073A898 (IopUncacheInterfaceInformation.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
+ *     PnpFreeDeviceInstancePath @ 0x14076B380 (PnpFreeDeviceInstancePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDestroyDeviceNode(char *P)
 {
   __int64 v2; // r8
-  void *v3; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
   void *v4; // rcx
   void **v5; // rsi
   void *v6; // rdi
@@ -35,7 +35,7 @@ void __fastcall IopDestroyDeviceNode(char *P)
     if ( *((_QWORD *)P + 90) )
     {
       v8 = (unsigned __int16 *)(P + 40);
-      IoAddTriageDumpDataBlock((ULONG)P, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)P, (PVOID)0x310);
       if ( *v8 )
       {
         IoAddTriageDumpDataBlock((ULONG)v8, (PVOID)2);
@@ -60,7 +60,7 @@ void __fastcall IopDestroyDeviceNode(char *P)
     if ( (*(_DWORD *)(v2 + 48) & 0x1000) != 0 && *((_QWORD *)P + 2) )
     {
       v10 = (unsigned __int16 *)(P + 40);
-      IoAddTriageDumpDataBlock((ULONG)P, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)P, (PVOID)0x310);
       if ( *v10 )
       {
         IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)2);
@@ -87,9 +87,9 @@ void __fastcall IopDestroyDeviceNode(char *P)
     }
     else
     {
-      v3 = (void *)*((_QWORD *)P + 54);
+      v3 = (struct _DMA_ADAPTER *)*((_QWORD *)P + 54);
       if ( v3 )
-        ObfDereferenceObject(v3);
+        HalPutDmaAdapter(v3);
       if ( *((_WORD *)P + 28) )
         ExFreePoolWithTag(*((PVOID *)P + 8), 0);
       PnpFreeDeviceInstancePath(P);
@@ -97,7 +97,7 @@ void __fastcall IopDestroyDeviceNode(char *P)
       v4 = (void *)*((_QWORD *)P + 55);
       if ( v4 )
         ExFreePoolWithTag(v4, 0);
-      ExReleaseFastMutex(&PiResourceListLock);
+      KeReleaseGuardedMutex(&PiResourceListLock);
       IopUncacheInterfaceInformation(*((_QWORD *)P + 4), 0LL);
       v5 = (void **)(P + 608);
       while ( 1 )

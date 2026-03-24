@@ -1,14 +1,15 @@
 /*
- * XREFs of CopyObjBuffer @ 0x1C00054F2
+ * XREFs of CopyObjBuffer @ 0x1C0022C68
  * Callers:
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
 __int64 __fastcall CopyObjBuffer(void *a1, size_t Size, __int64 a3)
@@ -16,20 +17,20 @@ __int64 __fastcall CopyObjBuffer(void *a1, size_t Size, __int64 a3)
   unsigned int v4; // r14d
   unsigned int v5; // esi
   int v7; // r8d
-  int v8; // r8d
+  const void *v8; // rdi
+  unsigned int v9; // ebx
+  int v11; // r8d
   int ObjectTypeName; // eax
-  const void *v10; // rdi
-  unsigned int v11; // ebx
 
   v4 = Size;
   v5 = 0;
   v7 = *(unsigned __int16 *)(a3 + 2) - 1;
   if ( v7 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v11 = v7 - 1;
+    if ( v11 )
     {
-      if ( v8 != 1 )
+      if ( v11 != 1 )
       {
         LogError(3222536201LL);
         AcpiDiagTraceAmlError(0LL, 3222536201LL);
@@ -37,26 +38,26 @@ __int64 __fastcall CopyObjBuffer(void *a1, size_t Size, __int64 a3)
         PrintDebugMessage(30, ObjectTypeName, 0, 0, 0LL);
         return (unsigned int)-1072431095;
       }
-      v10 = *(const void **)(a3 + 32);
-      v11 = *(_DWORD *)(a3 + 24);
+      v8 = *(const void **)(a3 + 32);
+      v9 = *(_DWORD *)(a3 + 24);
     }
     else
     {
-      v10 = *(const void **)(a3 + 32);
-      v11 = *(_DWORD *)(a3 + 24) - 1;
+      v8 = *(const void **)(a3 + 32);
+      v9 = *(_DWORD *)(a3 + 24) - 1;
     }
   }
   else
   {
-    v10 = (const void *)(a3 + 16);
-    v11 = 8;
+    v8 = (const void *)(a3 + 16);
+    v9 = 8;
   }
-  if ( a1 != v10 )
+  if ( a1 != v8 )
   {
     memset(a1, 0, (unsigned int)Size);
-    if ( v4 <= v11 )
-      v11 = v4;
-    memmove(a1, v10, v11);
+    if ( v4 <= v9 )
+      v9 = v4;
+    memmove(a1, v8, v9);
   }
   return v5;
 }

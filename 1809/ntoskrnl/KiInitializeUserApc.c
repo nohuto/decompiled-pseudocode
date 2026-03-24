@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x140128684
+ * XREFs of KiInitializeUserApc @ 0x1401286A4
  * Callers:
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  * Callees:
@@ -7,10 +7,10 @@
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     KeContextFromKframes @ 0x1400A2878 (KeContextFromKframes.c)
  *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     KeCopyExceptionRecord @ 0x14013B8C4 (KeCopyExceptionRecord.c)
- *     KiSetupForInstrumentationReturn @ 0x14013F97C (KiSetupForInstrumentationReturn.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyExceptionRecord @ 0x14013B8E4 (KeCopyExceptionRecord.c)
+ *     KiSetupForInstrumentationReturn @ 0x14013F99C (KiSetupForInstrumentationReturn.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */
 

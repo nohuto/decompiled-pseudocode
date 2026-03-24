@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBMUX_QueuePowerUpEventToDSMs @ 0x1C00103EC
+ * XREFs of HUBMUX_QueuePowerUpEventToDSMs @ 0x1C000FFD0
  * Callers:
- *     HUBHSM_NotifyingHubResumeInS0ToDevices @ 0x1C0008600 (HUBHSM_NotifyingHubResumeInS0ToDevices.c)
- *     HUBHSM_NotifyingHubResumeToDevices @ 0x1C0008630 (HUBHSM_NotifyingHubResumeToDevices.c)
- *     HUBHSM_NotifyingHubResumeWithResetToDevices @ 0x1C0008670 (HUBHSM_NotifyingHubResumeWithResetToDevices.c)
- *     HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure @ 0x1C00086B0 (HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure.c)
- *     HUBHSM_WaitingForDevicesToAcquireReferenceOnStart @ 0x1C0008D70 (HUBHSM_WaitingForDevicesToAcquireReferenceOnStart.c)
+ *     HUBHSM_NotifyingHubResumeInS0ToDevices @ 0x1C00082F0 (HUBHSM_NotifyingHubResumeInS0ToDevices.c)
+ *     HUBHSM_NotifyingHubResumeToDevices @ 0x1C0008320 (HUBHSM_NotifyingHubResumeToDevices.c)
+ *     HUBHSM_NotifyingHubResumeWithResetToDevices @ 0x1C0008360 (HUBHSM_NotifyingHubResumeWithResetToDevices.c)
+ *     HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure @ 0x1C00083A0 (HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure.c)
+ *     HUBHSM_WaitingForDevicesToAcquireReferenceOnStart @ 0x1C0008A60 (HUBHSM_WaitingForDevicesToAcquireReferenceOnStart.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall HUBMUX_QueuePowerUpEventToDSMs(__int64 a1, int a2)
@@ -24,8 +24,8 @@ _QWORD *__fastcall HUBMUX_QueuePowerUpEventToDSMs(__int64 a1, int a2)
   _QWORD *v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rax
+  _QWORD *v15; // rdi
   _QWORD *result; // rax
-  _QWORD *v16; // rdi
   __int64 i; // rbx
   __int64 v18; // rax
   _QWORD *v19; // [rsp+30h] [rbp-38h] BYREF
@@ -72,12 +72,12 @@ _QWORD *__fastcall HUBMUX_QueuePowerUpEventToDSMs(__int64 a1, int a2)
   KeReleaseSpinLock((PKSPIN_LOCK)v3, v8);
   if ( !v6 )
     return (_QWORD *)HUBSM_AddEvent(a1 + 1264, 2014);
-  v16 = v19 - 26;
+  v15 = v19 - 26;
   result = v19;
   for ( i = *v19 - 208LL; &v19 != result; i = *(_QWORD *)(i + 208) - 208LL )
   {
-    HUBSM_AddEvent((__int64)(v16 + 63), a2);
-    v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v16);
+    HUBSM_AddEvent((__int64)(v15 + 63), a2);
+    v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v15);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
       WdfDriverGlobals,
       v18,
@@ -85,7 +85,7 @@ _QWORD *__fastcall HUBMUX_QueuePowerUpEventToDSMs(__int64 a1, int a2)
       2391LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hsmmux.c");
     result = (_QWORD *)(i + 208);
-    v16 = (_QWORD *)i;
+    v15 = (_QWORD *)i;
   }
   return result;
 }

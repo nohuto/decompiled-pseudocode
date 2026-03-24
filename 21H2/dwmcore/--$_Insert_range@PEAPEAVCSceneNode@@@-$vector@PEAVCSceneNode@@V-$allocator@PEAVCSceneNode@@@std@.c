@@ -1,90 +1,91 @@
 /*
- * XREFs of ??$_Insert_range@PEAPEAVCSceneNode@@@?$vector@PEAVCSceneNode@@V?$allocator@PEAVCSceneNode@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSceneNode@@@std@@@std@@@1@PEAPEAVCSceneNode@@1Uforward_iterator_tag@1@@Z @ 0x18019B5E0
+ * XREFs of ??$_Insert_range@PEAPEAVCSceneNode@@@?$vector@PEAVCSceneNode@@V?$allocator@PEAVCSceneNode@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSceneNode@@@std@@@std@@@1@PEAPEAVCSceneNode@@1Uforward_iterator_tag@1@@Z @ 0x180169524
  * Callers:
- *     ?SetOrAppendChildren@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@_N@Z @ 0x1801A3D34 (-SetOrAppendChildren@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAVCS.c)
+ *     ?SetOrAppendChildren@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@_N@Z @ 0x180171CBC (-SetOrAppendChildren@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAVCS.c)
+ *     ??$insert@V?$span_iterator@V?$span@PEAVCColorGradientStop@@$0?0@gsl@@$0A@@details@gsl@@X@?$vector@PEAVCColorGradientStop@@V?$allocator@PEAVCColorGradientStop@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCColorGradientStop@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCColorGradientStop@@@std@@@std@@@1@V?$span_iterator@V?$span@PEAVCColorGradientStop@@$0?0@gsl@@$0A@@details@gsl@@1@Z @ 0x1801E6920 (--$insert@V-$span_iterator@V-$span@PEAVCColorGradientStop@@$0-0@gsl@@$0A@@details@gsl@@X@-$vecto.c)
  * Callees:
- *     ?_Calculate_growth@?$vector@VCMilPoint2F@@V?$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z @ 0x180005590 (-_Calculate_growth@-$vector@VCMilPoint2F@@V-$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     ?_Change_array@?$vector@PEAVCSceneNode@@V?$allocator@PEAVCSceneNode@@@std@@@std@@AEAAXQEAPEAVCSceneNode@@_K1@Z @ 0x1801A642C (-_Change_array@-$vector@PEAVCSceneNode@@V-$allocator@PEAVCSceneNode@@@std@@@std@@AEAAXQEAPEAVCSc.c)
+ *     ?_Change_array@?$vector@PEAVCBaseExpression@@V?$allocator@PEAVCBaseExpression@@@std@@@std@@AEAAXQEAPEAVCBaseExpression@@_K1@Z @ 0x18001A418 (-_Change_array@-$vector@PEAVCBaseExpression@@V-$allocator@PEAVCBaseExpression@@@std@@@std@@AEAAX.c)
+ *     ?_Calculate_growth@?$vector@PEAVCSceneNode@@V?$allocator@PEAVCSceneNode@@@std@@@std@@AEBA_K_K@Z @ 0x18004F3DC (-_Calculate_growth@-$vector@PEAVCSceneNode@@V-$allocator@PEAVCSceneNode@@@std@@@std@@AEBA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 void __fastcall std::vector<CSceneNode *>::_Insert_range<CSceneNode * *>(
-        _QWORD *a1,
-        _BYTE *a2,
+        __int64 a1,
+        char *a2,
         const void *a3,
         __int64 a4)
 {
-  _BYTE *v4; // r13
-  _BYTE *v5; // rdi
-  size_t v6; // r15
-  unsigned __int64 v8; // rsi
-  __int64 v10; // rcx
-  SIZE_T size_of; // rax
-  char *v12; // r12
-  size_t v13; // r8
-  const void *v14; // rdx
-  char *v15; // rcx
-  __int64 v16; // r12
-  size_t v17; // r8
-  unsigned __int64 v18; // rbp
-  char *v19; // rdi
-  unsigned __int64 v20; // [rsp+20h] [rbp-58h]
-  __int64 v21; // [rsp+88h] [rbp+10h]
-  unsigned __int64 v23; // [rsp+98h] [rbp+20h]
+  size_t v4; // rbp
+  __int64 v5; // r15
+  unsigned __int64 v6; // rsi
+  char v7; // r12
+  __int64 v11; // rdi
+  __int64 v12; // rdi
+  SIZE_T v13; // rcx
+  unsigned __int64 v14; // r9
+  char *v15; // rdi
+  char *v16; // rdx
+  char *v17; // rcx
+  size_t v18; // r8
+  size_t v19; // r15
+  __int64 v20; // r12
+  char *v21; // rdi
+  unsigned __int64 v22; // [rsp+60h] [rbp+8h]
+  __int64 v23; // [rsp+68h] [rbp+10h]
 
-  v4 = (_BYTE *)*a1;
-  v5 = (_BYTE *)a1[1];
-  v6 = a4 - (_QWORD)a3;
-  v8 = (a4 - (__int64)a3) >> 3;
-  if ( v8 )
+  v4 = a4 - (_QWORD)a3;
+  v5 = (__int64)&a2[-*(_QWORD *)a1] >> 3;
+  v6 = (a4 - (__int64)a3) >> 3;
+  v7 = 1;
+  if ( v6 == 1 && a2 == *(char **)(a1 + 8) || (v7 = 0, v6) )
   {
-    if ( v8 <= (__int64)(a1[2] - (_QWORD)v5) >> 3 )
+    v11 = *(_QWORD *)(a1 + 8);
+    if ( v6 <= (*(_QWORD *)(a1 + 16) - v11) >> 3 )
     {
-      v16 = 8 * v8;
-      v17 = v5 - a2;
-      v18 = (v5 - a2) >> 3;
-      if ( v8 >= v18 )
+      v19 = v11 - (_QWORD)a2;
+      v20 = 8 * v6;
+      if ( v6 >= (v11 - (__int64)a2) >> 3 )
       {
-        v19 = &a2[v16];
-        memmove_0(&a2[v16], a2, v17);
-        a1[1] = &v19[8 * v18];
+        v21 = &a2[v20];
+        memmove_0(&a2[v20], a2, v19);
+        *(_QWORD *)(a1 + 8) = &v21[v19];
       }
       else
       {
-        memmove_0(v5, &v5[-v16], 8 * v8);
-        a1[1] = &v5[v16];
-        memmove_0(&a2[8 * v8], a2, (size_t)&v5[-8LL * v8 - (_QWORD)a2]);
+        memmove_0(*(void **)(a1 + 8), (const void *)(v11 - v20), 8 * v6);
+        *(_QWORD *)(a1 + 8) = v20 + v11;
+        memmove_0(&a2[8 * v6], a2, v11 + -8LL * v6 - (_QWORD)a2);
       }
-      memmove_0(a2, a3, v6);
+      memmove_0(a2, a3, v4);
     }
     else
     {
-      v10 = (v5 - v4) >> 3;
-      if ( v8 > 0x1FFFFFFFFFFFFFFFLL - v10 )
-        std::_Xlength_error("vector too long");
-      v20 = v10 + v8;
-      v23 = std::vector<CMilPoint2F>::_Calculate_growth(a1, v10 + v8);
-      size_of = std::_Get_size_of_n<8>(v23);
-      v12 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-      v21 = (a2 - v4) >> 3;
-      memmove_0(&v12[8 * v21], a3, v6);
-      if ( v8 == 1 && a2 == v5 )
+      v12 = (v11 - *(_QWORD *)a1) >> 3;
+      if ( v6 > 0x1FFFFFFFFFFFFFFFLL - v12 )
+        std::_Xlength_error("vector<T> too long");
+      v23 = v12 + v6;
+      v22 = std::vector<CSceneNode *>::_Calculate_growth((_QWORD *)a1, v12 + v6);
+      v13 = 8 * v22;
+      if ( v22 > v14 )
+        v13 = -1LL;
+      v15 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v13);
+      memmove_0(&v15[8 * v5], a3, v4);
+      v16 = *(char **)a1;
+      v17 = v15;
+      if ( v7 )
       {
-        v13 = v5 - v4;
-        v14 = v4;
-        v15 = v12;
+        v18 = *(_QWORD *)(a1 + 8) - (_QWORD)v16;
       }
       else
       {
-        memmove_0(v12, v4, a2 - v4);
-        v13 = v5 - a2;
-        v14 = a2;
-        v15 = &v12[8 * v8 + 8 * v21];
+        memmove_0(v15, v16, (size_t)&a2[-*(_QWORD *)a1]);
+        v18 = *(_QWORD *)(a1 + 8) - (_QWORD)a2;
+        v17 = &v15[8 * v5 + 8 * v6];
+        v16 = a2;
       }
-      memmove_0(v15, v14, v13);
-      std::vector<CSceneNode *>::_Change_array(a1, v12, v20, v23);
+      memmove_0(v17, v16, v18);
+      std::vector<CBaseExpression *>::_Change_array((__int64 *)a1, (__int64)v15, v23, v22);
     }
   }
 }

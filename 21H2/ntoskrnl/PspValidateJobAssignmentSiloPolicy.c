@@ -1,11 +1,11 @@
 /*
- * XREFs of PspValidateJobAssignmentSiloPolicy @ 0x140687E80
+ * XREFs of PspValidateJobAssignmentSiloPolicy @ 0x140720064
  * Callers:
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020A3D0 (PsGetEffectiveServerSilo.c)
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x1403621B0 (PsGetEffectiveServerSilo.c)
+ *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
  */
 
 bool __fastcall PspValidateJobAssignmentSiloPolicy(__int64 a1, __int64 a2, __int64 a3, int a4)

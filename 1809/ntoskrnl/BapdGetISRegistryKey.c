@@ -4,10 +4,10 @@
  *     BapdRegisterSiData @ 0x14056EBD8 (BapdRegisterSiData.c)
  *     BapdpProcessVsmKeyBlobs @ 0x1409D12A0 (BapdpProcessVsmKeyBlobs.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  */
 
 __int64 __fastcall BapdGetISRegistryKey(PHANDLE KeyHandle)

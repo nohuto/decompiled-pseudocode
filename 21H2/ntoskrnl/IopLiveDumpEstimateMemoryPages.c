@@ -1,56 +1,56 @@
 /*
- * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140A666B0
+ * XREFs of IopLiveDumpEstimateMemoryPages @ 0x1409AC28C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlClearAllBitsEx @ 0x1402340F0 (RtlClearAllBitsEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlCalculateLivedumpSize @ 0x14054A8D0 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14055A628 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x14055AA68 (IopLiveDumpTraceBufferEstimation.c)
- *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14055BBDC (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
- *     IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x14055BE90 (IopLiveDumpTraceQueryHvlDumpSizeFailure.c)
- *     RtlNumberOfSetBitsEx @ 0x1405E6540 (RtlNumberOfSetBitsEx.c)
- *     MmDuplicateMemory @ 0x140A487C0 (MmDuplicateMemory.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A659E0 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpUncorralProcessors @ 0x140A67A68 (IopLiveDumpUncorralProcessors.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     RtlClearAllBitsEx @ 0x1402C1650 (RtlClearAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlCalculateLivedumpSize @ 0x1404F8B60 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x140508C94 (IopLiveDumpTraceBufferEstimation.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x140509C88 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x140509F50 (IopLiveDumpTraceQueryHvlDumpSizeFailure.c)
+ *     RtlNumberOfSetBitsEx @ 0x140587EB0 (RtlNumberOfSetBitsEx.c)
+ *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB5C0 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpUncorralProcessors @ 0x1409AD5E8 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
 {
-  __int64 MillisecondCounter; // rax
-  __int64 v3; // r15
+  __int64 v1; // rsi
+  __int64 v3; // r14
   int v4; // eax
   int v5; // ecx
   unsigned __int64 v6; // rdx
   int v7; // edi
   unsigned __int64 v8; // rax
-  int v9; // esi
-  __int64 v10; // rsi
-  __int64 v11; // r14
-  unsigned __int64 v12; // rcx
-  bool v13; // zf
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rcx
-  bool v16; // al
-  bool v18; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int64 v9; // rcx
+  __int64 MillisecondCounter; // rsi
+  unsigned __int64 v11; // rcx
+  bool v12; // zf
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rcx
+  bool v15; // al
+  bool v17; // [rsp+30h] [rbp-D0h] BYREF
+  int v18; // [rsp+34h] [rbp-CCh] BYREF
   unsigned __int64 v19; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v20; // [rsp+40h] [rbp-C0h] BYREF
   unsigned __int64 v21; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v22; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v23; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v24; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v25; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v26[3]; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v27; // [rsp+88h] [rbp-78h]
-  struct _EVENT_DATA_DESCRIPTOR v28[2]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 *v29; // [rsp+C0h] [rbp-40h]
-  __int64 v30; // [rsp+C8h] [rbp-38h]
-  bool *v31; // [rsp+D0h] [rbp-30h]
+  __int64 v26; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v27; // [rsp+78h] [rbp-88h] BYREF
+  _QWORD v28[3]; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v29; // [rsp+98h] [rbp-68h]
+  struct _EVENT_DATA_DESCRIPTOR v30; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 *v31; // [rsp+D0h] [rbp-30h]
   __int64 v32; // [rsp+D8h] [rbp-28h]
-  unsigned __int64 *v33; // [rsp+E0h] [rbp-20h]
+  __int64 *v33; // [rsp+E0h] [rbp-20h]
   __int64 v34; // [rsp+E8h] [rbp-18h]
   __int64 *v35; // [rsp+F0h] [rbp-10h]
   __int64 v36; // [rsp+F8h] [rbp-8h]
@@ -60,24 +60,29 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
   __int64 v40; // [rsp+118h] [rbp+18h]
   __int64 *v41; // [rsp+120h] [rbp+20h]
   __int64 v42; // [rsp+128h] [rbp+28h]
+  struct _EVENT_DATA_DESCRIPTOR v43; // [rsp+130h] [rbp+30h] BYREF
+  bool *v44; // [rsp+150h] [rbp+50h]
+  __int64 v45; // [rsp+158h] [rbp+58h]
+  int *v46; // [rsp+160h] [rbp+60h]
+  __int64 v47; // [rsp+168h] [rbp+68h]
 
-  v27 = 0LL;
-  MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
+  v1 = a1 + 304;
+  v29 = 0LL;
+  v3 = MEMORY[0xFFFFF78000000008];
   *(_DWORD *)(a1 + 80) |= 1u;
   v19 = 0LL;
-  v3 = MillisecondCounter;
-  v21 = 0LL;
   v20 = 0LL;
+  v21 = 0LL;
   IopLiveDumpCallRemovePagesCallbacks((_DWORD *)a1);
-  v26[0] = IopLiveDumpStartMirroringCallback;
-  v26[1] = IopLiveDumpEndMirroringCallback;
-  v26[2] = IopLiveDumpMirrorPhysicalMemoryCallback;
+  v28[0] = IopLiveDumpStartMirroringCallback;
+  v28[1] = IopLiveDumpEndMirroringCallback;
+  v28[2] = IopLiveDumpMirrorPhysicalMemoryCallback;
   v4 = *(_DWORD *)(a1 + 80);
   v5 = (*(_BYTE *)(a1 + 40) & 4) != 0 ? 657 : 593;
-  DWORD2(v27) = v5;
+  DWORD2(v29) = v5;
   if ( (v4 & 0x20) != 0 )
-    DWORD2(v27) = v5 | 0x100;
-  v7 = MmDuplicateMemory((__int64)v26);
+    DWORD2(v29) = v5 | 0x100;
+  v7 = MmDuplicateMemory((__int64)v28);
   if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
   {
     v6 = (unsigned __int64)(1000LL * *(_QWORD *)(a1 + 456)) % PerformanceFrequency.QuadPart;
@@ -85,10 +90,10 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
   }
   if ( v7 < 0 || v7 == 258 )
   {
-    if ( (*(_DWORD *)(a1 + 312) & 1) != 0 )
+    if ( (*(_DWORD *)(v1 + 8) & 1) != 0 )
     {
       LOBYTE(v6) = 1;
-      IopLiveDumpUncorralProcessors(a1 + 304, v6);
+      IopLiveDumpUncorralProcessors(v1, v6);
     }
     *(_QWORD *)(a1 + 96) = 0LL;
     *(_QWORD *)(a1 + 120) = 0LL;
@@ -104,82 +109,76 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
   else
   {
     v8 = RtlNumberOfSetBitsEx((_QWORD *)(a1 + 544));
-    v9 = *(_DWORD *)(a1 + 44);
     *(_QWORD *)(a1 + 120) = 0LL;
-    *(_QWORD *)(a1 + 96) = v8 + (v8 >> 4);
+    v9 = v8 + (v8 >> 4);
     *(_QWORD *)(a1 + 128) = 0LL;
+    LODWORD(v8) = *(_DWORD *)(a1 + 44);
+    *(_QWORD *)(a1 + 96) = v9;
     *(_QWORD *)(a1 + 136) = 0LL;
-    if ( (v9 & 1) != 0 )
+    if ( (v8 & 1) != 0 )
     {
-      v10 = v9 & 2;
-      v11 = 0LL;
+      MillisecondCounter = 0LL;
       if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
-        v11 = IopLiveDumpGetMillisecondCounter(0);
-      v7 = HvlCalculateLivedumpSize(v10, &v19, &v21, &v20);
+        MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
+      v7 = HvlCalculateLivedumpSize(&v19, &v20, &v21);
       if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
-        *(_QWORD *)(a1 + 288) = IopLiveDumpGetMillisecondCounter(0) - v11;
+        *(_QWORD *)(a1 + 288) = IopLiveDumpGetMillisecondCounter(0) - MillisecondCounter;
       if ( v7 < 0 )
       {
         *(_DWORD *)(a1 + 80) |= 0x10u;
         IopLiveDumpTraceQueryHvlDumpSizeFailure(v7);
-        if ( (unsigned int)dword_140C064E0 > 5 && tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C044D8 > 5 && tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL) )
         {
-          v20 = 0x1000000LL;
-          v29 = &v20;
-          v16 = (*(_DWORD *)(a1 + 80) & 0x10) != 0;
-          v30 = 8LL;
-          v18 = v16;
-          v32 = 1LL;
-          v31 = &v18;
-          v33 = &v19;
-          LODWORD(v19) = v7;
-          v34 = 4LL;
+          v15 = (*(_DWORD *)(a1 + 80) & 0x10) != 0;
+          v45 = 1LL;
+          v17 = v15;
+          v18 = v7;
+          v47 = 4LL;
+          v44 = &v17;
+          v46 = &v18;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C064E0,
-            (unsigned __int8 *)byte_14002B6D0,
-            (const GUID *)(a1 + 960),
-            (const GUID *)(a1 + 944),
-            5u,
-            v28);
+            (__int64)&dword_140C044D8,
+            (unsigned __int8 *)&byte_140024A17,
+            (const GUID *)(a1 + 864),
+            (const GUID *)(a1 + 848),
+            4u,
+            &v43);
         }
         v7 = 0;
       }
       else
       {
-        v12 = v21;
-        v13 = (v21 & 0xFFF) == 0;
+        v11 = v20;
+        v12 = (v20 & 0xFFF) == 0;
         *(_QWORD *)(a1 + 120) = (v19 >> 12) + ((v19 & 0xFFF) != 0);
-        v14 = (v12 >> 12) + !v13;
-        v15 = v20;
-        v13 = (v20 & 0xFFF) == 0;
-        *(_QWORD *)(a1 + 128) = v14;
-        *(_QWORD *)(a1 + 136) = (v15 >> 12) + !v13;
+        v13 = (v11 >> 12) + !v12;
+        v14 = v21;
+        v12 = (v21 & 0xFFF) == 0;
+        *(_QWORD *)(a1 + 128) = v13;
+        *(_QWORD *)(a1 + 136) = (v14 >> 12) + !v12;
       }
     }
   }
-  *(_QWORD *)(a1 + 432) = IopLiveDumpGetMillisecondCounter(0) - v3;
+  *(_QWORD *)(a1 + 432) = (MEMORY[0xFFFFF78000000008] - v3) / 0x2710uLL;
   IopLiveDumpTraceBufferEstimation();
   RtlClearAllBitsEx(a1 + 544);
   RtlClearAllBitsEx(a1 + 600);
   RtlClearAllBitsEx(a1 + 656);
   *(_DWORD *)(a1 + 80) &= ~1u;
-  if ( (unsigned int)dword_140C064E0 > 5 && tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C044D8 > 5 && tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL) )
   {
-    v20 = 0x1000000LL;
-    v29 = &v20;
-    v21 = *(_QWORD *)(a1 + 432);
-    v30 = 8LL;
-    v31 = (bool *)&v21;
-    v19 = *(_QWORD *)(a1 + 440);
-    v33 = &v19;
-    v22 = *(_QWORD *)(a1 + 448);
-    v35 = &v22;
-    v23 = *(_QWORD *)(a1 + 464);
-    v37 = &v23;
-    v24 = *(_QWORD *)(a1 + 472);
-    v39 = &v24;
-    v25 = *(_QWORD *)(a1 + 288);
-    v41 = &v25;
+    v22 = *(_QWORD *)(a1 + 432);
+    v31 = &v22;
+    v23 = *(_QWORD *)(a1 + 440);
+    v33 = &v23;
+    v24 = *(_QWORD *)(a1 + 448);
+    v35 = &v24;
+    v25 = *(_QWORD *)(a1 + 464);
+    v37 = &v25;
+    v26 = *(_QWORD *)(a1 + 472);
+    v39 = &v26;
+    v27 = *(_QWORD *)(a1 + 288);
+    v41 = &v27;
     v32 = 8LL;
     v34 = 8LL;
     v36 = 8LL;
@@ -187,12 +186,12 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     v40 = 8LL;
     v42 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C064E0,
-      (unsigned __int8 *)&dword_14002B72C,
-      (const GUID *)(a1 + 960),
-      (const GUID *)(a1 + 944),
-      9u,
-      v28);
+      (__int64)&dword_140C044D8,
+      (unsigned __int8 *)byte_14002490B,
+      (const GUID *)(a1 + 864),
+      (const GUID *)(a1 + 848),
+      8u,
+      &v30);
   }
   return (unsigned int)v7;
 }

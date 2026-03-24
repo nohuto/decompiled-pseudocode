@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhBusIf_GetContainerIdForPort @ 0x1C001F008
+ * XREFs of UsbhBusIf_GetContainerIdForPort @ 0x1C001C9E8
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbhBusIf_GetContainerIdForPort(__int64 a1, unsigned __int16 a2, __int64 a3)

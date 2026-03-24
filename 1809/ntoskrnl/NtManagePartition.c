@@ -4,18 +4,18 @@
  *     <none>
  * Callees:
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PsReferencePartitionByHandle @ 0x1406083B4 (PsReferencePartitionByHandle.c)
  *     MmManagePartitionMemoryInformation @ 0x140608464 (MmManagePartitionMemoryInformation.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     MiCreatePagingFile @ 0x14074BFD8 (MiCreatePagingFile.c)
- *     MmManagePartitionGetMemoryEvents @ 0x140760F54 (MmManagePartitionGetMemoryEvents.c)
- *     MmManagePartitionCombineMemory @ 0x140860934 (MmManagePartitionCombineMemory.c)
- *     MmManagePartitionInitialAddMemory @ 0x140860998 (MmManagePartitionInitialAddMemory.c)
- *     MmManagePartitionMoveMemory @ 0x140860AA4 (MmManagePartitionMoveMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     MmManagePartitionGetMemoryEvents @ 0x140760F34 (MmManagePartitionGetMemoryEvents.c)
+ *     MmManagePartitionCombineMemory @ 0x140860914 (MmManagePartitionCombineMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140860978 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140860A84 (MmManagePartitionMoveMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4, unsigned int Size)

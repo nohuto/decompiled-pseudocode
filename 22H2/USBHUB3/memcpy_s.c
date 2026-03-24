@@ -1,12 +1,12 @@
 /*
- * XREFs of memcpy_s @ 0x1C0044850
+ * XREFs of memcpy_s @ 0x1C0042910
  * Callers:
- *     HUBACPI_ExecuteDSM @ 0x1C00889D4 (HUBACPI_ExecuteDSM.c)
- *     HUBACPI_EvaluateDsmMethod @ 0x1C0088CAC (HUBACPI_EvaluateDsmMethod.c)
+ *     HUBACPI_ExecuteDSM @ 0x1C0082960 (HUBACPI_ExecuteDSM.c)
+ *     HUBACPI_EvaluateDsmMethod @ 0x1C0082C40 (HUBACPI_EvaluateDsmMethod.c)
  * Callees:
- *     HUBFDO_GetPortStatusForDebuggingComplete @ 0x1C000E160 (HUBFDO_GetPortStatusForDebuggingComplete.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     HUBFDO_GetPortStatusForDebuggingComplete @ 0x1C000CF70 (HUBFDO_GetPortStatusForDebuggingComplete.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 errno_t __cdecl memcpy_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

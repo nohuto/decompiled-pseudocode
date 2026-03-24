@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkWorkingSet @ 0x1402172E4
+ * XREFs of MiUnlinkWorkingSet @ 0x14029736C
  * Callers:
- *     MiUnlinkSessionWorkingSet @ 0x140216BC0 (MiUnlinkSessionWorkingSet.c)
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     MmDeleteProcessAddressSpace @ 0x140693C24 (MmDeleteProcessAddressSpace.c)
+ *     MiUnlinkSessionWorkingSet @ 0x140389D48 (MiUnlinkSessionWorkingSet.c)
+ *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkWorkingSet(__int64 a1, struct _KLOCK_QUEUE_HANDLE *a2)

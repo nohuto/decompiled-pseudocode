@@ -1,18 +1,18 @@
 /*
- * XREFs of PspUnlockQuotaListShared @ 0x140248BC8
+ * XREFs of PspUnlockQuotaListShared @ 0x1402C2798
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1406C86A0 (PspAssignProcessQuotaBlock.c)
- *     PspLookupProcessQuotaBlock @ 0x1406C8888 (PspLookupProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x1406AD8B4 (PspAssignProcessQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x1406ADA9C (PspLookupProcessQuotaBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-__int64 __fastcall PspUnlockQuotaListShared(__int64 a1, volatile signed __int64 *a2)
+_QWORD *__fastcall PspUnlockQuotaListShared(__int64 a1, volatile signed __int64 *a2)
 {
   if ( _InterlockedCompareExchange64(a2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(a2);
   KeAbPostRelease((ULONG_PTR)a2);
-  return KiLeaveCriticalRegionUnsafe(a1);
+  return KeLeaveCriticalRegionThread(a1);
 }

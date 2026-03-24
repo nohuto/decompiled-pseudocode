@@ -1,48 +1,42 @@
 /*
- * XREFs of SepUpdateSiloInClientSecurity @ 0x1409CC028
+ * XREFs of SepUpdateSiloInClientSecurity @ 0x140922668
  * Callers:
- *     SeCreateClientSecurityEx @ 0x1407275D0 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
  * Callees:
- *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
- *     SeQueryServerSiloToken @ 0x1406C1480 (SeQueryServerSiloToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x1409C61B0 (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x1409CC4D4 (SeGetTokenControlInformation.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     SeQueryServerSiloToken @ 0x1406B04A0 (SeQueryServerSiloToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14091C7CC (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x140922AE4 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepUpdateSiloInClientSecurity(__int64 a1, __int64 a2)
 {
-  _QWORD *v2; // r14
-  __int64 v5; // rbx
-  int ServerSiloToken; // esi
-  PVOID v7; // rbp
-  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
-  PVOID v10; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+20h]
+  struct _DMA_ADAPTER *v2; // rbp
+  _DMA_OPERATIONS *DmaOperations; // rbx
+  int v6; // esi
+  PADAPTER_OBJECT v7; // rbx
+  int (__fastcall *v9)(_DMA_ADAPTER *, _DEVICE_OBJECT *, _MDL *, void *, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, unsigned __int8, void *, unsigned int); // [rsp+50h] [rbp+8h] BYREF
+  PADAPTER_OBJECT v10; // [rsp+60h] [rbp+18h] BYREF
+  _DMA_OPERATIONS *v11; // [rsp+68h] [rbp+20h]
 
-  v2 = *(_QWORD **)(a1 + 16);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 16);
   v9 = 0LL;
   v10 = 0LL;
-  v5 = v2[3];
-  v11 = v5;
-  ServerSiloToken = SeQueryServerSiloToken((__int64)v2, (__int64)&v9);
-  if ( ServerSiloToken >= 0 && PsIsHostSilo(v9) && (_DWORD)v5 == 999 && !HIDWORD(v11) )
+  DmaOperations = v2[1].DmaOperations;
+  v11 = DmaOperations;
+  v6 = SeQueryServerSiloToken((__int64)v2, &v9);
+  if ( v6 >= 0 && PsIsHostSilo((__int64)v9) && (_DWORD)DmaOperations == 999 && !HIDWORD(v11) )
   {
-    ServerSiloToken = SepCopyClientTokenAndSetSilo((int)v2, *(_DWORD *)(a1 + 4), a2, &v10);
-    if ( ServerSiloToken >= 0 )
+    v6 = SepCopyClientTokenAndSetSilo((int)v2, *(_DWORD *)(a1 + 4), a2, &v10);
+    if ( v6 >= 0 )
     {
       v7 = v10;
-      if ( ObpTraceFlags )
-      {
-        ObpPushStackInfo((__int64)v10 - 48, 0, 1u, 0x746C6644u);
-        ObpPushStackInfo((__int64)v7 - 48, 1, 1u, 0x63436553u);
-      }
-      *(_QWORD *)(a1 + 16) = v7;
+      *(_QWORD *)(a1 + 16) = v10;
       *(_BYTE *)(a1 + 24) = 0;
-      ObfDereferenceObjectWithTag(v2, 0x63436553u);
+      HalPutDmaAdapter(v2);
       SeGetTokenControlInformation(v7, a1 + 28);
     }
   }
-  return (unsigned int)ServerSiloToken;
+  return (unsigned int)v6;
 }

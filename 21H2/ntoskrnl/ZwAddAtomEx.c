@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAddAtomEx @ 0x14041C480
+ * XREFs of ZwAddAtomEx @ 0x1403FB0C0
  * Callers:
  *     <none>
  * Callees:

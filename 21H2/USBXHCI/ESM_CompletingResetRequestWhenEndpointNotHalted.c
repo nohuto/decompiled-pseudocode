@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C004F530
+ * XREFs of ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C004EA40
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039BA0 (Endpoint_SM_CompleteResetRequestFromClient.c)
+ *     Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039920 (Endpoint_SM_CompleteResetRequestFromClient.c)
  */
 
 __int64 __fastcall ESM_CompletingResetRequestWhenEndpointNotHalted(__int64 a1, __int64 a2, int a3)

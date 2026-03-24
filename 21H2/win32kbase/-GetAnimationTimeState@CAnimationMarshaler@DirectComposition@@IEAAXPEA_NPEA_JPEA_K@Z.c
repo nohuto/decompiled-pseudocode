@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C02157E4
+ * XREFs of ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C01D5DA8
  * Callers:
- *     ?BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C008418C (-BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAn.c)
- *     ?GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z @ 0x1C021577C (-GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z.c)
+ *     ?BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C0091A28 (-BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAn.c)
+ *     ?GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z @ 0x1C01D5D40 (-GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z.c)
  * Callees:
- *     ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00B3B80 (-CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@.c)
+ *     ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C009B260 (-CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@.c)
  */
 
 void __fastcall DirectComposition::CAnimationMarshaler::GetAnimationTimeState(
@@ -31,10 +31,10 @@ void __fastcall DirectComposition::CAnimationMarshaler::GetAnimationTimeState(
   v17 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  if ( (*(_DWORD *)(*((_QWORD *)this + 10) + 24LL) & 3) != 0 )
+  if ( (*(_DWORD *)(*((_QWORD *)this + 9) + 24LL) & 3) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    v12 = (struct DirectComposition::CAnimationTimeList *)*((_QWORD *)this + 10);
+    v12 = (struct DirectComposition::CAnimationTimeList *)*((_QWORD *)this + 9);
     QuadPart = PerformanceCounter.QuadPart;
     if ( v12 )
     {
@@ -51,9 +51,9 @@ void __fastcall DirectComposition::CAnimationMarshaler::GetAnimationTimeState(
   }
   else
   {
-    v10 = *((_QWORD *)this + 29);
-    v9 = *((_QWORD *)this + 28);
-    v4 = (*((_BYTE *)this + 216) & 4) != 0;
+    v10 = *((_QWORD *)this + 28);
+    v9 = *((_QWORD *)this + 27);
+    v4 = (*((_BYTE *)this + 208) & 4) != 0;
   }
   *a3 = v9;
   *a4 = v10;

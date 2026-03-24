@@ -1,18 +1,18 @@
 /*
- * XREFs of KeAddEnclavePage @ 0x1405702D8
+ * XREFs of KeAddEnclavePage @ 0x140514E98
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D21D8 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiEncls @ 0x14041F5C0 (KiEncls.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiEncls @ 0x1403FE6E0 (KiEncls.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall KeAddEnclavePage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _DWORD *a6)
 {
   _DWORD *v6; // rbp
-  __int64 v11; // rax
+  ULONG_PTR v11; // rax
   unsigned int v12; // r10d
   int v13; // edx
   int v14; // ecx
@@ -29,7 +29,7 @@ __int64 __fastcall KeAddEnclavePage(__int64 a1, __int64 a2, __int64 a3, __int64 
     return 3221225659LL;
   if ( (a5 & 0x40) != 0 )
   {
-    if ( !_bittest64(&KeFeatureBits, 0x2Bu) )
+    if ( (KeFeatureBits & 0x80000000000LL) == 0 )
       return 3221225496LL;
     v12 = 13;
     if ( (a5 & 0xF) != 3 )

@@ -1,30 +1,36 @@
 /*
- * XREFs of CmpLockKcbStackShared @ 0x1406D56E8
+ * XREFs of CmpLockKcbStackShared @ 0x140648B00
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x1406D4B90 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpQueryKeySecurity @ 0x1406D5C50 (CmpQueryKeySecurity.c)
- *     CmQueryValueKey @ 0x1406E0370 (CmQueryValueKey.c)
- *     CmCallbackGetKeyObjectID @ 0x1408ABBD0 (CmCallbackGetKeyObjectID.c)
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x140A13C14 (CmEnumerateValueFromLayeredKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x140A13F50 (CmQueryMultipleValueForLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmpQueryKeySecurity @ 0x1406DE150 (CmpQueryKeySecurity.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x1406DE9E0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869AC0 (CmCallbackGetKeyObjectID.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C2B0 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C598 (CmQueryMultipleValueForLayeredKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
-void __fastcall CmpLockKcbStackShared(__int64 a1)
+__int64 __fastcall CmpLockKcbStackShared(__int64 a1)
 {
   __int16 i; // bx
-  __int64 KcbAtLayerHeight; // rax
+  __int64 v3; // rdi
+  __int64 result; // rax
 
   for ( i = 0; i <= *(__int16 *)(a1 + 2); ++i )
   {
-    KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1);
-    CmpLockKcbShared(KcbAtLayerHeight);
+    if ( i >= 2 )
+      v3 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * i - 16);
+    else
+      v3 = *(_QWORD *)(a1 + 8LL * i + 8);
+    result = ExAcquirePushLockSharedEx(v3 + 48, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v3 + 56));
   }
+  return result;
 }

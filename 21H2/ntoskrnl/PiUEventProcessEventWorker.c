@@ -1,17 +1,17 @@
 /*
- * XREFs of PiUEventProcessEventWorker @ 0x14078ACE0
+ * XREFs of PiUEventProcessEventWorker @ 0x1406E6140
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x1406DF998 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1406E6000 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x1407698C4 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventDereferenceEventEntry @ 0x14078AE7C (PiUEventDereferenceEventEntry.c)
- *     PiUEventProcessBroadcastNotifications @ 0x14078AF40 (PiUEventProcessBroadcastNotifications.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x14078B9BC (PiUEventNotifyTargetDeviceChange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PiUEventDereferenceEventEntry @ 0x1406E62DC (PiUEventDereferenceEventEntry.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x1406E63A0 (PiUEventProcessBroadcastNotifications.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x1406E7188 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140749838 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14076C99C (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140770C5C (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventProcessEventWorker(PVOID P)
@@ -36,12 +36,12 @@ void __fastcall PiUEventProcessEventWorker(PVOID P)
         v5 = PiUEventNotifyTargetDeviceChange(v3);
         break;
       case 2:
-        v5 = PiUEventNotifyDeviceInterfaceChange((__int64)v3);
+        v5 = PiUEventNotifyDeviceInterfaceChange(v3);
         break;
       case 4:
         goto LABEL_18;
       case 9:
-        v5 = PiUEventNotifyDeviceInstancePropertyChange((__int64)v3);
+        v5 = PiUEventNotifyDeviceInstancePropertyChange(v3);
         break;
       default:
         if ( v4 <= 9 || v4 > 11 )
@@ -51,7 +51,7 @@ LABEL_5:
           goto LABEL_6;
         }
 LABEL_18:
-        v5 = PiUEventNotifyDeviceInstanceChange((__int64)v3);
+        v5 = PiUEventNotifyDeviceInstanceChange(v3);
         break;
     }
     if ( v5 >= 0 )

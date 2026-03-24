@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsNotifyTransitionFailed @ 0x140983BAC
+ * XREFs of PopDirectedDripsNotifyTransitionFailed @ 0x1408E3760
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F16C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x1408F805C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
  */
 
 LONG_PTR __fastcall PopDirectedDripsNotifyTransitionFailed(__int64 a1)
@@ -21,6 +21,6 @@ LONG_PTR __fastcall PopDirectedDripsNotifyTransitionFailed(__int64 a1)
       PopDirectedDripsDiagTraceBroadcastFailureDevice();
     result = ObfDereferenceObjectWithTag(v2, 0x67696450u);
   }
-  byte_140C3F3F4 = 1;
+  byte_140C24ED4 = 1;
   return result;
 }

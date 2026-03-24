@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAddAtomEx @ 0x1406AC980
+ * XREFs of NtAddAtomEx @ 0x1406AC960
  * Callers:
- *     NtAddAtom @ 0x1408D7160 (NtAddAtom.c)
+ *     NtAddAtom @ 0x1408D7140 (NtAddAtom.c)
  * Callees:
  *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
  *     RtlAddAtomToAtomTableEx @ 0x1400895B0 (RtlAddAtomToAtomTableEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAddAtomEx(char *Src, size_t Size, _WORD *a3, unsigned int a4)

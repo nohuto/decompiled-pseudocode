@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x1401BB830
+ * XREFs of ZwSystemDebugControl @ 0x1401BB850
  * Callers:
  *     <none>
  * Callees:

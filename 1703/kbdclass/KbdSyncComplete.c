@@ -1,1 +1,13 @@
-/*\n * XREFs of KbdSyncComplete @ 0x1C0002950\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall KbdSyncComplete(__int64 a1, __int64 a2, struct _KEVENT *a3)\n{\n  KeSetEvent(a3, 0, 0);\n  return 3221225494LL;\n}\n
+/*
+ * XREFs of KbdSyncComplete @ 0x1C0002950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KbdSyncComplete(__int64 a1, __int64 a2, struct _KEVENT *a3)
+{
+  KeSetEvent(a3, 0, 0);
+  return 3221225494LL;
+}

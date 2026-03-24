@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhSetHubOvercurrentDetectedKey @ 0x1C0046410
+ * XREFs of UsbhSetHubOvercurrentDetectedKey @ 0x1C0047790
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhSetPdoRegistryParameter @ 0x1C0046494 (UsbhSetPdoRegistryParameter.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0047814 (UsbhSetPdoRegistryParameter.c)
  */
 
 __int64 __fastcall UsbhSetHubOvercurrentDetectedKey(__int64 a1)

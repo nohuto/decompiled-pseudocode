@@ -1,21 +1,22 @@
 /*
- * XREFs of RIMSetDeviceOutputConfig @ 0x1C018FED8
+ * XREFs of RIMSetDeviceOutputConfig @ 0x1C0164B4C
  * Callers:
- *     RIMOnDisplayStateChange @ 0x1C007298C (RIMOnDisplayStateChange.c)
- *     RIMEnableMonitorMappingForDevice @ 0x1C0177190 (RIMEnableMonitorMappingForDevice.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18 (RIMVirtCreatePointerDeviceInfo.c)
- *     rimInUserCritCreatePointerDeviceInfo @ 0x1C018E740 (rimInUserCritCreatePointerDeviceInfo.c)
- *     RIMFindMonitorForDigitizer @ 0x1C018F670 (RIMFindMonitorForDigitizer.c)
- *     RIMSetPointerDeviceInputSpace @ 0x1C019006C (RIMSetPointerDeviceInputSpace.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMOnDisplayStateChange @ 0x1C0056ECC (RIMOnDisplayStateChange.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C0155790 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMFindMonitorForDigitizer @ 0x1C0164500 (RIMFindMonitorForDigitizer.c)
+ *     RIMSetPointerDeviceInputSpace @ 0x1C0164CF0 (RIMSetPointerDeviceInputSpace.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C00588B8 (--0CLockedInputSpace@@QEAA@XZ.c)
- *     RIMEndAllActiveContacts @ 0x1C01776D0 (RIMEndAllActiveContacts.c)
- *     RIMSuppressAllActiveContacts @ 0x1C018C2BC (RIMSuppressAllActiveContacts.c)
- *     ?BindToInputSpace@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@@Z @ 0x1C018EAD8 (-BindToInputSpace@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEBU.c)
- *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C018EFF4 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
- *     rimSetDeviceDisplayConfig @ 0x1C01910D0 (rimSetDeviceDisplayConfig.c)
- *     ?GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01E3DC4 (-GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLocked.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C00455C8 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D000 (RIMEndAllActiveContacts.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C015FB2C (RIMSuppressAllActiveContacts.c)
+ *     ?BindToInputSpace@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@@Z @ 0x1C0163938 (-BindToInputSpace@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEBU.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163E08 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     rimSetDeviceDisplayConfig @ 0x1C0165DEC (rimSetDeviceDisplayConfig.c)
+ *     ?GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01B3288 (-GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLocked.c)
  */
 
 void __fastcall RIMSetDeviceOutputConfig(
@@ -28,20 +29,20 @@ void __fastcall RIMSetDeviceOutputConfig(
   __int64 v9; // rdx
   struct RawInputManagerObject *v10; // rcx
   _DWORD *v11; // r9
-  struct INPUT_SPACE_REGION *v12[2]; // [rsp+20h] [rbp-28h] BYREF
-  struct INPUT_SPACE *v13[3]; // [rsp+30h] [rbp-18h] BYREF
+  struct INPUT_SPACE_REGION *v12[2]; // [rsp+20h] [rbp-38h] BYREF
+  struct INPUT_SPACE *v13[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = 0;
   if ( a2 )
   {
     if ( a3 )
     {
-      v9 = *((_QWORD *)a1 + 59);
+      v9 = *((_QWORD *)a1 + 60);
       v10 = (struct RawInputManagerObject *)*((_QWORD *)a1 + 42);
       if ( *(_DWORD *)(v9 + 24) == 7 )
-        RIMSuppressAllActiveContacts(v10, v9);
+        RIMSuppressAllActiveContacts(v10, v9, 0x200u);
       else
-        RIMEndAllActiveContacts((__int64)v10);
+        RIMEndAllActiveContacts(v10, (__int64)a2, 0LL);
     }
     CLockedInputSpace::CLockedInputSpace((CLockedInputSpace *)v13);
     CLockedInputSpace::CLockedInputSpace((CLockedInputSpace *)v12);
@@ -56,6 +57,7 @@ void __fastcall RIMSetDeviceOutputConfig(
     }
     else
     {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 682);
       *((_DWORD *)a2 + 39) = 0;
     }
     InputTraceLogging::Pointer::BindToInputSpace(a1, a2, v13[0], v12[0]);
@@ -64,12 +66,12 @@ void __fastcall RIMSetDeviceOutputConfig(
     ExReleaseResourceLite(*(PERESOURCE *)v13[1]);
     KeLeaveCriticalRegion();
   }
-  if ( *((_DWORD *)a1 + 334) && a4 && *((_DWORD *)a1 + 338) != 4 && *(_DWORD *)a4 )
+  if ( *((_DWORD *)a1 + 336) && a4 && *((_DWORD *)a1 + 340) != 4 && *(_DWORD *)a4 )
   {
     while ( 1 )
     {
-      v11 = (_DWORD *)(*(_QWORD *)(a4 + 8) + 216LL * v4);
-      if ( v11[4] == *((_DWORD *)a1 + 467) && v11[5] == *((_DWORD *)a1 + 468) && v11[7] == *((_DWORD *)a1 + 470) )
+      v11 = (_DWORD *)(*(_QWORD *)(a4 + 8) + 200LL * v4);
+      if ( v11[4] == *((_DWORD *)a1 + 469) && v11[5] == *((_DWORD *)a1 + 470) && v11[7] == *((_DWORD *)a1 + 472) )
         break;
       if ( ++v4 >= *(_DWORD *)a4 )
         return;

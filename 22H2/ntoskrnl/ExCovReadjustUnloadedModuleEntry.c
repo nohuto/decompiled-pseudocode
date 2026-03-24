@@ -1,33 +1,35 @@
 /*
- * XREFs of ExCovReadjustUnloadedModuleEntry @ 0x140696D48
+ * XREFs of ExCovReadjustUnloadedModuleEntry @ 0x1407733E0
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140704A3C (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14075D5C0 (MiConstructLoaderEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusive @ 0x1402FCDF0 (ExfAcquirePushLockExclusive.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x140A061A4 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x140A06408 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovReadFriendlyName @ 0x140A06EFC (ExpCovReadFriendlyName.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402732F0 (ExfAcquirePushLockExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x14095714C (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1409573D0 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x140957E9C (ExpCovReadFriendlyName.c)
  */
 
 void __fastcall ExCovReadjustUnloadedModuleEntry(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rdi
-  __int64 v6; // rbx
-  char v7; // si
+  char v6; // si
+  __int64 v7; // rbx
   _DWORD *v8; // rdi
-  _DWORD *v9; // rbp
-  __int64 v10; // r10
+  _DWORD *v9; // r14
+  SIZE_T v10; // rax
   __int64 v11; // r9
-  unsigned int v12; // edx
+  __int64 v12; // r10
+  __int64 v13; // r9
+  unsigned int v14; // edx
   UNICODE_STRING String2; // [rsp+20h] [rbp-38h] BYREF
 
   *(_DWORD *)(&String2.MaximumLength + 1) = 0;
@@ -39,69 +41,81 @@ void __fastcall ExCovReadjustUnloadedModuleEntry(__int64 a1, char a2)
     --CurrentThread->KernelApcDisable;
     ExfAcquirePushLockExclusive((__int64)&ExpCovPushLock);
     v5 = ExpCovUnloadedModuleList;
-    v6 = 0LL;
-    v7 = 0;
-    while ( (__int64 *)v5 != &ExpCovUnloadedModuleList )
+    v6 = 0;
+    if ( (__int64 *)ExpCovUnloadedModuleList == &ExpCovUnloadedModuleList )
+      goto LABEL_26;
+    while ( 1 )
     {
-      v6 = v5;
+      v7 = v5;
       if ( (int)ExpCovReadFriendlyName(*(_QWORD *)(a1 + 128), a1 + 72, &String2) >= 0
         && !RtlCompareUnicodeString((PCUNICODE_STRING)(v5 + 32), &String2, 1u) )
       {
-        if ( String2.Buffer )
-          RtlFreeUnicodeString(&String2);
         break;
       }
       if ( String2.Buffer )
-        RtlFreeUnicodeString(&String2);
+        RtlFreeAnsiString(&String2);
       v5 = *(_QWORD *)v5;
+      if ( (__int64 *)v5 == &ExpCovUnloadedModuleList )
+        goto LABEL_8;
     }
-    if ( !v6 || (__int64 *)v5 == &ExpCovUnloadedModuleList )
+    if ( String2.Buffer )
+      RtlFreeAnsiString(&String2);
+LABEL_8:
+    if ( !v7 || (__int64 *)v5 == &ExpCovUnloadedModuleList )
     {
+LABEL_26:
       if ( !a2 )
-        v7 = 1;
+        v6 = 1;
+      goto LABEL_28;
     }
-    else
+    v8 = *(_DWORD **)(v7 + 56);
+    v9 = *(_DWORD **)(a1 + 128);
+    if ( v9[1] == v8[1] && v9[6] == v8[6] && v9[7] == v8[7] )
     {
-      v8 = *(_DWORD **)(v6 + 56);
-      v9 = *(_DWORD **)(a1 + 128);
-      if ( v9[1] == v8[1] && v9[6] == v8[6] && v9[7] == v8[7] && RtlCompareMemory(v9 + 2, v8 + 2, 0x10uLL) == 16 )
+      v10 = RtlCompareMemory(v9 + 2, v8 + 2, 0x10uLL);
+      v11 = v7 + 16;
+      if ( v10 == 16 )
       {
-        DbgPrintEx(0x7Eu, 2u, "COV: Entry for same versioned %wZ found\n", v6 + 16, *(_QWORD *)&String2.Length);
-        v10 = *(_QWORD *)(a1 + 128) + (unsigned int)v9[8];
-        v11 = *(_QWORD *)(v6 + 56) + (unsigned int)v8[8];
+        DbgPrintEx(0x7Eu, 2u, "COV: Entry for same versioned %wZ found\n", v11, *(_QWORD *)&String2.Length);
+        v12 = *(_QWORD *)(a1 + 128) + (unsigned int)v9[8];
+        v13 = *(_QWORD *)(v7 + 56) + (unsigned int)v8[8];
         if ( a2 )
         {
           memmove(
             (void *)(*(_QWORD *)(a1 + 128) + (unsigned int)v9[8]),
-            (const void *)(*(_QWORD *)(v6 + 56) + (unsigned int)v8[8]),
+            (const void *)(*(_QWORD *)(v7 + 56) + (unsigned int)v8[8]),
             (unsigned int)v9[7]);
-          ExpCovDeleteUnloadedModuleEntry(v6);
+          ExpCovDeleteUnloadedModuleEntry(v7);
         }
         else
         {
-          v12 = 0;
+          v14 = 0;
           if ( (v8[7] & 0xFFFFFFFC) != 0 )
           {
             do
             {
-              _InterlockedOr((volatile signed __int32 *)(v11 + 4LL * v12), *(_DWORD *)(v10 + 4LL * v12));
-              ++v12;
+              _InterlockedOr((volatile signed __int32 *)(v13 + 4LL * v14), *(_DWORD *)(v12 + 4LL * v14));
+              ++v14;
             }
-            while ( v12 < v8[7] >> 2 );
+            while ( v14 < v8[7] >> 2 );
           }
         }
-      }
-      else
-      {
-        DbgPrintEx(0x7Eu, 2u, "COV: Entry for different versioned %wZ found\n", v6 + 16, *(_QWORD *)&String2.Length);
-        ExpCovDeleteUnloadedModuleEntry(v6);
-        if ( !a2 )
-          v7 = 1;
+LABEL_28:
+        ExfReleasePushLock(&ExpCovPushLock);
+        KeLeaveCriticalRegion();
+        if ( v6 )
+          ExpCovCreateUnloadedModuleEntry(a1);
+        return;
       }
     }
-    ExfReleasePushLock(&ExpCovPushLock);
-    KeLeaveCriticalRegion();
-    if ( v7 )
-      ExpCovCreateUnloadedModuleEntry(a1);
+    else
+    {
+      v11 = v7 + 16;
+    }
+    DbgPrintEx(0x7Eu, 2u, "COV: Entry for different versioned %wZ found\n", v11, *(_QWORD *)&String2.Length);
+    ExpCovDeleteUnloadedModuleEntry(v7);
+    if ( !a2 )
+      v6 = 1;
+    goto LABEL_28;
   }
 }

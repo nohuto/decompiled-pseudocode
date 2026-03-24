@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A1E80
+ * XREFs of ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A40E0
  * Callers:
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A1E80 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A40E0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A1E80 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
- *     ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A4A00 (-ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A40E0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A6FE0 (-ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  */
 
 unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int a2, _QWORD *a3, struct _RECTL *a4)
@@ -62,7 +62,7 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
           v23 = grclEmpty;
         }
         if ( v20 != 2
-          || (v16 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v14 + 2984)) == 0LL )
+          || (v16 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v14 + 3008)) == 0LL )
         {
           v16 = ulSimulateSaveScreenBits;
         }
@@ -106,8 +106,8 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
       v23.right -= *v11;
       v23.top -= *((_DWORD *)v7 + 8);
       v23.bottom -= *((_DWORD *)v7 + 8);
-      if ( *(_QWORD *)(v7[6] + 2984) )
-        v6 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v7[6] + 2984);
+      if ( *(_QWORD *)(v7[6] + 3008) )
+        v6 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v7[6] + 3008);
       v12 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, struct _RECTL *))v6)(v7[8], 0LL, 0LL, &v23);
       if ( !v12 )
       {

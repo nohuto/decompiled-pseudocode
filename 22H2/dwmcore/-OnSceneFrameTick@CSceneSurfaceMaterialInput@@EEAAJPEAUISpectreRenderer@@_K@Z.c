@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnSceneFrameTick@CSceneSurfaceMaterialInput@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1802515C0
+ * XREFs of ?OnSceneFrameTick@CSceneSurfaceMaterialInput@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801EBE70
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CSceneSurfaceMaterialInput::OnSceneFrameTick(
@@ -26,12 +26,12 @@ __int64 __fastcall CSceneSurfaceMaterialInput::OnSceneFrameTick(
     v6 = v5(a2, v2);
     if ( v6 < 0 )
     {
-      v7 = 204LL;
+      v7 = 208LL;
 LABEL_4:
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)v7,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\spatialsurfacematerialinput.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\spatialsurfacematerialinput.cpp",
         (const char *)(unsigned int)v6);
       return (unsigned int)v6;
     }
@@ -42,13 +42,13 @@ LABEL_4:
            *((unsigned int *)this + 12));
     if ( v6 < 0 )
     {
-      v7 = 209LL;
+      v7 = 213LL;
       goto LABEL_4;
     }
-    (*(void (__fastcall **)(char *, _QWORD, char *))(*((_QWORD *)this - 8) + 72LL))(
-      (char *)this - 64,
+    (*(void (__fastcall **)(char *, _QWORD, char *))(*((_QWORD *)this - 7) + 72LL))(
+      (char *)this - 56,
       0LL,
-      (char *)this - 64);
+      (char *)this - 56);
   }
   return 0LL;
 }

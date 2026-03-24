@@ -1,28 +1,29 @@
 /*
- * XREFs of AuthzBasepDeleteAllSecurityAttributeValues @ 0x140376790
+ * XREFs of AuthzBasepDeleteAllSecurityAttributeValues @ 0x1402C9764
  * Callers:
- *     AuthzBasepDeleteSecurityAttribute @ 0x1402053E4 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepDeleteAllSecurityAttributes @ 0x14064A2A8 (AuthzBasepDeleteAllSecurityAttributes.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140251080 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepDeleteAllSecurityAttributes @ 0x1405C123C (AuthzBasepDeleteAllSecurityAttributes.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140204AE4 (AuthzBasepAddSecurityAttributeValueToLists.c)
- *     AuthzBasepFreeSecurityAttributeValues @ 0x14028AC10 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140250E90 (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402C97B4 (AuthzBasepFreeSecurityAttributeValues.c)
  */
 
-__int64 __fastcall AuthzBasepDeleteAllSecurityAttributeValues(__int64 a1)
+__int64 __fastcall AuthzBasepDeleteAllSecurityAttributeValues(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r11
+  __int64 v3; // r11
   __int64 i; // rdx
-  int v4; // eax
+  int v5; // eax
   __int64 result; // rax
 
-  AuthzBasepFreeSecurityAttributeValues(a1, 1);
-  v2 = a1 + 72;
-  for ( i = *(_QWORD *)(a1 + 72); i != v2; i = *(_QWORD *)i )
+  LOBYTE(a2) = 1;
+  AuthzBasepFreeSecurityAttributeValues(a1, a2);
+  v3 = a1 + 72;
+  for ( i = *(_QWORD *)(a1 + 72); i != v3; i = *(_QWORD *)i )
   {
-    v4 = *(_DWORD *)(i + 32);
-    if ( (v4 & 2) == 0 )
+    v5 = *(_DWORD *)(i + 32);
+    if ( (v5 & 2) == 0 )
     {
-      *(_DWORD *)(i + 32) = v4 | 4;
+      *(_DWORD *)(i + 32) = v5 | 4;
       AuthzBasepAddSecurityAttributeValueToLists(a1, i, 0, 1);
     }
   }

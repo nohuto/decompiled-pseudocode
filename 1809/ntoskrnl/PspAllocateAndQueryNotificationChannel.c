@@ -1,15 +1,15 @@
 /*
- * XREFs of PspAllocateAndQueryNotificationChannel @ 0x1406ACB24
+ * XREFs of PspAllocateAndQueryNotificationChannel @ 0x1406ACB04
  * Callers:
  *     NtQueryInformationJobObject @ 0x1405FE8F0 (NtQueryInformationJobObject.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExConvertExclusiveToSharedLite @ 0x140120F30 (ExConvertExclusiveToSharedLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1401B9A30 (ZwCreateWnfStateName.c)
- *     ZwDeleteWnfStateName @ 0x1401B9BD0 (ZwDeleteWnfStateName.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140120F50 (ExConvertExclusiveToSharedLite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1401B9A50 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1401B9BF0 (ZwDeleteWnfStateName.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReleaseObjectSecurity @ 0x1405C93E0 (ObReleaseObjectSecurity.c)
@@ -20,13 +20,13 @@
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspUnlockJobConditionally @ 0x1405FE8B8 (PspUnlockJobConditionally.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     PspLockRootJobExclusive @ 0x1406ACE58 (PspLockRootJobExclusive.c)
- *     PspDispatchWakeNotification @ 0x1406AD114 (PspDispatchWakeNotification.c)
- *     PspComputeReportWakeFilter @ 0x1406AD188 (PspComputeReportWakeFilter.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1E0 (RtlGetOwnerSecurityDescriptor.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     PspLockRootJobExclusive @ 0x1406ACE38 (PspLockRootJobExclusive.c)
+ *     PspDispatchWakeNotification @ 0x1406AD0F4 (PspDispatchWakeNotification.c)
+ *     PspComputeReportWakeFilter @ 0x1406AD168 (PspComputeReportWakeFilter.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1C0 (RtlGetOwnerSecurityDescriptor.c)
  */
 
 __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2, _OWORD *a3)

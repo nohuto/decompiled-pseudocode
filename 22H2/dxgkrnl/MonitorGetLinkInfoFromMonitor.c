@@ -1,41 +1,57 @@
 /*
- * XREFs of MonitorGetLinkInfoFromMonitor @ 0x1C02224F8
+ * XREFs of MonitorGetLinkInfoFromMonitor @ 0x1C019B7C0
  * Callers:
- *     ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C00221BC (-SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z.c)
+ *     ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C002426C (-SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C019DCD0 (-_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorGetLinkInfoFromMonitor(__int64 a1, struct _DXGK_MONITORLINKINFO *a2)
+__int64 __fastcall MonitorGetLinkInfoFromMonitor(struct HDXGMONITOR__ *a1, __int64 a2)
 {
-  DXGMONITOR *v3; // rbx
-  unsigned int LinkInfo; // edi
-  DXGMONITOR *v6; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v2; // ebx
+  __int64 result; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct DXGMONITOR *v7; // rdi
+  int v8; // eax
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  struct DXGMONITOR *v13; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
+  v2 = 0;
+  if ( !a1 )
+    return 3221225485LL;
+  v13 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v13);
+  if ( (int)result >= 0 )
   {
-    MONITOR_MGR::AcquireMonitorShared(&v6, a1);
-    v3 = v6;
-    if ( v6 )
+    v7 = v13;
+    if ( !v13 )
     {
-      LinkInfo = DXGMONITOR::_GetLinkInfo(v6, a2);
+      v9 = WdLogNewEntry5_WdAssertion(v6, v5);
+      WdLogEvent5_WdAssertion(v9);
+      v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+      WdLogEvent5_WdAssertion(v12);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v7 + 296), 1u);
+    if ( (*((_DWORD *)v7 + 10) & 0x400) != 0 )
+    {
+      *(_QWORD *)a2 = *(_QWORD *)((char *)v7 + 468);
+      v8 = *((_DWORD *)v7 + 119);
     }
     else
     {
-      LinkInfo = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
+      v8 = 0;
+      v2 = -1073741275;
+      *(_QWORD *)a2 = 0LL;
     }
-    if ( v3 )
-    {
-      ExReleaseResourceLite((PERESOURCE)((char *)v3 + 24));
-      KeLeaveCriticalRegion();
-    }
-    return LinkInfo;
+    *(_DWORD *)(a2 + 8) = v8;
+    ExReleaseResourceLite((PERESOURCE)((char *)v7 + 296));
+    KeLeaveCriticalRegion();
+    return v2;
   }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    return 3221225485LL;
-  }
+  return result;
 }

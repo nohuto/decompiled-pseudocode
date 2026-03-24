@@ -1,31 +1,44 @@
 /*
- * XREFs of ?TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z @ 0x1801BBE00
+ * XREFs of ?TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z @ 0x180167404
  * Callers:
- *     ?SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpressionValue@@@Z @ 0x1801BAB58 (-SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpr.c)
- *     ?SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x1801BAC1C (-SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
- *     ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x1801BAD6C (-SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z.c)
- *     ?SendPropertyChanged@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x1801BAF3C (-SendPropertyChanged@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
+ *     ?SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpressionValue@@@Z @ 0x18016683C (-SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpr.c)
+ *     ?SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x1801668E8 (-SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
+ *     ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x180166A20 (-SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z.c)
+ *     ?SendPropertyChanged@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x180166B44 (-SendPropertyChanged@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
  * Callees:
- *     ??$_Find_lower_bound@I@?$_Tree@V?$_Tmap_traits@IV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CBIV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@@std@@PEAX@std@@@1@AEBI@Z @ 0x1801B8830 (--$_Find_lower_bound@I@-$_Tree@V-$_Tmap_traits@IV-$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL.c)
+ *     <none>
  */
 
 struct ICompObjectDiagnosticsRootProxy *__fastcall DiagnosticCallbacksManager::TryGetProxyForPeer(
         DiagnosticCallbacksManager *this,
         unsigned int a2)
 {
-  unsigned int v2; // r10d
-  _QWORD *v3; // r11
-  _BYTE v5[16]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+30h] [rbp-18h]
-  unsigned int v7; // [rsp+58h] [rbp+10h] BYREF
+  __int64 *v2; // rax
+  __int64 *v3; // r9
+  __int64 *v4; // r8
 
-  v7 = a2;
-  std::_Tree<std::_Tmap_traits<unsigned int,Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>>>,0>>::_Find_lower_bound<unsigned int>(
-    (__int64 *)this + 32,
-    (__int64)v5,
-    &v7);
-  if ( *(_BYTE *)(v6 + 25) || v2 < *(_DWORD *)(v6 + 32) || v6 == *v3 )
+  v2 = (__int64 *)*((_QWORD *)this + 24);
+  v3 = v2;
+  v4 = (__int64 *)v2[1];
+  while ( !*((_BYTE *)v4 + 25) )
+  {
+    if ( *((_DWORD *)v4 + 8) >= a2 )
+    {
+      v2 = v4;
+      v4 = (__int64 *)*v4;
+    }
+    else
+    {
+      v4 = (__int64 *)v4[2];
+    }
+  }
+  if ( v2 == v3 || a2 < *((_DWORD *)v2 + 8) )
+  {
+    v2 = (__int64 *)*((_QWORD *)this + 24);
+    v3 = v2;
+  }
+  if ( v2 == v3 )
     return 0LL;
   else
-    return *(struct ICompObjectDiagnosticsRootProxy **)(v6 + 40);
+    return (struct ICompObjectDiagnosticsRootProxy *)v2[5];
 }

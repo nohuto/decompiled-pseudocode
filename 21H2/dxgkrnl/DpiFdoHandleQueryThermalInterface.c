@@ -1,52 +1,69 @@
 /*
- * XREFs of DpiFdoHandleQueryThermalInterface @ 0x1C0390EF0
+ * XREFs of DpiFdoHandleQueryThermalInterface @ 0x1C02D3B60
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiQueryMiniportInterface @ 0x1C01FA410 (DpiQueryMiniportInterface.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiQueryMiniportInterface @ 0x1C017FA18 (DpiQueryMiniportInterface.c)
  */
 
-__int64 __fastcall DpiFdoHandleQueryThermalInterface(_QWORD *Object, __int16 a2, __int16 a3, _QWORD *a4)
+__int64 __fastcall DpiFdoHandleQueryThermalInterface(_QWORD *Object, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  __int64 v4; // rbx
-  int MiniportInterface; // edi
+  __int64 v4; // rdi
+  __int16 v6; // si
+  __int64 v8; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int MiniportInterface; // esi
+  __int64 v14; // r8
+  __int64 v15; // rax
   _BYTE *PoolWithTag; // rax
-  __int64 v11; // rax
-  __int64 v12; // [rsp+20h] [rbp-50h]
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // [rsp+20h] [rbp-50h]
   __int128 Src; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v14; // [rsp+40h] [rbp-30h]
-  _QWORD v15[3]; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v25; // [rsp+40h] [rbp-30h]
+  _QWORD v26[3]; // [rsp+50h] [rbp-20h] BYREF
 
   v4 = Object[8];
+  v6 = a2;
   Src = 0LL;
-  v14 = 0LL;
-  memset(v15, 0, sizeof(v15));
-  if ( a3 != 1 )
+  v25 = 0LL;
+  memset(v26, 0, sizeof(v26));
+  if ( (_WORD)a3 != 1 )
   {
-    WdLogSingleEntry1(3LL, 0LL);
+    v8 = WdLogNewEntry5_WdWarning(Object, a2, a3);
+    *(_QWORD *)(v8 + 24) = 0LL;
+    WdLogEvent5_WdWarning(v8);
     return 3221225659LL;
   }
   if ( (unsigned __int16)a2 < 0x38u )
   {
-    WdLogSingleEntry1(2LL, -1073741789LL);
+    v10 = WdLogNewEntry5_WdError(Object, a2);
+    *(_QWORD *)(v10 + 24) = -1073741789LL;
+    WdLogEvent5_WdError(v10);
     return 3221225507LL;
   }
   KeEnterCriticalRegion();
   if ( *(_BYTE *)(v4 + 484) )
     DpiCheckForOutstandingD3Requests(v4);
   ExAcquireResourceSharedLite(*(PERESOURCE *)(v4 + 168), 1u);
-  if ( *(_QWORD *)(v4 + 4864) )
+  if ( *(_QWORD *)(v4 + 4936) )
     goto LABEL_19;
   MiniportInterface = DpiQueryMiniportInterface(
                         (__int64)Object,
                         (__int64)&GUID_THERMAL_COOLING_INTERFACE,
-                        a2,
+                        v6,
                         1,
-                        v12,
+                        v23,
                         (__int64)&Src);
   if ( MiniportInterface < 0 )
   {
@@ -55,38 +72,40 @@ LABEL_16:
       DpiEnableD3Requests(*(_QWORD *)(v4 + 24));
     goto LABEL_26;
   }
-  if ( *(_OWORD *)&v15[1] != 0LL )
+  if ( *(_OWORD *)&v26[1] != 0LL )
   {
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x74727044u);
-    *(_QWORD *)(v4 + 4864) = PoolWithTag;
+    *(_QWORD *)(v4 + 4936) = PoolWithTag;
     if ( !PoolWithTag )
     {
+      v21 = WdLogNewEntry5_WdLowResource(v18, v17, v19, v20);
       MiniportInterface = -1073741670;
-      WdLogSingleEntry1(6LL, -1073741670LL);
-      if ( *((_QWORD *)&v14 + 1) )
+      *(_QWORD *)(v21 + 24) = -1073741670LL;
+      WdLogEvent5_WdLowResource(v21);
+      if ( *((_QWORD *)&v25 + 1) )
       {
-        (*((void (__fastcall **)(_QWORD))&v14 + 1))(*((_QWORD *)&Src + 1));
+        (*((void (__fastcall **)(_QWORD))&v25 + 1))(*((_QWORD *)&Src + 1));
         Src = 0LL;
-        v14 = 0LL;
-        memset(v15, 0, sizeof(v15));
+        v25 = 0LL;
+        memset(v26, 0, sizeof(v26));
       }
       goto LABEL_16;
     }
     *PoolWithTag = 0;
-    *(_BYTE *)(*(_QWORD *)(v4 + 4864) + 1LL) = 0;
-    *(_BYTE *)(*(_QWORD *)(v4 + 4864) + 2LL) = 0;
-    *(_DWORD *)(*(_QWORD *)(v4 + 4864) + 4LL) = 100;
-    memmove((void *)(*(_QWORD *)(v4 + 4864) + 8LL), &Src, 0x38uLL);
+    *(_BYTE *)(*(_QWORD *)(v4 + 4936) + 1LL) = 0;
+    *(_BYTE *)(*(_QWORD *)(v4 + 4936) + 2LL) = 0;
+    *(_DWORD *)(*(_QWORD *)(v4 + 4936) + 4LL) = 100;
+    memmove((void *)(*(_QWORD *)(v4 + 4936) + 8LL), &Src, 0x38uLL);
 LABEL_19:
-    memmove(a4, &unk_1C012FDD0, 0x38uLL);
+    memmove(a4, &unk_1C00B1CF8, 0x38uLL);
     a4[1] = Object;
-    v11 = *(_QWORD *)(v4 + 4864);
-    if ( !*(_QWORD *)(v11 + 48) )
+    v22 = *(_QWORD *)(v4 + 4936);
+    if ( !*(_QWORD *)(v22 + 48) )
     {
       a4[5] = 0LL;
-      v11 = *(_QWORD *)(v4 + 4864);
+      v22 = *(_QWORD *)(v4 + 4936);
     }
-    if ( !*(_QWORD *)(v11 + 56) )
+    if ( !*(_QWORD *)(v22 + 56) )
       a4[6] = 0LL;
     ObfReferenceObject(Object);
     if ( *(_BYTE *)(v4 + 484) )
@@ -94,7 +113,9 @@ LABEL_19:
     MiniportInterface = 0;
     goto LABEL_26;
   }
-  WdLogSingleEntry1(3LL, 0LL);
+  v15 = WdLogNewEntry5_WdWarning(v12, v11, v14);
+  *(_QWORD *)(v15 + 24) = 0LL;
+  WdLogEvent5_WdWarning(v15);
   if ( *(_BYTE *)(v4 + 484) )
     DpiEnableD3Requests(*(_QWORD *)(v4 + 24));
   MiniportInterface = -1073741637;

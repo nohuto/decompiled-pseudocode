@@ -1,61 +1,84 @@
 /*
- * XREFs of ?CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z @ 0x1C020C114
+ * XREFs of ?CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z @ 0x1C01D4728
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00935A0 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?Add@?$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@QEAAJAEBUManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@Z @ 0x1C022556C (-Add@-$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@Q.c)
- *     ?Grow@?$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z @ 0x1C0225770 (-Grow@-$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z.c)
- *     ?OwnsPointerId@CInputManager@@SA_NII@Z @ 0x1C0231128 (-OwnsPointerId@CInputManager@@SA_NII@Z.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0027838 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?Grow@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C01E42B8 (-Grow@-$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z.c)
+ *     ?Grow@?$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z @ 0x1C01EC538 (-Grow@-$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z.c)
+ *     ?OwnsPointerId@CInputManager@@SA_NII@Z @ 0x1C01FA698 (-OwnsPointerId@CInputManager@@SA_NII@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CapturePointer(
-        unsigned int *a1,
+        __int64 a1,
         int a2,
         int a3,
         unsigned int a4,
         __int64 a5)
 {
-  int v9; // r11d
-  struct DirectComposition::CResourceMarshaler *v10; // rax
-  __int64 v11; // rax
-  struct DirectComposition::CResourceMarshaler *v12; // rdi
-  __int64 v13; // rbx
-  _DWORD v15[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-10h]
+  int v9; // ebx
+  unsigned __int64 v10; // rdx
+  __int64 v11; // rdi
+  _OWORD *v12; // rax
+  __int128 v14; // [rsp+20h] [rbp-18h]
 
-  if ( !CInputManager::OwnsPointerId(a1[674], a4) )
+  if ( !CInputManager::OwnsPointerId(*(_DWORD *)(a1 + 696), a4) )
     return (unsigned int)-1073741790;
-  v10 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(
-          (DirectComposition::CApplicationChannel *)a1,
-          a2);
-  if ( !v10 )
-    return (unsigned int)-1073741811;
-  v11 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)v10 + 128LL))(v10);
-  v12 = (struct DirectComposition::CResourceMarshaler *)v11;
-  if ( !v11 )
+  v10 = (unsigned int)(a2 - 1);
+  if ( a2 && v10 < *(_QWORD *)(a1 + 80) )
+  {
+    _mm_lfence();
+    v11 = *(_QWORD *)(v10 * *(_QWORD *)(a1 + 88) + *(_QWORD *)(a1 + 56));
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( !v11 || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v11 + 96LL))(v11, 87LL) )
     return (unsigned int)-1073741811;
   if ( !a3 )
   {
-    v13 = v11 + 280;
     v9 = CDynamicArray<unsigned int,2003858261>::Grow(v11 + 280);
     if ( v9 >= 0 )
     {
-      *(_DWORD *)(*(_QWORD *)v13 + 4LL * (unsigned int)(*(_DWORD *)(v13 + 8))++) = a4;
-      *((_DWORD *)v12 + 4) |= 0x80u;
+      *(_DWORD *)(*(_QWORD *)(v11 + 280) + 4LL * (unsigned int)(*(_DWORD *)(v11 + 288))++) = a4;
+      *(_DWORD *)(v11 + 16) |= 0x80u;
     }
-    goto LABEL_10;
+    goto LABEL_22;
   }
   if ( a3 != 1 )
     return (unsigned int)-1073741811;
-  v15[0] = a4;
-  v15[1] = 0;
-  v16 = a5;
-  v9 = CStructDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo>::Add(v11 + 296, v15);
-LABEL_10:
+  *((_QWORD *)&v14 + 1) = a5;
+  v9 = 0;
+  LODWORD(v14) = a4;
+  if ( *(_DWORD *)(v11 + 304) == *(_DWORD *)(v11 + 308) )
+  {
+    v9 = CDynamicArray<InjectManipulationArgs *,2003858261>::Grow(v11 + 296);
+    if ( v9 < 0 )
+    {
+LABEL_22:
+      if ( v9 >= 0 )
+        DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(
+          (DirectComposition::CApplicationChannel *)a1,
+          (struct DirectComposition::CResourceMarshaler *)v11);
+      return (unsigned int)v9;
+    }
+  }
+  if ( *(_DWORD *)(v11 + 304) >= *(_DWORD *)(v11 + 308) )
+    v9 = -1073741823;
   if ( v9 >= 0 )
-    DirectComposition::CApplicationChannel::PutResourceOnUpdatedList((DirectComposition::CApplicationChannel *)a1, v12);
+  {
+    v12 = Win32AllocPoolZInit(0x10uLL, 1685275460LL);
+    if ( !v12 )
+      v9 = -1073741801;
+    if ( v9 >= 0 )
+    {
+      *v12 = v14;
+      *(_QWORD *)(*(_QWORD *)(v11 + 296) + 8LL * (unsigned int)(*(_DWORD *)(v11 + 304))++) = v12;
+      goto LABEL_22;
+    }
+  }
   return (unsigned int)v9;
 }

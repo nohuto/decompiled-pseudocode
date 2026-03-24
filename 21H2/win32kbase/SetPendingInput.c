@@ -1,7 +1,7 @@
 /*
- * XREFs of SetPendingInput @ 0x1C00D4440
+ * XREFs of SetPendingInput @ 0x1C00759B0
  * Callers:
- *     UserPowerInfoCallout @ 0x1C007AEB8 (UserPowerInfoCallout.c)
+ *     UserPowerInfoCallout @ 0x1C004EC50 (UserPowerInfoCallout.c)
  * Callees:
  *     <none>
  */

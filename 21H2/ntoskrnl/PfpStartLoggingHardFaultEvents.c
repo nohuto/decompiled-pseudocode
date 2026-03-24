@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpStartLoggingHardFaultEvents @ 0x140A48D9C
+ * XREFs of PfpStartLoggingHardFaultEvents @ 0x1409907F0
  * Callers:
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PfpStartLoggingHardFaultEvents()
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   unsigned int v1; // edi
   __int64 v2; // rsi
   unsigned __int64 v3; // rbx
@@ -24,16 +24,16 @@ __int64 PfpStartLoggingHardFaultEvents()
   int v8; // eax
   bool v9; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 168LL, 1146119760LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA8uLL, 0x44506650u);
   v1 = 0;
-  v2 = Pool2;
-  if ( Pool2 )
+  v2 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 160) = 0;
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C54588);
-    *(_DWORD *)(v2 + 164) = ++dword_140C54594;
-    _InterlockedOr(&dword_140CF5E54, 1u);
-    KxReleaseSpinLock(&qword_140C54588);
+    PoolWithTag[40] = 0;
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C50348);
+    *(_DWORD *)(v2 + 164) = ++dword_140C50354;
+    _InterlockedOr(&dword_140CEC354, 1u);
+    KxReleaseSpinLock(&qword_140C50348);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

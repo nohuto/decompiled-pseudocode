@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpFlushBuffers @ 0x140669E90
+ * XREFs of PfpFlushBuffers @ 0x140669E70
  * Callers:
- *     PfTLoggingWorker @ 0x14073F950 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x14073F930 (PfTLoggingWorker.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x1400E25FC (MmFreeAccessPfnBuffer.c)
- *     PfpIsProcessInfoPresent @ 0x1400E263C (PfpIsProcessInfoPresent.c)
- *     PfpReturnAccessBuffer @ 0x1400E277C (PfpReturnAccessBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     PfpFlushEventBuffers @ 0x140669B30 (PfpFlushEventBuffers.c)
- *     PfpCopyEvent @ 0x140669C40 (PfpCopyEvent.c)
- *     PfpLogPageAccess @ 0x14066A190 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x140865184 (PfTAcquireLogEntry.c)
+ *     MmFreeAccessPfnBuffer @ 0x1400E261C (MmFreeAccessPfnBuffer.c)
+ *     PfpIsProcessInfoPresent @ 0x1400E265C (PfpIsProcessInfoPresent.c)
+ *     PfpReturnAccessBuffer @ 0x1400E279C (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x140669B10 (PfpFlushEventBuffers.c)
+ *     PfpCopyEvent @ 0x140669C20 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x14066A170 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x140865164 (PfTAcquireLogEntry.c)
  */
 
 char PfpFlushBuffers()

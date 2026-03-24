@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x1800202E0
+ * XREFs of ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x180044F30
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x180020438 (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x18005FD84 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800681EC (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x18006E540 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x180032238 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x18003BEA4 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
+ *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x18004507C (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800688C4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSectionBitmapRealization::EnsureBitmapCacheSource(CSectionBitmapRealization *this)
@@ -31,50 +31,53 @@ __int64 __fastcall CSectionBitmapRealization::EnsureBitmapCacheSource(CSectionBi
   unsigned int v17; // ecx
   __int64 v18; // rcx
   _DWORD v19[4]; // [rsp+40h] [rbp-20h] BYREF
-  WICRect v20; // [rsp+50h] [rbp-10h] BYREF
+  struct WICRect v20; // [rsp+50h] [rbp-10h] BYREF
   struct IBitmapSource *v21; // [rsp+70h] [rbp+10h] BYREF
 
   v1 = 0;
-  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 344);
-  if ( !*((_QWORD *)this + 43) )
+  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 312);
+  if ( !*((_QWORD *)this + 39) )
   {
-    v5 = *((_DWORD *)this + 90);
+    v5 = *((_DWORD *)this + 82);
     if ( v5 )
     {
-      v6 = *((_DWORD *)this + 91);
+      v6 = *((_DWORD *)this + 83);
       if ( v6 )
       {
         v21 = 0LL;
         v20.X = 0;
         v20.Y = 0;
         v20.Width = v5;
-        v19[0] = *((_DWORD *)this + 93);
+        v19[0] = *((_DWORD *)this + 85);
         v19[1] = *((_DWORD *)this + 24);
-        v7 = *((_DWORD *)this + 36);
+        v7 = *((_DWORD *)this + 35);
         v20.Height = v6;
         v19[2] = v7;
         v8 = CSectionBitmapRealization::MapSection(this);
         v1 = v8;
         if ( v8 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xDCu, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x102u, 0LL);
         }
         else
         {
-          RequiredBufferSize = GetRequiredBufferSize(*((enum DXGI_FORMAT *)this + 93), *((_DWORD *)this + 92), &v20);
+          RequiredBufferSize = GetRequiredBufferSize(
+                                 (enum DXGI_FORMAT)*((_DWORD *)this + 85),
+                                 *((unsigned int *)this + 84),
+                                 &v20);
           v12 = HrCreateBitmapFromMemoryEx(
-                  *((_DWORD *)this + 90),
-                  *((_DWORD *)this + 91),
+                  *((_DWORD *)this + 82),
+                  *((_DWORD *)this + 83),
                   (const struct PixelFormatInfo *)v19,
                   v11,
                   RequiredBufferSize,
-                  *((unsigned __int8 **)this + 47),
+                  *((unsigned __int8 **)this + 43),
                   0LL,
                   &v21);
           v1 = v12;
           if ( v12 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xE9u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x10Fu, 0LL);
           }
           else
           {
@@ -92,7 +95,7 @@ __int64 __fastcall CSectionBitmapRealization::EnsureBitmapCacheSource(CSectionBi
                     v2);
             v1 = v16;
             if ( v16 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0xEBu, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x111u, 0LL);
             else
               CD2DBitmapCache::InitializeCache(this, *v2);
           }

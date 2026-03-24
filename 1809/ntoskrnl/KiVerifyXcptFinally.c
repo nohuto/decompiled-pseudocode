@@ -3,7 +3,7 @@
  * Callers:
  *     KiVerifyXcpt2 @ 0x1409CF8B4 (KiVerifyXcpt2.c)
  * Callees:
- *     _local_unwind @ 0x1401951A0 (_local_unwind.c)
+ *     _local_unwind @ 0x1401951C0 (_local_unwind.c)
  */
 
 __int64 __fastcall KiVerifyXcptFinally(_DWORD **a1)

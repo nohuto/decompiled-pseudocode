@@ -1,12 +1,12 @@
 /*
- * XREFs of PopLogNotifyDevice @ 0x1402DE56C
+ * XREFs of PopLogNotifyDevice @ 0x1402DE66C
  * Callers:
- *     PopRequestPowerIrp @ 0x140172540 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x140172560 (PopRequestPowerIrp.c)
  *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
  * Callees:
  *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopLogNotifyDevice(__int64 a1, __int64 a2, __int64 a3)

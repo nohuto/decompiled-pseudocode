@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetJobUIRestrictionsClass @ 0x140259640
+ * XREFs of PsGetJobUIRestrictionsClass @ 0x1402D0760
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall PsGetJobUIRestrictionsClass(__int64 a1)
 {
-  return *(unsigned int *)(a1 + 544);
+  return *(unsigned int *)(a1 + 448);
 }

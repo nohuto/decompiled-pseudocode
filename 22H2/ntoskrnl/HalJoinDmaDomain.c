@@ -1,81 +1,90 @@
 /*
- * XREFs of HalJoinDmaDomain @ 0x14038EA90
+ * XREFs of HalJoinDmaDomain @ 0x1403C6AE0
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14082A5E0 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3E68 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     HalpDmaAllocateDomain @ 0x14038EB20 (HalpDmaAllocateDomain.c)
- *     HalpDmaReferenceDomainObject @ 0x14038F4EC (HalpDmaReferenceDomainObject.c)
- *     HalpDmaGetAdapterVersion @ 0x1403B91D4 (HalpDmaGetAdapterVersion.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaDereferenceDomainObject @ 0x140512868 (HalpDmaDereferenceDomainObject.c)
- *     HalpDmaIsDomainCompatible @ 0x140512D9C (HalpDmaIsDomainCompatible.c)
+ *     HalpDmaGetAdapterVersion @ 0x14030DA00 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A0D14 (HalpDmaReferenceDomainObject.c)
+ *     HalpDmaAllocateDomain @ 0x1403C6BB8 (HalpDmaAllocateDomain.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4A38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDmaIsDomainCompatible @ 0x1404C4BDC (HalpDmaIsDomainCompatible.c)
+ *     HalpDomainLaAllocate @ 0x1404C4C54 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaDelete @ 0x1404C4D34 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9214 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C97FC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C98D4 (HalpIommuLeaveDmaDomain.c)
  */
 
-__int64 __fastcall HalJoinDmaDomain(__int64 a1, ULONG_PTR *a2)
+__int64 __fastcall HalJoinDmaDomain(__int64 a1, __int64 Domain)
 {
-  char v4; // bp
-  ULONG_PTR Domain; // rsi
-  int v6; // ebx
+  char v4; // r15
+  char v5; // r14
+  int v6; // r9d
+  int v7; // r8d
+  int v8; // edi
+  int v10; // r8d
+  __int64 v11; // [rsp+20h] [rbp-28h]
+  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( (unsigned int)HalpDmaGetAdapterVersion() == 3 && !*(_QWORD *)(a1 + 512) )
+  v5 = 0;
+  if ( (unsigned int)HalpDmaGetAdapterVersion(a1) == 3 && !*(_QWORD *)(a1 + 504) )
   {
-    if ( (unsigned __int64)a2 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( (unsigned __int64)(Domain - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      Domain = *a2;
-      if ( Domain && (unsigned __int8)HalpDmaIsDomainCompatible(a1, Domain) )
+      if ( !(unsigned __int8)HalpDmaIsDomainCompatible(a1, Domain) )
       {
-        v6 = HalpDmaReferenceDomainObject(Domain);
-        if ( v6 < 0 )
-          goto LABEL_12;
-        goto LABEL_6;
+        v8 = -1073741811;
+        goto LABEL_21;
       }
-      v6 = -1073741811;
+      v8 = HalpDmaReferenceDomainObject(Domain);
+      if ( v8 < 0 )
+        goto LABEL_21;
     }
     else
     {
-      Domain = HalpDmaAllocateDomain(a1);
-      if ( Domain )
+      LOBYTE(v6) = *(_BYTE *)(a1 + 437);
+      v7 = *(_DWORD *)(a1 + 512);
+      v11 = *(_QWORD *)(a1 + 528);
+      v12 = (-(__int64)(*(_BYTE *)(a1 + 145) != 0) & 0xFFFF0000LL) + 0x10000;
+      Domain = HalpDmaAllocateDomain((int)a1 + 136, (unsigned int)&v12, v7, v6, v11);
+      if ( !Domain )
       {
-        v6 = 0;
-LABEL_6:
-        *(_QWORD *)(a1 + 512) = Domain;
-        v4 = 1;
-        if ( !*(_DWORD *)(Domain + 48) )
-          return (unsigned int)v6;
-        v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(HalpDmaIommuInterfaceFcnTable + 16))(
-               *(_QWORD *)(Domain + 40),
-               *(_QWORD *)(a1 + 544));
-        if ( v6 >= 0 )
-        {
-          if ( *(_DWORD *)(Domain + 48) != 3 )
-            return (unsigned int)v6;
-          v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, __int64))(HalpDmaIommuInterfaceFcnTable
-                                                                                          + 128))(
-                 *(_QWORD *)(Domain + 40),
-                 *(unsigned int *)(a1 + 252),
-                 0LL,
-                 0LL,
-                 0LL,
-                 a1 + 560);
-          if ( v6 >= 0 )
-            return (unsigned int)v6;
-          (*(void (__fastcall **)(_QWORD))(HalpDmaIommuInterfaceFcnTable + 24))(*(_QWORD *)(a1 + 544));
-          *(_QWORD *)(a1 + 512) = 0LL;
-          goto LABEL_13;
-        }
-LABEL_12:
-        *(_QWORD *)(a1 + 512) = 0LL;
-        if ( !v4 )
-          return (unsigned int)v6;
-LABEL_13:
-        HalpDmaDereferenceDomainObject(Domain);
-        return (unsigned int)v6;
+        v8 = -1073741670;
+        goto LABEL_21;
       }
-      v6 = -1073741670;
+      v8 = 0;
     }
-    *(_QWORD *)(a1 + 512) = 0LL;
-    return (unsigned int)v6;
+    *(_QWORD *)(a1 + 504) = Domain;
+    if ( *(_DWORD *)(Domain + 64) )
+    {
+      v8 = HalpIommuJoinDmaDomain(*(_QWORD *)(a1 + 536), *(_QWORD *)(Domain + 40));
+      v5 = 1;
+      if ( v8 < 0 )
+        goto LABEL_21;
+      v4 = 1;
+      v8 = HalpDomainLaAllocate(Domain, *(_DWORD *)(a1 + 244), v10, 0, 0LL, a1 + 552);
+      if ( v8 < 0 )
+        goto LABEL_20;
+      v8 = HalpIommuDomainMapLogicalRange(*(_QWORD *)(Domain + 40), 0, 0, *(_DWORD *)(a1 + 244), *(_QWORD *)(a1 + 552));
+    }
+    if ( v8 >= 0 )
+      return (unsigned int)v8;
+    if ( v4 )
+      HalpDomainLaDelete(Domain, *(_QWORD *)(a1 + 552));
+    v5 = 1;
+    if ( !v4 )
+    {
+LABEL_21:
+      *(_QWORD *)(a1 + 504) = 0LL;
+      if ( v5 )
+        HalpDmaDereferenceDomainObject(Domain);
+      return (unsigned int)v8;
+    }
+LABEL_20:
+    HalpIommuLeaveDmaDomain(*(_QWORD *)(a1 + 536), *(_QWORD *)(Domain + 40));
+    v5 = 1;
+    goto LABEL_21;
   }
   return 3221225485LL;
 }

@@ -1,13 +1,14 @@
 /*
- * XREFs of ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C001DE00
+ * XREFs of ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C00382D0
  * Callers:
- *     GreOffsetRgn @ 0x1C001B040 (GreOffsetRgn.c)
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C001C600 (-bCompute@DC@@QEAAHXZ.c)
- *     ?vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z @ 0x1C0093CD0 (-vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C016EED0 (EngUpdateDeviceSurface.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C00362B0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     GreOffsetRgn @ 0x1C0039190 (GreOffsetRgn.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003AB70 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z @ 0x1C00BDA00 (-vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0141FB0 (EngUpdateDeviceSurface.c)
  * Callees:
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RGNOBJ::bOffset(int **this, struct _POINTL *a2)

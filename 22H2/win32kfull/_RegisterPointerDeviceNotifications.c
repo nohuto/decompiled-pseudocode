@@ -1,51 +1,49 @@
 /*
- * XREFs of _RegisterPointerDeviceNotifications @ 0x1C00BAC14
+ * XREFs of _RegisterPointerDeviceNotifications @ 0x1C0133CC4
  * Callers:
- *     NtUserRegisterPointerDeviceNotifications @ 0x1C00BAB30 (NtUserRegisterPointerDeviceNotifications.c)
+ *     NtUserRegisterPointerDeviceNotifications @ 0x1C0133BF0 (NtUserRegisterPointerDeviceNotifications.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RegisterPointerDeviceNotifications(__int64 a1, int a2)
+__int64 __fastcall RegisterPointerDeviceNotifications(struct _LIST_ENTRY *a1, int a2)
 {
-  unsigned int v2; // edi
-  __int64 v5; // rbx
-  _QWORD *v6; // r8
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
-  __int64 *v9; // rax
-  __int64 **v10; // rcx
-  _QWORD *v12; // rax
-  _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct _LIST_ENTRY *Flink; // r8
+  unsigned int v5; // ebx
+  _QWORD *v6; // rax
+  _QWORD *v7; // rdi
+  _QWORD *v8; // rax
+  _QWORD *v9; // rcx
+  struct _LIST_ENTRY *v11; // rax
+  _QWORD v12[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = 0;
-  v5 = SGDGetUserSessionState(a1) + 16352;
-  v6 = *(_QWORD **)v5;
-  while ( v6 != (_QWORD *)v5 )
+  Flink = gPointerDeviceClients.Flink;
+  v5 = 0;
+  while ( Flink != &gPointerDeviceClients )
   {
-    v12 = v6 - 2;
-    v6 = (_QWORD *)*v6;
-    if ( *v12 == a1 )
-      return v2;
+    v11 = Flink - 1;
+    Flink = Flink->Flink;
+    if ( v11->Flink == a1 )
+      return v5;
   }
-  v7 = (_QWORD *)Win32AllocPoolZInit(32LL, 2020635477LL);
-  v8 = v7;
-  if ( v7 )
+  v6 = (_QWORD *)Win32AllocPool(32LL, 2020635477LL);
+  v7 = v6;
+  if ( v6 )
   {
-    *v7 = 0LL;
-    v13[0] = v7;
-    v13[1] = a1;
-    HMAssignmentLock(v13, 0LL);
-    *((_DWORD *)v8 + 2) = a2;
-    v9 = v8 + 2;
-    v10 = *(__int64 ***)(v5 + 8);
-    if ( *v10 != (__int64 *)v5 )
+    *v6 = 0LL;
+    v12[0] = v6;
+    v12[1] = a1;
+    HMAssignmentLock(v12);
+    *((_DWORD *)v7 + 2) = a2;
+    v8 = v7 + 2;
+    v9 = (_QWORD *)qword_1C033A738;
+    if ( *(struct _LIST_ENTRY **)qword_1C033A738 != &gPointerDeviceClients )
       __fastfail(3u);
-    *v9 = v5;
-    v2 = 1;
-    v8[3] = v10;
-    *v10 = v9;
-    *(_QWORD *)(v5 + 8) = v9;
+    *v8 = &gPointerDeviceClients;
+    v5 = 1;
+    v7[3] = v9;
+    *v9 = v8;
+    qword_1C033A738 = (__int64)(v7 + 2);
   }
-  return v2;
+  return v5;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcGetFeatureBits @ 0x140380604
+ * XREFs of HalpProcGetFeatureBits @ 0x1403AF1CC
  * Callers:
- *     HalpProcInitSystem @ 0x140A8AEE0 (HalpProcInitSystem.c)
- *     HalpProcInitDiscard @ 0x140B768D0 (HalpProcInitDiscard.c)
+ *     HalpProcInitSystem @ 0x14099E630 (HalpProcInitSystem.c)
+ *     HalpProcInitDiscard @ 0x140A449E0 (HalpProcInitDiscard.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380C80 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalpIsHvIptSupported @ 0x14050B450 (HalpIsHvIptSupported.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalpIsHvIptSupported @ 0x1404C22DC (HalpIsHvIptSupported.c)
  */
 
 __int64 HalpProcGetFeatureBits()
@@ -18,18 +18,19 @@ __int64 HalpProcGetFeatureBits()
   int v9; // ecx
   int v10; // r11d
   unsigned int v11; // r11d
-  _BYTE v28[24]; // [rsp+20h] [rbp-20h] BYREF
+  unsigned __int8 v28[72]; // [rsp+20h] [rbp-50h] BYREF
 
   v28[0] = 0;
   if ( !KeGetCurrentPrcb()->CpuID )
     return 2LL;
-  v0 = (unsigned __int8)HalpGetCpuInfo(0LL, 0LL, 0LL, v28) != 0;
+  v0 = HalpGetCpuInfo(0LL, 0LL, 0LL, v28) != 0;
   _RAX = 1LL;
   __asm { cpuid }
   v6 = _RDX;
+  LOBYTE(_RAX) = _RDX;
   v7 = ((unsigned int)_RDX >> 12) & 4;
   v8 = v7 | 8;
-  if ( (v6 & 0x80u) == 0 )
+  if ( (_RAX & 0x80u) == 0LL )
     v8 = v7;
   v9 = v8 | 0x10;
   if ( (v6 & 2) == 0 )

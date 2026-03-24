@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCoalescingCallback @ 0x140986FD0
+ * XREFs of PopCoalescingCallback @ 0x1408E6840
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopCoalescingCallback(__int64 a1, __int64 a2, __int64 a3)

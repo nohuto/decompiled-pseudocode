@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateEventPair @ 0x14041CD00
+ * XREFs of ZwCreateEventPair @ 0x1403FB900
  * Callers:
  *     <none>
  * Callees:

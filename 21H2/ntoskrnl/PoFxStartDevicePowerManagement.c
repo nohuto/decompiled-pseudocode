@@ -1,27 +1,26 @@
 /*
- * XREFs of PoFxStartDevicePowerManagement @ 0x1403B9A30
+ * XREFs of PoFxStartDevicePowerManagement @ 0x1403BE830
  * Callers:
- *     HalpInterruptInitPowerManagement @ 0x1403B97E8 (HalpInterruptInitPowerManagement.c)
- *     HalpTimerInitPowerManagement @ 0x1403B9904 (HalpTimerInitPowerManagement.c)
- *     HalpDmaInitPowerManagement @ 0x1403CE36C (HalpDmaInitPowerManagement.c)
- *     DifPoFxStartDevicePowerManagementWrapper @ 0x140619E90 (DifPoFxStartDevicePowerManagementWrapper.c)
- *     PoFxEnableDStateReporting @ 0x14098CC20 (PoFxEnableDStateReporting.c)
- *     PoFxRegisterDebugger @ 0x140AF86C4 (PoFxRegisterDebugger.c)
+ *     HalpDmaInitPowerManagement @ 0x1403BB0E0 (HalpDmaInitPowerManagement.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BE5E4 (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x1403BE700 (HalpTimerInitPowerManagement.c)
+ *     PoFxEnableDStateReporting @ 0x1408E4270 (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterDebugger @ 0x140A73A68 (PoFxRegisterDebugger.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PoFxIdleComponent @ 0x1403557F0 (PoFxIdleComponent.c)
- *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     PopFxIncrementDeviceSleepCount @ 0x140394878 (PopFxIncrementDeviceSleepCount.c)
- *     PopPepDeviceStarted @ 0x1403B9B9C (PopPepDeviceStarted.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopDiagTraceFxDeviceStartPowerManagement @ 0x1408233FC (PopDiagTraceFxDeviceStartPowerManagement.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     PoFxIdleComponent @ 0x1402611A0 (PoFxIdleComponent.c)
+ *     PoFxActivateComponent @ 0x1402627E0 (PoFxActivateComponent.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140388A54 (PopFxIncrementDeviceSleepCount.c)
+ *     PopPepDeviceStarted @ 0x1403BE99C (PopPepDeviceStarted.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceFxDeviceStartPowerManagement @ 0x1407B53A4 (PopDiagTraceFxDeviceStartPowerManagement.c)
  */
 
 void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
@@ -61,10 +60,36 @@ void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
     v7 = v5;
     if ( (*(_DWORD *)(BugCheckParameter2 + 824) & 1) != 0 )
     {
-      if ( v6 )
-        *(_DWORD *)(v1 + 120) = 0;
+      if ( !v6 )
+      {
+LABEL_10:
+        _InterlockedOr((volatile signed __int32 *)(v1 + 296), 4u);
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 88));
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+              v17 = (v16 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v16;
+              if ( v17 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
+          }
+        }
+        __writecr8(v7);
+        PopDiagTraceFxDeviceStartPowerManagement(v1);
+        goto LABEL_12;
+      }
+      v6 = 0;
+      *(_DWORD *)(v1 + 120) = 0;
     }
-    else if ( v6 )
+    if ( v6 )
     {
       v8 = *(_DWORD *)(BugCheckParameter2 + 828);
       v9 = v6;
@@ -79,28 +104,9 @@ void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
       }
       while ( v9 );
     }
-    _InterlockedOr((volatile signed __int32 *)(v1 + 296), 4u);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 88));
-    if ( KiIrqlFlags )
-    {
-      if ( (KiIrqlFlags & 1) != 0 )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-    }
-    __writecr8(v7);
-    PopDiagTraceFxDeviceStartPowerManagement(v1);
+    goto LABEL_10;
   }
+LABEL_12:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxDeviceListLock, 0LL);
@@ -108,7 +114,7 @@ void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v12 )
   {
     v18 = *(_QWORD *)(v1 + 32);

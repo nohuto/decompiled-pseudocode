@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NotifyMatrix3x2PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800F63B0
+ * XREFs of ?NotifyMatrix3x2PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801B19B4
  * Callers:
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097D88 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800662B4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
  * Callees:
- *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800985F8 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800661A4 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyMatrix3x2PropertyChanged(
@@ -12,49 +12,41 @@ __int64 __fastcall CPropertyChangeResource::NotifyMatrix3x2PropertyChanged(
         __int64 a2,
         const struct D2D_MATRIX_3X2_F *a3)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rcx
-  int v6; // r10d
-  __int64 v8; // rdx
+  int v3; // ebx
+  __int64 v4; // rcx
+  __int128 *v5; // r10
+  __int64 v6; // rdx
+  __int64 v7; // xmm1_8
+  __int64 v8; // r9
   __int64 v9; // rax
-  __int64 v10; // r11
+  __int64 v10; // rbx
   unsigned int v11; // ecx
-  __int128 v12; // xmm0
-  __int64 v13; // xmm1_8
-  int v14; // eax
-  __int64 v15; // rcx
-  __int64 v16; // [rsp+30h] [rbp-48h]
-  _QWORD v17[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-28h]
-  __int64 v19; // [rsp+60h] [rbp-18h]
+  __int64 v12; // rcx
+  _QWORD v14[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int128 v15; // [rsp+50h] [rbp-28h]
+  __int64 v16; // [rsp+60h] [rbp-18h]
 
-  v4 = 0;
+  v3 = 0;
   if ( CPropertyChangeResource::ShouldNotify(this) )
   {
-    v8 = *(unsigned int *)(v5 + 64);
-    v9 = *(_QWORD *)(v5 + 48);
-    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 1240LL) + 40LL);
+    v6 = *(unsigned int *)(v4 + 56);
+    v7 = *((_QWORD *)v5 + 2);
+    v8 = *(_QWORD *)(*(_QWORD *)(v4 + 16) + 1080LL);
+    v9 = *(_QWORD *)(v4 + 48);
+    v15 = *v5;
+    v16 = v7;
+    v10 = *(_QWORD *)(v8 + 48);
     if ( v9 )
-      v11 = *(_DWORD *)(v9 + 76);
+      v11 = *(_DWORD *)(v9 + 68);
     else
       v11 = 0;
-    v12 = *(_OWORD *)&a3->m11;
-    v13 = *(_QWORD *)&a3->m[2][0];
-    v17[0] = v11;
-    LODWORD(v16) = v6;
-    v17[1] = v8;
-    v18 = v12;
-    v19 = v13;
-    v14 = CoreUICallSend(v10, v17, 2LL, 14LL, 7, &unk_18033C4EB, v16);
-    v4 = v14;
-    if ( v14 == -2018375675 )
-    {
-      return 0;
-    }
-    else if ( v14 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x1FBu, 0LL);
-    }
+    v14[0] = v11;
+    v14[1] = v6;
+    v3 = CoreUICallSend(v10, v14, 2LL, 13LL, 7, &unk_1802CE7BD);
+    if ( v3 == -2018375675 )
+      v3 = 0;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v3, 0x1FBu, 0LL);
   }
-  return v4;
+  return (unsigned int)v3;
 }

@@ -1,37 +1,48 @@
 /*
- * XREFs of ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B468C
+ * XREFs of ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121BB4
  * Callers:
- *     ?DXGADAPTER_AcquireCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C001FB80 (-DXGADAPTER_AcquireCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C01B45E8 (DxgkAcquireAdapterCoreSync.c)
- *     ?DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C02DB1D0 (-DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z.c)
+ *     ?DXGADAPTER_AcquireCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C00424E0 (-DXGADAPTER_AcquireCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C0121B10 (DxgkAcquireAdapterCoreSync.c)
+ *     ?DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C022BFF0 (-DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C016E8D4 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ?AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C017EB60 (-AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z.c)
- *     ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C01B438C (-EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C01BB044 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
- *     ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01F1CA4 (-AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00E8CC8 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C00FD9E0 (-AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z.c)
+ *     ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C01218E0 (-EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C013D324 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C020B294 (-AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
  */
 
 void __fastcall DXGADAPTER::AcquireCoreSync(__int64 a1, int a2)
 {
-  __int64 v2; // rsi
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  ADAPTER_RENDER *v6; // rcx
+  __int64 v2; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
   __int64 v7; // rcx
+  __int64 v8; // r8
+  ADAPTER_RENDER *v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rax
 
   v2 = a2;
   if ( DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)a1) )
-    WdLogSingleEntry5(0LL, 275LL, 4LL, a1, 0LL, 0LL);
+  {
+    v11 = WdLogNewEntry5_WdCriticalError(v5, v4);
+    *(_QWORD *)(v11 + 24) = 275LL;
+    *(_QWORD *)(v11 + 32) = 4LL;
+    *(_QWORD *)(v11 + 40) = a1;
+    *(_OWORD *)(v11 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v11);
+  }
   if ( !KeReadStateEvent((PRKEVENT)(a1 + 48)) )
   {
     if ( (_DWORD)v2 == 4 )
       return;
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v4, (const EVENT_DESCRIPTOR *)"g", v5, 72);
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v7, &EventBlockThread, v8, 72);
     KeWaitForSingleObject((PVOID)(a1 + 48), Executive, 0, 0, 0LL);
   }
   switch ( (_DWORD)v2 )
@@ -41,9 +52,9 @@ void __fastcall DXGADAPTER::AcquireCoreSync(__int64 a1, int a2)
       break;
     case 2:
       DXGADAPTER::AcquireCoreResourceExclusive(a1, 2u, 0);
-      v7 = *(_QWORD *)(a1 + 2800);
-      if ( v7 )
-        ADAPTER_RENDER::FlushScheduler(v7, 6LL, 0xFFFFFFFFLL);
+      v10 = *(_QWORD *)(a1 + 2704);
+      if ( v10 )
+        ADAPTER_RENDER::FlushScheduler(v10, 6LL, 0xFFFFFFFFLL);
       break;
     case 3:
       DXGADAPTER::AcquireCoreResourceExclusive(a1, 2u, 0);
@@ -56,23 +67,15 @@ void __fastcall DXGADAPTER::AcquireCoreSync(__int64 a1, int a2)
       *(_BYTE *)(a1 + 205) = 1;
       break;
     default:
-      WdLogSingleEntry1(2LL, v2);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid synchronization level 0x%I64x",
-        v2,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v12 = WdLogNewEntry5_WdError((unsigned int)(v2 - 4), v6);
+      *(_QWORD *)(v12 + 24) = v2;
+      WdLogEvent5_WdError(v12);
       break;
   }
-  v6 = *(ADAPTER_RENDER **)(a1 + 2800);
-  if ( v6 )
+  v9 = *(ADAPTER_RENDER **)(a1 + 2704);
+  if ( v9 )
   {
     if ( (((_DWORD)v2 - 4) & 0xFFFFFFFD) == 0 )
-      ADAPTER_RENDER::EnableClockCalibration(v6, 0);
+      ADAPTER_RENDER::EnableClockCalibration(v9, 0);
   }
 }

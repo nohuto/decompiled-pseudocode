@@ -1,72 +1,60 @@
 /*
- * XREFs of ?InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01E84CC
+ * XREFs of ?InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C016C440
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C00123E4 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0pquutttq_EtwWriteTransfer @ 0x1C0046350 (McTemplateK0pquutttq_EtwWriteTransfer.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A9FC (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     McTemplateK0pquutttq_EtwWriteTransfer @ 0x1C003B9E0 (McTemplateK0pquutttq_EtwWriteTransfer.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::InvalidateDisplayModeListCacheOnSource(PERESOURCE **this, unsigned int a2)
 {
-  __int64 v3; // rsi
-  __int64 v4; // rdi
-  unsigned int v5; // esi
+  __int64 v3; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
-  __int64 v9; // [rsp+20h] [rbp-48h]
-  __int64 v10; // [rsp+28h] [rbp-40h]
-  __int64 v11; // [rsp+30h] [rbp-38h]
-  __int64 v12; // [rsp+38h] [rbp-30h]
-  __int64 v13; // [rsp+40h] [rbp-28h]
-  int v14; // [rsp+48h] [rbp-20h]
-  int v15; // [rsp+50h] [rbp-18h]
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // [rsp+20h] [rbp-48h]
+  char v13; // [rsp+28h] [rbp-40h]
+  char v14; // [rsp+30h] [rbp-38h]
+  int v15; // [rsp+38h] [rbp-30h]
+  int v16; // [rsp+40h] [rbp-28h]
+  int v17; // [rsp+48h] [rbp-20h]
+  int v18; // [rsp+50h] [rbp-18h]
 
   v3 = a2;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 2968LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 2968LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v10 + 24) = 2915LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( (unsigned int)v3 >= *((_DWORD *)this + 24) )
+  if ( (unsigned int)v3 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 2969LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      2969LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v11 + 24) = 2916LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v4 = 500 * v3;
-  if ( BYTE4(this[16][500 * v3 + 139]) )
+  DxgkLogCodePointPacket(0x1Cu, v3 + 0x80000000, 0, 0, *(__int64 *)((char *)this[2] + 316));
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    v5 = v3 + 0x80000000;
-    DxgkLogCodePointPacket(0x1Cu, v5, 0, 0, *(__int64 *)((char *)this[2] + 404));
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      {
-        v15 = 0;
-        v14 = 0;
-        LODWORD(v13) = 0;
-        LODWORD(v12) = 0;
-        LOBYTE(v11) = 0;
-        LOBYTE(v10) = 0;
-        LODWORD(v9) = v5;
-        McTemplateK0pquutttq_EtwWriteTransfer(v7, v6, v8, this, v9, v10, v11, v12, v13, v14, v15);
-      }
-    }
+    v18 = 0;
+    v17 = 0;
+    v16 = 0;
+    v15 = 0;
+    v14 = 0;
+    v13 = 0;
+    LODWORD(v12) = v3 + 0x80000000;
+    McTemplateK0pquutttq_EtwWriteTransfer(v7, v6, v8, this, v12, v13, v14, v15, v16, v17, v18);
   }
-  BYTE4(this[16][v4 + 139]) = 0;
-  HIDWORD(this[16][v4 + 141]) = -1;
-  LODWORD(this[16][v4 + 142]) = -1;
+  v9 = 496 * v3;
+  BYTE4(this[14][v9 + 136]) = 0;
+  LODWORD(this[14][v9 + 138]) = -1;
+  HIDWORD(this[14][v9 + 138]) = -1;
 }

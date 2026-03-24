@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x180020830
+ * XREFs of ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x180045114
  * Callers:
- *     ?OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ @ 0x1800207C0 (-OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ.c)
- *     ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1801DFF64 (-CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ @ 0x1800434C0 (-OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ.c)
+ *     ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x18019353C (-CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
  * Callees:
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CaptureBitsResponse::CalcSectionBitmapSize(enum DXGI_FORMAT *this)
+__int64 __fastcall CaptureBitsResponse::CalcSectionBitmapSize(CaptureBitsResponse *this)
 {
   unsigned __int8 PixelFormatSize; // al
   unsigned int v2; // ecx
@@ -16,9 +16,10 @@ __int64 __fastcall CaptureBitsResponse::CalcSectionBitmapSize(enum DXGI_FORMAT *
   int v4; // ebx
   unsigned int v5; // r8d
   unsigned __int64 v6; // rcx
+  int v7; // eax
 
-  PixelFormatSize = GetPixelFormatSize(this[411]);
-  if ( PixelFormatSize && (v2 = v3[409], v2 <= 0x7FFFFFF8u / PixelFormatSize) )
+  PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 419));
+  if ( PixelFormatSize && (v2 = v3[417], v2 <= 0x7FFFFFF8u / PixelFormatSize) )
   {
     v4 = 0;
     v5 = (((v2 * PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
@@ -28,25 +29,21 @@ __int64 __fastcall CaptureBitsResponse::CalcSectionBitmapSize(enum DXGI_FORMAT *
     v4 = -2147024362;
     v5 = 0;
   }
-  v3[419] = v5;
+  v3[427] = v5;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v4, 0xD5u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v4, 0xCFu, 0LL);
   }
   else
   {
-    v6 = v5 * (unsigned __int64)(unsigned int)v3[410];
+    v6 = v5 * (unsigned __int64)(unsigned int)v3[418];
+    v7 = -1;
+    if ( v6 <= 0xFFFFFFFF )
+      v7 = v5 * v3[418];
+    v3[426] = v7;
+    v4 = v6 > 0xFFFFFFFF ? 0x80070216 : 0;
     if ( v6 > 0xFFFFFFFF )
-    {
-      v4 = -2147024362;
-      v3[418] = -1;
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024362, 0xD7u, 0LL);
-    }
-    else
-    {
-      v3[418] = v6;
-      return 0;
-    }
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v4, 0xD1u, 0LL);
   }
   return (unsigned int)v4;
 }

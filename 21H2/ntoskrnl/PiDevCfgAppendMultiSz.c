@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgAppendMultiSz @ 0x14094A7D4
+ * XREFs of PiDevCfgAppendMultiSz @ 0x1408A4C8C
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1407455A8 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14094D7E8 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x14095D488 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1408A7E6C (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B71B8 (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1402D1DA4 (PnpDuplicateUnicodeString.c)
- *     PnpMultiSzContainsString @ 0x14039F184 (PnpMultiSzContainsString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14036EEA0 (PnpDuplicateUnicodeString.c)
+ *     PnpMultiSzContainsString @ 0x140392E00 (PnpMultiSzContainsString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const void **a2, const void **a3, char a4)
@@ -29,7 +29,8 @@ __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const vo
   unsigned __int64 v18; // rax
   _WORD *i; // r14
   __int64 v20; // rax
-  unsigned int v21; // r13d
+  __int16 v21; // r13
+  unsigned __int64 v22; // r15
   UNICODE_STRING UnicodeStringa; // [rsp+20h] [rbp-38h] BYREF
 
   v4 = 0;
@@ -87,16 +88,17 @@ __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const vo
       }
       else
       {
-        for ( i = a3[1]; *i; i += (unsigned __int64)v21 >> 1 )
+        for ( i = a3[1]; *i; i += v22 >> 1 )
         {
           v20 = -1LL;
           do
             ++v20;
           while ( i[v20] );
           v21 = 2 * v20 + 2;
+          v22 = (unsigned int)(2 * v20 + 2);
           if ( !PnpMultiSzContainsString(UnicodeString->Buffer, i) )
           {
-            memmove((char *)UnicodeStringa.Buffer + v17, i, v21);
+            memmove((char *)UnicodeStringa.Buffer + v17, i, (unsigned int)v22);
             v17 += v21;
           }
         }
@@ -105,7 +107,7 @@ __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const vo
     UnicodeStringa.Length = v17 + 2;
     UnicodeStringa.MaximumLength = v17 + 2;
     Buffer[(unsigned __int64)v17 >> 1] = 0;
-    RtlFreeUnicodeString(UnicodeString);
+    RtlFreeAnsiString(UnicodeString);
     *UnicodeString = UnicodeStringa;
     UnicodeStringa = 0LL;
     goto LABEL_41;
@@ -152,6 +154,6 @@ LABEL_6:
   UnicodeString->Length += 2;
   UnicodeString->MaximumLength = UnicodeString->Length;
 LABEL_41:
-  RtlFreeUnicodeString(&UnicodeStringa);
+  RtlFreeAnsiString(&UnicodeStringa);
   return v4;
 }

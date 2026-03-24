@@ -1,47 +1,43 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x1407CE76C
+ * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x140689214
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1407CE640 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlQueryImageFileExecutionOptions @ 0x1408555A0 (RtlQueryImageFileExecutionOptions.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1406890E4 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x1407A8FD0 (RtlQueryImageFileExecutionOptions.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x1408603B4 (RtlpOpenBaseImageFileOptionsKeyEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x1407D0654 (RtlpOpenBaseImageFileOptionsKeyEx.c)
  */
 
-__int64 __fastcall RtlpOpenBaseImageFileOptionsKey(_QWORD *a1)
+__int64 __fastcall RtlpOpenBaseImageFileOptionsKey(_QWORD *a1, __int64 a2)
 {
   void *CurrentServerSiloGlobals; // rbx
-  HANDLE v3; // rdx
+  HANDLE v4; // rdx
   __int64 result; // rax
   HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v3 = (HANDLE)*((_QWORD *)CurrentServerSiloGlobals + 156);
-  Handle = v3;
-  if ( v3 )
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)a1, a2);
+  v4 = (HANDLE)*((_QWORD *)CurrentServerSiloGlobals + 132);
+  Handle = v4;
+  if ( !v4 )
   {
-LABEL_2:
-    *a1 = v3;
-    return 0LL;
-  }
-  result = RtlpOpenBaseImageFileOptionsKeyEx(&Handle);
-  if ( (int)result >= 0 )
-  {
-    if ( !RtlpDisableIFEOCaching
-      && _InterlockedCompareExchange64(
-           (volatile signed __int64 *)CurrentServerSiloGlobals + 156,
-           (signed __int64)Handle,
-           0LL) )
+    result = RtlpOpenBaseImageFileOptionsKeyEx(&Handle);
+    if ( (int)result < 0 )
+      return result;
+    if ( RtlpDisableIFEOCaching
+      || !_InterlockedCompareExchange64(
+            (volatile signed __int64 *)CurrentServerSiloGlobals + 132,
+            (signed __int64)Handle,
+            0LL) )
     {
-      ZwClose(Handle);
-      v3 = (HANDLE)*((_QWORD *)CurrentServerSiloGlobals + 156);
+      v4 = Handle;
     }
     else
     {
-      v3 = Handle;
+      ZwClose(Handle);
+      v4 = (HANDLE)*((_QWORD *)CurrentServerSiloGlobals + 132);
     }
-    goto LABEL_2;
   }
-  return result;
+  *a1 = v4;
+  return 0LL;
 }

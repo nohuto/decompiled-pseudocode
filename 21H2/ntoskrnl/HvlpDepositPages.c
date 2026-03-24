@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpDepositPages @ 0x140544258
+ * XREFs of HvlpDepositPages @ 0x1404F2C04
  * Callers:
- *     HvlpHandleInsufficientMemory @ 0x1405438E8 (HvlpHandleInsufficientMemory.c)
- *     HvlpStartLogicalProcessor @ 0x140545750 (HvlpStartLogicalProcessor.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     HvlpAddRemovePhysicalMemory @ 0x140653AA4 (HvlpAddRemovePhysicalMemory.c)
- *     HvlpCreateRootVirtualProcessor @ 0x1409311AC (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
+ *     HvlpStartLogicalProcessor @ 0x1404F416C (HvlpStartLogicalProcessor.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     HvlpAddPhysicalMemory @ 0x1405C954C (HvlpAddPhysicalMemory.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14088E76C (HvlpCreateRootVirtualProcessor.c)
  * Callees:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140264F60 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3)
@@ -22,32 +22,28 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3)
   unsigned int v5; // edi
   __int64 v6; // rax
   unsigned int v7; // edx
-  __int64 v8; // r14
+  __int64 v8; // r15
   unsigned int v9; // ecx
   __int64 PartitionNodePagesForMdl; // rax
-  char *v11; // r15
+  char *v11; // r14
   unsigned int v13; // r12d
   unsigned int v14; // eax
   _QWORD *v15; // rax
-  unsigned int v16; // r14d
+  unsigned int v16; // r15d
   unsigned int v17; // esi
   void *v18; // r13
   int v19; // eax
   __int64 v20; // [rsp+40h] [rbp-68h]
-  __int128 v21; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-50h]
-  __int64 v23; // [rsp+60h] [rbp-48h]
-  unsigned int v24; // [rsp+B0h] [rbp+8h]
+  PHYSICAL_ADDRESS v21[12]; // [rsp+48h] [rbp-60h] BYREF
+  unsigned int v22; // [rsp+B0h] [rbp+8h]
 
   v3 = 128;
-  v22 = 0LL;
-  LODWORD(v23) = 0;
+  memset(v21, 0, 32);
   v4 = a3;
-  v21 = 0LL;
   v5 = 113;
   v6 = 0x200000LL;
-  v7 = *(unsigned __int16 *)(KeNodeBlock[a1] + 2);
-  v24 = v7;
+  v7 = *(unsigned __int16 *)(KeNodeBlock[a1] + 148);
+  v22 = v7;
   while ( 1 )
   {
     v20 = v6;
@@ -63,7 +59,7 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3)
       v3 -= v13;
       if ( v14 < v13 )
         v3 = 0;
-      v15 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v21, 1, 0LL, 8LL);
+      v15 = HvlpAcquireHypercallPage(v21, 1, 0LL, 8LL);
       v16 = 0;
       *v15 = HvlPartitionId;
       if ( v13 )
@@ -82,7 +78,7 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3)
         }
         while ( v16 < v13 );
       }
-      HvlpReleaseHypercallPage((__int64)&v21);
+      HvlpReleaseHypercallPage(v21);
       ExFreePoolWithTag(v11, 0);
       v8 = v20;
       v4 = a3;
@@ -98,7 +94,7 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3)
       v5 &= ~0x40u;
     else
       v5 = v5 & 0xFFFFFFDB | 4;
-    v7 = v24;
+    v7 = v22;
     v6 = v8 & -(__int64)(v19 != 0);
   }
   return 0LL;

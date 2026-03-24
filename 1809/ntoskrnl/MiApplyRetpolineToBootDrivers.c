@@ -5,13 +5,13 @@
  * Callees:
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlIsImageFullyRetpolined @ 0x1401B5FB8 (RtlIsImageFullyRetpolined.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F6FA4 (RtlPerformRetpolineRelocationsOnImageEx.c)
- *     MiMapRetpolineStubs @ 0x140853C9C (MiMapRetpolineStubs.c)
- *     MiMarkRetpolineBits @ 0x140853D70 (MiMarkRetpolineBits.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlIsImageFullyRetpolined @ 0x1401B5FD8 (RtlIsImageFullyRetpolined.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     MiMapRetpolineStubs @ 0x140853C7C (MiMapRetpolineStubs.c)
+ *     MiMarkRetpolineBits @ 0x140853D50 (MiMarkRetpolineBits.c)
  */
 
 __int64 __fastcall MiApplyRetpolineToBootDrivers(__int64 a1)

@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpSetInvalidIDEvent @ 0x1409648F8
+ * XREFs of PnpSetInvalidIDEvent @ 0x1408AC09C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PnpQueryID @ 0x1407985E8 (PnpQueryID.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x1407435F0 (PnpQueryID.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetInvalidIDEvent(const void **a1)
 {
   int v3; // ebx
-  __int64 DeviceEventEntry; // rax
+  GUID *DeviceEventEntry; // rax
   __int64 v5; // rdi
 
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
   v3 = *(unsigned __int16 *)a1 + 82;
-  DeviceEventEntry = PnpCreateDeviceEventEntry((unsigned int)*(unsigned __int16 *)a1 + 194);
-  v5 = DeviceEventEntry;
+  DeviceEventEntry = (GUID *)PnpCreateDeviceEventEntry((unsigned int)*(unsigned __int16 *)a1 + 194);
+  v5 = (__int64)DeviceEventEntry;
   if ( !DeviceEventEntry )
     return 3221225626LL;
-  *(_DWORD *)(DeviceEventEntry + 128) = 8;
-  *(_DWORD *)(DeviceEventEntry + 148) = v3;
-  *(GUID *)(DeviceEventEntry + 112) = GUID_DEVICE_INVALID_ID;
-  memmove((void *)(DeviceEventEntry + 160), a1[1], *(unsigned __int16 *)a1);
+  DeviceEventEntry[8].Data1 = 8;
+  *(_DWORD *)&DeviceEventEntry[9].Data2 = v3;
+  DeviceEventEntry[7] = GUID_DEVICE_INVALID_ID;
+  memmove(&DeviceEventEntry[10], a1[1], *(unsigned __int16 *)a1);
   *(_WORD *)(v5 + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1) + 160) = 0;
   *(_WORD *)(v5 + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1) + 162) = 0;
   return PnpInsertEventInQueue(v5);

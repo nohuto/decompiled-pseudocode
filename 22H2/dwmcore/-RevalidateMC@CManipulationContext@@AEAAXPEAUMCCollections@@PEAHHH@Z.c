@@ -1,440 +1,444 @@
 /*
- * XREFs of ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1801A59E8
+ * XREFs of ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1802354B4
  * Callers:
- *     ?RevalidateMCsAndLists@CManipulationContext@@CAXPEAUMCCollections@@PEAH@Z @ 0x1801A6714 (-RevalidateMCsAndLists@CManipulationContext@@CAXPEAUMCCollections@@PEAH@Z.c)
+ *     ?RevalidateMCsAndLists@CManipulationContext@@CAXPEAUMCCollections@@PEAH@Z @ 0x1802360B8 (-RevalidateMCsAndLists@CManipulationContext@@CAXPEAUMCCollections@@PEAH@Z.c)
  * Callees:
- *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180031A34 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800E8C9C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18012D260 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x18012D2B0 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@43@Z @ 0x18019D124 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U1@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     ??2CParticleVector2Behavior@@CAPEAX_K@Z @ 0x18019DA3C (--2CParticleVector2Behavior@@CAPEAX_K@Z.c)
- *     ??4?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z @ 0x18019DABC (--4-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z.c)
- *     ?Add@?$CArray@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V?$CArrayEqualHelper@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@@@QEAAHAEBV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x18019DBFC (-Add@-$CArray@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V-$CArrayEqualHelper@V-$ComPtr@VCMa.c)
- *     ?InternalSetAtIndex@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEAAXHAEBIAEBV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@Z @ 0x18019E56C (-InternalSetAtIndex@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@.c)
- *     ?RemoveKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x1801A0AF8 (-RemoveKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPt.c)
- *     ?RemoveKey@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z @ 0x1801A0B28 (-RemoveKey@-$CMap@IW4InputType@@V-$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z.c)
- *     ??0CManipulationContext@@QEAA@PEAVCComposition@@@Z @ 0x1801A373C (--0CManipulationContext@@QEAA@PEAVCComposition@@@Z.c)
- *     ?Add@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBIAEBUTargetingInfo@@@Z @ 0x1801A3A34 (-Add@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBIAEBUTargetingInfo@.c)
- *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1801A3ABC (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
- *     ?CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z @ 0x1801A4048 (-CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z.c)
- *     ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x1801A4410 (-FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH.c)
- *     ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x1801A4780 (-Initialize@CManipulationContext@@QEAAJ_NK@Z.c)
- *     ?RemoveKey@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z @ 0x1801A5714 (-RemoveKey@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z.c)
- *     ?RemoveKey@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x1801A5744 (-RemoveKey@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInte.c)
- *     ?SetAtIndex@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHAEBIAEBUTargetingInfo@@@Z @ 0x1801A68F8 (-SetAtIndex@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHAEBIAEBUTarget.c)
- *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1801A6A1C (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
+ *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180062454 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??2CClipBrush@@KAPEAX_K@Z @ 0x18016BBCC (--2CClipBrush@@KAPEAX_K@Z.c)
+ *     ??4?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z @ 0x1801D6FD0 (--4-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@43@Z @ 0x180223FC4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U1@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180224334 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?Add@?$CArray@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V?$CArrayEqualHelper@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@@@QEAAHAEBV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x1802243D8 (-Add@-$CArray@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V-$CArrayEqualHelper@V-$ComPtr@VCMa.c)
+ *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x1802249F8 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
+ *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x180224A2C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
+ *     ?InternalSetAtIndex@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAXHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x180224CC4 (-InternalSetAtIndex@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComP.c)
+ *     ?RemoveKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x180226994 (-RemoveKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPt.c)
+ *     ?RemoveKey@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z @ 0x1802269C4 (-RemoveKey@-$CMap@IW4InputType@@V-$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z.c)
+ *     ??0CManipulationContext@@QEAA@PEAVCComposition@@@Z @ 0x18023348C (--0CManipulationContext@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?Add@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBIAEBUTargetingInfo@@@Z @ 0x180233738 (-Add@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBIAEBUTargetingInfo@.c)
+ *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1802337C0 (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
+ *     ?CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z @ 0x180233CA8 (-CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z.c)
+ *     ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x180234040 (-FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH.c)
+ *     ?GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z @ 0x180234350 (-GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z.c)
+ *     ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x180234450 (-Initialize@CManipulationContext@@QEAAJ_NK@Z.c)
+ *     ?RemoveKey@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z @ 0x1802351E0 (-RemoveKey@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z.c)
+ *     ?RemoveKey@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x180235210 (-RemoveKey@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInte.c)
+ *     ?SetAtIndex@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHAEBIAEBUTargetingInfo@@@Z @ 0x1802362A4 (-SetAtIndex@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHAEBIAEBUTarget.c)
+ *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1802363DC (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
  */
 
 void __fastcall CManipulationContext::RevalidateMC(
         CManipulationContext *this,
         struct MCCollections *a2,
         int *a3,
-        int a4,
+        __int64 *a4,
         int a5)
 {
-  int *v5; // rbx
-  char v6; // r8
-  struct MCCollections *v7; // r12
-  __int64 v9; // r15
-  _QWORD *v10; // r10
+  int *v5; // rdi
+  struct MCCollections *v6; // r14
+  __int64 v7; // rdx
+  int v8; // r10d
+  const struct CInteraction *v10; // r13
   _QWORD *v11; // rcx
-  const struct CInteraction *v12; // r13
-  CInteraction *v13; // rax
-  CInteraction *v14; // rcx
-  __int64 v15; // rdi
-  int v16; // r11d
-  __int64 *v17; // rbx
-  int v18; // r14d
-  __int64 v19; // r15
-  char v20; // r15
-  __int64 v21; // r8
-  __int64 v22; // r9
-  int v23; // edx
-  bool v24; // zf
-  __int64 v25; // r8
-  CManipulationContext *v26; // rax
-  __int64 v27; // r15
-  __int64 v28; // rax
-  __int64 v29; // r8
-  __int64 v30; // rdx
-  int v31; // edi
-  unsigned int v32; // r14d
+  __int64 v12; // rax
+  const struct CInteraction *v13; // r12
+  signed __int64 MCRoot; // r15
+  int TotalNumContacts; // eax
+  __int64 *v16; // rbx
+  int v17; // edi
+  char v18; // r13
+  __int64 v19; // r14
+  __int64 v20; // rcx
+  int v21; // edx
+  bool v22; // zf
+  __int64 v23; // r9
+  int v24; // r8d
+  CManipulationContext *v25; // rax
+  const struct CInteraction *v26; // r13
+  __int64 v27; // rax
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  int v30; // edi
+  unsigned int v31; // r15d
   int Key; // eax
-  int v34; // edi
-  CManipulationContext *v35; // rdi
-  int v36; // eax
-  __int64 v37; // rdx
+  int v33; // edi
+  CManipulationContext *v34; // rdi
+  int v35; // eax
+  __int64 v36; // rdx
+  const struct CInteraction *v37; // rax
   int *v38; // r8
-  unsigned __int64 v39; // rdx
-  unsigned __int64 i; // rax
   struct CManipulationContext *ManipulationContext; // rax
-  unsigned int v42; // eax
-  __int64 *v43; // rcx
-  __int64 v44; // rax
-  __int64 v45; // rdx
-  __int64 v46; // rax
-  __int64 v47; // rcx
-  unsigned int v48; // [rsp+58h] [rbp-81h] BYREF
-  char v49; // [rsp+5Ch] [rbp-7Dh]
-  __int64 *v50; // [rsp+60h] [rbp-79h] BYREF
-  int v51; // [rsp+68h] [rbp-71h]
-  CManipulationContext *v52; // [rsp+70h] [rbp-69h] BYREF
-  unsigned int v53; // [rsp+78h] [rbp-61h]
-  _QWORD *v54; // [rsp+80h] [rbp-59h] BYREF
-  int v55; // [rsp+88h] [rbp-51h] BYREF
-  int v56; // [rsp+90h] [rbp-49h] BYREF
-  __int64 (__fastcall ***v57)(_QWORD); // [rsp+98h] [rbp-41h] BYREF
-  char *v58; // [rsp+A0h] [rbp-39h]
-  __int64 v59; // [rsp+A8h] [rbp-31h] BYREF
-  __int64 *v60; // [rsp+B0h] [rbp-29h] BYREF
-  CManipulationContext *v61; // [rsp+B8h] [rbp-21h] BYREF
-  int v62; // [rsp+C0h] [rbp-19h] BYREF
-  __int64 v63; // [rsp+C8h] [rbp-11h] BYREF
-  int v64; // [rsp+D0h] [rbp-9h] BYREF
-  __int64 v65; // [rsp+D8h] [rbp-1h] BYREF
-  char v66; // [rsp+138h] [rbp+5Fh]
+  unsigned int v40; // eax
+  __int64 *v41; // rcx
+  const struct CInteraction *v42; // rcx
+  __int64 v43; // rcx
+  bool v44; // al
+  unsigned int v45; // [rsp+58h] [rbp-71h] BYREF
+  int v46; // [rsp+5Ch] [rbp-6Dh]
+  __int64 *v47; // [rsp+60h] [rbp-69h] BYREF
+  CManipulationContext *v48; // [rsp+68h] [rbp-61h] BYREF
+  unsigned int v49; // [rsp+70h] [rbp-59h]
+  const struct CInteraction *v50; // [rsp+78h] [rbp-51h] BYREF
+  int v51; // [rsp+80h] [rbp-49h] BYREF
+  int v52; // [rsp+88h] [rbp-41h] BYREF
+  struct CInteraction *v53; // [rsp+90h] [rbp-39h] BYREF
+  __int64 *v54; // [rsp+98h] [rbp-31h]
+  signed __int64 v55; // [rsp+A0h] [rbp-29h] BYREF
+  __int64 *v56; // [rsp+A8h] [rbp-21h] BYREF
+  CManipulationContext *v57; // [rsp+B0h] [rbp-19h] BYREF
+  int v58; // [rsp+B8h] [rbp-11h] BYREF
+  __int64 v59; // [rsp+C0h] [rbp-9h] BYREF
+  int v60; // [rsp+C8h] [rbp-1h] BYREF
+  __int64 v61; // [rsp+D0h] [rbp+7h] BYREF
+  char v62; // [rsp+128h] [rbp+5Fh]
+  int *v64; // [rsp+138h] [rbp+6Fh]
+  int v65; // [rsp+140h] [rbp+77h]
 
+  v65 = (int)a4;
+  v64 = a3;
   v5 = a3;
-  v6 = 0;
-  v7 = a2;
-  v66 = 0;
-  v51 = 0;
+  v6 = a2;
+  LOBYTE(a3) = 0;
+  v7 = 0LL;
+  v8 = (int)a4;
+  v62 = 0;
+  v46 = 0;
   if ( *((int *)this + 18) > 0 )
   {
-    v9 = 0LL;
-    v10 = (_QWORD *)((char *)a2 + 24);
-    v58 = (char *)a2 + 24;
+    v10 = 0LL;
+    a4 = (__int64 *)((char *)v6 + 24);
+    v54 = (__int64 *)((char *)v6 + 24);
     v11 = (_QWORD *)((char *)this + 56);
-    v54 = 0LL;
+    v50 = 0LL;
     while ( 1 )
     {
-      v53 = *(_DWORD *)(*v11 + 4 * v9);
-      v48 = v53;
-      v12 = *(const struct CInteraction **)(*((_QWORD *)this + 8) + 8 * v9);
-      if ( !v12 )
-        goto LABEL_21;
-      v13 = (CInteraction *)*((_QWORD *)v12 + 27);
-      v14 = *(CInteraction **)(*((_QWORD *)this + 8) + 8 * v9);
-      while ( v13 )
-      {
-        v14 = v13;
-        v13 = (CInteraction *)*((_QWORD *)v13 + 27);
-      }
-      v15 = (__int64)v14;
-      if ( (unsigned int)CInteraction::GetTotalNumContacts(v14) )
-      {
-        v17 = 0LL;
-        v50 = 0LL;
-        v18 = 0;
-        v49 = 1;
-        v19 = 0LL;
-        while ( !v17 && v18 < *((_DWORD *)a2 + 8) )
-        {
-          if ( (v18 < v16 || v18 == v16 && v6 || (*(_BYTE *)(*(_QWORD *)(v19 + *v10) + 28LL) & 4) == 0)
-            && *(_QWORD *)(*(_QWORD *)(*v10 + v19) + 48LL) == v15 )
-          {
-            Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
-              (__int64 (__fastcall ****)(_QWORD))&v50,
-              (_QWORD *)(*v10 + 8LL * v18));
-            v6 = v66;
-            v10 = v58;
-            v16 = a4;
-            v17 = v50;
-          }
-          ++v18;
-          v19 += 8LL;
-        }
-        v7 = a2;
-        v20 = v49;
-      }
+      v49 = *(_DWORD *)(*v11 + 4LL * (_QWORD)v10);
+      v45 = v49;
+      v12 = *((_QWORD *)this + 8);
+      v13 = *(const struct CInteraction **)(v12 + 8LL * (_QWORD)v10);
+      if ( v13 )
+        MCRoot = (signed __int64)CManipulationContext::GetMCRoot(*(const struct CInteraction **)(v12 + 8LL * (_QWORD)v10));
       else
+        MCRoot = 0LL;
+      if ( MCRoot )
       {
-LABEL_21:
-        v15 = 0LL;
-        v17 = 0LL;
-        v50 = 0LL;
-        v20 = 0;
+        TotalNumContacts = CInteraction::GetTotalNumContacts((CInteraction *)MCRoot);
+        LODWORD(v7) = v46;
+        MCRoot &= -(__int64)(TotalNumContacts != 0);
       }
-      if ( (unsigned int)dword_1803E3798 > 4 )
+      v16 = 0LL;
+      v47 = 0LL;
+      if ( MCRoot )
       {
-        if ( tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
+        v17 = 0;
+        v18 = 1;
+        v19 = 0LL;
+        while ( 2 )
         {
-          v55 = *((_DWORD *)this + 18);
-          v59 = v15;
-          LODWORD(v52) = v22;
-          v60 = v17;
-          v61 = this;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-            (__int64)&dword_1803E3798,
-            byte_18037DD3B,
-            v21,
-            v22,
-            (__int64)&v61,
-            (__int64)&v60,
-            (__int64)&v52,
-            (__int64)&v55,
-            (__int64)&v59);
-          v10 = (_QWORD *)((char *)v7 + 24);
+          if ( v16 || v17 >= *((_DWORD *)a2 + 8) )
+          {
+            LODWORD(v7) = v46;
+            v5 = v64;
+            v6 = a2;
+            goto LABEL_24;
+          }
+          if ( v17 < v8 || v17 == v8 && (_BYTE)a3 )
+          {
+            v20 = *a4;
+LABEL_19:
+            if ( *(_QWORD *)(*(_QWORD *)(v19 + v20) + 48LL) == MCRoot )
+            {
+              Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
+                (__int64 (__fastcall ****)(_QWORD))&v47,
+                (_QWORD *)(v20 + 8LL * v17));
+              LOBYTE(a3) = v62;
+              a4 = v54;
+              v8 = v65;
+              v16 = v47;
+            }
+          }
+          else
+          {
+            v20 = *a4;
+            if ( (*(_BYTE *)(*(_QWORD *)(*a4 + v19) + 28LL) & 4) == 0 )
+              goto LABEL_19;
+          }
+          ++v17;
+          v19 += 8LL;
+          continue;
         }
-        v6 = v66;
       }
-      if ( !v17 && v20 )
-        break;
-LABEL_47:
-      if ( v17 == (__int64 *)this )
+      v18 = 0;
+LABEL_24:
+      if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
       {
-        v27 = (__int64)v54;
+        v51 = *((_DWORD *)this + 18);
+        LODWORD(v48) = v7;
+        v55 = MCRoot;
+        v56 = v16;
+        v57 = this;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
+          (__int64)&dword_180344E80,
+          byte_1802ED3D6,
+          (__int64)a3,
+          (__int64)a4,
+          (__int64)&v57,
+          (__int64)&v56,
+          (__int64)&v48,
+          (__int64)&v51,
+          (__int64)&v55);
+        LOBYTE(a3) = v62;
+        a4 = (__int64 *)((char *)v6 + 24);
+      }
+      if ( !v16 && v18 )
+        break;
+LABEL_48:
+      if ( v16 == (__int64 *)this )
+      {
+        v26 = v50;
       }
       else
       {
         CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::RemoveKey(
           (__int64)this + 56,
-          (int *)&v48);
-        --v51;
-        v27 = (__int64)v54 - 1;
+          (int *)&v45);
+        --v46;
+        v26 = (const struct CInteraction *)((char *)v50 - 1);
       }
-      if ( !v17 )
-        goto LABEL_59;
-      Microsoft::WRL::ComPtr<CInteraction>::operator=(v17 + 6, v15);
-      v28 = (*(__int64 (__fastcall **)(__int64 *))(*v17 + 112))(v17);
-      LOBYTE(v29) = *((_BYTE *)this + 28) & 1;
-      LOBYTE(v30) = 1;
-      (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v28 + 40LL))(v28, v30, v29);
-      if ( v17 == (__int64 *)this )
+      if ( !v16 )
       {
-        v32 = v53;
-        InputTraceLogging::GestureTargeting::SetInteractionChain(v53, v12);
-      }
-      else
-      {
-        v54 = v12;
-        Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v54);
-        v31 = CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::Add(
-                (__int64)(v17 + 7),
-                (__int64)&v48,
-                (__int64)&v54);
-        if ( v12 )
-          (*(void (__fastcall **)(const struct CInteraction *))(*(_QWORD *)v12 + 16LL))(v12);
-        if ( !v31 )
-        {
-          Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v50);
-          v17 = v50;
-LABEL_59:
-          v32 = v53;
-          goto LABEL_60;
-        }
-        v32 = v53;
-        InputTraceLogging::GestureTargeting::SetInteractionChain(v53, v12);
-        Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
-                (__int64)v7,
-                (int *)&v48);
-        v34 = Key;
-        if ( Key >= 0 && Key < *((_DWORD *)v7 + 4) )
-        {
-          Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)(*((_QWORD *)v7 + 1) + 8LL * Key));
-          CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::InternalSetAtIndex(
-            v7,
-            v34,
-            &v48,
-            &v50);
-        }
-      }
-LABEL_60:
-      if ( !v17 )
-      {
+        v31 = v49;
+LABEL_64:
         CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::RemoveKey(
-          (__int64)v7,
-          (int *)&v48);
+          (__int64)v6,
+          (int *)&v45);
         CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int,enum InputType>>::RemoveKey(
-          (__int64)v7 + 40,
-          (int *)&v48);
-        NtDCompositionUpdatePointerCapture(0LL, v32);
-        InputTraceLogging::GestureTargeting::SetInteractionChain(v32, 0LL);
+          (__int64)v6 + 40,
+          (int *)&v45);
+        NtDCompositionUpdatePointerCapture(0LL, v31);
+        InputTraceLogging::GestureTargeting::SetInteractionChain(v31, 0LL);
+        goto LABEL_65;
       }
-      v35 = 0LL;
-      v56 = 0;
-      v57 = 0LL;
-      v52 = 0LL;
-      v36 = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
-              (__int64)this + 80,
-              (int *)&v48);
-      if ( v36 != -1 )
+      Microsoft::WRL::ComPtr<CInteraction>::operator=(v16 + 6, MCRoot);
+      v27 = (*(__int64 (__fastcall **)(__int64 *))(*v16 + 112))(v16);
+      LOBYTE(v28) = *((_BYTE *)this + 28) & 1;
+      LOBYTE(v29) = 1;
+      (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v27 + 40LL))(v27, v29, v28);
+      if ( v16 == (__int64 *)this )
       {
-        v37 = *((_QWORD *)this + 11) + 16LL * v36;
-        v56 = *(_DWORD *)v37;
-        Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v57, (_QWORD *)(v37 + 8));
-        if ( v57 )
-        {
-          v39 = (unsigned __int64)(v57 - 8) & -(__int64)(v57 != 0LL);
-          for ( i = *(_QWORD *)(v39 + 0xD8); i; i = *(_QWORD *)(i + 216) )
-            v39 = i;
-          ManipulationContext = CManipulationContext::FindManipulationContext(v7, v39, v38);
-          Microsoft::WRL::ComPtr<CManipulationContext>::operator=(
-            (__int64 (__fastcall ****)(_QWORD))&v52,
-            (__int64 (__fastcall ***)(_QWORD))ManipulationContext);
-          v35 = v52;
-        }
-      }
-      if ( v35 == (CManipulationContext *)v17 && v17 )
-      {
-        if ( v17 != (__int64 *)this )
-        {
-          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::RemoveKey(
-            (__int64)this + 80,
-            (int *)&v48);
-          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::Add(
-            (__int64)(v17 + 10),
-            (__int64)&v48,
-            (__int64)&v56);
-        }
+        v31 = v49;
+        InputTraceLogging::GestureTargeting::SetInteractionChain(v49, v13);
       }
       else
       {
-        if ( v17 == (__int64 *)this )
+        v50 = v13;
+        Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v50);
+        v30 = CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::Add(
+                (__int64)(v16 + 7),
+                &v45,
+                &v50);
+        if ( v13 )
+          (*(void (__fastcall **)(const struct CInteraction *))(*(_QWORD *)v13 + 8LL))(v13);
+        if ( v30 )
         {
-          v63 = 0LL;
-          v62 = 1;
-          v42 = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
-                  (__int64)(v17 + 10),
-                  (int *)&v48);
-          if ( v42 != -1 )
-            CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::SetAtIndex(
-              v17 + 10,
-              v42,
-              &v48,
-              &v62);
-          v43 = &v63;
-        }
-        else
-        {
-          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::RemoveKey(
-            (__int64)this + 80,
-            (int *)&v48);
-          if ( !v17 )
-            goto LABEL_80;
-          v65 = 0LL;
-          v64 = 1;
-          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::Add(
-            (__int64)(v17 + 10),
-            (__int64)&v48,
-            (__int64)&v64);
-          v43 = &v65;
-        }
-        Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease(v43);
-      }
-LABEL_80:
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v57);
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v52);
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v50);
-      v10 = (_QWORD *)((char *)v7 + 24);
-      v11 = (_QWORD *)((char *)this + 56);
-      v9 = v27 + 1;
-      ++v51;
-      v54 = (_QWORD *)v9;
-      if ( v51 >= *((_DWORD *)this + 18) )
-      {
-        v5 = a3;
-        goto LABEL_82;
-      }
-      v6 = v66;
-    }
-    v52 = 0LL;
-    if ( v6 )
-    {
-      if ( *a3 != -1 )
-      {
-        Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
-          (__int64 (__fastcall ****)(_QWORD))&v50,
-          (_QWORD *)(*v10 + 8LL * *a3));
-        v17 = v50;
-        v23 = *a3;
-        *((_BYTE *)v50 + 28) ^= (*((_BYTE *)v50 + 28) ^ *((_BYTE *)this + 28)) & 1;
-        v24 = v23 == a5;
-        if ( v23 >= a5 )
-        {
-LABEL_37:
-          if ( v24 )
-            *a3 = -1;
-        }
-        else
-        {
-          v25 = *((_QWORD *)v7 + 3);
-          while ( *(_QWORD *)(*(_QWORD *)(v25 + 8LL * v23) + 48LL) )
+          v31 = v49;
+          InputTraceLogging::GestureTargeting::SetInteractionChain(v49, v13);
+          Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
+                  (__int64)v6,
+                  (int *)&v45);
+          v33 = Key;
+          if ( Key >= 0 && Key < *((_DWORD *)v6 + 4) )
           {
-            *a3 = ++v23;
-            v24 = v23 == a5;
-            if ( v23 >= a5 )
-              goto LABEL_37;
+            Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)(*((_QWORD *)v6 + 1) + 8LL * Key));
+            CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::InternalSetAtIndex(
+              v6,
+              v33,
+              &v45,
+              &v47);
           }
         }
-        goto LABEL_46;
+        else
+        {
+          Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v47);
+          v16 = v47;
+          v31 = v49;
+        }
       }
-      v26 = (CManipulationContext *)CParticleVector2Behavior::operator new();
-      if ( v26 )
-        v26 = CManipulationContext::CManipulationContext(v26, *((struct CComposition **)this + 5));
-      if ( !*Microsoft::WRL::ComPtr<CManipulationContext>::operator=(
-               (__int64 (__fastcall ****)(_QWORD))&v52,
-               (__int64 (__fastcall ***)(_QWORD))v26)
-        || (int)CManipulationContext::Initialize(v52, *((_BYTE *)this + 28) & 1, *((_DWORD *)this + 8)) < 0
-        || !(unsigned int)CArray<Microsoft::WRL::ComPtr<CManipulationFrame>,CArrayEqualHelper<Microsoft::WRL::ComPtr<CManipulationFrame>>>::Add(
-                            (int *)v7 + 6,
-                            &v52) )
+      if ( !v16 )
+        goto LABEL_64;
+LABEL_65:
+      v34 = 0LL;
+      v52 = 0;
+      v53 = 0LL;
+      v48 = 0LL;
+      v35 = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
+              (__int64)this + 80,
+              (int *)&v45);
+      if ( v35 != -1 )
       {
-LABEL_46:
-        Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v52);
+        v36 = *((_QWORD *)this + 11) + 16LL * v35;
+        v52 = *(_DWORD *)v36;
+        Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
+          (__int64 (__fastcall ****)(_QWORD))&v53,
+          (_QWORD *)(v36 + 8));
+        if ( v53 )
+        {
+          v37 = CManipulationContext::GetMCRoot(v53);
+          ManipulationContext = CManipulationContext::FindManipulationContext(v6, v37, v38);
+          Microsoft::WRL::ComPtr<CManipulationContext>::operator=(
+            (__int64 (__fastcall ****)(_QWORD))&v48,
+            (__int64 (__fastcall ***)(_QWORD))ManipulationContext);
+          v34 = v48;
+        }
+      }
+      if ( v34 == (CManipulationContext *)v16 && v16 )
+      {
+        if ( v16 != (__int64 *)this )
+        {
+          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::RemoveKey(
+            (__int64)this + 80,
+            (int *)&v45);
+          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::Add(
+            (__int64)(v16 + 10),
+            (__int64)&v45,
+            (__int64)&v52);
+        }
+      }
+      else
+      {
+        if ( v16 == (__int64 *)this )
+        {
+          v59 = 0LL;
+          v58 = 1;
+          v40 = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
+                  (__int64)(v16 + 10),
+                  (int *)&v45);
+          if ( v40 != -1 )
+            CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::SetAtIndex(
+              v16 + 10,
+              v40,
+              &v45,
+              &v58);
+          v41 = &v59;
+        }
+        else
+        {
+          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::RemoveKey(
+            (__int64)this + 80,
+            (int *)&v45);
+          if ( !v16 )
+            goto LABEL_79;
+          v61 = 0LL;
+          v60 = 1;
+          CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::Add(
+            (__int64)(v16 + 10),
+            (__int64)&v45,
+            (__int64)&v60);
+          v41 = &v61;
+        }
+        Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v41);
+      }
+LABEL_79:
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v53);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v48);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v47);
+      a4 = (__int64 *)((char *)v6 + 24);
+      v5 = v64;
+      v11 = (_QWORD *)((char *)this + 56);
+      v8 = v65;
+      v7 = (unsigned int)(v46 + 1);
+      v10 = (const struct CInteraction *)((char *)v26 + 1);
+      v46 = v7;
+      v50 = v10;
+      if ( (int)v7 >= *((_DWORD *)this + 18) )
+        goto LABEL_80;
+      LOBYTE(a3) = v62;
+    }
+    v48 = 0LL;
+    if ( (_BYTE)a3 )
+    {
+      if ( *v5 != -1 )
+      {
+        Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
+          (__int64 (__fastcall ****)(_QWORD))&v47,
+          (_QWORD *)(*a4 + 8LL * *v5));
+        v16 = v47;
+        v21 = *v5;
+        *((_BYTE *)v47 + 28) ^= (*((_BYTE *)v47 + 28) ^ *((_BYTE *)this + 28)) & 1;
+        v22 = v21 == a5;
+        if ( v21 < a5 )
+        {
+          v23 = *((_QWORD *)v6 + 3);
+          v24 = v21;
+          do
+          {
+            if ( !*(_QWORD *)(*(_QWORD *)(v23 + 8LL * v24) + 48LL) )
+              break;
+            *v5 = ++v24;
+            v21 = v24;
+          }
+          while ( v24 < a5 );
+          v22 = v21 == a5;
+        }
+        if ( v22 )
+          *v5 = -1;
         goto LABEL_47;
       }
-      Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))&v50, &v52);
+      v25 = (CManipulationContext *)CClipBrush::operator new();
+      if ( v25 )
+        v25 = CManipulationContext::CManipulationContext(v25, *((struct CComposition **)this + 5));
+      if ( !*Microsoft::WRL::ComPtr<CManipulationContext>::operator=(
+               (__int64 (__fastcall ****)(_QWORD))&v48,
+               (__int64 (__fastcall ***)(_QWORD))v25)
+        || (int)CManipulationContext::Initialize(v48, *((_BYTE *)this + 28) & 1, *((_DWORD *)this + 8)) < 0
+        || !(unsigned int)CArray<Microsoft::WRL::ComPtr<CManipulationFrame>,CArrayEqualHelper<Microsoft::WRL::ComPtr<CManipulationFrame>>>::Add(
+                            (char **)v6 + 3,
+                            &v48) )
+      {
+        goto LABEL_47;
+      }
+      Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))&v47, &v48);
     }
     else
     {
       Microsoft::WRL::ComPtr<CManipulationContext>::operator=(
-        (__int64 (__fastcall ****)(_QWORD))&v50,
+        (__int64 (__fastcall ****)(_QWORD))&v47,
         (__int64 (__fastcall ***)(_QWORD))this);
-      v66 = 1;
+      v62 = 1;
     }
-    v17 = v50;
-    goto LABEL_46;
+    v16 = v47;
+LABEL_47:
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v48);
+    goto LABEL_48;
   }
-LABEL_82:
-  v44 = *((_QWORD *)this + 14);
-  if ( v44 )
+LABEL_80:
+  v42 = (const struct CInteraction *)*((_QWORD *)this + 14);
+  if ( v42 && CManipulationContext::GetMCRoot(v42) != *((struct CInteraction **)this + 6) )
   {
-    v45 = *(_QWORD *)(v44 + 152);
-    v46 = v44 - 64;
-    while ( v45 )
-    {
-      v46 = v45;
-      v45 = *(_QWORD *)(v45 + 216);
-    }
-    if ( v46 != *((_QWORD *)this + 6) )
-    {
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 14);
-      *((_DWORD *)this + 30) = 0;
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 16);
-    }
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 14);
+    *((_DWORD *)this + 30) = 0;
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 16);
   }
-  v47 = *((_QWORD *)this + 6);
-  if ( v66 )
+  v43 = *((_QWORD *)this + 6);
+  if ( v62 )
   {
-    *((_BYTE *)this + 28) = (8
-                           * CManipulationContext::CheckForSingleTarget(
-                               (const struct CInteraction *)v47,
-                               (const struct InputSinks *)(v47 + 72))) | *((_BYTE *)this + 28) & 0xF7;
+    v44 = CManipulationContext::CheckForSingleTarget(
+            (const struct CInteraction *)v43,
+            (const struct InputSinks *)(v43 + 64));
+    *((_BYTE *)this + 28) &= ~8u;
+    *((_BYTE *)this + 28) |= 8 * v44;
   }
   else
   {
-    if ( v47 )
+    if ( v43 )
     {
       *((_QWORD *)this + 6) = 0LL;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v47 + 16LL))(v47);
+      (*(void (__fastcall **)(__int64, __int64, int *, __int64 *))(*(_QWORD *)v43 + 8LL))(v43, v7, a3, a4);
     }
     if ( *v5 == -1 )
-      *v5 = a4;
+      *v5 = v65;
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C0132068
+ * XREFs of ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C01466F4
  * Callers:
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
  * Callees:
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00F2EEC (--1BRUSHSELOBJ@@QEAA@XZ.c)
- *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00F2F78 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
- *     ?bSyncBrushObj@@YAHPEAVBRUSH@@@Z @ 0x1C01321C0 (-bSyncBrushObj@@YAHPEAVBRUSH@@@Z.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00266C0 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C002674C (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?bSyncBrushObj@@YAHPEAVBRUSH@@@Z @ 0x1C0147EEC (-bSyncBrushObj@@YAHPEAVBRUSH@@@Z.c)
  */
 
 __int64 __fastcall cjGetBrushOrPen(HBRUSH a1, unsigned int a2, _QWORD *a3)

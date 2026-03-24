@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1405038DC
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B717C
  * Callers:
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140505560 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8B74 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaIndexToTranslationEntry @ 0x14045764A (HalpDmaIndexToTranslationEntry.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404C7C98 (HalpDmaIndexToTranslationEntry.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(

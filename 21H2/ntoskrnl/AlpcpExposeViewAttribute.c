@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpExposeViewAttribute @ 0x1407A717C
+ * XREFs of AlpcpExposeViewAttribute @ 0x140697DF8
  * Callers:
- *     AlpcpExposeViewAttribute32 @ 0x1407A723C (AlpcpExposeViewAttribute32.c)
+ *     AlpcpExposeViewAttribute32 @ 0x140697D98 (AlpcpExposeViewAttribute32.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1407B0F40 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpExposeViewAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

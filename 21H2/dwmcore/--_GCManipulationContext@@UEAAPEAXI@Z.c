@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x180181E08
+ * XREFs of ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x1802339B8
  * Callers:
- *     ??_ECManipulationContext@@W7EAAPEAXI@Z @ 0x1801051F0 (--_ECManipulationContext@@W7EAAPEAXI@Z.c)
+ *     ??_ECManipulationContext@@W7EAAPEAXI@Z @ 0x1800F6EE0 (--_ECManipulationContext@@W7EAAPEAXI@Z.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CManipulationContext@@UEAA@XZ @ 0x180181C00 (--1CManipulationContext@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CManipulationContext@@UEAA@XZ @ 0x180233808 (--1CManipulationContext@@UEAA@XZ.c)
  */
 
 CManipulationContext *__fastcall CManipulationContext::`scalar deleting destructor'(
@@ -16,9 +16,9 @@ CManipulationContext *__fastcall CManipulationContext::`scalar deleting destruct
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x90);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

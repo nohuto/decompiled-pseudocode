@@ -1,55 +1,27 @@
 /*
- * XREFs of MiPerformCombineScan @ 0x14020D740
+ * XREFs of MiPerformCombineScan @ 0x140369C80
  * Callers:
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCombinePte @ 0x1405B5BA0 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiHashIsCommon @ 0x14020D86C (MiHashIsCommon.c)
+ *     MiHashIsCommon @ 0x140369D2C (MiHashIsCommon.c)
+ *     MiComputeHash64 @ 0x140370700 (MiComputeHash64.c)
  */
 
-__int64 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4)
+_BOOL8 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
-  __int64 v6; // r8
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rbx
-  int v9; // eax
-  __int64 v10; // r9
+  BOOL v6; // esi
+  __int64 v7; // rax
+  __int64 v8; // r8
+  __int64 v9; // rbx
+  int v10; // r11d
 
-  v7 = 1;
-  v8 = 0xDE5DF13F878608F5uLL;
-  v9 = 512;
-  do
-  {
-    v10 = (unsigned int)(v9 - 8);
-    v6 = (__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16;
-    v8 = *(_QWORD *)(v6 + 8 * v10)
-       + __ROR8__(
-           *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 7))
-         + __ROR8__(
-             *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 6))
-           + __ROR8__(
-               *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 5)) ^ __ROR8__(
-                                                                  *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 4))
-                                                                + __ROR8__(
-                                                                    *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 3))
-                                                                  + __ROR8__(
-                                                                      *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 2))
-                                                                    + __ROR8__(
-                                                                        *(_QWORD *)(v6 + 8LL * (unsigned int)(v9 - 1))
-                                                                      + __ROR8__(v8, 2),
-                                                                        3),
-                                                                      5),
-                                                                    7),
-                                                                  11),
-               13),
-             17),
-           19);
-    v9 -= 8;
-  }
-  while ( (_DWORD)v10 );
-  if ( a3 && !(unsigned int)MiHashIsCommon(a1, v8) )
-    v7 = 0;
-  *a4 = v8;
-  return v7;
+  v6 = 1;
+  v7 = MiComputeHash64((__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16, a2, (__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16);
+  v9 = v7;
+  if ( v10 )
+    v6 = MiHashIsCommon(a1, v7, v8) != 0;
+  *a4 = v9;
+  return v6;
 }

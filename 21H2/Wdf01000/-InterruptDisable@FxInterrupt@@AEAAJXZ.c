@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InterruptDisable@FxInterrupt@@AEAAJXZ @ 0x1C000D4E0
+ * XREFs of ?InterruptDisable@FxInterrupt@@AEAAJXZ @ 0x1C0004A18
  * Callers:
- *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C000D374 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C00048C0 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
  * Callees:
  *     <none>
  */

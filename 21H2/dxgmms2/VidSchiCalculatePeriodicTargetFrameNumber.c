@@ -1,8 +1,8 @@
 /*
- * XREFs of VidSchiCalculatePeriodicTargetFrameNumber @ 0x1C0038820
+ * XREFs of VidSchiCalculatePeriodicTargetFrameNumber @ 0x1C002F098
  * Callers:
- *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0038FAC (VidSchiProcessPeriodicNotificationCookie.c)
- *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003B7B0 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0030484 (VidSchiProcessPeriodicNotificationCookie.c)
+ *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0032CD0 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
  * Callees:
  *     <none>
  */

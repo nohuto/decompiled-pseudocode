@@ -1,92 +1,109 @@
 /*
- * XREFs of IoSetIoCompletionEx @ 0x14022A180
+ * XREFs of IoSetIoCompletionEx @ 0x14028FFC0
  * Callers:
- *     PspNotificationPacketCallback @ 0x1406A1DE0 (PspNotificationPacketCallback.c)
- *     PspSendReliableJobNotification @ 0x1406A2200 (PspSendReliableJobNotification.c)
- *     NtSetIoCompletionEx @ 0x1406A22D0 (NtSetIoCompletionEx.c)
+ *     PspSendReliableJobNotification @ 0x14068163C (PspSendReliableJobNotification.c)
+ *     NtSetIoCompletionEx @ 0x140681710 (NtSetIoCompletionEx.c)
+ *     PspNotificationPacketCallback @ 0x1406B47F0 (PspNotificationPacketCallback.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402F6A70 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056B1E4 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14062DA60 (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x1407D57AC (IopAllocateMiniCompletionPacket.c)
+ *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
+ *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1406D4C3C (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        int a4,
+        _DWORD *SchedulerAssist,
         __int64 a5,
         unsigned __int8 a6,
         __int64 a7)
 {
-  __int64 MiniCompletionPacket; // rbx
-  __int64 v11; // rdi
+  unsigned int v7; // r14d
+  int v8; // esi
+  __int64 v9; // rbp
+  __int64 v10; // r15
+  __int64 v11; // rbx
   _QWORD *v12; // rsi
   char CurrentIrql; // r15
   struct _KPRCB *CurrentPrcb; // rbp
   _KTHREAD *CurrentThread; // r13
-  unsigned int v16; // r14d
+  __int64 v16; // r9
   int v17; // edx
-  __int64 *v18; // rcx
-  _DWORD *SchedulerAssist; // r9
+  _QWORD *v18; // rcx
+  __int64 MiniCompletionPacket; // rax
   unsigned __int8 IsThreadRunning; // al
 
-  MiniCompletionPacket = a7;
+  v7 = 0;
+  v8 = (int)SchedulerAssist;
+  v9 = a3;
+  v10 = a2;
   v11 = a1;
-  if ( a7 || (LOBYTE(a1) = 1, (MiniCompletionPacket = IopAllocateMiniCompletionPacket(a1, a6)) != 0) )
+  if ( a7 )
   {
-    *(_DWORD *)(MiniCompletionPacket + 40) = a4;
-    v12 = (_QWORD *)(v11 + 8);
-    *(_QWORD *)(MiniCompletionPacket + 48) = a5;
-    *(_QWORD *)(MiniCompletionPacket + 24) = a2;
-    *(_QWORD *)(MiniCompletionPacket + 32) = a3;
+    v12 = (_QWORD *)(a1 + 8);
+    *(_QWORD *)(a7 + 48) = a5;
+    *(_QWORD *)(a7 + 24) = a2;
+    *(_QWORD *)(a7 + 32) = a3;
+    *(_DWORD *)(a7 + 40) = (_DWORD)SchedulerAssist;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+      a2 = (-1LL << (CurrentIrql + 1)) & 4;
+      a3 = (unsigned int)a2 | SchedulerAssist[5];
+      SchedulerAssist[5] = a3;
     }
     CurrentPrcb = KeGetCurrentPrcb();
     CurrentThread = CurrentPrcb->CurrentThread;
     if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
     {
       IsThreadRunning = KeIsThreadRunning(CurrentPrcb->CurrentThread);
-      EtwTraceEnqueueWork(CurrentThread, MiniCompletionPacket, IsThreadRunning);
+      EtwTraceEnqueueWork(CurrentThread, a7, IsThreadRunning);
     }
-    KiAcquireKobjectLockSafe(v11);
-    v16 = 0;
+    KiAcquireKobjectLockSafe((volatile signed __int32 *)v11, a2, a3, (__int64)SchedulerAssist);
     if ( (_QWORD *)*v12 == v12
       || *(_DWORD *)(v11 + 40) >= *(_DWORD *)(v11 + 44)
       || CurrentThread->Queue == (_DISPATCHER_HEADER *volatile)v11 && CurrentThread->WaitReason == 15
-      || !(unsigned __int8)KiWakeQueueWaiter(CurrentPrcb, v11, MiniCompletionPacket) )
+      || !KiWakeQueueWaiter((__int64)CurrentPrcb, v11, a7, v16) )
     {
       v17 = *(_DWORD *)(v11 + 4);
       *(_DWORD *)(v11 + 4) = v17 + 1;
-      v18 = *(__int64 **)(v11 + 32);
+      v18 = *(_QWORD **)(v11 + 32);
       if ( *v18 != v11 + 24 )
         __fastfail(3u);
-      *(_QWORD *)MiniCompletionPacket = v11 + 24;
-      *(_QWORD *)(MiniCompletionPacket + 8) = v18;
-      *v18 = MiniCompletionPacket;
-      *(_QWORD *)(v11 + 32) = MiniCompletionPacket;
+      *(_QWORD *)a7 = v11 + 24;
+      *(_QWORD *)(a7 + 8) = v18;
+      *v18 = a7;
+      *(_QWORD *)(v11 + 32) = a7;
       if ( !v17 && (_QWORD *)*v12 != v12 )
-        KiWakeOtherQueueWaiters(CurrentPrcb, v11);
-    }
-    else
-    {
-      *(_QWORD *)MiniCompletionPacket = 0LL;
+        KiWakeOtherQueueWaiters((__int64)CurrentPrcb, v11);
     }
     _InterlockedAnd((volatile signed __int32 *)v11, 0xFFFFFF7F);
     KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
   }
   else
   {
-    return (unsigned int)-1073741670;
+    LOBYTE(a1) = 1;
+    MiniCompletionPacket = IopAllocateMiniCompletionPacket(a1, a6);
+    if ( MiniCompletionPacket )
+    {
+      *(_QWORD *)(MiniCompletionPacket + 24) = v10;
+      *(_QWORD *)(MiniCompletionPacket + 32) = v9;
+      *(_DWORD *)(MiniCompletionPacket + 40) = v8;
+      *(_QWORD *)(MiniCompletionPacket + 48) = a5;
+      KeInsertQueueEx(v11, MiniCompletionPacket, 0LL, 0LL);
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
   }
-  return v16;
+  return v7;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpStringCapture @ 0x1409F7A3C
+ * XREFs of ExpStringCapture @ 0x14094B6D0
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x1409F6358 (ExpGetDeviceDataInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x14094A1C8 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpStringCapture(_QWORD *a1, unsigned __int16 *a2)
 {
   __int64 v4; // rax
   size_t v5; // rsi
-  void *Pool2; // rbx
+  PVOID PoolWithQuotaTag; // rdi
   size_t v8; // rax
 
   v4 = *a2;
@@ -24,17 +24,20 @@ __int64 __fastcall ExpStringCapture(_QWORD *a1, unsigned __int16 *a2)
   else
   {
     v5 = *a2;
-    Pool2 = (void *)ExAllocatePool2(257LL, v4 + 2, 1347639365LL);
-    if ( Pool2 )
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v4 + 2, 0x50535845u);
+    if ( PoolWithQuotaTag )
     {
-      v8 = *((_QWORD *)a2 + 1);
-      if ( (v8 & 1) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( v8 + v5 > 0x7FFFFFFF0000LL || v8 + v5 < v8 )
-        MEMORY[0x7FFFFFFF0000] = 0;
-      memmove(Pool2, *((const void **)a2 + 1), v5);
-      *((_WORD *)Pool2 + (v5 >> 1)) = 0;
-      *a1 = Pool2;
+      if ( v5 )
+      {
+        v8 = *((_QWORD *)a2 + 1);
+        if ( (v8 & 1) != 0 )
+          ExRaiseDatatypeMisalignment();
+        if ( v8 + v5 > 0x7FFFFFFF0000LL || v8 + v5 < v8 )
+          MEMORY[0x7FFFFFFF0000] = 0;
+      }
+      memmove(PoolWithQuotaTag, *((const void **)a2 + 1), v5);
+      *((_WORD *)PoolWithQuotaTag + (v5 >> 1)) = 0;
+      *a1 = PoolWithQuotaTag;
       return 0;
     }
     else

@@ -1,22 +1,21 @@
 /*
- * XREFs of VfNotifyOfHibernate @ 0x140A8682C
+ * XREFs of VfNotifyOfHibernate @ 0x1409CCB8C
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140A4AF0C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfIsVerifierExtensionEnabled @ 0x1405FDEEC (VfIsVerifierExtensionEnabled.c)
- *     VfDisableHalVerifier @ 0x1405FE548 (VfDisableHalVerifier.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfIsVerifierExtensionEnabled @ 0x1405A06E4 (VfIsVerifierExtensionEnabled.c)
+ *     VfDisableHalVerifier @ 0x1405A0F98 (VfDisableHalVerifier.c)
  */
 
 void __fastcall VfNotifyOfHibernate(char a1)
 {
-  struct _LIST_ENTRY *Flink; // rcx
-  struct _LIST_ENTRY *v2; // rdx
-  struct _LIST_ENTRY *v3; // rax
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *v2; // rcx
   int IsVerifierExtensionEnabled; // eax
-  __int64 v5; // rcx
-  char v6; // r9
-  int v7; // r11d
+  __int64 v4; // rcx
+  char v5; // r9
+  int v6; // r11d
 
   if ( a1 )
   {
@@ -37,22 +36,17 @@ void __fastcall VfNotifyOfHibernate(char a1)
     {
       v2 = Flink[1].Flink;
       if ( v2 )
-      {
-        v3 = (struct _LIST_ENTRY *)&ViDmaOperationsV2;
-        if ( LODWORD(Flink[12].Flink) >= 3 )
-          v3 = (struct _LIST_ENTRY *)&ViDmaOperationsV3;
-        v2->Blink = v3;
-      }
+        v2->Blink = (struct _LIST_ENTRY *)&ViDmaOperations;
       Flink = Flink->Flink;
     }
   }
   IsVerifierExtensionEnabled = VfIsVerifierExtensionEnabled();
-  if ( IsVerifierExtensionEnabled == v7 )
+  if ( IsVerifierExtensionEnabled == v6 )
   {
     if ( ViFnExtensionHiberFunc )
     {
-      LOBYTE(v5) = v6;
-      ((void (__fastcall *)(__int64))ViFnExtensionHiberFunc)(v5);
+      LOBYTE(v4) = v5;
+      ((void (__fastcall *)(__int64))ViFnExtensionHiberFunc)(v4);
     }
   }
 }

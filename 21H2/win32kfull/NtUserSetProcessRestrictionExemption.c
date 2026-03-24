@@ -1,31 +1,32 @@
 /*
- * XREFs of NtUserSetProcessRestrictionExemption @ 0x1C01FDE70
+ * XREFs of NtUserSetProcessRestrictionExemption @ 0x1C0202910
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetProcessRestrictionExemption(int a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // rdi
+  __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v6; // rcx
+  __int64 v7; // rcx
 
-  EnterCrit(0LL, 0LL);
-  v4 = 0LL;
+  v2 = 1LL;
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int8)ExQueryFastCacheDevLicense() )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v3);
-    v4 = 1LL;
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
     *(_DWORD *)(CurrentProcessWin32Process + 820) ^= (*(_DWORD *)(CurrentProcessWin32Process + 820) ^ (a1 << 8)) & 0x100;
   }
   else
   {
-    UserSetLastError(5LL, v2);
+    UserSetLastError(5LL, v3, v5);
+    v2 = 0LL;
   }
-  UserSessionSwitchLeaveCrit(v6);
-  return v4;
+  UserSessionSwitchLeaveCrit(v7);
+  return v2;
 }

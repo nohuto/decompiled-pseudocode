@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Compare@AddressMap@RFONTOBJ@@SAHPEBX0@Z @ 0x1C015CA40
+ * XREFs of ?Compare@AddressMap@RFONTOBJ@@SAHPEBX0@Z @ 0x1C0125AA0
  * Callers:
  *     <none>
  * Callees:

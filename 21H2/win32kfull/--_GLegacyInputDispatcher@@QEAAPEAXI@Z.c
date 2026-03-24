@@ -1,16 +1,32 @@
 /*
- * XREFs of ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C011F8B0
+ * XREFs of ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C000A648
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
- *     xxxDesktopThread @ 0x1C00A4360 (xxxDesktopThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     xxxDesktopThread @ 0x1C00D9750 (xxxDesktopThread.c)
  * Callees:
- *     ??1LegacyInputDispatcher@@QEAA@XZ @ 0x1C011F8E4 (--1LegacyInputDispatcher@@QEAA@XZ.c)
+ *     <none>
  */
 
 LegacyInputDispatcher *__fastcall LegacyInputDispatcher::`scalar deleting destructor'(LegacyInputDispatcher *this)
 {
-  LegacyInputDispatcher::~LegacyInputDispatcher(this);
-  if ( this )
-    Win32FreePool(this);
+  void *v2; // rcx
+  void *v3; // rcx
+  void *v4; // rcx
+  void *v5; // rcx
+
+  *(_QWORD *)this = &LegacyInputDispatcher::`vftable';
+  v2 = (void *)*((_QWORD *)this + 1);
+  if ( v2 )
+    Win32FreePool(v2);
+  v3 = (void *)*((_QWORD *)this + 3);
+  if ( v3 )
+    Win32FreePool(v3);
+  v4 = (void *)*((_QWORD *)this + 4);
+  if ( v4 )
+    Win32FreePool(v4);
+  v5 = (void *)*((_QWORD *)this + 2);
+  if ( v5 )
+    Win32FreePool(v5);
+  Win32FreePool(this);
   return this;
 }

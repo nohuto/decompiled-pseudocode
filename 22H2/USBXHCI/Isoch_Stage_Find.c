@@ -1,95 +1,95 @@
 /*
- * XREFs of Isoch_Stage_Find @ 0x1C0002870
+ * XREFs of Isoch_Stage_Find @ 0x1C0002730
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDD @ 0x1C000E150 (WPP_RECORDER_SF_DDDD.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     WPP_RECORDER_SF_DDDDD @ 0x1C0041D20 (WPP_RECORDER_SF_DDDDD.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
- *     WPP_RECORDER_SF_DDqDD @ 0x1C00437D4 (WPP_RECORDER_SF_DDqDD.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqDD @ 0x1C0040B40 (WPP_RECORDER_SF_DDqDD.c)
  */
 
-__int64 __fastcall Isoch_Stage_Find(__int64 a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall Isoch_Stage_Find(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // edi
-  __int64 *v4; // rsi
+  unsigned int v3; // esi
+  __int64 *v4; // rdi
   __int64 *v5; // rbx
-  unsigned __int64 v9; // r9
+  __int64 v9; // r8
   __int64 v10; // r10
-  char v11; // cl
+  char v11; // al
   unsigned __int8 *v12; // r10
-  int v13; // eax
-  int v14; // edx
-  __int64 v15; // rax
-  __int64 NextStage; // rsi
-  int v18; // edx
-  unsigned __int64 v19; // rdx
-  int v20; // edx
+  int v13; // ecx
+  int v14; // eax
+  __int64 NextStage; // rdi
+  int v17; // edx
+  __int64 v18; // rdx
+  unsigned int v19; // eax
+  unsigned int v20; // edx
   int v21; // edx
 
-  v3 = *((unsigned __int16 *)a3 + 1);
+  v3 = *(unsigned __int16 *)(a3 + 2);
   v4 = (__int64 *)(a1 + 384);
   v5 = *(__int64 **)(a1 + 384);
   if ( (__int64 *)(a1 + 384) == v5 )
   {
-LABEL_21:
+LABEL_20:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v19 = HIDWORD(*a3);
-      LOBYTE(v19) = 4;
-      WPP_RECORDER_SF_DDDD(
+      v18 = HIDWORD(*(_QWORD *)a3);
+      LOBYTE(v18) = 4;
+      WPP_RECORDER_SF_dddd(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-        v19,
+        v18,
         14,
         19,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         HIBYTE(*(_DWORD *)(a2 + 12)),
         HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
-        BYTE4(*a3),
+        BYTE4(*(_QWORD *)a3),
         v3);
     }
     return 0LL;
   }
-  v9 = *a3;
   while ( 1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      v18 = HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F;
-      LOBYTE(v18) = 5;
+      v17 = HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F;
+      LOBYTE(v17) = 5;
       WPP_RECORDER_SF_DDi(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-        v18,
+        v17,
         HIBYTE(*(_DWORD *)(a2 + 12)),
         18,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         HIBYTE(*(_DWORD *)(a2 + 12)),
         HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
         v5[3]);
-      v9 = *a3;
     }
-    v10 = v5[6];
-    if ( *(_DWORD *)(v10 + 128) == HIDWORD(v9) )
+    v9 = HIDWORD(*(_QWORD *)a3);
+    v10 = *(unsigned int *)(v5[6] + 128);
+    if ( v10 == v9 )
       break;
     v5 = (__int64 *)*v5;
     if ( v4 == v5 )
-      goto LABEL_21;
+      goto LABEL_20;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v20 = HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F;
+    v19 = *(_DWORD *)(a2 + 12);
+    v20 = HIBYTE(v19);
     LOBYTE(v20) = 5;
     WPP_RECORDER_SF_DDDDD(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v20,
-      HIBYTE(*(_DWORD *)(a2 + 12)),
+      v9,
       20,
-      (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
-      HIBYTE(*(_DWORD *)(a2 + 12)),
-      HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
-      *(_DWORD *)(v10 + 128),
-      BYTE4(*a3),
+      (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
+      SHIBYTE(v19),
+      BYTE2(v19) & 0x1F,
+      v10,
+      v9,
       v3);
   }
   v11 = *((_BYTE *)v5 + 130);
@@ -98,25 +98,24 @@ LABEL_21:
   *((_BYTE *)v5 + 133) = v13;
   *((_BYTE *)v5 + 134) = v11;
   if ( !v11
-    || (v14 = v13,
-        v15 = v13 * (unsigned int)*v12,
-        *((_BYTE *)v5 + 134) = v11 - 1,
-        NextStage = (__int64)v5 + v15 + 144,
-        *((_BYTE *)v5 + 133) = (v14 + 1) % (unsigned int)*((unsigned __int8 *)v5 + 129),
+    || (v14 = *v12,
+        --*((_BYTE *)v5 + 134),
+        NextStage = (__int64)v5 + (unsigned int)(v13 * v14) + 144,
+        *((_BYTE *)v5 + 133) = (v13 + 1) % (unsigned int)*((unsigned __int8 *)v5 + 129),
         !NextStage) )
   {
-LABEL_25:
+LABEL_24:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_DDqDD(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v5[3],
         HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
         22,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         HIBYTE(*(_DWORD *)(a2 + 12)),
         HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
         v5[3],
-        BYTE4(*a3),
+        BYTE4(*(_QWORD *)a3),
         v3);
     return 0LL;
   }
@@ -124,7 +123,7 @@ LABEL_25:
   {
     NextStage = StageQueue_ForwardScanGetNextStage(v12);
     if ( !NextStage )
-      goto LABEL_25;
+      goto LABEL_24;
   }
   if ( !v3 || v3 > *(_DWORD *)(NextStage + 48) - 1 )
   {
@@ -134,12 +133,12 @@ LABEL_25:
       {
         v21 = HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F;
         LOBYTE(v21) = 5;
-        WPP_RECORDER_SF_DDDD(
+        WPP_RECORDER_SF_dddd(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v21,
           14,
           21,
-          (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+          (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
           HIBYTE(*(_DWORD *)(a2 + 12)),
           HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F,
           *(_DWORD *)(NextStage + 48),

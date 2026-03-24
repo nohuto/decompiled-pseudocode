@@ -3,14 +3,14 @@
  * Callers:
  *     RtlLookupFunctionEntry @ 0x14009DC20 (RtlLookupFunctionEntry.c)
  *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x14012F650 (RtlPcToFileHeader.c)
- *     RtlLookupFunctionTable @ 0x1401375C0 (RtlLookupFunctionTable.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1402F6618 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlPcToFileHeader @ 0x14012F670 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionTable @ 0x1401375E0 (RtlLookupFunctionTable.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1402F6718 (RtlGuardCheckLongJumpTarget.c)
  *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409CF77C (RtlCreateInvertedFunctionTableCacheEntry.c)
  *     KiVerifyPdata @ 0x1409CFFD0 (KiVerifyPdata.c)
  * Callees:
  *     MmLockLoadedModuleListShared @ 0x14009B82C (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x1400DA668 (MmUnlockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1400DA688 (MmUnlockLoadedModuleListShared.c)
  */
 
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)

@@ -1,14 +1,16 @@
 /*
- * XREFs of ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C0001218
+ * XREFs of ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C00225B0
  * Callers:
- *     VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3 @ 0x1C0085FE0 (VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3.c)
+ *     VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3 @ 0x1C00D14B0 (VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::DdiSetVidPnSourceAddressWithMultiPlaneOverlay3(
         ADAPTER_DISPLAY *this,
         struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *a2)
 {
-  return DxgCoreInterface[63](this, a2);
+  return ((__int64 (__fastcall *)(ADAPTER_DISPLAY *, struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *))DxgCoreInterface[61])(
+           this,
+           a2);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qcq @ 0x1C0082540
+ * XREFs of WPP_IFR_SF_qcq @ 0x1C000C14C
  * Callers:
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qcq(
@@ -20,7 +20,7 @@ void __fastcall WPP_IFR_SF_qcq(
   if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x1000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 3u )
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
-      43LL,
+      0x2Bu,
       WPP_FxIoQueue_cpp_Traceguids,
       0x2Du,
       &level,

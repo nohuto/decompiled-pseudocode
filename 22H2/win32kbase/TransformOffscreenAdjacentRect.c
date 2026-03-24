@@ -1,24 +1,19 @@
 /*
- * XREFs of TransformOffscreenAdjacentRect @ 0x1C013F50C
+ * XREFs of TransformOffscreenAdjacentRect @ 0x1C00C0C3C
  * Callers:
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
  * Callees:
- *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000E09C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     FindAdjacentMonitor @ 0x1C013F420 (FindAdjacentMonitor.c)
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C0070FEC (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     FindAdjacentMonitor @ 0x1C00C0D38 (FindAdjacentMonitor.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall TransformOffscreenAdjacentRect(
-        LONG *a1,
-        int *a2,
-        struct tagRECT *a3,
-        unsigned int a4,
-        unsigned int a5)
+__int64 __fastcall TransformOffscreenAdjacentRect(int *a1, int *a2, int *a3, unsigned int a4, unsigned int a5)
 {
-  LONG left; // r8d
-  LONG top; // ecx
-  LONG right; // ecx
-  LONG bottom; // ecx
+  int v8; // r8d
+  int v10; // ecx
+  int v11; // ecx
+  int v12; // ecx
   __int64 AdjacentMonitor; // rax
   unsigned int v14; // r8d
   int v15; // eax
@@ -32,23 +27,23 @@ __int64 __fastcall TransformOffscreenAdjacentRect(
   __int64 result; // rax
   __int128 v24; // [rsp+30h] [rbp-48h] BYREF
 
-  left = *a1;
+  v8 = *a1;
   v24 = 0LL;
-  if ( left >= a3->left )
-    left = a3->left;
-  *a1 = left;
-  top = a1[1];
-  if ( top >= a3->top )
-    top = a3->top;
-  a1[1] = top;
-  right = a1[2];
-  if ( right <= a3->right )
-    right = a3->right;
-  a1[2] = right;
-  bottom = a1[3];
-  if ( bottom <= a3->bottom )
-    bottom = a3->bottom;
-  a1[3] = bottom;
+  if ( v8 >= *a3 )
+    v8 = *a3;
+  *a1 = v8;
+  v10 = a1[1];
+  if ( v10 >= a3[1] )
+    v10 = a3[1];
+  a1[1] = v10;
+  v11 = a1[2];
+  if ( v11 <= a3[2] )
+    v11 = a3[2];
+  a1[2] = v11;
+  v12 = a1[3];
+  if ( v12 <= a3[3] )
+    v12 = a3[3];
+  a1[3] = v12;
   AdjacentMonitor = FindAdjacentMonitor(a3, a5);
   v14 = TransformRectBetweenCoordinateSpacesPerMonitor((__int64)&v24, (__int64)a3, a4, a5, AdjacentMonitor);
   v15 = a2[2];

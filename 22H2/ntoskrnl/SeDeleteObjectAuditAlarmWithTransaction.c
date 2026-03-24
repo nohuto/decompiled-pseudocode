@@ -1,13 +1,13 @@
 /*
- * XREFs of SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CE140
+ * XREFs of SeDeleteObjectAuditAlarmWithTransaction @ 0x140921400
  * Callers:
- *     NtDeleteKey @ 0x14070FD60 (NtDeleteKey.c)
- *     NtMakeTemporaryObject @ 0x1407E1190 (NtMakeTemporaryObject.c)
- *     SeDeleteObjectAuditAlarm @ 0x1409CE120 (SeDeleteObjectAuditAlarm.c)
+ *     NtDeleteKey @ 0x1406E5000 (NtDeleteKey.c)
+ *     NtMakeTemporaryObject @ 0x1406F7590 (NtMakeTemporaryObject.c)
+ *     SeDeleteObjectAuditAlarm @ 0x1409213E0 (SeDeleteObjectAuditAlarm.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409CBAB4 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED74 (SepAdtDeleteObjectAuditAlarm.c)
  */
 
 void __stdcall SeDeleteObjectAuditAlarmWithTransaction(PVOID Object, HANDLE Handle, GUID *TransactionId)
@@ -18,7 +18,7 @@ void __stdcall SeDeleteObjectAuditAlarmWithTransaction(PVOID Object, HANDLE Hand
   SeCaptureSubjectContext(&SubjectContext);
   SepAdtDeleteObjectAuditAlarm(
     (const UNICODE_STRING *)&SeSubsystemName,
-    (__int64)Handle,
+    (unsigned __int64)Handle,
     (__int64 *)&SubjectContext,
     (__int64)Object,
     (__int128 *)TransactionId,

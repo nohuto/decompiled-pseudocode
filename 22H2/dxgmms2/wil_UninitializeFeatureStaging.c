@@ -1,8 +1,7 @@
 /*
- * XREFs of wil_UninitializeFeatureStaging @ 0x1C0085008
+ * XREFs of wil_UninitializeFeatureStaging @ 0x1C005E9F0
  * Callers:
- *     DriverUnload @ 0x1C002CE40 (DriverUnload.c)
- *     DriverEntry @ 0x1C010D1F8 (DriverEntry.c)
+ *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00AD26C (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,11 +10,10 @@ __int64 wil_UninitializeFeatureStaging()
 {
   __int64 result; // rax
 
-  if ( g_wil_details_featureChangeNotification )
+  if ( wil_details_featureChangeNotification )
   {
     result = RtlUnregisterFeatureConfigurationChangeNotification();
-    g_wil_details_featureChangeNotification = 0LL;
+    wil_details_featureChangeNotification = 0LL;
   }
-  g_wil_details_isFeatureStagingInitialized = 0;
   return result;
 }

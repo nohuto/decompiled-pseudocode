@@ -1,15 +1,15 @@
 /*
- * XREFs of CmSiCloseSection @ 0x140250FF0
+ * XREFs of CmSiCloseSection @ 0x1402C81B8
  * Callers:
- *     HvpViewMapCleanup @ 0x1406D8150 (HvpViewMapCleanup.c)
- *     BiCreateKey @ 0x1408036C8 (BiCreateKey.c)
- *     BiDeleteKey @ 0x14080422C (BiDeleteKey.c)
- *     BiDeleteRegistryValue @ 0x140812318 (BiDeleteRegistryValue.c)
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
+ *     HvpViewMapCleanup @ 0x1406B58BC (HvpViewMapCleanup.c)
+ *     BiDeleteKey @ 0x140779960 (BiDeleteKey.c)
+ *     BiDeleteRegistryValue @ 0x1407821E4 (BiDeleteRegistryValue.c)
+ *     BiCreateKey @ 0x140783C10 (BiCreateKey.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
  */
 
 NTSTATUS __fastcall CmSiCloseSection(void *a1)

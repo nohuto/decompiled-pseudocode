@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpPostApc @ 0x1406CEBA0
+ * XREFs of CmpPostApc @ 0x14069CB80
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     CmpFreePostBlock @ 0x1407190AC (CmpFreePostBlock.c)
- *     CmpFreeSubordinatePost @ 0x14071A400 (CmpFreeSubordinatePost.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     CmpFreePostBlock @ 0x140667A60 (CmpFreePostBlock.c)
+ *     CmpFreeSubordinatePost @ 0x14069CD10 (CmpFreeSubordinatePost.c)
  */
 
-__int64 __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
+void __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   _QWORD *v6; // rbx
   _QWORD *v7; // rdx
-  _KPROCESS *Process; // rcx
-  char v9; // al
-  __int64 v10; // rcx
-  _QWORD *v11; // rdx
-  __int16 v12; // ax
-  char v13; // cl
+  unsigned __int64 v8; // rcx
+  bool v9; // cl
+  bool v10; // zf
+  __int64 v11; // rcx
+  _QWORD *v12; // rdx
+  __int16 v13; // ax
   _QWORD *v14; // rdx
   struct _KEVENT *v15; // rcx
   __int64 v16; // r8
@@ -36,25 +36,25 @@ __int64 __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __
         __debugbreak();
     }
   }
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !Process[1].Affinity.StaticBitmap[30]
-    || ((v12 = WORD2(Process[2].Affinity.StaticBitmap[20]), v12 == 332) || v12 == 452
-      ? (v9 = 1, v13 = 1)
-      : (v13 = 0, v9 = 1),
-        !v13) )
+  v8 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  v9 = 0;
+  if ( v8 )
   {
-    v9 = 0;
+    v13 = *(_WORD *)(v8 + 8);
+    if ( v13 == 332 || v13 == 452 )
+      v9 = 1;
   }
   **(_DWORD **)(v6[8] + 104LL) = *a4;
-  v10 = *(_QWORD *)(v6[8] + 104LL);
-  if ( v9 )
-    *(_DWORD *)(v10 + 4) = 0;
+  v10 = !v9;
+  v11 = *(_QWORD *)(v6[8] + 104LL);
+  if ( v10 )
+    *(_QWORD *)(v11 + 8) = 0LL;
   else
-    *(_QWORD *)(v10 + 8) = 0LL;
-  v11 = (_QWORD *)v6[8];
-  if ( (_QWORD *)v11[13] == v11 + 13 )
+    *(_DWORD *)(v11 + 4) = 0;
+  v12 = (_QWORD *)v6[8];
+  if ( (_QWORD *)v12[13] == v12 + 13 )
   {
-    DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v11);
+    DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v12);
     if ( (_BYTE)KdDebuggerEnabled )
     {
       if ( !(_BYTE)KdDebuggerNotPresent )
@@ -76,7 +76,7 @@ __int64 __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __
   if ( v15 )
   {
     KeSetEvent(v15, 0, 0);
-    ObfDereferenceObject(*(PVOID *)(v6[8] + 8LL));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v6[8] + 8LL));
   }
   v16 = v6[2];
   v17 = (_QWORD *)v6[3];
@@ -85,5 +85,5 @@ __int64 __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __
   *v17 = v16;
   *(_QWORD *)(v16 + 8) = v17;
   CmpFreeSubordinatePost(v6);
-  return CmpFreePostBlock(v6);
+  CmpFreePostBlock(v6);
 }

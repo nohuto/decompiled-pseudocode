@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUpdate@CFloodEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FLOODEFFECT@@@Z @ 0x1802063AC
+ * XREFs of ?ProcessUpdate@CFloodEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FLOODEFFECT@@@Z @ 0x1801B3B00
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFloodEffect::ProcessUpdate(
@@ -14,7 +14,7 @@ __int64 __fastcall CFloodEffect::ProcessUpdate(
   __int64 v3; // rax
 
   v3 = *(_QWORD *)this;
-  *((_OWORD *)this + 10) = *(_OWORD *)((char *)a3 + 8);
+  *(_OWORD *)((char *)this + 152) = *(_OWORD *)((char *)a3 + 8);
   (*(void (__fastcall **)(CFloodEffect *, _QWORD, _QWORD))(v3 + 72))(this, 0LL, 0LL);
   return 0LL;
 }

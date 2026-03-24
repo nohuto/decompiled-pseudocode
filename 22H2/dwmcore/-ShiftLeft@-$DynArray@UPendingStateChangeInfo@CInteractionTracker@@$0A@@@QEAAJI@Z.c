@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ShiftLeft@?$DynArray@UPendingStateChangeInfo@CInteractionTracker@@$0A@@@QEAAJI@Z @ 0x180133434
+ * XREFs of ?ShiftLeft@?$DynArray@UPendingStateChangeInfo@CInteractionTracker@@$0A@@@QEAAJI@Z @ 0x1801CC970
  * Callers:
- *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x180132E62 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x1801CB6A8 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 __int64 __fastcall DynArray<CInteractionTracker::PendingStateChangeInfo,0>::ShiftLeft(__int64 a1, unsigned int a2)

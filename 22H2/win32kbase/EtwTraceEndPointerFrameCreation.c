@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceEndPointerFrameCreation @ 0x1C0139460
+ * XREFs of EtwTraceEndPointerFrameCreation @ 0x1C01223C0
  * Callers:
- *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C01CE8B0 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
+ *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C01983C8 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
  * Callees:
- *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00DF768 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C01253A4 (McTemplateK0qqq_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwTraceEndPointerFrameCreation(__int64 a1, char a2, __int64 a3)
+__int64 __fastcall EtwTraceEndPointerFrameCreation(int a1, char a2, int a3)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x80000) != 0 )
-    return McTemplateK0qqq_EtwWriteTransfer(a1, &EndPointerFrameCreation, a3, a1, a2, a3);
+    return McTemplateK0qqq_EtwWriteTransfer(a1, (unsigned int)&EndPointerFrameCreation, a3, a1, a2, a3);
   return result;
 }

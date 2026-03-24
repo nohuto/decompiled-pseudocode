@@ -1,146 +1,83 @@
 /*
- * XREFs of ?Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z @ 0x1C0020C00
+ * XREFs of ?Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z @ 0x1C001BC04
  * Callers:
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C03304A4 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C027FF20 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
  * Callees:
- *     ?Unlock@CWin32kLocks@@QEAAXXZ @ 0x1C002C6E4 (-Unlock@CWin32kLocks@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?Unlock@CWin32kLocks@@QEAAXXZ @ 0x1C0027B48 (-Unlock@CWin32kLocks@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWin32kLocks::Lock(CWin32kLocks *this, HWND a2, int a3, int a4, int a5)
 {
-  __int64 v7; // rcx
-  char *v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // rdi
-  __int64 v13; // rsi
-  __int64 v14; // rax
-  __int64 v15; // rax
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // edx
-  int v21; // ecx
-  int v22; // r8d
-  int v23; // edx
-  int v24; // ecx
-  int v25; // r8d
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
+  __int64 v6; // rcx
+  unsigned int v7; // edi
+  unsigned __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  __int64 v18; // rbp
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
 
-  v7 = *((_QWORD *)this + 7);
-  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v7 + 184)
-    || ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v7 + 168)) )
+  v6 = *((_QWORD *)this + 7);
+  v7 = 0;
+  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v6 + 184)
+    || ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v6 + 168)) )
   {
-    WdLogSingleEntry1(1LL, 568LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v18,
-          v17,
-          v19,
-          0,
-          2,
-          -1,
-          (__int64)L"!m_pAdapter->IsCoreResourceSharedOwner()",
-          568LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v22 = WdLogNewEntry5_WdAssertion(v6, a2);
+    *(_QWORD *)(v22 + 24) = 591LL;
+    WdLogEvent5_WdAssertion(v22);
   }
-  if ( *(_QWORD *)this || *((_QWORD *)this + 1) || *((_QWORD *)this + 2) )
+  if ( *(_QWORD *)this || (v11 = (unsigned __int64)this + 8, *((_QWORD *)this + 1)) || *((_QWORD *)this + 2) )
   {
-    WdLogSingleEntry1(1LL, 570LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v21,
-          v20,
-          v22,
-          0,
-          2,
-          -1,
-          (__int64)L"m_hWindowDc == NULL && m_hFullscreenDc == NULL && m_hDevLocked == NULL",
-          570LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v23 = WdLogNewEntry5_WdAssertion(v6, a2);
+    *(_QWORD *)(v23 + 24) = 593LL;
+    WdLogEvent5_WdAssertion(v23);
+    v11 = (unsigned __int64)this + 8;
   }
-  if ( a5 )
-    v10 = (char *)this + 8;
-  else
-    v10 = 0LL;
-  v11 = (*(__int64 (__fastcall **)(HWND, char *))(*((_QWORD *)this + 3) + 48LL))(a2, v10);
-  *(_QWORD *)this = v11;
-  if ( v11 )
+  v12 = (*(__int64 (__fastcall **)(HWND, unsigned __int64))(*((_QWORD *)this + 3) + 48LL))(
+          a2,
+          v11 & -(__int64)(a5 != 0));
+  *(_QWORD *)this = v12;
+  v14 = v12;
+  if ( v12 )
   {
-    if ( a5 )
+    if ( a5 && !*(_QWORD *)v11 )
     {
-      if ( !*((_QWORD *)this + 1) )
-      {
-        WdLogSingleEntry1(1LL, 576LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v24,
-              v23,
-              v25,
-              0,
-              2,
-              -1,
-              (__int64)L"((! bFullscreen) || (m_hFullscreenDc))",
-              576LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
-      }
+      v24 = WdLogNewEntry5_WdAssertion(v12, v13);
+      *(_QWORD *)(v24 + 24) = 599LL;
+      WdLogEvent5_WdAssertion(v24);
+      v14 = *(_QWORD *)this;
     }
-    (*(void (__fastcall **)(_QWORD, __int64))(*((_QWORD *)this + 3) + 288LL))(*(_QWORD *)this, 1LL);
-    v12 = *((_QWORD *)this + 7);
-    v13 = *(_QWORD *)this;
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)this + 3) + 288LL))(v14, 1LL);
+    v17 = *((_QWORD *)this + 7);
+    v18 = *(_QWORD *)this;
     *((_QWORD *)this + 4) = *((_QWORD *)this + 3);
     *((_QWORD *)this + 5) = 0LL;
     *((_DWORD *)this + 12) = a3;
     if ( *((_DWORD *)this + 13) )
     {
-      WdLogSingleEntry1(1LL, 466LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v27,
-            v26,
-            v28,
-            0,
-            2,
-            -1,
-            (__int64)L"bSpriteLockTaken == NULL",
-            466LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v25 = WdLogNewEntry5_WdAssertion(v16, v15);
+      *(_QWORD *)(v25 + 24) = 489LL;
+      WdLogEvent5_WdAssertion(v25);
     }
-    if ( v13 )
+    if ( v18 )
     {
-      if ( v12 )
+      if ( v17 )
       {
-        v14 = *((_QWORD *)this + 4);
-        *((_QWORD *)this + 5) = v12;
-        (*(void (__fastcall **)(__int64))(v14 + 256))(v13);
+        v19 = *((_QWORD *)this + 4);
+        *((_QWORD *)this + 5) = v17;
+        (*(void (__fastcall **)(__int64))(v19 + 256))(v18);
         if ( a4 )
         {
           (*(void (__fastcall **)(_QWORD, bool))(*((_QWORD *)this + 4) + 272LL))(
@@ -150,22 +87,23 @@ __int64 __fastcall CWin32kLocks::Lock(CWin32kLocks *this, HWND a2, int a3, int a
         }
       }
     }
-    v15 = (*(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)this + 3) + 16LL))(*(_QWORD *)this);
-    *((_QWORD *)this + 2) = v15;
-    if ( v15 )
+    v20 = (*(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)this + 3) + 16LL))(*(_QWORD *)this);
+    *((_QWORD *)this + 2) = v20;
+    if ( !v20 )
     {
-      return 0LL;
-    }
-    else
-    {
-      WdLogSingleEntry1(4LL, *(_QWORD *)this);
+      v26 = WdLogNewEntry5_WdEvent();
+      *(_QWORD *)(v26 + 24) = *(_QWORD *)this;
+      WdLogEvent5_WdEvent(v26);
       CWin32kLocks::Unlock(this);
-      return 3221225485LL;
+      return (unsigned int)-1073741811;
     }
   }
   else
   {
-    WdLogSingleEntry1(4LL, a2);
-    return 3223191565LL;
+    v7 = -1071775731;
+    v27 = WdLogNewEntry5_WdEvent();
+    *(_QWORD *)(v27 + 24) = a2;
+    WdLogEvent5_WdEvent(v27);
   }
+  return v7;
 }

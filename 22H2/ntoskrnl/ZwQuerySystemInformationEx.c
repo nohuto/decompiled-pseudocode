@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQuerySystemInformationEx @ 0x14041D420
+ * XREFs of ZwQuerySystemInformationEx @ 0x1403FC660
  * Callers:
- *     PopCheckShutdownMarker @ 0x140B37D6C (PopCheckShutdownMarker.c)
+ *     <none>
  * Callees:
  *     <none>
  */

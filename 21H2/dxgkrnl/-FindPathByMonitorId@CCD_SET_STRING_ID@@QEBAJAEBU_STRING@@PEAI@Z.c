@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindPathByMonitorId@CCD_SET_STRING_ID@@QEBAJAEBU_STRING@@PEAI@Z @ 0x1C03AA578
+ * XREFs of ?FindPathByMonitorId@CCD_SET_STRING_ID@@QEBAJAEBU_STRING@@PEAI@Z @ 0x1C02F095C
  * Callers:
- *     ?_TryToMapCloneGroups@CCD_SET_STRING_ID@@CA_NAEBV1@0@Z @ 0x1C03AA77C (-_TryToMapCloneGroups@CCD_SET_STRING_ID@@CA_NAEBV1@0@Z.c)
+ *     ?_TryToMapCloneGroups@CCD_SET_STRING_ID@@CA_NAEBV1@0@Z @ 0x1C02F0B9C (-_TryToMapCloneGroups@CCD_SET_STRING_ID@@CA_NAEBV1@0@Z.c)
  * Callees:
- *     ?QueryMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_STRING@@@Z @ 0x1C01AD89C (-QueryMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_STRING@@@Z.c)
- *     ?_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z @ 0x1C01E48D0 (-_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z.c)
+ *     ?_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z @ 0x1C013039C (-_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z.c)
+ *     ?QueryMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_STRING@@@Z @ 0x1C01329BC (-QueryMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_STRING@@@Z.c)
  */
 
 __int64 __fastcall CCD_SET_STRING_ID::FindPathByMonitorId(
@@ -12,26 +12,25 @@ __int64 __fastcall CCD_SET_STRING_ID::FindPathByMonitorId(
         const struct _STRING *a2,
         unsigned int *a3)
 {
-  PCHAR Buffer; // r8
-  unsigned int v7; // ebx
-  struct _STRING v9; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v6; // ebx
+  _QWORD *v8; // rax
+  struct _STRING v9; // [rsp+20h] [rbp-18h] BYREF
 
-  Buffer = a2->Buffer;
-  if ( Buffer && a2->Length && a3 )
+  if ( a2->Buffer && a2->Length && a3 )
   {
-    v7 = 0;
+    v6 = 0;
     if ( *((_WORD *)this + 16) )
     {
       while ( 1 )
       {
         v9 = 0LL;
-        CCD_SET_STRING_ID::QueryMonitorId(this, v7, &v9);
+        CCD_SET_STRING_ID::QueryMonitorId(this, v6, &v9);
         if ( !CCD_SET_STRING_ID::_StringCompare(a2, &v9) )
           break;
-        if ( ++v7 >= *((unsigned __int16 *)this + 16) )
+        if ( ++v6 >= *((unsigned __int16 *)this + 16) )
           return 3221226021LL;
       }
-      *a3 = v7;
+      *a3 = v6;
       return 0LL;
     }
     else
@@ -41,7 +40,12 @@ __int64 __fastcall CCD_SET_STRING_ID::FindPathByMonitorId(
   }
   else
   {
-    WdLogSingleEntry4(1LL, this, Buffer, a2->Length, a3);
+    v8 = (_QWORD *)WdLogNewEntry5_WdAssertion(this, a2);
+    v8[4] = a2->Buffer;
+    v8[5] = a2->Length;
+    v8[3] = this;
+    v8[6] = a3;
+    WdLogEvent5_WdAssertion(v8);
     return 3221225485LL;
   }
 }

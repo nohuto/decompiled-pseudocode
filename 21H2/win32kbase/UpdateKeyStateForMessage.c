@@ -1,10 +1,10 @@
 /*
- * XREFs of UpdateKeyStateForMessage @ 0x1C009C520
+ * XREFs of UpdateKeyStateForMessage @ 0x1C0092D70
  * Callers:
- *     HandleDeferredInput @ 0x1C0001240 (HandleDeferredInput.c)
+ *     HandleDeferredInput @ 0x1C0001830 (HandleDeferredInput.c)
  * Callees:
- *     ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C00056F4 (ApiSetEditionGetKeyStateUpdateParamsForRawInput.c)
- *     _anonymous_namespace_::UpdateKeyState @ 0x1C009C5FC (_anonymous_namespace_--UpdateKeyState.c)
+ *     ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C0002D34 (ApiSetEditionGetKeyStateUpdateParamsForRawInput.c)
+ *     _anonymous_namespace_::UpdateKeyState @ 0x1C0092E50 (_anonymous_namespace_--UpdateKeyState.c)
  */
 
 unsigned __int64 __fastcall UpdateKeyStateForMessage(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -29,9 +29,9 @@ unsigned __int64 __fastcall UpdateKeyStateForMessage(__int64 a1, __int64 a2, __i
   if ( v4 == 514 )
   {
     LOBYTE(a3) = 0;
-LABEL_16:
-    v11 = 1;
 LABEL_17:
+    v11 = 1;
+LABEL_18:
     v14 = v11;
     goto LABEL_14;
   }
@@ -42,12 +42,7 @@ LABEL_17:
     {
       v15 = 0;
       v16 = 0;
-      result = (unsigned __int64)ApiSetEditionGetKeyStateUpdateParamsForRawInput(
-                                   a1,
-                                   a2,
-                                   (__int64)&v14,
-                                   (__int64)&v15,
-                                   (__int64)&v16);
+      result = ApiSetEditionGetKeyStateUpdateParamsForRawInput(a1, a2, (__int64)&v14, (__int64)&v15, (__int64)&v16);
       v11 = v14;
       LOBYTE(a3) = v15 != 0;
       LOBYTE(a4) = v16 != 0;
@@ -67,7 +62,7 @@ LABEL_17:
       {
         if ( (_DWORD)result != 252 )
           return result;
-        goto LABEL_16;
+        goto LABEL_17;
       }
     }
     LOBYTE(a3) = 0;
@@ -110,7 +105,7 @@ LABEL_33:
   {
 LABEL_31:
     v11 = 4;
-    goto LABEL_17;
+    goto LABEL_18;
   }
   v13 = v12 - 1;
   if ( !v13 )
@@ -128,12 +123,12 @@ LABEL_31:
   if ( *(_WORD *)(a2 + 34) == 1 )
   {
     v11 = 5;
-    goto LABEL_17;
+    goto LABEL_18;
   }
   if ( *(_WORD *)(a2 + 34) == 2 )
   {
     v11 = 6;
-    goto LABEL_17;
+    goto LABEL_18;
   }
   return result;
 }

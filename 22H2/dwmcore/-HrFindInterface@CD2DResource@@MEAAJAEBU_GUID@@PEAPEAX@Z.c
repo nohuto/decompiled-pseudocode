@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CD2DResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180033AE0
+ * XREFs of ?HrFindInterface@CD2DResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180068920
  * Callers:
- *     ?HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035170 (-HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006CA40 (-HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C500 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CD2DResource::HrFindInterface(CD2DResource *this, const struct _GUID *a2, void **a3)
@@ -20,7 +20,7 @@ __int64 __fastcall CD2DResource::HrFindInterface(CD2DResource *this, const struc
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_475af409_d8b1_4ca5_8177_4562f6260b68.Data4;
     if ( v4 )
     {
-      return 2147500034LL;
+      return CMILCOMBase::HrFindInterface(this, a2, a3);
     }
     else
     {

@@ -1,74 +1,72 @@
 /*
- * XREFs of PpDevNodeLockTree @ 0x1406C9A40
+ * XREFs of PpDevNodeLockTree @ 0x1406B2A34
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PnpLockDeviceActionQueue @ 0x1403C383C (PnpLockDeviceActionQueue.c)
- *     IoTranslateBusAddress @ 0x140560400 (IoTranslateBusAddress.c)
- *     PiGetRelatedDevice @ 0x1406C9298 (PiGetRelatedDevice.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
- *     PiControlGetPropertyData @ 0x140792C60 (PiControlGetPropertyData.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140793634 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     IoGetLegacyVetoList @ 0x1407A8E70 (IoGetLegacyVetoList.c)
- *     PipForDeviceNodeSubtree @ 0x1407CD688 (PipForDeviceNodeSubtree.c)
- *     PiGetDeviceDepth @ 0x1407D6110 (PiGetDeviceDepth.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     IopQueryInterfaceRecurseUp @ 0x14082A320 (IopQueryInterfaceRecurseUp.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140836DC0 (IoReportRootDevice.c)
- *     PiQueryDeviceRelations @ 0x14084EC7C (PiQueryDeviceRelations.c)
- *     PiPagePathSetState @ 0x140854B58 (PiPagePathSetState.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
- *     PiQueryPowerRelations @ 0x14086F044 (PiQueryPowerRelations.c)
- *     PnpDelayedRemoveWorker @ 0x140881B60 (PnpDelayedRemoveWorker.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140954CC0 (IoLockUnlockPnpDeviceTree.c)
- *     PnpDiagRundownRegisterCallback @ 0x140958020 (PnpDiagRundownRegisterCallback.c)
- *     PnpRestartDeviceNode @ 0x140958D6C (PnpRestartDeviceNode.c)
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
- *     PnpQueuePendingEject @ 0x14095930C (PnpQueuePendingEject.c)
- *     PpResetProblemDevices @ 0x140959904 (PpResetProblemDevices.c)
- *     PipSetDevNodeStateFlags @ 0x140959AC8 (PipSetDevNodeStateFlags.c)
- *     PiProfileUpdateDeviceTreeWorker @ 0x1409638C0 (PiProfileUpdateDeviceTreeWorker.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140968EF8 (PiCMDeleteDevice.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096BA60 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
- *     PnpIommuBlockUnblockDevice @ 0x14096F008 (PnpIommuBlockUnblockDevice.c)
- *     IopWarmEjectDevice @ 0x14096F1EC (IopWarmEjectDevice.c)
+ *     PnpLockDeviceActionQueue @ 0x140320450 (PnpLockDeviceActionQueue.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     IoTranslateBusAddress @ 0x14050CC80 (IoTranslateBusAddress.c)
+ *     PiControlGetPropertyData @ 0x140690D50 (PiControlGetPropertyData.c)
+ *     PiGetRelatedDevice @ 0x140691104 (PiGetRelatedDevice.c)
+ *     PipForDeviceNodeSubtree @ 0x14069B540 (PipForDeviceNodeSubtree.c)
+ *     PiGetDeviceDepth @ 0x1406A07F0 (PiGetDeviceDepth.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1406A3164 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PiControlGetSetDeviceStatus @ 0x1406B2710 (PiControlGetSetDeviceStatus.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     IoGetLegacyVetoList @ 0x1406F44A0 (IoGetLegacyVetoList.c)
+ *     PiCMDeleteDevice @ 0x14072C52C (PiCMDeleteDevice.c)
+ *     PnpRestartDeviceNode @ 0x140731B88 (PnpRestartDeviceNode.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
+ *     PiQueryPowerRelations @ 0x140748844 (PiQueryPowerRelations.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpDelayedRemoveWorker @ 0x14074CB70 (PnpDelayedRemoveWorker.c)
+ *     IopQueryInterfaceRecurseUp @ 0x1407649A8 (IopQueryInterfaceRecurseUp.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x1407C7D80 (IoReportRootDevice.c)
+ *     PiPagePathSetState @ 0x1407C9D60 (PiPagePathSetState.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14089E46C (IoLockUnlockPnpDeviceTree.c)
+ *     IopRetryDeviceRemovalForReset @ 0x1408A0A20 (IopRetryDeviceRemovalForReset.c)
+ *     PnpDiagRundownRegisterCallback @ 0x1408A12D0 (PnpDiagRundownRegisterCallback.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
+ *     PnpQueuePendingEject @ 0x1408A2654 (PnpQueuePendingEject.c)
+ *     PpResetProblemDevices @ 0x1408A2940 (PpResetProblemDevices.c)
+ *     PiProfileUpdateDeviceTreeWorker @ 0x1408AB180 (PiProfileUpdateDeviceTreeWorker.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     PiControlQueryConflictList @ 0x1408B38A0 (PiControlQueryConflictList.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
+ *     PiQueryDeviceRelations @ 0x1408B40CC (PiQueryDeviceRelations.c)
+ *     IopWarmEjectDevice @ 0x1408B4660 (IopWarmEjectDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ExIsResourceAcquiredSharedLite @ 0x1402A06D0 (ExIsResourceAcquiredSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
  */
 
 char __fastcall PpDevNodeLockTree(int a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v2; // bl
+  int v3; // ecx
   int v4; // ecx
   int v5; // ecx
-  int v6; // ecx
   ULONG IsResourceAcquiredSharedLite; // edi
-  ULONG v8; // esi
+  ULONG i; // esi
 
   CurrentThread = KeGetCurrentThread();
   v2 = 1;
   --CurrentThread->KernelApcDisable;
   if ( !a1 )
-    goto LABEL_2;
-  v4 = a1 - 1;
-  if ( !v4 )
+    goto LABEL_15;
+  v3 = a1 - 1;
+  if ( !v3 )
   {
     ExAcquireResourceExclusiveLite(&PiEngineLock, 1u);
-LABEL_2:
-    ExAcquireResourceSharedLite(&IopDeviceTreeLock, 1u);
-    return v2;
+    goto LABEL_15;
   }
-  v5 = v4 - 1;
-  if ( !v5 )
+  v4 = v3 - 1;
+  if ( !v4 )
   {
     if ( !ExAcquireResourceExclusiveLite(&PiEngineLock, 0) )
     {
@@ -76,30 +74,20 @@ LABEL_2:
       KeLeaveCriticalRegion();
       return v2;
     }
-    goto LABEL_2;
+LABEL_15:
+    ExAcquireResourceSharedLite(&IopDeviceTreeLock, 1u);
+    return v2;
   }
-  v6 = v5 - 1;
-  if ( v6 )
+  v5 = v4 - 1;
+  if ( v5 )
   {
-    if ( v6 == 1 )
+    if ( v5 == 1 )
     {
       IsResourceAcquiredSharedLite = ExIsResourceAcquiredSharedLite(&IopDeviceTreeLock);
-      v8 = IsResourceAcquiredSharedLite;
-      if ( IsResourceAcquiredSharedLite )
-      {
-        do
-        {
-          ExReleaseResourceLite(&IopDeviceTreeLock);
-          --v8;
-        }
-        while ( v8 );
-        do
-        {
-          ExAcquireResourceExclusiveLite(&IopDeviceTreeLock, 1u);
-          --IsResourceAcquiredSharedLite;
-        }
-        while ( IsResourceAcquiredSharedLite );
-      }
+      for ( i = IsResourceAcquiredSharedLite; i; --i )
+        ExReleaseResourceLite(&IopDeviceTreeLock);
+      for ( ; IsResourceAcquiredSharedLite; --IsResourceAcquiredSharedLite )
+        ExAcquireResourceExclusiveLite(&IopDeviceTreeLock, 1u);
     }
   }
   else

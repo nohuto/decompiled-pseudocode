@@ -1,18 +1,17 @@
 /*
- * XREFs of DxgkCaptureQueryInterface @ 0x1C02DE18C
+ * XREFs of DxgkCaptureQueryInterface @ 0x1C022CBF8
  * Callers:
- *     DxgkInternalDeviceIoctl @ 0x1C01E30C0 (DxgkInternalDeviceIoctl.c)
+ *     DxgkInternalDeviceIoctl @ 0x1C01627D0 (DxgkInternalDeviceIoctl.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DxgkCaptureQueryInterface(unsigned __int16 *a1, _DWORD *a2)
 {
-  __int64 v3; // rcx
   __int64 result; // rax
+  _QWORD *v4; // rax
 
-  v3 = *a1;
-  if ( __PAIR32__(a1[1], v3) == 65584 )
+  if ( *a1 == 48 && a1[1] == 1 )
   {
     *((_QWORD *)a1 + 1) = 0LL;
     *((_QWORD *)a1 + 2) = W32kStub_DCompositionNotifyCompositionTokenPresent;
@@ -24,17 +23,13 @@ __int64 __fastcall DxgkCaptureQueryInterface(unsigned __int16 *a1, _DWORD *a2)
   }
   else
   {
-    WdLogSingleEntry5(2LL, -1073741811LL, v3, 528LL, a1[1], 1LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"0x%I64x Invalid DXGCAPTURE_INTERFACE Mismatch 0x%I64x 0x%I64x version 0x%I64x 0x%I64x",
-      -1073741811LL,
-      *a1,
-      528LL,
-      a1[1],
-      1LL);
+    v4 = (_QWORD *)WdLogNewEntry5_WdError(48LL, a2);
+    v4[3] = -1073741811LL;
+    v4[4] = *a1;
+    v4[5] = 536LL;
+    v4[6] = a1[1];
+    v4[7] = 1LL;
+    WdLogEvent5_WdError(v4);
     return 3221225485LL;
   }
   return result;

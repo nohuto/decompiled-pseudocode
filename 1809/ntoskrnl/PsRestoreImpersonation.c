@@ -1,17 +1,17 @@
 /*
- * XREFs of PsRestoreImpersonation @ 0x140648D30
+ * XREFs of PsRestoreImpersonation @ 0x140648D10
  * Callers:
- *     NtOpenThreadTokenEx @ 0x1406488A0 (NtOpenThreadTokenEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140706594 (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14070E7AC (CmpStartCLFSLog.c)
+ *     NtOpenThreadTokenEx @ 0x140648880 (NtOpenThreadTokenEx.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140706574 (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpStartCLFSLog @ 0x14070E78C (CmpStartCLFSLog.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     SeQueryTokenTrustLink @ 0x1400CC26C (SeQueryTokenTrustLink.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeQueryTokenTrustLink @ 0x1400CC28C (SeQueryTokenTrustLink.c)
  *     PspWriteTebImpersonationInfo @ 0x140637F50 (PspWriteTebImpersonationInfo.c)
  */
 

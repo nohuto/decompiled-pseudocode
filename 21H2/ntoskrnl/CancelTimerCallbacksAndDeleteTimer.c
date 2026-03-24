@@ -1,10 +1,10 @@
 /*
- * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x140A31BF4
+ * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x14097FF54
  * Callers:
- *     DestroyAggregateSession @ 0x140A31C78 (DestroyAggregateSession.c)
+ *     DestroyAggregateSession @ 0x14097FFD8 (DestroyAggregateSession.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExDeleteTimer @ 0x1402D3D40 (ExDeleteTimer.c)
+ *     ExDeleteTimer @ 0x14027F910 (ExDeleteTimer.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 __int64 __fastcall CancelTimerCallbacksAndDeleteTimer(__int64 a1)

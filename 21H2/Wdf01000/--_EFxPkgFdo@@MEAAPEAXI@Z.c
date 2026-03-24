@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxPkgFdo@@MEAAPEAXI@Z @ 0x1C0089A10
+ * XREFs of ??_EFxPkgFdo@@MEAAPEAXI@Z @ 0x1C00840F0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxPkgFdo@@MEAA@XZ @ 0x1C008990C (--1FxPkgFdo@@MEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPkgFdo@@MEAA@XZ @ 0x1C0083FC8 (--1FxPkgFdo@@MEAA@XZ.c)
  */
 
 FxPkgFdo *__fastcall FxPkgFdo::`vector deleting destructor'(FxPkgFdo *this, char a2)

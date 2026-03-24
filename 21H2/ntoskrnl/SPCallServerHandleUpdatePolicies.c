@@ -1,19 +1,20 @@
 /*
- * XREFs of SPCallServerHandleUpdatePolicies @ 0x1406E0690
+ * XREFs of SPCallServerHandleUpdatePolicies @ 0x1406C1810
  * Callers:
- *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleUpdatePolicies(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  int v6; // ecx
-  unsigned int v7; // edx
-  int v8; // edx
-  unsigned int *v10; // rax
+  __int64 v6; // r10
+  int v7; // ecx
+  unsigned int v8; // edx
+  unsigned int *v9; // rax
+  unsigned int v10; // edx
   int v11; // edx
   __int64 v12; // rax
   unsigned int *v13; // r8
@@ -22,280 +23,332 @@ __int64 __fastcall SPCallServerHandleUpdatePolicies(__int64 a1, __int64 a2, unsi
   unsigned int *v16; // rdx
   int v17; // eax
   int v18; // r14d
-  void *v19; // rcx
-  unsigned int *v20; // rax
+  unsigned int v19; // eax
+  _DWORD *v20; // rax
   unsigned int i; // edx
-  __int64 v22; // r10
-  unsigned int *v23; // r8
-  unsigned int v24; // eax
-  _DWORD *Pool2; // rax
-  unsigned int v26; // eax
+  unsigned int v23; // eax
+  unsigned int v24; // ecx
+  signed int v25; // r8d
+  _DWORD *v26; // r9
   unsigned int v27; // ecx
-  unsigned int v28; // r8d
-  unsigned int *v29; // rdx
-  __int64 v30; // r8
-  unsigned int v31; // ecx
-  _DWORD *j; // rdx
-  unsigned int v33; // eax
-  unsigned int v34; // eax
-  unsigned int v35; // ecx
-  unsigned int v36; // eax
-  __int64 v37; // r8
-  unsigned int v38; // eax
-  unsigned int v39; // ecx
-  _DWORD *v40; // rdx
-  unsigned int v41; // eax
-  unsigned int v42; // eax
-  _DWORD *v43; // rax
+  int v28; // edx
+  unsigned int v29; // eax
+  unsigned int v30; // ecx
+  _DWORD *v31; // rdx
+  unsigned int v32; // eax
+  _DWORD *PoolWithTag; // rax
+  unsigned int *v34; // rax
+  __int64 v35; // rbp
+  unsigned int *v36; // r9
+  unsigned int v37; // r9d
+  unsigned int *v38; // rdx
+  __int64 v39; // r9
+  unsigned int v40; // ecx
+  _DWORD *v41; // r8
+  unsigned int v42; // ecx
+  int v43; // edx
+  unsigned int v44; // eax
+  unsigned int v45; // eax
+  unsigned int v46; // ecx
+  unsigned int v47; // eax
 
-  v6 = *(_DWORD *)(a2 + 32);
-  v7 = *(_DWORD *)(a2 + 16) + 32;
-  if ( v7 < 0x20 )
+  v6 = 0LL;
+  v7 = *(_DWORD *)(a2 + 32);
+  v8 = *(_DWORD *)(a2 + 16) + 32;
+  if ( v8 < 0x20 )
     return (unsigned int)-1073741675;
-  v26 = v7 + 4;
-  if ( v7 + 4 < v7 )
+  v23 = v8 + 4;
+  if ( v8 + 4 < v8 )
     return (unsigned int)-1073741675;
-  v27 = v26 + v6;
-  if ( v27 < v26 )
+  v24 = v23 + v7;
+  if ( v24 < v23 )
     return (unsigned int)-1073741675;
-  if ( a3 >= v27 )
+  if ( a3 < v24 )
   {
-    v14 = *(unsigned int **)(a1 + 8);
-    if ( v14 && *(_DWORD *)a1 > 3u )
+    if ( !a4 )
     {
-      v20 = *(unsigned int **)(a1 + 8);
-      for ( i = 0; i < 3; ++i )
+      v25 = -1073741811;
+      goto LABEL_66;
+    }
+    v26 = *(_DWORD **)(a4 + 8);
+    if ( v26 )
+    {
+      v30 = 0;
+      v31 = v26;
+      if ( *(_DWORD *)a4 )
       {
-        v22 = *v20;
-        v23 = v20 + 1;
-        if ( v20 + 1 < v20 )
-          return (unsigned int)-1073741675;
-        v20 = (unsigned int *)((char *)v23 + v22);
-        if ( (unsigned int *)((char *)v23 + v22) < v23 )
-          return (unsigned int)-1073741675;
-      }
-      v28 = *v20;
-      v29 = v20 + 1;
-      if ( v20 + 1 < v20 )
-        return (unsigned int)-1073741675;
-      v10 = 0LL;
-      if ( v28 )
-        v10 = v29;
-      if ( v28 != 8 )
-        return (unsigned int)-1073741789;
-      if ( *(_QWORD *)v10 && qword_140D3B220 )
-      {
-        if ( *(_QWORD *)v10 == qword_140D3B220 )
+        while ( 1 )
         {
-          if ( *(_DWORD *)a1 <= 4u )
-            return (unsigned int)-1073741811;
-          v11 = 0;
-          while ( 1 )
-          {
-            v12 = *v14;
-            v13 = v14 + 1;
-            if ( v14 + 1 < v14 )
-              return (unsigned int)-1073741675;
-            v14 = (unsigned int *)((char *)v13 + v12);
-            if ( (unsigned int *)((char *)v13 + v12) < v13 )
-              return (unsigned int)-1073741675;
-            if ( (unsigned int)++v11 >= 4 )
-            {
-              v15 = *v14;
-              if ( v14 + 1 < v14 )
-                return (unsigned int)-1073741675;
-              v16 = 0LL;
-              if ( v15 )
-                v16 = v14 + 1;
-              v17 = ((__int64 (__fastcall *)(_QWORD, unsigned int *))qword_140D3B460)(v15, v16);
-              if ( v17 == 263 )
-              {
-                v18 = 1074058754;
-              }
-              else if ( v17 == 0x40000000 )
-              {
-                v18 = 1074058753;
-              }
-              else if ( v17 < 0 )
-              {
-                v18 = v17 | 0x10000000;
-              }
-              else
-              {
-                v18 = 0;
-              }
-              *(_DWORD *)(a4 + 4) = 0;
-              *(_DWORD *)a4 = 0;
-              v19 = *(void **)(a4 + 8);
-              if ( v19 )
-              {
-                ExFreePoolWithTag(v19, 0);
-                *(_QWORD *)(a4 + 8) = 0LL;
-              }
-              goto LABEL_59;
-            }
-          }
+          v32 = *v31 + 4;
+          if ( v32 < 4 )
+            break;
+          if ( (_DWORD *)((char *)v31 + v32) < v31 )
+            goto LABEL_65;
+          ++v30;
+          v31 = (_DWORD *)((char *)v31 + v32);
+          if ( v30 >= *(_DWORD *)a4 )
+            goto LABEL_52;
         }
-        if ( !a4 )
-          return (unsigned int)-1073741811;
-        v30 = *(_QWORD *)(a4 + 8);
-        v18 = -1073425151;
-        if ( v30 )
-        {
-          v31 = 0;
-          for ( j = *(_DWORD **)(a4 + 8); v31 < *(_DWORD *)a4; j = (_DWORD *)((char *)j + v33) )
-          {
-            v33 = *j + 4;
-            if ( *j >= 0xFFFFFFFC || (_DWORD *)((char *)j + v33) < j )
-              return (unsigned int)-1073741675;
-            ++v31;
-          }
-LABEL_49:
-          if ( j + 1 < j )
-            return (unsigned int)-1073741675;
-          if ( (unsigned __int64)(j + 2) > v30 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
-            return (unsigned int)-1073741789;
-          *j = 4;
-          j[1] = -1073425151;
-          goto LABEL_33;
-        }
+        v25 = -1073741675;
       }
       else
       {
-        if ( !a4 )
-          return (unsigned int)-1073741811;
-        v30 = *(_QWORD *)(a4 + 8);
-        v18 = -1073425151;
-        if ( v30 )
-        {
-          v35 = 0;
-          j = *(_DWORD **)(a4 + 8);
-          if ( *(_DWORD *)a4 )
-          {
-            while ( 1 )
-            {
-              v36 = *j + 4;
-              if ( *j >= 0xFFFFFFFC || (_DWORD *)((char *)j + v36) < j )
-                return (unsigned int)-1073741675;
-              ++v35;
-              j = (_DWORD *)((char *)j + v36);
-              if ( v35 >= *(_DWORD *)a4 )
-                goto LABEL_49;
-            }
-          }
-          goto LABEL_49;
-        }
+LABEL_52:
+        if ( v31 + 1 < v31 )
+          goto LABEL_65;
+        v25 = 0;
+        if ( v31 + 2 > (_DWORD *)((char *)v26 + *(unsigned int *)(a4 + 4)) )
+          goto LABEL_59;
+        *v31 = 4;
+        v31[1] = 0;
+        ++*(_DWORD *)a4;
+      }
+    }
+    else
+    {
+      v27 = *(_DWORD *)(a4 + 4);
+      v28 = -1;
+      v29 = v27 + 8;
+      if ( v27 + 8 >= v27 )
+        v28 = v27 + 8;
+      v25 = v29 < v27 ? 0xC0000095 : 0;
+      *(_DWORD *)(a4 + 4) = v28;
+      if ( v29 >= v27 )
+      {
+        ++*(_DWORD *)a4;
+        goto LABEL_56;
+      }
+    }
+    if ( v25 < 0 )
+      goto LABEL_66;
+LABEL_56:
+    if ( !*(_DWORD *)(a4 + 4) )
+    {
+      v25 = -1073741762;
+      goto LABEL_66;
+    }
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a4 + 4), 0x20534C53u);
+    if ( !PoolWithTag )
+    {
+      v25 = -1073741801;
+      goto LABEL_66;
+    }
+    *(_QWORD *)(a4 + 8) = PoolWithTag;
+    *(_DWORD *)a4 = 0;
+    if ( PoolWithTag + 1 >= PoolWithTag )
+    {
+      v25 = 0;
+      if ( PoolWithTag + 2 <= (_DWORD *)((char *)PoolWithTag + *(unsigned int *)(a4 + 4)) )
+      {
+        *PoolWithTag = 4;
+        PoolWithTag[1] = 0;
+        ++*(_DWORD *)a4;
+        goto LABEL_66;
       }
 LABEL_59:
-      v34 = *(_DWORD *)(a4 + 4);
-      if ( v34 + 8 < v34 )
-        goto LABEL_52;
-      *(_DWORD *)(a4 + 4) = v34 + 8;
-LABEL_33:
-      ++*(_DWORD *)a4;
-      v24 = *(_DWORD *)(a4 + 4);
-      if ( !v24 )
-        return (unsigned int)-1073741762;
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, v24, 542329939LL);
-      if ( !Pool2 )
-        return (unsigned int)-1073741801;
-      *(_QWORD *)(a4 + 8) = Pool2;
-      *(_DWORD *)a4 = 0;
-      if ( Pool2 + 1 < Pool2 )
-        return (unsigned int)-1073741675;
-      v8 = 0;
-      if ( Pool2 + 2 <= (_DWORD *)((char *)Pool2 + *(unsigned int *)(a4 + 4)) )
-      {
-        *Pool2 = 4;
-        Pool2[1] = v18;
-        ++*(_DWORD *)a4;
-        return (unsigned int)v8;
-      }
-      return (unsigned int)-1073741789;
+      v25 = -1073741789;
+      goto LABEL_66;
     }
-    return (unsigned int)-1073741811;
+LABEL_65:
+    v25 = -1073741675;
+LABEL_66:
+    v10 = v25;
+    if ( v25 >= 0 )
+      return 0;
+    return v10;
   }
-  if ( !a4 )
-    return (unsigned int)-1073741811;
-  v37 = *(_QWORD *)(a4 + 8);
-  if ( v37 )
+  v14 = *(unsigned int **)(a1 + 8);
+  if ( v14 && *(_DWORD *)a1 > 3u )
   {
-    v39 = 0;
-    v40 = *(_DWORD **)(a4 + 8);
-    if ( *(_DWORD *)a4 )
+    v34 = *(unsigned int **)(a1 + 8);
+    for ( i = 0; i < 3; ++i )
     {
+      v35 = *v34;
+      v36 = v34 + 1;
+      if ( v34 + 1 < v34 )
+        goto LABEL_73;
+      v34 = (unsigned int *)((char *)v36 + v35);
+      if ( (unsigned int *)((char *)v36 + v35) < v36 )
+        goto LABEL_73;
+    }
+    v37 = *v34;
+    v38 = v34 + 1;
+    if ( v34 + 1 < v34 )
+    {
+LABEL_73:
+      v10 = -1073741675;
+      goto LABEL_7;
+    }
+    v9 = 0LL;
+    if ( v37 )
+      v9 = v38;
+    v10 = 0;
+    if ( v37 == 8 )
+    {
+      v6 = *(_QWORD *)v9;
+      goto LABEL_7;
+    }
+    return (unsigned int)-1073741789;
+  }
+  v10 = -1073741811;
+LABEL_7:
+  if ( (v10 & 0x80000000) != 0 )
+    return v10;
+  if ( v6 && qword_140D2D270 )
+  {
+    if ( v6 == qword_140D2D270 )
+    {
+      if ( v14 && *(_DWORD *)a1 > 4u )
+      {
+        v11 = 0;
+        while ( 1 )
+        {
+          v12 = *v14;
+          v13 = v14 + 1;
+          if ( v14 + 1 < v14 )
+            break;
+          v14 = (unsigned int *)((char *)v13 + v12);
+          if ( (unsigned int *)((char *)v13 + v12) < v13 )
+            break;
+          if ( (unsigned int)++v11 >= 4 )
+          {
+            v15 = *v14;
+            if ( v14 + 1 < v14 )
+              return (unsigned int)-1073741675;
+            v16 = 0LL;
+            if ( v15 )
+              v16 = v14 + 1;
+            v17 = ((__int64 (__fastcall *)(_QWORD, unsigned int *))qword_140D2D490)(v15, v16);
+            if ( v17 == 263 )
+            {
+              v18 = 1074058754;
+            }
+            else if ( v17 == 0x40000000 )
+            {
+              v18 = 1074058753;
+            }
+            else if ( v17 < 0 )
+            {
+              v18 = v17 | 0x10000000;
+            }
+            else
+            {
+              v18 = 0;
+            }
+            *(_DWORD *)(a4 + 4) = 0;
+            *(_DWORD *)a4 = 0;
+            if ( *(_QWORD *)(a4 + 8) )
+            {
+              ExFreePoolWithTag(*(PVOID *)(a4 + 8), 0x20534C53u);
+              *(_QWORD *)(a4 + 8) = 0LL;
+            }
+            goto LABEL_84;
+          }
+        }
+        return (unsigned int)-1073741675;
+      }
+      return (unsigned int)-1073741811;
+    }
+    if ( !a4 )
+      return (unsigned int)-1073741811;
+    v39 = *(_QWORD *)(a4 + 8);
+    v18 = -1073425151;
+    if ( v39 )
+    {
+      v40 = 0;
+      v41 = *(_DWORD **)(a4 + 8);
+      if ( !*(_DWORD *)a4 )
+      {
+LABEL_81:
+        if ( v41 + 1 < v41 )
+          return (unsigned int)-1073741675;
+        v10 = 0;
+        if ( (unsigned __int64)(v41 + 2) > v39 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+          return (unsigned int)-1073741789;
+        *v41 = 4;
+        v41[1] = -1073425151;
+        ++*(_DWORD *)a4;
+LABEL_28:
+        if ( (v10 & 0x80000000) != 0 )
+          return v10;
+        goto LABEL_29;
+      }
       while ( 1 )
       {
-        v41 = *v40 + 4;
-        if ( *v40 >= 0xFFFFFFFC || (_DWORD *)((char *)v40 + v41) < v40 )
+        v45 = *v41 + 4;
+        if ( v45 < 4 )
           break;
-        ++v39;
-        v40 = (_DWORD *)((char *)v40 + v41);
-        if ( v39 >= *(_DWORD *)a4 )
-          goto LABEL_76;
+        if ( (_DWORD *)((char *)v41 + v45) < v41 )
+          return (unsigned int)-1073741675;
+        ++v40;
+        v41 = (_DWORD *)((char *)v41 + v45);
+        if ( v40 >= *(_DWORD *)a4 )
+          goto LABEL_81;
       }
-    }
-    else
-    {
-LABEL_76:
-      if ( v40 + 1 >= v40 )
-      {
-        if ( (unsigned __int64)(v40 + 2) > v37 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
-          return (unsigned int)-1073741789;
-        *v40 = 4;
-        v40[1] = 0;
-        goto LABEL_79;
-      }
-    }
-    return (unsigned int)-1073741675;
-  }
-  v38 = *(_DWORD *)(a4 + 4);
-  if ( v38 + 8 < v38 )
-  {
-LABEL_52:
-    *(_DWORD *)(a4 + 4) = -1;
-    return (unsigned int)-1073741675;
-  }
-  *(_DWORD *)(a4 + 4) = v38 + 8;
-LABEL_79:
-  ++*(_DWORD *)a4;
-  v42 = *(_DWORD *)(a4 + 4);
-  if ( v42 )
-  {
-    v43 = (_DWORD *)ExAllocatePool2(256LL, v42, 542329939LL);
-    if ( v43 )
-    {
-      *(_QWORD *)(a4 + 8) = v43;
-      *(_DWORD *)a4 = 0;
-      if ( v43 + 1 < v43 )
-      {
-        v8 = -1073741675;
-      }
-      else
-      {
-        v8 = 0;
-        if ( v43 + 2 <= (_DWORD *)((char *)v43 + *(unsigned int *)(a4 + 4)) )
-        {
-          *v43 = 4;
-          v43[1] = 0;
-          ++*(_DWORD *)a4;
-        }
-        else
-        {
-          v8 = -1073741789;
-        }
-      }
-      if ( v8 >= 0 )
-        return 0;
-    }
-    else
-    {
-      return (unsigned int)-1073741801;
+LABEL_92:
+      v10 = -1073741675;
+      goto LABEL_28;
     }
   }
   else
   {
-    return (unsigned int)-1073741762;
+    if ( !a4 )
+      return (unsigned int)-1073741811;
+    v39 = *(_QWORD *)(a4 + 8);
+    v18 = -1073425151;
+    if ( v39 )
+    {
+      v46 = 0;
+      v41 = *(_DWORD **)(a4 + 8);
+      if ( !*(_DWORD *)a4 )
+        goto LABEL_81;
+      while ( 1 )
+      {
+        v47 = *v41 + 4;
+        if ( v47 < 4 )
+          goto LABEL_92;
+        if ( (_DWORD *)((char *)v41 + v47) < v41 )
+          return (unsigned int)-1073741675;
+        ++v46;
+        v41 = (_DWORD *)((char *)v41 + v47);
+        if ( v46 >= *(_DWORD *)a4 )
+          goto LABEL_81;
+      }
+    }
   }
-  return (unsigned int)v8;
+LABEL_84:
+  v42 = *(_DWORD *)(a4 + 4);
+  v43 = -1;
+  v44 = v42 + 8;
+  if ( v42 + 8 >= v42 )
+    v43 = v42 + 8;
+  *(_DWORD *)(a4 + 4) = v43;
+  v10 = v44 < v42 ? 0xC0000095 : 0;
+  if ( v44 < v42 )
+    goto LABEL_28;
+  ++*(_DWORD *)a4;
+LABEL_29:
+  v19 = *(_DWORD *)(a4 + 4);
+  if ( !v19 )
+    return (unsigned int)-1073741762;
+  v20 = ExAllocatePoolWithTag(PagedPool, v19, 0x20534C53u);
+  if ( v20 )
+  {
+    *(_QWORD *)(a4 + 8) = v20;
+    *(_DWORD *)a4 = 0;
+    if ( v20 + 1 >= v20 )
+    {
+      v10 = 0;
+      if ( v20 + 2 <= (_DWORD *)((char *)v20 + *(unsigned int *)(a4 + 4)) )
+      {
+        *v20 = 4;
+        v20[1] = v18;
+        ++*(_DWORD *)a4;
+        return v10;
+      }
+      return (unsigned int)-1073741789;
+    }
+    return (unsigned int)-1073741675;
+  }
+  return (unsigned int)-1073741801;
 }

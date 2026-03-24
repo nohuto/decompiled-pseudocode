@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwTraceAutoBoostEntryExhaustion @ 0x14030F934
+ * XREFs of EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34
  * Callers:
  *     ExTryAcquirePushLockExclusiveEx @ 0x140004230 (ExTryAcquirePushLockExclusiveEx.c)
  *     ExAcquireAutoExpandPushLockShared @ 0x1400050F0 (ExAcquireAutoExpandPushLockShared.c)
@@ -17,15 +17,15 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
- *     CcPinFileData @ 0x1400AE2B0 (CcPinFileData.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
- *     FsRtlAcquireEofLock @ 0x1400E1230 (FsRtlAcquireEofLock.c)
- *     FsRtlReleaseEofLock @ 0x1401030E0 (FsRtlReleaseEofLock.c)
- *     ExTryAcquirePushLockSharedEx @ 0x140103A90 (ExTryAcquirePushLockSharedEx.c)
+ *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
+ *     FsRtlAcquireEofLock @ 0x1400E1250 (FsRtlAcquireEofLock.c)
+ *     FsRtlReleaseEofLock @ 0x140103100 (FsRtlReleaseEofLock.c)
+ *     ExTryAcquirePushLockSharedEx @ 0x140103AB0 (ExTryAcquirePushLockSharedEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostEntryExhaustion(__int64 a1, __int64 a2)

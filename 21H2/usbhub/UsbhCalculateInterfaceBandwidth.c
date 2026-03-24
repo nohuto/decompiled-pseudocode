@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhCalculateInterfaceBandwidth @ 0x1C00292E4
+ * XREFs of UsbhCalculateInterfaceBandwidth @ 0x1C002A640
  * Callers:
- *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002CE50 (UsbhSelectConfigOrInterfaceComplete.c)
+ *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002E250 (UsbhSelectConfigOrInterfaceComplete.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbhCalculateInterfaceBandwidth(__int64 a1, __int64 a2, __int64 a3)

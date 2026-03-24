@@ -1,47 +1,47 @@
 /*
- * XREFs of ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C009CD20
+ * XREFs of ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C007AFB0
  * Callers:
- *     bMigrateSurfaceForConversion @ 0x1C015A1C0 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00BA100 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C009CDBC (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
+ *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C007B044 (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall SURFREFVIEW::bUnMap(SURFREFVIEW *this)
 {
-  unsigned int v1; // esi
-  __int64 v3; // rbx
-  __int64 v5; // rax
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rdx
+  unsigned int v2; // edi
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 v6; // rax
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rdx
 
-  v1 = 0;
-  if ( *(_QWORD *)this )
+  v2 = 0;
+  v3 = *(_QWORD *)this;
+  if ( v3 )
   {
-    if ( *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 24) + 6496LL) )
+    if ( gbTouchOnUnmap )
     {
-      v5 = *(unsigned int *)(*(_QWORD *)this + 64LL);
-      if ( (_DWORD)v5 )
+      v6 = *(unsigned int *)(v3 + 64);
+      if ( (_DWORD)v6 )
       {
-        v6 = *(_QWORD *)(*(_QWORD *)this + 72LL);
-        if ( v6 )
+        v7 = *(_QWORD *)(v3 + 72);
+        if ( v7 )
         {
-          v7 = v6 + v5;
-          while ( v6 < v7 )
-            v6 += 4096LL;
+          v8 = v7 + v6;
+          while ( v7 < v8 )
+            v7 += 4096LL;
         }
       }
     }
-    v3 = *(_QWORD *)this;
-    v1 = 1;
-    if ( *(_QWORD *)(*(_QWORD *)this + 248LL) || (*(_DWORD *)(v3 + 116) & 1) != 0 )
+    v4 = *(_QWORD *)this;
+    v2 = 1;
+    if ( (*(_QWORD *)(*(_QWORD *)this + 248LL) || (*(_DWORD *)(v4 + 116) & 1) != 0)
+      && (*(_WORD *)(v4 + 102) & 0x800) != 0 )
     {
-      if ( _bittest16((const signed __int16 *)(v3 + 102), 0xBu) )
-      {
-        KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v3 + 312) + 64LL), 0);
-        W32PIDLOCK::vUnlockSimple((W32PIDLOCK *)(v3 + 272));
-      }
+      KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v4 + 312) + 64LL), 0);
+      W32PIDLOCK::vUnlockSimple((W32PIDLOCK *)(v4 + 272));
     }
   }
   *(_QWORD *)this = 0LL;
-  return v1;
+  return v2;
 }

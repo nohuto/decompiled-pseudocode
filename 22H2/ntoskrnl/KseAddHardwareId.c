@@ -1,78 +1,82 @@
 /*
- * XREFs of KseAddHardwareId @ 0x140693960
+ * XREFs of KseAddHardwareId @ 0x14075EE8C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140209EA8 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KsepCacheLookup @ 0x140693A74 (KsepCacheLookup.c)
- *     KsepStringDuplicate @ 0x1406942D4 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepCacheInsert @ 0x140695124 (KsepCacheInsert.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KsepPoolFreePaged @ 0x140371F04 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KsepStringDuplicate @ 0x14075AA64 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
+ *     KsepCacheLookup @ 0x14075EFA0 (KsepCacheLookup.c)
+ *     KsepCacheInsert @ 0x140780648 (KsepCacheInsert.c)
  */
 
-__int64 __fastcall KseAddHardwareId(PCWSTR SourceString)
+__int64 __fastcall KseAddHardwareId(WCHAR *SourceString)
 {
-  volatile signed __int64 *v1; // rbp
+  volatile signed __int64 *v1; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  char *v4; // rsi
-  char *Paged; // rax
-  int v6; // edi
-  __int64 v8; // rax
-  _OWORD v9[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v10; // [rsp+40h] [rbp-28h] BYREF
-  int v11; // [rsp+50h] [rbp-18h]
+  void *v4; // rdi
+  PVOID Paged; // rax
+  int v6; // ebx
+  char v7; // bp
+  __int64 v9; // rax
+  _OWORD v10[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v11; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+50h] [rbp-18h]
 
-  v1 = (volatile signed __int64 *)qword_140C64E80;
-  v11 = 0;
-  memset(v9, 0, sizeof(v9));
-  v10 = 0LL;
-  if ( dword_140C64E34 != 2 )
+  v1 = (volatile signed __int64 *)qword_140C50630;
+  memset(v10, 0, sizeof(v10));
+  v11 = 0LL;
+  v12 = 0LL;
+  if ( dword_140C505E4 != 2 )
   {
-    v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v8 + 1] = -1073741823;
-    KsepHistoryErrors[2 * v8] = 656075;
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v9 + 1] = -1073741823;
+    KsepHistoryErrors[2 * v9] = 656075;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Cannot add hardware id until the kshim engine is initialized\n");
-    KsepLogError(0LL, (__int64)"KSE: Cannot add hardware id until the kshim engine is initialized\n");
+    KsepLogError(0, "KSE: Cannot add hardware id until the kshim engine is initialized\n");
     return 0LL;
   }
   if ( !SourceString )
     return 0LL;
-  RtlInitUnicodeString((PUNICODE_STRING)((char *)&v10 + 8), SourceString);
+  RtlInitUnicodeString((PUNICODE_STRING)((char *)&v11 + 8), SourceString);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)v1, 0LL);
-  v4 = (char *)KsepCacheLookup(v1, v9);
-  if ( !v4 )
+  v4 = (void *)KsepCacheLookup(v1, v10);
+  if ( v4 )
   {
-    Paged = (char *)KsepPoolAllocatePaged(0x38uLL);
-    v4 = Paged;
-    if ( !Paged || (int)KsepStringDuplicate(Paged + 40, SourceString) < 0 )
-    {
-      v6 = -1073741801;
-      goto LABEL_8;
-    }
-    KsepCacheInsert(v1, v4);
+LABEL_7:
+    v6 = 0;
+    goto LABEL_8;
   }
-  v6 = 0;
+  Paged = KsepPoolAllocatePaged(0x38uLL);
+  v4 = Paged;
+  if ( Paged && (int)KsepStringDuplicate((__int64)Paged + 40, SourceString) >= 0 )
+  {
+    KsepCacheInsert(v1, v4);
+    goto LABEL_7;
+  }
+  v6 = -1073741801;
 LABEL_8:
-  if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v7 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
     ExfTryToWakePushLock(v1);
   KeAbPostRelease((ULONG_PTR)v1);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v6 < 0 )
   {
     if ( v4 )
     {
-      KsepStringFree(v4 + 40);
+      KsepStringFree((__int64)v4 + 40);
       KsepPoolFreePaged(v4);
     }
   }

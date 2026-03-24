@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBUCX_ClientRequestCompleteFromUCX @ 0x1C0029180
+ * XREFs of HUBUCX_ClientRequestCompleteFromUCX @ 0x1C0026560
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_ClientRequestCompleteFromUCX(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of CMFGetLargePageSectionSize @ 0x1408D8F5C
+ * XREFs of CMFGetLargePageSectionSize @ 0x1408D8F3C
  * Callers:
- *     CMFSystemThreadRoutine @ 0x1408D94C0 (CMFSystemThreadRoutine.c)
+ *     CMFSystemThreadRoutine @ 0x1408D94A0 (CMFSystemThreadRoutine.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeGetNextClockTickDuration @ 0x14056C950
+ * XREFs of KeGetNextClockTickDuration @ 0x140513CE0
  * Callers:
- *     HalpTimerClockPowerChange @ 0x14050BFD0 (HalpTimerClockPowerChange.c)
+ *     HalpTimerClockPowerChange @ 0x1404BF510 (HalpTimerClockPowerChange.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
  */
 
 unsigned __int64 KeGetNextClockTickDuration()

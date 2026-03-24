@@ -1,19 +1,22 @@
 /*
- * XREFs of ?GetAllocationSection@VIDMM_GLOBAL@@QEAAPEAXPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00E3868
+ * XREFs of ?GetAllocationSection@VIDMM_GLOBAL@@QEAAPEAXPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C008B400
  * Callers:
- *     ?VidMmGetAllocationSection@@YAPEAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C002CAD0 (-VidMmGetAllocationSection@@YAPEAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ *     ?VidMmGetAllocationSection@@YAPEAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0016B40 (-VidMmGetAllocationSection@@YAPEAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z.c)
  * Callees:
  *     <none>
  */
 
-void *__fastcall VIDMM_GLOBAL::GetAllocationSection(VIDMM_GLOBAL *this, __int64 **a2)
+void *__fastcall VIDMM_GLOBAL::GetAllocationSection(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC *a2)
 {
   __int64 v2; // rbx
-  void *v3; // rcx
+  void *result; // rax
 
-  v2 = **a2;
-  v3 = *(void **)(v2 + 384);
-  if ( v3 )
-    ObfReferenceObject(v3);
-  return *(void **)(v2 + 384);
+  v2 = **(_QWORD **)a2;
+  result = *(void **)(v2 + 352);
+  if ( result )
+  {
+    ObfReferenceObject(*(PVOID *)(v2 + 352));
+    return *(void **)(v2 + 352);
+  }
+  return result;
 }

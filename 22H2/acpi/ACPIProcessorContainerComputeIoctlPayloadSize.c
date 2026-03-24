@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A524
+ * XREFs of ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0
  * Callers:
- *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A524 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
- *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A988 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C (ACPIProcessorContainerGetLpiStatesIoctl.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
- *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C002F7A0 (ACPIIoctlCalculateOutputBufferSizeV1.c)
- *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A524 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C000BE70 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
  */
 
 __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DWORD *a2)
@@ -39,9 +39,9 @@ __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DW
       v7 = (_QWORD *)*v7;
       ++v6;
     }
-    v8 = v2[72];
+    v8 = v2[67];
     *a2 = ((*a2 + 3) & 0xFFFFFFFC) + 4 * v6;
-    result = ACPIAmliBuildObjectPathnameUnicode(v8, (__int64)P, 1);
+    result = ACPIAmliBuildObjectPathnameUnicode(v8, (__int64)P);
     if ( (int)result < 0 )
       break;
     ExFreePoolWithTag(P[1], 0);

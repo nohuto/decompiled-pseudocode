@@ -3,16 +3,16 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     PopInitializeIRTimer @ 0x14017DC84 (PopInitializeIRTimer.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopInitializeIRTimer @ 0x14017DCA4 (PopInitializeIRTimer.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlLengthRequiredSid @ 0x1405BD5C0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
- *     PopNetSetConnectivityConstraint @ 0x1407298C4 (PopNetSetConnectivityConstraint.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14075DB14 (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetPublishWnfStateUpdate @ 0x14075DC44 (PopNetPublishWnfStateUpdate.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
+ *     PopNetSetConnectivityConstraint @ 0x1407298A4 (PopNetSetConnectivityConstraint.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14075DAF4 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetPublishWnfStateUpdate @ 0x14075DC24 (PopNetPublishWnfStateUpdate.c)
  */
 
 __int64 __fastcall PopNetInitialize(int a1)

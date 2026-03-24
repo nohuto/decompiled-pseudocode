@@ -4,15 +4,15 @@
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
  *     CcNotifyOfMappedWrite @ 0x14007D960 (CcNotifyOfMappedWrite.c)
  *     CcScheduleReadAheadEx @ 0x14008DFD0 (CcScheduleReadAheadEx.c)
- *     CcShouldLazyWriteCacheMap @ 0x1400D5EC4 (CcShouldLazyWriteCacheMap.c)
- *     CcPrepareMdlWrite @ 0x1400E1A20 (CcPrepareMdlWrite.c)
- *     CcCopyWriteWontFlush @ 0x14010F4F0 (CcCopyWriteWontFlush.c)
- *     CcPostDeferredWrites @ 0x1402698B0 (CcPostDeferredWrites.c)
+ *     CcShouldLazyWriteCacheMap @ 0x1400D5EE4 (CcShouldLazyWriteCacheMap.c)
+ *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
+ *     CcCopyWriteWontFlush @ 0x14010F510 (CcCopyWriteWontFlush.c)
+ *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
  * Callees:
  *     MmEnoughMemoryForWrite @ 0x140021608 (MmEnoughMemoryForWrite.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall CcCanIWriteStream(KSPIN_LOCK *a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)

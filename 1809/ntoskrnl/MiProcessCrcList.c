@@ -1,8 +1,8 @@
 /*
  * XREFs of MiProcessCrcList @ 0x14061F320
  * Callers:
- *     MiCombineWorkingSetTail @ 0x1401226A0 (MiCombineWorkingSetTail.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSetTail @ 0x1401226C0 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -11,18 +11,18 @@
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiValidCombineProtection @ 0x14009B86C (MiValidCombineProtection.c)
  *     MiAllocateCombineProto @ 0x14009B8A0 (MiAllocateCombineProto.c)
- *     MiDecrementCombinedPte @ 0x14011F9D4 (MiDecrementCombinedPte.c)
- *     MiFreeCombineBlock @ 0x14011FA84 (MiFreeCombineBlock.c)
- *     MiPushCombineBlock @ 0x14012C8CC (MiPushCombineBlock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiHashIsCommon @ 0x1402CBEB8 (MiHashIsCommon.c)
+ *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
+ *     MiFreeCombineBlock @ 0x14011FAA4 (MiFreeCombineBlock.c)
+ *     MiPushCombineBlock @ 0x14012C8EC (MiPushCombineBlock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiHashIsCommon @ 0x1402CBFB8 (MiHashIsCommon.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiPopulateCombineMdls @ 0x1406B8B78 (MiPopulateCombineMdls.c)
- *     MiFreeCombineMdls @ 0x1406D1ECC (MiFreeCombineMdls.c)
- *     MiDereferenceCombineCrc @ 0x14085EFF4 (MiDereferenceCombineCrc.c)
+ *     MiPopulateCombineMdls @ 0x1406B8B58 (MiPopulateCombineMdls.c)
+ *     MiFreeCombineMdls @ 0x1406D1EAC (MiFreeCombineMdls.c)
+ *     MiDereferenceCombineCrc @ 0x14085EFD4 (MiDereferenceCombineCrc.c)
  */
 
 __int64 **__fastcall MiProcessCrcList(__int64 a1, void *a2, size_t a3, unsigned int a4)

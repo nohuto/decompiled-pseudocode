@@ -1,15 +1,14 @@
 /*
- * XREFs of TR_AttemptStateChange @ 0x1C0008150
+ * XREFs of TR_AttemptStateChange @ 0x1C0001E00
  * Callers:
  *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
- *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
- *     Bulk_MappingLoop @ 0x1C0011F40 (Bulk_MappingLoop.c)
- *     Bulk_EvtDmaCallback @ 0x1C00226B0 (Bulk_EvtDmaCallback.c)
- *     Isoch_EP_StopMapping @ 0x1C00441C0 (Isoch_EP_StopMapping.c)
+ *     Isoch_MappingLoop @ 0x1C0001D7C (Isoch_MappingLoop.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0002AE0 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ *     Isoch_EP_StopMapping @ 0x1C0041540 (Isoch_EP_StopMapping.c)
+ *     Bulk_EvtDmaCallback @ 0x1C0044020 (Bulk_EvtDmaCallback.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 __int64 __fastcall TR_AttemptStateChange(__int64 a1, signed __int32 a2, __int32 a3)
@@ -30,7 +29,7 @@ __int64 __fastcall TR_AttemptStateChange(__int64 a1, signed __int32 a2, __int32 
     if ( !*(_BYTE *)(v5 + 37) )
     {
 LABEL_14:
-      ESM_AddEvent((PVOID)(v5 + 296));
+      ESM_AddEvent((PVOID)(v5 + 288));
       return v3;
     }
   }

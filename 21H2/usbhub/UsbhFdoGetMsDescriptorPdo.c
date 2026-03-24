@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFdoGetMsDescriptorPdo @ 0x1C0029EC4
+ * XREFs of UsbhFdoGetMsDescriptorPdo @ 0x1C002B20C
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     memmove @ 0x1C001F540 (memmove.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
  */
 
 __int64 __fastcall UsbhFdoGetMsDescriptorPdo(__int64 a1, ULONG_PTR a2, IRP *a3)
@@ -39,7 +39,13 @@ __int64 __fastcall UsbhFdoGetMsDescriptorPdo(__int64 a1, ULONG_PTR a2, IRP *a3)
         if ( (*(&SecurityQos->EffectiveOnly + 1) & 5) != 0 )
           v11 = *(PVOID *)&SecurityQos[2].Length;
         else
-          v11 = MmMapLockedPagesSpecifyCache((PMDL)SecurityQos, 0, MmCached, 0LL, 0, 0x40000010u);
+          v11 = MmMapLockedPagesSpecifyCache(
+                  (PMDL)SecurityQos,
+                  0,
+                  MmCached,
+                  0LL,
+                  0,
+                  LODWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) | 0x10u);
       }
       else
       {

@@ -1,186 +1,140 @@
 /*
- * XREFs of MmPrefetchPagesEx @ 0x14073EBE8
+ * XREFs of MmPrefetchPagesEx @ 0x14061C774
  * Callers:
- *     MmPrefetchPages @ 0x14073EBD0 (MmPrefetchPages.c)
- *     PfSnPrefetchSections @ 0x14074D088 (PfSnPrefetchSections.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D9A0 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchFiles @ 0x14097DF94 (PfpPrefetchFiles.c)
+ *     MmPrefetchPages @ 0x14061AFC0 (MmPrefetchPages.c)
+ *     PfpPrefetchFilesTrickle @ 0x140633C60 (PfpPrefetchFilesTrickle.c)
+ *     PfSnPrefetchSections @ 0x140680A8C (PfSnPrefetchSections.c)
+ *     PfpPrefetchFiles @ 0x1408DF8B0 (PfpPrefetchFiles.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MiPfCompletePrefetchIos @ 0x1402A3920 (MiPfCompletePrefetchIos.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2CC (MiFreeInPageSupportBlock.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402BD3E8 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402BD418 (MiGetInPageAutoBoostLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLockDynamicMemoryShared @ 0x140345EE4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346290 (MiUnlockDynamicMemoryShared.c)
- *     MiNotifyPageHeat @ 0x14065466C (MiNotifyPageHeat.c)
- *     MiPfPrepareReadList @ 0x1406F6350 (MiPfPrepareReadList.c)
- *     MiReleaseReadListResources @ 0x1407213C0 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x140724164 (MiPfExecuteReadList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiFreeInPageSupportBlock @ 0x14027CF5C (MiFreeInPageSupportBlock.c)
+ *     MiPfCompletePrefetchIos @ 0x14027D180 (MiPfCompletePrefetchIos.c)
+ *     MiReleaseReadListResources @ 0x140636234 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x140636824 (MiPfExecuteReadList.c)
+ *     MiPfPrepareReadList @ 0x14063D030 (MiPfPrepareReadList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, _QWORD *a3)
 {
-  struct _KTHREAD *CurrentThread; // r13
-  unsigned int *v4; // r15
-  int v5; // ebx
-  __int64 v6; // r12
-  __int64 *v7; // rsi
-  volatile signed __int64 *v8; // rax
-  volatile signed __int64 *v9; // rbp
-  __int64 v10; // rax
-  int v11; // r14d
-  __int64 *v12; // rdi
-  __int64 **v13; // rbp
+  __int64 v3; // rsi
+  char *Pool; // rax
+  void *v6; // rdi
+  struct _KTHREAD *CurrentThread; // r15
+  int v8; // ebx
+  unsigned int v9; // r13d
+  _QWORD *v10; // r14
+  char *v11; // rbp
+  __int64 v12; // r12
+  __int64 v13; // r15
   int List; // eax
   int v15; // ecx
-  unsigned int v16; // edi
-  PVOID *v17; // rbx
-  __int64 v18; // rbp
-  __int64 v20; // rbp
-  __int64 *v21; // r14
-  int v22; // eax
-  __int64 v23; // rcx
-  __int64 *v24; // r14
-  __int64 v25; // rax
-  unsigned int *v26; // rax
+  char v17; // bl
+  unsigned int v18; // r12d
+  unsigned int v19; // ebp
+  __int64 *v20; // r14
+  int v21; // eax
+  __int64 v22; // rcx
+  __int64 v23; // r14
+  _QWORD *v24; // rbx
+  __int64 v25; // rbp
+  PVOID *v26; // rbx
   struct _SLIST_ENTRY **v27; // rax
   struct _SLIST_ENTRY *v28; // rcx
   _SLIST_ENTRY *Next; // rdx
-  __int64 v30; // [rsp+30h] [rbp-68h]
-  __int64 *Pool; // [rsp+38h] [rbp-60h]
-  ULONG_PTR v32; // [rsp+48h] [rbp-50h]
-  ULONG_PTR BugCheckParameter2; // [rsp+B8h] [rbp+20h]
+  struct _KTHREAD *v30; // [rsp+20h] [rbp-48h]
+  PVOID v32; // [rsp+88h] [rbp+20h]
 
-  CurrentThread = KeGetCurrentThread();
-  v4 = 0LL;
-  LOBYTE(v5) = 0;
-  v6 = a1;
+  v3 = a1;
   if ( a1 > 0x1FFFFFFF )
-    return (unsigned int)-1073741585;
-  v30 = a1;
-  Pool = (__int64 *)MiAllocatePool(64, 8LL * a1, 0x6C526D4Du);
-  v7 = Pool;
+    return 3221225711LL;
+  Pool = (char *)MiAllocatePool(64, 8LL * a1, 0x6C526D4Du);
+  v32 = Pool;
+  v6 = Pool;
   if ( !Pool )
-    return (unsigned int)-1073741670;
-  v8 = MiGetInPageAutoBoostLock();
-  BugCheckParameter2 = (ULONG_PTR)v8;
-  v9 = v8;
-  if ( !v8 )
-  {
-    v16 = -1073741670;
-    goto LABEL_28;
-  }
-  v10 = KeAbPreAcquire((__int64)v8, 0LL);
-  v32 = v10;
-  if ( v10 )
-    *(_BYTE *)(v10 + 18) = 1;
-  if ( (HvlEnlightenments & 0x200000) != 0 )
-  {
-    v26 = (unsigned int *)MiAllocatePool(66, 0x1008uLL, 0x6C68694Du);
-    v4 = v26;
-    if ( !v26 )
-    {
-      v16 = -1073741670;
-      goto LABEL_22;
-    }
-    v26[1] = 0;
-    *v26 = 1;
-    v26[2] = 511;
-    MiLockDynamicMemoryShared((__int64)MiSystemPartition, (__int64)CurrentThread);
-    v5 = 10;
-  }
-  else
-  {
-    v5 = 2;
-  }
+    return 3221225626LL;
+  CurrentThread = KeGetCurrentThread();
+  v8 = 0;
+  v9 = 0;
+  v30 = CurrentThread;
   --CurrentThread->KernelApcDisable;
-  v11 = 0;
-  if ( (_DWORD)v6 )
+  if ( (_DWORD)v3 )
   {
-    v12 = Pool;
-    v13 = (__int64 **)Pool;
+    v10 = Pool;
+    v11 = Pool;
+    v12 = a2 - (_QWORD)Pool;
+    v13 = (unsigned int)v3;
     do
     {
-      List = MiPfPrepareReadList(*(__int64 **)((char *)v12 + a2 - (_QWORD)Pool), v13, a3, v4, BugCheckParameter2);
+      List = MiPfPrepareReadList(*(_QWORD *)((char *)v10 + v12), v11, a3);
       if ( List < 0 )
       {
-        v11 = List;
+        v9 = List;
       }
       else
       {
-        v15 = v5 | 1;
-        if ( !*v12 )
-          v15 = v5;
-        v5 = v15;
+        v15 = v8 | 1;
+        if ( !*v10 )
+          v15 = v8;
+        v8 = v15;
       }
-      ++v13;
-      ++v12;
-      --v6;
+      v11 += 8;
+      ++v10;
+      --v13;
     }
-    while ( v6 );
-    v7 = Pool;
-    LODWORD(v6) = a1;
+    while ( v13 );
+    v6 = v32;
+    CurrentThread = v30;
   }
-  if ( v4 )
+  if ( (v8 & 1) == 0 )
   {
-    if ( v4[1] )
-      MiNotifyPageHeat(v4);
-    MiUnlockDynamicMemoryShared((__int64)MiSystemPartition, (__int64)CurrentThread);
-    LOBYTE(v5) = v5 & 0xF7;
-    ExFreePoolWithTag(v4, 0);
-  }
-  if ( (v5 & 1) == 0 )
-  {
-    v16 = v11 != 0 ? v11 : 0;
-    goto LABEL_19;
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    ExFreePoolWithTag(v6, 0);
+    return v9;
   }
   ++BYTE6(CurrentThread[1].Queue);
-  LOBYTE(v5) = v5 & 0xFA | 4;
-  v16 = 0;
-  v20 = 0LL;
-  if ( !(_DWORD)v6 )
-    goto LABEL_42;
-  v21 = v7;
-  while ( !*v21 )
+  v17 = v8 & 0xFE;
+  v18 = 0;
+  v19 = 0;
+  if ( !(_DWORD)v3 )
+    goto LABEL_20;
+  v20 = (__int64 *)v6;
+  while ( !*v20 )
   {
-LABEL_41:
-    v20 = (unsigned int)(v20 + 1);
-    ++v21;
-    if ( (unsigned int)v20 >= (unsigned int)v6 )
-      goto LABEL_42;
+LABEL_19:
+    ++v19;
+    ++v20;
+    if ( v19 >= (unsigned int)v3 )
+      goto LABEL_20;
   }
-  *(_DWORD *)(*v21 + 104) = 0;
-  v22 = MiPfPutPagesInTransition(*v21, (int)a3, 0, -1);
-  if ( v22 >= 0 )
+  *(_DWORD *)(*v20 + 104) = 0;
+  v21 = MiPfPutPagesInTransition(*v20, a3, 0);
+  if ( v21 >= 0 )
   {
-    v23 = *v21;
-    if ( *(_QWORD *)(*v21 + 120) == *v21 + 120 )
+    v22 = *v20;
+    if ( *(_QWORD *)(*v20 + 120) == *v20 + 120 )
     {
-      MiReleaseReadListResources(v23);
-      ExFreePoolWithTag((PVOID)*v21, 0);
-      *v21 = 0LL;
+      MiReleaseReadListResources(v22);
+      ExFreePoolWithTag((PVOID)*v20, 0);
+      *v20 = 0LL;
     }
     else
     {
-      LOBYTE(v5) = v5 | 1;
-      MiPfExecuteReadList(v23, 0, 0xFFFFFFFF, 0LL);
+      v17 |= 1u;
+      MiPfExecuteReadList(v22, 0LL, 0xFFFFFFFFLL, 0LL);
     }
-    goto LABEL_41;
+    goto LABEL_19;
   }
-  v16 = v22;
-  while ( (unsigned int)v20 < (unsigned int)v6 )
+  v18 = v21;
+  while ( v19 < (unsigned int)v3 )
   {
-    if ( v7[v20] )
+    if ( *((_QWORD *)v6 + v19) )
     {
       while ( 1 )
       {
-        v27 = (struct _SLIST_ENTRY **)(v7[v20] + 120);
+        v27 = (struct _SLIST_ENTRY **)(*((_QWORD *)v6 + v19) + 120LL);
         v28 = *v27;
         if ( *v27 == (struct _SLIST_ENTRY *)v27 )
           break;
@@ -190,60 +144,48 @@ LABEL_41:
         *((_QWORD *)&Next->Next + 1) = v27;
         MiFreeInPageSupportBlock(v28);
       }
-      MiReleaseReadListResources(v7[v20]);
-      ExFreePoolWithTag((PVOID)v7[v20], 0);
-      v7[v20] = 0LL;
+      MiReleaseReadListResources(*((_QWORD *)v6 + v19));
+      ExFreePoolWithTag(*((PVOID *)v6 + v19), 0);
+      *((_QWORD *)v6 + v19) = 0LL;
     }
-    v20 = (unsigned int)(v20 + 1);
+    ++v19;
   }
-LABEL_42:
-  if ( (v5 & 1) != 0 )
+LABEL_20:
+  v23 = v3;
+  if ( (v17 & 1) != 0 )
   {
-    v16 = 0;
-    if ( (_DWORD)v6 )
+    v18 = 0;
+    if ( (_DWORD)v3 )
     {
-      v24 = v7;
-      v25 = (unsigned int)v6;
+      v24 = v6;
+      v25 = v3;
       do
       {
         if ( *v24 )
         {
-          MiPfCompletePrefetchIos((_QWORD **)(*v24 + 120), 0LL, 0LL);
+          MiPfCompletePrefetchIos((_QWORD **)(*v24 + 120LL), 0LL, 0LL);
           MiReleaseReadListResources(*v24);
-          v25 = v30;
         }
         ++v24;
-        v30 = --v25;
+        --v25;
       }
       while ( v25 );
     }
   }
-LABEL_19:
-  if ( (v5 & 8) != 0 )
-    MiUnlockDynamicMemoryShared((__int64)MiSystemPartition, (__int64)CurrentThread);
-  v9 = (volatile signed __int64 *)BugCheckParameter2;
-LABEL_22:
-  if ( v32 )
-    KeAbPostReleaseEx((ULONG_PTR)v9, v32);
-  MiDereferenceInPageAutoBoostLock(v9);
-  if ( (v5 & 2) != 0 )
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  if ( (v5 & 4) != 0 )
-    --BYTE6(CurrentThread[1].Queue);
-LABEL_28:
-  if ( (_DWORD)v6 )
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  --BYTE6(CurrentThread[1].Queue);
+  if ( (_DWORD)v3 )
   {
-    v17 = (PVOID *)v7;
-    v18 = (unsigned int)v6;
+    v26 = (PVOID *)v6;
     do
     {
-      if ( *v17 )
-        ExFreePoolWithTag(*v17, 0);
-      ++v17;
-      --v18;
+      if ( *v26 )
+        ExFreePoolWithTag(*v26, 0);
+      ++v26;
+      --v23;
     }
-    while ( v18 );
+    while ( v23 );
   }
-  ExFreePoolWithTag(v7, 0);
-  return v16;
+  ExFreePoolWithTag(v6, 0);
+  return v18;
 }

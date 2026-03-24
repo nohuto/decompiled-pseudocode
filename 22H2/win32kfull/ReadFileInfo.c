@@ -1,31 +1,25 @@
 /*
- * XREFs of ReadFileInfo @ 0x1C00A8560
+ * XREFs of ReadFileInfo @ 0x1C00A66EC
  * Callers:
- *     ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C0114668 (-LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTO.c)
+ *     ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C00A7084 (-LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTO.c)
  * Callees:
- *     <none>
+ *     Win32FileInfo @ 0x1C00A6758 (Win32FileInfo.c)
  */
 
 __int64 __fastcall ReadFileInfo(__int64 *a1, unsigned int a2)
 {
   unsigned int v2; // edi
   __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   if ( !a2 )
     return 1LL;
-  while ( 1 )
+  while ( (unsigned int)Win32FileInfo(*(PCWSTR *)(*a1 + 80)) )
   {
     v5 = *a1;
-    v8 = 0LL;
-    if ( !(unsigned int)Win32FileInfo(*(_QWORD *)(v5 + 80), v5, &v8) )
-      break;
-    v6 = *a1;
     ++v2;
     ++a1;
-    *(_DWORD *)(v6 + 24) = v8;
+    *(_DWORD *)(v5 + 24) = 0;
     if ( v2 >= a2 )
       return 1LL;
   }

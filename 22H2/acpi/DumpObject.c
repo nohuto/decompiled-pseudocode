@@ -1,19 +1,20 @@
 /*
- * XREFs of DumpObject @ 0x1C0051EB8
+ * XREFs of DumpObject @ 0x1C0067738
  * Callers:
- *     RunMethodCallBack @ 0x1C004E610 (RunMethodCallBack.c)
- *     DumpObject @ 0x1C0051EB8 (DumpObject.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
- *     ProcessEvalObj @ 0x1C0054C80 (ProcessEvalObj.c)
+ *     ProcessEvalObj @ 0x1C0001CF0 (ProcessEvalObj.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     RunMethodCallBack @ 0x1C0066A50 (RunMethodCallBack.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     RtlStringCchCopyNA @ 0x1C002BAFC (RtlStringCchCopyNA.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     GetRegionSpaceName @ 0x1C004BDBC (GetRegionSpaceName.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     PrintBuffData @ 0x1C004E428 (PrintBuffData.c)
- *     DumpObject @ 0x1C0051EB8 (DumpObject.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     RtlStringCchCopyNA @ 0x1C00288C8 (RtlStringCchCopyNA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     GetRegionSpaceName @ 0x1C00654A4 (GetRegionSpaceName.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintBuffData @ 0x1C0066874 (PrintBuffData.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  */
 
 ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
@@ -41,7 +42,7 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v24; // r8
   const char *RegionSpaceName; // rax
   __int64 v26; // r10
-  void *ObjectPath; // rdi
+  _QWORD *ObjectPath; // rdi
   const char *ObjectTypeName; // rax
   const char *v29; // r11
   unsigned int v30; // ecx
@@ -77,13 +78,13 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
           {
             RtlStringCchCopyNA(pszDest, 5uLL, (STRSAFE_PCNZCH)(**(_QWORD **)(a1 + 32) + 40LL), 4uLL);
             RtlStringCchCopyNA(v35, 5uLL, (STRSAFE_PCNZCH)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 40LL), 4uLL);
-            ConPrintf("IndexField(%s:IndexName=%s,DataName=%s)", byte_1C00622D0, pszDest, v35);
+            ConPrintf("IndexField(%s:IndexName=%s,DataName=%s)", byte_1C00701BA, pszDest, v35);
           }
         }
         else
         {
           RtlStringCchCopyNA(pszDest, 5uLL, (STRSAFE_PCNZCH)(**(_QWORD **)(a1 + 32) + 40LL), 4uLL);
-          ConPrintf("Field(%s:Base=%s)", byte_1C00622D0, pszDest);
+          ConPrintf("Field(%s:Base=%s)", byte_1C00701BA, pszDest);
         }
       }
       else
@@ -92,7 +93,7 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
         RtlStringCchCopyNA(v35, 5uLL, (STRSAFE_PCNZCH)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 40LL), 4uLL);
         ConPrintf(
           "BankField(%s:Base=%s,BankName=%s,BankValue=0x%I64x)",
-          byte_1C00622D0,
+          byte_1C00701BA,
           pszDest,
           v35,
           *(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL));
@@ -100,15 +101,15 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
     }
     else
     {
-      ConPrintf("DataAlias(%s:Link=%x)", byte_1C00622D0, *(_QWORD *)(a1 + 16));
+      ConPrintf("DataAlias(%s:Link=%x)", byte_1C00701BA, *(_QWORD *)(a1 + 16));
       DumpObject(*(_QWORD *)(a1 + 16), 0LL, (unsigned int)(v3 + 1));
     }
   }
   else if ( v6 == 128 )
   {
-    ObjectPath = (void *)GetObjectPath(*(_QWORD *)(a1 + 16));
+    ObjectPath = GetObjectPath(*(_QWORD *)(a1 + 16));
     ObjectTypeName = (const char *)GetObjectTypeName(*(unsigned __int16 *)(*(_QWORD *)(a1 + 16) + 66LL));
-    ConPrintf("ObjectAlias(%s:Alias=%s,Type=%s)", byte_1C00622D0, v29, ObjectTypeName);
+    ConPrintf("ObjectAlias(%s:Alias=%s,Type=%s)", byte_1C00701BA, v29, ObjectTypeName);
     if ( ObjectPath )
       ExFreePoolWithTag(ObjectPath, 0);
   }
@@ -136,14 +137,14 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
             if ( v23 )
             {
               if ( v23 == 1 )
-                ConPrintf("DDBHandle(%s:Handle=%x)", byte_1C00622D0, *(_QWORD *)(a1 + 16));
+                ConPrintf("DDBHandle(%s:Handle=%x)", byte_1C00701BA, *(_QWORD *)(a1 + 16));
             }
             else
             {
               v24 = *(_QWORD *)(a1 + 32);
               ConPrintf(
                 "BufferField(%s:Ptr=%x,Len=%d,ByteOffset=0x%x,StartBit=0x%x,NumBits=%d,FieldFlags=0x%x)",
-                byte_1C00622D0,
+                byte_1C00701BA,
                 *(_QWORD *)v24,
                 *(_DWORD *)(v24 + 8),
                 *(_DWORD *)(v24 + 12),
@@ -154,14 +155,14 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
           }
           else
           {
-            ConPrintf("ThermalZone(%s)", byte_1C00622D0);
+            ConPrintf("ThermalZone(%s)", byte_1C00701BA);
           }
         }
         else
         {
           ConPrintf(
             "Processor(%s:ACPIProcessorId=0x%x,PBlk=0x%x,PBlkLen=%d)",
-            byte_1C00622D0,
+            byte_1C00701BA,
             *(unsigned __int8 *)(*(_QWORD *)(a1 + 32) + 8LL),
             **(_DWORD **)(a1 + 32),
             *(_DWORD *)(*(_QWORD *)(a1 + 32) + 4LL));
@@ -171,7 +172,7 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
       {
         ConPrintf(
           "PowerResource(%s:SystemLevel=0x%x,ResOrder=%d)",
-          byte_1C00622D0,
+          byte_1C00701BA,
           **(unsigned __int8 **)(a1 + 32),
           *(unsigned __int8 *)(*(_QWORD *)(a1 + 32) + 1LL));
       }
@@ -181,7 +182,7 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
       RegionSpaceName = GetRegionSpaceName(*(_BYTE *)(*(_QWORD *)(a1 + 32) + 12LL));
       ConPrintf(
         "OpRegion(%s:RegionSpace=%s,Offset=0x%x,Len=%d)",
-        byte_1C00622D0,
+        byte_1C00701BA,
         RegionSpaceName,
         *(_QWORD *)v26,
         *(_DWORD *)(v26 + 8));
@@ -191,7 +192,7 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
   {
     ConPrintf(
       "Method(%s:Flags=0x%x,CodeBuff=%p,Len=%d)",
-      byte_1C00622D0,
+      byte_1C00701BA,
       *(unsigned __int8 *)(*(_QWORD *)(a1 + 32) + 193LL),
       (const void *)(*(_QWORD *)(a1 + 32) + 194LL),
       *(_DWORD *)(a1 + 24) - 194);
@@ -200,13 +201,13 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
   {
     if ( !*(_WORD *)(a1 + 2) )
     {
-      ConPrintf("Unknown(%s)", byte_1C00622D0);
+      ConPrintf("Unknown(%s)", byte_1C00701BA);
       return ConPrintf("\n");
     }
     v7 = v6 - 1;
     if ( !v7 )
     {
-      ConPrintf("Integer(%s:Value=0x%I64x[%I64d])", byte_1C00622D0, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 16));
+      ConPrintf("Integer(%s:Value=0x%I64x[%I64d])", byte_1C00701BA, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 16));
       return ConPrintf("\n");
     }
     v8 = v7 - 1;
@@ -231,12 +232,12 @@ ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
             {
               v13 = "Event(%s:pKEvent=%x)";
 LABEL_29:
-              ConPrintf(v13, byte_1C00622D0, *(_QWORD *)(a1 + 32));
+              ConPrintf(v13, byte_1C00701BA, *(_QWORD *)(a1 + 32));
             }
           }
           else
           {
-            ConPrintf("Device(%s)", byte_1C00622D0);
+            ConPrintf("Device(%s)", byte_1C00701BA);
           }
         }
         else
@@ -244,7 +245,7 @@ LABEL_29:
           v14 = *(_QWORD *)(a1 + 32);
           ConPrintf(
             "FieldUnit(%s:FieldParent=%p,ByteOffset=0x%x,StartBit=0x%x,NumBits=%d,FieldFlags=0x%x,AttribLength=0x%x,Connection=0x%p)",
-            byte_1C00622D0,
+            byte_1C00701BA,
             *(const void **)v14,
             *(_DWORD *)(v14 + 8),
             *(_DWORD *)(v14 + 12),
@@ -256,15 +257,18 @@ LABEL_29:
       }
       else
       {
-        ConPrintf("Package(%s:NumElements=%d){", byte_1C00622D0, **(_DWORD **)(a1 + 32));
+        ConPrintf("Package(%s:NumElements=%d){", byte_1C00701BA, **(_DWORD **)(a1 + 32));
         ConPrintf("\n");
         v15 = *(_DWORD **)(a1 + 32);
         for ( i = 0LL; (unsigned int)i < *v15; i = (unsigned int)(i + 1) )
         {
           DumpObject(&v15[8 * i + 2 + 2 * (unsigned int)i], 0LL, (unsigned int)(v3 + 1));
-          if ( (unsigned int)i < **(_DWORD **)(a1 + 32) )
-            ConPrintf(",");
           v15 = *(_DWORD **)(a1 + 32);
+          if ( (unsigned int)i < *v15 )
+          {
+            ConPrintf(",");
+            v15 = *(_DWORD **)(a1 + 32);
+          }
         }
         if ( (_DWORD)v3 )
         {
@@ -281,7 +285,7 @@ LABEL_29:
     }
     else
     {
-      ConPrintf("Buffer(%s:Ptr=%x,Len=%d)", byte_1C00622D0, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 24));
+      ConPrintf("Buffer(%s:Ptr=%x,Len=%d)", byte_1C00701BA, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 24));
       PrintBuffData(*(unsigned __int8 **)(a1 + 32), *(_DWORD *)(a1 + 24));
     }
   }

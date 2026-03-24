@@ -1,113 +1,118 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1403AC540
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x1403204C8
  * Callers:
- *     RtlpLookupLowBox @ 0x140297594 (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x14025A2B8 (RtlpLookupLowBox.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
- *     SeClearLearningModeObjectInformation @ 0x1402321F0 (SeClearLearningModeObjectInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B845C (SeSetLearningModeObjectInformation.c)
- *     PsReferenceEffectiveToken @ 0x14071D75C (PsReferenceEffectiveToken.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x1402CE400 (SeAccessCheckWithHint.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     SeClearLearningModeObjectInformation @ 0x1403455C0 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x140345990 (SeSetLearningModeObjectInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsReferenceEffectiveToken @ 0x1406D5B10 (PsReferenceEffectiveToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
 {
-  bool v1; // zf
-  _DWORD *v3; // rax
   char result; // al
-  size_t v5; // rsi
-  wchar_t *Pool2; // rax
-  wchar_t *v7; // rbx
+  bool v3; // zf
+  char v4; // bl
+  SIZE_T v5; // r14
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v7; // rdi
   const WCHAR *v8; // rdx
-  bool v9; // di
-  int v10; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned int v11; // [rsp+6Ch] [rbp-9Ch] BYREF
-  _QWORD v12[3]; // [rsp+70h] [rbp-98h] BYREF
-  _BYTE v13[4]; // [rsp+88h] [rbp-80h] BYREF
-  char v14; // [rsp+8Ch] [rbp-7Ch] BYREF
-  char *v15; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+98h] [rbp-70h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT v17; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v18; // [rsp+C8h] [rbp-40h] BYREF
-  __int128 v19; // [rsp+D8h] [rbp-30h]
-  __int128 v20; // [rsp+E8h] [rbp-20h]
-  __int64 v21; // [rsp+F8h] [rbp-10h]
-  _DWORD v22[4]; // [rsp+100h] [rbp-8h] BYREF
-  char v23; // [rsp+110h] [rbp+8h] BYREF
+  char v9; // si
+  char v10; // [rsp+60h] [rbp-A0h] BYREF
+  int v11; // [rsp+64h] [rbp-9Ch] BYREF
+  int v12; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING v13; // [rsp+70h] [rbp-90h] BYREF
+  char v14; // [rsp+80h] [rbp-80h] BYREF
+  char v15; // [rsp+84h] [rbp-7Ch] BYREF
+  char *v16; // [rsp+88h] [rbp-78h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v18[2]; // [rsp+A0h] [rbp-60h] BYREF
+  PVOID Object; // [rsp+B0h] [rbp-50h]
+  struct _LIST_ENTRY *Flink; // [rsp+B8h] [rbp-48h]
+  __int128 v21; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v22; // [rsp+D0h] [rbp-30h]
+  __int128 v23; // [rsp+E0h] [rbp-20h]
+  __int64 v24; // [rsp+F0h] [rbp-10h]
+  _DWORD v25[4]; // [rsp+F8h] [rbp-8h] BYREF
+  char v26; // [rsp+108h] [rbp+8h] BYREF
 
-  LODWORD(v12[0]) = 0;
+  v12 = 0;
   v11 = 0;
-  v1 = (*(_BYTE *)(a1 + 38) & 2) == 0;
-  v22[0] = 0x20000;
-  memset(&v17, 0, sizeof(v17));
-  v22[1] = 196608;
-  v22[2] = 0x20000;
-  v22[3] = 2031616;
-  v18 = 0LL;
+  result = 0;
+  v18[0] = 0LL;
+  v18[1] = 0LL;
+  v3 = (*(_BYTE *)(a1 + 38) & 2) == 0;
+  v10 = 0;
+  v25[0] = 0x20000;
+  v25[1] = 196608;
+  v25[2] = 0x20000;
+  v25[3] = 2031616;
   v21 = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
+  v24 = 0LL;
+  v22 = 0LL;
+  v23 = 0LL;
   DestinationString = 0LL;
-  *(_OWORD *)&v12[1] = 0LL;
-  if ( !v1 )
+  v13 = 0LL;
+  if ( !v3 )
     return 1;
-  v3 = (_DWORD *)PsReferenceEffectiveToken(
-                   (unsigned int)KeGetCurrentThread(),
-                   1836020801,
-                   (unsigned int)&v14,
-                   (unsigned int)&v10,
-                   (__int64)v13,
-                   0LL);
-  v17.PrimaryToken = v3;
-  if ( (v3[50] & 0x1000000) == 0 )
+  if ( byte_140C5462C )
   {
-    ObfDereferenceObjectWithTag(v3, 0x6D6F7441u);
-    return 0;
-  }
-  RtlInitUnicodeString(&DestinationString, L"Global Atom Table Entry");
-  v5 = 2LL * *(unsigned __int8 *)(a1 + 40) + 2;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v5, 1833858113LL);
-  v7 = Pool2;
-  if ( Pool2 )
-  {
-    if ( RtlStringCbCopyW(Pool2, v5, (NTSTRSAFE_PCWSTR)(a1 + 42)) < 0 )
-      v8 = L"Unable to capture ATOM name.";
+    RtlInitUnicodeString(&DestinationString, L"Global Atom Table Entry");
+    v4 = 1;
+    v5 = 2LL * *(unsigned __int8 *)(a1 + 40) + 2;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v5, 0x6D4E7441u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, v5);
+      if ( RtlStringCbCopyW(v7, v5, (NTSTRSAFE_PCWSTR)(a1 + 42)) < 0 )
+        v8 = L"Unable to capture ATOM name.";
+      else
+        v8 = v7;
+    }
     else
-      v8 = v7;
+    {
+      v8 = L"Unable to Allocate space for ATOM name.";
+    }
+    RtlInitUnicodeString(&v13, v8);
+    *(_QWORD *)&v22 = &DestinationString;
+    *((_QWORD *)&v22 + 1) = &v13;
+    SeSetLearningModeObjectInformation(&v21);
+    v16 = &v26;
+    Object = (PVOID)PsReferenceEffectiveToken(
+                      (unsigned int)KeGetCurrentThread(),
+                      (unsigned int)&v15,
+                      (unsigned int)&v10,
+                      (unsigned int)&v14,
+                      0LL);
+    Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
+    v9 = SeAccessCheckWithHint(
+           SeAtomSd,
+           0LL,
+           (__int64)v18,
+           0LL,
+           0x20000,
+           0,
+           (__int64)&v16,
+           (__int64)v25,
+           KeGetCurrentThread()->PreviousMode,
+           (__int64)&v11,
+           (__int64)&v12);
+    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
+    if ( v7 )
+      ExFreePoolWithTag(v7, 0x6D4E7441u);
+    SeClearLearningModeObjectInformation();
+    if ( v9 != 1 || !v11 )
+      return 0;
+    return v4;
   }
-  else
-  {
-    v8 = L"Unable to Allocate space for ATOM name.";
-  }
-  RtlInitUnicodeString((PUNICODE_STRING)&v12[1], v8);
-  *(_QWORD *)&v19 = &DestinationString;
-  *((_QWORD *)&v19 + 1) = &v12[1];
-  SeSetLearningModeObjectInformation(&v18);
-  v15 = &v23;
-  v17.ProcessAuditId = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-  v9 = SeAccessCheckWithHint(
-         SeAtomSd,
-         0,
-         &v17,
-         0,
-         0x20000u,
-         0,
-         &v15,
-         (__int64)v22,
-         KeGetCurrentThread()->PreviousMode,
-         &v11,
-         (int *)v12);
-  ObfDereferenceObjectWithTag(v17.PrimaryToken, 0x6D6F7441u);
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0x6D4E7441u);
-  SeClearLearningModeObjectInformation();
-  result = 1;
-  if ( !v9 || !v11 )
-    return 0;
   return result;
 }

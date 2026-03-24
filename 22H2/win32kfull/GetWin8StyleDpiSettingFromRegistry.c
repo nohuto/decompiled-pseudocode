@@ -1,5 +1,5 @@
 /*
- * XREFs of GetWin8StyleDpiSettingFromRegistry @ 0x1C0086910
+ * XREFs of GetWin8StyleDpiSettingFromRegistry @ 0x1C00082D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ NTSTATUS __fastcall GetWin8StyleDpiSettingFromRegistry(BOOL *a1)
 {
   BOOL v1; // ebx
   NTSTATUS result; // eax
-  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF
   __int64 v5; // [rsp+68h] [rbp+1Fh]
   int v6; // [rsp+70h] [rbp+27h]
   __int128 v7; // [rsp+78h] [rbp+2Fh]

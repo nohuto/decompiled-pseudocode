@@ -1,23 +1,24 @@
 /*
- * XREFs of NtUserRegisterPointerInputTarget @ 0x1C01FBA20
+ * XREFs of NtUserRegisterPointerInputTarget @ 0x1C0200CF0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _RegisterPointerInputTarget @ 0x1C01ED194 (_RegisterPointerInputTarget.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _RegisterPointerInputTarget @ 0x1C01F2924 (_RegisterPointerInputTarget.c)
  */
 
-__int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, int a4)
+__int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v7; // rax
   __int64 v8; // rcx
   int v9; // ebx
   __int64 v10; // rsi
   __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // rax
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  __int64 v14; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v7 = ValidateHwnd(a1);
   v9 = 0;
   v10 = v7;
@@ -25,28 +26,28 @@ __int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, int 
   {
     if ( (unsigned __int8)Enforced(v8) && *(int *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) >= 0 )
     {
-      UserSetLastError(5LL, v11);
+      UserSetLastError(5LL, v11, v12);
       EtwTraceUIPISystemError(*(_QWORD *)(gptiCurrent + 424LL), 0LL, 12LL);
     }
     else
     {
       if ( gptiCurrent == *(_QWORD *)(v10 + 16) )
       {
-        if ( !a4 || (v13 = *(_QWORD *)(v10 + 40), *(char *)(v13 + 20) >= 0) && *(char *)(v13 + 19) >= 0 )
+        if ( !a4 || (v14 = *(_QWORD *)(v10 + 40), *(char *)(v14 + 20) >= 0) && *(char *)(v14 + 19) >= 0 )
         {
-          if ( (unsigned int)(a3 - 2) <= 1 )
+          if ( a3 - 2 <= 1 )
           {
             v9 = RegisterPointerInputTarget(v10, v11, a3, a4);
             goto LABEL_14;
           }
         }
-        v12 = 87LL;
+        v13 = 87LL;
       }
       else
       {
-        v12 = 5LL;
+        v13 = 5LL;
       }
-      UserSetLastError(v12, v11);
+      UserSetLastError(v13, v11, v12);
     }
   }
 LABEL_14:

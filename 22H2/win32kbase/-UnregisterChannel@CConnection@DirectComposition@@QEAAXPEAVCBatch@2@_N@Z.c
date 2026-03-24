@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C0065BA0
+ * XREFs of ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C005A9C8
  * Callers:
- *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00652C0 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C005A810 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
  * Callees:
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C002602C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0065C58 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z @ 0x1C0066640 (-PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z.c)
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00667F8 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00578CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z @ 0x1C005A770 (-PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C005AA80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005D370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
  */
 
 void __fastcall DirectComposition::CConnection::UnregisterChannel(
@@ -15,7 +15,6 @@ void __fastcall DirectComposition::CConnection::UnregisterChannel(
         char a3)
 {
   struct _ERESOURCE *v6; // rbx
-  unsigned int v7; // edx
 
   if ( a3 )
     _InterlockedIncrement((volatile signed __int32 *)this);
@@ -24,11 +23,11 @@ void __fastcall DirectComposition::CConnection::UnregisterChannel(
   ExAcquireResourceSharedLite(v6, 1u);
   *((_DWORD *)a2 + 5) = 6;
   if ( DirectComposition::CConnection::IsConnected(this) )
-    DirectComposition::CConnection::PostBatch(this, a2, a2);
+    DirectComposition::CConnection::PostBatch((union _SLIST_HEADER *)this, (struct _SLIST_ENTRY *)a2, a2);
   else
     DirectComposition::CBatch::ReturnToApplication(a2, 1);
   ExReleaseResourceLite(*((PERESOURCE *)this + 1));
   KeLeaveCriticalRegion();
   if ( a3 )
-    DirectComposition::CConnection::Release(this, v7);
+    DirectComposition::CConnection::Release(this);
 }

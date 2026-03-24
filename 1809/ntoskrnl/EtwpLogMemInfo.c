@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLogMemInfo @ 0x140310E20
+ * XREFs of EtwpLogMemInfo @ 0x140310F20
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x140310F70 (EtwpLogMemInfoTimerCallback.c)
- *     EtwpLogMemInfoRundown @ 0x1408BE9FC (EtwpLogMemInfoRundown.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140311070 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoRundown @ 0x1408BE9DC (EtwpLogMemInfoRundown.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1400A89B0 (MmQueryMemoryListInformation.c)
- *     EtwpLogKernelEvent @ 0x1400C71B0 (EtwpLogKernelEvent.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
+ *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

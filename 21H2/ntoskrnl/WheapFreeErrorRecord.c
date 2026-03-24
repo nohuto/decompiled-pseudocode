@@ -1,17 +1,17 @@
 /*
- * XREFs of WheapFreeErrorRecord @ 0x140643F08
+ * XREFs of WheapFreeErrorRecord @ 0x1405BBAA8
  * Callers:
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x140644030 (WheapProcessWorkQueueItem.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F60 (WheapProcessWaitingETWEvents.c)
+ *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x1405BBBD0 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x1407D35D0 (WheapEtwEnableCallback.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
  */
 
-__int64 __fastcall WheapFreeErrorRecord(ULONG_PTR a1)
+PSLIST_ENTRY __fastcall WheapFreeErrorRecord(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   if ( (*(_DWORD *)(a1 + 24) & 1) != 0 )
-    return (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
+    return (PSLIST_ENTRY)(unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
   else
-    return ExFreeHeapPool(a1);
+    return ExFreeHeapPool(a1, a2, a3, a4);
 }

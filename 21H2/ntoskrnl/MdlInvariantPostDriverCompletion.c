@@ -1,9 +1,9 @@
 /*
- * XREFs of MdlInvariantPostDriverCompletion @ 0x1405FF10C
+ * XREFs of MdlInvariantPostDriverCompletion @ 0x1405A1514
  * Callers:
- *     IovpCompleteRequest4 @ 0x140A8C5D4 (IovpCompleteRequest4.c)
+ *     IovpCompleteRequest4 @ 0x1409D0A08 (IovpCompleteRequest4.c)
  * Callees:
- *     MdlInvariantFindMdlInfo @ 0x1405FF02C (MdlInvariantFindMdlInfo.c)
+ *     MdlInvariantFindMdlInfo @ 0x1405A1414 (MdlInvariantFindMdlInfo.c)
  */
 
 void __fastcall MdlInvariantPostDriverCompletion(__int64 a1, __int64 a2)

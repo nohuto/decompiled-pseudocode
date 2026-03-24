@@ -1,15 +1,14 @@
 /*
- * XREFs of ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03D1940
+ * XREFs of ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C02FDAF0
  * Callers:
- *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C01D38A0 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01D3F70 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
- *     ?ResetInternal@BLTQUEUE@@AEAAXXZ @ 0x1C03D38DC (-ResetInternal@BLTQUEUE@@AEAAXXZ.c)
+ *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C0127404 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015D654 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ResetInternal@BLTQUEUE@@AEAAXXZ @ 0x1C02FF790 (-ResetInternal@BLTQUEUE@@AEAAXXZ.c)
  * Callees:
- *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C01D4330 (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
- *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C02D723C (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
- *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z @ 0x1C03D1C28 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z.c)
- *     ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C03D3680 (-ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z.c)
- *     ?ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ @ 0x1C03D36CC (-ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ.c)
+ *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C015D80C (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
+ *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C0227FD8 (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
+ *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z @ 0x1C02FDE94 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z.c)
+ *     ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C02FF670 (-ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z.c)
  */
 
 void __fastcall BLTQUEUE::DiscardPendingPresent(BLTQUEUE *this)
@@ -19,6 +18,7 @@ void __fastcall BLTQUEUE::DiscardPendingPresent(BLTQUEUE *this)
   _QWORD *v4; // rax
   _QWORD *v5; // rcx
   struct _EX_RUNDOWN_REF **v6; // rbp
+  void *v7; // rcx
 
   v1 = (struct _KMUTANT *)((char *)this + 160);
   KeWaitForSingleObject((char *)this + 160, Executive, 0, 0, 0LL);
@@ -33,15 +33,19 @@ void __fastcall BLTQUEUE::DiscardPendingPresent(BLTQUEUE *this)
     *v3 = v5;
     v6 = (struct _EX_RUNDOWN_REF **)(v4 - 1);
     v5[1] = v3;
-    if ( v4[4] )
-      BLTENTRY::ReleaseRenderingDoneEvent((BLTENTRY *)(v4 - 1));
+    v7 = (void *)v4[4];
+    if ( v7 )
+    {
+      ObfDereferenceObject(v7);
+      v6[5] = 0LL;
+    }
     BLTENTRY::ReleasePresentDoneEvent((BLTENTRY *)v6, 1u);
     DXGALLOCATIONREFERENCE::AssignNull(v6 + 4);
-    BLTQUEUE::InsertQueueTail(this, (char *)this + 232, v6, 1LL);
+    BLTQUEUE::InsertQueueTail(this, (struct _LIST_ENTRY *)((char *)this + 232), (struct BLTENTRY *)v6);
   }
-  if ( *((_BYTE *)this + 573) || *((_BYTE *)this + 574) )
+  if ( *((_BYTE *)this + 565) || *((_BYTE *)this + 566) )
   {
-    *(_WORD *)((char *)this + 573) = 0;
+    *(_WORD *)((char *)this + 565) = 0;
     BLTQUEUE::FinishCommand(this, 0);
   }
   KeReleaseMutex(v1, 0);

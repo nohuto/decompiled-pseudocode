@@ -1,10 +1,10 @@
 /*
- * XREFs of FsFilterInit @ 0x1403D808C
+ * XREFs of FsFilterInit @ 0x1403C9318
  * Callers:
- *     FsRtlInitSystem @ 0x140B25C04 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 FsFilterInit()
@@ -13,25 +13,25 @@ __int64 FsFilterInit()
   __int64 result; // rax
 
   v0 = 0;
-  AcquireOpsReservePool = (PVOID)ExAllocatePool2(64LL, 968LL, 1735217990LL);
+  AcquireOpsReservePool = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3C8uLL, 0x676D5346u);
   if ( !AcquireOpsReservePool )
     v0 = -1073741670;
-  ReleaseOpsReservePool = ExAllocatePool2(64LL, 968LL, 1735217990LL);
+  ReleaseOpsReservePool = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 0x3C8uLL, 0x676D5346u);
   if ( !ReleaseOpsReservePool )
   {
     ExFreePoolWithTag(AcquireOpsReservePool, 0x676D5346u);
     v0 = -1073741670;
   }
-  byte_140C48B22 = 6;
+  byte_140C47762 = 6;
   AcquireOpsEvent = 1;
-  qword_140C48B30 = (__int64)&qword_140C48B28;
-  qword_140C48B28 = (__int64)&qword_140C48B28;
-  qword_140C48B10 = (__int64)&qword_140C48B08;
-  qword_140C48B08 = (__int64)&qword_140C48B08;
+  qword_140C47770 = (__int64)&qword_140C47768;
+  qword_140C47768 = (__int64)&qword_140C47768;
+  qword_140C47730 = (__int64)&qword_140C47728;
+  qword_140C47728 = (__int64)&qword_140C47728;
   result = v0;
-  dword_140C48B24 = 1;
+  dword_140C47764 = 1;
   ReleaseOpsEvent = 1;
-  byte_140C48B02 = 6;
-  dword_140C48B04 = 1;
+  byte_140C47722 = 6;
+  dword_140C47724 = 1;
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x1402FB624
+ * XREFs of RtlpHeapExceptionFilter @ 0x1402FB724
  * Callers:
- *     RtlpHpAllocWithExceptionProtection @ 0x1402ED8D8 (RtlpHpAllocWithExceptionProtection.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x1402ED944 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpProbeUserBufferSafe @ 0x1402F29F8 (RtlpProbeUserBufferSafe.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402FB78C (RtlpAnalyzeHeapFailure.c)
- *     RtlpHpHeapHandleError @ 0x1402FBAFC (RtlpHpHeapHandleError.c)
- *     RtlCreateHeap @ 0x14070AF40 (RtlCreateHeap.c)
- *     RtlZeroHeap @ 0x140895F50 (RtlZeroHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1402ED9D8 (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x1402EDA44 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpProbeUserBufferSafe @ 0x1402F2AF8 (RtlpProbeUserBufferSafe.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402FB88C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpHeapHandleError @ 0x1402FBBFC (RtlpHpHeapHandleError.c)
+ *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     RtlZeroHeap @ 0x140895F30 (RtlZeroHeap.c)
  * Callees:
  *     <none>
  */

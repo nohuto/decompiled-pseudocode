@@ -1,99 +1,116 @@
 /*
- * XREFs of ?FillAllocationInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00E2960
+ * XREFs of ?FillAllocationInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00638EC
  * Callers:
- *     ?FillAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00E2924 (-FillAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INT.c)
+ *     ?FillAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00638A8 (-FillAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INT.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0004EE4 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C00053BC (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0pppxxq_EtwWriteTransfer @ 0x1C002E850 (McTemplateK0pppxxq_EtwWriteTransfer.c)
- *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0091F60 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
- *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0092140 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
- *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0092384 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
- *     ?VidMmRecordTransfer@@YAXPEAU_VIDMM_GLOBAL_STATISTICS@@_KI@Z @ 0x1C009242C (-VidMmRecordTransfer@@YAXPEAU_VIDMM_GLOBAL_STATISTICS@@_KI@Z.c)
- *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00E2B90 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
+ *     ?VidMmRecordTransfer@@YAXPEAU_VIDMM_GLOBAL_STATISTICS@@_KI@Z @ 0x1C00011A4 (-VidMmRecordTransfer@@YAXPEAU_VIDMM_GLOBAL_STATISTICS@@_KI@Z.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0001CF0 (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0pppxxq_EtwWriteTransfer @ 0x1C0024390 (McTemplateK0pppxxq_EtwWriteTransfer.c)
+ *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0063984 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
+ *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063C58 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
+ *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063E34 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
+ *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0074148 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
  */
 
 void __fastcall VIDMM_GLOBAL::FillAllocationInternal(
         ADAPTER_RENDER **this,
         unsigned int a2,
-        struct _VIDMM_GLOBAL_ALLOC *a3,
+        D3DGPU_VIRTUAL_ADDRESS *a3,
         unsigned __int64 a4,
         unsigned int a5,
         struct VIDMM_SEGMENT *a6,
         union _LARGE_INTEGER *a7)
 {
   __int64 v8; // rsi
-  __int64 v11; // rcx
-  struct _VIDMM_GLOBAL_ALLOC *v12; // r8
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  D3DGPU_VIRTUAL_ADDRESS v17; // rax
-  UINT v18; // eax
-  ADAPTER_RENDER *v19; // rcx
-  ADAPTER_RENDER *v20; // r15
+  __int64 v11; // r15
+  __int64 v12; // rcx
+  struct _VIDMM_GLOBAL_ALLOC *v13; // r8
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
+  D3DGPU_VIRTUAL_ADDRESS v18; // rax
+  D3DGPU_VIRTUAL_ADDRESS v19; // rax
+  UINT v20; // eax
+  ADAPTER_RENDER *v21; // rcx
+  int v22; // r12d
+  ADAPTER_RENDER *v23; // r15
   HANDLE CurrentProcessId; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  unsigned int v25; // [rsp+20h] [rbp-198h]
-  __int64 v26; // [rsp+40h] [rbp-178h]
-  struct _DXGKARG_BUILDPAGINGBUFFER v27; // [rsp+50h] [rbp-168h] BYREF
-  int v28; // [rsp+1C8h] [rbp+10h]
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  unsigned int v28; // [rsp+20h] [rbp-198h]
+  __int64 v29; // [rsp+40h] [rbp-178h]
+  struct _DXGKARG_BUILDPAGINGBUFFER v30; // [rsp+50h] [rbp-168h] BYREF
 
   v8 = a2;
-  if ( (*((_BYTE *)this[5028] + 1616 * a2 + 444) & 0x10) != 0 )
+  v11 = a2;
+  if ( (*((_BYTE *)this[5027] + 1584 * a2 + 436) & 4) != 0 )
   {
-    VIDMM_GLOBAL::FillAllocationUsingGpuVa((VIDMM_GLOBAL *)this, a2, a3, a4, v25, a6, a7);
+    VIDMM_GLOBAL::FillAllocationUsingGpuVa((VIDMM_GLOBAL *)this, a2, (struct _VIDMM_GLOBAL_ALLOC *)a3, a4, v28, a6, a7);
   }
   else
   {
-    memset(&v27, 0, sizeof(v27));
+    memset(&v30, 0, sizeof(v30));
     if ( g_IsInternalReleaseOrDbg )
     {
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v11) + 24) = a3;
-      v14 = WdLogNewEntry5_WdTrace(v13);
-      *(_QWORD *)(v14 + 32) = 0LL;
-      *(_QWORD *)(v14 + 24) = a4;
-      v16 = (_QWORD *)WdLogNewEntry5_WdTrace(v15);
-      v16[3] = a6;
-      v16[4] = a7->HighPart;
-      v16[5] = a7->LowPart;
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v12) + 24) = a3;
+      v15 = WdLogNewEntry5_WdTrace(v14);
+      *(_QWORD *)(v15 + 24) = a4;
+      *(_QWORD *)(v15 + 32) = 0LL;
+      v17 = (_QWORD *)WdLogNewEntry5_WdTrace(v16);
+      v17[3] = a6;
+      v17[4] = a7->HighPart;
+      v17[5] = a7->LowPart;
     }
-    VIDMM_GLOBAL::SetupForBuildPagingBuffer((VIDMM_GLOBAL *)this, v8, v12, &v27);
+    VIDMM_GLOBAL::SetupForBuildPagingBuffer((VIDMM_GLOBAL *)this, v8, v13, &v30);
     do
     {
-      VIDMM_GLOBAL::SetupForBuildPagingBufferIteration((VIDMM_GLOBAL *)this, v8, a3, &v27);
-      v27.Operation = DXGK_OPERATION_FILL;
+      VIDMM_GLOBAL::SetupForBuildPagingBufferIteration((VIDMM_GLOBAL *)this, v8, (struct _VIDMM_GLOBAL_ALLOC *)a3, &v30);
+      v30.Operation = DXGK_OPERATION_FILL;
       if ( a3 )
-        v17 = *(_QWORD *)(*((_QWORD *)a3 + 67) + 40LL);
+      {
+        v19 = a3[5];
+        if ( v19 )
+          v18 = *(_QWORD *)(v19 + 16);
+        else
+          v18 = a3[6];
+      }
       else
-        v17 = 0LL;
-      v27.Fill.FillPattern = 0;
-      v27.UpdateContextAllocation.ContextAllocation = v17;
-      v27.Fill.FillSize = a4;
-      v18 = VIDMM_SEGMENT::DriverId(a6);
-      v19 = this[2];
-      v27.Transfer.Source.SegmentId = v18;
-      v27.Transfer.Source.SegmentAddress.QuadPart = a7->QuadPart + *((_QWORD *)a6 + 3);
-      v28 = ADAPTER_RENDER::DdiBuildPagingBuffer(
-              v19,
-              (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v27);
+      {
+        v18 = 0LL;
+      }
+      v30.UpdateContextAllocation.ContextAllocation = v18;
+      v30.Fill.FillSize = a4;
+      v30.Fill.FillPattern = 0;
+      v20 = VIDMM_SEGMENT::DriverId(a6);
+      v21 = this[2];
+      v30.Transfer.Source.SegmentId = v20;
+      v30.Transfer.Source.SegmentAddress.QuadPart = a7->QuadPart + *((_QWORD *)a6 + 3);
+      v22 = ADAPTER_RENDER::DdiBuildPagingBuffer(v21, &v30);
       if ( bTracingEnabled )
       {
-        v20 = this[v8 + 143];
+        v23 = this[v11 + 143];
         CurrentProcessId = PsGetCurrentProcessId();
-        if ( (byte_1C0076981 & 8) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
         {
-          LODWORD(v26) = 0;
-          McTemplateK0pppxxq_EtwWriteTransfer(v23, v22, v24, CurrentProcessId, a3, v20, 0LL, a4, v26);
+          LODWORD(v29) = 0;
+          McTemplateK0pppxxq_EtwWriteTransfer(v26, v25, v27, CurrentProcessId, a3, v23, 0LL, a4, v29);
         }
+        v11 = v8;
       }
-      VidMmRecordTransfer((struct _VIDMM_GLOBAL_STATISTICS *)(this + 898), a4, 0);
-      VIDMM_GLOBAL::CompleteBuildPagingBufferIteration((VIDMM_GLOBAL *)this, v8, a3, &v27, v28, 0, 0LL);
+      VidMmRecordTransfer((struct _VIDMM_GLOBAL_STATISTICS *)(this + 897), a4, 0);
+      VIDMM_GLOBAL::CompleteBuildPagingBufferIteration(
+        (VIDMM_GLOBAL *)this,
+        v8,
+        (struct _VIDMM_GLOBAL_ALLOC *)a3,
+        &v30,
+        v22,
+        0,
+        0LL);
     }
-    while ( v28 < 0 );
+    while ( v22 < 0 );
   }
 }

@@ -1,84 +1,87 @@
 /*
- * XREFs of KiSendThawExecution @ 0x14020D230
+ * XREFs of KiSendThawExecution @ 0x14051E190
  * Callers:
- *     KeThawExecution @ 0x14020D430 (KeThawExecution.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     KeRebootSystemForRecovery @ 0x14057A43C (KeRebootSystemForRecovery.c)
- *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x14057A738 (KiBugCheckRecoveryCleanupFromCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B908 (KiUpdateBugcheckRecoveryProgress.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     KeThawExecution @ 0x14051DB20 (KeThawExecution.c)
  * Callees:
- *     KiSetDebuggerOwner @ 0x14020D3E0 (KiSetDebuggerOwner.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiSetDebuggerOwner @ 0x14051E354 (KiSetDebuggerOwner.c)
  */
 
 __int64 __fastcall KiSendThawExecution(char a1)
 {
+  char v2; // al
   __int64 result; // rax
-  __int64 v3; // r9
-  signed __int32 v4; // eax
-  bool v5; // cc
-  int v6; // ecx
-  struct _KPRCB *v7; // rcx
-  __int64 v8; // [rsp+28h] [rbp-E0h] BYREF
-  _QWORD v9[2]; // [rsp+30h] [rbp-D8h] BYREF
-  _WORD v10[4]; // [rsp+40h] [rbp-C8h]
-  _QWORD v11[34]; // [rsp+48h] [rbp-C0h] BYREF
+  int v4; // ecx
+  struct _KPRCB *v5; // rcx
+  __int64 v6; // [rsp+28h] [rbp-89h] BYREF
+  unsigned __int16 *v7[2]; // [rsp+30h] [rbp-81h] BYREF
+  __int16 v8; // [rsp+40h] [rbp-71h]
+  int v9; // [rsp+42h] [rbp-6Fh]
+  __int16 v10; // [rsp+46h] [rbp-6Bh]
+  _QWORD v11[22]; // [rsp+48h] [rbp-69h] BYREF
 
-  *(_DWORD *)&v10[1] = 0;
-  v10[3] = 0;
-  memset(&v11[1], 0, 0x100uLL);
+  LODWORD(v6) = 0;
+  v9 = 0;
+  v10 = 0;
+  memset(&v11[1], 0, 0xA0uLL);
   KeGetCurrentPrcb()->IpiFrozen = 0;
-  result = KiSetDebuggerOwner(0LL);
-  if ( ((unsigned int)KeNumberProcessors_0 > 1 || *(_DWORD *)(v3 + 36)) && !PoAllProcIntrDisabled )
+  KiSetDebuggerOwner(0LL);
+  if ( (KiBugCheckActive & 3) != 0 )
   {
-    if ( KiResumeForReboot
-      || (v4 = _InterlockedExchangeAdd(&KiFreezeNestingLevel, 0xFFFFFFFF),
-          v5 = v4 <= 1,
-          result = (unsigned int)(v4 - 1),
-          v5)
-      && ((KiBugCheckActive & 3) == 0
-       || (result = (__int64)KeGetCurrentPrcb(), (unsigned int)KiBugCheckActive >> 4 != *(_DWORD *)(result + 36))
-       || !KiBugcheckOwnerKeepsOthersFrozen) )
+    v2 = 1;
+    LODWORD(v6) = (unsigned int)KiBugCheckActive >> 4;
+  }
+  else
+  {
+    v2 = 0;
+  }
+  if ( KiRecoveryInProgress )
+    v2 = 0;
+  if ( !v2 || (result = (__int64)KeGetCurrentPrcb(), (_DWORD)v6 != *(_DWORD *)(result + 36)) || KiResumeForReboot )
+  {
+    result = (unsigned int)KeNumberProcessors_0;
+    if ( (unsigned int)KeNumberProcessors_0 >= 2 && !PoAllProcIntrDisabled )
     {
-      LODWORD(v11[0]) = 2097153;
-      memset((char *)v11 + 4, 0, 0x104uLL);
-      LODWORD(v8) = 0;
+      LODWORD(v11[0]) = 1310721;
+      memset((char *)v11 + 4, 0, 0xA4uLL);
+      LODWORD(v6) = 0;
       if ( (_DWORD)KeNumberProcessors_0 )
       {
-        v6 = v8;
+        v4 = v6;
         do
         {
-          v7 = (struct _KPRCB *)KiProcessorBlock[v6];
-          if ( v7 != KeGetCurrentPrcb() )
+          v5 = (struct _KPRCB *)KiProcessorBlock[v4];
+          if ( v5 != KeGetCurrentPrcb() )
           {
-            if ( (v7->IpiFrozen & 0xF) == 2 )
+            if ( (v5->IpiFrozen & 0xF) == 2 )
             {
-              v7->IpiFrozen = 3;
+              v5->IpiFrozen = 3;
               if ( a1 )
-                KeAddProcessorAffinityEx(v11, (unsigned int)v8);
+                KeAddProcessorAffinityEx(v11, v6);
             }
             else
             {
-              v7->IpiFrozen = 0;
+              v5->IpiFrozen = 0;
             }
           }
-          LODWORD(v8) = v8 + 1;
-          v6 = v8;
+          LODWORD(v6) = v6 + 1;
+          v4 = v6;
         }
-        while ( (unsigned int)v8 < (unsigned int)KeNumberProcessors_0 );
+        while ( (unsigned int)v6 < (unsigned int)KeNumberProcessors_0 );
       }
-      v9[1] = v11[1];
-      v9[0] = v11;
-      v10[0] = 0;
+      v7[1] = (unsigned __int16 *)v11[1];
+      v7[0] = (unsigned __int16 *)v11;
+      v8 = 0;
       while ( 1 )
       {
-        result = KeEnumerateNextProcessor(&v8, v9);
+        result = KeEnumerateNextProcessor(&v6, v7);
         if ( (_DWORD)result )
           break;
-        while ( *(_DWORD *)(KiProcessorBlock[(unsigned int)v8] + 11656) == 3 )
+        while ( *(_DWORD *)(KiProcessorBlock[(unsigned int)v6] + 11656) == 3 )
           _mm_pause();
       }
     }

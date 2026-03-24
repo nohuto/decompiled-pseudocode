@@ -1,18 +1,18 @@
 /*
- * XREFs of ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B2CD4
+ * XREFs of ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008A300
  * Callers:
- *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B1628 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
- *     ??1VIDMM_DMA_POOL@@QEAA@XZ @ 0x1C00B2C2C (--1VIDMM_DMA_POOL@@QEAA@XZ.c)
- *     ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00EFFB4 (-ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z.c)
- *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00F0170 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0080610 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ *     ??1VIDMM_DMA_POOL@@QEAA@XZ @ 0x1C008A258 (--1VIDMM_DMA_POOL@@QEAA@XZ.c)
+ *     ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00B9B70 (-ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z.c)
+ *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00B9D04 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     McTemplateK0pppxxxp_EtwWriteTransfer @ 0x1C002F980 (McTemplateK0pppxxxp_EtwWriteTransfer.c)
- *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C009C5B0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
- *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C00B3630 (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
- *     ?FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E37B8 (-FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F0238 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     McTemplateK0pppxxxp_EtwWriteTransfer @ 0x1C0025D84 (McTemplateK0pppxxxp_EtwWriteTransfer.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0069DC0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A8D0 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
+ *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00808F8 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C008C210 (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
+ *     ?FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00AEABC (-FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
  */
 
 void __fastcall VIDMM_DMA_POOL::RemoveDmaBufferFromPool(struct VIDMM_DEVICE **this, struct _VIDMM_DMA_BUFFER *a2)
@@ -29,7 +29,7 @@ void __fastcall VIDMM_DMA_POOL::RemoveDmaBufferFromPool(struct VIDMM_DEVICE **th
     *(_QWORD *)(v8 + 24) = a2;
     *(_QWORD *)(v8 + 32) = this;
   }
-  if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0pppxxxp_EtwWriteTransfer(
       *((unsigned int *)a2 + 13),
       *((unsigned int *)a2 + 12),
@@ -70,7 +70,7 @@ void __fastcall VIDMM_DMA_POOL::RemoveDmaBufferFromPool(struct VIDMM_DEVICE **th
       0,
       (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)1,
       0LL);
-    VIDMM_GLOBAL::DestroyOneAllocation((struct _KTHREAD **)*this, this[2], *((struct _VIDMM_GLOBAL_ALLOC **)a2 + 7), 0);
+    VIDMM_GLOBAL::DestroyOneAllocation(*this, this[2], *((struct _VIDMM_GLOBAL_ALLOC **)a2 + 7), 0);
   }
   else
   {
@@ -90,7 +90,7 @@ void __fastcall VIDMM_DMA_POOL::RemoveDmaBufferFromPool(struct VIDMM_DEVICE **th
   if ( v6 )
   {
     v7 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v6 + 1) + 16LL)
-                   + 8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)v6 + 24LL) + 240LL));
+                   + 8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)v6 + 24LL) + 232LL));
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(v7 + 440, 0LL);
     *(_QWORD *)(v7 + 456) -= *((_QWORD *)a2 + 5);

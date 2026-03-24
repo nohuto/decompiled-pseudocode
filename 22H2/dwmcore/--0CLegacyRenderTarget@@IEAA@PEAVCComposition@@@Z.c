@@ -1,13 +1,12 @@
 /*
- * XREFs of ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C82C8
+ * XREFs of ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180025DEC
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ??0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801C0FE4 (--0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016AAE0 (--0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??0CMonitorTransform@@QEAA@XZ @ 0x1800C8570 (--0CMonitorTransform@@QEAA@XZ.c)
- *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C85DC (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x1800C866C (--0IOverlayMonitorTarget@@QEAA@XZ.c)
- *     ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x1800C8708 (--0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z.c)
+ *     ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x1800260D0 (--0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z.c)
+ *     ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x180026274 (--0IOverlayMonitorTarget@@QEAA@XZ.c)
+ *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800263C8 (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CLegacyRenderTarget *__fastcall CLegacyRenderTarget::CLegacyRenderTarget(
@@ -15,81 +14,91 @@ CLegacyRenderTarget *__fastcall CLegacyRenderTarget::CLegacyRenderTarget(
         struct CComposition *a2,
         int a3)
 {
-  char *v3; // rbx
-  char *v4; // rdi
-  __int64 v5; // r11
-  _QWORD *v6; // r11
-  unsigned __int64 v7; // r10
-  __int64 v8; // r11
-  __int64 v9; // r11
+  struct IOverlayMonitorTarget *v4; // r10
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   CLegacyRenderTarget *result; // rax
-  __int64 v11; // r9
 
-  v3 = (char *)this + 80;
-  v4 = (char *)this + 160;
   if ( a3 )
   {
-    *(_QWORD *)v3 = &CLegacyRenderTarget::`vbtable'{for `IVisualTreeClient'};
-    *((_QWORD *)this + 19) = &CLegacyRenderTarget::`vbtable'{for `IMonitorTarget'};
-    *(_QWORD *)v4 = &CLegacyRenderTarget::`vbtable'{for `ICapabilitiesContributorTarget'};
-    *((_QWORD *)this + 2342) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-    *((_QWORD *)this + 2345) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
-    *((_QWORD *)this + 2344) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
-    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2345) + 4LL) + 18760) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+    *((_QWORD *)this + 9) = &CLegacyRenderTarget::`vbtable'{for `IVisualTreeClient'};
+    *((_QWORD *)this + 18) = &CLegacyRenderTarget::`vbtable'{for `IMonitorTarget'};
+    *((_QWORD *)this + 2331) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 2334) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 2333) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
+    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2334) + 4LL) + 18672) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   }
   CRenderTarget::CRenderTarget(this, a2);
-  IOverlayMonitorTarget::IOverlayMonitorTarget((IOverlayMonitorTarget *)(v5 + 144));
-  *(_QWORD *)&v4[*(int *)(*(_QWORD *)v4 + 4LL)] = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
-  *(_QWORD *)&v4[*(int *)(*(_QWORD *)v4 + 8LL)] = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
-  *v6 = &CLegacyRenderTarget::`vftable'{for `CRenderTarget'};
-  v6[9] = &CLegacyRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *(_QWORD *)v7 = &CLegacyRenderTarget::`vftable'{for `IOverlayMonitorTarget'};
-  *(_QWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 4LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 8LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 12LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IRenderTarget'};
-  *(_DWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 4LL) + 76) = *(_DWORD *)(*(_QWORD *)v3 + 4LL) - 18632;
-  *(_DWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 8LL) + 76) = *(_DWORD *)(*(_QWORD *)v3 + 8LL) - 18648;
-  *(_DWORD *)((char *)v6 + *(int *)(*(_QWORD *)v3 + 12LL) + 76) = *(_DWORD *)(*(_QWORD *)v3 + 12LL) - 18672;
-  v6[21] = 0LL;
-  v6[22] = 0LL;
-  v6[23] = 0LL;
-  v6[24] = 0LL;
-  COverlayContext::COverlayContext(
-    (COverlayContext *)(v6 + 25),
-    (struct IOverlayMonitorTarget *)(v7 & -(__int64)(v6 != 0LL)));
-  CMonitorTransform::CMonitorTransform((CMonitorTransform *)(v8 + 18168));
-  *(_DWORD *)(v9 + 18424) = 0;
-  *(_DWORD *)(v9 + 18428) = 3;
-  *(_OWORD *)(v9 + 18432) = 0LL;
-  *(_QWORD *)(v9 + 18448) = 0LL;
-  *(_DWORD *)(v9 + 18456) = 0;
-  *(_QWORD *)(v9 + 18472) = 0LL;
-  *(_DWORD *)(v9 + 18480) = 0;
-  *(_QWORD *)(v9 + 18460) = 0LL;
-  *(_DWORD *)(v9 + 18468) = 0;
-  *(_QWORD *)(v9 + 18488) = 0LL;
-  *(_QWORD *)(v9 + 18496) = 0LL;
-  *(_QWORD *)(v9 + 18504) = 0LL;
-  *(_QWORD *)(v9 + 18512) = 0LL;
-  *(_QWORD *)(v9 + 18520) = 0LL;
-  *(_QWORD *)(v9 + 18528) = 0LL;
-  *(_QWORD *)(v9 + 18536) = 0LL;
-  *(_QWORD *)(v9 + 18544) = 0LL;
-  *(_QWORD *)(v9 + 18552) = 0LL;
-  *(_BYTE *)(v9 + 18560) = 0;
-  *(_QWORD *)(v9 + 18568) = 0LL;
-  *(_QWORD *)(v9 + 18576) = 0LL;
-  *(_QWORD *)(v9 + 18584) = v9 + 18592;
-  *(_DWORD *)(v9 + 18592) = 0;
-  result = (CLegacyRenderTarget *)v9;
-  *(_QWORD *)(v9 + 18656) = 0LL;
-  *(_WORD *)(v9 + 18672) = 0;
-  *(_QWORD *)(v9 + 18680) = 0LL;
-  *(_QWORD *)(v9 + 18688) = 0LL;
-  *(_QWORD *)(v9 + 18664) = v11;
-  *(_WORD *)(v9 + 18700) = 0;
-  *(_BYTE *)(v9 + 18702) = 0;
-  *(_DWORD *)(v9 + 18696) = 0x10000;
-  *(_DWORD *)(v9 + 136) = 1065353216;
+  IOverlayMonitorTarget::IOverlayMonitorTarget((CLegacyRenderTarget *)((char *)this + 136));
+  *((_QWORD *)this + 8) = &CLegacyRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *(_QWORD *)this = &CLegacyRenderTarget::`vftable'{for `CRenderTarget'};
+  *(_QWORD *)v4 = &CLegacyRenderTarget::`vftable'{for `IOverlayMonitorTarget'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IRenderTarget'};
+  v5 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v5 + 68) = v5 - 18552;
+  v6 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v6 + 68) = v6 - 18568;
+  v7 = *(int *)(*((_QWORD *)this + 9) + 12LL);
+  *(_DWORD *)((char *)this + v7 + 68) = v7 - 18592;
+  *((_QWORD *)this + 19) = 0LL;
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 22) = 0LL;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 24) = 0LL;
+  *((_QWORD *)this + 25) = 0LL;
+  *((_QWORD *)this + 26) = 0LL;
+  *((_QWORD *)this + 27) = 1LL;
+  *((_DWORD *)this + 56) = 3;
+  *((_QWORD *)this + 30) = 0LL;
+  *((_DWORD *)this + 62) = 0;
+  *(_QWORD *)((char *)this + 228) = 0LL;
+  *((_DWORD *)this + 59) = 0;
+  *((_DWORD *)this + 82) = 0;
+  *((_DWORD *)this + 99) = 0;
+  *((_DWORD *)this + 116) = 0;
+  COverlayContext::COverlayContext((CLegacyRenderTarget *)((char *)this + 472), v4);
+  *((_QWORD *)this + 2320) = 0LL;
+  *((_DWORD *)this + 4642) = 0;
+  *((_QWORD *)this + 2322) = 0LL;
+  *((_DWORD *)this + 31) = 1065353216;
+  *((_DWORD *)this + 4646) = 0;
+  *((_DWORD *)this + 4647) = 16777217;
+  *((_WORD *)this + 9296) = 0;
+  *((_BYTE *)this + 18594) = 0;
+  *((_QWORD *)this + 2325) = 0LL;
+  *((_QWORD *)this + 2326) = 0LL;
+  *((_DWORD *)this + 63) = 1;
+  *((_QWORD *)this + 33) = 1065353216LL;
+  *((_QWORD *)this + 34) = 0LL;
+  *((_DWORD *)this + 70) = 0;
+  *(_QWORD *)((char *)this + 284) = 1065353216LL;
+  *(_QWORD *)((char *)this + 292) = 0LL;
+  *((_DWORD *)this + 75) = 0;
+  *((_QWORD *)this + 38) = 1065353216LL;
+  *((_QWORD *)this + 39) = 0LL;
+  *((_DWORD *)this + 80) = 0;
+  *((_DWORD *)this + 81) = 1065353216;
+  *((_WORD *)this + 164) = 32085;
+  *(_QWORD *)((char *)this + 332) = 1065353216LL;
+  *(_QWORD *)((char *)this + 340) = 0LL;
+  *((_DWORD *)this + 87) = 0;
+  *((_QWORD *)this + 44) = 1065353216LL;
+  *((_QWORD *)this + 45) = 0LL;
+  *((_DWORD *)this + 92) = 0;
+  *(_QWORD *)((char *)this + 372) = 1065353216LL;
+  *(_QWORD *)((char *)this + 380) = 0LL;
+  *((_DWORD *)this + 97) = 0;
+  *((_DWORD *)this + 98) = 1065353216;
+  result = this;
+  *((_WORD *)this + 198) = 32085;
+  *((_OWORD *)this + 25) = _xmm;
+  *((_WORD *)this + 232) = 32085;
+  *((_OWORD *)this + 26) = _xmm;
+  *((_OWORD *)this + 27) = _xmm;
+  *((_OWORD *)this + 28) = _xmm;
   return result;
 }

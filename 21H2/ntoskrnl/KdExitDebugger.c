@@ -1,27 +1,27 @@
 /*
- * XREFs of KdExitDebugger @ 0x140A6F900
+ * XREFs of KdExitDebugger @ 0x1409B7190
  * Callers:
- *     KdpReport @ 0x140299E94 (KdpReport.c)
- *     KdRefreshDebuggerNotPresent @ 0x1403DC750 (KdRefreshDebuggerNotPresent.c)
- *     KiTpWriteMemory @ 0x140573408 (KiTpWriteMemory.c)
- *     KdpCreateRemoteFile @ 0x140A6F444 (KdpCreateRemoteFile.c)
- *     KdpSymbol @ 0x140A6F61C (KdpSymbol.c)
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
- *     KdSendTraceData @ 0x140A702DC (KdSendTraceData.c)
- *     KdpCloseRemoteFile @ 0x140A7294C (KdpCloseRemoteFile.c)
- *     KdpReadRemoteFile @ 0x140A72BB0 (KdpReadRemoteFile.c)
- *     KdpCommandString @ 0x140A74270 (KdpCommandString.c)
- *     KdpPrint @ 0x140A7434C (KdpPrint.c)
- *     KdpPrompt @ 0x140A744CC (KdpPrompt.c)
- *     KdpSetOwedBreakpoints @ 0x140A74B64 (KdpSetOwedBreakpoints.c)
+ *     KdRefreshDebuggerNotPresent @ 0x1403CFF10 (KdRefreshDebuggerNotPresent.c)
+ *     KdpReport @ 0x1405119E4 (KdpReport.c)
+ *     KiTpWriteMemory @ 0x14051D4FC (KiTpWriteMemory.c)
+ *     KdpCloseRemoteFile @ 0x1409B6970 (KdpCloseRemoteFile.c)
+ *     KdpCreateRemoteFile @ 0x1409B6BD0 (KdpCreateRemoteFile.c)
+ *     KdpReadRemoteFile @ 0x1409B6DFC (KdpReadRemoteFile.c)
+ *     KdSendTraceData @ 0x1409B72D0 (KdSendTraceData.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpCommandString @ 0x1409B9600 (KdpCommandString.c)
+ *     KdpPrint @ 0x1409B96C8 (KdpPrint.c)
+ *     KdpPrompt @ 0x1409B9848 (KdpPrompt.c)
+ *     KdpSymbol @ 0x1409B99C0 (KdpSymbol.c)
+ *     KdpSetOwedBreakpoints @ 0x1409BA5E0 (KdpSetOwedBreakpoints.c)
  * Callees:
- *     KeRestoreSupervisorState @ 0x14029B210 (KeRestoreSupervisorState.c)
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     KeThawExecution @ 0x1402DA4C0 (KeThawExecution.c)
- *     ExQueueDebuggerWorker @ 0x1402DA7E4 (ExQueueDebuggerWorker.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfNotifyVerifierOfEvent @ 0x140A81780 (VfNotifyVerifierOfEvent.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     ExQueueDebuggerWorker @ 0x1403C6C4C (ExQueueDebuggerWorker.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeRestoreSupervisorState @ 0x140519E60 (KeRestoreSupervisorState.c)
+ *     KeThawExecution @ 0x14051DBE0 (KeThawExecution.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
  */
 
 __int64 __fastcall KdExitDebugger(char a1)
@@ -45,11 +45,11 @@ __int64 __fastcall KdExitDebugger(char a1)
     else
       *v3 = v4 + 1;
   }
-  off_140C01F08[0]();
+  off_140C008B8[0]();
   if ( (KiBugCheckActive & 3) == 0 && !PoAllProcIntrDisabled )
   {
-    KeRestoreSupervisorState((__int64)KeGetCurrentPrcb()->ExtendedSupervisorState, qword_140C4ECA0);
-    qword_140C4ECA0 = 0LL;
+    KeRestoreSupervisorState((__int64)KeGetCurrentPrcb()->ExtendedSupervisorState, qword_140CF68D0);
+    qword_140CF68D0 = 0LL;
   }
   KeThawExecution(a1);
   if ( KdTimerStop )

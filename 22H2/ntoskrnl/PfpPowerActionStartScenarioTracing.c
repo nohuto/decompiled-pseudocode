@@ -1,32 +1,32 @@
 /*
- * XREFs of PfpPowerActionStartScenarioTracing @ 0x140AA0194
+ * XREFs of PfpPowerActionStartScenarioTracing @ 0x140990F10
  * Callers:
- *     PfPowerActionNotify @ 0x140A9FF34 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140991198 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x14028BF68 (PfLogEvent.c)
- *     PfTAccessTracingCleanup @ 0x140A874E0 (PfTAccessTracingCleanup.c)
- *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
- *     PfTAccessTracingStart @ 0x140A88964 (PfTAccessTracingStart.c)
+ *     PfLogEvent @ 0x14026E544 (PfLogEvent.c)
+ *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingCleanup @ 0x14099A9EC (PfTAccessTracingCleanup.c)
+ *     MmPerformMemoryListCommand @ 0x14099AB3C (MmPerformMemoryListCommand.c)
  */
 
-__int64 __fastcall PfpPowerActionStartScenarioTracing(__int64 a1)
+__int64 __fastcall PfpPowerActionStartScenarioTracing(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rax
-  __int64 v4; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-10h]
+  __int64 v3; // rax
+  __int64 v5; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-10h]
 
-  PfTAccessTracingCleanup((__int64)&PfTGlobals, (__int64)&PfKernelGlobals, 4);
-  MmPerformMemoryListCommand();
+  PfTAccessTracingCleanup(&PfTGlobals, a2, 4LL);
+  MmPerformMemoryListCommand(1LL);
   PfTAccessTracingStart((__int64)&PfTGlobals, (__int64)&PfKernelGlobals, 4);
-  v2 = *(int *)(a1 + 48);
-  v5 = 0LL;
-  v4 = v2;
-  LODWORD(v5) = 4 * (unsigned __int16)*(_DWORD *)(a1 + 52);
+  v3 = *(int *)(a1 + 48);
+  v6 = 0LL;
+  v5 = v3;
+  LODWORD(v6) = 4 * (unsigned __int16)*(_DWORD *)(a1 + 52);
   return PfLogEvent(
            27,
-           dword_140C650AC
+           dword_140C502DC
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
-           &v4,
+           &v5,
            0x10u);
 }

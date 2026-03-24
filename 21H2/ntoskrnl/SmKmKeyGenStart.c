@@ -1,41 +1,45 @@
 /*
- * XREFs of SmKmKeyGenStart @ 0x1409D618C
+ * XREFs of SmKmKeyGenStart @ 0x14092BC70
  * Callers:
- *     SmcCacheManagerStart @ 0x1409D7A90 (SmcCacheManagerStart.c)
+ *     SmcCacheManagerStart @ 0x14092D544 (SmcCacheManagerStart.c)
  * Callees:
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1405FB148 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14059D73C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall SmKmKeyGenStart(__int64 a1, const struct _UNICODE_STRING *a2)
 {
   unsigned int v2; // ebx
   __int64 Length; // rbp
-  char *v6; // rax
+  char *NonPaged; // rax
   char *v7; // rsi
-  __int64 v8; // r8
-  char *i; // rdx
-  __int16 v10; // ax
+  __int64 v8; // rdx
+  char *v9; // rax
+  __int16 v10; // cx
 
   v2 = 0;
   if ( a2 )
   {
     Length = a2->Length;
-    v6 = (char *)SmAlloc(Length + 2, 0x474B6D73u);
-    v7 = v6;
-    if ( v6 )
+    NonPaged = (char *)SSHSupportAllocateNonPaged(Length + 2, 0x474B6D73u);
+    v7 = NonPaged;
+    if ( NonPaged )
     {
-      RtlStringCbCopyUnicodeString(v6, Length + 2, a2);
+      RtlStringCbCopyUnicodeString(NonPaged, Length + 2, a2);
       v8 = 0x7FFFLL;
       *(_OWORD *)(a1 + 24) = 0LL;
-      for ( i = v7; *(_WORD *)i; i += 2 )
+      v9 = v7;
+      do
       {
-        if ( !--v8 )
-          return v2;
+        if ( !*(_WORD *)v9 )
+          break;
+        v9 += 2;
+        --v8;
       }
-      if ( a1 != -24 )
+      while ( v8 );
+      if ( v8 && a1 != -24 )
       {
-        v10 = 2 * (0x7FFF - v8);
+        v10 = 2 * (v8 != 0 ? 0x7FFF - v8 : 0);
         *(_QWORD *)(a1 + 32) = v7;
         *(_WORD *)(a1 + 24) = v10;
         *(_WORD *)(a1 + 26) = v10 + 2;

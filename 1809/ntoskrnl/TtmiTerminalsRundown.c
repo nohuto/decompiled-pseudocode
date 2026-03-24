@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmiTerminalsRundown @ 0x14087EF64
+ * XREFs of TtmiTerminalsRundown @ 0x14087EF44
  * Callers:
- *     TtmiSessionsRundown @ 0x140880274 (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x140880254 (TtmiSessionsRundown.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     TtmiLogTerminalRundown @ 0x140886168 (TtmiLogTerminalRundown.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     TtmiLogTerminalRundown @ 0x140886148 (TtmiLogTerminalRundown.c)
  */
 
 _UNKNOWN **__fastcall TtmiTerminalsRundown(__int64 a1)

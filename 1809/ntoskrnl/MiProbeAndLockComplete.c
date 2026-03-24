@@ -5,7 +5,7 @@
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
- *     MiAddMdlTracker @ 0x1402A7EDC (MiAddMdlTracker.c)
+ *     MiAddMdlTracker @ 0x1402A7FDC (MiAddMdlTracker.c)
  */
 
 __int64 __fastcall MiProbeAndLockComplete(__int64 a1, int a2)

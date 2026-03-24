@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserMNDragOver @ 0x1C01F9270
+ * XREFs of NtUserMNDragOver @ 0x1C01FE820
  * Callers:
  *     <none>
  * Callees:
- *     xxxMNDragOver @ 0x1C02454E4 (xxxMNDragOver.c)
+ *     xxxMNDragOver @ 0x1C0249BDC (xxxMNDragOver.c)
  */
 
 __int64 __fastcall NtUserMNDragOver(__int64 *a1, _OWORD *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall NtUserMNDragOver(__int64 *a1, _OWORD *a2)
 
   v7 = 0LL;
   v8 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     a1 = (__int64 *)MmUserProbeAddress;
   v9 = *a1;

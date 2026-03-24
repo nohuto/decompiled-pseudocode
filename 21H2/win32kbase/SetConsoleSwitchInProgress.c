@@ -1,7 +1,7 @@
 /*
- * XREFs of SetConsoleSwitchInProgress @ 0x1C007F4D0
+ * XREFs of SetConsoleSwitchInProgress @ 0x1C00B32A0
  * Callers:
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
  * Callees:
  *     <none>
  */
@@ -17,8 +17,8 @@ unsigned int __fastcall SetConsoleSwitchInProgress(int a1)
     v1 = 0;
     if ( a1 == 1 )
       v1 = 2;
-    result = *((_DWORD *)gptiCurrent + 314) & 0xFFFFFFFD;
-    *((_DWORD *)gptiCurrent + 314) = result | v1;
+    result = *((_DWORD *)gptiCurrent + 308) & 0xFFFFFFFD;
+    *((_DWORD *)gptiCurrent + 308) = result | v1;
   }
   if ( gpevtVideoportCallout )
   {

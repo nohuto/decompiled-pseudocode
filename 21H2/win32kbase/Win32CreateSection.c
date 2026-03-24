@@ -1,14 +1,14 @@
 /*
- * XREFs of Win32CreateSection @ 0x1C0055E80
+ * XREFs of Win32CreateSection @ 0x1C006BD78
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     HmgCreate @ 0x1C0055348 (HmgCreate.c)
- *     ?ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z @ 0x1C00D51B4 (-ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z.c)
- *     ?AllocateKernelSection@@YAJKKPEAPEAX@Z @ 0x1C016B920 (-AllocateKernelSection@@YAJKKPEAPEAX@Z.c)
- *     ?AllocateSharedSection@@YAJKKPEAPEAX00@Z @ 0x1C016B9DC (-AllocateSharedSection@@YAJKKPEAPEAX00@Z.c)
- *     EngAllocSectionMem @ 0x1C01770F0 (EngAllocSectionMem.c)
- *     InitCreateSharedSection @ 0x1C02E2080 (InitCreateSharedSection.c)
- *     InitKernelHandleTable @ 0x1C02E22A0 (InitKernelHandleTable.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     HmgCreate @ 0x1C006B24C (HmgCreate.c)
+ *     ?ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z @ 0x1C01378D4 (-ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z.c)
+ *     ?AllocateKernelSection@@YAJKKPEAPEAX@Z @ 0x1C013E95C (-AllocateKernelSection@@YAJKKPEAPEAX@Z.c)
+ *     ?AllocateSharedSection@@YAJKKPEAPEAX00@Z @ 0x1C013EA18 (-AllocateSharedSection@@YAJKKPEAPEAX00@Z.c)
+ *     EngAllocSectionMem @ 0x1C014ACA0 (EngAllocSectionMem.c)
+ *     InitCreateSharedSection @ 0x1C0299F28 (InitCreateSharedSection.c)
+ *     InitKernelHandleTable @ 0x1C029A080 (InitKernelHandleTable.c)
  * Callees:
  *     <none>
  */

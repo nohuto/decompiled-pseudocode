@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreatePagingFile @ 0x1401B9770
+ * XREFs of ZwCreatePagingFile @ 0x1401B9790
  * Callers:
  *     <none>
  * Callees:

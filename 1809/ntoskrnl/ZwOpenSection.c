@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenSection @ 0x1401B8850
+ * XREFs of ZwOpenSection @ 0x1401B8870
  * Callers:
- *     NtGetNlsSectionPtr @ 0x1406C4E00 (NtGetNlsSectionPtr.c)
+ *     NtGetNlsSectionPtr @ 0x1406C4DE0 (NtGetNlsSectionPtr.c)
  *     EmpMapPhysicalAddress @ 0x1409BDC18 (EmpMapPhysicalAddress.c)
  *     CmpInitializeMachineDependentConfiguration @ 0x1409C1D98 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:

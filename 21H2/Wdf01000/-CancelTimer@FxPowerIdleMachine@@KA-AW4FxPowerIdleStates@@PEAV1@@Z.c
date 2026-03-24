@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CancelTimer@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C0011D40
+ * XREFs of ?CancelTimer@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C0083C50
  * Callers:
  *     <none>
  * Callees:
- *     ?CancelIdleTimer@FxPowerIdleMachine@@IEAAEXZ @ 0x1C0011D60 (-CancelIdleTimer@FxPowerIdleMachine@@IEAAEXZ.c)
+ *     ?CancelIdleTimer@FxPowerIdleMachine@@IEAAEXZ @ 0x1C0019160 (-CancelIdleTimer@FxPowerIdleMachine@@IEAAEXZ.c)
  */
 
 __int64 __fastcall FxPowerIdleMachine::CancelTimer(FxPowerIdleMachine *This)

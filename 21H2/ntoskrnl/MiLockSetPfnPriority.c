@@ -1,11 +1,13 @@
 /*
- * XREFs of MiLockSetPfnPriority @ 0x140386110
+ * XREFs of MiLockSetPfnPriority @ 0x14028BE6C
  * Callers:
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiUpdateOldPteWorker @ 0x14045BF06 (MiUpdateOldPteWorker.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MmUnmapViewInSystemCache @ 0x140313AE0 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiAgePteWorker @ 0x140339990 (MiAgePteWorker.c)
+ *     MiUpdateOldPteWorker @ 0x14053C728 (MiUpdateOldPteWorker.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockSetPfnPriority(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

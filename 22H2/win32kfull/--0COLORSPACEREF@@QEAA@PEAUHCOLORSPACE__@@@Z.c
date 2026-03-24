@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02CE3F0
+ * XREFs of ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02B55F0
  * Callers:
- *     ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02CEB8C (-cjGetLogicalColorSpace@@YAHPEAXH0@Z.c)
- *     NtGdiSetColorSpace @ 0x1C02CF7B0 (NtGdiSetColorSpace.c)
+ *     NtGdiSetColorSpace @ 0x1C015BDA0 (NtGdiSetColorSpace.c)
+ *     ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02B5DCC (-cjGetLogicalColorSpace@@YAHPEAXH0@Z.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C013DFC4 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C016988C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
  */
 
 COLORSPACEREF *__fastcall COLORSPACEREF::COLORSPACEREF(COLORSPACEREF *this, HCOLORSPACE a2)

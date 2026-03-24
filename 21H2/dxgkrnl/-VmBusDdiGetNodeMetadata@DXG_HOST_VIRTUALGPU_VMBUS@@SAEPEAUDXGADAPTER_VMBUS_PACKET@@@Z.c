@@ -1,101 +1,101 @@
 /*
- * XREFs of ?VmBusDdiGetNodeMetadata@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036AD40
+ * XREFs of ?VmBusDdiGetNodeMetadata@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023F180
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusDdiGetNodeMetadata(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rdi
-  char v3; // bl
-  __int64 v4; // r14
-  __int64 v5; // rdi
-  unsigned int v6; // eax
-  __int64 v7; // rdx
-  unsigned int v8; // ecx
-  unsigned int v9; // eax
-  unsigned __int16 *v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  _BYTE v14[8]; // [rsp+50h] [rbp-B0h] BYREF
-  DXGPUSHLOCK *v15; // [rsp+58h] [rbp-A8h]
-  int v16; // [rsp+60h] [rbp-A0h]
-  _OWORD v17[5]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v18[144]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rdi
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v7; // r14
+  __int64 v8; // rdi
+  __int64 v9; // r8
+  unsigned int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned int v13; // eax
+  __int64 v14; // rax
+  unsigned __int16 *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+  _BYTE v20[8]; // [rsp+20h] [rbp-E0h] BYREF
+  DXGPUSHLOCK *v21; // [rsp+28h] [rbp-D8h]
+  int v22; // [rsp+30h] [rbp-D0h]
+  _OWORD v23[5]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v24[144]; // [rsp+90h] [rbp-70h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v15);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v16 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v20, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v21);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v22 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v4 = *((_QWORD *)a1 + 17);
-    memset(v17, 0, sizeof(v17));
-    v5 = *(_QWORD *)(v2 + 16);
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v18, (struct DXGADAPTER *const)v5, 0LL);
-    HIDWORD(v17[4]) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v18, 0LL);
-    if ( v17[4] >= 0 )
+    v7 = *((_QWORD *)a1 + 10);
+    memset(v23, 0, sizeof(v23));
+    v8 = *(_QWORD *)(v4 + 16);
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v24, (struct DXGADAPTER *const)v8, 0LL);
+    HIDWORD(v23[4]) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v24, 0LL);
+    if ( v23[4] >= 0 )
     {
-      v6 = *(_DWORD *)(v4 + 24);
-      v7 = (unsigned __int16)v6;
-      v8 = HIWORD(v6);
-      if ( *(int *)(v5 + 2424) < 0x2000 )
-        v9 = 1;
+      v10 = *(_DWORD *)(v7 + 24);
+      v11 = (unsigned __int16)v10;
+      v12 = HIWORD(v10);
+      if ( *(int *)(v8 + 2328) < 0x2000 )
+        v13 = 1;
       else
-        v9 = *(_DWORD *)(v5 + 288);
-      if ( v8 < v9 )
+        v13 = *(_DWORD *)(v8 + 280);
+      if ( (unsigned int)v12 < v13 )
       {
-        v10 = (unsigned __int16 *)(*(_QWORD *)(v5 + 2680) + 344LL * v8);
-        if ( (unsigned int)v7 < *v10 )
+        v15 = (unsigned __int16 *)(*(_QWORD *)(v8 + 2584) + 360LL * (unsigned int)v12);
+        if ( (unsigned int)v11 < *v15 )
         {
-          v11 = *((_QWORD *)v10 + 4);
-          v12 = 74 * v7;
-          v17[0] = *(_OWORD *)(v12 + v11);
-          v17[1] = *(_OWORD *)(v12 + v11 + 16);
-          v17[2] = *(_OWORD *)(v12 + v11 + 32);
-          v17[3] = *(_OWORD *)(v12 + v11 + 48);
-          *(_QWORD *)&v17[4] = *(_QWORD *)(v12 + v11 + 64);
-          WORD4(v17[4]) = *(_WORD *)(v12 + v11 + 72);
+          v16 = *((_QWORD *)v15 + 4);
+          v17 = 74 * v11;
+          v23[0] = *(_OWORD *)(v17 + v16);
+          v23[1] = *(_OWORD *)(v17 + v16 + 16);
+          v23[2] = *(_OWORD *)(v17 + v16 + 32);
+          v23[3] = *(_OWORD *)(v17 + v16 + 48);
+          *(_QWORD *)&v23[4] = *(_QWORD *)(v17 + v16 + 64);
+          WORD4(v23[4]) = *(_WORD *)(v17 + v16 + 72);
           goto LABEL_13;
         }
-        WdLogSingleEntry1(3LL, 4685LL);
+        v14 = WdLogNewEntry5_WdWarning(v15, v11, v9);
+        *(_QWORD *)(v14 + 24) = 4201LL;
       }
       else
       {
-        WdLogSingleEntry1(3LL, 4677LL);
+        v14 = WdLogNewEntry5_WdWarning(v12, v11, v9);
+        *(_QWORD *)(v14 + 24) = 4193LL;
       }
-      HIDWORD(v17[4]) = -1073741811;
+      WdLogEvent5_WdWarning(v14);
+      HIDWORD(v23[4]) = -1073741811;
     }
 LABEL_13:
-    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v17, 0x50u);
-    v3 = 1;
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v18);
+    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v23, 0x50u);
+    v5 = 1;
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v24, v18);
     goto LABEL_14;
   }
-  WdLogSingleEntry1(2LL, 4664LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"The adapter is already closed by the guest",
-    4664LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v6 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v6 + 24) = 4180LL;
+  WdLogEvent5_WdError(v6);
 LABEL_14:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
+  return v5;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
  */
 
 __int64 __fastcall CmpResetCachedSecurity(__int64 a1, unsigned int a2)

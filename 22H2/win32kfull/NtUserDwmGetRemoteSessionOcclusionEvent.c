@@ -1,21 +1,23 @@
 /*
- * XREFs of NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C01358E0
+ * XREFs of NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C0163B00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastStatus @ 0x1C00132A8 (UserSetLastStatus.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     UserSetLastStatus @ 0x1C00EC46C (UserSetLastStatus.c)
  */
 
-void *NtUserDwmGetRemoteSessionOcclusionEvent()
+void *__fastcall NtUserDwmGetRemoteSessionOcclusionEvent(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v0; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  int v5; // eax
   void *Handle; // [rsp+50h] [rbp+8h] BYREF
 
   Handle = 0LL;
-  if ( (unsigned int)UserUnsafeIsCurrentProcessDwm() )
+  if ( (unsigned int)UserUnsafeIsCurrentProcessDwm(a1, a2, a3) )
   {
-    v0 = ObOpenObjectByPointer(
+    v5 = ObOpenObjectByPointer(
            gpRemoteSessionOcclusionEvent,
            0,
            0LL,
@@ -23,12 +25,12 @@ void *NtUserDwmGetRemoteSessionOcclusionEvent()
            (POBJECT_TYPE)ExEventObjectType,
            1,
            &Handle);
-    if ( v0 < 0 )
-      UserSetLastStatus(v0, 1);
+    if ( v5 < 0 )
+      UserSetLastStatus(v5, 1);
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v3, v4);
   }
   return Handle;
 }

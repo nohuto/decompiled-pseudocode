@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpInsertMessageDirectQueue @ 0x1406A7B44
+ * XREFs of AlpcpInsertMessageDirectQueue @ 0x1406A7B24
  * Callers:
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
  * Callees:

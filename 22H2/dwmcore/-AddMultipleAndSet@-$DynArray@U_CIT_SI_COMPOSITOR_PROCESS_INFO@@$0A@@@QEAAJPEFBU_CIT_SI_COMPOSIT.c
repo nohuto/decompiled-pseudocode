@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddMultipleAndSet@?$DynArray@U_CIT_SI_COMPOSITOR_PROCESS_INFO@@$0A@@@QEAAJPEFBU_CIT_SI_COMPOSITOR_PROCESS_INFO@@I@Z @ 0x1800C4220
+ * XREFs of ?AddMultipleAndSet@?$DynArray@U_CIT_SI_COMPOSITOR_PROCESS_INFO@@$0A@@@QEAAJPEFBU_CIT_SI_COMPOSITOR_PROCESS_INFO@@I@Z @ 0x1800B83DC
  * Callers:
- *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x180037740 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
- *     _lambda_e8a4873f02d019eba969ac862a7eef0f_::operator() @ 0x1800E47AC (_lambda_e8a4873f02d019eba969ac862a7eef0f_--operator().c)
+ *     _lambda_1ddd33c55d82b8cc6d4854a5a942093f_::operator() @ 0x1800B23E0 (_lambda_1ddd33c55d82b8cc6d4854a5a942093f_--operator().c)
+ *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x1800CD368 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 __int64 __fastcall DynArray<_CIT_SI_COMPOSITOR_PROCESS_INFO,0>::AddMultipleAndSet(

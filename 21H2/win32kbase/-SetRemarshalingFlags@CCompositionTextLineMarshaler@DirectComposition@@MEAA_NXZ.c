@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02282C0
+ * XREFs of ?SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEF70
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228EC0 (-SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFA70 (-SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CCompositionTextLineMarshaler::SetRemarshalingFlags(
@@ -12,11 +12,11 @@ char __fastcall DirectComposition::CCompositionTextLineMarshaler::SetRemarshalin
   bool v2; // al
   char v3; // cl
 
-  if ( *((float *)this + 22) != 0.0 )
+  if ( *((float *)this + 20) != 0.0 )
     *((_DWORD *)this + 4) |= 0x100u;
-  if ( *((float *)this + 23) != 0.0 )
+  if ( *((float *)this + 21) != 0.0 )
     *((_DWORD *)this + 4) |= 0x200u;
-  if ( *((float *)this + 24) != 0.0 )
+  if ( *((float *)this + 22) != 0.0 )
     *((_DWORD *)this + 4) |= 0x400u;
   v2 = DirectComposition::CTextObjectMarshaler::SetRemarshalingFlags(this);
   v3 = 0;

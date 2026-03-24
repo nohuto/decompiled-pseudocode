@@ -1,42 +1,44 @@
 /*
- * XREFs of CmpLockKcbStackFlusherLocksExclusive @ 0x1402001A8
+ * XREFs of CmpLockKcbStackFlusherLocksExclusive @ 0x14036BEA8
  * Callers:
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
  * Callees:
- *     CmpQuitNextActiveHive @ 0x14065C900 (CmpQuitNextActiveHive.c)
- *     CmpGetNextActiveHive @ 0x14071B350 (CmpGetNextActiveHive.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
+ *     HvLockHiveFlusherExclusive @ 0x14071E1C0 (HvLockHiveFlusherExclusive.c)
+ *     CmpQuitNextActiveHive @ 0x14072A36C (CmpQuitNextActiveHive.c)
  */
 
 __int64 __fastcall CmpLockKcbStackFlusherLocksExclusive(__int64 a1)
 {
   int v2; // edi
   __int64 result; // rax
-  __int64 v4; // rbx
-  __int64 v5; // rdx
+  __int16 v4; // dx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
 
   v2 = *(__int16 *)(a1 + 2) + 1;
-  for ( result = CmpGetNextActiveHive(0LL); ; result = CmpGetNextActiveHive(v4) )
+  for ( result = CmpGetNextActiveHive(0LL); ; result = CmpGetNextActiveHive(v6) )
   {
-    v4 = result;
+    v6 = result;
     if ( !result )
       break;
-    v5 = *(unsigned __int16 *)(a1 + 2);
-    if ( (v5 & 0x8000u) == 0LL )
+    if ( *(__int16 *)(a1 + 2) >= 0 )
     {
-      while ( *(_QWORD *)(CmpGetKcbAtLayerHeight(a1, v5) + 32) != v4 )
+      while ( 1 )
       {
-        LOWORD(v5) = v5 - 1;
-        if ( (v5 & 0x8000u) != 0LL )
-          goto LABEL_6;
+        v5 = *(_QWORD *)(CmpGetKcbAtLayerHeight(a1) + 32);
+        if ( v5 == v6 )
+          break;
+        if ( (__int16)(v4 - 1) < 0 )
+          goto LABEL_5;
       }
-      HvLockHiveFlusherExclusive();
+      HvLockHiveFlusherExclusive(v5);
       --v2;
     }
-LABEL_6:
+LABEL_5:
     if ( !v2 )
-      return CmpQuitNextActiveHive(v4);
+      return CmpQuitNextActiveHive(v6);
   }
   return result;
 }

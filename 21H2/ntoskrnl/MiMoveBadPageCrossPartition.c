@@ -1,39 +1,49 @@
 /*
- * XREFs of MiMoveBadPageCrossPartition @ 0x1405AD9AC
+ * XREFs of MiMoveBadPageCrossPartition @ 0x14054EFEC
  * Callers:
- *     MiMoveLargeFreePage @ 0x1405AF3BC (MiMoveLargeFreePage.c)
- *     MiActOnPartitionNodePages @ 0x1405BCBC4 (MiActOnPartitionNodePages.c)
- *     MiTransferPartitionPageRun @ 0x1405BF718 (MiTransferPartitionPageRun.c)
+ *     MiMoveLargeFreePage @ 0x140556BC0 (MiMoveLargeFreePage.c)
+ *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
+ *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x14026A784 (MiAcquireNonPagedResources.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
  */
 
-__int64 __fastcall MiMoveBadPageCrossPartition(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiMoveBadPageCrossPartition(__int64 a1, __int64 a2, ULONG_PTR *a3)
 {
-  __int64 v5; // rsi
+  _QWORD *v5; // rax
   __int64 v6; // rbx
-  __int64 v7; // rbx
-  unsigned __int64 v8; // r14
+  __int64 v7; // rax
+  __int64 v8; // rdi
+  ULONG_PTR v9; // rbx
+  unsigned __int64 v10; // rbp
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v12; // zf
+  bool v14; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  v5 = 24512LL * *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4)) + 2);
-  v6 = v5 + *(_QWORD *)(a2 + 16);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v6 + 22848));
-  --*(_QWORD *)(v6 + 22904);
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 22848));
-  v7 = v5 + *(_QWORD *)(a3 + 16);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v7 + 22848));
-  v8 = 1LL;
-  ++*(_QWORD *)(v7 + 22904);
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 22848));
-  MiAcquireNonPagedResources(a3, 1LL, 0LL, 1u);
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  v5 = MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48);
+  v6 = *(_QWORD *)(a2 + 16);
+  v7 = *((unsigned int *)v5 + 2);
+  LockHandle.LockQueue.Next = 0LL;
+  v8 = 4544 * v7;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(4544 * v7 + v6 + 4328);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
+  --*(_QWORD *)(v8 + v6 + 4352);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  v9 = a3[2];
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + v9 + 4328);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
+  v10 = 1LL;
+  ++*(_QWORD *)(v8 + v9 + 4352);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  MiAcquireNonPagedResources(a3, 1uLL, 0LL, 1u);
   MiReturnCommit(a2, 1LL);
   result = (__int64)&MiSystemPartition;
   if ( (ULONG_PTR *)a2 != &MiSystemPartition )
@@ -54,13 +64,13 @@ LABEL_7:
       if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
       {
         result = (unsigned int)(CachedResidentAvailable - 192);
-        v8 = (int)result + 1LL;
+        v10 = (int)result + 1LL;
       }
     }
-    if ( !v8 )
+    if ( !v10 )
       return result;
 LABEL_11:
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 16960), v8);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 7168), v10);
     return result;
   }
   while ( 1 )
@@ -69,9 +79,9 @@ LABEL_11:
                              (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                              CachedResidentAvailable + 1,
                              CachedResidentAvailable);
-    v12 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
+    v14 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
     CachedResidentAvailable = (int)result;
-    if ( v12 )
+    if ( v14 )
       return result;
     if ( (_DWORD)result != -1 )
     {

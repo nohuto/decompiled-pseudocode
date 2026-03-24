@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSearchPhysicalPage @ 0x140AB5848
+ * XREFs of KdpSearchPhysicalPage @ 0x1409B8230
  * Callers:
- *     KdpSearchPhysicalPageRange @ 0x140AB5A68 (KdpSearchPhysicalPageRange.c)
+ *     KdpSearchPhysicalPageRange @ 0x1409B8450 (KdpSearchPhysicalPageRange.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x1402E5DB0 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1405469DC (MmDbgCopyMemory.c)
  */
 
 __int64 __fastcall KdpSearchPhysicalPage(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4, int a5)
@@ -29,8 +29,7 @@ __int64 __fastcall KdpSearchPhysicalPage(__int64 a1, unsigned __int64 a2, unsign
     v9 = 0;
     while ( 1 )
     {
-      if ( (int)MmDbgCopyMemory((char *)(v5 + v9), (__int64)&v18, 8u, 8u, a5 | 2u) >= 0
-        && ((v18 >> 12) & 0xFFFFFFFFFFLL) == a2 )
+      if ( (int)MmDbgCopyMemory((char *)(v5 + v9), &v18, 8u, 8u, a5 | 2u) >= 0 && ((v18 >> 12) & 0xFFFFFFFFFLL) == a2 )
       {
         if ( (unsigned int)KdpSearchPageHitIndex < 0x1000 )
         {
@@ -62,7 +61,7 @@ __int64 __fastcall KdpSearchPhysicalPage(__int64 a1, unsigned __int64 a2, unsign
     v13 = 0;
     while ( 1 )
     {
-      if ( (int)MmDbgCopyMemory((char *)(v5 + v13), (__int64)v19, v11, 0, a5 | 2u) >= 0 )
+      if ( (int)MmDbgCopyMemory((char *)(v5 + v13), v19, v11, 0, a5 | 2u) >= 0 )
       {
         if ( v19[0] >= a2 && v19[0] <= a3 )
           goto LABEL_24;

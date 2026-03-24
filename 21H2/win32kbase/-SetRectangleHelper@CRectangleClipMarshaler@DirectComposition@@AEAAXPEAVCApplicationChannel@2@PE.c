@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C009CCF8
+ * XREFs of ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C002217C
  * Callers:
- *     ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C009CCB0 (-SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPE.c)
+ *     ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00205E0 (-SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPE.c)
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00B4480 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0093AA8 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(
@@ -27,103 +27,103 @@ void __fastcall DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(
   v4 = 0;
   v17 = (__m128)_mm_loadu_si128(a3);
   v8 = fminf(2097152.0, fmaxf(_mm_shuffle_ps(v17, v17, 85).m128_f32[0], -2097152.0));
-  if ( *((float *)this + 27) == v8 )
+  if ( *((float *)this + 25) == v8 )
   {
     v9 = 0;
   }
   else
   {
-    *((float *)this + 27) = v8;
+    *((float *)this + 25) = v8;
     v9 = 1;
   }
   v10 = fminf(2097152.0, fmaxf(v17.m128_f32[0], -2097152.0));
-  if ( *((float *)this + 26) == v10 )
+  if ( *((float *)this + 24) == v10 )
   {
     v11 = 0;
   }
   else
   {
-    *((float *)this + 26) = v10;
+    *((float *)this + 24) = v10;
     v11 = 1;
   }
   v12 = fminf(2097152.0, fmaxf(v17.m128_f32[3], -2097152.0));
-  if ( *((float *)this + 29) == v12 )
+  if ( *((float *)this + 27) == v12 )
   {
     v13 = 0;
   }
   else
   {
-    *((float *)this + 29) = v12;
+    *((float *)this + 27) = v12;
     v13 = 1;
   }
   v14 = fminf(2097152.0, fmaxf(v17.m128_f32[2], -2097152.0));
-  if ( *((float *)this + 28) == v14 )
+  if ( *((float *)this + 26) == v14 )
   {
     v15 = 0;
   }
   else
   {
-    *((float *)this + 28) = v14;
+    *((float *)this + 26) = v14;
     v15 = 1;
   }
-  if ( *((float *)this + 30) == 0.0 )
+  if ( *((float *)this + 28) == 0.0 )
   {
-    if ( *((float *)this + 31) == 0.0 )
+    if ( *((float *)this + 29) == 0.0 )
     {
-      if ( *((float *)this + 32) == 0.0 )
+      if ( *((float *)this + 30) == 0.0 )
       {
-        if ( *((float *)this + 33) == 0.0 )
+        if ( *((float *)this + 31) == 0.0 )
         {
-          if ( *((float *)this + 34) == 0.0 )
+          if ( *((float *)this + 32) == 0.0 )
           {
-            if ( *((float *)this + 35) == 0.0 )
+            if ( *((float *)this + 33) == 0.0 )
             {
-              if ( *((float *)this + 36) == 0.0 )
+              if ( *((float *)this + 34) == 0.0 )
               {
-                if ( *((float *)this + 37) == 0.0 )
+                if ( *((float *)this + 35) == 0.0 )
                 {
                   v16 = 0;
                   goto LABEL_18;
                 }
-                *((_DWORD *)this + 37) = 0;
+                *((_DWORD *)this + 35) = 0;
               }
               else
               {
-                *((_DWORD *)this + 36) = 0;
+                *((_DWORD *)this + 34) = 0;
               }
             }
             else
             {
-              *((_DWORD *)this + 35) = 0;
+              *((_DWORD *)this + 33) = 0;
             }
           }
           else
           {
-            *((_DWORD *)this + 34) = 0;
+            *((_DWORD *)this + 32) = 0;
           }
         }
         else
         {
-          *((_DWORD *)this + 33) = 0;
+          *((_DWORD *)this + 31) = 0;
         }
       }
       else
       {
-        *((_DWORD *)this + 32) = 0;
+        *((_DWORD *)this + 30) = 0;
       }
     }
     else
     {
-      *((_DWORD *)this + 31) = 0;
+      *((_DWORD *)this + 29) = 0;
     }
   }
   else
   {
-    *((_DWORD *)this + 30) = 0;
+    *((_DWORD *)this + 28) = 0;
   }
   v16 = 1;
 LABEL_18:
-  if ( *((_QWORD *)this + 5) )
+  if ( *((_QWORD *)this + 4) )
   {
     DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
     v16 = 1;
@@ -132,12 +132,8 @@ LABEL_18:
     v13 = 1;
     v15 = 1;
   }
-  else if ( !v9 )
-  {
-    goto LABEL_21;
-  }
-  *((_DWORD *)this + 4) &= ~0x2000u;
-LABEL_21:
+  if ( v9 )
+    *((_DWORD *)this + 4) &= ~0x2000u;
   if ( v11 )
     *((_DWORD *)this + 4) &= ~0x1000u;
   if ( v13 )

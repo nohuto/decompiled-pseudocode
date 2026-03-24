@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3320
+ * XREFs of ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0208F1C
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C0047820 (ReadPointerDeviceSettingsFull.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0714 (ReadPointerDeviceSettingsFull.c)
  * Callees:
- *     ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C0048494 (-ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z.c)
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C0049BF0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C01F3454 (-GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E1190 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C00E1CF0 (-ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z.c)
+ *     ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0209050 (-GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
  */
 
-_BOOL8 __fastcall GetCustomFlick(struct tagCUSTOM_FLICK *a1)
+_BOOL8 __fastcall GetCustomFlick(GUID *a1)
 {
   int PointerDeviceCfgStringSetting; // ebx
   HANDLE v3; // rcx
@@ -23,7 +23,7 @@ _BOOL8 __fastcall GetCustomFlick(struct tagCUSTOM_FLICK *a1)
   Destination = 0LL;
   Handle = 0LL;
   PointerDeviceCfgStringSetting = -1073741595;
-  if ( (unsigned int)GetCustomFlickPath((GUID *)a1, &Destination) )
+  if ( (unsigned int)GetCustomFlickPath(a1, &Destination) )
   {
     Destination.Buffer[(unsigned __int64)Destination.Length >> 1] = 0;
     PointerDeviceCfgStringSetting = OpenDeviceCfgKey(
@@ -42,16 +42,16 @@ _BOOL8 __fastcall GetCustomFlick(struct tagCUSTOM_FLICK *a1)
       if ( PointerDeviceCfgStringSetting >= 0 )
       {
         v3 = Handle;
-        *((_DWORD *)a1 + 4) = HIDWORD(v8);
+        a1[1].Data1 = HIDWORD(v8);
         PointerDeviceCfgStringSetting = ReadPointerDeviceCfgDWORDSetting(v3, &v9);
         if ( PointerDeviceCfgStringSetting >= 0 )
         {
           v4 = Handle;
-          *((_DWORD *)a1 + 5) = HIDWORD(v10);
+          *(_DWORD *)&a1[1].Data2 = HIDWORD(v10);
           PointerDeviceCfgStringSetting = ReadPointerDeviceCfgStringSetting(
                                             v4,
                                             L"FriendlyName",
-                                            (unsigned __int16 *)a1 + 14,
+                                            (char *)&a1[1].Data4[4],
                                             0x104u);
         }
       }

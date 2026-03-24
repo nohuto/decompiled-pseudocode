@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcquireSecondaryIcEntryExclusive @ 0x14051CE3C
+ * XREFs of HalpAcquireSecondaryIcEntryExclusive @ 0x1404D0830
  * Callers:
- *     HalpDeleteSecondaryIcEntry @ 0x14051D114 (HalpDeleteSecondaryIcEntry.c)
+ *     HalpDeleteSecondaryIcEntry @ 0x1404D0B20 (HalpDeleteSecondaryIcEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpAcquireSecondaryIcEntryExclusive(volatile signed __int32 *a1, _BYTE *a2)

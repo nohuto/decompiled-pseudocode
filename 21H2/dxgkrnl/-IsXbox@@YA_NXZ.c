@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsXbox@@YA_NXZ @ 0x1C004D7C0
+ * XREFs of ?IsXbox@@YA_NXZ @ 0x1C0049C50
  * Callers:
- *     ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C004D540 (-GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z.c)
+ *     ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C0049B04 (-GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z.c)
  * Callees:
  *     <none>
  */

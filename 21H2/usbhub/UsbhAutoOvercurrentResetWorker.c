@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhAutoOvercurrentResetWorker @ 0x1C002F130
+ * XREFs of UsbhAutoOvercurrentResetWorker @ 0x1C0030500
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     UsbhOvercurrentResetWorker @ 0x1C002F330 (UsbhOvercurrentResetWorker.c)
- *     Usbh_OvercurrentDerefHubBusy @ 0x1C002F890 (Usbh_OvercurrentDerefHubBusy.c)
- *     Usbh__TestPoint__Ulong @ 0x1C002F940 (Usbh__TestPoint__Ulong.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C0030700 (UsbhOvercurrentResetWorker.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030C60 (Usbh_OvercurrentDerefHubBusy.c)
+ *     Usbh__TestPoint__Ulong @ 0x1C0030D10 (Usbh__TestPoint__Ulong.c)
  */
 
 void __fastcall UsbhAutoOvercurrentResetWorker(__int64 a1, unsigned int a2, __int64 a3)

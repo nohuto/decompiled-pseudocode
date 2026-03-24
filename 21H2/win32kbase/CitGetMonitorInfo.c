@@ -1,10 +1,10 @@
 /*
- * XREFs of CitGetMonitorInfo @ 0x1C00AF090
+ * XREFs of CitGetMonitorInfo @ 0x1C009F4B0
  * Callers:
  *     <none>
  * Callees:
- *     DrvGetCurrentDpiInfoFromHDev @ 0x1C00A705C (DrvGetCurrentDpiInfoFromHDev.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C000F5D0 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 char __fastcall CitGetMonitorInfo(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ char __fastcall CitGetMonitorInfo(__int64 a1, __int64 a2)
     *(_WORD *)(a2 + 4) = *(_WORD *)(*(_QWORD *)(a1 + 40) + 36LL) - *(_WORD *)(*(_QWORD *)(a1 + 40) + 28LL);
     *(_WORD *)(a2 + 6) = *(_WORD *)(*(_QWORD *)(a1 + 40) + 40LL) - *(_WORD *)(*(_QWORD *)(a1 + 40) + 32LL);
     v5 = 0;
-    v6 = *((_QWORD *)gpDispInfo + 13);
+    v6 = *(_QWORD *)(gpDispInfo + 104);
     while ( v6 && v6 != a1 )
     {
       v6 = *(_QWORD *)(v6 + 56);
@@ -31,7 +31,7 @@ char __fastcall CitGetMonitorInfo(__int64 a1, __int64 a2)
     }
     v7 = v5 & 7;
     *(_BYTE *)(a2 + 10) = v7;
-    v8 = *(_WORD *)(*(_QWORD *)(a1 + 40) + 60LL);
+    v8 = *(_WORD *)(*(_QWORD *)(a1 + 40) + 64LL);
     if ( v8 > 0x60u )
     {
       if ( v8 > 0x78u )
@@ -78,7 +78,7 @@ char __fastcall CitGetMonitorInfo(__int64 a1, __int64 a2)
       LOBYTE(CurrentDpiInfoFromHDev) = 0;
     }
     *(_BYTE *)(a2 + 10) = CurrentDpiInfoFromHDev | v7;
-    v9 = *(_QWORD *)(a1 + 80);
+    v9 = *(_QWORD *)(a1 + 232);
     if ( v9 )
     {
       CurrentDpiInfoFromHDev = DrvGetCurrentDpiInfoFromHDev(v9, (__int64)v11);

@@ -9,7 +9,7 @@
  *     VerifierMmAllocateNonCachedMemory @ 0x1409442B0 (VerifierMmAllocateNonCachedMemory.c)
  *     VfFillAllocatePagesForMdl @ 0x140945348 (VfFillAllocatePagesForMdl.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void *__fastcall VfFillAllocatedMemory(void *a1, size_t a2)

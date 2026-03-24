@@ -1,57 +1,55 @@
 /*
- * XREFs of ExpPrepareToWakeResourceShared @ 0x1402602C0
+ * XREFs of ExpPrepareToWakeResourceShared @ 0x14038E538
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14025FC40 (ExReleaseResourceForThreadLite.c)
- *     ExpReleaseDisownedFastResourceShared @ 0x1403CA3F0 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseFastResourceShared @ 0x1403CA920 (ExpReleaseFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038DEEC (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseFastResourceShared @ 0x14038E280 (ExpReleaseFastResourceShared.c)
  * Callees:
- *     KeCaptureWaitChainHeadEx @ 0x1402BB76C (KeCaptureWaitChainHeadEx.c)
+ *     KeCaptureWaitChainHeadEx @ 0x14038F730 (KeCaptureWaitChainHeadEx.c)
  */
 
 __int64 __fastcall ExpPrepareToWakeResourceShared(__int64 a1, _QWORD *a2, _QWORD *a3, int *a4)
 {
-  bool v5; // cf
-  bool v6; // zf
-  __int64 v9; // r10
-  int v10; // ecx
+  __int64 v4; // r11
+  __int64 v5; // rcx
+  int v8; // ebx
   __int64 result; // rax
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  bool v10; // zf
+  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = *(_DWORD *)(a1 + 64) == 0;
-  v6 = *(_DWORD *)(a1 + 64) == 1;
-  v12 = 0LL;
-  v9 = 0LL;
-  if ( !v5 && !v6 )
+  v4 = a1;
+  v5 = 0LL;
+  v11 = 0LL;
+  v8 = 1;
+  if ( *(_DWORD *)(v4 + 64) > 1u )
     goto LABEL_4;
-  if ( *(_DWORD *)(a1 + 76) )
+  if ( *(_DWORD *)(v4 + 76) )
   {
-    KeCaptureWaitChainHeadEx(a1 + 40, a2, &v12);
-    --*(_DWORD *)(a1 + 76);
-    *(_WORD *)(a1 + 26) |= 0x80u;
-    v10 = 1;
-    v9 = v12;
+    KeCaptureWaitChainHeadEx(v4 + 40, a2, &v11);
+    --*(_DWORD *)(v4 + 76);
+    *(_WORD *)(v4 + 26) |= 0x80u;
+    v5 = v11;
   }
   else
   {
-    if ( !*(_DWORD *)(a1 + 72) )
+    if ( !*(_DWORD *)(v4 + 72) )
     {
 LABEL_4:
-      v10 = 0;
+      v8 = 0;
       *a2 = 0LL;
       goto LABEL_5;
     }
-    *a2 = *(_QWORD *)(a1 + 32);
-    *(_QWORD *)(a1 + 32) = 0LL;
-    v10 = *(_DWORD *)(a1 + 72);
-    *(_DWORD *)(a1 + 72) = 0;
+    *a2 = *(_QWORD *)(v4 + 32);
+    v8 = *(_DWORD *)(v4 + 72);
+    *(_DWORD *)(v4 + 72) = 0;
+    *(_QWORD *)(v4 + 32) = 0LL;
   }
 LABEL_5:
-  result = (unsigned int)(v10 - 1);
-  *a4 = v10;
-  v6 = (_DWORD)result + *(_DWORD *)(a1 + 64) == 0;
-  *(_DWORD *)(a1 + 64) += result;
-  *a3 = v9;
-  if ( v6 )
-    *(_WORD *)(a1 + 24) = 0;
+  result = (unsigned int)(v8 - 1);
+  v10 = (_DWORD)result + *(_DWORD *)(v4 + 64) == 0;
+  *(_DWORD *)(v4 + 64) += result;
+  if ( v10 )
+    *(_WORD *)(v4 + 24) = 0;
+  *a4 = v8;
+  *a3 = v5;
   return result;
 }

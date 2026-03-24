@@ -1,12 +1,12 @@
 /*
- * XREFs of ?reset@?$shared_ptr@VCRegion@@@std@@QEAAXXZ @ 0x1801132D6
+ * XREFs of ?reset@?$shared_ptr@VCRegion@@@std@@QEAAXXZ @ 0x180184758
  * Callers:
- *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x1800BC2AC (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
- *     ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800BCA94 (-Reset@CDirectFlipInfo@@QEAAXXZ.c)
- *     ??0CDirectFlipInfo@@QEAA@AEBV0@@Z @ 0x1801DEDAC (--0CDirectFlipInfo@@QEAA@AEBV0@@Z.c)
- *     ?Init@CDirectFlipInfo@@QEAAXPEAVIOverlayMonitorTarget@@PEBVCVisual@@PEAVCCompositionSurfaceInfo@@W4Enum@DirectFlipMode@@PEBVCRegion@@@Z @ 0x1801DF714 (-Init@CDirectFlipInfo@@QEAAXPEAVIOverlayMonitorTarget@@PEBVCVisual@@PEAVCCompositionSurfaceInfo@.c)
+ *     ?ApplyConfiguration@COverlayContext@@QEAAJPEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N1@Z @ 0x1800931CC (-ApplyConfiguration@COverlayContext@@QEAAJPEAV-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@s.c)
+ *     ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800932D0 (-Reset@CDirectFlipInfo@@QEAAXXZ.c)
+ *     ??0CDirectFlipInfo@@QEAA@AEBV0@@Z @ 0x180183E0C (--0CDirectFlipInfo@@QEAA@AEBV0@@Z.c)
+ *     ?Init@CDirectFlipInfo@@QEAAXPEAVIOverlayMonitorTarget@@PEBVCVisual@@PEAVCCompositionSurfaceInfo@@W4Enum@DirectFlipMode@@PEBVCRegion@@@Z @ 0x18018448C (-Init@CDirectFlipInfo@@QEAAXPEAVIOverlayMonitorTarget@@PEBVCVisual@@PEAVCCompositionSurfaceInfo@.c)
  * Callees:
- *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18000E7B0 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180173D04 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
  */
 
 void __fastcall std::shared_ptr<CRegion>::reset(_QWORD *a1)

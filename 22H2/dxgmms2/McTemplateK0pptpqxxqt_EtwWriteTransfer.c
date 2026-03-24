@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00317B0
+ * XREFs of McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C0027560
  * Callers:
- *     ?RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@J_KHPEAX@Z @ 0x1C009225C (-RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFF.c)
- *     ?FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z @ 0x1C00983F0 (-FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z.c)
- *     ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C00998C0 (-UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALL.c)
+ *     ?FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z @ 0x1C0070F20 (-FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z.c)
+ *     ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C0071370 (-UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALL.c)
+ *     ?RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@J_KHPEAX@Z @ 0x1C0073FD0 (-RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFF.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
-NTSTATUS McTemplateK0pptpqxxqt_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
+NTSTATUS McTemplateK0pptpqxxqt_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-99h] BYREF
   va_list v5; // [rsp+40h] [rbp-89h]
@@ -78,17 +78,17 @@ NTSTATUS McTemplateK0pptpqxxqt_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPT
   va_copy(v7, va1);
   v10 = 4LL;
   va_copy(v9, va2);
+  v12 = 8LL;
   va_copy(v11, va3);
   va_copy(v13, va4);
   va_copy(v15, va5);
   va_copy(v17, va6);
   va_copy(v19, va7);
   va_copy(v21, va8);
-  v12 = 8LL;
   v14 = 4LL;
   v16 = 8LL;
   v18 = 8LL;
   v20 = 4LL;
   v22 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, a2, a3, 0xAu, &v4);
+  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventPagingOpMapApertureSegment, a3, 0xAu, &v4);
 }

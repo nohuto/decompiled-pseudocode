@@ -1,41 +1,44 @@
 /*
- * XREFs of FormInquiryVpdSupportedPagesData @ 0x1C000E56C
+ * XREFs of FormInquiryVpdSupportedPagesData @ 0x1C00124F4
  * Callers:
- *     ScsiInquiryRequest @ 0x1C00056F8 (ScsiInquiryRequest.c)
+ *     ScsiInquiryRequest @ 0x1C0005E04 (ScsiInquiryRequest.c)
  * Callees:
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
-__int64 __fastcall FormInquiryVpdSupportedPagesData(__int64 a1, __int64 a2)
+__int64 __fastcall FormInquiryVpdSupportedPagesData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rax
-  __int64 v4; // rdx
-  unsigned int v5; // ecx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  unsigned int v7; // ecx
 
   if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v3 = *(_QWORD *)(a2 + 64);
-    v4 = 60LL;
+    v5 = *(_QWORD *)(a2 + 64);
+    v6 = 60LL;
   }
   else
   {
-    v3 = *(_QWORD *)(a2 + 24);
-    v4 = 16LL;
+    v5 = *(_QWORD *)(a2 + 24);
+    v6 = 16LL;
   }
-  if ( *(_DWORD *)(a2 + v4) < 0xBu )
+  if ( *(_DWORD *)(a2 + v6) >= 0xBu )
   {
-    NVMeSetSenseData(a2, 6, 5, 0x24u);
-    return (unsigned int)-1056964602;
-  }
-  else
-  {
-    *(_DWORD *)(v3 + 3) = -2088763386;
-    v5 = 0;
-    *(_WORD *)v3 = 0;
-    *(_WORD *)(v3 + 7) = -20048;
-    *(_BYTE *)(v3 + 9) = -78;
-    *(_DWORD *)(a2 + v4) = 11;
+    *(_DWORD *)(v5 + 3) = -2088763386;
+    v7 = 0;
+    *(_WORD *)v5 = 0;
+    *(_WORD *)(v5 + 7) = -20048;
+    *(_BYTE *)(v5 + 9) = -78;
+    *(_DWORD *)(a2 + v6) = 11;
     *(_BYTE *)(a2 + 3) = 1;
   }
-  return v5;
+  else
+  {
+    LOBYTE(a4) = 36;
+    LOBYTE(a3) = 5;
+    LOBYTE(v6) = 6;
+    NVMeSetSenseData(a2, v6, a3, a4);
+    return (unsigned int)-1056964602;
+  }
+  return v7;
 }

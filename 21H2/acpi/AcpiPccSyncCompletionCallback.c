@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiPccSyncCompletionCallback @ 0x1C005B1E0
+ * XREFs of AcpiPccSyncCompletionCallback @ 0x1C005A380
  * Callers:
  *     <none>
  * Callees:

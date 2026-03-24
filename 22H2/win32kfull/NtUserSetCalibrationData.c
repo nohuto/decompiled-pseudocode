@@ -1,49 +1,49 @@
 /*
- * XREFs of NtUserSetCalibrationData @ 0x1C01DA720
+ * XREFs of NtUserSetCalibrationData @ 0x1C0201200
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     _SetCalibrationData @ 0x1C01AA7AC (_SetCalibrationData.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     _SetCalibrationData @ 0x1C01D57E8 (_SetCalibrationData.c)
  */
 
-__int64 __fastcall NtUserSetCalibrationData(__int64 a1, unsigned int a2, volatile void *a3, int a4)
+__int64 __fastcall NtUserSetCalibrationData(unsigned __int64 a1, unsigned int a2, volatile void *a3, int a4)
 {
   SIZE_T v6; // r14
   void *v8; // rdi
-  int v9; // ecx
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // rbx
-  int v14; // ebx
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // rbx
+  int v16; // ebx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // rcx
   __int64 CurrentProcessWow64Process; // rax
-  void *v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  _DWORD v25[2]; // [rsp+20h] [rbp-38h] BYREF
-  _DWORD v26[2]; // [rsp+28h] [rbp-30h] BYREF
-  void *v27; // [rsp+30h] [rbp-28h]
-  char v28; // [rsp+60h] [rbp+8h] BYREF
+  void *v21; // rax
+  __int64 v22; // rcx
+  _DWORD v24[2]; // [rsp+20h] [rbp-38h] BYREF
+  void *v25; // [rsp+28h] [rbp-30h]
+  _BYTE v26[40]; // [rsp+30h] [rbp-28h] BYREF
+  int v27; // [rsp+60h] [rbp+8h] BYREF
+  int v28; // [rsp+64h] [rbp+Ch]
 
   v6 = a2;
   v8 = 0LL;
-  v27 = 0LL;
-  v26[0] = 0x2000;
-  v26[1] = -1;
-  v25[0] = 12288;
-  v25[1] = -1;
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v28);
+  v25 = 0LL;
+  v24[0] = 0x2000;
+  v24[1] = -1;
+  v27 = 12288;
+  v28 = -1;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v26);
   if ( !a1 || (unsigned int)(a4 - 1) > 2 )
     goto LABEL_28;
   if ( (_DWORD)v6 )
@@ -57,63 +57,63 @@ __int64 __fastcall NtUserSetCalibrationData(__int64 a1, unsigned int a2, volatil
   }
   if ( a4 == 3 )
   {
-    if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 888LL, v26) )
+    if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, v24) )
       goto LABEL_10;
   }
-  else if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 888LL, v25) )
+  else if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, &v27) )
   {
 LABEL_10:
     EtwTraceUIPISystemError(*(_QWORD *)(gptiCurrent + 424LL), 0LL, 11LL);
-    v9 = 5;
+    v11 = 5LL;
 LABEL_29:
-    v14 = 0;
-    UserSetLastError(v9);
+    v16 = 0;
+    UserSetLastError(v11, v9, v10);
     goto LABEL_30;
   }
   if ( (unsigned int)v6 > 0xCA0 )
   {
 LABEL_28:
-    v9 = 87;
+    v11 = 87LL;
     goto LABEL_29;
   }
-  v10 = HMValidateHandle(a1, 0x13u);
-  v13 = v10;
-  if ( !v10 )
+  v12 = HMValidateHandle(a1, 0x13u);
+  v15 = v12;
+  if ( !v12 )
   {
 LABEL_24:
-    UserSetLastError(6);
-    v14 = 0;
+    UserSetLastError(6LL, v13, v14);
+    v16 = 0;
     goto LABEL_25;
   }
-  if ( (*(_DWORD *)(v10 + 184) & 0x2000) == 0 )
+  if ( (*(_DWORD *)(v12 + 184) & 0x2000) == 0 )
   {
-    v17 = *(_QWORD *)(v10 + 472);
-    if ( (*(_DWORD *)(v10 + 200) & 0x80u) != 0 && (unsigned int)(*(_DWORD *)(v17 + 24) - 6) > 1 )
+    v19 = *(_QWORD *)(v12 + 480);
+    if ( (*(_DWORD *)(v12 + 200) & 0x80u) != 0 && (unsigned int)(*(_DWORD *)(v19 + 24) - 6) > 1 )
     {
       if ( a3 )
       {
-        CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v17, v11, v12);
+        CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v19);
         ProbeForRead(a3, v6, CurrentProcessWow64Process != 0 ? 1 : 4);
-        v19 = (void *)Win32AllocPoolWithQuotaZInit(v6, 1633907541LL);
-        v8 = v19;
-        v27 = v19;
-        if ( !v19 )
+        v21 = (void *)Win32AllocPoolWithQuota(v6, 1633907541LL);
+        v8 = v21;
+        v25 = v21;
+        if ( !v21 )
           ExRaiseStatus(-1073741801);
-        memmove(v19, (const void *)a3, v6);
+        memmove(v21, (const void *)a3, v6);
       }
-      v14 = SetCalibrationData(v13, v6, v8, a4);
+      v16 = SetCalibrationData(v15, v6, v8, a4);
       goto LABEL_25;
     }
     goto LABEL_24;
   }
-  UserSetLastError(6);
-  v14 = 0;
-  UserSetLastError(0);
+  UserSetLastError(6LL, v13, v14);
+  v16 = 0;
+  UserSetLastError(0LL, v17, v18);
 LABEL_25:
-  if ( v8 && !v14 )
+  if ( v8 && !v16 )
     Win32FreePool(v8);
 LABEL_30:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v28, v15, v16);
-  UserSessionSwitchLeaveCrit(v21, v20, v22, v23);
-  return v14;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v26);
+  UserSessionSwitchLeaveCrit(v22);
+  return v16;
 }

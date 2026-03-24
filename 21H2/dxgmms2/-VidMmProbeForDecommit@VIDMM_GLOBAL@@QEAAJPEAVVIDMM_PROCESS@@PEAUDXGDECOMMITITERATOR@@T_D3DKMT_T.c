@@ -1,13 +1,13 @@
 /*
- * XREFs of ?VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C00DC264
+ * XREFs of ?VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C00B6544
  * Callers:
- *     ?VidMmProbeForDecommit@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGPROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C002CE80 (-VidMmProbeForDecommit@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGPROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_T.c)
+ *     ?VidMmProbeForDecommit@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGPROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C00228C0 (-VidMmProbeForDecommit@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGPROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_T.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0014F50 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00D7A08 (-IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001098 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00B0B20 (-IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::VidMmProbeForDecommit(
@@ -31,10 +31,10 @@ __int64 __fastcall VIDMM_GLOBAL::VidMmProbeForDecommit(
   DXGPUSHLOCK::AcquireShared(v16);
   v9 = this[3];
   v17 = 1;
-  v10 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 8LL * *((unsigned int *)v9 + 60));
+  v10 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 8LL * *((unsigned int *)v9 + 58));
   if ( v10 )
   {
-    DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 4997));
+    DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 4996));
     v11 = a4.Value >> 1;
     v12 = *(_QWORD *)(v10 + 424);
     *((_QWORD *)a3 + 3) = v12;
@@ -50,7 +50,7 @@ LABEL_3:
       {
         if ( VIDMM_GLOBAL::IsAllocationDecommitCandidate(
                (VIDMM_GLOBAL *)this,
-               (struct _VIDMM_GLOBAL_ALLOC *)(v12 - 432),
+               (struct _VIDMM_GLOBAL_ALLOC *)(v12 - 424),
                v11 & 1) )
         {
           goto LABEL_3;
@@ -60,8 +60,8 @@ LABEL_3:
         *((_QWORD *)a3 + 3) = *v14;
       }
     }
-    this[4998] = 0LL;
-    ExReleasePushLockExclusiveEx(this + 4997, 0LL);
+    this[4997] = 0LL;
+    ExReleasePushLockExclusiveEx(this + 4996, 0LL);
     KeLeaveCriticalRegion();
   }
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);

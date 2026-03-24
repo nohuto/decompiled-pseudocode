@@ -1,27 +1,27 @@
 /*
- * XREFs of _CmSetDeviceRegProp @ 0x140798B3C
+ * XREFs of _CmSetDeviceRegProp @ 0x1407404B0
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
- *     _CmGetDeviceSoftwareKey @ 0x1406C9CDC (_CmGetDeviceSoftwareKey.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PnpSaveDeviceCapabilities @ 0x140798984 (PnpSaveDeviceCapabilities.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140836DC0 (IoReportRootDevice.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14087CBD4 (PiPnpRtlSetDeviceRegProperty.c)
- *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140880D70 (_CmSetDeviceMappedPropertyFromRegProp.c)
- *     PiDcResetChildDeviceContainers @ 0x14095B530 (PiDcResetChildDeviceContainers.c)
- *     IopCreateLegacyDeviceIds @ 0x14096C7D8 (IopCreateLegacyDeviceIds.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A61F64 (_CmDeleteDeviceRegKeyWorker.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
- *     PipMigrateResetDeviceCallback @ 0x140B95540 (PipMigrateResetDeviceCallback.c)
- *     PipResetDevice @ 0x140B95660 (PipResetDevice.c)
+ *     _CmGetDeviceSoftwareKey @ 0x14068A7FC (_CmGetDeviceSoftwareKey.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x14072DF0C (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x140736144 (PiPnpRtlSetDeviceRegProperty.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140736E0C (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
+ *     PnpSaveDeviceCapabilities @ 0x1407402F8 (PnpSaveDeviceCapabilities.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x1407C7D80 (IoReportRootDevice.c)
+ *     PiDcResetChildDeviceContainers @ 0x1408A3928 (PiDcResetChildDeviceContainers.c)
+ *     IopCreateLegacyDeviceIds @ 0x1408B243C (IopCreateLegacyDeviceIds.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PipMigrateResetDeviceCallback @ 0x140A90500 (PipMigrateResetDeviceCallback.c)
+ *     PipResetDevice @ 0x140A90620 (PipResetDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmSetDeviceRegPropWorker @ 0x14086CE70 (_CmSetDeviceRegPropWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140740618 (_CmSetDeviceRegPropWorker.c)
  */
 
 __int64 __fastcall CmSetDeviceRegProp(

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateSectionEx @ 0x14084E8E0
+ * XREFs of NtCreateSectionEx @ 0x14084E8C0
  * Callers:
  *     <none>
  * Callees:

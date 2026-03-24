@@ -1,25 +1,35 @@
 /*
- * XREFs of RtlpIsALicensedLIPLanguage @ 0x140A74338
+ * XREFs of RtlpIsALicensedLIPLanguage @ 0x140980CD8
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140846910 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14078F12C (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x140846CAC (RtlpLangNameInMultiSzString.c)
+ *     RtlpLangNameInMultiSzString @ 0x14078F74C (RtlpLangNameInMultiSzString.c)
  */
 
 __int64 __fastcall RtlpIsALicensedLIPLanguage(__int64 a1, wchar_t *a2)
 {
-  __int64 result; // rax
+  unsigned int v2; // ebx
   wchar_t *v5; // rcx
   wchar_t *v6; // rcx
 
-  if ( !a1 )
-    return 3221225485LL;
-  v5 = *(wchar_t **)(a1 + 136);
-  if ( v5 && RtlpLangNameInMultiSzString(v5, a2) )
-    return 3221225524LL;
-  v6 = *(wchar_t **)(a1 + 152);
-  result = 0LL;
-  if ( v6 )
-    return RtlpLangNameInMultiSzString(v6, a2) != 0 ? 0xC0000034 : 0;
-  return result;
+  v2 = 0;
+  if ( a1 )
+  {
+    v5 = *(wchar_t **)(a1 + 136);
+    if ( v5 && RtlpLangNameInMultiSzString(v5, a2) )
+    {
+      return (unsigned int)-1073741772;
+    }
+    else
+    {
+      v6 = *(wchar_t **)(a1 + 152);
+      if ( v6 )
+        return RtlpLangNameInMultiSzString(v6, a2) != 0 ? 0xC0000034 : 0;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v2;
 }

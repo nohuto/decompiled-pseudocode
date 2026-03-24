@@ -1,30 +1,27 @@
 /*
- * XREFs of ExQueryWnfStateData @ 0x1407E2740
+ * XREFs of ExQueryWnfStateData @ 0x14069E4C0
  * Callers:
- *     PopWnfAirplaneModeCallback @ 0x1403B4BA0 (PopWnfAirplaneModeCallback.c)
- *     CmFcpWnfScmStateChangeNotificationCallback @ 0x1404197C0 (CmFcpWnfScmStateChangeNotificationCallback.c)
- *     PopWnfBluetoothChargingCallback @ 0x140587310 (PopWnfBluetoothChargingCallback.c)
- *     PopWnfMobileHotspotCallback @ 0x140587410 (PopWnfMobileHotspotCallback.c)
- *     PopErratumUpdateCallback @ 0x14058DB90 (PopErratumUpdateCallback.c)
- *     PopWnfMixedRealityCallback @ 0x1407E26B0 (PopWnfMixedRealityCallback.c)
- *     PopWnfAudioCallback @ 0x1408562B0 (PopWnfAudioCallback.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x140862FE0 (PopWnfSprActiveSessionChangeCallback.c)
- *     SshpWnfCallback @ 0x140878D70 (SshpWnfCallback.c)
- *     VslpConnectedStandbyWnfCallback @ 0x140943770 (VslpConnectedStandbyWnfCallback.c)
- *     PipUpdateSetupOobeCompleteWnfCallback @ 0x140952220 (PipUpdateSetupOobeCompleteWnfCallback.c)
- *     PopWnfFullscreenVideoCallback @ 0x1409846C0 (PopWnfFullscreenVideoCallback.c)
- *     PopWnfUserAwayPredictionCallback @ 0x140984760 (PopWnfUserAwayPredictionCallback.c)
- *     PopUsbErrorWNFNotificationCallback @ 0x1409961C0 (PopUsbErrorWNFNotificationCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140996AE0 (PopNetWnfLowPowerEpochCallback.c)
- *     PopEsInStandbyEvaluate @ 0x140998460 (PopEsInStandbyEvaluate.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x1409985F0 (PopEsWnfSubscriptionOverrideCallback.c)
- *     PopAdaptiveWnfCallback @ 0x14099BAD0 (PopAdaptiveWnfCallback.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x1409ABF00 (TtmpWnfInactivityTimeoutCallback.c)
+ *     PopWnfAirplaneModeCallback @ 0x1403CE840 (PopWnfAirplaneModeCallback.c)
+ *     PopWnfBluetoothChargingCallback @ 0x140568D10 (PopWnfBluetoothChargingCallback.c)
+ *     PopWnfMobileHotspotCallback @ 0x140568E10 (PopWnfMobileHotspotCallback.c)
+ *     PopErratumUpdateCallback @ 0x14056ED30 (PopErratumUpdateCallback.c)
+ *     PopWnfAudioCallback @ 0x140772040 (PopWnfAudioCallback.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x14078E7A0 (PopWnfSprActiveSessionChangeCallback.c)
+ *     PopWnfMixedRealityCallback @ 0x14078E990 (PopWnfMixedRealityCallback.c)
+ *     VslpConnectedStandbyWnfCallback @ 0x140890750 (VslpConnectedStandbyWnfCallback.c)
+ *     PipUpdateSetupOobeCompleteWnfCallback @ 0x14089B950 (PipUpdateSetupOobeCompleteWnfCallback.c)
+ *     PopWnfFullscreenVideoCallback @ 0x1408E41A0 (PopWnfFullscreenVideoCallback.c)
+ *     PopWnfUserAwayPredictionCallback @ 0x1408E4240 (PopWnfUserAwayPredictionCallback.c)
+ *     PopUsbErrorWNFNotificationCallback @ 0x1408EDEA0 (PopUsbErrorWNFNotificationCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x1408F2100 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F27F0 (PopEsInStandbyEvaluate.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x1408F28D0 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     SshpWnfCallback @ 0x1408FBBA0 (SshpWnfCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExpWnfReadStateData @ 0x140713988 (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x1407E27E8 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExpWnfReadStateData @ 0x14060FFA4 (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x14069E568 (ExpWnfAcquireSubscriptionNameInstance.c)
  */
 
 __int64 __fastcall ExQueryWnfStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int *a4)
@@ -43,7 +40,7 @@ __int64 __fastcall ExQueryWnfStateData(__int64 a1, _DWORD *a2, void *a3, unsigne
     StateData = ExpWnfReadStateData(v8, a2, a3, *a4, a4);
     if ( StateData >= 0 )
       StateData = 0;
-    ExReleaseRundownProtection_0(v9 + 1);
+    ExReleaseRundownProtection(v9 + 1);
   }
   else
   {

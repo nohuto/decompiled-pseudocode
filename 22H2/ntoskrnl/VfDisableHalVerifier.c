@@ -1,14 +1,32 @@
 /*
- * XREFs of VfDisableHalVerifier @ 0x1405CE8E8
+ * XREFs of VfDisableHalVerifier @ 0x1405A0ED8
  * Callers:
- *     VfAllocateCrashDumpRegisters @ 0x140AC6380 (VfAllocateCrashDumpRegisters.c)
- *     VfAllocateCrashDumpRegistersEx @ 0x140AC6420 (VfAllocateCrashDumpRegistersEx.c)
- *     VfNotifyOfHibernate @ 0x140AC8218 (VfNotifyOfHibernate.c)
+ *     IoWriteCrashDump @ 0x140502950 (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14050488C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     VfAllocateCrashDumpRegisters @ 0x1409CADA0 (VfAllocateCrashDumpRegisters.c)
+ *     VfNotifyOfHibernate @ 0x1409CCB9C (VfNotifyOfHibernate.c)
  * Callees:
  *     <none>
  */
 
-void VfDisableHalVerifier()
+struct _LIST_ENTRY *VfDisableHalVerifier()
 {
-  ViVerifyDma = 0;
+  struct _LIST_ENTRY *i; // rcx
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *result; // rax
+
+  if ( ViVerifyDma )
+  {
+    ViVerifyDma = 0;
+    for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
+    {
+      Flink = i[1].Flink;
+      if ( Flink )
+      {
+        result = i[3].Flink;
+        Flink->Blink = result;
+      }
+    }
+  }
+  return result;
 }

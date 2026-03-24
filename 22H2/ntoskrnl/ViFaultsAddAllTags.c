@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsAddAllTags @ 0x140AD7400
+ * XREFs of ViFaultsAddAllTags @ 0x1409DCC38
  * Callers:
- *     VfFaultsSetParameters @ 0x140AD7148 (VfFaultsSetParameters.c)
- *     ViFaultsInitializeTagsList @ 0x140AD787C (ViFaultsInitializeTagsList.c)
+ *     VfFaultsSetParameters @ 0x1409DC9D8 (VfFaultsSetParameters.c)
+ *     ViFaultsInitializeTagsList @ 0x1409DD0B4 (ViFaultsInitializeTagsList.c)
  * Callees:
- *     ViFaultsAddTagNoDuplicates @ 0x140AD7600 (ViFaultsAddTagNoDuplicates.c)
+ *     ViFaultsAddTagNoDuplicates @ 0x1409DCE38 (ViFaultsAddTagNoDuplicates.c)
  */
 
 __int64 __fastcall ViFaultsAddAllTags(unsigned __int16 *a1, int a2)

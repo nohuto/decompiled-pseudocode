@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileSetSizeEx @ 0x14074D908
+ * XREFs of CmpDoFileSetSizeEx @ 0x140723DD0
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E8C (CmShutdownSystem2.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
- *     HvWriteLogFile @ 0x1407512A4 (HvWriteLogFile.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x14075140C (HvTruncateCurrentLogFileIfRequired.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1407E8014 (HvTruncateAllLogFilesIfRequired.c)
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
- *     HvWriteExternal @ 0x140A20BF4 (HvWriteExternal.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
+ *     HvWriteLogFile @ 0x14071CE2C (HvWriteLogFile.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1407237B8 (HvTruncateCurrentLogFileIfRequired.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x140724BD8 (HvTruncateAllLogFilesIfRequired.c)
+ *     HvWriteExternal @ 0x140729E60 (HvWriteExternal.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407516B0 (HvpLogTypeToLogArrayIndex.c)
- *     CmpAdjustRequestedFileSize @ 0x1407E62CC (CmpAdjustRequestedFileSize.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140723A2C (HvpLogTypeToLogArrayIndex.c)
+ *     CmpAdjustRequestedFileSize @ 0x140724364 (CmpAdjustRequestedFileSize.c)
  */
 
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4)
@@ -25,7 +25,7 @@ __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __in
   unsigned __int64 v9; // rbp
   BOOLEAN v10; // r15
   NTSTATUS v11; // eax
-  unsigned int v12; // edi
+  int v12; // edi
   unsigned __int64 FileInformation; // [rsp+30h] [rbp-38h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int64 v15; // [rsp+70h] [rbp+8h] BYREF
@@ -33,13 +33,13 @@ __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __in
   FileInformation = 0LL;
   v15 = 0LL;
   IoStatusBlock = 0LL;
-  v6 = *(void **)(a1 + 8LL * a2 + 1544);
+  v6 = *(void **)(a1 + 8LL * a2 + 1536);
   if ( !v6 )
     return 0LL;
   if ( a2 )
-    v7 = a2 - 4 <= 1 || a2 == 1 ? *(_QWORD *)(a1 + 8LL * (unsigned int)HvpLogTypeToLogArrayIndex(a2) + 1808) : 0LL;
+    v7 = a2 - 4 <= 1 || a2 == 1 ? *(_QWORD *)(a1 + 8LL * (unsigned int)HvpLogTypeToLogArrayIndex(a2) + 1800) : 0LL;
   else
-    v7 = *(_QWORD *)(a1 + 1800);
+    v7 = *(_QWORD *)(a1 + 1792);
   if ( (a4 & 1) != 0 && v7 && a3 <= v7 )
     return 0LL;
   v9 = CmpAdjustRequestedFileSize(a1, a2, v7, a3);
@@ -56,20 +56,23 @@ __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __in
   }
   v12 = v11;
   if ( v11 < 0 )
-  {
-    CmRegistryIODebug = 3;
-    qword_140D54E10 = (__int64)v6;
-    dword_140D54E18 = v11;
-  }
-  else if ( a2 )
+    goto LABEL_24;
+  if ( a2 )
   {
     if ( a2 - 4 <= 1 || a2 == 1 )
-      *(_QWORD *)(a1 + 8LL * (unsigned int)HvpLogTypeToLogArrayIndex(a2) + 1808) = v9;
+      *(_QWORD *)(a1 + 8LL * (unsigned int)HvpLogTypeToLogArrayIndex(a2) + 1800) = v9;
   }
   else
   {
-    *(_QWORD *)(a1 + 1800) = v9;
+    *(_QWORD *)(a1 + 1792) = v9;
+  }
+  if ( v12 < 0 )
+  {
+LABEL_24:
+    CmRegistryIODebug = 3;
+    qword_140D2EA98 = (__int64)v6;
+    dword_140D2EAA0 = v12;
   }
   IoSetThreadHardErrorMode(v10);
-  return v12;
+  return (unsigned int)v12;
 }

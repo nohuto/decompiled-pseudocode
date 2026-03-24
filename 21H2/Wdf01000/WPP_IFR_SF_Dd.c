@@ -1,15 +1,15 @@
 /*
- * XREFs of WPP_IFR_SF_DD @ 0x1C005A3C8
+ * XREFs of WPP_IFR_SF_DD @ 0x1C0037BE8
  * Callers:
- *     ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C001BAE0 (-PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z.c)
- *     imp_WdfInterruptCreate @ 0x1C001E960 (imp_WdfInterruptCreate.c)
- *     ?PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z @ 0x1C00205C8 (-PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z.c)
- *     imp_WdfChildListRequestChildEject @ 0x1C005A910 (imp_WdfChildListRequestChildEject.c)
- *     imp_WdfDeviceConfigureRequestDispatching @ 0x1C0062CA0 (imp_WdfDeviceConfigureRequestDispatching.c)
- *     imp_WdfRequestGetCompletionParams @ 0x1C00646B0 (imp_WdfRequestGetCompletionParams.c)
+ *     ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C000ED3C (-PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z.c)
+ *     imp_WdfChildListRequestChildEject @ 0x1C0038430 (imp_WdfChildListRequestChildEject.c)
+ *     imp_WdfDeviceConfigureRequestDispatching @ 0x1C00475C0 (imp_WdfDeviceConfigureRequestDispatching.c)
+ *     imp_WdfRequestGetCompletionParams @ 0x1C004A400 (imp_WdfRequestGetCompletionParams.c)
+ *     imp_WdfInterruptCreate @ 0x1C00781D0 (imp_WdfInterruptCreate.c)
+ *     ?PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z @ 0x1C0081E64 (-PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_DD(

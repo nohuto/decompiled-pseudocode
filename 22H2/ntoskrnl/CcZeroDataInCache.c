@@ -1,66 +1,65 @@
 /*
- * XREFs of CcZeroDataInCache @ 0x1402FBF18
+ * XREFs of CcZeroDataInCache @ 0x140359C58
  * Callers:
- *     CcZeroData @ 0x1402FB700 (CcZeroData.c)
+ *     CcZeroData @ 0x140359820 (CcZeroData.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     MmSetAddressRangeModifiedEx @ 0x14027F0B0 (MmSetAddressRangeModifiedEx.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140279990 (CcSetDirtyPinnedData.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14028FCC0 (MmSetAddressRangeModifiedEx.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
  */
 
-char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, unsigned __int8 a4)
+char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, char a4)
 {
-  unsigned int v4; // r14d
   unsigned int v7; // edi
-  int v8; // r9d
+  _DWORD *v8; // r9
   char v9; // bl
-  unsigned int v11; // [rsp+54h] [rbp-54h]
-  unsigned int v12; // [rsp+58h] [rbp-50h]
+  _DWORD *v10; // r9
+  unsigned int v12; // [rsp+54h] [rbp-54h]
+  unsigned int v13; // [rsp+58h] [rbp-50h]
   struct _MDL *MemoryDescriptorList; // [rsp+60h] [rbp-48h]
   PVOID BcbVoid; // [rsp+68h] [rbp-40h] BYREF
-  __int64 v15; // [rsp+70h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+78h] [rbp-30h] BYREF
-  unsigned __int64 v17; // [rsp+80h] [rbp-28h] BYREF
-  char v18; // [rsp+B8h] [rbp+10h]
+  __int64 v16; // [rsp+70h] [rbp-38h] BYREF
+  __int64 v17; // [rsp+78h] [rbp-30h] BYREF
+  PVOID VirtualAddress[2]; // [rsp+80h] [rbp-28h] BYREF
+  char v19; // [rsp+B8h] [rbp+10h]
 
-  v4 = a4;
   v7 = 0;
-  v15 = 0LL;
-  v16 = *a2;
+  v16 = 0LL;
+  v17 = *a2;
   BcbVoid = 0LL;
-  v17 = 0LL;
-  v18 = 1;
-  while ( (unsigned __int8)CcPinFileData(a1, &v16, a3 - v7, 0, 1, v4, (ULONG_PTR *)&BcbVoid, &v17, &v15) )
+  VirtualAddress[0] = 0LL;
+  v19 = 1;
+  while ( (unsigned __int8)CcPinFileData(a1, &v17, a3 - v7, 0, 1, a4, (__int64 *)&BcbVoid, VirtualAddress, &v16) )
   {
-    v11 = v15 - v16;
-    v12 = v15 - v16 + v7;
-    MemoryDescriptorList = (struct _MDL *)IopAllocateMdl(v17, (int)v15 - (int)v16, 0, v8, 0LL, 0);
+    v12 = v16 - v17;
+    v13 = v16 - v17 + v7;
+    MemoryDescriptorList = IoAllocateMdl(VirtualAddress[0], (int)v16 - (int)v17, 0, 0, 0LL);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(3221225626LL);
-    v9 = BYTE5(KeGetCurrentThread()[1].Queue);
+      RtlRaiseStatus(0xC000009A);
+    v9 = BYTE5(KeGetCurrentThread()[1].Queue) + 2;
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
-    MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);
-    BYTE5(KeGetCurrentThread()[1].Queue) = v9;
-    v16 = v15;
-    MmSetAddressRangeModifiedEx(v17, v11);
+    MiProbeAndLockPages((__int64)MemoryDescriptorList, 0, 0);
+    BYTE5(KeGetCurrentThread()[1].Queue) = v9 - 2;
+    v17 = v16;
+    MmSetAddressRangeModifiedEx((unsigned __int64)VirtualAddress[0], v12);
     CcSetDirtyPinnedData(BcbVoid, 0LL);
-    CcUnpinFileDataEx((char *)BcbVoid, 0, 0);
+    CcUnpinFileDataEx((char *)BcbVoid, 0, 0, v10);
     BcbVoid = 0LL;
     MmUnlockPages(MemoryDescriptorList);
     IoFreeMdl(MemoryDescriptorList);
-    v7 = v12;
-    if ( a3 <= v12 )
+    v7 = v13;
+    if ( a3 <= v13 )
       goto LABEL_8;
   }
-  v18 = 0;
+  v19 = 0;
 LABEL_8:
   if ( BcbVoid )
-    CcUnpinFileDataEx((char *)BcbVoid, 0, 0);
-  return v18;
+    CcUnpinFileDataEx((char *)BcbVoid, 0, 0, v8);
+  return v19;
 }

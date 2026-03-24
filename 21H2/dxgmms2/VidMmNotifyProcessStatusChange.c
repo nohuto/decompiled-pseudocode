@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmNotifyProcessStatusChange @ 0x1C0014AB0
+ * XREFs of VidMmNotifyProcessStatusChange @ 0x1C0012080
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyProcessStatusChange@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C009D204 (-NotifyProcessStatusChange@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?NotifyProcessStatusChange@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C0082C50 (-NotifyProcessStatusChange@VIDMM_GLOBAL@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmNotifyProcessStatusChange(VIDMM_GLOBAL *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogDeviceArrivedTerminalEvent @ 0x140883158
+ * XREFs of TtmiLogDeviceArrivedTerminalEvent @ 0x140883138
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x14087E260 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x14087E240 (TtmpPublishDeviceEvent.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceArrivedTerminalEvent(int a1, int a2, int a3, int a4, LPCWSTR pwsz)
@@ -66,7 +66,7 @@ char __fastcall TtmiLogDeviceArrivedTerminalEvent(int a1, int a2, int a3, int a4
       v15 = a3;
       v16 = a4;
       TlgCreateWsz(&pDesc, pwsz);
-      LOBYTE(v5) = TlgWrite(&stru_14096D820, &unk_140371833, 0LL, 0LL, 8u, &pData);
+      LOBYTE(v5) = TlgWrite(&stru_14096D820, &unk_140371B85, 0LL, 0LL, 8u, &pData);
     }
   }
   return (char)v5;

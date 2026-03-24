@@ -1,10 +1,10 @@
 /*
- * XREFs of Lanczos::Lanczos @ 0x1801E71B0
+ * XREFs of Lanczos::Lanczos @ 0x18019F7A8
  * Callers:
- *     ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x1801E6FB8 (-ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z.c)
- *     ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x1801E70D0 (-ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z.c)
+ *     ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x18019F5B0 (-ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z.c)
+ *     ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x18019F6C8 (-ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z.c)
  * Callees:
- *     Lanczos::Sinc @ 0x1801E7218 (Lanczos--Sinc.c)
+ *     Lanczos::Sinc @ 0x18019F814 (Lanczos--Sinc.c)
  */
 
 double __fastcall Lanczos::Lanczos(double a1)
@@ -14,5 +14,5 @@ double __fastcall Lanczos::Lanczos(double a1)
   if ( COERCE_DOUBLE(*(_QWORD *)&a1 & _xmm) >= 3.0 )
     return 0.0;
   v1 = Lanczos::Sinc();
-  return Lanczos::Sinc() * v1;
+  return v1 * Lanczos::Sinc();
 }

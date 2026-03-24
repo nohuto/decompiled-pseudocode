@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerPolStoppingCancelTimer@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008B5F0
+ * XREFs of ?PowerPolStoppingCancelTimer@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00875D0
  * Callers:
  *     <none>
  * Callees:
- *     ?DisableTimer@FxPowerIdleMachine@@QEAAEXZ @ 0x1C0016EA4 (-DisableTimer@FxPowerIdleMachine@@QEAAEXZ.c)
+ *     ?DisableTimer@FxPowerIdleMachine@@QEAAEXZ @ 0x1C0017FC4 (-DisableTimer@FxPowerIdleMachine@@QEAAEXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolStoppingCancelTimer(FxPkgPnp *This)

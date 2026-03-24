@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetTargetProcessorDpcEx @ 0x14013A090
+ * XREFs of KeSetTargetProcessorDpcEx @ 0x14013A0B0
  * Callers:
- *     KeMaskInterrupt @ 0x14016D528 (KeMaskInterrupt.c)
- *     KeSetTargetProcessorDpc @ 0x140294000 (KeSetTargetProcessorDpc.c)
+ *     KeMaskInterrupt @ 0x14016D548 (KeMaskInterrupt.c)
+ *     KeSetTargetProcessorDpc @ 0x140294100 (KeSetTargetProcessorDpc.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1400A7450 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x1400A7470 (KeGetProcessorIndexFromNumber.c)
  */
 
 NTSTATUS __stdcall KeSetTargetProcessorDpcEx(PKDPC Dpc, PPROCESSOR_NUMBER ProcNumber)

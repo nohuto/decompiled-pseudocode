@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180107C10
+ * XREFs of ?HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6B20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall CTextVisualContent::HitTest(
+__int64 __fastcall CTextVisualContent::HitTest(
         __int64 a1,
         const struct D2D_SIZE_F *a2,
         const struct D2D_POINT_2F *a3,

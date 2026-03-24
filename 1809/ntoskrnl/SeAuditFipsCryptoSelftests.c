@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditFipsCryptoSelftests @ 0x14089CBC0
+ * XREFs of SeAuditFipsCryptoSelftests @ 0x14089CBA0
  * Callers:
  *     <none>
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)

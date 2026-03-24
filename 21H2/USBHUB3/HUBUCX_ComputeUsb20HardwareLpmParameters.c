@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBUCX_ComputeUsb20HardwareLpmParameters @ 0x1C0024700
+ * XREFs of HUBUCX_ComputeUsb20HardwareLpmParameters @ 0x1C00242C0
  * Callers:
- *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001E460 (HUBDSM_UpdatingDeviceInformationInEnum.c)
- *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C0023340 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
+ *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001DF20 (HUBDSM_UpdatingDeviceInformationInEnum.c)
+ *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C0022EF0 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBUCX_ComputeUsb20HardwareLpmParameters(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ char __fastcall HUBUCX_ComputeUsb20HardwareLpmParameters(__int64 a1, __int64 a2)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   if ( (*(_DWORD *)(a1 + 1632) & 2) != 0 )
   {
     *(_DWORD *)(a1 + 2224) = 2;

@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhReset1TimeoutBadEnable @ 0x1C004DA10
+ * XREFs of UsbhReset1TimeoutBadEnable @ 0x1C004EE20
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhReset1Timeout @ 0x1C004D800 (UsbhReset1Timeout.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhReset1Timeout @ 0x1C004EC10 (UsbhReset1Timeout.c)
  */
 
 __int64 __fastcall UsbhReset1TimeoutBadEnable(__int64 a1, __int64 a2, __int64 a3)

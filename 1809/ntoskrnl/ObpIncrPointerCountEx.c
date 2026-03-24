@@ -5,7 +5,7 @@
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     NtWriteFile @ 0x140638C40 (NtWriteFile.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObpIncrPointerCountEx(volatile signed __int64 *a1, int a2)

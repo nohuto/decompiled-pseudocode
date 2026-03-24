@@ -1,12 +1,27 @@
 /*
- * XREFs of UserIsUserCritSecIn @ 0x1C00A9350
+ * XREFs of UserIsUserCritSecIn @ 0x1C004AA80
  * Callers:
- *     <none>
+ *     CheckOrAcquireDwmStateLock @ 0x1C004AA44 (CheckOrAcquireDwmStateLock.c)
+ *     GreGetDCPoint @ 0x1C00722C0 (GreGetDCPoint.c)
+ *     DrvNotifySessionStateChange @ 0x1C007E8B0 (DrvNotifySessionStateChange.c)
+ *     DrvIsNotUsingGraphicsDevice @ 0x1C00B65C0 (DrvIsNotUsingGraphicsDevice.c)
+ *     DrvSessionHasAnyGraphicsDevice @ 0x1C00C4E80 (DrvSessionHasAnyGraphicsDevice.c)
+ *     DrvCleanupRemoteGraphicsDevices @ 0x1C0146B18 (DrvCleanupRemoteGraphicsDevices.c)
+ *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C0148398 (DrvUpdateRemoteGraphicsDeviceList.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     <none>
  */
 
-_BOOL8 __fastcall UserIsUserCritSecIn(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 UserIsUserCritSecIn()
 {
-  return IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, a4);
+  ULONG IsResourceAcquiredSharedLite; // eax
+  unsigned int v1; // ecx
+
+  if ( ExIsResourceAcquiredExclusiveLite(gpresUser) == 1 )
+    return 1;
+  IsResourceAcquiredSharedLite = ExIsResourceAcquiredSharedLite(gpresUser);
+  v1 = 0;
+  if ( IsResourceAcquiredSharedLite )
+    return 1;
+  return v1;
 }

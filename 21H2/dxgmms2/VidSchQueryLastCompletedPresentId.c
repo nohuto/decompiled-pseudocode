@@ -1,26 +1,27 @@
 /*
- * XREFs of VidSchQueryLastCompletedPresentId @ 0x1C003DA40
+ * XREFs of VidSchQueryLastCompletedPresentId @ 0x1C00149F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
-__int64 __fastcall VidSchQueryLastCompletedPresentId(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall VidSchQueryLastCompletedPresentId(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rcx
   __int64 v6; // rsi
   int v7; // eax
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v9; // rax
+  __int64 v10; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   if ( a1 && a3 )
   {
     v5 = *(_QWORD *)(a1 + 32);
-    v6 = a2;
-    if ( a2 < *(_DWORD *)(v5 + 40) )
+    v6 = (unsigned int)a2;
+    if ( (unsigned int)a2 < *(_DWORD *)(v5 + 40) )
     {
-      memset(&LockHandle, 0, sizeof(LockHandle));
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 1736), &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 1720), &LockHandle);
       *(_DWORD *)a3 = *(_DWORD *)(a1 + 4 * v6 + 508);
       v7 = *(_DWORD *)(a1 + 8 * v6 + 576);
       *(_DWORD *)(a3 + 8) = v7;
@@ -30,21 +31,16 @@ __int64 __fastcall VidSchQueryLastCompletedPresentId(__int64 a1, unsigned int a2
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       return 0LL;
     }
-    WdLogSingleEntry2(3LL, a2, -1073741811LL);
+    v9 = WdLogNewEntry5_WdWarning(v5, a2);
+    *(_QWORD *)(v9 + 24) = v6;
+    *(_QWORD *)(v9 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v9);
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"NULL pointer in pVidSchContext or other required pointer, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   return 3221225485LL;
 }

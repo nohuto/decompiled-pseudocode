@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDpOfflineProcessorForReplace @ 0x140A97458
+ * XREFs of HalpDpOfflineProcessorForReplace @ 0x1409A83BC
  * Callers:
- *     HalpDpReplaceTarget @ 0x140A97B30 (HalpDpReplaceTarget.c)
+ *     HalpDpReplaceTarget @ 0x1409A8A90 (HalpDpReplaceTarget.c)
  * Callees:
- *     KeSweepLocalCaches @ 0x140371FB0 (KeSweepLocalCaches.c)
- *     KeSaveStateForHibernate @ 0x14041F430 (KeSaveStateForHibernate.c)
- *     HalpInterruptOfflineProcessor @ 0x140520F80 (HalpInterruptOfflineProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDpPostReplaceInitialization @ 0x140A976B4 (HalpDpPostReplaceInitialization.c)
+ *     KeSweepLocalCaches @ 0x140381B30 (KeSweepLocalCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSaveStateForHibernate @ 0x1403FE550 (KeSaveStateForHibernate.c)
+ *     HalpInterruptOfflineProcessor @ 0x1404D7120 (HalpInterruptOfflineProcessor.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A8618 (HalpDpPostReplaceInitialization.c)
  */
 
 __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)
@@ -40,16 +40,19 @@ __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)
   HalpDpPostReplaceInitialization(a1, &v13);
   if ( KiIrqlFlags )
   {
-    v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v6 = KeGetCurrentIrql();
+      if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

@@ -3,19 +3,19 @@
  * Callers:
  *     RtlpHpMetadataHeapStart @ 0x140009ACC (RtlpHpMetadataHeapStart.c)
  *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
- *     ExCheckFullProcessInformationAccess @ 0x140654314 (ExCheckFullProcessInformationAccess.c)
- *     SdbGetIndex @ 0x14067D724 (SdbGetIndex.c)
- *     ExpCheckTestsigningEnabled @ 0x140706FF4 (ExpCheckTestsigningEnabled.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1407217FC (SdbpGetStringTableItemFromStringRef.c)
- *     ExQueryBootEntropyInformation @ 0x140736934 (ExQueryBootEntropyInformation.c)
- *     RtlpLogCapabilityCheckLatency @ 0x14089A398 (RtlpLogCapabilityCheckLatency.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A30 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
+ *     SdbGetIndex @ 0x14067D704 (SdbGetIndex.c)
+ *     ExpCheckTestsigningEnabled @ 0x140706FD4 (ExpCheckTestsigningEnabled.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x1407217DC (SdbpGetStringTableItemFromStringRef.c)
+ *     ExQueryBootEntropyInformation @ 0x140736914 (ExQueryBootEntropyInformation.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x14089A378 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlRunOnceBeginInitialize @ 0x14060D9F0 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x1406C7AA0 (RtlRunOnceComplete.c)
+ *     RtlRunOnceComplete @ 0x1406C7A80 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(

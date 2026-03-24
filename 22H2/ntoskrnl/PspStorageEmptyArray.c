@@ -1,21 +1,19 @@
 /*
- * XREFs of PspStorageEmptyArray @ 0x1409B7E34
+ * XREFs of PspStorageEmptyArray @ 0x14090EF04
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x140687EA0 (PspJobDeleteStorageArrays.c)
+ *     PspJobDeleteStorageArrays @ 0x14065CAD4 (PspJobDeleteStorageArrays.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
 __int64 __fastcall PspStorageEmptyArray(ULONG_PTR BugCheckParameter2, unsigned int a2)
 {
   unsigned int v2; // edi
-  __int64 v4; // rsi
-  struct _KTHREAD *CurrentThread; // rax
-  void *v6; // rbp
+  __int64 v4; // rbp
+  struct _DMA_ADAPTER *v5; // rsi
 
   v2 = 0;
   if ( a2 )
@@ -23,18 +21,15 @@ __int64 __fastcall PspStorageEmptyArray(ULONG_PTR BugCheckParameter2, unsigned i
     v4 = a2;
     do
     {
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
-      v6 = (void *)(*(_QWORD *)(BugCheckParameter2 + 8) & 0xFFFFFFFFFFFFFFFEuLL);
+      v5 = (struct _DMA_ADAPTER *)(*(_QWORD *)(BugCheckParameter2 + 8) & 0xFFFFFFFFFFFFFFFEuLL);
       *(_QWORD *)(BugCheckParameter2 + 8) = 1LL;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
       KeAbPostRelease(BugCheckParameter2);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      if ( v6 )
+      if ( v5 )
       {
-        ObfDereferenceObject(v6);
+        HalPutDmaAdapter(v5);
         ++v2;
       }
       BugCheckParameter2 += 16LL;

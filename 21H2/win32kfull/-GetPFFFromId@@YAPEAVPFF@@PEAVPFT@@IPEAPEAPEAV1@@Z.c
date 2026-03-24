@@ -1,47 +1,55 @@
 /*
- * XREFs of ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0112B1C
+ * XREFs of ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C01613EC
  * Callers:
- *     NtGdiGetFontFileInfo @ 0x1C0112960 (NtGdiGetFontFileInfo.c)
- *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C0270288 (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
- *     NtGdiAddEmbFontToDC @ 0x1C027A900 (NtGdiAddEmbFontToDC.c)
- *     GreRemoveFontMemResourceEx @ 0x1C02890A8 (GreRemoveFontMemResourceEx.c)
- *     NtGdiGetFontFileData @ 0x1C02BA5F0 (NtGdiGetFontFileData.c)
+ *     NtGdiGetFontFileInfo @ 0x1C0161230 (NtGdiGetFontFileInfo.c)
+ *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C02725B8 (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
+ *     NtGdiAddEmbFontToDC @ 0x1C027CD90 (NtGdiAddEmbFontToDC.c)
+ *     GreRemoveFontMemResourceEx @ 0x1C028B458 (GreRemoveFontMemResourceEx.c)
+ *     NtGdiGetFontFileData @ 0x1C02BC020 (NtGdiGetFontFileData.c)
  * Callees:
- *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C02BA560 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016AAC0 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C02BBF94 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
  */
 
 struct PFF *__fastcall GetPFFFromId(struct PFT **a1, unsigned int a2, struct PFF ***a3)
 {
-  unsigned int v4; // r8d
-  __int64 v5; // r9
-  struct PFT *v6; // rbx
-  struct PFF **v7; // rsi
-  struct PFT *v9; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v4; // rdi
+  struct PFF *v8; // rcx
+  struct PFF **v9; // r15
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  __int64 v12[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = *((_DWORD *)a1 + 6);
-  v5 = HIBYTE(a2);
-  if ( (unsigned int)v5 >= v4 )
+  v4 = HIBYTE(a2);
+  if ( (unsigned int)v4 >= *((_DWORD *)a1 + 6) )
     return 0LL;
   do
   {
-    v6 = a1[v5 + 5];
-    v7 = &a1[v5 + 5];
-    while ( v6 && *((_DWORD *)v6 + 35) != a2 )
-      v6 = (struct PFT *)*((_QWORD *)v6 + 1);
-    v5 = (unsigned int)(v5 + 256);
+    v8 = a1[v4 + 5];
+    v9 = &a1[v4 + 5];
+    while ( 1 )
+    {
+      v10 = (__int64)SkipInvalidPff(v8);
+      v11 = v10;
+      if ( !v10 || *(_DWORD *)(v10 + 140) == a2 )
+        break;
+      v8 = *(struct PFF **)(v10 + 8);
+    }
+    v4 = (unsigned int)(v4 + 256);
   }
-  while ( (unsigned int)v5 < v4 );
-  if ( v6 )
+  while ( (unsigned int)v4 < *((_DWORD *)a1 + 6) );
+  if ( v10 )
   {
-    if ( a1 != gpPFTPrivate || (v9 = v6, PFFOBJ::pPvtDataMatch((PFFOBJ *)&v9)) )
+    if ( a1 == gpPFTPrivate )
+    {
+      v12[0] = v10;
+      v11 = -(__int64)(PFFOBJ::pPvtDataMatch((PFFOBJ *)v12) != 0LL) & v10;
+    }
+    if ( v11 )
     {
       if ( a3 )
-        *a3 = v7;
-    }
-    else
-    {
-      return 0LL;
+        *a3 = v9;
     }
   }
-  return v6;
+  return (struct PFF *)v11;
 }

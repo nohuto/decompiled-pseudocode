@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetDwmApiPort@@YAXPEAX@Z @ 0x1C005983C
+ * XREFs of ?SetDwmApiPort@@YAXPEAX@Z @ 0x1C0074DE8
  * Callers:
- *     ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C00594C8 (-xxxDwmProcessStartup@@YAJPEAX@Z.c)
- *     ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C0059C80 (-xxxDwmProcessShutdown@@YAJH@Z.c)
+ *     ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C0074AD8 (-xxxDwmProcessShutdown@@YAJH@Z.c)
+ *     ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C007503C (-xxxDwmProcessStartup@@YAJPEAX@Z.c)
  * Callees:
  *     <none>
  */

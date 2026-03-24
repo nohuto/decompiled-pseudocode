@@ -1,39 +1,35 @@
 /*
- * XREFs of MmCanThreadFault @ 0x140297EF0
+ * XREFs of MmCanThreadFault @ 0x14025F510
  * Callers:
- *     RtlWalkFrameChain @ 0x140295F90 (RtlWalkFrameChain.c)
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpGetStackCaptureSettings @ 0x140460684 (EtwpGetStackCaptureSettings.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x140460F1A (EtwpCovSampSafeForUserAddressCapture.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x1405AF7DC (EtwpCovSampSafeForUserAddressCapture.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402ABBD0 (KeAreInterruptsEnabled.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
  */
 
 _BOOL8 MmCanThreadFault()
 {
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v1; // rcx
+  struct _KTHREAD *CurrentThread; // rdx
+  __int64 v1; // rax
   _BOOL8 result; // rax
 
   result = 0;
-  if ( (unsigned __int8)KeAreInterruptsEnabled() )
+  if ( (unsigned __int8)ObGetCurrentIrql() < 2u )
   {
-    if ( KeGetCurrentIrql() < 2u )
+    CurrentThread = KeGetCurrentThread();
+    if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 2) == 0
+      && (void (__fastcall __noreturn *)())CurrentThread[1].ApcState.ApcListHead[0].Blink != KiExecuteDpc )
     {
-      CurrentThread = KeGetCurrentThread();
-      if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 2) == 0
-        && (void (__fastcall __noreturn *)())CurrentThread[1].ApcState.ApcListHead[0].Blink != KiExecuteDpc )
+      if ( MmPhysicalMemoryBlock )
       {
-        if ( MmPhysicalMemoryBlock )
+        v1 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
+                       + 6848LL);
+        if ( v1 )
         {
-          v1 = *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessor[25])
-                         + 16600LL);
-          if ( v1 )
-          {
-            if ( CurrentThread != *(struct _KTHREAD **)(v1 + 88) )
-              return 1;
-          }
+          if ( CurrentThread != *(struct _KTHREAD **)(v1 + 88) )
+            return 1;
         }
       }
     }

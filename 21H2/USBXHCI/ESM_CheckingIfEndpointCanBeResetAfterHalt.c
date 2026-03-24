@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_CheckingIfEndpointCanBeResetAfterHalt @ 0x1C004F3D0
+ * XREFs of ESM_CheckingIfEndpointCanBeResetAfterHalt @ 0x1C004E940
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_AreTransfersPending @ 0x1C0037E2C (Endpoint_AreTransfersPending.c)
+ *     Endpoint_AreTransfersPending @ 0x1C0037CA8 (Endpoint_AreTransfersPending.c)
  */
 
 __int64 __fastcall ESM_CheckingIfEndpointCanBeResetAfterHalt(__int64 a1)

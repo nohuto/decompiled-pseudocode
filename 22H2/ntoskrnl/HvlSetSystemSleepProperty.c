@@ -1,31 +1,32 @@
 /*
- * XREFs of HvlSetSystemSleepProperty @ 0x140545EF0
+ * XREFs of HvlSetSystemSleepProperty @ 0x1404F6560
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlSetSystemSleepProperty(ULONG a1, char a2, char a3)
+__int64 __fastcall HvlSetSystemSleepProperty(int a1, char a2, char a3)
 {
-  PHYSICAL_ADDRESS *v6; // rax
-  __int128 v8; // [rsp+20h] [rbp-88h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-78h]
-  __int64 v10; // [rsp+38h] [rbp-70h]
-  __int64 v11; // [rsp+40h] [rbp-68h] BYREF
+  _QWORD *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // r9
+  __int128 v10; // [rsp+20h] [rbp-88h] BYREF
+  __int128 v11; // [rsp+30h] [rbp-78h]
+  _BYTE v12[80]; // [rsp+40h] [rbp-68h] BYREF
 
-  v8 = 0LL;
-  v9 = 0LL;
-  LODWORD(v10) = 0;
-  v6 = HvlpAcquireHypercallPage((__int64)&v8, 1, (__int64)&v11, 40LL);
-  v6->LowPart = 3;
-  v6[1].LowPart = a1;
-  BYTE4(v6[1].QuadPart) = a2;
-  BYTE5(v6[1].QuadPart) = a3;
-  LOWORD(a1) = HvcallInitiateHypercall(111);
-  HvlpReleaseHypercallPage((__int64)&v8);
+  v10 = 0LL;
+  v11 = 0LL;
+  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 1, (__int64)v12, 40LL);
+  v7 = *((_QWORD *)&v11 + 1);
+  *(_DWORD *)v6 = 3;
+  *((_DWORD *)v6 + 2) = a1;
+  *((_BYTE *)v6 + 12) = a2;
+  *((_BYTE *)v6 + 13) = a3;
+  LOWORD(a1) = HvcallInitiateHypercall(111, v7, 0LL, v8);
+  HvlpReleaseHypercallPage((__int64)&v10);
   return (_WORD)a1 != 0 ? 0xC0000001 : 0;
 }

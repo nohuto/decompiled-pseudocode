@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C0131254
+ * XREFs of ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01412F0
  * Callers:
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0134298 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C014D744 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
- *     EngStrokeAndFillPath @ 0x1C02856C0 (EngStrokeAndFillPath.c)
- *     NtGdiWidenPath @ 0x1C02AC590 (NtGdiWidenPath.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0146E94 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     EngStrokeAndFillPath @ 0x1C014C2B0 (EngStrokeAndFillPath.c)
+ *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C015AA94 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     NtGdiWidenPath @ 0x1C02ADE20 (NtGdiWidenPath.c)
  * Callees:
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     LongLongToLong @ 0x1C010EC34 (LongLongToLong.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     LongLongToLong @ 0x1C0158BB0 (LongLongToLong.c)
  */
 
 __int64 __fastcall EPATHOBJ::bComputeWidenedBounds(
@@ -46,14 +46,14 @@ __int64 __fastcall EPATHOBJ::bComputeWidenedBounds(
   LONG v33; // esi
   unsigned int v34; // r8d
   LONG v35; // esi
-  LONG v36; // [rsp+20h] [rbp-20h] BYREF
-  LONG v37; // [rsp+24h] [rbp-1Ch] BYREF
-  LONG v38; // [rsp+28h] [rbp-18h] BYREF
-  LONG v39; // [rsp+30h] [rbp-10h] BYREF
-  LONG v40; // [rsp+34h] [rbp-Ch]
-  LONG v41; // [rsp+38h] [rbp-8h]
-  int v42; // [rsp+3Ch] [rbp-4h]
-  LONG plResult; // [rsp+88h] [rbp+48h] BYREF
+  LONG v36; // [rsp+30h] [rbp-20h] BYREF
+  LONG v37; // [rsp+34h] [rbp-1Ch] BYREF
+  LONG v38; // [rsp+38h] [rbp-18h] BYREF
+  LONG v39; // [rsp+40h] [rbp-10h] BYREF
+  LONG v40; // [rsp+44h] [rbp-Ch]
+  LONG v41; // [rsp+48h] [rbp-8h]
+  int v42; // [rsp+4Ch] [rbp-4h]
+  LONG plResult; // [rsp+98h] [rbp+48h] BYREF
 
   LODWORD(v4.e) = a4->elWidth;
   plResult = 0;
@@ -62,7 +62,7 @@ __int64 __fastcall EPATHOBJ::bComputeWidenedBounds(
   v40 = plResult;
   v41 = plResult;
   v42 = -plResult;
-  if ( !EXFORMOBJ::bXform((EXFORMOBJ *)a3, (struct _VECTORL *)&v39, (struct _VECTORFX *)&v39, (unsigned int)(v8 - 4)) )
+  if ( !EXFORMOBJ::bXform((EXFORMOBJ *)a3, (struct _VECTORL *)&v39, (struct _VECTORFX *)&v39, (unsigned int)(v8 - 4), 0) )
     return 0LL;
   v9 = v39;
   v10 = v39;

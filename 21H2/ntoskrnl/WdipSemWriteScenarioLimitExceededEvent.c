@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemWriteScenarioLimitExceededEvent @ 0x1409DB15C
+ * XREFs of WdipSemWriteScenarioLimitExceededEvent @ 0x140930728
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x14083FE80 (WdipSemLoadScenarioTable.c)
- *     WdipSemLoadNextScenario @ 0x14084028C (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140799D84 (WdipSemLoadNextScenario.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x14081549C (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x1407889FC (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteScenarioLimitExceededEvent(const EVENT_DESCRIPTOR *a1, ULONGLONG a2, __int16 a3)

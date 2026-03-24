@@ -1,14 +1,46 @@
 /*
- * XREFs of MiHotAddBootDeferredDescriptors @ 0x1408515B0
+ * XREFs of MiHotAddBootDeferredDescriptors @ 0x140A552F0
  * Callers:
- *     <none>
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B69B38 (MiHotAddBootDeferredDescriptorsDiscardable.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C547C (MiAddPhysicalMemoryChunks.c)
  */
 
-LONG MiHotAddBootDeferredDescriptors()
+void MiHotAddBootDeferredDescriptors()
 {
-  MiHotAddBootDeferredDescriptorsDiscardable();
-  return KeSetEvent(&stru_140C673E8, 0, 0);
+  __int64 v0; // rdi
+  __int64 v1; // rax
+  ULONG_PTR v2; // rbx
+  int v3; // esi
+  __int64 v4; // rdi
+  int v5; // r9d
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR v7; // [rsp+48h] [rbp+10h] BYREF
+
+  while ( 1 )
+  {
+    v0 = MxDeferredBootFreeDescriptorHead;
+    if ( (__int64 *)MxDeferredBootFreeDescriptorHead == &MxDeferredBootFreeDescriptorHead )
+      break;
+    if ( *(__int64 **)(MxDeferredBootFreeDescriptorHead + 8) != &MxDeferredBootFreeDescriptorHead
+      || (v1 = *(_QWORD *)MxDeferredBootFreeDescriptorHead,
+          *(_QWORD *)(*(_QWORD *)MxDeferredBootFreeDescriptorHead + 8LL) != MxDeferredBootFreeDescriptorHead) )
+    {
+      __fastfail(3u);
+    }
+    MxDeferredBootFreeDescriptorHead = *(_QWORD *)MxDeferredBootFreeDescriptorHead;
+    *(_QWORD *)(v1 + 8) = &MxDeferredBootFreeDescriptorHead;
+    v2 = *(_QWORD *)(v0 + 24);
+    v3 = *(_DWORD *)(v0 + 16);
+    v4 = *(_QWORD *)(v0 + 32);
+    MiSearchNumaNodeTable(v2);
+    v7 = v2 << 12;
+    v6 = v4 << 12;
+    v5 = 1280;
+    if ( v3 != 24 )
+      v5 = 1024;
+    MiAddPhysicalMemoryChunks(&MiSystemPartition, &v7, &v6, v5);
+  }
+  MiFlags |= 0x10000000u;
 }

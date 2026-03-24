@@ -1,35 +1,37 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x14078C9E8
+ * XREFs of PnpConcatPWSTR @ 0x1406A9C64
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1406998CC (PiDqOpenUserObjectRegKey.c)
- *     PiSwGetChildPdo @ 0x1406E32E4 (PiSwGetChildPdo.c)
- *     PiSwInstanceInfoInit @ 0x1407661D0 (PiSwInstanceInfoInit.c)
- *     PiSwStopDestroy @ 0x140766F84 (PiSwStopDestroy.c)
- *     PipCheckForDenyExecute @ 0x14076A520 (PipCheckForDenyExecute.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406A98B8 (PiDqOpenUserObjectRegKey.c)
+ *     PiSwStopDestroy @ 0x140738C44 (PiSwStopDestroy.c)
+ *     PipCheckForDenyExecute @ 0x140748B10 (PipCheckForDenyExecute.c)
+ *     PiSwInstanceInfoInit @ 0x14074E340 (PiSwInstanceInfoInit.c)
+ *     PiSwGetChildPdo @ 0x14077093C (PiSwGetChildPdo.c)
  * Callees:
- *     RtlStringCbCatW @ 0x1402E0A04 (RtlStringCbCatW.c)
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned __int64 a4)
 {
-  unsigned __int64 v7; // r11
-  unsigned __int64 v8; // r14
+  ULONGLONG v7; // r11
+  unsigned __int64 v8; // rsi
   STRSAFE_PCNZWCH *v9; // rdi
   NTSTATUS v10; // ebx
   __int64 v11; // r11
-  size_t v12; // r15
-  _WORD *Pool2; // rax
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // r14
-  NTSTRSAFE_PCWSTR *v16; // rdi
-  size_t pcchLength[3]; // [rsp+20h] [rbp-18h] BYREF
+  _WORD *PoolWithTag; // rax
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rsi
+  NTSTRSAFE_PCWSTR *v15; // rdi
+  ULONGLONG pullResult; // [rsp+20h] [rbp-18h] BYREF
+  size_t pcchLength[2]; // [rsp+28h] [rbp-10h] BYREF
   unsigned __int64 v19; // [rsp+98h] [rbp+60h] BYREF
 
   v19 = a4;
   pcchLength[0] = 0LL;
+  pullResult = 0LL;
   *a3 = 0LL;
   v7 = 1LL;
   v8 = 0LL;
@@ -42,7 +44,7 @@ __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned 
       {
         v10 = RtlStringCchLengthW(*v9, cchMax, pcchLength);
         if ( v10 < 0 )
-          goto LABEL_20;
+          goto LABEL_19;
         v7 = pcchLength[0] + v11;
         a4 = v19;
       }
@@ -53,13 +55,17 @@ __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned 
   if ( v7 > cchMax )
   {
     v10 = -1073741811;
-    goto LABEL_20;
+    goto LABEL_19;
   }
-  v12 = 2 * v7;
-  if ( !is_mul_ok(v7, 2uLL) )
+  v10 = RtlULongLongMult(v7, 2uLL, &pullResult);
+  if ( v10 < 0 )
+    goto LABEL_19;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, pullResult, Tag);
+  *a3 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    v10 = -1073741675;
-LABEL_20:
+    v10 = -1073741670;
+LABEL_19:
     if ( *a3 )
     {
       ExFreePoolWithTag(*a3, Tag);
@@ -67,32 +73,24 @@ LABEL_20:
     }
     return (unsigned int)v10;
   }
-  v10 = 0;
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, 2 * v7, Tag);
-  *a3 = Pool2;
-  if ( !Pool2 )
-  {
-    v10 = -1073741670;
-    goto LABEL_20;
-  }
-  *Pool2 = 0;
-  v14 = v19;
-  v15 = 0LL;
+  *PoolWithTag = 0;
+  v13 = v19;
+  v14 = 0LL;
   if ( v19 )
   {
-    v16 = (NTSTRSAFE_PCWSTR *)&v19;
+    v15 = (NTSTRSAFE_PCWSTR *)&v19;
     do
     {
-      if ( *++v16 )
+      if ( *++v15 )
       {
-        v10 = RtlStringCbCatW((NTSTRSAFE_PWSTR)*a3, v12, *v16);
+        v10 = RtlStringCbCatW((NTSTRSAFE_PWSTR)*a3, pullResult, *v15);
         if ( v10 < 0 )
-          goto LABEL_20;
-        v14 = v19;
+          goto LABEL_19;
+        v13 = v19;
       }
-      ++v15;
+      ++v14;
     }
-    while ( v15 < v14 );
+    while ( v14 < v13 );
   }
   return (unsigned int)v10;
 }

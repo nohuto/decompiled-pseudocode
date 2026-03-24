@@ -13,12 +13,12 @@
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
- *     MiDereferenceControlArea @ 0x14013B55C (MiDereferenceControlArea.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
+ *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiResidentPagesForSpan @ 0x1406C3350 (MiResidentPagesForSpan.c)
- *     MiComputeAweCharges @ 0x14084F870 (MiComputeAweCharges.c)
+ *     MiResidentPagesForSpan @ 0x1406C3330 (MiResidentPagesForSpan.c)
+ *     MiComputeAweCharges @ 0x14084F850 (MiComputeAweCharges.c)
  */
 
 void __fastcall MiRemoveVadCharges(__int64 a1, struct _KPROCESS *a2, __int64 a3)

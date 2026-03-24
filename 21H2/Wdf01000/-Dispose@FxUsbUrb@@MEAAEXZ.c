@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dispose@FxUsbUrb@@MEAAEXZ @ 0x1C007CE60
+ * XREFs of ?Dispose@FxUsbUrb@@MEAAEXZ @ 0x1C0070690
  * Callers:
  *     <none>
  * Callees:
- *     USBD_UrbFree @ 0x1C0090EF0 (USBD_UrbFree.c)
+ *     USBD_UrbFree @ 0x1C00901E4 (USBD_UrbFree.c)
  */
 
 unsigned __int8 __fastcall FxUsbUrb::Dispose(FxUsbUrb *this)

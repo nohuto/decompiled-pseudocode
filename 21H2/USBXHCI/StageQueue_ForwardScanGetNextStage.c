@@ -1,16 +1,16 @@
 /*
- * XREFs of StageQueue_ForwardScanGetNextStage @ 0x1C000FA58
+ * XREFs of StageQueue_ForwardScanGetNextStage @ 0x1C000C530
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_Stage_Find @ 0x1C0007610 (Isoch_Stage_Find.c)
- *     Bulk_FindStage @ 0x1C000B5B0 (Bulk_FindStage.c)
- *     Bulk_CompleteTransfers @ 0x1C000BAB8 (Bulk_CompleteTransfers.c)
- *     Bulk_ValidateStagePointer @ 0x1C000F994 (Bulk_ValidateStagePointer.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0041D04 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_CompleteTransfers @ 0x1C0041F9C (Isoch_CompleteTransfers.c)
- *     Isoch_FindTrbMatch @ 0x1C00424C0 (Isoch_FindTrbMatch.c)
- *     Isoch_Transfer_CompleteStaleStages @ 0x1C0043454 (Isoch_Transfer_CompleteStaleStages.c)
- *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00447B8 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_Stage_Find @ 0x1C0002730 (Isoch_Stage_Find.c)
+ *     Bulk_FindStage @ 0x1C000BD10 (Bulk_FindStage.c)
+ *     Bulk_ValidateStagePointer @ 0x1C000C22C (Bulk_ValidateStagePointer.c)
+ *     Bulk_CompleteTransfers @ 0x1C000C2F0 (Bulk_CompleteTransfers.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
+ *     Isoch_FindTrbMatch @ 0x1C00415C0 (Isoch_FindTrbMatch.c)
+ *     Isoch_Transfer_CompleteStaleStages @ 0x1C0042A48 (Isoch_Transfer_CompleteStaleStages.c)
+ *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00441A0 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
  * Callees:
  *     <none>
  */

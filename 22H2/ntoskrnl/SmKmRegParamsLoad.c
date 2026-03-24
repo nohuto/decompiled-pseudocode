@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmRegParamsLoad @ 0x1409D94CC
+ * XREFs of SmKmRegParamsLoad @ 0x14092BD98
  * Callers:
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
 {
   __int64 result; // rax
-  int v3; // [rsp+30h] [rbp-79h] BYREF
-  unsigned int v4; // [rsp+34h] [rbp-75h] BYREF
+  unsigned int v3; // [rsp+30h] [rbp-79h] BYREF
+  int v4; // [rsp+34h] [rbp-75h] BYREF
   __int64 v5; // [rsp+40h] [rbp-69h] BYREF
   int v6; // [rsp+48h] [rbp-61h]
   const wchar_t *v7; // [rsp+50h] [rbp-59h]
@@ -39,11 +39,11 @@ __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
   v6 = 288;
   v7 = L"EncryptionMode";
   v13 = 288;
-  v8 = &v3;
+  v8 = &v4;
   v16 = 0x4000000;
   v14 = L"EncryptionScope";
   v11 = 0;
-  v15 = &v4;
+  v15 = &v3;
   v12 = 0LL;
   *(_QWORD *)a1 = 0LL;
   *(_DWORD *)(a1 + 4) &= 0xFFFFFFFC;
@@ -56,19 +56,19 @@ __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
   v22 = 0;
   v23 = 0LL;
   v24 = 0;
-  v3 = 0;
   v4 = 0;
+  v3 = 0;
   result = RtlpQueryRegistryValues(
              0LL,
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
-             &v5,
+             (__int64)&v5,
              0LL);
   if ( (int)result >= 0 )
   {
-    if ( v3 == 1 )
+    if ( v4 == 1 )
       *(_DWORD *)a1 *= 2;
-    if ( v4 < 3 )
-      *(_DWORD *)(a1 + 4) ^= (*(_DWORD *)(a1 + 4) ^ v4) & 3;
+    if ( v3 < 3 )
+      *(_DWORD *)(a1 + 4) ^= ((unsigned __int8)v3 ^ (unsigned __int8)*(_DWORD *)(a1 + 4)) & 3;
   }
   else if ( (_DWORD)result != -1073741772 )
   {

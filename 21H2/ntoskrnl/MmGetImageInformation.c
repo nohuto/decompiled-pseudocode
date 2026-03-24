@@ -1,57 +1,56 @@
 /*
- * XREFs of MmGetImageInformation @ 0x140759008
+ * XREFs of MmGetImageInformation @ 0x1405CF098
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x14024BAD4 (RtlpLookupUserFunctionTable.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405EEB40 (RtlGetImageBaseAndLoadConfig.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x140758C68 (EtwpLocateDbgIdForRegEntry.c)
- *     KiCheckUserAddressCetCompat @ 0x140960A00 (KiCheckUserAddressCetCompat.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E6BB0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     RtlpLookupUserFunctionTable @ 0x14029A894 (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F88A8 (RtlGetImageBaseAndLoadConfig.c)
+ *     KiCheckUserAddressCetCompat @ 0x1405CEF24 (KiCheckUserAddressCetCompat.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406AB1A8 (EtwpLocateDbgIdForRegEntry.c)
  * Callees:
- *     MiCheckForConflictingVad @ 0x1402819DC (MiCheckForConflictingVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiCheckForConflictingVad @ 0x14025B06C (MiCheckForConflictingVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  */
 
 __int64 __fastcall MmGetImageInformation(unsigned __int64 a1, _QWORD *a2, _QWORD *a3, int *a4)
 {
-  struct _KTHREAD *CurrentThread; // rbx
-  unsigned int v9; // edi
-  int v10; // r14d
+  struct _KTHREAD *CurrentThread; // rdi
+  unsigned int v10; // ebx
+  int v11; // r14d
   __int64 Process; // rsi
-  __int64 **v12; // rax
+  __int64 **v13; // rax
 
   if ( a1 > 0x7FFFFFFEFFFFLL )
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
-  v9 = 0;
   v10 = 0;
+  v11 = 0;
   Process = (__int64)CurrentThread->ApcState.Process;
   if ( ((__int64)CurrentThread[1].Queue & 3) == 0 )
   {
-    v10 = 1;
+    v11 = 1;
     LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)CurrentThread->ApcState.Process);
   }
-  v12 = MiCheckForConflictingVad(Process, a1, a1);
-  if ( v12 )
+  v13 = MiCheckForConflictingVad(Process, a1, a1);
+  if ( v13 )
   {
-    if ( ((_DWORD)v12[6] & 0x70) == 0x20 )
+    if ( ((_DWORD)v13[6] & 0x70) == 0x20 )
     {
-      *a2 = (*((unsigned int *)v12 + 6) | ((unsigned __int64)*((unsigned __int8 *)v12 + 32) << 32)) << 12;
-      *a3 = ((*((unsigned int *)v12 + 7) | ((unsigned __int64)*((unsigned __int8 *)v12 + 33) << 32))
-           - (*((unsigned int *)v12 + 6) | ((unsigned __int64)*((unsigned __int8 *)v12 + 32) << 32))
+      *a2 = (*((unsigned int *)v13 + 6) | ((unsigned __int64)*((unsigned __int8 *)v13 + 32) << 32)) << 12;
+      *a3 = ((*((unsigned int *)v13 + 7) | ((unsigned __int64)*((unsigned __int8 *)v13 + 33) << 32))
+           - (*((unsigned int *)v13 + 6) | ((unsigned __int64)*((unsigned __int8 *)v13 + 32) << 32))
            + 1) << 12;
-      *a4 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)*v12[9] + 56LL) + 76LL) & 1;
+      *a4 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)*v13[9] + 56LL) + 76LL) & 1;
     }
     else
     {
-      v9 = -1073741751;
+      v10 = -1073741751;
     }
   }
   else
   {
-    v9 = -1073741800;
+    v10 = -1073741800;
   }
-  if ( v10 )
+  if ( v11 == 1 )
     UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, Process);
-  return v9;
+  return v10;
 }

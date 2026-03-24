@@ -1,16 +1,16 @@
 /*
- * XREFs of PsDereferenceKernelStack @ 0x1406EA260
+ * XREFs of PsDereferenceKernelStack @ 0x1406C2A50
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140298A3C (KeEnumerateKernelStackSegments.c)
+ *     KeEnumerateKernelStackSegments @ 0x1402E4A8C (KeEnumerateKernelStackSegments.c)
  */
 
 __int64 __fastcall PsDereferenceKernelStack(__int64 a1)
 {
   __int64 result; // rax
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 1452), 0xFFFFFFFF);
+  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 1372), 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
   {
     result = KeEnumerateKernelStackSegments(

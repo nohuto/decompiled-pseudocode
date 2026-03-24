@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapGetPreallocatedErrorRecord @ 0x140610FEC
+ * XREFs of WheapGetPreallocatedErrorRecord @ 0x1405BBA4C
  * Callers:
- *     WheapAllocErrorRecord @ 0x140610BAC (WheapAllocErrorRecord.c)
+ *     WheapAllocErrorRecord @ 0x1405BB58C (WheapAllocErrorRecord.c)
  * Callees:
  *     <none>
  */

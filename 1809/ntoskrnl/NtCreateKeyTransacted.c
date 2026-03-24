@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCreateKeyTransacted @ 0x140693C90
+ * XREFs of NtCreateKeyTransacted @ 0x140693C70
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     CmCreateKey @ 0x1405B5A60 (CmCreateKey.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpTransDereferenceTransaction @ 0x1406940B4 (CmpTransDereferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
  */
 
 __int64 __fastcall NtCreateKeyTransacted(

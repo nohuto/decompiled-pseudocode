@@ -1,37 +1,76 @@
 /*
- * XREFs of HalpIommuDomainUnmapLogicalRange @ 0x140517F68
+ * XREFs of HalpIommuDomainUnmapLogicalRange @ 0x1404C9274
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A91BC (HalpIommuAllocateDmaDomain.c)
- *     IommuUnmapLogicalRange @ 0x14045E4F0 (IommuUnmapLogicalRange.c)
- *     IommuFreeReservedLogicalAddressRange @ 0x140525F20 (IommuFreeReservedLogicalAddressRange.c)
- *     IommuUnmapIdentityRangeEx @ 0x140526900 (IommuUnmapIdentityRangeEx.c)
- *     IommuUnmapReservedLogicalRange @ 0x140526A00 (IommuUnmapReservedLogicalRange.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A5C80 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A6970 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaFreeLa @ 0x1404B7848 (HalpDmaFreeLa.c)
+ *     HalFreeCommonBufferV3 @ 0x1404C4530 (HalFreeCommonBufferV3.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4DEC (HalpLeaveDmaDomain.c)
+ *     HalFreeCommonBufferVector @ 0x1404C5F60 (HalFreeCommonBufferVector.c)
+ *     HalFreeCommonBufferThin @ 0x1404CACF0 (HalFreeCommonBufferThin.c)
+ *     HalpPutScatterGatherListThin @ 0x1404CB9CC (HalpPutScatterGatherListThin.c)
+ *     IommuUnmapLogicalRange @ 0x1404DACE0 (IommuUnmapLogicalRange.c)
  * Callees:
- *     HalpIommuFlushDomainTbs @ 0x140518154 (HalpIommuFlushDomainTbs.c)
- *     IommupHvMapDeviceLogicalRange @ 0x1405253E0 (IommupHvMapDeviceLogicalRange.c)
- *     IommupHvUnmapDeviceLogicalRange @ 0x1405255F8 (IommupHvUnmapDeviceLogicalRange.c)
- *     HalpIommuUnmapLogicalRange @ 0x1405274B0 (HalpIommuUnmapLogicalRange.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpIommuFlushDmaDomain @ 0x1404C93C8 (HalpIommuFlushDmaDomain.c)
+ *     IommupHvMapDeviceLogicalRange @ 0x1404DA1C4 (IommupHvMapDeviceLogicalRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC56C (HalpIommuUnmapLogicalRange.c)
  */
 
-__int64 __fastcall HalpIommuDomainUnmapLogicalRange(ULONG_PTR a1, ULONG_PTR a2, _QWORD *a3, char a4)
+__int64 __fastcall HalpIommuDomainUnmapLogicalRange(
+        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter4,
+        unsigned __int64 *a3,
+        char a4)
 {
-  int v8; // edi
-  unsigned int v9; // eax
+  unsigned __int64 v8; // rdx
+  unsigned int v9; // ecx
+  int v10; // eax
+  int v11; // esi
+  ULONG_PTR v12; // r14
+  ULONG_PTR v13; // rbp
+  __int64 v14; // rdi
+  _QWORD v15[5]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v16; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( !HalpHvIommu || *(_BYTE *)(a1 + 52) )
+  v15[0] = 0LL;
+  if ( HalpHvIommu )
   {
-    v8 = HalpIommuUnmapLogicalRange(*(_QWORD *)(a1 + 40), a3, a2);
-    v9 = HalpIommuFlushDomainTbs(a1, a2, *a3);
-    if ( v8 >= 0 )
-      return v9;
-    return (unsigned int)v8;
-  }
-  else if ( a4 )
-  {
-    return IommupHvMapDeviceLogicalRange(a1, a2);
+    if ( !HalpHvIommuDeviceDomain )
+      return 3221225659LL;
+    v8 = *a3;
+    v9 = *(_DWORD *)(BugCheckParameter3 + 32);
+    if ( a4 )
+    {
+      v10 = IommupHvMapDeviceLogicalRange(v9, 0, 0, *a3, BugCheckParameter4);
+    }
+    else
+    {
+      v16 = v9;
+      v15[0] = (v8 >> 12) + ((v8 & 0xFFF) != 0);
+      v10 = ((__int64 (__fastcall *)(__int64 *, ULONG_PTR, _QWORD *))qword_140C4A398)(&v16, BugCheckParameter4, v15);
+    }
+    v11 = v10;
+    if ( v10 < 0 )
+      KeBugCheckEx(0x1D9u, 1uLL, v10, BugCheckParameter3, BugCheckParameter4);
   }
   else
   {
-    return IommupHvUnmapDeviceLogicalRange(a1, a2);
+    v11 = HalpIommuUnmapLogicalRange(*(_QWORD *)(BugCheckParameter3 + 24), a3, BugCheckParameter4);
+    v12 = ((BugCheckParameter4 & 0xFFF) + *a3 + 4095) >> 12;
+    v13 = BugCheckParameter4 & 0xFFFFFFFFFFFFF000uLL;
+    while ( v12 )
+    {
+      v14 = 1024LL;
+      if ( v12 < 0x400 )
+        v14 = v12;
+      HalpIommuFlushDmaDomain(BugCheckParameter3, v13 ^ ((unsigned __int16)v13 ^ (unsigned __int16)(v14 - 1)) & 0x3FF);
+      v12 -= v14;
+      v13 += v14 << 12;
+    }
+    if ( v11 >= 0 )
+      return 0;
   }
+  return (unsigned int)v11;
 }

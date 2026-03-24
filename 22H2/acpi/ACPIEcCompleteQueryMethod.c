@@ -1,16 +1,15 @@
 /*
- * XREFs of ACPIEcCompleteQueryMethod @ 0x1C0025900
+ * XREFs of ACPIEcCompleteQueryMethod @ 0x1C0053E90
  * Callers:
- *     ACPIEcRunQueryMethod @ 0x1C0025AE4 (ACPIEcRunQueryMethod.c)
+ *     ACPIEcRunQueryMethod @ 0x1C0054084 (ACPIEcRunQueryMethod.c)
  * Callees:
- *     ACPIEcDispatchQueries @ 0x1C0025978 (ACPIEcDispatchQueries.c)
+ *     ACPIEcDispatchQueries @ 0x1C0053F08 (ACPIEcDispatchQueries.c)
  */
 
 void __fastcall ACPIEcCompleteQueryMethod(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // di
   KIRQL v6; // al
-  __int64 v7; // rdx
 
   v5 = 0;
   v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a4 + 88));
@@ -25,5 +24,5 @@ void __fastcall ACPIEcCompleteQueryMethod(__int64 a1, __int64 a2, __int64 a3, __
   }
   KeReleaseSpinLock((PKSPIN_LOCK)(a4 + 88), v6);
   if ( v5 )
-    ACPIEcDispatchQueries(a4, v7);
+    ACPIEcDispatchQueries(a4);
 }

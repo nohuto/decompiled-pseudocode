@@ -1,60 +1,60 @@
 /*
- * XREFs of MfgInitSystem @ 0x140B76340
+ * XREFs of MfgInitSystem @ 0x140A73924
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14041C1E0 (ZwDeleteKey.c)
- *     ZwOpenKeyEx @ 0x14041CBC0 (ZwOpenKeyEx.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FB4A0 (ZwDeleteKey.c)
+ *     ZwOpenKeyEx @ 0x1403FBE40 (ZwOpenKeyEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MfgInitSystem(__int64 a1)
 {
-  __int64 v1; // rdi
   NTSTATUS inited; // ebx
+  __int64 v2; // rdi
   unsigned __int16 v3; // ax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v6; // rax
-  HANDLE v7; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
-  OBJECT_ATTRIBUTES KeyHandle_8; // [rsp+58h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING ValueName; // [rsp+A0h] [rbp-68h] BYREF
-  WCHAR pszDest[256]; // [rsp+B8h] [rbp-50h] BYREF
+  HANDLE v7; // [rsp+40h] [rbp-C0h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE Handle; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  UNICODE_STRING ValueName; // [rsp+98h] [rbp-68h] BYREF
+  WCHAR pszDest[256]; // [rsp+B0h] [rbp-50h] BYREF
 
-  qword_140C31B10 = 0LL;
-  ExpManufacturingInformation = 0LL;
-  v1 = *(_QWORD *)(a1 + 240);
-  inited = 0;
-  DestinationString = 0LL;
   Handle = 0LL;
-  memset(&KeyHandle_8, 0, 44);
-  ValueName = 0LL;
+  ExpManufacturingInformation = 0LL;
+  qword_140C197D0 = 0LL;
+  inited = 0;
+  v2 = *(_QWORD *)(a1 + 240);
+  DestinationString = 0LL;
   v7 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyHandle = 0LL;
-  v3 = *(_WORD *)(v1 + 2840);
+  ValueName = 0LL;
+  v3 = *(_WORD *)(v2 + 2808);
   if ( !v3 )
     return (unsigned int)inited;
   if ( v3 >= 0x80u )
     return (unsigned int)-1073741811;
-  DWORD2(ExpManufacturingInformation) = *(_DWORD *)(v1 + 2840);
-  Pool2 = (void *)ExAllocatePool2(256LL, WORD5(ExpManufacturingInformation), 0x5067664Du);
-  qword_140C31B10 = Pool2;
-  if ( Pool2 )
+  DWORD2(ExpManufacturingInformation) = *(_DWORD *)(v2 + 2808);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, WORD5(ExpManufacturingInformation), 0x5067664Du);
+  qword_140C197D0 = PoolWithTag;
+  if ( PoolWithTag )
   {
     inited = RtlStringCbCopyW(
-               (NTSTRSAFE_PWSTR)Pool2,
+               (NTSTRSAFE_PWSTR)PoolWithTag,
                WORD5(ExpManufacturingInformation),
-               *(NTSTRSAFE_PCWSTR *)(v1 + 2848));
+               *(NTSTRSAFE_PCWSTR *)(v2 + 2816));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlStringCbPrintfW(
@@ -68,37 +68,37 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     inited = RtlInitUnicodeStringEx(&DestinationString, pszDest);
     if ( inited < 0 )
       goto LABEL_22;
-    KeyHandle_8.Length = 48;
-    KeyHandle_8.RootDirectory = 0LL;
-    KeyHandle_8.ObjectName = &DestinationString;
-    KeyHandle_8.Attributes = 576;
-    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
-    inited = ZwOpenKey(&KeyHandle, 0xF003Fu, &KeyHandle_8);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    inited = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
     if ( inited < 0 )
       goto LABEL_22;
-    KeyHandle_8.Attributes = 576;
-    KeyHandle_8.Length = 48;
-    KeyHandle_8.RootDirectory = KeyHandle;
-    KeyHandle_8.ObjectName = (PUNICODE_STRING)((char *)&ExpManufacturingInformation + 8);
-    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
-    inited = ZwOpenKey(&Handle, 0xF003Fu, &KeyHandle_8);
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = KeyHandle;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)((char *)&ExpManufacturingInformation + 8);
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    inited = ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes);
     if ( inited < 0 )
       goto LABEL_22;
     ZwClose(Handle);
     LODWORD(ExpManufacturingInformation) = ExpManufacturingInformation | 1;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
-    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_140C31B10, WORD5(ExpManufacturingInformation));
+    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_140C197D0, WORD5(ExpManufacturingInformation));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");
     if ( inited < 0 )
       goto LABEL_22;
-    KeyHandle_8.RootDirectory = KeyHandle;
-    KeyHandle_8.Length = 48;
-    KeyHandle_8.ObjectName = &DestinationString;
-    KeyHandle_8.Attributes = 832;
-    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
-    if ( ZwOpenKeyEx(&v7, 0xF003Fu, &KeyHandle_8, 8u) >= 0 )
+    ObjectAttributes.RootDirectory = KeyHandle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 832;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKeyEx(&v7, 0xF003Fu, &ObjectAttributes, 8u) >= 0 )
     {
       inited = ZwDeleteKey(v7);
       if ( inited < 0 )
@@ -106,7 +106,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
       ZwClose(v7);
       v7 = 0LL;
     }
-    inited = ZwCreateKey(&v7, 0xF003Fu, &KeyHandle_8, 0, 0LL, 3u, 0LL);
+    inited = ZwCreateKey(&v7, 0xF003Fu, &ObjectAttributes, 0, 0LL, 3u, 0LL);
     if ( inited >= 0 )
     {
       inited = RtlStringCbPrintfW(

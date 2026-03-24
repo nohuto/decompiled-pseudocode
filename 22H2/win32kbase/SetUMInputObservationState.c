@@ -1,27 +1,31 @@
 /*
- * XREFs of SetUMInputObservationState @ 0x1C01E8FEC
+ * XREFs of SetUMInputObservationState @ 0x1C01AF054
  * Callers:
- *     NtMITSetInputObservationState @ 0x1C01420D0 (NtMITSetInputObservationState.c)
+ *     NtMITSetInputObservationState @ 0x1C012B8E0 (NtMITSetInputObservationState.c)
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z @ 0x1C01F2AFC (-SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z @ 0x1C01BB04C (-SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z.c)
  */
 
 __int64 __fastcall SetUMInputObservationState(int a1, int a2, unsigned int a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  CInputThread *v3; // rdi
+  bool v7; // bl
   __int64 MouseProcessor; // rax
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2082);
+  v3 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v3, 0LL);
+  v7 = CInputThread::_CalledOnInputThread(v3);
+  ExReleasePushLockSharedEx(v3, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v7 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1730);
   if ( a1 != 1 || a2 != 4 )
     return 3221225506LL;
-  MouseProcessor = anonymous_namespace_::GetMouseProcessor(v7, v6, v8, v9);
+  MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   CBaseProcessor::SetUMInputObservationState(MouseProcessor, a3);
   return 0LL;
 }

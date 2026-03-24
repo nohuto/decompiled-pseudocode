@@ -1,10 +1,10 @@
 /*
- * XREFs of ExGetPreviousMode @ 0x140208C20
+ * XREFs of ExGetPreviousMode @ 0x1402F62C0
  * Callers:
- *     VrpPostQueryKey @ 0x14068CA48 (VrpPostQueryKey.c)
- *     NtApphelpCacheControl @ 0x14068E760 (NtApphelpCacheControl.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
- *     AhcCacheQueryHwId @ 0x140A71DBC (AhcCacheQueryHwId.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
+ *     NtApphelpCacheControl @ 0x1406660F0 (NtApphelpCacheControl.c)
+ *     AhcCacheQueryHwId @ 0x14098011C (AhcCacheQueryHwId.c)
  * Callees:
  *     <none>
  */

@@ -4,15 +4,15 @@
  *     CcGetDirtyPagesHelper @ 0x140020430 (CcGetDirtyPagesHelper.c)
  *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
  *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78D8 (CcPurgeAndClearCacheSection.c)
- *     CcIsFatalWriteError @ 0x14012D990 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushCache @ 0x1401873A4 (CcPerfLogFlushCache.c)
- *     CcPerfLogFlushSection @ 0x1401874A0 (CcPerfLogFlushSection.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140187B38 (CcPerfLogWorkItemEnqueue.c)
- *     CcUnpinRepinnedBcb @ 0x140269CD0 (CcUnpinRepinnedBcb.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
+ *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushCache @ 0x1401873C4 (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x1401874C0 (CcPerfLogFlushSection.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140187B58 (CcPerfLogWorkItemEnqueue.c)
+ *     CcUnpinRepinnedBcb @ 0x140269DD0 (CcUnpinRepinnedBcb.c)
  *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
  */
 
 void __fastcall CcDereferenceSharedCacheMapFileObject(__int64 a1, unsigned __int64 a2)

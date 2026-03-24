@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C017073E
+ * XREFs of ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CFDCC
  * Callers:
- *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C012EF14 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CDE10 (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013F48C (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CF87C (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0131938 (-vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0141820 (-vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
  */
 
 _QWORD *__fastcall WIDENER::vecOutDraw(WIDENER *a1, _QWORD *a2)

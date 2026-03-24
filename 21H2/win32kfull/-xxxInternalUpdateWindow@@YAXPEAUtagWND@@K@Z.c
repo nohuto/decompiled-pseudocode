@@ -1,19 +1,20 @@
 /*
- * XREFs of ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00C9704
+ * XREFs of ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00F5550
  * Callers:
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
- *     NtUserUpdateWindow @ 0x1C00F6BC0 (NtUserUpdateWindow.c)
- *     xxxPrintWindow @ 0x1C01E297C (xxxPrintWindow.c)
- *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01EE340 (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
- *     xxxUpdateThreadsWindows @ 0x1C02105B8 (xxxUpdateThreadsWindows.c)
- *     xxxMNOpenHierarchy @ 0x1C02325D0 (xxxMNOpenHierarchy.c)
- *     xxxDragObject @ 0x1C02442A8 (xxxDragObject.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
+ *     xxxUpdateWindow @ 0x1C00F5530 (xxxUpdateWindow.c)
+ *     xxxPrintWindow @ 0x1C01E82D0 (xxxPrintWindow.c)
+ *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F3B40 (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
+ *     xxxUpdateThreadsWindows @ 0x1C021307C (xxxUpdateThreadsWindows.c)
+ *     xxxbFullscreenSwitch @ 0x1C021E8AC (xxxbFullscreenSwitch.c)
+ *     xxxMNOpenHierarchy @ 0x1C0239AB8 (xxxMNOpenHierarchy.c)
+ *     xxxDragObject @ 0x1C0248694 (xxxDragObject.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
  * Callees:
- *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C00490FC (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C00F55A0 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
  */
 
-void __fastcall xxxInternalUpdateWindow(struct tagWND *a1, int a2)
+void __fastcall xxxInternalUpdateWindow(struct tagWND *a1, unsigned int a2)
 {
   _QWORD *i; // r8
   __int64 v3; // rax
@@ -30,5 +31,5 @@ void __fastcall xxxInternalUpdateWindow(struct tagWND *a1, int a2)
       }
     }
   }
-  xxxUpdateWindow2((struct tagWND **)a1, a2);
+  xxxUpdateWindow2(a1, a2);
 }

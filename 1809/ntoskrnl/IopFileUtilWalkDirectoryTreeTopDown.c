@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62B4
+ * XREFs of IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62C4
  * Callers:
- *     PiLastGoodRevertLastKnownDirectory @ 0x1409F583C (PiLastGoodRevertLastKnownDirectory.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x1409F584C (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x140706088 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x140706068 (IopFileUtilWalkDirectoryTreeHelper.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeTopDown(UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)

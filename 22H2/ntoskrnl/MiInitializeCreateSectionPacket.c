@@ -1,12 +1,11 @@
 /*
- * XREFs of MiInitializeCreateSectionPacket @ 0x140723080
+ * XREFs of MiInitializeCreateSectionPacket @ 0x140652FC0
  * Callers:
- *     MiCreateSection @ 0x140722B70 (MiCreateSection.c)
+ *     MiCreateSection @ 0x140652DA0 (MiCreateSection.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x140276860 (MiMakeProtectionMask.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiHugePagesSupported @ 0x1403C7244 (MiHugePagesSupported.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     PsReferencePartitionByHandle @ 0x140676644 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MiInitializeCreateSectionPacket(
@@ -17,191 +16,157 @@ __int64 __fastcall MiInitializeCreateSectionPacket(
         unsigned int a5,
         char a6,
         __int64 a7,
-        unsigned __int8 a8,
+        char a8,
         __int64 a9,
         __int64 a10,
         unsigned __int8 a11,
-        int a12)
+        int a12,
+        __int64 a13)
 {
-  unsigned int v12; // edi
-  unsigned int v14; // ecx
+  unsigned int v13; // edi
+  int v15; // eax
+  unsigned int v16; // ecx
   int ProtectionMask; // eax
-  __int64 v16; // r8
-  unsigned int v17; // ecx
+  unsigned int v18; // edx
   __int64 result; // rax
-  int v19; // edx
-  int v20; // ecx
-  int v21; // eax
-  unsigned int v22; // edi
+  int v20; // eax
+  int v21; // ecx
+  int v22; // eax
   int v23; // eax
-  char v24; // al
-  int v25; // eax
-  _BYTE *v26; // r8
-  unsigned __int16 **v27; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v24; // edi
+  char v25; // al
+  ULONG_PTR **v26; // [rsp+30h] [rbp-18h] BYREF
 
-  v12 = a5;
+  v13 = a5;
   if ( (a5 & 0x7F) != 0 )
     return 3221225485LL;
-  *((_QWORD *)a1 + 19) = a3;
   *((_QWORD *)a1 + 20) = a7;
   a1[42] = a12;
+  *((_QWORD *)a1 + 19) = a3;
+  *((_BYTE *)a1 + 24) = a8;
   a1[5] = a5;
   *((_QWORD *)a1 + 1) = a2;
   a1[7] = a4;
   *((_BYTE *)a1 + 72) = a11;
-  *((_BYTE *)a1 + 24) = a8;
   if ( (a6 & 1) != 0 )
     *a1 |= 0x800u;
   if ( (a6 & 2) != 0 )
   {
-    v19 = *a1;
-    *a1 |= 1u;
+    v20 = *a1 | 1;
+    *a1 = v20;
     if ( (a6 & 4) != 0 )
-    {
-      if ( (v19 & 0x8000000) != 0 )
-        return 3221227793LL;
-      *a1 = v19 | 0x10001;
-    }
+      *a1 = v20 | 0x30000;
   }
-  if ( (a6 & 0x10) != 0 )
-  {
-    if ( a11 )
-      return 3221225485LL;
-    if ( (a5 & 0x2100000) != 0 )
-      return 3221225485LL;
-    if ( (a5 & 0x11000000) == 0x11000000 )
-      return 3221225485LL;
-    if ( (a5 & 0x1000000) == 0 )
-      return 3221225485LL;
-    if ( a8 > 0xEu )
-      return 3221225485LL;
-    v25 = 20944;
-    if ( !_bittest(&v25, a8) )
-      return 3221225485LL;
-    *a1 |= 0x10000000u;
-  }
-  a1[35] ^= (a1[35] ^ a4) & 0xFFF;
+  v15 = ((unsigned __int16)a4 ^ (unsigned __int16)a1[35]) & 0xFFF;
   *((_QWORD *)a1 + 6) = a10;
+  a1[35] ^= v15;
   *((_QWORD *)a1 + 5) = a9;
   if ( (a5 & 0x1100000) == 0x1100000 )
   {
     *a1 |= 0x200u;
-    v12 = a5 & 0xFFEFFFFF;
+    v13 = a5 & 0xFFEFFFFF;
   }
-  if ( (v12 & 0x100000) == 0 )
+  if ( (v13 & 0x100000) == 0 )
   {
-    if ( (v12 & 0x2000000) == 0 )
-      goto LABEL_10;
+    if ( (v13 & 0x2000000) == 0 )
+      goto LABEL_9;
     *a1 |= 0x10u;
-    if ( (v12 & 0x400000) != 0 )
+    if ( (v13 & 0x400000) != 0 )
     {
-      v12 &= ~0x400000u;
-      v24 = 12;
+      v13 &= ~0x400000u;
+      v25 = 12;
     }
     else
     {
-      v24 = 4;
+      v25 = 4;
     }
-    v22 = v12 & 0xFDFFFFFF;
-    goto LABEL_48;
+    v24 = v13 & 0xFDFFFFFF;
+    goto LABEL_42;
   }
-  if ( (v12 & 0x200000) != 0 )
+  v22 = *a1;
+  if ( (v13 & 0x200000) != 0 )
   {
-    v12 &= ~0x200000u;
-    *a1 |= 0x40u;
+    v13 &= ~0x200000u;
+    v22 |= 0x40u;
   }
-  v22 = v12 & 0xFFEFFFFF;
-  v23 = *a1 | 0x20;
+  v23 = v22 | 0x20;
+  v24 = v13 & 0xFFEFFFFF;
   *a1 = v23;
-  if ( (v22 & 0x400000) == 0 )
+  if ( (v24 & 0x400000) == 0 )
   {
-    v24 = 1;
-LABEL_48:
-    v12 = v22 | 0x1000000;
-    *((_BYTE *)a1 + 24) = v24;
-    goto LABEL_10;
+    v25 = 1;
+LABEL_42:
+    v13 = v24 | 0x1000000;
+    *((_BYTE *)a1 + 24) = v25;
+    goto LABEL_9;
   }
   *a1 = v23 | 0x100;
-  v12 = v22 & 0xFEBFFFFF | 0x1000000;
+  v13 = v24 & 0xFEBFFFFF | 0x1000000;
   *((_BYTE *)a1 + 24) = 12;
-LABEL_10:
-  v27 = 0LL;
-  if ( (v12 & 0x40000) == 0 )
-    goto LABEL_11;
-  if ( !a9 || *((_QWORD *)a1 + 6) )
+LABEL_9:
+  v26 = 0LL;
+  if ( (v13 & 0x40000) == 0 )
+    goto LABEL_10;
+  if ( !a9 || a10 )
     return 3221225485LL;
-  result = PsReferencePartitionByHandle(a9, 2LL, a11, 1883458893LL, &v27);
+  result = PsReferencePartitionByHandle(a9, 2LL, a11, 1883458893LL, &v26);
   if ( (int)result >= 0 )
   {
-    if ( *v27 == MiSystemPartition )
-      PsDereferencePartition((__int64)v27);
+    if ( *v26 == &MiSystemPartition )
+      PsDereferencePartition((__int64)v26);
     else
-      *((_QWORD *)a1 + 22) = v27;
+      *((_QWORD *)a1 + 22) = v26;
     *((_QWORD *)a1 + 5) = 0LL;
-    v12 &= ~0x40000u;
-LABEL_11:
-    if ( (v12 & 0x1000000) != 0 )
+    v13 &= ~0x40000u;
+LABEL_10:
+    if ( (v13 & 0x1000000) != 0 )
     {
       if ( (a6 & 8) != 0 )
-        *a1 |= 0x100000u;
+        *a1 |= 0x80000u;
       if ( (KeGetCurrentThread()->ApcState.Process->SecureState.SecureHandle & 1) != 0 )
-        *a1 |= 0x900000u;
-      if ( (v12 & 0x11000000) == 0x11000000 )
+        *a1 |= 0x480000u;
+      if ( (v13 & 0x11000000) == 0x11000000 )
       {
         if ( a1[7] != 2 )
           return 3221225541LL;
-        v12 &= ~0x10000000u;
+        v13 &= ~0x10000000u;
       }
       else
       {
-        v20 = *a1;
-        v21 = *a1 | 0x400;
-        *a1 = v21;
-        if ( (v21 & 0x20) != 0 && (MiFlags & 0x8000) != 0 )
+        *a1 |= 0x400u;
+        v21 = *a1;
+        if ( (*a1 & 0x20) != 0 && (MiFlags & 0x10000) != 0 )
         {
-          *a1 = v20 | 0x100400;
+          *a1 = v21 | 0x80000;
         }
-        else if ( (v20 & 0x60) == 0x60 && (MiFlags & 0x4000) != 0 )
+        else if ( (MiFlags & 0x100000) != 0 )
         {
-          *a1 = v20 | 0x100400;
-        }
-        else if ( (MiFlags & 0x80000) != 0 )
-        {
-          *a1 = v20 | 0x100400;
+          *a1 = v21 | 0x80000;
         }
       }
     }
-    else if ( (v12 & 0x10000000) != 0 )
+    else if ( (v13 & 0x10000000) != 0 )
     {
       a1[7] |= 0x200u;
     }
-    else if ( (v12 & 0x40000000) != 0 )
+    else if ( (v13 & 0x40000000) != 0 )
     {
       a1[7] |= 0x400u;
     }
-    if ( (v12 & 0x20000) != 0 )
-    {
-      if ( !(unsigned int)MiHugePagesSupported() )
-        return 3221225659LL;
-      if ( !v26 || !*v26 )
-        return 3221225485LL;
-    }
-    v14 = a1[7];
-    a1[4] = v12;
-    ProtectionMask = MiMakeProtectionMask(v14);
+    v16 = a1[7];
+    a1[4] = v13;
+    ProtectionMask = MiMakeProtectionMask(v16);
     a1[8] = ProtectionMask;
     if ( ProtectionMask != -1 )
     {
-      if ( !v16 )
+      if ( !a13 )
         return 0LL;
-      *((_BYTE *)a1 + 192) = *(_BYTE *)v16;
-      a1[49] = *(_DWORD *)(v16 + 4);
-      v17 = *(_DWORD *)(v16 + 8);
-      if ( v17 <= (unsigned __int16)KeNumberNodes )
+      *((_BYTE *)a1 + 192) = *(_BYTE *)a13;
+      a1[49] = *(_DWORD *)(a13 + 4);
+      v18 = *(_DWORD *)(a13 + 8);
+      if ( v18 <= (unsigned __int16)KeNumberNodes )
       {
-        a1[43] = v17;
-        if ( (*(_DWORD *)(v16 + 20) & 1) != 0 )
-          *a1 |= 0x8000000u;
+        a1[43] = v18;
         return 0LL;
       }
       return 3221225485LL;

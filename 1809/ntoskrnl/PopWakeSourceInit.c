@@ -12,11 +12,11 @@ PVOID *(*PopWakeSourceInit())()
 
   PopWakeSourceAvailable.Header.Size = 6;
   PopWakeInfoCount = 0;
-  qword_140418538 = (__int64)&PopWakeInfoList;
+  qword_140418558 = (__int64)&PopWakeInfoList;
   PopWakeInfoList = (__int64)&PopWakeInfoList;
   PopWakeSourceAvailable.Header.WaitListHead.Blink = &PopWakeSourceAvailable.Header.WaitListHead;
   PopWakeSourceAvailable.Header.WaitListHead.Flink = &PopWakeSourceAvailable.Header.WaitListHead;
-  qword_1404185D8 = (__int64)&PopWakeSourceWorkList;
+  qword_140418578 = (__int64)&PopWakeSourceWorkList;
   PopWakeSourceWorkList = &PopWakeSourceWorkList;
   result = PopUpdateWakeSourceWorker;
   PopWakeSourceWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopUpdateWakeSourceWorker;

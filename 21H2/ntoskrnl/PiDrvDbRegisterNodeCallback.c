@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDrvDbRegisterNodeCallback @ 0x1408646E8
+ * XREFs of PiDrvDbRegisterNodeCallback @ 0x1407D4850
  * Callers:
- *     PiDrvDbEnumDriverStoreNodes @ 0x1408276AC (PiDrvDbEnumDriverStoreNodes.c)
+ *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall PiDrvDbRegisterNodeCallback(const WCHAR *a1, int *a2)
 {
   int v4; // ebx
   __int64 v6; // rax
-  unsigned __int64 v7; // rbx
-  wchar_t *Pool2; // rsi
+  SIZE_T v7; // rbx
+  wchar_t *PoolWithTag; // rsi
 
   if ( wcsicmp(a1, L"SYSTEM") )
   {
@@ -23,25 +23,25 @@ bool __fastcall PiDrvDbRegisterNodeCallback(const WCHAR *a1, int *a2)
     do
       ++v6;
     while ( a1[v6] );
-    v7 = (unsigned int)(2 * v6 + 86);
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v7, 1650749520LL);
-    if ( Pool2 )
+    v7 = (unsigned int)(2 * v6 + 76);
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x62647050u);
+    if ( PoolWithTag )
     {
       v4 = RtlStringCchPrintfW(
-             Pool2,
+             PoolWithTag,
              v7 >> 1,
              L"%ws\\%ws%ws%ws",
-             L"\\DriverStore\\Nodes",
+             L"\\DriverStores",
              a1,
              L"\\System32\\config\\",
              L"SYSTEM");
       if ( v4 >= 0 )
       {
-        v4 = PiDrvDbRegisterNode(a1, 10, 0);
+        v4 = PiDrvDbRegisterNode(a1, 10);
         if ( v4 == 0x40000000 )
           v4 = 0;
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {

@@ -1,63 +1,55 @@
 /*
- * XREFs of ?CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z @ 0x1C00322F8
+ * XREFs of ?CreateHistoryProxy@VIDMM_RECYCLE_BLOCK@@QEAAX_K@Z @ 0x1C0027DC8
  * Callers:
- *     ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C007CD18 (--0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z.c)
+ *     ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C0061A14 (--0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00029AC (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
 void __fastcall VIDMM_RECYCLE_BLOCK::CreateHistoryProxy(VIDMM_RECYCLE_BLOCK *this, __int64 a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbx
-  const wchar_t *v6; // r9
-  __int64 v7; // rax
-  _QWORD *v8; // rax
+  _QWORD *v4; // rax
+  __int64 v5; // rax
+  SIZE_T v6; // rax
+  _QWORD *v7; // rax
 
-  v4 = operator new(56LL, 0x31316956u, 256LL);
+  v4 = operator new[](0x38uLL, 0x31316956u, PagedPool);
   if ( v4 )
   {
-    *(_QWORD *)v4 = 0LL;
-    *(_QWORD *)(v4 + 8) = 0LL;
-    *(_BYTE *)(v4 + 16) = 0;
-    *(_QWORD *)(v4 + 24) = 0LL;
-    *(_QWORD *)(v4 + 32) = 0LL;
-    *(_BYTE *)(v4 + 40) = 0;
-    *(_QWORD *)(v4 + 48) = 0LL;
-  }
-  else
-  {
-    v4 = 0LL;
+    *v4 = 0LL;
+    v4[1] = 0LL;
+    v4[3] = 0LL;
+    v4[4] = 0LL;
+    v4[6] = 0LL;
+    *((_BYTE *)v4 + 16) = 0;
+    *((_BYTE *)v4 + 40) = 0;
   }
   *((_QWORD *)this + 17) = v4;
   if ( !v4 )
   {
-    _InterlockedIncrement(&dword_1C006E794);
-    v5 = 1038LL;
-    WdLogSingleEntry1(6LL, 1038LL);
-    v6 = L"Couldn't allocate a history tracking structure for a process heap block";
-LABEL_6:
-    DxgCoreInterface[85](0LL, 262145LL, 0xFFFFFFFFLL, v6, v5, 0LL, 0LL, 0LL, 0LL);
+    _InterlockedIncrement(&dword_1C00506E4);
+    v5 = WdLogNewEntry5_WdLowResource();
+    *(_QWORD *)(v5 + 24) = 1045LL;
+LABEL_5:
+    WdLogEvent5_WdLowResource(v5);
     return;
   }
-  v7 = 288 * a2;
+  v6 = 288 * a2;
   if ( !is_mul_ok(2 * a2, 0x90uLL) )
-    v7 = -1LL;
-  **((_QWORD **)this + 17) = operator new[](v7, 0x31316956u, 256LL);
-  v8 = (_QWORD *)*((_QWORD *)this + 17);
-  if ( !*v8 )
+    v6 = -1LL;
+  **((_QWORD **)this + 17) = operator new[](v6, 0x31316956u, PagedPool);
+  v7 = (_QWORD *)*((_QWORD *)this + 17);
+  if ( !*v7 )
   {
-    if ( v8 )
+    if ( v7 )
       ExFreePoolWithTag(*((PVOID *)this + 17), 0);
-    *((_QWORD *)this + 17) = 0LL;
-    _InterlockedIncrement(&dword_1C006E794);
-    v5 = 1054LL;
-    WdLogSingleEntry1(6LL, 1054LL);
-    v6 = L"Couldn't allocate the history arrays for a process heap block";
-    goto LABEL_6;
+    _InterlockedIncrement(&dword_1C00506E4);
+    v5 = WdLogNewEntry5_WdLowResource();
+    *(_QWORD *)(v5 + 24) = 1060LL;
+    goto LABEL_5;
   }
-  v8[6] = a2;
+  v7[6] = a2;
   *(_QWORD *)(*((_QWORD *)this + 17) + 24LL) = **((_QWORD **)this + 17) + 144 * a2;
+  memset(**((void ***)this + 17), 0, 288 * a2);
 }

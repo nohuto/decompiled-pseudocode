@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMDivideToCeilingOrNearestInt @ 0x1C00E2BC2
+ * XREFs of RIMDivideToCeilingOrNearestInt @ 0x1C01780B4
  * Callers:
- *     rimExtractScantime @ 0x1C01A9EA8 (rimExtractScantime.c)
+ *     rimExtractScantime @ 0x1C017AE8C (rimExtractScantime.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMDivideToCeilingOrNearestInt(unsigned int a1, unsigned int a2, int a3, int *a4)
@@ -11,7 +11,7 @@ __int64 __fastcall RIMDivideToCeilingOrNearestInt(unsigned int a1, unsigned int 
   unsigned int v4; // ebx
   __int64 v5; // rsi
   __int64 v6; // rdi
-  unsigned int v9; // eax
+  unsigned int v9; // r8d
   unsigned __int64 v10; // rax
   int v11; // edx
 
@@ -19,13 +19,13 @@ __int64 __fastcall RIMDivideToCeilingOrNearestInt(unsigned int a1, unsigned int 
   v5 = a2;
   v6 = a1;
   if ( !a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3447);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 3395);
   if ( a3 )
   {
     if ( (_DWORD)v6 )
     {
-      *a4 = ((int)v6 - 1) / (unsigned int)v5 + 1;
       v9 = 0;
+      *a4 = ((int)v6 - 1) / (unsigned int)v5 + 1;
     }
     else
     {

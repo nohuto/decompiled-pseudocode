@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x18022E6D4
+ * XREFs of ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x1801DF74C
  * Callers:
- *     ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x18022E834 (-CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z.c)
+ *     ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x1801DF8AC (-CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z.c)
  * Callees:
- *     ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x1800D743C (-ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z.c)
- *     ?make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA?AUquaternion@123@AEBUfloat3@123@M@Z @ 0x180230F5C (-make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA-AUquaternion@123@AEBUfloat3@123.c)
+ *     ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x1801A0A9C (-ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA?AUquaternion@123@AEBUfloat3@123@M@Z @ 0x1801E1F54 (-make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA-AUquaternion@123@AEBUfloat3@123.c)
  */
 
 void __fastcall CParticleEmitterVisual::CopyInstanceFromIndex(
@@ -33,19 +33,19 @@ void __fastcall CParticleEmitterVisual::CopyInstanceFromIndex(
   v4 = 6LL * a3;
   *(struct _D3DCOLORVALUE *)&v20.r = (struct _D3DCOLORVALUE)_mm_max_ps(
                                                               _mm_min_ps(
-                                                                *(__m128 *)(*((_QWORD *)this + 127) + 16LL * a2),
+                                                                *(__m128 *)(*((_QWORD *)this + 113) + 16LL * a2),
                                                                 (__m128)_xmm),
                                                               (__m128)0LL);
-  *(_DWORD *)(*((_QWORD *)this + 170) + 8 * v4 + 32) = ColorDWFromStraightColorF(&v20);
-  v5 = *((_QWORD *)this + 130);
-  v6 = *((_QWORD *)this + 133);
-  v8 = *((float *)this + 1610) * *(float *)(v5 + 8 * v7 + 4);
-  v9 = *((float *)this + 1609) * *(float *)(v5 + 8 * v7);
-  v10 = *((_QWORD *)this + 170);
+  *(_DWORD *)(*((_QWORD *)this + 156) + 8 * v4 + 32) = ColorDWFromStraightColorF(&v20);
+  v5 = *((_QWORD *)this + 116);
+  v6 = *((_QWORD *)this + 119);
+  v8 = *((float *)this + 1582) * *(float *)(v5 + 8 * v7 + 4);
+  v9 = *((float *)this + 1581) * *(float *)(v5 + 8 * v7);
+  v10 = *((_QWORD *)this + 156);
   v11 = v8 * *(float *)(v6 + 8 * v7 + 4);
   *(float *)(v10 + 8 * v4 + 36) = v9 * *(float *)(v6 + 8 * v7);
   *(float *)(v10 + 8 * v4 + 40) = v11;
-  v12 = *((_QWORD *)this + 112);
+  v12 = *((_QWORD *)this + 98);
   v13 = *(_QWORD *)(v12 + 12 * v7);
   LODWORD(v12) = *(_DWORD *)(v12 + 12 * v7 + 8);
   v18 = v13;
@@ -53,15 +53,15 @@ void __fastcall CParticleEmitterVisual::CopyInstanceFromIndex(
   LODWORD(v20.a) = (_DWORD)FLOAT_1_0;
   v19 = v12;
   LODWORD(v13) = v12;
-  v14 = *((_QWORD *)this + 170);
+  v14 = *((_QWORD *)this + 156);
   LODWORD(v20.b) = v13;
   *(struct _D3DCOLORVALUE *)(v14 + 8 * v4) = *(struct _D3DCOLORVALUE *)&v20.r;
-  v15 = *((_QWORD *)this + 115);
+  v15 = *((_QWORD *)this + 101);
   v17 = *(_DWORD *)(v15 + 8 * v16 + 4);
   LODWORD(v18) = *(_DWORD *)(v15 + 8 * v16);
   v19 = *(_DWORD *)(v15 + 8 * v16 + 8);
   HIDWORD(v18) = v17;
-  *(_OWORD *)(*((_QWORD *)this + 170) + 8 * v4 + 16) = *(_OWORD *)Windows::Foundation::Numerics::make_quaternion_from_axis_angle(
+  *(_OWORD *)(*((_QWORD *)this + 156) + 8 * v4 + 16) = *(_OWORD *)Windows::Foundation::Numerics::make_quaternion_from_axis_angle(
                                                                     &v20,
                                                                     &v18);
 }

@@ -1,28 +1,31 @@
 /*
- * XREFs of DxgkGetUseHWGPUInRemoteSession @ 0x1C01F3FE0
+ * XREFs of DxgkGetUseHWGPUInRemoteSession @ 0x1C0177D40
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-char DxgkGetUseHWGPUInRemoteSession()
+char __fastcall DxgkGetUseHWGPUInRemoteSession(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rcx
-  DXGSESSIONMGR *v1; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  DXGSESSIONMGR *v4; // rbx
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
 
-  v1 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v1
-    && (CurrentProcessSessionId = PsGetCurrentProcessSessionId(v0),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v1, CurrentProcessSessionId)) != 0LL) )
+  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 102);
+  if ( v4 )
   {
-    return *((_BYTE *)SessionDataForSpecifiedSession + 18505);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v3, v2);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v4, CurrentProcessSessionId);
   }
   else
   {
-    return 0;
+    SessionDataForSpecifiedSession = 0LL;
   }
+  if ( SessionDataForSpecifiedSession )
+    LOBYTE(SessionDataForSpecifiedSession) = *((_BYTE *)SessionDataForSpecifiedSession + 18496);
+  return (char)SessionDataForSpecifiedSession;
 }

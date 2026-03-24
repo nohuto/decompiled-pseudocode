@@ -1,41 +1,43 @@
 /*
- * XREFs of FreeTmpBuffer @ 0x1C005AD30
+ * XREFs of FreeTmpBuffer @ 0x1C0023BF0
  * Callers:
- *     NtGdiPolyPolyDraw @ 0x1C000DA60 (NtGdiPolyPolyDraw.c)
- *     NtGdiOpenDCW @ 0x1C005A5E0 (NtGdiOpenDCW.c)
- *     NtGdiGetRegionData @ 0x1C005A8F0 (NtGdiGetRegionData.c)
- *     NtGdiExtCreateRegion @ 0x1C007C780 (NtGdiExtCreateRegion.c)
+ *     NtGdiGetRegionData @ 0x1C00209C0 (NtGdiGetRegionData.c)
+ *     NtGdiOpenDCW @ 0x1C0022E50 (NtGdiOpenDCW.c)
+ *     NtGdiExtCreateRegion @ 0x1C0023AD0 (NtGdiExtCreateRegion.c)
+ *     NtGdiPolyPolyDraw @ 0x1C00BD640 (NtGdiPolyPolyDraw.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall FreeTmpBuffer(__int64 a1)
+void __fastcall FreeTmpBuffer(char *a1)
 {
+  char *v1; // rbx
   __int64 v2; // rax
-  _QWORD *v3; // rbx
-  __int64 v4; // rax
-  _QWORD *v5; // rcx
+  char **v3; // rcx
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( a1 == *(_QWORD *)(v2 + 2368) )
+  if ( a1 == gpTmpGlobal )
   {
-    **(_QWORD **)(v2 + 2360) = a1;
+    *gpTmpGlobalFree = a1;
   }
   else
   {
-    v3 = (_QWORD *)(a1 - 32);
-    if ( v3 )
+    v1 = a1 - 32;
+    if ( a1 != (char *)32 )
     {
       KeEnterCriticalRegion();
-      v4 = *v3;
-      if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
+      v2 = *(_QWORD *)v1;
+      if ( *(char **)(*(_QWORD *)v1 + 8LL) != v1 || (v3 = (char **)*((_QWORD *)v1 + 1), *v3 != v1) )
         __fastfail(3u);
-      *v5 = v4;
-      *(_QWORD *)(v4 + 8) = v5;
-      v3[1] = v3;
-      *v3 = v3;
+      *v3 = (char *)v2;
+      *(_QWORD *)(v2 + 8) = v3;
+      *((_QWORD *)v1 + 1) = v1;
+      *(_QWORD *)v1 = v1;
       KeLeaveCriticalRegion();
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
+      if ( qword_1C0256D00 && (int)qword_1C0256D00() >= 0 )
+      {
+        if ( qword_1C0256D08 )
+          qword_1C0256D08(v1);
+      }
     }
   }
 }

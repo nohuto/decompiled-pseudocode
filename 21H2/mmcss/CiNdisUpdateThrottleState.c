@@ -1,8 +1,8 @@
 /*
- * XREFs of CiNdisUpdateThrottleState @ 0x1C000B9C0
+ * XREFs of CiNdisUpdateThrottleState @ 0x1C000B5B0
  * Callers:
- *     CiThreadDecrementScheduledCount @ 0x1C000A920 (CiThreadDecrementScheduledCount.c)
- *     CiThreadIncrementScheduledCount @ 0x1C000B140 (CiThreadIncrementScheduledCount.c)
+ *     CiThreadIncrementScheduledCount @ 0x1C000ADD0 (CiThreadIncrementScheduledCount.c)
+ *     CiThreadDecrementScheduledCount @ 0x1C000BB90 (CiThreadDecrementScheduledCount.c)
  * Callees:
  *     <none>
  */

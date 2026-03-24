@@ -1,27 +1,28 @@
 /*
- * XREFs of __isa_available_init @ 0x1801012AC
+ * XREFs of __isa_available_init @ 0x1800E7CB4
  * Callers:
- *     __scrt_dllmain_after_initialize_c @ 0x180100850 (__scrt_dllmain_after_initialize_c.c)
- *     __scrt_initialize_crt @ 0x1801009B8 (__scrt_initialize_crt.c)
+ *     __scrt_dllmain_after_initialize_c @ 0x1800E7020 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_initialize_crt @ 0x1800E7180 (__scrt_initialize_crt.c)
  * Callees:
  *     <none>
  */
 
 int __cdecl _isa_available_init()
 {
-  int v5; // r11d
+  char v5; // di
   int v6; // r10d
   int v7; // esi
   int v9; // r9d
-  int v14; // edi
+  int v14; // r11d
   int v15; // eax
   unsigned __int64 v16; // rax
   __int64 v17; // rcx
   int v18; // r8d
   int v23; // eax
-  char v25; // [rsp+20h] [rbp+8h]
 
   _RAX = 0LL;
+  _isa_enabled = 2;
+  _isa_available = 1;
   __asm { cpuid }
   v5 = 0;
   v6 = _RDX;
@@ -51,8 +52,6 @@ int __cdecl _isa_available_init()
     if ( (_RBX & 0x200) != 0 )
       _favor = v18 | 2;
   }
-  _isa_available = 1;
-  _isa_enabled = 2;
   if ( (v14 & 0x100000) != 0 )
   {
     _isa_available = 2;
@@ -60,7 +59,6 @@ int __cdecl _isa_available_init()
     if ( (v14 & 0x8000000) != 0 && (v14 & 0x10000000) != 0 )
     {
       __asm { xgetbv }
-      v25 = _RAX;
       if ( (_RAX & 6) == 6 )
       {
         v23 = _isa_enabled | 8;
@@ -70,11 +68,6 @@ int __cdecl _isa_available_init()
         {
           _isa_available = 5;
           _isa_enabled = v23 | 0x20;
-          if ( (v5 & 0xD0030000) == 0xD0030000 && (v25 & 0xE0) == 0xE0 )
-          {
-            _isa_enabled |= 0x40u;
-            _isa_available = 6;
-          }
         }
       }
     }

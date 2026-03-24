@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CAnimationLoggingManager@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F9A20
+ * XREFs of ?IsOfType@CAnimationLoggingManager@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D7CB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CAnimationLoggingManager::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 4;
+  return a2 == 3;
 }

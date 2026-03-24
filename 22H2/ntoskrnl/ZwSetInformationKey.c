@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwSetInformationKey @ 0x14041DB80
+ * XREFs of ZwSetInformationKey @ 0x1403FCD60
  * Callers:
- *     DifZwSetInformationKeyWrapper @ 0x1405F7130 (DifZwSetInformationKeyWrapper.c)
- *     IopApplyMutableTagToRegistryKey @ 0x140687DC0 (IopApplyMutableTagToRegistryKey.c)
- *     CmpDoReDoSetKeyUserFlags @ 0x140A2AAD0 (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x140A2AB40 (CmpDoReDoSetLastWriteTime.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x14068829C (IopApplyMutableTagToRegistryKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x14088214C (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408821BC (CmpDoReDoSetLastWriteTime.c)
  * Callees:
  *     <none>
  */

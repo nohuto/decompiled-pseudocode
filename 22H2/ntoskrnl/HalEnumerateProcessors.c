@@ -1,11 +1,11 @@
 /*
- * XREFs of HalEnumerateProcessors @ 0x1403766E0
+ * XREFs of HalEnumerateProcessors @ 0x1403B4820
  * Callers:
- *     HvlpSelectLpSet @ 0x1405415C8 (HvlpSelectLpSet.c)
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     HvlpSelectLpSet @ 0x1404F3194 (HvlpSelectLpSet.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
 __int64 __fastcall HalEnumerateProcessors(unsigned int a1)
@@ -15,7 +15,6 @@ __int64 __fastcall HalEnumerateProcessors(unsigned int a1)
   unsigned int v4; // r8d
   int v5; // r9d
   _DWORD *v6; // rcx
-  int v7; // eax
   unsigned int MaximumRegisteredProcessorCount; // eax
 
   v2 = 1;
@@ -41,8 +40,7 @@ __int64 __fastcall HalEnumerateProcessors(unsigned int a1)
   }
   if ( HalpInterruptProcessorCap && HalpInterruptProcessorCap < v2 )
     v2 = HalpInterruptProcessorCap;
-  v7 = HalpInterruptModel();
-  if ( v7 != 1 && (unsigned int)(v7 - 2) > 2 )
+  if ( (unsigned int)HalpInterruptModel() - 1 > 3 )
     v2 = 1;
   MaximumRegisteredProcessorCount = HalpQueryMaximumRegisteredProcessorCount();
   if ( v2 >= MaximumRegisteredProcessorCount )

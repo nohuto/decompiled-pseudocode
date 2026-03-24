@@ -1,28 +1,27 @@
 /*
- * XREFs of PspUnlockJobsAndProcessExclusive @ 0x140682038
+ * XREFs of PspUnlockJobsAndProcessExclusive @ 0x14071F8CC
  * Callers:
- *     PspJobDelete @ 0x140207100 (PspJobDelete.c)
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
+ *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PspUnlockJobChain @ 0x140682B74 (PspUnlockJobChain.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PspUnlockJobChain @ 0x140616110 (PspUnlockJobChain.c)
  */
 
-void __fastcall PspUnlockJobsAndProcessExclusive(int *a1, __int64 a2, __int64 a3)
+char __fastcall PspUnlockJobsAndProcessExclusive(int *a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx
   __int64 v7; // rcx
-  bool v8; // zf
 
   v3 = *a1;
   while ( v3 )
   {
     v7 = *(_QWORD *)&a1[4 * --v3 + 2];
     if ( LOBYTE(a1[4 * v3 + 4]) )
-      PspUnlockJobChain(v7, 0LL, 0LL);
+      PspUnlockJobChain(v7, 0LL, 0);
     else
       ExReleaseResourceLite((PERESOURCE)(v7 + 56));
   }
@@ -32,7 +31,5 @@ void __fastcall PspUnlockJobsAndProcessExclusive(int *a1, __int64 a2, __int64 a3
       ExfTryToWakePushLock(a2 + 1080);
     KeAbPostRelease(a2 + 1080);
   }
-  v8 = (*(_WORD *)(a3 + 486))++ == 0xFFFF;
-  if ( v8 && *(_QWORD *)(a3 + 152) != a3 + 152 )
-    KiCheckForKernelApcDelivery();
+  return KiLeaveGuardedRegionUnsafe(a3);
 }

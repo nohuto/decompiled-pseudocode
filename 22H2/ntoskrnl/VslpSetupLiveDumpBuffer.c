@@ -1,21 +1,21 @@
 /*
- * XREFs of VslpSetupLiveDumpBuffer @ 0x14054CFC4
+ * XREFs of VslpSetupLiveDumpBuffer @ 0x1404FDC6C
  * Callers:
- *     VslSetupLiveDumpBufferInSk @ 0x14054C954 (VslSetupLiveDumpBufferInSk.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x1404FD458 (VslSetupLiveDumpBufferInSk.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslpSetupLiveDumpBuffer(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
+NTSTATUS __fastcall VslpSetupLiveDumpBuffer(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v10[14]; // [rsp+20h] [rbp-A8h] BYREF
 
   memset(v10, 0, 0x68uLL);
-  result = VslpEnterIumSecureMode(2u, 58, 0, (__int64)v10);
-  if ( (int)result >= 0 )
+  result = VslpEnterIumSecureMode(2u, 56, 0, (__int64)v10);
+  if ( result >= 0 )
   {
     *a1 = v10[2];
     *a2 = v10[3];

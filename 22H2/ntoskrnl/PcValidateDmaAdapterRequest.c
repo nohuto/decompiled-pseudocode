@@ -1,5 +1,5 @@
 /*
- * XREFs of PcValidateDmaAdapterRequest @ 0x14051C2A0
+ * XREFs of PcValidateDmaAdapterRequest @ 0x1404D2500
  * Callers:
  *     <none>
  * Callees:
@@ -8,32 +8,18 @@
 
 char __fastcall PcValidateDmaAdapterRequest(__int64 a1)
 {
-  unsigned int v2; // edx
-  int v3; // r8d
+  unsigned int v1; // edx
+  int v2; // r8d
 
-  if ( *(_BYTE *)(a1 + 5) )
-  {
-    if ( *(_BYTE *)(a1 + 4) )
-      return 1;
-  }
-  else
-  {
-    if ( *(_BYTE *)(a1 + 4) )
-      return 1;
-    v2 = *(_DWORD *)(a1 + 16);
-    if ( (v2 & 0xFFFFFFF8) == 0 && v2 != 4 )
-    {
-      v3 = *(_DWORD *)(a1 + 24);
-      if ( v3 )
-      {
-        if ( v3 == 1 && v2 >= 4 )
-          return 1;
-      }
-      else if ( v2 < 4 )
-      {
-        return 1;
-      }
-    }
-  }
-  return 0;
+  if ( *(_BYTE *)(a1 + 5) && !*(_BYTE *)(a1 + 4) )
+    return 0;
+  if ( *(_BYTE *)(a1 + 4) )
+    return 1;
+  v1 = *(_DWORD *)(a1 + 16);
+  if ( (v1 & 0xFFFFFFF8) != 0 || v1 == 4 )
+    return 0;
+  v2 = *(_DWORD *)(a1 + 24);
+  if ( !v2 )
+    return v1 < 4;
+  return v2 == 1 && v1 >= 4;
 }

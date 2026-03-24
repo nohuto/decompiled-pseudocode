@@ -3,11 +3,11 @@
  * Callers:
  *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
  *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpInsertSecurityCellList @ 0x1406CA114 (CmpInsertSecurityCellList.c)
+ *     CmpInsertSecurityCellList @ 0x1406CA0F4 (CmpInsertSecurityCellList.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpSecConvKey @ 0x1405AD0CC (CmpSecConvKey.c)
  */
 

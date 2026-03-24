@@ -1,47 +1,50 @@
 /*
- * XREFs of NtUserBuildPropList @ 0x1C00E56A0
+ * XREFs of NtUserBuildPropList @ 0x1C0113A50
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _BuildPropList @ 0x1C00E5788 (_BuildPropList.c)
- *     ??0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z @ 0x1C00E6220 (--0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z.c)
+ *     _BuildPropList @ 0x1C0113B74 (_BuildPropList.c)
  */
 
-__int64 __fastcall NtUserBuildPropList(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserBuildPropList(__int64 a1, unsigned int a2, volatile void *a3, ULONG64 a4)
 {
   __int64 v8; // rcx
   __int64 v9; // rbx
-  __int64 ThreadWin32Thread; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  unsigned int v14; // ebx
-  __int64 v16; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v17; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-10h]
+  __int64 v10; // rcx
+  _DWORD *v11; // rdx
+  unsigned int v12; // ebx
+  __int128 v14; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-18h]
 
-  v17 = 0LL;
-  v18 = 0LL;
-  EnterLeaveCritByVelocity::EnterLeaveCritByVelocity(&v16, 3LL, 0LL);
+  v14 = 0LL;
+  v15 = 0LL;
+  EnterCrit(0LL, 1LL);
   v9 = ValidateHwnd(a1);
   if ( v9 )
   {
-    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    *(_QWORD *)&v17 = *(_QWORD *)(ThreadWin32Thread + 416);
-    *(_QWORD *)(ThreadWin32Thread + 416) = &v17;
-    *((_QWORD *)&v17 + 1) = v9;
+    *(_QWORD *)&v14 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v14;
+    *((_QWORD *)&v14 + 1) = v9;
     HMLockObject(v9);
     if ( a2 )
-      v14 = BuildPropList(v9, a3, a2, a4);
+    {
+      ProbeForWrite(a3, 16LL * a2, 4u);
+      v11 = (_DWORD *)a4;
+      if ( a4 >= MmUserProbeAddress )
+        v11 = (_DWORD *)MmUserProbeAddress;
+      *v11 = *v11;
+      v12 = BuildPropList(v9, a3, a2, a4);
+    }
     else
-      v14 = -1073741816;
-    ThreadUnlock1(v12, v11, v13);
+    {
+      v12 = -1073741816;
+    }
+    ThreadUnlock1(v10);
   }
   else
   {
-    v14 = -1073741816;
+    v12 = -1073741816;
   }
   UserSessionSwitchLeaveCrit(v8);
-  return v14;
+  return v12;
 }

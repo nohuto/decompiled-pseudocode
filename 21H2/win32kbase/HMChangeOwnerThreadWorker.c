@@ -1,17 +1,17 @@
 /*
- * XREFs of HMChangeOwnerThreadWorker @ 0x1C00C2298
+ * XREFs of HMChangeOwnerThreadWorker @ 0x1C00A5924
  * Callers:
- *     MarkThreadsObjects @ 0x1C002D930 (MarkThreadsObjects.c)
- *     HMChangeOwnerThread @ 0x1C00C2280 (HMChangeOwnerThread.c)
+ *     MarkThreadsObjects @ 0x1C00332B0 (MarkThreadsObjects.c)
+ *     HMChangeOwnerThread @ 0x1C00A58E0 (HMChangeOwnerThread.c)
  * Callees:
- *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C002DB2C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
- *     _HMPheFromObject @ 0x1C002FB80 (_HMPheFromObject.c)
- *     LockObjectAssignment @ 0x1C00983D0 (LockObjectAssignment.c)
- *     EtwTraceUserUpdateHandleOwner @ 0x1C00AC6E8 (EtwTraceUserUpdateHandleOwner.c)
- *     IsGetClassPtrSupported @ 0x1C00C359C (IsGetClassPtrSupported.c)
- *     GetClassPtr @ 0x1C00C3B54 (GetClassPtr.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     _HMPheFromObject @ 0x1C002CDC0 (_HMPheFromObject.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00334BC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     LockObjectAssignment @ 0x1C0085950 (LockObjectAssignment.c)
+ *     EtwTraceUserUpdateHandleOwner @ 0x1C009AA28 (EtwTraceUserUpdateHandleOwner.c)
+ *     IsGetClassPtrSupported @ 0x1C00B1EE8 (IsGetClassPtrSupported.c)
+ *     GetClassPtr @ 0x1C00B3260 (GetClassPtr.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 LONG_PTR __fastcall HMChangeOwnerThreadWorker(__int64 a1, __int64 a2)
@@ -25,21 +25,21 @@ LONG_PTR __fastcall HMChangeOwnerThreadWorker(__int64 a1, __int64 a2)
   unsigned __int8 v10; // cl
   char EtwUserHandleType; // al
   int v12; // r8d
-  __int64 v13; // rdx
-  __int64 v14; // r8
   LONG_PTR result; // rax
-  __int64 v16; // rcx
+  int v14; // edi
+  int v15; // eax
   __int64 v17; // rcx
   __int64 *ClassPtr; // rbx
   __int64 v19; // rax
   __int64 CurrentProcessWin32Process; // rbx
-  __int64 v21; // rcx
-  __int64 v22; // rdx
+  int v21; // eax
+  __int64 v22; // rcx
+  __int64 v23; // rdx
 
   v3 = *(_QWORD *)(a1 + 16);
   v5 = gpKernelHandleTable;
   v6 = 3LL * (unsigned __int16)*(_DWORD *)a1;
-  v7 = (char *)qword_1C0294B68 + dword_1C0294B70 * (unsigned int)(unsigned __int16)*(_DWORD *)a1;
+  v7 = (char *)qword_1C024FD58 + dword_1C024FD60 * (unsigned int)(unsigned __int16)*(_DWORD *)a1;
   v8 = *(_QWORD *)(*((_QWORD *)gpKernelHandleTable + 3 * (unsigned __int16)*(_DWORD *)a1 + 1) + 424LL);
   --*(_DWORD *)(v8 + 68);
   v5[v6 + 1] = a2;
@@ -51,41 +51,44 @@ LONG_PTR __fastcall HMChangeOwnerThreadWorker(__int64 a1, __int64 a2)
   *(_QWORD *)(a1 + 16) = v5[v6 + 1];
   result = v5[v6 + 1];
   ++*(_DWORD *)(*(_QWORD *)(result + 424) + 68LL);
-  v16 = (unsigned int)(unsigned __int8)v7[24] - 1;
   if ( v7[24] == 1 )
   {
     ++*(_DWORD *)(a2 + 896);
     --*(_DWORD *)(v3 + 896);
-    if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x10) != 0
-      && qword_1C029C548
-      && (int)qword_1C029C548() >= 0
-      && qword_1C029C550
-      && (unsigned int)qword_1C029C550(a1) )
+    v14 = -1073741637;
+    if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x10) != 0 )
     {
-      ++*(_DWORD *)(a2 + 900);
-      --*(_DWORD *)(v3 + 900);
+      v15 = qword_1C02577F8 ? qword_1C02577F8() : -1073741637;
+      if ( v15 >= 0 )
+      {
+        if ( qword_1C0257800 ? qword_1C0257800(a1) : 0 )
+        {
+          ++*(_DWORD *)(a2 + 900);
+          --*(_DWORD *)(v3 + 900);
+        }
+      }
     }
     if ( v3 != a2 )
     {
-      if ( (*(_DWORD *)(a1 + 320) & 0x20000000) != 0 )
+      if ( (*(_DWORD *)(a1 + 324) & 0x20000000) != 0 )
       {
         --*(_DWORD *)(v3 + 904);
         if ( (HMPheFromObject((_DWORD *)a1)[25] & 1) != 0 )
-          *(_DWORD *)(a1 + 320) &= ~0x20000000u;
+          *(_DWORD *)(a1 + 324) &= ~0x20000000u;
         else
           ++*(_DWORD *)(a2 + 904);
       }
       if ( a1 == *(_QWORD *)(v3 + 784) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v13, v14);
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3827LL);
     }
     result = *(_QWORD *)(v3 + 424);
     if ( *(_QWORD *)(a2 + 424) != result )
     {
-      if ( (int)IsGetClassPtrSupported() < 0
-        || (ClassPtr = (__int64 *)GetClassPtr(
-                                    **(unsigned __int16 **)(*(_QWORD *)(a1 + 136) + 8LL),
-                                    *(_QWORD *)(a2 + 424),
-                                    hModuleWin)) == 0LL )
+      if ( (int)IsGetClassPtrSupported() < 0 )
+        ClassPtr = 0LL;
+      else
+        ClassPtr = (__int64 *)GetClassPtr(**(unsigned __int16 **)(*(_QWORD *)(a1 + 136) + 8LL), *(_QWORD *)(a2 + 424));
+      if ( !ClassPtr )
       {
         v19 = *(_QWORD *)(a1 + 24);
         if ( v19 )
@@ -95,28 +98,34 @@ LONG_PTR __fastcall HMChangeOwnerThreadWorker(__int64 a1, __int64 a2)
         if ( (int)IsGetClassPtrSupported() < 0 )
           ClassPtr = 0LL;
         else
-          ClassPtr = (__int64 *)GetClassPtr(*((unsigned __int16 *)gpsi + 455), CurrentProcessWin32Process, hModuleWin);
+          ClassPtr = (__int64 *)GetClassPtr(*((unsigned __int16 *)gpsi + 455), CurrentProcessWin32Process);
       }
-      if ( qword_1C029C568 && (int)qword_1C029C568() >= 0 && qword_1C029C570 )
-        qword_1C029C570(*(_QWORD *)(v3 + 424), a1);
-      v21 = *ClassPtr;
-      if ( *ClassPtr )
-        v22 = *(_QWORD *)(v21 + 16);
+      if ( qword_1C0257818 )
+        v21 = qword_1C0257818();
       else
-        v22 = 0LL;
-      *(_QWORD *)(*(_QWORD *)(a1 + 40) + 128LL) = v22;
-      *(_QWORD *)(a1 + 136) = v21;
-      result = (LONG_PTR)qword_1C029C578;
-      if ( qword_1C029C578 )
+        v21 = -1073741637;
+      if ( v21 >= 0 && qword_1C0257820 )
+        qword_1C0257820(*(_QWORD *)(v3 + 424), a1);
+      v22 = *ClassPtr;
+      if ( *ClassPtr )
+        v23 = *(_QWORD *)(v22 + 16);
+      else
+        v23 = 0LL;
+      *(_QWORD *)(*(_QWORD *)(a1 + 40) + 128LL) = v23;
+      *(_QWORD *)(a1 + 136) = v22;
+      result = (LONG_PTR)qword_1C0257828;
+      if ( qword_1C0257828 )
       {
-        result = qword_1C029C578();
-        if ( (int)result >= 0 )
+        result = qword_1C0257828();
+        v14 = result;
+      }
+      if ( v14 >= 0 )
+      {
+        result = qword_1C0257830 ? qword_1C0257830(*(_QWORD *)(a1 + 136), a1) : 0LL;
+        if ( !(_DWORD)result )
         {
-          if ( !qword_1C029C580 || (result = qword_1C029C580(*(_QWORD *)(a1 + 136), a1), !(_DWORD)result) )
-          {
-            result = *(_QWORD *)(a1 + 136);
-            ++*(_DWORD *)(result + 72);
-          }
+          result = *(_QWORD *)(a1 + 136);
+          ++*(_DWORD *)(result + 72);
         }
       }
     }

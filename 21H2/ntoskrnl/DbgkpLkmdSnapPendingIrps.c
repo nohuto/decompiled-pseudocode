@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpLkmdSnapPendingIrps @ 0x14092B3A8
+ * XREFs of DbgkpLkmdSnapPendingIrps @ 0x140888498
  * Callers:
- *     DbgkpLkmdSnapThreadApc @ 0x14092B4E0 (DbgkpLkmdSnapThreadApc.c)
+ *     DbgkpLkmdSnapThreadApc @ 0x1408885D0 (DbgkpLkmdSnapThreadApc.c)
  * Callees:
- *     DbgkpLkmdSnapData @ 0x140540280 (DbgkpLkmdSnapData.c)
- *     DbgkpLkmdSnapObject @ 0x140540590 (DbgkpLkmdSnapObject.c)
+ *     DbgkpLkmdSnapData @ 0x1404EE140 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapObject @ 0x1404EE450 (DbgkpLkmdSnapObject.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapPendingIrps(__int64 a1, __int64 a2, _DWORD *a3)
@@ -17,9 +17,9 @@ __int64 __fastcall DbgkpLkmdSnapPendingIrps(__int64 a1, __int64 a2, _DWORD *a3)
   _WORD *v10; // rdx
   _WORD *v11; // rdx
 
-  v3 = a2 + 1280;
-  v5 = *(_QWORD *)(a2 + 1280);
-  if ( v5 == a2 + 1280 )
+  v3 = a2 + 1200;
+  v5 = *(_QWORD *)(a2 + 1200);
+  if ( v5 == a2 + 1200 )
   {
     a3[1] |= 8u;
     return 0LL;

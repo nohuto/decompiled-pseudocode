@@ -1,13 +1,12 @@
 /*
- * XREFs of NtUserfnOUTLPTITLEBARINFOEX @ 0x1C000FAB0
+ * XREFs of NtUserfnOUTLPTITLEBARINFOEX @ 0x1C011E400
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall NtUserfnOUTLPTITLEBARINFOEX(
@@ -18,60 +17,56 @@ __int64 __fastcall NtUserfnOUTLPTITLEBARINFOEX(
         __int64 a5,
         char a6)
 {
-  _BYTE *v10; // rdx
+  __int64 v10; // r8
   __int64 v11; // rdi
-  __int128 v13; // [rsp+50h] [rbp-D8h] BYREF
-  __int128 v14; // [rsp+60h] [rbp-C8h]
-  __int128 v15; // [rsp+70h] [rbp-B8h]
-  __int128 v16; // [rsp+80h] [rbp-A8h]
-  __int128 v17; // [rsp+90h] [rbp-98h]
-  __int128 v18; // [rsp+A0h] [rbp-88h]
-  __int128 v19; // [rsp+B0h] [rbp-78h]
-  __int128 v20; // [rsp+C0h] [rbp-68h]
-  __int64 v21; // [rsp+D0h] [rbp-58h]
-  int v22; // [rsp+D8h] [rbp-50h]
+  _OWORD v13[9]; // [rsp+50h] [rbp-D8h] BYREF
 
-  memset_0(&v13, 0, 0x8CuLL);
-  PtiCurrentShared();
-  v10 = (_BYTE *)a4;
+  memset(v13, 0, 0x8CuLL);
+  v11 = 0LL;
   if ( a4 >= MmUserProbeAddress )
-    v10 = (_BYTE *)MmUserProbeAddress;
-  *v10 = *v10;
-  v10[139] = v10[139];
-  v13 = *(_OWORD *)a4;
-  v14 = *(_OWORD *)(a4 + 16);
-  v15 = *(_OWORD *)(a4 + 32);
-  v16 = *(_OWORD *)(a4 + 48);
-  v17 = *(_OWORD *)(a4 + 64);
-  v18 = *(_OWORD *)(a4 + 80);
-  v19 = *(_OWORD *)(a4 + 96);
-  v20 = *(_OWORD *)(a4 + 112);
-  v21 = *(_QWORD *)(a4 + 128);
-  v22 = *(_DWORD *)(a4 + 136);
-  if ( (_DWORD)v13 == 140 )
+    *(_DWORD *)MmUserProbeAddress = 0;
+  *(_OWORD *)a4 = *(_OWORD *)a4;
+  *(_OWORD *)(a4 + 16) = *(_OWORD *)(a4 + 16);
+  *(_OWORD *)(a4 + 32) = *(_OWORD *)(a4 + 32);
+  *(_OWORD *)(a4 + 48) = *(_OWORD *)(a4 + 48);
+  *(_OWORD *)(a4 + 64) = *(_OWORD *)(a4 + 64);
+  *(_OWORD *)(a4 + 80) = *(_OWORD *)(a4 + 80);
+  *(_OWORD *)(a4 + 96) = *(_OWORD *)(a4 + 96);
+  *(_OWORD *)(a4 + 112) = *(_OWORD *)(a4 + 112);
+  *(_QWORD *)(a4 + 128) = *(_QWORD *)(a4 + 128);
+  *(_DWORD *)(a4 + 136) = *(_DWORD *)(a4 + 136);
+  v13[0] = *(_OWORD *)a4;
+  v13[1] = *(_OWORD *)(a4 + 16);
+  v13[2] = *(_OWORD *)(a4 + 32);
+  v13[3] = *(_OWORD *)(a4 + 48);
+  v13[4] = *(_OWORD *)(a4 + 64);
+  v13[5] = *(_OWORD *)(a4 + 80);
+  v13[6] = *(_OWORD *)(a4 + 96);
+  v13[7] = *(_OWORD *)(a4 + 112);
+  *(_QWORD *)&v13[8] = *(_QWORD *)(a4 + 128);
+  DWORD2(v13[8]) = *(_DWORD *)(a4 + 136);
+  if ( LODWORD(v13[0]) == 140 )
   {
-    v11 = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *, __int64))&WPP_MAIN_CB.SectorSize
-           + ((a6 + 6) & 0x1F)))(
+    v11 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _OWORD *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
             a1,
             a2,
             a3,
-            &v13,
+            v13,
             a5);
-    *(_OWORD *)a4 = v13;
-    *(_OWORD *)(a4 + 16) = v14;
-    *(_OWORD *)(a4 + 32) = v15;
-    *(_OWORD *)(a4 + 48) = v16;
-    *(_OWORD *)(a4 + 64) = v17;
-    *(_OWORD *)(a4 + 80) = v18;
-    *(_OWORD *)(a4 + 96) = v19;
-    *(_OWORD *)(a4 + 112) = v20;
-    *(_QWORD *)(a4 + 128) = v21;
-    *(_DWORD *)(a4 + 136) = v22;
+    *(_OWORD *)a4 = v13[0];
+    *(_OWORD *)(a4 + 16) = v13[1];
+    *(_OWORD *)(a4 + 32) = v13[2];
+    *(_OWORD *)(a4 + 48) = v13[3];
+    *(_OWORD *)(a4 + 64) = v13[4];
+    *(_OWORD *)(a4 + 80) = v13[5];
+    *(_OWORD *)(a4 + 96) = v13[6];
+    *(_OWORD *)(a4 + 112) = v13[7];
+    *(_QWORD *)(a4 + 128) = *(_QWORD *)&v13[8];
+    *(_DWORD *)(a4 + 136) = DWORD2(v13[8]);
   }
   else
   {
-    v11 = 0LL;
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, (__int64)v13, v10);
   }
   return v11;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C001EC98
+ * XREFs of ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B9B0
  * Callers:
- *     cjCopyFontDataW @ 0x1C000E5E8 (cjCopyFontDataW.c)
- *     GreGetOutlineTextMetricsInternalW @ 0x1C0018120 (GreGetOutlineTextMetricsInternalW.c)
- *     ??0RESETFCOBJ@@QEAA@AEAVDCOBJ@@AEAVRFONTOBJ@@PEAU_MAT2@@HK@Z @ 0x1C001C0D8 (--0RESETFCOBJ@@QEAA@AEAVDCOBJ@@AEAVRFONTOBJ@@PEAU_MAT2@@HK@Z.c)
- *     GreGetCharSet @ 0x1C001C490 (GreGetCharSet.c)
- *     GreMarkDeletableFont @ 0x1C00C5A20 (GreMarkDeletableFont.c)
- *     FinishStockFontInit @ 0x1C00C81E0 (FinishStockFontInit.c)
- *     NtGdiQueryFontAssocInfo @ 0x1C01091A0 (NtGdiQueryFontAssocInfo.c)
- *     ?lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z @ 0x1C014FF28 (-lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C015154C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C016FEF6 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
- *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C0288EC4 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
- *     ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C02A51B0 (-ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A5B8C (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A6B30 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     cjCopyFontDataW @ 0x1C005F020 (cjCopyFontDataW.c)
+ *     GreGetCharSet @ 0x1C009B770 (GreGetCharSet.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009BA88 (GreGetOutlineTextMetricsInternalW.c)
+ *     ??0RESETFCOBJ@@QEAA@AEAVDCOBJ@@AEAVRFONTOBJ@@PEAU_MAT2@@HK@Z @ 0x1C009FF00 (--0RESETFCOBJ@@QEAA@AEAVDCOBJ@@AEAVRFONTOBJ@@PEAU_MAT2@@HK@Z.c)
+ *     GreMarkDeletableFont @ 0x1C00E43C4 (GreMarkDeletableFont.c)
+ *     FinishStockFontInit @ 0x1C00E4810 (FinishStockFontInit.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7DFC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C00E85B0 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C00E8F54 (-ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z.c)
+ *     NtGdiQueryFontAssocInfo @ 0x1C0114720 (NtGdiQueryFontAssocInfo.c)
+ *     ?lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z @ 0x1C0158968 (-lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C028B274 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A79B8 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A839C (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
  * Callees:
  *     <none>
  */
@@ -58,16 +58,16 @@ LFONTOBJ *__fastcall LFONTOBJ::LFONTOBJ(LFONTOBJ *this, struct HLFONT__ *a2, str
         if ( v15 )
         {
           if ( v15 == 1 )
-            v3 = (struct HLFONT__ *)v13[180];
+            v3 = (struct HLFONT__ *)v13[181];
         }
         else
         {
-          v3 = (struct HLFONT__ *)v13[179];
+          v3 = (struct HLFONT__ *)v13[180];
         }
       }
       else
       {
-        v3 = (struct HLFONT__ *)v13[178];
+        v3 = (struct HLFONT__ *)v13[179];
       }
       LOBYTE(v11) = 10;
       *(_QWORD *)this = HmgShareLock(v3, v11);

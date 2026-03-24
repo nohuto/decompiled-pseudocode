@@ -1,15 +1,15 @@
 /*
- * XREFs of BiDeleteEfiVariable @ 0x140A1F7E0
+ * XREFs of BiDeleteEfiVariable @ 0x140971884
  * Callers:
- *     BiExportEfiBootManager @ 0x140A1FB1C (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140971BC0 (BiExportEfiBootManager.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemEnvironmentValueEx @ 0x14041E460 (ZwQuerySystemEnvironmentValueEx.c)
- *     ZwSetSystemEnvironmentValueEx @ 0x14041EDE0 (ZwSetSystemEnvironmentValueEx.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x1403FCFC0 (ZwQuerySystemEnvironmentValueEx.c)
+ *     ZwSetSystemEnvironmentValueEx @ 0x1403FD900 (ZwSetSystemEnvironmentValueEx.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiDeleteEfiVariable(PCWSTR SourceString)

@@ -3,8 +3,8 @@
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     _CmMapCmObjectTypeToPnpObjectType @ 0x14059989C (_CmMapCmObjectTypeToPnpObjectType.c)
  *     PiDmObjectUpdateCachedObjectProperty @ 0x140599A98 (PiDmObjectUpdateCachedObjectProperty.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)

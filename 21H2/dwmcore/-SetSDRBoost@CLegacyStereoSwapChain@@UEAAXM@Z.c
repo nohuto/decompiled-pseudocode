@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z @ 0x180290EC4
+ * XREFs of ?SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z @ 0x18024DF98
  * Callers:
- *     ?SetSDRBoost@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x18010A250 (-SetSDRBoost@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x1800F7B90 (-SetSDRBoost@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXM@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetSDRBoost@CLegacySwapChain@@UEAAXM@Z @ 0x18028BC0C (-SetSDRBoost@CLegacySwapChain@@UEAAXM@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?SetSDRBoost@CLegacySwapChain@@UEAAXM@Z @ 0x18024A68C (-SetSDRBoost@CLegacySwapChain@@UEAAXM@Z.c)
  */
 
 void __fastcall CLegacyStereoSwapChain::SetSDRBoost(CLegacyStereoSwapChain *this, float a2)
@@ -12,10 +12,10 @@ void __fastcall CLegacyStereoSwapChain::SetSDRBoost(CLegacyStereoSwapChain *this
   __int64 v3; // rdx
   __int64 v4; // rcx
 
-  if ( *((float *)this - 66) != a2 )
+  if ( *((float *)this - 54) != a2 )
   {
     v3 = *((_QWORD *)this - 10);
-    *((float *)this - 66) = a2;
+    *((float *)this - 54) = a2;
     if ( v3 )
     {
       v4 = v3 + 8 + *(int *)(*(_QWORD *)(v3 + 8) + 24LL);

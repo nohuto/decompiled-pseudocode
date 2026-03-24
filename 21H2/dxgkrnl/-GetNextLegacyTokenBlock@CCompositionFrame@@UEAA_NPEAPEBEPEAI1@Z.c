@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetNextLegacyTokenBlock@CCompositionFrame@@UEAA_NPEAPEBEPEAI1@Z @ 0x1C0018560
+ * XREFs of ?GetNextLegacyTokenBlock@CCompositionFrame@@UEAA_NPEAPEBEPEAI1@Z @ 0x1C0016A50
  * Callers:
  *     <none>
  * Callees:
@@ -13,20 +13,20 @@ char __fastcall CCompositionFrame::GetNextLegacyTokenBlock(
         unsigned int *a4)
 {
   char v4; // r10
-  __int64 v6; // rbx
-  __int64 v7; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rcx
 
   v4 = 0;
   if ( *((_BYTE *)this + 112) )
   {
-    v6 = *((_QWORD *)this + 13);
-    *a2 = (const unsigned __int8 *)(*(_QWORD *)(v6 + 2088) + 20LL);
-    *a3 = *(_DWORD *)(*(_QWORD *)(v6 + 2088) + 2068LL);
-    *a4 = *(_DWORD *)(*(_QWORD *)(v6 + 2088) + 16LL);
-    v7 = **(_QWORD **)(v6 + 2088);
-    if ( v7 != v6 + 16 )
+    v7 = *((_QWORD *)this + 13);
+    *a2 = (const unsigned __int8 *)(*(_QWORD *)(v7 + 2088) + 20LL);
+    *a3 = *(_DWORD *)(*(_QWORD *)(v7 + 2088) + 2068LL);
+    *a4 = *(_DWORD *)(*(_QWORD *)(v7 + 2088) + 16LL);
+    v8 = **(_QWORD **)(v7 + 2088);
+    if ( v8 != v7 + 16 )
     {
-      *(_QWORD *)(v6 + 2088) = v7;
+      *(_QWORD *)(v7 + 2088) = v8;
       v4 = 1;
     }
     *((_BYTE *)this + 112) = v4;

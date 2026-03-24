@@ -1,13 +1,12 @@
 /*
- * XREFs of ?IsValid@CRenderTargetBitmap@@UEBAJXZ @ 0x1800BB1AC
+ * XREFs of ?IsValid@CRenderTargetBitmap@@UEBAJXZ @ 0x180060E60
  * Callers:
- *     ?FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ @ 0x1800BA490 (-FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ.c)
- *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800BAEE8 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
- *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBAJXZ @ 0x18010BE10 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBAJXZ.c)
- *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ @ 0x18010CAB0 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ.c)
- *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBAJXZ @ 0x18010CFB0 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBAJXZ.c)
- *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAJXZ @ 0x18010D2F0 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAJXZ.c)
- *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802A3EE8 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ @ 0x180060730 (-FinalRelease@CScratchRenderTargetBitmap@@UEAAXXZ.c)
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x180060BC4 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScrat.c)
+ *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F5FA0 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBAJXZ.c)
+ *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ @ 0x1800F9400 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ.c)
+ *     ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAJXZ @ 0x1800F9540 (-IsValid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAJXZ.c)
+ *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180264344 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */

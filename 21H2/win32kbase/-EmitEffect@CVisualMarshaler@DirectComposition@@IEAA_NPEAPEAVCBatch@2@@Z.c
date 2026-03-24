@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitEffect@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00117E4
+ * XREFs of ?EmitEffect@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00625BC
  * Callers:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010FE0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualMarshaler::EmitEffect(
@@ -25,11 +25,11 @@ char __fastcall DirectComposition::CVisualMarshaler::EmitEffect(
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v5 + 4) = 0LL;
     *((_DWORD *)v5 + 3) = 0;
-    *((_DWORD *)v5 + 1) = 412;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-    v6 = *((_QWORD *)this + 20);
+    *((_DWORD *)v5 + 1) = 416;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 19);
     if ( v6 )
-      v4 = *(_DWORD *)(v6 + 32);
+      v4 = *(_DWORD *)(v6 + 24);
     *((_DWORD *)v5 + 3) = v4;
     *((_DWORD *)this + 4) &= ~0x400u;
     return 1;

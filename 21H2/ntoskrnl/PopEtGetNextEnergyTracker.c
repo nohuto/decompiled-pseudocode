@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtGetNextEnergyTracker @ 0x140681A2C
+ * XREFs of PopEtGetNextEnergyTracker @ 0x1406A7538
  * Callers:
- *     PopEtEnumEnergyTrackers @ 0x1406819CC (PopEtEnumEnergyTrackers.c)
+ *     PopEtEnumEnergyTrackers @ 0x1406A74DC (PopEtEnumEnergyTrackers.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 _QWORD *__fastcall PopEtGetNextEnergyTracker(_QWORD **Object)

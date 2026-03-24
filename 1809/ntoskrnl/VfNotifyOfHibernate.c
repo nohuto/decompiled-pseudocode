@@ -3,9 +3,9 @@
  * Callers:
  *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfIsVerifierExtensionEnabled @ 0x14030993C (VfIsVerifierExtensionEnabled.c)
- *     VfDisableHalVerifier @ 0x140309F88 (VfDisableHalVerifier.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfIsVerifierExtensionEnabled @ 0x140309A3C (VfIsVerifierExtensionEnabled.c)
+ *     VfDisableHalVerifier @ 0x14030A088 (VfDisableHalVerifier.c)
  */
 
 void __fastcall VfNotifyOfHibernate(char a1)

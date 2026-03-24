@@ -1,28 +1,27 @@
 /*
- * XREFs of EtwpLockBufferList @ 0x1402280E8
+ * XREFs of EtwpLockBufferList @ 0x14032F320
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x140227E10 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FC8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140228540 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpReserveTraceBuffer @ 0x1402340E0 (EtwpReserveTraceBuffer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14036D178 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x140370D88 (EtwpAllocateFreeBuffers.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140602778 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpReenableCompression @ 0x140602A24 (EtwpReenableCompression.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0E80 (EtwpReserveTraceBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14032B208 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x14032ED38 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x14032F080 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x14032F238 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x14035FD48 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x1405ACF34 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x1405AD600 (EtwpReenableCompression.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
 {
-  unsigned __int8 CurrentIrql; // r9
-  _DWORD *SchedulerAssist; // r11
-  __int64 v5; // rdx
+  unsigned __int8 CurrentIrql; // r11
+  _DWORD *SchedulerAssist; // r9
 
-  if ( *(_DWORD *)(a1 + 300) == 1 )
+  if ( *(_DWORD *)(a1 + 316) == 1 )
   {
-    ExAcquirePushLockExclusiveEx(a1 + 696, 0LL);
+    ExAcquirePushLockExclusiveEx(a1 + 712, 0LL);
   }
   else
   {
@@ -31,13 +30,9 @@ void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 15 )
-        LODWORD(v5) = 0x8000;
-      else
-        v5 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-      SchedulerAssist[5] |= v5;
+      SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (CurrentIrql + 1)) - 1) & 0xFFFC;
     }
     *a2 = CurrentIrql;
-    KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 696));
+    KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 712));
   }
 }

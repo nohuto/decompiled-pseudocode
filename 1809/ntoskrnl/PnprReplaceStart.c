@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprReplaceStart @ 0x140835BD8
+ * XREFs of PnprReplaceStart @ 0x140835BB8
  * Callers:
  *     PnprInitiateReplaceOperation @ 0x140579814 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 PnprReplaceStart()

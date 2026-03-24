@@ -1,15 +1,15 @@
 /*
  * XREFs of KeRundownApcQueues @ 0x1405F7DE0
  * Callers:
- *     sub_140322470 @ 0x140322470 (sub_140322470.c)
+ *     sub_140322570 @ 0x140322570 (sub_140322570.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     KiFlushQueueApc @ 0x140089E78 (KiFlushQueueApc.c)
- *     KeForceResumeThread @ 0x1400F1B7C (KeForceResumeThread.c)
- *     KiAcquireReleaseThreadLock @ 0x140121650 (KiAcquireReleaseThreadLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeForceResumeThread @ 0x1400F1B9C (KeForceResumeThread.c)
+ *     KiAcquireReleaseThreadLock @ 0x140121670 (KiAcquireReleaseThreadLock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

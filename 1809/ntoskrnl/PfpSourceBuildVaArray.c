@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpSourceBuildVaArray @ 0x140864DA4
+ * XREFs of PfpSourceBuildVaArray @ 0x140864D84
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x1408643AC (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

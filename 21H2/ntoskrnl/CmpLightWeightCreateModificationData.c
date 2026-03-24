@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLightWeightCreateModificationData @ 0x14065E480
+ * XREFs of CmpLightWeightCreateModificationData @ 0x14087F20C
  * Callers:
- *     CmpLightWeightPrepareAddKeyUoW @ 0x14065DF64 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140923D00 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140923ED0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F3B4 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F610 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14065E380 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightUpdateModificationActions @ 0x14065E548 (CmpLightWeightUpdateModificationActions.c)
- *     CmpLightWeightDuplicateParentLists @ 0x14065E5A4 (CmpLightWeightDuplicateParentLists.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EAC4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14087F2DC (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x14087FD98 (CmpLightWeightUpdateModificationActions.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateModificationData(
@@ -19,8 +19,8 @@ __int64 __fastcall CmpLightWeightCreateModificationData(
 {
   ULONG_PTR v6; // rbp
   unsigned int *TransientPoolWithTag; // rax
-  unsigned int *v8; // rdi
-  int updated; // ebx
+  unsigned int *v8; // rbx
+  int updated; // edi
 
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
   TransientPoolWithTag = (unsigned int *)CmpAllocateTransientPoolWithTag(PagedPool, 0x14uLL, 0x77554D43u, a4);
@@ -32,21 +32,22 @@ __int64 __fastcall CmpLightWeightCreateModificationData(
     ++*TransientPoolWithTag;
     TransientPoolWithTag[3] = -1;
     TransientPoolWithTag[4] = -1;
-    updated = CmpLightWeightDuplicateParentLists(v6, *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL) + 40LL));
-    if ( updated < 0
-      || (updated = CmpLightWeightUpdateModificationActions(
-                      v8,
-                      *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL),
-                      *(_QWORD *)(a1 + 56)),
-          updated < 0) )
+    updated = CmpLightWeightDuplicateParentLists(v6);
+    if ( updated >= 0 )
     {
+      updated = CmpLightWeightUpdateModificationActions(
+                  v8,
+                  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL),
+                  *(_QWORD *)(a1 + 56));
+      if ( updated >= 0 )
+      {
+        updated = 0;
+        *a2 = v8;
+        v8 = 0LL;
+      }
+    }
+    if ( v8 )
       CmpLightWeightCleanupModifyKeyDataUoW(v6, v8);
-    }
-    else
-    {
-      updated = 0;
-      *a2 = v8;
-    }
   }
   else
   {

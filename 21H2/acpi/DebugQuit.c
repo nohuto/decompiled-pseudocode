@@ -1,10 +1,10 @@
 /*
- * XREFs of DebugQuit @ 0x1C0067680
+ * XREFs of DebugQuit @ 0x1C00663D0
  * Callers:
  *     <none>
  * Callees:
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 __fastcall DebugQuit(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall DebugQuit(__int64 a1, __int64 a2)
   v2 = 0;
   if ( a2 )
   {
-    PrintDebugMessage(225, 0, 0, 0, 0LL);
+    PrintDebugMessage(225, 0LL, 0LL, 0LL, 0LL);
     return (unsigned int)-2;
   }
   else if ( (gDebugger & 2) != 0 )

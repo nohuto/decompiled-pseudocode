@@ -1,29 +1,36 @@
 /*
- * XREFs of OPMInitialize @ 0x1C005BC28
+ * XREFs of OPMInitialize @ 0x1C00B0598
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ??0COPM@@QEAA@PEAJ@Z @ 0x1C005BC90 (--0COPM@@QEAA@PEAJ@Z.c)
+ *     ??0COPM@@QEAA@PEAJ@Z @ 0x1C00B060C (--0COPM@@QEAA@PEAJ@Z.c)
  */
 
 __int64 OPMInitialize()
 {
   unsigned int v0; // ebx
-  COPM *Pool2; // rax
-  int v3; // [rsp+30h] [rbp+8h] BYREF
+  int v1; // edi
+  COPM *PoolWithTag; // rax
+  OPM *v3; // rax
+  int v5; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0;
-  v3 = 0;
-  Pool2 = (COPM *)ExAllocatePool2(258LL, 64LL);
-  if ( !Pool2 )
+  v1 = 0;
+  v5 = 0;
+  PoolWithTag = (COPM *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x4D504F47u);
+  if ( PoolWithTag )
   {
-    qword_1C0296A08 = 0LL;
-    return 3221225495LL;
+    v3 = COPM::COPM(PoolWithTag, &v5);
+    v1 = v5;
   }
-  qword_1C0296A08 = COPM::COPM(Pool2, &v3);
-  if ( !qword_1C0296A08 )
+  else
+  {
+    v3 = 0LL;
+  }
+  qword_1C0251C30 = v3;
+  if ( !v3 )
     return 3221225495LL;
-  if ( v3 < 0 )
-    return (unsigned int)v3;
+  if ( v1 < 0 )
+    return (unsigned int)v1;
   return v0;
 }

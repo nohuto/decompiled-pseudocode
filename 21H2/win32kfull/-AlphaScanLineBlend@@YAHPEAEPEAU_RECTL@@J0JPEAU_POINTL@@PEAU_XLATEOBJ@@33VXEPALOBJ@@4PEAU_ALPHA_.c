@@ -1,9 +1,10 @@
 /*
- * XREFs of ?AlphaScanLineBlend@@YAHPEAEPEAU_RECTL@@J0JPEAU_POINTL@@PEAU_XLATEOBJ@@33VXEPALOBJ@@4PEAU_ALPHA_DISPATCH_FORMAT@@@Z @ 0x1C002DA50
+ * XREFs of ?AlphaScanLineBlend@@YAHPEAEPEAU_RECTL@@J0JPEAU_POINTL@@PEAU_XLATEOBJ@@33VXEPALOBJ@@4PEAU_ALPHA_DISPATCH_FORMAT@@@Z @ 0x1C00AD410
  * Callers:
- *     EngAlphaBlend @ 0x1C002D3E0 (EngAlphaBlend.c)
+ *     EngAlphaBlend @ 0x1C00ACD70 (EngAlphaBlend.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AlphaScanLineBlend(
@@ -24,25 +25,25 @@ __int64 __fastcall AlphaScanLineBlend(
   unsigned int v16; // r12d
   int v17; // r9d
   int v18; // r13d
-  __int64 v19; // r14
+  char *v19; // r14
   unsigned int v20; // r8d
   int v21; // ecx
   int v22; // r9d
   int v23; // ecx
-  __int64 v24; // rbx
+  char *v24; // rbx
   int v25; // eax
   int v26; // eax
-  __int64 v27; // rdi
-  __int64 v28; // rcx
-  __int64 v30; // rdi
-  __int64 v31; // rsi
+  char *v27; // rdi
+  char *v28; // rcx
+  char *v30; // rdi
+  char *v31; // rsi
   int v33; // [rsp+40h] [rbp-78h]
   unsigned int v34; // [rsp+48h] [rbp-70h]
-  __int64 v35; // [rsp+58h] [rbp-60h]
-  __int64 i; // [rsp+60h] [rbp-58h]
-  __int64 v37; // [rsp+68h] [rbp-50h]
+  char *v35; // [rsp+58h] [rbp-60h]
+  char *i; // [rsp+60h] [rbp-58h]
+  char *v37; // [rsp+68h] [rbp-50h]
   __int64 v38; // [rsp+80h] [rbp-38h]
-  int v39; // [rsp+C8h] [rbp+10h]
+  int Size; // [rsp+C8h] [rbp+10h]
 
   v15 = *a2;
   v16 = a2[2] - *a2;
@@ -50,7 +51,7 @@ __int64 __fastcall AlphaScanLineBlend(
   v33 = a2[3] - v17;
   v18 = 4 * v16;
   v19 = 0LL;
-  v39 = 0;
+  Size = 0;
   v34 = *(_DWORD *)(a12 + 4);
   v20 = v34 >> 3;
   v21 = *(_DWORD *)a12 >> 3;
@@ -74,7 +75,7 @@ __int64 __fastcall AlphaScanLineBlend(
   {
     v23 = v15 / 2;
   }
-  v24 = a1 + v22 + (__int64)v23;
+  v24 = (char *)(a1 + v22 + (__int64)v23);
   v25 = *a6;
   if ( v20 )
   {
@@ -88,18 +89,18 @@ __int64 __fastcall AlphaScanLineBlend(
   {
     v26 = v25 / 2;
   }
-  v27 = a5 * a6[1] + (__int64)v26 + a4;
+  v27 = (char *)(a5 * a6[1] + (__int64)v26 + a4);
   if ( *(_QWORD *)(a12 + 16) )
-    v39 = 4 * v16;
+    Size = 4 * v16;
   if ( *(_QWORD *)(a12 + 8) )
   {
-    v39 += v18;
-    if ( v39 < v18 )
+    Size += v18;
+    if ( Size < v18 )
       return 0LL;
   }
-  if ( v39 )
+  if ( Size )
   {
-    v37 = Win32AllocPoolZInit((unsigned int)v39, 1886150983LL);
+    v37 = (char *)PALLOCMEM2((unsigned int)Size, 1886150983LL, 1);
     if ( !v37 )
       return 0LL;
   }
@@ -107,7 +108,7 @@ __int64 __fastcall AlphaScanLineBlend(
   if ( *(_QWORD *)(a12 + 8) )
   {
     v35 = v37;
-    v28 = v18 + v37;
+    v28 = &v37[v18];
   }
   if ( *(_QWORD *)(a12 + 16) )
     v19 = v28;
@@ -117,17 +118,17 @@ __int64 __fastcall AlphaScanLineBlend(
     v31 = v24;
     if ( v35 )
     {
-      (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD, __int64))(a12 + 8))(v35, i, 0LL, v16, a7);
+      (*(void (__fastcall **)(char *, char *, _QWORD, _QWORD, __int64))(a12 + 8))(v35, i, 0LL, v16, a7);
       v30 = v35;
     }
     if ( v19 )
     {
-      (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD, __int64))(a12 + 16))(v19, v24, 0LL, v16, a8);
+      (*(void (__fastcall **)(char *, char *, _QWORD, _QWORD, __int64))(a12 + 16))(v19, v24, 0LL, v16, a8);
       v31 = v19;
     }
-    (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(a12 + 32))(v31, v30, v16, *(unsigned int *)(a12 + 40));
+    (*(void (__fastcall **)(char *, char *, _QWORD, _QWORD))(a12 + 32))(v31, v30, v16, *(unsigned int *)(a12 + 40));
     if ( v19 )
-      (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD, __int64, __int64, __int64))(a12 + 24))(
+      (*(void (__fastcall **)(char *, char *, _QWORD, _QWORD, __int64, __int64, __int64))(a12 + 24))(
         v24,
         v19,
         v16,
@@ -137,7 +138,7 @@ __int64 __fastcall AlphaScanLineBlend(
         v38);
     v24 += a3;
   }
-  if ( v39 )
+  if ( Size )
     Win32FreePool(v37);
   return 1LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RectangleGeometrySetRectangle@CChannel@@UEAAJIMMMMMMMMMMMM_N@Z @ 0x180074140
+ * XREFs of ?RectangleGeometrySetRectangle@CChannel@@UEAAJIMMMMMMMMMMMM_N@Z @ 0x18005F3E0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::RectangleGeometrySetRectangle(
@@ -40,17 +40,13 @@ __int64 __fastcall CChannel::RectangleGeometrySetRectangle(
   int v29; // [rsp+38h] [rbp-59h] BYREF
   unsigned int v30; // [rsp+3Ch] [rbp-55h]
   float v31; // [rsp+40h] [rbp-51h]
-  _DWORD v32[10]; // [rsp+48h] [rbp-49h] BYREF
-  bool v33; // [rsp+70h] [rbp-21h]
-  __int16 v34; // [rsp+71h] [rbp-20h]
-  char v35; // [rsp+73h] [rbp-1Eh]
-  char *v36; // [rsp+A8h] [rbp+17h] BYREF
+  _DWORD v32[20]; // [rsp+48h] [rbp-49h] BYREF
+  struct _RTL_CRITICAL_SECTION *v33; // [rsp+A8h] [rbp+17h] BYREF
 
-  v36 = (char *)this + 168;
+  v33 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle((__int64)this, a2, 137);
-  v32[0] = 329;
-  v35 = 0;
+  CChannel::CheckHandle((__int64)this, a2, 138);
+  v32[0] = 336;
   *(float *)&v32[2] = a7;
   *(float *)&v32[3] = a8;
   *(float *)&v32[4] = a9;
@@ -60,60 +56,59 @@ __int64 __fastcall CChannel::RectangleGeometrySetRectangle(
   *(float *)&v32[8] = a13;
   *(float *)&v32[9] = a14;
   v32[1] = a2;
-  v33 = a15;
-  v34 = 256;
+  v32[10] = a15;
   v17 = CChannel::SendCommand(this, v32, 0x2Cu);
   v19 = v17;
   if ( v17 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x755u);
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x72Eu, 0LL);
   }
   else
   {
-    v29 = 327;
+    v29 = 334;
     v31 = a3;
     v30 = a2;
     v20 = CChannel::SendCommand(this, &v29, 0xCu);
     v19 = v20;
     if ( v20 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x75Du);
+      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x736u, 0LL);
     }
     else
     {
-      v29 = 332;
+      v29 = 339;
       v31 = a4;
       v30 = a2;
       v22 = CChannel::SendCommand(this, &v29, 0xCu);
       v19 = v22;
       if ( v22 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x765u);
+        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x73Eu, 0LL);
       }
       else
       {
-        v29 = 330;
+        v29 = 337;
         v31 = a5;
         v30 = a2;
         v24 = CChannel::SendCommand(this, &v29, 0xCu);
         v19 = v24;
         if ( v24 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0LL, v24, 0x76Du);
+          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x746u, 0LL);
         }
         else
         {
-          v29 = 326;
+          v29 = 333;
           v31 = a6;
           v30 = a2;
           v26 = CChannel::SendCommand(this, &v29, 0xCu);
           v19 = v26;
           if ( v26 < 0 )
-            MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0LL, v26, 0x775u);
+            MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x74Eu, 0LL);
         }
       }
     }
   }
-  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v36);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v33);
   return v19;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x180220E50
+ * XREFs of ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x1801B7564
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ?Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x180220FEC (-Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1801B76FC (-Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B9448 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x18009F484 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CClipBrush *__fastcall CClipBrush::CClipBrush(CClipBrush *this, struct CComposition *a2)
@@ -15,23 +15,23 @@ CClipBrush *__fastcall CClipBrush::CClipBrush(CClipBrush *this, struct CComposit
   __int64 v5; // rcx
   CClipBrush *result; // rax
 
-  *((_QWORD *)this + 8) = &CVisualBitmap::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 18) = &CInk::`vbtable'{for `IContent'};
-  *((_QWORD *)this + 17) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 18) + 4LL) + 144) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *((_QWORD *)this + 7) = &CClipBrush::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 17) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 16) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 17) + 4LL) + 136) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   CContent::CContent(this, a2);
   *(_QWORD *)v2 = &CClipBrush::`vftable';
-  v3 = *(_QWORD *)(v2 + 64);
-  *(_QWORD *)(v2 + 72) = 0LL;
-  *(_BYTE *)(v2 + 80) = 0;
-  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 64) = &CClipBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 64) + 8LL) + v2 + 64) = &CClipBrush::`vftable'{for `IContent'};
-  v4 = *(int *)(*(_QWORD *)(v2 + 64) + 4LL);
-  *(_DWORD *)(v4 + v2 + 60) = v4 - 56;
-  v5 = *(int *)(*(_QWORD *)(v2 + 64) + 8LL);
+  v3 = *(_QWORD *)(v2 + 56);
+  *(_QWORD *)(v2 + 64) = 0LL;
+  *(_BYTE *)(v2 + 72) = 0;
+  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 56) = &CCompositionGlyphRun::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56) = &CClipBrush::`vftable'{for `IContent'};
+  v4 = *(int *)(*(_QWORD *)(v2 + 56) + 4LL);
+  *(_DWORD *)(v4 + v2 + 52) = v4 - 56;
+  v5 = *(int *)(*(_QWORD *)(v2 + 56) + 8LL);
   result = (CClipBrush *)v2;
-  *(_DWORD *)(v5 + v2 + 60) = v5 - 72;
-  *(_QWORD *)(v2 + 88) = 0LL;
-  *(_OWORD *)(v2 + 96) = 0LL;
+  *(_DWORD *)(v5 + v2 + 52) = v5 - 72;
+  *(_QWORD *)(v2 + 80) = 0LL;
+  *(_OWORD *)(v2 + 88) = 0LL;
   return result;
 }

@@ -1,33 +1,29 @@
 /*
- * XREFs of UserResetPointer @ 0x1C011F200
+ * XREFs of UserResetPointer @ 0x1C0029280
  * Callers:
  *     <none>
  * Callees:
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C00541E4 (IS_USERCRIT_OWNED_SHARED.c)
- *     SetPointer @ 0x1C00B2D10 (SetPointer.c)
+ *     SetPointer @ 0x1C002A4C0 (SetPointer.c)
  */
 
 __int64 UserResetPointer()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
-  char v3; // bl
+  char v0; // bl
   __int64 result; // rax
-  __int64 v5; // rcx
+  __int64 v2; // rcx
 
-  if ( IS_USERCRIT_OWNED_SHARED() )
+  if ( ExIsResourceAcquiredSharedLite(gpresUser) )
   {
-    v3 = 0;
+    v0 = 0;
   }
   else
   {
-    v3 = 1;
-    EnterSharedCrit(v1, v0, v2);
+    v0 = 1;
+    EnterSharedCrit(0LL, 1LL);
   }
   SetPointer(0LL);
   result = SetPointer(1LL);
-  if ( v3 )
-    return UserSessionSwitchLeaveCrit(v5);
+  if ( v0 )
+    return UserSessionSwitchLeaveCrit(v2);
   return result;
 }

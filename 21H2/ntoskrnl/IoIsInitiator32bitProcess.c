@@ -1,25 +1,29 @@
 /*
- * XREFs of IoIsInitiator32bitProcess @ 0x14025D580
+ * XREFs of IoIsInitiator32bitProcess @ 0x14036CD40
  * Callers:
  *     <none>
  * Callees:
- *     IoGetInitiatorProcess @ 0x14025D5C0 (IoGetInitiatorProcess.c)
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
+ *     IoGetInitiatorProcess @ 0x1402D3250 (IoGetInitiatorProcess.c)
  */
 
-BOOLEAN __fastcall IoIsInitiator32bitProcess(PIRP Irp)
+BOOLEAN __fastcall IoIsInitiator32bitProcess(PIRP Irp, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 InitiatorProcess; // rax
-  __int16 v4; // cx
+  BOOLEAN result; // al
+  __int64 v7; // rax
+  __int16 v8; // ax
 
-  InitiatorProcess = IoGetInitiatorProcess(Irp->Tail.Overlay.CurrentStackLocation->FileObject);
+  InitiatorProcess = IoGetInitiatorProcess((__int64)Irp->Tail.Overlay.CurrentStackLocation->FileObject, a2, a3, a4);
   if ( !InitiatorProcess )
     return IoIs32bitProcess(Irp);
-  if ( *(_QWORD *)(InitiatorProcess + 1408) )
+  v7 = *(_QWORD *)(InitiatorProcess + 1408);
+  result = 0;
+  if ( v7 )
   {
-    v4 = *(_WORD *)(InitiatorProcess + 2412);
-    if ( v4 == 332 || v4 == 452 )
+    v8 = *(_WORD *)(v7 + 8);
+    if ( v8 == 332 || v8 == 452 )
       return 1;
   }
-  return 0;
+  return result;
 }

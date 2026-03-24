@@ -1,7 +1,7 @@
 /*
- * XREFs of USBDInternal_BuildandSendIoctlSynchronously @ 0x1C008FFB8
+ * XREFs of USBDInternal_BuildandSendIoctlSynchronously @ 0x1C008F2AC
  * Callers:
- *     USBD_QueryUsbCapability @ 0x1C0090A40 (USBD_QueryUsbCapability.c)
+ *     USBD_QueryUsbCapability @ 0x1C008FD30 (USBD_QueryUsbCapability.c)
  * Callees:
  *     <none>
  */
@@ -47,7 +47,7 @@ __int64 __fastcall USBDInternal_BuildandSendIoctlSynchronously(
   }
   else
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "Failed to allocate Irp for Target Device Object 0x%p\n", TargetDeviceObject);
     return (unsigned int)-1073741670;
   }

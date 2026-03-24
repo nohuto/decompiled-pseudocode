@@ -1,228 +1,237 @@
 /*
- * XREFs of PiUEventHandleRegistration @ 0x14078D764
+ * XREFs of PiUEventHandleRegistration @ 0x1406E20B0
  * Callers:
- *     PiUEventHandleIoctl @ 0x14078C5BC (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x1406E1C5C (PiUEventHandleIoctl.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     PsGetCurrentThreadProcessId @ 0x1402A7BC0 (PsGetCurrentThreadProcessId.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PiUEventHashGuidIntoBucket @ 0x1402DE1B8 (PiUEventHashGuidIntoBucket.c)
- *     PiUEventHashStringIntoBucket @ 0x1402E08A0 (PiUEventHashStringIntoBucket.c)
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1406C9680 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406DD8D0 (PiUEventFreeClientRegistrationContext.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PiUEventInitClientRegistrationContext @ 0x14078DAB0 (PiUEventInitClientRegistrationContext.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     PiUEventHashGuidIntoBucket @ 0x1402ED538 (PiUEventHashGuidIntoBucket.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
+ *     PiUEventHashStringIntoBucket @ 0x1402EE488 (PiUEventHashStringIntoBucket.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406E15A8 (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406E49AC (PiUEventInitClientRegistrationContext.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E25C (PiUEventGetDeviceInstanceIdFromUserHandle.c)
  */
 
 __int64 __fastcall PiUEventHandleRegistration(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
 {
-  char v5; // bp
   __int64 inited; // rdi
-  __int64 v9; // rdx
-  int v10; // ebx
-  int v11; // ecx
-  int v12; // eax
-  void **v13; // r14
-  size_t v14; // r11
+  char v6; // bp
+  __int64 v7; // rsi
+  int v9; // ebx
+  int v10; // ecx
+  int v11; // eax
+  _QWORD *v12; // r14
+  size_t v13; // r11
+  int v14; // ecx
   int v15; // ecx
-  int v16; // ecx
-  unsigned int v17; // eax
-  char *v18; // rdx
-  __int64 *v19; // rax
+  unsigned int v16; // eax
+  char *v17; // rdx
+  __int64 *v18; // rax
+  int v20; // ecx
   int v21; // ecx
-  int v22; // ecx
-  char *v23; // rax
-  __int64 *v24; // rcx
+  char *v22; // rax
+  __int64 *v23; // rcx
+  int v24; // ecx
   int v25; // ecx
-  int v26; // ecx
-  unsigned int v27; // eax
-  char *v28; // rcx
-  __int64 *v29; // rax
+  unsigned int v26; // eax
+  char *v27; // rcx
+  __int64 *v28; // rax
   int Object; // eax
-  unsigned int v31; // eax
-  char *v32; // rcx
-  __int64 *v33; // rax
-  __int64 v34; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v35[6]; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v30; // eax
+  char *v31; // rcx
+  __int64 *v32; // rax
+  __int64 v33; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD v34[6]; // [rsp+28h] [rbp-30h] BYREF
   size_t pcchLength; // [rsp+68h] [rbp+10h] BYREF
 
-  v34 = 0LL;
-  v5 = 0;
-  v35[0] = 0LL;
+  v33 = 0LL;
+  inited = 0LL;
+  v34[0] = 0LL;
+  v6 = 0;
+  v7 = a2;
   if ( !a2 || a3 != 936 || a4 != 8 )
   {
-    v10 = -1073741811;
-    goto LABEL_67;
+    v9 = -1073741811;
+    goto LABEL_25;
   }
   inited = PiUEventInitClientRegistrationContext();
   if ( !inited )
   {
-    v10 = -1073741670;
-LABEL_67:
-    inited = 0LL;
-    goto LABEL_24;
+    v9 = -1073741670;
+LABEL_55:
+    *(_QWORD *)(a1 + 32) = 0LL;
+    return (unsigned int)v9;
   }
   *(_QWORD *)(inited + 48) = PsGetCurrentThreadProcessId();
   SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)(inited + 56));
-  v10 = RtlStringCchLengthW((STRSAFE_PCNZWCH)a2, 0x104uLL, &pcchLength);
-  if ( v10 < 0 )
-    goto LABEL_51;
-  if ( *(_DWORD *)(a2 + 520) != 416 )
-    goto LABEL_51;
-  v11 = *(_DWORD *)(a2 + 528);
-  if ( v11 >= 4 )
-    goto LABEL_51;
-  v12 = *(_DWORD *)(a2 + 524);
-  if ( (v12 & 0xFFFFFFFC) != 0 || (v12 & 1) != 0 && v11 )
-    goto LABEL_51;
-  if ( (v12 & 2) != 0 && (unsigned int)(v11 - 2) > 1 )
-    goto LABEL_51;
-  v13 = (void **)(a2 + 536);
-  if ( v11 == 1 && (((unsigned __int64)*v13 + 1) & 0xFFFFFFFFFFFFFFFEuLL) == 0 )
-    goto LABEL_51;
-  v14 = 200LL;
-  if ( v11 == 2 )
+  v9 = RtlStringCchLengthW((STRSAFE_PCNZWCH)v7, 0x104uLL, &pcchLength);
+  if ( v9 < 0 )
+    goto LABEL_52;
+  if ( *(_DWORD *)(v7 + 520) != 416 )
+    goto LABEL_52;
+  v10 = *(_DWORD *)(v7 + 528);
+  if ( v10 >= 4 )
+    goto LABEL_52;
+  v11 = *(_DWORD *)(v7 + 524);
+  if ( (v11 & 0xFFFFFFFC) != 0 || (v11 & 1) != 0 && v10 )
+    goto LABEL_52;
+  if ( (v11 & 2) != 0 && (unsigned int)(v10 - 2) > 1 )
+    goto LABEL_52;
+  v12 = (_QWORD *)(v7 + 536);
+  if ( v10 == 1 && ((*v12 + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) == 0 )
+    goto LABEL_52;
+  v13 = 200LL;
+  if ( v10 == 2 )
   {
-    v10 = RtlStringCchLengthW((STRSAFE_PCNZWCH)(a2 + 536), 0xC8uLL, &pcchLength);
-    if ( v10 < 0 )
-      goto LABEL_51;
+    v9 = RtlStringCchLengthW((STRSAFE_PCNZWCH)(v7 + 536), 0xC8uLL, &pcchLength);
+    if ( v9 < 0 )
+      goto LABEL_52;
   }
-  if ( *(_DWORD *)(a2 + 528) == 3 )
+  if ( *(_DWORD *)(v7 + 528) == 3 )
   {
-    v10 = RtlStringCchLengthW((STRSAFE_PCNZWCH)(a2 + 536), v14, &pcchLength);
-    if ( v10 < 0 )
-      goto LABEL_51;
+    v9 = RtlStringCchLengthW((STRSAFE_PCNZWCH)(v7 + 536), v13, &pcchLength);
+    if ( v9 < 0 )
+      goto LABEL_52;
   }
-  *(_DWORD *)(inited + 132) = *(_DWORD *)(a2 + 528);
-  v15 = *(_DWORD *)(a2 + 528);
-  if ( !v15 )
+  *(_DWORD *)(inited + 132) = *(_DWORD *)(v7 + 528);
+  v14 = *(_DWORD *)(v7 + 528);
+  if ( v14 )
   {
-    if ( (*(_DWORD *)(a2 + 524) & 1) == 0 )
-      *(_OWORD *)(inited + 24) = *(_OWORD *)v13;
-    goto LABEL_17;
-  }
-  v21 = v15 - 1;
-  if ( v21 )
-  {
-    v25 = v21 - 1;
-    if ( !v25 || v25 == 1 )
+    v20 = v14 - 1;
+    if ( v20 )
     {
-      if ( (*(_DWORD *)(a2 + 524) & 2) == 0 )
+      v24 = v20 - 1;
+      if ( !v24 || v24 == 1 )
       {
-        Object = PiDmGetObject(1LL, a2 + 536, (__int64 *)(inited + 24));
-        v10 = Object;
-        if ( Object < 0 )
-          goto LABEL_52;
+        if ( (*(_DWORD *)(v7 + 524) & 2) != 0 )
+          goto LABEL_17;
+        Object = PiDmGetObject(1LL, v7 + 536, (__int64 *)(inited + 24));
+        v9 = Object;
+        if ( Object >= 0 )
+          goto LABEL_17;
+LABEL_53:
+        if ( inited )
+        {
+          LOBYTE(a2) = v6;
+          PiUEventFreeClientRegistrationContext((char *)inited, a2);
+        }
+        goto LABEL_55;
       }
-      goto LABEL_17;
     }
-LABEL_51:
-    v10 = -1073741811;
-    goto LABEL_52;
+    else if ( (int)PiUEventGetDeviceInstanceIdFromUserHandle(*v12, &v33, v34) >= 0 )
+    {
+      v9 = PiDmGetObject(1LL, *(_QWORD *)(v33 + 8), (__int64 *)(inited + 24));
+      if ( v9 >= 0 )
+      {
+        *(_QWORD *)(inited + 32) = v34[0];
+        *(_BYTE *)(inited + 40) = 0;
+        goto LABEL_17;
+      }
+      goto LABEL_53;
+    }
+LABEL_52:
+    v9 = -1073741811;
+    goto LABEL_53;
   }
-  if ( (int)PiUEventGetDeviceInstanceIdFromUserHandle(*v13, &v34, v35) < 0 )
-    goto LABEL_51;
-  v10 = PiDmGetObject(1LL, *(_QWORD *)(v34 + 8), (__int64 *)(inited + 24));
-  if ( v10 < 0 )
-    goto LABEL_52;
-  *(_QWORD *)(inited + 32) = v35[0];
-  *(_BYTE *)(inited + 40) = 0;
+  if ( (*(_DWORD *)(v7 + 524) & 1) == 0 )
+    *(_OWORD *)(inited + 24) = *(_OWORD *)v12;
 LABEL_17:
-  *(_QWORD *)a2 = *(_QWORD *)(inited + 88);
+  *(_QWORD *)v7 = *(_QWORD *)(inited + 88);
   *(_QWORD *)(a5 + 8) = 8LL;
   ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
-  v16 = *(_DWORD *)(a2 + 528);
-  if ( !v16 )
+  v15 = *(_DWORD *)(v7 + 528);
+  if ( v15 )
   {
-    if ( (*(_DWORD *)(a2 + 524) & 1) != 0 )
-      v17 = 13;
+    v21 = v15 - 1;
+    if ( v21 )
+    {
+      v25 = v21 - 1;
+      if ( v25 )
+      {
+        if ( v25 != 1 )
+        {
+          v9 = -1073741811;
+          goto LABEL_23;
+        }
+        if ( (*(_DWORD *)(v7 + 524) & 2) != 0 )
+          v30 = 13;
+        else
+          v30 = PiUEventHashStringIntoBucket((PCWSTR)(v7 + 536));
+        v31 = (char *)&PiUEventDevInstancePropertyClientList + 16 * v30;
+        v32 = (__int64 *)*((_QWORD *)v31 + 1);
+        if ( (char *)*v32 == v31 )
+        {
+          ++PiUEventDevInstancePropertyClientCount;
+          *(_QWORD *)inited = v31;
+          *(_QWORD *)(inited + 8) = v32;
+          *v32 = inited;
+          *((_QWORD *)v31 + 1) = inited;
+          goto LABEL_22;
+        }
+      }
+      else
+      {
+        if ( (*(_DWORD *)(v7 + 524) & 2) != 0 )
+          v26 = 13;
+        else
+          v26 = PiUEventHashStringIntoBucket((PCWSTR)(v7 + 536));
+        v27 = (char *)&PiUEventDevInstanceClientList + 16 * v26;
+        v28 = (__int64 *)*((_QWORD *)v27 + 1);
+        if ( (char *)*v28 == v27 )
+        {
+          ++PiUEventDevInstanceClientCount;
+          *(_QWORD *)inited = v27;
+          *(_QWORD *)(inited + 8) = v28;
+          *v28 = inited;
+          *((_QWORD *)v27 + 1) = inited;
+          goto LABEL_22;
+        }
+      }
+    }
     else
-      v17 = PiUEventHashGuidIntoBucket((unsigned __int8 *)(a2 + 536));
-    v18 = (char *)&PiUEventDevInterfaceClientList + 16 * v17;
-    v19 = (__int64 *)*((_QWORD *)v18 + 1);
-    if ( (char *)*v19 == v18 )
     {
-      ++PiUEventDevInterfaceClientCount;
-      *(_QWORD *)inited = v18;
-      *(_QWORD *)(inited + 8) = v19;
-      *v19 = inited;
-      *((_QWORD *)v18 + 1) = inited;
-LABEL_22:
-      v5 = 1;
-      goto LABEL_23;
+      v22 = (char *)&PiUEventDevHandleClientList
+          + 16 * (unsigned int)PiUEventHashStringIntoBucket(*(PCWSTR *)(*(_QWORD *)(inited + 24) + 16LL));
+      v23 = (__int64 *)*((_QWORD *)v22 + 1);
+      if ( (char *)*v23 == v22 )
+      {
+        ++PiUEventDevHandleClientCount;
+        *(_QWORD *)inited = v22;
+        *(_QWORD *)(inited + 8) = v23;
+        *v23 = inited;
+        *((_QWORD *)v22 + 1) = inited;
+        goto LABEL_22;
+      }
     }
-    goto LABEL_65;
-  }
-  v22 = v16 - 1;
-  if ( !v22 )
-  {
-    v23 = (char *)&PiUEventDevHandleClientList
-        + 16 * (unsigned int)PiUEventHashStringIntoBucket(*(PCWSTR *)(*(_QWORD *)(inited + 24) + 16LL));
-    v24 = (__int64 *)*((_QWORD *)v23 + 1);
-    if ( (char *)*v24 == v23 )
-    {
-      ++PiUEventDevHandleClientCount;
-      *(_QWORD *)inited = v23;
-      *(_QWORD *)(inited + 8) = v24;
-      *v24 = inited;
-      *((_QWORD *)v23 + 1) = inited;
-      goto LABEL_22;
-    }
-LABEL_65:
+LABEL_70:
     __fastfail(3u);
   }
-  v26 = v22 - 1;
-  if ( !v26 )
-  {
-    if ( (*(_DWORD *)(a2 + 524) & 2) != 0 )
-      v27 = 13;
-    else
-      v27 = PiUEventHashStringIntoBucket((PCWSTR)(a2 + 536));
-    v28 = (char *)&PiUEventDevInstanceClientList + 16 * v27;
-    v29 = (__int64 *)*((_QWORD *)v28 + 1);
-    if ( (char *)*v29 == v28 )
-    {
-      ++PiUEventDevInstanceClientCount;
-      *(_QWORD *)inited = v28;
-      *(_QWORD *)(inited + 8) = v29;
-      *v29 = inited;
-      *((_QWORD *)v28 + 1) = inited;
-      goto LABEL_22;
-    }
-    goto LABEL_65;
-  }
-  if ( v26 == 1 )
-  {
-    if ( (*(_DWORD *)(a2 + 524) & 2) != 0 )
-      v31 = 13;
-    else
-      v31 = PiUEventHashStringIntoBucket((PCWSTR)(a2 + 536));
-    v32 = (char *)&PiUEventDevInstancePropertyClientList + 16 * v31;
-    v33 = (__int64 *)*((_QWORD *)v32 + 1);
-    if ( (char *)*v33 == v32 )
-    {
-      ++PiUEventDevInstancePropertyClientCount;
-      *(_QWORD *)inited = v32;
-      *(_QWORD *)(inited + 8) = v33;
-      *v33 = inited;
-      *((_QWORD *)v32 + 1) = inited;
-      goto LABEL_22;
-    }
-    goto LABEL_65;
-  }
-  v10 = -1073741811;
+  if ( (*(_DWORD *)(v7 + 524) & 1) != 0 )
+    v16 = 13;
+  else
+    v16 = PiUEventHashGuidIntoBucket((unsigned __int8 *)(v7 + 536));
+  v17 = (char *)&PiUEventDevInterfaceClientList + 16 * v16;
+  v18 = (__int64 *)*((_QWORD *)v17 + 1);
+  if ( (char *)*v18 != v17 )
+    goto LABEL_70;
+  ++PiUEventDevInterfaceClientCount;
+  *(_QWORD *)inited = v17;
+  *(_QWORD *)(inited + 8) = v18;
+  *v18 = inited;
+  *((_QWORD *)v17 + 1) = inited;
+LABEL_22:
+  v6 = 1;
 LABEL_23:
   KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
-  if ( v10 < 0 )
-  {
-LABEL_52:
-    LOBYTE(v9) = v5;
-    PiUEventFreeClientRegistrationContext((char *)inited, v9);
-    goto LABEL_67;
-  }
-LABEL_24:
+  if ( v9 < 0 )
+    goto LABEL_53;
   *(_QWORD *)(a1 + 32) = inited;
-  return (unsigned int)v10;
+LABEL_25:
+  if ( v9 < 0 )
+    goto LABEL_53;
+  return (unsigned int)v9;
 }

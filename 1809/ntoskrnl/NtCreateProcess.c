@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateProcess @ 0x140887E20
+ * XREFs of NtCreateProcess @ 0x140887E00
  * Callers:
  *     <none>
  * Callees:
- *     NtCreateProcessEx @ 0x140887EB0 (NtCreateProcessEx.c)
+ *     NtCreateProcessEx @ 0x140887E90 (NtCreateProcessEx.c)
  */
 
 NTSTATUS __stdcall NtCreateProcess(

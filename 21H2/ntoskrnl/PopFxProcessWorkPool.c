@@ -1,44 +1,34 @@
 /*
- * XREFs of PopFxProcessWorkPool @ 0x14022EBF8
+ * XREFs of PopFxProcessWorkPool @ 0x140263914
  * Callers:
- *     PopFxPluginWork @ 0x1406A6E90 (PopFxPluginWork.c)
- *     PopFxEmergencyWorker @ 0x140864F80 (PopFxEmergencyWorker.c)
+ *     PopFxPluginWork @ 0x14062AF60 (PopFxPluginWork.c)
+ *     PopFxEmergencyWorker @ 0x1407D50D0 (PopFxEmergencyWorker.c)
  * Callees:
- *     ExInterlockedRemoveHeadList @ 0x140220FB0 (ExInterlockedRemoveHeadList.c)
- *     PopFxDispatchPluginWorkOnce @ 0x14022ED94 (PopFxDispatchPluginWorkOnce.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402636DC (PopFxDispatchPluginWorkOnce.c)
+ *     ExInterlockedRemoveHeadList @ 0x1402A0430 (ExInterlockedRemoveHeadList.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // r15
-  int v4; // ebp
-  char v5; // r14
+  __int64 v2; // rdi
   struct _KTHREAD *CurrentThread; // rcx
+  int v5; // ebp
   LARGE_INTEGER *p_Timeout; // rax
   NTSTATUS result; // eax
-  int v9; // ecx
-  signed __int32 v10; // eax
-  signed __int32 v11; // ett
-  PLIST_ENTRY v12; // rax
+  int v8; // ecx
+  signed __int32 v9; // eax
+  signed __int32 v10; // ett
+  PLIST_ENTRY v11; // rax
   PVOID Object[2]; // [rsp+40h] [rbp-28h] BYREF
   LARGE_INTEGER Timeout; // [rsp+70h] [rbp+8h] BYREF
 
   v2 = a2;
-  if ( a2 == -1 )
-  {
-    v4 = 0;
-    v5 = 1;
-  }
-  else
-  {
-    v4 = 1;
-    v5 = 0;
-  }
   CurrentThread = KeGetCurrentThread();
-  if ( v5 )
+  v5 = a2 != -1;
+  if ( a2 == -1 )
     *(_QWORD *)(a1 + 264) = CurrentThread;
   else
     *(_QWORD *)(a1 + 8LL * a2 + 272) = CurrentThread;
@@ -48,12 +38,12 @@ NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)
   while ( 1 )
   {
     Timeout.QuadPart = 0LL;
-    if ( KeWaitForSingleObject((PVOID)(a1 + 32 * (v4 + 1LL)), Executive, 0, 0, &Timeout) != 258 )
+    if ( KeWaitForSingleObject((PVOID)(a1 + 32 * (v5 + 1LL)), Executive, 0, 0, &Timeout) != 258 )
     {
-      v9 = v4;
-      goto LABEL_12;
+      v8 = v5;
+      goto LABEL_10;
     }
-    if ( v5 )
+    if ( (_DWORD)v2 == -1 )
     {
       p_Timeout = 0LL;
     }
@@ -63,35 +53,35 @@ NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)
       p_Timeout = &Timeout;
     }
     result = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, p_Timeout, 0LL);
-    v9 = result;
+    v8 = result;
     if ( result == 258 )
       break;
-LABEL_12:
-    if ( v9 )
+LABEL_10:
+    if ( v8 )
     {
-      if ( v9 == 1 )
+      if ( v8 == 1 )
         PopFxDispatchPluginWorkOnce(*(_QWORD *)a1);
     }
     else
     {
-      v12 = ExInterlockedRemoveHeadList((PLIST_ENTRY)(a1 + 16), (PKSPIN_LOCK)(a1 + 8));
-      *v12 = 0LL;
-      ((void (__fastcall *)(struct _LIST_ENTRY *))v12[1].Flink)(v12[1].Blink);
+      v11 = ExInterlockedRemoveHeadList((PLIST_ENTRY)(a1 + 16), (PKSPIN_LOCK)(a1 + 8));
+      *v11 = 0LL;
+      ((void (__fastcall *)(struct _LIST_ENTRY *))v11[1].Flink)(v11[1].Blink);
     }
-    if ( v5 )
+    if ( (_DWORD)v2 == -1 )
     {
       _m_prefetchw((const void *)(a1 + 96));
-      v10 = *(_DWORD *)(a1 + 96);
+      v9 = *(_DWORD *)(a1 + 96);
       do
       {
-        v11 = v10;
-        v10 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 96), v10, v10);
+        v10 = v9;
+        v9 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 96), v9, v9);
       }
-      while ( v11 != v10 );
-      if ( v10 )
-        v4 = 0;
+      while ( v10 != v9 );
+      if ( v9 )
+        v5 = 0;
       else
-        v4 = (v4 + 1) % 2;
+        v5 = (v5 + 1) % 2;
     }
   }
   *(_QWORD *)(a1 + 8 * v2 + 272) = 0LL;

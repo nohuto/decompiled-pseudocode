@@ -1,60 +1,46 @@
 /*
- * XREFs of ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01E4B58
+ * XREFs of ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01AAFB8
  * Callers:
- *     xxxChangeForegroundKeyboardTable @ 0x1C00B8300 (xxxChangeForegroundKeyboardTable.c)
+ *     xxxChangeForegroundKeyboardTable @ 0x1C0008690 (xxxChangeForegroundKeyboardTable.c)
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01E4A58 (-xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01AAEB8 (-xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z.c)
  */
 
-void __fastcall xxxManageKeyboardModifiers(struct tagKL *a1, struct tagKL *a2, __int64 a3, __int64 a4)
+void __fastcall xxxManageKeyboardModifiers(struct tagKL *a1, struct tagKL *a2)
 {
-  struct tagTHREADINFO *v4; // rsi
-  __int64 v5; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rax
-  unsigned __int8 v19[16]; // [rsp+50h] [rbp-48h] BYREF
-  __int128 v20; // [rsp+60h] [rbp-38h]
+  struct tagTHREADINFO *v2; // rsi
+  __int64 v3; // rbx
+  __int64 v6; // rax
+  unsigned __int8 v7[16]; // [rsp+50h] [rbp-48h] BYREF
+  __int128 v8; // [rsp+60h] [rbp-38h]
 
-  v4 = gptiCurrent;
-  v5 = 0LL;
+  v2 = gptiCurrent;
+  v3 = 0LL;
   if ( *((_QWORD *)gptiCurrent + 54) )
   {
     if ( a1 )
     {
-      *(_OWORD *)v19 = 0LL;
-      v20 = 0LL;
-      xxxAdjustPushStateForKL(gptiCurrent, v19, a1, a1, a2);
-      xxxAdjustPushStateForKL(v4, v19, a2, a1, a2);
-      v11 = *((_QWORD *)a1 + 6);
-      if ( v11 )
-      {
-        v12 = *(unsigned int *)(*(_QWORD *)(v11 + 32) + 80LL);
-        if ( (v12 & 1) != 0 && (*(_BYTE *)(SGDGetUserSessionState(v12, v8, v9, v10) + 14060) & 4) == 0 )
-          xxxKeyEventEx(32930LL, 541LL, 0LL, 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
-      }
+      *(_OWORD *)v7 = 0LL;
+      v8 = 0LL;
+      xxxAdjustPushStateForKL(gptiCurrent, v7, a1, a1, a2);
+      xxxAdjustPushStateForKL(v2, v7, a2, a1, a2);
+      v6 = *((_QWORD *)a1 + 6);
+      if ( v6 && (*(_DWORD *)(*(_QWORD *)(v6 + 32) + 80LL) & 1) != 0 && (byte_1C024F5E4 & 4) == 0 )
+        xxxKeyEventEx(0x80A2u, 0x21Du, 0, 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
     }
     else
     {
+      GetDomainLockRef(16);
       do
       {
-        *(_BYTE *)(*((_QWORD *)v4 + 54) + v5 + 236) &= 0xAAu;
-        v13 = SGDGetUserSessionState(a1, a2, a3, a4);
-        *(_BYTE *)(v13 + v5 + 13992) &= 0xAAu;
-        v18 = SGDGetUserSessionState(v15, v14, v16, v17);
-        *(_BYTE *)(v18 + v5++ + 14056) &= 0xAAu;
+        *(_BYTE *)(v3 + *((_QWORD *)v2 + 54) + 228) &= 0xAAu;
+        *((_BYTE *)&gafAsyncKeyState + v3) &= 0xAAu;
+        gafRawKeyState[v3++] &= 0xAAu;
       }
-      while ( v5 < 64 );
+      while ( v3 < 64 );
     }
   }
 }

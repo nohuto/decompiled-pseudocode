@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C00941D8
+ * XREFs of ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C009E3F4
  * Callers:
- *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C001EC04 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C0019C4C (ACPISystemPowerUpdateDeviceCapabilities.c)
  * Callees:
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ACPIDevicePowerDetermineSupportedDeviceStates(ULONG_PTR BugCheckParameter2, _DWORD *a2, int *a3)
 {
   int v3; // esi
-  int v4; // edi
+  int v5; // edi
   int v8; // ebp
   int *v9; // r14
   int v10; // ebp
@@ -33,24 +33,24 @@ __int64 __fastcall ACPIDevicePowerDetermineSupportedDeviceStates(ULONG_PTR BugCh
   v3 = 0;
   v23 = 810700895;
   *a2 = 0;
-  v4 = 0;
   *a3 = 0;
+  v5 = 0;
   qmemcpy(v24, "_PR1_PR2", sizeof(v24));
   qmemcpy(v25, "_PS0_PS1_PS2_PS3", sizeof(v25));
-  if ( _bittest64((const signed __int64 *)(BugCheckParameter2 + 8), 0x33u) )
+  if ( (*(_QWORD *)(BugCheckParameter2 + 8) & 0x8000000000000LL) != 0 )
   {
-    v4 = 18;
+    v5 = 18;
 LABEL_16:
     *a2 = v3;
-    *a3 = v4;
+    *a3 = v5;
     return 0LL;
   }
   v8 = 1;
   v9 = v25;
   do
   {
-    if ( AMLIIsNamedChildPresent(*(__int64 **)(BugCheckParameter2 + 760), *v9) )
-      v4 |= 1 << v8;
+    if ( AMLIIsNamedChildPresent(*(__int64 **)(BugCheckParameter2 + 720), *v9) )
+      v5 |= 1 << v8;
     ++v8;
     ++v9;
   }
@@ -59,25 +59,25 @@ LABEL_16:
   v11 = &v23;
   do
   {
-    if ( AMLIIsNamedChildPresent(*(__int64 **)(BugCheckParameter2 + 760), *v11) )
+    if ( AMLIIsNamedChildPresent(*(__int64 **)(BugCheckParameter2 + 720), *v11) )
       v3 |= (1 << v10) | 0x10;
     ++v10;
     ++v11;
   }
   while ( v10 <= 3 );
-  v12 = v3 | v4;
-  if ( v3 | v4 )
+  v12 = v3 | v5;
+  if ( v3 | v5 )
   {
     if ( (v12 & 2) == 0 )
     {
       v14 = *(_QWORD *)(BugCheckParameter2 + 8);
-      v15 = (const char *)&unk_1C006FB8B;
-      v16 = (const char *)&unk_1C006FB8B;
+      v15 = byte_1C00701BA;
+      v16 = byte_1C00701BA;
       if ( (v14 & 0x200000000000LL) != 0 )
       {
-        v15 = *(const char **)(BugCheckParameter2 + 608);
+        v15 = *(const char **)(BugCheckParameter2 + 568);
         if ( (v14 & 0x400000000000LL) != 0 )
-          v16 = *(const char **)(BugCheckParameter2 + 616);
+          v16 = *(const char **)(BugCheckParameter2 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qss(
@@ -85,7 +85,7 @@ LABEL_16:
           2u,
           0xAu,
           0x25u,
-          (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+          (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
           BugCheckParameter2,
           v15,
           v16);
@@ -94,13 +94,13 @@ LABEL_16:
     if ( (v12 & 0x10) == 0 )
     {
       v17 = *(_QWORD *)(BugCheckParameter2 + 8);
-      v18 = (const char *)&unk_1C006FB8B;
-      v19 = (const char *)&unk_1C006FB8B;
+      v18 = byte_1C00701BA;
+      v19 = byte_1C00701BA;
       if ( (v17 & 0x200000000000LL) != 0 )
       {
-        v18 = *(const char **)(BugCheckParameter2 + 608);
+        v18 = *(const char **)(BugCheckParameter2 + 568);
         if ( (v17 & 0x400000000000LL) != 0 )
-          v19 = *(const char **)(BugCheckParameter2 + 616);
+          v19 = *(const char **)(BugCheckParameter2 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qss(
@@ -108,22 +108,22 @@ LABEL_16:
           2u,
           0xAu,
           0x26u,
-          (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+          (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
           BugCheckParameter2,
           v18,
           v19);
       KeBugCheckEx(0xA5u, 0xDuLL, BugCheckParameter2, 0x3353505FuLL, 0LL);
     }
-    if ( v3 && v4 && v3 != v4 )
+    if ( v3 && v5 && v3 != v5 )
     {
       v20 = *(_QWORD *)(BugCheckParameter2 + 8);
-      v21 = (const char *)&unk_1C006FB8B;
-      v22 = (const char *)&unk_1C006FB8B;
+      v21 = byte_1C00701BA;
+      v22 = byte_1C00701BA;
       if ( (v20 & 0x200000000000LL) != 0 )
       {
-        v21 = *(const char **)(BugCheckParameter2 + 608);
+        v21 = *(const char **)(BugCheckParameter2 + 568);
         if ( (v20 & 0x400000000000LL) != 0 )
-          v22 = *(const char **)(BugCheckParameter2 + 616);
+          v22 = *(const char **)(BugCheckParameter2 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qss(
@@ -131,12 +131,12 @@ LABEL_16:
           2u,
           0xAu,
           0x27u,
-          (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+          (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
           BugCheckParameter2,
           v21,
           v22);
-      v3 &= v4;
-      v4 &= v3;
+      v3 &= v5;
+      v5 &= v3;
     }
     goto LABEL_16;
   }

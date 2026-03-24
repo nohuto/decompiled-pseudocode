@@ -1,210 +1,158 @@
 /*
- * XREFs of ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC
+ * XREFs of ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC
  * Callers:
- *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C001F89C (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
- *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C00213F0 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0026260 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
- *     NtUserDestroyCursor @ 0x1C0028C50 (NtUserDestroyCursor.c)
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C00AE7FC (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
- *     DestroyUnlockedCursor @ 0x1C00B9690 (DestroyUnlockedCursor.c)
- *     DestroyClassSmIcon @ 0x1C00EB5B0 (DestroyClassSmIcon.c)
- *     DestroyWindowSmIcon @ 0x1C013D1BC (DestroyWindowSmIcon.c)
- *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C014E90E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
- *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C0C04 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C0007F90 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00234E4 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024BDC (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C0024CC8 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
+ *     NtUserDestroyCursor @ 0x1C0048320 (NtUserDestroyCursor.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     DestroyWindowSmIcon @ 0x1C007C4E0 (DestroyWindowSmIcon.c)
+ *     DestroyClassSmIcon @ 0x1C010E350 (DestroyClassSmIcon.c)
+ *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C0125EFC (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
+ *     DestroyUnlockedCursor @ 0x1C012CC60 (DestroyUnlockedCursor.c)
+ *     ?zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z @ 0x1C01685C0 (-zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D3AF0 (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
  * Callees:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C002D2BC (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00AA3A4 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??1IdentifyPrimaryDestroyTarget@@QEAA@XZ @ 0x1C011B3C4 (--1IdentifyPrimaryDestroyTarget@@QEAA@XZ.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C01C0B30 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z @ 0x1C004893C (-RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B674 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B754 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B794 (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-bool __fastcall _DestroyCursor(struct tagCURSOR *a1, unsigned int a2)
+char __fastcall _DestroyCursor(struct tagCURSOR *a1, unsigned int a2)
 {
-  int v3; // r14d
-  int v4; // r13d
-  int v5; // r15d
-  bool result; // al
-  struct _HANDLEENTRY *v7; // rdi
-  PERESOURCE *v8; // rax
-  __int64 v9; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v11; // r12
-  __int64 v12; // rsi
-  __int64 v13; // rbp
-  unsigned int i; // edi
-  unsigned int v15; // esi
-  __int64 ProcessWin32Process; // rax
-  __int64 v17; // rdi
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  struct tagCURSOR *v21; // rax
-  __int64 v22; // rax
-  struct tagCURSOR *v23; // rcx
-  __int64 v24; // rcx
-  int v25; // [rsp+70h] [rbp+8h] BYREF
-  unsigned int v26; // [rsp+78h] [rbp+10h]
-  int v27; // [rsp+80h] [rbp+18h]
-  struct tagCURSOR *v28; // [rsp+88h] [rbp+20h]
+  struct tagCURSOR *v2; // r12
+  int v5; // esi
+  int v6; // r14d
+  char v7; // bp
+  struct tagTHREADINFO *CurrentLogicalCursorThread; // rax
+  __int64 v10; // rbx
+  __int64 v11; // r15
+  int v12; // eax
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  struct tagCURSOR *v17; // rax
+  __int64 v18; // rcx
+  struct tagCURSOR *v19; // rax
+  struct tagCURSOR *v20; // rcx
 
-  v26 = a2;
-  v28 = (struct tagCURSOR *)*((_QWORD *)a1 + 6);
-  v3 = 0;
-  v4 = 0;
-  v5 = 1;
-  if ( !gbInDestroyHandleTableObjects )
+  v2 = (struct tagCURSOR *)*((_QWORD *)a1 + 6);
+  v5 = 0;
+  v6 = 0;
+  v7 = 1;
+  if ( gbInDestroyHandleTableObjects )
   {
-    LOBYTE(v25) = 0;
-    v7 = (struct _HANDLEENTRY *)_HMPheFromObjectWorker(a1);
-    v8 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &();
-    if ( ExIsResourceAcquiredExclusiveLite(*v8) == 1 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 964LL);
+    DestroyEmptyCursorObject(a1);
+    return 1;
+  }
+  CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread();
+  v10 = *((_QWORD *)a1 + 3);
+  v11 = *((_QWORD *)CurrentLogicalCursorThread + 53);
+  if ( (unsigned int)RemoveCursorFromCaptionIconCache(a1) )
+    return 1;
+  if ( a2 )
+  {
+    if ( a2 == 1 )
     {
-      LOBYTE(v25) = gphePrimaryDestroyTarget == 0LL;
-      if ( gphePrimaryDestroyTarget )
+      v12 = *((_DWORD *)a1 + 20);
+      if ( !v10 )
       {
-        if ( v7 != gphePrimaryDestroyTarget )
-          ++gcSecondaryDestroyTargets;
+        v5 = 1;
+        v7 = v12 & 1;
+        goto LABEL_22;
       }
-      else
+      if ( (v12 & 0x84) != 0 )
+        goto LABEL_13;
+      if ( v10 != v11 )
       {
-        MEMORY[0] = v7;
+        UserSetLastError(1435LL);
+LABEL_20:
+        v5 = 1;
+        v7 = 0;
+        goto LABEL_22;
       }
     }
-    if ( !IS_USERCRIT_OWNED_AT_ALL() )
+    else if ( a2 != 2 )
     {
-      v27 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
+      goto LABEL_19;
     }
-    v9 = 0LL;
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( ThreadWin32Thread )
-      v9 = *ThreadWin32Thread;
-    if ( (*(_DWORD *)(v9 + 1272) & 0x8000000) != 0 )
-      v9 = *(_QWORD *)(v9 + 1520);
-    v11 = *(_QWORD *)(v9 + 424);
-    v12 = 0LL;
-    v13 = *((_QWORD *)a1 + 3);
-    for ( i = 0; i < 5; ++i )
+    if ( !v10 )
     {
-      if ( *(struct tagCURSOR **)(v12 + gcachedCaptions[0]) == a1 && !HMAssignmentUnlock(&gcachedCaptions[2 * i]) )
-      {
-        IdentifyPrimaryDestroyTarget::~IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v25);
-        return 1;
-      }
-      v12 += 16LL;
+LABEL_13:
+      v5 = 1;
+      goto LABEL_22;
     }
-    v15 = v26;
-    if ( v26 )
+  }
+  else
+  {
+    v13 = _HMPkheFromObject(a1, 0LL);
+    if ( *(_QWORD *)(v13 + 8) == PsGetProcessWin32Process(gpepCSRSS) && PsGetCurrentProcess(v15, v14, v16) == gpepCSRSS )
+      FixupGlobalCursor(a1, v11);
+  }
+LABEL_19:
+  if ( !(unsigned int)HMMarkObjectDestroy(a1) )
+    goto LABEL_20;
+  *((_DWORD *)a1 + 20) |= 0x2000u;
+LABEL_22:
+  if ( v2 != a1 && (*(_DWORD *)(*((_QWORD *)a1 + 6) + 80LL) & 0x2000) != 0 )
+    v6 = 1;
+  if ( v5 )
+  {
+    if ( v6 )
     {
-      if ( v26 == 1 )
+      v17 = a1;
+      do
       {
-        if ( !v13 )
-        {
-          v3 = 1;
-          v5 = *((_DWORD *)a1 + 20) & 1;
-          goto LABEL_38;
-        }
-        if ( (*((_DWORD *)a1 + 20) & 0x84) != 0 )
-        {
-LABEL_23:
-          v3 = 1;
-          goto LABEL_38;
-        }
-        if ( v13 != v11 )
-        {
-          UserSetLastError(1435LL);
-          goto LABEL_36;
-        }
+        *((_QWORD *)v17 + 6) = a1;
+        v17 = (struct tagCURSOR *)*((_QWORD *)v17 + 5);
       }
-      else if ( v26 == 2 && !v13 )
+      while ( v17 );
+    }
+  }
+  else
+  {
+    v18 = *((_QWORD *)a1 + 6);
+    if ( gpcurLogCurrent == (struct tagCURSOR *)v18 )
+    {
+      gpcurLogCurrent = 0LL;
+      gpcurPhysCurrent = 0LL;
+    }
+    if ( v2 == a1 || v6 )
+    {
+      v20 = (struct tagCURSOR *)*((_QWORD *)a1 + 5);
+      if ( v20 )
       {
-        goto LABEL_23;
+        *((_QWORD *)a1 + 5) = 0LL;
+        _DestroyCursor(v20, a2);
       }
     }
     else
     {
-      ProcessWin32Process = PsGetProcessWin32Process(gpepCSRSS);
-      v17 = ProcessWin32Process;
-      if ( ProcessWin32Process )
-        v17 = -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL) & ProcessWin32Process;
-      if ( *(_QWORD *)(_HMPkheFromObject(a1) + 8) == v17 && PsGetCurrentProcess(v19, v18, v20) == gpepCSRSS )
-        FixupGlobalCursor(a1, v11);
-    }
-    if ( (unsigned int)HMMarkObjectDestroy(a1) )
-    {
-      *((_DWORD *)a1 + 20) |= 0x2000u;
-LABEL_38:
-      if ( v28 != a1 && (*(_DWORD *)(*((_QWORD *)a1 + 6) + 80LL) & 0x2000) != 0 )
-        v4 = 1;
-      if ( v3 )
+      if ( v18 )
       {
-        if ( v4 )
+        do
         {
-          v21 = a1;
-          do
-          {
-            *((_QWORD *)v21 + 6) = a1;
-            v21 = (struct tagCURSOR *)*((_QWORD *)v21 + 5);
-          }
-          while ( v21 );
+          v19 = *(struct tagCURSOR **)(v18 + 40);
+          if ( v19 == a1 )
+            break;
+          v18 = *(_QWORD *)(v18 + 40);
         }
+        while ( v19 );
+        if ( v18 )
+          *(_QWORD *)(v18 + 40) = *((_QWORD *)a1 + 5);
       }
-      else
-      {
-        v22 = *((_QWORD *)a1 + 6);
-        if ( gpcurLogCurrent == (struct tagCURSOR *)v22 )
-        {
-          gpcurLogCurrent = 0LL;
-          gpcurPhysCurrent = 0LL;
-        }
-        if ( v28 == a1 || v4 )
-        {
-          v23 = (struct tagCURSOR *)*((_QWORD *)a1 + 5);
-          if ( v23 )
-          {
-            *((_QWORD *)a1 + 5) = 0LL;
-            _DestroyCursor(v23, v15);
-          }
-        }
-        else
-        {
-          while ( v22 )
-          {
-            v24 = v22;
-            v22 = *(_QWORD *)(v22 + 40);
-            if ( (struct tagCURSOR *)v22 == a1 )
-            {
-              *(_QWORD *)(v24 + 40) = *((_QWORD *)a1 + 5);
-              break;
-            }
-          }
-          *((_QWORD *)a1 + 5) = 0LL;
-          *((_QWORD *)a1 + 6) = a1;
-        }
-        CleanupCursorObject(a1);
-        if ( (*((_DWORD *)a1 + 20) & 0x100) != 0 && !gbInDestroyHandleTableObjects )
-          UnlinkCursor(a1);
-        HMFreeObject(a1);
-      }
-      result = v5 != 0;
-      if ( (_BYTE)v25 )
-        gphePrimaryDestroyTarget = 0LL;
-      return result;
+      *((_QWORD *)a1 + 5) = 0LL;
+      *((_QWORD *)a1 + 6) = a1;
     }
-LABEL_36:
-    v3 = 1;
-    v5 = 0;
-    goto LABEL_38;
+    CleanupCursorObject(a1);
+    DestroyEmptyCursorObject(a1);
   }
-  v25 = 0x20000;
-  MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 964LL);
-  DestroyEmptyCursorObject(a1);
-  return 1;
+  return v7;
 }

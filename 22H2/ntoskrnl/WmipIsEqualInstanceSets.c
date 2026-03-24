@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipIsEqualInstanceSets @ 0x140800418
+ * XREFs of WmipIsEqualInstanceSets @ 0x1407C49D4
  * Callers:
- *     WmipUpdateModifyGuid @ 0x1408002C8 (WmipUpdateModifyGuid.c)
+ *     WmipUpdateModifyGuid @ 0x1407C48E0 (WmipUpdateModifyGuid.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ char __fastcall WmipIsEqualInstanceSets(__int64 a1, __int64 a2)
   int v13; // edx
 
   v2 = *(_DWORD *)(a1 + 16);
-  if ( ((*(_DWORD *)(a2 + 16) ^ v2) & 0xFFFF9FFF) != 0 )
+  if ( ((v2 ^ *(_DWORD *)(a2 + 16)) & 0xFFFF9FFF) != 0 )
     return 0;
   if ( (v2 & 1) == 0 )
   {

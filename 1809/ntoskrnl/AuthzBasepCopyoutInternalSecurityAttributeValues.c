@@ -3,8 +3,8 @@
  * Callers:
  *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x1405C010C (AuthzBasepCopyoutInternalSecurityAttributes.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     AuthzBasepProbeAndInsertTailList @ 0x140583BD8 (AuthzBasepProbeAndInsertTailList.c)
  */
 

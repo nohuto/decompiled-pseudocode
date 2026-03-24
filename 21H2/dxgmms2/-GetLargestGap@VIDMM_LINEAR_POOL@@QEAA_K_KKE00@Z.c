@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C00EF5E0
+ * XREFs of ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C00CECCC
  * Callers:
- *     ?GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C00EAAEC (-GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z.c)
+ *     ?GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C00C6F20 (-GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z.c)
  * Callees:
- *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C009C96C (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
+ *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C0074D00 (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
  */
 
 unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
@@ -39,16 +39,7 @@ unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
       if ( (VIDMM_LINEAR_POOL *)*v13 != v12 )
       {
         v17 = 0;
-        VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
-          this,
-          (unsigned __int64)&v17,
-          &v16,
-          (VIDMM_LINEAR_POOL **)&v15,
-          a2,
-          a3,
-          a4,
-          a5,
-          a6);
+        VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(this, &v17, &v16, (VIDMM_LINEAR_POOL **)&v15, a2, a3, a4, a5, a6);
         if ( !v17 && v11 <= v15 - v16 )
           v11 = v15 - v16;
         this = (VIDMM_LINEAR_POOL *)*v13;
@@ -61,16 +52,7 @@ unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
     while ( v8 != v6 );
   }
   v17 = 0;
-  VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
-    this,
-    (unsigned __int64)&v17,
-    &v16,
-    (VIDMM_LINEAR_POOL **)&v15,
-    a2,
-    a3,
-    a4,
-    a5,
-    a6);
+  VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(this, &v17, &v16, (VIDMM_LINEAR_POOL **)&v15, a2, a3, a4, a5, a6);
   if ( !v17 && v11 <= v15 - v16 )
     return v15 - v16;
   return v11;

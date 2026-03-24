@@ -1,16 +1,15 @@
 /*
- * XREFs of ?LockExclusive@tagObjLock@@QEBAXXZ @ 0x1C008B930
+ * XREFs of ?LockExclusive@tagObjLock@@QEBAXXZ @ 0x1C007F0A0
  * Callers:
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C0056EDC (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     ?DeleteBaseWindowProperties@@YAXPEAUtagBWND@@@Z @ 0x1C014EEAC (-DeleteBaseWindowProperties@@YAXPEAUtagBWND@@@Z.c)
+ *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall tagObjLock::LockExclusive(struct _KTHREAD **this)
 {
   if ( this[1] == KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1298LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1197LL);
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(this, 0LL);
   this[1] = KeGetCurrentThread();

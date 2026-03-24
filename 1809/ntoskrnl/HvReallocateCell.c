@@ -5,12 +5,12 @@
  *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
  *     CmpAddToLeaf @ 0x1405AEEC0 (CmpAddToLeaf.c)
  *     CmpRemoveValueFromList @ 0x1405AF4E8 (CmpRemoveValueFromList.c)
- *     CmpSetValueDataExisting @ 0x1406CE45C (CmpSetValueDataExisting.c)
- *     CmpSplitLeaf @ 0x140800110 (CmpSplitLeaf.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmpSetValueDataExisting @ 0x1406CE43C (CmpSetValueDataExisting.c)
+ *     CmpSplitLeaf @ 0x1408000F0 (CmpSplitLeaf.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     HvpDoAllocateCell @ 0x1405FB690 (HvpDoAllocateCell.c)
  */

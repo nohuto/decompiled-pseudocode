@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessPendingServices @ 0x140B435C4
+ * XREFs of PipProcessPendingServices @ 0x140A53414
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     PipProcessPendingOperations @ 0x140A53368 (PipProcessPendingOperations.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140814D40 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegCloseKey @ 0x140876DE4 (_PnpCtxRegCloseKey.c)
- *     PipProcessPendingObjects @ 0x140B96120 (PipProcessPendingObjects.c)
+ *     _PnpCtxRegCloseKey @ 0x1406B4684 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1406B95FC (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PipProcessPendingObjects @ 0x140A910E0 (PipProcessPendingObjects.c)
  */
 
 __int64 PipProcessPendingServices()
@@ -26,9 +26,9 @@ __int64 PipProcessPendingServices()
     v2 = PnpCtxRegOpenKey(
            *(__int64 *)&PiPnpRtlCtx,
            v6,
-           (__int64)L"Control\\PendingDriverOperations\\Services",
+           (int)L"Control\\PendingDriverOperations\\Services",
            0,
-           0x2001Fu,
+           131103,
            (__int64)&v5);
     CachedContextBaseKey = v2;
     if ( v2 == -1073741772 || v2 == -1073741444 )

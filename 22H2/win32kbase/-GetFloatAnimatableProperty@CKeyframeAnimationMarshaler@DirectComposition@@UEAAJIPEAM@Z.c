@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0224680
+ * XREFs of ?GetFloatAnimatableProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01EAF80
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CKeyframeAnimationMarshaler::GetFloatAnimatableProperty(
@@ -15,7 +15,7 @@ __int64 __fastcall DirectComposition::CKeyframeAnimationMarshaler::GetFloatAnima
 
   result = 0LL;
   if ( a2 != 24 )
-    return DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+    return 3221225485LL;
   *a3 = 0.0;
   return result;
 }

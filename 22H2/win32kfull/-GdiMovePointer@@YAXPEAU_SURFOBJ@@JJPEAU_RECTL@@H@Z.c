@@ -1,70 +1,67 @@
 /*
- * XREFs of ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027A3C8
+ * XREFs of ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027E280
  * Callers:
- *     EngpMovePointer @ 0x1C0133898 (EngpMovePointer.c)
- *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027A9F8 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     EngpMovePointer @ 0x1C0136230 (EngpMovePointer.c)
+ *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027E8B0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
  * Callees:
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B7D4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C001D7E4 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ @ 0x1C00BCBB8 (-vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ.c)
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00F6640 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C00F6984 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C027FE60 (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
- *     ?vLock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C027FEC4 (-vLock@SINGLEREADERLOCK@@QEAAXXZ.c)
- *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0283694 (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BE40 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C448 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ @ 0x1C00EFEAC (-vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ.c)
+ *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C00F0084 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0C8C (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C016528C (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?vLock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0281E90 (-vLock@SINGLEREADERLOCK@@QEAAXXZ.c)
+ *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0284F7C (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall GdiMovePointer(struct _SURFOBJ *a1, int a2, int a3, struct _RECTL *a4, int a5)
 {
-  HDEV v8; // rdi
+  HDEV v8; // rbx
   __int64 v9; // rax
   unsigned __int64 v10; // rsi
-  __int64 v11; // rbx
+  __int64 v11; // rdi
   __int64 v12; // rcx
   __int64 v13; // rdx
   __int64 i; // rax
   struct SPRITE *v15; // r8
-  struct Gre::Base::SESSION_GLOBALS *v16; // rax
-  int v17; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v18; // r14
-  int v19; // eax
-  __int64 v20; // rcx
+  int v16; // edi
   __int64 j; // rsi
-  __int64 v22; // r15
-  HDEV v23; // rax
-  __int64 v24; // rcx
-  __int64 v25; // rbx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  int v29; // ecx
+  __int64 v18; // rsi
+  HDEV v19; // rax
+  __int64 v20; // rcx
+  __int64 v21; // rbx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  int v25; // ecx
   HDEV hdev; // [rsp+20h] [rbp-E0h] BYREF
-  struct _POINTL v31; // [rsp+28h] [rbp-D8h] BYREF
-  __int64 v32; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 *v33[24]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 *v34[24]; // [rsp+100h] [rbp+0h] BYREF
-  __int128 v35; // [rsp+1C0h] [rbp+C0h] BYREF
-  __int64 v36; // [rsp+1D0h] [rbp+D0h]
-  struct _RECTL v37; // [rsp+1D8h] [rbp+D8h] BYREF
+  struct _POINTL v27; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v28; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 *v29[24]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 *v30[24]; // [rsp+100h] [rbp+0h] BYREF
+  __int64 *v31[24]; // [rsp+1C0h] [rbp+C0h] BYREF
+  __int128 v32; // [rsp+280h] [rbp+180h] BYREF
+  __int64 v33; // [rsp+290h] [rbp+190h]
+  struct _RECTL v34; // [rsp+298h] [rbp+198h] BYREF
 
   hdev = a1->hdev;
-  v8 = hdev + 20;
-  v9 = *((_QWORD *)hdev + 149);
+  v8 = hdev + 22;
+  v9 = *((_QWORD *)hdev + 150);
   if ( v9 )
   {
-    if ( *((_QWORD *)hdev + 150) != v9 )
+    if ( *((_QWORD *)hdev + 151) != v9 )
     {
-      v32 = *((_QWORD *)Gre::Base::Globals((Gre::Base *)a1) + 14);
-      GreAcquireSemaphore(v32);
+      v28 = ghsemSprite;
+      GreAcquireSemaphore(ghsemSprite);
       v10 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      if ( (unsigned int)(v10 - *((_DWORD *)hdev + 292)) >= *((_DWORD *)hdev + 293) )
+      if ( (unsigned int)(v10 - *((_DWORD *)hdev + 294)) >= *((_DWORD *)hdev + 295) )
       {
-        SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v34, (struct PDEVOBJ *)&hdev);
+        SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v29, (struct PDEVOBJ *)&hdev);
         v11 = *((_QWORD *)v8 + 140);
         v12 = *((_QWORD *)v8 + 139);
         v13 = v11;
@@ -91,114 +88,112 @@ void __fastcall GdiMovePointer(struct _SURFOBJ *a1, int a2, int a3, struct _RECT
           *((_QWORD *)v8 + 139) = v11;
         }
         *((_DWORD *)v8 + 272) = v10;
-        SPRITEDDIACCESS::~SPRITEDDIACCESS(v34);
+        SPRITEDDIACCESS::~SPRITEDDIACCESS(v29);
       }
-      SEMOBJ::vUnlock((SEMOBJ *)&v32);
+      SEMOBJ::vUnlock((SEMOBJ *)&v28);
     }
-    v16 = Gre::Base::Globals((Gre::Base *)a1);
-    v17 = a5;
-    v18 = v16;
+    v16 = a5;
     if ( !a5 )
-      v17 = GreIsSemaphoreOwnedByCurrentThread(*((_QWORD *)v16 + 14)) != 0;
-    v19 = PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&hdev);
-    v20 = *((_QWORD *)v18 + 14);
-    if ( v19 )
+      v16 = GreIsSemaphoreOwnedByCurrentThread(ghsemSprite) != 0;
+    if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&hdev) )
     {
-      GreAcquireSemaphoreSharedStarveExclusiveInternal(v20);
-      EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v18 + 14));
+      GreAcquireSemaphoreSharedStarveExclusiveInternal(ghsemSprite);
+      EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(L"ghsemSprite", ghsemSprite);
     }
     else
     {
-      GreAcquireSemaphore(v20);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v18 + 14), 5LL);
+      GreAcquireSemaphore(ghsemSprite);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
     }
-    if ( !v17 )
-      GreIncNonRBLockCount(*((_QWORD *)v18 + 14));
-    v35 = 0LL;
-    v36 = 0LL;
-    SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v33, (struct PDEVOBJ *)&hdev);
+    if ( !v16 )
+      GreIncNonRBLockCount(ghsemSprite);
+    v33 = 0LL;
+    v32 = 0LL;
     if ( a2 == -1 )
     {
-      v31.x = 0x7FFFFFFF;
-      v31.y = 0x7FFFFFFF;
+      SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v30, (struct PDEVOBJ *)&hdev);
+      v27.x = 0x7FFFFFFF;
+      v27.y = 0x7FFFFFFF;
       for ( j = *((_QWORD *)v8 + 140); j; j = *(_QWORD *)(j + 24) )
       {
-        if ( !v17 )
+        if ( !v16 )
         {
           SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v8 + 30));
-          PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v35, (struct _SPRITESTATE *)v8, (struct _RECTL *)(j + 80));
+          PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v32, (struct _SPRITESTATE *)v8, (struct _RECTL *)(j + 80));
           SINGLEREADERLOCK::vLock((SINGLEREADERLOCK *)(j + 248));
           *((_QWORD *)v8 + 167) = j;
         }
-        if ( (_QWORD)v35 || v17 )
+        if ( (_QWORD)v32 || v16 )
         {
-          bSpUpdatePosition((struct SPRITE *)j, &v31, 0, 0);
-          if ( v17 )
+          bSpUpdatePosition((struct SPRITE *)j, &v27, 0, 0);
+          if ( v16 )
             continue;
         }
         *((_QWORD *)v8 + 167) = 0LL;
         SINGLEREADERLOCK::vUnlock((SINGLEREADERLOCK *)(j + 248));
-        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v35);
+        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v32);
         SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v8 + 30));
       }
+      SPRITEDDIACCESS::~SPRITEDDIACCESS(v30);
     }
     else
     {
-      v31.x = a2 - *((_DWORD *)v8 + 268);
-      v31.y = a3 - *((_DWORD *)v8 + 269);
-      v22 = *((_QWORD *)v8 + 139);
-      if ( !v17 )
+      SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v31, (struct PDEVOBJ *)&hdev);
+      v27.x = a2 - *((_DWORD *)v8 + 268);
+      v27.y = a3 - *((_DWORD *)v8 + 269);
+      v18 = *((_QWORD *)v8 + 139);
+      if ( !v16 )
       {
         SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v8 + 30));
-        PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v35, (struct _SPRITESTATE *)v8, (struct _RECTL *)(v22 + 80));
-        SINGLEREADERLOCK::vLock((SINGLEREADERLOCK *)(v22 + 248));
-        *((_QWORD *)v8 + 167) = v22;
+        PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v32, (struct _SPRITESTATE *)v8, (struct _RECTL *)(v18 + 80));
+        SINGLEREADERLOCK::vLock((SINGLEREADERLOCK *)(v18 + 248));
+        *((_QWORD *)v8 + 167) = v18;
       }
-      bSpUpdatePosition((struct SPRITE *)v22, &v31, 0, 0);
-      if ( !v17 )
+      bSpUpdatePosition((struct SPRITE *)v18, &v27, 0, 0);
+      if ( !v16 )
       {
         *((_QWORD *)v8 + 167) = 0LL;
-        SINGLEREADERLOCK::vUnlock((SINGLEREADERLOCK *)(v22 + 248));
-        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v35);
+        SINGLEREADERLOCK::vUnlock((SINGLEREADERLOCK *)(v18 + 248));
+        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v32);
         SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v8 + 30));
       }
-      v37 = *(struct _RECTL *)(v22 + 80);
-      if ( !v17 )
-        PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v35, (struct _SPRITESTATE *)v8, &v37);
-      if ( !(_QWORD)v35 && !v17 || (vSpRedrawSprite((struct SPRITE *)v22), !v17) )
-        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v35);
+      v34 = *(struct _RECTL *)(v18 + 80);
+      if ( !v16 )
+        PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)&v32, (struct _SPRITESTATE *)v8, &v34);
+      if ( !(_QWORD)v32 && !v16 || (vSpRedrawSprite((struct SPRITE *)v18), !v16) )
+        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v32);
+      SPRITEDDIACCESS::~SPRITEDDIACCESS(v31);
     }
-    SPRITEDDIACCESS::~SPRITEDDIACCESS(v33);
-    if ( !v17 )
-      GreDecNonRBLockCount(*((_QWORD *)v18 + 14));
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemSprite");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v18 + 14));
-    v23 = hdev;
-    if ( (*((_DWORD *)hdev + 524) & 0x80u) != 0 )
+    if ( !v16 )
+      GreDecNonRBLockCount(ghsemSprite);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+    GreReleaseSemaphoreInternal(ghsemSprite);
+    v19 = hdev;
+    if ( (*((_DWORD *)hdev + 532) & 0x80u) != 0 )
     {
-      v24 = *((_QWORD *)hdev + 316);
-      v25 = 0LL;
-      v26 = v24 + 24;
-      v27 = -v24;
-      v28 = v26 & -(__int64)(v27 != 0);
-      if ( v28 )
+      v20 = *((_QWORD *)hdev + 319);
+      v21 = 0LL;
+      v22 = v20 + 24;
+      v23 = -v20;
+      v24 = v22 & -(__int64)(v23 != 0);
+      if ( v24 )
       {
-        v29 = *(_DWORD *)((v26 & -(__int64)(v27 != 0)) + 0x58);
-        if ( (v29 & 0x80004000) != 0 && (v29 & 0x200) == 0 )
+        v25 = *(_DWORD *)((v22 & -(__int64)(v23 != 0)) + 0x58);
+        if ( (v25 & 0x80004000) != 0 && (v25 & 0x200) == 0 )
         {
-          v25 = v28 - 24;
-          GreLockDisplayDevice(*(_QWORD *)(v28 - 24 + 48));
-          v23 = hdev;
+          v21 = v24 - 24;
+          GreLockDisplayDevice(*(_QWORD *)(v24 - 24 + 48));
+          v19 = hdev;
         }
       }
       PDEVOBJ::vSync(
         (PDEVOBJ *)&hdev,
-        (struct _SURFOBJ *)((*((_QWORD *)v23 + 316) + 24LL) & -(__int64)(*((_QWORD *)v23 + 316) != 0LL)),
+        (struct _SURFOBJ *)((*((_QWORD *)v19 + 319) + 24LL) & -(__int64)(*((_QWORD *)v19 + 319) != 0LL)),
         0LL,
         1u);
-      if ( v25 )
-        GreUnlockDisplayDevice(*(_QWORD *)(v25 + 48));
+      if ( v21 )
+        GreUnlockDisplayDevice(*(_QWORD *)(v21 + 48));
     }
-    PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v35);
+    PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)&v32);
   }
 }

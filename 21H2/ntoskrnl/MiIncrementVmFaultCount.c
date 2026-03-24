@@ -1,20 +1,20 @@
 /*
- * XREFs of MiIncrementVmFaultCount @ 0x140583D88
+ * XREFs of MiIncrementVmFaultCount @ 0x140530510
  * Callers:
- *     MiAllocateWsle @ 0x140322F10 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
  * Callees:
- *     MiGetAggregationVm @ 0x1405B2D80 (MiGetAggregationVm.c)
+ *     MiGetAggregationVm @ 0x140550210 (MiGetAggregationVm.c)
  */
 
-volatile signed __int32 *__fastcall MiIncrementVmFaultCount(__int64 a1, unsigned int a2)
+_DWORD *__fastcall MiIncrementVmFaultCount(__int64 a1, int a2)
 {
-  volatile signed __int32 *result; // rax
+  _DWORD *result; // rax
   unsigned int v3; // edx
 
-  _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), a2);
-  result = (volatile signed __int32 *)MiGetAggregationVm();
+  *(_DWORD *)(a1 + 4) += a2;
+  result = (_DWORD *)MiGetAggregationVm();
   if ( result )
-    _InterlockedExchangeAdd(result, v3);
+    *result += v3;
   __addgsdword(0x2E90u, v3);
   return result;
 }

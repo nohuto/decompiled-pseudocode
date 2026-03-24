@@ -1,87 +1,77 @@
 /*
- * XREFs of MiConvertHiberPhasePte @ 0x140AAC1E0
+ * XREFs of MiConvertHiberPhasePte @ 0x1409957C0
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14023F0A0 (MiIsPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x1402860B0 (MiReadPteShadow.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-__int64 __fastcall MiConvertHiberPhasePte(__int64 a1, unsigned __int64 *a2, int a3)
+__int64 __fastcall MiConvertHiberPhasePte(__int64 a1, __int64 *a2, int a3)
 {
-  __int64 v3; // r14
-  __int64 v6; // rbx
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rbx
-  BOOL HasShadow; // edi
-  __int64 v10; // r8
-  __int64 v11; // rdx
+  __int64 PteShadow; // rbx
+  int v4; // r9d
+  __int64 v7; // rsi
+  unsigned __int64 v9; // rbp
+  unsigned __int64 v10; // rbp
+  __int64 v11; // r8
   unsigned __int64 v12; // rbx
-  int v13; // ebp
-  unsigned __int64 v14; // rdi
-  unsigned __int64 v16; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 168);
-  v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a2);
-  v16 = v6;
-  if ( v3 )
+  PteShadow = *a2;
+  v4 = a3;
+  if ( (unsigned __int64)a2 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)a2 <= 0xFFFFF6FB7DBED7F8uLL )
+    PteShadow = MiReadPteShadow((unsigned __int64)a2, *a2);
+  v7 = *(_QWORD *)(a1 + 168);
+  v14 = PteShadow;
+  if ( v7 )
   {
-    if ( (v6 & 1) != 0 && !a3 )
+    if ( (PteShadow & 1) != 0 && !v4 )
     {
-      v7 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v16) >> 12) & 0xFFFFFFFFFFLL;
-      if ( (unsigned int)MiIsPfn(v7) )
+      v9 = PteShadow;
+      if ( MiPteInShadowRange((unsigned __int64)&v14) )
+        v9 = MiReadPteShadow((unsigned __int64)&v14, PteShadow);
+      v10 = (v9 >> 12) & 0xFFFFFFFFFLL;
+      if ( (unsigned int)MiIsPfn(v10) )
       {
-        if ( v7 != qword_140C69810
-          && v7 != qword_140C697F8
-          && !_bittest64(*(const signed __int64 **)(v3 + 8), (unsigned int)v7) )
+        if ( v10 != qword_140C4ED80
+          && v10 != qword_140C4ED68
+          && !_bittest64(*(const signed __int64 **)(v7 + 8), (unsigned int)v10) )
         {
-          v8 = v6 & 0xFFFFFFFFFFFFFBFAuLL | 0x404;
-          HasShadow = 0;
-          v16 = v8;
-          if ( MiPteInShadowRange((unsigned __int64)a2) )
-            HasShadow = MiPteHasShadow();
-          *a2 = v8;
-          if ( HasShadow )
+          v12 = PteShadow & 0xFFFFFFFFFFFFFBFAuLL | 0x404;
+          v14 = v12;
+          if ( MiPteInShadowRange((unsigned __int64)a2) && (unsigned int)MiPteHasShadow() )
           {
-            v11 = v8;
-LABEL_23:
-            MiWritePteShadow((__int64)a2, v11, v10);
+LABEL_20:
+            *a2 = v12;
+            MiWritePteShadow((__int64)a2, v12, v11);
             return 0LL;
           }
+LABEL_29:
+          *a2 = v12;
         }
       }
     }
-    return 0LL;
   }
-  if ( (v6 & 1) != 0 || (v6 & 0x400) == 0 || (v6 & 4) == 0 )
-    return 0LL;
-  v12 = v6 & 0xFFFFFFFFFFFFFBFAuLL | 1;
-  v13 = 0;
-  v16 = v12;
-  v14 = v12;
-  if ( MiPteInShadowRange((unsigned __int64)a2) )
+  else if ( (PteShadow & 1) == 0 && (PteShadow & 0x400) != 0 && (PteShadow & 4) != 0 )
   {
-    if ( MiPteHasShadow() )
+    v12 = PteShadow & 0xFFFFFFFFFFFFFBFAuLL | 1;
+    v14 = v12;
+    if ( MiPteInShadowRange((unsigned __int64)a2) )
     {
-      v13 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_21;
+      if ( (unsigned int)MiPteHasShadow() )
+      {
+        if ( !HIBYTE(word_140C4E008) )
+          v12 |= 0x8000000000000000uLL;
+        goto LABEL_20;
+      }
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+        v12 |= 0x8000000000000000uLL;
     }
-    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-    {
-      goto LABEL_21;
-    }
-    v14 = v12 | 0x8000000000000000uLL;
-  }
-LABEL_21:
-  *a2 = v14;
-  if ( v13 )
-  {
-    v11 = v14;
-    goto LABEL_23;
+    goto LABEL_29;
   }
   return 0LL;
 }

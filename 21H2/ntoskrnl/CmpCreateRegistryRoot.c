@@ -1,111 +1,100 @@
 /*
- * XREFs of CmpCreateRegistryRoot @ 0x140B15C50
+ * XREFs of CmpCreateRegistryRoot @ 0x140A5AED4
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ObCreateObject @ 0x14066BA00 (ObCreateObject.c)
- *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     EnlistKeyBodyWithKCB @ 0x1406C16F8 (EnlistKeyBodyWithKCB.c)
- *     CmpTryToLockKcbExclusive @ 0x1406D1790 (CmpTryToLockKcbExclusive.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140834D0C (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
- *     CmpCreateRootNode @ 0x140B15E34 (CmpCreateRootNode.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpTryToLockKcbExclusive @ 0x1406BFD74 (CmpTryToLockKcbExclusive.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
+ *     EnlistKeyBodyWithKCB @ 0x1407A7DEC (EnlistKeyBodyWithKCB.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A841C (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmpCreateRootNode @ 0x140A5B0B4 (CmpCreateRootNode.c)
  */
 
-__int64 __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)
+char __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)
 {
-  int inserted; // edi
-  ACL *v3; // rbx
+  ACL *v2; // rdi
+  int v3; // ebx
   _QWORD *v4; // rcx
   ULONG_PTR v5; // rax
   _DWORD *v6; // rbx
   __int64 v7; // rcx
-  int v9; // [rsp+30h] [rbp-29h]
-  int v10; // [rsp+38h] [rbp-21h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-9h] BYREF
-  _DWORD v12[2]; // [rsp+60h] [rbp+7h] BYREF
-  __int64 v13; // [rsp+68h] [rbp+Fh]
-  UNICODE_STRING *v14; // [rsp+70h] [rbp+17h]
-  int v15; // [rsp+78h] [rbp+1Fh]
-  int v16; // [rsp+7Ch] [rbp+23h]
-  ACL *v17; // [rsp+80h] [rbp+27h]
-  __int64 v18; // [rsp+88h] [rbp+2Fh]
-  PVOID v19; // [rsp+C0h] [rbp+67h] BYREF
-  ULONG_PTR v20; // [rsp+C8h] [rbp+6Fh] BYREF
-  PVOID Object; // [rsp+D0h] [rbp+77h]
-  HANDLE Handle; // [rsp+D8h] [rbp+7Fh] BYREF
+  NTSTATUS v8; // eax
+  int v10; // [rsp+30h] [rbp-39h]
+  int v11; // [rsp+38h] [rbp-31h]
+  PVOID v12; // [rsp+50h] [rbp-19h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-11h] BYREF
+  _DWORD v14[2]; // [rsp+68h] [rbp-1h] BYREF
+  __int64 v15; // [rsp+70h] [rbp+7h]
+  UNICODE_STRING *v16; // [rsp+78h] [rbp+Fh]
+  int v17; // [rsp+80h] [rbp+17h]
+  int v18; // [rsp+84h] [rbp+1Bh]
+  ACL *v19; // [rsp+88h] [rbp+1Fh]
+  __int64 v20; // [rsp+90h] [rbp+27h]
+  int v21; // [rsp+D0h] [rbp+67h] BYREF
+  ULONG_PTR v22; // [rsp+D8h] [rbp+6Fh] BYREF
+  PVOID Object; // [rsp+E0h] [rbp+77h]
+  HANDLE Handle; // [rsp+E8h] [rbp+7Fh] BYREF
 
   Object = 0LL;
-  v12[1] = 0;
-  v16 = 0;
-  v20 = 0LL;
-  LODWORD(v19) = 0;
+  v14[1] = 0;
+  v18 = 0;
+  v22 = 0LL;
+  v21 = 0;
   Handle = 0LL;
   DestinationString = 0LL;
-  inserted = CmpCreateRootNode(a1, a2, &v19);
-  if ( inserted >= 0 )
+  if ( (unsigned __int8)CmpCreateRootNode(a1, a2, &v21) )
   {
-    v3 = CmpHiveRootSecurityDescriptor();
-    v12[0] = 48;
-    v13 = 0LL;
-    v14 = &CmRegistryRootName;
-    v15 = 576;
-    v17 = v3;
-    v18 = 0LL;
-    inserted = ObCreateObject(0, (int)CmKeyObjectType, (int)v12, 0);
-    ExFreePoolWithTag(v3, 0);
-    if ( inserted >= 0 )
+    v2 = CmpHiveRootSecurityDescriptor();
+    v14[0] = 48;
+    v15 = 0LL;
+    v16 = &CmRegistryRootName;
+    v17 = 576;
+    v19 = v2;
+    v20 = 0LL;
+    v3 = ObCreateObject(0, (int)CmKeyObjectType, (int)v14, 0);
+    ExFreePoolWithTag(v2, 0);
+    if ( v3 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"REGISTRY");
-      v10 = 0;
-      v9 = CmpHashUnicodeComponent((__m128i *)&DestinationString);
-      inserted = CmpCreateKeyControlBlock(
-                   CmpMasterHive,
-                   (int)v19,
-                   0LL,
-                   0LL,
-                   0,
-                   &DestinationString.Length,
-                   v9,
-                   v10,
-                   &v20);
-      if ( inserted >= 0 )
+      v11 = 0;
+      v10 = CmpHashUnicodeComponent((__m128i *)&DestinationString);
+      if ( (int)CmpCreateKeyControlBlock(CmpMasterHive, v21, 0LL, 0LL, 0, &DestinationString.Length, v10, v11, &v22) >= 0 )
       {
         v4 = Object;
-        v5 = v20;
+        v5 = v22;
         *(_DWORD *)Object = 1803104306;
         v4[1] = v5;
         v4[2] = 0LL;
         v6 = Object;
         *((_QWORD *)Object + 3) = KeGetCurrentThread()[1].CycleTime;
-        v7 = v20;
+        v7 = v22;
         v6[12] = 0;
         *((_QWORD *)v6 + 10) = v6 + 18;
         *((_QWORD *)v6 + 9) = v6 + 18;
         *((_QWORD *)v6 + 7) = 0LL;
         *((_QWORD *)v6 + 8) = 0LL;
         CmpTryToLockKcbExclusive(v7);
-        EnlistKeyBodyWithKCB((signed __int64)v6, 2);
-        CmpUnlockKcb(v20);
-        inserted = ObInsertObject(v6, 0LL, 0, 0, 0LL, &Handle);
-        if ( inserted >= 0 )
+        EnlistKeyBodyWithKCB(v6, 2);
+        CmpUnlockKcb(v22);
+        if ( ObInsertObject(v6, 0LL, 0, 0, 0LL, &Handle) >= 0 )
         {
-          v19 = 0LL;
-          inserted = ObReferenceObjectByHandle(Handle, 0x20019u, 0LL, 0, &v19, 0LL);
-          CmpRegistryRootObject = v19;
-          if ( inserted < 0 )
-            ObCloseHandle(Handle, 0);
-          else
-            return 0;
+          v12 = 0LL;
+          v8 = ObReferenceObjectByHandle(Handle, 0x20019u, 0LL, 0, &v12, 0LL);
+          CmpRegistryRootObject = v12;
+          if ( v8 >= 0 )
+            return 1;
+          ObCloseHandle(Handle, 0);
         }
       }
     }
   }
-  return (unsigned int)inserted;
+  return 0;
 }

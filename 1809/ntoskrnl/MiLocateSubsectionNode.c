@@ -6,13 +6,13 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiDereferenceDataSubsections @ 0x1402C48F8 (MiDereferenceDataSubsections.c)
+ *     MiDereferenceDataSubsections @ 0x1402C49F8 (MiDereferenceDataSubsections.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiLocateSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)

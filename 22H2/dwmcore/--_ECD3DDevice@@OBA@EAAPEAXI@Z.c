@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECD3DDevice@@OBA@EAAPEAXI@Z @ 0x18011EE60
+ * XREFs of ??_ECD3DDevice@@OBA@EAAPEAXI@Z @ 0x1800F6800
  * Callers:
  *     <none>
  * Callees:

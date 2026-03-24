@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02D43B4
+ * XREFs of ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02B9608
  * Callers:
- *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02D40B8 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
- *     NtGdiExtFloodFill @ 0x1C02D4500 (NtGdiExtFloodFill.c)
+ *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02B9310 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C02B97B0 (NtGdiExtFloodFill.c)
  * Callees:
- *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02D42E8 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
+ *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02B9540 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
  */
 
 void __fastcall FLOODBM::vFindExtent(FLOODBM *this, int a2, int *a3, int *a4)

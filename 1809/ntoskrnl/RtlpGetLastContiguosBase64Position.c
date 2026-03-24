@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetLastContiguosBase64Position @ 0x140896A44
+ * XREFs of RtlpGetLastContiguosBase64Position @ 0x140896A24
  * Callers:
- *     RtlValidateCorrelationVector @ 0x140896860 (RtlValidateCorrelationVector.c)
+ *     RtlValidateCorrelationVector @ 0x140896840 (RtlValidateCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorBufferLength @ 0x140896A20 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140896A00 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
 __int64 __fastcall RtlpGetLastContiguosBase64Position(_BYTE *a1)

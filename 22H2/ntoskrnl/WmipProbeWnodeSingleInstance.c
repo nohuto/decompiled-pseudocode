@@ -1,16 +1,17 @@
 /*
- * XREFs of WmipProbeWnodeSingleInstance @ 0x1407D6F44
+ * XREFs of WmipProbeWnodeSingleInstance @ 0x14072B774
  * Callers:
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
  * Callees:
- *     WmipProbeWnodeWorker @ 0x1407D6FC4 (WmipProbeWnodeWorker.c)
+ *     WmipProbeWnodeWorker @ 0x14072B864 (WmipProbeWnodeWorker.c)
  */
 
 __int64 __fastcall WmipProbeWnodeSingleInstance(_DWORD *a1, unsigned int a2, unsigned int a3, char a4)
 {
-  char v6; // zf
+  bool v6; // zf
   __int64 result; // rax
   int v8; // eax
+  bool v10; // [rsp+40h] [rbp-18h]
 
   if ( a2 < 0x40 )
     return 3221225473LL;
@@ -21,7 +22,8 @@ __int64 __fastcall WmipProbeWnodeSingleInstance(_DWORD *a1, unsigned int a2, uns
       return 3221225473LL;
     v6 = a4 == 0;
   }
-  result = WmipProbeWnodeWorker((_DWORD)a1, 64, a1[12], a1[14], a1[15], a2, a3, a4, v6);
+  v10 = v6;
+  result = WmipProbeWnodeWorker(a1, 64LL, (unsigned int)a1[12], (unsigned int)a1[14], a1[15], a2, a3, a4, v10);
   if ( (int)result < 0 )
     return result;
   v8 = a1[11];

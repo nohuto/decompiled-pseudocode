@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRescanPageFileBitmapPortion @ 0x1401208EC
+ * XREFs of MiRescanPageFileBitmapPortion @ 0x14012090C
  * Callers:
  *     MiCoalescePageFileBitmapsCache @ 0x14002A820 (MiCoalescePageFileBitmapsCache.c)
- *     MiRescanPagefileBitmaps @ 0x14018804C (MiRescanPagefileBitmaps.c)
+ *     MiRescanPagefileBitmaps @ 0x14018806C (MiRescanPagefileBitmaps.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     RtlFindNextClearRunUlong @ 0x140120B48 (RtlFindNextClearRunUlong.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     RtlFindNextClearRunUlong @ 0x140120B68 (RtlFindNextClearRunUlong.c)
  */
 
 __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, unsigned __int64 *a5)

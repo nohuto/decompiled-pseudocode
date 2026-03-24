@@ -1,11 +1,11 @@
 /*
- * XREFs of ObEnumerateObjectsByType @ 0x1409848D4
+ * XREFs of ObEnumerateObjectsByType @ 0x1408DD3AC
  * Callers:
- *     IovUnloadDrivers @ 0x140A80940 (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x1409C52F0 (IovUnloadDrivers.c)
  * Callees:
- *     ObpCreateTypeArray @ 0x14098501C (ObpCreateTypeArray.c)
- *     ObpDestroyTypeArray @ 0x140985120 (ObpDestroyTypeArray.c)
- *     IovpBuildDriverObjectList @ 0x140A80A58 (IovpBuildDriverObjectList.c)
+ *     ObpCreateTypeArray @ 0x1408DDB00 (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x1408DDBE0 (ObpDestroyTypeArray.c)
+ *     IovpBuildDriverObjectList @ 0x1409C5410 (IovpBuildDriverObjectList.c)
  */
 
 __int64 ObEnumerateObjectsByType()
@@ -15,7 +15,7 @@ __int64 ObEnumerateObjectsByType()
   _DWORD *v2; // rsi
   int v3; // edi
   __int64 v4; // r8
-  __int64 v5; // rax
+  __int64 v5; // rcx
   __int128 v7; // [rsp+30h] [rbp-18h] BYREF
 
   v7 = 0LL;
@@ -32,10 +32,8 @@ __int64 ObEnumerateObjectsByType()
         v4 = *(_QWORD *)&v2[2 * v3 + 2];
         if ( v4 )
         {
-          if ( (*(_BYTE *)(v4 + 58) & 2) == 0 || (v5 = ObpInfoMaskToOffset[*(_BYTE *)(v4 + 58) & 3], v4 + 32 == v5) )
-            v7 = 0LL;
-          else
-            v7 = *(_OWORD *)(v4 + 32 - v5 + 8);
+          v5 = (*(_BYTE *)(v4 + 58) & 2) != 0 ? v4 + 32 - ObpInfoMaskToOffset[*(_BYTE *)(v4 + 58) & 3] : 0LL;
+          v7 = v5 ? *(_OWORD *)(v5 + 8) : 0LL;
           if ( !(unsigned __int8)IovpBuildDriverObjectList(
                                    v4 + 80,
                                    &v7,
@@ -45,11 +43,11 @@ __int64 ObEnumerateObjectsByType()
             break;
         }
         if ( (unsigned int)++v3 >= *v2 )
-          goto LABEL_12;
+          goto LABEL_14;
       }
       v0 = -2147483622;
     }
-LABEL_12:
+LABEL_14:
     ObpDestroyTypeArray(v2);
   }
   return v0;

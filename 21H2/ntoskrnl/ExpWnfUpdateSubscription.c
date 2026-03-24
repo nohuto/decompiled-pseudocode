@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfUpdateSubscription @ 0x14079A690
+ * XREFs of ExpWnfUpdateSubscription @ 0x140610160
  * Callers:
- *     ExpWnfSubscribeNameInstance @ 0x14079A254 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14060FD38 (ExpWnfSubscribeNameInstance.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall ExpWnfUpdateSubscription(
@@ -21,45 +21,41 @@ __int64 __fastcall ExpWnfUpdateSubscription(
         _DWORD *a8,
         _QWORD *a9)
 {
-  _QWORD *v9; // rax
+  _QWORD *i; // rax
   _QWORD *v13; // rbx
-  unsigned __int64 *v15; // rsi
+  unsigned __int64 *v15; // rdi
   __int64 v16; // rax
   __int64 v17; // rbp
-  int v18; // ecx
-  int v19; // r9d
+  int v18; // edx
+  int v19; // r8d
   int v20; // ecx
   __int64 v21; // rdx
   _QWORD *v22; // r8
 
-  v9 = *(_QWORD **)(a2 + 88);
-  if ( v9 == (_QWORD *)(a2 + 88) )
-    return 3221225524LL;
-  while ( 1 )
+  for ( i = *(_QWORD **)(a2 + 88); ; i = (_QWORD *)*i )
   {
-    v13 = v9 - 3;
-    if ( v9[3] == a1 )
-      break;
-    v9 = (_QWORD *)*v9;
-    if ( v9 == (_QWORD *)(a2 + 88) )
+    if ( i == (_QWORD *)(a2 + 88) )
       return 3221225524LL;
+    v13 = i - 3;
+    if ( i[3] == a1 )
+      break;
   }
   v15 = (unsigned __int64 *)(a2 + 104);
   *a7 = 0;
   *a8 = 0;
-  v16 = KeAbPreAcquire(a2 + 104, 0LL);
+  v16 = KeAbPreAcquire(a2 + 104, 0LL, 0);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v15, v16, (__int64)v15);
+    ExfAcquirePushLockExclusiveEx(v15, v16, (ULONG_PTR)v15);
   if ( v17 )
-    *(_BYTE *)(v17 + 18) = 1;
-  v18 = *((_DWORD *)v13 + 25);
+    *(_BYTE *)(v17 + 26) |= 1u;
+  v18 = *((_DWORD *)v13 + 25) & 1;
   if ( (a5 & 1) != 0 )
   {
-    if ( (v18 & 1) == 0 && _InterlockedIncrement((volatile signed __int32 *)(a1 + 160)) == 1 )
+    if ( !v18 && _InterlockedIncrement((volatile signed __int32 *)(a1 + 160)) == 1 )
       *a7 = 1;
   }
-  else if ( (v18 & 1) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 160), 0xFFFFFFFF) == 1 )
+  else if ( v18 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 160), 0xFFFFFFFF) == 1 )
   {
     *a7 = -1;
   }
@@ -83,7 +79,7 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v15);
   KeAbPostRelease((ULONG_PTR)v15);
-  ExAcquireRundownProtection((PEX_RUNDOWN_REF)v13 + 1);
+  ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v13 + 1);
   *a6 = v13;
   if ( a9 )
     *a9 = v13[2];

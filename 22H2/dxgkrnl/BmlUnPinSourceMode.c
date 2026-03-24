@@ -1,72 +1,96 @@
 /*
- * XREFs of BmlUnPinSourceMode @ 0x1C03BDBD0
+ * XREFs of BmlUnPinSourceMode @ 0x1C02EC960
  * Callers:
- *     BmlFunctionalizePath @ 0x1C016F340 (BmlFunctionalizePath.c)
- *     _BmlGetPathModeListForPath @ 0x1C03BE18C (_BmlGetPathModeListForPath.c)
+ *     BmlFunctionalizePath @ 0x1C0142E64 (BmlFunctionalizePath.c)
+ *     _BmlGetPathModeListForPath @ 0x1C02ECDC0 (_BmlGetPathModeListForPath.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     BmlUnPinAllPathsPartialModalityFromSource @ 0x1C03BD930 (BmlUnPinAllPathsPartialModalityFromSource.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     BmlUnPinAllPathsPartialModalityFromSource @ 0x1C02EC5F8 (BmlUnPinAllPathsPartialModalityFromSource.c)
  */
 
 __int64 __fastcall BmlUnPinSourceMode(_BYTE *a1, __int64 a2, unsigned __int16 a3)
 {
-  __int64 v3; // rdi
+  __int64 v3; // rsi
+  __int64 v6; // rax
   __int64 result; // rax
-  __int64 v7; // rbp
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  unsigned int v10; // r14d
+  __int64 v8; // rbp
+  __int64 v9; // r14
   struct DMMVIDPNPRESENTPATH *Path; // rax
-  struct DMMVIDPNPRESENTPATH *v12; // rdi
-  unsigned __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  int v16; // esi
-  unsigned __int64 v17; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  struct DMMVIDPNPRESENTPATH *v14; // rsi
+  _QWORD *v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // r9
+  __int64 v18; // rax
+  bool v19; // zf
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // edi
+  __int64 v23; // r8
+  _QWORD *v24; // rax
+  __int64 v25; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = a3;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
+  {
+    v6 = WdLogNewEntry5_WdAssertion(a1, 0LL);
+    WdLogEvent5_WdAssertion(v6);
+  }
   result = BmlUnPinAllPathsPartialModalityFromSource(a1, a2, v3);
   if ( (int)result >= 0 )
   {
-    v7 = v3;
-    v8 = *(_QWORD *)&a1[120 * v3 + 16];
-    v9 = *(unsigned int *)(v8 + 28);
-    v10 = *(_DWORD *)(v8 + 24);
-    Path = DMMVIDPNTOPOLOGY::FindPath((DMMVIDPNTOPOLOGY *)(a2 + 96), v10, *(_DWORD *)(v8 + 28));
-    v12 = Path;
+    v8 = 104 * v3;
+    v9 = v3;
+    Path = DMMVIDPNTOPOLOGY::FindPath(
+             (DMMVIDPNTOPOLOGY *)(a2 + 96),
+             *(_DWORD *)(*(_QWORD *)&a1[104 * v3 + 16] + 24LL),
+             *(_DWORD *)(*(_QWORD *)&a1[104 * v3 + 16] + 28LL));
+    v14 = Path;
     if ( Path )
     {
-      v13 = (unsigned __int64)DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)Path + 11));
-      v17 = v13;
-      if ( *(_QWORD *)(v13 + 144)
-        && (LOBYTE(v14) = 1,
-            v16 = (*(__int64 (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)(v15 + 496) + 48LL))(
-                    v13 & -(__int64)(v13 != -137LL),
-                    v14),
-            v16 < 0) )
+      v16 = *((_QWORD *)Path + 11);
+      v17 = *(_QWORD *)(a2 + 48);
+      v18 = *(_QWORD *)(v16 + 104);
+      if ( v18 )
       {
-        WdLogSingleEntry4(
-          3LL,
-          v12,
-          a2,
-          *(unsigned int *)(*((_QWORD *)v12 + 11) + 24LL),
-          *(unsigned int *)(*((_QWORD *)v12 + 12) + 24LL));
+        _InterlockedIncrement((volatile signed __int32 *)(v18 + 96));
+        v18 = *(_QWORD *)(v16 + 104);
+      }
+      v19 = *(_QWORD *)(v18 + 144) == 0LL;
+      v25 = v18;
+      if ( v19
+        || (LOBYTE(v11) = 1,
+            v22 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)(v17 + 440) + 48LL))(
+                    v18 & -(__int64)(v18 != -137),
+                    v11),
+            v22 >= 0) )
+      {
+        v22 = 0;
       }
       else
       {
-        v16 = 0;
+        v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v21, v20, v23);
+        v24[3] = v14;
+        v24[4] = a2;
+        v24[5] = *(unsigned int *)(*((_QWORD *)v14 + 11) + 24LL);
+        v24[6] = *(unsigned int *)(*((_QWORD *)v14 + 12) + 24LL);
+        WdLogEvent5_WdWarning(v24);
       }
-      auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v17, 0LL);
-      return (unsigned int)v16;
+      auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v25, 0LL);
+      return (unsigned int)v22;
     }
     else
     {
-      WdLogSingleEntry4(3LL, v7, a2, v10, v9);
+      v15 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11, v13);
+      v15[3] = v9;
+      v15[4] = a2;
+      v15[5] = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 24LL);
+      v15[6] = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL);
+      WdLogEvent5_WdWarning(v15);
       return 3223192345LL;
     }
   }

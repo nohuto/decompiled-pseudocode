@@ -1,13 +1,13 @@
 /*
  * XREFs of PopFilterCapabilities @ 0x1405B0968
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4B2C (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4C2C (PopIdleArmAoAcDozeS4Timer.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
- *     PopVerifyPowerActionPolicy @ 0x1407199F8 (PopVerifyPowerActionPolicy.c)
- *     PopInitSIdle @ 0x14071C5DC (PopInitSIdle.c)
+ *     PopVerifyPowerActionPolicy @ 0x1407199D8 (PopVerifyPowerActionPolicy.c)
+ *     PopInitSIdle @ 0x14071C5BC (PopInitSIdle.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
@@ -15,7 +15,7 @@
  *     PopCheckDisabledState @ 0x1405B0AB4 (PopCheckDisabledState.c)
  *     PopRemoveReasonRecordByReasonCode @ 0x1405B0AE4 (PopRemoveReasonRecordByReasonCode.c)
  *     IoGetLegacyVetoList @ 0x1405B0B64 (IoGetLegacyVetoList.c)
- *     PopLogSleepDisabled @ 0x14070AA54 (PopLogSleepDisabled.c)
+ *     PopLogSleepDisabled @ 0x14070AA34 (PopLogSleepDisabled.c)
  */
 
 __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
@@ -85,7 +85,7 @@ LABEL_6:
     PopLogSleepDisabled(7LL, 16LL, 0LL, 0LL);
   else
     PopRemoveReasonRecordByReasonCode(7LL);
-  if ( byte_14041811D )
+  if ( byte_1404180DD )
     PopLogSleepDisabled(14LL, 7LL, 0LL, 0LL);
   else
     PopRemoveReasonRecordByReasonCode(14LL);

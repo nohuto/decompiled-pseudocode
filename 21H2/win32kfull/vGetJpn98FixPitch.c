@@ -1,16 +1,16 @@
 /*
- * XREFs of vGetJpn98FixPitch @ 0x1C00E21D0
+ * XREFs of vGetJpn98FixPitch @ 0x1C00E5AE0
  * Callers:
  *     <none>
  * Callees:
- *     bQueryFntCacheReg @ 0x1C00E22A8 (bQueryFntCacheReg.c)
- *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E2700 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E5A58 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     bQueryFntCacheReg @ 0x1C00E5BB8 (bQueryFntCacheReg.c)
  */
 
-NTSTATUS vGetJpn98FixPitch()
+int vGetJpn98FixPitch()
 {
   int v0; // ebx
-  NTSTATUS result; // eax
+  int result; // eax
   HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
 
   v0 = 0;

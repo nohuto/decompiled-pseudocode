@@ -3,8 +3,8 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strstr @ 0x140194EA0 (strstr.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
  *     KiIsNXSupported @ 0x14056F5E0 (KiIsNXSupported.c)
  *     KiGetCpuVendor @ 0x14056F6EC (KiGetCpuVendor.c)
  */

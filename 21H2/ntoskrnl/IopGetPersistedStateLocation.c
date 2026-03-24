@@ -1,55 +1,59 @@
 /*
- * XREFs of IopGetPersistedStateLocation @ 0x1407443F8
+ * XREFs of IopGetPersistedStateLocation @ 0x140739B88
  * Callers:
- *     IopCreateSecureDeviceClassSettings @ 0x1407444A8 (IopCreateSecureDeviceClassSettings.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140739950 (IopCreateSecureDeviceClassSettings.c)
  * Callees:
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopGetPersistedStateLocation(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall IopGetPersistedStateLocation(__int64 a1, _WORD *a2, __int64 a3, _QWORD *a4)
 {
-  unsigned int v4; // esi
-  __int64 i; // rdx
-  void *Pool2; // rbx
-  int PersistedStateLocation; // eax
-  unsigned int v9; // edi
+  SIZE_T v6; // rsi
+  PVOID PoolWithTag; // rbx
+  int PersistedStateLocation; // edi
   __int64 result; // rax
-  __int64 v11; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+70h] [rbp+18h] BYREF
 
-  LODWORD(v11) = 0;
-  v4 = 256;
-  for ( i = 256LL; ; i = v4 )
+  LODWORD(v10) = 0;
+  v6 = 256LL;
+  while ( 1 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, i, 1665560393LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x63466F49u);
+    if ( !PoolWithTag )
     {
-      v9 = -1073741670;
-      goto LABEL_5;
-    }
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"SecureDeviceClass", Pool2, v4, (__int64)&v11);
-    v9 = PersistedStateLocation;
-    if ( PersistedStateLocation != -2147483643 )
-      break;
-    if ( (unsigned int)v11 <= v4 )
-    {
-      v9 = -1073741595;
+      PersistedStateLocation = -1073741670;
       goto LABEL_10;
     }
-    v4 = v11;
-    ExFreePoolWithTag(Pool2, 0);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"SecureDeviceClass",
+                               0LL,
+                               a2,
+                               0,
+                               PoolWithTag,
+                               v6,
+                               (unsigned int *)&v10);
+    if ( PersistedStateLocation != -2147483643 )
+      break;
+    if ( (unsigned int)v10 <= (unsigned int)v6 )
+    {
+      PersistedStateLocation = -1073741595;
+      break;
+    }
+    v6 = (unsigned int)v10;
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   if ( PersistedStateLocation >= 0 )
     goto LABEL_5;
 LABEL_10:
-  if ( Pool2 )
+  if ( PoolWithTag )
   {
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = 0LL;
+    ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = 0LL;
   }
 LABEL_5:
-  result = v9;
-  *a4 = Pool2;
+  result = (unsigned int)PersistedStateLocation;
+  *a4 = PoolWithTag;
   return result;
 }

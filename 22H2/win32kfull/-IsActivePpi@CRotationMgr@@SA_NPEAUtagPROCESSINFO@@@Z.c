@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z @ 0x1C0016E88
+ * XREFs of ?IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z @ 0x1C0008B18
  * Callers:
- *     NtUserSetDisplayAutoRotationPreferences @ 0x1C0016E20 (NtUserSetDisplayAutoRotationPreferences.c)
+ *     NtUserSetDisplayAutoRotationPreferences @ 0x1C0008AB0 (NtUserSetDisplayAutoRotationPreferences.c)
  * Callees:
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 bool __fastcall CRotationMgr::IsActivePpi(struct tagPROCESSINFO *a1)

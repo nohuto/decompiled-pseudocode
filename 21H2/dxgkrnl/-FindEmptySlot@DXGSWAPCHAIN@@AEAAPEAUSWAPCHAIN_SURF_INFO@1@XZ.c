@@ -1,32 +1,34 @@
 /*
- * XREFs of ?FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ @ 0x1C034A744
+ * XREFs of ?FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ @ 0x1C02AAB98
  * Callers:
- *     ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C0349CC4 (-AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z.c)
+ *     ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C02AA250 (-AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *__fastcall DXGSWAPCHAIN::FindEmptySlot(struct _KTHREAD **this)
+struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *__fastcall DXGSWAPCHAIN::FindEmptySlot(struct _KTHREAD **this, __int64 a2)
 {
-  unsigned int v2; // r8d
-  unsigned int v3; // edx
+  __int64 v3; // rax
+  unsigned int v4; // r8d
+  unsigned int v5; // edx
   struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *result; // rax
 
-  if ( this[3] != KeGetCurrentThread() )
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2537LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 2537LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 2484LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v2 = *((_DWORD *)this + 14);
-  v3 = 0;
-  if ( !v2 )
+  v4 = *((_DWORD *)this + 12);
+  v5 = 0;
+  if ( !v4 )
     return 0LL;
   while ( 1 )
   {
-    result = (struct _KTHREAD *)((char *)this[8] + 112 * v3);
+    result = (struct _KTHREAD *)((char *)this[7] + 112 * v5);
     if ( !*((_DWORD *)result + 2) )
       break;
-    if ( ++v3 >= v2 )
+    if ( ++v5 >= v4 )
       return 0LL;
   }
   return result;

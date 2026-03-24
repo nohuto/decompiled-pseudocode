@@ -1,15 +1,15 @@
 /*
- * XREFs of DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00DBA70
+ * XREFs of DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00D5DD0
  * Callers:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
- *     NtGdiGetDCObject @ 0x1C00E1C20 (NtGdiGetDCObject.c)
- *     GrePolyTextOutW @ 0x1C00E3570 (GrePolyTextOutW.c)
+ *     GreExtTextOutRect @ 0x1C00AA21C (GreExtTextOutRect.c)
+ *     NtGdiGetDCObject @ 0x1C00AA330 (NtGdiGetDCObject.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00DBB40 (-bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00F4784 (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C015D85C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00B3CBC (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00D5EA0 (-bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A898 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKOBJ_bPrepareTrgDcoWrap(DEVLOCKOBJ *this, __int64 *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall DEVLOCKOBJ_bPrepareTrgDcoWrap(DEVLOCKOBJ *this, __int64 *a2)
   v7 = *(_QWORD *)(v6 + 48);
   XDCOBJ::vLock((DEVLOCKOBJ *)((char *)this + 32), *(HDC *)v6);
   v8 = *((_QWORD *)this + 4);
-  v9 = *(_QWORD *)(v7 + 1400);
+  v9 = *(_QWORD *)(v7 + 1408);
   if ( !v8 || !*((_BYTE *)this + 81) )
   {
 LABEL_14:

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C003D4F4
+ * XREFs of ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C0032BA0
  * Callers:
- *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003D5A0 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     VidSchCreatePeriodicFrameNotification @ 0x1C003E8E0 (VidSchCreatePeriodicFrameNotification.c)
+ *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0032C40 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C0033B80 (VidSchCreatePeriodicFrameNotification.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@
 __int64 __fastcall VidSchCalculatePeriodicMonitoredFenceTimerDueTime(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rdi
-  LARGE_INTEGER v7; // r10
+  LARGE_INTEGER v7; // rcx
   unsigned __int64 v8; // r8
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp+8h] BYREF
 

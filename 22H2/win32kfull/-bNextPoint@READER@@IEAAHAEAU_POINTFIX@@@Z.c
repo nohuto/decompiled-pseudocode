@@ -1,17 +1,16 @@
 /*
- * XREFs of ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C015DAE4
+ * XREFs of ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C0140954
  * Callers:
- *     ??0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F1120 (--0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z.c)
- *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C02F2BD0 (-vNextPoint@LINER@@AEAAXXZ.c)
+ *     ??0STYLER@@QEAA@AEAVEPATHOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C013F34C (--0STYLER@@QEAA@AEAVEPATHOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C01405EC (-vNextPoint@LINER@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall READER::bNextPoint(READER *this, struct _POINTFIX *a2)
 {
-  struct _POINTFIX *v2; // r8
-  struct _POINTFIX v5; // rax
-  unsigned int v6; // r8d
+  struct _POINTFIX *v2; // rax
+  unsigned int v5; // r8d
   int v7; // eax
   int v8; // ecx
   unsigned int v9; // ecx
@@ -28,7 +27,7 @@ __int64 __fastcall READER::bNextPoint(READER *this, struct _POINTFIX *a2)
     {
       v7 = EPATHOBJ::bEnum(*(EPATHOBJ **)this, (struct _PATHDATA *)((char *)this + 8));
       v8 = *((_DWORD *)this + 10);
-      v6 = 1;
+      v5 = 1;
       if ( v7 )
         v9 = v8 | 1;
       else
@@ -42,10 +41,9 @@ __int64 __fastcall READER::bNextPoint(READER *this, struct _POINTFIX *a2)
   }
   else
   {
-    v5 = *v2;
-    *((_QWORD *)this + 3) = v2 + 1;
-    v6 = 1;
-    *a2 = v5;
+    v5 = 1;
+    *a2 = *v2;
+    *((_QWORD *)this + 3) += 8LL;
   }
-  return v6;
+  return v5;
 }

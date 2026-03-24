@@ -1,19 +1,19 @@
 /*
- * XREFs of RIMRegOpenDeviceInstanceKey @ 0x1C00A196C
+ * XREFs of RIMRegOpenDeviceInstanceKey @ 0x1C006CD68
  * Callers:
- *     RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C009F0E8 (RIMPopulateExtendedKeyboardDeviceProperties.c)
- *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C01A05FC (RIMPopulateExtendedMouseDeviceProperties.c)
- *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01A0784 (RIMPopulateExtendedPointerDeviceProperties.c)
+ *     RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C006BFB8 (RIMPopulateExtendedKeyboardDeviceProperties.c)
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C00CC828 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C016BE68 (RIMPopulateExtendedPointerDeviceProperties.c)
  * Callees:
- *     RIMGetPointerDevicePDO @ 0x1C00A1C34 (RIMGetPointerDevicePDO.c)
- *     RIMGetDeviceObjectPointer @ 0x1C00A1D50 (RIMGetDeviceObjectPointer.c)
+ *     RIMGetDeviceObjectPointer @ 0x1C00571B0 (RIMGetDeviceObjectPointer.c)
+ *     RIMGetPointerDevicePDO @ 0x1C006D284 (RIMGetPointerDevicePDO.c)
  */
 
-void *__fastcall RIMRegOpenDeviceInstanceKey(int a1, int a2, int a3)
+void *__fastcall RIMRegOpenDeviceInstanceKey(struct _UNICODE_STRING *a1, __int64 a2, __int64 a3)
 {
   NTSTATUS v3; // eax
   void *v4; // rdx
-  PVOID v6[3]; // [rsp+30h] [rbp-18h] BYREF
+  PVOID v6; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
   void *DeviceRegKey; // [rsp+68h] [rbp+20h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+70h] [rbp+28h]
@@ -21,10 +21,10 @@ void *__fastcall RIMRegOpenDeviceInstanceKey(int a1, int a2, int a3)
 
   DeviceRegKey = 0LL;
   Object = 0LL;
-  v6[0] = 0LL;
+  v6 = 0LL;
   Handle = 0LL;
   DeviceObject = 0LL;
-  if ( (int)RIMGetDeviceObjectPointer(a1 + 208, a2, a3, (unsigned int)&Handle, (__int64)v6, (__int64)&Object) >= 0 )
+  if ( (int)RIMGetDeviceObjectPointer(a1 + 13, a2, a3, &Handle, &v6, (PDEVICE_OBJECT *)&Object) >= 0 )
   {
     ObfReferenceObject(Object);
     if ( (int)RIMGetPointerDevicePDO((PDEVICE_OBJECT)Object) >= 0 )
@@ -37,7 +37,7 @@ void *__fastcall RIMRegOpenDeviceInstanceKey(int a1, int a2, int a3)
       ObfDereferenceObject(DeviceObject);
     }
     ZwClose(Handle);
-    ObfDereferenceObject(v6[0]);
+    ObfDereferenceObject(v6);
     ObfDereferenceObject(Object);
   }
   return DeviceRegKey;

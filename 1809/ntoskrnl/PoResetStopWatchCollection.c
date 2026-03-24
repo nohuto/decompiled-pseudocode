@@ -1,7 +1,7 @@
 /*
- * XREFs of PoResetStopWatchCollection @ 0x1402E9188
+ * XREFs of PoResetStopWatchCollection @ 0x1402E9288
  * Callers:
- *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087B07C (PopPublishAndResetPowerRequestsCollectionStats.c)
+ *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087B05C (PopPublishAndResetPowerRequestsCollectionStats.c)
  * Callees:
  *     <none>
  */

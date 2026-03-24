@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPicDiscover @ 0x140379884
+ * XREFs of HalpPicDiscover @ 0x1403B2100
  * Callers:
- *     HalpInitializeInterrupts @ 0x140B4BA90 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140A44BFC (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptRegisterController @ 0x140378D34 (HalpInterruptRegisterController.c)
- *     HalpInterruptRegisterLine @ 0x140379AF0 (HalpInterruptRegisterLine.c)
- *     HalSocGetAcpiTable @ 0x1403A447C (HalSocGetAcpiTable.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpInterruptRegisterLine @ 0x1403B2370 (HalpInterruptRegisterLine.c)
+ *     HalpInterruptRegisterController @ 0x1403B29D4 (HalpInterruptRegisterController.c)
+ *     HalSocGetAcpiTable @ 0x1403B32D4 (HalSocGetAcpiTable.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpPicDiscover()
@@ -18,48 +18,48 @@ __int64 HalpPicDiscover()
   __int64 v4; // [rsp+34h] [rbp-D4h]
   _QWORD v5[3]; // [rsp+3Ch] [rbp-CCh]
   int v6; // [rsp+54h] [rbp-B4h]
-  _QWORD v7[32]; // [rsp+58h] [rbp-B0h] BYREF
-  int v8; // [rsp+178h] [rbp+70h] BYREF
+  _QWORD v7[30]; // [rsp+58h] [rbp-B0h] BYREF
+  int v8; // [rsp+168h] [rbp+60h] BYREF
 
   AcpiTable = HalSocGetAcpiTable(1128878145LL);
   if ( AcpiTable && (*(_BYTE *)(AcpiTable + 40) & 1) == 0 )
     return 0LL;
-  memset(v7, 0, sizeof(v7));
-  v7[0] = 0x10000000001LL;
-  v7[27] = &v8;
+  memset(v7, 0, 0xE8uLL);
+  v7[0] = 0xE800000001LL;
+  v7[24] = &v8;
   v7[9] = HalpPicWriteEndOfInterrupt;
-  v7[28] = 0x100000004LL;
+  v7[25] = 0x100000004LL;
   v7[11] = HalpPicSetLineState;
   v7[12] = xKdEnumerateDebuggingDevices;
-  v7[29] = 45056LL;
-  *(_QWORD *)((char *)&v7[30] + 4) = 0LL;
+  v7[26] = 45056LL;
+  *(_QWORD *)((char *)&v7[27] + 4) = 0LL;
   v7[1] = 0LL;
   v7[2] = HalpPicInitializeIoUnit;
   v7[7] = 0LL;
   memset(&v7[3], 0, 24);
   v7[13] = 0LL;
-  LODWORD(v7[30]) = 0;
+  LODWORD(v7[27]) = 0;
   v8 = 45056;
-  result = HalpInterruptRegisterController((__int64)v7);
+  result = HalpInterruptRegisterController(v7);
   if ( (int)result >= 0 )
   {
-    memset(v7, 0, sizeof(v7));
-    v7[0] = 0x10000000001LL;
-    v7[27] = &v8;
+    memset(v7, 0, 0xE8uLL);
+    v7[0] = 0xE800000001LL;
+    v7[24] = &v8;
     v7[9] = HalpPicWriteEndOfInterrupt;
     v7[11] = HalpPicSetLineState;
     v7[12] = xKdEnumerateDebuggingDevices;
-    v7[28] = 0x100000004LL;
-    v7[29] = 45057LL;
-    *(_QWORD *)((char *)&v7[30] + 4) = 0LL;
+    v7[25] = 0x100000004LL;
+    v7[26] = 45057LL;
+    *(_QWORD *)((char *)&v7[27] + 4) = 0LL;
     v7[1] = 0LL;
     v7[2] = HalpPicInitializeIoUnit;
     v7[7] = 0LL;
     memset(&v7[3], 0, 24);
     v7[13] = 0LL;
-    LODWORD(v7[30]) = 0;
+    LODWORD(v7[27]) = 0;
     v8 = 45057;
-    result = HalpInterruptRegisterController((__int64)v7);
+    result = HalpInterruptRegisterController(v7);
     if ( (int)result >= 0 )
     {
       v3 = 0x200000001LL;

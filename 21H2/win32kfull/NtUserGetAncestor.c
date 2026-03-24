@@ -1,95 +1,108 @@
 /*
- * XREFs of NtUserGetAncestor @ 0x1C00DE610
+ * XREFs of NtUserGetAncestor @ 0x1C00D3650
  * Callers:
  *     <none>
  * Callees:
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _GetParent @ 0x1C00DE714 (_GetParent.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     _GetParent @ 0x1C00D3774 (_GetParent.c)
  */
 
-__int64 __fastcall NtUserGetAncestor(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetAncestor(__int64 a1, int a2)
 {
-  int v3; // edi
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  __int64 v4; // rdx
+  __int64 *v5; // rcx
+  __int64 *v6; // r8
+  __int64 v7; // rax
   __int64 v8; // rbx
-  __int64 *v9; // r8
+  __int64 v9; // rdx
   __int64 v10; // rax
-  int v11; // edi
+  __int64 *v11; // r9
+  __int64 v12; // rdx
   int v13; // edi
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  int v18; // edi
+  int v15; // edi
   __int64 Parent; // rax
   __int64 DesktopWindow; // rax
-  __int64 *v21; // rdx
-  __int64 *v22; // rax
+  __int64 *v18; // rdx
+  __int64 *v19; // rax
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = ValidateHwnd(a1);
-  v8 = 0LL;
-  v9 = (__int64 *)v5;
-  if ( v5 )
+  EnterSharedCrit(0LL, 1LL);
+  v6 = (__int64 *)ValidateHwnd(a1);
+  if ( !v6 )
+    goto LABEL_28;
+  if ( (unsigned int)(a2 - 1) > 2 )
   {
-    if ( (unsigned int)(v3 - 1) > 2 )
+    UserSetLastError(87LL, v4, (__int64)v6);
+LABEL_28:
+    v8 = 0LL;
+    goto LABEL_27;
+  }
+  v7 = v6[3];
+  v8 = 0LL;
+  v5 = 0LL;
+  if ( v7 )
+    v5 = *(__int64 **)(v7 + 104);
+  if ( v6 == v5 && a2 == 4 )
+    goto LABEL_25;
+  v5 = 0LL;
+  if ( v7 )
+  {
+    v9 = *(_QWORD *)(v7 + 8);
+    if ( v9 )
+      v5 = *(__int64 **)(v9 + 24);
+  }
+  if ( v6 != v5 )
+  {
+    v5 = 0LL;
+    if ( v7 )
+      v5 = *(__int64 **)(v7 + 104);
+    if ( v6 != v5 && v6[13] )
     {
-      UserSetLastError(87LL, v6);
-      goto LABEL_13;
-    }
-    v7 = *(_QWORD *)(v5 + 24);
-    if ( !v7 )
-      goto LABEL_11;
-    if ( v5 == *(_QWORD *)(v7 + 104) && v3 == 4 )
-    {
-LABEL_12:
-      v8 = *v9;
-      goto LABEL_13;
-    }
-    v10 = *(_QWORD *)(v7 + 8);
-    if ( (!v10 || v9 != *(__int64 **)(v10 + 24)) && v9 != *(__int64 **)(v7 + 104) )
-    {
-LABEL_11:
-      if ( v9[13] )
+      if ( a2 == 2 )
       {
-        v11 = v3 - 1;
-        if ( v11 )
+        while ( 1 )
         {
-          v13 = v11 - 1;
-          if ( v13 )
+          v10 = v6[3];
+          v5 = 0LL;
+          v11 = (__int64 *)v6[13];
+          if ( v10 )
           {
-            v18 = v13 - 1;
-            if ( v18 )
+            v12 = *(_QWORD *)(v10 + 8);
+            if ( v12 )
+              v5 = *(__int64 **)(v12 + 24);
+          }
+          if ( v11 == v5 )
+            break;
+          v5 = 0LL;
+          if ( v10 )
+            v5 = *(__int64 **)(v10 + 104);
+          if ( v11 == v5 )
+            break;
+          v6 = (__int64 *)v6[13];
+        }
+      }
+      else
+      {
+        v13 = a2 - 1;
+        if ( v13 )
+        {
+          v15 = v13 - 2;
+          if ( v15 )
+          {
+            if ( v15 == 1 )
             {
-              if ( v18 == 1 )
+              while ( v6[13] )
               {
-                while ( v9[13] )
-                {
-                  DesktopWindow = GetDesktopWindow((__int64)v9);
-                  if ( v21 == (__int64 *)DesktopWindow )
-                    break;
-                  v7 = v9[3];
-                  v22 = 0LL;
-                  if ( v7 )
-                    v22 = *(__int64 **)(v7 + 104);
-                  if ( v9 == v22 )
-                    break;
-                  v9 = v21;
-                }
-              }
-            }
-            else
-            {
-              while ( 1 )
-              {
-                Parent = GetParent(v9);
-                if ( !Parent )
+                DesktopWindow = GetDesktopWindow((__int64)v6);
+                if ( v18 == (__int64 *)DesktopWindow )
                   break;
-                v9 = (__int64 *)Parent;
+                v5 = (__int64 *)v6[3];
+                v19 = 0LL;
+                if ( v5 )
+                  v19 = (__int64 *)v5[13];
+                if ( v6 == v19 )
+                  break;
+                v6 = v18;
               }
             }
           }
@@ -97,36 +110,24 @@ LABEL_11:
           {
             while ( 1 )
             {
-              v14 = v9[3];
-              v15 = 0LL;
-              if ( v14 )
-              {
-                v16 = *(_QWORD *)(v14 + 8);
-                if ( v16 )
-                  v15 = *(_QWORD *)(v16 + 24);
-              }
-              v7 = v9[13];
-              if ( v7 == v15 )
+              Parent = GetParent(v6);
+              if ( !Parent )
                 break;
-              v17 = 0LL;
-              if ( v14 )
-                v17 = *(_QWORD *)(v14 + 104);
-              if ( v7 == v17 )
-                break;
-              v9 = (__int64 *)v9[13];
+              v6 = (__int64 *)Parent;
             }
           }
         }
         else
         {
-          v9 = (__int64 *)v9[13];
+          v6 = (__int64 *)v6[13];
         }
-        if ( v9 )
-          goto LABEL_12;
       }
+LABEL_25:
+      if ( v6 )
+        v8 = *v6;
     }
   }
-LABEL_13:
-  UserSessionSwitchLeaveCrit(v7);
+LABEL_27:
+  UserSessionSwitchLeaveCrit(v5);
   return v8;
 }

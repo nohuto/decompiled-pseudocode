@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RemoveAllChildren@CHostVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEA_N@Z @ 0x1C00C9E60
+ * XREFs of ?RemoveAllChildren@CHostVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEA_N@Z @ 0x1C00BC5D0
  * Callers:
  *     <none>
  * Callees:

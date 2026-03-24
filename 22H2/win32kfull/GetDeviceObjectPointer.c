@@ -1,14 +1,16 @@
 /*
- * XREFs of GetDeviceObjectPointer @ 0x1C01A9DE4
+ * XREFs of GetDeviceObjectPointer @ 0x1C0121A2C
  * Callers:
- *     GetPointerDeviceKey @ 0x1C01A9F1C (GetPointerDeviceKey.c)
+ *     IsLegacyTouchPadDevice @ 0x1C0121020 (IsLegacyTouchPadDevice.c)
+ *     IsMouseDeviceOnIgnoreList @ 0x1C01214E0 (IsMouseDeviceOnIgnoreList.c)
+ *     GetPointerDeviceKey @ 0x1C01D5060 (GetPointerDeviceKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetDeviceObjectPointer(
         struct _UNICODE_STRING *a1,
-        __int64 a2,
+        ACCESS_MASK a2,
         __int64 a3,
         void **a4,
         PVOID *a5,
@@ -23,17 +25,17 @@ __int64 __fastcall GetDeviceObjectPointer(
   _DWORD v14[4]; // [rsp+80h] [rbp+7h] BYREF
 
   ObjectAttributes.ObjectName = a1;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
   FileHandle = 0LL;
-  v14[1] = 2;
-  IoStatusBlock = 0LL;
-  v14[2] = 257;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.SecurityDescriptor = 0LL;
-  v14[0] = 12;
+  IoStatusBlock = 0LL;
   ObjectAttributes.SecurityQualityOfService = v14;
-  v7 = ZwOpenFile(&FileHandle, 2u, &ObjectAttributes, &IoStatusBlock, 3u, 0x40u);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
+  v14[2] = 257;
+  v14[0] = 12;
+  v14[1] = 2;
+  v7 = ZwOpenFile(&FileHandle, a2, &ObjectAttributes, &IoStatusBlock, 3u, 0x40u);
   if ( v7 >= 0 )
   {
     Object = 0LL;

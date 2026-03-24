@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBPDO_CompleteWaitWake @ 0x1C001C2E0
+ * XREFs of HUBPDO_CompleteWaitWake @ 0x1C0019A74
  * Callers:
- *     HUBPDO_WakeNotificationIoctlComplete @ 0x1C001C3B0 (HUBPDO_WakeNotificationIoctlComplete.c)
- *     HUBDSM_AckingPortEventInD3Cold @ 0x1C0023CE0 (HUBDSM_AckingPortEventInD3Cold.c)
- *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0023E60 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
- *     HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C0023F90 (HUBDSM_WaitingForD0EntryOnHwWake.c)
- *     HUBDSM_CompletingWaitWakeOnDetachDuringSuspending @ 0x1C00242A0 (HUBDSM_CompletingWaitWakeOnDetachDuringSuspending.c)
+ *     HUBPDO_WakeNotificationIoctlComplete @ 0x1C0019B40 (HUBPDO_WakeNotificationIoctlComplete.c)
+ *     HUBDSM_AckingPortEventInD3Cold @ 0x1C0021500 (HUBDSM_AckingPortEventInD3Cold.c)
+ *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0021680 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
+ *     HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C00217B0 (HUBDSM_WaitingForD0EntryOnHwWake.c)
+ *     HUBDSM_CompletingWaitWakeOnDetachDuringSuspending @ 0x1C0021AC0 (HUBDSM_CompletingWaitWakeOnDetachDuringSuspending.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_CompleteWaitWake(__int64 a1)
@@ -34,8 +34,8 @@ void __fastcall HUBPDO_CompleteWaitWake(__int64 a1)
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
       3u,
       5u,
-      0x94u,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      0x80u,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v5);
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CSceneMeshMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0227710
+ * XREFs of ?SetReferenceProperty@CSceneMeshMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01DE470
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
@@ -38,14 +38,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
     if ( !a4
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
            a4,
-           170LL) )
+           171LL) )
     {
-      v21 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
+      v21 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
       if ( a4 != v21 )
       {
         if ( v21 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v21);
-        *((_QWORD *)this + 9) = a4;
+        *((_QWORD *)this + 8) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x40u;
@@ -61,14 +61,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
     if ( !a4
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
            a4,
-           170LL) )
+           171LL) )
     {
-      v20 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 10);
+      v20 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
       if ( a4 != v20 )
       {
         if ( v20 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v20);
-        *((_QWORD *)this + 10) = a4;
+        *((_QWORD *)this + 9) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x80u;
@@ -84,14 +84,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
     if ( !a4
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
            a4,
-           170LL) )
+           171LL) )
     {
-      v19 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 11);
+      v19 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 10);
       if ( a4 != v19 )
       {
         if ( v19 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v19);
-        *((_QWORD *)this + 11) = a4;
+        *((_QWORD *)this + 10) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x100u;
@@ -107,14 +107,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
     if ( !a4
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
            a4,
-           170LL) )
+           171LL) )
     {
-      v18 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
+      v18 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 11);
       if ( a4 != v18 )
       {
         if ( v18 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v18);
-        *((_QWORD *)this + 12) = a4;
+        *((_QWORD *)this + 11) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x200u;
@@ -130,14 +130,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
     if ( !a4
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
            a4,
-           170LL) )
+           171LL) )
     {
-      v17 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 13);
+      v17 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
       if ( a4 != v17 )
       {
         if ( v17 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v17);
-        *((_QWORD *)this + 13) = a4;
+        *((_QWORD *)this + 12) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x400u;
@@ -154,14 +154,14 @@ __int64 __fastcall DirectComposition::CSceneMeshMarshaler::SetReferenceProperty(
       && (!a4
        || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
             a4,
-            170LL)) )
+            171LL)) )
     {
-      v15 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 15);
+      v15 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 14);
       if ( a4 != v15 )
       {
         if ( v15 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v15);
-        *((_QWORD *)this + 15) = a4;
+        *((_QWORD *)this + 14) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x1000u;
@@ -176,16 +176,16 @@ LABEL_65:
   if ( a4
     && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
           a4,
-          170LL) )
+          171LL) )
   {
     return (unsigned int)-1073741811;
   }
-  v16 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 14);
+  v16 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 13);
   if ( a4 != v16 )
   {
     if ( v16 )
       DirectComposition::CApplicationChannel::ReleaseResource(a2, v16);
-    *((_QWORD *)this + 14) = a4;
+    *((_QWORD *)this + 13) = a4;
     if ( a4 )
       DirectComposition::CResourceMarshaler::AddRef(a4);
     *((_DWORD *)this + 4) |= 0x800u;

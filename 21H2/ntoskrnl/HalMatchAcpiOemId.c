@@ -1,12 +1,12 @@
 /*
- * XREFs of HalMatchAcpiOemId @ 0x1403B1D20
+ * XREFs of HalMatchAcpiOemId @ 0x1403C0160
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140213A40 (HalpAcpiGetTable.c)
- *     RtlEqualString @ 0x140238C70 (RtlEqualString.c)
- *     RtlInitString @ 0x14036B950 (RtlInitString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
+ *     RtlEqualString @ 0x1402AF280 (RtlEqualString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -34,8 +34,8 @@ __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
           v12 = 0;
           *(_DWORD *)SourceString = *(_DWORD *)(Table + 10);
           v11 = *(_WORD *)(Table + 14);
-          RtlInitString(&DestinationString, SourceString);
-          RtlInitString(&String1, *(PCSZ *)(a3 + 8));
+          RtlInitAnsiString(&DestinationString, SourceString);
+          RtlInitAnsiString(&String1, *(PCSZ *)(a3 + 8));
           return RtlEqualString(&String1, &DestinationString, 1u) != 0 ? 2 : 0;
         }
       }

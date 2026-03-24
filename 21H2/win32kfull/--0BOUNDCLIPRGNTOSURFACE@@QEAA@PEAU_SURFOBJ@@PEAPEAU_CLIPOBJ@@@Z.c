@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0132BBC
+ * XREFs of ??0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C01496F0
  * Callers:
- *     EngStrokePath @ 0x1C0132A40 (EngStrokePath.c)
- *     EngStrokeAndFillPath @ 0x1C02856C0 (EngStrokeAndFillPath.c)
+ *     EngStrokePath @ 0x1C01494D0 (EngStrokePath.c)
+ *     EngStrokeAndFillPath @ 0x1C014C2B0 (EngStrokeAndFillPath.c)
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z @ 0x1C0132C84 (-bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z @ 0x1C01497B8 (-bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 BOUNDCLIPRGNTOSURFACE *__fastcall BOUNDCLIPRGNTOSURFACE::BOUNDCLIPRGNTOSURFACE(

@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_TranslateFrameNumberToQpcValue @ 0x1C003529C
+ * XREFs of Controller_TranslateFrameNumberToQpcValue @ 0x1C003395C
  * Callers:
- *     Controller_UcxEvtGetFrameNumberAndQpcForTimeSync @ 0x1C0035520 (Controller_UcxEvtGetFrameNumberAndQpcForTimeSync.c)
+ *     Controller_UcxEvtGetFrameNumberAndQpcForTimeSync @ 0x1C0033BE0 (Controller_UcxEvtGetFrameNumberAndQpcForTimeSync.c)
  * Callees:
- *     WPP_RECORDER_SF_dddd @ 0x1C001A790 (WPP_RECORDER_SF_dddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_GetFrameNumber @ 0x1C0033390 (Controller_GetFrameNumber.c)
- *     Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C00334E8 (Controller_GetQpcValueForFrameMicroFrameBoundary.c)
- *     Interrupter_QueryBusEdgeInformation @ 0x1C003E084 (Interrupter_QueryBusEdgeInformation.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C00319B4 (Controller_GetFrameNumber.c)
+ *     Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C0031B0C (Controller_GetQpcValueForFrameMicroFrameBoundary.c)
+ *     Interrupter_QueryBusEdgeInformation @ 0x1C003BDF0 (Interrupter_QueryBusEdgeInformation.c)
  */
 
 __int64 __fastcall Controller_TranslateFrameNumberToQpcValue(__int64 a1, LARGE_INTEGER *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall Controller_TranslateFrameNumberToQpcValue(__int64 a1, LARGE_I
   int v31; // [rsp+E8h] [rbp+7Fh] BYREF
 
   v2 = 0;
-  v3 = a1 + 664;
+  v3 = a1 + 608;
   v28 = 0;
   v26 = 0LL;
   v30 = 0;
@@ -122,7 +122,7 @@ __int64 __fastcall Controller_TranslateFrameNumberToQpcValue(__int64 a1, LARGE_I
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         v23 = v29;
-        v20 = 304;
+        v20 = 296;
         v22 = v30;
         goto LABEL_7;
       }
@@ -130,7 +130,7 @@ __int64 __fastcall Controller_TranslateFrameNumberToQpcValue(__int64 a1, LARGE_I
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v23 = a2[6].HighPart;
-      v20 = 303;
+      v20 = 295;
       v22 = a2[7].LowPart;
 LABEL_7:
       LOBYTE(v14) = 2;
@@ -139,7 +139,7 @@ LABEL_7:
         v14,
         4,
         v20,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         LowPart,
         v18,
         v22,

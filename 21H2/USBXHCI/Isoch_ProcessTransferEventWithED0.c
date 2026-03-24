@@ -1,19 +1,19 @@
 /*
- * XREFs of Isoch_ProcessTransferEventWithED0 @ 0x1C000AB84
+ * XREFs of Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88
  * Callers:
- *     Isoch_EP_TransferEventHandler @ 0x1C0006DC0 (Isoch_EP_TransferEventHandler.c)
+ *     Isoch_EP_TransferEventHandler @ 0x1C0001EE0 (Isoch_EP_TransferEventHandler.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Isoch_Stage_CompleteTD @ 0x1C00070C0 (Isoch_Stage_CompleteTD.c)
- *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C000A880 (Isoch_ProcessTransferRingEmptyEvent.c)
- *     WPP_RECORDER_SF_DDLDDi @ 0x1C000AC54 (WPP_RECORDER_SF_DDLDDi.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0041D04 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_FindTrbMatch @ 0x1C00424C0 (Isoch_FindTrbMatch.c)
- *     Isoch_Transfer_CompleteStaleStages @ 0x1C0043454 (Isoch_Transfer_CompleteStaleStages.c)
- *     WPP_RECORDER_SF_DDL @ 0x1C0043E08 (WPP_RECORDER_SF_DDL.c)
- *     WPP_RECORDER_SF_DDLi @ 0x1C0043F04 (WPP_RECORDER_SF_DDLi.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_FindTrbMatch @ 0x1C00415C0 (Isoch_FindTrbMatch.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0 (Isoch_ProcessTransferRingEmptyEvent.c)
+ *     Isoch_Transfer_CompleteStaleStages @ 0x1C0042A48 (Isoch_Transfer_CompleteStaleStages.c)
+ *     WPP_RECORDER_SF_DDL @ 0x1C004350C (WPP_RECORDER_SF_DDL.c)
+ *     WPP_RECORDER_SF_DDLDDi @ 0x1C0043608 (WPP_RECORDER_SF_DDLDDi.c)
+ *     WPP_RECORDER_SF_DDLi @ 0x1C0043768 (WPP_RECORDER_SF_DDLi.c)
  */
 
 char __fastcall Isoch_ProcessTransferEventWithED0(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -22,13 +22,13 @@ char __fastcall Isoch_ProcessTransferEventWithED0(__int64 a1, __int64 a2, __int6
   __int64 v5; // rdi
   int v7; // edx
   int v8; // r8d
-  KIRQL v10; // dl
-  KSPIN_LOCK *v11; // rcx
-  KIRQL v12; // dl
-  _QWORD *v13; // r10
-  unsigned __int8 *v14; // r15
-  __int64 v15; // rbx
-  __int64 v16; // rcx
+  KIRQL v9; // dl
+  KSPIN_LOCK *v10; // rcx
+  KIRQL v11; // dl
+  __int64 v12; // r10
+  unsigned __int8 *v13; // r15
+  __int64 v14; // rbx
+  __int64 v15; // rcx
   unsigned __int8 *v17; // [rsp+60h] [rbp-18h] BYREF
   char v18; // [rsp+B0h] [rbp+38h] BYREF
   int v19; // [rsp+B8h] [rbp+40h] BYREF
@@ -64,7 +64,7 @@ char __fastcall Isoch_ProcessTransferEventWithED0(__int64 a1, __int64 a2, __int6
           *(unsigned __int8 *)(*(_QWORD *)(v5 + 48) + 135LL),
           v8,
           a4);
-      ((void (__fastcall *)(__int64, _QWORD))qword_1C0062830)(
+      ((void (__fastcall *)(__int64, _QWORD))qword_1C0061810)(
         UcxDriverGlobals,
         *(_QWORD *)(*(_QWORD *)(v5 + 56) + 24LL));
       if ( !*(_QWORD *)a1 )
@@ -84,52 +84,52 @@ char __fastcall Isoch_ProcessTransferEventWithED0(__int64 a1, __int64 a2, __int6
       }
     }
   }
-  v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 96));
-  *(_BYTE *)(v5 + 104) = v10;
+  v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 96));
+  *(_BYTE *)(v5 + 104) = v9;
   if ( (*(_DWORD *)(v5 + 328) & 0x40) == 0 )
   {
-    Isoch_FindTrbMatch(v5, a1, (unsigned int)&v17, (unsigned int)&v21, (__int64)&v19);
-    v11 = (KSPIN_LOCK *)(v5 + 96);
-    v12 = *(_BYTE *)(v5 + 104);
+    Isoch_FindTrbMatch(v5, (signed __int64 *)a1, (__int64 *)&v17, &v21, &v19);
+    v10 = (KSPIN_LOCK *)(v5 + 96);
+    v11 = *(_BYTE *)(v5 + 104);
     if ( (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) > 2u )
     {
-      KeReleaseSpinLock(v11, v12);
-      v14 = v17;
+      KeReleaseSpinLock(v10, v11);
+      v13 = v17;
       if ( !v17 )
         return v4;
-      v15 = *(_QWORD *)v17;
-      Isoch_CompleteStaleTransfers(v5, *(_QWORD *)v17);
-      Isoch_Transfer_CompleteStaleStages(v16, v15, v14);
-      Isoch_Stage_CompleteTD(v14, *(unsigned __int8 *)(a1 + 11), v19, 0, &v18, &v20);
+      v14 = *(_QWORD *)v17;
+      Isoch_CompleteStaleTransfers(v5, *(__int64 ****)v17);
+      Isoch_Transfer_CompleteStaleStages(v15, v14, v13);
+      Isoch_Stage_CompleteTD(v13, *(unsigned __int8 *)(a1 + 11), v19, 0, &v18, &v20);
     }
     else
     {
       *(_DWORD *)(v5 + 328) |= 0x40u;
-      KeReleaseSpinLock(v11, v12);
+      KeReleaseSpinLock(v10, v11);
       if ( v17 )
         Isoch_Stage_CompleteTD(v17, *(unsigned __int8 *)(a1 + 11), v19, 0, &v18, &v20);
-      v13 = *(_QWORD **)(v5 + 56);
-      _m_prefetchw(v13 + 4);
-      if ( (_InterlockedOr((volatile signed __int32 *)v13 + 8, 0x10u) & 0x10) != 0 )
+      v12 = *(_QWORD *)(v5 + 56);
+      _m_prefetchw((const void *)(v12 + 32));
+      if ( (_InterlockedOr((volatile signed __int32 *)(v12 + 32), 0x10u) & 0x10) != 0 )
       {
         Controller_HwVerifierBreakIfEnabled(
-          *v13,
-          v13[1],
-          v13[3],
-          0x2000000,
-          (__int64)"Received duplicate Stopped Transfer Events",
+          *(_QWORD **)v12,
+          *(_QWORD *)(v12 + 8),
+          *(_QWORD *)(v12 + 24),
+          0x2000000LL,
+          "Received duplicate Stopped Transfer Events",
           0LL,
           0LL);
       }
       else
       {
-        _m_prefetchw(v13 + 4);
-        if ( (_InterlockedXor((volatile signed __int32 *)v13 + 8, 8u) & 8) != 0 )
-          ESM_AddEvent(v13 + 36, 118);
+        _m_prefetchw((const void *)(v12 + 32));
+        if ( (_InterlockedXor((volatile signed __int32 *)(v12 + 32), 8u) & 8) != 0 )
+          ESM_AddEvent((KSPIN_LOCK *)(v12 + 288), 118);
       }
     }
     return 1;
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 96), v10);
+  KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 96), v9);
   return v4;
 }

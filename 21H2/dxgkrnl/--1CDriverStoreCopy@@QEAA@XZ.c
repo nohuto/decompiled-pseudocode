@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CDriverStoreCopy@@QEAA@XZ @ 0x1C0301CCC
+ * XREFs of ??1CDriverStoreCopy@@QEAA@XZ @ 0x1C02618C0
  * Callers:
- *     ??_GCDriverStoreCopy@@QEAAPEAXI@Z @ 0x1C005C374 (--_GCDriverStoreCopy@@QEAAPEAXI@Z.c)
+ *     ??_GCDriverStoreCopy@@QEAAPEAXI@Z @ 0x1C0040374 (--_GCDriverStoreCopy@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
  */
 
 void __fastcall CDriverStoreCopy::~CDriverStoreCopy(CDriverStoreCopy *this)

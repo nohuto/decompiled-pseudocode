@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C0212ECC
+ * XREFs of ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C01D33D0
  * Callers:
- *     ??1CProcessData@DirectComposition@@AEAA@XZ @ 0x1C00951A0 (--1CProcessData@DirectComposition@@AEAA@XZ.c)
- *     NtDCompositionEnableMMCSS @ 0x1C0211AD0 (NtDCompositionEnableMMCSS.c)
+ *     ??_GCProcessData@DirectComposition@@AEAAPEAXI@Z @ 0x1C005B4E4 (--_GCProcessData@DirectComposition@@AEAAPEAXI@Z.c)
+ *     NtDCompositionEnableMMCSS @ 0x1C01D27D0 (NtDCompositionEnableMMCSS.c)
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z @ 0x1C02154E8 (-EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z @ 0x1C01D5AA8 (-EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::EnableMMCSS(DirectComposition::CConnection *this, int a2)
@@ -40,16 +40,15 @@ __int64 __fastcall DirectComposition::CConnection::EnableMMCSS(DirectComposition
       *((_DWORD *)this + 56) = v6 + 1;
       v7 = v6 == 0;
     }
-    if ( !v7 )
-      goto LABEL_19;
   }
   else
   {
     *((_DWORD *)this + 56) = v6 - 1;
     if ( v6 != 1 )
       goto LABEL_19;
+    v7 = 1;
   }
-  if ( DirectComposition::CConnection::IsConnected(this) )
+  if ( v7 && DirectComposition::CConnection::IsConnected(this) )
   {
     v8 = *(struct _ERESOURCE **)(*((_QWORD *)this + 19) + 32LL);
     KeEnterCriticalRegion();

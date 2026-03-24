@@ -1,35 +1,34 @@
 /*
- * XREFs of UserRedrawDesktop @ 0x1C0222E68
+ * XREFs of UserRedrawDesktop @ 0x1C023DF48
  * Callers:
- *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C026E9E0 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0275B98 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
  * Callees:
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00E2FC0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004EFF4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall UserRedrawDesktop(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 UserRedrawDesktop()
 {
-  struct tagWND *v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
+  struct tagWND *v0; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v2; // rcx
   __int64 result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-18h]
-  char v15; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v4; // rcx
+  _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF
+  int v6; // [rsp+50h] [rbp+8h] BYREF
 
-  v13 = 0LL;
-  v14 = 0LL;
-  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v15, a2, a3, a4);
-  v4 = *(struct tagWND **)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL);
-  ThreadLockAlways(v4, &v13);
-  xxxInternalInvalidate(v4, (HRGN)1, 0x485u);
-  result = ThreadUnlock1(v6, v5, v7);
-  if ( !v15 )
-    return UserSessionSwitchLeaveCrit(v10, v9, v11, v12);
+  v5[2] = 0LL;
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v6);
+  v0 = *(struct tagWND **)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v5[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v5;
+  v5[1] = v0;
+  HMLockObject(v0);
+  xxxInternalInvalidate(v0, (HRGN)1, 0x485u);
+  result = ThreadUnlock1(v2);
+  if ( !v6 )
+    return UserSessionSwitchLeaveCrit(v4);
   return result;
 }

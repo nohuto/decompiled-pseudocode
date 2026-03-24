@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfRequestRetrieveOutputBuffer @ 0x1C0001930
+ * XREFs of imp_WdfRequestRetrieveOutputBuffer @ 0x1C0002FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetDeviceControlOutputMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z @ 0x1C0001A4C (-GetDeviceControlOutputMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z.c)
- *     ?GetMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z @ 0x1C0001C3C (-GetMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z.c)
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?GetDeviceControlOutputMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z @ 0x1C00030E0 (-GetDeviceControlOutputMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z.c)
+ *     ?GetMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z @ 0x1C000371C (-GetMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfRequestRetrieveOutputBuffer(
@@ -21,24 +21,23 @@ __int64 __fastcall imp_WdfRequestRetrieveOutputBuffer(
 {
   __int64 Offset; // rcx
   FxRequest *v9; // r10
-  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  _FX_DRIVER_GLOBALS *m_Globals; // r14
   unsigned __int64 *v11; // rdi
   unsigned __int8 MajorFunction; // al
   __int64 result; // rax
-  unsigned __int64 v14; // rcx
-  unsigned int v15; // edi
-  unsigned __int64 length; // [rsp+50h] [rbp-20h] BYREF
-  void *pBuffer; // [rsp+58h] [rbp-18h] BYREF
-  IFxMemory *pMemory[2]; // [rsp+60h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+98h] [rbp+28h]
-  FxRequest *pRequest; // [rsp+A8h] [rbp+38h] BYREF
+  unsigned __int64 v14; // rdx
+  unsigned __int64 length; // [rsp+50h] [rbp-38h] BYREF
+  void *pBuffer; // [rsp+58h] [rbp-30h] BYREF
+  IFxMemory *pMemory[5]; // [rsp+60h] [rbp-28h] BYREF
+  void *retaddr; // [rsp+88h] [rbp+0h]
+  FxRequest *pRequest; // [rsp+98h] [rbp+10h] BYREF
 
   pRequest = 0LL;
   pBuffer = 0LL;
   length = 0LL;
   pMemory[0] = 0LL;
   if ( !Request )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
   LOWORD(Offset) = 0;
   v9 = (FxRequest *)(~Request & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Request & 1) != 0 )
@@ -65,9 +64,9 @@ __int64 __fastcall imp_WdfRequestRetrieveOutputBuffer(
   MajorFunction = v9->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->MajorFunction;
   if ( MajorFunction == 4 )
   {
-    v15 = -1073741808;
     if ( m_Globals->FxVerboseOn )
       WPP_IFR_SF_qL(m_Globals, 5u, 0x10u, 0x1Au, WPP_FxRequestApi_cpp_Traceguids, (const void *)Request, 0xC0000010);
+    return 3221225488LL;
   }
   else
   {
@@ -85,7 +84,6 @@ __int64 __fastcall imp_WdfRequestRetrieveOutputBuffer(
         *v11 = v14;
       return (unsigned int)result;
     }
-    v15 = -1073741789;
     if ( m_Globals->FxVerboseOn )
       WPP_IFR_SF_qqqd(
         m_Globals,
@@ -97,6 +95,6 @@ __int64 __fastcall imp_WdfRequestRetrieveOutputBuffer(
         (const void *)length,
         RequiredLength,
         -1073741789);
+    return 3221225507LL;
   }
-  return v15;
 }

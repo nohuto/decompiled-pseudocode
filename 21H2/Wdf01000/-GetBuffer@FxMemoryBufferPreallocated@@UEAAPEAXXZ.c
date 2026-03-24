@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBuffer@FxMemoryBufferPreallocated@@UEAAPEAXXZ @ 0x1C000BBE0
+ * XREFs of ?GetBuffer@FxMemoryBufferPreallocated@@UEAAPEAXXZ @ 0x1C000DB20
  * Callers:
  *     <none>
  * Callees:

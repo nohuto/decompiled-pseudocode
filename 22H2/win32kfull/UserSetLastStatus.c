@@ -1,31 +1,34 @@
 /*
- * XREFs of UserSetLastStatus @ 0x1C00132A8
+ * XREFs of UserSetLastStatus @ 0x1C00EC46C
  * Callers:
- *     NtUserDestroyDCompositionHwndTarget @ 0x1C0058B80 (NtUserDestroyDCompositionHwndTarget.c)
- *     NtUserCreateDCompositionHwndTarget @ 0x1C0059170 (NtUserCreateDCompositionHwndTarget.c)
- *     NtUserFindExistingCursorIcon @ 0x1C008F910 (NtUserFindExistingCursorIcon.c)
- *     NtUserRegisterWindowMessage @ 0x1C008FE60 (NtUserRegisterWindowMessage.c)
- *     NtUserSetLayeredWindowAttributes @ 0x1C00A3730 (NtUserSetLayeredWindowAttributes.c)
- *     NtUserSetWindowCompositionTransition @ 0x1C00B3F80 (NtUserSetWindowCompositionTransition.c)
- *     NtUserOpenWindowStation @ 0x1C00B9C30 (NtUserOpenWindowStation.c)
- *     NtUserDwmKernelStartup @ 0x1C00BD030 (NtUserDwmKernelStartup.c)
- *     NtUserGetResizeDCompositionSynchronizationObject @ 0x1C00C7E60 (NtUserGetResizeDCompositionSynchronizationObject.c)
- *     NtUserConsoleControl @ 0x1C00E3140 (NtUserConsoleControl.c)
- *     NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C01358E0 (NtUserDwmGetRemoteSessionOcclusionEvent.c)
- *     NtUserHwndQueryRedirectionInfo @ 0x1C0154A60 (NtUserHwndQueryRedirectionInfo.c)
- *     NtUserDwmKernelShutdown @ 0x1C01CF210 (NtUserDwmKernelShutdown.c)
- *     NtUserSetAutoRotation @ 0x1C01DA520 (NtUserSetAutoRotation.c)
- *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C01DF450 (NtUserUpdateDefaultDesktopThumbnail.c)
- *     NtUserUpdateLayeredWindow @ 0x1C01DF6D0 (NtUserUpdateLayeredWindow.c)
+ *     NtUserOpenWindowStation @ 0x1C000EF10 (NtUserOpenWindowStation.c)
+ *     NtUserConsoleControl @ 0x1C003BAA0 (NtUserConsoleControl.c)
+ *     NtUserFindExistingCursorIcon @ 0x1C0049740 (NtUserFindExistingCursorIcon.c)
+ *     NtUserSetLayeredWindowAttributes @ 0x1C00BBD10 (NtUserSetLayeredWindowAttributes.c)
+ *     NtUserDestroyDCompositionHwndTarget @ 0x1C00EC2F0 (NtUserDestroyDCompositionHwndTarget.c)
+ *     NtUserCreateDCompositionHwndTarget @ 0x1C00EC8B0 (NtUserCreateDCompositionHwndTarget.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C00F1880 (NtUserUpdateLayeredWindow.c)
+ *     NtUserRegisterWindowMessage @ 0x1C00F8020 (NtUserRegisterWindowMessage.c)
+ *     NtUserGetResizeDCompositionSynchronizationObject @ 0x1C01175C0 (NtUserGetResizeDCompositionSynchronizationObject.c)
+ *     NtUserSetWindowCompositionTransition @ 0x1C01231A0 (NtUserSetWindowCompositionTransition.c)
+ *     NtUserDwmKernelStartup @ 0x1C0135DA0 (NtUserDwmKernelStartup.c)
+ *     NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C0163B00 (NtUserDwmGetRemoteSessionOcclusionEvent.c)
+ *     NtUserDwmKernelShutdown @ 0x1C01F8060 (NtUserDwmKernelShutdown.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C01FCC40 (NtUserHwndQueryRedirectionInfo.c)
+ *     NtUserSetAutoRotation @ 0x1C0201000 (NtUserSetAutoRotation.c)
+ *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C0203AD0 (NtUserUpdateDefaultDesktopThumbnail.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 struct _NT_TIB *__fastcall UserSetLastStatus(NTSTATUS Status, int a2)
 {
   NTSTATUS v4; // ebx
   struct _NT_TIB *result; // rax
-  ULONG v6; // eax
+  __int64 v6; // rcx
+  ULONG v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // r8
 
   if ( (Status & 0x1FFF0000) == 0x3F0000 || (Status & 0x1FFF0000) == 0x3E0000 )
   {
@@ -37,11 +40,11 @@ struct _NT_TIB *__fastcall UserSetLastStatus(NTSTATUS Status, int a2)
   {
     v4 = Status;
   }
-  result = (struct _NT_TIB *)KeIsAttachedProcess();
+  result = (struct _NT_TIB *)KeIsAttachedProcess(536805376LL);
   if ( !(_BYTE)result )
   {
     LODWORD(KeGetPcr()->NtTib.Self[83].ArbitraryUserPointer) = Status;
-    result = (struct _NT_TIB *)PsGetCurrentProcessWow64Process();
+    result = (struct _NT_TIB *)PsGetCurrentProcessWow64Process(v6);
     if ( result )
     {
       result = KeGetPcr()->NtTib.Self;
@@ -49,8 +52,8 @@ struct _NT_TIB *__fastcall UserSetLastStatus(NTSTATUS Status, int a2)
     }
     if ( a2 )
     {
-      v6 = RtlNtStatusToDosError(v4);
-      return (struct _NT_TIB *)UserSetLastError(v6);
+      v7 = RtlNtStatusToDosError(v4);
+      return UserSetLastError(v7, v8, v9);
     }
   }
   return result;

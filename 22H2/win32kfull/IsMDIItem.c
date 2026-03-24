@@ -1,7 +1,7 @@
 /*
- * XREFs of IsMDIItem @ 0x1C023851C
+ * XREFs of IsMDIItem @ 0x1C024E550
  * Callers:
- *     ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0237964 (-MBC_RightJustifyMenu@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C01023FC (-MBC_RightJustifyMenu@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
  * Callees:
  *     <none>
  */

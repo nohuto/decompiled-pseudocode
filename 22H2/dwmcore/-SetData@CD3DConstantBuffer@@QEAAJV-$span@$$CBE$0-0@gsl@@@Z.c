@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetData@CD3DConstantBuffer@@QEAAJV?$span@$$CBE$0?0@gsl@@@Z @ 0x1802A40E4
+ * XREFs of ?SetData@CD3DConstantBuffer@@QEAAJV?$span@$$CBE$0?0@gsl@@@Z @ 0x180252108
  * Callers:
- *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x18029A650 (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
+ *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x18024884C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
  * Callees:
- *     ?Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z @ 0x18002D518 (-Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z @ 0x1800D5CA4 (-Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DConstantBuffer::SetData(__int64 a1, unsigned int *a2, __int64 a3)
@@ -20,8 +20,8 @@ __int64 __fastcall CD3DConstantBuffer::SetData(__int64 a1, unsigned int *a2, __i
   struct D3D11_MAPPED_SUBRESOURCE v12; // [rsp+30h] [rbp-18h] BYREF
 
   v5 = CD3DDevice::Map(
-         *(CD3DDevice **)(*(_QWORD *)(a1 + 24) + 80LL),
-         *(struct ID3D11Resource **)(a1 + 96),
+         *(CD3DDevice **)(*(_QWORD *)(a1 + 16) + 80LL),
+         *(struct ID3D11Resource **)(a1 + 112),
          a3,
          4LL,
          v11,
@@ -33,12 +33,12 @@ __int64 __fastcall CD3DConstantBuffer::SetData(__int64 a1, unsigned int *a2, __i
   }
   else
   {
-    v8 = *(_DWORD *)(a1 + 104);
+    v8 = *(_DWORD *)(a1 + 120);
     if ( v8 >= *a2 )
       v8 = *a2;
     memcpy_0(v12.pData, *((const void **)a2 + 1), v8);
-    v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 80LL) + 560LL);
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v9 + 120LL))(v9, *(_QWORD *)(a1 + 96), 0LL);
+    v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 80LL) + 600LL);
+    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v9 + 120LL))(v9, *(_QWORD *)(a1 + 112), 0LL);
   }
   return v7;
 }

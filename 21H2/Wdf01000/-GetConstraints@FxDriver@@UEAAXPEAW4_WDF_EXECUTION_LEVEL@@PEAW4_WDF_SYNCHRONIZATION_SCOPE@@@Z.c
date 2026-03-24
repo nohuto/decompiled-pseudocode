@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetConstraints@FxDriver@@UEAAXPEAW4_WDF_EXECUTION_LEVEL@@PEAW4_WDF_SYNCHRONIZATION_SCOPE@@@Z @ 0x1C00127E0
+ * XREFs of ?GetConstraints@FxDriver@@UEAAXPEAW4_WDF_EXECUTION_LEVEL@@PEAW4_WDF_SYNCHRONIZATION_SCOPE@@@Z @ 0x1C0053C80
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ void __fastcall FxDriver::GetConstraints(
         _WDF_SYNCHRONIZATION_SCOPE *SynchronizationScope)
 {
   if ( ExecutionLevel )
-    *ExecutionLevel = (_WDF_EXECUTION_LEVEL)this->m_ParentObject;
+    *ExecutionLevel = this->m_SpinLock.m_Lock;
   if ( SynchronizationScope )
-    *SynchronizationScope = SHIDWORD(this->m_ParentObject);
+    *SynchronizationScope = SHIDWORD(this->m_SpinLock.m_Lock);
 }

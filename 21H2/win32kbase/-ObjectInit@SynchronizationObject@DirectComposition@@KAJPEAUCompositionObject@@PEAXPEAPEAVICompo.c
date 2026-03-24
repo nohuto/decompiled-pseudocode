@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ObjectInit@SynchronizationObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C0213770
+ * XREFs of ?ObjectInit@SynchronizationObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C01D3A30
  * Callers:
  *     <none>
  * Callees:

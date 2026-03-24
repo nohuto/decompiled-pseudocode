@@ -1,11 +1,11 @@
 /*
- * XREFs of KseQueryDeviceFlags @ 0x140720830
+ * XREFs of KseQueryDeviceFlags @ 0x140720810
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KsepEvntLogFlagsApplied @ 0x1401790C8 (KsepEvntLogFlagsApplied.c)
- *     KseQueryDeviceData @ 0x140720950 (KseQueryDeviceData.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KsepEvntLogFlagsApplied @ 0x1401790E8 (KsepEvntLogFlagsApplied.c)
+ *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
  */
 
 __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)

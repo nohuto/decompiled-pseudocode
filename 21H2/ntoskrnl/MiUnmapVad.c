@@ -1,40 +1,44 @@
 /*
- * XREFs of MiUnmapVad @ 0x1406F9060
+ * XREFs of MiUnmapVad @ 0x14061E420
  * Callers:
- *     MiDeletePartialVad @ 0x1402ECFD8 (MiDeletePartialVad.c)
- *     MiCleanVad @ 0x1406F8C0C (MiCleanVad.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     MiCleanVad @ 0x14061E898 (MiCleanVad.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiDeleteVad @ 0x1407BC0B0 (MiDeleteVad.c)
- *     PfCheckDeprioritizeFile @ 0x1407DBC0C (PfCheckDeprioritizeFile.c)
- *     MiLogMapFileEvent @ 0x14096CDB8 (MiLogMapFileEvent.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     PfCheckDeprioritizeFile @ 0x1406CD858 (PfCheckDeprioritizeFile.c)
+ *     MiLogMapFileEvent @ 0x1408C4748 (MiLogMapFileEvent.c)
  */
 
-__int64 __fastcall MiUnmapVad(unsigned int *P, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiUnmapVad(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v5; // rbx
-  unsigned __int64 v6; // rax
-  __int64 v7; // r14
+  __int64 v7; // rbx
+  ULONG_PTR v8; // rax
+  __int64 v9; // r14
   _KPROCESS *Process; // rcx
 
-  if ( (P[16] & 0x2000000) != 0 )
+  if ( (*(_DWORD *)(a1 + 64) & 0x2000000) != 0 )
   {
-    v5 = **((_QWORD **)P + 9);
-    v6 = MiReferenceControlAreaFile(v5);
-    v7 = *(_QWORD *)(v6 + 24);
-    MiDereferenceControlAreaFile(v5, v6);
+    v7 = **(_QWORD **)(a1 + 72);
+    v8 = MiReferenceControlAreaFile(v7);
+    v9 = *(_QWORD *)(v8 + 24);
+    MiDereferenceControlAreaFile(v7, v8);
     Process = KeGetCurrentThread()->ApcState.Process;
-    a3 = (P[7] | ((unsigned __int64)*((unsigned __int8 *)P + 33) << 32))
-       - (P[6] | ((unsigned __int64)*((unsigned __int8 *)P + 32) << 32))
-       + 1;
-    if ( (Process[1].DirectoryTableBase & 0x400000000000LL) != 0 )
-      PfCheckDeprioritizeFile(HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]), v7, a3);
+    if ( (Process[1].DirectoryTableBase & 0x400000000000LL) != 0
+      && (unsigned int)PfCheckDeprioritizeFile(
+                         HIDWORD(Process[1].ActiveProcessors.Bitmap[8]),
+                         v9,
+                         (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
+                       - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
+                       + 1) == 1 )
+    {
+      a3 |= 0x80000000;
+    }
   }
-  if ( (PerfGlobalGroupMask[0] & 0x8000) != 0 && *((_QWORD *)P + 9) )
-    MiLogMapFileEvent(P, 1062LL, a3);
-  return MiDeleteVad(P);
+  if ( (PerfGlobalGroupMask & 0x8000) != 0 && *(_QWORD *)(a1 + 72) )
+    MiLogMapFileEvent(a1, 1062LL);
+  return MiDeleteVad((_DWORD *)a1, a2, a3);
 }

@@ -1,22 +1,19 @@
 /*
- * XREFs of EngDeleteClip @ 0x1C0177FB0
+ * XREFs of EngDeleteClip @ 0x1C014BF10
  * Callers:
- *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C016E370 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
- *     EngCreateClip @ 0x1C0177EF0 (EngCreateClip.c)
+ *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C01414B0 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     EngCreateClip @ 0x1C014BE40 (EngCreateClip.c)
  * Callees:
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0023E50 (-vDeleteREGION@REGION@@QEAAXXZ.c)
- *     EngFreeMem @ 0x1C00486B0 (EngFreeMem.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     EngFreeMem @ 0x1C007CAF0 (EngFreeMem.c)
  */
 
 void __stdcall EngDeleteClip(CLIPOBJ *pco)
 {
-  struct _SLIST_ENTRY *v2; // rcx
+  REGION *v2; // rcx
 
-  if ( pco )
-  {
-    v2 = *(struct _SLIST_ENTRY **)&pco[2].rclBounds.top;
-    if ( v2 )
-      REGION::vDeleteREGION(v2);
-    EngFreeMem(pco);
-  }
+  v2 = *(REGION **)&pco[2].rclBounds.top;
+  if ( v2 )
+    REGION::vDeleteREGION(v2);
+  EngFreeMem(pco);
 }

@@ -1,16 +1,17 @@
 /*
- * XREFs of SdbpMatchList @ 0x140757A2C
+ * XREFs of SdbpMatchList @ 0x140754098
  * Callers:
- *     SdbpCheckForMatch @ 0x140756F0C (SdbpCheckForMatch.c)
- *     SdbpMatchOne @ 0x140A51730 (SdbpMatchOne.c)
+ *     SdbpCheckForMatch @ 0x140753F94 (SdbpCheckForMatch.c)
+ *     SdbpMatchOne @ 0x140966050 (SdbpMatchOne.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbpFindMatcher @ 0x140757B70 (SdbpFindMatcher.c)
- *     SdbGetFirstChild @ 0x140757E54 (SdbGetFirstChild.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x140757F28 (SdbGetNextChild.c)
- *     SdbpIsSdbCapabilityPresent @ 0x140A51570 (SdbpIsSdbCapabilityPresent.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F8D3C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x1405D1F50 (SdbpIsSdbCapabilityPresent.c)
+ *     SdbpFindMatcher @ 0x14075426C (SdbpFindMatcher.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x1407599E8 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x140759C60 (SdbGetFirstChild.c)
  */
 
 __int64 __fastcall SdbpMatchList(
@@ -23,73 +24,93 @@ __int64 __fastcall SdbpMatchList(
         int a7,
         BOOL a8)
 {
-  int v10; // esi
+  int v9; // r15d
   unsigned int i; // eax
-  unsigned int v14; // ebx
-  __int64 (__fastcall *Matcher)(BOOL *, __int64, __int64, _QWORD, unsigned int, __int64, __int64); // rax
-  unsigned int v16; // ecx
+  __int64 (__fastcall *Matcher)(BOOL *, __int64, __int64, _QWORD, unsigned int, __int64, __int64); // rsi
+  int v14; // eax
+  __int64 result; // rax
   unsigned int FirstTag; // eax
-  __int64 v18; // r8
-  int v19; // eax
-  int v21; // eax
   __int64 StringTagPtr; // rax
-  int v23; // [rsp+40h] [rbp-10h] BYREF
-  int v24; // [rsp+44h] [rbp-Ch] BYREF
-  __int64 v25; // [rsp+48h] [rbp-8h] BYREF
+  bool v18; // zf
+  int v19; // eax
+  unsigned int v20; // ebx
+  int v21; // [rsp+40h] [rbp-10h] BYREF
+  int v22; // [rsp+44h] [rbp-Ch] BYREF
+  __int64 v23; // [rsp+48h] [rbp-8h] BYREF
 
+  v22 = 0;
+  v9 = 0;
+  v23 = 0LL;
+  v21 = 0;
   a8 = 1;
-  v24 = 0;
-  v25 = 0LL;
-  v23 = 0;
-  v10 = 0;
-  for ( i = SdbGetFirstChild(a4, a5); ; i = SdbGetNextChild(a4, a5, v14) )
+  for ( i = SdbGetFirstChild(a4, a5); ; i = SdbGetNextChild(a4, a5, v20) )
   {
-    v14 = i;
+    v20 = i;
     if ( !i )
       break;
-    Matcher = (__int64 (__fastcall *)(BOOL *, __int64, __int64, _QWORD, unsigned int, __int64, __int64))SdbpFindMatcher((unsigned int)&v25, (unsigned int)&v23, a3, a4, i);
-    if ( Matcher )
+    Matcher = (__int64 (__fastcall *)(BOOL *, __int64, __int64, _QWORD, unsigned int, __int64, __int64))SdbpFindMatcher((unsigned int)&v23, (unsigned int)&v21, a3, a4, i);
+    if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() )
     {
-      v16 = Matcher(&a8, a3, a4, a5, v14, a6, v25);
-      if ( !v16 )
-        return v16;
-    }
-    else
-    {
-      if ( v23 == 2 )
+      if ( Matcher )
       {
-        v21 = 1;
+        result = Matcher(&a8, a3, a4, a5, v20, a6, v23);
+        if ( !(_DWORD)result )
+          return result;
       }
       else
       {
-        if ( v23 != 3 )
-          continue;
-        v21 = 0;
+        if ( v21 == 2 )
+        {
+          v14 = 1;
+        }
+        else
+        {
+          if ( v21 != 3 )
+            continue;
+          v14 = 0;
+        }
+        a8 = v14;
       }
-      a8 = v21;
-    }
-    ++v10;
-    if ( (unsigned int)SdbFindFirstTag(a4, v14, 4099LL) )
-      a8 = !a8;
-    FirstTag = SdbFindFirstTag(a4, v14, 24636LL);
-    if ( FirstTag
-      && (StringTagPtr = SdbGetStringTagPtr(a4, FirstTag, v18), SdbpIsSdbCapabilityPresent(&v24, a3, StringTagPtr), v24) )
-    {
-      v19 = !a8;
-      a8 = v19;
+      ++v9;
+      if ( (unsigned int)SdbFindFirstTag(a4, v20, 4099LL) )
+        a8 = !a8;
+      FirstTag = SdbFindFirstTag(a4, v20, 24636LL);
+      if ( !FirstTag )
+        goto LABEL_19;
+      StringTagPtr = SdbGetStringTagPtr(a4, FirstTag);
+      SdbpIsSdbCapabilityPresent(&v22, a3, StringTagPtr);
+      v18 = v22 == 0;
     }
     else
     {
-      v19 = a8;
+      if ( !Matcher )
+        continue;
+      result = Matcher(&a8, a3, a4, a5, v20, a6, v23);
+      if ( !(_DWORD)result )
+        return result;
+      v18 = (unsigned int)SdbFindFirstTag(a4, v20, 4099LL) == 0;
     }
+    if ( !v18 )
+    {
+      v19 = !a8;
+      a8 = v19;
+      goto LABEL_20;
+    }
+LABEL_19:
+    v19 = a8;
+LABEL_20:
     if ( v19 == a7 )
-      goto LABEL_13;
+      goto LABEL_24;
   }
   v19 = a8;
-LABEL_13:
-  v16 = 1;
+LABEL_24:
   *a1 = v19;
-  if ( a2 )
-    *a2 = v10;
-  return v16;
+  v18 = (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() == 0;
+  result = 1LL;
+  if ( !v18 )
+  {
+    if ( a2 )
+      *a2 = v9;
+  }
+  return result;
 }

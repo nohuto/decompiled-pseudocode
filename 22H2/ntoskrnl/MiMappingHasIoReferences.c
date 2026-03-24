@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMappingHasIoReferences @ 0x140335AA0
+ * XREFs of MiMappingHasIoReferences @ 0x1402E8FE4
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x140335858 (MiMapContiguousMemory.c)
- *     MmProtectMdlSystemAddress @ 0x14061EE40 (MmProtectMdlSystemAddress.c)
- *     MmMapMdl @ 0x14062F110 (MmMapMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x1402E8974 (MiMapContiguousMemory.c)
+ *     MmProtectMdlSystemAddress @ 0x1405320F0 (MmProtectMdlSystemAddress.c)
+ *     MmMapMdl @ 0x1405374F0 (MmMapMdl.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 signed __int64 __fastcall MiMappingHasIoReferences(unsigned __int64 a1)
@@ -23,8 +23,6 @@ signed __int64 __fastcall MiMappingHasIoReferences(unsigned __int64 a1)
   result = MI_READ_PTE_LOCK_FREE(v1);
   do
   {
-    if ( (MiFlags & 0x2000000) != 0 )
-      _mm_lfence();
     v4 = result;
     result = _InterlockedCompareExchange64((volatile signed __int64 *)v1, result | 0x200, result);
   }

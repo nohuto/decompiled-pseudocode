@@ -1,28 +1,26 @@
 /*
- * XREFs of NtUserChildWindowFromPointEx @ 0x1C01F1CF0
+ * XREFs of NtUserChildWindowFromPointEx @ 0x1C015F780
  * Callers:
  *     <none>
  * Callees:
- *     _ChildWindowFromPointEx @ 0x1C016D33A (_ChildWindowFromPointEx.c)
+ *     _ChildWindowFromPointEx @ 0x1C015F800 (_ChildWindowFromPointEx.c)
  */
 
-__int64 __fastcall NtUserChildWindowFromPointEx(__int64 a1, struct tagPOINT a2, __int64 a3)
+__int64 __fastcall NtUserChildWindowFromPointEx(__int64 a1, __int64 a2, unsigned int a3)
 {
-  char v3; // si
-  struct tagWND *v6; // rax
+  __int64 v6; // rax
   __int64 v7; // rcx
   __int64 v8; // rdi
-  struct tagWND *v9; // rax
+  __int64 *v9; // rax
 
-  v3 = a3;
-  ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))EnterSharedCrit)(a1, a2, a3);
-  v6 = (struct tagWND *)ValidateHwnd(a1);
+  EnterCrit(0LL, 1LL);
+  v6 = ValidateHwnd(a1);
   v8 = 0LL;
   if ( v6 )
   {
-    v9 = ChildWindowFromPointEx(v6, a2, v3);
+    v9 = (__int64 *)ChildWindowFromPointEx(v6, a2, a3);
     if ( v9 )
-      v8 = *(_QWORD *)v9;
+      v8 = *v9;
   }
   UserSessionSwitchLeaveCrit(v7);
   return v8;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?iXlateBitfieldsToBitfields@@YAKPEAU_XLATEOBJ@@K@Z @ 0x1C02DCA00
+ * XREFs of ?iXlateBitfieldsToBitfields@@YAKPEAU_XLATEOBJ@@K@Z @ 0x1C0141BE0
  * Callers:
  *     <none>
  * Callees:

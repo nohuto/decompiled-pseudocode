@@ -1,12 +1,12 @@
 /*
- * XREFs of IopReplaceSymlinkPath @ 0x1409379A8
+ * XREFs of IopReplaceSymlinkPath @ 0x1408951B0
  * Callers:
- *     IopSymlinkApplyToOpenedName @ 0x140937CC0 (IopSymlinkApplyToOpenedName.c)
+ *     IopSymlinkApplyToOpenedName @ 0x1408954C0 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     FsRtlRemoveDotsFromPath @ 0x1407F96D0 (FsRtlRemoveDotsFromPath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     FsRtlRemoveDotsFromPath @ 0x1407600B0 (FsRtlRemoveDotsFromPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopReplaceSymlinkPath(
@@ -14,163 +14,162 @@ NTSTATUS __fastcall IopReplaceSymlinkPath(
         unsigned int a2,
         __int64 a3,
         unsigned __int16 *a4,
-        unsigned int a5,
+        unsigned int NewLength,
         __int16 a6,
         __int16 a7)
 {
-  unsigned __int16 v7; // bx
-  size_t v9; // r13
-  unsigned int v11; // esi
-  wchar_t *v12; // rdi
-  WCHAR *v13; // r14
-  wchar_t *v14; // rcx
-  const void *v15; // rdx
-  WCHAR *v16; // rdi
-  __int16 v17; // r15
-  _WORD *v18; // rdx
-  __int64 v19; // rax
+  unsigned int v7; // r15d
+  unsigned __int16 v9; // bx
+  size_t v11; // r13
+  WCHAR *v12; // r14
+  wchar_t *v13; // rdi
+  unsigned int v14; // esi
+  wchar_t *v15; // rcx
+  const void *v16; // rdx
+  WCHAR *v17; // rdi
+  __int16 v18; // r15
+  _WORD *v19; // rdx
+  __int64 v20; // rax
   NTSTATUS result; // eax
-  wchar_t *v21; // rcx
-  unsigned __int16 v22; // r8
-  unsigned __int16 v23; // dx
-  __int16 v24; // cx
-  __int16 v25; // r9
-  unsigned __int16 v26; // r11
-  __int64 v27; // r14
-  wchar_t v28; // r15
+  wchar_t *v22; // rcx
+  unsigned __int16 v23; // r8
+  unsigned __int16 v24; // dx
+  __int16 v25; // cx
+  __int16 v26; // r9
+  __int64 v27; // rbx
+  wchar_t v28; // r14
   wchar_t v29; // r8
-  _WORD *Src; // [rsp+20h] [rbp-48h]
-  __int16 v31; // [rsp+70h] [rbp+8h]
-  USHORT NewLength; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int16 v33; // [rsp+88h] [rbp+20h]
+  __int64 v30; // rax
+  unsigned __int16 v31; // [rsp+60h] [rbp+8h]
+  __int16 v32; // [rsp+68h] [rbp+10h]
+  _WORD *Src; // [rsp+78h] [rbp+20h]
 
-  v7 = a4[5];
-  v9 = a4[3];
-  LOWORD(v11) = 0;
-  NewLength = 0;
-  v33 = v7;
-  v12 = (wchar_t *)&a1[a2];
-  v13 = (WCHAR *)&a1[a5];
-  if ( a2 < a5 )
+  v7 = NewLength;
+  v9 = a4[5];
+  v11 = a4[3];
+  v12 = (WCHAR *)&a1[NewLength];
+  v31 = v9;
+  v13 = (wchar_t *)&a1[a2];
+  LOWORD(NewLength) = 0;
+  LOWORD(v14) = 0;
+  if ( a2 < v7 )
     return -1073741192;
   Src = (unsigned __int16 *)((char *)a4 + a4[4] + 20);
   if ( *Src == 92 )
   {
     if ( wcsnicmp(a1, L"\\Device\\Mup", 0xBuLL) )
       goto LABEL_8;
-    v22 = *(_WORD *)(a3 + 88);
-    v23 = 0;
-    v31 = **(_WORD **)(a3 + 96);
-    v24 = v31;
-    v25 = (v31 != 59) + 3;
-    if ( (v22 & 0xFFFE) != 0 )
+    v23 = *(_WORD *)(a3 + 88);
+    v24 = 0;
+    v32 = **(_WORD **)(a3 + 96);
+    v25 = v32;
+    v26 = (v32 != 59) + 3;
+    if ( (v23 & 0xFFFE) != 0 )
     {
-      v26 = *(_WORD *)(a3 + 88);
       do
       {
         v27 = *(_QWORD *)(a3 + 96);
-        v22 = v26;
-        v28 = *(_WORD *)(v27 + 2LL * v23);
+        v28 = *(_WORD *)(v27 + 2LL * v24);
         if ( v28 == 92 )
         {
-          --v25;
-          if ( v24 != 59 && v25 == 2 )
+          --v26;
+          if ( v25 != 59 && v26 == 2 )
           {
-            if ( (unsigned __int16)(v23 + 1) < (unsigned __int16)(v26 >> 1) && *(_WORD *)(v27 + 2LL * v23 + 2) != 59 )
-              goto LABEL_36;
-            v24 = v31;
+            if ( (unsigned __int16)(v24 + 1) < (unsigned __int16)(v23 >> 1) && *(_WORD *)(v27 + 2LL * v24 + 2) != 59 )
+              v26 = 0;
+            v25 = v32;
           }
-          if ( !v25 )
+          if ( !v26 )
             goto LABEL_36;
         }
-        *v12 = v28;
-        ++v23;
-        v22 = *(_WORD *)(a3 + 88);
-        ++v12;
-        v26 = v22;
+        *v13 = v28;
+        ++v24;
+        v23 = *(_WORD *)(a3 + 88);
+        ++v13;
       }
-      while ( v23 < (unsigned __int16)(v22 >> 1) );
+      while ( v24 < (unsigned __int16)(v23 >> 1) );
     }
-    if ( !v25 )
+    if ( !v26 )
     {
 LABEL_36:
-      if ( v23 < (unsigned __int16)(v22 >> 1) )
+      if ( v24 < (unsigned __int16)(v23 >> 1) )
       {
-        v29 = *(_WORD *)(*(_QWORD *)(a3 + 96) + 2LL * v23);
+        v29 = *(_WORD *)(*(_QWORD *)(a3 + 96) + 2LL * v24);
         do
         {
-          *v12 = v29;
-          ++v23;
-          ++v12;
-          v29 = *(_WORD *)(*(_QWORD *)(a3 + 96) + 2LL * v23);
+          *v13 = v29;
+          ++v24;
+          ++v13;
+          v29 = *(_WORD *)(*(_QWORD *)(a3 + 96) + 2LL * v24);
         }
-        while ( v29 != 92 && v23 < (unsigned __int16)(*(_WORD *)(a3 + 88) >> 1) );
+        while ( v29 != 92 && v24 < (unsigned __int16)(*(_WORD *)(a3 + 88) >> 1) );
       }
-      v7 = v33;
-      v17 = 2 * v23 + a6;
-      v13 = (WCHAR *)&a1[a5 + v23];
+      v9 = v31;
+      v30 = v7 + v24;
+      v18 = 2 * v24 + a6;
+      v12 = (WCHAR *)&a1[v30];
       goto LABEL_9;
     }
     return -1073741192;
   }
-  v14 = (wchar_t *)&a1[a2];
-  v15 = *(const void **)(a3 + 96);
-  NewLength = *(_WORD *)(a3 + 88) - v9;
-  v11 = NewLength;
-  memmove(v14, v15, NewLength);
-  v16 = &v12[(unsigned __int64)v11 >> 1];
-  if ( v16 != v13 )
+  v15 = (wchar_t *)&a1[a2];
+  v16 = *(const void **)(a3 + 96);
+  LOWORD(NewLength) = *(_WORD *)(a3 + 88) - v11;
+  v14 = (unsigned __int16)NewLength;
+  memmove(v15, v16, (unsigned __int16)NewLength);
+  v17 = &v13[(unsigned __int64)v14 >> 1];
+  if ( v17 != v12 )
   {
     do
     {
-      if ( *v16 == 92 )
+      if ( *v17 == 92 )
         break;
-      LOWORD(v11) = v11 - 2;
-      *v16-- = 0;
-      NewLength = v11;
+      LOWORD(v14) = v14 - 2;
+      *v17-- = 0;
+      LOWORD(NewLength) = v14;
     }
-    while ( v16 != v13 );
-    if ( v16 < v13 )
+    while ( v17 != v12 );
+    if ( v17 < v12 )
       return -1073741192;
   }
-  v12 = v16 + 1;
+  v13 = v17 + 1;
 LABEL_8:
-  v17 = a6;
+  v18 = a6;
 LABEL_9:
-  if ( v7 )
+  if ( v9 )
   {
-    memmove(v12, Src, v7);
-    LOWORD(v11) = v33 + v11;
-    NewLength = v11;
-    v12 += (unsigned __int64)v7 >> 1;
+    memmove(v13, Src, v9);
+    LOWORD(v14) = v31 + v14;
+    LOWORD(NewLength) = v14;
+    v13 += (unsigned __int64)v9 >> 1;
   }
-  if ( (_WORD)v9 )
+  if ( (_WORD)v11 )
   {
-    v18 = (_WORD *)(*(_QWORD *)(a3 + 96) + *(unsigned __int16 *)(a3 + 88) - v9);
-    if ( *(v12 - 1) == 92 && *v18 == 92 )
+    v19 = (_WORD *)(*(_QWORD *)(a3 + 96) + *(unsigned __int16 *)(a3 + 88) - v11);
+    if ( *(v13 - 1) == 92 && *v19 == 92 )
     {
-      *v12-- = 0;
-      LOWORD(v11) = v11 - 2;
+      *v13-- = 0;
+      LOWORD(v14) = v14 - 2;
     }
-    memmove(v12, v18, v9);
-    NewLength = v9 + v11;
-    v12 += v9 >> 1;
+    memmove(v13, v19, v11);
+    LOWORD(NewLength) = v11 + v14;
+    v13 += v11 >> 1;
   }
-  *v12 = 0;
-  v19 = -1LL;
+  *v13 = 0;
+  v20 = -1LL;
   do
-    ++v19;
-  while ( v13[v19] );
-  result = FsRtlRemoveDotsFromPath(v13, 2 * v19, &NewLength);
+    ++v20;
+  while ( v12[v20] );
+  result = FsRtlRemoveDotsFromPath(v12, 2 * v20, (USHORT *)&NewLength);
   if ( result >= 0 )
   {
-    v21 = *(wchar_t **)(a3 + 96);
-    *(_WORD *)(a3 + 88) = v17 + NewLength;
+    v22 = *(wchar_t **)(a3 + 96);
+    *(_WORD *)(a3 + 88) = v18 + NewLength;
     *(_WORD *)(a3 + 90) = a7;
-    if ( a1 != v21 )
+    if ( a1 != v22 )
     {
-      if ( v21 )
-        ExFreePoolWithTag(v21, 0);
+      if ( v22 )
+        ExFreePoolWithTag(v22, 0);
       *(_QWORD *)(a3 + 96) = a1;
     }
     return 0;

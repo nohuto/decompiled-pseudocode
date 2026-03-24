@@ -4,8 +4,8 @@
  *     VerifierExFreePoolWithTag @ 0x1409257D0 (VerifierExFreePoolWithTag.c)
  * Callees:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     MmDeterminePoolType @ 0x1402B909C (MmDeterminePoolType.c)
- *     KevSkipVerification @ 0x14032C770 (KevSkipVerification.c)
+ *     MmDeterminePoolType @ 0x1402B919C (MmDeterminePoolType.c)
+ *     KevSkipVerification @ 0x14032C870 (KevSkipVerification.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

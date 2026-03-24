@@ -1,11 +1,11 @@
 /*
- * XREFs of NtQueryKey @ 0x14063FBB0
+ * XREFs of NtQueryKey @ 0x14063FB90
  * Callers:
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x140702094 (PiDevCfgConfigureDeviceLocation.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14082C68C (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14082E52C (PiDevCfgQueryPolicyStringList.c)
- *     ExpWatchLicenseInfoWork @ 0x1408CD580 (ExpWatchLicenseInfoWork.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140702074 (PiDevCfgConfigureDeviceLocation.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14082C66C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14082E50C (PiDevCfgQueryPolicyStringList.c)
+ *     ExpWatchLicenseInfoWork @ 0x1408CD560 (ExpWatchLicenseInfoWork.c)
  *     ExpWatchProductTypeInitialization @ 0x1409D5738 (ExpWatchProductTypeInitialization.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -13,22 +13,22 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDD0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     ExRaiseAccessViolation @ 0x1408D65C0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     ExRaiseAccessViolation @ 0x1408D65A0 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryKey(

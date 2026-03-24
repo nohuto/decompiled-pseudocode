@@ -1,109 +1,110 @@
 /*
- * XREFs of NtStartProfile @ 0x140A046D0
+ * XREFs of NtStartProfile @ 0x14095AE20
  * Callers:
  *     <none>
  * Callees:
- *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     KeStartProfile @ 0x140573F7C (KeStartProfile.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     KeInitializeProfile @ 0x140974F54 (KeInitializeProfile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmSizeOfMdl @ 0x1402EB830 (MmSizeOfMdl.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     KeStartProfile @ 0x14051BB0C (KeStartProfile.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeProfile @ 0x1408BC108 (KeInitializeProfile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall NtStartProfile(void *a1)
 {
-  KPROCESSOR_MODE PreviousMode; // di
+  KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS result; // eax
-  _QWORD *v3; // rbx
-  int started; // edi
+  PADAPTER_OBJECT v3; // rbx
+  int v4; // edi
   SIZE_T v5; // rax
-  __int64 Pool2; // rax
-  void *v7; // rsi
-  struct _MDL *v8; // r15
+  char *PoolWithTag; // rax
+  void *v7; // rdi
+  struct _MDL *v8; // rsi
   __int64 v9; // r10
-  __int64 v10; // r8
+  _DMA_OPERATIONS *DmaOperations; // r8
   PVOID v11; // r14
-  PVOID Object; // [rsp+88h] [rbp+10h] BYREF
-  PVOID P; // [rsp+90h] [rbp+18h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+10h] BYREF
+  PVOID P; // [rsp+80h] [rbp+18h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);
-    v3 = Object;
-    if ( *((_QWORD *)Object + 6) )
+    v3 = DmaAdapter;
+    if ( *(_QWORD *)&DmaAdapter[3].Version )
     {
-      started = -1073741640;
+      v4 = -1073741640;
 LABEL_8:
-      KeReleaseMutex(&ExpProfileStateMutex, 0);
-LABEL_9:
-      ObfDereferenceObject(v3);
-      return started;
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
+      HalPutDmaAdapter(v3);
+      return v4;
     }
     if ( ExpCurrentProfileUsage == KeQueryActiveProcessorCountEx(0xFFFFu) << 13 )
     {
-      started = -1073741613;
+      v4 = -1073741613;
       goto LABEL_8;
     }
-    v5 = MmSizeOfMdl((PVOID)v3[3], *((unsigned int *)v3 + 8));
-    Pool2 = ExAllocatePool2(64LL, v5 + 616, 1718579792LL);
-    v7 = (void *)Pool2;
-    P = (PVOID)Pool2;
-    if ( !Pool2 )
+    v5 = MmSizeOfMdl(v3[1].DmaOperations, *(unsigned int *)&v3[2].Version);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v5 + 248, 0x666F7250u);
+    v7 = PoolWithTag;
+    P = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      started = -1073741670;
+      v4 = -1073741670;
       goto LABEL_8;
     }
-    v8 = (struct _MDL *)(Pool2 + 616);
-    v3[7] = Pool2 + 616;
-    v3[5] = Pool2;
-    v9 = *((unsigned int *)v3 + 8);
-    v10 = v3[3];
-    *(_QWORD *)(Pool2 + 616) = 0LL;
-    *(_WORD *)(Pool2 + 624) = 8 * ((((unsigned __int64)(v10 & 0xFFF) + v9 + 4095) >> 12) + 6);
-    *(_WORD *)(Pool2 + 626) = 0;
-    *(_QWORD *)(Pool2 + 648) = v10 & 0xFFFFFFFFFFFFF000uLL;
-    *(_DWORD *)(Pool2 + 660) = v10 & 0xFFF;
-    *(_DWORD *)(Pool2 + 656) = v9;
-    MmProbeAndLockPages((PMDL)(Pool2 + 616), PreviousMode, IoWriteAccess);
-    v11 = MmMapLockedPagesSpecifyCache((PMDL)v3[7], 0, MmCached, 0LL, 0, 0x40000010u);
-    if ( !v11 )
+    v8 = (struct _MDL *)(PoolWithTag + 248);
+    v3[3].DmaOperations = (_DMA_OPERATIONS *)(PoolWithTag + 248);
+    v3[2].DmaOperations = (_DMA_OPERATIONS *)PoolWithTag;
+    v9 = *(unsigned int *)&v3[2].Version;
+    DmaOperations = v3[1].DmaOperations;
+    *((_QWORD *)PoolWithTag + 31) = 0LL;
+    *((_WORD *)PoolWithTag + 128) = 8
+                                  * ((((unsigned __int64)((unsigned __int16)DmaOperations & 0xFFF) + v9 + 4095) >> 12)
+                                   + 6);
+    *((_WORD *)PoolWithTag + 129) = 0;
+    *((_QWORD *)PoolWithTag + 35) = (unsigned __int64)DmaOperations & 0xFFFFFFFFFFFFF000uLL;
+    *((_DWORD *)PoolWithTag + 73) = (unsigned __int16)DmaOperations & 0xFFF;
+    *((_DWORD *)PoolWithTag + 72) = v9;
+    MmProbeAndLockPages((PMDL)(PoolWithTag + 248), PreviousMode, IoWriteAccess);
+    v11 = MmMapLockedPagesSpecifyCache((PMDL)v3[3].DmaOperations, 0, MmCached, 0LL, 0, 0x40000010u);
+    if ( v11 )
     {
-      started = -1073741670;
-LABEL_13:
-      KeReleaseMutex(&ExpProfileStateMutex, 0);
+      KeInitializeProfile(
+        (__int64)v7,
+        *(_QWORD *)&v3->Version,
+        (__int64)v11,
+        (__int64)v3->DmaOperations,
+        *(_QWORD *)&v3[1].Version,
+        *(_DWORD *)(&v3[2].Size + 1),
+        *(_DWORD *)&v3[4].Version,
+        *(_DWORD *)(&v3[4].Size + 1),
+        (unsigned __int16 *)&v3[4].DmaOperations);
+      KeStartProfile((ULONG_PTR)v7);
+      *(_QWORD *)&v3[3].Version = v11;
+      ++ExpCurrentProfileUsage;
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
+      HalPutDmaAdapter(v3);
+      return 0;
+    }
+    else
+    {
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
       MmUnlockPages(v8);
       ExFreePoolWithTag(v7, 0);
-      goto LABEL_9;
+      HalPutDmaAdapter(v3);
+      return -1073741670;
     }
-    KeInitializeProfile(
-      (__int64)v7,
-      *v3,
-      (__int64)v11,
-      v3[1],
-      v3[2],
-      *((_DWORD *)v3 + 9),
-      *((_DWORD *)v3 + 16),
-      *((_DWORD *)v3 + 17),
-      (unsigned __int16 *)v3 + 36);
-    started = KeStartProfile((ULONG_PTR)v7);
-    if ( started < 0 )
-      goto LABEL_13;
-    v3[6] = v11;
-    ++ExpCurrentProfileUsage;
-    KeReleaseMutex(&ExpProfileStateMutex, 0);
-    ObfDereferenceObject(v3);
-    return 0;
   }
   return result;
 }

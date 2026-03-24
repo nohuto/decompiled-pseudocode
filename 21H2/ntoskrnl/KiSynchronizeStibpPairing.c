@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSynchronizeStibpPairing @ 0x14045A748
+ * XREFs of KiSynchronizeStibpPairing @ 0x14051B6D8
  * Callers:
- *     KiUpdateSpeculationControl @ 0x14020C9F0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x14021ED00 (KiUpdateSpeculationControl.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KiIpiSendPacket @ 0x1402F38C4 (KiIpiSendPacket.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
@@ -21,9 +21,9 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
   int v8; // eax
   bool v9; // zf
   __int64 result; // rax
-  _DWORD v11[68]; // [rsp+30h] [rbp-138h] BYREF
+  _DWORD v11[44]; // [rsp+30h] [rbp-D8h] BYREF
 
-  memset(&v11[2], 0, 0x100uLL);
+  memset(&v11[2], 0, 0xA0uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -32,9 +32,9 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   v4 = *(_QWORD *)(a1 + 11696);
-  v11[0] = 2097153;
-  memset(&v11[1], 0, 0x104uLL);
-  KeAddProcessorAffinityEx((unsigned __int16 *)v11, *(_DWORD *)(v4 + 36));
+  v11[0] = 1310721;
+  memset(&v11[1], 0, 0xA4uLL);
+  KeAddProcessorAffinityEx(v11, *(_DWORD *)(v4 + 36));
   KiIpiSendPacket(0, (int)v11, (__int64)KiSynchronizeStibpPairingTarget, 0LL, 0LL, 0LL);
   while ( *(_DWORD *)(a1 + 11648) )
     _mm_pause();

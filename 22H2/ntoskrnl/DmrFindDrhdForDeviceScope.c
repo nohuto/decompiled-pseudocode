@@ -1,24 +1,23 @@
 /*
- * XREFs of DmrFindDrhdForDeviceScope @ 0x14037F670
+ * XREFs of DmrFindDrhdForDeviceScope @ 0x1404E82BC
  * Callers:
- *     DmrEnumerateRmrrDomains @ 0x14037F720 (DmrEnumerateRmrrDomains.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E86B0 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     DmrGetNextDrhdDeviceScope @ 0x14037F970 (DmrGetNextDrhdDeviceScope.c)
- *     DmrGetNextRemappingStructure @ 0x14037F99C (DmrGetNextRemappingStructure.c)
- *     DmrCheckPathMatch @ 0x14037FB9C (DmrCheckPathMatch.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1404E836C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x1404E8398 (DmrCheckPathMatch.c)
+ *     DmrGetNextRemappingStructure @ 0x1404E855C (DmrGetNextRemappingStructure.c)
  */
 
-_BYTE *__fastcall DmrFindDrhdForDeviceScope(__int64 a1, __int16 a2, _BYTE *a3)
+__int64 __fastcall DmrFindDrhdForDeviceScope(__int64 a1, __int16 a2, _BYTE *a3)
 {
   __int64 v3; // rbx
   __int64 v6; // r14
-  _WORD *v7; // rdx
-  _WORD *NextRemappingStructure; // rax
-  _WORD *v9; // rdi
-  _BYTE *v10; // rsi
+  __int64 v7; // rdx
   __int64 i; // rdx
   __int64 NextDrhdDeviceScope; // rax
-  __int64 v13; // rbp
+  __int64 v10; // rbp
+  __int64 NextRemappingStructure; // rax
+  __int64 v12; // rdi
 
   v3 = 0LL;
   v6 = a1;
@@ -27,31 +26,27 @@ _BYTE *__fastcall DmrFindDrhdForDeviceScope(__int64 a1, __int16 a2, _BYTE *a3)
     v7 = 0LL;
     while ( 1 )
     {
-      NextRemappingStructure = (_WORD *)DmrGetNextRemappingStructure(a1, v7);
-      v9 = NextRemappingStructure;
+      NextRemappingStructure = DmrGetNextRemappingStructure(a1, v7);
+      v12 = NextRemappingStructure;
       if ( !NextRemappingStructure )
         break;
-      if ( !*NextRemappingStructure )
+      if ( !*(_WORD *)NextRemappingStructure && *(_WORD *)(NextRemappingStructure + 6) == a2 )
       {
-        v10 = NextRemappingStructure + 2;
-        if ( NextRemappingStructure[3] == a2 )
+        if ( (*(_BYTE *)(NextRemappingStructure + 4) & 1) != 0 )
+          return v12 + 4;
+        for ( i = 0LL; ; i = v10 )
         {
-          if ( (*v10 & 1) != 0 )
-            return v10;
-          for ( i = 0LL; ; i = v13 )
-          {
-            NextDrhdDeviceScope = DmrGetNextDrhdDeviceScope(v9, i);
-            v13 = NextDrhdDeviceScope;
-            if ( !NextDrhdDeviceScope )
-              break;
-            if ( (unsigned __int8)DmrCheckPathMatch(NextDrhdDeviceScope, a3) )
-              return v10;
-          }
+          NextDrhdDeviceScope = DmrGetNextDrhdDeviceScope(v12, i);
+          v10 = NextDrhdDeviceScope;
+          if ( !NextDrhdDeviceScope )
+            break;
+          if ( (unsigned __int8)DmrCheckPathMatch(NextDrhdDeviceScope, a3) )
+            return v12 + 4;
         }
       }
-      v7 = v9;
+      v7 = v12;
       a1 = v6;
     }
   }
-  return (_BYTE *)v3;
+  return v3;
 }

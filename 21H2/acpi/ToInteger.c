@@ -1,12 +1,12 @@
 /*
- * XREFs of ToInteger @ 0x1C001C4B0
+ * XREFs of ToInteger @ 0x1C000C110
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
- *     ConvertToInteger @ 0x1C001C420 (ConvertToInteger.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     ConvertToInteger @ 0x1C000C190 (ConvertToInteger.c)
  */
 
 __int64 __fastcall ToInteger(struct _SLIST_ENTRY *a1, __int64 a2)

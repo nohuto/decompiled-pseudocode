@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlPhase0Initialize @ 0x1408273D8
+ * XREFs of HvlPhase0Initialize @ 0x140791B8C
  * Callers:
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     HvlQueryConnection @ 0x14038C7E0 (HvlQueryConnection.c)
- *     HvlpTryConfigureInterface @ 0x14038C800 (HvlpTryConfigureInterface.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
- *     HvlpInitializeBootProcessor @ 0x140541150 (HvlpInitializeBootProcessor.c)
- *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x14054210C (HvlpSetupBootProcessorEarlyHypercallPages.c)
- *     HvlpDetermineEnlightenments @ 0x140549004 (HvlpDetermineEnlightenments.c)
- *     HvlpPhase0Enlightenments @ 0x1405494BC (HvlpPhase0Enlightenments.c)
- *     HviGetHypervisorVersion @ 0x1406154CC (HviGetHypervisorVersion.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     HvlpTryConfigureInterface @ 0x1403A9460 (HvlpTryConfigureInterface.c)
+ *     HvlQueryConnection @ 0x1403AA280 (HvlQueryConnection.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
+ *     HvlpInitializeBootProcessor @ 0x1404F2D6C (HvlpInitializeBootProcessor.c)
+ *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x1404F3C28 (HvlpSetupBootProcessorEarlyHypercallPages.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA044 (HvlpDetermineEnlightenments.c)
+ *     HvlpPhase0Enlightenments @ 0x1404FA514 (HvlpPhase0Enlightenments.c)
+ *     HviGetHypervisorVersion @ 0x1405BEF80 (HviGetHypervisorVersion.c)
  */
 
 __int64 __fastcall HvlPhase0Initialize(__int64 a1)
@@ -28,12 +28,12 @@ __int64 __fastcall HvlPhase0Initialize(__int64 a1)
     {
       HvlHypervisorConnected = 1;
       HvlpDetermineEnlightenments();
-      result = PdcCreateWatchdogAroundClientCall();
+      result = HalSystemVectorDispatchEntry();
       if ( (int)result >= 0 )
       {
         if ( (HvlpFlags & 2) != 0 && strstr(*(const char **)(KeLoaderBlock_0 + 216), "HYPERVISORDBG") )
           HvlpRootFlags |= 8u;
-        if ( (HvlpFlags & 2) != 0 && (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 3492LL) & 0x2000) != 0 )
+        if ( (HvlpFlags & 2) != 0 && (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 3460LL) & 0x2000) != 0 )
           HvlpRootFlags |= 0x800u;
         result = HvlpPhase0Enlightenments(a1);
         if ( (int)result >= 0 )

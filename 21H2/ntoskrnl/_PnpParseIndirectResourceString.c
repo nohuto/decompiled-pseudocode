@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpParseIndirectResourceString @ 0x1406974B8
+ * XREFs of _PnpParseIndirectResourceString @ 0x140684510
  * Callers:
- *     _PnpRegQueryValueIndirect @ 0x1406B89A0 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406BD994 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140785B98 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x140699930 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlUnicodeStringToInteger @ 0x140698DE0 (RtlUnicodeStringToInteger.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlUnicodeStringToInteger @ 0x140684670 (RtlUnicodeStringToInteger.c)
  */
 
 char __fastcall PnpParseIndirectResourceString(__int64 a1)

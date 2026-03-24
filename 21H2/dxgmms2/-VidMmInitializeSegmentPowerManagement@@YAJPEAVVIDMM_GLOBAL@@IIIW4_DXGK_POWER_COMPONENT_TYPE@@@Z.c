@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmInitializeSegmentPowerManagement@@YAJPEAVVIDMM_GLOBAL@@IIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z @ 0x1C002CE20
+ * XREFs of ?VidMmInitializeSegmentPowerManagement@@YAJPEAVVIDMM_GLOBAL@@IIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z @ 0x1C0022860
  * Callers:
  *     <none>
  * Callees:
- *     ?InitializeSegmentPowerManagement@VIDMM_GLOBAL@@QEAAJIIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z @ 0x1C00D765C (-InitializeSegmentPowerManagement@VIDMM_GLOBAL@@QEAAJIIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z.c)
+ *     ?InitializeSegmentPowerManagement@VIDMM_GLOBAL@@QEAAJIIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z @ 0x1C00B07D8 (-InitializeSegmentPowerManagement@VIDMM_GLOBAL@@QEAAJIIIW4_DXGK_POWER_COMPONENT_TYPE@@@Z.c)
  */
 
 __int64 __fastcall VidMmInitializeSegmentPowerManagement(

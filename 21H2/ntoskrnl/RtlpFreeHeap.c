@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpFreeHeap @ 0x1405EA0E4
+ * XREFs of RtlpFreeHeap @ 0x14058AB94
  * Callers:
- *     RtlpFreeHeapInternal @ 0x1403717D4 (RtlpFreeHeapInternal.c)
+ *     RtlpFreeHeapInternal @ 0x1402A62A4 (RtlpFreeHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405E8A08 (RtlpCoalesceFreeBlocks.c)
- *     RtlpDeCommitFreeBlock @ 0x1405E966C (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x1405EA9DC (RtlpInsertFreeBlock.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F1C10 (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1405F22DC (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x1405F2400 (RtlpHeapAddListEntry.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
+ *     RtlpCoalesceFreeBlocks @ 0x140589490 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A0E4 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x14058B3AC (RtlpInsertFreeBlock.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x140593C94 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x140593DB8 (RtlpHeapAddListEntry.c)
  */
 
 __int64 __fastcall RtlpFreeHeap(__int64 a1, int a2, __int64 a3)

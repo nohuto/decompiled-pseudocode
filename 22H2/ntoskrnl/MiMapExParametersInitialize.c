@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapExParametersInitialize @ 0x1407A3CB0
+ * XREFs of MiMapExParametersInitialize @ 0x1406FCE88
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x1407A3A00 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1406FCBD8 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiGetUserReservationHighestAddress @ 0x140722040 (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiGetUserReservationHighestAddress @ 0x1406397DC (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a3)
@@ -18,6 +18,7 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
   unsigned __int64 UserReservationHighestAddress; // rcx
   unsigned __int64 v12; // rax
   int v13; // edx
+  unsigned int v14; // ecx
 
   v5 = MiSectionControlArea(a2[4]);
   v8 = 0;
@@ -28,8 +29,8 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
   {
     if ( *v6 || v6[1] )
       return (unsigned int)-1073741811;
-    *(_DWORD *)(v7 + 64) |= 0x4000000u;
-    *(_DWORD *)(v7 + 60) |= 2u;
+    *(_DWORD *)(v7 + 60) |= 0x4000000u;
+    *(_DWORD *)(v7 + 72) |= 2u;
     *(_QWORD *)(v7 + 16) = 4096LL;
   }
   v10 = *v6;
@@ -38,14 +39,13 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
   UserReservationHighestAddress = v6[1];
   if ( UserReservationHighestAddress )
   {
-    if ( UserReservationHighestAddress > 0x7FFFFFFEFFFFLL || (((_WORD)UserReservationHighestAddress + 1) & 0xFFF) != 0 )
-      return (unsigned int)-1073741811;
+    if ( UserReservationHighestAddress <= 0x7FFFFFFEFFFFLL && (((_WORD)UserReservationHighestAddress + 1) & 0xFFF) == 0 )
+      goto LABEL_7;
+    return (unsigned int)-1073741811;
   }
-  else
-  {
-    UserReservationHighestAddress = MiGetUserReservationHighestAddress(a2[5], 0LL);
-    *(_QWORD *)(a3 + 8) = UserReservationHighestAddress;
-  }
+  UserReservationHighestAddress = MiGetUserReservationHighestAddress(a2[5], 0LL);
+  *(_QWORD *)(a3 + 8) = UserReservationHighestAddress;
+LABEL_7:
   if ( v10 >= UserReservationHighestAddress )
     return (unsigned int)-1073741811;
   v12 = a2[1];
@@ -55,29 +55,23 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
       return (unsigned int)-1073741811;
   }
   v13 = *(_DWORD *)(v7 + 40);
-  if ( (v13 & 0x7F) != 0
-    || *(_DWORD *)(v7 + 52) != v8
-    || *(_DWORD *)(a3 + 32) > (unsigned int)(unsigned __int16)KeNumberNodes
-    || (v13 & 0x40000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x420) != 0 )
-  {
+  if ( (v13 & 0x7F) != 0 )
     return (unsigned int)-1073741811;
-  }
-  if ( (v13 & 0x20000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x20) != 0 && (*(_DWORD *)(v7 + 60) & 1) != 0 )
+  if ( *(_DWORD *)(v7 + 52) != v8 )
+    return (unsigned int)-1073741811;
+  v14 = *(_DWORD *)(a3 + 32);
+  if ( v14 > (unsigned __int16)KeNumberNodes || (v13 & 0x40000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x420) != 0 )
+    return (unsigned int)-1073741811;
+  if ( (v13 & 0x20000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x20) != 0 && (*(_DWORD *)(v7 + 72) & 1) != 0 )
     return (unsigned int)-1073741811;
   if ( (*(_BYTE *)(a3 + 56) & 0x20) != 0 )
-    *(_DWORD *)(v7 + 64) |= 2u;
-  if ( (*(_BYTE *)(a3 + 56) & 0x40) != 0 )
-    *(_DWORD *)(v7 + 120) |= 8u;
-  if ( *(char *)(a3 + 56) >= 0 )
-    goto LABEL_19;
-  if ( (*(_DWORD *)(v9 + 56) & 0x20) == 0 )
-    return (unsigned int)-1073741811;
-  *(_DWORD *)(v7 + 64) |= 4u;
-LABEL_19:
-  *(_DWORD *)(v7 + 52) = *(_DWORD *)(a3 + 32);
+  {
+    *(_DWORD *)(v7 + 60) |= 2u;
+    v14 = *(_DWORD *)(a3 + 32);
+  }
+  *(_DWORD *)(v7 + 52) = v14;
   *(_QWORD *)v7 = *(_QWORD *)a3;
   *(_QWORD *)(v7 + 8) = *(_QWORD *)(a3 + 8);
-  *(_WORD *)(v7 + 58) = *(_WORD *)(a3 + 50);
   *(_DWORD *)(v7 + 40) = v13 & 0xFFFFBFFF;
   return v8;
 }

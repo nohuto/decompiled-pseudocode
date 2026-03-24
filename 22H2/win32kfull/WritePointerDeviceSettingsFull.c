@@ -1,11 +1,11 @@
 /*
- * XREFs of WritePointerDeviceSettingsFull @ 0x1C01F3ABC
+ * XREFs of WritePointerDeviceSettingsFull @ 0x1C020967C
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3510 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C01F36B4 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
- *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F38A0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0209118 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C02092BC (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C02094A8 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
  */
 
 __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsigned __int16 *a3)
@@ -36,17 +36,17 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
             v8 = *(_DWORD *)(a2 + 4);
             if ( v8 <= 0x3C )
             {
-              dword_1C03542CC[0] = *(_DWORD *)(a2 + 4);
+              dword_1C032A68C[0] = *(_DWORD *)(a2 + 4);
               glTOUCH_DRIVER_HW_STACK_LATENCY = v8;
             }
             v9 = *(_DWORD *)(a2 + 8);
             if ( v9 <= 0x3C )
             {
-              dword_1C03542DC = *(_DWORD *)(a2 + 8);
+              dword_1C032A69C = *(_DWORD *)(a2 + 8);
               glTOUCH_DRIVER_HW_STACK_SAMPLETIME = v9;
             }
-            dword_1C03542EC = *(_DWORD *)(a2 + 12);
-            gbTOUCH_DRIVER_HW_STACK_TIMESTAMP = dword_1C03542EC;
+            dword_1C032A6AC = *(_DWORD *)(a2 + 12);
+            gbTOUCH_DRIVER_HW_STACK_TIMESTAMP = dword_1C032A6AC;
             result = 1LL;
             if ( (_DWORD)a3 )
               return WritePredictionSettings(v7, (const unsigned __int16 *)a2, a3);
@@ -64,13 +64,13 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
     }
     else
     {
-      dword_1C035437C = *(_DWORD *)a2;
-      dword_1C035438C = *(_DWORD *)(a2 + 4);
-      dword_1C035439C = *(_DWORD *)(a2 + 8);
-      dword_1C03543AC = *(_DWORD *)(a2 + 12);
-      dword_1C03543BC = *(_DWORD *)(a2 + 16);
-      dword_1C03543CC = *(_DWORD *)(a2 + 20);
-      dword_1C03543DC = *(_DWORD *)(a2 + 24);
+      dword_1C032A77C = *(_DWORD *)a2;
+      dword_1C032A78C = *(_DWORD *)(a2 + 4);
+      dword_1C032A79C = *(_DWORD *)(a2 + 8);
+      dword_1C032A7AC = *(_DWORD *)(a2 + 12);
+      dword_1C032A7BC = *(_DWORD *)(a2 + 16);
+      dword_1C032A7CC = *(_DWORD *)(a2 + 20);
+      dword_1C032A7DC = *(_DWORD *)(a2 + 24);
       result = 1LL;
       if ( !(_DWORD)a3 || (result = WriteSettingValues(7LL, &gaModeSettings, 7LL, a2), (_DWORD)result) )
       {
@@ -81,14 +81,14 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
   }
   else
   {
-    dword_1C03542FC = *(_DWORD *)a2;
-    dword_1C035430C = *(_DWORD *)(a2 + 4);
-    dword_1C035431C = *(_DWORD *)(a2 + 8);
-    dword_1C035432C = *(_DWORD *)(a2 + 12);
-    dword_1C035433C = *(_DWORD *)(a2 + 16);
-    dword_1C035434C = *(_DWORD *)(a2 + 20);
-    dword_1C035435C = *(_DWORD *)(a2 + 24);
-    dword_1C035436C = *(_DWORD *)(a2 + 28);
+    dword_1C032A7EC = *(_DWORD *)a2;
+    dword_1C032A7FC = *(_DWORD *)(a2 + 4);
+    dword_1C032A80C = *(_DWORD *)(a2 + 8);
+    dword_1C032A81C = *(_DWORD *)(a2 + 12);
+    dword_1C032A82C = *(_DWORD *)(a2 + 16);
+    dword_1C032A83C = *(_DWORD *)(a2 + 20);
+    dword_1C032A84C = *(_DWORD *)(a2 + 24);
+    dword_1C032A85C = *(_DWORD *)(a2 + 28);
     result = 1LL;
     if ( !(_DWORD)a3 || (result = WriteSettingValues(4LL, &gaPenParameters, 8LL, a2), (_DWORD)result) )
     {

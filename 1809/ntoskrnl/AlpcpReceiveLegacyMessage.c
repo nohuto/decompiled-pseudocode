@@ -7,14 +7,14 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
  *     AlpcpReadMessageData @ 0x140614164 (AlpcpReadMessageData.c)
  *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
  *     AlpcpReceiveMessagePort @ 0x140632980 (AlpcpReceiveMessagePort.c)
  *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A60 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A5B8 (AlpcpEnterStateChangeEventMessageLog.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A40 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyMessage(_QWORD *a1, unsigned __int64 a2, __int64 *a3, _QWORD *a4)

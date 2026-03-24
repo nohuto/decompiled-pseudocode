@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ModeFromCeaVideoFormat@EDID_MODES@MonDescParser@@QEAAJPEBU_EDID_V1_CEA_861_SHORT_VIDEO_DESC@@PEAU_VideoModeDescriptor@@@Z @ 0x1C0074998
+ * XREFs of ?ModeFromCeaVideoFormat@EDID_MODES@MonDescParser@@QEAAJPEBU_EDID_V1_CEA_861_SHORT_VIDEO_DESC@@PEAU_VideoModeDescriptor@@@Z @ 0x1C0061A50
  * Callers:
- *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001E0B0 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001ECC8 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001E754 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
+ *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001F354 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
  */
 
 __int64 __fastcall MonDescParser::EDID_MODES::ModeFromCeaVideoFormat(
@@ -26,11 +26,11 @@ __int64 __fastcall MonDescParser::EDID_MODES::ModeFromCeaVideoFormat(
   a3->HorizontalImageSize = *(unsigned __int8 *)(**(_QWORD **)this + 21LL);
   a3->VerticalImageSize = *(unsigned __int8 *)(**(_QWORD **)this + 22LL);
   result = GTF_GetVideoModeDescriptor(
-             *(_WORD *)&byte_1C011EC50[v7 + 8],
-             *(_WORD *)&byte_1C011EC50[v7 + 12],
-             *(_DWORD *)&byte_1C011EC50[v7 + 20],
-             *(_DWORD *)&byte_1C011EC50[v7 + 24],
-             byte_1C011EC50[v7 + 16],
+             *(_WORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 8],
+             *(_WORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 12],
+             *(_DWORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 20],
+             *(_DWORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 24],
+             MonDescParser::CeaVideoFormatEntries[v7 + 16],
              a3);
   if ( (int)result >= 0 )
   {

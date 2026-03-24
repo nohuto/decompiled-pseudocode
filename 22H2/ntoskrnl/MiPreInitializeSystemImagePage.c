@@ -1,56 +1,52 @@
 /*
- * XREFs of MiPreInitializeSystemImagePage @ 0x14062C63C
+ * XREFs of MiPreInitializeSystemImagePage @ 0x140358FF8
  * Callers:
- *     MiAllocateDriverPage @ 0x1407063D4 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x1406FF348 (MiAllocateDriverPage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)
+__int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v2; // rdi
-  char v3; // al
-  unsigned __int64 result; // rax
-  unsigned __int64 v5; // r8
+  unsigned __int8 v5; // al
+  char v6; // dl
+  unsigned __int64 v7; // rdi
+  char v8; // al
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v8; // zf
+  bool v12; // zf
 
-  v2 = (unsigned __int8)MiLockPageInline(a1);
-  *(_WORD *)(a1 + 32) = 0;
-  *(_QWORD *)(a1 + 24) &= 0xC000000000000000uLL;
-  *(_QWORD *)a1 = 0LL;
-  MiSetPfnBlink(a1, 0LL, 1);
-  v3 = *(_BYTE *)(a1 + 34) & 0xC7;
+  v5 = MiLockPageInline(a1, a2, a3, a4);
+  v6 = *(_BYTE *)(a1 + 34);
   *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
-  *(_BYTE *)(a1 + 34) = v3;
+  v7 = v5;
+  *(_BYTE *)(a1 + 34) = v6 & 0xF8 | 5;
+  *(_QWORD *)(a1 + 24) &= 0xC000000000000000uLL;
+  v8 = *(_BYTE *)(a1 + 34) & 0xC7;
+  *(_WORD *)(a1 + 32) = 0;
+  *(_BYTE *)(a1 + 34) = v8;
   *(_BYTE *)(a1 + 35) &= ~0x20u;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  result = MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a1 + 16));
-  if ( (_BYTE)v2 != 17 )
+  _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  result = (unsigned int)KiIrqlFlags;
+  if ( KiIrqlFlags )
   {
-    _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), v5);
-    if ( KiIrqlFlags )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v2 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v7 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v8 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(v2);
   }
+  __writecr8(v7);
   return result;
 }

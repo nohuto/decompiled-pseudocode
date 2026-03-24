@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBHTX_GetPortStatusForBootDevice @ 0x1C00062B4
+ * XREFs of HUBHTX_GetPortStatusForBootDevice @ 0x1C0006034
  * Callers:
- *     HUBMISC_IsBootDeviceReady @ 0x1C0030C48 (HUBMISC_IsBootDeviceReady.c)
+ *     HUBMISC_IsBootDeviceReady @ 0x1C00305AC (HUBMISC_IsBootDeviceReady.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_GetPortStatusForBootDevice(__int64 a1, _DWORD *a2)
@@ -43,13 +43,13 @@ __int64 __fastcall HUBHTX_GetPortStatusForBootDevice(__int64 a1, _DWORD *a2)
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v7 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v6);
   }
   v8 = *(_BYTE *)(a1 + 2400) & 0x1C;
@@ -78,13 +78,13 @@ __int64 __fastcall HUBHTX_GetPortStatusForBootDevice(__int64 a1, _DWORD *a2)
     v10 = v9;
     if ( v9 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v11 = 116;
+      v11 = 115;
       goto LABEL_10;
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v11 = 115;
+    v11 = 114;
 LABEL_10:
     LODWORD(v13) = v9;
     WPP_RECORDER_SF_d(
@@ -92,7 +92,7 @@ LABEL_10:
       2u,
       5u,
       v11,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       v13);
   }
   return v10;

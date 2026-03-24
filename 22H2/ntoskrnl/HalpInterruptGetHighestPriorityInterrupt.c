@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x1403CFA90
+ * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x14030BF90
  * Callers:
- *     HalpTimerOnlyClockInterruptPending @ 0x1403CFA40 (HalpTimerOnlyClockInterruptPending.c)
+ *     HalpTimerOnlyClockInterruptPending @ 0x14030BF40 (HalpTimerOnlyClockInterruptPending.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D19C8 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 a2)
@@ -14,17 +14,17 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
   ULONG_PTR v2; // rbx
   __int64 (__fastcall *v4)(_QWORD, char *, int *, __int64); // rax
   int v5; // eax
-  _QWORD *Lines; // rax
+  __int64 Lines; // rax
   ULONG_PTR BugCheckParameter4; // r8
   _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
   int v10; // [rsp+60h] [rbp+18h] BYREF
-  unsigned int v11; // [rsp+68h] [rbp+20h]
+  unsigned int v11; // [rsp+68h] [rbp+20h] BYREF
 
   v2 = HalpInterruptController;
   v9[0] = 0LL;
   v10 = 0;
   v11 = 0;
-  LODWORD(v9[0]) = *(_DWORD *)(HalpInterruptController + 256);
+  LODWORD(v9[0]) = *(_DWORD *)(HalpInterruptController + 232);
   v4 = *(__int64 (__fastcall **)(_QWORD, char *, int *, __int64))(HalpInterruptController + 184);
   if ( v4 )
   {
@@ -34,9 +34,9 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
     switch ( v5 )
     {
       case 0:
-        KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 240), v2, 0LL);
+        KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 216), v2, 0LL);
       case 1:
-        Lines = HalpInterruptFindLines((unsigned int *)v9);
+        Lines = HalpInterruptFindLines(v9, &v11);
         if ( !Lines )
         {
           HalpInterruptSetProblemEx(
@@ -44,10 +44,10 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
             18,
             HIDWORD(v9[0]),
             (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-            3754);
-          KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 240), v2, BugCheckParameter4);
+            3703);
+          KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 216), v2, BugCheckParameter4);
         }
-        *a1 = *(_DWORD *)(56LL * v11 + Lines[5] + 48);
+        *a1 = *(_DWORD *)(56LL * v11 + *(_QWORD *)(Lines + 40) + 48);
         return 0LL;
       case 3:
         *a1 = v10;

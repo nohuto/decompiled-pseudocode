@@ -1,107 +1,89 @@
 /*
- * XREFs of GreMakeFontDir @ 0x1C02D5B38
+ * XREFs of GreMakeFontDir @ 0x1C02BA958
  * Callers:
- *     NtGdiMakeFontDir @ 0x1C02C3CD0 (NtGdiMakeFontDir.c)
+ *     NtGdiMakeFontDir @ 0x1C02AF1F0 (NtGdiMakeFontDir.c)
  * Callees:
- *     EngMapFontFileFDInternal @ 0x1C00794EC (EngMapFontFileFDInternal.c)
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     ??0AutoExclusiveUmfdLookupLock@@QEAA@XZ @ 0x1C007EE40 (--0AutoExclusiveUmfdLookupLock@@QEAA@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?Remove@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z @ 0x1C00A225C (-Remove@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z.c)
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0113620 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
- *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C01144C8 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GreFillFontDir @ 0x1C02D56EC (GreFillFontDir.c)
- *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C02E135C (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
- *     ?QueryFont@PDEVOBJ@@QEAAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEA_K@Z @ 0x1C02E13B4 (-QueryFont@PDEVOBJ@@QEAAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEA_K@Z.c)
+ *     ?QueryFont@PDEVOBJ@@QEAAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEA_K@Z @ 0x1C00A3AE8 (-QueryFont@PDEVOBJ@@QEAAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEA_K@Z.c)
+ *     ?Remove@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z @ 0x1C00A4CA4 (-Remove@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4E0C (EngMapFontFileFDInternal.c)
+ *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C00A5830 (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
+ *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C00A6D94 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7310 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GreFillFontDir @ 0x1C02BA578 (GreFillFontDir.c)
  */
 
-__int64 __fastcall GreMakeFontDir(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall GreMakeFontDir(int a1, __int64 a2, ULONG_PTR a3)
 {
-  unsigned int v3; // edi
-  int v6; // r12d
-  __int64 v7; // rcx
-  __int64 v8; // r14
-  int inserted; // ebx
-  Gre::Base *v10; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v11; // rax
-  unsigned __int64 v12; // rbx
-  struct _IFIMETRICS *v13; // rax
-  struct _IFIMETRICS *v14; // rsi
-  void (__fastcall *v15)(struct _IFIMETRICS *, unsigned __int64); // rax
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  __int64 v19; // [rsp+40h] [rbp-79h] BYREF
-  void *v20; // [rsp+48h] [rbp-71h] BYREF
-  struct _FONTFILEVIEW *v21; // [rsp+50h] [rbp-69h] BYREF
-  unsigned __int64 v22; // [rsp+58h] [rbp-61h] BYREF
-  _BYTE v23[16]; // [rsp+60h] [rbp-59h] BYREF
-  ULONG_PTR iFile[8]; // [rsp+70h] [rbp-49h] BYREF
-  int v25; // [rsp+B0h] [rbp-9h]
-  __int64 v26; // [rsp+C0h] [rbp+7h]
-  unsigned int v27; // [rsp+138h] [rbp+7Fh] BYREF
+  struct PDEV *v3; // r14
+  unsigned int v4; // ebx
+  unsigned int v8; // esi
+  __int64 v9; // rdi
+  struct _IFIMETRICS *v10; // rax
+  struct _IFIMETRICS *v11; // r15
+  void (__fastcall *v12)(struct _IFIMETRICS *, unsigned __int64); // rax
+  __int64 v13; // rcx
+  struct PDEV *v15; // [rsp+48h] [rbp-79h] BYREF
+  void *v16; // [rsp+50h] [rbp-71h] BYREF
+  struct _FONTFILEVIEW *v17; // [rsp+58h] [rbp-69h] BYREF
+  unsigned __int64 v18; // [rsp+60h] [rbp-61h] BYREF
+  _BYTE v19[16]; // [rsp+68h] [rbp-59h] BYREF
+  ULONG_PTR iFile[16]; // [rsp+78h] [rbp-49h] BYREF
+  unsigned int v21; // [rsp+140h] [rbp+7Fh] BYREF
 
-  v3 = 0;
-  v22 = 0LL;
-  v6 = a1;
-  v8 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 23448LL);
-  if ( !v8 )
+  v3 = qword_1C0340AC0;
+  v4 = 0;
+  v18 = 0LL;
+  v8 = 0;
+  if ( !qword_1C0340AC0 || !UmfdHostLifeTimeManager::EnsureUmfdHost() )
     return 0LL;
-  if ( !UmfdHostLifeTimeManager::EnsureUmfdHost(v7) )
-    return 0LL;
-  v19 = v8;
-  memset_0(iFile, 0, 0x78uLL);
-  v20 = 0LL;
-  v27 = 0;
-  v21 = (struct _FONTFILEVIEW *)iFile;
-  v26 = a3;
-  if ( !(unsigned int)EngMapFontFileFDInternal((__int64)iFile, &v20, &v27, 0) )
-    return 0LL;
-  inserted = UmfdInsertFontFileViewForLookup(&v21, 1u);
-  v11 = Gre::Base::Globals(v10);
-  if ( inserted )
+  v15 = v3;
+  memset(iFile, 0, 0x78uLL);
+  iFile[10] = a3;
+  v17 = (struct _FONTFILEVIEW *)iFile;
+  v16 = 0LL;
+  v21 = 0;
+  if ( (unsigned int)EngMapFontFileFDInternal((__int64)iFile, &v16, &v21, 0) )
   {
-    v12 = PDEVOBJ::LoadFontFile(
-            (PDEVOBJ *)&v19,
-            1u,
-            (unsigned __int64 *)&v21,
-            &v20,
-            &v27,
-            0LL,
-            *((unsigned __int16 *)v11 + 76),
-            0);
-    if ( v12 )
+    if ( (unsigned int)UmfdInsertFontFileViewForLookup(&v17, 1u) )
     {
-      if ( v12 != 0xFFFFFFFF )
+      v9 = PDEVOBJ::LoadFontFile((PDEVOBJ *)&v15, 1u, (unsigned __int64 *)&v17, &v16, &v21, 0LL, gusLanguageID, 0);
+      if ( v9 )
       {
-        v13 = PDEVOBJ::QueryFont((PDEVOBJ *)&v19, 0LL, v12, 1u, &v22);
-        v14 = v13;
-        if ( v13 )
+        if ( v9 != 0xFFFFFFFFLL )
         {
-          v3 = GreFillFontDir((__int64)v13, v6, a2);
-          v15 = *(void (__fastcall **)(struct _IFIMETRICS *, unsigned __int64))(v8 + 3000);
-          if ( v15 )
-            v15(v14, v22);
+          v10 = PDEVOBJ::QueryFont((PDEVOBJ *)&v15, 0LL, v9, 1u, &v18);
+          v11 = v10;
+          if ( v10 )
+          {
+            v8 = GreFillFontDir((__int64)v10, a1, a2);
+            v12 = (void (__fastcall *)(struct _IFIMETRICS *, unsigned __int64))*((_QWORD *)v3 + 378);
+            if ( v12 )
+              v12(v11, v18);
+          }
+          v8 &= -((*((unsigned int (__fastcall **)(__int64))v3 + 382))(v9) != 0);
         }
-        v3 &= -((*(unsigned int (__fastcall **)(unsigned __int64))(v8 + 3032))(v12) != 0);
       }
     }
-  }
-  if ( v25 )
-  {
-    AutoExclusiveUmfdLookupLock::AutoExclusiveUmfdLookupLock((AutoExclusiveUmfdLookupLock *)v23);
-    v17 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v16) + 32) + 23472LL);
-    if ( v17 )
+    if ( LODWORD(iFile[8]) )
     {
-      LODWORD(v19) = v25;
-      NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Remove(v17, &v19);
-      v25 = 0;
+      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v19, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
+      if ( UmfdFileviewLookup )
+      {
+        LODWORD(v15) = iFile[8];
+        NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Remove(v13, &v15);
+        LODWORD(iFile[8]) = 0;
+      }
+      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v19);
     }
-    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v23);
+    EngUnmapFontFileFD((ULONG_PTR)iFile);
+    vUnreferenceFileviewSection((struct _FILEVIEW *)iFile);
+    return v8;
   }
-  EngUnmapFontFileFD((ULONG_PTR)iFile);
-  vUnreferenceFileviewSection((struct _FILEVIEW *)iFile);
-  return v3;
+  return v4;
 }

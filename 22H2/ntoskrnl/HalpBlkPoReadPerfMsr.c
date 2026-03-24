@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBlkPoReadPerfMsr @ 0x14052AAC0
+ * XREFs of HalpBlkPoReadPerfMsr @ 0x1404DEA80
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpBlkPoBusyWait @ 0x14052A7C0 (HalpBlkPoBusyWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpBlkPoBusyWait @ 0x1404DE778 (HalpBlkPoBusyWait.c)
  */
 
 __int64 __fastcall HalpBlkPoReadPerfMsr(unsigned int a1, int a2, _QWORD *a3)
@@ -59,19 +59,22 @@ __int64 __fastcall HalpBlkPoReadPerfMsr(unsigned int a1, int a2, _QWORD *a3)
     KeBugCheckEx(0x1DAu, 4uLL, 1uLL, v4, v6 + 2216);
   HalpBlkPoBusyWait(1uLL, v4, v6 + 2216);
   *a3 = *(_QWORD *)(v6 + 2240);
-  KxReleaseSpinLock((volatile signed __int64 *)(v6 + 2216));
+  KxReleaseSpinLock((PKSPIN_LOCK)(v6 + 2216));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

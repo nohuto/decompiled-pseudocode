@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x1409068E0
+ * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x1409068C0
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x14073DCB8 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14073DC98 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     RtlpMuiRegResizeLanguageConfigList @ 0x1409073D0 (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x1409073B0 (RtlpMuiRegResizeLanguageConfigList.c)
  */
 
 __int64 __fastcall RtlpMuiRegConfigListAddLanguage(__int64 *a1, __int16 *a2)

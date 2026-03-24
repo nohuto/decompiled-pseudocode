@@ -1,146 +1,156 @@
 /*
- * XREFs of IoctlDeleteReservedQueuePair @ 0x1C0013374
+ * XREFs of IoctlDeleteReservedQueuePair @ 0x1C0012BF4
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     NVMeIoCompletionQueueDelete @ 0x1C001F414 (NVMeIoCompletionQueueDelete.c)
- *     NVMeIoSubmissionQueueDelete @ 0x1C001FB24 (NVMeIoSubmissionQueueDelete.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     NVMeIoCompletionQueueDelete @ 0x1C0019BC4 (NVMeIoCompletionQueueDelete.c)
+ *     NVMeIoSubmissionQueueDelete @ 0x1C001A2D4 (NVMeIoSubmissionQueueDelete.c)
  */
 
 __int64 __fastcall IoctlDeleteReservedQueuePair(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r15
-  unsigned int v4; // edi
-  __int64 SrbDataBuffer; // rdx
-  int v6; // r8d
-  int v7; // ecx
-  _WORD *v8; // r14
-  unsigned int v9; // edx
-  __int16 v10; // dx
-  unsigned __int16 v11; // bp
-  __int64 v12; // rcx
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  unsigned __int16 v17; // r8
-  __int64 v18; // r10
+  int v2; // r9d
+  unsigned __int16 v3; // bp
+  unsigned int v6; // r14d
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  int v9; // r8d
+  _WORD *v10; // rdi
+  unsigned int v11; // edx
+  unsigned __int16 v12; // r12
+  __int64 v13; // rbx
+  __int64 v14; // r13
+  unsigned int v15; // edi
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // r8
   unsigned __int16 v19; // cx
-  __int64 v20; // r9
-  unsigned __int16 v21; // ax
-  unsigned __int16 i; // dx
-  __int64 v23; // r8
-  char v24; // cl
-  _DWORD *v26; // [rsp+100h] [rbp+8h] BYREF
+  unsigned __int16 v20; // r9
+  __int64 v21; // r12
+  __int64 v22; // rbx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  unsigned __int16 v25; // ax
+  _WORD *v27; // [rsp+D0h] [rbp-48h]
+  __int64 v28; // [rsp+120h] [rbp+8h] BYREF
+  __int64 v29; // [rsp+130h] [rbp+18h]
+  __int64 VirtualAddress; // [rsp+138h] [rbp+20h] BYREF
 
-  v2 = a2;
-  v4 = 0;
-  v26 = 0LL;
-  if ( !*(_WORD *)(a1 + 918) || !*(_WORD *)(a1 + 890) )
+  v2 = *(unsigned __int16 *)(a1 + 822);
+  v3 = 0;
+  v6 = 0;
+  if ( !(_WORD)v2 || !*(_WORD *)(a1 + 794) )
   {
-    v4 = -1056964601;
-    v24 = 6;
-    goto LABEL_32;
+    *(_BYTE *)(a2 + 3) = 6;
+LABEL_35:
+    v6 = -1056964601;
+    goto LABEL_36;
   }
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v26);
-  if ( *v26 >= 0x28u )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v6 = *(unsigned __int16 *)(a1 + 918);
-    v7 = *(unsigned __int16 *)(a1 + 338);
-    v8 = (_WORD *)(SrbDataBuffer + 36);
-    v9 = *(unsigned __int16 *)(SrbDataBuffer + 36);
-    if ( v9 > v6 + v7 || (unsigned __int16)v9 <= (unsigned __int16)v7 )
-    {
-      v4 = -1056964601;
-      goto LABEL_33;
-    }
-    v10 = *(_WORD *)(a1 + 888);
-    v11 = 0;
-    if ( (_WORD)v6 )
-    {
-      while ( v10 )
-      {
-        v12 = *(_QWORD *)(a1 + 896);
-        if ( *(_WORD *)(v12 + 48LL * v11 + 28) == *v8 )
-        {
-          v13 = *(_QWORD *)(v12 + 48LL * v11);
-          if ( v13 && (*(_DWORD *)(a1 + 136) & 1) != 0 )
-          {
-            v14 = *(unsigned __int16 *)(v12 + 48LL * v11 + 26);
-            v26 = *(_DWORD **)(v12 + 48LL * v11 + 8);
-            NVMeFreeDmaBuffer(a1, v14 << 6, (__int64 *)&v26, v13);
-          }
-          if ( !(unsigned __int8)NVMeIoSubmissionQueueDelete(a1) )
-          {
-            *(_DWORD *)(a1 + 36) = 19;
-            v4 = -1056964607;
-            StorPortExtendedFunction(98LL, a1, 0LL);
-            goto LABEL_33;
-          }
-          v15 = *(_QWORD *)(a1 + 896);
-          *(_OWORD *)(v15 + 48LL * v11) = 0LL;
-          *(_OWORD *)(v15 + 48LL * v11 + 16) = 0LL;
-          *(_OWORD *)(v15 + 48LL * v11 + 32) = 0LL;
-          v10 = --*(_WORD *)(a1 + 888);
-        }
-        if ( ++v11 >= *(_WORD *)(a1 + 918) )
-          break;
-      }
-    }
-    if ( (*(_DWORD *)(a1 + 136) & 1) != 0 )
-    {
-      v16 = *(_QWORD *)(a1 + 904);
-      v17 = *(_WORD *)(a1 + 890);
-      v18 = *(unsigned __int16 *)(v16 + 48LL * v11 + 26);
-      v19 = 0;
-      if ( v17 )
-      {
-        while ( *(_WORD *)(v16 + 48LL * v19 + 24) != *v8 )
-        {
-          if ( ++v19 >= v17 )
-            goto LABEL_23;
-        }
-        v20 = *(_QWORD *)(v16 + 48LL * v19);
-        v26 = *(_DWORD **)(v16 + 48LL * v19 + 8);
-        NVMeFreeDmaBuffer(a1, v18 << 6, (__int64 *)&v26, v20);
-      }
-    }
-LABEL_23:
-    if ( !(unsigned __int8)NVMeIoCompletionQueueDelete(a1) )
-    {
-      *(_DWORD *)(a1 + 36) = 20;
-      v4 = -1056964607;
-      StorPortExtendedFunction(98LL, a1, 0LL);
-      goto LABEL_33;
-    }
-    v21 = *(_WORD *)(a1 + 890);
-    for ( i = 0; i < v21; ++i )
-    {
-      v23 = *(_QWORD *)(a1 + 904);
-      if ( *(_WORD *)(v23 + 48LL * i + 24) == *v8 )
-      {
-        *(_OWORD *)(v23 + 48LL * i) = 0LL;
-        *(_OWORD *)(v23 + 48LL * i + 16) = 0LL;
-        *(_OWORD *)(v23 + 48LL * i + 32) = 0LL;
-      }
-      v21 = *(_WORD *)(a1 + 890);
-    }
-    *(_WORD *)(a1 + 890) = v21 - 1;
-    v24 = 1;
-    a2 = v2;
-LABEL_32:
-    *(_BYTE *)(a2 + 3) = v24;
-    if ( !v4 )
-      return v4;
-    goto LABEL_33;
+    v7 = *(_QWORD *)(a2 + 64);
+    v8 = 60LL;
   }
-  v4 = -1056964602;
-LABEL_33:
-  if ( !*(_BYTE *)(v2 + 3) )
-    *(_BYTE *)(v2 + 3) = 4;
-  if ( *(_BYTE *)(a1 + 22) )
-    StorPortExtendedFunction(87LL, a1, 0LL);
-  return v4;
+  else
+  {
+    v7 = *(_QWORD *)(a2 + 24);
+    v8 = 16LL;
+  }
+  if ( *(_DWORD *)(a2 + v8) < 0x28u )
+  {
+    v6 = -1056964602;
+    goto LABEL_36;
+  }
+  v9 = *(unsigned __int16 *)(a1 + 290);
+  v10 = (_WORD *)(v7 + 36);
+  v29 = v7 + 28;
+  v11 = *(unsigned __int16 *)(v7 + 36);
+  v27 = (_WORD *)(v7 + 36);
+  if ( v11 > v9 + v2 || (unsigned __int16)v11 <= (unsigned __int16)v9 )
+    goto LABEL_35;
+  v12 = 0;
+  LOWORD(v28) = *(_WORD *)(a1 + 792);
+  if ( (_WORD)v28 )
+  {
+    while ( 1 )
+    {
+      v13 = *(_QWORD *)(a1 + 800);
+      v14 = 32LL * v12;
+      if ( *(_WORD *)(v13 + v14 + 20) == *v10 )
+      {
+        if ( *(_QWORD *)(136LL * v12 + *(_QWORD *)(a1 + 776) + 8) && (*(_DWORD *)(a1 + 128) & 1) != 0 )
+        {
+          v15 = *(unsigned __int16 *)(v13 + v14 + 18);
+          v16 = *(_QWORD *)(v13 + 32LL * v12);
+          VirtualAddress = StorPortGetVirtualAddress(a1, v16);
+          NVMeFreeDmaBuffer(a1, (unsigned __int64)v15 << 6, &VirtualAddress, v16);
+          v10 = v27;
+        }
+        if ( !(unsigned __int8)NVMeIoSubmissionQueueDelete(a1) )
+        {
+          *(_DWORD *)(a1 + 28) = 19;
+          v6 = -1056964607;
+          StorPortExtendedFunction(98LL, a1, 0LL, 10LL);
+          goto LABEL_36;
+        }
+        v17 = *(_QWORD *)(a1 + 800);
+        *(_OWORD *)(v17 + 32LL * v12) = 0LL;
+        *(_OWORD *)(v17 + v14 + 16) = 0LL;
+        --*(_WORD *)(a1 + 792);
+      }
+      if ( ++v12 >= (unsigned __int16)v28 )
+      {
+        LOWORD(v11) = *(_WORD *)(v29 + 8);
+        break;
+      }
+    }
+  }
+  if ( (*(_DWORD *)(a1 + 128) & 1) != 0 )
+  {
+    v18 = *(_QWORD *)(a1 + 808);
+    v19 = 0;
+    v20 = *(_WORD *)(a1 + 794);
+    v21 = *(unsigned __int16 *)(32LL * v12 + v18 + 18);
+    if ( v20 )
+    {
+      while ( *(_WORD *)(32LL * v19 + v18 + 16) != (_WORD)v11 )
+      {
+        if ( ++v19 >= v20 )
+          goto LABEL_26;
+      }
+      v22 = *(_QWORD *)(32LL * v19 + v18);
+      v28 = StorPortGetVirtualAddress(a1, v22);
+      NVMeFreeDmaBuffer(a1, v21 << 6, &v28, v22);
+    }
+  }
+LABEL_26:
+  if ( !(unsigned __int8)NVMeIoCompletionQueueDelete(a1) )
+  {
+    *(_DWORD *)(a1 + 28) = 20;
+    v6 = -1056964607;
+    StorPortExtendedFunction(98LL, a1, 0LL, 10LL);
+LABEL_36:
+    if ( !*(_BYTE *)(a2 + 3) )
+      *(_BYTE *)(a2 + 3) = 4;
+    StorPortExtendedFunction(87LL, a1, 0LL, 1LL);
+    return v6;
+  }
+  while ( 1 )
+  {
+    v25 = *(_WORD *)(a1 + 794);
+    if ( v3 >= v25 )
+      break;
+    v23 = *(_QWORD *)(a1 + 808);
+    v24 = 32LL * v3;
+    if ( *(_WORD *)(v24 + v23 + 16) == *v10 )
+    {
+      *(_OWORD *)(v24 + v23) = 0LL;
+      *(_OWORD *)(v24 + v23 + 16) = 0LL;
+    }
+    ++v3;
+  }
+  *(_WORD *)(a1 + 794) = v25 - 1;
+  *(_BYTE *)(a2 + 3) = 1;
+  return v6;
 }

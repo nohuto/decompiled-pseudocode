@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiArblibPackResource @ 0x1C007D240
+ * XREFs of AcpiArblibPackResource @ 0x1C00AD4D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtUpdateSingleTargetExtendedDestination @ 0x1405301A0
+ * XREFs of IvtUpdateSingleTargetExtendedDestination @ 0x1404E1440
  * Callers:
- *     IvtUpdateExtendedDestination @ 0x14052FA14 (IvtUpdateExtendedDestination.c)
+ *     IvtUpdateExtendedDestination @ 0x1404E0FBC (IvtUpdateExtendedDestination.c)
  * Callees:
  *     <none>
  */

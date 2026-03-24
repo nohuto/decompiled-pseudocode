@@ -1,14 +1,14 @@
 /*
- * XREFs of ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FE40
+ * XREFs of ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0282300
  * Callers:
- *     vSpDynamicModeChange @ 0x1C00B7500 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EE000 (vSpDynamicModeChange.c)
  * Callees:
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00B56F4 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z @ 0x1C00B594C (-pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z.c)
- *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00B604C (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030 (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C027EFEC (-bSpTransferShape@@YAHPEAVSPRITE@@0@Z.c)
- *     ?vSpCreateExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C0280798 (-vSpCreateExMirror@@YAXPEAUHDEV__@@@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED954 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z @ 0x1C00EDE44 (-pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z.c)
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE6F4 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C0281378 (-bSpTransferShape@@YAHPEAVSPRITE@@0@Z.c)
+ *     ?vSpCreateExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C0282F9C (-vSpCreateExMirror@@YAXPEAUHDEV__@@@Z.c)
  */
 
 struct SPRITE *__fastcall pSpTransferSprite(HDEV a1, struct SPRITE *a2)
@@ -43,8 +43,8 @@ LABEL_5:
   }
   v14 = (struct _POINTL)*((_QWORD *)a2 + 14);
   v7 = **((_QWORD **)a2 + 2);
-  v8 = *(_DWORD *)(v7 + 2564) - *((_DWORD *)a1 + 641);
-  v14.x += *(_DWORD *)(v7 + 2560) - *((_DWORD *)a1 + 640);
+  v8 = *(_DWORD *)(v7 + 2588) - *((_DWORD *)a1 + 647);
+  v14.x += *(_DWORD *)(v7 + 2584) - *((_DWORD *)a1 + 646);
   v14.y += v8;
   bSpTransferShape(Sprite, a2);
   *((_QWORD *)v3 + 24) = *((_QWORD *)a2 + 24);

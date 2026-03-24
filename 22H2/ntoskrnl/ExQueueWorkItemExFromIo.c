@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueueWorkItemExFromIo @ 0x14060CC1C
+ * XREFs of ExQueueWorkItemExFromIo @ 0x1405B6EA8
  * Callers:
- *     IoQueueWorkItemToNode @ 0x140558330 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemToNode @ 0x140506E00 (IoQueueWorkItemToNode.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1402B7670 (ExpQueueWorkItem.c)
- *     ExpValidateWorkItem @ 0x1402B7E50 (ExpValidateWorkItem.c)
- *     ExpTypeToPriority @ 0x1402B951C (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14023E058 (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x14023E0A0 (ExpTypeToPriority.c)
+ *     ExpQueueWorkItem @ 0x140240E10 (ExpQueueWorkItem.c)
  */
 
 __int64 __fastcall ExQueueWorkItemExFromIo(_QWORD *a1, unsigned int a2, unsigned int a3)
@@ -14,5 +14,5 @@ __int64 __fastcall ExQueueWorkItemExFromIo(_QWORD *a1, unsigned int a2, unsigned
 
   ExpValidateWorkItem(a1, a2);
   v6 = ExpTypeToPriority(a2);
-  return ExpQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), a1, v6, a3, 1);
+  return ExpQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), a1, v6, a3, 1u);
 }

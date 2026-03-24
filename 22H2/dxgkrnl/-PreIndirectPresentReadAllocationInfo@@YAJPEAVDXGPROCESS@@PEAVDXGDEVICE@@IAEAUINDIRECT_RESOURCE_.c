@@ -1,21 +1,19 @@
 /*
- * XREFs of ?PreIndirectPresentReadAllocationInfo@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IAEAUINDIRECT_RESOURCE_INFO@@@Z @ 0x1C033FB9C
+ * XREFs of ?PreIndirectPresentReadAllocationInfo@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IAEAUINDIRECT_RESOURCE_INFO@@@Z @ 0x1C0281B3C
  * Callers:
- *     DxgkPresent @ 0x1C01BED90 (DxgkPresent.c)
- *     DxgkSubmitPresentToHwQueue @ 0x1C031E8D0 (DxgkSubmitPresentToHwQueue.c)
+ *     DxgkPresent @ 0x1C010B130 (DxgkPresent.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C0272670 (DxgkSubmitPresentToHwQueue.c)
  * Callees:
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C00075BC (--1COREACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ @ 0x1C0007C20 (--1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0015A34 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0171518 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
- *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01A1DDC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
- *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C01C5980 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0004E50 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008DD8 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0101520 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C0109380 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
+ *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01550DC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
  */
 
 __int64 __fastcall PreIndirectPresentReadAllocationInfo(
@@ -25,97 +23,107 @@ __int64 __fastcall PreIndirectPresentReadAllocationInfo(
         struct INDIRECT_RESOURCE_INFO *a4)
 {
   __int64 v5; // rdi
-  unsigned int v8; // eax
-  __int64 v9; // r9
-  int v10; // edx
-  struct _EX_RUNDOWN_REF *v11; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  int v10; // r9d
+  __int64 v11; // rax
   __int64 v12; // r9
-  int v13; // eax
-  __int64 v14; // r8
-  unsigned int v15; // ebx
-  __int64 v16; // rsi
-  const wchar_t *v17; // r9
+  int v13; // edx
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  struct _EX_RUNDOWN_REF *v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // r9
+  int v19; // eax
   ULONG_PTR Count; // rdx
-  ADAPTER_RENDER *v19; // rcx
-  struct _EX_RUNDOWN_REF *v21; // [rsp+50h] [rbp-B0h] BYREF
-  struct _EX_RUNDOWN_REF *v22; // [rsp+58h] [rbp-A8h] BYREF
-  struct _DXGKARG_DESCRIBEALLOCATION v23; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v24[16]; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v25[8]; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v26[64]; // [rsp+A8h] [rbp-58h] BYREF
-  _BYTE v27[88]; // [rsp+E8h] [rbp-18h] BYREF
+  ADAPTER_RENDER *v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // rbx
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  struct _EX_RUNDOWN_REF *v27; // [rsp+30h] [rbp-D0h] BYREF
+  struct _EX_RUNDOWN_REF *v28; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v29; // [rsp+40h] [rbp-C0h] BYREF
+  char v30; // [rsp+48h] [rbp-B8h]
+  struct _DXGKARG_DESCRIBEALLOCATION v31; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v32[8]; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v33[64]; // [rsp+88h] [rbp-78h] BYREF
+  _BYTE v34[88]; // [rsp+C8h] [rbp-38h] BYREF
 
   v5 = a3;
-  DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v24, (struct DXGDEVICE *)a2);
-  v21 = 0LL;
-  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)a1 + 248));
-  v8 = ((unsigned int)v5 >> 6) & 0xFFFFFF;
-  if ( v8 >= *((_DWORD *)a1 + 74) )
-    goto LABEL_7;
-  v9 = *((_QWORD *)a1 + 35);
-  if ( (((unsigned int)v5 >> 25) & 0x60) != (*(_BYTE *)(v9 + 16LL * v8 + 8) & 0x60) )
-    goto LABEL_7;
-  if ( (*(_DWORD *)(v9 + 16LL * v8 + 8) & 0x2000) != 0 )
-    goto LABEL_7;
-  v10 = *(_DWORD *)(v9 + 16LL * v8 + 8) & 0x1F;
-  if ( !v10 )
-    goto LABEL_7;
-  if ( v10 != 5 )
+  DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)&v29, (struct DXGDEVICE *)a2);
+  v27 = 0LL;
+  KeEnterCriticalRegion();
+  if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx((char *)a1 + 208, 0LL) )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_7:
-    v11 = 0LL;
-    goto LABEL_8;
+    if ( bTracingEnabled )
+    {
+      v10 = *((_DWORD *)a1 + 58);
+      if ( v10 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v8, &EventBlockThread, v9, v10);
+    }
+    ExAcquirePushLockSharedEx((char *)a1 + 208, 0LL);
   }
-  v11 = *(struct _EX_RUNDOWN_REF **)(v9 + 16LL * v8);
-LABEL_8:
-  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v22, v11);
-  _InterlockedDecrement((volatile signed __int32 *)a1 + 66);
-  ExReleasePushLockSharedEx((char *)a1 + 248, 0LL);
+  v11 = ((unsigned int)v5 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v11 >= *((_DWORD *)a1 + 64) )
+    goto LABEL_13;
+  v12 = *((_QWORD *)a1 + 30);
+  v13 = *(_DWORD *)(v12 + 16 * v11 + 8);
+  if ( (((unsigned int)v5 >> 25) & 0x60) != (*(_BYTE *)(v12 + 16 * v11 + 8) & 0x60)
+    || (v13 & 0x2000) != 0
+    || (v13 & 0x1F) == 0 )
+  {
+    goto LABEL_13;
+  }
+  v14 = v13 & 0x1F;
+  if ( (_BYTE)v14 != 5 )
+  {
+    v15 = WdLogNewEntry5_WdError(((unsigned int)v5 >> 25) & 0x60, v14);
+    *(_QWORD *)(v15 + 24) = 316LL;
+    WdLogEvent5_WdError(v15);
+LABEL_13:
+    v16 = 0LL;
+    goto LABEL_14;
+  }
+  v16 = *(struct _EX_RUNDOWN_REF **)(v12 + 16LL * (unsigned int)v11);
+LABEL_14:
+  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v28, v16);
+  ExReleasePushLockSharedEx((char *)a1 + 208, 0LL);
   KeLeaveCriticalRegion();
-  DXGALLOCATIONREFERENCE::MoveAssign(&v21, &v22);
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v22);
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v25, (__int64)a2, 0, v12, 0);
-  v13 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v25, 0LL);
-  v15 = v13;
-  if ( v13 < 0 )
+  DXGALLOCATIONREFERENCE::MoveAssign(&v27, &v28);
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v28, v17);
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v32, (__int64)a2, 0, v18, 0);
+  v19 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v32, 0LL);
+  v23 = v19;
+  if ( v19 < 0 )
   {
-    v16 = v13;
-    WdLogSingleEntry1(2LL, v13);
-    v17 = L"0x%I64x fails Present, failed to take adapter core access shared lock";
-    v5 = 0LL;
-LABEL_18:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v17, v16, v5, 0LL, 0LL, 0LL);
-    goto LABEL_19;
+    v24 = WdLogNewEntry5_WdError(v21, Count);
+LABEL_22:
+    *(_QWORD *)(v24 + 24) = v23;
+    WdLogEvent5_WdError(v24);
+    goto LABEL_23;
   }
-  if ( !v21 )
+  if ( !v27 || (Count = v27[1].Count) == 0 || (v21 = a2[2], *(ADAPTER_RENDER **)(Count + 16) != v21) )
   {
-    v15 = -1073741811;
-    WdLogSingleEntry2(2LL, -1073741811LL, v5);
-    v17 = L"0x%I64x fails Present invalid hSource 0x%I64x";
-LABEL_17:
-    v16 = -1073741811LL;
-    goto LABEL_18;
+    v24 = WdLogNewEntry5_WdError(v21, Count);
+    v23 = -1073741811LL;
+    *(_QWORD *)(v24 + 32) = v5;
+    goto LABEL_22;
   }
-  Count = v21[1].Count;
-  if ( !Count || (v19 = a2[2], *(ADAPTER_RENDER **)(Count + 16) != v19) )
+  memset(&v31, 0, sizeof(v31));
+  v31.hAllocation = *(HANDLE *)(v27[6].Count + 16);
+  LODWORD(v23) = ADAPTER_RENDER::DdiDescribeAllocation(v21, &v31, v22);
+  *(_DWORD *)a4 = v31.Width;
+  *((_DWORD *)a4 + 1) = v31.Height;
+  *((_DWORD *)a4 + 2) = v31.Format;
+LABEL_23:
+  COREACCESS::~COREACCESS((COREACCESS *)v34);
+  COREACCESS::~COREACCESS((COREACCESS *)v33);
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v27, v25);
+  if ( v29 && v30 )
   {
-    v15 = -1073741811;
-    WdLogSingleEntry2(2LL, -1073741811LL, v5);
-    v17 = L"0x%I64x fails Present hSource is for the wrong adapter";
-    goto LABEL_17;
+    ExReleaseResourceLite(*(PERESOURCE *)(v29 + 136));
+    KeLeaveCriticalRegion();
   }
-  memset(&v23, 0, sizeof(v23));
-  v23.hAllocation = *(HANDLE *)(v21[6].Count + 16);
-  v15 = ADAPTER_RENDER::DdiDescribeAllocation(v19, &v23, v14);
-  *(_DWORD *)a4 = v23.Width;
-  *((_DWORD *)a4 + 1) = v23.Height;
-  *((_DWORD *)a4 + 2) = v23.Format;
-LABEL_19:
-  COREACCESS::~COREACCESS((COREACCESS *)v27);
-  COREACCESS::~COREACCESS((COREACCESS *)v26);
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v21);
-  DXGDEVICEACCESSLOCKSHARED::~DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v24);
-  return v15;
+  return (unsigned int)v23;
 }

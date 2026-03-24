@@ -1,35 +1,39 @@
 /*
- * XREFs of CmpAllocateUnitOfWork @ 0x1407D3A20
+ * XREFs of CmpAllocateUnitOfWork @ 0x14069B770
  * Callers:
- *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x1405CD308 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmSetKeyFlags @ 0x14086DCC8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E18C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 CmpAllocateUnitOfWork()
+_QWORD *CmpAllocateUnitOfWork()
 {
-  __int64 result; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v1; // rbx
 
-  result = ExAllocatePool2(256LL, 120LL, 2002079043LL);
-  if ( result )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x77554D43u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(result + 8) = result;
-    *(_QWORD *)(result + 40) = result + 32;
-    *(_QWORD *)(result + 32) = result + 32;
-    *(_QWORD *)result = result;
-    *(_QWORD *)(result + 16) = 0LL;
-    *(_QWORD *)(result + 24) = 0LL;
-    *(_QWORD *)(result + 48) = 0LL;
-    *(_QWORD *)(result + 56) = 0LL;
-    *(_DWORD *)(result + 64) = 0;
-    *(_DWORD *)(result + 68) = 15;
+    memset(PoolWithTag, 0, 0x78uLL);
+    v1[2] = 0LL;
+    v1[3] = 0LL;
+    v1[6] = 0LL;
+    v1[7] = 0LL;
+    *((_DWORD *)v1 + 16) = 0;
+    v1[5] = v1 + 4;
+    v1[4] = v1 + 4;
+    v1[1] = v1;
+    *v1 = v1;
+    *((_DWORD *)v1 + 17) = 15;
   }
-  return result;
+  return v1;
 }

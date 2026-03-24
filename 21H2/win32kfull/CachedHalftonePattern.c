@@ -1,10 +1,10 @@
 /*
- * XREFs of CachedHalftonePattern @ 0x1C0093E60
+ * XREFs of CachedHalftonePattern @ 0x1C001B948
  * Callers:
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
- *     CreateHalftoneBrushPat @ 0x1C025F874 (CreateHalftoneBrushPat.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
+ *     CreateHalftoneBrushPat @ 0x1C02629E4 (CreateHalftoneBrushPat.c)
  * Callees:
- *     Generate_HTSC_WORD @ 0x1C011DD3C (Generate_HTSC_WORD.c)
+ *     Generate_HTSC_WORD @ 0x1C012A1B8 (Generate_HTSC_WORD.c)
  */
 
 __int64 __fastcall CachedHalftonePattern(__int64 a1, __int64 a2, __int64 a3, __int16 a4, __int16 a5, int a6)

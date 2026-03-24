@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0008030
+ * XREFs of ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0011D60
  * Callers:
- *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0007F94 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0011CC4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
  * Callees:
- *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0002ACC (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
- *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0008188 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C000837C (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     DxgkGetDeviceStateInternal @ 0x1C017C6C0 (DxgkGetDeviceStateInternal.c)
+ *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0011EB8 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00120C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0012760 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     DxgkGetDeviceStateInternal @ 0x1C00F80D0 (DxgkGetDeviceStateInternal.c)
  */
 
 char __fastcall CAdapterCollection::UpdateCollection(
@@ -58,7 +58,7 @@ LABEL_13:
         if ( v10 == v9 )
           goto LABEL_13;
       }
-      v13 = *(_DWORD *)(((unsigned __int64)(v10 - 1) & -(__int64)(v10 != 0LL)) + 0x2C);
+      v13 = *(_DWORD *)(((unsigned __int64)(v10 - 1) & -(__int64)(v10 != 0LL)) + 0x24);
       if ( v13 )
       {
         v19 = 0LL;
@@ -74,7 +74,7 @@ LABEL_13:
         goto LABEL_13;
       ++v8;
       a2 = (struct CSM_TOKEN_ADAPTER_INFO *)((char *)a2 + 24);
-      a3[v11] = *(void **)(v12 + 48);
+      a3[v11] = *(void **)(v12 + 40);
     }
     while ( v8 < a4 );
   }

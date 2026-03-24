@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpResGetResourceDirectory @ 0x14068A9BC
+ * XREFs of LdrpResGetResourceDirectory @ 0x14068A99C
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     LdrpSectionTableFromVirtualAddress @ 0x14068B54C (LdrpSectionTableFromVirtualAddress.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x14068B52C (LdrpSectionTableFromVirtualAddress.c)
  */
 
 NTSTATUS __fastcall LdrpResGetResourceDirectory(

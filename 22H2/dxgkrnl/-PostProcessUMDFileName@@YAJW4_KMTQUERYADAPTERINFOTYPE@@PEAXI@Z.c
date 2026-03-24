@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z @ 0x1C02CFE4C
+ * XREFs of ?PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z @ 0x1C02228A8
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02D05FC (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
- *     ?TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z @ 0x1C02D070C (-TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z.c)
+ *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C0222E20 (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
+ *     ?TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z @ 0x1C0222F40 (-TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z.c)
  */
 
 __int64 __fastcall PostProcessUMDFileName(enum _KMTQUERYADAPTERINFOTYPE a1, char *a2, unsigned int a3)

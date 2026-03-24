@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncNotifyAnimationChange @ 0x1C0016AEC
+ * XREFs of DwmAsyncNotifyAnimationChange @ 0x1C002BFF8
  * Callers:
- *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00B8E38 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F49BC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F56B0 (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003D2C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C0131CE0 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall DwmAsyncNotifyAnimationChange(PVOID Object, int a2, __int64 a
     *(_QWORD *)v7 = 0LL;
     WORD2(v6[0]) = 0x8000;
     LODWORD(v6[0]) = 3670032;
-    *(_DWORD *)&v7[8] = 1073741869;
+    *(_DWORD *)&v7[8] = 1073741868;
     *(_QWORD *)&v7[12] = a3;
     v8 = a2;
     v4 = LpcRequestPort(Object, v6);

@@ -1,174 +1,144 @@
 /*
- * XREFs of ?VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0041394
+ * XREFs of ?VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00396E8
  * Callers:
- *     VidSchiProcessMonitoredFenceSignaledDpc @ 0x1C001F6F4 (VidSchiProcessMonitoredFenceSignaledDpc.c)
- *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C00435F8 (VidSchiProcessSuspendContextCompletedDpc.c)
+ *     VidSchiProcessMonitoredFenceSignaledDpc @ 0x1C003B7E0 (VidSchiProcessMonitoredFenceSignaledDpc.c)
+ *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C003B88C (VidSchiProcessSuspendContextCompletedDpc.c)
  * Callees:
- *     ?VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001E908 (-VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z.c)
- *     ?VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z @ 0x1C001EA70 (-VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z.c)
- *     ?DxgkrnlContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C003E30C (-DxgkrnlContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
- *     ?KmdContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C003E328 (-KmdContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00364C4 (-VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     ?VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z @ 0x1C0036F68 (-VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z.c)
  */
 
 void __fastcall VidSchiUpdateHwSchRunningTime(struct _VIDSCH_NODE *a1)
 {
-  unsigned int v2; // r13d
+  __int64 v2; // rbx
   unsigned int v3; // eax
-  unsigned int v4; // r15d
-  struct _RTL_BALANCED_NODE *v5; // rsi
-  struct _RTL_BALANCED_NODE *v6; // rbp
-  __int64 v7; // r14
-  struct _RTL_BALANCED_NODE *v8; // r12
-  struct _RTL_BALANCED_NODE *v9; // rsi
-  int v10; // eax
-  struct _RTL_BALANCED_NODE *v11; // rsi
-  int v12; // eax
-  int v13; // esi
-  __int64 v14; // r14
-  unsigned __int64 v15; // r12
-  unsigned __int64 v16; // rax
-  ULONG_PTR ParentValue; // rcx
-  unsigned __int64 v18; // r9
-  __int64 v19; // r10
-  __int64 v20; // rax
-  _QWORD **v21; // rcx
-  __int64 v22; // [rsp+60h] [rbp+8h]
-  struct _RTL_BALANCED_NODE *v23; // [rsp+68h] [rbp+10h]
-  union _LARGE_INTEGER PerformanceFrequency; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v4; // ebp
+  unsigned int v5; // r13d
+  _QWORD *v6; // rsi
+  __int64 v7; // r12
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rdx
+  _QWORD *v10; // rax
+  _QWORD *v11; // rax
+  int v12; // r14d
+  __int64 v13; // r15
+  unsigned __int64 v14; // r12
+  unsigned __int64 v15; // rax
+  __int64 v16; // rcx
+  unsigned __int64 v17; // r9
+  __int64 v18; // r10
+  __int64 v19; // rax
+  _QWORD **v20; // rcx
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v22; // [rsp+68h] [rbp+10h]
 
   if ( (*((_DWORD *)a1 + 3) & 2) != 0 )
   {
-    if ( *((_QWORD *)a1 + 1392) )
+    if ( *((_QWORD *)a1 + 1390) )
     {
       VidSchiCalibrateHwClock(a1);
-      if ( *((_QWORD *)a1 + 1398) )
+      if ( *((_QWORD *)a1 + 1396) )
       {
-        v2 = *((_DWORD *)a1 + 2786);
-        HIDWORD(v22) = HIDWORD(**((_QWORD **)a1 + 1394));
-        LODWORD(v22) = (unsigned int)**((_QWORD **)a1 + 1394) % v2;
-        if ( *((_QWORD *)a1 + 1396) != v22 )
+        v2 = **((_QWORD **)a1 + 1392);
+        if ( *((_QWORD *)a1 + 1394) != v2 )
         {
-          v3 = *((_DWORD *)a1 + 2793);
-          if ( v3 <= HIDWORD(v22) )
+          v3 = *((_DWORD *)a1 + 2789);
+          if ( v3 <= HIDWORD(v2) )
           {
-            v4 = *((_DWORD *)a1 + 2792);
-            if ( v3 != HIDWORD(v22) )
+            v4 = *((_DWORD *)a1 + 2788);
+            v5 = *((_DWORD *)a1 + 2782);
+            if ( v3 != HIDWORD(v2) )
             {
-              if ( v3 + 1 != HIDWORD(v22) )
-                v4 = (v4 + (v2 >> 1)) % v2;
-              goto LABEL_11;
-            }
-            if ( v4 <= (unsigned int)**((_QWORD **)a1 + 1394) % v2 )
-            {
+              if ( v3 + 1 != HIDWORD(v2) )
+                v4 = (v4 + (v5 >> 1)) % v5;
 LABEL_11:
-              v23 = 0LL;
-              v5 = 0LL;
-              PerformanceFrequency.QuadPart = 0LL;
               v6 = 0LL;
+              PerformanceFrequency.QuadPart = 0LL;
+              v7 = 0LL;
+              v22 = 0LL;
               KeQueryPerformanceCounter(&PerformanceFrequency);
               do
               {
-                v7 = *((_QWORD *)a1 + 1394) + 32 * (v4 + 1LL);
-                if ( !*(_DWORD *)(v7 + 8) )
+                v8 = *((_QWORD *)a1 + 1392) + 32 * (v4 + 1LL);
+                if ( !*(_DWORD *)(v8 + 8) )
                 {
-                  v8 = *(struct _RTL_BALANCED_NODE **)(v7 + 16);
-                  if ( v8 != v5 )
+                  v9 = *(_QWORD *)(v8 + 16);
+                  if ( v9 == v7 )
                   {
-                    v9 = (struct _RTL_BALANCED_NODE *)*((_QWORD *)a1 + 217);
-                    if ( !v9 )
-                      goto LABEL_22;
-                    do
+                    if ( v6 )
                     {
-                      v10 = DxgkrnlContextHandleCompareFunction(v8, v9);
-                      if ( v10 >= 0 )
+LABEL_31:
+                      v12 = *(_DWORD *)(v8 + 24);
+                      v13 = *(_QWORD *)v8;
+                      if ( *((_DWORD *)v6 + 36) == 1 && v12 != 1 )
                       {
-                        if ( v10 <= 0 )
-                          break;
-                        v9 = v9->Children[1];
-                      }
-                      else
-                      {
-                        v9 = v9->Children[0];
-                      }
-                    }
-                    while ( v9 );
-                    if ( v9 )
-                    {
-                      v6 = v9 - 4;
-LABEL_30:
-                      v23 = v8;
-LABEL_32:
-                      v13 = *(_DWORD *)(v7 + 24);
-                      v14 = *(_QWORD *)v7;
-                      if ( LODWORD(v6[6].Children[0]) == 1 && v13 != 1 )
-                      {
-                        v15 = VidSchiConvertGpuTimeStampToSchedulerUnits(
-                                a1,
-                                (__int64)v6[6].Children[1],
-                                PerformanceFrequency.QuadPart);
-                        v16 = VidSchiConvertGpuTimeStampToSchedulerUnits(a1, v14, PerformanceFrequency.QuadPart);
-                        if ( v16 > v15 )
+                        v14 = VidSchiConvertGpuTimeStampToSchedulerUnits(a1, v6[19], PerformanceFrequency.QuadPart);
+                        v15 = VidSchiConvertGpuTimeStampToSchedulerUnits(a1, v13, PerformanceFrequency.QuadPart);
+                        if ( v15 > v14 )
                         {
-                          ParentValue = v6->ParentValue;
-                          v18 = v16 - v15;
-                          v19 = *(unsigned __int16 *)(ParentValue + 4);
-                          v20 = *(_QWORD *)(*(_QWORD *)(v6->Children[1][1].ParentValue + 32)
-                                          + 8LL * *(unsigned int *)(*(_QWORD *)(ParentValue + 24) + 4LL));
-                          if ( v20 )
+                          v16 = v6[2];
+                          v17 = v15 - v14;
+                          v18 = *(unsigned __int16 *)(v16 + 4);
+                          v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6[1] + 40LL) + 24LL)
+                                          + 8LL * *(unsigned int *)(*(_QWORD *)(v16 + 24) + 4LL));
+                          if ( v19 )
                           {
-                            v21 = *(_QWORD ***)(v20 + 8);
-                            if ( (unsigned int)v19 < *(_DWORD *)(v20 + 80) )
-                              v21 += v19;
-                            if ( *v21 )
-                              **v21 += v18;
+                            v20 = *(_QWORD ***)(v19 + 8);
+                            if ( (unsigned int)v18 < *(_DWORD *)(v19 + 80) )
+                              v20 += v18;
+                            if ( *v20 )
+                              **v20 += v17;
                           }
-                          v6[14].Children[1] = (struct _RTL_BALANCED_NODE *)((char *)v6[14].Children[1] + v18);
+                          v6[43] += v17;
                         }
                       }
-                      LODWORD(v6[6].Children[0]) = v13;
-                      v6[6].Children[1] = (struct _RTL_BALANCED_NODE *)v14;
+                      v7 = v22;
+                      *((_DWORD *)v6 + 36) = v12;
+                      v6[19] = v13;
                     }
-                    else
-                    {
-LABEL_22:
-                      v11 = (struct _RTL_BALANCED_NODE *)*((_QWORD *)a1 + 218);
-                      if ( v11 )
-                      {
-                        do
-                        {
-                          v12 = KmdContextHandleCompareFunction(v8, v11);
-                          if ( v12 >= 0 )
-                          {
-                            if ( v12 <= 0 )
-                              break;
-                            v11 = v11->Children[1];
-                          }
-                          else
-                          {
-                            v11 = v11->Children[0];
-                          }
-                        }
-                        while ( v11 );
-                        if ( v11 )
-                        {
-                          v6 = v11 - 5;
-                          goto LABEL_30;
-                        }
-                      }
-                    }
-                    v5 = v23;
-                    goto LABEL_43;
                   }
-                  if ( v6 )
-                    goto LABEL_32;
+                  else
+                  {
+                    v10 = (_QWORD *)*((_QWORD *)a1 + 216);
+                    while ( v10 )
+                    {
+                      if ( v9 == *(v10 - 8) )
+                      {
+                        v6 = v10 - 12;
+LABEL_29:
+                        v22 = *(_QWORD *)(v8 + 16);
+                        goto LABEL_31;
+                      }
+                      if ( v9 >= *(v10 - 8) )
+                        v10 = (_QWORD *)v10[1];
+                      else
+                        v10 = (_QWORD *)*v10;
+                    }
+                    v11 = (_QWORD *)*((_QWORD *)a1 + 217);
+                    while ( v11 )
+                    {
+                      if ( v9 == *(v11 - 9) )
+                      {
+                        v6 = v11 - 15;
+                        goto LABEL_29;
+                      }
+                      if ( v9 >= *(v11 - 9) )
+                        v11 = (_QWORD *)v11[1];
+                      else
+                        v11 = (_QWORD *)*v11;
+                    }
+                  }
                 }
-LABEL_43:
-                v4 = (v4 + 1) % v2;
+                v4 = (v4 + 1) % v5;
               }
-              while ( v4 != (_DWORD)v22 );
+              while ( v4 != (_DWORD)v2 );
+              goto LABEL_42;
             }
+            if ( v4 <= (unsigned int)v2 )
+              goto LABEL_11;
           }
-          *((_QWORD *)a1 + 1396) = v22;
+LABEL_42:
+          *((_QWORD *)a1 + 1394) = v2;
         }
       }
     }

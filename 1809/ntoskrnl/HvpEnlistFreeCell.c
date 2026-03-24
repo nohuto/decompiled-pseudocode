@@ -5,7 +5,7 @@
  *     HvpEnlistFreeCells @ 0x1405F9800 (HvpEnlistFreeCells.c)
  *     HvpDoAllocateCell @ 0x1405FB690 (HvpDoAllocateCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpAddFreeCellHint @ 0x1405F9D2C (HvpAddFreeCellHint.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */

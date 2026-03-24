@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFdoCleanupDeviceInterfaceForBillBoard @ 0x1C00299A8
+ * XREFs of UsbhFdoCleanupDeviceInterfaceForBillBoard @ 0x1C002ACF8
  * Callers:
- *     UsbhBillboardCleanup @ 0x1C00529F4 (UsbhBillboardCleanup.c)
+ *     UsbhBillboardCleanup @ 0x1C0054048 (UsbhBillboardCleanup.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhFdoCleanupDeviceInterfaceForBillBoard(

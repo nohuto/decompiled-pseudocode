@@ -1,38 +1,45 @@
 /*
- * XREFs of PsAdjustBasicEnclaveThreadList @ 0x1405E2E00
+ * XREFs of PsAdjustBasicEnclaveThreadList @ 0x1405843D4
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PspFindVsmEnclaveThread @ 0x1408826B4 (PspFindVsmEnclaveThread.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA638 (MiHotPatchImageTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PsAdjustBasicEnclaveThreadList(__int64 a1, __int64 a2, int a3)
 {
-  _QWORD *v3; // rdi
+  _QWORD *v3; // rbx
   _QWORD *PoolWithTag; // rax
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v10; // rbp
-  _BOOL8 v11; // r8
+  ULONG_PTR v10; // rbp
+  bool v11; // zf
   unsigned __int64 *v12; // rdi
-  int VsmEnclaveThread; // eax
-  _QWORD *v14; // rsi
-  _QWORD *v15; // rax
-  struct _KTHREAD *v16; // rsi
-  unsigned int SessionId; // ecx
-  __int64 p_Process; // rbx
-  unsigned int v19; // edx
-  int v20; // r9d
+  bool v13; // r8
+  unsigned __int64 v14; // rax
+  int v15; // eax
+  struct _KTHREAD *v16; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v18; // r14
+  _DWORD *v19; // r9
+  unsigned int v20; // r8d
+  __int64 v21; // rsi
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  int v25; // [rsp+78h] [rbp+20h] BYREF
 
   v3 = 0LL;
   if ( a3 )
@@ -47,17 +54,18 @@ __int64 __fastcall PsAdjustBasicEnclaveThreadList(__int64 a1, __int64 a2, int a3
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = (volatile signed __int64 *)(a1 + 112);
+  v10 = a1 + 112;
   ExAcquirePushLockExclusiveEx(a1 + 112, 0LL);
-  if ( !a3 )
+  v11 = a3 == 0;
+  v12 = *(unsigned __int64 **)(a1 + 104);
+  if ( v11 )
   {
-    v12 = *(unsigned __int64 **)(a1 + 104);
     while ( v12 )
     {
-      VsmEnclaveThread = PspFindVsmEnclaveThread(a2, v12, v11);
-      if ( VsmEnclaveThread >= 0 )
+      v15 = MiHotPatchImageTreeCompare(a2, v12);
+      if ( v15 >= 0 )
       {
-        if ( VsmEnclaveThread <= 0 )
+        if ( v15 <= 0 )
           break;
         v12 = (unsigned __int64 *)v12[1];
       }
@@ -67,76 +75,84 @@ __int64 __fastcall PsAdjustBasicEnclaveThreadList(__int64 a1, __int64 a2, int a3
       }
     }
     RtlAvlRemoveNode((unsigned __int64 *)(a1 + 104), v12);
-    goto LABEL_21;
-  }
-  v14 = *(_QWORD **)(a1 + 104);
-  LOBYTE(v11) = 0;
-  if ( !v14 )
     goto LABEL_20;
-  while ( (int)PspFindVsmEnclaveThread(a2, v14, v11) >= 0 )
+  }
+  v13 = 0;
+  if ( !v12 )
+    goto LABEL_19;
+  while ( (int)MiHotPatchImageTreeCompare(a2, v12) >= 0 )
   {
-    v15 = (_QWORD *)v14[1];
-    if ( !v15 )
+    v14 = v12[1];
+    if ( !v14 )
     {
-      LOBYTE(v11) = 1;
-      goto LABEL_20;
+      v13 = 1;
+      goto LABEL_19;
     }
-LABEL_18:
-    v14 = v15;
+LABEL_17:
+    v12 = (unsigned __int64 *)v14;
   }
-  v15 = (_QWORD *)*v14;
-  if ( *v14 )
-    goto LABEL_18;
-  LOBYTE(v11) = 0;
-LABEL_20:
-  RtlAvlInsertNodeEx((unsigned __int64 *)(a1 + 104), (unsigned __int64)v14, v11, v3);
+  v14 = *v12;
+  if ( *v12 )
+    goto LABEL_17;
+  v13 = 0;
+LABEL_19:
+  RtlAvlInsertNodeEx((unsigned __int64 *)(a1 + 104), (unsigned __int64)v12, v13, v3);
   v12 = 0LL;
-LABEL_21:
-  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+LABEL_20:
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a1 + 112);
+  v25 = 0;
   v16 = KeGetCurrentThread();
-  if ( (unsigned __int64)v10 - qword_140C50630 >= 0x8000000000LL )
-    SessionId = -1;
-  else
+  if ( (unsigned int)MiGetSystemRegionType(a1 + 112) == 1 )
     SessionId = MmGetSessionIdEx((__int64)v16->ApcState.Process);
-  _disable();
-  p_Process = (__int64)&v16[1].Process;
-  v19 = 0;
-  while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != ((unsigned __int64)v10 & 0x7FFFFFFFFFFFFFFCLL)
-       || !*(_BYTE *)(p_Process + 18)
-       || (*(_DWORD *)p_Process & 1) != 0
-       || *(_DWORD *)(p_Process + 8) != SessionId )
+  else
+    SessionId = -1;
+  --v16->SpecialApcDisable;
+  v18 = ++v16->AbAllocationRegionCount;
+  v19 = (_DWORD *)(v10 & 0x7FFFFFFFFFFFFFFCLL);
+  v20 = ((char)v16->AbEntrySummary | (char)v16->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
   {
-    ++v19;
-    p_Process += 96LL;
-    if ( v19 >= 6 )
+    v11 = !_BitScanReverse((unsigned int *)&v22, v20);
+    if ( v11 )
       goto LABEL_32;
+    v21 = (__int64)&v16->LockEntries[v22];
+    v20 &= ~(1 << v22);
+    if ( (*(_BYTE *)(v21 + 26) & 1) != 0
+      && (*(_DWORD *)(v21 + 32) & 1) == 0
+      && (_DWORD *)(*(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v19
+      && *(_DWORD *)(v21 + 40) == SessionId )
+    {
+      *(_BYTE *)(v21 + 26) &= ~1u;
+      if ( *(_QWORD *)(v21 + 32) )
+        break;
+    }
   }
-  *(_BYTE *)(p_Process + 18) = 0;
-  if ( !p_Process )
+  if ( !v21 )
   {
 LABEL_32:
     if ( (*((_DWORD *)&v16->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v16, a1 + 112, SessionId, 0LL);
-    _enable();
-    goto LABEL_40;
+      KeBugCheckEx(0x162u, (ULONG_PTR)v16, v10, SessionId, 0LL);
+    goto LABEL_39;
   }
-  if ( *(__int64 *)p_Process < 0 )
-  {
-    *(_BYTE *)p_Process |= 2u;
-    _enable();
-    KiAbEntryRemoveFromTree(p_Process);
-    _disable();
-  }
-  v20 = *(_DWORD *)(p_Process + 88);
-  *(_DWORD *)(p_Process + 88) = 0;
-  *(_BYTE *)(p_Process + 17) = 0;
-  *(_QWORD *)p_Process = 0LL;
-  v16->AbEntrySummary |= 1 << *(_BYTE *)(p_Process + 16);
-  _enable();
-  if ( v20 )
-    KiAbThreadRemoveBoostsSlow((ULONG_PTR)v16, a1 + 112, v20);
-LABEL_40:
+  *(_BYTE *)(v21 + 32) |= 2u;
+  if ( *(__int64 *)(v21 + 32) < 0 )
+    KiAbEntryRemoveFromTree(v21);
+  v25 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
+  *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
+  *(_BYTE *)(v21 + 25) &= ~1u;
+  *(_QWORD *)(v21 + 32) = 0LL;
+  v23 = (signed __int64)(v21 - (unsigned __int64)v16->LockEntries) / 96;
+  if ( v18 == 1 )
+    v16->AbEntrySummary |= 1 << v23;
+  else
+    _InterlockedOr8((volatile signed __int8 *)&v16->AbOrphanedEntrySummary, 1 << v23);
+LABEL_39:
+  --v16->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)v16, v10, (__int64)&v25, v19);
+  v11 = v16->SpecialApcDisable++ == -1;
+  if ( v11 && ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+    KiCheckForKernelApcDelivery(v24);
   KeLeaveCriticalRegion();
   if ( v12 )
     ExFreePoolWithTag(v12, 0);

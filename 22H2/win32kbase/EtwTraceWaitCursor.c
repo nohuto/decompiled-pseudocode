@@ -1,86 +1,63 @@
 /*
- * XREFs of EtwTraceWaitCursor @ 0x1C00AFBD0
+ * XREFs of EtwTraceWaitCursor @ 0x1C009FB70
  * Callers:
  *     <none>
  * Callees:
- *     ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C00DEF0E (-EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z.c)
- *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C013D9BC (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C0121600 (-EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0126BB8 (McTemplateK0qqqqq_EtwWriteTransfer.c)
  */
 
-char __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
+void __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
 {
-  _UNKNOWN **v2; // rax
-  unsigned int WaitCursorType; // esi
-  struct tagCURSOR *const v4; // r8
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // ebx
-  unsigned int v9; // edi
-  _DWORD *v10; // rax
-  int v11; // r8d
-  PETHREAD *v12; // rbx
-  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
+  struct tagCURSOR *const v2; // r9
+  unsigned int WaitCursorType; // eax
+  int v4; // r8d
+  unsigned int v5; // ebx
+  __int64 v6; // rbx
+  __int64 v7; // rbx
 
-  v2 = &retaddr;
-  if ( ((unsigned __int64)WPP_MAIN_CB.DeviceObjectExtension & 0x8000000000040000uLL) != 0 )
+  if ( (W32kEtwEnabledKeyword & 0x8000000000040000uLL) != 0
+    && (unsigned __int8)(byte_1C0249748 - 1) > 2u
+    && (qword_1C0249730 & 0x8000000000040000uLL) != 0
+    && (qword_1C0249738 & 0x8000000000040000uLL) == qword_1C0249738 )
   {
-    LOBYTE(v2) = byte_1C0283068 - 1;
-    if ( (unsigned __int8)(byte_1C0283068 - 1) > 2u && (qword_1C0283050 & 0x8000000000040000uLL) != 0 )
+    EtwpGetWaitCursorType(a2);
+    WaitCursorType = EtwpGetWaitCursorType(v2);
+    v5 = WaitCursorType;
+    if ( v4 == W32kEtwWaitCursorActiveType
+      && v4
+      && v4 != WaitCursorType
+      && (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
+       - W32kEtwWaitCursorStartMs >= 0xC8
+      && (Microsoft_Windows_Win32kEnableBits & 0x40) != 0 )
     {
-      LOBYTE(v2) = 0;
-      if ( (qword_1C0283058 & 0x8000000000040000uLL) == qword_1C0283058 )
-      {
-        WaitCursorType = EtwpGetWaitCursorType(a2);
-        LODWORD(v2) = EtwpGetWaitCursorType(v4);
-        v8 = (int)v2;
-        if ( WaitCursorType == LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) )
-        {
-          if ( WaitCursorType )
-          {
-            if ( WaitCursorType != (_DWORD)v2 )
-            {
-              v9 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-                 - W32kEtwWaitCursorStartMs;
-              if ( v9 >= 0xC8 && (Microsoft_Windows_Win32kEnableBits & 0x40) != 0 )
-              {
-                v10 = (_DWORD *)SGDGetUserSessionState(MEMORY[0xFFFFF78000000320], v5, v6, v7);
-                LOBYTE(v2) = McTemplateK0qqqqq_EtwWriteTransfer(
-                               *v10,
-                               (unsigned int)&WaitCursorEvent,
-                               v11,
-                               W32kEtwWaitCursorThreadId,
-                               W32kEtwWaitCursorProcessId,
-                               *v10,
-                               WaitCursorType,
-                               v9);
-              }
-            }
-          }
-        }
-        LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) = v8;
-        if ( v8 )
-        {
-          LOBYTE(v2) = MEMORY[0xFFFFF78000000320];
-          W32kEtwWaitCursorStartMs = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-        }
-        if ( gpqCursor
-          && ((v2 = (_UNKNOWN **)*((_QWORD *)gpqCursor + 14)) == 0LL
-            ? (v12 = (PETHREAD *)*((_QWORD *)gpqCursor + 12))
-            : (v12 = (PETHREAD *)v2[2]),
-              v12) )
-        {
-          W32kEtwWaitCursorThreadId = (unsigned int)PsGetThreadId(*v12);
-          v2 = (_UNKNOWN **)v12[53];
-          W32kEtwWaitCursorProcessId = *((_DWORD *)v2 + 14);
-        }
-        else
-        {
-          W32kEtwWaitCursorThreadId = 0;
-          W32kEtwWaitCursorProcessId = 0;
-        }
-      }
+      McTemplateK0qqqqq_EtwWriteTransfer(
+        MEMORY[0xFFFFF78000000320],
+        (unsigned int)&WaitCursorEvent,
+        v4,
+        W32kEtwWaitCursorThreadId,
+        W32kEtwWaitCursorProcessId,
+        gSessionId,
+        v4,
+        ((unsigned int)(MEMORY[0xFFFFF78000000320] * MEMORY[0xFFFFF78000000004]) >> 24) - W32kEtwWaitCursorStartMs);
+    }
+    W32kEtwWaitCursorActiveType = v5;
+    if ( v5 )
+      W32kEtwWaitCursorStartMs = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    if ( gpqCursor )
+    {
+      v6 = *((_QWORD *)gpqCursor + 13);
+      if ( v6 )
+        v7 = *(_QWORD *)(v6 + 16);
+      else
+        v7 = *((_QWORD *)gpqCursor + 11);
+      W32kEtwWaitCursorThreadId = (unsigned int)PsGetThreadId(*(PETHREAD *)v7);
+      W32kEtwWaitCursorProcessId = *(_DWORD *)(*(_QWORD *)(v7 + 424) + 56LL);
+    }
+    else
+    {
+      W32kEtwWaitCursorThreadId = 0;
+      W32kEtwWaitCursorProcessId = 0;
     }
   }
-  return (char)v2;
 }

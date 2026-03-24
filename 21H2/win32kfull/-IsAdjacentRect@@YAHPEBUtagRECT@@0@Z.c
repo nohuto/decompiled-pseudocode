@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C0145818
+ * XREFs of ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C0104E60
  * Callers:
- *     GetInheritedMonitor @ 0x1C006F4F4 (GetInheritedMonitor.c)
- *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C007D1E4 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     GetInheritedMonitor @ 0x1C006C184 (GetInheritedMonitor.c)
+ *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C0104C70 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
  * Callees:
  *     <none>
  */

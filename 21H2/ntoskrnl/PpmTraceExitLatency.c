@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmTraceExitLatency @ 0x1405C8ECC
+ * XREFs of PpmTraceExitLatency @ 0x140567BE0
  * Callers:
- *     PpmIdleCompleteExitLatencyTrace @ 0x1405C7D34 (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x14056670C (PpmIdleCompleteExitLatencyTrace.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PpmTraceExitLatency(__int64 a1, int a2, int a3, int a4, int a5, _QWORD *a6)
@@ -40,7 +40,7 @@ char __fastcall PpmTraceExitLatency(__int64 a1, int a2, int a3, int a4, int a5, 
     v16 = 0;
     v13[0] = v12;
     v14 = v13;
-    EtwTraceKernelEvent((__int64)&v14, 1u, 0x44000000u, 0x123Cu, 0x602u);
+    EtwTraceKernelEvent((int)&v14, 1, 0x44000000u, 4668, 1538);
   }
   return 1;
 }

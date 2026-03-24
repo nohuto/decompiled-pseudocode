@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_HubStatusError @ 0x1C00083D0
+ * XREFs of HUBHSM_HubStatusError @ 0x1C00080C0
  * Callers:
  *     <none>
  * Callees:

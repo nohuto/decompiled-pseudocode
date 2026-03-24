@@ -1,27 +1,31 @@
 /*
- * XREFs of MiLockSetPfnPriority @ 0x14036484C
+ * XREFs of MiLockSetPfnPriority @ 0x1402E1E0C
  * Callers:
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
- *     MiUpdateOldPteWorker @ 0x14046BD86 (MiUpdateOldPteWorker.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     MmUnmapViewInSystemCache @ 0x140294160 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
+ *     MiAgePteWorker @ 0x1402BA020 (MiAgePteWorker.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MiUpdateOldPteWorker @ 0x14053C668 (MiUpdateOldPteWorker.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
  */
 
-__int64 __fastcall MiLockSetPfnPriority(__int64 a1, char a2)
+__int64 __fastcall MiLockSetPfnPriority(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  char v4; // di
   __int64 result; // rax
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0;
+  v7 = 0;
+  v4 = a2;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v5);
+      KeYieldProcessorEx(&v7, a2, a3, a4);
     while ( *(__int64 *)(a1 + 24) < 0 );
   }
+  *(_BYTE *)(a1 + 35) ^= (v4 ^ *(_BYTE *)(a1 + 35)) & 7;
   result = 0x7FFFFFFFFFFFFFFFLL;
-  *(_BYTE *)(a1 + 35) ^= (*(_BYTE *)(a1 + 35) ^ a2) & 7;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

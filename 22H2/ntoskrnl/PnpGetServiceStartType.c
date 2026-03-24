@@ -1,97 +1,115 @@
 /*
- * XREFs of PnpGetServiceStartType @ 0x14068F410
+ * XREFs of PnpGetServiceStartType @ 0x14073F214
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x14073E9B8 (PipCallDriverAddDeviceQueryRoutine.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
  */
 
-__int64 __fastcall PnpGetServiceStartType(int a1, void *a2, _DWORD *a3)
+__int64 __fastcall PnpGetServiceStartType(__int64 a1, void *a2, _DWORD *a3)
 {
-  int Value; // ebx
-  int v8; // edx
+  int v6; // ebx
+  __int64 v8; // rdx
   __int64 v9; // rcx
   int v10; // eax
   __int64 v11; // rcx
-  HANDLE v12; // rcx
+  __int64 v12; // rcx
   int v13; // eax
   HANDLE Handle[2]; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v15; // [rsp+78h] [rbp+38h] BYREF
+  int v15; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v16; // [rsp+78h] [rbp+38h] BYREF
 
+  v15 = 0;
   Handle[0] = 0LL;
   *a3 = 4;
-  if ( (ExpManufacturingInformation & 1) == 0 )
-    goto LABEL_2;
-  v8 = qword_140D18518;
-  if ( qword_140D18518 )
+  if ( (ExpManufacturingInformation & 1) != 0 )
   {
-    if ( qword_140D18518 == -1 )
-      goto LABEL_2;
-  }
-  else
-  {
-    if ( *(_QWORD *)&PiPnpRtlCtx )
-      v9 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-    else
-      LODWORD(v9) = 0;
-    v10 = SysCtxRegOpenKey(
-            v9,
-            -2147483646,
-            (unsigned int)L"System\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\Services\\",
-            0,
-            131097,
-            (__int64)&qword_140D18518);
-    if ( v10 == -1073741772 )
+    v8 = qword_140CF5718;
+    if ( qword_140CF5718 )
     {
-      qword_140D18518 = -1LL;
-      goto LABEL_2;
+      if ( qword_140CF5718 == -1 )
+        goto LABEL_2;
+      v10 = 0;
     }
-    if ( v10 < 0 )
-      goto LABEL_2;
-    v8 = qword_140D18518;
-  }
-  if ( *(_QWORD *)&PiPnpRtlCtx )
-    v11 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-  else
-    LODWORD(v11) = 0;
-  if ( (int)SysCtxRegOpenKey(v11, v8, a1, 0, 131097, (__int64)Handle) >= 0 )
-  {
-    LODWORD(v15) = 4;
-    RegRtlQueryValue(Handle[0], (__int64)&v15);
-  }
-  v12 = qword_140D18520;
-  if ( qword_140D18520 )
-  {
-    if ( qword_140D18520 == (HANDLE)-1LL )
-      goto LABEL_2;
-    goto LABEL_29;
-  }
-  if ( *(_QWORD *)&PiPnpRtlCtx )
-    v12 = *(HANDLE *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-  v13 = SysCtxRegOpenKey((_DWORD)v12, qword_140D18518, (unsigned int)L"*Driver", 0, 131097, (__int64)&qword_140D18520);
-  if ( v13 == -1073741772 )
-  {
-    qword_140D18520 = (HANDLE)-1LL;
-    goto LABEL_2;
-  }
-  if ( v13 >= 0 )
-  {
-    v12 = qword_140D18520;
-LABEL_29:
-    LODWORD(v15) = 4;
-    RegRtlQueryValue(v12, (__int64)&v15);
+    else
+    {
+      if ( *(_QWORD *)&PiPnpRtlCtx )
+        v9 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+      else
+        v9 = 0LL;
+      v10 = SysCtxRegOpenKey(
+              v9,
+              2147483650LL,
+              (__int64)L"System\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\Services\\",
+              0,
+              0x20019u,
+              (__int64)&qword_140CF5718);
+      if ( v10 == -1073741772 )
+      {
+        v8 = -1LL;
+        qword_140CF5718 = -1LL;
+      }
+      else
+      {
+        v8 = qword_140CF5718;
+      }
+    }
+    if ( v10 >= 0 )
+    {
+      if ( *(_QWORD *)&PiPnpRtlCtx )
+        v11 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+      else
+        v11 = 0LL;
+      if ( (int)SysCtxRegOpenKey(v11, v8, a1, 0, 0x20019u, (__int64)Handle) >= 0 )
+      {
+        LODWORD(v16) = 4;
+        v6 = RegRtlQueryValue(Handle[0], L"Start", &v15, a3, (unsigned int *)&v16);
+        if ( v6 >= 0 && v15 == 4 )
+          goto LABEL_5;
+      }
+      v12 = (__int64)qword_140CF5710;
+      if ( qword_140CF5710 )
+      {
+        if ( qword_140CF5710 == (HANDLE)-1LL )
+          goto LABEL_2;
+        v13 = 0;
+      }
+      else
+      {
+        if ( *(_QWORD *)&PiPnpRtlCtx )
+          v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+        v13 = SysCtxRegOpenKey(v12, qword_140CF5718, (__int64)L"*Driver", 0, 0x20019u, (__int64)&qword_140CF5710);
+        if ( v13 == -1073741772 )
+        {
+          v12 = -1LL;
+          qword_140CF5710 = (HANDLE)-1LL;
+        }
+        else
+        {
+          v12 = (__int64)qword_140CF5710;
+        }
+      }
+      if ( v13 >= 0 )
+      {
+        LODWORD(v16) = 4;
+        v6 = RegRtlQueryValue((HANDLE)v12, L"Start", &v15, a3, (unsigned int *)&v16);
+        if ( v6 >= 0 && v15 == 4 )
+          goto LABEL_5;
+      }
+    }
   }
 LABEL_2:
-  LODWORD(v15) = 4;
-  Value = RegRtlQueryValue(a2, (__int64)&v15);
-  if ( Value >= 0 )
+  LODWORD(v16) = 4;
+  v6 = RegRtlQueryValue(a2, L"Start", &v15, a3, (unsigned int *)&v16);
+  if ( v6 >= 0 && v15 != 4 )
   {
-    Value = -1073741772;
+    v6 = -1073741772;
     *a3 = 4;
   }
+LABEL_5:
   if ( Handle[0] )
     ZwClose(Handle[0]);
-  return (unsigned int)Value;
+  return (unsigned int)v6;
 }

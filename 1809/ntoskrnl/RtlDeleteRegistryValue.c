@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteRegistryValue @ 0x1406CF790
+ * XREFs of RtlDeleteRegistryValue @ 0x1406CF770
  * Callers:
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C50 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C30 (PerfDiagpSaveActiveDCLLogFileName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
  */
 

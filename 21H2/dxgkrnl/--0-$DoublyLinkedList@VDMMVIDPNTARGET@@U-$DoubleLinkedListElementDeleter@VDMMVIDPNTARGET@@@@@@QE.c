@@ -1,158 +1,114 @@
 /*
- * XREFs of ??0?$DoublyLinkedList@VDMMVIDPNTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QEAA@AEBV0@@Z @ 0x1C000CE30
+ * XREFs of ??0?$DoublyLinkedList@VDMMVIDPNTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QEAA@AEBV0@@Z @ 0x1C0004B50
  * Callers:
- *     ??0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z @ 0x1C000FCA4 (--0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z.c)
+ *     ??0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z @ 0x1C00086C0 (--0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z.c)
  * Callees:
- *     ??0DMMVIDPNTARGET@@IEAA@AEBV0@@Z @ 0x1C000CFC0 (--0DMMVIDPNTARGET@@IEAA@AEBV0@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??0DMMVIDPNTARGET@@IEAA@AEBV0@@Z @ 0x1C0004CD0 (--0DMMVIDPNTARGET@@IEAA@AEBV0@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>::DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>(
         __int64 a1,
         __int64 a2)
 {
-  __int64 v4; // r9
-  _QWORD *v5; // rbx
-  __int64 v6; // rax
-  const struct DMMVIDPNTARGET *v7; // rdi
+  __int64 v3; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  _QWORD *v7; // rbx
   __int64 v8; // rax
-  DMMVIDPNTARGET *Pool2; // rax
-  DMMVIDPNTARGET *v10; // rdx
-  __int64 v11; // rcx
-  _QWORD *v12; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rdx
-  __int64 v15; // rax
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // edx
-  int v21; // ecx
-  int v22; // r8d
-  int v23; // edx
-  int v24; // ecx
-  int v25; // r8d
+  const struct DMMVIDPNTARGET *v9; // rsi
+  DMMVIDPNTARGET *PoolWithTag; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  DMMVIDPNTARGET *v14; // r9
+  _QWORD *v15; // rax
+  _QWORD *v16; // rax
+  _QWORD *v17; // r9
+  __int64 v18; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
 
   *(_DWORD *)(a1 + 40) = 1;
   *(_QWORD *)a1 = &DoublyLinkedList<DMMVIDPNSOURCE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCE>>::`vftable';
+  v3 = 0LL;
   *(_DWORD *)(a1 + 8) = 0;
   if ( !(**(unsigned __int8 (__fastcall ***)(__int64))a2)(a2) || !*(_QWORD *)(a2 + 16) || !*(_QWORD *)(a2 + 24) )
   {
-    WdLogSingleEntry1(1LL, 155LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v18,
-          v17,
-          v19,
-          0,
-          2,
-          -1,
-          (__int64)L"i_rList.IsValid()",
-          155LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v20 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v20 + 24) = 155LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  v5 = (_QWORD *)(a1 + 16);
+  v7 = (_QWORD *)(a1 + 16);
   *(_QWORD *)(a1 + 24) = a1 + 16;
   *(_QWORD *)(a1 + 16) = a1 + 16;
   *(_QWORD *)(a1 + 32) = 0LL;
-  v6 = *(_QWORD *)(a2 + 16);
-  if ( v6 == a2 + 16 )
+  v8 = *(_QWORD *)(a2 + 16);
+  if ( v8 == a2 + 16 || (v9 = (const struct DMMVIDPNTARGET *)(v8 - 8), v8 == 8) )
   {
-    v8 = 0LL;
-LABEL_20:
-    if ( v8 != *(_QWORD *)(a2 + 32) )
+LABEL_22:
+    if ( v3 != *(_QWORD *)(a2 + 32) )
     {
-      WdLogSingleEntry1(1LL, 186LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v24,
-            v23,
-            v25,
-            0,
-            2,
-            -1,
-            (__int64)L"this->GetNumElements() == i_rList.GetNumElements()",
-            186LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v22 = WdLogNewEntry5_WdAssertion(v6, v5);
+      *(_QWORD *)(v22 + 24) = 186LL;
+      WdLogEvent5_WdAssertion(v22);
     }
     *(_DWORD *)(a1 + 40) = 2;
-    return a1;
   }
-  v7 = (const struct DMMVIDPNTARGET *)(v6 - 8);
-  v8 = 0LL;
-  if ( !v7 )
-    goto LABEL_20;
-  while ( 1 )
+  else
   {
-    Pool2 = (DMMVIDPNTARGET *)ExAllocatePool2(256LL, 128LL, 1265072196LL, v4);
-    if ( !Pool2 )
-      break;
-    v10 = DMMVIDPNTARGET::DMMVIDPNTARGET(Pool2, v7);
-    if ( !v10 )
-      break;
-    if ( (_QWORD *)*v5 == v5 || (v11 = *v5 - 8LL, *v5 == 8LL) )
+    while ( 1 )
     {
-LABEL_14:
-      v13 = *(_QWORD **)(a1 + 24);
-      v14 = (_QWORD *)((char *)v10 + 8);
-      if ( (_QWORD *)*v13 != v5 )
-        __fastfail(3u);
-      *v14 = v5;
-      v14[1] = v13;
-      *v13 = v14;
-      *(_QWORD *)(a1 + 24) = v14;
-      ++*(_QWORD *)(a1 + 32);
-    }
-    else
-    {
-      while ( (DMMVIDPNTARGET *)v11 != v10 )
+      PoolWithTag = (DMMVIDPNTARGET *)ExAllocatePoolWithTag(PagedPool, 0x80uLL, 0x4B677844u);
+      if ( !PoolWithTag )
+        break;
+      v14 = DMMVIDPNTARGET::DMMVIDPNTARGET(PoolWithTag, v9);
+      if ( !v14 )
+        break;
+      v6 = 0LL;
+      v5 = *v7 - 8LL;
+      if ( (_QWORD *)*v7 != v7 )
+        v6 = *v7 - 8LL;
+      if ( !v6 )
+        goto LABEL_16;
+      do
       {
-        v12 = *(_QWORD **)(v11 + 8);
-        v11 = (__int64)(v12 - 1);
-        if ( v12 == v5 )
-          v11 = 0LL;
-        if ( !v11 )
-          goto LABEL_14;
+        if ( (DMMVIDPNTARGET *)v6 == v14 )
+          break;
+        v15 = *(_QWORD **)(v6 + 8);
+        v6 = (__int64)(v15 - 1);
+        if ( v15 == v7 )
+          v6 = 0LL;
+      }
+      while ( v6 );
+      if ( !v6 )
+      {
+LABEL_16:
+        v16 = *(_QWORD **)(a1 + 24);
+        v17 = (_QWORD *)((char *)v14 + 8);
+        if ( (_QWORD *)*v16 != v7 )
+          __fastfail(3u);
+        *v17 = v7;
+        v17[1] = v16;
+        *v16 = v17;
+        *(_QWORD *)(a1 + 24) = v17;
+        ++*(_QWORD *)(a1 + 32);
+      }
+      v18 = *((_QWORD *)v9 + 1);
+      v9 = (const struct DMMVIDPNTARGET *)(v18 - 8);
+      if ( v18 == a2 + 16 )
+        v9 = 0LL;
+      if ( !v9 )
+      {
+        v3 = *(_QWORD *)(a1 + 32);
+        goto LABEL_22;
       }
     }
-    v15 = *((_QWORD *)v7 + 1);
-    v7 = (const struct DMMVIDPNTARGET *)(v15 - 8);
-    if ( v15 == a2 + 16 )
-      v7 = 0LL;
-    if ( !v7 )
-    {
-      v8 = *(_QWORD *)(a1 + 32);
-      goto LABEL_20;
-    }
+    v21 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+    *(_QWORD *)(v21 + 24) = 172LL;
+    WdLogEvent5_WdLowResource(v21);
+    *(_DWORD *)(a1 + 8) = -1073741801;
   }
-  WdLogSingleEntry1(6LL, 172LL);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-    McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-      v21,
-      v20,
-      v22,
-      0,
-      1,
-      -1,
-      (__int64)L"Failed to allocate memory for doubly linked list element",
-      172LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  *(_DWORD *)(a1 + 8) = -1073741801;
   return a1;
 }

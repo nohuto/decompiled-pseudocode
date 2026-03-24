@@ -1,22 +1,24 @@
 /*
- * XREFs of ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00C89F8
+ * XREFs of ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE028
  * Callers:
- *     GreGetSprite @ 0x1C0013DE0 (GreGetSprite.c)
- *     GreWindowBeginLayoutUpdate @ 0x1C0016938 (GreWindowBeginLayoutUpdate.c)
- *     GreUpdateSpriteClipRgn @ 0x1C0077DA8 (GreUpdateSpriteClipRgn.c)
- *     GreWindowLayoutComplete @ 0x1C00C5DFC (GreWindowLayoutComplete.c)
- *     GreGetWindowResizeDCompositionSynchronizationObject @ 0x1C00C8130 (GreGetWindowResizeDCompositionSynchronizationObject.c)
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0101D80 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     GreIsWindowResizeInProgress @ 0x1C01599C0 (GreIsWindowResizeInProgress.c)
- *     GreCancelSynchronizedWindowResize @ 0x1C026737C (GreCancelSynchronizedWindowResize.c)
- *     GreConfirmWindowResizeCommit @ 0x1C0267488 (GreConfirmWindowResizeCommit.c)
- *     GreProtectSpriteContent @ 0x1C0267E68 (GreProtectSpriteContent.c)
- *     GreWindowResizeComplete @ 0x1C0268454 (GreWindowResizeComplete.c)
- *     GreWindowResizeStarted @ 0x1C02686B0 (GreWindowResizeStarted.c)
+ *     GreGetSprite @ 0x1C00075B4 (GreGetSprite.c)
+ *     GreWindowBeginLayoutUpdate @ 0x1C00088D0 (GreWindowBeginLayoutUpdate.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087CC8 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     GreUpdateSpriteClipRgn @ 0x1C00BA178 (GreUpdateSpriteClipRgn.c)
+ *     GreHintSpriteShape @ 0x1C00BD828 (GreHintSpriteShape.c)
+ *     GreGetWindowResizeDCompositionSynchronizationObject @ 0x1C01177AC (GreGetWindowResizeDCompositionSynchronizationObject.c)
+ *     GreWindowLayoutComplete @ 0x1C011C408 (GreWindowLayoutComplete.c)
+ *     GreCancelSynchronizedWindowResize @ 0x1C026EB90 (GreCancelSynchronizedWindowResize.c)
+ *     GreConfirmWindowResizeCommit @ 0x1C026ECAC (GreConfirmWindowResizeCommit.c)
+ *     GreGetWindowResizeTelemetry @ 0x1C026F308 (GreGetWindowResizeTelemetry.c)
+ *     GreIsWindowResizeInProgress @ 0x1C026F778 (GreIsWindowResizeInProgress.c)
+ *     GreProtectSpriteContent @ 0x1C026F888 (GreProtectSpriteContent.c)
+ *     GreWindowResizeComplete @ 0x1C026FE50 (GreWindowResizeComplete.c)
+ *     GreWindowResizeStarted @ 0x1C02700B0 (GreWindowResizeStarted.c)
  * Callees:
- *     ?LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00C8A3C (-LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
- *     ?hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C00D4D80 (-hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C013E508 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00BE06C (-LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ?hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C00BE0A0 (-hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C0169E84 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 DWMSPRITEREF *__fastcall DWMSPRITEREF::DWMSPRITEREF(DWMSPRITEREF *this, HWND a2)

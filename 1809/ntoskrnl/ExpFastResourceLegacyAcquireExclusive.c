@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireExclusive @ 0x140164AB4
+ * XREFs of ExpFastResourceLegacyAcquireExclusive @ 0x140164AD4
  * Callers:
  *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140050530 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExTryToAcquireResourceExclusiveLite @ 0x14031BA50 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x14031BB50 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     ExAcquireFastResourceExclusive @ 0x1401652B0 (ExAcquireFastResourceExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166344 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166364 (ExpAllocateOwnerEntryForLegacyShim.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z @ 0x18002F0E8
+ * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z @ 0x180007420
  * Callers:
- *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x18002EFD0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18002F030 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x1800072F8 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073B0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CNineGridDrawListBrush *a1)
@@ -18,5 +18,5 @@ struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CNineGridD
   Current = CThreadContext::GetCurrent(&v4);
   if ( Current < 0 )
     ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-  return (struct CThreadContext *)((char *)v4 + 320);
+  return (struct CThreadContext *)((char *)v4 + 216);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPersistPage @ 0x1402B64D0
+ * XREFs of MiPersistPage @ 0x1402B65D0
  * Callers:
- *     MiFlushFileOnlyMdl @ 0x1402B5D6C (MiFlushFileOnlyMdl.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6288 (MiMarkFileOnlyPfnBad.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B68A8 (MiPurgeFileOnlyPfn.c)
+ *     MiFlushFileOnlyMdl @ 0x1402B5E6C (MiFlushFileOnlyMdl.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiPersistMemory @ 0x1402B64A0 (MiPersistMemory.c)
+ *     MiPersistMemory @ 0x1402B65A0 (MiPersistMemory.c)
  */
 
 void __fastcall MiPersistPage(__int64 a1)

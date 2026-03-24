@@ -1,111 +1,112 @@
 /*
- * XREFs of ViFreeMapRegisterFile @ 0x140AC9A90
+ * XREFs of ViFreeMapRegisterFile @ 0x1409CE3D4
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140AC5B90 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140AC6650 (VfBuildScatterGatherList.c)
- *     VfCancelAdapterChannel @ 0x140AC6BE0 (VfCancelAdapterChannel.c)
- *     VfFreeAdapterChannel @ 0x140AC7030 (VfFreeAdapterChannel.c)
- *     VfFreeAdapterObject @ 0x140AC70E0 (VfFreeAdapterObject.c)
- *     VfFreeMapRegisters @ 0x140AC7400 (VfFreeMapRegisters.c)
- *     VfGetScatterGatherList @ 0x140AC7800 (VfGetScatterGatherList.c)
- *     VfPutScatterGatherList @ 0x140AC85C0 (VfPutScatterGatherList.c)
- *     ViAdapterCallback @ 0x140AC8860 (ViAdapterCallback.c)
+ *     VfAllocateAdapterChannel @ 0x1409CA5D0 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x1409CB010 (VfBuildScatterGatherList.c)
+ *     VfCancelAdapterChannel @ 0x1409CB5A0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x1409CB960 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x1409CBA10 (VfFreeAdapterObject.c)
+ *     VfFreeMapRegisters @ 0x1409CBD00 (VfFreeMapRegisters.c)
+ *     VfGetScatterGatherList @ 0x1409CC100 (VfGetScatterGatherList.c)
+ *     VfPutScatterGatherList @ 0x1409CCF40 (VfPutScatterGatherList.c)
+ *     ViAdapterCallback @ 0x1409CD1B0 (ViAdapterCallback.c)
  * Callees:
- *     VfUtilFreePoolCheckIRQL @ 0x14020A930 (VfUtilFreePoolCheckIRQL.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ViCheckPadding @ 0x140AC9364 (ViCheckPadding.c)
- *     ViFreeToContiguousMemory @ 0x140AC9D34 (ViFreeToContiguousMemory.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14037E440 (VfUtilFreePoolCheckIRQL.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViCheckPadding @ 0x1409CDCB0 (ViCheckPadding.c)
+ *     ViFreeToContiguousMemory @ 0x1409CE660 (ViFreeToContiguousMemory.c)
  */
 
 __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
 {
-  volatile signed __int64 *v4; // rsi
-  unsigned __int64 v5; // rdi
-  __int64 v6; // rax
+  unsigned __int64 v4; // rdi
+  __int64 v5; // rax
   _SLIST_ENTRY *Next; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
-  __int64 v13; // rdi
-  unsigned int v14; // esi
+  int v10; // eax
+  bool v11; // zf
+  __int64 v12; // rdi
+  unsigned int v13; // esi
   char *i; // rdi
-  __int64 v16; // rcx
-  unsigned int v17; // r9d
-  ULONG_PTR v18; // r8
-  __int64 v19; // rdx
-  struct _SLIST_ENTRY *v20; // rcx
+  __int64 v15; // rcx
+  unsigned int v16; // r9d
+  ULONG_PTR v17; // r8
+  __int64 v18; // rdx
+  struct _SLIST_ENTRY *v19; // rcx
 
   if ( !a2 || LODWORD(a2->Next) != -1393569779 )
     return 0LL;
-  v4 = (volatile signed __int64 *)(a1 + 152);
-  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 152));
-  v6 = *((_QWORD *)&a2->Next + 1);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 120));
+  v5 = *((_QWORD *)&a2->Next + 1);
   Next = a2[1].Next;
-  if ( *(struct _SLIST_ENTRY **)(v6 + 8) != (struct _SLIST_ENTRY *)(&a2->Next + 1)
+  if ( *(struct _SLIST_ENTRY **)(v5 + 8) != (struct _SLIST_ENTRY *)(&a2->Next + 1)
     || Next->Next != (_SLIST_ENTRY *)(&a2->Next + 1) )
   {
     __fastfail(3u);
   }
-  Next->Next = (_SLIST_ENTRY *)v6;
-  *(_QWORD *)(v6 + 8) = Next;
-  KxReleaseSpinLock(v4);
+  Next->Next = (_SLIST_ENTRY *)v5;
+  *(_QWORD *)(v5 + 8) = Next;
+  KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 120));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v12 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v5);
+  __writecr8(v4);
   LODWORD(a2->Next) = 0;
-  v13 = *((_QWORD *)&a2[2].Next + 1);
-  if ( v13 )
+  v12 = *((_QWORD *)&a2[2].Next + 1);
+  if ( v12 )
   {
-    if ( (*(_BYTE *)(v13 + 10) & 1) != 0 )
-      MmUnmapLockedPages(*(PVOID *)(v13 + 24), *((PMDL *)&a2[2].Next + 1));
-    IoFreeMdl((PMDL)v13);
+    if ( (*(_BYTE *)(v12 + 10) & 1) != 0 )
+      MmUnmapLockedPages(*(PVOID *)(v12 + 24), *((PMDL *)&a2[2].Next + 1));
+    IoFreeMdl((PMDL)v12);
   }
   MmUnmapLockedPages(a2[4].Next, *((PMDL *)&a2[3].Next + 1));
-  v14 = 0;
-  for ( i = (char *)(&a2[5].Next + 1); v14 < *((_DWORD *)&a2[1].Next + 3); i += 32 )
+  v13 = 0;
+  for ( i = (char *)(&a2[5].Next + 1); v13 < *((_DWORD *)&a2[1].Next + 3); i += 32 )
   {
-    v16 = *((_QWORD *)i + 2);
+    v15 = *((_QWORD *)i + 2);
     if ( *(_QWORD *)i )
     {
-      v17 = *((_DWORD *)i + 2);
-      v18 = (*(_DWORD *)i & 0xFFF) + v16 + 4096;
+      v16 = *((_DWORD *)i + 2);
+      v17 = (*(_DWORD *)i & 0xFFF) + v15 + 4096;
     }
     else
     {
-      v18 = 0LL;
-      v17 = 0;
+      v17 = 0LL;
+      v16 = 0;
     }
-    ViCheckPadding(v16, 0x3000u, v18, v17);
-    v19 = *((_QWORD *)i + 2);
+    ViCheckPadding(v15, 0x3000u, v17, v16);
+    v18 = *((_QWORD *)i + 2);
     *((_DWORD *)i + 3) = 0;
-    if ( !(unsigned int)ViFreeToContiguousMemory(a1, v19, v14) )
+    if ( !(unsigned int)ViFreeToContiguousMemory(a1, v18, v13) )
       ExFreePoolWithTag(*((PVOID *)i + 2), 0);
-    ++v14;
+    ++v13;
   }
   IoFreeMdl(*((PMDL *)&a2[3].Next + 1));
-  v20 = (struct _SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
-  if ( v20 )
-    VfUtilFreePoolCheckIRQL(v20);
+  v19 = (struct _SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
+  if ( v19 )
+    VfUtilFreePoolCheckIRQL(v19);
   memset(a2, 0, 0x78uLL);
   VfUtilFreePoolCheckIRQL(a2);
   return 1LL;

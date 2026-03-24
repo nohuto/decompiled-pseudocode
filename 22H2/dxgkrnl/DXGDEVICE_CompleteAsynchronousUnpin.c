@@ -1,9 +1,9 @@
 /*
- * XREFs of DXGDEVICE_CompleteAsynchronousUnpin @ 0x1C0049020
+ * XREFs of DXGDEVICE_CompleteAsynchronousUnpin @ 0x1C001E340
  * Callers:
  *     <none>
  * Callees:
- *     ?CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z @ 0x1C02E8DF4 (-CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z.c)
+ *     ?CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z @ 0x1C0174BB4 (-CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z.c)
  */
 
 void __fastcall DXGDEVICE_CompleteAsynchronousUnpin(unsigned int a1, DXGDEVICE **a2)

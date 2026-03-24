@@ -1,131 +1,130 @@
 /*
- * XREFs of ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x18003A800
+ * XREFs of ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180045B6C
  * Callers:
- *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x180021B54 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
+ *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AD78 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x180023250 (-Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z.c)
- *     ??1CSurfaceShaderComposer@@QEAA@XZ @ 0x180023F74 (--1CSurfaceShaderComposer@@QEAA@XZ.c)
- *     ?ResolveKey@VertexShaderDesc@@QEBAIXZ @ 0x180032EF4 (-ResolveKey@VertexShaderDesc@@QEBAIXZ.c)
- *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180039660 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
- *     ?Add@?$CMap@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBIAEBV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x18003AEC8 (-Add@-$CMap@IV-$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V-$CMapEqualHel.c)
- *     ?size_bytes@?$span@$$CBUD3D11_INPUT_ELEMENT_DESC@@$0?0@gsl@@QEBA_KXZ @ 0x18003AFDC (-size_bytes@-$span@$$CBUD3D11_INPUT_ELEMENT_DESC@@$0-0@gsl@@QEBA_KXZ.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x180111C2C (McTemplateU0q_EventWriteTransfer.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18002DB5C (-Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?GetD3D11DepthStencilDesc@DepthStencilMode@@YAAEBUD3D11_DEPTH_STENCIL_DESC@@W4Enum@1@@Z @ 0x1800452FC (-GetD3D11DepthStencilDesc@DepthStencilMode@@YAAEBUD3D11_DEPTH_STENCIL_DESC@@W4Enum@1@@Z.c)
+ *     ?Add@?$CMap@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBIAEBV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x1800460A0 (-Add@-$CMap@IV-$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V-$CMapEqualHel.c)
+ *     ?ResolveKey@VertexShaderDesc@@QEBAIXZ @ 0x1800464C0 (-ResolveKey@VertexShaderDesc@@QEBAIXZ.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050ED0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094910 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C930C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Release@CMILPoolResource@@UEAAKXZ @ 0x1800D52D0 (-Release@CMILPoolResource@@UEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152A24 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CD3DDevice::GenerateShaders(CD3DDevice *this)
 {
-  unsigned __int8 v2; // r15
+  unsigned __int8 v2; // r12
   __int64 v3; // rcx
   unsigned int v4; // edx
   __int64 v5; // rbx
-  __int64 *v6; // rcx
-  __int64 v7; // rax
-  int v8; // eax
-  unsigned int v9; // ecx
-  unsigned int v10; // ebx
-  __int64 v11; // rcx
-  unsigned int v12; // eax
-  unsigned int v13; // esi
+  __int64 v6; // rcx
+  int v7; // eax
+  unsigned int v8; // ecx
+  unsigned int v9; // ebx
+  __int64 v10; // rcx
+  unsigned int i; // edi
   int CommonOrCubeMapRenderingShadersNoRefInternal; // eax
-  unsigned int v15; // ecx
-  unsigned __int64 v16; // r10
+  unsigned int v13; // ecx
+  unsigned int v14; // r15d
+  unsigned __int64 v15; // r10
+  signed int v16; // eax
   unsigned int v17; // r14d
-  signed int v18; // eax
-  unsigned int v19; // esi
-  __int64 v20; // r13
-  char v21; // cl
-  unsigned int v22; // eax
-  __int128 v23; // xmm0
-  __int64 v24; // r15
-  size_t v25; // rax
-  size_t v26; // rax
-  __int64 v27; // rbx
-  gsl::details *v28; // rcx
-  gsl::details *v29; // rcx
-  __int64 v30; // rbx
-  _OWORD *v31; // r12
-  __int64 *v32; // r15
+  __int64 v18; // r13
+  char v19; // cl
+  unsigned int v20; // eax
+  __int128 v21; // xmm0
+  void *v22; // r12
+  __int64 v23; // rdi
+  __int64 v24; // rbx
+  __int64 *v25; // rdi
+  __int64 *v26; // rbx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 (__fastcall *v29)(__int64 *, _QWORD, _QWORD, _QWORD, struct ID3D11PixelShader *, char *); // r12
+  __int64 v30; // rdi
+  __int64 *v31; // r14
+  char *v32; // rbx
   __int64 v33; // rcx
   __int64 v34; // rax
-  unsigned int i; // esi
-  __int64 v36; // r14
-  __int64 (__fastcall *v37)(__int64, char *, char *); // r15
+  __int64 (__fastcall *v35)(__int64 *, char *, char *); // r15
+  __int64 v36; // rdi
+  __int64 *v37; // r14
   char *v38; // rbx
   __int64 v39; // rcx
-  unsigned int v40; // esi
-  __int64 v41; // r14
-  __int64 (__fastcall *v42)(__int64, __int16 *, char *); // r15
-  char *v43; // rbx
-  __int64 v44; // rcx
-  unsigned int j; // esi
-  __int64 v46; // r14
-  __int64 (__fastcall *v47)(__int64, char *, char *); // r15
-  char *v48; // rbx
-  __int64 v49; // rcx
-  unsigned int v50; // ecx
-  CSurfaceShaderComposer *v51; // rdi
+  __int64 v40; // rax
+  __int64 (__fastcall *v41)(__int64 *, struct HINSTANCE__ *, char *); // r15
+  unsigned int v42; // edi
+  unsigned int v43; // r14d
+  __int64 v44; // r15
+  __int64 (__fastcall *v45)(__int64, char *, char *); // r12
+  char *v46; // rbx
+  __int64 v47; // rcx
+  char *D3D11DepthStencilDesc; // rax
+  unsigned int v49; // ecx
+  _QWORD *v50; // rdi
+  CMILPoolResource *v52; // rcx
   unsigned int v53; // [rsp+28h] [rbp-E0h]
   bool v54; // [rsp+48h] [rbp-C0h]
-  unsigned int v55[4]; // [rsp+50h] [rbp-B8h] BYREF
-  struct ID3D11PixelShader *v56; // [rsp+60h] [rbp-A8h] BYREF
-  int v57; // [rsp+68h] [rbp-A0h]
-  __int128 v58; // [rsp+70h] [rbp-98h] BYREF
-  void *Src_8[2]; // [rsp+80h] [rbp-88h] BYREF
-  int v60; // [rsp+90h] [rbp-78h]
-  const char *v61; // [rsp+98h] [rbp-70h]
+  unsigned int v55[4]; // [rsp+58h] [rbp-B0h] BYREF
+  struct ID3D11PixelShader *v56; // [rsp+68h] [rbp-A0h] BYREF
+  int v57; // [rsp+70h] [rbp-98h]
+  __int128 v58; // [rsp+78h] [rbp-90h] BYREF
+  int v59; // [rsp+88h] [rbp-80h]
+  const char *v60; // [rsp+90h] [rbp-78h]
+  int v61; // [rsp+98h] [rbp-70h]
   int v62; // [rsp+A0h] [rbp-68h]
-  int v63; // [rsp+A8h] [rbp-60h]
-  int v64; // [rsp+ACh] [rbp-5Ch]
-  __int128 v65; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 v66[3]; // [rsp+C0h] [rbp-48h] BYREF
-  _OWORD v67[26]; // [rsp+D8h] [rbp-30h] BYREF
+  int v63; // [rsp+A4h] [rbp-64h]
+  __int128 v64; // [rsp+A8h] [rbp-60h]
+  void *v65[2]; // [rsp+B8h] [rbp-50h]
+  _BYTE v66[416]; // [rsp+C8h] [rbp-40h] BYREF
 
-  v57 = *((_DWORD *)this + 146);
+  v57 = *((_DWORD *)this + 156);
   v2 = v57 >= 37632;
   v3 = 0LL;
   v54 = v57 >= 37632;
-  v55[0] = 0;
   v4 = 0;
+  v55[0] = 0;
   do
   {
-    if ( ((v4 & 0x10) == 0 || *((_DWORD *)this + 233)) && v2 >= (unsigned __int8)((v4 & 4) != 0) )
+    if ( ((v4 & 0x10) == 0 || *((_DWORD *)this + 243)) && v2 >= (unsigned __int8)((v4 & 4) != 0) )
     {
-      v65 = *((_OWORD *)&unk_1802CB0A0 + v4);
-      v5 = v65;
-      if ( (_QWORD)v65 )
+      v64 = *((_OWORD *)&unk_180285040 + v4);
+      v5 = v64;
+      if ( (__int64)v64 > 0 )
       {
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
           McTemplateU0q_EventWriteTransfer(v3, &EVTDESC_D3DSHADER_CREATE_Start, 0LL);
-        v6 = (__int64 *)*((_QWORD *)this + 69);
-        v7 = *v6;
+        v6 = *((_QWORD *)this + 74);
         v56 = 0LL;
-        v8 = (*(__int64 (__fastcall **)(__int64 *, _QWORD, __int64, _QWORD, struct ID3D11PixelShader **))(v7 + 96))(
+        v7 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, struct ID3D11PixelShader **))(*(_QWORD *)v6 + 96LL))(
                v6,
-               *((_QWORD *)&v65 + 1),
+               *((_QWORD *)&v64 + 1),
                v5,
                0LL,
                &v56);
-        v10 = v8;
-        if ( v8 < 0 )
+        v9 = v7;
+        if ( v7 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x1C5u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x202u, 0LL);
           wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v56);
-          return v10;
+          return v9;
         }
         CMap<unsigned int,wil::com_ptr_t<ID3D11VertexShader,wil::err_returncode_policy>,CMapEqualHelper<unsigned int,wil::com_ptr_t<ID3D11VertexShader,wil::err_returncode_policy>>>::Add(
-          (char *)this + 1512,
+          (char *)this + 1440,
           v55,
           &v56);
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-          McTemplateU0q_EventWriteTransfer(v11, &EVTDESC_D3DSHADER_CREATE_Stop, 0LL);
+        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+          McTemplateU0q_EventWriteTransfer(v10, &EVTDESC_D3DSHADER_CREATE_Stop, 0LL);
         wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v56);
         LODWORD(v3) = v55[0];
       }
@@ -135,210 +134,219 @@ __int64 __fastcall CD3DDevice::GenerateShaders(CD3DDevice *this)
     v4 = v3;
   }
   while ( (unsigned int)v3 < 0x20 );
-  v12 = 0;
-  v13 = 0;
-  do
+  for ( i = 0; i < 4; ++i )
   {
-    v63 = -1;
-    Src_8[1] = "NoOp";
-    Src_8[0] = (void *)v12;
-    v64 = 0;
-    v60 = 0;
-    v61 = "NoOp";
-    v62 = 0;
+    v62 = -1;
+    *((_QWORD *)&v58 + 1) = "NoOp";
+    v59 = 0;
+    v61 = 0;
+    v63 = 0;
+    v60 = "NoOp";
+    *(_QWORD *)&v58 = i;
     CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
                                                      this,
-                                                     (const struct CommonRenderingShaderDesc *)Src_8,
+                                                     (const struct CommonRenderingShaderDesc *)&v58,
                                                      0,
                                                      v55,
                                                      &v56);
-    v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
+    v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
     if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
     {
-      v53 = 471;
-      goto LABEL_67;
+      v53 = 532;
+      goto LABEL_65;
     }
-    v16 = 1LL;
-    if ( ((__int64)Src_8[0] & 1) == 0 )
-      goto LABEL_18;
-    LODWORD(Src_8[0]) |= 4u;
-    CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
-                                                     this,
-                                                     (const struct CommonRenderingShaderDesc *)Src_8,
-                                                     0,
-                                                     v55,
-                                                     &v56);
-    v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
-    if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
+    if ( (v58 & 1) != 0 )
     {
-      v53 = 479;
-LABEL_67:
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, v53, 0LL);
-      return v10;
+      LODWORD(v58) = v58 | 4;
+      CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
+                                                       this,
+                                                       (const struct CommonRenderingShaderDesc *)&v58,
+                                                       0,
+                                                       v55,
+                                                       &v56);
+      v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
+      if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
+      {
+        v53 = 540;
+LABEL_65:
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, v53, 0LL);
+        return v9;
+      }
     }
-    v16 = 1LL;
-LABEL_18:
-    v12 = v13 + 1;
-    v13 = v12;
   }
-  while ( v12 < 4 );
-  v17 = 0;
-  v18 = 0;
+  v14 = 0;
+  v15 = 1LL;
+  v16 = 0;
   while ( 2 )
   {
-    v19 = 0;
-    v20 = v18;
+    v17 = 0;
+    v18 = v16;
     do
     {
       *(_QWORD *)v55 = 0LL;
-      v21 = 0;
-      BYTE2(v55[0]) = v16;
-      if ( v20 - 2 <= v16 )
-        v21 = v16;
-      LOBYTE(v55[0]) = v21;
-      v55[1] = ((v20 - 1) & 0xFFFFFFFFFFFFFFFDuLL) != 0 ? 2 : 4;
-      HIBYTE(v55[0]) = v19 != 0;
-      v22 = VertexShaderDesc::ResolveKey((VertexShaderDesc *)v55);
-      if ( v2 >= (unsigned __int8)(v16 & (v22 >> 2)) )
+      v19 = 0;
+      BYTE2(v55[0]) = v15;
+      if ( v18 - 2 <= v15 )
+        v19 = v15;
+      LOBYTE(v55[0]) = v19;
+      v55[1] = ((v18 - 1) & 0xFFFFFFFFFFFFFFFDuLL) != 0 ? 2 : 4;
+      HIBYTE(v55[0]) = v17 != 0;
+      v20 = VertexShaderDesc::ResolveKey((VertexShaderDesc *)v55);
+      if ( v2 >= (unsigned __int8)(v15 & (v20 >> 2)) )
       {
-        v23 = *((_OWORD *)&unk_1802CB0A0 + v22);
-        v56 = (struct ID3D11PixelShader *)*((_QWORD *)&unk_1802CB0A0 + 2 * v22);
-        *(_OWORD *)Src_8 = v23;
+        v21 = *((_OWORD *)&unk_180285040 + v20);
+        v56 = (struct ID3D11PixelShader *)*((_QWORD *)&unk_180285040 + 2 * v20);
+        v58 = v21;
         if ( v56 )
         {
-          v58 = *((_OWORD *)&unk_1802CB400 + v20);
-          *(_OWORD *)v55 = *((_OWORD *)&unk_1802CB320 + (int)v19);
-          v24 = *(_QWORD *)v55;
-          if ( *(_QWORD *)v55 )
+          *(_OWORD *)v55 = *((_OWORD *)&unk_1803451D0 + v18);
+          *(_OWORD *)v65 = *((_OWORD *)&unk_180345210 + (int)v17);
+          v22 = v65[0];
+          if ( v65[0] )
           {
-            v25 = gsl::span<D3D11_INPUT_ELEMENT_DESC const,-1>::size_bytes(&v58);
-            memcpy_0(v67, *((const void **)&v58 + 1), v25);
-            v26 = gsl::span<D3D11_INPUT_ELEMENT_DESC const,-1>::size_bytes(v55);
-            v27 = v58;
-            memcpy_0(&v67[2 * v58], *(const void **)&v55[2], v26);
-            gsl::details::extent_type<-1>::extent_type<-1>(v66, v27 + v24);
-            if ( v66[0] == -1 )
+            v23 = *(_QWORD *)v55;
+            v24 = 32LL * *(_QWORD *)v55;
+            memcpy_0(v66, *(const void **)&v55[2], 32LL * *(_QWORD *)v55);
+            memcpy_0(&v66[v24], v65[1], 32LL * (_QWORD)v22);
+            if ( (__int64)v22 + v23 < 0 )
             {
-              gsl::details::terminate(v28);
-              JUMPOUT(0x18003ADC8LL);
-            }
-            v30 = *(_QWORD *)gsl::details::extent_type<-1>::extent_type<-1>(&v65, v66[0]);
-            if ( v30 == -1 )
-            {
-              gsl::details::terminate(v29);
+              ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
               __debugbreak();
             }
-            v31 = v67;
+            *(_QWORD *)&v64 = (char *)v22 + v23;
+            *((_QWORD *)&v64 + 1) = v66;
+            *(_OWORD *)v55 = v64;
           }
-          else
-          {
-            v31 = (_OWORD *)*((_QWORD *)&v58 + 1);
-            LODWORD(v30) = v58;
-          }
-          *(_QWORD *)v55 = *((_QWORD *)this + 69);
-          v32 = (__int64 *)((char *)this + 32 * v19 + 8 * v17 + 1592);
-          v33 = *v32;
-          v34 = **(_QWORD **)v55;
-          *v32 = 0LL;
-          *(_QWORD *)&v58 = *(_QWORD *)(v34 + 88);
-          if ( v33 )
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 16LL))(v33);
-          CommonOrCubeMapRenderingShadersNoRefInternal = ((__int64 (__fastcall *)(_QWORD, _OWORD *, _QWORD, void *, struct ID3D11PixelShader *, char *))v58)(
-                                                           *(_QWORD *)v55,
-                                                           v31,
-                                                           (unsigned int)v30,
-                                                           Src_8[1],
+          v25 = (__int64 *)*((_QWORD *)this + 74);
+          v26 = (__int64 *)((char *)this + 32 * v17 + 8 * v14 + 1520);
+          v27 = *v26;
+          v28 = *v25;
+          *v26 = 0LL;
+          v29 = *(__int64 (__fastcall **)(__int64 *, _QWORD, _QWORD, _QWORD, struct ID3D11PixelShader *, char *))(v28 + 88);
+          if ( v27 )
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v27 + 16LL))(v27);
+          CommonOrCubeMapRenderingShadersNoRefInternal = v29(
+                                                           v25,
+                                                           *(_QWORD *)&v55[2],
+                                                           v55[0],
+                                                           *((_QWORD *)&v58 + 1),
                                                            v56,
-                                                           (char *)this + 32 * v19 + 8 * v17 + 1592);
-          v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
+                                                           (char *)this + 32 * v17 + 8 * v14 + 1520);
+          v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
           if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
           {
-            v53 = 525;
-            goto LABEL_67;
+            v53 = 586;
+            goto LABEL_65;
           }
           v2 = v54;
-          v16 = 1LL;
+          v15 = 1LL;
         }
       }
-      v19 += v16;
+      v17 += v15;
     }
-    while ( v19 < 2 );
-    v18 = ++v17;
-    if ( v17 < 4 )
+    while ( v17 < 2 );
+    v16 = ++v14;
+    if ( v14 < 4 )
       continue;
     break;
   }
-  for ( i = 0; i < 0x18; ++i )
-  {
-    v36 = *((_QWORD *)this + 69);
-    v37 = *(__int64 (__fastcall **)(__int64, char *, char *))(*(_QWORD *)v36 + 160LL);
-    v38 = (char *)this + 8 * i;
-    v39 = *((_QWORD *)v38 + 211);
-    *((_QWORD *)v38 + 211) = 0LL;
-    if ( v39 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
-    CommonOrCubeMapRenderingShadersNoRefInternal = v37(v36, &byte_180373FA0[264 * i], v38 + 1688);
-    v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
-    if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
-    {
-      v53 = 534;
-      goto LABEL_67;
-    }
-  }
-  v40 = 0;
+  v30 = 0LL;
   do
   {
-    v41 = *((_QWORD *)this + 69);
-    v42 = *(__int64 (__fastcall **)(__int64, __int16 *, char *))(*(_QWORD *)v41 + 176LL);
-    v43 = (char *)this + 8 * v40;
-    v44 = *((_QWORD *)v43 + 283);
-    *((_QWORD *)v43 + 283) = 0LL;
-    if ( v44 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v44 + 16LL))(v44);
-    CommonOrCubeMapRenderingShadersNoRefInternal = v42(v41, &_ImageBase[20 * v40 + 1886372], v43 + 2264);
-    v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
+    v31 = (__int64 *)*((_QWORD *)this + 74);
+    v32 = (char *)this + 8 * v30;
+    v33 = *((_QWORD *)v32 + 202);
+    v34 = *v31;
+    *((_QWORD *)v32 + 202) = 0LL;
+    v35 = *(__int64 (__fastcall **)(__int64 *, char *, char *))(v34 + 160);
+    if ( v33 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 16LL))(v33);
+    CommonOrCubeMapRenderingShadersNoRefInternal = v35(v31, &byte_1802EDC00[264 * (int)v30], v32 + 1616);
+    v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
     if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
     {
-      v53 = 540;
-      goto LABEL_67;
+      v53 = 595;
+      goto LABEL_65;
     }
-    ++v40;
+    v30 = (unsigned int)(v30 + 1);
   }
-  while ( !v40 );
-  for ( j = 0; j < 4; ++j )
+  while ( (unsigned int)v30 < 0x18 );
+  v36 = 0LL;
+  do
   {
-    v46 = *((_QWORD *)this + 69);
-    v47 = *(__int64 (__fastcall **)(__int64, char *, char *))(*(_QWORD *)v46 + 168LL);
-    v48 = (char *)this + 8 * j;
-    v49 = *((_QWORD *)v48 + 284);
-    *((_QWORD *)v48 + 284) = 0LL;
-    if ( v49 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v49 + 16LL))(v49);
-    CommonOrCubeMapRenderingShadersNoRefInternal = v47(v46, &byte_180375860[52 * j], v48 + 2272);
-    v10 = CommonOrCubeMapRenderingShadersNoRefInternal;
+    v37 = (__int64 *)*((_QWORD *)this + 74);
+    v38 = (char *)this + 8 * v36;
+    v39 = *((_QWORD *)v38 + 274);
+    v40 = *v37;
+    *((_QWORD *)v38 + 274) = 0LL;
+    v41 = *(__int64 (__fastcall **)(__int64 *, struct HINSTANCE__ *, char *))(v40 + 176);
+    if ( v39 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
+    CommonOrCubeMapRenderingShadersNoRefInternal = v41(v37, &_ImageBase + 10 * (int)v36 + 795118, v38 + 2192);
+    v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
     if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
     {
-      v53 = 546;
-      goto LABEL_67;
+      v53 = 601;
+      goto LABEL_65;
     }
+    v36 = (unsigned int)(v36 + 1);
   }
+  while ( !(_DWORD)v36 );
+  v42 = 0;
+  v43 = 0;
+  do
+  {
+    v44 = *((_QWORD *)this + 74);
+    v45 = *(__int64 (__fastcall **)(__int64, char *, char *))(*(_QWORD *)v44 + 168LL);
+    v46 = (char *)this + 8 * v43;
+    v47 = *((_QWORD *)v46 + 275);
+    *((_QWORD *)v46 + 275) = 0LL;
+    if ( v47 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v47 + 16LL))(v47);
+    D3D11DepthStencilDesc = DepthStencilMode::GetD3D11DepthStencilDesc(v42);
+    CommonOrCubeMapRenderingShadersNoRefInternal = v45(v44, D3D11DepthStencilDesc, v46 + 2200);
+    v9 = CommonOrCubeMapRenderingShadersNoRefInternal;
+    if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
+    {
+      v53 = 607;
+      goto LABEL_65;
+    }
+    v42 = v43 + 1;
+    v43 = v42;
+  }
+  while ( v42 < 4 );
   if ( v57 >= 37632 )
   {
-    *(_OWORD *)Src_8 = (unsigned __int64)this + 1584;
-    LOBYTE(v60) = 1;
-    v10 = CSurfaceShaderComposer::Create(this, (struct CSurfaceShaderComposer **)&Src_8[1]);
-    if ( (_BYTE)v60 )
+    v58 = (unsigned __int64)this + 1512;
+    LOBYTE(v59) = 1;
+    v9 = CSurfaceShaderComposer::Create(this, (struct CSurfaceShaderComposer **)&v58 + 1);
+    if ( (_BYTE)v59 )
     {
-      v51 = *(CSurfaceShaderComposer **)Src_8[0];
-      *(_QWORD *)Src_8[0] = Src_8[1];
-      if ( v51 )
+      v49 = v58;
+      v50 = *(_QWORD **)v58;
+      *(_QWORD *)v58 = *((_QWORD *)&v58 + 1);
+      if ( v50 )
       {
-        CSurfaceShaderComposer::~CSurfaceShaderComposer(v51);
-        operator delete(v51, 0x80uLL);
+        v52 = (CMILPoolResource *)v50[13];
+        if ( v52 )
+        {
+          v50[13] = 0LL;
+          CMILPoolResource::Release(v52);
+        }
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v50 + 12);
+        Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(v50 + 11);
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v50 + 10);
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v50 + 9);
+        `vector destructor iterator'(
+          v50,
+          8uLL,
+          9uLL,
+          Microsoft::WRL::ComPtr<CManipulationManager>::~ComPtr<CManipulationManager>);
+        operator delete(v50);
       }
     }
-    if ( (v10 & 0x80000000) != 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v50, 0LL, 0, v10, 0x229u, 0LL);
+    if ( (v9 & 0x80000000) != 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v49, 0LL, 0, v9, 0x266u, 0LL);
   }
-  return v10;
+  return v9;
 }

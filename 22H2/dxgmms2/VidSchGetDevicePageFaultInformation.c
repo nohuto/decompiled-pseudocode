@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetDevicePageFaultInformation @ 0x1C00B4760
+ * XREFs of VidSchGetDevicePageFaultInformation @ 0x1C0089190
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlNumberOfRunsInLargeMcb @ 0x1403AFCC0
+ * XREFs of FsRtlNumberOfRunsInLargeMcb @ 0x1404EF200
  * Callers:
- *     FsRtlNumberOfRunsInMcb @ 0x14053CD40 (FsRtlNumberOfRunsInMcb.c)
+ *     FsRtlNumberOfRunsInMcb @ 0x1404EF240 (FsRtlNumberOfRunsInMcb.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 ULONG __stdcall FsRtlNumberOfRunsInLargeMcb(PLARGE_MCB Mcb)
@@ -13,6 +13,6 @@ ULONG __stdcall FsRtlNumberOfRunsInLargeMcb(PLARGE_MCB Mcb)
 
   ExAcquireFastMutex(Mcb->GuardedMutex);
   PairCount = Mcb->BaseMcb.PairCount;
-  ExReleaseFastMutex(Mcb->GuardedMutex);
+  KeReleaseGuardedMutex(Mcb->GuardedMutex);
   return PairCount;
 }

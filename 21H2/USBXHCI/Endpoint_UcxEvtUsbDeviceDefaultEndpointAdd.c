@@ -1,22 +1,22 @@
 /*
- * XREFs of Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C0071FA0
+ * XREFs of Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C0071860
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     Controller_IsSecureDevice @ 0x1C0005AD0 (Controller_IsSecureDevice.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Endpoint_Create @ 0x1C006B6C8 (Endpoint_Create.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  */
 
 __int64 __fastcall Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
-  __int64 v8; // rbx
+  char v8; // bl
   __int64 v9; // rax
   int v10; // edx
   __int64 v11; // rax
   int v12; // edi
-  __int64 v14; // rbx
+  char v14; // bl
   __int64 v15; // rax
   int v16; // edx
   int v17; // [rsp+40h] [rbp-40h] BYREF
@@ -26,24 +26,27 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd(__int64 a1, __int6
   __int64 (__fastcall *v21)(__int64, unsigned int); // [rsp+78h] [rbp-8h]
 
   HIDWORD(v20[0]) = 0;
+  HIWORD(v17) = 0;
+  v19 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-           WdfDriverGlobals,
-           a2,
-           off_1C00612C0);
+    v8 = *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                      WdfDriverGlobals,
+                      a2,
+                      off_1C00602C0)
+                  + 135);
     v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
            WdfDriverGlobals,
            a1,
-           off_1C0061428);
+           off_1C0060428);
     LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(v9 + 72),
       v10,
       13,
       11,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-      *(_BYTE *)(v8 + 135),
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      v8,
       a3);
   }
   v17 = 1287;
@@ -52,7 +55,7 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd(__int64 a1, __int6
   v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
           a1,
-          off_1C0061428);
+          off_1C0060428);
   v20[0] = 56LL;
   v20[1] = Endpoint_UcxEvtEndpointPurge;
   v20[2] = Endpoint_UcxEvtEndpointStart;
@@ -63,26 +66,27 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd(__int64 a1, __int6
     v21 = 0LL;
   else
     v21 = Endpoint_UcxEvtEndpointEnableForwardProgress;
-  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C0062810)(UcxDriverGlobals, a4, v20);
+  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C00617F0)(UcxDriverGlobals, a4, v20);
   v12 = Endpoint_Create(a1, a2, a4, (__int64)&v17, 0LL, 0LL);
   if ( v12 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v14 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00612C0);
+    v14 = *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                       WdfDriverGlobals,
+                       a2,
+                       off_1C00602C0)
+                   + 135);
     v15 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             a1,
-            off_1C0061428);
+            off_1C0060428);
     LOBYTE(v16) = 2;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(v15 + 72),
       v16,
       13,
       12,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-      *(_BYTE *)(v14 + 135),
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      v14,
       v12);
   }
   return (unsigned int)v12;

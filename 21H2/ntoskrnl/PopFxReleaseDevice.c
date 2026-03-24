@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxReleaseDevice @ 0x1405CD96C
+ * XREFs of PopFxReleaseDevice @ 0x14056C360
  * Callers:
- *     PoFxSetTargetDripsDevicePowerState @ 0x14098CEF0 (PoFxSetTargetDripsDevicePowerState.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x14098D024 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopFxUpdateVetoMaskWork @ 0x14098E120 (PopFxUpdateVetoMaskWork.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1408E4550 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E4684 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopFxUpdateVetoMaskWork @ 0x1408E5810 (PopFxUpdateVetoMaskWork.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 LONG __fastcall PopFxReleaseDevice(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEsSnapTelemetry @ 0x140807218
+ * XREFs of PopEsSnapTelemetry @ 0x140779230
  * Callers:
- *     PopEsUpdateState @ 0x14024E2C8 (PopEsUpdateState.c)
- *     PopEsEnterSleepShutdown @ 0x1408071C4 (PopEsEnterSleepShutdown.c)
+ *     PopEsUpdateState @ 0x14039A908 (PopEsUpdateState.c)
+ *     PopEsEnterSleepShutdown @ 0x1407791DC (PopEsEnterSleepShutdown.c)
  * Callees:
- *     PopTraceEsState @ 0x140397DE0 (PopTraceEsState.c)
+ *     PopTraceEsState @ 0x14038C914 (PopTraceEsState.c)
  */
 
 char __fastcall PopEsSnapTelemetry(__int64 a1)
@@ -23,10 +23,10 @@ char __fastcall PopEsSnapTelemetry(__int64 a1)
   if ( PopEsLastStateChangeTimeStamp )
     PopTraceEsState(a1, *((_QWORD *)&v3 + 1) - PopEsLastStateChangeTimeStamp, v1 - PopEsLastBatteryCharge);
   PopEsAcOnline = *(_BYTE *)a1;
-  PopEsLastBatteryThreshold = dword_140C23310;
-  result = byte_140C23315;
+  PopEsLastBatteryThreshold = dword_140C23ED0;
+  result = byte_140C23ED5;
   PopEsLastStateChangeTimeStamp = v4;
   PopEsLastBatteryCharge = v1;
-  PopEsLastUserAwaySetting = byte_140C23315;
+  PopEsLastUserAwaySetting = byte_140C23ED5;
   return result;
 }

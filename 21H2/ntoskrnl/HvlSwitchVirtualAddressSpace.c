@@ -1,14 +1,15 @@
 /*
- * XREFs of HvlSwitchVirtualAddressSpace @ 0x14054CAE0
+ * XREFs of HvlSwitchVirtualAddressSpace @ 0x1404FAD60
  * Callers:
- *     KiSwapProcess @ 0x1402D0BA0 (KiSwapProcess.c)
- *     KiSwapDirectoryTableBaseTarget @ 0x1402F25C0 (KiSwapDirectoryTableBaseTarget.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x140346E50 (KiAttachProcess.c)
- *     KiDetachProcess @ 0x1403470F0 (KiDetachProcess.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     KiSwapProcess @ 0x140207230 (KiSwapProcess.c)
+ *     KiAttachProcess @ 0x140207340 (KiAttachProcess.c)
+ *     KiDetachProcess @ 0x140207600 (KiDetachProcess.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403884A0 (KiSwapDirectoryTableBaseTarget.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
  */
 
 __int64 HvlSwitchVirtualAddressSpace()

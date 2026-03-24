@@ -1,7 +1,7 @@
 /*
- * XREFs of GraySharpenInput @ 0x1C0268880
+ * XREFs of GraySharpenInput @ 0x1C026B300
  * Callers:
- *     GrayExpandDIB_CY_ExpCX @ 0x1C0267E80 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C026A8F0 (GrayExpandDIB_CY_ExpCX.c)
  * Callees:
  *     <none>
  */

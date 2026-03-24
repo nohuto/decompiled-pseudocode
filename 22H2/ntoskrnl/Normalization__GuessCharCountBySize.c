@@ -1,8 +1,8 @@
 /*
- * XREFs of Normalization__GuessCharCountBySize @ 0x1409C0B44
+ * XREFs of Normalization__GuessCharCountBySize @ 0x140917D3C
  * Callers:
- *     Normalization__Normalize @ 0x1409C122C (Normalization__Normalize.c)
- *     RtlpNormalizeStringWorker @ 0x1409C1D84 (RtlpNormalizeStringWorker.c)
+ *     Normalization__Normalize @ 0x140918424 (Normalization__Normalize.c)
+ *     RtlpNormalizeStringWorker @ 0x140918F54 (RtlpNormalizeStringWorker.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall Normalization__GuessCharCountBySize(__int64 a1, int a2)
   result = (unsigned int)(a2 + (a2 >> 3));
   if ( (int)result < 64 )
   {
-    result = (unsigned int)(*(_DWORD *)(a1 + 24) * a2);
+    result = (unsigned int)(a2 * *(_DWORD *)(a1 + 24));
     if ( (int)result > 64 )
       return 64LL;
   }

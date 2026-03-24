@@ -1,46 +1,47 @@
 /*
- * XREFs of ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x180029030
+ * XREFs of ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AEFE4
  * Callers:
- *     ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x180029588 (-ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
+ *     ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AF6A0 (-ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
  * Callees:
- *     memcpy_s @ 0x18002952C (memcpy_s.c)
- *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800295B8 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800F76D8 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     memcpy_s @ 0x1800AF644 (memcpy_s.c)
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800AF6D0 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE3A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x18014CEB8 (--0last_error_context@wil@@QEAA@XZ.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x18014CF8C (--1last_error_context@wil@@QEAA@XZ.c)
  */
 
-bool __fastcall wil::details_abi::heap_buffer::reserve(
-        wil::details_abi::heap_buffer *this,
-        unsigned __int64 a2,
-        unsigned __int64 a3)
+char __fastcall wil::details_abi::heap_buffer::reserve(wil::details_abi::heap_buffer *this, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rdi
-  char *v5; // rax
-  char *v6; // rsi
-  rsize_t v7; // r14
-  void *v8; // rdx
-  wil::details *v9; // rcx
+  unsigned __int64 v5; // r8
+  char *v6; // rax
+  char *v7; // rsi
+  rsize_t v9; // r14
+  void *v10; // rdx
+  wil::details *v11; // rcx
+  char v12; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_QWORD *)this + 2) - *(_QWORD *)this >= a2 )
+  if ( *((_QWORD *)this + 2) - *(_QWORD *)this < a2 )
   {
-LABEL_6:
-    LOBYTE(v5) = 1;
-    return (char)v5;
+    wil::last_error_context::last_error_context((wil::last_error_context *)&v12);
+    v4 = (a2 & 0xFFFFFFFFFFFFFFC0uLL) + 64;
+    v6 = (char *)wil::details::ProcessHeapAlloc(0, v4, v5);
+    v7 = v6;
+    if ( !v6 )
+    {
+      wil::last_error_context::~last_error_context((wil::last_error_context *)&v12);
+      return 0;
+    }
+    v9 = *((_QWORD *)this + 1) - *(_QWORD *)this;
+    memcpy_s(v6, v4, *(const void *const *)this, v9);
+    v11 = (wil::details *)*((_QWORD *)this + 3);
+    *((_QWORD *)this + 3) = v7;
+    if ( v11 )
+      wil::details::FreeProcessHeap(v11, v10);
+    *(_QWORD *)this = v7;
+    *((_QWORD *)this + 1) = &v7[v9];
+    *((_QWORD *)this + 2) = &v7[v4];
+    wil::last_error_context::~last_error_context((wil::last_error_context *)&v12);
   }
-  v4 = (a2 & 0xFFFFFFFFFFFFFFC0uLL) + 64;
-  v5 = (char *)wil::details::ProcessHeapAlloc(0, v4, a3);
-  v6 = v5;
-  if ( v5 )
-  {
-    v7 = *((_QWORD *)this + 1) - *(_QWORD *)this;
-    memcpy_s(v5, v4, *(const void *const *)this, v7);
-    v9 = (wil::details *)*((_QWORD *)this + 3);
-    *((_QWORD *)this + 3) = v6;
-    if ( v9 )
-      wil::details::FreeProcessHeap(v9, v8);
-    *(_QWORD *)this = v6;
-    *((_QWORD *)this + 1) = &v6[v7];
-    *((_QWORD *)this + 2) = &v6[v4];
-    goto LABEL_6;
-  }
-  return (char)v5;
+  return 1;
 }

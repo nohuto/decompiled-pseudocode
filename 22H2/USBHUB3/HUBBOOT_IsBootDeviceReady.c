@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBBOOT_IsBootDeviceReady @ 0x1C003F8D0
+ * XREFs of HUBBOOT_IsBootDeviceReady @ 0x1C003D5F0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_IsBootDeviceReady @ 0x1C003379C (HUBMISC_IsBootDeviceReady.c)
+ *     HUBMISC_IsBootDeviceReady @ 0x1C00305AC (HUBMISC_IsBootDeviceReady.c)
  */
 
 char __fastcall HUBBOOT_IsBootDeviceReady(__int64 a1, __int64 a2)

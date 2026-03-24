@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasContent@CVisual@@UEAA_NXZ @ 0x1800CCA70
+ * XREFs of ?HasContent@CVisual@@UEAA_NXZ @ 0x1800BF7F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CVisual::HasContent(CVisual *this)
 {
-  return *((_QWORD *)this + 32) != 0LL;
+  return *((_QWORD *)this + 31) != 0LL;
 }

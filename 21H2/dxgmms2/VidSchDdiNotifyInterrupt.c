@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchDdiNotifyInterrupt @ 0x1C000C690
+ * XREFs of VidSchDdiNotifyInterrupt @ 0x1C000DCF0
  * Callers:
  *     <none>
  * Callees:
- *     VidSchDdiNotifyInterruptWorker @ 0x1C000C7A0 (VidSchDdiNotifyInterruptWorker.c)
- *     VidSchiLogInterrupt @ 0x1C000CAA0 (VidSchiLogInterrupt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C001E570 (McTemplateK0q_EtwWriteTransfer.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000DE00 (VidSchDdiNotifyInterruptWorker.c)
+ *     VidSchiLogInterrupt @ 0x1C000E0F0 (VidSchiLogInterrupt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024E10 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VidSchDdiNotifyInterrupt(__int64 a1, unsigned int *a2)
@@ -15,49 +15,58 @@ __int64 __fastcall VidSchDdiNotifyInterrupt(__int64 a1, unsigned int *a2)
   __int64 v5; // r8
   __int64 v6; // rbx
   __int64 v7; // rcx
-  int v8; // ecx
+  __int64 v8; // rdx
+  int v9; // ecx
   __int64 result; // rax
-  __int64 v10; // rcx
-  int v11; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-20h]
-  char v13; // [rsp+40h] [rbp-18h]
+  __int64 v11; // rcx
+  _QWORD *v12; // rax
+  int v13; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+28h] [rbp-20h]
+  char v15; // [rsp+30h] [rbp-18h]
 
-  v11 = -1;
-  v12 = 0LL;
-  if ( (qword_1C006E010 & 2) != 0 )
+  v13 = -1;
+  v14 = 0LL;
+  if ( (qword_1C0050010 & 2) != 0 )
   {
-    v13 = 1;
-    v11 = 4015;
-    if ( byte_1C006E941 < 0 )
+    v15 = 1;
+    v13 = 4015;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter);
   }
   else
   {
-    v13 = 0;
+    v15 = 0;
   }
-  ((void (__fastcall *)(int *, __int64))DxgCoreInterface[78])(&v11, 4015LL);
+  ((void (__fastcall *)(int *, __int64))DxgCoreInterface[73])(&v13, 4015LL);
   if ( (DpiGetSchedulerCallbackState(a1) & 2) == 0
-    || (DxgAdapter = DpiGetDxgAdapter(a1), (v6 = DxgAdapter) == 0)
-    || (v7 = *(_QWORD *)(*(_QWORD *)(DxgAdapter + 2800) + 632LL)) == 0 )
+    || ((DxgAdapter = DpiGetDxgAdapter(a1), (v6 = DxgAdapter) == 0)
+      ? (v7 = 0LL)
+      : (v7 = *(_QWORD *)(*(_QWORD *)(DxgAdapter + 2704) + 624LL)),
+        !v7) )
   {
-LABEL_10:
-    result = ((__int64 (__fastcall *)(int *))DxgCoreInterface[79])(&v11);
-    if ( !v13 )
+LABEL_11:
+    result = ((__int64 (__fastcall *)(int *))DxgCoreInterface[74])(&v13);
+    if ( !v15 )
       return result;
-    goto LABEL_15;
+    goto LABEL_17;
   }
   LOBYTE(v5) = 1;
   VidSchiLogInterrupt(v7, a2, v5);
-  if ( *a2 > 0x12 || (v8 = 263304, !_bittest(&v8, *a2)) || *(_QWORD *)(v6 + 2792) )
+  if ( *a2 > 0xA || (v9 = 1160, !_bittest(&v9, *a2)) || *(_QWORD *)(v6 + 2696) )
   {
-    VidSchDdiNotifyInterruptWorker(*(_QWORD *)(v6 + 2800), a2, 1LL);
-    goto LABEL_10;
+    VidSchDdiNotifyInterruptWorker(*(_QWORD *)(v6 + 2704), a2, 1LL);
+    goto LABEL_11;
   }
-  WdLogSingleEntry5(0LL, 281LL, 7LL, v6, 0LL, 0LL);
+  v12 = (_QWORD *)WdLogNewEntry5_WdCriticalError(1160LL, v8);
+  v12[3] = 281LL;
+  v12[4] = 7LL;
+  v12[5] = v6;
+  v12[6] = 0LL;
+  v12[7] = 0LL;
+  result = WdLogEvent5_WdCriticalError(v12);
   __debugbreak();
-LABEL_15:
-  result = (unsigned __int8)byte_1C006E941;
-  if ( byte_1C006E941 < 0 )
-    return McTemplateK0q_EtwWriteTransfer(v10, &EventProfilerExit);
+LABEL_17:
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    return McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit);
   return result;
 }

@@ -1,31 +1,30 @@
 /*
- * XREFs of ?GetTransform@CGDIBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18003CE18
+ * XREFs of ?GetTransform@CGDIBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180041E28
  * Callers:
- *     ?GetTransform@CGDIBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18010B950 (-GetTransform@CGDIBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRect.c)
+ *     ?GetTransform@CGDIBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8B90 (-GetTransform@CGDIBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRect.c)
  * Callees:
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x18003CF50 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041F4C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CGDIBitmapRealization::GetTransform(__int64 a1, __int64 a2, float *a3)
 {
-  int v3; // ebx
-  int *v4; // rsi
-  char v7; // r14
-  char v8; // al
-  __int64 v9; // rcx
-  int v10; // eax
-  float v11; // xmm1_4
-  float v12; // xmm2_4
-  int v14; // [rsp+40h] [rbp+8h] BYREF
-  int v15; // [rsp+44h] [rbp+Ch]
+  int v3; // eax
+  char v6; // bp
+  int *v7; // rbx
+  __int64 v8; // rcx
+  int v9; // ecx
+  float v10; // xmm1_4
+  float v11; // xmm2_4
+  int v13; // [rsp+30h] [rbp+8h] BYREF
+  int v14; // [rsp+34h] [rbp+Ch]
 
   v3 = 0;
-  v4 = (int *)(a1 - 72);
   *(_QWORD *)a2 = 1065353216LL;
+  v6 = 0;
   *(_QWORD *)(a2 + 8) = 0LL;
-  v7 = 0;
   *(_DWORD *)(a2 + 16) = 0;
+  v7 = (int *)(a1 - 72);
   *(_QWORD *)(a2 + 20) = 1065353216LL;
   *(_QWORD *)(a2 + 28) = 0LL;
   *(_DWORD *)(a2 + 36) = 0;
@@ -33,36 +32,34 @@ char __fastcall CGDIBitmapRealization::GetTransform(__int64 a1, __int64 a2, floa
   *(_QWORD *)(a2 + 48) = 0LL;
   *(_DWORD *)(a2 + 56) = 0;
   *(_DWORD *)(a2 + 60) = 1065353216;
-  v8 = *(_BYTE *)(a2 + 65) & 0xD7;
-  *(_BYTE *)(a2 + 64) = 85;
-  *(_BYTE *)(a2 + 65) = v8 | 0x17;
-  if ( *(_DWORD *)(a1 - 80) || *v4 )
+  *(_WORD *)(a2 + 64) = 32085;
+  if ( *(_DWORD *)(a1 - 80) || *v7 )
   {
     CMILMatrix::Translate(
       (CMILMatrix *)a2,
       COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*(int *)(a1 - 80)) ^ _xmm),
-      COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v4) ^ _xmm));
-    v7 = 1;
+      COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v7) ^ _xmm));
+    v6 = 1;
   }
   if ( a3 )
   {
-    v9 = *(_QWORD *)(a1 - 120);
-    if ( v9 )
+    v8 = *(_QWORD *)(a1 - 120);
+    if ( v8 )
     {
-      (**(void (__fastcall ***)(__int64, int *))(v9 + 96))(v9 + 96, &v14);
-      v10 = v14;
-      v3 = v15;
+      (**(void (__fastcall ***)(__int64, int *))(v8 + 96))(v8 + 96, &v13);
+      v3 = v14;
+      v9 = v13;
     }
     else
     {
-      v10 = 0;
+      v9 = v3;
     }
-    v11 = (float)*(int *)(a1 - 80);
-    *a3 = v11;
-    v12 = (float)*v4;
-    a3[1] = v12;
-    a3[2] = fmaxf(v11, (float)(v10 - *(_DWORD *)(a1 - 76)));
-    a3[3] = fmaxf(v12, (float)(v3 - *(_DWORD *)(a1 - 68)));
+    v10 = (float)*(int *)(a1 - 80);
+    *a3 = v10;
+    v11 = (float)*v7;
+    a3[1] = v11;
+    a3[2] = fmaxf(v10, (float)(v9 - *(_DWORD *)(a1 - 76)));
+    a3[3] = fmaxf(v11, (float)(v3 - *(_DWORD *)(a1 - 68)));
   }
-  return v7;
+  return v6;
 }

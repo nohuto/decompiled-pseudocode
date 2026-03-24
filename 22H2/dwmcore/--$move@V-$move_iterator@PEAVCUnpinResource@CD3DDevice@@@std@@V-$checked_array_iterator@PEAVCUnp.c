@@ -1,48 +1,63 @@
 /*
- * XREFs of ??$move@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@std@@V?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@0@0V12@@Z @ 0x18028C43C
+ * XREFs of ??$move@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@std@@V?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@0@0V12@@Z @ 0x18023D134
  * Callers:
- *     ?clear_region@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18028EF60 (-clear_region@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDev.c)
+ *     ?clear_region@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180240B80 (-clear_region@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDev.c)
  * Callees:
- *     ??4CUnpinResource@CD3DDevice@@QEAAAEAV01@$$QEAV01@@Z @ 0x18028C798 (--4CUnpinResource@CD3DDevice@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall std::move<std::move_iterator<CD3DDevice::CUnpinResource *>,stdext::checked_array_iterator<CD3DDevice::CUnpinResource *>>(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        char *a2,
+        char *a3,
         _QWORD *a4)
 {
-  __int64 v4; // rbx
-  __int64 *v5; // r14
+  char *v4; // rbx
   __int64 v8; // rdx
-  __int64 v10; // rsi
+  bool v9; // cc
+  __int64 *v10; // rsi
+  __int64 v11; // rcx
+  __int64 v12; // r15
   __int64 result; // rax
-  __int64 v12; // xmm1_8
+  __int64 v14; // xmm1_8
 
   v4 = a2;
-  v5 = a4 + 2;
-  v8 = (a3 - a2) >> 5;
-  if ( v8 < 0 )
+  v8 = (a3 - a2) >> 4;
+  v9 = v8 <= 0;
+  if ( v8 >= 0 )
   {
-    if ( *v5 >= (unsigned __int64)-v8 )
-      goto LABEL_3;
-LABEL_8:
-    _invalid_parameter_noinfo_noreturn();
+LABEL_4:
+    if ( v9 || a4[1] - a4[2] >= (unsigned __int64)v8 )
+      goto LABEL_7;
+    goto LABEL_6;
   }
-  if ( v8 > 0 && a4[1] - *v5 < (unsigned __int64)v8 )
-    goto LABEL_8;
-LABEL_3:
-  v10 = *a4 + 32 * *v5;
+  if ( a4[2] >= (unsigned __int64)-v8 )
+  {
+    v9 = v8 <= 0;
+    goto LABEL_4;
+  }
+LABEL_6:
+  _o__invalid_parameter_noinfo_noreturn(a1, v8);
+  __debugbreak();
+LABEL_7:
+  v10 = (__int64 *)(*a4 + 16LL * a4[2]);
   while ( v4 != a3 )
   {
-    CD3DDevice::CUnpinResource::operator=(v10, v4);
-    v10 += 32LL;
-    v4 += 32LL;
+    v11 = *(_QWORD *)v4;
+    v12 = *v10;
+    *v10 = *(_QWORD *)v4;
+    if ( v11 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
+    if ( v12 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+    v10[1] = *((_QWORD *)v4 + 1);
+    v10 += 2;
+    v4 += 16;
   }
   result = a1;
-  *v5 = (v10 - *a4) >> 5;
-  v12 = a4[2];
+  a4[2] = ((__int64)v10 - *a4) >> 4;
+  v14 = a4[2];
   *(_OWORD *)a1 = *(_OWORD *)a4;
-  *(_QWORD *)(a1 + 16) = v12;
+  *(_QWORD *)(a1 + 16) = v14;
   return result;
 }

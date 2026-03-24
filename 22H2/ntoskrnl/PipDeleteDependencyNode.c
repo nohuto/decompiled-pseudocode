@@ -1,18 +1,17 @@
 /*
- * XREFs of PipDeleteDependencyNode @ 0x140954688
+ * XREFs of PipDeleteDependencyNode @ 0x1407CD5D0
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C854 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipSetDependency @ 0x140839894 (PipSetDependency.c)
- *     PipCreateDependencyNode @ 0x140839AF0 (PipCreateDependencyNode.c)
- *     PipDereferenceDependencyNode @ 0x140839BE0 (PipDereferenceDependencyNode.c)
- *     IoDuplicateDependency @ 0x140954220 (IoDuplicateDependency.c)
- *     PipDeleteAllDependencyRelations @ 0x1409544C0 (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x1409547C8 (PipMergeDependencyEdgeList.c)
- *     PipMergeDependencyNodes @ 0x14095494C (PipMergeDependencyNodes.c)
- *     PipUnlinkDeviceObjectAndDependencyNode @ 0x1409549C4 (PipUnlinkDeviceObjectAndDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x140748F60 (PipDereferenceDependencyNode.c)
+ *     PipCreateDependencyNode @ 0x1407B685C (PipCreateDependencyNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD520 (PipDeleteAllDependencyRelations.c)
+ *     IoDuplicateDependency @ 0x14089D6C0 (IoDuplicateDependency.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DDC0 (PipMergeDependencyEdgeList.c)
+ *     PipMergeDependencyNodes @ 0x14089DF44 (PipMergeDependencyNodes.c)
+ *     PipSetDependency @ 0x14089E044 (PipSetDependency.c)
+ *     PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E0F4 (PipUnlinkDeviceObjectAndDependencyNode.c)
  * Callees:
- *     PipDeleteBindingIds @ 0x140954644 (PipDeleteBindingIds.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PipDeleteBindingIds @ 0x1407CD6A0 (PipDeleteBindingIds.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipDeleteDependencyNode(_QWORD *P)
@@ -22,7 +21,7 @@ void __fastcall PipDeleteDependencyNode(_QWORD *P)
   _QWORD **v4; // rdx
   PVOID *v5; // rcx
 
-  PipDeleteBindingIds((__int64)P);
+  PipDeleteBindingIds();
   v2 = (_QWORD *)*P;
   if ( *(_QWORD **)(*P + 8LL) != P
     || (v3 = (PVOID *)P[1], *v3 != P)

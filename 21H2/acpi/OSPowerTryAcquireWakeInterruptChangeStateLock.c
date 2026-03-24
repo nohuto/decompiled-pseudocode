@@ -1,8 +1,8 @@
 /*
- * XREFs of OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C00637C4
+ * XREFs of OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0062484
  * Callers:
- *     ACPIAssociateWakeInterrupt @ 0x1C0061F5C (ACPIAssociateWakeInterrupt.c)
- *     ACPIDelayedFreeWakeInterrupt @ 0x1C00622A0 (ACPIDelayedFreeWakeInterrupt.c)
+ *     ACPIAssociateWakeInterrupt @ 0x1C00611B8 (ACPIAssociateWakeInterrupt.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C00614EC (ACPIDelayedFreeWakeInterrupt.c)
  * Callees:
  *     <none>
  */

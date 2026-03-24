@@ -1,19 +1,20 @@
 /*
- * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1214
+ * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8028
  * Callers:
- *     MUIRegistrySystemRoutine @ 0x140846700 (MUIRegistrySystemRoutine.c)
+ *     MUIRegistrySystemRoutine @ 0x1407901D0 (MUIRegistrySystemRoutine.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140846D08 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     _RtlpMuiRegSerializeRegistryInfo @ 0x140846DE0 (_RtlpMuiRegSerializeRegistryInfo.c)
- *     RtlpMuiRegCreateRegistryInfo @ 0x1408470C0 (RtlpMuiRegCreateRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x1408470F0 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x140847948 (RtlpMuiRegFreeRegistryInfo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _RtlpMuiRegSerializeRegistryInfo @ 0x14078F7A8 (_RtlpMuiRegSerializeRegistryInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14078FA88 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x14078FF70 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140790108 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateRegistryInfo @ 0x140790178 (RtlpMuiRegCreateRegistryInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
-        _QWORD *a1,
+        ULONG_PTR *a1,
         _DWORD *a2,
         _DWORD *a3,
         int a4,
@@ -21,92 +22,98 @@ __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
         int a6,
         _DWORD *a7)
 {
-  int v10; // ebp
+  int v9; // ebp
+  ULONG_PTR v10; // rdi
+  ULONG_PTR v11; // rsi
   __int64 RegistryInfo; // rax
-  _QWORD *v12; // rdi
   int v13; // ebx
   __int64 v14; // r8
   __int64 v15; // rcx
   unsigned int v16; // eax
   _WORD *v17; // rcx
-  __int64 Pool2; // rax
-  void *v19; // rsi
-  _DWORD v21[14]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v18; // ebx
+  PVOID PoolWithTag; // rax
+  unsigned int NumberOfBytes[18]; // [rsp+20h] [rbp-48h] BYREF
 
-  v10 = 0;
-  if ( a1 && a2 && a3 && a5 && a7 )
+  v9 = 0;
+  v10 = 0LL;
+  v11 = 0LL;
+  if ( !a1 || !a2 || !a3 || !a5 || !a7 )
   {
-    RegistryInfo = RtlpMuiRegCreateRegistryInfo();
-    v12 = (_QWORD *)RegistryInfo;
-    if ( RegistryInfo )
+    v13 = -1073741811;
+    goto LABEL_33;
+  }
+  RegistryInfo = RtlpMuiRegCreateRegistryInfo();
+  v11 = RegistryInfo;
+  if ( !RegistryInfo )
+    return (unsigned int)-1073741801;
+  v13 = RtlpMuiRegLoadRegistryInfo(RegistryInfo);
+  if ( v13 >= 0 )
+  {
+    v15 = *(_QWORD *)(v11 + 24);
+    v16 = *(unsigned __int16 *)(v15 + 6);
+    if ( (_WORD)v16 )
     {
-      v13 = RtlpMuiRegLoadRegistryInfo(RegistryInfo);
-      if ( v13 >= 0 )
+      v17 = *(_WORD **)(v15 + 16);
+      v14 = v16;
+      do
       {
-        v15 = v12[3];
-        v16 = *(unsigned __int16 *)(v15 + 6);
-        if ( (_WORD)v16 )
-        {
-          v17 = *(_WORD **)(v15 + 16);
-          v14 = v16;
-          do
-          {
-            if ( (*v17 & 0x9020) == 0x20 && (*v17 & 3) != 0 )
-              ++v10;
-            v17 += 14;
-            --v14;
-          }
-          while ( v14 );
-        }
-        *a3 = v10;
-        *a5 = 0;
-        if ( a4 )
-        {
-          LOBYTE(v14) = 1;
-          if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v12, (unsigned __int16)a4, v14, 0LL) >= 0 )
-            *a5 = 1;
-        }
-        *a7 = 0;
-        if ( a6 )
-        {
-          LOBYTE(v14) = 1;
-          if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v12, (unsigned __int16)a6, v14, 0LL) >= 0 )
-            *a7 = 1;
-        }
-        v21[0] = 0;
-        v13 = RtlpMuiRegSerializeRegistryInfo(v12, 0LL, v21);
+        if ( (*v17 & 0x9020) == 0x20 && (*v17 & 3) != 0 )
+          ++v9;
+        v17 += 14;
+        --v14;
+      }
+      while ( v14 );
+    }
+    *a3 = v9;
+    *a5 = 0;
+    if ( a4 )
+    {
+      LOBYTE(v14) = 1;
+      if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v11, (unsigned __int16)a4, v14, 0LL) >= 0 )
+        *a5 = 1;
+    }
+    *a7 = 0;
+    if ( a6 )
+    {
+      LOBYTE(v14) = 1;
+      if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v11, (unsigned __int16)a6, v14, 0LL) >= 0 )
+        *a7 = 1;
+    }
+    NumberOfBytes[0] = 0;
+    v13 = RtlpMuiRegSerializeRegistryInfo(v11, 0LL, NumberOfBytes);
+    if ( v13 >= 0 )
+    {
+      if ( NumberOfBytes[0] )
+      {
+        v18 = NumberOfBytes[0];
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x72746C6Du);
+        v10 = (ULONG_PTR)PoolWithTag;
+        if ( PoolWithTag )
+          memset(PoolWithTag, 0, v18);
+      }
+      if ( v10 )
+      {
+        v13 = RtlpMuiRegSerializeRegistryInfo(v11, v10, NumberOfBytes);
         if ( v13 >= 0 )
         {
-          if ( v21[0] && (Pool2 = ExAllocatePool2(256LL, v21[0], 1920232557LL), (v19 = (void *)Pool2) != 0LL) )
-          {
-            v13 = RtlpMuiRegSerializeRegistryInfo(v12, Pool2, v21);
-            if ( v13 < 0 )
-            {
-              ExFreePoolWithTag(v19, 0);
-            }
-            else
-            {
-              *a1 = v19;
-              *a2 = v21[0];
-            }
-          }
-          else
-          {
-            v13 = -1073741801;
-          }
+          *a1 = v10;
+          *a2 = NumberOfBytes[0];
+          goto LABEL_27;
         }
+LABEL_33:
+        if ( v10 )
+          ExFreeHeapPool(v10);
+        goto LABEL_27;
       }
-      RtlpMuiRegFreeRegistryInfo(v12, 4095LL);
-      ExFreePoolWithTag(v12, 0);
-    }
-    else
-    {
-      return (unsigned int)-1073741801;
+      v13 = -1073741801;
     }
   }
-  else
+LABEL_27:
+  if ( v11 )
   {
-    return (unsigned int)-1073741811;
+    RtlpMuiRegFreeRegistryInfo(v11, 4095LL);
+    ExFreeHeapPool(v11);
   }
   return (unsigned int)v13;
 }

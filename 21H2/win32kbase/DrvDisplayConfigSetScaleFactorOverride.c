@@ -1,18 +1,18 @@
 /*
- * XREFs of DrvDisplayConfigSetScaleFactorOverride @ 0x1C0173EB0
+ * XREFs of DrvDisplayConfigSetScaleFactorOverride @ 0x1C0146E70
  * Callers:
- *     DrvDisplayConfigSetDeviceInfo @ 0x1C0173980 (DrvDisplayConfigSetDeviceInfo.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0146990 (DrvDisplayConfigSetDeviceInfo.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     UserNotifyUniversalScaleFactorChanged @ 0x1C0166FE4 (UserNotifyUniversalScaleFactorChanged.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     UserNotifyUniversalScaleFactorChanged @ 0x1C01399B4 (UserNotifyUniversalScaleFactorChanged.c)
  */
 
 __int64 __fastcall DrvDisplayConfigSetScaleFactorOverride(_DWORD *a1, _DWORD *a2)
 {
-  int v4; // edi
+  __int64 v4; // rdi
   int v5; // r8d
   struct PDEV *i; // rbx
   _DWORD *v7; // rcx
@@ -20,61 +20,66 @@ __int64 __fastcall DrvDisplayConfigSetScaleFactorOverride(_DWORD *a1, _DWORD *a2
   char *v9; // r9
   int v10; // eax
   __int64 v11; // rdx
-  _DWORD *v12; // rcx
-  __int64 v13; // rcx
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  __int64 v14; // rdx
+  _DWORD *v15; // rcx
+  __int64 v16; // rcx
 
-  v4 = -1073741811;
+  LODWORD(v4) = -1073741811;
   EngAcquireSemaphore(ghsemDriverMgmt);
   EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
   for ( i = gppdevList; i; i = *(struct PDEV **)i )
   {
     if ( (*((_DWORD *)i + 10) & 0x401) == 1 )
     {
-      v7 = (_DWORD *)*((_QWORD *)i + 319);
+      v7 = (_DWORD *)*((_QWORD *)i + 322);
       if ( ((unsigned __int64)(v7 + 1) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
       {
         v8 = v7[40];
         if ( (v8 & 0x800000) != 0 )
         {
-          v9 = (char *)i + 2424;
+          v9 = (char *)i + 2456;
           if ( a2 )
           {
             if ( *a2 )
             {
-              v10 = ((__int64 (__fastcall *)(_DWORD *, _QWORD, _QWORD, char *))qword_1C02968C0)(
+              v10 = ((__int64 (__fastcall *)(_DWORD *, _QWORD, _QWORD, char *))qword_1C0251AD8)(
                       v7 + 62,
                       (unsigned int)v7[64],
                       (unsigned int)a1[5],
                       v9);
               v4 = v10;
               if ( v10 < 0 )
-                WdLogSingleEntry5(
-                  2LL,
-                  v10,
-                  (int)a1[5],
-                  *(int *)(*((_QWORD *)i + 319) + 252LL),
-                  *(unsigned int *)(*((_QWORD *)i + 319) + 248LL),
-                  *(unsigned int *)(*((_QWORD *)i + 319) + 256LL));
+              {
+                v13 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+                v13[3] = v4;
+                v13[4] = (int)a1[5];
+                v13[5] = *(int *)(*((_QWORD *)i + 322) + 252LL);
+                v13[6] = *(unsigned int *)(*((_QWORD *)i + 322) + 248LL);
+                v13[7] = *(unsigned int *)(*((_QWORD *)i + 322) + 256LL);
+                WdLogEvent5_WdError(v13);
+              }
             }
             else if ( (v8 & 4) != 0 )
             {
-              v11 = (unsigned int)v7[64];
-              v12 = v7 + 62;
+              v14 = (unsigned int)v7[64];
+              v15 = v7 + 62;
 LABEL_18:
-              v4 = ((__int64 (__fastcall *)(_DWORD *, __int64, _QWORD, char *))qword_1C02968C0)(
-                     v12,
-                     v11,
-                     (unsigned int)a1[5],
-                     v9);
+              LODWORD(v4) = ((__int64 (__fastcall *)(_DWORD *, __int64, _QWORD, char *))qword_1C0251AD8)(
+                              v15,
+                              v14,
+                              (unsigned int)a1[5],
+                              v9);
               break;
             }
           }
           else if ( a1[2] == v7[62] && a1[3] == v7[63] )
           {
-            v11 = (unsigned int)v7[64];
-            if ( a1[4] == (_DWORD)v11 )
+            v14 = (unsigned int)v7[64];
+            if ( a1[4] == (_DWORD)v14 )
             {
-              v12 = v7 + 62;
+              v15 = v7 + 62;
               goto LABEL_18;
             }
           }
@@ -86,9 +91,9 @@ LABEL_18:
   if ( ghsemDriverMgmt )
   {
     ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
-    PsLeavePriorityRegion(v13);
+    PsLeavePriorityRegion(v16);
   }
-  if ( v4 >= 0 )
+  if ( (int)v4 >= 0 )
     UserNotifyUniversalScaleFactorChanged();
   return (unsigned int)v4;
 }

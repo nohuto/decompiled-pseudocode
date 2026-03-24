@@ -1,10 +1,10 @@
 /*
- * XREFs of LockObjectAssignment @ 0x1C0099630
+ * XREFs of LockObjectAssignment @ 0x1C0086850
  * Callers:
- *     HMAllocObjectEx @ 0x1C0012A1C (HMAllocObjectEx.c)
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     HMChangeOwnerThreadWorker @ 0x1C00A1CD8 (HMChangeOwnerThreadWorker.c)
+ *     HMAllocObject @ 0x1C0034080 (HMAllocObject.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A66E4 (HMChangeOwnerThreadWorker.c)
  * Callees:
  *     <none>
  */

@@ -1,205 +1,126 @@
 /*
- * XREFs of SeDefaultObjectMethod @ 0x140729020
+ * XREFs of SeDefaultObjectMethod @ 0x1406D8A10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1406C0A0C (ObQuerySecurityDescriptorInfo.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728AC0 (ObDereferenceSecurityDescriptor.c)
- *     SeComputeQuotaInformationSize @ 0x140728BF0 (SeComputeQuotaInformationSize.c)
- *     ObLogSecurityDescriptor @ 0x140728D30 (ObLogSecurityDescriptor.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
- *     PsChargeSharedPoolQuota @ 0x14075C654 (PsChargeSharedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406D8070 (ObSetSecurityDescriptorInfo.c)
+ *     ObLogSecurityDescriptor @ 0x1406D8C70 (ObLogSecurityDescriptor.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1406DBF38 (ObQuerySecurityDescriptorInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeDefaultObjectMethod(
-        __int64 a1,
+        _QWORD *a1,
         int a2,
         ULONG *a3,
         void *a4,
-        ULONG *a5,
+        __int64 a5,
         __int64 *a6,
-        int a7,
-        __int64 a8)
+        POOL_TYPE a7,
+        GENERIC_MAPPING *a8)
 {
+  int v10; // edx
   int v11; // edx
-  int v12; // edx
-  unsigned int v13; // ebx
-  int v14; // ebp
-  __int64 v16; // rdi
-  unsigned int v17; // ebx
-  _QWORD *v18; // rdi
-  signed __int64 v19; // rax
-  signed __int64 v20; // rcx
-  bool i; // zf
-  signed __int64 v22; // rtt
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned int v24; // ebx
-  void *v25; // rbp
-  int v26; // esi
-  __int64 v27; // rax
-  int v28; // eax
-  __int64 v29; // rax
-  unsigned int v30; // r12d
-  __int64 v31; // rsi
-  __int64 v32; // r13
-  char *v33; // rcx
-  struct _KTHREAD *v34; // r15
-  volatile signed __int64 *v35; // rbp
-  _QWORD **v36; // r14
-  signed __int64 v37; // rax
-  _QWORD *j; // rcx
-  PVOID P; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v40; // [rsp+48h] [rbp-40h] BYREF
-  _QWORD v41[7]; // [rsp+50h] [rbp-38h] BYREF
-  unsigned int v42; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int v12; // ebx
+  int v13; // ebp
+  __int64 v15; // rdi
+  unsigned int v16; // ebx
+  volatile signed __int64 *v17; // rdi
+  signed __int64 v18; // rax
+  signed __int64 v19; // rcx
+  signed __int64 v20; // rtt
+  struct _KTHREAD *CurrentThread; // r15
+  volatile signed __int64 *v22; // rbp
+  volatile signed __int64 *v23; // r14
+  signed __int64 v24; // rax
+  volatile signed __int64 *i; // rcx
 
   if ( !a2 )
-  {
-    CurrentThread = KeGetCurrentThread();
-    v24 = 0;
-    v42 = 0;
-    v40 = 0LL;
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(a1 - 32, 0LL);
-    v25 = (void *)(*(_QWORD *)(a1 - 8) & 0xFFFFFFFFFFFFFFF0uLL);
-    P = v25;
-    if ( v25 )
-    {
-      v26 = RtlpSetSecurityObject(a1, *a3, (_DWORD)a4, (unsigned int)&P, 0, a7, a8, 0LL);
-      if ( v26 >= 0 )
-      {
-        v26 = ObLogSecurityDescriptor((__int16 *)P, &v40, 0x10u);
-        if ( v26 >= 0 )
-        {
-          v26 = SeComputeQuotaInformationSize((__int64)P, &v42);
-          if ( v26 >= 0 )
-          {
-            if ( *(_QWORD *)(a1 - 16) == 1LL )
-            {
-LABEL_19:
-              v26 = 0;
-              if ( v40 )
-                v27 = v40 | 0xF;
-              else
-                v27 = 0LL;
-              v28 = _InterlockedExchange64((volatile __int64 *)(a1 - 8), v27) & 0xF;
-              v40 = 0LL;
-              v24 = v28 + 1;
-              goto LABEL_22;
-            }
-            v29 = OBJECT_HEADER_TO_QUOTA_INFO(a1 - 48);
-            v30 = v42;
-            v31 = v29;
-            v32 = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, v42, 0LL);
-            if ( v32 )
-            {
-              v33 = *(char **)(v31 + 16);
-              if ( v33 )
-                PsReturnSharedPoolQuota(v33, *(unsigned int *)(v31 + 8), 0LL);
-              *(_DWORD *)(v31 + 8) = v30;
-              *(_QWORD *)(v31 + 16) = v32;
-              goto LABEL_19;
-            }
-            v26 = -1073741756;
-          }
-        }
-LABEL_22:
-        ExReleasePushLockEx((__int64 *)(a1 - 32), 0LL);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        if ( v40 )
-          ObDereferenceSecurityDescriptor(v40, 0x10u);
-        if ( v25 && v24 )
-          ObDereferenceSecurityDescriptor((__int64)v25, v24);
-        if ( P )
-          ExFreePoolWithTag(P, 0);
-        return (unsigned int)v26;
-      }
-    }
-    else
-    {
-      v26 = -1073741609;
-    }
-    P = 0LL;
-    goto LABEL_22;
-  }
-  v11 = a2 - 1;
-  if ( !v11 )
+    return ObSetSecurityDescriptorInfo(a1, a3, a4, (__int64)a6, a7, a8);
+  v10 = a2 - 1;
+  if ( !v10 )
     return ObQuerySecurityDescriptorInfo(a1, a3, a4, a5);
-  v12 = v11 - 1;
-  if ( v12 )
+  v11 = v10 - 1;
+  if ( v11 )
   {
-    v13 = 0;
-    if ( v12 != 1 )
+    v12 = 0;
+    if ( v11 != 1 )
       KeBugCheckEx(0x29u, 0LL, 0xFFFFFFFFC000000DuLL, 0LL, 0LL);
-    v41[0] = 0LL;
     if ( a4 )
     {
-      v14 = ObLogSecurityDescriptor((__int16 *)a4, v41, 0x10u);
-      if ( v14 >= 0 )
+      v13 = ObLogSecurityDescriptor(a4);
+      if ( v13 >= 0 )
       {
         ExFreePoolWithTag(a4, 0);
-        if ( v41[0] )
-          *(_QWORD *)(a1 - 8) = v41[0] + 15LL;
-        else
-          *(_QWORD *)(a1 - 8) = 0LL;
+        *(a1 - 1) = 0LL;
       }
-      return (unsigned int)v14;
+      return (unsigned int)v13;
     }
     else
     {
-      *(_QWORD *)(a1 - 8) = 0LL;
+      *(a1 - 1) = 0LL;
     }
-    return v13;
+    return v12;
   }
-  v16 = *a6;
-  *a6 = 0LL;
-  v17 = (v16 & 0xF) + 1;
-  v18 = (_QWORD *)((v16 & 0xFFFFFFFFFFFFFFF0uLL) - 32);
-  _m_prefetchw(v18 + 1);
-  v19 = v18[1];
-  v20 = v19 - v17;
-  for ( i = v19 == v17; v20 > 0; i = v19 == v17 )
+  else
   {
-    v22 = v19;
-    v19 = _InterlockedCompareExchange64(v18 + 1, v20, v19);
-    if ( v22 == v19 )
-      return 0LL;
-    v20 = v19 - v17;
-  }
-  if ( !i )
-    __fastfail(0xEu);
-  v34 = KeGetCurrentThread();
-  v35 = (volatile signed __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)*((_DWORD *)v18 + 4));
-  --v34->KernelApcDisable;
-  v36 = (_QWORD **)(v35 + 1);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)v35, 0LL);
-  v37 = _InterlockedExchangeAdd64(v18 + 1, -v17) - v17;
-  if ( v37 > 0 )
-  {
-    if ( (_InterlockedExchangeAdd64(v35, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v35);
-    KeAbPostRelease((ULONG_PTR)v35);
-    KeLeaveCriticalRegionThread((__int64)v34);
+    v15 = *a6;
+    *a6 = 0LL;
+    v16 = (v15 & 0xF) + 1;
+    v17 = (volatile signed __int64 *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) - 32);
+    _m_prefetchw((const void *)(v17 + 1));
+    v18 = *((_QWORD *)v17 + 1);
+    v19 = v18 - v16;
+    if ( v19 <= 0 )
+    {
+LABEL_14:
+      if ( v19 )
+        __fastfail(0xEu);
+      CurrentThread = KeGetCurrentThread();
+      v22 = (volatile signed __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)*((_DWORD *)v17 + 4));
+      --CurrentThread->KernelApcDisable;
+      v23 = v22 + 1;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)v22, 0LL);
+      v24 = _InterlockedExchangeAdd64(v17 + 1, -v16) - v16;
+      if ( v24 > 0 )
+      {
+        if ( (_InterlockedExchangeAdd64(v22, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock(v22);
+        KeAbPostRelease((ULONG_PTR)v22);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      }
+      else
+      {
+        if ( v24 )
+          __fastfail(0xEu);
+        for ( i = (volatile signed __int64 *)*v23; i != v17; i = (volatile signed __int64 *)*i )
+          v23 = i;
+        *v23 = *v17;
+        if ( (_InterlockedExchangeAdd64(v22, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock(v22);
+        KeAbPostRelease((ULONG_PTR)v22);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        ExFreePoolWithTag((PVOID)v17, 0x6353624Fu);
+      }
+    }
+    else
+    {
+      while ( 1 )
+      {
+        v20 = v18;
+        v18 = _InterlockedCompareExchange64(v17 + 1, v19, v18);
+        if ( v20 == v18 )
+          break;
+        v19 = v18 - v16;
+        if ( v19 <= 0 )
+          goto LABEL_14;
+      }
+    }
     return 0LL;
   }
-  if ( v37 )
-    __fastfail(0xEu);
-  for ( j = *v36; j != v18; j = (_QWORD *)*j )
-    v36 = (_QWORD **)j;
-  *v36 = (_QWORD *)*v18;
-  if ( (_InterlockedExchangeAdd64(v35, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v35);
-  KeAbPostRelease((ULONG_PTR)v35);
-  KeLeaveCriticalRegionThread((__int64)v34);
-  ExFreePoolWithTag(v18, 0x6353624Fu);
-  return 0LL;
 }

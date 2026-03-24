@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeRelocations @ 0x140B71D14
+ * XREFs of MiInitializeRelocations @ 0x140A55780
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
  */
 
 __int64 MiInitializeRelocations()
@@ -22,22 +22,22 @@ __int64 MiInitializeRelocations()
   Pool = MiAllocatePool(256, 0x10000uLL, 0x69526D4Du);
   if ( Pool )
   {
-    qword_140C65848 = 0x7FFFFLL;
-    qword_140C65850 = (__int64)Pool;
-    qword_140C65858 = ExGenRandom(1) & 0x7FFFE;
+    qword_140C4CB50 = 0x7FFFFLL;
+    qword_140C4CB58 = (__int64)Pool;
+    qword_140C4CB60 = ExGenRandom(1) & 0x7FFFE;
     v1 = MiAllocatePool(256, 0x500uLL, 0x69526D4Du);
     if ( v1 )
     {
-      qword_140C658E0 = (__int64)v1;
-      qword_140C658D8 = 10240LL;
-      qword_140C658E8 = (unsigned int)ExGenRandom(1) % 0x2800uLL;
-      v2 = &unk_140C65890;
+      qword_140C4CBE8 = (__int64)v1;
+      qword_140C4CBE0 = 10240LL;
+      qword_140C4CBF0 = (unsigned int)ExGenRandom(1) % 0x2800uLL;
+      v2 = &unk_140C4CB98;
       v3 = (unsigned __int64)(unsigned __int8)ExGenRandom(1) << 16;
-      qword_140C65860 = v3 + 2013265920;
-      qword_140C65868 = v3 + 2013265920;
-      qword_140C65870 = v3 + 3758096384u;
       v4 = 0;
-      qword_140C65878 = v3 + 3758096384u;
+      qword_140C4CB68 = v3 + 2013265920;
+      qword_140C4CB70 = v3 + 2013265920;
+      qword_140C4CB78 = v3 + 3758096384u;
+      qword_140C4CB80 = v3 + 3758096384u;
       while ( 1 )
       {
         v5 = MiAllocatePool(256, 0x500uLL, 0x69526D4Du);
@@ -54,13 +54,13 @@ __int64 MiInitializeRelocations()
         v2 += 8;
         if ( v4 )
         {
-          qword_140C658C0 = (unsigned __int8)ExGenRandom(1);
+          qword_140C4CBC8 = (unsigned __int8)ExGenRandom(1);
           v7 = MiAllocatePool(256, 0x500uLL, 0x69526D4Du);
           if ( !v7 )
             return 0LL;
-          qword_140C658D0 = (__int64)v7;
+          qword_140C4CBD8 = (__int64)v7;
           result = 1LL;
-          qword_140C658C8 = 10240LL;
+          qword_140C4CBD0 = 10240LL;
           return result;
         }
       }

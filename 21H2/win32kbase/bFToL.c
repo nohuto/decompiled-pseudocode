@@ -1,16 +1,17 @@
 /*
- * XREFs of bFToL @ 0x1C009B150
+ * XREFs of bFToL @ 0x1C0081930
  * Callers:
- *     bCvtPts1 @ 0x1C0019D34 (bCvtPts1.c)
- *     bCvtPts @ 0x1C001B2F8 (bCvtPts.c)
- *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0031740 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
- *     efSin @ 0x1C009C140 (efSin.c)
- *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C009C250 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
- *     bCvtVts @ 0x1C009CA08 (bCvtVts.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0169B88 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
- *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C016B258 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
- *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C016B330 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
- *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C016F338 (-vMakeIso@DC@@QEAAXXZ.c)
+ *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C0020FF0 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0023360 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C0023D00 (-bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z.c)
+ *     bCvtPts1 @ 0x1C003D1D0 (bCvtPts1.c)
+ *     efSin @ 0x1C00A3C10 (efSin.c)
+ *     bCvtPts @ 0x1C00BC624 (bCvtPts.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013C754 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C013E3C8 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C013E4A0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C0142510 (-vMakeIso@DC@@QEAAXXZ.c)
+ *     bCvtVts @ 0x1C020088C (bCvtVts.c)
  * Callees:
  *     <none>
  */

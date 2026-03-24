@@ -1,18 +1,21 @@
 /*
- * XREFs of PiDqQueryDeleteObjectFromResultSet @ 0x1407E0334
+ * XREFs of PiDqQueryDeleteObjectFromResultSet @ 0x1406A73D4
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x1407871A4 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryFreeActiveData @ 0x1407E02C8 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryFreeActiveData @ 0x1406A74F8 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x14031E7F0 (RtlDeleteElementGenericTableAvl.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14032DA20 (RtlDeleteElementGenericTableAvl.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
  */
 
-void __fastcall PiDqQueryDeleteObjectFromResultSet(__int64 a1, char *a2)
+BOOLEAN __fastcall PiDqQueryDeleteObjectFromResultSet(__int64 a1, void *a2)
 {
-  char *Buffer; // [rsp+38h] [rbp+10h] BYREF
+  BOOLEAN result; // al
+  PVOID Buffer; // [rsp+38h] [rbp+10h] BYREF
 
   Buffer = a2;
-  if ( RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 72), &Buffer) )
-    PiDmObjectRelease(Buffer);
+  result = RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 72), &Buffer);
+  if ( result )
+    return PiDmObjectRelease(Buffer);
+  return result;
 }

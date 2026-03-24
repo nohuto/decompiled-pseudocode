@@ -1,61 +1,41 @@
 /*
- * XREFs of ?SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C00853B8
+ * XREFs of ?SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C006BE10
  * Callers:
- *     ?SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C0080404 (-SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
+ *     ?SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C0068B98 (-SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?FindPoolBufferIndex@CEndpointResourceStateManager@@QEAAI_K@Z @ 0x1C00863EC (-FindPoolBufferIndex@CEndpointResourceStateManager@@QEAAI_K@Z.c)
- *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0086440 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
- *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C0088958 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
- *     ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C00889B0 (-SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C72C (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C006E918 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
+ *     ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C006E974 (-SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z.c)
  */
 
 __int64 __fastcall CFlipManager::SetContent(
         CFlipManager *this,
-        __int64 a2,
+        unsigned __int64 a2,
         unsigned __int64 a3,
         struct CFlipPropertySet *a4)
 {
-  unsigned int v7; // ebx
-  struct CFlipResourceState *ResourceState; // rdi
+  unsigned int v6; // edi
+  __int64 v7; // r11
+  struct CFlipResourceState *ResourceState; // rsi
   CEndpointResourceStateManager *v9; // rcx
-  unsigned __int64 v10; // r11
-  struct CFlipResourceState *v11; // rsi
-  struct CPoolBufferResource *v12; // rdi
-  struct DXGGLOBAL *Global; // rax
-  unsigned int PoolBufferIndex; // edi
-  struct DXGGLOBAL *v15; // rax
+  CContentResourceState *v10; // rax
+  CContentResourceState *v11; // rbx
+  struct CPoolBufferResource *v12; // rdx
 
-  v7 = 0;
+  v6 = 0;
   ResourceState = CEndpointResourceStateManager::FindResourceState(this, a3, (struct _LIST_ENTRY *)((char *)this + 56));
-  v11 = CEndpointResourceStateManager::FindResourceState(v9, v10, (struct _LIST_ENTRY *)((char *)this + 72));
-  if ( v11 && (*((_QWORD *)this + 6) == 1LL || ResourceState && !*(_DWORD *)(*((_QWORD *)ResourceState + 3) + 88LL)) )
+  v10 = CEndpointResourceStateManager::FindResourceState(v9, a2, (struct _LIST_ENTRY *)(v7 + 72));
+  v11 = v10;
+  if ( v10
+    && ResourceState
+    && (v12 = (struct CPoolBufferResource *)*((_QWORD *)ResourceState + 3), !*((_DWORD *)v12 + 18)) )
   {
-    if ( ResourceState )
-      v12 = (struct CPoolBufferResource *)*((_QWORD *)ResourceState + 3);
-    else
-      v12 = 0LL;
-    CContentResourceState::SetBoundBuffer(v11, v12);
+    CContentResourceState::SetBoundBuffer(v10, v12);
     CContentResourceState::SetBoundPropertySet(v11, a4);
-    Global = DXGGLOBAL::GetGlobal();
-    if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 224LL))() )
-    {
-      if ( v12 )
-        PoolBufferIndex = CEndpointResourceStateManager::FindPoolBufferIndex((CFlipManager *)((char *)this + 56), a3);
-      else
-        PoolBufferIndex = -1;
-      v15 = DXGGLOBAL::GetGlobal();
-      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*((_QWORD *)v15 + 38069) + 216LL))(
-        *((unsigned int *)this + 83),
-        *((_QWORD *)v11 + 3),
-        *((_QWORD *)v11 + 6),
-        PoolBufferIndex);
-    }
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v7;
+  return v6;
 }

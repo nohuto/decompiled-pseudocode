@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpRemoveUCRBlock @ 0x1405AE0DC
+ * XREFs of RtlpRemoveUCRBlock @ 0x14058B788
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405AC8CC (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405AD0DC (RtlpFindAndCommitPages.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A024 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x14058A878 (RtlpFindAndCommitPages.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpRemoveUCRBlock(__int64 a1, __int64 *a2)

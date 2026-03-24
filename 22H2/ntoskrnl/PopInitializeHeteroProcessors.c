@@ -1,297 +1,247 @@
 /*
- * XREFs of PopInitializeHeteroProcessors @ 0x14082E9E0
+ * XREFs of PopInitializeHeteroProcessors @ 0x1407BB3CC
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     KeGetActualProcessorEfficiencyClass @ 0x1403625EC (KeGetActualProcessorEfficiencyClass.c)
- *     PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x140390898 (PpmHeteroGetHgsPlusParkingEnablementStatus.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x1403917B4 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmHeteroDetectHgsCores @ 0x1403918AC (PpmHeteroDetectHgsCores.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PoHeteroIsArchFavoredCoreSupported @ 0x140410B6C (PoHeteroIsArchFavoredCoreSupported.c)
- *     PpmHeteroReevaluateMultiCoreFeatures @ 0x140410B80 (PpmHeteroReevaluateMultiCoreFeatures.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x140462716 (PpmIdleEnableIdleDurationExpirationTimeout.c)
- *     KeDetectHeterogeneousSets @ 0x14067E998 (KeDetectHeterogeneousSets.c)
- *     PsEnumProcesses @ 0x1407CFA2C (PsEnumProcesses.c)
- *     PpmHeteroDetectFavoredCores @ 0x1407EAFFC (PpmHeteroDetectFavoredCores.c)
- *     PopIsSimulateHeteroProcessorsPresent @ 0x1407EB370 (PopIsSimulateHeteroProcessorsPresent.c)
- *     PpmEventHeteroPolicy @ 0x14082EF40 (PpmEventHeteroPolicy.c)
- *     PpmEventTraceHeteroSets @ 0x14082EFC4 (PpmEventTraceHeteroSets.c)
- *     PopConfigureHeteroPolicies @ 0x14082F41C (PopConfigureHeteroPolicies.c)
- *     PpmHeteroComputeRelativePerformance @ 0x140830C58 (PpmHeteroComputeRelativePerformance.c)
- *     KeConfigureHeteroProcessors @ 0x140972998 (KeConfigureHeteroProcessors.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     PpmHeteroDetectHgsCores @ 0x1403C1D98 (PpmHeteroDetectHgsCores.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1403C1DF4 (PpmHeteroUpdateHgsConfiguration.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x140566938 (PpmIdleEnableIdleDurationExpirationTimeout.c)
+ *     PsEnumProcesses @ 0x14062B870 (PsEnumProcesses.c)
+ *     PpmEventHeteroPolicy @ 0x1407BB838 (PpmEventHeteroPolicy.c)
+ *     PopConfigureHeteroPolicies @ 0x1407BB8BC (PopConfigureHeteroPolicies.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x1407BBFC8 (PopDetectSimulatedHeteroProcessors.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x1407BC0F8 (PpmHeteroComputeRelativePerformance.c)
+ *     KeConfigureHeteroProcessors @ 0x1408BA3A8 (KeConfigureHeteroProcessors.c)
  */
 
-char __fastcall PopInitializeHeteroProcessors(char a1)
+char __fastcall PopInitializeHeteroProcessors(__int64 a1, signed __int64 a2)
 {
-  unsigned int *v1; // rsi
   char v2; // r12
-  char v3; // r15
+  char v3; // bl
   char v4; // r14
-  unsigned __int8 v5; // r13
-  __int64 v6; // r8
-  unsigned int v7; // edi
-  unsigned __int8 IsSimulateHeteroProcessorsPresent; // al
+  char v5; // r15
+  unsigned __int8 v6; // si
+  char *v7; // rbx
+  __int64 v8; // rdx
   unsigned __int8 v9; // al
-  __int64 v10; // rcx
+  unsigned int v10; // edi
   unsigned __int8 v11; // al
-  unsigned __int8 v12; // al
-  unsigned __int8 v13; // al
-  SIZE_T v14; // r12
-  SIZE_T v15; // rbx
-  unsigned __int8 v16; // r8
-  unsigned __int8 *v17; // rcx
-  __int64 v18; // r10
-  unsigned __int8 v19; // al
-  __int64 v20; // rdx
-  int v21; // r11d
-  char v22; // al
-  void **v23; // rsi
-  __int64 v24; // rbx
-  unsigned int v25; // edi
-  int v26; // edx
-  int v27; // ecx
+  int v12; // eax
+  __int64 v13; // r14
+  __int64 v14; // r8
+  char v15; // al
+  ULONG ActiveProcessorCount; // eax
+  _BYTE *v17; // rcx
+  __int64 v18; // r8
+  char v19; // al
+  _WORD *v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // rcx
   __int64 Prcb; // rax
-  __int64 v29; // rcx
-  char ActualProcessorEfficiencyClass; // [rsp+38h] [rbp-59h] BYREF
-  unsigned int v32; // [rsp+3Ch] [rbp-55h] BYREF
-  __int16 v33; // [rsp+40h] [rbp-51h] BYREF
-  unsigned __int16 *v34[2]; // [rsp+48h] [rbp-49h] BYREF
-  __int16 v35; // [rsp+58h] [rbp-39h]
-  int v36; // [rsp+5Ah] [rbp-37h]
-  __int16 v37; // [rsp+5Eh] [rbp-33h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v39; // [rsp+78h] [rbp-19h]
-  __int64 v40; // [rsp+80h] [rbp-11h]
-  char *p_ActualProcessorEfficiencyClass; // [rsp+88h] [rbp-9h]
-  __int64 v42; // [rsp+90h] [rbp-1h]
-  __int64 v43; // [rsp+98h] [rbp+7h]
-  __int64 v44; // [rsp+A0h] [rbp+Fh]
-  __int64 v45; // [rsp+A8h] [rbp+17h]
-  __int64 v46; // [rsp+B0h] [rbp+1Fh]
+  __int16 v24; // cx
+  char result; // al
+  int v26; // [rsp+38h] [rbp-69h] BYREF
+  __int16 v27; // [rsp+3Ch] [rbp-65h] BYREF
+  unsigned int v28; // [rsp+40h] [rbp-61h] BYREF
+  unsigned int v29; // [rsp+44h] [rbp-5Dh] BYREF
+  unsigned __int16 *v30[2]; // [rsp+48h] [rbp-59h] BYREF
+  __int16 v31; // [rsp+58h] [rbp-49h]
+  int v32; // [rsp+5Ah] [rbp-47h]
+  __int16 v33; // [rsp+5Eh] [rbp-43h]
+  unsigned __int16 *v34[2]; // [rsp+60h] [rbp-41h] BYREF
+  __int16 v35; // [rsp+70h] [rbp-31h]
+  int v36; // [rsp+72h] [rbp-2Fh]
+  __int16 v37; // [rsp+76h] [rbp-2Bh]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-29h] BYREF
+  __int64 v39; // [rsp+88h] [rbp-19h]
+  __int64 v40; // [rsp+90h] [rbp-11h]
+  __int64 v41; // [rsp+98h] [rbp-9h]
+  __int64 v42; // [rsp+A0h] [rbp-1h]
+  __int64 v43; // [rsp+A8h] [rbp+7h]
+  __int64 v44; // [rsp+B0h] [rbp+Fh]
+  __int64 v45; // [rsp+B8h] [rbp+17h]
+  __int64 v46; // [rsp+C0h] [rbp+1Fh]
 
-  v1 = (unsigned int *)PpmHeteroCapabilityTest;
-  ActualProcessorEfficiencyClass = a1;
   v2 = a1;
-  if ( !PpmHeteroCapabilityTest )
-    return 0;
-  v3 = 1;
-  v4 = 0;
-  if ( (PpmBackgroundProfile || PpmEntryLevelPerfProfile || PpmMultimediaQosProfile || PpmPerfAlwaysComputeQosEnabled)
+  v3 = 0;
+  v4 = 1;
+  if ( (PpmBackgroundProfile || PpmEntryLevelPerfProfile || PpmMultimediaQosProfile)
     && PpmPerfSchedulerDirectedPerfStatesSupported
     && KeQueryActiveProcessorCountEx(0) >= 2 )
   {
-    v4 = 1;
+    v3 = 1;
   }
+  v5 = v3;
   if ( PpmPerfVmQosSupported )
-  {
-    v4 = 1;
-    goto LABEL_13;
-  }
-  if ( v4 )
-  {
-LABEL_13:
     v5 = 1;
-    if ( !PpmPerfQosGroupPolicyDisable )
-      goto LABEL_15;
-  }
-  v5 = 0;
-LABEL_15:
-  if ( !v2 )
+  if ( !v5 || (v6 = 1, PpmPerfQosGroupPolicyDisable) )
+    v6 = 0;
+  if ( v2 )
   {
-    v7 = PopHeteroSystem;
-    v1 = (unsigned int *)PpmHeteroCapability;
-    v3 = 0;
-    v32 = PopHeteroSystem != 0;
-    goto LABEL_40;
-  }
-  v6 = PpmHeteroWorkloadClasses * *v1;
-  v1[1] = PpmHeteroWorkloadClasses;
-  memset(v1 + 6, 0, 4 * v6);
-  PpmHeteroComputeRelativePerformance();
-  PpmHeteroUpdateHgsConfiguration();
-  v7 = 0;
-  if ( PoHeteroIsArchFavoredCoreSupported() )
-  {
-    IsSimulateHeteroProcessorsPresent = PopIsSimulateHeteroProcessorsPresent((__int64)v1);
-    v32 = IsSimulateHeteroProcessorsPresent;
-    if ( IsSimulateHeteroProcessorsPresent )
+    v7 = (char *)PpmHeteroCapabilityTest;
+    v8 = 0LL;
+    if ( *(_DWORD *)PpmHeteroCapabilityTest )
     {
-      v7 = PpmHeteroDetectFavoredCores((__int64)v1) != 0 ? 6 : 1;
-      goto LABEL_35;
-    }
-    v9 = PpmHeteroDetectHgsCores((__int64)v1);
-    v32 = v9;
-    if ( v9 )
-      goto LABEL_20;
-    v32 = KeDetectHeterogeneousSets((__int64)v1);
-    v10 = (__int64)v1;
-    if ( v32 )
-    {
-      if ( PpmHeteroDetectFavoredCores((__int64)v1) )
+      do
       {
-        v7 = 6;
+        a1 = (unsigned int)v8;
+        v8 = (unsigned int)(v8 + 1);
+        *(_WORD *)&v7[2 * a1 + 7 + a1] = 0;
+      }
+      while ( (unsigned int)v8 < *(_DWORD *)v7 );
+    }
+    PpmHeteroComputeRelativePerformance(a1, v8);
+    PpmHeteroUpdateHgsConfiguration();
+    v9 = PopDetectSimulatedHeteroProcessors(v7);
+    v26 = v9;
+    v10 = v9 != 0;
+    if ( !v9 )
+    {
+      v11 = PpmHeteroDetectHgsCores((__int64)v7);
+      v26 = v11;
+      if ( v11 )
+      {
+        v10 = 5;
       }
       else
       {
-        v7 = 2;
-        if ( KeGetCurrentPrcb()->CpuVendor == 1 )
-          v7 = 6;
+        v32 = 0;
+        v33 = 0;
+        v28 = 0;
+        if ( (unsigned __int8)PpmHeteroNominalPerformanceClasses > 1u
+          || (unsigned __int8)PpmHeteroHighestPerformanceClasses > 1u )
+        {
+          v30[1] = (unsigned __int16 *)qword_140C116B8;
+          v31 = 0;
+          v30[0] = (unsigned __int16 *)&PpmPerfStatesRegistered;
+          if ( !(unsigned int)KeEnumerateNextProcessor(&v28, v30) )
+          {
+            do
+            {
+              v13 = v28;
+              v14 = *(_QWORD *)(KeGetPrcb(v28) + 33128);
+              if ( (unsigned __int8)PpmHeteroNominalPerformanceClasses <= 1u )
+                v15 = *(_BYTE *)(v14 + 206);
+              else
+                v15 = *(_BYTE *)(v14 + 205);
+              v7[2 * v13 + 8 + v13] = v15;
+            }
+            while ( !(unsigned int)KeEnumerateNextProcessor(&v28, v30) );
+            v4 = 1;
+          }
+          v7[5] = 1;
+          v12 = 1;
+        }
+        else
+        {
+          v12 = 0;
+        }
+        v26 = v12;
+        if ( v12 )
+        {
+          v10 = 3;
+        }
+        else if ( v6 )
+        {
+          v26 = 1;
+          v10 = 4;
+        }
       }
-      goto LABEL_35;
     }
-    goto LABEL_27;
-  }
-  v12 = PopIsSimulateHeteroProcessorsPresent((__int64)v1);
-  v32 = v12;
-  if ( !v12 )
-  {
-    v13 = PpmHeteroDetectHgsCores((__int64)v1);
-    v32 = v13;
-    if ( v13 )
+    if ( v10 == PopHeteroSystem )
     {
-LABEL_20:
-      v7 = 5;
-      goto LABEL_35;
+      v4 = 0;
+      ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+      if ( ActiveProcessorCount )
+      {
+        v17 = v7 + 7;
+        a2 = (_BYTE *)PpmHeteroCapability - v7;
+        v18 = ActiveProcessorCount;
+        do
+        {
+          if ( v17[a2] != *v17 || v17[a2 + 1] != v17[1] )
+            v4 = 1;
+          v17 += 3;
+          --v18;
+        }
+        while ( v18 );
+      }
     }
-    v10 = (__int64)v1;
-LABEL_27:
-    v11 = PpmHeteroDetectFavoredCores(v10);
-    v32 = v11;
-    if ( v11 )
-    {
-      v7 = 3;
-    }
-    else if ( v5 )
-    {
-      v32 = 1;
-      v7 = 4;
-    }
-    goto LABEL_35;
-  }
-  v7 = 1;
-LABEL_35:
-  if ( v7 == PopHeteroSystem )
-  {
-    v3 = 0;
-    v14 = 2LL * v1[1];
-    v15 = 4LL * *v1 * v1[1];
-    if ( RtlCompareMemory(v1 + 6, (char *)PpmHeteroCapability + 24, v15) != v15
-      || RtlCompareMemory(*((const void **)v1 + 2), *((const void **)PpmHeteroCapability + 2), v14) != v14 )
-    {
-      v3 = 1;
-    }
-    v2 = ActualProcessorEfficiencyClass;
-  }
-LABEL_40:
-  v16 = 0;
-  if ( *v1 )
-  {
-    v17 = (unsigned __int8 *)*((_QWORD *)v1 + 1);
-    v18 = *v1;
-    do
-    {
-      v19 = v16;
-      v16 = *v17;
-      if ( v19 > *v17 )
-        v16 = v19;
-      ++v17;
-      --v18;
-    }
-    while ( v18 );
-  }
-  if ( (unsigned int)v16 + 1 > (unsigned __int8)PpmMaxCoreClasses )
-    PpmMaxCoreClasses = v16 + 1;
-  if ( PoHeteroIsArchFavoredCoreSupported() )
-  {
-    if ( v7 == v21 )
-      PpmHeteroReevaluateMultiCoreFeatures();
-  }
-  else if ( v7 == v21 )
-  {
-    v7 = 2;
-  }
-  LOBYTE(v20) = v2;
-  v22 = PopConfigureHeteroPolicies(v7, v20);
-  if ( (v3 || v7 && v22 || PpmPerfQosSupportedAndAllowed != v5)
-    && (unsigned int)KeConfigureHeteroProcessors(v1, v5, &v32) )
-  {
-    PsEnumProcesses((__int64 (__fastcall *)(__int64 *, __int64))PopUpdateSingleProcessHeteroPolicies, 0LL);
-  }
-  if ( v32 )
-  {
-    PopHeteroSystem = v7;
-    if ( v1 != PpmHeteroCapability )
-      memmove(PpmHeteroCapability, v1, (int)(4 * *v1 * v1[1] + 24));
-    if ( v5 )
-      PpmIdleEnableIdleDurationExpirationTimeout();
-    goto LABEL_66;
-  }
-  v23 = (void **)PpmHeteroCapability;
-  PopHeteroSystem = 0;
-  v24 = *((unsigned int *)PpmHeteroCapability + 1);
-  v25 = *(_DWORD *)PpmHeteroCapability;
-  memset((char *)PpmHeteroCapability + 24, 0, 4LL * (unsigned int)(v24 * *(_DWORD *)PpmHeteroCapability));
-  memset(v23[2], 0, 2 * v24);
-  memset(v23[1], 0, v25);
-  if ( v4 )
-LABEL_66:
-    PpmPerfQosSupportedAndConfigured = 1;
-  if ( ((PopHeteroSystem - 1) & 0xFFFFFFFA) != 0 )
-  {
-    PpmHeteroPolicy = 0;
-    v26 = 0;
   }
   else
   {
-    v26 = PpmHeteroDesiredPolicy;
-    PpmHeteroPolicy = PpmHeteroDesiredPolicy;
+    v10 = PopHeteroSystem;
+    v7 = (char *)PpmHeteroCapability;
+    v4 = 0;
+    v26 = PopHeteroSystem != 0;
   }
-  if ( v2 && KiIntPartInitialized )
+  LOBYTE(a2) = v2;
+  v19 = PopConfigureHeteroPolicies(v10, a2);
+  if ( (v4 || v10 && v19 || PpmPerfQosSupportedAndAllowed != v6)
+    && (unsigned int)KeConfigureHeteroProcessors(v7, v6, &v26) )
   {
-    if ( *(_BYTE *)KiInterruptEfficiencyClassGroup <= 1u )
-    {
-      v27 = 0;
-    }
-    else
-    {
-      v27 = 1;
-      if ( KeGetCurrentPrcb()->CpuVendor == 2 )
-        v27 = 3 - (v26 != 0);
-    }
-    KiIntPartProcessorPriority = v27;
+    PsEnumProcesses((__int64 (__fastcall *)(__int64, __int64))PopUpdateSingleProcessHeteroPolicies, 0LL);
   }
+  if ( v26 )
+  {
+    PopHeteroSystem = v10;
+    if ( v7 != PpmHeteroCapability )
+      memmove(PpmHeteroCapability, v7, 3 * (*(_DWORD *)v7 + 2));
+    if ( v6 )
+      PpmIdleEnableIdleDurationExpirationTimeout();
+    goto LABEL_56;
+  }
+  v20 = PpmHeteroCapability;
+  v21 = 0LL;
+  PopHeteroSystem = 0;
+  if ( *(_DWORD *)PpmHeteroCapability )
+  {
+    do
+    {
+      v22 = (unsigned int)v21;
+      v21 = (unsigned int)(v21 + 1);
+      *(_WORD *)((char *)&v20[v22 + 3] + v22 + 1) = 0;
+      *((_BYTE *)&v20[v22 + 3] + v22) = 0;
+      v20[2] = 0;
+    }
+    while ( (unsigned int)v21 < *(_DWORD *)v20 );
+  }
+  if ( v5 )
+LABEL_56:
+    PpmPerfQosSupportedAndConfigured = 1;
+  if ( ((PopHeteroSystem - 1) & 0xFFFFFFFA) != 0 || PopHeteroSystem == 6 )
+    PpmHeteroPolicy = 0;
+  else
+    PpmHeteroPolicy = PpmHeteroDesiredPolicy;
   if ( PpmPerfArtificialDomainSetting == -1 )
     PpmPerfArtificialDomainEnabled = PopHeteroSystem != 0;
-  PpmHeteroHgsParkingEnabled = PpmHeteroGetHgsPlusParkingEnablementStatus();
   v36 = 0;
   v37 = 0;
-  v32 = 0;
+  v29 = 0;
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_CLASS_UPDATE) )
   {
-    v34[1] = (unsigned __int16 *)qword_140C0BE68[0];
-    v34[0] = (unsigned __int16 *)&PpmCheckRegistered;
+    v34[1] = (unsigned __int16 *)qword_140C113D8[0];
+    v34[0] = (unsigned __int16 *)PpmCheckRegistered;
     v35 = 0;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v32, v34) )
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v29, v34) )
     {
-      Prcb = KeGetPrcb(v32);
-      ActualProcessorEfficiencyClass = KeGetActualProcessorEfficiencyClass(Prcb);
-      v33 = *(unsigned __int8 *)(v29 + 208);
+      Prcb = KeGetPrcb(v29);
+      v24 = *(unsigned __int8 *)(Prcb + 208);
+      UserData.Ptr = (ULONGLONG)&v27;
+      v27 = v24;
+      v43 = Prcb + 33209;
+      v39 = Prcb + 209;
+      v45 = Prcb + 33210;
+      v41 = Prcb + 33208;
       *(_QWORD *)&UserData.Size = 2LL;
-      UserData.Ptr = (ULONGLONG)&v33;
-      v39 = v29 + 209;
-      p_ActualProcessorEfficiencyClass = &ActualProcessorEfficiencyClass;
-      v43 = v29 + 34057;
-      v45 = v29 + 34058;
       v40 = 1LL;
       v42 = 1LL;
       v44 = 1LL;
@@ -299,8 +249,8 @@ LABEL_66:
       EtwWrite(PpmEtwHandle, &PPM_ETW_PROCESSOR_CLASS_UPDATE, 0LL, 5u, &UserData);
     }
   }
-  PpmEventHeteroPolicy(0LL);
-  PpmEventTraceHeteroSets(0LL);
-  PpmPerfQosSupportedAndAllowed = v5;
-  return v3;
+  PpmEventHeteroPolicy(0LL, v20, v21);
+  result = v4;
+  PpmPerfQosSupportedAndAllowed = v6;
+  return result;
 }

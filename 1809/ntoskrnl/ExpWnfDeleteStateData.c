@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpWnfDeleteStateData @ 0x1406ABA28
+ * XREFs of ExpWnfDeleteStateData @ 0x1406ABA08
  * Callers:
- *     ExpWnfDeleteNameInstance @ 0x1406AB6E8 (ExpWnfDeleteNameInstance.c)
- *     NtDeleteWnfStateData @ 0x14075E540 (NtDeleteWnfStateData.c)
+ *     ExpWnfDeleteNameInstance @ 0x1406AB6C8 (ExpWnfDeleteNameInstance.c)
+ *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

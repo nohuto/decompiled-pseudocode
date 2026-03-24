@@ -1,24 +1,54 @@
 /*
- * XREFs of ?GetDeviceDescriptor@DXGADAPTER@@QEBAXKPEAG@Z @ 0x1C0046958
+ * XREFs of ?GetDeviceDescriptor@DXGADAPTER@@QEBAXKPEAG@Z @ 0x1C0007C40
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
- *     ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C03757C0 (-FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C023AE4C (-FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z.c)
  * Callees:
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00408CC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     <none>
  */
 
 void __fastcall DXGADAPTER::GetDeviceDescriptor(DXGADAPTER *this, unsigned int a2, unsigned __int16 *a3)
 {
-  size_t *v4; // r8
+  __int64 v3; // r9
+  unsigned __int64 v4; // rcx
+  unsigned __int64 v5; // rdx
+  __int64 v6; // r9
+  unsigned __int16 v7; // ax
+  unsigned __int16 *v8; // rax
+  bool v9; // zf
 
-  v4 = (size_t *)*((_QWORD *)this + 217);
-  if ( v4 )
+  v3 = *((_QWORD *)this + 189);
+  if ( v3 )
   {
-    RtlStringCbCopyW(a3, a2, v4);
+    v4 = (unsigned __int64)a2 >> 1;
+    if ( v4 )
+    {
+      v5 = 2147483646 - v4;
+      v6 = v3 - (_QWORD)a3;
+      do
+      {
+        if ( !(v5 + v4) )
+          break;
+        v7 = *(unsigned __int16 *)((char *)a3 + v6);
+        if ( !v7 )
+          break;
+        *a3++ = v7;
+        --v4;
+      }
+      while ( v4 );
+      v8 = a3 - 1;
+      if ( v4 )
+        v8 = a3;
+      *v8 = 0;
+      return;
+    }
+    v9 = 1;
   }
-  else if ( a2 >= 2 )
+  else
   {
-    if ( a3 )
-      *a3 = 0;
+    v9 = a3 == 0LL;
   }
+  if ( !v9 )
+    *a3 = 0;
 }

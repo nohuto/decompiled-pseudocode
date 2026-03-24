@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C01CEF78
+ * XREFs of ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C01D8654
  * Callers:
- *     InternalSetTimer @ 0x1C0075120 (InternalSetTimer.c)
- *     FreezeThawTimers @ 0x1C00FD920 (FreezeThawTimers.c)
- *     SetProcessTimerDelay @ 0x1C01E5F20 (SetProcessTimerDelay.c)
+ *     InternalSetTimer @ 0x1C0080820 (InternalSetTimer.c)
+ *     FreezeThawTimers @ 0x1C0110A20 (FreezeThawTimers.c)
+ *     SetProcessTimerDelay @ 0x1C01EB0F0 (SetProcessTimerDelay.c)
  * Callees:
  *     <none>
  */

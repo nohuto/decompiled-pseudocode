@@ -1,44 +1,51 @@
 /*
- * XREFs of MonitorUnifyCCDMonitorString @ 0x1C0207820
+ * XREFs of MonitorUnifyCCDMonitorString @ 0x1C018B554
  * Callers:
- *     DpiFdoInitializeAdapterUniqueString @ 0x1C0207484 (DpiFdoInitializeAdapterUniqueString.c)
- *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0208CEC (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0182B14 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     DpiFdoInitializeAdapterUniqueString @ 0x1C018B1A8 (DpiFdoInitializeAdapterUniqueString.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MonitorUnifyCCDMonitorString(unsigned __int16 *a1)
+__int64 __fastcall MonitorUnifyCCDMonitorString(unsigned __int16 *a1, __int64 a2)
 {
   __int64 result; // rax
-  __int64 v2; // rdx
-  __int64 v3; // r10
-  const wchar_t *v4; // rax
-  unsigned int v5; // r8d
+  __int64 v3; // rdx
+  __int64 v4; // r10
+  const wchar_t *v5; // rax
+  unsigned int v6; // r8d
+  __int64 v7; // rax
 
-  if ( !a1 )
-    return WdLogSingleEntry0(1LL);
-  result = *a1;
-  v2 = 0LL;
-  if ( (result & 0xFFFFFFFE) != 0 )
+  if ( a1 )
   {
-    do
+    result = *a1;
+    v3 = 0LL;
+    if ( (result & 0xFFFFFFFE) != 0 )
     {
-      v3 = *((_QWORD *)a1 + 1);
-      v4 = L"+*^~\\/";
-      v5 = 0;
-      while ( *(_WORD *)(v3 + 2 * v2) != *v4 )
+      do
       {
-        ++v5;
-        ++v4;
-        if ( v5 >= 6 )
-          goto LABEL_6;
-      }
-      *(_WORD *)(v3 + 2 * v2) = 95;
+        v4 = *((_QWORD *)a1 + 1);
+        v5 = L"+*^~\\/";
+        v6 = 0;
+        while ( *(_WORD *)(v4 + 2 * v3) != *v5 )
+        {
+          ++v6;
+          ++v5;
+          if ( v6 >= 6 )
+            goto LABEL_6;
+        }
+        *(_WORD *)(v4 + 2 * v3) = 95;
 LABEL_6:
-      v2 = (unsigned int)(v2 + 1);
-      result = *a1 >> 1;
+        v3 = (unsigned int)(v3 + 1);
+        result = *a1 >> 1;
+      }
+      while ( (unsigned int)v3 < (unsigned int)result );
     }
-    while ( (unsigned int)v2 < (unsigned int)result );
+  }
+  else
+  {
+    v7 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    return WdLogEvent5_WdAssertion(v7);
   }
   return result;
 }

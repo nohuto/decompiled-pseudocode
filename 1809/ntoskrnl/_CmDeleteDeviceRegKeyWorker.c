@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x1408F710C
+ * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x1408F70EC
  * Callers:
- *     _CmDeleteDeviceRegKey @ 0x1408F6FD4 (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x1408F6FB4 (_CmDeleteDeviceRegKey.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     _CmGetDeviceRegKeyPath @ 0x1405C7544 (_CmGetDeviceRegKeyPath.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmSetDeviceRegProp @ 0x1406E2A44 (_CmSetDeviceRegProp.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762160 (_RegRtlDeleteKeyTransacted.c)
- *     _CmDeleteDeviceRegKey @ 0x1408F6FD4 (_CmDeleteDeviceRegKey.c)
- *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x1408FCDC0 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x1408FFF48 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmSetDeviceRegProp @ 0x1406E2A24 (_CmSetDeviceRegProp.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmDeleteDeviceRegKey @ 0x1408F6FB4 (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x1408FCDA0 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x1408FFF28 (_SysCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceRegKeyWorker(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5)

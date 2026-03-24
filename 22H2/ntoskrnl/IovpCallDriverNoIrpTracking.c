@@ -1,18 +1,27 @@
 /*
- * XREFs of IovpCallDriverNoIrpTracking @ 0x140AC296C
+ * XREFs of IovpCallDriverNoIrpTracking @ 0x1409C5494
  * Callers:
- *     IovCallDriver @ 0x140AC21D0 (IovCallDriver.c)
+ *     IovCallDriver @ 0x1409C4CC4 (IovCallDriver.c)
  * Callees:
- *     IopfCallDriver @ 0x14028CEA4 (IopfCallDriver.c)
- *     IopPerfCallDriver @ 0x14045F22A (IopPerfCallDriver.c)
- *     VfBeforeCallDriver @ 0x140ACE5AC (VfBeforeCallDriver.c)
+ *     IopfCallDriver @ 0x140370BE4 (IopfCallDriver.c)
+ *     IopPerfCallDriver @ 0x140507C40 (IopPerfCallDriver.c)
+ *     VfAfterCallDriver @ 0x1409D0E94 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D1088 (VfBeforeCallDriver.c)
  */
 
-__int64 __fastcall IovpCallDriverNoIrpTracking(PVOID Object, ULONG_PTR a2)
+__int64 __fastcall IovpCallDriverNoIrpTracking(PADAPTER_OBJECT DmaAdapter, ULONG_PTR a2, __int64 a3)
 {
-  VfBeforeCallDriver(Object, a2, 0LL);
+  unsigned int v5; // esi
+  int v6; // eax
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+
+  v8 = a3;
+  v5 = VfBeforeCallDriver(DmaAdapter, a2, 0LL);
   if ( (IopFunctionPointerMask & 2) != 0 )
-    return IopPerfCallDriver(Object, a2);
+    v6 = IopPerfCallDriver(DmaAdapter, a2);
   else
-    return IopfCallDriver((__int64)Object, a2);
+    v6 = IopfCallDriver((__int64)DmaAdapter, a2);
+  LODWORD(v8) = v6;
+  VfAfterCallDriver(0LL, &v8, v5);
+  return (unsigned int)v8;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IovpAdvanceStackDownwards @ 0x140ACCFE8
+ * XREFs of IovpAdvanceStackDownwards @ 0x1409CFAEC
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
- *     IovpCompleteRequest1 @ 0x140ACD9CC (IovpCompleteRequest1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x1409D04D0 (IovpCompleteRequest1.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall IovpAdvanceStackDownwards(
@@ -17,76 +17,85 @@ __int64 __fastcall IovpAdvanceStackDownwards(
         int a7,
         _QWORD *a8)
 {
-  int v8; // r14d
-  unsigned __int8 *v11; // rdi
-  int v12; // ebp
-  __int64 v13; // r13
-  __int64 v14; // r12
-  _QWORD *v15; // rsi
+  unsigned __int8 *v10; // rdi
+  int v11; // ebp
+  __int64 v12; // r15
+  __int64 v13; // r14
+  unsigned __int8 *v14; // r12
+  unsigned __int8 *v15; // r13
+  _QWORD *v16; // rsi
+  __int64 v17; // rdi
   __int64 result; // rax
-  unsigned __int8 *v17; // [rsp+70h] [rbp+8h]
-  unsigned __int8 *v18; // [rsp+80h] [rbp+18h]
-  __int64 v19; // [rsp+88h] [rbp+20h]
+  __int64 v19; // [rsp+60h] [rbp+8h]
+  unsigned __int8 *v21; // [rsp+78h] [rbp+20h]
 
-  v8 = a7;
-  v11 = (unsigned __int8 *)(120LL * a2 + a1 - 120);
-  if ( !*v11 && a7 )
+  v10 = (unsigned __int8 *)(120LL * a2 + a1 - 120);
+  v21 = v10;
+  if ( !*v10 && a7 )
   {
-    memset(v11, 0, 0x78uLL);
-    *((_QWORD *)v11 + 4) = a3;
-    *((_QWORD *)v11 + 3) = v11 + 16;
-    *((_QWORD *)v11 + 2) = v11 + 16;
+    memset(v10, 0, 0x78uLL);
+    *((_QWORD *)v10 + 4) = a3;
+    *((_QWORD *)v10 + 3) = v10 + 16;
+    *((_QWORD *)v10 + 2) = v10 + 16;
   }
-  v12 = 0;
+  v11 = 0;
   if ( a4 )
   {
     if ( a5 <= 0 )
-      goto LABEL_12;
-    v14 = *(_QWORD *)&v11[120 * a5 + 8];
-    v13 = *(_QWORD *)&v11[120 * a5 + 40];
-    v18 = &v11[120 * a5 + 48];
-    *((_QWORD *)v11 + 1) = v14;
-    v12 = *(_DWORD *)&v11[120 * a5 + 4] & 0x10000000;
-    v17 = &v11[120 * a5 + 56];
-    *((_DWORD *)v11 + 1) |= v12;
+    {
+      v13 = *((_QWORD *)v10 + 1);
+      v12 = 0LL;
+      v15 = 0LL;
+      v14 = 0LL;
+    }
+    else
+    {
+      v13 = *(_QWORD *)&v10[120 * a5 + 8];
+      v12 = *(_QWORD *)&v10[120 * a5 + 40];
+      *((_QWORD *)v10 + 1) = v13;
+      v15 = &v10[120 * a5 + 48];
+      v14 = &v10[120 * a5 + 56];
+      v11 = *(_DWORD *)&v10[120 * a5 + 4] & 0x10000000;
+      *((_DWORD *)v10 + 1) |= v11;
+    }
   }
   else
   {
-    v17 = 0LL;
+    v12 = 0LL;
     v13 = 0LL;
     v14 = 0LL;
-    v18 = 0LL;
+    v15 = 0LL;
   }
   if ( a5 > 1 )
   {
-    v15 = v11 + 16;
+    v16 = v10 + 16;
     v19 = (unsigned int)(a5 - 1);
+    v17 = a3;
     do
     {
-      v15 += 15;
-      a3 += 72LL;
-      memset(v15 - 2, 0, 0x78uLL);
-      v15[1] = v15;
-      *v15 = v15;
-      *((_BYTE *)v15 - 16) = 1;
-      v15[2] = a3;
-      *(v15 - 1) = v14;
-      v15[4] = *(_QWORD *)v18;
-      v15[5] = *(_QWORD *)v17;
-      v15[3] = v13;
-      *((_DWORD *)v15 - 3) |= v12 | 0x800000;
+      v16 += 15;
+      v17 += 72LL;
+      memset(v16 - 2, 0, 0x78uLL);
+      v16[1] = v16;
+      *v16 = v16;
+      *((_BYTE *)v16 - 16) = 1;
+      v16[2] = v17;
+      *(v16 - 1) = v13;
+      v16[4] = *(_QWORD *)v15;
+      v16[5] = *(_QWORD *)v14;
+      v16[3] = v12;
+      *((_DWORD *)v16 - 3) |= v11 | 0x800000;
       --v19;
     }
     while ( v19 );
-    v8 = a7;
+    v10 = v21;
   }
-LABEL_12:
-  *a8 = v11;
-  if ( !v8 )
-    return *v11;
+  *a8 = v10;
+  if ( !a7 )
+    return *v10;
   if ( a6 )
-    *((_QWORD *)v11 + 1) = v11;
-  result = *v11;
-  *v11 = 1;
+    *((_QWORD *)v10 + 1) = v10;
+  result = *v10;
+  *v10 = 1;
   return result;
 }

@@ -1,12 +1,13 @@
 /*
- * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x14083DC20
+ * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x1407B0180
  * Callers:
- *     _CmGetMatchingDevicePanelList @ 0x14083D944 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetMatchingDevicePanelList @ 0x1407AFE90 (_CmGetMatchingDevicePanelList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14083EAEC (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingDevicePanelListWorker(
@@ -19,12 +20,12 @@ __int64 __fastcall CmGetMatchingDevicePanelListWorker(
         int a7)
 {
   int CachedContextBaseKey; // ebx
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v13; // rdi
   __int64 v14; // rdx
   unsigned int v15; // eax
-  unsigned int v17; // eax
-  _QWORD v18[7]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v16; // eax
+  __int64 v18[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v18[0] = 0LL;
   *a6 = 0;
@@ -33,29 +34,29 @@ __int64 __fastcall CmGetMatchingDevicePanelListWorker(
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, 11, (__int64)v18);
   if ( CachedContextBaseKey >= 0 )
   {
-    Pool2 = ExAllocatePool2(256LL, 160LL, 1380994640LL);
-    v13 = (_DWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xA0uLL, 0x52504E50u);
+    v13 = PoolWithTag;
+    if ( PoolWithTag )
     {
+      memset(PoolWithTag, 0, 0xA0uLL);
       v14 = v18[0];
-      *(_QWORD *)(Pool2 + 128) = a3;
-      *(_DWORD *)Pool2 = 1;
-      *(_DWORD *)(Pool2 + 148) = 0;
-      *(_QWORD *)(Pool2 + 120) = a2;
-      *(_QWORD *)(Pool2 + 136) = a4;
-      *(_DWORD *)(Pool2 + 144) = a5;
-      *(_DWORD *)(Pool2 + 152) = a7;
-      CachedContextBaseKey = PnpCtxRegEnumKeyWithCallback(a1, v14, &CmDevicePanelEnumSubkeyCallback, Pool2);
+      v13[38] = a7;
+      *v13 = 1;
+      *((_QWORD *)v13 + 15) = a2;
+      *((_QWORD *)v13 + 16) = a3;
+      *((_QWORD *)v13 + 17) = a4;
+      v13[36] = a5;
+      CachedContextBaseKey = PnpCtxRegEnumKeyWithCallback(a1, v14, &CmDevicePanelEnumSubkeyCallback, v13);
       if ( CachedContextBaseKey >= 0 )
       {
         v15 = v13[37];
         *a6 = v15;
         if ( v15 )
         {
-          v17 = v15 + 1;
-          *a6 = v17;
-          if ( a4 && a5 >= v17 )
-            a4[v17 - 1] = 0;
+          v16 = v15 + 1;
+          *a6 = v16;
+          if ( a4 && a5 >= v16 )
+            a4[v16 - 1] = 0;
           else
             CachedContextBaseKey = -1073741789;
         }

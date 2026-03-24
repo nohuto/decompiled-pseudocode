@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryTrackedWorkloadSupport@DXGADAPTER@@QEAAJIW4DXGK_ENGINE_TYPE@@PEAH@Z @ 0x1C02BD444
+ * XREFs of ?QueryTrackedWorkloadSupport@DXGADAPTER@@QEAAJIW4DXGK_ENGINE_TYPE@@PEAH@Z @ 0x1C020EAA0
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018C4C0 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C0126EB0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,13 +21,13 @@ __int64 __fastcall DXGADAPTER::QueryTrackedWorkloadSupport(
 
   v4 = 0;
   *a4 = 0;
-  if ( *((int *)this + 606) < 0x2000 )
+  if ( *((int *)this + 582) < 0x2000 )
     v7 = 1;
   else
-    v7 = *((_DWORD *)this + 72);
+    v7 = *((_DWORD *)this + 70);
   if ( a2 < v7 )
   {
-    v8 = (unsigned __int16 *)(*((_QWORD *)this + 335) + 344LL * a2);
+    v8 = (unsigned __int16 *)(*((_QWORD *)this + 323) + 360LL * a2);
     if ( *((_QWORD *)v8 + 4) )
     {
       v9 = *v8;

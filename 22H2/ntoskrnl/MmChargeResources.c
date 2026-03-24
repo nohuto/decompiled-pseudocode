@@ -1,36 +1,31 @@
 /*
- * XREFs of MmChargeResources @ 0x140343560
+ * XREFs of MmChargeResources @ 0x14026C85C
  * Callers:
- *     SmAcquireReleaseCharges @ 0x14034350C (SmAcquireReleaseCharges.c)
+ *     SmAcquireReleaseCharges @ 0x14026C810 (SmAcquireReleaseCharges.c)
  * Callees:
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MmReleaseResourceCharge @ 0x140344D68 (MmReleaseResourceCharge.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MmReleaseResourceCharge @ 0x14026C8EC (MmReleaseResourceCharge.c)
  */
 
-__int64 __fastcall MmChargeResources(void **a1, unsigned __int64 a2, char a3)
+__int64 __fastcall MmChargeResources(unsigned __int64 a1, char a2, __int64 a3, __int64 a4)
 {
-  void *v3; // r14
-  unsigned int v4; // ebx
-  unsigned int v8; // edi
+  unsigned int v4; // edi
+  unsigned int v7; // ebx
 
-  v3 = *a1;
   v4 = 0;
-  v8 = 0;
-  if ( (a3 & 2) != 0 )
+  if ( (a2 & 2) != 0 )
   {
-    if ( !(unsigned int)MiChargeResident(*a1, a2, 0LL) )
-      return v4;
-    v8 = 2;
+    if ( !(unsigned int)MiChargeResident(&MiSystemPartition, a1, 0LL, a4) )
+      return 0;
+    v4 = 2;
   }
-  if ( (a3 & 1) != 0 && !(unsigned int)MiChargeCommit((unsigned __int64)v3, a2, 1uLL) )
-  {
-    if ( v8 )
-      MmReleaseResourceCharge(a1, a2, v8, 0LL);
-  }
+  v7 = 1;
+  if ( (a2 & 1) != 0 && !(unsigned int)MiChargeCommit((__int64)&MiSystemPartition, a1, 1u) )
+    v7 = 0;
   else
-  {
-    return 1;
-  }
-  return v4;
+    v4 = 0;
+  if ( v4 )
+    MmReleaseResourceCharge(a1, v4, 0LL);
+  return v7;
 }

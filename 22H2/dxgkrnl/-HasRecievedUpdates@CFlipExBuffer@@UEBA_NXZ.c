@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasRecievedUpdates@CFlipExBuffer@@UEBA_NXZ @ 0x1C00148A0
+ * XREFs of ?HasRecievedUpdates@CFlipExBuffer@@UEBA_NXZ @ 0x1C00193B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipExBuffer::HasRecievedUpdates(CFlipExBuffer *this)
 {
-  return *((_DWORD *)this + 95) != -1;
+  return *((_DWORD *)this + 87) != -1;
 }

@@ -1,31 +1,30 @@
 /*
- * XREFs of PiIommuGetInterface @ 0x1407498EC
+ * XREFs of PiIommuGetInterface @ 0x140765678
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x140749848 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1407655E0 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PnpQueryInterface @ 0x140765D84 (PnpQueryInterface.c)
+ *     PiIommuPutInterface @ 0x140765EF8 (PiIommuPutInterface.c)
  */
 
 __int64 __fastcall PiIommuGetInterface(struct _DEVICE_OBJECT *MaxDataSize, _QWORD *a2)
 {
   _DWORD *DeviceNode; // rcx
-  int Interface; // ebx
-  void (__fastcall *v7)(_QWORD); // rax
+  __int64 result; // rax
   struct _DRIVER_OBJECT *DriverObject; // rcx
   UNICODE_STRING *p_DriverName; // rcx
-  char *v10; // rcx
-  unsigned __int16 *v11; // rdi
+  char *v8; // rcx
+  unsigned __int16 *v9; // rdi
   struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v11; // rcx
+  __int64 v12; // rcx
   _WORD *v13; // rcx
   __int64 v14; // rcx
-  _WORD *v15; // rcx
-  __int64 v16; // rcx
 
   if ( !MaxDataSize )
-    goto LABEL_25;
+    goto LABEL_22;
   DeviceNode = MaxDataSize->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
@@ -43,57 +42,53 @@ __int64 __fastcall PiIommuGetInterface(struct _DEVICE_OBJECT *MaxDataSize, _QWOR
           (PVOID)MaxDataSize->DriverObject->DriverName.Length);
       }
     }
-    v10 = (char *)MaxDataSize->DeviceObjectExtension->DeviceNode;
-    if ( v10 )
+    v8 = (char *)MaxDataSize->DeviceObjectExtension->DeviceNode;
+    if ( v8 )
     {
-      v11 = (unsigned __int16 *)(v10 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)0x310);
+      v9 = (unsigned __int16 *)(v8 + 40);
+      IoAddTriageDumpDataBlock((ULONG)v8, (PVOID)0x310);
+      if ( *v9 )
+      {
+        IoAddTriageDumpDataBlock((ULONG)v9, (PVOID)2);
+        IoAddTriageDumpDataBlock(*((_QWORD *)v9 + 1), (PVOID)*v9);
+      }
+      DeviceObjectExtension = MaxDataSize->DeviceObjectExtension;
+      v11 = (char *)DeviceObjectExtension->DeviceNode + 56;
       if ( *v11 )
       {
         IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)2);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v11 + 1), (PVOID)*v11);
-      }
-      DeviceObjectExtension = MaxDataSize->DeviceObjectExtension;
-      v13 = (char *)DeviceObjectExtension->DeviceNode + 56;
-      if ( *v13 )
-      {
-        IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)MaxDataSize->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)MaxDataSize->DeviceObjectExtension->DeviceNode + 28));
         DeviceObjectExtension = MaxDataSize->DeviceObjectExtension;
       }
-      v14 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
-      if ( v14 )
+      v12 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v12 )
       {
-        v15 = (_WORD *)(v14 + 56);
-        if ( *v15 )
+        v13 = (_WORD *)(v12 + 56);
+        if ( *v13 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
-          v16 = *((_QWORD *)MaxDataSize->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v16 + 64), (PVOID)*(unsigned __int16 *)(v16 + 56));
+          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
+          v14 = *((_QWORD *)MaxDataSize->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v14 + 64), (PVOID)*(unsigned __int16 *)(v14 + 56));
         }
       }
     }
-LABEL_25:
+LABEL_22:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)MaxDataSize, 0LL, 0LL);
   }
-  Interface = PnpQueryInterface(MaxDataSize, (__int64)MaxDataSize, a2);
-  if ( Interface >= 0 )
+  result = PnpQueryInterface(MaxDataSize, (__int64)MaxDataSize, a2);
+  if ( (int)result >= 0 )
   {
-    Interface = -1073741637;
-    if ( a2[2] && (v7 = (void (__fastcall *)(_QWORD))a2[3]) != 0LL )
+    if ( a2[2] && a2[3] && a2[8] && a2[7] )
     {
-      if ( a2[8] && a2[7] )
-        return 0;
+      return 0LL;
     }
     else
     {
-      v7 = (void (__fastcall *)(_QWORD))a2[3];
-      if ( !v7 )
-        return (unsigned int)Interface;
+      PiIommuPutInterface(a2);
+      return 3221225659LL;
     }
-    v7(a2[1]);
   }
-  return (unsigned int)Interface;
+  return result;
 }

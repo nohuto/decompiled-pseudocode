@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Quantize_32bppARGB_32RGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B0A60
+ * XREFs of ?Quantize_32bppARGB_32RGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AA20
  * Callers:
  *     <none>
  * Callees:

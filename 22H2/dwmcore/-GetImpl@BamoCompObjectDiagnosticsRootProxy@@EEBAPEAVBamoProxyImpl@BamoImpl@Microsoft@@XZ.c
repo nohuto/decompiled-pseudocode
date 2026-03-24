@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetImpl@BamoCompObjectDiagnosticsRootProxy@@EEBAPEAVBamoProxyImpl@BamoImpl@Microsoft@@XZ @ 0x180106920
+ * XREFs of ?GetImpl@BamoCompObjectDiagnosticsRootProxy@@EEBAPEAVBamoProxyImpl@BamoImpl@Microsoft@@XZ @ 0x1800E22E0
  * Callers:
  *     <none>
  * Callees:

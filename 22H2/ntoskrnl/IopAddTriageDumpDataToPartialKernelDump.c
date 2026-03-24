@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAddTriageDumpDataToPartialKernelDump @ 0x14055CD94
+ * XREFs of IopAddTriageDumpDataToPartialKernelDump @ 0x14050BB70
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CC08 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14050B9F0 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopAddTriageDumpDataToPartialKernelDump(__int64 a1, __int64 **a2)

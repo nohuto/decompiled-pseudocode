@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhReset2DropDevice @ 0x1C004DB80
+ * XREFs of UsbhReset2DropDevice @ 0x1C004EF90
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     UsbhDropDevice @ 0x1C004C208 (UsbhDropDevice.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     UsbhDropDevice @ 0x1C004D614 (UsbhDropDevice.c)
  */
 
 __int64 __fastcall UsbhReset2DropDevice(__int64 a1, __int64 a2, __int64 a3)

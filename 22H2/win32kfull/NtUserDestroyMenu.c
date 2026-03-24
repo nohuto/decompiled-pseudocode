@@ -1,53 +1,44 @@
 /*
- * XREFs of NtUserDestroyMenu @ 0x1C0061490
+ * XREFs of NtUserDestroyMenu @ 0x1C011D610
  * Callers:
  *     <none>
  * Callees:
- *     _DestroyMenu @ 0x1C0061170 (_DestroyMenu.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     _DestroyMenu @ 0x1C0048990 (_DestroyMenu.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
  */
 
 __int64 __fastcall NtUserDestroyMenu(__int64 a1)
 {
-  __int64 ThreadWin32Thread; // rax
-  int v3; // edi
-  __int64 v4; // rax
+  __int64 v2; // rax
+  int v3; // ebx
+  __int64 v4; // rcx
   __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 *v11; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-10h]
-  char v14; // [rsp+58h] [rbp+18h] BYREF
+  _QWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-18h]
+  char v9; // [rsp+58h] [rbp+10h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v14);
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v9);
+  SmartObjStackRefBase<tagMENU>::Init(v7, 0LL);
+  v2 = ValidateHmenu(a1);
   v3 = 0;
-  v11 = (__int64 *)gSmartObjNullRef;
-  v12 = *(_QWORD *)(ThreadWin32Thread + 1512);
-  *(_QWORD *)(ThreadWin32Thread + 1512) = &v12;
-  v13 = 0LL;
-  v4 = ValidateHmenu(a1);
-  v13 = 0LL;
-  SmartObjStackRefBase<tagMENU>::operator=(&v11, v4);
-  if ( !(unsigned __int8)SmartObjStackRef<tagMENU>::operator==(&v11)
-    && (*(_DWORD *)(*(_QWORD *)(*v11 + 40) + 40LL) & 0x40) == 0 )
+  v8 = 0LL;
+  SmartObjStackRefBase<tagMENU>::operator=(v7, v2);
+  if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v7)
+    && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v7[0] + 40LL) + 40LL) & 0x40) == 0 )
   {
-    v5 = v13;
-    if ( !v13 )
-      v5 = *v11;
-    v3 = DestroyMenu(v5);
+    v4 = v8;
+    if ( !v8 )
+      v4 = *(_QWORD *)v7[0];
+    v3 = DestroyMenu(v4);
   }
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(&v11);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v14);
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v7);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v9);
+  UserSessionSwitchLeaveCrit(v5);
   return v3;
 }

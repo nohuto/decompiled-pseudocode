@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetModel@CFlipManagerToken@@UEBA?AW4TokenModel@CTokenBase@@XZ @ 0x1C0020460
+ * XREFs of ?GetModel@CFlipManagerToken@@UEBA?AW4TokenModel@CTokenBase@@XZ @ 0x1C001B7A0
  * Callers:
  *     <none>
  * Callees:

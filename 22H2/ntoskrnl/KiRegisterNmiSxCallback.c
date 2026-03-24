@@ -1,14 +1,12 @@
 /*
- * XREFs of KiRegisterNmiSxCallback @ 0x14056CEDC
+ * XREFs of KiRegisterNmiSxCallback @ 0x140514BE4
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x140548094 (HvlpInitializeHvCrashdump.c)
- *     KeRegisterNmiCallback @ 0x14056CB00 (KeRegisterNmiCallback.c)
- *     DifKeRegisterNmiCallbackWrapper @ 0x1405E4620 (DifKeRegisterNmiCallbackWrapper.c)
+ *     KeRegisterNmiCallback @ 0x140514850 (KeRegisterNmiCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
@@ -17,13 +15,13 @@ _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
   _QWORD *v5; // rbx
   KIRQL v6; // al
   unsigned __int64 v7; // rdi
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v11; // eax
   bool v12; // zf
 
-  result = (_QWORD *)ExAllocatePool2(64LL, 32LL, 1229803083LL);
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x494D4E4Bu);
   v5 = result;
   if ( result )
   {
@@ -34,19 +32,22 @@ _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
     *v5 = KiNmiCallbackListHead;
     KiNmiCallbackListHead = v5;
     v7 = v6;
-    KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
+    KxReleaseSpinLock(&KiNmiCallbackListLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v7);

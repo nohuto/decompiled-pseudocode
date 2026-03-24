@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoReDoCreateKey @ 0x140A2A840
+ * XREFs of CmpDoReDoCreateKey @ 0x140881EBC
  * Callers:
- *     CmpDoReDoRecord @ 0x140A2A98C (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140882008 (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     CmpDoReOpenTransKey @ 0x140A2AC84 (CmpDoReOpenTransKey.c)
- *     CmpSplitParentKeyName @ 0x140AF6CF8 (CmpSplitParentKeyName.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     CmpSplitParentKeyName @ 0x1405CD168 (CmpSplitParentKeyName.c)
+ *     CmpDoReOpenTransKey @ 0x140882300 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoCreateKey(__int64 a1, __int64 a2)
@@ -15,21 +15,21 @@ __int64 __fastcall CmpDoReDoCreateKey(__int64 a1, __int64 a2)
   HANDLE v5; // rbx
   int v6; // eax
   NTSTATUS v7; // edi
-  __int128 v8; // [rsp+40h] [rbp-9h] BYREF
-  __int128 v9; // [rsp+50h] [rbp+7h] BYREF
+  __m128i v8; // [rsp+40h] [rbp-9h] BYREF
+  __m128i v9; // [rsp+50h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+17h] BYREF
   ULONG Disposition; // [rsp+B8h] [rbp+6Fh] BYREF
   HANDLE Handle; // [rsp+C0h] [rbp+77h] BYREF
   HANDLE KeyHandle; // [rsp+C8h] [rbp+7Fh] BYREF
 
   Handle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   Disposition = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
   v8 = 0LL;
   v9 = 0LL;
-  CmpSplitParentKeyName(a2 + 32, &v8, &v9);
+  CmpSplitParentKeyName((__m128i *)(a2 + 32), &v8, &v9);
   result = CmpDoReOpenTransKey(a1, &v8, 131078LL, &Handle);
   if ( (int)result >= 0 )
   {

@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x14068755C
+ * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x140952DA8
  * Callers:
- *     ExGetFirmwareEnvironmentVariable @ 0x1406874D0 (ExGetFirmwareEnvironmentVariable.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FBA50 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406A32F0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4F0 (ExSetFirmwareEnvironmentVariable.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall ExpUnicodeStringToNonpagedWStr(const void **a1)
 {
   unsigned __int64 v1; // rdi
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   _WORD *v4; // rbx
 
   v1 = *(unsigned __int16 *)a1;
-  Pool2 = (_WORD *)ExAllocatePool2(64LL, v1 + 2, 1920364101LL);
-  v4 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v1 + 2, 0x72766E45u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, a1[1], (unsigned int)v1);
+    memmove(PoolWithTag, a1[1], (unsigned int)v1);
     v4[v1 >> 1] = 0;
   }
   return v4;

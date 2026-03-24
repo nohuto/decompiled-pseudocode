@@ -1,12 +1,10 @@
 /*
- * XREFs of AlpcInitializeMessageAttribute @ 0x14032B870
+ * XREFs of AlpcInitializeMessageAttribute @ 0x14034A380
  * Callers:
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x14041980C (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     PopUmpoProcessMessages @ 0x1407A6E58 (PopUmpoProcessMessages.c)
- *     SshpAlpcMessageCallback @ 0x14084D6A0 (SshpAlpcMessageCallback.c)
- *     DbgkpSendErrorMessage @ 0x14093A32C (DbgkpSendErrorMessage.c)
+ *     PopUmpoProcessMessages @ 0x1406F31D4 (PopUmpoProcessMessages.c)
+ *     DbgkpSendErrorMessage @ 0x1408873C0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x14032B8D0 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x14034A3E0 (AlpcGetHeaderSize.c)
  */
 
 __int64 __fastcall AlpcInitializeMessageAttribute(__int64 a1, _DWORD *a2, unsigned __int64 a3, _QWORD *a4)

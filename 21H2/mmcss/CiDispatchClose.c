@@ -1,18 +1,18 @@
 /*
- * XREFs of CiDispatchClose @ 0x1C000A550
+ * XREFs of CiDispatchClose @ 0x1C000B7B0
  * Callers:
  *     <none>
  * Callees:
- *     CiTaskIndexDereference @ 0x1C0002070 (CiTaskIndexDereference.c)
- *     CiThreadDereference @ 0x1C000A5D0 (CiThreadDereference.c)
- *     CiProcessDereference @ 0x1C000A830 (CiProcessDereference.c)
+ *     CiTaskIndexDereference @ 0x1C0001B60 (CiTaskIndexDereference.c)
+ *     CiThreadDereference @ 0x1C000B830 (CiThreadDereference.c)
+ *     CiProcessDereference @ 0x1C000BA90 (CiProcessDereference.c)
  */
 
 __int64 __fastcall CiDispatchClose(__int64 a1, IRP *a2)
 {
   PFILE_OBJECT FileObject; // rcx
   _QWORD *FsContext; // rsi
-  _QWORD *v5; // rcx
+  volatile signed __int64 *v5; // rcx
 
   FileObject = a2->Tail.Overlay.CurrentStackLocation->FileObject;
   FsContext = FileObject->FsContext;
@@ -28,7 +28,7 @@ __int64 __fastcall CiDispatchClose(__int64 a1, IRP *a2)
     }
     else
     {
-      v5 = FileObject->FsContext;
+      v5 = (volatile signed __int64 *)FileObject->FsContext;
       if ( *(_DWORD *)FsContext )
         CiTaskIndexDereference(v5);
       else

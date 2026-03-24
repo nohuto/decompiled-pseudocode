@@ -1,31 +1,39 @@
 /*
- * XREFs of AllocateW32Thread @ 0x1C009442C
+ * XREFs of AllocateW32Thread @ 0x1C00E3F2C
  * Callers:
- *     W32pThreadCallout @ 0x1C00941B0 (W32pThreadCallout.c)
+ *     W32pThreadCallout @ 0x1C00E3CD0 (W32pThreadCallout.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall AllocateW32Thread(__int64 a1)
 {
-  _QWORD *Pool2; // rbx
-  _QWORD *v3; // rdi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v3; // rbx
+  void *v4; // rax
+  void *v5; // rdi
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 200LL, 1853125461LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x6E747355u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v3 = (_QWORD *)Win32AllocPoolWithQuotaZInit(W32ThreadSize, 1769239381LL);
-    if ( v3 )
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    *((_OWORD *)PoolWithTag + 2) = 0LL;
+    PoolWithTag[6] = 0LL;
+    v4 = (void *)Win32AllocPoolWithQuota(W32ThreadSize, 1769239381LL);
+    v5 = v4;
+    if ( v4 )
     {
-      ExInitializeFastOwnerEntry(Pool2 + 7);
-      ExInitializeFastOwnerEntry(Pool2 + 16);
-      *v3 = a1;
-      *Pool2 = v3;
-      PsSetThreadWin32Thread(a1, Pool2, 0LL);
-      ReferenceW32Thread(v3);
+      memset(v4, 0, W32ThreadSize);
+      *(_QWORD *)v5 = a1;
+      *v3 = v5;
+      PsSetThreadWin32Thread(a1, v3, 0LL);
+      ObfReferenceObject(*(PVOID *)v5);
+      _InterlockedIncrement((volatile signed __int32 *)v5 + 2);
       return 0LL;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v3, 0);
   }
   return 3221225495LL;
 }

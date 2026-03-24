@@ -1,5 +1,5 @@
 /*
- * XREFs of MmGetLowestPhysicalPage @ 0x14013BA04
+ * XREFs of MmGetLowestPhysicalPage @ 0x14013BA24
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:

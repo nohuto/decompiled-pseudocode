@@ -1,11 +1,11 @@
 /*
- * XREFs of BgQueryBootGraphicsInformation @ 0x140383ED8
+ * XREFs of BgQueryBootGraphicsInformation @ 0x14039B714
  * Callers:
- *     BgkQueryBootGraphicsInformation @ 0x140AEDF54 (BgkQueryBootGraphicsInformation.c)
+ *     BgkQueryBootGraphicsInformation @ 0x1409F248C (BgkQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwQueryBootGraphicsInformation @ 0x140383F44 (BgpFwQueryBootGraphicsInformation.c)
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14039BC64 (BgpFwQueryBootGraphicsInformation.c)
  */
 
 __int64 __fastcall BgQueryBootGraphicsInformation(int a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall BgQueryBootGraphicsInformation(int a1, __int64 a2)
   if ( !a2 || a1 >= 4 )
     return 3221225485LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0E4B0 & 1) != 0 )
+  if ( (dword_140C134F0 & 1) != 0 )
     BootGraphicsInformation = BgpFwQueryBootGraphicsInformation((unsigned int)a1, a2);
   else
     BootGraphicsInformation = -1073741823;

@@ -1,33 +1,34 @@
 /*
- * XREFs of ?VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z @ 0x1C00F1678
+ * XREFs of ?VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z @ 0x1C00BAECC
  * Callers:
- *     ?MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_N2PEAPEAXK@Z @ 0x1C008E158 (-MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_.c)
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C0093270 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C006E840 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_N2PEAPEAX@Z @ 0x1C0087510 (-MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C009D4E8 (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
+ *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C0062B9C (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
  */
 
 __int64 __fastcall VidMmiEnsureVirtualAddressRangeValid(unsigned __int64 a1, SIZE_T a2)
 {
   struct _MDL *Mdl; // rax
-  struct _MDL *v3; // rdi
-  __int64 v4; // rcx
+  __int64 v3; // rcx
+  struct _MDL *v4; // rbx
+  __int64 v5; // rax
 
   Mdl = VidMmiAllocateMdl(a1, a2);
-  v3 = Mdl;
+  v4 = Mdl;
   if ( Mdl )
   {
     MmProbeAndLockPages(Mdl, 0, IoModifyAccess);
-    MmUnlockPages(v3);
-    ExFreePoolWithTag(v3, 0);
+    MmUnlockPages(v4);
+    ExFreePoolWithTag(v4, 0);
     return 0LL;
   }
   else
   {
     _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
-    WdLogSingleEntry1(6LL, 1200LL);
-    DxgkLogInternalTriageEvent(v4, 262145LL);
+    v5 = WdLogNewEntry5_WdLowResource(v3);
+    *(_QWORD *)(v5 + 24) = 1166LL;
+    WdLogEvent5_WdLowResource(v5);
     return 3221225495LL;
   }
 }

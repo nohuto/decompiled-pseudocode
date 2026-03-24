@@ -1,24 +1,24 @@
 /*
- * XREFs of ?CitpCleanup@@YAXXZ @ 0x1C00A2CAC
+ * XREFs of ?CitpCleanup@@YAXXZ @ 0x1C008BE4C
  * Callers:
- *     CitProcessCallout @ 0x1C0016FF0 (CitProcessCallout.c)
- *     ?CitpResetTracking@@YAJXZ @ 0x1C0240624 (-CitpResetTracking@@YAJXZ.c)
+ *     CitProcessCallout @ 0x1C0045FB0 (CitProcessCallout.c)
+ *     ?CitpResetTracking@@YAJXZ @ 0x1C01FE9D0 (-CitpResetTracking@@YAJXZ.c)
  * Callees:
- *     ?CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A2D08 (-CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008BEA8 (-CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  */
 
 void CitpCleanup(void)
 {
   REGHANDLE v0; // rcx
 
-  CitpCleanupGlobalImpactContext(&xmmword_1C029A230);
-  WORD2(qword_1C029A224) = 0;
-  if ( (_BYTE)g_CompatImpact && !byte_1C029A201 )
+  CitpCleanupGlobalImpactContext(&xmmword_1C0255560);
+  WORD2(qword_1C0255554) = 0;
+  if ( (_BYTE)g_CompatImpact && !byte_1C0255531 )
   {
-    v0 = qword_1C028D8A8;
-    qword_1C028D8A8 = 0LL;
-    dword_1C028D888 = 0;
+    v0 = qword_1C024A438;
+    qword_1C024A438 = 0LL;
+    dword_1C024A418 = 0;
     EtwUnregister(v0);
   }
-  byte_1C029A201 = 1;
+  byte_1C0255531 = 1;
 }

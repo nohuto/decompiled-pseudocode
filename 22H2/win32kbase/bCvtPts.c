@@ -1,72 +1,98 @@
 /*
- * XREFs of bCvtPts @ 0x1C023610C
+ * XREFs of bCvtPts @ 0x1C00BC844
  * Callers:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z @ 0x1C0152640 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C01526B0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
- *     ?bXformRound@EXFORMOBJ@@QEAAHAEAV?$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z @ 0x1C015280C (-bXformRound@EXFORMOBJ@@QEAAHAEAV-$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C00BC790 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z @ 0x1C013CD30 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C013CDA0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
  * Callees:
- *     bFToL @ 0x1C00038EC (bFToL.c)
+ *     bFToL @ 0x1C0082B80 (bFToL.c)
  */
 
-__int64 __fastcall bCvtPts(__int64 a1, int *a2, _DWORD *a3, __int64 a4)
+__int64 __fastcall bCvtPts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rdi
-  _DWORD *v5; // rbx
-  int *v6; // rsi
+  char *v4; // rbx
+  int *v5; // rsi
+  __int64 v6; // rdi
   signed __int64 v8; // rsi
   int v9; // eax
-  int v10; // eax
-  float v11; // xmm1_4
-  unsigned int v12; // r8d
-  float v13; // xmm2_4
-  float v14; // xmm3_4
-  unsigned int v15; // r8d
-  int v17[6]; // [rsp+20h] [rbp-18h] BYREF
-  int v18; // [rsp+40h] [rbp+8h] BYREF
+  float v11; // xmm3_4
+  float v12; // r9d
+  unsigned int v13; // r10d
+  __int64 v14; // rax
+  __int64 v15; // rax
+  unsigned int v16; // r9d
+  __int64 v17; // rax
+  __int64 v18; // rax
+  int v19; // eax
+  float v20; // xmm3_4
+  float v21; // xmm2_4
+  unsigned int v22; // r8d
+  int v23[6]; // [rsp+20h] [rbp-18h] BYREF
+  float v24; // [rsp+40h] [rbp+8h] BYREF
 
-  v18 = 0;
-  v4 = a4;
-  v17[0] = 0;
-  v5 = a3;
-  v6 = a2;
+  v4 = (char *)a3;
+  v5 = (int *)a2;
+  LODWORD(a3) = 0;
+  LODWORD(a2) = 0;
+  v24 = 0.0;
+  v6 = a4;
+  v23[0] = 0;
   if ( (*(_DWORD *)(a1 + 32) & 0xB) == 0 )
   {
-LABEL_17:
+LABEL_29:
     if ( a4 )
     {
       do
       {
-        v13 = (float)*v6;
-        v14 = (float)v6[1];
-        bFToL((float)(v14 * *(float *)(a1 + 8)) + (float)(v13 * *(float *)a1), &v18, 6u);
-        bFToL((float)(v14 * *(float *)(a1 + 12)) + (float)(v13 * *(float *)(a1 + 4)), v17, v15);
-        v6 += 2;
-        *v5 = *(_DWORD *)(a1 + 24) + v18;
-        v5[1] = v17[0] + *(_DWORD *)(a1 + 28);
+        v20 = (float)*v5;
+        v21 = (float)v5[1];
+        bFToL((float)(v21 * *(float *)(a1 + 8)) + (float)(v20 * *(float *)a1), (int *)&v24, 6u);
+        bFToL((float)(v20 * *(float *)(a1 + 4)) + (float)(v21 * *(float *)(a1 + 12)), v23, v22);
         v5 += 2;
-        --v4;
+        *(_DWORD *)v4 = *(_DWORD *)(a1 + 24) + LODWORD(v24);
+        *((_DWORD *)v4 + 1) = v23[0] + *(_DWORD *)(a1 + 28);
+        v4 += 8;
+        --v6;
       }
-      while ( v4 );
+      while ( v6 );
     }
     return 1LL;
   }
   if ( (*(_DWORD *)(a1 + 32) & 0xB) == 1 )
   {
-LABEL_14:
+LABEL_11:
     if ( a4 )
     {
       do
       {
-        v11 = (float)v6[1] * *(float *)(a1 + 12);
-        bFToL((float)*v6 * *(float *)a1, &v18, 6u);
-        bFToL(v11, v17, v12);
-        v6 += 2;
-        *v5 = *(_DWORD *)(a1 + 24) + v18;
+        v11 = (float)v5[1] * *(float *)(a1 + 12);
+        v12 = (float)*v5 * *(float *)a1;
+        v13 = (unsigned __int8)(SLODWORD(v12) >> 23);
+        if ( v13 <= 0x9E )
+        {
+          v14 = LODWORD(v12) & 0x7FFFFF | 0x800000LL;
+          v15 = v13 < 0x76 ? v14 >> (118 - (unsigned __int8)v13) : v14 << ((unsigned __int8)v13 - 118);
+          a3 = (v15 + 0x80000000LL) >> 32;
+          if ( v12 < 0.0 )
+            LODWORD(a3) = -(int)a3;
+        }
+        v24 = (float)v5[1] * *(float *)(a1 + 12);
+        v16 = (unsigned __int8)(SLODWORD(v11) >> 23);
+        if ( v16 <= 0x9E )
+        {
+          v17 = LODWORD(v11) & 0x7FFFFF | 0x800000LL;
+          v18 = v16 < 0x76 ? v17 >> (118 - (unsigned __int8)v16) : v17 << ((unsigned __int8)v16 - 118);
+          a2 = (v18 + 0x80000000LL) >> 32;
+          if ( v11 < 0.0 )
+            LODWORD(a2) = -(int)a2;
+        }
         v5 += 2;
-        *(v5 - 1) = v17[0] + *(_DWORD *)(a1 + 28);
-        --v4;
+        *(_DWORD *)v4 = a3 + *(_DWORD *)(a1 + 24);
+        *((_DWORD *)v4 + 1) = a2 + *(_DWORD *)(a1 + 28);
+        v4 += 8;
+        --v6;
       }
-      while ( v4 );
+      while ( v6 );
     }
     return 1LL;
   }
@@ -78,35 +104,35 @@ LABEL_14:
       {
         if ( (*(_DWORD *)(a1 + 32) & 0xB) == 0xB && a4 )
         {
-          v8 = (char *)a2 - (char *)a3;
+          v8 = (char *)v5 - v4;
           do
           {
-            *v5 = *(_DWORD *)(a1 + 24) + 16 * *(_DWORD *)((char *)v5 + v8);
-            v9 = *(_DWORD *)((char *)v5 + v8 + 4);
-            v5 += 2;
-            *(v5 - 1) = *(_DWORD *)(a1 + 28) + 16 * v9;
-            --v4;
+            *(_DWORD *)v4 = *(_DWORD *)(a1 + 24) + 16 * *(_DWORD *)&v4[v8];
+            v9 = *(_DWORD *)&v4[v8 + 4];
+            v4 += 8;
+            *((_DWORD *)v4 - 1) = *(_DWORD *)(a1 + 28) + 16 * v9;
+            --v6;
           }
-          while ( v4 );
+          while ( v6 );
         }
         return 1LL;
       }
-      goto LABEL_14;
+      goto LABEL_11;
     }
-    goto LABEL_17;
+    goto LABEL_29;
   }
   if ( a4 )
   {
     do
     {
-      v10 = *v6;
-      v6 += 2;
-      *v5 = *(_DWORD *)(a1 + 24) + (((v10 >> 3) + 1) >> 1);
+      v19 = *v5;
       v5 += 2;
-      *(v5 - 1) = *(_DWORD *)(a1 + 28) + (((*(v6 - 1) >> 3) + 1) >> 1);
-      --v4;
+      *(_DWORD *)v4 = *(_DWORD *)(a1 + 24) + (((v19 >> 3) + 1) >> 1);
+      v4 += 8;
+      *((_DWORD *)v4 - 1) = *(_DWORD *)(a1 + 28) + (((*(v5 - 1) >> 3) + 1) >> 1);
+      --v6;
     }
-    while ( v4 );
+    while ( v6 );
   }
   return 1LL;
 }

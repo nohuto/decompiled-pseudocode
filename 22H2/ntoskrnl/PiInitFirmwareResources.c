@@ -1,24 +1,24 @@
 /*
- * XREFs of PiInitFirmwareResources @ 0x140B6FC80
+ * XREFs of PiInitFirmwareResources @ 0x140A50E48
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiInitFirmwareResources(__int64 a1)
 {
   int v1; // eax
-  const GUID **v2; // rsi
-  int v3; // eax
-  HANDLE v4; // r14
-  int v5; // edi
-  const GUID *v6; // r12
-  HANDLE v7; // rbx
+  int v2; // edi
+  const GUID **v4; // rsi
+  int v5; // eax
+  HANDLE v6; // r14
+  const GUID *v7; // r12
+  HANDLE v8; // rbx
   UNICODE_STRING ValueName; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING GuidString; // [rsp+40h] [rbp-10h] BYREF
   HANDLE Handle; // [rsp+90h] [rbp+40h] BYREF
@@ -33,8 +33,8 @@ __int64 __fastcall PiInitFirmwareResources(__int64 a1)
   GuidString = 0LL;
   if ( (v1 & 1) == 0 )
     return 0;
-  v2 = (const GUID **)(a1 + 296);
-  if ( *v2 == (const GUID *)v2 )
+  v4 = (const GUID **)(a1 + 296);
+  if ( *v4 == (const GUID *)v4 )
   {
     return 0;
   }
@@ -42,56 +42,56 @@ __int64 __fastcall PiInitFirmwareResources(__int64 a1)
   {
     ValueName.Buffer = L"\\Registry\\Machine\\HARDWARE\\UEFI";
     *(_DWORD *)&ValueName.Length = 4194366;
-    v3 = IopCreateRegistryKeyEx(&v12, 0LL, &ValueName, 0xF003Fu, 0, 0LL);
-    v4 = v12;
-    v5 = v3;
-    if ( v3 >= 0 )
+    v5 = IopCreateRegistryKeyEx(&v12, 0LL, &ValueName, 0xF003Fu, 0, 0LL);
+    v6 = v12;
+    v2 = v5;
+    if ( v5 >= 0 )
     {
       ValueName.Buffer = L"ESRT";
       *(_DWORD *)&ValueName.Length = 655368;
-      v5 = IopCreateRegistryKeyEx(&Handle, v12, &ValueName, 0xF003Fu, 0, 0LL);
-      if ( v5 >= 0 )
+      v2 = IopCreateRegistryKeyEx(&Handle, v12, &ValueName, 0xF003Fu, 0, 0LL);
+      if ( v2 >= 0 )
       {
-        v6 = *v2;
-        if ( *v2 != (const GUID *)v2 )
+        v7 = *v4;
+        if ( *v4 != (const GUID *)v4 )
         {
           do
           {
-            v5 = RtlStringFromGUID(v6 + 1, &GuidString);
-            if ( v5 < 0 )
+            v2 = RtlStringFromGUID(v7 + 1, &GuidString);
+            if ( v2 < 0 )
               break;
-            v5 = IopCreateRegistryKeyEx(&KeyHandle, Handle, &GuidString, 0xF003Fu, 0, 0LL);
-            RtlFreeUnicodeString(&GuidString);
-            if ( v5 < 0 )
+            v2 = IopCreateRegistryKeyEx(&KeyHandle, Handle, &GuidString, 0xF003Fu, 0, 0LL);
+            RtlFreeAnsiString(&GuidString);
+            if ( v2 < 0 )
               break;
-            v7 = KeyHandle;
+            v8 = KeyHandle;
             ValueName.Buffer = (wchar_t *)L"Type";
             *(_DWORD *)&ValueName.Length = 655368;
-            ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, (PVOID)&v6[2], 4u);
+            ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, (PVOID)&v7[2], 4u);
             *(_DWORD *)&ValueName.Length = 1048590;
             ValueName.Buffer = L"Version";
-            ZwSetValueKey(v7, &ValueName, 0, 4u, &v6[2].Data2, 4u);
+            ZwSetValueKey(v8, &ValueName, 0, 4u, &v7[2].Data2, 4u);
             *(_DWORD *)&ValueName.Length = 3014700;
             ValueName.Buffer = L"LowestSupportedVersion";
-            ZwSetValueKey(v7, &ValueName, 0, 4u, v6[2].Data4, 4u);
+            ZwSetValueKey(v8, &ValueName, 0, 4u, v7[2].Data4, 4u);
             *(_DWORD *)&ValueName.Length = 2490404;
             ValueName.Buffer = (wchar_t *)L"LastAttemptVersion";
-            ZwSetValueKey(v7, &ValueName, 0, 4u, (PVOID)&v6[3], 4u);
+            ZwSetValueKey(v8, &ValueName, 0, 4u, (PVOID)&v7[3], 4u);
             *(_DWORD *)&ValueName.Length = 2359330;
             ValueName.Buffer = (wchar_t *)L"LastAttemptStatus";
-            ZwSetValueKey(v7, &ValueName, 0, 4u, &v6[3].Data2, 4u);
-            ZwClose(v7);
-            v6 = *(const GUID **)&v6->Data1;
+            ZwSetValueKey(v8, &ValueName, 0, 4u, &v7[3].Data2, 4u);
+            ZwClose(v8);
+            v7 = *(const GUID **)&v7->Data1;
           }
-          while ( v6 != (const GUID *)v2 );
-          v4 = v12;
+          while ( v7 != (const GUID *)v4 );
+          v6 = v12;
         }
       }
       if ( Handle )
         ZwClose(Handle);
     }
-    if ( v4 )
-      ZwClose(v4);
+    if ( v6 )
+      ZwClose(v6);
   }
-  return (unsigned int)v5;
+  return (unsigned int)v2;
 }

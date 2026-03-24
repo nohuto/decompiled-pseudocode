@@ -1,14 +1,13 @@
 /*
- * XREFs of ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18025EB80
+ * XREFs of ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18020E320
  * Callers:
- *     ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18025FAF0 (-AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z.c)
+ *     ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18020F25C (-AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180254738 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55@Z @ 0x180255C6C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@@-$_tlgWriteTe.c)
- *     ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18025EDB8 (-AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180203EA0 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55@Z @ 0x180205474 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@@-$_tlgWriteTe.c)
+ *     ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18020E540 (-AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z.c)
  */
 
 float __fastcall CMotion::AdvanceInertiaToTime(
@@ -39,7 +38,7 @@ float __fastcall CMotion::AdvanceInertiaToTime(
   _BYTE v27[24]; // [rsp+78h] [rbp+7h] BYREF
 
   v6 = fmaxf(a6, *((float *)this + 6));
-  v7 = *((_QWORD *)this + 12);
+  v7 = *((_QWORD *)this + 17);
   v22 = 0.0;
   *((float *)this + 16) = a4;
   *((float *)this + 6) = v6;
@@ -47,21 +46,21 @@ float __fastcall CMotion::AdvanceInertiaToTime(
   if ( v7
     || (v11 = (*(double (__fastcall **)(CMotion *))(*(_QWORD *)this + 16LL))(this),
         v12 = *(_QWORD *)this,
-        v13 = *(float *)&v11,
         v22 = *(float *)&v11,
+        v13 = *(float *)&v11,
         *(float *)&v11 = (*(float (__fastcall **)(CMotion *))(v12 + 32))(this),
-        v14 = *((_QWORD *)this + 12),
+        v14 = *((_QWORD *)this + 17),
         *((_DWORD *)this + 7) = LODWORD(v11),
         v14) )
   {
     v15 = CMotion::AdvanceInertiaToTimeInertiaModifier(this, a2, a3);
-    v16 = *((_QWORD *)this + 12);
-    v13 = v15;
+    v16 = *((_QWORD *)this + 17);
     v22 = v15;
+    v13 = v15;
     *((_DWORD *)this + 7) = *(_DWORD *)((*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v16 + 32LL))(v16, v27)
                                       + 8);
   }
-  if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
   {
     v17 = *((_DWORD *)this + 3);
     v23 = a6;
@@ -70,7 +69,7 @@ float __fastcall CMotion::AdvanceInertiaToTime(
     v26 = this;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
       v18,
-      byte_180372516,
+      byte_1802EA04B,
       v19,
       v20,
       (__int64)&v26,

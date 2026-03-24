@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6A10
+ * XREFs of PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6B10
  * Callers:
- *     PopIrpWorker @ 0x140171720 (PopIrpWorker.c)
- *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087975C (PopDripsWatchdogReportDirectedDripsDevice.c)
+ *     PopIrpWorker @ 0x140171740 (PopIrpWorker.c)
+ *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C (PopDripsWatchdogReportDirectedDripsDevice.c)
  * Callees:
  *     <none>
  */

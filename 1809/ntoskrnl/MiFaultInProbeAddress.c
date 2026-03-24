@@ -9,7 +9,7 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiLockProbePacketWorkingSet @ 0x14009380C (MiLockProbePacketWorkingSet.c)
  *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
- *     MiDeliverPicoExceptionForProbedPage @ 0x1402A80B8 (MiDeliverPicoExceptionForProbedPage.c)
+ *     MiDeliverPicoExceptionForProbedPage @ 0x1402A81B8 (MiDeliverPicoExceptionForProbedPage.c)
  */
 
 __int64 __fastcall MiFaultInProbeAddress(__int64 a1)

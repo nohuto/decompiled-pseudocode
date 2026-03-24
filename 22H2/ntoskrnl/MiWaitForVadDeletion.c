@@ -1,40 +1,39 @@
 /*
- * XREFs of MiWaitForVadDeletion @ 0x140660CC8
+ * XREFs of MiWaitForVadDeletion @ 0x14055BD50
  * Callers:
- *     MiObtainReferencedSecureVad @ 0x1402159F4 (MiObtainReferencedSecureVad.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiLockVadRange @ 0x1406B0034 (MiLockVadRange.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
- *     MiCleanVad @ 0x14071F400 (MiCleanVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiObtainReferencedSecureVad @ 0x14025AF50 (MiObtainReferencedSecureVad.c)
+ *     MiLockVadRange @ 0x14061E040 (MiLockVadRange.c)
+ *     MiCleanVad @ 0x14061ECB8 (MiCleanVad.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiUnlockVad @ 0x140289B80 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C6B0 (MiLockVad.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     MiUnlockVad @ 0x140294CD8 (MiUnlockVad.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void *__fastcall MiWaitForVadDeletion(__int64 a1)
+void __fastcall MiWaitForVadDeletion(__int64 a1)
 {
-  void *result; // rax
-  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rbx
-  unsigned __int64 v5[10]; // [rsp+20h] [rbp-50h] BYREF
+  _QWORD v3[10]; // [rsp+20h] [rbp-50h] BYREF
 
-  result = memset(v5, 0, 0x48uLL);
+  memset(v3, 0, 0x48uLL);
   if ( *(_QWORD *)(a1 + 16) != -1LL )
   {
     CurrentThread = KeGetCurrentThread();
-    HIDWORD(v5[1]) = 0;
-    v5[3] = (unsigned __int64)&v5[2];
-    LODWORD(v5[8]) = 1;
-    v5[2] = (unsigned __int64)&v5[2];
-    LOWORD(v5[1]) = 263;
-    BYTE2(v5[1]) = 6;
-    MiInsertVadEvent(a1, v5, 1LL, v3);
+    HIDWORD(v3[1]) = 0;
+    v3[3] = &v3[2];
+    LODWORD(v3[8]) = 1;
+    v3[2] = &v3[2];
+    LOWORD(v3[1]) = 263;
+    BYTE2(v3[1]) = 6;
+    MiInsertVadEvent(a1, v3, 1);
     MiUnlockVad((__int64)CurrentThread, a1);
-    KeWaitForGate((__int64)&v5[1], 18, 0);
-    return (void *)MiLockVad((__int64)CurrentThread, a1);
+    KeWaitForGate((__int64)&v3[1], 18);
+    --CurrentThread->SpecialApcDisable;
+    ExAcquirePushLockExclusiveEx(a1 + 40, 0LL);
+    LOBYTE(CurrentThread[1].Queue) |= 0x80u;
   }
-  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _ACPIInternalError @ 0x1C004E414
+ * XREFs of _ACPIInternalError @ 0x1C004F5D4
  * Callers:
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C0094A68 (ACPISystemPowerQueryDeviceCapabilities.c)
- *     AcpiArblibScoreRequirement @ 0x1C00AC130 (AcpiArblibScoreRequirement.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     AcpiArblibScoreRequirement @ 0x1C00AD520 (AcpiArblibScoreRequirement.c)
  * Callees:
  *     <none>
  */

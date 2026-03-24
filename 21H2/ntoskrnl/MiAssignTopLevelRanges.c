@@ -1,134 +1,136 @@
 /*
- * XREFs of MiAssignTopLevelRanges @ 0x140B0728C
+ * XREFs of MiAssignTopLevelRanges @ 0x140A508A8
  * Callers:
- *     MiInitializeSystemVa @ 0x140B071D0 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14027A0F4 (MiHyperSpaceSize.c)
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiAssignSystemVa @ 0x140B0751C (MiAssignSystemVa.c)
- *     MiAddSubRegionEntropy @ 0x140B076FC (MiAddSubRegionEntropy.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiAssignSystemVa @ 0x140A50B28 (MiAssignSystemVa.c)
+ *     MiAddSubRegionEntropy @ 0x140A50C18 (MiAddSubRegionEntropy.c)
  */
 
-__int64 __fastcall MiAssignTopLevelRanges(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall MiAssignTopLevelRanges(__int64 a1, _QWORD *a2)
 {
-  int v5; // edx
-  __int64 v6; // r8
-  __int64 v7; // rax
-  __int64 v8; // rcx
-  __int64 v9; // rcx
-  _DWORD *v10; // rbx
-  __int64 v11; // rdi
-  __int64 v12; // rax
-  __int64 v13; // rdi
-  _DWORD *v14; // rbx
-  unsigned __int64 *v15; // rbx
-  __int64 v16; // rsi
-  unsigned __int64 v17; // rax
+  __int64 v3; // r8
+  int i; // edx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  _DWORD *v7; // rbx
+  __int64 v8; // rdi
+  __int64 v9; // rdi
+  __int64 v10; // rax
+  __int64 v11; // r8
+  int v12; // edx
+  int v13; // eax
+  __int64 v14; // rcx
+  _DWORD *v15; // rbx
+  unsigned __int64 *v16; // rbx
+  __int64 v17; // rsi
+  unsigned __int64 v18; // rax
   __int64 result; // rax
-  int *v19; // r8
-  __int64 v20; // rcx
-  __int64 v21; // rdx
+  int *v20; // r8
+  __int64 v21; // rcx
   __int64 v22; // rdx
-  _QWORD v23[42]; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v23; // rdx
+  _QWORD Base[40]; // [rsp+20h] [rbp-E0h] BYREF
 
-  memset(v23, 0, sizeof(v23));
+  memset(Base, 0, 0x138uLL);
   *a2 = 0LL;
-  v5 = 0;
-  v23[2] = a3;
-  LODWORD(v6) = 1;
-  do
+  v3 = 0LL;
+  for ( i = 0; i < 4; ++i )
   {
-    v7 = (unsigned int)v6;
-    ++v5;
-    v6 = (unsigned int)(v6 + 1);
-    v8 = 3 * v7;
-    LODWORD(v23[v8]) = v5;
-    v23[v8 + 2] = 0x100000000000LL;
+    v5 = 3 * v3;
+    v3 = (unsigned int)(v3 + 1);
+    LODWORD(Base[v5]) = i;
+    Base[v5 + 2] = 0x100000000000LL;
   }
-  while ( v5 < 4 );
-  v9 = 3 * v6;
-  LODWORD(v23[v9]) = 5;
-  v10 = (_DWORD *)&v23[3] + 1;
-  v23[v9 + 2] = 0x100000000000LL;
-  v11 = 5LL;
+  v6 = 3 * v3;
+  LODWORD(Base[v6]) = 4;
+  v7 = (_DWORD *)Base + 1;
+  Base[v6 + 2] = 0x100000000000LL;
+  v8 = 5LL;
   do
   {
-    *v10 = ExGenRandom(1);
-    v10 += 6;
-    --v11;
+    *v7 = ExGenRandom(1);
+    v7 += 6;
+    --v8;
   }
-  while ( v11 );
-  qsort(&v23[3], 5uLL, 0x18uLL, MiRegionAssignmentSort);
-  LODWORD(v23[18]) = 6;
-  v23[20] = 0x28000000000LL;
-  LODWORD(v23[21]) = 7;
-  v12 = MiHyperSpaceSize();
-  LODWORD(v23[27]) = 9;
-  LODWORD(v23[30]) = 10;
-  LODWORD(v23[33]) = 11;
-  LODWORD(v23[36]) = 12;
-  LODWORD(v23[39]) = 13;
-  v23[29] = 0x8000000000LL;
-  v23[23] = ((v12 + 0x7FFFFFFFFFLL) & 0xFFFFFF8000000000uLL) + 0x8000000000LL;
-  v13 = 8LL;
-  LODWORD(v23[24]) = 8;
-  v23[26] = 0x10000000000LL;
-  v14 = (_DWORD *)&v23[18] + 1;
-  v23[32] = 0x8000000000LL;
-  v23[35] = 0x8000000000LL;
-  v23[38] = 0x8000000000LL;
-  v23[41] = 0x8000000000LL;
+  while ( v8 );
+  qsort(Base, 5uLL, 0x18uLL, MiRegionAssignmentSort);
+  LODWORD(Base[15]) = 5;
+  Base[17] = 0x38000000000LL;
+  LODWORD(Base[18]) = 6;
+  v9 = 7LL;
+  Base[20] = 0x28000000000LL;
+  LODWORD(Base[21]) = 7;
+  v10 = MiHyperSpaceSize();
+  LODWORD(v11) = 8;
+  LODWORD(Base[24]) = 8;
+  Base[23] = ((v10 + 0x7FFFFFFFFFLL) & 0xFFFFFF8000000000uLL) + 0x8000000000LL;
+  v12 = 0;
+  Base[26] = 0x10000000000LL;
   do
   {
-    *v14 = ExGenRandom(1);
-    v14 += 6;
-    --v13;
+    v11 = (unsigned int)(v11 + 1);
+    v13 = v12 + 9;
+    ++v12;
+    v14 = 3 * v11;
+    LODWORD(Base[v14]) = v13;
+    Base[v14 + 2] = 0x8000000000LL;
   }
-  while ( v13 );
-  qsort(&v23[21], 7uLL, 0x18uLL, MiRegionAssignmentSort);
-  v15 = &v23[2];
-  v16 = 14LL;
+  while ( v12 < 4 );
+  v15 = (_DWORD *)&Base[18] + 1;
   do
   {
-    if ( *((_DWORD *)v15 - 4) == 13 )
+    *v15 = ExGenRandom(1);
+    v15 += 6;
+    --v9;
+  }
+  while ( v9 );
+  qsort(&Base[21], 6uLL, 0x18uLL, MiRegionAssignmentSort);
+  v16 = &Base[2];
+  v17 = 13LL;
+  do
+  {
+    if ( *((_DWORD *)v16 - 4) == 12 )
     {
-      v22 = 3LL;
+      v23 = 3LL;
       result = (__int64)((8 * ((0x140000000uLL >> 39) & 0x1FF) - 0x90482413000LL) << 25) >> 16;
       do
       {
         result = result << 25 >> 16;
-        --v22;
+        --v23;
       }
-      while ( v22 );
+      while ( v23 );
     }
     else
     {
-      v17 = (*v15 + 0x7FFFFFFFFFLL) & 0xFFFFFF8000000000uLL;
-      *v15 = v17;
-      result = MiAssignSystemVa(v17 >> 39);
+      v18 = (*v16 + 0x7FFFFFFFFFLL) & 0xFFFFFF8000000000uLL;
+      *v16 = v18;
+      result = MiAssignSystemVa(v18 >> 39);
       if ( !result )
         return result;
     }
-    *(v15 - 1) = result;
-    LODWORD(v13) = v13 + 1;
-    v15 += 3;
+    *(v16 - 1) = result;
+    LODWORD(v9) = v9 + 1;
+    v16 += 3;
   }
-  while ( (unsigned int)v13 < 0xE );
-  v19 = (int *)v23;
+  while ( (unsigned int)v9 < 0xD );
+  v20 = (int *)Base;
   do
   {
-    v20 = *((_QWORD *)v19 + 1);
-    v21 = *v19;
-    v19 += 6;
-    v21 *= 2LL;
-    qword_140C54050[v21] = v20;
-    qword_140C54058[v21] = *((_QWORD *)v19 - 1);
-    --v16;
+    v21 = *((_QWORD *)v20 + 1);
+    v22 = *v20;
+    v20 += 6;
+    v22 *= 2LL;
+    qword_140C4FAC8[v22] = v21;
+    qword_140C4FAD0[v22] = *((_QWORD *)v20 - 1);
+    --v17;
   }
-  while ( v16 );
+  while ( v17 );
   MiAddSubRegionEntropy();
   return 1LL;
 }

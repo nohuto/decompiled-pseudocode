@@ -5,7 +5,7 @@
  *     SepSetTokenClaims @ 0x1405BD5DC (SepSetTokenClaims.c)
  * Callees:
  *     SepCompareSidAndAttributeArrays @ 0x1405BC2FC (SepCompareSidAndAttributeArrays.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3C4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3A4 (AuthzBasepCompareSecurityAttributesInformation.c)
  */
 
 bool __fastcall SepCompareClaimAttributes(unsigned int *a1, unsigned int *a2)

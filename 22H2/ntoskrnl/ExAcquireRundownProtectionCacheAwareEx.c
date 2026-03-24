@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x140321C20
+ * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x14026D960
  * Callers:
- *     EtwpOpenLogger @ 0x140227610 (EtwpOpenLogger.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     RawBeginOperation @ 0x140321BDC (RawBeginOperation.c)
- *     EtwpFailLogging @ 0x140365E7C (EtwpFailLogging.c)
- *     EtwpQueueStackWalkApc @ 0x140468426 (EtwpQueueStackWalkApc.c)
- *     EtwpQueueStackWalkDpc @ 0x1405FFD1C (EtwpQueueStackWalkDpc.c)
- *     EtwpCompressionDpc @ 0x140602670 (EtwpCompressionDpc.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
- *     EtwpStopTrace @ 0x1407F8938 (EtwpStopTrace.c)
- *     EtwInitialize @ 0x14081F5AC (EtwInitialize.c)
- *     PeriodicCaptureStateTimerCallback @ 0x1409ECE10 (PeriodicCaptureStateTimerCallback.c)
+ *     EtwpOpenLogger @ 0x14025D3F8 (EtwpOpenLogger.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     RawBeginOperation @ 0x14026D924 (RawBeginOperation.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     EtwpFailLogging @ 0x14036C474 (EtwpFailLogging.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6B80 (EtwpQueueStackWalkApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1405A6D5C (EtwpQueueStackWalkDpc.c)
+ *     EtwpCompressionDpc @ 0x1405ACC90 (EtwpCompressionDpc.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpStopTrace @ 0x14071185C (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwInitialize @ 0x140793C24 (EtwInitialize.c)
+ *     PeriodicCaptureStateTimerCallback @ 0x14093F920 (PeriodicCaptureStateTimerCallback.c)
  * Callees:
  *     <none>
  */

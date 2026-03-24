@@ -1,10 +1,11 @@
 /*
- * XREFs of GetDeviceObjectPointer @ 0x1C01161F0
+ * XREFs of GetDeviceObjectPointer @ 0x1C0121DAC
  * Callers:
- *     IsMouseDeviceOnIgnoreList @ 0x1C0115FD0 (IsMouseDeviceOnIgnoreList.c)
- *     GetPointerDeviceKey @ 0x1C01D10E0 (GetPointerDeviceKey.c)
+ *     IsLegacyTouchPadDevice @ 0x1C01213A0 (IsLegacyTouchPadDevice.c)
+ *     IsMouseDeviceOnIgnoreList @ 0x1C0121860 (IsMouseDeviceOnIgnoreList.c)
+ *     GetPointerDeviceKey @ 0x1C01D5620 (GetPointerDeviceKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetDeviceObjectPointer(

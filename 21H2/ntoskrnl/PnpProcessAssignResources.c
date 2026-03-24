@@ -1,145 +1,145 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x140749294
+ * XREFs of PnpProcessAssignResources @ 0x14074058C
  * Callers:
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpAssignResourcesToDevices @ 0x140747E9C (PnpAssignResourcesToDevices.c)
- *     PnpProcessAssignResourcesWorker @ 0x140749448 (PnpProcessAssignResourcesWorker.c)
- *     PipClearDevNodeUserFlags @ 0x14074A08C (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PnpProcessAssignResourcesWorker @ 0x140740770 (PnpProcessAssignResourcesWorker.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140749BB4 (PipClearDevNodeUserFlags.c)
+ *     PnpAssignResourcesToDevices @ 0x14074FBD0 (PnpAssignResourcesToDevices.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
-  unsigned int v4; // ebx
+  int v4; // edi
   char v6; // bp
-  unsigned int *Pool2; // rax
-  unsigned int *v8; // r15
-  __int64 v9; // rdi
-  __int64 v11; // rax
-  _DWORD *v12; // r13
-  _QWORD *v13; // rsi
-  __int64 *v14; // r14
-  __int64 v15; // rbp
-  __int64 v16; // rbx
-  _DWORD *v17; // rsi
-  __int64 v18; // rax
-  __int64 v19; // rbx
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // rdx
+  unsigned int v7; // ebx
+  __int64 *PoolWithTag; // rax
+  __int64 *v9; // r12
+  __int64 v10; // rdi
+  _QWORD *v12; // rax
+  _QWORD *v13; // r15
+  _QWORD *v14; // rsi
+  __int64 *v15; // r14
+  __int64 v16; // rbp
+  __int64 v17; // rbx
+  char *v18; // rsi
+  __int64 v19; // rax
+  __int64 v20; // rbx
+  int v21; // r8d
+  __int64 v22; // rcx
+  int v23; // edx
 
   v4 = a2;
   v6 = 0;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, (unsigned int)(8 * IopNumberDeviceNodes + 8), 896560720LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  v7 = 8 * IopNumberDeviceNodes + 8;
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, v7, 0x35706E50u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = v4;
-    PnpProcessAssignResourcesWorker(a1, Pool2);
-    v9 = v8[1];
-    if ( (_DWORD)v9 )
+    memset(PoolWithTag, 0, v7);
+    *(_DWORD *)v9 = v4;
+    PnpProcessAssignResourcesWorker(a1, v9);
+    v10 = *((unsigned int *)v9 + 1);
+    if ( (_DWORD)v10 )
     {
-      v11 = ExAllocatePool2(256LL, (unsigned int)((_DWORD)v9 << 6), 913337936LL);
-      v12 = (_DWORD *)v11;
-      if ( v11 )
+      v12 = ExAllocatePoolWithTag(PagedPool, (unsigned int)((_DWORD)v10 << 6), 0x36706E50u);
+      v13 = v12;
+      if ( v12 )
       {
-        v13 = (_QWORD *)v11;
-        v14 = (__int64 *)(v8 + 2);
-        v15 = v9;
+        memset(v12, 0, (unsigned int)((_DWORD)v10 << 6));
+        v14 = v13;
+        v15 = v9 + 1;
+        v16 = v10;
         do
         {
-          v16 = *v14;
-          memset(v13, 0, 0x40uLL);
-          v13[3] = 0LL;
-          ++v14;
-          *v13 = v16;
-          *((_DWORD *)v13 + 3) = 4;
-          v13 += 8;
-          --v15;
+          v17 = *v15;
+          memset(v14, 0, 0x40uLL);
+          v14[3] = 0LL;
+          ++v15;
+          *v14 = v17;
+          *((_DWORD *)v14 + 3) = 4;
+          v14 += 8;
+          --v16;
         }
-        while ( v15 );
+        while ( v16 );
         v6 = 0;
-        PnpAssignResourcesToDevices(v9, v12, a3);
-        v17 = v12 + 10;
+        PnpAssignResourcesToDevices((unsigned int)v10, v13, a3);
+        v18 = (char *)(v13 + 5);
         while ( 1 )
         {
-          v18 = *((_QWORD *)v17 - 5);
-          if ( v18 )
-            v19 = *(_QWORD *)(*(_QWORD *)(v18 + 312) + 40LL);
+          v19 = *((_QWORD *)v18 - 5);
+          if ( v19 )
+            v20 = *(_QWORD *)(*(_QWORD *)(v19 + 312) + 40LL);
           else
-            v19 = 0LL;
-          v20 = (unsigned int)v17[4];
-          if ( (int)v20 >= 0 )
+            v20 = 0LL;
+          v21 = *((_DWORD *)v18 + 4);
+          if ( v21 >= 0 )
           {
             v6 = 1;
-            if ( *(_QWORD *)v17 )
+            if ( *(_QWORD *)v18 )
             {
-              ExAcquireFastMutex(&PiResourceListLock);
-              *(_QWORD *)(v19 + 416) = *(_QWORD *)v17;
-              *(_QWORD *)(v19 + 424) = *((_QWORD *)v17 + 1);
+              KeAcquireGuardedMutex(&PiResourceListLock);
+              *(_QWORD *)(v20 + 416) = *(_QWORD *)v18;
+              *(_QWORD *)(v20 + 424) = *((_QWORD *)v18 + 1);
               KeReleaseGuardedMutex(&PiResourceListLock);
             }
             else
             {
-              PipSetDevNodeFlags(v19, 256LL);
+              PipSetDevNodeFlags(v20, 256LL);
             }
-            PipSetDevNodeState(v19, 774);
-            PipClearDevNodeUserFlags(v19, 4LL);
-            goto LABEL_15;
+            PipSetDevNodeState(v20, 772);
+            PipClearDevNodeUserFlags(v20, 4LL);
+            goto LABEL_18;
           }
-          if ( (_DWORD)v20 == -1073741686 )
-          {
-            v22 = 17LL;
-            goto LABEL_32;
-          }
-          if ( (_DWORD)v20 == -1073741438 )
+          if ( v21 != -1073741267 )
             break;
-          if ( (_DWORD)v20 != -1073741267 )
+LABEL_18:
+          v18 += 64;
+          if ( !--v10 )
           {
-            if ( (_DWORD)v20 == -1073739512 || (_DWORD)v20 == -1073479627 )
-            {
-              v22 = 35LL;
-            }
-            else
-            {
-              if ( (_DWORD)v20 != -1073479626 )
-              {
-                v21 = v19;
-                if ( (_DWORD)v20 == -1073479625 )
-                  v22 = 36LL;
-                else
-                  v22 = 12LL;
-                goto LABEL_33;
-              }
-              v22 = 33LL;
-            }
-LABEL_32:
-            v21 = v19;
-LABEL_33:
-            PipSetDevNodeProblem(v21, v22, v20);
-          }
-LABEL_15:
-          v17 += 16;
-          if ( !--v9 )
-          {
-            ExFreePoolWithTag(v12, 0x36706E50u);
+            ExFreePoolWithTag(v13, 0x36706E50u);
             goto LABEL_3;
           }
         }
-        v22 = 34LL;
-        goto LABEL_32;
+        switch ( v21 )
+        {
+          case -1073741686:
+            v23 = 17;
+            break;
+          case -1073741438:
+            v23 = 34;
+            break;
+          case -1073739512:
+          case -1073479627:
+            v23 = 35;
+            break;
+          case -1073479626:
+            v23 = 33;
+            break;
+          default:
+            v22 = v20;
+            if ( v21 == -1073479625 )
+              v23 = 36;
+            else
+              v23 = 12;
+            goto LABEL_37;
+        }
+        v22 = v20;
+LABEL_37:
+        PipSetDevNodeProblem(v22, v23, v21);
+        goto LABEL_18;
       }
     }
 LABEL_3:
-    ExFreePoolWithTag(v8, 0x35706E50u);
+    ExFreePoolWithTag(v9, 0x35706E50u);
   }
   return v6;
 }

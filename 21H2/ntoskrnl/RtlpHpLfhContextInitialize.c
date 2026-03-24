@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x14036FC3C
+ * XREFs of RtlpHpLfhContextInitialize @ 0x14037B408
  * Callers:
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x1403631E0 (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x1402A6C9C (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextInitialize(
+unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
         unsigned __int64 a1,
         __int64 a2,
         unsigned int a3,
@@ -20,13 +20,10 @@ __int64 __fastcall RtlpHpLfhContextInitialize(
   __int64 v12; // xmm0_8
   __int64 i; // rcx
   __int64 v14; // rax
-  __int64 v15; // rdx
-  unsigned __int8 v16; // cl
-  __int64 v17; // rbx
-  __int64 v18; // rcx
-  unsigned __int8 *v19; // rdi
-  unsigned __int64 RandomValue64; // rax
-  __int64 result; // rax
+  unsigned __int8 v15; // cl
+  __int64 v16; // rbx
+  unsigned __int64 *v17; // rdi
+  unsigned __int64 result; // rax
 
   memset((void *)a1, 0, 0x4C0uLL);
   *(_QWORD *)a1 = a2;
@@ -43,29 +40,22 @@ __int64 __fastcall RtlpHpLfhContextInitialize(
   v14 = *(_QWORD *)(a1 + 40);
   if ( v14 )
     *(_QWORD *)(a1 + 40) = a1 ^ RtlpHpHeapGlobals ^ v14;
-  v15 = 64LL;
-  v16 = 64;
+  v15 = 64;
   if ( a3 <= 0x40 )
-    v16 = a3;
-  *(_BYTE *)(a1 + 56) = v16;
-  if ( v16 > 1u )
-  {
-    v15 = 64 - (unsigned int)v16;
-    *(_QWORD *)(a1 + 48) = (char *)qword_140011170 + ((unsigned __int64)(unsigned int)((62 - v15) * (v15 + 61)) >> 1);
-  }
-  v17 = 32LL;
+    v15 = a3;
+  *(_BYTE *)(a1 + 56) = v15;
+  if ( v15 > 1u )
+    *(_QWORD *)(a1 + 48) = (char *)qword_14000C3C0
+                         + ((unsigned __int64)((62 - (64 - v15)) * (64 - (unsigned int)v15 + 61)) >> 1);
+  v16 = 32LL;
   memset64((void *)(a1 + 128), 1uLL, 0x81uLL);
-  v18 = 0LL;
-  v19 = RtlpLowFragHeapRandomData;
+  v17 = RtlpLowFragHeapRandomData;
   do
   {
-    RandomValue64 = RtlpHeapGenerateRandomValue64(v18, v15);
-    v18 = 0x7F7F7F7F7F7F7F7FLL;
-    result = RandomValue64 & 0x7F7F7F7F7F7F7F7FLL;
-    *(_QWORD *)v19 = result;
-    v19 += 8;
-    --v17;
+    result = RtlpHeapGenerateRandomValue64() & 0x7F7F7F7F7F7F7F7FLL;
+    *v17++ = result;
+    --v16;
   }
-  while ( v17 );
+  while ( v16 );
   return result;
 }

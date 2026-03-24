@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C0093B20
+ * XREFs of ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C0084BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
  */
 
 __int64 __fastcall CreateRegion(struct IRegion **a1)
@@ -11,11 +11,7 @@ __int64 __fastcall CreateRegion(struct IRegion **a1)
   __int64 v2; // rax
   struct IRegion *v3; // rdx
 
-  v2 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-         (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-         260LL,
-         0x18uLL,
-         1852273223);
+  v2 = Win32AllocPool(24LL, 0x6E677247u);
   v3 = (struct IRegion *)v2;
   if ( v2 )
   {

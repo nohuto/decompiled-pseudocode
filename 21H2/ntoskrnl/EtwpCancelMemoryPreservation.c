@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCancelMemoryPreservation @ 0x1409EC988
+ * XREFs of EtwpCancelMemoryPreservation @ 0x140948510
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     EtwpKsrCallback @ 0x1409ECB90 (EtwpKsrCallback.c)
- *     EtwpSetSoftRestartInformation @ 0x1409ED7D4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpKsrCallback @ 0x140948720 (EtwpKsrCallback.c)
+ *     EtwpSetSoftRestartInformation @ 0x140949350 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     EtwpFreeTraceBuffer @ 0x14024E01C (EtwpFreeTraceBuffer.c)
+ *     EtwpFreeTraceBuffer @ 0x1402C7EC4 (EtwpFreeTraceBuffer.c)
  */
 
 void __fastcall EtwpCancelMemoryPreservation(__int64 a1)
@@ -13,7 +13,7 @@ void __fastcall EtwpCancelMemoryPreservation(__int64 a1)
   __int64 v1; // rbx
   char *v3; // rdx
 
-  v1 = *(_QWORD *)(a1 + 1088);
+  v1 = *(_QWORD *)(a1 + 1072);
   if ( *(_BYTE *)(v1 + 33) )
   {
     KsrFreePersistedMemoryBlock(EtwpKsrGuid, *(_QWORD *)v1, 0LL);

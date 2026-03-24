@@ -1,17 +1,18 @@
 /*
- * XREFs of HviIsHypervisorVendorMicrosoft @ 0x1403BF790
+ * XREFs of HviIsHypervisorVendorMicrosoft @ 0x1403AF7D0
  * Callers:
- *     KiIsHyperVCr3RspErrataPresent @ 0x14041900C (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1405F2D28 (HvipApertureDetectParameters.c)
- *     EtwpTraceSystemInitialization @ 0x140AFAD4C (EtwpTraceSystemInitialization.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1403F3760 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvipApertureDetectParameters @ 0x140594784 (HvipApertureDetectParameters.c)
+ *     HviGetDebugDeviceOptions @ 0x1405BEF30 (HviGetDebugDeviceOptions.c)
+ *     EtwpTraceSystemInitialization @ 0x140A428C8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1403C03A0 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-bool __fastcall HviIsHypervisorVendorMicrosoft(__int64 a1, __int64 a2)
+bool HviIsHypervisorVendorMicrosoft()
 {
-  if ( !(unsigned __int8)HviIsAnyHypervisorPresent(a1, a2) )
+  if ( !HviIsAnyHypervisorPresent() )
     return 0;
   _RAX = 0x40000000LL;
   __asm { cpuid }

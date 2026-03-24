@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTrimAllSystemPagableMemory @ 0x1402B3A90
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x1402B3B90
  * Callers:
- *     MmTrimAllSystemPagableMemory @ 0x1402B4220 (MmTrimAllSystemPagableMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1402B4320 (MmTrimAllSystemPagableMemory.c)
  *     MmVerifierTrimMemory @ 0x140924C08 (MmVerifierTrimMemory.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiPurgePartitionStandby @ 0x140151DFC (MiPurgePartitionStandby.c)
- *     MiEmptyTargetedWorkingSet @ 0x1402B2ED8 (MiEmptyTargetedWorkingSet.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1402B2FD8 (MiEmptyTargetedWorkingSet.c)
  */
 
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)

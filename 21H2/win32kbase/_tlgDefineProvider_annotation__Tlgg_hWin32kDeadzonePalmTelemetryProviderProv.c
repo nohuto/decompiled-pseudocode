@@ -1,5 +1,5 @@
 /*
- * XREFs of _tlgDefineProvider_annotation__Tlgg_hWin32kDeadzonePalmTelemetryProviderProv @ 0x1C0148964
+ * XREFs of _tlgDefineProvider_annotation__Tlgg_hWin32kDeadzonePalmTelemetryProviderProv @ 0x1C011BEC0
  * Callers:
  *     <none>
  * Callees:

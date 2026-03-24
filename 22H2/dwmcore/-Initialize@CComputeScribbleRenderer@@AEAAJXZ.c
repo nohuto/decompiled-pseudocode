@@ -1,134 +1,120 @@
 /*
- * XREFs of ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x1801FBAC0
+ * XREFs of ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x18019F760
  * Callers:
- *     ?Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x1801FB96C (-Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z.c)
+ *     ?Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x18019F5AC (-Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?reset@?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F61D8 (-reset@-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x180202898 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
- *     ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x180202D8C (-Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDComposit.c)
- *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x180287610 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
- *     ?GetDirectInkSuperWetRendererNoRef@CD3DDevice@@QEAAJPEAPEAUIDCompositionDirectInkSuperWetRenderer@@@Z @ 0x18028DE98 (-GetDirectInkSuperWetRendererNoRef@CD3DDevice@@QEAAJPEAPEAUIDCompositionDirectInkSuperWetRendere.c)
- *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18028DF18 (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
- *     ?GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z @ 0x18029B080 (-GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801A3D50 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
+ *     ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAPEAV1@@Z @ 0x1801A41A0 (-Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDComposit.c)
+ *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18023C7B0 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
+ *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18023F65C (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
+ *     ?GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z @ 0x180249974 (-GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z.c)
  */
 
 __int64 __fastcall CComputeScribbleRenderer::Initialize(CComputeScribbleRenderer *this)
 {
   __int64 v2; // rcx
   __int64 v3; // rsi
-  int HighPriorityComputeCommandQueueNoRef; // ebx
-  __int64 v5; // rdx
-  CLegacySwapChain *v7; // rbx
+  int HighPriorityComputeCommandQueueNoRef; // eax
+  int v5; // ebx
+  CLegacySwapChain *v6; // rcx
   int DXGIOutputDWM; // eax
   int DirectInkFactory; // eax
-  __int64 v10; // rax
-  int v11; // eax
-  int v12; // edi
-  CComputeScribbleScheduler *v13; // rbx
-  int v14; // [rsp+20h] [rbp-38h]
-  struct CLegacySwapChain *v15; // [rsp+20h] [rbp-38h]
-  struct ID3D12CommandQueue *v16; // [rsp+30h] [rbp-28h] BYREF
-  CComputeScribbleScheduler **v17; // [rsp+38h] [rbp-20h]
-  struct CComputeScribbleScheduler *v18; // [rsp+40h] [rbp-18h] BYREF
-  char v19; // [rsp+48h] [rbp-10h]
-  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+20h]
-  struct IDXGIOutputDWM *v21; // [rsp+80h] [rbp+28h] BYREF
-  struct IDCompositionDirectInkCommunicationPartner *v22; // [rsp+88h] [rbp+30h] BYREF
-  struct IDCompositionDirectInkFactoryPartner *v23; // [rsp+90h] [rbp+38h] BYREF
-  struct IDCompositionDirectInkSuperWetRenderer *v24; // [rsp+98h] [rbp+40h] BYREF
+  __int64 v9; // rax
+  int v10; // eax
+  CComputeScribbleScheduler *v11; // rdi
+  CComputeScribbleScheduler **v13; // [rsp+20h] [rbp-28h]
+  struct CComputeScribbleScheduler *v14; // [rsp+28h] [rbp-20h] BYREF
+  char v15; // [rsp+30h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+20h]
+  struct IDCompositionDirectInkCommunicationPartner *v17; // [rsp+70h] [rbp+28h] BYREF
+  struct IDCompositionDirectInkFactoryPartner *v18; // [rsp+78h] [rbp+30h] BYREF
+  struct IDXGIOutputDWM *v19; // [rsp+80h] [rbp+38h] BYREF
+  struct ID3D12CommandQueue *v20; // [rsp+88h] [rbp+40h] BYREF
 
-  v2 = *(int *)(*(_QWORD *)(*((_QWORD *)this + 2) + 8LL) + 12LL) + *((_QWORD *)this + 2) + 8LL;
+  v2 = *(int *)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 8LL) + *((_QWORD *)this + 2) + 24LL;
   v3 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 8LL))(v2);
-  HighPriorityComputeCommandQueueNoRef = CD3DDevice::GetHighPriorityComputeCommandQueueNoRef((CD3DDevice *)v3, &v16);
-  if ( HighPriorityComputeCommandQueueNoRef < 0 )
+  HighPriorityComputeCommandQueueNoRef = CD3DDevice::GetHighPriorityComputeCommandQueueNoRef((CD3DDevice *)v3, &v20);
+  v5 = HighPriorityComputeCommandQueueNoRef;
+  if ( HighPriorityComputeCommandQueueNoRef >= 0 )
   {
-    v5 = 88LL;
-LABEL_3:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v5,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-      (const char *)(unsigned int)HighPriorityComputeCommandQueueNoRef);
-    return (unsigned int)HighPriorityComputeCommandQueueNoRef;
-  }
-  HighPriorityComputeCommandQueueNoRef = CD3DDevice::GetDirectInkSuperWetRendererNoRef((CD3DDevice *)v3, &v24);
-  if ( HighPriorityComputeCommandQueueNoRef < 0 )
-  {
-    v5 = 91LL;
-    goto LABEL_3;
-  }
-  v21 = 0LL;
-  v7 = (CLegacySwapChain *)*((_QWORD *)this + 2);
-  wil::com_ptr_t<CVisualTree,wil::err_returncode_policy>::reset((__int64 *)&v21);
-  DXGIOutputDWM = CLegacySwapChain::GetDXGIOutputDWM(v7, &v21);
-  HighPriorityComputeCommandQueueNoRef = DXGIOutputDWM;
-  if ( DXGIOutputDWM < 0 )
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x62,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-      (const char *)(unsigned int)DXGIOutputDWM);
-LABEL_18:
-    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v21);
-    return (unsigned int)HighPriorityComputeCommandQueueNoRef;
-  }
-  v23 = 0LL;
-  DirectInkFactory = CD2DContext::GetDirectInkFactory((CD2DContext *)(v3 + 16), &v23);
-  if ( DirectInkFactory < 0 )
-    wil::details::in1diag3::FailFast_Hr(
-      retaddr,
-      101LL,
-      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-      (const char *)(unsigned int)DirectInkFactory,
-      v14);
-  v10 = *(_QWORD *)v23;
-  v22 = 0LL;
-  v11 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkFactoryPartner *, struct IDCompositionDirectInkCommunicationPartner **))(v10 + 64))(
-          v23,
-          &v22);
-  if ( v11 < 0 )
-    wil::details::in1diag3::FailFast_Hr(
-      retaddr,
-      104LL,
-      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-      (const char *)(unsigned int)v11,
-      v14);
-  v18 = 0LL;
-  v17 = (CComputeScribbleScheduler **)((char *)this + 32);
-  v15 = (struct CLegacySwapChain *)*((_QWORD *)this + 2);
-  v19 = 1;
-  v12 = CComputeScribbleScheduler::Create(v21, v16, v24, v22, v15, &v18);
-  if ( v19 )
-  {
-    v13 = *v17;
-    *v17 = v18;
-    if ( v13 )
+    v6 = (CLegacySwapChain *)*((_QWORD *)this + 2);
+    v19 = 0LL;
+    DXGIOutputDWM = CLegacySwapChain::GetDXGIOutputDWM(v6, &v19);
+    v5 = DXGIOutputDWM;
+    if ( DXGIOutputDWM >= 0 )
     {
-      CComputeScribbleScheduler::~CComputeScribbleScheduler(v13);
-      operator delete(v13);
+      v18 = 0LL;
+      DirectInkFactory = CD2DContext::GetDirectInkFactory((CD2DContext *)(v3 + 16), &v18);
+      if ( DirectInkFactory < 0 )
+      {
+        wil::details::in1diag3::FailFast_Hr(
+          retaddr,
+          (void *)0x9D,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+          (const char *)(unsigned int)DirectInkFactory);
+        __debugbreak();
+      }
+      v9 = *(_QWORD *)v18;
+      v17 = 0LL;
+      v10 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkFactoryPartner *, struct IDCompositionDirectInkCommunicationPartner **))(v9 + 72))(
+              v18,
+              &v17);
+      if ( v10 < 0 )
+      {
+        wil::details::in1diag3::FailFast_Hr(
+          retaddr,
+          (void *)0xA0,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+          (const char *)(unsigned int)v10);
+        __debugbreak();
+      }
+      v14 = 0LL;
+      v13 = (CComputeScribbleScheduler **)((char *)this + 40);
+      v15 = 1;
+      v5 = CComputeScribbleScheduler::Create(v19, v20, v17, &v14);
+      if ( v15 )
+      {
+        v11 = *v13;
+        *v13 = v14;
+        if ( v11 )
+        {
+          CComputeScribbleScheduler::~CComputeScribbleScheduler(v11);
+          operator delete(v11);
+        }
+      }
+      if ( v5 >= 0 )
+        v5 = 0;
+      else
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0xA6,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+          (const char *)(unsigned int)v5);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v17);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v18);
     }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x9A,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+        (const char *)(unsigned int)DXGIOutputDWM);
+    }
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v19);
   }
-  if ( v12 < 0 )
+  else
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x71,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-      (const char *)(unsigned int)v12);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v22);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v23);
-    HighPriorityComputeCommandQueueNoRef = v12;
-    goto LABEL_18;
+      (void *)0x94,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+      (const char *)(unsigned int)HighPriorityComputeCommandQueueNoRef);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v22);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v23);
-  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v21);
-  return 0LL;
+  return (unsigned int)v5;
 }

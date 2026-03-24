@@ -1,23 +1,22 @@
 /*
- * XREFs of PopRecordLongPowerButtonPressDetected @ 0x140802DEC
+ * XREFs of PopRecordLongPowerButtonPressDetected @ 0x14079A844
  * Callers:
- *     PoClearTransitionMarker @ 0x1408030CC (PoClearTransitionMarker.c)
- *     PopDiagTracePowerButtonBugcheck @ 0x140990988 (PopDiagTracePowerButtonBugcheck.c)
+ *     PoClearTransitionMarker @ 0x14079A638 (PoClearTransitionMarker.c)
+ *     PopDiagTracePowerButtonBugcheck @ 0x1408EAE48 (PopDiagTracePowerButtonBugcheck.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     RtlBootStatusDisableFlushing @ 0x14036EB88 (RtlBootStatusDisableFlushing.c)
- *     RtlSetSystemBootStatus @ 0x1407A6A60 (RtlSetSystemBootStatus.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     RtlBootStatusDisableFlushing @ 0x1403A7300 (RtlBootStatusDisableFlushing.c)
+ *     RtlSetSystemBootStatus @ 0x14079A8F0 (RtlSetSystemBootStatus.c)
  */
 
-void __fastcall PopRecordLongPowerButtonPressDetected(char a1, char a2)
+void __fastcall PopRecordLongPowerButtonPressDetected(char a1)
 {
-  if ( a2 )
-    RtlBootStatusDisableFlushing(0);
+  RtlBootStatusDisableFlushing(0);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   HIBYTE(PopBsdPhysicalPowerButtonInfo) ^= (HIBYTE(PopBsdPhysicalPowerButtonInfo) ^ (4 * a1)) & 4;
   BYTE1(PopBsdPowerTransitionExtension) = PnpSetupInProgress & 1 | BYTE1(PopBsdPowerTransitionExtension) & 0xFC | (2 * (PnpSetupOOBEInProgress & 1));
-  RtlSetSystemBootStatus(14, (__int64)&PopBsdPhysicalPowerButtonInfo, 64);
-  RtlSetSystemBootStatus(16, (__int64)&PopBsdPowerTransitionExtension, 32);
-  PopReleaseRwLock(&PopBsdUpdateLock);
+  RtlSetSystemBootStatus(14LL, &PopBsdPhysicalPowerButtonInfo, 48LL);
+  RtlSetSystemBootStatus(16LL, &PopBsdPowerTransitionExtension, 32LL);
+  PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

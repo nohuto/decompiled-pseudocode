@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRecordParseCachedSymlinkKcb @ 0x1406418F0
+ * XREFs of CmpRecordParseCachedSymlinkKcb @ 0x1406418D0
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

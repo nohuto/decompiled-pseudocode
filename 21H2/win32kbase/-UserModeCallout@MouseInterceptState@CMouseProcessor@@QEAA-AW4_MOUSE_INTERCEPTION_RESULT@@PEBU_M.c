@@ -1,25 +1,24 @@
 /*
- * XREFs of ?UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01FCA40
+ * XREFs of ?UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01C232C
  * Callers:
- *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01F9538 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
- *     ?InvokeMarshaledInterceptRequest@MouseInterceptState@CMouseProcessor@@QEAAXXZ @ 0x1C01FAF68 (-InvokeMarshaledInterceptRequest@MouseInterceptState@CMouseProcessor@@QEAAXXZ.c)
+ *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01BEE54 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
+ *     ?InvokeMarshaledInterceptRequest@MouseInterceptState@CMouseProcessor@@QEAAXXZ @ 0x1C01C0AB8 (-InvokeMarshaledInterceptRequest@MouseInterceptState@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0037FE8 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0038050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01DBD60 (-CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00413C0 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00414F4 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01A2FA0 (-CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
  */
 
-__int64 __fastcall CMouseProcessor::MouseInterceptState::UserModeCallout(__int64 a1, __int128 *a2, int *a3)
+__int64 __fastcall CMouseProcessor::MouseInterceptState::UserModeCallout(__int64 a1, __int128 *a2, int *a3, __int64 a4)
 {
-  __int128 v6; // xmm0
-  CInputThreadBase *v7; // rdi
+  __int128 v7; // xmm0
   __int128 v8; // xmm1
   __int128 v9; // xmm0
-  char *v10; // rbx
-  __int64 v11; // xmm1_8
+  __int128 v10; // xmm1
+  __int64 v11; // xmm0_8
   unsigned int v12; // ebx
   __int64 *v14[4]; // [rsp+20h] [rbp-89h] BYREF
   _DWORD v15[2]; // [rsp+40h] [rbp-69h] BYREF
@@ -30,35 +29,33 @@ __int64 __fastcall CMouseProcessor::MouseInterceptState::UserModeCallout(__int64
   __int64 v20; // [rsp+88h] [rbp-21h]
   _BYTE v21[80]; // [rsp+90h] [rbp-19h] BYREF
 
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(v14, "MouseInterceptionCallout", 0LL);
+  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(v14, "MouseInterceptionCallout", 0LL, a4);
   *(_QWORD *)(a1 + 8) = 0LL;
   ExReleasePushLockExclusiveEx(a1, 0LL);
   KeLeaveCriticalRegion();
   memset(v21, 0, sizeof(v21));
-  v6 = *a2;
-  v7 = gpInputThread;
-  v8 = a2[1];
+  v7 = *a2;
   v15[0] = 0;
-  v16 = v6;
+  v8 = a2[1];
   v14[3] = 0LL;
-  v9 = a2[2];
   v15[1] = 1;
-  v10 = (char *)gpInputThread + 8;
+  v16 = v7;
+  v9 = a2[2];
   v17 = v8;
+  v10 = 0LL;
   v18 = v9;
+  v11 = 0LL;
   v20 = 0LL;
   v19 = 0LL;
-  KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v10, 0LL);
-  LODWORD(v7) = *((_DWORD *)v7 + 6);
-  ExReleasePushLockSharedEx(v10, 0LL);
-  KeLeaveCriticalRegion();
-  if ( (_DWORD)v7 == 2 && gpInputExtensibilityCallout )
+  if ( gpInputExtensibilityCallout )
+  {
     InputExtensibilityCallout::CallUserModeLockFree(
       gpInputExtensibilityCallout,
       (struct _CLIENT_DEVICE_NOTIFICATION *)v15);
-  v11 = v20;
-  *(_OWORD *)a3 = v19;
+    v11 = v20;
+    v10 = v19;
+  }
+  *(_OWORD *)a3 = v10;
   *((_QWORD *)a3 + 2) = v11;
   v12 = *a3;
   RIMLockExclusive(a1);

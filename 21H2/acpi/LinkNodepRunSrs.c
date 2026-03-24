@@ -1,9 +1,9 @@
 /*
- * XREFs of LinkNodepRunSrs @ 0x1C00B6110
+ * XREFs of LinkNodepRunSrs @ 0x1C00B6AA8
  * Callers:
- *     LinkNodeWriteStateToHardware @ 0x1C009CB64 (LinkNodeWriteStateToHardware.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C0095F18 (LinkNodeWriteStateToHardware.c)
  * Callees:
- *     LinkNodepRunSrsAsync @ 0x1C006C470 (LinkNodepRunSrsAsync.c)
+ *     LinkNodepRunSrsAsync @ 0x1C006C1D0 (LinkNodepRunSrsAsync.c)
  */
 
 __int64 __fastcall LinkNodepRunSrs(__int64 a1, int a2)

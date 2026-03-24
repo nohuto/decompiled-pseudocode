@@ -1,92 +1,72 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x14045C0E8
+ * XREFs of MiGetPageForWriteCluster @ 0x1403876CC
  * Callers:
- *     MiBuildReservationCluster @ 0x14059B62C (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x140386DF0 (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePageForModifiedWrite @ 0x14028C14C (MiReferencePageForModifiedWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiCheckPteForWriteCluster @ 0x14045BFE4 (MiCheckPteForWriteCluster.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402568EC (MiReferencePageForModifiedWrite.c)
+ *     MiCheckPteForWriteCluster @ 0x1403877F4 (MiCheckPteForWriteCluster.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 MiGetPageForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, ...)
+__int64 __fastcall MiGetPageForWriteCluster(
+        __int64 a1,
+        __int64 a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        int a5,
+        int *a6,
+        _DWORD *a7)
 {
-  __int64 v3; // r9
-  _DWORD *v4; // r14
-  int *v5; // r15
-  int v6; // esi
-  unsigned __int64 v7; // rbx
-  ULONG_PTR v9; // rax
-  __int64 v10; // rdi
+  int v7; // esi
+  ULONG_PTR v10; // rax
+  __int64 v11; // rdi
   unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v13; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // [rsp+20h] [rbp-28h]
-  __int64 v19; // [rsp+68h] [rbp+20h] BYREF
-  va_list va; // [rsp+68h] [rbp+20h]
-  __int64 v21; // [rsp+70h] [rbp+28h]
-  int *v22; // [rsp+78h] [rbp+30h]
-  _DWORD *v23; // [rsp+80h] [rbp+38h]
-  va_list va1; // [rsp+88h] [rbp+40h] BYREF
+  bool v16; // zf
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v19 = va_arg(va1, _QWORD);
-  v3 = v19;
-  v21 = va_arg(va1, _QWORD);
-  v22 = va_arg(va1, int *);
-  v23 = va_arg(va1, _DWORD *);
-  v4 = v23;
-  v5 = v22;
-  v6 = 0;
-  LOBYTE(v19) = 0;
-  v7 = a3;
-  *v23 = 1;
-  v9 = MiCheckPteForWriteCluster(a1, a2, a3, v3, v18, (__int64 *)va);
-  v10 = v9;
-  if ( v9 )
+  v7 = 0;
+  *a7 = 1;
+  v10 = MiCheckPteForWriteCluster();
+  v11 = v10;
+  if ( v10 )
   {
-    *v4 = MiReferencePageForModifiedWrite(v9, 0);
-    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
+    *a7 = MiReferencePageForModifiedWrite(v10, 0);
+    _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( KiIrqlFlags )
     {
-      v13 = v19;
-      if ( (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = v19;
-        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+          SchedulerAssist[5] &= 0xFFFF0001;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    else
-    {
-      v13 = v19;
-    }
-    __writecr8(v13);
-    if ( *v4 )
+    __writecr8(0LL);
+    if ( *a7 )
       goto LABEL_8;
   }
-  else if ( (unsigned int)*v5 <= 0x1F )
+  else if ( (unsigned int)*a6 <= 0x1F )
   {
-    if ( qword_140C50780 )
+    if ( qword_140C4DF40 )
     {
-      if ( (v7 & 0x10) == 0 )
-        v7 &= ~qword_140C50780;
+      if ( (a3 & 0x10) == 0 )
+        a3 &= ~qword_140C4DF40;
     }
-    if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(v7)) )
+    if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
     {
-      v10 = qword_140C53270;
-      v6 = *v5 + 1;
+      v11 = qword_140C4ED60;
+      v7 = *a6 + 1;
 LABEL_8:
-      *v5 = v6;
-      return 0xAAAAAAAAAAAAAAABuLL * ((v10 + 0x220000000000LL) >> 4);
+      *a6 = v7;
+      return (v11 + 0x58000000000LL) / 48;
     }
   }
   return -1LL;

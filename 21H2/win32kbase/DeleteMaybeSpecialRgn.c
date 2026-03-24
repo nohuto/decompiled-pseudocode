@@ -1,12 +1,12 @@
 /*
- * XREFs of DeleteMaybeSpecialRgn @ 0x1C009C0F0
+ * XREFs of DeleteMaybeSpecialRgn @ 0x1C0039840
  * Callers:
- *     DestroyCacheDC @ 0x1C0051AF0 (DestroyCacheDC.c)
+ *     <none>
  * Callees:
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
  */
 
-__int64 __fastcall DeleteMaybeSpecialRgn(HRGN a1)
+__int64 __fastcall DeleteMaybeSpecialRgn(struct HOBJ__ *a1)
 {
   __int64 result; // rax
 

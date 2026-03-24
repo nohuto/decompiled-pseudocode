@@ -1,55 +1,51 @@
 /*
- * XREFs of CmpPrepareLightWeightTransaction @ 0x140A1C804
+ * XREFs of CmpPrepareLightWeightTransaction @ 0x14066E294
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140A1C51C (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x14066D9B8 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpCleanupLightWeightPrepare @ 0x140A1C3A4 (CmpCleanupLightWeightPrepare.c)
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightPrepare @ 0x14066E370 (CmpCleanupLightWeightPrepare.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x14071CCC4 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14071CCF0 (LOCK_TRANSACTION_LIST.c)
  */
 
 __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v5; // rdx
-  int v6; // ebx
   __int64 NextElement; // rax
+  __int64 v5; // r8
+  __int64 v6; // rdx
+  int v7; // ebx
   __int64 v9; // [rsp+30h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v10[2]; // [rsp+38h] [rbp-40h] BYREF
 
-  if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)byte_140037401, 0LL, 0LL, 2u, v10);
+  if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)word_14002337A, 0LL, 0LL, 2u, v10);
   if ( a1 )
   {
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
+    LOCK_TRANSACTION_LIST();
     *(_DWORD *)(a1 + 48) |= 1u;
-    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
+    UNLOCK_TRANSACTION_LIST();
     v9 = 0LL;
     while ( 1 )
     {
       NextElement = CmListGetNextElement(a1 + 16, &v9, 0LL);
       if ( !NextElement )
         break;
-      v6 = CmpProcessLightWeightUOW(NextElement, 0LL, 0LL, a2);
-      if ( v6 < 0 )
+      v7 = CmpProcessLightWeightUOW(NextElement, 0LL, v5, a2);
+      if ( v7 < 0 )
       {
-        CmpCleanupLightWeightPrepare(a1, v5, a2);
-        goto LABEL_9;
+        CmpCleanupLightWeightPrepare(a1, v6, a2);
+        goto LABEL_8;
       }
     }
   }
-  v6 = 0;
-LABEL_9:
-  if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)&word_140037336, 0LL, 0LL, 2u, v10);
-  return (unsigned int)v6;
+  v7 = 0;
+LABEL_8:
+  if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023349, 0LL, 0LL, 2u, v10);
+  return (unsigned int)v7;
 }

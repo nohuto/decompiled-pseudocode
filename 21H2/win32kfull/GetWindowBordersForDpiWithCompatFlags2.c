@@ -1,10 +1,10 @@
 /*
- * XREFs of GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00BBC5C
+ * XREFs of GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00E11E4
  * Callers:
- *     GetWindowBordersForDpi @ 0x1C00BBC00 (GetWindowBordersForDpi.c)
+ *     GetWindowBordersForDpi @ 0x1C00E11A0 (GetWindowBordersForDpi.c)
  * Callees:
- *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00BBD38 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
- *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00BBD80 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004BA58 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E12C0 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
  */
 
 __int64 __fastcall GetWindowBordersForDpiWithCompatFlags2(

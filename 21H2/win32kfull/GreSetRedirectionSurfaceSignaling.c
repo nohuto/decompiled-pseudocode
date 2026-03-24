@@ -1,16 +1,16 @@
 /*
- * XREFs of GreSetRedirectionSurfaceSignaling @ 0x1C008AE7C
+ * XREFs of GreSetRedirectionSurfaceSignaling @ 0x1C0017708
  * Callers:
- *     NtGdiHLSurfSetInformation @ 0x1C0089CD0 (NtGdiHLSurfSetInformation.c)
+ *     NtGdiHLSurfSetInformation @ 0x1C0014D90 (NtGdiHLSurfSetInformation.c)
  * Callees:
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026E10 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0084F94 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C015D33C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018F2C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C016A05C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreSetRedirectionSurfaceSignaling(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -20,30 +20,31 @@ __int64 __fastcall GreSetRedirectionSurfaceSignaling(__int64 a1, __int64 a2, __i
   __int64 v11; // rax
   __int64 v12; // rsi
   unsigned int v13; // ebx
-  _BYTE v15[8]; // [rsp+30h] [rbp-58h] BYREF
-  _BYTE v16[8]; // [rsp+38h] [rbp-50h] BYREF
-  _BYTE v17[32]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-28h]
+  DYNAMICMODECHANGESHARELOCK *v14; // rcx
+  __int64 v16; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v17[8]; // [rsp+38h] [rbp-50h] BYREF
+  _BYTE v18[32]; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v19; // [rsp+60h] [rbp-28h]
 
   if ( g_pDwmState )
   {
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v15);
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v16);
     GreAcquireSemaphoreSharedInternal(ghsemDwmState);
     EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
     if ( (unsigned int)UserIsCurrentProcessDwm() )
     {
-      if ( *(_QWORD *)(a1 + 3432) )
+      if ( *(_QWORD *)(a1 + 3456) )
       {
-        UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v17);
+        UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v18);
         v10 = 0LL;
-        v18 = 0LL;
-        if ( a2 && (LOBYTE(v9) = 18, v11 = HmgShareLockCheck(a2, v9), v18 = v11, (v10 = v11) != 0) )
+        v19 = 0LL;
+        if ( a2 && (LOBYTE(v9) = 18, v11 = HmgShareLockCheck(a2, v9), v19 = v11, (v10 = v11) != 0) )
         {
-          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v16, (struct _EX_PUSH_LOCK *)(v11 + 256));
+          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v17, (struct _EX_PUSH_LOCK *)(v11 + 256));
           v12 = *(_QWORD *)(v10 + 184);
           if ( v12 && (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap((SFMLOGICALSURFACE *)v10) )
           {
-            if ( (*(unsigned int (__fastcall **)(__int64, __int64, __int64, _QWORD))(a1 + 3432))(
+            if ( (*(unsigned int (__fastcall **)(__int64, __int64, __int64, _QWORD))(a1 + 3456))(
                    v12,
                    a3,
                    a2,
@@ -64,16 +65,16 @@ __int64 __fastcall GreSetRedirectionSurfaceSignaling(__int64 a1, __int64 a2, __i
             *(_QWORD *)(v10 + 200) = a4;
           }
           v13 = 0;
-          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v16);
-          v10 = v18;
+          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v17);
+          v10 = v19;
         }
         else
         {
           v13 = -1073741811;
         }
         if ( v10 )
-          DEC_SHARE_REF_CNT(v10);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v17);
+          DEC_SHARE_REF_CNT(v10, v9);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v18);
       }
       else
       {
@@ -86,7 +87,7 @@ __int64 __fastcall GreSetRedirectionSurfaceSignaling(__int64 a1, __int64 a2, __i
     }
     EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
     GreReleaseSemaphoreInternal(ghsemDwmState);
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v15);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v14);
   }
   else
   {

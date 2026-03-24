@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__Contexts__ @ 0x180003D50
+ * XREFs of _dynamic_initializer_for__Contexts__ @ 0x180003520
  * Callers:
  *     <none>
  * Callees:
- *     ??0ContextTable@@QEAA@XZ @ 0x1800F8798 (--0ContextTable@@QEAA@XZ.c)
+ *     ??0ContextTable@@QEAA@XZ @ 0x1800DFD70 (--0ContextTable@@QEAA@XZ.c)
  */
 
 int __fastcall dynamic_initializer_for__Contexts__(ContextTable *a1)

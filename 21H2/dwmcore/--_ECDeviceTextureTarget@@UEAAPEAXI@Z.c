@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECDeviceTextureTarget@@UEAAPEAXI@Z @ 0x18006B270
+ * XREFs of ??_ECDeviceTextureTarget@@UEAAPEAXI@Z @ 0x18003C830
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CD2DBitmap@@UEAA@XZ @ 0x18006A758 (--1CD2DBitmap@@UEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1CD2DBitmap@@UEAA@XZ @ 0x180039EAC (--1CD2DBitmap@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CDeviceTextureTarget *__fastcall CDeviceTextureTarget::`vector deleting destructor'(

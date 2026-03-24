@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFoGetTextMetrics @ 0x14016F6C4
+ * XREFs of BgpFoGetTextMetrics @ 0x14016F6E4
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
- *     BgpConsoleSetPointSize @ 0x14018685C (BgpConsoleSetPointSize.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
+ *     BgpConsoleSetPointSize @ 0x14018687C (BgpConsoleSetPointSize.c)
  *     BgpTxtCreateRegion @ 0x14095003C (BgpTxtCreateRegion.c)
  *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
- *     BgpFoDetermineFontInformation @ 0x1409FB738 (BgpFoDetermineFontInformation.c)
+ *     BgpFoDetermineFontInformation @ 0x1409FB748 (BgpFoDetermineFontInformation.c)
  * Callees:
- *     BgpRasGetGlyphTextCellDimensions @ 0x14016F6F4 (BgpRasGetGlyphTextCellDimensions.c)
+ *     BgpRasGetGlyphTextCellDimensions @ 0x14016F714 (BgpRasGetGlyphTextCellDimensions.c)
  */
 
 __int64 __fastcall BgpFoGetTextMetrics(__int64 a1, __int64 a2)

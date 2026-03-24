@@ -1,8 +1,8 @@
 /*
- * XREFs of BuildRepData @ 0x1C00DA5D0
+ * XREFs of BuildRepData @ 0x1C00D3E90
  * Callers:
- *     BuildExpandAAInfo @ 0x1C00DA2D0 (BuildExpandAAInfo.c)
- *     BuildShrinkAAInfo @ 0x1C0262C40 (BuildShrinkAAInfo.c)
+ *     BuildShrinkAAInfo @ 0x1C0001E10 (BuildShrinkAAInfo.c)
+ *     BuildExpandAAInfo @ 0x1C00D3B80 (BuildExpandAAInfo.c)
  * Callees:
  *     <none>
  */

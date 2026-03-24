@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwDeviceDereference @ 0x140661C18
+ * XREFs of PiSwDeviceDereference @ 0x14074CF94
  * Callers:
- *     PiSwProcessRemove @ 0x1406619F8 (PiSwProcessRemove.c)
- *     PiSwDispatch @ 0x140764DB0 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
- *     PiSwBusRelationRemove @ 0x14095336C (PiSwBusRelationRemove.c)
- *     PiSwCloseDevice @ 0x14095341C (PiSwCloseDevice.c)
- *     PiSwUnassociateDeviceObject @ 0x140953CF8 (PiSwUnassociateDeviceObject.c)
+ *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
+ *     PiSwBusRelationRemove @ 0x140732C94 (PiSwBusRelationRemove.c)
+ *     PiSwUnassociateDeviceObject @ 0x140732D2C (PiSwUnassociateDeviceObject.c)
+ *     PiSwCloseDevice @ 0x1407349F0 (PiSwCloseDevice.c)
+ *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PiSwDeviceFree @ 0x140661C4C (PiSwDeviceFree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PiSwDeviceFree @ 0x140733F90 (PiSwDeviceFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwDeviceDereference(PVOID P)
 {
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)P, 0xFFFFFFFF) == 1 )
   {
-    PiSwDeviceFree();
+    PiSwDeviceFree((__int64)P);
     ExFreePoolWithTag(P, 0x57706E50u);
   }
 }

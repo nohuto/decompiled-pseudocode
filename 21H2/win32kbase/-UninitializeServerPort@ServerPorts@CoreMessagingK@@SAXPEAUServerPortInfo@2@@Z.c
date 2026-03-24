@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UninitializeServerPort@ServerPorts@CoreMessagingK@@SAXPEAUServerPortInfo@2@@Z @ 0x1C00A910C
+ * XREFs of ?UninitializeServerPort@ServerPorts@CoreMessagingK@@SAXPEAUServerPortInfo@2@@Z @ 0x1C0073CF4
  * Callers:
- *     ?OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z @ 0x1C00A90E0 (-OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z.c)
+ *     ?OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z @ 0x1C0074170 (-OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z.c)
  * Callees:
- *     ?UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z @ 0x1C00A91C4 (-UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z.c)
- *     ?UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z @ 0x1C00A9288 (-UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z.c)
- *     ?Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ @ 0x1C00AB1B4 (-Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ.c)
+ *     ?UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z @ 0x1C00733C0 (-UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z.c)
+ *     ?Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ @ 0x1C0073544 (-Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ.c)
+ *     ?UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z @ 0x1C0073A74 (-UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z.c)
  */
 
 void __fastcall CoreMessagingK::ServerPorts::UninitializeServerPort(struct CoreMessagingK::ServerPortInfo *a1)

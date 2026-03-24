@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhCancelOutOfBandwidthTimer @ 0x1C0029398
+ * XREFs of UsbhCancelOutOfBandwidthTimer @ 0x1C002A6F4
  * Callers:
- *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002CE50 (UsbhSelectConfigOrInterfaceComplete.c)
+ *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002E250 (UsbhSelectConfigOrInterfaceComplete.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
  */
 
 void __fastcall UsbhCancelOutOfBandwidthTimer(__int64 a1, unsigned __int16 a2)

@@ -1,94 +1,132 @@
 /*
- * XREFs of DrvSetMonitorBrightness @ 0x1C00BAC38
+ * XREFs of DrvSetMonitorBrightness @ 0x1C0079A9C
  * Callers:
- *     PowerDimUndimResend @ 0x1C001225C (PowerDimUndimResend.c)
- *     PowerUnDimMonitor @ 0x1C007A998 (PowerUnDimMonitor.c)
- *     PowerDimMonitor @ 0x1C0133920 (PowerDimMonitor.c)
+ *     PowerUnDimMonitor @ 0x1C0078FA0 (PowerUnDimMonitor.c)
+ *     PowerDimUndimResend @ 0x1C0079120 (PowerDimUndimResend.c)
+ *     PowerDimMonitor @ 0x1C011A2F0 (PowerDimMonitor.c)
  * Callees:
- *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001E1C0 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E270 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
- *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00227A0 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UpdateMonitorDevices @ 0x1C001E2B0 (UpdateMonitorDevices.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E47C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     Feature_OemPanelDriverSupport__private_ReportDeviceUsage @ 0x1C00CB3A0 (Feature_OemPanelDriverSupport__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvSetMonitorBrightness(__int64 a1, int a2, __int64 a3, __int64 a4, _BYTE *a5, char a6)
+__int64 __fastcall DrvSetMonitorBrightness(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        unsigned __int8 a4,
+        _BYTE *a5,
+        char a6)
 {
-  int v8; // ebx
-  unsigned int i; // edi
-  struct tagGRAPHICS_DEVICE *v10; // rdx
-  unsigned int j; // ebx
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  struct _DEVICE_OBJECT *AttachedDeviceReference; // r14
-  int InputBuffer; // [rsp+50h] [rbp-49h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+58h] [rbp-41h] BYREF
-  PVOID Object; // [rsp+60h] [rbp-39h] BYREF
-  _BYTE v20[8]; // [rsp+68h] [rbp-31h] BYREF
-  unsigned int v21; // [rsp+70h] [rbp-29h]
-  PVOID P; // [rsp+78h] [rbp-21h]
-  unsigned int v23; // [rsp+80h] [rbp-19h] BYREF
-  __int128 v24; // [rsp+88h] [rbp-11h] BYREF
-  int v25; // [rsp+98h] [rbp-1h]
+  __int64 v8; // r13
+  __int64 v9; // rdi
+  int v10; // ebx
+  __int64 v11; // rax
+  int v12; // eax
+  __int64 v13; // r8
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  unsigned int v16; // esi
+  unsigned int v17; // r15d
+  __int64 v18; // rbx
+  struct _DEVICE_OBJECT *AttachedDeviceReference; // r12
+  __int64 v20; // rax
+  int InputBuffer; // [rsp+54h] [rbp-25h] BYREF
+  unsigned int i; // [rsp+58h] [rbp-21h]
+  unsigned int v25; // [rsp+5Ch] [rbp-1Dh] BYREF
+  _DWORD v26[2]; // [rsp+60h] [rbp-19h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+68h] [rbp-11h] BYREF
+  _BYTE *v28; // [rsp+70h] [rbp-9h]
+  PVOID Object; // [rsp+78h] [rbp-1h] BYREF
+  int v30; // [rsp+80h] [rbp+7h]
 
-  v8 = -1073741823;
+  v8 = (unsigned int)a2;
+  v9 = a1;
+  v28 = a5;
+  v10 = -1073741823;
   if ( !gProtocolType )
   {
-    WdLogSingleEntry2(4LL, a1);
-    *a5 = 0;
-    for ( i = 0; i < *(_DWORD *)(a1 + 20); ++i )
+    v11 = WdLogNewEntry5_WdEvent(a1);
+    *(_QWORD *)(v11 + 24) = v9;
+    *(_QWORD *)(v11 + 32) = v8;
+    WdLogEvent5_WdEvent(v11);
+    UpdateMonitorDevices();
+    if ( a3 != -1 )
     {
-      v10 = *(struct tagGRAPHICS_DEVICE **)(*(_QWORD *)(56LL * i + a1 + 40) + 2552LL);
-      v21 = 0;
-      P = 0LL;
-      EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice((EnsureMonitorDevices *)v20, v10);
-      for ( j = 0; j < v21; ++j )
+      if ( qword_1C0250B40 )
       {
-        v25 = 0;
-        v24 = 0LL;
-        EnsureMonitorDevices::GetMonitorDevice((EnsureMonitorDevices *)v20, j, (struct tagVIDEO_MONITOR_DEVICE *)&v24);
-        if ( (v24 & 1) != 0 )
+        Object = (PVOID)__PAIR64__(a3, v8);
+        v30 = a4;
+        v12 = qword_1C0250B40(&Object);
+        v14 = v12;
+        if ( v12 < 0 )
         {
-          DeviceObject = 0LL;
-          Object = 0LL;
-          InputBuffer = 0;
-          if ( !a6 || (_BYTE)v25 )
+          v15 = WdLogNewEntry5_WdWarning(a1, a2, v13);
+          *(_QWORD *)(v15 + 24) = v14;
+          WdLogEvent5_WdWarning(v15);
+        }
+      }
+    }
+    *a5 = 0;
+    v16 = 0;
+    for ( i = 0; v16 < *(_DWORD *)(v9 + 20); i = v16 )
+    {
+      v17 = 0;
+      a1 = 56LL * v16;
+      v18 = *(_QWORD *)(*(_QWORD *)(a1 + v9 + 40) + 2576LL);
+      if ( *(_DWORD *)(v18 + 216) )
+      {
+        do
+        {
+          a2 = *(_QWORD *)(v18 + 224);
+          if ( (*(_DWORD *)(a2 + 20LL * v17) & 1) != 0 )
           {
-            DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v13, v12);
-            if ( (*(int (__fastcall **)(char *, _QWORD, PVOID *, PDEVICE_OBJECT *))(DxgkWin32kInterface + 456))(
-                   (char *)&v24 + 8,
-                   DWORD1(v24),
-                   &Object,
-                   &DeviceObject) >= 0 )
+            DeviceObject = 0LL;
+            Object = 0LL;
+            InputBuffer = 0;
+            if ( (!a6 || *(_BYTE *)(a2 + 20LL * v17 + 16))
+              && (int)((__int64 (__fastcall *)(__int64, _QWORD, PVOID *, PDEVICE_OBJECT *))qword_1C0250A58)(
+                        a2 + 4 * (5LL * v17 + 2),
+                        *(unsigned int *)(a2 + 20LL * v17 + 4),
+                        &Object,
+                        &DeviceObject) >= 0 )
             {
-              InputBuffer = a2;
+              InputBuffer = v8;
               AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
-              if ( (int)GreDeviceIoControlImpl(
-                          AttachedDeviceReference,
-                          0x232433u,
-                          &InputBuffer,
-                          4u,
-                          0LL,
-                          0,
-                          &v23,
-                          1u,
-                          0) >= 0
-                && (_BYTE)v25 )
+              GreDeviceIoControlImpl(AttachedDeviceReference, 0x232433u, &InputBuffer, 4u, 0LL, 0, &v25, 1u, 0);
+              if ( *(_BYTE *)(*(_QWORD *)(v18 + 224) + 20LL * v17 + 16) )
               {
-                *a5 = 1;
+                *v28 = 1;
+                if ( *(_QWORD *)(v18 + 144) )
+                {
+                  if ( (*(_DWORD *)(v18 + 160) & 0x800000) != 0
+                    && *(_QWORD *)(v18 + 240)
+                    && (*(_DWORD *)(v9 + 20) == 1 && *(_DWORD *)(v18 + 216) == 1 || !a4) )
+                  {
+                    Feature_OemPanelDriverSupport__private_ReportDeviceUsage();
+                    v26[0] = 1;
+                    v26[1] = a4;
+                    GreDeviceIoControlImpl(AttachedDeviceReference, 0x2324CFu, v26, 8u, 0LL, 0, &v25, 1u, 0);
+                  }
+                }
               }
               ObfDereferenceObject(AttachedDeviceReference);
               ObfDereferenceObject(Object);
             }
           }
+          ++v17;
         }
+        while ( v17 < *(_DWORD *)(v18 + 216) );
+        v16 = i;
       }
-      if ( P )
-        ExFreePoolWithTag(P, 0);
+      ++v16;
     }
-    v8 = 0;
+    v10 = 0;
   }
-  WdLogSingleEntry1(5LL, v8);
-  return (unsigned int)v8;
+  v20 = WdLogNewEntry5_WdTrace(a1, a2);
+  *(_QWORD *)(v20 + 24) = v10;
+  WdLogEvent5_WdTrace(v20);
+  return (unsigned int)v10;
 }

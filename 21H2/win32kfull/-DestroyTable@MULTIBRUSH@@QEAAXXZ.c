@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DestroyTable@MULTIBRUSH@@QEAAXXZ @ 0x1C029FDA8
+ * XREFs of ?DestroyTable@MULTIBRUSH@@QEAAXXZ @ 0x1C02A13C0
  * Callers:
- *     MulDestroyBrushInternal @ 0x1C02A4DD0 (MulDestroyBrushInternal.c)
+ *     MulDestroyBrushInternal @ 0x1C02A73A0 (MulDestroyBrushInternal.c)
  * Callees:
  *     <none>
  */

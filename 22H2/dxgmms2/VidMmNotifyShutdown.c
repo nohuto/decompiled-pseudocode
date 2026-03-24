@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmNotifyShutdown @ 0x1C002D170
+ * XREFs of VidMmNotifyShutdown @ 0x1C0022E10
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6214 (-NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B08C4 (-NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmNotifyShutdown(VIDMM_GLOBAL *a1)

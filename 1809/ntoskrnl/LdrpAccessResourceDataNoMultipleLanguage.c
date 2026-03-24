@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x14067ACB8
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98
  * Callers:
- *     LdrpGetRcConfig @ 0x1400F3F10 (LdrpGetRcConfig.c)
- *     LdrpFindMessageInAlternateModule @ 0x1400F4614 (LdrpFindMessageInAlternateModule.c)
- *     LdrpAccessResourceData @ 0x14067BD08 (LdrpAccessResourceData.c)
+ *     LdrpGetRcConfig @ 0x1400F3F30 (LdrpGetRcConfig.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1400F4634 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpAccessResourceData @ 0x14067BCE8 (LdrpAccessResourceData.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     RtlAddressInSectionTable @ 0x1400F33DC (RtlAddressInSectionTable.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3430 (RtlSectionTableFromVirtualAddress.c)
- *     LdrpGetImageSize @ 0x1400F37A4 (LdrpGetImageSize.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     RtlAddressInSectionTable @ 0x1400F33FC (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
+ *     LdrpGetImageSize @ 0x1400F37C4 (LdrpGetImageSize.c)
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(

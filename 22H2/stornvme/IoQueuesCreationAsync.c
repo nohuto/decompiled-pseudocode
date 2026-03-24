@@ -1,72 +1,68 @@
 /*
- * XREFs of IoQueuesCreationAsync @ 0x1C000A834
+ * XREFs of IoQueuesCreationAsync @ 0x1C000C15C
  * Callers:
- *     NVMeControllerInitPart2 @ 0x1C000DAA0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart2 @ 0x1C000DDD0 (NVMeControllerInitPart2.c)
  * Callees:
- *     CalculateTimeDurationIn100ns @ 0x1C00074C4 (CalculateTimeDurationIn100ns.c)
- *     IoQueuesFreeResources @ 0x1C000AE84 (IoQueuesFreeResources.c)
- *     NVMeIoCompletionQueueCreate @ 0x1C001EFF0 (NVMeIoCompletionQueueCreate.c)
- *     NVMeIoSubmissionQueueCreate @ 0x1C001F720 (NVMeIoSubmissionQueueCreate.c)
+ *     CalculateTimeDurationIn100ns @ 0x1C00010AC (CalculateTimeDurationIn100ns.c)
+ *     IoQueuesFreeResources @ 0x1C000C684 (IoQueuesFreeResources.c)
+ *     NVMeIoCompletionQueueCreate @ 0x1C0019790 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C0019EC0 (NVMeIoSubmissionQueueCreate.c)
  */
 
 char __fastcall IoQueuesCreationAsync(__int64 a1)
 {
-  __int64 v1; // rbx
-  int v3; // r9d
-  unsigned __int64 v5; // [rsp+110h] [rbp+18h] BYREF
+  __int64 v1; // rdi
+  __int64 v3; // r14
+  __int64 v5; // [rsp+C0h] [rbp+8h] BYREF
+  unsigned __int64 v6; // [rsp+D0h] [rbp+18h] BYREF
 
-  v1 = a1 + 4160;
+  v1 = a1 + 3944;
   v5 = 0LL;
-  StorPortExtendedFunction(99LL, a1, a1 + 4160);
-  StorPortExtendedFunction(99LL, a1, a1 + 4184);
-  StorPortExtendedFunction(47LL, a1, &v5);
-  *(_DWORD *)(a1 + 924) = 0;
-  if ( (unsigned int)NVMeIoCompletionQueueCreate(a1) )
+  v6 = 0LL;
+  StorPortExtendedFunction(99LL, a1, a1 + 3944, 0LL);
+  StorPortExtendedFunction(99LL, a1, a1 + 3968, 0LL);
+  StorPortExtendedFunction(47LL, a1, &v6, &v5);
+  v3 = v5;
+  *(_DWORD *)(a1 + 828) = 0;
+  if ( !(unsigned __int8)NVMeIoCompletionQueueCreate(a1) )
   {
-    v3 = 23;
+    *(_DWORD *)(a1 + 28) = 23;
 LABEL_3:
-    *(_DWORD *)(a1 + 36) = v3;
-LABEL_4:
-    if ( *(_BYTE *)(a1 + 22) )
-      StorPortExtendedFunction(87LL, a1, 0LL);
     IoQueuesFreeResources(a1);
     return 0;
   }
-  if ( (unsigned int)StorPortExtendedFunction(100LL, a1, v1) )
+  if ( (unsigned int)StorPortExtendedFunction(100LL, a1, v1, 0LL) )
   {
-    if ( *(_DWORD *)(a1 + 924) != *(unsigned __int16 *)(a1 + 338) )
+    if ( *(_DWORD *)(a1 + 828) != *(unsigned __int16 *)(a1 + 290) )
     {
-      v3 = 27;
+      *(_DWORD *)(a1 + 28) = 27;
       goto LABEL_3;
     }
   }
-  else if ( *(_DWORD *)(a1 + 36) )
+  else if ( *(_DWORD *)(a1 + 28) )
   {
-    goto LABEL_4;
-  }
-  *(_DWORD *)(a1 + 920) = 0;
-  if ( (unsigned int)NVMeIoSubmissionQueueCreate(a1) )
-  {
-    v3 = 22;
     goto LABEL_3;
   }
-  if ( (unsigned int)StorPortExtendedFunction(100LL, a1, a1 + 4184) )
+  *(_DWORD *)(a1 + 824) = 0;
+  if ( !(unsigned __int8)NVMeIoSubmissionQueueCreate(a1) )
   {
-    if ( *(_DWORD *)(a1 + 920) != *(unsigned __int16 *)(a1 + 336) )
+    *(_DWORD *)(a1 + 28) = 22;
+    goto LABEL_3;
+  }
+  if ( (unsigned int)StorPortExtendedFunction(100LL, a1, a1 + 3968, 0LL) )
+  {
+    if ( *(_DWORD *)(a1 + 824) != *(unsigned __int16 *)(a1 + 288) )
     {
-      v3 = 26;
+      *(_DWORD *)(a1 + 28) = 26;
       goto LABEL_3;
     }
   }
-  else if ( *(_DWORD *)(a1 + 36) )
+  else if ( *(_DWORD *)(a1 + 28) )
   {
-    goto LABEL_4;
+    goto LABEL_3;
   }
-  StorPortExtendedFunction(47LL, a1, &v5);
-  if ( *(_BYTE *)(a1 + 24) )
-  {
-    CalculateTimeDurationIn100ns(0LL, v5);
-    StorPortExtendedFunction(86LL, a1, 0LL);
-  }
+  StorPortExtendedFunction(47LL, a1, &v6, &v5);
+  CalculateTimeDurationIn100ns(v5 - v3, v6);
+  StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
   return 1;
 }

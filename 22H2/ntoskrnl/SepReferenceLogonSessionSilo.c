@@ -1,27 +1,27 @@
 /*
- * XREFs of SepReferenceLogonSessionSilo @ 0x1407C38DC
+ * XREFs of SepReferenceLogonSessionSilo @ 0x1405DC7FC
  * Callers:
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     SepReferenceLogonSession @ 0x1407C38A4 (SepReferenceLogonSession.c)
- *     SeInitServerSilo @ 0x1409C8EA0 (SeInitServerSilo.c)
- *     SeSetSessionIdTokenWithLinked @ 0x1409C9710 (SeSetSessionIdTokenWithLinked.c)
- *     SepSetServerSiloToken @ 0x1409C9AD0 (SepSetServerSiloToken.c)
- *     SeGetLinkedToken @ 0x1409CF1A0 (SeGetLinkedToken.c)
+ *     SepReferenceLogonSession @ 0x1405DC7C4 (SepReferenceLogonSession.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
+ *     SeInitServerSilo @ 0x14091C124 (SeInitServerSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14091C990 (SeSetSessionIdTokenWithLinked.c)
+ *     SepSetServerSiloToken @ 0x14091CCB4 (SepSetServerSiloToken.c)
+ *     SeGetLinkedToken @ 0x1409228E0 (SeGetLinkedToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SepReferenceLogonSessionSilo(_DWORD *a1, __int64 a2, __int64 *a3)
 {
-  unsigned __int64 v6; // r9
+  __int64 v6; // r9
   __int64 v7; // rbx
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v9; // rdi
   __int64 result; // rax
 
-  v6 = (unsigned __int64)(unsigned int)(1529154084 * *a1) >> 28;
+  v6 = (unsigned int)(1529154084 * *a1) >> 28;
   v7 = SepLogonSessions + 8 * v6;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

@@ -1,12 +1,24 @@
 /*
- * XREFs of VerifierKeEnterCriticalRegion @ 0x140AC1320
+ * XREFs of VerifierKeEnterCriticalRegion @ 0x1409DAB20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x1405A20C8 (ViKeLogCriticalRegionStackTrace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
-__int64 VerifierKeEnterCriticalRegion()
+void VerifierKeEnterCriticalRegion()
 {
-  return ((__int64 (*)(void))pXdvKeEnterCriticalRegion)();
+  unsigned __int8 CurrentIrql; // al
+
+  if ( (MmVerifierData & 2) != 0 && (MmVerifierData & 0x20000) == 0 )
+  {
+    CurrentIrql = KeGetCurrentIrql();
+    if ( CurrentIrql > 1u )
+      VerifierBugCheckIfAppropriate(0xC4u, 0x11AuLL, CurrentIrql, 0LL, 0LL);
+  }
+  ((void (*)(void))pXdvKeEnterCriticalRegion)();
+  if ( (MmVerifierData & 0x400000) == 0 || (VfFlightOptions & 0x21) != 0 )
+    ViKeLogCriticalRegionStackTrace();
 }

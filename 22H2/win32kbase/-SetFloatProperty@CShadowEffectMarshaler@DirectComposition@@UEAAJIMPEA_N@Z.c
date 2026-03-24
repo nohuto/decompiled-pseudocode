@@ -1,55 +1,59 @@
 /*
- * XREFs of ?SetFloatProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C020FAA0
+ * XREFs of ?SetFloatProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E0CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CShadowEffectMarshaler::SetFloatProperty(
         DirectComposition::CShadowEffectMarshaler *this,
-        unsigned int a2,
+        int a2,
         float a3,
         bool *a4)
 {
   bool v4; // al
+  int v5; // edx
+  int v6; // edx
+  int v7; // edx
 
   v4 = 0;
   if ( a2 )
   {
-    switch ( a2 )
+    v5 = a2 - 2;
+    if ( v5 )
     {
-      case 2u:
-        if ( *((float *)this + 29) != a3 )
+      v6 = v5 - 1;
+      if ( v6 )
+      {
+        v7 = v6 - 1;
+        if ( v7 )
         {
-          *((float *)this + 29) = a3;
-          goto LABEL_17;
+          if ( v7 != 1 )
+            return 3221225485LL;
+          if ( *((float *)this + 32) != a3 )
+          {
+            *((float *)this + 32) = a3;
+LABEL_17:
+            v4 = 1;
+          }
         }
-        break;
-      case 3u:
-        if ( *((float *)this + 30) != a3 )
-        {
-          *((float *)this + 30) = a3;
-          goto LABEL_17;
-        }
-        break;
-      case 4u:
-        if ( *((float *)this + 31) != a3 )
+        else if ( *((float *)this + 31) != a3 )
         {
           *((float *)this + 31) = a3;
           goto LABEL_17;
         }
-        break;
-      case 5u:
-        if ( *((float *)this + 32) != a3 )
-        {
-          *((float *)this + 32) = a3;
-LABEL_17:
-          v4 = 1;
-        }
-        break;
-      default:
-        return DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
+      }
+      else if ( *((float *)this + 30) != a3 )
+      {
+        *((float *)this + 30) = a3;
+        goto LABEL_17;
+      }
+    }
+    else if ( *((float *)this + 29) != a3 )
+    {
+      *((float *)this + 29) = a3;
+      goto LABEL_17;
     }
   }
   else if ( *((float *)this + 28) != a3 )

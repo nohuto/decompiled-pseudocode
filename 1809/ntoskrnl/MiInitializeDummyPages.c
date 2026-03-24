@@ -5,7 +5,7 @@
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiFillPhysicalPages @ 0x14012AF60 (MiFillPhysicalPages.c)
+ *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
  *     MiAllocateDummyPage @ 0x1409B9930 (MiAllocateDummyPage.c)
  */
 

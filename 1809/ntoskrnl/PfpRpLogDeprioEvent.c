@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpRpLogDeprioEvent @ 0x1400E20F4
+ * XREFs of PfpRpLogDeprioEvent @ 0x1400E2114
  * Callers:
- *     PfCheckDeprioritizeFile @ 0x140666270 (PfCheckDeprioritizeFile.c)
+ *     PfCheckDeprioritizeFile @ 0x140666250 (PfCheckDeprioritizeFile.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfpRpLogDeprioEvent(__int64 a1, int a2, int a3)

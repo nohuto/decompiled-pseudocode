@@ -1,26 +1,26 @@
 /*
- * XREFs of ?ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ @ 0x18018FB14
+ * XREFs of ?ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ @ 0x180228EAC
  * Callers:
- *     ?PostSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B314 (-PostSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18004E454 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x180025194 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18002B43C (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18004EA64 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152D40 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 void __fastcall InputTraceLogging::GestureTargeting::ForcePalmRejection(__int64 a1)
 {
-  _DWORD *v1; // rcx
-  __int64 v2; // rcx
-  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v1; // rcx
+  struct _EVENT_DATA_DESCRIPTOR v2; // [rsp+30h] [rbp-38h] BYREF
 
-  v1 = (_DWORD *)wil::details::static_lazy<InputTraceLogging>::get(
-                   a1,
-                   _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)[1];
-  if ( *v1 > 4u )
+  v1 = *((_QWORD *)wil::details::static_lazy<InputTraceLogging>::get(
+                     a1,
+                     _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+       + 1);
+  if ( *(_DWORD *)v1 > 4u
+    && (*(_DWORD *)(v1 + 16) & 0x800LL) != 0
+    && (*(_QWORD *)(v1 + 24) & 0x800LL) == *(_QWORD *)(v1 + 24) )
   {
-    if ( tlgKeywordOn((__int64)v1, 2048LL) )
-      tlgWriteTransfer_EventWriteTransfer(v2, (unsigned __int8 *)dword_18036AE73, 0LL, 0LL, 2u, &v3);
+    tlgWriteTransfer_EventWriteTransfer(v1, (unsigned __int8 *)dword_1802EB46E, 0LL, 0LL, 2u, &v2);
   }
 }

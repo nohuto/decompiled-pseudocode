@@ -1,41 +1,53 @@
 /*
- * XREFs of ??0CDwmRenderThreadWatchdog@@QEAA@XZ @ 0x18002CC5C
+ * XREFs of ??0CDwmRenderThreadWatchdog@@QEAA@XZ @ 0x1800275D0
  * Callers:
- *     ??0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z @ 0x18002E4BC (--0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z.c)
+ *     ??0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z @ 0x180027274 (--0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z.c)
  * Callees:
- *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x18002D294 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@wil@.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ??0CWatchdogTimer@@QEAA@XZ @ 0x1800276B4 (--0CWatchdogTimer@@QEAA@XZ.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 CDwmRenderThreadWatchdog *__fastcall CDwmRenderThreadWatchdog::CDwmRenderThreadWatchdog(CDwmRenderThreadWatchdog *this)
 {
-  HANDLE *v1; // rdi
-  HANDLE WaitableTimerW; // rax
-  int v4; // eax
-  HANDLE v6; // [rsp+30h] [rbp+8h] BYREF
+  HANDLE CurrentProcess; // rdi
+  HANDLE CurrentThread; // rbx
+  HANDLE v4; // rax
+  BOOL v5; // ebx
+  signed int LastError; // eax
+  bool v8; // sf
+  HANDLE TargetHandle; // [rsp+48h] [rbp-20h] BYREF
+  char v10; // [rsp+50h] [rbp-18h]
+  void *retaddr; // [rsp+68h] [rbp+0h]
 
-  v1 = (HANDLE *)((char *)this + 16);
-  *(_QWORD *)this = &CWatchdogTimer::`vftable';
-  *((_QWORD *)this + 1) = 0LL;
-  *((_QWORD *)this + 2) = 0LL;
-  *((_WORD *)this + 12) = 0;
-  *((_BYTE *)this + 26) = 0;
-  WaitableTimerW = CreateWaitableTimerW(0LL, 0, 0LL);
-  v6 = WaitableTimerW;
-  if ( v1 != &v6 )
-  {
-    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      v1,
-      WaitableTimerW);
-    v6 = 0LL;
-  }
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>(&v6);
+  CWatchdogTimer::CWatchdogTimer(this);
+  TargetHandle = 0LL;
   *(_QWORD *)this = &CDwmRenderThreadWatchdog::`vftable';
-  *((_DWORD *)this + 8) = CCommonRegistryData::InitialWatchdogTelemetryTimeoutMilliseconds;
-  v4 = CCommonRegistryData::RecurringWatchdogTelemetryTimeoutMilliseconds;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_DWORD *)this + 10) = 0;
   *((_DWORD *)this + 11) = 0;
-  *((_DWORD *)this + 12) = 0;
-  *((_DWORD *)this + 9) = v4;
-  *((_DWORD *)this + 10) = GetCurrentThreadId();
+  *((_DWORD *)this + 12) = CCommonRegistryData::InitialWatchdogTelemetryTimeoutMilliseconds;
+  *((_DWORD *)this + 13) = CCommonRegistryData::RecurringWatchdogTelemetryTimeoutMilliseconds;
+  v10 = 1;
+  CurrentProcess = GetCurrentProcess();
+  CurrentThread = GetCurrentThread();
+  v4 = GetCurrentProcess();
+  v5 = DuplicateHandle(v4, CurrentThread, CurrentProcess, &TargetHandle, 0, 0, 2u);
+  if ( v10 )
+    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+      (char *)this + 32,
+      TargetHandle);
+  if ( !v5 )
+  {
+    LastError = GetLastError();
+    v8 = LastError < 0;
+    if ( LastError > 0 )
+    {
+      LastError = (unsigned __int16)LastError | 0x80070000;
+      v8 = LastError < 0;
+    }
+    if ( v8 )
+      ModuleFailFastForHRESULT((unsigned int)LastError, retaddr);
+  }
   return this;
 }

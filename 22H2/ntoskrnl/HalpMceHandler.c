@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMceHandler @ 0x140503B14
+ * XREFs of HalpMceHandler @ 0x1404BAC00
  * Callers:
- *     HalpHandleMachineCheck @ 0x140502FF0 (HalpHandleMachineCheck.c)
- *     HalpMceHandlerWithRendezvous @ 0x140503DD0 (HalpMceHandlerWithRendezvous.c)
+ *     HalpHandleMachineCheck @ 0x1404BA13C (HalpHandleMachineCheck.c)
+ *     HalpMceHandlerWithRendezvous @ 0x1404BAE68 (HalpMceHandlerWithRendezvous.c)
  * Callees:
- *     HalpMceHandlerCore @ 0x140503C28 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerCore @ 0x1404BAD14 (HalpMceHandlerCore.c)
  */
 
 char __fastcall HalpMceHandler(__int64 a1, __int64 a2)
@@ -28,8 +28,8 @@ char __fastcall HalpMceHandler(__int64 a1, __int64 a2)
     while ( v8 )
     {
       LOBYTE(a2) = v3;
-      v9 = HalpMceHandlerCore(a1, a2, *(_QWORD *)(v8 + 172));
-      v8 = *(_QWORD *)(v8 + 184);
+      v9 = HalpMceHandlerCore(a1, a2, *(_QWORD *)(v8 + 164));
+      v8 = *(_QWORD *)(v8 + 176);
       if ( v9 )
         v2 = 1;
     }

@@ -1,35 +1,56 @@
 /*
- * XREFs of ProtectedContentAccessCheck @ 0x1C0075B9C
+ * XREFs of ProtectedContentAccessCheck @ 0x1C0078F0C
  * Callers:
- *     ValidateNewParent @ 0x1C0075A78 (ValidateNewParent.c)
+ *     ValidateNewParent @ 0x1C0078E18 (ValidateNewParent.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     IsWindowContentProtected @ 0x1C0077D48 (IsWindowContentProtected.c)
+ *     IsWindowContentProtected @ 0x1C00388B4 (IsWindowContentProtected.c)
  */
 
-_BOOL8 __fastcall ProtectedContentAccessCheck(__int64 a1)
+_BOOL8 __fastcall ProtectedContentAccessCheck(_QWORD *a1)
 {
-  __int64 TopLevelWindow; // rax
-  __int64 v3; // rbx
+  _QWORD *v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  __int64 v8; // rax
+  __int64 v6; // r8
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rbx
 
-  TopLevelWindow = GetTopLevelWindow(a1);
-  v3 = TopLevelWindow;
-  if ( !TopLevelWindow || !(unsigned int)IsWindowContentProtected(TopLevelWindow) )
-    return 1LL;
-  v5 = *(_QWORD *)(v3 + 40);
-  v6 = *(_QWORD *)(v3 + 16);
-  v7 = *(_QWORD *)(v6 + 424);
-  if ( *(char *)(v5 + 232) < 0 )
+  v2 = a1;
+  if ( a1 )
   {
-    v8 = *(_QWORD *)(v6 + 1400);
-    if ( v8 )
-      v7 = *(_QWORD *)(*(_QWORD *)(v8 + 16) + 424LL);
+    do
+    {
+      v3 = v2[13];
+      if ( v3 )
+      {
+        v4 = v2[3];
+        v5 = 0LL;
+        if ( v4 )
+        {
+          v6 = *(_QWORD *)(v4 + 8);
+          if ( v6 )
+            v5 = *(_QWORD *)(v6 + 24);
+        }
+        if ( v3 == v5 )
+          break;
+      }
+      v2 = (_QWORD *)v2[13];
+    }
+    while ( v3 );
   }
-  return v7 == PsGetCurrentProcessWin32Process(v5)
-      || *(_QWORD *)(*(_QWORD *)(v3 + 16) + 424LL) == *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL)
-      && (*(_DWORD *)(gptiCurrent + 1256LL) & 0x40000) != 0;
+  if ( !v2 )
+    return 1LL;
+  if ( (*(_BYTE *)(v2[5] + 234LL) & 0x40) != 0 )
+  {
+    v9 = v2[2];
+    if ( *(_QWORD *)(v9 + 1400) )
+      v2 = *(_QWORD **)(v9 + 1400);
+  }
+  if ( !(unsigned int)IsWindowContentProtected((__int64)v2) )
+    return 1LL;
+  v10 = *(_QWORD *)(v2[2] + 424LL);
+  return v10 == PsGetCurrentProcessWin32Process(v8)
+      || v10 == *(_QWORD *)(a1[2] + 424LL) && (*(_DWORD *)(gptiCurrent + 1232LL) & 0x40000) != 0;
 }

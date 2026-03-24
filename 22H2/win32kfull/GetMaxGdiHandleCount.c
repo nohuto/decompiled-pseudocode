@@ -1,5 +1,5 @@
 /*
- * XREFs of GetMaxGdiHandleCount @ 0x1C00BEBF0
+ * XREFs of GetMaxGdiHandleCount @ 0x1C0137530
  * Callers:
  *     <none>
  * Callees:

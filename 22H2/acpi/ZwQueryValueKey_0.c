@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryValueKey_0 @ 0x1C0001AD3
+ * XREFs of ZwQueryValueKey_0 @ 0x1C0031D83
  * Callers:
- *     ArbpGetRegistryValue @ 0x1C00A2FBC (ArbpGetRegistryValue.c)
+ *     ArbpGetRegistryValue @ 0x1C00A04C0 (ArbpGetRegistryValue.c)
  * Callees:
  *     <none>
  */

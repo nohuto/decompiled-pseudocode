@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInsertDeferredPreemptionApc @ 0x1400F27C8
+ * XREFs of KiInsertDeferredPreemptionApc @ 0x1400F27E8
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2C80 (KiDeferGroupSchedulingPreemption.c)
- *     KiBeginThreadAccountingPeriod @ 0x140100950 (KiBeginThreadAccountingPeriod.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiBeginThreadAccountingPeriod @ 0x140100970 (KiBeginThreadAccountingPeriod.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSignalThreadForApc @ 0x1400F1F64 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400F2100 (KiInsertQueueApc.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSignalThreadForApc @ 0x1400F1F84 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400F2120 (KiInsertQueueApc.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, __int64 a3)

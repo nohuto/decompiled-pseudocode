@@ -2,7 +2,7 @@
  * XREFs of MiAddViewsForSection @ 0x140077170
  * Callers:
  *     MiReferenceDataSubsections @ 0x140026658 (MiReferenceDataSubsections.c)
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
@@ -22,14 +22,14 @@
  *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __int64 a2, __int64 a3)

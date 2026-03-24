@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentDuration@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x1801230C0
+ * XREFs of ?GetPresentDuration@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x1800F89F0
  * Callers:
  *     <none>
  * Callees:

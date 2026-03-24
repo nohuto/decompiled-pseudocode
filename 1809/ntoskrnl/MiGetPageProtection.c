@@ -11,12 +11,12 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
  *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14011B860 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiGetImageProtoProtection @ 0x14011F8E0 (MiGetImageProtoProtection.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiGetValidAweProtection @ 0x1402B0C90 (MiGetValidAweProtection.c)
- *     MiCaptureProtectionFromLockedProto @ 0x1402BF2EC (MiCaptureProtectionFromLockedProto.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14011B880 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiGetImageProtoProtection @ 0x14011F900 (MiGetImageProtoProtection.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiGetValidAweProtection @ 0x1402B0D90 (MiGetValidAweProtection.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x1402BF3EC (MiCaptureProtectionFromLockedProto.c)
  */
 
 ULONG_PTR __fastcall MiGetPageProtection(

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetShaderResourceView@CD2DBitmap@@UEAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800CCBA0
+ * XREFs of ?GetShaderResourceView@CD2DBitmap@@UEAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800C2E88
  * Callers:
- *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@A@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x180109790 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@A@EAAPEAUID3D11ShaderResourceView@@XZ.c)
- *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x180109A50 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11ShaderResourceView@@XZ.c)
- *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x18010CC30 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ.c)
+ *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@A@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800F61B0 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@A@EAAPEAUID3D11ShaderResourceView@@XZ.c)
+ *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800F61C0 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ.c)
+ *     ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800F8270 (-GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11ShaderResourceView@@XZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DESC@@PEAPEAUID3D11ShaderResourceView@@@Z @ 0x1800CCC80 (-CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DE.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DESC@@PEAPEAUID3D11ShaderResourceView@@@Z @ 0x1800C2F60 (-CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DE.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 struct ID3D11ShaderResourceView *__fastcall CD2DBitmap::GetShaderResourceView(CD2DBitmap *this)
@@ -49,16 +49,16 @@ struct ID3D11ShaderResourceView *__fastcall CD2DBitmap::GetShaderResourceView(CD
           v7 = 0LL;
         ShaderResourceView = CD3DDevice::CreateShaderResourceView(v6, *((struct ID3D11Resource **)this - 28), v7, v1);
         if ( ShaderResourceView < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, ShaderResourceView, 0x1FFu);
+          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, ShaderResourceView, 0x1FFu, 0LL);
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003292287, 0x203u);
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003292287, 0x203u, 0LL);
       }
     }
     else
     {
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003292412, 0x208u);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003292412, 0x208u, 0LL);
     }
   }
   return *v1;

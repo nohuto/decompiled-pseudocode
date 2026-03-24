@@ -1,14 +1,14 @@
 /*
- * XREFs of ViRemLockFindSurrogate @ 0x140AD3978
+ * XREFs of ViRemLockFindSurrogate @ 0x1409D68C0
  * Callers:
- *     VerifierIoAcquireRemoveLockEx @ 0x140AD3590 (VerifierIoAcquireRemoveLockEx.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x140AD3620 (VerifierIoInitializeRemoveLockEx.c)
- *     VerifierIoReleaseRemoveLockAndWaitEx @ 0x140AD3790 (VerifierIoReleaseRemoveLockAndWaitEx.c)
- *     VerifierIoReleaseRemoveLockEx @ 0x140AD3800 (VerifierIoReleaseRemoveLockEx.c)
+ *     VerifierIoAcquireRemoveLockEx @ 0x1409D6440 (VerifierIoAcquireRemoveLockEx.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D64D0 (VerifierIoInitializeRemoveLockEx.c)
+ *     VerifierIoReleaseRemoveLockAndWaitEx @ 0x1409D6640 (VerifierIoReleaseRemoveLockAndWaitEx.c)
+ *     VerifierIoReleaseRemoveLockEx @ 0x1409D66B0 (VerifierIoReleaseRemoveLockEx.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
  */
 
 PVOID ViRemLockFindSurrogate()

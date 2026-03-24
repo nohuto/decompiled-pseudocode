@@ -1,23 +1,25 @@
 /*
- * XREFs of EngAllocUserMemEx @ 0x1C00A6438
+ * XREFs of EngAllocUserMemEx @ 0x1C00ADA68
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     EngAllocUserMem @ 0x1C00A6410 (EngAllocUserMem.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     EngAllocUserMem @ 0x1C00ADA40 (EngAllocUserMem.c)
  * Callees:
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0017700 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0017740 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0045F3C (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0045F70 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C00C9874 (Feature_2249667896__private_IsEnabledDeviceUsage.c)
+ *     GrepSecureVirtualMemory @ 0x1C00CB2F0 (GrepSecureVirtualMemory.c)
  */
 
 __int64 __fastcall EngAllocUserMemEx(ULONG_PTR a1, int a2, PVOID *a3)
 {
-  NTSTATUS v4; // edi
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  HANDLE v7; // rsi
-  __int64 v8; // r8
-  __int64 v9; // r9
+  NTSTATUS v5; // esi
+  int IsEnabledDeviceUsage; // eax
+  PVOID v7; // rcx
+  HANDLE v8; // rax
+  __int64 v9; // rcx
+  void *v10; // rdi
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v11; // r14
+  __int64 v12; // r14
   _QWORD Buffer[4]; // [rsp+30h] [rbp-20h] BYREF
   ULONG_PTR RegionSize; // [rsp+80h] [rbp+30h] BYREF
   int NewElement; // [rsp+88h] [rbp+38h] BYREF
@@ -28,38 +30,50 @@ __int64 __fastcall EngAllocUserMemEx(ULONG_PTR a1, int a2, PVOID *a3)
   *a3 = 0LL;
   if ( !a1 )
     return 3221225473LL;
-  v4 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, 0LL, &RegionSize, 0x3000u, 4u);
-  if ( v4 < 0 )
-    return (unsigned int)v4;
-  v7 = MmSecureVirtualMemory(*a3, RegionSize, 4u);
-  if ( !v7 )
+  v5 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, 0LL, &RegionSize, 0x3000u, 4u);
+  if ( v5 >= 0 )
   {
-    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, &RegionSize, 0x8000u);
-    *a3 = 0LL;
-    return (unsigned int)-2143354876;
-  }
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6, v5, v8, v9);
-  v11 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-  {
-    Buffer[0] = *a3;
-    Buffer[1] = RegionSize;
-    LOBYTE(NewElement) = 0;
-    Buffer[2] = v7;
-    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v16, (struct _EX_PUSH_LOCK *)(CurrentProcessWin32Process + 80));
-    if ( !RtlInsertElementGenericTableAvl((PRTL_AVL_TABLE)(v11 + 88), Buffer, 0x18u, (PBOOLEAN)&NewElement)
-      || !(_BYTE)NewElement )
+    IsEnabledDeviceUsage = Feature_2249667896__private_IsEnabledDeviceUsage();
+    v7 = *a3;
+    if ( IsEnabledDeviceUsage )
+      v8 = (HANDLE)GrepSecureVirtualMemory(v7, RegionSize, 4LL);
+    else
+      v8 = MmSecureVirtualMemory(v7, RegionSize, 4u);
+    v10 = v8;
+    if ( v8 )
     {
-      MmUnsecureVirtualMemory(v7);
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
+      v12 = CurrentProcessWin32Process;
+      if ( !CurrentProcessWin32Process )
+      {
+        Feature_2249667896__private_IsEnabledDeviceUsage();
+        MmUnsecureVirtualMemory(v10);
+        ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, &RegionSize, 0x8000u);
+        *a3 = 0LL;
+        return 3221225473LL;
+      }
+      Buffer[0] = *a3;
+      Buffer[1] = RegionSize;
+      LOBYTE(NewElement) = 0;
+      Buffer[2] = v10;
+      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v16, (struct _EX_PUSH_LOCK *)(CurrentProcessWin32Process + 80));
+      if ( !RtlInsertElementGenericTableAvl((PRTL_AVL_TABLE)(v12 + 88), Buffer, 0x18u, (PBOOLEAN)&NewElement)
+        || !(_BYTE)NewElement )
+      {
+        Feature_2249667896__private_IsEnabledDeviceUsage();
+        MmUnsecureVirtualMemory(v10);
+        ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, &RegionSize, 0x8000u);
+        *a3 = 0LL;
+        v5 = -1073741801;
+      }
+      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v16);
+    }
+    else
+    {
       ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, &RegionSize, 0x8000u);
       *a3 = 0LL;
-      v4 = -1073741801;
+      return (unsigned int)-2143354876;
     }
-    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v16);
-    return (unsigned int)v4;
   }
-  MmUnsecureVirtualMemory(v7);
-  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, &RegionSize, 0x8000u);
-  *a3 = 0LL;
-  return 3221225473LL;
+  return (unsigned int)v5;
 }

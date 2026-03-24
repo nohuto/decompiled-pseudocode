@@ -1,26 +1,24 @@
 /*
- * XREFs of Win32UAFMAllocateFromPagedLookasideList @ 0x1C014FB80
+ * XREFs of Win32UAFMAllocateFromPagedLookasideList @ 0x1C013A160
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C008F2C4 (-AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
- *     ?GenerateCookie@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIXZ @ 0x1C014FD40 (-GenerateCookie@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIX.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-_QWORD *__fastcall Win32UAFMAllocateFromPagedLookasideList(NSInstrumentation::CLeakTrackingAllocator *a1, _DWORD *a2)
+__int64 __fastcall Win32UAFMAllocateFromPagedLookasideList(__int64 a1, __int64 a2)
 {
-  _QWORD *v3; // rbx
-  _QWORD *result; // rax
-  int Cookie; // eax
+  __int64 v2; // rbx
+  int v5; // eax
 
-  v3 = NSInstrumentation::CLeakTrackingAllocator::AllocateFromPagedLookasideList(a1, *(char **)a1);
-  result = 0LL;
-  if ( v3 )
-  {
-    Cookie = NSInstrumentation::UAFMitigationAllocator<Win32UAFMAllocatorCollection>::GenerateCookie();
-    *((_DWORD *)v3 + 3) = Cookie;
-    *a2 = Cookie - 1;
-    return v3 + 2;
-  }
-  return result;
+  v2 = 0LL;
+  if ( qword_1C0256DD0 )
+    v5 = qword_1C0256DD0();
+  else
+    v5 = -1073741637;
+  if ( v5 < 0 )
+    return 0LL;
+  if ( qword_1C0256DD8 )
+    return qword_1C0256DD8(a1, a2);
+  return v2;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeprioritizeVad @ 0x1403C67DC
+ * XREFs of MiDeprioritizeVad @ 0x1403817D4
  * Callers:
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A22D0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiTryLockVad @ 0x1403C68B8 (MiTryLockVad.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D73C (MiDeprioritizeVirtualAddresses.c)
- *     PfCheckDeprioritizeFile @ 0x140760CC4 (PfCheckDeprioritizeFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiTryLockVad @ 0x1403818A8 (MiTryLockVad.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053660C (MiDeprioritizeVirtualAddresses.c)
+ *     PfCheckDeprioritizeFile @ 0x1406300F8 (PfCheckDeprioritizeFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
@@ -20,11 +20,10 @@ void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // rbp
   __int64 v8; // rbx
-  unsigned __int64 v9; // rax
+  ULONG_PTR v9; // rax
   __int64 v10; // r15
   signed __int32 v11; // eax
-  bool v12; // zf
-  unsigned __int64 v13; // rbp
+  unsigned __int64 v12; // rbp
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
@@ -38,18 +37,18 @@ void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
       if ( (P[16] & 0x2000000) != 0 )
       {
         v8 = **((_QWORD **)P + 9);
-        v9 = MiReferenceControlAreaFileWithTag(v8, 0x63536D4Du);
+        v9 = MiReferenceControlAreaFile(v8);
         v10 = *(_QWORD *)(v9 + 24);
-        ObFastDereferenceObjectDeferDelete((signed __int64 *)(v8 + 64), v9, 0x63536D4Du);
+        MiDereferenceControlAreaFile(v8, v9);
         if ( (Process[1].DirectoryTableBase & 0x400000000000LL) != 0
-          && (v13 = v7 & 0xFFFFFFFFFFFFFF00uLL,
-              (unsigned int)PfCheckDeprioritizeFile(HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]), v10, v13)) )
+          && (v12 = v7 & 0xFFFFFFFFFFFFFF00uLL,
+              (unsigned int)PfCheckDeprioritizeFile(HIDWORD(Process[1].ActiveProcessors.Bitmap[8]), v10, v12) == 1) )
         {
           if ( (P[16] & 0x2000000) != 0 )
             MiDeprioritizeVirtualAddresses(
-              (v6 << 12) + ((v13 - 256) << 12),
+              (v6 << 12) + ((v12 - 256) << 12),
               256LL,
-              &Process[1].ActiveProcessors.StaticBitmap[26],
+              &Process[1].ActiveProcessorsPadding[6],
               18LL);
         }
         else
@@ -67,8 +66,6 @@ void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
       __fastfail(0xEu);
     if ( !v11 && (P[12] & 4) != 0 )
       ExFreePoolWithTag(P, 0);
-    v12 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v12 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
 }

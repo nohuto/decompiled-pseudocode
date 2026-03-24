@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMergeRelationLists @ 0x1409582C4
+ * XREFs of IopMergeRelationLists @ 0x1408B2728
  * Callers:
- *     PnpProcessRelation @ 0x140767AEC (PnpProcessRelation.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140810CB4 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x140737ADC (PnpQueuePendingSurpriseRemoval.c)
  * Callees:
- *     IopAddRelationToList @ 0x140767DF8 (IopAddRelationToList.c)
- *     PipDeviceObjectListIndexOf @ 0x140767EAC (PipDeviceObjectListIndexOf.c)
+ *     IopAddRelationToList @ 0x140737868 (IopAddRelationToList.c)
+ *     PipDeviceObjectListIndexOf @ 0x140737920 (PipDeviceObjectListIndexOf.c)
  */
 
 __int64 __fastcall IopMergeRelationLists(int **a1, __int64 a2, char a3)
@@ -39,19 +39,21 @@ __int64 __fastcall IopMergeRelationLists(int **a1, __int64 a2, char a3)
         v12 = a3 && (*(_DWORD *)(v10 + 24LL * v8 + 32) & 1) != 0;
       }
       v13 = IopAddRelationToList(a1, *(_QWORD *)(v10 + 24LL * v8 + 16), *(unsigned int *)(v10 + 24LL * v8 + 24), v12);
-      if ( (!v11 || v13 != -1073741771) && v13 < 0 )
+      if ( v11 && v13 == -1073741771 )
+        v13 = 0;
+      if ( v13 < 0 )
         return (unsigned int)v13;
       v3 = *(_DWORD **)a2;
       if ( ++v8 >= **(_DWORD **)a2 )
       {
         v9 = **a1;
-        goto LABEL_13;
+        goto LABEL_14;
       }
     }
   }
   else
   {
-LABEL_13:
+LABEL_14:
     if ( !v9 )
       *((_BYTE *)a1 + 8) = *(_BYTE *)(a2 + 8);
   }

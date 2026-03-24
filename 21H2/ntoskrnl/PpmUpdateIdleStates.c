@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmUpdateIdleStates @ 0x140829930
+ * XREFs of PpmUpdateIdleStates @ 0x140796560
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x1403C1E10 (PpmHvUseNativeAlgorithms.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmUpdateIdleContext @ 0x14098B290 (PpmUpdateIdleContext.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1403AE35C (PpmHvUseNativeAlgorithms.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmUpdateIdleContext @ 0x1408E2974 (PpmUpdateIdleContext.c)
  */
 
 __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
@@ -22,9 +22,9 @@ __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
   __int64 v5; // r8
   unsigned int updated; // eax
   unsigned int v7; // ebx
-  _DWORD v9[68]; // [rsp+20h] [rbp-128h] BYREF
+  _DWORD v9[44]; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset(v9, 0, 0x108uLL);
+  memset(v9, 0, 0xA8uLL);
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
   if ( !a1
     || (ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(a1 + 4)),
@@ -38,9 +38,9 @@ __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
     updated = PpmUpdateIdleContext(ProcessorIndexFromNumber, a1);
     goto LABEL_9;
   }
-  v9[0] = 2097153;
-  memset(&v9[1], 0, 0x104uLL);
-  KeAddProcessorAffinityEx((unsigned __int16 *)v9, ProcessorIndexFromNumber);
+  v9[0] = 1310721;
+  memset(&v9[1], 0, 0xA4uLL);
+  KeAddProcessorAffinityEx(v9, ProcessorIndexFromNumber);
   if ( *(_BYTE *)(a1 + 17) )
   {
     v3 = 0LL;

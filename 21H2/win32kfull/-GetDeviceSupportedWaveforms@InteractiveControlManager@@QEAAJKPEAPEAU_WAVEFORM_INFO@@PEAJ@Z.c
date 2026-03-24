@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1C024EF4C
+ * XREFs of ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1C0251F5C
  * Callers:
- *     NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1C01F4DD0 (NtUserGetInteractiveCtrlSupportedWaveforms.c)
+ *     NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1C01FA310 (NtUserGetInteractiveCtrlSupportedWaveforms.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
  */
 
 __int64 __fastcall InteractiveControlManager::GetDeviceSupportedWaveforms(
@@ -26,13 +26,13 @@ __int64 __fastcall InteractiveControlManager::GetDeviceSupportedWaveforms(
   v4 = 0;
   v5 = 0;
   v6 = 0LL;
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     LODWORD(v17) = a2;
     v18 = (__int64)"InteractiveControlManager::GetDeviceSupportedWaveforms entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F15BB,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F4156,
       (__int64)a3,
       (__int64)a4,
       (void **)&v18,
@@ -56,8 +56,8 @@ __int64 __fastcall InteractiveControlManager::GetDeviceSupportedWaveforms(
   v14 = *(_QWORD *)(v13 + 384);
   if ( v14 )
   {
-    v5 = *(_DWORD *)(v14 + 88);
     v6 = *(struct _WAVEFORM_INFO **)(v14 + 80);
+    v5 = *(_DWORD *)(v14 + 88);
   }
   v4 = 1;
 LABEL_11:
@@ -66,13 +66,13 @@ LABEL_11:
     *a3 = v6;
   if ( a4 )
     *a4 = v5;
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     LODWORD(v17) = v15;
     v18 = (__int64)"InteractiveControlManager::GetDeviceSupportedWaveforms exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F1582,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F411D,
       (__int64)a3,
       (__int64)a4,
       (void **)&v18,

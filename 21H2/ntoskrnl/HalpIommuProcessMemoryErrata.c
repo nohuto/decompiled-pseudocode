@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuProcessMemoryErrata @ 0x14051B634
+ * XREFs of HalpIommuProcessMemoryErrata @ 0x1404C9AB4
  * Callers:
- *     HalpIommuProcessReservationsInternal @ 0x14051B720 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1404C9BA0 (HalpIommuProcessReservationsInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __int64 a3)
@@ -28,15 +28,15 @@ __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __i
       {
         for ( k = *(_QWORD *)(a3 + 32); k != a3 + 32; k = *(_QWORD *)k )
         {
-          v10 = *(int *)(k + 24);
+          v10 = *(int *)(k + 16);
           if ( (unsigned int)v10 <= 0x25 )
           {
             v11 = 0x25C0C00048LL;
             if ( _bittest64(&v11, v10) )
               continue;
           }
-          v12 = *(_QWORD *)(k + 32) << 12;
-          if ( *(_QWORD *)v8 <= v12 + (*(_QWORD *)(k + 40) << 12) - 1LL && *(_QWORD *)(v8 + 8) >= v12 )
+          v12 = *(_QWORD *)(k + 24) << 12;
+          if ( *(_QWORD *)v8 <= v12 + (*(_QWORD *)(k + 32) << 12) - 1LL && *(_QWORD *)(v8 + 8) >= v12 )
           {
             v13 = HalpIommuDmaGuardTableOptIn == 0;
             *(_BYTE *)(v8 + 16) = 1;

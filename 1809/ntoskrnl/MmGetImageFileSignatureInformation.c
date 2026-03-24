@@ -6,8 +6,8 @@
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
  *     MiDereferenceControlAreaBySection @ 0x14007645C (MiDereferenceControlAreaBySection.c)
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmGetImageFileSignatureInformation(__int64 a1)

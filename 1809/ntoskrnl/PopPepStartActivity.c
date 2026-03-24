@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepStartActivity @ 0x1400FF43C
+ * XREFs of PopPepStartActivity @ 0x1400FF45C
  * Callers:
- *     PopPepTryPowerDownDevice @ 0x1400FEEFC (PopPepTryPowerDownDevice.c)
- *     PopPepWork @ 0x1400FEFE4 (PopPepWork.c)
- *     PopPepComponentGetWork @ 0x1400FF7D0 (PopPepComponentGetWork.c)
+ *     PopPepTryPowerDownDevice @ 0x1400FEF1C (PopPepTryPowerDownDevice.c)
+ *     PopPepWork @ 0x1400FF004 (PopPepWork.c)
+ *     PopPepComponentGetWork @ 0x1400FF7F0 (PopPepComponentGetWork.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopPepStartActivity(

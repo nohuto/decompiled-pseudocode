@@ -1,38 +1,32 @@
 /*
- * XREFs of PopPowerAggregatorHandleActiveIntent @ 0x1407EB340
+ * XREFs of PopPowerAggregatorHandleActiveIntent @ 0x1408EE2E0
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A9984 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140776874 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PopPowerAggregatorHandleActiveIntent(__int64 a1, __int64 a2)
+__int64 __fastcall PopPowerAggregatorHandleActiveIntent(__int64 a1, _DWORD *a2)
 {
   int v2; // r8d
+  int v3; // r8d
   __int64 result; // rax
-  int v4; // r8d
-  int v5; // r8d
 
-  v2 = *(_DWORD *)(a1 + 16);
-  result = 0LL;
-  if ( !v2 )
+  v2 = *(_DWORD *)(a1 + 24);
+  if ( v2 )
   {
-    *(_OWORD *)a2 = *(_OWORD *)(a1 + 16);
-    *(_OWORD *)(a2 + 16) = *(_OWORD *)(a1 + 32);
-    *(_QWORD *)(a2 + 32) = *(_QWORD *)(a1 + 48);
-    return result;
-  }
-  v4 = v2 - 1;
-  if ( v4 )
-  {
-    v5 = v4 - 1;
-    if ( v5 && v5 != 2 )
+    v3 = v2 - 1;
+    if ( !v3 )
+    {
+      result = *(_BYTE *)(a1 + 64) != 0 ? 0xC0000001 : 0;
+      goto LABEL_7;
+    }
+    if ( v3 != 1 )
       return 3221266435LL;
   }
-  else if ( PopPlatformAoAc && *(_BYTE *)(a1 + 41) )
-  {
-    return 3221225473LL;
-  }
-  *(_DWORD *)a2 = 0;
+  result = 0LL;
+LABEL_7:
+  if ( (int)result >= 0 )
+    *a2 = 0;
   return result;
 }

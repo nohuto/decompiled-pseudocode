@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ReturningHubSuspendFromSuspendedInD3Cold @ 0x1C0012C80
+ * XREFs of HUBPSM20_ReturningHubSuspendFromSuspendedInD3Cold @ 0x1C0011750
  * Callers:
  *     <none>
  * Callees:

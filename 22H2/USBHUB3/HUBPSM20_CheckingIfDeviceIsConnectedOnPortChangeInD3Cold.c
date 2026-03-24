@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold @ 0x1C0011A10
+ * XREFs of HUBPSM20_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold @ 0x1C00105F0
  * Callers:
  *     <none>
  * Callees:

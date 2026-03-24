@@ -1,18 +1,19 @@
 /*
- * XREFs of EngMapFile @ 0x1C028B590
+ * XREFs of EngMapFile @ 0x1C0289C00
  * Callers:
  *     <none>
  * Callees:
- *     bMapFile @ 0x1C028BAB8 (bMapFile.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     bMapFile @ 0x1C028A12C (bMapFile.c)
  */
 
 PVOID __stdcall EngMapFile(LPWSTR pwsz, ULONG cjSize, ULONG_PTR *piFile)
 {
-  void *v4; // rbx
+  void *v3; // rbx
   PVOID *v6; // rdi
 
-  v4 = 0LL;
-  v6 = (PVOID *)Win32AllocPoolZInit(80LL, 1818846791LL);
+  v3 = 0LL;
+  v6 = (PVOID *)PALLOCMEM2(0x50uLL, 1818846791LL, 1);
   if ( v6 )
   {
     if ( (unsigned int)bMapFile(pwsz) )
@@ -26,5 +27,5 @@ PVOID __stdcall EngMapFile(LPWSTR pwsz, ULONG cjSize, ULONG_PTR *piFile)
       Win32FreePool(v6);
     }
   }
-  return v4;
+  return v3;
 }

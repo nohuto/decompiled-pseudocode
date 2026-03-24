@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C0010B3C
+ * XREFs of HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C000F710
  * Callers:
- *     HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C00086E0 (HUBHSM_CheckingPSMInterruptReferencesOnReset.c)
- *     HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt @ 0x1C0008720 (HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt.c)
- *     HUBFDO_EvtDeviceSurpriseRemoval @ 0x1C0078620 (HUBFDO_EvtDeviceSurpriseRemoval.c)
+ *     HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C0007F20 (HUBHSM_CheckingPSMInterruptReferencesOnReset.c)
+ *     HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt @ 0x1C0007F60 (HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt.c)
+ *     HUBFDO_EvtDeviceSurpriseRemoval @ 0x1C0074960 (HUBFDO_EvtDeviceSurpriseRemoval.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBMUX_QueueSurpriseRemovalToAllPSMs(__int64 a1)

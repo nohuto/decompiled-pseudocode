@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C00267FC
+ * XREFs of HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C002634C
  * Callers:
- *     HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake @ 0x1C001D4C0 (HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake.c)
- *     HUBDSM_PurgingDeviceIoOnPrepareForHibernate @ 0x1C001D4F0 (HUBDSM_PurgingDeviceIoOnPrepareForHibernate.c)
+ *     HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake @ 0x1C001CF80 (HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake.c)
+ *     HUBDSM_PurgingDeviceIoOnPrepareForHibernate @ 0x1C001CFB0 (HUBDSM_PurgingDeviceIoOnPrepareForHibernate.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C0023D84 (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl(__int64 *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl(__int64 *a1)
              2u,
              5u,
              0x44u,
-             (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+             (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
              v4);
   }
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDemoteLargeFreeZeroPage @ 0x14016992C
+ * XREFs of MiDemoteLargeFreeZeroPage @ 0x14016994C
  * Callers:
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
  * Callees:

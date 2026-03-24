@@ -1,14 +1,14 @@
 /*
- * XREFs of ?BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z @ 0x1C0021B30
+ * XREFs of ?BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z @ 0x1C00611FC
  * Callers:
- *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C0021924 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
- *     ?PnpSendStartDeviceDownTheStackOverload@FxPkgFdo@@EEAAEXZ @ 0x1C002F5F0 (-PnpSendStartDeviceDownTheStackOverload@FxPkgFdo@@EEAAEXZ.c)
+ *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C007B7F8 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
+ *     ?PnpSendStartDeviceDownTheStackOverload@FxPkgFdo@@EEAAEXZ @ 0x1C0084370 (-PnpSendStartDeviceDownTheStackOverload@FxPkgFdo@@EEAAEXZ.c)
  * Callees:
- *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C00065CC (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z @ 0x1C0014A1C (-Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z.c)
- *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0021C50 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
- *     ??0FxResourceCm@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z @ 0x1C0021EFC (--0FxResourceCm@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z @ 0x1C0018CCC (-Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z.c)
+ *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C0059DF0 (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
+ *     ??0FxResourceCm@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z @ 0x1C005C0C4 (--0FxResourceCm@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z.c)
+ *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0061930 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxCmResList::BuildFromWdmList(
@@ -16,16 +16,14 @@ __int64 __fastcall FxCmResList::BuildFromWdmList(
         _CM_RESOURCE_LIST *WdmResourceList,
         unsigned __int8 AccessFlags)
 {
-  FxCollectionInternal *v3; // r14
+  FxCollectionInternal *v3; // r15
   unsigned int v7; // edi
-  unsigned int Count; // r15d
-  unsigned int v10; // ebx
-  _CM_PARTIAL_RESOURCE_DESCRIPTOR *PartialDescriptors; // rbp
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  FxResourceCm *v13; // rax
-  FxObject *v14; // rax
-  FX_POOL *v15; // rdi
-  FxPoolTypeOrPoolFlags v16; // [rsp+40h] [rbp-28h] BYREF
+  unsigned int Count; // r12d
+  _CM_PARTIAL_RESOURCE_DESCRIPTOR *PartialDescriptors; // r14
+  unsigned int v10; // esi
+  FxResourceCm *v11; // rax
+  FxObject *v12; // rax
+  FxObject *v13; // rbx
 
   v3 = &this->FxCollectionInternal;
   v7 = 0;
@@ -34,24 +32,33 @@ __int64 __fastcall FxCmResList::BuildFromWdmList(
   if ( WdmResourceList )
   {
     Count = WdmResourceList->List[0].PartialResourceList.Count;
-    v10 = 0;
     PartialDescriptors = WdmResourceList->List[0].PartialResourceList.PartialDescriptors;
+    v10 = 0;
     if ( Count )
     {
       while ( 1 )
       {
-        m_Globals = this->m_Globals;
-        *(_QWORD *)&v16.UsePoolType = 0LL;
-        v16.u.PoolFlags = 64LL;
-        v13 = (FxResourceCm *)FxObjectHandleAllocCommon(m_Globals, &v16, 0x90uLL, 0, 0LL, 0, FxObjectTypeInternal);
+        v11 = (FxResourceCm *)FxObjectHandleAlloc(
+                                this->m_Globals,
+                                ExDefaultNonPagedPoolType,
+                                0x90uLL,
+                                0,
+                                0LL,
+                                0,
+                                FxObjectTypeInternal);
+        if ( v11 )
+        {
+          FxResourceCm::FxResourceCm(v11, this->m_Globals, PartialDescriptors);
+          v13 = v12;
+        }
+        else
+        {
+          v13 = 0LL;
+        }
         if ( !v13 )
           break;
-        FxResourceCm::FxResourceCm(v13, this->m_Globals, PartialDescriptors);
-        v15 = (FX_POOL *)v14;
-        if ( !v14 )
-          break;
-        FxObject::AssignParentObject(v14, this);
-        if ( !FxCollectionInternal::Add(v3, this->m_Globals, v15) )
+        FxObject::AssignParentObject(v13, this);
+        if ( !(unsigned __int8)FxCollectionInternal::Add(v3, this->m_Globals, v13) )
           break;
         ++v10;
         ++PartialDescriptors;

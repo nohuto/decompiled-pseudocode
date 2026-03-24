@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5434
+ * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454
  * Callers:
  *     MiApplyImportOptimizationToRuntimeDriver @ 0x140582188 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
@@ -11,11 +11,11 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiLockPageTable @ 0x140192828 (MiLockPageTable.c)
- *     MiUpdateImagePfnImportRelocations @ 0x1401B518C (MiUpdateImagePfnImportRelocations.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiReferenceDriverPage @ 0x1402A6038 (MiReferenceDriverPage.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTable @ 0x140192848 (MiLockPageTable.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x1401B51AC (MiUpdateImagePfnImportRelocations.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReferenceDriverPage @ 0x1402A6138 (MiReferenceDriverPage.c)
  */
 
 __int64 __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __int64 a2, unsigned __int64 a3)

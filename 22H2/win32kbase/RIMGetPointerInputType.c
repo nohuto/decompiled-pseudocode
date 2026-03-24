@@ -1,16 +1,15 @@
 /*
- * XREFs of RIMGetPointerInputType @ 0x1C00E1024
+ * XREFs of RIMGetPointerInputType @ 0x1C015E558
  * Callers:
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C017BC38 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
- *     rimAbShouldButtonContactBeSuppressed @ 0x1C017C268 (rimAbShouldButtonContactBeSuppressed.c)
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C017C440 (rimAbSuppressLowerRankActivityForFrame.c)
- *     RIMUpdatePrimaryDevice @ 0x1C018C4AC (RIMUpdatePrimaryDevice.c)
- *     rimDoUpdateInputGlobalsWorkItem @ 0x1C01A03D4 (rimDoUpdateInputGlobalsWorkItem.c)
- *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01A792C (RIMUpdatePrimaryAndFinalizePointerFlags.c)
- *     rimProcessPointerDeviceButtonContact @ 0x1C01AB8FC (rimProcessPointerDeviceButtonContact.c)
- *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E2DA0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158D94 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ *     rimAbShouldButtonContactBeSuppressed @ 0x1C01593B8 (rimAbShouldButtonContactBeSuppressed.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0159500 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C015FC9C (RIMUpdatePrimaryDevice.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C0178C24 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01795E8 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimProcessPointerDeviceButtonContact @ 0x1C017C51C (rimProcessPointerDeviceButtonContact.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
  */
 
 __int64 __fastcall RIMGetPointerInputType(__int64 a1)
@@ -24,19 +23,10 @@ __int64 __fastcall RIMGetPointerInputType(__int64 a1)
     return 3LL;
   if ( v1 == 7 )
     return 5LL;
-  LOBYTE(v1) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-  if ( (_BYTE)v1 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog,
-      3,
-      1,
-      10,
-      (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids,
-      a1);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v1) = 3;
+    WPP_RECORDER_SF_q((_DWORD)gRimLog, v1, 1, 10, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids, a1);
+  }
   return 1LL;
 }

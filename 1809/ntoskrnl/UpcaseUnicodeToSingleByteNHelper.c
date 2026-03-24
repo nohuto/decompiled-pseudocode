@@ -1,8 +1,8 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1400F4AF0
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1400F4B10
  * Callers:
- *     RtlUpcaseUnicodeToOemN @ 0x14067C280 (RtlUpcaseUnicodeToOemN.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2E0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x14067C260 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2C0 (RtlUpcaseUnicodeToMultiByteN.c)
  * Callees:
  *     <none>
  */

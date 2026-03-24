@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AllocateKernelSection@@YAJKKPEAPEAX@Z @ 0x1C0158294
+ * XREFs of ?AllocateKernelSection@@YAJKKPEAPEAX@Z @ 0x1C013EC6C
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C005ED70 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0027C60 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
  * Callees:
- *     Win32CreateSection @ 0x1C007E7E8 (Win32CreateSection.c)
+ *     Win32CreateSection @ 0x1C006C828 (Win32CreateSection.c)
  */
 
 __int64 __fastcall AllocateKernelSection(int a1, __int64 a2, void **a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DT_GetLongChar@@YAKPEBGHH@Z @ 0x1C025B418
+ * XREFs of ?DT_GetLongChar@@YAKPEBGHH@Z @ 0x1C025E814
  * Callers:
- *     ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025B02C (-DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z.c)
+ *     ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025E428 (-DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z @ 0x1C0220810
+ * XREFs of ?CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z @ 0x1C023D930
  * Callers:
- *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C02210E4 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C013E05C (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
  * Callees:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
  */
 
 __int64 __fastcall CreateScaledWindowShadowFromDIB(struct tagWND *a1, HDC a2, int a3)
 {
-  __int64 DCEx; // rax
-  __int64 v7; // rbx
+  HDC DCEx; // rax
+  HDC v7; // rbx
   __m128i v8; // xmm1
   __int64 v9; // rdx
   unsigned int v10; // r12d
@@ -21,7 +21,7 @@ __int64 __fastcall CreateScaledWindowShadowFromDIB(struct tagWND *a1, HDC a2, in
   __int64 v15; // rdi
   int v16; // ebx
 
-  DCEx = _GetDCEx(a1, 0LL, 3LL);
+  DCEx = (HDC)_GetDCEx(a1, 0LL, 3LL);
   v7 = DCEx;
   if ( !DCEx )
     return 0LL;

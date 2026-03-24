@@ -1,11 +1,10 @@
 /*
- * XREFs of ?CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180079420
+ * XREFs of ?CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006C690
  * Callers:
- *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18007C008 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
+ *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18006C910 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U1@U2@U1@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@34344@Z @ 0x1801AD5C4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@U1@U2@U1@U2@U2@@-$_tlgWriteTemplat.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U1@U2@U1@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@34344@Z @ 0x180153838 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@U1@U2@U1@U2@U2@@-$_tlgWriteTemplat.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(CPartitionVerticalBlankScheduler *this)
@@ -17,10 +16,10 @@ void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(
   unsigned int v6; // esi
   __int64 v7; // rax
   DWORD CurrentProcessId; // r12d
+  int v9; // ecx
+  int v10; // r8d
+  int v11; // r9d
   signed int LastError; // eax
-  int v10; // ecx
-  int v11; // r8d
-  int v12; // r9d
   int v13; // eax
   DWORD v14; // [rsp+60h] [rbp-9h] BYREF
   __int64 v15; // [rsp+68h] [rbp-1h] BYREF
@@ -33,24 +32,24 @@ void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(
   unsigned int v22; // [rsp+E0h] [rbp+77h] BYREF
   DWORD v23; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v1 = *((unsigned int *)this + 1127);
+  v1 = *((unsigned int *)this + 1257);
   if ( (_DWORD)v1 != -1 )
   {
     v3 = (unsigned int)CCommonRegistryData::Scene::SceneVisualCutoffThresholdInMS;
-    v4 = *((_QWORD *)this + 34 * v1 + 21);
-    v5 = (*((_QWORD *)this + 34 * v1 + 29) - *((_QWORD *)this + 34 * v1 + 26)) / g_qpcFrequencyPerMillisecond.QuadPart;
-    if ( *((_BYTE *)this + 272 * v1 + 301)
+    v4 = *((_QWORD *)this + 38 * v1 + 22);
+    v5 = (*((_QWORD *)this + 38 * v1 + 30) - *((_QWORD *)this + 38 * v1 + 27)) / g_qpcFrequencyPerMillisecond.QuadPart;
+    if ( *((_BYTE *)this + 304 * v1 + 293)
       && v5 > (unsigned int)CCommonRegistryData::Scene::SceneVisualCutoffThresholdInMS )
     {
-      ++*((_DWORD *)this + 4300);
+      ++*((_DWORD *)this + 3986);
       v6 = CCommonRegistryData::Scene::SceneVisualCutoffCountOfConsecutiveIncidentsAllowed;
-      if ( !(*((_DWORD *)this + 4300)
+      if ( !(*((_DWORD *)this + 3986)
            % (unsigned int)CCommonRegistryData::Scene::SceneVisualCutoffCountOfConsecutiveIncidentsAllowed) )
       {
         v7 = *((_QWORD *)this + 8);
-        if ( v4 > *(_QWORD *)(v7 + 296) )
+        if ( v4 > *(_QWORD *)(v7 + 160) )
         {
-          *(_QWORD *)(v7 + 296) = v4;
+          *(_QWORD *)(v7 + 160) = v4;
           CurrentProcessId = GetCurrentProcessId();
           if ( !ProcessIdToSessionId(CurrentProcessId, &pSessionId) )
           {
@@ -61,9 +60,11 @@ void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(
               LastError = -2003304445;
             ModuleFailFastForHRESULT((unsigned int)LastError, retaddr);
           }
-          if ( (unsigned int)dword_1803D1270 > 5 && tlgKeywordOn((__int64)&dword_1803D1270, 0x400000000000LL) )
+          if ( (unsigned int)dword_180344E80 > 5
+            && (qword_180344E90 & 0x400000000000LL) != 0
+            && (qword_180344E98 & 0x400000000000LL) == qword_180344E98 )
           {
-            v13 = *((_DWORD *)this + 4300) / v6;
+            v13 = *((_DWORD *)this + 3986) / v6;
             v15 = 0x1000000LL;
             v21 = v13;
             v23 = pSessionId;
@@ -73,10 +74,10 @@ void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(
             v18[0] = v3;
             v14 = CurrentProcessId;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+              v9,
+              (unsigned int)&unk_1802E3B7A,
               v10,
-              (unsigned int)&unk_18036B333,
               v11,
-              v12,
               (__int64)&v14,
               (__int64)&v23,
               (__int64)v18,
@@ -91,7 +92,7 @@ void __fastcall CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(
     }
     else
     {
-      *((_DWORD *)this + 4300) = 0;
+      *((_DWORD *)this + 3986) = 0;
     }
   }
 }

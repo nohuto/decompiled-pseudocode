@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C014913C
+ * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0156FE8
  * Callers:
- *     NtGdiAlphaBlend @ 0x1C0039BB0 (NtGdiAlphaBlend.c)
- *     NtGdiTransparentBlt @ 0x1C0148400 (NtGdiTransparentBlt.c)
- *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C02797A8 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C00851E0 (NtGdiAlphaBlend.c)
+ *     NtGdiTransparentBlt @ 0x1C0156210 (NtGdiTransparentBlt.c)
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027BC58 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall `vector destructor iterator'(char *a1, __int64 a2, __int64 a3, void (__fastcall *a4)(char *))

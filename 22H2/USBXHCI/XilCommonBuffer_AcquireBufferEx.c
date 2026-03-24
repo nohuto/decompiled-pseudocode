@@ -1,22 +1,17 @@
 /*
- * XREFs of XilCommonBuffer_AcquireBufferEx @ 0x1C001BB4C
+ * XREFs of XilCommonBuffer_AcquireBufferEx @ 0x1C00165F0
  * Callers:
- *     XilEndpoint_AcquireBuffer @ 0x1C001BA40 (XilEndpoint_AcquireBuffer.c)
- *     XilCoreUsbDevice_Create @ 0x1C001BA78 (XilCoreUsbDevice_Create.c)
- *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038ADC (XilEndpoint_AllocateStreamContextArray.c)
- *     Interrupter_PrepareInterrupter @ 0x1C007279C (Interrupter_PrepareInterrupter.c)
+ *     XilEndpoint_AcquireBuffer @ 0x1C00164E4 (XilEndpoint_AcquireBuffer.c)
+ *     XilCoreUsbDevice_Create @ 0x1C001651C (XilCoreUsbDevice_Create.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C003701C (XilEndpoint_AllocateStreamContextArray.c)
+ *     Interrupter_PrepareInterrupter @ 0x1C006EC08 (Interrupter_PrepareInterrupter.c)
  * Callees:
- *     CommonBuffer_AcquireBuffer @ 0x1C0013090 (CommonBuffer_AcquireBuffer.c)
- *     CommonBuffer_AcquireSecureBuffer @ 0x1C00320B8 (CommonBuffer_AcquireSecureBuffer.c)
- *     CommonBuffer_AcquireShadowBuffer @ 0x1C003219C (CommonBuffer_AcquireShadowBuffer.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C0030530 (CommonBuffer_AcquireSecureBuffer.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003062C (CommonBuffer_AcquireShadowBuffer.c)
  */
 
-__int64 __fastcall XilCommonBuffer_AcquireBufferEx(
-        struct _KEVENT *a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        int a5)
+__int64 __fastcall XilCommonBuffer_AcquireBufferEx(void *a1, unsigned int a2, __int64 a3, unsigned int a4, int a5)
 {
   switch ( a5 )
   {

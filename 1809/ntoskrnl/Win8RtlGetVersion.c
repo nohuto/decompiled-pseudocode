@@ -1,9 +1,9 @@
 /*
- * XREFs of Win8RtlGetVersion @ 0x140849820
+ * XREFs of Win8RtlGetVersion @ 0x140849800
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetVersion @ 0x1406B4750 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
  */
 
 NTSTATUS __fastcall Win8RtlGetVersion(struct _OSVERSIONINFOW *a1)

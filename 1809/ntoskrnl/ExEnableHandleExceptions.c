@@ -1,8 +1,8 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x1406C4BA8
+ * XREFs of ExEnableHandleExceptions @ 0x1406C4B88
  * Callers:
- *     PspApplyMitigationOptions @ 0x14064DDB0 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x14064DD90 (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

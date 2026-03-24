@@ -1,14 +1,13 @@
 /*
- * XREFs of MiDetermineNewPfnHeatState @ 0x1403473F8
+ * XREFs of MiDetermineNewPfnHeatState @ 0x1403F7400
  * Callers:
- *     MiDetermineCoalescedLargePageHeatState @ 0x1403473B8 (MiDetermineCoalescedLargePageHeatState.c)
- *     MiCreatePfnTemplate @ 0x140375BA4 (MiCreatePfnTemplate.c)
- *     MiInitializeNewPfns @ 0x140375DC0 (MiInitializeNewPfns.c)
- *     MiEnableNewPfns @ 0x14061A9D0 (MiEnableNewPfns.c)
- *     MiInitializeDynamicPfns @ 0x14061AF68 (MiInitializeDynamicPfns.c)
- *     MxCreateFreePfns @ 0x140B45DA0 (MxCreateFreePfns.c)
+ *     MiCreatePfnTemplate @ 0x1403AC244 (MiCreatePfnTemplate.c)
+ *     MiLargePagePromote @ 0x1403F6418 (MiLargePagePromote.c)
+ *     MiEnableNewPfns @ 0x14052DFA0 (MiEnableNewPfns.c)
+ *     MiInitializeDynamicPfns @ 0x14052E4E0 (MiInitializeDynamicPfns.c)
+ *     MxCreateFreePfns @ 0x140A432FC (MxCreateFreePfns.c)
  * Callees:
- *     MiColdPageSizeSupported @ 0x140347440 (MiColdPageSizeSupported.c)
+ *     MiColdPageSizeSupported @ 0x1403F73D8 (MiColdPageSizeSupported.c)
  */
 
 __int64 __fastcall MiDetermineNewPfnHeatState(int a1, unsigned int a2)

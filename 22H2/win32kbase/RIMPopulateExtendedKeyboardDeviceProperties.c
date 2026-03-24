@@ -1,37 +1,37 @@
 /*
- * XREFs of RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C00C33A0
+ * XREFs of RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C006CA68
  * Callers:
- *     RIMCreateDev @ 0x1C00C874C (RIMCreateDev.c)
+ *     RIMCreateDev @ 0x1C0055530 (RIMCreateDev.c)
  * Callees:
- *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006C974 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
- *     RIMRegOpenDeviceInstanceKey @ 0x1C006DB88 (RIMRegOpenDeviceInstanceKey.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006D120 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C006D818 (RIMRegOpenDeviceInstanceKey.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-int __fastcall RIMPopulateExtendedKeyboardDeviceProperties(__int64 a1, int a2, int a3)
+int __fastcall RIMPopulateExtendedKeyboardDeviceProperties(__int64 a1)
 {
-  int v3; // ebx
-  void *v5; // rax
-  void *v6; // rsi
-  int v8; // [rsp+40h] [rbp+8h] BYREF
+  int v1; // ebx
+  void *v3; // rax
+  void *v4; // rsi
+  int v6; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = 0;
+  v1 = 0;
   if ( (*(_DWORD *)(a1 + 184) & 0x2000) != 0 )
   {
-    v8 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 241LL);
+    v6 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 293LL);
   }
-  v5 = RIMRegOpenDeviceInstanceKey(a1, a2, a3);
-  v6 = v5;
-  if ( v5 )
+  v3 = (void *)RIMRegOpenDeviceInstanceKey(a1);
+  v4 = v3;
+  if ( v3 )
   {
-    v8 = 1;
-    if ( ReadDevicePropertyFromRegistry(L"HasPhysicalKeys", v5, 0LL, 1, &v8) )
+    v6 = 1;
+    if ( ReadDevicePropertyFromRegistry(L"HasPhysicalKeys", v3, 0LL, 1, &v6) )
     {
-      LOBYTE(v3) = v8 == 0;
-      *(_DWORD *)(a1 + 492) = v3 | *(_DWORD *)(a1 + 492) & 0xFFFFFFFE;
+      LOBYTE(v1) = v6 == 0;
+      *(_DWORD *)(a1 + 500) = v1 | *(_DWORD *)(a1 + 500) & 0xFFFFFFFE;
     }
-    LODWORD(v5) = ZwClose(v6);
+    LODWORD(v3) = ZwClose(v4);
   }
-  return (int)v5;
+  return (int)v3;
 }

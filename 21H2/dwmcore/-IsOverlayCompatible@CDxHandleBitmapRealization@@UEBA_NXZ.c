@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOverlayCompatible@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1800116B0
+ * XREFs of ?IsOverlayCompatible@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x18001AF60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDxHandleBitmapRealization::IsOverlayCompatible(CDxHandleBitmapRealization *this)
 {
-  return (*((_DWORD *)this - 32) & 0x40) != 0;
+  return (*((_DWORD *)this - 29) & 0x40) != 0;
 }

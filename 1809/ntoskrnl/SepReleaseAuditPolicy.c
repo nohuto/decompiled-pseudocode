@@ -1,5 +1,5 @@
 /*
- * XREFs of SepReleaseAuditPolicy @ 0x1408A0294
+ * XREFs of SepReleaseAuditPolicy @ 0x1408A0274
  * Callers:
  *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
  * Callees:

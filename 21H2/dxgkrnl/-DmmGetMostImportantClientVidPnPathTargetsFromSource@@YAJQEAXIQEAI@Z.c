@@ -1,92 +1,95 @@
 /*
- * XREFs of ?DmmGetMostImportantClientVidPnPathTargetsFromSource@@YAJQEAXIQEAI@Z @ 0x1C01A027C
+ * XREFs of ?DmmGetMostImportantClientVidPnPathTargetsFromSource@@YAJQEAXIQEAI@Z @ 0x1C012622C
  * Callers:
- *     ?SetContentRect@ADAPTER_DISPLAY@@QEAAXIQEBUtagRECT@@@Z @ 0x1C001DF68 (-SetContentRect@ADAPTER_DISPLAY@@QEAAXIQEBUtagRECT@@@Z.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C01A3640 (DxgkGetAdapterDeviceDesc.c)
- *     ?Initialize@VIDPNSOURCEINFO@@QEAAJPEAVDXGADAPTER@@I@Z @ 0x1C02EF3C8 (-Initialize@VIDPNSOURCEINFO@@QEAAJPEAVDXGADAPTER@@I@Z.c)
- *     ?OutputDuplPreIndirectPresent@@YAJPEAVDXGDEVICE@@IPEAPEAVDXGADAPTER@@PEA_K@Z @ 0x1C0322E18 (-OutputDuplPreIndirectPresent@@YAJPEAVDXGDEVICE@@IPEAPEAVDXGADAPTER@@PEA_K@Z.c)
+ *     ?SetContentRect@ADAPTER_DISPLAY@@QEAAXIQEBUtagRECT@@@Z @ 0x1C000D1C4 (-SetContentRect@ADAPTER_DISPLAY@@QEAAXIQEBUtagRECT@@@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C0112950 (DxgkGetAdapterDeviceDesc.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C000F08C (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z @ 0x1C01A0358 (-GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C00056AC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z @ 0x1C01262F0 (-GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z.c)
  */
 
-__int64 __fastcall DmmGetMostImportantClientVidPnPathTargetsFromSource(
-        _QWORD *a1,
-        unsigned int a2,
-        unsigned int *const a3)
+__int64 __fastcall DmmGetMostImportantClientVidPnPathTargetsFromSource(_QWORD *a1, __int64 a2, unsigned int *const a3)
 {
+  unsigned int v4; // ebp
   __int64 v6; // rdi
   __int64 v7; // rdi
   __int64 v8; // rax
   __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // r8
   unsigned int MostImportantVidPnPathTargetsFromSource; // ebx
-  __int64 v12; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v13; // rdx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v20; // [rsp+58h] [rbp+20h] BYREF
 
+  v4 = a2;
   if ( !a3 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v15 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v15 + 24) = 0LL;
+    WdLogEvent5_WdError(v15);
     return 3221225485LL;
   }
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v16 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v16 + 24) = 0LL;
+LABEL_14:
+    WdLogEvent5_WdError(v16);
     return 3223191554LL;
   }
-  v6 = a1[349];
+  v6 = a1[337];
   if ( !v6 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v16 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v16 + 24) = a1;
+    goto LABEL_14;
   }
-  v7 = *(_QWORD *)(v6 + 104);
+  v7 = *(_QWORD *)(v6 + 88);
   if ( v7 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v13, v7);
-    v8 = *(_QWORD *)(v7 + 128);
-    v12 = 0LL;
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v20, v7);
+    v8 = *(_QWORD *)(v7 + 88);
+    v19 = 0LL;
     if ( v8 )
     {
       _InterlockedIncrement((volatile signed __int32 *)(v8 + 32));
-      v9 = *(_QWORD *)(v7 + 128);
+      v9 = *(_QWORD *)(v7 + 88);
     }
     else
     {
       v9 = 0LL;
     }
-    auto_rc<DMMVIDPN const>::reset(&v12, v9);
-    if ( v12 )
+    auto_rc<DMMVIDPN const>::reset(&v19, v9);
+    if ( v19 )
     {
       MostImportantVidPnPathTargetsFromSource = GetMostImportantVidPnPathTargetsFromSource(
-                                                  (const struct DMMVIDPNTOPOLOGY *)(v12 + 96),
-                                                  a2,
+                                                  (const struct DMMVIDPNTOPOLOGY *)(v19 + 96),
+                                                  v4,
                                                   a3);
     }
     else
     {
-      WdLogSingleEntry1(3LL, a1);
+      v18 = WdLogNewEntry5_WdWarning(0LL, v10, v11);
+      *(_QWORD *)(v18 + 24) = a1;
+      WdLogEvent5_WdWarning(v18);
       MostImportantVidPnPathTargetsFromSource = -1071774973;
     }
-    auto_rc<DMMVIDPN const>::reset(&v12, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v13 + 40));
+    auto_rc<DMMVIDPN const>::reset(&v19, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v20 + 40), v13);
     return MostImportantVidPnPathTargetsFromSource;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v17 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v17 + 24) = a1;
+    WdLogEvent5_WdError(v17);
     return 3223192373LL;
   }
 }

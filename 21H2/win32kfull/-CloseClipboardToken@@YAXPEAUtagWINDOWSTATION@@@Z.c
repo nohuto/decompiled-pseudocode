@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C00CD83C
+ * XREFs of ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C0123C38
  * Callers:
- *     xxxCloseClipboard @ 0x1C00CCFD0 (xxxCloseClipboard.c)
- *     FreeWindowStation @ 0x1C011E7C0 (FreeWindowStation.c)
+ *     xxxCloseClipboard @ 0x1C002FE50 (xxxCloseClipboard.c)
+ *     FreeWindowStation @ 0x1C0123A60 (FreeWindowStation.c)
  * Callees:
  *     <none>
  */
@@ -17,14 +17,8 @@ void __fastcall CloseClipboardToken(struct tagWINDOWSTATION *a1)
   {
     v3 = *((_DWORD *)a1 + 16);
     if ( (v3 & 0x400) != 0 )
-    {
       *((_DWORD *)a1 + 16) = v3 & 0xFFFFFBFF;
-      ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-    }
-    else
-    {
-      ObfDereferenceObject(v2);
-    }
+    ObfDereferenceObject(v2);
     *((_QWORD *)a1 + 20) = 0LL;
   }
 }

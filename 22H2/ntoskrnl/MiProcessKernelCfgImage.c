@@ -1,37 +1,36 @@
 /*
- * XREFs of MiProcessKernelCfgImage @ 0x140367C60
+ * XREFs of MiProcessKernelCfgImage @ 0x1403725A4
  * Callers:
- *     MiFinalizeDriverCfgState @ 0x1407E35A8 (MiFinalizeDriverCfgState.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
+ *     MiFinalizeDriverCfgState @ 0x14075C0A8 (MiFinalizeDriverCfgState.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiProcessKernelCfgAddressTakenImports @ 0x140A440DC (MiProcessKernelCfgAddressTakenImports.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     MiMarkKernelImageCfgBits @ 0x140772E64 (MiMarkKernelImageCfgBits.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x1408D7910 (MiProcessKernelCfgAddressTakenImports.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgImage(__int64 a1, char a2, __int64 a3)
 {
-  unsigned int v3; // ebx
   __int64 result; // rax
-  int v8; // eax
-  __int64 v9; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v7; // [rsp+48h] [rbp+20h] BYREF
 
-  v3 = 0;
-  v9 = 0LL;
-  if ( (MiFlags & 0x40000) == 0 )
+  v7 = 0LL;
+  if ( (MiFlags & 0x80000) == 0 )
     return 0LL;
-  RtlImageNtHeaderEx(1, *(_QWORD *)(a1 + 48), 0LL, &v9);
+  RtlImageNtHeaderEx(1, *(_QWORD *)(a1 + 48), 0LL, &v7);
   if ( (*(_DWORD *)(a1 + 104) & 0x2000) == 0 )
   {
-    result = MiMarkKernelImageCfgBits(a1, v9);
+    result = MiMarkKernelImageCfgBits(a1, v7);
     if ( (int)result < 0 )
       return result;
     *(_DWORD *)(a1 + 104) |= 0x2000u;
   }
-  if ( !a3 || (a2 & 8) != 0 )
+  if ( !a3 )
     return 0LL;
-  v8 = MiProcessKernelCfgAddressTakenImports(a1);
-  if ( v8 < 0 )
-    return (unsigned int)v8;
-  return v3;
+  if ( (a2 & 8) != 0 )
+    return 0LL;
+  result = MiProcessKernelCfgAddressTakenImports(a1);
+  if ( (int)result >= 0 )
+    return 0LL;
+  return result;
 }

@@ -1,16 +1,13 @@
 /*
- * XREFs of _SetWinEventHook @ 0x1C0070AC4
+ * XREFs of _SetWinEventHook @ 0x1C00225C4
  * Callers:
- *     NtUserSetWinEventHook @ 0x1C0070880 (NtUserSetWinEventHook.c)
+ *     NtUserSetWinEventHook @ 0x1C00224A0 (NtUserSetWinEventHook.c)
  * Callees:
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ??0?$ObjectLockBase@$$V@?$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@?$DomainSharedBase@$$V@@IEAA@XZ @ 0x1C0070F78 (--0-$ObjectLockBase@$$V@-$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@-$DomainSharedBase@$$V@@IEAA@.c)
- *     CategoryMaskFromEventRange @ 0x1C0070FCC (CategoryMaskFromEventRange.c)
- *     AddHmodDependency @ 0x1C007154C (AddHmodDependency.c)
- *     GetHmodTableIndex @ 0x1C007163C (GetHmodTableIndex.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     AddHmodDependency @ 0x1C00203A8 (AddHmodDependency.c)
+ *     GetHmodTableIndex @ 0x1C00203EC (GetHmodTableIndex.c)
+ *     CategoryMaskFromEventRange @ 0x1C002281C (CategoryMaskFromEventRange.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -18,127 +15,89 @@ __int64 __fastcall SetWinEventHook(
         unsigned int a1,
         unsigned int a2,
         __int64 a3,
-        __int64 a4,
+        ULONG64 a4,
         __int64 a5,
         __int64 a6,
         unsigned int a7,
         char a8)
 {
-  struct tagTHREADINFO *v12; // r15
-  int HmodTableIndex; // esi
-  __int64 v14; // r8
-  int v15; // edi
-  char *v16; // rbx
-  tagDomLock *v17; // rcx
-  __int64 v18; // rdi
-  unsigned int v19; // eax
-  __int64 v20; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v26; // [rsp+28h] [rbp-70h]
-  tagDomLock *v27; // [rsp+30h] [rbp-68h] BYREF
-  char v28; // [rsp+38h] [rbp-60h] BYREF
-  char v29; // [rsp+58h] [rbp-40h]
+  __int64 v8; // r12
+  int HmodTableIndex; // edi
+  __int64 v11; // rax
+  __int64 v12; // rbx
+  int v13; // ecx
+  int v14; // eax
+  __int64 v15; // r8
+  __int64 v17; // rax
+  __int64 v18; // rcx
 
-  v26 = a3;
-  if ( !tagDomLock::IsLockedExclusive((PERESOURCE *)gDomainWinEventLock) )
-    __int2c();
-  v12 = PtiCurrentShared();
-  if ( (*((_DWORD *)v12 + 122) & 1) != 0 )
+  v8 = a3;
+  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 1) != 0 )
     return 0LL;
   if ( !a5 )
   {
-    v23 = 1427LL;
-    goto LABEL_34;
+    v18 = 1427LL;
+LABEL_20:
+    UserSetLastError(v18);
+    return 0LL;
   }
   if ( a1 > a2 )
   {
-    v23 = 1426LL;
-    goto LABEL_34;
+    v18 = 1426LL;
+    goto LABEL_20;
   }
-  if ( (a8 & 4) == 0 )
+  if ( (a8 & 4) != 0 )
+  {
+    if ( !a3 )
+    {
+      v18 = 1428LL;
+      goto LABEL_20;
+    }
+    if ( !a4 )
+    {
+      v18 = 1157LL;
+      goto LABEL_20;
+    }
+    HmodTableIndex = GetHmodTableIndex(a4);
+    if ( HmodTableIndex == -1 )
+    {
+      v18 = 126LL;
+      goto LABEL_20;
+    }
+  }
+  else
   {
     HmodTableIndex = -1;
-    v26 = 0LL;
-    goto LABEL_8;
+    v8 = 0LL;
   }
-  if ( !a3 )
-  {
-    v23 = 1428LL;
-    goto LABEL_34;
-  }
-  if ( !a4 )
-  {
-    v23 = 1157LL;
-    goto LABEL_34;
-  }
-  HmodTableIndex = GetHmodTableIndex(a4);
-  if ( HmodTableIndex == -1 )
-  {
-    v23 = 126LL;
-LABEL_34:
-    UserSetLastError(v23);
-    return 0LL;
-  }
-LABEL_8:
   if ( a7 )
   {
-    v22 = PtiFromThreadId(a7);
-    if ( !v22 || (*(_DWORD *)(v22 + 488) & 0x1000000) == 0 )
+    v17 = PtiFromThreadId(a7);
+    if ( !v17 || (*(_DWORD *)(v17 + 488) & 0x1000000) == 0 )
     {
-      v23 = 1444LL;
-      goto LABEL_34;
+      v18 = 1444LL;
+      goto LABEL_20;
     }
   }
-  DomainSharedBase<>::DomainExclusiveBase<DLT_HANDLEMANAGER>::ObjectLockBase<>::ObjectLockBase<>(&v27);
-  if ( !v29 )
-  {
-    v15 = 0;
-    v16 = &v28;
-    do
-    {
-      v17 = (tagDomLock *)*((_QWORD *)v16 - 1);
-      if ( v17 )
-      {
-        if ( *v16 )
-          tagDomLock::LockExclusive(v17);
-        else
-          tagDomLock::LockShared(v17);
-      }
-      ++v15;
-      v16 += 16;
-    }
-    while ( !v15 );
-    v29 = 1;
-  }
-  LOBYTE(v14) = 15;
-  v18 = HMAllocObject(v12, 0LL, v14);
-  if ( v29 )
-  {
-    if ( v27 )
-    {
-      if ( v28 )
-        tagDomLock::UnLockExclusive(v27);
-      else
-        tagDomLock::UnLockShared(v27);
-    }
-    v29 = 0;
-  }
-  if ( !v18 )
+  LOBYTE(a3) = 15;
+  v11 = HMAllocObject(gptiCurrent, 0LL, a3);
+  v12 = v11;
+  if ( !v11 )
     return 0LL;
-  *(_DWORD *)(v18 + 32) = a1;
-  v19 = *(_DWORD *)(v18 + 40) & 0xFFFFFFF0;
-  *(_DWORD *)(v18 + 36) = a2;
-  *(_DWORD *)(v18 + 56) = a7;
-  *(_QWORD *)(v18 + 48) = a6;
-  *(_DWORD *)(v18 + 72) = HmodTableIndex;
-  *(_DWORD *)(v18 + 40) = (2 * (a8 & 0xB)) | v19 & 0xFFFFFFEF | ((a8 & 4) != 0 ? 8 : 0);
+  v13 = *(_DWORD *)(v11 + 40);
+  *(_DWORD *)(v11 + 32) = a1;
+  *(_DWORD *)(v11 + 36) = a2;
+  *(_QWORD *)(v11 + 48) = a6;
+  *(_DWORD *)(v11 + 56) = a7;
+  *(_DWORD *)(v11 + 72) = HmodTableIndex;
+  *(_DWORD *)(v11 + 40) = (2 * (a8 & 0xB)) | v13 & 0xFFFFFFE0 | ((a8 & 4) != 0 ? 8 : 0);
   if ( HmodTableIndex >= 0 )
-    AddHmodDependency((unsigned int)HmodTableIndex);
-  *(_QWORD *)(v18 + 64) = a5 - v26;
-  *(_QWORD *)(v18 + 24) = gpWinEventHooks;
-  gpWinEventHooks = v18;
-  *(_DWORD *)(gpsi + 1892LL) |= CategoryMaskFromEventRange(a1, a2);
-  *(_DWORD *)(v18 + 76) = W32GetCurrentThreadDpiAwarenessContext(v20);
-  return v18;
+    AddHmodDependency(HmodTableIndex);
+  *(_QWORD *)(v12 + 64) = a5 - v8;
+  *(_QWORD *)(v12 + 24) = gpWinEventHooks;
+  gpWinEventHooks = v12;
+  v14 = CategoryMaskFromEventRange(a1, a2, gpsi);
+  *(_DWORD *)(v15 + 1892) |= v14;
+  *(_DWORD *)(v12 + 88) = W32GetCurrentThreadDpiAwarenessContext();
+  return v12;
 }

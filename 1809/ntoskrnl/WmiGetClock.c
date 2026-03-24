@@ -1,10 +1,10 @@
 /*
- * XREFs of WmiGetClock @ 0x14030ED10
+ * XREFs of WmiGetClock @ 0x14030EE10
  * Callers:
  *     <none>
  * Callees:
  *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall WmiGetClock(int a1)

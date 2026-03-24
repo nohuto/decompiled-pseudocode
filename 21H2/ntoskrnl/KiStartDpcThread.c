@@ -1,13 +1,13 @@
 /*
- * XREFs of KiStartDpcThread @ 0x140829870
+ * XREFs of KiStartDpcThread @ 0x14079F674
  * Callers:
- *     KiInitializeDynamicProcessor @ 0x140A693D8 (KiInitializeDynamicProcessor.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     KiInitializeDynamicProcessor @ 0x1409AF320 (KiInitializeDynamicProcessor.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall KiStartDpcThread(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall KiStartDpcThread(__int64 a1)
   WORD4(v6) = v1;
   *(_QWORD *)&v6 = *(_QWORD *)(a1 + 200);
   v3 = PsCreateSystemThreadEx(
-         (int)&Handle,
+         (__int64)&Handle,
          0x1FFFFF,
          0LL,
          0LL,
@@ -34,8 +34,8 @@ __int64 __fastcall KiStartDpcThread(__int64 a1)
          (_DWORD *)(a1 + 36));
   if ( v3 < 0 )
   {
-    if ( KeDpcWatchdogPeriodMs )
-      KeCancelTimer((PKTIMER)(a1 + 34328));
+    if ( KeDpcWatchdogPeriod )
+      KeCancelTimer((PKTIMER)(a1 + 33432));
   }
   else
   {

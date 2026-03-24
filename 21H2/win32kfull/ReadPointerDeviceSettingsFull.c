@@ -1,14 +1,14 @@
 /*
- * XREFs of ReadPointerDeviceSettingsFull @ 0x1C00A08E4
+ * XREFs of ReadPointerDeviceSettingsFull @ 0x1C00E0A64
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?IsFlicksDisabledByGroupPolicy@@YAHXZ @ 0x1C00A0B30 (-IsFlicksDisabledByGroupPolicy@@YAHXZ.c)
- *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00A122C (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
- *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0112E5C (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0112FC8 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     ?LoadPointerDevicePenSettings@@YAHXZ @ 0x1C0122790 (-LoadPointerDevicePenSettings@@YAHXZ.c)
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210AC8 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?IsFlicksDisabledByGroupPolicy@@YAHXZ @ 0x1C00E1394 (-IsFlicksDisabledByGroupPolicy@@YAHXZ.c)
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00E1B38 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C00E1DE0 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C01331E4 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?LoadPointerDevicePenSettings@@YAHXZ @ 0x1C0137058 (-LoadPointerDevicePenSettings@@YAHXZ.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02094DC (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
  */
 
 __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __int16 *a3, unsigned int a4)
@@ -51,8 +51,8 @@ __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __
   {
     if ( !gPenMonitor )
       LoadPointerDevicePenSettings();
-    v10 = off_1C0326038;
-    v11 = *((__m128i *)off_1C0326038 + 6);
+    v10 = off_1C032B038;
+    v11 = *((__m128i *)off_1C032B038 + 6);
     v12 = (unsigned int)IsFlicksDisabledByGroupPolicy() == 0;
     v13 = *((_DWORD *)v10 + 3);
     v14 = _mm_cvtsi128_si32(_mm_srli_si128(v11, 12));
@@ -94,9 +94,9 @@ __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __
   v7 = v6 - 2;
   if ( !v7 )
   {
-    v30 = off_1C03266A8;
+    v30 = off_1C032B678;
     if ( !gModeMonitor )
-      GetDWORDSettingValues(7LL, off_1C03266A8, 7LL);
+      GetDWORDSettingValues(7LL, off_1C032B678, 7LL);
     v31 = *((_DWORD *)v30 + 3);
     if ( v31 == -1 )
       v31 = *((_DWORD *)v30 + 2);
@@ -136,11 +136,11 @@ __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __
   if ( v23 == 2 )
   {
     if ( !gPredictionMonitor )
-      gPredictionMonitor = (int)CreatePredictionSettings(off_1C0326018, a2, a3, a4) >= 0;
+      gPredictionMonitor = (int)CreatePredictionSettings(off_1C032B018, a2, a3, a4) >= 0;
     if ( gPredictionMonitor == 1 )
     {
-      v24 = off_1C0326018;
-      GetPredictionSettings(off_1C0326018, a2, a3, a4);
+      v24 = off_1C032B018;
+      GetPredictionSettings(off_1C032B018, a2, a3, a4);
       v25 = *((_DWORD *)v24 + 3);
       v26 = 60;
       if ( v25 == -1 )
@@ -154,7 +154,7 @@ __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __
           v27 = *((_DWORD *)v24 + 3);
       }
       *(_DWORD *)(a2 + 4) = v27;
-      HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = v27;
+      glTOUCH_DRIVER_HW_STACK_LATENCY = v27;
       v28 = *((_DWORD *)v24 + 7);
       if ( v28 == -1 )
       {
@@ -165,12 +165,12 @@ __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, __int64 a2, unsigned __
         v26 = *((_DWORD *)v24 + 7);
       }
       *(_DWORD *)(a2 + 8) = v26;
-      LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = v26;
+      glTOUCH_DRIVER_HW_STACK_SAMPLETIME = v26;
       v29 = *((_DWORD *)v24 + 11);
       if ( v29 == -1 )
         v29 = *((_DWORD *)v24 + 10);
       *(_DWORD *)(a2 + 12) = v29;
-      LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = v29;
+      gbTOUCH_DRIVER_HW_STACK_TIMESTAMP = v29;
       return 1;
     }
   }

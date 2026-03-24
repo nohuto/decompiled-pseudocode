@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1402DEB90
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1402645A0
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x140779850 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     RealSuccessor @ 0x1402DEC9C (RealSuccessor.c)
- *     FindNodeOrParent_0 @ 0x1402DF210 (FindNodeOrParent_0.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RealSuccessor @ 0x1402646C0 (RealSuccessor.c)
+ *     FindNodeOrParent @ 0x140264DDC (FindNodeOrParent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -19,20 +19,23 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
         PVOID Buffer)
 {
   bool v7; // zf
+  ULONG v8; // ebp
   PVOID *v9; // rsi
-  PVOID *v12; // rbx
+  char *v12; // rbx
   PULONG v13; // r14
-  __int64 (__fastcall *v14)(PRTL_AVL_TABLE, PVOID *, PVOID); // r15
-  PVOID *v15; // rcx
-  __int64 v16; // rdx
-  int v17; // ecx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int NodeOrParent_0; // eax
+  __int64 (__fastcall *v14)(PRTL_AVL_TABLE, char *, PVOID); // r15
+  unsigned int v15; // eax
+  char *v16; // rcx
+  __int64 v17; // rdx
+  int v18; // ecx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  int NodeOrParent; // eax
 
   v7 = Table->NumberGenericTableElements == 0;
+  v8 = NextFlag;
   v9 = RestartKey;
-  v12 = (PVOID *)*RestartKey;
+  v12 = (char *)*RestartKey;
   RestartKey = (PVOID *)*RestartKey;
   if ( v7 )
   {
@@ -40,53 +43,51 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
     return 0LL;
   }
   v13 = DeleteCount;
-  v14 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID *, PVOID))HalSystemVectorDispatchEntry;
+  v14 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, char *, PVOID))HalSystemVectorDispatchEntry;
+  v15 = Table->DeleteCount;
+  v16 = v12;
   if ( MatchFunction )
-    v14 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID *, PVOID))MatchFunction;
-  if ( *DeleteCount == Table->DeleteCount )
+    v14 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, char *, PVOID))MatchFunction;
+  if ( *DeleteCount != v15 )
   {
-    if ( v12 )
-      goto LABEL_6;
-  }
-  else
-  {
+    v12 = 0LL;
     RestartKey = 0LL;
+    v16 = 0LL;
   }
-  NodeOrParent_0 = FindNodeOrParent_0(Table, Buffer, &RestartKey);
-  if ( NodeOrParent_0 != 1 )
+  if ( v16 )
+    goto LABEL_7;
+  NodeOrParent = FindNodeOrParent(Table, Buffer, &RestartKey);
+  if ( NodeOrParent == 1 )
   {
-    if ( NodeOrParent_0 != 3 )
-    {
-      v12 = RestartKey;
-      goto LABEL_9;
-    }
-    v15 = RestartKey;
-    goto LABEL_8;
+    v12 = (char *)RestartKey;
+    goto LABEL_7;
   }
-  v12 = RestartKey;
-LABEL_6:
-  if ( NextFlag )
+  v8 = 0;
+  if ( NodeOrParent == 3 )
   {
-    v15 = v12;
-LABEL_8:
-    v12 = (PVOID *)RealSuccessor(v15, MatchFunction, MatchData, *(_QWORD *)&NextFlag);
+    v12 = (char *)RealSuccessor(RestartKey, MatchFunction, MatchData, *(_QWORD *)&NextFlag);
+LABEL_7:
+    if ( v8 )
+      v12 = (char *)RealSuccessor(v12, MatchFunction, MatchData, *(_QWORD *)&NextFlag);
+    goto LABEL_9;
   }
+  v12 = (char *)RestartKey;
 LABEL_9:
   if ( v12 )
   {
     while ( 1 )
     {
-      v17 = v14(Table, v12 + 4, MatchData);
-      if ( v17 != -1073741198 )
+      v18 = v14(Table, v12 + 32, MatchData);
+      if ( v18 != -1073741198 )
         break;
-      v12 = (PVOID *)RealSuccessor(v12, v16, v18, v19);
+      v12 = (char *)RealSuccessor(v12, v17, v19, v20);
       if ( !v12 )
         return 0LL;
     }
     *v9 = v12;
     *v13 = Table->DeleteCount;
-    if ( !v17 )
-      return v12 + 4;
+    if ( !v18 )
+      return v12 + 32;
   }
   return 0LL;
 }

@@ -1,19 +1,31 @@
 /*
- * XREFs of CHidInput_CreateInstance @ 0x1C005B240
+ * XREFs of CHidInput_CreateInstance @ 0x1C008AC30
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CHidInput@@SAJPEAPEAV1@@Z @ 0x1C005C718 (-CreateInstance@CHidInput@@SAJPEAPEAV1@@Z.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     ??0CBaseInput@@IEAA@K@Z @ 0x1C008AEA8 (--0CBaseInput@@IEAA@K@Z.c)
  */
 
-CBaseInput *__fastcall CHidInput_CreateInstance(struct CHidInput **a1)
+CBaseInput *CHidInput_CreateInstance()
 {
-  int Instance; // eax
-  __int64 v2; // rdx
+  CBaseInput *v0; // rax
+  CBaseInput *v1; // rbx
 
-  Instance = CHidInput::CreateInstance(a1);
-  v2 = 0LL;
-  if ( Instance >= 0 )
-    return gpHidInput;
-  return (CBaseInput *)v2;
+  gpHidInput = 0LL;
+  v0 = (CBaseInput *)Win32AllocPool(1376LL, 0x70694843u);
+  v1 = v0;
+  if ( v0 )
+  {
+    CBaseInput::CBaseInput(v0, 0x3Cu);
+    *((_DWORD *)v1 + 320) = 0;
+    *(_QWORD *)v1 = &CHidInput::`vftable';
+  }
+  else
+  {
+    v1 = 0LL;
+  }
+  if ( v1 )
+    gpHidInput = v1;
+  return v1;
 }

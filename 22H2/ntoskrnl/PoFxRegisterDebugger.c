@@ -1,103 +1,91 @@
 /*
- * XREFs of PoFxRegisterDebugger @ 0x140B60C60
+ * XREFs of PoFxRegisterDebugger @ 0x140A73A68
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PoFxActivateComponent @ 0x140287170 (PoFxActivateComponent.c)
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     PoFxRegisterCoreDevice @ 0x140837B60 (PoFxRegisterCoreDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PoFxActivateComponent @ 0x140262040 (PoFxActivateComponent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PoFxRegisterCoreDevice @ 0x1407B4E00 (PoFxRegisterCoreDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PoFxRegisterDebugger()
 {
-  wchar_t *v0; // r14
-  unsigned int v1; // ebx
-  _DWORD *Pool2; // rdi
-  unsigned int v3; // r12d
+  unsigned int v0; // ebx
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v2; // rdi
+  unsigned int v3; // r15d
   _DWORD *v4; // rbx
-  int v5; // r15d
+  unsigned int i; // r14d
   wchar_t *v6; // rdx
   ULONG_PTR v7; // rsi
-  int v8; // ecx
+  int v8; // eax
   __int64 v9; // rcx
-  int v10; // ecx
-  ULONG_PTR v11; // rsi
-  wchar_t *v12; // rax
-  __int64 v13; // [rsp+28h] [rbp-E0h]
-  __int64 v14; // [rsp+30h] [rbp-D8h]
-  __int64 v15; // [rsp+38h] [rbp-D0h]
-  __int64 v16; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-E0h]
+  __int64 v11; // [rsp+30h] [rbp-D8h]
+  __int64 v12; // [rsp+38h] [rbp-D0h]
+  SIZE_T NumberOfBytes; // [rsp+48h] [rbp-C0h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp-B8h] BYREF
   __int64 DestinationString; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v20[10]; // [rsp+78h] [rbp-90h] BYREF
-  __int128 v21; // [rsp+C8h] [rbp-40h] BYREF
-  __int64 v22; // [rsp+D8h] [rbp-30h]
+  _QWORD v17[10]; // [rsp+78h] [rbp-90h] BYREF
+  __int128 v18; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v19; // [rsp+D8h] [rbp-30h]
   wchar_t pszDest[24]; // [rsp+E0h] [rbp-28h] BYREF
 
-  v22 = 0LL;
-  v21 = 0LL;
-  memset(v20, 0, sizeof(v20));
+  v19 = 0LL;
+  v18 = 0LL;
+  memset(v17, 0, sizeof(v17));
   BugCheckParameter2 = 0LL;
-  LODWORD(v16) = 0;
-  v0 = 0LL;
+  LODWORD(NumberOfBytes) = 0;
   DestinationString_8 = 0LL;
-  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, __int64 *))off_140C020E8[0])(33LL, 0LL, 0LL, &v16) == -2147483643 )
+  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C00A68[0])(
+         33LL,
+         0LL,
+         0LL,
+         &NumberOfBytes) == -2147483643 )
   {
-    v1 = v16;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, (unsigned int)v16, 0x4D584650u);
-    if ( Pool2 )
+    v0 = NumberOfBytes;
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x4D584650u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( ((int (__fastcall *)(__int64, _QWORD, _DWORD *, __int64 *))off_140C020E8[0])(33LL, v1, Pool2, &v16) >= 0
-        && (unsigned int)v16 <= v1 )
+      memset(PoolWithTag, 0, v0);
+      if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, SIZE_T *))off_140C00A68[0])(
+             33LL,
+             v0,
+             v2,
+             &NumberOfBytes) >= 0
+        && (unsigned int)NumberOfBytes <= v0 )
       {
         v3 = 0;
-        v4 = Pool2 + 1;
-        v5 = 0;
-        if ( *Pool2 )
+        v4 = v2 + 1;
+        for ( i = 0; i < *v2; ++i )
         {
-          while ( 1 )
+          v4 = (_DWORD *)((char *)v4 + v3);
+          v3 = v4[1];
+          if ( *v4 == 1 )
           {
-            v4 = (_DWORD *)((char *)v4 + v3);
-            v3 = v4[1];
-            if ( *v4 == 1 )
+            if ( v4[2] )
             {
-              v10 = v4[2];
-              if ( v10 )
-                break;
-            }
-            if ( !*v4 )
-            {
-              LODWORD(v15) = (v4[4] >> 5) & 7;
-              LODWORD(v14) = v4[4] & 0x1F;
-              LODWORD(v13) = v4[3];
-              RtlStringCbPrintfW(
-                pszDest,
-                0x30uLL,
-                L"PCI_DEBUG_%04X_%02X_%02X_%02X",
-                *((unsigned __int16 *)v4 + 4),
-                v13,
-                v14,
-                v15);
-              v6 = pszDest;
-LABEL_9:
+              v6 = (wchar_t *)(v4 + 3);
+LABEL_12:
               RtlInitUnicodeString(&DestinationString_8, v6);
-              v22 = 0LL;
-              v21 = 0LL;
-              memset(v20, 0, sizeof(v20));
-              v20[0] = 0x100000001LL;
-              v20[9] = &v21;
-              v20[3] = PopFxDebuggerPowerCriticalTransitionCallback;
-              LODWORD(v20[8]) = 1;
-              if ( (int)PoFxRegisterCoreDevice((__int64)&DestinationString_8, (__int64)v20, &BugCheckParameter2) < 0 )
-                goto LABEL_14;
+              v19 = 0LL;
+              v18 = 0LL;
+              memset(v17, 0, sizeof(v17));
+              v17[0] = 0x100000001LL;
+              v17[9] = &v18;
+              v17[3] = PopFxDebuggerPowerCriticalTransitionCallback;
+              LODWORD(v17[8]) = 1;
+              if ( (int)PoFxRegisterCoreDevice((__int64)&DestinationString_8, (__int64)v17, &BugCheckParameter2) < 0 )
+                break;
               v7 = BugCheckParameter2;
               v8 = *(_DWORD *)(BugCheckParameter2 + 824) | 2;
               DestinationString = 0LL;
@@ -111,30 +99,26 @@ LABEL_9:
               PoFxActivateComponent(v7, 0LL, 1);
               PoFxStartDevicePowerManagement(v7);
             }
-            if ( (unsigned int)++v5 >= *Pool2 )
-              goto LABEL_14;
           }
-          if ( KeGetCurrentPrcb()->CpuVendor == 2 )
+          else if ( !*v4 )
           {
-            v11 = (unsigned int)(2 * v10 + 22);
-            v12 = (wchar_t *)ExAllocatePool2(64LL, v11, 0x4D584650u);
-            v0 = v12;
-            if ( !v12 )
-              goto LABEL_14;
-            RtlStringCbPrintfW(v12, (unsigned int)v11, L"ACPI\\DEBUG%ws", v4 + 3);
-            v6 = v0;
+            LODWORD(v12) = (v4[4] >> 5) & 7;
+            LODWORD(v11) = v4[4] & 0x1F;
+            LODWORD(v10) = v4[3];
+            RtlStringCbPrintfW(
+              pszDest,
+              0x30uLL,
+              L"PCI_DEBUG_%04X_%02X_%02X_%02X",
+              *((unsigned __int16 *)v4 + 4),
+              v10,
+              v11,
+              v12);
+            v6 = pszDest;
+            goto LABEL_12;
           }
-          else
-          {
-            v6 = (wchar_t *)(v4 + 3);
-          }
-          goto LABEL_9;
         }
       }
-LABEL_14:
-      ExFreePoolWithTag(Pool2, 0x4D584650u);
-      if ( v0 )
-        ExFreePoolWithTag(v0, 0x4D584650u);
+      ExFreePoolWithTag(v2, 0x4D584650u);
     }
   }
 }

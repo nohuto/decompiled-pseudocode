@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbVPrintfA @ 0x140368DAC
+ * XREFs of RtlStringCbVPrintfA @ 0x1403718CC
  * Callers:
- *     KsepLogEtwMessage @ 0x140368CB8 (KsepLogEtwMessage.c)
- *     vDbgPrintExWithPrefixInternal @ 0x140369C50 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1402841E0 (vDbgPrintExWithPrefixInternal.c)
+ *     KsepLogEtwMessage @ 0x1403717D8 (KsepLogEtwMessage.c)
  * Callees:
- *     _vsnprintf @ 0x1403E0560 (_vsnprintf.c)
+ *     _vsnprintf @ 0x1403D1190 (_vsnprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringCbVPrintfA(
@@ -13,30 +13,32 @@ NTSTATUS __stdcall RtlStringCbVPrintfA(
         NTSTRSAFE_PCSTR pszFormat,
         va_list argList)
 {
-  size_t v5; // rdi
-  NTSTATUS v6; // ebx
+  NTSTATUS v4; // esi
+  size_t v6; // rbx
   int v7; // eax
 
+  v4 = 0;
   if ( cbDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    v6 = -1073741811;
     if ( cbDest )
       *pszDest = 0;
   }
   else
   {
-    v5 = cbDest - 1;
-    v6 = 0;
+    v6 = cbDest - 1;
+    v4 = 0;
     v7 = vsnprintf(pszDest, cbDest - 1, pszFormat, argList);
-    if ( v7 < 0 || v7 > v5 )
+    if ( v7 < 0 || v7 > v6 )
     {
-      pszDest[v5] = 0;
+      pszDest[v6] = 0;
       return -2147483643;
     }
-    else if ( v7 == v5 )
+    else if ( v7 == v6 )
     {
-      pszDest[v5] = 0;
+      pszDest[v6] = 0;
     }
   }
-  return v6;
+  return v4;
 }

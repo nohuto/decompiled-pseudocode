@@ -1,20 +1,20 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x14053F1A8
+ * XREFs of CmLogMcUpdateStatus @ 0x1404ECA98
  * Callers:
- *     HvlpLogMicrocodeUpdateStatus @ 0x140931064 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E624 (HvlpLogMicrocodeUpdateStatus.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x14075ACF0 (RtlIntegerToChar.c)
- *     CmpInitializeRegistryNode @ 0x140837AD4 (CmpInitializeRegistryNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x14062CDE0 (RtlIntegerToChar.c)
+ *     CmpInitializeRegistryNode @ 0x1407A6CEC (CmpInitializeRegistryNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
@@ -48,7 +48,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
   {
     ObjectAttributes.RootDirectory = KeyHandle;
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140D3DB20;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140D2F790;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v4 = ZwOpenKey(&v9, 0x20019u, &ObjectAttributes);

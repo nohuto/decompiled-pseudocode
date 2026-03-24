@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateUuids @ 0x14041B540
+ * XREFs of ZwAllocateUuids @ 0x1403FA8C0
  * Callers:
  *     <none>
  * Callees:

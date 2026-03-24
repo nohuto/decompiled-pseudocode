@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchConfirmToken @ 0x1C003C800
+ * XREFs of VidSchConfirmToken @ 0x1C0033B00
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiTryEnterIndependentFlip @ 0x1C001A22C (VidSchiTryEnterIndependentFlip.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiTryEnterIndependentFlip @ 0x1C0031F58 (VidSchiTryEnterIndependentFlip.c)
  */
 
 void __fastcall VidSchConfirmToken(
@@ -31,16 +31,19 @@ void __fastcall VidSchConfirmToken(
   {
     v6 = *a4;
     v15 = 0;
-    v14[0] = (char *)a1 + 1728;
+    v14[0] = (char *)a1 + 1712;
     v8 = a3;
     v9 = a2;
     AcquireSpinLock::Acquire((Acquire *)v14);
     v13 = 0;
     v12[1] = v12;
     v12[0] = v12;
-    v10 = *(int *)(*((_QWORD *)a1 + v9 + 400) + 280 * v8 + 180);
-    if ( (int)v10 <= -1
-      || (v11 = *((_QWORD *)a1 + 416) + 160 * v10) == 0
+    v10 = *(int *)(*((_QWORD *)a1 + v9 + 388) + 216 * v8 + 172);
+    if ( (int)v10 <= -1 )
+      v11 = 0LL;
+    else
+      v11 = *((_QWORD *)a1 + 404) + 152 * v10;
+    if ( !v11
       || *(_DWORD *)(v11 + 112) != 1
       || !*(_BYTE *)(v11 + 97)
       || *(_QWORD *)v11 != v6

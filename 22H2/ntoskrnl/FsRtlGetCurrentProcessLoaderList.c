@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlGetCurrentProcessLoaderList @ 0x14093ED50
+ * XREFs of FsRtlGetCurrentProcessLoaderList @ 0x14088BCB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 FsRtlGetCurrentProcessLoaderList()
 {
-  return *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24] + 24) + 16LL;
+  return *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4] + 24) + 16LL;
 }

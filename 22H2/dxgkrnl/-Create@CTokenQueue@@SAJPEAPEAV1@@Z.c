@@ -1,23 +1,25 @@
 /*
- * XREFs of ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C00783F8
+ * XREFs of ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C00184CC
  * Callers:
- *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077950 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
+ *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0003CB0 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ *     ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C00183F0 (-EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
+ *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C001BE58 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CTokenQueue::Create(struct CTokenQueue **a1)
 {
-  __int64 v2; // rax
+  _QWORD *v2; // rax
 
-  v2 = operator new[](0x20uLL, 0x71744D54u, 256LL);
+  v2 = operator new[](0x20uLL, 0x71744D54u, PagedPool);
   if ( v2 )
   {
-    *(_QWORD *)(v2 + 16) = 0LL;
-    *(_DWORD *)(v2 + 24) = 0;
-    *(_QWORD *)(v2 + 8) = v2;
-    *(_QWORD *)v2 = v2;
+    v2[2] = 0LL;
+    *((_DWORD *)v2 + 6) = 0;
+    v2[1] = v2;
+    *v2 = v2;
   }
   *a1 = (struct CTokenQueue *)v2;
-  return v2 == 0 ? 0xC0000017 : 0;
+  return v2 == 0LL ? 0xC0000017 : 0;
 }

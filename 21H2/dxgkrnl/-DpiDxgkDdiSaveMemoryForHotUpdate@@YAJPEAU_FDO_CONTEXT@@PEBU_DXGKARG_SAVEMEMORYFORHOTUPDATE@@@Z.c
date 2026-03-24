@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DpiDxgkDdiSaveMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_SAVEMEMORYFORHOTUPDATE@@@Z @ 0x1C03936EC
+ * XREFs of ?DpiDxgkDdiSaveMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_SAVEMEMORYFORHOTUPDATE@@@Z @ 0x1C02D23B8
  * Callers:
- *     ?DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z @ 0x1C03939B0 (-DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z.c)
+ *     ?DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z @ 0x1C02D25C0 (-DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0044D64 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A358 (McTemplateK0pqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDxgkDdiSaveMemoryForHotUpdate(
@@ -21,7 +21,7 @@ __int64 __fastcall DpiDxgkDdiSaveMemoryForHotUpdate(
   __int64 v12; // [rsp+28h] [rbp-10h]
   int v13; // [rsp+28h] [rbp-10h]
 
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
     v13 = 0;
     v11 = *(_DWORD *)a2;
@@ -37,7 +37,7 @@ __int64 __fastcall DpiDxgkDdiSaveMemoryForHotUpdate(
          *((_QWORD *)a1 + 6),
          a2);
   v8 = v5;
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
     LODWORD(v12) = v5;
     LODWORD(v10) = 0;

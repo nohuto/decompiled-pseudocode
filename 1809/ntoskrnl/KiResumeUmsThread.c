@@ -1,10 +1,10 @@
 /*
- * XREFs of KiResumeUmsThread @ 0x1408456DC
+ * XREFs of KiResumeUmsThread @ 0x1408456BC
  * Callers:
- *     KiSchedulerApc @ 0x1400F17B0 (KiSchedulerApc.c)
+ *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
  * Callees:
- *     KeClearUmsThreadKernelLock @ 0x1408452D8 (KeClearUmsThreadKernelLock.c)
- *     KeUpdateUmsThreadState @ 0x1408455C8 (KeUpdateUmsThreadState.c)
+ *     KeClearUmsThreadKernelLock @ 0x1408452B8 (KeClearUmsThreadKernelLock.c)
+ *     KeUpdateUmsThreadState @ 0x1408455A8 (KeUpdateUmsThreadState.c)
  */
 
 __int64 __fastcall KiResumeUmsThread(__int64 a1, _DWORD *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceSystemQuiesceEnd @ 0x14055BFA8
+ * XREFs of IopLiveDumpTraceSystemQuiesceEnd @ 0x14050A068
  * Callers:
- *     IopLiveDumpUncorralProcessors @ 0x140A67A68 (IopLiveDumpUncorralProcessors.c)
+ *     IopLiveDumpUncorralProcessors @ 0x1409AD5E8 (IopLiveDumpUncorralProcessors.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceSystemQuiesceEnd()

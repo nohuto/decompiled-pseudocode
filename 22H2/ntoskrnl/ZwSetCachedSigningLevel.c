@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetCachedSigningLevel @ 0x14041D960
+ * XREFs of ZwSetCachedSigningLevel @ 0x1403FCB80
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FEDE4 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407288C4 (SPCallServerHandleFileIntegrityUpdate.c)
  * Callees:
  *     <none>
  */

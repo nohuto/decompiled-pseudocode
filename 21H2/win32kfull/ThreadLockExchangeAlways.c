@@ -1,15 +1,14 @@
 /*
- * XREFs of ThreadLockExchangeAlways @ 0x1C010150C
+ * XREFs of ThreadLockExchangeAlways @ 0x1C00C135C
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C005F954 (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     xxxScrollWindowEx @ 0x1C00BFE8C (xxxScrollWindowEx.c)
- *     ?xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z @ 0x1C0101270 (-xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z.c)
- *     xxxPrintWindow @ 0x1C01E297C (xxxPrintWindow.c)
- *     ?xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@W4tagTARGETING_PROPERTY@@@Z @ 0x1C02068EC (-xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTAR.c)
- *     ?xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0210104 (-xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     xxxUpdateThreadsWindows @ 0x1C02105B8 (xxxUpdateThreadsWindows.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C007DB7C (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxWindowHitTest @ 0x1C00D735C (xxxWindowHitTest.c)
+ *     ?xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0210FCC (-xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     xxxUpdateThreadsWindows @ 0x1C021307C (xxxUpdateThreadsWindows.c)
+ *     ?xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@W4tagTARGETING_PROPERTY@@@Z @ 0x1C0216C9C (-xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTAR.c)
  * Callees:
  *     <none>
  */

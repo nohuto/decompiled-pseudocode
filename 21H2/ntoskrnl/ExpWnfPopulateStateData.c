@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfPopulateStateData @ 0x14067023C
+ * XREFs of ExpWnfPopulateStateData @ 0x140610B5C
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14066FED4 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DA34 (ExpWnfCreateNameInstance.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpWnfComposeValueName @ 0x14075A480 (ExpWnfComposeValueName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
@@ -23,9 +23,9 @@ __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
   NTSTATUS v8; // eax
   unsigned int v9; // edi
   int v10; // eax
-  struct _EX_RUNDOWN_REF *v11; // rdi
+  unsigned int v11; // eax
+  struct _EX_RUNDOWN_REF *v12; // rdi
   unsigned __int64 ExtensionTable; // rax
-  unsigned int v13; // eax
   int v14; // ebx
   ULONG ResultLength; // [rsp+30h] [rbp-58h] BYREF
   UNICODE_STRING ValueName; // [rsp+38h] [rbp-50h] BYREF
@@ -35,7 +35,7 @@ __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
   v2 = *(_QWORD *)(a1 + 40);
   if ( ((v2 >> 6) & 0xF) == 5 )
   {
-    v11 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
+    v12 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
     v17 = v2 ^ 0x41C64E6DA3BC0074LL;
     ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest);
     if ( ExtensionTable )
@@ -44,7 +44,7 @@ __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
               &v17,
               ExpWnfPopulateStateDataRemoteCallback,
               a1);
-      ExReleaseExtensionTable(v11);
+      ExReleaseExtensionTable(v12);
       if ( v14 != -1073741822 )
       {
         if ( v14 < 0 )
@@ -96,10 +96,10 @@ LABEL_9:
   {
     if ( PoolWithTag[1] == 3 )
     {
-      v13 = PoolWithTag[2];
-      if ( v13 >= 4 )
+      v11 = PoolWithTag[2];
+      if ( v11 >= 4 )
       {
-        PoolWithTag[2] = v13 - 4;
+        PoolWithTag[2] = v11 - 4;
         goto LABEL_9;
       }
     }

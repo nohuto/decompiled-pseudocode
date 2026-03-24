@@ -1,9 +1,11 @@
 /*
- * XREFs of NVMePowerStateGetMaxPower @ 0x1C000A634
+ * XREFs of NVMePowerStateGetMaxPower @ 0x1C0010964
  * Callers:
- *     NVMeMaxOperationalPower @ 0x1C0009354 (NVMeMaxOperationalPower.c)
- *     NVMePowerInitialize @ 0x1C0009B20 (NVMePowerInitialize.c)
- *     NVMeValidatePowerStates @ 0x1C000A58C (NVMeValidatePowerStates.c)
+ *     NVMeMaxOperationalPower @ 0x1C000FCC0 (NVMeMaxOperationalPower.c)
+ *     NVMePowerInitialize @ 0x1C000FEB4 (NVMePowerInitialize.c)
+ *     NVMePowerSetFState @ 0x1C00105A8 (NVMePowerSetFState.c)
+ *     NVMePowerSetPerfState @ 0x1C00106D0 (NVMePowerSetPerfState.c)
+ *     NVMeValidatePowerStates @ 0x1C0010F10 (NVMeValidatePowerStates.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsUmDirectedFxSetMode @ 0x14099F894
+ * XREFs of PopDirectedDripsUmDirectedFxSetMode @ 0x1408F8798
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x14099FA30 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1408F8934 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmDirectedFxSetMode(unsigned int a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PopDirectedDripsUmDirectedFxSetMode(unsigned int a1, __int64 
     PopAcquireRwLockExclusive((ULONG_PTR)&PopDirectedDripsUmLock);
     v3 = 0;
     PopDirectedDripsUmTestPermissive = *(_BYTE *)(a2 + 8) != 0;
-    PopReleaseRwLock((__int64 *)&PopDirectedDripsUmLock);
+    PopReleaseRwLock((ULONG_PTR)&PopDirectedDripsUmLock);
   }
   else
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of Isoch_CommonBufferCallback @ 0x1C0041CA0
+ * XREFs of Isoch_CommonBufferCallback @ 0x1C0040DA0
  * Callers:
  *     <none>
  * Callees:
- *     Isoch_MapTransfers @ 0x1C000A788 (Isoch_MapTransfers.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall Isoch_CommonBufferCallback(__int64 a1)

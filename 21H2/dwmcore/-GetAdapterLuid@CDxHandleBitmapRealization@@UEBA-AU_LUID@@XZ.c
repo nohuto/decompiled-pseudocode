@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetAdapterLuid@CDxHandleBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x1800E34BC
+ * XREFs of ?GetAdapterLuid@CDxHandleBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x1800D2090
  * Callers:
- *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x18010B770 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x18010B790 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AU_LUID@@XZ @ 0x18010BF30 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AU_LUID@@XZ @ 0x18010C1D0 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F8AA0 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x1800F8AB0 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AU_LUID@@XZ @ 0x1800F8DB0 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AU_LUID@@XZ @ 0x1800F8F70 (-GetAdapterLuid@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AU_LUID@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 struct _LUID __fastcall CDxHandleBitmapRealization::GetAdapterLuid(CDxHandleBitmapRealization *this, _QWORD *a2)
@@ -22,7 +22,7 @@ struct _LUID __fastcall CDxHandleBitmapRealization::GetAdapterLuid(CDxHandleBitm
   }
   else
   {
-    *a2 = *((_QWORD *)this - 29);
+    *a2 = *((_QWORD *)this - 28);
   }
   return (struct _LUID)a2;
 }

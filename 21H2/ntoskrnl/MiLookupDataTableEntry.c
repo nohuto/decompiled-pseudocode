@@ -1,125 +1,82 @@
 /*
- * XREFs of MiLookupDataTableEntry @ 0x1402FDA80
+ * XREFs of MiLookupDataTableEntry @ 0x1402E776C
  * Callers:
- *     MmProtectDriverSection @ 0x14025D5E0 (MmProtectDriverSection.c)
- *     MiLockPagableImageSection @ 0x1402FD820 (MiLockPagableImageSection.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1403C773C (MmVerifyCallbackFunctionCheckFlags.c)
- *     MiReplaceImportEntry @ 0x1405905F0 (MiReplaceImportEntry.c)
- *     MiShowBadMapper @ 0x140593B18 (MiShowBadMapper.c)
- *     MmWriteSystemImageTracepoint @ 0x1405A40C4 (MmWriteSystemImageTracepoint.c)
- *     MmChangeImageProtection @ 0x1406F5800 (MmChangeImageProtection.c)
- *     MmLockPagableDataSection @ 0x1406F5E50 (MmLockPagableDataSection.c)
- *     MiLogPinDriverAddress @ 0x140713440 (MiLogPinDriverAddress.c)
- *     MmPageEntireDriver @ 0x140761010 (MmPageEntireDriver.c)
- *     MiImagePagable @ 0x140761128 (MiImagePagable.c)
- *     MmIsDriverVerifyingByAddress @ 0x1407B4CE0 (MmIsDriverVerifyingByAddress.c)
- *     MmGetSectionRange @ 0x1408024FC (MmGetSectionRange.c)
- *     MmBackSystemImageWithPagefile @ 0x14080F66C (MmBackSystemImageWithPagefile.c)
- *     MmAddVerifierSpecialThunks @ 0x140969FB0 (MmAddVerifierSpecialThunks.c)
- *     MmAddVerifierThunks @ 0x14096A0D0 (MmAddVerifierThunks.c)
- *     MmGetImageRetpolineCodePage @ 0x140970DA0 (MmGetImageRetpolineCodePage.c)
- *     MiCheckVerifierFunctionsCfgState @ 0x14097F73C (MiCheckVerifierFunctionsCfgState.c)
- *     MmMarkImageForHiberPhase @ 0x140A4F9F4 (MmMarkImageForHiberPhase.c)
- *     MmApplyVerifierToRunningImage @ 0x140A81214 (MmApplyVerifierToRunningImage.c)
- *     MmDiscardDriverSection @ 0x140B2FE74 (MmDiscardDriverSection.c)
+ *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403A7F30 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MiShowBadMapper @ 0x14052D1EC (MiShowBadMapper.c)
+ *     MmReplaceImportEntry @ 0x14053591C (MmReplaceImportEntry.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
+ *     MiImagePagable @ 0x1406D0B4C (MiImagePagable.c)
+ *     MmPageEntireDriver @ 0x1406D0C20 (MmPageEntireDriver.c)
+ *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
+ *     MmChangeImageProtection @ 0x1406D0DD0 (MmChangeImageProtection.c)
+ *     MmBackSystemImageWithPagefile @ 0x140780A8C (MmBackSystemImageWithPagefile.c)
+ *     MiLogPinDriverAddress @ 0x1407B4E84 (MiLogPinDriverAddress.c)
+ *     MmGetImageRetpolineCodePage @ 0x1407CDBA0 (MmGetImageRetpolineCodePage.c)
+ *     MmIsDriverVerifyingByAddress @ 0x1407D2BD0 (MmIsDriverVerifyingByAddress.c)
+ *     MmAddVerifierSpecialThunks @ 0x1408C6490 (MmAddVerifierSpecialThunks.c)
+ *     MmAddVerifierThunks @ 0x1408C65B0 (MmAddVerifierThunks.c)
+ *     MmGetSectionRange @ 0x1408C81E8 (MmGetSectionRange.c)
+ *     MmMarkImageForHiberPhase @ 0x1409B08B4 (MmMarkImageForHiberPhase.c)
+ *     MmDiscardDriverSection @ 0x140A92E70 (MmDiscardDriverSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MmUnlockLoadedModuleListShared @ 0x14031C754 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
-_QWORD *__fastcall MiLookupDataTableEntry(unsigned __int64 a1, int a2)
+__int64 __fastcall MiLookupDataTableEntry(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _KTHREAD *CurrentThread; // r14
-  unsigned __int8 CurrentIrql; // di
-  _QWORD *v6; // rbp
-  _QWORD *v7; // rax
-  unsigned __int8 v9; // cl
-  unsigned __int64 v10; // r9
-  _DWORD *SchedulerAssist; // r9
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v13; // r9
-  int v14; // edx
-  bool v15; // zf
+  struct _KTHREAD *CurrentThread; // rsi
+  int v5; // edi
+  unsigned __int64 v6; // rbx
+  _QWORD *v7; // rdx
+  unsigned __int64 v8; // r8
+  __int64 v9; // rbx
+  char v11; // [rsp+38h] [rbp+10h] BYREF
 
   CurrentThread = 0LL;
-  CurrentIrql = 17;
-  v6 = 0LL;
-  if ( a2 == 2 )
+  v11 = 17;
+  v5 = a2;
+  v6 = a1;
+  if ( (_DWORD)a2 == 2 )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( CurrentIrql < 0xFu )
-    {
-      v9 = KeGetCurrentIrql();
-      __writecr8(0xFuLL);
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
-        {
-          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          SchedulerAssist[5] |= (-1 << (v9 + 1)) & 0xFFFC;
-        }
-      }
-    }
-    ExAcquireSpinLockSharedAtDpcLevel(&PsLoadedModuleSpinLock);
+    MmLockLoadedModuleListShared(&v11, a2, a3, a4);
   }
-  else if ( a2 == 1 )
+  else if ( (_DWORD)a2 == 1 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
   }
-  v7 = (_QWORD *)BugCheckParameter3;
-  if ( BugCheckParameter3 )
+  v7 = (_QWORD *)qword_140C4CD60;
+  while ( v7 )
   {
-    do
+    v8 = *(v7 - 23);
+    a1 = v8 + (unsigned int)(*((_DWORD *)v7 - 42) - 1);
+    if ( v6 > a1 )
     {
-      v10 = *(v7 - 23);
-      if ( a1 > v10 + (unsigned int)(*((_DWORD *)v7 - 42) - 1) )
-      {
-        v7 = (_QWORD *)v7[1];
-      }
-      else
-      {
-        if ( a1 >= v10 )
-        {
-          if ( v7 )
-            v6 = v7 - 29;
-          break;
-        }
-        v7 = (_QWORD *)*v7;
-      }
+      v7 = (_QWORD *)v7[1];
     }
-    while ( v7 );
-  }
-  if ( a2 == 2 )
-  {
-    ExReleaseSpinLockSharedFromDpcLevel(&PsLoadedModuleSpinLock);
-    if ( CurrentIrql < 0xFu )
+    else
     {
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v13 = CurrentPrcb->SchedulerAssist;
-          v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v15 = (v14 & v13[5]) == 0;
-          v13[5] &= v14;
-          if ( v15 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-      __writecr8(CurrentIrql);
+      if ( v6 >= v8 )
+        break;
+      v7 = (_QWORD *)*v7;
     }
   }
-  else if ( a2 == 1 )
+  v9 = (unsigned __int64)(v7 - 29) & -(__int64)(v7 != 0LL);
+  if ( v5 == 2 )
+  {
+    LOBYTE(a1) = v11;
+    MmUnlockLoadedModuleListShared(a1);
+  }
+  else if ( v5 == 1 )
   {
     ExReleaseResourceLite(&PsLoadedModuleResource);
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
-  return v6;
+  return v9;
 }

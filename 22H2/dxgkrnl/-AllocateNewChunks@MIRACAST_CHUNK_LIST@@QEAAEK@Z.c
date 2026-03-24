@@ -1,8 +1,8 @@
 /*
- * XREFs of ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C005FA60
+ * XREFs of ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C0052F70
  * Callers:
- *     DxgNotifyDpcCB @ 0x1C000BA80 (DxgNotifyDpcCB.c)
- *     DxgkMiracastStartMiracastSession @ 0x1C00621E4 (DxgkMiracastStartMiracastSession.c)
+ *     DxgNotifyDpcCB @ 0x1C000E1C0 (DxgNotifyDpcCB.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00557C0 (DxgkMiracastStartMiracastSession.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ unsigned __int8 __fastcall MIRACAST_CHUNK_LIST::AllocateNewChunks(MIRACAST_CHUNK
 {
   unsigned int v2; // eax
   unsigned int v5; // edi
-  __int64 v6; // rbp
-  MIRACAST_CHUNK_LIST *Pool2; // rax
+  SIZE_T v6; // rbp
+  MIRACAST_CHUNK_LIST *PoolWithTag; // rax
   MIRACAST_CHUNK_LIST **v8; // rcx
 
   v2 = *((_DWORD *)this + 5);
@@ -24,17 +24,17 @@ unsigned __int8 __fastcall MIRACAST_CHUNK_LIST::AllocateNewChunks(MIRACAST_CHUNK
     v6 = v2 + 44;
     while ( 1 )
     {
-      Pool2 = (MIRACAST_CHUNK_LIST *)ExAllocatePool2(64LL, v6, 1265072196LL);
-      if ( !Pool2 )
+      PoolWithTag = (MIRACAST_CHUNK_LIST *)ExAllocatePoolWithTag((POOL_TYPE)512, v6, 0x4B677844u);
+      if ( !PoolWithTag )
         break;
       v8 = (MIRACAST_CHUNK_LIST **)*((_QWORD *)this + 1);
       if ( *v8 != this )
         __fastfail(3u);
-      *(_QWORD *)Pool2 = this;
+      *(_QWORD *)PoolWithTag = this;
       ++v5;
-      *((_QWORD *)Pool2 + 1) = v8;
-      *v8 = Pool2;
-      *((_QWORD *)this + 1) = Pool2;
+      *((_QWORD *)PoolWithTag + 1) = v8;
+      *v8 = PoolWithTag;
+      *((_QWORD *)this + 1) = PoolWithTag;
       ++*((_DWORD *)this + 4);
       if ( v5 >= a2 )
         return 1;

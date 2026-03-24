@@ -1,17 +1,17 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x140A8CC6C
+ * XREFs of VfBeforeCallDriver @ 0x1409D1078
  * Callers:
- *     IovCallDriver @ 0x140A802F0 (IovCallDriver.c)
- *     IovpCallDriverNoIrpTracking @ 0x140A80ACC (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140A80B3C (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x1409C4CB4 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x1409C5484 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x1409C54F4 (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402ABBD0 (KeAreInterruptsEnabled.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfBugCheckNoStackUsage @ 0x1405FF5A0 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x140A8C89C (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x140A8D4A4 (ViIrpCheckKernelAddressForIrp.c)
- *     VfDeadlockBeforeCallDriver @ 0x140A98064 (VfDeadlockBeforeCallDriver.c)
+ *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfBugCheckNoStackUsage @ 0x1405A19A8 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x1409D0CCC (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x1409D1888 (ViIrpCheckKernelAddressForIrp.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD24 (VfDeadlockBeforeCallDriver.c)
  */
 
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -31,13 +31,13 @@ __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
   }
   if ( a3 )
   {
-    if ( !KeAreInterruptsEnabled() && (VfRuleClasses & 0x400000) == 0 )
+    if ( !KeAreInterruptsEnabled() && (MmVerifierData & 0x400000) == 0 )
     {
       *(_BYTE *)(a3 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-      *(_OWORD *)&xmmword_140D57548 = 0LL;
+      *(_OWORD *)&xmmword_140D4A040 = 0LL;
       *(_QWORD *)&VfBugcheckTmpData = 196LL;
       BugCheckParameter1 = 192LL;
-      qword_140D57540 = a2;
+      qword_140D4A038 = a2;
       VfBugCheckNoStackUsage();
     }
     *(_QWORD *)(a3 + 48) = VfGetPristineDispatchRoutine(

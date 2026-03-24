@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationByName @ 0x1401BA990
+ * XREFs of ZwQueryInformationByName @ 0x1401BA9B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,38 +1,35 @@
 /*
- * XREFs of ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x180251AAC
+ * XREFs of ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x1801EC80C
  * Callers:
- *     _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x18024EBB0 (_lambda_05398b4549421d065ab404e0dbeea144_--operator().c)
- *     ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18024ECF0 (-OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
+ *     _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x1801E8A08 (_lambda_05398b4549421d065ab404e0dbeea144_--operator().c)
+ *     ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801E8B20 (-OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z @ 0x1800983B8 (-ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z @ 0x18005A140 (-ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-gsl::details *__fastcall CSharedSectionWrapper::GetSharedSectionData(__int64 a1, gsl::details *a2)
+_QWORD *__fastcall CSharedSectionWrapper::GetSharedSectionData(__int64 a1)
 {
-  unsigned int v3; // r8d
-  void *v4; // rdi
-  gsl::details *v5; // rcx
-  bool v6; // zf
+  void *v1; // rax
+  __int64 v2; // r8
+  _QWORD *v3; // r9
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !*(_QWORD *)(a1 + 64) )
+  if ( !*(_QWORD *)(a1 + 56) )
     ModuleFailFastForHRESULT(2147549183LL, retaddr);
-  if ( *(_DWORD *)(a1 + 76) == -1 )
+  if ( *(_DWORD *)(a1 + 68) == -1 )
     ModuleFailFastForHRESULT(2147549183LL, retaddr);
-  v4 = CSharedSectionBase::ResolveAllocation(
-         *(CSharedSectionBase **)(a1 + 64),
-         *(unsigned int *)(a1 + 72),
-         *(unsigned int *)(a1 + 76));
-  gsl::details::extent_type<-1>::extent_type<-1>(a2, v3);
-  v6 = *(_QWORD *)a2 == -1LL;
-  *((_QWORD *)a2 + 1) = v4;
-  if ( v6 || !v4 && *(_QWORD *)a2 )
+  v1 = CSharedSectionBase::ResolveAllocation(
+         *(CSharedSectionBase **)(a1 + 56),
+         *(unsigned int *)(a1 + 64),
+         *(unsigned int *)(a1 + 68));
+  *v3 = v2;
+  v3[1] = v1;
+  if ( !v1 && v2 )
   {
-    gsl::details::terminate(v5);
-    JUMPOUT(0x180251B2DLL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
-  return a2;
+  return v3;
 }

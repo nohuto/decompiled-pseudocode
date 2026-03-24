@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhExAddDeviceInit @ 0x1C0049F60
+ * XREFs of UsbhExAddDeviceInit @ 0x1C004B330
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 void __fastcall UsbhExAddDeviceInit(__int64 a1)

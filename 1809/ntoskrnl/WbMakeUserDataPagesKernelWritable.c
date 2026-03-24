@@ -6,9 +6,9 @@
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     ZwProtectVirtualMemory @ 0x1401B8B70 (ZwProtectVirtualMemory.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     ZwProtectVirtualMemory @ 0x1401B8B90 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall WbMakeUserDataPagesKernelWritable(PVOID VirtualAddress, ULONG Length, struct _MDL **a3, _QWORD *a4)

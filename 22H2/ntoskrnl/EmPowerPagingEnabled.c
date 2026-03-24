@@ -1,19 +1,20 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x14093CB5C
+ * XREFs of EmPowerPagingEnabled @ 0x140777428
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
  */
 
-signed __int32 __fastcall EmPowerPagingEnabled(char a1)
+char __fastcall EmPowerPagingEnabled(char a1)
 {
   char v2; // di
-  signed __int32 result; // eax
+  char v3; // al
+  char result; // al
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
 
   v2 = 0;
@@ -21,19 +22,20 @@ signed __int32 __fastcall EmPowerPagingEnabled(char a1)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpPagingLock, 0LL);
   if ( a1 )
   {
-    dword_140C5F8B8 |= 0x80000000;
+    dword_140C47978 |= 0x80000000;
   }
   else
   {
-    dword_140C5F8B8 &= ~0x80000000;
-    if ( dword_140C5F8B8 )
+    dword_140C47978 &= ~0x80000000;
+    if ( dword_140C47978 )
     {
       v2 = 1;
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       EmpPagingStatus = &Event;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpPagingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v3 = _InterlockedExchangeAdd64((volatile signed __int64 *)&EmpPagingLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v3 & 2) != 0 && (v3 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&EmpPagingLock);
   result = KeAbPostRelease((ULONG_PTR)&EmpPagingLock);
   if ( v2 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcPinFileData @ 0x1400AE2B0
+ * XREFs of CcPinFileData @ 0x1400AE2D0
  * Callers:
- *     CcZeroDataInCache @ 0x1400E07A4 (CcZeroDataInCache.c)
+ *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
  *     CcPinRead @ 0x1406383B0 (CcPinRead.c)
  *     CcPinMappedData @ 0x1406385A0 (CcPinMappedData.c)
  *     CcMapData @ 0x140638A10 (CcMapData.c)
- *     CcPreparePinWrite @ 0x14069FDB0 (CcPreparePinWrite.c)
- *     CcMapDataCommon @ 0x14069FF84 (CcMapDataCommon.c)
+ *     CcPreparePinWrite @ 0x14069FD90 (CcPreparePinWrite.c)
+ *     CcMapDataCommon @ 0x14069FF64 (CcMapDataCommon.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -18,21 +18,21 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExAcquireSharedStarveExclusive @ 0x1400AE080 (ExAcquireSharedStarveExclusive.c)
- *     CcGetBcbListHeadLargeOffset @ 0x1400AE140 (CcGetBcbListHeadLargeOffset.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400B00E0 (CcMapAndRead.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B19F0 (ExpAcquireSharedStarveExclusive.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     CcAllocateInitializeBcb @ 0x1400CC2F8 (CcAllocateInitializeBcb.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CcDereferenceFileOffset @ 0x14026A4D4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x14026A6A0 (CcReferenceFileOffset.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B788 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400AE0A0 (ExAcquireSharedStarveExclusive.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x1400AE160 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1400B0100 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     CcAllocateInitializeBcb @ 0x1400CC318 (CcAllocateInitializeBcb.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcDereferenceFileOffset @ 0x14026A5D4 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x14026A7A0 (CcReferenceFileOffset.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B888 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
 __int64 __fastcall CcPinFileData(

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAppendAsciizToString @ 0x1409B6470
+ * XREFs of RtlAppendAsciizToString @ 0x1409106C0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall RtlAppendAsciizToString(unsigned __int16 *a1, _BYTE *a2)

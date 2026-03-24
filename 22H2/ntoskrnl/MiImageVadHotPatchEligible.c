@@ -1,23 +1,18 @@
 /*
- * XREFs of MiImageVadHotPatchEligible @ 0x1407BAC20
+ * XREFs of MiImageVadHotPatchEligible @ 0x14063DB38
  * Callers:
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiGetVadForHotPatchInProgress @ 0x140A3737C (MiGetVadForHotPatchInProgress.c)
- *     MiHotPatchProcess @ 0x140A37534 (MiHotPatchProcess.c)
- *     MmPrepareImagePagesForHotPatch @ 0x140A3C284 (MmPrepareImagePagesForHotPatch.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE554 (MiSetImageHotPatchAllowed.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiImageVadHotPatchEligible(__int64 a1)
+_BOOL8 __fastcall MiImageVadHotPatchEligible(__int64 a1)
 {
-  unsigned int v1; // r10d
-
-  v1 = 0;
-  if ( !dword_140C6997C || (*(_DWORD *)(a1 + 64) & 0x1000000) != 0 || (*(_DWORD *)(a1 + 48) & 0xF80) != 0x380 )
-    return 0LL;
-  LOBYTE(v1) = (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
-             - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
-             + 1 > *(unsigned int *)(***(_QWORD ***)(a1 + 72) + 8LL);
-  return v1;
+  return MiUserHotPatchReserveSize
+      && (*(_DWORD *)(a1 + 64) & 0x1000000) == 0
+      && (*(_DWORD *)(a1 + 48) & 0xF80) == 0x380
+      && (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
+       - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
+       + 1 > *(unsigned int *)(***(_QWORD ***)(a1 + 72) + 8LL);
 }

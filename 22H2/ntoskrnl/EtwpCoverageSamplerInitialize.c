@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwpCoverageSamplerInitialize @ 0x1409F31F4
+ * XREFs of EtwpCoverageSamplerInitialize @ 0x1409463C4
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3C8C (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x14094798C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerInitialize(__int64 a1)
 {
   __int64 result; // rax
 
-  memset((void *)a1, 0, 0x6C8uLL);
-  *(_QWORD *)(a1 + 1192) = 0LL;
-  *(_DWORD *)(a1 + 1648) = 1;
-  *(_QWORD *)(a1 + 1248) = a1 + 1240;
-  *(_QWORD *)(a1 + 1240) = a1 + 1240;
-  *(_QWORD *)(a1 + 1208) = 0LL;
-  *(_QWORD *)(a1 + 1216) = 0LL;
-  *(_QWORD *)(a1 + 1224) = 0LL;
-  *(_QWORD *)(a1 + 1232) = 0LL;
-  *(_OWORD *)(a1 + 1264) = 0LL;
-  *(_OWORD *)(a1 + 1280) = 0LL;
-  *(_OWORD *)(a1 + 1296) = 0LL;
-  *(_QWORD *)(a1 + 1312) = 0LL;
-  result = a1 + 1680;
-  *(_QWORD *)(a1 + 1272) = 0LL;
-  *(_QWORD *)(a1 + 1264) = a1 + 16;
+  memset((void *)a1, 0, 0x4C8uLL);
+  *(_QWORD *)(a1 + 680) = 0LL;
+  *(_DWORD *)(a1 + 1136) = 1;
+  *(_QWORD *)(a1 + 736) = a1 + 728;
+  *(_QWORD *)(a1 + 728) = a1 + 728;
+  *(_QWORD *)(a1 + 696) = 0LL;
+  *(_QWORD *)(a1 + 704) = 0LL;
+  *(_QWORD *)(a1 + 712) = 0LL;
+  *(_QWORD *)(a1 + 720) = 0LL;
+  *(_OWORD *)(a1 + 752) = 0LL;
+  *(_OWORD *)(a1 + 768) = 0LL;
+  *(_OWORD *)(a1 + 784) = 0LL;
+  *(_QWORD *)(a1 + 800) = 0LL;
+  result = a1 + 1168;
+  *(_QWORD *)(a1 + 760) = 0LL;
+  *(_QWORD *)(a1 + 752) = a1 + 16;
   *(_QWORD *)(a1 + 16) = a1;
-  *(_DWORD *)(a1 + 1724) = 1;
-  *(_QWORD *)(a1 + 1688) = a1 + 1680;
-  *(_QWORD *)(a1 + 1680) = a1 + 1680;
+  *(_DWORD *)(a1 + 1212) = 1;
+  *(_QWORD *)(a1 + 1176) = a1 + 1168;
+  *(_QWORD *)(a1 + 1168) = a1 + 1168;
   return result;
 }

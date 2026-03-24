@@ -1,13 +1,12 @@
 /*
- * XREFs of DynamicLock_Create @ 0x1C0016778
+ * XREFs of DynamicLock_Create @ 0x1C0016A48
  * Callers:
- *     RootHub_InitializeReadModifyWriteLock @ 0x1C0016730 (RootHub_InitializeReadModifyWriteLock.c)
- *     Interrupter_CreateInterrupter @ 0x1C006CEC0 (Interrupter_CreateInterrupter.c)
- *     Command_Create @ 0x1C006D3CC (Command_Create.c)
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     RootHub_InitializeReadModifyWriteLock @ 0x1C0016A00 (RootHub_InitializeReadModifyWriteLock.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
+ *     Command_Create @ 0x1C0070AFC (Command_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DynamicLock_Create(__int64 a1, int a2, int a3, __int64 *a4)
@@ -32,7 +31,7 @@ __int64 __fastcall DynamicLock_Create(__int64 a1, int a2, int a3, __int64 *a4)
   v13 = 0LL;
   v16 = 0;
   v20 = 0LL;
-  v21 = off_1C00611D0;
+  v21 = off_1C00601D0;
   v19 = a1;
   v14 = 56;
   v17 = 1;
@@ -50,7 +49,7 @@ __int64 __fastcall DynamicLock_Create(__int64 a1, int a2, int a3, __int64 *a4)
       v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
               WdfDriverGlobals,
               v22,
-              off_1C00611D0);
+              off_1C00601D0);
       *(_DWORD *)v10 = 1;
       *(_QWORD *)(v10 + 8) = v22;
       goto LABEL_4;
@@ -78,7 +77,7 @@ LABEL_9:
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
           v13,
-          off_1C00611D0);
+          off_1C00601D0);
   *(_DWORD *)v10 = a3;
   *(_QWORD *)(v10 + 8) = v13;
 LABEL_4:

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetCompatibleTextureFormat@CD3DDevice@@QEBA?AW4DXGI_FORMAT@@W42@@Z @ 0x1800EDC28
+ * XREFs of ?GetCompatibleTextureFormat@CD3DDevice@@QEBA?AW4DXGI_FORMAT@@W42@@Z @ 0x18003AE5C
  * Callers:
- *     ?CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800EDA8C (-CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     ?CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x18003966C (-CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
  * Callees:
  *     <none>
  */
@@ -18,27 +18,27 @@ __int64 __fastcall CD3DDevice::GetCompatibleTextureFormat(CD3DDevice *this, enum
 
   v2 = a2 - 2;
   if ( !v2 )
-    return *((unsigned int *)this + 269);
+    return *((unsigned int *)this + 279);
   v3 = v2 - 8;
   if ( !v3 )
-    return *((unsigned int *)this + 267);
+    return *((unsigned int *)this + 277);
   v4 = v3 - 14;
   if ( !v4 )
-    return *((unsigned int *)this + 266);
+    return *((unsigned int *)this + 276);
   v5 = v4 - 4;
-  if ( !v5 )
-    return *((unsigned int *)this + 262);
-  v6 = v5 - 33;
-  if ( !v6 )
-    return *((unsigned int *)this + 260);
-  v7 = v6 - 4;
-  if ( !v7 )
-    return *((unsigned int *)this + 261);
-  v8 = v7 - 22;
-  if ( !v8 )
-    return *((unsigned int *)this + 264);
-  if ( v8 == 1 )
-    return *((unsigned int *)this + 265);
-  else
-    return *((unsigned int *)this + 262);
+  if ( v5 )
+  {
+    v6 = v5 - 33;
+    if ( !v6 )
+      return *((unsigned int *)this + 270);
+    v7 = v6 - 4;
+    if ( !v7 )
+      return *((unsigned int *)this + 271);
+    v8 = v7 - 22;
+    if ( !v8 )
+      return *((unsigned int *)this + 274);
+    if ( v8 == 1 )
+      return *((unsigned int *)this + 275);
+  }
+  return *((unsigned int *)this + 272);
 }

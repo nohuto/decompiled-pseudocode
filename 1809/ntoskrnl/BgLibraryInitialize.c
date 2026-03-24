@@ -3,9 +3,9 @@
  * Callers:
  *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
  *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
- *     BgkInitialize @ 0x1409FB8D0 (BgkInitialize.c)
+ *     BgkInitialize @ 0x1409FB8E0 (BgkInitialize.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x1400BC820 (KeGetCurrentIrql.c)
+ *     KeGetCurrentIrql @ 0x1400BC840 (KeGetCurrentIrql.c)
  *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
  */
 

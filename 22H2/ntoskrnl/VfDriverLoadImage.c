@@ -1,39 +1,36 @@
 /*
- * XREFs of VfDriverLoadImage @ 0x140ABDE04
+ * XREFs of VfDriverLoadImage @ 0x1409C20A0
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
- *     VfInitBootDriversLoaded @ 0x140B5A754 (VfInitBootDriversLoaded.c)
- *     VfDriverLoadBootDrivers @ 0x140B5AB2C (VfDriverLoadBootDrivers.c)
+ *     MiFinalizeDriverImage @ 0x14075B278 (MiFinalizeDriverImage.c)
+ *     VfDriverEnableVerifier @ 0x1409C8630 (VfDriverEnableVerifier.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     VfDriverLoadBootDrivers @ 0x140A4EE74 (VfDriverLoadBootDrivers.c)
  * Callees:
- *     VfTargetDriversAdd @ 0x14020A1B8 (VfTargetDriversAdd.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     VfSuspectDriversLoadCallback @ 0x140ADB704 (VfSuspectDriversLoadCallback.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     VfTargetDriversAdd @ 0x14037221C (VfTargetDriversAdd.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9BA8 (VfSuspectDriversLoadCallback.c)
  */
 
-void __fastcall VfDriverLoadImage(__int64 a1, __int64 a2, unsigned __int8 a3)
+void __fastcall VfDriverLoadImage(__int64 a1, int a2, unsigned __int8 a3, unsigned __int8 a4)
 {
-  unsigned int v3; // edi
-  __int64 v5; // rcx
-  char v6; // al
+  __int64 v4; // r10
+  int v5; // r11d
+  __int64 v6; // rcx
+  char v8; // r8
 
-  v3 = a3;
-  if ( !_bittest16((const signed __int16 *)(a1 + 110), 9u)
-    && (!VfDifRunningWithoutReboot || VfXdvEnabled || !RtlEqualUnicodeString((PCUNICODE_STRING)(a1 + 88), &XdvName, 1u)) )
+  v4 = a1;
+  v5 = a3;
+  v6 = *(_QWORD *)(a1 + 112);
+  if ( v6 )
+    v8 = *(_BYTE *)(*(_QWORD *)MiSectionControlArea(v6) + 15LL) >> 4;
+  else
+    v8 = 12;
+  if ( ViVerifierDriverAddedThunkListHead )
   {
-    v5 = *(_QWORD *)(a1 + 112);
-    if ( v5 )
-      v6 = *(_BYTE *)(*(_QWORD *)MiSectionControlArea(v5) + 15LL) >> 4;
-    else
-      v6 = 12;
-    if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
-    {
-      LOBYTE(a2) = v6;
-      VfSuspectDriversLoadCallback(a1, a2, v3);
-    }
-    else
-    {
-      VfTargetDriversAdd(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), v6, 0LL);
-    }
+    VfSuspectDriversLoadCallback(v4, a2, v8, v5, a4);
+  }
+  else if ( !a4 )
+  {
+    VfTargetDriversAdd(*(_QWORD *)(v4 + 48), *(_DWORD *)(v4 + 64), v8, 0LL);
   }
 }

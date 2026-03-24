@@ -1,9 +1,9 @@
 /*
- * XREFs of ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C010FB68
+ * XREFs of ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C0126450
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
     memmove(gpdwCPUserPreferencesMask, &Src, ProfileValue);
   }
   v5 = (char *)&gpviCPUserPreferences + 16;
-  v6 = 25LL;
+  v6 = 21LL;
   do
   {
     if ( (unsigned int)FastGetProfileValue(a1, *((unsigned int *)v5 + 1), *((_QWORD *)v5 + 1), 0LL, &Src, 4, a2) )

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginQueryComponentPerfSet @ 0x1402DA614
+ * XREFs of PopPluginQueryComponentPerfSet @ 0x1402DA714
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x14086A08C (PopFxPepPerfInfoQuery.c)
+ *     PopFxPepPerfInfoQuery @ 0x14086A06C (PopFxPepPerfInfoQuery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginQueryComponentPerfSet(

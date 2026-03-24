@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupLargeMcbEntry @ 0x14026E840
+ * XREFs of FsRtlLookupLargeMcbEntry @ 0x14026E940
  * Callers:
- *     FsRtlLookupMcbEntry @ 0x14026EA50 (FsRtlLookupMcbEntry.c)
+ *     FsRtlLookupMcbEntry @ 0x14026EB50 (FsRtlLookupMcbEntry.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     FsRtlLookupBaseMcbEntry @ 0x140109D80 (FsRtlLookupBaseMcbEntry.c)
+ *     FsRtlLookupBaseMcbEntry @ 0x140109DA0 (FsRtlLookupBaseMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLargeMcbEntry(

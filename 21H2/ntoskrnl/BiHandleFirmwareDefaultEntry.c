@@ -1,14 +1,14 @@
 /*
- * XREFs of BiHandleFirmwareDefaultEntry @ 0x140A204C4
+ * XREFs of BiHandleFirmwareDefaultEntry @ 0x14097255C
  * Callers:
- *     BiExportEfiBootManager @ 0x140A1FB1C (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140971BC0 (BiExportEfiBootManager.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     BiDeleteElement @ 0x14080271C (BiDeleteElement.c)
- *     BiGetElement @ 0x140A1D4A4 (BiGetElement.c)
- *     BiTranslateObjectIdentifier @ 0x140A20D6C (BiTranslateObjectIdentifier.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     BiDeleteElement @ 0x14078319C (BiDeleteElement.c)
+ *     BiGetElement @ 0x14096F540 (BiGetElement.c)
+ *     BiTranslateObjectIdentifier @ 0x140972E04 (BiTranslateObjectIdentifier.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3, unsigned int *a4)
@@ -25,12 +25,12 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3,
   _DWORD *v17; // rdi
   int v19; // [rsp+20h] [rbp-28h] BYREF
   int v20; // [rsp+24h] [rbp-24h] BYREF
-  PVOID P; // [rsp+28h] [rbp-20h] BYREF
+  PVOID P[4]; // [rsp+28h] [rbp-20h] BYREF
 
   v19 = 0;
   v20 = 0;
-  P = 0LL;
-  Element = BiGetElement((__int64)a2, 0x23000003u, (GUID **)&P, &v20);
+  P[0] = 0LL;
+  Element = BiGetElement((__int64)a2, 0x23000003u, P, &v20);
   LODWORD(v9) = Element;
   if ( Element == -1073741275 )
   {
@@ -42,7 +42,7 @@ LABEL_21:
   {
     BiDeleteElement(a2, 0x23000003u);
     v9 = 0LL;
-    if ( (int)BiTranslateObjectIdentifier(a1, P, &v19) >= 0 )
+    if ( (int)BiTranslateObjectIdentifier(a1, P[0], &v19) >= 0 )
     {
       v10 = *a4;
       v11 = (char *)*a3;
@@ -86,7 +86,7 @@ LABEL_10:
     }
   }
 LABEL_22:
-  if ( P )
-    ExFreePoolWithTag(P, 0x4B444342u);
+  if ( P[0] )
+    ExFreePoolWithTag(P[0], 0x4B444342u);
   return (unsigned int)v9;
 }

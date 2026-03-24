@@ -1,16 +1,16 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1406D1F84
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1406D1F64
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1406D239C (PiDmGetCmObjectConstraintListFromCache.c)
- *     PiDmGetCmObjectListFromCache @ 0x140700B60 (PiDmGetCmObjectListFromCache.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1406D237C (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectListFromCache @ 0x140700B40 (PiDmGetCmObjectListFromCache.c)
  */
 
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)

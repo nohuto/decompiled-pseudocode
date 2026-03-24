@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipProcessLegacyEtwRegister @ 0x1407565DC
+ * XREFs of WmipProcessLegacyEtwRegister @ 0x1407565BC
  * Callers:
- *     WmipLegacyEtwWorker @ 0x140756480 (WmipLegacyEtwWorker.c)
+ *     WmipLegacyEtwWorker @ 0x140756460 (WmipLegacyEtwWorker.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     EtwRegisterClassicProvider @ 0x1406BE510 (EtwRegisterClassicProvider.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
+ *     EtwRegisterClassicProvider @ 0x1406BE4F0 (EtwRegisterClassicProvider.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
  */
 
 LONG __fastcall WmipProcessLegacyEtwRegister(__int64 a1, __int64 a2)

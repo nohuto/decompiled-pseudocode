@@ -1,9 +1,9 @@
 /*
- * XREFs of BcdSetElementData @ 0x1408F1020
+ * XREFs of BcdSetElementData @ 0x1408F1000
  * Callers:
- *     WheaPersistOfflinedPage @ 0x1403204A4 (WheaPersistOfflinedPage.c)
+ *     WheaPersistOfflinedPage @ 0x1403205A4 (WheaPersistOfflinedPage.c)
  * Callees:
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
  */
 
 __int64 __fastcall BcdSetElementData(void *a1, unsigned int a2, __int64 a3, unsigned int a4)

@@ -1,55 +1,48 @@
 /*
- * XREFs of MiReturnPoolCharges @ 0x140340278
+ * XREFs of MiReturnPoolCharges @ 0x1402E9F00
  * Callers:
- *     MiReturnExcessPoolCommit @ 0x140286478 (MiReturnExcessPoolCommit.c)
- *     MiInitializePoolCommitPacket @ 0x1402867E0 (MiInitializePoolCommitPacket.c)
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MiReturnPhysicalPoolPages @ 0x14034000C (MiReturnPhysicalPoolPages.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     MmFreeIndependentPages @ 0x140880080 (MmFreeIndependentPages.c)
+ *     MiReturnExcessPoolCommit @ 0x14028BF14 (MiReturnExcessPoolCommit.c)
+ *     MiInitializePoolCommitPacket @ 0x14028C258 (MiInitializePoolCommitPacket.c)
+ *     MiReturnPhysicalPoolPages @ 0x1402E9A84 (MiReturnPhysicalPoolPages.c)
+ *     MiGetPoolPages @ 0x14033DA1C (MiGetPoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     MmFreeIndependentPages @ 0x140763BF0 (MmFreeIndependentPages.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnSystemCharges @ 0x140340508 (MiReturnSystemCharges.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
  */
 
-void __fastcall MiReturnPoolCharges(unsigned __int64 *a1, int a2, char a3)
+void __fastcall MiReturnPoolCharges(unsigned __int64 *a1, int a2)
 {
-  __int64 v6; // rdi
-  struct _KPRCB *CurrentPrcb; // r9
-  unsigned __int64 v8; // r8
-  __int64 CachedResidentAvailable; // rdx
-  bool v10; // zf
-  signed __int32 v11; // eax
-  unsigned __int64 v12; // rax
+  struct _KPRCB *CurrentPrcb; // r10
+  unsigned __int64 v5; // r8
+  __int64 CachedResidentAvailable; // r9
+  bool v7; // zf
+  signed __int32 v8; // eax
+  unsigned __int64 v9; // rax
 
-  if ( qword_140C6FA98 )
+  if ( qword_140C52B28 )
   {
-    v6 = a1[4] - a1[1];
-    MiReturnCommit((__int64)&MiSystemPartition, v6);
-    if ( a2 == 2 )
-    {
-      MiReturnSystemCharges(&MiSystemPartition, v6, (a3 & 4) != 0 ? 15 : 5);
-      return;
-    }
     CurrentPrcb = KeGetCurrentPrcb();
-    v8 = *a1;
+    v5 = *a1;
     CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
     if ( (_DWORD)CachedResidentAvailable != -1 )
     {
-      if ( v8 + CachedResidentAvailable <= 0x100 && v8 < 0x80000 )
+      if ( v5 + CachedResidentAvailable <= 0x100 )
       {
         do
         {
-          v11 = _InterlockedCompareExchange(
-                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                  CachedResidentAvailable + v8,
-                  CachedResidentAvailable);
-          v10 = (_DWORD)CachedResidentAvailable == v11;
-          LODWORD(CachedResidentAvailable) = v11;
-          if ( v10 )
-            goto LABEL_7;
+          if ( v5 >= 0x80000 )
+            break;
+          v8 = _InterlockedCompareExchange(
+                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                 CachedResidentAvailable + v5,
+                 CachedResidentAvailable);
+          v7 = (_DWORD)CachedResidentAvailable == v8;
+          LODWORD(CachedResidentAvailable) = v8;
+          if ( v7 )
+            goto LABEL_6;
         }
-        while ( v11 != -1 && v8 + v11 <= 0x100 );
+        while ( v8 != -1 && v5 + v8 <= 0x100 );
       }
       if ( (int)CachedResidentAvailable > 192
         && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -57,16 +50,20 @@ void __fastcall MiReturnPoolCharges(unsigned __int64 *a1, int a2, char a3)
                                                 192,
                                                 CachedResidentAvailable) )
       {
-        v8 += (int)CachedResidentAvailable - 192;
+        v5 += (int)CachedResidentAvailable - 192;
       }
     }
-    if ( v8 )
-      _InterlockedExchangeAdd64(&qword_140C6F880, v8);
-LABEL_7:
-    v12 = -(__int64)a1[4];
-    if ( a2 )
-      _InterlockedExchangeAdd64(&qword_140C69AA0, v12);
-    else
-      _InterlockedExchangeAdd64(&qword_140C69A98, v12);
+    if ( v5 )
+      _InterlockedExchangeAdd64(&qword_140C52980, v5);
+LABEL_6:
+    MiReturnCommit((__int64)&MiSystemPartition, a1[3] - a1[1]);
+    if ( a2 != 2 )
+    {
+      v9 = -(__int64)a1[3];
+      if ( a2 )
+        _InterlockedExchangeAdd64(&qword_140C4EFA8, v9);
+      else
+        _InterlockedExchangeAdd64(&qword_140C4EFA0, v9);
+    }
   }
 }

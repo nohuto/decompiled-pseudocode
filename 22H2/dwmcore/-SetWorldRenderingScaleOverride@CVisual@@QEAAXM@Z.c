@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z @ 0x1800FBC70
+ * XREFs of ?SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z @ 0x1801AEB48
  * Callers:
- *     ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1800FBB9C (-ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVE.c)
+ *     ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1801AE3B4 (-ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVE.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180038ACC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800639F0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  */
 
 void __fastcall CVisual::SetWorldRenderingScaleOverride(CVisual *this, float a2)
@@ -12,7 +12,7 @@ void __fastcall CVisual::SetWorldRenderingScaleOverride(CVisual *this, float a2)
   float v3; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = a2;
-  v2 = (CVisual *)((char *)this + 224);
+  v2 = (CVisual *)((char *)this + 216);
   if ( LODWORD(a2) == `CVisual::SetWorldRenderingScaleOverride'::`2'::sc_defaultValue )
     *(_DWORD *)(*(_QWORD *)v2 + 4LL) &= ~0x40000u;
   else

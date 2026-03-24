@@ -1,94 +1,94 @@
 /*
- * XREFs of MiDeleteInsertedCloneVads @ 0x140A48D28
+ * XREFs of MiDeleteInsertedCloneVads @ 0x1408D9404
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140A489C4 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D90B0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiReferenceVad @ 0x140275334 (MiReferenceVad.c)
- *     MiLockVad @ 0x14029C6B0 (MiLockVad.c)
- *     MiDeleteCloneZombies @ 0x140367034 (MiDeleteCloneZombies.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiDeleteCloneDescriptor @ 0x140663EB0 (MiDeleteCloneDescriptor.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiReferenceVad @ 0x14025ABF0 (MiReferenceVad.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiLockVad @ 0x140296DD8 (MiLockVad.c)
+ *     MiDeleteCloneZombies @ 0x14032267C (MiDeleteCloneZombies.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiDeleteCloneDescriptor @ 0x140559F34 (MiDeleteCloneDescriptor.c)
  */
 
-__int64 __fastcall MiDeleteInsertedCloneVads(__int64 a1)
+__int64 __fastcall MiDeleteInsertedCloneVads(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  unsigned int *v3; // rax
-  unsigned int *i; // rbx
-  unsigned int **v5; // rax
-  unsigned int *v6; // rsi
-  unsigned int *v7; // rcx
-  unsigned int *v8; // rcx
-  unsigned int *j; // rax
-  unsigned int **v10; // rax
-  unsigned int *v11; // rcx
-  unsigned int *v12; // rcx
-  $115DCDF994C6370D29323EAB0E0C9502 v14; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD *v6; // rax
+  _QWORD *i; // rbx
+  _QWORD **v8; // rax
+  _DWORD *v9; // rsi
+  _QWORD *v10; // rcx
+  _QWORD *v11; // rcx
+  _QWORD *j; // rax
+  _QWORD **v13; // rax
+  _QWORD *v14; // rcx
+  _QWORD *v15; // rcx
+  _OWORD v17[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(&v14, 0, sizeof(v14));
+  memset(v17, 0, sizeof(v17));
   CurrentThread = KeGetCurrentThread();
-  KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v14);
-  *(_BYTE *)(*(_QWORD *)(a1 + 1680) + 341LL) |= 1u;
-  v3 = *(unsigned int **)(a1 + 2008);
+  KiStackAttachProcess((_KPROCESS *)a1, 0LL, (__int64)v17, a4);
+  *(_BYTE *)(*(_QWORD *)(a1 + 1680) + 353LL) |= 1u;
+  v6 = *(_QWORD **)(a1 + 2008);
   i = 0LL;
-  while ( v3 )
+  while ( v6 )
   {
-    i = v3;
-    v3 = *(unsigned int **)v3;
+    i = v6;
+    v6 = (_QWORD *)*v6;
   }
   while ( i )
   {
-    v5 = (unsigned int **)*((_QWORD *)i + 1);
-    v6 = i;
-    v7 = i;
-    if ( v5 )
+    v8 = (_QWORD **)i[1];
+    v9 = i;
+    v10 = i;
+    if ( v8 )
     {
-      v8 = *v5;
-      for ( i = (unsigned int *)*((_QWORD *)i + 1); v8; v8 = *(unsigned int **)v8 )
-        i = v8;
+      v11 = *v8;
+      for ( i = (_QWORD *)i[1]; v11; v11 = (_QWORD *)*v11 )
+        i = v11;
     }
     else
     {
       while ( 1 )
       {
-        i = (unsigned int *)(*((_QWORD *)i + 2) & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !i || *(unsigned int **)i == v7 )
+        i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !i || (_QWORD *)*i == v10 )
           break;
-        v7 = i;
+        v10 = i;
       }
     }
-    MiLockVad((__int64)CurrentThread, (__int64)v6);
-    MiReferenceVad((__int64)v6);
-    MiDeleteVad(v6, 0LL, 0);
+    MiLockVad((__int64)CurrentThread, (__int64)v9);
+    MiReferenceVad((__int64)v9);
+    MiDeleteVad(v9, 0LL, 0);
   }
-  for ( j = *(unsigned int **)(a1 + 1264); j; j = *(unsigned int **)j )
+  for ( j = *(_QWORD **)(a1 + 1264); j; j = (_QWORD *)*j )
     i = j;
   while ( i )
   {
-    *((_QWORD *)i + 6) = 0LL;
+    i[6] = 0LL;
     MiDeleteCloneDescriptor((struct _KPROCESS *)a1, (__int64)i);
-    v10 = (unsigned int **)*((_QWORD *)i + 1);
-    v11 = i;
-    if ( v10 )
+    v13 = (_QWORD **)i[1];
+    v14 = i;
+    if ( v13 )
     {
-      v12 = *v10;
-      for ( i = (unsigned int *)*((_QWORD *)i + 1); v12; v12 = *(unsigned int **)v12 )
-        i = v12;
+      v15 = *v13;
+      for ( i = (_QWORD *)i[1]; v15; v15 = (_QWORD *)*v15 )
+        i = v15;
     }
     else
     {
       while ( 1 )
       {
-        i = (unsigned int *)(*((_QWORD *)i + 2) & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !i || *(unsigned int **)i == v11 )
+        i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !i || (_QWORD *)*i == v14 )
           break;
-        v11 = i;
+        v14 = i;
       }
     }
   }
   MiDeleteCloneZombies(a1, 0);
-  return KiUnstackDetachProcess(&v14);
+  return KiUnstackDetachProcess((__int64)v17, 0);
 }

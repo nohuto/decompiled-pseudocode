@@ -3,7 +3,7 @@
  * Callers:
  *     IopAllocateFoExtensionsOnCreate @ 0x1405F9484 (IopAllocateFoExtensionsOnCreate.c)
  *     IopAllocRealFileObject @ 0x14063BB00 (IopAllocRealFileObject.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

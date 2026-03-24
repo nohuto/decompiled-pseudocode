@@ -1,40 +1,35 @@
 /*
- * XREFs of CmpFindRedirectedDriverServiceStateNode @ 0x140B13268
+ * XREFs of CmpFindRedirectedDriverServiceStateNode @ 0x140A61328
  * Callers:
- *     CmpFindDrivers @ 0x140B141E0 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B132D0 (CmpGetStateSepKeysRedirectionPathValue.c)
- *     CmpGetKnownHivePathNode @ 0x140B4E1B0 (CmpGetKnownHivePathNode.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140A61390 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpGetKnownHivePathNode @ 0x140A8EBCC (CmpGetKnownHivePathNode.c)
  */
 
 char __fastcall CmpFindRedirectedDriverServiceStateNode(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR BugCheckParameter4,
-        __int64 a3,
-        __int64 a4,
+        ULONG_PTR a1,
+        int a2,
+        int a3,
+        int a4,
         __int64 a5,
         __int64 a6,
         __int64 a7)
 {
-  unsigned int v7; // edi
   char result; // al
-  char KnownHivePathNode; // di
-  __int64 v11; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v12[2]; // [rsp+48h] [rbp-20h] BYREF
+  char KnownHivePathNode; // bl
+  _DWORD v13[2]; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v14; // [rsp+48h] [rbp-20h] BYREF
 
-  v11 = 0xFFFFFFFFLL;
-  v7 = BugCheckParameter4;
-  *(_OWORD *)v12 = 0LL;
-  result = CmpGetStateSepKeysRedirectionPathValue(BugCheckParameter3, (__int64)&v11);
+  v13[0] = -1;
+  v13[1] = 0;
+  v14 = 0LL;
+  result = CmpGetStateSepKeysRedirectionPathValue(a1, (__int64)v13);
   if ( result )
   {
-    KnownHivePathNode = CmpGetKnownHivePathNode(BugCheckParameter3, v7, (__int64)v12, a5, a6, a7);
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v11);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
+    KnownHivePathNode = CmpGetKnownHivePathNode(a1, a2, a3, a4, (__int64)&v14, a5, a6, a7);
+    (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(a1 + 16))(a1, v13);
     return KnownHivePathNode;
   }
   return result;

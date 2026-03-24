@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ClearReceivers@CProjectedShadowScene@@AEAAXXZ @ 0x180004940
+ * XREFs of ?ClearReceivers@CProjectedShadowScene@@AEAAXXZ @ 0x18000D070
  * Callers:
- *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x1800048C4 (--1CProjectedShadowScene@@UEAA@XZ.c)
- *     ?ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARRECEIVERS@@@Z @ 0x18024BE5C (-ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSH.c)
+ *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x18000E794 (--1CProjectedShadowScene@@UEAA@XZ.c)
+ *     ?ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARRECEIVERS@@@Z @ 0x1801E4A98 (-ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSH.c)
  * Callees:
- *     ?ClearShadows@CProjectedShadowScene@@AEAAX_N@Z @ 0x180004D68 (-ClearShadows@CProjectedShadowScene@@AEAAX_N@Z.c)
- *     ??$_Free_non_head@V?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x180009A00 (--$_Free_non_head@V-$allocator@U-$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@st.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ?ClearShadows@CProjectedShadowScene@@AEAAX_N@Z @ 0x18000CD44 (-ClearShadows@CProjectedShadowScene@@AEAAX_N@Z.c)
+ *     ??$_Free_non_head@V?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x18000D14C (--$_Free_non_head@V-$allocator@U-$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@st.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 void __fastcall CProjectedShadowScene::ClearReceivers(CProjectedShadowScene *this)
@@ -15,58 +15,47 @@ void __fastcall CProjectedShadowScene::ClearReceivers(CProjectedShadowScene *thi
   char *v2; // rdi
   _QWORD *v3; // r14
   _QWORD *i; // rbx
-  __int64 v5; // rsi
-  CProjectedShadowScene **v6; // r8
-  CProjectedShadowScene **v7; // rcx
-  CProjectedShadowScene **v8; // rdx
-  __int64 v9; // rcx
-  _QWORD *v10; // rbx
-  _QWORD *v11; // rax
-  __int64 v12; // rcx
-  char v13; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v5; // rcx
+  _QWORD *v6; // rbx
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rsi
+  CProjectedShadowScene **v10; // r8
+  CProjectedShadowScene **j; // rcx
+  char v12; // [rsp+20h] [rbp-18h] BYREF
 
   CProjectedShadowScene::ClearShadows(this, 0);
-  v2 = (char *)this + 80;
-  v3 = (_QWORD *)*((_QWORD *)this + 10);
+  v2 = (char *)this + 72;
+  v3 = (_QWORD *)*((_QWORD *)this + 9);
   for ( i = (_QWORD *)*v3; i != v3; i = (_QWORD *)*i )
   {
-    v5 = i[2];
-    v6 = *(CProjectedShadowScene ***)(v5 + 80);
-    v7 = *(CProjectedShadowScene ***)(v5 + 72);
-    if ( v7 != v6 )
+    v9 = i[2];
+    v10 = *(CProjectedShadowScene ***)(v9 + 72);
+    for ( j = *(CProjectedShadowScene ***)(v9 + 64); j != v10 && *j != this; ++j )
+      ;
+    if ( j != v10 )
     {
-      while ( 1 )
-      {
-        v8 = v7 + 1;
-        if ( *v7 == this )
-          break;
-        ++v7;
-        if ( v8 == v6 )
-          goto LABEL_6;
-      }
-      memmove_0(v7, v8, (char *)v6 - (char *)v8);
-      *(_QWORD *)(v5 + 80) -= 8LL;
+      memmove_0(j, j + 1, (char *)v10 - (char *)(j + 1));
+      *(_QWORD *)(v9 + 72) -= 8LL;
     }
-LABEL_6:
-    ;
   }
-  v10 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x78uLL);
-  *v10 = v10;
-  v10[1] = v10;
-  if ( v2 != &v13 )
+  v6 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x78uLL);
+  *v6 = v6;
+  v6[1] = v6;
+  if ( v2 != &v12 )
   {
-    v11 = *(_QWORD **)v2;
-    *((_QWORD *)this + 11) = 0LL;
-    *(_QWORD *)v2 = v10;
-    v10 = v11;
+    v7 = *(_QWORD **)v2;
+    *((_QWORD *)this + 10) = 0LL;
+    *(_QWORD *)v2 = v6;
+    v6 = v7;
   }
   std::_List_node<CProjectedShadowScene::ReceiverEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::ReceiverEntry,void *>>>(
-    v9,
-    v10);
-  *v10 = v10;
-  v10[1] = v10;
+    v5,
+    v6);
+  *v6 = v6;
+  v6[1] = v6;
   std::_List_node<CProjectedShadowScene::ReceiverEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::ReceiverEntry,void *>>>(
-    v12,
-    v10);
-  std::_Deallocate<16,0>(v10, 120LL);
+    v8,
+    v6);
+  std::_Deallocate<16,0>(v6, 120LL);
 }

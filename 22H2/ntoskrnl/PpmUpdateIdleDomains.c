@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmUpdateIdleDomains @ 0x140586390
+ * XREFs of PpmUpdateIdleDomains @ 0x140567DE0
  * Callers:
  *     <none>
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     KeIsSubsetAffinityEx @ 0x140513580 (KeIsSubsetAffinityEx.c)
  */
 
 __int64 __fastcall PpmUpdateIdleDomains(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall PpmUpdateIdleDomains(__int64 a1)
   int v2; // ebx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
-  if ( a1 && (unsigned int)KeIsSubsetAffinityEx(a1 + 8, (__int64)KeActiveProcessors) )
+  if ( a1 && (unsigned int)KeIsSubsetAffinityEx((unsigned __int16 *)(a1 + 8), (unsigned __int16 *)KeActiveProcessors) )
   {
     v2 = PopExecuteOnTargetProcessors(a1 + 8, (__int64)PpmInstallNewIdleDomains, a1, a1 + 8);
     if ( v2 >= 0 )
@@ -24,6 +24,6 @@ __int64 __fastcall PpmUpdateIdleDomains(__int64 a1)
   {
     v2 = -1073741811;
   }
-  PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
+  PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
   return (unsigned int)v2;
 }

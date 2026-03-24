@@ -1,83 +1,74 @@
 /*
- * XREFs of ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C005B398
+ * XREFs of ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C0166BB0
  * Callers:
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C0024A88 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
- *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C005B484 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C014F34E (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
- *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C014FE8C (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C00146EC (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C00313BC (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01668D8 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA6B8 (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00A4BA4 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00A90A4 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00B8B48 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     _MonitorFromPoint @ 0x1C00D03B0 (_MonitorFromPoint.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00E2FC0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
+ *     _MonitorFromPoint @ 0x1C0042060 (_MonitorFromPoint.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004EFF4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     zzzUpdateCursorImage @ 0x1C0080E90 (zzzUpdateCursorImage.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0103A10 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C010AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C012CC7C (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
  */
 
 void __fastcall CCursorSizes::zzzUpdateGlobalCursorSize(CCursorSizes *this, const struct tagPOINT *a2, char a3)
 {
   CPushLock *v3; // rbx
-  _OWORD *v6; // rdi
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned __int16 v12; // cx
-  unsigned __int64 v13; // rax
-  int v14; // esi
-  int v15; // edi
-  char v16; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  unsigned __int16 v8; // cx
+  unsigned __int64 v9; // rax
+  int v10; // esi
+  int v11; // edi
+  int v12; // [rsp+40h] [rbp+18h] BYREF
 
   v3 = (CCursorSizes *)((char *)this + 64);
-  if ( a3 )
-  {
-    v6 = (_OWORD *)((char *)this + 8);
-  }
-  else
+  if ( !a3 )
   {
     CPushLock::AcquireLockShared((CCursorSizes *)((char *)this + 64));
-    v6 = (_OWORD *)((char *)this + 8);
-    if ( (unsigned int)PtInRect((char *)this + 8, *a2) )
+    if ( PtInRect((_DWORD *)this + 2, (unsigned __int64)*a2) )
     {
       CPushLock::ReleaseLock(v3);
       return;
     }
     CPushLock::ReleaseLock(v3);
   }
-  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v16);
-  v9 = MonitorFromPoint(*a2, 1LL, 18LL);
-  if ( v9 )
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v12);
+  v7 = MonitorFromPoint((__int64)*a2, 1u, 0x12u);
+  if ( v7 )
   {
     CPushLock::AcquireLockExclusive(v3);
-    *v6 = *(_OWORD *)(*(_QWORD *)(v9 + 40) + 28LL);
-    v12 = *(_WORD *)(*(_QWORD *)(v9 + 40) + 64LL);
-    if ( v12 >= 0x90u )
+    *(_OWORD *)((char *)this + 8) = *(_OWORD *)(*(_QWORD *)(v7 + 40) + 28LL);
+    v8 = *(_WORD *)(*(_QWORD *)(v7 + 40) + 68LL);
+    if ( v8 >= 0x90u )
     {
-      if ( v12 >= 0xC0u )
+      if ( v8 >= 0xC0u )
       {
-        if ( v12 >= 0x120u )
-          v13 = (-(__int64)(v12 < 0x180u) & 0xFFFFFFFFFFFFFFF8uLL) + 60;
+        if ( v8 >= 0x120u )
+          v9 = (-(__int64)(v8 < 0x180u) & 0xFFFFFFFFFFFFFFF8uLL) + 60;
         else
-          v13 = 44LL;
+          v9 = 44LL;
       }
       else
       {
-        v13 = 36LL;
+        v9 = 36LL;
       }
     }
     else
     {
-      v13 = 28LL;
+      v9 = 28LL;
     }
-    v14 = *(_DWORD *)((char *)this + v13);
-    v15 = *(_DWORD *)this;
-    *(_DWORD *)this = v14;
+    v10 = *(_DWORD *)((char *)this + v9);
+    v11 = *(_DWORD *)this;
+    *(_DWORD *)this = v10;
     CPushLock::ReleaseLock(v3);
-    if ( v14 != v15 )
+    if ( v10 != v11 )
       zzzUpdateCursorImage();
   }
-  if ( !v16 )
-    UserSessionSwitchLeaveCrit(v8, v7, v10, v11);
+  if ( !v12 )
+    UserSessionSwitchLeaveCrit(v6);
 }

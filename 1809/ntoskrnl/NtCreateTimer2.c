@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCreateTimer2 @ 0x14068A570
+ * XREFs of NtCreateTimer2 @ 0x14068A550
  * Callers:
- *     NtCreateIRTimer @ 0x14071F1B0 (NtCreateIRTimer.c)
+ *     NtCreateIRTimer @ 0x14071F190 (NtCreateIRTimer.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x1400FD468 (ExpExTimerAttributesAreValid.c)
- *     KeInitializeTimer2 @ 0x1400FD4B0 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14013AF00 (KeInitializeIRTimer.c)
+ *     ExpExTimerAttributesAreValid @ 0x1400FD488 (ExpExTimerAttributesAreValid.c)
+ *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14013AF20 (KeInitializeIRTimer.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExpCheckIRTimerAccess @ 0x1406CFBCC (ExpCheckIRTimerAccess.c)
+ *     ExpCheckIRTimerAccess @ 0x1406CFBAC (ExpCheckIRTimerAccess.c)
  */
 
 __int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, int a4, unsigned int a5)

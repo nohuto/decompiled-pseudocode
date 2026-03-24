@@ -1,23 +1,23 @@
 /*
- * XREFs of PspShutdownCsrProcess @ 0x140887614
+ * XREFs of PspShutdownCsrProcess @ 0x1408875F4
  * Callers:
- *     PspTerminateSiloSubsystemProcesses @ 0x140887D34 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140887D14 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1401B81F0 (ZwWaitForSingleObject.c)
- *     ZwSetEvent @ 0x1401B8330 (ZwSetEvent.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenEvent @ 0x1401B8970 (ZwOpenEvent.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x1401B8350 (ZwSetEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenEvent @ 0x1401B8990 (ZwOpenEvent.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     PspWaitForUsermodeExit @ 0x14088B888 (PspWaitForUsermodeExit.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14088B868 (PspWaitForUsermodeExit.c)
  */
 
 __int64 __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)

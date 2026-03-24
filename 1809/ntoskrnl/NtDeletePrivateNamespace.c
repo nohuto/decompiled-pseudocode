@@ -1,12 +1,12 @@
 /*
- * XREFs of NtDeletePrivateNamespace @ 0x140706D70
+ * XREFs of NtDeletePrivateNamespace @ 0x140706D50
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140654724 (ObpVerifyCreatorAccessCheck.c)
- *     ObpRemoveNamespaceFromTable @ 0x1406B64EC (ObpRemoveNamespaceFromTable.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140654704 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpRemoveNamespaceFromTable @ 0x1406B64CC (ObpRemoveNamespaceFromTable.c)
  */
 
 NTSTATUS __fastcall NtDeletePrivateNamespace(void *a1)

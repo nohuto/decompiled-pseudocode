@@ -1,19 +1,19 @@
 /*
- * XREFs of ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C
+ * XREFs of ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628
  * Callers:
- *     EditionProcessPointerInputAsMouse @ 0x1C0214810 (EditionProcessPointerInputAsMouse.c)
+ *     EditionProcessPointerInputAsMouse @ 0x1C0219BF0 (EditionProcessPointerInputAsMouse.c)
  * Callees:
- *     ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C016D8A8 (-CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z.c)
- *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C016D94A (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
- *     ?WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z @ 0x1C016DA36 (-WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z.c)
- *     ?CancelAutoPromotion@@YAXXZ @ 0x1C0213458 (-CancelAutoPromotion@@YAXXZ.c)
- *     ?CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z @ 0x1C0213580 (-CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z.c)
- *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C021360C (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C0213850 (-HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z.c)
- *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0213DC0 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0213E18 (-ResetMousePromotionInfo@@YAXGG@Z.c)
- *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0214098 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0214458 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C02185AC (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C0218688 (-CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z.c)
+ *     ?CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z @ 0x1C0218778 (-CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218804 (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C0218A58 (-HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z.c)
+ *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C0218FCC (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
+ *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C02190A8 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0219100 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z @ 0x1C0219380 (-WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C02193F0 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219834 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  */
 
 void __fastcall PointerPromotion::xxxProcessPointerInputAsMouse(
@@ -60,7 +60,7 @@ void __fastcall PointerPromotion::xxxProcessPointerInputAsMouse(
   v10 = _mm_cvtsi128_si32(_mm_srli_si128(v3, 8));
   *(__m128i *)v22 = v3;
   v26 = v9;
-  InputTraceLogging::Pointer::PromoteToMouse(v10);
+  InputTraceLogging::Pointer::PromoteToMouse(v10, v3.m128i_i16[2], 0, a3);
   v11 = _mm_cvtsi128_si32(_mm_srli_si128(v3, 12));
   if ( (v11 & 0x2000) == 0 )
   {
@@ -70,21 +70,21 @@ void __fastcall PointerPromotion::xxxProcessPointerInputAsMouse(
     v10 = *(_DWORD *)&v22[4];
   }
   v12 = (v11 & 0x8000) != 0;
-  v13 = dword_1C0335D98;
+  v13 = dword_1C033ABD8;
   if ( v12 )
   {
-    v13 = dword_1C0335D98 & 0xFFFFFFF7;
-    dword_1C0335D98 &= ~8u;
+    v13 = dword_1C033ABD8 & 0xFFFFFFF7;
+    dword_1C033ABD8 &= ~8u;
   }
   v14 = v22[2];
-  if ( v22[2] != word_1C0335C90[0] || (a3 & 0x10) != 0 )
+  if ( v22[2] != word_1C033AAD0[0] || (a3 & 0x10) != 0 )
   {
     if ( (v13 & 2) != 0 )
     {
       CancelAutoPromotion();
-      v13 = dword_1C0335D98;
+      v13 = dword_1C033ABD8;
     }
-    dword_1C0335D98 = v13 & 0xFFFFFFF7;
+    dword_1C033ABD8 = v13 & 0xFFFFFFF7;
     ResetMousePromotionInfo(v14);
   }
   v15 = CoalesceMousePromotionEntry((const struct tagPOINTER_INFO *)v22, a3);
@@ -96,33 +96,33 @@ void __fastcall PointerPromotion::xxxProcessPointerInputAsMouse(
     v10 = *(_DWORD *)&v22[4];
     v14 = v22[2];
   }
-  qword_1C0335D88 = v23.m128i_i64[1];
-  dword_1C0335C94 = v10;
+  qword_1C033ABC8 = v23.m128i_i64[1];
+  dword_1C033AAD4 = v10;
   if ( MousePromotionEntry )
   {
-    v16 = dword_1C0335D98;
-    if ( (dword_1C0335D98 & 2) != 0 )
+    v16 = dword_1C033ABD8;
+    if ( (dword_1C033ABD8 & 2) != 0 )
     {
-      if ( (dword_1C0335D98 & 4) != 0 )
+      if ( (dword_1C033ABD8 & 4) != 0 )
       {
         *((_DWORD *)MousePromotionEntry + 11) &= ~1u;
-        v16 = dword_1C0335D98;
+        v16 = dword_1C033ABD8;
       }
       if ( (v16 & 0x10) != 0 )
         *((_DWORD *)MousePromotionEntry + 11) |= 0x40u;
-      QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10, MousePromotionEntry);
+      QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50, MousePromotionEntry);
       if ( (*((_DWORD *)MousePromotionEntry + 5) & 0x40000) != 0 )
-        dword_1C0335D98 &= 0xFFFFFFE9;
+        dword_1C033ABD8 &= 0xFFFFFFE9;
       goto LABEL_31;
     }
-    QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&unk_1C0335CA0, MousePromotionEntry);
+    QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&unk_1C033AAE0, MousePromotionEntry);
   }
   if ( v15 || MousePromotionEntry )
   {
     v28 = 0;
-    if ( (dword_1C0335D98 & 8) != 0 )
+    if ( (dword_1C033ABD8 & 8) != 0 )
     {
-      v17 = DetectPromotionType(0LL, qword_1C0335CA8);
+      v17 = DetectPromotionType(0LL, qword_1C033AAE8);
       if ( v17 == 0x10000000 )
         goto LABEL_31;
       v19 = v17;

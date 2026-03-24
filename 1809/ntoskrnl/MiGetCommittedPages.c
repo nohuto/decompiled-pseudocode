@@ -4,12 +4,12 @@
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiDeleteSegmentPages @ 0x140094E38 (MiDeleteSegmentPages.c)
  *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x1402C48BC (MiComputeCrossPartitionSectionCharges.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1402C49BC (MiComputeCrossPartitionSectionCharges.c)
  *     MiRemoveSharedCommitNode @ 0x1405F0650 (MiRemoveSharedCommitNode.c)
  *     MiInsertSharedCommitNode @ 0x1405F08A0 (MiInsertSharedCommitNode.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiInitializeImageExtents @ 0x140852EE4 (MiInitializeImageExtents.c)
+ *     MiInitializeImageExtents @ 0x140852EC4 (MiInitializeImageExtents.c)
  * Callees:
  *     <none>
  */

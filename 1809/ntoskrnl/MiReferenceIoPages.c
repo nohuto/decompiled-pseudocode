@@ -1,25 +1,25 @@
 /*
- * XREFs of MiReferenceIoPages @ 0x1400E5F8C
+ * XREFs of MiReferenceIoPages @ 0x1400E5FAC
  * Callers:
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831C4 (MiMapContiguousMemoryLarge.c)
- *     MmRotatePhysicalView @ 0x14066B930 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B44 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
+ *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
+ *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
  *     MiAddLoaderHalIoPte @ 0x1409CF2E0 (MiAddLoaderHalIoPte.c)
  * Callees:
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializeIoPageNodeArray @ 0x1400E5978 (MiInitializeIoPageNodeArray.c)
- *     MiRemoveUnmappedIoNode @ 0x1400E59B0 (MiRemoveUnmappedIoNode.c)
- *     MiIoSpaceIsConstant @ 0x1400E6390 (MiIoSpaceIsConstant.c)
- *     MiDereferenceIoPages @ 0x140123614 (MiDereferenceIoPages.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiFlushCacheMdl @ 0x1402C3D5C (MiFlushCacheMdl.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeIoPageNodeArray @ 0x1400E5998 (MiInitializeIoPageNodeArray.c)
+ *     MiRemoveUnmappedIoNode @ 0x1400E59D0 (MiRemoveUnmappedIoNode.c)
+ *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
+ *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiFlushCacheMdl @ 0x1402C3E5C (MiFlushCacheMdl.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

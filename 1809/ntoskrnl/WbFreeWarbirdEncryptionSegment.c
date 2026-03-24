@@ -2,7 +2,7 @@
  * XREFs of WbFreeWarbirdEncryptionSegment @ 0x140584AE0
  * Callers:
  *     sub_140584234 @ 0x140584234 (sub_140584234.c)
- *     WbFreeWarbirdProcess @ 0x14068FFB8 (WbFreeWarbirdProcess.c)
+ *     WbFreeWarbirdProcess @ 0x14068FF98 (WbFreeWarbirdProcess.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

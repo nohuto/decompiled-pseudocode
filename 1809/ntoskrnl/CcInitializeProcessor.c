@@ -1,7 +1,7 @@
 /*
- * XREFs of CcInitializeProcessor @ 0x14072922C
+ * XREFs of CcInitializeProcessor @ 0x14072920C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
  * Callees:
  *     MmIsThisAnNtAsSystem @ 0x14000EC80 (MmIsThisAnNtAsSystem.c)

@@ -1,48 +1,47 @@
 /*
- * XREFs of PfTCleanup @ 0x1409882B4
+ * XREFs of PfTCleanup @ 0x1408E03BC
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406AD6BC (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
- *     PfpParametersPropagate @ 0x140989028 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PfFbBufferListInsertInFree @ 0x14035FAE8 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     PfFbBufferListShutdown @ 0x1405C6630 (PfFbBufferListShutdown.c)
- *     PfTTraceListFree @ 0x1407DBEE0 (PfTTraceListFree.c)
- *     PfTCleanupBuffers @ 0x140988464 (PfTCleanupBuffers.c)
- *     PfTTraceListTrim @ 0x1409887B0 (PfTTraceListTrim.c)
- *     PfFbBufferListCleanup @ 0x140989350 (PfFbBufferListCleanup.c)
- *     PfTAccessTracingCleanup @ 0x140A483FC (PfTAccessTracingCleanup.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x140564F2C (PfFbBufferListShutdown.c)
+ *     PfTTraceListFree @ 0x1406CDB44 (PfTTraceListFree.c)
+ *     PfTCleanupBuffers @ 0x1408E056C (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x1408E05FC (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x1408E0DFC (PfFbBufferListCleanup.c)
+ *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
  */
 
-LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)
+void __fastcall PfTCleanup(__int64 a1, __int64 a2)
 {
   bool v3; // bp
   __int64 v4; // rdx
   PSLIST_ENTRY v5; // rbx
   PSLIST_ENTRY v6; // rdx
-  LONG_PTR result; // rax
-  void *v8; // rcx
-  _QWORD *v9[5]; // [rsp+30h] [rbp-28h] BYREF
+  struct _DMA_ADAPTER *v7; // rcx
+  _QWORD *v8[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  v9[1] = v9;
-  v9[0] = v9;
+  v8[1] = v8;
+  v8[0] = v8;
   v3 = KeGetCurrentThread() == *(struct _KTHREAD **)(a1 + 104);
   PfTAccessTracingCleanup(a1, a2, 1LL);
   ExAcquireFastMutex((PFAST_MUTEX)(a1 + 560));
   *(_DWORD *)(a1 + 540) = 0;
   *(_DWORD *)(a1 + 548) = 0;
-  PfTTraceListTrim(0LL, 0LL, v9);
-  PfTTraceListTrim(1LL, 0LL, v9);
+  PfTTraceListTrim(0LL, 0LL, v8);
+  PfTTraceListTrim(1LL, 0LL, v8);
   *(_DWORD *)(a1 + 552) = 0;
   PfTAccessTracingCleanup(a1, v4, 2LL);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 560));
-  PfTTraceListFree(v9);
+  PfTTraceListFree(v8);
   *(_DWORD *)(a1 + 496) = 0;
   v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 480));
   while ( v5 )
@@ -62,19 +61,18 @@ LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)
   {
     KeSetEvent((PRKEVENT)(a1 + 200), 0, 0);
     KeWaitForSingleObject(*(PVOID *)(a1 + 104), Executive, 0, 0, 0LL);
-    ObfDereferenceObject(*(PVOID *)(a1 + 104));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 104));
     *(_QWORD *)(a1 + 104) = 0LL;
   }
-  PfTCleanupBuffers(&unk_140C4E978);
-  PfTCleanupBuffers(&unk_140C4E9A0);
+  PfTCleanupBuffers(&unk_140C4FBD8);
+  PfTCleanupBuffers(&unk_140C4FC00);
   PfFbBufferListCleanup(a1 + 224);
-  result = PfFbBufferListCleanup(a1 + 352);
-  v8 = *(void **)(a1 + 616);
-  if ( v8 )
+  PfFbBufferListCleanup(a1 + 352);
+  v7 = *(struct _DMA_ADAPTER **)(a1 + 616);
+  if ( v7 )
   {
-    result = ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v7);
     *(_QWORD *)(a1 + 616) = 0LL;
   }
   *(_DWORD *)(a1 + 8) = 0;
-  return result;
 }

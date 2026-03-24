@@ -1,14 +1,13 @@
 /*
- * XREFs of McTemplateK0p_EtwWriteTransfer @ 0x1C01501A8
+ * XREFs of McTemplateK0p_EtwWriteTransfer @ 0x1C01259C0
  * Callers:
- *     EtwTraceDCompGetBatchEvent @ 0x1C00879D0 (EtwTraceDCompGetBatchEvent.c)
- *     EtwTraceWakeInputIdle @ 0x1C0092A90 (EtwTraceWakeInputIdle.c)
- *     EtwTraceSleepInputIdle @ 0x1C009A940 (EtwTraceSleepInputIdle.c)
- *     EtwTraceDITSpeedHitTestFailedRevalidation @ 0x1C014CA70 (EtwTraceDITSpeedHitTestFailedRevalidation.c)
- *     EtwTraceFlipManagerBindingStart @ 0x1C014D010 (EtwTraceFlipManagerBindingStart.c)
+ *     EtwTraceDCompGetBatchEvent @ 0x1C007B040 (EtwTraceDCompGetBatchEvent.c)
+ *     EtwTraceWakeInputIdle @ 0x1C007F900 (EtwTraceWakeInputIdle.c)
+ *     EtwTraceSleepInputIdle @ 0x1C0082420 (EtwTraceSleepInputIdle.c)
+ *     EtwTraceDITSpeedHitTestFailedRevalidation @ 0x1C0121CA0 (EtwTraceDITSpeedHitTestFailedRevalidation.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0p_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

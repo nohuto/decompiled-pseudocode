@@ -1,67 +1,55 @@
 /*
- * XREFs of RtlSuffixUnicodeString @ 0x1409B57F0
+ * XREFs of RtlSuffixUnicodeString @ 0x14090FC40
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140826270 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7E64 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
  */
 
 BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  char v4; // r8
-  __int64 v5; // r9
-  unsigned __int16 *v6; // r11
-  unsigned __int16 *v7; // rdx
-  unsigned int v8; // r10d
-  __int64 v9; // rsi
-  unsigned __int64 v10; // rax
-  _WORD *v11; // r11
-  __int64 v12; // rdx
-  _WORD *v13; // rbx
-  __int64 v14; // rax
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rdi
-  unsigned __int16 *v17; // r11
-  unsigned __int16 v18; // ax
-  __int64 v19; // r11
-  __int16 v20; // r10
-  unsigned __int64 v21; // rdx
+  unsigned __int64 Length; // rax
+  wchar_t *Buffer; // r10
+  wchar_t *v5; // r11
+  wchar_t *v6; // rax
+  unsigned __int64 v7; // rcx
+  signed __int64 v8; // rbx
+  unsigned __int16 *v9; // r10
+  unsigned __int16 v10; // ax
+  __int64 v11; // r10
+  unsigned __int64 v12; // r11
+  __int16 v13; // r9
+  signed __int64 v14; // rdx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v8 = *v7;
-  v9 = CurrentServerSiloGlobals[154];
-  v10 = *v6;
-  if ( (unsigned __int16)v8 >= (unsigned __int16)v10 )
+  Length = String1->Length;
+  if ( String2->Length >= (unsigned __int16)Length )
   {
-    v11 = (_WORD *)*((_QWORD *)v6 + 1);
-    v12 = (unsigned int)v10;
-    v13 = &v11[v10 >> 1];
-    if ( v11 >= v13 )
+    Buffer = String1->Buffer;
+    v5 = &Buffer[Length >> 1];
+    if ( Buffer >= v5 )
       return 1;
-    v14 = *(_QWORD *)(v5 + 8);
-    v15 = ((unsigned __int64)v8 - v12) >> 1;
-    if ( v4 )
+    v6 = String2->Buffer;
+    v7 = (String2->Length - (unsigned __int64)String1->Length) >> 1;
+    if ( CaseInSensitive )
     {
-      v16 = v14 + 2 * v15 - (_QWORD)v11;
+      v8 = (char *)&v6[v7] - (char *)Buffer;
       while ( 1 )
       {
-        NLS_UPCASE(v9, *(_WORD *)((char *)v11 + v16));
-        v18 = NLS_UPCASE(v9, *v17);
-        if ( v18 != v20 )
+        NLS_UPCASE(*(wchar_t *)((char *)Buffer + v8));
+        v10 = NLS_UPCASE(*v9);
+        if ( v10 != v13 )
           break;
-        v11 = (_WORD *)(v19 + 2);
-        if ( v11 >= v13 )
+        Buffer = (wchar_t *)(v11 + 2);
+        if ( (unsigned __int64)Buffer >= v12 )
           return 1;
       }
     }
     else
     {
-      v21 = v14 + 2 * v15 - (_QWORD)v11;
-      while ( *v11 == *(_WORD *)((char *)v11 + v21) )
+      v14 = (char *)&v6[v7] - (char *)Buffer;
+      while ( *Buffer == *(wchar_t *)((char *)Buffer + v14) )
       {
-        if ( ++v11 >= v13 )
+        if ( ++Buffer >= v5 )
           return 1;
       }
     }

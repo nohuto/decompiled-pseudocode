@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlConvertLuidToUlonglong @ 0x1405F43C4
+ * XREFs of RtlConvertLuidToUlonglong @ 0x140596660
  * Callers:
- *     SepLogTokenSidManagement @ 0x1409C6834 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x14091CE74 (SepLogTokenSidManagement.c)
  * Callees:
  *     <none>
  */

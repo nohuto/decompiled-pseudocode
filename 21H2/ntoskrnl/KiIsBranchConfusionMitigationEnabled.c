@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsBranchConfusionMitigationEnabled @ 0x140418B80
+ * XREFs of KiIsBranchConfusionMitigationEnabled @ 0x1403F3130
  * Callers:
- *     KiUpdateSpeculationControl @ 0x14020C9F0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x14021ED00 (KiUpdateSpeculationControl.c)
  * Callees:
  *     <none>
  */

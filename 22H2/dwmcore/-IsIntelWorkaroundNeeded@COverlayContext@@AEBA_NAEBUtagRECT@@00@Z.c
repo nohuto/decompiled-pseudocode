@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsIntelWorkaroundNeeded@COverlayContext@@AEBA_NAEBUtagRECT@@00@Z @ 0x1801DE0CC
+ * XREFs of ?IsIntelWorkaroundNeeded@COverlayContext@@AEBA_NAEBUtagRECT@@00@Z @ 0x18017C5C8
  * Callers:
- *     ?CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@33W4DXGI_MODE_ROTATION@@I_N5@Z @ 0x1801DB8A4 (-CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@.c)
+ *     ?CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@33W4DXGI_MODE_ROTATION@@I_N@Z @ 0x180179F70 (-CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     floorf_0 @ 0x18011B8D8 (floorf_0.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     floorf_0 @ 0x1800F3F9F (floorf_0.c)
  */
 
 char __fastcall COverlayContext::IsIntelWorkaroundNeeded(
@@ -20,7 +20,7 @@ char __fastcall COverlayContext::IsIntelWorkaroundNeeded(
   struct tagRECT rcDst; // [rsp+20h] [rbp-48h] BYREF
 
   v4 = 0;
-  if ( *((_BYTE *)this + 11298) && !*((_BYTE *)this + 11297) )
+  if ( *((_BYTE *)this + 11418) && !*((_BYTE *)this + 11417) )
   {
     rcDst = 0LL;
     IntersectRect(&rcDst, a3, a4);

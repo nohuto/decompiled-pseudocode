@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDmRemoveCacheReferenceForObject @ 0x1406F9750
+ * XREFs of PiDmRemoveCacheReferenceForObject @ 0x1406F9730
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlObjectEventWorker @ 0x1406F1F40 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406F96EC (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
- *     IopProcessSetInterfaceState @ 0x14070F918 (IopProcessSetInterfaceState.c)
- *     PiDmListInitEnumCallback @ 0x14072C770 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406F1F20 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406F96CC (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
+ *     PiDmListInitEnumCallback @ 0x14072C750 (PiDmListInitEnumCallback.c)
  * Callees:
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PiDmLookupObject @ 0x140598A58 (PiDmLookupObject.c)
  *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)

@@ -1,23 +1,22 @@
 /*
- * XREFs of NtImpersonateThread @ 0x1407F62F0
+ * XREFs of NtImpersonateThread @ 0x140714610
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeDeleteClientSecurity @ 0x14071D1F0 (SeDeleteClientSecurity.c)
- *     SeCreateClientSecurity @ 0x14071D3C0 (SeCreateClientSecurity.c)
- *     SeImpersonateClientEx @ 0x1407F6460 (SeImpersonateClientEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeCreateClientSecurity @ 0x1406D6B30 (SeCreateClientSecurity.c)
+ *     SeImpersonateClientEx @ 0x140714780 (SeImpersonateClientEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURITY_QUALITY_OF_SERVICE *a3)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
-  NTSTATUS v8; // ebx
-  PVOID v9; // rdi
+  NTSTATUS v8; // edi
+  struct _DMA_ADAPTER *v9; // rbx
   PVOID Object; // [rsp+38h] [rbp-80h] BYREF
   struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+40h] [rbp-78h] BYREF
   struct _SECURITY_CLIENT_CONTEXT ClientContext; // [rsp+60h] [rbp-58h] BYREF
@@ -25,7 +24,7 @@ NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURI
 
   *(_QWORD *)&ClientSecurityQos.Length = 0LL;
   *(_DWORD *)&ClientSecurityQos.ContextTrackingMode = 0;
-  memset(&ClientContext, 0, 0x44uLL);
+  memset(&ClientContext, 0, sizeof(ClientContext));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
@@ -36,18 +35,18 @@ NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURI
   {
     v13 = 0LL;
     v8 = ObReferenceObjectByHandle(Handle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v13, 0LL);
-    v9 = Object;
+    v9 = (struct _DMA_ADAPTER *)Object;
     if ( v8 >= 0 )
     {
       v8 = SeCreateClientSecurity((PETHREAD)Object, &ClientSecurityQos, 0, &ClientContext);
       if ( v8 >= 0 )
       {
         v8 = SeImpersonateClientEx(&ClientContext, (PETHREAD)v13);
-        SeDeleteClientSecurity((__int64)&ClientContext);
+        HalPutDmaAdapter((PADAPTER_OBJECT)ClientContext.ClientToken);
       }
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v13);
     }
-    ObfDereferenceObject(v9);
+    HalPutDmaAdapter(v9);
     return v8;
   }
   return result;

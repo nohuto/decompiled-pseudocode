@@ -1,10 +1,10 @@
 /*
- * XREFs of ExQueryBootEntropyInformation @ 0x140822DA8
+ * XREFs of ExQueryBootEntropyInformation @ 0x14079EFC4
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x1407582A0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x14066F550 (RtlRunOnceExecuteOnce.c)
  */
 
 NTSTATUS __fastcall ExQueryBootEntropyInformation(__int64 a1)

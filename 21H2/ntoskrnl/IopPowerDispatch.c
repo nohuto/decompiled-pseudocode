@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPowerDispatch @ 0x140395B50
+ * XREFs of IopPowerDispatch @ 0x14038B1A0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     PoSetPowerState @ 0x1403A5380 (PoSetPowerState.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     PoSetPowerState @ 0x14037C8A0 (PoSetPowerState.c)
  */
 
 __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -17,37 +17,38 @@ __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Status = 0;
-  if ( !CurrentStackLocation->MinorFunction )
-    goto LABEL_9;
-  if ( CurrentStackLocation->MinorFunction == 1 )
+  if ( CurrentStackLocation->MinorFunction )
   {
-    SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
-    v9 = PoPowerSequence;
-    *SecurityContext = PoPowerSequence;
-    SecurityContext[1] = v9;
-    SecurityContext[2] = v9;
-    goto LABEL_6;
+    switch ( CurrentStackLocation->MinorFunction )
+    {
+      case 1u:
+        SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
+        v9 = PoPowerSequence;
+        *SecurityContext = PoPowerSequence;
+        SecurityContext[1] = v9;
+        SecurityContext[2] = v9;
+        goto LABEL_6;
+      case 2u:
+        Options = CurrentStackLocation->Parameters.Create.Options;
+        if ( !Options )
+          goto LABEL_5;
+        if ( Options == 1 )
+        {
+          PoSetPowerState(DeviceObject, DevicePowerState, CurrentStackLocation->Parameters.Power.State);
+          goto LABEL_6;
+        }
+        break;
+      case 3u:
+        goto LABEL_6;
+    }
   }
-  if ( CurrentStackLocation->MinorFunction != 2 )
+  Status = -1073741637;
+LABEL_5:
+  if ( Status == -1073741637 )
   {
-    if ( CurrentStackLocation->MinorFunction == 3 )
-      goto LABEL_6;
-LABEL_9:
     Status = Irp->IoStatus.Status;
     goto LABEL_7;
   }
-  Options = CurrentStackLocation->Parameters.Create.Options;
-  if ( Options )
-  {
-    if ( Options == 1 )
-    {
-      PoSetPowerState(DeviceObject, DevicePowerState, CurrentStackLocation->Parameters.Power.State);
-      goto LABEL_6;
-    }
-    Status = -1073741637;
-  }
-  if ( Status == -1073741637 )
-    goto LABEL_9;
 LABEL_6:
   Irp->IoStatus.Status = Status;
 LABEL_7:

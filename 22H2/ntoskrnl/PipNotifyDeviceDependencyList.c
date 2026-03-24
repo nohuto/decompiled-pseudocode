@@ -1,15 +1,15 @@
 /*
- * XREFs of PipNotifyDeviceDependencyList @ 0x14079C794
+ * XREFs of PipNotifyDeviceDependencyList @ 0x14074799C
  * Callers:
- *     PnpNewDeviceNodeDependencyCheck @ 0x14079C720 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x140747934 (PnpNewDeviceNodeDependencyCheck.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PiListEntryToDependencyEdge @ 0x140396904 (PiListEntryToDependencyEdge.c)
- *     PiGetProviderList @ 0x1406C9980 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PiGetDependentList @ 0x14079C828 (PiGetDependentList.c)
- *     PipNotifyDependenciesChanged @ 0x140839DCC (PipNotifyDependenciesChanged.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C438 (PiListEntryToDependencyEdge.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x14073DDF8 (PiGetProviderList.c)
+ *     PiGetDependentList @ 0x140747814 (PiGetDependentList.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DFBC (PipNotifyDependenciesChanged.c)
  */
 
 void __fastcall PipNotifyDeviceDependencyList(__int64 a1, int a2)
@@ -28,7 +28,7 @@ void __fastcall PipNotifyDeviceDependencyList(__int64 a1, int a2)
   {
     if ( a2 != 1 )
       goto LABEL_5;
-    DependentList = (__int64 *)PiGetDependentList(v2);
+    DependentList = PiGetDependentList(v2);
   }
   else
   {

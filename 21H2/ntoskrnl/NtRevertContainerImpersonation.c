@@ -1,12 +1,12 @@
 /*
- * XREFs of NtRevertContainerImpersonation @ 0x140246140
+ * XREFs of NtRevertContainerImpersonation @ 0x140581E20
  * Callers:
- *     IopProcessWorkItem @ 0x1402F8870 (IopProcessWorkItem.c)
+ *     <none>
  * Callees:
- *     PspRevertContainerImpersonation @ 0x1402A86B0 (PspRevertContainerImpersonation.c)
+ *     PspRevertContainerImpersonation @ 0x14021FAE0 (PspRevertContainerImpersonation.c)
  */
 
-__int64 NtRevertContainerImpersonation()
+__int64 __fastcall NtRevertContainerImpersonation(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread());
+  return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), a2, a3, a4);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDispatchDeviceContainer @ 0x1406EA070
+ * XREFs of _PnpDispatchDeviceContainer @ 0x1406EA050
  * Callers:
  *     <none>
  * Callees:
- *     _CmSetDeviceContainerMappedProperty @ 0x1406D6004 (_CmSetDeviceContainerMappedProperty.c)
- *     _CmGetDeviceContainerMappedProperty @ 0x1406EA1C4 (_CmGetDeviceContainerMappedProperty.c)
- *     _CmOpenDeviceContainerRegKey @ 0x1406EA294 (_CmOpenDeviceContainerRegKey.c)
- *     _CmValidateDeviceContainerName @ 0x1406EA994 (_CmValidateDeviceContainerName.c)
- *     _CmGetMatchingDeviceContainerList @ 0x14074A130 (_CmGetMatchingDeviceContainerList.c)
- *     _CmGetDeviceContainerMappedPropertyKeys @ 0x1408F934C (_CmGetDeviceContainerMappedPropertyKeys.c)
- *     _CmGetDeviceContainerMappedPropertyLocales @ 0x1408F93E0 (_CmGetDeviceContainerMappedPropertyLocales.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x1406D5FE4 (_CmSetDeviceContainerMappedProperty.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x1406EA1A4 (_CmGetDeviceContainerMappedProperty.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x1406EA274 (_CmOpenDeviceContainerRegKey.c)
+ *     _CmValidateDeviceContainerName @ 0x1406EA974 (_CmValidateDeviceContainerName.c)
+ *     _CmGetMatchingDeviceContainerList @ 0x14074A110 (_CmGetMatchingDeviceContainerList.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x1408F932C (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmGetDeviceContainerMappedPropertyLocales @ 0x1408F93C0 (_CmGetDeviceContainerMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceContainer(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)

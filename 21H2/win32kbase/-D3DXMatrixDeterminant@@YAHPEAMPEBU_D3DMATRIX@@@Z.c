@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01E0E4C
+ * XREFs of ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01A89D0
  * Callers:
- *     ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01E1924 (-ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX.c)
+ *     ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01A92A8 (-ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX.c)
  * Callees:
- *     _finite @ 0x1C00D63F4 (_finite.c)
- *     sqrtf_0 @ 0x1C00DD7BF (sqrtf_0.c)
+ *     _finite @ 0x1C00C56B4 (_finite.c)
+ *     sqrtf_0 @ 0x1C00CE88F (sqrtf_0.c)
  */
 
 __int64 __fastcall D3DXMatrixDeterminant(float *a1, const struct _D3DMATRIX *a2)

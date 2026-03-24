@@ -1,16 +1,16 @@
 /*
- * XREFs of ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1802475EC
+ * XREFs of ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FAF50
  * Callers:
- *     ?PreComputePostSubgraph@CDepthSortingPreComputeHelper@@QEAAJPEBVCVisualTree@@PEAVCVisual@@1@Z @ 0x1801B67FC (-PreComputePostSubgraph@CDepthSortingPreComputeHelper@@QEAAJPEBVCVisualTree@@PEAVCVisual@@1@Z.c)
+ *     ?PreComputePostSubgraph@CDepthSortingPreComputeHelper@@QEAAJPEBVCVisualTree@@PEAVCVisual@@1@Z @ 0x18019A740 (-PreComputePostSubgraph@CDepthSortingPreComputeHelper@@QEAAJPEBVCVisualTree@@PEAVCVisual@@1@Z.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x1802472BC (--$_Emplace_reallocate@VCVisualDepthGeometry@@@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVi.c)
- *     ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAAAEAVCDepthSortingLayer@@$$QEAV2@@Z @ 0x180247580 (--$emplace_back@VCDepthSortingLayer@@@-$vector@VCDepthSortingLayer@@V-$allocator@VCDepthSortingL.c)
- *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x18025A2EC (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
- *     ?AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z @ 0x18025D200 (-AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z.c)
- *     ?IsOverlappingInZ@CDepthSortingLayer@@QEBA_NAEBVCVisualDepthGeometry@@@Z @ 0x18025D264 (-IsOverlappingInZ@CDepthSortingLayer@@QEBA_NAEBVCVisualDepthGeometry@@@Z.c)
- *     ?MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z @ 0x18025D288 (-MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z.c)
+ *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x180009F58 (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x1801FABFC (--$_Emplace_reallocate@VCVisualDepthGeometry@@@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVi.c)
+ *     ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAAAEAVCDepthSortingLayer@@$$QEAV2@@Z @ 0x1801FAEE4 (--$emplace_back@VCDepthSortingLayer@@@-$vector@VCDepthSortingLayer@@V-$allocator@VCDepthSortingL.c)
+ *     ?AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z @ 0x18020D78C (-AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z.c)
+ *     ?IsOverlappingInZ@CDepthSortingLayer@@QEBA_NAEBVCVisualDepthGeometry@@@Z @ 0x18020D7F0 (-IsOverlappingInZ@CDepthSortingLayer@@QEBA_NAEBVCVisualDepthGeometry@@@Z.c)
+ *     ?MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z @ 0x18020D814 (-MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z.c)
  */
 
 void __fastcall CDepthSortedVisualCollection::AddVisual(
@@ -22,7 +22,7 @@ void __fastcall CDepthSortedVisualCollection::AddVisual(
   _OWORD *v5; // rdx
   _OWORD *v6; // rdx
   __int64 v7; // rdi
-  __int64 v8; // rax
+  __int64 v8; // rcx
   float *v9; // rdi
   __int64 v10; // r8
   float v11; // xmm1_4
@@ -35,18 +35,17 @@ void __fastcall CDepthSortedVisualCollection::AddVisual(
   float v18; // xmm1_4
   struct CDepthSortingLayer *v19; // rcx
   int v20; // eax
-  __int64 v21; // r8
-  int v22; // edx
-  __int128 v23; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v24; // [rsp+30h] [rbp-D0h]
-  int v25; // [rsp+38h] [rbp-C8h]
-  float v26; // [rsp+3Ch] [rbp-C4h]
-  int v27; // [rsp+40h] [rbp-C0h]
-  char v28[176]; // [rsp+50h] [rbp-B0h] BYREF
+  int v21; // edx
+  __int128 v22; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v23; // [rsp+30h] [rbp-D0h]
+  int v24; // [rsp+38h] [rbp-C8h]
+  float v25; // [rsp+3Ch] [rbp-C4h]
+  int v26; // [rsp+40h] [rbp-C0h]
+  char v27[176]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v4 = CVisualDepthGeometry::CVisualDepthGeometry((CVisualDepthGeometry *)v28, a2, a3);
+  v4 = CVisualDepthGeometry::CVisualDepthGeometry((CVisualDepthGeometry *)v27, a2, a3);
   v5 = (_OWORD *)*((_QWORD *)this + 5);
-  if ( v5 == *((_OWORD **)this + 6) )
+  if ( *((_OWORD **)this + 6) == v5 )
   {
     std::vector<CVisualDepthGeometry>::_Emplace_reallocate<CVisualDepthGeometry>((__int64 *)this + 4, (__int64)v5, v4);
   }
@@ -69,19 +68,19 @@ void __fastcall CDepthSortedVisualCollection::AddVisual(
   v7 = *((_QWORD *)this + 5);
   v8 = v7 - *((_QWORD *)this + 4);
   v9 = (float *)(v7 - 176);
-  *((_DWORD *)v9 + 8) = -1171354717 * (v8 >> 4) - 1;
+  *((_DWORD *)v9 + 8) = (int)v8 / 176 - 1;
   v10 = *(_QWORD *)this;
   if ( *(_QWORD *)this == *((_QWORD *)this + 1) )
   {
     v11 = v9[7];
-    v24 = 0LL;
     v23 = 0LL;
-    v27 = -1;
-    v25 = *((_DWORD *)v9 + 4);
-    v26 = v11;
-    std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v23);
-    if ( (_QWORD)v23 )
-      std::_Deallocate<16,0>((void *)v23, (v24 - v23) & 0xFFFFFFFFFFFFFFFCuLL);
+    v22 = 0LL;
+    v26 = -1;
+    v24 = *((_DWORD *)v9 + 4);
+    v25 = v11;
+    std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v22);
+    if ( (_QWORD)v22 )
+      std::_Deallocate<16,0>((void *)v22, (v23 - v22) & 0xFFFFFFFFFFFFFFFCuLL);
     CDepthSortingLayer::AddVisual(
       (CDepthSortingLayer *)(*((_QWORD *)this + 1) - 40LL),
       (const struct CVisualDepthGeometry *)v9);
@@ -95,20 +94,18 @@ void __fastcall CDepthSortedVisualCollection::AddVisual(
     {
 LABEL_13:
       v18 = v9[7];
-      v24 = 0LL;
       v23 = 0LL;
-      v27 = -1;
-      v25 = *((_DWORD *)v9 + 4);
-      v26 = v18;
-      std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v23);
-      if ( (_QWORD)v23 )
-        std::_Deallocate<16,0>((void *)v23, (v24 - v23) & 0xFFFFFFFFFFFFFFFCuLL);
+      v22 = 0LL;
+      v26 = -1;
+      v24 = *((_DWORD *)v9 + 4);
+      v25 = v18;
+      std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v22);
+      if ( (_QWORD)v22 )
+        std::_Deallocate<16,0>((void *)v22, (v23 - v22) & 0xFFFFFFFFFFFFFFFCuLL);
       CDepthSortingLayer::AddVisual(
         (CDepthSortingLayer *)(*((_QWORD *)this + 1) - 40LL),
         (const struct CVisualDepthGeometry *)v9);
-      *(_DWORD *)(*(_QWORD *)this + 40LL * v13 + 32) = -858993459
-                                                     * ((__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 3)
-                                                     - 1;
+      *(_DWORD *)(*(_QWORD *)this + 40LL * v13 + 32) = (*((_DWORD *)this + 2) - *(_DWORD *)this) / 40 - 1;
     }
     else
     {
@@ -142,27 +139,23 @@ LABEL_13:
         if ( v12 == -1 )
           goto LABEL_13;
       }
-      v24 = 0LL;
-      v26 = v14;
       v23 = 0LL;
-      v27 = -1;
-      v25 = *((_DWORD *)v9 + 4);
-      std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v23);
-      if ( (_QWORD)v23 )
-        std::_Deallocate<16,0>((void *)v23, (v24 - v23) & 0xFFFFFFFFFFFFFFFCuLL);
+      v25 = v14;
+      v22 = 0LL;
+      v26 = -1;
+      v24 = *((_DWORD *)v9 + 4);
+      std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>((__int64 *)this, (__int64)&v22);
+      if ( (_QWORD)v22 )
+        std::_Deallocate<16,0>((void *)v22, (v23 - v22) & 0xFFFFFFFFFFFFFFFCuLL);
       *(_DWORD *)(*((_QWORD *)this + 1) - 8LL) = v12;
-      v21 = *(_QWORD *)this;
-      v22 = -858993459 * ((__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 3) - 1;
+      v21 = (*((_DWORD *)this + 2) - *(_DWORD *)this) / 40 - 1;
       if ( v13 == -1 )
-      {
-        *((_DWORD *)this + 6) = v22;
-      }
+        *((_DWORD *)this + 6) = v21;
       else
-      {
-        *(_DWORD *)(v21 + 40LL * v13 + 32) = v22;
-        v21 = *(_QWORD *)this;
-      }
-      CDepthSortingLayer::AddVisual((CDepthSortingLayer *)(v21 + 40LL * v12), (const struct CVisualDepthGeometry *)v9);
+        *(_DWORD *)(*(_QWORD *)this + 40LL * v13 + 32) = v21;
+      CDepthSortingLayer::AddVisual(
+        (CDepthSortingLayer *)(*(_QWORD *)this + 40LL * v12),
+        (const struct CVisualDepthGeometry *)v9);
     }
   }
 }

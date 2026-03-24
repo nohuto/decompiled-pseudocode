@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z @ 0x1C0065620
+ * XREFs of ?DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z @ 0x1C00589F0
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005F2C8 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005F440 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D24 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
- *     DxgkDdiGetDeviceLocation @ 0x1C0359618 (DxgkDdiGetDeviceLocation.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C0050FFC (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051124 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0059090 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DxgkDdiGetDeviceLocation @ 0x1C023101C (DxgkDdiGetDeviceLocation.c)
  */
 
 void __fastcall DpiDdiGetDeviceLocation(
@@ -23,7 +23,7 @@ void __fastcall DpiDdiGetDeviceLocation(
 
   v6 = 0LL;
   DpiGetVirtualGpuType(a1, &v6);
-  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v7, v6, 0LL, 1, 0);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v7, v6, 0LL, 1);
   if ( v9 >= 0 )
     DxgkDdiGetDeviceLocation(*(void **)(v8 + 3896), (__int64)a4, (__int64)a5);
   CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v7);

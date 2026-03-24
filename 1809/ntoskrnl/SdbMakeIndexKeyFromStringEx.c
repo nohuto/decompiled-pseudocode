@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbMakeIndexKeyFromStringEx @ 0x14067D460
+ * XREFs of SdbMakeIndexKeyFromStringEx @ 0x14067D440
  * Callers:
- *     SdbFindFirstStringIndexedTag @ 0x14067CC2C (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14067CC0C (SdbFindFirstStringIndexedTag.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0C0 (RtlUpcaseUnicodeString.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbMakeIndexKeyFromStringEx(const WCHAR *a1, char a2)

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14095C3F4
+ * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14072E4C4
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x140788430 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140765DB8 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _RegRtlEnumKey @ 0x14086B97C (_RegRtlEnumKey.c)
- *     PiDqDeleteUserObject @ 0x14095C2EC (PiDqDeleteUserObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     PiDqDeleteUserObject @ 0x14072E608 (PiDqDeleteUserObject.c)
+ *     _RegRtlEnumKey @ 0x14076619C (_RegRtlEnumKey.c)
  */
 
-NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(const WCHAR *a1, int a2)
+NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rcx
   NTSTATUS result; // eax
-  ULONG i; // ebx
+  int i; // ebx
   __int64 v7; // rcx
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-C8h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-C8h]
   HANDLE Handle[2]; // [rsp+48h] [rbp-C0h] BYREF
-  char v11[512]; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE v11[512]; // [rsp+58h] [rbp-B0h] BYREF
 
   KeyHandle = 0LL;
   Handle[0] = 0LL;
@@ -33,7 +33,7 @@ NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(const WCHAR *a1, int a2)
     for ( i = 0; ; ++i )
     {
       LODWORD(v9) = 256;
-      result = RegRtlEnumKey(KeyHandle, i, v11, (unsigned int *)&v9);
+      result = RegRtlEnumKey(KeyHandle);
       if ( result < 0 )
         break;
       if ( *(_QWORD *)&PiPnpRtlCtx )

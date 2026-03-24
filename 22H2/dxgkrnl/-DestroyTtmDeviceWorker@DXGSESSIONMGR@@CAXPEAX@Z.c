@@ -1,49 +1,38 @@
 /*
- * XREFs of ?DestroyTtmDeviceWorker@DXGSESSIONMGR@@CAXPEAX@Z @ 0x1C0355060
+ * XREFs of ?DestroyTtmDeviceWorker@DXGSESSIONMGR@@CAXPEAX@Z @ 0x1C029EFF0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C001CBA8 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ??_GCTTMDEVICE@@QEAAPEAXI@Z @ 0x1C0058C9C (--_GCTTMDEVICE@@QEAAPEAXI@Z.c)
- *     ?UnRegisterTtmDevice@CTTMDEVICE@@QEAAXE@Z @ 0x1C0356620 (-UnRegisterTtmDevice@CTTMDEVICE@@QEAAXE@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?UnRegisterTtmDevice@CTTMDEVICE@@AEAAXE@Z @ 0x1C02A0278 (-UnRegisterTtmDevice@CTTMDEVICE@@AEAAXE@Z.c)
  */
 
-void __fastcall DXGSESSIONMGR::DestroyTtmDeviceWorker(CTTMDEVICE *this)
+void __fastcall DXGSESSIONMGR::DestroyTtmDeviceWorker(CTTMDEVICE *this, __int64 a2)
 {
-  struct DXGGLOBAL *Global; // rax
-  CTTMDEVICE **v3; // rax
-  CTTMDEVICE **v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // [rsp+50h] [rbp-18h] BYREF
-  char v7; // [rsp+58h] [rbp-10h]
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  CTTMDEVICE **v5; // rcx
+  CTTMDEVICE **v6; // rax
+  __int64 v7; // rax
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v6,
-    (struct DXGPUSHLOCKFAST *)(*((_QWORD *)Global + 118) + 336LL));
-  v3 = *(CTTMDEVICE ***)this;
+  v3 = *((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx(v3 + 336, 0LL);
+  *(_QWORD *)(v3 + 344) = KeGetCurrentThread();
+  v5 = *(CTTMDEVICE ***)this;
   if ( *(CTTMDEVICE **)this == this )
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Workitem for destroying TTM device 0x%I64x is called before the creation work item.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v7 + 24) = this;
+    WdLogEvent5_WdError(v7);
   }
   else
   {
-    if ( v3[1] != this || (v4 = (CTTMDEVICE **)*((_QWORD *)this + 1), *v4 != this) )
+    if ( v5[1] != this || (v6 = (CTTMDEVICE **)*((_QWORD *)this + 1), *v6 != this) )
       __fastfail(3u);
-    *v4 = (CTTMDEVICE *)v3;
-    v3[1] = (CTTMDEVICE *)v4;
+    *v6 = (CTTMDEVICE *)v5;
+    v5[1] = (CTTMDEVICE *)v6;
     *((_QWORD *)this + 1) = this;
     *(_QWORD *)this = this;
   }
@@ -56,12 +45,8 @@ void __fastcall DXGSESSIONMGR::DestroyTtmDeviceWorker(CTTMDEVICE *this)
   if ( *((_QWORD *)this + 4) )
     CTTMDEVICE::UnRegisterTtmDevice(this, 0);
   else
-    CTTMDEVICE::`scalar deleting destructor'(this);
-  if ( v7 )
-  {
-    v5 = v6;
-    *(_QWORD *)(v6 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v5, 0LL);
-    KeLeaveCriticalRegion();
-  }
+    operator delete(this);
+  *(_QWORD *)(v3 + 344) = 0LL;
+  ExReleasePushLockExclusiveEx(v3 + 336, 0LL);
+  KeLeaveCriticalRegion();
 }

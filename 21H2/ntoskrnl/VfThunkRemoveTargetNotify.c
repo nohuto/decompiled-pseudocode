@@ -1,9 +1,9 @@
 /*
- * XREFs of VfThunkRemoveTargetNotify @ 0x140A7C2C4
+ * XREFs of VfThunkRemoveTargetNotify @ 0x1409C24E4
  * Callers:
- *     VfTargetDriversRemove @ 0x1402DB738 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14037E990 (VfTargetDriversRemove.c)
  * Callees:
- *     ViThunkFreeSharedThunksArray @ 0x140A7C18C (ViThunkFreeSharedThunksArray.c)
+ *     ViThunkFreeSharedThunksArray @ 0x1409C2448 (ViThunkFreeSharedThunksArray.c)
  */
 
 void __fastcall VfThunkRemoveTargetNotify(void **a1)
@@ -16,5 +16,6 @@ void __fastcall VfThunkRemoveTargetNotify(void **a1)
     ViThunkFreeSharedThunksArray(v2);
     ViThunkFreeSharedThunksArray(a1 + 4);
     ViThunkFreeSharedThunksArray(a1 + 5);
+    ViThunkFreeSharedThunksArray(a1 + 6);
   }
 }

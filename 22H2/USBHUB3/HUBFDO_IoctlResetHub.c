@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBFDO_IoctlResetHub @ 0x1C007AE54
+ * XREFs of HUBFDO_IoctlResetHub @ 0x1C00771FC
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C007B550 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C0010ED0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0033648 (HUBMISC_GetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBMISC_VerifyCallerIsAdmin @ 0x1C008247C (HUBMISC_VerifyCallerIsAdmin.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_VerifyCallerIsAdmin @ 0x1C007C9FC (HUBMISC_VerifyCallerIsAdmin.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v4,
-         off_1C0069198);
+         off_1C0066170);
   IsAdmin = HUBMISC_VerifyCallerIsAdmin(*(_QWORD *)(v5 + 2520));
   if ( IsAdmin >= 0 )
   {
@@ -37,16 +37,16 @@ __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            v7,
-           off_1C0069198);
+           off_1C0066170);
     if ( !HUBMUX_CheckAndQueueIfResetHubIsEnabled(v8) )
       IsAdmin = -1073741823;
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
   {
     v15 = 0LL;
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2280))(WdfDriverGlobals, a2);
     ActivityIdIrp = HUBMISC_GetActivityIdIrp();
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
     {
       v11 = (const GUID *)&v15;
       v14 = IsAdmin;

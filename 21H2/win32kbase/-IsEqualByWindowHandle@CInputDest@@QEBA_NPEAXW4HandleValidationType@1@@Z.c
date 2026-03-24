@@ -1,16 +1,16 @@
 /*
- * XREFs of ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C01B8DD8
+ * XREFs of ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C0182DF0
  * Callers:
- *     ?GetQueue@CPointerInfoNode@@QEAAPEAVCInputDest@@PEAH@Z @ 0x1C01CD644 (-GetQueue@CPointerInfoNode@@QEAAPEAVCInputDest@@PEAH@Z.c)
- *     ?HandleMTNodeTargetWindow@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@@Z @ 0x1C01CD840 (-HandleMTNodeTargetWindow@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@@Z.c)
- *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C01D0660 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
- *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z @ 0x1C01D2144 (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z.c)
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D5850 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?GetQueue@CPointerInfoNode@@QEAAPEAVCInputDest@@PEAH@Z @ 0x1C0195A58 (-GetQueue@CPointerInfoNode@@QEAAPEAVCInputDest@@PEAH@Z.c)
+ *     ?HandleMTNodeTargetWindow@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@@Z @ 0x1C0196040 (-HandleMTNodeTargetWindow@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@@Z.c)
+ *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C0198DC0 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
+ *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z @ 0x1C0199F0C (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CB20 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
  * Callees:
- *     ValidateHwndEx @ 0x1C002CB00 (ValidateHwndEx.c)
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     ValidateHbwnd @ 0x1C0144300 (ValidateHbwnd.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ValidateHwndEx @ 0x1C0038620 (ValidateHwndEx.c)
+ *     HMValidateHandleNoSecure @ 0x1C00454C0 (HMValidateHandleNoSecure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ValidateHbwnd @ 0x1C01152C0 (ValidateHbwnd.c)
  */
 
 char __fastcall CInputDest::IsEqualByWindowHandle(__int64 a1, unsigned __int64 a2, int a3)
@@ -18,10 +18,12 @@ char __fastcall CInputDest::IsEqualByWindowHandle(__int64 a1, unsigned __int64 a
   int v3; // eax
   __int64 v4; // rbx
   __int64 *v5; // rsi
-  __int64 v6; // r8
-  __int64 v7; // rax
-  char v8; // di
-  __int64 v9; // rax
+  int v6; // r8d
+  int v7; // r8d
+  __int64 v8; // rax
+  char v9; // di
+  int v10; // r8d
+  __int64 v11; // rax
 
   v3 = *(_DWORD *)(a1 + 92);
   v4 = 0LL;
@@ -30,51 +32,55 @@ char __fastcall CInputDest::IsEqualByWindowHandle(__int64 a1, unsigned __int64 a
     v5 = *(__int64 **)(a1 + 80);
     if ( a3 )
     {
-      v6 = (unsigned int)(a3 - 1);
-      if ( (_DWORD)v6 )
+      v6 = a3 - 1;
+      if ( v6 )
       {
-        if ( (_DWORD)v6 != 1 )
+        if ( v6 != 1 )
         {
-LABEL_5:
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, v6);
+          v7 = 558;
+LABEL_16:
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v7);
           return v4;
         }
-        v7 = ValidateHwndEx(a2, 1LL, 0LL);
+        v8 = ValidateHwndEx(a2, 1, 0);
       }
       else
       {
-        v7 = HMValidateHandleNoSecure(a2, 1);
+        v8 = HMValidateHandleNoSecure(a2, 1);
       }
-LABEL_8:
-      if ( v7 )
-      {
-        if ( (__int64 *)v7 == v5 )
-          LOBYTE(v4) = 1;
-      }
-      return v4;
+      goto LABEL_8;
     }
-LABEL_20:
+LABEL_22:
     if ( v5 )
       v4 = *v5;
     LOBYTE(v4) = v4 == a2;
     return v4;
   }
-  v8 = 1;
+  v9 = 1;
   if ( v3 != 1 )
     return v4;
   v5 = *(__int64 **)(a1 + 80);
   if ( !a3 )
-    goto LABEL_20;
-  v6 = (unsigned int)(a3 - 1);
-  if ( (_DWORD)v6 )
+    goto LABEL_22;
+  v10 = a3 - 1;
+  if ( v10 )
   {
-    if ( (_DWORD)v6 != 1 )
-      goto LABEL_5;
-    v7 = ValidateHbwnd(a2, a2, v6, a2);
-    goto LABEL_8;
+    if ( v10 != 1 )
+    {
+      v7 = 586;
+      goto LABEL_16;
+    }
+    v8 = ValidateHbwnd(a2, 2LL);
+LABEL_8:
+    if ( v8 )
+    {
+      if ( (__int64 *)v8 == v5 )
+        LOBYTE(v4) = 1;
+    }
+    return v4;
   }
-  v9 = HMValidateHandleNoSecure(a2, 23);
-  if ( !v9 || (__int64 *)v9 != v5 )
+  v11 = HMValidateHandleNoSecure(a2, 23);
+  if ( !v11 || (__int64 *)v11 != v5 )
     return 0;
-  return v8;
+  return v9;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExGetSessionBigPoolInformation @ 0x1409F5D80
+ * XREFs of ExGetSessionBigPoolInformation @ 0x140949F60
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MmAttachSession @ 0x1402312E0 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     MmGetNextSession @ 0x1402A1770 (MmGetNextSession.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x14063A8C0 (ExGetBigPoolInfo.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned 
   int v7; // edi
   _QWORD *v8; // r13
   __int64 result; // rax
-  void *NextSession; // rbx
+  struct _DMA_ADAPTER *NextSession; // rbx
   __int64 v11; // r14
   int SessionId; // eax
   int v13; // r15d
@@ -31,18 +31,18 @@ __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned 
   int BigPoolInfo; // eax
   int v17; // [rsp+30h] [rbp-49h]
   unsigned int v18; // [rsp+34h] [rbp-45h] BYREF
-  unsigned int *v19; // [rsp+38h] [rbp-41h]
-  __int64 v20; // [rsp+40h] [rbp-39h] BYREF
+  __int64 v19; // [rsp+38h] [rbp-41h] BYREF
+  unsigned int *v20; // [rsp+40h] [rbp-39h]
   unsigned int v21; // [rsp+48h] [rbp-31h]
   _DWORD *v22; // [rsp+50h] [rbp-29h]
   PVOID P; // [rsp+58h] [rbp-21h] BYREF
   _OWORD v24[3]; // [rsp+60h] [rbp-19h] BYREF
 
   v22 = a4;
-  v19 = a3;
+  v20 = a3;
   v21 = a2;
   v4 = a3;
-  v20 = 0LL;
+  v19 = 0LL;
   v5 = 0LL;
   P = 0LL;
   v17 = 1;
@@ -54,77 +54,80 @@ __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned 
   memset(v24, 0, sizeof(v24));
   if ( a2 )
   {
-    result = ExLockUserBuffer(a1, a2, KeGetCurrentThread()->PreviousMode, IoWriteAccess, &v20, (struct _MDL **)&P);
+    result = ExLockUserBuffer(a1, a2, KeGetCurrentThread()->PreviousMode, IoWriteAccess, &v19, (struct _MDL **)&P);
     if ( (int)result < 0 )
       return result;
-    v5 = v20;
+    v5 = v19;
   }
-  NextSession = (void *)MmGetNextSession(0LL);
+  NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(0LL);
   if ( !NextSession )
-    goto LABEL_24;
+    goto LABEL_29;
   while ( 1 )
   {
     v11 = v6 + v5;
     SessionId = MmGetSessionId((__int64)NextSession);
-    LODWORD(v20) = SessionId;
-    if ( *v22 != -1 && SessionId != *v22 )
-      goto LABEL_20;
-    if ( (int)MmAttachSession((ULONG_PTR)NextSession) >= 0 )
-    {
-      if ( v6 >= 0xFFFFFFD8 )
-      {
-        v7 = -1073741675;
-LABEL_22:
-        MmDetachSession((__int64)NextSession, (__int64)v24);
-        ObfDereferenceObject(NextSession);
-LABEL_23:
-        v4 = v19;
-        goto LABEL_24;
-      }
-      if ( (unsigned __int64)v6 + 40 <= v21 && (v13 = v17) != 0 )
-      {
-        v14 = (_DWORD *)(v6 + v5);
-        v15 = v21 - v6;
-      }
-      else
-      {
-        v13 = 0;
-        v14 = 0LL;
-        v17 = 0;
-        v15 = 0;
-        v7 = -1073741820;
-      }
-      BigPoolInfo = ExGetBigPoolInfo(v14, v15, 0, &v18);
-      if ( BigPoolInfo < 0 )
-      {
-        v7 = BigPoolInfo;
-        if ( BigPoolInfo != -1073741820 )
-          goto LABEL_22;
-      }
-      if ( v13 == 1 && BigPoolInfo >= 0 )
-      {
-        v8 = (_QWORD *)(v6 + v5);
-        *(_DWORD *)(v11 + 8) = v20;
-        *(_QWORD *)v11 = (unsigned int)(24 * *(_DWORD *)(v11 + 12) + 16);
-      }
-      v6 += v18;
-      MmDetachSession((__int64)NextSession, (__int64)v24);
-    }
-    if ( *v22 != -1 )
+    LODWORD(v19) = SessionId;
+    if ( *v22 == -1 || SessionId == *v22 )
       break;
 LABEL_20:
-    NextSession = (void *)MmGetNextSession(NextSession);
+    NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(NextSession);
     if ( !NextSession )
-      goto LABEL_30;
+      goto LABEL_24;
   }
-  ObfDereferenceObject(NextSession);
-LABEL_30:
+  if ( (int)MmAttachSession((_KPROCESS *)NextSession, (__int64)v24) < 0 )
+  {
+LABEL_19:
+    if ( *v22 != -1 )
+      goto LABEL_23;
+    goto LABEL_20;
+  }
+  if ( v6 >= 0xFFFFFFD8 )
+  {
+    v7 = -1073741675;
+    MmDetachSession((__int64)NextSession, (__int64)v24);
+    HalPutDmaAdapter(NextSession);
+    goto LABEL_28;
+  }
+  if ( (unsigned __int64)v6 + 40 <= v21 && (v13 = v17) != 0 )
+  {
+    v14 = (_DWORD *)(v6 + v5);
+    v15 = v21 - v6;
+  }
+  else
+  {
+    v13 = 0;
+    v14 = 0LL;
+    v17 = 0;
+    v15 = 0;
+    v7 = -1073741820;
+  }
+  BigPoolInfo = ExGetBigPoolInfo(v14, v15, 0, &v18);
+  if ( BigPoolInfo >= 0 || (v7 = BigPoolInfo, BigPoolInfo == -1073741820) )
+  {
+    if ( v13 == 1 && BigPoolInfo >= 0 )
+    {
+      v8 = (_QWORD *)(v6 + v5);
+      *(_DWORD *)(v11 + 8) = v19;
+      *(_QWORD *)v11 = (unsigned int)(24 * *(_DWORD *)(v11 + 12) + 16);
+    }
+    v6 += v18;
+    MmDetachSession((__int64)NextSession, (__int64)v24);
+    goto LABEL_19;
+  }
+  MmDetachSession((__int64)NextSession, (__int64)v24);
+LABEL_23:
+  HalPutDmaAdapter(NextSession);
+LABEL_24:
   if ( v7 < 0 )
-    goto LABEL_23;
-  v4 = v19;
+  {
+LABEL_28:
+    v4 = v20;
+    goto LABEL_29;
+  }
+  v4 = v20;
   if ( v8 )
     *v8 = 0LL;
-LABEL_24:
+LABEL_29:
   if ( v5 )
     ExUnlockUserBuffer((struct _MDL *)P);
   *v4 = v6;

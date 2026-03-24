@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_RequestingDeviceCycleInReportingToPnp @ 0x1C00210E0
+ * XREFs of HUBDSM_RequestingDeviceCycleInReportingToPnp @ 0x1C0020CE0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002DC28 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_RequestingDeviceCycleInReportingToPnp(__int64 a1)

@@ -3,7 +3,7 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x1409CC66C (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpFreeDriverList(__int64 a1, _QWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlReserveChunk @ 0x1409B9500
+ * XREFs of RtlReserveChunk @ 0x1409106B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlReserveChunk(
@@ -15,7 +15,7 @@ NTSTATUS __stdcall RtlReserveChunk(
 {
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
-  if ( (unsigned __int8)CompressionFormat <= 5u )
+  if ( (unsigned __int8)CompressionFormat <= 4u )
     return ((__int64 (__fastcall *)(PUCHAR *, PUCHAR, PUCHAR *, _QWORD))RtlReserveChunkProcs[(unsigned __int8)CompressionFormat])(
              CompressedBuffer,
              EndOfCompressedBufferPlus1,

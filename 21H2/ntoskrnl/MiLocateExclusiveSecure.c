@@ -1,25 +1,23 @@
 /*
- * XREFs of MiLocateExclusiveSecure @ 0x140246BC8
+ * XREFs of MiLocateExclusiveSecure @ 0x14025C250
  * Callers:
- *     MiAddSecureEntry @ 0x1407B9190 (MiAddSecureEntry.c)
+ *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall MiLocateExclusiveSecure(__int64 a1)
+__int64 *__fastcall MiLocateExclusiveSecure(__int64 a1)
 {
-  unsigned __int64 result; // rax
+  __int64 *result; // rax
 
-  result = *(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( !result )
-    return 0LL;
-  while ( *(_DWORD *)(result + 64) != 2 )
+  for ( result = *(__int64 **)(a1 + 56); result; result = (__int64 *)*result )
   {
-    result = *(_QWORD *)result;
-    if ( !result )
+    if ( *((_DWORD *)result + 16) == 2 )
+    {
+      if ( (result[1] & 0x20) != 0 )
+        return result;
       return 0LL;
+    }
   }
-  if ( (*(_DWORD *)(result + 8) & 0x20) == 0 )
-    return 0LL;
-  return result;
+  return 0LL;
 }

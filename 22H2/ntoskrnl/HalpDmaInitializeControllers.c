@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaInitializeControllers @ 0x14039C398
+ * XREFs of HalpDmaInitializeControllers @ 0x1403BBB44
  * Callers:
- *     HalpDmaInit @ 0x140B64168 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpDmaControllerInitializeController @ 0x140516860 (HalpDmaControllerInitializeController.c)
- *     HalpDmaConfigureInterrupt @ 0x1405276B4 (HalpDmaConfigureInterrupt.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpDmaControllerInitializeController @ 0x1404CE6E8 (HalpDmaControllerInitializeController.c)
+ *     HalpDmaConfigureInterrupt @ 0x1404DC770 (HalpDmaConfigureInterrupt.c)
  */
 
 __int64 HalpDmaInitializeControllers()
@@ -25,8 +25,8 @@ __int64 HalpDmaInitializeControllers()
   v0 = HalpDmaControllers;
   v1 = 0LL;
   v7 = 0LL;
-  if ( LOWORD(KeActiveProcessors[0]) )
-    v1 = qword_140D1EFE8[0];
+  if ( KeActiveProcessors[0] )
+    v1 = qword_140CFC848[0];
   *(_QWORD *)&v7 = v1;
   while ( (__int64 *)v0 != &HalpDmaControllers )
   {

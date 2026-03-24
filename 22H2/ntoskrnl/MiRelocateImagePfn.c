@@ -1,167 +1,139 @@
 /*
- * XREFs of MiRelocateImagePfn @ 0x1407447D0
+ * XREFs of MiRelocateImagePfn @ 0x1405FC260
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x140A4A01C (MiFillPerSessionProtos.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiValidateInPage @ 0x14023AEE0 (MiValidateInPage.c)
+ *     MiPrivateFixup @ 0x1402E29C8 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x140217E84 (MiMakeProtectionPfnCompatible.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BDD8 (RtlDoesRequireFunctionOverrideFixups.c)
- *     MiPerformFixups @ 0x14079DE10 (MiPerformFixups.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14023B32C (MiMakeProtectionPfnCompatible.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     MiDoesPageRequireRetpolineFixups @ 0x1405FC594 (MiDoesPageRequireRetpolineFixups.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  */
 
 __int64 __fastcall MiRelocateImagePfn(
         ULONG_PTR BugCheckParameter2,
-        ULONG_PTR BugCheckParameter3,
-        unsigned int a3,
-        __int64 a4,
+        ULONG_PTR a2,
+        __int64 a3,
+        unsigned __int64 a4,
         __int64 a5,
         int a6,
         int a7)
 {
-  unsigned int v8; // esi
+  int v9; // esi
   __int64 *v11; // rdi
   __int64 v12; // r10
-  __int64 v13; // rcx
-  const struct _RTL_FUNCTION_OVERRIDE_INFORMATION *v14; // rcx
-  __int64 v16; // r13
-  ULONG_PTR v17; // r12
+  unsigned int v13; // edx
+  int v14; // edx
+  __int64 v16; // rbx
+  __int64 v17; // rcx
+  ULONG_PTR v18; // r15
   int ProtectionPfnCompatible; // eax
+  __int64 v20; // r9
   unsigned __int64 ValidPte; // rbx
   struct _KTHREAD *CurrentThread; // rbx
-  unsigned __int64 v21; // rcx
-  __int64 v22; // rax
-  bool v23; // zf
-  __int64 v24; // r8
-  unsigned __int64 v25; // rbx
-  __int64 v26; // r8
-  unsigned __int64 v27; // [rsp+30h] [rbp-38h]
-  ULONG_PTR v28; // [rsp+70h] [rbp+8h]
+  __int64 v23; // r8
+  unsigned __int64 v24; // rbx
+  __int64 v25; // r8
+  ULONG_PTR v26; // [rsp+70h] [rbp+8h]
 
-  v8 = a3;
+  v9 = a3;
   v11 = *(__int64 **)(*(_QWORD *)(BugCheckParameter2 + 96) + 32LL);
   v12 = *v11;
-  if ( (a7 & 1) == 0 || a3 >= *((_DWORD *)v11 + 14) )
+  if ( (unsigned int)a3 >= (unsigned __int64)v11[7] )
     return 1LL;
-  while ( !*(_QWORD *)(v12 + 8LL * a3) )
+  v13 = a3;
+  while ( !*(_QWORD *)(v12 + 8LL * v13) && !(unsigned int)MiDoesPageRequireRetpolineFixups(v11 + 9) )
   {
-    v13 = v11[11];
-    if ( v13 )
-    {
-      if ( *(_QWORD *)(v13 + 8LL * a3 + 56) )
-        break;
-    }
-    v14 = (const struct _RTL_FUNCTION_OVERRIDE_INFORMATION *)v11[12];
-    if ( v14 )
-    {
-      if ( RtlDoesRequireFunctionOverrideFixups(v14, a3) )
-        break;
-    }
-    if ( (a7 & 2) != 0 && (unsigned int)PdcCreateWatchdogAroundClientCall() )
-      break;
-    if ( ++a3 != v8 )
+    v13 = v14 + 1;
+    if ( v13 != v9 )
       return 1LL;
   }
-  v16 = 48 * a4 - 0x220000000000LL;
-  if ( BugCheckParameter3 && (BugCheckParameter3 < 0xFFFFF68000000000uLL || BugCheckParameter3 > 0xFFFFF6FFFFFFFFFFuLL) )
+  v16 = 48 * a4 - 0x58000000000LL;
+  v17 = 0LL;
+  if ( a2 && (a2 < 0xFFFFF68000000000uLL || a2 > 0xFFFFF6FFFFFFFFFFuLL) )
   {
-    v17 = 0LL;
-    v28 = 0LL;
-    goto LABEL_17;
-  }
-  v28 = BugCheckParameter3;
-  v17 = MiReservePtes((__int64)&qword_140C69A40, 1u);
-  if ( v17 )
-  {
-LABEL_15:
-    BugCheckParameter3 = (__int64)(v17 << 25) >> 16;
-    ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v16);
-    ValidPte = MiMakeValidPte(v17, a4, ProtectionPfnCompatible | 0xA0000000);
-    if ( MiPteInShadowRange(v17) )
+    v18 = 0LL;
+    v26 = 0LL;
+LABEL_14:
+    CurrentThread = KeGetCurrentThread();
+    if ( (struct _KTHREAD *)v11[1] == CurrentThread )
     {
-      if ( MiPteHasShadow() )
+      CurrentThread = 0LL;
+    }
+    else
+    {
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v11 + 3), 0LL);
+      v17 = 0LL;
+    }
+    if ( a5 )
+      v17 = v11[5];
+    MiPerformFixups(a2, BugCheckParameter2, v17, a7);
+    if ( CurrentThread )
+    {
+      if ( _InterlockedCompareExchange64(v11 + 3, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v11 + 3);
+      KeAbPostRelease((ULONG_PTR)(v11 + 3));
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    }
+    if ( !v18 )
+      return 0LL;
+    if ( v18 != v26 )
+    {
+      MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v18, 1u);
+      return 0LL;
+    }
+    v24 = ZeroPte;
+    if ( MiPteInShadowRange(v18) )
+    {
+      if ( (unsigned int)MiPteHasShadow() )
       {
-        if ( !HIBYTE(word_140C66DFC) && (ValidPte & 1) != 0 )
+        if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+          v24 = ZeroPte | 0x8000000000000000uLL;
+        *(_QWORD *)v18 = v24;
+        MiWritePteShadow(v18, v24, v25);
+        goto LABEL_49;
+      }
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+        && (ZeroPte & 1) != 0 )
+      {
+        v24 = ZeroPte | 0x8000000000000000uLL;
+      }
+    }
+    *(_QWORD *)v18 = v24;
+LABEL_49:
+    KeFlushSingleTb(a2, 0, 1u);
+    return 0LL;
+  }
+  v26 = a2;
+  v18 = MiReservePtes((__int64)&qword_140C4EF40, 1u, a3, a4);
+  if ( v18 )
+  {
+LABEL_11:
+    a2 = (__int64)(v18 << 25) >> 16;
+    ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v16);
+    ValidPte = MiMakeValidPte(v18, a4, ProtectionPfnCompatible | 0xA0000000, v20);
+    if ( MiPteInShadowRange(v18) )
+    {
+      if ( (unsigned int)MiPteHasShadow() )
+      {
+        if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
           ValidPte |= 0x8000000000000000uLL;
-        *(_QWORD *)v17 = ValidPte;
-        MiWritePteShadow(v17, ValidPte, v24);
-LABEL_17:
-        CurrentThread = KeGetCurrentThread();
-        if ( (struct _KTHREAD *)v11[1] == CurrentThread )
-        {
-          CurrentThread = 0LL;
-        }
-        else
-        {
-          --CurrentThread->SpecialApcDisable;
-          v21 = KeAbPreAcquire((__int64)(v11 + 3), 0LL);
-          v27 = v21;
-          if ( _InterlockedCompareExchange64(v11 + 3, 17LL, 0LL) )
-          {
-            ExfAcquirePushLockSharedEx(v11 + 3, 0LL, v21, (__int64)(v11 + 3));
-            v21 = v27;
-          }
-          if ( v21 )
-            *(_BYTE *)(v21 + 18) = 1;
-        }
-        v22 = v11[5];
-        if ( (a7 & 4) == 0 )
-          v22 = 0LL;
-        MiPerformFixups(BugCheckParameter3, BugCheckParameter2, v22, a7);
-        if ( CurrentThread )
-        {
-          if ( _InterlockedCompareExchange64(v11 + 3, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v11 + 3);
-          KeAbPostRelease((ULONG_PTR)(v11 + 3));
-          v23 = CurrentThread->SpecialApcDisable++ == -1;
-          if ( v23
-            && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-          {
-            KiCheckForKernelApcDelivery();
-          }
-        }
-        if ( !v17 )
-          return 0LL;
-        if ( v17 != v28 )
-        {
-          MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)v17, 1u);
-          return 0LL;
-        }
-        v25 = ZeroPte;
-        if ( MiPteInShadowRange(v17) )
-        {
-          if ( MiPteHasShadow() )
-          {
-            if ( !HIBYTE(word_140C66DFC) && (ZeroPte & 1) != 0 )
-              v25 = ZeroPte | 0x8000000000000000uLL;
-            *(_QWORD *)v17 = v25;
-            MiWritePteShadow(v17, v25, v26);
-            goto LABEL_60;
-          }
-          if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-            && (ZeroPte & 1) != 0 )
-          {
-            v25 = ZeroPte | 0x8000000000000000uLL;
-          }
-        }
-        *(_QWORD *)v17 = v25;
-LABEL_60:
-        KeFlushSingleTb(BugCheckParameter3, 0, 1u);
-        return 0LL;
+        *(_QWORD *)v18 = ValidPte;
+        MiWritePteShadow(v18, ValidPte, v23);
+        goto LABEL_13;
       }
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
         && (ValidPte & 1) != 0 )
@@ -169,13 +141,15 @@ LABEL_60:
         ValidPte |= 0x8000000000000000uLL;
       }
     }
-    *(_QWORD *)v17 = ValidPte;
-    goto LABEL_17;
+    *(_QWORD *)v18 = ValidPte;
+LABEL_13:
+    v17 = 0LL;
+    goto LABEL_14;
   }
-  if ( BugCheckParameter3 )
+  if ( a2 )
   {
-    v17 = BugCheckParameter3;
-    goto LABEL_15;
+    v18 = a2;
+    goto LABEL_11;
   }
   return 3221225626LL;
 }

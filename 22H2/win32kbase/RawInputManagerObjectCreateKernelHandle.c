@@ -1,12 +1,12 @@
 /*
- * XREFs of RawInputManagerObjectCreateKernelHandle @ 0x1C0078710
+ * XREFs of RawInputManagerObjectCreateKernelHandle @ 0x1C000BA60
  * Callers:
- *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0005F38 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
- *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C0076DE0 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
- *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C00786D0 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C0195108 (RIMIDECreatePseudoHIDDevice.c)
+ *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C000BA20 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
+ *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C0057410 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0167FA4 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168270 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RawInputManagerObjectCreateKernelHandle(
@@ -23,7 +23,7 @@ __int64 __fastcall RawInputManagerObjectCreateKernelHandle(
   {
     v5 = ObOpenObjectByPointer(a1, 2 * a3 + 512, 0LL, a2, ExRawInputManagerObjectType, AccessMode, Handle);
     if ( v5 < 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 746LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 731LL);
   }
   else
   {

@@ -1,18 +1,18 @@
 /*
- * XREFs of PpDevCfgProcessDeviceOperations @ 0x14074761C
+ * XREFs of PpDevCfgProcessDeviceOperations @ 0x14073A2B8
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgSetDeviceRegProp @ 0x1406E5528 (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgInitDeviceContext @ 0x1407448BC (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407476FC (PiDevCfgFreeDeviceContext.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140739C50 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073A394 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x14073BA30 (PiDevCfgInitDeviceContext.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
   HANDLE KeyHandle; // [rsp+48h] [rbp-61h] BYREF
   __int128 v15; // [rsp+50h] [rbp-59h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-49h] BYREF
-  _QWORD v17[14]; // [rsp+90h] [rbp-19h] BYREF
+  _BYTE v17[112]; // [rsp+90h] [rbp-19h] BYREF
   int v18; // [rsp+110h] [rbp+67h] BYREF
   int v19; // [rsp+120h] [rbp+77h] BYREF
   int v20; // [rsp+128h] [rbp+7Fh] BYREF
@@ -43,11 +43,12 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
   v19 = 0;
   if ( *(_QWORD *)(a1 + 48) )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
     *((_QWORD *)&v15 + 1) = L"PendingConfiguration";
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v15;
     LODWORD(v15) = 2752552;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = a2;
     ObjectAttributes.Attributes = 576;
     v4 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -58,26 +59,26 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
     }
     else if ( v4 >= 0 )
     {
-      inited = PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 48), (__int64)a2, v17);
+      inited = PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 48), a2, v17);
       if ( inited >= 0 )
       {
-        inited = PiDevCfgConfigureDeviceKeys(a1, (__int64)v17, KeyHandle, -1, &v20, 0LL);
+        inited = PiDevCfgConfigureDeviceKeys(a1, (unsigned int)v17, (_DWORD)KeyHandle, -1, (__int64)&v20, 0LL);
         if ( inited >= 0 )
         {
           if ( *(_QWORD *)&PiPnpRtlCtx && (v7 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
             v8 = *(_QWORD *)(v7 + 8);
           else
             v8 = 0LL;
-          RegRtlDeleteTreeInternal((__int64)a2, (__int64)L"PendingConfiguration", v8, 0);
+          RegRtlDeleteTreeInternal(a2, L"PendingConfiguration", v8, 0LL);
           v9 = v20;
           if ( v20 )
           {
             v10 = *(_QWORD *)(a1 + 48);
             v19 = 4;
             if ( (int)CmGetDeviceRegProp(
-                        PiPnpRtlCtx,
+                        *(__int64 *)&PiPnpRtlCtx,
                         v10,
-                        (_DWORD)a2,
+                        (__int64)a2,
                         11,
                         (__int64)&v13,
                         (__int64)&v18,

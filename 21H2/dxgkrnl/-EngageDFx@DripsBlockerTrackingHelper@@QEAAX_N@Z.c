@@ -1,28 +1,28 @@
 /*
- * XREFs of ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02FBD34
+ * XREFs of ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02C0B8C
  * Callers:
- *     ?SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02E3670 (-SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ *     ?SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02BF614 (-SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z.c)
  * Callees:
- *     ?Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C0223198 (-Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ.c)
- *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FAAA0 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
- *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02FBC90 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
- *     ?ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FECEC (-ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ.c)
- *     ?Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ @ 0x1C02FED4C (-Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BF934 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02C0AD8 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ *     ?ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02C3B08 (-ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C02C3B68 (-Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ.c)
+ *     ?Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ @ 0x1C02C3B98 (-Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ.c)
  */
 
-void __fastcall DripsBlockerTrackingHelper::EngageDFx(LARGE_INTEGER *this, char a2)
+void __fastcall DripsBlockerTrackingHelper::EngageDFx(DripsBlockerTrackingHelper *this, char a2)
 {
   unsigned int v3; // ebp
   char *v4; // rdi
   __int64 i; // rsi
 
-  if ( !LOBYTE(this[37766].LowPart) )
+  if ( !*((_BYTE *)this + 302128) )
   {
     if ( a2 )
     {
-      DripsBlockerTrackingHelper::AddD0LagTimeToLastActiveEntry((DripsBlockerTrackingHelper *)this);
+      DripsBlockerTrackingHelper::AddD0LagTimeToLastActiveEntry(this);
       v3 = 0;
-      v4 = (char *)&this[5].QuadPart + 4;
+      v4 = (char *)this + 44;
       do
       {
         if ( v4[60] )
@@ -31,7 +31,7 @@ void __fastcall DripsBlockerTrackingHelper::EngageDFx(LARGE_INTEGER *this, char 
           {
             if ( *(_DWORD *)&v4[72 * i + 100] )
             {
-              DripsBlockerTrackingHelper::EnableEntryAccounting((DripsBlockerTrackingHelper *)this, v3, i, 0);
+              DripsBlockerTrackingHelper::EnableEntryAccounting(this, v3, i, 0);
               *(_DWORD *)&v4[72 * i + 100] = 0;
             }
           }
@@ -40,12 +40,12 @@ void __fastcall DripsBlockerTrackingHelper::EngageDFx(LARGE_INTEGER *this, char 
         v4 += 4720;
       }
       while ( v3 < 0x40 );
-      DripsBlockerTrackingHelper::TimeInterval::Start(this + 37763);
+      DripsBlockerTrackingHelper::TimeInterval::Start((DripsBlockerTrackingHelper *)((char *)this + 302104));
     }
     else
     {
-      DripsBlockerTrackingHelper::TimeInterval::Stop((DripsBlockerTrackingHelper::TimeInterval *)&this[37763]);
+      DripsBlockerTrackingHelper::TimeInterval::Stop((DripsBlockerTrackingHelper *)((char *)this + 302104));
     }
   }
-  DripsBlockerTrackingHelper::ResetDAM((DripsBlockerTrackingHelper *)this);
+  DripsBlockerTrackingHelper::ResetDAM(this);
 }

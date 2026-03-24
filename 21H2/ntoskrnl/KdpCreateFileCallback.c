@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpCreateFileCallback @ 0x140A72AC0
+ * XREFs of KdpCreateFileCallback @ 0x1409B6AE0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
 __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_INTEGER a3)
@@ -18,17 +18,18 @@ __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_I
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+27h] BYREF
   LARGE_INTEGER AllocationSize; // [rsp+B0h] [rbp+67h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = a2;
   v3 = *(_DWORD *)(a1 + 8);
   AllocationSize = a3;
-  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
   CreateOptions = (CmStateSeparationEnabled != 0 ? 0x80000 : 0) | v3;
   CreateDisposition = *(_DWORD *)(a1 + 4);
   FileAttributes = *(_DWORD *)a1;
   IoStatusBlock = 0LL;
+  ObjectAttributes.Attributes = 576;
   v5 = ZwCreateFile(
          (PHANDLE)(a1 + 16),
          0x120116u,

@@ -1,108 +1,114 @@
 /*
- * XREFs of ?DispatchWithLock@FxDevice@@SAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@@Z @ 0x1C0003C30
+ * XREFs of ?DispatchWithLock@FxDevice@@SAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@@Z @ 0x1C000A710
  * Callers:
  *     <none>
  * Callees:
- *     ?SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z @ 0x1C00039DC (-SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxDevice::DispatchWithLock(_DEVICE_OBJECT *DeviceObject, _IRP *Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   unsigned __int8 MajorFunction; // al
-  __int64 v6; // rdi
-  _QWORD *v7; // r8
-  _IO_STACK_LOCATION *v8; // rax
-  unsigned __int64 v9; // rbp
-  __int64 v10; // rsi
+  NTSTATUS v6; // esi
+  _IO_STACK_LOCATION *v7; // rax
+  __int64 v8; // rsi
+  _QWORD *v9; // r8
+  _IO_STACK_LOCATION *v10; // rax
+  __int64 v11; // rbp
   unsigned __int8 MinorFunction; // r14
-  __int64 v12; // r11
-  _QWORD *v13; // rax
-  _QWORD *v14; // rcx
+  unsigned __int64 v13; // rdi
+  __int64 v14; // r10
   __int64 (__fastcall *v15)(unsigned __int64, _IRP *, _QWORD *); // r9
-  unsigned int v16; // r10d
-  __int16 v17; // dx
-  unsigned int v18; // eax
-  unsigned int v19; // ebp
+  _QWORD *v16; // rcx
+  __int64 v17; // rcx
+  unsigned int v18; // edi
+  int v20; // ecx
   int v21; // ecx
-  __int64 v22; // rcx
-  NTSTATUS v23; // esi
-  unsigned int v24; // r15d
-  _IO_STACK_LOCATION *v25; // rax
-  unsigned __int64 v26; // rcx
-  FxIrp v27; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v22; // r15d
+  unsigned int v23; // r11d
+  __int16 v24; // dx
+  unsigned int v25; // eax
+  _IO_STACK_LOCATION *v26; // rax
+  unsigned __int64 v27; // rcx
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   MajorFunction = CurrentStackLocation->MajorFunction;
-  if ( CurrentStackLocation->MajorFunction >= 0x16u )
+  if ( CurrentStackLocation->MajorFunction < 0x16u )
   {
-    if ( MajorFunction > 0x17u )
-    {
-      if ( MajorFunction != 27 )
-        goto LABEL_2;
-      if ( CurrentStackLocation->MinorFunction == 2 )
-      {
-        v23 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
-        if ( v23 >= 0 )
-        {
-          IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, 0x20u);
-          goto LABEL_3;
-        }
-        goto LABEL_40;
-      }
-    }
-    v23 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
-    if ( v23 >= 0 )
-      goto LABEL_3;
-LABEL_40:
-    Irp->IoStatus.Status = v23;
-    IofCompleteRequest(Irp, 0);
-    return (unsigned int)v23;
-  }
 LABEL_2:
-  v27.m_Irp = Irp;
-  if ( ((__int64)DeviceObject[1].CurrentIrp & 1) != 0 )
-  {
-    v23 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
-    if ( v23 >= 0 )
+    if ( ((__int64)DeviceObject[1].CurrentIrp & 1) != 0 )
     {
-      v25 = Irp->Tail.Overlay.CurrentStackLocation;
-      *(_OWORD *)&v25[-1].MajorFunction = *(_OWORD *)&v25->MajorFunction;
-      *(_OWORD *)&v25[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v25->Parameters.NotifyDirectoryEx.CompletionFilter;
-      *(_OWORD *)(&v25[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v25->Parameters.SetQuota + 6);
-      v25[-1].FileObject = v25->FileObject;
-      v25[-1].Control = 0;
-      FxIrp::SetCompletionRoutineEx(
-        &v27,
-        DeviceObject,
-        (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))FxDevice::_CompletionRoutineForRemlockMaintenance,
-        DeviceObject);
-      --Irp->CurrentLocation;
-      --Irp->Tail.Overlay.CurrentStackLocation;
-      goto LABEL_3;
+      v6 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
+      if ( v6 >= 0 )
+      {
+        v7 = Irp->Tail.Overlay.CurrentStackLocation;
+        *(_OWORD *)&v7[-1].MajorFunction = *(_OWORD *)&v7->MajorFunction;
+        *(_OWORD *)&v7[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v7->Parameters.NotifyDirectoryEx.CompletionFilter;
+        *(_OWORD *)(&v7[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v7->Parameters.SetQuota + 6);
+        v7[-1].FileObject = v7->FileObject;
+        v7[-1].Control = 0;
+        if ( IoSetCompletionRoutineEx(
+               DeviceObject,
+               Irp,
+               (PIO_COMPLETION_ROUTINE)FxDevice::_CompletionRoutineForRemlockMaintenance,
+               DeviceObject,
+               1u,
+               1u,
+               1u) < 0 )
+        {
+          v26 = Irp->Tail.Overlay.CurrentStackLocation;
+          v26[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))FxDevice::_CompletionRoutineForRemlockMaintenance;
+          v26[-1].Context = DeviceObject;
+          v26[-1].Control = -32;
+        }
+        --Irp->CurrentLocation;
+        --Irp->Tail.Overlay.CurrentStackLocation;
+        goto LABEL_7;
+      }
+LABEL_46:
+      Irp->IoStatus.Status = v6;
+      IofCompleteRequest(Irp, 0);
+      return (unsigned int)v6;
     }
-    goto LABEL_40;
+    goto LABEL_7;
   }
-LABEL_3:
-  v6 = *((_QWORD *)DeviceObject->DeviceExtension - 6);
-  v7 = *(_QWORD **)(v6 + 368);
-  if ( v7 == (_QWORD *)(v6 + 368) )
+  if ( MajorFunction <= 0x17u )
+    goto LABEL_20;
+  if ( MajorFunction != 27 )
+    goto LABEL_2;
+  if ( CurrentStackLocation->MinorFunction == 2 )
+    v20 = 2;
+  else
+LABEL_20:
+    v20 = 1;
+  v21 = v20 - 1;
+  if ( v21 )
   {
-LABEL_14:
-    v21 = Irp->Tail.Overlay.CurrentStackLocation->MajorFunction;
-    if ( v21 == 27 )
+    if ( v21 == 1 )
     {
-LABEL_25:
-      v22 = *(_QWORD *)(v6 + 648);
-      if ( !v22 )
-LABEL_26:
-        v22 = *(_QWORD *)(v6 + 672);
+      v6 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
+      if ( v6 < 0 )
+        goto LABEL_46;
+      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, 0x20u);
     }
-    else if ( v21 == 14 )
+  }
+  else
+  {
+    v6 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, a5, 1u, 0x20u);
+    if ( v6 < 0 )
+      goto LABEL_46;
+  }
+LABEL_7:
+  v8 = *((_QWORD *)DeviceObject->DeviceExtension - 6);
+  v9 = *(_QWORD **)(v8 + 368);
+  if ( v9 == (_QWORD *)(v8 + 368) )
+  {
+LABEL_11:
+    if ( Irp->Tail.Overlay.CurrentStackLocation->MajorFunction == 14 )
     {
-LABEL_24:
-      v22 = *(_QWORD *)(v6 + 640);
+$LN208:
+      v17 = *(_QWORD *)(v8 + 640);
     }
     else
     {
@@ -112,69 +118,74 @@ LABEL_24:
         case 2u:
         case 0x10u:
         case 0x12u:
-          v22 = *(_QWORD *)(v6 + 656);
-          break;
+          v17 = *(_QWORD *)(v8 + 656);
+          return (*(unsigned int (__fastcall **)(__int64, _IRP *))(*(_QWORD *)v17 + 64LL))(v17, Irp);
         case 3u:
         case 4u:
         case 0xFu:
-          goto LABEL_24;
+          goto $LN208;
         case 0x16u:
-          goto LABEL_25;
+        case 0x1Bu:
+          v17 = *(_QWORD *)(v8 + 648);
+          if ( !v17 )
+            goto LABEL_50;
+          return (*(unsigned int (__fastcall **)(__int64, _IRP *))(*(_QWORD *)v17 + 64LL))(v17, Irp);
         case 0x17u:
-          v22 = *(_QWORD *)(v6 + 664);
-          break;
+          v17 = *(_QWORD *)(v8 + 664);
+          return (*(unsigned int (__fastcall **)(__int64, _IRP *))(*(_QWORD *)v17 + 64LL))(v17, Irp);
         default:
-          goto LABEL_26;
+LABEL_50:
+          v17 = *(_QWORD *)(v8 + 672);
+          break;
       }
     }
-    return (*(unsigned int (__fastcall **)(__int64, _IRP *))(*(_QWORD *)v22 + 64LL))(v22, Irp);
+    return (*(unsigned int (__fastcall **)(__int64, _IRP *))(*(_QWORD *)v17 + 64LL))(v17, Irp);
   }
   else
   {
-    v8 = Irp->Tail.Overlay.CurrentStackLocation;
-    v9 = 0LL;
-    v10 = v8->MajorFunction;
-    MinorFunction = v8->MinorFunction;
-    v12 = 3 * v10;
+    v10 = Irp->Tail.Overlay.CurrentStackLocation;
+    v11 = v10->MajorFunction;
+    MinorFunction = v10->MinorFunction;
+    v13 = 0LL;
+    v14 = 3 * v11;
     while ( 1 )
     {
-      v13 = v7;
-      v14 = v7;
-      v7 = (_QWORD *)*v7;
-      v15 = (__int64 (__fastcall *)(unsigned __int64, _IRP *, _QWORD *))v13[v12 + 2];
+      v15 = (__int64 (__fastcall *)(unsigned __int64, _IRP *, _QWORD *))v9[v14 + 2];
+      v16 = v9;
+      v9 = (_QWORD *)*v9;
       if ( v15 )
         break;
-LABEL_13:
-      if ( v7 == (_QWORD *)(v6 + 368) )
-        goto LABEL_14;
+LABEL_10:
+      if ( v9 == (_QWORD *)(v8 + 368) )
+        goto LABEL_11;
     }
-    v16 = v13[v12 + 3];
-    if ( v16 )
+    v22 = v16[v14 + 3];
+    if ( v22 )
     {
-      v24 = 0;
-      while ( *(_BYTE *)(v24 + v13[v12 + 4]) != MinorFunction )
+      v23 = 0;
+      while ( *(_BYTE *)(v23 + v16[v14 + 4]) != MinorFunction )
       {
-        if ( ++v24 >= v16 )
-          goto LABEL_13;
+        if ( ++v23 >= v22 )
+          goto LABEL_10;
       }
     }
-    v17 = *(_WORD *)(v6 + 10);
-    if ( *((_BYTE *)v14 + 688) )
+    v24 = *(_WORD *)(v8 + 10);
+    if ( *((_BYTE *)v16 + 688) )
     {
-      v26 = v6 ^ 0xFFFFFFFFFFFFFFF8uLL;
-      if ( !v17 )
-        v26 = 0LL;
-      v18 = v15(v26, Irp, v7);
+      v27 = v8 ^ 0xFFFFFFFFFFFFFFF8uLL;
+      if ( !v24 )
+        v27 = 0LL;
+      v25 = v15(v27, Irp, v9);
     }
     else
     {
-      if ( v17 )
-        v9 = v6 ^ 0xFFFFFFFFFFFFFFF8uLL;
-      v18 = v15(v9, Irp, v7);
+      if ( v24 )
+        v13 = v8 ^ 0xFFFFFFFFFFFFFFF8uLL;
+      v25 = v15(v13, Irp, v9);
     }
-    v19 = v18;
-    if ( (unsigned __int8)v10 >= 0x16u && ((unsigned __int8)v10 <= 0x17u || (_BYTE)v10 == 27 && MinorFunction != 2) )
-      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*(_QWORD *)(v6 + 144) + 336LL), Irp, 0x20u);
+    v18 = v25;
+    if ( (unsigned __int8)v11 >= 0x16u && ((unsigned __int8)v11 <= 0x17u || (_BYTE)v11 == 27 && MinorFunction != 2) )
+      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*(_QWORD *)(v8 + 144) + 336LL), Irp, 0x20u);
   }
-  return v19;
+  return v18;
 }

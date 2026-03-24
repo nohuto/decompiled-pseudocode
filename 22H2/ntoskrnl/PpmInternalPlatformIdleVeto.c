@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInternalPlatformIdleVeto @ 0x1405859A4
+ * XREFs of PpmInternalPlatformIdleVeto @ 0x140567218
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall PpmInternalPlatformIdleVeto(unsigned int a1, char a2)
   {
     if ( a1 < *(_DWORD *)PpmPlatformStates )
     {
-      v3 = 448LL * a1;
+      v3 = 384LL * a1;
       if ( a2 )
         _InterlockedOr((volatile signed __int32 *)(v3 + PpmPlatformStates + 80), 0x80000000);
       else

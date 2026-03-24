@@ -1,13 +1,14 @@
 /*
- * XREFs of KeRaiseUserException @ 0x140570F30
+ * XREFs of KeRaiseUserException @ 0x140515E60
  * Callers:
- *     ExHandleLogBadReference @ 0x140606A98 (ExHandleLogBadReference.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     ObCloseHandleTableEntry @ 0x1407402D4 (ObCloseHandleTableEntry.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ObpCloseHandle @ 0x14061B020 (ObpCloseHandle.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetupForInstrumentationReturn @ 0x140571030 (KiSetupForInstrumentationReturn.c)
+ *     KiSetupForInstrumentationReturn @ 0x14036C8F8 (KiSetupForInstrumentationReturn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRaiseUserException(unsigned int a1)
@@ -15,12 +16,11 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
   struct _KTHREAD *CurrentThread; // rdx
   unsigned __int8 CurrentIrql; // bl
   unsigned __int8 v4; // r10
-  _KTRAP_FRAME *TrapFrame; // rcx
-  unsigned __int8 v6; // al
+  __int64 TrapFrame; // rcx
   struct _KPRCB *CurrentPrcb; // r11
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
+  int v8; // eax
+  bool v9; // zf
 
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
@@ -30,15 +30,15 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
   }
-  TrapFrame = CurrentThread->TrapFrame;
+  TrapFrame = (__int64)CurrentThread->TrapFrame;
   if ( TrapFrame )
   {
-    if ( (TrapFrame->SegCs & 1) != 0 )
+    if ( (*(_BYTE *)(TrapFrame + 368) & 1) != 0 )
     {
       *((_DWORD *)CurrentThread->Teb + 176) = a1;
-      TrapFrame->SegCs = 51;
-      TrapFrame->Rip = qword_140D1F360;
-      if ( TrapFrame->ExceptionActive != 2 )
+      *(_WORD *)(TrapFrame + 368) = 51;
+      *(_QWORD *)(TrapFrame + 360) = KeRaiseUserExceptionDispatcher;
+      if ( *(_BYTE *)(TrapFrame + 43) != 2 )
         KiSetupForInstrumentationReturn(TrapFrame);
     }
   }
@@ -46,15 +46,14 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
   {
     if ( KiIrqlFlags )
     {
-      v6 = KeGetCurrentIrql();
-      if ( ((unsigned __int8)KiIrqlFlags & v4) != 0 && (unsigned __int8)(v6 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & v4) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << (v4 + CurrentIrql));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
+        v8 = ~(unsigned __int16)(-1LL << (v4 + CurrentIrql));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

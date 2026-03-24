@@ -1,20 +1,20 @@
 /*
- * XREFs of ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01AF3D0
+ * XREFs of ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01DB58C
  * Callers:
- *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AED34 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
+ *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01DAF04 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
  * Callees:
- *     _InitializeTouchInjectionWorker @ 0x1C01B0640 (_InitializeTouchInjectionWorker.c)
+ *     _InitializeTouchInjectionWorker @ 0x1C01DC5D0 (_InitializeTouchInjectionWorker.c)
  */
 
 __int64 __fastcall RealizePendingRecreateTouchInjectionDevices(struct tagPROCESSINFO *a1, int a2)
 {
-  __int64 v2; // rbx
+  __int64 v2; // rdi
   unsigned int v5; // ebp
   _QWORD *v6; // rcx
   __int64 v7; // rax
   _QWORD *v8; // rdx
 
-  v2 = *((_QWORD *)a1 + 113);
+  v2 = *((_QWORD *)a1 + 112);
   v5 = 1;
   ForceUpdatePointerDeviceSystemMetrics();
   if ( gpTouchInjectorProcesses )
@@ -24,8 +24,8 @@ __int64 __fastcall RealizePendingRecreateTouchInjectionDevices(struct tagPROCESS
       if ( !a2 && !*(_DWORD *)(v2 + 52) )
         return v5;
       v5 = InitializeTouchInjectionWorker(
-             *(unsigned int *)(*((_QWORD *)a1 + 113) + 28LL),
-             *(unsigned int *)(*((_QWORD *)a1 + 113) + 24LL),
+             *(unsigned int *)(*((_QWORD *)a1 + 112) + 28LL),
+             *(unsigned int *)(*((_QWORD *)a1 + 112) + 24LL),
              a1);
     }
     if ( a2 )
@@ -38,7 +38,7 @@ __int64 __fastcall RealizePendingRecreateTouchInjectionDevices(struct tagPROCESS
           v7 = v6[1];
           v8 = (_QWORD *)*v6;
           if ( (struct tagPROCESSINFO *)v7 != a1 )
-            *(_DWORD *)(*(_QWORD *)(v7 + 904) + 52LL) = 1;
+            *(_DWORD *)(*(_QWORD *)(v7 + 896) + 52LL) = 1;
           v6 = v8;
         }
         while ( v8 );

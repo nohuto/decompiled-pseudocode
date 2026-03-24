@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x1406E91C4
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x1406E91A4
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -11,9 +11,9 @@
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     _CmGetDeviceParent @ 0x1406E9644 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x1406E97AC (_CmIsRootDevice.c)
- *     PiGetRelatedDevice @ 0x1406F884C (PiGetRelatedDevice.c)
+ *     _CmGetDeviceParent @ 0x1406E9624 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
+ *     PiGetRelatedDevice @ 0x1406F882C (PiGetRelatedDevice.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(

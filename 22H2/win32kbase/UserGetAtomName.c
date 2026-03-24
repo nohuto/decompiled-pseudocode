@@ -1,9 +1,9 @@
 /*
- * XREFs of UserGetAtomName @ 0x1C005E1C0
+ * XREFs of UserGetAtomName @ 0x1C007EE20
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall UserGetAtomName(RTL_ATOM a1, WCHAR *AtomName, int a3)
@@ -11,6 +11,7 @@ __int64 __fastcall UserGetAtomName(RTL_ATOM a1, WCHAR *AtomName, int a3)
   int v3; // eax
   unsigned int v4; // ebx
   ULONG v6; // eax
+  __int64 v7; // rdx
   ULONG NameLength; // [rsp+50h] [rbp+18h] BYREF
 
   NameLength = 2 * a3;
@@ -19,7 +20,7 @@ __int64 __fastcall UserGetAtomName(RTL_ATOM a1, WCHAR *AtomName, int a3)
   if ( v3 < 0 )
   {
     v6 = RtlNtStatusToDosError(v3);
-    UserSetLastError(v6);
+    UserSetLastError(v6, v7);
   }
   else
   {

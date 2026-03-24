@@ -1,112 +1,97 @@
 /*
- * XREFs of MmInitSystem @ 0x140B07AB0
+ * XREFs of MmInitSystem @ 0x140A53D6C
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140294CC0 (VslGetNestedPageProtectionFlags.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
- *     MiInitializeSystemVa @ 0x140B071D0 (MiInitializeSystemVa.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
- *     KeSupportedPhysicalAddressBits @ 0x140B312E8 (KeSupportedPhysicalAddressBits.c)
- *     KeQueryNumaGraph @ 0x140B50C1C (KeQueryNumaGraph.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140277400 (VslGetNestedPageProtectionFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     KeQueryNumaGraph @ 0x140A91590 (KeQueryNumaGraph.c)
  */
 
-char __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
+char __fastcall MmInitSystem(int a1, ULONG_PTR a2)
 {
-  int v4; // r9d
-  __int64 v6; // rcx
-  unsigned __int8 v7; // r8
-  unsigned __int8 v8; // al
   int NestedPageProtectionFlags; // eax
-  int v10; // ecx
+  char v5; // cl
+  int v6; // eax
   unsigned __int16 *NumaGraph; // r10
-  unsigned int v12; // r9d
+  unsigned int v8; // r9d
   unsigned int i; // r8d
-  unsigned int v14; // esi
-  __int64 v15; // rax
+  unsigned int v10; // esi
+  __int64 v11; // rax
 
-  v4 = a1;
-  if ( !dword_140C50720 )
+  if ( a1 == -1 )
   {
-    v7 = KeSupportedPhysicalAddressBits(a1, a2, a3, (unsigned int)a1);
-    if ( v7 > 0x34u )
-      v7 = 52;
-    dword_140C50720 = v7;
-    v8 = v7 - 12;
-    if ( (unsigned __int8)(v7 - 12) > 0x26u )
-      v8 = 38;
-    dword_140C50724 = v8;
-  }
-  if ( v4 == -1 )
-  {
-    dword_140C29560 = 2048;
-    qword_140C29568 = (__int64)&unk_140C29570;
-    word_140C296D2 |= 1u;
+    dword_140C2A0C0 = 2048;
+    qword_140C2A0C8 = (__int64)&unk_140C2A0D0;
+    word_140C2A232 |= 1u;
     NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
+    v5 = NestedPageProtectionFlags;
     if ( !NestedPageProtectionFlags )
     {
-LABEL_18:
+LABEL_12:
       MiInitializeSystemVa(a2);
       return 1;
     }
-    v10 = MiFlags | 0x1000;
-    MiFlags |= 0x1000u;
-    if ( (NestedPageProtectionFlags & 4) != 0 )
+    v6 = MiFlags | 0x2000;
+    MiFlags |= 0x2000u;
+    if ( (v5 & 4) != 0 )
     {
-      v10 |= 0x6000u;
-      MiFlags = v10;
+      v6 |= 0xC000u;
+      MiFlags = v6;
     }
-    if ( (NestedPageProtectionFlags & 1) != 0 )
+    if ( (v5 & 1) != 0 )
     {
-      v10 |= 0x28000u;
+      v6 |= 0x50000u;
     }
     else
     {
-      if ( (NestedPageProtectionFlags & 2) == 0 )
+      if ( (v5 & 2) == 0 )
       {
-LABEL_29:
-        if ( (NestedPageProtectionFlags & 0x10) == 0 )
+LABEL_22:
+        if ( (v5 & 0x10) == 0 )
         {
-          v10 |= 0x10000u;
-          MiFlags = v10;
+          v6 |= 0x20000u;
+          MiFlags = v6;
         }
-        if ( (NestedPageProtectionFlags & 0x40) != 0 )
+        if ( (v5 & 0x40) != 0 )
         {
-          v10 |= 0x80000u;
-          MiFlags = v10;
+          v6 |= 0x100000u;
+          MiFlags = v6;
         }
-        if ( (NestedPageProtectionFlags & 0x80u) != 0 )
-          MiFlags = v10 | 0x40000;
-        goto LABEL_18;
+        if ( v5 < 0 )
+          MiFlags = v6 | 0x80000;
+        goto LABEL_12;
       }
-      v10 |= 0x8000u;
+      v6 |= 0x10000u;
     }
-    MiFlags = v10;
-    goto LABEL_29;
+    MiFlags = v6;
+    goto LABEL_22;
   }
-  if ( v4 )
+  if ( a1 )
   {
-    if ( v4 == 1 )
+    if ( a1 == 1 )
     {
       if ( (unsigned __int16)KeNumberNodes > 1u )
       {
         NumaGraph = (unsigned __int16 *)KeQueryNumaGraph();
         if ( NumaGraph )
         {
-          v12 = (unsigned __int16)KeNumberNodes;
-          for ( i = 0; i < v12; ++i )
+          v8 = (unsigned __int16)KeNumberNodes;
+          for ( i = 0; i < v8; ++i )
           {
-            v14 = 0;
+            v10 = 0;
             do
             {
-              v15 = i * v12 + v14++;
-              *(_DWORD *)(qword_140C506D8 + 4LL * (unsigned int)v15) = NumaGraph[v15];
+              v11 = i * v8 + v10++;
+              *(_DWORD *)(qword_140C4DE98 + 4LL * (unsigned int)v11) = NumaGraph[v11];
             }
-            while ( v14 < v12 );
+            while ( v10 < v8 );
           }
           ExFreePoolWithTag(NumaGraph, 0);
         }
@@ -114,22 +99,20 @@ LABEL_29:
       MiFlags = MiFlags & 0xFFFFFFCF | 0x10;
       if ( (unsigned __int8)MiInitSystem(1LL, a2) )
       {
-        byte_140C53444 = 1;
+        byte_140C4EEDC = 1;
         return 1;
       }
       return 0;
     }
-    if ( v4 == 2 )
+    if ( a1 == 2 )
     {
-      v6 = 2LL;
       MiFlags = MiFlags & 0xFFFFFFCF | 0x20;
-      return MiInitSystem(v6, a2);
+      return ((__int64 (*)(void))MiInitSystem)();
     }
   }
   else if ( MiInitNucleus(a2) )
   {
-    v6 = 0LL;
-    return MiInitSystem(v6, a2);
+    return ((__int64 (*)(void))MiInitSystem)();
   }
   return 0;
 }

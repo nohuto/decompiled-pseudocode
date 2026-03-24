@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserTranslateMessage @ 0x1C0100770
+ * XREFs of NtUserTranslateMessage @ 0x1C0110720
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxTranslateMessage @ 0x1C010081C (xxxTranslateMessage.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxTranslateMessage @ 0x1C01107D0 (xxxTranslateMessage.c)
  */
 
 __int64 __fastcall NtUserTranslateMessage(__int128 *a1, unsigned int a2)
@@ -18,7 +18,7 @@ __int64 __fastcall NtUserTranslateMessage(__int128 *a1, unsigned int a2)
   v7 = 0LL;
   v8 = 0LL;
   v9 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     a1 = (__int128 *)MmUserProbeAddress;
   v7 = *a1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_sqqDqs @ 0x1C0015A0C
+ * XREFs of WPP_RECORDER_SF_sqqDqs @ 0x1C004CF24
  * Callers:
- *     ACPIBuildDiscoverPowerNodeCompletion @ 0x1C000CE10 (ACPIBuildDiscoverPowerNodeCompletion.c)
+ *     ACPIBuildDiscoverPowerNodeCompletion @ 0x1C004B4B0 (ACPIBuildDiscoverPowerNodeCompletion.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_sqqDqs(
@@ -48,7 +48,7 @@ __int64 __fastcall WPP_RECORDER_SF_sqqDqs(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, const ULONG_PTR *, __int64, const char *, __int64, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+      &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       91LL,
       "ACPIBuildDiscoverPowerNodeCompletion",
       37LL,
@@ -75,15 +75,7 @@ __int64 __fastcall WPP_RECORDER_SF_sqqDqs(
            a1,
            4LL,
            10LL,
-           &WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+           &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
            v18,
-           "ACPIBuildDiscoverPowerNodeCompletion",
-           37LL,
-           &a7,
-           8LL,
-           &a8,
-           8LL,
-           &a9,
-           4LL,
-           &a10);
+           "ACPIBuildDiscoverPowerNodeCompletion");
 }

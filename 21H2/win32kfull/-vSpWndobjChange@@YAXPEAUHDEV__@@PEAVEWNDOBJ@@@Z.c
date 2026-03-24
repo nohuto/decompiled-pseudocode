@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0281F68
+ * XREFs of ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C02852FC
  * Callers:
- *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C02837E0 (-vForceClientRgnUpdate@@YAXXZ.c)
- *     GreClientRgnDone @ 0x1C0284414 (GreClientRgnDone.c)
- *     GreDeleteWnd @ 0x1C02844B0 (GreDeleteWnd.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0286C34 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     GreClientRgnDone @ 0x1C0287854 (GreClientRgnDone.c)
+ *     GreDeleteWnd @ 0x1C02878F0 (GreDeleteWnd.c)
  * Callees:
- *     ?vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0280C40 (-vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0283444 (-vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
  */
 
 void __fastcall vSpWndobjChange(HDEV a1, struct EWNDOBJ *a2)
@@ -19,14 +19,14 @@ void __fastcall vSpWndobjChange(HDEV a1, struct EWNDOBJ *a2)
   SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v7, (struct PDEVOBJ *)&v6);
   v4 = v6;
   v5 = 0LL;
-  if ( *((_DWORD *)v6 + 35) )
+  if ( *((_DWORD *)v6 + 37) )
   {
     do
     {
-      vSpDeviceWndobjChange(*(HDEV *)(*((_QWORD *)v4 + 18) + 8 * v5), a2);
+      vSpDeviceWndobjChange(*(HDEV *)(*((_QWORD *)v4 + 19) + 8 * v5), a2);
       v5 = (unsigned int)(v5 + 1);
     }
-    while ( (unsigned int)v5 < *((_DWORD *)v4 + 35) );
+    while ( (unsigned int)v5 < *((_DWORD *)v4 + 37) );
   }
   else
   {

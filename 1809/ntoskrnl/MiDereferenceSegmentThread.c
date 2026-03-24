@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDereferenceSegmentThread @ 0x140187580
+ * XREFs of MiDereferenceSegmentThread @ 0x1401875A0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     MiDeleteEmptySubsections @ 0x140093928 (MiDeleteEmptySubsections.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     MiProcessDereferenceList @ 0x140154030 (MiProcessDereferenceList.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
- *     MiDeleteCachedSegment @ 0x1402A1764 (MiDeleteCachedSegment.c)
- *     MiDeleteControlAreaList @ 0x1402A20C8 (MiDeleteControlAreaList.c)
- *     MiProcessDeleteOnClose @ 0x1402A2880 (MiProcessDeleteOnClose.c)
- *     MiRemoveUnusedSegments @ 0x1402A2F30 (MiRemoveUnusedSegments.c)
- *     MiFreeClonePool @ 0x1402C9EE8 (MiFreeClonePool.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
+ *     MiDeleteControlAreaList @ 0x1402A21C8 (MiDeleteControlAreaList.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
+ *     MiFreeClonePool @ 0x1402C9FE8 (MiFreeClonePool.c)
  */
 
 ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)

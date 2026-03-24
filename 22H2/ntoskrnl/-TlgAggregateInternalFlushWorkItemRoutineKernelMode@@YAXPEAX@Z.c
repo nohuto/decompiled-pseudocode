@@ -1,27 +1,27 @@
 /*
- * XREFs of ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140880200
+ * XREFs of ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140735A30
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     EnableFlushTimer @ 0x1403C6B80 (EnableFlushTimer.c)
- *     LookUpTableFlushComplete @ 0x14085D140 (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x14088026C (LookUpTableFlushPartial.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     EnableFlushTimer @ 0x14036DE0C (EnableFlushTimer.c)
+ *     LookUpTableFlushPartial @ 0x140735A9C (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1407D3EC0 (LookUpTableFlushComplete.c)
  */
 
-void __fastcall TlgAggregateInternalFlushWorkItemRoutineKernelMode(__int64 a1)
+void __fastcall TlgAggregateInternalFlushWorkItemRoutineKernelMode(void *a1)
 {
-  if ( *(_BYTE *)(a1 + 372) )
+  if ( *((_BYTE *)a1 + 372) )
   {
-    *(_BYTE *)(a1 + 372) = 0;
+    *((_BYTE *)a1 + 372) = 0;
     LookUpTableFlushComplete(a1);
   }
   else
   {
-    LookUpTableFlushPartial(a1);
+    LookUpTableFlushPartial();
   }
-  if ( *(_DWORD *)(a1 + 256) )
-    EnableFlushTimer(*(_QWORD *)(a1 + 360), *(_DWORD *)(a1 + 368));
-  if ( _InterlockedCompareExchange16((volatile signed __int16 *)(*(_QWORD *)(a1 + 264) + 56LL), 0, 1) == 2 )
-    KeSetEvent((PRKEVENT)(*(_QWORD *)(a1 + 264) + 32LL), 0, 0);
+  if ( *((_DWORD *)a1 + 64) )
+    EnableFlushTimer(*((_QWORD *)a1 + 45), *((_DWORD *)a1 + 92));
+  if ( _InterlockedCompareExchange16((volatile signed __int16 *)(*((_QWORD *)a1 + 33) + 56LL), 0, 1) == 2 )
+    KeSetEvent((PRKEVENT)(*((_QWORD *)a1 + 33) + 32LL), 0, 0);
 }

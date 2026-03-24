@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C01F8B00
+ * XREFs of ??0ADAPTER_DISPLAY@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C019C644
  * Callers:
- *     ?CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C01FAC70 (-CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z.c)
+ *     ?CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C0191440 (-CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 ADAPTER_DISPLAY *__fastcall ADAPTER_DISPLAY::ADAPTER_DISPLAY(char *DeferredContext, struct DXGADAPTER *a2)
@@ -12,93 +12,92 @@ ADAPTER_DISPLAY *__fastcall ADAPTER_DISPLAY::ADAPTER_DISPLAY(char *DeferredConte
 
   *((_QWORD *)DeferredContext + 2) = a2;
   *(_OWORD *)DeferredContext = 0LL;
+  *((_QWORD *)DeferredContext + 3) = 0LL;
+  *((_QWORD *)DeferredContext + 4) = 0LL;
   *((_QWORD *)DeferredContext + 5) = 0LL;
-  *((_QWORD *)DeferredContext + 6) = 0LL;
-  *((_QWORD *)DeferredContext + 7) = 0LL;
-  *((_DWORD *)DeferredContext + 16) = 0;
-  *((_DWORD *)DeferredContext + 17) = 5;
-  *((_DWORD *)DeferredContext + 18) = 32;
-  *((_QWORD *)DeferredContext + 11) = DeferredContext + 80;
-  *((_QWORD *)DeferredContext + 10) = DeferredContext + 80;
-  *((_DWORD *)DeferredContext + 34) = -1;
-  *((_DWORD *)DeferredContext + 35) = -1;
-  *((_DWORD *)DeferredContext + 24) = 0;
+  *((_DWORD *)DeferredContext + 12) = 0;
+  *((_DWORD *)DeferredContext + 13) = 5;
+  *((_DWORD *)DeferredContext + 14) = 23;
+  *((_QWORD *)DeferredContext + 9) = DeferredContext + 64;
+  *((_QWORD *)DeferredContext + 8) = DeferredContext + 64;
+  *((_DWORD *)DeferredContext + 30) = -1;
+  *((_DWORD *)DeferredContext + 31) = -1;
+  *((_DWORD *)DeferredContext + 20) = 0;
+  *((_QWORD *)DeferredContext + 11) = 0LL;
+  *((_QWORD *)DeferredContext + 12) = 0LL;
   *((_QWORD *)DeferredContext + 13) = 0LL;
   *((_QWORD *)DeferredContext + 14) = 0LL;
-  *((_QWORD *)DeferredContext + 15) = 0LL;
-  *((_QWORD *)DeferredContext + 16) = 0LL;
-  *((_DWORD *)DeferredContext + 36) = 3;
-  *((_QWORD *)DeferredContext + 20) = 0LL;
-  *((_DWORD *)DeferredContext + 47) = -1;
-  *((_QWORD *)DeferredContext + 21) = 0LL;
+  *((_DWORD *)DeferredContext + 32) = 3;
+  *((_DWORD *)DeferredContext + 41) = -1;
+  *((_QWORD *)DeferredContext + 17) = 0LL;
+  *((_QWORD *)DeferredContext + 18) = 0LL;
+  *((_QWORD *)DeferredContext + 19) = 0LL;
+  *((_DWORD *)DeferredContext + 40) = 0;
+  *((_DWORD *)DeferredContext + 42) = 43;
   *((_QWORD *)DeferredContext + 22) = 0LL;
-  *((_DWORD *)DeferredContext + 46) = 0;
-  *((_DWORD *)DeferredContext + 48) = 55;
-  *((_QWORD *)DeferredContext + 26) = 0LL;
+  *((_QWORD *)DeferredContext + 23) = 0LL;
+  *((_QWORD *)DeferredContext + 24) = 0LL;
+  *((_DWORD *)DeferredContext + 50) = 0;
+  *((_DWORD *)DeferredContext + 51) = -1;
+  *((_DWORD *)DeferredContext + 52) = 1;
   *((_QWORD *)DeferredContext + 27) = 0LL;
-  *((_QWORD *)DeferredContext + 28) = 0LL;
-  *((_DWORD *)DeferredContext + 58) = 0;
-  *((_DWORD *)DeferredContext + 59) = -1;
-  *((_DWORD *)DeferredContext + 60) = 1;
-  *((_QWORD *)DeferredContext + 31) = 0LL;
-  *((_DWORD *)DeferredContext + 72) = 0;
-  DeferredContext[292] = 0;
-  *((_QWORD *)DeferredContext + 38) = 0LL;
-  *((_QWORD *)DeferredContext + 39) = 0LL;
+  *((_DWORD *)DeferredContext + 62) = 0;
+  DeferredContext[252] = 0;
+  *((_QWORD *)DeferredContext + 32) = 0LL;
+  *((_QWORD *)DeferredContext + 33) = 0LL;
+  *((_QWORD *)DeferredContext + 34) = 0LL;
+  *((_DWORD *)DeferredContext + 70) = 0;
+  *((_DWORD *)DeferredContext + 71) = -1;
+  *((_DWORD *)DeferredContext + 72) = 1;
+  *((_QWORD *)DeferredContext + 37) = 0LL;
   *((_QWORD *)DeferredContext + 40) = 0LL;
-  *((_DWORD *)DeferredContext + 82) = 0;
-  *((_DWORD *)DeferredContext + 83) = -1;
-  *((_DWORD *)DeferredContext + 84) = 1;
-  *((_QWORD *)DeferredContext + 43) = 0LL;
+  *((_QWORD *)DeferredContext + 41) = 0LL;
+  *((_QWORD *)DeferredContext + 42) = 0LL;
+  *((_DWORD *)DeferredContext + 86) = 0;
+  *((_DWORD *)DeferredContext + 87) = 16;
+  *((_DWORD *)DeferredContext + 88) = 7;
+  *((_QWORD *)DeferredContext + 45) = 0LL;
+  *((_QWORD *)DeferredContext + 46) = 1LL;
   *((_QWORD *)DeferredContext + 47) = 0LL;
   *((_QWORD *)DeferredContext + 48) = 0LL;
-  *((_QWORD *)DeferredContext + 49) = 0LL;
-  *((_DWORD *)DeferredContext + 100) = 0;
-  *((_DWORD *)DeferredContext + 101) = 16;
-  *((_DWORD *)DeferredContext + 102) = 13;
+  *((_DWORD *)DeferredContext + 98) = 0;
+  DeferredContext[396] = 0;
+  *((_QWORD *)DeferredContext + 50) = 0LL;
+  *((_QWORD *)DeferredContext + 51) = 0LL;
   *((_QWORD *)DeferredContext + 52) = 0LL;
-  *((_QWORD *)DeferredContext + 53) = 1LL;
-  *((_QWORD *)DeferredContext + 54) = 0LL;
-  *((_DWORD *)DeferredContext + 110) = 0;
-  *((_QWORD *)DeferredContext + 56) = 0LL;
-  *((_DWORD *)DeferredContext + 114) = 0;
-  DeferredContext[460] = 0;
+  *((_DWORD *)DeferredContext + 106) = 0;
+  *((_DWORD *)DeferredContext + 107) = 75;
+  *((_DWORD *)DeferredContext + 108) = 53;
+  *((_QWORD *)DeferredContext + 57) = 0LL;
+  *((_QWORD *)DeferredContext + 58) = 0LL;
   *((_QWORD *)DeferredContext + 59) = 0LL;
-  *((_QWORD *)DeferredContext + 60) = 0LL;
-  *((_QWORD *)DeferredContext + 61) = 0LL;
-  *((_DWORD *)DeferredContext + 124) = 0;
-  *((_DWORD *)DeferredContext + 125) = 75;
-  *((_DWORD *)DeferredContext + 126) = 66;
-  *((_QWORD *)DeferredContext + 68) = 0LL;
-  *((_QWORD *)DeferredContext + 69) = 0LL;
-  *((_QWORD *)DeferredContext + 70) = 0LL;
-  *((_DWORD *)DeferredContext + 142) = 0;
-  *((_DWORD *)DeferredContext + 143) = -1;
-  *((_DWORD *)DeferredContext + 144) = 1;
-  DeferredContext[584] = 0;
-  *((_QWORD *)DeferredContext + 77) = 0LL;
-  *((_QWORD *)DeferredContext + 78) = 0LL;
-  *((_QWORD *)DeferredContext + 79) = 0LL;
-  *((_DWORD *)DeferredContext + 160) = 0;
-  *((_DWORD *)DeferredContext + 161) = 76;
-  *((_DWORD *)DeferredContext + 162) = 24;
-  *((_QWORD *)DeferredContext + 84) = 0LL;
-  *((_QWORD *)DeferredContext + 85) = 0LL;
-  *((_DWORD *)DeferredContext + 175) = -1;
-  *((_QWORD *)DeferredContext + 86) = 0LL;
-  *((_DWORD *)DeferredContext + 174) = 0;
-  *((_DWORD *)DeferredContext + 176) = 33;
-  *((_QWORD *)DeferredContext + 90) = DeferredContext + 712;
-  *((_QWORD *)DeferredContext + 89) = DeferredContext + 712;
-  *((_QWORD *)DeferredContext + 45) = DeferredContext + 352;
-  *((_QWORD *)DeferredContext + 44) = DeferredContext + 352;
-  memset(DeferredContext + 864, 0, 0xA0uLL);
-  KeInitializeTimerEx((PKTIMER)(DeferredContext + 736), SynchronizationTimer);
+  *((_DWORD *)DeferredContext + 120) = 0;
+  *((_DWORD *)DeferredContext + 121) = -1;
+  *((_DWORD *)DeferredContext + 122) = 1;
+  DeferredContext[496] = 0;
+  *((_QWORD *)DeferredContext + 65) = 0LL;
+  *((_QWORD *)DeferredContext + 66) = 0LL;
+  *((_QWORD *)DeferredContext + 67) = 0LL;
+  *((_DWORD *)DeferredContext + 136) = 0;
+  *((_DWORD *)DeferredContext + 137) = 76;
+  *((_DWORD *)DeferredContext + 138) = 15;
+  *((_QWORD *)DeferredContext + 71) = 0LL;
+  *((_QWORD *)DeferredContext + 72) = 0LL;
+  *((_QWORD *)DeferredContext + 73) = 0LL;
+  *((_DWORD *)DeferredContext + 149) = -1;
+  *((_DWORD *)DeferredContext + 148) = 0;
+  *((_DWORD *)DeferredContext + 150) = 24;
+  *((_QWORD *)DeferredContext + 77) = DeferredContext + 608;
+  *((_QWORD *)DeferredContext + 76) = DeferredContext + 608;
+  *((_QWORD *)DeferredContext + 39) = DeferredContext + 304;
+  *((_QWORD *)DeferredContext + 38) = DeferredContext + 304;
+  memset(DeferredContext + 760, 0, 0xA0uLL);
+  KeInitializeTimerEx((PKTIMER)(DeferredContext + 632), SynchronizationTimer);
   KeInitializeDpc(
-    (PRKDPC)(DeferredContext + 800),
+    (PRKDPC)(DeferredContext + 696),
     (PKDEFERRED_ROUTINE)ADAPTER_DISPLAY::VSyncTelemetryTimerDpc,
     DeferredContext);
   result = (ADAPTER_DISPLAY *)DeferredContext;
-  *(_OWORD *)(DeferredContext + 264) = 0LL;
+  *(_OWORD *)(DeferredContext + 232) = 0LL;
   return result;
 }

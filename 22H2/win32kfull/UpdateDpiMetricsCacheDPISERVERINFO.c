@@ -1,11 +1,11 @@
 /*
- * XREFs of UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C008A180
+ * XREFs of UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00E1E70
  * Callers:
- *     xxxSetNCFonts @ 0x1C0078690 (xxxSetNCFonts.c)
- *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C008A010 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00E4EE0 (-UserReinitializeStockFonts@@YAXKH@Z.c)
  * Callees:
- *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C008A218 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
- *     GetDPIServerInfoForDpi @ 0x1C008A410 (GetDPIServerInfoForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044E58 (GetDPIServerInfoForDpi.c)
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00E1F08 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
  */
 
 void UpdateDpiMetricsCacheDPISERVERINFO()
@@ -26,7 +26,7 @@ void UpdateDpiMetricsCacheDPISERVERINFO()
     --v1;
   }
   while ( v1 );
-  for ( i = gppiList; i; i = *(_QWORD *)(i + 368) )
+  for ( i = gppiList; i; i = *(_QWORD *)(i + 376) )
     GetDPIServerInfoForDpi(*(unsigned __int16 *)(i + 284));
   for ( j = 2; j < 0x12; ++j )
   {

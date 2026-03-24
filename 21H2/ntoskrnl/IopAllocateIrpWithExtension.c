@@ -1,35 +1,35 @@
 /*
- * XREFs of IopAllocateIrpWithExtension @ 0x14020B830
+ * XREFs of IopAllocateIrpWithExtension @ 0x1402ED748
  * Callers:
- *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     IopInitializeReserveIrps @ 0x140B2AC4C (IopInitializeReserveIrps.c)
+ *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     IopInitializeReserveIrps @ 0x140A6EBD4 (IopInitializeReserveIrps.c)
  * Callees:
- *     IopIsActivityTracingEnabled @ 0x14020C4B8 (IopIsActivityTracingEnabled.c)
- *     IopAllocateIrpPrivate @ 0x1402AACD0 (IopAllocateIrpPrivate.c)
- *     IopInitActivityIdIrp @ 0x140556BE4 (IopInitActivityIdIrp.c)
+ *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
+ *     IopAllocateIrpPrivate @ 0x140351A70 (IopAllocateIrpPrivate.c)
+ *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
  */
 
-__int64 __fastcall IopAllocateIrpWithExtension(__int64 a1, __int64 a2)
+__int64 __fastcall IopAllocateIrpWithExtension(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 IrpPrivate; // rax
-  __int64 v3; // rbx
-  __int64 v4; // rcx
+  __int64 v5; // rbx
+  __int64 v6; // rcx
 
   LOBYTE(a2) = a2 + 2;
-  IrpPrivate = IopAllocateIrpPrivate(0LL, a2);
-  v3 = IrpPrivate;
+  IrpPrivate = IopAllocateIrpPrivate(0LL, a2, a3, a4);
+  v5 = IrpPrivate;
   if ( IrpPrivate )
   {
     *(_QWORD *)(IrpPrivate + 184) -= 144LL;
-    v4 = *(_QWORD *)(IrpPrivate + 184);
+    v6 = *(_QWORD *)(IrpPrivate + 184);
     *(_BYTE *)(IrpPrivate + 67) -= 2;
     *(_BYTE *)(IrpPrivate + 66) -= 2;
-    *(_QWORD *)(IrpPrivate + 200) = v4;
+    *(_QWORD *)(IrpPrivate + 200) = v6;
     if ( (unsigned __int8)IopIsActivityTracingEnabled() )
-      IopInitActivityIdIrp(v3);
+      IopInitActivityIdIrp(v5);
   }
-  return v3;
+  return v5;
 }

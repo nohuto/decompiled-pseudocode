@@ -1,12 +1,12 @@
 /*
- * XREFs of BgConsoleGetInterface @ 0x140AABC94
+ * XREFs of BgConsoleGetInterface @ 0x1409F1664
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403A78F0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkInitialize @ 0x140B56D04 (BgkInitialize.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x140B572D0 (BcpDisplayEarlyBugCheckScreen.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039BB40 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x140A96F04 (BgkInitialize.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140A974E8 (BcpDisplayEarlyBugCheckScreen.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
  */
 
 __int64 (__fastcall **BgConsoleGetInterface())()
@@ -16,10 +16,10 @@ __int64 (__fastcall **BgConsoleGetInterface())()
 
   v0 = 0LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0DF90 & 1) != 0 )
+  if ( (dword_140C134F0 & 1) != 0 )
   {
     v1 = BgpConsoleInterface;
-    if ( !qword_140C0E038 )
+    if ( !qword_140C13598 )
       v1 = 0LL;
     v0 = v1;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiGetFontFileInfo @ 0x1C0112960
+ * XREFs of NtGdiGetFontFileInfo @ 0x1C0161230
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0112B1C (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
- *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0123CC0 (--0CFixPred@Prediction@@QEAA@XZ.c)
- *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C015F378 (--1PFFREFOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137AB0 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C01613EC (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C016D3E0 (--1PFFREFOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiGetFontFileInfo(unsigned int a1, unsigned int a2, wchar_t *a3, SIZE_T a4, ULONG64 a5)
@@ -48,7 +48,7 @@ LABEL_23:
   }
   _mm_lfence();
   v10 = *(_QWORD *)(*((_QWORD *)PFFFromId + 25) + 8 * v7);
-  v11 = &word_1C02E3794;
+  v11 = &word_1C02E597C;
   if ( *(_QWORD *)(v10 + 80) )
     v11 = *(const wchar_t **)(v10 + 80);
   v12 = 0;

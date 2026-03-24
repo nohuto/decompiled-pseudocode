@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpDeleteObjectDispatch @ 0x140A26F84
+ * XREFs of _PnpDeleteObjectDispatch @ 0x1409766BC
  * Callers:
- *     _PnpDeleteObject @ 0x140A26E60 (_PnpDeleteObject.c)
+ *     _PnpDeleteObject @ 0x140976598 (_PnpDeleteObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x14077DE44 (_PnpCtxGetObjectDispatchCallback.c)
- *     _PnpObjectRaiseDeleteEvent @ 0x140A279B4 (_PnpObjectRaiseDeleteEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _PnpObjectRaiseDeleteEvent @ 0x14072DBF8 (_PnpObjectRaiseDeleteEvent.c)
  */
 
 __int64 __fastcall PnpDeleteObjectDispatch(__int64 a1, __int64 a2, int a3, int a4)

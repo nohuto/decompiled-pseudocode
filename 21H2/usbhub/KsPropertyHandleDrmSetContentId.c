@@ -1,9 +1,9 @@
 /*
- * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C0072840
+ * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C0075CE0
  * Callers:
- *     UsbhPdoDeviceControl @ 0x1C0054380 (UsbhPdoDeviceControl.c)
+ *     UsbhPdoDeviceControl @ 0x1C0055A10 (UsbhPdoDeviceControl.c)
  * Callees:
- *     memmove @ 0x1C001F540 (memmove.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
  */
 
 __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
     if ( v4 < 0x18 || (unsigned int)v6 < v5 || (unsigned int)v6 + v4 < (unsigned int)v6 )
       return 3221225990LL;
     v8 = *(_DWORD *)(*(_QWORD *)(v3 + 32) + 20LL);
-    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)1536, (unsigned int)v6 + v4, 0x7070534Bu);
+    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag(NonPagedPoolNx, (unsigned int)v6 + v4, 0x7070534Bu);
     *(_QWORD *)(a1 + 24) = PoolWithQuotaTag;
     if ( PoolWithQuotaTag )
     {

@@ -1,23 +1,23 @@
 /*
- * XREFs of UnloadWin32kCall @ 0x1C00AB850
+ * XREFs of UnloadWin32kCall @ 0x1C009BD70
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00ABEB0 (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
+ *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C009BE08 (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
  */
 
-__int64 UnloadWin32kCall()
+struct _EJOB *UnloadWin32kCall()
 {
-  __int64 result; // rax
-  __int64 v1; // rbx
+  struct _EJOB *result; // rax
+  struct _EJOB *v1; // rdi
   __int64 v2; // rsi
-  __int64 v3; // rdi
+  __int64 v3; // rbx
   void *v4; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = 0LL;
-  result = (__int64)SetWin32kSilo(&v4);
+  result = SetWin32kSilo(&v4);
   v1 = result;
-  if ( off_1C028D758 )
+  if ( off_1C024A2D8 )
   {
     v2 = 0LL;
     v3 = 0LL;
@@ -26,15 +26,15 @@ __int64 UnloadWin32kCall()
       if ( (*(_QWORD **)((char *)&Win32kApiSetTable + v3 + 8))[5] )
       {
         MmUnloadSystemImage();
-        (*(_QWORD **)((char *)&Win32kApiSetTable + v3 + 8))[5] = 0LL;
+        result = *(struct _EJOB **)((char *)&Win32kApiSetTable + v3 + 8);
+        *((_QWORD *)result + 5) = 0LL;
       }
       ++v2;
-      result = 3 * v2;
-      v3 = 24 * v2;
+      v3 = 16 * v2;
     }
-    while ( *(&Win32kApiSetTable + 3 * v2 + 1) );
+    while ( *(&Win32kApiSetTable + 2 * v2 + 1) );
   }
   if ( v1 )
-    return PsDetachSiloFromCurrentThread(v1);
+    return (struct _EJOB *)PsDetachSiloFromCurrentThread(v1);
   return result;
 }

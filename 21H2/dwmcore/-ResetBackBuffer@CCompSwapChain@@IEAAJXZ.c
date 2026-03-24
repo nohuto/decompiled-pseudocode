@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ResetBackBuffer@CCompSwapChain@@IEAAJXZ @ 0x18028F6A4
+ * XREFs of ?ResetBackBuffer@CCompSwapChain@@IEAAJXZ @ 0x18025194C
  * Callers:
- *     ?Initialize@CCompSwapChain@@IEAAJXZ @ 0x18028F010 (-Initialize@CCompSwapChain@@IEAAJXZ.c)
- *     ?NotifyInvalidResource@CCompSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x18028F210 (-NotifyInvalidResource@CCompSwapChain@@UEAAXPEBVIDeviceResource@@@Z.c)
+ *     ?Initialize@CCompSwapChain@@IEAAJXZ @ 0x1802513E8 (-Initialize@CCompSwapChain@@IEAAJXZ.c)
+ *     ?NotifyInvalidResource@CCompSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x180251510 (-NotifyInvalidResource@CCompSwapChain@@UEAAXPEBVIDeviceResource@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x1800F4928 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x1800DE0D0 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
@@ -39,7 +39,7 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
   if ( v3 )
   {
     v4 = *(int *)(*(_QWORD *)(v3 + 8) + 8LL) + v3 + 8;
-    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v4 + 48LL))(v4, (char *)this + 64);
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v4 + 48LL))(v4, (char *)this + 72);
   }
   v5 = *v1;
   *v1 = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
     v6 = v5 + 8 + *(int *)(*(_QWORD *)(v5 + 8) + 4LL);
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
   }
-  v7 = *((_QWORD *)this + 10);
+  v7 = *((_QWORD *)this + 11);
   if ( v7 )
   {
     v22 = 0LL;
@@ -58,7 +58,7 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
     v11 = v9;
     if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_180377E10, 2LL, v9, 0x189u);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_1802F0D88, 2u, v9, 0x193u, 0LL);
     }
     else
     {
@@ -70,12 +70,12 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
       v11 = v13;
       if ( v13 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, &dword_180377E10, 2LL, v13, 0x18Bu);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, &dword_1802F0D88, 2u, v13, 0x195u, 0LL);
       }
       else
       {
         v15 = *v1;
-        v16 = *((_QWORD *)this + 9);
+        v16 = *((_QWORD *)this + 10);
         *v1 = 0LL;
         if ( v15 )
         {
@@ -85,21 +85,21 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
         DeviceTextureTarget = CD3DDevice::CreateDeviceTextureTarget(
                                 v16,
                                 (__int64)v22,
+                                *((_DWORD *)this + 31),
                                 *((_DWORD *)this + 32),
-                                *((_DWORD *)this + 33),
-                                *((_DWORD *)this + 36),
-                                *((_DWORD *)this + 38),
+                                *((_DWORD *)this + 35),
+                                *((_DWORD *)this + 37),
                                 1,
                                 v1);
         v11 = DeviceTextureTarget;
         if ( DeviceTextureTarget < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_180377E10, 2LL, DeviceTextureTarget, 0x193u);
+          MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_1802F0D88, 2u, DeviceTextureTarget, 0x19Du, 0LL);
         }
         else
         {
           v20 = *v1 + 8 + *(int *)(*(_QWORD *)(*v1 + 8) + 8LL);
-          (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v20 + 40LL))(v20, (char *)this + 64);
+          (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v20 + 40LL))(v20, (char *)this + 72);
         }
       }
     }
@@ -108,7 +108,7 @@ __int64 __fastcall CCompSwapChain::ResetBackBuffer(CCompSwapChain *this)
   else
   {
     v11 = -2003304307;
-    MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_180377E10, 2LL, -2003304307, 0x199u);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_1802F0D88, 2u, -2003304307, 0x1A3u, 0LL);
   }
   return v11;
 }

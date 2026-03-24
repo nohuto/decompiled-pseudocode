@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDeadlockFree @ 0x140A997C0
+ * XREFs of ViDeadlockFree @ 0x1409DF5A8
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1406015D4 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x140601734 (ViDeadlockRemoveMemoryRangeThreads.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
- *     VfDeadlockBeforeCallDriver @ 0x140A98064 (VfDeadlockBeforeCallDriver.c)
- *     VfDeadlockInitializeResource @ 0x140A98420 (VfDeadlockInitializeResource.c)
- *     VfDeadlockReleaseResource @ 0x140A985B4 (VfDeadlockReleaseResource.c)
- *     ViDeadlockEmptyDatabase @ 0x140A9952C (ViDeadlockEmptyDatabase.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405A2228 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405A2388 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD24 (VfDeadlockBeforeCallDriver.c)
+ *     VfDeadlockInitializeResource @ 0x1409DE1B4 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x1409DF314 (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall ViDeadlockFree(PVOID Entry, int a2)

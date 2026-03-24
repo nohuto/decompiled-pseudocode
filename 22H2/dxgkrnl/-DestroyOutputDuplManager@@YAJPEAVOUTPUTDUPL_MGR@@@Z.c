@@ -1,29 +1,29 @@
 /*
- * XREFs of ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C032B2EC
+ * XREFs of ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C0299948
  * Callers:
- *     ??1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01E66F4 (--1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
- *     ??1ADAPTER_DISPLAY@@QEAA@XZ @ 0x1C02BAE64 (--1ADAPTER_DISPLAY@@QEAA@XZ.c)
+ *     ??1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C0161F44 (--1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
+ *     ??1ADAPTER_DISPLAY@@QEAA@XZ @ 0x1C0210DB8 (--1ADAPTER_DISPLAY@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C005438C (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
- *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C032A108 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C004A6F0 (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
+ *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C0298B58 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
  */
 
-__int64 __fastcall DestroyOutputDuplManager(OUTPUTDUPL_MGR **a1)
+__int64 __fastcall DestroyOutputDuplManager(OUTPUTDUPL_MGR **a1, __int64 a2)
 {
-  OUTPUTDUPL_MGR **v3; // rdi
+  __int64 v2; // rax
+  OUTPUTDUPL_MGR **v4; // rbx
 
   if ( a1 )
   {
-    if ( *((_BYTE *)a1 + 88) )
+    if ( *((_BYTE *)a1 + 72) )
     {
-      v3 = a1 - 3;
+      v4 = a1 - 3;
       if ( a1 != (OUTPUTDUPL_MGR **)24 )
       {
-        OUTPUTDUPL_MGR::~OUTPUTDUPL_MGR(a1);
-        *(a1 - 1) = 0LL;
-        operator delete(v3);
+        OUTPUTDUPL_MGR::~OUTPUTDUPL_MGR(a1, a2);
+        v4[2] = 0LL;
+        operator delete(v4);
       }
     }
     else
@@ -34,17 +34,9 @@ __int64 __fastcall DestroyOutputDuplManager(OUTPUTDUPL_MGR **a1)
   }
   else
   {
-    WdLogSingleEntry1(2LL, 0LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid parameter for the function DestroyOutputDuplManager pOutputDuplMgr = 0x%I64x.",
-      0LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v2 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v2 + 24) = 0LL;
+    WdLogEvent5_WdError(v2);
     return 3221225485LL;
   }
 }

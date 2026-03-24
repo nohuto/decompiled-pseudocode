@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CHolographicComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180298140
+ * XREFs of ?IsOfType@CHolographicComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180256250
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CHolographicComposition::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 73 || a2 == 112;
+  return a2 == 71 || a2 == 112;
 }

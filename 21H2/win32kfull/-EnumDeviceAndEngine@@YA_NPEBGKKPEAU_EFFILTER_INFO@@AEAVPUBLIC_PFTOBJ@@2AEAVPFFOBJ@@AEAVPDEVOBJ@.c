@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02B71F0
+ * XREFs of ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02B8F84
  * Callers:
- *     GreEnumFonts @ 0x1C000F6D8 (GreEnumFonts.c)
+ *     GreEnumFonts @ 0x1C00BAA0C (GreEnumFonts.c)
  * Callees:
- *     ??0EFSMEMOBJ@@QEAA@PEAVDCOBJ@@KKPEAXPEAK@Z @ 0x1C000F924 (--0EFSMEMOBJ@@QEAA@PEAVDCOBJ@@KKPEAXPEAK@Z.c)
- *     ??1EFSMEMOBJ@@QEAA@XZ @ 0x1C000F9FC (--1EFSMEMOBJ@@QEAA@XZ.c)
- *     ?bScanFamilyAndFace@@YAHPEAVFHOBJ@@000PEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C001214C (-bScanFamilyAndFace@@YAHPEAVFHOBJ@@000PEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
- *     ?bScanFamily@@YAHPEAVFHOBJ@@K0K0KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C001222C (-bScanFamily@@YAHPEAVFHOBJ@@K0K0KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
- *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C0012CE4 (-bValid@FHOBJ@@QEBAHXZ.c)
- *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00F46C8 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00BA778 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C00BAE34 (-bValid@FHOBJ@@QEBAHXZ.c)
+ *     ??1EFSMEMOBJ@@QEAA@XZ @ 0x1C00BAE50 (--1EFSMEMOBJ@@QEAA@XZ.c)
+ *     ??0EFSMEMOBJ@@QEAA@PEAVDCOBJ@@KKPEAXPEAK@Z @ 0x1C00BAE98 (--0EFSMEMOBJ@@QEAA@PEAVDCOBJ@@KKPEAXPEAK@Z.c)
+ *     ?bScanFamilyAndFace@@YAHPEAVFHOBJ@@000PEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C00BB7EC (-bScanFamilyAndFace@@YAHPEAVFHOBJ@@000PEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
+ *     ?bScanFamily@@YAHPEAVFHOBJ@@K0K0KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C00BB8CC (-bScanFamily@@YAHPEAVFHOBJ@@K0K0KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
  */
 
 char __fastcall EnumDeviceAndEngine(
@@ -35,72 +35,75 @@ char __fastcall EnumDeviceAndEngine(
   unsigned int v22; // edx
   int v23; // eax
   __int64 *v25; // rax
-  __int64 *v26; // rcx
-  __int64 v27; // rax
-  struct _FONTSUB *v28; // rax
-  unsigned __int16 *v29; // r14
-  __int64 *v30; // rcx
-  __int64 v31; // rax
-  _QWORD v32[2]; // [rsp+58h] [rbp-61h] BYREF
-  _QWORD v33[2]; // [rsp+68h] [rbp-51h] BYREF
-  __int64 *v34; // [rsp+78h] [rbp-41h] BYREF
-  __int64 v35; // [rsp+80h] [rbp-39h]
-  _QWORD v36[2]; // [rsp+88h] [rbp-31h] BYREF
-  _QWORD v37[2]; // [rsp+98h] [rbp-21h] BYREF
-  __int64 *v38; // [rsp+A8h] [rbp-11h] BYREF
-  __int64 v39; // [rsp+B0h] [rbp-9h]
-  __int64 *v40; // [rsp+B8h] [rbp-1h] BYREF
-  __int64 v41; // [rsp+C0h] [rbp+7h]
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 *v29; // rcx
+  __int64 v30; // rax
+  struct _FONTSUB *v31; // rax
+  unsigned __int16 *v32; // rsi
+  __int64 *v33; // rcx
+  __int64 v34; // rax
+  _QWORD v35[2]; // [rsp+58h] [rbp-61h] BYREF
+  _QWORD v36[2]; // [rsp+68h] [rbp-51h] BYREF
+  __int64 *v37; // [rsp+78h] [rbp-41h] BYREF
+  __int64 v38; // [rsp+80h] [rbp-39h]
+  _QWORD v39[2]; // [rsp+88h] [rbp-31h] BYREF
+  _QWORD v40[2]; // [rsp+98h] [rbp-21h] BYREF
+  __int64 *v41; // [rsp+A8h] [rbp-11h] BYREF
+  __int64 v42; // [rsp+B0h] [rbp-9h]
+  __int64 *v43; // [rsp+B8h] [rbp-1h] BYREF
+  __int64 v44; // [rsp+C0h] [rbp+7h]
 
   v14 = (__int64 *)(*(_QWORD *)a7 + 112LL);
-  v35 = *v14;
-  v34 = v14;
+  v38 = *v14;
+  v37 = v14;
   v15 = 0;
-  if ( FHOBJ::bValid((FHOBJ *)&v34) )
+  if ( FHOBJ::bValid((FHOBJ *)&v37) )
   {
-    v32[0] = *(_QWORD *)a5;
-    v32[1] = *(_QWORD *)v32[0];
-    if ( FHOBJ::bValid((FHOBJ *)v32) )
+    v35[0] = *(_QWORD *)a5;
+    v35[1] = *(_QWORD *)v35[0];
+    if ( FHOBJ::bValid((FHOBJ *)v35) )
     {
-      v36[0] = v16 + 104;
-      v36[1] = *(_QWORD *)(v16 + 104);
-      if ( FHOBJ::bValid((FHOBJ *)v36) )
+      v39[0] = v16 + 104;
+      v39[1] = *(_QWORD *)(v16 + 104);
+      if ( FHOBJ::bValid((FHOBJ *)v39) )
       {
-        v37[0] = v17 + 8;
-        v37[1] = *(_QWORD *)(v17 + 8);
-        if ( FHOBJ::bValid((FHOBJ *)v37) )
+        v40[0] = v17 + 8;
+        v40[1] = *(_QWORD *)(v17 + 8);
+        if ( FHOBJ::bValid((FHOBJ *)v40) )
         {
           if ( a1 )
           {
-            EFSMEMOBJ::EFSMEMOBJ((EFSMEMOBJ *)v33, a9, 0x20u, a3, a11, a10);
-            if ( !v33[0] )
+            EFSMEMOBJ::EFSMEMOBJ((EFSMEMOBJ *)v36, a9, 0x20u, a3, a11, a10);
+            if ( !v36[0] )
               goto LABEL_16;
             if ( !(unsigned int)bScanFamilyAndFace(
-                                  (struct FHOBJ *)v32,
-                                  (struct FHOBJ *)v37,
-                                  (struct FHOBJ *)&v34,
-                                  (struct FHOBJ *)v36,
-                                  (struct EFSOBJ *)v33,
+                                  (struct FHOBJ *)v35,
+                                  (struct FHOBJ *)v40,
+                                  (struct FHOBJ *)&v37,
+                                  (struct FHOBJ *)v39,
+                                  (struct EFSOBJ *)v36,
                                   a3,
                                   a4,
                                   a1) )
               goto LABEL_16;
-            v26 = *a6;
+            v29 = *a6;
             if ( *a6 )
             {
-              v41 = *v26;
-              v38 = v26 + 1;
-              v27 = v26[1];
-              v40 = v26;
-              v39 = v27;
-              if ( !FHOBJ::bValid((FHOBJ *)&v40)
-                || !FHOBJ::bValid((FHOBJ *)&v38)
+              v44 = *v29;
+              v41 = v29 + 1;
+              v30 = v29[1];
+              v43 = v29;
+              v42 = v30;
+              if ( !FHOBJ::bValid((FHOBJ *)&v43)
+                || !FHOBJ::bValid((FHOBJ *)&v41)
                 || !(unsigned int)bScanFamilyAndFace(
-                                    (struct FHOBJ *)&v40,
-                                    (struct FHOBJ *)&v38,
+                                    (struct FHOBJ *)&v43,
+                                    (struct FHOBJ *)&v41,
                                     0LL,
                                     0LL,
-                                    (struct EFSOBJ *)v33,
+                                    (struct EFSOBJ *)v36,
                                     a3,
                                     a4,
                                     a1) )
@@ -108,62 +111,60 @@ char __fastcall EnumDeviceAndEngine(
                 goto LABEL_16;
               }
             }
-            v28 = pfsubAlternateFacename(a1);
-            if ( v28 )
+            v31 = pfsubAlternateFacename(a1, v26, v27, v28);
+            v32 = (unsigned __int16 *)((char *)v31 + 130);
+            if ( !v31 )
+              v32 = 0LL;
+            if ( !v32 )
+              goto LABEL_14;
+            *(_QWORD *)v36[0] = v31;
+            if ( !(unsigned int)bScanFamilyAndFace(
+                                  (struct FHOBJ *)v35,
+                                  (struct FHOBJ *)v40,
+                                  (struct FHOBJ *)&v37,
+                                  (struct FHOBJ *)v39,
+                                  (struct EFSOBJ *)v36,
+                                  a3,
+                                  a4,
+                                  v32) )
+              goto LABEL_16;
+            v33 = *a6;
+            if ( *a6 )
             {
-              v29 = (unsigned __int16 *)((char *)v28 + 130);
-              if ( v28 != (struct _FONTSUB *)-130LL )
-              {
-                *(_QWORD *)v33[0] = v28;
-                if ( !(unsigned int)bScanFamilyAndFace(
-                                      (struct FHOBJ *)v32,
-                                      (struct FHOBJ *)v37,
-                                      (struct FHOBJ *)&v34,
-                                      (struct FHOBJ *)v36,
-                                      (struct EFSOBJ *)v33,
-                                      a3,
-                                      a4,
-                                      (unsigned __int16 *)v28 + 65) )
-                  goto LABEL_16;
-                v30 = *a6;
-                if ( *a6 )
-                {
-                  v39 = *v30;
-                  v40 = v30 + 1;
-                  v31 = v30[1];
-                  v38 = v30;
-                  v41 = v31;
-                  if ( !FHOBJ::bValid((FHOBJ *)&v38) || !FHOBJ::bValid((FHOBJ *)&v40) )
-                    goto LABEL_16;
-                  v23 = bScanFamilyAndFace(
-                          (struct FHOBJ *)&v38,
-                          (struct FHOBJ *)&v40,
-                          0LL,
-                          0LL,
-                          (struct EFSOBJ *)v33,
-                          a3,
-                          a4,
-                          v29);
-                  goto LABEL_13;
-                }
-              }
+              v42 = *v33;
+              v43 = v33 + 1;
+              v34 = v33[1];
+              v41 = v33;
+              v44 = v34;
+              if ( !FHOBJ::bValid((FHOBJ *)&v41) || !FHOBJ::bValid((FHOBJ *)&v43) )
+                goto LABEL_16;
+              v23 = bScanFamilyAndFace(
+                      (struct FHOBJ *)&v41,
+                      (struct FHOBJ *)&v43,
+                      0LL,
+                      0LL,
+                      (struct EFSOBJ *)v36,
+                      a3,
+                      a4,
+                      v32);
+              goto LABEL_13;
             }
           }
           else
           {
-            EFSMEMOBJ::EFSMEMOBJ((EFSMEMOBJ *)v33, a9, *(_DWORD *)(v19 + 12) + *(_DWORD *)(v18 + 12), a3, a11, a10);
-            if ( !v33[0] )
+            EFSMEMOBJ::EFSMEMOBJ((EFSMEMOBJ *)v36, a9, *(_DWORD *)(v19 + 12) + *(_DWORD *)(v18 + 12), a3, a11, a10);
+            if ( !v36[0] )
               goto LABEL_16;
-            if ( (*(_DWORD *)(*(_QWORD *)a8 + 2152LL) & 0x2000) != 0 )
+            if ( (*(_DWORD *)(*(_QWORD *)a8 + 2184LL) & 0x2000) != 0 )
             {
               if ( !(unsigned int)bScanFamily(
-                                    (struct FHOBJ *)&v34,
+                                    (struct FHOBJ *)&v37,
                                     0,
-                                    (struct FHOBJ *)v32,
+                                    (struct FHOBJ *)v35,
                                     2u,
-                                    (struct FHOBJ *)v32,
+                                    (struct FHOBJ *)v35,
                                     1u,
-                                    (struct EFSOBJ *)v33,
+                                    (struct EFSOBJ *)v36,
                                     a3,
                                     a4,
                                     0LL) )
@@ -171,22 +172,22 @@ char __fastcall EnumDeviceAndEngine(
               v20 = *a6;
               if ( !*a6 )
                 goto LABEL_14;
-              v34 = *a6;
-              v35 = *v20;
-              if ( !FHOBJ::bValid((FHOBJ *)&v34) )
+              v37 = *a6;
+              v38 = *v20;
+              if ( !FHOBJ::bValid((FHOBJ *)&v37) )
                 goto LABEL_16;
               v21 = 1;
               v22 = 2;
               goto LABEL_12;
             }
             if ( !(unsigned int)bScanFamily(
-                                  (struct FHOBJ *)&v34,
+                                  (struct FHOBJ *)&v37,
                                   0,
-                                  (struct FHOBJ *)v32,
+                                  (struct FHOBJ *)v35,
                                   1u,
-                                  (struct FHOBJ *)v32,
+                                  (struct FHOBJ *)v35,
                                   2u,
-                                  (struct EFSOBJ *)v33,
+                                  (struct EFSOBJ *)v36,
                                   a3,
                                   a4,
                                   0LL) )
@@ -194,21 +195,21 @@ char __fastcall EnumDeviceAndEngine(
             v25 = *a6;
             if ( *a6 )
             {
-              v34 = *a6;
-              v35 = *v25;
-              if ( !FHOBJ::bValid((FHOBJ *)&v34) )
+              v37 = *a6;
+              v38 = *v25;
+              if ( !FHOBJ::bValid((FHOBJ *)&v37) )
                 goto LABEL_16;
               v21 = 2;
               v22 = 1;
 LABEL_12:
               v23 = bScanFamily(
-                      (struct FHOBJ *)&v34,
+                      (struct FHOBJ *)&v37,
                       v22,
-                      (struct FHOBJ *)&v34,
+                      (struct FHOBJ *)&v37,
                       v21,
                       0LL,
                       0,
-                      (struct EFSOBJ *)v33,
+                      (struct EFSOBJ *)v36,
                       a3,
                       a4,
                       0LL);
@@ -216,12 +217,12 @@ LABEL_13:
               if ( v23 )
                 goto LABEL_14;
 LABEL_16:
-              EFSMEMOBJ::~EFSMEMOBJ((EFSMEMOBJ *)v33);
+              EFSMEMOBJ::~EFSMEMOBJ((EFSMEMOBJ *)v36);
               return v15;
             }
           }
 LABEL_14:
-          if ( !*(_DWORD *)(v33[0] + 28LL) )
+          if ( !*(_DWORD *)(v36[0] + 28LL) )
             v15 = 1;
           goto LABEL_16;
         }

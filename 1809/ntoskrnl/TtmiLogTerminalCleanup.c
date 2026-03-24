@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalCleanup @ 0x1408858F8
+ * XREFs of TtmiLogTerminalCleanup @ 0x1408858D8
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x14087EC0C (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x14087EBEC (TtmiSessionTerminalListWorker.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalCleanup()
@@ -37,7 +37,7 @@ void TtmiLogTerminalCleanup()
       v8 = 4LL;
       v10 = 4LL;
       v12 = 8LL;
-      TlgWrite(&stru_14096D820, &unk_1403717A9, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140371760, 0LL, 0LL, 5u, &pData);
     }
   }
 }

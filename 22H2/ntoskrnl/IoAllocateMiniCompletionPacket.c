@@ -1,23 +1,26 @@
 /*
- * XREFs of IoAllocateMiniCompletionPacket @ 0x1407864F0
+ * XREFs of IoAllocateMiniCompletionPacket @ 0x1407024D0
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     NtCreateWorkerFactory @ 0x1407860A0 (NtCreateWorkerFactory.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140786418 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     NtCreateWorkerFactory @ 0x140701710 (NtCreateWorkerFactory.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x1407023FC (AlpcpAllocateCompletionPacketLookaside.c)
  * Callees:
- *     IopAllocateMiniCompletionPacket @ 0x14073E4D8 (IopAllocateMiniCompletionPacket.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14070250C (IopAllocateMiniCompletionPacket.c)
  */
 
-PSLIST_ENTRY __fastcall IoAllocateMiniCompletionPacket(__int64 a1, _SLIST_ENTRY *a2)
+__int64 __fastcall IoAllocateMiniCompletionPacket(__int64 a1, __int64 a2)
 {
-  PSLIST_ENTRY result; // rax
+  __int64 v3; // rdi
+  __int64 result; // rax
 
-  result = IopAllocateMiniCompletionPacket(4, 0);
+  v3 = a1;
+  LOBYTE(a1) = 4;
+  result = IopAllocateMiniCompletionPacket(a1, 0LL);
   if ( result )
   {
-    *((_QWORD *)&result[3].Next + 1) = a1;
-    result[4].Next = a2;
-    *((_BYTE *)&result[4].Next + 8) = 1;
+    *(_QWORD *)(result + 56) = v3;
+    *(_QWORD *)(result + 64) = a2;
+    *(_BYTE *)(result + 72) = 1;
   }
   return result;
 }

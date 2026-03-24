@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpTranslateArcPath @ 0x1409FE074
+ * XREFs of ExpTranslateArcPath @ 0x140951FE8
  * Callers:
- *     NtTranslateFilePath @ 0x14083FEC0 (NtTranslateFilePath.c)
+ *     NtTranslateFilePath @ 0x140955960 (NtTranslateFilePath.c)
  * Callees:
- *     ExpConvertArcName @ 0x1409FBB48 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1409FBD0C (ExpConvertSignatureName.c)
- *     ExpParseArcPathName @ 0x1409FCDD8 (ExpParseArcPathName.c)
+ *     ExpConvertArcName @ 0x14094F5EC (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x14094F7B0 (ExpConvertSignatureName.c)
+ *     ExpParseArcPathName @ 0x140950AB8 (ExpParseArcPathName.c)
  */
 
-__int64 __fastcall ExpTranslateArcPath(__int64 a1, unsigned int a2, void *a3, unsigned int *a4)
+__int64 __fastcall ExpTranslateArcPath(__int64 a1, unsigned int a2, void *a3, __int64 a4)
 {
   __int64 result; // rax
   int v9; // eax

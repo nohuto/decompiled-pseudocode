@@ -1,32 +1,33 @@
 /*
- * XREFs of ?AddIndirectOutputDuplMgr@DXGGLOBAL@@QEAAJPEAVOUTPUTDUPL_MGR_INDIRECT@@@Z @ 0x1C0309748
+ * XREFs of ?AddIndirectOutputDuplMgr@DXGGLOBAL@@QEAAJPEAVOUTPUTDUPL_MGR_INDIRECT@@@Z @ 0x1C0268868
  * Callers:
- *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C020FEC0 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C0183850 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::AddIndirectOutputDuplMgr(DXGGLOBAL *this, struct OUTPUTDUPL_MGR_INDIRECT *a2)
 {
-  char *v4; // rbx
-  char **v5; // rax
-  bool v6; // zf
-  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v4; // rdx
+  char *v5; // rbx
+  char **v6; // rax
+  bool v7; // zf
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGGLOBAL *)((char *)this + 1584), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-  v4 = (char *)this + 1632;
-  v5 = (char **)*((_QWORD *)v4 + 1);
-  if ( *v5 != v4 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DXGGLOBAL *)((char *)this + 1432), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
+  v5 = (char *)this + 1472;
+  v6 = (char **)*((_QWORD *)v5 + 1);
+  if ( *v6 != v5 )
     __fastfail(3u);
-  *(_QWORD *)a2 = v4;
-  *((_QWORD *)a2 + 1) = v5;
-  *v5 = (char *)a2;
-  v6 = v8[8] == 0;
-  *((_QWORD *)v4 + 1) = a2;
-  if ( !v6 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+  *(_QWORD *)a2 = v5;
+  *((_QWORD *)a2 + 1) = v6;
+  *v6 = (char *)a2;
+  v7 = v9[8] == 0;
+  *((_QWORD *)v5 + 1) = a2;
+  if ( !v7 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9, v4);
   return 0LL;
 }

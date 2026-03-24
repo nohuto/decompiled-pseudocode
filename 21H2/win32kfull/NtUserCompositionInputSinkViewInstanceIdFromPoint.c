@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0002640
+ * XREFs of NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0004BF0
  * Callers:
  *     <none>
  * Callees:
- *     RequestInputSinkInfoFromPoint @ 0x1C0002740 (RequestInputSinkInfoFromPoint.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1C0004CF4 (RequestInputSinkInfoFromPoint.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtUserCompositionInputSinkViewInstanceIdFromPoint(_QWORD *a1, _DWORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall NtUserCompositionInputSinkViewInstanceIdFromPoint(_QWORD *a1,
   _DWORD v7[30]; // [rsp+50h] [rbp-78h] BYREF
 
   ExEnterCriticalRegionAndAcquireResourceExclusive(gpresDitCompositionInputSinkQuery);
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   memset(v7, 0, 0x70uLL);
   CurrentProcess = PsGetCurrentProcess();
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )

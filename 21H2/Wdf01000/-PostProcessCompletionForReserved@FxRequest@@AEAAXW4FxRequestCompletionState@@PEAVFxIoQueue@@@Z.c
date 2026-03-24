@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C00687F0
+ * XREFs of ?PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C004EFA4
  * Callers:
- *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
- *     ?PostProcessSendAndForget@FxRequest@@QEAAXXZ @ 0x1C000AF4C (-PostProcessSendAndForget@FxRequest@@QEAAXXZ.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?PostProcessSendAndForget@FxRequest@@QEAAXXZ @ 0x1C0015524 (-PostProcessSendAndForget@FxRequest@@QEAAXXZ.c)
  * Callees:
- *     ?RequestCompletedCallback@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C00034B0 (-RequestCompletedCallback@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?RequestCompletedCallback@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C001564C (-RequestCompletedCallback@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxRequest::PostProcessCompletionForReserved(
@@ -17,7 +17,7 @@ void __fastcall FxRequest::PostProcessCompletionForReserved(
   if ( State )
   {
     if ( (State & 0x80u) == 0 )
-      FxIoQueue::RequestCompletedCallback(Queue, this);
+      FxIoQueue::RequestCompletedCallback(Queue, this, (unsigned __int8)Queue);
   }
   else
   {

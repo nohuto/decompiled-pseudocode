@@ -1,9 +1,9 @@
 /*
- * XREFs of VWPLGetData @ 0x1C004FA84
+ * XREFs of VWPLGetData @ 0x1C003FA18
  * Callers:
- *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C004FA44 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
- *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C0050984 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
- *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00514A8 (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C003F9D8 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012B280 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C012B3A4 (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
  * Callees:
  *     <none>
  */

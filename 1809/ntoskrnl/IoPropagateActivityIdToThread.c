@@ -1,10 +1,10 @@
 /*
- * XREFs of IoPropagateActivityIdToThread @ 0x140107BA0
+ * XREFs of IoPropagateActivityIdToThread @ 0x140107BC0
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140107C2C (IopIrpHasExtensionType.c)
- *     IoGetActivityIdIrp @ 0x140107C60 (IoGetActivityIdIrp.c)
+ *     IopIrpHasExtensionType @ 0x140107C4C (IopIrpHasExtensionType.c)
+ *     IoGetActivityIdIrp @ 0x140107C80 (IoGetActivityIdIrp.c)
  */
 
 __int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, void *a2, _QWORD *a3)

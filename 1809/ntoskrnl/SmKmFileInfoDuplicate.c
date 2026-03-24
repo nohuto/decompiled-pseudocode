@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmFileInfoDuplicate @ 0x1408ACA08
+ * XREFs of SmKmFileInfoDuplicate @ 0x1408AC9E8
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3648 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3668 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     SmAlloc @ 0x1400E4B34 (SmAlloc.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1401B88F0 (ZwDuplicateObject.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1401B8910 (ZwDuplicateObject.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     SmKmFileInfoCleanup @ 0x1408AC964 (SmKmFileInfoCleanup.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     SmKmFileInfoCleanup @ 0x1408AC944 (SmKmFileInfoCleanup.c)
  */
 
 __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)

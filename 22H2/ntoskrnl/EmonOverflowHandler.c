@@ -1,454 +1,423 @@
 /*
- * XREFs of EmonOverflowHandler @ 0x14051D710
+ * XREFs of EmonOverflowHandler @ 0x1404D37E0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     EmonIsModifiedByBadActorInternal @ 0x14045E380 (EmonIsModifiedByBadActorInternal.c)
- *     EmonPebsOverflowHandler @ 0x14051DFB4 (EmonPebsOverflowHandler.c)
- *     KeProfileInterruptWithSource @ 0x140573F30 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x140583D80 (PoGetProcessorIdleAccounting.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     EmonPebsOverflowHandler @ 0x1404D3F6C (EmonPebsOverflowHandler.c)
+ *     KeProfileInterruptWithSource @ 0x14051BAC0 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x140565420 (PoGetProcessorIdleAccounting.c)
  */
 
-__int64 (__fastcall **__fastcall EmonOverflowHandler(__int64 a1))()
+void __fastcall EmonOverflowHandler(__int64 a1)
 {
-  __int64 v1; // rsi
-  __int64 (__fastcall **result)(); // rax
-  __int64 v3; // r10
-  _QWORD *v4; // r15
-  __int64 v5; // r12
-  __int64 i; // rdi
-  unsigned int v7; // esi
-  unsigned int v8; // ebx
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rcx
-  __int64 v11; // r13
-  unsigned __int64 v12; // r15
-  __int64 v13; // r8
-  __int64 v14; // r9
+  unsigned int Number; // esi
+  __int64 v2; // r8
+  __int64 v3; // r15
+  __int64 v4; // r12
+  unsigned int v5; // ebx
+  unsigned int v6; // r14d
+  unsigned __int64 v7; // rax
+  unsigned int v8; // edi
+  unsigned int v9; // ecx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r14
+  __int64 v14; // rdi
   unsigned int v15; // ecx
-  LARGE_INTEGER v16; // r10
-  unsigned __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // rsi
-  __int64 v20; // rbx
-  unsigned int v21; // ecx
-  int v22; // eax
-  int v23; // eax
-  unsigned int v24; // r13d
-  __int64 v25; // rax
-  unsigned int v26; // r13d
-  LARGE_INTEGER v27; // rax
-  __int64 v28; // r8
-  __int64 v29; // r10
-  LONGLONG v30; // r9
-  unsigned __int64 v31; // rdx
-  __int64 v32; // r8
+  int v16; // eax
+  unsigned int v17; // eax
+  __int64 v18; // rax
+  unsigned __int64 v19; // rdx
+  int v20; // eax
+  LARGE_INTEGER v21; // rax
+  __int64 v22; // r8
+  LARGE_INTEGER v23; // r9
+  unsigned __int64 v24; // rcx
+  unsigned __int64 v25; // rax
+  __int64 v26; // rax
+  unsigned int v27; // ecx
+  unsigned int v28; // rdx^4
+  int v29; // eax
+  __int64 v30; // rax
+  unsigned __int64 v31; // rcx
+  unsigned __int64 v32; // rax
   unsigned __int64 v33; // r13
-  unsigned __int64 v34; // rdi
-  __int64 *v35; // rbx
-  __int64 v36; // r14
-  unsigned __int64 v37; // rsi
-  void (__fastcall *v38)(unsigned __int64, __int64 *); // rax
-  bool v39; // zf
-  __int64 v40; // rsi
-  __int64 v41; // r15
-  __int64 v42; // rbx
-  unsigned __int64 v43; // r12
-  __int64 v44; // r9
+  __int64 v34; // rbx
+  unsigned __int64 v35; // rdi
+  bool v36; // zf
+  __int64 *v37; // rbx
+  __int64 v38; // r14
+  unsigned __int64 v39; // rsi
+  void (__fastcall *v40)(unsigned __int64, __int64 *, __int64); // rax
+  __int64 v41; // rbx
+  unsigned __int64 v42; // r8
+  __int64 v43; // r12
+  unsigned int v44; // r14d
   unsigned int v45; // ecx
-  unsigned __int64 QuadPart; // rdx
+  unsigned __int64 v46; // rdx
   __int64 v47; // rdx
-  __int64 v48; // r15
+  __int64 v48; // r14
   __int64 v49; // rbx
   unsigned int v50; // ecx
   int v51; // eax
-  __int64 v52; // rax
+  unsigned int v52; // eax
   __int64 v53; // rax
-  int v54; // eax
-  __int64 v55; // r15
+  unsigned __int64 v54; // rdx
+  int v55; // eax
   LARGE_INTEGER v56; // rax
   __int64 v57; // r8
-  __int64 v58; // r11
-  unsigned int v59; // r9d
-  LONGLONG v60; // r10
-  unsigned int v61; // ecx
-  unsigned __int64 v62; // rdx
-  __int64 v63; // r8
-  __int64 v64; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v65; // [rsp+28h] [rbp-40h]
-  __int64 v66; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v67; // [rsp+38h] [rbp-30h]
-  _QWORD *v68; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v69; // [rsp+48h] [rbp-20h]
-  LARGE_INTEGER PerformanceFrequency; // [rsp+50h] [rbp-18h] BYREF
-  LARGE_INTEGER v71; // [rsp+58h] [rbp-10h] BYREF
-  int v73; // [rsp+B8h] [rbp+50h] BYREF
-  unsigned int v74; // [rsp+C0h] [rbp+58h]
-  unsigned int v75; // [rsp+C8h] [rbp+60h]
+  LARGE_INTEGER v58; // r9
+  unsigned __int64 v59; // rcx
+  unsigned __int64 v60; // rax
+  __int64 v61; // rax
+  unsigned int v62; // ecx
+  unsigned int v63; // rdx^4
+  int v64; // eax
+  __int64 v65; // r8
+  unsigned __int64 v66; // rcx
+  unsigned __int64 v67; // rax
+  int v68; // [rsp+20h] [rbp-48h]
+  __int64 v69; // [rsp+28h] [rbp-40h] BYREF
+  __int64 v70; // [rsp+30h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-30h] BYREF
+  unsigned __int64 v72; // [rsp+40h] [rbp-28h]
+  LARGE_INTEGER v73; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v74; // [rsp+50h] [rbp-18h]
+  unsigned int v76; // [rsp+B8h] [rbp+50h]
+  int v77; // [rsp+B8h] [rbp+50h]
+  unsigned int v78; // [rsp+C0h] [rbp+58h]
+  unsigned int v79; // [rsp+C0h] [rbp+58h]
+  unsigned int v80; // [rsp+C8h] [rbp+60h]
+  unsigned int v81; // [rsp+C8h] [rbp+60h]
 
-  v73 = 0;
-  result = &DefaultProfileInterface;
-  LODWORD(v1) = KeGetPcr()->Prcb.Number;
-  v3 = a1;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-  {
-    v4 = (_QWORD *)HalpCounterStatus;
-  }
-  else
-  {
-    result = (__int64 (__fastcall **)())HalpCounterStatus;
-    v4 = (_QWORD *)(HalpCounterStatus + 8LL * (unsigned int)(HalpNumberOfCounters * v1));
-  }
-  v68 = v4;
+  Number = KeGetPcr()->Prcb.Number;
+  v2 = a1;
+  v76 = 0;
+  v3 = EmonCounterStatus + 16LL * Number * EmonNumberCounters;
   if ( (unsigned int)EmonVersion >= 2 )
   {
-    v33 = EmonOverflowMask & __readmsr(0x38Eu);
-    v69 = v33;
-    v34 = v33;
-    if ( (v33 & 0x4000000000000000LL) != 0 )
-    {
-      EmonPebsOverflowHandler(910LL);
-      v34 = v33 & 0xBFFFFFFFFFFFFFFFuLL;
-    }
-    v35 = (__int64 *)EmonReservedResourcesList;
+    v32 = __readmsr(0x38Eu);
+    v33 = EmonOverflowMask & v32;
+    v74 = EmonOverflowMask & v32;
+    v34 = EmonOverflowMask & v32 & 0x4000000000000000LL;
+    if ( v34 )
+      EmonPebsOverflowHandler(910LL, (unsigned __int64)HIDWORD(v32) << 32, a1);
+    v35 = v33 & 0xBFFFFFFFFFFFFFFFuLL;
+    v36 = v34 == 0;
+    v37 = (__int64 *)EmonReservedResourcesList;
+    if ( v36 )
+      v35 = v33;
     if ( (__int64 *)EmonReservedResourcesList != &EmonReservedResourcesList )
     {
-      v36 = 10 * v1;
+      v38 = Number;
       do
       {
-        v37 = v34 & v35[v36 + 4];
-        if ( v37 )
+        v39 = v35 & v37[v38 + 4];
+        if ( v39 )
         {
-          v38 = (void (__fastcall *)(unsigned __int64, __int64 *))v35[2];
-          if ( v38 )
-            v38(v34 & v35[v36 + 4], v35);
+          v40 = (void (__fastcall *)(unsigned __int64, __int64 *, __int64))v37[2];
+          if ( v40 )
+            v40(v35 & v37[v38 + 4], v37, v2);
         }
-        v35 = (__int64 *)*v35;
-        v34 &= ~v37;
+        v37 = (__int64 *)*v37;
+        v35 &= ~v39;
       }
-      while ( v35 != &EmonReservedResourcesList );
+      while ( v37 != &EmonReservedResourcesList );
     }
-    v39 = !_BitScanForward64((unsigned __int64 *)&v40, v34);
-    if ( v39 )
+    v36 = !_BitScanForward64((unsigned __int64 *)&v41, v35);
+    v77 = v41;
+    if ( v36 )
     {
-LABEL_101:
-      result = (__int64 (__fastcall **)())v33;
+LABEL_102:
       __writemsr(0x390u, v33);
-      return result;
+      return;
     }
+    v42 = 4289724415LL;
     while ( 1 )
     {
-      v34 &= ~(1LL << v40);
-      if ( (unsigned int)v40 >= 0x20 )
-        v40 = (unsigned int)(EmonNumberArchCounters - 32 + v40);
-      if ( *(_DWORD *)(v4[v40] + 24LL) )
-        goto LABEL_99;
-      v41 = *v4;
-      v42 = 5 * v40;
-      LODWORD(v43) = 0;
-      v65 = 5 * v40;
-      v44 = (unsigned int)v40;
-      v64 = v41;
-      PerformanceFrequency.QuadPart = 0LL;
-      LOBYTE(v73) = 0;
-      v75 = v40;
-      if ( (unsigned int)v40 < EmonNumberArchCounters )
+      v35 &= ~(1LL << v41);
+      if ( (unsigned int)v41 >= EmonNumberArchCounters )
       {
-        v45 = v40 + 390;
-        v67 = __readmsr((int)v40 + 390);
-        QuadPart = v67 & 0xFFFFFFFFFFAFFFFFuLL;
+        LODWORD(v41) = EmonNumberArchCounters + v41 - 32;
+        v77 = v41;
+      }
+      v43 = 2LL * (unsigned int)v41;
+      if ( *(_DWORD *)(v3 + 16LL * (unsigned int)v41) )
+        goto LABEL_100;
+      v72 = 0LL;
+      v44 = v41 - EmonNumberArchCounters + 32;
+      v79 = v44;
+      if ( (unsigned int)v41 >= EmonNumberArchCounters )
+      {
+        v42 = __readmsr(0x38Fu);
+        _bittestandreset64((__int64 *)&v42, v44);
+        v45 = 911;
+        v72 = v42;
+        v46 = v42;
       }
       else
       {
-        v44 = (unsigned int)(v40 - EmonNumberArchCounters + 32);
-        v75 = v40 - EmonNumberArchCounters + 32;
-        v45 = 911;
-        v67 = ~(15LL << (4 * ((unsigned __int8)v40 - (unsigned __int8)EmonNumberArchCounters))) & __readmsr(0x38Du);
-        PerformanceFrequency.QuadPart = __readmsr(0x38Fu) & ~(1LL << ((unsigned __int8)v40
-                                                                    - (unsigned __int8)EmonNumberArchCounters
-                                                                    + 32));
-        QuadPart = PerformanceFrequency.QuadPart;
+        v45 = v41 + 390;
+        v46 = *(_DWORD *)(v3 + 16LL * (unsigned int)v41 + 12) & 0xFFAFFFFF;
       }
-      __writemsr(v45, QuadPart);
-      v47 = *(unsigned int *)(v41 + 40 * v40 + 32);
+      __writemsr(v45, v46);
+      v47 = *(unsigned int *)(v3 + 16LL * (unsigned int)v41 + 4);
       if ( (_DWORD)v47 )
       {
         KeProfileInterruptWithSource(a1, v47);
-        LODWORD(v43) = *(_DWORD *)(v41 + 40 * v40);
-        goto LABEL_76;
+        LODWORD(v54) = *(_DWORD *)(v3 + 16LL * (unsigned int)v41 + 8);
+        goto LABEL_90;
       }
-      v66 = 0LL;
-      v71.QuadPart = 0LL;
+      v70 = 0LL;
+      v73.QuadPart = 0LL;
       if ( HalpTimerProfilingCallback )
-        HalpTimerProfilingCallback(a1, v47, (unsigned int)EmonNumberArchCounters, v44);
+        HalpTimerProfilingCallback(a1, v47, v42);
       else
         KeProfileInterruptWithSource(a1, 0LL);
       v48 = HalpProfileData;
       v49 = 32LL * KeGetPcr()->Prcb.Number;
       v50 = *(_DWORD *)(v49 + HalpProfileData + 24);
-      if ( v50 )
+      if ( !v50 )
       {
-        v51 = *(_DWORD *)(v49 + HalpProfileData + 20);
-        LODWORD(v43) = *(_DWORD *)(v49 + HalpProfileData + 16);
-        if ( v51 )
-        {
-          v54 = v51 - 1;
-          *(_DWORD *)(v49 + HalpProfileData + 20) = v54;
-          if ( v54 )
-            goto LABEL_75;
-          v74 = 0x2710 / v50;
-          *(_DWORD *)(v49 + v48 + 20) = 0x2710 / v50;
-          if ( !(0x2710 / v50) )
-          {
-            *(_DWORD *)(v49 + v48 + 20) = 1;
-            v74 = 1;
-          }
-          PoGetProcessorIdleAccounting(&v66, 0x2710 % v50);
-          v52 = v66;
-          if ( v66 == *(_QWORD *)(v49 + v48 + 8) )
-          {
-            v55 = v74 * (unsigned int)v43;
-            v56 = KeQueryPerformanceCounter(&v71);
-            v57 = HalpProfileData;
-            if ( v56.QuadPart != *(_QWORD *)(v49 + HalpProfileData) )
-            {
-              v43 = v71.QuadPart
-                  * (v55
-                   * (unsigned __int64)*(unsigned int *)(v49 + HalpProfileData + 24)
-                   / (v56.QuadPart - *(_QWORD *)(v49 + HalpProfileData)))
-                  / 0x989680;
-              if ( v43 >= 0x1000 )
-              {
-                if ( v43 > 0x7FFFFFFF )
-                  LODWORD(v43) = 0x7FFFFFFF;
-              }
-              else
-              {
-                LODWORD(v43) = 4096;
-              }
-              *(_DWORD *)(v49 + HalpProfileData + 16) = v43;
-              *(LARGE_INTEGER *)(v49 + v57) = v56;
-            }
-            goto LABEL_75;
-          }
-        }
-        else
-        {
-          *(_DWORD *)(v49 + HalpProfileData + 20) = 0x2710 / v50;
-          if ( !(0x2710 / v50) )
-            *(_DWORD *)(v49 + v48 + 20) = 1;
-          PoGetProcessorIdleAccounting(&v66, 0x2710 % v50);
-          v52 = v66;
-        }
-        *(_QWORD *)(v49 + v48 + 8) = v52;
-        *(LARGE_INTEGER *)(v49 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
+        LODWORD(v54) = 0;
+        goto LABEL_87;
       }
-LABEL_75:
-      v41 = v64;
-      v42 = v65;
+      v69 = *(unsigned int *)(v49 + HalpProfileData + 16);
+      v51 = *(_DWORD *)(v49 + HalpProfileData + 20);
+      if ( v51 )
+      {
+        v55 = v51 - 1;
+        *(_DWORD *)(v49 + HalpProfileData + 20) = v55;
+        if ( v55 )
+          goto LABEL_76;
+        v81 = 0x2710 / v50;
+        *(_DWORD *)(v49 + v48 + 20) = 0x2710 / v50;
+        if ( !(0x2710 / v50) )
+        {
+          *(_DWORD *)(v49 + v48 + 20) = 1;
+          v81 = 1;
+        }
+        PoGetProcessorIdleAccounting(&v70, 0x2710 % v50);
+        v53 = v70;
+        if ( v70 == *(_QWORD *)(v49 + v48 + 8) )
+        {
+          v56 = KeQueryPerformanceCounter(&v73);
+          v57 = HalpProfileData;
+          v58 = v56;
+          v59 = v56.QuadPart - *(_QWORD *)(v49 + HalpProfileData);
+          if ( v56.QuadPart != *(_QWORD *)(v49 + HalpProfileData) )
+          {
+            v60 = (unsigned int)v69 * v81 * (unsigned __int64)*(unsigned int *)(v49 + HalpProfileData + 24);
+            *(LARGE_INTEGER *)(v49 + HalpProfileData) = v58;
+            v54 = v73.QuadPart * (v60 / v59) / 0x989680;
+            if ( v54 < 0x1000 )
+              v54 = 4096LL;
+            if ( v54 > 0x7FFFFFFF )
+              LODWORD(v54) = 0x7FFFFFFF;
+            *(_DWORD *)(v49 + v57 + 16) = v54;
+            goto LABEL_87;
+          }
+          goto LABEL_76;
+        }
+      }
+      else
+      {
+        v52 = 0x2710 / v50;
+        if ( !(0x2710 / v50) )
+          v52 = 1;
+        *(_DWORD *)(v49 + HalpProfileData + 20) = v52;
+        PoGetProcessorIdleAccounting(&v70, 0x2710 % v50);
+        v53 = v70;
+      }
+      *(_QWORD *)(v49 + v48 + 8) = v53;
+      *(LARGE_INTEGER *)(v49 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
 LABEL_76:
-      if ( (unsigned int)v40 >= EmonNumberArchCounters )
+      LODWORD(v54) = v69;
+LABEL_87:
+      LODWORD(v41) = v77;
+      v44 = v79;
+LABEL_90:
+      if ( (unsigned int)v41 >= EmonNumberArchCounters )
       {
         if ( (unsigned int)EmonFixedCounterResolution < 0x40 )
-          v63 = (1LL << EmonFixedCounterResolution) - 1;
+          v65 = (1LL << EmonFixedCounterResolution) - 1;
         else
-          v63 = -1LL;
-        v58 = v67;
-        v60 = PerformanceFrequency.QuadPart | (1LL << v75);
-        v61 = v40 - EmonNumberArchCounters + 777;
-        v59 = 911;
-        v62 = v63 & -(__int64)(unsigned int)v43;
+          v65 = -1LL;
+        __writemsr(v41 - EmonNumberArchCounters + 777, v65 & -(__int64)(unsigned int)v54);
+        v66 = v72;
+        _bittestandset64((__int64 *)&v66, v44);
+        v63 = HIDWORD(v66);
+        v64 = v66;
+        v62 = 911;
       }
       else
       {
         if ( (unsigned int)EmonCounterResolution < 0x40 )
-          v53 = (1LL << EmonCounterResolution) - 1;
+          v61 = (1LL << EmonCounterResolution) - 1;
         else
-          v53 = -1LL;
-        v58 = v67;
-        v59 = v40 + 390;
-        v60 = v67 | 0x500000;
-        v61 = v40 + 193;
-        v62 = v53 & -(__int64)(unsigned int)v43;
+          v61 = -1LL;
+        __writemsr(v41 + 193, v61 & -(__int64)(unsigned int)v54);
+        v62 = v41 + 390;
+        v63 = 0;
+        v64 = *(_DWORD *)(v3 + 8 * v43 + 12) | 0x500000;
       }
-      __writemsr(v61, v62);
-      __writemsr(v59, v60);
-      EmonIsModifiedByBadActorInternal(v40, v58, &v73);
-      if ( (_BYTE)v73 )
-        *(_BYTE *)(v41 + 8 * v42 + 36) = 1;
-      v4 = v68;
-LABEL_99:
-      v39 = !_BitScanForward64((unsigned __int64 *)&v40, v34);
-      if ( v39 )
+      v42 = 4289724415LL;
+      __writemsr(v62, __PAIR64__(v63, v64));
+LABEL_100:
+      v36 = !_BitScanForward64(&v67, v35);
+      LODWORD(v41) = v67;
+      v77 = v67;
+      if ( v36 )
       {
-        v33 = v69;
-        goto LABEL_101;
+        v33 = v74;
+        goto LABEL_102;
       }
     }
   }
   if ( (unsigned int)EmonCounterResolution < 0x40 )
-    v5 = (1LL << EmonCounterResolution) - 1;
+    v4 = (1LL << EmonCounterResolution) - 1;
   else
-    v5 = -1LL;
-  for ( i = 0LL; (unsigned int)i < EmonNumberCounters; i = (unsigned int)(i + 1) )
+    v4 = -1LL;
+  if ( EmonNumberCounters )
   {
-    result = (__int64 (__fastcall **)())v4[i];
-    if ( !*((_DWORD *)result + 6) )
+    v5 = 0;
+    while ( 1 )
     {
-      v7 = i + 390;
-      v8 = i + 193;
-      v75 = i + 390;
-      v74 = i + 193;
-      v9 = __readmsr((int)i + 193);
-      v10 = (((unsigned __int64)HIDWORD(v9) << 32) | (unsigned int)v9) & v5;
-      result = (__int64 (__fastcall **)())(v5 & 0xFFFFFFFF80000001uLL);
-      if ( v10 < (v5 & 0xFFFFFFFF80000001uLL) )
+      if ( !*(_DWORD *)(v3 + 16LL * v5) )
       {
-        v11 = 5 * i;
-        v71.QuadPart = 0LL;
-        LODWORD(v12) = 0;
-        v13 = (unsigned int)EmonNumberArchCounters;
-        v14 = (unsigned int)i;
-        LOBYTE(v73) = 0;
-        v67 = *v68;
-        v66 = 5 * i;
-        LODWORD(v65) = i;
-        if ( (unsigned int)i < EmonNumberArchCounters )
+        v6 = v5 + 193;
+        v7 = __readmsr(v5 + 193);
+        if ( ((((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7) & v4) < (v4 & 0xFFFFFFFF80000001uLL) )
+          break;
+      }
+LABEL_46:
+      v5 = ++v76;
+      if ( v76 >= EmonNumberCounters )
+        return;
+    }
+    v72 = 0LL;
+    v8 = v5 - EmonNumberArchCounters + 32;
+    v78 = v8;
+    if ( v5 >= EmonNumberArchCounters )
+    {
+      v11 = __readmsr(0x38Fu);
+      _bittestandreset64((__int64 *)&v11, v8);
+      v9 = 911;
+      v72 = v11;
+      v10 = v11;
+      v2 = a1;
+    }
+    else
+    {
+      v9 = v5 + 390;
+      v10 = *(_DWORD *)(v3 + 16LL * v5 + 12) & 0xFFAFFFFF;
+    }
+    __writemsr(v9, v10);
+    v12 = *(unsigned int *)(v3 + 16LL * v5 + 4);
+    if ( (_DWORD)v12 )
+    {
+      KeProfileInterruptWithSource(v2, v12);
+      LODWORD(v19) = *(_DWORD *)(v3 + 16LL * v5 + 8);
+      goto LABEL_36;
+    }
+    v69 = 0LL;
+    PerformanceFrequency.QuadPart = 0LL;
+    if ( HalpTimerProfilingCallback )
+      HalpTimerProfilingCallback(v2, v12, v2);
+    else
+      KeProfileInterruptWithSource(v2, 0LL);
+    v13 = HalpProfileData;
+    v14 = 32LL * KeGetPcr()->Prcb.Number;
+    v15 = *(_DWORD *)(v14 + HalpProfileData + 24);
+    if ( !v15 )
+    {
+      LODWORD(v19) = 0;
+      goto LABEL_33;
+    }
+    v68 = *(_DWORD *)(v14 + HalpProfileData + 16);
+    v16 = *(_DWORD *)(v14 + HalpProfileData + 20);
+    if ( v16 )
+    {
+      v20 = v16 - 1;
+      *(_DWORD *)(v14 + HalpProfileData + 20) = v20;
+      if ( v20 )
+        goto LABEL_22;
+      v80 = 0x2710 / v15;
+      *(_DWORD *)(v14 + v13 + 20) = 0x2710 / v15;
+      if ( !(0x2710 / v15) )
+      {
+        *(_DWORD *)(v14 + v13 + 20) = 1;
+        v80 = 1;
+      }
+      PoGetProcessorIdleAccounting(&v69, 0x2710 % v15);
+      v18 = v69;
+      if ( v69 == *(_QWORD *)(v14 + v13 + 8) )
+      {
+        v21 = KeQueryPerformanceCounter(&PerformanceFrequency);
+        v22 = HalpProfileData;
+        v23 = v21;
+        v24 = v21.QuadPart - *(_QWORD *)(v14 + HalpProfileData);
+        if ( v21.QuadPart != *(_QWORD *)(v14 + HalpProfileData) )
         {
-          v15 = i + 390;
-          v69 = __readmsr(v7);
-          v17 = v69 & 0xFFFFFFFFFFAFFFFFuLL;
+          v25 = v68 * v80 * (unsigned __int64)*(unsigned int *)(v14 + HalpProfileData + 24);
+          *(LARGE_INTEGER *)(v14 + HalpProfileData) = v23;
+          v19 = PerformanceFrequency.QuadPart * (v25 / v24) / 0x989680;
+          if ( v19 < 0x1000 )
+            v19 = 4096LL;
+          if ( v19 > 0x7FFFFFFF )
+            LODWORD(v19) = 0x7FFFFFFF;
+          *(_DWORD *)(v14 + v22 + 16) = v19;
+          goto LABEL_33;
         }
-        else
-        {
-          v14 = (unsigned int)(i - EmonNumberArchCounters + 32);
-          LODWORD(v65) = v14;
-          v15 = 911;
-          v69 = ~(15LL << (4 * ((unsigned __int8)i - (unsigned __int8)EmonNumberArchCounters))) & __readmsr(0x38Du);
-          v16.QuadPart = __readmsr(0x38Fu);
-          _bittestandreset64((__int64 *)&v16, (unsigned int)v14);
-          v71 = v16;
-          v17 = v16.QuadPart;
-          v3 = a1;
-        }
-        __writemsr(v15, v17);
-        v18 = *(unsigned int *)(v67 + 40 * i + 32);
-        if ( (_DWORD)v18 )
-        {
-          KeProfileInterruptWithSource(v3, v18);
-          LODWORD(v12) = *(_DWORD *)(v67 + 40 * i);
-        }
-        else
-        {
-          v64 = 0LL;
-          PerformanceFrequency.QuadPart = 0LL;
-          if ( HalpTimerProfilingCallback )
-            HalpTimerProfilingCallback(v3, v18, v13, v14);
-          else
-            KeProfileInterruptWithSource(v3, 0LL);
-          v19 = HalpProfileData;
-          v20 = 32LL * KeGetPcr()->Prcb.Number;
-          v21 = *(_DWORD *)(v20 + HalpProfileData + 24);
-          if ( v21 )
-          {
-            v22 = *(_DWORD *)(v20 + HalpProfileData + 20);
-            LODWORD(v12) = *(_DWORD *)(v20 + HalpProfileData + 16);
-            if ( v22 )
-            {
-              v23 = v22 - 1;
-              *(_DWORD *)(v20 + HalpProfileData + 20) = v23;
-              if ( !v23 )
-              {
-                *(_DWORD *)(v20 + v19 + 20) = 0x2710 / v21;
-                v24 = 0x2710 / v21;
-                if ( !(0x2710 / v21) )
-                {
-                  *(_DWORD *)(v20 + v19 + 20) = 1;
-                  v24 = 1;
-                }
-                PoGetProcessorIdleAccounting(&v64, 0x2710 % v21);
-                if ( v64 == *(_QWORD *)(v20 + v19 + 8) )
-                {
-                  v26 = v12 * v24;
-                  v27 = KeQueryPerformanceCounter(&PerformanceFrequency);
-                  v28 = HalpProfileData;
-                  if ( v27.QuadPart != *(_QWORD *)(v20 + HalpProfileData) )
-                  {
-                    v12 = PerformanceFrequency.QuadPart
-                        * (v26
-                         * (unsigned __int64)*(unsigned int *)(v20 + HalpProfileData + 24)
-                         / (v27.QuadPart - *(_QWORD *)(v20 + HalpProfileData)))
-                        / 0x989680;
-                    if ( v12 >= 0x1000 )
-                    {
-                      if ( v12 > 0x7FFFFFFF )
-                        LODWORD(v12) = 0x7FFFFFFF;
-                    }
-                    else
-                    {
-                      LODWORD(v12) = 4096;
-                    }
-                    *(_DWORD *)(v20 + HalpProfileData + 16) = v12;
-                    *(LARGE_INTEGER *)(v20 + v28) = v27;
-                  }
-                }
-                else
-                {
-                  *(_QWORD *)(v20 + v19 + 8) = v64;
-                  *(LARGE_INTEGER *)(v20 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
-                }
-                v11 = v66;
-              }
-            }
-            else
-            {
-              *(_DWORD *)(v20 + HalpProfileData + 20) = 0x2710 / v21;
-              if ( !(0x2710 / v21) )
-                *(_DWORD *)(v20 + v19 + 20) = 1;
-              PoGetProcessorIdleAccounting(&v64, 0x2710 % v21);
-              *(_QWORD *)(v20 + v19 + 8) = v64;
-              *(LARGE_INTEGER *)(v20 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
-            }
-          }
-          v7 = v75;
-          v8 = v74;
-        }
-        if ( (unsigned int)i >= EmonNumberArchCounters )
-        {
-          if ( (unsigned int)EmonFixedCounterResolution < 0x40 )
-            v32 = (1LL << EmonFixedCounterResolution) - 1;
-          else
-            v32 = -1LL;
-          v29 = v69;
-          v30 = v71.QuadPart | (1LL << v65);
-          v8 = i - EmonNumberArchCounters + 777;
-          v7 = 911;
-          v31 = v32 & -(__int64)(unsigned int)v12;
-        }
-        else
-        {
-          if ( (unsigned int)EmonCounterResolution < 0x40 )
-            v25 = (1LL << EmonCounterResolution) - 1;
-          else
-            v25 = -1LL;
-          v29 = v69;
-          v30 = v69 | 0x500000;
-          v31 = v25 & -(__int64)(unsigned int)v12;
-        }
-        __writemsr(v8, v31);
-        __writemsr(v7, v30);
-        result = (__int64 (__fastcall **)())EmonIsModifiedByBadActorInternal(i, v29, &v73);
-        v4 = v68;
-        v3 = a1;
-        if ( (_BYTE)v73 )
-        {
-          result = (__int64 (__fastcall **)())v67;
-          *(_BYTE *)(v67 + 8 * v11 + 36) = 1;
-        }
+        goto LABEL_22;
       }
     }
+    else
+    {
+      v17 = 0x2710 / v15;
+      if ( !(0x2710 / v15) )
+        v17 = 1;
+      *(_DWORD *)(v14 + HalpProfileData + 20) = v17;
+      PoGetProcessorIdleAccounting(&v69, 0x2710 % v15);
+      v18 = v69;
+    }
+    *(_QWORD *)(v14 + v13 + 8) = v18;
+    *(LARGE_INTEGER *)(v14 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
+LABEL_22:
+    LODWORD(v19) = v68;
+LABEL_33:
+    v8 = v78;
+    v6 = v5 + 193;
+LABEL_36:
+    if ( v5 >= EmonNumberArchCounters )
+    {
+      if ( (unsigned int)EmonFixedCounterResolution < 0x40 )
+        v30 = (1LL << EmonFixedCounterResolution) - 1;
+      else
+        v30 = -1LL;
+      __writemsr(v5 - EmonNumberArchCounters + 777, v30 & -(__int64)(unsigned int)v19);
+      v31 = v72;
+      _bittestandset64((__int64 *)&v31, v8);
+      v28 = HIDWORD(v31);
+      v29 = v31;
+      v27 = 911;
+    }
+    else
+    {
+      if ( (unsigned int)EmonCounterResolution < 0x40 )
+        v26 = (1LL << EmonCounterResolution) - 1;
+      else
+        v26 = -1LL;
+      __writemsr(v6, v26 & -(__int64)(unsigned int)v19);
+      v27 = v5 + 390;
+      v28 = 0;
+      v29 = *(_DWORD *)(v3 + 16LL * v5 + 12) | 0x500000;
+    }
+    v2 = a1;
+    __writemsr(v27, __PAIR64__(v28, v29));
+    goto LABEL_46;
   }
-  return result;
 }

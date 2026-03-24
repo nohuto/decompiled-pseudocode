@@ -1,8 +1,8 @@
 /*
- * XREFs of SwapSplayLinks @ 0x14021EFFC
+ * XREFs of SwapSplayLinks @ 0x1402A0094
  * Callers:
- *     RtlDeleteNoSplay @ 0x14021D900 (RtlDeleteNoSplay.c)
- *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
+ *     RtlDeleteNoSplay @ 0x14029FFC0 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x140359960 (RtlDelete.c)
  * Callees:
  *     <none>
  */
@@ -22,15 +22,15 @@ _QWORD *__fastcall SwapSplayLinks(_QWORD *a1, _QWORD *a2)
   _QWORD *v12; // rax
   _QWORD *v13; // rax
   _QWORD *result; // rax
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  _QWORD *v20; // rdi
-  __int64 v21; // rsi
-  _QWORD *v22; // rbx
-  __int64 v23; // rax
+  _QWORD *v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  _QWORD *v19; // rdi
+  __int64 v20; // rsi
+  _QWORD *v21; // rbx
+  __int64 v22; // rax
+  __int64 v23; // rcx
   __int64 v24; // rcx
   _QWORD *v25; // rax
 
@@ -48,24 +48,24 @@ _QWORD *__fastcall SwapSplayLinks(_QWORD *a1, _QWORD *a2)
   {
     if ( v4 == a2 )
     {
-      v16 = v2;
+      v15 = v2;
     }
     else
     {
-      v15 = 1LL;
+      v24 = 1LL;
       if ( (_QWORD *)v4[1] != a2 )
-        v15 = 2LL;
-      v4[v15] = v2;
-      v16 = (_QWORD *)*a2;
+        v24 = 2LL;
+      v4[v24] = v2;
+      v15 = (_QWORD *)*a2;
     }
-    *v2 = v16;
-    v17 = v2[1];
+    *v2 = v15;
+    v16 = v2[1];
     v2[1] = a2[1];
-    v18 = a2[2];
-    a2[1] = v17;
-    v19 = v2[2];
-    v2[2] = v18;
-    a2[2] = v19;
+    v17 = a2[2];
+    a2[1] = v16;
+    v18 = v2[2];
+    v2[2] = v17;
+    a2[2] = v18;
     v11 = (_QWORD *)v2[1];
     if ( v11 == v2 )
     {
@@ -91,21 +91,21 @@ _QWORD *__fastcall SwapSplayLinks(_QWORD *a1, _QWORD *a2)
     }
     else
     {
-      v20 = (_QWORD *)v4[1];
-      v21 = 1LL;
-      v22 = v20;
+      v19 = (_QWORD *)v4[1];
+      v20 = 1LL;
+      v21 = v19;
       if ( v6 != v2 )
-        v21 = 2LL;
-      if ( v20 != a2 )
-        v22 = (_QWORD *)v4[2];
-      v23 = v5[v21];
-      if ( v20 != a2 )
+        v20 = 2LL;
+      if ( v19 != a2 )
+        v21 = (_QWORD *)v4[2];
+      v22 = v5[v20];
+      if ( v19 != a2 )
         v7 = 2LL;
-      v5[v21] = v22;
-      v4[v7] = v23;
-      v24 = *v2;
+      v5[v20] = v21;
+      v4[v7] = v22;
+      v23 = *v2;
       *v2 = *a2;
-      *a2 = v24;
+      *a2 = v23;
     }
     v8 = v2[1];
     v2[1] = a2[1];

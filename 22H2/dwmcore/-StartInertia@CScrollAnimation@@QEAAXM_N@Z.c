@@ -1,61 +1,70 @@
 /*
- * XREFs of ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x180265540
+ * XREFs of ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x180203E24
  * Callers:
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x180235D98 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
- *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180264BEC (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD010 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x18020356C (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180134BEE (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
- *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x180230CE8 (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x1801C79AC (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180213D70 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
  */
 
 void __fastcall CScrollAnimation::StartInertia(CScrollAnimation *this, float a2, char a3)
 {
-  struct CInteractionTracker *InteractionTracker; // rax
+  __int64 v3; // rax
   __int64 v6; // rcx
-  unsigned int v7; // edx
+  int v7; // edx
   __int64 v8; // r8
   __int64 v9; // rdx
-  struct CInteractionTracker *v10; // rax
+  __int64 v10; // rcx
   struct CChainingHelper *ActiveChainingHelper; // rax
   struct CChainingHelper *v12; // r8
   __int64 v13; // rdx
-  _BYTE *v14; // rcx
-  __int64 v15; // rax
+  __int64 v14; // rcx
+  _BYTE *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
 
-  InteractionTracker = CScrollAnimation::GetInteractionTracker(this);
-  v7 = *(_DWORD *)(v6 + 340);
-  *(_QWORD *)(v6 + 360) = *(_QWORD *)(*(_QWORD *)(v6 + 16) + 608LL);
-  *(_DWORD *)(v6 + 336) = 2;
-  CInteractionTracker::AddOrUpdatePendingInertiaStateChange((__int64)InteractionTracker, v7, a2, 0);
+  v3 = *((_QWORD *)this + 41);
+  if ( v3 )
+    v6 = *(_QWORD *)(v3 + 16);
+  else
+    v6 = 0LL;
+  *((_QWORD *)this + 42) = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL);
+  v7 = *((_DWORD *)this + 79);
+  *((_DWORD *)this + 78) = 2;
+  CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v6, v7, a2, 0);
   LOBYTE(v8) = a3;
   (*(void (__fastcall **)(CScrollAnimation *, __int64, __int64))(*(_QWORD *)this + 344LL))(this, v9, v8);
-  v10 = CScrollAnimation::GetInteractionTracker(this);
-  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((struct CInteractionTracker *)((char *)v10 + 200));
+  v10 = *((_QWORD *)this + 41);
+  if ( v10 )
+    v10 = *(_QWORD *)(v10 + 16);
+  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v10 + 192));
   v12 = ActiveChainingHelper;
   if ( !a3 && ActiveChainingHelper )
   {
-    v13 = 3LL * *((int *)this + 85);
-    *((_BYTE *)ActiveChainingHelper + 4 * v13) &= 0xFCu;
-    v14 = (char *)ActiveChainingHelper + 36;
-    *((_DWORD *)ActiveChainingHelper + v13 + 1) = 0;
+    v13 = *((int *)this + 79);
+    v14 = 3 * v13;
+    *((_BYTE *)ActiveChainingHelper + 4 * v14) &= 0xFCu;
+    *((_DWORD *)ActiveChainingHelper + v14 + 1) = 0;
+    v15 = (char *)ActiveChainingHelper + 36;
     *((_BYTE *)ActiveChainingHelper + 36) |= 1u;
-    *((_BYTE *)ActiveChainingHelper + 4 * v13) &= 0xFAu;
-    *((_DWORD *)ActiveChainingHelper + v13 + 2) = 0;
-    v15 = 3LL;
-    *v14 |= 2u;
+    v16 = 3 * v13;
+    *((_BYTE *)v12 + 4 * v16) &= 0xFAu;
+    *((_DWORD *)v12 + v16 + 2) = 0;
+    v17 = 3LL;
+    *v15 |= 2u;
     do
     {
       *(_BYTE *)v12 |= 4u;
       *((_DWORD *)v12 + 2) = -805306369;
       v12 = (struct CChainingHelper *)((char *)v12 + 12);
-      *v14 |= 2u;
-      --v15;
+      *v15 |= 2u;
+      --v17;
     }
-    while ( v15 );
+    while ( v17 );
   }
-  *((_BYTE *)this + 368) &= ~4u;
-  *((_OWORD *)this + 27) = 0LL;
-  *((_QWORD *)this + 56) = 0LL;
+  *(_OWORD *)((char *)this + 408) = 0LL;
+  *((_BYTE *)this + 344) &= ~4u;
+  *((_QWORD *)this + 53) = 0LL;
 }

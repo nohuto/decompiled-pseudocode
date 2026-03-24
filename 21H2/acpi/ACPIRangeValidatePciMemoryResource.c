@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRangeValidatePciMemoryResource @ 0x1C0028B9C
+ * XREFs of ACPIRangeValidatePciMemoryResource @ 0x1C002B410
  * Callers:
- *     ACPIRangeValidatePciResources @ 0x1C0028A0C (ACPIRangeValidatePciResources.c)
+ *     ACPIRangeValidatePciResources @ 0x1C002B280 (ACPIRangeValidatePciResources.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ddi @ 0x1C005EAA4 (WPP_RECORDER_SF_ddi.c)
- *     WPP_RECORDER_SF_ddiiii @ 0x1C005EB9C (WPP_RECORDER_SF_ddiiii.c)
- *     WPP_RECORDER_SF_diiidiiii @ 0x1C005ECF8 (WPP_RECORDER_SF_diiidiiii.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddi @ 0x1C005DD9C (WPP_RECORDER_SF_ddi.c)
+ *     WPP_RECORDER_SF_ddiiii @ 0x1C005DE94 (WPP_RECORDER_SF_ddiiii.c)
+ *     WPP_RECORDER_SF_diiidiiii @ 0x1C005DFF0 (WPP_RECORDER_SF_diiidiiii.c)
  */
 
 int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
@@ -61,7 +61,7 @@ int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, _
         v15 = 3 * v14;
         v16 = *(_DWORD *)(v5 + 24 * v14 + 32);
         if ( v16 == 2 )
-          goto LABEL_8;
+          goto LABEL_5;
         LODWORD(v4) = v16 - 3;
         if ( (unsigned int)(v16 - 3) <= 1 && *(_DWORD *)(v5 + 8 * v15 + 28) )
         {
@@ -82,10 +82,10 @@ int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, _
         }
         v10 = *(_QWORD *)(v5 + 8 * v15 + 16);
         if ( MaximumAddress < v10 )
-          goto LABEL_8;
+          goto LABEL_5;
         v11 = v10 + *(_QWORD *)(v5 + 8 * v15 + 24);
         if ( MinimumAddress >= v11 )
-          goto LABEL_8;
+          goto LABEL_5;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_diiidiiii(
             WPP_GLOBAL_Control->DeviceExtension,
@@ -107,10 +107,10 @@ int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, _
         {
           v4 = *(_UNKNOWN ***)(v5 + 8 * v15 + 16);
           if ( MaximumAddress < (unsigned __int64)v4 )
-            goto LABEL_23;
+            goto LABEL_24;
           v17 = MinimumAddress;
           if ( MinimumAddress >= (unsigned __int64)v4 )
-            goto LABEL_23;
+            goto LABEL_24;
           v18 = (_BYTE)v4 - 1;
           LODWORD(v4) = RtlIoEncodeMemIoResource(
                           Descriptor,
@@ -135,7 +135,7 @@ int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, _
                             v18,
                             v18 - v17 + 1,
                             Alignment);
-LABEL_23:
+LABEL_24:
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
               LOBYTE(v10) = 4;
@@ -144,7 +144,7 @@ LABEL_23:
                               v10,
                               22,
                               13,
-                              (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids,
+                              (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids,
                               v12);
             }
           }
@@ -153,7 +153,7 @@ LABEL_23:
         {
           ++*v7;
         }
-LABEL_8:
+LABEL_5:
         v8 = a1;
         ++v12;
         v7 = v29;

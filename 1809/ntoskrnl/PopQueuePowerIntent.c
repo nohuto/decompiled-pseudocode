@@ -1,12 +1,12 @@
 /*
- * XREFs of PopQueuePowerIntent @ 0x14087611C
+ * XREFs of PopQueuePowerIntent @ 0x1408760FC
  * Callers:
- *     PopTriggerMonitorPowerEvent @ 0x140876274 (PopTriggerMonitorPowerEvent.c)
+ *     PopTriggerMonitorPowerEvent @ 0x140876254 (PopTriggerMonitorPowerEvent.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     PopDiagTracePowerAggregatorQueueOverflow @ 0x1408737E8 (PopDiagTracePowerAggregatorQueueOverflow.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     PopDiagTracePowerAggregatorQueueOverflow @ 0x1408737C8 (PopDiagTracePowerAggregatorQueueOverflow.c)
  */
 
 __int64 __fastcall PopQueuePowerIntent(int a1, int a2, int a3)
@@ -15,15 +15,15 @@ __int64 __fastcall PopQueuePowerIntent(int a1, int a2, int a3)
   __int64 v7; // rdx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorRequestQueueLock);
-  v6 = ((_BYTE)dword_140410884 + (_BYTE)dword_140410888) & 0xF;
-  if ( (unsigned int)dword_140410888 >= 0x10 )
+  v6 = ((_BYTE)dword_140410844 + (_BYTE)dword_140410848) & 0xF;
+  if ( (unsigned int)dword_140410848 >= 0x10 )
   {
-    PopDiagTracePowerAggregatorQueueOverflow((ULONGLONG)&PopPowerAggregatorRequestQueue[12 * dword_140410884 + 12]);
-    dword_140410884 = ((_BYTE)dword_140410884 + 1) & 0xF;
+    PopDiagTracePowerAggregatorQueueOverflow((ULONGLONG)&PopPowerAggregatorRequestQueue[12 * dword_140410844 + 12]);
+    dword_140410844 = ((_BYTE)dword_140410844 + 1) & 0xF;
   }
   else
   {
-    ++dword_140410888;
+    ++dword_140410848;
   }
   v7 = 3 * v6;
   *(_DWORD *)&PopPowerAggregatorRequestQueue[4 * v7 + 12] = a1;

@@ -1,34 +1,38 @@
 /*
- * XREFs of MiWakeLargePageRebuild @ 0x14065E28C
+ * XREFs of MiWakeLargePageRebuild @ 0x14038CF00
  * Callers:
- *     MiSignalLargePageRebuild @ 0x14021D444 (MiSignalLargePageRebuild.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1402995B0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiSignalLargePageRebuild @ 0x14033BFF0 (MiSignalLargePageRebuild.c)
  * Callees:
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     PsReferencePartitionSafe @ 0x140303F74 (PsReferencePartitionSafe.c)
  */
 
 __int64 __fastcall MiWakeLargePageRebuild(__int64 a1, unsigned int a2, char a3)
 {
-  __int64 v3; // r9
-  unsigned __int8 v4; // al
-  __int64 v5; // r9
-  __int64 v6; // r10
-  __int64 v7; // r11
-  unsigned int v8; // ebx
+  __int64 v3; // rdi
+  __int64 v4; // r11
+  unsigned __int8 v5; // al
+  __int64 *v6; // r9
+  unsigned __int64 v7; // r10
+  __int64 v8; // r11
+  unsigned int v9; // ebx
 
-  v3 = *(_QWORD *)(a1 + 16) + 25408LL * a2;
-  if ( (*(_DWORD *)(a1 + 4) & 0x10) != 0 || *(_BYTE *)(v3 + 3249) || *(_BYTE *)(v3 + 3250) != 8 && (a3 & 1) == 0 )
+  if ( (*(_DWORD *)(a1 + 4) & 0x20) != 0 )
     return 1LL;
-  v4 = PsReferencePartitionSafe(*(_QWORD *)(a1 + 200));
-  v8 = v4;
-  if ( v4 )
+  v3 = a2;
+  v4 = 4544LL * a2 + *(_QWORD *)(a1 + 16) + 3216LL;
+  if ( *(_BYTE *)(v4 + 33) || *(_BYTE *)(v4 + 34) != 8 && (a3 & 1) == 0 )
+    return 1LL;
+  v5 = PsReferencePartitionSafe(*(_QWORD *)(a1 + 176));
+  v9 = v5;
+  if ( v5 == 1 )
   {
-    *(_BYTE *)(v6 + 33) = 1;
-    *(_QWORD *)v6 = 0LL;
-    *(_QWORD *)(v6 + 16) = MiRebuildLargePages;
-    *(_QWORD *)(v6 + 24) = v5;
-    ExQueueWorkItemToPartition((_QWORD *)v6, 4, 0xFFFFFFFF, *(_QWORD *)(v7 + 200));
+    *(_BYTE *)(v8 + 33) = v5;
+    *(_QWORD *)v8 = 0LL;
+    *(_QWORD *)(v8 + 16) = MiRebuildLargePages;
+    *(_QWORD *)(v8 + 24) = (v3 << 53) | (v7 >> 4) & 0x1FFFFFFFFFFFFFLL;
+    ExQueueWorkItemToPartition((_QWORD *)v8, v5 + 3, 0xFFFFFFFF, *v6);
   }
-  return v8;
+  return v9;
 }

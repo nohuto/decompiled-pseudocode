@@ -1,50 +1,43 @@
 /*
- * XREFs of PopGetPolicyDeviceObject @ 0x140858E74
+ * XREFs of PopGetPolicyDeviceObject @ 0x1407C44F4
  * Callers:
- *     PopConnectToPolicyDevice @ 0x140858D04 (PopConnectToPolicyDevice.c)
+ *     PopConnectToPolicyDevice @ 0x1407C4368 (PopConnectToPolicyDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-PDEVICE_OBJECT __fastcall PopGetPolicyDeviceObject(UNICODE_STRING *a1, PFILE_OBJECT *a2)
+PDEVICE_OBJECT __fastcall PopGetPolicyDeviceObject(UNICODE_STRING *a1, _QWORD *a2)
 {
-  PDEVICE_OBJECT v3; // rdi
-  PFILE_OBJECT v4; // rbx
+  PDEVICE_OBJECT v2; // rdi
+  PVOID v4; // rbx
   PDEVICE_OBJECT RelatedDeviceObject; // rax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+C8h] [rbp+67h] BYREF
-  PFILE_OBJECT FileObject; // [rsp+D8h] [rbp+77h] BYREF
+  PVOID Object; // [rsp+D8h] [rbp+77h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  v2 = 0LL;
   ObjectAttributes.ObjectName = a1;
-  v3 = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  IoStatusBlock = 0LL;
-  FileObject = 0LL;
+  Object = 0LL;
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  IoStatusBlock = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
   if ( ZwCreateFile(&FileHandle, 0x1F01FFu, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 3u, 1u, 0, 0LL, 0) >= 0 )
   {
-    if ( (int)ObpReferenceObjectByHandleWithTag(
-                (ULONG_PTR)FileHandle,
-                0,
-                (__int64)IoFileObjectType,
-                0,
-                0x64506F50u,
-                &FileObject,
-                0LL,
-                0LL) >= 0 )
+    if ( ObReferenceObjectByHandleWithTag(FileHandle, 0, (POBJECT_TYPE)IoFileObjectType, 0, 0x64506F50u, &Object, 0LL) >= 0 )
     {
-      v4 = FileObject;
-      RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
-      v3 = RelatedDeviceObject;
+      v4 = Object;
+      RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)Object);
+      v2 = RelatedDeviceObject;
       if ( RelatedDeviceObject )
       {
         ObfReferenceObjectWithTag(RelatedDeviceObject, 0x64506F50u);
@@ -57,5 +50,5 @@ PDEVICE_OBJECT __fastcall PopGetPolicyDeviceObject(UNICODE_STRING *a1, PFILE_OBJ
     if ( FileHandle )
       ZwClose(FileHandle);
   }
-  return v3;
+  return v2;
 }

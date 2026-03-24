@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCollapseRebalanceRequests @ 0x140564D00
+ * XREFs of PiCollapseRebalanceRequests @ 0x140510144
  * Callers:
- *     PnpProcessRebalance @ 0x140564F94 (PnpProcessRebalance.c)
+ *     PnpProcessRebalance @ 0x1405103DC (PnpProcessRebalance.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
@@ -36,7 +36,7 @@ bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
       v6 = *(__int64 **)v3;
       if ( *(_BYTE *)(v3 + 28) )
         break;
-      if ( *(_DWORD *)(v3 + 24) == 6 && (*(_DWORD *)(v3 + 32) & 1) != 0 )
+      if ( *(_DWORD *)(v3 + 24) == 6 && *(_BYTE *)(v3 + 32) )
       {
         v7 = *(__int64 ***)(v3 + 8);
         if ( v6[1] != v3
@@ -54,25 +54,28 @@ bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
     }
     while ( v6 != &PnpEnumerationRequestList );
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+  KxReleaseSpinLock(&PnpSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
   for ( i = *v4; i != (__int64 *)a1; i = (__int64 *)*i )
   {
-    ObfDereferenceObject((PVOID)i[2]);
+    ObfDereferenceObjectWithTag((PVOID)i[2], 0x746C6644u);
     i[2] = 0LL;
   }
   return v4 != *(__int64 ***)(a1 + 8);

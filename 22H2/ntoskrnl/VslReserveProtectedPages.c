@@ -1,17 +1,17 @@
 /*
- * XREFs of VslReserveProtectedPages @ 0x140886034
+ * XREFs of VslReserveProtectedPages @ 0x14077D250
  * Callers:
- *     KeReservePrivilegedPages @ 0x1403D6A90 (KeReservePrivilegedPages.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
- *     MiFreeKernelPadSections @ 0x140B6892C (MiFreeKernelPadSections.c)
- *     MiBootImageRelocated @ 0x140B9B744 (MiBootImageRelocated.c)
+ *     KeReservePrivilegedPages @ 0x140394DA0 (KeReservePrivilegedPages.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiFreeKernelPadSections @ 0x140A6B26C (MiFreeKernelPadSections.c)
+ *     MiBootImageRelocated @ 0x140A92B80 (MiBootImageRelocated.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+NTSTATUS __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // rsi
   __int64 v6; // rbp

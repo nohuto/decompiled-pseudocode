@@ -1,13 +1,13 @@
 /*
- * XREFs of Isoch_TransferData_Initialize @ 0x1C00085B0
+ * XREFs of Isoch_TransferData_Initialize @ 0x1C00035F0
  * Callers:
- *     Isoch_RetrieveNextStage @ 0x1C0007C30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C00401BC (WPP_RECORDER_SF_DDi.c)
- *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0041658 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0040708 (McTemplateK0uqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Isoch_TransferData_Initialize(__int64 a1, __int64 a2, __int64 *a3)
@@ -53,7 +53,7 @@ LABEL_2:
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0061090);
+         off_1C0060090);
   *(_DWORD *)(v9 + 17) = 0;
   *(_WORD *)(v9 + 21) = 0;
   *(_BYTE *)(v9 + 23) = 0;

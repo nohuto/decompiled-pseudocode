@@ -1,28 +1,28 @@
 /*
- * XREFs of ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1802A3CC0
+ * XREFs of ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180251D50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x180041694 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046478 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x180047F2C (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?Flush@CD3DDevice@@QEAAXXZ @ 0x1801032C0 (-Flush@CD3DDevice@@QEAAXXZ.c)
- *     ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x18010A828 (-CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z.c)
- *     ?UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x18010A8E0 (-UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003A850 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098C7C (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x18009D684 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
+ *     ?Flush@CD3DDevice@@QEAAXXZ @ 0x1800DA7C8 (-Flush@CD3DDevice@@QEAAXXZ.c)
+ *     ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1800E51E0 (-CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z.c)
+ *     ?UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x1800E5298 (-UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-__int64 __fastcall CLegacyRemotingSwapChain::RailAppPresent(CD3DDevice **this, __int64 a2, const struct tagRECT *a3)
+__int64 __fastcall CLegacyRemotingSwapChain::RailAppPresent(__int64 a1, __int64 a2, const struct tagRECT *a3)
 {
   HRGN v6; // rdi
   unsigned int v7; // ebx
   int v8; // eax
-  CD3DDevice *v9; // rax
+  _DWORD *v9; // rax
   int updated; // eax
   __int64 v11; // rcx
   signed int v12; // ebx
@@ -51,30 +51,32 @@ __int64 __fastcall CLegacyRemotingSwapChain::RailAppPresent(CD3DDevice **this, _
   hrgn = 0LL;
   memset_0(v21, 0, 0x90uLL);
   v7 = 1;
-  CD3DDevice::Flush(this[9]);
+  CD3DDevice::Flush(*(CD3DDevice **)(a1 + 24));
   v8 = a3->right - a3->left;
   v25 = 0LL;
   v23 = v8;
   v24 = a3->bottom - a3->top;
-  v9 = this[16];
+  v9 = *(_DWORD **)(a1 + 72);
   v22 = a2;
-  if ( !*(_DWORD *)v9 )
+  if ( !*v9 )
     goto LABEL_13;
-  updated = CLegacyRemotingSwapChain::UpdateSectionBits(this);
+  updated = CLegacyRemotingSwapChain::UpdateSectionBits((FastRegion::Internal::CRgnData **)(a1 - 56));
   v12 = updated;
   if ( updated < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, updated, 0x118u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, updated, 0x105u, 0LL);
     goto LABEL_21;
   }
   FastRegion::CRegion::CRegion((FastRegion::CRegion *)v32, a3);
-  v13 = FastRegion::CRegion::Intersect(this + 16, (const struct FastRegion::Internal::CRgnData **)v32);
+  v13 = FastRegion::CRegion::Intersect(
+          (const struct FastRegion::Internal::CRgnData **)(a1 + 72),
+          (const struct FastRegion::Internal::CRgnData **)v32);
   if ( v13 < 0 )
     ModuleFailFastForHRESULT(v13, retaddr);
   v31.left = 0;
   v31.top = 0;
-  FastRegion::CRegion::GetBoundingRect((LONG **)this + 16, &v31);
-  v14 = CRegion::CreateHRGN((int **)this + 16, &hrgn);
+  FastRegion::CRegion::GetBoundingRect((LONG **)(a1 + 72), &v31);
+  v14 = CRegion::CreateHRGN((int **)(a1 + 72), &hrgn);
   v12 = v14;
   if ( v14 >= 0 )
   {
@@ -88,7 +90,7 @@ __int64 __fastcall CLegacyRemotingSwapChain::RailAppPresent(CD3DDevice **this, _
         v12 = (unsigned __int16)LastError | 0x80070000;
       if ( v12 >= 0 )
         v12 = -2003304445;
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v12, 0x127u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v12, 0x114u, 0LL);
       FastRegion::CRegion::FreeMemory(v32);
       goto LABEL_19;
     }
@@ -100,26 +102,29 @@ __int64 __fastcall CLegacyRemotingSwapChain::RailAppPresent(CD3DDevice **this, _
     v28 = v6;
     FastRegion::CRegion::FreeMemory(v32);
 LABEL_13:
-    v12 = (*(__int64 (__fastcall **)(CD3DDevice *, _BYTE *, _QWORD))(*(_QWORD *)this[14] + 56LL))(this[14], v21, v7);
+    v12 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *, _QWORD))(**(_QWORD **)(a1 + 64) + 56LL))(
+            *(_QWORD *)(a1 + 64),
+            v21,
+            v7);
     if ( ((v12 + 2147467263) & 0xFFFFFFFB) != 0 )
     {
       if ( v12 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v12, 0x13Cu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v12, 0x129u, 0LL);
     }
     else
     {
       v12 = -2003304307;
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2003304307, 0x138u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2003304307, 0x125u, 0LL);
     }
     goto LABEL_19;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x123u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x110u, 0LL);
   FastRegion::CRegion::FreeMemory(v32);
   v6 = hrgn;
 LABEL_19:
   if ( v6 )
     DeleteObject(v6);
 LABEL_21:
-  *(_DWORD *)this[16] = 0;
+  **(_DWORD **)(a1 + 72) = 0;
   return (unsigned int)v12;
 }

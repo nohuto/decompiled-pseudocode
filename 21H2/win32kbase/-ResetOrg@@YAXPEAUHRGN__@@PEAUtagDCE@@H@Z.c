@@ -1,280 +1,226 @@
 /*
- * XREFs of ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C002A8D0
+ * XREFs of ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C00362B0
  * Callers:
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     UserSetDCVisRgn @ 0x1C002C8B0 (UserSetDCVisRgn.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0038920 (UserSetDCVisRgn.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C002BEFC (--1DCOBJA@@QEAA@XZ.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C002BF28 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C002C464 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006D8F4 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
- *     GetMonitorRectForDpi @ 0x1C006DCC8 (GetMonitorRectForDpi.c)
- *     IntersectRect @ 0x1C006EC48 (IntersectRect.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     GreSetRectRgn @ 0x1C008E9A0 (GreSetRectRgn.c)
- *     IsGetLayeredOrRedirectedParentSupported @ 0x1C00A86E4 (IsGetLayeredOrRedirectedParentSupported.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0037940 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C003796C (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003809C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C00382D0 (-bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ *     GetMonitorRectForDpi @ 0x1C006EE58 (GetMonitorRectForDpi.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006F95C (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     IntersectRect @ 0x1C0071334 (IntersectRect.c)
+ *     GetScreenRectForDpi @ 0x1C0071430 (GetScreenRectForDpi.c)
+ *     GreSetRectRgn @ 0x1C007FC00 (GreSetRectRgn.c)
+ *     IsGetLayeredOrRedirectedParentSupported @ 0x1C0095CEC (IsGetLayeredOrRedirectedParentSupported.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall ResetOrg(HRGN a1, struct tagDCE *a2, int a3)
+void __fastcall ResetOrg(HRGN a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // rax
-  int v5; // ebx
+  unsigned __int64 v5; // rsi
   __int64 v6; // rcx
-  __int128 v7; // xmm0
-  unsigned int v8; // r15d
-  int v9; // r14d
-  struct tagMONITOR *v10; // rsi
-  int v11; // eax
-  int v12; // r13d
-  unsigned int v13; // r12d
-  __int64 v14; // rbx
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  int v17; // esi
-  int v18; // ebx
-  int v19; // esi
-  int v20; // ebx
-  HRGN v21; // r15
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // r11
-  __int64 v25; // rcx
-  __int64 v26; // r10
-  __int64 v27; // r9
-  __int64 v28; // rdx
-  int v29; // r8d
-  unsigned int *i; // rax
-  __int64 v31; // rdx
-  int v32; // ebx
-  __int64 v33; // rdx
-  int v34; // eax
-  int v35; // ecx
-  int v36; // ecx
-  __int128 v37; // xmm0
-  __int64 v38; // rcx
-  int v39; // eax
-  unsigned int *v40; // r9
-  __int64 v41; // rax
-  unsigned __int64 v42; // xmm0_8
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // rdx
-  __int128 v47; // [rsp+38h] [rbp-49h] BYREF
-  int v48; // [rsp+48h] [rbp-39h]
-  HRGN v49; // [rsp+50h] [rbp-31h]
-  _QWORD v50[7]; // [rsp+58h] [rbp-29h] BYREF
-  __int128 v51; // [rsp+90h] [rbp+Fh] BYREF
+  int v7; // ebx
+  __int128 v8; // xmm0
+  unsigned int v9; // r14d
+  int v10; // edi
+  struct tagMONITOR *v11; // r15
+  int v12; // eax
+  int v13; // r13d
+  int v14; // r15d
+  int v15; // eax
+  __int64 v16; // rbx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  int v20; // r15d
+  int v21; // ebx
+  LONG v22; // ebx
+  LONG v23; // r15d
+  int v24; // edi
+  int v25; // ebx
+  _DWORD *v26; // rdx
+  int v27; // r8d
+  int v28; // ecx
+  int v29; // ecx
+  __int128 v30; // xmm0
+  __int64 v31; // rcx
+  int v32; // eax
+  __m128i *ScreenRectForDpi; // rax
+  __m128i v34; // xmm1
+  __int64 v35; // rax
+  unsigned __int64 v36; // xmm0_8
+  __int64 v37; // rdx
+  int v38; // eax
+  __int128 v39; // [rsp+30h] [rbp-39h] BYREF
+  __int128 v40; // [rsp+40h] [rbp-29h] BYREF
+  _QWORD v41[14]; // [rsp+50h] [rbp-19h] BYREF
+  struct _POINTL v42; // [rsp+D8h] [rbp+6Fh] BYREF
+  int v43; // [rsp+E0h] [rbp+77h]
 
-  v3 = *((_QWORD *)a2 + 2);
-  v5 = *((_DWORD *)a2 + 16);
-  v49 = a1;
+  v43 = a3;
+  v3 = *(_QWORD *)(a2 + 16);
+  v5 = a2;
+  v39 = 0LL;
   v6 = *(_QWORD *)(v3 + 40);
-  v48 = a3;
-  LODWORD(v3) = *(_WORD *)(v6 + 42) & 0x2FFF;
-  v47 = 0LL;
-  if ( (_DWORD)v3 == 669 )
+  if ( (*(_WORD *)(v6 + 42) & 0x2FFF) == 0x29D )
   {
-    v41 = *(_QWORD *)(*(_QWORD *)gpDispInfo + 24LL);
-    v42 = _mm_srli_si128(*(__m128i *)(*(_QWORD *)gpDispInfo + 24LL), 8).m128i_u64[0];
-    v8 = v42 - v41;
-    v9 = HIDWORD(v42) - HIDWORD(v41);
-    DWORD2(v47) = v42 - v41;
-    HIDWORD(v47) = HIDWORD(v42) - HIDWORD(v41);
+    ScreenRectForDpi = (__m128i *)GetScreenRectForDpi(&v40, 0LL);
+    v7 = *(_DWORD *)(v5 + 64);
+    v34 = *ScreenRectForDpi;
+    v35 = ScreenRectForDpi->m128i_i64[0];
+    v36 = _mm_srli_si128(v34, 8).m128i_u64[0];
+    v9 = v36 - v35;
+    v10 = HIDWORD(v36) - HIDWORD(v35);
+    DWORD2(v39) = v36 - v35;
+    HIDWORD(v39) = HIDWORD(v36) - HIDWORD(v35);
   }
   else
   {
-    if ( (v5 & 1) != 0 )
-      v7 = *(_OWORD *)(v6 + 88);
+    v7 = *(_DWORD *)(a2 + 64);
+    if ( (v7 & 1) != 0 )
+      v8 = *(_OWORD *)(v6 + 88);
     else
-      v7 = *(_OWORD *)(v6 + 104);
-    v47 = v7;
-    v8 = DWORD2(v7);
-    v9 = HIDWORD(v7);
+      v8 = *(_OWORD *)(v6 + 104);
+    v39 = v8;
+    v9 = DWORD2(v8);
+    v10 = HIDWORD(v8);
   }
-  v10 = (struct tagMONITOR *)*((_QWORD *)a2 + 11);
-  v11 = v5;
-  if ( !v10 || (v5 & 0x4000) != 0 )
+  v11 = *(struct tagMONITOR **)(v5 + 88);
+  v12 = v7;
+  if ( !v11 || (v7 & 0x4000) != 0 )
   {
-    v12 = DWORD1(v47);
-    v13 = v47;
+    v13 = v39;
   }
   else
   {
-    v46 = *(_QWORD *)GetMonitorRectForDpi(&v51, v10, 0LL);
-    v13 = v47 - v46;
-    LODWORD(v47) = v47 - v46;
-    v9 -= HIDWORD(v46);
-    v12 = DWORD1(v47) - HIDWORD(v46);
-    v8 -= v46;
-    *((_QWORD *)&v47 + 1) = __PAIR64__(v9, v8);
-    v11 = v5;
-    DWORD1(v47) -= HIDWORD(v46);
-    if ( v49 )
+    v37 = *(_QWORD *)GetMonitorRectForDpi(&v40, *(_QWORD *)(v5 + 88), 0LL);
+    v38 = -(int)v37;
+    v13 = v38 + v39;
+    a2 = (unsigned int)-HIDWORD(v37);
+    LODWORD(v39) = v38 + v39;
+    DWORD1(v39) += a2;
+    v9 += v38;
+    v10 += a2;
+    *((_QWORD *)&v39 + 1) = __PAIR64__(v10, v9);
+    v12 = v7;
+    if ( a1 )
     {
-      SetMonitorRegion(v10, v49, v49);
-      v11 = *((_DWORD *)a2 + 16);
+      SetMonitorRegion(v11, a1, a1);
+      v12 = *(_DWORD *)(v5 + 64);
     }
   }
-  if ( (v11 & 0x4000000) != 0 )
-    goto LABEL_55;
-  if ( qword_1C029C3B8 && (int)qword_1C029C3B8() >= 0 )
+  if ( (v12 & 0x4000000) != 0 )
+    goto LABEL_43;
+  v14 = -1073741637;
+  if ( qword_1C0257678 )
+    v15 = qword_1C0257678(v6, a2, 0LL);
+  else
+    v15 = -1073741637;
+  if ( v15 >= 0 && (v6 = *(_QWORD *)(v5 + 16), qword_1C0257680) )
+    v16 = qword_1C0257680(v6, a2, 0LL);
+  else
+    v16 = 0LL;
+  if ( v16 )
   {
-    v14 = qword_1C029C3C0 ? qword_1C029C3C0(*((_QWORD *)a2 + 2)) : 0LL;
-    if ( v14 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v16 + 40) + 24LL) & 0x20000000) != 0 )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(v14 + 40) + 24LL) & 0x20000000) != 0
-        && qword_1C029C3C8
-        && (int)qword_1C029C3C8() >= 0
-        && qword_1C029C3D0
-        && qword_1C029C3D0(v14) )
+      if ( qword_1C0257688 )
+        v14 = qword_1C0257688(v6, a2, 0LL);
+      if ( v14 >= 0 )
       {
-        v15 = *(_QWORD *)(v14 + 40);
-        v16 = *((_QWORD *)a2 + 11);
-        v17 = *(_DWORD *)(v15 + 88);
-        v18 = *(_DWORD *)(v15 + 92);
-        if ( v16 && *((int *)a2 + 16) < 0 )
+        if ( qword_1C0257690 ? qword_1C0257690(v16, a2, 0LL) : 0LL )
         {
-          LODWORD(v47) = v17 + v13;
-          DWORD2(v47) = v17 + v8;
-          HIDWORD(v47) = v18 + v9;
-          DWORD1(v47) = v18 + v12;
-          v51 = *(_OWORD *)GetMonitorRectForDpi(&v51, v16, 0LL);
-          IntersectRect(&v47, &v47, &v51);
-          v9 = HIDWORD(v47);
-          v8 = DWORD2(v47);
-          v12 = DWORD1(v47);
-          v13 = v47;
-        }
-        v19 = -v17;
-        v20 = -v18;
-        v13 += v19;
-        DWORD2(v47) = v19 + v8;
-        v21 = v49;
-        v12 += v20;
-        *(_QWORD *)&v47 = __PAIR64__(v12, v13);
-        HIDWORD(v47) = v20 + v9;
-        if ( v49 )
-        {
-          RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v50, v49, 0, 0);
-          if ( v50[0] )
+          v18 = *(_QWORD *)(v16 + 40);
+          v19 = *(_QWORD *)(v5 + 88);
+          v20 = *(_DWORD *)(v18 + 88);
+          v21 = *(_DWORD *)(v18 + 92);
+          if ( v19 && *(int *)(v5 + 64) < 0 )
           {
-            if ( *(_DWORD *)(v50[0] + 84LL) != 1 )
-            {
-              v22 = *(int *)(v50[0] + 96LL);
-              v23 = *(int *)(v50[0] + 104LL);
-              v24 = *(int *)(v50[0] + 100LL);
-              v25 = *(int *)(v50[0] + 108LL);
-              LODWORD(v51) = v22;
-              if ( (int)v22 < (int)v23 && (int)v24 < (int)v25 )
-              {
-                v26 = v19 + v22;
-                if ( (unsigned __int64)(v26 + 0x80000000LL) > 0xFFFFFFFF
-                  || (LODWORD(v51) = v19 + v22, v27 = v20 + v25, (unsigned __int64)(v27 + 0x80000000LL) > 0xFFFFFFFF)
-                  || (v28 = v19 + v23, HIDWORD(v51) = v20 + v25, (unsigned __int64)(v28 + 0x80000000LL) > 0xFFFFFFFF)
-                  || (DWORD2(v51) = v28, (unsigned __int64)(v20 + v24 + 0x80000000LL) > 0xFFFFFFFF)
-                  || (DWORD1(v51) = v20 + v24, (((v26 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0)
-                  || (((v27 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-                  || (((v28 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-                  || ((((v20 + (_DWORD)v24) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
-                {
-                  EngSetLastError(0x216u);
-                }
-                else
-                {
-                  *(_OWORD *)(v50[0] + 96LL) = v51;
-                  v29 = *(_DWORD *)(v50[0] + 84LL);
-                  for ( i = *(unsigned int **)(v50[0] + 88LL);
-                        v29;
-                        i = (unsigned int *)((char *)i + (unsigned int)(4 * v31 + 16)) )
-                  {
-                    i[1] += v20;
-                    --v29;
-                    i[2] += v20;
-                    v31 = *i;
-                    if ( (_DWORD)v31 )
-                    {
-                      v40 = &i[v31 + 3];
-                      do
-                      {
-                        *--v40 += v19;
-                        LODWORD(v31) = v31 - 1;
-                      }
-                      while ( (_DWORD)v31 );
-                      LODWORD(v31) = *i;
-                    }
-                  }
-                  i[-*(i - 1) - 2] = 0x7FFFFFFF;
-                  *(_DWORD *)(*(_QWORD *)(v50[0] + 88LL) + 4LL) = 0x80000000;
-                }
-              }
-            }
+            DWORD1(v39) += v21;
+            LODWORD(v39) = v20 + v13;
+            DWORD2(v39) = v20 + v9;
+            HIDWORD(v39) = v21 + v10;
+            v40 = *(_OWORD *)GetMonitorRectForDpi(&v40, v19, 0LL);
+            IntersectRect(&v39, &v39, &v40);
+            v10 = HIDWORD(v39);
+            v9 = DWORD2(v39);
+            v13 = v39;
           }
-          RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v50);
-          v21 = v49;
+          v22 = -v21;
+          v23 = -v20;
+          v13 += v23;
+          HIDWORD(v39) = v22 + v10;
+          v24 = v22 + DWORD1(v39);
+          LODWORD(v39) = v13;
+          DWORD2(v39) = v23 + v9;
+          DWORD1(v39) += v22;
+          if ( a1 )
+          {
+            RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v41, a1, 0, 0);
+            v42.x = v23;
+            v42.y = v22;
+            if ( v41[0] )
+              RGNOBJ::bOffset((RGNOBJ *)v41, &v42);
+            RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v41);
+          }
+LABEL_26:
+          v25 = v43;
+          goto LABEL_27;
         }
-LABEL_37:
-        v32 = v48;
-        goto LABEL_38;
       }
-LABEL_55:
-      v21 = v49;
-      if ( v49 )
-        GreSetRectRgn(v49, 0);
-      goto LABEL_37;
     }
+LABEL_43:
+    if ( a1 )
+      GreSetRectRgn(a1, 0);
+    v24 = DWORD1(v39);
+    goto LABEL_26;
   }
-  v32 = v48;
-  if ( v48 )
+  v25 = v43;
+  if ( v43
+    && (int)IsGetLayeredOrRedirectedParentSupported(v6, a2, 0LL) >= 0
+    && a1
+    && (*(_DWORD *)(v5 + 64) & 0x4000) != 0 )
   {
-    v21 = v49;
-    if ( (int)IsGetLayeredOrRedirectedParentSupported() >= 0 && v49 && (*((_DWORD *)a2 + 16) & 0x4000) != 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v44, v43, v45);
+    v43 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 360LL);
+    v24 = DWORD1(v39);
   }
   else
   {
-    v21 = v49;
+    v24 = DWORD1(v39);
   }
-LABEL_38:
-  DCOBJA::DCOBJA((DCOBJA *)v50, *((HDC *)a2 + 1));
-  if ( v50[0] )
+LABEL_27:
+  DCOBJA::DCOBJA((DCOBJA *)v41, *(HDC *)(v5 + 8));
+  if ( v41[0] )
   {
-    *(_DWORD *)(v50[0] + 8LL * (*(_DWORD *)(v50[0] + 40LL) & 1) + 1016) = v13;
-    *(_DWORD *)(v50[0] + 8LL * (*(_DWORD *)(v50[0] + 40LL) & 1) + 1020) = v12;
-    v33 = v50[0];
-    if ( (*(_DWORD *)(v50[0] + 40LL) & 1) != 0 )
+    *(_DWORD *)(v41[0] + 8LL * (*(_DWORD *)(v41[0] + 40LL) & 1) + 1016) = v13;
+    *(_DWORD *)(v41[0] + 8LL * (*(_DWORD *)(v41[0] + 40LL) & 1) + 1020) = v24;
+    v26 = (_DWORD *)v41[0];
+    v27 = *(_DWORD *)(v41[0] + 40LL) & 1;
+    v28 = v27 ? *(_DWORD *)(v41[0] + 1024LL) : *(_DWORD *)(v41[0] + 1016LL);
+    *(_DWORD *)(v41[0] + 1200LL) = *(_DWORD *)(v41[0] + 124LL) + v28;
+    v29 = v27 ? v26[257] : v26[255];
+    v30 = v39;
+    v26[301] = v26[32] + v29;
+    *(_OWORD *)(v41[0] + 1032LL) = v30;
+    v31 = v41[0];
+    v32 = *(_DWORD *)(v41[0] + 520LL);
+    if ( (v32 & 1) != 0 && (v32 & 2) == 0 )
     {
-      v34 = *(_DWORD *)(v50[0] + 1024LL);
-      v35 = *(_DWORD *)(v50[0] + 1028LL);
-    }
-    else
-    {
-      v34 = *(_DWORD *)(v50[0] + 1016LL);
-      v35 = *(_DWORD *)(v50[0] + 1020LL);
-    }
-    v36 = *(_DWORD *)(v50[0] + 128LL) + v35;
-    v37 = v47;
-    *(_DWORD *)(v50[0] + 1192LL) = *(_DWORD *)(v50[0] + 124LL) + v34;
-    *(_DWORD *)(v33 + 1196) = v36;
-    *(_OWORD *)(v50[0] + 1032LL) = v37;
-    v38 = v50[0];
-    v39 = *(_DWORD *)(v50[0] + 520LL);
-    if ( (v39 & 1) != 0 && (v39 & 2) == 0 )
-    {
-      *(_DWORD *)(v50[0] + 36LL) |= 0x10u;
-      *(_DWORD *)(v38 + 520) = v39 | 4;
+      *(_DWORD *)(v41[0] + 36LL) |= 0x10u;
+      *(_DWORD *)(v31 + 520) = v32 | 4;
     }
   }
-  DCOBJA::~DCOBJA((DCOBJA *)v50);
-  if ( v32 )
+  DCOBJA::~DCOBJA((DCOBJA *)v41);
+  if ( v25 )
   {
-    DCOBJA::DCOBJA((DCOBJA *)v50, *((HDC *)a2 + 1));
-    GreSelectVisRgnInternal(v50, v21, 1LL);
-    DCOBJA::~DCOBJA((DCOBJA *)v50);
+    DCOBJA::DCOBJA((DCOBJA *)v41, *(HDC *)(v5 + 8));
+    GreSelectVisRgnInternal(v41, a1, 1LL);
+    DCOBJA::~DCOBJA((DCOBJA *)v41);
   }
 }

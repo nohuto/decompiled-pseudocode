@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetestConfiguration @ 0x1408181DC
+ * XREFs of IopRetestConfiguration @ 0x1408A0AFC
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x1408182F8 (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x140751F2C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpLookupArbitersNewResources @ 0x140818570 (PnpLookupArbitersNewResources.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpLookupArbitersNewResources @ 0x140752138 (PnpLookupArbitersNewResources.c)
  */
 
-__int64 __fastcall IopRetestConfiguration(int a1, int a2, _QWORD **a3)
+__int64 __fastcall IopRetestConfiguration(__int64 a1, unsigned int a2, _QWORD **a3)
 {
   _QWORD *v3; // rdi
   __int64 result; // rax
@@ -30,7 +30,7 @@ __int64 __fastcall IopRetestConfiguration(int a1, int a2, _QWORD **a3)
       DWORD2(v10) = 0;
       *(_QWORD *)&v11 = 0LL;
       *(_QWORD *)&v10 = v8 - 6;
-      PnpLookupArbitersNewResources(a1, a2, *(v8 - 7), *((_BYTE *)v8 - 72), (__int64)&v11, (__int64)&v10 + 8);
+      PnpLookupArbitersNewResources(a1, a2, *(v8 - 7), *((_BYTE *)v8 - 72), &v11, (unsigned int *)&v10 + 2);
       result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int128 *))(v9 + 32))(*(_QWORD *)(v9 + 8), 1LL, &v10);
       if ( (int)result < 0 )
         break;

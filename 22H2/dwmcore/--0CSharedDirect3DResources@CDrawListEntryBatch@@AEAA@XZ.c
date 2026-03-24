@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CSharedDirect3DResources@CDrawListEntryBatch@@AEAA@XZ @ 0x1800D0350
+ * XREFs of ??0CSharedDirect3DResources@CDrawListEntryBatch@@AEAA@XZ @ 0x18002C1A8
  * Callers:
- *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x1800D0228 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
+ *     ?Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z @ 0x18002B430 (-Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 CDrawListEntryBatch::CSharedDirect3DResources *__fastcall CDrawListEntryBatch::CSharedDirect3DResources::CSharedDirect3DResources(

@@ -1,41 +1,41 @@
 /*
- * XREFs of PnprLoadPluginDriver @ 0x140966618
+ * XREFs of PnprLoadPluginDriver @ 0x1408ADE98
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
- *     MmLoadSystemImage @ 0x140703540 (MmLoadSystemImage.c)
- *     PnprGetPluginDriverImagePath @ 0x140965EE8 (PnprGetPluginDriverImagePath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MmUnloadSystemImage @ 0x140771E10 (MmUnloadSystemImage.c)
+ *     PnprGetPluginDriverImagePath @ 0x1408AD76C (PnprGetPluginDriverImagePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
+__int64 __fastcall PnprLoadPluginDriver(ULONG_PTR *a1, __int64 a2)
 {
-  int PluginDriverImagePath; // edi
-  __int64 v5; // rcx
-  int v6; // eax
-  int v7; // edx
+  __int64 v4; // rdx
+  int PluginDriverImagePath; // ebx
+  __int64 v6; // rcx
+  int v7; // eax
   ULONG_PTR v8; // rax
   int v9; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  ULONG_PTR v12; // [rsp+70h] [rbp+30h] BYREF
-  __int64 v13; // [rsp+78h] [rbp+38h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int64 v13; // [rsp+78h] [rbp+38h] BYREF
 
   v13 = 0LL;
-  v12 = 0LL;
+  BugCheckParameter2 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   PluginDriverImagePath = PnprGetPluginDriverImagePath(&DestinationString);
   if ( PluginDriverImagePath >= 0 )
   {
-    PluginDriverImagePath = MmLoadSystemImage((int)&DestinationString, 0, 0, 2, (__int64)&v12, (__int64)&v13);
+    PluginDriverImagePath = MmLoadSystemImageEx((__int64)&DestinationString, 0LL, 0LL, 2u, &BugCheckParameter2, &v13);
     if ( PluginDriverImagePath >= 0 )
     {
       memset((void *)(a2 + 8), 0, 0x58uLL);
-      v8 = v12;
+      v8 = BugCheckParameter2;
       *(_DWORD *)(a2 + 4) = 1;
       *(_DWORD *)a2 = 96;
       PluginDriverImagePath = (*(__int64 (__fastcall **)(__int64, _QWORD))(v8 + 56))(a2, 0LL);
@@ -44,41 +44,41 @@ __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
         if ( *(_DWORD *)a2 >= 0x40u && *(_QWORD *)(a2 + 56) && *(_QWORD *)(a2 + 24) && *(_QWORD *)(a2 + 32) )
         {
           PluginDriverImagePath = 0;
-          *a1 = v12;
+          *a1 = BugCheckParameter2;
           goto LABEL_23;
         }
-        v5 = PnprContext;
+        v6 = PnprContext;
         PluginDriverImagePath = -1073741637;
-        v6 = *(_DWORD *)(PnprContext + 33272);
-        if ( !v6 )
-          v6 = 4893;
-        v7 = 9;
+        v7 = *(_DWORD *)(PnprContext + 20984);
+        if ( !v7 )
+          v7 = 4887;
+        v4 = 9LL;
       }
       else
       {
-        v5 = PnprContext;
-        v6 = *(_DWORD *)(PnprContext + 33272);
-        if ( !v6 )
-          v6 = 4877;
-        v7 = 8;
+        v6 = PnprContext;
+        v7 = *(_DWORD *)(PnprContext + 20984);
+        if ( !v7 )
+          v7 = 4871;
+        v4 = 8LL;
       }
     }
     else
     {
-      v5 = PnprContext;
-      v6 = *(_DWORD *)(PnprContext + 33272);
-      if ( !v6 )
-        v6 = 4863;
-      v7 = 10;
+      v6 = PnprContext;
+      v7 = *(_DWORD *)(PnprContext + 20984);
+      if ( !v7 )
+        v7 = 4857;
+      v4 = 10LL;
     }
-    *(_DWORD *)(v5 + 33272) = v6;
-    v9 = *(_DWORD *)(v5 + 33276);
+    *(_DWORD *)(v6 + 20984) = v7;
+    v9 = *(_DWORD *)(v6 + 20988);
     if ( !v9 )
-      v9 = v7;
-    *(_DWORD *)(v5 + 33276) = v9;
+      v9 = v4;
+    *(_DWORD *)(v6 + 20988) = v9;
   }
-  if ( v12 )
-    MmUnloadSystemImage(v12);
+  if ( BugCheckParameter2 )
+    MmUnloadSystemImage(BugCheckParameter2, v4);
 LABEL_23:
   if ( DestinationString.Buffer )
     ExFreePoolWithTag(DestinationString.Buffer, 0x51706E50u);

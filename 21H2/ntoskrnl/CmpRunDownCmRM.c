@@ -1,15 +1,14 @@
 /*
- * XREFs of CmpRunDownCmRM @ 0x14069FD64
+ * XREFs of CmpRunDownCmRM @ 0x1406BB4A0
  * Callers:
- *     CmShutdownCmRM @ 0x14069FD1C (CmShutdownCmRM.c)
+ *     CmShutdownCmRM @ 0x1406BB458 (CmShutdownCmRM.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     CmpDelayFreeCmRm @ 0x14069FED8 (CmpDelayFreeCmRm.c)
- *     CmpCleanupTransactionState @ 0x140742300 (CmpCleanupTransactionState.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     CmpDelayFreeCmRm @ 0x1406BB61C (CmpDelayFreeCmRm.c)
+ *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
  */
 
 void __fastcall CmpRunDownCmRM(__int64 *a1, char a2)
@@ -63,7 +62,7 @@ void __fastcall CmpRunDownCmRM(__int64 *a1, char a2)
       }
     }
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     while ( 1 )
     {
       v6 = v18;
@@ -76,7 +75,7 @@ void __fastcall CmpRunDownCmRM(__int64 *a1, char a2)
       *(_QWORD *)(v7 + 8) = &v18;
       if ( v6 == &v18 )
         break;
-      CmpCleanupTransactionState(a1, v6 - 4, 4LL);
+      CmpCleanupTransactionState(a1, v6 - 4, 4LL, 0LL);
     }
     v8 = KeGetCurrentThread();
     --v8->KernelApcDisable;
@@ -91,11 +90,11 @@ LABEL_26:
     v11 = a1[10];
     if ( v11 )
     {
-      *(_QWORD *)(v11 + 4152) = 0LL;
+      *(_QWORD *)(v11 + 4192) = 0LL;
       a1[10] = 0LL;
     }
     ExReleaseFastMutexUnsafe(&CmpRmListLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v12 = (void *)a1[7];
     if ( v12 )
     {

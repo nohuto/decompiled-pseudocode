@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateFlags@CInteractionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A78EC
+ * XREFs of ?EmitUpdateFlags@CInteractionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065CE8
  * Callers:
- *     ?EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A71D0 (-EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064F40 (-EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionMarshaler::EmitUpdateFlags(
@@ -24,15 +24,14 @@ char __fastcall DirectComposition::CInteractionMarshaler::EmitUpdateFlags(
       *(_DWORD *)v6 = 24;
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 1) = 195;
-      v4[12] = (*((_BYTE *)this + 340) & 2) != 0;
-      v4[13] = (*((_BYTE *)this + 340) & 4) != 0;
-      v4[14] = (*((_BYTE *)this + 340) & 8) != 0;
-      v4[15] = *((_BYTE *)this + 340) & 1;
-      v4[16] = (*((_BYTE *)this + 340) & 0x10) != 0;
-      v4[17] = (*((_BYTE *)this + 340) & 0x20) != 0;
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 84);
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 1) = 205;
+      v4[12] = (*((_BYTE *)this + 332) & 2) != 0;
+      v4[13] = (*((_BYTE *)this + 332) & 4) != 0;
+      v4[14] = *((_BYTE *)this + 332) & 1;
+      v4[15] = (*((_BYTE *)this + 332) & 8) != 0;
+      v4[16] = (*((_BYTE *)this + 332) & 0x10) != 0;
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 82);
       *((_DWORD *)this + 4) &= ~0x200u;
     }
     else

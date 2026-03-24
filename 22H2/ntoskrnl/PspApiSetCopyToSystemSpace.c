@@ -1,47 +1,46 @@
 /*
- * XREFs of PspApiSetCopyToSystemSpace @ 0x1409AC978
+ * XREFs of PspApiSetCopyToSystemSpace @ 0x140905D78
  * Callers:
- *     PspSiloLoadApiSets @ 0x1409ADAA0 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x140906D64 (PspSiloLoadApiSets.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MmCreateSection @ 0x14076CB30 (MmCreateSection.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MmMapViewInSystemSpace @ 0x1406A2470 (MmMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140701F50 (MmCreateSection.c)
  */
 
-__int64 __fastcall PspApiSetCopyToSystemSpace(void *Src, size_t Size, _QWORD *a3, _QWORD *a4)
+__int64 __fastcall PspApiSetCopyToSystemSpace(void *Src, size_t Size, struct _DMA_ADAPTER **a3, _QWORD *a4)
 {
   int v8; // eax
-  PVOID v9; // rsi
-  int v10; // edi
+  struct _DMA_ADAPTER *v9; // rsi
+  NTSTATUS v10; // edi
   size_t v11; // r8
-  void *v12; // rbx
-  void *v14; // [rsp+40h] [rbp-20h] BYREF
-  size_t v15; // [rsp+48h] [rbp-18h] BYREF
-  unsigned __int64 v16; // [rsp+50h] [rbp-10h] BYREF
-  PVOID Object; // [rsp+98h] [rbp+38h] BYREF
+  PVOID v12; // rbx
+  PVOID MappedBase; // [rsp+40h] [rbp-38h] BYREF
+  size_t v15; // [rsp+48h] [rbp-30h] BYREF
+  ULONG_PTR ViewSize[2]; // [rsp+50h] [rbp-28h] BYREF
+  PVOID Section; // [rsp+88h] [rbp+10h] BYREF
 
-  v14 = 0LL;
-  Object = 0LL;
-  v16 = 0LL;
+  MappedBase = 0LL;
+  Section = 0LL;
+  ViewSize[0] = 0LL;
   v15 = Size;
-  v8 = MmCreateSection((int)&Object, 983071LL, 0, &v15, 4, 0x8000000, 0LL, 0LL);
-  v9 = Object;
+  v8 = MmCreateSection((int)&Section, 983071LL, 0, &v15, 4, 0x8000000, 0LL, 0LL);
+  v9 = (struct _DMA_ADAPTER *)Section;
   v10 = v8;
   if ( v8 >= 0 )
   {
-    Object = 0LL;
-    v10 = MiMapViewInSystemSpace((__int64)v9, &v14, &v16, (__int64 *)&Object, 0LL, 0LL);
+    v10 = MmMapViewInSystemSpace(Section, &MappedBase, ViewSize);
     if ( v10 >= 0 )
     {
       v11 = Size;
-      v12 = v14;
-      memmove(v14, Src, v11);
+      v12 = MappedBase;
+      memmove(MappedBase, Src, v11);
       *a3 = v9;
       *a4 = v12;
     }
   }
   if ( v9 && v10 < 0 )
-    ObfDereferenceObject(v9);
+    HalPutDmaAdapter(v9);
   return (unsigned int)v10;
 }

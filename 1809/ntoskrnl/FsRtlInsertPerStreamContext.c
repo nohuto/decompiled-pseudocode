@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlInsertPerStreamContext @ 0x1401142D0
+ * XREFs of FsRtlInsertPerStreamContext @ 0x1401142F0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerStreamContext(

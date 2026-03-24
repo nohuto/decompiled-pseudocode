@@ -1,19 +1,20 @@
 /*
- * XREFs of IopStartNextPacketByKeyEx @ 0x1402577EC
+ * XREFs of IopStartNextPacketByKeyEx @ 0x140506D08
  * Callers:
- *     IoStartNextPacket @ 0x1402577B0 (IoStartNextPacket.c)
- *     IoStartNextPacketByKey @ 0x140557DA0 (IoStartNextPacketByKey.c)
+ *     IoStartNextPacket @ 0x1405063A0 (IoStartNextPacket.c)
+ *     IoStartNextPacketByKey @ 0x1405063F0 (IoStartNextPacketByKey.c)
  * Callees:
- *     IopStartNextPacket @ 0x140257964 (IopStartNextPacket.c)
- *     IopStartNextPacketByKey @ 0x14055838C (IopStartNextPacketByKey.c)
+ *     IopStartNextPacket @ 0x140506B84 (IopStartNextPacket.c)
+ *     IopStartNextPacketByKey @ 0x140506C44 (IopStartNextPacketByKey.c)
  */
 
-__int64 __fastcall IopStartNextPacketByKeyEx(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall IopStartNextPacketByKeyEx(__int64 a1, ULONG a2, int a3)
 {
   __int64 v5; // rcx
   signed __int32 v6; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rdx
+  __int64 v7; // r9
+  int v8; // ecx
+  int v9; // edx
   __int64 result; // rax
 
   v5 = *(_QWORD *)(a1 + 312);
@@ -21,24 +22,25 @@ __int64 __fastcall IopStartNextPacketByKeyEx(__int64 a1, unsigned int a2, int a3
   {
     v6 = _InterlockedExchangeAdd((volatile signed __int32 *)(v5 + 56), 1u);
     v7 = *(_QWORD *)(a1 + 312);
-    if ( v6 + 1 > 1 )
+    v8 = *(_DWORD *)(v7 + 64);
+    if ( v6 + 1 <= 1 )
     {
-      *(_DWORD *)(v7 + 64) |= a3;
-      *(_DWORD *)(*(_QWORD *)(a1 + 312) + 60LL) = a2;
-    }
-    else
-    {
-      *(_DWORD *)(v7 + 64) &= 0xFFFFFF1F;
-      v8 = (unsigned __int8)a3 & 0x80;
+      *(_DWORD *)(v7 + 64) = v8 & 0xFFFFFF1F;
+      v9 = a3 & 0x80;
       *(_DWORD *)(*(_QWORD *)(a1 + 312) + 60LL) = 0;
       if ( (a3 & 0x40) != 0 )
       {
-        IopStartNextPacketByKey(a1, v8, a2);
+        IopStartNextPacketByKey(a1, v9, a2);
       }
       else if ( (a3 & 0x20) != 0 )
       {
-        IopStartNextPacket(a1, v8);
+        IopStartNextPacket(a1, v9);
       }
+    }
+    else
+    {
+      *(_DWORD *)(v7 + 64) = a3 | v8;
+      *(_DWORD *)(*(_QWORD *)(a1 + 312) + 60LL) = a2;
     }
     result = (unsigned int)_InterlockedExchangeAdd(
                              (volatile signed __int32 *)(*(_QWORD *)(a1 + 312) + 56LL),

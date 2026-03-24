@@ -1,48 +1,47 @@
 /*
- * XREFs of PspSetBackgroundJobTree @ 0x1407E5DB8
+ * XREFs of PspSetBackgroundJobTree @ 0x14069F420
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
-__int64 __fastcall PspSetBackgroundJobTree(char *Object, char a2)
+__int64 __fastcall PspSetBackgroundJobTree(_QWORD *Object, char a2)
 {
-  unsigned int v4; // ebx
-  int v5; // eax
-  char v7; // [rsp+40h] [rbp+8h] BYREF
-  int v8; // [rsp+41h] [rbp+9h]
+  struct _ERESOURCE *v2; // rdi
+  int v4; // eax
+  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = 0;
-  v8 = 0;
-  ExAcquireResourceExclusiveLite((PERESOURCE)(Object + 56), 1u);
-  v5 = *((_DWORD *)Object + 384) & 0x400;
-  if ( !a2 )
+  LOBYTE(v6) = a2;
+  v2 = (struct _ERESOURCE *)(Object + 7);
+  ExAcquireResourceExclusiveLite((PERESOURCE)(Object + 7), 1u);
+  v4 = Object[165] & 0x400;
+  if ( (_BYTE)v6 )
   {
-    if ( v5 )
-    {
-      _interlockedbittestandreset((volatile signed __int32 *)Object + 384, 0xAu);
-      goto LABEL_4;
-    }
-LABEL_8:
-    v4 = -1073741811;
-    goto LABEL_5;
+    if ( !v4 )
+      goto LABEL_3;
+LABEL_11:
+    ExReleaseResourceLite(v2);
+    return 3221225485LL;
   }
-  if ( v5 )
-    goto LABEL_8;
-  _interlockedbittestandset((volatile signed __int32 *)Object + 384, 0xAu);
-LABEL_4:
-  v7 = a2;
+  if ( !v4 )
+    goto LABEL_11;
+LABEL_3:
+  if ( (_BYTE)v6 )
+    _interlockedbittestandset((volatile signed __int32 *)Object + 330, 0xAu);
+  else
+    _interlockedbittestandreset((volatile signed __int32 *)Object + 330, 0xAu);
   PspEnumJobsAndProcessesInJobHierarchy(
     Object,
     (int)PspSetJobBackgroundCountCallback,
     0,
     (int)PspSetProcessBackgroundCountCallback,
-    (__int64)&v7,
+    (__int64)&v6,
     5);
-LABEL_5:
-  ExReleaseResourceLite((PERESOURCE)(Object + 56));
-  return v4;
+  ExReleaseResourceLite(v2);
+  if ( !(_BYTE)v6 )
+    PspEnumJobsAndProcessesInJobHierarchy(Object, 0, (int)PspBoostJobIoPriorityCallback, 0, 0LL, 0);
+  return 0LL;
 }

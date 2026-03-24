@@ -1,29 +1,27 @@
 /*
- * XREFs of ?RemoveAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAXI@Z @ 0x1C00943DC
+ * XREFs of ?RemoveAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAXI@Z @ 0x1C0084E1C
  * Callers:
- *     ?UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4Enum@InteractionProperty@@UContactRangeConfiguration@12@PEAV?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@PEA_N@Z @ 0x1C0093A88 (-UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4E.c)
+ *     ?UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4Enum@InteractionProperty@@UContactRangeConfiguration@12@PEAV?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@PEA_N@Z @ 0x1C0084994 (-UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4E.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
-__int64 __fastcall CStructDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration>::RemoveAt(
+void __fastcall CStructDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration>::RemoveAt(
         __int64 a1,
         unsigned int a2)
 {
   unsigned int v3; // ebx
-  char *v4; // rdx
-  __int64 result; // rax
-  __int64 v6; // rcx
+  __int64 v4; // rcx
 
   v3 = a2;
-  v4 = *(char **)(*(_QWORD *)a1 + 8LL * a2);
-  if ( v4 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-  result = (unsigned int)(*(_DWORD *)(a1 + 8) - 1);
-  for ( *(_DWORD *)(a1 + 8) = result; v3 < *(_DWORD *)(a1 + 8); *(_QWORD *)(*(_QWORD *)a1 + 8 * v6) = result )
+  Win32FreePool(*(_QWORD *)(*(_QWORD *)a1 + 8LL * a2));
+  if ( v3 < --*(_DWORD *)(a1 + 8) )
   {
-    v6 = v3++;
-    result = *(_QWORD *)(*(_QWORD *)a1 + 8LL * v3);
+    do
+    {
+      v4 = v3++;
+      *(_QWORD *)(*(_QWORD *)a1 + 8 * v4) = *(_QWORD *)(*(_QWORD *)a1 + 8LL * v3);
+    }
+    while ( v3 < *(_DWORD *)(a1 + 8) );
   }
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x180040AD4
+ * XREFs of ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x1800A91F4
  * Callers:
- *     ??_GCCompiledEffectTemplate@@MEAAPEAXI@Z @ 0x180040A90 (--_GCCompiledEffectTemplate@@MEAAPEAXI@Z.c)
+ *     ??_GCCompiledEffectTemplate@@MEAAPEAXI@Z @ 0x1800A91B0 (--_GCCompiledEffectTemplate@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x18004188C (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800A9454 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompiledEffectTemplate::~CCompiledEffectTemplate(CCompiledEffectTemplate *this)
@@ -15,7 +15,7 @@ void __fastcall CCompiledEffectTemplate::~CCompiledEffectTemplate(CCompiledEffec
   __int64 i; // r9
   __int64 v6; // rcx
 
-  v1 = *((_QWORD *)this + 10);
+  v1 = *((_QWORD *)this + 9);
   *(_QWORD *)this = &CCompiledEffectTemplate::`vftable';
   if ( v1 )
   {
@@ -38,10 +38,10 @@ void __fastcall CCompiledEffectTemplate::~CCompiledEffectTemplate(CCompiledEffec
     }
   }
   CCompiledEffectTemplate::SignalCompileCompletedEvent(this);
-  v6 = *((_QWORD *)this + 10);
+  v6 = *((_QWORD *)this + 9);
   if ( v6 )
   {
-    *((_QWORD *)this + 10) = 0LL;
+    *((_QWORD *)this + 9) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 8LL))(v6);
   }
   *(_QWORD *)this = &CNotificationResource::`vftable';

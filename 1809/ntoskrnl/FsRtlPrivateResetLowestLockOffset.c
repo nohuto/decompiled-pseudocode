@@ -3,7 +3,7 @@
  * Callers:
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlFastUnlockSingleExclusive @ 0x14008C4D0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14012EC44 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14012EC64 (FsRtlPrivateFastUnlockAll.c)
  * Callees:
  *     <none>
  */

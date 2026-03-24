@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPreUnlockWorkingSetShared @ 0x140130C28
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x140130C48
  * Callers:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
@@ -8,10 +8,10 @@
  * Callees:
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReduceWs @ 0x140130D7C (MiReduceWs.c)
- *     MiForcedTrim @ 0x14013F1F0 (MiForcedTrim.c)
- *     MiForceAgeWorkingSet @ 0x1402B3020 (MiForceAgeWorkingSet.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReduceWs @ 0x140130D9C (MiReduceWs.c)
+ *     MiForcedTrim @ 0x14013F210 (MiForcedTrim.c)
+ *     MiForceAgeWorkingSet @ 0x1402B3120 (MiForceAgeWorkingSet.c)
  */
 
 char __fastcall MiPreUnlockWorkingSetShared(__int64 a1, char a2)

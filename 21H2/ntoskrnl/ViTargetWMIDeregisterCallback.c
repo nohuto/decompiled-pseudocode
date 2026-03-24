@@ -1,5 +1,5 @@
 /*
- * XREFs of ViTargetWMIDeregisterCallback @ 0x140A8B620
+ * XREFs of ViTargetWMIDeregisterCallback @ 0x1409D7880
  * Callers:
  *     <none>
  * Callees:
@@ -14,6 +14,6 @@ __int64 __fastcall ViTargetWMIDeregisterCallback(__int64 a1, __int64 a2)
   if ( !v2 || *(_QWORD *)(v2 + 8) != a2 )
     return 1LL;
   *(_QWORD *)(v2 + 8) = 0LL;
-  ++dword_140D58A0C;
+  ++dword_140D4B4D4;
   return 0LL;
 }

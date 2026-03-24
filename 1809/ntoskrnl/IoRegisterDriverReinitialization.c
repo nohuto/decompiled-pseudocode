@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterDriverReinitialization @ 0x1407585E0
+ * XREFs of IoRegisterDriverReinitialization @ 0x1407585C0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     IopInterlockedInsertTailList @ 0x14018F950 (IopInterlockedInsertTailList.c)
+ *     IopInterlockedInsertTailList @ 0x14018F970 (IopInterlockedInsertTailList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

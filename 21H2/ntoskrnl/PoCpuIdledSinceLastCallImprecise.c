@@ -1,25 +1,27 @@
 /*
- * XREFs of PoCpuIdledSinceLastCallImprecise @ 0x140248350
+ * XREFs of PoCpuIdledSinceLastCallImprecise @ 0x14036C1D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall PoCpuIdledSinceLastCallImprecise(int a1, __int64 *a2)
+bool __fastcall PoCpuIdledSinceLastCallImprecise(unsigned int a1, unsigned __int64 *a2)
 {
   __int64 v2; // rax
-  __int64 v3; // rax
-  __int64 v4; // rcx
+  char v3; // cl
+  __int64 v4; // r8
+  unsigned __int64 v5; // r9
 
-  v2 = KiProcessorBlock[a1];
-  if ( !v2 )
+  v2 = a1;
+  v3 = 1;
+  v4 = KiProcessorBlock[v2];
+  if ( v4 )
   {
-    *a2 = 0LL;
-    return 1;
+    v5 = *a2;
+    *a2 = *(_QWORD *)(v4 + 32792);
+    if ( !*(_QWORD *)(v4 + 32800) )
+      return *a2 > v5;
   }
-  v3 = *(_QWORD *)(v2 + 33632);
-  v4 = *a2;
-  *a2 = v3;
-  return (v3 & 1) != 0 || (unsigned __int64)(v3 - v4) >= 2;
+  return v3;
 }

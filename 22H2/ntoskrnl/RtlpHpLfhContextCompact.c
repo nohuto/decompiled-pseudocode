@@ -1,83 +1,78 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x140314E58
+ * XREFs of RtlpHpLfhContextCompact @ 0x1402871AC
  * Callers:
- *     RtlpHpHeapCompact @ 0x140337B54 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x14031D368 (RtlpHpHeapCompact.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpLfhOwnerCompact @ 0x14031579C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpAcquireLockShared @ 0x140315948 (RtlpHpAcquireLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140287294 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x1402873F4 (RtlpHpAcquireLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)
 {
-  int v5; // ebp
-  unsigned __int8 v6; // si
-  _QWORD *v7; // rbx
-  __int64 v8; // r14
-  $C71981A45BEB2B45F82C232A7085991E *v9; // rax
-  struct _KTHREAD *CurrentThread; // rcx
-  bool v11; // zf
+  int v4; // ebp
+  unsigned __int8 v5; // si
+  __int64 *v6; // rbx
+  __int64 v7; // r14
+  __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
+  int v12; // eax
+  bool v13; // zf
 
-  v5 = a2 & 1;
+  v4 = a2 & 1;
   if ( (a2 & 1) != 0 )
-    v6 = -1;
+    v5 = -1;
   else
-    v6 = RtlpHpAcquireLockShared(a1 + 72, *(unsigned __int8 *)(a1 + 57), a3);
-  v7 = (_QWORD *)(a1 + 128);
-  v8 = 129LL;
+    v5 = RtlpHpAcquireLockShared(a1 + 72, *(unsigned __int8 *)(a1 + 57));
+  v6 = (__int64 *)(a1 + 128);
+  v7 = 129LL;
   do
   {
-    v9 = ($C71981A45BEB2B45F82C232A7085991E *)*v7;
-    if ( (*v7 & 1) == 0 )
-      LOBYTE(v9) = RtlpHpLfhOwnerCompact(a1, *v7, a2 | 1u);
-    ++v7;
-    --v8;
+    result = *v6;
+    if ( (*v6 & 1) == 0 )
+      result = RtlpHpLfhOwnerCompact(a1, *v6, a2 | 1u);
+    ++v6;
+    --v7;
   }
-  while ( v8 );
-  if ( !v5 )
+  while ( v7 );
+  if ( !v4 )
   {
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v15 = ~(unsigned __int16)(-1LL << (v6 + 1));
-          v11 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v12 = ~(unsigned __int16)(-1LL << (v5 + 1));
+            v13 = (v12 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v12;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
-      LOBYTE(v9) = v6;
-      __writecr8(v6);
+      result = v5;
+      __writecr8(v5);
     }
     else
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 72), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 72));
-      LOBYTE(v9) = KeAbPostRelease(a1 + 72);
-      CurrentThread = KeGetCurrentThread();
-      v11 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v11 )
-      {
-        v9 = &CurrentThread->152;
-        if ( ($C71981A45BEB2B45F82C232A7085991E *)v9->ApcState.ApcListHead[0].Flink != v9 )
-          LOBYTE(v9) = KiCheckForKernelApcDelivery();
-      }
+      KeAbPostRelease(a1 + 72);
+      return KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }
   }
-  return (char)v9;
+  return result;
 }

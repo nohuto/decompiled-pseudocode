@@ -1,10 +1,10 @@
 /*
- * XREFs of ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CDD4C
+ * XREFs of ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CF518
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01309F0 (-bWiden@WIDENER@@IEAAHXZ.c)
- *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CE278 (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01408C8 (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CFCE4 (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
  * Callees:
- *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C014D908 (-vSqrt@EFLOAT@@QEAAXXZ.c)
+ *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C01227F8 (-vSqrt@EFLOAT@@QEAAXXZ.c)
  */
 
 EFLOAT *__fastcall STYLER::efWorldLength(__int64 a1, EFLOAT *a2, __int64 a3)

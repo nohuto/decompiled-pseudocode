@@ -1,9 +1,9 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001796A4BF600>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001796A4BF600>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001796A4BECC0>) 
- 
+[EXCEPTION] DxgkSignalSynchronizationObject @ 0x1C01D13E0: Hex-Rays returned no pseudocode for 0x1C01D13E0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C01D13E0'), <traceback object at 0x000002445D240900>)
+
+[EXCEPTION] ?PrepareNextVSync@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAX_J@Z @ 0x1C01DEAA0: Hex-Rays returned no pseudocode for 0x1C01DEAA0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C01DEAA0'), <traceback object at 0x000002445D243C00>)
+
+[EXCEPTION] ?StartVSync@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z @ 0x1C01E9E10: Hex-Rays returned no pseudocode for 0x1C01E9E10
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C01E9E10'), <traceback object at 0x000002445D199240>)
+

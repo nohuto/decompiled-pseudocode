@@ -1,220 +1,217 @@
 /*
- * XREFs of AslpFileMakeStringVersionAttributes @ 0x14075978C
+ * XREFs of AslpFileMakeStringVersionAttributes @ 0x1407B2DFC
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x140759728 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2D98 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     AslpFileStringTokenize @ 0x14022BD90 (AslpFileStringTokenize.c)
- *     AslpFileVerBlockGetValueOffset @ 0x14022BE8C (AslpFileVerBlockGetValueOffset.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileQueryVersionString @ 0x1406D4614 (AslpFileQueryVersionString.c)
- *     AslStringDuplicate @ 0x1406D4AA8 (AslStringDuplicate.c)
- *     AslStringXmlSanitize @ 0x140759A90 (AslStringXmlSanitize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AslpFileStringTokenize @ 0x1403BD100 (AslpFileStringTokenize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1403BD1F8 (AslpFileVerBlockGetValueOffset.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     AslFree @ 0x140753F6C (AslFree.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslStringDuplicate @ 0x14075A094 (AslStringDuplicate.c)
+ *     AslStringXmlSanitize @ 0x1407B3190 (AslStringXmlSanitize.c)
+ *     AslpFileQueryVersionString @ 0x1407B329C (AslpFileQueryVersionString.c)
  */
 
 __int64 __fastcall AslpFileMakeStringVersionAttributes(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 v3; // r13
-  __int64 v4; // r15
-  unsigned __int16 *v5; // r14
-  unsigned __int64 v6; // r12
-  int v7; // ebx
-  __int64 v8; // rax
-  unsigned __int16 *v9; // r15
-  _WORD *v10; // rax
-  _WORD *v11; // rcx
-  int v12; // eax
-  unsigned int v13; // ecx
-  const wchar_t *v14; // r11
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rdx
+  _DWORD *v4; // rax
+  __int64 v5; // rbx
+  int v6; // ebx
+  unsigned __int16 *i; // r14
+  unsigned __int64 v8; // r15
+  __int64 v9; // rcx
+  __int64 v10; // r12
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  wchar_t *v13; // rcx
+  char *v14; // r13
+  __int16 v15; // ax
+  unsigned __int16 *v16; // r12
   unsigned __int64 v17; // rax
-  __int64 v18; // rdx
-  unsigned __int16 *v19; // r14
-  unsigned int v20; // r11d
-  unsigned __int64 v21; // r15
-  unsigned __int64 v22; // r12
-  int VersionString; // eax
+  unsigned __int64 v18; // rdx
+  unsigned __int64 v19; // rax
+  unsigned __int16 *v20; // r14
+  unsigned int v21; // ebx
+  unsigned __int64 v22; // r15
+  unsigned __int64 v23; // r12
   __int64 v24; // r13
-  __int64 v25; // rax
-  __int64 v26; // rcx
+  int VersionString; // eax
+  __int64 v26; // r13
   __int64 v27; // rax
-  _DWORD *v29; // rax
-  __int64 v30; // rbx
-  __int64 v31; // [rsp+30h] [rbp-50h] BYREF
-  PVOID P; // [rsp+38h] [rbp-48h] BYREF
-  _WORD *v33; // [rsp+40h] [rbp-40h] BYREF
-  const wchar_t *v34; // [rsp+48h] [rbp-38h]
-  _WORD *v35; // [rsp+50h] [rbp-30h]
-  unsigned __int64 v36; // [rsp+58h] [rbp-28h] BYREF
-  int v37[2]; // [rsp+60h] [rbp-20h] BYREF
-  int v38[2]; // [rsp+70h] [rbp-10h] BYREF
-  __int16 v40; // [rsp+D0h] [rbp+50h]
-  int v41; // [rsp+D0h] [rbp+50h]
-  int v42; // [rsp+D8h] [rbp+58h]
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v31; // [rsp+30h] [rbp-40h] BYREF
+  wchar_t *v32; // [rsp+38h] [rbp-38h] BYREF
+  _WORD *v33; // [rsp+40h] [rbp-30h] BYREF
+  wchar_t *Str1; // [rsp+48h] [rbp-28h]
+  unsigned __int64 v35; // [rsp+50h] [rbp-20h] BYREF
+  int v36[2]; // [rsp+58h] [rbp-18h] BYREF
+  int v37[2]; // [rsp+60h] [rbp-10h] BYREF
+  int v38; // [rsp+B8h] [rbp+48h]
+  __int16 v39; // [rsp+C0h] [rbp+50h]
+  int v40; // [rsp+C0h] [rbp+50h]
 
-  v3 = (__int64)a2;
+  v38 = (int)a2;
+  *(_QWORD *)v36 = 0LL;
   *(_QWORD *)v37 = 0LL;
-  v4 = 0LL;
-  *(_QWORD *)v38 = 0LL;
-  v36 = 0LL;
+  v35 = 0LL;
   if ( !a2 )
   {
-    v29 = (_DWORD *)(a1 + 184);
-    v30 = 8LL;
+    v4 = (_DWORD *)(a1 + 184);
+    v5 = 8LL;
     do
     {
-      *v29 |= 2u;
-      v29 += 8;
-      --v30;
+      *v4 |= 2u;
+      v4 += 8;
+      --v5;
     }
-    while ( v30 );
+    while ( v5 );
     *(_DWORD *)(a1 + 792) |= 2u;
     return 0;
   }
-  v5 = a2;
-  P = 0LL;
-  v6 = 0LL;
+  i = a2;
+  v32 = 0LL;
+  v8 = 0LL;
   v33 = 0LL;
   v31 = 0LL;
   if ( !a2[2] )
   {
-    v7 = AslStringDuplicate((wchar_t **)&P, L"\\VarFileInfo\\Translation");
-    if ( v7 < 0 )
+    v6 = AslStringDuplicate(&v32, L"\\VarFileInfo\\Translation");
+    if ( v6 < 0 )
     {
       AslLogCallPrintf(1LL);
-      goto LABEL_21;
+      goto LABEL_7;
     }
-    v8 = *v5;
-    if ( (__int16)v8 >= 8 )
+    v12 = *a2;
+    if ( (__int16)v12 >= 8 )
     {
-      v9 = (unsigned __int16 *)((char *)v5 + v8);
-      v10 = (unsigned __int16 *)((char *)v5 + v8 - 2);
-      v40 = *v10;
-      v11 = P;
-      v35 = v10;
-      *v10 = 0;
-      v34 = AslpFileStringTokenize(v11, 0LL, &v33);
-      if ( v34 )
+      v13 = v32;
+      v14 = (char *)a2 + v12;
+      v15 = *(unsigned __int16 *)((char *)a2 + v12 - 2);
+      v16 = (unsigned __int16 *)v14;
+      v39 = v15;
+      *((_WORD *)v14 - 1) = 0;
+LABEL_12:
+      Str1 = AslpFileStringTokenize(v13, v11, &v33);
+      if ( Str1 )
       {
-        v12 = (int)v9;
-        v42 = (int)v9;
-LABEL_7:
-        v13 = v12 - (_DWORD)v5;
-        if ( (unsigned int)(v12 - (_DWORD)v5) >= 8
-          && *v5 <= v13
-          && AslpFileVerBlockGetValueOffset(&v31, (__int64)v5, v13) >= 0 )
+        v9 = (unsigned int)((_DWORD)v14 - (_DWORD)i);
+        if ( (unsigned int)v9 >= 8
+          && *i <= (unsigned int)v9
+          && AslpFileVerBlockGetValueOffset(&v31, (__int64)i, (unsigned int)v9) >= 0 )
         {
-          v15 = *v5;
-          v16 = v31 + ((v5[1] + 3LL) & 0xFFFFFFFFFFFFFFFCuLL);
-          v31 = v16;
-          if ( v16 <= v15 )
+          v17 = *i;
+          v18 = v31 + ((i[1] + 3LL) & 0xFFFFFFFFFFFFFFFCuLL);
+          v31 = v18;
+          if ( v18 <= v17 )
           {
-            v9 = (unsigned __int16 *)((char *)v5 + v15);
-            v5 = (unsigned __int16 *)((char *)v5 + v16);
-            if ( v5 < v9 )
+            v16 = (unsigned __int16 *)((char *)i + v17);
+            for ( i = (unsigned __int16 *)((char *)i + v18);
+                  i < v16;
+                  i = (unsigned __int16 *)((char *)i + ((*i + 3LL) & 0xFFFFFFFFFFFFFFFCuLL)) )
             {
-              while ( 1 )
+              v19 = *i;
+              if ( (unsigned __int16)v19 <= 8u )
+                break;
+              v9 = (char *)v16 - (char *)i;
+              if ( v19 > (char *)v16 - (char *)i )
+                break;
+              if ( !wcsicmp(Str1, i + 3) )
               {
-                v17 = *v5;
-                if ( (unsigned __int16)v17 <= 8u || v17 > (char *)v9 - (char *)v5 )
-                  break;
-                if ( !wcsicmp(v14, v5 + 3) )
-                {
-                  v34 = AslpFileStringTokenize(0LL, v18, &v33);
-                  if ( !v34 )
-                    goto LABEL_40;
-                  v12 = v42;
-                  goto LABEL_7;
-                }
-                v5 = (unsigned __int16 *)((char *)v5 + ((*v5 + 3LL) & 0xFFFFFFFFFFFFFFFCuLL));
-                if ( v5 >= v9 )
-                  break;
-                v14 = v34;
+                v13 = 0LL;
+                goto LABEL_12;
               }
             }
           }
         }
-        v7 = -1073741275;
-        v4 = 0LL;
+        v6 = -1073741275;
+        *((_WORD *)v14 - 1) = v39;
+        v10 = 0LL;
       }
       else
       {
-LABEL_40:
-        v7 = 0;
-        v6 = (char *)v9 - (char *)v5;
-        v4 = (__int64)v5;
+        v8 = (char *)v16 - (char *)i;
+        *((_WORD *)v14 - 1) = v39;
+        v10 = (__int64)i;
+        v6 = 0;
       }
-      *v35 = v40;
-      goto LABEL_21;
+      goto LABEL_26;
     }
   }
-  v7 = -1073741811;
+  v6 = -1073741811;
   AslLogCallPrintf(1LL);
-LABEL_21:
-  if ( P )
-    ExFreePoolWithTag(P, 0x74705041u);
-  if ( v7 == -1073741275 )
+LABEL_7:
+  v10 = 0LL;
+LABEL_26:
+  AslFree(v9, v32);
+  if ( v6 == -1073741275 )
   {
-    v19 = 0LL;
-    v20 = 0;
+    v20 = 0LL;
+    v21 = 0;
   }
   else
   {
-    if ( v7 < 0 )
+    if ( v6 < 0 )
     {
-LABEL_52:
+LABEL_47:
       AslLogCallPrintf(1LL);
-      return (unsigned int)v7;
+      return (unsigned int)v6;
     }
-    v19 = 0LL;
-    if ( AslpFileVerBlockGetValueOffset(&v36, v4, v6) >= 0 && v36 < v6 )
+    v20 = 0LL;
+    v21 = 0;
+    if ( AslpFileVerBlockGetValueOffset(&v35, v10, v8) >= 0 && v8 > v35 )
     {
-      v19 = (unsigned __int16 *)(v36 + v4);
-      v20 = v6 - v36;
+      v20 = (unsigned __int16 *)(v35 + v10);
+      v21 = v8 - v35;
     }
   }
-  v21 = 0LL;
-  v22 = (unsigned __int64)v20 >> 2;
+  v22 = 0LL;
+  v23 = (unsigned __int64)v21 >> 2;
   do
   {
-    v41 = *(_DWORD *)&byte_140006FD0[v21];
-    VersionString = AslpFileQueryVersionString(v37, v38, v3, v19, v22, *(NTSTRSAFE_PCWSTR *)&byte_140006FD0[v21 + 8]);
-    v7 = VersionString;
+    v24 = *(int *)&byte_140008F10[v22];
+    v40 = *(_DWORD *)&byte_140008F10[v22];
+    VersionString = AslpFileQueryVersionString(
+                      (int)v36,
+                      (int)v37,
+                      v38,
+                      (int)v20,
+                      v23,
+                      *(NTSTRSAFE_PCWSTR *)&byte_140008F10[v22 + 8]);
+    v6 = VersionString;
     if ( VersionString < 0 )
     {
       if ( VersionString != -1073741275 )
-        goto LABEL_52;
-      *(_DWORD *)(32LL * v41 + a1 + 24) |= 2u;
+        goto LABEL_47;
+      *(_DWORD *)(32 * v24 + a1 + 24) |= 2u;
     }
     else
     {
-      v24 = *(_QWORD *)v37;
-      v7 = AslStringXmlSanitize(*(_QWORD *)v37, 0LL);
-      if ( v7 < 0 )
-        goto LABEL_52;
-      v25 = 32LL * v41;
-      v26 = -1LL;
-      *(_DWORD *)(v25 + a1) = 4;
+      v26 = *(_QWORD *)v36;
+      v6 = AslStringXmlSanitize(*(_QWORD *)v36, 0LL);
+      if ( v6 < 0 )
+        goto LABEL_47;
+      v27 = 32LL * v40;
+      v28 = -1LL;
+      *(_DWORD *)(v27 + a1) = 4;
       do
-        ++v26;
-      while ( *(_WORD *)(v24 + 2 * v26) );
-      *(_DWORD *)(v25 + a1 + 24) |= 1u;
-      *(_QWORD *)(v25 + a1 + 16) = v24;
-      v3 = (__int64)a2;
-      *(_QWORD *)(v25 + a1 + 8) = v26;
+        ++v28;
+      while ( *(_WORD *)(v26 + 2 * v28) );
+      *(_DWORD *)(v27 + a1 + 24) |= 1u;
+      *(_QWORD *)(v27 + a1 + 8) = v28;
+      *(_QWORD *)(v27 + a1 + 16) = v26;
     }
-    v21 += 16LL;
+    v22 += 16LL;
   }
-  while ( v21 < 0x80 );
-  if ( v19 && v22 == 1 )
+  while ( v22 < 0x80 );
+  if ( v20 && v23 == 1 )
   {
     *(_DWORD *)(a1 + 768) = 2;
     *(_QWORD *)(a1 + 776) = 4LL;
-    v27 = *v19;
+    v29 = *v20;
     *(_DWORD *)(a1 + 792) |= 1u;
-    *(_QWORD *)(a1 + 784) = v27;
+    *(_QWORD *)(a1 + 784) = v29;
   }
   else
   {

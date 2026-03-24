@@ -1,14 +1,14 @@
 /*
- * XREFs of ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00AAD54
+ * XREFs of ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00BFCF0
  * Callers:
- *     ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00A26D8 (-Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
- *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00AABA4 (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0084D70 (-Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B7DC0 (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0014BA0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0030494 (--$Write@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@@-$_tlg.c)
- *     ??$Write@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@4@Z @ 0x1C003055C (--$Write@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@@-$_.c)
- *     ?LogProcessInformation@VIDMM_COMMIT_TELEMETRY@@AEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAU_GUID@@@Z @ 0x1C00E5F30 (-LogProcessInformation@VIDMM_COMMIT_TELEMETRY@@AEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAU_GUID@@@.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0026430 (--$Write@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@@-$_tlg.c)
+ *     ??$Write@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@4@Z @ 0x1C00264F8 (--$Write@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@@-$_.c)
+ *     _tlgKeywordOn @ 0x1C0026C14 (_tlgKeywordOn.c)
+ *     ?LogProcessInformation@VIDMM_COMMIT_TELEMETRY@@AEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAU_GUID@@@Z @ 0x1C00C05B0 (-LogProcessInformation@VIDMM_COMMIT_TELEMETRY@@AEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAU_GUID@@@.c)
  */
 
 void __fastcall VIDMM_COMMIT_TELEMETRY::LogDeviceInPenaltyBoxEvent(
@@ -16,79 +16,81 @@ void __fastcall VIDMM_COMMIT_TELEMETRY::LogDeviceInPenaltyBoxEvent(
         struct VIDMM_DEVICE *a2,
         char a3)
 {
-  GUID v6; // xmm0
-  const char *v7; // rax
-  _QWORD *v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // r9
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r9
-  __int64 ProcessImageFileName; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-38h] BYREF
-  const char *v16; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-20h] BYREF
-  GUID ActivityId; // [rsp+68h] [rbp-18h] BYREF
+  const char *v6; // rax
+  _QWORD *v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // r9
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r9
+  GUID v13; // xmm0
+  const char *v14; // [rsp+40h] [rbp-9h] BYREF
+  __int64 v15; // [rsp+48h] [rbp-1h] BYREF
+  __int64 ProcessImageFileName; // [rsp+50h] [rbp+7h] BYREF
+  unsigned __int16 *v17; // [rsp+58h] [rbp+Fh] BYREF
+  __int64 v18; // [rsp+60h] [rbp+17h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+1Fh] BYREF
+  unsigned __int16 *v20; // [rsp+70h] [rbp+27h] BYREF
+  GUID ActivityId; // [rsp+78h] [rbp+2Fh] BYREF
 
   if ( *((_BYTE *)this + 24)
-    && (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 1) + 276LL)) <= 6 )
+    && (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 1) + 268LL)) <= 6 )
   {
     ActivityId = 0LL;
     if ( a3 )
       EtwActivityIdControl(3u, &ActivityId);
     else
-      ActivityId = *(GUID *)((char *)a2 + 284);
-    if ( (unsigned int)dword_1C006E048 > 5 && tlgKeywordOn((__int64)&dword_1C006E048, 0x10000LL) )
+      ActivityId = *(GUID *)((char *)a2 + 276);
+    if ( (unsigned int)dword_1C0050048 > 5 && tlgKeywordOn((__int64)&dword_1C0050048, 0x10000LL) )
     {
-      v7 = "AddedToPenaltyBox";
+      v6 = "AddedToPenaltyBox";
       if ( !a3 )
-        v7 = "RemovedFromPenaltyBox";
-      v8 = (_QWORD *)*((_QWORD *)a2 + 1);
-      v16 = v7;
-      v17 = *v8;
-      ProcessImageFileName = PsGetProcessImageFileName(*v8);
-      v9 = *(_QWORD *)(*(_QWORD *)this + 24LL);
-      v15 = *(_QWORD *)(v9 + 1616);
+        v6 = "RemovedFromPenaltyBox";
+      v7 = (_QWORD *)*((_QWORD *)a2 + 1);
+      v14 = v6;
+      v15 = *v7;
+      ProcessImageFileName = PsGetProcessImageFileName(*v7);
+      v8 = *(_QWORD *)(*(_QWORD *)this + 24LL);
+      v17 = *(unsigned __int16 **)(v8 + 1520);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
+        v8,
+        (int)&unk_1C0043A7F,
+        (int)&ActivityId,
         v9,
-        byte_1C00514C4,
-        &ActivityId,
-        v10,
-        (unsigned __int16 **)&v15,
+        &v17,
         (void **)&ProcessImageFileName,
-        (__int64)&v17,
-        (void **)&v16);
+        (__int64)&v15,
+        (void **)&v14);
     }
     if ( a3 )
     {
       VIDMM_COMMIT_TELEMETRY::LogProcessInformation(this, *((struct VIDMM_PROCESS_ADAPTER_INFO **)a2 + 2), &ActivityId);
-      if ( (unsigned int)dword_1C006E048 > 5 && tlgKeywordOn((__int64)&dword_1C006E048, 0x10000LL) )
+      if ( (unsigned int)dword_1C0050048 > 5 && tlgKeywordOn((__int64)&dword_1C0050048, 0x10000LL) )
       {
-        v11 = *((_QWORD *)this + 1);
-        v18 = **(_QWORD **)(v11 + 8);
-        v15 = PsGetProcessImageFileName(**(_QWORD **)(v11 + 8));
-        v12 = *(_QWORD *)(*(_QWORD *)this + 24LL);
-        ProcessImageFileName = *(_QWORD *)(v12 + 1616);
+        v10 = *((_QWORD *)this + 1);
+        v18 = **(_QWORD **)(v10 + 8);
+        v19 = PsGetProcessImageFileName(**(_QWORD **)(v10 + 8));
+        v11 = *(_QWORD *)(*(_QWORD *)this + 24LL);
+        v20 = *(unsigned __int16 **)(v11 + 1520);
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapSz<char>,_tlgWrapperByVal<8>>(
+          v11,
+          (int)&unk_1C0043981,
+          (int)&ActivityId,
           v12,
-          byte_1C005146B,
-          &ActivityId,
-          v13,
-          (unsigned __int16 **)&ProcessImageFileName,
-          (void **)&v15,
+          &v20,
+          (void **)&v19,
           (__int64)&v18);
       }
       VIDMM_COMMIT_TELEMETRY::LogProcessInformation(
         this,
         *(struct VIDMM_PROCESS_ADAPTER_INFO **)(*((_QWORD *)this + 1) + 16LL),
         &ActivityId);
-      v6 = ActivityId;
+      v13 = ActivityId;
     }
     else
     {
-      v6 = GUID_NULL;
+      v13 = GUID_NULL;
     }
-    *(GUID *)((char *)a2 + 284) = v6;
+    *(GUID *)((char *)a2 + 276) = v13;
   }
 }

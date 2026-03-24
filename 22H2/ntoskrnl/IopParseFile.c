@@ -1,10 +1,10 @@
 /*
- * XREFs of IopParseFile @ 0x1407BC1D0
+ * XREFs of IopParseFile @ 0x14067B690
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  */
 
 __int64 __fastcall IopParseFile(
@@ -13,12 +13,12 @@ __int64 __fastcall IopParseFile(
         struct _ACCESS_STATE *a3,
         char a4,
         int a5,
-        UNICODE_STRING *a6,
-        const UNICODE_STRING *a7,
+        PUNICODE_STRING AbsoluteObjectName,
+        PCUNICODE_STRING SourceString,
         __int64 a8,
         __int64 a9,
         __int64 a10,
-        PFILE_OBJECT *a11)
+        PADAPTER_OBJECT *a11)
 {
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rax
 
@@ -26,5 +26,5 @@ __int64 __fastcall IopParseFile(
     return 3221225508LL;
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   *(_QWORD *)(a8 + 40) = a1;
-  return IopParseDevice(RelatedDeviceObject, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  return IopParseDevice(RelatedDeviceObject, a2, a3, a4, a5, AbsoluteObjectName, SourceString, a8, a9, a10, a11);
 }

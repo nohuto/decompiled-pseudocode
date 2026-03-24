@@ -1,117 +1,122 @@
 /*
- * XREFs of _CmGetDeviceMappedProperty @ 0x1406CD2C0
+ * XREFs of _CmGetDeviceMappedProperty @ 0x1406B538C
  * Callers:
- *     _PnpDispatchDevice @ 0x1406CD0C0 (_PnpDispatchDevice.c)
+ *     _PnpDispatchDevice @ 0x1406B51F0 (_PnpDispatchDevice.c)
  * Callees:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC880 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14080C9B4 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406B7BD8 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752610 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedProperty(
         __int64 a1,
-        const wchar_t *a2,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,
-        unsigned int *a6,
-        GUID *a7,
-        unsigned int a8,
-        unsigned int *a9,
+        __int64 a6,
+        __int64 a7,
+        int a8,
+        _DWORD *a9,
         int a10)
 {
-  unsigned int v11; // r11d
-  int v12; // ebx
-  unsigned int v13; // edx
-  DEVPROPKEY **v14; // rax
-  DEVPROPKEY *v15; // r8
-  unsigned int v16; // edi
-  wchar_t *v17; // rsi
-  unsigned int *v18; // rbp
-  DEVPROPKEY **v19; // rcx
-  unsigned int v20; // edx
-  DEVPROPKEY *v21; // r8
-  DEVPROPKEY **i; // rcx
-  DEVPROPKEY *v23; // rdx
-  __int64 result; // rax
-  __int64 v25; // r9
-  __int64 v26; // r10
-  __int64 v27; // r10
+  unsigned int DeviceMappedPropertyFromRegProp; // r10d
+  DEVPROPKEY **v13; // rdx
+  unsigned int v14; // r8d
+  DEVPROPKEY *v15; // r9
+  DEVPROPKEY **v16; // r8
+  unsigned int v17; // r9d
+  DEVPROPKEY *v18; // rdx
+  DEVPROPKEY **v19; // r8
+  unsigned int v20; // r9d
+  DEVPROPKEY *v21; // rdx
+  __int64 v22; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // rcx
 
-  v11 = -1073741802;
+  DeviceMappedPropertyFromRegProp = -1073741802;
   if ( (_WORD)a10 )
-    return 3221225485LL;
-  v12 = 0;
-  *a9 = 0;
-  if ( a4 )
-    return 3221225494LL;
-  v13 = 0;
-  v14 = &CmDeviceRegPropMap;
-  while ( 1 )
   {
-    v15 = *v14;
-    if ( *(_DWORD *)(a5 + 16) == (*v14)->pid )
+    return (unsigned int)-1073741811;
+  }
+  else
+  {
+    *a9 = 0;
+    if ( !a4 )
     {
-      v26 = *(_QWORD *)a5 - *(_QWORD *)&v15->fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&v15->fmtid.Data1 )
-        v26 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v15->fmtid.Data4;
-      if ( !v26 )
-        break;
-    }
-    ++v13;
-    v14 += 3;
-    if ( v13 >= 0x21 )
-    {
-      v16 = a8;
-      v17 = (wchar_t *)a7;
-      v18 = a6;
-      goto LABEL_7;
+      v13 = &CmDeviceRegPropMap;
+      v14 = 0;
+      while ( 1 )
+      {
+        v15 = *v13;
+        if ( *(_DWORD *)(a5 + 16) == (*v13)->pid )
+        {
+          v24 = *(_QWORD *)a5 - *(_QWORD *)&v15->fmtid.Data1;
+          if ( *(_QWORD *)a5 == *(_QWORD *)&v15->fmtid.Data1 )
+            v24 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v15->fmtid.Data4;
+          if ( !v24 )
+            break;
+        }
+        ++v14;
+        v13 += 3;
+        if ( v14 >= 0x21 )
+          goto LABEL_6;
+      }
+      DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromRegProp(
+                                          a1,
+                                          a2,
+                                          a3,
+                                          a5,
+                                          a6,
+                                          a7,
+                                          a8,
+                                          (__int64)a9,
+                                          a10);
+      if ( DeviceMappedPropertyFromRegProp != -1073741802 )
+        return DeviceMappedPropertyFromRegProp;
+LABEL_6:
+      v16 = &off_140983E10;
+      v17 = 0;
+      while ( 1 )
+      {
+        v18 = *v16;
+        if ( *(_DWORD *)(a5 + 16) == (*v16)->pid )
+        {
+          v25 = *(_QWORD *)a5 - *(_QWORD *)&v18->fmtid.Data1;
+          if ( *(_QWORD *)a5 == *(_QWORD *)&v18->fmtid.Data1 )
+            v25 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v18->fmtid.Data4;
+          if ( !v25 )
+            break;
+        }
+        ++v17;
+        v16 += 4;
+        if ( v17 >= 2 )
+          goto LABEL_9;
+      }
+      DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromInstanceKeyRegValue(a1, a2, a3, a5, a6, a7, a8, a9);
+      if ( DeviceMappedPropertyFromRegProp != -1073741802 )
+        return DeviceMappedPropertyFromRegProp;
+LABEL_9:
+      v19 = &off_140985E00;
+      v20 = 0;
+      while ( 1 )
+      {
+        v21 = *v19;
+        if ( *(_DWORD *)(a5 + 16) == (*v19)->pid )
+        {
+          v22 = *(_QWORD *)a5 - *(_QWORD *)&v21->fmtid.Data1;
+          if ( *(_QWORD *)a5 == *(_QWORD *)&v21->fmtid.Data1 )
+            v22 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v21->fmtid.Data4;
+          if ( !v22 )
+            break;
+        }
+        ++v20;
+        v19 += 2;
+        if ( v20 >= 0x1B )
+          return DeviceMappedPropertyFromRegProp;
+      }
+      return (unsigned int)CmGetDeviceMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, a9, a10);
     }
   }
-  v16 = a8;
-  v17 = (wchar_t *)a7;
-  v18 = a6;
-  result = CmGetDeviceMappedPropertyFromRegProp(a1, (__int64)a2, a3, a5, a6, a7, a8, a9, a10);
-  v11 = result;
-  if ( (_DWORD)result != -1073741802 )
-    return result;
-LABEL_7:
-  v19 = &off_140A783B0;
-  v20 = 0;
-  while ( 1 )
-  {
-    v21 = *v19;
-    if ( *(_DWORD *)(a5 + 16) == (*v19)->pid )
-    {
-      v27 = *(_QWORD *)a5 - *(_QWORD *)&v21->fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&v21->fmtid.Data1 )
-        v27 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v21->fmtid.Data4;
-      if ( !v27 )
-        break;
-    }
-    ++v20;
-    v19 += 4;
-    if ( v20 >= 2 )
-      goto LABEL_10;
-  }
-  result = CmGetDeviceMappedPropertyFromInstanceKeyRegValue(a1, a2, a3, a5, v18, v17, v16, a9);
-  v11 = result;
-  if ( (_DWORD)result != -1073741802 )
-    return result;
-LABEL_10:
-  for ( i = &off_140A7A7C0; ; i += 2 )
-  {
-    v23 = *i;
-    if ( *(_DWORD *)(a5 + 16) == (*i)->pid )
-    {
-      v25 = *(_QWORD *)a5 - *(_QWORD *)&v23->fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&v23->fmtid.Data1 )
-        v25 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v23->fmtid.Data4;
-      if ( !v25 )
-        break;
-    }
-    if ( (unsigned int)++v12 >= 0x1C )
-      return v11;
-  }
-  return CmGetDeviceMappedPropertyFromComposite(a1, a2, a3, a5, v18, v17, v16, (int *)a9, a10);
+  return DeviceMappedPropertyFromRegProp;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckAndUnRegisterDefaultAnimations@CInteractionTracker@@AEAA_NPEAUIUnknown@@@Z @ 0x180231CBC
+ * XREFs of ?CheckAndUnRegisterDefaultAnimations@CInteractionTracker@@AEAA_NPEAUIUnknown@@@Z @ 0x1801C8864
  * Callers:
- *     ?OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180233440 (-OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801C9FF0 (-OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 char __fastcall CInteractionTracker::CheckAndUnRegisterDefaultAnimations(
@@ -17,8 +17,8 @@ char __fastcall CInteractionTracker::CheckAndUnRegisterDefaultAnimations(
   char v9; // [rsp+30h] [rbp-8h] BYREF
 
   v2 = (char *)v8;
-  v8[0] = *((_QWORD *)this + 58);
-  v8[1] = *((_QWORD *)this + 59);
+  v8[0] = *((_QWORD *)this + 57);
+  v8[1] = *((_QWORD *)this + 58);
   v5 = 0;
   do
   {
@@ -27,7 +27,7 @@ char __fastcall CInteractionTracker::CheckAndUnRegisterDefaultAnimations(
     {
       v5 = 1;
       CResource::UnRegisterNotifierInternal(this, v6);
-      *(_BYTE *)(*(_QWORD *)v2 + 216LL) &= ~1u;
+      *(_BYTE *)(*(_QWORD *)v2 + 208LL) &= ~1u;
     }
     v2 += 8;
   }

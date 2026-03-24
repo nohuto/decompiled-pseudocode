@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C00233C0
+ * XREFs of ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002BDC0
  * Callers:
- *     ?bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z @ 0x1C0024D60 (-bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z.c)
- *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00266E0 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
- *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C003353C (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
- *     ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C008EC08 (-InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z.c)
- *     ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C008EE00 (-AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z.c)
- *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C00A8FE0 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C016EED0 (EngUpdateDeviceSurface.c)
+ *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0022824 (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C0025408 (-InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z.c)
+ *     ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C00255A0 (-AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z.c)
+ *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C002A750 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
+ *     ?bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z @ 0x1C002B290 (-bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z.c)
+ *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0033940 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0141FB0 (EngUpdateDeviceSurface.c)
  * Callees:
  *     <none>
  */
@@ -20,8 +20,8 @@ void __fastcall RGNOBJ::vSwap(RGNOBJ *this, struct RGNOBJ *a2)
   __int64 v7; // rcx
   bool v8; // zf
   _QWORD *v9; // rbx
-  __int64 v10; // rbp
-  __int64 v11; // r14
+  __int64 v10; // r13
+  __int64 v11; // r15
   _QWORD *v12; // r12
   _QWORD *v13; // rax
   _QWORD *v14; // rcx
@@ -29,19 +29,37 @@ void __fastcall RGNOBJ::vSwap(RGNOBJ *this, struct RGNOBJ *a2)
   __int64 v16; // rax
   _QWORD *v17; // rcx
   __int64 v18; // rax
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v20; // rdx
+  __int64 v21; // rcx
   _QWORD *ThreadWin32Thread; // rax
-  __int64 v20; // rdi
-  __int64 v21; // r13
-  _QWORD *v22; // rbx
-  __int64 v23; // r15
-  __int64 *v24; // rax
-  __int64 v25; // rcx
-  _QWORD *v26; // rax
-  _QWORD *v27; // rsi
-  _QWORD *v28; // rbx
+  __int64 v23; // rbp
+  __int64 v24; // r12
+  _QWORD *v25; // rdi
+  __int64 v26; // r14
+  __int64 v27; // rdx
+  __int64 v28; // rcx
   __int64 *v29; // rax
-  __int64 v30; // rax
-  _QWORD *v31; // rdi
+  __int64 v30; // rcx
+  _QWORD *v31; // rax
+  _QWORD *v32; // rsi
+  _QWORD *v33; // rdi
+  struct _KTHREAD *v34; // r14
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 *v37; // rax
+  __int64 v38; // rax
+  _QWORD *v39; // rbp
+  __int64 v40; // rax
+  int v41; // edi
+  __int64 v42; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v46; // rax
+  int v47; // ebx
+  __int64 v48; // rax
+  struct _KTHREAD *v49; // [rsp+50h] [rbp+8h]
 
   v4 = *(_DWORD *)(*(_QWORD *)this + 32LL);
   *(_DWORD *)(*(_QWORD *)this + 32LL) = *(_DWORD *)(*(_QWORD *)a2 + 32LL);
@@ -61,10 +79,10 @@ void __fastcall RGNOBJ::vSwap(RGNOBJ *this, struct RGNOBJ *a2)
     KeEnterCriticalRegion();
     v13 = (_QWORD *)*v9;
     if ( *(_QWORD **)(*v9 + 8LL) != v9 )
-      goto LABEL_31;
+      goto LABEL_40;
     v14 = (_QWORD *)v9[1];
     if ( (_QWORD *)*v14 != v9 )
-      goto LABEL_31;
+      goto LABEL_40;
     *v14 = v13;
     v13[1] = v14;
     v9[1] = v9;
@@ -78,10 +96,10 @@ void __fastcall RGNOBJ::vSwap(RGNOBJ *this, struct RGNOBJ *a2)
     KeEnterCriticalRegion();
     v16 = *v15;
     if ( *(_QWORD **)(*v15 + 8LL) != v15 )
-      goto LABEL_31;
+      goto LABEL_40;
     v17 = (_QWORD *)v15[1];
     if ( (_QWORD *)*v17 != v15 )
-      goto LABEL_31;
+      goto LABEL_40;
     *v17 = v16;
     *(_QWORD *)(v16 + 8) = v17;
     v15[1] = v15;
@@ -92,73 +110,100 @@ void __fastcall RGNOBJ::vSwap(RGNOBJ *this, struct RGNOBJ *a2)
   v18 = *(_QWORD *)this;
   *(_QWORD *)this = v7;
   *(_QWORD *)a2 = v18;
-  ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread && *ThreadWin32Thread )
+  CurrentThread = KeGetCurrentThread();
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (v40 = PsGetCurrentProcess(v21, v20),
+        v41 = PsGetProcessSessionIdEx(v40),
+        v42 = PsGetCurrentThreadProcess(),
+        v41 == (unsigned int)PsGetProcessSessionIdEx(v42)) )
   {
-    v20 = 0LL;
-    if ( v12 != v9 )
+    ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
     {
-      v21 = *(_QWORD *)this;
-      v22 = (_QWORD *)(*(_QWORD *)this + 48LL);
-      if ( *(_QWORD *)this != -48LL )
+      if ( *ThreadWin32Thread )
       {
-        KeEnterCriticalRegion();
         v23 = 0LL;
-        v24 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( v24 )
-          v23 = *v24;
-        v22[2] = v21;
-        v22[3] = CleanUpRegion;
-        if ( v23 )
+        if ( v12 != v9 )
         {
-          v25 = *(_QWORD *)(v23 + 88);
-          v26 = (_QWORD *)(v23 + 88);
-          if ( *(_QWORD *)(v25 + 8) != v23 + 88 )
-            goto LABEL_31;
-          *v22 = v25;
-          v22[1] = v26;
-          *(_QWORD *)(v25 + 8) = v22;
-          *v26 = v22;
+          v24 = *(_QWORD *)this;
+          v25 = (_QWORD *)(*(_QWORD *)this + 48LL);
+          if ( *(_QWORD *)this != -48LL )
+          {
+            KeEnterCriticalRegion();
+            v26 = 0LL;
+            v49 = KeGetCurrentThread();
+            if ( !(unsigned __int8)KeIsAttachedProcess()
+              || (CurrentProcess = PsGetCurrentProcess(v28, v27),
+                  ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+                  CurrentThreadProcess = PsGetCurrentThreadProcess(),
+                  ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+            {
+              v29 = (__int64 *)PsGetThreadWin32Thread(v49);
+              if ( v29 )
+                v26 = *v29;
+            }
+            v25[2] = v24;
+            v25[3] = CleanUpRegion;
+            if ( v26 )
+            {
+              v30 = *(_QWORD *)(v26 + 88);
+              v31 = (_QWORD *)(v26 + 88);
+              if ( *(_QWORD *)(v30 + 8) != v26 + 88 )
+                goto LABEL_40;
+              *v25 = v30;
+              v25[1] = v31;
+              *(_QWORD *)(v30 + 8) = v25;
+              *v31 = v25;
+            }
+            else
+            {
+              v25[1] = v25;
+              *v25 = v25;
+            }
+            KeLeaveCriticalRegion();
+          }
         }
-        else
+        if ( v10 == v11 )
+          return;
+        v32 = *(_QWORD **)a2;
+        v33 = v32 + 6;
+        if ( v32 == (_QWORD *)-48LL )
+          return;
+        KeEnterCriticalRegion();
+        v34 = KeGetCurrentThread();
+        if ( !(unsigned __int8)KeIsAttachedProcess()
+          || (v46 = PsGetCurrentProcess(v36, v35),
+              v47 = PsGetProcessSessionIdEx(v46),
+              v48 = PsGetCurrentThreadProcess(),
+              v47 == (unsigned int)PsGetProcessSessionIdEx(v48)) )
         {
-          v22[1] = v22;
-          *v22 = v22;
+          v37 = (__int64 *)PsGetThreadWin32Thread(v34);
+          if ( v37 )
+            v23 = *v37;
         }
-        KeLeaveCriticalRegion();
+        v32[8] = v32;
+        v32[9] = CleanUpRegion;
+        if ( !v23 )
+        {
+          v32[7] = v32 + 6;
+          *v33 = v33;
+          goto LABEL_31;
+        }
+        v38 = *(_QWORD *)(v23 + 88);
+        v39 = (_QWORD *)(v23 + 88);
+        if ( *(_QWORD **)(v38 + 8) == v39 )
+        {
+          *v33 = v38;
+          v32[7] = v39;
+          *(_QWORD *)(v38 + 8) = v33;
+          *v39 = v33;
+LABEL_31:
+          KeLeaveCriticalRegion();
+          return;
+        }
+LABEL_40:
+        __fastfail(3u);
       }
     }
-    if ( v10 == v11 )
-      return;
-    v27 = *(_QWORD **)a2;
-    v28 = v27 + 6;
-    if ( v27 == (_QWORD *)-48LL )
-      return;
-    KeEnterCriticalRegion();
-    v29 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v29 )
-      v20 = *v29;
-    v27[8] = v27;
-    v27[9] = CleanUpRegion;
-    if ( !v20 )
-    {
-      v27[7] = v27 + 6;
-      *v28 = v28;
-      goto LABEL_27;
-    }
-    v30 = *(_QWORD *)(v20 + 88);
-    v31 = (_QWORD *)(v20 + 88);
-    if ( *(_QWORD **)(v30 + 8) == v31 )
-    {
-      *v28 = v30;
-      v27[7] = v31;
-      *(_QWORD *)(v30 + 8) = v28;
-      *v31 = v28;
-LABEL_27:
-      KeLeaveCriticalRegion();
-      return;
-    }
-LABEL_31:
-    __fastfail(3u);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDDssDssqq @ 0x1C0023D18
+ * XREFs of WPP_RECORDER_SF_DDDssDssqq @ 0x1C000F8D8
  * Callers:
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_DDDssDssqq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -133,7 +133,7 @@ __int64 WPP_RECORDER_SF_DDDssDssqq(__int64 a1, __int64 a2, __int64 a3, __int64 a
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, const char *, __int64, const char *, __int64, __int64 *, __int64, const char *, __int64, const char *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       16LL,
       (__int64 *)va,
       4LL,
@@ -187,5 +187,13 @@ __int64 WPP_RECORDER_SF_DDDssDssqq(__int64 a1, __int64 a2, __int64 a3, __int64 a
     while ( *(_BYTE *)(v10 + v6) );
   }
   LOWORD(v27) = 16;
-  return WppAutoLogTrace(v9, 4LL, 20LL, &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids, v27, (__int64 *)va);
+  return WppAutoLogTrace(
+           v9,
+           4LL,
+           20LL,
+           &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
+           v27,
+           (__int64 *)va,
+           4LL,
+           (__int64 *)va1);
 }

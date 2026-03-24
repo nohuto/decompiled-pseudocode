@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z @ 0x18003A700
+ * XREFs of ?Map@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4D3D11_MAP@@IPEAUD3D11_MAPPED_SUBRESOURCE@@@Z @ 0x1800D5EA4
  * Callers:
- *     ?UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ @ 0x180039D9C (-UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ.c)
- *     ?BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z @ 0x1801F1570 (-BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z.c)
- *     ?SetData@CD3DConstantBuffer@@QEAAJV?$span@$$CBE$0?0@gsl@@@Z @ 0x180294844 (-SetData@CD3DConstantBuffer@@QEAAJV-$span@$$CBE$0-0@gsl@@@Z.c)
+ *     ?UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ @ 0x180050630 (-UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ.c)
+ *     ?BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z @ 0x1801AA6BC (-BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z.c)
+ *     ?SetData@CD3DConstantBuffer@@QEAAJV?$span@$$CBE$0?0@gsl@@@Z @ 0x1802523F8 (-SetData@CD3DConstantBuffer@@QEAAJV-$span@$$CBE$0-0@gsl@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::Map(
@@ -19,17 +19,17 @@ __int64 __fastcall CD3DDevice::Map(
 {
   int v6; // ebx
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
 
-  v6 = *((_DWORD *)this + 272);
+  v6 = *((_DWORD *)this + 282);
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v6, 0x9F1u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v6, 0xBBAu, 0LL);
   }
   else
   {
-    v8 = (*(__int64 (__fastcall **)(_QWORD, struct ID3D11Resource *, _QWORD, __int64, _DWORD, struct D3D11_MAPPED_SUBRESOURCE *))(**((_QWORD **)this + 70) + 112LL))(
-           *((_QWORD *)this + 70),
+    v8 = (*(__int64 (__fastcall **)(_QWORD, struct ID3D11Resource *, _QWORD, __int64, _DWORD, struct D3D11_MAPPED_SUBRESOURCE *))(**((_QWORD **)this + 75) + 112LL))(
+           *((_QWORD *)this + 75),
            a2,
            0LL,
            a4,
@@ -37,7 +37,7 @@ __int64 __fastcall CD3DDevice::Map(
            a6);
     v6 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x9F7u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xBC0u, 0LL);
   }
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext(this, (unsigned int)v6, 0LL);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v6, 0);
 }

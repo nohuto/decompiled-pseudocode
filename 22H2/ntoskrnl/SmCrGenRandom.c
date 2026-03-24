@@ -1,10 +1,10 @@
 /*
- * XREFs of SmCrGenRandom @ 0x1405CDD1C
+ * XREFs of SmCrGenRandom @ 0x1405A0090
  * Callers:
- *     SmKmKeyGenNewKey @ 0x1409D9224 (SmKmKeyGenNewKey.c)
- *     SmCrEncStart @ 0x1409DA8DC (SmCrEncStart.c)
+ *     SmKmKeyGenNewKey @ 0x14092BAC4 (SmKmKeyGenNewKey.c)
+ *     SmCrEncStart @ 0x14092D180 (SmCrEncStart.c)
  * Callees:
- *     BCryptGenRandom @ 0x1405B7888 (BCryptGenRandom.c)
+ *     BCryptGenRandom @ 0x140595ABC (BCryptGenRandom.c)
  */
 
 NTSTATUS __fastcall SmCrGenRandom(PUCHAR pbBuffer, ULONG cbBuffer, __int64 a3, ULONG a4)

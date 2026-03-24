@@ -1,12 +1,11 @@
 /*
- * XREFs of Controller_PopulateVIAFirmwareVersion @ 0x1C0078408
+ * XREFs of Controller_PopulateVIAFirmwareVersion @ 0x1C0074B30
  * Callers:
- *     Controller_PopulatePciDeviceInformation @ 0x1C0074CEC (Controller_PopulatePciDeviceInformation.c)
+ *     Controller_PopulatePciDeviceInformation @ 0x1C006CAE0 (Controller_PopulatePciDeviceInformation.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Controller_PopulateVIAFirmwareVersion(int a1, __int64 a2, __int64 a3, unsigned __int64 *a4)
@@ -54,7 +53,7 @@ void __fastcall Controller_PopulateVIAFirmwareVersion(int a1, __int64 a2, __int6
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return;
-      v11 = 244;
+      v11 = 241;
       v18 = v16;
       goto LABEL_13;
     }
@@ -62,7 +61,7 @@ void __fastcall Controller_PopulateVIAFirmwareVersion(int a1, __int64 a2, __int6
     {
       v17 = v22;
       LOBYTE(v17) = 4;
-      WPP_RECORDER_SF_DDD(a1, v17, 4, 245, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v22, v19, v20[0]);
+      WPP_RECORDER_SF_ddL(a1, v17, 4, 242, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v22, v19, v20[0]);
     }
     *a4 = (unsigned __int8)v20[0] | ((v19 | ((unsigned __int64)v22 << 8)) << 8);
   }
@@ -76,17 +75,17 @@ void __fastcall Controller_PopulateVIAFirmwareVersion(int a1, __int64 a2, __int6
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return;
-      v11 = 246;
+      v11 = 243;
       v18 = v9;
 LABEL_13:
       LOBYTE(v10) = 2;
-      WPP_RECORDER_SF_d(a1, v10, 4, v11, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v18);
+      WPP_RECORDER_SF_d(a1, v10, 4, v11, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v18);
       return;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_D(a1, v10, 4, 247, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v21[0]);
+      WPP_RECORDER_SF_d(a1, v10, 4, 244, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v21[0]);
     }
     *a4 = v21[0];
   }

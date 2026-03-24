@@ -1,16 +1,16 @@
 /*
- * XREFs of VfPendingMoreProcessingRequired @ 0x140AD2970
+ * XREFs of VfPendingMoreProcessingRequired @ 0x1409D58B0
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140AC2B60 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x1409C56D0 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D25E4 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D262C (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC344C (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     ViPendingDelayCompletion @ 0x140AD2D48 (ViPendingDelayCompletion.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE2768 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE28EC (VfIrpDatabaseEntryReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405A254C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405A2594 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x1409C63C0 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     ViPendingDelayCompletion @ 0x1409D5C88 (ViPendingDelayCompletion.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07B8 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfPendingMoreProcessingRequired(int a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -55,7 +55,7 @@ __int64 __fastcall VfPendingMoreProcessingRequired(int a1, __int64 a2, __int64 a
           ((void (__fastcall *)(_QWORD *, _QWORD, _QWORD))v10[6])(v10, *v10, v8 + 1);
           *v10 = 0LL;
           VfUtilAddressRangeRemoveCheckEmpty(
-            (__int64 *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v14 >> 12))),
+            (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v14 >> 12))),
             v14);
           ViIrpDatabaseReleaseLockExclusive(v16[0]);
         }

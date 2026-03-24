@@ -1,39 +1,36 @@
 /*
- * XREFs of ?IntersectWithMaximizedClip@CWindowNode@@AEBAXPEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180133B22
+ * XREFs of ?IntersectWithMaximizedClip@CWindowNode@@AEBAXPEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18003C498
  * Callers:
- *     ?CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCOcclusionContext@@PEBVCShape@@_N@Z @ 0x18013399E (-CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V-$TMilRect_@HUtagRECT@@UMilPointAndSiz.c)
+ *     ?GetAlphaMarginsRects@CWindowNode@@AEAA_NPEAU_MARGINS@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAV3@2@Z @ 0x18003C3CC (-GetAlphaMarginsRects@CWindowNode@@AEAA_NPEAU_MARGINS@@AEBV-$TMilRect_@HUtagRECT@@UMilPointAndSi.c)
+ *     ?CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCOcclusionContext@@PEBVCShape@@_N@Z @ 0x1801F3428 (-CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V-$TMilRect_@HUtagRECT@@UMilPointAndSiz.c)
  * Callees:
- *     ?IntersectUnsafe@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800A79D4 (-IntersectUnsafe@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NA.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?AreAllMarginsZero@@YA_NAEBU_MARGINS@@@Z @ 0x18013397E (-AreAllMarginsZero@@YA_NAEBU_MARGINS@@@Z.c)
+ *     ?IntersectUnsafe@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18003C638 (-IntersectUnsafe@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NA.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-char __fastcall CWindowNode::IntersectWithMaximizedClip(__int64 a1, int *a2)
+void __fastcall CWindowNode::IntersectWithMaximizedClip(const RECT *a1, __int64 a2)
 {
-  int v3; // eax
-  __int64 v4; // rdx
-  _DWORD *v5; // rcx
-  RECT v6; // xmm0
-  RECT rcSrc1; // [rsp+20h] [rbp-30h] BYREF
-  RECT rcSrc2; // [rsp+30h] [rbp-20h] BYREF
+  LONG right; // ecx
+  LONG v5; // ecx
+  LONG v6; // eax
+  tagRECT rcDst; // [rsp+20h] [rbp-38h] BYREF
+  tagRECT v8; // [rsp+30h] [rbp-28h] BYREF
 
-  LOBYTE(v3) = AreAllMarginsZero((const struct _MARGINS *)(a1 + 856));
-  if ( !(_BYTE)v3 )
+  right = a1[52].right;
+  if ( right || a1[53].left || a1[52].bottom || a1[53].top )
   {
-    v6 = *(RECT *)(v4 + 728);
-    rcSrc2.left = 0;
-    rcSrc2.top = 0;
-    rcSrc1 = v6;
-    rcSrc1.left = *v5 + _mm_cvtsi128_si32((__m128i)v6);
-    rcSrc1.right = v6.right - *(_DWORD *)(v4 + 860);
-    rcSrc1.top = *(_DWORD *)(v4 + 864) + v6.top;
-    rcSrc1.bottom = v6.bottom - *(_DWORD *)(v4 + 868);
-    rcSrc2.right = *(_DWORD *)(v4 + 768) - *(_DWORD *)(v4 + 760);
-    rcSrc2.bottom = *(_DWORD *)(v4 + 772) - *(_DWORD *)(v4 + 764);
-    IntersectRect(&rcSrc1, &rcSrc1, &rcSrc2);
-    v3 = EqualRect(&rcSrc1, &rcSrc2);
-    if ( !v3 )
-      LOBYTE(v3) = TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(a2, &rcSrc1.left);
+    v5 = a1[40].left + right;
+    rcDst.right = a1[40].right - a1[52].bottom;
+    rcDst.top = a1[40].top + a1[53].left;
+    v6 = a1[40].bottom - a1[53].top;
+    rcDst.left = v5;
+    rcDst.bottom = v6;
+    IntersectRect(&rcDst, &rcDst, a1 + 43);
+    if ( !EqualRect(&rcDst, a1 + 43) )
+    {
+      OffsetRect(&rcDst, -a1[43].left, -a1[43].top);
+      v8 = rcDst;
+      TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(a2, &v8);
+    }
   }
-  return v3;
 }

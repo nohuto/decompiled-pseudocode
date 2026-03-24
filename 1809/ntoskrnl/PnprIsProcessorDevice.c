@@ -1,7 +1,7 @@
 /*
- * XREFs of PnprIsProcessorDevice @ 0x14083516C
+ * XREFs of PnprIsProcessorDevice @ 0x14083514C
  * Callers:
- *     PnprAddDeviceResources @ 0x1408342D0 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408342B0 (PnprAddDeviceResources.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)

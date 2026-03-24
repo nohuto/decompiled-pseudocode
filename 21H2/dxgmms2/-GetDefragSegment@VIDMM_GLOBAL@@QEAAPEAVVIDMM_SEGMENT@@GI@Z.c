@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetDefragSegment@VIDMM_GLOBAL@@QEAAPEAVVIDMM_SEGMENT@@GI@Z @ 0x1C00D7484
+ * XREFs of ?GetDefragSegment@VIDMM_GLOBAL@@QEAAPEAVVIDMM_SEGMENT@@GI@Z @ 0x1C00B00F8
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00ABE70 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008EC90 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ struct VIDMM_SEGMENT *__fastcall VIDMM_GLOBAL::GetDefragSegment(
   if ( !a3 )
     return 0LL;
   v4 = *((_QWORD *)this + 464);
-  v5 = *(_DWORD *)(1584LL * a2 + *((_QWORD *)this + 5028) + 20);
+  v5 = *(_DWORD *)(1584LL * a2 + *((_QWORD *)this + 5027) + 20);
   while ( 1 )
   {
     _BitScanReverse((unsigned int *)&v6, a3);
@@ -27,7 +27,7 @@ struct VIDMM_SEGMENT *__fastcall VIDMM_GLOBAL::GetDefragSegment(
     v7 = *(_QWORD *)(v4 + 8LL * (unsigned int)(v5 + v6));
     if ( *(_BYTE *)(v7 + 473) )
     {
-      if ( *(_QWORD *)(v7 + 496) != *(_QWORD *)(*(_QWORD *)this + 256LL) )
+      if ( *(_QWORD *)(v7 + 480) != *(_QWORD *)(*(_QWORD *)this + 256LL) )
         break;
     }
     if ( !a3 )

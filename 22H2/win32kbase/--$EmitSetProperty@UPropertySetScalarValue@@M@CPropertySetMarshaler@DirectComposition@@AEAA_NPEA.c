@@ -1,15 +1,15 @@
 /*
- * XREFs of ??$EmitSetProperty@UPropertySetScalarValue@@M@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@1@I@Z @ 0x1C002975C
+ * XREFs of ??$EmitSetProperty@UPropertySetScalarValue@@M@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@1@I@Z @ 0x1C0062758
  * Callers:
- *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00299D8 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062968 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ??$GetPropertyValue@UD2DVector3@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAPEAUD2DVector3@@I@Z @ 0x1C0020F4C (--$GetPropertyValue@UD2DVector3@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKer.c)
- *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C00258D4 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?GetLocalOffset@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAII@Z @ 0x1C0029898 (-GetLocalOffset@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@.c)
- *     ?GetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4MarshalStatus@@I@Z @ 0x1C0029B30 (-GetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
- *     ?GetDataType@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4DCOMPOSITION_EXPRESSION_TYPE@@I@Z @ 0x1C0029B80 (-GetDataType@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@Q.c)
- *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C0029BCC (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C006285C (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ??$GetPropertyValue@UD2DVector3@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAPEAUD2DVector3@@I@Z @ 0x1C00628B8 (--$GetPropertyValue@UD2DVector3@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKer.c)
+ *     ?GetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4MarshalStatus@@I@Z @ 0x1C0062A98 (-GetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?GetDataType@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4DCOMPOSITION_EXPRESSION_TYPE@@I@Z @ 0x1C0062AE8 (-GetDataType@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@Q.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?GetLocalOffset@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAII@Z @ 0x1C0063C68 (-GetLocalOffset@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@.c)
  */
 
 char __fastcall DirectComposition::CPropertySetMarshaler::EmitSetProperty<PropertySetScalarValue,float>(
@@ -17,56 +17,37 @@ char __fastcall DirectComposition::CPropertySetMarshaler::EmitSetProperty<Proper
         struct DirectComposition::CBatch ***a2,
         unsigned int a3)
 {
-  char *v3; // rdi
-  char v7; // bp
-  struct DirectComposition::CBatch **v8; // rcx
-  struct DirectComposition::CBatch *v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  char *v12; // r9
-  void *v14; // [rsp+48h] [rbp+10h] BYREF
+  char v6; // si
+  char *v7; // rdi
+  void *v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = 0LL;
-  v7 = 1;
+  v6 = 1;
   if ( (unsigned __int64)(4096LL - *((_QWORD *)(*a2)[17] + 5)) < 0x20
-    && !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v14) )
+    && !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v9) )
   {
     return 0;
   }
-  v8 = *a2;
-  v14 = 0LL;
-  v9 = v8[17];
-  v10 = *((_QWORD *)v9 + 5);
-  if ( (unsigned __int64)(4096 - v10) >= 0x20
-    && (v11 = *((_QWORD *)v9 + 7), *((_QWORD *)v9 + 5) = v10 + 32, (v12 = (char *)(v10 + v11)) != 0LL) )
-  {
-    v8[19] = (struct DirectComposition::CBatch *)((char *)v8[19] + 32);
-    v3 = v12;
-  }
-  else if ( DirectComposition::CBatch::AllocateNewFragment(a2, 0LL) )
-  {
-    if ( !DirectComposition::CBatch::GetPayloadWritePointer(*a2, 0x20uLL, &v14) )
-      KeBugCheck(0xC000000D);
-    v3 = (char *)v14;
-  }
-  *(_DWORD *)v3 = 32;
-  *(_OWORD *)(v3 + 4) = 0LL;
-  *(_QWORD *)(v3 + 20) = 0LL;
-  *((_DWORD *)v3 + 1) = 309;
-  *((_DWORD *)v3 + 2) = *(_DWORD *)(a1 + 32);
-  *((_DWORD *)v3 + 3) = a3;
-  *((_DWORD *)v3 + 4) = PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetLocalOffset(
+  v9 = 0LL;
+  DirectComposition::CBatch::EnsureBatchBuffer((struct DirectComposition::CBatch **)a2, 0x20uLL, &v9);
+  v7 = (char *)v9;
+  *(_DWORD *)v9 = 32;
+  *(_OWORD *)(v7 + 4) = 0LL;
+  *(_QWORD *)(v7 + 20) = 0LL;
+  *((_DWORD *)v7 + 1) = 326;
+  *((_DWORD *)v7 + 2) = *(_DWORD *)(a1 + 24);
+  *((_DWORD *)v7 + 3) = a3;
+  *((_DWORD *)v7 + 4) = PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetLocalOffset(
                           a1 + 72,
                           a3);
-  *((_DWORD *)v3 + 5) = PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetDataType(
+  *((_DWORD *)v7 + 5) = PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetDataType(
                           a1 + 72,
                           a3);
-  v3[24] = (unsigned int)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetMarshalStatus(
+  v7[24] = (unsigned int)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetMarshalStatus(
                            a1 + 72,
                            a3) == 1;
-  *((_DWORD *)v3 + 7) = *(_DWORD *)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetPropertyValue<D2DVector3>(
+  *((_DWORD *)v7 + 7) = *(_DWORD *)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetPropertyValue<D2DVector3>(
                                      a1 + 72,
                                      a3);
   PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::SetMarshalStatus(a1 + 72, a3, 0LL);
-  return v7;
+  return v6;
 }

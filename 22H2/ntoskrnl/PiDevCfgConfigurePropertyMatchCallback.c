@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x14095D6E0
+ * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x1408A5CC0
  * Callers:
  *     <none>
  * Callees:
@@ -22,13 +22,13 @@ char __fastcall PiDevCfgConfigurePropertyMatchCallback(__int64 a1, __int64 a2)
   v2 = 1;
   if ( (*(_DWORD *)(a2 + 104) & 2) != 0 )
     goto LABEL_11;
-  v3 = *(_QWORD *)a1 - *(_QWORD *)off_140D537D0[0];
-  if ( *(_QWORD *)a1 == *(_QWORD *)off_140D537D0[0] )
-    v3 = *(_QWORD *)(a1 + 8) - *(_QWORD *)off_140D537D0[0]->fmtid.Data4;
+  v3 = *(_QWORD *)a1 - *(_QWORD *)off_140D2D770[0];
+  if ( *(_QWORD *)a1 == *(_QWORD *)off_140D2D770[0] )
+    v3 = *(_QWORD *)(a1 + 8) - *(_QWORD *)off_140D2D770[0]->fmtid.Data4;
   if ( v3 )
   {
 LABEL_11:
-    v8 = &off_140D532F8;
+    v8 = &off_140D2D318;
     v9 = 0;
     while ( 1 )
     {
@@ -49,7 +49,7 @@ LABEL_11:
   }
   else
   {
-    v4 = off_140D537D0;
+    v4 = off_140D2D770;
     v5 = 0;
     while ( 1 )
     {

@@ -1,250 +1,264 @@
 /*
- * XREFs of ?SetupBudgetState@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@K@Z @ 0x1C00EE730
+ * XREFs of ?SetupBudgetState@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@K@Z @ 0x1C00CB360
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00ABE70 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008EC90 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0014F50 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?GetProcessBudgetBandAndVisibility@VIDMM_GLOBAL@@QEAAXPEAVDXGPROCESS@@PEAW4VIDMM_BUDGET_PRIORITY_BAND@@PEAW4VIDMM_BUDGET_VISIBILITY_STATE@@@Z @ 0x1C009D66C (-GetProcessBudgetBandAndVisibility@VIDMM_GLOBAL@@QEAAXPEAVDXGPROCESS@@PEAW4VIDMM_BUDGET_PRIORITY.c)
- *     ?TotalDemotedCommitment@VIDMM_PROCESS_BUDGET_STATE@@QEBA_KXZ @ 0x1C009DD54 (-TotalDemotedCommitment@VIDMM_PROCESS_BUDGET_STATE@@QEBA_KXZ.c)
- *     ?GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAUVIDMM_PARTITION@@@Z @ 0x1C00A208C (-GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT.c)
- *     ?CalculateBudgetGroupTargetUsage@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00EE53C (-CalculateBudgetGroupTargetUsage@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUVIDMM_BUDGET.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001098 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAUVIDMM_PARTITION@@@Z @ 0x1C0073D54 (-GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT.c)
+ *     ?GetProcessBudgetBandAndVisibility@VIDMM_GLOBAL@@QEAAXPEAVDXGPROCESS@@PEAW4VIDMM_BUDGET_PRIORITY_BAND@@PEAW4VIDMM_BUDGET_VISIBILITY_STATE@@@Z @ 0x1C008476C (-GetProcessBudgetBandAndVisibility@VIDMM_GLOBAL@@QEAAXPEAVDXGPROCESS@@PEAW4VIDMM_BUDGET_PRIORITY.c)
+ *     ?TotalDemotedCommitment@VIDMM_PROCESS_BUDGET_STATE@@QEBA_KXZ @ 0x1C00849CC (-TotalDemotedCommitment@VIDMM_PROCESS_BUDGET_STATE@@QEBA_KXZ.c)
+ *     ?CalculateBudgetGroupTargetUsage@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00CB160 (-CalculateBudgetGroupTargetUsage@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUVIDMM_BUDGET.c)
  */
 
 void __fastcall VIDMM_GLOBAL::SetupBudgetState(VIDMM_GLOBAL *this, struct VIDMM_BUDGET_STATE *a2, unsigned int a3)
 {
-  int v4; // r14d
-  __int64 v6; // r13
-  __int64 v7; // rsi
-  __int64 v8; // rdx
-  struct VIDMM_BUDGET_STATE *v9; // r8
-  struct _RTL_BALANCED_NODE *v10; // rax
+  int v4; // r12d
+  __int64 v5; // rcx
+  struct VIDMM_BUDGET_STATE *v6; // r8
+  struct VIDMM_BUDGET_STATE *v7; // rbp
+  __int64 v8; // r13
+  __int64 v9; // r14
+  __int64 v10; // rdx
+  struct _RTL_BALANCED_NODE *v11; // rax
   _QWORD *Children; // rbx
-  __int64 v12; // rdi
-  __int64 v13; // rbp
-  _QWORD **v14; // rax
-  _QWORD *v15; // rcx
-  _QWORD *v16; // rcx
-  __int64 v17; // rbx
-  __int64 v18; // rdi
-  char *v19; // r14
+  __int64 v13; // r13
+  __int64 v14; // rdi
+  __int64 v15; // rsi
+  _QWORD **v16; // rax
+  _QWORD *v17; // rcx
+  _QWORD *v18; // rcx
+  __int64 v19; // rbx
   char *v20; // rdi
-  _QWORD *v21; // rbx
-  VIDMM_GLOBAL *v22; // rcx
-  VIDMM_PROCESS *v23; // rax
-  struct DXGPROCESS *v24; // rdx
-  int *v25; // rbp
-  __int64 v26; // rdx
-  _QWORD *v27; // rax
-  enum _D3DKMT_MEMORY_SEGMENT_GROUP v28; // esi
-  _QWORD *v29; // rbx
+  struct _KTHREAD *v21; // rdi
+  __int64 v22; // r12
+  _QWORD *v23; // rbx
+  VIDMM_GLOBAL *v24; // rcx
+  VIDMM_PROCESS *v25; // rax
+  struct DXGPROCESS *v26; // rdx
+  int *v27; // rbp
+  __int64 v28; // rdx
+  _QWORD *v29; // rax
+  enum _D3DKMT_MEMORY_SEGMENT_GROUP v30; // esi
+  _QWORD *v31; // rbx
   struct VIDMM_SEGMENT_GROUP_STATE *SegmentGroupState; // rax
-  __int64 v31; // r12
-  int v32; // ebp
-  __int64 v33; // rdi
-  __int64 v34; // rsi
-  __int64 v35; // rdx
-  struct _RTL_BALANCED_NODE *v36; // rax
-  _QWORD *v37; // rbx
-  _QWORD **v38; // rcx
-  _QWORD *v39; // rax
-  _QWORD *i; // rcx
-  _BYTE v41[8]; // [rsp+20h] [rbp-68h] BYREF
-  DXGPUSHLOCK *v42; // [rsp+28h] [rbp-60h]
-  int v43; // [rsp+30h] [rbp-58h]
-  __int64 v44; // [rsp+90h] [rbp+8h]
-  __int64 v45; // [rsp+98h] [rbp+10h]
-  struct VIDMM_PHYSICAL_ADAPTER *v47; // [rsp+A8h] [rbp+20h]
+  int v33; // ebp
+  __int64 v34; // rdi
+  struct VIDMM_BUDGET_STATE *v35; // rsi
+  __int64 v36; // rdx
+  struct _RTL_BALANCED_NODE *v37; // rax
+  _QWORD *i; // rbx
+  _QWORD **v39; // rax
+  _QWORD *v40; // rcx
+  _QWORD *v41; // rcx
+  struct VIDMM_PHYSICAL_ADAPTER *v42; // [rsp+20h] [rbp-68h]
+  char v43[8]; // [rsp+28h] [rbp-60h] BYREF
+  DXGPUSHLOCK *v44; // [rsp+30h] [rbp-58h]
+  int v45; // [rsp+38h] [rbp-50h]
+  struct VIDMM_BUDGET_STATE *v46; // [rsp+90h] [rbp+8h]
+  __int64 v47; // [rsp+98h] [rbp+10h]
+  __int64 v49; // [rsp+A8h] [rbp+20h]
 
   *(_DWORD *)a2 = a3;
   v4 = 0;
-  v44 = a3;
-  v45 = 1584LL * a3;
-  v47 = (struct VIDMM_PHYSICAL_ADAPTER *)(v45 + *((_QWORD *)this + 5028));
-  v6 = ((*((_BYTE *)v47 + 437) & 8) != 0) + 1LL;
-  v7 = 0LL;
+  v47 = a3;
+  v5 = a3;
+  v6 = (struct VIDMM_BUDGET_STATE *)(1584LL * a3);
+  v46 = v6;
+  v42 = (struct VIDMM_BUDGET_STATE *)((char *)v6 + *((_QWORD *)this + 5027));
+  v7 = v6;
+  v8 = ((*((_BYTE *)v42 + 437) & 8) != 0) + 1LL;
+  v49 = v8;
+  v9 = 0LL;
   do
   {
-    v8 = *(unsigned int *)a2;
-    v9 = (struct VIDMM_BUDGET_STATE *)*((_QWORD *)this + 5028);
-    if ( (*((_BYTE *)v9 + 1584 * v8 + 24 * v7 + 512) & 1) != 0 )
+    v10 = *((_QWORD *)this + 5027);
+    if ( (*((_BYTE *)v7 + v10 + 512) & 1) == 0 )
     {
-      v10 = VIDMM_PARTITION::_PartitionTree;
-      Children = 0LL;
-      while ( v10 )
+      v19 = 3LL;
+      v20 = (char *)v6 + 336 * v4 + v10;
+      do
       {
-        Children = v10->Children;
-        v10 = v10->Children[0];
+        memset(v20 + 776, 0, 0x60uLL);
+        --v19;
       }
-      while ( Children )
+      while ( v19 );
+LABEL_21:
+      v5 = v47;
+      v6 = v46;
+      goto LABEL_22;
+    }
+    v11 = VIDMM_PARTITION::_PartitionTree;
+    Children = 0LL;
+    while ( v11 )
+    {
+      Children = v11->Children;
+      v11 = v11->Children[0];
+    }
+    if ( Children )
+    {
+      v13 = 336 * v5;
+      do
       {
-        v12 = 3LL;
-        v13 = *(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 240LL) + Children[5] + 24)
-            + 336LL * *(unsigned int *)a2;
+        v14 = 3LL;
+        v15 = *(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 232LL) + Children[5] + 24);
         do
         {
-          memset((void *)(v13 + 232), 0, 0x60uLL);
-          --v12;
+          memset((void *)(v15 + v13 + 232), 0, 0x60uLL);
+          --v14;
         }
-        while ( v12 );
-        v14 = (_QWORD **)Children[1];
-        v15 = Children;
-        if ( v14 )
+        while ( v14 );
+        v16 = (_QWORD **)Children[1];
+        v17 = Children;
+        if ( v16 )
         {
-          v16 = *v14;
-          for ( Children = (_QWORD *)Children[1]; v16; v16 = (_QWORD *)*v16 )
-            Children = v16;
+          v18 = *v16;
+          for ( Children = (_QWORD *)Children[1]; v18; v18 = (_QWORD *)*v18 )
+            Children = v18;
         }
         else
         {
           while ( 1 )
           {
             Children = (_QWORD *)(Children[2] & 0xFFFFFFFFFFFFFFFCuLL);
-            if ( !Children || (_QWORD *)*Children == v15 )
+            if ( !Children || (_QWORD *)*Children == v17 )
               break;
-            v15 = Children;
+            v17 = Children;
           }
         }
       }
+      while ( Children );
+      v8 = v49;
+      goto LABEL_21;
     }
-    else
-    {
-      v17 = 3LL;
-      v18 = (__int64)v9 + 1584 * v8 + 336 * v4;
-      do
-      {
-        memset((void *)(v18 + 776), 0, 0x60uLL);
-        --v17;
-      }
-      while ( v17 );
-    }
+LABEL_22:
     ++v4;
-    ++v7;
+    ++v9;
+    v7 = (struct VIDMM_BUDGET_STATE *)((char *)v7 + 24);
   }
-  while ( v7 < v6 );
-  v19 = (char *)this + 41088;
-  v20 = (char *)*((_QWORD *)this + 5136);
-  if ( v20 != (char *)this + 41088 )
+  while ( v9 < v8 );
+  v21 = (struct _KTHREAD *)*((_QWORD *)this + 5136);
+  if ( v21 != (VIDMM_GLOBAL *)((char *)this + 41088) )
   {
+    v22 = 296 * v5;
     do
     {
-      v21 = (_QWORD *)(296 * v44 + *((_QWORD *)v20 + 3));
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v41, (struct _KTHREAD **)v20 + 42, 0);
-      DXGPUSHLOCK::AcquireShared(v42);
-      v21[23] = v21[17];
-      v21[24] = v21[18];
-      v43 = 1;
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v41);
-      v21[24] += VIDMM_PROCESS_BUDGET_STATE::TotalDemotedCommitment((VIDMM_PROCESS_BUDGET_STATE *)v21);
-      v23 = (VIDMM_PROCESS *)*((_QWORD *)v20 + 2);
-      v24 = (struct DXGPROCESS *)*((_QWORD *)v23 + 4);
-      if ( v24 && v23 != g_pVidMmSystemProcess )
+      v23 = (_QWORD *)(v22 + *((_QWORD *)v21 + 3));
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v43, (struct _KTHREAD **)v21 + 42, 0);
+      DXGPUSHLOCK::AcquireShared(v44);
+      v23[23] = v23[17];
+      v23[24] = v23[18];
+      v45 = 1;
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v43);
+      v23[24] += VIDMM_PROCESS_BUDGET_STATE::TotalDemotedCommitment((VIDMM_PROCESS_BUDGET_STATE *)v23);
+      v25 = (VIDMM_PROCESS *)*((_QWORD *)v21 + 2);
+      v26 = (struct DXGPROCESS *)*((_QWORD *)v25 + 4);
+      if ( v26 && v25 != g_pVidMmSystemProcess )
       {
-        v25 = (int *)(v20 + 376);
+        v27 = (int *)((char *)v21 + 376);
         VIDMM_GLOBAL::GetProcessBudgetBandAndVisibility(
-          v22,
           v24,
-          (enum VIDMM_BUDGET_PRIORITY_BAND *)(v20 + 376),
-          (enum VIDMM_BUDGET_VISIBILITY_STATE *)(v20 + 368));
-        v26 = *v21;
-        if ( *v21 )
+          v26,
+          (struct _KTHREAD *)((char *)v21 + 376),
+          (struct _KTHREAD *)((char *)v21 + 368));
+        v28 = *v23;
+        if ( *v23 )
         {
-          if ( *(_QWORD **)(v26 + 8) != v21 || (v27 = (_QWORD *)v21[1], (_QWORD *)*v27 != v21) )
+          if ( *(_QWORD **)(v28 + 8) != v23 || (v29 = (_QWORD *)v23[1], (_QWORD *)*v29 != v23) )
             __fastfail(3u);
-          *v27 = v26;
-          *(_QWORD *)(v26 + 8) = v27;
-          *v21 = 0LL;
-          v21[1] = 0LL;
+          *v29 = v28;
+          *(_QWORD *)(v28 + 8) = v29;
+          *v23 = 0LL;
+          v23[1] = 0LL;
         }
-        v28 = D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL;
-        v29 = v21 + 7;
+        v30 = D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL;
+        v31 = v23 + 7;
         do
         {
           SegmentGroupState = VIDMM_GLOBAL::GetSegmentGroupState(
                                 this,
                                 a3,
-                                v28,
-                                *(struct VIDMM_PARTITION **)(*((_QWORD *)v20 + 2) + 288LL));
-          *((_QWORD *)SegmentGroupState + *v25 + 29) += v29[16];
-          if ( *v29 )
+                                v30,
+                                *(struct VIDMM_PARTITION **)(*((_QWORD *)v21 + 2) + 288LL));
+          *((_QWORD *)SegmentGroupState + *v27 + 29) += v31[16];
+          if ( *v31 )
           {
-            *((_QWORD *)SegmentGroupState + *v25 + 35) += *v29;
-            ++*((_DWORD *)SegmentGroupState + *v25 + 76);
+            *((_QWORD *)SegmentGroupState + *v27 + 35) += *v31;
+            ++*((_DWORD *)SegmentGroupState + *v27 + 76);
           }
-          ++v28;
-          ++v29;
+          ++v30;
+          ++v31;
         }
-        while ( v28 < 2 );
-        v19 = (char *)this + 41088;
+        while ( v30 < 2 );
+        v8 = v49;
       }
-      v20 = *(char **)v20;
+      v21 = *(struct _KTHREAD **)v21;
     }
-    while ( v20 != v19 );
+    while ( v21 != (VIDMM_GLOBAL *)((char *)this + 41088) );
   }
-  v31 = v45;
-  v32 = 0;
-  v33 = 0LL;
-  v34 = v45;
+  v33 = 0;
+  v34 = 0LL;
+  v35 = v46;
   do
   {
-    v35 = *((_QWORD *)this + 5028);
-    if ( (*(_BYTE *)(v35 + v34 + 512) & 1) != 0 )
+    v36 = *((_QWORD *)this + 5027);
+    if ( (*((_BYTE *)v35 + v36 + 512) & 1) != 0 )
     {
-      v36 = VIDMM_PARTITION::_PartitionTree;
-      v37 = 0LL;
-      while ( v36 )
+      v37 = VIDMM_PARTITION::_PartitionTree;
+      i = 0LL;
+      while ( v37 )
       {
-        v37 = v36->Children;
-        v36 = v36->Children[0];
+        i = v37->Children;
+        v37 = v37->Children[0];
       }
-      if ( v37 )
+      if ( i )
       {
         do
         {
           VIDMM_GLOBAL::CalculateBudgetGroupTargetUsage(
             this,
-            v47,
-            v9,
-            (struct VIDMM_SEGMENT_GROUP_STATE *)(336 * v44
-                                               + *(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 240LL)
-                                                           + v37[5]
+            v42,
+            v6,
+            (struct VIDMM_SEGMENT_GROUP_STATE *)(336 * v47
+                                               + *(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 232LL)
+                                                           + i[5]
                                                            + 24)));
-          v38 = (_QWORD **)v37[1];
-          v39 = v37;
-          if ( v38 )
+          v39 = (_QWORD **)i[1];
+          v40 = i;
+          if ( v39 )
           {
-            v37 = (_QWORD *)v37[1];
-            for ( i = *v38; i; i = (_QWORD *)*i )
-              v37 = i;
+            v41 = *v39;
+            for ( i = (_QWORD *)i[1]; v41; v41 = (_QWORD *)*v41 )
+              i = v41;
           }
           else
           {
             while ( 1 )
             {
-              v37 = (_QWORD *)(v37[2] & 0xFFFFFFFFFFFFFFFCuLL);
-              if ( !v37 || (_QWORD *)*v37 == v39 )
+              i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+              if ( !i || (_QWORD *)*i == v40 )
                 break;
-              v39 = v37;
+              v40 = i;
             }
           }
         }
-        while ( v37 );
-        v31 = v45;
+        while ( i );
+        v8 = v49;
       }
     }
     else
     {
       VIDMM_GLOBAL::CalculateBudgetGroupTargetUsage(
         this,
-        v47,
-        v9,
-        (struct VIDMM_SEGMENT_GROUP_STATE *)(v31 + v35 + 544 + 336LL * v32));
+        v42,
+        v6,
+        (struct VIDMM_BUDGET_STATE *)((char *)v46 + 336 * v33 + v36 + 544));
     }
-    ++v32;
     ++v33;
-    v34 += 24LL;
+    ++v34;
+    v35 = (struct VIDMM_BUDGET_STATE *)((char *)v35 + 24);
   }
-  while ( v33 < v6 );
+  while ( v34 < v8 );
 }

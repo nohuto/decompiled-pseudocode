@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeReadListPageList @ 0x1407214EC
+ * XREFs of MiFreeReadListPageList @ 0x14063634C
  * Callers:
- *     MiFreeReadListPages @ 0x140721450 (MiFreeReadListPages.c)
+ *     MiFreeReadListPages @ 0x1406362C4 (MiFreeReadListPages.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x14020B9E4 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiGetPfnLink @ 0x140374DEC (MiGetPfnLink.c)
+ *     MiPartitionIdToPointer @ 0x1403253D8 (MiPartitionIdToPointer.c)
+ *     MiGetPfnLink @ 0x14032C1B0 (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
  */
 
 __int64 __fastcall MiFreeReadListPageList(__int64 *a1, __int64 *a2)
@@ -13,19 +13,21 @@ __int64 __fastcall MiFreeReadListPageList(__int64 *a1, __int64 *a2)
   __int64 v2; // r8
   __int64 v5; // rbx
   __int64 PfnLink; // rax
-  __int64 v8; // r8
-  bool v9; // zf
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  bool v11; // zf
 
   v2 = *a1;
   v5 = 0LL;
   while ( v2 )
   {
     PfnLink = MiGetPfnLink(v2);
-    v9 = *a2 == 0;
+    v11 = *a2 == 0;
     *a1 = PfnLink;
-    if ( v9 )
-      *a2 = MiPartitionIdToPointer((*(_QWORD *)(v8 + 40) >> 43) & 0x3FF);
-    MiReleaseFreshPage(v8);
+    if ( v11 )
+      *a2 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 39) & 0x3FF);
+    MiReleaseFreshPage(v9, v8, v9, v10);
     v2 = *a1;
     ++v5;
   }

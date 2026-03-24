@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueDestroyed @ 0x140884768
+ * XREFs of TtmiLogQueueDestroyed @ 0x140884748
  * Callers:
- *     TtmpDeleteQueue @ 0x140882780 (TtmpDeleteQueue.c)
+ *     TtmpDeleteQueue @ 0x140882760 (TtmpDeleteQueue.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueDestroyed()
@@ -25,7 +25,7 @@ void TtmiLogQueueDestroyed()
       v3 = &v1;
       v1 = v0;
       v4 = 8;
-      TlgWrite(&stru_14096D820, &unk_140371ABB, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140371D3E, 0LL, 0LL, 3u, &pData);
     }
   }
 }

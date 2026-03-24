@@ -1,39 +1,34 @@
 /*
- * XREFs of SdbpCheckApplicationTypeAttributes @ 0x14066DE54
+ * XREFs of SdbpCheckApplicationTypeAttributes @ 0x1403F8D90
  * Callers:
- *     SdbpCheckBackupApplicationAttributes @ 0x140A4F580 (SdbpCheckBackupApplicationAttributes.c)
- *     SdbpCheckPackageAttributes @ 0x140A50910 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckBackupApplicationAttributes @ 0x1405D1D80 (SdbpCheckBackupApplicationAttributes.c)
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x140419BFC (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
- *     SdbReadQWORDTag @ 0x14080B234 (SdbReadQWORDTag.c)
- *     SdbpCheckUptoVersion @ 0x140865024 (SdbpCheckUptoVersion.c)
- *     AslStringPatternMatchW @ 0x1408AC6C6 (AslStringPatternMatchW.c)
- *     SdbpCheckFromStringVersion @ 0x140A53458 (SdbpCheckFromStringVersion.c)
- *     SdbpCheckFromVersion @ 0x140A5358C (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoStringVersion @ 0x140A535D0 (SdbpCheckUptoStringVersion.c)
- *     SdbpCheckVersion @ 0x140A53710 (SdbpCheckVersion.c)
+ *     SdbpCheckFromStringVersion @ 0x1405D2014 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x1405D2140 (SdbpCheckUptoStringVersion.c)
+ *     AslStringPatternMatchW @ 0x140752F0C (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
+ *     SdbpCheckUptoVersion @ 0x1407B3B94 (SdbpCheckUptoVersion.c)
+ *     SdbReadQWORDTag @ 0x1407B3E60 (SdbReadQWORDTag.c)
+ *     SdbpCheckFromVersion @ 0x140967700 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x140967744 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
 {
-  _WORD *v4; // r15
-  unsigned int v5; // ebx
-  int *v7; // r13
-  int v8; // r14d
-  unsigned __int64 v9; // rdi
-  __int64 v10; // r12
-  __int64 v11; // rbp
-  unsigned int FirstTag; // r10d
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r9
+  unsigned int v4; // ebx
+  unsigned __int64 v5; // r14
+  int v10; // ebp
+  unsigned int FirstTag; // eax
+  __int64 v12; // r9
+  unsigned __int64 v13; // r10
+  unsigned __int64 v14; // r8
   unsigned __int64 v15; // rdi
-  unsigned __int64 v16; // rax
-  unsigned __int64 v17; // rcx
+  unsigned __int64 v16; // rcx
+  unsigned __int64 v17; // rax
   unsigned int v18; // ecx
   unsigned int v19; // ecx
   unsigned int v20; // ecx
@@ -41,217 +36,153 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
   unsigned int v22; // ecx
   unsigned int v23; // ecx
   unsigned int v24; // ecx
-  unsigned int v25; // ecx
-  bool v26; // zf
+  __int64 v25; // rax
+  int v26; // eax
   __int64 v27; // rax
-  int v28; // eax
-  __int64 v29; // rax
   __int64 QWORDTag; // rax
-  __int64 v31; // rax
   int DWORDTag; // ecx
-  unsigned int v33; // ecx
-  unsigned int v34; // ecx
-  unsigned int v35; // ecx
-  unsigned int v36; // ecx
-  unsigned int v37; // ecx
-  unsigned int v38; // ecx
+  __int64 v30; // rax
+  __int64 v31; // rax
   __int64 StringTagPtr; // rax
-  __int64 v40; // rax
-  int v42; // r8d
-  __int64 v43; // [rsp+20h] [rbp-48h]
 
-  v4 = &unk_140C0BCC8;
-  v5 = 0;
-  v7 = a1;
+  v4 = 0;
   *a1 = 0;
-  v8 = 1;
-  v9 = 10LL;
-  v43 = 10LL;
-  if ( (unsigned int)Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage() )
-  {
-    v9 = 16LL;
-    v4 = &unk_140C0BCF0;
-    v43 = 16LL;
-    v10 = 1LL;
-  }
-  else
-  {
-    v10 = 0LL;
-  }
-  v11 = 0LL;
+  v5 = 0LL;
+  v10 = 1;
   while ( 1 )
   {
-    FirstTag = SdbFindFirstTag(a2, a3, (unsigned __int16)v4[2 * v11]);
-    if ( FirstTag )
+    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140C120D0 + v5));
+    v12 = FirstTag;
+    if ( !FirstTag )
+      goto LABEL_48;
+    v13 = a4[2];
+    v14 = 0LL;
+    if ( !v13 )
       break;
-LABEL_54:
-    if ( ++v11 >= v9 )
-    {
-      *v7 = v8;
-      return 1;
-    }
-  }
-  v13 = 0LL;
-  v14 = a4[2];
-  if ( v14 )
-  {
     do
     {
       v15 = 0LL;
-      if ( v13 < v14 )
+      if ( v14 < v13 )
       {
-        v16 = a4[1] * v13;
-        if ( !is_mul_ok(a4[1], v13) || (v17 = a4[5], v15 = v17 + v16, v17 + v16 < v17) )
+        v16 = a4[1] * v14;
+        if ( !is_mul_ok(a4[1], v14) || (v17 = a4[5], v15 = v17 + v16, v17 + v16 < v17) )
           v15 = 0LL;
       }
-      if ( *(_WORD *)v15 == v4[2 * v11 + 1] )
+      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140C120D0 + v5 + 2) )
         break;
-      ++v13;
+      ++v14;
       v15 = 0LL;
     }
-    while ( v13 < v14 );
-    v7 = a1;
-    if ( v15 )
+    while ( v14 < v13 );
+    if ( !v15 )
+      break;
+    v18 = *(unsigned __int16 *)((char *)&unk_140C120D0 + v5);
+    if ( v18 > 0x6001 )
     {
-      v18 = (unsigned __int16)v4[2 * v11];
-      if ( v18 > 0x6011 )
+      if ( v18 != 24593 )
       {
-        v33 = v18 - 24617;
-        if ( v33 )
+        if ( v18 <= 0x6028 )
+          return v4;
+        if ( v18 > 0x602B && v18 != 24642 )
         {
-          v34 = v33 - 1;
-          if ( v34 )
+          if ( v18 == 24644 )
           {
-            v35 = v34 - 1;
-            if ( v35 )
-            {
-              v36 = v35 - 23;
-              if ( v36 )
-              {
-                v37 = v36 - 2;
-                if ( v37 )
-                {
-                  v38 = v37 - 2;
-                  if ( v38 )
-                  {
-                    v26 = v38 == 2;
+            StringTagPtr = SdbGetStringTagPtr(a2, (unsigned int)v12);
+            if ( !StringTagPtr )
+              return v4;
+            v26 = SdbpCheckUptoStringVersion(StringTagPtr, *(_QWORD *)(v15 + 8));
+            goto LABEL_37;
+          }
+          if ( v18 == 24646 )
+          {
+            v31 = SdbGetStringTagPtr(a2, (unsigned int)v12);
+            if ( !v31 )
+              return v4;
+            v26 = SdbpCheckFromStringVersion(v31, *(_QWORD *)(v15 + 8));
+            goto LABEL_37;
+          }
+          if ( v18 != 24648 )
+            return v4;
+        }
+      }
+LABEL_35:
+      v30 = SdbGetStringTagPtr(a2, (unsigned int)v12);
+      if ( !v30 )
+        return v4;
+      v26 = AslStringPatternMatchW(v30, *(_QWORD *)(v15 + 8));
+      goto LABEL_37;
+    }
+    if ( v18 == 24577 )
+      goto LABEL_35;
+    v19 = v18 - 16453;
+    if ( !v19 )
+    {
+      DWORDTag = SdbReadDWORDTag(a2, (unsigned int)v12, 0xFFFFFFFFLL);
+      if ( DWORDTag == -1 )
+        return v4;
+      v26 = DWORDTag == *(_DWORD *)(v15 + 8);
+      goto LABEL_37;
+    }
+    v20 = v19 - 4047;
+    if ( !v20 )
+    {
 LABEL_24:
-                    if ( !v26 )
-                      return v5;
-                    goto LABEL_25;
-                  }
-                  StringTagPtr = SdbGetStringTagPtr(a2, FirstTag);
-                  if ( !StringTagPtr )
-                    return v5;
-                  v28 = SdbpCheckFromStringVersion(StringTagPtr, *(_QWORD *)(v15 + 8));
-                }
-                else
-                {
-                  v40 = SdbGetStringTagPtr(a2, FirstTag);
-                  if ( !v40 )
-                    return v5;
-                  v28 = SdbpCheckUptoStringVersion(v40, *(_QWORD *)(v15 + 8));
-                }
-                goto LABEL_27;
-              }
-            }
-          }
-        }
-      }
-      else if ( v18 != 24593 )
-      {
-        v19 = v18 - 16453;
-        if ( v19 )
-        {
-          v20 = v19 - 4047;
-          if ( v20 )
-          {
-            v21 = v20 - 1;
-            if ( !v21 )
-            {
-LABEL_32:
-              QWORDTag = SdbReadQWORDTag(a2, FirstTag, -1LL);
-              if ( QWORDTag == -1 )
-                return v5;
-              v28 = SdbpCheckFromVersion(QWORDTag, *(_QWORD *)(v15 + 8));
-              goto LABEL_27;
-            }
-            v22 = v21 - 1;
-            if ( !v22 )
-            {
-LABEL_30:
-              v29 = SdbReadQWORDTag(a2, FirstTag, -1LL);
-              if ( v29 == -1 )
-                return v5;
-              v28 = SdbpCheckUptoVersion(v29, *(_QWORD *)(v15 + 8));
-              goto LABEL_27;
-            }
-            v23 = v22 - 1;
-            if ( v23 )
-            {
-              v24 = v23 - 1;
-              if ( v24 )
-              {
-                v25 = v24 - 1;
-                if ( v25 )
-                {
-                  v26 = v25 == 4072;
-                  goto LABEL_24;
-                }
-                goto LABEL_30;
-              }
-              goto LABEL_32;
-            }
-          }
-          v31 = SdbReadQWORDTag(a2, FirstTag, -1LL);
-          if ( v31 == -1 )
-            return v5;
-          v28 = SdbpCheckVersion(v31, *(_QWORD *)(v15 + 8));
-        }
-        else
-        {
-          DWORDTag = SdbReadDWORDTag(a2, FirstTag, 0xFFFFFFFFLL);
-          if ( DWORDTag == -1 )
-            return v5;
-          v28 = DWORDTag == *(_DWORD *)(v15 + 8);
-        }
-LABEL_27:
-        if ( v8 && v28 )
-        {
-          v8 = 1;
-LABEL_53:
-          v9 = v43;
-          goto LABEL_54;
-        }
-LABEL_52:
-        v8 = 0;
-        goto LABEL_53;
-      }
-LABEL_25:
-      v27 = SdbGetStringTagPtr(a2, FirstTag);
-      if ( !v27 )
-        return v5;
-      v28 = AslStringPatternMatchW(v27, *(_QWORD *)(v15 + 8));
-      goto LABEL_27;
+      QWORDTag = SdbReadQWORDTag(a2, (unsigned int)v12, -1LL);
+      if ( QWORDTag == -1 )
+        return v4;
+      v26 = SdbpCheckVersion(QWORDTag, *(_QWORD *)(v15 + 8));
+      goto LABEL_37;
     }
-  }
-  if ( v10 )
-  {
-    if ( v4[2 * v11] == 24577 )
-      goto LABEL_53;
-    if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v13) != 28768 )
+    v21 = v20 - 1;
+    if ( !v21 )
     {
-      v42 = 4842;
-      goto LABEL_58;
+LABEL_22:
+      v27 = SdbReadQWORDTag(a2, (unsigned int)v12, -1LL);
+      if ( v27 == -1 )
+        return v4;
+      v26 = SdbpCheckFromVersion(v27, *(_QWORD *)(v15 + 8));
+      goto LABEL_37;
     }
-    goto LABEL_52;
+    v22 = v21 - 1;
+    if ( v22 )
+    {
+      v23 = v22 - 1;
+      if ( !v23 )
+        goto LABEL_24;
+      v24 = v23 - 1;
+      if ( !v24 )
+        goto LABEL_22;
+      if ( v24 != 1 )
+        return v4;
+    }
+    v25 = SdbReadQWORDTag(a2, (unsigned int)v12, -1LL);
+    if ( v25 == -1 )
+      return v4;
+    v26 = SdbpCheckUptoVersion(v25, *(_QWORD *)(v15 + 8));
+LABEL_37:
+    if ( !v10 || !v26 )
+      goto LABEL_47;
+    v10 = 1;
+LABEL_48:
+    v5 += 4LL;
+    if ( v5 >= 0x40 )
+    {
+      *a1 = v10;
+      return 1;
+    }
   }
-  v42 = 4849;
-LABEL_58:
+  if ( *(_WORD *)((char *)&unk_140C120D0 + v5) == 24577 )
+    goto LABEL_48;
+  if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v14, v12) == 28768 )
+  {
+LABEL_47:
+    v10 = 0;
+    goto LABEL_48;
+  }
   AslLogCallPrintf(
     1,
     (unsigned int)"SdbpCheckApplicationTypeAttributes",
-    v42,
+    4886,
     (unsigned int)"Failed to find Attribute to use for sdb tag");
-  return v5;
+  return v4;
 }

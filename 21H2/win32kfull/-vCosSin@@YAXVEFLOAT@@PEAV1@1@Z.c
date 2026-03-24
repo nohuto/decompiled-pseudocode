@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02AFB50
+ * XREFs of ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0F50
  * Callers:
- *     GreAngleArc @ 0x1C029E684 (GreAngleArc.c)
- *     NtGdiArcInternal @ 0x1C02AFE50 (NtGdiArcInternal.c)
+ *     GreAngleArc @ 0x1C029FD70 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02B1280 (NtGdiArcInternal.c)
  * Callees:
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     eFraction @ 0x1C02DCB18 (eFraction.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     eFraction @ 0x1C02E04BC (eFraction.c)
  */
 
 __int64 __fastcall vCosSin(int a1, float *a2, float *a3)

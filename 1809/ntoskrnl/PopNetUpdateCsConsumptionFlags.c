@@ -1,8 +1,8 @@
 /*
- * XREFs of PopNetUpdateCsConsumptionFlags @ 0x14075DCA4
+ * XREFs of PopNetUpdateCsConsumptionFlags @ 0x14075DC84
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x14075DA00 (PopNetEvaluationWorkerCallback.c)
- *     PopPdcCsDeviceNotification @ 0x14086F030 (PopPdcCsDeviceNotification.c)
+ *     PopNetEvaluationWorkerCallback @ 0x14075D9E0 (PopNetEvaluationWorkerCallback.c)
+ *     PopPdcCsDeviceNotification @ 0x14086F010 (PopPdcCsDeviceNotification.c)
  * Callees:
  *     <none>
  */

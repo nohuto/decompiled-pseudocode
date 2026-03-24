@@ -1,107 +1,109 @@
 /*
- * XREFs of MmReadProcessPageTables @ 0x140645880
+ * XREFs of MmReadProcessPageTables @ 0x140547D40
  * Callers:
- *     KiMonitorCacheErrata @ 0x1405793D0 (KiMonitorCacheErrata.c)
+ *     KiMonitorCacheErrata @ 0x1405221D0 (KiMonitorCacheErrata.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleCurrentTb @ 0x14038A710 (KeFlushSingleCurrentTb.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14046ADB0 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     KeFlushSingleCurrentTb @ 0x1403897D8 (KeFlushSingleCurrentTb.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1405B5A40 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  */
 
-__int64 __fastcall MmReadProcessPageTables(__int64 a1)
+__int64 __fastcall MmReadProcessPageTables(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 ValidPte; // rax
   struct _KPRCB *CurrentPrcb; // r13
-  __int64 v3; // rdi
+  __int64 v6; // rdi
   __int64 result; // rax
-  unsigned int v5; // r14d
-  volatile __int64 *v6; // r15
-  __int64 v7; // rbx
-  _QWORD *v8; // rdx
-  __int64 v9; // rcx
-  unsigned __int64 v10; // rsi
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  unsigned __int64 v19; // [rsp+68h] [rbp+10h]
+  unsigned int v8; // r14d
+  unsigned __int64 v9; // r15
+  volatile __int64 *v10; // rsi
+  __int64 v11; // rbx
+  _QWORD *v12; // rdx
+  __int64 v13; // rcx
+  unsigned __int64 v14; // rbp
+  unsigned __int64 v15; // r12
+  unsigned __int64 v16; // rcx
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
 
-  ValidPte = MiMakeValidPte(0LL, 0LL, 2684354564LL);
+  ValidPte = MiMakeValidPte(0LL, 0LL, 2684354564LL, a4);
   CurrentPrcb = KeGetCurrentPrcb();
-  v3 = ValidPte;
+  v6 = ValidPte;
   __wbinvd();
-  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_140C6B5E0);
-  v5 = 0;
+  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_140C50E48);
+  v8 = 0;
   if ( (_DWORD)result )
   {
-    v6 = (volatile __int64 *)*((_QWORD *)CurrentPrcb->MmInternal + 1578);
-    v7 = _InterlockedExchange64(v6, ZeroPte);
-    KeFlushSingleCurrentTb((__int64)((_QWORD)v6 << 25) >> 16, 0);
-    v8 = MmPhysicalMemoryBlock;
+    v9 = (unsigned __int64)CurrentPrcb->HyperPte & 0xFFFFFFFFFFFFF000uLL;
+    v10 = (volatile __int64 *)(((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+    v11 = _InterlockedExchange64(v10, ZeroPte);
+    KeFlushSingleCurrentTb(v9, 0);
+    v12 = MmPhysicalMemoryBlock;
     if ( *(_DWORD *)MmPhysicalMemoryBlock )
     {
       while ( 1 )
       {
-        v9 = v8[2 * v5 + 2];
-        v10 = 48 * v9 - 0x220000000000LL;
-        v19 = 48 * (v9 + v8[2 * v5 + 3]) - 0x220000000000LL;
-        if ( v10 < v19 )
+        v13 = v12[2 * v8 + 2];
+        v14 = 48 * v13 - 0x58000000000LL;
+        v15 = 48 * (v13 + v12[2 * v8 + 3]) - 0x58000000000LL;
+        if ( v14 < v15 )
           break;
 LABEL_17:
-        v8 = MmPhysicalMemoryBlock;
-        if ( ++v5 >= *(_DWORD *)MmPhysicalMemoryBlock )
+        v12 = MmPhysicalMemoryBlock;
+        if ( ++v8 >= *(_DWORD *)MmPhysicalMemoryBlock )
           goto LABEL_18;
       }
       while ( 1 )
       {
-        if ( (*(_BYTE *)(v10 + 34) & 7) == 6 )
+        if ( (*(_BYTE *)(v14 + 34) & 7) == 6 )
         {
-          v11 = *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL;
-          if ( v11 >= 0xFFFFF68000000000uLL && v11 <= 0xFFFFF6FFFFFFFFFFuLL )
+          v16 = *(_QWORD *)(v14 + 8) | 0x8000000000000000uLL;
+          if ( v16 >= 0xFFFFF68000000000uLL && v16 <= 0xFFFFF6FFFFFFFFFFuLL )
           {
-            v12 = (__int64)(v11 << 25) >> 16;
-            if ( v12 >= 0xFFFFF68000000000uLL && v12 <= 0xFFFFF6FFFFFFFFFFuLL )
+            v17 = (__int64)(v16 << 25) >> 16;
+            if ( v17 >= 0xFFFFF68000000000uLL && v17 <= 0xFFFFF6FFFFFFFFFFuLL )
             {
-              v13 = *(_QWORD *)(v10 + 40);
-              if ( ((v13 >> 60) & 7) != 1
-                && (v13 & 0x10000000000LL) == 0
-                && (v13 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL
-                && (*(_BYTE *)(v10 + 34) & 0xC0) == 0x40 )
+              v18 = *(_QWORD *)(v14 + 40);
+              if ( ((v18 >> 60) & 7) != 1
+                && (v18 & 0x1000000000LL) == 0
+                && (v18 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
+                && (*(_BYTE *)(v14 + 34) & 0xC0) == 0x40 )
               {
-                v3 ^= (v3 ^ (0xAAAAAAAAAAAAB000uLL * ((__int64)(v10 + 0x220000000000LL) >> 4))) & 0xFFFFFFFFFF000LL;
-                _InterlockedExchange64(v6, v3);
-                KeFlushSingleCurrentTb((__int64)((_QWORD)v6 << 25) >> 16, 0);
-                v14 = (__int64)((_QWORD)v6 << 25) >> 16;
-                v15 = 64LL;
+                v6 ^= (v6 ^ (((__int64)(v14 + 0x58000000000LL) / 48) << 12)) & 0xFFFFFFFFF000LL;
+                _InterlockedExchange64(v10, v6);
+                KeFlushSingleCurrentTb(v9, 0);
+                v19 = v9;
+                v20 = 64LL;
                 do
                 {
-                  v14 += 64LL;
-                  --v15;
+                  v19 += 64LL;
+                  --v20;
                 }
-                while ( v15 );
-                v16 = KiCacheErrataMonitor;
-                v17 = CurrentPrcb->Number + 39LL;
+                while ( v20 );
+                v21 = KiCacheErrataMonitor;
+                v22 = CurrentPrcb->Number + 16LL;
                 CurrentPrcb->ClockKeepAlive = 1;
-                _InterlockedExchange64((volatile __int64 *)(v16 + 16 * v17), -1LL);
-                if ( (*(_QWORD *)(v16 + 16 * (*(unsigned int *)(a1 + 36) + 39LL)) & CurrentPrcb->GroupSetMember) != 0 )
+                _InterlockedExchange64((volatile __int64 *)(v21 + 16 * v22), -1LL);
+                if ( (*(_QWORD *)(v21 + 16 * (*(unsigned int *)(a1 + 36) + 16LL)) & CurrentPrcb->GroupSetMember) != 0 )
                   break;
               }
             }
           }
         }
-        v10 += 48LL;
-        if ( v10 >= v19 )
+        v14 += 48LL;
+        if ( v14 >= v15 )
           goto LABEL_17;
       }
     }
 LABEL_18:
-    _InterlockedExchange64(v6, v7);
-    KeFlushSingleCurrentTb((__int64)((_QWORD)v6 << 25) >> 16, 0);
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C6B5E0);
+    _InterlockedExchange64(v10, v11);
+    KeFlushSingleCurrentTb(v9, 0);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C50E48);
     return 1LL;
   }
   return result;

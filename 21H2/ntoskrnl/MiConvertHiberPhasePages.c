@@ -1,31 +1,31 @@
 /*
- * XREFs of MiConvertHiberPhasePages @ 0x140A4FE40
+ * XREFs of MiConvertHiberPhasePages @ 0x140994F28
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140A4AF0C (PopInvokeSystemStateHandler.c)
- *     PopMarkComponentsBootPhase @ 0x140A4F19C (PopMarkComponentsBootPhase.c)
+ *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     KeFlushCurrentTbOnly @ 0x1403AD034 (KeFlushCurrentTbOnly.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B7498 (KeFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 struct _KTHREAD *__fastcall MiConvertHiberPhasePages(__int64 a1)
 {
   char *AnyMultiplexedVm; // rax
   struct _KTHREAD *result; // rax
-  __m128i v4[11]; // [rsp+20h] [rbp-C8h] BYREF
+  _OWORD v4[11]; // [rsp+20h] [rbp-C8h] BYREF
 
   memset(v4, 0, sizeof(v4));
-  v4[0].m128i_i32[0] = 2817;
-  v4[9].m128i_i64[1] = (__int64)MiConvertHiberPhasePte;
+  LOWORD(v4[0]) = 2817;
+  *((_QWORD *)&v4[9] + 1) = MiConvertHiberPhasePte;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(3);
   v4[2] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffff800000000000);
-  v4[1].m128i_i64[1] = (__int64)AnyMultiplexedVm;
-  v4[0].m128i_i8[7] = 17;
-  v4[10].m128i_i64[1] = a1;
-  result = (struct _KTHREAD *)MiWalkPageTables(v4);
+  *((_QWORD *)&v4[1] + 1) = AnyMultiplexedVm;
+  BYTE6(v4[0]) = 17;
+  *((_QWORD *)&v4[10] + 1) = a1;
+  result = (struct _KTHREAD *)MiWalkPageTables((__int64)v4);
   if ( a1 )
     return KeFlushCurrentTbOnly(0);
   return result;

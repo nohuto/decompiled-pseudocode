@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801BBDAC
+ * XREFs of ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801673AC
  * Callers:
- *     ?CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801B9360 (-CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
- *     ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801BB4F0 (-SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
+ *     ?CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x180165BA0 (-CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
+ *     ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x180166FF0 (-SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,18 +12,18 @@ char __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::TryFindBufferStre
         unsigned __int64 a2,
         struct Microsoft::BamoImpl::BufferStream **a3)
 {
-  __int64 *v3; // r9
-  __int64 *v4; // rcx
+  _QWORD *v3; // r9
+  _QWORD *v4; // r10
   __int64 *v5; // rax
 
-  v3 = (__int64 *)*((_QWORD *)this + 4);
+  v3 = (_QWORD *)*((_QWORD *)this + 4);
   v4 = v3;
   v5 = (__int64 *)v3[1];
   while ( !*((_BYTE *)v5 + 25) )
   {
     if ( v5[4] >= a2 )
     {
-      v4 = v5;
+      v3 = v5;
       v5 = (__int64 *)*v5;
     }
     else
@@ -31,14 +31,19 @@ char __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::TryFindBufferStre
       v5 = (__int64 *)v5[2];
     }
   }
-  if ( *((_BYTE *)v4 + 25) || a2 < v4[4] || v4 == v3 )
+  if ( v3 == v4 || a2 < v3[4] )
+  {
+    v3 = (_QWORD *)*((_QWORD *)this + 4);
+    v4 = v3;
+  }
+  if ( v3 == v4 )
   {
     *a3 = 0LL;
     return 0;
   }
   else
   {
-    *a3 = (struct Microsoft::BamoImpl::BufferStream *)v4[5];
+    *a3 = (struct Microsoft::BamoImpl::BufferStream *)v3[5];
     return 1;
   }
 }

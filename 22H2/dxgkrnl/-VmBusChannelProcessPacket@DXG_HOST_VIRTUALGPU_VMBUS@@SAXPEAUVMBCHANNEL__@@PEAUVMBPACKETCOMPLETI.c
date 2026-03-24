@@ -1,256 +1,109 @@
 /*
- * XREFs of ?VmBusChannelProcessPacket@DXG_HOST_VIRTUALGPU_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@PEAXII@Z @ 0x1C005CAC0
+ * XREFs of ?VmBusChannelProcessPacket@DXG_HOST_VIRTUALGPU_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@PEAXII@Z @ 0x1C0041680
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C0054BF8 (McTemplateK0pxqt_EtwWriteTransfer.c)
- *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C00583B8 (McTemplateK0pxq_EtwWriteTransfer.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     ?IsWsl2Guest@DXGVIRTUALMACHINE@@QEBAEXZ @ 0x1C00266B4 (-IsWsl2Guest@DXGVIRTUALMACHINE@@QEBAEXZ.c)
+ *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C0026914 (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     ?VmBusChannelProcessPacketCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@PEAXII@Z @ 0x1C0027130 (-VmBusChannelProcessPacketCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMP.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C00420A4 (McTemplateK0pxq_EtwWriteTransfer.c)
  */
 
 void __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusChannelProcessPacket(
         struct VMBCHANNEL__ *a1,
-        struct _LIST_ENTRY *a2,
-        char *a3,
+        struct VMBPACKETCOMPLETION__ *a2,
+        struct _SLIST_ENTRY *a3,
         unsigned int a4,
         unsigned int a5)
 {
-  int v9; // ebx
-  char *v10; // r13
-  __int64 v11; // rax
-  __int64 v12; // r8
-  __int64 v13; // rcx
-  int v14; // edx
-  int v15; // ecx
-  int v16; // r8d
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // edx
-  int v21; // ecx
-  int v22; // r8d
-  char *v23; // rdi
-  unsigned __int64 v24; // rax
-  __int64 v25; // rcx
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
-  int v29; // edx
-  int v30; // ecx
-  int v31; // r8d
-  unsigned int v32; // ebp
-  int v33; // edx
-  int v34; // ecx
-  int v35; // r8d
-  __int64 v36; // r15
-  struct DXGGLOBAL *Global; // rax
-  struct _WORK_QUEUE_ITEM *v38; // rax
-  struct _WORK_QUEUE_ITEM *v39; // r14
-  __int64 v40; // rax
-  __int64 v41; // rcx
-  __int64 v42; // r8
-  int v43; // edx
-  int v44; // ecx
-  int v45; // r8d
-  __int64 v46; // [rsp+28h] [rbp-60h]
-  __int64 v47; // [rsp+30h] [rbp-58h]
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // r8d
+  int v12; // ebx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  struct _WORK_QUEUE_ITEM *v20; // rsi
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // rax
+  __int64 v25; // [rsp+28h] [rbp-30h]
 
-  _InterlockedIncrement(&g_VgpuNumIncomingPackets);
-  v9 = 0;
-  v10 = 0LL;
-  v11 = ((__int64 (*)(void))qword_1C0141F08)();
-  v12 = 0LL;
-  v13 = *(_QWORD *)(v11 + 104);
-  if ( *(_DWORD *)(v13 + 392) >= 0x28u )
+  v12 = 0;
+  if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
   {
-    if ( a4 < 0x10 )
+    v13 = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C00B4348)(a1);
+    if ( DXGVIRTUALMACHINE::IsWsl2Guest(*(DXGVIRTUALMACHINE **)(v13 + 104)) )
     {
-      WdLogSingleEntry1(2LL, 856LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v15,
-            v14,
-            v16,
-            0LL,
-            0,
-            -1,
-            L"VmBusChannelProcessPacket: Invalid buffer size for extended header",
-            856LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
-LABEL_29:
-      _InterlockedIncrement(&g_VgpuNumCompletedPackets);
-      ((void (__fastcall *)(struct _LIST_ENTRY *, _QWORD, _QWORD))qword_1C0141F48)(a2, 0LL, 0LL);
+      DXG_HOST_VIRTUALGPU_VMBUS::VmBusChannelProcessPacketCblt(a1, a2, a3, a4, a5);
       return;
     }
-    v12 = *(unsigned int *)a3;
-    v10 = a3;
-    if ( (unsigned int)v12 >= a4 )
-    {
-      WdLogSingleEntry1(2LL, 863LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v18,
-          v17,
-          v19,
-          0LL,
-          0,
-          -1,
-          L"VmBusChannelProcessPacket: Invalid ext header size",
-          863LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      goto LABEL_29;
-    }
-    a4 -= v12;
   }
+  _InterlockedIncrement(&g_VgpuNumIncomingPackets);
   if ( a4 < 0x18 )
   {
-    WdLogSingleEntry1(2LL, 870LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v21,
-        v20,
-        v22,
-        0LL,
-        0,
-        -1,
-        L"VmBusChannelProcessPacket: Unexpected buffer size less than DXGKVMB_COMMAND_VGPU_TO_HOST",
-        870LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    goto LABEL_29;
+    v14 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v14 + 24) = 653LL;
+LABEL_8:
+    WdLogEvent5_WdError(v14);
+    _InterlockedIncrement(&g_VgpuNumCompletedPackets);
+    ((void (__fastcall *)(struct VMBPACKETCOMPLETION__ *, _QWORD, _QWORD))qword_1C00B4388)(a2, 0LL, 0LL);
+    return;
   }
-  v23 = &a3[(unsigned int)v12];
-  if ( *(_BYTE *)(v13 + 339) )
+  if ( *((_DWORD *)&a3->Next + 3) )
   {
-    v24 = *((int *)v23 + 4);
-    if ( (unsigned int)v24 > 0x24 || (v25 = 0x1040004000LL, !_bittest64(&v25, v24)) )
-    {
-      WdLogSingleEntry1(2LL, 884LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v27,
-          v26,
-          v28,
-          0LL,
-          0,
-          -1,
-          L"VmBusChannelProcessPacket: Virtual GPU channel is disabled",
-          884LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      goto LABEL_29;
-    }
+    v14 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v14 + 24) = 661LL;
+    goto LABEL_8;
   }
-  if ( v23[12] )
-  {
-    WdLogSingleEntry1(2LL, 889LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v30,
-        v29,
-        v31,
-        0LL,
-        0,
-        -1,
-        L"VmBusChannelProcessPacket: Invalid channel type",
-        889LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    goto LABEL_29;
-  }
-  v32 = *((_DWORD *)v23 + 4);
-  if ( v32 >= 0x43 )
-  {
-    WdLogSingleEntry1(2LL, *((int *)v23 + 4));
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v34,
-        v33,
-        v35,
-        0LL,
-        0,
-        -1,
-        L"Invalid command is passed: %I64n",
-        *((int *)v23 + 4),
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    goto LABEL_29;
-  }
-  v36 = *(_QWORD *)v23;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
     McTemplateK0pxq_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &EventVmBusProcessPacketDpcBegin,
-      v12,
-      a1,
-      v36,
-      *((_DWORD *)v23 + 4));
-  Global = DXGGLOBAL::GetGlobal();
-  v38 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)((char *)Global + 160));
-  v39 = v38;
-  if ( v38 )
+      (unsigned int)&DxgkControlGuid_Context,
+      (unsigned int)&EventVmBusProcessPacketDpcBegin,
+      v11,
+      (_DWORD)a1,
+      (char)a3->Next,
+      (char)a3[1].Next);
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x60uLL, 0x4B677844u);
+  v20 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(v38, 0, 0xA0uLL);
+    memset(PoolWithTag, 0, 0x60uLL);
+    v20->Parameter = v20;
+    v20->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VmBusProcessPacket;
+    v20->List.Flink = 0LL;
     _InterlockedIncrement(&g_VgpuNumWorkItemQueued);
-    v39[4].List.Flink = a2;
-    HIDWORD(v39[4].WorkerRoutine) = a5;
-    v39[2].List.Blink = (struct _LIST_ENTRY *)a1;
-    LODWORD(v39[4].WorkerRoutine) = a4;
-    v39[4].List.Blink = (struct _LIST_ENTRY *)v23;
-    v39[3].Parameter = v10;
-    v40 = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C0141F08)(a1);
-    BYTE4(v39[4].Parameter) = 1;
-    v39[2].WorkerRoutine = (PWORKER_THREAD_ROUTINE)v40;
-    v39->Parameter = v39;
-    v39->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VmBusProcessPacket;
-    v39->List.Flink = 0LL;
-    ExQueueWorkItem(v39, CustomPriorityWorkQueue|MaximumWorkQueue|0x8);
+    HIDWORD(v20[2].Parameter) = a5;
+    v20[1].List.Flink = (struct _LIST_ENTRY *)a1;
+    LODWORD(v20[2].Parameter) = a4;
+    v20[2].List.Blink = (struct _LIST_ENTRY *)a2;
+    v20[2].WorkerRoutine = (PWORKER_THREAD_ROUTINE)a3;
+    v21 = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C00B4348)(a1);
+    v20[1].Parameter = 0LL;
+    v20[1].List.Blink = (struct _LIST_ENTRY *)v21;
+    v20[1].WorkerRoutine = 0LL;
+    ExQueueWorkItem(v20, NormalWorkQueue);
   }
   else
   {
-    WdLogSingleEntry1(6LL, 922LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v44,
-        v43,
-        v45,
-        0LL,
-        1,
-        -1,
-        L"Failed to allocated a work item",
-        922LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v24 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+    *(_QWORD *)(v24 + 24) = 685LL;
+    WdLogEvent5_WdLowResource(v24);
     _InterlockedIncrement(&g_VgpuNumCompletedPackets);
-    ((void (__fastcall *)(struct _LIST_ENTRY *, _QWORD, _QWORD))qword_1C0141F48)(a2, 0LL, 0LL);
+    ((void (__fastcall *)(struct VMBPACKETCOMPLETION__ *, _QWORD, _QWORD))qword_1C00B4388)(a2, 0LL, 0LL);
   }
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
   {
-    LOBYTE(v9) = v39 != 0LL;
-    LODWORD(v47) = v9;
-    LODWORD(v46) = v32;
-    McTemplateK0pxqt_EtwWriteTransfer(v41, &EventVmBusProcessPacketDpcEnd, v42, a1, v36, v46, v47);
+    LOBYTE(v12) = v20 != 0LL;
+    LODWORD(v25) = a3[1].Next;
+    McTemplateK0pxqt_EtwWriteTransfer(v22, &EventVmBusProcessPacketDpcEnd, v23, a1, a3->Next, v25, v12);
   }
 }

@@ -5,7 +5,7 @@
  * Callees:
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiFreePhysicalView(__int64 a1, __int64 a2)

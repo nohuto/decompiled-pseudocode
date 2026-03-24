@@ -1,11 +1,11 @@
 /*
- * XREFs of CmRegUtilCreateWstrKey @ 0x1C038608C
+ * XREFs of CmRegUtilCreateWstrKey @ 0x1C02C53A0
  * Callers:
- *     PiRegStateOpenClassKey @ 0x1C03858C0 (PiRegStateOpenClassKey.c)
- *     PpRegStateUpdateStackCreationSettings @ 0x1C0385DB4 (PpRegStateUpdateStackCreationSettings.c)
+ *     PiRegStateOpenClassKey @ 0x1C02C4BD4 (PiRegStateOpenClassKey.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C02C50C8 (PpRegStateUpdateStackCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005EE70 (WdmlibRtlInitUnicodeStringEx.c)
- *     CmRegUtilCreateUcKey @ 0x1C0385FE4 (CmRegUtilCreateUcKey.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050B6C (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilCreateUcKey @ 0x1C02C52F8 (CmRegUtilCreateUcKey.c)
  */
 
 NTSTATUS __fastcall CmRegUtilCreateWstrKey(

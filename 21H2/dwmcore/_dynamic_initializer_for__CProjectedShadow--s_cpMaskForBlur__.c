@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpMaskForBlur__ @ 0x1800028B0
+ * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpMaskForBlur__ @ 0x180002390
  * Callers:
  *     <none>
  * Callees:

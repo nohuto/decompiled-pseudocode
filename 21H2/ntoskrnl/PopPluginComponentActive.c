@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPluginComponentActive @ 0x140356350
+ * XREFs of PopPluginComponentActive @ 0x140261980
  * Callers:
- *     PopFxActivateComponentWorker @ 0x140355144 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x140355534 (PopFxIdleWorkerTail.c)
- *     PopFxActivateComponentDependents @ 0x140355A50 (PopFxActivateComponentDependents.c)
+ *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140260EC0 (PopFxIdleWorkerTail.c)
+ *     PopFxCompleteComponentActivation @ 0x140261104 (PopFxCompleteComponentActivation.c)
  * Callees:
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopPluginNotifyActive @ 0x14045DF6A (PopPluginNotifyActive.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopPluginNotifyActive @ 0x14056D95C (PopPluginNotifyActive.c)
  */
 
 __int64 __fastcall PopPluginComponentActive(__int64 a1, unsigned int a2, __int64 a3, void *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall PopPluginComponentActive(__int64 a1, unsigned int a2, __int64
     LOBYTE(a3) = v6;
     PopPluginNotifyActive(*(_QWORD *)(v8 + 32), a2, a3);
   }
-  result = PopPepProcessEvent(v8, (unsigned int)v8 + 208 * a2 + 192, v6 != 0 ? 6 : 3, v6 != 0 ? 2 : 6);
+  result = PopPepProcessEvent(v8, (unsigned int)v8 + 200 * a2 + 184, v6 != 0 ? 6 : 3, v6 != 0 ? 2 : 6);
   if ( (_BYTE)result )
   {
     if ( !a4 )

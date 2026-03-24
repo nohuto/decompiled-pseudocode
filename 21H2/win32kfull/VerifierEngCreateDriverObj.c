@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierEngCreateDriverObj @ 0x1C029CD70
+ * XREFs of VerifierEngCreateDriverObj @ 0x1C029E490
  * Callers:
  *     <none>
  * Callees:
- *     EngCreateDriverObj @ 0x1C0282C50 (EngCreateDriverObj.c)
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029C964 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     EngCreateDriverObj @ 0x1C0286520 (EngCreateDriverObj.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029E070 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 HDRVOBJ __fastcall VerifierEngCreateDriverObj(PVOID pvObj, FREEOBJPROC pFreeObjProc, HDEV hdev)

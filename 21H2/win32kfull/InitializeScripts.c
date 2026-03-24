@@ -1,20 +1,21 @@
 /*
- * XREFs of InitializeScripts @ 0x1C03901B0
+ * XREFs of InitializeScripts @ 0x1C03931F0
  * Callers:
- *     cjCopyFontDataW @ 0x1C000E5E8 (cjCopyFontDataW.c)
- *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00C8768 (-vLookupScript@@YAXKPEAGK@Z.c)
+ *     cjCopyFontDataW @ 0x1C005F020 (cjCopyFontDataW.c)
+ *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00E4D98 (-vLookupScript@@YAXKPEAGK@Z.c)
  * Callees:
- *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C010AEE0 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C0120E84 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
  */
 
 __int64 InitializeScripts()
 {
   unsigned int v0; // ebx
-  int v2; // esi
+  int v2; // r14d
   unsigned __int16 *v3; // r15
   unsigned int i; // edi
   int v5; // eax
-  unsigned int v6; // ebp
+  unsigned int v6; // esi
   __int64 *v7; // rdi
   int v8; // eax
   _WORD *v9; // rdx
@@ -23,34 +24,26 @@ __int64 InitializeScripts()
   int v12; // eax
 
   v0 = 1;
-  if ( hModuleWinKernel )
+  if ( !hModuleWinKernel )
+    return 0LL;
+  if ( !qword_1C033A8D8 )
   {
-    if ( qword_1C0335A88 )
-      return v0;
     v2 = 0;
     v3 = 0LL;
     for ( i = 0; i < 0x13; ++i )
     {
       v5 = LOADSTRING(hModuleWinKernel, i, 0LL, 0);
       if ( !v5 )
-        goto LABEL_10;
+        break;
       v2 += v5 + 1;
     }
     if ( i == 19 )
-    {
-      if ( !(2 * v2) )
-      {
-        qword_1C0335A88 = 0LL;
-        return 0;
-      }
-      v3 = (unsigned __int16 *)Win32AllocPoolZInit((unsigned int)(2 * v2), 1819501383LL);
-    }
-LABEL_10:
-    qword_1C0335A88 = 0LL;
+      v3 = (unsigned __int16 *)PALLOCMEM2((unsigned int)(2 * v2), 1819501383LL, 1);
+    qword_1C033A8D8 = 0LL;
     if ( v3 )
     {
       v6 = 0;
-      v7 = &qword_1C0335A88;
+      v7 = &qword_1C033A8D8;
       do
       {
         *v7 = (__int64)v3;
@@ -79,9 +72,11 @@ LABEL_10:
         v7 += 2;
       }
       while ( v6 < 0x13 );
-      return v0;
     }
-    return 0;
+    else
+    {
+      return 0;
+    }
   }
-  return 0LL;
+  return v0;
 }

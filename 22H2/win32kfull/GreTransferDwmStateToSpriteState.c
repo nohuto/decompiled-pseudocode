@@ -1,227 +1,220 @@
 /*
- * XREFs of GreTransferDwmStateToSpriteState @ 0x1C00587CC
+ * XREFs of GreTransferDwmStateToSpriteState @ 0x1C00EAC4C
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C005861C (zzzDecomposeDesktop.c)
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAA3C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
  * Callees:
- *     UserIsWindowWithNoRedirectionBitmap @ 0x1C000B35C (UserIsWindowWithNoRedirectionBitmap.c)
- *     ?GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z @ 0x1C001C6FC (-GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z.c)
- *     ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C001D3D8 (-GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z.c)
- *     ?GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@@Z @ 0x1C001D4CC (-GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_B.c)
- *     UserIsWindowOnDesktopAndComposed @ 0x1C005AC34 (UserIsWindowOnDesktopAndComposed.c)
- *     ?CleanupShape@SFMLOGICALSURFACE@@QEAAXPEAVSURFACE@@@Z @ 0x1C0079E88 (-CleanupShape@SFMLOGICALSURFACE@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C007A73C (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
- *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C007A88C (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
- *     ?SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z @ 0x1C007B180 (-SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z.c)
- *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C007B35C (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
- *     ?OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z @ 0x1C007B51C (-OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z.c)
- *     DwmAsyncDestroySprite @ 0x1C00C88F8 (DwmAsyncDestroySprite.c)
- *     GreDeleteSprite @ 0x1C00C8F74 (GreDeleteSprite.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C027FE10 (-vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z.c)
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0015600 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C0015944 (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
+ *     ?OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z @ 0x1C0015C38 (-OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z.c)
+ *     ?SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z @ 0x1C0015C80 (-SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z.c)
+ *     ?CleanupShape@SFMLOGICALSURFACE@@QEAAXPEAVSURFACE@@@Z @ 0x1C0016E34 (-CleanupShape@SFMLOGICALSURFACE@@QEAAXPEAVSURFACE@@@Z.c)
+ *     UserIsWindowOnDesktopAndComposed @ 0x1C00EA9D4 (UserIsWindowOnDesktopAndComposed.c)
+ *     ?GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z @ 0x1C00EDA60 (-GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z.c)
+ *     ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C00EE2B8 (-GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z.c)
+ *     ?GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@@Z @ 0x1C00EE564 (-GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_B.c)
+ *     GreDeleteSprite @ 0x1C00EF0D8 (GreDeleteSprite.c)
+ *     DwmAsyncDestroySprite @ 0x1C00EF398 (DwmAsyncDestroySprite.c)
+ *     UserIsWindowWithNoRedirectionBitmap @ 0x1C0118E1C (UserIsWindowWithNoRedirectionBitmap.c)
+ *     ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C0281E40 (-vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z.c)
  */
 
-__int64 __fastcall GreTransferDwmStateToSpriteState(Gre::Base *a1, __int64 a2, HDC a3)
+__int64 __fastcall GreTransferDwmStateToSpriteState(HDEV a1, __int64 a2)
 {
-  unsigned int v4; // r15d
-  Gre::Base *v5; // rcx
-  struct SURFACE *v6; // r13
-  HDC DisplayDC; // r12
-  __int64 *v8; // rax
-  __int64 v9; // r14
-  __int64 v11; // rax
-  __int64 v12; // r14
-  __int64 v13; // rdi
+  unsigned int v3; // r13d
+  HDC v4; // r12
+  HDC DisplayDC; // r15
+  HDC v6; // rbx
+  HDC v7; // r10
+  struct DwmState *v8; // r14
+  __int64 v10; // rdi
+  __int64 v11; // r14
+  HLSURF v12; // rdx
+  unsigned __int64 v13; // rcx
   __int64 v14; // rbx
-  HLSURF v15; // rdx
-  __int64 v16; // rcx
-  int v17; // r8d
-  __int64 v18; // r14
-  unsigned __int64 v19; // rcx
-  unsigned int v20; // r9d
-  HDC v21; // rax
-  __int64 v22; // r13
-  unsigned int v23; // eax
-  HWND v24; // rdx
-  LONG v25; // ecx
-  HDC v26; // r14
-  LONG v27; // eax
-  int v28; // ecx
-  HWND v29; // rdx
-  void *v30; // rax
-  int v31; // [rsp+50h] [rbp-49h]
-  unsigned int v32; // [rsp+60h] [rbp-39h] BYREF
-  struct tagSIZE v33; // [rsp+68h] [rbp-31h] BYREF
-  struct tagPOINT v34; // [rsp+70h] [rbp-29h] BYREF
-  HDC v35; // [rsp+78h] [rbp-21h]
-  struct SURFACE *v36; // [rsp+80h] [rbp-19h]
-  struct tagSIZE v37; // [rsp+88h] [rbp-11h] BYREF
-  struct tagPOINT v38; // [rsp+90h] [rbp-9h] BYREF
-  __int64 v39; // [rsp+98h] [rbp-1h]
-  __int64 v40; // [rsp+A0h] [rbp+7h]
-  struct tagPOINT v41; // [rsp+A8h] [rbp+Fh] BYREF
-  struct Gre::Base::SESSION_GLOBALS *v42; // [rsp+B0h] [rbp+17h]
-  Gre::Base *v43; // [rsp+B8h] [rbp+1Fh] BYREF
+  unsigned int v15; // r9d
+  LONG v16; // eax
+  __int64 v17; // r13
+  int v18; // ecx
+  HWND v19; // rdx
+  void *v20; // rax
+  unsigned int v21; // [rsp+58h] [rbp-39h]
+  int v22; // [rsp+6Ch] [rbp-25h] BYREF
+  struct tagSIZE v23; // [rsp+70h] [rbp-21h] BYREF
+  struct tagPOINT v24; // [rsp+78h] [rbp-19h] BYREF
+  struct SURFACE *v25; // [rsp+80h] [rbp-11h]
+  struct tagSIZE v26; // [rsp+88h] [rbp-9h] BYREF
+  struct tagPOINT v27; // [rsp+90h] [rbp-1h] BYREF
+  HDC v28; // [rsp+98h] [rbp+7h]
+  HDC v29; // [rsp+A0h] [rbp+Fh]
+  __int64 v30; // [rsp+A8h] [rbp+17h]
+  __int64 v31; // [rsp+B0h] [rbp+1Fh]
+  struct tagPOINT v32; // [rsp+B8h] [rbp+27h] BYREF
+  HDEV v33; // [rsp+C0h] [rbp+2Fh] BYREF
 
-  v39 = a2;
-  v32 = 0;
-  v35 = a3;
-  v40 = 0LL;
-  v4 = 1;
-  v43 = a1;
-  ENTER_GRE_DWM_CRIT(a1, &v32);
-  if ( !(unsigned int)IsDwmActive() )
-    goto LABEL_8;
-  v6 = 0LL;
+  v30 = a2;
+  v22 = 0;
+  v31 = 0LL;
+  v33 = a1;
+  v3 = 1;
+  ENTER_GRE_DWM_CRIT((__int64)a1, &v22);
+  if ( !g_pDwmState )
+    goto LABEL_7;
+  v4 = 0LL;
+  v25 = 0LL;
   DisplayDC = 0LL;
-  v36 = 0LL;
-  v42 = Gre::Base::Globals(v5);
-  v8 = (__int64 *)(*((_QWORD *)v42 + 38) + 80LL);
-  v9 = *v8;
-  while ( (__int64 *)v9 != v8 )
+  v6 = *(HDC *)(gpDispInfo + 56LL);
+  v7 = *(HDC *)ghdcMem;
+  v8 = (struct DwmState *)*((_QWORD *)g_pDwmState + 10);
+  v29 = v6;
+  v28 = *(HDC *)ghdcMem;
+  if ( v8 == (struct DwmState *)((char *)g_pDwmState + 80) )
+    goto LABEL_3;
+  do
   {
-    v11 = v9 - 24;
-    v12 = -v9;
-    v13 = v11 & -(__int64)(v12 != 0);
-    v14 = *(_QWORD *)(v13 + 0x90);
-    if ( (*(_DWORD *)(v13 + 0x48) & 0x400000) != 0 )
+    v10 = ((unsigned __int64)v8 - 24) & -(__int64)(v8 != 0LL);
+    v11 = *(_QWORD *)(v10 + 0xA8);
+    if ( (*(_DWORD *)(v10 + 0x48) & 0x400000) != 0 )
     {
-      v9 = *(_QWORD *)((v11 & -(__int64)(v12 != 0)) + 0x18);
-      GreDeleteSprite((HDEV)a1, 0LL, *(void **)v13, 1);
-      goto LABEL_12;
+      v8 = *(struct DwmState **)(v10 + 24);
+      GreDeleteSprite(a1, 0LL, *(void **)v10, 1);
+      continue;
     }
-    if ( !(unsigned int)UserIsWindowOnDesktopAndComposed(*(_QWORD *)((v11 & -(__int64)(v12 != 0)) + 0x28), v39) )
+    if ( !(unsigned int)UserIsWindowOnDesktopAndComposed(*(_QWORD *)(v10 + 40), v30) )
     {
-      v9 = *(_QWORD *)(v13 + 24);
-      goto LABEL_12;
+      v8 = *(struct DwmState **)(v10 + 24);
+      continue;
     }
-    if ( GdiCreateSprite(a1, *(HWND *)(v13 + 40), (struct _RECTL *)(v13 + 56)) )
+    if ( GdiCreateSprite(a1, *(HWND *)(v10 + 40), (struct tagRECT *)(v10 + 56)) )
     {
-      v18 = *(_QWORD *)(v14 + 184);
-      v4 = 1;
-      if ( v18 )
+      v14 = *(_QWORD *)(v11 + 184);
+      v3 = 1;
+      if ( v14 )
       {
-        v36 = SFMLOGICALSURFACE::OwnsSurfaceCleanup((SFMLOGICALSURFACE *)v14, v15, v17);
-        v6 = v36;
-        SFMLOGICALSURFACE::SetShape((SFMLOGICALSURFACE *)v14, (HDEV)a1, 0LL);
+        v25 = SFMLOGICALSURFACE::OwnsSurfaceCleanup((SFMLOGICALSURFACE *)v11, v12);
+        SFMLOGICALSURFACE::SetShape((SFMLOGICALSURFACE *)v11, a1, 0LL);
 LABEL_19:
-        v19 = *(_QWORD *)(v13 + 72) - v40;
-        if ( !v19 )
-          v19 = *(unsigned int *)(v13 + 80) - (unsigned __int64)(unsigned int)v40;
-        if ( !v19 )
+        v13 = *(_QWORD *)(v10 + 72) - v31;
+        if ( !v13 )
+          v13 = *(unsigned int *)(v10 + 80) - (unsigned __int64)(unsigned int)v31;
+        if ( !v13 )
         {
-          *(_DWORD *)(v13 + 72) = 4;
-          *(_DWORD *)(v13 + 76) = 16711680;
+          *(_DWORD *)(v10 + 72) = 4;
+          *(_DWORD *)(v10 + 76) = 16711680;
         }
-        if ( v18 )
+        if ( v14 )
         {
-          v20 = *(_DWORD *)(v14 + 252);
-          if ( (v20 & 1) != 0 )
+          v15 = *(_DWORD *)(v11 + 252);
+          if ( (v15 & 1) != 0 )
           {
-            GdiHintSpriteShape((HDEV)a1, *(HWND *)(v13 + 40), *(HBITMAP *)(v18 + 8), (v20 >> 6) & 1, 1);
+            GdiHintSpriteShape(a1, *(HWND *)(v10 + 40), *(HBITMAP *)(v14 + 8), (v15 >> 6) & 1, 1);
             GdiUpdateSprite(
               a1,
-              *(HWND *)(v13 + 40),
+              *(HWND *)(v10 + 40),
               0LL,
               0LL,
               0LL,
               0LL,
               0LL,
               0LL,
-              *(_DWORD *)(v13 + 80),
-              (struct _BLENDFUNCTION *)(v13 + 76),
-              *(_DWORD *)(v13 + 72) | 0x20000000,
+              *(_DWORD *)(v10 + 80),
+              (struct _BLENDFUNCTION *)(v10 + 76),
+              *(_DWORD *)(v10 + 72) | 0x20000000,
               0LL);
           }
           else
           {
-            v34 = 0LL;
-            v41 = 0LL;
-            v33 = 0LL;
+            v24 = 0LL;
+            v32 = 0LL;
+            v23 = 0LL;
             if ( !DisplayDC )
+            {
               DisplayDC = (HDC)GreCreateDisplayDC(a1, 0LL);
-            v21 = v35;
-            if ( v35 )
+              if ( !DisplayDC )
+                DisplayDC = v29;
+            }
+            if ( v4 || (v4 = (HDC)GreCreateDisplayDC(a1, 1LL)) != 0LL || (v4 = v28) != 0LL )
             {
               if ( DisplayDC )
               {
-                *((_DWORD *)v6 + 28) |= 0x4000000u;
-                v22 = GreSelectBitmap(v21, *(_QWORD *)(v18 + 8));
-                if ( v22 )
+                *((_DWORD *)v25 + 28) |= 0x4000000u;
+                v17 = GreSelectBitmap(v4, *(_QWORD *)(v14 + 8));
+                if ( v17 )
                 {
-                  v23 = *(_DWORD *)(v13 + 80);
-                  v31 = *(_DWORD *)(v13 + 72) | 0x20000000;
-                  v24 = *(HWND *)(v13 + 40);
-                  v34 = *(struct tagPOINT *)(v13 + 56);
-                  v33.cx = *(_DWORD *)(v18 + 32);
-                  v25 = *(_DWORD *)(v18 + 36);
-                  v26 = v35;
-                  v33.cy = v25;
+                  v18 = *(_DWORD *)(v10 + 72);
+                  v19 = *(HWND *)(v10 + 40);
+                  v24 = *(struct tagPOINT *)(v10 + 56);
+                  v23 = *(struct tagSIZE *)(v14 + 32);
                   GdiUpdateSprite(
                     a1,
-                    v24,
+                    v19,
                     0LL,
                     DisplayDC,
-                    (struct _POINTL *)&v34,
-                    &v33,
-                    v35,
-                    (struct _POINTL *)&v41,
-                    v23,
-                    (struct _BLENDFUNCTION *)(v13 + 76),
-                    v31,
+                    &v24,
+                    &v23,
+                    v4,
+                    &v32,
+                    *(_DWORD *)(v10 + 80),
+                    (struct _BLENDFUNCTION *)(v10 + 76),
+                    v18 | 0x20000000,
                     0LL);
-                  GreSelectBitmap(v26, v22);
+                  GreSelectBitmap(v4, v17);
                 }
+                v3 = 1;
               }
             }
-            v6 = v36;
           }
-          SFMLOGICALSURFACE::CleanupShape((SFMLOGICALSURFACE *)v14, v6);
         }
         else
         {
-          v27 = *(_DWORD *)(v13 + 56);
-          v28 = *(_DWORD *)(v13 + 72);
-          v37 = 0LL;
-          v29 = *(HWND *)(v13 + 40);
-          v38.x = v27;
-          v38.y = *(_DWORD *)(v13 + 60);
+          v16 = *(_DWORD *)(v10 + 56);
+          v26 = 0LL;
+          v21 = *(_DWORD *)(v10 + 72) | 0x20000000;
+          v27.x = v16;
+          v27.y = *(_DWORD *)(v10 + 60);
           GdiUpdateSprite(
             a1,
-            v29,
+            *(HWND *)(v10 + 40),
             0LL,
             0LL,
-            (struct _POINTL *)&v38,
-            &v37,
+            &v27,
+            &v26,
             0LL,
             0LL,
-            *(_DWORD *)(v13 + 80),
-            (struct _BLENDFUNCTION *)(v13 + 76),
-            v28 | 0x20000000,
+            *(_DWORD *)(v10 + 80),
+            (struct _BLENDFUNCTION *)(v10 + 76),
+            v21,
             0LL);
         }
-        goto LABEL_36;
+        if ( v14 )
+          SFMLOGICALSURFACE::CleanupShape((SFMLOGICALSURFACE *)v11, (HSURF *)v25);
+        goto LABEL_40;
       }
-      if ( (unsigned int)UserIsWindowWithNoRedirectionBitmap(*(_QWORD *)(v13 + 40), (__int64)v15) )
+      if ( (unsigned int)UserIsWindowWithNoRedirectionBitmap(*(_QWORD *)(v10 + 40)) )
         goto LABEL_19;
     }
     else
     {
-      v4 = 0;
+      v3 = 0;
     }
-LABEL_36:
-    v9 = *(_QWORD *)(v13 + 24);
-    v30 = (void *)UserReferenceDwmApiPort(v16);
-    DwmAsyncDestroySprite(v30);
-    vspDestroyDwmSpriteObjInternal((HDEV)a1, 0, (struct DWMSPRITE *)v13);
-LABEL_12:
-    v8 = (__int64 *)(*((_QWORD *)v42 + 38) + 80LL);
+LABEL_40:
+    v8 = *(struct DwmState **)(v10 + 24);
+    v20 = (void *)UserReferenceDwmApiPort(v13);
+    DwmAsyncDestroySprite(v20);
+    vspDestroyDwmSpriteObjInternal(a1, 0LL, (struct DWMSPRITE *)v10);
   }
-  if ( (*((_DWORD *)a1 + 10) & 0x20000) != 0 )
-    vFixupMetaSpriteList((struct PDEVOBJ *)&v43);
-  if ( DisplayDC )
+  while ( v8 != (struct DwmState *)((char *)g_pDwmState + 80) );
+  v7 = v28;
+  v6 = v29;
+LABEL_3:
+  if ( ((_DWORD)a1[10] & 0x20000) != 0 )
+    vFixupMetaSpriteList((struct PDEVOBJ *)&v33);
+  if ( v4 && v4 != v7 )
+    GreDeleteDC(v4);
+  if ( DisplayDC && DisplayDC != v6 )
     GreDeleteDC(DisplayDC);
-LABEL_8:
-  LEAVE_GRE_DWM_CRIT(a1, v32);
-  return v4;
+LABEL_7:
+  LEAVE_GRE_DWM_CRIT((__int64)a1, v22);
+  return v3;
 }

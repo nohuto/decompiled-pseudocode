@@ -1,31 +1,31 @@
 /*
- * XREFs of ExpWatchProductTypeWork @ 0x1406BF930
+ * XREFs of ExpWatchProductTypeWork @ 0x1406BF910
  * Callers:
  *     <none>
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmInitializeThreadInfo @ 0x1401B2F38 (CmInitializeThreadInfo.c)
- *     CmSizeOfThreadInfo @ 0x1401B2F50 (CmSizeOfThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmInitializeThreadInfo @ 0x1401B2F58 (CmInitializeThreadInfo.c)
+ *     CmSizeOfThreadInfo @ 0x1401B2F70 (CmSizeOfThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
  *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
  *     NtDeleteValueKey @ 0x1405B6030 (NtDeleteValueKey.c)
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  *     NtNotifyChangeKey @ 0x1405CF350 (NtNotifyChangeKey.c)
  *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     NtFlushKey @ 0x1406BFF90 (NtFlushKey.c)
- *     ExUpdateLicenseRegistry @ 0x1406C02D8 (ExUpdateLicenseRegistry.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     NtFlushKey @ 0x1406BFF70 (NtFlushKey.c)
+ *     ExUpdateLicenseRegistry @ 0x1406C02B8 (ExUpdateLicenseRegistry.c)
  */
 
 NTSTATUS ExpWatchProductTypeWork()

@@ -1,7 +1,7 @@
 /*
  * XREFs of FsRtlAcquireHeaderMutex @ 0x14004E0B0
  * Callers:
- *     FsRtlpWaitForIoAtEof @ 0x1400E1488 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1400E14A8 (FsRtlpWaitForIoAtEof.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

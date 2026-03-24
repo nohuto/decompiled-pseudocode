@@ -1,8 +1,8 @@
 /*
- * XREFs of RIMCheckPressureUsageStatus @ 0x1C0187040
+ * XREFs of RIMCheckPressureUsageStatus @ 0x1C015BF2C
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C0182600 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161CFC (RIMPopulatePointerDevice.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ __int64 __fastcall RIMCheckPressureUsageStatus(__int64 a1, __int64 a2, __int16 a
   result = 19760LL;
   if ( a3 == 19760 || (result = 7472LL, a3 == 7472) )
   {
-    if ( *(_BYTE *)(a1 + 1041) )
-      *(_DWORD *)(a2 + 360) |= 0x8000u;
+    if ( *(_BYTE *)(a1 + 849) )
+      *(_DWORD *)(a2 + 312) |= 0x8000u;
   }
   return result;
 }

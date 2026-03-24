@@ -3,9 +3,9 @@
  * Callers:
  *     EtwpAllocGuidEntry @ 0x1405C0C8C (EtwpAllocGuidEntry.c)
  *     EtwpAccessCheckFromState @ 0x1405C558C (EtwpAccessCheckFromState.c)
- *     EtwpCheckGuidAccess @ 0x140656D24 (EtwpCheckGuidAccess.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
+ *     EtwpCheckGuidAccess @ 0x140656D04 (EtwpCheckGuidAccess.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

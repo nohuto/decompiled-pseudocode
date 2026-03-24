@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1406C5F04
+ * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1406B9C90
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpAllocDeallocQueryBuffer(_QWORD *a1, void *a2, __int64 a3, int *a4)
+PVOID __fastcall RtlpAllocDeallocQueryBuffer(SIZE_T *a1, void *a2, __int64 a3, int *a4)
 {
-  __int64 Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   int v5; // ebx
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v5 = 0;
   if ( a2 )
     ExFreePoolWithTag(a2, 0);
   if ( a1 )
   {
-    Pool2 = ExAllocatePool2(256LL, *a1, 1987211602LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, *a1, 0x76727152u);
+    if ( !PoolWithTag )
       v5 = -1073741801;
   }
   if ( a4 )
     *a4 = v5;
-  return Pool2;
+  return PoolWithTag;
 }

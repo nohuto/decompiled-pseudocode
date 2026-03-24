@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x140A5A428
+ * XREFs of AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x14096CE20
  * Callers:
- *     AuthzBasepQueryClaimAttributesToken @ 0x1407CC404 (AuthzBasepQueryClaimAttributesToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x14068865C (AuthzBasepQueryClaimAttributesToken.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x140A5A244 (AuthzBasepGetClaimAttributeValueCopyoutBufferSize.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x14096CC34 (AuthzBasepGetClaimAttributeValueCopyoutBufferSize.c)
  */
 
 NTSTATUS __fastcall AuthzBasepGetClaimAttributesCopyoutBufferSize(unsigned int *a1, unsigned __int64 *a2)
@@ -31,7 +31,7 @@ NTSTATUS __fastcall AuthzBasepGetClaimAttributesCopyoutBufferSize(unsigned int *
         v8 = (v5 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
         if ( v8 < v5 )
           return -1073741675;
-        v9 = *(unsigned __int16 *)(v7 + 32) + v8;
+        v9 = v8 + *(unsigned __int16 *)(v7 + 32);
         if ( v9 < v8 || v9 + 2 < v9 )
           return -1073741675;
         v10 = v9 + 2;

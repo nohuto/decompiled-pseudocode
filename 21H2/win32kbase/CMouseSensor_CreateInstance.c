@@ -1,19 +1,21 @@
 /*
- * XREFs of CMouseSensor_CreateInstance @ 0x1C005B2B0
+ * XREFs of CMouseSensor_CreateInstance @ 0x1C008AD30
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z @ 0x1C005C858 (-CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     ??0CMouseSensor@@IEAA@XZ @ 0x1C008AE50 (--0CMouseSensor@@IEAA@XZ.c)
  */
 
-CHidInput *__fastcall CMouseSensor_CreateInstance(struct CMouseSensor **a1)
+CMouseSensor *CMouseSensor_CreateInstance()
 {
-  int Instance; // eax
-  __int64 v2; // rdx
+  CMouseSensor *result; // rax
 
-  Instance = CMouseSensor::CreateInstance(a1);
-  v2 = 0LL;
-  if ( Instance >= 0 )
-    return gpMouseSensor;
-  return (CHidInput *)v2;
+  gpMouseSensor = 0LL;
+  result = (CMouseSensor *)Win32AllocPool(1752LL, 0x70694843u);
+  if ( result )
+    result = CMouseSensor::CMouseSensor(result);
+  if ( result )
+    gpMouseSensor = result;
+  return result;
 }

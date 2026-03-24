@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRegisterPerfFeedbackCounters @ 0x140549E8C
+ * XREFs of HvlRegisterPerfFeedbackCounters @ 0x1404F8234
  * Callers:
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DE60 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1408F6980 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     HvlpSetPowerProperty @ 0x14054A3D8 (HvlpSetPowerProperty.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HvlpSetPowerProperty @ 0x1404F8718 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlRegisterPerfFeedbackCounters(int a1, __int128 *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall HvlRegisterPerfFeedbackCounters(int a1, __int128 *a2)
   __int64 v11; // r8
   _OWORD v13[26]; // [rsp+20h] [rbp-1A8h] BYREF
 
-  memset(v13, 0, 0x194uLL);
+  memset(v13, 0, 0x198uLL);
   v4 = *a2;
   LODWORD(v13[0]) = 1;
   v5 = a2[1];

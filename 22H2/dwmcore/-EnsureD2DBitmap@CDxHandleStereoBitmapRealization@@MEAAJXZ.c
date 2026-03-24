@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x1802B3310
+ * XREFs of ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x180264BF0
  * Callers:
- *     ?GetD2DBitmap@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802B33C0 (-GetD2DBitmap@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@.c)
- *     ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1802B3494 (-GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTex.c)
+ *     ?GetD2DBitmap@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180264CA4 (-GetD2DBitmap@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@.c)
+ *     ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180264D78 (-GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTex.c)
  * Callees:
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x18003BBC0 (-EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateSubResourceBitmap@CD2DBitmap@@QEAAJIPEAPEAV1@@Z @ 0x18029F588 (-CreateSubResourceBitmap@CD2DBitmap@@QEAAJIPEAPEAV1@@Z.c)
- *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x1802B35E0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
+ *     ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x180039A00 (-EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     ?CreateSubResourceBitmap@CD2DBitmap@@QEAAJIPEAPEAV1@@Z @ 0x180248C7C (-CreateSubResourceBitmap@CD2DBitmap@@QEAAJIPEAPEAV1@@Z.c)
+ *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x180264EC0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
  */
 
 __int64 __fastcall CDxHandleStereoBitmapRealization::EnsureD2DBitmap(struct CD2DBitmap **this)
@@ -16,7 +16,7 @@ __int64 __fastcall CDxHandleStereoBitmapRealization::EnsureD2DBitmap(struct CD2D
   int v2; // eax
   __int64 v3; // rdx
   __int64 v4; // rcx
-  unsigned int v5; // ebx
+  int v5; // ebx
   _QWORD *v6; // rsi
   CD2DBitmap *v7; // rcx
   int SubResourceBitmap; // eax
@@ -27,25 +27,25 @@ __int64 __fastcall CDxHandleStereoBitmapRealization::EnsureD2DBitmap(struct CD2D
   if ( v2 < 0 )
   {
     MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v2, 0xB4u, 0LL);
-    goto LABEL_7;
   }
-  v6 = this + 50;
-  if ( !this[50] )
+  else
   {
-    v7 = this[47];
-    *v6 = 0LL;
-    SubResourceBitmap = CD2DBitmap::CreateSubResourceBitmap(v7, v3, this + 50);
-    v5 = SubResourceBitmap;
-    if ( SubResourceBitmap >= 0 )
+    v6 = this + 46;
+    if ( !this[46] )
     {
-      CD2DBitmapCache::InitializeCache(
-        (CD2DBitmapCache *)(this + 51),
-        (struct ID2DBitmapCacheSource *)((*v6 + 96LL) & ((unsigned __int128)-(__int128)(unsigned __int64)*v6 >> 64)));
-      return v5;
+      v7 = this[43];
+      *v6 = 0LL;
+      SubResourceBitmap = CD2DBitmap::CreateSubResourceBitmap(v7, v3, this + 46);
+      v5 = SubResourceBitmap;
+      if ( SubResourceBitmap < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, SubResourceBitmap, 0xBEu, 0LL);
+      else
+        CD2DBitmapCache::InitializeCache(
+          (CD2DBitmapCache *)(this + 47),
+          (struct ID2DBitmapCacheSource *)((*v6 + 96LL) & ((unsigned __int128)-(__int128)(unsigned __int64)*v6 >> 64)));
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, SubResourceBitmap, 0xBEu, 0LL);
-LABEL_7:
-    CDxHandleStereoBitmapRealization::ReleaseD2DBitmap((CDxHandleStereoBitmapRealization *)this);
   }
-  return v5;
+  if ( v5 < 0 )
+    CDxHandleStereoBitmapRealization::ReleaseD2DBitmap((CDxHandleStereoBitmapRealization *)this);
+  return (unsigned int)v5;
 }

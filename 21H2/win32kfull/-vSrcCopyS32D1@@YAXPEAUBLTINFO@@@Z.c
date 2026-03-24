@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSrcCopyS32D1@@YAXPEAUBLTINFO@@@Z @ 0x1C00DE4D0
+ * XREFs of ?vSrcCopyS32D1@@YAXPEAUBLTINFO@@@Z @ 0x1C00F6960
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vSrcCopyS32D1(struct BLTINFO *a1)
@@ -18,7 +18,6 @@ void __fastcall vSrcCopyS32D1(struct BLTINFO *a1)
   int v8; // ebx
   _BYTE *v9; // r15
   ULONG *v10; // r12
-  ULONG v11; // edx
   int v12; // ebx
   bool v13; // zf
   int v15; // [rsp+78h] [rbp+10h]
@@ -46,9 +45,8 @@ void __fastcall vSrcCopyS32D1(struct BLTINFO *a1)
     {
       do
       {
-        v11 = *v10++;
         v1 *= 2;
-        if ( XLATEOBJ_iXlate(pxlo, v11) )
+        if ( XLATEOBJ_iXlate(pxlo, *v10++) )
           v1 |= 1u;
         if ( (++v8 & 7) == 0 )
           *v9++ = v1;

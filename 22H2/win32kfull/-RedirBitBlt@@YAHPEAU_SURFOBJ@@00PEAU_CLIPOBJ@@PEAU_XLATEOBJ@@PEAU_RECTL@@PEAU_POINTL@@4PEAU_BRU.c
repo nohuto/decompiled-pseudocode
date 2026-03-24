@@ -1,18 +1,18 @@
 /*
- * XREFs of ?RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A4380
+ * XREFs of ?RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C029B3B0
  * Callers:
- *     ?RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C02A4650 (-RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ *     ?RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C029B670 (-RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
  * Callees:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C02A2E8C (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
- *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A40D4 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6678 (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029A884 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C029B118 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D5EC (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall RedirBitBlt(
@@ -25,82 +25,80 @@ __int64 __fastcall RedirBitBlt(
         POINTL *pptlSrc,
         POINTL *pptlMask,
         BRUSHOBJ *pbo,
-        POINTL *pptlBrush,
+        POINTL *a10,
         ROP4 a11)
 {
-  __int64 v15; // rcx
-  ROP4 rop4; // r13d
+  ROP4 rop4; // r12d
+  POINTL *pptlBrush; // r13
   __int64 HDEV; // rbx
-  __int64 v18; // rdx
-  Gre::Base *v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  int v22; // eax
+  int v18; // eax
   struct _DISPSURF *i; // rbx
-  __int64 v24; // rdi
+  __int64 v20; // r9
   struct _SURFOBJ *DevBitmap; // rax
-  __int64 v26; // r11
-  unsigned int v27; // ebx
-  __int64 v29; // [rsp+68h] [rbp-89h] BYREF
-  struct SURFACE *v30; // [rsp+70h] [rbp-81h] BYREF
-  struct SURFACE *v31; // [rsp+78h] [rbp-79h] BYREF
-  struct SURFACE *v32; // [rsp+80h] [rbp-71h] BYREF
-  __int128 v33; // [rsp+88h] [rbp-69h] BYREF
-  __int64 v34; // [rsp+98h] [rbp-59h]
-  int v35; // [rsp+A0h] [rbp-51h]
-  _QWORD v36[2]; // [rsp+A8h] [rbp-49h] BYREF
-  _BYTE v37[40]; // [rsp+B8h] [rbp-39h] BYREF
-  __int64 v38; // [rsp+E0h] [rbp-11h]
-  __int64 v39; // [rsp+E8h] [rbp-9h]
-  __int64 v40; // [rsp+128h] [rbp+37h] BYREF
+  __int64 v22; // r10
+  __int64 v23; // r11
+  unsigned int v24; // r8d
+  __int64 v26; // [rsp+68h] [rbp-89h] BYREF
+  struct SURFACE *v27; // [rsp+70h] [rbp-81h] BYREF
+  struct SURFACE *v28; // [rsp+78h] [rbp-79h] BYREF
+  struct SURFACE *v29; // [rsp+80h] [rbp-71h] BYREF
+  __int128 v30; // [rsp+88h] [rbp-69h] BYREF
+  __int64 v31; // [rsp+98h] [rbp-59h]
+  int v32; // [rsp+A0h] [rbp-51h]
+  _QWORD v33[2]; // [rsp+A8h] [rbp-49h] BYREF
+  _BYTE v34[40]; // [rsp+B8h] [rbp-39h] BYREF
+  __int64 v35; // [rsp+E0h] [rbp-11h]
+  __int64 v36; // [rsp+E8h] [rbp-9h]
+  __int64 v37; // [rsp+128h] [rbp+37h] BYREF
 
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v32, a1);
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v31, a2);
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v30, a3);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v29, a1);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v28, a2);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v27, a3);
   rop4 = a11;
+  pptlBrush = a10;
   if ( a1 )
   {
     if ( ((__int64)a1[1].hsurf & 0x800) != 0 )
     {
-      HDEV = UserGetHDEV(v15);
+      HDEV = UserGetHDEV();
       if ( HDEV )
       {
-        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v36);
-        v39 = 0LL;
-        v38 = 0LL;
-        v36[0] = 0LL;
-        v22 = *(_DWORD *)(HDEV + 40);
-        v33 = 0LL;
-        v35 = 1;
-        if ( (v22 & 1) != 0 )
+        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v33);
+        v36 = 0LL;
+        v35 = 0LL;
+        v33[0] = 0LL;
+        v18 = *(_DWORD *)(HDEV + 40);
+        v30 = 0LL;
+        v32 = 1;
+        if ( (v18 & 1) != 0 )
         {
-          Gre::Base::Globals(v19);
-          *(_QWORD *)&v33 = *(_QWORD *)(HDEV + 48);
-          v34 = HDEV;
-          GreAcquireSemaphore(v33);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v33, 11LL);
+          *(_QWORD *)&v30 = *(_QWORD *)(HDEV + 48);
+          v31 = HDEV;
+          GreAcquireSemaphore(v30);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v30, 11LL);
+          v18 = *(_DWORD *)(HDEV + 40);
         }
-        if ( (*(_DWORD *)(HDEV + 40) & 0x20000) != 0 )
+        if ( (v18 & 0x20000) != 0 )
         {
-          for ( i = **(struct _DISPSURF ***)(HDEV + 1768); i; i = *(struct _DISPSURF **)i )
+          for ( i = **(struct _DISPSURF ***)(HDEV + 1800); i; i = *(struct _DISPSURF **)i )
           {
-            v24 = *((_QWORD *)i + 6);
-            v40 = v24;
-            if ( v24 )
+            v20 = *((_QWORD *)i + 6);
+            v37 = v20;
+            if ( v20 )
             {
-              if ( (*(_DWORD *)(v24 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v24 + 2096) & 0x8000) != 0 )
+              if ( (*(_DWORD *)(v20 + 1824) & 0x8000000) != 0 && (*(_DWORD *)(v20 + 2128) & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v24 + 1760) + 208LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v20 + 1792) + 208LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
-                    (MARK_ACCDRV_NOTIFICATION *)&v29,
-                    (struct PDEVOBJ *)&v40,
+                    (MARK_ACCDRV_NOTIFICATION *)&v26,
+                    (struct PDEVOBJ *)&v37,
                     a1);
                   GetDevBitmap(i, a2);
                   DevBitmap = GetDevBitmap(i, a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(v24 + 1760) + 208LL))(
+                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(v22 + 208))(
                     DevBitmap,
-                    v26,
+                    v23,
                     a3,
                     pco,
                     pxlo,
@@ -110,26 +108,26 @@ __int64 __fastcall RedirBitBlt(
                     pbo,
                     pptlBrush,
                     rop4);
-                  if ( v29 )
-                    *(_WORD *)(v29 + 78) &= ~0x8000u;
+                  if ( v26 )
+                    *(_WORD *)(v26 + 78) &= ~0x8000u;
                 }
               }
             }
           }
         }
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v33, v18, v20, v21);
-        if ( v36[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v36);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v37);
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v30);
+        if ( v33[0] )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v33);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v34);
       }
     }
   }
-  v27 = EngBitBlt(a1, a2, a3, pco, pxlo, prclTrg, pptlSrc, pptlMask, pbo, pptlBrush, rop4);
-  if ( v30 )
-    bMakeOpaque(v30);
-  if ( v31 )
-    bMakeOpaque(v31);
-  if ( v32 )
-    bMakeOpaque(v32);
-  return v27;
+  v24 = EngBitBlt(a1, a2, a3, pco, pxlo, prclTrg, pptlSrc, pptlMask, pbo, pptlBrush, rop4);
+  if ( v27 )
+    bMakeOpaque(v27);
+  if ( v28 )
+    bMakeOpaque(v28);
+  if ( v29 )
+    bMakeOpaque(v29);
+  return v24;
 }

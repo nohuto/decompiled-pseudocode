@@ -1,9 +1,9 @@
 /*
- * XREFs of XilCoreCommand_QueryIsRingRunning @ 0x1C0052A1C
+ * XREFs of XilCoreCommand_QueryIsRingRunning @ 0x1C004FCF8
  * Callers:
- *     Command_WdfEvtWatchdogTimerFunction @ 0x1C0030170 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E790 (Command_WdfEvtWatchdogTimerFunction.c)
  * Callees:
- *     XilRegister_ReadUlong64 @ 0x1C003F238 (XilRegister_ReadUlong64.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003CFDC (XilRegister_ReadUlong64.c)
  */
 
 __int64 __fastcall XilCoreCommand_QueryIsRingRunning(__int64 *a1, _BYTE *a2, _BYTE *a3)

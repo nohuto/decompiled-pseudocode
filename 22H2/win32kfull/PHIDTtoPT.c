@@ -1,32 +1,37 @@
 /*
- * XREFs of PHIDTtoPT @ 0x1C01C328C
+ * XREFs of PHIDTtoPT @ 0x1C01EE34C
  * Callers:
- *     _GetPointerDeviceInfoProperties @ 0x1C0152EB0 (_GetPointerDeviceInfoProperties.c)
- *     _GetPointerDeviceType @ 0x1C0152F48 (_GetPointerDeviceType.c)
- *     PostPointerEventMessage @ 0x1C01C32E0 (PostPointerEventMessage.c)
+ *     PostPointerEventMessage @ 0x1C01EE3D0 (PostPointerEventMessage.c)
+ *     _GetPointerDeviceInfoProperties @ 0x1C01EEED0 (_GetPointerDeviceInfoProperties.c)
+ *     _GetPointerDeviceType @ 0x1C01EEF68 (_GetPointerDeviceType.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PHIDTtoPT(__int64 a1)
 {
-  unsigned int v1; // r8d
+  int v1; // edx
+  __int64 result; // rax
 
-  v1 = 1;
-  if ( *(_DWORD *)(a1 + 24) == 1 || *(_DWORD *)(a1 + 24) == 2 || *(_DWORD *)(a1 + 24) == 3 || *(_DWORD *)(a1 + 24) == 4 )
+  v1 = *(_DWORD *)(a1 + 24);
+  result = 1LL;
+  if ( v1 > 0 )
   {
-    return 3;
-  }
-  else if ( *(_DWORD *)(a1 + 24) != 5 )
-  {
-    if ( *(_DWORD *)(a1 + 24) == 6 )
+    if ( v1 <= 4 )
     {
-      return 2;
+      return 3LL;
     }
-    else if ( *(_DWORD *)(a1 + 24) == 7 )
+    else if ( v1 != 5 )
     {
-      return 4;
+      if ( v1 == 6 )
+      {
+        return 2LL;
+      }
+      else if ( v1 == 7 )
+      {
+        return 4LL;
+      }
     }
   }
-  return v1;
+  return result;
 }

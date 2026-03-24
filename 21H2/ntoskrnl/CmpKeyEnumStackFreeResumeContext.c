@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackFreeResumeContext @ 0x140920E78
+ * XREFs of CmpKeyEnumStackFreeResumeContext @ 0x14087AB38
  * Callers:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14067EE40 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
- *     CmpEnumerateLayeredKey @ 0x140914324 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpDereferenceKeyControlBlock @ 0x14071BF40 (CmpDereferenceKeyControlBlock.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1407C0C50 (CmpDelayDerefKeyControlBlock.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
  */
 
 void __fastcall CmpKeyEnumStackFreeResumeContext(PPRIVILEGE_SET Privileges, __int64 a2, char a3)

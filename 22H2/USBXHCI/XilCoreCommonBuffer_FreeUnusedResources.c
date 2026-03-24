@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCoreCommonBuffer_FreeUnusedResources @ 0x1C0052C68
+ * XREFs of XilCoreCommonBuffer_FreeUnusedResources @ 0x1C004FF48
  * Callers:
- *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0005010 (Controller_WdfEvtWatchdogTimerFunc.c)
- *     CommonBuffer_RebalanceResourcesWorkItem @ 0x1C0032220 (CommonBuffer_RebalanceResourcesWorkItem.c)
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0009E10 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     CommonBuffer_RebalanceResourcesWorkItem @ 0x1C00306C0 (CommonBuffer_RebalanceResourcesWorkItem.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C0051ED8 (SecureDmaEnabler_FreeCommonBufferPage.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004F208 (SecureDmaEnabler_FreeCommonBufferPage.c)
  */
 
 __int64 **__fastcall XilCoreCommonBuffer_FreeUnusedResources(__int64 a1)
@@ -56,12 +56,12 @@ __int64 **__fastcall XilCoreCommonBuffer_FreeUnusedResources(__int64 a1)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v5) = 4;
-      WPP_RECORDER_SF_q(
+      WPP_RECORDER_SF_i(
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         v5,
         8,
         24,
-        (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
+        (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
         v6[3]);
     }
     v9 = v6[3];

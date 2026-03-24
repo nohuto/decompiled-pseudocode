@@ -1,14 +1,14 @@
 /*
- * XREFs of RIMIDE_InitializePointerDeviceInjection @ 0x1C019FE90
+ * XREFs of RIMIDE_InitializePointerDeviceInjection @ 0x1C016B768
  * Callers:
- *     NtUserInitializePointerDeviceInjectionEx @ 0x1C015C5F0 (NtUserInitializePointerDeviceInjectionEx.c)
- *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01F2030 (-CreateInjectionDevice@@YAHXZ.c)
+ *     NtUserInitializePointerDeviceInjectionEx @ 0x1C0130580 (NtUserInitializePointerDeviceInjectionEx.c)
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01B3800 (-CreateInjectionDevice@@YAHXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
- *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C019F1F8 (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C016ADBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
  */
 
 __int64 __fastcall RIMIDE_InitializePointerDeviceInjection(
@@ -18,25 +18,27 @@ __int64 __fastcall RIMIDE_InitializePointerDeviceInjection(
         unsigned int a4,
         char a5,
         unsigned int a6,
-        _QWORD *a7)
+        __int64 *a7)
 {
   unsigned int v10; // ebx
   char *v12; // rdx
-  __int16 v13; // di
+  __int16 v13; // si
   unsigned int v14; // r8d
   char *v15; // rcx
   __int64 v16; // rax
   __int128 v17; // xmm1
-  struct _HIDP_DEVICE_DESC v19; // [rsp+60h] [rbp-A0h] BYREF
-  struct _HIDP_DEVICE_DESC v20; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v21[160]; // [rsp+E0h] [rbp-20h] BYREF
-  char v22; // [rsp+180h] [rbp+80h] BYREF
+  unsigned int v18; // ebx
+  __int64 v19; // rax
+  struct _HIDP_DEVICE_DESC v21; // [rsp+50h] [rbp-B0h] BYREF
+  struct _HIDP_DEVICE_DESC v22; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v23[160]; // [rsp+D0h] [rbp-30h] BYREF
+  char v24; // [rsp+170h] [rbp+70h] BYREF
 
   v10 = 0;
-  memset(&v20, 0, sizeof(v20));
+  memset(&v22, 0, sizeof(v22));
   if ( a7 )
     *a7 = 0LL;
-  memmove(v21, &commonUsages, 0xA0uLL);
+  memmove(v23, &commonUsages, 0xA0uLL);
   if ( a1 == 2 )
   {
     v12 = (char *)&touchUsages;
@@ -46,12 +48,12 @@ __int64 __fastcall RIMIDE_InitializePointerDeviceInjection(
   else
   {
     if ( a1 != 3 )
-      return 3221225485LL;
+      return 0LL;
     v12 = (char *)&penUsages;
     v13 = 2;
     v14 = 1;
   }
-  v15 = &v22;
+  v15 = &v24;
   do
   {
     if ( v10 >= 7 )
@@ -64,10 +66,15 @@ __int64 __fastcall RIMIDE_InitializePointerDeviceInjection(
     v15 += 32;
   }
   while ( v10 + 5 < 0xC );
-  if ( (unsigned int)BuildReportDescriptor(0xDu, v13, (struct tagUSAGE_PROPERTIES *)v21, 0xCu, v14, &v20) )
+  v18 = BuildReportDescriptor(0xDu, v13, (struct tagUSAGE_PROPERTIES *)v23, 0xCu, v14, &v22);
+  if ( v18 )
   {
-    v19 = v20;
-    return RIMIDECreatePseudoHIDDevice(13, v13, a2, a4, a3, (__int128 *)&v19, 0, a5, a6, 0LL, a7);
+    v21 = v22;
+    v19 = RIMIDECreatePseudoHIDDevice(13, v13, a2, a4, a3, (__int128 *)&v21, 0, a5, a6, 0LL);
+    if ( v19 )
+      *a7 = v19;
+    else
+      return 0;
   }
-  return 3221225485LL;
+  return v18;
 }

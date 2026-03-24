@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConstructNonRetpolineImageLoadRecord @ 0x1409709F4
+ * XREFs of MiConstructNonRetpolineImageLoadRecord @ 0x1407D02FC
  * Callers:
- *     MiLogRetpolineImageLoadEvents @ 0x1407615BC (MiLogRetpolineImageLoadEvents.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x14075CCC0 (MiLogRetpolineImageLoadEvents.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208AD8 (RtlUnicodeStringCopy.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
  */
 
 char *__fastcall MiConstructNonRetpolineImageLoadRecord(__int64 a1)

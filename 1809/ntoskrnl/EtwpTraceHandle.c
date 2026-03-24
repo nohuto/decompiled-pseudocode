@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpTraceHandle @ 0x1408B8C30
+ * XREFs of EtwpTraceHandle @ 0x1408B8C10
  * Callers:
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x1401B73E8 (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x140311B58 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x1401B7408 (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x140311C58 (EtwpTraceKernelEventWithFilter.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140660F70 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
  */
 
 void __fastcall EtwpTraceHandle(unsigned __int16 a1, __int64 a2, char *a3, __int64 a4)

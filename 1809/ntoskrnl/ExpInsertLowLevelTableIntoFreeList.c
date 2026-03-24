@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x140696C58
+ * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x140696C38
  * Callers:
- *     ExpAllocateHandleTable @ 0x140696A84 (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B94 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTable @ 0x140696A64 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

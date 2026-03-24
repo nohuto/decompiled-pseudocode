@@ -1,26 +1,26 @@
 /*
- * XREFs of PpmPerfUpdateDomainPolicy @ 0x14069DDE8
+ * XREFs of PpmPerfUpdateDomainPolicy @ 0x14078B5DC
  * Callers:
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x14069DD40 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x140849940 (PpmReapplyPerfPolicy.c)
- *     PpmUpdatePerfStates @ 0x14098EE60 (PpmUpdatePerfStates.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPerfBoostPowerRequest @ 0x14078B530 (PopPerfBoostPowerRequest.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
+ *     PpmUpdatePerfStates @ 0x1408E6590 (PpmUpdatePerfStates.c)
  * Callees:
- *     PpmPerfUpdateQosDisableReasons @ 0x1402246C0 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmCheckCustomRun @ 0x14022475C (PpmCheckCustomRun.c)
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x140224EDC (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmPerfCalculateQosClassPolicies @ 0x140224F04 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmEventQosSupport @ 0x14069DFF4 (PpmEventQosSupport.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1402D2004 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x140381028 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x1403A2DEC (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmEventQosSupport @ 0x14078B750 (PpmEventQosSupport.c)
  */
 
-void __fastcall PpmPerfUpdateDomainPolicy(char a1)
+char __fastcall PpmPerfUpdateDomainPolicy(char a1)
 {
   __int64 v1; // rbx
   char v2; // bp
-  char v3; // r15
-  char v4; // r14
+  char v3; // r14
+  char v4; // r15
   char v5; // di
   int v6; // esi
   unsigned int v7; // edx
@@ -30,9 +30,9 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
   int v11; // ecx
   int v12; // eax
   unsigned int v13; // eax
-  char updated; // al
-  int v15; // eax
-  int v17; // [rsp+68h] [rbp+10h] BYREF
+  bool v14; // cl
+  int v16; // eax
+  int v18; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = PpmPerfDomainHead;
   v2 = a1;
@@ -43,36 +43,36 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
     if ( PpmPerfVmQosSupported )
     {
       v5 = 1;
-      v15 = 0;
+      v16 = 0;
     }
     else
     {
       v5 = 0;
-      v15 = 128;
+      v16 = 128;
     }
-    v17 = v15;
+    v18 = v16;
   }
   else
   {
     v5 = 0;
-    v17 = 0;
+    v18 = 0;
     v6 = 0;
     do
     {
       if ( PpmPerfCalculateQosClassPolicies(v1) )
         v3 = 1;
-      if ( (*(_BYTE *)(v1 + 700) & 0xF) == 0 )
+      if ( (*(_BYTE *)(v1 + 528) & 0xF) == 0 )
         v4 = 1;
-      if ( *(_BYTE *)(v1 + 724) )
+      if ( *(_BYTE *)(v1 + 546) )
       {
         v5 = 1;
       }
       else
       {
         v7 = 0;
-        v8 = (int *)(v1 + 692);
+        v8 = (int *)(v1 + 520);
         v9 = 1;
-        v10 = 5LL;
+        v10 = 4LL;
         do
         {
           v11 = *v8;
@@ -93,26 +93,20 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
     v2 = a1;
     if ( v5 )
       v6 = 0;
-    v17 = v6;
+    v18 = v6;
   }
-  updated = PpmPerfUpdateQosDisableReasons(&v17);
-  PpmPerfMultimediaQosSupported = v4;
+  v14 = PpmPerfUpdateQosDisableReasons(&v18) != 0;
   if ( v5 != PpmPerfQosEnabled )
   {
     PpmPerfQosEnabled = v5;
     v2 = 1;
-    goto LABEL_19;
+    v14 = 1;
   }
-  if ( updated )
-LABEL_19:
+  PpmPerfMultimediaQosSupported = v4;
+  if ( v14 )
     PpmEventQosSupport(0LL);
-  if ( v3 || v2 )
-  {
-    PpmPerfSetAllDomainsToUpdate();
-    PpmCheckCustomRun((v2 != 0) + 1);
-  }
-  else
-  {
-    PpmReleaseLock(&PpmPerfPolicyLock);
-  }
+  if ( !v3 && !v2 )
+    return PpmReleaseLock(&PpmPerfPolicyLock);
+  PpmPerfSetAllDomainsToUpdate();
+  return PpmCheckCustomRun((v2 != 0) + 1);
 }

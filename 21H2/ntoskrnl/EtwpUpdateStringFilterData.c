@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateStringFilterData @ 0x1409F51EC
+ * XREFs of EtwpUpdateStringFilterData @ 0x140940CB4
  * Callers:
- *     EtwpUpdateFilterData @ 0x14078F198 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406E32D0 (EtwpUpdateFilterData.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpUpdateStringFilterData(void **a1, void **a2, char a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDSM_ResettingPipeInUCXOnClientReset @ 0x1C001D860
+ * XREFs of HUBDSM_ResettingPipeInUCXOnClientReset @ 0x1C001D320
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C0023D84 (HUBUCX_SubmitUcxIoctl.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientReset(__int64 a1)
@@ -48,7 +48,7 @@ __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientReset(__int64 a1)
         2u,
         5u,
         0x3Cu,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
         v5);
   }
   else
@@ -61,7 +61,7 @@ __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientReset(__int64 a1)
         2u,
         5u,
         0x3Bu,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids);
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
     HUBSM_AddEvent(v1 + 504, 4020);
   }
   return 1000LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterPlugPlayNotification @ 0x140703160
+ * XREFs of IoRegisterPlugPlayNotification @ 0x140703140
  * Callers:
- *     PopConnectToPolicyDevice @ 0x140740EB4 (PopConnectToPolicyDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140867964 (PopRegisterCoolingExtensionProtection.c)
- *     SmKmStoreFileCreate @ 0x1408AD670 (SmKmStoreFileCreate.c)
+ *     PopConnectToPolicyDevice @ 0x140740E94 (PopConnectToPolicyDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140867944 (PopRegisterCoolingExtensionProtection.c)
+ *     SmKmStoreFileCreate @ 0x1408AD650 (SmKmStoreFileCreate.c)
  *     PoInitDriverServices @ 0x1409DDA94 (PoInitDriverServices.c)
- *     SbpWaitForVmbus @ 0x1409FA63C (SbpWaitForVmbus.c)
+ *     SbpWaitForVmbus @ 0x1409FA64C (SbpWaitForVmbus.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PnpGetRelatedTargetDevice @ 0x14000E8D0 (PnpGetRelatedTargetDevice.c)
@@ -14,16 +14,16 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1400CB110 (ObReferenceObjectByPointerWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1400CB130 (ObReferenceObjectByPointerWithTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     PnpDeferNotification @ 0x14070351C (PnpDeferNotification.c)
- *     PnpInitializeNotifyEntry @ 0x1407035E4 (PnpInitializeNotifyEntry.c)
- *     PnpNotifyDriverCallback @ 0x140703774 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x14070A700 (IopGetSessionIdFromSymbolicName.c)
+ *     PnpDeferNotification @ 0x1407034FC (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1407035C4 (PnpInitializeNotifyEntry.c)
+ *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
  */
 
 NTSTATUS __stdcall IoRegisterPlugPlayNotification(

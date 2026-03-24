@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwDeviceFindInterfaceEntry @ 0x14076302C
+ * XREFs of PiSwDeviceFindInterfaceEntry @ 0x14074D0B8
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x14076308C (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14084F808 (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x140860758 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BD244 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x1407CEDBC (PiSwIrpInterfaceSetState.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
  */
 
 __int64 *__fastcall PiSwDeviceFindInterfaceEntry(__int64 a1, const wchar_t *a2)

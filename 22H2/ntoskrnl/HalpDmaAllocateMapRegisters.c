@@ -1,288 +1,280 @@
 /*
- * XREFs of HalpDmaAllocateMapRegisters @ 0x14045B93E
+ * XREFs of HalpDmaAllocateMapRegisters @ 0x1404C683C
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403AE820 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalAllocateAdapterChannelV2 @ 0x14045CA88 (HalAllocateAdapterChannelV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D18E (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeAdapterChannelV2 @ 0x14045D270 (IoFreeAdapterChannelV2.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
- *     HalpAllocateMapRegisters @ 0x1409336F0 (HalpAllocateMapRegisters.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A5C80 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
+ *     HalAllocateAdapterChannelV2 @ 0x1404CC624 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCC28 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404CCD0C (IoFreeAdapterChannelV2.c)
+ *     HalpAllocateMapRegisters @ 0x140864700 (HalpAllocateMapRegisters.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x14039BF9C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaGetTranslationEntries @ 0x14039C20C (HalpDmaGetTranslationEntries.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045ACFA (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045AD4E (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaPrependTranslations @ 0x14045C156 (HalpDmaPrependTranslations.c)
- *     HalpDmaReturnPageToOwner @ 0x14045C236 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050111C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1405104D0 (HalpDmaAllocateContiguousMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BB6AC (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaGetTranslationEntries @ 0x1403BB980 (HalpDmaGetTranslationEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1404B8A44 (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8AC4 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8B1C (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404C6738 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaPrependTranslations @ 0x1404C7CB0 (HalpDmaPrependTranslations.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C7E8C (HalpDmaReturnPageToOwner.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall HalpDmaAllocateMapRegisters(__int64 a1, unsigned int a2)
+__int64 __fastcall HalpDmaAllocateMapRegisters(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // r15
-  unsigned int v3; // ebx
-  __int64 v6; // rdi
+  __int64 v4; // r15
+  unsigned int v5; // ebx
+  __int64 v8; // rdi
   __int64 result; // rax
-  __int64 v8; // rcx
-  __int64 ScatterPagesFromScatterPool; // rax
-  int v10; // ecx
-  __int64 v11; // rax
-  __int64 ScatterPagesFromContiguousPool; // rax
-  __int64 v13; // rax
-  unsigned int ContiguousMemory; // eax
-  PVOID v15; // rdi
-  PMDL v16; // rbx
-  unsigned int v17; // r14d
-  __int64 v18; // r13
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  __int64 v21; // r12
-  _QWORD *v22; // r13
-  void *v23; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  unsigned int v17; // eax
+  PVOID v18; // rdi
+  __int64 v19; // r8
+  __int64 v20; // r9
+  PMDL v21; // rbx
+  unsigned int v22; // r14d
+  __int64 v23; // r13
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r12
+  _QWORD *v27; // r13
+  void *v28; // rax
   __int64 TranslationEntries; // rax
-  __int64 *v25; // r14
-  __int64 v26; // r14
-  __int64 v27; // rbx
-  __int64 v28; // r15
-  _QWORD *v29; // rdi
-  PVOID *v30; // rbx
-  __int64 v31; // rcx
-  unsigned __int64 v32; // rax
-  __int64 v33; // rdx
-  __int64 v34; // rcx
+  __int64 *v30; // r14
+  __int64 v31; // r14
+  __int64 v32; // rbx
+  __int64 v33; // r15
+  _QWORD *v34; // rdi
+  PVOID *v35; // rbx
+  __int64 v36; // rcx
+  unsigned __int64 v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v39; // eax
-  bool v40; // zf
+  int v44; // eax
+  bool v45; // zf
   PVOID BaseAddress; // [rsp+30h] [rbp-30h] BYREF
   PMDL MemoryDescriptorList; // [rsp+38h] [rbp-28h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-20h] BYREF
-  unsigned int v44; // [rsp+A0h] [rbp+40h] BYREF
-  unsigned int v45; // [rsp+B0h] [rbp+50h] BYREF
-  unsigned __int64 v46; // [rsp+B8h] [rbp+58h] BYREF
+  unsigned int v49; // [rsp+A0h] [rbp+40h] BYREF
+  unsigned int v50; // [rsp+B0h] [rbp+50h] BYREF
+  PHYSICAL_ADDRESS v51; // [rsp+B8h] [rbp+58h] BYREF
 
-  LODWORD(v2) = 0;
-  v3 = 0;
-  v44 = 0;
-  v45 = 0;
-  v6 = 0LL;
+  LODWORD(v4) = 0;
+  v5 = 0;
+  v49 = 0;
+  v50 = 0;
+  v8 = 0LL;
   BaseAddress = 0LL;
-  v46 = 0LL;
+  v51.QuadPart = 0LL;
   MemoryDescriptorList = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !*(_BYTE *)(a1 + 345) )
+  if ( !*(_BYTE *)(a1 + 337) )
   {
-    if ( *(_BYTE *)(a1 + 442) )
+    if ( *(_BYTE *)(a1 + 434) )
     {
-      result = HalpDmaAllocateScatterPagesFromScatterPool(a1, a1, a2, 0LL, 0, (__int64)&v44);
-      v3 = v44;
-      v6 = result;
-      if ( v44 == a2 )
+      result = HalpDmaAllocateScatterPagesFromScatterPool(a1, a1, a2, 0LL, 0, &v49);
+      v5 = v49;
+      v8 = result;
+      if ( v49 == a2 )
         return result;
     }
     else
     {
-      result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1);
-      v6 = result;
+      LOBYTE(a4) = 1;
+      result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1, a1, a2, a4, 0, &v49);
+      v8 = result;
       if ( result )
         return result;
-      v3 = v44;
+      v5 = v49;
     }
   }
-  if ( *(_BYTE *)(a1 + 442) )
+  v10 = *(_QWORD *)(a1 + 152);
+  if ( *(_BYTE *)(a1 + 434) )
   {
-    ScatterPagesFromScatterPool = HalpDmaAllocateScatterPagesFromScatterPool(
-                                    a1,
-                                    *(_QWORD *)(a1 + 160),
-                                    a2 - v3,
-                                    0LL,
-                                    0,
-                                    (__int64)&v45);
-    if ( ScatterPagesFromScatterPool )
+    v12 = HalpDmaAllocateScatterPagesFromScatterPool(a1, v10, a2 - v5, 0LL, 0, &v50);
+    if ( v12 )
     {
-      v11 = HalpDmaPrependTranslations(ScatterPagesFromScatterPool, v45, v6);
-      v3 += v45;
-      v6 = v11;
-      v44 = v3;
+      v14 = HalpDmaPrependTranslations(v12, v50, v8);
+      v5 += v50;
+      v8 = v14;
+      v49 = v5;
     }
-    if ( v3 == a2 )
-      return v6;
-    ScatterPagesFromContiguousPool = HalpDmaAllocateScatterPagesFromContiguousPool(
-                                       v10,
-                                       *(_QWORD *)(a1 + 160),
-                                       a2 - v3,
-                                       0,
-                                       0,
-                                       (__int64)&v45);
-    if ( ScatterPagesFromContiguousPool )
+    if ( v5 == a2 )
+      return v8;
+    v15 = HalpDmaAllocateScatterPagesFromContiguousPool(v13, *(_QWORD *)(a1 + 152), a2 - v5, 0LL, 0, &v50);
+    if ( v15 )
     {
-      v13 = HalpDmaPrependTranslations(ScatterPagesFromContiguousPool, v45, v6);
-      v3 += v45;
-      v6 = v13;
-      v44 = v3;
+      v16 = HalpDmaPrependTranslations(v15, v50, v8);
+      v5 += v50;
+      v8 = v16;
+      v49 = v5;
     }
-    if ( v3 == a2 )
-      return v6;
+    if ( v5 == a2 )
+      return v8;
   }
   else
   {
-    result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1);
-    v6 = result;
+    LOBYTE(a4) = 1;
+    result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1, v10, a2, a4, 0, &v49);
+    v8 = result;
     if ( result )
       return result;
-    v3 = v44;
+    v5 = v49;
   }
-  if ( !*(_BYTE *)(a1 + 442) )
+  if ( !*(_BYTE *)(a1 + 434) )
   {
-    ContiguousMemory = HalpDmaAllocateContiguousMemory(
-                         a1,
-                         a2,
-                         (unsigned int)&BaseAddress,
-                         (unsigned int)&v46,
-                         (__int64)&MemoryDescriptorList);
-    v44 = ContiguousMemory;
-    if ( ContiguousMemory )
+    v17 = HalpDmaAllocateContiguousMemory(a1, a2, &BaseAddress, &v51, &MemoryDescriptorList);
+    v49 = v17;
+    if ( v17 )
     {
-      v15 = BaseAddress;
-      if ( HalpDmaCommitContiguousMapBuffers(*(_QWORD *)(a1 + 160), (__int64)BaseAddress, v46, ContiguousMemory) )
+      v18 = BaseAddress;
+      if ( HalpDmaCommitContiguousMapBuffers(*(_QWORD *)(a1 + 152), (__int64)BaseAddress, v51.QuadPart, v17) )
       {
-        result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1);
+        LOBYTE(v20) = 1;
+        result = HalpDmaAllocateContiguousPagesFromContiguousPool(a1, *(_QWORD *)(a1 + 152), a2, v20, 0, &v49);
         if ( result )
           return result;
       }
       else
       {
-        v16 = MemoryDescriptorList;
+        v21 = MemoryDescriptorList;
         if ( MemoryDescriptorList )
         {
-          if ( v15 )
-            MmUnmapLockedPages(v15, MemoryDescriptorList);
-          MiFreePagesFromMdl((ULONG_PTR)v16, 0);
-          ExFreePoolWithTag(v16, 0);
+          if ( v18 )
+            MmUnmapLockedPages(v18, MemoryDescriptorList);
+          MiFreePagesFromMdl((ULONG_PTR)v21, 0, v19);
+          ExFreePoolWithTag(v21, 0);
         }
         else
         {
-          MmFreeContiguousMemory(v15);
+          MmFreeContiguousMemory(v18);
         }
       }
     }
     return 0LL;
   }
-  v17 = a2 - v3;
-  v18 = v17;
-  v19 = HalpMmAllocCtxAlloc(v8, 8LL * v17);
-  v21 = v19;
-  if ( !v19 )
+  v22 = a2 - v5;
+  v23 = v22;
+  v24 = HalpMmAllocCtxAlloc(v11, 8LL * v22);
+  v26 = v24;
+  if ( !v24 )
   {
 LABEL_38:
-    if ( v3 )
+    if ( v5 )
     {
-      v26 = v3;
+      v31 = v5;
       do
       {
-        v27 = *(_QWORD *)(v6 + 8);
-        HalpDmaReturnPageToOwner(a1, *(_QWORD *)(a1 + 160), v6);
-        v6 = v27;
-        --v26;
+        v32 = *(_QWORD *)(v8 + 8);
+        HalpDmaReturnPageToOwner(a1, *(_QWORD *)(a1 + 152), v8);
+        v8 = v32;
+        --v31;
       }
-      while ( v26 );
+      while ( v31 );
     }
     return 0LL;
   }
-  if ( v17 )
+  if ( v22 )
   {
-    v22 = (_QWORD *)v19;
+    v27 = (_QWORD *)v24;
     while ( 1 )
     {
-      v23 = (void *)HalpMmAllocCtxAlloc(v20, 4096LL);
-      *v22 = v23;
-      if ( !v23 || MmGetPhysicalAddress(v23).HighPart )
+      v28 = (void *)HalpMmAllocCtxAlloc(v25, 4096LL);
+      *v27 = v28;
+      if ( !v28 || MmGetPhysicalAddress(v28).HighPart )
         goto LABEL_34;
-      LODWORD(v2) = v2 + 1;
-      ++v22;
-      if ( (unsigned int)v2 >= v17 )
+      LODWORD(v4) = v4 + 1;
+      ++v27;
+      if ( (unsigned int)v4 >= v22 )
       {
-        v18 = v17;
+        v23 = v22;
         break;
       }
     }
   }
-  TranslationEntries = HalpDmaGetTranslationEntries(*(_QWORD *)(a1 + 160), 1, v17);
+  TranslationEntries = HalpDmaGetTranslationEntries(*(_QWORD *)(a1 + 152), 1, v22);
   if ( !TranslationEntries )
   {
 LABEL_34:
-    if ( (_DWORD)v2 )
+    if ( (_DWORD)v4 )
     {
-      v25 = (__int64 *)v21;
-      v2 = (unsigned int)v2;
+      v30 = (__int64 *)v26;
+      v4 = (unsigned int)v4;
       do
       {
-        HalpMmAllocCtxFree(v20, *v25++);
-        --v2;
+        HalpMmAllocCtxFree(v25, *v30++);
+        --v4;
       }
-      while ( v2 );
+      while ( v4 );
     }
-    HalpMmAllocCtxFree(v20, v21);
+    HalpMmAllocCtxFree(v25, v26);
     goto LABEL_38;
   }
-  v28 = HalpDmaPrependTranslations(TranslationEntries, v17, v6);
-  v29 = (_QWORD *)v28;
-  if ( v17 )
+  v33 = HalpDmaPrependTranslations(TranslationEntries, v22, v8);
+  v34 = (_QWORD *)v33;
+  if ( v22 )
   {
-    v30 = (PVOID *)v21;
+    v35 = (PVOID *)v26;
     do
     {
-      *v29 = MmGetPhysicalAddress(*v30).LowPart;
-      v31 = 1LL;
-      v32 = (unsigned __int64)*v30;
-      v33 = 2LL;
+      *v34 = MmGetPhysicalAddress(*v35).LowPart;
+      v36 = 1LL;
+      v37 = (unsigned __int64)*v35;
+      v38 = 2LL;
       do
       {
-        v32 |= v31++;
-        --v33;
+        v37 |= v36++;
+        --v38;
       }
-      while ( v33 );
-      ++v30;
-      v29[6] = v32 | 0xC;
-      v29 = (_QWORD *)v29[1];
-      --v18;
+      while ( v38 );
+      ++v35;
+      v34[6] = v37 | 0xC;
+      v34 = (_QWORD *)v34[1];
+      --v23;
     }
-    while ( v18 );
+    while ( v23 );
   }
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 160) + 128LL), &LockHandle);
-  *(_DWORD *)(*(_QWORD *)(a1 + 160) + 216LL) += v17;
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v34 = (unsigned int)KiIrqlFlags;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 152) + 120LL), &LockHandle);
+  *(_DWORD *)(*(_QWORD *)(a1 + 152) + 208LL) += v22;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v34 = (unsigned int)LockHandle.OldIrql + 1;
-      v39 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v40 = (v39 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v39;
-      if ( v40 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v39 = (unsigned int)LockHandle.OldIrql + 1;
+        v44 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v45 = (v44 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v44;
+        if ( v45 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);
-  HalpMmAllocCtxFree(v34, v21);
-  return v28;
+  HalpMmAllocCtxFree(v39, v26);
+  return v33;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoApplyPriorityInfoThread @ 0x14028F280
+ * XREFs of IoApplyPriorityInfoThread @ 0x1402F7540
  * Callers:
  *     <none>
  * Callees:
- *     PsSetPagePriorityThread @ 0x14028F63C (PsSetPagePriorityThread.c)
- *     PsSetIoPriorityThread @ 0x14028F698 (PsSetIoPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1402F72F0 (PsSetIoPriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x1402F75E4 (PsSetPagePriorityThread.c)
  */
 
 NTSTATUS __stdcall IoApplyPriorityInfoThread(
@@ -13,28 +13,30 @@ NTSTATUS __stdcall IoApplyPriorityInfoThread(
         PIO_PRIORITY_INFO OutputPriorityInfo,
         PETHREAD Thread)
 {
-  struct _IO_PRIORITY_INFO v7; // [rsp+20h] [rbp-18h]
+  unsigned int ThreadPriority; // edx
+  struct _IO_PRIORITY_INFO v8; // [rsp+20h] [rbp-18h]
 
   if ( InputPriorityInfo->ThreadPriority == 0xFFFF )
     return -1073741585;
-  v7.IoPriority = PsSetIoPriorityThread(Thread, (unsigned int)InputPriorityInfo->IoPriority);
+  v8.IoPriority = PsSetIoPriorityThread((__int64)Thread, InputPriorityInfo->IoPriority);
   if ( InputPriorityInfo->PagePriority == -1 )
-    v7.PagePriority = -1;
+    v8.PagePriority = -1;
   else
-    v7.PagePriority = PsSetPagePriorityThread(Thread);
-  if ( InputPriorityInfo->ThreadPriority == -1 )
+    v8.PagePriority = PsSetPagePriorityThread(Thread);
+  ThreadPriority = InputPriorityInfo->ThreadPriority;
+  if ( ThreadPriority == -1 )
   {
-    v7.ThreadPriority = -1;
+    v8.ThreadPriority = -1;
   }
   else
   {
-    v7.ThreadPriority = Thread->BasePriority;
-    KeSetActualBasePriorityThread((ULONG_PTR)Thread);
+    v8.ThreadPriority = Thread->BasePriority;
+    KeSetActualBasePriorityThread((__int64)Thread, ThreadPriority);
   }
   if ( OutputPriorityInfo )
   {
-    v7.Size = 16;
-    *OutputPriorityInfo = v7;
+    v8.Size = 16;
+    *OutputPriorityInfo = v8;
   }
   return 0;
 }

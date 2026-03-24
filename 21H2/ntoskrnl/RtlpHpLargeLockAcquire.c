@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpLargeLockAcquire @ 0x140371248
+ * XREFs of RtlpHpLargeLockAcquire @ 0x1402A5C78
  * Callers:
- *     RtlpHpLargeFree @ 0x140370928 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x140370C40 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x140365AF4 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
  */
 
-KIRQL __fastcall RtlpHpLargeLockAcquire(__int64 a1, char a2)
+char __fastcall RtlpHpLargeLockAcquire(_DWORD *a1, char a2)
 {
   if ( (a2 & 1) != 0 )
     return -1;
   else
-    return RtlpHpAcquireLockExclusive((volatile LONG *)(a1 + 64), *(_DWORD *)a1 & 1);
+    return RtlpHpAcquireLockExclusive(a1 + 16, *a1 & 1);
 }

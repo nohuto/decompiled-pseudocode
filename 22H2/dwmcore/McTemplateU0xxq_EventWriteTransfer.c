@@ -1,12 +1,14 @@
 /*
- * XREFs of McTemplateU0xxq_EventWriteTransfer @ 0x1801DFD60
+ * XREFs of McTemplateU0xxq_EventWriteTransfer @ 0x180178CDC
  * Callers:
- *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18004540C (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
- *     ?ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ @ 0x1800D7890 (-ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ.c)
- *     ?SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z @ 0x1801F9F30 (-SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z.c)
+ *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18009C96C (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E0A04 (--1CInteraction@@MEAA@XZ.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0B2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z @ 0x18019ACC0 (-SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z.c)
+ *     ?NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z @ 0x180224F6C (-NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
@@ -36,5 +38,5 @@ ULONG McTemplateU0xxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2,
   va_copy(v6, va1);
   v9 = 4LL;
   va_copy(v8, va2);
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, v11, 4u, &v3);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, v11, 4u, &v3);
 }

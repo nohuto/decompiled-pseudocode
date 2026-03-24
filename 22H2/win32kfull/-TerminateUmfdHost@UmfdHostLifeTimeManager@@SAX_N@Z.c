@@ -1,47 +1,40 @@
 /*
- * XREFs of ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00A5278
+ * XREFs of ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00F3F4C
  * Callers:
- *     UmfdDispatchWinLogonEscape @ 0x1C00A5088 (UmfdDispatchWinLogonEscape.c)
+ *     UmfdDispatchWinLogonEscape @ 0x1C00F3E5C (UmfdDispatchWinLogonEscape.c)
  * Callees:
- *     ??0AutoExclusiveUmfdLookupLock@@QEAA@XZ @ 0x1C007EE40 (--0AutoExclusiveUmfdLookupLock@@QEAA@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C00A5A38 (--0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5CD0 (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5D18 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ @ 0x1C00A5F4C (-TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F4268 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F449C (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ @ 0x1C00F44D0 (-TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ.c)
  */
 
-void __fastcall UmfdHostLifeTimeManager::TerminateUmfdHost(__int64 a1)
+void __fastcall UmfdHostLifeTimeManager::TerminateUmfdHost(char a1)
 {
-  char v1; // si
-  __int64 v2; // rbx
-  void *v3; // rax
-  void *v4; // rdi
-  struct _KEVENT *v5; // rcx
-  char v6; // [rsp+48h] [rbp+10h] BYREF
-  char v7; // [rsp+50h] [rbp+18h] BYREF
+  void *v2; // rax
+  void *v3; // rbx
+  char v4; // [rsp+48h] [rbp+10h] BYREF
+  char v5; // [rsp+50h] [rbp+18h] BYREF
 
-  v1 = a1;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  KeWaitForSingleObject(*(PVOID *)(v2 + 23568), Executive, 0, 0, 0LL);
-  v3 = UmfdHostLifeTimeManager::TerminateUmfdHostRetainHandle();
-  v4 = v3;
-  if ( v3 )
+  KeWaitForSingleObject(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, Executive, 0, 0, 0LL);
+  v2 = UmfdHostLifeTimeManager::TerminateUmfdHostRetainHandle();
+  v3 = v2;
+  if ( v2 )
   {
-    ZwWaitForSingleObject(v3, 0, 0LL);
-    ZwClose(v4);
+    ZwWaitForSingleObject(v2, 0, 0LL);
+    ZwClose(v3);
   }
-  if ( v1 )
+  if ( a1 )
   {
-    v5 = *(struct _KEVENT **)(v2 + 23552);
-    *(_BYTE *)(v2 + 23560) = 0;
-    KeClearEvent(v5);
+    UmfdHostLifeTimeManager::s_SessionRasterizerInitialized = 0;
+    KeClearEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent);
   }
-  AutoExclusiveUmfdLookupLock::AutoExclusiveUmfdLookupLock((AutoExclusiveUmfdLookupLock *)&v7);
-  UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock::UmfdHostExclusiveReadyLock((UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock *)&v6);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v5, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v4, (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
   UmfdHostLifeTimeManager::UnreferenceUmfdHostWithNoLock();
   UmfdHostLifeTimeManager::ReleaseUmfdFileviewWithNoLock();
-  KeSetEvent(*(PRKEVENT *)(v2 + 23528), 0, 0);
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v6);
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v7);
+  KeSetEvent(UmfdHostLifeTimeManager::s_WinlogonCallbackEvent, 0, 0);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v4);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v5);
 }

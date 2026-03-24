@@ -12,12 +12,12 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiSizeMemoryListLocks @ 0x1406D0D40 (MiSizeMemoryListLocks.c)
- *     MiUpdateMirrorBitmaps @ 0x1406DFAEC (MiUpdateMirrorBitmaps.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
+ *     MiSizeMemoryListLocks @ 0x1406D0D20 (MiSizeMemoryListLocks.c)
+ *     MiUpdateMirrorBitmaps @ 0x1406DFACC (MiUpdateMirrorBitmaps.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 MiInitializeMirroring()

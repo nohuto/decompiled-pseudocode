@@ -1,15 +1,15 @@
 /*
- * XREFs of ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3FA8
+ * XREFs of ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014ADAC
  * Callers:
- *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F3744 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C014AC60 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
  * Callees:
- *     ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F39EC (-bFindFirstScan@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3AF0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3DA0 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3E34 (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F3EB8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
- *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C02F3F20 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
- *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F43D8 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C014AA68 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014AAFC (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C014AB64 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014B544 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C014B8D0 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
+ *     ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C014BB34 (-bFindFirstScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C014BE54 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
  */
 
 __int64 __fastcall XCLIPOBJ::bSetup(XCLIPOBJ *this)
@@ -20,33 +20,24 @@ __int64 __fastcall XCLIPOBJ::bSetup(XCLIPOBJ *this)
   int v5; // ecx
   unsigned int v6; // ecx
   _DWORD *v7; // rcx
-  _DWORD *v8; // r8
-  int v9; // edx
-  int v10; // r9d
-  int *v11; // rcx
-  int v12; // eax
-  int v13; // edx
-  __int64 v14; // rax
-  int v15; // edx
-  _DWORD *v16; // r8
-  int v17; // edx
-  int v18; // r9d
-  int *v19; // rcx
-  int v20; // eax
-  int v21; // edx
-  __int64 v22; // rax
-  int v23; // edx
+  int v8; // r8d
+  int v9; // r10d
+  int v10; // edx
+  _DWORD *v11; // rcx
+  int v12; // r10d
+  int v13; // r8d
+  int v14; // edx
   int i; // eax
   int NextSegment; // eax
-  struct _POINTL v27; // [rsp+40h] [rbp+10h] BYREF
-  struct _POINTL v28; // [rsp+48h] [rbp+18h] BYREF
+  struct _POINTL v18; // [rsp+40h] [rbp+10h] BYREF
+  struct _POINTL v19; // [rsp+48h] [rbp+18h] BYREF
 
   v1 = (_DWORD *)*((_QWORD *)this + 18);
   if ( (v1[6] & 0x20000) != 0 )
   {
     XCLIPOBJ::bRecordRun(this, v1 + 8);
     NextSegment = XCLIPOBJ::bFindNextSegment(this);
-    goto LABEL_36;
+    goto LABEL_23;
   }
   v3 = -1;
   v1[40] = -1;
@@ -65,89 +56,91 @@ __int64 __fastcall XCLIPOBJ::bSetup(XCLIPOBJ *this)
   *((_DWORD *)this + 25) = v3;
   v7 = (_DWORD *)*((_QWORD *)this + 18);
   if ( v7[29] <= v7[31] )
-    v7[6] |= 0x800000u;
-  v8 = (_DWORD *)*((_QWORD *)this + 18);
-  v9 = *((_DWORD *)this + 2);
-  v10 = v8[29];
-  v11 = v8 + 31;
-  if ( v10 >= v9 || *v11 >= v9 )
   {
-    v12 = *((_DWORD *)this + 4);
-    if ( v10 < v12 || *v11 < v12 )
+    v7[6] |= 0x800000u;
+    v7 = (_DWORD *)*((_QWORD *)this + 18);
+  }
+  v8 = v7[29];
+  v9 = *((_DWORD *)this + 2);
+  if ( v8 >= v9 || v7[31] >= v9 )
+  {
+    v10 = *((_DWORD *)this + 4);
+    if ( v8 < v10 || v7[31] < v10 )
     {
-      if ( (v8[6] & 0x800000) != 0 )
+      if ( (v7[6] & 0x800000) != 0 )
       {
-        if ( v10 < v9 )
+        if ( v8 < v9 )
         {
-          v27 = 0LL;
-          XCLIPOBJ::vIntersectScan(this, v9, 0LL, &v27, v8 + 40);
-          *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v27;
+          v18 = 0LL;
+          XCLIPOBJ::vIntersectScan(this, v9, 0LL, &v18, v7 + 40);
+          *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v18;
+          v7 = (_DWORD *)*((_QWORD *)this + 18);
+          v10 = *((_DWORD *)this + 4);
         }
-        v13 = *((_DWORD *)this + 4);
-        if ( *(_DWORD *)(*((_QWORD *)this + 18) + 124LL) >= v13 )
+        if ( v7[31] >= v10 )
         {
-          v28 = 0LL;
-          XCLIPOBJ::vIntersectScan(this, v13, &v28, 0LL, (int *)&v27);
-          *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v28;
+          v19 = 0LL;
+          XCLIPOBJ::vIntersectScan(this, v10, &v19, 0LL, (int *)&v18);
+          *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v19;
         }
       }
       else
       {
-        if ( *v11 < v9 )
+        if ( v7[31] < v9 )
         {
-          v28 = 0LL;
-          XCLIPOBJ::vIntersectScan(this, v9, &v28, 0LL, (int *)&v27);
-          *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v28;
+          v19 = 0LL;
+          XCLIPOBJ::vIntersectScan(this, v9, &v19, 0LL, (int *)&v18);
+          *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v19;
+          v7 = (_DWORD *)*((_QWORD *)this + 18);
+          v10 = *((_DWORD *)this + 4);
         }
-        v14 = *((_QWORD *)this + 18);
-        v15 = *((_DWORD *)this + 4);
-        if ( *(_DWORD *)(v14 + 116) >= v15 )
+        if ( v7[29] >= v10 )
         {
-          v27 = 0LL;
-          XCLIPOBJ::vIntersectScan(this, v15, 0LL, &v27, (int *)(v14 + 160));
-          *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v27;
+          v18 = 0LL;
+          XCLIPOBJ::vIntersectScan(this, v10, 0LL, &v18, v7 + 40);
+          *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v18;
         }
       }
-      v16 = (_DWORD *)*((_QWORD *)this + 18);
-      v17 = *((_DWORD *)this + 1);
-      v18 = v16[28];
-      v19 = v16 + 30;
-      if ( v18 >= v17 || *v19 >= v17 )
+      v11 = (_DWORD *)*((_QWORD *)this + 18);
+      v12 = *((_DWORD *)this + 1);
+      v13 = v11[28];
+      if ( v13 >= v12 || v11[30] >= v12 )
       {
-        v20 = *((_DWORD *)this + 3);
-        if ( v18 < v20 || *v19 < v20 )
+        v14 = *((_DWORD *)this + 3);
+        if ( v13 < v14 || v11[30] < v14 )
         {
-          if ( (v16[6] & 0x400000) != 0 )
+          if ( (v11[6] & 0x400000) != 0 )
           {
-            if ( v18 < v17 )
+            if ( v13 < v12 )
             {
-              v27 = 0LL;
-              XCLIPOBJ::bIntersectWall(this, v17, 0LL, &v27, v16 + 40);
-              *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v27;
+              v18 = 0LL;
+              XCLIPOBJ::bIntersectWall(this, v12, 0LL, &v18, v11 + 40);
+              *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v18;
+              v11 = (_DWORD *)*((_QWORD *)this + 18);
+              v14 = *((_DWORD *)this + 3);
             }
-            v21 = *((_DWORD *)this + 3);
-            if ( *(_DWORD *)(*((_QWORD *)this + 18) + 120LL) >= v21 )
+            if ( v11[30] >= v14 )
             {
-              v28 = 0LL;
-              XCLIPOBJ::bIntersectWall(this, v21, &v28, 0LL, (int *)&v27);
-              *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v28;
+              v19 = 0LL;
+              XCLIPOBJ::bIntersectWall(this, v14, &v19, 0LL, (int *)&v18);
+              *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v19;
             }
           }
           else
           {
-            if ( *v19 < v17 )
+            if ( v11[30] < v12 )
             {
-              v28 = 0LL;
-              XCLIPOBJ::bIntersectWall(this, v17, &v28, 0LL, (int *)&v27);
-              *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v28;
+              v19 = 0LL;
+              XCLIPOBJ::bIntersectWall(this, v12, &v19, 0LL, (int *)&v18);
+              *(struct _POINTL *)(*((_QWORD *)this + 18) + 120LL) = v19;
+              v11 = (_DWORD *)*((_QWORD *)this + 18);
+              v14 = *((_DWORD *)this + 3);
             }
-            v22 = *((_QWORD *)this + 18);
-            v23 = *((_DWORD *)this + 3);
-            if ( *(_DWORD *)(v22 + 112) >= v23 )
+            if ( v11[28] >= v14 )
             {
-              v27 = 0LL;
-              XCLIPOBJ::bIntersectWall(this, v23, 0LL, &v27, (int *)(v22 + 160));
-              *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v27;
+              v18 = 0LL;
+              XCLIPOBJ::bIntersectWall(this, v14, 0LL, &v18, v11 + 40);
+              *(struct _POINTL *)(*((_QWORD *)this + 18) + 112LL) = v18;
             }
           }
           *(_DWORD *)(*((_QWORD *)this + 18) + 152LL) = *(_DWORD *)(*((_QWORD *)this + 18) + 112LL);
@@ -156,7 +149,7 @@ __int64 __fastcall XCLIPOBJ::bSetup(XCLIPOBJ *this)
           for ( i = XCLIPOBJ::bFindFirstScan(this); i; i = XCLIPOBJ::bFindNextScan(this) )
           {
             NextSegment = XCLIPOBJ::bFindFirstSegment(this);
-LABEL_36:
+LABEL_23:
             if ( NextSegment )
               return 1LL;
           }

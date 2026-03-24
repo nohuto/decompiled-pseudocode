@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0288DC8
+ * XREFs of ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0287F60
  * Callers:
- *     EngDitherColor @ 0x1C0289080 (EngDitherColor.c)
+ *     EngDitherColor @ 0x1C0288210 (EngDitherColor.c)
  * Callees:
  *     <none>
  */
@@ -69,7 +69,7 @@ void __fastcall vDitherColor8bpp(unsigned int *a1, struct _VERTEX_DATA *a2, stru
       v11 = v5;
     v13 = *((unsigned int *)v11 + 1);
     *((_DWORD *)v11 + 1) = 255;
-    v14 = dword_1C0328670[v13];
+    v14 = *((_DWORD *)&ulNibbleTo8bppDword + v13);
     *a1 = v14;
     a1[1] = v14;
     a1[2] = v14;
@@ -86,7 +86,7 @@ void __fastcall vDitherColor8bpp(unsigned int *a1, struct _VERTEX_DATA *a2, stru
     a1[13] = v14;
     a1[14] = v14;
     a1[15] = v14;
-    v15 = (unsigned int *)&unk_1C03287B0;
+    v15 = (unsigned int *)&aulDither8bppOrder;
     while ( 1 )
     {
       v16 = *((unsigned int *)v5 + 1);
@@ -99,7 +99,7 @@ LABEL_23:
       if ( v5 >= a3 )
         return;
     }
-    v18 = byte_1C0328620[v16];
+    v18 = ajConvert[v16];
     if ( (*(_DWORD *)v5 & 3) != 1 )
     {
       if ( (*(_DWORD *)v5 & 3) != 2 )
@@ -127,7 +127,7 @@ LABEL_21:
   v21 = (unsigned int *)((char *)a2 + 4);
   if ( a4 != 2 )
   {
-    v32 = dword_1C0328670[*v21];
+    v32 = *((_DWORD *)&ulNibbleTo8bppDword + *v21);
     *a1 = v32;
     a1[1] = v32;
     a1[2] = v32;
@@ -153,16 +153,16 @@ LABEL_21:
   {
     v27 = *(unsigned int *)v23;
     v24 = *(_DWORD *)a2;
-    v26 = (unsigned int *)&unk_1C03287B0;
+    v26 = (unsigned int *)&aulDither8bppOrder;
     v23 = (char *)a2 + 4;
-    v25 = dword_1C0328670[v27];
+    v25 = *((_DWORD *)&ulNibbleTo8bppDword + v27);
   }
   else
   {
-    v25 = dword_1C0328670[*v21];
-    v26 = (unsigned int *)((char *)&unk_1C03287B0 + 4 * v22);
+    v25 = *((_DWORD *)&ulNibbleTo8bppDword + *v21);
+    v26 = (unsigned int *)((char *)&aulDither8bppOrder + 4 * v22);
   }
-  v28 = byte_1C0328620[*(unsigned int *)v23];
+  v28 = ajConvert[*(unsigned int *)v23];
   *a1 = v25;
   a1[1] = v25;
   a1[2] = v25;

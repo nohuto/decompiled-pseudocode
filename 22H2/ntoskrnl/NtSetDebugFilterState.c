@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSetDebugFilterState @ 0x1408310C0
+ * XREFs of NtSetDebugFilterState @ 0x1407A58F0
  * Callers:
- *     DbgSetDebugFilterState @ 0x140391F50 (DbgSetDebugFilterState.c)
- *     VfInitBootDriversLoaded @ 0x140B5A754 (VfInitBootDriversLoaded.c)
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     DbgSetDebugFilterState @ 0x1403B6DE0 (DbgSetDebugFilterState.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall NtSetDebugFilterState(unsigned int a1, unsigned int a2, char a3)

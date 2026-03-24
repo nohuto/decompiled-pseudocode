@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxSafeLoadKeyboardLayoutEx @ 0x1C0067010
+ * XREFs of xxxSafeLoadKeyboardLayoutEx @ 0x1C00099F0
  * Callers:
- *     NtUserLoadKeyboardLayoutEx @ 0x1C0067DD0 (NtUserLoadKeyboardLayoutEx.c)
+ *     NtUserLoadKeyboardLayoutEx @ 0x1C01326C0 (NtUserLoadKeyboardLayoutEx.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C00670F8 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C00673D0 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0009AD8 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C000A048 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 HKL __fastcall xxxSafeLoadKeyboardLayoutEx(
@@ -33,7 +33,7 @@ HKL __fastcall xxxSafeLoadKeyboardLayoutEx(
     {
       if ( *(_DWORD *)a6 >= 8u )
       {
-        UserSetLastError(87);
+        UserSetLastError(87LL);
         *(_DWORD *)a6 = 0;
 LABEL_6:
         ZwClose(v13);
@@ -65,6 +65,6 @@ LABEL_6:
   if ( (a9 & 0x40000000) != 0 )
     PsGetThreadProcessId(*(PETHREAD *)gptiCurrent);
   if ( (a9 & 0x40000200) == 0 )
-    UserSetLastError(0);
+    UserSetLastError(0LL);
   return KeyboardLayout;
 }

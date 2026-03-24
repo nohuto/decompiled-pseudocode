@@ -1,41 +1,52 @@
 /*
- * XREFs of ?ProcessSetCoordinateSpace@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETCOORDINATESPACE@@@Z @ 0x18020DF94
+ * XREFs of ?ProcessSetCoordinateSpace@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETCOORDINATESPACE@@@Z @ 0x1801BB37C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?IssueLightChangedNotification@CCompositionLight@@QEAAXXZ @ 0x180027060 (-IssueLightChangedNotification@CCompositionLight@@QEAAXXZ.c)
- *     ?UpdateRegistrationWithCompositor@CCompositionLight@@IEAAXXZ @ 0x18002709C (-UpdateRegistrationWithCompositor@CCompositionLight@@IEAAXXZ.c)
- *     ??4?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z @ 0x180027160 (--4-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IssueLightChangedNotification@CCompositionLight@@IEAAXXZ @ 0x1800D1750 (-IssueLightChangedNotification@CCompositionLight@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCompositionPointLight::ProcessSetCoordinateSpace(
-        CCompositionPointLight *this,
+        struct CResource **this,
         struct CResourceTable *a2,
         const struct tagMILCMD_COMPOSITIONPOINTLIGHT_SETCOORDINATESPACE *a3)
 {
   unsigned int v4; // ebx
   unsigned int v5; // edx
-  __int64 Resource; // rax
+  struct CResource *Resource; // rsi
   __int64 v8; // rcx
+  int v9; // eax
+  __int64 v10; // rcx
 
   v4 = 0;
   v5 = *((_DWORD *)a3 + 2);
   Resource = 0LL;
-  if ( !v5 || (Resource = CResourceTable::GetResource((__int64)a2, v5, 0xC3u)) != 0 )
+  if ( !v5 || (Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v5, 0xC3u)) != 0LL )
   {
-    if ( Resource != *((_QWORD *)this + 32) )
+    if ( Resource != this[31] )
     {
-      wil::com_ptr_t<CVisual,wil::err_returncode_policy>::operator=((__int64 *)this + 32, Resource);
-      CCompositionLight::UpdateRegistrationWithCompositor(this);
-      CCompositionLight::IssueLightChangedNotification(this);
+      v9 = CResource::RegisterNotifier((CResource *)this, Resource);
+      v4 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x117u, 0LL);
+      }
+      else
+      {
+        CResource::UnRegisterNotifierInternal((CResource *)this, this[31]);
+        this[31] = Resource;
+        CCompositionLight::IssueLightChangedNotification((CCompositionLight *)this);
+      }
     }
   }
   else
   {
     v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2003303421, 0x103u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x111u, 0LL);
   }
   return v4;
 }

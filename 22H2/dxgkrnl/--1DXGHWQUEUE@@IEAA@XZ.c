@@ -1,48 +1,37 @@
 /*
- * XREFs of ??1DXGHWQUEUE@@IEAA@XZ @ 0x1C0316838
+ * XREFs of ??1DXGHWQUEUE@@IEAA@XZ @ 0x1C026CCF0
  * Callers:
- *     ??_GDXGHWQUEUE@@IEAAPEAXI@Z @ 0x1C00529AC (--_GDXGHWQUEUE@@IEAAPEAXI@Z.c)
+ *     ??_GDXGHWQUEUE@@IEAAPEAXI@Z @ 0x1C0046E44 (--_GDXGHWQUEUE@@IEAAPEAXI@Z.c)
  * Callees:
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000481C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0004D30 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00487F0 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0003148 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00031B4 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall DXGHWQUEUE::~DXGHWQUEUE(DXGHWQUEUE *this)
+void __fastcall DXGHWQUEUE::~DXGHWQUEUE(DXGHWQUEUE *this, __int64 a2)
 {
-  void *v2; // rcx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  DXGDEVICESYNCOBJECT *v4; // rcx
+  __int64 v3; // rax
+  void *v4; // rcx
   DXGDEVICESYNCOBJECT *v5; // rcx
   DXGDEVICESYNCOBJECT *v6; // rcx
   unsigned int v7; // edx
-  ULONG_PTR NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !*((_BYTE *)this + 112) )
+  if ( !*((_BYTE *)this + 96) )
   {
-    WdLogSingleEntry1(1LL, 32LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"_DestroyedCoreState", 32LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 32LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v2 = (void *)*((_QWORD *)this + 15);
-  if ( v2 )
+  v4 = (void *)*((_QWORD *)this + 13);
+  if ( v4 )
   {
     NumberOfBytes = 4096LL;
-    MmRotatePhysicalView(v2, &NumberOfBytes, 0LL, MmToRegularMemoryNoCopy, 0LL, 0LL);
-    v9 = 4096LL;
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    (*((void (__fastcall **)(__int64, char *, __int64 *, __int64))VirtualMemoryInterface + 2))(
-      -1LL,
-      (char *)this + 120,
-      &v9,
-      0x8000LL);
+    MmRotatePhysicalView(v4, &NumberOfBytes, 0LL, MmToRegularMemoryNoCopy, 0LL, 0LL);
+    RegionSize = 4096LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)this + 13, &RegionSize, 0x8000u);
   }
-  v4 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 9);
-  if ( v4 )
-    DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v4);
-  v5 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 11);
+  v5 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 9);
   if ( v5 )
     DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v5);
   v6 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 6);
@@ -50,6 +39,6 @@ void __fastcall DXGHWQUEUE::~DXGHWQUEUE(DXGHWQUEUE *this)
     DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v6);
   v7 = *((_DWORD *)this + 6);
   if ( v7 )
-    DXGPROCESS::FreeHandleSafe(*(DXGPROCESS **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 40LL), v7);
+    DXGPROCESS::FreeResourceHandleNoRefSafe(*(DXGPROCESS **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 40LL), v7);
   *((_QWORD *)this + 2) = 0LL;
 }

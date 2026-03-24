@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C0010C68
+ * XREFs of HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C000F83C
  * Callers:
- *     HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C00086E0 (HUBHSM_CheckingPSMInterruptReferencesOnReset.c)
- *     HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt @ 0x1C0008720 (HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt.c)
- *     HUBHSM_CheckingPSMInterruptReferencesOnStop @ 0x1C0008750 (HUBHSM_CheckingPSMInterruptReferencesOnStop.c)
+ *     HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C0007F20 (HUBHSM_CheckingPSMInterruptReferencesOnReset.c)
+ *     HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt @ 0x1C0007F60 (HUBHSM_CheckingPSMInterruptReferencesOnResetInNoInterrupt.c)
+ *     HUBHSM_CheckingPSMInterruptReferencesOnStop @ 0x1C0007F90 (HUBHSM_CheckingPSMInterruptReferencesOnStop.c)
  * Callees:
  *     <none>
  */

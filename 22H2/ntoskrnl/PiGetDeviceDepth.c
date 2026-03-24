@@ -1,13 +1,13 @@
 /*
- * XREFs of PiGetDeviceDepth @ 0x1407D6110
+ * XREFs of PiGetDeviceDepth @ 0x1406A07F0
  * Callers:
- *     PiControlGetDeviceDepth @ 0x1407D6070 (PiControlGetDeviceDepth.c)
- *     PiCMGetDeviceDepth @ 0x140969FD0 (PiCMGetDeviceDepth.c)
+ *     PiControlGetDeviceDepth @ 0x1406A0750 (PiControlGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x140734148 (PiCMGetDeviceDepth.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PiGetDeviceDepth(__int64 a1, _DWORD *a2)
@@ -18,8 +18,8 @@ __int64 __fastcall PiGetDeviceDepth(__int64 a1, _DWORD *a2)
 
   *a2 = 0;
   v4 = -1073741810;
-  PpDevNodeLockTree(0);
-  v5 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 0x43706E50u);
+  PpDevNodeLockTree(0LL);
+  v5 = (_QWORD *)PnpDeviceObjectFromDeviceInstanceWithTag(a1, 1131441744LL);
   if ( v5 )
   {
     v6 = *(_QWORD *)(v5[39] + 40LL);
@@ -30,6 +30,6 @@ __int64 __fastcall PiGetDeviceDepth(__int64 a1, _DWORD *a2)
     }
     ObfDereferenceObjectWithTag(v5, 0x43706E50u);
   }
-  PpDevNodeUnlockTree(0);
+  PpDevNodeUnlockTree(0LL);
   return v4;
 }

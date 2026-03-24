@@ -1,27 +1,28 @@
 /*
- * XREFs of PopGetPowerRequestListInfo @ 0x140984300
+ * XREFs of PopGetPowerRequestListInfo @ 0x1408E3E64
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PoStoreDiagnosticContext @ 0x14032B378 (PoStoreDiagnosticContext.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A73E4 (PopAcquirePowerRequestPushLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PoStoreDiagnosticContext @ 0x14038A59C (PoStoreDiagnosticContext.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1406F3F38 (PopAcquirePowerRequestPushLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)
+__int64 __fastcall PopGetPowerRequestListInfo(unsigned __int64 **a1, _DWORD *a2)
 {
-  PVOID *v4; // rbx
-  unsigned __int64 v5; // rdi
+  __int64 *v4; // rbx
+  SIZE_T v5; // rdi
   __int64 v6; // rcx
-  __int64 Pool2; // rax
-  _QWORD *v8; // r14
+  unsigned __int64 *PoolWithTag; // rax
+  unsigned __int64 *v8; // rsi
   int v9; // ebx
-  unsigned __int64 *v10; // rbp
-  __int64 v11; // rax
-  PVOID *v12; // r15
-  unsigned __int64 v13; // rsi
+  __int64 v10; // rax
+  unsigned __int64 *v11; // r15
+  __int64 v12; // r14
+  unsigned __int64 v13; // rbp
   unsigned __int64 v14; // rdi
   _DWORD *v15; // rcx
   __int64 v16; // r9
@@ -30,75 +31,78 @@ __int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)
   unsigned __int64 v20; // [rsp+60h] [rbp+18h] BYREF
 
   PopAcquirePowerRequestPushLock(0);
-  v4 = (PVOID *)PopPowerRequestObjectList;
-  v5 = (8LL * (unsigned int)PopPowerRequestObjectCount + 15) & 0xFFFFFFFFFFFFFFF8uLL;
+  v4 = (__int64 *)PopPowerRequestObjectList;
+  v5 = (8 * PopPowerRequestObjectCount + 15) & 0xFFFFFFFFFFFFFFF8uLL;
   while ( v4 != &PopPowerRequestObjectList )
   {
-    v6 = (__int64)v4[12];
+    v6 = v4[10];
     v20 = 0LL;
     PoStoreDiagnosticContext(v6, 0LL, &v20);
     v5 = (v20 + 39 + v5) & 0xFFFFFFFFFFFFFFF8uLL;
     if ( v5 > 0xFFFFFFFF )
     {
       v9 = -1073741789;
-      goto LABEL_17;
+      goto LABEL_19;
     }
-    v4 = (PVOID *)*v4;
+    v4 = (__int64 *)*v4;
   }
-  Pool2 = ExAllocatePool2(256LL, v5, 544040269LL);
-  v8 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (unsigned __int64 *)ExAllocatePoolWithTag(PagedPool, v5, 0x206D654Du);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v10 = (unsigned __int64 *)(Pool2 + 8);
-    v11 = (unsigned int)PopPowerRequestObjectCount;
-    *v8 = (unsigned int)PopPowerRequestObjectCount;
-    v12 = (PVOID *)PopPowerRequestObjectList;
-    v13 = (8 * v11 + 15) & 0xFFFFFFFFFFFFFFF8uLL;
+    memset(PoolWithTag, 0, v5);
+    v10 = PopPowerRequestObjectCount;
+    v11 = v8 + 1;
+    *v8 = PopPowerRequestObjectCount;
+    v12 = PopPowerRequestObjectList;
+    v13 = (8 * v10 + 15) & 0xFFFFFFFFFFFFFFF8uLL;
     v14 = v5 - v13;
     while ( 1 )
     {
-      if ( v12 == &PopPowerRequestObjectList )
+      if ( (__int64 *)v12 == &PopPowerRequestObjectList )
       {
         *a1 = v8;
+        v8 = 0LL;
         v9 = 0;
         *a2 = v13;
         goto LABEL_17;
       }
       if ( v14 < 0x48 )
         break;
-      *(_DWORD *)((char *)v8 + v13) = *((_DWORD *)v12 + 5);
+      *(_DWORD *)((char *)v8 + v13) = *(_DWORD *)(v12 + 20);
       v15 = (_DWORD *)((char *)v8 + v13 + 4);
       v16 = 6LL;
       do
       {
-        *v15 = *(_DWORD *)((char *)v15 + (char *)v12 - ((char *)v8 + v13) + 36);
+        *v15 = *(_DWORD *)((char *)v15 + v12 - ((_QWORD)v8 + v13) + 28);
         ++v15;
         --v16;
       }
       while ( v16 );
-      v17 = (__int64)v12[12];
+      v17 = *(_QWORD *)(v12 + 80);
       v20 = v14 - 32;
-      v9 = PoStoreDiagnosticContext(v17, (_QWORD *)((char *)v8 + v13 + 32), &v20);
+      v9 = PoStoreDiagnosticContext(v17, (unsigned __int64 *)((char *)v8 + v13 + 32), &v20);
       if ( v9 < 0 )
-        goto LABEL_19;
+        goto LABEL_17;
       v18 = (v20 + 39) & 0xFFFFFFFFFFFFFFF8uLL;
       if ( v14 < v18 )
         break;
-      *v10 = v13;
+      *v11 = v13;
       v14 -= v18;
-      v12 = (PVOID *)*v12;
+      v12 = *(_QWORD *)v12;
       v13 += v18;
-      ++v10;
+      ++v11;
     }
     v9 = -1073741789;
-LABEL_19:
-    ExFreePoolWithTag(v8, 0x206D654Du);
+LABEL_17:
+    if ( v8 )
+      ExFreePoolWithTag(v8, 0x206D654Du);
   }
   else
   {
     v9 = -1073741670;
   }
-LABEL_17:
-  PopReleaseRwLock((__int64 *)&PopPowerRequestLock);
+LABEL_19:
+  PopReleaseRwLock((ULONG_PTR)&PopPowerRequestLock);
   return (unsigned int)v9;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Draw@CAtlasedRectsGroup@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011C260
+ * XREFs of ?Draw@CAtlasedRectsGroup@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F45B0
  * Callers:
  *     <none>
  * Callees:

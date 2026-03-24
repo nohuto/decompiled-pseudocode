@@ -1,12 +1,12 @@
 /*
- * XREFs of Register_SetClearSSICPortUnused @ 0x1C0013C20
+ * XREFs of Register_SetClearSSICPortUnused @ 0x1C000F58C
  * Callers:
- *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9F0 (Controller_WdfEvtDeviceD0Exit.c)
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
- *     Register_ControllerReset @ 0x1C0018568 (Register_ControllerReset.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Register_ControllerReset @ 0x1C0010D88 (Register_ControllerReset.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
  */
 
 __int64 __fastcall Register_SetClearSSICPortUnused(__int64 a1, char a2)
@@ -19,8 +19,8 @@ __int64 __fastcall Register_SetClearSSICPortUnused(__int64 a1, char a2)
   unsigned int v9; // eax
   int v10; // eax
 
-  result = *(_QWORD *)(a1 + 8);
-  if ( _bittest64((const signed __int64 *)(result + 336), 0x39u) )
+  result = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 336LL);
+  if ( (result & 0x200000000000000LL) != 0 )
   {
     v5 = *(_QWORD *)(a1 + 24) + 34876LL;
     Ulong = XilRegister_ReadUlong(a1, v5);

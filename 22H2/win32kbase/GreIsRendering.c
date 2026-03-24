@@ -1,11 +1,11 @@
 /*
- * XREFs of GreIsRendering @ 0x1C005B8F0
+ * XREFs of GreIsRendering @ 0x1C003AC50
  * Callers:
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     GetMonitorDC @ 0x1C005B3E8 (GetMonitorDC.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GetMonitorDC @ 0x1C003B0E0 (GetMonitorDC.c)
  * Callees:
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C004B718 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C004B77C (--1DCOBJA@@QEAA@XZ.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0038DB0 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0038DDC (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreIsRendering(HDC a1)

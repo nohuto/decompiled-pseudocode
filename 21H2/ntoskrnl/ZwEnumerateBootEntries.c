@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwEnumerateBootEntries @ 0x14041D3E0
+ * XREFs of ZwEnumerateBootEntries @ 0x1403FBF80
  * Callers:
- *     DifZwEnumerateBootEntriesWrapper @ 0x14061FF00 (DifZwEnumerateBootEntriesWrapper.c)
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1409F7390 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
- *     BiEnumerateBootEntries @ 0x140A1F8F4 (BiEnumerateBootEntries.c)
- *     SiGetEspFromFirmware @ 0x140A22034 (SiGetEspFromFirmware.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B010 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     BiEnumerateBootEntries @ 0x140971998 (BiEnumerateBootEntries.c)
+ *     SiGetEspFromFirmware @ 0x140973FA8 (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */

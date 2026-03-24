@@ -1,28 +1,33 @@
 /*
- * XREFs of ?ReleaseResource@CChannel@@UEAAJI@Z @ 0x180073210
+ * XREFs of ?ReleaseResource@CChannel@@UEAAJI@Z @ 0x18005D7E0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z @ 0x18007327C (-ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z @ 0x18005D870 (-ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z.c)
+ *     ?VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005DB10 (-VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CChannel::ReleaseResource(CChannel *this, unsigned int a2)
 {
-  int v4; // eax
-  unsigned int v5; // ecx
-  unsigned int v6; // ebx
-  char *v8; // [rsp+40h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v2; // rdi
+  int v5; // eax
+  int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
-  v8 = (char *)this + 168;
+  v2 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle(this, a2, 0LL);
-  v4 = CHandleTable::ReleaseOnChannel((CChannel *)((char *)this + 16), this, a2);
-  v6 = v4;
-  if ( v4 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x328u, 0LL);
-  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v8);
-  return v6;
+  v5 = CHandleTable::VerifyHandleTableEntry((char *)this + 16, a2, 0LL);
+  if ( v5 < 0 )
+    ModuleFailFastForHRESULT((unsigned int)v5, retaddr);
+  v6 = CHandleTable::ReleaseOnChannel((CChannel *)((char *)this + 16), this, a2);
+  v8 = v6;
+  if ( v6 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x310u, 0LL);
+  if ( v2 )
+    LeaveCriticalSection(v2);
+  return v8;
 }

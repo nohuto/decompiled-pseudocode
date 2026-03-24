@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepIdleTimeoutRoutine @ 0x1402DCF90
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x1402DD090
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopPepCountReadyActivities @ 0x1400FF6E4 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x1400FF7A4 (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x1400FF934 (PopPepPromoteActivities.c)
- *     PopPepUpdateIdleState @ 0x1400FFF44 (PopPepUpdateIdleState.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140100050 (PopPepComponentGetResidencyIdleState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPepArmIdleTimer @ 0x1402DC714 (PopPepArmIdleTimer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopPepCountReadyActivities @ 0x1400FF704 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1400FF7C4 (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x1400FF954 (PopPepPromoteActivities.c)
+ *     PopPepUpdateIdleState @ 0x1400FFF64 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140100070 (PopPepComponentGetResidencyIdleState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPepArmIdleTimer @ 0x1402DC814 (PopPepArmIdleTimer.c)
  */
 
 void PopPepIdleTimeoutRoutine()

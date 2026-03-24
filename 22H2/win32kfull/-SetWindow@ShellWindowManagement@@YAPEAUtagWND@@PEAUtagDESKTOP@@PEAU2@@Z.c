@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C003B148
+ * XREFs of ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00D7534
  * Callers:
- *     ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C003AE8C (-CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z.c)
- *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C003AFE4 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C021DAC4 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7420 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C00D761C (-CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z.c)
+ *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C023D0D8 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ struct tagWND *__fastcall ShellWindowManagement::SetWindow(
   {
     v8[0] = v5;
     v8[1] = a2;
-    HMAssignmentLock(v8, 0LL);
+    HMAssignmentLock(v8);
   }
   else
   {

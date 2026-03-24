@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceDuplicateHandle @ 0x1409E1FA0
+ * XREFs of EtwTraceDuplicateHandle @ 0x140935AFC
  * Callers:
- *     ObCompleteObjectDuplication @ 0x14066B204 (ObCompleteObjectDuplication.c)
- *     ObInheritObjectHandle @ 0x1406A6A34 (ObInheritObjectHandle.c)
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObInheritObjectHandle @ 0x140606624 (ObInheritObjectHandle.c)
+ *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpTraceKernelEventWithFilter @ 0x14062FC2C (EtwpTraceKernelEventWithFilter.c)
- *     ExCheckSingleFilter @ 0x14063A59C (ExCheckSingleFilter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405A9B0C (EtwpTraceKernelEventWithFilter.c)
+ *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
  */
 
 void __fastcall EtwTraceDuplicateHandle(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6)
@@ -33,7 +33,7 @@ void __fastcall EtwTraceDuplicateHandle(__int64 a1, __int64 a2, __int64 a3, int 
 
   v21 = a3;
   v6 = 0;
-  v7 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v7 = *(_DWORD *)(EtwpHostSiloState + 4224);
   v8 = !_BitScanForward((unsigned int *)&v9, v7);
   v10 = *(_DWORD *)(a6 + 192);
   v23 = a2;
@@ -43,7 +43,7 @@ void __fastcall EtwTraceDuplicateHandle(__int64 a1, __int64 a2, __int64 a3, int 
     do
     {
       v7 &= v7 - 1;
-      v11 = 32LL * (unsigned int)v9 + EtwpHostSiloState + 4284;
+      v11 = 32LL * (unsigned int)v9 + EtwpHostSiloState + 4260;
       if ( v11 )
       {
         if ( (*(_DWORD *)(v11 + 16) & 0x40) != 0 )

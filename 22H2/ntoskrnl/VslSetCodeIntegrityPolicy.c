@@ -1,19 +1,18 @@
 /*
- * XREFs of VslSetCodeIntegrityPolicy @ 0x140943A60
+ * XREFs of VslSetCodeIntegrityPolicy @ 0x140890D50
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslSetCodeIntegrityPolicy(int a1, __int64 a2)
+NTSTATUS __fastcall VslSetCodeIntegrityPolicy(__int64 a1)
 {
-  _QWORD v5[14]; // [rsp+20h] [rbp-88h] BYREF
+  _QWORD v3[14]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v5, 0, 0x68uLL);
-  LODWORD(v5[1]) = a1;
-  v5[2] = a2;
-  return VslpEnterIumSecureMode(2u, 33, 0, (__int64)v5);
+  memset(v3, 0, 0x68uLL);
+  v3[1] = a1;
+  return VslpEnterIumSecureMode(2u, 33, 0, (__int64)v3);
 }

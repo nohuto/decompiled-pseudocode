@@ -1,23 +1,21 @@
 /*
- * XREFs of ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C
+ * XREFs of ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398
  * Callers:
- *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C170 (ACPIDeviceCancelWaitWakeIrp.c)
- *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2C0 (ACPIDeviceIrpWaitWakeRequestPending.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0021740 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
- *     OSNotifyDeviceWake @ 0x1C003301C (OSNotifyDeviceWake.c)
- *     OSNotifyDeviceWakeByGPEEvent @ 0x1C00332A0 (OSNotifyDeviceWakeByGPEEvent.c)
- *     OSNotifyDeviceWakeByInterrupt @ 0x1C00334AC (OSNotifyDeviceWakeByInterrupt.c)
- *     ACPIRootPowerCallBack @ 0x1C003D620 (ACPIRootPowerCallBack.c)
- *     ACPITableLoadCallBack @ 0x1C003F3E0 (ACPITableLoadCallBack.c)
- *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450DC (ACPIWakeDisconnectWakeInterrupts.c)
- *     ACPIWakeEmptyRequestQueue @ 0x1C00451E0 (ACPIWakeEmptyRequestQueue.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C00255F0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIWakeEmptyRequestQueue @ 0x1C00257CC (ACPIWakeEmptyRequestQueue.c)
+ *     ACPIRootPowerCallBack @ 0x1C0031590 (ACPIRootPowerCallBack.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C00502C0 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0051B40 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0058F78 (OSNotifyDeviceWakeByGPEEvent.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C0059198 (OSNotifyDeviceWakeByInterrupt.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C002C3BC (ACPIGpeIndexToGpeRegister.c)
- *     ACPIWriteGpeEnableRegister @ 0x1C0038B04 (ACPIWriteGpeEnableRegister.c)
- *     ACPIWriteGpeStatusRegister @ 0x1C0038BA4 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIWriteGpeEnableRegister @ 0x1C002662C (ACPIWriteGpeEnableRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0026890 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C002697C (ACPIGpeIndexToByteIndex.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 void __fastcall ACPIWakeRemoveDevicesAndUpdate(__int64 a1, __int64 a2)
@@ -29,18 +27,17 @@ void __fastcall ACPIWakeRemoveDevicesAndUpdate(__int64 a1, __int64 a2)
   __int64 v8; // r9
   __int64 *v9; // rsi
   __int64 v10; // rbx
-  _QWORD *v11; // rax
-  void **v12; // rcx
-  __int64 **v13; // rax
-  __int64 v14; // rax
-  void *v15; // rcx
-  unsigned int v16; // eax
-  int v17; // edi
-  __int64 v18; // rbx
-  unsigned __int8 v19; // cl
-  _BYTE *v20; // rax
-  unsigned int v21; // ebx
-  __int64 v22; // [rsp+38h] [rbp-40h]
+  unsigned int v11; // eax
+  int v12; // edi
+  __int64 v13; // rbx
+  unsigned __int8 v14; // cl
+  _BYTE *v15; // rax
+  unsigned int v16; // ebx
+  _QWORD *v17; // rax
+  void **v18; // rcx
+  __int64 **v19; // rax
+  __int64 v20; // rax
+  const char *v21; // rcx
 
   v4 = *((_BYTE *)AcpiInformation + 133);
   KeAcquireSpinLockAtDpcLevel(&GpeTableLock);
@@ -66,75 +63,71 @@ void __fastcall ACPIWakeRemoveDevicesAndUpdate(__int64 a1, __int64 a2)
       _InterlockedExchange64((volatile __int64 *)(v5[25] + 104), 0LL);
       if ( !*(_BYTE *)(v5[25] + 68) )
       {
-        v11 = (_QWORD *)*v5;
+        v17 = (_QWORD *)*v5;
         if ( *(__int64 **)(*v5 + 8) != v5
-          || (v12 = (void **)v5[1], *v12 != v5)
-          || (*v12 = v11, v11[1] = v12, v13 = *(__int64 ***)(a2 + 8), *v13 != (__int64 *)a2) )
+          || (v18 = (void **)v5[1], *v18 != v5)
+          || (*v18 = v17, v17[1] = v18, v19 = *(__int64 ***)(a2 + 8), *v19 != (__int64 *)a2) )
         {
           __fastfail(3u);
         }
         *v5 = a2;
-        v5[1] = (__int64)v13;
-        *v13 = v5;
+        v5[1] = (__int64)v19;
+        *v19 = v5;
         *(_QWORD *)(a2 + 8) = v5;
         *((_DWORD *)v5 + 14) &= ~0x40u;
         *((_DWORD *)v5 + 27) |= 2u;
       }
     }
-    else if ( !v4 && (*(_QWORD *)(v10 + 1008) & 0x500000000LL) == 0 && *((_DWORD *)v5 + 26) >= AcpiMostRecentSleepState )
+    else if ( !v4 && (*(_QWORD *)(v10 + 960) & 0x500000000LL) == 0 && *((_DWORD *)v5 + 26) >= AcpiMostRecentSleepState )
     {
-      if ( *(_BYTE *)((unsigned int)ACPIGpeIndexToByteIndex() + GpeMap) )
+      if ( *(_BYTE *)((unsigned int)ACPIGpeIndexToByteIndex(*(unsigned int *)(v10 + 464)) + GpeMap) )
       {
-        v14 = *(_QWORD *)(v10 + 8);
-        v5 = (__int64 *)&unk_1C00622D0;
-        v15 = &unk_1C00622D0;
-        if ( (v14 & 0x200000000000LL) != 0 )
+        v20 = *(_QWORD *)(v10 + 8);
+        v5 = (__int64 *)&unk_1C00701BA;
+        v21 = (const char *)&unk_1C00701BA;
+        if ( (v20 & 0x200000000000LL) != 0 )
         {
-          v5 = *(__int64 **)(v10 + 608);
-          if ( (v14 & 0x400000000000LL) != 0 )
-            v15 = *(void **)(v10 + 616);
+          v5 = *(__int64 **)(v10 + 568);
+          if ( (v20 & 0x400000000000LL) != 0 )
+            v21 = *(const char **)(v10 + 576);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v22 = (__int64)v5;
-          LOBYTE(v5) = 4;
-          WPP_RECORDER_SF_dqss(
-            WPP_GLOBAL_Control->DeviceExtension,
-            (_DWORD)v5,
-            17,
-            24,
-            (__int64)&WPP_033ae0b85663354d3b9e90e6d2c94310_Traceguids,
-            *(_DWORD *)(v10 + 504),
+          WPP_RECORDER_SF_Dqss(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            4u,
+            0x11u,
+            0x18u,
+            (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
+            *(_DWORD *)(v10 + 464),
             v10,
-            v22,
-            (__int64)v15);
-        }
+            (const char *)v5,
+            v21);
       }
       else
       {
-        v16 = ACPIGpeIndexToGpeRegister(*(unsigned int *)(v10 + 504));
+        v11 = ACPIGpeIndexToGpeRegister(*(unsigned int *)(v10 + 464));
         v5 = (__int64 *)GpeWakeEnable;
-        v17 = 1 << (*(_BYTE *)(v10 + 504) & 7);
-        v18 = v16;
-        v19 = *((_BYTE *)GpeWakeEnable + v16);
-        if ( (v19 & (unsigned __int8)v17) == 0 )
+        v12 = 1 << (*(_BYTE *)(v10 + 464) & 7);
+        v13 = v11;
+        v14 = *((_BYTE *)GpeWakeEnable + v11);
+        if ( (v14 & (unsigned __int8)v12) == 0 )
         {
-          *((_BYTE *)GpeWakeEnable + v16) = v17 | v19;
-          ACPIWriteGpeStatusRegister(v16);
-          if ( ((unsigned __int8)v17 & *((_BYTE *)GpeEnable + v18)) != 0 )
+          *((_BYTE *)GpeWakeEnable + v11) = v12 | v14;
+          ACPIWriteGpeStatusRegister(v11);
+          if ( ((unsigned __int8)v12 & *((_BYTE *)GpeEnable + v13)) != 0 )
           {
-            if ( ((unsigned __int8)v17 & *((_BYTE *)GpeSpecialHandler + v18)) == 0 )
+            if ( ((unsigned __int8)v12 & *((_BYTE *)GpeSpecialHandler + v13)) == 0 )
             {
-              v20 = GpeWakeHandler;
-LABEL_27:
-              v20[v18] |= v17;
+              v15 = GpeWakeHandler;
+              goto LABEL_16;
             }
           }
-          else if ( ((unsigned __int8)v17 & *((_BYTE *)GpeCurEnable + v18)) == 0 )
+          else if ( ((unsigned __int8)v12 & *((_BYTE *)GpeCurEnable + v13)) == 0 )
           {
-            *((_BYTE *)GpeIsLevel + v18) |= v17;
-            v20 = GpeCurEnable;
-            goto LABEL_27;
+            *((_BYTE *)GpeIsLevel + v13) |= v12;
+            v15 = GpeCurEnable;
+LABEL_16:
+            v15[v13] |= v12;
           }
         }
       }
@@ -142,7 +135,7 @@ LABEL_27:
   }
   if ( !v4 )
   {
-    v21 = 0;
+    v16 = 0;
     if ( *((_WORD *)AcpiInformation + 51) )
     {
       do
@@ -150,18 +143,18 @@ LABEL_27:
         if ( AcpiPowerLeavingS0 )
         {
           v5 = (__int64 *)GpeCurEnable;
-          *((_BYTE *)GpeCurEnable + v21) &= ~*((_BYTE *)GpeWakeEnable + v21);
+          *((_BYTE *)GpeCurEnable + v16) &= ~*((_BYTE *)GpeWakeEnable + v16);
         }
         else
         {
-          *((_BYTE *)GpeCurEnable + v21) |= *((_BYTE *)GpeWakeEnable + v21) & (unsigned __int8)~*((_BYTE *)GpePending
-                                                                                                + v21);
+          *((_BYTE *)GpeCurEnable + v16) |= *((_BYTE *)GpeWakeEnable + v16) & (unsigned __int8)~*((_BYTE *)GpePending
+                                                                                                + v16);
         }
-        LOBYTE(v5) = *((_BYTE *)GpeCurEnable + v21);
-        ACPIWriteGpeEnableRegister(v21++, v5);
+        LOBYTE(v5) = *((_BYTE *)GpeCurEnable + v16);
+        ACPIWriteGpeEnableRegister(v16++, v5);
         v5 = (__int64 *)*((unsigned __int16 *)AcpiInformation + 51);
       }
-      while ( v21 < (unsigned int)v5 );
+      while ( v16 < (unsigned int)v5 );
     }
   }
   KeReleaseSpinLockFromDpcLevel(&GpeTableLock);

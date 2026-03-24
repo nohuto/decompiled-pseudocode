@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpMarkDirectoryTreeTemporary @ 0x14068DA80
+ * XREFs of ObpMarkDirectoryTreeTemporary @ 0x14068DA60
  * Callers:
  *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
@@ -9,7 +9,7 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x14068DAF8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x14068DAD8 (ObpMarkDirectoryObjectsTemporary.c)
  */
 
 void __fastcall ObpMarkDirectoryTreeTemporary(void *a1)

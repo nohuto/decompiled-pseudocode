@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vRop2Function0@@YAXPEAK00K@Z @ 0x1C0131970
+ * XREFs of ?vRop2Function0@@YAXPEAK00K@Z @ 0x1C0137B80
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-void __fastcall vRop2Function0(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int a4)
+void __fastcall vRop2Function0(unsigned int *a1, unsigned int *a2, unsigned int *a3, int a4)
 {
-  memset_0(a1, 0, 4LL * a4);
+  memset(a1, 0, 4 * a4);
 }

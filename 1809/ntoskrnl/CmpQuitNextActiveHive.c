@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpQuitNextActiveHive @ 0x140800FEC
+ * XREFs of CmpQuitNextActiveHive @ 0x140800FCC
  * Callers:
- *     CmpLockKcbStackFlusherLocksExclusive @ 0x14026C344 (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x14026C444 (CmpLockKcbStackFlusherLocksExclusive.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  */

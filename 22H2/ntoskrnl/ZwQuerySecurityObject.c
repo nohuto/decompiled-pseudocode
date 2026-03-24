@@ -1,13 +1,12 @@
 /*
- * XREFs of ZwQuerySecurityObject @ 0x14041D360
+ * XREFs of ZwQuerySecurityObject @ 0x1403FC5A0
  * Callers:
- *     RtlIsUntrustedObject @ 0x140200EE0 (RtlIsUntrustedObject.c)
- *     DifZwQuerySecurityObjectWrapper @ 0x1405F5730 (DifZwQuerySecurityObjectWrapper.c)
- *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EFD0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     CmpCloneHwProfile @ 0x140A10264 (CmpCloneHwProfile.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     RtlIsUntrustedObject @ 0x1402FA190 (RtlIsUntrustedObject.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406EADF0 (CmpQueryFileSecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140738828 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     CmpSaveBootControlSet @ 0x140867AD0 (CmpSaveBootControlSet.c)
+ *     CmpCloneHwProfile @ 0x1408771D4 (CmpCloneHwProfile.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  * Callees:
  *     <none>
  */

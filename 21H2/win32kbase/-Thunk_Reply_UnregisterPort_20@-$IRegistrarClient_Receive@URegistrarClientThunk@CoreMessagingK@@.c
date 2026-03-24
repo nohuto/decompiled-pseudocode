@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_Reply_UnregisterPort_20@?$IRegistrarClient_Receive@URegistrarClientThunk@CoreMessagingK@@@Registrar@CoreUI@Microsoft@@SAJPEAXPEAPEAX@Z @ 0x1C00CB5E0
+ * XREFs of ?Thunk_Reply_UnregisterPort_20@?$IRegistrarClient_Receive@URegistrarClientThunk@CoreMessagingK@@@Registrar@CoreUI@Microsoft@@SAJPEAXPEAPEAX@Z @ 0x1C00BC530
  * Callers:
  *     <none>
  * Callees:

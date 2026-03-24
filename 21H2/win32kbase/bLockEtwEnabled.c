@@ -1,7 +1,7 @@
 /*
- * XREFs of bLockEtwEnabled @ 0x1C00C3CB0
+ * XREFs of bLockEtwEnabled @ 0x1C009FB38
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
  *     <none>
  */

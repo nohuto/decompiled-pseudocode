@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessSystemStoreTrimRequest @ 0x1408AB664
+ * XREFs of SmProcessSystemStoreTrimRequest @ 0x1408AB644
  * Callers:
- *     SmSetStoreInformation @ 0x1406CBC50 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1208 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14030352C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14030362C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessSystemStoreTrimRequest(unsigned __int64 a1, int a2, char a3)

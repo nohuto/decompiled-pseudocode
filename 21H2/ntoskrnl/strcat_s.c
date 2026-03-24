@@ -1,9 +1,9 @@
 /*
- * XREFs of strcat_s @ 0x1403E7100
+ * XREFs of strcat_s @ 0x1403D7CD0
  * Callers:
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strcat_s(char *a1, rsize_t SizeInBytes, const char *Src)
@@ -15,39 +15,42 @@ errno_t __cdecl strcat_s(char *a1, rsize_t SizeInBytes, const char *Src)
 
   if ( a1 && SizeInBytes )
   {
-    if ( Src )
+    if ( !Src )
+      goto LABEL_14;
+    v3 = a1;
+    do
     {
-      v3 = a1;
-      while ( *v3 )
-      {
-        ++v3;
-        if ( !--SizeInBytes )
-          goto LABEL_13;
-      }
+      if ( !*v3 )
+        break;
+      ++v3;
+      --SizeInBytes;
+    }
+    while ( SizeInBytes );
+    if ( SizeInBytes )
+    {
       v4 = v3 - Src;
-      while ( 1 )
+      do
       {
         v5 = *Src;
         Src[v4] = *Src;
         ++Src;
         if ( !v5 )
-          return 0;
-        if ( !--SizeInBytes )
-        {
-          v6 = 34;
-          goto LABEL_14;
-        }
+          break;
+        --SizeInBytes;
       }
+      while ( SizeInBytes );
+      if ( SizeInBytes )
+        return 0;
+      v6 = 34;
     }
     else
     {
-LABEL_13:
-      v6 = 22;
 LABEL_14:
-      *a1 = 0;
-      xHalTimerWatchdogStop();
-      return v6;
+      v6 = 22;
     }
+    *a1 = 0;
+    xHalTimerWatchdogStop();
+    return v6;
   }
   else
   {

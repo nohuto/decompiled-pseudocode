@@ -1,13 +1,14 @@
 /*
- * XREFs of NtGdiGetFontResourceInfoInternalW @ 0x1C02AD620
+ * XREFs of NtGdiGetFontResourceInfoInternalW @ 0x1C02AEEF0
  * Callers:
  *     <none>
  * Callees:
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00F9694 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     GetFontResourceInfoInternalW @ 0x1C02D9AD8 (GetFontResourceInfoInternalW.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010EA68 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     GetFontResourceInfoInternalW @ 0x1C02DB648 (GetFontResourceInfoInternalW.c)
  */
 
 __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
@@ -55,7 +56,7 @@ __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
   {
     v12 = (unsigned int *)v19;
   }
-  else if ( a4 > 0x2710000 || (v12 = (unsigned int *)Win32AllocPoolZInit(a4, 1886221383LL)) == 0LL )
+  else if ( a4 > 0x2710000 || (v12 = (unsigned int *)PALLOCMEM2(a4, 1886221383LL, 1)) == 0LL )
   {
     FontResourceInfoInternalW = 0;
   }

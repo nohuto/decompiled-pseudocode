@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPICheckModuleStarted @ 0x1C005969C
+ * XREFs of ACPICheckModuleStarted @ 0x1C0058954
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
- *     ACPIBusIrpStartDeviceCompletion @ 0x1C002C500 (ACPIBusIrpStartDeviceCompletion.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIBusIrpStartDeviceCompletion @ 0x1C0030800 (ACPIBusIrpStartDeviceCompletion.c)
  * Callees:
- *     ACPIInternalEvaluateOST @ 0x1C00573B4 (ACPIInternalEvaluateOST.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
  */
 
 void __fastcall ACPICheckModuleStarted(__int64 a1, int a2)
@@ -23,10 +23,10 @@ void __fastcall ACPICheckModuleStarted(__int64 a1, int a2)
       break;
     if ( a2 >= 0 )
     {
-      for ( i = *(_QWORD **)(a1 + 800); i != (_QWORD *)(a1 + 800); i = (_QWORD *)*i )
+      for ( i = *(_QWORD **)(a1 + 760); i != (_QWORD *)(a1 + 760); i = (_QWORD *)*i )
       {
-        v7 = *(i - 101);
-        if ( (v7 & 0x2000000000LL) != 0 && !*((_BYTE *)i - 631)
+        v7 = *(i - 96);
+        if ( (v7 & 0x2000000000LL) != 0 && !*((_BYTE *)i - 591)
           || (v7 & 0x100) == 0 && (unsigned int)(*((_DWORD *)i - 112) - 2) > 1 )
         {
           v8 = 0;
@@ -41,8 +41,8 @@ LABEL_11:
     if ( v8 )
     {
       ACPIInternalEvaluateOST(a1, 0, (a2 >> 31) & 0xA3);
-      a1 = *(_QWORD *)(a1 + 792);
-      if ( _bittest64((const signed __int64 *)(a1 + 8), 0x25u) )
+      a1 = *(_QWORD *)(a1 + 752);
+      if ( (*(_QWORD *)(a1 + 8) & 0x2000000000LL) != 0 )
         continue;
     }
     return;

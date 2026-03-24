@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnablePresentStatisticsType@FlipManagerObject@@QEAAJW4KernelPresentStatisticsType@@_N@Z @ 0x1C0079E78
+ * XREFs of ?EnablePresentStatisticsType@FlipManagerObject@@QEAAJW4KernelPresentStatisticsType@@_N@Z @ 0x1C00687C4
  * Callers:
- *     NtFlipObjectEnablePresentStatisticsType @ 0x1C007AE00 (NtFlipObjectEnablePresentStatisticsType.c)
+ *     NtFlipObjectEnablePresentStatisticsType @ 0x1C00696D0 (NtFlipObjectEnablePresentStatisticsType.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FlipManagerObject::EnablePresentStatisticsType(__int64 a1, unsigned int a2, char a3)
@@ -17,8 +17,8 @@ __int64 __fastcall FlipManagerObject::EnablePresentStatisticsType(__int64 a1, un
   if ( v6 >= 0 )
   {
     LOBYTE(v7) = a3;
-    v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 256) + 16LL))(
-           *(_QWORD *)(a1 + 256),
+    v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 200) + 16LL))(
+           *(_QWORD *)(a1 + 200),
            a2,
            v7);
     CPushLock::ReleaseLock((CPushLock *)(a1 + 40));

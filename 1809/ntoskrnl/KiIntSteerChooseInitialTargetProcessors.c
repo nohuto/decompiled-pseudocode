@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14016E268
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14016E288
  * Callers:
- *     KiIntSteerConnect @ 0x14016DE84 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x1400165E0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeIntSteerGetSteeringMode @ 0x14016E380 (KeIntSteerGetSteeringMode.c)
- *     KiIntRedirectConnnect @ 0x14016E418 (KiIntRedirectConnnect.c)
+ *     KeIntSteerGetSteeringMode @ 0x14016E3A0 (KeIntSteerGetSteeringMode.c)
+ *     KiIntRedirectConnnect @ 0x14016E438 (KiIntRedirectConnnect.c)
  */
 
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProcessDereferenceList @ 0x140393EC0
+ * XREFs of MiProcessDereferenceList @ 0x140387B6C
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403CBBF0 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x14058BEE4 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1403BD430 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiProcessingPageExtendComplete @ 0x14058BA24 (MiProcessingPageExtendComplete.c)
- *     MiRemoveUnusedSegments @ 0x14058BEE4 (MiRemoveUnusedSegments.c)
- *     MiAttemptPageFileReduction @ 0x14059AEEC (MiAttemptPageFileReduction.c)
- *     MiFreeClonePool @ 0x1405BAEEC (MiFreeClonePool.c)
- *     MiSegmentDelete @ 0x1406F4904 (MiSegmentDelete.c)
- *     MiExtendPagingFiles @ 0x14096F2D4 (MiExtendPagingFiles.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiProcessingPageExtendComplete @ 0x14052A23C (MiProcessingPageExtendComplete.c)
+ *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
+ *     MiAttemptPageFileReduction @ 0x140542908 (MiAttemptPageFileReduction.c)
+ *     MiFreeClonePool @ 0x14055A8C0 (MiFreeClonePool.c)
+ *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
  */
 
 __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)
@@ -64,15 +64,18 @@ __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)
   struct _KPRCB *v41; // r10
   _DWORD *v42; // r9
   int v43; // eax
-  unsigned __int8 v44; // al
-  struct _KPRCB *v45; // r9
-  _DWORD *v46; // r8
-  int v47; // eax
-  _OWORD v48[6]; // [rsp+20h] [rbp-60h] BYREF
-  int v49; // [rsp+C0h] [rbp+40h]
+  int v44; // eax
+  int v45; // ecx
+  __int64 v46; // rax
+  unsigned __int8 v47; // al
+  struct _KPRCB *v48; // r9
+  _DWORD *v49; // r8
+  int v50; // eax
+  _OWORD v51[6]; // [rsp+20h] [rbp-60h] BYREF
+  int v52; // [rsp+C0h] [rbp+40h]
 
-  memset(v48, 0, 0x58uLL);
-  v49 = 0;
+  memset(v51, 0, 0x58uLL);
+  v52 = 0;
   v3 = (volatile LONG *)(a1 + 1344);
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
   v5 = (__int64 *)(a1 + 1552);
@@ -91,7 +94,7 @@ LABEL_77:
       *(_QWORD *)(v8 + 8) = v5;
       if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)v7 + 16) )
       {
-        *((_DWORD *)v7 + 12) &= ~0x10000000u;
+        *((_DWORD *)v7 + 12) &= ~0x8000000u;
         v7[1] = (__int64)v7;
         *v7 = (__int64)v7;
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
@@ -162,7 +165,7 @@ LABEL_77:
       *(_QWORD *)(v25 + 8) = v9;
       if ( v26[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)-1LL )
       {
-        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 976)) )
+        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952)) )
         {
           ExReleaseSpinLockExclusiveFromDpcLevel(v3);
           if ( KiIrqlFlags )
@@ -184,7 +187,7 @@ LABEL_77:
           }
           __writecr8(v6);
           MiAttemptPageFileReduction(v26);
-          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 976));
+          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952));
           v6 = ExAcquireSpinLockExclusive(v3);
         }
         if ( (v26[3].Header.SignalState & 0x10000000) == 0 )
@@ -192,14 +195,14 @@ LABEL_77:
       }
       else
       {
-        v48[0] = *(_OWORD *)&v26->Header.Lock;
-        v48[1] = *(_OWORD *)&v26->Header.WaitListHead.Blink;
-        v48[2] = v26[1].Header.WaitListHead;
-        v48[3] = *(_OWORD *)&v26[2].Header.Lock;
+        v51[0] = *(_OWORD *)&v26->Header.Lock;
+        v51[1] = *(_OWORD *)&v26->Header.WaitListHead.Blink;
+        v51[2] = v26[1].Header.WaitListHead;
+        v51[3] = *(_OWORD *)&v26[2].Header.Lock;
         v31 = *(_OWORD *)&v26[2].Header.WaitListHead.Blink;
-        *(_QWORD *)&v48[5] = v26;
-        v48[4] = v31;
-        v26[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v48;
+        *(_QWORD *)&v51[5] = v26;
+        v51[4] = v31;
+        v26[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v51;
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
         if ( KiIrqlFlags )
         {
@@ -219,74 +222,75 @@ LABEL_77:
           }
         }
         __writecr8(v6);
-        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 976)) )
+        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952)) )
         {
-          MiExtendPagingFiles(v48);
-          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 976));
+          MiExtendPagingFiles(v51);
+          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952));
         }
-        v36 = MiProcessingPageExtendComplete(v48, v26, a1);
-        --*(_DWORD *)(a1 + 2028);
+        v36 = MiProcessingPageExtendComplete(v51, v26, a1);
+        --*(_DWORD *)(a1 + 1868);
         v6 = v36;
-        if ( *(_DWORD *)(a1 + 2024) )
-          KeSetEvent((PRKEVENT)(a1 + 2032), 0, 0);
+        if ( *(_DWORD *)(a1 + 1864) )
+          KeSetEvent((PRKEVENT)(a1 + 1872), 0, 0);
       }
     }
     v11 = a2;
-    if ( !a2 )
-      continue;
-    v12 = (_QWORD **)(a1 + 1568);
-    while ( 1 )
+    if ( a2 )
     {
-      v13 = *v12;
-      if ( *v12 == v12 )
-        break;
-      v37 = *v13;
-      if ( (_QWORD **)v13[1] != v12 || *(_QWORD **)(v37 + 8) != v13 )
-        goto LABEL_77;
-      *v12 = (_QWORD *)v37;
-      v38 = v13 - 1;
-      *(_QWORD *)(v37 + 8) = v12;
-      v48[0] = *(_OWORD *)(v13 - 1);
-      v48[1] = *(_OWORD *)(v13 + 1);
-      v48[2] = *(_OWORD *)(v13 + 3);
-      v48[3] = *(_OWORD *)(v13 + 5);
-      v39 = *(_OWORD *)(v13 + 7);
-      *(_QWORD *)&v48[5] = v13 - 1;
-      v48[4] = v39;
-      v13[9] = v48;
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
-      if ( KiIrqlFlags )
+      v12 = (_QWORD **)(a1 + 1568);
+      while ( 1 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        v13 = *v12;
+        if ( *v12 == v12 )
+          break;
+        v37 = *v13;
+        if ( (_QWORD **)v13[1] != v12 || *(_QWORD **)(v37 + 8) != v13 )
+          goto LABEL_77;
+        *v12 = (_QWORD *)v37;
+        v38 = v13 - 1;
+        *(_QWORD *)(v37 + 8) = v12;
+        v51[0] = *(_OWORD *)(v13 - 1);
+        v51[1] = *(_OWORD *)(v13 + 1);
+        v51[2] = *(_OWORD *)(v13 + 3);
+        v51[3] = *(_OWORD *)(v13 + 5);
+        v39 = *(_OWORD *)(v13 + 7);
+        *(_QWORD *)&v51[5] = v13 - 1;
+        v51[4] = v39;
+        v13[9] = v51;
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
+        if ( KiIrqlFlags )
         {
-          v40 = KeGetCurrentIrql();
-          if ( v40 <= 0xFu && v6 <= 0xFu && v40 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v41 = KeGetCurrentPrcb();
-            v42 = v41->SchedulerAssist;
-            v43 = ~(unsigned __int16)(-1LL << (v6 + 1));
-            v20 = (v43 & v42[5]) == 0;
-            v42[5] &= v43;
-            if ( v20 )
-              KiRemoveSystemWorkPriorityKick(v41);
+            v40 = KeGetCurrentIrql();
+            if ( v40 <= 0xFu && v6 <= 0xFu && v40 >= 2u )
+            {
+              v41 = KeGetCurrentPrcb();
+              v42 = v41->SchedulerAssist;
+              v43 = ~(unsigned __int16)(-1LL << (v6 + 1));
+              v20 = (v43 & v42[5]) == 0;
+              v42[5] &= v43;
+              if ( v20 )
+                KiRemoveSystemWorkPriorityKick(v41);
+            }
           }
         }
+        __writecr8(v6);
+        v44 = MiRemoveUnusedSegments(a1, *(_QWORD *)&v51[2]);
+        v45 = v52;
+        v20 = v44 == 0;
+        v46 = *((_QWORD *)&v51[2] + 1);
+        if ( !v20 )
+          v45 = 1;
+        v52 = v45;
+        if ( v45 )
+          v46 = 1LL;
+        *((_QWORD *)&v51[2] + 1) = v46;
+        v6 = MiProcessingPageExtendComplete(v51, v38, a1);
       }
-      __writecr8(v6);
-      if ( (unsigned int)MiRemoveUnusedSegments(a1, *(_QWORD *)&v48[2]) )
-      {
-        v49 = 1;
-      }
-      else if ( !v49 )
-      {
-        goto LABEL_76;
-      }
-      *((_QWORD *)&v48[2] + 1) = 1LL;
-LABEL_76:
-      v6 = MiProcessingPageExtendComplete(v48, v38, a1);
+      v11 = a2;
+      v3 = (volatile LONG *)(a1 + 1344);
     }
-    v11 = a2;
-    v3 = (volatile LONG *)(a1 + 1344);
   }
   while ( (__int64 *)*v5 != v5 || v11 && *(_QWORD *)(a1 + 1568) != a1 + 1568 || *v9 != (__int64 *)v9 );
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
@@ -294,24 +298,24 @@ LABEL_76:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v44 = KeGetCurrentIrql();
-      if ( v44 <= 0xFu && v6 <= 0xFu && v44 >= 2u )
+      v47 = KeGetCurrentIrql();
+      if ( v47 <= 0xFu && v6 <= 0xFu && v47 >= 2u )
       {
-        v45 = KeGetCurrentPrcb();
-        v46 = v45->SchedulerAssist;
-        v47 = ~(unsigned __int16)(-1LL << (v6 + 1));
-        v20 = (v47 & v46[5]) == 0;
-        v46[5] &= v47;
+        v48 = KeGetCurrentPrcb();
+        v49 = v48->SchedulerAssist;
+        v50 = ~(unsigned __int16)(-1LL << (v6 + 1));
+        v20 = (v50 & v49[5]) == 0;
+        v49[5] &= v50;
         if ( v20 )
-          KiRemoveSystemWorkPriorityKick(v45);
+          KiRemoveSystemWorkPriorityKick(v48);
       }
     }
   }
   result = v6;
   __writecr8(v6);
-  if ( *(_DWORD *)(a1 + 1980) )
+  if ( *(_DWORD *)(a1 + 1812) )
   {
-    KeResetEvent((PRKEVENT)(a1 + 1976));
+    KeResetEvent((PRKEVENT)(a1 + 1808));
     return MiFreeClonePool(a1);
   }
   return result;

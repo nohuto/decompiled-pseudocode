@@ -1,50 +1,16 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredNoArgs @ 0x18026C340
+ * XREFs of MicrosoftTelemetryAssertTriggeredNoArgs @ 0x1802170F8
  * Callers:
- *     PubSebRegisterRpc @ 0x18001F600 (PubSebRegisterRpc.c)
- *     ?NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z @ 0x180048F38 (-NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z.c)
- *     ??1CInteraction@@MEAA@XZ @ 0x1800E01C4 (--1CInteraction@@MEAA@XZ.c)
- *     ?ConvertHostPointerFrameTimesToContainerTimeline@InteractionLatencyTelemetry@@YA?AUtagTELEMETRY_POINTER_FRAME_TIMES@@AEBU2@@Z @ 0x1801D2824 (-ConvertHostPointerFrameTimesToContainerTimeline@InteractionLatencyTelemetry@@YA-AUtagTELEMETRY_.c)
- *     ?ComputeInputLatency@InteractionFrameLatency@InteractionLatencyTelemetry@@AEAAXAEBUtagTELEMETRY_POINTER_FRAME_TIMES@@_K@Z @ 0x1801E221C (-ComputeInputLatency@InteractionFrameLatency@InteractionLatencyTelemetry@@AEAAXAEBUtagTELEMETRY_.c)
- *     ?ComputeVailLatency@InteractionFrameLatency@InteractionLatencyTelemetry@@AEAAXAEBUTELEMETRY_INTERACTION_FRAME_TIMES@@@Z @ 0x1801E2450 (-ComputeVailLatency@InteractionFrameLatency@InteractionLatencyTelemetry@@AEAAXAEBUTELEMETRY_INTE.c)
+ *     ?AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_TOUCH_INFO@1@@Z @ 0x1800230E8 (-AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_.c)
+ *     PubSebRegisterRpc @ 0x180024930 (PubSebRegisterRpc.c)
+ *     ?ConvertHostTimeToContainerTimeline@CTelemetryTouchLatencyAnalysis@@CA_K_K0@Z @ 0x18015D330 (-ConvertHostTimeToContainerTimeline@CTelemetryTouchLatencyAnalysis@@CA_K_K0@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x180217120 (MicrosoftTelemetryAssertTriggeredWorker.c)
  */
 
-int MicrosoftTelemetryAssertTriggeredNoArgs()
+__int64 MicrosoftTelemetryAssertTriggeredNoArgs()
 {
-  FARPROC ProcAddress; // rax
-  int v2; // [rsp+20h] [rbp-40h] BYREF
-  __int16 *v3; // [rsp+28h] [rbp-38h]
-  void *v4; // [rsp+30h] [rbp-30h]
-  char v5; // [rsp+38h] [rbp-28h]
-  __int64 v6; // [rsp+40h] [rbp-20h]
-  int v7; // [rsp+48h] [rbp-18h]
-  int v8; // [rsp+4Ch] [rbp-14h]
-  char v9; // [rsp+50h] [rbp-10h]
-  void *retaddr; // [rsp+68h] [rbp+8h]
-  HMODULE phModule; // [rsp+70h] [rbp+10h] BYREF
+  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  phModule = 0LL;
-  LODWORD(ProcAddress) = GetModuleHandleExA(2u, "ntdll.dll", &phModule);
-  if ( (_DWORD)ProcAddress )
-  {
-    if ( phModule )
-    {
-      ProcAddress = GetProcAddress(phModule, "MicrosoftTelemetryAssertTriggeredUM");
-      if ( ProcAddress )
-      {
-        v2 = 11;
-        v3 = _ImageBase;
-        v6 = 0LL;
-        v4 = retaddr;
-        v7 = -1;
-        v8 = -1;
-        v9 = 1;
-        v5 = 0;
-        LODWORD(ProcAddress) = ((__int64 (__fastcall *)(int *))ProcAddress)(&v2);
-      }
-    }
-  }
-  return (int)ProcAddress;
+  return MicrosoftTelemetryAssertTriggeredWorker((_DWORD)retaddr, 0, 0, -1, -1);
 }

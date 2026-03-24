@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFatalExceptionFilter @ 0x140B740E8
+ * XREFs of KiFatalExceptionFilter @ 0x140A7221C
  * Callers:
- *     KiLockServiceTable @ 0x14034B8D0 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x14039EA94 (KiLockServiceTable.c)
  * Callees:
- *     RtlCaptureImageExceptionValues @ 0x140290864 (RtlCaptureImageExceptionValues.c)
- *     RtlLookupExceptionHandler @ 0x1403C47A8 (RtlLookupExceptionHandler.c)
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     RtlLookupExceptionHandler @ 0x14032B31C (RtlLookupExceptionHandler.c)
+ *     RtlCaptureImageExceptionValues @ 0x140372D8C (RtlCaptureImageExceptionValues.c)
+ *     KeBugCheck @ 0x1403FD550 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 KiFatalExceptionFilter()
@@ -29,10 +29,10 @@ __int64 KiFatalExceptionFilter()
   CurrentPrcb->HalReserved[6] = (unsigned __int64)KiServiceTablesLocked;
   RtlCaptureImageExceptionValues(0x40000000, &v11, &v10);
   if ( !v11 )
-    goto LABEL_9;
+    goto LABEL_18;
   v2 = v10 / 0xC;
   if ( !(v10 / 0xC) )
-    goto LABEL_9;
+    goto LABEL_18;
   v3 = (char *)KiServiceTablesLocked - 0x140000000LL;
   v4 = (unsigned int *)(v11 + 12LL * (v2 - 1));
   v5 = *v4;
@@ -62,10 +62,12 @@ __int64 KiFatalExceptionFilter()
       while ( (int)v1 >= v8 );
     }
   }
-  if ( (unsigned __int64)v3 < (unsigned int)v5 || (unsigned __int64)v3 >= v4[1] || !v4 )
-LABEL_9:
+  if ( (unsigned __int64)v3 < (unsigned int)v5 || (unsigned __int64)v3 >= v4[1] )
+    v4 = 0LL;
+  if ( !v4 )
+LABEL_18:
     KeBugCheck(0x31u);
-  v6 = RtlLookupExceptionHandler(v4, 0x140000000uLL, 1u, v1, &v12, 0LL);
+  v6 = RtlLookupExceptionHandler((__int64)v4, 0x140000000uLL, 1u, v1, &v12, 0LL);
   if ( v6 < 0 )
     KeBugCheckEx(0x31u, v6, 0LL, 0LL, 0LL);
   CurrentPrcb->HalReserved[5] = v12;

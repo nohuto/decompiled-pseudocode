@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ApplySpeedBumpAndCornerLock@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z @ 0x1C01DB73C
+ * XREFs of ?ApplySpeedBumpAndCornerLock@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z @ 0x1C01A2964
  * Callers:
- *     ?BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z @ 0x1C006D400 (-BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z.c)
+ *     ?BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z @ 0x1C006FC2C (-BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N1PEAU2@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,98 +14,89 @@ void __fastcall CCursorClip::ApplySpeedBumpAndCornerLock(
         struct tagPOINT *a5)
 {
   bool v5; // al
-  int *v8; // rdx
-  int v9; // r8d
+  struct tagPOINT v7; // r10
   LONG x; // ecx
-  LONG v11; // ebx
+  LONG v10; // r9d
   LONG y; // eax
-  int v13; // ecx
-  int *v14; // r9
-  int v15; // r8d
-  LONG v16; // ecx
-  int v17; // ecx
-  unsigned __int64 v18; // r10
-  int v19; // eax
+  int v12; // ecx
+  LONG v13; // r8d
+  int v14; // ecx
+  int v15; // ecx
+  unsigned __int64 v16; // r10
+  int v17; // eax
 
   v5 = 0;
+  v7 = a2;
   *a5 = a2;
   if ( a3 )
   {
-    v8 = (int *)*((_QWORD *)this + 31);
-    if ( a2.y < v8[1] + 6 || a2.y >= v8[3] - 6 )
+    if ( a2.y < *((_DWORD *)this + 15) + 6 || a2.y >= *((_DWORD *)this + 17) - 6 )
     {
-      v9 = *v8;
-      x = *v8;
-      if ( a2.x > *v8 )
-        x = a2.x;
-      if ( x >= v8[2] - 1 )
+      a2.x = *((_DWORD *)this + 14);
+      x = a2.x;
+      if ( v7.x > a2.x )
+        x = v7.x;
+      if ( x >= *((_DWORD *)this + 16) - 1 )
       {
-        v9 = v8[2] - 1;
+        a2.x = *((_DWORD *)this + 16) - 1;
       }
-      else if ( a2.x > v9 )
+      else if ( v7.x > a2.x )
       {
-        v9 = a2.x;
+        a2.x = v7.x;
       }
-      a5->x = v9;
-      v8 = (int *)*((_QWORD *)this + 31);
+      a5->x = a2.x;
     }
-    else
+    if ( v7.x < *((_DWORD *)this + 14) + 6 || v7.x >= *((_DWORD *)this + 16) - 6 )
     {
-      v9 = a2.x;
-    }
-    if ( a2.x < *v8 + 6 || a2.x >= v8[2] - 6 )
-    {
-      v11 = v8[1];
+      v10 = *((_DWORD *)this + 15);
       y = a2.y;
-      v13 = v8[3] - 1;
-      if ( a2.y <= v11 )
-        y = v8[1];
-      if ( y < v13 )
+      v12 = *((_DWORD *)this + 17) - 1;
+      if ( a2.y <= v10 )
+        y = *((_DWORD *)this + 15);
+      if ( y < v12 )
       {
-        v13 = a2.y;
-        if ( a2.y <= v11 )
-          v13 = v8[1];
+        v12 = a2.y;
+        if ( a2.y <= v10 )
+          v12 = *((_DWORD *)this + 15);
       }
-      a5->y = v13;
+      a5->y = v12;
     }
-    v5 = __PAIR64__(a5->y, v9) != a2;
+    v5 = __PAIR64__(a5->y, v7.x) != a2;
   }
   if ( a4 && !v5 )
   {
-    v14 = (int *)*((_QWORD *)this + 31);
-    v15 = *v14;
-    if ( (int)abs32(a2.x - *v14) < 6 || (int)abs32(a2.x - v14[2]) < 6 )
+    v13 = *((_DWORD *)this + 14);
+    if ( (int)abs32(v7.x - v13) < 6 || (int)abs32(v7.x - *((_DWORD *)this + 16)) < 6 )
     {
-      v16 = *v14;
-      if ( a2.x > v15 )
-        v16 = a2.x;
-      if ( v16 >= v14[2] - 1 )
+      v14 = *((_DWORD *)this + 14);
+      if ( v7.x > v13 )
+        v14 = v7.x;
+      if ( v14 >= *((_DWORD *)this + 16) - 1 )
       {
-        v15 = v14[2] - 1;
+        v13 = *((_DWORD *)this + 16) - 1;
       }
-      else if ( a2.x > v15 )
+      else if ( v7.x > v13 )
       {
-        v15 = a2.x;
+        v13 = v7.x;
       }
-      a5->x = v15;
-      v14 = (int *)*((_QWORD *)this + 31);
+      a5->x = v13;
     }
-    v17 = v14[1];
-    v18 = HIDWORD(*(unsigned __int64 *)&a2);
-    if ( (int)abs32(v18 - v17) < 6 || (int)abs32(v18 - v14[3]) < 6 )
+    v15 = *((_DWORD *)this + 15);
+    v16 = HIDWORD(*(unsigned __int64 *)&v7);
+    if ( (int)abs32(v16 - v15) < 6 || (int)abs32(v16 - *((_DWORD *)this + 17)) < 6 )
     {
-      v19 = v18;
-      if ( (int)v18 <= v17 )
-        v19 = v14[1];
-      if ( v19 >= v14[3] - 1 )
+      v17 = v16;
+      if ( (int)v16 <= v15 )
+        v17 = *((_DWORD *)this + 15);
+      if ( v17 >= *((_DWORD *)this + 17) - 1 )
       {
-        LODWORD(v18) = v14[3] - 1;
+        LODWORD(v16) = *((_DWORD *)this + 17) - 1;
       }
-      else if ( (int)v18 <= v17 )
+      else if ( (int)v16 <= v15 )
       {
-        LODWORD(v18) = v14[1];
+        LODWORD(v16) = *((_DWORD *)this + 15);
       }
-      a5->y = v18;
+      a5->y = v16;
     }
   }
 }

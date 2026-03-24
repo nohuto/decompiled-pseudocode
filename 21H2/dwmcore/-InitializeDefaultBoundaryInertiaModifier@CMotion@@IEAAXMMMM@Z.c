@@ -1,12 +1,12 @@
 /*
- * XREFs of ?InitializeDefaultBoundaryInertiaModifier@CMotion@@IEAAXMMMM@Z @ 0x18025F0E8
+ * XREFs of ?InitializeDefaultBoundaryInertiaModifier@CMotion@@IEAAXMMMM@Z @ 0x18020E82C
  * Callers:
- *     ?AdvanceInertiaToTimeDefault@CMotion@@MEAAMXZ @ 0x18025ED10 (-AdvanceInertiaToTimeDefault@CMotion@@MEAAMXZ.c)
+ *     ?AdvanceInertiaToTimeDefault@CMotion@@MEAAMXZ @ 0x18020E4A0 (-AdvanceInertiaToTimeDefault@CMotion@@MEAAMXZ.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z @ 0x180265CB4 (-Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z @ 0x180214CF8 (-Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z.c)
  */
 
 void __fastcall CMotion::InitializeDefaultBoundaryInertiaModifier(CMotion *this, float a2, float a3, float a4)
@@ -25,12 +25,12 @@ void __fastcall CMotion::InitializeDefaultBoundaryInertiaModifier(CMotion *this,
   *((_DWORD *)this + 18) = v6;
   LOBYTE(v4) = v7;
   CScalarForce::Initialize(*((_QWORD *)this + 10), v4);
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 11) + 32LL))(*((_QWORD *)this + 11));
+  (*(void (__fastcall **)(char *))(*((_QWORD *)this + 11) + 32LL))((char *)this + 88);
   v9 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 10);
   v8 = v9;
-  *((_DWORD *)this + 26) = 1114636288;
+  *((_DWORD *)this + 36) = 1114636288;
   Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v9);
-  v9 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 12);
-  *((_QWORD *)this + 12) = v8;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v9);
+  v9 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 17);
+  *((_QWORD *)this + 17) = v8;
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v9);
 }

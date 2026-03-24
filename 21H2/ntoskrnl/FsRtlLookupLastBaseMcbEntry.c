@@ -1,37 +1,36 @@
 /*
- * XREFs of FsRtlLookupLastBaseMcbEntry @ 0x140233220
+ * XREFs of FsRtlLookupLastBaseMcbEntry @ 0x1402A6E10
  * Callers:
- *     FsRtlLookupLastLargeMcbEntry @ 0x140541250 (FsRtlLookupLastLargeMcbEntry.c)
+ *     FsRtlLookupLastLargeMcbEntry @ 0x1404EF0C0 (FsRtlLookupLastLargeMcbEntry.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN __stdcall FsRtlLookupLastBaseMcbEntry(PBASE_MCB Mcb, PLONGLONG Vbn, PLONGLONG Lbn)
 {
-  ULONG PairCount; // r9d
-  int v4; // eax
-  _DWORD *Mapping; // r11
-  __int64 v8; // rbx
-  unsigned int v9; // ecx
-  int v10; // edx
+  ULONG PairCount; // r10d
+  __int64 v5; // r11
+  _DWORD *Mapping; // rdi
+  unsigned int v7; // ecx
+  int v8; // eax
+  int v9; // ecx
 
   PairCount = Mcb->PairCount;
-  v4 = 0;
-  if ( PairCount )
+  if ( !PairCount )
+    return 0;
+  v5 = PairCount - 1;
+  Mapping = Mcb->Mapping;
+  v7 = -1;
+  v8 = Mapping[2 * v5 + 1];
+  if ( v8 != -1 )
   {
-    Mapping = Mcb->Mapping;
-    v8 = PairCount - 1;
-    v9 = -1;
-    v10 = Mapping[2 * v8 + 1];
-    if ( v10 != -1 )
-    {
-      if ( PairCount != 1 )
-        v4 = Mapping[2 * PairCount - 4];
-      v9 = v10 - v4 + Mapping[2 * v8] - 1;
-    }
-    *Lbn = v9;
-    *Vbn = (unsigned int)(*((_DWORD *)Mcb->Mapping + 2 * (Mcb->PairCount - 1)) - 1);
-    LOBYTE(v4) = 1;
+    if ( PairCount == 1 )
+      v9 = 0;
+    else
+      v9 = Mapping[2 * PairCount - 4];
+    v7 = v8 - v9 + Mapping[2 * v5] - 1;
   }
-  return v4;
+  *Lbn = v7;
+  *Vbn = (unsigned int)(*((_DWORD *)Mcb->Mapping + 2 * (Mcb->PairCount - 1)) - 1);
+  return 1;
 }

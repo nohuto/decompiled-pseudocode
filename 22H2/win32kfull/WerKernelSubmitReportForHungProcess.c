@@ -1,13 +1,13 @@
 /*
- * XREFs of WerKernelSubmitReportForHungProcess @ 0x1C024F054
+ * XREFs of WerKernelSubmitReportForHungProcess @ 0x1C02603C4
  * Callers:
- *     _lambda_ee4856d16542b31eb6609ee4cd7f16f7_::_lambda_invoker_cdecl_ @ 0x1C021CAC0 (_lambda_ee4856d16542b31eb6609ee4cd7f16f7_--_lambda_invoker_cdecl_.c)
+ *     ?WerSubmitReportWorker@@YAXPEAX@Z @ 0x1C0240CE0 (-WerSubmitReportWorker@@YAXPEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     WerStartSystemErrorHandler @ 0x1C024F3D0 (WerStartSystemErrorHandler.c)
- *     WerWaitForSystemErrorHandler @ 0x1C024F508 (WerWaitForSystemErrorHandler.c)
- *     WerpAllocateAndInitializeSid @ 0x1C024F5DC (WerpAllocateAndInitializeSid.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     WerStartSystemErrorHandler @ 0x1C0260754 (WerStartSystemErrorHandler.c)
+ *     WerWaitForSystemErrorHandler @ 0x1C026088C (WerWaitForSystemErrorHandler.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C0260960 (WerpAllocateAndInitializeSid.c)
  */
 
 __int64 __fastcall WerKernelSubmitReportForHungProcess(int a1, int a2, int a3)
@@ -28,32 +28,32 @@ __int64 __fastcall WerKernelSubmitReportForHungProcess(int a1, int a2, int a3)
   HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
   __int64 SystemInformation; // [rsp+70h] [rbp-90h] BYREF
   __int64 v22; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v23; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v24; // [rsp+90h] [rbp-70h]
+  struct _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v24; // [rsp+90h] [rbp-70h] BYREF
   __int128 v25; // [rsp+A0h] [rbp-60h]
-  struct _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v28[16]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v29; // [rsp+E0h] [rbp-20h]
+  __int128 v26; // [rsp+B0h] [rbp-50h]
+  __int64 v27; // [rsp+C0h] [rbp-40h]
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C8h] [rbp-38h] BYREF
+  _QWORD v29[10]; // [rsp+D0h] [rbp-30h] BYREF
   _DWORD v30[352]; // [rsp+120h] [rbp+20h] BYREF
   _DWORD v31[352]; // [rsp+6A0h] [rbp+5A0h] BYREF
 
   Handle = 0LL;
-  memset_0(v30, 0, 0x578uLL);
-  memset_0(v31, 0, 0x578uLL);
+  memset(v30, 0, 0x578uLL);
+  memset(v31, 0, 0x578uLL);
   v22 = 0LL;
   P = 0LL;
-  *(_QWORD *)&v25 = 0LL;
-  DWORD2(v25) = 0;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  DestinationString = 0LL;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  v23 = 0LL;
-  SystemInformation = 0LL;
+  DestinationString = 0LL;
+  v27 = 0LL;
   v24 = 0LL;
+  SystemInformation = 0LL;
+  v25 = 0LL;
+  v26 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\WindowsErrorReportingServicePort");
-  memset_0(v28, 0, 0x48uLL);
-  v29 = 1400LL;
+  memset(v29, 0, 0x48uLL);
+  v29[2] = 1400LL;
   v6 = WerpAllocateAndInitializeSid(&IdentifierAuthority, v12, v14, v15, v16, v17, v18, (__int64)&P);
   if ( v6 >= 0 )
   {
@@ -61,7 +61,7 @@ __int64 __fastcall WerKernelSubmitReportForHungProcess(int a1, int a2, int a3)
     v6 = started;
     if ( started < 0 )
     {
-      v8 = 1369LL;
+      v8 = 1371LL;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR WerStartSystemErrorHandler failed with 0x%x\n";
 LABEL_4:
       LODWORD(v13) = started;
@@ -72,7 +72,7 @@ LABEL_4:
     v6 = started;
     if ( started < 0 )
     {
-      v8 = 1384LL;
+      v8 = 1386LL;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQuerySysInfo(ErrorPortTimeouts) failed with 0x%x\n";
       goto LABEL_4;
     }
@@ -80,7 +80,7 @@ LABEL_4:
     v6 = started;
     if ( started < 0 )
     {
-      v8 = 1391LL;
+      v8 = 1393LL;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler failed with 0x%x\n";
       goto LABEL_4;
     }
@@ -89,19 +89,19 @@ LABEL_4:
       started = -1073740973;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler timed out, failing the call with 0x%x\n";
       v6 = -1073740973;
-      v8 = 1398LL;
+      v8 = 1400LL;
       goto LABEL_4;
     }
-    LODWORD(v23) = 48;
-    *((_QWORD *)&v23 + 1) = 0LL;
-    DWORD2(v24) = 512;
-    *(_QWORD *)&v24 = 0LL;
-    v25 = 0LL;
-    started = ZwAlpcConnectPort(&Handle, &DestinationString, &v23, v28, 0x20000, P, 0LL, 0LL, 0LL, 0LL, 0LL);
+    LODWORD(v24) = 48;
+    *((_QWORD *)&v24 + 1) = 0LL;
+    DWORD2(v25) = 512;
+    *(_QWORD *)&v25 = 0LL;
+    v26 = 0LL;
+    started = ZwAlpcConnectPort(&Handle, &DestinationString, &v24, v29, 0x20000, P, 0LL, 0LL, 0LL, 0LL, 0LL);
     v6 = started;
     if ( started < 0 )
     {
-      v8 = 1421LL;
+      v8 = 1423LL;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort failed with 0x%x\n";
       goto LABEL_4;
     }
@@ -110,7 +110,7 @@ LABEL_4:
       started = -1073740973;
       v9 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort timed out, failing the call with 0x%x\n";
       v6 = -1073740973;
-      v8 = 1428LL;
+      v8 = 1430LL;
       goto LABEL_4;
     }
     v30[0] = 91751760;
@@ -118,15 +118,16 @@ LABEL_4:
     v30[12] = a1;
     v30[28] = a2;
     v30[66] = -1073741637;
-    v30[345] = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-    v22 = 1400LL;
     v30[344] = a3;
+    v30[345] = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    memset(&v31[1], 0, 0x574uLL);
     v31[0] = 91751760;
+    v22 = 1400LL;
     v10 = ZwAlpcSendWaitReceivePort(Handle, 0x20000LL, v30, 0LL, v31, &v22, 0LL, 0LL);
     v6 = v10;
     if ( v10 < 0 || v10 == 258 )
     {
-      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcSendWaitReceivePort failed\n", 1459);
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcSendWaitReceivePort failed\n", 1461);
     }
     else if ( v31[11] >= 0 )
     {
@@ -134,7 +135,7 @@ LABEL_4:
     }
     else
     {
-      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Service returned failure\n", 1465);
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Service returned failure\n", 1467);
       v6 = -1073741823;
     }
   }

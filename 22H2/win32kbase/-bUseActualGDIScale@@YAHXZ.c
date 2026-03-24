@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bUseActualGDIScale@@YAHXZ @ 0x1C00C1F28
+ * XREFs of ?bUseActualGDIScale@@YAHXZ @ 0x1C00A0580
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
  *     <none>
  */

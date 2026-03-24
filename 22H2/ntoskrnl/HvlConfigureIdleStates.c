@@ -1,51 +1,53 @@
 /*
- * XREFs of HvlConfigureIdleStates @ 0x140546698
+ * XREFs of HvlConfigureIdleStates @ 0x1404F76C4
  * Callers:
- *     PpmIdleUpdateHvStates @ 0x14099DCA0 (PpmIdleUpdateHvStates.c)
+ *     PpmIdleUpdateHvStates @ 0x1408F68A0 (PpmIdleUpdateHvStates.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HvlpSetPowerProperty @ 0x1405472F0 (HvlpSetPowerProperty.c)
+ *     HvlpSetPowerProperty @ 0x1404F8398 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlConfigureIdleStates(int a1, _OWORD *a2)
 {
-  __int64 v4; // rax
-  _OWORD *v5; // rcx
+  char *v2; // rcx
+  __int64 v3; // rax
+  __int128 v4; // xmm1
+  __int128 v5; // xmm0
   __int128 v6; // xmm1
   __int128 v7; // xmm0
   __int128 v8; // xmm1
   __int128 v9; // xmm0
   __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  _DWORD v14[106]; // [rsp+20h] [rbp-1A8h] BYREF
+  _DWORD v12[4]; // [rsp+20h] [rbp-1A8h] BYREF
+  char v13; // [rsp+30h] [rbp-198h] BYREF
 
-  memset(v14, 0, 0x194uLL);
-  v4 = 3LL;
-  v14[2] = a1;
-  v5 = &v14[4];
+  v12[2] = a1;
+  v12[0] = 0;
+  v2 = &v13;
+  v12[1] = 0;
+  v12[3] = 0;
+  v3 = 3LL;
   do
   {
-    v6 = a2[1];
-    *v5 = *a2;
-    v7 = a2[2];
-    v5[1] = v6;
-    v8 = a2[3];
-    v5[2] = v7;
-    v9 = a2[4];
-    v5[3] = v8;
-    v10 = a2[5];
-    v5[4] = v9;
-    v11 = a2[6];
-    v5[5] = v10;
-    v12 = a2[7];
+    v4 = a2[1];
+    *(_OWORD *)v2 = *a2;
+    v5 = a2[2];
+    *((_OWORD *)v2 + 1) = v4;
+    v6 = a2[3];
+    *((_OWORD *)v2 + 2) = v5;
+    v7 = a2[4];
+    *((_OWORD *)v2 + 3) = v6;
+    v8 = a2[5];
+    *((_OWORD *)v2 + 4) = v7;
+    v9 = a2[6];
+    *((_OWORD *)v2 + 5) = v8;
+    v10 = a2[7];
     a2 += 8;
-    v5[6] = v11;
-    v5 += 8;
-    *(v5 - 1) = v12;
-    --v4;
+    *((_OWORD *)v2 + 6) = v9;
+    v2 += 128;
+    *((_OWORD *)v2 - 1) = v10;
+    --v3;
   }
-  while ( v4 );
-  *(_QWORD *)v5 = *(_QWORD *)a2;
-  return HvlpSetPowerProperty(v14, 128LL);
+  while ( v3 );
+  *(_QWORD *)v2 = *(_QWORD *)a2;
+  return HvlpSetPowerProperty(v12, a2, 128LL);
 }

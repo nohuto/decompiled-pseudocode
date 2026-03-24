@@ -1,25 +1,25 @@
 /*
- * XREFs of NtGdiSwapBuffers @ 0x1C02BB630
+ * XREFs of NtGdiSwapBuffers @ 0x1C02BD080
  * Callers:
  *     <none>
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C002C61C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027916C (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C02792DC (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
- *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A4808 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACD0C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027B5C0 (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C027B734 (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
+ *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A6DE0 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
  */
 
 __int64 __fastcall NtGdiSwapBuffers(HDC a1)
 {
-  unsigned int v1; // edi
-  int v2; // esi
+  unsigned int v1; // ebx
+  int v2; // edi
   struct EWNDOBJ *v3; // r15
-  __int64 v4; // rbx
+  __int64 v4; // rsi
   __int64 v5; // r14
   __int64 v6; // rcx
   _QWORD *v7; // rcx
@@ -66,14 +66,14 @@ LABEL_20:
         v6 = v5;
         if ( DeviceHdev )
         {
-          if ( *(_QWORD *)(v11[0] + 496LL) == *(_QWORD *)(v4 + 2528) )
-            v6 = (*(_QWORD *)(DeviceHdev + 2528) + 24LL) & -(__int64)(*(_QWORD *)(DeviceHdev + 2528) != 0LL);
+          if ( *(_QWORD *)(v11[0] + 496LL) == *(_QWORD *)(v4 + 2552) )
+            v6 = (*(_QWORD *)(DeviceHdev + 2552) + 24LL) & -(__int64)(*(_QWORD *)(DeviceHdev + 2552) != 0LL);
           else
             v6 = v5;
           v4 = DeviceHdev;
         }
       }
-      v9 = *(unsigned int (__fastcall **)(__int64, struct EWNDOBJ *))(v4 + 3112);
+      v9 = *(unsigned int (__fastcall **)(__int64, struct EWNDOBJ *))(v4 + 3136);
       if ( v9 )
       {
         if ( v9(v6, v3) )

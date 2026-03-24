@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetOuterConeIntensity@CCompositionSpotLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSPOTLIGHT_SETOUTERCONEINTENSITY@@@Z @ 0x180226C50
+ * XREFs of ?ProcessSetOuterConeIntensity@CCompositionSpotLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSPOTLIGHT_SETOUTERCONEINTENSITY@@@Z @ 0x1801BC688
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CCompositionSpotLight::ProcessSetOuterConeIntensity(
         struct CResourceTable *a2,
         const struct tagMILCMD_COMPOSITIONSPOTLIGHT_SETOUTERCONEINTENSITY *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E42B8)(
-           (char *)this + SDWORD2(xmmword_1803E42B8),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803457D0)(
+           (char *)this + SDWORD2(xmmword_1803457D0),
            &CCompositionSpotLight::sc_OuterConeIntensity,
            (char *)a3 + 8);
 }

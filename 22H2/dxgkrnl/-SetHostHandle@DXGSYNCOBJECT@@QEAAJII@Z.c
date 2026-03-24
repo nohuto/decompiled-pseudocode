@@ -1,59 +1,62 @@
 /*
- * XREFs of ?SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z @ 0x1C0351384
+ * XREFs of ?SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z @ 0x1C0292490
  * Callers:
- *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01A6890 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
- *     ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C038C0EC (-VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYN.c)
+ *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C0119EC8 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
+ *     ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C024AE28 (-VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYN.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGSYNCOBJECT::SetHostHandle(DXGSYNCOBJECT *this, int a2, int a3)
 {
-  __int64 v6; // rax
-  _QWORD *v7; // rbx
-  struct _KTHREAD **v8; // rsi
-  char *v9; // rdi
-  __int64 v10; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v13; // rdx
+  _QWORD *v14; // rax
+  __int64 v15; // rcx
 
-  if ( (*((_BYTE *)this + 204) & 1) == 0 )
+  if ( (*((_BYTE *)this + 196) & 1) != 0 )
   {
-    *((_DWORD *)this + 24) = a3;
-    return 0LL;
-  }
-  v6 = operator new[](0x18uLL, 0x4B677844u, 256LL);
-  v7 = (_QWORD *)v6;
-  if ( v6 )
-  {
-    *(_QWORD *)(v6 + 8) = 0LL;
-    *(_QWORD *)v6 = 0LL;
-    *(_DWORD *)(v6 + 20) = a3;
-    v8 = (struct _KTHREAD **)((char *)this + 32);
-    *(_DWORD *)(v6 + 16) = a2;
+    v8 = operator new[](0x18uLL, 0x4B677844u, PagedPool);
+    if ( v8 )
+    {
+      v8[2] = 0LL;
+      v8[1] = 0LL;
+      *v8 = 0LL;
+    }
+    else
+    {
+      v8 = 0LL;
+    }
+    if ( !v8 )
+    {
+      v11 = WdLogNewEntry5_WdLowResource(v7, v6, v9, v10);
+      *(_QWORD *)(v11 + 24) = 5645LL;
+      WdLogEvent5_WdLowResource(v11);
+      return 3221225495LL;
+    }
+    *((_DWORD *)v8 + 4) = a2;
+    *((_DWORD *)v8 + 5) = a3;
     DXGFASTMUTEX::Acquire((DXGSYNCOBJECT *)((char *)this + 32));
-    v9 = (char *)this + 104;
-    v10 = *(_QWORD *)v9;
-    if ( *(char **)(*(_QWORD *)v9 + 8LL) != v9 )
+    v14 = (_QWORD *)((char *)this + 96);
+    v15 = *((_QWORD *)this + 12);
+    if ( *(DXGSYNCOBJECT **)(v15 + 8) != (DXGSYNCOBJECT *)((char *)this + 96) )
       __fastfail(3u);
-    *v7 = v10;
-    v7[1] = v9;
-    *(_QWORD *)(v10 + 8) = v7;
-    *(_QWORD *)v9 = v7;
-    DXGFASTMUTEX::Release(v8);
-    return 0LL;
+    *v8 = v15;
+    v8[1] = v14;
+    *(_QWORD *)(v15 + 8) = v8;
+    *v14 = v8;
+    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 4, v13);
   }
-  WdLogSingleEntry1(6LL, 5764LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate DXG_HOST_HANDLE_MAP",
-    5764LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225495LL;
+  else
+  {
+    *((_DWORD *)this + 22) = a3;
+  }
+  return 0LL;
 }

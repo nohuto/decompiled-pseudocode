@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1800D9670
+ * XREFs of ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1800D05E0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x1800D9854 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
- *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D994C (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x18005DF3C (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x18005EE38 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
  */
 
 __int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _DWORD *a3, _QWORD *a4)
@@ -19,8 +19,8 @@ __int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _
   HANDLE v13; // rax
   int v15; // r9d
   unsigned int v16; // [rsp+20h] [rbp-30h]
-  unsigned int v17; // [rsp+30h] [rbp-20h] BYREF
-  unsigned int v18; // [rsp+34h] [rbp-1Ch] BYREF
+  int v17; // [rsp+30h] [rbp-20h] BYREF
+  int v18; // [rsp+34h] [rbp-1Ch] BYREF
   int v19; // [rsp+38h] [rbp-18h] BYREF
   HANDLE hObject; // [rsp+40h] [rbp-10h] BYREF
   struct _RTL_CRITICAL_SECTION *v21; // [rsp+48h] [rbp-8h] BYREF
@@ -40,14 +40,14 @@ __int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _
     if ( v11 < 0 )
     {
       v10 = v11 | 0x10000000;
-      v16 = 737;
+      v16 = 713;
     }
     else
     {
       v12 = NtDCompositionReferenceSharedResourceOnDwmChannel(*(unsigned int *)(a1 + 56), hObject, v22, &v18, &v17);
       if ( v12 >= 0 )
       {
-        v8 = CHandleTable::DuplicateHandleOnTarget(v9, v18, v17, v22, a1, &v19);
+        v8 = CHandleTable::DuplicateHandleOnTarget(v9, v18, v17, v22, (CChannel *)a1, &v19);
         v10 = v8;
         if ( v8 >= 0 )
         {
@@ -57,20 +57,20 @@ __int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _
           *a3 = v19;
           goto LABEL_6;
         }
-        v16 = 751;
+        v16 = 727;
         goto LABEL_12;
       }
       v10 = v12 | 0x10000000;
-      v16 = 744;
+      v16 = 720;
     }
     v15 = v10;
     goto LABEL_13;
   }
-  v16 = 736;
+  v16 = 712;
 LABEL_12:
   v15 = v8;
 LABEL_13:
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v15, v16);
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v15, v16, 0LL);
   if ( hObject )
     CloseHandle(hObject);
 LABEL_6:

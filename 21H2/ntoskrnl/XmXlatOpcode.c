@@ -1,10 +1,10 @@
 /*
- * XREFs of XmXlatOpcode @ 0x140535670
+ * XREFs of XmXlatOpcode @ 0x1404E5990
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403A2FA8 (XmSetSourceValue.c)
- *     XmGetOffsetAddress @ 0x1403D75CC (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
+ *     XmGetOffsetAddress @ 0x1403C920C (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmXlatOpcode(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PopEsInit @ 0x140B51EFC
+ * XREFs of PopEsInit @ 0x140A3F95C
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PopEsWorkItemSchedule @ 0x140870D10 (PopEsWorkItemSchedule.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
+ *     PopEsWorkItemSchedule @ 0x14077FEDC (PopEsWorkItemSchedule.c)
  */
 
 void __fastcall PopEsInit(int a1)
 {
   if ( a1 == 1 )
   {
-    qword_140C39F48 = 0LL;
+    qword_140C20778 = 0LL;
     PopEsLock = 0LL;
     PopEsWorkItem.Parameter = 0LL;
     PopEsWorkItem.List.Flink = 0LL;
@@ -45,7 +45,7 @@ void __fastcall PopEsInit(int a1)
         0,
         (__int64)PopEsInStandbyLowPowerEpochCallback,
         0LL);
-      PopReleaseRwLock(&PopEsLock);
+      PopReleaseRwLock((ULONG_PTR)&PopEsLock);
     }
   }
 }

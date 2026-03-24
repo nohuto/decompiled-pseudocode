@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCmcIsDpcTimeRunningLow @ 0x1405062F4
+ * XREFs of HalpCmcIsDpcTimeRunningLow @ 0x1404B99D4
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403AAA5C (HalpCmcPollProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
  * Callees:
  *     <none>
  */

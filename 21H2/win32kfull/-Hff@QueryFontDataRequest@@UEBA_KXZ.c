@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Hff@QueryFontDataRequest@@UEBA_KXZ @ 0x1C0124210
+ * XREFs of ?Hff@QueryFontDataRequest@@UEBA_KXZ @ 0x1C01380B0
  * Callers:
  *     <none>
  * Callees:

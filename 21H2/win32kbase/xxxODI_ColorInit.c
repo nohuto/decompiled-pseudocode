@@ -1,39 +1,39 @@
 /*
- * XREFs of xxxODI_ColorInit @ 0x1C0060DA0
+ * XREFs of xxxODI_ColorInit @ 0x1C000EC60
  * Callers:
- *     InitUserScreen @ 0x1C006C88C (InitUserScreen.c)
+ *     InitUserScreen @ 0x1C006A78C (InitUserScreen.c)
  * Callees:
- *     GetProcessLuid @ 0x1C0018FF0 (GetProcessLuid.c)
- *     ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C0061014 (-CI_GetClrVal@@YAKPEAGK@Z.c)
- *     FastGetProfileStringFromIDW @ 0x1C0061220 (FastGetProfileStringFromIDW.c)
- *     xxxSetSysColors @ 0x1C0062954 (xxxSetSysColors.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     GetProcessLuid @ 0x1C000C950 (GetProcessLuid.c)
+ *     ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C000EED4 (-CI_GetClrVal@@YAKPEAGK@Z.c)
+ *     FastGetProfileStringFromIDW @ 0x1C000F030 (FastGetProfileStringFromIDW.c)
+ *     xxxSetSysColors @ 0x1C001F16C (xxxSetSysColors.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxxODI_ColorInit(__int64 a1)
 {
   char *v1; // rdx
-  unsigned int v3; // ebx
-  __int64 v4; // rdi
+  unsigned int v3; // edi
+  __int64 v4; // rsi
   char *v5; // rcx
+  unsigned int *v6; // rbx
   unsigned int ClrVal; // eax
-  int v7; // ecx
-  unsigned int *v8; // r11
-  struct _LUID AuthenticationId; // [rsp+48h] [rbp-C0h] BYREF
-  _BYTE v11[128]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v12[32]; // [rsp+D8h] [rbp-30h] BYREF
-  unsigned __int16 v13[28]; // [rsp+158h] [rbp+50h] BYREF
+  int v8; // ecx
+  struct _LUID AuthenticationId; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v11[128]; // [rsp+50h] [rbp-B0h] BYREF
+  _DWORD v12[32]; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned __int16 v13[28]; // [rsp+150h] [rbp+50h] BYREF
 
   v1 = (char *)gpsi;
   v3 = 0;
   v4 = 0LL;
   *(_OWORD *)((char *)gpsi + 4568) = gargbInitial;
-  *(_OWORD *)(v1 + 4584) = xmmword_1C0253410;
-  *(_OWORD *)(v1 + 4600) = xmmword_1C0253420;
-  *(_OWORD *)(v1 + 4616) = xmmword_1C0253430;
-  *(_OWORD *)(v1 + 4632) = xmmword_1C0253440;
-  *(_OWORD *)(v1 + 4648) = xmmword_1C0253450;
-  *(_OWORD *)(v1 + 4664) = xmmword_1C0253460;
+  *(_OWORD *)(v1 + 4584) = xmmword_1C0212350;
+  *(_OWORD *)(v1 + 4600) = xmmword_1C0212360;
+  *(_OWORD *)(v1 + 4616) = xmmword_1C0212370;
+  *(_OWORD *)(v1 + 4632) = xmmword_1C0212380;
+  *(_OWORD *)(v1 + 4648) = xmmword_1C0212390;
+  *(_OWORD *)(v1 + 4664) = xmmword_1C02123A0;
   *((_QWORD *)v1 + 585) = 0xFF993300F2E4D7LL;
   *((_DWORD *)v1 + 1172) = 15790320;
   v5 = (char *)gpsi;
@@ -57,10 +57,11 @@ __int64 __fastcall xxxODI_ColorInit(__int64 a1)
     {
       FastGetProfileStringFromIDW(a1, 0LL, v3 + 32, &szNull, v13, 25, 0);
     }
+    v6 = (unsigned int *)&v11[v4 * 4];
     ClrVal = CI_GetClrVal(v13, *(_DWORD *)&v11[v4 * 4 + 4568LL - (_QWORD)v11 + (_QWORD)gpsi]);
     v12[v4++] = v3++;
-    *v8 = ClrVal;
+    *v6 = ClrVal;
   }
   while ( v3 < 0x1F );
-  return xxxSetSysColors(v7, v3, (unsigned int)v12, (unsigned int)v11, 6);
+  return xxxSetSysColors(v8, v3, (unsigned int)v12, (unsigned int)v11, 6);
 }

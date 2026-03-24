@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C0008BF0
+ * XREFs of HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C00088E0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_SendInterruptTransfer @ 0x1C0003544 (HUBHTX_SendInterruptTransfer.c)
- *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000D0A0 (HUBFDO_ReleaseWdfPowerReference.c)
+ *     HUBHTX_SendInterruptTransfer @ 0x1C0003378 (HUBHTX_SendInterruptTransfer.c)
+ *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000CCC0 (HUBFDO_ReleaseWdfPowerReference.c)
  */
 
 __int64 __fastcall HUBHSM_SendingInterruptTransferAfterResettingPipe(__int64 a1)

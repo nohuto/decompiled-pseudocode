@@ -1,22 +1,21 @@
 /*
- * XREFs of EtwSendTraceBuffer @ 0x140630940
+ * XREFs of EtwSendTraceBuffer @ 0x1405A5F30
  * Callers:
- *     <none>
+ *     VslpFlushBufferArray @ 0x1404FDCF0 (VslpFlushBufferArray.c)
  * Callees:
- *     EtwpOpenLogger @ 0x14022AFF8 (EtwpOpenLogger.c)
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     EtwpGetLoggerTimeStamp @ 0x1402E1D0C (EtwpGetLoggerTimeStamp.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402FE2A0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14022CAD8 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
  */
 
-__int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+__int64 __fastcall EtwSendTraceBuffer(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
 {
-  __int64 v6; // r14
-  unsigned int v9; // esi
+  unsigned int v5; // esi
+  unsigned int v6; // r14d
   __int64 v11; // rax
   __int64 v12; // rbx
   int v13; // ecx
@@ -24,21 +23,21 @@ __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, un
   signed __int64 v15; // rcx
   char v16; // [rsp+50h] [rbp+8h] BYREF
 
-  v6 = a1;
+  v5 = 0;
+  v6 = (unsigned __int16)a1;
   v16 = 0;
-  v9 = 0;
-  if ( (unsigned int)a1 >= *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 108) + 16LL) )
+  if ( (unsigned int)(unsigned __int16)a1 >= *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 108) + 16LL) )
     return 3221225480LL;
   v11 = EtwpOpenLogger(v6, EtwpHostSiloState, 0, &v16);
   v12 = v11;
   if ( !v11 )
     return 3221226134LL;
-  if ( *(_DWORD *)(v11 + 320) )
+  if ( *(_DWORD *)(v11 + 336) )
   {
     if ( (*(_DWORD *)(v11 + 12) & 0x40000) != 0 )
     {
       if ( a3 )
-        _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 240), a3);
+        _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 256), a3);
       v13 = *(_DWORD *)(a2 + 48);
       *(_DWORD *)(a2 + 4) = v13;
       v14 = (*(_BYTE *)(a2 + 52) & 0x20) == 0;
@@ -52,38 +51,32 @@ __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, un
       *(LARGE_INTEGER *)(a2 + 16) = EtwpGetLoggerTimeStamp(v11);
       do
       {
-        v15 = *(_QWORD *)(v12 + 128);
+        v15 = *(_QWORD *)(v12 + 144);
         *(_QWORD *)(a2 + 32) = v15;
       }
-      while ( v15 != _InterlockedCompareExchange64((volatile signed __int64 *)(v12 + 128), a2, v15) );
+      while ( v15 != _InterlockedCompareExchange64((volatile signed __int64 *)(v12 + 144), a2, v15) );
       if ( !v15 )
       {
         if ( ObGetCurrentIrql() > 2u )
         {
-          if ( !_interlockedbittestandset((volatile signed __int32 *)(v12 + 824), 8u) )
-            KeInsertQueueDpc((PRKDPC)(v12 + 568), 0LL, 0LL);
+          if ( !_interlockedbittestandset((volatile signed __int32 *)(v12 + 836), 8u) )
+            KeInsertQueueDpc((PRKDPC)(v12 + 584), 0LL, 0LL);
         }
         else
         {
-          KeSetEvent((PRKEVENT)(v12 + 480), 0, 0);
+          KeSetEvent((PRKEVENT)(v12 + 496), 0, 0);
         }
       }
     }
     else
     {
-      v9 = -1073741816;
+      v5 = -1073741816;
     }
   }
   else
   {
-    v9 = -1073741054;
+    v5 = -1073741054;
   }
-  if ( v16 )
-  {
-    ExReleaseRundownProtectionCacheAwareEx(
-      *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(EtwpHostSiloState + 448) + 8 * v6),
-      1u);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  }
-  return v9;
+  EtwpCloseLogger(v6, EtwpHostSiloState, v16);
+  return v5;
 }

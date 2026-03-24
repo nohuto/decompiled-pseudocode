@@ -1,13 +1,13 @@
 /*
- * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x140A08D90
+ * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x14095D420
  * Callers:
- *     HvlRegisterWheaErrorNotification @ 0x140930FF0 (HvlRegisterWheaErrorNotification.c)
+ *     HvlRegisterWheaErrorNotification @ 0x14088E570 (HvlRegisterWheaErrorNotification.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback, PVOID Context)
@@ -27,20 +27,20 @@ NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFL
     return -1073741801;
   PoolWithTag[2] = Callback;
   PoolWithTag[3] = Context;
-  v7 = KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0);
   v8 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v9 = v7;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (__int64)&WheapInUsePageOfflineNotifyLock);
+    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v9 )
-    *(_BYTE *)(v9 + 18) = 1;
-  v10 = (_QWORD *)qword_140D00C38;
-  if ( *(PVOID **)qword_140D00C38 != &WheapInUsePageOfflineNotifyList )
+    *(_BYTE *)(v9 + 26) |= 1u;
+  v10 = (_QWORD *)qword_140CF4718;
+  if ( *(PVOID **)qword_140CF4718 != &WheapInUsePageOfflineNotifyList )
     __fastfail(3u);
-  v6[1] = qword_140D00C38;
+  v6[1] = qword_140CF4718;
   *v6 = &WheapInUsePageOfflineNotifyList;
   *v10 = v6;
-  qword_140D00C38 = (__int64)v6;
+  qword_140CF4718 = (__int64)v6;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&WheapInUsePageOfflineNotifyLock);
   KeAbPostRelease((ULONG_PTR)&WheapInUsePageOfflineNotifyLock);

@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLIGetEmOverride @ 0x1C00AB598
+ * XREFs of AMLIGetEmOverride @ 0x1C00BDB64
  * Callers:
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
  *     <none>
  */

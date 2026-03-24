@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x18011C1C0
+ * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F4540
  * Callers:
  *     <none>
  * Callees:

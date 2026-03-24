@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueuingSetU2TimeoutToPsm @ 0x1C0023120
+ * XREFs of HUBDSM_QueuingSetU2TimeoutToPsm @ 0x1C0022CD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_QueuingSetU2TimeoutToPsm(__int64 a1)

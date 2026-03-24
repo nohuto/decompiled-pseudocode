@@ -1,12 +1,13 @@
 /*
- * XREFs of wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__ @ 0x1800012B0
+ * XREFs of wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__ @ 0x1800F8F30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__()
+// attributes: thunk
+__int128 *__fastcall wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__()
 {
-  return atexit((void (__cdecl *)())wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks___0);
+  return wil::details_abi::ThreadLocalStorage<wil::details::ThreadFailureCallbackHolder *>::~ThreadLocalStorage<wil::details::ThreadFailureCallbackHolder *>();
 }

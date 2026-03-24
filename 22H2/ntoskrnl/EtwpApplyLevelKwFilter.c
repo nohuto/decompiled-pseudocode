@@ -1,57 +1,52 @@
 /*
- * XREFs of EtwpApplyLevelKwFilter @ 0x14046A5B2
+ * XREFs of EtwpApplyLevelKwFilter @ 0x1405ABEC8
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpApplyLevelKwFilterInner @ 0x1406042C0 (EtwpApplyLevelKwFilterInner.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpApplyLevelKwFilterInner @ 0x1403F89CC (EtwpApplyLevelKwFilterInner.c)
  */
 
-char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, char a5)
+char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, unsigned __int8 a3, __int64 a4, char a5)
 {
-  char v5; // r10
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // rbp
-  __int64 v8; // rax
-  char v9; // di
-  __int64 v10; // r11
-  unsigned __int8 v11; // cl
+  _DWORD *SchedulerAssist; // r9
+  char v8; // di
+  __int64 v9; // r11
+  unsigned __int8 v10; // cl
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v13; // r8
-  int v14; // eax
-  bool v15; // zf
+  _DWORD *v12; // r8
+  int v13; // eax
+  bool v14; // zf
 
-  v5 = a3;
   if ( !a5 )
-    return ((__int64 (*)(void))EtwpApplyLevelKwFilterInner)();
+    return EtwpApplyLevelKwFilterInner(a1, a2, a3, a4);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v8) = 4;
-    if ( CurrentIrql != 2 )
-      v8 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)v8 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  LOBYTE(a3) = v5;
-  v9 = EtwpApplyLevelKwFilterInner(a1, a2, a3);
+  v8 = EtwpApplyLevelKwFilterInner(a1, a2, a3, a4);
   if ( KiIrqlFlags )
   {
-    v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v13 = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(v10 << (CurrentIrql + 1));
-      v15 = (v14 & v13[5]) == 0;
-      v13[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v12 = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(v9 << (CurrentIrql + 1));
+        v14 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  return v9;
+  return v8;
 }

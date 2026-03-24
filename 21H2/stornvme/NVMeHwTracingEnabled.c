@@ -1,5 +1,5 @@
 /*
- * XREFs of NVMeHwTracingEnabled @ 0x1C0005BD0
+ * XREFs of NVMeHwTracingEnabled @ 0x1C00066B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall NVMeHwTracingEnabled(__int64 a1, char a2)
 {
-  *(_BYTE *)(a1 + 21) = a2;
+  *(_BYTE *)(a1 + 17) = a2;
 }

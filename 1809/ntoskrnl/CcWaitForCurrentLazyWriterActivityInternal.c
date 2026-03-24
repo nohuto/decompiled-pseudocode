@@ -1,16 +1,16 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C3C
+ * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C5C
  * Callers:
- *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140160C10 (CcWaitForCurrentLazyWriterActivityHelper.c)
- *     CcExitPartition @ 0x14026B4B0 (CcExitPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140160C30 (CcWaitForCurrentLazyWriterActivityHelper.c)
+ *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D630C (CcAllocateWorkQueueEntry.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140187B38 (CcPerfLogWorkItemEnqueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140187B58 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall CcWaitForCurrentLazyWriterActivityInternal(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExQueueWorkItemEx @ 0x14030B180
+ * XREFs of ExQueueWorkItemEx @ 0x140343218
  * Callers:
- *     KeTerminateThread @ 0x14030A438 (KeTerminateThread.c)
- *     PopFxResidentTimeoutDpcRoutine @ 0x140367890 (PopFxResidentTimeoutDpcRoutine.c)
- *     PopPepIdleTimeoutDpcRoutine @ 0x140369070 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x1403228A0 (PopFxResidentTimeoutDpcRoutine.c)
+ *     KeTerminateThread @ 0x140341500 (KeTerminateThread.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140574900 (PopPepIdleTimeoutDpcRoutine.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1402B7670 (ExpQueueWorkItem.c)
- *     ExpValidateWorkItem @ 0x1402B7E50 (ExpValidateWorkItem.c)
- *     ExpTypeToPriority @ 0x1402B951C (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14023E058 (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x14023E0A0 (ExpTypeToPriority.c)
+ *     ExpQueueWorkItem @ 0x140240E10 (ExpQueueWorkItem.c)
  */
 
 __int64 __fastcall ExQueueWorkItemEx(_QWORD *a1, unsigned int a2, unsigned int a3)

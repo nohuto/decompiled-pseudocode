@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLISetNSObjectNotifyFlag @ 0x1C0048EBC
+ * XREFs of AMLISetNSObjectNotifyFlag @ 0x1C00637F4
  * Callers:
- *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00842E4 (ExternalRequestBiosNameDeviceAssociation.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4 (ExternalRequestBiosNameDeviceAssociation.c)
  * Callees:
  *     <none>
  */

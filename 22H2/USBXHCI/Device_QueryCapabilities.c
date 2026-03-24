@@ -1,12 +1,12 @@
 /*
- * XREFs of Device_QueryCapabilities @ 0x1C001A064
+ * XREFs of Device_QueryCapabilities @ 0x1C00150F4
  * Callers:
- *     Controller_CreateWdfDevice @ 0x1C006EFFC (Controller_CreateWdfDevice.c)
+ *     Controller_CreateWdfDevice @ 0x1C006D360 (Controller_CreateWdfDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014244 (WPP_RECORDER_SF_qd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Device_QueryCapabilities(__int64 a1)
@@ -42,7 +42,7 @@ __int64 __fastcall Device_QueryCapabilities(__int64 a1)
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_5;
-    v9 = 268;
+    v9 = 263;
     goto LABEL_12;
   }
   *(_QWORD *)((char *)&v11[1] + 4) = 0LL;
@@ -81,7 +81,7 @@ __int64 __fastcall Device_QueryCapabilities(__int64 a1)
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v9 = 269;
+    v9 = 264;
 LABEL_12:
     LOBYTE(v4) = 2;
     result = WPP_RECORDER_SF_qd(
@@ -89,7 +89,7 @@ LABEL_12:
                v4,
                4,
                v9,
-               (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                *(_QWORD *)(a1 + 88),
                result);
   }

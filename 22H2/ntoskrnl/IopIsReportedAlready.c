@@ -1,18 +1,18 @@
 /*
- * XREFs of IopIsReportedAlready @ 0x140837110
+ * XREFs of IopIsReportedAlready @ 0x1407AF208
  * Callers:
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     PnpIsDuplicateDevice @ 0x140953E2C (PnpIsDuplicateDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PnpIsDuplicateDevice @ 0x14089D26C (PnpIsDuplicateDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopIsReportedAlready(__int64 a1, __int64 a2, const UNICODE_STRING *a3, __int64 a4, _DWORD *a5)
@@ -77,20 +77,21 @@ char __fastcall IopIsReportedAlready(__int64 a1, __int64 a2, const UNICODE_STRIN
     || v23[1] != 8
     || !v23[3] )
   {
+LABEL_7:
     if ( a4 )
       goto LABEL_10;
-LABEL_8:
-    if ( v5 )
-      goto LABEL_10;
-    goto LABEL_9;
+    goto LABEL_8;
   }
   v5 = (char *)v23 + (unsigned int)v23[2];
-  if ( !a4 )
-    goto LABEL_8;
-  if ( !v5 || !(unsigned int)PnpIsDuplicateDevice(a4, (char *)v23 + (unsigned int)v23[2]) )
-    goto LABEL_10;
-LABEL_9:
-  *a5 = 1;
+  if ( a4 )
+  {
+    if ( v5 && (unsigned int)PnpIsDuplicateDevice(a4, (char *)v23 + (unsigned int)v23[2]) )
+      *a5 = 1;
+    goto LABEL_7;
+  }
+LABEL_8:
+  if ( !v5 )
+    *a5 = 1;
 LABEL_10:
   if ( (int)CmOpenDeviceRegKey(
               *(__int64 *)&PiPnpRtlCtx,

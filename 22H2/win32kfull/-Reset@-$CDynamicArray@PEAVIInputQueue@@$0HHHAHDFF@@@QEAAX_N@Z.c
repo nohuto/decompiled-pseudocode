@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C00ACAA4
+ * XREFs of ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C0125674
  * Callers:
- *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C00ACA1C (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
+ *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C01255EC (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */

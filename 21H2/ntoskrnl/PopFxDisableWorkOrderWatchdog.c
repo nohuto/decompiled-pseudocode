@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxDisableWorkOrderWatchdog @ 0x1403580A8
+ * XREFs of PopFxDisableWorkOrderWatchdog @ 0x140262B58
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x14022ED94 (PopFxDispatchPluginWorkOnce.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x1405CBD34 (PopFxCompleteDirectedPowerTransition.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402636DC (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x14056A55C (PopFxCompleteDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxDisableWorkOrderWatchdog(__int64 *BugCheckParameter2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIoCompletionCheckState @ 0x140A8A9FC
+ * XREFs of VfIoCompletionCheckState @ 0x1409C9ADC
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140A80D10 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x1409C56C0 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfIoCompletionCheckState(_DWORD *Entry, ULONG_PTR a2)

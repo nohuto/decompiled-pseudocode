@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMUnregisterDeviceInterface @ 0x14095644C
+ * XREFs of PiCMUnregisterDeviceInterface @ 0x1408B10F8
  * Callers:
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PiCMReleaseObjectInputData @ 0x1406BACAC (PiCMReleaseObjectInputData.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     PiCMCaptureObjectInputData @ 0x14078A1A8 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14078A584 (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x14078A600 (PiAuDoesClientHaveAccess.c)
- *     _CmDeleteDeviceInterface @ 0x140A237D0 (_CmDeleteDeviceInterface.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1406A0160 (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
+ *     _CmDeleteDeviceInterface @ 0x14072B9C4 (_CmDeleteDeviceInterface.c)
  */
 
 __int64 __fastcall PiCMUnregisterDeviceInterface(
@@ -22,28 +22,27 @@ __int64 __fastcall PiCMUnregisterDeviceInterface(
         int a5,
         _DWORD *a6)
 {
-  _DWORD *v6; // r15
-  char v7; // bl
-  int v10; // edi
-  int ObjectProperty; // edi
+  _DWORD *v6; // r14
+  int v9; // ebx
+  int ObjectProperty; // ebx
+  char v11; // al
   struct _KTHREAD *CurrentThread; // rax
-  int v14; // [rsp+68h] [rbp+7h] BYREF
-  int v15; // [rsp+6Ch] [rbp+Bh] BYREF
-  __int128 v16; // [rsp+70h] [rbp+Fh] BYREF
-  __int128 v17; // [rsp+80h] [rbp+1Fh]
-  __int64 v18; // [rsp+90h] [rbp+2Fh]
+  int v14; // [rsp+68h] [rbp+17h] BYREF
+  int v15; // [rsp+6Ch] [rbp+1Bh] BYREF
+  __int128 v16; // [rsp+70h] [rbp+1Fh] BYREF
+  __int128 v17; // [rsp+80h] [rbp+2Fh]
+  __int64 v18; // [rsp+90h] [rbp+3Fh]
 
   v6 = a6;
-  v7 = 0;
-  LOBYTE(a6) = 0;
   v14 = 0;
   v15 = 0;
-  *v6 = 0;
-  v16 = 0LL;
   v18 = 0LL;
+  *a6 = 0;
+  v16 = 0LL;
+  LOBYTE(a6) = 0;
   v17 = 0LL;
-  v10 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v16);
-  if ( v10 >= 0 )
+  v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v16);
+  if ( v9 >= 0 )
   {
     if ( PiAuDoesClientHaveAccess(2u) )
     {
@@ -64,21 +63,24 @@ __int64 __fastcall PiCMUnregisterDeviceInterface(
         if ( ObjectProperty >= 0 )
         {
           if ( v14 == 17 && v15 == 1 )
-            v7 = (char)a6;
-          else
-            LOBYTE(a6) = 0;
-          if ( v7 == -1 )
           {
-            ObjectProperty = -1073740024;
+            v11 = (char)a6;
           }
           else
+          {
+            v11 = 0;
+            LOBYTE(a6) = 0;
+          }
+          if ( v11 == -1 )
+            ObjectProperty = -1073740024;
+          if ( ObjectProperty >= 0 )
           {
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-            ObjectProperty = CmDeleteDeviceInterface(*(_QWORD *)&PiPnpRtlCtx, v17, 0LL);
+            ObjectProperty = CmDeleteDeviceInterface(*(__int64 *)&PiPnpRtlCtx, v17, 0);
             ExReleaseResourceLite(&PnpRegistryDeviceResource);
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           }
         }
       }
@@ -91,8 +93,8 @@ __int64 __fastcall PiCMUnregisterDeviceInterface(
     {
       ObjectProperty = -1073741790;
     }
-    v10 = PiCMReturnBasicResultData(ObjectProperty, v18, a3, a4, v6);
+    v9 = PiCMReturnBasicResultData(ObjectProperty, v18, a3, a4, v6);
   }
   PiCMReleaseObjectInputData((__int64)&v16);
-  return (unsigned int)v10;
+  return (unsigned int)v9;
 }

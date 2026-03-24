@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x140846BEC
+ * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x140764A8C
  * Callers:
- *     HalGetAdapterV2 @ 0x140845A60 (HalGetAdapterV2.c)
+ *     HalGetAdapterV2 @ 0x140764810 (HalGetAdapterV2.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeInitializeDeviceQueue @ 0x1402D3260 (KeInitializeDeviceQueue.c)
- *     ObReferenceObjectByPointer @ 0x1402E0270 (ObReferenceObjectByPointer.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
+ *     KeInitializeDeviceQueue @ 0x140379940 (KeInitializeDeviceQueue.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864D90 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140865078 (HalpDmaAllocateLocalScatterPool.c)
  */
 
-char *__fastcall HalpDmaAllocateChildAdapterV2(
+_DWORD *__fastcall HalpDmaAllocateChildAdapterV2(
         unsigned int a1,
         char a2,
         char a3,
@@ -25,91 +25,90 @@ char *__fastcall HalpDmaAllocateChildAdapterV2(
         _DWORD *a8)
 {
   char v11; // si
-  char *v12; // rbx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  _QWORD *v16; // rax
-  int v17; // ecx
-  char *result; // rax
+  _DWORD *v12; // rbx
+  __int64 v13; // rax
+  _QWORD *v14; // rax
+  _DWORD *result; // rax
   int LocalScatterPool; // eax
-  __int64 v20; // [rsp+28h] [rbp-59h]
+  int v17; // ecx
+  char *v18; // [rsp+28h] [rbp-59h]
   PVOID Object; // [rsp+58h] [rbp-29h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-21h] BYREF
-  _QWORD v23[4]; // [rsp+68h] [rbp-19h] BYREF
-  __int128 v24; // [rsp+88h] [rbp+7h]
+  _QWORD v21[4]; // [rsp+68h] [rbp-19h] BYREF
+  __int128 v22; // [rsp+88h] [rbp+7h]
 
   Object = 0LL;
   Handle = 0LL;
-  v23[0] = 48LL;
-  v23[3] = 528LL;
+  v21[0] = 48LL;
+  v21[3] = 528LL;
   v11 = 1;
-  v23[1] = 0LL;
+  v21[1] = 0LL;
   if ( !a3 )
     v11 = a2;
-  v23[2] = 0LL;
-  v24 = 0LL;
-  if ( (int)ObCreateObjectEx(0, HalpDmaAdapterObjectType, (int)v23, 0, v20, 640, 0, 0, &Object, 0LL) >= 0 )
+  v21[2] = 0LL;
+  v22 = 0LL;
+  if ( (int)ObCreateObjectEx(0, HalpDmaAdapterObjectType, (__int64)v21, 0, v18, 640, 0, 0, &Object, 0LL) < 0 )
+    return 0LL;
+  v12 = Object;
+  memset(Object, 0, 0x280uLL);
+  if ( ObReferenceObjectByPointer(v12, 0x20000u, HalpDmaAdapterObjectType, 0) < 0
+    || (int)ObInsertObjectEx((char *)v12, 0LL, 0x20000u, 0, 0, 0LL, (unsigned __int64 *)&Handle) < 0 )
   {
-    v12 = (char *)Object;
-    memset(Object, 0, 0x280uLL);
-    if ( ObReferenceObjectByPointer(v12, 0x20000u, HalpDmaAdapterObjectType, 0) >= 0
-      && (int)ObInsertObjectEx(v12, 0LL, 0x20000u, 0, 0, 0LL, &Handle) >= 0 )
-    {
-      ZwClose(Handle);
-      *(_DWORD *)v12 = 41943041;
-      *((_QWORD *)v12 + 1) = &HalpDmaOperationsV2;
-      v12[145] = a6;
-      *((_QWORD *)v12 + 15) = 0LL;
-      *((_QWORD *)v12 + 16) = 0LL;
-      v12[144] = 0;
-      *((_QWORD *)v12 + 39) = 0LL;
-      v12[338] = 0;
-      KeInitializeDeviceQueue((PKDEVICE_QUEUE)(v12 + 176));
-      *((_DWORD *)v12 + 56) = a1;
-      v12[434] = a4;
-      v12[440] = v11;
-      v12[441] = a3;
-      v12[437] = a7;
-      *((_DWORD *)v12 + 93) = -1;
-      *((_DWORD *)v12 + 94) = -1;
-      *((_DWORD *)v12 + 37) = 2;
-      v12[433] = a5 != 0;
-      if ( a1 )
-        v15 = (1LL << (v11 != 0 ? 32 : 24)) - 1;
-      else
-        v15 = -1LL;
-      *((_QWORD *)v12 + 17) = v15;
-      v16 = &MasterAdapter24V2;
-      if ( v11 )
-        v16 = &MasterAdapterV2;
-      *((_QWORD *)v12 + 19) = v16;
-      if ( *((_QWORD *)v12 + 17) >= v16[17] )
-      {
-        if ( !a1 )
-        {
-          *((_DWORD *)v12 + 56) = 0;
-          v17 = 0;
-          v12[337] = 1;
-LABEL_13:
-          *a8 = v17;
-          result = v12;
-          *((_QWORD *)v12 + 63) = 0LL;
-          return result;
-        }
-        if ( a4 )
-          LocalScatterPool = HalpDmaAllocateLocalScatterPool(v12, a1, v13, v14);
-        else
-          LocalScatterPool = HalpDmaAllocateLocalContiguousPool(v12, a1, v13, v14);
-        if ( LocalScatterPool >= 0 )
-        {
-          v17 = *((_DWORD *)v12 + 56);
-          v12[337] = 0;
-          goto LABEL_13;
-        }
-      }
-      ObfDereferenceObject(v12);
-    }
+    return 0LL;
   }
-  return 0LL;
+  ZwClose(Handle);
+  *v12 = 41943041;
+  *((_QWORD *)v12 + 1) = &HalpDmaOperationsV2;
+  *((_BYTE *)v12 + 145) = a6;
+  *((_QWORD *)v12 + 15) = 0LL;
+  *((_QWORD *)v12 + 16) = 0LL;
+  *((_BYTE *)v12 + 144) = 0;
+  *((_QWORD *)v12 + 39) = 0LL;
+  *((_BYTE *)v12 + 338) = 0;
+  KeInitializeDeviceQueue((PKDEVICE_QUEUE)(v12 + 44));
+  v12[56] = a1;
+  *((_BYTE *)v12 + 434) = a4;
+  *((_BYTE *)v12 + 440) = v11;
+  *((_BYTE *)v12 + 441) = a3;
+  *((_BYTE *)v12 + 437) = a7;
+  v12[93] = -1;
+  v12[94] = -1;
+  v12[37] = 2;
+  *((_BYTE *)v12 + 433) = a5 != 0;
+  if ( a1 )
+    v13 = (1LL << (v11 != 0 ? 32 : 24)) - 1;
+  else
+    v13 = -1LL;
+  *((_QWORD *)v12 + 17) = v13;
+  v14 = &MasterAdapter24V2;
+  if ( v11 )
+    v14 = &MasterAdapterV2;
+  *((_QWORD *)v12 + 19) = v14;
+  if ( *((_QWORD *)v12 + 17) < v14[17] )
+  {
+LABEL_12:
+    HalPutDmaAdapter((PADAPTER_OBJECT)v12);
+    return 0LL;
+  }
+  if ( a1 )
+  {
+    if ( a4 )
+      LocalScatterPool = HalpDmaAllocateLocalScatterPool(v12, a1);
+    else
+      LocalScatterPool = HalpDmaAllocateLocalContiguousPool(v12, a1);
+    if ( LocalScatterPool < 0 )
+      goto LABEL_12;
+    v17 = v12[56];
+    *((_BYTE *)v12 + 337) = 0;
+  }
+  else
+  {
+    v12[56] = 0;
+    v17 = 0;
+    *((_BYTE *)v12 + 337) = 1;
+  }
+  *a8 = v17;
+  result = v12;
+  *((_QWORD *)v12 + 63) = 0LL;
+  return result;
 }

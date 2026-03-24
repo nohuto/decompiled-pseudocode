@@ -1,24 +1,25 @@
 /*
- * XREFs of ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C01512A0
+ * XREFs of ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C013C1B0
  * Callers:
- *     ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C01512E0 (--_ECMonitorPDO@OPM@@UEAAPEAXI@Z.c)
- *     ??1COPMProtectedOutput@@UEAA@XZ @ 0x1C015B164 (--1COPMProtectedOutput@@UEAA@XZ.c)
+ *     ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C013C200 (--_ECMonitorPDO@OPM@@UEAAPEAXI@Z.c)
+ *     ??_ECOPMProtectedOutput@@UEAAPEAXI@Z @ 0x1C013FD00 (--_ECOPMProtectedOutput@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??_GCMutex@OPM@@QEAAPEAXI@Z @ 0x1C0151374 (--_GCMutex@OPM@@QEAAPEAXI@Z.c)
- *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C01513B0 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
+ *     ??_GCMutex@OPM@@QEAAPEAXI@Z @ 0x1C013C294 (--_GCMutex@OPM@@QEAAPEAXI@Z.c)
+ *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C013C2D0 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
  */
 
-void __fastcall OPM::CMonitorPDO::~CMonitorPDO(OPM::CMonitorPDO *this, unsigned int a2)
+void __fastcall OPM::CMonitorPDO::~CMonitorPDO(OPM::CMonitorPDO *this)
 {
-  bool v2; // zf
-  void *v4; // rcx
+  unsigned int v2; // edx
+  void *v3; // rcx
 
-  v2 = *((_QWORD *)this + 1) == 0LL;
   *(_QWORD *)this = &OPM::CMonitorPDO::`vftable';
-  if ( !v2 )
+  if ( *((_QWORD *)this + 1) )
+  {
     OPM::CMonitorPDO::Destroy(this);
-  v4 = (void *)*((_QWORD *)this + 1);
-  if ( v4 )
-    OPM::CMutex::`scalar deleting destructor'(v4, a2);
+    v3 = (void *)*((_QWORD *)this + 1);
+    if ( v3 )
+      OPM::CMutex::`scalar deleting destructor'(v3, v2);
+  }
   *((_QWORD *)this + 1) = 0LL;
 }

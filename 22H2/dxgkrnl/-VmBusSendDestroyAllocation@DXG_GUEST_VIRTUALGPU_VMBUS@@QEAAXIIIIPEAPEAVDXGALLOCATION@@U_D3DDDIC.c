@@ -1,89 +1,85 @@
 /*
- * XREFs of ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0387C78
+ * XREFs of ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0248608
  * Callers:
- *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01B7900 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
- *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01B8EF0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
- *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01DE690 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
- *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C02D739C (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
- *     ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C02D74A0 (-DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z.c)
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0112FB0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0126818 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0134134 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
+ *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C022800C (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
+ *     ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C0228100 (-DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 void __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDestroyAllocation(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
-        int a2,
+        __int64 a2,
         int a3,
         int a4,
         unsigned int a5,
         struct DXGALLOCATION **a6,
         struct _D3DDDICB_DESTROYALLOCATION2FLAGS a7)
 {
-  unsigned int v11; // r8d
-  __int64 v12; // rcx
-  _DWORD *v14; // rcx
-  __int64 v15; // r9
-  __int64 v16; // rax
-  __int128 v17; // [rsp+50h] [rbp-148h] BYREF
-  int v18; // [rsp+60h] [rbp-138h]
+  int v9; // r15d
+  __int64 v11; // rax
+  unsigned int v12; // esi
+  char *v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  struct DXGKVMB_COMMAND_BASE *v18; // rbx
+  __int64 v19; // rax
+  _DWORD *v21; // r9
+  __int64 v22; // r8
+  __int64 v23; // rax
+  struct _MDL *v24; // [rsp+28h] [rbp-20h]
 
+  v9 = a2;
   if ( a5 <= 0x8000 )
   {
-    v11 = 48;
+    v12 = 48;
     if ( a5 )
-      v11 = 4 * a5 + 44;
-    v17 = 0LL;
-    v18 = 0;
-    DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v17, this, v11, 0LL, 0LL, 0LL);
-    v12 = v17;
-    if ( (_QWORD)v17 )
+      v12 = 4 * a5 + 44;
+    v13 = (char *)operator new(v12, 0x4B677844u, 1, (POOL_TYPE)512);
+    v18 = (struct DXGKVMB_COMMAND_BASE *)v13;
+    if ( v13 )
     {
-      *(_BYTE *)(v17 + 12) = 0;
-      *(_DWORD *)(v12 + 12) &= 0x1FFu;
-      *(_QWORD *)v12 = 0LL;
-      *(_QWORD *)(v12 + 16) = 5LL;
-      *(struct _D3DDDICB_DESTROYALLOCATION2FLAGS *)(v12 + 36) = a7;
-      *(_DWORD *)(v12 + 24) = a3;
-      *(_DWORD *)(v12 + 8) = a2;
-      *(_DWORD *)(v12 + 28) = a4;
-      *(_DWORD *)(v12 + 32) = a5;
+      *(_QWORD *)v13 = 0LL;
+      *((_DWORD *)v13 + 3) = 0;
+      *((_DWORD *)v13 + 4) = 5;
+      *((struct _D3DDDICB_DESTROYALLOCATION2FLAGS *)v13 + 9) = a7;
+      *((_DWORD *)v13 + 6) = a3;
+      *((_DWORD *)v13 + 2) = v9;
+      *((_DWORD *)v13 + 7) = a4;
+      *((_DWORD *)v13 + 8) = a5;
       if ( a5 )
       {
-        v14 = (_DWORD *)(v12 + 40);
-        v15 = a5;
+        v21 = v13 + 40;
+        v22 = a5;
         do
         {
-          v16 = (__int64)*a6++;
-          *v14++ = *(_DWORD *)(v16 + 20);
-          --v15;
+          v23 = (__int64)*a6++;
+          *v21++ = *(_DWORD *)(v23 + 96);
+          --v22;
         }
-        while ( v15 );
+        while ( v22 );
       }
-      DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v17, 0LL, 0LL);
+      DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, v18, v12, 0LL, 0LL, v24);
+      operator delete[](v18);
     }
     else
     {
-      WdLogSingleEntry1(6LL, 10426LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate storage for input buffer",
-        10426LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v19 = WdLogNewEntry5_WdLowResource(v15, v14, v16, v17);
+      *(_QWORD *)(v19 + 24) = 8730LL;
+      WdLogEvent5_WdLowResource(v19);
     }
-    DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v17);
   }
   else
   {
-    WdLogSingleEntry1(2LL, 10417LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"NumAllocations is invalid", 10417LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v11 + 24) = 8722LL;
+    WdLogEvent5_WdError(v11);
   }
 }

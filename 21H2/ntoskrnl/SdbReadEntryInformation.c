@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbReadEntryInformation @ 0x140842F74
+ * XREFs of SdbReadEntryInformation @ 0x1407C1A3C
  * Callers:
- *     PiIsDriverBlocked @ 0x14075E568 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetDatabaseID @ 0x1407ED1D8 (SdbGetDatabaseID.c)
- *     SdbReadBinaryTag @ 0x1407ED29C (SdbReadBinaryTag.c)
- *     SdbGetEntryFlags @ 0x14084388C (SdbGetEntryFlags.c)
- *     SdbTagRefToTagID @ 0x140843CD4 (SdbTagRefToTagID.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x1407563C8 (SdbReadBinaryTag.c)
+ *     SdbGetDatabaseID @ 0x140758460 (SdbGetDatabaseID.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbGetEntryFlags @ 0x1407C1C48 (SdbGetEntryFlags.c)
+ *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
  */
 
 __int64 __fastcall SdbReadEntryInformation(__int64 a1, __int64 a2, __int64 a3)
@@ -44,7 +44,7 @@ LABEL_10:
     AslLogCallPrintf(1LL);
     return 0;
   }
-  BinaryTag = SdbReadBinaryTag(v5, FirstTag, (__int64)&v14, 0x10u);
+  BinaryTag = SdbReadBinaryTag(v5, FirstTag, (__int64)&v14, 16LL);
   if ( !BinaryTag )
   {
 LABEL_9:

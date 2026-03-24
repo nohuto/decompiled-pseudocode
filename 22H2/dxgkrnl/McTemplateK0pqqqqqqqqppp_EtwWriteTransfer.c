@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C00488C4
+ * XREFs of McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003FDDC
  * Callers:
- *     TraceDxgkContext @ 0x1C0025760 (TraceDxgkContext.c)
- *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C018BDB0 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1C018E504 (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
- *     ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02E48D4 (-ReportState@DXGCONTEXT@@QEAAXXZ.c)
+ *     TraceDxgkContext @ 0x1C0026440 (TraceDxgkContext.c)
+ *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00F0270 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1C00F1C74 (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
+ *     ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C022F520 (-ReportState@DXGCONTEXT@@QEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

@@ -1,48 +1,36 @@
 /*
- * XREFs of SdbpValidateAndApplyCompatFlags @ 0x140695304
+ * XREFs of SdbpValidateAndApplyCompatFlags @ 0x140755AD8
  * Callers:
- *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
- *     SdbOpenDatabaseEx @ 0x140A4E5C0 (SdbOpenDatabaseEx.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140755A44 (SdbpOpenDatabaseInMemory.c)
+ *     SdbOpenDatabaseEx @ 0x1409640DC (SdbOpenDatabaseEx.c)
  * Callees:
- *     SdbGetDatabaseID @ 0x140695370 (SdbGetDatabaseID.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetDatabaseID @ 0x140757C50 (SdbGetDatabaseID.c)
  */
 
-__int64 __fastcall SdbpValidateAndApplyCompatFlags(__int64 a1, _DWORD *a2, char a3)
+__int64 __fastcall SdbpValidateAndApplyCompatFlags(__int64 a1, _DWORD *a2)
 {
-  unsigned int v4; // edi
+  unsigned int v2; // ebx
 
-  v4 = 0;
+  v2 = 0;
   if ( *a2 == 1 )
   {
     *(_DWORD *)(a1 + 2608) |= 1u;
-    goto LABEL_7;
+    goto LABEL_8;
   }
   if ( *a2 == 2 )
   {
-LABEL_7:
+LABEL_8:
     *(_DWORD *)(a1 + 2608) |= 2u;
     goto LABEL_4;
   }
-  if ( *a2 != 3 && (a3 & 1) == 0 )
+  if ( *a2 != 3 )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpValidateAndApplyCompatFlags",
-      894,
-      (unsigned int)"MajorVersion mismatch, MajorVersion 0x%lx Expected 0x%lx");
-    return v4;
+    AslLogCallPrintf(1LL);
+    return v2;
   }
 LABEL_4:
-  if ( (unsigned int)SdbGetDatabaseID(a1, a1 + 28) )
-    return 1;
-  AslLogCallPrintf(
-    1,
-    (unsigned int)"SdbpValidateAndApplyCompatFlags",
-    904,
-    (unsigned int)"Failed to get the database ID");
-  if ( (a3 & 8) == 0 && ((a3 & 4) == 0 || (unsigned int)SdbFindFirstTag(a1, 0LL, 28673LL)) )
-    return 1;
-  return v4;
+  if ( !(unsigned int)SdbGetDatabaseID(a1, a1 + 28) )
+    AslLogCallPrintf(1LL);
+  return 1;
 }

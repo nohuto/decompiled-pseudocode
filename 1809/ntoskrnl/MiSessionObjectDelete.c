@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSessionObjectDelete @ 0x1408520D0
+ * XREFs of MiSessionObjectDelete @ 0x1408520B0
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveSchedulingGroup @ 0x140115800 (KeRemoveSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x140115820 (KeRemoveSchedulingGroup.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiReleaseProcessReferenceToSessionDataPage @ 0x14060751C (MiReleaseProcessReferenceToSessionDataPage.c)
  */

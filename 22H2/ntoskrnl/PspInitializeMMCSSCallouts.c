@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeMMCSSCallouts @ 0x140B54800
+ * XREFs of PspInitializeMMCSSCallouts @ 0x140A47CF4
  * Callers:
- *     PspInitPhase1 @ 0x140B54658 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x140823390 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DE50 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeMMCSSCallouts(__int64 a1, __int64 a2)
@@ -17,8 +17,8 @@ __int64 __fastcall PspInitializeMMCSSCallouts(__int64 a1, __int64 a2)
 
   v3[1] = 1;
   v4 = 512LL;
-  v3[0] = 131081;
-  v5 = PspMmcssHostInterface;
+  v3[0] = 65545;
+  v5 = &PspMmcssHostInterface;
   v6 = 0LL;
   v7 = 0LL;
   result = ExRegisterHost(&PspMmcssExtensionHost, a2, (unsigned __int16 *)v3);

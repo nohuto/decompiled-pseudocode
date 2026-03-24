@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuDereferenceHardwareDomain @ 0x14051A824
+ * XREFs of HalpIommuDereferenceHardwareDomain @ 0x1404C910C
  * Callers:
- *     HalpIommuJoinDmaDomain @ 0x14051B384 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x14051B4F4 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C98BC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C9994 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuFreeDomain @ 0x140517FE8 (HalpIommuFreeDomain.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuFreeDomain @ 0x1404CBE9C (HalpIommuFreeDomain.c)
  */
 
 __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
   _DWORD *SchedulerAssist; // r8
   bool v11; // zf
 
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 32));
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
   if ( a1 != HalpIommuBypassDomain )
     --a2[2];
   if ( !a2[2] )
@@ -33,10 +33,10 @@ __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
       __fastfail(3u);
     *v6 = v5;
     *(_QWORD *)(v5 + 8) = v6;
-    HalpIommuFreeDomain(a2[3], (__int64)(a2 + 4));
+    HalpIommuFreeDomain(a2[3], a2 + 4);
     HalpMmAllocCtxFree(v7, (__int64)a2);
   }
-  KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 32));
+  KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 16));
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

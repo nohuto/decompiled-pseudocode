@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIReadGpeStatusRegister @ 0x1C0038A6C
+ * XREFs of ACPIReadGpeStatusRegister @ 0x1C0026904
  * Callers:
- *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
- *     ACPIInterruptServiceRoutine @ 0x1C0003D30 (ACPIInterruptServiceRoutine.c)
- *     ACPIGpeClearRegisters @ 0x1C002C260 (ACPIGpeClearRegisters.c)
- *     ACPIGpeHalEnableDisableEvents @ 0x1C002C320 (ACPIGpeHalEnableDisableEvents.c)
+ *     ACPIInterruptServiceRoutine @ 0x1C0025E90 (ACPIInterruptServiceRoutine.c)
+ *     ACPIInterruptDispatchEvents @ 0x1C00266A8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     ACPIGpeHalEnableDisableEvents @ 0x1C0055F80 (ACPIGpeHalEnableDisableEvents.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall ACPIReadGpeStatusRegister(unsigned int a1)
@@ -21,17 +21,16 @@ char __fastcall ACPIReadGpeStatusRegister(unsigned int a1)
   v2 = *(int (__fastcall **)(__int64))(PmHalDispatchTable + 120);
   if ( a1 >= *((unsigned __int16 *)AcpiInformation + 43) )
   {
-    if ( v2(7LL) >= 0 )
-    {
-      v3 = 7LL;
-      v1 -= *((unsigned __int16 *)AcpiInformation + 43);
-      goto LABEL_6;
-    }
+    if ( v2(7LL) < 0 )
+      return v5;
+    v3 = 7LL;
+    v1 -= *((unsigned __int16 *)AcpiInformation + 43);
+    goto LABEL_4;
   }
-  else if ( v2(6LL) >= 0 )
+  if ( v2(6LL) >= 0 )
   {
     v3 = 6LL;
-LABEL_6:
+LABEL_4:
     (*(void (__fastcall **)(__int64, _QWORD, char *, __int64, _QWORD))(PmHalDispatchTable + 128))(v3, v1, &v5, 1LL, 0LL);
   }
   return v5;

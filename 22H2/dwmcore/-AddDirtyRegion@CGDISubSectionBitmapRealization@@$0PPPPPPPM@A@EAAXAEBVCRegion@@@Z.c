@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x180122000
+ * XREFs of ?AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x1800F8150
  * Callers:
  *     <none>
  * Callees:

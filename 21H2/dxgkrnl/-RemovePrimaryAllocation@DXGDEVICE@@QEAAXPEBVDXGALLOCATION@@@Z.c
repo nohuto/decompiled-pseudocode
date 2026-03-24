@@ -1,76 +1,51 @@
 /*
- * XREFs of ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z @ 0x1C01C6FF4
+ * XREFs of ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z @ 0x1C00E088C
  * Callers:
- *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019DC2C (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C012A624 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C00140C4 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
- *     ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@@Z @ 0x1C001446C (-RemovePrimaryAllocation@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@@Z.c)
+ *     ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@@Z @ 0x1C0001B94 (-RemovePrimaryAllocation@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@@Z.c)
+ *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0001C68 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-void __fastcall DXGDEVICE::RemovePrimaryAllocation(DXGDEVICE *this, const struct DXGALLOCATION *a2)
+void __fastcall DXGDEVICE::RemovePrimaryAllocation(DXGADAPTER **this, const struct DXGALLOCATION *a2)
 {
-  unsigned int v4; // ebx
-  struct DXGALLOCATION *v5; // r9
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGALLOCATION *v9; // r9
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
 
   if ( (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) & 1) == 0 )
   {
-    WdLogSingleEntry1(1LL, 3715LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pAllocation->m_pAllocation->m_Primary",
-      3715LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 3716LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this[2] + 2)) )
   {
-    WdLogSingleEntry1(1LL, 3716LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      3716LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v11 + 24) = 3717LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v4 = (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) >> 6) & 0xF;
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 231)) )
+  v6 = (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) >> 6) & 0xF;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[231]) )
   {
-    WdLogSingleEntry1(1LL, 3720LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDisplayAdapter(VidPnSourceId)->IsCoreResourceSharedOwner()",
-      3720LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v12 + 24) = 3721LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  if ( v4 >= *((_DWORD *)this + 464) )
+  if ( v6 >= *((_DWORD *)this + 464) )
   {
-    WdLogSingleEntry1(1LL, 3721LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      3721LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v13 + 24) = 3722LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  DXGDEVICE::TestAndSetDisplayedPrimary((struct _KTHREAD **)this, v4, a2, v5);
-  DXGDEVICE::RemovePrimaryAllocation((struct _KTHREAD **)this, v4, a2);
+  DXGDEVICE::TestAndSetDisplayedPrimary((DXGDEVICE *)this, v6, a2, v9);
+  DXGDEVICE::RemovePrimaryAllocation((DXGDEVICE *)this, v6, a2);
 }

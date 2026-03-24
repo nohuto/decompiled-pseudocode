@@ -1,14 +1,14 @@
 /*
- * XREFs of GreMarkDeletableFont @ 0x1C00C5A20
+ * XREFs of GreMarkDeletableFont @ 0x1C00E43C4
  * Callers:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     UserSetFont @ 0x1C00C5854 (UserSetFont.c)
- *     CreateFontFromUserProfile @ 0x1C00C58D0 (CreateFontFromUserProfile.c)
- *     SetIconMetrics @ 0x1C00C6CF4 (SetIconMetrics.c)
- *     DeleteMetricsFont @ 0x1C00C7520 (DeleteMetricsFont.c)
- *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C0158F68 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ *     DeleteMetricsFont @ 0x1C00E2290 (DeleteMetricsFont.c)
+ *     SetIconMetrics @ 0x1C00E22C0 (SetIconMetrics.c)
+ *     UserSetFont @ 0x1C00E2ABC (UserSetFont.c)
+ *     CreateFontFromUserProfile @ 0x1C00E2B38 (CreateFontFromUserProfile.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01D6B7C (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
  * Callees:
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C001EC98 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B9B0 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
  */
 
 void __fastcall GreMarkDeletableFont(struct HLFONT__ *a1)

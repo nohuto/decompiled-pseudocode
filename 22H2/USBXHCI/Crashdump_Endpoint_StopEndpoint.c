@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_Endpoint_StopEndpoint @ 0x1C004F814
+ * XREFs of Crashdump_Endpoint_StopEndpoint @ 0x1C004CD3C
  * Callers:
- *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F050 (Crashdump_Endpoint_PrepareForHibernate.c)
- *     Crashdump_UsbDevice_Cleanup @ 0x1C004FA20 (Crashdump_UsbDevice_Cleanup.c)
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004C580 (Crashdump_Endpoint_PrepareForHibernate.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004CF48 (Crashdump_UsbDevice_Cleanup.c)
  * Callees:
- *     Crashdump_Command_SendCommand @ 0x1C004EA8C (Crashdump_Command_SendCommand.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_Endpoint_StopEndpoint(__int64 a1)

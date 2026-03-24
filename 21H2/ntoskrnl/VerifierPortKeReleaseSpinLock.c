@@ -1,19 +1,20 @@
 /*
- * XREFs of VerifierPortKeReleaseSpinLock @ 0x140A966F0
+ * XREFs of VerifierPortKeReleaseSpinLock @ 0x1409DB550
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140A7F710 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x140A7F7DA (ViKeIrqlLogCommon.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DC360 (ViKeReleaseSpinLockCommon.c)
  */
 
-void __fastcall VerifierPortKeReleaseSpinLock(__int64 a1, char a2)
+__int64 __fastcall VerifierPortKeReleaseSpinLock(ULONG_PTR a1, char a2)
 {
-  char *v2; // rbx
-  __int64 v3; // r9
+  __int64 v4; // rbx
+  __int64 v5; // rdx
 
-  v2 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), a2);
-  ((void (__fastcall *)(__int64))pXdvKeReleaseSpinLock)(v3);
-  ViKeIrqlLogCommon((__int64)v2, 1u);
+  v4 = ViKeReleaseSpinLockCommon(a1);
+  LOBYTE(v5) = a2;
+  ((void (__fastcall *)(ULONG_PTR, __int64))pXdvKeReleaseSpinLock)(a1, v5);
+  return ViKeIrqlLogCommon(v4, 1LL);
 }

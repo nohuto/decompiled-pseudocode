@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxRundown @ 0x140141644
+ * XREFs of PopDiagTraceFxRundown @ 0x140141664
  * Callers:
  *     PopDiagTraceControlCallback @ 0x140587FE0 (PopDiagTraceControlCallback.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopDiagTraceDeviceVerboseRundown @ 0x1406DA19C (PopDiagTraceDeviceVerboseRundown.c)
- *     PopFxTraceDeviceRegistration @ 0x1406DA374 (PopFxTraceDeviceRegistration.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140872D74 (PopDiagTraceFxPluginRegistration.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x1406DA17C (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406DA354 (PopFxTraceDeviceRegistration.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x140872D54 (PopDiagTraceFxPluginRegistration.c)
  */
 
 _QWORD *PopDiagTraceFxRundown()

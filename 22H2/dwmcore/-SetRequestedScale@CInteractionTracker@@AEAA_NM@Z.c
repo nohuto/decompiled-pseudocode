@@ -1,40 +1,40 @@
 /*
- * XREFs of ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x18023537C
+ * XREFs of ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x1801CC4A8
  * Callers:
- *     ?ProcessSetRequestedScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDSCALE@@@Z @ 0x180233FEC (-ProcessSetRequestedScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIO.c)
+ *     ?ProcessSetRequestedScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDSCALE@@@Z @ 0x1801CAB94 (-ProcessSetRequestedScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIO.c)
  * Callees:
- *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801332C0 (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
- *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x180231E64 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
- *     ?DemoteToBoundTracker@CInteractionTracker@@AEAAX_N@Z @ 0x180232120 (-DemoteToBoundTracker@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x180235CA4 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x18023935C (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x1801C8B88 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ *     ?DemoteToBoundTracker@CInteractionTracker@@AEAAX_N@Z @ 0x1801C8E24 (-DemoteToBoundTracker@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801CC53C (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
+ *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x1801CCF34 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x1801D04AC (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
  */
 
 char __fastcall CInteractionTracker::SetRequestedScale(CInteractionTracker *this, double a2)
 {
-  int v3; // ecx
-  char v4; // di
-  float v5; // xmm0_4
-  __int64 v6; // rcx
-  CInteractionTrackerBindingManager *v7; // rcx
+  int v2; // eax
+  char v3; // di
+  float v5; // xmm6_4
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  CInteractionTrackerBindingManager *v8; // rcx
 
-  v3 = *((_DWORD *)this + 44);
-  v4 = 0;
-  if ( v3 )
+  v2 = *((_DWORD *)this + 42);
+  v3 = 0;
+  if ( v2 )
   {
-    if ( (unsigned int)(v3 - 2) > 1 )
-      return v4;
+    if ( (unsigned int)(v2 - 2) > 1 )
+      return v3;
     CInteractionTracker::TransitionToIdle(this);
   }
-  v4 = 1;
   LODWORD(v5) = CInteractionTracker::ClampValueToBoundary((__int64)this, 2LL, a2).m128_u32[0];
-  CInteractionTracker::SetScale(v6, v5, 0);
-  v7 = (CInteractionTrackerBindingManager *)*((_QWORD *)this + 80);
-  if ( v7 )
+  CInteractionTracker::SetScale(v7, v6, 0LL);
+  v8 = (CInteractionTrackerBindingManager *)*((_QWORD *)this + 79);
+  if ( v8 )
   {
-    *((_BYTE *)this + 541) |= 1u;
-    CInteractionTrackerBindingManager::UpdateBoundTrackerScale(v7, this, v5, 1);
+    *((_BYTE *)this + 533) |= 1u;
+    CInteractionTrackerBindingManager::UpdateBoundTrackerScale(v8, this, v5, 1);
     CInteractionTracker::DemoteToBoundTracker(this, 0);
   }
-  return v4;
+  return 1;
 }

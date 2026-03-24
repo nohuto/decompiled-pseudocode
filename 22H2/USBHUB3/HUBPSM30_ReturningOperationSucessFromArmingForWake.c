@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_ReturningOperationSucessFromArmingForWake @ 0x1C0011D60
+ * XREFs of HUBPSM30_ReturningOperationSucessFromArmingForWake @ 0x1C0010940
  * Callers:
  *     <none>
  * Callees:

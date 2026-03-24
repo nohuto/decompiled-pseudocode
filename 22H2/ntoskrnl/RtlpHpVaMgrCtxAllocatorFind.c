@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x140397FF4
+ * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x14037B798
  * Callers:
- *     RtlpHpVaMgrCtxAlloc @ 0x14030FC7C (RtlpHpVaMgrCtxAlloc.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140397ED4 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x1402FC830 (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037B680 (RtlpHpVaMgrCtxAllocatorReference.c)
  * Callees:
  *     <none>
  */
@@ -26,11 +26,11 @@ __int64 __fastcall RtlpHpVaMgrCtxAllocatorFind(__int64 a1, __int64 a2, int a3, _
       if ( *(_QWORD *)(v5 + 24) )
       {
         ++v7;
-        if ( ((*(unsigned __int8 *)(v5 + 46) >> 1) & 7) == *(_DWORD *)(a2 + 4)
+        if ( ((*(unsigned __int8 *)(v5 + 46) >> 1) & 3) == *(_DWORD *)(a2 + 4)
           && *(unsigned __int8 *)(v5 + 45) == *(_DWORD *)(a2 + 8)
           && *(_QWORD *)(v5 + 32) == *(_QWORD *)(a2 + 16)
           && (!a3 || *(unsigned __int16 *)(v5 + 40) == a3)
-          && ((*(_BYTE *)(a2 + 12) ^ (*(_BYTE *)(v5 + 46) >> 4)) & 1) == 0 )
+          && ((*(_BYTE *)(a2 + 12) ^ (*(_BYTE *)(v5 + 46) >> 3)) & 1) == 0 )
         {
           return v5;
         }

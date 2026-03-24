@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PowerPolStoppingResetDevice@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008B6B0
+ * XREFs of ?PowerPolStoppingResetDevice@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0087690
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C000C360 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
- *     ?DisableTimer@FxPowerIdleMachine@@QEAAEXZ @ 0x1C0016EA4 (-DisableTimer@FxPowerIdleMachine@@QEAAEXZ.c)
- *     ?RequestComponentActive@FxPoxInterface@@QEAAXXZ @ 0x1C0017C84 (-RequestComponentActive@FxPoxInterface@@QEAAXXZ.c)
+ *     ?RequestComponentActive@FxPoxInterface@@QEAAXXZ @ 0x1C000E6E4 (-RequestComponentActive@FxPoxInterface@@QEAAXXZ.c)
+ *     ?DisableTimer@FxPowerIdleMachine@@QEAAEXZ @ 0x1C0017FC4 (-DisableTimer@FxPowerIdleMachine@@QEAAEXZ.c)
+ *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C001C9C0 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolStoppingResetDevice(FxPkgPnp *This)

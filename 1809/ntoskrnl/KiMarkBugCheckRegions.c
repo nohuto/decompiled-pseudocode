@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMarkBugCheckRegions @ 0x1401A0110
+ * XREFs of KiMarkBugCheckRegions @ 0x1401A0130
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     MmQueryApiSetSchema @ 0x14013905C (MmQueryApiSetSchema.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     sub_1401AEE14 @ 0x1401AEE14 (sub_1401AEE14.c)
- *     MmIsAddressValid @ 0x1402AB8B0 (MmIsAddressValid.c)
+ *     MmQueryApiSetSchema @ 0x14013907C (MmQueryApiSetSchema.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     sub_1401AEE34 @ 0x1401AEE34 (sub_1401AEE34.c)
+ *     MmIsAddressValid @ 0x1402AB9B0 (MmIsAddressValid.c)
  */
 
 __int64 __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -207,7 +207,7 @@ LABEL_45:
     if ( MmIsAddressValid(VirtualAddress) && a3 == *(_QWORD *)VirtualAddress )
       IoAddTriageDumpDataBlock((int)VirtualAddress, 8);
   }
-  result = sub_1401AEE14(a1, a2, a3, a4);
+  result = sub_1401AEE34(a1, a2, a3, a4);
   if ( Src )
     return IoAddTriageDumpDataBlock((int)Src, 2672);
   return result;

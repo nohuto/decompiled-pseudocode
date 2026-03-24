@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeZeroTruncateLogfile @ 0x14085CC28
+ * XREFs of EtwpRealtimeZeroTruncateLogfile @ 0x1407CD2B8
  * Callers:
- *     EtwpRealtimeFlushSavedBuffers @ 0x14079A870 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpRealtimeCreateLogfile @ 0x14079AADC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeZeroTruncateLogfile(__int64 a1)
@@ -21,20 +21,20 @@ NTSTATUS __fastcall EtwpRealtimeZeroTruncateLogfile(__int64 a1)
   FileInformation = 0LL;
   v1 = 72LL;
   v8 = 72LL;
-  v3 = *(void **)(a1 + 360);
+  v3 = *(void **)(a1 + 376);
   IoStatusBlock = 0LL;
   if ( ZwSetInformationFile(v3, &IoStatusBlock, &v8, 8u, FileEndOfFileInformation) < 0
-    || (v4 = *(void **)(a1 + 360),
+    || (v4 = *(void **)(a1 + 376),
         FileInformation = 72LL,
         result = ZwSetInformationFile(v4, &IoStatusBlock, &FileInformation, 8u, FileAllocationInformation),
         result < 0) )
   {
-    result = ZwClose(*(HANDLE *)(a1 + 360));
-    *(_QWORD *)(a1 + 360) = 0LL;
+    result = ZwClose(*(HANDLE *)(a1 + 376));
+    *(_QWORD *)(a1 + 376) = 0LL;
     v1 = 0LL;
   }
+  *(_QWORD *)(a1 + 416) = v1;
+  *(_QWORD *)(a1 + 408) = v1;
   *(_QWORD *)(a1 + 400) = v1;
-  *(_QWORD *)(a1 + 392) = v1;
-  *(_QWORD *)(a1 + 384) = v1;
   return result;
 }

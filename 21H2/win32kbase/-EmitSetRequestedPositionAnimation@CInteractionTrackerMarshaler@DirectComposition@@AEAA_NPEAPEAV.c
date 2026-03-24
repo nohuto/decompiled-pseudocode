@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSetRequestedPositionAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022FB40
+ * XREFs of ?EmitSetRequestedPositionAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F0108
  * Callers:
- *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F9D8 (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFFAC (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequestedPositionAnimation(
@@ -21,13 +21,13 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequeste
 
   if ( (*((_DWORD *)this + 4) & 0x400) != 0 )
     return 1;
-  v4 = *((_QWORD *)this + 28);
+  v4 = *((_QWORD *)this + 27);
   if ( !v4
     || (v5 = *(_QWORD *)(v4 + 16)) == 0
     || (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5) != 90
-    || (*(unsigned __int8 (__fastcall **)(_QWORD, struct DirectComposition::CBatch ***))(**(_QWORD **)(*((_QWORD *)this + 28) + 16LL)
+    || (*(unsigned __int8 (__fastcall **)(_QWORD, struct DirectComposition::CBatch ***))(**(_QWORD **)(*((_QWORD *)this + 27) + 16LL)
                                                                                        + 56LL))(
-         *(_QWORD *)(*((_QWORD *)this + 28) + 16LL),
+         *(_QWORD *)(*((_QWORD *)this + 27) + 16LL),
          a2) )
   {
     v11 = 0LL;
@@ -37,20 +37,20 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequeste
       *(_DWORD *)v11 = 28;
       *(_OWORD *)(v6 + 4) = 0LL;
       *(_QWORD *)(v6 + 20) = 0LL;
-      *((_DWORD *)v6 + 1) = 215;
-      v7 = *((_DWORD *)this + 8);
+      *((_DWORD *)v6 + 1) = 225;
+      v7 = *((_DWORD *)this + 6);
       *((_DWORD *)v6 + 3) = 0;
       *((_DWORD *)v6 + 2) = v7;
-      v6[16] = (*((_BYTE *)this + 464) & 1) == 0;
-      *((_DWORD *)v6 + 6) = *((_DWORD *)this + 38);
-      v8 = *((_QWORD *)this + 28);
+      v6[16] = (*((_BYTE *)this + 456) & 1) == 0;
+      *((_DWORD *)v6 + 6) = *((_DWORD *)this + 36);
+      v8 = *((_QWORD *)this + 27);
       if ( v8 )
       {
         v9 = *(_QWORD *)(v8 + 16);
         if ( v9 )
-          *((_DWORD *)v6 + 3) = *(_DWORD *)(v9 + 32);
+          *((_DWORD *)v6 + 3) = *(_DWORD *)(v9 + 24);
       }
-      *((_BYTE *)this + 464) |= 1u;
+      *((_BYTE *)this + 456) |= 1u;
       *((_DWORD *)this + 4) |= 0x400u;
       return 1;
     }

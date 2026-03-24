@@ -1,16 +1,16 @@
 /*
- * XREFs of KxStartUserThread @ 0x1401C4C90
+ * XREFs of KxStartUserThread @ 0x1401C4CB0
  * Callers:
- *     KyStartUserThread @ 0x1401C49D0 (KyStartUserThread.c)
+ *     KyStartUserThread @ 0x1401C49F0 (KyStartUserThread.c)
  * Callees:
- *     KiUpdateStibpPairing @ 0x1400F8BD0 (KiUpdateStibpPairing.c)
- *     KiRestoreDebugRegisterState @ 0x1401BC070 (KiRestoreDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x1401BCD40 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x1401C1060 (KiInitiateUserApc.c)
- *     KxStartUserThread @ 0x1401C4C90 (KxStartUserThread.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiUmsExit @ 0x1401D0F00 (KiUmsExit.c)
- *     KiCopyCounters @ 0x140295DC0 (KiCopyCounters.c)
+ *     KiUpdateStibpPairing @ 0x1400F8BF0 (KiUpdateStibpPairing.c)
+ *     KiRestoreDebugRegisterState @ 0x1401BC090 (KiRestoreDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x1401BCD60 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x1401C1080 (KiInitiateUserApc.c)
+ *     KxStartUserThread @ 0x1401C4CB0 (KxStartUserThread.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiUmsExit @ 0x1401D1000 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x140295EC0 (KiCopyCounters.c)
  */
 
 // positive sp value has been detected, the output may be wrong!

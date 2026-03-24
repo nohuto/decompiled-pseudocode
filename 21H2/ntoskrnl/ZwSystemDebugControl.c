@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x14041F080
+ * XREFs of ZwSystemDebugControl @ 0x1403FDB80
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     PspLocateSystemDll @ 0x14084565C (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     PspLocateSystemDll @ 0x140798B78 (PspLocateSystemDll.c)
  * Callees:
  *     <none>
  */

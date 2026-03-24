@@ -32,7 +32,7 @@ void __fastcall PopHandleConvergedPowerRequestUpdate(int a1, int a2)
       v7 = 0;
       goto LABEL_7;
     }
-    if ( (_BYTE)PopExecutionRequiredContext && !qword_140419258 )
+    if ( (_BYTE)PopExecutionRequiredContext && !qword_140419238 )
     {
       v7 = 1;
 LABEL_7:

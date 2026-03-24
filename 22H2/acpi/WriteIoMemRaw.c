@@ -1,16 +1,17 @@
 /*
- * XREFs of WriteIoMemRaw @ 0x1C0034508
+ * XREFs of WriteIoMemRaw @ 0x1C005A4F0
  * Callers:
- *     AcpiPccRingDoorbell @ 0x1C0034360 (AcpiPccRingDoorbell.c)
+ *     AcpiPccRingDoorbell @ 0x1C005A200 (AcpiPccRingDoorbell.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
  */
 
 char __fastcall WriteIoMemRaw(_BYTE *a1, int a2, int a3, __int64 a4)
 {
   _UNKNOWN **v4; // rax
-  int v5; // r9d
+  unsigned __int16 v5; // r9
   signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-10h]
 
   LOBYTE(v4) = 0;
   if ( a2 )
@@ -37,14 +38,14 @@ char __fastcall WriteIoMemRaw(_BYTE *a1, int a2, int a3, __int64 a4)
           {
             v5 = 14;
 LABEL_17:
-            LOBYTE(a2) = 2;
-            LOBYTE(v4) = WPP_RECORDER_SF_d(
-                           WPP_GLOBAL_Control->DeviceExtension,
-                           a2,
-                           21,
+            LODWORD(v8) = a3;
+            LOBYTE(v4) = WPP_RECORDER_SF_D(
+                           (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                           2u,
+                           0x15u,
                            v5,
-                           (__int64)&WPP_cb83180b771632eba63c2d8b4b5a28e5_Traceguids,
-                           a3);
+                           (__int64)&WPP_79609623c0e33e2afa48dee71fa9caab_Traceguids,
+                           v8);
             return (char)v4;
           }
           break;

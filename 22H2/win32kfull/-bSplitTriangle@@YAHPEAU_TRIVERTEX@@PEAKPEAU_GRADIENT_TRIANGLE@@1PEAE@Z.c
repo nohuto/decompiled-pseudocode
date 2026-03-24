@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bSplitTriangle@@YAHPEAU_TRIVERTEX@@PEAKPEAU_GRADIENT_TRIANGLE@@1PEAE@Z @ 0x1C028C8D0
+ * XREFs of ?bSplitTriangle@@YAHPEAU_TRIVERTEX@@PEAKPEAU_GRADIENT_TRIANGLE@@1PEAE@Z @ 0x1C028A7D0
  * Callers:
- *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C028CC84 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
+ *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C014C640 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C028D058 (-lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C014CDD8 (-lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
  */
 
 __int64 __fastcall bSplitTriangle(
@@ -17,13 +17,13 @@ __int64 __fastcall bSplitTriangle(
   __int64 v6; // rax
   __int64 v8; // r12
   __int64 Vertex1; // rax
-  ULONG Vertex2; // edx
+  ULONG Vertex2; // r8d
   ULONG Vertex3; // ecx
   __int64 v12; // rsi
-  struct _TRIVERTEX *v13; // r8
+  struct _TRIVERTEX *v13; // rdx
   __int64 v14; // rax
-  LONG x; // edx
-  LONG y; // r8d
+  LONG x; // r8d
+  LONG y; // edx
   struct _TRIVERTEX *v17; // r9
   LONG v18; // r11d
   struct _TRIVERTEX *v19; // r14
@@ -34,7 +34,7 @@ __int64 __fastcall bSplitTriangle(
   LONG v24; // ecx
   __int64 v25; // rdi
   int v26; // eax
-  LONG v27; // edx
+  LONG v27; // r8d
   int v28; // ecx
   __int64 v29; // r13
   int v30; // eax
@@ -42,7 +42,7 @@ __int64 __fastcall bSplitTriangle(
   int v32; // eax
   int v33; // r9d
   int v34; // eax
-  int v35; // edx
+  int v35; // r8d
   __int64 v36; // rbx
   int v37; // eax
   unsigned int v38; // ecx

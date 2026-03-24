@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMountInitializeVpb @ 0x14028FBEC
+ * XREFs of IopMountInitializeVpb @ 0x1402E6A90
  * Callers:
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     IopIncrementVpbRefCount @ 0x140302780 (IopIncrementVpbRefCount.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     IopIncrementVpbRefCount @ 0x14028F728 (IopIncrementVpbRefCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 ULONG_PTR __fastcall IopMountInitializeVpb(__int64 a1, __int64 a2, int a3, char a4)
@@ -29,7 +29,7 @@ ULONG_PTR __fastcall IopMountInitializeVpb(__int64 a1, __int64 a2, int a3, char 
     *(_WORD *)(v9 + 4) = v11 | 0x20;
   *(_BYTE *)(*(_QWORD *)(v9 + 8) + 76LL) = *(_BYTE *)(a2 + 76) + 1;
   *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 8) + 312LL) + 72LL) = v9;
-  IopIncrementVpbRefCount(v9);
+  IopIncrementVpbRefCount(v9, 0);
   KeReleaseQueuedSpinLock(9uLL, v10);
   return v9;
 }

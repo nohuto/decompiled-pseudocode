@@ -1,65 +1,64 @@
 /*
- * XREFs of NtUserRegisterHotKey @ 0x1C009DDD0
+ * XREFs of NtUserRegisterHotKey @ 0x1C0032940
  * Callers:
  *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserRegisterHotKey(__int64 a1, __int64 a2, int a3, int a4)
 {
-  __int64 v7; // rdx
-  int v8; // ebx
-  struct tagWND *v9; // rax
-  __int64 v10; // rcx
-  __int64 v12; // rcx
+  int v7; // ebx
+  struct tagWND *v8; // rax
+  __int64 v9; // rcx
+  __int64 v11; // rcx
   ULONG_PTR BugCheckParameter2; // [rsp+20h] [rbp-28h]
-  _BYTE v14[24]; // [rsp+30h] [rbp-18h] BYREF
+  _BYTE v13[24]; // [rsp+30h] [rbp-18h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v14);
-  v8 = 0;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v13);
+  v7 = 0;
   if ( (unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(gptiCurrent + 424LL)) )
     goto LABEL_12;
   if ( (a3 & 0xFFFF95F0) != 0 )
   {
-    v12 = 1004LL;
+    v11 = 1004LL;
     goto LABEL_13;
   }
   if ( (a3 & 0x800) == 0 )
     goto LABEL_4;
-  if ( !IAMThreadAccessGranted(gptiCurrent) )
+  if ( !(unsigned int)IAMThreadAccessGranted(gptiCurrent) )
   {
 LABEL_12:
-    v12 = 5LL;
+    v11 = 5LL;
     goto LABEL_13;
   }
   if ( !a4 )
   {
-    v12 = 87LL;
+    v11 = 87LL;
 LABEL_13:
-    UserSetLastError(v12, v7);
+    UserSetLastError(v11);
     goto LABEL_7;
   }
 LABEL_4:
   if ( !a1 )
   {
-    v9 = 0LL;
+    v8 = 0LL;
     goto LABEL_6;
   }
-  v9 = (struct tagWND *)ValidateHwnd(a1);
-  if ( v9 )
+  v8 = (struct tagWND *)ValidateHwnd(a1);
+  if ( v8 )
   {
 LABEL_6:
     LODWORD(BugCheckParameter2) = a4;
-    v8 = RegisterHotKey(v9, BugCheckParameter2);
+    v7 = RegisterHotKey(v8, BugCheckParameter2);
   }
 LABEL_7:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v14);
-  UserSessionSwitchLeaveCrit(v10);
-  return v8;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v13);
+  UserSessionSwitchLeaveCrit(v9);
+  return v7;
 }

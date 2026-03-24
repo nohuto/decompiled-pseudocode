@@ -1,44 +1,26 @@
 /*
- * XREFs of ?EnableVmBusChannel@DXGVAILOBJECT@@QEAAJXZ @ 0x1C005AA48
+ * XREFs of ?EnableVmBusChannel@DXGVAILOBJECT@@QEAAJXZ @ 0x1C004D820
  * Callers:
- *     NtDxgkVailConnect @ 0x1C0364970 (NtDxgkVailConnect.c)
+ *     NtDxgkVailConnect @ 0x1C02B8ED0 (NtDxgkVailConnect.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C0361DC4 (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
+ *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C02B5B28 (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
  */
 
-__int64 __fastcall DXGVAILOBJECT::EnableVmBusChannel(struct _KTHREAD **this)
+__int64 __fastcall DXGVAILOBJECT::EnableVmBusChannel(struct _KTHREAD **this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
-  struct DXGVMBUSCHANNEL *v5; // rcx
+  __int64 v3; // rax
+  struct DXGVMBUSCHANNEL *v4; // rcx
   __int64 result; // rax
 
-  if ( this[8] != KeGetCurrentThread() )
+  if ( this[7] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 339LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v3,
-          v2,
-          v4,
-          0LL,
-          2,
-          -1,
-          L"m_VailMutex.IsOwner()",
-          339LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 344LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v5 = this[14];
+  v4 = this[13];
   result = 3221225473LL;
-  if ( v5 )
-    return EnableVmBusChannel(v5, 0);
+  if ( v4 )
+    return EnableVmBusChannel(v4, 0);
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopResetIdleTime @ 0x140138B80
+ * XREFs of PopResetIdleTime @ 0x140138BA0
  * Callers:
- *     PopSetSystemState @ 0x140177794 (PopSetSystemState.c)
- *     PopUserPresentSet @ 0x1401777D8 (PopUserPresentSet.c)
- *     PopSystemRequiredSet @ 0x1401786CC (PopSystemRequiredSet.c)
+ *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
+ *     PopUserPresentSet @ 0x1401777F8 (PopUserPresentSet.c)
+ *     PopSystemRequiredSet @ 0x1401786EC (PopSystemRequiredSet.c)
  *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
- *     PopInitSIdle @ 0x14071C5DC (PopInitSIdle.c)
+ *     PopInitSIdle @ 0x14071C5BC (PopInitSIdle.c)
  * Callees:
- *     PopTraceSystemIdleTimeReset @ 0x140138BE8 (PopTraceSystemIdleTimeReset.c)
- *     PopQueueWorkItem @ 0x140138CA8 (PopQueueWorkItem.c)
+ *     PopTraceSystemIdleTimeReset @ 0x140138C08 (PopTraceSystemIdleTimeReset.c)
+ *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
  */
 
 __int64 __fastcall PopResetIdleTime(unsigned int a1)
@@ -16,12 +16,12 @@ __int64 __fastcall PopResetIdleTime(unsigned int a1)
   KeGetCurrentIrql();
   if ( !PopPlatformAoAc || a1 - 3 > 1 )
   {
-    dword_140417628 = 0;
-    byte_140417670 = 0;
+    dword_140417648 = 0;
+    byte_140417690 = 0;
     PopQueueWorkItem(&PopSIdleUpdateNotificationWorkItem, 1LL);
   }
   if ( !PopPlatformAoAc )
     PopIsAboutToSleep = 0;
-  dword_140417660 = 0;
+  dword_140417680 = 0;
   return PopTraceSystemIdleTimeReset(a1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C6BD0
+ * XREFs of ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C83E0
  * Callers:
  *     <none>
  * Callees:
- *     vFetchAndMerge @ 0x1C0142D3C (vFetchAndMerge.c)
- *     vFetchShiftAndMerge @ 0x1C02DA418 (vFetchShiftAndMerge.c)
+ *     vFetchAndMerge @ 0x1C015235C (vFetchAndMerge.c)
+ *     vFetchShiftAndMerge @ 0x1C02DBF88 (vFetchShiftAndMerge.c)
  */
 
 void __fastcall vPatXorRow8(struct _PATBLTFRAME *a1, int a2, int a3)

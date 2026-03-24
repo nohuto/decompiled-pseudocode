@@ -1,12 +1,12 @@
 /*
- * XREFs of CcDeductDirtyPagesFromExternalCache @ 0x140166D40
+ * XREFs of CcDeductDirtyPagesFromExternalCache @ 0x140166D60
  * Callers:
- *     CcUnregisterExternalCache @ 0x1402695F0 (CcUnregisterExternalCache.c)
+ *     CcUnregisterExternalCache @ 0x1402696F0 (CcUnregisterExternalCache.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcPostDeferredWrites @ 0x1402698B0 (CcPostDeferredWrites.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
  */
 
 _QWORD *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)

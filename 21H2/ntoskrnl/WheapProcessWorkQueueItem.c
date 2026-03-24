@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapProcessWorkQueueItem @ 0x140644030
+ * XREFs of WheapProcessWorkQueueItem @ 0x1405BBBD0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     WheapFreeErrorRecord @ 0x140643F08 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x140645F80 (WheapGenerateETWEvents.c)
- *     WheapPredictiveFailureAnalysis @ 0x140A0A2E8 (WheapPredictiveFailureAnalysis.c)
- *     WheapCreateLiveDumpFromPreviousSession @ 0x140A6D528 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WheapFreeErrorRecord @ 0x1405BBAA8 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1405BD410 (WheapGenerateETWEvents.c)
+ *     WheapPredictiveFailureAnalysis @ 0x14095E740 (WheapPredictiveFailureAnalysis.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B38C4 (WheapCreateLiveDumpFromPreviousSession.c)
  */
 
 LONG __fastcall WheapProcessWorkQueueItem(__int64 a1, ULONG_PTR a2)
@@ -16,7 +16,10 @@ LONG __fastcall WheapProcessWorkQueueItem(__int64 a1, ULONG_PTR a2)
   __int64 v3; // rax
   unsigned int v4; // ecx
   int v5; // eax
-  ULONG_PTR *v7; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  ULONG_PTR *v10; // rax
 
   if ( WheapPreviousSessionFailure )
   {
@@ -35,22 +38,22 @@ LONG __fastcall WheapProcessWorkQueueItem(__int64 a1, ULONG_PTR a2)
       }
     }
   }
-  if ( WheapEventingInitialized && *(char *)(a2 + 144) >= 0 )
+  if ( WheapEventingInitialized )
   {
     WheapPredictiveFailureAnalysis(a2);
     WheapGenerateETWEvents(a2 + 40);
-    return WheapFreeErrorRecord(a2);
+    return (unsigned int)WheapFreeErrorRecord(a2, v6, v7, v8);
   }
   else
   {
     KeWaitForSingleObject(&WheapWaitingETWEventLock, Executive, 0, 0, 0LL);
-    v7 = (ULONG_PTR *)qword_140C10B28;
-    if ( *(__int64 **)qword_140C10B28 != &WheapWaitingETWEvents )
+    v10 = (ULONG_PTR *)qword_140C15FC8;
+    if ( *(__int64 **)qword_140C15FC8 != &WheapWaitingETWEvents )
       __fastfail(3u);
     *(_QWORD *)a2 = &WheapWaitingETWEvents;
-    *(_QWORD *)(a2 + 8) = v7;
-    *v7 = a2;
-    qword_140C10B28 = a2;
+    *(_QWORD *)(a2 + 8) = v10;
+    *v10 = a2;
+    qword_140C15FC8 = a2;
     return KeSetEvent(&WheapWaitingETWEventLock, 0, 0);
   }
 }

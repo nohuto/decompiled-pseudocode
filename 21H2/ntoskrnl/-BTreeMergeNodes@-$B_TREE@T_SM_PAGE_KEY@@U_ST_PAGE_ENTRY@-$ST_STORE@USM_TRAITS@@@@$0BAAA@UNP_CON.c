@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BTreeMergeNodes@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x140396180
+ * XREFs of ?BTreeMergeNodes@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x140380204
  * Callers:
- *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140381E98 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTE.c)
+ *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402DDA98 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTE.c)
  * Callees:
- *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140381E98 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTE.c)
- *     ?BTreeDeleteNode@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x140396008 (-BTreeDeleteNode@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CON.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x1405F6710 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
- *     ?NpLeafRemoveInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x1405F6854 (-NpLeafRemoveInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAX@Z.c)
+ *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402DDA98 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTE.c)
+ *     ?BTreeDeleteNode@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x140380350 (-BTreeDeleteNode@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CON.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x140598850 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
+ *     ?NpLeafRemoveInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x140598994 (-NpLeafRemoveInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeMergeNodes(
@@ -15,69 +15,78 @@ __int64 __fastcall B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,
         __int64 a2,
         unsigned __int64 a3)
 {
-  unsigned __int64 v5; // rsi
-  unsigned __int64 *v6; // rdx
-  unsigned __int64 v7; // r14
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rbx
-  __int64 v10; // r15
-  void *v11; // rcx
-  size_t v12; // r8
-  bool v13; // zf
-  struct NP_CONTEXT::NP_CTX *v14; // rcx
-  struct NP_CONTEXT::NP_CTX *v15; // rcx
+  unsigned __int64 v4; // rdi
+  unsigned __int64 *v6; // rcx
+  _DWORD *v7; // rsi
+  unsigned __int64 v8; // rbx
+  __int64 v9; // r15
+  unsigned __int64 v10; // rax
+  _DWORD *v11; // rax
+  bool v12; // zf
+  __int64 v13; // rax
+  void *v14; // rcx
+  size_t v15; // r8
+  void **v16; // rsi
+  _DWORD **v17; // rbx
   __int64 result; // rax
-  __int64 v17; // rcx
+  __int64 v19; // rcx
 
-  v5 = a3;
+  v4 = a3;
   v6 = (unsigned __int64 *)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
-  v7 = *(v6 - 1);
+  v7 = (_DWORD *)*(v6 - 1);
   if ( (a3 & 1) != 0 )
-    v5 = *v6;
+    v4 = *v6;
   v8 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
-  v9 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (a3 & 1) == 0 )
+    v8 = *v6;
+  v9 = (unsigned __int16)*(_DWORD *)v8;
+  v10 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
+  if ( (a3 & 1) == 0 )
+    v10 = a3;
+  if ( v8 == v10 )
   {
-    v9 = *v6;
-    v8 = a3;
+    v7 -= 4;
+    *(v6 - 1) = (unsigned __int64)v7;
   }
-  v10 = (unsigned __int16)*(_DWORD *)v9;
-  if ( v9 == v8 )
+  if ( *(_BYTE *)(v8 + 3) )
   {
-    v7 -= 16LL;
-    *(v6 - 1) = v7;
-  }
-  if ( *(_BYTE *)(v9 + 3) )
-  {
-    if ( **(_DWORD **)((a1 + 16) & -(__int64)(a1 != 0)) == -1 )
-      *(_QWORD *)(v9 + 8) = *(_QWORD *)(v5 + 8);
-    v11 = (void *)(v9 + 16 + 8 * v10);
-    v12 = 8LL * (unsigned __int16)*(_DWORD *)v5;
+    v11 = *(_DWORD **)((a1 + 16) & -(__int64)(a1 != 0));
+    v12 = *v11 == -1;
+    if ( *v11 == -1 )
+      v13 = *(_QWORD *)(v4 + 8);
+    else
+      v13 = 3358LL;
+    if ( v12 )
+      *(_QWORD *)(v8 + 8) = v13;
+    v14 = (void *)(v8 + 16 + 8 * v9);
+    v15 = 8LL * (unsigned __int16)*(_DWORD *)v4;
   }
   else
   {
-    v17 = 2 * v10;
-    LODWORD(v10) = v10 + 1;
-    *(_DWORD *)(v9 + 8 * v17 + 16) = *(_DWORD *)v7;
-    *(_QWORD *)(v9 + 8 * v17 + 24) = *(_QWORD *)(v5 + 8);
-    v12 = 16LL * (unsigned __int16)*(_DWORD *)v5;
-    v11 = (void *)(v9 + 16 * ((unsigned int)v10 + 1LL));
+    v19 = 2 * v9;
+    LODWORD(v9) = v9 + 1;
+    *(_DWORD *)(v8 + 8 * v19 + 16) = *v7;
+    *(_QWORD *)(v8 + 8 * v19 + 24) = *(_QWORD *)(v4 + 8);
+    v15 = 16LL * (unsigned __int16)*(_DWORD *)v4;
+    v14 = (void *)(v8 + 16 * ((unsigned int)v9 + 1LL));
   }
-  memmove(v11, (const void *)(v5 + 16), v12);
-  v13 = *(_BYTE *)(v9 + 3) == 0;
-  *(_WORD *)v9 = v10 + *(_WORD *)v5;
-  if ( !v13 )
+  memmove(v14, (const void *)(v4 + 16), v15);
+  v12 = *(_BYTE *)(v8 + 3) == 0;
+  *(_WORD *)v8 = v9 + *(_WORD *)v4;
+  if ( !v12 )
   {
-    v14 = (struct NP_CONTEXT::NP_CTX *)((a1 + 16) & -(__int64)(a1 != 0));
-    if ( **(_DWORD **)v14 != -1 )
-      NP_CONTEXT::NpLeafDerefInternal(v14, (void **)(v7 + 8));
-    v15 = (struct NP_CONTEXT::NP_CTX *)((a1 + 16) & -(__int64)(a1 != 0));
-    if ( **(_DWORD **)v15 != -1 )
-      NP_CONTEXT::NpLeafRemoveInternal(v15, (void **)(v7 + 8));
+    v16 = (void **)(v7 + 2);
+    v17 = (_DWORD **)((a1 + 16) & -(__int64)(a1 != 0));
+    if ( **v17 != -1 )
+    {
+      NP_CONTEXT::NpLeafDerefInternal((struct NP_CONTEXT::NP_CTX *)((a1 + 16) & -(__int64)(a1 != 0)), v16);
+      if ( **v17 != -1 )
+        NP_CONTEXT::NpLeafRemoveInternal((struct NP_CONTEXT::NP_CTX *)((a1 + 16) & -(__int64)(a1 != 0)), v16);
+    }
   }
   B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeDeleteNode(
     a1,
-    (unsigned __int8 *)v5);
+    v4);
   --*(_DWORD *)(a2 + 24);
   result = B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeDeleteEx(
              a1,

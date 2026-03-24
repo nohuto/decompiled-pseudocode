@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryDebugFilterState @ 0x1401BA8B0
+ * XREFs of ZwQueryDebugFilterState @ 0x1401BA8D0
  * Callers:
  *     <none>
  * Callees:

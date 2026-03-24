@@ -1,187 +1,218 @@
 /*
- * XREFs of ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C017DAC4
+ * XREFs of ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C013B008
  * Callers:
- *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z @ 0x1C017AFDC (--0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z.c)
- *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z @ 0x1C017D83C (--0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z.c)
- *     ??4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z @ 0x1C017D8F4 (--4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z @ 0x1C0139284 (--0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z.c)
+ *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z @ 0x1C013AF50 (--0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z.c)
+ *     ??4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z @ 0x1C013B174 (--4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C03BC5C0 (-_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C02F10C0 (-_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z.c)
  */
 
-void __fastcall CCD_SET_STRING_ID::_ParseMonitorDescriptors(CCD_SET_STRING_ID *this)
+void __fastcall CCD_SET_STRING_ID::_ParseMonitorDescriptors(CCD_SET_STRING_ID *this, __int64 a2)
 {
-  char v2; // di
-  unsigned __int16 v3; // si
-  unsigned int v4; // ebp
-  char v5; // dl
+  char v3; // di
+  unsigned __int16 v4; // si
+  unsigned int v5; // ebp
   void *v6; // rcx
-  unsigned __int64 v7; // rax
-  __int64 v8; // rax
-  __int16 v9; // bp
-  unsigned int v10; // edi
-  unsigned int v11; // r8d
-  __int64 v12; // rax
-  unsigned int v13; // edi
-  unsigned int i; // edi
-  __int64 v15; // r14
-  unsigned int v16; // esi
-  __int64 v17; // r15
-  unsigned int v18; // ebp
-  unsigned __int16 v19; // r13
-  unsigned __int16 v20; // r12
-  int v21; // eax
-  __int64 v22; // rsi
-  __int64 v23; // rbp
-  __int64 v24; // r14
-  __int64 v25; // [rsp+60h] [rbp+8h]
-  __int64 v26; // [rsp+68h] [rbp+10h]
+  SIZE_T v7; // rax
+  PVOID v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int16 v13; // bp
+  unsigned int v14; // edi
+  unsigned __int16 v15; // ax
+  unsigned int v16; // r8d
+  __int64 v17; // rdx
+  unsigned int v18; // edi
+  unsigned int v19; // edi
+  __int64 v20; // rcx
+  bool v21; // zf
+  __int64 v22; // rax
+  __int64 v23; // rax
+  unsigned __int16 v24; // ax
+  __int64 v25; // rax
+  __int64 v26; // r15
+  unsigned int v27; // esi
+  __int64 v28; // r14
+  unsigned int v29; // ebp
+  unsigned __int16 v30; // r13
+  unsigned __int16 v31; // r12
+  int v32; // eax
+  __int64 v33; // rsi
+  __int64 v34; // rbp
+  __int64 v35; // r14
+  __int64 v36; // [rsp+60h] [rbp+8h]
+  __int64 v37; // [rsp+68h] [rbp+10h]
 
   if ( !*((_WORD *)this + 4) )
   {
     *((_WORD *)this + 16) = 0;
-    operator delete(*((void **)this + 3));
+    operator delete[](*((void **)this + 3));
     *((_QWORD *)this + 3) = 0LL;
     return;
   }
-  v2 = 0;
-  v3 = 1;
-  v4 = 0;
+  v3 = 0;
+  v4 = 1;
+  v5 = 0;
   do
   {
-    v5 = *(_BYTE *)(v4 + *((_QWORD *)this + 2));
-    if ( v5 == 42 || v5 == 43 )
+    LOBYTE(a2) = *(_BYTE *)(v5 + *((_QWORD *)this + 2));
+    if ( (char)a2 < 42 )
+      goto LABEL_7;
+    if ( (char)a2 <= 43 )
     {
-      ++v3;
-      if ( v2 )
+      ++v4;
+      if ( !v3 )
       {
-        if ( v2 != 43 )
-          goto LABEL_28;
-      }
-      else
-      {
-        v2 = 43;
-      }
-    }
-    else if ( v5 == 94 || v5 == 126 )
-    {
-      ++v3;
-      if ( !v2 )
-      {
-        v2 = *(_BYTE *)(v4 + *((_QWORD *)this + 2));
+        v3 = 43;
         goto LABEL_7;
       }
-      if ( v2 != v5 )
-LABEL_28:
-        WdLogSingleEntry0(1LL);
+      v21 = v3 == 43;
+    }
+    else
+    {
+      if ( (_BYTE)a2 != 94 && (_BYTE)a2 != 126 )
+        goto LABEL_7;
+      ++v4;
+      if ( !v3 )
+      {
+        v3 = *(_BYTE *)(v5 + *((_QWORD *)this + 2));
+        goto LABEL_7;
+      }
+      v21 = v3 == (char)a2;
+    }
+    if ( !v21 )
+    {
+      v22 = WdLogNewEntry5_WdAssertion(v5, a2);
+      WdLogEvent5_WdAssertion(v22);
     }
 LABEL_7:
-    ++v4;
+    ++v5;
   }
-  while ( v4 < *((unsigned __int16 *)this + 4) );
-  if ( v3 <= *((_WORD *)this + 16) )
-    goto LABEL_12;
-  v6 = (void *)*((_QWORD *)this + 3);
-  *((_WORD *)this + 16) = 0;
-  operator delete(v6);
-  v7 = 8LL * v3;
-  if ( !is_mul_ok(v3, 8uLL) )
-    v7 = -1LL;
-  v8 = operator new[](v7, 0x63644356u, 256LL);
-  *((_QWORD *)this + 3) = v8;
-  if ( v8 )
+  while ( v5 < *((unsigned __int16 *)this + 4) );
+  if ( v4 > *((_WORD *)this + 16) )
   {
-LABEL_12:
-    v9 = 0;
-    v10 = 0;
-    **((_QWORD **)this + 3) = 0LL;
-    LOWORD(v11) = *((_WORD *)this + 4);
-    *((_WORD *)this + 16) = 1;
-    if ( (_WORD)v11 )
+    v6 = (void *)*((_QWORD *)this + 3);
+    *((_WORD *)this + 16) = 0;
+    operator delete[](v6);
+    v7 = 8LL * v4;
+    if ( !is_mul_ok(v4, 8uLL) )
+      v7 = -1LL;
+    v8 = operator new[](v7, 0x63644356u, PagedPool);
+    *((_QWORD *)this + 3) = v8;
+    if ( !v8 )
     {
-      while ( 1 )
+      v23 = WdLogNewEntry5_WdLowResource(v10, v9, v11, v12);
+      *(_QWORD *)(v23 + 24) = v4;
+      WdLogEvent5_WdLowResource(v23);
+      *(_DWORD *)this = -1073741801;
+      return;
+    }
+  }
+  v13 = 0;
+  v14 = 0;
+  **((_QWORD **)this + 3) = 0LL;
+  v15 = 1;
+  LOWORD(v16) = *((_WORD *)this + 4);
+  *((_WORD *)this + 16) = 1;
+  if ( !(_WORD)v16 )
+    goto LABEL_19;
+  while ( 2 )
+  {
+    v17 = (unsigned int)(*(char *)(v14 + *((_QWORD *)this + 2)) - 42);
+    if ( *(_BYTE *)(v14 + *((_QWORD *)this + 2)) != 42 )
+    {
+      v17 = (unsigned int)(*(char *)(v14 + *((_QWORD *)this + 2)) - 43);
+      if ( *(_BYTE *)(v14 + *((_QWORD *)this + 2)) != 43 )
       {
-        v12 = *((_QWORD *)this + 2);
-        if ( *(_BYTE *)(v10 + v12) == 42 )
-          goto LABEL_24;
-        if ( *(_BYTE *)(v10 + v12) == 43 || *(_BYTE *)(v10 + v12) == 94 || *(_BYTE *)(v10 + v12) == 126 )
-          break;
+        v17 = (unsigned int)(*(char *)(v14 + *((_QWORD *)this + 2)) - 94);
+        if ( *(_BYTE *)(v14 + *((_QWORD *)this + 2)) != 94 && *(_BYTE *)(v14 + *((_QWORD *)this + 2)) != 126 )
+          goto LABEL_17;
+      }
+      ++v13;
+    }
+    v20 = v14 + 1;
+    if ( (_DWORD)v20 == (unsigned __int16)v16 )
+    {
+      *((_WORD *)this + 4) = v16 - 1;
+    }
+    else
+    {
+      v24 = *((_WORD *)this + 16);
+      if ( v24 < v4
+        || (v25 = WdLogNewEntry5_WdAssertion(v20, v17),
+            WdLogEvent5_WdAssertion(v25),
+            v24 = *((_WORD *)this + 16),
+            v24 < v4) )
+      {
+        *(_WORD *)(*((_QWORD *)this + 3) + 8LL * v24) = v14 + 1;
+        *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 2) = v13;
+        *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 4) = 0;
+        *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 6) = (*((_WORD *)this + 16))++;
+      }
+    }
 LABEL_17:
-        v11 = *((unsigned __int16 *)this + 4);
-        if ( ++v10 >= v11 )
-          goto LABEL_18;
-      }
-      ++v9;
-LABEL_24:
-      if ( v10 + 1 == (unsigned __int16)v11 )
-      {
-        *((_WORD *)this + 4) = v11 - 1;
-      }
-      else
-      {
-        if ( *((_WORD *)this + 16) >= v3 )
-          WdLogSingleEntry0(1LL);
-        if ( *((_WORD *)this + 16) < v3 )
-        {
-          *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16)) = v10 + 1;
-          *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 2) = v9;
-          *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 4) = 0;
-          *(_WORD *)(*((_QWORD *)this + 3) + 8LL * *((unsigned __int16 *)this + 16) + 6) = (*((_WORD *)this + 16))++;
-        }
-      }
-      goto LABEL_17;
-    }
-LABEL_18:
-    v13 = *((unsigned __int16 *)this + 16) - 1;
-    if ( *((_WORD *)this + 16) != 1 )
-    {
-      v15 = 0LL;
-      v16 = 1;
-      v17 = v13;
-      v25 = v13;
-      do
-      {
-        v18 = v16;
-        if ( v16 <= v13 )
-        {
-          do
-          {
-            v26 = *((_QWORD *)this + 3);
-            v19 = *(_WORD *)(v15 + v26 + 6);
-            v20 = *(_WORD *)(v26 + 8LL * v18 + 6);
-            v21 = CCD_SET_STRING_ID::_CompareDescriptors(this, v19, v20);
-            if ( v21 > 0 || !v21 && v19 > v20 )
-            {
-              *(_WORD *)(v15 + v26 + 6) = v20;
-              *(_WORD *)(*((_QWORD *)this + 3) + 8LL * v18 + 6) = v19;
-            }
-            ++v18;
-          }
-          while ( v18 <= v13 );
-          v17 = v25;
-        }
-        ++v16;
-        v15 += 8LL;
-        v25 = --v17;
-      }
-      while ( v17 );
-    }
-    for ( i = 1; i < *((unsigned __int16 *)this + 16); ++i )
-    {
-      v22 = *((_QWORD *)this + 3);
-      v23 = *(unsigned __int16 *)(v22 + 8LL * (i - 1) + 6);
-      v24 = *(unsigned __int16 *)(v22 + 8LL * i + 6);
-      if ( !(unsigned int)CCD_SET_STRING_ID::_CompareDescriptors(
-                            this,
-                            *(unsigned __int16 *)(v22 + 8LL * i + 6),
-                            *(unsigned __int16 *)(v22 + 8LL * (i - 1) + 6)) )
-        *(_WORD *)(v22 + 8 * v24 + 4) = *(_WORD *)(v22 + 8 * v23 + 4) + 1;
-    }
+    v16 = *((unsigned __int16 *)this + 4);
+    if ( ++v14 < v16 )
+      continue;
+    break;
   }
-  else
+  v15 = *((_WORD *)this + 16);
+LABEL_19:
+  v18 = v15 - 1;
+  if ( v15 != 1 )
   {
-    WdLogSingleEntry1(6LL, v3);
-    *(_DWORD *)this = -1073741801;
+    v26 = v18;
+    v27 = 1;
+    v36 = v18;
+    v28 = 6LL;
+    do
+    {
+      v29 = v27;
+      if ( v27 <= v18 )
+      {
+        do
+        {
+          v37 = *((_QWORD *)this + 3);
+          v30 = *(_WORD *)(v37 + v28);
+          v31 = *(_WORD *)(v37 + 8LL * v29 + 6);
+          v32 = CCD_SET_STRING_ID::_CompareDescriptors(this, v30, v31);
+          if ( v32 > 0 || !v32 && v30 > v31 )
+          {
+            *(_WORD *)(v37 + v28) = v31;
+            *(_WORD *)(*((_QWORD *)this + 3) + 8LL * v29 + 6) = v30;
+          }
+          ++v29;
+        }
+        while ( v29 <= v18 );
+        v26 = v36;
+      }
+      ++v27;
+      v28 += 8LL;
+      v36 = --v26;
+    }
+    while ( v26 );
+    v15 = *((_WORD *)this + 16);
+  }
+  v19 = 1;
+  if ( v15 > 1u )
+  {
+    do
+    {
+      v33 = *((_QWORD *)this + 3);
+      v34 = *(unsigned __int16 *)(v33 + 8LL * (v19 - 1) + 6);
+      v35 = *(unsigned __int16 *)(v33 + 8LL * v19 + 6);
+      if ( !CCD_SET_STRING_ID::_CompareDescriptors(
+              this,
+              *(unsigned __int16 *)(v33 + 8LL * v19 + 6),
+              *(unsigned __int16 *)(v33 + 8LL * (v19 - 1) + 6)) )
+        *(_WORD *)(v33 + 8 * v35 + 4) = *(_WORD *)(v33 + 8 * v34 + 4) + 1;
+      ++v19;
+    }
+    while ( v19 < *((unsigned __int16 *)this + 16) );
   }
 }

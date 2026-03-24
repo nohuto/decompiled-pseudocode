@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14034537C
+ * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14034E3DC
  * Callers:
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034512C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034E18C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall NP_CONTEXT::NpCleanup(struct NP_CONTEXT *a1, int a2)
@@ -31,8 +31,6 @@ void __fastcall NP_CONTEXT::NpCleanup(struct NP_CONTEXT *a1, int a2)
       {
         --*(_QWORD *)v3;
       }
-      if ( !v4 )
-        break;
       ExFreePoolWithTag(v4, 0);
     }
   }

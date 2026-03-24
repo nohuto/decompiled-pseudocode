@@ -1,13 +1,13 @@
 /*
- * XREFs of CcUninitializePartitionVacbs @ 0x1405397AC
+ * XREFs of CcUninitializePartitionVacbs @ 0x1404EC364
  * Callers:
- *     CcDeletePartition @ 0x140538D10 (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x1404EBBC0 (CcDeletePartition.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402A0AE0 (CcSetVacbInFreeList.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MmFreeSystemCacheReserveView @ 0x140A30930 (MmFreeSystemCacheReserveView.c)
+ *     CcSetVacbInFreeList @ 0x14029027C (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MmFreeSystemCacheReserveView @ 0x1408C8470 (MmFreeSystemCacheReserveView.c)
  */
 
 _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
@@ -15,12 +15,12 @@ _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
   _QWORD **v2; // rsi
   _QWORD *result; // rax
   __int64 v4; // r8
-  _QWORD *v5; // r14
+  ULONG_PTR *v5; // r14
   _QWORD *v6; // rcx
   KIRQL v7; // bl
   int v8; // eax
 
-  v2 = (_QWORD **)(a1 + 1232);
+  v2 = (_QWORD **)(a1 + 904);
   while ( 1 )
   {
     result = *v2;
@@ -37,12 +37,12 @@ _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
     v7 = KeAcquireQueuedSpinLock(4uLL);
     CcSetVacbInFreeList(a1, v5, 0);
     KeReleaseQueuedSpinLock(4uLL, v7);
-    v8 = *(_DWORD *)(a1 + 1248);
+    v8 = *(_DWORD *)(a1 + 920);
     if ( !v8 )
-      KeBugCheckEx(0x34u, 0x73EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    *(_DWORD *)(a1 + 1248) = v8 - 1;
+      KeBugCheckEx(0x34u, 0x6A1uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    *(_DWORD *)(a1 + 920) = v8 - 1;
   }
-  if ( *(_DWORD *)(a1 + 1248) )
-    KeBugCheckEx(0x34u, 0x746uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  if ( *(_DWORD *)(a1 + 920) )
+    KeBugCheckEx(0x34u, 0x6A9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   return result;
 }

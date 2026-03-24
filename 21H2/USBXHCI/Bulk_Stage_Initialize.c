@@ -1,7 +1,7 @@
 /*
- * XREFs of Bulk_Stage_Initialize @ 0x1C000ED0C
+ * XREFs of Bulk_Stage_Initialize @ 0x1C000D0D4
  * Callers:
- *     Bulk_Stage_Acquire @ 0x1C000ECDC (Bulk_Stage_Acquire.c)
+ *     Bulk_Stage_Acquire @ 0x1C000D0A4 (Bulk_Stage_Acquire.c)
  * Callees:
  *     <none>
  */

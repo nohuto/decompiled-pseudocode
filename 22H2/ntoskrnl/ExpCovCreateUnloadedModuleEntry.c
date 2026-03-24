@@ -1,18 +1,19 @@
 /*
- * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x140A061A4
+ * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x14095714C
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x140696D48 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407733E0 (ExCovReadjustUnloadedModuleEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusive @ 0x1402FCDF0 (ExfAcquirePushLockExclusive.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     ExpCovFreeUnloadedModuleEntry @ 0x140A06484 (ExpCovFreeUnloadedModuleEntry.c)
- *     ExpCovReadFriendlyName @ 0x140A06EFC (ExpCovReadFriendlyName.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402732F0 (ExfAcquirePushLockExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x14095744C (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x140957E9C (ExpCovReadFriendlyName.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
@@ -23,10 +24,10 @@ void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
   unsigned int v5; // eax
   unsigned int v6; // edi
   unsigned int v7; // edi
-  UNICODE_STRING *Pool2; // rax
-  UNICODE_STRING *v9; // rsi
-  void *v10; // rax
-  UNICODE_STRING **v11; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v9; // rsi
+  PVOID v10; // rax
+  __int64 *v11; // rax
   __int128 v12; // xmm0
   __int64 v13; // r9
   UNICODE_STRING StringIn; // [rsp+30h] [rbp-20h] BYREF
@@ -60,26 +61,30 @@ void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
       {
         if ( v7 <= ExCovMaxPagedPoolToUse )
         {
-          Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, 64LL, 1920364355LL);
-          v9 = Pool2;
-          if ( !Pool2 || RtlDuplicateUnicodeString(1u, &StringIn, Pool2 + 2) < 0 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x72766F43u);
+          v9 = (__int64)PoolWithTag;
+          if ( !PoolWithTag )
+            goto LABEL_21;
+          memset(PoolWithTag, 0, 0x40uLL);
+          if ( RtlDuplicateUnicodeString(1u, &StringIn, (PUNICODE_STRING)(v9 + 32)) < 0 )
             goto LABEL_21;
           if ( StringIn.Buffer )
-            RtlFreeUnicodeString(&StringIn);
+            RtlFreeAnsiString(&StringIn);
           if ( (int)ExpCovReadFriendlyName(*(_QWORD *)(a1 + 128), a1 + 88, &StringIn) >= 0
-            && RtlDuplicateUnicodeString(1u, &StringIn, v9 + 1) >= 0
-            && (*(_DWORD *)&v9[3].Length = *(_DWORD *)(a1 + 124),
-                v10 = (void *)ExAllocatePool2(256LL, *(unsigned int *)(a1 + 124), 1920364355LL),
-                (v9[3].Buffer = (wchar_t *)v10) != 0LL) )
+            && RtlDuplicateUnicodeString(1u, &StringIn, (PUNICODE_STRING)(v9 + 16)) >= 0
+            && (*(_DWORD *)(v9 + 48) = *(_DWORD *)(a1 + 124),
+                v10 = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a1 + 124), 0x72766F43u),
+                (*(_QWORD *)(v9 + 56) = v10) != 0LL) )
           {
-            memmove(v10, *(const void **)(a1 + 128), *(unsigned int *)(a1 + 124));
-            v11 = (UNICODE_STRING **)qword_140C2CCB8;
-            if ( *(__int64 **)qword_140C2CCB8 != &ExpCovUnloadedModuleList )
+            memset(v10, 0, *(unsigned int *)(a1 + 124));
+            memmove(*(void **)(v9 + 56), *(const void **)(a1 + 128), *(unsigned int *)(a1 + 124));
+            v11 = (__int64 *)qword_140C16288;
+            if ( *(__int64 **)qword_140C16288 != &ExpCovUnloadedModuleList )
               __fastfail(3u);
-            *(_QWORD *)&v9->Length = &ExpCovUnloadedModuleList;
-            v9->Buffer = (wchar_t *)v11;
+            *(_QWORD *)v9 = &ExpCovUnloadedModuleList;
+            *(_QWORD *)(v9 + 8) = v11;
             *v11 = v9;
-            qword_140C2CCB8 = (__int64)v9;
+            qword_140C16288 = v9;
             v12 = *(_OWORD *)(a1 + 88);
             ExpCovCurrentPagedPoolInUse = v7;
             v15 = v12;
@@ -89,7 +94,7 @@ void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
           {
 LABEL_21:
             DbgPrintEx(0x7Eu, 0, "COV: Allocation failure. Data for %wZ may be lost\n", a1 + 88);
-            ExpCovFreeUnloadedModuleEntry(v9);
+            ExpCovFreeUnloadedModuleEntry((PVOID)v9);
           }
         }
         else
@@ -106,5 +111,5 @@ LABEL_25:
   ExfReleasePushLock(&ExpCovPushLock);
   KeLeaveCriticalRegion();
   if ( StringIn.Buffer )
-    RtlFreeUnicodeString(&StringIn);
+    RtlFreeAnsiString(&StringIn);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x14054C880
+ * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x1404FAAC0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
  */
 
 __int64 __fastcall HvlGetProcessorIndexFromVpIndex(unsigned int a1)

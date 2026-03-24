@@ -4,12 +4,12 @@
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiSwapStackPage @ 0x14012D160 (MiSwapStackPage.c)
- *     MiMapPageFileHash @ 0x14014FCB8 (MiMapPageFileHash.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6520 (MiPurgeBadFileOnlyPages.c)
- *     MiPerformFinalZeroing @ 0x1402BFBFC (MiPerformFinalZeroing.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
- *     MiAllocateSlabEntry @ 0x1402C1B9C (MiAllocateSlabEntry.c)
+ *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
+ *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
+ *     MiPerformFinalZeroing @ 0x1402BFCFC (MiPerformFinalZeroing.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
+ *     MiAllocateSlabEntry @ 0x1402C1C9C (MiAllocateSlabEntry.c)
  *     MiAllocateDummyPage @ 0x1409B9930 (MiAllocateDummyPage.c)
  * Callees:
  *     <none>

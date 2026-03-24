@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpGetFromMUIMemCache @ 0x1400F4260
+ * XREFs of LdrpGetFromMUIMemCache @ 0x1400F4280
  * Callers:
- *     LdrpGetRcConfig @ 0x1400F3F10 (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F404C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x14071B1A4 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1400F3F30 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KeReleaseMutant @ 0x1400BF9F0 (KeReleaseMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4418 (LdrpInitMuiCrits.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x14016C8E0 (LdrUnloadAlternateResourceModuleEx.c)
+ *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14016C900 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
 _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, int a4)

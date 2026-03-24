@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenJobObject @ 0x1401BA490
+ * XREFs of ZwOpenJobObject @ 0x1401BA4B0
  * Callers:
  *     <none>
  * Callees:

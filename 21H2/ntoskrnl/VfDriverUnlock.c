@@ -1,13 +1,12 @@
 /*
- * XREFs of VfDriverUnlock @ 0x140A89E7C
+ * XREFs of VfDriverUnlock @ 0x1409C88EC
  * Callers:
- *     VfIsVerificationEnabledForImage @ 0x1405FDEC0 (VfIsVerificationEnabledForImage.c)
- *     VfDriverRemoveAllDifVerification @ 0x1405FEBA0 (VfDriverRemoveAllDifVerification.c)
- *     VfTriageAddDrivers @ 0x140B53724 (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x140B53B88 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140B53D38 (VfXdvExcludeParseRegistryString.c)
+ *     VfIsVerificationEnabledForImage @ 0x1405A06B8 (VfIsVerificationEnabledForImage.c)
+ *     VfTriageAddDrivers @ 0x140A93974 (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140A93F94 (VfXdvExcludeParseRegistryString.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
  */
 
 LONG VfDriverUnlock()

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DdcciSendIoctlToMonitorDevice@CPhysicalMonitorHandle@@AEAAJK_JPEAXK1K@Z @ 0x1C0269AF4
+ * XREFs of ?DdcciSendIoctlToMonitorDevice@CPhysicalMonitorHandle@@AEAAJK_JPEAXK1K@Z @ 0x1C02713E4
  * Callers:
- *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C02699C0 (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
- *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C0269A74 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C02712B0 (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C0271364 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPhysicalMonitorHandle::DdcciSendIoctlToMonitorDevice(
@@ -17,10 +17,10 @@ __int64 __fastcall CPhysicalMonitorHandle::DdcciSendIoctlToMonitorDevice(
         unsigned int a7)
 {
   NTSTATUS v11; // ebx
-  union _LARGE_INTEGER Interval; // [rsp+30h] [rbp-28h] BYREF
-  char v14; // [rsp+60h] [rbp+8h] BYREF
+  _BYTE v13[40]; // [rsp+30h] [rbp-28h] BYREF
+  union _LARGE_INTEGER Interval; // [rsp+60h] [rbp+8h] BYREF
 
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v14, this[1]);
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)v13, this[1]);
   if ( (*((unsigned __int8 (__fastcall **)(struct OPM::CMutex **))*this + 2))(this) )
   {
     v11 = -1071774323;
@@ -39,6 +39,6 @@ __int64 __fastcall CPhysicalMonitorHandle::DdcciSendIoctlToMonitorDevice(
       }
     }
   }
-  OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)&v14);
+  OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)v13);
   return (unsigned int)v11;
 }

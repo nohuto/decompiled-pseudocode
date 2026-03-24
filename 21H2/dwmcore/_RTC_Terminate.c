@@ -1,9 +1,9 @@
 /*
- * XREFs of _RTC_Terminate @ 0x180101748
+ * XREFs of _RTC_Terminate @ 0x1800E7FC0
  * Callers:
- *     dllmain_crt_process_detach @ 0x180100D90 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_detach @ 0x1800E7574 (dllmain_crt_process_detach.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __cdecl RTC_Terminate()

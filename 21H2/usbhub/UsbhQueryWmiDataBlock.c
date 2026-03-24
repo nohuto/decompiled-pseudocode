@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhQueryWmiDataBlock @ 0x1C00493C0
+ * XREFs of UsbhQueryWmiDataBlock @ 0x1C004A770
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetHubNodeInfo @ 0x1C0048AC8 (UsbhGetHubNodeInfo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetHubNodeInfo @ 0x1C0049E58 (UsbhGetHubNodeInfo.c)
  */
 
 __int64 __fastcall UsbhQueryWmiDataBlock(
@@ -58,7 +58,7 @@ __int64 __fastcall UsbhQueryWmiDataBlock(
           }
         }
       }
-      else if ( *(&WPP_MAIN_CB.AlignmentRequirement + 1) == 3 )
+      else if ( dword_1C006C4BC == 3 )
       {
         Log((__int64)DeviceObject, 64, 2003659059, (__int64)a8, a7);
         v8 = 1;
@@ -72,7 +72,7 @@ __int64 __fastcall UsbhQueryWmiDataBlock(
     else
     {
       Log((__int64)DeviceObject, 64, 2003659058, (__int64)a8, a7);
-      if ( !WPP_MAIN_CB.AlignmentRequirement )
+      if ( !dword_1C006C4B8 )
       {
         v19 = *(_DWORD *)(v18 + 3280);
         if ( v19 != 6 && !a4 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of cParseFontResources @ 0x1C011B894
+ * XREFs of cParseFontResources @ 0x1C0130674
  * Callers:
- *     ?UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C011B7B8 (-UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0130598 (-UmfdEscParseFontResources@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
- *     pvFindResource @ 0x1C00EE1AC (pvFindResource.c)
+ *     pvFindResource @ 0x1C0102F7C (pvFindResource.c)
  */
 
 __int64 __fastcall cParseFontResources(__int64 a1, _QWORD *a2, _QWORD *a3, PVOID *a4)

@@ -1,22 +1,21 @@
 /*
- * XREFs of MiObtainReferencedSecureVad @ 0x1402159F4
+ * XREFs of MiObtainReferencedSecureVad @ 0x14025AF50
  * Callers:
- *     MiCheckLockUnlockByVa @ 0x14061C780 (MiCheckLockUnlockByVa.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     MmAdjustSecuredVirtualMemorySize @ 0x140A31FDC (MmAdjustSecuredVirtualMemorySize.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A45BD0 (MmStoreAllocateVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x14061FB80 (MmUnsecureVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406991AC (MmStoreAllocateVirtualMemory.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
  * Callees:
- *     MiLocateAddress @ 0x140217260 (MiLocateAddress.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275130 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402751A0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14029C6B0 (MiLockVad.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiWaitForVadDeletion @ 0x140660CC8 (MiWaitForVadDeletion.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiLocateAddress @ 0x14025B070 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402C8E20 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x14055BD50 (MiWaitForVadDeletion.c)
  */
 
-__int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, _DWORD *a2)
+__int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, int *a2)
 {
   struct _KTHREAD *CurrentThread; // rdi
   _KPROCESS *Process; // rbp
@@ -24,49 +23,50 @@ __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, _DW
   __int64 Address; // rax
   __int64 v8; // rbx
   unsigned __int64 v9; // rsi
-  bool v10; // zf
+  int v11; // eax
 
-  CurrentThread = KeGetCurrentThread();
   *a2 = 0;
+  CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  LOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&Process[1].Affinity.Bitmap[7], 0LL);
+  LOBYTE(CurrentThread[1].Queue) |= 2u;
   if ( (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
   {
     UNLOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
     *a2 = -1073741558;
+    return 0LL;
   }
-  else
+  v6 = *(_QWORD *)(BugCheckParameter3 + 8);
+  Address = MiLocateAddress(v6);
+  v8 = Address;
+  if ( !Address )
+    KeBugCheckEx(0x1Au, 0x15000uLL, v6, BugCheckParameter3, 0LL);
+  if ( !_InterlockedIncrement((volatile signed __int32 *)(Address + 36)) )
+    __fastfail(0xEu);
+  --CurrentThread->SpecialApcDisable;
+  UNLOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
+  v9 = v6 >> 12;
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockExclusiveEx(v8 + 40, 0LL);
+  LOBYTE(CurrentThread[1].Queue) |= 0x80u;
+  KiLeaveGuardedRegionUnsafe(CurrentThread);
+  if ( (*(_DWORD *)(v8 + 48) & 4) != 0 )
   {
-    v6 = *(_QWORD *)(BugCheckParameter3 + 8);
-    Address = MiLocateAddress(v6);
-    v8 = Address;
-    if ( !Address )
-      KeBugCheckEx(0x1Au, 0x15000uLL, v6, BugCheckParameter3, 0LL);
-    if ( !_InterlockedIncrement((volatile signed __int32 *)(Address + 36)) )
-      __fastfail(0xEu);
-    --CurrentThread->SpecialApcDisable;
-    UNLOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
-    v9 = v6 >> 12;
-    MiLockVad(CurrentThread, v8);
-    v10 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v10 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    if ( (*(_DWORD *)(v8 + 48) & 4) != 0 )
-    {
-      MiWaitForVadDeletion(v8);
-      MiUnlockAndDereferenceVad((PVOID)v8);
-      *a2 = (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 ? -1073741558 : -1073741664;
-    }
-    else
-    {
-      if ( v9 >= (*(unsigned int *)(v8 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32))
-        && v9 <= (*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32)) )
-      {
-        return v8;
-      }
-      MiUnlockAndDereferenceVad((PVOID)v8);
-      *a2 = -1073741664;
-    }
+    MiWaitForVadDeletion(v8);
+    MiUnlockAndDereferenceVad((char *)v8);
+    v11 = -1073741558;
+    if ( (Process[1].DirectoryTableBase & 0x2000000000LL) == 0 )
+      v11 = -1073741664;
+    *a2 = v11;
+    return 0LL;
   }
-  return 0LL;
+  if ( v9 < (*(unsigned int *)(v8 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32))
+    || v9 > (*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32)) )
+  {
+    MiUnlockAndDereferenceVad((char *)v8);
+    *a2 = -1073741664;
+    return 0LL;
+  }
+  return v8;
 }

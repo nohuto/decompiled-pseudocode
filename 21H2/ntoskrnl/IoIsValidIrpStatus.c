@@ -1,7 +1,7 @@
 /*
- * XREFs of IoIsValidIrpStatus @ 0x140A825C0
+ * XREFs of IoIsValidIrpStatus @ 0x1409C73D0
  * Callers:
- *     ViGenericIsValidIrpStatus @ 0x140A82710 (ViGenericIsValidIrpStatus.c)
+ *     ViGenericIsValidIrpStatus @ 0x1409C7520 (ViGenericIsValidIrpStatus.c)
  * Callees:
  *     <none>
  */

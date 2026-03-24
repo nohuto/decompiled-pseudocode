@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ValidateSegmentForAcquisitionOfResource@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@IW4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C0096048
+ * XREFs of ?ValidateSegmentForAcquisitionOfResource@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@IW4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C006F32C
  * Callers:
- *     ?AcquireGPUResourcesFromSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@EI_K@Z @ 0x1C0092A48 (-AcquireGPUResourcesFromSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMEN.c)
- *     ?AcquireGPUResourcesFromPreferredSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@KK@Z @ 0x1C0095E60 (-AcquireGPUResourcesFromPreferredSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM.c)
+ *     ?AcquireGPUResourcesFromPreferredSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@KK@Z @ 0x1C0085A1C (-AcquireGPUResourcesFromPreferredSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM.c)
+ *     ?AcquireGPUResourcesFromSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@EI_K@Z @ 0x1C0085BD0 (-AcquireGPUResourcesFromSegmentSet@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMEN.c)
  * Callees:
  *     <none>
  */
@@ -14,48 +14,45 @@ __int64 __fastcall VIDMM_GLOBAL::ValidateSegmentForAcquisitionOfResource(
         int a4,
         char a5)
 {
-  __int64 v6; // r14
-  __int64 v7; // rbp
+  __int64 v6; // rbp
+  _QWORD *v7; // rsi
   int v8; // edx
-  int v10; // edx
-  __int64 v11; // rsi
+  int v9; // edx
+  __int64 v11; // rcx
   __int64 v12; // rcx
-  __int64 v13; // rcx
-  _QWORD *v14; // rax
+  _QWORD *v13; // rax
 
   v6 = a3;
-  v7 = a1;
-  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 3712) + 8LL * a3) + 80LL) & 0x1001) != 0 )
+  v7 = (_QWORD *)a1;
+  v8 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 3712) + 8LL * a3) + 80LL);
+  if ( (v8 & 0x1001) != 0 )
   {
     if ( a4 == 1 )
-      goto LABEL_11;
+      goto LABEL_13;
   }
-  else if ( (*(_DWORD *)(a2 + 72) & 0x10000) != 0 && *(_DWORD *)(a2 + 360) || (*(_DWORD *)(a2 + 72) & 0x8000) != 0 )
+  else
   {
-    goto LABEL_11;
+    a1 = *(unsigned int *)(a2 + 80);
+    if ( (a1 & 0x10000) != 0 && *(_DWORD *)(a2 + 336) || (a1 & 0x8000) != 0 )
+      goto LABEL_13;
   }
-  if ( a4 != 2 || (a1 = *(_QWORD *)(*(_QWORD *)(a1 + 3712) + 8LL * a3), (*(_DWORD *)(a1 + 80) & 0x1001) != 0) )
+  if ( a4 != 2 || (v8 & 0x1001) != 0 )
   {
-    if ( *(int *)(a2 + 360) <= 0 )
+    if ( !*(_DWORD *)(a2 + 336) || (v8 & 0x1001) != 0 )
       goto LABEL_5;
-    a1 = *(_QWORD *)(*(_QWORD *)(v7 + 3712) + 8LL * a3);
-    v10 = *(_DWORD *)(a1 + 80);
-    if ( (v10 & 0x1001) != 0 )
-      goto LABEL_5;
-    if ( *(_BYTE *)(a2 + 80) )
+    if ( (*(_DWORD *)(a2 + 84) & 0x20) != 0 )
     {
-      v11 = v7 + 24;
-      v12 = **(unsigned int **)(a2 + 536);
-      if ( (v12 & 4) != 0 && (v12 = *(unsigned int *)(*(_QWORD *)v11 + 436LL), (v12 & 8) == 0) || (v10 & 0x2004) == 0 )
+      v11 = **(unsigned int **)(a2 + 496);
+      if ( (v11 & 4) != 0 && (v11 = *(unsigned int *)(v7[3] + 348LL), (v11 & 8) == 0) || (v8 & 0x2004) == 0 )
       {
         if ( g_IsInternalReleaseOrDbg )
         {
-          WdLogNewEntry5_WdTrace(v12);
-          v14 = (_QWORD *)WdLogNewEntry5_WdTrace(v13);
-          v14[3] = (**(_DWORD **)(a2 + 536) >> 2) & 1;
-          v14[4] = (*(_DWORD *)(*(_QWORD *)v11 + 436LL) >> 3) & 1;
-          v14[5] = (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 3712) + 8 * v6) + 80LL) >> 2) & 1;
-          v14[6] = (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 3712) + 8 * v6) + 80LL) >> 13) & 1;
+          WdLogNewEntry5_WdTrace(v11);
+          v13 = (_QWORD *)WdLogNewEntry5_WdTrace(v12);
+          v13[3] = (**(_DWORD **)(a2 + 496) >> 2) & 1;
+          v13[4] = (*(_DWORD *)(v7[3] + 348LL) >> 3) & 1;
+          v13[5] = (*(_DWORD *)(*(_QWORD *)(v7[464] + 8 * v6) + 80LL) >> 2) & 1;
+          v13[6] = (*(_DWORD *)(*(_QWORD *)(v7[464] + 8 * v6) + 80LL) >> 13) & 1;
         }
         return 3221225473LL;
       }
@@ -65,15 +62,15 @@ __int64 __fastcall VIDMM_GLOBAL::ValidateSegmentForAcquisitionOfResource(
     {
 LABEL_5:
       if ( a5 )
-        v8 = *(_DWORD *)(a2 + 56);
+        v9 = *(_DWORD *)(a2 + 64);
       else
-        v8 = *(_DWORD *)(a2 + 60);
-      a1 = 1616LL * (*(_DWORD *)(a2 + 68) & 0x3F);
-      if ( _bittest(&v8, (unsigned __int8)(a3 - *(_BYTE *)(a1 + *(_QWORD *)(v7 + 40224) + 28))) )
+        v9 = *(_DWORD *)(a2 + 68);
+      a1 = 1584LL * (*(_DWORD *)(a2 + 76) & 0x3F);
+      if ( _bittest(&v9, (unsigned __int8)(a3 - *(_BYTE *)(a1 + v7[5027] + 20))) )
         return 0LL;
     }
   }
-LABEL_11:
+LABEL_13:
   if ( g_IsInternalReleaseOrDbg )
     WdLogNewEntry5_WdTrace(a1);
   return 3221225473LL;

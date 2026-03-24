@@ -1,8 +1,8 @@
 /*
- * XREFs of Normalization__GetCharacterInfo @ 0x1409C0810
+ * XREFs of Normalization__GetCharacterInfo @ 0x140917A04
  * Callers:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1405B054C (NormBuffer__AppendAndSortDecomposed.c)
- *     NormBuffer__RecheckStartCombinations @ 0x1405B08E4 (NormBuffer__RecheckStartCombinations.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x14058D9C8 (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x14058DD30 (NormBuffer__RecheckStartCombinations.c)
  * Callees:
  *     <none>
  */

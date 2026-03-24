@@ -1,230 +1,269 @@
 /*
- * XREFs of KiForwardTick @ 0x1403CB080
+ * XREFs of KiForwardTick @ 0x140227F90
  * Callers:
- *     KiUpdateTime @ 0x1402C3670 (KiUpdateTime.c)
+ *     KiUpdateTime @ 0x1402276F0 (KiUpdateTime.c)
  * Callees:
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     HalpInterruptSendIpi @ 0x140254C30 (HalpInterruptSendIpi.c)
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1402BFEA0 (KeIsEqualAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C0190 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2A80 (KiOrAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpInterruptSendIpi @ 0x1402201D0 (HalpInterruptSendIpi.c)
+ *     KeOrAffinityEx @ 0x14022B1C0 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140344490 (KeCountSetBitsAffinityEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int16 __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, __int64 a5)
+__int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, __int64 a3, char a4, char *a5)
 {
-  __int64 v6; // rdi
-  unsigned int v8; // r14d
-  __int64 v9; // r8
-  unsigned int v10; // edx
-  __int64 v11; // r11
-  unsigned int v12; // r9d
-  unsigned __int16 v13; // cx
-  unsigned int v14; // edx
-  unsigned int v15; // eax
-  __int64 *v16; // r9
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  char v19; // r15
-  unsigned __int16 v20; // di
-  unsigned int v21; // ecx
-  __int64 v22; // r9
-  __int64 v23; // rdx
-  int v24; // edx
-  int *v25; // rdi
-  _WORD *v26; // r15
-  int IsEmptyAffinity; // eax
-  int v28; // ecx
-  __int64 v29; // rcx
-  __int64 v30; // rcx
-  __int64 v31; // r10
-  __int64 v32; // rdi
-  int v33; // edx
-  int v34; // edi
-  __int128 v38; // [rsp+40h] [rbp-C0h] BYREF
-  int v39; // [rsp+50h] [rbp-B0h]
-  int v40; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v41[67]; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned int v6; // r15d
+  __int64 *v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  unsigned __int16 v11; // dx
+  unsigned int v12; // edi
+  __int64 *v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
+  unsigned __int16 v16; // r15
+  __int16 v17; // r14
+  unsigned __int16 i; // ax
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  unsigned int v21; // edi
+  unsigned __int16 v22; // dx
+  __int16 *v23; // r9
+  unsigned __int16 v24; // r8
+  __int64 v25; // r12
+  __int64 result; // rax
+  unsigned int v27; // r8d
+  __int64 v28; // rcx
+  char *v29; // rdi
+  unsigned __int16 v30; // cx
+  unsigned __int16 v31; // cx
+  int v32; // ecx
+  char v33; // r12
+  unsigned __int16 v34; // di
+  unsigned int v35; // edx
+  __int64 v36; // r9
+  __int64 v37; // rcx
+  __int64 v38; // rcx
+  unsigned __int64 v39; // rax
+  char v40; // cl
+  __int128 v44; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v45; // [rsp+58h] [rbp-A8h]
+  int v46; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD v47[43]; // [rsp+64h] [rbp-9Ch] BYREF
+  _BYTE v48[168]; // [rsp+110h] [rbp+10h] BYREF
 
-  v6 = a1;
-  memset(&v41[1], 0, 0x100uLL);
-  v8 = 1;
+  memset(&v47[1], 0, 0xA0uLL);
+  v6 = 1;
   if ( PoSkipTickMode == 2 )
-    goto LABEL_43;
-  v40 = 2097153;
-  memset(v41, 0, 0x104uLL);
-  memset(&v41[1], 0, 8uLL);
-  LOWORD(v9) = 1;
-  v10 = 0;
+    goto LABEL_52;
+  v46 = 1310721;
+  memset(v47, 0, 0xA4uLL);
   if ( KeNumberNodes )
   {
+    v7 = KeNodeBlock;
+    v8 = (unsigned __int16)KeNumberNodes;
     do
     {
-      v11 = KeNodeBlock[v10];
-      v12 = *(_DWORD *)(v11 + 16);
-LABEL_4:
-      LOWORD(v9) = v40;
-      while ( v12 )
-      {
-        _BitScanForward((unsigned int *)&v29, v12);
-        v12 &= ~(1 << v29);
-        v30 = *(_QWORD *)(v11 + 8 * v29 + 24);
-        v31 = *(unsigned __int16 *)(v30 + 136);
-        v32 = *(_QWORD *)(v30 + 64);
-        if ( (unsigned __int16)v40 > (unsigned __int16)v31 )
-          goto LABEL_41;
-        if ( HIWORD(v40) > (unsigned __int16)v31 )
-        {
-          LOWORD(v40) = v31 + 1;
-LABEL_41:
-          *(_QWORD *)&v41[2 * v31 + 1] |= v32;
-          goto LABEL_4;
-        }
-      }
-      ++v10;
+      v9 = *(unsigned __int16 *)(*v7 + 144);
+      v10 = *(_QWORD *)(*v7 + 64);
+      if ( (unsigned __int16)v46 <= (unsigned __int16)v9 )
+        LOWORD(v46) = v9 + 1;
+      *(_QWORD *)&v47[2 * v9 + 1] |= v10;
+      ++v7;
+      --v8;
     }
-    while ( v10 < (unsigned __int16)KeNumberNodes );
-    v6 = a1;
+    while ( v8 );
   }
-  v13 = 0;
-  if ( !(_WORD)v9 )
-    goto LABEL_43;
-  while ( !*(_QWORD *)&v41[2 * v13 + 1] )
+  v11 = 0;
+  if ( !(_WORD)v46 )
+    goto LABEL_52;
+  while ( !*(_QWORD *)&v47[2 * v11 + 1] )
   {
-    if ( ++v13 >= (unsigned __int16)v9 )
-      goto LABEL_43;
+    if ( ++v11 >= (unsigned __int16)v46 )
+      goto LABEL_52;
   }
-  v14 = *(unsigned __int16 *)(a5 + 2);
-  if ( (unsigned __int16)v9 > (unsigned __int16)v14 )
-    LOWORD(v9) = *(_WORD *)(a5 + 2);
-  v15 = 0;
-  if ( (_WORD)v9 )
+  v12 = (unsigned __int16)v46;
+  v13 = (__int64 *)&v47[1];
+  v14 = (unsigned __int16)v46;
+  do
   {
-    v15 = (unsigned __int16)v9;
-    v16 = (__int64 *)&v41[1];
-    v9 = (unsigned __int16)v9;
-    do
+    v15 = *v13++;
+    *(__int64 *)((char *)v13 + a5 - (char *)&v47[1]) = ~v15;
+    --v14;
+  }
+  while ( v14 );
+  v16 = HIWORD(v46);
+  v17 = HIWORD(v46);
+  if ( v12 < HIWORD(v46) )
+    memset(&a5[8 * v12 + 8], 0xFFu, 8LL * (HIWORD(v46) - v12));
+  *((_DWORD *)a5 + 1) = 0;
+  *(_WORD *)a5 = v16;
+  *((_WORD *)a5 + 1) = v16;
+  memset(v48, 0, sizeof(v48));
+  if ( v16 >= (unsigned int)KeActiveProcessors[0] )
+    v17 = KeActiveProcessors[0];
+  *(_WORD *)a5 = v17;
+  for ( i = 0; i < *(_WORD *)a5; *(_QWORD *)&a5[8 * v19 + 8] &= *(_QWORD *)&KeActiveProcessors[4 * v19 + 4] )
+    v19 = i++;
+  if ( a5 != v48 )
+  {
+    *((_DWORD *)a5 + 1) = 0;
+    *((_WORD *)a5 + 1) = 20;
+    if ( i < 0x14u )
     {
-      v17 = *v16++;
-      *(__int64 *)((char *)v16 + a5 - (_QWORD)&v41[1]) = ~v17;
-      --v9;
-    }
-    while ( v9 );
-  }
-  *(_DWORD *)(a5 + 4) = 0;
-  *(_WORD *)a5 = v14;
-  for ( *(_WORD *)(a5 + 2) = v14; v15 < v14; v14 = *(unsigned __int16 *)(a5 + 2) )
-  {
-    v18 = v15++;
-    *(_QWORD *)(a5 + 8 * v18 + 8) = -1LL;
-  }
-  KiAndAffinityEx((unsigned __int16 *)a5, (unsigned __int16 *)KeActiveProcessors, (_BYTE *)a5, v14);
-  if ( a4 )
-    KiOrAffinityEx((char *)a5, KiGroupSchedulingOverQuotaMask, (_BYTE *)a5, *(_WORD *)(a5 + 2));
-  if ( !KiSerializeTimerExpiration )
-  {
-    v19 = KiLastForwardedHand;
-    v40 = 2097153;
-    v20 = 0;
-    memset(v41, 0, 0x104uLL);
-    while ( 1 )
-    {
-      LOBYTE(v21) = v19 - 1;
-      v22 = qword_140D20278[2 * v20];
       do
       {
-        v21 = (unsigned __int8)(v21 + 1);
-        v23 = *(_QWORD *)(((unsigned __int64)v21 << 6) + v22);
-        if ( (unsigned __int16)v40 > v20 )
-          goto LABEL_23;
-        if ( HIWORD(v40) > v20 )
-        {
-          LOWORD(v40) = v20 + 1;
-LABEL_23:
-          *(_QWORD *)&v41[2 * v20 + 1] |= v23;
-        }
+        v20 = i++;
+        *(_QWORD *)&a5[8 * v20 + 8] = 0LL;
       }
-      while ( v21 != (unsigned __int8)a3 );
-      if ( ++v20 >= (unsigned __int16)KiActiveGroups )
-      {
-        KiOrAffinityEx((char *)a5, &v40, (_BYTE *)a5, *(_WORD *)(a5 + 2));
-        v6 = a1;
-        break;
-      }
+      while ( i < *((_WORD *)a5 + 1) );
     }
   }
-  if ( (unsigned int)KeIsEqualAffinityEx((unsigned __int16 *)a5, (unsigned __int16 *)KeActiveProcessors) )
-    goto LABEL_43;
-  v24 = *(_DWORD *)(v6 + 36);
-  v25 = (int *)(v6 + 36);
-  KeRemoveProcessorAffinityEx((unsigned __int16 *)a5, v24);
-  if ( PoSkipTickMode && (unsigned int)KeCountSetBitsAffinityEx((unsigned __int16 *)a5) > 3 )
+  if ( a4 )
+    KeOrAffinityEx(a5, &KiGroupSchedulingOverQuotaMask, a5);
+  if ( !KiSerializeTimerExpiration )
   {
-    v6 = a1;
-LABEL_43:
-    v26 = 0LL;
-    LOWORD(IsEmptyAffinity) = KiCopyAffinityEx(a5, *(_WORD *)(a5 + 2), (unsigned __int16 *)KeActiveProcessors);
-    v25 = (int *)(v6 + 36);
-    goto LABEL_30;
+    v33 = KiLastForwardedHand;
+    v46 = 1310721;
+    v34 = 0;
+    memset(v47, 0, 0xA4uLL);
+    do
+    {
+      LOBYTE(v35) = v33 - 1;
+      v36 = qword_140CFD788[2 * v34];
+      do
+      {
+        v35 = (unsigned __int8)(v35 + 1);
+        v37 = *(_QWORD *)(((unsigned __int64)v35 << 6) + v36);
+        if ( (unsigned __int16)v46 <= v34 )
+          LOWORD(v46) = v34 + 1;
+        *(_QWORD *)&v47[2 * v34 + 1] |= v37;
+      }
+      while ( v35 != (unsigned __int8)a3 );
+      ++v34;
+    }
+    while ( v34 < (unsigned __int16)KiActiveGroups );
+    KeOrAffinityEx(a5, &v46, a5);
   }
-  v8 = 0;
-  v26 = (_WORD *)a5;
-  IsEmptyAffinity = KeIsEmptyAffinityEx((_WORD *)a5);
-  if ( IsEmptyAffinity )
-    goto LABEL_38;
-LABEL_30:
-  if ( KiClockTimerPerCpuTickScheduling )
-    goto LABEL_38;
-  v39 = 0;
-  v38 = 0LL;
-  if ( !v8 )
+  v21 = *(unsigned __int16 *)a5;
+  v22 = KeActiveProcessors[0];
+  if ( (unsigned __int16)v21 < (unsigned int)KeActiveProcessors[0] )
   {
-    if ( v26 && !(unsigned int)KeIsEmptyAffinityEx(v26) )
-      goto LABEL_34;
-LABEL_54:
-    v28 = -1073741811;
-    goto LABEL_55;
-  }
-  if ( v8 - 1 >= 2 )
-    goto LABEL_54;
-LABEL_34:
-  if ( v8 )
-  {
-    LODWORD(v38) = 4;
+    v23 = KeActiveProcessors;
+    v22 = *(_WORD *)a5;
   }
   else
   {
-    LODWORD(v38) = 2;
-    *((_QWORD *)&v38 + 1) = v26;
+    v23 = (__int16 *)a5;
   }
-  IsEmptyAffinity = HalpInterruptSendIpi(&v38, 0xD2u);
-  v28 = IsEmptyAffinity;
-  if ( IsEmptyAffinity < 0 )
-LABEL_55:
-    KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, v28, v8);
-  KiLastForwardedHand = a3;
-LABEL_38:
-  if ( (_BYTE)KdDebuggerEnabled )
+  v24 = 0;
+  if ( !v22 )
   {
-    v33 = KiPollSlotNext;
-    KiPollSlot = KiPollSlotNext;
-    IsEmptyAffinity = KiPollSlotNext + 1;
-    KiPollSlotNext = IsEmptyAffinity;
-    if ( IsEmptyAffinity >= a2 )
-      KiPollSlotNext = 0;
-    v34 = *v25;
-    if ( v33 != v34 )
+LABEL_55:
+    if ( v24 < (unsigned __int16)*v23 )
     {
-      IsEmptyAffinity = KeCheckProcessorAffinityEx((unsigned __int16 *)a5, v33);
-      if ( !IsEmptyAffinity )
-        KiPollSlot = v34;
+      while ( !*(_QWORD *)&v23[4 * v24 + 4] )
+      {
+        if ( ++v24 >= (unsigned __int16)*v23 )
+          goto LABEL_56;
+      }
+      goto LABEL_27;
+    }
+LABEL_56:
+    v6 = 1;
+LABEL_52:
+    v25 = a1;
+LABEL_53:
+    v29 = 0LL;
+    KeCopyAffinityEx(a5, KeActiveProcessors);
+    goto LABEL_32;
+  }
+  while ( *(_QWORD *)&a5[8 * v24 + 8] == *(_QWORD *)&KeActiveProcessors[4 * v24 + 4] )
+  {
+    if ( ++v24 >= v22 )
+      goto LABEL_55;
+  }
+LABEL_27:
+  v25 = a1;
+  result = *(unsigned int *)(a1 + 36);
+  v27 = KiProcessorIndexToNumberMappingTable[result];
+  v28 = v27 >> 6;
+  if ( v21 > (unsigned int)v28 )
+  {
+    result = *(_QWORD *)&a5[8 * v28 + 8] & ~(1LL << (v27 & 0x3F));
+    *(_QWORD *)&a5[8 * v28 + 8] = result;
+  }
+  if ( PoSkipTickMode )
+  {
+    result = KeCountSetBitsAffinityEx(a5);
+    if ( (unsigned int)result > 3 )
+    {
+      v6 = 1;
+      goto LABEL_53;
     }
   }
-  return IsEmptyAffinity;
+  v6 = 0;
+  v29 = a5;
+  v30 = 0;
+  if ( !*(_WORD *)a5 )
+    goto LABEL_39;
+  while ( 1 )
+  {
+    result = v30;
+    if ( *(_QWORD *)&a5[8 * v30 + 8] )
+      break;
+    if ( ++v30 >= *(_WORD *)a5 )
+      goto LABEL_39;
+  }
+LABEL_32:
+  v45 = 0LL;
+  v44 = 0LL;
+  if ( v6 )
+  {
+    LODWORD(v44) = 4;
+  }
+  else
+  {
+    if ( !v29 || (v31 = 0, !*(_WORD *)v29) )
+    {
+LABEL_65:
+      v32 = -1073741811;
+LABEL_66:
+      KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, v32, v6);
+    }
+    while ( !*(_QWORD *)&v29[8 * v31 + 8] )
+    {
+      if ( ++v31 >= *(_WORD *)v29 )
+        goto LABEL_65;
+    }
+    LODWORD(v44) = 2;
+    *((_QWORD *)&v44 + 1) = v29;
+  }
+  v32 = HalpInterruptSendIpi(&v44, 0xD2u);
+  if ( v32 < 0 )
+    goto LABEL_66;
+  result = a3;
+  KiLastForwardedHand = a3;
+LABEL_39:
+  if ( (_BYTE)KdDebuggerEnabled )
+  {
+    v38 = (unsigned int)KiPollSlotNext;
+    result = (unsigned int)(KiPollSlotNext + 1);
+    KiPollSlot = KiPollSlotNext;
+    KiPollSlotNext = result;
+    if ( (unsigned int)result >= a2 )
+      KiPollSlotNext = 0;
+    if ( (_DWORD)v38 != *(_DWORD *)(v25 + 36) )
+    {
+      v39 = (unsigned int)KiProcessorIndexToNumberMappingTable[v38];
+      v40 = v39 & 0x3F;
+      result = v39 >> 6;
+      if ( ((*(_QWORD *)&a5[8 * result + 8] >> v40) & 1) == 0 )
+        KiPollSlot = *(_DWORD *)(v25 + 36);
+    }
+  }
+  return result;
 }

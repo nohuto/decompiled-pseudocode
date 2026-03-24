@@ -1,10 +1,9 @@
 /*
- * XREFs of HvlpPrepareFlushHeader @ 0x1403CBBE8
+ * XREFs of HvlpPrepareFlushHeader @ 0x14038FC98
  * Callers:
- *     HvlpFlushRangeListTb @ 0x1403CB794 (HvlpFlushRangeListTb.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x1403CB978 (HvlpFastFlushAddressSpaceTb.c)
- *     KiFlushAddressSpaceTb @ 0x1403CB9F0 (KiFlushAddressSpaceTb.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140549C54 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpFlushRangeListTb @ 0x14038F8AC (HvlpFlushRangeListTb.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x14038FB90 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404FACE4 (HvlpSlowFlushAddressSpaceTb.c)
  * Callees:
  *     <none>
  */
@@ -33,7 +32,7 @@ __int64 __fastcall HvlpPrepareFlushHeader(_QWORD *a1, __int64 a2, __int64 a3, ch
     }
     else
     {
-      for ( i = &unk_140D24FA3; ; i += 4 )
+      for ( i = &unk_140D006C3; ; i += 4 )
       {
         if ( (v10 & 1) != 0 )
           v6 |= 1LL << *(i - 2);

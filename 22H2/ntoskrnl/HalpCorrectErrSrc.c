@@ -1,32 +1,31 @@
 /*
- * XREFs of HalpCorrectErrSrc @ 0x140A91AC0
+ * XREFs of HalpCorrectErrSrc @ 0x1409A1420
  * Callers:
  *     <none>
  * Callees:
- *     HalpCorrectGenericErrSrc @ 0x1403AE6D4 (HalpCorrectGenericErrSrc.c)
- *     HalpCorrectNMIErrSrc @ 0x1403AE6F8 (HalpCorrectNMIErrSrc.c)
- *     HalpCorrectMachineCheckErrSrc @ 0x140A91B04 (HalpCorrectMachineCheckErrSrc.c)
+ *     HalpCorrectGenericErrSrc @ 0x1403CC594 (HalpCorrectGenericErrSrc.c)
+ *     HalpCorrectNMIErrSrc @ 0x1403CC5B8 (HalpCorrectNMIErrSrc.c)
+ *     HalpCorrectMachineCheckErrSrc @ 0x1409A1464 (HalpCorrectMachineCheckErrSrc.c)
  */
 
 __int64 __fastcall HalpCorrectErrSrc(__int64 a1, _DWORD *a2)
 {
-  int v2; // r8d
-  int v3; // r8d
-  int v4; // r8d
-  int v5; // r8d
+  int v2; // eax
 
   v2 = *(_DWORD *)(a1 + 8);
-  if ( !v2 )
-    return HalpCorrectMachineCheckErrSrc();
-  v3 = v2 - 1;
-  if ( !v3 )
-    return HalpCorrectMachineCheckErrSrc();
-  v4 = v3 - 2;
-  if ( !v4 )
-    return HalpCorrectNMIErrSrc(a1, a2);
-  v5 = v4 - 2;
-  if ( !v5 || v5 == 7 )
-    return HalpCorrectGenericErrSrc(a1, a2);
-  else
-    return 3221225659LL;
+  if ( v2 >= 0 )
+  {
+    if ( v2 <= 1 )
+      return HalpCorrectMachineCheckErrSrc();
+    switch ( v2 )
+    {
+      case 5:
+        return HalpCorrectGenericErrSrc(a1, a2);
+      case 3:
+        return HalpCorrectNMIErrSrc(a1, a2);
+      case 12:
+        return HalpCorrectGenericErrSrc(a1, a2);
+    }
+  }
+  return 3221225659LL;
 }

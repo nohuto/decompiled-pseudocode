@@ -4,7 +4,7 @@
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
  *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
  * Callees:
- *     MiSelectBitMapForImage @ 0x14064FAB8 (MiSelectBitMapForImage.c)
+ *     MiSelectBitMapForImage @ 0x14064FA98 (MiSelectBitMapForImage.c)
  */
 
 __int64 __fastcall MiSelectCfgBitMap(__int64 a1, unsigned __int64 a2, __int64 a3)

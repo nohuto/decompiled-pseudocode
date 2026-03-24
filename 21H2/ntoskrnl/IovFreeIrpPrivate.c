@@ -1,16 +1,19 @@
 /*
- * XREFs of IovFreeIrpPrivate @ 0x140A80820
+ * XREFs of IovFreeIrpPrivate @ 0x1409C51D0
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
  * Callees:
- *     IopFreeIrp @ 0x140348640 (IopFreeIrp.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfIoFreeIrp @ 0x140A8CEB8 (VfIoFreeIrp.c)
+ *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfIoFreeIrp @ 0x1409D124C (VfIoFreeIrp.c)
  */
 
 void __fastcall IovFreeIrpPrivate(ULONG_PTR BugCheckParameter1)
 {
+  __int64 v2; // rdx
+
   if ( (MmVerifierData & 0x10) != 0 && !IovpDisabledWithoutReboot )
   {
     if ( *(_WORD *)BugCheckParameter1 != 6 )
@@ -19,5 +22,5 @@ void __fastcall IovFreeIrpPrivate(ULONG_PTR BugCheckParameter1)
       VerifierBugCheckIfAppropriate(0xC9u, 2uLL, BugCheckParameter1, 0LL, 0LL);
   }
   if ( !(unsigned int)VfIoFreeIrp((PVOID)BugCheckParameter1) )
-    IopFreeIrp(BugCheckParameter1);
+    IopFreeIrp(BugCheckParameter1, v2);
 }

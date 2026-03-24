@@ -1,34 +1,34 @@
 /*
- * XREFs of ObpInsertDirectoryEntry @ 0x1407C0C7C
+ * XREFs of ObpInsertDirectoryEntry @ 0x14067F314
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
- *     ObCreateObjectTypeEx @ 0x140821770 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     ObCreateObjectTypeEx @ 0x140790780 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall ObpInsertDirectoryEntry(char *Object, char *a2, __int64 a3)
 {
-  __int64 Pool2; // rax
-  __int64 v7; // rbx
-  char *v8; // rcx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rbx
+  char *v8; // rdx
 
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1766089295LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x6944624Fu);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    ObfReferenceObjectWithTag(a2, 0x6944624Fu);
-    v8 = &Object[8 * *(unsigned __int8 *)(a3 + 20)];
-    *(_DWORD *)(v7 + 16) = *(_DWORD *)(a3 + 16);
+    ObfReferenceObject(a2);
+    v8 = &Object[8 * *(unsigned __int16 *)(a3 + 28)];
+    v7[4] = *(_DWORD *)(a3 + 24);
     *(_QWORD *)v7 = *(_QWORD *)v8;
     *(_QWORD *)v8 = v7;
-    *(_QWORD *)(v7 + 8) = a2;
-    *(_QWORD *)(a3 + 8) = v8;
-    ObfReferenceObjectWithTag(Object, 0x6944624Fu);
-    LOBYTE(Pool2) = 1;
+    *((_QWORD *)v7 + 1) = a2;
+    *(_QWORD *)(a3 + 16) = v8;
+    ObfReferenceObject(Object);
+    LOBYTE(PoolWithTag) = 1;
     *(_QWORD *)&a2[-ObpInfoMaskToOffset[*(a2 - 22) & 3] - 48] = Object;
   }
-  return Pool2;
+  return (char)PoolWithTag;
 }

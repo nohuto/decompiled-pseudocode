@@ -1,18 +1,18 @@
 /*
- * XREFs of ACPIBusIrpQueryResourceRequirements @ 0x1C0097B70
+ * XREFs of ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C00235A4 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
- *     ACPIRangeValidatePciResources @ 0x1C0028A0C (ACPIRangeValidatePciResources.c)
- *     ACPIRangeFilterPICInterrupt @ 0x1C002C388 (ACPIRangeFilterPICInterrupt.c)
- *     PnpBiosGetDeviceResourceList @ 0x1C0097DD0 (PnpBiosGetDeviceResourceList.c)
- *     ACPIInternalSetSpare @ 0x1C0097F6C (ACPIInternalSetSpare.c)
- *     ACPIInternalSetProximityDomain @ 0x1C009800C (ACPIInternalSetProximityDomain.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C0016430 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIRangeValidatePciResources @ 0x1C002B280 (ACPIRangeValidatePciResources.c)
+ *     ACPIRangeFilterPICInterrupt @ 0x1C002F4EC (ACPIRangeFilterPICInterrupt.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C009C794 (PnpBiosGetDeviceResourceList.c)
+ *     ACPIInternalSetSpare @ 0x1C009C950 (ACPIInternalSetSpare.c)
+ *     ACPIInternalSetProximityDomain @ 0x1C009C9F4 (ACPIInternalSetProximityDomain.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryResourceRequirements(ULONG_PTR a1, IRP *a2)
@@ -21,42 +21,40 @@ __int64 __fastcall ACPIBusIrpQueryResourceRequirements(ULONG_PTR a1, IRP *a2)
   unsigned __int8 MinorFunction; // r12
   __int64 DeviceExtension; // rdi
   const char *v7; // r14
-  __int64 v8; // rcx
   int DeviceResourceList; // ebx
-  void *v10; // r8
+  char *v9; // r8
+  __int64 v10; // rcx
   __int64 v11; // rax
   char *IrpText; // rax
   const char *v13; // r8
   char v14; // r10
   const char *v15; // r11
-  __int64 v16; // rcx
-  _DWORD *v17; // rbp
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  char *v20; // rax
-  const char *v21; // r8
-  __int64 v23; // rax
-  int v24; // eax
-  __int64 v25; // rcx
-  const char *v26; // r8
-  const char *v27; // rdx
-  _DWORD *v28; // r8
-  unsigned int v29; // r9d
-  __int64 v30; // rax
-  unsigned __int64 v31; // rcx
-  unsigned __int64 v32; // rdx
-  unsigned __int64 i; // rax
-  _DWORD *v34; // rcx
+  _DWORD *v16; // rbp
+  __int64 v17; // rcx
+  char *v18; // rax
+  const char *v19; // r8
+  __int64 v21; // rax
+  _DWORD *v22; // rcx
   unsigned int j; // r9d
-  unsigned int v36; // r8d
-  unsigned __int64 v37; // rax
-  unsigned __int64 v38; // rdx
-  __int64 v39; // rax
-  const char *v40; // rdx
-  const char *v41; // rcx
-  __int64 v42; // rax
-  char *v43; // rax
-  const char *v44; // r8
+  unsigned int v24; // r8d
+  unsigned __int64 v25; // rax
+  unsigned __int64 v26; // rdx
+  int v27; // eax
+  __int64 v28; // rcx
+  const char *v29; // r8
+  const char *v30; // rdx
+  _DWORD *v31; // r8
+  unsigned int v32; // r9d
+  __int64 v33; // rax
+  unsigned __int64 v34; // rcx
+  unsigned __int64 v35; // rdx
+  unsigned __int64 i; // rax
+  __int64 v37; // rax
+  const char *v38; // rdx
+  const char *v39; // rcx
+  __int64 v40; // rax
+  char *v41; // rax
+  const char *v42; // r8
   PVOID P; // [rsp+98h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -65,24 +63,25 @@ __int64 __fastcall ACPIBusIrpQueryResourceRequirements(ULONG_PTR a1, IRP *a2)
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   ACPIInternalSetProximityDomain(DeviceExtension);
   ACPIInternalSetSpare(DeviceExtension);
-  v7 = (const char *)&unk_1C006FB8B;
+  v7 = byte_1C00701BA;
   DeviceResourceList = PnpBiosGetDeviceResourceList(a1, 1LL, &P);
-  v10 = &unk_1C006FB8B;
+  v9 = byte_1C00701BA;
+  v10 = 0x400000000000LL;
   if ( DeviceExtension )
   {
     v11 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v11 & 0x200000000000LL) != 0 && (v11 & 0x400000000000LL) != 0 )
-      v10 = *(void **)(DeviceExtension + 616);
+      v9 = *(char **)(DeviceExtension + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v8, MinorFunction);
+    IrpText = ACPIDebugGetIrpText(0x400000000000LL, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0x32u,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
       IrpText,
       DeviceResourceList,
@@ -91,29 +90,28 @@ __int64 __fastcall ACPIBusIrpQueryResourceRequirements(ULONG_PTR a1, IRP *a2)
       v13);
   }
   if ( DeviceResourceList < 0 )
-    goto LABEL_61;
-  v16 = *(_QWORD *)(DeviceExtension + 8);
-  v17 = P;
-  v18 = v16 & 0x2000000;
+    goto LABEL_70;
+  v10 = *(_QWORD *)(DeviceExtension + 8);
+  v16 = P;
   if ( P )
   {
-    if ( (v16 & 0x2000000) != 0 )
+    if ( (v10 & 0x2000000) != 0 )
     {
-      ACPIRangeValidatePciResources(DeviceExtension, (ULONG_PTR)P, (unsigned __int64)v10);
+      ACPIRangeValidatePciResources(DeviceExtension, (ULONG_PTR)P, (unsigned __int64)v9);
     }
-    else if ( (v16 & 0x200000000LL) != 0 )
+    else if ( (v10 & 0x200000000LL) != 0 )
     {
-      v24 = ACPIRangeFilterPICInterrupt((__int64)P);
-      if ( v24 < 0 )
+      v27 = ACPIRangeFilterPICInterrupt((__int64)P);
+      if ( v27 < 0 )
       {
-        v25 = *(_QWORD *)(DeviceExtension + 8);
-        v26 = (const char *)&unk_1C006FB8B;
-        v27 = (const char *)&unk_1C006FB8B;
-        if ( (v25 & 0x200000000000LL) != 0 )
+        v28 = *(_QWORD *)(DeviceExtension + 8);
+        v29 = byte_1C00701BA;
+        v30 = byte_1C00701BA;
+        if ( (v28 & 0x200000000000LL) != 0 )
         {
-          v26 = *(const char **)(DeviceExtension + 608);
-          if ( (v25 & 0x400000000000LL) != 0 )
-            v27 = *(const char **)(DeviceExtension + 616);
+          v29 = *(const char **)(DeviceExtension + 568);
+          if ( (v28 & 0x400000000000LL) != 0 )
+            v30 = *(const char **)(DeviceExtension + 576);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_qLqss(
@@ -121,167 +119,175 @@ __int64 __fastcall ACPIBusIrpQueryResourceRequirements(ULONG_PTR a1, IRP *a2)
             2u,
             5u,
             0x33u,
-            (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+            (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
             (char)a2,
-            v24,
+            v27,
             DeviceExtension,
-            v26,
-            v27);
-        ExFreePoolWithTag(v17, 0);
-        v17 = 0LL;
+            v29,
+            v30);
+        ExFreePoolWithTag(v16, 0);
+        v16 = 0LL;
       }
     }
-    v23 = *(_QWORD *)(DeviceExtension + 8);
-    if ( (v23 & 0x2000000000LL) != 0 )
+    v21 = *(_QWORD *)(DeviceExtension + 8);
+    if ( (v21 & 0x2000000000LL) != 0 )
     {
       if ( *(_BYTE *)(DeviceExtension + 184) )
       {
-        v28 = v17 + 8;
-        v29 = 0;
-        if ( v17[7] )
+        v31 = v16 + 8;
+        v32 = 0;
+        if ( v16[7] )
         {
           do
           {
-            v30 = (unsigned int)v28[1];
-            v31 = (unsigned __int64)(v28 + 2);
-            v32 = (unsigned __int64)&v28[8 * v30 + 2];
-            if ( (unsigned __int64)(v28 + 2) < v32 )
+            v33 = (unsigned int)v31[1];
+            v34 = (unsigned __int64)(v31 + 2);
+            v35 = (unsigned __int64)&v31[8 * v33 + 2];
+            if ( (unsigned __int64)(v31 + 2) < v35 )
             {
               do
               {
-                if ( ((*(_BYTE *)(v31 + 1) - 3) & 0xFB) == 0 )
+                if ( ((*(_BYTE *)(v34 + 1) - 3) & 0xFB) == 0 )
                 {
-                  for ( i = v31 + 32; i < v32 && *(_BYTE *)(i + 1) == 0x81; i += 32LL )
+                  for ( i = v34 + 32; i < v35 && *(_BYTE *)(i + 1) == 0x81; i += 32LL )
                   {
                     if ( *(_WORD *)(i + 4) == 1 )
                     {
-                      *(_WORD *)(v31 + 4) |= 0x100u;
+                      *(_WORD *)(v34 + 4) |= 0x100u;
                       break;
                     }
                   }
                 }
-                v31 += 32LL;
+                v34 += 32LL;
               }
-              while ( v31 < v32 );
-              v30 = (unsigned int)v28[1];
+              while ( v34 < v35 );
+              v33 = (unsigned int)v31[1];
             }
-            v28 += 8 * v30 + 2;
-            ++v29;
+            v31 += 8 * v33 + 2;
+            ++v32;
           }
-          while ( v29 < v17[7] );
-          v23 = *(_QWORD *)(DeviceExtension + 8);
+          while ( v32 < v16[7] );
+          v21 = *(_QWORD *)(DeviceExtension + 8);
         }
       }
     }
-    if ( (v23 & 0x8000) != 0 )
+    if ( (v21 & 0x8000) != 0 )
     {
-      v34 = v17 + 8;
-      for ( j = 0; j < v17[7]; v34 += 8 * v36 + 2 )
+      v22 = v16 + 8;
+      for ( j = 0; j < v16[7]; v22 += 8 * v24 + 2 )
       {
-        v36 = v34[1];
-        v37 = (unsigned __int64)(v34 + 2);
-        v38 = (unsigned __int64)&v34[8 * v36 + 2];
-        if ( (unsigned __int64)(v34 + 2) < v38 )
+        v24 = v22[1];
+        v25 = (unsigned __int64)(v22 + 2);
+        v26 = (unsigned __int64)&v22[8 * v24 + 2];
+        if ( (unsigned __int64)(v22 + 2) < v26 )
         {
           do
           {
-            if ( *(_BYTE *)(v37 + 1) == 2 )
-              *(_WORD *)(v37 + 4) |= 8u;
-            v37 += 32LL;
+            if ( *(_BYTE *)(v25 + 1) == 2 )
+              *(_WORD *)(v25 + 4) |= 8u;
+            v25 += 32LL;
           }
-          while ( v37 < v38 );
-          v36 = v34[1];
+          while ( v25 < v26 );
+          v24 = v22[1];
         }
         ++j;
       }
     }
-    DeviceResourceList = ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(DeviceExtension, (__int64)v17);
-    if ( DeviceResourceList >= 0 )
+    DeviceResourceList = ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(DeviceExtension, (__int64)v16);
+    if ( DeviceResourceList < 0 )
     {
-      a2->IoStatus.Information = (unsigned __int64)v17;
-      goto LABEL_12;
+      v37 = *(_QWORD *)(DeviceExtension + 8);
+      v38 = byte_1C00701BA;
+      v39 = byte_1C00701BA;
+      if ( (v37 & 0x200000000000LL) != 0 )
+      {
+        v38 = *(const char **)(DeviceExtension + 568);
+        if ( (v37 & 0x400000000000LL) != 0 )
+          v39 = *(const char **)(DeviceExtension + 576);
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_qLqss(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          5u,
+          0x34u,
+          (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
+          (char)a2,
+          DeviceResourceList,
+          DeviceExtension,
+          v38,
+          v39);
+      ExFreePoolWithTag(v16, 0);
     }
-    v39 = *(_QWORD *)(DeviceExtension + 8);
-    v40 = (const char *)&unk_1C006FB8B;
-    v41 = (const char *)&unk_1C006FB8B;
-    if ( (v39 & 0x200000000000LL) != 0 )
+    else
     {
-      v40 = *(const char **)(DeviceExtension + 608);
-      if ( (v39 & 0x400000000000LL) != 0 )
-        v41 = *(const char **)(DeviceExtension + 616);
+      a2->IoStatus.Information = (unsigned __int64)v16;
     }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qLqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        5u,
-        0x34u,
-        (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
-        (char)a2,
-        DeviceResourceList,
-        DeviceExtension,
-        v40,
-        v41);
-    ExFreePoolWithTag(v17, 0);
-    goto LABEL_61;
   }
-  v8 = 3221225473LL;
-  if ( v18 )
+  else if ( (v10 & 0x2000000) != 0 )
+  {
     DeviceResourceList = -1073741823;
+  }
   if ( DeviceResourceList < 0 )
   {
-LABEL_61:
+LABEL_70:
     if ( DeviceResourceList != -1073741670 )
     {
-      v42 = *(_QWORD *)(DeviceExtension + 8);
-      if ( (v42 & 0x2000000) != 0 )
+      v40 = *(_QWORD *)(DeviceExtension + 8);
+      if ( (v40 & 0x2000000) != 0 )
       {
-        if ( (v42 & 0x200000000000LL) != 0 )
-          v7 = *(const char **)(DeviceExtension + 608);
+        if ( (v40 & 0x200000000000LL) != 0 )
+        {
+          v7 = *(const char **)(DeviceExtension + 568);
+          v10 = 0x400000000000LL;
+        }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v43 = ACPIDebugGetIrpText(v8, MinorFunction);
+          v41 = ACPIDebugGetIrpText(v10, MinorFunction);
           WPP_RECORDER_SF_qsLqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
             2u,
             5u,
             0x35u,
-            (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+            (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
             (char)a2,
-            v43,
+            v41,
             DeviceResourceList,
             DeviceExtension,
             v7,
-            v44);
+            v42);
         }
         KeBugCheckEx(0xA5u, 2uLL, DeviceExtension, 1uLL, (ULONG_PTR)a2);
       }
     }
   }
-LABEL_12:
   a2->IoStatus.Status = DeviceResourceList;
   IofCompleteRequest(a2, 0);
   if ( DeviceExtension )
   {
+    v17 = 0x200000000000LL;
     v2 = DeviceExtension;
     if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
-      v7 = *(const char **)(DeviceExtension + 608);
+    {
+      v7 = *(const char **)(DeviceExtension + 568);
+      v17 = 0x400000000000LL;
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v20 = ACPIDebugGetIrpText(v19, MinorFunction);
+    v18 = ACPIDebugGetIrpText(v17, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0x36u,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
-      v20,
+      v18,
       DeviceResourceList,
       v2,
       v7,
-      v21);
+      v19);
   }
   return (unsigned int)DeviceResourceList;
 }

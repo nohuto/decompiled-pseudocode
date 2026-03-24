@@ -1,40 +1,39 @@
 /*
- * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x14028F044
+ * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x1403F1110
  * Callers:
- *     IopFreeCopyObjectsFromIrp @ 0x14028F090 (IopFreeCopyObjectsFromIrp.c)
- *     NtCopyFileChunk @ 0x140749DA0 (NtCopyFileChunk.c)
- *     IopReadFile @ 0x14074C6D0 (IopReadFile.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F11A4 (IopFreeCopyObjectsFromIrp.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopFreeIrpExtension @ 0x14028FCF8 (IopFreeIrpExtension.c)
- *     IopExceptionCleanupEx @ 0x140944A28 (IopExceptionCleanupEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IopFreeIrpExtension @ 0x1402E5F78 (IopFreeIrpExtension.c)
+ *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2, __int64 a3)
+void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2)
 {
-  __int64 v3; // rbx
-  void *v4; // rcx
-  IRP *v5; // rsi
-  void *v6; // rdi
+  __int64 v2; // rbx
+  __int64 v3; // rsi
+  struct _DMA_ADAPTER *v4; // rdi
+  void *v5; // rcx
 
-  v3 = a1 - 72;
+  v2 = a1 - 72;
   if ( a2 )
   {
-    v5 = *(IRP **)(v3 + 32);
-    v6 = *(void **)(v3 + 48);
-    if ( v5 )
+    v3 = *(_QWORD *)(v2 + 32);
+    v4 = *(struct _DMA_ADAPTER **)(v2 + 48);
+    if ( v3 )
     {
-      LOBYTE(a3) = 1;
-      IopFreeIrpExtension(*(_QWORD *)(v3 + 32), 9LL, a3);
-      IopExceptionCleanupEx(v6, v5, v5->UserEvent, 0LL, 0);
+      IopFreeIrpExtension(*(_QWORD *)(v2 + 32), 9, 1);
+      IopExceptionCleanupEx(v4, (PIRP)v3, *(PADAPTER_OBJECT *)(v3 + 80), 0LL, 0);
       return;
     }
-    if ( v6 )
-      ObfDereferenceObject(*(PVOID *)(v3 + 48));
+    if ( v4 )
+      ObfDereferenceObjectWithTag(*(PVOID *)(v2 + 48), 0x746C6644u);
   }
-  v4 = *(void **)(v3 + 56);
-  if ( v4 )
-    ObfDereferenceObject(v4);
-  ExFreePoolWithTag((PVOID)v3, 0);
+  v5 = *(void **)(v2 + 56);
+  if ( v5 )
+    ObfDereferenceObjectWithTag(v5, 0x746C6644u);
+  ExFreePoolWithTag((PVOID)v2, 0);
 }

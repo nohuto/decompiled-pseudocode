@@ -1,19 +1,18 @@
 /*
- * XREFs of MiCreateUltraThreadContext @ 0x14026A574
+ * XREFs of MiCreateUltraThreadContext @ 0x1402E30FC
  * Callers:
- *     MiInitializeNewUltraHugeContext @ 0x14025BDC8 (MiInitializeNewUltraHugeContext.c)
- *     MiZeroLargePage @ 0x14026A28C (MiZeroLargePage.c)
- *     MiZeroInParallelWorker @ 0x14026C240 (MiZeroInParallelWorker.c)
- *     MiCreateZeroThreadContext @ 0x1403D3CA0 (MiCreateZeroThreadContext.c)
- *     MiTimeSingleLargePageZeroWorker @ 0x1403D452C (MiTimeSingleLargePageZeroWorker.c)
- *     MiHugePageOperation @ 0x140586E78 (MiHugePageOperation.c)
- *     MiCombineIdenticalPages @ 0x1407F8CF0 (MiCombineIdenticalPages.c)
- *     MiScrubNodeLargePages @ 0x14097E8C8 (MiScrubNodeLargePages.c)
- *     MiInitializeScrubPacket @ 0x1409839C0 (MiInitializeScrubPacket.c)
- *     MmInitializeProcessor @ 0x140A59E20 (MmInitializeProcessor.c)
+ *     MiZeroLargePage @ 0x1402B71F8 (MiZeroLargePage.c)
+ *     MiZeroInParallelWorker @ 0x1402E6010 (MiZeroInParallelWorker.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403B0728 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiCreateZeroThreadContext @ 0x1403B0C88 (MiCreateZeroThreadContext.c)
+ *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
+ *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     MiScrubNodeLargePages @ 0x1408D87C8 (MiScrubNodeLargePages.c)
+ *     MiInitializeScrubPacket @ 0x1408DBE50 (MiInitializeScrubPacket.c)
+ *     MmInitializeProcessor @ 0x14099F710 (MmInitializeProcessor.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x140268284 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContextHelper @ 0x14026A5DC (MiCreateUltraThreadContextHelper.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402E3164 (MiCreateUltraThreadContextHelper.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E65FC (MiDeleteUltraThreadContext.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContext(__int64 a1, unsigned int a2, int a3)

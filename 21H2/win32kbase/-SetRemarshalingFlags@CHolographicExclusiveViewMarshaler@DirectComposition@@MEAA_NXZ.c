@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022D7D0
+ * XREFs of ?SetRemarshalingFlags@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EDED0
  * Callers:
  *     <none>
  * Callees:
@@ -15,17 +15,17 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::SetRemars
   v1 = 0;
   v2 = *((_DWORD *)this + 4) | 0x20;
   *((_DWORD *)this + 4) = v2;
-  if ( *((_QWORD *)this + 13) )
+  if ( *((_QWORD *)this + 12) )
   {
     v2 |= 0x40u;
     *((_DWORD *)this + 4) = v2;
   }
-  if ( *((_QWORD *)this + 11) )
+  if ( *((_QWORD *)this + 10) )
   {
     v2 |= 0x80u;
     *((_DWORD *)this + 4) = v2;
   }
-  if ( *((_DWORD *)this + 16) || (v2 & 0xC0) != 0 )
+  if ( *((_DWORD *)this + 14) || (v2 & 0xC0) != 0 )
     return 1;
   return v1;
 }

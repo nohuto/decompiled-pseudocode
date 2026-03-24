@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTimeToElapsedTimeFields @ 0x1408905A0
+ * XREFs of RtlTimeToElapsedTimeFields @ 0x140890580
  * Callers:
  *     <none>
  * Callees:
- *     TimeToDaysAndFraction @ 0x14015DCAC (TimeToDaysAndFraction.c)
+ *     TimeToDaysAndFraction @ 0x14015DCCC (TimeToDaysAndFraction.c)
  */
 
 void __stdcall RtlTimeToElapsedTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)

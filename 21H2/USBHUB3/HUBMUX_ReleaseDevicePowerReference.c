@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMUX_ReleaseDevicePowerReference @ 0x1C0010800
+ * XREFs of HUBMUX_ReleaseDevicePowerReference @ 0x1C00103E8
  * Callers:
- *     HUBDSM_FlushingHubPowerDownEventsForFailedDevice @ 0x1C001CE80 (HUBDSM_FlushingHubPowerDownEventsForFailedDevice.c)
- *     HUBDSM_FailedDeviceHubSuspended @ 0x1C001CF60 (HUBDSM_FailedDeviceHubSuspended.c)
+ *     HUBDSM_FlushingHubPowerDownEventsForFailedDevice @ 0x1C001C940 (HUBDSM_FlushingHubPowerDownEventsForFailedDevice.c)
+ *     HUBDSM_FailedDeviceHubSuspended @ 0x1C001CA20 (HUBDSM_FailedDeviceHubSuspended.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 void __fastcall HUBMUX_ReleaseDevicePowerReference(volatile signed __int32 *a1)

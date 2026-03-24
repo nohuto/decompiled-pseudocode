@@ -1,25 +1,25 @@
 /*
- * XREFs of ACPIBuildCompleteMustSucceed @ 0x1C000A4C0
+ * XREFs of ACPIBuildCompleteMustSucceed @ 0x1C0015D80
  * Callers:
- *     ACPIBuildProcessDevicePhaseCls @ 0x1C00090D0 (ACPIBuildProcessDevicePhaseCls.c)
- *     ACPIBuildProcessDevicePhasePrr @ 0x1C0009660 (ACPIBuildProcessDevicePhasePrr.c)
- *     ACPIBuildProcessDevicePhaseDep @ 0x1C0009970 (ACPIBuildProcessDevicePhaseDep.c)
- *     ACPIBuildProcessDevicePhaseAdr @ 0x1C0009A50 (ACPIBuildProcessDevicePhaseAdr.c)
- *     ACPIBuildProcessDevicePhaseHrv @ 0x1C0009D10 (ACPIBuildProcessDevicePhaseHrv.c)
- *     ACPIBuildProcessDevicePhaseSub @ 0x1C000A160 (ACPIBuildProcessDevicePhaseSub.c)
- *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000A1F0 (ACPIBuildProcessDevicePhasePr3.c)
- *     ACPIBuildProcessDevicePhasePrw @ 0x1C000AC90 (ACPIBuildProcessDevicePhasePrw.c)
- *     ACPIBuildProcessDevicePhaseHid @ 0x1C0025B10 (ACPIBuildProcessDevicePhaseHid.c)
- *     ACPIBuildProcessDevicePhaseUidOrHid @ 0x1C0029D30 (ACPIBuildProcessDevicePhaseUidOrHid.c)
- *     ACPIBuildProcessDevicePhaseUid @ 0x1C0029EB0 (ACPIBuildProcessDevicePhaseUid.c)
- *     ACPIBuildProcessPowerResourcePhaseDep @ 0x1C002BF20 (ACPIBuildProcessPowerResourcePhaseDep.c)
- *     ACPIBuildProcessThermalZoneCheckType @ 0x1C002DD10 (ACPIBuildProcessThermalZoneCheckType.c)
- *     ACPIBuildProcessThermalZoneDep @ 0x1C002E9C0 (ACPIBuildProcessThermalZoneDep.c)
- *     ACPIBuildProcessThermalZonePep @ 0x1C002EAD0 (ACPIBuildProcessThermalZonePep.c)
- *     ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004AA30 (ACPIBuildProcessRunMethodPhasePostProcessResult.c)
- *     ACPIBuildProcessThermalZoneUid @ 0x1C004AD40 (ACPIBuildProcessThermalZoneUid.c)
+ *     ACPIBuildProcessDevicePhaseHid @ 0x1C0014FF0 (ACPIBuildProcessDevicePhaseHid.c)
+ *     ACPIBuildProcessDevicePhaseAdr @ 0x1C00151E0 (ACPIBuildProcessDevicePhaseAdr.c)
+ *     ACPIBuildProcessDevicePhaseCls @ 0x1C00153C0 (ACPIBuildProcessDevicePhaseCls.c)
+ *     ACPIBuildProcessDevicePhaseDep @ 0x1C0015460 (ACPIBuildProcessDevicePhaseDep.c)
+ *     ACPIBuildProcessDevicePhaseHrv @ 0x1C0015580 (ACPIBuildProcessDevicePhaseHrv.c)
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C00155F0 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessDevicePhasePrr @ 0x1C00157E0 (ACPIBuildProcessDevicePhasePrr.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C0015900 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIBuildProcessDevicePhaseSub @ 0x1C0015CF0 (ACPIBuildProcessDevicePhaseSub.c)
+ *     ACPIBuildProcessDevicePhaseUidOrHid @ 0x1C002BDB0 (ACPIBuildProcessDevicePhaseUidOrHid.c)
+ *     ACPIBuildProcessDevicePhaseUid @ 0x1C002BF90 (ACPIBuildProcessDevicePhaseUid.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0 (ACPIBuildProcessThermalZoneCheckType.c)
+ *     ACPIBuildProcessPowerResourcePhaseDep @ 0x1C0030770 (ACPIBuildProcessPowerResourcePhaseDep.c)
+ *     ACPIBuildProcessThermalZoneDep @ 0x1C0030F90 (ACPIBuildProcessThermalZoneDep.c)
+ *     ACPIBuildProcessThermalZonePep @ 0x1C0031080 (ACPIBuildProcessThermalZonePep.c)
+ *     ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004BF20 (ACPIBuildProcessRunMethodPhasePostProcessResult.c)
+ *     ACPIBuildProcessThermalZoneUid @ 0x1C004C250 (ACPIBuildProcessThermalZoneUid.c)
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
  */
 
 void __fastcall ACPIBuildCompleteMustSucceed(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, __int64 a4)
@@ -33,7 +33,7 @@ void __fastcall ACPIBuildCompleteMustSucceed(ULONG_PTR BugCheckParameter2, int a
   if ( a2 == -1073741738 )
   {
     *(_DWORD *)(a4 + 48) = -1073741738;
-    ACPIBuildCompleteCommon((volatile signed __int32 *)(a4 + 24), 2);
+    ACPIBuildCompleteCommon(a4 + 24, 2LL);
   }
   else
   {

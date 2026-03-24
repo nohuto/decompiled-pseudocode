@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E8FC
+ * XREFs of Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004BE28
  * Callers:
- *     Crashdump_EventRing_AsyncPoll @ 0x1C004E090 (Crashdump_EventRing_AsyncPoll.c)
- *     Crashdump_EventRing_Poll @ 0x1C004E400 (Crashdump_EventRing_Poll.c)
- *     Crashdump_EventRing_PrepareForDump @ 0x1C004E6F0 (Crashdump_EventRing_PrepareForDump.c)
+ *     Crashdump_EventRing_AsyncPoll @ 0x1C004B5C0 (Crashdump_EventRing_AsyncPoll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004B92C (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_PrepareForDump @ 0x1C004BC1C (Crashdump_EventRing_PrepareForDump.c)
  * Callees:
  *     <none>
  */

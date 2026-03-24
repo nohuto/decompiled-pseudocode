@@ -1,34 +1,32 @@
 /*
- * XREFs of MiUnlockControlAreaSectionExtend @ 0x140292F50
+ * XREFs of MiUnlockControlAreaSectionExtend @ 0x1402F9584
  * Callers:
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402893C4 (MiBuildWakeList.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KeSignalGate @ 0x14035CCEC (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiBuildWakeList @ 0x1402D7C30 (MiBuildWakeList.c)
+ *     KeSignalGate @ 0x14031BEE0 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
+char __fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
 {
   int v2; // r14d
   unsigned __int64 v5; // rsi
   __int64 *v6; // rax
   volatile LONG *v7; // rcx
   __int64 *v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *SchedulerAssist; // r9
-  __int64 result; // rax
-  __int64 *v13; // rbx
+  __int64 *v9; // rbx
   struct _KTHREAD *CurrentThread; // rcx
-  bool v15; // zf
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v15; // eax
+  bool v16; // zf
 
   v2 = *(_DWORD *)(a2 + 8);
   KeAbPostRelease(a1);
@@ -37,21 +35,21 @@ __int64 __fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
   v7 = (volatile LONG *)(a1 + 72);
   v8 = v6;
   ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v9 = -1LL << ((unsigned __int8)v5 + 1);
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)v9;
-      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      v10 = (unsigned int)result & SchedulerAssist[5];
-      SchedulerAssist[5] = v10;
-      if ( v15 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
@@ -59,22 +57,16 @@ __int64 __fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
   {
     do
     {
-      v13 = (__int64 *)*v8;
+      v9 = (__int64 *)*v8;
       if ( v8 != (__int64 *)a2 )
-        result = KeSignalGate(v8 + 2, 1LL);
-      v8 = v13;
+        KeSignalGate(v8 + 2, 1LL);
+      v8 = v9;
     }
-    while ( v13 );
+    while ( v9 );
   }
   CurrentThread = KeGetCurrentThread();
-  if ( v2 != 16 )
-    return (__int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v15 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v15 )
-  {
-    result = (__int64)&CurrentThread->152;
-    if ( *(_QWORD *)result != result )
-      return KiCheckForKernelApcDelivery(CurrentThread, v9, v10, SchedulerAssist);
-  }
-  return result;
+  if ( v2 == 16 )
+    return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  else
+    return (unsigned __int8)KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

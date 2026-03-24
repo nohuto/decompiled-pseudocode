@@ -1,13 +1,14 @@
 /*
- * XREFs of ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00DDDA0
+ * XREFs of ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00D23FC
  * Callers:
- *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00DDA68 (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
- *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DBF8C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
+ *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00D20EC (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
+ *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C02DDAB4 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
+ *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DF17C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
  * Callees:
- *     ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C00DD608 (-Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ.c)
- *     ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C00DDE8C (-InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA-AW4EInsertResult@12@PEBX0@Z.c)
- *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00FA4B8 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
- *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C02DBC10 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
+ *     ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C00D1A64 (-Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C00D24E4 (-InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA-AW4EInsertResult@12@PEBX0@Z.c)
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C01093AC (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C02DD7D8 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
  */
 
 bool __fastcall NSInstrumentation::CPointerHashTable::Insert(
@@ -15,70 +16,69 @@ bool __fastcall NSInstrumentation::CPointerHashTable::Insert(
         const void *a2,
         const void *a3)
 {
-  volatile signed __int32 *v3; // rbx
+  int i; // eax
   int inserted; // edi
-  bool v7; // zf
-  char v9; // al
+  bool v8; // zf
+  char v10; // al
 
-  v3 = (volatile signed __int32 *)UmfdAllocation::s_allocationLookup;
-  _InterlockedIncrement((volatile signed __int32 *)UmfdAllocation::s_allocationLookup + 6);
-  while ( *((_DWORD *)v3 + 7) )
+  _InterlockedIncrement((volatile signed __int32 *)this + 6);
+  for ( i = *((_DWORD *)this + 7); i; i = *((_DWORD *)this + 7) )
   {
-    NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
+    NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
     KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(v3, 0LL);
-    ExReleasePushLockSharedEx(v3, 0LL);
+    ExAcquirePushLockSharedEx(this, 0LL);
+    ExReleasePushLockSharedEx(this, 0LL);
     KeLeaveCriticalRegion();
-    _InterlockedIncrement(v3 + 6);
+    _InterlockedIncrement((volatile signed __int32 *)this + 6);
   }
-  inserted = NSInstrumentation::CPointerHashTable::InsertInternal(v3, a2, a3);
-  NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
+  inserted = NSInstrumentation::CPointerHashTable::InsertInternal(this, a2, a3);
+  NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
   if ( inserted == 2 )
   {
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v3, 0LL);
-    _InterlockedCompareExchange(v3 + 4, 0, 1);
-    _InterlockedIncrement(v3 + 7);
-    if ( *((_DWORD *)v3 + 6) )
-      NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPlatformSingleWatierSignal *)(v3 + 2));
-    NSInstrumentation::CPointerHashTable::Resize((NSInstrumentation::CPointerHashTable *)v3);
-    _InterlockedDecrement(v3 + 7);
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    ExAcquirePushLockExclusiveEx(this, 0LL);
+    _InterlockedCompareExchange((volatile signed __int32 *)this + 4, 0, 1);
+    _InterlockedIncrement((volatile signed __int32 *)this + 7);
+    if ( *((_DWORD *)this + 6) )
+      NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPointerHashTable *)((char *)this + 8));
+    NSInstrumentation::CPointerHashTable::Resize(this);
+    _InterlockedDecrement((volatile signed __int32 *)this + 7);
+    ExReleasePushLockExclusiveEx(this, 0LL);
     KeLeaveCriticalRegion();
     goto LABEL_9;
   }
-  v7 = inserted == 1;
+  v8 = inserted == 1;
   if ( inserted != 1 )
-    return !v7;
+    return !v8;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v3, 0LL);
-  _InterlockedCompareExchange(v3 + 4, 0, 1);
-  _InterlockedIncrement(v3 + 7);
-  if ( *((_DWORD *)v3 + 6) )
-    NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPlatformSingleWatierSignal *)(v3 + 2));
-  v9 = NSInstrumentation::CPointerHashTable::Resize((NSInstrumentation::CPointerHashTable *)v3);
-  _InterlockedDecrement(v3 + 7);
-  if ( v9 )
+  ExAcquirePushLockExclusiveEx(this, 0LL);
+  _InterlockedCompareExchange((volatile signed __int32 *)this + 4, 0, 1);
+  _InterlockedIncrement((volatile signed __int32 *)this + 7);
+  if ( *((_DWORD *)this + 6) )
+    NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPointerHashTable *)((char *)this + 8));
+  v10 = NSInstrumentation::CPointerHashTable::Resize(this);
+  _InterlockedDecrement((volatile signed __int32 *)this + 7);
+  if ( v10 )
   {
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    ExReleasePushLockExclusiveEx(this, 0LL);
     while ( 1 )
     {
       KeLeaveCriticalRegion();
-      _InterlockedIncrement(v3 + 6);
-      if ( !*((_DWORD *)v3 + 7) )
+      _InterlockedIncrement((volatile signed __int32 *)this + 6);
+      if ( !*((_DWORD *)this + 7) )
         break;
-      NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
+      NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
       KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx(v3, 0LL);
-      ExReleasePushLockSharedEx(v3, 0LL);
+      ExAcquirePushLockSharedEx(this, 0LL);
+      ExReleasePushLockSharedEx(this, 0LL);
     }
-    inserted = NSInstrumentation::CPointerHashTable::InsertInternal(v3, a2, a3);
-    NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
+    inserted = NSInstrumentation::CPointerHashTable::InsertInternal(this, a2, a3);
+    NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
 LABEL_9:
-    v7 = inserted == 1;
-    return !v7;
+    v8 = inserted == 1;
+    return !v8;
   }
-  ExReleasePushLockExclusiveEx(v3, 0LL);
+  ExReleasePushLockExclusiveEx(this, 0LL);
   KeLeaveCriticalRegion();
   return 0;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of UserIsUserCritSecIn @ 0x1C0090AB0
+ * XREFs of UserIsUserCritSecIn @ 0x1C0049420
  * Callers:
- *     DrvIsNotUsingGraphicsDevice @ 0x1C0090610 (DrvIsNotUsingGraphicsDevice.c)
- *     DrvNotifySessionStateChange @ 0x1C0090680 (DrvNotifySessionStateChange.c)
- *     CheckOrAcquireDwmStateLock @ 0x1C0090A74 (CheckOrAcquireDwmStateLock.c)
- *     GreGetDCPoint @ 0x1C00AB470 (GreGetDCPoint.c)
- *     DrvSessionHasAnyGraphicsDevice @ 0x1C00D4370 (DrvSessionHasAnyGraphicsDevice.c)
- *     DrvCleanupRemoteGraphicsDevices @ 0x1C01737C4 (DrvCleanupRemoteGraphicsDevices.c)
- *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C017511C (DrvUpdateRemoteGraphicsDeviceList.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C00493E4 (CheckOrAcquireDwmStateLock.c)
+ *     GreGetDCPoint @ 0x1C0071810 (GreGetDCPoint.c)
+ *     DrvNotifySessionStateChange @ 0x1C007D1D0 (DrvNotifySessionStateChange.c)
+ *     DrvIsNotUsingGraphicsDevice @ 0x1C00B6280 (DrvIsNotUsingGraphicsDevice.c)
+ *     DrvSessionHasAnyGraphicsDevice @ 0x1C00C4AF0 (DrvSessionHasAnyGraphicsDevice.c)
+ *     DrvCleanupRemoteGraphicsDevices @ 0x1C01467C8 (DrvCleanupRemoteGraphicsDevices.c)
+ *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C0148048 (DrvUpdateRemoteGraphicsDeviceList.c)
  * Callees:
  *     <none>
  */

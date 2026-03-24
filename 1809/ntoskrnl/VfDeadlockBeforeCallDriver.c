@@ -3,9 +3,9 @@
  * Callers:
  *     VfBeforeCallDriver @ 0x1409300A4 (VfBeforeCallDriver.c)
  * Callees:
- *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x14030B14C (ViDeadlockDetectionTryConvertSharedToExclusive.c)
- *     ViLowerIrql @ 0x14030B40C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B468 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x14030B24C (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockAddThread @ 0x14093C98C (ViDeadlockAddThread.c)
  *     ViDeadlockAllocate @ 0x14093CA4C (ViDeadlockAllocate.c)
  *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)

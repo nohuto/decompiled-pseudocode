@@ -8,10 +8,10 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769D4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
  *     LOCK_PAGE_TABLE_COMMITMENT @ 0x140076BE8 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiUnlockVadRange @ 0x140604A50 (MiUnlockVadRange.c)
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
  */
 
 __int64 __fastcall MmAssignProcessToJob(__int64 a1, __int64 a2, int a3)

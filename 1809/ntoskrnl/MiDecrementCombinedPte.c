@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDecrementCombinedPte @ 0x14011F9D4
+ * XREFs of MiDecrementCombinedPte @ 0x14011F9F4
  * Callers:
  *     MiDeletePteList @ 0x140035B80 (MiDeletePteList.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
@@ -7,15 +7,15 @@
  *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
  *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     MiDereferenceCombineBlock @ 0x14011F98C (MiDereferenceCombineBlock.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiDereferenceCombineBlock @ 0x14011F9AC (MiDereferenceCombineBlock.c)
  *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
- *     MiDereferenceCombineCrc @ 0x14085EFF4 (MiDereferenceCombineCrc.c)
+ *     MiDereferenceCombineCrc @ 0x14085EFD4 (MiDereferenceCombineCrc.c)
  * Callees:
- *     MiFreeCombineBlock @ 0x14011FA84 (MiFreeCombineBlock.c)
- *     MiDeleteMergedPte @ 0x14011FC00 (MiDeleteMergedPte.c)
- *     MiLogCombinedPteDelete @ 0x1402CBF78 (MiLogCombinedPteDelete.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CBFF0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiFreeCombineBlock @ 0x14011FAA4 (MiFreeCombineBlock.c)
+ *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
+ *     MiLogCombinedPteDelete @ 0x1402CC078 (MiLogCombinedPteDelete.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiDecrementCombinedPte(__int64 a1, __int64 a2)

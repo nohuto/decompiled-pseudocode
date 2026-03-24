@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlpOplockEnqueueRH @ 0x1402A2E8C
+ * XREFs of FsRtlpOplockEnqueueRH @ 0x140206224
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402A2490 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     IoSetOplockPrivateFoExt @ 0x1402A2EF0 (IoSetOplockPrivateFoExt.c)
- *     FsRtlpOplockDequeueRH @ 0x1402A386C (FsRtlpOplockDequeueRH.c)
+ *     IoSetOplockPrivateFoExt @ 0x140206288 (IoSetOplockPrivateFoExt.c)
+ *     FsRtlpOplockDequeueRH @ 0x140356AA0 (FsRtlpOplockDequeueRH.c)
  */
 
 __int64 __fastcall FsRtlpOplockEnqueueRH(__int64 *a1, _QWORD *a2)
 {
   __int64 v2; // rax
   __int64 v4; // rcx
-  int v5; // r11d
+  int v5; // r10d
   _OWORD v7[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v8; // [rsp+40h] [rbp-18h]
   _QWORD *v9; // [rsp+48h] [rbp-10h]

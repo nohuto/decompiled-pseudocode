@@ -1,7 +1,7 @@
 /*
- * XREFs of FixupGlobalCursor @ 0x1C00B6890
+ * XREFs of FixupGlobalCursor @ 0x1C00AA470
  * Callers:
- *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C004F640 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C0034600 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
  * Callees:
  *     <none>
  */

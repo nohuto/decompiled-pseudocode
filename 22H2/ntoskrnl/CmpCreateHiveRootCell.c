@@ -1,31 +1,28 @@
 /*
- * XREFs of CmpCreateHiveRootCell @ 0x14087495C
+ * XREFs of CmpCreateHiveRootCell @ 0x14078DAF0
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14067F1B8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpRecordParseFailure @ 0x140693738 (CmpRecordParseFailure.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407034AC (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     HvAllocateCell @ 0x14070A478 (HvAllocateCell.c)
- *     CmpCopyName @ 0x14070AB00 (CmpCopyName.c)
- *     HvFreeCell @ 0x14070AC90 (HvFreeCell.c)
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     CmpNameSize @ 0x1407B6F6C (CmpNameSize.c)
- *     SeDeassignSecurity @ 0x1407BF990 (SeDeassignSecurity.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvMarkBaseBlockDirty @ 0x140874CFC (HvMarkBaseBlockDirty.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x140885688 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmUnlockHiveSecurity @ 0x140AF6100 (CmUnlockHiveSecurity.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvAllocateCell @ 0x140656A94 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x140656BC4 (HvFreeCell.c)
+ *     CmpCopyName @ 0x140657770 (CmpCopyName.c)
+ *     CmpRecordParseFailure @ 0x14066C090 (CmpRecordParseFailure.c)
+ *     CmpNameSize @ 0x1406774AC (CmpNameSize.c)
+ *     SeDeassignSecurity @ 0x1406842B0 (SeDeassignSecurity.c)
+ *     HvMarkBaseBlockDirty @ 0x14069FDFC (HvMarkBaseBlockDirty.c)
+ *     HvUnlockHiveFlusherShared @ 0x1406DF07C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406DF0B4 (HvLockHiveFlusherShared.c)
+ *     CmUnlockHiveSecurity @ 0x1406E2FD4 (CmUnlockHiveSecurity.c)
+ *     CmLockHiveSecurityExclusive @ 0x1406E2FF4 (CmLockHiveSecurityExclusive.c)
+ *     SeAssignSecurity @ 0x1406E32F0 (SeAssignSecurity.c)
+ *     HvUnlockHiveWriter @ 0x14071FE3C (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x14071FE6C (HvLockHiveWriter.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407203B0 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x140778E88 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     CmpAssignSecurityDescriptor @ 0x140871700 (CmpAssignSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCreateHiveRootCell(
@@ -33,193 +30,134 @@ __int64 __fastcall CmpCreateHiveRootCell(
         __int64 a2,
         unsigned __int16 *a3,
         __int64 a4,
-        _DWORD *a5)
+        unsigned int *a5)
 {
-  __int64 v8; // r13
-  unsigned __int64 v9; // rbx
-  unsigned int v10; // esi
-  int v11; // eax
-  int SecurityDescriptorNode; // ebx
-  _DWORD *v13; // rbx
-  _DWORD *v14; // rsi
-  unsigned int *v15; // r13
-  unsigned __int16 v16; // ax
-  int v17; // edx
-  int v18; // r8d
-  int v19; // eax
-  __int64 v20; // rax
-  __int64 v21; // rsi
-  unsigned __int64 *v22; // rbx
-  __int64 v23; // rax
-  __int64 v24; // rsi
-  int v25; // eax
-  __int64 v26; // rsi
-  __int64 v27; // rax
-  int v28; // ecx
-  PVOID v29; // r12
-  __int64 v30; // r14
-  void *v31; // rcx
-  void *v33; // [rsp+50h] [rbp-20h] BYREF
-  PVOID P; // [rsp+58h] [rbp-18h] BYREF
-  unsigned int v35[4]; // [rsp+60h] [rbp-10h] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v37; // [rsp+B8h] [rbp+48h]
+  unsigned int v9; // ebx
+  unsigned int v10; // r14d
+  size_t v11; // r8
+  _WORD *v12; // rbx
+  _DWORD *v13; // r15
+  unsigned __int16 v14; // ax
+  NTSTATUS v15; // eax
+  int v16; // ebx
+  PSECURITY_DESCRIPTOR v17; // r12
+  __int64 v19; // rsi
+  void *v20; // rcx
+  int v21; // r8d
+  int v22; // edx
+  void *v23; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v24; // [rsp+48h] [rbp-8h] BYREF
+  PSECURITY_DESCRIPTOR NewDescriptor; // [rsp+80h] [rbp+30h] BYREF
 
-  v37 = a2;
-  LODWORD(BugCheckParameter3) = -1;
-  *(_QWORD *)v35 = 0LL;
-  v33 = 0LL;
-  v8 = a2;
-  HvpGetCellContextReinitialize(v35);
-  P = 0LL;
-  v9 = KeAbPreAcquire(BugCheckParameter2 + 72, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter2 + 72), 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)(BugCheckParameter2 + 72), 0LL, v9, BugCheckParameter2 + 72);
-  if ( v9 )
-    *(_BYTE *)(v9 + 18) = 1;
-  v10 = (unsigned __int16)CmpNameSize(a3) + 76;
-  v11 = HvAllocateCell(BugCheckParameter2, v10, 0LL, &BugCheckParameter3, (__int64)&v33, (__int64)v35);
-  SecurityDescriptorNode = v11;
-  if ( v11 >= 0 )
+  v23 = 0LL;
+  NewDescriptor = 0LL;
+  v24 = 0xFFFFFFFFLL;
+  HvLockHiveFlusherShared(BugCheckParameter2);
+  v9 = (unsigned __int16)CmpNameSize(a3) + 76;
+  v10 = HvAllocateCell(BugCheckParameter2, v9, 0, &v23, &v24);
+  if ( v10 == -1 )
   {
-    v13 = v33;
-    memset(v33, 0, v10);
-    *v13 = 813934;
-    v14 = v33;
-    *(_QWORD *)((char *)v33 + 4) = MEMORY[0xFFFFF78000000014];
-    v15 = v14 + 11;
-    v14[4] = -1;
-    v14[7] = -1;
-    v14[8] = -1;
-    v14[10] = -1;
-    v14[11] = -1;
-    v14[12] = -1;
-    v16 = CmpCopyName((_BYTE *)v14 + 76, a3);
-    *((_WORD *)v14 + 36) = v16;
-    if ( v16 < *a3 )
-      *((_WORD *)v14 + 1) |= 0x20u;
-    if ( (*(_DWORD *)(BugCheckParameter2 + 4112) & 0x20) != 0 )
+    v16 = -1073741670;
+    CmpRecordParseFailure(a4, 196864, -1073741670);
+    v13 = v23;
+    goto LABEL_9;
+  }
+  v11 = v9;
+  v12 = v23;
+  memset(v23, 0, v11);
+  *(_DWORD *)v12 = 813934;
+  v13 = v23;
+  *(_QWORD *)((char *)v23 + 4) = MEMORY[0xFFFFF78000000014];
+  v13[4] = -1;
+  v13[7] = -1;
+  v13[8] = -1;
+  v13[10] = -1;
+  v13[11] = -1;
+  v13[12] = -1;
+  v14 = CmpCopyName((_BYTE *)v13 + 76, a3);
+  *((_WORD *)v13 + 36) = v14;
+  if ( v14 < *a3 )
+    v12[1] |= 0x20u;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 4152) & 0x20) != 0 )
+  {
+    NewDescriptor = CmpGenerateAppHiveSecurityDescriptor(a2 + 32);
+    if ( NewDescriptor )
     {
-      P = (PVOID)CmpGenerateAppHiveSecurityDescriptor(v37 + 32);
-      if ( !P )
+LABEL_6:
+      CmLockHiveSecurityExclusive(BugCheckParameter2);
+      v16 = CmpAssignSecurityDescriptor(BugCheckParameter2, v10, v13, NewDescriptor);
+      CmUnlockHiveSecurity(BugCheckParameter2);
+      if ( v16 < 0 )
       {
-        SecurityDescriptorNode = -1073741670;
-        v17 = 197120;
-LABEL_12:
-        v18 = SecurityDescriptorNode;
-LABEL_13:
-        CmpRecordParseFailure(a4, v17, v18);
-        v8 = v37;
-        goto LABEL_33;
-      }
-    }
-    else
-    {
-      v19 = RtlpNewSecurityObject(
-              0LL,
-              *(_OWORD **)(v37 + 64),
-              (__int64 *)&P,
-              0LL,
-              0,
-              1,
-              0,
-              v37 + 32,
-              (GENERIC_MAPPING *)((char *)CmKeyObjectType + 76),
-              0LL);
-      SecurityDescriptorNode = v19;
-      if ( v19 < 0 )
-      {
-        v18 = v19;
-        v17 = 197376;
-        goto LABEL_13;
-      }
-    }
-    v20 = KeAbPreAcquire(BugCheckParameter2 + 1784, 0LL);
-    v21 = v20;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 1784), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter2 + 1784), v20, BugCheckParameter2 + 1784);
-    if ( v21 )
-      *(_BYTE *)(v21 + 18) = 1;
-    v14 = v33;
-    SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(
-                               BugCheckParameter2,
-                               BugCheckParameter3,
-                               (__int64)v33,
-                               (unsigned int)BugCheckParameter3 >> 31,
-                               P,
-                               0,
-                               v15);
-    CmUnlockHiveSecurity(BugCheckParameter2);
-    if ( SecurityDescriptorNode >= 0 )
-    {
-      v22 = (unsigned __int64 *)(*(_QWORD *)(a4 + 48) + 80LL);
-      v23 = KeAbPreAcquire((__int64)v22, 0LL);
-      v24 = v23;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v22, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v22, v23, (__int64)v22);
-      if ( v24 )
-        *(_BYTE *)(v24 + 18) = 1;
-      HvMarkBaseBlockDirty(*(_QWORD *)(a4 + 48));
-      v25 = HvCheckAndUpdateHiveBackupTimeStamp(*(_QWORD *)(a4 + 48));
-      v26 = *(_QWORD *)(a4 + 48);
-      SecurityDescriptorNode = v25;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v26 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v26 + 80));
-      KeAbPostRelease(v26 + 80);
-      if ( SecurityDescriptorNode >= 0 )
-      {
-        v27 = *(_QWORD *)(BugCheckParameter2 + 64);
-        SecurityDescriptorNode = 0;
-        v28 = BugCheckParameter3;
-        LODWORD(BugCheckParameter3) = -1;
-        *(_DWORD *)(v27 + 36) = v28;
-        *a5 = v28;
+        v21 = v16;
+        v22 = 197632;
       }
       else
       {
-        CmpRecordParseFailure(a4, 197888, SecurityDescriptorNode);
+        HvLockHiveWriter(*(_QWORD *)(a4 + 48));
+        HvMarkBaseBlockDirty(*(_QWORD *)(a4 + 48));
+        v16 = HvCheckAndUpdateHiveBackupTimeStamp(*(_QWORD *)(a4 + 48));
+        HvUnlockHiveWriter(*(_QWORD *)(a4 + 48));
+        if ( v16 >= 0 )
+        {
+          *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 36LL) = v10;
+          *a5 = v10;
+          v10 = -1;
+          v16 = 0;
+          goto LABEL_9;
+        }
+        v21 = v16;
+        v22 = 197888;
       }
-      v8 = v37;
-      goto LABEL_32;
+      goto LABEL_26;
     }
-    v17 = 197632;
-    goto LABEL_12;
+    v21 = -1073741670;
+    v22 = 197120;
+    v16 = -1073741670;
   }
-  CmpRecordParseFailure(a4, 196864, v11);
-LABEL_32:
-  v14 = v33;
-LABEL_33:
-  v29 = P;
-  if ( P )
+  else
   {
-    if ( (*(_DWORD *)(BugCheckParameter2 + 4112) & 0x20) != 0 )
+    v15 = SeAssignSecurity(
+            0LL,
+            *(PSECURITY_DESCRIPTOR *)(a2 + 64),
+            &NewDescriptor,
+            1u,
+            (PSECURITY_SUBJECT_CONTEXT)(a2 + 32),
+            (PGENERIC_MAPPING)((char *)CmKeyObjectType + 76),
+            *((POOL_TYPE *)CmKeyObjectType + 25));
+    v16 = v15;
+    if ( v15 >= 0 )
+      goto LABEL_6;
+    v21 = v15;
+    v22 = 197376;
+  }
+LABEL_26:
+  CmpRecordParseFailure(a4, v22, v21);
+LABEL_9:
+  v17 = NewDescriptor;
+  if ( NewDescriptor )
+  {
+    if ( (*(_DWORD *)(BugCheckParameter2 + 4152) & 0x20) != 0 )
     {
-      ExFreePoolWithTag(P, 0);
+      ExFreePoolWithTag(NewDescriptor, 0);
     }
     else if ( (*(_DWORD *)a4 & 1) != 0 && (*(_DWORD *)(a4 + 24) & 4) != 0 )
     {
-      SeDeassignSecurity(&P);
+      SeDeassignSecurity(&NewDescriptor);
     }
     else
     {
-      v30 = *(_QWORD *)(v8 + 72);
-      v31 = *(void **)(v30 + 48);
-      if ( v31 )
-        ExFreePoolWithTag(v31, 0);
-      *(_QWORD *)(v30 + 48) = v29;
+      v19 = *(_QWORD *)(a2 + 72);
+      v20 = *(void **)(v19 + 48);
+      if ( v20 )
+        ExFreePoolWithTag(v20, 0);
+      *(_QWORD *)(v19 + 48) = v17;
     }
   }
-  if ( v14 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter2, v35);
-    else
-      HvpReleaseCellPaged(BugCheckParameter2, v35);
-  }
-  if ( (_DWORD)BugCheckParameter3 != -1 )
-    HvFreeCell(BugCheckParameter2, (unsigned int)BugCheckParameter3);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter2 + 72), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(BugCheckParameter2 + 72));
-  KeAbPostRelease(BugCheckParameter2 + 72);
-  return (unsigned int)SecurityDescriptorNode;
+  if ( v13 )
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v24);
+  if ( v10 != -1 )
+    HvFreeCell(BugCheckParameter2, v10);
+  HvUnlockHiveFlusherShared(BugCheckParameter2);
+  return (unsigned int)v16;
 }

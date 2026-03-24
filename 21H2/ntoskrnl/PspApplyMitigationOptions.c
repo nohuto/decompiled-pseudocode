@@ -1,38 +1,37 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x14070E104
+ * XREFs of PspApplyMitigationOptions @ 0x1406D8A1C
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     Feature_Servicing_FsctlProcessMitigation__private_IsEnabled @ 0x140417880 (Feature_Servicing_FsctlProcessMitigation__private_IsEnabled.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     ExEnableHandleExceptions @ 0x1406DAA90 (ExEnableHandleExceptions.c)
- *     PspSetRedirectionTrustPolicy @ 0x1406DD598 (PspSetRedirectionTrustPolicy.c)
- *     PspDecodeMitigationExecuteOptions @ 0x1406E1C0C (PspDecodeMitigationExecuteOptions.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1406E71BC (PspSetNoChildProcessRestrictedPolicy.c)
- *     KeSetCheckStackExtentsProcess @ 0x1409614A8 (KeSetCheckStackExtentsProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PspSetRedirectionTrustPolicy @ 0x1405CF6A4 (PspSetRedirectionTrustPolicy.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExEnableHandleExceptions @ 0x1406B959C (ExEnableHandleExceptions.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x1406BDC08 (PspDecodeMitigationExecuteOptions.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1406C0098 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     KeSetCheckStackExtentsProcess @ 0x1408BAD7C (KeSetCheckStackExtentsProcess.c)
  */
 
-unsigned __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)
+void __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)
 {
-  __m128i v5; // xmm2
-  unsigned __int64 v8; // xmm3_8
-  unsigned __int64 v10; // xmm1_8
-  __int128 v11; // xmm0
-  bool v12; // zf
-  unsigned __int64 v13; // rax
-  int IsEnabled; // eax
-  int v15; // r10d
-  __int64 v16; // r11
+  __int64 v5; // rax
+  unsigned __int64 v7; // xmm3_8
+  unsigned __int64 v9; // xmm1_8
+  __m128i v11; // xmm2
+  __int128 v12; // xmm0
+  bool v13; // zf
+  unsigned __int64 v14; // rax
+  unsigned int v15; // r10d
+  unsigned int v16; // r11d
   unsigned __int64 v17; // rax
   unsigned __int8 v18; // cl
   int v19; // eax
-  char v20; // si
-  int v21; // edx
-  int v22; // eax
-  unsigned __int64 v23; // rax
-  unsigned __int64 result; // rax
+  __int64 v20; // rax
+  char v21; // si
+  int v22; // edx
+  int v23; // eax
+  unsigned __int64 v24; // rax
   char v25; // bl
   unsigned __int64 v26; // xmm1_8
   __m128i v27; // [rsp+20h] [rbp-60h] BYREF
@@ -42,85 +41,80 @@ unsigned __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __
   __int128 v31; // [rsp+58h] [rbp-28h]
   unsigned __int64 v32; // [rsp+68h] [rbp-18h]
 
-  v5 = *a3;
-  v8 = a3[1].m128i_u64[0];
-  v10 = *((_QWORD *)a4 + 2);
-  v11 = *a4;
+  v5 = *(_QWORD *)(a1 + 1408);
+  v7 = a3[1].m128i_u64[0];
+  v9 = *((_QWORD *)a4 + 2);
+  v30 = v7;
+  v32 = v9;
+  v11 = *a3;
+  v12 = *a4;
   v29 = *a3;
-  v31 = v11;
-  v30 = v8;
-  v32 = v10;
-  if ( *(_WORD *)(a1 + 2412) == 332 )
+  v31 = v12;
+  if ( v5 && *(_WORD *)(v5 + 8) == 332 )
   {
-    v27 = v5;
-    v28 = v8;
+    v27 = v11;
+    v28 = v7;
     *(_BYTE *)(a1 + 643) = PspDecodeMitigationExecuteOptions(&v27);
   }
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 8) & 3) != 1 )
   {
     if ( (((unsigned __int64)v29.m128i_i64[0] >> 8) & 3) != 3 )
-      goto LABEL_7;
+      goto LABEL_8;
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 8u);
   }
   _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x10u);
-LABEL_7:
+LABEL_8:
   if ( (v29.m128i_i8[2] & 3) != 0 )
-    v12 = (v29.m128i_i8[2] & 3) == 2;
+    v13 = (v29.m128i_i8[2] & 3) == 2;
   else
-    v12 = (a5 & 1) == 0;
-  if ( v12 )
+    v13 = (a5 & 1) == 0;
+  if ( v13 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x40u);
   if ( (*(_DWORD *)(a1 + 2512) & 0x40) == 0 )
   {
     if ( (((unsigned __int64)v29.m128i_i64[0] >> 20) & 3) != 0 )
     {
       if ( (((unsigned __int64)v29.m128i_i64[0] >> 20) & 3) != 1 )
-        goto LABEL_18;
+        goto LABEL_19;
     }
     else if ( (a5 & 2) == 0 )
     {
-      goto LABEL_18;
+      goto LABEL_19;
     }
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x20u);
   }
-LABEL_18:
+LABEL_19:
   if ( !a2 )
-    goto LABEL_27;
+    goto LABEL_28;
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 24) & 3) == 0 )
   {
     if ( (a5 & 4) == 0 )
-      goto LABEL_25;
-LABEL_23:
-    v13 = ObReferenceProcessHandleTable((struct _EX_RUNDOWN_REF *)a1);
-    if ( v13 )
+      goto LABEL_26;
+LABEL_24:
+    v14 = ObReferenceProcessHandleTable((struct _EX_RUNDOWN_REF *)a1);
+    if ( v14 )
     {
-      ExEnableHandleExceptions(v13, 1);
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 1112));
+      ExEnableHandleExceptions(v14, 1);
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1112));
     }
-    goto LABEL_25;
+    goto LABEL_26;
   }
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 24) & 3) == 1 )
-    goto LABEL_23;
-LABEL_25:
-  if ( _bittest((const signed __int32 *)(a2 + 2512), 0xCu) )
+    goto LABEL_24;
+LABEL_26:
+  if ( (*(_DWORD *)(a2 + 2512) & 0x1000) != 0 )
     v29.m128i_i64[0] = v29.m128i_i64[0] & 0xFFFFFFFFCFFFFFFFuLL | 0x10000000;
-LABEL_27:
+LABEL_28:
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 28) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x3000u);
-  if ( !_bittest((const signed __int32 *)(a1 + 2512), 0xCu) && (((unsigned __int64)v31 >> 28) & 3) == 1 )
+  if ( (*(_DWORD *)(a1 + 2512) & 0x1000) == 0 && (((unsigned __int64)v31 >> 28) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x2000u);
-  IsEnabled = Feature_Servicing_FsctlProcessMitigation__private_IsEnabled();
-  v15 = 0;
-  if ( IsEnabled )
-  {
-    if ( a2 && (*(_DWORD *)(a2 + 2928) & 2) != 0 )
-      v30 = v30 & 0xFFFFFFFFFCFFFFFFuLL | 0x1000000;
-    if ( ((v30 >> 24) & 3) == 1 )
-      _InterlockedOr((volatile signed __int32 *)(a1 + 2928), 6u);
-    if ( (*(_DWORD *)(a1 + 2928) & 2) == 0 && ((v32 >> 24) & 3) == 1 )
-      _InterlockedOr((volatile signed __int32 *)(a1 + 2928), 4u);
-  }
-  v16 = 512LL;
+  if ( a2 && (*(_DWORD *)(a2 + 2608) & 2) != 0 )
+    v30 = v30 & 0xFFFFFFFFFCFFFFFFuLL | 0x1000000;
+  if ( ((v30 >> 24) & 3) == 1 )
+    _InterlockedOr((volatile signed __int32 *)(a1 + 2608), 6u);
+  if ( (*(_DWORD *)(a1 + 2608) & 2) == 0 && ((v32 >> 24) & 3) == 1 )
+    _InterlockedOr((volatile signed __int32 *)(a1 + 2608), 4u);
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 36) & 3) != 1 )
   {
     if ( (((unsigned __int64)v29.m128i_i64[0] >> 36) & 3) != 3 )
@@ -129,9 +123,11 @@ LABEL_27:
   }
   _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x900u);
 LABEL_45:
+  v15 = 1024;
   v29.m128i_i64[1] = _mm_srli_si128(_mm_loadu_si128(&v29), 8).m128i_u64[0];
   if ( (v29.m128i_i8[15] & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x400u);
+  v16 = 2048;
   if ( (*(_DWORD *)(a1 + 2512) & 0x100) != 0 )
   {
     v29.m128i_i64[1] = v29.m128i_i64[1] & 0xFFFFFFFFFCCCFFFFuLL | 0x2220000;
@@ -149,7 +145,7 @@ LABEL_45:
     {
       if ( (((unsigned __int64)v29.m128i_i64[0] >> 40) & 3) == 3 )
       {
-        if ( PspDisableControlFlowGuardExportSuppression || MmEnableControlFlowGuardXfg )
+        if ( PspDisableControlFlowGuardExportSuppression )
         {
           v29.m128i_i64[0] = v29.m128i_i64[0] & 0xFFFFFCFFFFFFFFFFuLL | 0x10000000000LL;
         }
@@ -162,45 +158,27 @@ LABEL_45:
         if ( (a5 & 0x10) == 0 )
           KeSetCheckStackExtentsProcess(a1, 1LL);
       }
-      goto LABEL_69;
+      goto LABEL_67;
     }
-LABEL_67:
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 1u);
-    if ( (a5 & 0x10) == 0 )
-      _interlockedbittestandset((volatile signed __int32 *)(a1 + 632), 5u);
-    goto LABEL_69;
   }
-  if ( (a5 & 8) != 0 )
+  else
   {
+    if ( (a5 & 8) == 0 )
+      goto LABEL_67;
     v17 = v29.m128i_i64[0] & 0xFFFFFCFFFFFFFFFFuLL | 0x10000000000LL;
     v29.m128i_i64[0] = v17;
-    if ( (a5 & 0x20) != 0 && !PspDisableControlFlowGuardExportSuppression && !MmEnableControlFlowGuardXfg )
+    if ( (a5 & 0x20) != 0 && !PspDisableControlFlowGuardExportSuppression )
     {
       _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 2u);
       v29.m128i_i64[0] = v17 | 0x30000000000LL;
     }
-    goto LABEL_67;
   }
-LABEL_69:
+  _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 1u);
+  if ( (a5 & 0x10) == 0 )
+    _interlockedbittestandset((volatile signed __int32 *)(a1 + 632), 5u);
+LABEL_67:
   if ( (((unsigned __int64)v29.m128i_i64[1] >> 8) & 3) == 1 && (*(_DWORD *)(a1 + 2512) & 1) != 0 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 4u);
-  if ( ((v30 >> 8) & 3) == 0 )
-    goto LABEL_77;
-  if ( ((v30 >> 8) & 3) != 1 )
-    goto LABEL_78;
-  if ( (*(_DWORD *)(a1 + 2512) & 1) != 0 && MmEnableControlFlowGuardXfg != v15 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x2000000u);
-  else
-LABEL_77:
-    v30 = v16 | v30 & 0xFFFFFFFFFFFFFEFFuLL;
-LABEL_78:
-  if ( ((v32 >> 8) & 3) == 1 )
-  {
-    if ( (BYTE1(v30) & 3) == 1 )
-      _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x4000000u);
-    else
-      v32 = v16 | v32 & 0xFFFFFFFFFFFFFEFFuLL;
-  }
   if ( (((unsigned __int64)v29.m128i_i64[0] >> 44) & 3) == 1 )
   {
     if ( *(_BYTE *)(a1 + 2168) < 8u )
@@ -211,14 +189,14 @@ LABEL_78:
   else
   {
     if ( (((unsigned __int64)v29.m128i_i64[0] >> 44) & 3) != 3 )
-      goto LABEL_93;
+      goto LABEL_81;
     if ( *(_BYTE *)(a1 + 2168) < 6u )
       *(_BYTE *)(a1 + 2168) = 6;
     if ( *(_BYTE *)(a1 + 2169) < 6u )
       *(_BYTE *)(a1 + 2169) = 6;
   }
   _InterlockedOr((volatile signed __int32 *)(a1 + 2512), 0x800000u);
-LABEL_93:
+LABEL_81:
   if ( (*(_DWORD *)(a1 + 2512) & 0x800000) == 0 )
   {
     if ( (((unsigned __int64)v31 >> 44) & 3) == 1 )
@@ -307,14 +285,15 @@ LABEL_93:
   if ( (*(_DWORD *)(a1 + 2516) & 4) == 0 && (BYTE12(v31) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 8u);
   if ( (((unsigned __int64)v29.m128i_i64[1] >> 40) & 3) == 1 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x400u);
-  if ( (*(_DWORD *)(a1 + 2516) & 0x400) == 0 && ((*((_QWORD *)&v31 + 1) >> 40) & 3) == 1 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x800u);
+    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), v15);
+  if ( (v15 & *(_DWORD *)(a1 + 2516)) == 0 && ((*((_QWORD *)&v31 + 1) >> 40) & 3) == 1 )
+    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), v16);
   if ( (((unsigned __int64)v29.m128i_i64[1] >> 16) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x10u);
   if ( (*(_DWORD *)(a1 + 2516) & 0x10) == 0 && ((*((_QWORD *)&v31 + 1) >> 16) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x20u);
-  if ( *(_WORD *)(a1 + 2412) == 332 )
+  v20 = *(_QWORD *)(a1 + 1408);
+  if ( v20 && *(_WORD *)(v20 + 8) == 332 )
   {
     if ( (((unsigned __int64)v29.m128i_i64[1] >> 20) & 3) == 1 )
       _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x40u);
@@ -325,24 +304,24 @@ LABEL_93:
     if ( (*(_DWORD *)(a1 + 2516) & 0x100) == 0 && ((*((_QWORD *)&v31 + 1) >> 24) & 3) == 1 )
       _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x200u);
   }
-  v20 = (unsigned __int64)v29.m128i_i64[1] >> 36;
-  if ( (v20 & 3) == 1 )
+  v21 = (unsigned __int64)v29.m128i_i64[1] >> 36;
+  if ( (v21 & 3) == 1 )
   {
-    v21 = 1;
-    goto LABEL_188;
+    v22 = 1;
+    goto LABEL_177;
   }
   if ( (((unsigned __int64)v29.m128i_i64[1] >> 36) & 3) == 3 )
   {
-    v21 = 2;
-LABEL_188:
-    PspSetNoChildProcessRestrictedPolicy(a1, v21);
+    v22 = 2;
+LABEL_177:
+    PspSetNoChildProcessRestrictedPolicy((struct _KPROCESS *)a1, v22);
   }
-  if ( (v20 & 3) != 1 && ((*((_QWORD *)&v31 + 1) >> 36) & 3) == 1 )
-    PspSetNoChildProcessRestrictedPolicy(a1, 3);
+  if ( (v21 & 3) != 1 && ((*((_QWORD *)&v31 + 1) >> 36) & 3) == 1 )
+    PspSetNoChildProcessRestrictedPolicy((struct _KPROCESS *)a1, 3);
   if ( a2 )
   {
-    v22 = *(_DWORD *)(a2 + 2512);
-    if ( (v22 & 0x10000000) != 0 && (v22 & 0x20000000) == 0 )
+    v23 = *(_DWORD *)(a2 + 2512);
+    if ( (v23 & 0x10000000) != 0 && (v23 & 0x20000000) == 0 )
       v29.m128i_i64[1] = v29.m128i_i64[1] & 0xFFFFCFFFFFFFFFFFuLL | 0x100000000000LL;
   }
   if ( (((unsigned __int64)v29.m128i_i64[1] >> 44) & 3) == 1 )
@@ -361,11 +340,11 @@ LABEL_188:
       if ( (a5 & 0x100000) != 0 )
         _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x100000u);
       v29.m128i_i64[1] = v29.m128i_i64[1] & 0xCFFFFFFFFFFFFFFFuLL | 0x1000000000000000LL;
-LABEL_210:
+LABEL_199:
       _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x4000u);
       break;
     case 1uLL:
-      goto LABEL_210;
+      goto LABEL_199;
     case 3uLL:
       v29.m128i_i64[1] = v29.m128i_i64[1] & 0xCFFFFFFFFFFFFFFFuLL | 0x1000000000000000LL;
       _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x4000u);
@@ -376,23 +355,23 @@ LABEL_210:
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x8000u);
   if ( (*(_DWORD *)(a1 + 2516) & 0x4000) == 0 )
   {
-    v23 = v30 & 0xFFFFFFFFFFFFFFFCuLL | 2;
-    goto LABEL_221;
+    v24 = v30 & 0xFFFFFFFFFFFFFFFCuLL | 2;
+    goto LABEL_210;
   }
   _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x20000u);
   if ( (v30 & 3) != 0 )
   {
     if ( (v30 & 3) == 3 )
-      goto LABEL_219;
+      goto LABEL_208;
   }
   else if ( (a5 & 0x200000) != 0 )
   {
-LABEL_219:
+LABEL_208:
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x80000000);
   }
-  v23 = v30 & 0xFFFFFFFFFFFFFFFCuLL | 1;
-LABEL_221:
-  v30 = v23;
+  v24 = v30 & 0xFFFFFFFFFFFFFFFCuLL | 1;
+LABEL_210:
+  v30 = v24;
   if ( (v32 & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x40000u);
   if ( ((v30 >> 4) & 3) == 1 )
@@ -406,34 +385,22 @@ LABEL_221:
   }
   if ( ((v32 >> 4) & 3) == 1 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x800000u);
-  if ( ((v30 >> 12) & 3) == 0 )
-  {
-    v30 = v30 & 0xFFFFFFFFFFFFCFFFuLL | 0x1000;
-    goto LABEL_233;
-  }
-  if ( ((v30 >> 12) & 3) == 1 )
-LABEL_233:
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x8000000u);
-  if ( ((v32 >> 12) & 3) == 1 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x10000000u);
   if ( ((v30 >> 16) & 3) == 0 )
   {
     if ( (a5 & 0x400000) != 0 )
-      goto LABEL_241;
-    goto LABEL_240;
+      goto LABEL_223;
+    goto LABEL_222;
   }
   if ( ((v30 >> 16) & 3) == 1 )
-LABEL_240:
+LABEL_222:
     _InterlockedOr((volatile signed __int32 *)(a1 + 2516), 0x40000000u);
-LABEL_241:
-  result = v30 >> 20;
+LABEL_223:
   v25 = v30 >> 20;
   if ( (v25 & 3) == 1 )
-    result = PspSetRedirectionTrustPolicy(a1, 1);
+    PspSetRedirectionTrustPolicy((struct _KPROCESS *)a1, 1);
   if ( (v25 & 3) != 1 && ((v32 >> 20) & 3) == 1 )
-    result = PspSetRedirectionTrustPolicy(a1, 2);
+    PspSetRedirectionTrustPolicy((struct _KPROCESS *)a1, 2);
   v26 = v30;
   *a3 = v29;
   a3[1].m128i_i64[0] = v26;
-  return result;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x14095D064
+ * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x1408A564C
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14095DB3C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x14076DED4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E54 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     PnpValidateMultiSzData @ 0x1403CE1A8 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     _RegRtlDeletePathInternal @ 0x140A6AC0C (_RegRtlDeletePathInternal.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     PnpValidateMultiSzData @ 0x14036E3C8 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _RegRtlDeletePathInternal @ 0x14097C9EC (_RegRtlDeletePathInternal.c)
  */
 
 __int64 __fastcall PiDevCfgClearDeviceMigrationNode(__int64 *a1, const WCHAR *a2)
@@ -84,13 +84,13 @@ LABEL_5:
     v33[17] = &v27;
     LODWORD(v33[8]) = 304;
     LODWORD(v33[18]) = 0x4000000;
-    RegistryValues = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)Handle, v33, 0LL);
+    RegistryValues = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)Handle, (__int64)v33, 0LL);
     if ( RegistryValues >= 0 )
     {
       if ( !UnicodeString.Length && UnicodeString.Buffer )
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeAnsiString(&UnicodeString);
       if ( v29.Buffer && !PnpValidateMultiSzData(v29.Buffer, v29.Length) )
-        RtlFreeUnicodeString(&v29);
+        RtlFreeAnsiString(&v29);
       if ( v27 )
         goto LABEL_5;
       ZwClose(Handle);
@@ -178,8 +178,8 @@ LABEL_5:
     }
   }
 LABEL_59:
-  RtlFreeUnicodeString(&UnicodeString);
-  RtlFreeUnicodeString(&v29);
+  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&v29);
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)RegistryValues;

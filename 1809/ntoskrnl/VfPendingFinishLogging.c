@@ -4,7 +4,7 @@
  *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
  *     IovpCompleteRequest1 @ 0x14092F4F4 (IovpCompleteRequest1.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
  */
 
 __int64 __fastcall VfPendingFinishLogging(__int64 a1)

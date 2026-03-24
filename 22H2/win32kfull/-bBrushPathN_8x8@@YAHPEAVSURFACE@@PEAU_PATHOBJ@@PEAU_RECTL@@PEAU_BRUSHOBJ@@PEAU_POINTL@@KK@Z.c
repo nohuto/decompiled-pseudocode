@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4E44
+ * XREFs of ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CF700
  * Callers:
- *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4858 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C01476A0 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C02F4F18 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0147B60 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall bBrushPathN_8x8(
@@ -18,20 +18,15 @@ __int64 __fastcall bBrushPathN_8x8(
 {
   void (*v11)(struct _RECTL *, unsigned int, void *); // r9
   void (*v12)(int, struct _ROW *, unsigned int, void *); // rax
-  _BYTE v14[8]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-40h]
-  __int64 v16; // [rsp+40h] [rbp-38h]
-  int v17; // [rsp+48h] [rbp-30h]
-  int v18; // [rsp+58h] [rbp-20h]
-  int v19; // [rsp+5Ch] [rbp-1Ch]
+  _QWORD v14[8]; // [rsp+30h] [rbp-48h] BYREF
 
-  memset_0(v14, 0, 0x40uLL);
+  memset(v14, 0, sizeof(v14));
   v11 = (void (*)(struct _RECTL *, unsigned int, void *))vBrushPath8_8x8Enum;
-  v15 = *((_QWORD *)a1 + 10);
-  v17 = *((_DWORD *)a1 + 22);
-  v16 = *((_QWORD *)a4[1].pvRbrush + 4);
-  v18 = a5->x & 7;
-  v19 = a5->y & 7;
+  v14[1] = *((_QWORD *)a1 + 10);
+  LODWORD(v14[3]) = *((_DWORD *)a1 + 22);
+  v14[2] = *((_QWORD *)a4[1].pvRbrush + 4);
+  LODWORD(v14[5]) = a5->x & 7;
+  HIDWORD(v14[5]) = a5->y & 7;
   v12 = (void (*)(int, struct _ROW *, unsigned int, void *))vBrushPath8_8x8EnumRow;
   if ( a6 != 3 )
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of _IsFixedSizeType @ 0x1402DE58C
+ * XREFs of _IsFixedSizeType @ 0x140265340
  * Callers:
- *     _PnpValidatePropertyData @ 0x140771CD0 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
  * Callees:
  *     <none>
  */

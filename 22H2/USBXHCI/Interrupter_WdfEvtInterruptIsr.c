@@ -1,17 +1,17 @@
 /*
- * XREFs of Interrupter_WdfEvtInterruptIsr @ 0x1C0007790
+ * XREFs of Interrupter_WdfEvtInterruptIsr @ 0x1C00053F0
  * Callers:
  *     <none>
  * Callees:
- *     Controller_LowerAndTrackIrql @ 0x1C00074EC (Controller_LowerAndTrackIrql.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0007588 (Controller_RaiseAndTrackIrql.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Interrupter_DeferToDpcOrWorkItem @ 0x1C00223FA (Interrupter_DeferToDpcOrWorkItem.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002246A (McTemplateK0q_EtwWriteTransfer.c)
- *     Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C00324F4 (Controller_AreFrameAndTimeDeltaValuesValid.c)
- *     Controller_GetFrameNumber @ 0x1C0033390 (Controller_GetFrameNumber.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C0030994 (Controller_AreFrameAndTimeDeltaValuesValid.c)
+ *     Controller_GetFrameNumber @ 0x1C00319B4 (Controller_GetFrameNumber.c)
+ *     Interrupter_DeferToDpcOrWorkItem @ 0x1C003BADC (Interrupter_DeferToDpcOrWorkItem.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C003C03C (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
@@ -19,9 +19,9 @@ __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
   char v4; // r15
   unsigned __int8 v5; // bp
   __int64 v6; // rbx
-  __int64 v7; // r12
+  __int64 v7; // r8
   __int64 v8; // rcx
-  __int64 v9; // r8
+  __int64 v9; // r12
   __int64 v10; // rsi
   __int64 v12; // r13
   __int64 v13; // r10
@@ -39,46 +39,47 @@ __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
   v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063310);
-  v7 = *(_QWORD *)(*(_QWORD *)(v6 + 8) + 88LL);
+         off_1C0060310);
+  v8 = *(_QWORD *)(v6 + 8);
+  v9 = *(_QWORD *)(v8 + 88);
   if ( KeGetCurrentIrql() < 2u )
-    v4 = Controller_RaiseAndTrackIrql(*(_QWORD *)(v6 + 8));
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v8, &USBXHCI_ETW_EVENT_INTERRUPT_V1, v9, *(unsigned int *)(v6 + 32));
+    v4 = Controller_RaiseAndTrackIrql(v8);
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v8, &USBXHCI_ETW_EVENT_INTERRUPT_V1, v7, *(unsigned int *)(v6 + 32));
   v10 = *(_QWORD *)(v6 + 8);
   v19 = 0;
   v20 = 0;
-  if ( *(_BYTE *)(v10 + 664) )
+  if ( *(_BYTE *)(v10 + 608) )
   {
     v12 = MEMORY[0xFFFFF78000000008];
-    if ( MEMORY[0xFFFFF78000000008] > (unsigned __int64)(*(_QWORD *)(v10 + 752) + 15000000LL) )
+    if ( MEMORY[0xFFFFF78000000008] > (unsigned __int64)(*(_QWORD *)(v10 + 696) + 15000000LL) )
     {
       FrameNumber = Controller_GetFrameNumber(v10, 0LL, &v19, &v20);
       if ( !v19 )
       {
         if ( v20 )
         {
-          ++*(_DWORD *)(v10 + 812);
+          ++*(_DWORD *)(v10 + 756);
         }
         else
         {
           KeQueryPerformanceCounter(0LL);
           if ( (unsigned __int8)Controller_AreFrameAndTimeDeltaValuesValid(
-                                  (unsigned int)(FrameNumber - *(_DWORD *)(v10 + 776)),
-                                  v12 - *(_QWORD *)(v10 + 760)) )
+                                  (unsigned int)(FrameNumber - *(_DWORD *)(v10 + 720)),
+                                  v12 - *(_QWORD *)(v10 + 704)) )
           {
-            *(_QWORD *)(v10 + 792) = v13 - *(_QWORD *)(v10 + 728);
-            *(_QWORD *)(v10 + 800) = (unsigned int)(8 * (v14 - *(_DWORD *)(v10 + 736)) - *(_DWORD *)(v10 + 744));
+            *(_QWORD *)(v10 + 736) = v13 - *(_QWORD *)(v10 + 672);
+            *(_QWORD *)(v10 + 744) = (unsigned int)(8 * (v14 - *(_DWORD *)(v10 + 680)) - *(_DWORD *)(v10 + 688));
           }
           else
           {
-            ++*(_DWORD *)(v10 + 808);
+            ++*(_DWORD *)(v10 + 752);
           }
-          *(_QWORD *)(v10 + 768) = v13;
-          *(_QWORD *)(v10 + 760) = v12;
-          *(_DWORD *)(v10 + 776) = v14;
+          *(_QWORD *)(v10 + 712) = v13;
+          *(_QWORD *)(v10 + 704) = v12;
+          *(_DWORD *)(v10 + 720) = v14;
         }
-        *(_QWORD *)(v10 + 752) = v12;
+        *(_QWORD *)(v10 + 696) = v12;
       }
     }
   }
@@ -94,9 +95,9 @@ __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
                                                                                                 + 1616))(
                                   WdfDriverGlobals,
                                   a1,
-                                  off_1C0063310)
+                                  off_1C0060310)
                               + 8)
-                  + 601LL) )
+                  + 553LL) )
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3328))(WdfDriverGlobals, a1);
     else
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 1136))(WdfDriverGlobals, a1);
@@ -104,21 +105,21 @@ __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
   else
   {
     v15 = *(unsigned int **)(v6 + 24);
-    if ( *(_BYTE *)(v7 + 137) )
+    if ( *(_BYTE *)(v9 + 137) )
       Ulong = *v15;
     else
-      Ulong = XilRegister_ReadUlong(v7, v15);
+      Ulong = XilRegister_ReadUlong(v9, v15);
     if ( (Ulong & 1) != 0 )
     {
       v17 = *(unsigned int **)(v6 + 24);
-      if ( *(_BYTE *)(v7 + 137) )
+      if ( *(_BYTE *)(v9 + 137) )
       {
         *v17 = Ulong;
         _InterlockedOr(v18, 0);
       }
       else
       {
-        XilRegister_WriteUlong(v7, v17, Ulong);
+        XilRegister_WriteUlong(v9, v17, Ulong);
       }
       ++*(_DWORD *)(v6 + 40);
       Interrupter_DeferToDpcOrWorkItem(a1);

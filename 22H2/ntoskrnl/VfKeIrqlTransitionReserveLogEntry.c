@@ -1,14 +1,12 @@
 /*
- * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x140AC15B0
+ * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE60
  * Callers:
- *     VerifierKeLowerIrql @ 0x140AC1380 (VerifierKeLowerIrql.c)
- *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140AC13F0 (VerifierKeReleaseInStackQueuedSpinLock.c)
- *     VerifierKeReleaseSpinLock @ 0x140AC1470 (VerifierKeReleaseSpinLock.c)
- *     VerifierKeReleaseQueuedSpinLock @ 0x140AD0880 (VerifierKeReleaseQueuedSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x140AD6AC0 (VerifierPortKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD6B10 (VerifierPortKeReleaseSpinLockNoXdv.c)
- *     VfKeIrqlLogRaise @ 0x140AD6CB0 (VfKeIrqlLogRaise.c)
- *     VerifierExReleaseFastMutex @ 0x140ADE220 (VerifierExReleaseFastMutex.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x1409DC148 (ViKeLowerIrqlSanityChecks.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E4720 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexNoReboot @ 0x1409E47D0 (VerifierExAcquireFastMutexNoReboot.c)
+ *     ViExReleaseFastMutexCommon @ 0x1409E4E40 (ViExReleaseFastMutexCommon.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409E4E80 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C00482A8
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C00E15C8
  * Callers:
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00483D0 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00491C4 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E130C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E41C0 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x1C0048004 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C00E1638 (RtlUnicodeStringValidateWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(

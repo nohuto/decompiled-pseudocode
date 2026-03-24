@@ -1,20 +1,20 @@
 /*
- * XREFs of KeCheckStackAndTargetAddress @ 0x140346450
+ * XREFs of KeCheckStackAndTargetAddress @ 0x140309780
  * Callers:
- *     __C_specific_handler @ 0x1403D76B0 (__C_specific_handler.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
- *     RtlRestoreContext @ 0x140428C10 (RtlRestoreContext.c)
- *     RcFrameConsolidation @ 0x140428F60 (RcFrameConsolidation.c)
+ *     __C_specific_handler @ 0x1403CFD90 (__C_specific_handler.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
+ *     RtlRestoreContext @ 0x140407380 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x140407650 (RcFrameConsolidation.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9D0 (KeQueryCurrentStackInformationEx.c)
- *     _guard_icall_bugcheck @ 0x1404294B0 (_guard_icall_bugcheck.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402D0C30 (KeQueryCurrentStackInformationEx.c)
+ *     _guard_icall_bugcheck @ 0x140407B80 (_guard_icall_bugcheck.c)
  */
 
 bool __fastcall KeCheckStackAndTargetAddress(signed __int64 BugCheckParameter4, unsigned __int64 a2)
 {
   bool result; // al
-  int v5; // [rsp+30h] [rbp+8h] BYREF
-  char *v6; // [rsp+40h] [rbp+18h] BYREF
+  char v5; // [rsp+30h] [rbp+8h] BYREF
+  struct _KPRCB *v6; // [rsp+40h] [rbp+18h] BYREF
   unsigned __int64 v7; // [rsp+48h] [rbp+20h] BYREF
 
   v7 = 0LL;

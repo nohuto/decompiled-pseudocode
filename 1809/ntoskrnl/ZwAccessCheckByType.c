@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAccessCheckByType @ 0x1401B8DD0
+ * XREFs of ZwAccessCheckByType @ 0x1401B8DF0
  * Callers:
  *     <none>
  * Callees:

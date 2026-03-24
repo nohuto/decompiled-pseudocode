@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1408FF8A8
+ * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1408FF888
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1408FF4A0 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1408FF480 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
  *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
@@ -52,7 +52,7 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   v8 = 0;
   v39 = 0LL;
   Handle = 0LL;
-  v10 = &off_14090AC00;
+  v10 = &off_14090ABE0;
   for ( i = 0; i < 0xD; ++i )
   {
     v15 = *v10;

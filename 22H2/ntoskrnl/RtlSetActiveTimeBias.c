@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSetActiveTimeBias @ 0x140840F74
+ * XREFs of RtlSetActiveTimeBias @ 0x1407AA824
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     RtlWriteRegistryValue @ 0x1407D4860 (RtlWriteRegistryValue.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1407F83A4 (RtlpGetTimeZoneInfoHandle.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlWriteRegistryValue @ 0x1406978F0 (RtlWriteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x140714474 (RtlpGetTimeZoneInfoHandle.c)
  */
 
 __int64 __fastcall RtlSetActiveTimeBias(int a1)
@@ -30,7 +30,7 @@ __int64 __fastcall RtlSetActiveTimeBias(int a1)
     LODWORD(v3[1]) = 292;
     v3[2] = L"ActiveTimeBias";
     LODWORD(v3[4]) = 0x4000000;
-    RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, v3, 0LL);
+    RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, (__int64)v3, 0LL);
     if ( RegistryValues < 0 || v5 != ValueData )
       RegistryValues = RtlWriteRegistryValue(0x40000000u, (PCWSTR)Handle, L"ActiveTimeBias", 4u, &ValueData, 4u);
     ZwClose(Handle);

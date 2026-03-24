@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Reset@CDataStreamWriter@@QEAAXXZ @ 0x180044658
+ * XREFs of ?Reset@CDataStreamWriter@@QEAAXXZ @ 0x18003779C
  * Callers:
- *     ?ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z @ 0x1800440DC (-ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z.c)
- *     ?DestroyRenderData@CRenderData@@AEAAXXZ @ 0x180044574 (-DestroyRenderData@CRenderData@@AEAAXXZ.c)
+ *     ?ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z @ 0x1800372E0 (-ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z.c)
+ *     ?DestroyRenderData@CRenderData@@AEAAXXZ @ 0x18003771C (-DestroyRenderData@CRenderData@@AEAAXXZ.c)
  * Callees:
- *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1800446D4 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x180037848 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CDataStreamWriter::Reset(struct _LIST_ENTRY *this)
 {
   CDataStreamWriter::FreeBlocks((CDataStreamWriter *)this, this);
-  DefaultHeap::Free(this[2].Flink);
+  operator delete(this[2].Flink);
   this->Blink = this;
   this[2].Flink = 0LL;
   this[2].Blink = 0LL;

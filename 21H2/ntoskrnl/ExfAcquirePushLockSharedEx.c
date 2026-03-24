@@ -1,102 +1,101 @@
 /*
- * XREFs of ExfAcquirePushLockSharedEx @ 0x14029F350
+ * XREFs of ExfAcquirePushLockSharedEx @ 0x1402F2EC0
  * Callers:
- *     FsRtlLookupPerFileObjectContext @ 0x14021C390 (FsRtlLookupPerFileObjectContext.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x14023642C (ExpAcquireFannedOutPushLockShared.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x14029EDB0 (ExAcquireAutoExpandPushLockShared.c)
- *     ExAcquireCacheAwarePushLockSharedEx @ 0x14029EFF0 (ExAcquireCacheAwarePushLockSharedEx.c)
- *     ExfAcquirePushLockShared @ 0x14029F330 (ExfAcquirePushLockShared.c)
- *     ExpSaAllocatorAllocate @ 0x14029FDC4 (ExpSaAllocatorAllocate.c)
- *     InsertEventEntryInLookUpTable @ 0x1402A1AEC (InsertEventEntryInLookUpTable.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     FsRtlLookupPerStreamContextInternal @ 0x1402AE630 (FsRtlLookupPerStreamContextInternal.c)
- *     ExpSaAllocatorFree @ 0x140360FD4 (ExpSaAllocatorFree.c)
- *     DifExfAcquirePushLockSharedWrapper @ 0x140609D90 (DifExfAcquirePushLockSharedWrapper.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1406D7D74 (ExpWnfDispatchKernelSubscription.c)
- *     ExpWnfEnumerateScopeInstances @ 0x1406E2814 (ExpWnfEnumerateScopeInstances.c)
- *     ExpWnfNotifySubscription @ 0x1407927AC (ExpWnfNotifySubscription.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x14079296C (ExpWnfAcquireSubscriptionByName.c)
- *     ExpWnfDeliverThreadNotifications @ 0x140792EFC (ExpWnfDeliverThreadNotifications.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x1407931C0 (ExpWnfCompleteThreadSubscriptions.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407938B0 (ExpWnfNotifyNameSubscribers.c)
- *     ExpNtUpdateWnfStateData @ 0x140793B84 (ExpNtUpdateWnfStateData.c)
- *     ExpWnfReadStateData @ 0x1407944BC (ExpWnfReadStateData.c)
- *     ExpWnfLookupNameInstance @ 0x140798234 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfSubscribeNameInstance @ 0x14079A254 (ExpWnfSubscribeNameInstance.c)
- *     WbRemoveWarbirdProcess @ 0x1407E15B4 (WbRemoveWarbirdProcess.c)
- *     sub_1407E1B90 @ 0x1407E1B90 (sub_1407E1B90.c)
- *     WbGetWarbirdProcess @ 0x1407E2D60 (WbGetWarbirdProcess.c)
- *     WbGetHeapExecutedBlock @ 0x1407E3260 (WbGetHeapExecutedBlock.c)
- *     WbGetWarbirdThread @ 0x1407E3900 (WbGetWarbirdThread.c)
- *     WbAllocateUserMemory @ 0x1407E43F0 (WbAllocateUserMemory.c)
- *     WbAllocateSlots @ 0x1407E4720 (WbAllocateSlots.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x1407EEEB8 (ExpWnfAcquireSubscriptionNameInstance.c)
- *     ExRegisterExtension @ 0x1408484A0 (ExRegisterExtension.c)
- *     ExpKdPullRemoteFileForUser @ 0x1408536D4 (ExpKdPullRemoteFileForUser.c)
- *     sub_140A0FAB0 @ 0x140A0FAB0 (sub_140A0FAB0.c)
- *     WheaConfigureErrorSource @ 0x140A55520 (WheaConfigureErrorSource.c)
- *     WheaUnconfigureErrorSource @ 0x140A6D3D0 (WheaUnconfigureErrorSource.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x14028F230 (ExAcquireAutoExpandPushLockShared.c)
+ *     ExfAcquirePushLockShared @ 0x1402F2EA0 (ExfAcquirePushLockShared.c)
+ *     ExAcquireCacheAwarePushLockSharedEx @ 0x14034A3F0 (ExAcquireCacheAwarePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x140375F60 (InsertEventEntryInLookUpTable.c)
+ *     ExpAcquireFannedOutPushLockShared @ 0x140390B40 (ExpAcquireFannedOutPushLockShared.c)
+ *     ExpSaAllocatorAllocate @ 0x1403915CC (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorFree @ 0x140394354 (ExpSaAllocatorFree.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x1405D71A8 (WbGetWarbirdEncryptionSegment.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x14060E014 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x14060E2DC (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfLookupNameInstance @ 0x14060F3B4 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfReadStateData @ 0x14060FB44 (ExpWnfReadStateData.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14060FD38 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x14061169C (ExpWnfAcquireSubscriptionByName.c)
+ *     WbGetHeapExecutedBlock @ 0x14064D984 (WbGetHeapExecutedBlock.c)
+ *     WbGetWarbirdThread @ 0x14064EAD0 (WbGetWarbirdThread.c)
+ *     WbGetWarbirdProcess @ 0x14064F044 (WbGetWarbirdProcess.c)
+ *     WbAllocateUserMemory @ 0x1406875F4 (WbAllocateUserMemory.c)
+ *     WbAllocateSlots @ 0x1406878DC (WbAllocateSlots.c)
+ *     WbRemoveWarbirdProcess @ 0x1406A2524 (WbRemoveWarbirdProcess.c)
+ *     sub_1406A8A5C @ 0x1406A8A5C (sub_1406A8A5C.c)
+ *     ExpWnfNotifySubscription @ 0x1406AB524 (ExpWnfNotifySubscription.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1406AB6C4 (ExpWnfDispatchKernelSubscription.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1406BB228 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x1406C0B18 (ExpWnfEnumerateScopeInstances.c)
+ *     ExRegisterExtension @ 0x14079D800 (ExRegisterExtension.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
+ *     WheaConfigureErrorSource @ 0x1409A0440 (WheaConfigureErrorSource.c)
+ *     WheaUnconfigureErrorSource @ 0x1409B3770 (WheaUnconfigureErrorSource.c)
  * Callees:
- *     KeAbPreWait @ 0x14029F580 (KeAbPreWait.c)
- *     RtlBackoff @ 0x14029F5C0 (RtlBackoff.c)
- *     ExpOptimizePushLockList @ 0x14029F640 (ExpOptimizePushLockList.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
+ *     RtlBackoff @ 0x1402F3100 (RtlBackoff.c)
+ *     ExpOptimizePushLockList @ 0x1402F3184 (ExpOptimizePushLockList.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, char a2, __int64 a3, __int64 a4)
+signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, __int64 a2, ULONG_PTR a3)
 {
-  int v8; // r15d
-  signed __int64 v9; // rdi
-  signed __int64 v10; // rcx
+  unsigned __int64 v6; // rdx
+  unsigned __int64 v7; // r8
+  unsigned __int64 v8; // r9
+  unsigned __int64 v9; // rdi
+  __int64 v10; // rbx
+  signed __int64 v11; // rcx
   signed __int64 result; // rax
-  bool v12; // cl
-  char *v13; // rdx
+  bool v13; // cl
   bool v14; // zf
   signed __int64 v15; // rax
-  int i; // edx
-  unsigned __int64 v18; // r8
-  unsigned __int64 v19; // r9
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rax
+  int i; // ecx
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rax
   _QWORD Object[8]; // [rsp+30h] [rbp-40h] BYREF
-  int v23; // [rsp+B8h] [rbp+48h] BYREF
+  int v21; // [rsp+B0h] [rbp+40h] BYREF
 
   memset(Object, 0, sizeof(Object));
-  v23 = 0;
-  v8 = a2 & 4;
+  v21 = 0;
   _m_prefetchw(a1);
   v9 = *a1;
-  while ( (v9 & 3) != 0 && ((v9 & 1) != 0 || v8) && ((v9 & 3) != 1 || (v9 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+  while ( 1 )
   {
-    if ( a3 )
-      KeAbPreWait(a3);
-    v12 = 0;
-    Object[7] = a3;
+    v10 = (v9 >> 1) & 1;
+    if ( (v9 & 1) == 0 || !v10 && (v9 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+      break;
+    if ( a2 )
+      KeAbPreWait(a2);
+    v13 = 0;
+    Object[7] = a2;
     HIDWORD(Object[6]) = 2;
     Object[5] = 0LL;
-    if ( (v9 & 2) != 0 )
+    if ( v10 )
     {
       Object[4] = 0LL;
       LODWORD(Object[6]) = -1;
       Object[3] = v9 & 0xFFFFFFFFFFFFFFF0uLL;
-      v13 = (char *)((unsigned __int64)Object | v9 & 9 | 6);
-      v12 = (v9 & 4) == 0;
+      v6 = (unsigned __int64)Object | v9 & 8 | 7;
+      v13 = (v9 & 4) == 0;
     }
     else
     {
       LODWORD(Object[6]) = -2;
       Object[4] = Object;
-      v13 = (char *)Object + 3;
+      v6 = (unsigned __int64)Object + 3;
     }
-    v15 = _InterlockedCompareExchange64(a1, (signed __int64)v13, v9);
+    v15 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6, v9);
     v14 = v9 == v15;
     v9 = v15;
     if ( !v14 )
-      goto LABEL_15;
-    if ( v12 )
+      goto LABEL_24;
+    if ( v13 )
       ExpOptimizePushLockList(a1);
     Object[2] = &Object[1];
     Object[1] = &Object[1];
@@ -107,50 +106,53 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, char a2
     {
       if ( MEMORY[0xFFFFF78000000297] )
       {
-        v18 = __rdtsc();
-        v19 = v18 + (unsigned int)ExpSpinCycleCount;
+        v7 = __rdtsc();
+        v8 = v7 + (unsigned int)ExpSpinCycleCount;
         while ( 1 )
         {
+          v6 = 0LL;
           __asm { monitorx rax, rcx, rdx }
           if ( (Object[6] & 0x200000000LL) == 0 )
             break;
-          v20 = v18;
-          v21 = __rdtsc();
-          v18 = v21;
-          if ( v21 <= v20 || v21 >= v19 )
+          v18 = v7;
+          v19 = __rdtsc();
+          v6 = (unsigned __int64)HIDWORD(v19) << 32;
+          v7 = v19;
+          if ( v19 <= v18 || v19 >= v8 )
             break;
           __asm { mwaitx  rax, rcx, rbx }
         }
       }
       else
       {
-        for ( i = 0;
-              (Object[6] & 0x200000000LL) != 0 && i != ExpSpinCycleCount / (unsigned int)MEMORY[0xFFFFF780000002D6];
-              ++i )
+        for ( i = 0; ; ++i )
         {
+          v6 = HIDWORD(Object[6]);
+          if ( (Object[6] & 0x200000000LL) == 0 || i == ExpSpinCycleCount / (unsigned int)MEMORY[0xFFFFF780000002D6] )
+            break;
           _mm_pause();
         }
       }
     }
     if ( _interlockedbittestandreset((volatile signed __int32 *)&Object[6] + 1, 1u) )
       KeWaitForSingleObject(Object, WrPushLock, 0, 0, 0LL);
-LABEL_16:
-    if ( a3 )
-      a3 = KeAbPreAcquire(a4, a3, 0LL);
+LABEL_25:
+    if ( a2 )
+      a2 = KeAbPreAcquire(a3);
   }
-  v10 = (v9 | 1) + 16;
-  if ( (v9 & 2) != 0 )
-    v10 = v9 | 1;
-  result = _InterlockedCompareExchange64(a1, v10, v9);
+  v11 = (v9 | 1) + 16;
+  if ( v10 )
+    v11 = v9 | 1;
+  result = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v11, v9);
   if ( v9 != result )
   {
-    if ( a3 )
-      KeAbPreWait(a3);
-LABEL_15:
-    RtlBackoff(&v23);
+    if ( a2 )
+      KeAbPreWait(a2);
+LABEL_24:
+    RtlBackoff(&v21, v6, v7, v8);
     v9 = *a1;
     _m_prefetchw(a1);
-    goto LABEL_16;
+    goto LABEL_25;
   }
   return result;
 }

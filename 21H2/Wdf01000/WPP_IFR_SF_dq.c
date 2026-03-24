@@ -1,17 +1,17 @@
 /*
- * XREFs of WPP_IFR_SF_dq @ 0x1C005319C
+ * XREFs of WPP_IFR_SF_dq @ 0x1C002EA2C
  * Callers:
- *     imp_WdfDmaEnablerWdmGetDmaAdapter @ 0x1C00352A0 (imp_WdfDmaEnablerWdmGetDmaAdapter.c)
- *     imp_WdfDmaEnablerGetFragmentLength @ 0x1C0035310 (imp_WdfDmaEnablerGetFragmentLength.c)
- *     ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x1C0055CC0 (-AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z.c)
- *     ?FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ @ 0x1C0055E90 (-FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ.c)
- *     UnlockVerifierSection @ 0x1C006C19C (UnlockVerifierSection.c)
- *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0081E40 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
- *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0082088 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
- *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C008217C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     imp_WdfDmaEnablerGetFragmentLength @ 0x1C002F1B0 (imp_WdfDmaEnablerGetFragmentLength.c)
+ *     imp_WdfDmaEnablerWdmGetDmaAdapter @ 0x1C002F3B0 (imp_WdfDmaEnablerWdmGetDmaAdapter.c)
+ *     ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x1C0032E2C (-AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z.c)
+ *     ?FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ @ 0x1C0032FD0 (-FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ.c)
+ *     UnlockVerifierSection @ 0x1C00588C4 (UnlockVerifierSection.c)
+ *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076AF8 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0076D48 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076E3C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_dq(

@@ -1,10 +1,10 @@
 /*
- * XREFs of AtmDrvFontManagementRedirector @ 0x1C029D4D4
+ * XREFs of AtmDrvFontManagementRedirector @ 0x1C029EBF4
  * Callers:
- *     GreNamedEscape @ 0x1C02A5034 (GreNamedEscape.c)
+ *     GreNamedEscape @ 0x1C02A7604 (GreNamedEscape.c)
  * Callees:
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C001F138 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     UmfdFontManagement @ 0x1C02DBD60 (UmfdFontManagement.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7460 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     UmfdFontManagement @ 0x1C02DEF50 (UmfdFontManagement.c)
  */
 
 __int64 __fastcall AtmDrvFontManagementRedirector(__int64 a1, __int64 a2, int a3, int a4, int *a5, int a6, __int64 a7)

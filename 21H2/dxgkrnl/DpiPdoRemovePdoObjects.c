@@ -1,49 +1,51 @@
 /*
- * XREFs of DpiPdoRemovePdoObjects @ 0x1C0397E38
+ * XREFs of DpiPdoRemovePdoObjects @ 0x1C02D98D8
  * Callers:
- *     DpiFdoCreateRelatedObjects @ 0x1C01FBF08 (DpiFdoCreateRelatedObjects.c)
- *     DpiFdoDestroyRelatedObjects @ 0x1C0389018 (DpiFdoDestroyRelatedObjects.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C018AE58 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoDestroyRelatedObjects @ 0x1C02C8C24 (DpiFdoDestroyRelatedObjects.c)
  * Callees:
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiPdoDestroyPendingPdoObjects @ 0x1C0397590 (DpiPdoDestroyPendingPdoObjects.c)
- *     DpiPdoRemovePdo @ 0x1C0397BD4 (DpiPdoRemovePdo.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiPdoDestroyPendingPdoObjects @ 0x1C02D8F80 (DpiPdoDestroyPendingPdoObjects.c)
+ *     DpiPdoRemovePdo @ 0x1C02D9630 (DpiPdoRemovePdo.c)
  */
 
-__int64 __fastcall DpiPdoRemovePdoObjects(__int64 a1, char a2)
+__int64 __fastcall DpiPdoRemovePdoObjects(__int64 a1, char a2, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3)
 {
-  __int64 v2; // rbx
-  struct _ERESOURCE *v5; // r15
-  char v6; // si
-  _QWORD *v7; // r14
-  _QWORD *v8; // rbx
-  __int64 v9; // rdx
-  __int64 v10; // rax
+  __int64 v3; // rbx
+  struct _ERESOURCE *v7; // r15
+  bool v8; // si
+  __int64 v9; // r8
+  _QWORD *v10; // r14
+  _QWORD *v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rax
 
-  v2 = *(_QWORD *)(a1 + 64);
+  v3 = *(_QWORD *)(a1 + 64);
   KeEnterCriticalRegion();
-  v5 = (struct _ERESOURCE *)(v2 + 3304);
-  ExAcquireResourceExclusiveLite((PERESOURCE)(v2 + 3304), 1u);
-  v6 = (int)DpiAcquireCoreSyncAccessSafe(a1, 1) >= 0;
-  v7 = (_QWORD *)(v2 + 3464);
-  v8 = *(_QWORD **)(v2 + 3464);
-  while ( v8 != v7 )
+  v7 = (struct _ERESOURCE *)(v3 + 3304);
+  ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3304), 1u);
+  v8 = (int)DpiAcquireCoreSyncAccessSafe(a1, 1) >= 0;
+  v10 = (_QWORD *)(v3 + 3464);
+  v11 = *(_QWORD **)(v3 + 3464);
+  while ( v11 != v10 )
   {
-    v9 = (__int64)(v8 - 4);
-    v8 = (_QWORD *)*v8;
-    v10 = *(_QWORD *)(v9 + 48);
-    if ( v10 )
+    v12 = (__int64)(v11 - 4);
+    v11 = (_QWORD *)*v11;
+    v13 = *(_QWORD *)(v12 + 48);
+    if ( v13 )
     {
       if ( a2 )
-        *(_BYTE *)(*(_QWORD *)(v10 + 64) + 509LL) = 0;
-      DpiPdoRemovePdo(a1, v9, v6);
+        *(_BYTE *)(*(_QWORD *)(v13 + 64) + 509LL) = 0;
+      LOBYTE(v9) = v8;
+      DpiPdoRemovePdo(a1, v12, v9, a3);
     }
   }
   if ( a2 )
     DpiPdoDestroyPendingPdoObjects(a1);
-  if ( v6 )
+  if ( v8 )
     DpiReleaseCoreSyncAccessSafe(a1, 1);
-  ExReleaseResourceLite(v5);
+  ExReleaseResourceLite(v7);
   KeLeaveCriticalRegion();
   return 0LL;
 }

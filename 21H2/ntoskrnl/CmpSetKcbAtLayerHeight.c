@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSetKcbAtLayerHeight @ 0x1406B98FC
+ * XREFs of CmpSetKcbAtLayerHeight @ 0x1405D6C8C
  * Callers:
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpPopulateKcbStack @ 0x1407C063C (CmpPopulateKcbStack.c)
- *     CmpConstructNameWithStatus @ 0x1407C0690 (CmpConstructNameWithStatus.c)
- *     CmQueryKey @ 0x1407C1B70 (CmQueryKey.c)
- *     CmQueryValueKey @ 0x1407C83F0 (CmQueryValueKey.c)
- *     CmpConstructNameFromKeyNodes @ 0x1407C8830 (CmpConstructNameFromKeyNodes.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpPopulateKcbStack @ 0x1406FB4F0 (CmpPopulateKcbStack.c)
  * Callees:
  *     <none>
  */

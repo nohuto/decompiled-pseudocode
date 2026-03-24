@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DxgkNotifyMemorySegmentHasData@@YAJQEAXIE@Z @ 0x1C0046790
+ * XREFs of ?DxgkNotifyMemorySegmentHasData@@YAJQEAXIE@Z @ 0x1C003BD10
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
- *     ?DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z @ 0x1C001AAD8 (-DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     ?DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z @ 0x1C003DA0C (-DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z.c)
  */
 
-__int64 __fastcall DxgkNotifyMemorySegmentHasData(__int64 a1, unsigned int a2, char a3)
+__int64 __fastcall DxgkNotifyMemorySegmentHasData(__int64 a1, __int64 a2, char a3)
 {
   __int64 v4; // rdi
   __int64 DxgAdapter; // rax
@@ -18,14 +18,14 @@ __int64 __fastcall DxgkNotifyMemorySegmentHasData(__int64 a1, unsigned int a2, c
   unsigned int v10; // eax
   unsigned int v11; // eax
 
-  v4 = a2;
-  DxgAdapter = DpiGetDxgAdapter(a1);
+  v4 = (unsigned int)a2;
+  DxgAdapter = DpiGetDxgAdapter(a1, a2);
   v6 = 0;
   v7 = (DXGADAPTER *)DxgAdapter;
-  if ( *(_QWORD *)(DxgAdapter + 2904) )
+  if ( *(_QWORD *)(DxgAdapter + 2808) )
   {
     v8 = 0;
-    v9 = (unsigned int *)(*(_QWORD *)(DxgAdapter + 2896) + 520 * v4);
+    v9 = (unsigned int *)(*(_QWORD *)(DxgAdapter + 2800) + 520 * v4);
     if ( v9[2] > 1 )
     {
       v10 = v9[86];
@@ -33,14 +33,14 @@ __int64 __fastcall DxgkNotifyMemorySegmentHasData(__int64 a1, unsigned int a2, c
       {
         if ( v10 )
         {
-          v11 = DXGADAPTER::DdiSetPowerComponentFState(v7, v9[1], 0LL);
+          v11 = DXGADAPTER::DdiSetPowerComponentFState(v7, v9[1], 0);
           v9[86] = 0;
           return v11;
         }
       }
       else if ( !v10 )
       {
-        v11 = DXGADAPTER::DdiSetPowerComponentFState(v7, v9[1], 1LL);
+        v11 = DXGADAPTER::DdiSetPowerComponentFState(v7, v9[1], 1u);
         v9[86] = 1;
         return v11;
       }

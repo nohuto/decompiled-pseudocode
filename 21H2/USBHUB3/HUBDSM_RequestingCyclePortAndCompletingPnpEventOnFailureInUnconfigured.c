@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured @ 0x1C001D3E0
+ * XREFs of HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured @ 0x1C001CEA0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C001860C (HUBPDO_SignalPnpPowerEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured(__int64 a1)

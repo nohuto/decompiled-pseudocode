@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLargeFreePageToMdl @ 0x14012B8C8
+ * XREFs of MiLargeFreePageToMdl @ 0x14012B8E8
  * Callers:
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
  * Callees:
@@ -8,9 +8,9 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiTryUnlinkNodeLargePage @ 0x14012BB90 (MiTryUnlinkNodeLargePage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14012BBB0 (MiTryUnlinkNodeLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLargeFreePageToMdl(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

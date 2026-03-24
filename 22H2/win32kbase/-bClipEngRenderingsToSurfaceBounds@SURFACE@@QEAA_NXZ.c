@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bClipEngRenderingsToSurfaceBounds@SURFACE@@QEAA_NXZ @ 0x1C00D2770
+ * XREFs of ?bClipEngRenderingsToSurfaceBounds@SURFACE@@QEAA_NXZ @ 0x1C00C9A30
  * Callers:
  *     <none>
  * Callees:

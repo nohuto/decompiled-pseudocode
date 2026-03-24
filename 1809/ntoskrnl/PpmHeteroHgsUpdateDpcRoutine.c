@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsUpdateDpcRoutine @ 0x1402E3B60
+ * XREFs of PpmHeteroHgsUpdateDpcRoutine @ 0x1402E3C60
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void PpmHeteroHgsUpdateDpcRoutine()

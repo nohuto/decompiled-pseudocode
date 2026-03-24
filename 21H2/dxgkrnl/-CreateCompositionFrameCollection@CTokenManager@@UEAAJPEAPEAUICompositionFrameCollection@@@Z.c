@@ -1,32 +1,39 @@
 /*
- * XREFs of ?CreateCompositionFrameCollection@CTokenManager@@UEAAJPEAPEAUICompositionFrameCollection@@@Z @ 0x1C001F540
+ * XREFs of ?CreateCompositionFrameCollection@CTokenManager@@UEAAJPEAPEAUICompositionFrameCollection@@@Z @ 0x1C000DA90
  * Callers:
  *     <none>
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::CreateCompositionFrameCollection(
         CTokenManager *this,
-        struct ICompositionFrameCollection **a2,
-        __int64 a3,
-        __int64 a4)
+        struct ICompositionFrameCollection **a2)
 {
-  unsigned int v5; // ebx
-  __int64 v6; // rax
+  unsigned int v3; // ebx
+  struct ICompositionFrameCollection *v4; // rax
+  struct ICompositionFrameCollection *v5; // rcx
 
-  v5 = -1073741801;
-  v6 = operator new[](0x30uLL, 0x63634D54u, 256LL, a4);
-  if ( v6 )
+  v3 = -1073741801;
+  v4 = (struct ICompositionFrameCollection *)operator new[](0x30uLL, 0x63634D54u, PagedPool);
+  v5 = v4;
+  if ( v4 )
   {
-    *(_DWORD *)(v6 + 8) = 1;
-    *(_QWORD *)v6 = &CCompositionFrameCollection::`vftable';
-    *(_QWORD *)(v6 + 32) = 0LL;
-    *(_QWORD *)(v6 + 24) = v6 + 16;
-    v5 = 0;
-    *(_QWORD *)(v6 + 16) = v6 + 16;
-    *(_BYTE *)(v6 + 40) = 0;
-    *a2 = (struct ICompositionFrameCollection *)v6;
+    *((_DWORD *)v4 + 2) = 1;
+    *(_QWORD *)v4 = &CCompositionFrameCollection::`vftable';
+    *((_QWORD *)v4 + 4) = 0LL;
+    *((_QWORD *)v4 + 3) = (char *)v4 + 16;
+    *((_QWORD *)v4 + 2) = (char *)v4 + 16;
+    *((_BYTE *)v4 + 40) = 0;
   }
-  return v5;
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( v5 )
+  {
+    v3 = 0;
+    *a2 = v5;
+  }
+  return v3;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtMapViewOfSectionEx @ 0x1406CAB90
+ * XREFs of NtMapViewOfSectionEx @ 0x1406CAB70
  * Callers:
  *     <none>
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x140676C30 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
  */
 
 __int64 __fastcall NtMapViewOfSectionEx(

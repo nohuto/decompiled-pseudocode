@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPrepareImagePagesForHotPatch @ 0x1402B9894
+ * XREFs of MiPrepareImagePagesForHotPatch @ 0x1402B9994
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140857368 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -10,16 +10,16 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiCountSharedPages @ 0x14010AC50 (MiCountSharedPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB11C (MiCopyOnWriteCheckConditions.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiCountSharedPages @ 0x14010AC70 (MiCountSharedPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
  *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
- *     MiLogHotPatchPagesLocked @ 0x140856640 (MiLogHotPatchPagesLocked.c)
+ *     MiLogHotPatchPagesLocked @ 0x140856620 (MiLogHotPatchPagesLocked.c)
  */
 
 __int64 __fastcall MiPrepareImagePagesForHotPatch(__int64 *a1, ULONG_PTR a2, __int64 a3)

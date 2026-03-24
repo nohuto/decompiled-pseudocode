@@ -1,11 +1,11 @@
 /*
- * XREFs of GreDwmHasSoftwareCursor @ 0x1C009810C
+ * XREFs of GreDwmHasSoftwareCursor @ 0x1C002A78C
  * Callers:
- *     DwmDestroyDeviceSpecificResources @ 0x1C0097EE0 (DwmDestroyDeviceSpecificResources.c)
- *     zzzEnableDwmPointerSupport @ 0x1C0097F94 (zzzEnableDwmPointerSupport.c)
+ *     DwmDestroyDeviceSpecificResources @ 0x1C00291C0 (DwmDestroyDeviceSpecificResources.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C002979C (zzzEnableDwmPointerSupport.c)
  * Callees:
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0022A50 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00495DC (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BDAE4 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE4A0 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
  */
 
 __int64 __fastcall GreDwmHasSoftwareCursor(__int64 a1, struct PDEVOBJ *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall GreDwmHasSoftwareCursor(__int64 a1, struct PDEVOBJ *a2)
   if ( g_pDwmState
     && (*((_DWORD *)g_pDwmState + 25) || v3)
     && *((_DWORD *)g_pDwmState + 40)
-    && (*(_QWORD *)(a1 + 3504) != a1 + 3504 || (*(_DWORD *)(a1 + 40) & 0x20000) != 0) )
+    && (*(_QWORD *)(a1 + 3528) != a1 + 3528 || (*(_DWORD *)(a1 + 40) & 0x20000) != 0) )
   {
     v4 = 1;
   }

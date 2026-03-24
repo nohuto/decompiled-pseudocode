@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x18023E4AC
+ * XREFs of ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x1801D9228
  * Callers:
- *     ?CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ @ 0x18023C10C (-CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ.c)
- *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180264BEC (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ @ 0x1801D710C (-CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ.c)
+ *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x18020356C (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
  * Callees:
- *     ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800E48F4 (-ToMicroseconds@TimeDelta@@QEBA_JXZ.c)
+ *     ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800ACFE0 (-ToMicroseconds@TimeDelta@@QEBA_JXZ.c)
  */
 
 float __fastcall TimeDelta::ToSeconds(TimeDelta *this)

@@ -1,13 +1,46 @@
 /*
- * XREFs of NtDuplicateCompositionInputSink @ 0x1C023CFB0
+ * XREFs of NtDuplicateCompositionInputSink @ 0x1C004AAC0
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C0241304 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?Duplicate@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@PEAX1_N@Z @ 0x1C004ABB8 (-Duplicate@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@PEAX1_N@Z.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004AC10 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082B80 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
-__int64 __fastcall NtDuplicateCompositionInputSink(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtDuplicateCompositionInputSink(void *a1, HANDLE *a2)
 {
-  MicrosoftTelemetryAssertTriggeredMsgKM("API is being deprecated. Caller should switch to DuplicateHandle", a2, a3);
-  return 3221225659LL;
+  int v4; // ebx
+  PVOID Object; // [rsp+50h] [rbp+18h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp+20h] BYREF
+
+  Handle = (HANDLE)-1LL;
+  v4 = 0;
+  if ( !UserIsCurrentProcessDwm((__int64)a1, (__int64)a2) )
+    v4 = -1073741790;
+  if ( v4 < 0 )
+    goto LABEL_14;
+  Object = 0LL;
+  v4 = CompositionInputObject::ResolveHandle(a1, 1u, 1, (struct CompositionInputObject **)&Object);
+  if ( v4 >= 0 )
+  {
+    v4 = CompositionObject::CreateHandle((CompositionObject *)Object, 3u, 0, 0, &Handle);
+    if ( v4 >= 0 )
+      InputTraceLogging::InputSink::Duplicate((const struct CompositionInputObject *)Object, a1, Handle, 0);
+    ObfDereferenceObject(Object);
+  }
+  if ( v4 < 0 )
+  {
+LABEL_14:
+    if ( Handle != (HANDLE)-1LL )
+      NtClose(Handle);
+  }
+  else
+  {
+    if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    *a2 = Handle;
+  }
+  return (unsigned int)v4;
 }

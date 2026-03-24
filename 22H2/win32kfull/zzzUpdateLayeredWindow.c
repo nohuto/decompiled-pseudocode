@@ -1,29 +1,29 @@
 /*
- * XREFs of zzzUpdateLayeredWindow @ 0x1C01BD720
+ * XREFs of zzzUpdateLayeredWindow @ 0x1C00F1C94
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
- *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BCAE4 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
- *     NtUserUpdateLayeredWindow @ 0x1C01DF6D0 (NtUserUpdateLayeredWindow.c)
- *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C0221478 (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
- *     zzzMoveShadow @ 0x1C0221B1C (zzzMoveShadow.c)
- *     zzzUpdateShadowAlpha @ 0x1C0221BBC (zzzUpdateShadowAlpha.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C00F1880 (NtUserUpdateLayeredWindow.c)
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C013DD1C (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ *     zzzUpdateShadowAlpha @ 0x1C013DE6C (zzzUpdateShadowAlpha.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01E7584 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     zzzMoveShadow @ 0x1C023DCF0 (zzzMoveShadow.c)
  * Callees:
- *     GreClientRgnUpdated @ 0x1C00346B4 (GreClientRgnUpdated.c)
- *     GreUpdateSpriteVisRgn @ 0x1C005AA10 (GreUpdateSpriteVisRgn.c)
- *     RecreateRedirectionBitmap @ 0x1C008E968 (RecreateRedirectionBitmap.c)
- *     GetRedirectionFlags @ 0x1C008EC3C (GetRedirectionFlags.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00C825C (DeleteOrSetRedirectionBitmap.c)
- *     UnsetRedirectedWindow @ 0x1C00C881C (UnsetRedirectedWindow.c)
- *     UpdateSprite @ 0x1C00D5D64 (UpdateSprite.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     DwmChildRectChange @ 0x1C00EDE40 (DwmChildRectChange.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     OffsetChildren @ 0x1C00F147C (OffsetChildren.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     GetRedirectionBitmap @ 0x1C011DD30 (GetRedirectionBitmap.c)
- *     ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C01521BA (-UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z.c)
- *     ?RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z @ 0x1C01BC970 (-RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z.c)
- *     InvalidateGDIWindows @ 0x1C01BDC84 (InvalidateGDIWindows.c)
+ *     OffsetChildren @ 0x1C004C97C (OffsetChildren.c)
+ *     DwmChildRectChange @ 0x1C004E0EC (DwmChildRectChange.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C0073150 (GreUpdateSpriteVisRgn.c)
+ *     GreClientRgnUpdated @ 0x1C0075010 (GreClientRgnUpdated.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     UpdateSprite @ 0x1C00BE6C4 (UpdateSprite.c)
+ *     GetRedirectionBitmap @ 0x1C00BEBC0 (GetRedirectionBitmap.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF498 (UnsetRedirectedWindow.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF608 (DeleteOrSetRedirectionBitmap.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F1598 (RecreateRedirectionBitmap.c)
+ *     ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C00F1F74 (-UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z.c)
+ *     GetRedirectionFlags @ 0x1C00F20E0 (GetRedirectionFlags.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z @ 0x1C01E73FC (-RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z.c)
+ *     InvalidateGDIWindows @ 0x1C01E8450 (InvalidateGDIWindows.c)
  */
 
 __int64 __fastcall zzzUpdateLayeredWindow(
@@ -38,146 +38,162 @@ __int64 __fastcall zzzUpdateLayeredWindow(
         unsigned int a9,
         struct tagRECT *a10)
 {
-  HBITMAP v10; // rdi
+  HSURF v10; // rdi
   struct tagSIZE *v11; // r14
   __int64 v14; // rax
   __int128 v15; // xmm0
   __int128 v16; // xmm1
-  int v17; // eax
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  BOOL v22; // esi
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  BOOL v19; // esi
   char RedirectionFlags; // al
-  unsigned int v24; // r12d
-  _DWORD *v25; // rdx
-  int v27; // r15d
-  int v28; // eax
+  __int64 v21; // r8
+  unsigned int v22; // r12d
+  int v23; // r15d
+  __int64 v24; // r8
+  int v25; // esi
+  unsigned int v26; // r13d
   int updated; // r14d
-  __int64 v30; // r8
-  int v31; // esi
-  unsigned int v32; // r13d
-  int v33; // ecx
-  int v34; // [rsp+60h] [rbp-71h] BYREF
-  int v35; // [rsp+64h] [rbp-6Dh] BYREF
-  HBITMAP v36; // [rsp+68h] [rbp-69h] BYREF
-  struct tagSIZE *v37; // [rsp+70h] [rbp-61h]
-  HDC v38; // [rsp+78h] [rbp-59h]
-  struct tagRECT *v39; // [rsp+80h] [rbp-51h]
-  struct _BLENDFUNCTION *v40; // [rsp+88h] [rbp-49h]
-  struct tagPOINT *v41; // [rsp+90h] [rbp-41h]
-  struct tagPOINT *v42; // [rsp+98h] [rbp-39h]
-  HDC v43; // [rsp+A0h] [rbp-31h]
-  __int128 v44; // [rsp+A8h] [rbp-29h]
-  __int128 v45; // [rsp+B8h] [rbp-19h]
+  unsigned int v28; // ecx
+  __int64 v30; // rdx
+  __int64 v31; // r8
+  _DWORD *v32; // rdx
+  int v33; // eax
+  int v34; // [rsp+20h] [rbp-B1h]
+  int v35; // [rsp+60h] [rbp-71h] BYREF
+  int v36; // [rsp+64h] [rbp-6Dh] BYREF
+  __int64 v37; // [rsp+68h] [rbp-69h] BYREF
+  struct tagSIZE *v38; // [rsp+70h] [rbp-61h]
+  HDC v39; // [rsp+78h] [rbp-59h]
+  struct tagRECT *v40; // [rsp+80h] [rbp-51h]
+  struct _BLENDFUNCTION *v41; // [rsp+88h] [rbp-49h]
+  struct tagPOINT *v42; // [rsp+90h] [rbp-41h]
+  int v43[2]; // [rsp+98h] [rbp-39h]
+  HDC v44; // [rsp+A0h] [rbp-31h]
+  __int128 v45; // [rsp+A8h] [rbp-29h]
+  __int128 v46; // [rsp+B8h] [rbp-19h]
 
   v10 = 0LL;
-  v34 = 0;
-  v11 = a4;
   v35 = 0;
-  v38 = a5;
-  v41 = a6;
-  v40 = a8;
-  v39 = a10;
+  v11 = a4;
+  v36 = 0;
+  v39 = a5;
+  v42 = a6;
+  v41 = a8;
+  v40 = a10;
   v14 = *((_QWORD *)a1 + 5);
-  v37 = a4;
-  v42 = (struct tagPOINT *)a3;
-  v43 = a2;
+  v38 = a4;
+  *(_QWORD *)v43 = a3;
+  v44 = a2;
   v15 = *(_OWORD *)(v14 + 88);
-  v36 = 0LL;
+  v37 = 0LL;
   v16 = *(_OWORD *)(v14 + 104);
-  v44 = v15;
-  v45 = v16;
-  v17 = IsWindowDesktopComposed(a1);
-  v20 = 1LL;
-  if ( v17 && (*((_DWORD *)a1 + 80) & 0x8000) != 0 )
+  v45 = v15;
+  v46 = v16;
+  if ( (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 27LL) & 0x20) != 0 )
-      UnsetRedirectedWindow(a1, 1);
-    *((_DWORD *)a1 + 80) &= ~0x8000u;
-  }
-  v21 = *((_QWORD *)a1 + 5);
-  if ( (*(_BYTE *)(v21 + 26) & 8) != 0 && (*(_DWORD *)(v21 + 232) & 2) == 0 )
-  {
-    v22 = GetRedirectionBitmap((__int64)a1, v20, v18, v19) != 0;
-    RedirectionFlags = GetRedirectionFlags((__int64)a1);
-    if ( !v22 || (RedirectionFlags & 8) != 0 )
+    v17 = *((_QWORD *)a1 + 5);
+    if ( (*(_DWORD *)(v17 + 232) & 0x40) != 0 )
     {
-      v24 = a9;
-      if ( (a9 & 8) != 0 )
+      if ( (*(_BYTE *)(v17 + 27) & 0x20) != 0 )
       {
-        if ( v11 )
-        {
-          v25 = (_DWORD *)*((_QWORD *)a1 + 5);
-          if ( v11->cx != v25[24] - v25[22] || v11->cy != v25[25] - v25[23] )
-          {
-            UserSetLastError(1462);
-            return 2151546881LL;
-          }
-        }
-        v24 = a9 & 0xFFFFFFF7;
+        UnsetRedirectedWindow(a1, 1);
+        v17 = *((_QWORD *)a1 + 5);
       }
-      UpdateWindowRects(a1, a3, v11, &v34, &v35);
-      v27 = v34;
-      if ( v22 && v34 )
-      {
-        v28 = RecreateRedirectionBitmap(a1, 0, 0, 0, 0, (HSURF *)&v36);
-        v10 = v36;
-        updated = v28;
-        if ( v28 < 0 )
-          goto LABEL_44;
-        v11 = v37;
-      }
-      GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-      v31 = v35;
-      if ( v27 || v35 )
-      {
-        if ( (unsigned int)IsWindowDesktopComposed(a1) )
-        {
-          DwmChildRectChange(a1);
-          DirtyVisRgnTrackers((__int64)a1);
-        }
-        if ( *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Type )
-        {
-          InvalidateGDIWindows(a1);
-          GreClientRgnUpdated((Gre::Base *)1);
-        }
-        GreUpdateSpriteVisRgn(*(_QWORD *)(gpDispInfo + 40LL), 0);
-      }
-      v32 = v24 | 0x20000000;
-      if ( !v38 )
-        v32 = v24;
-      updated = UpdateSprite(*(HDEV *)(gpDispInfo + 40LL), a1, v30, v43, v42, v11, v38, v41, a7, v40, v32, v39);
-      if ( updated >= 0 && v31 )
-        OffsetChildren(
-          a1,
-          *(_DWORD *)(*((_QWORD *)a1 + 5) + 88LL) - v44,
-          *(_DWORD *)(*((_QWORD *)a1 + 5) + 92LL) - DWORD1(v44),
-          0LL);
-      GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-      if ( updated >= 0 )
-      {
-        if ( v10 )
-          DeleteOrSetRedirectionBitmap((__int64)a1, (HSURF)v10, 1);
-        if ( v27 || v31 )
-          GenerateMouseMove(0LL);
-        if ( (v32 & 0x20) == 0 || v27 || v31 )
-        {
-          v33 = 3;
-          if ( !gdwDeferWinEvent )
-            v33 = 1;
-          xxxWindowEvent(0x800Bu, a1, 0, 0, v33);
-        }
-        return (unsigned int)updated;
-      }
-LABEL_44:
-      *(_OWORD *)(*((_QWORD *)a1 + 5) + 88LL) = v44;
-      *(_OWORD *)(*((_QWORD *)a1 + 5) + 104LL) = v45;
-      if ( v10 && !(unsigned int)RestoreOldRedirectionBitmap(a1, v10) )
-        DeleteOrSetRedirectionBitmap((__int64)a1, (HSURF)v10, 1);
-      return (unsigned int)updated;
+      *(_DWORD *)(v17 + 232) &= ~0x40u;
     }
   }
-  return 3221225485LL;
+  v18 = *((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(v18 + 26) & 8) == 0 )
+    return 3221225485LL;
+  if ( (*(_DWORD *)(v18 + 232) & 0x20) != 0 )
+    return 3221225485LL;
+  v19 = GetRedirectionBitmap((__int64)a1) != 0;
+  RedirectionFlags = GetRedirectionFlags(a1);
+  if ( v19 )
+  {
+    if ( (RedirectionFlags & 8) == 0 )
+      return 3221225485LL;
+  }
+  v22 = a9;
+  if ( (a9 & 8) == 0 )
+  {
+LABEL_7:
+    UpdateWindowRects(a1, a3, v11, &v35, &v36);
+    v23 = v35;
+    if ( v19 && v35 )
+    {
+      v33 = RecreateRedirectionBitmap((void **)a1, 0, 0, 0, 0, (HSURF *)&v37);
+      v10 = (HSURF)v37;
+      updated = v33;
+      if ( v33 < 0 )
+        goto LABEL_47;
+      v11 = v38;
+    }
+    GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
+    v25 = v36;
+    if ( v23 || v36 )
+    {
+      if ( (unsigned int)IsWindowDesktopComposed(a1) )
+        DwmChildRectChange((unsigned __int64)a1, v30, v31);
+      if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
+      {
+        InvalidateGDIWindows(a1, v30, v31);
+        GreClientRgnUpdated(1);
+      }
+      GreUpdateSpriteVisRgn(*(_QWORD *)(gpDispInfo + 40LL), 0);
+    }
+    v26 = v22 | 0x20000000;
+    if ( !v39 )
+      v26 = v22;
+    updated = UpdateSprite(
+                *(HDEV *)(gpDispInfo + 40LL),
+                a1,
+                v24,
+                v44,
+                *(struct tagPOINT **)v43,
+                v11,
+                v39,
+                v42,
+                a7,
+                v41,
+                v26,
+                v40);
+    if ( updated >= 0 && v25 )
+      OffsetChildren(
+        a1,
+        *(_DWORD *)(*((_QWORD *)a1 + 5) + 88LL) - v45,
+        *(_DWORD *)(*((_QWORD *)a1 + 5) + 92LL) - DWORD1(v45),
+        0LL,
+        v34);
+    GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
+    if ( updated >= 0 )
+    {
+      if ( v10 )
+        DeleteOrSetRedirectionBitmap((__int64)a1, v10, 1);
+      if ( v23 || v25 )
+        GenerateMouseMove(0LL);
+      if ( (v26 & 0x20) == 0 || v23 || v25 )
+      {
+        v28 = 3;
+        if ( !gdwDeferWinEvent )
+          v28 = 1;
+        xxxWindowEvent(0x800Bu, a1, 0, 0, v28);
+      }
+      return (unsigned int)updated;
+    }
+LABEL_47:
+    *(_OWORD *)(*((_QWORD *)a1 + 5) + 88LL) = v45;
+    *(_OWORD *)(*((_QWORD *)a1 + 5) + 104LL) = v46;
+    if ( v10 && !(unsigned int)RestoreOldRedirectionBitmap(a1, (HBITMAP)v10) )
+      DeleteOrSetRedirectionBitmap((__int64)a1, v10, 1);
+    return (unsigned int)updated;
+  }
+  if ( !v11 || (v32 = (_DWORD *)*((_QWORD *)a1 + 5), v11->cx == v32[24] - v32[22]) && v11->cy == v32[25] - v32[23] )
+  {
+    v22 = a9 & 0xFFFFFFF7;
+    goto LABEL_7;
+  }
+  UserSetLastError(1462LL, (__int64)v32, v21);
+  return 2151546881LL;
 }

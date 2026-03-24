@@ -1,33 +1,36 @@
 /*
- * XREFs of GreSfmDwmShutdown @ 0x1C00B5910
+ * XREFs of GreSfmDwmShutdown @ 0x1C00A29B0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?DeInitialize@SfmTokenArray@@QEAAXXZ @ 0x1C00B59C0 (-DeInitialize@SfmTokenArray@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?DeInitialize@SfmTokenArray@@QEAAXXZ @ 0x1C00A2A60 (-DeInitialize@SfmTokenArray@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreSfmDwmShutdown(__int64 a1)
+__int64 GreSfmDwmShutdown()
 {
-  __int64 v1; // rbx
+  int v0; // r8d
+  int v1; // eax
   __int64 result; // rax
-  struct _ERESOURCE *v3; // rcx
+  __int64 v3; // rcx
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v1 + 72));
-  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDwmState", *(_QWORD *)(v1 + 72), 7);
-  SfmTokenArray::DeInitialize(*(SfmTokenArray **)(v1 + 6472));
-  if ( qword_1C0294E38 && (int)qword_1C0294E38() >= 0 && qword_1C0294E40 )
-    qword_1C0294E40();
-  result = EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDwmState", *(_QWORD *)(v1 + 72));
-  v3 = *(struct _ERESOURCE **)(v1 + 72);
-  if ( v3 )
+  EngAcquireSemaphore(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDwmState", (int)ghsemDwmState, 7);
+  SfmTokenArray::DeInitialize(gpSfmState);
+  if ( qword_1C0255A30 )
+    v1 = qword_1C0255A30();
+  else
+    v1 = -1073741637;
+  if ( v1 >= 0 && qword_1C0255A38 )
+    qword_1C0255A38();
+  result = EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDwmState", (int)ghsemDwmState, v0);
+  if ( ghsemDwmState )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v3);
-    return PsLeavePriorityRegion();
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDwmState);
+    return PsLeavePriorityRegion(v3);
   }
   return result;
 }

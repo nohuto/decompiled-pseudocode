@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbPruneOrdering @ 0x1408166F4
+ * XREFs of ArbPruneOrdering @ 0x1407A30C0
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x140815FF8 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A29A8 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   _BYTE *v7; // rsi
   char *v8; // rbx
   __int64 v9; // rax
@@ -20,9 +20,9 @@ __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, u
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // r8
   __int64 v15; // rbx
+  PVOID v16; // r14
   __int64 result; // rax
-  unsigned int v17; // ebx
-  __int64 v18; // r14
+  unsigned int v18; // ebx
   void *v19; // rcx
 
   if ( a3 < a2 )
@@ -31,11 +31,11 @@ __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, u
   }
   else
   {
-    Pool2 = ExAllocatePool2(256LL, 32LL * *a1 + 16, 1281520193LL);
-    v7 = (_BYTE *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 32LL * *a1 + 16, 0x4C627241u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = (char *)Pool2;
+      v8 = PoolWithTag;
       v9 = *a1;
       if ( (_WORD)v9 )
       {
@@ -85,28 +85,29 @@ LABEL_9:
 LABEL_14:
       v15 = (v8 - v7) >> 4;
       if ( !(_WORD)v15 )
-        goto LABEL_17;
+        goto LABEL_18;
       if ( (unsigned __int16)v15 <= a1[1] )
       {
-LABEL_16:
-        memmove(*((void **)a1 + 1), v7, 16LL * (unsigned __int16)v15);
+        v16 = (PVOID)*((_QWORD *)a1 + 1);
 LABEL_17:
+        memmove(v16, v7, 16LL * (unsigned __int16)v15);
+LABEL_18:
         ExFreePoolWithTag(v7, 0);
         result = 0LL;
         *a1 = v15;
         return result;
       }
-      v18 = ExAllocatePool2(256LL, 16LL * (unsigned __int16)v15, 1281520193LL);
-      if ( v18 )
+      v16 = ExAllocatePoolWithTag(PagedPool, 16LL * (unsigned __int16)v15, 0x4C627241u);
+      if ( v16 )
       {
         v19 = (void *)*((_QWORD *)a1 + 1);
         if ( v19 )
           ExFreePoolWithTag(v19, 0);
-        *((_QWORD *)a1 + 1) = v18;
+        *((_QWORD *)a1 + 1) = v16;
         a1[1] = v15;
-        goto LABEL_16;
+        goto LABEL_17;
       }
-      v17 = -1073741670;
+      v18 = -1073741670;
       ExFreePoolWithTag(v7, 0);
     }
     else
@@ -114,5 +115,5 @@ LABEL_17:
       return (unsigned int)-1073741670;
     }
   }
-  return v17;
+  return v18;
 }

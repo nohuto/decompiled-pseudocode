@@ -1,10 +1,9 @@
 /*
- * XREFs of IoSetBugCheckProgressFlag @ 0x140552F34
+ * XREFs of IoSetBugCheckProgressFlag @ 0x1405029A8
  * Callers:
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
- *     KeBugCheck2 @ 0x1405660A0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
  * Callees:
- *     IoUpdateBugCheckProgressEnvVariable @ 0x140553164 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x140502BE0 (IoUpdateBugCheckProgressEnvVariable.c)
  */
 
 __int64 __fastcall IoSetBugCheckProgressFlag(int a1)

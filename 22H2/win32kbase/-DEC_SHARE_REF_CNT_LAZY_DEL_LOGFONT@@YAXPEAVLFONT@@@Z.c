@@ -1,177 +1,189 @@
 /*
- * XREFs of ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z @ 0x1C00404E0
+ * XREFs of ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z @ 0x1C002E710
  * Callers:
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C0044560 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00934E0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
+ *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C014D314 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C004193C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C0043040 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C008B090 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C002FE00 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C003173C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C0031810 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(struct HOBJ__ **a1)
 {
   struct OBJECT *v2; // rsi
-  struct HOBJ__ *v3; // r14
-  int v4; // ebp
-  int v5; // eax
-  unsigned int v6; // edx
-  __int64 v7; // rcx
-  bool v8; // zf
-  _DWORD *v9; // rdi
-  char v10; // al
-  __int64 v11; // rcx
-  GdiHandleManager *v12; // r15
-  GdiHandleManager *v13; // rbx
-  unsigned int v14; // eax
-  __int64 v15; // r8
-  unsigned __int64 v16; // rdx
-  unsigned int v17; // r9d
-  __int64 v18; // r8
-  _DWORD *v19; // rdx
-  unsigned int v20; // eax
-  __int64 v21; // rdx
-  unsigned __int64 v22; // r8
-  unsigned int v23; // r9d
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  GdiHandleManager *v26; // rbx
-  unsigned int v27; // eax
-  __int64 v28; // r8
-  unsigned __int64 v29; // rdx
-  unsigned int v30; // r9d
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  __int64 v33; // rax
-  char v34; // bl
-  struct HOBJ__ *v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // [rsp+30h] [rbp-38h] BYREF
-  int v38; // [rsp+38h] [rbp-30h]
+  struct HOBJ__ *v3; // r15
+  int v4; // eax
+  unsigned int v5; // edx
+  int v6; // ebp
+  _DWORD *v7; // rdi
+  char v8; // al
+  unsigned int v9; // ebx
+  GdiHandleManager *v10; // rdi
+  __int64 v11; // rdx
+  unsigned int v12; // r8d
+  __int64 v13; // rcx
+  __int64 v14; // r9
+  _DWORD *v15; // rdx
+  unsigned int v16; // ebx
+  __int64 v17; // rdx
+  unsigned int v18; // r8d
+  __int64 v19; // rcx
+  __int64 v20; // r10
+  GdiHandleManager *v21; // rbx
+  unsigned int v22; // eax
+  __int64 v23; // r9
+  unsigned __int64 v24; // rdx
+  unsigned int v25; // r8d
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  char v28; // bl
+  struct HOBJ__ *v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // [rsp+30h] [rbp-48h] BYREF
+  int v32; // [rsp+38h] [rbp-40h]
 
   if ( !a1 )
     return;
   v2 = 0LL;
   v3 = *a1;
-  LOWORD(v4) = 0;
-  v5 = (unsigned __int16)*a1;
-  v6 = (unsigned int)*a1 >> 8;
-  v37 = 0LL;
-  v38 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v37, v5 | v6 & 0xFF0000, 0, 0, 1);
-  v8 = v38 == 0;
-  if ( v38 )
+  v4 = (unsigned __int16)*a1;
+  v5 = (unsigned int)*a1 >> 8;
+  v31 = 0LL;
+  v32 = 0;
+  LOWORD(v6) = 0;
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v31, v4 | v5 & 0xFF0000, 0, 0, 1);
+  if ( v32 )
   {
-    v9 = (_DWORD *)v37;
-    v4 = *((_DWORD *)a1 + 2);
-    v10 = *(_BYTE *)(v37 + 14);
-    if ( v10 == 5 )
+    v6 = *((_DWORD *)a1 + 2);
+    v7 = (_DWORD *)v31;
+    v8 = *(_BYTE *)(v31 + 14);
+    if ( v8 == 5 )
     {
-      v35 = a1[85];
-      v36 = 0LL;
+      v29 = a1[85];
+      v30 = 0LL;
     }
     else
     {
-      if ( v10 != 16 )
-        goto LABEL_5;
-      v35 = a1[17];
-      v36 = 2LL;
-    }
-    TrackObjectReferenceDecrement(v36, v35);
+      if ( v8 != 16 )
+      {
 LABEL_5:
-    --*((_DWORD *)a1 + 2);
-    v11 = *(_QWORD *)(SGDGetSessionState(v7) + 24);
-    v12 = *(GdiHandleManager **)(v11 + 8008);
-    v13 = *(GdiHandleManager **)(*(_QWORD *)(SGDGetSessionState(v11) + 24) + 8008LL);
-    v14 = GdiHandleManager::DecodeIndex(v13, *v9 & 0xFFFFFF);
-    v15 = *((_QWORD *)v13 + 2);
-    v16 = v14;
-    v17 = *(_DWORD *)(v15 + 2056);
-    if ( v14 >= v17 + ((*(unsigned __int16 *)(v15 + 2) + 0xFFFF) << 16)
-      || (v14 >= v17
-        ? (v18 = *(_QWORD *)(v15 + 8LL * (((v14 - v17) >> 16) + 1) + 8), v16 = -65536 * ((v14 - v17) >> 16) - v17 + v14)
-        : (v18 = *(_QWORD *)(v15 + 8)),
-          (unsigned int)v16 >= *(_DWORD *)(v18 + 20)) )
-    {
-      v19 = 0LL;
-    }
-    else
-    {
-      v19 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v18 + 24) + 8 * (v16 >> 8)) + 16LL * (unsigned __int8)v16 + 8);
-    }
-    v20 = GdiHandleManager::DecodeIndex(v12, (unsigned __int16)*v19 | (*v19 >> 8) & 0xFF0000);
-    v21 = *((_QWORD *)v12 + 2);
-    v22 = v20;
-    v23 = *(_DWORD *)(v21 + 2056);
-    if ( v20 < v23 + ((*(unsigned __int16 *)(v21 + 2) + 0xFFFF) << 16) )
-    {
-      if ( v20 >= v23 )
-      {
-        v24 = *(_QWORD *)(v21 + 8LL * (((v20 - v23) >> 16) + 1) + 8);
-        v22 = -65536 * ((v20 - v23) >> 16) - v23 + v20;
-      }
-      else
-      {
-        v24 = *(_QWORD *)(v21 + 8);
-      }
-      *(_DWORD *)(*(_QWORD *)v24 + 24 * v22 + 8) &= ~1u;
-      ExReleasePushLockExclusiveEx(
-        *(_QWORD *)(**(_QWORD **)(v24 + 24) + 8 * (v22 >> 8)) + 16LL * (unsigned __int8)v22,
-        0LL);
-      KeLeaveCriticalRegion();
-    }
-    v38 = 0;
-    v37 = 0LL;
-    KeLeaveCriticalRegion();
-    v8 = 1;
-  }
-  if ( !v8 )
-    HANDLELOCK::vUnlock((HANDLELOCK *)&v37);
-  if ( (unsigned __int16)v4 == 1 )
-  {
-    v37 = 0LL;
-    v38 = 0;
-    HANDLELOCK::bLockHobj((HANDLELOCK *)&v37, v3, 0xAu);
-    if ( v38 )
-    {
-      v26 = *(GdiHandleManager **)(*(_QWORD *)(SGDGetSessionState(v25) + 24) + 8008LL);
-      v27 = GdiHandleManager::DecodeIndex(v26, *(_DWORD *)v37 & 0xFFFFFF);
-      v28 = *((_QWORD *)v26 + 2);
-      v29 = v27;
-      v30 = *(_DWORD *)(v28 + 2056);
-      v31 = v30 + ((*(unsigned __int16 *)(v28 + 2) + 0xFFFF) << 16);
-      if ( v27 < (unsigned int)v31 )
-      {
-        if ( v27 >= v30 )
+        --*((_DWORD *)a1 + 2);
+        v9 = *v7 & 0xFFFFFF;
+        if ( v9 >= 0x10000 )
         {
-          v31 = ((v27 - v30) >> 16) + 1;
-          v32 = *(_QWORD *)(v28 + 8 * v31 + 8);
-          v29 = -65536 * (((unsigned int)v29 - v30) >> 16) - v30 + (unsigned int)v29;
+          if ( *(_DWORD *)gpHandleManager > 0x10000u )
+          {
+            if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                        *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                        *(unsigned __int16 *)v7,
+                                        1)
+                 + 13) == HIWORD(v9) )
+              v9 = (unsigned __int16)v9;
+          }
+          else
+          {
+            v9 = *(unsigned __int16 *)v7;
+          }
         }
+        v10 = gpHandleManager;
+        v11 = *((_QWORD *)gpHandleManager + 2);
+        v12 = *(_DWORD *)(v11 + 2056);
+        if ( v9 >= v12 + ((*(unsigned __int16 *)(v11 + 2) + 0xFFFF) << 16) )
+          goto LABEL_46;
+        v13 = ((v9 - v12) >> 16) + 1;
+        if ( v9 < v12 )
+          v13 = 0LL;
+        v14 = *(_QWORD *)(v11 + 8 * v13 + 8);
+        if ( (_DWORD)v13 )
+          v9 += ((1 - (_DWORD)v13) << 16) - v12;
+        if ( v9 >= *(_DWORD *)(v14 + 20) )
+LABEL_46:
+          v15 = 0LL;
         else
+          v15 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v14 + 24) + 8 * ((unsigned __int64)v9 >> 8))
+                           + 16LL * (unsigned __int8)v9
+                           + 8);
+        v16 = (unsigned __int16)*v15 | (*v15 >> 8) & 0xFF0000;
+        if ( v16 >= 0x10000 )
         {
-          v32 = *(_QWORD *)(v28 + 8);
+          if ( *(_DWORD *)gpHandleManager > 0x10000u )
+          {
+            if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                        *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                        (unsigned __int16)*v15,
+                                        1)
+                 + 13) == HIWORD(v16) )
+              v16 = (unsigned __int16)v16;
+          }
+          else
+          {
+            v16 = (unsigned __int16)*v15;
+          }
         }
-        if ( (unsigned int)v29 < *(_DWORD *)(v32 + 20) )
+        v17 = *((_QWORD *)v10 + 2);
+        v18 = *(_DWORD *)(v17 + 2056);
+        if ( v16 < v18 + ((*(unsigned __int16 *)(v17 + 2) + 0xFFFF) << 16) )
         {
-          v31 = 2LL * (unsigned __int8)v29;
-          v2 = *(struct OBJECT **)(*(_QWORD *)(**(_QWORD **)(v32 + 24) + 8 * (v29 >> 8))
-                                 + 16LL * (unsigned __int8)v29
-                                 + 8);
+          v19 = ((v16 - v18) >> 16) + 1;
+          if ( v16 < v18 )
+            v19 = 0LL;
+          v20 = *(_QWORD *)(v17 + 8 * v19 + 8);
+          if ( (_DWORD)v19 )
+            v16 += ((1 - (_DWORD)v19) << 16) - v18;
+          *(_DWORD *)(*(_QWORD *)v20 + 24LL * v16 + 8) &= ~1u;
+          ExReleasePushLockExclusiveEx(
+            *(_QWORD *)(**(_QWORD **)(v20 + 24) + 8 * ((unsigned __int64)v16 >> 8)) + 16LL * (unsigned __int8)v16,
+            0LL);
+          KeLeaveCriticalRegion();
         }
+        KeLeaveCriticalRegion();
+        goto LABEL_25;
       }
-      v33 = SGDGetSessionState(v31);
-      v34 = *((_BYTE *)GdiHandleManager::GetEntryFromObject(*(GdiHandleManager **)(*(_QWORD *)(v33 + 24) + 8008LL), v2)
-            + 15);
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v37);
-      if ( (v34 & 2) != 0 && qword_1C0294670 )
-        qword_1C0294670(v3, 0LL);
+      v29 = a1[17];
+      v30 = 2LL;
     }
-    if ( v38 )
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v37);
+    TrackObjectReferenceDecrement(v30, v29);
+    goto LABEL_5;
+  }
+LABEL_25:
+  if ( (unsigned __int16)v6 == 1 )
+  {
+    v31 = 0LL;
+    v32 = 0;
+    HANDLELOCK::bLockHobj((HANDLELOCK *)&v31, v3, 0xAu);
+    if ( v32 )
+    {
+      v21 = gpHandleManager;
+      v22 = GdiHandleManager::DecodeIndex(gpHandleManager, *(_DWORD *)v31 & 0xFFFFFF);
+      v23 = *((_QWORD *)v21 + 2);
+      v24 = v22;
+      v25 = *(_DWORD *)(v23 + 2056);
+      if ( v22 < v25 + ((*(unsigned __int16 *)(v23 + 2) + 0xFFFF) << 16) )
+      {
+        v26 = ((v22 - v25) >> 16) + 1;
+        if ( v22 < v25 )
+          v26 = 0LL;
+        v27 = *(_QWORD *)(v23 + 8 * v26 + 8);
+        if ( (_DWORD)v26 )
+          v24 = ((1 - (_DWORD)v26) << 16) - v25 + (unsigned int)v24;
+        if ( (unsigned int)v24 < *(_DWORD *)(v27 + 20) )
+          v2 = *(struct OBJECT **)(*(_QWORD *)(**(_QWORD **)(v27 + 24) + 8 * (v24 >> 8))
+                                 + 16LL * (unsigned __int8)v24
+                                 + 8);
+      }
+      v28 = *((_BYTE *)GdiHandleManager::GetEntryFromObject(v21, v2) + 15);
+      HANDLELOCK::vUnlock((HANDLELOCK *)&v31);
+      if ( (v28 & 2) != 0 && qword_1C0255260 )
+        qword_1C0255260(v3, 0LL);
+      if ( v32 )
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v31);
+    }
   }
 }

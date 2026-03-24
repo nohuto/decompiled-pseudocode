@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockMemoryLists @ 0x1401563A0
+ * XREFs of MiLockMemoryLists @ 0x1401563C0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiLockMemoryLists(__int64 a1, __int64 a2, __int64 a3)

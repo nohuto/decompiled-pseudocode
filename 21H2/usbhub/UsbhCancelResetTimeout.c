@@ -1,24 +1,24 @@
 /*
- * XREFs of UsbhCancelResetTimeout @ 0x1C000DCF0
+ * XREFs of UsbhCancelResetTimeout @ 0x1C0013AE0
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhReset1Complete @ 0x1C001BA90 (UsbhReset1Complete.c)
- *     Usbh_PCE_psPAUSED_Action @ 0x1C001BF60 (Usbh_PCE_psPAUSED_Action.c)
- *     UsbhCancelEnumeration @ 0x1C001EB50 (UsbhCancelEnumeration.c)
- *     UsbhSoftDisconnectPdo @ 0x1C003975C (UsbhSoftDisconnectPdo.c)
- *     UsbhHardErrorReset1BadEnable @ 0x1C004C6E0 (UsbhHardErrorReset1BadEnable.c)
- *     UsbhReset1Debounce @ 0x1C004D320 (UsbhReset1Debounce.c)
- *     UsbhReset1DropDevice @ 0x1C004D590 (UsbhReset1DropDevice.c)
- *     UsbhReset2CycleDevice @ 0x1C004DB10 (UsbhReset2CycleDevice.c)
- *     UsbhReset2DropDevice @ 0x1C004DB80 (UsbhReset2DropDevice.c)
+ *     UsbhCancelEnumeration @ 0x1C00023E0 (UsbhCancelEnumeration.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhReset1Complete @ 0x1C0018F50 (UsbhReset1Complete.c)
+ *     Usbh_PCE_psPAUSED_Action @ 0x1C00195F0 (Usbh_PCE_psPAUSED_Action.c)
+ *     UsbhSoftDisconnectPdo @ 0x1C003AA6C (UsbhSoftDisconnectPdo.c)
+ *     UsbhHardErrorReset1BadEnable @ 0x1C004DAF0 (UsbhHardErrorReset1BadEnable.c)
+ *     UsbhReset1Debounce @ 0x1C004E730 (UsbhReset1Debounce.c)
+ *     UsbhReset1DropDevice @ 0x1C004E9A0 (UsbhReset1DropDevice.c)
+ *     UsbhReset2CycleDevice @ 0x1C004EF20 (UsbhReset2CycleDevice.c)
+ *     UsbhReset2DropDevice @ 0x1C004EF90 (UsbhReset2DropDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     UsbhWaitForResetTimeout @ 0x1C001EEA4 (UsbhWaitForResetTimeout.c)
- *     UsbhCancelQueuedTimeout @ 0x1C001F1AC (UsbhCancelQueuedTimeout.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     UsbhWaitForResetTimeout @ 0x1C001C87C (UsbhWaitForResetTimeout.c)
+ *     UsbhCancelQueuedTimeout @ 0x1C001CB8C (UsbhCancelQueuedTimeout.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
  */
 
 void __fastcall UsbhCancelResetTimeout(__int64 a1, __int64 a2, int a3)

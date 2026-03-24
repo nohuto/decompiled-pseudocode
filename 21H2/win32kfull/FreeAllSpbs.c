@@ -1,25 +1,23 @@
 /*
- * XREFs of FreeAllSpbs @ 0x1C00F0F80
+ * XREFs of FreeAllSpbs @ 0x1C002AB30
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
- *     xxxRealizePalette @ 0x1C0147070 (xxxRealizePalette.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     xxxRealizePalette @ 0x1C011BC10 (xxxRealizePalette.c)
  * Callees:
- *     FreeSpb @ 0x1C00DCA08 (FreeSpb.c)
+ *     FreeSpb @ 0x1C021A2E4 (FreeSpb.c)
  */
 
 __int64 FreeAllSpbs()
 {
   __int64 result; // rax
-  __int64 v1; // rcx
 
   while ( 1 )
   {
     result = gpDispInfo;
-    v1 = *(_QWORD *)(gpDispInfo + 32LL);
-    if ( !v1 )
+    if ( !*(_QWORD *)(gpDispInfo + 32LL) )
       break;
-    FreeSpb(v1);
+    FreeSpb();
   }
   *(_QWORD *)(gpDispInfo + 32LL) = 0LL;
   return result;

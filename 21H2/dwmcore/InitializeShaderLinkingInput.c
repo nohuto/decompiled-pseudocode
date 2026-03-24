@@ -1,100 +1,90 @@
 /*
- * XREFs of InitializeShaderLinkingInput @ 0x180032F4C
+ * XREFs of InitializeShaderLinkingInput @ 0x180046518
  * Callers:
- *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180033FB0 (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
+ *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x1800479BC (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
  * Callees:
- *     ?ResolveKey@VertexShaderDesc@@QEBAIXZ @ 0x180032EF4 (-ResolveKey@VertexShaderDesc@@QEBAIXZ.c)
- *     GetHlslNameAndSemantic @ 0x1800330DC (GetHlslNameAndSemantic.c)
- *     ?Initialize@CShaderLinkingGraphBuilder@@QEAAJW4D3DShaderProfileVersion@@V?$span@$$CBUSignatureParameter@CShaderLinkingGraphBuilder@@$0?0@gsl@@@Z @ 0x180035048 (-Initialize@CShaderLinkingGraphBuilder@@QEAAJW4D3DShaderProfileVersion@@V-$span@$$CBUSignaturePa.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?ResolveKey@VertexShaderDesc@@QEBAIXZ @ 0x1800464C0 (-ResolveKey@VertexShaderDesc@@QEBAIXZ.c)
+ *     GetHlslNameAndSemantic @ 0x180046690 (GetHlslNameAndSemantic.c)
+ *     ?Initialize@CShaderLinkingGraphBuilder@@QEAAJW4D3DShaderProfileVersion@@V?$span@$$CBUSignatureParameter@CShaderLinkingGraphBuilder@@$0?0@gsl@@@Z @ 0x180048414 (-Initialize@CShaderLinkingGraphBuilder@@QEAAJW4D3DShaderProfileVersion@@V-$span@$$CBUSignaturePa.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall InitializeShaderLinkingInput(struct ID3D11Linker **ppLinker, __int64 a2, VertexShaderDesc *a3)
 {
   int v4; // eax
-  gsl::details *v5; // rcx
-  unsigned int v6; // r11d
-  unsigned __int64 v7; // rbp
-  unsigned int v8; // edi
-  __int64 v9; // r14
-  unsigned __int64 v10; // rdx
-  char *v11; // rbx
-  __int64 v12; // r10
-  char *v13; // rdx
-  int v14; // r10d
-  int v15; // eax
-  unsigned int v16; // ecx
-  unsigned int v17; // edi
-  __int128 v19; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v5; // r11d
+  unsigned __int64 v6; // rbp
+  unsigned int v7; // edi
+  __int64 v8; // r14
+  unsigned __int64 v9; // rdx
+  __int16 v10; // cx
+  unsigned int v11; // ecx
+  char *v12; // rbx
+  __int64 v13; // r10
+  char *v14; // rdx
+  int v15; // r10d
+  int v16; // eax
+  unsigned int v17; // ecx
+  unsigned int v18; // edi
 
   v4 = VertexShaderDesc::ResolveKey(a3);
-  v7 = *((_QWORD *)&unk_1802C15B0 + 2 * (v4 & 0xFFFFFFEF));
-  v8 = v7;
-  v19 = *((_OWORD *)&unk_1802C15B0 + (v4 & 0xFFFFFFEF));
-  v9 = *((_QWORD *)&v19 + 1);
-  if ( (_DWORD)v7 )
+  v6 = *((_QWORD *)&unk_18027B520 + 2 * (v4 & 0xFFFFFFEF));
+  v7 = v6;
+  v8 = *((_QWORD *)&unk_18027B520 + 2 * (v4 & 0xFFFFFFEF) + 1);
+  if ( (_DWORD)v6 )
   {
     while ( 1 )
     {
-      v10 = v8 - 1;
-      if ( v10 >= v7 )
+      v9 = v7 - 1;
+      if ( v9 >= v6 )
         break;
-      LOWORD(v5) = *(_WORD *)(*((_QWORD *)&v19 + 1) + 12 * v10);
-      if ( ((unsigned __int16)v5 & 0xFF00) == 0x100 )
+      v10 = *(_WORD *)(*((_QWORD *)&unk_18027B520 + 2 * (v4 & 0xFFFFFFEF) + 1) + 12 * v9);
+      if ( (v10 & 0xFF00) == 0x100 && (unsigned __int8)v10 >= v5 )
       {
-        v5 = (gsl::details *)(unsigned __int8)v5;
-        if ( (unsigned __int8)v5 >= v6 )
-        {
-          v8 = v10;
-          if ( (_DWORD)v10 )
-            continue;
-        }
+        v7 = v9;
+        if ( (_DWORD)v9 )
+          continue;
       }
       goto LABEL_5;
     }
 LABEL_16:
-    gsl::details::terminate(v5);
-    JUMPOUT(0x1800330D5LL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
 LABEL_5:
-  v11 = (char *)DefaultHeap::Alloc(saturated_mul(v8, 0x20uLL));
-  if ( v11 )
+  v12 = (char *)DefaultHeap::Alloc(saturated_mul(v7, 0x20uLL));
+  if ( v12 )
   {
-    v12 = 0LL;
-    if ( v8 )
+    v13 = 0LL;
+    if ( v7 )
     {
-      while ( (unsigned int)v12 < v7 )
+      while ( (unsigned int)v13 < v6 )
       {
-        v13 = &v11[32 * (unsigned int)v12];
-        *(_WORD *)v13 = *(_WORD *)(v9 + 12 * v12);
-        *((_DWORD *)v13 + 6) = *(_DWORD *)(v9 + 12 * v12 + 4);
-        *((_DWORD *)v13 + 7) = *(_DWORD *)(v9 + 12 * v12 + 8);
-        GetHlslNameAndSemantic(*(unsigned __int16 *)(v9 + 12 * v12), v13 + 8, v13 + 16);
-        v12 = (unsigned int)(v14 + 1);
-        if ( (unsigned int)v12 >= v8 )
+        v14 = &v12[32 * (unsigned int)v13];
+        *(_WORD *)v14 = *(_WORD *)(v8 + 12 * v13);
+        *((_DWORD *)v14 + 6) = *(_DWORD *)(v8 + 12 * v13 + 4);
+        *((_DWORD *)v14 + 7) = *(_DWORD *)(v8 + 12 * v13 + 8);
+        GetHlslNameAndSemantic(*(unsigned __int16 *)(v8 + 12 * v13), v14 + 8, v14 + 16);
+        v13 = (unsigned int)(v15 + 1);
+        if ( (unsigned int)v13 >= v7 )
           goto LABEL_9;
       }
       goto LABEL_16;
     }
 LABEL_9:
-    gsl::details::extent_type<-1>::extent_type<-1>(&v19, v8);
-    if ( (_QWORD)v19 == -1LL )
-      goto LABEL_16;
-    *((_QWORD *)&v19 + 1) = v11;
-    v15 = CShaderLinkingGraphBuilder::Initialize(ppLinker);
-    v17 = v15;
-    if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1B4u, 0LL);
-    DefaultHeap::Free(v11);
+    v16 = CShaderLinkingGraphBuilder::Initialize(ppLinker);
+    v18 = v16;
+    if ( v16 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1A1u, 0LL);
+    operator delete(v12);
   }
   else
   {
-    v17 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v5, 0LL, 0, -2147024882, 0x1A7u, 0LL);
+    v18 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024882, 0x194u, 0LL);
   }
-  return v17;
+  return v18;
 }

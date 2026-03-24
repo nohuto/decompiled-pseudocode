@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkWdTimerRoutine @ 0x14052B210
+ * XREFs of HalpBlkWdTimerRoutine @ 0x1404DF1D0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void HalpBlkWdTimerRoutine()

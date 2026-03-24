@@ -1,21 +1,18 @@
 /*
- * XREFs of HalpFlushAndWait @ 0x14041B4C0
+ * XREFs of HalpFlushAndWait @ 0x1403FA0F0
  * Callers:
- *     HaliAcpiSleep @ 0x140390D20 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
  * Callees:
- *     KeSweepLocalCaches @ 0x140389F70 (KeSweepLocalCaches.c)
+ *     KeSweepLocalCaches @ 0x1403821F0 (KeSweepLocalCaches.c)
+ *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
  */
 
 unsigned __int64 __fastcall HalpFlushAndWait(volatile signed __int32 *a1)
 {
-  unsigned __int64 result; // rax
-
   KeSweepLocalCaches();
   _InterlockedIncrement(a1);
   do
     _mm_pause();
   while ( *a1 );
-  result = __readcr2();
-  __writecr2(result);
-  return result;
+  return HalpProcessorFence();
 }

@@ -1,12 +1,13 @@
 /*
- * XREFs of ??_GCWARPDrawListEntry@@EEAAPEAXI@Z @ 0x1801FFDC0
+ * XREFs of ??_GCWARPDrawListEntry@@EEAAPEAXI@Z @ 0x1801A1880
  * Callers:
- *     <none>
+ *     ??_ECWARPDrawListEntry@@GBA@EAAPEAXI@Z @ 0x1800F5C40 (--_ECWARPDrawListEntry@@GBA@EAAPEAXI@Z.c)
+ *     ??_ECWARPDrawListEntry@@GCA@EAAPEAXI@Z @ 0x1800F5C50 (--_ECWARPDrawListEntry@@GCA@EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CWARPDrawListEntry@@EEAA@XZ @ 0x1801FFD10 (--1CWARPDrawListEntry@@EEAA@XZ.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z @ 0x180271DD0 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CWARPDrawListEntry@@EEAA@XZ @ 0x1801A17A0 (--1CWARPDrawListEntry@@EEAA@XZ.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z @ 0x180210A78 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z.c)
  */
 
 CWARPDrawListEntry *__fastcall CWARPDrawListEntry::`scalar deleting destructor'(CWARPDrawListEntry *this, char a2)
@@ -19,7 +20,7 @@ CWARPDrawListEntry *__fastcall CWARPDrawListEntry::`scalar deleting destructor'(
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x1C8);
     }
     else
     {

@@ -1,21 +1,21 @@
 /*
- * XREFs of CcRemoveVacbArray @ 0x140538218
+ * XREFs of CcRemoveVacbArray @ 0x1404EB20C
  * Callers:
- *     CcDereferenceVacbArray @ 0x140537FEC (CcDereferenceVacbArray.c)
+ *     CcDereferenceVacbArray @ 0x1404EAFE0 (CcDereferenceVacbArray.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-unsigned int **__fastcall CcRemoveVacbArray(unsigned int *a1)
+unsigned int *__fastcall CcRemoveVacbArray(unsigned int *a1)
 {
   unsigned int v1; // edx
   __int64 v3; // r10
-  int v4; // ecx
-  _QWORD *v5; // r9
+  int v4; // r8d
+  _QWORD *v5; // rcx
   int v6; // eax
-  unsigned int *v7; // r9
-  __int64 v8; // rcx
-  unsigned int **result; // rax
+  unsigned int *result; // rax
+  __int64 v8; // r8
+  unsigned int **v9; // rcx
 
   v1 = 0;
   if ( a1[1] )
@@ -43,13 +43,16 @@ LABEL_10:
   CcVacbArraysAllocated = v6 - 1;
   do
   {
-    v7 = &a1[8 * v1 + 8 + 2 * v1];
-    v8 = *(_QWORD *)v7;
-    if ( *(unsigned int **)(*(_QWORD *)v7 + 8LL) != v7 || (result = (unsigned int **)*((_QWORD *)v7 + 1), *result != v7) )
+    result = &a1[10 * v1 + 8];
+    v8 = *(_QWORD *)result;
+    if ( *(unsigned int **)(*(_QWORD *)result + 8LL) != result
+      || (v9 = (unsigned int **)*((_QWORD *)result + 1), *v9 != result) )
+    {
       __fastfail(3u);
+    }
     ++v1;
-    *result = (unsigned int *)v8;
-    *(_QWORD *)(v8 + 8) = result;
+    *v9 = (unsigned int *)v8;
+    *(_QWORD *)(v8 + 8) = v9;
   }
   while ( v1 < 0xCCC );
   CcNumberOfFreeVacbs -= 3276;

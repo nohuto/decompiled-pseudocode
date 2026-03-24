@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetFileObjectIgnoreSharing @ 0x1408A5190
+ * XREFs of IoSetFileObjectIgnoreSharing @ 0x140893CA0
  * Callers:
  *     <none>
  * Callees:
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403618B0 (IopSetFileObjectExtensionFlag.c)
  */
 
 NTSTATUS __stdcall IoSetFileObjectIgnoreSharing(PFILE_OBJECT FileObject)

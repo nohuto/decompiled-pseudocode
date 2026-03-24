@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmSetSimulatedLoad @ 0x14098ED44
+ * XREFs of PpmSetSimulatedLoad @ 0x1408E6470
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmSetSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
@@ -22,7 +22,7 @@ __int64 __fastcall PpmSetSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
   __int64 v8; // rbx
   unsigned int v9; // ebx
   ULONG ProcessorIndexFromNumber; // eax
-  _BYTE *Pool2; // rax
+  _BYTE *PoolWithTag; // rax
 
   v2 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
@@ -30,11 +30,11 @@ __int64 __fastcall PpmSetSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      v4 = *(_DWORD *)(i + 296);
+      v4 = *(_DWORD *)(i + 200);
       v5 = 0;
       if ( v4 )
       {
-        v6 = *(_QWORD *)(i + 312);
+        v6 = *(_QWORD *)(i + 216);
         while ( 1 )
         {
           v7 = 136LL * v5;
@@ -59,15 +59,15 @@ LABEL_12:
     v9 = -1073741811;
     goto LABEL_19;
   }
-  v8 = KeGetPrcb(ProcessorIndexFromNumber) + 33968;
+  v8 = KeGetPrcb(ProcessorIndexFromNumber) + 33128;
 LABEL_16:
-  Pool2 = (_BYTE *)ExAllocatePool2(64LL, 2LL, 1884115024LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 2uLL, 0x704D5050u);
+  if ( PoolWithTag )
   {
-    *Pool2 = ProcNumber[1].Group;
-    Pool2[1] = HIBYTE(ProcNumber[1].Group);
+    *PoolWithTag = ProcNumber[1].Group;
+    PoolWithTag[1] = HIBYTE(ProcNumber[1].Group);
     v2 = *(void **)(v8 + 24);
-    *(_QWORD *)(v8 + 24) = Pool2;
+    *(_QWORD *)(v8 + 24) = PoolWithTag;
     v9 = 0;
   }
   else

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801BF684
+ * XREFs of ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x180182EF8
  * Callers:
- *     ??1CEffectCompilationService@@UEAA@XZ @ 0x180198D04 (--1CEffectCompilationService@@UEAA@XZ.c)
- *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801BF5DC (--1CEffectCompilationTask@@QEAA@XZ.c)
+ *     ??1CEffectCompilationService@@UEAA@XZ @ 0x180167ED0 (--1CEffectCompilationService@@UEAA@XZ.c)
+ *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x180182E58 (--1CEffectCompilationTask@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

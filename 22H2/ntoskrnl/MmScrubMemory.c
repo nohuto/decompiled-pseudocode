@@ -1,18 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x140A46B34
+ * XREFs of MmScrubMemory @ 0x1408DC16C
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeInitializeGate @ 0x140293114 (KeInitializeGate.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1403575C8 (MiDereferencePageRuns.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     MiReferenceNonPagedMemoryProcessList @ 0x140A46180 (MiReferenceNonPagedMemoryProcessList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x14032BE90 (KeInitializeGate.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     MiScrubProcesses @ 0x1408DC060 (MiScrubProcesses.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
@@ -22,94 +20,84 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
   _DWORD *Pool; // rax
   _QWORD *v7; // rsi
   int v8; // edi
+  _QWORD *v9; // r14
+  unsigned int v10; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
   _QWORD *v12; // r15
-  _QWORD *v13; // r14
-  int *v14; // r15
-  unsigned __int64 v15; // rbx
-  void *v16; // rcx
-  __int64 v17; // rcx
-  PVOID Object; // [rsp+60h] [rbp+8h] BYREF
+  int *v13; // rax
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+70h] [rbp+18h] BYREF
 
   *a3 = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
              a2,
              1u,
              (POBJECT_TYPE)ExEventObjectType,
              KeGetCurrentThread()->PreviousMode,
-             &Object,
+             (PVOID *)&DmaAdapter,
              0LL);
   if ( result >= 0 )
   {
     v5 = (unsigned __int16)KeNumberNodes;
-    Pool = MiAllocatePool(64, 200LL * (unsigned __int16)KeNumberNodes + 88, 0x6363454Du);
+    Pool = MiAllocatePool(64, 224LL * (unsigned __int16)KeNumberNodes + 64, 0x6363454Du);
     v7 = Pool;
     if ( Pool )
     {
       *Pool = v5;
-      KeInitializeGate((__int64)(Pool + 2), 0);
-      v7[6] = MiSystemPartition;
-      v7[4] = Object;
-      MiReferenceNonPagedMemoryProcessList((__int64)v7);
+      KeInitializeGate((__int64)(Pool + 2));
+      v7[4] = DmaAdapter;
+      v9 = v7 + 8;
+      v7[6] = &MiSystemPartition;
+      v10 = 0;
       CurrentThread = KeGetCurrentThread();
-      v10 = v7[6];
       v7[5] = 0LL;
       v7[7] = CurrentThread;
-      v11 = 0;
-      v7[10] = MiReferencePageRuns(v10, 1u);
-      v12 = v7 + 11;
       if ( v5 )
       {
-        v13 = v7 + 16;
+        v12 = v7 + 13;
         do
         {
-          *v12 = v7;
-          *((_DWORD *)v13 - 8) = v11;
-          *(v13 - 3) = 0LL;
-          *(v13 - 1) = MiScrubMemoryWorker;
-          *v13 = v12;
-          ExQueueWorkItemToPartition(v13 - 3, 4, v11++, qword_140C6B5C8);
-          v12 += 25;
-          v13 += 25;
+          *v9 = v7;
+          *((_DWORD *)v12 - 8) = v10;
+          *(v12 - 3) = 0LL;
+          *(v12 - 1) = MiScrubMemoryWorker;
+          *v12 = v9;
+          ExQueueWorkItemToPartition(v12 - 3, 4, v10++, qword_140C50E30);
+          v9 += 28;
+          v12 += 28;
         }
-        while ( v11 < v5 );
+        while ( v10 < v5 );
       }
-      v8 = 0;
-      KeWaitForGate((__int64)(v7 + 1), 0, 0);
-      v14 = (int *)v12 + 3;
-      while ( 1 )
-      {
-        v14 -= 50;
-        if ( *v14 < 0 )
-          break;
-        if ( !--v11 )
-          goto LABEL_12;
-      }
-      v8 = *v14;
-LABEL_12:
       v15 = 0LL;
-      for ( *a3 = v7[5]; v15 < v7[8]; ++v15 )
-        ObfDereferenceObject(*(PVOID *)(v7[9] + 8 * v15));
-      v16 = (void *)v7[9];
-      if ( v16 )
-        ExFreePoolWithTag(v16, 0);
-      v17 = v7[10];
-      if ( v17 )
-        MiDereferencePageRuns(v17);
+      v8 = MiScrubProcesses((__int64)v7, &v15);
+      KeWaitForGate((__int64)(v7 + 1), 0);
+      if ( v8 >= 0 )
+      {
+        v13 = (int *)v9 + 3;
+        while ( 1 )
+        {
+          v13 -= 56;
+          if ( *v13 < 0 )
+            break;
+          if ( !--v10 )
+            goto LABEL_13;
+        }
+        v8 = *v13;
+      }
+LABEL_13:
+      *a3 = v15 + v7[5];
       ExFreePoolWithTag(v7, 0);
-      if ( *((_DWORD *)Object + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
+      if ( *(_DWORD *)(&DmaAdapter->Size + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
         v8 = -1073741248;
       else
-        _InterlockedIncrement(&dword_140C68090);
+        _InterlockedIncrement(&dword_140C4E7D8);
     }
     else
     {
       v8 = -1073741670;
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return v8;
   }
   return result;

@@ -1,20 +1,20 @@
 /*
- * XREFs of Endpoint_GetDequeuePointer @ 0x1C0004B68
+ * XREFs of Endpoint_GetDequeuePointer @ 0x1C0008334
  * Callers:
- *     UsbDevice_InitializeEndpointContext @ 0x1C00049B4 (UsbDevice_InitializeEndpointContext.c)
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C000C0DC (Endpoint_OnCancelSetDequeuePointer.c)
- *     UsbDevice_SetAddress @ 0x1C00111BC (UsbDevice_SetAddress.c)
- *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C0015FA0 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
- *     Endpoint_ControlEndpointResetCompletion @ 0x1C0037F40 (Endpoint_ControlEndpointResetCompletion.c)
- *     Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C0038DA0 (Endpoint_OnCancelEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_OnResetEndpointConfigure @ 0x1C0038FA8 (Endpoint_OnResetEndpointConfigure.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C00393F0 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_OnResetSetDequeuePointer @ 0x1C00398A4 (Endpoint_OnResetSetDequeuePointer.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003B3B0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004E00C (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     UsbDevice_InitializeEndpointContext @ 0x1C0007FF4 (UsbDevice_InitializeEndpointContext.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     UsbDevice_SetAddress @ 0x1C001086C (UsbDevice_SetAddress.c)
+ *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C0016620 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
+ *     Endpoint_ControlEndpointResetCompletion @ 0x1C00195F0 (Endpoint_ControlEndpointResetCompletion.c)
+ *     Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C0038B20 (Endpoint_OnCancelEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C0038D28 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnResetSetDequeuePointer @ 0x1C0039624 (Endpoint_OnResetSetDequeuePointer.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
  * Callees:
- *     TR_GetDequeuePointer @ 0x1C0004B8C (TR_GetDequeuePointer.c)
+ *     TR_GetDequeuePointer @ 0x1C0008358 (TR_GetDequeuePointer.c)
  */
 
 __int64 __fastcall Endpoint_GetDequeuePointer(__int64 a1, int a2)

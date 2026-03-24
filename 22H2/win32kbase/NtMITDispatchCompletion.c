@@ -1,18 +1,28 @@
 /*
- * XREFs of NtMITDispatchCompletion @ 0x1C0057A90
+ * XREFs of NtMITDispatchCompletion @ 0x1C00434F0
  * Callers:
  *     <none>
  * Callees:
- *     UserDispatchMITCompletion @ 0x1C00579A4 (UserDispatchMITCompletion.c)
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     UserDispatchMITCompletion @ 0x1C0043698 (UserDispatchMITCompletion.c)
  */
 
-__int64 __fastcall NtMITDispatchCompletion(int a1, unsigned int a2)
+__int64 __fastcall NtMITDispatchCompletion(__int64 a1, __int64 a2)
 {
-  if ( CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
+  CInputThread *v2; // rdi
+  bool v5; // bl
+  __int64 v6; // rdx
+
+  v2 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v2, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v2);
+  ExReleasePushLockSharedEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+  if ( v5 )
     UserDispatchMITCompletion(a1, a2);
   else
-    UserSetLastError(5LL);
+    UserSetLastError(5LL, v6);
   return 0LL;
 }

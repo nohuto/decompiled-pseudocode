@@ -1,46 +1,65 @@
 /*
- * XREFs of NtAssignProcessToJobObject @ 0x14069FE70
+ * XREFs of NtAssignProcessToJobObject @ 0x14071E680
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     EtwTraceJobAssignProcess @ 0x1409E5498 (EtwTraceJobAssignProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsAssignProcessToJobObject @ 0x14071E780 (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x140935E78 (EtwTraceJobAssignProcess.c)
  */
 
-__int64 __fastcall NtAssignProcessToJobObject(void *a1, ULONG_PTR a2)
+__int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
 {
+  unsigned __int64 v2; // rdi
   KPROCESSOR_MODE PreviousMode; // bp
-  NTSTATUS v4; // esi
-  PVOID v5; // rdi
-  PVOID v6; // rbx
+  NTSTATUS v5; // esi
+  struct _DMA_ADAPTER *v6; // rbx
+  __int64 v7; // r8
+  PVOID v8; // rdi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
-  PVOID v9; // [rsp+78h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+20h] BYREF
 
+  v2 = 0LL;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v9 = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, &v9, 0LL);
-  if ( v4 >= 0
-    && (a2 == -7LL || (v4 = ObpReferenceObjectByHandleWithTag(a2, 0x624A7350u, (__int64)&Object, 0LL, 0LL), v4 >= 0)) )
+  DmaAdapter = 0LL;
+  v5 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  if ( v5 >= 0 )
   {
-    v5 = Object;
-    v6 = v9;
-    v4 = PsAssignProcessToJobObject(v9, Object);
+    if ( a2 == (void *)-7LL )
+    {
+      v2 = KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[16];
+      goto LABEL_4;
+    }
+    v5 = ObReferenceObjectByHandleWithTag(
+           a2,
+           0x101u,
+           (POBJECT_TYPE)PsProcessType,
+           PreviousMode,
+           0x624A7350u,
+           &Object,
+           0LL);
+    if ( v5 >= 0 )
+    {
+LABEL_4:
+      v6 = DmaAdapter;
+      v7 = v2;
+      v8 = Object;
+      v5 = PsAssignProcessToJobObject((__int64)DmaAdapter, (PEPROCESS)Object, v7);
+      goto LABEL_5;
+    }
   }
-  else
-  {
-    v5 = Object;
-    v6 = v9;
-  }
+  v8 = Object;
+  v6 = DmaAdapter;
+LABEL_5:
   if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-    EtwTraceJobAssignProcess(v6, v5, (unsigned int)v4);
-  if ( v5 )
-    ObfDereferenceObjectWithTag(v5, 0x624A7350u);
+    EtwTraceJobAssignProcess(v6, v8, (unsigned int)v5);
+  if ( v8 )
+    ObfDereferenceObjectWithTag(v8, 0x624A7350u);
   if ( v6 )
-    ObfDereferenceObject(v6);
-  return (unsigned int)v4;
+    HalPutDmaAdapter(v6);
+  return (unsigned int)v5;
 }

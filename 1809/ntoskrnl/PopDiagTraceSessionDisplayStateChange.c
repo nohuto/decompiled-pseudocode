@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x140158B8C
+ * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x140158BAC
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, int a4)

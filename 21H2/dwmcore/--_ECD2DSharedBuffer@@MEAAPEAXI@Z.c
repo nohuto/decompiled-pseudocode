@@ -1,22 +1,24 @@
 /*
- * XREFs of ??_ECD2DSharedBuffer@@MEAAPEAXI@Z @ 0x18000C6F0
+ * XREFs of ??_ECD2DSharedBuffer@@MEAAPEAXI@Z @ 0x18009F2F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CD2DSharedBuffer@@MEAA@XZ @ 0x18000C734 (--1CD2DSharedBuffer@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CD2DSharedBuffer@@MEAA@XZ @ 0x18009F430 (--1CD2DSharedBuffer@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CD2DSharedBuffer *__fastcall CD2DSharedBuffer::`vector deleting destructor'(CD2DSharedBuffer *this, char a2)
 {
+  unsigned int v4; // r8d
+
   CD2DSharedBuffer::~CD2DSharedBuffer(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x28uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x30, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

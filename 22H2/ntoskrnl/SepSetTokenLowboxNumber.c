@@ -1,21 +1,21 @@
 /*
- * XREFs of SepSetTokenLowboxNumber @ 0x1407F4DBC
+ * XREFs of SepSetTokenLowboxNumber @ 0x14070F0FC
  * Callers:
- *     SepGetAnonymousToken @ 0x140370BA8 (SepGetAnonymousToken.c)
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeSetSessionIdToken @ 0x1407F16F4 (SeSetSessionIdToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
- *     SeExchangePrimaryToken @ 0x140842088 (SeExchangePrimaryToken.c)
+ *     SepGetAnonymousToken @ 0x14035F51C (SepGetAnonymousToken.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     SeSetSessionIdToken @ 0x14069D5A0 (SeSetSessionIdToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
+ *     SeExchangePrimaryToken @ 0x1407BC404 (SeExchangePrimaryToken.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x140464450 (SepGetTokenSessionMapEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x1407F4F18 (SepGetLowBoxNumberEntry.c)
- *     SepInitializeLowBoxNumberTable @ 0x1407F5AE0 (SepInitializeLowBoxNumberTable.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SepGetTokenSessionMapEntry @ 0x140597AD8 (SepGetTokenSessionMapEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x14070F258 (SepGetLowBoxNumberEntry.c)
+ *     SepInitializeLowBoxNumberTable @ 0x14078E458 (SepInitializeLowBoxNumberTable.c)
  */
 
 __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
@@ -28,98 +28,97 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
   char *v8; // rsi
   struct _KTHREAD *v9; // rax
   volatile signed __int64 *v10; // rsi
-  ULONG_PTR v11; // rcx
-  struct _KTHREAD *v13; // rax
-  volatile signed __int64 *v14; // r14
-  ULONG_PTR v15; // rcx
   struct _KTHREAD *CurrentThread; // rax
+  volatile signed __int64 *v13; // r14
+  struct _KTHREAD *v14; // rax
   int TokenSessionMapEntry; // eax
-  struct _KTHREAD *v18; // rax
-  ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp+58h] BYREF
-  __int64 v21; // [rsp+88h] [rbp+60h] BYREF
+  struct _KTHREAD *v16; // rax
+  ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+48h] BYREF
+  __int64 v18; // [rsp+78h] [rbp+50h]
+  __int64 v19; // [rsp+80h] [rbp+58h] BYREF
 
+  v18 = a2;
   v2 = *(unsigned int *)(a1 + 120);
-  v3 = a2;
   BugCheckParameter2 = 0LL;
-  v21 = 0LL;
+  v19 = 0LL;
+  v3 = a2;
   v5 = 0;
   v6 = 0;
   LowBoxNumberEntry = 0;
-  if ( (unsigned int)v2 >= 5 )
-  {
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
-    v5 = 1;
-    TokenSessionMapEntry = SepGetTokenSessionMapEntry(v2, 0, (__int64 *)&BugCheckParameter2);
-    LowBoxNumberEntry = TokenSessionMapEntry;
-    if ( TokenSessionMapEntry < 0 )
-    {
-      if ( TokenSessionMapEntry != -1073741275 )
-        goto LABEL_26;
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
-      KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);
-      KeLeaveCriticalRegion();
-      v18 = KeGetCurrentThread();
-      --v18->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
-      LowBoxNumberEntry = SepGetTokenSessionMapEntry(v2, 1, (__int64 *)&BugCheckParameter2);
-      v5 = 0;
-      v6 = 1;
-      if ( LowBoxNumberEntry < 0 )
-        goto LABEL_10;
-    }
-    v8 = (char *)BugCheckParameter2;
-  }
-  else
+  if ( (unsigned int)v2 < 5 )
   {
     v8 = (char *)&g_SessionLowboxArray + 40 * v2;
     BugCheckParameter2 = (ULONG_PTR)v8;
-  }
-  if ( !v8[32] )
-  {
-    v13 = KeGetCurrentThread();
-    v14 = (volatile signed __int64 *)BugCheckParameter2;
-    v15 = BugCheckParameter2;
-    --v13->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v15, 0LL);
+LABEL_3:
     if ( !v8[32] )
-      LowBoxNumberEntry = SepInitializeLowBoxNumberTable(v14);
-    if ( (_InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
-    KeAbPostRelease(BugCheckParameter2);
-    KeLeaveCriticalRegion();
-    v3 = a2;
-  }
-  if ( !LowBoxNumberEntry )
-  {
-    v9 = KeGetCurrentThread();
-    v10 = (volatile signed __int64 *)BugCheckParameter2;
-    v11 = BugCheckParameter2;
-    --v9->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v11, 0LL);
-    LowBoxNumberEntry = SepGetLowBoxNumberEntry(v10, v3, &v21);
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      v13 = (volatile signed __int64 *)BugCheckParameter2;
+      ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+      if ( !v8[32] )
+        LowBoxNumberEntry = SepInitializeLowBoxNumberTable(v13);
+      if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
+      KeAbPostRelease(BugCheckParameter2);
+      KeLeaveCriticalRegion();
+      v3 = v18;
+    }
     if ( !LowBoxNumberEntry )
-      *(_QWORD *)(a1 + 1080) = v21;
-    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
-    KeAbPostRelease(BugCheckParameter2);
+    {
+      v9 = KeGetCurrentThread();
+      --v9->KernelApcDisable;
+      v10 = (volatile signed __int64 *)BugCheckParameter2;
+      ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+      LowBoxNumberEntry = SepGetLowBoxNumberEntry(v10, v3, &v19);
+      if ( !LowBoxNumberEntry )
+        *(_QWORD *)(a1 + 1080) = v19;
+      if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
+      KeAbPostRelease(BugCheckParameter2);
+      KeLeaveCriticalRegion();
+    }
+    goto LABEL_10;
+  }
+  v14 = KeGetCurrentThread();
+  --v14->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
+  v5 = 1;
+  TokenSessionMapEntry = SepGetTokenSessionMapEntry(v2, 0, &BugCheckParameter2);
+  LowBoxNumberEntry = TokenSessionMapEntry;
+  if ( TokenSessionMapEntry >= 0 )
+    goto LABEL_24;
+  if ( TokenSessionMapEntry == -1073741275 )
+  {
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
+    KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);
     KeLeaveCriticalRegion();
+    v16 = KeGetCurrentThread();
+    --v16->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
+    v6 = 1;
+    v5 = 0;
+    LowBoxNumberEntry = SepGetTokenSessionMapEntry(v2, 1, &BugCheckParameter2);
+  }
+  if ( LowBoxNumberEntry >= 0 )
+  {
+LABEL_24:
+    v8 = (char *)BugCheckParameter2;
+    goto LABEL_3;
   }
 LABEL_10:
   if ( v6 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&LowboxSessionMapLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&LowboxSessionMapLock);
-    goto LABEL_28;
+    goto LABEL_29;
   }
   if ( v5 )
   {
-LABEL_26:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
-LABEL_28:
+LABEL_29:
     KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);
     KeLeaveCriticalRegion();
   }

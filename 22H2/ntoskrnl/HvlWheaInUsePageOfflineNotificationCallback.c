@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x14053FE80
+ * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x1404F1C70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall HvlWheaInUsePageOfflineNotificationCallback(

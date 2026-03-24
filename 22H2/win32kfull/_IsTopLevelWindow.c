@@ -1,99 +1,92 @@
 /*
- * XREFs of _IsTopLevelWindow @ 0x1C0122310
+ * XREFs of _IsTopLevelWindow @ 0x1C006FBE8
  * Callers:
- *     xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C0013084 (xxxRestoreWindowFromDeferredStateIfNeeded.c)
- *     ?xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z @ 0x1C00161E4 (-xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z.c)
- *     NtUserGetWindowDisplayAffinity @ 0x1C00167D0 (NtUserGetWindowDisplayAffinity.c)
- *     GetDisplayAffinity @ 0x1C0016874 (GetDisplayAffinity.c)
- *     ?IsChildWindowCoordinateSpaceBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00177B8 (-IsChildWindowCoordinateSpaceBoundary@@YA_NPEBUtagWND@@@Z.c)
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0029418 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C0059090 (-ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C005A330 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
- *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C0066B58 (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
- *     SelectWindowRgn @ 0x1C0077C08 (SelectWindowRgn.c)
- *     zzzUpdateWindowsAfterModeChange @ 0x1C008E138 (zzzUpdateWindowsAfterModeChange.c)
- *     ?xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z @ 0x1C008E464 (-xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z.c)
- *     UpdateMonitorForWindowAndChildren @ 0x1C008E52C (UpdateMonitorForWindowAndChildren.c)
- *     ?BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z @ 0x1C008E62C (-BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z.c)
- *     xxxNotifyMonitorChanged @ 0x1C008E76C (xxxNotifyMonitorChanged.c)
- *     NtUserIsNonClientDpiScalingEnabled @ 0x1C0098E30 (NtUserIsNonClientDpiScalingEnabled.c)
- *     FVisCountable @ 0x1C00A1A50 (FVisCountable.c)
- *     ?IsWindowBroadcastingDpiToChildrenX@@YA_NPEAUtagWND@@@Z @ 0x1C00A770C (-IsWindowBroadcastingDpiToChildrenX@@YA_NPEAUtagWND@@@Z.c)
- *     ?VisWindow@@YAHPEAUtagWND@@K@Z @ 0x1C00A846C (-VisWindow@@YAHPEAUtagWND@@K@Z.c)
- *     ShouldHaveShadow @ 0x1C00ACE04 (ShouldHaveShadow.c)
- *     NtUserSetWindowCompositionTransition @ 0x1C00B3F80 (NtUserSetWindowCompositionTransition.c)
- *     IsTopLevelOrLayeredChildWindow @ 0x1C00B4624 (IsTopLevelOrLayeredChildWindow.c)
- *     NtUserBeginLayoutUpdate @ 0x1C00B6640 (NtUserBeginLayoutUpdate.c)
- *     NtUserSetBrokeredForeground @ 0x1C00BAFA0 (NtUserSetBrokeredForeground.c)
- *     ?IsWindowEligibleForRecalc@CRecalcProp@@CA_NPEBUtagWND@@@Z @ 0x1C00C259C (-IsWindowEligibleForRecalc@CRecalcProp@@CA_NPEBUtagWND@@@Z.c)
- *     WindowMargins::_anonymous_namespace_::GetWindowMargins @ 0x1C00C4AC0 (WindowMargins--_anonymous_namespace_--GetWindowMargins.c)
- *     ?OnBecomingMinMaximized@WindowMargins@@YAXPEAUtagWND@@@Z @ 0x1C00C4D44 (-OnBecomingMinMaximized@WindowMargins@@YAXPEAUtagWND@@@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     EditionPostDwmSpeedHitTest @ 0x1C00D0570 (EditionPostDwmSpeedHitTest.c)
- *     xxxInheritWindowMonitor @ 0x1C00D0C30 (xxxInheritWindowMonitor.c)
- *     ?xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C00D1ABC (-xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
- *     SetRedirectedWindow @ 0x1C00D36F4 (SetRedirectedWindow.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     InitializeMonitorInfo @ 0x1C00D516C (InitializeMonitorInfo.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     NtUserSetWindowCompositionAttribute @ 0x1C00EC2A0 (NtUserSetWindowCompositionAttribute.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C01210F8 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     ?xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0121240 (-xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_.c)
- *     ?IsWindowHolographicForHitTest@@YAHQEAUtagWND@@@Z @ 0x1C0122140 (-IsWindowHolographicForHitTest@@YAHQEAUtagWND@@@Z.c)
- *     ?xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z @ 0x1C0123BD4 (-xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z.c)
- *     ?xxxConsiderPreferredDpiChange@@YAXPEAUtagWND@@@Z @ 0x1C013D10C (-xxxConsiderPreferredDpiChange@@YAXPEAUtagWND@@@Z.c)
- *     FeedbackGetWindowSetting @ 0x1C01ADBFC (FeedbackGetWindowSetting.c)
- *     ?xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z @ 0x1C01B974C (-xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z.c)
- *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01CC70C (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
- *     NtUserDisableImmersiveOwner @ 0x1C01CE650 (NtUserDisableImmersiveOwner.c)
- *     NtUserForceWindowToDpiForTest @ 0x1C01CF9B0 (NtUserForceWindowToDpiForTest.c)
- *     NtUserSetBridgeWindowChild @ 0x1C01DA590 (NtUserSetBridgeWindowChild.c)
- *     NtUserSetFallbackForeground @ 0x1C01DBB30 (NtUserSetFallbackForeground.c)
- *     NtUserSetWindowDisplayAffinity @ 0x1C01DD1F0 (NtUserSetWindowDisplayAffinity.c)
- *     NtUserShellMigrateWindow @ 0x1C01DDCB0 (NtUserShellMigrateWindow.c)
- *     NtUserShellSetWindowPos @ 0x1C01DE090 (NtUserShellSetWindowPos.c)
- *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C01DF450 (NtUserUpdateDefaultDesktopThumbnail.c)
- *     NtUserUpdateLayeredWindow @ 0x1C01DF6D0 (NtUserUpdateLayeredWindow.c)
- *     ?DoesQualifyForResizeOptimization@@YAHPEAUMOVESIZEDATA@@@Z @ 0x1C01E9398 (-DoesQualifyForResizeOptimization@@YAHPEAUMOVESIZEDATA@@@Z.c)
- *     ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C01E93F4 (-DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z.c)
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01EC5FC (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
- *     ?_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F41A4 (-_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z.c)
- *     ?_ShouldGhostWindow@@YA_NPEBUtagWND@@@Z @ 0x1C01F43FC (-_ShouldGhostWindow@@YA_NPEBUtagWND@@@Z.c)
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F49BC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     GetGestureConfigSettings @ 0x1C02045D0 (GetGestureConfigSettings.c)
- *     ?IsNonClientDpiScalingEnabledX@@YA_NPEAUtagWND@@@Z @ 0x1C021F6CC (-IsNonClientDpiScalingEnabledX@@YA_NPEAUtagWND@@@Z.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C002BFA8 (xxxRestoreWindowFromDeferredStateIfNeeded.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0037A00 (NtUserSetWindowCompositionAttribute.c)
+ *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C003A7E4 (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
+ *     ?GetWindowExtendedMargin@@YA_NPEBUtagWND@@PEAUFRAME_MARGIN@@@Z @ 0x1C003E2DC (-GetWindowExtendedMargin@@YA_NPEBUtagWND@@PEAUFRAME_MARGIN@@@Z.c)
+ *     DefSetText @ 0x1C004AF8C (DefSetText.c)
+ *     FVisCountable @ 0x1C004BFD0 (FVisCountable.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     ?xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C006AB4C (-xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     xxxNotifyMonitorChanged @ 0x1C006C5B4 (xxxNotifyMonitorChanged.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C7D8 (xxxInheritWindowMonitor.c)
+ *     IsTopLevelOrLayeredChildWindow @ 0x1C006F8B4 (IsTopLevelOrLayeredChildWindow.c)
+ *     ShouldUseLogPixelsForWindowMetrics @ 0x1C006FB88 (ShouldUseLogPixelsForWindowMetrics.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C00729C0 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     SetRedirectedWindow @ 0x1C00BCE5C (SetRedirectedWindow.c)
+ *     InitializeDPIINFO @ 0x1C00BE1D0 (InitializeDPIINFO.c)
+ *     NtUserSetBrokeredForeground @ 0x1C00D6EB0 (NtUserSetBrokeredForeground.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00E9D5C (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00EC818 (-ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     xxxEnableChildWindowDpiMessageX @ 0x1C00F0F34 (xxxEnableChildWindowDpiMessageX.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1018 (zzzUpdateWindowsAfterModeChange.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00F12BC (UpdateMonitorForWindowAndChildren.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1544 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C00F1880 (NtUserUpdateLayeredWindow.c)
+ *     IsWindowBroadcastingDpiToChildrenX @ 0x1C010D0F4 (IsWindowBroadcastingDpiToChildrenX.c)
+ *     SelectWindowRgn @ 0x1C011172C (SelectWindowRgn.c)
+ *     ShouldHaveShadow @ 0x1C011B5CC (ShouldHaveShadow.c)
+ *     NtUserSetWindowCompositionTransition @ 0x1C01231A0 (NtUserSetWindowCompositionTransition.c)
+ *     ?_ShouldGhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C012745C (-_ShouldGhostWindow@@YAHPEAUtagWND@@@Z.c)
+ *     NtUserBeginLayoutUpdate @ 0x1C0130D00 (NtUserBeginLayoutUpdate.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167424 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
+ *     FeedbackGetWindowSetting @ 0x1C01DAB10 (FeedbackGetWindowSetting.c)
+ *     ?xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z @ 0x1C01E432C (-xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z.c)
+ *     IsNonClientDpiScalingEnabledX @ 0x1C01E52F4 (IsNonClientDpiScalingEnabledX.c)
+ *     xxxEnableNonClientDpiScaling @ 0x1C01E5DFC (xxxEnableNonClientDpiScaling.c)
+ *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F63B4 (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
+ *     NtUserDisableImmersiveOwner @ 0x1C01F7580 (NtUserDisableImmersiveOwner.c)
+ *     NtUserForceWindowToDpiForTest @ 0x1C01F85D0 (NtUserForceWindowToDpiForTest.c)
+ *     NtUserGetWindowDisplayAffinity @ 0x1C01FC2D0 (NtUserGetWindowDisplayAffinity.c)
+ *     NtUserSetBridgeWindowChild @ 0x1C0201070 (NtUserSetBridgeWindowChild.c)
+ *     NtUserSetFallbackForeground @ 0x1C0201980 (NtUserSetFallbackForeground.c)
+ *     NtUserSetWindowDisplayAffinity @ 0x1C0202960 (NtUserSetWindowDisplayAffinity.c)
+ *     NtUserSetWindowGroup @ 0x1C0202A40 (NtUserSetWindowGroup.c)
+ *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C0203AD0 (NtUserUpdateDefaultDesktopThumbnail.c)
+ *     ?_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z @ 0x1C020989C (-_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ?DoesQualifyForResizeOptimization@@YAHPEAU_MOVESIZEDATA@@@Z @ 0x1C020A774 (-DoesQualifyForResizeOptimization@@YAHPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C020A7D4 (-DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0210F44 (xxxDrawDragRectEx.c)
+ *     ?_LogLinkWindow@@YAXW4LogBeforeOrAfter@@PEAUtagWND@@11@Z @ 0x1C0222A1C (-_LogLinkWindow@@YAXW4LogBeforeOrAfter@@PEAUtagWND@@11@Z.c)
+ *     GetGestureConfigSettings @ 0x1C0227088 (GetGestureConfigSettings.c)
+ *     ?xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z @ 0x1C0241740 (-xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z.c)
+ *     GetDisplayAffinity @ 0x1C0247B0C (GetDisplayAffinity.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall IsTopLevelWindow(__int64 a1)
+__int64 __fastcall IsTopLevelWindow(__int64 a1)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rax
-  __int64 v3; // rax
-  _BOOL8 result; // rax
+  __int64 v1; // r8
+  __int64 result; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
 
   v1 = *(_QWORD *)(a1 + 104);
-  result = 0;
+  result = 0LL;
   if ( v1 )
   {
-    v2 = *(_QWORD *)(a1 + 24);
-    if ( v2 )
+    v3 = *(_QWORD *)(a1 + 24);
+    v4 = 0LL;
+    if ( v3 )
     {
-      v3 = *(_QWORD *)(v2 + 8);
-      if ( v3 )
-      {
-        if ( v1 == *(_QWORD *)(v3 + 24) )
-          return 1;
-      }
+      v5 = *(_QWORD *)(v3 + 8);
+      if ( v5 )
+        v4 = *(_QWORD *)(v5 + 24);
     }
+    if ( v1 == v4 )
+      return 1LL;
   }
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSetSystemAffinityThread @ 0x1400D63E0
+ * XREFs of KiSetSystemAffinityThread @ 0x1400D6400
  * Callers:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400D559C (KiUpdateNodeAffinitizedFlag.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KiSelectNextThread @ 0x1400D7148 (KiSelectNextThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400D55BC (KiUpdateNodeAffinitizedFlag.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiSetSystemAffinityThread(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

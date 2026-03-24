@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedMatrixTransformMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02395B0
+ * XREFs of ?ReleaseAllReferences@CSharedMatrixTransformMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F8920
  * Callers:
  *     <none>
  * Callees:
@@ -12,10 +12,10 @@ void __fastcall DirectComposition::CSharedMatrixTransformMarshaler::ReleaseAllRe
 {
   __int64 v3; // rcx
 
-  v3 = *((_QWORD *)this + 13);
+  v3 = *((_QWORD *)this + 12);
   if ( v3 )
   {
     ObfDereferenceObject((PVOID)(v3 - 24));
-    *((_QWORD *)this + 13) = 0LL;
+    *((_QWORD *)this + 12) = 0LL;
   }
 }

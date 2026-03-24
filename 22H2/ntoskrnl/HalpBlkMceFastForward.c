@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkMceFastForward @ 0x140B172B0
+ * XREFs of HalpBlkMceFastForward @ 0x140A1A2B0
  * Callers:
- *     HalpBlkMachineCheckAbort @ 0x140B16280 (HalpBlkMachineCheckAbort.c)
- *     HalpBlkNmiInterrupt @ 0x140B16400 (HalpBlkNmiInterrupt.c)
+ *     HalpBlkMachineCheckAbort @ 0x140A19280 (HalpBlkMachineCheckAbort.c)
+ *     HalpBlkNmiInterrupt @ 0x140A19400 (HalpBlkNmiInterrupt.c)
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140B150B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
  */
 
 volatile signed __int32 *__fastcall HalpBlkMceFastForward(unsigned __int64 a1, char a2)

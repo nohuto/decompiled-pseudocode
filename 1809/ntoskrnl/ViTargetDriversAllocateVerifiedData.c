@@ -1,11 +1,11 @@
 /*
  * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140934ED4
  * Callers:
- *     VfTargetDriversAdd @ 0x1400F5584 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
  *     VfTargetDriversEnableVerifier @ 0x140934944 (VfTargetDriversEnableVerifier.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

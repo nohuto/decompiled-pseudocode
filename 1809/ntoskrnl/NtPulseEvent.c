@@ -1,10 +1,10 @@
 /*
- * XREFs of NtPulseEvent @ 0x14066CF60
+ * XREFs of NtPulseEvent @ 0x14066CF40
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KePulseEvent @ 0x1400F0BA0 (KePulseEvent.c)
+ *     KePulseEvent @ 0x1400F0BC0 (KePulseEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

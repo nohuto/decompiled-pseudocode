@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CLinearTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180223DD0
+ * XREFs of ?SetD2DEffectProperties@CLinearTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801D3110
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransferEffect *this, struct ID2D1Effect *a2)
@@ -42,12 +42,12 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
          a2,
          0LL,
          0LL,
-         (char *)this + 160,
+         (char *)this + 152,
          4);
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x2Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x2Eu, 0LL);
   }
   else
   {
@@ -55,16 +55,16 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
            a2,
            1LL,
            0LL,
-           (char *)this + 164,
+           (char *)this + 156,
            4);
     v6 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x33u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x33u, 0LL);
     }
     else
     {
-      v32 = *((unsigned __int8 *)this + 168);
+      v32 = *((unsigned __int8 *)this + 160);
       v9 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
              a2,
              2LL,
@@ -74,7 +74,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
       v6 = v9;
       if ( v9 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x38u);
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x38u, 0LL);
       }
       else
       {
@@ -82,12 +82,12 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                 a2,
                 3LL,
                 0LL,
-                (char *)this + 172,
+                (char *)this + 164,
                 4);
         v6 = v11;
         if ( v11 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x3Du);
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x3Du, 0LL);
         }
         else
         {
@@ -95,16 +95,16 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                   a2,
                   4LL,
                   0LL,
-                  (char *)this + 176,
+                  (char *)this + 168,
                   4);
           v6 = v13;
           if ( v13 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x42u);
+            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x42u, 0LL);
           }
           else
           {
-            v32 = *((unsigned __int8 *)this + 180);
+            v32 = *((unsigned __int8 *)this + 172);
             v15 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                     a2,
                     5LL,
@@ -114,7 +114,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
             v6 = v15;
             if ( v15 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x47u);
+              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x47u, 0LL);
             }
             else
             {
@@ -122,12 +122,12 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                       a2,
                       6LL,
                       0LL,
-                      (char *)this + 184,
+                      (char *)this + 176,
                       4);
               v6 = v17;
               if ( v17 < 0 )
               {
-                MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x4Cu);
+                MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x4Cu, 0LL);
               }
               else
               {
@@ -135,16 +135,16 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                         a2,
                         7LL,
                         0LL,
-                        (char *)this + 188,
+                        (char *)this + 180,
                         4);
                 v6 = v19;
                 if ( v19 < 0 )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x51u);
+                  MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x51u, 0LL);
                 }
                 else
                 {
-                  v32 = *((unsigned __int8 *)this + 192);
+                  v32 = *((unsigned __int8 *)this + 184);
                   v21 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                           a2,
                           8LL,
@@ -154,7 +154,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                   v6 = v21;
                   if ( v21 < 0 )
                   {
-                    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x56u);
+                    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x56u, 0LL);
                   }
                   else
                   {
@@ -162,12 +162,12 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                             a2,
                             9LL,
                             0LL,
-                            (char *)this + 196,
+                            (char *)this + 188,
                             4);
                     v6 = v23;
                     if ( v23 < 0 )
                     {
-                      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0LL, v23, 0x5Bu);
+                      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x5Bu, 0LL);
                     }
                     else
                     {
@@ -175,16 +175,16 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                               a2,
                               10LL,
                               0LL,
-                              (char *)this + 200,
+                              (char *)this + 192,
                               4);
                       v6 = v25;
                       if ( v25 < 0 )
                       {
-                        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0LL, v25, 0x60u);
+                        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x60u, 0LL);
                       }
                       else
                       {
-                        v32 = *((unsigned __int8 *)this + 204);
+                        v32 = *((unsigned __int8 *)this + 196);
                         v27 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                                 a2,
                                 11LL,
@@ -194,11 +194,11 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                         v6 = v27;
                         if ( v27 < 0 )
                         {
-                          MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0LL, v27, 0x65u);
+                          MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x65u, 0LL);
                         }
                         else
                         {
-                          v32 = *((unsigned __int8 *)this + 205);
+                          v32 = *((unsigned __int8 *)this + 197);
                           v29 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                                   a2,
                                   12LL,
@@ -207,7 +207,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                                   4);
                           v6 = v29;
                           if ( v29 < 0 )
-                            MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0LL, v29, 0x6Au);
+                            MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x6Au, 0LL);
                         }
                       }
                     }

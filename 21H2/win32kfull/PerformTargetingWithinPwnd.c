@@ -1,9 +1,9 @@
 /*
- * XREFs of PerformTargetingWithinPwnd @ 0x1C0207170
+ * XREFs of PerformTargetingWithinPwnd @ 0x1C0217310
  * Callers:
  *     <none>
  * Callees:
- *     xxxPerformTargetingWithinPwnd @ 0x1C020760C (xxxPerformTargetingWithinPwnd.c)
+ *     xxxPerformTargetingWithinPwnd @ 0x1C02177AC (xxxPerformTargetingWithinPwnd.c)
  */
 
 __int64 __fastcall PerformTargetingWithinPwnd(__int64 a1)

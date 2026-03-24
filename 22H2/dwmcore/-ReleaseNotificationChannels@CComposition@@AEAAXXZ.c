@@ -1,20 +1,18 @@
 /*
- * XREFs of ?ReleaseNotificationChannels@CComposition@@AEAAXXZ @ 0x1801B509C
+ * XREFs of ?ReleaseNotificationChannels@CComposition@@AEAAXXZ @ 0x180155B20
  * Callers:
- *     ??1CComposition@@MEAA@XZ @ 0x1801B3CEC (--1CComposition@@MEAA@XZ.c)
- *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x1801B4C44 (-OnShutdown@CComposition@@QEAAXXZ.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154BF0 (--1CComposition@@MEAA@XZ.c)
+ *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x180155784 (-OnShutdown@CComposition@@QEAAXXZ.c)
  * Callees:
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
  */
 
 void __fastcall CComposition::ReleaseNotificationChannels(CComposition *this)
 {
-  __int64 v1; // rsi
-  char *i; // rbx
+  __int64 i; // rdi
 
-  v1 = 0LL;
-  for ( i = (char *)this + 544; (unsigned int)v1 < *((_DWORD *)this + 142); v1 = (unsigned int)(v1 + 1) )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(*(volatile signed __int32 **)(*(_QWORD *)i + 8 * v1));
-  *((_DWORD *)i + 6) = 0;
-  DynArrayImpl<1>::ShrinkToSize((__int64)i, 8u);
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 104); i = (unsigned int)(i + 1) )
+    CDrawListEntry::Release(*(CDrawListEntry **)(*((_QWORD *)this + 49) + 8 * i));
+  *((_DWORD *)this + 104) = 0;
+  DynArrayImpl<1>::ShrinkToSize((__int64)this + 392, 8u);
 }

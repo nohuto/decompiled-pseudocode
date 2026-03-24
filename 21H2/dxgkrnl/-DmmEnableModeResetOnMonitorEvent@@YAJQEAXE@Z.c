@@ -1,67 +1,73 @@
 /*
- * XREFs of ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C039A9B4
+ * XREFs of ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C02DC518
  * Callers:
- *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CF750 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
- *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C030B034 (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
- *     MonitorDRTTest @ 0x1C03AFECC (MonitorDRTTest.c)
+ *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0221AB8 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
+ *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C026A4BC (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ *     MonitorDRTTest @ 0x1C02F334C (MonitorDRTTest.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall DmmEnableModeResetOnMonitorEvent(PERESOURCE *a1, char a2)
+__int64 __fastcall DmmEnableModeResetOnMonitorEvent(PERESOURCE *a1, __int64 a2)
 {
-  PERESOURCE v5; // rdi
-  struct _LIST_ENTRY *Flink; // rdi
-  int Blink; // eax
-  int v8; // eax
+  char v2; // si
+  __int64 v4; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  PERESOURCE v9; // rdi
+  _DWORD *Address; // rdi
+  __int64 v11; // rax
+  int v12; // eax
+  __int64 v13; // rax
+  int v14; // eax
 
+  v2 = a2;
   if ( !a1 )
   {
-    WdLogSingleEntry0(2LL);
+    v4 = WdLogNewEntry5_WdError(0LL, a2);
+LABEL_3:
+    WdLogEvent5_WdError(v4);
     return 3223191554LL;
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  v5 = a1[349];
-  if ( !v5 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v8);
   }
-  Flink = v5[1].SystemResourcesList.Flink;
-  if ( Flink )
+  v9 = a1[337];
+  if ( !v9 )
   {
-    Blink = (int)Flink[33].Blink;
-    if ( a2 )
+    v4 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v4 + 24) = a1;
+    goto LABEL_3;
+  }
+  Address = v9->Address;
+  if ( Address )
+  {
+    v12 = Address[120];
+    if ( v2 )
     {
-      if ( !Blink )
+      if ( !v12 )
       {
-        WdLogSingleEntry0(1LL);
-        Blink = (int)Flink[33].Blink;
+        v13 = WdLogNewEntry5_WdAssertion(v7, v6);
+        WdLogEvent5_WdAssertion(v13);
+        v12 = Address[120];
       }
-      v8 = Blink - 1;
+      v14 = v12 - 1;
     }
     else
     {
-      v8 = Blink + 1;
+      v14 = v12 + 1;
     }
-    LODWORD(Flink[33].Blink) = v8;
+    Address[120] = v14;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v11 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v11 + 24) = a1;
+    WdLogEvent5_WdError(v11);
     return 3223192373LL;
   }
 }

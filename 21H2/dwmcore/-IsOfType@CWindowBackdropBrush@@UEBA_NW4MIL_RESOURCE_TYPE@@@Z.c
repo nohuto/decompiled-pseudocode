@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CWindowBackdropBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180018BA0
+ * XREFs of ?IsOfType@CWindowBackdropBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180019D10
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CWindowBackdropBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 203 || a2 == 15 || a2 == 45;
+  return a2 == 202 || a2 == 14 || a2 == 45;
 }

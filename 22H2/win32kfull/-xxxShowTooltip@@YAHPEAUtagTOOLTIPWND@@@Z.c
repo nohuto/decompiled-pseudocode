@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0225AC8
+ * XREFs of ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C024267C
  * Callers:
- *     ?xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z @ 0x1C022578C (-xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0225DAC (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxTrackMouseMove @ 0x1C002D520 (xxxTrackMouseMove.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242990 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     wcsncpycch @ 0x1C0024788 (wcsncpycch.c)
- *     xxxSetWindowPosAndBand @ 0x1C0028948 (xxxSetWindowPosAndBand.c)
- *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C0225BF8 (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
+ *     wcsncpycch @ 0x1C00245DC (wcsncpycch.c)
+ *     xxxSetWindowPosAndBand @ 0x1C006BD30 (xxxSetWindowPosAndBand.c)
+ *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C02427AC (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
  */
 
 __int64 __fastcall xxxShowTooltip(struct tagTOOLTIPWND *a1)
@@ -28,21 +28,21 @@ __int64 __fastcall xxxShowTooltip(struct tagTOOLTIPWND *a1)
     return 0LL;
   if ( v1 == gszCAPTIONTOOLTIP )
   {
-    v4 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 192LL);
+    v4 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 184LL);
     if ( !v4 )
       return 0LL;
     v5 = *(_QWORD *)(v4 + 40);
     if ( (*(_BYTE *)(v5 + 23) & 8) == 0 || !*(_DWORD *)(v5 + 184) )
       return 0LL;
     wcsncpycch(gszCAPTIONTOOLTIP, *(_QWORD *)(v4 + 184), 99);
-    word_1C035F836 = 0;
+    word_1C033DA66 = 0;
   }
   if ( !(unsigned int)xxxTooltipGetSizeAndPosition(a1, &v9, &v10) )
     return 0LL;
   v6 = 16472;
   if ( ((unsigned int)gpdwCPUserPreferencesMask & 0x80000800) != 0x80000800 )
     v6 = 16464;
-  v7 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 192LL);
+  v7 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 184LL);
   if ( v7 )
     v2 = *(_DWORD *)(*(_QWORD *)(v7 + 40) + 236LL);
   xxxSetWindowPosAndBand(*(struct tagWND **)a1, 0LL, v10.x, v10.y, v9.cx, v9.cy, v6, v2);

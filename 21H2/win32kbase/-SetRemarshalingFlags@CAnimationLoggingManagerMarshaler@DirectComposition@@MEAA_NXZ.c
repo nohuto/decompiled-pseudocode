@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022AAE0
+ * XREFs of ?SetRemarshalingFlags@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EABE0
  * Callers:
  *     <none>
  * Callees:
@@ -12,15 +12,15 @@ bool __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::SetRemarsh
   char v1; // dl
   bool result; // al
 
-  v1 = *((_BYTE *)this + 264) & 0xFD;
-  *((_DWORD *)this + 26) = 0;
+  v1 = *((_BYTE *)this + 256) & 0xFD;
+  *((_DWORD *)this + 24) = 0;
   result = 1;
-  *((_DWORD *)this + 38) = 0;
-  *((_DWORD *)this + 50) = 0;
-  *((_DWORD *)this + 62) = 0;
-  *((_BYTE *)this + 264) = v1;
-  if ( *((_QWORD *)this + 32) )
-    *((_BYTE *)this + 264) = v1 | 1;
+  *((_DWORD *)this + 36) = 0;
+  *((_DWORD *)this + 48) = 0;
+  *((_DWORD *)this + 60) = 0;
+  *((_BYTE *)this + 256) = v1;
+  if ( *((_QWORD *)this + 31) )
+    *((_BYTE *)this + 256) = v1 | 1;
   *((_DWORD *)this + 4) &= ~0x20u;
   return result;
 }

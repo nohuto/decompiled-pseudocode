@@ -1,65 +1,50 @@
 /*
- * XREFs of EmonRestartProfiling @ 0x140A530A0
+ * XREFs of EmonRestartProfiling @ 0x140997BE0
  * Callers:
  *     <none>
  * Callees:
- *     EmonConfigureCounter @ 0x140399A14 (EmonConfigureCounter.c)
- *     EmonWriteCounter @ 0x140521A70 (EmonWriteCounter.c)
+ *     EmonConfigureCounter @ 0x14038B22C (EmonConfigureCounter.c)
  */
 
-__int64 (__fastcall **EmonRestartProfiling())()
+unsigned __int64 EmonRestartProfiling()
 {
-  __int64 (__fastcall **result)(); // rax
-  unsigned __int64 **v1; // rdi
-  unsigned int v2; // esi
-  unsigned int i; // ebx
-  char v4; // r9
-  char v5; // r11
-  int v6; // edx
-  __int64 v7; // r10
-  unsigned int v8; // r8d
-  int v9; // edx
+  unsigned int v0; // esi
+  unsigned int v1; // edi
+  unsigned __int64 result; // rax
+  int *v3; // rbx
+  int v4; // eax
+  char v5; // dl
+  int v6; // r8d
+  unsigned int v7; // r9d
+  char v8; // al
 
-  result = &DefaultProfileInterface;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
+  v0 = 0;
+  v1 = EmonNumberCounters;
+  result = EmonNumberCounters * KeGetPcr()->Prcb.Number;
+  if ( EmonNumberCounters )
   {
-    v1 = (unsigned __int64 **)HalpCounterStatus;
-  }
-  else
-  {
-    result = (__int64 (__fastcall **)())HalpCounterStatus;
-    v1 = (unsigned __int64 **)(HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number);
-  }
-  v2 = EmonNumberCounters;
-  for ( i = 0; i < v2; ++v1 )
-  {
-    v4 = 0;
-    v5 = 1;
-    v6 = *((_DWORD *)*v1 + 6);
-    v7 = **v1;
-    v8 = *(_DWORD *)(*v1)[2];
-    if ( v6 )
+    v3 = (int *)(EmonCounterStatus + 16LL * (unsigned int)result + 8);
+    do
     {
-      v9 = v6 - 1;
-      if ( v9 )
+      v4 = *(v3 - 2);
+      if ( v4 < 2 )
       {
-        if ( v9 == 1 )
-        {
-          result = (__int64 (__fastcall **)())EmonWriteCounter(i, **v1, v8);
-          goto LABEL_9;
-        }
+        v6 = *v3;
+        v7 = v3[1];
+        v5 = 1;
+        v8 = v4 != 1;
+      }
+      else
+      {
         v5 = 0;
-        v7 = 0LL;
+        v6 = 0;
+        v7 = 0;
         v8 = 0;
       }
+      result = EmonConfigureCounter(v0++, v5, v6, v7, v8);
+      v3 += 4;
     }
-    else
-    {
-      v4 = 1;
-    }
-    result = (__int64 (__fastcall **)())EmonConfigureCounter(i, v5, v7, v8, v4);
-LABEL_9:
-    ++i;
+    while ( v0 < v1 );
   }
   return result;
 }

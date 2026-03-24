@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGet16BitModuleName @ 0x140A18558
+ * XREFs of AslpFileGet16BitModuleName @ 0x14096A828
  * Callers:
- *     AslpFileGetHeaderAttributesNE @ 0x140A18FB4 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x14096B294 (AslpFileGetHeaderAttributesNE.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslStringAnsiToUnicode @ 0x140A14988 (AslStringAnsiToUnicode.c)
- *     AslpFileQuery16BitModuleName @ 0x140A19A14 (AslpFileQuery16BitModuleName.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslStringAnsiToUnicode @ 0x140967884 (AslStringAnsiToUnicode.c)
+ *     AslpFileQuery16BitModuleName @ 0x14096BCE0 (AslpFileQuery16BitModuleName.c)
  */
 
 __int64 __fastcall AslpFileGet16BitModuleName(wchar_t **a1, __int64 a2)

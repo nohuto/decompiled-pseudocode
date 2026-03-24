@@ -1,100 +1,87 @@
 /*
- * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x1403A52CC
+ * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x1405859F8
  * Callers:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9E30 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140755F60 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140679000 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
  */
 
-__int64 __fastcall UpcaseUnicodeToUTF8NHelper(CHAR *a1, ULONG a2, _DWORD *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall UpcaseUnicodeToUTF8NHelper(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        _DWORD *a3,
+        __int64 a4,
+        unsigned int a5)
 {
-  _DWORD *v6; // r13
-  unsigned int v8; // r12d
-  int v9; // esi
-  __int64 CurrentServerSilo; // rax
-  _QWORD *v11; // rax
-  unsigned int v12; // edi
-  unsigned int v13; // ebx
-  __int64 v14; // r13
-  __int64 v15; // rbp
-  __int64 v16; // r10
-  WCHAR *v17; // r9
-  unsigned __int16 v18; // ax
-  unsigned __int16 *v19; // r9
-  __int64 v20; // r11
-  ULONG UTF8StringActualByteCount; // [rsp+30h] [rbp-F8h] BYREF
-  PCHAR UTF8StringDestination; // [rsp+38h] [rbp-F0h]
-  __int64 v24; // [rsp+40h] [rbp-E8h]
-  _DWORD *v25; // [rsp+48h] [rbp-E0h]
-  WCHAR UnicodeStringSource[64]; // [rsp+50h] [rbp-D8h] BYREF
+  unsigned int v5; // esi
+  unsigned int v6; // r15d
+  int v7; // edi
+  unsigned int v12; // ebx
+  WCHAR *v13; // r9
+  __int64 v14; // r10
+  unsigned __int16 v15; // ax
+  unsigned __int16 *v16; // r9
+  __int64 v17; // r11
+  ULONG UTF8StringActualByteCount[4]; // [rsp+30h] [rbp-E8h] BYREF
+  WCHAR UnicodeStringSource[64]; // [rsp+40h] [rbp-D8h] BYREF
 
-  v25 = a3;
-  v6 = a3;
-  UTF8StringDestination = a1;
-  v8 = 0;
-  v9 = 0;
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  if ( CurrentServerSilo )
-    v11 = *(_QWORD **)(CurrentServerSilo + 1488);
-  else
-    v11 = &PspHostSiloGlobals;
-  v12 = a5;
-  v24 = v11[154];
-  while ( v12 )
+  v5 = a5;
+  v6 = 0;
+  v7 = 0;
+  if ( a5 )
   {
-    if ( !a2 )
-      break;
-    UTF8StringActualByteCount = 0;
-    if ( v12 >= 0x40 )
+    while ( 1 )
     {
-      v13 = 64;
-      if ( v12 != 64 )
+      if ( !UTF8StringMaxByteCount )
+        goto LABEL_15;
+      UTF8StringActualByteCount[0] = 0;
+      if ( v5 < 0x40 )
+        break;
+      v12 = 64;
+      if ( v5 != 64 && (unsigned int)*(unsigned __int16 *)(a4 + 126) - 55296 <= 0x3FF )
       {
-        if ( (unsigned int)*(unsigned __int16 *)(a4 + 126) - 55296 <= 0x3FF )
-          v13 = 63;
-        goto LABEL_8;
-      }
-    }
-    else
-    {
-      v13 = v12;
-    }
-    if ( !v13 )
-    {
-      v15 = 0LL;
-      goto LABEL_11;
-    }
+        v12 = 63;
 LABEL_8:
-    v14 = v24;
-    v15 = v13;
-    v16 = a4 - (_QWORD)UnicodeStringSource;
-    v17 = UnicodeStringSource;
-    do
-    {
-      v18 = NLS_UPCASE(v14, *(WCHAR *)((char *)v17 + v16));
-      *v19 = v18;
-      v17 = v19 + 1;
-    }
-    while ( v20 != 1 );
-    v6 = v25;
+        if ( !v12 )
+          goto LABEL_11;
+      }
+      v13 = UnicodeStringSource;
+      v14 = a4 - (_QWORD)UnicodeStringSource;
+      do
+      {
+        v15 = NLS_UPCASE(*(WCHAR *)((char *)v13 + v14));
+        *v16 = v15;
+        v13 = v16 + 1;
+      }
+      while ( v17 != 1 );
 LABEL_11:
-    if ( RtlUnicodeToUTF8N(UTF8StringDestination, a2, &UTF8StringActualByteCount, UnicodeStringSource, 2 * v13) < 0 )
-    {
-      v9 += UTF8StringActualByteCount;
-      v8 = -2147483643;
-      break;
+      if ( RtlUnicodeToUTF8N(
+             UTF8StringDestination,
+             UTF8StringMaxByteCount,
+             UTF8StringActualByteCount,
+             UnicodeStringSource,
+             2 * v12) < 0 )
+      {
+        v7 += UTF8StringActualByteCount[0];
+        v6 = -2147483643;
+        goto LABEL_15;
+      }
+      UTF8StringDestination += UTF8StringActualByteCount[0];
+      UTF8StringMaxByteCount -= UTF8StringActualByteCount[0];
+      v7 += UTF8StringActualByteCount[0];
+      a4 += 2LL * v12;
+      v5 -= v12;
+      if ( !v5 )
+        goto LABEL_15;
     }
-    a4 += 2 * v15;
-    UTF8StringDestination += UTF8StringActualByteCount;
-    a2 -= UTF8StringActualByteCount;
-    v9 += UTF8StringActualByteCount;
-    v12 -= v13;
+    v12 = v5;
+    goto LABEL_8;
   }
-  if ( v6 )
-    *v6 = v9;
-  return v8;
+LABEL_15:
+  if ( a3 )
+    *a3 = v7;
+  return v6;
 }

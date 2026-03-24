@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPCE_SoftDisconnect @ 0x1C00342D0
+ * XREFs of UsbhPCE_SoftDisconnect @ 0x1C0035634
  * Callers:
- *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003AA28 (Usbh_PdoSurpriseRemove_PdoEvent.c)
+ *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003BD38 (Usbh_PdoSurpriseRemove_PdoEvent.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhPCE_SoftDisconnect(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall UsbhPCE_SoftDisconnect(__int64 a1, unsigned __int16 a2, __int
   }
   result = UsbhGetPortData(a1, v3);
   if ( result )
-    result = (__int64)UsbhDispatch_PortChangeQueueEventEx(a1, result, 8LL, a3, 0LL, 0, 0LL, 0LL);
+    result = UsbhDispatch_PortChangeQueueEventEx(a1, result, 8, a3, 0LL, 0, 0LL, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )

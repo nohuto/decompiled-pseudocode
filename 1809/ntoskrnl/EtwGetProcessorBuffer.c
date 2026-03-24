@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwGetProcessorBuffer @ 0x1403124B0
+ * XREFs of EtwGetProcessorBuffer @ 0x1403125B0
  * Callers:
- *     KiSaveCurrentEtwTraceBuffer @ 0x140292C6C (KiSaveCurrentEtwTraceBuffer.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x140292D6C (KiSaveCurrentEtwTraceBuffer.c)
  * Callees:
  *     <none>
  */

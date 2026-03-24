@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x18022D6F4
+ * XREFs of ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x1801DE70C
  * Callers:
- *     ??1CParticleEmitterVisual@@UEAA@XZ @ 0x18022D634 (--1CParticleEmitterVisual@@UEAA@XZ.c)
+ *     ??1CParticleEmitterVisual@@UEAA@XZ @ 0x1801DE630 (--1CParticleEmitterVisual@@UEAA@XZ.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x1800EAEBC (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
- *     ?_Tidy@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ @ 0x180195BD0 (-_Tidy@-$vector@PEAVCDataSourceReader@@V-$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@std@@@2@@std@@AEAAXXZ @ 0x1800DA8EC (-_Tidy@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@QEAVCInte.c)
+ *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x180173F04 (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
  */
 
 void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
@@ -20,8 +20,8 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   void *v8; // rcx
   void *v9; // rcx
 
-  std::vector<CDataSourceReader *>::_Tidy((__int64)this + 432);
-  std::vector<CDataSourceReader *>::_Tidy((__int64)this + 408);
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>>>>::_Tidy((__int64)this + 432);
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>>>>::_Tidy((__int64)this + 408);
   v2 = (void *)*((_QWORD *)this + 48);
   if ( v2 )
   {
@@ -34,7 +34,7 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   v3 = (void *)*((_QWORD *)this + 42);
   if ( v3 )
   {
-    std::_Deallocate<16,0>(v3, 4 * ((__int64)(*((_QWORD *)this + 44) - (_QWORD)v3) >> 2));
+    std::_Deallocate<16,0>(v3, 12 * ((*((_QWORD *)this + 44) - (_QWORD)v3) / 12LL));
     *((_QWORD *)this + 42) = 0LL;
     *((_QWORD *)this + 43) = 0LL;
     *((_QWORD *)this + 44) = 0LL;
@@ -42,7 +42,7 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   v4 = (void *)*((_QWORD *)this + 39);
   if ( v4 )
   {
-    std::_Deallocate<16,0>(v4, 4 * ((__int64)(*((_QWORD *)this + 41) - (_QWORD)v4) >> 2));
+    std::_Deallocate<16,0>(v4, 12 * ((*((_QWORD *)this + 41) - (_QWORD)v4) / 12LL));
     *((_QWORD *)this + 39) = 0LL;
     *((_QWORD *)this + 40) = 0LL;
     *((_QWORD *)this + 41) = 0LL;
@@ -59,15 +59,15 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   v6 = (void *)*((_QWORD *)this + 30);
   if ( v6 )
   {
-    std::_Deallocate<16,0>(v6, 4 * ((__int64)(*((_QWORD *)this + 32) - (_QWORD)v6) >> 2));
+    std::_Deallocate<16,0>(v6, 12 * ((*((_QWORD *)this + 32) - (_QWORD)v6) / 12LL));
     *((_QWORD *)this + 30) = 0LL;
     *((_QWORD *)this + 31) = 0LL;
     *((_QWORD *)this + 32) = 0LL;
   }
   std::vector<float>::_Tidy((__int64)this + 216);
   std::vector<float>::_Tidy((__int64)this + 192);
-  std::vector<CDataSourceReader *>::_Tidy((__int64)this + 168);
-  std::vector<CDataSourceReader *>::_Tidy((__int64)this + 144);
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>>>>::_Tidy((__int64)this + 168);
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>>>>::_Tidy((__int64)this + 144);
   v7 = (void *)*((_QWORD *)this + 15);
   if ( v7 )
   {
@@ -81,7 +81,7 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   v8 = (void *)*((_QWORD *)this + 6);
   if ( v8 )
   {
-    std::_Deallocate<16,0>(v8, 4 * ((__int64)(*((_QWORD *)this + 8) - (_QWORD)v8) >> 2));
+    std::_Deallocate<16,0>(v8, 12 * ((*((_QWORD *)this + 8) - (_QWORD)v8) / 12LL));
     *((_QWORD *)this + 6) = 0LL;
     *((_QWORD *)this + 7) = 0LL;
     *((_QWORD *)this + 8) = 0LL;
@@ -96,7 +96,7 @@ void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
   }
   if ( *(_QWORD *)this )
   {
-    std::_Deallocate<16,0>(*(void **)this, 4 * ((__int64)(*((_QWORD *)this + 2) - *(_QWORD *)this) >> 2));
+    std::_Deallocate<16,0>(*(void **)this, 12 * ((*((_QWORD *)this + 2) - *(_QWORD *)this) / 12LL));
     *(_QWORD *)this = 0LL;
     *((_QWORD *)this + 1) = 0LL;
     *((_QWORD *)this + 2) = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspJobIoRateQueryHistory @ 0x14029333C
+ * XREFs of PspJobIoRateQueryHistory @ 0x140252F88
  * Callers:
- *     PspQueryRateControlHistory @ 0x140706EFC (PspQueryRateControlHistory.c)
+ *     PspQueryRateControlHistory @ 0x14061623C (PspQueryRateControlHistory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, _DWORD *a4)
@@ -25,9 +25,9 @@ __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, 
   int v21; // edx
   bool v22; // zf
 
-  if ( !*(_QWORD *)(a1 + 1656) )
+  if ( !*(_QWORD *)(a1 + 1440) )
   {
-    v8 = a1 + 1680;
+    v8 = a1 + 1464;
     v9 = *(_QWORD *)v8;
     if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
     {
@@ -38,16 +38,16 @@ __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, 
     if ( !v9 )
       return (unsigned int)-1073741275;
   }
-  v12 = (volatile LONG *)(a1 + 1672);
-  v13 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1672));
-  v14 = *(_DWORD *)(a1 + 1712);
+  v12 = (volatile LONG *)(a1 + 1456);
+  v13 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
+  v14 = *(_DWORD *)(a1 + 1496);
   v15 = v13;
   if ( v14 )
   {
-    v16 = *(_DWORD *)(a1 + 1704);
-    *a2 = *(_QWORD *)(a1 + 1696);
-    v17 = v16 - *(_DWORD *)(a1 + 1708);
-    *(_DWORD *)(a1 + 1708) = v16;
+    v16 = *(_DWORD *)(a1 + 1488);
+    *a2 = *(_QWORD *)(a1 + 1480);
+    v17 = v16 - *(_DWORD *)(a1 + 1492);
+    *(_DWORD *)(a1 + 1492) = v16;
     v10 = 0;
     *a4 = v17;
     *a3 = v14;
@@ -59,16 +59,19 @@ __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, 
   ExReleaseSpinLockExclusiveFromDpcLevel(v12);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-      v22 = (v21 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v21;
-      if ( v22 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+        v22 = (v21 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v21;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v15);

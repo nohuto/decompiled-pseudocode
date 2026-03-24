@@ -1,253 +1,377 @@
 /*
- * XREFs of ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C016F150
+ * XREFs of ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C014273C
  * Callers:
- *     _BmlGetPathModalityForAdapter @ 0x1C016ECB8 (_BmlGetPathModalityForAdapter.c)
+ *     _BmlGetPathModalityForAdapter @ 0x1C0142488 (_BmlGetPathModalityForAdapter.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0007078 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@QEAA@XZ @ 0x1C00071EC (--1-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@QEAA@XZ.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     BmlDoesTargetModeSupportWireFormat @ 0x1C016C564 (BmlDoesTargetModeSupportWireFormat.c)
- *     ?PickWireFormatWithPreference@@YAJW4BML_WIREFORMAT_PREFERENCE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@11@Z @ 0x1C016FA30 (-PickWireFormatWithPreference@@YAJW4BML_WIREFORMAT_PREFERENCE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREF.c)
- *     ?IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C03BDD10 (-IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?ModeSupportsHighDepthColorFormat@@YA_NPEAVDMMVIDPNTARGETMODE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C03BDDB8 (-ModeSupportsHighDepthColorFormat@@YA_NPEAVDMMVIDPNTARGETMODE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREF.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0009724 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     BmlDoesTargetModeSupportWireFormat @ 0x1C00E5B8C (BmlDoesTargetModeSupportWireFormat.c)
+ *     MonitorIsMonitorAndLinkHDRCapable @ 0x1C01355E8 (MonitorIsMonitorAndLinkHDRCapable.c)
+ *     MonitorIsMonitorAndDriverWCGCapable @ 0x1C01391D0 (MonitorIsMonitorAndDriverWCGCapable.c)
+ *     MonitorGetDitheringCaps @ 0x1C0142974 (MonitorGetDitheringCaps.c)
+ *     MonitorIsAdvancedColorEnabled @ 0x1C0142BD8 (MonitorIsAdvancedColorEnabled.c)
+ *     ?PickWireFormatWithPreference@@YAJW4BML_WIREFORMAT_PREFERENCE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@11@Z @ 0x1C01620A8 (-PickWireFormatWithPreference@@YAJW4BML_WIREFORMAT_PREFERENCE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREF.c)
+ *     ?IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C02ECAD8 (-IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?ModeSupportsHighDepthColorFormat@@YA_NPEAVDMMVIDPNTARGETMODE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C02ECBB8 (-ModeSupportsHighDepthColorFormat@@YA_NPEAVDMMVIDPNTARGETMODE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREF.c)
  */
 
 __int64 __fastcall BmlPickColorSpaceAndWireFormat(unsigned __int8 *a1, int a2, __int64 a3)
 {
-  unsigned int v4; // ecx
-  DMMVIDPNTOPOLOGY *v5; // r9
-  unsigned int v6; // r12d
-  __int64 v7; // rbx
-  __int64 v8; // rsi
-  __int64 v9; // rax
-  __int64 v10; // r14
-  __int64 v11; // r15
+  unsigned int v3; // ebx
+  __int64 v4; // r13
+  DMMVIDPNTOPOLOGY *i; // rcx
+  __int64 v7; // r12
+  __int64 v8; // r15
   struct DMMVIDPNPRESENTPATH *Path; // rax
-  struct DMMVIDPNPRESENTPATH *v13; // r13
-  struct DMMVIDPNTARGETMODE *v14; // r14
-  __int64 v15; // rdx
-  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v16; // ebx
-  __int64 v17; // r15
-  __int64 v18; // rcx
-  int v19; // eax
-  int v20; // r14d
-  _BOOL8 v21; // rcx
-  unsigned int v22; // ebx
-  __int64 v23; // rax
-  unsigned int v24; // eax
-  __int64 v26; // r9
-  __int64 v27; // r15
-  bool v28; // zf
-  __int64 v29; // rcx
-  int v30; // ecx
-  bool v31; // al
-  unsigned int v32; // esi
-  struct DMMVIDPNTARGETMODESET *v33; // rax
-  __int64 v34; // r15
-  const struct DMMVIDPNSOURCEMODESET *v35; // rbx
-  int v36; // eax
-  char v37; // r8
-  int v38; // ecx
-  int v39; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v40; // [rsp+34h] [rbp-34h]
-  struct DMMVIDPNTARGETMODE *v41; // [rsp+38h] [rbp-30h]
-  __int64 v42; // [rsp+40h] [rbp-28h] BYREF
-  struct DMMVIDPNTARGETMODESET *v43; // [rsp+48h] [rbp-20h] BYREF
-  struct DMMVIDPNTARGETMODESET *v44; // [rsp+50h] [rbp-18h] BYREF
-  DMMVIDPNTOPOLOGY *i; // [rsp+58h] [rbp-10h]
-  unsigned int v46; // [rsp+B0h] [rbp+48h] BYREF
-  int v47; // [rsp+B8h] [rbp+50h]
-  __int64 v48; // [rsp+C0h] [rbp+58h]
-  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v49; // [rsp+C8h] [rbp+60h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct DMMVIDPNPRESENTPATH *v12; // r14
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct DMMVIDPNTARGETMODE *v15; // rax
+  __int64 v16; // rax
+  int IsMonitorAndLinkHDRCapable; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rbx
+  char v21; // di
+  __int64 v22; // rax
+  int IsAdvancedColorEnabled; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rbx
+  char v27; // r13
+  __int64 v28; // rax
+  int IsMonitorAndDriverWCGCapable; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  int DitheringCaps; // eax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // rbx
+  struct DMMVIDPNTARGETMODE *v38; // rbx
+  __int64 v39; // rcx
+  bool v40; // zf
+  unsigned int v41; // ebx
+  int v42; // r14d
+  struct DMMVIDPNTARGETMODE *v43; // rcx
+  unsigned int v44; // eax
+  _BOOL8 v46; // rcx
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  unsigned int v50; // eax
+  __int64 v51; // rax
+  _QWORD *v52; // rax
+  _QWORD *v53; // rax
+  _QWORD *v54; // rax
+  __int64 v55; // rdx
+  _QWORD *v56; // rax
+  __int64 v57; // rdx
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  __int64 v60; // rbx
+  __int64 v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rcx
+  __int64 v64; // rax
+  unsigned int v65; // ebx
+  __int64 v66; // rdx
+  int v67; // ecx
+  bool v68; // al
+  unsigned int v69; // ebx
+  __int64 v70; // rdi
+  char v71; // r14
+  __int64 v72; // rax
+  const struct DMMVIDPNSOURCEMODESET *v73; // rdi
+  __int64 v74; // r15
+  __int64 v75; // rcx
+  __int64 v76; // rax
+  __int64 v77; // rdx
+  __int64 v78; // rcx
+  __int64 v79; // r8
+  __int64 v80; // rax
+  int v81; // ecx
+  __int64 v82; // rax
+  __int64 v83; // rax
+  _QWORD *v84; // rax
+  unsigned int v85; // [rsp+20h] [rbp-48h] BYREF
+  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v86; // [rsp+24h] [rbp-44h] BYREF
+  unsigned int v87; // [rsp+28h] [rbp-40h] BYREF
+  int v88; // [rsp+2Ch] [rbp-3Ch] BYREF
+  unsigned int v89; // [rsp+30h] [rbp-38h]
+  struct DMMVIDPNTARGETMODE *v90; // [rsp+38h] [rbp-30h]
+  __int64 v91; // [rsp+40h] [rbp-28h] BYREF
+  struct DMMVIDPNPRESENTPATH *v92; // [rsp+48h] [rbp-20h]
+  const struct DMMVIDPNSOURCEMODESET *v93; // [rsp+50h] [rbp-18h] BYREF
+  char v94; // [rsp+B0h] [rbp+48h] BYREF
+  int v95; // [rsp+B8h] [rbp+50h]
+  __int64 v96; // [rsp+C0h] [rbp+58h]
+  char v97; // [rsp+C8h] [rbp+60h] BYREF
 
-  v48 = a3;
-  v47 = a2;
-  v4 = 0;
-  v40 = 0;
+  v96 = a3;
+  v95 = a2;
+  v3 = 0;
+  v4 = a3;
+  v89 = 0;
   if ( !*a1 )
     return 0LL;
-  v5 = (DMMVIDPNTOPOLOGY *)(a3 + 96);
-  v6 = -1073741811;
-  for ( i = (DMMVIDPNTOPOLOGY *)(a3 + 96); ; v5 = i )
+  for ( i = (DMMVIDPNTOPOLOGY *)(a3 + 96); ; i = (DMMVIDPNTOPOLOGY *)(v4 + 96) )
   {
-    v7 = v4;
-    v8 = 120LL * v4;
-    v9 = *(_QWORD *)&a1[v8 + 16];
-    v10 = *(unsigned int *)(v9 + 28);
-    v11 = *(unsigned int *)(v9 + 24);
-    Path = DMMVIDPNTOPOLOGY::FindPath(v5, *(_DWORD *)(v9 + 24), *(_DWORD *)(v9 + 28));
-    v13 = Path;
+    v7 = v3;
+    v8 = 104LL * v3;
+    Path = DMMVIDPNTOPOLOGY::FindPath(
+             i,
+             *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 24LL),
+             *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 28LL));
+    v92 = Path;
+    v12 = Path;
     if ( !Path )
       break;
-    v43 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)Path + 12));
-    v14 = (struct DMMVIDPNTARGETMODE *)*((_QWORD *)v43 + 18);
-    v41 = v14;
-    if ( !v14 )
+    v13 = *((_QWORD *)Path + 12);
+    v14 = *(_QWORD *)(v13 + 104);
+    if ( v14 )
     {
-      WdLogSingleEntry2(2LL, *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL), v48);
-      v6 = -1071774967;
-      goto LABEL_65;
+      _InterlockedIncrement((volatile signed __int32 *)(v14 + 96));
+      v14 = *(_QWORD *)(v13 + 104);
     }
-    v15 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 12) + 96LL) + 112LL);
-    if ( v15 )
+    v15 = *(struct DMMVIDPNTARGETMODE **)(v14 + 144);
+    v91 = v14;
+    v90 = v15;
+    if ( !v15 )
     {
-      MONITOR_MGR::AcquireMonitorShared(&v42, v15);
-      if ( v42 )
-      {
-        v16.0 = *(struct _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE::$BC67B894A1A9CCB3D1B7060E96581CDD *)(v42 + 364);
-        ExReleaseResourceLite((PERESOURCE)(v42 + 24));
-        KeLeaveCriticalRegion();
-        v17 = v48;
-        goto LABEL_8;
-      }
-      WdLogSingleEntry1(2LL, -1073741275LL);
-      RESOURCE_LOCK_ACCESSOR<DXGMONITOR const>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR const>(&v42);
-      v26 = -1073741275LL;
+      v83 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v83 + 24) = *(unsigned int *)(*(_QWORD *)&a1[104 * v3 + 16] + 28LL);
+      *(_QWORD *)(v83 + 32) = v4;
+      WdLogEvent5_WdError(v83);
+      v65 = -1071774967;
+      goto LABEL_74;
+    }
+    v16 = *((_QWORD *)v12 + 12);
+    v87 = 0;
+    IsMonitorAndLinkHDRCapable = MonitorIsMonitorAndLinkHDRCapable(
+                                   *(struct HDXGMONITOR__ **)(*(_QWORD *)(v16 + 96) + 112LL),
+                                   &v87);
+    v20 = IsMonitorAndLinkHDRCapable;
+    if ( IsMonitorAndLinkHDRCapable < 0 )
+    {
+      v52 = (_QWORD *)WdLogNewEntry5_WdError(v19, v18);
+      v52[3] = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL);
+      v52[4] = v4;
+      v52[5] = v20;
+      WdLogEvent5_WdError(v52);
+      v21 = 0;
+      v87 = 0;
     }
     else
     {
-      WdLogSingleEntry1(2LL, -1073741811LL);
-      v26 = -1073741811LL;
+      v21 = v87;
     }
-    v17 = v48;
-    WdLogSingleEntry3(2LL, *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL), v48, v26);
-    v16.Value = 0;
-LABEL_8:
-    v18 = *(_QWORD *)&a1[v8 + 16];
-    v46 = 0;
-    v19 = *((_DWORD *)v14 + 32);
-    v49.0 = v16.0;
-    v28 = (*(_BYTE *)v18 & 8) == 0;
-    v39 = v19;
-    if ( v28 )
-      goto LABEL_9;
-    v22 = *(_DWORD *)(v18 + 204);
-    v20 = *(_DWORD *)(v18 + 208);
-    if ( !BmlDoesTargetModeSupportWireFormat((__int64)v41, v22) )
+    v22 = *((_QWORD *)v12 + 12);
+    v94 = 0;
+    IsAdvancedColorEnabled = MonitorIsAdvancedColorEnabled(*(_QWORD *)(*(_QWORD *)(v22 + 96) + 112LL), &v94);
+    v26 = IsAdvancedColorEnabled;
+    if ( IsAdvancedColorEnabled < 0 )
     {
-      v29 = *(_QWORD *)&a1[v8 + 16];
-      if ( (*(_BYTE *)(v29 + 8) & 8) != 0 )
+      v53 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+      v53[3] = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL);
+      v53[4] = v4;
+      v53[5] = v26;
+      WdLogEvent5_WdError(v53);
+      v27 = 0;
+      v94 = 0;
+    }
+    else
+    {
+      v27 = v94;
+    }
+    v28 = *((_QWORD *)v12 + 12);
+    v97 = 0;
+    IsMonitorAndDriverWCGCapable = MonitorIsMonitorAndDriverWCGCapable(
+                                     *(struct HDXGMONITOR__ **)(*(_QWORD *)(v28 + 96) + 112LL),
+                                     &v97);
+    v32 = IsMonitorAndDriverWCGCapable;
+    if ( IsMonitorAndDriverWCGCapable < 0 )
+    {
+      v54 = (_QWORD *)WdLogNewEntry5_WdError(v31, v30);
+      v55 = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL);
+      v54[4] = v96;
+      v54[3] = v55;
+      v54[5] = v32;
+      WdLogEvent5_WdError(v54);
+      v97 = 0;
+    }
+    v33 = *((_QWORD *)v12 + 12);
+    v86.Value = 0;
+    DitheringCaps = MonitorGetDitheringCaps(*(_QWORD *)(*(_QWORD *)(v33 + 96) + 112LL), &v86);
+    v37 = DitheringCaps;
+    if ( DitheringCaps < 0 )
+    {
+      v56 = (_QWORD *)WdLogNewEntry5_WdError(v36, v35);
+      v57 = *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL);
+      v56[4] = v96;
+      v56[3] = v57;
+      v56[5] = v37;
+      WdLogEvent5_WdError(v56);
+      v86.Value = 0;
+    }
+    v38 = v90;
+    v39 = *(_QWORD *)&a1[v8 + 16];
+    v85 = 0;
+    v40 = (*(_BYTE *)v39 & 8) == 0;
+    v88 = *((_DWORD *)v90 + 32);
+    if ( !v40 )
+    {
+      v41 = *(_DWORD *)(v39 + 204);
+      v42 = *(_DWORD *)(v39 + 208);
+      if ( BmlDoesTargetModeSupportWireFormat((__int64)v90, v41) )
       {
-        WdLogSingleEntry1(2LL, *(unsigned int *)(v29 + 28));
-        v6 = -1071774902;
-        goto LABEL_65;
+        v85 = v41;
+        if ( (unsigned int)(v42 - 31) <= 2 && !*((_BYTE *)DXGGLOBAL::GetGlobal(v39, v35) + 304320) )
+        {
+          v60 = *(_QWORD *)(v96 + 48);
+          v61 = *(_QWORD *)(v60 + 8);
+          if ( !v61 )
+          {
+            v62 = WdLogNewEntry5_WdAssertion(v59, v58);
+            WdLogEvent5_WdAssertion(v62);
+            v61 = *(_QWORD *)(v60 + 8);
+          }
+          v63 = *(unsigned int *)(*(_QWORD *)(v61 + 16) + 348LL);
+          if ( (v63 & 8) == 0 )
+          {
+            v64 = WdLogNewEntry5_WdError(v63, v58);
+            *(_QWORD *)(v64 + 24) = *(unsigned int *)(*(_QWORD *)&a1[104 * v7 + 16] + 28LL);
+            WdLogEvent5_WdError(v64);
+            v65 = -1073741811;
+LABEL_74:
+            auto_rc<DMMVIDPNTARGETMODESET>::reset(&v91, 0LL);
+            return v65;
+          }
+        }
+        if ( v42 == 32 && (v21 & 2) == 0 || v42 == 33 && (v21 & 4) == 0 )
+        {
+          v65 = -1073741637;
+          goto LABEL_74;
+        }
+        goto LABEL_20;
       }
-      v14 = v41;
-LABEL_9:
-      if ( (a1[v8 + 132] & 2) != 0
-        && (*(_DWORD *)&a1[v8 + 116] & 1) != 0
-        && *((_BYTE *)DXGGLOBAL::GetGlobal() + 304780)
-        && ModeSupportsHighDepthColorFormat(v14, &v49)
-        && (a1[v8 + 132] & 1) == 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)&a1[v8 + 16] + 8LL) & 8) != 0 )
       {
-        v31 = 0;
-        if ( v47 == 2 && (*((_DWORD *)a1 + 1) & 0x8000000) == 0 )
-        {
-          v30 = *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 116LL);
-          if ( v30 != 36 && v30 != 113 )
-            v31 = 1;
-        }
-        v32 = 4 * !v31;
-        v20 = !v31 ? 0xC : 0;
-        v33 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)v13 + 11));
-        v34 = *(_QWORD *)(v17 + 48);
-        v35 = v33;
-        v44 = v33;
-        if ( !*(_QWORD *)(v34 + 8) )
-          WdLogSingleEntry0(1LL);
-        if ( !IsHDRSourceModeAvailableForPinnedSourceMode(
-                *(const struct DXGADAPTER **)(*(_QWORD *)(v34 + 8) + 16LL),
-                v35) )
-        {
-          v20 = 0;
-          v32 = 0;
-        }
-        v36 = PickWireFormatWithPreference(v32, &v39, &v49, &v46);
-        v22 = v46;
-        if ( v36 < 0 )
-        {
-          v22 = v46 & 0xFFFFFF03 | 8;
-          v20 = 0;
-          WdLogSingleEntry0(3LL);
-        }
-        auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v44, 0LL);
+        v82 = WdLogNewEntry5_WdError(v39, v35);
+        *(_QWORD *)(v82 + 24) = *(unsigned int *)(*(_QWORD *)&a1[104 * v7 + 16] + 28LL);
+        WdLogEvent5_WdError(v82);
+        v65 = -1071774902;
+        goto LABEL_74;
       }
-      else if ( (a1[v8 + 132] & 6) == 6 && ModeSupportsHighDepthColorFormat(v14, &v49) && (v37 & 1) == 0 )
+      v38 = v90;
+    }
+    if ( !v27 )
+      goto LABEL_24;
+    if ( (v21 & 1) == 0
+      || !*((_BYTE *)DXGGLOBAL::GetGlobal(v39, v35) + 304564)
+      || !ModeSupportsHighDepthColorFormat(v38, &v86)
+      || (*(_DWORD *)&a1[v8 + 116] & 2) != 0 )
+    {
+      if ( v97 && ModeSupportsHighDepthColorFormat(v38, &v86) && (*(_DWORD *)&a1[v8 + 116] & 2) == 0 )
       {
-        v20 = 30;
-        if ( (int)PickWireFormatWithPreference(3LL, &v39, &v49, &v46) >= 0 )
-          goto LABEL_14;
-        v22 = v46 & 0xFFFFFF03 | 8;
-        v20 = 0;
-        WdLogSingleEntry0(3LL);
+        v42 = 30;
+        if ( (int)PickWireFormatWithPreference(3LL, &v88, &v86, &v85) < 0 )
+        {
+          v50 = v85 & 0xFFFFFF03 | 8;
+          v42 = 0;
+LABEL_28:
+          v85 = v50;
+          v51 = WdLogNewEntry5_WdWarning(v48, v47, v49);
+          WdLogEvent5_WdWarning(v51);
+        }
       }
       else
       {
-        v20 = 0;
-        v21 = 1;
-        if ( v47 == 2 && (*((_DWORD *)a1 + 1) & 0x8000000) == 0 )
+LABEL_24:
+        v42 = 0;
+        v46 = 1;
+        if ( v95 == 2 && (*((_DWORD *)a1 + 1) & 0x8000000) == 0 )
         {
-          v38 = *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 116LL);
-          if ( v38 == 31 || v38 == 35 )
-            v21 = 0;
+          v81 = *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 116LL);
+          if ( v81 == 31 || v81 == 35 )
+            v46 = 0;
         }
-        if ( (int)PickWireFormatWithPreference(v21, &v39, &v49, &v46) >= 0 )
+        if ( (int)PickWireFormatWithPreference(v46, &v88, &v86, &v85) < 0 )
         {
-LABEL_14:
-          v22 = v46;
-          goto LABEL_15;
+          v50 = v85 & 0xFFFFFF03 | 8;
+          goto LABEL_28;
         }
-        v22 = v46 & 0xFFFFFF03 | 8;
-        WdLogSingleEntry0(3LL);
       }
-      goto LABEL_15;
+LABEL_20:
+      v4 = v96;
+      goto LABEL_21;
     }
-    if ( (unsigned int)(v20 - 31) > 2 )
-      goto LABEL_19;
-    if ( !*((_BYTE *)DXGGLOBAL::GetGlobal() + 304480) )
+    v68 = 0;
+    if ( v95 == 2 && (*((_DWORD *)a1 + 1) & 0x8000000) == 0 )
     {
-      v27 = *(_QWORD *)(v17 + 48);
-      if ( !*(_QWORD *)(v27 + 8) )
-        WdLogSingleEntry0(1LL);
-      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v27 + 8) + 16LL) + 436LL) & 8) == 0 )
-      {
-        WdLogSingleEntry1(2LL, *(unsigned int *)(*(_QWORD *)&a1[v8 + 16] + 28LL));
-LABEL_65:
-        auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v43, 0LL);
-        return v6;
-      }
+      v67 = *(_DWORD *)(*(_QWORD *)&a1[v8 + 16] + 116LL);
+      if ( v67 != 36 && v67 != 113 )
+        v68 = 1;
     }
-    if ( v20 == 32 )
+    v69 = 4 * !v68;
+    v70 = *((_QWORD *)v92 + 11);
+    v71 = -!v68;
+    v72 = *(_QWORD *)(v70 + 104);
+    v42 = v71 & 0xC;
+    if ( v72 )
     {
-      v28 = (*(_DWORD *)&a1[v8 + 116] & 2) == 0;
+      _InterlockedIncrement((volatile signed __int32 *)(v72 + 96));
+      v73 = *(const struct DMMVIDPNSOURCEMODESET **)(v70 + 104);
     }
     else
     {
-LABEL_19:
-      if ( v20 != 33 )
-        goto LABEL_15;
-      v28 = (*(_DWORD *)&a1[v8 + 116] & 4) == 0;
+      v73 = 0LL;
     }
-    if ( v28 )
+    v4 = v96;
+    v93 = v73;
+    v74 = *(_QWORD *)(v96 + 48);
+    v75 = *(_QWORD *)(v74 + 8);
+    if ( !v75 )
     {
-      v6 = -1073741637;
-      goto LABEL_65;
+      v76 = WdLogNewEntry5_WdAssertion(0LL, v66);
+      WdLogEvent5_WdAssertion(v76);
+      v75 = *(_QWORD *)(v74 + 8);
     }
-LABEL_15:
-    v23 = (__int64)v41;
-    *((_DWORD *)v41 + 33) = v22;
-    *(_DWORD *)(v23 + 136) = v20;
-    auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v43, 0LL);
-    v24 = *a1;
-    v4 = v40 + 1;
-    v40 = v4;
-    if ( v4 >= v24 )
+    if ( !IsHDRSourceModeAvailableForPinnedSourceMode(*(const struct DXGADAPTER **)(v75 + 16), v73) )
+    {
+      v42 = 0;
+      v69 = 0;
+    }
+    if ( (int)PickWireFormatWithPreference(v69, &v88, &v86, &v85) < 0 )
+    {
+      v85 = v85 & 0xFFFFFF03 | 8;
+      v42 = 0;
+      v80 = WdLogNewEntry5_WdWarning(v78, v77, v79);
+      WdLogEvent5_WdWarning(v80);
+    }
+    auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v93, 0LL);
+LABEL_21:
+    v43 = v90;
+    *((_DWORD *)v90 + 33) = v85;
+    *((_DWORD *)v43 + 34) = v42;
+    auto_rc<DMMVIDPNTARGETMODESET>::reset(&v91, 0LL);
+    v44 = *a1;
+    v3 = v89 + 1;
+    v89 = v3;
+    if ( v3 >= v44 )
       return 0LL;
   }
-  WdLogSingleEntry5(2LL, v7, a1, v11, v10, v48);
+  v84 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+  v84[4] = a1;
+  v84[3] = v3;
+  v84[5] = *(unsigned int *)(*(_QWORD *)&a1[104 * v3 + 16] + 24LL);
+  v84[6] = *(unsigned int *)(*(_QWORD *)&a1[104 * v3 + 16] + 28LL);
+  v84[7] = v4;
+  WdLogEvent5_WdError(v84);
   return 3223192345LL;
 }

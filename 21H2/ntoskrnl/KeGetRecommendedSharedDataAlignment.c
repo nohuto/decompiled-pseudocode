@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetRecommendedSharedDataAlignment @ 0x1402D3250
+ * XREFs of KeGetRecommendedSharedDataAlignment @ 0x1403614F0
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
- *     ExInitializeRundownProtectionCacheAware @ 0x14074D160 (ExInitializeRundownProtectionCacheAware.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x14074D200 (ExAllocateCacheAwareRundownProtection.c)
- *     ExSizeOfRundownProtectionCacheAware @ 0x1408113C0 (ExSizeOfRundownProtectionCacheAware.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExInitializeRundownProtectionCacheAware @ 0x14071BD10 (ExInitializeRundownProtectionCacheAware.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x14071BDB0 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExSizeOfRundownProtectionCacheAware @ 0x1407818A0 (ExSizeOfRundownProtectionCacheAware.c)
  * Callees:
  *     <none>
  */

@@ -4,8 +4,8 @@
  *     IopLiveDumpMarkImportantDumpData @ 0x140578DC8 (IopLiveDumpMarkImportantDumpData.c)
  *     IopLiveDumpMarkRequiredDumpData @ 0x140579088 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmAddRangeToCrashDump @ 0x1402AE110 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64, __int64), char a2)

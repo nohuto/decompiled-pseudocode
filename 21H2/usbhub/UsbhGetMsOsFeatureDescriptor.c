@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhGetMsOsFeatureDescriptor @ 0x1C0032C38
+ * XREFs of UsbhGetMsOsFeatureDescriptor @ 0x1C0033F78
  * Callers:
- *     UsbhGetMsOsContainerID @ 0x1C0032674 (UsbhGetMsOsContainerID.c)
- *     UsbhGetMsOsExtendedConfigDesc @ 0x1C0032974 (UsbhGetMsOsExtendedConfigDesc.c)
- *     UsbhInstallMsOsExtendedProperties @ 0x1C0032E68 (UsbhInstallMsOsExtendedProperties.c)
+ *     UsbhGetMsOsContainerID @ 0x1C0033994 (UsbhGetMsOsContainerID.c)
+ *     UsbhGetMsOsExtendedConfigDesc @ 0x1C0033CA0 (UsbhGetMsOsExtendedConfigDesc.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C00341A8 (UsbhInstallMsOsExtendedProperties.c)
  * Callees:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
  */
 
 __int64 __fastcall UsbhGetMsOsFeatureDescriptor(

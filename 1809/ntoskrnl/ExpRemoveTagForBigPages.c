@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x14013E440
+ * XREFs of ExpRemoveTagForBigPages @ 0x14013E460
  * Callers:
- *     ExpSizeHeapPool @ 0x1401B79B4 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1401B79D4 (ExpSizeHeapPool.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(

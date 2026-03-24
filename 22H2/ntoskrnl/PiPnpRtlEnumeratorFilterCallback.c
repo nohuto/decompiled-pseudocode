@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x14079AB90
+ * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x140684AA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     _CmIsDevicePresent @ 0x14079AC60 (_CmIsDevicePresent.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _CmIsDevicePresent @ 0x140684B78 (_CmIsDevicePresent.c)
  */
 
 char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, unsigned int a3, __int64 a4)
 {
-  char v8; // bl
+  char v8; // di
   PCUNICODE_STRING v9; // rax
   __int64 (__fastcall *v10)(__int64, const WCHAR *, _QWORD, _QWORD); // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
@@ -29,8 +29,8 @@ char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, un
       || RtlInitUnicodeStringEx(&DestinationString, a2) >= 0
       && RtlPrefixUnicodeString(*(PCUNICODE_STRING *)a4, &DestinationString, 1u) )
     {
-      v8 = 1;
       v10 = *(__int64 (__fastcall **)(__int64, const WCHAR *, _QWORD, _QWORD))(a4 + 16);
+      v8 = 1;
       if ( v10 )
         return v10(a1, a2, a3, *(_QWORD *)(a4 + 24));
     }

@@ -7,11 +7,11 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x14017F898 (MiInitializeNonPagedPoolThresholds.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9AC (MiAddExpansionNonPagedPool.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B68 (MiInitializeSystemWorkingSetList.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x14017F8B8 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiInitializeNonPagedPool()

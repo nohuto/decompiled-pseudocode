@@ -1,34 +1,52 @@
 /*
- * XREFs of UmfdQueryAdvanceWidths @ 0x1C007E0A0
+ * XREFs of UmfdQueryAdvanceWidths @ 0x1C009A470
  * Callers:
  *     <none>
  * Callees:
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C007EF30 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C007FC30 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A580 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UmfdQueryAdvanceWidths(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, int a6)
 {
-  _QWORD v11[7]; // [rsp+28h] [rbp-29h] BYREF
-  int v12; // [rsp+60h] [rbp+Fh]
-  __int64 v13; // [rsp+68h] [rbp+17h]
-  __int64 v14; // [rsp+70h] [rbp+1Fh]
-  int v15; // [rsp+78h] [rbp+27h]
-  __int64 v16; // [rsp+7Ch] [rbp+2Bh]
-  int v17; // [rsp+84h] [rbp+33h]
-  __int128 v18; // [rsp+88h] [rbp+37h]
+  int v6; // ebx
+  void **v12; // [rsp+38h] [rbp-59h] BYREF
+  int v13; // [rsp+40h] [rbp-51h]
+  struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-49h]
+  __int64 v15; // [rsp+50h] [rbp-41h]
+  char v16; // [rsp+58h] [rbp-39h]
+  __int64 v17; // [rsp+60h] [rbp-31h]
+  __int64 v18; // [rsp+68h] [rbp-29h]
+  int v19; // [rsp+70h] [rbp-21h]
+  __int64 v20; // [rsp+78h] [rbp-19h]
+  __int64 v21; // [rsp+80h] [rbp-11h]
+  int v22; // [rsp+88h] [rbp-9h]
+  __int64 v23; // [rsp+8Ch] [rbp-5h]
+  int v24; // [rsp+94h] [rbp+3h]
+  __int128 v25; // [rsp+98h] [rbp+7h]
+  __int128 ThreadInformation; // [rsp+A8h] [rbp+17h] BYREF
 
-  FontDriverDdiRequest::FontDriverDdiRequest(v11, 8LL);
-  v11[5] = a1;
-  v17 = 0;
-  v11[0] = &QueryAdvanceWidthsRequest::`vftable';
-  v14 = a5;
-  v18 = 0LL;
-  v16 = (unsigned int)(a3 != 1) - 1;
-  v11[6] = a2;
-  v12 = a3;
-  v13 = a4;
-  v15 = a6;
-  UmfdClientSendAndWaitForCompletion(*(unsigned int *)(*(_QWORD *)(a2 + 24) + 8LL), v11);
-  return (unsigned int)v16;
+  v6 = 0;
+  v13 = 8;
+  CurrentThread = KeGetCurrentThread();
+  v16 = 0;
+  ThreadInformation = 0LL;
+  if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadAmILastThread|0x20, &ThreadInformation, 0x10u, 0LL) >= 0 )
+  {
+    v15 = ThreadInformation;
+    v16 = 1;
+  }
+  v24 = 0;
+  v12 = &QueryAdvanceWidthsRequest::`vftable';
+  v21 = a5;
+  LOBYTE(v6) = a3 != 1;
+  v22 = a6;
+  v23 = (unsigned int)(v6 - 1);
+  v25 = 0LL;
+  v17 = a1;
+  v18 = a2;
+  v19 = a3;
+  v20 = a4;
+  UmfdClientSendAndWaitForCompletion(*(unsigned int *)(*(_QWORD *)(a2 + 24) + 8LL), &v12);
+  return (unsigned int)v23;
 }

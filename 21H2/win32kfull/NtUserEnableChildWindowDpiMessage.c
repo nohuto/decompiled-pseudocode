@@ -1,38 +1,36 @@
 /*
- * XREFs of NtUserEnableChildWindowDpiMessage @ 0x1C010CBD0
+ * XREFs of NtUserEnableChildWindowDpiMessage @ 0x1C00F11C0
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z @ 0x1C010CC94 (-xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z.c)
+ *     xxxEnableChildWindowDpiMessageX @ 0x1C00F1284 (xxxEnableChildWindowDpiMessageX.c)
  */
 
-_BOOL8 __fastcall NtUserEnableChildWindowDpiMessage(__int64 a1, int a2)
+__int64 __fastcall NtUserEnableChildWindowDpiMessage(__int64 a1)
 {
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  _BOOL8 v6; // rbx
-  struct tagWND *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-18h]
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  int v4; // ebx
+  struct tagWND *v5; // rdi
+  __int64 v6; // rcx
+  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+30h] [rbp-18h]
 
-  v13 = 0LL;
-  v12 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v4 = ValidateHwnd(a1);
-  v6 = 0LL;
-  v7 = (struct tagWND *)v4;
-  if ( v4 )
+  v9 = 0LL;
+  v8 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
+  v4 = 0;
+  v5 = (struct tagWND *)v2;
+  if ( v2 )
   {
-    *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v12;
-    *((_QWORD *)&v12 + 1) = v4;
-    HMLockObject(v4);
-    v6 = xxxEnableChildWindowDpiMessageX(v7, a2);
-    ThreadUnlock1(v9, v8, v10);
+    *(_QWORD *)&v8 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v8;
+    *((_QWORD *)&v8 + 1) = v2;
+    HMLockObject(v2);
+    v4 = xxxEnableChildWindowDpiMessageX(v5);
+    ThreadUnlock1(v6);
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

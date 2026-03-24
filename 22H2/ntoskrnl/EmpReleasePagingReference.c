@@ -1,20 +1,20 @@
 /*
- * XREFs of EmpReleasePagingReference @ 0x140A87EA4
+ * XREFs of EmpReleasePagingReference @ 0x1409901C8
  * Callers:
- *     EmClientQueryRuleState @ 0x140A87C40 (EmClientQueryRuleState.c)
- *     EmClientRuleEvaluate @ 0x140A87D30 (EmClientRuleEvaluate.c)
+ *     EmClientQueryRuleState @ 0x1409900E0 (EmClientQueryRuleState.c)
+ *     EmClientRuleEvaluate @ 0x140990340 (EmClientRuleEvaluate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-signed __int32 EmpReleasePagingReference()
+char EmpReleasePagingReference()
 {
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpPagingLock, 0LL);
-  dword_140C5F8B8 ^= (dword_140C5F8B8 ^ (dword_140C5F8B8 - 1)) & 0x7FFFFFFF;
-  if ( (dword_140C5F8B8 & 0x7FFFFFFF) == 0 && EmpPagingStatus )
+  dword_140C47978 ^= (dword_140C47978 ^ (dword_140C47978 - 1)) & 0x7FFFFFFF;
+  if ( (dword_140C47978 & 0x7FFFFFFF) == 0 && EmpPagingStatus )
     KeSetEvent(EmpPagingStatus, 0, 0);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpPagingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&EmpPagingLock);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeBootDefaults @ 0x140B73284
+ * XREFs of MiInitializeBootDefaults @ 0x140A7160C
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
  */
 
 __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
@@ -20,9 +20,9 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
     MmLargePageDriverBufferLength = -1;
     MmSpecialPoolTag = 0;
     MmProtectFreedNonPagedPool = 0;
-    byte_140C699E5 = 1;
-    dword_140D1D1CC = 0;
-    *(_BYTE *)(MmWriteableSharedUserData + 748) = 1;
+    byte_140C4EEDD = 1;
+    dword_140CFB17C = 0;
+    MEMORY[0xFFFFF780000002EC] = 1;
   }
   else
   {
@@ -32,48 +32,44 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
     MmPageValidationFrequency = v1;
     if ( v1 )
     {
-      LODWORD(MiFlags) = MiFlags | 0x80;
+      MiFlags |= 0x80u;
       MmPageValidationFrequency = v1 - 1;
     }
     if ( MmVerifierData )
     {
       v6 = MiFlags | 1;
-      LODWORD(MiFlags) = MiFlags | 1;
-      if ( KernelVerifier )
-        LODWORD(MiFlags) = v6 | 2;
+      MiFlags |= 1u;
+      if ( KernelVerifier == 1 )
+        MiFlags = v6 | 2;
     }
-    if ( (MiFlags & 1) == 0 || (VfRuleClasses & 0x400000) != 0 )
-    {
-      if ( !MmSpecialPoolTag )
-        goto LABEL_9;
-    }
-    else
+    if ( MmSpecialPoolTag )
+      MmProtectFreedNonPagedPool = 1;
+    if ( (MiFlags & 1) != 0 && (MmVerifierData & 0x400000) == 0 )
     {
       MmLargePageDriverBufferLength = -1;
+      MmProtectFreedNonPagedPool = 1;
     }
-    MmProtectFreedNonPagedPool = 1;
   }
-LABEL_9:
   v4 = MiFlags | 8;
-  LODWORD(MiFlags) = MiFlags | 8;
+  MiFlags |= 8u;
   if ( (NtGlobalFlag & 0x80000) == 0 )
-    LODWORD(MiFlags) = v4 | 0x40;
-  LODWORD(dword_140C683A0) = 275;
-  qword_140C683B8 = (__int64)MiAllocatePfnRepurposeLogDispatch;
-  qword_140C683C0 = 0LL;
-  qword_140C65B20 = (__int64)&qword_140C65B18;
-  qword_140C65B18 = (__int64)&qword_140C65B18;
-  qword_140C65B10 = -10000000LL * dword_140D1D1E4;
-  qword_140C683D8 = 0LL;
-  qword_140C683B0 = 0LL;
-  qword_140C659D0 = 0LL;
-  qword_140C65A60 = 0LL;
-  dword_140C680EC = 5;
+    MiFlags = v4 | 0x40;
+  Dpc.TargetInfoAsUlong = 275;
+  Dpc.DeferredRoutine = (PKDEFERRED_ROUTINE)MiAllocatePfnRepurposeLogDispatch;
+  Dpc.DeferredContext = 0LL;
+  qword_140C4DE30 = (__int64)&qword_140C4DE28;
+  qword_140C4DE28 = (__int64)&qword_140C4DE28;
+  qword_140C4DE20 = -10000000LL * dword_140CFB194;
+  Dpc.DpcData = 0LL;
+  Dpc.ProcessorHistory = 0LL;
+  qword_140C4CCD0 = 0LL;
+  qword_140C4CD58 = 0LL;
+  dword_140C4E82C = 5;
+  qword_140C4E840 = 0LL;
   SpinLock = 0LL;
-  qword_140C698C0 = 0LL;
-  qword_140C65650 = 0LL;
-  qword_140C65668 = 0x7FF5FFFFFFFFLL;
+  qword_140C4C990 = 0LL;
+  qword_140C4C9A8 = 0x7FF5FFFFFFFFLL;
   result = (unsigned __int8)ExGenRandom(1) << 16;
-  qword_140C65668 += 0xFFFFFFFDFF800000uLL - result;
+  qword_140C4C9A8 += 0xFFFFFFFDFF800000uLL - result;
   return result;
 }

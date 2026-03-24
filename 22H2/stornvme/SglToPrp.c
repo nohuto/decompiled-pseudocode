@@ -1,121 +1,121 @@
 /*
- * XREFs of SglToPrp @ 0x1C001B5C0
+ * XREFs of SglToPrp @ 0x1C001755C
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
- *     SetPrpFromSrb @ 0x1C001B58C (SetPrpFromSrb.c)
+ *     SetPrpFromSrb @ 0x1C0002628 (SetPrpFromSrb.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     memset @ 0x1C0004B80 (memset.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall SglToPrp(__int64 a1, __int64 a2)
 {
-  char v2; // bp
-  unsigned int v3; // esi
-  __int64 v4; // rdx
+  char v3; // si
+  unsigned int v4; // ebp
   _QWORD *SrbExtension; // rbx
   __int64 v6; // r8
-  _DWORD *v7; // rax
-  _QWORD *v8; // r8
-  __int64 v9; // r13
-  _QWORD *v10; // rdi
-  __int64 v11; // rax
-  __int64 v12; // r12
-  __int64 v13; // r15
+  _DWORD *ScatterGatherList; // rax
+  _DWORD *v8; // rdx
+  __int64 v9; // r14
+  _QWORD *v10; // r8
+  _QWORD *v11; // rdi
+  __int64 v12; // r15
+  __int64 v13; // r12
   int v14; // r14d
-  int v15; // eax
-  _DWORD *v16; // rax
+  _QWORD *v15; // rax
+  bool v16; // zf
+  _QWORD *v17; // rax
   __int64 PhysicalAddress; // rax
-  int v21; // [rsp+70h] [rbp+18h] BYREF
+  int v22; // [rsp+70h] [rbp+18h] BYREF
 
-  v2 = 0;
   v3 = 0;
+  v4 = 0;
   SrbExtension = (_QWORD *)GetSrbExtension(a2);
   if ( (*((_BYTE *)SrbExtension + 4253) & 6) == 2 )
   {
-    if ( !SrbExtension[527] )
-      SrbExtension[527] = StorPortGetScatterGatherList(v6, v4);
-    v7 = (_DWORD *)SrbExtension[527];
-    v8 = SrbExtension + 515;
+    ScatterGatherList = (_DWORD *)SrbExtension[527];
+    v8 = ScatterGatherList;
+    if ( !ScatterGatherList )
+    {
+      ScatterGatherList = (_DWORD *)StorPortGetScatterGatherList(v6, a2);
+      SrbExtension[527] = ScatterGatherList;
+      v8 = ScatterGatherList;
+    }
     v9 = 0LL;
     v10 = SrbExtension + 515;
-    v21 = 0;
-    if ( *v7 )
+    v11 = SrbExtension + 515;
+    v22 = 0;
+    if ( *ScatterGatherList )
     {
       do
       {
-        if ( v2 )
+        if ( v3 )
         {
           memset(SrbExtension, 0, 0x1000uLL);
-          v2 = 0;
-          v8 = SrbExtension + 515;
+          v8 = (_DWORD *)SrbExtension[527];
+          v10 = SrbExtension + 515;
+          v3 = 0;
         }
-        v11 = SrbExtension[527];
-        v12 = *(unsigned int *)(v11 + 24 * v9 + 24);
-        v13 = *(_QWORD *)(v11 + 24 * v9 + 16);
-        if ( v12 + v13 % 4096 > 4096 )
+        v12 = *(_QWORD *)&v8[6 * v9 + 4];
+        v13 = (unsigned int)v8[6 * v9 + 6];
+        if ( v13 + v12 % 4096 > 4096 )
         {
-          if ( (_DWORD)v12 )
+          if ( (_DWORD)v13 )
           {
             do
             {
-              v14 = v13 & 0xFFF;
-              if ( v2 )
+              v14 = v12 & 0xFFF;
+              if ( v3 )
               {
                 memset(SrbExtension, 0, 0x1000uLL);
-                v2 = 0;
+                v3 = 0;
               }
-              *v10 = v13;
-              v8 = SrbExtension + 515;
-              if ( (unsigned int)(v14 + v12) <= 0x1000 )
+              *v11 = v12;
+              v10 = SrbExtension + 515;
+              if ( (unsigned int)(v14 + v13) <= 0x1000 )
                 break;
-              v15 = v14 + v12;
-              LODWORD(v12) = v14 + v12 - 4096;
-              v13 += (unsigned int)(4096 - v14);
-              if ( v10 == v8 )
-              {
-                v2 = 1;
-                v10 = SrbExtension;
-              }
-              else
-              {
-                ++v10;
-              }
-              ++v3;
+              LODWORD(v13) = v14 + v13 - 4096;
+              v12 += (unsigned int)(4096 - v14);
+              v15 = v11 + 1;
+              if ( v11 == v10 )
+                v3 = 1;
+              ++v4;
+              v16 = v11 == v10;
+              v11 = SrbExtension;
+              if ( !v16 )
+                v11 = v15;
             }
-            while ( v15 != 4096 );
-            LODWORD(v9) = v21;
+            while ( (_DWORD)v13 );
+            LODWORD(v9) = v22;
           }
         }
         else
         {
-          *v10 = v13;
+          *v11 = v12;
         }
-        if ( v10 == v8 )
-        {
-          v2 = 1;
-          v10 = SrbExtension;
-        }
-        else
-        {
-          ++v10;
-        }
-        v16 = (_DWORD *)SrbExtension[527];
+        v8 = (_DWORD *)SrbExtension[527];
+        v17 = v11 + 1;
+        if ( v11 == v10 )
+          v3 = 1;
         v9 = (unsigned int)(v9 + 1);
-        ++v3;
-        v21 = v9;
+        ++v4;
+        v22 = v9;
+        v16 = v11 == v10;
+        v11 = SrbExtension;
+        if ( !v16 )
+          v11 = v17;
       }
-      while ( (unsigned int)v9 < *v16 );
-      if ( v3 >= 2 )
+      while ( (unsigned int)v9 < *v8 );
+      if ( v4 >= 2 )
       {
-        if ( v3 == 2 )
+        if ( v4 == 2 )
         {
           PhysicalAddress = *SrbExtension;
         }
         else
         {
-          v21 = 0;
-          PhysicalAddress = StorPortGetPhysicalAddress(a1, a2, SrbExtension, &v21);
+          v22 = 0;
+          PhysicalAddress = StorPortGetPhysicalAddress(a1, a2, SrbExtension, &v22);
         }
         SrbExtension[516] = PhysicalAddress;
       }

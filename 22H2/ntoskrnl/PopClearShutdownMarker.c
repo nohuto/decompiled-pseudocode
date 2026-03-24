@@ -1,7 +1,7 @@
 /*
- * XREFs of PopClearShutdownMarker @ 0x1409807D4
+ * XREFs of PopClearShutdownMarker @ 0x1406A691C
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
  * Callees:
  *     <none>
  */

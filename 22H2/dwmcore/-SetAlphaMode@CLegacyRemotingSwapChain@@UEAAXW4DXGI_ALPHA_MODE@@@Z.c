@@ -1,23 +1,28 @@
 /*
- * XREFs of ?SetAlphaMode@CLegacyRemotingSwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1802A3F50
+ * XREFs of ?SetAlphaMode@CLegacyRemotingSwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180251FD0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$?9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV?$com_ptr_t@UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@0@$$T@Z @ 0x1800EA854 (--$-9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV-$com_ptr_t@UIDXGISwapChainD.c)
+ *     ??$query_to@VIBitmapDest2@@@?$com_ptr_t@VIBitmapDest@@Uerr_returncode_policy@wil@@@wil@@QEBAJPEAPEAVIBitmapDest2@@@Z @ 0x1800F20DC (--$query_to@VIBitmapDest2@@@-$com_ptr_t@VIBitmapDest@@Uerr_returncode_policy@wil@@@wil@@QEBAJPEA.c)
+ *     ??I?$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@QEAAPEAPEAUIUnknown@@XZ @ 0x1800F20FC (--I-$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@QEAAPEAPEAUIUnknown@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CLegacyRemotingSwapChain::SetAlphaMode(CLegacyRemotingSwapChain *this, unsigned int a2)
 {
-  int (__fastcall ***v4)(_QWORD, GUID *, __int64 *); // rcx
+  __int64 *v4; // rax
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 10) + 8LL))(*((_QWORD *)this + 10));
-  v4 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))*((_QWORD *)this + 11);
-  if ( v4 )
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 4) + 8LL))(*((_QWORD *)this + 4));
+  if ( wil::operator!=<IDXGISwapChainDWM1,wil::err_returncode_policy>((_QWORD *)this + 5) )
   {
     v5 = 0LL;
-    if ( (**v4)(v4, &GUID_11bb5fd3_c76d_405e_a8d7_7fe7375f478a, &v5) >= 0 )
+    v4 = wil::com_ptr_t<IUnknown,wil::err_returncode_policy>::operator&(&v5);
+    if ( (int)wil::com_ptr_t<IBitmapDest,wil::err_returncode_policy>::query_to<IBitmapDest2>(
+                (_QWORD *)this + 5,
+                (__int64)v4) >= 0 )
       (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v5 + 24LL))(v5, a2);
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v5);
   }

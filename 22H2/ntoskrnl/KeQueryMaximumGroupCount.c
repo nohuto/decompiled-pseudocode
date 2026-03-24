@@ -1,10 +1,8 @@
 /*
- * XREFs of KeQueryMaximumGroupCount @ 0x1402BE5F0
+ * XREFs of KeQueryMaximumGroupCount @ 0x140341F00
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
- *     NtQueryInformationCpuPartition @ 0x1409B0680 (NtQueryInformationCpuPartition.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

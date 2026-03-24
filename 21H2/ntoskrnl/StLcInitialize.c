@@ -1,9 +1,9 @@
 /*
- * XREFs of StLcInitialize @ 0x1402612BC
+ * XREFs of StLcInitialize @ 0x14035E7F0
  * Callers:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140260D58 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035DAD0 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall StLcInitialize(__int64 a1, __int64 a2, unsigned int *a3)

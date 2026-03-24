@@ -1,71 +1,31 @@
 /*
- * XREFs of FreeThreadsWinEvents @ 0x1C0072010
+ * XREFs of FreeThreadsWinEvents @ 0x1C00C0C30
  * Callers:
  *     <none>
  * Callees:
- *     ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C0010160 (-RemoveNotify@@YAXPEAUtagNOTIFY@@@Z.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     DestroyEventHook @ 0x1C0070D40 (DestroyEventHook.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     DestroyEventHook @ 0x1C0022770 (DestroyEventHook.c)
+ *     ??0?$CLockDomainExclusiveInUserCrit@VDLT_WINEVENT@@@@QEAA@XZ @ 0x1C00C0D74 (--0-$CLockDomainExclusiveInUserCrit@VDLT_WINEVENT@@@@QEAA@XZ.c)
  */
 
 void __fastcall FreeThreadsWinEvents(__int64 a1)
 {
-  unsigned int DLT; // eax
-  char *v3; // rbx
-  int v4; // edi
-  tagDomLock *v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  tagDomLock *DomainLockRef; // [rsp+20h] [rbp-48h]
-  char v9; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-38h]
-  char v11; // [rsp+38h] [rbp-30h]
-  __int64 v12; // [rsp+40h] [rbp-28h]
-  char v13; // [rsp+48h] [rbp-20h]
+  __int64 v2; // rcx
+  __int64 v3; // rbx
+  tagDomLock *v4; // [rsp+38h] [rbp+10h] BYREF
 
   PsGetCurrentThreadId();
-  DLT = DLT_WINEVENT::getDLT();
-  v3 = &v9;
-  DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
-  v12 = 0LL;
-  v4 = 0;
-  v13 = 0;
-  v9 = 1;
-  v10 = gDomainDummyLock;
-  v11 = 0;
-  do
-  {
-    v5 = (tagDomLock *)*((_QWORD *)v3 - 1);
-    if ( v5 )
-    {
-      if ( *v3 )
-        tagDomLock::LockExclusive(v5);
-      else
-        tagDomLock::LockShared(v5);
-    }
-    ++v4;
-    v3 += 16;
-  }
-  while ( !v4 );
-  v13 = 1;
-  v6 = gpWinEventHooks;
+  CLockDomainExclusiveInUserCrit<DLT_WINEVENT>::CLockDomainExclusiveInUserCrit<DLT_WINEVENT>(&v4);
+  v2 = gpWinEventHooks;
   if ( gpWinEventHooks )
   {
     do
     {
-      v7 = *(_QWORD *)(v6 + 24);
-      if ( *(_QWORD *)(v6 + 16) == a1 )
-        DestroyEventHook((void **)v6);
-      v6 = v7;
+      v3 = *(_QWORD *)(v2 + 24);
+      if ( *(_QWORD *)(v2 + 16) == a1 )
+        DestroyEventHook(v2);
+      v2 = v3;
     }
-    while ( v7 );
+    while ( v3 );
   }
-  if ( v13 && DomainLockRef )
-  {
-    if ( v9 )
-      tagDomLock::UnLockExclusive(DomainLockRef);
-    else
-      tagDomLock::UnLockShared(DomainLockRef);
-  }
+  tagDomLock::UnLockExclusive(v4);
 }

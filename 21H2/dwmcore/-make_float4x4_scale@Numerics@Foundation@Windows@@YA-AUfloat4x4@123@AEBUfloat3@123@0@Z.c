@@ -1,8 +1,8 @@
 /*
- * XREFs of ?make_float4x4_scale@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@0@Z @ 0x180261990
+ * XREFs of ?make_float4x4_scale@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@0@Z @ 0x1800D5418
  * Callers:
- *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D9AAC (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x180260B3C (-Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z.c)
+ *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D5388 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x1802116B0 (-Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInitializeSystemLookasideList @ 0x140A8BD08
+ * XREFs of ExInitializeSystemLookasideList @ 0x14099BFA4
  * Callers:
- *     ExInitializeProcessor @ 0x1403815B0 (ExInitializeProcessor.c)
- *     CcInitializeProcessor @ 0x1408215BC (CcInitializeProcessor.c)
- *     ObInitializeProcessor @ 0x140821FA4 (ObInitializeProcessor.c)
- *     IoInitializeProcessor @ 0x1408220BC (IoInitializeProcessor.c)
- *     ExInitPoolLookasidePointers @ 0x140A8BBCC (ExInitPoolLookasidePointers.c)
- *     CcInitializeCacheManager @ 0x140B4D188 (CcInitializeCacheManager.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     ExInitializeProcessor @ 0x1403A895C (ExInitializeProcessor.c)
+ *     CcInitializeProcessor @ 0x140790FB0 (CcInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x14079106C (ObInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x140791188 (IoInitializeProcessor.c)
+ *     ExInitPoolLookasidePointers @ 0x14099BE68 (ExInitPoolLookasidePointers.c)
+ *     CcInitializeCacheManager @ 0x140A3C5E8 (CcInitializeCacheManager.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
  */
 
 __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, int a4, __int16 a5, __int64 a6)
@@ -21,8 +21,8 @@ __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, i
 
   InitializeSListHead((PSLIST_HEADER)a1);
   *(_DWORD *)(a1 + 36) = a2;
-  *(_QWORD *)(a1 + 48) = ExAllocatePoolZero;
-  *(_QWORD *)(a1 + 56) = ExFreePool;
+  *(_QWORD *)(a1 + 48) = ExAllocatePoolWithTag;
+  *(_QWORD *)(a1 + 56) = ExFreePoolWithTag;
   *(_WORD *)(a1 + 16) = 2;
   *(_WORD *)(a1 + 18) = a5;
   *(_QWORD *)(a1 + 20) = 0LL;

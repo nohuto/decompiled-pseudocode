@@ -1,10 +1,11 @@
 /*
- * XREFs of ApiSetEditionKeyEventLLHook @ 0x1C006B208
+ * XREFs of ApiSetEditionKeyEventLLHook @ 0x1C004DAB4
  * Callers:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  * Callees:
- *     EditionKeyEventLLHook @ 0x1C00B0040 (EditionKeyEventLLHook.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     EditionKeyEventLLHook @ 0x1C004DBDC (EditionKeyEventLLHook.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionKeyEventLLHook(
@@ -21,10 +22,37 @@ __int64 __fastcall ApiSetEditionKeyEventLLHook(
         int a11,
         __int64 a12)
 {
-  unsigned int v12; // ebx
+  unsigned __int16 v14; // bp
+  unsigned int v16; // ebx
+  int v17; // eax
 
-  v12 = 0;
-  if ( qword_1C0296760 && (int)qword_1C0296760() >= 0 )
-    return (unsigned int)EditionKeyEventLLHook(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12);
-  return v12;
+  v14 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      414,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  v16 = 0;
+  if ( qword_1C0257508 )
+    v17 = qword_1C0257508();
+  else
+    v17 = -1073741637;
+  if ( v17 >= 0 )
+    v16 = EditionKeyEventLLHook(a1, v14, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      415,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v16;
 }

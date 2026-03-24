@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EnableSpeedBump@CCursorClip@@QEAAX_N@Z @ 0x1C01DB8D0
+ * XREFs of ?EnableSpeedBump@CCursorClip@@QEAAX_N@Z @ 0x1C01A2B10
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0096098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0096160 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005A5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
  */
 
 void __fastcall CCursorClip::EnableSpeedBump(CCursorClip *this, char a2)
 {
   CPushLock::AcquireLockExclusive((CCursorClip *)((char *)this + 32));
-  *((_BYTE *)this + 277) = a2;
+  *((_BYTE *)this + 93) = a2;
   CPushLock::ReleaseLock((CCursorClip *)((char *)this + 32));
 }

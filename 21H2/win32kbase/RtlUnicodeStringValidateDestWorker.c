@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C01B8744
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C0181EE0
  * Callers:
- *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C01A05FC (RIMPopulateExtendedMouseDeviceProperties.c)
- *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01A0784 (RIMPopulateExtendedPointerDeviceProperties.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C01B86C8 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C00CC828 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C016BE68 (RIMPopulateExtendedPointerDeviceProperties.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0181E64 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
  * Callees:
  *     <none>
  */

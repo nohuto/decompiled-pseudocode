@@ -1,27 +1,27 @@
 /*
- * XREFs of UsbhUnlockSSH @ 0x1C0002A5C
+ * XREFs of UsbhUnlockSSH @ 0x1C001CC84
  * Callers:
- *     Usbh_SSH_HubPendingSuspend @ 0x1C0003974 (Usbh_SSH_HubPendingSuspend.c)
- *     Usbh_SSH_HubSuspended @ 0x1C0003E98 (Usbh_SSH_HubSuspended.c)
- *     Usbh_SSH_HubPendingResume @ 0x1C00041F0 (Usbh_SSH_HubPendingResume.c)
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     UsbhFdoReturnPortStatus @ 0x1C00186F0 (UsbhFdoReturnPortStatus.c)
- *     Usbh_SSH_HubFailedResume @ 0x1C0058D7C (Usbh_SSH_HubFailedResume.c)
- *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C0058DF8 (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C00099C0 (UsbhFdoReturnPortStatus.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00140B0 (Usbh_SSH_HubPendingResume.c)
+ *     Usbh_SSH_HubSuspended @ 0x1C0015264 (Usbh_SSH_HubSuspended.c)
+ *     Usbh_SSH_HubPendingSuspend @ 0x1C0015704 (Usbh_SSH_HubPendingSuspend.c)
+ *     Usbh_SSH_HubFailedResume @ 0x1C005A44C (Usbh_SSH_HubFailedResume.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C005A4C8 (Usbh_SSH_HubPendingResumeAfterSuspend.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 LONG __fastcall UsbhUnlockSSH(__int64 a1, int a2)
 {
-  __int64 v4; // rax
+  _DWORD *v4; // rax
   __int64 v5; // r8
 
   v4 = FdoExt(*(_QWORD *)(a1 + 8));
-  v5 = 32LL * *(unsigned int *)(v4 + 3456);
-  *(_DWORD *)(v4 + 3124) = a2;
-  *(_DWORD *)(v5 + v4 + 3468) = a2;
+  v5 = 8LL * (unsigned int)v4[864];
+  v4[781] = a2;
+  v4[v5 + 867] = a2;
   *(_DWORD *)(a1 + 120) = 1734964085;
-  *(_QWORD *)(v4 + 3192) = 0LL;
-  return KeReleaseSemaphore((PRKSEMAPHORE)(v4 + 3128), 16, 1, 0);
+  *((_QWORD *)v4 + 399) = 0LL;
+  return KeReleaseSemaphore((PRKSEMAPHORE)(v4 + 782), 16, 1, 0);
 }

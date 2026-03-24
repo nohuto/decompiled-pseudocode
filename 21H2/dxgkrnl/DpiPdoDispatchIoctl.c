@@ -1,14 +1,14 @@
 /*
- * XREFs of DpiPdoDispatchIoctl @ 0x1C01B3E70
+ * XREFs of DpiPdoDispatchIoctl @ 0x1C013F380
  * Callers:
  *     <none>
  * Callees:
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01A2ECC (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
- *     ?_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C01B3FE0 (-_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     ?DpiBrightnessHandleIoctls@@YAJPEAU_DEVICE_OBJECT@@KKKPEAXK1PEA_K@Z @ 0x1C038F164 (-DpiBrightnessHandleIoctls@@YAJPEAU_DEVICE_OBJECT@@KKKPEAXK1PEA_K@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C013F4F0 (-_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?DpiBrightnessHandleIoctls@@YAJPEAU_DEVICE_OBJECT@@KKKPEAXK1PEA_K@Z @ 0x1C02D03A4 (-DpiBrightnessHandleIoctls@@YAJPEAU_DEVICE_OBJECT@@KKKPEAXK1PEA_K@Z.c)
  */
 
 __int64 __fastcall DpiPdoDispatchIoctl(__int64 a1, IRP *a2)
@@ -23,13 +23,21 @@ __int64 __fastcall DpiPdoDispatchIoctl(__int64 a1, IRP *a2)
   int MonitorInstance; // ebx
   __int64 v12; // rbx
   __int64 v13; // rsi
-  __int64 v14; // rdi
-  MONITOR_MGR *v15; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rdi
+  struct _FAST_MUTEX *v17; // rdi
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
   unsigned int Options; // [rsp+80h] [rbp+8h]
-  unsigned __int64 v18; // [rsp+88h] [rbp+10h] BYREF
-  struct DXGMONITOR *v19; // [rsp+90h] [rbp+18h] BYREF
+  unsigned __int64 v26; // [rsp+88h] [rbp+10h] BYREF
+  struct DXGMONITOR *v27; // [rsp+90h] [rbp+18h] BYREF
 
-  v18 = 0LL;
+  v26 = 0LL;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   v5 = *(_QWORD *)(a1 + 64);
   MasterIrp = a2->AssociatedIrp.MasterIrp;
@@ -58,7 +66,7 @@ __int64 __fastcall DpiPdoDispatchIoctl(__int64 a1, IRP *a2)
                         MasterIrp,
                         Length,
                         MasterIrp,
-                        &v18);
+                        &v26);
   }
   else
   {
@@ -73,7 +81,7 @@ LABEL_28:
       MonitorInstance = -1073741637;
       goto LABEL_15;
     }
-    MonitorInstance = DpiAcquireCoreSyncAccessSafe(a1, 0LL);
+    MonitorInstance = DpiAcquireCoreSyncAccessSafe(a1, 0);
     if ( MonitorInstance >= 0 )
     {
       v12 = *((_QWORD *)DeviceExtension + 487);
@@ -83,34 +91,47 @@ LABEL_28:
         if ( (_DWORD)v13 != -1 )
         {
           if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)DeviceExtension + 487)) )
-            WdLogSingleEntry0(1LL);
-          v14 = *(_QWORD *)(v12 + 2792);
-          if ( !v14 )
           {
-            WdLogSingleEntry0(1LL);
-            v14 = *(_QWORD *)(v12 + 2792);
+            v21 = WdLogNewEntry5_WdAssertion(v15, v14);
+            WdLogEvent5_WdAssertion(v21);
           }
-          v15 = *(MONITOR_MGR **)(v14 + 112);
-          if ( v15 )
+          v16 = *(_QWORD *)(v12 + 2696);
+          if ( !v16 )
           {
-            v19 = 0LL;
-            MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v15, v13, 1, &v19);
+            v22 = WdLogNewEntry5_WdAssertion(v15, v14);
+            WdLogEvent5_WdAssertion(v22);
+            v16 = *(_QWORD *)(v12 + 2696);
+          }
+          v17 = *(struct _FAST_MUTEX **)(v16 + 96);
+          if ( v17 )
+          {
+            v27 = 0LL;
+            MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v17, (unsigned int)v13, 1, &v27);
             if ( MonitorInstance < 0 )
-              WdLogSingleEntry2(7LL, v13, v15);
+            {
+              v24 = WdLogNewEntry5_WdDmmEvent(v19, v18);
+              *(_QWORD *)(v24 + 24) = v13;
+              *(_QWORD *)(v24 + 32) = v17;
+              WdLogEvent5_WdDmmEvent(v24);
+            }
             else
-              MonitorInstance = DXGMONITOR::_DispatchIoctrls(v19, LowPart, Options, MasterIrp, Length, MasterIrp, &v18);
+            {
+              MonitorInstance = DXGMONITOR::_DispatchIoctrls(v27, LowPart, Options, MasterIrp, Length, MasterIrp, &v26);
+            }
             goto LABEL_14;
           }
-          WdLogSingleEntry1(2LL, v12);
+          v23 = WdLogNewEntry5_WdError(v15, v14);
+          *(_QWORD *)(v23 + 24) = v12;
+          WdLogEvent5_WdError(v23);
         }
       }
       MonitorInstance = -1073741811;
 LABEL_14:
-      DpiReleaseCoreSyncAccessSafe(a1, 0LL);
+      DpiReleaseCoreSyncAccessSafe(a1, 0);
     }
   }
 LABEL_15:
-  a2->IoStatus.Information = v18;
+  a2->IoStatus.Information = v26;
   a2->IoStatus.Status = MonitorInstance;
   IofCompleteRequest(a2, 1);
   return (unsigned int)MonitorInstance;

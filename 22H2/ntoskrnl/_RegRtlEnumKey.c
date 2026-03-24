@@ -1,110 +1,116 @@
 /*
- * XREFs of _RegRtlEnumKey @ 0x14086B97C
+ * XREFs of _RegRtlEnumKey @ 0x14076619C
  * Callers:
- *     _CmGetDeviceContainerIdFromBase @ 0x14079B574 (_CmGetDeviceContainerIdFromBase.c)
- *     _PnpCtxRegEnumKey @ 0x140814D7C (_PnpCtxRegEnumKey.c)
- *     _RegRtlEnumKeyWithCallback @ 0x14082CF68 (_RegRtlEnumKeyWithCallback.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140876094 (_PnpGetGenericStorePropertyKeys.c)
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x14095C3F4 (PiDqDeleteUserObjectFromLoadedHives.c)
- *     PiCMDeleteDeviceKey @ 0x140969340 (PiCMDeleteDeviceKey.c)
- *     PiCMEnumerateSubKeys @ 0x140969A4C (PiCMEnumerateSubKeys.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970238 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x1409707D8 (PiDrvDbOverlayNodeHive.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A63EA4 (_CmEnumDevicesInContainerWithCallbackWorker.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14072E4C4 (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075A16C (_CmGetDeviceContainerIdFromBase.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1407675A0 (_PnpGetGenericStorePropertyKeys.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1407B1920 (_RegRtlEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4404 (_PnpCtxRegEnumKey.c)
+ *     PiCMDeleteDeviceKey @ 0x1408AFFB8 (PiCMDeleteDeviceKey.c)
+ *     PiCMEnumerateSubKeys @ 0x1408B03BC (PiCMEnumerateSubKeys.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6168 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1408B6708 (PiDrvDbOverlayNodeHive.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140975E90 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RegRtlEnumKey(HANDLE KeyHandle, ULONG a2, char *a3, unsigned int *a4)
+__int64 __fastcall RegRtlEnumKey(HANDLE KeyHandle, ULONG a2, unsigned int *a3, unsigned int *a4)
 {
-  _DWORD *v7; // rsi
+  unsigned int *v7; // rbp
   unsigned __int64 v8; // rdi
   ULONG Length; // r15d
-  char *v10; // rbp
+  unsigned int *p_KeyInformation; // rsi
   NTSTATUS v11; // eax
   unsigned int v12; // ebx
-  unsigned int v13; // eax
-  unsigned int v14; // ecx
-  _DWORD *Pool2; // rax
-  NTSTATUS v17; // eax
-  unsigned int v18; // eax
-  unsigned int v19; // ecx
+  unsigned int *v13; // rcx
+  unsigned int v14; // eax
+  unsigned int v15; // edx
+  unsigned int *PoolWithTag; // rax
+  NTSTATUS v18; // eax
+  unsigned int v19; // eax
+  unsigned int v20; // edx
   ULONG ResultLength; // [rsp+30h] [rbp-B8h] BYREF
   ULONG Index; // [rsp+34h] [rbp-B4h]
-  char v22; // [rsp+38h] [rbp-B0h] BYREF
+  char KeyInformation; // [rsp+38h] [rbp-B0h] BYREF
 
   Index = a2;
   ResultLength = 0;
   v7 = 0LL;
-  if ( !a3 )
+  if ( a3 )
+  {
+    v8 = 2LL * *a4;
+    if ( v8 > 0xFFFFFFFF )
+      return (unsigned int)-1073741675;
+  }
+  else
   {
     LODWORD(v8) = 0;
-LABEL_4:
-    Length = 96;
-    goto LABEL_5;
   }
-  v8 = 2LL * *a4;
-  if ( v8 > 0xFFFFFFFF )
-    return (unsigned int)-1073741675;
-  if ( (unsigned int)v8 <= 0x60 )
-    goto LABEL_4;
-  Length = 2 * *a4;
-LABEL_5:
-  v10 = &v22;
+  Length = 96;
   if ( (unsigned int)v8 > 0x60 )
-    v10 = a3;
-  v11 = ZwEnumerateKey(KeyHandle, a2, KeyBasicInformation, v10, Length, &ResultLength);
+  {
+    p_KeyInformation = a3;
+    Length = v8;
+  }
+  else
+  {
+    p_KeyInformation = (unsigned int *)&KeyInformation;
+  }
+  v11 = ZwEnumerateKey(KeyHandle, a2, KeyBasicInformation, p_KeyInformation, Length, &ResultLength);
   v12 = v11;
   if ( !v11 || v11 == -2147483643 )
   {
-    v13 = *((_DWORD *)v10 + 3);
-    v14 = v13 + 2;
-    if ( v13 + 2 >= v13 )
+    v13 = p_KeyInformation + 3;
+    v14 = p_KeyInformation[3];
+    v15 = v14 + 2;
+    if ( v14 + 2 >= v14 )
     {
-      v12 = 0;
-      *a4 = v14 >> 1;
-      if ( v14 > (unsigned int)v8 )
+      *a4 = v15 >> 1;
+      if ( v15 > (unsigned int)v8 )
         return (unsigned int)-1073741789;
       if ( ResultLength <= Length )
-        goto LABEL_11;
+        goto LABEL_9;
       if ( (unsigned int)v8 < 0xFFFFFFF0 )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(v8 + 16), 1279739218LL);
-        v7 = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(v8 + 16), 0x4C474552u);
+        v7 = PoolWithTag;
+        if ( !PoolWithTag )
           return (unsigned int)-1073741801;
-        v10 = (char *)Pool2;
-        v17 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, Pool2, v8 + 16, &ResultLength);
-        v12 = v17;
-        if ( v17 && v17 != -2147483643 )
-          goto LABEL_22;
-        v18 = v7[3];
-        v19 = v18 + 2;
-        if ( v18 + 2 < v18 )
+        p_KeyInformation = PoolWithTag;
+        v18 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, PoolWithTag, v8 + 16, &ResultLength);
+        v12 = v18;
+        if ( v18 && v18 != -2147483643 )
+          goto LABEL_10;
+        v13 = v7 + 3;
+        v19 = v7[3];
+        v20 = v19 + 2;
+        if ( v19 + 2 < v19 )
         {
           v12 = -1073741675;
-          goto LABEL_22;
         }
-        v12 = 0;
-        *a4 = v19 >> 1;
-        if ( v19 > (unsigned int)v8 )
+        else
         {
+          *a4 = v20 >> 1;
+          if ( v20 <= (unsigned int)v8 )
+          {
+LABEL_9:
+            memmove(a3, p_KeyInformation + 4, *v13);
+            v12 = 0;
+            *((_WORD *)a3 + *a4 - 1) = 0;
+            goto LABEL_10;
+          }
           v12 = -1073741789;
-          goto LABEL_22;
         }
-LABEL_11:
-        memmove(a3, v10 + 16, *((unsigned int *)v10 + 3));
-        *(_WORD *)&a3[2 * *a4 - 2] = 0;
-        if ( !v7 )
-          return v12;
-LABEL_22:
-        ExFreePoolWithTag(v7, 0);
+LABEL_10:
+        if ( v7 )
+          ExFreePoolWithTag(v7, 0);
         return v12;
       }
     }

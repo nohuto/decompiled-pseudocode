@@ -1,18 +1,18 @@
 /*
- * XREFs of ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C000D9EC
+ * XREFs of ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A3930
  * Callers:
- *     ?bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C000D8E4 (-bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z.c)
- *     ?bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@@Z @ 0x1C02BA244 (-bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@@Z.c)
+ *     ?bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A3B30 (-bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z.c)
+ *     ?bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C016DC7C (-bLoadDeviceFontTable@PFFMEMOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
  * Callees:
- *     ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C000B988 (-IsCHSBaseFont@@YAHPEBGI@Z.c)
- *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C000DBEC (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
- *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C0011894 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
- *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00150C4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00A11D4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C00A2D24 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
+ *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A3434 (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
+ *     ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C00A3F88 (-IsCHSBaseFont@@YAHPEBGI@Z.c)
  */
 
 __int64 __fastcall PFFMEMOBJ::bAddEntry(
         PFFMEMOBJ *this,
-        unsigned int a2,
+        int a2,
         struct _FD_GLYPHSET *a3,
         unsigned __int64 a4,
         struct _IFIMETRICS *a5,
@@ -34,11 +34,11 @@ __int64 __fastcall PFFMEMOBJ::bAddEntry(
   __int16 v22; // si
   __int64 v23; // rax
   __int64 v24; // rax
-  unsigned int v25; // esi
+  int v25; // esi
   __int64 v26; // [rsp+80h] [rbp+8h] BYREF
 
   v9 = *(_QWORD *)this;
-  v26 = *(_QWORD *)(*(_QWORD *)this + 216LL) + (a2 - 1) * *(_DWORD *)(*(_QWORD *)this + 212LL);
+  v26 = *(_QWORD *)(*(_QWORD *)this + 216LL) + (unsigned int)((a2 - 1) * *(_DWORD *)(*(_QWORD *)this + 212LL));
   if ( !v26 )
     return 0;
   v11 = a8;
@@ -74,7 +74,7 @@ __int64 __fastcall PFFMEMOBJ::bAddEntry(
       if ( a2 != 1 )
       {
         v22 = *(_WORD *)(*(int *)(*(_QWORD *)(v26 + 32) + 16LL) + *(_QWORD *)(v26 + 32));
-        if ( !PFEOBJ::bCheckFamilyName((PFEOBJ *)&v26, v21, 1, 0LL) )
+        if ( !(unsigned int)PFEOBJ::bCheckFamilyName((PFEOBJ *)&v26, v21, 1, 0LL) )
           goto LABEL_8;
         v23 = 0LL;
         if ( v22 == 64 )
@@ -117,7 +117,9 @@ LABEL_23:
     if ( BaseFontEntry )
     {
 LABEL_35:
-      if ( IsCHSBaseFont(*(const unsigned __int16 **)(*(_QWORD *)this + 24LL), *(_DWORD *)(*(_QWORD *)this + 32LL)) )
+      if ( (unsigned int)IsCHSBaseFont(
+                           *(const unsigned __int16 **)(*(_QWORD *)this + 24LL),
+                           *(_DWORD *)(*(_QWORD *)this + 32LL)) )
         *(_DWORD *)(*(_QWORD *)this + 52LL) |= 0x8000u;
       *(_QWORD *)(v15 + 120) = BaseFontEntry;
       goto LABEL_9;

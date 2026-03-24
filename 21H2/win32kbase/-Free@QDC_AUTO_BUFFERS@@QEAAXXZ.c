@@ -1,26 +1,24 @@
 /*
- * XREFs of ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C00BCDF4
+ * XREFs of ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C009A654
  * Callers:
- *     DrvIsExternalMonitorActive @ 0x1C00BCAD4 (DrvIsExternalMonitorActive.c)
- *     ?DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z @ 0x1C00BCBC0 (-DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z.c)
- *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C00BCD1C (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     DrvIsExternalMonitorActive @ 0x1C009A2E8 (DrvIsExternalMonitorActive.c)
+ *     ?DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z @ 0x1C009A3E4 (-DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z.c)
+ *     ?TryFillOnce@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C009A5A0 (-TryFillOnce@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall QDC_AUTO_BUFFERS::Free(QDC_AUTO_BUFFERS *this)
 {
-  char *v1; // rdx
+  QDC_AUTO_BUFFERS *v2; // rcx
 
-  v1 = (char *)*((_QWORD *)this + 55);
-  if ( v1 )
+  v2 = (QDC_AUTO_BUFFERS *)*((_QWORD *)this + 51);
+  if ( v2 )
   {
-    if ( v1 != (char *)this )
+    if ( v2 != this )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v1);
-      *((_QWORD *)this + 55) = 0LL;
+      Win32FreePool((__int64)v2);
+      *((_QWORD *)this + 51) = 0LL;
     }
   }
 }

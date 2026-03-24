@@ -1,64 +1,64 @@
 /*
- * XREFs of ?VmBusAcquireKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0377A10
+ * XREFs of ?VmBusAcquireKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023C2F0
  * Callers:
  *     <none>
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0054234 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B7A4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C034E76C (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
- *     DxgkpAcquireKeyedMutexFromHandle @ 0x1C037355C (DxgkpAcquireKeyedMutexFromHandle.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00269AC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040F30 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkpAcquireKeyedMutexFromHandle @ 0x1C0239364 (DxgkpAcquireKeyedMutexFromHandle.c)
+ *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C028FEA8 (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
  */
 
-unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusAcquireKeyedMutexSync(struct DXGPROCESS **a1)
+unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusAcquireKeyedMutexSync(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
   __int64 v2; // rax
   union _LARGE_INTEGER *v3; // rbx
   __int64 v4; // rax
-  DXGKEYEDMUTEX *v5; // rdi
+  unsigned int *v5; // rdi
   unsigned int v6; // ebp
-  unsigned __int64 *v7; // r14
-  union _LARGE_INTEGER *v9; // r9
-  size_t v10; // [rsp+30h] [rbp-38h]
-  union _LARGE_INTEGER v11; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v7; // rdx
+  unsigned __int64 *v8; // r14
+  union _LARGE_INTEGER *v10; // r9
+  __int64 v11; // rdx
+  union _LARGE_INTEGER v12; // [rsp+78h] [rbp+10h] BYREF
 
   v2 = CastToVmBusCommand<DXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC>((__int64)a1);
   v3 = (union _LARGE_INTEGER *)v2;
   if ( !v2 )
     return 0;
-  v4 = DxgkpAcquireKeyedMutexFromHandle(a1[12], *(_DWORD *)(v2 + 24));
-  v5 = (DXGKEYEDMUTEX *)v4;
+  v4 = DxgkpAcquireKeyedMutexFromHandle(*((struct _KTHREAD ***)a1 + 7), *(_DWORD *)(v2 + 24));
+  v5 = (unsigned int *)v4;
   if ( !v4 )
     return 0;
-  v6 = *(_DWORD *)(v4 + 168) + 24;
-  v7 = (unsigned __int64 *)operator new[](v6, 0x4B677844u, 64LL);
-  if ( !v7 )
+  v6 = *(_DWORD *)(v4 + 160) + 24;
+  v8 = (unsigned __int64 *)operator new(v6, 0x4B677844u, 1, (POOL_TYPE)512);
+  if ( !v8 )
   {
-    DXGKEYEDMUTEX::ReleaseReference(v5);
+    DXGKEYEDMUTEX::ReleaseReference((DXGKEYEDMUTEX *)v5, v7);
     return 0;
   }
-  v11.QuadPart = 0LL;
-  v9 = 0LL;
+  v12.QuadPart = 0LL;
+  v10 = 0LL;
   if ( (v3[7].LowPart & 1) == 0 )
   {
-    v9 = &v11;
-    v11 = v3[6];
+    v10 = &v12;
+    v12 = v3[6];
   }
-  LODWORD(v10) = *((_DWORD *)v5 + 42);
-  *(_DWORD *)v7 = DXGKEYEDMUTEX::AcquireSync(
-                    (unsigned int)v3[3].HighPart,
+  *(_DWORD *)v8 = DXGKEYEDMUTEX::AcquireSync(
+                    v3[3].HighPart,
                     v3[4].QuadPart,
                     v3[5].LowPart,
-                    v9,
-                    (DXGKEYEDMUTEX *)(v7 + 2),
-                    v7 + 3,
                     v10,
-                    v7 + 1,
+                    (DXGKEYEDMUTEX *)(v8 + 2),
+                    v8 + 3,
+                    v5[40],
+                    v8 + 1,
                     0);
-  VmBusCompletePacket(a1[16], v7, v6);
-  DXGKEYEDMUTEX::ReleaseReference(v5);
-  operator delete(v7);
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v8, v6);
+  DXGKEYEDMUTEX::ReleaseReference((DXGKEYEDMUTEX *)v5, v11);
+  operator delete[](v8);
   return 1;
 }

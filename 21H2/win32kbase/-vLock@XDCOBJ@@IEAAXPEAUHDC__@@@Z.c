@@ -1,45 +1,42 @@
 /*
- * XREFs of ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C00D8EEC
+ * XREFs of ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C00C7DDC
  * Callers:
- *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C001BE60 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C002E7BC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     hbmSelectBitmap @ 0x1C009A990 (hbmSelectBitmap.c)
+ *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C003A310 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003B4D8 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     hbmSelectBitmap @ 0x1C00911B0 (hbmSelectBitmap.c)
  * Callees:
- *     ?SaveAttributes@XDCOBJ@@AEAAHXZ @ 0x1C0020114 (-SaveAttributes@XDCOBJ@@AEAAHXZ.c)
- *     HmgLockEx @ 0x1C00226A0 (HmgLockEx.c)
- *     W32GetCurrentThread @ 0x1C0023364 (W32GetCurrentThread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0093754 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ?Feature_3190902075__private_IsEnabled@@YAHXZ @ 0x1C00D8D30 (-Feature_3190902075__private_IsEnabled@@YAHXZ.c)
- *     ?LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z @ 0x1C00D94A0 (-LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z.c)
- *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0168F80 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?SaveAttributes@XDCOBJ@@AEAAHXZ @ 0x1C002C2F0 (-SaveAttributes@XDCOBJ@@AEAAHXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     HmgLockEx @ 0x1C002F920 (HmgLockEx.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0082964 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z @ 0x1C00C82B0 (-LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C013BD80 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
  */
 
-void __fastcall XDCOBJ::vLock(XDCOBJ *this, __int64 a2)
+void __fastcall XDCOBJ::vLock(XDCOBJ *this, HDC a2)
 {
-  unsigned int v2; // eax
-  __int64 v4; // rax
-  struct _W32THREAD *CurrentThread; // rax
+  __int64 v3; // rax
+  struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  __int64 v7; // rcx
-  int v8; // ebx
-  int v9; // eax
-  __int64 v10; // rcx
+  __int64 v6; // rdx
+  int v7; // ebx
+  int v8; // eax
+  __int64 v9; // rcx
 
-  v2 = a2;
-  LOBYTE(a2) = 1;
-  v4 = HmgLockEx(v2, a2, *((unsigned int *)this + 3));
-  *(_QWORD *)this = v4;
-  if ( v4 )
+  v3 = HmgLockEx((unsigned int)a2, 1, *((_DWORD *)this + 3));
+  *(_QWORD *)this = v3;
+  if ( v3 )
   {
-    CurrentThread = (struct _W32THREAD *)W32GetCurrentThread();
-    ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(CurrentThread);
-    v7 = *(_QWORD *)this;
+    ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+    v6 = *(_QWORD *)this;
     if ( *(_WORD *)(*(_QWORD *)this + 12LL) == 1 )
     {
-      *(_QWORD *)(v7 + 2128) = ThreadCurrentObj;
-      *(_DWORD *)(*(_QWORD *)this + 2136LL) = 0xFFFF;
+      *(_QWORD *)(v6 + 2136) = ThreadCurrentObj;
+      *(_DWORD *)(*(_QWORD *)this + 2144LL) = 0xFFFF;
+      v6 = *(_QWORD *)this;
     }
-    else if ( *(struct UMPDOBJ **)(v7 + 2128) != ThreadCurrentObj )
+    else if ( *(struct UMPDOBJ **)(v6 + 2136) != ThreadCurrentObj )
     {
       XDCOBJ::LogUmpdCallbackStatus(this, ThreadCurrentObj);
 LABEL_10:
@@ -50,25 +47,25 @@ LABEL_11:
     }
     if ( *((_DWORD *)this + 3) )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 48LL) + 40LL) & 0x8000) == 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(v6 + 48) + 40LL) & 0x8000) == 0 )
         goto LABEL_10;
-      v8 = *(_DWORD *)(*(_QWORD *)this + 2112LL);
-      if ( v8 != ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
+      v7 = *(_DWORD *)(v6 + 2120);
+      if ( v7 != ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
         goto LABEL_10;
     }
-    else if ( (unsigned int)Feature_3190902075__private_IsEnabled() && *(_DWORD *)(*(_QWORD *)this + 2112LL) )
+    else if ( *(_DWORD *)(v6 + 2120) )
     {
-      *(_DWORD *)(*(_QWORD *)this + 2112LL) = 0;
+      *(_DWORD *)(v6 + 2120) = 0;
     }
-    v9 = XDCOBJ::SaveAttributes(this);
-    v10 = *(_QWORD *)this;
-    if ( !v9 )
+    v8 = XDCOBJ::SaveAttributes((DC **)this);
+    v9 = *(_QWORD *)this;
+    if ( !v8 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v10 + 12));
+      _InterlockedDecrement((volatile signed __int32 *)(v9 + 12));
       goto LABEL_11;
     }
-    if ( (*(_DWORD *)(v10 + 520) & 4) != 0 )
-      DC::vMarkTransformDirty((DC *)v10);
+    if ( (*(_DWORD *)(v9 + 520) & 4) != 0 )
+      DC::vMarkTransformDirty((DC *)v9);
   }
   else if ( (unsigned __int8)PsIsWin32KFilterAuditEnabled() || (unsigned __int8)PsIsWin32KFilterEnabled() )
   {

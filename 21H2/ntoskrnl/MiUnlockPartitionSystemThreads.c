@@ -1,79 +1,94 @@
 /*
- * XREFs of MiUnlockPartitionSystemThreads @ 0x1403DEEAC
+ * XREFs of MiUnlockPartitionSystemThreads @ 0x1403CF2DC
  * Callers:
- *     MiEnablePartitionMappedWrites @ 0x1406F9808 (MiEnablePartitionMappedWrites.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 char __fastcall MiUnlockPartitionSystemThreads(__int64 a1, __int64 a2)
 {
-  ULONG_PTR v3; // rdi
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int SessionId; // ecx
-  __int64 p_Process; // rbx
-  unsigned int v7; // edx
-  _QWORD *v8; // rax
-  int v10; // r9d
+  unsigned __int64 v2; // rsi
+  char v4; // al
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v7; // r14
+  _DWORD *v8; // r9
+  unsigned int v9; // r8d
+  bool v10; // zf
+  __int64 v11; // rcx
+  __int64 v12; // rdi
+  int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  int v18; // [rsp+70h] [rbp+18h] BYREF
 
-  v3 = a1 + 184;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 184), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v2 = a1 + 184;
+  v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 184), 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
     ExfTryToWakePushLock(a1 + 184);
+  v18 = 0;
   CurrentThread = KeGetCurrentThread();
-  if ( v3 - qword_140C50630 >= 0x8000000000LL )
-    SessionId = -1;
-  else
+  if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
     SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
-  _disable();
-  p_Process = (__int64)&CurrentThread[1].Process;
-  v7 = 0;
-  while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != (v3 & 0x7FFFFFFFFFFFFFFCLL)
-       || !*(_BYTE *)(p_Process + 18)
-       || (*(_DWORD *)p_Process & 1) != 0
-       || *(_DWORD *)(p_Process + 8) != SessionId )
+  else
+    SessionId = -1;
+  --CurrentThread->SpecialApcDisable;
+  v7 = ++CurrentThread->AbAllocationRegionCount;
+  v8 = (_DWORD *)(v2 & 0x7FFFFFFFFFFFFFFCLL);
+  v9 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
   {
-    ++v7;
-    p_Process += 96LL;
-    if ( v7 >= 6 )
-      goto LABEL_11;
+    v10 = !_BitScanReverse((unsigned int *)&v11, v9);
+    if ( v10 )
+      break;
+    v12 = (__int64)&CurrentThread->LockEntries[v11];
+    v9 &= ~(1 << v11);
+    if ( (*(_BYTE *)(v12 + 26) & 1) != 0
+      && (*(_DWORD *)(v12 + 32) & 1) == 0
+      && (_DWORD *)(*(_QWORD *)(v12 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v8
+      && *(_DWORD *)(v12 + 40) == SessionId )
+    {
+      *(_BYTE *)(v12 + 26) &= ~1u;
+      if ( *(_QWORD *)(v12 + 32) )
+      {
+        if ( v12 )
+        {
+          *(_BYTE *)(v12 + 32) |= 2u;
+          if ( *(__int64 *)(v12 + 32) < 0 )
+            KiAbEntryRemoveFromTree(v12);
+          v13 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
+          v14 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v12 + 25) &= ~1u;
+          v18 = v13;
+          *(_DWORD *)(v12 + 88) = v14;
+          *(_QWORD *)(v12 + 32) = 0LL;
+          v15 = (signed __int64)(v12 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          if ( v7 == 1 )
+            CurrentThread->AbEntrySummary |= 1 << v15;
+          else
+            _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v15);
+          goto LABEL_16;
+        }
+        break;
+      }
+    }
   }
-  *(_BYTE *)(p_Process + 18) = 0;
-  if ( !p_Process )
-  {
-LABEL_11:
-    LODWORD(v8) = *((_DWORD *)&CurrentThread->0 + 1);
-    if ( ((unsigned int)v8 & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v3, SessionId, 0LL);
-    _enable();
-    goto LABEL_13;
-  }
-  if ( *(__int64 *)p_Process < 0 )
-  {
-    *(_BYTE *)p_Process |= 2u;
-    _enable();
-    KiAbEntryRemoveFromTree(p_Process);
-    _disable();
-  }
-  v10 = *(_DWORD *)(p_Process + 88);
-  *(_DWORD *)(p_Process + 88) = 0;
-  *(_BYTE *)(p_Process + 17) = 0;
-  *(_QWORD *)p_Process = 0LL;
-  LOBYTE(v8) = *(_BYTE *)(p_Process + 16);
-  CurrentThread->AbEntrySummary |= 1 << (char)v8;
-  _enable();
-  if ( v10 )
-    LOBYTE(v8) = KiAbThreadRemoveBoostsSlow((ULONG_PTR)CurrentThread, v3, v10);
-LABEL_13:
-  if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF )
-  {
-    v8 = (_QWORD *)(a2 + 152);
-    if ( (_QWORD *)*v8 != v8 )
-      LOBYTE(v8) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v8;
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, SessionId, 0LL);
+LABEL_16:
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, v2, (__int64)&v18, v8);
+  v10 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v10 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v16);
+  return KiLeaveGuardedRegionUnsafe(a2);
 }

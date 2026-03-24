@@ -1,20 +1,16 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x140A6BF28
+ * XREFs of RtlApplyHotPatch @ 0x1409B2744
  * Callers:
- *     MiApplyHotPatchToDriverDataPages @ 0x140971708 (MiApplyHotPatchToDriverDataPages.c)
- *     MiApplyImageHotPatch @ 0x140971B68 (MiApplyImageHotPatch.c)
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
- *     MiApplyImageHotPatchDpc @ 0x140A6A480 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
+ *     MiApplyImageHotPatch @ 0x1408C955C (MiApplyImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
+ *     MiApplyImageHotPatchDpc @ 0x1409B08F0 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlGetHotPatchSize @ 0x1405EF8CC (RtlGetHotPatchSize.c)
- *     RtlGetHpatEntryAddress @ 0x1405EF8E4 (RtlGetHpatEntryAddress.c)
- *     RtlRevertFunctionPatchFromUndoEntry @ 0x1405EFA7C (RtlRevertFunctionPatchFromUndoEntry.c)
- *     RtlpApplyFunctionPatch @ 0x1405EFA90 (RtlpApplyFunctionPatch.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1405EFAB0 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
- *     RtlpPopulateHpatEntry @ 0x1405EFB34 (RtlpPopulateHpatEntry.c)
- *     RtlpDetermineHotPatchExtent @ 0x140A6C408 (RtlpDetermineHotPatchExtent.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x14058FD0C (RtlGetHotPatchSize.c)
+ *     RtlpDetermineHotPatchExtent @ 0x14091B31C (RtlpDetermineHotPatchExtent.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B2B10 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(
@@ -22,265 +18,229 @@ __int64 __fastcall RtlApplyHotPatch(
         __int64 a2,
         __int64 a3,
         unsigned int a4,
-        unsigned int *a5,
+        __int64 a5,
         char a6,
-        __int64 a7,
-        int a8,
+        unsigned int a7,
+        __int64 a8,
         __int64 a9,
         __int64 a10,
-        __int64 a11,
-        unsigned int a12,
-        unsigned int *a13,
-        unsigned int a14,
-        _DWORD *a15,
-        unsigned int *a16,
-        char a17,
-        unsigned __int16 a18,
+        unsigned int a11,
+        __int64 a12,
+        _DWORD *a13,
+        int *a14,
+        char a15,
         PRTL_BITMAP BitMapHeader,
-        __int64 a20,
-        __int128 *a21,
-        unsigned int a22,
-        __int64 a23,
-        __int64 a24,
-        int a25)
+        __int64 a17,
+        __int128 *a18,
+        int a19,
+        unsigned int a20,
+        __int64 a21)
 {
-  unsigned int *v25; // r13
-  __int128 *v26; // rdx
-  unsigned int v27; // r14d
-  unsigned int *v28; // rbx
-  PRTL_BITMAP v29; // r15
-  __int64 v30; // rsi
-  __int128 *v31; // rdx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  __int64 v34; // r10
-  int HotPatchSize; // r11d
-  int v36; // edi
-  __int64 v37; // r12
-  unsigned int v38; // r14d
-  int v39; // edi
-  __int64 (__fastcall *v40)(__int64, _QWORD, _QWORD, char *); // rsi
+  __int128 *v21; // rdx
+  int *v22; // rbx
+  __int64 v23; // r14
+  __int64 v24; // r12
+  PRTL_BITMAP v25; // r15
+  int HotPatchSize; // eax
+  __int128 *v27; // rdx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  unsigned int v30; // r10d
+  int v31; // edi
+  __int64 v32; // rsi
+  int v33; // r13d
+  int v34; // r14d
+  int v35; // edi
+  __int64 (__fastcall *v36)(__int64, _QWORD, _QWORD, char *); // r10
   __int64 result; // rax
-  __int64 v42; // rax
-  char *v43; // r10
-  __int64 v44; // rsi
-  _BYTE *v45; // rdx
-  unsigned int v46; // eax
-  __int64 HpatEntryAddress; // rax
-  __int64 v48; // r8
-  __int64 v49; // r9
-  _WORD *v50; // r10
-  __int64 v51; // r11
-  __int64 v52; // rcx
-  __int64 v53; // rdx
-  unsigned int v54; // r11d
-  ULONG ClearBitsAndSet; // r8d
-  __int64 v56; // rbx
-  unsigned int *v57; // rdx
-  __int64 v58; // rax
-  int v59; // [rsp+38h] [rbp-61h]
-  __int64 v60; // [rsp+58h] [rbp-41h]
-  __int64 v61; // [rsp+60h] [rbp-39h]
-  __int64 v62; // [rsp+68h] [rbp-31h]
-  __int128 *v63; // [rsp+70h] [rbp-29h]
-  __int128 v64; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v65; // [rsp+88h] [rbp-11h]
+  unsigned __int64 v38; // rax
+  _QWORD *v39; // r9
+  unsigned int *v40; // rdx
+  _QWORD *v41; // rax
+  _WORD *v42; // r9
+  __int64 v43; // r10
+  _DWORD *v44; // r11
+  __int64 v45; // rdx
+  _QWORD *v46; // r8
+  int v47; // r8d
+  __int64 v48; // rcx
+  int v49; // eax
+  ULONG i; // r8d
+  unsigned int v51; // ecx
+  ULONG ClearBitsAndSet; // eax
+  __int64 v53; // [rsp+40h] [rbp-49h]
+  __int64 v54; // [rsp+48h] [rbp-41h]
+  __int64 v55; // [rsp+50h] [rbp-39h]
+  int v56; // [rsp+58h] [rbp-31h]
+  __int128 *v57; // [rsp+60h] [rbp-29h]
+  __int128 v58; // [rsp+68h] [rbp-21h] BYREF
+  __int64 v59; // [rsp+78h] [rbp-11h]
 
-  a22 = 0;
-  a8 = 0;
-  v61 = 0LL;
-  v25 = 0LL;
-  a14 = 0;
-  a24 = 0LL;
-  v26 = &v64;
-  v62 = 0LL;
-  v27 = a4;
-  v28 = a16;
-  v29 = BitMapHeader;
-  v65 = 0LL;
-  v30 = a1;
+  a20 = 0;
+  a19 = 0;
+  v54 = 0LL;
+  a21 = 0LL;
+  a7 = 0;
+  v56 = 0;
+  v21 = &v58;
+  v55 = 0LL;
+  v22 = a14;
+  v23 = a1;
+  v24 = a17;
+  v25 = BitMapHeader;
+  v59 = 0LL;
   a6 = 0;
-  v64 = 0LL;
-  if ( a21 )
-    v26 = a21;
-  a23 = 0LL;
-  v63 = v26;
-  v60 = 0LL;
-  if ( !a16 )
-    goto LABEL_60;
-  HotPatchSize = RtlGetHotPatchSize(a15);
-  LODWORD(a21) = HotPatchSize;
+  v58 = 0LL;
+  if ( a18 )
+    v21 = a18;
+  v57 = v21;
+  v53 = 0LL;
+  if ( !a14 )
+    goto LABEL_46;
+  HotPatchSize = RtlGetHotPatchSize(a13);
+  LODWORD(a18) = HotPatchSize;
   while ( 1 )
   {
-    v36 = *v28;
-    if ( !*v28 )
+    v31 = *v22;
+    if ( !*v22 )
       break;
-    v37 = 0LL;
-    LOBYTE(a25) = 0;
-    if ( v36 < 0 )
+    v32 = 0LL;
+    LOBYTE(v33) = 0;
+    if ( v31 < 0 )
     {
-      if ( (a17 & 2) != 0 )
+      if ( (a15 & 2) != 0 )
       {
-        v33 = v30;
-        v32 = a11;
-        v25 = a13;
-        v37 = a9;
-        v61 = *((_QWORD *)v31 + 2);
-        a14 = a12;
-        a24 = a10;
-        a23 = a11;
-        v60 = v30;
-        v62 = v34;
+        v28 = v23;
+        v32 = a8;
+        v54 = *((_QWORD *)v27 + 2);
+        a21 = a10;
+        a7 = a11;
+        v56 = a9;
+        v53 = v23;
+        v55 = v29;
       }
     }
     else
     {
-      a25 = a17 & 1;
-      if ( (a17 & 1) != 0 )
+      v33 = a15 & 1;
+      if ( (a15 & 1) != 0 )
       {
-        v32 = a3;
-        v33 = a9;
-        v25 = a5;
-        v61 = *((_QWORD *)v31 + 1);
-        v62 = a10;
-        a23 = a3;
-        a14 = v27;
-        a24 = v34;
-        v60 = a9;
+        v28 = a8;
+        v54 = *((_QWORD *)v27 + 1);
+        a21 = a3;
+        v55 = a9;
+        a7 = v30;
+        v56 = v29;
+        v53 = a8;
       }
-      v37 = v30 & -(__int64)((a17 & 1) != 0);
+      HotPatchSize = (int)a18;
+      v32 = v23 & -(__int64)(v33 != 0);
     }
-    ++v28;
-    v38 = v36 & 0xFC000;
-    v39 = v36 & 0xFFF;
-    if ( !v37 )
+    ++v22;
+    v34 = v31 & 0xFC000;
+    v35 = v31 & 0xFFF;
+    if ( !v32 )
     {
-      v28 += (unsigned int)(v39 * HotPatchSize);
-      goto LABEL_55;
+      v22 += (unsigned int)(v35 * HotPatchSize);
+      goto LABEL_42;
     }
-    if ( v39 )
+    if ( v35 )
     {
       while ( 1 )
       {
-        v40 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, char *))v31;
-        if ( *(_QWORD *)v31 )
+        if ( *(_QWORD *)v27 )
         {
-          RtlpDetermineHotPatchExtent(v38, a18, &a8, &a22);
-          result = v40(v61, *v28 + a8, a22, &a6);
+          RtlpDetermineHotPatchExtent(v34, &a19, &a20);
+          result = v36(v54, (unsigned int)(a19 + *v22), a20, &a6);
           if ( (int)result < 0 )
             return result;
           if ( !a6 )
-          {
-            --v39;
-            if ( v38 == 114688 && v25 )
-              ++*v25;
-            goto LABEL_53;
-          }
-          v32 = a23;
-          v33 = v60;
-          HotPatchSize = (int)a21;
+            goto LABEL_40;
+          v28 = v53;
         }
-        v42 = v28[1];
-        v43 = (char *)(v37 + *v28);
-        v44 = v42 + v62;
-        switch ( v38 )
+        v38 = (unsigned int)v22[1];
+        v39 = (_QWORD *)(v32 + (unsigned int)*v22);
+        switch ( v34 )
         {
-          case 0x1C000u:
-            v45 = 0LL;
-            if ( HotPatchSize != 2 )
-              v45 = v28 + 2;
-            v46 = RtlpCheckFunctionPatchAppliedInOriginalImage(v43, v45, v32, v33, v32);
-            if ( v46 == -1 )
+          case 114688:
+            v40 = 0LL;
+            if ( (_DWORD)a18 != 2 )
+              v40 = (unsigned int *)(v22 + 2);
+            v41 = (_QWORD *)RtlpCheckFunctionPatchAppliedInOriginalImage(v32 + (unsigned int)*v22, v40, v28);
+            if ( v41 == (_QWORD *)-1LL )
               return 3221225496LL;
-            if ( v46 == -2 )
+            if ( v41 )
             {
-              if ( *v25 >= a14 )
+              v45 = ((__int64)v41 - a21) >> 3;
+              *v41 = v43;
+            }
+            else
+            {
+              v45 = (unsigned int)*v44;
+              if ( (unsigned int)v45 >= a7 )
                 return 3221226668LL;
-              HpatEntryAddress = RtlGetHpatEntryAddress(a23, *v25);
-              RtlpPopulateHpatEntry(
-                HpatEntryAddress,
-                (_QWORD *)(HpatEntryAddress + 4096),
-                v44,
-                HpatEntryAddress + a24 - v37,
-                v37,
-                0,
-                v59,
-                a18,
-                a17);
-              v52 = a20;
-              if ( a20 && (_BYTE)a25 )
+              v46 = (_QWORD *)(a21 + 8 * v45);
+              *v46 = v43;
+              v47 = v56 + (_DWORD)v46 - v32;
+              if ( v24 && (_BYTE)v33 )
               {
-                v53 = 3 * v51;
-                *(_DWORD *)(a20 + 2 * v53) = *v28;
-                *(_WORD *)(v52 + 2 * v53 + 4) = *v50;
+                v48 = 3 * v45;
+                *(_DWORD *)(v24 + 2 * v48) = *v22;
+                *(_WORD *)(v24 + 2 * v48 + 4) = *v42;
               }
-              RtlpApplyFunctionPatch(v50, a24 + *v28, v48, v49, v49);
-              ++*v25;
+              v49 = v56 + *v22;
+              *(v42 - 3) = 9727;
+              *v42 = -1813;
+              *((_DWORD *)v42 - 1) = v47 - v49;
+              ++*v44;
             }
-            else
-            {
-              if ( v46 >= a14 )
-                return 3221225496LL;
-              *(_QWORD *)(RtlGetHpatEntryAddress(a23, v46) + 4096) = v44;
-            }
-            if ( v29 && (_BYTE)a25 )
-              _bittestandset((signed __int32 *)v29->Buffer, v54);
+            if ( v25 && (_BYTE)v33 )
+              _bittestandset((signed __int32 *)v25->Buffer, v45);
             break;
-          case 0x2C000u:
-            if ( a18 == 0x8664 || a18 == 0xAA64 )
-              *(_QWORD *)v43 = v44;
-            else
-              *(_DWORD *)v43 = v44;
+          case 180224:
+            *v39 = v38 + v55;
             break;
-          case 0x5C000u:
-            if ( a18 == 0x8664 || a18 == 0xAA64 )
-              *(_QWORD *)v43 = *(_QWORD *)(v42 + v33);
-            else
-              *(_DWORD *)v43 = *(_DWORD *)(v42 + v33);
+          case 376832:
+            *v39 = *(_QWORD *)(v38 + v28);
             break;
-          case 0x78000u:
-            if ( a7 == -1 )
-              return 3221225520LL;
-            if ( a7 && *(_BYTE *)(v42 + a7) == 0xFF )
-              *(_QWORD *)v43 += *(_QWORD *)(8 * v42);
+          default:
+            if ( v34 == 491520 && *(_BYTE *)v38 == 0xFF )
+              *v39 += *(_QWORD *)(8 * v38);
             break;
         }
-        --v39;
-LABEL_53:
-        HotPatchSize = (int)a21;
-        v31 = v63;
-        v32 = a23;
-        v33 = v60;
-        v28 += (unsigned int)a21;
-        if ( !v39 )
+LABEL_40:
+        --v35;
+        v27 = v57;
+        v28 = v53;
+        v22 += (unsigned int)a18;
+        if ( !v35 )
         {
-          v30 = a1;
-          v34 = a2;
+          v29 = a2;
+          v30 = a4;
           break;
         }
       }
     }
-LABEL_55:
-    if ( !v28 )
+LABEL_42:
+    v23 = a1;
+    if ( !v22 )
       break;
-    v27 = a4;
+    HotPatchSize = (int)a18;
   }
-LABEL_60:
-  if ( v29 )
+LABEL_46:
+  if ( v25 )
   {
-    ClearBitsAndSet = RtlFindClearBitsAndSet(v29, 1u, 0);
-    if ( ClearBitsAndSet != -1 )
+    for ( i = 0; ; i = ClearBitsAndSet )
     {
-      v56 = a20;
-      do
+      ClearBitsAndSet = RtlFindClearBitsAndSet(v25, 1u, i);
+      if ( ClearBitsAndSet == -1 )
+        break;
+      v51 = *(_DWORD *)(v24 + 6LL * ClearBitsAndSet);
+      if ( v51 )
       {
-        v57 = (unsigned int *)(v56 + 6LL * ClearBitsAndSet);
-        v58 = *v57;
-        if ( (_DWORD)v58 )
-          RtlRevertFunctionPatchFromUndoEntry((_WORD *)(v30 + v58), (__int64)v57);
-        ClearBitsAndSet = RtlFindClearBitsAndSet(v29, 1u, ClearBitsAndSet);
+        *(_WORD *)(v51 + v23) = *(_WORD *)(v24 + 6LL * ClearBitsAndSet + 4);
+        *(_DWORD *)(v24 + 6LL * ClearBitsAndSet) = 0;
       }
-      while ( ClearBitsAndSet != -1 );
     }
   }
   return 0LL;

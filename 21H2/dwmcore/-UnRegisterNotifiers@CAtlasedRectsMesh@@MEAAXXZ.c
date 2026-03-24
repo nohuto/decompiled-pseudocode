@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnRegisterNotifiers@CAtlasedRectsMesh@@MEAAXXZ @ 0x180044510
+ * XREFs of ?UnRegisterNotifiers@CAtlasedRectsMesh@@MEAAXXZ @ 0x1800376C0
  * Callers:
- *     ??1CAtlasedRectsMesh@@MEAA@XZ @ 0x1800435B4 (--1CAtlasedRectsMesh@@MEAA@XZ.c)
- *     ?ProcessUpdate@CAtlasedRectsMesh@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ATLASEDRECTSMESH@@PEBXI@Z @ 0x1800441F0 (-ProcessUpdate@CAtlasedRectsMesh@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ATLASEDRECTSMESH@@PEBXI.c)
+ *     ??1CAtlasedRectsMesh@@MEAA@XZ @ 0x1800371C4 (--1CAtlasedRectsMesh@@MEAA@XZ.c)
+ *     ?ProcessUpdate@CAtlasedRectsMesh@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ATLASEDRECTSMESH@@PEBXI@Z @ 0x1800373B0 (-ProcessUpdate@CAtlasedRectsMesh@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ATLASEDRECTSMESH@@PEBXI.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CAtlasedRectsMesh::UnRegisterNotifiers(CAtlasedRectsMesh *this)
@@ -13,25 +13,25 @@ void __fastcall CAtlasedRectsMesh::UnRegisterNotifiers(CAtlasedRectsMesh *this)
   void *v3; // rcx
   void *v4; // rcx
 
-  v2 = (void *)*((_QWORD *)this + 10);
+  v2 = (void *)*((_QWORD *)this + 9);
   if ( v2 )
   {
-    DefaultHeap::Free(v2);
-    *((_QWORD *)this + 10) = 0LL;
-    *((_DWORD *)this + 18) = 0;
+    operator delete(v2);
+    *((_QWORD *)this + 9) = 0LL;
+    *((_DWORD *)this + 16) = 0;
   }
-  v3 = (void *)*((_QWORD *)this + 12);
+  v3 = (void *)*((_QWORD *)this + 11);
   if ( v3 )
   {
-    DefaultHeap::Free(v3);
-    *((_QWORD *)this + 12) = 0LL;
-    *((_DWORD *)this + 22) = 0;
+    operator delete(v3);
+    *((_QWORD *)this + 11) = 0LL;
+    *((_DWORD *)this + 20) = 0;
   }
-  v4 = (void *)*((_QWORD *)this + 14);
+  v4 = (void *)*((_QWORD *)this + 13);
   if ( v4 )
   {
-    DefaultHeap::Free(v4);
-    *((_QWORD *)this + 14) = 0LL;
-    *((_DWORD *)this + 26) = 0;
+    operator delete(v4);
+    *((_QWORD *)this + 13) = 0LL;
+    *((_DWORD *)this + 24) = 0;
   }
 }

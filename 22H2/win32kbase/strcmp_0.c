@@ -1,7 +1,7 @@
 /*
- * XREFs of strcmp_0 @ 0x1C00D6931
+ * XREFs of strcmp_0 @ 0x1C00CEA01
  * Callers:
- *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C0012F08 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
+ *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C006A5D4 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
  * Callees:
  *     <none>
  */

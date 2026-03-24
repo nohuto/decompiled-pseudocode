@@ -1,19 +1,19 @@
 /*
- * XREFs of ?EmitSetManipulations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F538
+ * XREFs of ?EmitSetManipulations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFB0C
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022FE00 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F03D0 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipulations(
         DirectComposition::CInteractionTrackerMarshaler *this,
         struct DirectComposition::CBatch ***a2)
 {
-  char v2; // si
-  unsigned int v3; // eax
-  char v4; // bp
+  char v3; // si
+  unsigned int v4; // ecx
+  char v6; // bp
   char *v7; // rcx
   void *v8; // rdx
   unsigned __int64 v9; // r15
@@ -24,12 +24,12 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipula
   int v14; // eax
   void *v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 1;
-  v3 = *((_DWORD *)this + 92);
-  v4 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x800) != 0 || v3 )
+  v3 = 1;
+  v4 = *((_DWORD *)this + 90);
+  v6 = 1;
+  if ( (*((_DWORD *)this + 4) & 0x800) != 0 || v4 )
   {
-    if ( *((_DWORD *)this + 93) < v3 )
+    if ( *((_DWORD *)this + 91) < v4 )
     {
       do
       {
@@ -41,7 +41,7 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipula
             break;
           v8 = v16;
         }
-        v9 = (unsigned int)(*((_DWORD *)this + 92) - *((_DWORD *)this + 93));
+        v9 = (unsigned int)(*((_DWORD *)this + 90) - *((_DWORD *)this + 91));
         if ( v9 >= ((unsigned __int64)v8 - 16) >> 3 )
           LODWORD(v9) = ((unsigned __int64)v8 - 16) >> 3;
         v16 = 0LL;
@@ -52,22 +52,22 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipula
         v12 = v10 + 16;
         *(_QWORD *)(v10 + 4) = 0LL;
         *((_DWORD *)v10 + 3) = 0;
-        *((_DWORD *)v10 + 1) = 208;
-        *((_DWORD *)v10 + 2) = *((_DWORD *)this + 8);
+        *((_DWORD *)v10 + 1) = 218;
+        *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
         for ( *((_DWORD *)v10 + 3) = v9; v11 < (unsigned int)v9; v12 += 2 )
         {
-          *v12 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 45) + 16LL * (v11 + *((_DWORD *)this + 93))) + 32LL);
-          v13 = *(_QWORD *)(*((_QWORD *)this + 45) + 16LL * (v11 + *((_DWORD *)this + 93)) + 8);
+          *v12 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v11 + *((_DWORD *)this + 91))) + 24LL);
+          v13 = *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v11 + *((_DWORD *)this + 91)) + 8);
           if ( v13 )
-            v14 = *(_DWORD *)(v13 + 32);
+            v14 = *(_DWORD *)(v13 + 24);
           else
             v14 = 0;
           v12[1] = v14;
           ++v11;
         }
-        *((_DWORD *)this + 93) += v9;
+        *((_DWORD *)this + 91) += v9;
       }
-      while ( *((_DWORD *)this + 93) < *((_DWORD *)this + 92) );
+      while ( *((_DWORD *)this + 91) < *((_DWORD *)this + 90) );
     }
   }
   else
@@ -79,15 +79,15 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipula
       *(_DWORD *)v16 = 16;
       *(_QWORD *)(v7 + 4) = 0LL;
       *((_DWORD *)v7 + 3) = 0;
-      *((_DWORD *)v7 + 1) = 208;
-      *((_QWORD *)v7 + 1) = *((unsigned int *)this + 8);
+      *((_DWORD *)v7 + 1) = 218;
+      *((_QWORD *)v7 + 1) = *((unsigned int *)this + 6);
     }
     else
     {
-      v4 = 0;
+      v6 = 0;
     }
   }
-  if ( *((_DWORD *)this + 93) != *((_DWORD *)this + 92) || !v4 )
+  if ( *((_DWORD *)this + 91) != *((_DWORD *)this + 90) || !v6 )
     return 0;
-  return v2;
+  return v3;
 }

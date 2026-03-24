@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpClearPartitionContext @ 0x14024DFC0
+ * XREFs of EtwpClearPartitionContext @ 0x1402C7EA0
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
  * Callees:
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
  */
 
-__int64 __fastcall EtwpClearPartitionContext(__int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall EtwpClearPartitionContext(__int64 *a1)
 {
-  __int64 v4; // rcx
+  __int64 v2; // rcx
 
-  v4 = *a1;
-  if ( v4 )
+  v2 = *a1;
+  if ( v2 )
   {
-    PsDereferencePartition(v4, a2, a3);
+    PsDereferencePartition(v2);
     *a1 = 0LL;
   }
   return 0LL;

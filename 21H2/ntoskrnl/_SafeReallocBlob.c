@@ -1,17 +1,17 @@
 /*
- * XREFs of _SafeReallocBlob @ 0x140655178
+ * XREFs of _SafeReallocBlob @ 0x1405CAA5C
  * Callers:
- *     RtlpMuiRegResizeLanguageConfigList @ 0x140A35A08 (RtlpMuiRegResizeLanguageConfigList.c)
- *     RtlpMuiRegResizeLanguages @ 0x140A35A74 (RtlpMuiRegResizeLanguages.c)
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x1409819A8 (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguages @ 0x140981A14 (RtlpMuiRegResizeLanguages.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void *__fastcall SafeReallocBlob(
-        unsigned int *BugCheckParameter3,
+        unsigned int *BugCheckParameter2,
         unsigned int a2,
         unsigned int a3,
         unsigned int a4,
@@ -19,13 +19,16 @@ void *__fastcall SafeReallocBlob(
         int a6,
         unsigned int *a7)
 {
-  unsigned __int64 v8; // rcx
+  unsigned __int64 v8; // r8
   unsigned int v9; // eax
   unsigned int v10; // esi
   PVOID PoolWithTag; // rax
   void *v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
 
-  if ( !BugCheckParameter3 )
+  if ( !BugCheckParameter2 )
     return 0LL;
   v8 = a4 * (unsigned __int64)a3;
   if ( v8 > 0xFFFFFFFF )
@@ -35,16 +38,21 @@ void *__fastcall SafeReallocBlob(
     return 0LL;
   if ( a7 )
     *a7 = v9;
-  if ( !v9 )
-    return 0LL;
-  v10 = v8 + a2;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x72746C6Du);
-  v12 = PoolWithTag;
-  if ( PoolWithTag )
-    memset(PoolWithTag, 0, v10);
+  if ( v9 )
+  {
+    v10 = v8 + a2;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x72746C6Du);
+    v12 = PoolWithTag;
+    if ( PoolWithTag )
+      memset(PoolWithTag, 0, v10);
+  }
+  else
+  {
+    v12 = 0LL;
+  }
   if ( !v12 )
     return 0LL;
-  memmove(v12, BugCheckParameter3, *BugCheckParameter3);
-  ExFreeHeapPool((ULONG_PTR)BugCheckParameter3);
+  memmove(v12, BugCheckParameter2, *BugCheckParameter2);
+  ExFreeHeapPool((ULONG_PTR)BugCheckParameter2, v13, v14, v15);
   return v12;
 }

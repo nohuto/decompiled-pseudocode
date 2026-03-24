@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_INTEGER@@@Z @ 0x1C00D8D30
+ * XREFs of ?PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_INTEGER@@@Z @ 0x1C00B2334
  * Callers:
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0002224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     ?ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z @ 0x1C00A26AC (-ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z.c)
- *     ?VerifyAllocationForSubmissionPhysical@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@@Z @ 0x1C00DBBE4 (-VerifyAllocationForSubmissionPhysical@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001D90 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     ?ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z @ 0x1C00614C8 (-ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z.c)
+ *     ?VerifyAllocationForSubmissionPhysical@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@@Z @ 0x1C00B5F20 (-VerifyAllocationForSubmissionPhysical@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::PrepareDmaBuffer(
@@ -30,8 +30,8 @@ __int64 __fastcall VIDMM_GLOBAL::PrepareDmaBuffer(
   v6 = *((_QWORD *)a3 + 8);
   if ( v6 )
   {
-    *a5 = VIDMM_SEGMENT::DriverId(*(VIDMM_SEGMENT **)(**(_QWORD **)v6 + 120LL));
-    v10 = (VIDMM_GLOBAL *)(*(_QWORD *)(v9 + 128) + *(_QWORD *)(v8 + 24));
+    *a5 = VIDMM_SEGMENT::DriverId(*(VIDMM_SEGMENT **)(**(_QWORD **)v6 + 128LL));
+    v10 = (VIDMM_GLOBAL *)(*(_QWORD *)(v9 + 136) + *(_QWORD *)(v8 + 24));
   }
   else
   {
@@ -53,9 +53,9 @@ __int64 __fastcall VIDMM_GLOBAL::PrepareDmaBuffer(
         if ( (int)result < 0 )
           return result;
         VIDMM_GLOBAL::ReferenceAllocationForSubmission(v16, *v13, (*(_BYTE *)v14 & 1) == 0);
-        *(_DWORD *)v14 ^= (*(_DWORD *)v14 ^ (2 * VIDMM_SEGMENT::DriverId(*(VIDMM_SEGMENT **)(**(_QWORD **)*v13 + 120LL)))) & 0x3E;
-        v10 = (VIDMM_GLOBAL *)(*(_QWORD *)(**(_QWORD **)*v13 + 128LL)
-                             + *(_QWORD *)(*(_QWORD *)(**(_QWORD **)*v13 + 120LL) + 24LL));
+        *(_DWORD *)v14 ^= (*(_DWORD *)v14 ^ (2 * VIDMM_SEGMENT::DriverId(*(VIDMM_SEGMENT **)(**(_QWORD **)*v13 + 128LL)))) & 0x3E;
+        v10 = (VIDMM_GLOBAL *)(*(_QWORD *)(**(_QWORD **)*v13 + 136LL)
+                             + *(_QWORD *)(*(_QWORD *)(**(_QWORD **)*v13 + 128LL) + 24LL));
         *(_QWORD *)(v14 + 8) = v10;
       }
       ++v11;

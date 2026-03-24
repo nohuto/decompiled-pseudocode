@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C0053B40
+ * XREFs of ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C004682C
  * Callers:
- *     ?SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z @ 0x1C030C690 (-SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z.c)
+ *     ?SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z @ 0x1C026B680 (-SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ void __fastcall DXG_DEFERRED_WORK_QUEUE::QueueWorkItem(
   if ( ++*((_DWORD *)this + 10) == 1 )
   {
     KeResetEvent((PRKEVENT)this + 2);
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)((char *)this + 72), *((WORK_QUEUE_TYPE *)this + 26));
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)((char *)this + 72), DelayedWorkQueue);
   }
   *((_QWORD *)this + 1) = 0LL;
   ExReleasePushLockExclusiveEx(this, 0LL);

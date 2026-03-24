@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceRtcWakeInfo @ 0x140396640
+ * XREFs of PopDiagTraceRtcWakeInfo @ 0x14038BD68
  * Callers:
- *     PopValidateRTCWake @ 0x140A519DC (PopValidateRTCWake.c)
+ *     PopValidateRTCWake @ 0x1409985FC (PopValidateRTCWake.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopDiagInterruptTimeToSystemTime @ 0x140A51C68 (PopDiagInterruptTimeToSystemTime.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopDiagInterruptTimeToSystemTime @ 0x140998704 (PopDiagInterruptTimeToSystemTime.c)
  */
 
 char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int a5, int a6, __int64 a7)
@@ -107,14 +107,14 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
   v13 = ((unsigned int)PopFixedWakeSourceMask >> 3) & 1;
   v15 = ((unsigned int)PopFixedWakeSourceMask >> 2) & 1;
   v14 = ((unsigned int)PopFixedWakeSourceMask >> 4) & 1;
-  PopDiagInterruptTimeToSystemTime(qword_140C22830, &v26);
-  PopDiagInterruptTimeToSystemTime(qword_140C22848, &v27);
-  PopDiagInterruptTimeToSystemTime(qword_140C22808, &v28);
+  PopDiagInterruptTimeToSystemTime(qword_140C234B0, &v26);
+  PopDiagInterruptTimeToSystemTime(qword_140C234C8, &v27);
+  PopDiagInterruptTimeToSystemTime(qword_140C23488, &v28);
   result = PopDiagInterruptTimeToSystemTime(a7, v29);
   v25 = PopPendingUserPresenceDuringSystemSleep != 0;
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( result )
     {
       v16 = v86;
@@ -156,8 +156,8 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
       v83 = 8LL;
       v85 = 4LL;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C03A00,
-                 (unsigned __int8 *)byte_14002EE90,
+                 (__int64)&dword_140C02228,
+                 (unsigned __int8 *)byte_140027768,
                  0LL,
                  0LL,
                  0x10u,

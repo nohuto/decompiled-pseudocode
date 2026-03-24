@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmCheckAdjustNextPerfCheck @ 0x140241600
+ * XREFs of PpmCheckAdjustNextPerfCheck @ 0x1402B9600
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 char PpmCheckAdjustNextPerfCheck()
 {
-  if ( PpmCheckCurrentPipelineId == 5 && PpmCheckLastEffectiveExecutionTime )
-    _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, MEMORY[0xFFFFF78000000008]);
+  if ( PpmCheckCurrentPipelineId == 5 && PpmCheckLastExecutionTime )
+    _InterlockedExchange64(&PpmCheckLastExecutionTime, MEMORY[0xFFFFF78000000008]);
   return 1;
 }

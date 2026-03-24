@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetSource@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETSOURCE@@@Z @ 0x1800E7864
+ * XREFs of ?ProcessSetSource@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETSOURCE@@@Z @ 0x1800D4FD4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z @ 0x1800E78C4 (-SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z.c)
- *     ?IsValidSourceResource@CNineGridBrush@@CA_NPEBVCResource@@@Z @ 0x1800E7940 (-IsValidSourceResource@CNineGridBrush@@CA_NPEBVCResource@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z @ 0x1800D5034 (-SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z.c)
+ *     ?IsValidSourceResource@CNineGridBrush@@CA_NPEBVCResource@@@Z @ 0x1800D50A8 (-IsValidSourceResource@CNineGridBrush@@CA_NPEBVCResource@@@Z.c)
  */
 
 __int64 __fastcall CNineGridBrush::ProcessSetSource(
@@ -26,14 +26,14 @@ __int64 __fastcall CNineGridBrush::ProcessSetSource(
   if ( ResourceWithoutType && !CNineGridBrush::IsValidSourceResource(ResourceWithoutType) )
   {
     v9 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2003303421, 0x124u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003303421, 0x124u, 0LL);
   }
   else
   {
     v7 = CNineGridBrush::SetSource(this, v5);
     v9 = v7;
     if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x128u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x128u, 0LL);
   }
   return v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C008349C
+ * XREFs of ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C009D9AC
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C0019050 (DrvSetDisplayConfig.c)
  * Callees:
- *     GetPathsModality @ 0x1C0083798 (GetPathsModality.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     GetPathsModality @ 0x1C009DB74 (GetPathsModality.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHSMODALITY **a1)
@@ -25,8 +25,8 @@ __int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHS
   _DWORD *v15; // rcx
   __int64 v16; // r13
   __int64 v17; // rdx
-  _OWORD *v18; // rcx
-  _OWORD *v19; // rax
+  _OWORD *v18; // rax
+  _OWORD *v19; // rcx
   __int128 v20; // xmm1
   __int128 v21; // xmm0
   __int128 v22; // xmm1
@@ -34,37 +34,34 @@ __int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHS
   __int128 v24; // xmm1
   __int128 v25; // xmm0
   __int128 v26; // xmm1
-  __int128 v27; // xmm0
-  __int128 v28; // xmm1
-  __int64 v29; // rax
+  __int64 v27; // rax
+  int v28; // ecx
+  unsigned __int64 v29; // rdx
   __int64 v30; // rax
-  int v31; // ecx
-  unsigned __int64 v32; // rdx
-  __int64 v33; // rax
-  unsigned __int64 v34; // rdx
-  __int64 v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // rax
-  __int128 v38; // [rsp+20h] [rbp-E0h] BYREF
-  PVOID P[2]; // [rsp+30h] [rbp-D0h]
-  _BYTE v40[304]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v31; // rdx
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rax
+  __int128 v35; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v36; // [rsp+38h] [rbp-D0h]
+  _BYTE v37[272]; // [rsp+48h] [rbp-C0h] BYREF
 
   v2 = 0;
-  v38 = 0LL;
-  *(_OWORD *)P = 0LL;
-  if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0296918)(&v38, 0LL) == -1073741789 )
+  v35 = 0LL;
+  v36 = 0LL;
+  if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0251B48)(&v35, 0LL) == -1073741789 )
   {
-    P[1] = (PVOID)ExAllocatePool2(258LL, 1076LL * LODWORD(P[0]));
-    if ( P[1] )
+    *((_QWORD *)&v36 + 1) = ExAllocatePoolWithTag(PagedPool, 1076LL * (unsigned int)v36, 0x7774656Cu);
+    if ( *((_QWORD *)&v36 + 1) )
     {
-      HIDWORD(P[0]) = P[0];
-      if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0296918)(&v38, 0LL) == -1073741789
-        && (v3 = LODWORD(P[0]), LODWORD(P[0]) <= HIDWORD(P[0])) )
+      DWORD1(v36) = v36;
+      if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0251B48)(&v35, 0LL) == -1073741789
+        && (v3 = (unsigned int)v36, (unsigned int)v36 <= DWORD1(v36)) )
       {
-        if ( LODWORD(P[0]) )
+        if ( (_DWORD)v36 )
         {
-          v4 = LODWORD(P[0]);
-          v5 = (int *)((char *)P[1] + 1072);
+          v4 = (unsigned int)v36;
+          v5 = (int *)(*((_QWORD *)&v36 + 1) + 1072LL);
           do
           {
             v6 = *v5;
@@ -79,7 +76,7 @@ __int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHS
       }
       else
       {
-        P[0] = 0LL;
+        *(_QWORD *)&v36 = 0LL;
       }
     }
   }
@@ -89,35 +86,35 @@ __int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHS
     v8 = *a1;
     if ( v2 )
     {
-      v9 = (unsigned int)P[0];
+      v9 = v36;
       v10 = 0;
       for ( i = *((unsigned __int16 *)v8 + 10); v10 < v9; ++v10 )
       {
         if ( i >= *((unsigned __int16 *)v8 + 11) )
           break;
-        v12 = (char *)P[1] + 1076 * v10;
+        v12 = (_DWORD *)(*((_QWORD *)&v36 + 1) + 1076LL * v10);
         if ( (v12[268] & 1) != 0 )
         {
           v14 = 0;
           if ( *((_WORD *)v8 + 10) )
           {
-            v15 = (_DWORD *)((char *)v8 + 76);
+            v15 = (_DWORD *)((char *)v8 + 68);
             while ( *(v15 - 1) != *v12 || *v15 != v12[1] || v15[2] != v12[2] )
             {
               ++v14;
-              v15 += 74;
+              v15 += 68;
               if ( v14 >= *((unsigned __int16 *)v8 + 10) )
-                goto LABEL_26;
+                goto LABEL_28;
             }
           }
           else
           {
-LABEL_26:
-            v16 = (__int64)v8 + 296 * i;
-            memset(v40, 0, 0x128uLL);
+LABEL_28:
+            v16 = (__int64)v8 + 272 * i;
+            memset(v37, 0, sizeof(v37));
             v17 = 2LL;
-            v18 = (_OWORD *)(v16 + 56);
-            v19 = v40;
+            v18 = (_OWORD *)(v16 + 48);
+            v19 = v37;
             do
             {
               v20 = v19[1];
@@ -140,33 +137,28 @@ LABEL_26:
               --v17;
             }
             while ( v17 );
-            v27 = *v19;
-            v28 = v19[1];
-            v29 = *((_QWORD *)v19 + 4);
-            *v18 = v27;
-            v18[1] = v28;
-            *((_QWORD *)v18 + 4) = v29;
-            *(_DWORD *)(v16 + 84) = v12[2];
-            *(_QWORD *)(v16 + 72) = *(_QWORD *)v12;
+            *v18 = *v19;
+            *(_DWORD *)(v16 + 76) = v12[2];
+            *(_QWORD *)(v16 + 64) = *(_QWORD *)v12;
+            v27 = 0x1000000000000000LL;
+            *(_BYTE *)(v16 + 177) = v12[268] & 2 | ((v12[268] & 4) != 0);
+            v28 = v12[264];
+            if ( v28 != 5 )
+              v27 = 0LL;
+            v29 = v27 | ((unsigned __int64)(v12[268] & 0x10) << 53);
             v30 = 0x1000000000000000LL;
-            *(_BYTE *)(v16 + 185) = v12[268] & 2 | ((v12[268] & 4) != 0) | (v12[268] >> 3) & 4;
-            v31 = v12[264];
-            if ( v31 != 5 )
+            if ( v28 != 3 )
               v30 = 0LL;
-            v32 = v30 | ((unsigned __int64)(v12[268] & 0x10) << 53);
-            v33 = 0x1000000000000000LL;
-            if ( v31 != 3 )
-              v33 = 0LL;
-            v34 = v33 | v32;
-            v35 = 0x800000000000000LL;
-            if ( v31 != 4 )
-              v35 = 0LL;
-            v36 = v35 | v34;
-            v37 = 0x508700000000000LL;
-            if ( v31 != 2 )
-              v37 = 0x108700000000000LL;
-            *(_QWORD *)(v16 + 56) |= v37 | v36;
-            v9 = (unsigned int)P[0];
+            v31 = v30 | v29;
+            v32 = 0x800000000000000LL;
+            if ( v28 != 4 )
+              v32 = 0LL;
+            v33 = v32 | v31;
+            v34 = 0x508700000000000LL;
+            if ( v28 != 2 )
+              v34 = 0x108700000000000LL;
+            *(_QWORD *)(v16 + 48) |= v34 | v33;
+            v9 = v36;
             ++i;
           }
         }
@@ -174,7 +166,7 @@ LABEL_26:
       *((_WORD *)v8 + 10) = i;
     }
   }
-  if ( P[1] )
-    ExFreePoolWithTag(P[1], 0x7774656Cu);
+  if ( *((_QWORD *)&v36 + 1) )
+    ExFreePoolWithTag(*((PVOID *)&v36 + 1), 0x7774656Cu);
   return (unsigned int)PathsModality;
 }

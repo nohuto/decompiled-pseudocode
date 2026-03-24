@@ -1,77 +1,83 @@
 /*
- * XREFs of ?MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z @ 0x1C00EF1C8
+ * XREFs of ?MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z @ 0x1C00B8F24
  * Callers:
- *     ?Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z @ 0x1C008F088 (-Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z.c)
- *     ?CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AAA50 (-CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0065E90 (-CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z @ 0x1C0087A18 (-Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     MapChildVaSpace @ 0x1C002CEE4 (MapChildVaSpace.c)
- *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C00883C8 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
- *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00C2B74 (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
- *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00EEDDC (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     MapChildVaSpace @ 0x1C0022B3C (MapChildVaSpace.c)
+ *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C0083F24 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
+ *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00B8B20 (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00BBB9C (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_PROCESS::MapHostVirtualAddressToGuest(
         VIDMM_PROCESS *this,
         __int64 a2,
         unsigned __int64 a3,
-        int a4,
+        __int64 a4,
         unsigned int a5,
         void **a6,
-        unsigned __int64 *a7,
-        void **a8)
+        unsigned __int64 *a7)
 {
   struct _KTHREAD **CpuVisibleBufferAllocator; // rsi
-  __int64 v13; // r8
+  __int64 v11; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   int v15; // edi
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rax
-  struct _RTL_BALANCED_NODE *v20; // r14
-  __int64 v21; // rbp
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  unsigned __int64 v24; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v16; // r8
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  char v19; // al
+  __int64 v20; // rax
+  unsigned __int64 v21; // r14
+  __int64 v22; // rbp
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rax
+  unsigned __int64 v27; // [rsp+40h] [rbp-28h] BYREF
 
   CpuVisibleBufferAllocator = (struct _KTHREAD **)VIDMM_PROCESS::GetCpuVisibleBufferAllocator(this);
   if ( !CpuVisibleBufferAllocator )
     return 3221225495LL;
-  v24 = 0LL;
+  v27 = 0LL;
   v15 = CVirtualAddressAllocator::ReserveVirtualAddressRangeNoAccess(
           CpuVisibleBufferAllocator,
           a3,
-          v13,
+          v11,
           0LL,
           0LL,
           0x1000u,
-          &v24);
+          &v27);
   if ( v15 >= 0 )
   {
-    v17 = *((_QWORD *)this + 4);
-    v18 = *(_DWORD *)(v17 + 424);
-    if ( (v18 & 0x100) != 0 )
-      v19 = *(_QWORD *)(v17 + 608);
+    v18 = *((_QWORD *)this + 4);
+    v19 = *(_BYTE *)(v18 + 347);
+    if ( (v19 & 0x20) != 0 )
+      v20 = *(_QWORD *)(v18 + 496);
     else
-      v19 = v17 & -(__int64)((v18 & 0x80u) != 0);
-    v20 = (struct _RTL_BALANCED_NODE *)v24;
-    v21 = v24 + *(_QWORD *)(*(_QWORD *)(v19 + 608) + 256LL);
-    v15 = MapChildVaSpace(v17, a2, v21, a3, a4, a5, (__int64)a6, (__int64)a8);
+      v20 = v18 & -(__int64)((v19 & 0x10) != 0);
+    v21 = v27;
+    v22 = v27 + *(_QWORD *)(*(_QWORD *)(v20 + 496) + 216LL);
+    v15 = MapChildVaSpace(v18, a2, v22, a3);
     if ( v15 >= 0 )
     {
-      *a7 = v21;
+      *a7 = v22;
     }
     else
     {
-      WdLogSingleEntry2(1LL, a3, 2287LL);
-      DxgkLogInternalTriageEvent(v22, 0x40000LL);
-      CVirtualAddressAllocator::FreeVirtualAddressRange(CpuVisibleBufferAllocator, v20, v23);
+      v26 = WdLogNewEntry5_WdAssertion(v24, v23, v25);
+      *(_QWORD *)(v26 + 24) = a3;
+      *(_QWORD *)(v26 + 32) = 2271LL;
+      WdLogEvent5_WdAssertion(v26);
+      CVirtualAddressAllocator::FreeVirtualAddressRange((CVirtualAddressAllocator *)CpuVisibleBufferAllocator, v21);
     }
   }
   else
   {
-    WdLogSingleEntry1(1LL, a3);
-    DxgkLogInternalTriageEvent(v16, 0x40000LL);
+    v17 = WdLogNewEntry5_WdAssertion(v14, v13, v16);
+    *(_QWORD *)(v17 + 24) = a3;
+    WdLogEvent5_WdAssertion(v17);
   }
   return (unsigned int)v15;
 }

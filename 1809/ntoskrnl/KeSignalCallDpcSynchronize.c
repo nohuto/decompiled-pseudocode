@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSignalCallDpcSynchronize @ 0x140294070
+ * XREFs of KeSignalCallDpcSynchronize @ 0x140294170
  * Callers:
  *     KiInitializeDynamicProcessorDpc @ 0x14057B260 (KiInitializeDynamicProcessorDpc.c)
  *     MiApplyImageHotPatchDpc @ 0x14057C730 (MiApplyImageHotPatchDpc.c)

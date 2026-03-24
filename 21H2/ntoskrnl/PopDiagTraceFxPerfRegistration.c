@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceFxPerfRegistration @ 0x140992544
+ * XREFs of PopDiagTraceFxPerfRegistration @ 0x1408EA690
  * Callers:
- *     PopFxTracePerfRegistration @ 0x1409939F8 (PopFxTracePerfRegistration.c)
+ *     PopFxTracePerfRegistration @ 0x1408EC03C (PopFxTracePerfRegistration.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceFxPerfRegistration(PCEVENT_DESCRIPTOR EventDescriptor, __int64 a2, int a3, int a4)

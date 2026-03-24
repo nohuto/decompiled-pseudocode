@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfVerifierKeBugCheck @ 0x1C0063FA0
+ * XREFs of imp_WdfVerifierKeBugCheck @ 0x1C0049890
  * Callers:
  *     <none>
  * Callees:
- *     ?FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z @ 0x1C006CA94 (-FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z.c)
+ *     ?FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z @ 0x1C0059284 (-FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z.c)
  */
 
 void __fastcall __noreturn imp_WdfVerifierKeBugCheck(
@@ -15,7 +15,7 @@ void __fastcall __noreturn imp_WdfVerifierKeBugCheck(
         unsigned __int64 BugCheckParameter4)
 {
   FxVerifierDriverReportedBugcheck(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     BugCheckCode,
     BugCheckParameter1,
     BugCheckParameter2,

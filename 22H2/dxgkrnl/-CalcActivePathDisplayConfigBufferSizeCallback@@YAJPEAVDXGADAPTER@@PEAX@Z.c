@@ -1,42 +1,52 @@
 /*
- * XREFs of ?CalcActivePathDisplayConfigBufferSizeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01962C0
+ * XREFs of ?CalcActivePathDisplayConfigBufferSizeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0161FE0
  * Callers:
  *     <none>
  * Callees:
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0005DCC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ @ 0x1C0007298 (-AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0006764 (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
  */
 
 __int64 __fastcall CalcActivePathDisplayConfigBufferSizeCallback(struct DXGADAPTER *a1, _DWORD *a2)
 {
-  VIDPN_MGR *v4; // rbx
-  const struct DMMVIDPN *ClientCommittedVidPnRef; // rax
-  _BYTE v7[8]; // [rsp+20h] [rbp-28h] BYREF
-  struct DXGADAPTER *v8; // [rsp+28h] [rbp-20h]
-  char v9; // [rsp+30h] [rbp-18h]
-  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v4; // rbx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rdx
+  _BYTE v9[8]; // [rsp+20h] [rbp-28h] BYREF
+  struct DXGADAPTER *v10; // [rsp+28h] [rbp-20h]
+  char v11; // [rsp+30h] [rbp-18h]
+  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+58h] [rbp+10h] BYREF
 
-  v8 = a1;
-  v9 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
-  if ( *((_QWORD *)a1 + 365) && *((_DWORD *)a1 + 50) == 1 )
+  v10 = a1;
+  v11 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
+  if ( *((_QWORD *)a1 + 337) && *((_DWORD *)a1 + 50) == 1 )
   {
-    v4 = *(VIDPN_MGR **)(*((_QWORD *)a1 + 365) + 104LL);
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v11, (__int64)v4);
-    v10 = 0LL;
-    ClientCommittedVidPnRef = VIDPN_MGR::AcquireLastClientCommittedVidPnRef(v4);
-    auto_rc<DMMVIDPN const>::reset(&v10, (__int64)ClientCommittedVidPnRef);
-    if ( v10 )
-      a2[1] += *(_DWORD *)(v10 + 136);
-    auto_rc<DMMVIDPN const>::reset(&v10, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v11 + 40));
+    v4 = *(_QWORD *)(*((_QWORD *)a1 + 337) + 88LL);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v13, v4);
+    v5 = *(_QWORD *)(v4 + 88);
+    v12 = 0LL;
+    if ( v5 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v5 + 32));
+      v6 = *(_QWORD *)(v4 + 88);
+    }
+    else
+    {
+      v6 = 0LL;
+    }
+    auto_rc<DMMVIDPN const>::reset(&v12, v6);
+    if ( v12 )
+      a2[1] += *(_DWORD *)(v12 + 136);
+    auto_rc<DMMVIDPN const>::reset(&v12, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v13 + 40), v7);
   }
-  if ( v9 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
+  if ( v11 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
   return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?LinkVisualChild@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@PEAV12@@Z @ 0x1C00CB1E0
+ * XREFs of ?LinkVisualChild@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@PEAV12@@Z @ 0x1C00BC010
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGenericRandomPatternWorker @ 0x1402F8434
+ * XREFs of RtlpGenericRandomPatternWorker @ 0x1402F8534
  * Callers:
- *     RtlScrubMemory @ 0x1402F7D8C (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x1402F7E8C (RtlScrubMemory.c)
  * Callees:
- *     RtlpFillMemoryRandomUp @ 0x1402F7EC0 (RtlpFillMemoryRandomUp.c)
- *     RtlpTestMemoryRandomUp @ 0x1402F8948 (RtlpTestMemoryRandomUp.c)
+ *     RtlpFillMemoryRandomUp @ 0x1402F7FC0 (RtlpFillMemoryRandomUp.c)
+ *     RtlpTestMemoryRandomUp @ 0x1402F8A48 (RtlpTestMemoryRandomUp.c)
  */
 
 char __fastcall RtlpGenericRandomPatternWorker(unsigned __int64 a1)

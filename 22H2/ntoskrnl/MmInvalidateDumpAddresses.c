@@ -1,31 +1,31 @@
 /*
- * XREFs of MmInvalidateDumpAddresses @ 0x140AAD090
+ * XREFs of MmInvalidateDumpAddresses @ 0x140997AD8
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140AA865C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x14099324C (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x14038A710 (KeFlushSingleCurrentTb.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x1403897D8 (KeFlushSingleCurrentTb.c)
  */
 
 char __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v3; // rbp
   unsigned int v4; // r14d
-  _QWORD *PteAddress; // rdi
+  _QWORD *PteAddress; // rsi
   __int64 v6; // rdx
   unsigned __int64 v7; // rbx
   int v8; // r15d
   __int64 v9; // r8
-  bool v10; // zf
-  unsigned __int64 *v11; // rdi
-  __int64 v12; // rsi
-  unsigned __int64 v13; // rbx
-  int v14; // ebp
+  unsigned __int64 *v10; // rdi
+  __int64 v11; // rsi
+  unsigned __int64 v12; // rbx
+  int v13; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // r8
+  __int64 v15; // r8
+  bool v16; // zf
   bool v17; // zf
 
   v3 = a1;
@@ -33,26 +33,26 @@ char __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 
   PteAddress = (_QWORD *)MiGetPteAddress(a1);
   if ( v6 )
   {
-    while ( 1 )
+    do
     {
       v7 = ZeroPte;
       v8 = 0;
       if ( MiPteInShadowRange((unsigned __int64)PteAddress) )
       {
-        if ( MiPteHasShadow() )
+        if ( (unsigned int)MiPteHasShadow() )
         {
           v8 = 1;
-          if ( !HIBYTE(word_140C66DFC) )
+          if ( !HIBYTE(word_140C4E008) )
           {
-            v10 = (ZeroPte & 1) == 0;
-            goto LABEL_8;
+            v16 = (ZeroPte & 1) == 0;
+            goto LABEL_19;
           }
         }
         else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v10 = (ZeroPte & 1) == 0;
-LABEL_8:
-          if ( !v10 )
+          v16 = (ZeroPte & 1) == 0;
+LABEL_19:
+          if ( !v16 )
             v7 = ZeroPte | 0x8000000000000000uLL;
         }
       }
@@ -61,52 +61,47 @@ LABEL_8:
         MiWritePteShadow((__int64)PteAddress, v7, v9);
       ++v4;
       ++PteAddress;
-      if ( v4 >= a2 )
-      {
-        do
-        {
-          KeFlushSingleCurrentTb(v3, 0);
-          v3 += 4096LL;
-          --a2;
-        }
-        while ( a2 );
-        break;
-      }
     }
+    while ( v4 < a2 );
   }
-  v11 = (unsigned __int64 *)qword_140C67FB0;
-  v12 = 32LL;
+  for ( ; a2; --a2 )
+  {
+    KeFlushSingleCurrentTb(v3, 0);
+    v3 += 4096LL;
+  }
+  v10 = (unsigned __int64 *)qword_140C4E730;
+  v11 = 32LL;
   do
   {
-    v13 = ZeroPte;
-    v14 = 0;
-    LODWORD(CurrentThread) = MiPteInShadowRange((unsigned __int64)v11);
+    v12 = ZeroPte;
+    v13 = 0;
+    LODWORD(CurrentThread) = MiPteInShadowRange((unsigned __int64)v10);
     if ( !(_DWORD)CurrentThread )
-      goto LABEL_23;
+      goto LABEL_10;
     LODWORD(CurrentThread) = MiPteHasShadow();
     if ( (_DWORD)CurrentThread )
     {
-      v14 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_23;
+      v13 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_10;
       v17 = (ZeroPte & 1) == 0;
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
       if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_23;
+        goto LABEL_10;
       v17 = (ZeroPte & 1) == 0;
     }
     if ( !v17 )
-      v13 = ZeroPte | 0x8000000000000000uLL;
-LABEL_23:
-    *v11 = v13;
-    if ( v14 )
-      LOBYTE(CurrentThread) = MiWritePteShadow((__int64)v11, v13, v16);
-    ++v11;
-    --v12;
+      v12 = ZeroPte | 0x8000000000000000uLL;
+LABEL_10:
+    *v10 = v12;
+    if ( v13 )
+      LOBYTE(CurrentThread) = MiWritePteShadow((__int64)v10, v12, v15);
+    ++v10;
+    --v11;
   }
-  while ( v12 );
+  while ( v11 );
   return (char)CurrentThread;
 }

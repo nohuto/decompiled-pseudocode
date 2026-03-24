@@ -1,20 +1,20 @@
 /*
- * XREFs of SpbCheckPwnd @ 0x1C0004DF4
+ * XREFs of SpbCheckPwnd @ 0x1C021A7A4
  * Callers:
- *     zzzLockWindowUpdate2 @ 0x1C00DBFA8 (zzzLockWindowUpdate2.c)
- *     ?xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z @ 0x1C010ADC8 (-xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z.c)
+ *     ?xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z @ 0x1C0031D34 (-xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z.c)
+ *     zzzLockWindowUpdate2 @ 0x1C003DDFC (zzzLockWindowUpdate2.c)
  * Callees:
- *     ?IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z @ 0x1C00053D0 (-IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z.c)
- *     SpbCheckRect @ 0x1C00DC7C0 (SpbCheckRect.c)
- *     FreeSpb @ 0x1C00DCA08 (FreeSpb.c)
+ *     ?IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z @ 0x1C0169858 (-IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z.c)
+ *     FreeSpb @ 0x1C021A2E4 (FreeSpb.c)
+ *     SpbCheckRect @ 0x1C021A844 (SpbCheckRect.c)
  */
 
 __int64 __fastcall SpbCheckPwnd(struct tagWND *a1)
 {
   struct tagSPB *v2; // rdi
+  struct tagSPB *v3; // rsi
+  __int64 i; // rbx
   __int64 result; // rax
-  struct tagSPB *v4; // rsi
-  struct tagWND *i; // rbx
 
   while ( 1 )
   {
@@ -23,20 +23,20 @@ __int64 __fastcall SpbCheckPwnd(struct tagWND *a1)
       break;
     while ( 1 )
     {
-      v4 = *(struct tagSPB **)v2;
-      for ( i = (struct tagWND *)*((_QWORD *)v2 + 1); i; i = (struct tagWND *)*((_QWORD *)i + 13) )
+      v3 = *(struct tagSPB **)v2;
+      for ( i = *((_QWORD *)v2 + 1); i; i = *(_QWORD *)(i + 104) )
       {
-        if ( a1 == i )
-          FreeSpb(v2);
+        if ( a1 == (struct tagWND *)i )
+          FreeSpb((char *)v2);
       }
-      if ( !IsSpbPresentOrNull(v4) )
+      if ( !IsSpbPresentOrNull(v3) )
         break;
-      v2 = v4;
-      if ( !v4 )
-        goto LABEL_2;
+      v2 = v3;
+      if ( !v3 )
+        goto LABEL_9;
     }
   }
-LABEL_2:
+LABEL_9:
   result = gpDispInfo;
   if ( *(_QWORD *)(gpDispInfo + 32LL) )
     return SpbCheckRect(a1, (struct tagRECT *)(*((_QWORD *)a1 + 5) + 88LL), 0);

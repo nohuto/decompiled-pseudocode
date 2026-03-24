@@ -1,105 +1,94 @@
 /*
- * XREFs of ?ShiftTreeMembershipOnDebouncedStateChange@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C009FF70
+ * XREFs of ?ShiftTreeMembershipOnDebouncedStateChange@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0079930
  * Callers:
- *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C009E7EC (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
- *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C009EDBC (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
- *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C00A2CB0 (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
+ *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C005F674 (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
+ *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C0077B3C (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
+ *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C0079550 (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
  * Callees:
- *     ?NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C0005B40 (-NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z.c)
- *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0017578 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
- *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C00A06C0 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
- *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00A1470 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
- *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C00A3758 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
- *     ?ShrinkTo@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0@Z @ 0x1C00B22B4 (-ShrinkTo@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0@Z.c)
- *     ?AddRangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00F53C4 (-AddRangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z.c)
- *     ?RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00F61E8 (-RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE.c)
+ *     ?ShrinkTo@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0@Z @ 0x1C00742DC (-ShrinkTo@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0@Z.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C0074C60 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079C88 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079E00 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
+ *     ?RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C007A0C8 (-RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_.c)
+ *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C007D644 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
+ *     ?AddRangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00BF4CC (-AddRangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00C032C (-RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_RECYCLE_HEAP::ShiftTreeMembershipOnDebouncedStateChange(
-        VIDMM_RECYCLE_HEAP *this,
-        struct VIDMM_RECYCLE_RANGE *a2)
+        VIDMM_RECYCLE_HEAP_MGR **this,
+        struct VIDMM_RECYCLE_RANGE *a2,
+        __int64 a3,
+        __int64 a4)
 {
-  unsigned int v4; // r15d
-  unsigned int v5; // ebx
-  __int64 v6; // rsi
-  int v7; // edx
-  char *v8; // rcx
+  unsigned int v5; // r15d
+  unsigned int v6; // ebx
+  __int64 v8; // rsi
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r10
-  unsigned __int64 v11; // r8
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // r10
   unsigned __int64 v12; // r9
+  int v13; // edx
+  __int64 v14; // r8
   struct VIDMM_RECYCLE_RANGE *NextRange; // r13
-  __int64 v14; // rbx
-  __int64 v15; // r9
-  __int64 v16; // r10
-  __int64 Multirange; // r14
-  int v18; // eax
-  int v19; // eax
-  __int64 v20; // r8
-  void *v21; // rcx
-  __int64 v22; // rbx
-  VIDMM_RECYCLE_BLOCK *v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rax
+  __int64 v16; // rbx
+  __int64 v17; // r9
+  __int64 v18; // r10
+  __int64 Multirange; // rbp
+  int v20; // eax
+  int v21; // eax
 
-  v4 = 0;
   v5 = 0;
+  v6 = 0;
   if ( *((_DWORD *)a2 + 16) != 4 )
   {
     if ( *((_DWORD *)a2 + 16) != 5 )
     {
-LABEL_8:
-      VIDMM_RECYCLE_HEAP::RemoveRangeFromTree(this, v4, a2);
-      VIDMM_RECYCLE_HEAP::AddRangeToTree(this, v5, a2);
+LABEL_34:
+      VIDMM_RECYCLE_HEAP::RemoveRangeFromTree(this, v5, a2);
+      VIDMM_RECYCLE_HEAP::AddRangeToTree(this, v6, a2);
       return;
     }
-    v6 = *((_QWORD *)a2 + 18);
-    v4 = 1;
-    goto LABEL_6;
+    v8 = *((_QWORD *)a2 + 18);
+    v5 = 1;
+    goto LABEL_4;
   }
-  v6 = *((_QWORD *)a2 + 19);
-  v7 = **(_DWORD **)(*((_QWORD *)a2 + 9) + 32LL);
-  if ( (unsigned int)(v7 - 3) <= 3 || (v5 = 1, (unsigned int)(v7 - 9) <= 1) )
-LABEL_6:
-    v5 = 2;
-  if ( !v6 )
-    goto LABEL_8;
-  WdLogSingleEntry2(4LL, v6, v4);
-  if ( v4 )
-    v8 = (char *)this + 56;
-  else
-    v8 = (char *)this + 48;
-  RtlAvlRemoveNode(v8, v6);
-  v9 = *(_QWORD *)(v6 + 32);
-  v10 = *(_QWORD *)(v6 + 40);
-  *(_DWORD *)(v6 + 88) = 3;
-  v11 = *((_QWORD *)a2 + 4);
+  v8 = *((_QWORD *)a2 + 19);
+  v13 = **(_DWORD **)(*((_QWORD *)a2 + 9) + 32LL);
+  if ( (unsigned int)(v13 - 3) <= 3 || (v6 = 1, (unsigned int)(v13 - 9) <= 1) )
+LABEL_4:
+    v6 = 2;
+  if ( !v8 )
+    goto LABEL_34;
+  VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(this, v5, v8, a4);
+  v9 = *(_QWORD *)(v8 + 32);
+  v10 = *((_QWORD *)a2 + 4);
+  v11 = *(_QWORD *)(v8 + 40);
   v12 = *((_QWORD *)a2 + 5);
-  if ( v9 < v11 )
+  if ( v9 < v10 )
   {
-    if ( v10 > v12 )
+    if ( v11 > v12 )
     {
       NextRange = VIDMM_RECYCLE_RANGE::GetNextRange(a2);
-      v14 = *(_QWORD *)(v6 + 72);
+      v16 = *(_QWORD *)(v8 + 72);
       Multirange = VIDMM_RECYCLE_HEAP_MGR::CreateMultirange(
-                     *((_QWORD *)this + 1),
-                     *(unsigned int *)(v6 + 216),
+                     this[1],
+                     *(unsigned int *)(v8 + 216),
                      *((_QWORD *)a2 + 9),
-                     v15,
-                     v16);
+                     v17,
+                     v18);
       *(_QWORD *)(Multirange + 64) = NextRange;
-      *(_QWORD *)(Multirange + 72) = v14;
-      VIDMM_RECYCLE_MULTIRANGE::ShrinkTo((VIDMM_RECYCLE_MULTIRANGE *)v6, *(_QWORD *)(v6 + 32), *((_QWORD *)a2 + 4));
+      *(_QWORD *)(Multirange + 72) = v16;
+      VIDMM_RECYCLE_MULTIRANGE::ShrinkTo((struct VIDMM_RECYCLE_RANGE **)v8, *(_QWORD *)(v8 + 32), *((_QWORD *)a2 + 4));
       while ( 1 )
       {
-        v18 = *(_DWORD *)(Multirange + 216);
-        if ( v18 )
+        v20 = *(_DWORD *)(Multirange + 216);
+        if ( v20 )
         {
-          v19 = v18 - 1;
-          if ( v19 )
+          v21 = v20 - 1;
+          if ( v21 )
           {
-            if ( v19 == 1 )
+            if ( v21 == 1 )
               *((_QWORD *)NextRange + 19) = Multirange;
           }
           else
@@ -123,57 +112,35 @@ LABEL_6:
       {
         *((_QWORD *)a2 + 18) = 0LL;
       }
-      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(this, v4, v6);
-      v20 = Multirange;
-LABEL_35:
-      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(this, v4, v20);
+      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(this, v5, v8);
+      v14 = Multirange;
+      goto LABEL_22;
+    }
+    if ( v9 < v10 )
+    {
+LABEL_18:
+      VIDMM_RECYCLE_MULTIRANGE::ShrinkTo((struct VIDMM_RECYCLE_RANGE **)v8, v9, v10);
+      if ( *((_DWORD *)a2 + 16) == 4 )
+      {
+        *((_QWORD *)a2 + 19) = 0LL;
+      }
+      else if ( *((_DWORD *)a2 + 16) == 5 )
+      {
+        *((_QWORD *)a2 + 18) = 0LL;
+      }
+      v14 = v8;
+LABEL_22:
+      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(this, v5, v14);
       return;
     }
-LABEL_30:
-    VIDMM_RECYCLE_MULTIRANGE::ShrinkTo((VIDMM_RECYCLE_MULTIRANGE *)v6, v9, v11);
-    if ( *((_DWORD *)a2 + 16) == 4 )
-    {
-      *((_QWORD *)a2 + 19) = 0LL;
-    }
-    else if ( *((_DWORD *)a2 + 16) == 5 )
-    {
-      *((_QWORD *)a2 + 18) = 0LL;
-    }
-    v20 = v6;
-    goto LABEL_35;
   }
-  if ( v10 > v12 )
+  if ( v11 > v12 )
   {
-    v11 = v10;
+    v10 = *(_QWORD *)(v8 + 40);
     v9 = *((_QWORD *)a2 + 5);
-    goto LABEL_30;
+    goto LABEL_18;
   }
-  v21 = *(void **)(v6 + 96);
-  v22 = *((_QWORD *)this + 1);
-  if ( v21 )
-  {
-    ExFreePoolWithTag(v21, 0);
-    *(_QWORD *)(v6 + 96) = 0LL;
-  }
-  VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(*(_QWORD *)(v6 + 80), 1, v6);
-  v23 = *(VIDMM_RECYCLE_BLOCK **)(v6 + 80);
-  v24 = *((_QWORD *)v23 + 1) - 1LL;
-  *((_QWORD *)v23 + 1) = v24;
-  if ( !*(_QWORD *)v23 && !v24 )
-    VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v23);
-  *(_BYTE *)(v6 + 232) = 1;
-  *(_QWORD *)(v6 + 224) = 0LL;
-  v25 = *(unsigned int *)(v22 + 1620);
-  if ( (unsigned int)v25 >= 4 )
-  {
-    ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v22 + 1320), (PVOID)v6);
-  }
-  else
-  {
-    *(_QWORD *)(v22 + 8 * v25 + 1656) = v6;
-    ++*(_DWORD *)(v22 + 1620);
-  }
-  --*(_DWORD *)(v22 + 1688);
+  VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(this[1], (struct VIDMM_RECYCLE_MULTIRANGE *)v8);
   if ( *((_DWORD *)a2 + 16) == 4 )
   {
     *((_QWORD *)a2 + 19) = 0LL;

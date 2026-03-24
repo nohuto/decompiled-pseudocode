@@ -1,21 +1,21 @@
 /*
- * XREFs of IoGetIoRateControl @ 0x140363850
+ * XREFs of IoGetIoRateControl @ 0x14028A420
  * Callers:
  *     <none>
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x140208F20 (IoDiskIoAttributionQuery.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     PsIoRateControlReference @ 0x140363780 (PsIoRateControlReference.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x1403639F0 (IopAcquireReferencesFromIoAttributionHandle.c)
- *     IoDiskIoAttributionDereference @ 0x140366814 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     IoDiskIoAttributionQuery @ 0x14028A33C (IoDiskIoAttributionQuery.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x14028A5C4 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
+ *     PsIoRateControlReference @ 0x14028A9C8 (PsIoRateControlReference.c)
  */
 
 __int64 __fastcall IoGetIoRateControl(
         __int64 a1,
-        __int64 a2,
+        int a2,
         __int64 a3,
-        __int64 *a4,
-        _QWORD *a5,
+        __int64 a4,
+        __int64 a5,
         __int64 a6,
         unsigned __int64 *a7,
         _DWORD *a8)
@@ -23,13 +23,13 @@ __int64 __fastcall IoGetIoRateControl(
   unsigned int v10; // r15d
   __int64 v12; // rbx
   __int64 *v13; // rdi
-  signed __int64 v14; // rsi
+  __int64 v14; // rsi
   __int64 v15; // r14
   struct _EX_RUNDOWN_REF *v16; // rbx
   struct _EX_RUNDOWN_REF *v17; // rcx
   unsigned __int64 i; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rcx
   __int64 v22; // rax
   __int128 v23; // xmm1
   struct _EX_RUNDOWN_REF *v24; // [rsp+38h] [rbp-49h] BYREF
@@ -51,14 +51,14 @@ __int64 __fastcall IoGetIoRateControl(
   v28 = 0LL;
   if ( (int)IopAcquireReferencesFromIoAttributionHandle(a1, &v24, &v25) < 0 )
   {
-LABEL_11:
+LABEL_12:
     v16 = v24;
-    goto LABEL_12;
+    goto LABEL_13;
   }
-  PsIoRateControlReference(v25, a2, a4, &v26, a5);
+  PsIoRateControlReference(v25, a2, a4, (unsigned int)&v26, a5);
   v12 = a6 + 16;
   v13 = (__int64 *)&v26;
-  v14 = (char *)a4 - (char *)&v26;
+  v14 = a4 - (_QWORD)&v26;
   v15 = 2LL;
   do
   {
@@ -90,20 +90,17 @@ LABEL_11:
     *a8 = 0;
     v19 = *(_QWORD *)(a3 + 544);
     if ( *(_QWORD *)(v19 + 1296) )
-    {
-      v20 = *(_QWORD *)(*(_QWORD *)(v19 + 1296) + 1760LL);
-      if ( v20 )
-      {
-        if ( v20 == v25 || *(_QWORD *)(v20 + 1544) == v25 )
-          *a8 |= 1u;
-      }
-    }
-    goto LABEL_11;
+      v20 = *(_QWORD *)(*(_QWORD *)(v19 + 1296) + 1568LL);
+    else
+      v20 = 0LL;
+    if ( v20 && (v20 == v25 || *(_QWORD *)(v20 + 1352) == v25) )
+      *a8 |= 1u;
+    goto LABEL_12;
   }
-LABEL_12:
+LABEL_13:
   if ( v16 )
   {
-    ExReleaseRundownProtection(v16 + 21);
+    ExReleaseRundownProtection_0(v16 + 21);
     IoDiskIoAttributionDereference(v16);
   }
   return v10;

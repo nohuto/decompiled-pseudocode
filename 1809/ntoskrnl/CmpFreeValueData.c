@@ -4,9 +4,9 @@
  *     CmpFreeValue @ 0x1405ADB5C (CmpFreeValue.c)
  *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmpCopyValue @ 0x1407FD3A4 (CmpCopyValue.c)
+ *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  */
 

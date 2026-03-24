@@ -1,10 +1,10 @@
 /*
- * XREFs of _GetThreadDesktop @ 0x1C009B33C
+ * XREFs of _GetThreadDesktop @ 0x1C0104134
  * Callers:
- *     EditionGetThreadDesktopEntryPoint @ 0x1C009B300 (EditionGetThreadDesktopEntryPoint.c)
+ *     EditionGetThreadDesktopEntryPoint @ 0x1C01040F0 (EditionGetThreadDesktopEntryPoint.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     GetConsoleDesktop @ 0x1C01BEB28 (GetConsoleDesktop.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01E92BC (GetConsoleDesktop.c)
  */
 
 HANDLE __fastcall GetThreadDesktop(__int64 a1)
@@ -15,15 +15,13 @@ HANDLE __fastcall GetThreadDesktop(__int64 a1)
   __int64 v4; // rdx
   HANDLE result; // rax
   PRKPROCESS *v6; // rbx
-  __int64 CurrentProcessWin32Process; // rax
-  HANDLE v8; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // r8
   int v9; // eax
   NTSTATUS v10; // eax
   PVOID v11; // rbx
   int v12; // edi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
+  __int64 v13; // rcx
   __int64 CurrentProcess; // rax
   HANDLE Handle; // [rsp+58h] [rbp+28h] BYREF
   PVOID Object; // [rsp+60h] [rbp+30h] BYREF
@@ -49,10 +47,7 @@ HANDLE __fastcall GetThreadDesktop(__int64 a1)
   }
   if ( result )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v3);
-    if ( CurrentProcessWin32Process )
-      CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    if ( v6 != (PRKPROCESS *)CurrentProcessWin32Process )
+    if ( v6 != (PRKPROCESS *)PsGetCurrentProcessWin32Process(v3) )
     {
       HandleInformation = 0LL;
       KeAttachProcess(*v6);
@@ -62,26 +57,22 @@ HANDLE __fastcall GetThreadDesktop(__int64 a1)
       v12 = v10;
       KeDetachProcess();
       if ( v12 < 0
-        || (CurrentProcess = PsGetCurrentProcess(v14, v13, v15),
+        || (CurrentProcess = PsGetCurrentProcess(v13, v7, v8),
             !(unsigned __int8)ObFindHandleForObject(CurrentProcess, v11, 0LL, &HandleInformation, &Handle)) )
       {
-        v8 = 0LL;
         Handle = 0LL;
-        if ( v12 < 0 )
-          goto LABEL_8;
       }
-      ObfDereferenceObject(v11);
+      if ( v12 >= 0 )
+        ObfDereferenceObject(v11);
     }
-    v8 = Handle;
-LABEL_8:
-    if ( v8 )
+    if ( Handle )
     {
-      v9 = SetHandleFlag(v8, 1LL, 1LL);
+      v9 = SetHandleFlag(Handle, 1LL, 1LL);
       return (HANDLE)((unsigned __int64)Handle & -(__int64)(v9 != 0));
     }
     else
     {
-      UserSetLastError(5LL);
+      UserSetLastError(5LL, v7, v8);
       return Handle;
     }
   }

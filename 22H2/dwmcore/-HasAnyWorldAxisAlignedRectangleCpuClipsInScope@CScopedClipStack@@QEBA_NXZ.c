@@ -1,20 +1,24 @@
 /*
- * XREFs of ?HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x1800924C8
+ * XREFs of ?HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18018E998
  * Callers:
- *     ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180092118 (-PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     ?PopCpuClip@CDrawingContext@@AEAAXXZ @ 0x180177648 (-PopCpuClip@CDrawingContext@@AEAAXXZ.c)
  * Callees:
- *     ?HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18008F224 (-HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ.c)
+ *     ?HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18006BF70 (-HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ.c)
+ *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C5554 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
  */
 
-char __fastcall CScopedClipStack::HasAnyWorldAxisAlignedRectangleCpuClipsInScope(CScopedClipStack *this)
+bool __fastcall CScopedClipStack::HasAnyWorldAxisAlignedRectangleCpuClipsInScope(CScopedClipStack *this)
 {
-  bool HasCpuClipsInScope; // al
-  __int64 v2; // rcx
-  char v3; // dl
+  __int64 v1; // rcx
+  char v2; // r8
 
-  HasCpuClipsInScope = CScopedClipStack::HasCpuClipsInScope(this);
-  v3 = 0;
-  if ( HasCpuClipsInScope )
-    return *(_QWORD *)(*(_QWORD *)(v2 + 1872) - 24LL) != 0LL;
-  return v3;
+  if ( !CScopedClipStack::HasCpuClipsInScope(this)
+    || TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite((float *)(136LL
+                                                                                         * (unsigned int)(*(_DWORD *)(v1 + 896) - 1)
+                                                                                         + *(_QWORD *)(v1 + 872)
+                                                                                         + 96LL)) )
+  {
+    return 0;
+  }
+  return v2;
 }

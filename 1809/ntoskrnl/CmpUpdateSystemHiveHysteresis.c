@@ -4,7 +4,7 @@
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x1407EC6A4 (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x1407EC684 (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 void __fastcall CmpUpdateSystemHiveHysteresis(__int64 a1, unsigned int a2, unsigned int a3)

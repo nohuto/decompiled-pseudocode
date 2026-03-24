@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x1403D6130
+ * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x14038D738
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, int a4)
@@ -14,16 +14,16 @@ char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, i
   const EVENT_DESCRIPTOR *v4; // rax
   const EVENT_DESCRIPTOR *v5; // rbx
   REGHANDLE v6; // rdi
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-40h] BYREF
-  int *v9; // [rsp+40h] [rbp-30h]
-  int v10; // [rsp+48h] [rbp-28h]
-  int v11; // [rsp+4Ch] [rbp-24h]
-  int *v12; // [rsp+50h] [rbp-20h]
-  int v13; // [rsp+58h] [rbp-18h]
-  int v14; // [rsp+5Ch] [rbp-14h]
-  int v15; // [rsp+98h] [rbp+28h] BYREF
-  int v16; // [rsp+A0h] [rbp+30h] BYREF
-  int v17; // [rsp+A8h] [rbp+38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
+  int *v9; // [rsp+50h] [rbp-30h]
+  int v10; // [rsp+58h] [rbp-28h]
+  int v11; // [rsp+5Ch] [rbp-24h]
+  int *v12; // [rsp+60h] [rbp-20h]
+  int v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+6Ch] [rbp-14h]
+  int v15; // [rsp+A8h] [rbp+28h] BYREF
+  int v16; // [rsp+B0h] [rbp+30h] BYREF
+  int v17; // [rsp+B8h] [rbp+38h] BYREF
 
   v17 = a4;
   v16 = a3;
@@ -47,7 +47,7 @@ char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, i
       v10 = 4;
       v12 = &v17;
       v13 = 4;
-      LOBYTE(v4) = EtwWrite(v6, v5, 0LL, 3u, &UserData);
+      LOBYTE(v4) = EtwWriteEx(v6, v5, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return (char)v4;

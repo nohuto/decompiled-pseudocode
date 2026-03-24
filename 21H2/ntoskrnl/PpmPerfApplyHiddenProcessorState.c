@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyHiddenProcessorState @ 0x1405CF458
+ * XREFs of PpmPerfApplyHiddenProcessorState @ 0x14056E6AC
  * Callers:
- *     PpmPerfApplyProcessorStates @ 0x14023B5A0 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398950 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     PpmEventProcessorPerfStateChange @ 0x14023BABC (PpmEventProcessorPerfStateChange.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     PpmEventProcessorPerfStateChange @ 0x140398E88 (PpmEventProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PpmPerfApplyHiddenProcessorState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -16,27 +16,26 @@ char __fastcall PpmPerfApplyHiddenProcessorState(__int64 a1, __int64 a2, __int64
   __int64 v9; // rdx
 
   v4 = a3;
-  v6 = *(_BYTE *)(a1 + 486) || *(_BYTE *)(a1 + 481) != 0xFD && (_BYTE)a3;
-  result = *(_DWORD *)(a2 + 104) != *(_DWORD *)(a1 + 728);
+  v6 = *(_BYTE *)(a1 + 358) || *(_BYTE *)(a1 + 353) != 0xFD && (_BYTE)a3;
+  result = *(_DWORD *)(a2 + 104) != *(_DWORD *)(a1 + 548);
   if ( (_BYTE)a3 )
   {
     *(_DWORD *)(a2 + 104) = 0;
+    result = 1;
   }
-  else if ( *(_DWORD *)(a2 + 104) == *(_DWORD *)(a1 + 728) )
+  if ( result )
   {
-    goto LABEL_10;
+    v8 = *(_DWORD *)(a2 + 72);
+    v9 = a2 + 64;
+    *(_DWORD *)(a2 + 112) = v8;
+    LOBYTE(a4) = a3;
+    LOBYTE(a3) = v6;
+    *(_DWORD *)(a2 + 108) = *(_DWORD *)(v9 + 12);
+    *(_OWORD *)v9 = *(_OWORD *)(a1 + 552);
+    *(_OWORD *)(v9 + 16) = *(_OWORD *)(a1 + 568);
+    *(_QWORD *)(v9 + 32) = *(_QWORD *)(a1 + 584);
+    result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, __int64))(a1 + 296))(*(_QWORD *)(a2 + 8), v9, a3, a4);
   }
-  v8 = *(_DWORD *)(a2 + 72);
-  v9 = a2 + 64;
-  *(_DWORD *)(a2 + 112) = v8;
-  LOBYTE(a4) = a3;
-  LOBYTE(a3) = v6;
-  *(_DWORD *)(a2 + 108) = *(_DWORD *)(v9 + 12);
-  *(_OWORD *)v9 = *(_OWORD *)(a1 + 736);
-  *(_OWORD *)(v9 + 16) = *(_OWORD *)(a1 + 752);
-  *(_QWORD *)(v9 + 32) = *(_QWORD *)(a1 + 768);
-  result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, __int64))(a1 + 392))(*(_QWORD *)(a2 + 8), v9, a3, a4);
-LABEL_10:
   if ( *(_DWORD *)(a2 + 16) == 1 && !v4 )
     return PpmEventProcessorPerfStateChange(*(_QWORD *)a2, v6, 0);
   return result;

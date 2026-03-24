@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetStateOnDevice@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1802AAC10
+ * XREFs of ?SetStateOnDevice@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x180268D10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetLightsMask@CD3DBatchExecutionContext@@QEBAAEBVCLightsMask@@XZ @ 0x180018E78 (-GetLightsMask@CD3DBatchExecutionContext@@QEBAAEBVCLightsMask@@XZ.c)
- *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180039534 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
- *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180039660 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@AEBVRenderTargetInfo@@PEAUPixelFormatInfo@@@Z @ 0x1801E4CF0 (-GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@AEBVRenderTargetInfo@@.c)
- *     ?IsOpaque@CDrawListBitmap@@QEBA_NXZ @ 0x1801E620C (-IsOpaque@CDrawListBitmap@@QEBA_NXZ.c)
- *     ?GetVertexShaderNoRef@CD3DDevice@@QEBAPEAUID3D11VertexShader@@I@Z @ 0x1801EBD94 (-GetVertexShaderNoRef@CD3DDevice@@QEBAPEAUID3D11VertexShader@@I@Z.c)
- *     ?GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z @ 0x1801ED7C0 (-GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z.c)
- *     ?GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z @ 0x18027E528 (-GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z.c)
+ *     ?GetLightsMask@CD3DBatchExecutionContext@@QEBAAEBVCLightsMask@@XZ @ 0x180017EDC (-GetLightsMask@CD3DBatchExecutionContext@@QEBAAEBVCLightsMask@@XZ.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050ED0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
+ *     ?GetVertexShaderNoRef@CD3DDevice@@QEBAPEAUID3D11VertexShader@@I@Z @ 0x180051744 (-GetVertexShaderNoRef@CD3DDevice@@QEBAPEAUID3D11VertexShader@@I@Z.c)
+ *     ?IsOpaque@CDrawListBitmap@@QEBA_NXZ @ 0x180052998 (-IsOpaque@CDrawListBitmap@@QEBA_NXZ.c)
+ *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180053140 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
+ *     ?GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z @ 0x180053244 (-GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z.c)
+ *     ?GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@PEAUPixelFormatInfo@@@Z @ 0x1800532BC (-GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@PEAUPixelFormatInfo@@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z @ 0x1801A7868 (-GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z.c)
  */
 
 __int64 __fastcall CCubeMapRenderingEffect::SetStateOnDevice(
@@ -21,131 +21,128 @@ __int64 __fastcall CCubeMapRenderingEffect::SetStateOnDevice(
         unsigned int *a3)
 {
   CD3DDevice *v3; // r15
-  __int64 v4; // r13
-  __int64 v5; // rbx
-  enum DXGI_COLOR_SPACE_TYPE v7; // r12d
+  __int64 v4; // r12
+  __int64 v6; // rbx
+  enum DXGI_COLOR_SPACE_TYPE v7; // esi
   const struct CLightsMask *LightsMask; // rax
-  bool v10; // zf
-  int v11; // ebx
+  bool v11; // zf
   int v12; // ebx
+  int v13; // ebx
   int ColorChannelDepth; // eax
-  char v14; // dl
+  char v15; // dl
   int ConversionShader; // eax
-  __int64 v16; // rcx
-  unsigned int v17; // esi
+  __int64 v17; // rcx
+  unsigned int v18; // esi
   int CommonOrCubeMapRenderingShadersNoRefInternal; // eax
-  __int64 v19; // rcx
+  __int64 v20; // rcx
   int D3DSamplerStateNoRef; // eax
-  __int64 v21; // rcx
-  unsigned int v22; // edi
-  void (__fastcall *v23)(__int64, struct ID3D11VertexShader *, _QWORD, _QWORD); // rbx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  unsigned int v25; // edi
+  void (__fastcall *v26)(__int64, struct ID3D11VertexShader *, _QWORD, _QWORD); // rbx
   struct ID3D11VertexShader *VertexShaderNoRef; // rax
-  __int64 v26; // [rsp+30h] [rbp-49h] BYREF
-  enum DXGI_FORMAT v27[4]; // [rsp+38h] [rbp-41h] BYREF
-  __int128 v28; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-21h] BYREF
-  __int128 v30; // [rsp+60h] [rbp-19h]
-  const char *v31; // [rsp+70h] [rbp-9h]
-  int v32; // [rsp+78h] [rbp-1h]
-  int v33; // [rsp+80h] [rbp+7h]
-  bool v34[76]; // [rsp+84h] [rbp+Bh] BYREF
-  __int16 v35; // [rsp+E0h] [rbp+67h] BYREF
-  char v36; // [rsp+E2h] [rbp+69h]
-  unsigned int v37; // [rsp+E8h] [rbp+6Fh] BYREF
-  unsigned int *v38; // [rsp+F0h] [rbp+77h]
-  struct ID3D11PixelShader *v39; // [rsp+F8h] [rbp+7Fh] BYREF
+  __int64 v29; // [rsp+30h] [rbp-39h] BYREF
+  enum DXGI_FORMAT v30[4]; // [rsp+38h] [rbp-31h] BYREF
+  __int128 v31; // [rsp+48h] [rbp-21h] BYREF
+  __int64 v32; // [rsp+58h] [rbp-11h] BYREF
+  __int128 v33; // [rsp+60h] [rbp-9h]
+  const char *v34; // [rsp+70h] [rbp+7h]
+  int v35; // [rsp+78h] [rbp+Fh]
+  int v36; // [rsp+80h] [rbp+17h]
+  bool v37[60]; // [rsp+84h] [rbp+1Bh] BYREF
+  __int16 v38; // [rsp+D0h] [rbp+67h] BYREF
+  char v39; // [rsp+D2h] [rbp+69h]
+  unsigned int v40; // [rsp+D8h] [rbp+6Fh] BYREF
+  struct ID3D11PixelShader *v41; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v38 = a3;
   v3 = (CD3DDevice *)*((_QWORD *)a2 + 1);
   v4 = *((_QWORD *)a2 + 2);
-  v5 = *((_QWORD *)a2 + 4);
-  v7 = *((_DWORD *)a2 + 30);
+  v6 = *((_QWORD *)a2 + 4);
+  v7 = *((_DWORD *)a2 + 27);
+  v32 = 0LL;
+  v41 = 0LL;
+  *(_QWORD *)&v33 = "NoOp";
+  v34 = "NoOp";
   v29 = 0LL;
-  v39 = 0LL;
-  *(_QWORD *)&v30 = "NoOp";
-  v31 = "NoOp";
-  *(_DWORD *)v34 = 0;
-  v26 = 0LL;
-  DWORD2(v30) = 0;
-  v32 = 0;
+  DWORD2(v33) = 0;
+  v35 = 0;
+  *(_DWORD *)v37 = 0;
   LightsMask = CD3DBatchExecutionContext::GetLightsMask(a2);
-  *(_WORD *)&v34[1] = v7 == DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709;
-  v10 = *(_BYTE *)(v5 + 368) == 0;
-  v11 = 0;
-  v33 = *(_DWORD *)LightsMask;
-  if ( !v10 )
-    v11 = 16;
+  *(_WORD *)&v37[1] = v7 == DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709;
+  v11 = *(_BYTE *)(v6 + 368) == 0;
+  v12 = 0;
+  v36 = *(_DWORD *)LightsMask;
+  if ( !v11 )
+    v12 = 16;
   if ( *((_DWORD *)a2 + 16) == 22 )
-    v11 |= 8u;
-  v12 = v11 | 1;
-  LODWORD(v29) = v12;
+    v12 |= 8u;
+  v13 = v12 | 1;
+  LODWORD(v32) = v13;
   if ( CDrawListBitmap::IsOpaque((CCubeMapRenderingEffect *)((char *)this + 16)) )
-    LODWORD(v29) = v12 | 4;
-  CDrawListBitmap::GetShaderResourceView(
-    (CCubeMapRenderingEffect *)((char *)this + 16),
-    *((const struct RenderTargetInfo **)a2 + 14),
-    (struct PixelFormatInfo *)v27);
-  *(_QWORD *)&v28 = "NoOp";
-  DWORD2(v28) = 0;
+    LODWORD(v32) = v13 | 4;
+  CDrawListBitmap::GetShaderResourceView((CCubeMapRenderingEffect *)((char *)this + 16), (struct PixelFormatInfo *)v30);
+  *(_QWORD *)&v31 = "NoOp";
+  DWORD2(v31) = 0;
   CDrawListBitmap::IsOpaque((CCubeMapRenderingEffect *)((char *)this + 16));
-  ColorChannelDepth = GetColorChannelDepth(v27[0]);
+  ColorChannelDepth = GetColorChannelDepth(v30[0]);
   ConversionShader = ColorConversion::GetConversionShader(
-                       (enum DXGI_COLOR_SPACE_TYPE)v27[2],
-                       v14,
+                       (enum DXGI_COLOR_SPACE_TYPE)v30[2],
+                       v15,
                        ColorChannelDepth,
                        v7,
-                       (struct ColorConversion::Shader *)&v28,
-                       v34);
-  v17 = ConversionShader;
+                       (struct ColorConversion::Shader *)&v31,
+                       v37);
+  v18 = ConversionShader;
   if ( ConversionShader < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, ConversionShader, 0x65u);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, ConversionShader, 0x5Fu, 0LL);
   }
   else
   {
-    if ( DWORD2(v28) > 1 )
-      v30 = v28;
+    if ( DWORD2(v31) > 1 )
+      v33 = v31;
     CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
                                                      v3,
-                                                     (const struct CommonRenderingShaderDesc *)&v29,
+                                                     (__int64)&v32,
                                                      1,
-                                                     &v37,
-                                                     &v39);
-    v17 = CommonOrCubeMapRenderingShadersNoRefInternal;
+                                                     &v40,
+                                                     &v41);
+    v18 = CommonOrCubeMapRenderingShadersNoRefInternal;
     if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, CommonOrCubeMapRenderingShadersNoRefInternal, 0x6Eu);
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, 0x68u, 0LL);
     }
     else
     {
-      v35 = *((_WORD *)this + 20);
-      v36 = *((_BYTE *)this + 42);
-      D3DSamplerStateNoRef = CD3DDevice::GetD3DSamplerStateNoRef((__int64)v3, (unsigned __int8 *)&v35, &v26);
-      v17 = D3DSamplerStateNoRef;
+      v38 = *((_WORD *)this + 32);
+      v39 = *((_BYTE *)this + 66);
+      D3DSamplerStateNoRef = CD3DDevice::GetD3DSamplerStateNoRef((__int64)v3, (unsigned __int8 *)&v38, &v29);
+      v18 = D3DSamplerStateNoRef;
       if ( D3DSamplerStateNoRef < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, D3DSamplerStateNoRef, 0x70u);
+        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, D3DSamplerStateNoRef, 0x6Au, 0LL);
       }
       else
       {
-        v22 = v37;
-        v23 = *(void (__fastcall **)(__int64, struct ID3D11VertexShader *, _QWORD, _QWORD))(*(_QWORD *)v4 + 88LL);
-        VertexShaderNoRef = CD3DDevice::GetVertexShaderNoRef(v3, v37);
-        v23(v4, VertexShaderNoRef, 0LL, 0LL);
+        v25 = v40;
+        v26 = *(void (__fastcall **)(__int64, struct ID3D11VertexShader *, _QWORD, _QWORD))(*(_QWORD *)v4 + 88LL);
+        VertexShaderNoRef = CD3DDevice::GetVertexShaderNoRef(v3, v40, v23, v24);
+        v26(v4, VertexShaderNoRef, 0LL, 0LL);
         (*(void (__fastcall **)(__int64, struct ID3D11PixelShader *, _QWORD, _QWORD))(*(_QWORD *)v4 + 72LL))(
           v4,
-          v39,
+          v41,
           0LL,
           0LL);
         (*(void (__fastcall **)(__int64, _QWORD, __int64, char *))(*(_QWORD *)v4 + 64LL))(
           v4,
           0LL,
           1LL,
-          (char *)this + 48);
-        (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64 *))(*(_QWORD *)v4 + 80LL))(v4, 0LL, 1LL, &v26);
-        *v38 = v22;
+          (char *)this + 72);
+        (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64 *))(*(_QWORD *)v4 + 80LL))(v4, 0LL, 1LL, &v29);
+        *a3 = v25;
       }
     }
   }
-  return v17;
+  return v18;
 }

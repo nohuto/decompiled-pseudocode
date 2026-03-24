@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1406C55B8
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1406C5598
  * Callers:
- *     EtwpUpdateKernelGroupsWork @ 0x1406C5590 (EtwpUpdateKernelGroupsWork.c)
- *     EtwpUpdateGroupMasks @ 0x140725E68 (EtwpUpdateGroupMasks.c)
- *     EtwDereferenceSpinLockCounters @ 0x1408BDD0C (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1408BDD68 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x1408C8B70 (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x1408C8E50 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x1406C5570 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwpUpdateGroupMasks @ 0x140725E48 (EtwpUpdateGroupMasks.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1408BDCEC (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1408BDD48 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x1408C8B50 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1408C8E30 (EtwpCoverageSamplerStop.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)

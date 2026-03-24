@@ -1,7 +1,7 @@
 /*
  * XREFs of VfProbeAndCaptureUnicodeString @ 0x140925E48
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  *     VfSetVerifierInformationEx @ 0x14094AB28 (VfSetVerifierInformationEx.c)
  * Callees:
  *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140925E80 (VfProbeAndCaptureUnicodeStringBuffer.c)

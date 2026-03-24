@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxDoDeferredPointerActivate @ 0x1C01ED250
+ * XREFs of xxxDoDeferredPointerActivate @ 0x1C01F29DC
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C0077618 (INPUTDEST_FROM_PWND.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C01325F4 (INPUTDEST_FROM_PWND.c)
  */
 
 __int64 __fastcall xxxDoDeferredPointerActivate(__int64 a1)

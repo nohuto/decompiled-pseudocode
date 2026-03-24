@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCreatePerSessionProtos @ 0x1406C90E8
+ * XREFs of MiCreatePerSessionProtos @ 0x1406C90C8
  * Callers:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiCloneImageVad @ 0x1402C89CC (MiCloneImageVad.c)
+ *     MiCloneImageVad @ 0x1402C8ACC (MiCloneImageVad.c)
  *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
- *     MiMapSystemImage @ 0x140682104 (MiMapSystemImage.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiLocateSessionProtosInSubsection @ 0x140136E9C (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x140136EC8 (MiUpdatePerSessionProto.c)
- *     MiDereferenceSubsectionProtos @ 0x1406C9080 (MiDereferenceSubsectionProtos.c)
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1406C9410 (MiFreeSubsectionProtos.c)
+ *     MiLocateSessionProtosInSubsection @ 0x140136EBC (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x140136EE8 (MiUpdatePerSessionProto.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406C9060 (MiDereferenceSubsectionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406C93F0 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiCreatePerSessionProtos(__int64 *a1, unsigned int a2)

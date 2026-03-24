@@ -1,23 +1,23 @@
 /*
- * XREFs of UpdateSpriteArea @ 0x1C010C8C8
+ * XREFs of UpdateSpriteArea @ 0x1C015B5D4
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
  * Callees:
- *     UpdateSprite @ 0x1C0020D60 (UpdateSprite.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     GreConvertMemToRedirectionDC @ 0x1C0090814 (GreConvertMemToRedirectionDC.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreConvertRedirectionToMemDC @ 0x1C029F7CC (GreConvertRedirectionToMemDC.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     UpdateSprite @ 0x1C00BEA24 (UpdateSprite.c)
+ *     GreConvertMemToRedirectionDC @ 0x1C00F2868 (GreConvertMemToRedirectionDC.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GreConvertRedirectionToMemDC @ 0x1C02A0C9C (GreConvertRedirectionToMemDC.c)
  */
 
 _UNKNOWN **__fastcall UpdateSpriteArea(
-        const struct tagWND *a1,
+        struct tagWND *a1,
         __int64 a2,
         __int64 a3,
         HDC a4,
-        HDC a5,
+        __int64 a5,
         __int64 a6,
-        struct tagRECT *a7,
+        _OWORD *a7,
         int a8,
         int a9,
         int a10,
@@ -33,9 +33,9 @@ _UNKNOWN **__fastcall UpdateSpriteArea(
   __int64 v22; // r8
   LONG v23; // ecx
   int v24; // esi
-  HDC v25; // rdi
+  __int64 v25; // rdi
   __int64 v26; // r8
-  int v27; // [rsp+78h] [rbp-90h]
+  LONG v27; // [rsp+78h] [rbp-90h]
   LONG v28; // [rsp+88h] [rbp-80h]
   int v29; // [rsp+98h] [rbp-70h] BYREF
   unsigned int v30; // [rsp+9Ch] [rbp-6Ch]
@@ -43,18 +43,18 @@ _UNKNOWN **__fastcall UpdateSpriteArea(
   struct tagPOINT v32; // [rsp+A8h] [rbp-60h] BYREF
   struct tagSIZE v33; // [rsp+B0h] [rbp-58h] BYREF
   __int64 v34; // [rsp+B8h] [rbp-50h]
-  HDC v35; // [rsp+C0h] [rbp-48h]
+  __int64 v35; // [rsp+C0h] [rbp-48h]
   __int64 v36; // [rsp+C8h] [rbp-40h]
   __int64 v37; // [rsp+D8h] [rbp-30h]
   __int64 v38; // [rsp+E0h] [rbp-28h]
-  struct tagRECT v39; // [rsp+E8h] [rbp-20h] BYREF
+  int v39[4]; // [rsp+E8h] [rbp-20h] BYREF
   _UNKNOWN *retaddr; // [rsp+160h] [rbp+58h] BYREF
 
   result = &retaddr;
   v13 = 0LL;
   v29 = 0;
   v15 = *((_QWORD *)a1 + 5);
-  v39 = 0LL;
+  *(_OWORD *)v39 = 0LL;
   v34 = a3;
   v35 = a5;
   v18 = (*(_BYTE *)(v15 + 26) & 8) == 0;
@@ -66,20 +66,20 @@ _UNKNOWN **__fastcall UpdateSpriteArea(
   if ( !v18 && a2 )
   {
     v22 = -v20;
-    v39 = *a7;
-    v21 = (__m128i)v39;
+    *(_OWORD *)v39 = *a7;
+    v21 = *(__m128i *)v39;
     v33.cx = *(_DWORD *)(v15 + 96) - *(_DWORD *)(v15 + 88);
     v23 = *(_DWORD *)(v15 + 100) - *(_DWORD *)(v15 + 92);
-    v39.bottom += v22;
-    v39.right -= v19;
-    v39.top += v22;
+    v39[3] += v22;
+    v39[2] -= v19;
+    v39[1] += v22;
     v33.cy = v23;
     v38 = v21.m128i_i64[1];
-    v39.left = _mm_cvtsi128_si32(v21) - v19;
+    v39[0] = _mm_cvtsi128_si32(v21) - v19;
     GreOffsetRgn(a6, -v19, v22);
     v28 = a8 + _mm_cvtsi128_si32(v21) - a10;
     v37 = GreSelectBitmap(a5, a3);
-    if ( a5 != a4 )
+    if ( (HDC)a5 != a4 )
       v13 = GreSelectBitmap(a4, a2);
     GreSelectVisRgn(a4, a6, 4LL);
     v24 = GreConvertMemToRedirectionDC(a4, &v29);
@@ -87,35 +87,36 @@ _UNKNOWN **__fastcall UpdateSpriteArea(
       *(_QWORD *)a1,
       *(_QWORD *)a1,
       v34,
-      (unsigned int)v39.left,
-      v39.top,
-      v39.right,
-      v39.bottom,
+      (unsigned int)v39[0],
+      v39[1],
+      v39[2],
+      v39[3],
       *(_QWORD *)a1,
       *(_QWORD *)a1,
       a2,
       v28,
       v21.m128i_i32[1] - a11 + a9,
-      v39.right + v28 - v39.left,
-      v39.bottom + v21.m128i_i32[1] - a11 + a9 - v39.top,
+      v39[2] + v28 - v39[0],
+      v39[3] + v21.m128i_i32[1] - a11 + a9 - v39[1],
       v21.m128i_i32[1] - a11 + a9);
     v25 = v35;
-    NtGdiBitBltInternal(
-      a4,
-      v39.left,
-      v39.top,
-      v39.right - v39.left,
-      v39.bottom - v39.top,
-      v35,
-      v28,
-      v27,
-      -2134114272,
-      0,
-      0);
+    NtGdiBitBltInternal(a4, v39[0], v39[1], v39[2] - v39[0], v39[3] - v39[1], (HDC)v35, v28, v27, -2134114272, 0, 0);
     if ( v24 )
       GreConvertRedirectionToMemDC(a4);
     v32 = *(struct tagPOINT *)(*((_QWORD *)a1 + 5) + 88LL);
-    UpdateSprite(*(HDEV *)(gpDispInfo + 40LL), a1, v26, 0LL, 0LL, &v33, a4, &v32, 0, 0LL, 0x40000000u, &v39);
+    UpdateSprite(
+      *(HDEV *)(gpDispInfo + 40LL),
+      a1,
+      v26,
+      0LL,
+      0LL,
+      &v33,
+      a4,
+      &v32,
+      0,
+      0LL,
+      0x40000000u,
+      (struct tagRECT *)v39);
     GreSelectVisRgn(a4, v36, 4LL);
     GreOffsetRgn(v36, v31, v30);
     result = (_UNKNOWN **)GreSelectBitmap(v25, v37);

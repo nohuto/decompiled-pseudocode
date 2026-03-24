@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicTimerIsInvariant @ 0x1403A4838
+ * XREFs of HalpApicTimerIsInvariant @ 0x1403B3304
  * Callers:
- *     HalpApicTimerDiscover @ 0x1403A405C (HalpApicTimerDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403B1AAC (HalpApicTimerDiscover.c)
  * Callees:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall HalpApicTimerIsInvariant(__int64 a1)
@@ -24,18 +24,11 @@ bool __fastcall HalpApicTimerIsInvariant(__int64 a1)
   v1 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *))HalpApicTimerCpuApi)(0LL, 0LL, 0LL, &v4);
   v2 = v1 != 0 ? v4 : 0;
   v4 = v2;
-  if ( v2 == 1 )
-  {
-    if ( KeGetCurrentPrcb()->CpuType >= 0x15u )
-      goto LABEL_4;
+  if ( v2 != 2 && (v2 != 1 || KeGetCurrentPrcb()->CpuType < 0x15u) )
     return 0;
-  }
-  if ( v2 != 2 )
-    return 0;
-LABEL_4:
   v7 = 0;
-  ((void (__fastcall *)(_QWORD, unsigned int *, int *, int *, int *))qword_140D0E148)(0LL, &v6, &v5, &v5, &v5);
+  ((void (__fastcall *)(_QWORD, unsigned int *, int *, int *, int *))qword_140CF4578)(0LL, &v6, &v5, &v5, &v5);
   if ( v6 >= 6 )
-    ((void (__fastcall *)(__int64, int *, int *, int *, int *))qword_140D0E148)(6LL, &v7, &v5, &v5, &v5);
+    ((void (__fastcall *)(__int64, int *, int *, int *, int *))qword_140CF4578)(6LL, &v7, &v5, &v5, &v5);
   return (v7 & 4) != 0;
 }

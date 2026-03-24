@@ -1,11 +1,14 @@
 /*
- * XREFs of WPP_RECORDER_SF_Ld @ 0x1C00257BC
+ * XREFs of WPP_RECORDER_SF_Ld @ 0x1C000BDB4
  * Callers:
- *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001FED0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
- *     HUBUCX_UCXIoctlComplete @ 0x1C0025990 (HUBUCX_UCXIoctlComplete.c)
- *     GetPersistedKeyPath @ 0x1C0042D10 (GetPersistedKeyPath.c)
+ *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001D4C0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0023080 (HUBUCX_UCXIoctlComplete.c)
+ *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C003440C (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003DBF0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     GetPersistedKeyPath @ 0x1C0040800 (GetPersistedKeyPath.c)
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C00768D8 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Ld(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
@@ -23,7 +26,7 @@ __int64 WPP_RECORDER_SF_Ld(__int64 a1, __int64 a2, unsigned int a3, unsigned __i
   v7 = (unsigned __int64)a3 >> 16;
   v9 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 1);
   if ( _bittest(&v9, (a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v7 + 1) >= 2u )
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v7),
       43LL,
       a5,

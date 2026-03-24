@@ -1,48 +1,48 @@
 /*
- * XREFs of SmcStoreSlotReserve @ 0x1409DBBF4
+ * XREFs of SmcStoreSlotReserve @ 0x14092E4B0
  * Callers:
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmcStorePlacementGet @ 0x1409DB718 (SmcStorePlacementGet.c)
- *     SmcStoreSlotAbort @ 0x1409DBAB8 (SmcStoreSlotAbort.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     SmcStorePlacementGet @ 0x14092DFA8 (SmcStorePlacementGet.c)
+ *     SmcStoreSlotAbort @ 0x14092E374 (SmcStoreSlotAbort.c)
  */
 
 unsigned __int64 __fastcall SmcStoreSlotReserve(__int64 a1, __int64 a2, ULONG a3)
 {
   unsigned __int64 v4; // rsi
-  unsigned __int64 v6; // rbp
-  __int64 NonPaged; // rax
+  unsigned __int64 v6; // r12
+  struct _PRIVILEGE_SET *NonPaged; // rax
   struct _PRIVILEGE_SET *v8; // r14
-  void *v9; // rdx
+  struct _PRIVILEGE_SET *p_Control; // rdx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v11; // rdi
   int v12; // eax
 
   v4 = ((unsigned __int64)*(unsigned int *)(a1 + 8) + 31) >> 5;
   v6 = 0LL;
-  NonPaged = SSHSupportAllocateNonPaged(4 * v4, 0x72436D73u);
-  v8 = (struct _PRIVILEGE_SET *)NonPaged;
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(4 * v4, 0x72436D73u);
+  v8 = NonPaged;
   if ( !NonPaged )
     return v6;
-  v9 = (void *)NonPaged;
+  p_Control = NonPaged;
   if ( v4 )
   {
-    if ( (NonPaged & 4) != 0 )
+    if ( ((unsigned __int8)NonPaged & 4) != 0 )
     {
-      *(_DWORD *)NonPaged = -1;
+      NonPaged->PrivilegeCount = -1;
       if ( !--v4 )
         goto LABEL_8;
-      v9 = (void *)(NonPaged + 4);
+      p_Control = (struct _PRIVILEGE_SET *)&NonPaged->Control;
     }
-    memset(v9, 0xFFu, 8 * (v4 >> 1));
+    memset(p_Control, 0xFFu, 8 * (v4 >> 1));
     if ( (v4 & 1) != 0 )
-      *((_DWORD *)v9 + v4 - 1) = -1;
+      *((_DWORD *)p_Control + v4 - 1) = -1;
   }
 LABEL_8:
   CurrentThread = KeGetCurrentThread();
@@ -59,17 +59,15 @@ LABEL_8:
         *(_QWORD *)(v11 + 8) = v8;
         *(_DWORD *)(v11 + 4) = v12 | 4;
         v8 = 0LL;
-        if ( (int)SmcStorePlacementGet(a1, a3, v11) < 0 )
-        {
-          if ( v11 )
-          {
-            SmcStoreSlotAbort(a1, v11, 1);
-            return v6;
-          }
-        }
-        else
+        if ( (int)SmcStorePlacementGet(a1, a3, v11) >= 0 )
         {
           v6 = v11;
+          v11 = 0LL;
+        }
+        if ( v11 )
+        {
+          SmcStoreSlotAbort(a1, v11, 1);
+          return v6;
         }
         break;
       }

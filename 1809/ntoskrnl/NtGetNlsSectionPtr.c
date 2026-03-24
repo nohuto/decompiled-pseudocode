@@ -1,20 +1,20 @@
 /*
- * XREFs of NtGetNlsSectionPtr @ 0x1406C4E00
+ * XREFs of NtGetNlsSectionPtr @ 0x1406C4DE0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     ZwOpenSection @ 0x1401B8850 (ZwOpenSection.c)
- *     ZwCreateSection @ 0x1401B8AB0 (ZwCreateSection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x1401B8870 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
- *     RtlpInitNlsSectionName @ 0x1406C513C (RtlpInitNlsSectionName.c)
- *     RtlpInitNlsFileName @ 0x1406C51A0 (RtlpInitNlsFileName.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
+ *     RtlpInitNlsSectionName @ 0x1406C511C (RtlpInitNlsSectionName.c)
+ *     RtlpInitNlsFileName @ 0x1406C5180 (RtlpInitNlsFileName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigned __int64 a3, PVOID *a4, ULONG_PTR *a5)

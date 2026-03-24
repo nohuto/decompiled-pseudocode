@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RequestIndependentFlipExit@CFlipToken@@UEBA_NXZ @ 0x1C001A1F0
+ * XREFs of ?RequestIndependentFlipExit@CFlipToken@@UEBA_NXZ @ 0x1C001BA10
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipToken::RequestIndependentFlipExit(CFlipToken *this)
 {
-  return *((_BYTE *)this + 562);
+  return *((_BYTE *)this + 558);
 }

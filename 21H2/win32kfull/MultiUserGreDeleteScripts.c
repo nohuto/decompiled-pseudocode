@@ -1,16 +1,13 @@
 /*
- * XREFs of MultiUserGreDeleteScripts @ 0x1C0122AC0
+ * XREFs of MultiUserGreDeleteScripts @ 0x1C0137370
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 MultiUserGreDeleteScripts()
+void MultiUserGreDeleteScripts()
 {
-  __int64 result; // rax
-
-  if ( qword_1C0335A88 )
-    return Win32FreePool(qword_1C0335A88 - 2LL * gdwOffset);
-  return result;
+  if ( qword_1C033A8D8 )
+    Win32FreePool((void *)(qword_1C033A8D8 - 2LL * gdwOffset));
 }

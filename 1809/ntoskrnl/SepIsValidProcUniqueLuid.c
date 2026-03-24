@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsValidProcUniqueLuid @ 0x1408A385C
+ * XREFs of SepIsValidProcUniqueLuid @ 0x1408A383C
  * Callers:
- *     SepRmValidateProcUniqueLuidWrkr @ 0x1408A2CB0 (SepRmValidateProcUniqueLuidWrkr.c)
+ *     SepRmValidateProcUniqueLuidWrkr @ 0x1408A2C90 (SepRmValidateProcUniqueLuidWrkr.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     SepFindMatchingLuidEntry @ 0x1408A37D0 (SepFindMatchingLuidEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SepFindMatchingLuidEntry @ 0x1408A37B0 (SepFindMatchingLuidEntry.c)
  */
 
 __int64 __fastcall SepIsValidProcUniqueLuid(struct _LIST_ENTRY **a1)

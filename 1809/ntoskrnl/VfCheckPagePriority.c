@@ -1,10 +1,10 @@
 /*
  * XREFs of VfCheckPagePriority @ 0x1409274A0
  * Callers:
- *     VfCheckNxPagePriority @ 0x1403099C0 (VfCheckNxPagePriority.c)
+ *     VfCheckNxPagePriority @ 0x140309AC0 (VfCheckNxPagePriority.c)
  *     VerifierMmMapLockedPagesSpecifyCache @ 0x140944B10 (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViCiPreprocessOptions @ 0x1409276E0 (ViCiPreprocessOptions.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  */

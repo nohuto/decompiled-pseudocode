@@ -1,31 +1,33 @@
 /*
- * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C0152180
+ * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C013C994
  * Callers:
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00408D0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
- *     ?vDeleteCore@XDCOBJ@@QEAAXXZ @ 0x1C0088250 (-vDeleteCore@XDCOBJ@@QEAAXXZ.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0088B74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007C830 (--1RFONTOBJ@@QEAA@XZ.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
-void __fastcall RFONTOBJ::vReleaseCache(RFONTOBJ *this)
+void __fastcall RFONTOBJ::vReleaseCache(RFONTOBJ *this, __int64 a2, int a3)
 {
-  char *v2; // rdx
-  struct _ERESOURCE *v3; // rcx
+  __int64 v3; // rdx
+  __int64 v5; // rcx
+  struct _ERESOURCE *v6; // rcx
+  __int64 v7; // rcx
 
-  v2 = *(char **)(*(_QWORD *)this + 616LL);
-  if ( v2 )
+  v3 = *(_QWORD *)this;
+  v5 = *(_QWORD *)(*(_QWORD *)this + 616LL);
+  if ( v5 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v2);
+    Win32FreePool(v5);
     *(_QWORD *)(*(_QWORD *)this + 624LL) = 0LL;
     *(_QWORD *)(*(_QWORD *)this + 616LL) = 0LL;
+    v3 = *(_QWORD *)this;
   }
-  EtwTraceGreLockReleaseSemaphore((__int64)L"prfnt->hsemCache", *(_QWORD *)(*(_QWORD *)this + 504LL));
-  v3 = *(struct _ERESOURCE **)(*(_QWORD *)this + 504LL);
-  if ( v3 )
+  EtwTraceGreLockReleaseSemaphore((__int64)L"prfnt->hsemCache", *(_QWORD *)(v3 + 504), a3);
+  v6 = *(struct _ERESOURCE **)(*(_QWORD *)this + 504LL);
+  if ( v6 )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v3);
-    PsLeavePriorityRegion();
+    ExReleaseResourceAndLeaveCriticalRegion(v6);
+    PsLeavePriorityRegion(v7);
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckProcessorInit @ 0x1403C1E30
+ * XREFs of PpmCheckProcessorInit @ 0x1403CEC90
  * Callers:
  *     <none>
  * Callees:
- *     PpmResetPerfTimes @ 0x1403B4C90 (PpmResetPerfTimes.c)
- *     PpmHeteroHgsProcessorInit @ 0x1403C1E60 (PpmHeteroHgsProcessorInit.c)
+ *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
+ *     PpmHeteroHgsProcessorInit @ 0x1403CECBC (PpmHeteroHgsProcessorInit.c)
  */
 
-__int64 __fastcall PpmCheckProcessorInit(__int64 a1)
+__int64 __fastcall PpmCheckProcessorInit(__int64 a1, __int64 a2)
 {
-  PpmResetPerfTimes(a1 + 33968);
-  PpmHeteroHgsProcessorInit(a1, 0LL);
+  PpmResetPerfTimes(a1 + 33128, a2);
+  PpmHeteroHgsProcessorInit(a1);
   return 0LL;
 }

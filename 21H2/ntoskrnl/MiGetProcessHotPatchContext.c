@@ -1,13 +1,14 @@
 /*
- * XREFs of MiGetProcessHotPatchContext @ 0x1409734B8
+ * XREFs of MiGetProcessHotPatchContext @ 0x1408CA1F8
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
- *     MiDeleteHotPatchEntry @ 0x140972D90 (MiDeleteHotPatchEntry.c)
- *     MiLogHotPatchRundown @ 0x140975748 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x14097723C (MiQueryProcessActivePatches.c)
+ *     MiDeleteImageHotPatchState @ 0x1408C9B1C (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiLogHotPatchRundown @ 0x1408CBFBC (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x1408CDEE8 (MiQueryProcessActivePatches.c)
+ *     MmPostHotPatchDbgModuleMessages @ 0x1408CEA00 (MmPostHotPatchDbgModuleMessages.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiGetProcessHotPatchContext(__int64 a1, int a2)
@@ -21,11 +22,11 @@ _QWORD *__fastcall MiGetProcessHotPatchContext(__int64 a1, int a2)
   {
     if ( a2 && (Pool = MiAllocatePool(64, 0x28uLL, 0x43505048u)) != 0LL )
     {
-      Pool[2] = 0LL;
-      Pool[1] = Pool;
-      *Pool = Pool;
+      *Pool = 0LL;
+      Pool[1] = 0LL;
       Pool[4] = Pool + 3;
       Pool[3] = Pool + 3;
+      Pool[2] = 0LL;
       v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2552), (signed __int64)Pool, 0LL);
       if ( !v5 )
         return Pool;

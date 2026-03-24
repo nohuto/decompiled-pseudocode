@@ -1,58 +1,111 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14021C86C
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x140285334
  * Callers:
- *     MiCopyHeaderIfResident @ 0x14020ECD0 (MiCopyHeaderIfResident.c)
- *     MiGetPageProtection @ 0x140272900 (MiGetPageProtection.c)
- *     MiCopyDataPageToImagePage @ 0x14028B350 (MiCopyDataPageToImagePage.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C334 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MiGetPageProtection @ 0x1402B1430 (MiGetPageProtection.c)
+ *     MiCopyHeaderIfResident @ 0x14035A290 (MiCopyHeaderIfResident.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FCB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x140217040 (MiWriteValidPteVolatile.c)
- *     MiTryLockLeafPage @ 0x140219AE4 (MiTryLockLeafPage.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
+ *     MiWriteValidPteVolatile @ 0x140240CE0 (MiWriteValidPteVolatile.c)
+ *     MiTryLockLeafPage @ 0x140283FF8 (MiTryLockLeafPage.c)
+ *     MiAddLockedPageCharge @ 0x14029AA98 (MiAddLockedPageCharge.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
-__int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 *a1, __int64 a2, __int64 *a3, __int64 *a4)
+__int64 __fastcall MiTryLockProtoPoolPageAtDpc(__int64 *a1, __int64 a2, __int64 *a3, __int64 *a4)
 {
-  volatile signed __int64 *v7; // r10
-  unsigned __int64 v8; // rdx
-  int v9; // ebx
-  __int64 v10; // rdi
-  volatile unsigned __int64 v11; // rax
-  char v13; // cl
+  volatile signed __int64 *v7; // r14
+  unsigned __int64 v8; // rdi
+  __int64 Flink; // rdx
+  int v10; // r8d
+  __int64 v11; // rdi
+  int v12; // ebx
+  __int64 v13; // rsi
+  unsigned __int64 v14; // rcx
+  char v15; // cl
+  __int64 v17; // rax
+  __int64 v18; // r8
+  __int64 v19; // rax
+  __int64 v20; // r8
+  volatile signed __int64 v21; // [rsp+50h] [rbp+8h] BYREF
 
   *a3 = 0LL;
   v7 = (volatile signed __int64 *)((((unsigned __int64)a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  if ( (*v7 & 1) == 0 )
+  v21 = *v7;
+  v8 = v21;
+  if ( (v21 & 1) == 0 )
     return 3221435187LL;
-  v8 = ((unsigned __int64)*v7 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v8 > qword_140C65CA0 )
-    return 3221225557LL;
-  if ( ((*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
-    return 3221225557LL;
-  v9 = 0;
-  v10 = 48 * v8 - 0x220000000000LL;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
-    return 3221225557LL;
-  if ( (*(_QWORD *)(v10 + 24) & 0x4000000000000000LL) != 0
-    || (v11 = *v7, (*v7 & 1) == 0)
-    || (v11 & 0x200) != 0
-    || v8 != ((v11 >> 12) & 0xFFFFFFFFFFLL)
-    || (*(_BYTE *)(v10 + 34) & 0x20) != 0 )
+  v10 = MiPteInShadowRange(&v21, a2);
+  if ( v10
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && ((v8 & 0x20) == 0 || (v8 & 0x42) == 0) )
   {
-    v9 = -1073741739;
+    Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v17 = *(_QWORD *)(Flink + 8 * (((unsigned __int64)&v21 >> 3) & 0x1FF));
+      Flink = v8 | 0x20;
+      if ( (v17 & 0x20) == 0 )
+        Flink = v8;
+      v8 = Flink;
+      if ( (v17 & 0x42) != 0 )
+        v8 = Flink;
+    }
+  }
+  v11 = (v8 >> 12) & 0xFFFFFFFFFLL;
+  if ( ((*(_QWORD *)(48 * v11 - 0x57FFFFFFFD8LL) >> 50) & 1) == 0 )
+    return 3221225557LL;
+  v12 = 0;
+  v13 = 48 * v11 - 0x58000000000LL;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
+    return 3221225557LL;
+  if ( (*(_QWORD *)(v13 + 24) & 0x4000000000000000LL) != 0 )
+    goto LABEL_18;
+  v14 = *v7;
+  v21 = v14;
+  if ( (v14 & 1) == 0 || (v14 & 0x200) != 0 )
+    goto LABEL_18;
+  if ( v10 )
+  {
+    if ( (MiFlags & 0xC00000) != 0 )
+    {
+      Flink = (__int64)KeGetCurrentThread()->ApcState.Process;
+      if ( *(_BYTE *)(Flink + 912) != 1 && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
+      {
+        Flink = (__int64)KeGetCurrentThread()->ApcState.Process;
+        v18 = *(_QWORD *)(Flink + 1928);
+        if ( v18 )
+        {
+          v19 = *(_QWORD *)(v18 + 8 * (((unsigned __int64)&v21 >> 3) & 0x1FF));
+          v20 = v14 | 0x20;
+          LOBYTE(Flink) = v19 & 0x20;
+          if ( (v19 & 0x20) == 0 )
+            v20 = v14;
+          v14 = v20;
+          if ( (v19 & 0x42) != 0 )
+            v14 = v20;
+        }
+      }
+    }
+  }
+  if ( v11 != ((v14 >> 12) & 0xFFFFFFFFFLL) || (*(_BYTE *)(v13 + 34) & 0x20) != 0 )
+  {
+LABEL_18:
+    v12 = -1073741739;
   }
   else
   {
-    if ( (v11 & 0x20) == 0 )
+    if ( (v21 & 0x20) == 0 )
       MiWriteValidPteVolatile(v7, 1, 0);
-    if ( !a4 || (v9 = MiTryLockLeafPage(a1, 1LL, a4), v9 >= 0) )
+    if ( !a4 || (v12 = MiTryLockLeafPage(a1, Flink, a4), v12 >= 0) )
     {
-      MiAddLockedPageCharge(v10, 1LL);
-      v13 = *(_BYTE *)(v10 + 34) | 0x20;
-      *a3 = v10;
-      *(_BYTE *)(v10 + 34) = v13;
+      MiAddLockedPageCharge(48 * v11 - 0x58000000000LL, 1LL);
+      v15 = *(_BYTE *)(v13 + 34) | 0x20;
+      *a3 = v13;
+      *(_BYTE *)(v13 + 34) = v15;
     }
   }
-  _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  return (unsigned int)v9;
+  _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  return (unsigned int)v12;
 }

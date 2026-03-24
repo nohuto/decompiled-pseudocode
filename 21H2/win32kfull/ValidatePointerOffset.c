@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidatePointerOffset @ 0x1C0207490
+ * XREFs of ValidatePointerOffset @ 0x1C0217630
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
 __int64 __fastcall ValidatePointerOffset(__int64 a1, unsigned __int16 *a2, unsigned __int64 a3, unsigned int *a4)
@@ -33,7 +33,7 @@ __int64 __fastcall ValidatePointerOffset(__int64 a1, unsigned __int16 *a2, unsig
     v10 = HMValidateHandleNoSecure(*((_QWORD *)a2 + 3), 19);
     if ( v10 )
     {
-      v11 = *(_DWORD **)(v10 + 472);
+      v11 = *(_DWORD **)(v10 + 480);
       v12 = v9 + v4;
       v13 = v17 + v18;
       if ( v9 + v4 >= v11[40] )

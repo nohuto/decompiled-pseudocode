@@ -1,30 +1,27 @@
 /*
- * XREFs of ?_SwapMouseButton@@YAHH@Z @ 0x1C01BF3D8
+ * XREFs of ?_SwapMouseButton@@YAHH@Z @ 0x1C01E9DE0
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     NtUserSwapMouseButton @ 0x1C01DEDB0 (NtUserSwapMouseButton.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     CheckGrantedAccess @ 0x1C00A1770 (CheckGrantedAccess.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CheckGrantedAccess @ 0x1C01039E4 (CheckGrantedAccess.c)
  */
 
 __int64 __fastcall _SwapMouseButton(__int64 a1)
 {
   int v1; // edi
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v3; // rbx
+  __int64 CurrentProcessWin32Process; // rbx
+  __int64 v3; // rdx
   __int64 v4; // rcx
+  __int64 v5; // r8
 
   v1 = a1;
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v3 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v3 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-  if ( !(unsigned int)CheckGrantedAccess(*(_DWORD *)(v3 + 672), 0x12u) )
+  if ( !(unsigned int)CheckGrantedAccess(*(_DWORD *)(CurrentProcessWin32Process + 680), 0x12u) )
     return 0LL;
-  if ( (*(_DWORD *)(v3 + 12) & 0x40000) == 0 )
+  if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x40000) == 0 )
   {
-    UserSetLastError(1459);
+    UserSetLastError(1459LL, v3, v5);
     return 0LL;
   }
   LOBYTE(v4) = v1 != 0;

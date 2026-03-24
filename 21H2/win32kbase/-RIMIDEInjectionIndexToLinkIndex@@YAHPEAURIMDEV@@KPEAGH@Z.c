@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RIMIDEInjectionIndexToLinkIndex@@YAHPEAURIMDEV@@KPEAGH@Z @ 0x1C019AA00
+ * XREFs of ?RIMIDEInjectionIndexToLinkIndex@@YAHPEAURIMDEV@@KPEAGH@Z @ 0x1C0166CBC
  * Callers:
- *     RIMIDEInjectDeviceInput @ 0x1C019D008 (RIMIDEInjectDeviceInput.c)
+ *     RIMIDEInjectDeviceInput @ 0x1C0168B48 (RIMIDEInjectDeviceInput.c)
  * Callees:
  *     <none>
  */
@@ -19,8 +19,8 @@ __int64 __fastcall RIMIDEInjectionIndexToLinkIndex(struct RIMDEV *a1, int a2, un
   unsigned __int16 v15; // ax
   _DWORD *v16; // r8
   __int64 v17; // rbx
-  _DWORD *v18; // rcx
-  unsigned int v19; // eax
+  unsigned int v18; // eax
+  _DWORD *i; // rcx
   unsigned int v20; // ecx
   unsigned __int16 *v21; // r8
 
@@ -30,10 +30,10 @@ __int64 __fastcall RIMIDEInjectionIndexToLinkIndex(struct RIMDEV *a1, int a2, un
   v9 = *(_QWORD *)(v4 + 72);
   if ( (*((_DWORD *)a1 + 50) & 0x80u) != 0 )
   {
-    v10 = *((_QWORD *)a1 + 59);
-    v11 = *(_DWORD *)(v10 + 768);
+    v10 = *((_QWORD *)a1 + 60);
+    v11 = *(_DWORD *)(v10 + 720);
     v12 = *(_DWORD *)(v10 + 24) == 7;
-    v13 = *(_QWORD *)(v10 + 760);
+    v13 = *(_QWORD *)(v10 + 712);
     v14 = v11 - 1;
     if ( !v12 )
       v14 = v11;
@@ -55,20 +55,6 @@ __int64 __fastcall RIMIDEInjectionIndexToLinkIndex(struct RIMDEV *a1, int a2, un
             --v17;
           }
           while ( v17 );
-LABEL_10:
-          v18 = (_DWORD *)(v9 + 4);
-          v19 = 0;
-          while ( *v18 )
-          {
-            ++v19;
-            v18 += 2;
-            if ( v19 >= v14 )
-              return v5;
-          }
-          *a3 = *(_WORD *)(v9 + 8LL * v19 + 2);
-          *(_WORD *)(v9 + 8LL * v19) = a2;
-          *(_DWORD *)(v9 + 8LL * v19 + 4) = 1;
-          return 1;
         }
       }
       else
@@ -88,7 +74,19 @@ LABEL_10:
           return 1;
         }
       }
-      return v5;
+LABEL_10:
+      v18 = 0;
+      if ( !v14 )
+        return v5;
+      for ( i = (_DWORD *)(v9 + 4); *i; i += 2 )
+      {
+        if ( ++v18 >= v14 )
+          return v5;
+      }
+      *a3 = *(_WORD *)(v9 + 8LL * v18 + 2);
+      *(_WORD *)(v9 + 8LL * v18) = a2;
+      *(_DWORD *)(v9 + 8LL * v18 + 4) = 1;
+      return 1;
     }
   }
   return 1LL;

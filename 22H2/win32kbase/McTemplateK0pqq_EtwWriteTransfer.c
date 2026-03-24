@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0pqq_EtwWriteTransfer @ 0x1C013CE64
+ * XREFs of McTemplateK0pqq_EtwWriteTransfer @ 0x1C0126228
  * Callers:
- *     EtwTraceBeginPointerMessageRetrieve @ 0x1C0138C50 (EtwTraceBeginPointerMessageRetrieve.c)
- *     EtwTraceEndPointerMessageRetrieve @ 0x1C0139510 (EtwTraceEndPointerMessageRetrieve.c)
- *     EtwTranslationUpdateOffset @ 0x1C016BA10 (EtwTranslationUpdateOffset.c)
- *     EtwTranslationUpdateOffsetDWM @ 0x1C016BA50 (EtwTranslationUpdateOffsetDWM.c)
+ *     EtwTraceBeginPointerMessageRetrieve @ 0x1C0121CF0 (EtwTraceBeginPointerMessageRetrieve.c)
+ *     EtwTraceEndPointerMessageRetrieve @ 0x1C0122470 (EtwTraceEndPointerMessageRetrieve.c)
+ *     EtwTranslationUpdateOffset @ 0x1C014CAA0 (EtwTranslationUpdateOffset.c)
+ *     EtwTranslationUpdateOffsetDWM @ 0x1C014CAE0 (EtwTranslationUpdateOffsetDWM.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

@@ -1,35 +1,35 @@
 /*
- * XREFs of ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C00E6358
+ * XREFs of ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C011D42C
  * Callers:
- *     _RegisterDManipHook @ 0x1C00E5110 (_RegisterDManipHook.c)
+ *     _RegisterDManipHook @ 0x1C011D2E4 (_RegisterDManipHook.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x1C00E63D0 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW @ 0x1C011D498 (RtlStringCopyWorkerW.c)
  */
 
 NTSTATUS __fastcall RtlStringCbCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
 {
-  unsigned __int16 *v3; // rax
-  __int64 v4; // r8
+  __int64 v4; // rdx
+  unsigned __int16 *v5; // rax
   NTSTATUS result; // eax
-  size_t v6; // [rsp+20h] [rbp-18h]
+  __int64 v7; // rcx
+  size_t v8; // [rsp+20h] [rbp-18h]
 
-  v3 = a1;
   v4 = 130LL;
+  v5 = a1;
   do
   {
-    if ( !*v3 )
+    if ( !*v5 )
       break;
-    ++v3;
+    ++v5;
     --v4;
   }
   while ( v4 );
   result = v4 == 0 ? 0xC000000D : 0;
   if ( v4 )
-    return RtlStringCopyWorkerW(
-             (unsigned __int16 *)((char *)a1 + ((2 * (130 - v4)) & -(__int64)(v4 != 0))),
-             ((v4 - 130) & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64)) + 130,
-             (size_t *)-v4,
-             L"\\System32\\directmanipulation.dll",
-             v6);
+    v7 = 130 - v4;
+  else
+    v7 = 0LL;
+  if ( v4 )
+    return RtlStringCopyWorkerW(&a1[v7], 130 - v7, (size_t *)(130 - v7), L"\\System32\\directmanipulation.dll", v8);
   return result;
 }

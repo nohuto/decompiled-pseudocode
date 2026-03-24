@@ -1,13 +1,13 @@
 /*
- * XREFs of ?PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@@Z @ 0x1801B348C
+ * XREFs of ?PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@@Z @ 0x180178178
  * Callers:
- *     ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x180098498 (-PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
+ *     ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x18007EF10 (-PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800BA748 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801AF500 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801AF918 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
- *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@PEAPEAV1@@Z @ 0x1801D8710 (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV-$TValueResource@U.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800622C4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801748C0 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174B40 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@PEAPEAV1@@Z @ 0x18019026C (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV-$TValueResource@U.c)
  */
 
 __int64 __fastcall CDrawingContext::PushColorTransformLayerForNode(
@@ -32,7 +32,7 @@ __int64 __fastcall CDrawingContext::PushColorTransformLayerForNode(
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0xE3Cu);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xDDDu, 0LL);
   }
   else
   {
@@ -40,7 +40,7 @@ __int64 __fastcall CDrawingContext::PushColorTransformLayerForNode(
     v9 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0xE41u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xDE2u, 0LL);
       v4 = v16;
     }
     else
@@ -50,7 +50,7 @@ __int64 __fastcall CDrawingContext::PushColorTransformLayerForNode(
       v9 = v12;
       if ( v12 >= 0 )
         return v9;
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0xE47u);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xDE8u, 0LL);
     }
   }
   if ( v4 )

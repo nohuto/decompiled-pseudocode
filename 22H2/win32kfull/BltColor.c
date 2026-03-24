@@ -1,17 +1,17 @@
 /*
- * XREFs of BltColor @ 0x1C023F394
+ * XREFs of BltColor @ 0x1C025063C
  * Callers:
- *     ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C0233414 (-DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z.c)
- *     xxxDrawMenuItem @ 0x1C0234CAC (xxxDrawMenuItem.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
- *     xxxDrawState @ 0x1C023F6F0 (xxxDrawState.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
+ *     ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C024B3F8 (-DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
+ *     xxxDrawState @ 0x1C0250784 (xxxDrawState.c)
  * Callees:
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
  */
 
-__int64 __fastcall BltColor(HDC a1, __int64 a2, HDC a3, LONG a4, LONG a5, int a6, int a7, int a8, int a9, char a10)
+__int64 __fastcall BltColor(HDC a1, __int64 a2, HDC a3, LONG a4, LONG a5, int a6, int a7, LONG a8, LONG a9, char a10)
 {
   __int64 v14; // rdi
   int v15; // r14d
@@ -19,7 +19,7 @@ __int64 __fastcall BltColor(HDC a1, __int64 a2, HDC a3, LONG a4, LONG a5, int a6
   unsigned int v17; // r9d
 
   v14 = 0LL;
-  v15 = GreSetTextColor((__int64)a1, 0);
+  v15 = GreSetTextColor(a1, 0);
   v16 = GreSetBkColor(a1, 0xFFFFFF);
   if ( a2 )
     v14 = GreSelectBrush(a1, a2);
@@ -28,9 +28,9 @@ __int64 __fastcall BltColor(HDC a1, __int64 a2, HDC a3, LONG a4, LONG a5, int a6
     v17 = (a10 & 1) != 0 ? 12060490 : 14812998;
   if ( !a3 )
     a3 = *(HDC *)(gpDispInfo + 72LL);
-  NtGdiBitBltInternal((__int64)a1, a4, a5, a6, a7, a3, a8, a9, v17, 0xFFFFFF, 0);
+  NtGdiBitBltInternal(a1, a4, a5, a6, a7, a3, a8, a9, v17, 0xFFFFFFu, 0);
   if ( a2 )
     GreSelectBrush(a1, v14);
-  GreSetTextColor((__int64)a1, v15);
+  GreSetTextColor(a1, v15);
   return GreSetBkColor(a1, v16);
 }

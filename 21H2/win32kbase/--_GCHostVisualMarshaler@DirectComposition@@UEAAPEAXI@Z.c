@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCHostVisualMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C009AF40
+ * XREFs of ??_GCHostVisualMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C008FF30
  * Callers:
  *     <none>
  * Callees:
- *     ??1CVisualMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0016234 (--1CVisualMarshaler@DirectComposition@@UEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??1CVisualMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0024A7C (--1CVisualMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 DirectComposition::CHostVisualMarshaler *__fastcall DirectComposition::CHostVisualMarshaler::`scalar deleting destructor'(
@@ -14,8 +14,6 @@ DirectComposition::CHostVisualMarshaler *__fastcall DirectComposition::CHostVisu
   *(_QWORD *)this = &DirectComposition::CHostVisualMarshaler::`vftable';
   DirectComposition::CVisualMarshaler::~CVisualMarshaler(this);
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+    Win32FreePool((__int64)this);
   return this;
 }

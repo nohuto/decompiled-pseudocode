@@ -1,46 +1,40 @@
 /*
- * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1409BFB48
+ * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1405CFC30
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     RtlFcpCompareFeatureToFeature @ 0x1405EE604 (RtlFcpCompareFeatureToFeature.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlFcpCompareFeatureToFeature @ 0x1403F8818 (RtlFcpCompareFeatureToFeature.c)
  */
 
-__int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, unsigned __int64 a2)
+__int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, ULONGLONG a2)
 {
-  unsigned int v2; // r8d
-  unsigned int *v3; // r10
-  unsigned int v4; // r11d
-  unsigned __int64 v5; // kr00_8
-  unsigned __int64 v6; // rax
-  int v7; // r9d
+  unsigned int v3; // r10d
+  unsigned int *v4; // r11
+  unsigned int v5; // r9d
+  unsigned int v6; // r8d
   _DWORD *i; // rdx
+  ULONGLONG pullResult; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  v3 = a1;
+  pullResult = 0LL;
   if ( a1 )
   {
-    if ( a2 >= 4 && ((unsigned __int8)a1 & 3) == 0 )
+    if ( a2 >= 4
+      && ((unsigned __int8)a1 & 3) == 0
+      && RtlULongLongMult(*a1, 0xCuLL, &pullResult) >= 0
+      && pullResult + 4 >= pullResult
+      && pullResult + 4 <= a2 )
     {
-      v4 = *a1;
-      v5 = *a1;
-      if ( is_mul_ok(v5, 0xCuLL) )
+      v5 = *v4;
+      v6 = v3;
+      if ( !*v4 )
+        return v3;
+      for ( i = v4 + 1;
+            (!v6 || (int)RtlFcpCompareFeatureToFeature(&v4[2 * v6 - 2 + v6], i) < 0) && (i[1] & 0x30) != 0x30;
+            i += 3 )
       {
-        v6 = 12 * v5 + 4;
-        if ( v6 >= 12 * v5 && v6 <= a2 )
-        {
-          v7 = 0;
-          if ( !v4 )
-            return v2;
-          for ( i = a1 + 1;
-                (!v7 || (int)RtlFcpCompareFeatureToFeature(&v3[2 * (v7 - 1) + 1 + v7 - 1], i) < 0)
-             && (i[1] & 0x30) != 0x30;
-                i += 3 )
-          {
-            if ( ++v7 >= v4 )
-              return v2;
-          }
-        }
+        if ( ++v6 >= v5 )
+          return v3;
       }
     }
     return (unsigned int)-1073741811;

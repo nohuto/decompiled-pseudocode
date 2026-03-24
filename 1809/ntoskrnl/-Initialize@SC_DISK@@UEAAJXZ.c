@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168770
+ * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168790
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140704F18 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140704EF8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?IsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x14013B4D0 (-IsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x140168954 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
- *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x140168AC0 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ?IsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x14013B4F0 (-IsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x140168974 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x140168AE0 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)

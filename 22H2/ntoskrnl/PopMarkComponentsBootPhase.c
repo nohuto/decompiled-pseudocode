@@ -1,36 +1,33 @@
 /*
- * XREFs of PopMarkComponentsBootPhase @ 0x140AA36CC
+ * XREFs of PopMarkComponentsBootPhase @ 0x1409991E0
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     MmIsAddressValid @ 0x1403AE770 (MmIsAddressValid.c)
- *     FirstEntrySList @ 0x1404287E0 (FirstEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HvlMarkHiberPhase @ 0x1405469A4 (HvlMarkHiberPhase.c)
- *     KeMarkDynamicTracingHiberPhase @ 0x14057EBBC (KeMarkDynamicTracingHiberPhase.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
- *     RtlMarkHiberPhase @ 0x1405B47DC (RtlMarkHiberPhase.c)
- *     VfIsVerifierExtensionEnabled @ 0x1405CE2B4 (VfIsVerifierExtensionEnabled.c)
- *     DifMarkHiberPhase @ 0x1405D4F14 (DifMarkHiberPhase.c)
- *     BgkResumePrepare @ 0x140A99B34 (BgkResumePrepare.c)
- *     KdMarkHiberPhase @ 0x140A9EA68 (KdMarkHiberPhase.c)
- *     KeMarkHiberPhase @ 0x140A9EAF8 (KeMarkHiberPhase.c)
- *     PopMarkHiberPhase @ 0x140AA3958 (PopMarkHiberPhase.c)
- *     MiConvertHiberPhasePages @ 0x140AAC12C (MiConvertHiberPhasePages.c)
- *     MmMarkHiberPhase @ 0x140AACDA0 (MmMarkHiberPhase.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
+ *     FirstEntrySList @ 0x140406FA0 (FirstEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvlMarkHiberPhase @ 0x1404F7B30 (HvlMarkHiberPhase.c)
+ *     MmIsAddressValid @ 0x140536AB0 (MmIsAddressValid.c)
+ *     RtlMarkHiberPhase @ 0x140592C24 (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x1405A0624 (VfIsVerifierExtensionEnabled.c)
+ *     MiConvertHiberPhasePages @ 0x140995708 (MiConvertHiberPhasePages.c)
+ *     BgkResumePrepare @ 0x1409961C8 (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x1409AF038 (KdMarkHiberPhase.c)
+ *     KeMarkHiberPhase @ 0x1409AF0C8 (KeMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B075C (MmMarkHiberPhase.c)
+ *     PopMarkHiberPhase @ 0x1409B1708 (PopMarkHiberPhase.c)
  */
 
-void __fastcall PopMarkComponentsBootPhase(char *Address)
+void __fastcall PopMarkComponentsBootPhase(PVOID Address)
 {
-  unsigned int v1; // ebx
-  PVOID *i; // rdi
-  PSLIST_ENTRY j; // rdi
-  PVOID *k; // rbx
+  PVOID *i; // rbx
+  PSLIST_ENTRY j; // rbx
+  unsigned int k; // ebx
+  _QWORD *v5; // rbx
   PVOID *m; // rbx
 
-  v1 = 0;
-  if ( !byte_140C3D041 )
+  if ( !byte_140C23E81 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);
@@ -42,9 +39,9 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
       if ( MmIsAddressValid(i[10]) )
         PoSetHiberRange(0LL, 0x10000u, i[10], *((unsigned __int16 *)i + 37), 0x6E72654Bu);
     }
-    for ( j = FirstEntrySList(&stru_140D18620); j; j = j->Next )
-      KeMarkHiberPhase(&j[-1].Next->Next);
-    ((void (__fastcall *)(_QWORD))off_140C019B8[0])(0LL);
+    for ( j = FirstEntrySList(&stru_140C506A0); j; j = j->Next )
+      KeMarkHiberPhase(*((PVOID *)&j[-1].Next + 1));
+    ((void (__fastcall *)(_QWORD))off_140C005A8[0])(0LL);
     PopMarkHiberPhase(Address);
     KdMarkHiberPhase();
     if ( (unsigned int)VfIsVerifierEnabled() )
@@ -54,36 +51,28 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
       if ( (unsigned int)VfIsVerifierExtensionEnabled() == 1 && ViFnExtensionHiberFunc )
         PoSetHiberRange(0LL, 0x10000u, ViFnExtensionHiberFunc, 0LL, 0x72696656u);
     }
-    DifMarkHiberPhase();
     BgkResumePrepare(0LL);
     RtlMarkHiberPhase();
     HvlMarkHiberPhase();
-    KeMarkDynamicTracingHiberPhase();
     MmMarkHiberPhase();
-    if ( IopNumTriageDumpDataBlocks )
+    for ( k = 0; k < IopNumTriageDumpDataBlocks; ++k )
+      PoSetHiberRange(
+        0LL,
+        0x10000u,
+        (PVOID)IopTriageDumpDataBlocks[2 * k],
+        _mm_srli_si128(*(__m128i *)&IopTriageDumpDataBlocks[2 * k], 8).m128i_u64[0] - IopTriageDumpDataBlocks[2 * k],
+        0x42706D44u);
+    v5 = PopShutdownNotificationCallback;
+    if ( PopShutdownNotificationCallback )
     {
-      do
-      {
-        PoSetHiberRange(
-          0LL,
-          0x10000u,
-          (PVOID)IopTriageDumpDataBlocks[v1].m128i_i64[0],
-          _mm_srli_si128(IopTriageDumpDataBlocks[v1], 8).m128i_u64[0] - IopTriageDumpDataBlocks[v1].m128i_i64[0],
-          0x42706D44u);
-        ++v1;
-      }
-      while ( v1 < IopNumTriageDumpDataBlocks );
-    }
-    for ( k = (PVOID *)PopShutdownNotificationCallbackList; k != &PopShutdownNotificationCallbackList; k = (PVOID *)*k )
-    {
-      PoSetHiberRange(0LL, 0x10000u, k, 0x28uLL, 0x6E72654Bu);
-      ((void (__fastcall *)(PVOID))k[2])(k[4]);
+      PoSetHiberRange(0LL, 0x10000u, PopShutdownNotificationCallback, 0x18uLL, 0x6E72654Bu);
+      ((void (__fastcall *)(_QWORD))*v5)(v5[2]);
     }
     for ( m = (PVOID *)PopThermal; m != &PopThermal; m = (PVOID *)*m )
       PoSetHiberRange(0LL, 0x10000u, m, 0x420uLL, 0x6D726854u);
     if ( (PopSimulateHiberBugcheck & 0x100) == 0 )
-      MiConvertHiberPhasePages(Address + 32);
-    Address[3] = 1;
+      MiConvertHiberPhasePages((__int64)Address + 32);
+    *((_BYTE *)Address + 3) = 1;
   }
-  Address[28] = 1;
+  *((_BYTE *)Address + 28) = 1;
 }

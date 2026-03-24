@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x1407483B4
+ * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x1407500CC
  * Callers:
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
- *     PnpQueryRebalanceWorker @ 0x140959DF4 (PnpQueryRebalanceWorker.c)
+ *     PnpAllocateResources @ 0x14074FCE8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
+ *     PnpQueryRebalanceWorker @ 0x1408B8578 (PnpQueryRebalanceWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     IopQueryDeviceResources @ 0x140748758 (IopQueryDeviceResources.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081FECC (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     PnpFilterResourceRequirementsList @ 0x14083C0F4 (PnpFilterResourceRequirementsList.c)
- *     IopRearrangeReqList @ 0x140858F98 (IopRearrangeReqList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
+ *     IopRearrangeReqList @ 0x140750EFC (IopRearrangeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140753010 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpFilterResourceRequirementsList @ 0x1407AD7DC (PnpFilterResourceRequirementsList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2, int *a3)
@@ -76,7 +76,7 @@ LABEL_13:
       {
         ExFreePoolWithTag(v21, 0);
         *(_QWORD *)(v10 + 440) = 0LL;
-        PipClearDevNodeFlags(v10, 512LL);
+        PipClearDevNodeFlags(v10, 512);
         *(_DWORD *)(v6 - 16) |= 0x400u;
       }
     }
@@ -99,7 +99,7 @@ LABEL_12:
         if ( v14 )
         {
           ExFreePoolWithTag(v14, 0);
-          PipClearDevNodeFlags(v10, 512LL);
+          PipClearDevNodeFlags(v10, 512);
         }
         *(_QWORD *)(v10 + 440) = *(_QWORD *)v6;
         KeReleaseGuardedMutex(&PiResourceListLock);

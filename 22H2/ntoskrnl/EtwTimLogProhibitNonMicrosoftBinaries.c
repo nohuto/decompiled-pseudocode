@@ -1,188 +1,188 @@
 /*
- * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA354
+ * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C118
  * Callers:
- *     MiValidateSectionSigningPolicy @ 0x1406AA5DC (MiValidateSectionSigningPolicy.c)
+ *     MiValidateSectionSigningPolicy @ 0x14066A6E0 (MiValidateSectionSigningPolicy.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F0E4 (EtwpTiFillThreadIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a3, char a4, unsigned __int16 *a5)
 {
   __int64 *v5; // rax
   __int64 *v6; // rdi
-  unsigned __int16 *v7; // r14
-  const wchar_t *v8; // rsi
-  unsigned __int16 v11; // ax
-  int v12; // eax
-  const wchar_t *v13; // rcx
-  int v14; // eax
-  __int16 v15; // cx
+  const wchar_t *v7; // rsi
+  unsigned __int16 v10; // ax
+  int v11; // eax
+  const wchar_t *v12; // rcx
+  int v13; // eax
+  __int16 v14; // cx
+  int v15; // eax
   int v16; // eax
-  int v17; // eax
-  __int16 v18; // r10
-  int v19; // r8d
-  unsigned int v20; // r8d
-  __int64 v21; // rcx
-  unsigned int v22; // r9d
-  unsigned int v23; // r8d
-  __int64 v24; // rax
-  unsigned int v25; // r9d
-  ULONG v26; // r15d
-  __int64 v27; // rcx
-  __int64 v28; // r10
+  unsigned __int16 *v17; // r14
+  int v18; // r9d
+  unsigned int v19; // r9d
+  __int64 v20; // rcx
+  unsigned int v21; // r9d
+  unsigned int v22; // r8d
+  __int64 v23; // rax
+  unsigned int v24; // r9d
+  ULONG v25; // edx
+  __int16 v26; // ax
+  __int64 v27; // rax
+  __int64 v28; // rcx
   ULONG v29; // r9d
   const EVENT_DESCRIPTOR *v30; // rdx
-  void *v31; // rsi
-  char v32; // [rsp+38h] [rbp-D0h] BYREF
-  char v33; // [rsp+39h] [rbp-CFh] BYREF
-  _WORD v34[2]; // [rsp+3Ch] [rbp-CCh] BYREF
-  int v35; // [rsp+40h] [rbp-C8h] BYREF
-  __int16 v36; // [rsp+44h] [rbp-C4h] BYREF
-  __int64 v37; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 v38; // [rsp+50h] [rbp-B8h] BYREF
-  __int128 v39; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned __int64 v40; // [rsp+68h] [rbp-A0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v41; // [rsp+78h] [rbp-90h] BYREF
-  __int64 *v42; // [rsp+98h] [rbp-70h]
-  __int64 v43; // [rsp+A0h] [rbp-68h]
-  _DWORD *v44; // [rsp+A8h] [rbp-60h]
-  __int64 v45; // [rsp+B0h] [rbp-58h]
-  __int64 v46; // [rsp+B8h] [rbp-50h]
-  _DWORD v47[2]; // [rsp+C0h] [rbp-48h] BYREF
-  _DWORD *v48; // [rsp+C8h] [rbp-40h]
-  __int64 v49; // [rsp+D0h] [rbp-38h]
-  void *v50; // [rsp+D8h] [rbp-30h]
-  _DWORD v51[2]; // [rsp+E0h] [rbp-28h] BYREF
-  unsigned __int64 *v52; // [rsp+E8h] [rbp-20h]
-  __int64 v53; // [rsp+F0h] [rbp-18h]
-  _DWORD *v54; // [rsp+F8h] [rbp-10h]
-  __int64 v55; // [rsp+100h] [rbp-8h]
-  __int64 v56; // [rsp+108h] [rbp+0h]
-  _DWORD v57[2]; // [rsp+110h] [rbp+8h] BYREF
-  char *v58; // [rsp+118h] [rbp+10h]
-  __int64 v59; // [rsp+120h] [rbp+18h]
-  char *v60; // [rsp+128h] [rbp+20h]
-  __int64 v61; // [rsp+130h] [rbp+28h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+138h] [rbp+30h] BYREF
-  const wchar_t *v63; // [rsp+148h] [rbp+40h]
-  int v64; // [rsp+150h] [rbp+48h]
-  int v65; // [rsp+154h] [rbp+4Ch]
-  int *v66; // [rsp+158h] [rbp+50h]
-  __int64 v67; // [rsp+160h] [rbp+58h]
-  const wchar_t *v68; // [rsp+168h] [rbp+60h]
-  int v69; // [rsp+170h] [rbp+68h]
-  int v70; // [rsp+174h] [rbp+6Ch]
-  _QWORD v71[24]; // [rsp+178h] [rbp+70h] BYREF
-  char v72; // [rsp+298h] [rbp+190h] BYREF
-  char v73; // [rsp+2A0h] [rbp+198h] BYREF
+  PVOID v31; // rsi
+  char v32; // [rsp+30h] [rbp-D0h] BYREF
+  char v33; // [rsp+31h] [rbp-CFh] BYREF
+  _WORD v34[2]; // [rsp+34h] [rbp-CCh] BYREF
+  __int16 v35; // [rsp+38h] [rbp-C8h] BYREF
+  __int16 v36; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v37; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v38; // [rsp+48h] [rbp-B8h] BYREF
+  PVOID P[2]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int64 v40; // [rsp+60h] [rbp-A0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v41; // [rsp+70h] [rbp-90h] BYREF
+  int *v42; // [rsp+90h] [rbp-70h]
+  __int64 v43; // [rsp+98h] [rbp-68h]
+  _DWORD *v44; // [rsp+A0h] [rbp-60h]
+  __int64 v45; // [rsp+A8h] [rbp-58h]
+  __int64 v46; // [rsp+B0h] [rbp-50h]
+  _DWORD v47[2]; // [rsp+B8h] [rbp-48h] BYREF
+  _DWORD *v48; // [rsp+C0h] [rbp-40h]
+  __int64 v49; // [rsp+C8h] [rbp-38h]
+  PVOID v50; // [rsp+D0h] [rbp-30h]
+  _DWORD v51[2]; // [rsp+D8h] [rbp-28h] BYREF
+  unsigned __int64 *v52; // [rsp+E0h] [rbp-20h]
+  __int64 v53; // [rsp+E8h] [rbp-18h]
+  _DWORD *v54; // [rsp+F0h] [rbp-10h]
+  __int64 v55; // [rsp+F8h] [rbp-8h]
+  __int64 v56; // [rsp+100h] [rbp+0h]
+  _DWORD v57[2]; // [rsp+108h] [rbp+8h] BYREF
+  char *v58; // [rsp+110h] [rbp+10h]
+  __int64 v59; // [rsp+118h] [rbp+18h]
+  char *v60; // [rsp+120h] [rbp+20h]
+  __int64 v61; // [rsp+128h] [rbp+28h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+130h] [rbp+30h] BYREF
+  const wchar_t *v63; // [rsp+140h] [rbp+40h]
+  int v64; // [rsp+148h] [rbp+48h]
+  int v65; // [rsp+14Ch] [rbp+4Ch]
+  __int16 *v66; // [rsp+150h] [rbp+50h]
+  __int64 v67; // [rsp+158h] [rbp+58h]
+  const wchar_t *v68; // [rsp+160h] [rbp+60h]
+  int v69; // [rsp+168h] [rbp+68h]
+  int v70; // [rsp+16Ch] [rbp+6Ch]
+  __int64 v71[24]; // [rsp+170h] [rbp+70h] BYREF
+  char v72; // [rsp+290h] [rbp+190h] BYREF
+  char v73; // [rsp+298h] [rbp+198h] BYREF
 
   v73 = a4;
   v72 = a3;
   v5 = *(__int64 **)(a2 + 1472);
   v6 = &EmptyUnicodeString;
-  v7 = a5;
-  v8 = L"(null)";
+  v7 = L"(null)";
   v38 = 0LL;
   if ( v5 )
     v6 = v5;
-  v39 = 0LL;
-  v11 = *(_WORD *)v6;
+  *(_OWORD *)P = 0LL;
+  v10 = *(_WORD *)v6;
   *(_QWORD *)&UserData.Size = 2LL;
-  if ( v11 )
+  if ( v10 )
   {
-    v34[0] = v11 >> 1;
+    v34[0] = v10 >> 1;
     UserData.Ptr = (ULONGLONG)v34;
-    v12 = *(unsigned __int16 *)v6;
-    v13 = (const wchar_t *)v6[1];
+    v11 = *(unsigned __int16 *)v6;
+    v12 = (const wchar_t *)v6[1];
   }
   else
   {
     v34[0] = 6;
     UserData.Ptr = (ULONGLONG)v34;
-    v13 = L"(null)";
-    v12 = 12;
+    v12 = L"(null)";
+    v11 = 12;
   }
-  v63 = v13;
-  v64 = v12;
+  v63 = v12;
+  v64 = v11;
   v65 = 0;
-  EtwpQueryProcessCommandLine(a2, (__int64)&v39);
+  EtwpQueryProcessCommandLine(a2, (__int64)P);
   v67 = 2LL;
   v66 = &v35;
-  if ( (_WORD)v39 )
+  if ( LOWORD(P[0]) )
   {
-    v68 = (const wchar_t *)*((_QWORD *)&v39 + 1);
-    v14 = (unsigned __int16)v39;
-    v15 = (unsigned __int16)v39 >> 1;
+    v68 = (const wchar_t *)P[1];
+    v13 = LOWORD(P[0]);
+    v14 = LOWORD(P[0]) >> 1;
   }
   else
   {
+    v13 = 12;
     v68 = L"(null)";
-    v14 = 12;
-    v15 = 6;
+    v14 = 6;
   }
-  LOWORD(v35) = v15;
-  v69 = v14;
+  v35 = v14;
+  v69 = v13;
   v70 = 0;
-  v16 = EtwpTiFillProcessIdentity(v71, a2, &v38);
-  v17 = EtwpTiFillThreadIdentity((__int64)(&UserData + (unsigned int)(v16 + 4)), (__int64)KeGetCurrentThread());
-  v20 = v17 + v19;
-  v21 = 2LL * v20;
-  v22 = v20 + 1;
-  *(&UserData.Ptr + v21) = (ULONGLONG)&v72;
-  *((_QWORD *)&UserData.Size + v21) = 1LL;
-  v23 = v20 + 2;
-  v24 = 2LL * v22;
-  *(&UserData.Ptr + v24) = (ULONGLONG)&v73;
-  *((_QWORD *)&UserData.Size + v24) = 1LL;
-  if ( v7 && *v7 )
+  v15 = EtwpTiFillProcessIdentity(v71, a2, &v38);
+  v16 = EtwpTiFillThreadIdentity((__int64)(&UserData + (unsigned int)(v15 + 4)), (__int64)KeGetCurrentThread());
+  v17 = a5;
+  v19 = v16 + v18;
+  v20 = 2LL * v19;
+  v21 = v19 + 1;
+  *(&UserData.Ptr + v20) = (ULONGLONG)&v72;
+  *((_QWORD *)&UserData.Size + v20) = 1LL;
+  v22 = v21 + 1;
+  v23 = 2LL * v21;
+  *(&UserData.Ptr + v23) = (ULONGLONG)&v73;
+  *((_QWORD *)&UserData.Size + v23) = 1LL;
+  if ( v17 && *v17 )
   {
-    v8 = (const wchar_t *)*((_QWORD *)v7 + 1);
-    v25 = v23 + 1;
-    v26 = *v7;
-    v36 = *v7 >> 1;
+    v7 = (const wchar_t *)*((_QWORD *)v17 + 1);
+    v24 = v21 + 2;
+    v25 = *v17;
+    v26 = *v17 >> 1;
   }
   else
   {
-    v36 = v18;
-    v25 = v22 + 2;
-    v26 = 12;
+    v25 = 12;
+    v24 = v21 + 2;
+    v26 = 6;
   }
-  v27 = 16LL * v25;
-  v28 = 16LL * v23;
-  v29 = v25 + 1;
-  *(ULONGLONG *)((char *)&UserData.Ptr + v28) = (ULONGLONG)&v36;
+  v36 = v26;
+  v27 = 2LL * v22;
+  v28 = 2LL * v24;
+  v29 = v24 + 1;
+  *(&UserData.Ptr + v27) = (ULONGLONG)&v36;
+  *((_QWORD *)&UserData.Size + v27) = 2LL;
+  *(&UserData.Ptr + v28) = (ULONGLONG)v7;
+  *(&UserData.Size + 2 * v28) = v25;
   v30 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_PROHIBIT_NON_MICROSOFT_BINARIES;
-  *(ULONG *)((char *)&UserData.Size + v28) = 2;
-  *(ULONG *)((char *)&UserData.Reserved + v28) = 0;
-  *(ULONGLONG *)((char *)&UserData.Ptr + v27) = (ULONGLONG)v8;
-  *(ULONG *)((char *)&UserData.Size + v27) = v26;
-  *(ULONG *)((char *)&UserData.Reserved + v27) = 0;
   if ( a1 != 1 )
     v30 = &MITIGATION_ENFORCE_PROHIBIT_NON_MICROSOFT_BINARIES;
+  *(&UserData.Reserved + 2 * v28) = 0;
   EtwWrite(EtwSecurityMitigationsRegHandle, v30, 0LL, v29, &UserData);
-  v31 = (void *)*((_QWORD *)&v39 + 1);
-  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
+  v31 = P[1];
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
   {
-    LODWORD(v37) = a1;
+    v37 = a1;
     v42 = &v37;
     v43 = 4LL;
     v44 = v47;
     v46 = v6[1];
     v47[0] = *(unsigned __int16 *)v6;
     v48 = v51;
-    v51[0] = (unsigned __int16)v39;
+    v51[0] = LOWORD(P[0]);
     v40 = v38;
     v52 = &v40;
     v54 = v57;
-    v56 = *((_QWORD *)v7 + 1);
-    v57[0] = *v7;
+    v56 = *((_QWORD *)v17 + 1);
+    v57[0] = *v17;
     v32 = v72;
     v58 = &v32;
     v33 = v73;
@@ -198,8 +198,8 @@ void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a
     v59 = 1LL;
     v61 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C066C0,
-      (unsigned __int8 *)byte_140035990,
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)byte_14002D329,
       0LL,
       0LL,
       0xCu,

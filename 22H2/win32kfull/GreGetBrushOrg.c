@@ -1,30 +1,29 @@
 /*
- * XREFs of GreGetBrushOrg @ 0x1C02A7E0C
+ * XREFs of GreGetBrushOrg @ 0x1C015E7E0
  * Callers:
- *     _DrawIconEx @ 0x1C0028030 (_DrawIconEx.c)
- *     MNEraseBackground @ 0x1C0234904 (MNEraseBackground.c)
- *     xxxMNDrawFullNC @ 0x1C023534C (xxxMNDrawFullNC.c)
+ *     _DrawIconEx @ 0x1C0043EF4 (_DrawIconEx.c)
+ *     MNEraseBackground @ 0x1C024C33C (MNEraseBackground.c)
+ *     xxxMNDrawFullNC @ 0x1C024C484 (xxxMNDrawFullNC.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetBrushOrg(HDC a1, _QWORD *a2)
 {
-  _QWORD v4[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v5[40]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v3; // ebx
+  _QWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v6[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
-  if ( v4[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v5, a1);
+  v3 = 0;
+  if ( v5[0] )
   {
-    *a2 = *(_QWORD *)(v4[0] + 124LL);
-    DCOBJ::~DCOBJ((DCOBJ *)v4);
-    return 1LL;
+    v3 = 1;
+    *a2 = *(_QWORD *)(v5[0] + 124LL);
   }
-  else
-  {
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
-    return 0LL;
-  }
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v5);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
+  return v3;
 }

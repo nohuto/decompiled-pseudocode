@@ -1,11 +1,12 @@
 /*
- * XREFs of ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0281978
+ * XREFs of ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0284D14
  * Callers:
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0155F90 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0156B64 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
- *     ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C02802F8 (-vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C016466C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0164ED8 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
+ *     ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C0282AFC (-vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z.c)
  * Callees:
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
  */
 
 void __fastcall vSpUpdatePerPixelAlphaFromColorKey(
@@ -14,59 +15,58 @@ void __fastcall vSpUpdatePerPixelAlphaFromColorKey(
         struct _RECTL *a3,
         unsigned __int8 **a4)
 {
-  unsigned __int8 *v5; // rdi
-  LONG cy; // esi
+  unsigned __int8 *v5; // r14
+  LONG cy; // edi
   LONG cx; // r15d
   int v8; // r13d
   int v9; // r12d
   LONG lDelta; // r9d
   int v11; // r15d
-  int v12; // esi
+  int v12; // edi
   int v13; // r8d
   signed int v14; // ecx
-  __int64 v15; // rcx
-  char *v16; // r8
-  int v17; // r10d
-  int v18; // r9d
-  char *v19; // rdx
-  int v20; // eax
-  int v21; // [rsp+20h] [rbp-78h]
-  __int64 v22; // [rsp+30h] [rbp-68h] BYREF
-  LONG v23; // [rsp+38h] [rbp-60h]
-  LONG v24; // [rsp+3Ch] [rbp-5Ch]
-  LONG v25; // [rsp+40h] [rbp-58h]
-  int v26; // [rsp+44h] [rbp-54h]
-  unsigned __int8 *v27; // [rsp+48h] [rbp-50h]
-  unsigned __int8 *v28; // [rsp+50h] [rbp-48h]
-  char *v29; // [rsp+58h] [rbp-40h]
-  char *v30; // [rsp+60h] [rbp-38h]
-  LONG v31; // [rsp+A0h] [rbp+8h]
+  char *v15; // r8
+  int v16; // r10d
+  int v17; // r9d
+  char *v18; // rdx
+  int v19; // eax
+  int v20; // [rsp+20h] [rbp-78h]
+  __int64 v21; // [rsp+30h] [rbp-68h] BYREF
+  LONG v22; // [rsp+38h] [rbp-60h]
+  LONG v23; // [rsp+3Ch] [rbp-5Ch]
+  LONG v24; // [rsp+40h] [rbp-58h]
+  int v25; // [rsp+44h] [rbp-54h]
+  unsigned __int8 *v26; // [rsp+48h] [rbp-50h]
+  unsigned __int8 *v27; // [rsp+50h] [rbp-48h]
+  char *v28; // [rsp+58h] [rbp-40h]
+  char *v29; // [rsp+60h] [rbp-38h]
+  LONG v30; // [rsp+A0h] [rbp+8h]
 
   v5 = 0LL;
-  v27 = 0LL;
+  v26 = 0LL;
   if ( a1->iBitmapFormat == 6 && !a1->iType )
   {
-    v21 = a2 & 0xFF00 | ((unsigned __int8)a2 << 16) | BYTE2(a2);
+    v20 = a2 & 0xFF00 | ((unsigned __int8)a2 << 16) | BYTE2(a2);
     cy = a1->sizlBitmap.cy;
     cx = a1->sizlBitmap.cx;
     v8 = 0;
-    v22 = 0LL;
+    v21 = 0LL;
     v9 = 0;
-    v23 = cx;
-    v24 = cy;
+    v22 = cx;
+    v23 = cy;
     if ( a3 )
     {
-      ERECTL::operator*=((int *)&v22, &a3->left);
-      cy = v24;
-      cx = v23;
-      v9 = HIDWORD(v22);
-      v8 = v22;
+      ERECTL::operator*=((int *)&v21, &a3->left);
+      cy = v23;
+      cx = v22;
+      v9 = HIDWORD(v21);
+      v8 = v21;
     }
     lDelta = a1->lDelta;
-    v31 = lDelta;
-    v25 = lDelta;
+    v30 = lDelta;
+    v24 = lDelta;
     v11 = cx - v8;
-    v26 = v11;
+    v25 = v11;
     v12 = cy - v9;
     if ( a4 )
     {
@@ -76,47 +76,43 @@ void __fastcall vSpUpdatePerPixelAlphaFromColorKey(
       {
         if ( v14 && v13 < 0x7FFFFFFF / v14 )
         {
-          v15 = (unsigned int)(v13 * v14);
-          if ( (_DWORD)v15 )
-          {
-            v5 = (unsigned __int8 *)Win32AllocPool(v15, 1886221383LL);
-            lDelta = v31;
-          }
-          v27 = v5;
+          v5 = (unsigned __int8 *)PALLOCMEM2((unsigned int)(v13 * v14), 1886221383LL, 0);
+          v26 = v5;
           *a4 = v5;
+          lDelta = v30;
         }
       }
     }
-    v28 = v5;
-    v16 = (char *)a1->pvScan0 + 4 * v8 + lDelta * v9;
-    v17 = 0;
+    v27 = v5;
+    v15 = (char *)a1->pvScan0 + 4 * v8 + lDelta * v9;
+    v16 = 0;
     while ( 1 )
     {
-      v30 = v16;
+      v29 = v15;
       if ( !v12 )
         break;
-      v18 = v11;
-      v19 = v16;
+      v17 = v11;
+      v18 = v15;
       while ( 1 )
       {
-        v29 = v19;
-        if ( !v18 )
+        v28 = v18;
+        if ( !v17 )
           break;
         if ( v5 )
-          v5[v17] = v19[3];
-        if ( *(_DWORD *)v19 == v21 )
-          *(_DWORD *)v19 = 0;
+          v5[v16] = v18[3];
+        if ( *(_DWORD *)v18 == v20 )
+          *(_DWORD *)v18 = 0;
         else
-          v19[3] = -1;
-        --v18;
-        v19 += 4;
-        v20 = v17 + 1;
+          v18[3] = -1;
+        --v17;
+        v18 += 4;
+        v19 = v16 + 1;
         if ( !v5 )
-          v20 = v17;
-        v17 = v20;
+          v19 = v16;
+        v16 = v19;
       }
       --v12;
-      v16 += v31;
+      v15 += v30;
     }
   }
 }

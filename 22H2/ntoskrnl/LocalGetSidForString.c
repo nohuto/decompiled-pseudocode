@@ -1,17 +1,17 @@
 /*
- * XREFs of LocalGetSidForString @ 0x14069E1D0
+ * XREFs of LocalGetSidForString @ 0x140787D40
  * Callers:
- *     LocalConvertStringSDToSD_Rev1 @ 0x14069BA60 (LocalConvertStringSDToSD_Rev1.c)
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1409D50B4 (LocalGetRelativeAttributeForString.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1407874B4 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x140928630 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     LocalpConvertStringSidToSid @ 0x14069A428 (LocalpConvertStringSidToSid.c)
- *     LookupSidInTable @ 0x1406C3710 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x1407AA930 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x14066C040 (RtlNtStatusToDosError.c)
+ *     LookupSidInTable @ 0x1406ED11C (LookupSidInTable.c)
+ *     LocalpConvertStringSidToSid @ 0x1407B8370 (LocalpConvertStringSidToSid.c)
  */
 
-__int64 __fastcall LocalGetSidForString(wchar_t *a1, __int64 *a2, wchar_t **a3, _BYTE *a4)
+__int64 __fastcall LocalGetSidForString(wchar_t *a1, _QWORD *a2, _QWORD *a3, _BYTE *a4)
 {
   ULONG v8; // ebp
   __int64 v9; // rax
@@ -28,7 +28,7 @@ __int64 __fastcall LocalGetSidForString(wchar_t *a1, __int64 *a2, wchar_t **a3, 
   if ( *a1 && a1[1] )
   {
     *a3 = a1 + 2;
-    v9 = LookupSidInTable(a1, 0LL, v13, 0, (__int64)&v14);
+    v9 = LookupSidInTable(a1, 0LL, 0LL, (__int64)a4, v13, 0, &v14);
     if ( v9 )
     {
       v10 = *(_QWORD *)(v9 + 16);
@@ -38,7 +38,7 @@ __int64 __fastcall LocalGetSidForString(wchar_t *a1, __int64 *a2, wchar_t **a3, 
       v10 = v14;
       if ( !v14 )
       {
-        *a3 -= 2;
+        *a3 -= 4LL;
         v12 = LocalpConvertStringSidToSid(a1, a2, a3);
         if ( v12 >= 0 || (v8 = RtlNtStatusToDosError(v12)) == 0 )
         {

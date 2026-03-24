@@ -2,7 +2,7 @@
  * XREFs of RtlpHpMetadataHeapStart @ 0x140009ACC
  * Callers:
  *     RtlpHpMetadataAlloc @ 0x1400099CC (RtlpHpMetadataAlloc.c)
- *     RtlHpHeapManagerStart @ 0x140170248 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x140170268 (RtlHpHeapManagerStart.c)
  * Callees:
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
  */

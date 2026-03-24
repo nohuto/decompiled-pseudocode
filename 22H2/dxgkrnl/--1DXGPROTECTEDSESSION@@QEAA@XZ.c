@@ -1,122 +1,67 @@
 /*
- * XREFs of ??1DXGPROTECTEDSESSION@@QEAA@XZ @ 0x1C0056BFC
+ * XREFs of ??1DXGPROTECTEDSESSION@@QEAA@XZ @ 0x1C0048CE8
  * Callers:
- *     ??_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z @ 0x1C0056E40 (--_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z.c)
+ *     ??_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z @ 0x1C0048E1C (--_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C01A5A90 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0008718 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C0124588 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
  */
 
-void __fastcall DXGPROTECTEDSESSION::~DXGPROTECTEDSESSION(DXGPROTECTEDSESSION *this)
+void __fastcall DXGPROTECTEDSESSION::~DXGPROTECTEDSESSION(struct DXGSYNCOBJECT **this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r8d
+  __int64 v3; // rax
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rax
+  struct DXGSYNCOBJECT *v7; // rdi
   DXGGLOBAL *Global; // rax
-  void *v15; // rcx
-  void *v16; // rcx
+  struct DXGSYNCOBJECT *v9; // rcx
+  struct DXGSYNCOBJECT *v10; // rcx
 
-  if ( *((_DWORD *)this + 20) )
+  if ( *((_DWORD *)this + 18) )
   {
-    WdLogSingleEntry1(1LL, 44LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(v3, v2, v4, 0LL, 2, -1, L"0 == m_cReference", 44LL, 0LL, 0LL, 0LL, 0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 44LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  if ( *((_QWORD *)this + 19) )
+  if ( this[18] )
   {
-    WdLogSingleEntry1(1LL, 45LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v6,
-          v5,
-          v7,
-          0LL,
-          2,
-          -1,
-          L"NULL == m_hDriverHandle",
-          45LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 45LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   if ( *((_DWORD *)this + 6) != 3 )
   {
-    WdLogSingleEntry1(1LL, 46LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v9,
-          v8,
-          v10,
-          0LL,
-          2,
-          -1,
-          L"EXECUTION_STOPPED == m_ExecutionState",
-          46LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 46LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  if ( *((_BYTE *)this + 144) )
+  if ( *((_BYTE *)this + 136) )
   {
-    WdLogSingleEntry1(1LL, 47LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v12,
-          v11,
-          v13,
-          0LL,
-          2,
-          -1,
-          L"false == m_bDelaySignal",
-          47LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 47LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( *((_QWORD *)this + 15) )
+  v7 = this[14];
+  if ( v7 )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    DXGGLOBAL::DestroySyncObject(Global, *((struct DXGSYNCOBJECT **)this + 15), 0);
-    *((_QWORD *)this + 15) = 0LL;
+    Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+    DXGGLOBAL::DestroySyncObject(Global, v7, 0);
+    this[14] = 0LL;
   }
-  v15 = (void *)*((_QWORD *)this + 11);
-  if ( v15 )
+  v9 = this[10];
+  if ( v9 )
   {
-    ExFreePoolWithTag(v15, 0);
-    *((_QWORD *)this + 11) = 0LL;
+    ExFreePoolWithTag(v9, 0);
+    this[10] = 0LL;
   }
-  v16 = (void *)*((_QWORD *)this + 13);
-  if ( v16 )
+  v10 = this[12];
+  if ( v10 )
   {
-    ExFreePoolWithTag(v16, 0);
-    *((_QWORD *)this + 13) = 0LL;
+    ExFreePoolWithTag(v10, 0);
+    this[12] = 0LL;
   }
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGPROTECTEDSESSION *)((char *)this + 32));
-  *((_QWORD *)this + 2) = 0LL;
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 4), a2);
+  this[2] = 0LL;
 }

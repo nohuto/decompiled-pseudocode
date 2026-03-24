@@ -1,61 +1,54 @@
 /*
- * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x140670CE0
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x1405C3200
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14066FDD0 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1405C22BC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
- *     SeRmReferenceFindCapName @ 0x1405B97C8 (SeRmReferenceFindCapName.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140711850 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlFindAceByType @ 0x1402D29C0 (RtlFindAceByType.c)
+ *     SeRmReferenceFindCapName @ 0x140597C14 (SeRmReferenceFindCapName.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1406111D0 (RtlGetSaclSecurityDescriptor.c)
  */
 
 int __fastcall AdtpBuildContextFromSecurityDescriptor(void *a1, __int64 a2)
 {
   int result; // eax
-  void *v4; // rbp
+  void *v4; // rdi
   unsigned __int8 *AceByType; // rax
-  _QWORD *v6; // rsi
-  _DWORD *v7; // rdi
-  BOOLEAN v8; // [rsp+50h] [rbp+8h] BYREF
-  BOOLEAN v9; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v10; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+20h] BYREF
+  BOOLEAN v6; // [rsp+40h] [rbp+8h] BYREF
+  BOOLEAN v7; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
-  v11 = 0LL;
-  v10 = 0;
-  *(_QWORD *)a2 = a1;
+  v9 = 0LL;
   v8 = 0;
-  result = RtlGetSaclSecurityDescriptor(a1, &v8, (PACL *)&v11, &v9);
+  *(_QWORD *)a2 = a1;
+  v6 = 0;
+  result = RtlGetSaclSecurityDescriptor(a1, &v6, (PACL *)&v9, &v7);
   if ( result < 0 )
-  {
-    v7 = (_DWORD *)(a2 + 8);
-    v6 = (_QWORD *)(a2 + 16);
-LABEL_11:
-    *v7 = 0;
-    *v6 = 0LL;
-    return result;
-  }
+    goto LABEL_9;
   v4 = 0LL;
-  if ( v8 )
+  if ( v6 )
   {
     while ( 1 )
     {
-      AceByType = RtlFindAceByType(v11, 19, &v10);
+      AceByType = RtlFindAceByType(v9, 19, &v8);
       if ( AceByType )
       {
         if ( (AceByType[1] & 8) == 0 )
           break;
       }
-      ++v10;
+      ++v8;
       if ( !AceByType )
         goto LABEL_8;
     }
     v4 = AceByType + 8;
   }
 LABEL_8:
-  v6 = (_QWORD *)(a2 + 16);
-  v7 = (_DWORD *)(a2 + 8);
-  result = SeRmReferenceFindCapName(v4, (_DWORD *)(a2 + 8), (__int64 *)(a2 + 16));
+  result = SeRmReferenceFindCapName(v4, (_DWORD *)(a2 + 8), (_QWORD *)(a2 + 16));
   if ( result < 0 )
-    goto LABEL_11;
+  {
+LABEL_9:
+    *(_DWORD *)(a2 + 8) = 0;
+    *(_QWORD *)(a2 + 16) = 0LL;
+  }
   return result;
 }

@@ -5,11 +5,11 @@
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopEtProcessEnumSnapshotCallback @ 0x1405FC3D0 (PopEtProcessEnumSnapshotCallback.c)
  *     PopEtProcessSnapshotUpdate @ 0x1405FC4C0 (PopEtProcessSnapshotUpdate.c)
  *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
- *     PopEtIsrDpcQuery @ 0x1406B34FC (PopEtIsrDpcQuery.c)
+ *     PopEtIsrDpcQuery @ 0x1406B34DC (PopEtIsrDpcQuery.c)
  */
 
 __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)

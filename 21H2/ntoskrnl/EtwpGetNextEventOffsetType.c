@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetNextEventOffsetType @ 0x1403B3D20
+ * XREFs of EtwpGetNextEventOffsetType @ 0x1405AD450
  * Callers:
- *     EtwpSendTraceEvent @ 0x1403B3C40 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x140632EEC (EtwpInvokeEventCallback.c)
- *     EtwpCompressBuffer @ 0x14063499C (EtwpCompressBuffer.c)
- *     EtwpSendBufferToDebugger @ 0x1409E91DC (EtwpSendBufferToDebugger.c)
+ *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
+ *     EtwpCompressBuffer @ 0x1405AC714 (EtwpCompressBuffer.c)
+ *     EtwpSendBufferToDebugger @ 0x14093CC34 (EtwpSendBufferToDebugger.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ __int64 __fastcall EtwpGetNextEventOffsetType(unsigned int *a1, unsigned int a2,
   unsigned __int64 v5; // rbx
   int v6; // r8d
   unsigned int v7; // edx
-  unsigned int v8; // eax
-  bool v9; // cf
-  unsigned int v10; // eax
+  unsigned int v9; // eax
+  bool v10; // cf
+  unsigned int v11; // eax
 
   *a3 = 0;
   v4 = *a1;
@@ -25,78 +25,83 @@ __int64 __fastcall EtwpGetNextEventOffsetType(unsigned int *a1, unsigned int a2,
   if ( !(_DWORD)v4 || a2 < 0x48 || a2 >= (unsigned __int64)(v4 - 4) )
     return 0LL;
   v6 = *(unsigned int *)((char *)a1 + a2);
-  if ( (v6 & 0xFF000000) != 0x90000000 )
+  if ( (v6 & 0xFF000000) == 0x90000000 )
   {
-    if ( (v6 & 0xFF000000) != 0xC0000000 )
-      return 0LL;
-    v7 = BYTE2(v6);
-    if ( BYTE2(v6) <= 0xDu )
-    {
-      if ( BYTE2(v6) == 13 )
-        goto LABEL_10;
-      if ( !BYTE2(v6) )
-        return 0LL;
-      if ( BYTE2(v6) <= 2u )
-      {
-        if ( v5 >= v4 - 8 )
-          return 0LL;
-        v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-        v9 = v8 < 0x20;
-      }
-      else
-      {
-        if ( BYTE2(v6) > 4u )
-        {
-          if ( BYTE2(v6) <= 9u || BYTE2(v6) > 0xBu )
-            return 0LL;
-LABEL_28:
-          v8 = (unsigned __int16)v6;
-          v9 = (unsigned __int16)v6 < 0x30u;
-          goto LABEL_11;
-        }
-        if ( v5 >= v4 - 8 )
-          return 0LL;
-        v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-        v9 = v8 < 0x18;
-      }
-    }
-    else
-    {
-      if ( BYTE2(v6) < 0x10u )
-        return 0LL;
-      if ( BYTE2(v6) > 0x11u )
-      {
-        if ( BYTE2(v6) <= 0x13u )
-        {
-LABEL_10:
-          v8 = (unsigned __int16)v6;
-          v9 = (unsigned __int16)v6 < 0x50u;
-          goto LABEL_11;
-        }
-        if ( BYTE2(v6) > 0x15u )
-          return 0LL;
-        goto LABEL_28;
-      }
-      if ( v5 >= v4 - 8 )
-        return 0LL;
-      v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-      v9 = v8 < 0x10;
-    }
-LABEL_11:
-    if ( v9 )
-      return 0LL;
-    goto LABEL_12;
-  }
-  v8 = (unsigned __int16)v6;
-  v7 = 15;
-  if ( (unsigned __int16)v6 < 8u )
+    v9 = (unsigned __int16)v6;
+    v7 = 15;
+    if ( (unsigned __int16)v6 >= 8u )
+      goto LABEL_29;
     return 0LL;
-LABEL_12:
-  v10 = (v8 + 7) & 0xFFFFFFF8;
-  if ( v10 < (unsigned int)v4 && v10 + (unsigned int)v5 <= (unsigned int)v4 )
-  {
-    *a3 = v10;
-    return v7;
   }
-  return 0LL;
+  if ( (v6 & 0xFF000000) != 0xC0000000 )
+    return 0LL;
+  v7 = BYTE2(v6);
+  if ( BYTE2(v6) <= 0xDu )
+  {
+    if ( BYTE2(v6) != 13 )
+    {
+      if ( BYTE2(v6) )
+      {
+        if ( BYTE2(v6) <= 2u )
+        {
+          if ( v5 < v4 - 8 )
+          {
+            v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+            v10 = v9 < 0x20;
+            goto LABEL_26;
+          }
+        }
+        else
+        {
+          if ( BYTE2(v6) > 4u )
+          {
+            if ( BYTE2(v6) <= 9u || BYTE2(v6) > 0xBu )
+              return 0LL;
+            goto LABEL_22;
+          }
+          if ( v5 < v4 - 8 )
+          {
+            v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+            v10 = v9 < 0x18;
+            goto LABEL_26;
+          }
+        }
+      }
+      return 0LL;
+    }
+LABEL_23:
+    v9 = (unsigned __int16)v6;
+    v10 = (unsigned __int16)v6 < 0x50u;
+    goto LABEL_26;
+  }
+  if ( BYTE2(v6) < 0x10u )
+    return 0LL;
+  if ( BYTE2(v6) > 0x11u )
+  {
+    if ( BYTE2(v6) > 0x13u )
+    {
+      if ( BYTE2(v6) <= 0x15u )
+      {
+LABEL_22:
+        v9 = (unsigned __int16)v6;
+        v10 = (unsigned __int16)v6 < 0x30u;
+        goto LABEL_26;
+      }
+      return 0LL;
+    }
+    goto LABEL_23;
+  }
+  if ( v5 >= v4 - 8 )
+    return 0LL;
+  v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+  v10 = v9 < 0x10;
+LABEL_26:
+  if ( v10 )
+    return 0LL;
+LABEL_29:
+  v11 = (v9 + 7) & 0xFFFFFFF8;
+  if ( v11 >= (unsigned int)v4 || v11 + (unsigned int)v5 > (unsigned int)v4 )
+    return 0LL;
+  *a3 = v11;
+  return v7;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCloseFileObjectExtension @ 0x140353F10
+ * XREFs of IopCloseFileObjectExtension @ 0x140310D38
  * Callers:
- *     IopCloseFile @ 0x14072FFC0 (IopCloseFile.c)
- *     IoCancelFileOpen @ 0x140946DB0 (IoCancelFileOpen.c)
+ *     IopCloseFile @ 0x14064A140 (IopCloseFile.c)
+ *     IoCancelFileOpen @ 0x140893670 (IoCancelFileOpen.c)
  * Callees:
- *     PsReleaseSiloHardReference @ 0x140353F50 (PsReleaseSiloHardReference.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
  */
 
-__int64 __fastcall IopCloseFileObjectExtension(__int64 a1)
+LONG_PTR __fastcall IopCloseFileObjectExtension(__int64 a1)
 {
   _QWORD *v1; // rcx
   __int64 v2; // rcx
-  __int64 result; // rax
+  LONG_PTR result; // rax
 
   v1 = *(_QWORD **)(a1 + 208);
   if ( v1 != IopRevocationExtension )

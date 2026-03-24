@@ -1,15 +1,15 @@
 /*
- * XREFs of HvipApertureDirectHypercall @ 0x1402FC80C
+ * XREFs of HvipApertureDirectHypercall @ 0x1402FC90C
  * Callers:
- *     HviCopyMemory @ 0x1402FC604 (HviCopyMemory.c)
+ *     HviCopyMemory @ 0x1402FC704 (HviCopyMemory.c)
  * Callees:
- *     HvipApertureIntelVmcall @ 0x1401C6FD0 (HvipApertureIntelVmcall.c)
- *     HvipApertureAmdVmcall @ 0x1401C6FE0 (HvipApertureAmdVmcall.c)
+ *     HvipApertureIntelVmcall @ 0x1401C6FF0 (HvipApertureIntelVmcall.c)
+ *     HvipApertureAmdVmcall @ 0x1401C7000 (HvipApertureAmdVmcall.c)
  */
 
 void HvipApertureDirectHypercall()
 {
-  if ( byte_1404E14CC )
+  if ( byte_1404E148C )
     HvipApertureIntelVmcall();
   else
     HvipApertureAmdVmcall();

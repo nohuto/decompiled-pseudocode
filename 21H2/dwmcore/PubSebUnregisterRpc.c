@@ -1,12 +1,12 @@
 /*
- * XREFs of PubSebUnregisterRpc @ 0x18001F4E4
+ * XREFs of PubSebUnregisterRpc @ 0x180024614
  * Callers:
- *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x18001C54C (--1CLegacyRenderTarget@@MEAA@XZ.c)
+ *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x180025DD4 (--1CLegacyRenderTarget@@MEAA@XZ.c)
  * Callees:
- *     ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x18001F840 (-PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z.c)
- *     ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x18001F8E4 (-RemoveAt@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBL.c)
- *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x18001FA1C (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
- *     ?FindKey@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEBAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x18001FA94 (-FindKey@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLI.c)
+ *     ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x180024B64 (-PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z.c)
+ *     ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x180024C08 (-RemoveAt@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBL.c)
+ *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x180024D40 (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
+ *     ?FindKey@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEBAHAEBQEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x180024DB8 (-FindKey@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLI.c)
  */
 
 __int64 __fastcall PubSebUnregisterRpc(struct _SEB_RPC_PUBLISH_DATA *a1)
@@ -20,6 +20,7 @@ __int64 __fastcall PubSebUnregisterRpc(struct _SEB_RPC_PUBLISH_DATA *a1)
   __int64 v8; // rcx
   void *v10; // [rsp+40h] [rbp+8h] BYREF
   void *v11; // [rsp+48h] [rbp+10h] BYREF
+  struct _SEB_RPC_PUBLISH_DATA *v12; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !a1 )
   {
@@ -47,16 +48,16 @@ __int64 __fastcall PubSebUnregisterRpc(struct _SEB_RPC_PUBLISH_DATA *a1)
                                        &v10).Pointer;
     if ( !RpcBindingHandle )
     {
-      v11 = a1;
-      RtlAcquireSRWLockExclusive(&unk_1803D39B0);
+      v12 = a1;
+      RtlAcquireSRWLockExclusive(&unk_18034B518);
       Key = ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::FindKey(
               v6,
-              &v11);
+              &v12);
       if ( Key != -1 )
         ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAt(
           v8,
           Key);
-      RtlReleaseSRWLockExclusive(&unk_1803D39B0);
+      RtlReleaseSRWLockExclusive(&unk_18034B518);
       RpcBindingHandle = 0;
     }
     RtlReleaseSRWLockExclusive(a1);

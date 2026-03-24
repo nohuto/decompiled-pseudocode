@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmSetVidSchDevice @ 0x1C0019090
+ * XREFs of VidMmSetVidSchDevice @ 0x1C0016300
  * Callers:
  *     <none>
  * Callees:

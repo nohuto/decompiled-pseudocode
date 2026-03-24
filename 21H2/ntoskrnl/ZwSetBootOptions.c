@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwSetBootOptions @ 0x14041E9A0
+ * XREFs of ZwSetBootOptions @ 0x1403FD4E0
  * Callers:
- *     DifZwSetBootOptionsWrapper @ 0x140626B70 (DifZwSetBootOptionsWrapper.c)
- *     BiSetBootOptions @ 0x140A20AA4 (BiSetBootOptions.c)
+ *     BiSetBootOptions @ 0x140972B3C (BiSetBootOptions.c)
  * Callees:
  *     <none>
  */

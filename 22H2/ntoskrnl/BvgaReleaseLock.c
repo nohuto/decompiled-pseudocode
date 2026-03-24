@@ -1,48 +1,39 @@
 /*
- * XREFs of BvgaReleaseLock @ 0x14054F4D0
+ * XREFs of BvgaReleaseLock @ 0x1404FFAB0
  * Callers:
- *     BvgaBitBlt @ 0x14054F270 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x14054F2F0 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x14054F360 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14054F460 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x14054F610 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x14054F6D0 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x1404FF850 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x1404FF8D0 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x1404FF940 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x1404FFA40 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x1404FFBF0 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x1404FFCB0 (BvgaUpdateProgressBar.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char BvgaReleaseLock()
+void BvgaReleaseLock()
 {
   unsigned __int64 v0; // rbx
-  int v1; // eax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v3; // eax
   bool v4; // zf
 
   v0 = (unsigned __int8)BvgaOldIrql;
-  LOBYTE(v1) = KxReleaseSpinLock((volatile signed __int64 *)&BootDriverLock);
+  KxReleaseSpinLock(&BootDriverLock);
   if ( (unsigned __int8)v0 <= 2u )
   {
-    if ( KiIrqlFlags )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
     {
-      LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
-      {
-        LOBYTE(v1) = v1 - 2;
-        if ( (unsigned __int8)v1 <= 0xDu )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v1 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-          v4 = (v1 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v1;
-          if ( v4 )
-            LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v3 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+      v4 = (v3 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v3;
+      if ( v4 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     __writecr8(v0);
   }
-  return v1;
 }

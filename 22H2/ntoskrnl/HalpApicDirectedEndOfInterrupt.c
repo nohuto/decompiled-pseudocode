@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicDirectedEndOfInterrupt @ 0x140371D00
+ * XREFs of HalpApicDirectedEndOfInterrupt @ 0x140364D00
  * Callers:
  *     <none>
  * Callees:

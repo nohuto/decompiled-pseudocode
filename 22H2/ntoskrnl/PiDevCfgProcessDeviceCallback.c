@@ -1,161 +1,143 @@
 /*
- * XREFs of PiDevCfgProcessDeviceCallback @ 0x1408446E0
+ * XREFs of PiDevCfgProcessDeviceCallback @ 0x1407BE4D0
  * Callers:
  *     <none>
  * Callees:
- *     PipAreDriversLoaded @ 0x14022B108 (PipAreDriversLoaded.c)
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PnpDuplicateUnicodeString @ 0x1403CD820 (PnpDuplicateUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407D95B0 (PiDevCfgFreeDeviceContext.c)
- *     PnpSetTargetDeviceRemove @ 0x140868120 (PnpSetTargetDeviceRemove.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14087C2AC (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgInitDeviceContext @ 0x14087CCD8 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C980 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PipAreDriversLoaded @ 0x14032E384 (PipAreDriversLoaded.c)
+ *     PnpDuplicateUnicodeString @ 0x14036E360 (PnpDuplicateUnicodeString.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1407360F8 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073683C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x140737ED8 (PiDevCfgInitDeviceContext.c)
+ *     PnpSetTargetDeviceRemove @ 0x14074A49C (PnpSetTargetDeviceRemove.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F6C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgProcessDeviceCallback(__int64 a1, __int64 a2)
 {
-  bool v4; // zf
-  __int64 v5; // rsi
+  _QWORD *v4; // rbx
+  bool v5; // zf
   __int64 v6; // rdx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v11; // ecx
-  unsigned int v12; // edx
-  int v13; // eax
-  int v14; // ecx
-  int v15; // r9d
-  __int64 Pool2; // rax
-  _QWORD *v17; // rbx
-  _QWORD *v18; // rax
-  void *v19; // rcx
-  int v20; // [rsp+40h] [rbp-69h]
-  int v21; // [rsp+48h] [rbp-61h]
+  unsigned int v7; // r8d
+  __int64 v9; // rcx
+  unsigned int v10; // edx
+  int v11; // eax
+  __int64 v12; // rcx
+  int v13; // r8d
+  _OWORD *PoolWithTag; // rax
+  _QWORD *v15; // rax
+  _QWORD *v16; // rcx
   HANDLE Handle[2]; // [rsp+70h] [rbp-39h] BYREF
-  _BYTE v23[128]; // [rsp+80h] [rbp-29h] BYREF
-  unsigned int v24; // [rsp+110h] [rbp+67h] BYREF
-  int v25; // [rsp+118h] [rbp+6Fh] BYREF
-  int v26; // [rsp+120h] [rbp+77h] BYREF
-  int v27; // [rsp+128h] [rbp+7Fh] BYREF
+  _QWORD v18[16]; // [rsp+80h] [rbp-29h] BYREF
+  unsigned int v19; // [rsp+110h] [rbp+67h] BYREF
+  int v20; // [rsp+118h] [rbp+6Fh] BYREF
+  int v21; // [rsp+120h] [rbp+77h] BYREF
+  int v22; // [rsp+128h] [rbp+7Fh] BYREF
 
-  memset(v23, 0, 0x48uLL);
-  v26 = 1;
-  v4 = (*(_DWORD *)(a1 + 704) & 0x1000) == 0;
+  v4 = 0LL;
+  memset(v18, 0, 0x48uLL);
+  v5 = (*(_DWORD *)(a1 + 704) & 0x1000) == 0;
   Handle[0] = 0LL;
-  v24 = 0;
-  v27 = 0;
-  v25 = 0;
-  if ( !v4 )
+  v19 = 0;
+  v22 = 0;
+  v21 = 1;
+  v20 = 0;
+  if ( v5
+    || !*(_QWORD *)(a1 + 48)
+    || (int)CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 16, 0, 983103, 0, (__int64)Handle, 0LL) < 0 )
   {
-    if ( *(_QWORD *)(a1 + 48) )
+    goto LABEL_11;
+  }
+  v6 = *(_QWORD *)(a1 + 48);
+  v20 = 4;
+  if ( (int)CmGetDeviceRegProp(
+              *(__int64 *)&PiPnpRtlCtx,
+              v6,
+              (__int64)Handle[0],
+              11,
+              (__int64)&v21,
+              (__int64)&v19,
+              (__int64)&v20,
+              0) >= 0
+    && v21 == 4
+    && v20 == 4 )
+  {
+    v7 = v19;
+  }
+  else
+  {
+    v7 = 0;
+    v19 = 0;
+  }
+  if ( (v7 & 0x40000) != 0 )
+  {
+    if ( (int)PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 48), (__int64)Handle[0], v18) < 0 )
+      goto LABEL_11;
+    LOBYTE(v9) = (PiDevCfgFlags & 2) != 0;
+    if ( ((unsigned __int8)v9 & ((v19 & 0x400) != 0)) != 0 )
     {
-      v5 = a1 + 40;
-      if ( (int)CmOpenDeviceRegKey(
-                  *(__int64 *)&PiPnpRtlCtx,
-                  *(_QWORD *)(a1 + 48),
-                  16,
-                  0,
-                  983103,
-                  0,
-                  (__int64)Handle,
-                  0LL) >= 0 )
-      {
-        v6 = *(_QWORD *)(a1 + 48);
-        v25 = 4;
-        if ( (int)CmGetDeviceRegProp(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    v6,
-                    (__int64)Handle[0],
-                    11,
-                    (__int64)&v26,
-                    (__int64)&v24,
-                    (__int64)&v25,
-                    0) >= 0
-          && v26 == 4
-          && v25 == 4 )
-        {
-          v9 = v24;
-        }
-        else
-        {
-          v9 = 0LL;
-          v24 = 0;
-        }
-        if ( (v9 & 0x40000) != 0 )
-        {
-          if ( (int)PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 48), Handle[0], v23) < 0 )
-            goto LABEL_11;
-          LOBYTE(v11) = (PiDevCfgFlags & 2) != 0;
-          if ( ((unsigned __int8)v11 & ((v24 & 0x400) != 0)) != 0 )
-          {
-            v12 = v24 & 0xFFFFFFDF;
-          }
-          else
-          {
-            v13 = PiDevCfgCheckDeviceNeedsUpdate(v23, &v27);
-            v12 = v24;
-            if ( v13 >= 0 )
-              v12 = v27 | v24;
-          }
-          v24 = v12 & 0xFFFBFFFF;
-          PiDevCfgSetDeviceRegProp(v11, (unsigned int)v23, 11, 4, (__int64)&v24, 4);
-          v9 = v24;
-        }
-        if ( (v9 & 2) != 0 )
-        {
-          if ( (unsigned int)PipAreDriversLoaded(a1, v7, v8, v9) )
-          {
-            v24 = v15 & 0xFFFFFFFD;
-            PiDevCfgSetDeviceRegProp(v14, (unsigned int)v23, 11, 4, (__int64)&v24, 4);
-          }
-          else
-          {
-            Pool2 = ExAllocatePool2(256LL, 32LL, 1667526736LL);
-            v17 = (_QWORD *)Pool2;
-            if ( Pool2 )
-            {
-              if ( PnpDuplicateUnicodeString(Pool2 + 16, v5) )
-              {
-                v18 = *(_QWORD **)(a2 + 8);
-                if ( *v18 != a2 )
-                  __fastfail(3u);
-                *v17 = a2;
-                v17[1] = v18;
-                *v18 = v17;
-                *(_QWORD *)(a2 + 8) = v17;
-              }
-              else
-              {
-                ExFreePoolWithTag(v17, 0);
-              }
-            }
-          }
-        }
-        else if ( (v9 & 0x20) != 0 )
-        {
-          v19 = *(void **)(a1 + 32);
-          if ( (*(_DWORD *)(a1 + 396) & 0x6000) != 0 )
-          {
-            PnpRequestDeviceAction(v19, 1u, 1, 0LL, 0LL, 0LL, 0LL);
-            PnpRequestDeviceAction(*(PVOID *)(a1 + 32), 0x10u, 1, 0LL, 0LL, 0LL, 0LL);
-          }
-          else
-          {
-            PnpSetTargetDeviceRemove(v19, 0, 18, -1073740651, 0LL, v20, v21, 0LL, 0LL, 0LL, 0LL);
-          }
-        }
-      }
+      v10 = v19 & 0xFFFFFFDF;
     }
+    else
+    {
+      v11 = PiDevCfgCheckDeviceNeedsUpdate(v18, &v22);
+      v10 = v19;
+      if ( v11 >= 0 )
+        v10 = v22 | v19;
+    }
+    v19 = v10 & 0xFFFBFFFF;
+    PiDevCfgSetDeviceRegProp(v9, (__int64)v18, 0xBu, 4, (__int64)&v19, 4);
+    LOBYTE(v7) = v19;
+  }
+  if ( (v7 & 2) == 0 )
+  {
+    if ( (v7 & 0x20) == 0 )
+      goto LABEL_11;
+    v16 = *(_QWORD **)(a1 + 32);
+    if ( (*(_DWORD *)(a1 + 396) & 0x6000) != 0 )
+    {
+      PnpRequestDeviceAction(v16, 1, 1, 0LL, 0LL, 0LL, 0LL);
+      PnpRequestDeviceAction(*(PVOID *)(a1 + 32), 16, 1, 0LL, 0LL, 0LL, 0LL);
+      goto LABEL_11;
+    }
+    PnpSetTargetDeviceRemove(v16, 0, 0, 0, 0, 0x12u, -1073740651, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
+    goto LABEL_31;
+  }
+  if ( (unsigned int)PipAreDriversLoaded(a1) )
+  {
+    v19 = v13 & 0xFFFFFFFD;
+    PiDevCfgSetDeviceRegProp(v12, (__int64)v18, 0xBu, 4, (__int64)&v19, 4);
+    goto LABEL_11;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x63647050u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    if ( !PnpDuplicateUnicodeString((__int64)(PoolWithTag + 1), a1 + 40) )
+    {
+LABEL_31:
+      if ( v4 )
+        ExFreePoolWithTag(v4, 0);
+      goto LABEL_11;
+    }
+    v15 = *(_QWORD **)(a2 + 8);
+    if ( *v15 != a2 )
+      __fastfail(3u);
+    *v4 = a2;
+    v4[1] = v15;
+    *v15 = v4;
+    *(_QWORD *)(a2 + 8) = v4;
   }
 LABEL_11:
-  PiDevCfgFreeDeviceContext((__int64)v23);
+  PiDevCfgFreeDeviceContext((__int64)v18);
   if ( Handle[0] )
     ZwClose(Handle[0]);
   return 0LL;

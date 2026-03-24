@@ -1,11 +1,11 @@
 /*
  * XREFs of McTemplateK0ppuq_EtwWriteTransfer @ 0x1C00017E0
  * Callers:
- *     HUBDRIVER_EtwEnableCallback @ 0x1C0074060 (HUBDRIVER_EtwEnableCallback.c)
- *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00871F8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ *     HUBDRIVER_EtwEnableCallback @ 0x1C0072FA8 (HUBDRIVER_EtwEnableCallback.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00855B8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppuq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

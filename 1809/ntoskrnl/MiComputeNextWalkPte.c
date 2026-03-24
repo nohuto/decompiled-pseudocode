@@ -1,5 +1,5 @@
 /*
- * XREFs of MiComputeNextWalkPte @ 0x1402B2C14
+ * XREFs of MiComputeNextWalkPte @ 0x1402B2D14
  * Callers:
  *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
  * Callees:

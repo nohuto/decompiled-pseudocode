@@ -1,31 +1,29 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x14083ECE0
+ * XREFs of ExpWorkQueueManagerThread @ 0x1407AF840
  * Callers:
  *     <none>
  * Callees:
- *     KeSetUserAffinityThread @ 0x14020E9E8 (KeSetUserAffinityThread.c)
- *     KeTimeOutQueueWaiters @ 0x14023C084 (KeTimeOutQueueWaiters.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140263260 (KeQueryNodeActiveAffinityEx.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeIsEqualAffinityEx @ 0x140292B10 (KeIsEqualAffinityEx.c)
- *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExpNewThreadNecessary @ 0x140346260 (ExpNewThreadNecessary.c)
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KeSetMaximumCountPriQueue @ 0x14057B4EC (KeSetMaximumCountPriQueue.c)
- *     ExpCreateWorkerThread @ 0x1406DCB98 (ExpCreateWorkerThread.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140A01EE4 (ExpPartitionCreatePoolDelayed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExpNewThreadNecessary @ 0x140242890 (ExpNewThreadNecessary.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
+ *     KeTimeOutQueueWaiters @ 0x1402871CC (KeTimeOutQueueWaiters.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x14052452C (KeSetMaximumCountPriQueue.c)
+ *     ExpCreateWorkerThread @ 0x1406CFF28 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140955DD8 (ExpPartitionCreatePoolDelayed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
 {
-  char v2; // r12
+  char v1; // r12
   struct _WORK_QUEUE_ITEM *v3; // r15
   _QWORD *PoolWithTag; // r14
   struct _KTHREAD *CurrentThread; // rbx
@@ -36,35 +34,36 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   int v10; // ebx
   __int64 v11; // r10
   __int64 v12; // rsi
-  unsigned __int16 *v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  struct _KDPC *v16; // rcx
-  __int64 j; // r8
-  __int64 v18; // rcx
-  _QWORD *v19; // rcx
-  __int64 v20; // r8
-  int v21; // eax
-  int v22; // eax
-  __int64 i; // rbx
-  __int64 v24; // rcx
-  unsigned int v25; // r8d
+  __int64 v13; // rdx
   int PoolDelayed; // eax
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  struct _KDPC *v17; // rcx
+  __int64 j; // r8
+  __int64 v19; // rcx
+  _QWORD *v20; // rcx
+  __int64 v21; // r8
+  int v22; // eax
+  int v23; // eax
+  __int64 i; // rbx
+  __int64 v25; // rcx
+  __int64 v26; // r8
   __int64 v27; // rbx
   __int64 v28; // rsi
   __int64 v29; // r8
   int WorkerThread; // eax
-  char v31; // [rsp+48h] [rbp-C0h]
-  unsigned __int16 v32; // [rsp+4Ch] [rbp-BCh] BYREF
-  struct _KTHREAD *v33; // [rsp+50h] [rbp-B8h]
-  _QWORD v34[2]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v35[68]; // [rsp+68h] [rbp-A0h] BYREF
-  PVOID Object[3]; // [rsp+178h] [rbp+70h] BYREF
+  char v31; // [rsp+48h] [rbp-29h]
+  USHORT Count; // [rsp+4Ch] [rbp-25h] BYREF
+  struct _KTHREAD *v33; // [rsp+50h] [rbp-21h]
+  unsigned __int64 v34; // [rsp+58h] [rbp-19h]
+  _QWORD v35[2]; // [rsp+60h] [rbp-11h] BYREF
+  struct _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-1h] BYREF
+  PVOID Object[3]; // [rsp+80h] [rbp+Fh] BYREF
 
-  v2 = 0;
-  v32 = 0;
-  memset(v35, 0, 0x108uLL);
+  v1 = 0;
   v31 = 1;
+  Count = 0;
+  Affinity = 0LL;
   v3 = 0LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x6C577845u);
   if ( PoolWithTag )
@@ -82,19 +81,19 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   }
   CurrentThread = KeGetCurrentThread();
   v33 = CurrentThread;
-  KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, 0xCu);
-  v34[1] = -1LL;
-  v34[0] = 0LL;
+  KeSetActualBasePriorityThread((__int64)CurrentThread, 12);
+  v35[1] = -1LL;
+  v35[0] = 0LL;
   KeSetTimer2(
     (__int64)(a1 + 16),
     -((10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2),
     (10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2,
-    (__int64)v34);
+    (__int64)v35);
   v6 = 0;
   v7 = 10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds;
   Object[0] = a1 + 2;
   Object[1] = a1 + 5;
-  v34[0] = v7;
+  v34 = v7;
   Object[2] = a1 + 13;
   while ( 1 )
   {
@@ -102,24 +101,24 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
     v9 = 0LL;
     if ( !v8 )
       break;
-    v22 = v8 - 1;
-    if ( v22 )
+    v23 = v8 - 1;
+    if ( v23 )
     {
-      if ( v22 == 1 )
+      if ( v23 == 1 )
       {
         for ( i = 0LL; i < 64; i += 8LL )
         {
-          v24 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)a1[1]) + i);
-          if ( (v24 & 1) == 0 )
+          v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(a1[1] + 146LL)) + i);
+          if ( (v25 & 1) == 0 )
           {
-            if ( v24 )
+            if ( v25 )
             {
-              if ( (*(_DWORD *)(v24 + 712) & 0x4000) == 0 && !*(_DWORD *)(v24 + 4) )
+              if ( (*(_DWORD *)(v25 + 712) & 0x4000) == 0 && !*(_DWORD *)(v25 + 4) )
               {
-                v25 = (*(_DWORD *)(v24 + 712) & 0x3FFF) - ((2 * *(_DWORD *)(v24 + 716)) >> 1);
-                if ( v25 )
+                v26 = (*(_DWORD *)(v25 + 712) & 0x3FFFu) - ((2 * *(_DWORD *)(v25 + 716)) >> 1);
+                if ( (_DWORD)v26 )
                 {
-                  KeTimeOutQueueWaiters(v24, v7, v25);
+                  KeTimeOutQueueWaiters(v25, v7, v26, 0LL);
                   v9 = 0LL;
                 }
               }
@@ -129,17 +128,17 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
         CurrentThread = v33;
       }
       LOBYTE(v11) = 1;
-LABEL_13:
+LABEL_15:
       if ( v6 )
-        goto LABEL_23;
-      goto LABEL_14;
+        goto LABEL_25;
+      goto LABEL_16;
     }
     v6 = 0;
     v27 = 0LL;
     v11 = 1LL;
     do
     {
-      v28 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)a1[1]) + 8 * v27);
+      v28 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(a1[1] + 146LL)) + 8 * v27);
       if ( ((unsigned __int8)v28 & (unsigned __int8)v11) != 0 )
         v28 = (__int64)v9;
       if ( *(_DWORD *)(v28 + 704) == *(_DWORD *)(v28 + 708) && ExpNewThreadNecessary(v28, 0x3FFF) )
@@ -160,42 +159,40 @@ LABEL_13:
         v9 = 0LL;
         v11 = 1LL;
         if ( WorkerThread < 0 )
-          v2 = 1;
+          v1 = 1;
       }
       v27 += v11;
     }
     while ( v27 <= v11 );
-LABEL_14:
-    v15 = (__int64)v9;
+LABEL_16:
+    v16 = (__int64)v9;
     do
     {
-      v16 = *(struct _KDPC **)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)a1[1]) + v15);
-      if ( ((unsigned __int8)v16 & (unsigned __int8)v11) != 0 )
-        v16 = v9;
-      *((_DWORD *)&v16[11].0 + 1) = v16[11].TargetInfoAsUlong;
-      if ( ((__int64)v16[11].DpcListEntry.Next & 0x3FFF) >= SLODWORD(v16[11].ProcessorHistory) || v2 )
+      v17 = *(struct _KDPC **)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(a1[1] + 146LL)) + v16);
+      if ( ((unsigned __int8)v17 & (unsigned __int8)v11) != 0 )
+        v17 = v9;
+      *((_DWORD *)&v17[11].0 + 1) = v17[11].TargetInfoAsUlong;
+      if ( ((__int64)v17[11].DpcListEntry.Next & 0x3FFF) >= SLODWORD(v17[11].ProcessorHistory) || v1 )
         v6 = v11;
-      v15 += 8LL;
+      v16 += 8LL;
     }
-    while ( v15 <= 8 );
+    while ( v16 <= 8 );
     if ( v6 )
       KeSetCoalescableTimer((PKTIMER)(a1 + 5), (LARGE_INTEGER)-10000000LL, 0, 0xA0u, v9);
     CurrentThread = v33;
-LABEL_23:
-    v35[0] = 2097153;
-    memset(&v35[1], 0, 0x104uLL);
-    KeQueryNodeActiveAffinityEx(*(_WORD *)a1[1], (unsigned __int16 *)v35, &v32);
-    v2 = 0;
-    if ( !(unsigned int)KeIsEqualAffinityEx((unsigned __int16 *)v35, &CurrentThread->UserAffinity->Count) )
-      KeSetUserAffinityThread((__int64)CurrentThread, (__int64)v35);
+LABEL_25:
+    KeQueryNodeActiveAffinity(*(_WORD *)(a1[1] + 146LL), &Affinity, &Count);
+    if ( CurrentThread->UserAffinity.Group != Affinity.Group || CurrentThread->UserAffinity.Mask != Affinity.Mask )
+      KeSetAffinityThread((__int64)CurrentThread, (__int64)&Affinity);
+    v1 = 0;
     for ( j = 0LL; j < 64; j += 8LL )
     {
-      v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)a1[1]) + j);
-      if ( (v18 & 1) == 0 && v18 && *(_DWORD *)(v18 + 664) != v32 )
-        KeSetMaximumCountPriQueue(v18, v32);
+      v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(a1[1] + 146LL)) + j);
+      if ( (v19 & 1) == 0 && v19 && *(_DWORD *)(v19 + 664) != Count )
+        KeSetMaximumCountPriQueue(v19, Count);
     }
     CurrentThread = v33;
-    v7 = v34[0];
+    v7 = v34;
   }
   if ( !*((_DWORD *)a1 + 68) )
   {
@@ -204,29 +201,36 @@ LABEL_23:
     v12 = 0LL;
     do
     {
-      v13 = (unsigned __int16 *)a1[1];
-      if ( ((unsigned __int8)*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *v13) + v12) & (unsigned __int8)v11) != 0
-        && (PoolDelayed = ExpPartitionCreatePoolDelayed(*a1, v13, (unsigned int)v10, v9),
-            v9 = 0LL,
-            LODWORD(v11) = 1,
-            PoolDelayed < 0) )
+      v13 = a1[1];
+      if ( ((unsigned __int8)*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(v13 + 146))
+                                       + v12) & (unsigned __int8)v11) != 0 )
       {
-        v2 = 1;
+        PoolDelayed = ExpPartitionCreatePoolDelayed(*a1, v13, (unsigned int)v10, v9);
+        v9 = 0LL;
+        LODWORD(v11) = 1;
       }
       else
       {
-        v14 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)a1[1]) + v12);
-        if ( ((unsigned __int8)v14 & (unsigned __int8)v11) == 0 )
+        PoolDelayed = (int)v9;
+      }
+      if ( PoolDelayed < 0 )
+      {
+        v1 = v11;
+      }
+      else
+      {
+        v15 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*a1 + 8LL) + 8LL * *(unsigned __int16 *)(a1[1] + 146LL)) + v12);
+        if ( ((unsigned __int8)v15 & (unsigned __int8)v11) == 0 )
         {
-          if ( v14 )
+          if ( v15 )
           {
-            if ( ExpNewThreadNecessary(v14, *(_DWORD *)(v14 + 720)) )
+            if ( ExpNewThreadNecessary(v15, *(_DWORD *)(v15 + 720)) )
             {
-              v21 = ExpCreateWorkerThread(v19, (__int64)a1 + 276, v20, (int)v9);
+              v22 = ExpCreateWorkerThread(v20, (__int64)a1 + 276, v21, (int)v9);
               v9 = 0LL;
               LODWORD(v11) = 1;
-              if ( v21 < 0 )
-                v2 = 1;
+              if ( v22 < 0 )
+                v1 = 1;
             }
           }
         }
@@ -236,7 +240,7 @@ LABEL_23:
     }
     while ( v10 < 8 );
     CurrentThread = v33;
-    goto LABEL_13;
+    goto LABEL_15;
   }
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);

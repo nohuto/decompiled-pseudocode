@@ -1,19 +1,22 @@
 /*
- * XREFs of DebugService2 @ 0x1404287C0
+ * XREFs of DebugService2 @ 0x140406F80
  * Callers:
- *     DbgLoadImageSymbols @ 0x14020AAA0 (DbgLoadImageSymbols.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14020B834 (DbgUnLoadImageSymbolsUnicode.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140569BF8 (KiBugcheckUnloadDebugSymbols.c)
- *     DbgCommandString @ 0x1405A7710 (DbgCommandString.c)
- *     DbgLoadUserImageSymbols @ 0x1405A7774 (DbgLoadUserImageSymbols.c)
- *     DbgUnLoadImageSymbols @ 0x1405A78A0 (DbgUnLoadImageSymbols.c)
+ *     DbgLoadImageSymbols @ 0x1403727E0 (DbgLoadImageSymbols.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037312C (DbgUnLoadImageSymbolsUnicode.c)
+ *     DbgLoadUserImageSymbols @ 0x1403CC498 (DbgLoadUserImageSymbols.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x140517FC4 (KiBugcheckUnloadDebugSymbols.c)
+ *     DbgCommandString @ 0x1405853F0 (DbgCommandString.c)
+ *     DbgUnLoadImageSymbols @ 0x140585550 (DbgUnLoadImageSymbols.c)
  * Callees:
  *     <none>
  */
 
-__int64 DebugService2()
+__int64 __fastcall DebugService2(__int64 a1, __int64 a2, unsigned int a3)
 {
+  __int64 result; // rax
+
+  result = a3;
   __asm { int     2Dh; Windows NT - debugging services: eax = type }
   __debugbreak();
-  return DebugService2AfterInt3();
+  return result;
 }

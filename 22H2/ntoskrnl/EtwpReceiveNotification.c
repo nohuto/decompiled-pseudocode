@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReceiveNotification @ 0x140781B4C
+ * XREFs of EtwpReceiveNotification @ 0x14071802C
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpUnreferenceDataBlock @ 0x140781CF8 (EtwpUnreferenceDataBlock.c)
- *     EtwpReleaseQueueEntry @ 0x140781D20 (EtwpReleaseQueueEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpReleaseQueueEntry @ 0x1407181BC (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceDataBlock @ 0x140718224 (EtwpUnreferenceDataBlock.c)
  */
 
 __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _DWORD *a4)
@@ -16,11 +16,11 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   int v4; // esi
   struct _LIST_ENTRY *Flink; // r14
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v11; // rbx
+  ULONG_PTR v11; // rbx
   char *p_Blink; // r14
-  char *v13; // rdi
-  char *v14; // rdx
-  void **v15; // rax
+  char *i; // rdi
+  char *v14; // rax
+  void **v15; // rcx
   __int64 v16; // rbp
   char *v17; // r12
   signed __int32 v18; // ebx
@@ -31,47 +31,39 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   if ( !Flink )
     return (unsigned int)-1073741811;
   CurrentThread = KeGetCurrentThread();
-  v11 = (__int64 *)&Flink[1];
   --CurrentThread->KernelApcDisable;
+  v11 = (ULONG_PTR)&Flink[1];
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&Flink[1], 0LL);
   p_Blink = (char *)&Flink[1].Blink;
-  v13 = *(char **)p_Blink;
-  if ( *(char **)p_Blink == p_Blink )
+  for ( i = *(char **)p_Blink; i != p_Blink && a3 != (*(_BYTE *)(*((_QWORD *)i + 3) + 99LL) & 1); i = *(char **)i )
+    ;
+  if ( i == p_Blink )
   {
-LABEL_15:
     ExReleasePushLockEx(v11, 0LL);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return (unsigned int)-2147483622;
   }
-  while ( 1 )
-  {
-    v14 = *(char **)v13;
-    if ( a3 == (*(_BYTE *)(*((_QWORD *)v13 + 3) + 99LL) & 1) )
-      break;
-    v13 = *(char **)v13;
-    if ( v14 == p_Blink )
-      goto LABEL_15;
-  }
-  if ( *((char **)v14 + 1) != v13 )
-    goto LABEL_19;
-  v15 = (void **)*((_QWORD *)v13 + 1);
-  if ( *v15 != v13 )
-    goto LABEL_19;
+  v14 = *(char **)i;
+  if ( *(char **)(*(_QWORD *)i + 8LL) != i )
+    goto LABEL_20;
+  v15 = (void **)*((_QWORD *)i + 1);
+  if ( *v15 != i )
+    goto LABEL_20;
   *v15 = v14;
   *((_QWORD *)v14 + 1) = v15;
-  v16 = *((_QWORD *)v13 + 2);
+  v16 = *((_QWORD *)i + 2);
   if ( *(_DWORD *)(v16 + 4) <= a2 )
-    goto LABEL_7;
+    goto LABEL_9;
   v20 = *(char **)p_Blink;
   if ( *(char **)(*(_QWORD *)p_Blink + 8LL) != p_Blink )
-LABEL_19:
+LABEL_20:
     __fastfail(3u);
-  *(_QWORD *)v13 = v20;
+  *(_QWORD *)i = v20;
   v4 = -1073741789;
-  *((_QWORD *)v13 + 1) = p_Blink;
-  *((_QWORD *)v20 + 1) = v13;
-  *(_QWORD *)p_Blink = v13;
-LABEL_7:
+  *((_QWORD *)i + 1) = p_Blink;
+  *((_QWORD *)v20 + 1) = i;
+  *(_QWORD *)p_Blink = i;
+LABEL_9:
   v17 = *(char **)p_Blink;
   *a4 = *(_DWORD *)(v16 + 4);
   ExReleasePushLockEx(v11, 0LL);
@@ -82,11 +74,11 @@ LABEL_7:
     memmove(a1, (const void *)v16, *(unsigned int *)(v16 + 4));
     *((_QWORD *)a1 + 3) = 0LL;
     *((_DWORD *)a1 + 5) = v18;
-    *((_DWORD *)a1 + 6) = *((unsigned __int16 *)v13 + 24);
+    *((_DWORD *)a1 + 6) = *((unsigned __int16 *)i + 24);
     if ( *(_BYTE *)(v16 + 12) )
-      *((_DWORD *)a1 + 4) = *((unsigned __int16 *)v13 + 25);
+      *((_DWORD *)a1 + 4) = *((unsigned __int16 *)i + 25);
     EtwpUnreferenceDataBlock(v16);
-    EtwpReleaseQueueEntry(v13);
+    EtwpReleaseQueueEntry(i);
     if ( v17 != p_Blink )
       return 261;
   }

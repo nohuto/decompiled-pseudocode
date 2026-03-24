@@ -1,25 +1,29 @@
 /*
- * XREFs of ?PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01BC8E4
+ * XREFs of ?PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01E7374
  * Callers:
- *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C00176A0 (FlushWEFCOMPOSITEDDCEBounds.c)
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C01E78C0 (FlushWEFCOMPOSITEDDCEBounds.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PostCOMPOSITEDInvalidateAPC(struct tagWND *const a1, const struct tagRECT *a2)
 {
-  __int128 v3; // [rsp+30h] [rbp-48h] BYREF
-  __m256i v4; // [rsp+40h] [rbp-38h]
+  __int128 v2; // xmm0
+  _QWORD v4[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v5; // [rsp+48h] [rbp-30h]
+  __int64 v6; // [rsp+58h] [rbp-20h]
 
-  *(_OWORD *)v4.m256i_i8 = *(unsigned __int64 *)a1;
-  *(_OWORD *)&v4.m256i_u64[2] = 0LL;
-  v3 = 0LL;
-  *(struct tagRECT *)&v4.m256i_u64[1] = *a2;
-  return ((__int64 (__fastcall *)(struct _KTHREAD *, void (__fastcall *)(struct BLTINFO *), void (__fastcall *)(struct _KAPC *), void (__fastcall *)(char *, void *, void *), __int128 *, int))UserPostNKAPCBuffer)(
+  v2 = (__int128)*a2;
+  v4[0] = 0LL;
+  v4[1] = 0LL;
+  v6 = 0LL;
+  v4[2] = *(_QWORD *)a1;
+  v5 = v2;
+  return ((__int64 (__fastcall *)(struct _KTHREAD *, void (__fastcall *)(struct BLTINFO *), void (__fastcall *)(struct _KAPC *), void (__fastcall *)(char *, void *, void *), _QWORD *, int))UserPostNKAPCBuffer)(
            KeGetCurrentThread(),
            vSrcCopyDummy,
            SpbApcRundown,
            NormalAPCInvalidateCOMPOSITEDWnd,
-           &v3,
+           v4,
            48);
 }

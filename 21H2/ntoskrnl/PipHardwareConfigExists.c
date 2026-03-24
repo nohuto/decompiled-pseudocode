@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigExists @ 0x140B4F8C4
+ * XREFs of PipHardwareConfigExists @ 0x140A9023C
  * Callers:
- *     PipHardwareConfigInit @ 0x140B28AB0 (PipHardwareConfigInit.c)
+ *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x14082EB54 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x14082EBA4 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x14082EBE0 (_PnpCtxRegEnumKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C3C44 (_PnpCtxRegEnumKey.c)
  */
 
 char __fastcall PipHardwareConfigExists(void *a1, int a2)
@@ -19,7 +19,7 @@ char __fastcall PipHardwareConfigExists(void *a1, int a2)
   int v9; // [rsp+3Ch] [rbp-CCh] BYREF
   __int64 v10; // [rsp+40h] [rbp-C8h] BYREF
   HANDLE Handle[2]; // [rsp+48h] [rbp-C0h] BYREF
-  char v12[528]; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int v12[132]; // [rsp+58h] [rbp-B0h] BYREF
 
   Handle[0] = 0LL;
   v2 = 0;
@@ -32,7 +32,7 @@ char __fastcall PipHardwareConfigExists(void *a1, int a2)
     v6 = PnpCtxRegEnumKey((__int64)a1, a1, v2++, v12, &v8);
     if ( v6 < 0 )
       break;
-    if ( (int)PnpCtxRegOpenKey(0LL, (__int64)a1, (__int64)v12, 0, 1u, (__int64)Handle) >= 0 )
+    if ( (int)PnpCtxRegOpenKey(0LL, (int)a1, (int)v12, 0, 1, (__int64)Handle) >= 0 )
     {
       v8 = 4;
       if ( (int)PnpCtxRegQueryValue((__int64)a1, Handle[0], L"Id", &v9, &v10, &v8) >= 0

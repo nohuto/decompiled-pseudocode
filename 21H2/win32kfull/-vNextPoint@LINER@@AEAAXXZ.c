@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vNextPoint@LINER@@AEAAXXZ @ 0x1C0130CB0
+ * XREFs of ?vNextPoint@LINER@@AEAAXXZ @ 0x1C0140B8C
  * Callers:
- *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0130BD0 (-vNextEvent@LINER@@QEAAXXZ.c)
+ *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0140AAC (-vNextEvent@LINER@@QEAAXXZ.c)
  * Callees:
- *     ?vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C012F524 (-vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
- *     ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C0130E4C (-bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z.c)
- *     ?bNextFigure@READER@@IEAAHXZ @ 0x1C0131AF4 (-bNextFigure@READER@@IEAAHXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C013F674 (-vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ *     ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C0140EF4 (-bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z.c)
+ *     ?bNextFigure@READER@@IEAAHXZ @ 0x1C01419E0 (-bNextFigure@READER@@IEAAHXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall LINER::vNextPoint(LINER *this)

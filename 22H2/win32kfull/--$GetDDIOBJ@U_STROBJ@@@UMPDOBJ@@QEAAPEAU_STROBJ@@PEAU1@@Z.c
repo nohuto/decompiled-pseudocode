@@ -1,24 +1,41 @@
 /*
- * XREFs of ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C02C6CF4
+ * XREFs of ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C013D724
  * Callers:
- *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02C7270 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
- *     NtGdiEngTextOut @ 0x1C02CBFB0 (NtGdiEngTextOut.c)
- *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02CD8C0 (NtGdiSTROBJ_bGetAdvanceWidths.c)
- *     NtGdiSTROBJ_dwGetCodePage @ 0x1C02CD9D0 (NtGdiSTROBJ_dwGetCodePage.c)
- *     NtGdiSTROBJ_vEnumStart @ 0x1C02CDA30 (NtGdiSTROBJ_vEnumStart.c)
+ *     NtGdiEngTextOut @ 0x1C013BC80 (NtGdiEngTextOut.c)
+ *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B1370 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
+ *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02B4F80 (NtGdiSTROBJ_bGetAdvanceWidths.c)
+ *     NtGdiSTROBJ_dwGetCodePage @ 0x1C02B50A0 (NtGdiSTROBJ_dwGetCodePage.c)
+ *     NtGdiSTROBJ_vEnumStart @ 0x1C02B5110 (NtGdiSTROBJ_vEnumStart.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall UMPDOBJ::GetDDIOBJ<_STROBJ>(__int64 a1, __int64 a2)
 {
-  unsigned __int64 result; // rax
+  unsigned __int64 v3; // rbx
 
   if ( a2 == *(_QWORD *)(a1 + 200) )
-    result = *(_QWORD *)(a1 + 192);
+    v3 = *(_QWORD *)(a1 + 192);
   else
-    result = 0LL;
-  if ( (*(_DWORD *)(a1 + 428) & 0x100) != 0 && result && result < (unsigned __int64)MmSystemRangeStart )
+    v3 = 0LL;
+  if ( a2 )
+  {
+    if ( !v3 )
+    {
+      ++gdwUMPDUnmatchedUMPointers;
+      if ( gfUMPDDebug )
+        DbgPrint(
+          "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
+          771);
+    }
+  }
+  if ( (*(_DWORD *)(a1 + 412) & 0x100) != 0 && v3 && v3 < (unsigned __int64)MmSystemRangeStart )
+  {
+    if ( gfUMPDDebug )
+      DbgPrint(
+        "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
+        776);
     return 0LL;
-  return result;
+  }
+  return v3;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of IoQueryFileDosDeviceName @ 0x14065F5D0
+ * XREFs of IoQueryFileDosDeviceName @ 0x14065F5B0
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x140269B40 (CcMmLogLostDelayedWriteError.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x14083E394 (PiDrvDbQuerySystemPathWin32.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140269C40 (CcMmLogLostDelayedWriteError.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x14083E374 (PiDrvDbQuerySystemPathWin32.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopQueryNameInternal @ 0x1406605C4 (IopQueryNameInternal.c)
+ *     IopQueryNameInternal @ 0x1406605A4 (IopQueryNameInternal.c)
  */
 
 NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAME_INFORMATION *ObjectNameInformation)

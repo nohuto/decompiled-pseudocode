@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkInvalidTssFault @ 0x140AD3580
+ * XREFs of HalpBlkInvalidTssFault @ 0x140A18580
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140AD30B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkInvalidTssFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

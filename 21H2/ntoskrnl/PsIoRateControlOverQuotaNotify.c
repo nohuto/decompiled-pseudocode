@@ -1,12 +1,12 @@
 /*
- * XREFs of PsIoRateControlOverQuotaNotify @ 0x14025B0B8
+ * XREFs of PsIoRateControlOverQuotaNotify @ 0x1402012D8
  * Callers:
- *     IoNotifyQuotaState @ 0x14025AFF0 (IoNotifyQuotaState.c)
+ *     IoNotifyQuotaState @ 0x140201210 (IoNotifyQuotaState.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PsIoRateControlOverQuotaNotify(__int64 a1, int a2, int a3, int a4, int a5)
@@ -31,19 +31,19 @@ __int64 __fastcall PsIoRateControlOverQuotaNotify(__int64 a1, int a2, int a3, in
   {
     UnbiasedInterruptTime = 0LL;
   }
-  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 1648));
-  v11 = *(_QWORD *)(v8 + 1672);
+  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 1456));
+  v11 = *(_QWORD *)(v8 + 1480);
   v12 = v10;
-  if ( a4 != *(_DWORD *)(v8 + 1692) )
+  if ( a4 != *(_DWORD *)(v8 + 1500) )
   {
-    ++*(_DWORD *)(v8 + 1680);
+    ++*(_DWORD *)(v8 + 1488);
     v11 *= 2LL;
   }
-  *(_DWORD *)(v8 + 1688) = a3;
-  *(_QWORD *)(v8 + 1672) = v11 | (a2 != 0);
+  *(_DWORD *)(v8 + 1496) = a3;
+  *(_QWORD *)(v8 + 1480) = v11 | (a2 != 0);
   if ( a5 )
-    *(_QWORD *)(v8 + 1696) = UnbiasedInterruptTime;
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 1648));
+    *(_QWORD *)(v8 + 1504) = UnbiasedInterruptTime;
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 1456));
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

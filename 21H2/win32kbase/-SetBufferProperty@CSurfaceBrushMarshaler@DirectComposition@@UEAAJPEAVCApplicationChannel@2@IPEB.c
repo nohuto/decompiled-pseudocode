@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AC0E0
+ * XREFs of ?SetBufferProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0092270
  * Callers:
  *     <none>
  * Callees:
@@ -17,31 +17,18 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetBufferProperty(
   unsigned int v6; // edx
   int v7; // r8d
   __int128 v8; // xmm0
-  int v10; // r8d
-  char v11; // al
-  char v12; // al
+  char v10; // al
 
   v6 = 0;
   *a6 = 0;
   v7 = a3 - 1;
   if ( v7 )
   {
-    v10 = v7 - 6;
-    if ( v10 )
+    if ( v7 == 6 && a4 && a5 == 1 )
     {
-      if ( v10 == 1 && a4 && a5 == 1 )
-      {
-        v11 = *a4;
-        *((_DWORD *)this + 4) |= 0x1000u;
-        *((_BYTE *)this + 129) = v11;
-        goto LABEL_5;
-      }
-    }
-    else if ( a4 && a5 == 1 )
-    {
-      v12 = *a4;
+      v10 = *a4;
       *((_DWORD *)this + 4) |= 0x800u;
-      *((_BYTE *)this + 128) = v12;
+      *((_BYTE *)this + 120) = v10;
       goto LABEL_5;
     }
     return (unsigned int)-1073741811;
@@ -50,7 +37,7 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetBufferProperty(
     return (unsigned int)-1073741811;
   v8 = *(_OWORD *)a4;
   *((_DWORD *)this + 4) |= 0x20u;
-  *((_OWORD *)this + 6) = v8;
+  *(_OWORD *)((char *)this + 88) = v8;
 LABEL_5:
   *a6 = 1;
   return v6;

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmClassFilterCallback @ 0x140A27060
+ * XREFs of _CmClassFilterCallback @ 0x140976EB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
  */
 
 char __fastcall CmClassFilterCallback(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

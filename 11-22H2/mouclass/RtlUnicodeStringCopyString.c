@@ -1,1 +1,64 @@
-/*\n * XREFs of RtlUnicodeStringCopyString @ 0x1C00028B0\n * Callers:\n *     MouConfiguration @ 0x1C0011080 (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\nNTSTATUS __stdcall RtlUnicodeStringCopyString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)\n{\n  USHORT Length; // dx\n  USHORT MaximumLength; // ax\n  const wchar_t *v5; // rax\n  PWSTR Buffer; // r10\n  __int64 v7; // rcx\n  NTSTATUS v8; // ebx\n  unsigned __int64 v9; // r8\n  __int16 v10; // r9\n  signed __int64 v11; // r10\n  NTSTATUS result; // eax\n\n  Length = DestinationString->Length;\n  if ( (DestinationString->Length & 1) != 0 )\n    return -1073741811;\n  MaximumLength = DestinationString->MaximumLength;\n  if ( (MaximumLength & 1) != 0\n    || Length > MaximumLength\n    || MaximumLength == 0xFFFF\n    || !DestinationString->Buffer && (Length || MaximumLength) )\n  {\n    return -1073741811;\n  }\n  v5 = L"PointerClass";\n  Buffer = DestinationString->Buffer;\n  v7 = 0x7FFFLL;\n  v8 = 0;\n  v9 = (unsigned __int64)DestinationString->MaximumLength >> 1;\n  v10 = 0;\n  if ( v9 )\n  {\n    v11 = (char *)Buffer - (char *)L"PointerClass";\n    while ( v7 && *v5 )\n    {\n      *(const wchar_t *)((char *)v5 + v11) = *v5;\n      --v7;\n      ++v5;\n      ++v10;\n      if ( !--v9 )\n      {\n        if ( !v7 || !*v5 )\n          break;\n        goto LABEL_13;\n      }\n    }\n  }\n  else\n  {\nLABEL_13:\n    v8 = -2147483643;\n  }\n  result = v8;\n  DestinationString->Length = 2 * v10;\n  return result;\n}\n
+/*
+ * XREFs of RtlUnicodeStringCopyString @ 0x1C00028B0
+ * Callers:
+ *     MouConfiguration @ 0x1C0011080 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall RtlUnicodeStringCopyString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)
+{
+  USHORT Length; // dx
+  USHORT MaximumLength; // ax
+  const wchar_t *v5; // rax
+  PWSTR Buffer; // r10
+  __int64 v7; // rcx
+  NTSTATUS v8; // ebx
+  unsigned __int64 v9; // r8
+  __int16 v10; // r9
+  signed __int64 v11; // r10
+  NTSTATUS result; // eax
+
+  Length = DestinationString->Length;
+  if ( (DestinationString->Length & 1) != 0 )
+    return -1073741811;
+  MaximumLength = DestinationString->MaximumLength;
+  if ( (MaximumLength & 1) != 0
+    || Length > MaximumLength
+    || MaximumLength == 0xFFFF
+    || !DestinationString->Buffer && (Length || MaximumLength) )
+  {
+    return -1073741811;
+  }
+  v5 = L"PointerClass";
+  Buffer = DestinationString->Buffer;
+  v7 = 0x7FFFLL;
+  v8 = 0;
+  v9 = (unsigned __int64)DestinationString->MaximumLength >> 1;
+  v10 = 0;
+  if ( v9 )
+  {
+    v11 = (char *)Buffer - (char *)L"PointerClass";
+    while ( v7 && *v5 )
+    {
+      *(const wchar_t *)((char *)v5 + v11) = *v5;
+      --v7;
+      ++v5;
+      ++v10;
+      if ( !--v9 )
+      {
+        if ( !v7 || !*v5 )
+          break;
+        goto LABEL_13;
+      }
+    }
+  }
+  else
+  {
+LABEL_13:
+    v8 = -2147483643;
+  }
+  result = v8;
+  DestinationString->Length = 2 * v10;
+  return result;
+}

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x140524C30
+ * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x1404D7830
  * Callers:
- *     HalpReadWheaPhysicalMemory @ 0x140524C10 (HalpReadWheaPhysicalMemory.c)
- *     HalpWriteWheaPhysicalMemory @ 0x140524E90 (HalpWriteWheaPhysicalMemory.c)
+ *     HalpReadWheaPhysicalMemory @ 0x1404D7810 (HalpReadWheaPhysicalMemory.c)
+ *     HalpWriteWheaPhysicalMemory @ 0x1404D7AF0 (HalpWriteWheaPhysicalMemory.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpRemapVirtualAddress64 @ 0x14023AF30 (HalpRemapVirtualAddress64.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpRemapVirtualAddress64 @ 0x1402B1F18 (HalpRemapVirtualAddress64.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned int a3, char *a4)

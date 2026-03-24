@@ -1,15 +1,15 @@
 /*
- * XREFs of towlower @ 0x1403DB140
+ * XREFs of towlower @ 0x1403D36A0
  * Callers:
- *     ExpTranslateBootEntryNameToId @ 0x14083FDB8 (ExpTranslateBootEntryNameToId.c)
- *     EtwpCovSampCheckForSegments @ 0x1408A8E8C (EtwpCovSampCheckForSegments.c)
- *     ExpParseArcPathName @ 0x1409FCDD8 (ExpParseArcPathName.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1409FE148 (ExpTranslateDriverEntryNameToId.c)
- *     ExpTranslateHexStringToGUID @ 0x1409FE244 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1409FE3C8 (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1409FE468 (ExpTranslateHexStringToULONGLONG.c)
+ *     EtwpCovSampCheckForSegments @ 0x140942C74 (EtwpCovSampCheckForSegments.c)
+ *     ExpParseArcPathName @ 0x140950AB8 (ExpParseArcPathName.c)
+ *     ExpTranslateBootEntryNameToId @ 0x1409520BC (ExpTranslateBootEntryNameToId.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x140952190 (ExpTranslateDriverEntryNameToId.c)
+ *     ExpTranslateHexStringToGUID @ 0x14095263C (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1409527C0 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x140952860 (ExpTranslateHexStringToULONGLONG.c)
  * Callees:
- *     iswctype @ 0x1403DBCE4 (iswctype.c)
+ *     iswctype @ 0x1403D426C (iswctype.c)
  */
 
 wint_t __cdecl towlower(wint_t C)

@@ -1,130 +1,129 @@
 /*
- * XREFs of IoInitializeProcessor @ 0x14082552C
+ * XREFs of IoInitializeProcessor @ 0x1407962F8
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopQueryProcessorInitValues @ 0x140863C68 (IopQueryProcessorInitValues.c)
- *     ExInitializeSystemLookasideList @ 0x140A57C10 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopQueryProcessorInitValues @ 0x1407D3AAC (IopQueryProcessorInitValues.c)
+ *     ExInitializeSystemLookasideList @ 0x14099C6E4 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoInitializeProcessor(__int64 a1, _OWORD *a2)
 {
-  _OWORD *v2; // rsi
-  char *Pool2; // rbx
-  void *v5; // rbp
-  int v6; // eax
-  void *v7; // rbp
+  _OWORD *v4; // rsi
+  char *PoolWithTag; // rbx
+  void *v6; // rbp
+  int v7; // eax
   void *v8; // rbp
   void *v9; // rbp
-  _OWORD v11[2]; // [rsp+30h] [rbp-58h] BYREF
+  void *v10; // rbp
+  _OWORD v12[2]; // [rsp+30h] [rbp-58h] BYREF
 
-  v2 = a2;
-  memset(v11, 0, sizeof(v11));
+  memset(v12, 0, sizeof(v12));
   if ( !a2 )
-  {
-    IopQueryProcessorInitValues(v11);
-    v2 = v11;
-  }
-  Pool2 = (char *)ExAllocatePool2(64LL, 640LL, 28489LL);
-  v5 = Pool2;
+    IopQueryProcessorInitValues(v12);
+  v4 = v12;
+  if ( a2 )
+    v4 = a2;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x280uLL, 0x6F49u);
+  v6 = PoolWithTag;
   if ( IopIrpCreditsEnabled > 0 )
-    v6 = *((_DWORD *)v2 + 7);
+    v7 = *((_DWORD *)v4 + 7);
   else
-    v6 = 0x7FFFFFFF;
-  *(_DWORD *)(a1 + 11676) = v6;
+    v7 = 0x7FFFFFFF;
+  *(_DWORD *)(a1 + 11676) = v7;
   *(_QWORD *)(a1 + 2168) = &IopCompletionLookasideList;
-  if ( Pool2 )
+  if ( PoolWithTag )
   {
     ExInitializeSystemLookasideList(
-      (_DWORD)Pool2,
+      (_DWORD)PoolWithTag,
       512,
       56,
       1349542729,
-      *((_WORD *)v2 + 3),
+      *((_WORD *)v4 + 3),
       (__int64)&ExSystemLookasideListHead);
-    Pool2 += 128;
+    PoolWithTag += 128;
   }
   else
   {
-    v5 = &IopCompletionLookasideList;
+    v6 = &IopCompletionLookasideList;
   }
-  *(_QWORD *)(a1 + 2160) = v5;
+  *(_QWORD *)(a1 + 2160) = v6;
   *(_QWORD *)(a1 + 2088) = &IopLargeIrpLookasideList;
-  v7 = Pool2;
-  if ( Pool2 )
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
     ExInitializeSystemLookasideList(
-      (_DWORD)Pool2,
+      (_DWORD)PoolWithTag,
       512,
-      *((_DWORD *)v2 + 5),
+      *((_DWORD *)v4 + 5),
       1282437705,
-      *((_WORD *)v2 + 2),
+      *((_WORD *)v4 + 2),
       (__int64)&ExSystemLookasideListHead);
-    Pool2 += 128;
+    PoolWithTag += 128;
   }
   else
   {
-    v7 = &IopLargeIrpLookasideList;
+    v8 = &IopLargeIrpLookasideList;
   }
-  *(_QWORD *)(a1 + 2080) = v7;
+  *(_QWORD *)(a1 + 2080) = v8;
   *(_QWORD *)(a1 + 2072) = &IopMediumIrpLookasideList;
-  v8 = Pool2;
-  if ( Pool2 )
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
     ExInitializeSystemLookasideList(
-      (_DWORD)Pool2,
+      (_DWORD)PoolWithTag,
       512,
-      *((_DWORD *)v2 + 4),
+      *((_DWORD *)v4 + 4),
       1299214921,
-      *((_WORD *)v2 + 1),
+      *((_WORD *)v4 + 1),
       (__int64)&ExSystemLookasideListHead);
-    Pool2 += 128;
+    PoolWithTag += 128;
   }
   else
   {
-    v8 = &IopMediumIrpLookasideList;
+    v9 = &IopMediumIrpLookasideList;
   }
-  *(_QWORD *)(a1 + 2064) = v8;
+  *(_QWORD *)(a1 + 2064) = v9;
   *(_QWORD *)(a1 + 2056) = &IopSmallIrpLookasideList;
-  v9 = Pool2;
-  if ( Pool2 )
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
   {
     ExInitializeSystemLookasideList(
-      (_DWORD)Pool2,
+      (_DWORD)PoolWithTag,
       512,
-      *((_DWORD *)v2 + 3),
+      *((_DWORD *)v4 + 3),
       1399878217,
-      *(_WORD *)v2,
+      *(_WORD *)v4,
       (__int64)&ExSystemLookasideListHead);
-    Pool2 += 128;
+    PoolWithTag += 128;
   }
   else
   {
-    v9 = &IopSmallIrpLookasideList;
+    v10 = &IopSmallIrpLookasideList;
   }
-  *(_QWORD *)(a1 + 2048) = v9;
+  *(_QWORD *)(a1 + 2048) = v10;
   *(_QWORD *)(a1 + 2104) = &IopMdlLookasideList;
-  if ( Pool2 )
+  if ( PoolWithTag )
     ExInitializeSystemLookasideList(
-      (_DWORD)Pool2,
+      (_DWORD)PoolWithTag,
       512,
-      *((_DWORD *)v2 + 6),
+      *((_DWORD *)v4 + 6),
       1349280845,
-      *((_WORD *)v2 + 4),
+      *((_WORD *)v4 + 4),
       (__int64)&ExSystemLookasideListHead);
   else
-    Pool2 = (char *)&IopMdlLookasideList;
-  *(_QWORD *)(a1 + 2096) = Pool2;
+    PoolWithTag = (char *)&IopMdlLookasideList;
+  *(_QWORD *)(a1 + 2096) = PoolWithTag;
   if ( (IopIrpStackProfilerFlags & 3) != 0 )
   {
-    memset((void *)(a1 + 35776), 0, 0x50uLL);
-    *(_DWORD *)(a1 + 35856) = 0;
-    memset((void *)(a1 + 35860), 0, 0x50uLL);
-    *(_DWORD *)(a1 + 35940) = 0;
+    memset((void *)(a1 + 34752), 0, 0x50uLL);
+    *(_DWORD *)(a1 + 34832) = 0;
+    memset((void *)(a1 + 34836), 0, 0x50uLL);
+    *(_DWORD *)(a1 + 34916) = 0;
   }
   return 0LL;
 }

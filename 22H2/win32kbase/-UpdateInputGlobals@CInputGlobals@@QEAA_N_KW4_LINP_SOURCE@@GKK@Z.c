@@ -1,114 +1,163 @@
 /*
- * XREFs of ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C00BFBB0
+ * XREFs of ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C00496F0
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     NtMITUpdateInputGlobals @ 0x1C00BFA50 (NtMITUpdateInputGlobals.c)
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     rimDoUpdateInputGlobalsWorkItem @ 0x1C01A03D4 (rimDoUpdateInputGlobalsWorkItem.c)
- *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E2DA0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     NtMITUpdateInputGlobals @ 0x1C00A7450 (NtMITUpdateInputGlobals.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01795E8 (rimDoProcessAnyPointerDeviceInput.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01AA2C0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C00018FC (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
- *     CitLastInputUpdate @ 0x1C0010D00 (CitLastInputUpdate.c)
- *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0011524 (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00742F0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
- *     EtwTraceUserIsActive @ 0x1C00B2EB0 (EtwTraceUserIsActive.c)
- *     ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C00B439C (-KnownInputTypeFromLinpSource@@YA-AW4InputType@@W4_LINP_SOURCE@@@Z.c)
- *     ?LinpSourceToString@InputTraceLogging@@CAPEBDW4_LINP_SOURCE@@@Z @ 0x1C00D4718 (-LinpSourceToString@InputTraceLogging@@CAPEBDW4_LINP_SOURCE@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ApiSetEditionKeepMachineUp @ 0x1C00E7762 (ApiSetEditionKeepMachineUp.c)
- *     ApiSetTraceLoggingUserIsActive @ 0x1C0208280 (ApiSetTraceLoggingUserIsActive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     ApiSetEditionKeepMachineUp @ 0x1C0049944 (ApiSetEditionKeepMachineUp.c)
+ *     EtwTraceUserIsActive @ 0x1C0049A20 (EtwTraceUserIsActive.c)
+ *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0049AFC (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C0049B78 (-KnownInputTypeFromLinpSource@@YA-AW4InputType@@W4_LINP_SOURCE@@@Z.c)
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0049C44 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ *     ApiSetTraceLoggingUserIsActive @ 0x1C00A9FB8 (ApiSetTraceLoggingUserIsActive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 char __fastcall CInputGlobals::UpdateInputGlobals(
         __int64 a1,
         __int64 a2,
         unsigned int a3,
-        unsigned __int16 a4,
+        __int64 a4,
         unsigned int a5,
-        __int64 a6)
+        unsigned int a6)
 {
-  unsigned int v6; // ebx
-  int v8; // r13d
-  unsigned int v11; // r15d
-  unsigned int v12; // r8d
-  __int64 v13; // r8
-  __int64 v14; // r9
-  int v15; // eax
-  int v16; // edx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rax
-  __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+80h] [rbp+30h] BYREF
+  unsigned int v6; // r14d
+  unsigned int v8; // r13d
+  unsigned __int16 v11; // bx
+  int v12; // eax
+  unsigned int v13; // r8d
+  int v14; // r9d
+  int v15; // r10d
+  int v16; // esi
+  unsigned int v17; // edi
+  unsigned int v19; // edi
+  unsigned int v20; // edi
+  unsigned int v21; // edi
+  unsigned int v22; // edi
+  unsigned int v23; // edi
+  __int16 v24; // bx
+  __int16 v25; // ax
+  __int64 v26; // [rsp+80h] [rbp+8h] BYREF
+  unsigned int v27; // [rsp+90h] [rbp+18h]
 
   v6 = a6;
-  v8 = a4;
-  v11 = a6;
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 2LL) )
+  v8 = 11;
+  if ( a3 != 17 )
+    v8 = a3;
+  v11 = 0;
+  v27 = v8;
+  if ( (a6 & 0x20) != 0 )
   {
-    LODWORD(a6) = v8;
-    LODWORD(v24) = v6;
-    v23 = InputTraceLogging::LinpSourceToString(v12);
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C0289810,
-      (int)&unk_1C025D087,
-      v13,
-      v14,
-      (void **)&v23,
-      (__int64)&v24,
-      (__int64)&a6);
-  }
-  if ( (v6 & 0x20) != 0 )
-  {
-    v15 = KnownInputTypeFromLinpSource(a3);
-    v6 |= 4u;
-    if ( (v15 & *(_DWORD *)(a1 + 104)) == 0 )
-      v6 = v11;
-    if ( (v15 & *(_DWORD *)(a1 + 100)) != 0 )
-      v6 |= v16;
+    v12 = KnownInputTypeFromLinpSource(v8, a2, a6, 2LL);
+    v6 |= v15;
+    if ( (v12 & *(_DWORD *)(a1 + 104)) == 0 )
+      v6 = v13;
+    if ( (v12 & *(_DWORD *)(a1 + 100)) != 0 )
+      v6 |= v14;
   }
   RIMLockExclusive(a1);
-  if ( (*(_DWORD *)gpsi & 0x2000) != 0 )
+  if ( (*(_DWORD *)gpsi & 0x2000) == 0 )
   {
-    CInpPushLock::UnLockExclusive((CInpPushLock *)a1);
-  }
-  else
-  {
-    *(_DWORD *)(a1 + 80) = a3;
+    *(_DWORD *)(a1 + 80) = v8;
+    v16 = v6 & 8;
     *(_BYTE *)(a1 + 85) = 0;
-    *(_BYTE *)(a1 + 84) = (v6 & 8) != 0;
-    if ( a3 != 1 )
+    *(_BYTE *)(a1 + 84) = v16 != 0;
+    if ( v8 != 1 )
       _InterlockedAnd((volatile signed __int32 *)gpsi, 0xFFFFFFBF);
     if ( (v6 & 0x10) == 0 )
     {
       if ( (unsigned __int64)(a2 - *(_QWORD *)(a1 + 72)) > 0x1F4 )
       {
-        v21 = SGDGetUserSessionState(v18, v17, v19, v20);
-        if ( (int)ZwUpdateWnfStateData(&WNF_ISM_LAST_USER_ACTIVITY, 0LL, 0LL, 0LL, v21) < 0 )
+        if ( (int)ZwUpdateWnfStateData(&WNF_ISM_LAST_USER_ACTIVITY, 0LL, 0LL, 0LL, &gSessionId, 0, 0) < 0 )
         {
-          LODWORD(a6) = 0x20000;
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 311LL);
+          a6 = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 300LL);
         }
         *(_QWORD *)(a1 + 72) = a2;
       }
       if ( !gbBlockSendInputResets || (v6 & 8) == 0 )
-        CInputGlobals::_UpdateLastInputTime(a1, a2, a3, v20);
+        CInputGlobals::_UpdateLastInputTime(a1, a2, a3);
     }
-    CInpPushLock::UnLockExclusive((CInpPushLock *)a1);
-    LODWORD(a6) = 0;
-    v24 = 0LL;
+    *(_QWORD *)(a1 + 8) = 0LL;
+    ExReleasePushLockExclusiveEx(a1, 0LL);
+    KeLeaveCriticalRegion();
+    a6 = 0;
+    v26 = 0LL;
     *((_DWORD *)gpsi + 1242) = a2;
-    if ( (unsigned int)EtwTraceUserIsActive(&a6, (unsigned __int64 *)&v24) )
-      ApiSetTraceLoggingUserIsActive((unsigned int)a6, v24);
-    if ( (v6 & 0x10) == 0 )
+    if ( (unsigned int)EtwTraceUserIsActive(&a6, &v26) )
+      ApiSetTraceLoggingUserIsActive(a6, v26);
+    if ( (v6 & 0x10) != 0 )
+      return 1;
+    v17 = a3 - 1;
+    if ( v17 )
     {
-      CitLastInputUpdate(a3, a2, (unsigned __int16)v8, v6);
-      ApiSetEditionKeepMachineUp((unsigned int)a2, a3, a5, v6);
+      v19 = v17 - 2;
+      if ( v19 )
+      {
+        v20 = v19 - 1;
+        if ( v20 )
+        {
+          v21 = v20 - 1;
+          if ( v21 )
+          {
+            v22 = v21 - 6;
+            if ( v22 )
+            {
+              v23 = v22 - 2;
+              if ( v23 )
+              {
+                if ( v23 == 4 )
+                  v11 = v16 != 0 ? 0x4000 : 256;
+                goto LABEL_22;
+              }
+              v24 = 8;
+              v25 = v16 != 0 ? 0x1FF8 : 0;
+            }
+            else
+            {
+              v24 = 4;
+              v25 = v16 != 0 ? 0xFFC : 0;
+            }
+            v11 = v25 + v24;
+          }
+          else
+          {
+            v11 = 32;
+          }
+        }
+        else
+        {
+          v11 = 16;
+        }
+      }
+      else
+      {
+        v11 = v16 != 0 ? 2048 : 2;
+      }
     }
+    else if ( (v6 & 0x40) != 0 )
+    {
+      v11 = 512;
+    }
+    else if ( (v6 & 8) != 0 )
+    {
+      v11 = 1024;
+    }
+    else
+    {
+      v11 = 1;
+    }
+LABEL_22:
+    CitpLastInputUpdate(v11, a2);
+    ApiSetEditionKeepMachineUp((unsigned int)a2, v27, a5, v6);
+    return 1;
   }
+  *(_QWORD *)(a1 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(a1, 0LL);
+  KeLeaveCriticalRegion();
   return 1;
 }

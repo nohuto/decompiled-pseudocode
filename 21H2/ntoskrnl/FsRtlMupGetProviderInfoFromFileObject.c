@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMupGetProviderInfoFromFileObject @ 0x14092E240
+ * XREFs of FsRtlMupGetProviderInfoFromFileObject @ 0x14088B800
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall FsRtlMupGetProviderInfoFromFileObject(

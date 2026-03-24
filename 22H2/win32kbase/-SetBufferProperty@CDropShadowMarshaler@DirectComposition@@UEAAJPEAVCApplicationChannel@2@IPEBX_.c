@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CDropShadowMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C000C9B0
+ * XREFs of ?SetBufferProperty@CDropShadowMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AC570
  * Callers:
  *     <none>
  * Callees:
@@ -16,8 +16,8 @@ __int64 __fastcall DirectComposition::CDropShadowMarshaler::SetBufferProperty(
 {
   unsigned int v6; // edx
   int v7; // r8d
-  __int128 v8; // xmm0
-  int v10; // eax
+  int v8; // eax
+  __int128 v10; // xmm0
 
   v6 = 0;
   *a6 = 0;
@@ -26,10 +26,10 @@ __int64 __fastcall DirectComposition::CDropShadowMarshaler::SetBufferProperty(
   {
     if ( !a4 || a5 != 16 )
       return (unsigned int)-1073741811;
-    v8 = *(_OWORD *)a4;
+    v10 = *(_OWORD *)a4;
     *((_DWORD *)this + 4) |= 0x100u;
-    *((_OWORD *)this + 5) = v8;
-LABEL_5:
+    *((_OWORD *)this + 5) = v10;
+LABEL_6:
     *a6 = 1;
     return v6;
   }
@@ -39,10 +39,10 @@ LABEL_5:
       return v6;
     *((_DWORD *)this + 25) = *a4;
     *((_DWORD *)this + 26) = a4[1];
-    v10 = a4[2];
+    v8 = a4[2];
     *((_DWORD *)this + 4) |= 0x400u;
-    *((_DWORD *)this + 27) = v10;
-    goto LABEL_5;
+    *((_DWORD *)this + 27) = v8;
+    goto LABEL_6;
   }
   return 3221225485LL;
 }

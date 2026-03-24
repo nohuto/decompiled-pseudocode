@@ -3,7 +3,7 @@
  * Callers:
  *     MmMarkHiberPhase @ 0x14057C328 (MmMarkHiberPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiGatherHiberRange(__int64 a1, void *a2, __int64 a3, int a4)

@@ -1,460 +1,392 @@
 /*
- * XREFs of DxgkGetDisplayModeList @ 0x1C01A7B20
+ * XREFs of DxgkGetDisplayModeList @ 0x1C016FC30
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0007998 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
- *     ?IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0008248 (-IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C00082D8 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z @ 0x1C0167D78 (-AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z.c)
- *     DxgkAcquireSessionModeChangeLock @ 0x1C019D0F4 (DxgkAcquireSessionModeChangeLock.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C019D2BC (DxgkReleaseSessionModeChangeLock.c)
- *     ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C01A7AE0 (-ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z.c)
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01AB50C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C01B6388 (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01C71F0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
- *     _lambda_4ad224167d91228276911ab76f1e9490_::operator() @ 0x1C02FEFDC (_lambda_4ad224167d91228276911ab76f1e9490_--operator().c)
- *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C031266C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0001E30 (-IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000202C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0008C9C (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
+ *     ??1DXGADAPTERBYHANDLE@@QEAA@XZ @ 0x1C001A354 (--1DXGADAPTERBYHANDLE@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C0101E70 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkAcquireSessionModeChangeLock @ 0x1C0120190 (DxgkAcquireSessionModeChangeLock.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0120374 (DxgkReleaseSessionModeChangeLock.c)
+ *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C013C5B4 (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C014E2EC (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C01703CC (-ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z @ 0x1C0170400 (-AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z.c)
  */
 
 __int64 __fastcall DxgkGetDisplayModeList(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   struct _KTHREAD **Current; // rdi
-  D3DKMT_DISPLAYMODE *pModeList; // r13
-  UINT ModeCount; // r12d
-  char v8; // r15
-  ULONG64 v9; // rcx
-  __int64 v10; // rsi
-  struct DXGADAPTER *v11; // rbx
-  __int64 v12; // r14
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  bool v19; // zf
+  char v20; // r12
+  struct _D3DKMT_GETDISPLAYMODELIST *v21; // rax
+  bool v22; // r13
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  struct DXGADAPTER *v26; // rsi
+  _QWORD *v27; // rax
   int PairingAdapters; // eax
-  __int64 v14; // rsi
-  volatile signed __int64 *v15; // rbx
-  signed __int64 v16; // rax
-  struct DXGADAPTER *v17; // rbx
-  struct DXGGLOBAL *Global; // rax
-  __int64 v19; // rcx
-  struct DXGSESSIONDATA *v20; // r14
-  __int64 v21; // rcx
-  struct _KPROCESS *v22; // rsi
-  int v23; // eax
-  int DisplayModeList; // r14d
-  ADAPTER_DISPLAY *v25; // rcx
-  UINT v26; // esi
-  char v27; // di
-  __int64 v28; // rcx
-  unsigned int v29; // eax
-  unsigned int v30; // esi
-  ULONG64 v31; // r10
-  __int64 v32; // rbx
-  _DWORD *v33; // rcx
-  UINT i; // eax
-  ULONG64 v35; // r8
-  __int64 v36; // rdx
-  _DWORD *v37; // r11
-  __int32 v38; // r9d
-  struct DXGSESSIONDATA *v39; // rdi
-  struct DXGGLOBAL *v40; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rbx
+  _QWORD *v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  bool v36; // zf
+  struct DXGADAPTER *v38; // r15
+  __int64 v39; // rax
+  __int64 v40; // rdx
   __int64 v41; // rcx
   __int64 v42; // r8
-  __int64 CurrentProcess; // rax
+  __int64 v43; // r9
+  __int64 v44; // rdx
   __int64 v45; // rcx
-  __int64 v46; // rax
-  __int64 v47; // rcx
-  __int64 v48; // r8
-  DXGADAPTER *v49; // rcx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  int v52; // eax
-  UINT v53; // edx
-  __int64 v54; // rax
-  int v55; // ecx
-  UINT v56; // eax
-  unsigned __int8 v57[4]; // [rsp+50h] [rbp-1E8h] BYREF
-  int v58; // [rsp+54h] [rbp-1E4h]
-  int v59; // [rsp+58h] [rbp-1E0h]
-  int v60; // [rsp+60h] [rbp-1D8h] BYREF
-  __int64 v61; // [rsp+68h] [rbp-1D0h]
-  char v62; // [rsp+70h] [rbp-1C8h]
-  char v63; // [rsp+78h] [rbp-1C0h]
-  struct DXGADAPTER *v64; // [rsp+80h] [rbp-1B8h] BYREF
-  UINT v65; // [rsp+88h] [rbp-1B0h]
-  int v66; // [rsp+8Ch] [rbp-1ACh]
-  struct _D3DKMT_DISPLAYMODE *v67; // [rsp+90h] [rbp-1A8h] BYREF
-  struct DXGSESSIONDATA *v68; // [rsp+98h] [rbp-1A0h]
-  unsigned int v69[4]; // [rsp+A0h] [rbp-198h]
-  __int64 v70; // [rsp+B0h] [rbp-188h]
-  struct DXGADAPTER *v71; // [rsp+B8h] [rbp-180h] BYREF
-  struct DXGADAPTER *v72; // [rsp+C8h] [rbp-170h] BYREF
-  ULONG64 v73; // [rsp+D0h] [rbp-168h]
-  D3DKMT_DISPLAYMODE *v74; // [rsp+D8h] [rbp-160h]
-  struct _KTHREAD **v75; // [rsp+E0h] [rbp-158h]
-  struct _D3DKMT_GETDISPLAYMODELIST v76; // [rsp+E8h] [rbp-150h] BYREF
-  unsigned __int64 v77; // [rsp+100h] [rbp-138h] BYREF
-  ULONG64 v78; // [rsp+108h] [rbp-130h]
-  ULONG64 v79; // [rsp+110h] [rbp-128h]
-  struct _KAPC_STATE ApcState; // [rsp+118h] [rbp-120h] BYREF
-  char v81; // [rsp+148h] [rbp-F0h]
-  _BYTE v82[144]; // [rsp+150h] [rbp-E8h] BYREF
-  __m128i si128; // [rsp+1E0h] [rbp-58h]
-  int v84; // [rsp+1F0h] [rbp-48h]
-  int v85; // [rsp+1F4h] [rbp-44h]
-  int v86; // [rsp+1F8h] [rbp-40h]
+  PRKPROCESS *v46; // rsi
+  int v47; // eax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  __int64 v51; // rdx
+  __int64 v52; // rdx
+  struct DXGGLOBAL *Global; // rax
+  unsigned __int8 v54; // dl
+  __int64 v55; // rax
+  __int64 v56; // rdx
+  __int64 v57; // rdx
+  int v58; // ebx
+  int v59; // eax
+  __int64 v60; // rcx
+  __int64 v61; // r14
+  _QWORD *v62; // rax
+  __int64 hAdapter; // rcx
+  ADAPTER_DISPLAY *v64; // rcx
+  __int64 j; // rdx
+  __int64 ModeCount; // rcx
+  int v67; // r12d
+  unsigned __int64 v68; // rax
+  UINT v69; // r12d
+  ULONG64 v70; // r13
+  __int64 v71; // rsi
+  __int64 v72; // rbx
+  size_t v73; // r8
+  D3DKMT_DISPLAYMODE *pModeList; // rdx
+  char *v75; // rcx
+  UINT i; // r8d
+  struct DXGSESSIONDATA *v77; // rbx
+  struct DXGGLOBAL *v78; // rax
+  __int64 v79; // rdx
+  __int64 v80; // rdx
+  __int64 v81; // rcx
+  __int64 v82; // r8
+  unsigned __int8 v83[4]; // [rsp+40h] [rbp-1A8h] BYREF
+  int v84; // [rsp+44h] [rbp-1A4h]
+  int v85; // [rsp+48h] [rbp-1A0h] BYREF
+  __int64 v86; // [rsp+50h] [rbp-198h]
+  char v87; // [rsp+58h] [rbp-190h]
+  struct _D3DKMT_GETDISPLAYMODELIST Src; // [rsp+60h] [rbp-188h] BYREF
+  UINT v89; // [rsp+78h] [rbp-170h]
+  int v90; // [rsp+7Ch] [rbp-16Ch]
+  int v91; // [rsp+80h] [rbp-168h]
+  struct DXGADAPTER *v92; // [rsp+88h] [rbp-160h] BYREF
+  struct DXGADAPTER *v93; // [rsp+90h] [rbp-158h] BYREF
+  ULONG64 v94; // [rsp+98h] [rbp-150h]
+  struct DXGSESSIONDATA *v95; // [rsp+A0h] [rbp-148h]
+  struct _KTHREAD **v96; // [rsp+A8h] [rbp-140h]
+  DXGADAPTER *v97[2]; // [rsp+B0h] [rbp-138h] BYREF
+  unsigned __int64 v98; // [rsp+C0h] [rbp-128h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+C8h] [rbp-120h] BYREF
+  char v100; // [rsp+F8h] [rbp-F0h]
+  _BYTE v101[144]; // [rsp+100h] [rbp-E8h] BYREF
+  __m128i si128; // [rsp+190h] [rbp-58h]
+  int v103; // [rsp+1A0h] [rbp-48h]
+  int v104; // [rsp+1A4h] [rbp-44h]
+  int v105; // [rsp+1A8h] [rbp-40h]
 
-  v78 = a1;
-  v60 = -1;
-  v61 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v94 = a1;
+  v85 = -1;
+  v86 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v62 = 1;
-    v60 = 2017;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v87 = 1;
+    v85 = 2017;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2017);
   }
   else
   {
-    v62 = 0;
+    v87 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v60, 2017);
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
-  v75 = Current;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v85, 2017LL);
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  v96 = Current;
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v4);
-    WdLogSingleEntry2(2LL, -1073741811LL, CurrentProcess);
-    v46 = PsGetCurrentProcess(v45);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"0x%I64x 0x%I64x encountered exception",
-      -1073741811LL,
-      v46,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v60);
-    if ( !v62 || (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return 3221225485LL;
-    goto LABEL_91;
-  }
-  pModeList = 0LL;
-  v74 = 0LL;
-  ModeCount = 0;
-  v57[0] = 0;
-  v8 = 0;
-  v9 = a1;
-  if ( a1 >= MmUserProbeAddress )
-    v9 = MmUserProbeAddress;
-  *(_OWORD *)v69 = *(_OWORD *)v9;
-  v70 = *(_QWORD *)(v9 + 16);
-  v72 = 0LL;
-  v10 = v69[0];
-  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v71, v69[0], Current, &v72, 1);
-  v11 = v72;
-  if ( !v72 )
-  {
-    WdLogSingleEntry3(3LL, -1073741811LL, Current, v10);
-    if ( v71 )
-      DXGADAPTER::ReleaseReference(v71);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v60);
-    if ( !v62 || (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return 3221225485LL;
-    goto LABEL_91;
-  }
-  v64 = 0LL;
-  v77 = 0LL;
-  v12 = v69[1];
-  PairingAdapters = DxgkpGetPairingAdapters(v72, v69[1], 0LL, 0LL, &v64, &v77, 0);
-  LODWORD(v14) = PairingAdapters;
-  v58 = PairingAdapters;
-  if ( PairingAdapters < 0 )
-  {
-    WdLogSingleEntry3(4LL, v11, v12, PairingAdapters);
-    v49 = v71;
-    if ( !v71 )
-      goto LABEL_80;
-    goto LABEL_79;
-  }
-  v15 = (volatile signed __int64 *)v64;
-  if ( !v64 )
-  {
-    WdLogSingleEntry1(1LL, 5848LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDisplayAdapter != NULL", 5848LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v82, (struct DXGADAPTER *const)v15, 0LL);
-  v16 = _InterlockedExchangeAdd64(v15 + 3, 0xFFFFFFFFFFFFFFFFuLL);
-  v17 = v64;
-  if ( v16 == 1 )
-    DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)v64 + 2), v64);
-  if ( !(unsigned int)DxgIsRemoteSessionUsingWddmMonitors() )
-  {
-    Global = DXGGLOBAL::GetGlobal();
-    v20 = DXGSESSIONMGR::AcquireConsoleSessionModeChangeLock(*((DXGSESSIONMGR **)Global + 118));
-    v68 = v20;
-    if ( v20 )
-      goto LABEL_14;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire console session mode change shared lock, returning 0x%I64x.",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82);
-    if ( v71 )
-      DXGADAPTER::ReleaseReference(v71);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v60);
-    if ( !v62 )
-      return 3221225485LL;
-    v47 = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return 3221225485LL;
-LABEL_91:
-    McTemplateK0q_EtwWriteTransfer(v47, &EventProfilerExit, v48, v60);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = -1073741811LL;
+    *(_QWORD *)(v11 + 32) = PsGetCurrentProcess(v13, v12, v14, v15);
+    WdLogEvent5_WdError(v11);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v85, v16);
+    v19 = v87 == 0;
+LABEL_25:
+    if ( !v19 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v85);
     return 3221225485LL;
   }
-  v20 = 0LL;
-  v68 = 0LL;
-  v52 = DxgkAcquireSessionModeChangeLock(0);
-  v14 = v52;
-  if ( v52 >= 0 )
+  v83[0] = 0;
+  v20 = 0;
+  v21 = (struct _D3DKMT_GETDISPLAYMODELIST *)a1;
+  if ( a1 >= MmUserProbeAddress )
+    v21 = (struct _D3DKMT_GETDISPLAYMODELIST *)MmUserProbeAddress;
+  Src = *v21;
+  v22 = Src.pModeList != 0LL;
+  Src.pModeList = 0LL;
+  v92 = 0LL;
+  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)v97, Src.hAdapter, Current, &v92, 1);
+  v26 = v92;
+  if ( !v92 )
   {
-LABEL_14:
-    v81 = 0;
-    if ( v20 )
+    v27 = (_QWORD *)WdLogNewEntry5_WdWarning(v24, v23, v25);
+    v27[3] = -1073741811LL;
+    v27[4] = Current;
+    v27[5] = Src.hAdapter;
+    WdLogEvent5_WdWarning(v27);
+LABEL_24:
+    DXGADAPTERBYHANDLE::~DXGADAPTERBYHANDLE(v97);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v85, v57);
+    v19 = v87 == 0;
+    goto LABEL_25;
+  }
+  v93 = 0LL;
+  v98 = 0LL;
+  PairingAdapters = DxgkpGetPairingAdapters(v92, Src.VidPnSourceId, 0LL, 0LL, &v93, &v98, 0);
+  v31 = PairingAdapters;
+  if ( PairingAdapters < 0 )
+  {
+    v32 = (_QWORD *)WdLogNewEntry5_WdEvent(v30, v29);
+    v32[3] = v26;
+    v32[4] = Src.VidPnSourceId;
+    v32[5] = v31;
+    WdLogEvent5_WdEvent(v32);
+    DXGADAPTERBYHANDLE::~DXGADAPTERBYHANDLE(v97);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v85, v33);
+    v36 = v87 == 0;
+    goto LABEL_13;
+  }
+  v38 = v93;
+  if ( !v93 )
+  {
+    v39 = WdLogNewEntry5_WdAssertion(v30, v29);
+    *(_QWORD *)(v39 + 24) = 5623LL;
+    WdLogEvent5_WdAssertion(v39);
+  }
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v101, v38, 0LL);
+  DXGADAPTER::ReleaseReference(v38);
+  if ( (unsigned int)DxgIsRemoteSessionUsingWddmMonitors(v41, v40, v42, v43) )
+  {
+    v46 = 0LL;
+    v95 = 0LL;
+    v47 = DxgkAcquireSessionModeChangeLock(0LL, v44);
+    v31 = v47;
+    if ( v47 < 0 )
     {
-      if ( (unsigned int)PsGetCurrentProcessSessionId(v19) != *(_DWORD *)v20 )
-      {
-        v8 = 1;
-        v22 = (struct _KPROCESS *)*((_QWORD *)v20 + 2331);
-        if ( (struct _KPROCESS *)PsGetCurrentProcess(v21) != v22 )
-        {
-          KeStackAttachProcess(v22, &ApcState);
-          v81 = 1;
-        }
-      }
+      v50 = WdLogNewEntry5_WdError(v49, v48);
+      *(_QWORD *)(v50 + 24) = v31;
+      WdLogEvent5_WdError(v50);
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v101, v51);
+      DXGADAPTERBYHANDLE::~DXGADAPTERBYHANDLE(v97);
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v85, v52);
+      v36 = v87 == 0;
+LABEL_13:
+      if ( !v36 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v85);
+      return (unsigned int)v31;
     }
-    v67 = 0LL;
-    v23 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v82, 0LL);
-    DisplayModeList = v23;
-    v58 = v23;
-    if ( v23 < 0 )
+  }
+  else
+  {
+    Global = DXGGLOBAL::GetGlobal(v45, v44);
+    v46 = (PRKPROCESS *)DXGSESSIONMGR::AcquireConsoleSessionModeChangeLock(*((DXGSESSIONMGR **)Global + 102), v54);
+    v95 = (struct DXGSESSIONDATA *)v46;
+    if ( !v46 )
     {
-      v59 = 7;
-      WdLogSingleEntry4(7LL, v23, Current, v69[0], v17);
-      LODWORD(Current) = v69[1];
+      v55 = WdLogNewEntry5_WdError(v49, v48);
+      *(_QWORD *)(v55 + 24) = -1073741811LL;
+      WdLogEvent5_WdError(v55);
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v101, v56);
+      goto LABEL_24;
     }
-    else
+  }
+  v100 = 0;
+  if ( v46 )
+  {
+    v58 = *(_DWORD *)v46;
+    if ( (unsigned int)PsGetCurrentProcessSessionId(v49, v48) != v58 )
     {
-      v25 = (ADAPTER_DISPLAY *)*((_QWORD *)v17 + 365);
-      Current = (struct _KTHREAD **)v69[1];
-      if ( v69[1] < *((_DWORD *)v25 + 24) && ADAPTER_DISPLAY::IsPartOfDesktop(v25, v69[1]) )
-      {
-        *(_QWORD *)&v76.hAdapter = *(_QWORD *)v69;
-        *(&v76.ModeCount + 1) = HIDWORD(v70);
-        v76.ModeCount = 0;
-        v76.pModeList = 0LL;
-        DisplayModeList = DxgkpGetDisplayModeList(
-                            v17,
-                            (struct COREADAPTERACCESS *)v82,
-                            0,
-                            &v76,
-                            (const struct _D3DKMT_DISPLAYMODE **)&v67,
-                            v57);
-        v58 = DisplayModeList;
-        v59 = 7;
-        if ( DisplayModeList >= 0 )
-        {
-          ModeCount = v76.ModeCount;
-          pModeList = v76.pModeList;
-          v74 = v76.pModeList;
-        }
-      }
-      else
-      {
-        DisplayModeList = -1071774972;
-        v58 = -1071774972;
-        v59 = 7;
-        WdLogSingleEntry3(7LL, -1071774972LL, v17, Current);
-      }
+      v20 = 1;
+      CPROCESSATTACHHELPER::Attach(&ApcState, v46[2329]);
     }
-    if ( v8 && v81 )
+  }
+  v59 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v101, 0LL);
+  v61 = v59;
+  v84 = v59;
+  if ( v59 < 0 )
+  {
+    v62 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v60);
+    v62[3] = v61;
+    v62[4] = Current;
+    hAdapter = Src.hAdapter;
+    v62[6] = v38;
+LABEL_37:
+    v62[5] = hAdapter;
+    WdLogEvent5_WdDmmEvent(v62);
+    goto LABEL_39;
+  }
+  v64 = (ADAPTER_DISPLAY *)*((_QWORD *)v38 + 337);
+  if ( Src.VidPnSourceId >= *((_DWORD *)v64 + 20) || !ADAPTER_DISPLAY::IsPartOfDesktop(v64, Src.VidPnSourceId) )
+  {
+    LODWORD(v61) = -1071774972;
+    v84 = -1071774972;
+    v62 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v64);
+    v62[3] = -1071774972LL;
+    v62[4] = v38;
+    hAdapter = Src.VidPnSourceId;
+    goto LABEL_37;
+  }
+  LODWORD(v61) = DxgkpGetDisplayModeList(v38, (struct COREADAPTERACCESS *)v101, 0, &Src, v83);
+  v84 = v61;
+LABEL_39:
+  if ( v20 && v100 )
+  {
+    KeUnstackDetachProcess(&ApcState);
+    v100 = 0;
+  }
+  if ( (int)v61 >= 0 )
+  {
+    si128 = _mm_load_si128((const __m128i *)&_xmm);
+    v103 = 31;
+    v104 = 119;
+    v105 = 113;
+    v67 = 1;
+    v68 = 7LL;
+    if ( !*((_QWORD *)v38 + 338) )
+      v67 = 7;
+    ModeCount = Src.ModeCount;
+    v69 = Src.ModeCount * v67;
+    v19 = !v22;
+    v70 = v94;
+    if ( !v19 )
     {
-      KeUnstackDetachProcess(&ApcState);
-      v81 = 0;
-    }
-    if ( DisplayModeList >= 0 )
-    {
-      v26 = ModeCount;
-      if ( *((_DWORD *)ADAPTER_DISPLAY::GetDisplayModeInfo(*((ADAPTER_DISPLAY **)v17 + 365), (unsigned int)Current) + 19) )
+      if ( *(_DWORD *)(v94 + 16) >= v69 )
       {
-        v27 = 1;
-        v53 = 0;
-        while ( v53 < ModeCount )
+        v71 = *(_QWORD *)(v94 + 8);
+        v72 = 0LL;
+        while ( 1 )
         {
-          v54 = v53++;
-          v55 = *((_DWORD *)&pModeList[v54].Flags + 1);
-          v56 = v26 - 1;
-          if ( (v55 & 0x10) == 0 )
-            v56 = v26;
-          v26 = v56;
-        }
-      }
-      else
-      {
-        v27 = 0;
-      }
-      si128 = _mm_load_si128((const __m128i *)&_xmm);
-      v84 = 31;
-      v85 = 119;
-      v86 = 113;
-      v28 = (v67 != 0LL) + v26;
-      if ( *((_QWORD *)v17 + 366) )
-      {
-        v29 = 1;
-        v59 = 1;
-      }
-      else
-      {
-        v29 = 7;
-      }
-      v30 = v28 * v29;
-      v31 = *(_QWORD *)&v69[2];
-      if ( *(_QWORD *)&v69[2] )
-      {
-        if ( (unsigned int)v70 < v30 )
-        {
-          DisplayModeList = -1073741789;
-          v58 = -1073741789;
-        }
-        else
-        {
-          v63 = 0;
-          v73 = *(_QWORD *)&v69[2];
-          v32 = 0LL;
-          while ( 1 )
+          v90 = v72;
+          if ( *((_QWORD *)v38 + 338) )
+            v68 = 1LL;
+          if ( (unsigned int)v72 >= v68 )
+            break;
+          v73 = 44LL * (unsigned int)ModeCount;
+          pModeList = Src.pModeList;
+          v75 = (char *)(v71 + 44LL * (unsigned int)(ModeCount * v72));
+          if ( (unsigned __int64)&v75[v73] > MmUserProbeAddress || &v75[v73] <= v75 )
+            *(_BYTE *)MmUserProbeAddress = 0;
+          memmove(v75, pModeList, v73);
+          if ( (_DWORD)v72 )
           {
-            v66 = v32;
-            if ( (unsigned int)v32 >= v29 )
-              break;
             for ( i = 0; ; ++i )
             {
-              v65 = i;
-              v35 = v31;
-              if ( i >= ModeCount )
+              v89 = i;
+              ModeCount = Src.ModeCount;
+              if ( i >= Src.ModeCount )
                 break;
-              v36 = i;
-              if ( v27 )
-              {
-                v28 = *((unsigned int *)&pModeList[v36].Flags + 1);
-                if ( (v28 & 0x10) != 0 )
-                  continue;
-              }
-              v37 = (_DWORD *)v31;
-              v79 = v31;
-              v31 += 44LL;
-              v73 = v31;
-              v38 = si128.m128i_i32[v32];
-              if ( v31 > MmUserProbeAddress || v31 <= (unsigned __int64)v37 )
-                *(_BYTE *)MmUserProbeAddress = 0;
-              *(_OWORD *)v35 = *(_OWORD *)&pModeList[v36].Width;
-              *(_OWORD *)(v35 + 16) = *(_OWORD *)&pModeList[v36].RefreshRate.Numerator;
-              *(_QWORD *)(v35 + 32) = *(_QWORD *)&pModeList[v36].DisplayFixedOutput;
-              v28 = *((unsigned int *)&pModeList[v36].Flags + 1);
-              *(_DWORD *)(v35 + 40) = v28;
-              if ( pModeList[v36].RefreshRate.Numerator == -2 && pModeList[v36].RefreshRate.Denominator == -2 )
-              {
-                v37[4] = 64;
-                v37[5] = 1;
-                v37[3] = 64;
-              }
-              if ( v38 != 21 )
-                v37[2] = v38;
+              *(_DWORD *)(44LL * (i + Src.ModeCount * (_DWORD)v72) + v71 + 8) = si128.m128i_i32[v72];
             }
-            if ( v67 )
-            {
-              v73 = v31 + 44;
-              lambda_4ad224167d91228276911ab76f1e9490_::operator()(v28, v31, v67, si128.m128i_u32[v32]);
-            }
-            v32 = (unsigned int)(v32 + 1);
-            v29 = v59;
+          }
+          else
+          {
+            ModeCount = Src.ModeCount;
+          }
+          v72 = (unsigned int)(v72 + 1);
+          v68 = 7LL;
+        }
+        for ( j = 0LL; ; j = (unsigned int)(j + 1) )
+        {
+          v91 = j;
+          if ( (unsigned int)j >= v69 )
+            break;
+          if ( Src.pModeList->RefreshRate.Numerator == -2 && Src.pModeList->RefreshRate.Denominator == -2 )
+          {
+            ModeCount = 44LL * (unsigned int)j;
+            *(_DWORD *)(ModeCount + v71 + 16) = 64;
+            *(_DWORD *)(ModeCount + v71 + 20) = 1;
+            *(_DWORD *)(ModeCount + v71 + 12) = 64;
           }
         }
       }
-      v33 = (_DWORD *)(v78 + 16);
-      if ( v78 + 16 >= MmUserProbeAddress )
-        v33 = (_DWORD *)MmUserProbeAddress;
-      *v33 = v30;
+      else
+      {
+        LODWORD(v61) = -1073741789;
+        v84 = -1073741789;
+      }
     }
-    if ( v57[0] )
-      operator delete(pModeList);
-    v39 = v68;
-    if ( v68 )
-    {
-      v40 = DXGGLOBAL::GetGlobal();
-      DXGSESSIONMGR::ReleaseConsoleSessionModeChangeLock(*((DXGSESSIONMGR **)v40 + 118), v39);
-    }
-    else
-    {
-      DxgkReleaseSessionModeChangeLock();
-    }
-    if ( v81 )
-    {
-      KeUnstackDetachProcess(&ApcState);
-      v81 = 0;
-    }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82);
-    if ( v71 )
-    {
-      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v71 + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-        DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)v71 + 2), v71);
-      DisplayModeList = v58;
-    }
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v60);
-    if ( v62 )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v41, &EventProfilerExit, v42, v60);
-    }
-    return (unsigned int)DisplayModeList;
+    *(_DWORD *)(v70 + 16) = v69;
   }
-  WdLogSingleEntry1(2LL, v52);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to acquire current session mode change shared lock, returning 0x%I64x.",
-    v14,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82);
-  v49 = v71;
-  if ( v71 )
-LABEL_79:
-    DXGADAPTER::ReleaseReference(v49);
-LABEL_80:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v60);
-  if ( v62 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v50, &EventProfilerExit, v51, v60);
-  return (unsigned int)v14;
+  if ( v83[0] )
+  {
+    operator delete[](Src.pModeList);
+    Src.pModeList = 0LL;
+  }
+  v77 = v95;
+  if ( v95 )
+  {
+    v78 = DXGGLOBAL::GetGlobal(ModeCount, j);
+    DXGSESSIONMGR::ReleaseConsoleSessionModeChangeLock(*((DXGSESSIONMGR **)v78 + 102), v77);
+  }
+  else
+  {
+    DxgkReleaseSessionModeChangeLock(ModeCount, j);
+  }
+  if ( v100 )
+  {
+    KeUnstackDetachProcess(&ApcState);
+    v100 = 0;
+  }
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v101, v79);
+  DXGADAPTERBYHANDLE::~DXGADAPTERBYHANDLE(v97);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v85, v80);
+  if ( v87 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v81, &EventProfilerExit, v82, v85);
+  return (unsigned int)v61;
 }

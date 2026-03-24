@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C02F2744
+ * XREFs of ?IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0297604
  * Callers:
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
  * Callees:
- *     ?IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C02F27D8 (-IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z.c)
+ *     ?IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C02976A4 (-IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z.c)
  */
 
 unsigned __int8 __fastcall IsValidCloneConfiguration(struct D3DKMT_GETPATHSMODALITY *a1)
@@ -22,7 +22,7 @@ unsigned __int8 __fastcall IsValidCloneConfiguration(struct D3DKMT_GETPATHSMODAL
       do
       {
         v4 = v3++;
-        *((_QWORD *)a1 + 37 * v4 + 7) &= ~0x2000000000uLL;
+        *((_QWORD *)a1 + 34 * v4 + 6) &= ~0x2000000000uLL;
         v2 = *((unsigned __int16 *)a1 + 10);
       }
       while ( v3 < v2 );
@@ -30,7 +30,7 @@ unsigned __int8 __fastcall IsValidCloneConfiguration(struct D3DKMT_GETPATHSMODAL
     v5 = 0;
     if ( !(_WORD)v2 )
       return 1;
-    while ( _bittest64((const signed __int64 *)a1 + 37 * v5 + 7, 0x25u) || IsValidCloneGroup(a1, v5) )
+    while ( (*((_QWORD *)a1 + 34 * v5 + 6) & 0x2000000000LL) != 0 || IsValidCloneGroup(a1, v5) )
     {
       if ( ++v5 >= *((unsigned __int16 *)a1 + 10) )
         return 1;

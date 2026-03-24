@@ -1,14 +1,14 @@
 /*
- * XREFs of AslEnvGetProcessWowInfo @ 0x140722344
+ * XREFs of AslEnvGetProcessWowInfo @ 0x140722324
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140721A94 (SdbpResolveMatchingFile.c)
- *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x1408E803C (SdbGuestHostArchsToRuntimePlatformFlag.c)
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80E8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x1408E8D48 (SdbpGetProcessHostGuestArchitectures.c)
+ *     SdbpResolveMatchingFile @ 0x140721A74 (SdbpResolveMatchingFile.c)
+ *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x1408E801C (SdbGuestHostArchsToRuntimePlatformFlag.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80C8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x1408E8D28 (SdbpGetProcessHostGuestArchitectures.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)

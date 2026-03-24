@@ -1,20 +1,20 @@
 /*
- * XREFs of ??1CLegacySurfaceManager@@UEAA@XZ @ 0x1801B72A4
+ * XREFs of ??1CLegacySurfaceManager@@UEAA@XZ @ 0x180163FA8
  * Callers:
- *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x1801B71D8 (--1CGlobalSurfaceManager@@MEAA@XZ.c)
- *     ??_ECLegacySurfaceManager@@UEAAPEAXI@Z @ 0x1801B7490 (--_ECLegacySurfaceManager@@UEAAPEAXI@Z.c)
+ *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x180163D7C (--1CGlobalSurfaceManager@@MEAA@XZ.c)
+ *     ??_ECLegacySurfaceManager@@UEAAPEAXI@Z @ 0x1801641A0 (--_ECLegacySurfaceManager@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ @ 0x1801DFB5C (-ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ.c)
- *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x1801DFC28 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ @ 0x180178B00 (-ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ.c)
+ *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x180178BB8 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
  */
 
 void __fastcall CLegacySurfaceManager::~CLegacySurfaceManager(CLegacySurfaceManager *this)
 {
-  int i; // edi
-  struct _RTL_GENERIC_TABLE *v3; // rbx
+  int i; // ebx
+  struct _RTL_GENERIC_TABLE *v3; // rdi
   PVOID v4; // rax
   PVOID RestartKey; // [rsp+30h] [rbp+8h] BYREF
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetNextPageTableTail @ 0x14010EF60
+ * XREFs of MiGetNextPageTableTail @ 0x14010EF80
  * Callers:
  *     <none>
  * Callees:

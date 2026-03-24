@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetIndexCount@CMeshGeometry2D@@UEAAIXZ @ 0x180107980
+ * XREFs of ?GetIndexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D6650
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CMeshGeometry2D::GetIndexCount(CMeshGeometry2D *this)
 {
-  return (__int64)(*((_QWORD *)this + 18) - *((_QWORD *)this + 17)) >> 2;
+  return *((_DWORD *)this + 40) >> 2;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSecureBootGetQWordPolicyValue @ 0x1409CE090
+ * XREFs of SepSecureBootGetQWordPolicyValue @ 0x1409245B0
  * Callers:
- *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409CE294 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409247B4 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
  * Callees:
  *     <none>
  */

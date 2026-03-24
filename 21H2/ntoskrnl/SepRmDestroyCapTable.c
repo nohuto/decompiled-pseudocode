@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRmDestroyCapTable @ 0x1409CF8D8
+ * XREFs of SepRmDestroyCapTable @ 0x140926038
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403DA7FC (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1405F4304 (SepRmDereferenceCapTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
  * Callees:
- *     RtlEnumerateEntryHashTable @ 0x140206880 (RtlEnumerateEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x1402069A0 (RtlRemoveEntryHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x140206B00 (RtlEndEnumerationHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x140206B50 (RtlInitEnumerationHashTable.c)
- *     RtlDeleteHashTable @ 0x1403A3620 (RtlDeleteHashTable.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlEnumerateEntryHashTable @ 0x140251BA0 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1402C5710 (RtlInitEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x1402C5D20 (RtlEndEnumerationHashTable.c)
+ *     RtlDeleteHashTable @ 0x1403793B0 (RtlDeleteHashTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRmDestroyCapTable(struct _RTL_DYNAMIC_HASH_TABLE *P)

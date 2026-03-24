@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetScale@CComponentTransform2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM2D_SETSCALE@@@Z @ 0x1800EA6FC
+ * XREFs of ?ProcessSetScale@CComponentTransform2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM2D_SETSCALE@@@Z @ 0x1800D007C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComponentTransform2D::ProcessSetScale(
@@ -18,8 +18,8 @@ __int64 __fastcall CComponentTransform2D::ProcessSetScale(
   v3 = *((_DWORD *)a3 + 3);
   LODWORD(v5) = *((_DWORD *)a3 + 2);
   HIDWORD(v5) = v3;
-  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_1803E35C8)(
-           (char *)this + SDWORD2(xmmword_1803E35C8),
+  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_180344248)(
+           (char *)this + SDWORD2(xmmword_180344248),
            &CComponentTransform2D::sc_Scale,
            &v5);
 }

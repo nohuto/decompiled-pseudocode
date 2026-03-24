@@ -1,20 +1,23 @@
 /*
- * XREFs of HalpTimerFindIdealClockSource @ 0x1403BEB18
+ * XREFs of HalpTimerFindIdealClockSource @ 0x1403AA424
  * Callers:
- *     HalpTimerSelectRoles @ 0x1403BC388 (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x1403ACEFC (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
  */
 
-__int64 HalpTimerFindIdealClockSource()
+ULONG_PTR *HalpTimerFindIdealClockSource()
 {
-  char v0; // di
-  __int64 v1; // rbx
-  ULONG_PTR *Timer; // rax
-  int v3; // ecx
+  char v0; // bl
+  ULONG_PTR *Timer; // rcx
+  int v2; // eax
+  ULONG_PTR *v4; // rax
+  ULONG_PTR *v5; // rax
+  ULONG_PTR *v6; // rax
+  ULONG_PTR *v7; // rax
+  ULONG_PTR *v8; // rax
 
   v0 = HalpTimerPlatformClockSourceForced;
-  v1 = 0LL;
   if ( !HalpTimerPlatformClockSourceForced )
   {
     Timer = HalpFindTimer(8, 96, 24576, 3840, 0);
@@ -24,7 +27,7 @@ __int64 HalpTimerFindIdealClockSource()
   Timer = HalpFindTimer(11, 544, 0, 80, 0);
   if ( Timer )
     goto LABEL_8;
-  if ( !v0 && !HalpHvPresent && HalpProfileInterface != &DefaultProfileInterface )
+  if ( !v0 && !HalpHvPresent && (__int64 (__fastcall **)())HalpProfileInterface[0] != DefaultProfileInterface )
   {
     Timer = HalpFindTimer(0, 33, 24576, 3840, 0);
     if ( Timer )
@@ -48,21 +51,38 @@ __int64 HalpTimerFindIdealClockSource()
   Timer = HalpFindTimer(6, 96, 0, 3840, 0);
   if ( Timer )
     goto LABEL_8;
-  Timer = HalpFindTimer(0, 32864, 24576, 3840, 0);
+  v4 = HalpFindTimer(0, 32864, 24576, 3840, 0);
+  Timer = v4;
+  if ( !v4 || v4[24] < 0x7D0 )
+  {
+    v5 = HalpFindTimer(0, 32816, 24576, 3840, 0);
+    Timer = v5;
+    if ( !v5 || v5[24] < 0x7D0 )
+    {
+      v6 = HalpFindTimer(0, 608, 57344, 0, 0);
+      Timer = v6;
+      if ( !v6 || v6[24] < 0x7D0 )
+      {
+        v7 = HalpFindTimer(0, 96, 57344, 3840, 0);
+        Timer = v7;
+        if ( !v7 || v7[24] < 0x7D0 )
+        {
+          v8 = HalpFindTimer(0, 48, 57344, 3840, 0);
+          Timer = v8;
+          if ( !v8 || v8[24] < 0x7D0 )
+            Timer = 0LL;
+        }
+      }
+    }
+  }
   if ( Timer )
   {
-    if ( Timer[24] >= 0x7D0 )
-      goto LABEL_8;
-  }
-  if ( (Timer = HalpFindTimer(0, 32816, 24576, 3840, 0)) != 0LL && Timer[24] >= 0x7D0
-    || (Timer = HalpFindTimer(0, 608, 57344, 0, 0)) != 0LL && Timer[24] >= 0x7D0
-    || (Timer = HalpFindTimer(0, 96, 57344, 3840, 0)) != 0LL && Timer[24] >= 0x7D0
-    || (Timer = HalpFindTimer(0, 48, 57344, 3840, 0)) != 0LL && Timer[24] >= 0x7D0 )
-  {
 LABEL_8:
-    v3 = *((_DWORD *)Timer + 56);
-    if ( (v3 & 0x50) != 0 )
-      return (unsigned __int64)Timer & -(__int64)((v3 & 0x20) != 0);
+    v2 = *((_DWORD *)Timer + 56);
+    if ( (v2 & 0x50) != 0 )
+      return (ULONG_PTR *)(-(__int64)((v2 & 0x20) != 0) & (unsigned __int64)Timer);
+    else
+      return 0LL;
   }
-  return v1;
+  return Timer;
 }

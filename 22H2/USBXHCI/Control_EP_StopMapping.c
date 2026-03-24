@@ -1,9 +1,9 @@
 /*
- * XREFs of Control_EP_StopMapping @ 0x1C00423D0
+ * XREFs of Control_EP_StopMapping @ 0x1C0019DB0
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall Control_EP_StopMapping(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall Control_EP_StopMapping(__int64 a1)
     if ( !*(_BYTE *)(v4 + 37)
       || (v5 = *(_QWORD *)(v4 + 136), _InterlockedIncrement((volatile signed __int32 *)(v5 + 20)) == *(_DWORD *)(v5 + 8)) )
     {
-      ESM_AddEvent((KSPIN_LOCK *)(v4 + 296), 20);
+      ESM_AddEvent((KSPIN_LOCK *)(v4 + 288), 20);
     }
   }
 }

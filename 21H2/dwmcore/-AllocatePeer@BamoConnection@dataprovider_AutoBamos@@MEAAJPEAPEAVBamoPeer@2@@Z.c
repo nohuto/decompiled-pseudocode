@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AllocatePeer@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAPEAVBamoPeer@2@@Z @ 0x1800F6460
+ * XREFs of ?AllocatePeer@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAPEAVBamoPeer@2@@Z @ 0x1800DF580
  * Callers:
  *     <none>
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
  */
 
 __int64 __fastcall dataprovider_AutoBamos::BamoConnection::AllocatePeer(
@@ -15,29 +15,33 @@ __int64 __fastcall dataprovider_AutoBamos::BamoConnection::AllocatePeer(
   const char *v4; // r9
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v3 = operator new(0x68uLL);
+  v3 = operator new(0x48uLL);
+  if ( v3 )
+  {
+    *(_QWORD *)v3 = &dataprovider_AutoBamos::BamoPeer::`vftable';
+    v3[4] = 1;
+    *((_QWORD *)v3 + 4) = 0LL;
+    *((_QWORD *)v3 + 1) = &BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::`vftable';
+    *((_QWORD *)v3 + 3) = v3;
+    *((_QWORD *)v3 + 5) = 0LL;
+    v3[12] = 0;
+    *((_WORD *)v3 + 26) = 0;
+    *((_QWORD *)v3 + 7) = 0LL;
+    *((_QWORD *)v3 + 8) = 0LL;
+  }
+  else
+  {
+    v3 = 0LL;
+  }
+  *a2 = (struct dataprovider_AutoBamos::BamoPeer *)v3;
   if ( !v3 )
   {
-    *a2 = 0LL;
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      (void *)0x1E81,
-      (unsigned int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (void *)0x1C76,
+      (unsigned int)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
       v4);
+    JUMPOUT(0x18014B71CLL);
   }
-  *(_QWORD *)v3 = &dataprovider_AutoBamos::BamoPeer::`vftable';
-  v3[4] = 1;
-  *((_QWORD *)v3 + 4) = 0LL;
-  *((_QWORD *)v3 + 3) = v3;
-  *((_QWORD *)v3 + 5) = 0LL;
-  *((_QWORD *)v3 + 6) = 0LL;
-  *((_WORD *)v3 + 28) = 0;
-  *((_QWORD *)v3 + 8) = 0LL;
-  *((_QWORD *)v3 + 9) = 0LL;
-  *((_QWORD *)v3 + 10) = 0LL;
-  *((_QWORD *)v3 + 11) = 0LL;
-  *((_QWORD *)v3 + 12) = 0LL;
-  *((_QWORD *)v3 + 1) = &BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::`vftable';
-  *a2 = (struct dataprovider_AutoBamos::BamoPeer *)v3;
   return 0LL;
 }

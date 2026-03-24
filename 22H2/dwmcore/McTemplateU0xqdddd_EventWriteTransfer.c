@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0xqdddd_EventWriteTransfer @ 0x18013526A
+ * XREFs of McTemplateU0xqdddd_EventWriteTransfer @ 0x180241078
  * Callers:
- *     ?DiscardIfOccluded@CDrawingContext@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18007607C (-DiscardIfOccluded@CDrawingContext@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
+ *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_N@Z @ 0x1800754F0 (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xqdddd_EventWriteTransfer(
+ULONG __fastcall McTemplateU0xqdddd_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -18,7 +18,7 @@ __int64 __fastcall McTemplateU0xqdddd_EventWriteTransfer(
         char a8)
 {
   int v9; // [rsp+30h] [rbp-59h] BYREF
-  _BYTE v10[16]; // [rsp+40h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+40h] [rbp-49h] BYREF
   __int64 *v11; // [rsp+50h] [rbp-39h]
   __int64 v12; // [rsp+58h] [rbp-31h]
   int *v13; // [rsp+60h] [rbp-29h]
@@ -48,9 +48,9 @@ __int64 __fastcall McTemplateU0xqdddd_EventWriteTransfer(
   v20 = 4LL;
   v22 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_RENDEROPT_DISCARDVIEWEVENT,
            a3,
-           7LL,
-           v10);
+           7u,
+           &v10);
 }

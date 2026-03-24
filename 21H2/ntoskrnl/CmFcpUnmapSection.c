@@ -1,16 +1,19 @@
 /*
- * XREFs of CmFcpUnmapSection @ 0x140832C50
+ * XREFs of CmFcpUnmapSection @ 0x1407D4AE8
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
  */
 
-void __fastcall CmFcpUnmapSection(__int64 a1)
+NTSTATUS __fastcall CmFcpUnmapSection(__int64 a1)
 {
-  ULONG_PTR v1; // rcx
+  void *v1; // rcx
+  NTSTATUS result; // eax
 
-  v1 = *(_QWORD *)(a1 + 8);
+  v1 = *(void **)(a1 + 8);
   if ( v1 )
-    MiRemoveFromSystemSpace(v1, 1);
+    return MmUnmapViewInSystemSpace(v1);
+  return result;
 }

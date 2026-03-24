@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpAssignResourcesToDevices @ 0x1406FACC4
+ * XREFs of PnpAssignResourcesToDevices @ 0x1406FACA4
  * Callers:
- *     PnpProcessAssignResources @ 0x1406E836C (PnpProcessAssignResources.c)
+ *     PnpProcessAssignResources @ 0x1406E834C (PnpProcessAssignResources.c)
  * Callees:
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     PnpAllocateResources @ 0x1406FADDC (PnpAllocateResources.c)
+ *     PnpAllocateResources @ 0x1406FADBC (PnpAllocateResources.c)
  */
 
 __int64 __fastcall PnpAssignResourcesToDevices(unsigned int a1, _DWORD *a2, __int64 a3)

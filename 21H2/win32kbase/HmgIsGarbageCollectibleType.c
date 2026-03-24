@@ -1,30 +1,23 @@
 /*
- * XREFs of HmgIsGarbageCollectibleType @ 0x1C016C298
+ * XREFs of HmgIsGarbageCollectibleType @ 0x1C00C9A8C
  * Callers:
- *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C0017F5C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F4DC (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
- *     ?Feature_1827749177__private_IsEnabled@@YAHXZ @ 0x1C00D8C50 (-Feature_1827749177__private_IsEnabled@@YAHXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall HmgIsGarbageCollectibleType(unsigned __int8 a1)
+_BOOL8 __fastcall HmgIsGarbageCollectibleType(unsigned __int8 a1)
 {
-  unsigned int v1; // ebx
-  int v2; // ecx
+  int v1; // eax
+  _BOOL8 result; // rax
 
-  v1 = a1;
-  if ( (unsigned int)Feature_1827749177__private_IsEnabled() )
+  result = 0;
+  if ( a1 <= 0x10u )
   {
-    if ( (unsigned __int8)v1 <= 0x10u )
-    {
-      v2 = 66464;
-      if ( _bittest(&v2, v1) )
-        return 1LL;
-    }
+    v1 = 66464;
+    if ( _bittest(&v1, a1) )
+      return 1;
   }
-  else if ( (_BYTE)v1 == 5 || (_BYTE)v1 == 8 )
-  {
-    return 1LL;
-  }
-  return 0LL;
+  return result;
 }

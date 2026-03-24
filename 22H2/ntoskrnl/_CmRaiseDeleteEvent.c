@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRaiseDeleteEvent @ 0x140A65658
+ * XREFs of _CmRaiseDeleteEvent @ 0x14072EA60
  * Callers:
- *     _CmDeleteDeviceInterfaceWorker @ 0x140A61BA4 (_CmDeleteDeviceInterfaceWorker.c)
- *     _CmDeleteDeviceWorker @ 0x140A6244C (_CmDeleteDeviceWorker.c)
- *     _CmDeleteInstallerClassWorker @ 0x140A62B90 (_CmDeleteInstallerClassWorker.c)
- *     _CmDeleteInterfaceClassWorker @ 0x140A62F58 (_CmDeleteInterfaceClassWorker.c)
- *     _CmDeleteDeviceContainerWorker @ 0x140A63B84 (_CmDeleteDeviceContainerWorker.c)
- *     _CmDeleteDevicePanelWorker @ 0x140A66360 (_CmDeleteDevicePanelWorker.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x14072CE94 (_CmDeleteDeviceContainerWorker.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x14072D35C (_CmDeleteDeviceInterfaceWorker.c)
+ *     _CmDeleteDeviceWorker @ 0x14072D948 (_CmDeleteDeviceWorker.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140975314 (_CmDeleteInstallerClassWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1409756D4 (_CmDeleteInterfaceClassWorker.c)
+ *     _CmDeleteDevicePanelWorker @ 0x140978230 (_CmDeleteDevicePanelWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     _PnpObjectRaiseDeleteEvent @ 0x140A6588C (_PnpObjectRaiseDeleteEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaiseDeleteEvent @ 0x14072EAB8 (_PnpObjectRaiseDeleteEvent.c)
  */
 
 __int64 (__fastcall *__fastcall CmRaiseDeleteEvent(

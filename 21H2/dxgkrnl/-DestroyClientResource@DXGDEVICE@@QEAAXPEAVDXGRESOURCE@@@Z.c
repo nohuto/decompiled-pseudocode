@@ -1,34 +1,47 @@
 /*
- * XREFs of ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C02D5BBC
+ * XREFs of ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C0227668
  * Callers:
- *     ?DestroyStagingBuffer@DXGPRESENT@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01EF924 (-DestroyStagingBuffer@DXGPRESENT@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     DxgkDestroyClientAllocation @ 0x1C02D7FFC (DxgkDestroyClientAllocation.c)
- *     ?DrainClientResources@DXGDEVICE@@QEAAXXZ @ 0x1C02E4A74 (-DrainClientResources@DXGDEVICE@@QEAAXXZ.c)
- *     ?DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ @ 0x1C03BBD90 (-DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ.c)
+ *     ??1DXGCONTEXT@@QEAA@XZ @ 0x1C00E5C28 (--1DXGCONTEXT@@QEAA@XZ.c)
+ *     DxgkDestroyClientAllocation @ 0x1C02296C4 (DxgkDestroyClientAllocation.c)
+ *     ?DrainClientResources@DXGDEVICE@@QEAAXXZ @ 0x1C025451C (-DrainClientResources@DXGDEVICE@@QEAAXXZ.c)
+ *     ?DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ @ 0x1C02FD1FC (-DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ.c)
  * Callees:
- *     ??_GDXGRESOURCE@@QEAAPEAXI@Z @ 0x1C000E63C (--_GDXGRESOURCE@@QEAAPEAXI@Z.c)
- *     ?FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C019F348 (-FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICE.c)
- *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C02D5AC0 (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
- *     ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0376620 (-VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDIC.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0002BD4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??_GDXGRESOURCE@@QEAAPEAXI@Z @ 0x1C0009B5C (--_GDXGRESOURCE@@QEAAPEAXI@Z.c)
+ *     Feature_253710648__private_IsEnabledDeviceUsage @ 0x1C00260E4 (Feature_253710648__private_IsEnabledDeviceUsage.c)
+ *     ?FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C012B1DC (-FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICE.c)
+ *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C0227574 (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
+ *     ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0247B08 (-VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDIC.c)
  */
 
-void __fastcall DXGDEVICE::DestroyClientResource(DXGDEVICE *this, struct DXGALLOCATION **P, __int64 a3, __int64 a4)
+void __fastcall DXGDEVICE::DestroyClientResource(DXGDEVICE *this, struct DXGALLOCATION **P)
 {
-  __int64 v6; // r8
-  __int64 v7; // r9
-  struct DXGALLOCATION *v8; // rcx
-  struct DXGALLOCATION *v9; // rcx
-  unsigned int v10; // r9d
+  struct DXGALLOCATION *v4; // rcx
+  struct DXGALLOCATION *v5; // rcx
+  unsigned int v6; // r9d
+  _BYTE v7[24]; // [rsp+40h] [rbp-18h] BYREF
 
-  ADAPTER_RENDER::FreeResourceHandleAndWaitForZeroReferences(this, (struct DXGRESOURCE *)P, 0LL, a4);
-  DXGDEVICE::DestroyClientAllocations(this, P[3], v6, v7);
-  v8 = P[5];
-  if ( v8 )
-    *((_QWORD *)v8 + 4) = P[4];
-  v9 = P[4];
-  if ( v9 )
+  ADAPTER_RENDER::FreeResourceHandleAndWaitForZeroReferences(this, (struct DXGRESOURCE *)P, 0LL);
+  if ( (unsigned int)Feature_253710648__private_IsEnabledDeviceUsage() )
   {
-    *((_QWORD *)v9 + 5) = P[5];
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (struct DXGFASTMUTEX *const)(P + 10), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+    DXGDEVICE::DestroyClientAllocations(this, P[3]);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v7);
+  }
+  else
+  {
+    DXGDEVICE::DestroyClientAllocations(this, P[3]);
+  }
+  v4 = P[5];
+  if ( v4 )
+    *((_QWORD *)v4 + 4) = P[4];
+  v5 = P[4];
+  if ( v5 )
+  {
+    *((_QWORD *)v5 + 5) = P[5];
   }
   else if ( *((struct DXGALLOCATION ***)this + 7) == P )
   {
@@ -36,14 +49,14 @@ void __fastcall DXGDEVICE::DestroyClientResource(DXGDEVICE *this, struct DXGALLO
   }
   if ( (*((_BYTE *)this + 1869) & 1) != 0 )
   {
-    v10 = *((_DWORD *)P + 5);
-    if ( v10 )
+    v6 = *((_DWORD *)P + 5);
+    if ( v6 )
     {
       DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDestroyAllocation(
-        (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 4344LL),
-        *(_DWORD *)(*((_QWORD *)this + 5) + 504LL),
+        (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 4240LL),
+        *(_DWORD *)(*((_QWORD *)this + 5) + 424LL),
         *((_DWORD *)this + 110),
-        v10,
+        v6,
         0,
         0LL,
         (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)1);

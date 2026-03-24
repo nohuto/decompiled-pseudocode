@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFloatProperty@CAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000ECC0
+ * XREFs of ?SetFloatProperty@CAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00B0E50
  * Callers:
  *     <none>
  * Callees:
- *     _finite @ 0x1C00CE614 (_finite.c)
+ *     _finite @ 0x1C00C5A44 (_finite.c)
  */
 
 __int64 __fastcall DirectComposition::CAnimationMarshaler::SetFloatProperty(
@@ -17,7 +17,7 @@ __int64 __fastcall DirectComposition::CAnimationMarshaler::SetFloatProperty(
   v4 = 0;
   *a4 = 0;
   if ( a2 == 6 && finite(a3) )
-    *((float *)this + 34) = a3;
+    *((float *)this + 36) = a3;
   else
     return (unsigned int)-1073741811;
   return v4;

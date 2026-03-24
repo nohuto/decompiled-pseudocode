@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x14077D670
+ * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x14063456C
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x14077D2F8 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x14063419C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PnpGetObjectProperty @ 0x14077D91C (PnpGetObjectProperty.c)
- *     PiAuVerifyAccessToObject @ 0x14078A644 (PiAuVerifyAccessToObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
+ *     PiAuVerifyAccessToObject @ 0x1406A0518 (PiAuVerifyAccessToObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
@@ -31,9 +31,10 @@ __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
   *a5 = 0;
   ObjectProperty = PnpGetObjectProperty(
                      0x47706E50u,
+                     0x200uLL,
                      a3,
                      0LL,
-                     (__int64)&DEVPKEY_Device_EffectiveRestrictedSD,
+                     (__int64)&DEVPKEY_Device_RestrictedSD,
                      (__int64)&v9,
                      (__int64)&P,
                      0LL,

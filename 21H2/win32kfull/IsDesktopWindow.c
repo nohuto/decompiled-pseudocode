@@ -1,23 +1,23 @@
 /*
- * XREFs of IsDesktopWindow @ 0x1C00205C0
+ * XREFs of IsDesktopWindow @ 0x1C004C5F0
  * Callers:
- *     TrackLayeredZorder @ 0x1C001F3C8 (TrackLayeredZorder.c)
- *     CreateOrGetRedirectionBitmap @ 0x1C001F528 (CreateOrGetRedirectionBitmap.c)
- *     ComposeWindowIfNeeded @ 0x1C00202CC (ComposeWindowIfNeeded.c)
- *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00203AC (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     UserGetRedirectedWindowOrigin @ 0x1C0020420 (UserGetRedirectedWindowOrigin.c)
- *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C0020580 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     GreUpdateSpriteVisRgn @ 0x1C004A690 (GreUpdateSpriteVisRgn.c)
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C0098A20 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00B33EC (-ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
- *     ComposeWindow @ 0x1C00B37D8 (ComposeWindow.c)
- *     zzzUpdateWindowsAfterModeChange @ 0x1C00B7E98 (zzzUpdateWindowsAfterModeChange.c)
- *     CreateSpb @ 0x1C00C92A0 (CreateSpb.c)
+ *     ComposeWindow @ 0x1C00353BC (ComposeWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
+ *     ComposeWindowIfNeeded @ 0x1C004C300 (ComposeWindowIfNeeded.c)
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C3DC (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     UserGetRedirectedWindowOrigin @ 0x1C004C450 (UserGetRedirectedWindowOrigin.c)
+ *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C004C5B0 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C00731F0 (GreUpdateSpriteVisRgn.c)
+ *     TrackLayeredZorder @ 0x1C00BD768 (TrackLayeredZorder.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BF148 (CreateOrGetRedirectionBitmap.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00EA0AC (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00ECB68 (-ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1368 (zzzUpdateWindowsAfterModeChange.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
+ *     CreateSpb @ 0x1C0161F90 (CreateSpb.c)
+ *     MagSlicerControl @ 0x1C01CDFF4 (MagSlicerControl.c)
  * Callees:
  *     <none>
  */

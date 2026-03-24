@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxIdleWorkerTail @ 0x1400FE9E8
+ * XREFs of PopFxIdleWorkerTail @ 0x1400FEA08
  * Callers:
- *     PopFxIdleWorker @ 0x1400FE8D4 (PopFxIdleWorker.c)
- *     PoFxCompleteIdleCondition @ 0x140131EF0 (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x1400FE8F4 (PopFxIdleWorker.c)
+ *     PoFxCompleteIdleCondition @ 0x140131F10 (PoFxCompleteIdleCondition.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponentWorker @ 0x1400FE210 (PopFxActivateComponentWorker.c)
- *     PopFxAddRefDevice @ 0x1400FE2A8 (PopFxAddRefDevice.c)
- *     PopFxProcessWork @ 0x1400FE370 (PopFxProcessWork.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x1400FEBB0 (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x1400FEC2C (PopFxCompleteComponentActivation.c)
- *     PoFxIdleComponent @ 0x1400FECD0 (PoFxIdleComponent.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x1400FEE60 (PpmInterlockedUpdateTimeNoFence.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1400FEE94 (PopFxUpdateAccountingActiveTime.c)
- *     PopPluginComponentActive @ 0x1400FF398 (PopPluginComponentActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PopFxActivateComponentWorker @ 0x1400FE230 (PopFxActivateComponentWorker.c)
+ *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x1400FEBD0 (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x1400FEC4C (PopFxCompleteComponentActivation.c)
+ *     PoFxIdleComponent @ 0x1400FECF0 (PoFxIdleComponent.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1400FEE80 (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x1400FEEB4 (PopFxUpdateAccountingActiveTime.c)
+ *     PopPluginComponentActive @ 0x1400FF3B8 (PopPluginComponentActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxIdleWorkerTail(struct _IO_REMOVE_LOCK *BugCheckParameter2, unsigned int a2, int *a3)

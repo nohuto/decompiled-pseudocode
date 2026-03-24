@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLockTrackerCompare @ 0x140584510
+ * XREFs of MiLockTrackerCompare @ 0x140530CD0
  * Callers:
- *     PspJobIoRateVolumeEntryInsert @ 0x1405E0E68 (PspJobIoRateVolumeEntryInsert.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1405E0FA0 (PspJobIoRateVolumeEntryReference.c)
- *     PspJobIoRateVolumeEntryRemove @ 0x1405E10BC (PspJobIoRateVolumeEntryRemove.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405820EC (PspJobIoRateVolumeEntryInsert.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x140582224 (PspJobIoRateVolumeEntryReference.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x140582340 (PspJobIoRateVolumeEntryRemove.c)
  * Callees:
  *     <none>
  */

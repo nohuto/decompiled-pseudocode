@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlWritePerfIoPort @ 0x1405407C0
+ * XREFs of HvlWritePerfIoPort @ 0x1404F2420
  * Callers:
  *     <none>
  * Callees:
- *     HvlpWritePerfRegister @ 0x140542768 (HvlpWritePerfRegister.c)
+ *     HvlpWritePerfRegister @ 0x1404F4038 (HvlpWritePerfRegister.c)
  */
 
 __int64 __fastcall HvlWritePerfIoPort(__int64 a1, __int16 a2, __int16 a3, unsigned int a4, unsigned int a5)

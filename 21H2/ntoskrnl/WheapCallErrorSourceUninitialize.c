@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapCallErrorSourceUninitialize @ 0x1406456B8
+ * XREFs of WheapCallErrorSourceUninitialize @ 0x1405BCCA0
  * Callers:
- *     WheaRemoveErrorSource @ 0x140A08880 (WheaRemoveErrorSource.c)
+ *     WheaRemoveErrorSource @ 0x14095CF40 (WheaRemoveErrorSource.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x1403C0934 (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BAF90 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallErrorSourceUninitialize(__int64 a1)

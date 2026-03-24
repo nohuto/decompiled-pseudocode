@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z @ 0x180178E5C
+ * XREFs of ?WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z @ 0x18014EC78
  * Callers:
- *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x180178D98 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x18014EBDC (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall __noreturn wil::details::WilRaiseFailFastException(

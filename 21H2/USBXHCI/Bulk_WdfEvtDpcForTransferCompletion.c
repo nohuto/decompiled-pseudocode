@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_WdfEvtDpcForTransferCompletion @ 0x1C000B840
+ * XREFs of Bulk_WdfEvtDpcForTransferCompletion @ 0x1C000BA00
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_ProcessTransferCompletion @ 0x1C000B878 (Bulk_ProcessTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Bulk_ProcessTransferCompletion @ 0x1C000BA38 (Bulk_ProcessTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Bulk_WdfEvtDpcForTransferCompletion(__int64 a1)

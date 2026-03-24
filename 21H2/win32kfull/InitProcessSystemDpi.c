@@ -1,56 +1,59 @@
 /*
- * XREFs of InitProcessSystemDpi @ 0x1C00C7550
+ * XREFs of InitProcessSystemDpi @ 0x1C0044D50
  * Callers:
  *     <none>
  * Callees:
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     Feature_PerProcessSystemDpi__private_ReportDeviceUsage @ 0x1C0166EB0 (Feature_PerProcessSystemDpi__private_ReportDeviceUsage.c)
  */
 
 __int64 __fastcall InitProcessSystemDpi(__int64 a1)
 {
-  __int64 v2; // r14
   __int64 ThreadTeb; // rax
+  __int64 v3; // rbx
   __int64 v4; // rbx
-  __int64 v5; // rbx
+  __int64 v5; // r14
   __int64 v6; // rbx
   __int64 v7; // r14
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  BOOL v12; // eax
-  __int64 v13; // rcx
+  BOOL v10; // eax
+  unsigned int v11; // eax
   __int64 result; // rax
-  int v15; // [rsp+78h] [rbp+10h] BYREF
-  int v16; // [rsp+80h] [rbp+18h] BYREF
+  int v13; // [rsp+78h] [rbp+10h] BYREF
+  int v14; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v15; // [rsp+88h] [rbp+20h]
 
-  if ( (*(_DWORD *)(a1 + 12) & 0x80u) != 0 )
+  v15 = 0LL;
+  if ( (*(_DWORD *)(a1 + 12) & 0x80u) == 0 )
+  {
+    v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 1360LL) + 720LL);
+  }
+  else
   {
     ThreadTeb = PsGetThreadTeb(KeGetCurrentThread());
-    v4 = ThreadTeb + 0x2000;
+    v3 = ThreadTeb + 0x2000;
     ProbeForRead((volatile void *)(ThreadTeb + 8240), 4uLL, 4u);
-    v5 = *(unsigned int *)(v4 + 48);
-    ProbeForRead((volatile void *)(unsigned int)v5, 0x488uLL, 4u);
-    v2 = *(_QWORD *)(v5 + 480);
+    v4 = *(unsigned int *)(v3 + 48);
+    ProbeForRead((volatile void *)(unsigned int)v4, 0x480uLL, 4u);
+    v5 = *(_QWORD *)(v4 + 480);
   }
-  else
-  {
-    v2 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 1360LL) + 720LL);
-  }
-  v6 = v2 & 0x40000000000000LL;
-  v7 = v2 & 0x20000000000000LL;
-  v16 = 0;
-  v15 = 0;
-  FastGetProfileDwordEx(0LL, 4LL, L"EnablePerProcessSystemDPI", 0LL, 0, &v16, &v15);
+  v15 = v5;
+  v6 = v5 & 0x40000000000000LL;
+  v7 = v5 & 0x20000000000000LL;
+  Feature_PerProcessSystemDpi__private_ReportDeviceUsage();
+  v14 = 0;
+  v13 = 0;
+  FastGetProfileDwordEx(0LL, 4LL, L"EnablePerProcessSystemDPI", 0LL, 0, &v14, &v13);
   if ( v6 )
-    v12 = 0;
+    v10 = 0;
   else
-    v12 = v7 || v15 || v16 != 0;
-  if ( v12 )
+    v10 = v7 || v13 || v14 != 0;
+  if ( v10 )
   {
-    v13 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(GetDispInfo(v9, v8, v10, v11) + 96) + 40LL) + 64LL);
-    *(_WORD *)(a1 + 284) = v13;
-    return GetDPIServerInfoForDpi(v13);
+    v11 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(GetDispInfo(v9, v8) + 96) + 40LL) + 68LL);
+    *(_WORD *)(a1 + 284) = v11;
+    return GetDPIServerInfoForDpi(v11);
   }
   else
   {

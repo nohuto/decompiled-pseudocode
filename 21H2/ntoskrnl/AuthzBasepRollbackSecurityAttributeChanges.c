@@ -1,52 +1,53 @@
 /*
- * XREFs of AuthzBasepRollbackSecurityAttributeChanges @ 0x14064A67C
+ * XREFs of AuthzBasepRollbackSecurityAttributeChanges @ 0x1405C15A0
  * Callers:
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x140204E2C (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140356420 (AuthzBasepFinaliseSecurityAttributesList.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributeValues @ 0x14028AC10 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1403767E0 (AuthzBasepRemoveSecurityAttributeFromLists.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x14064A5F8 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402C97B4 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1402C9824 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1402D07EC (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall AuthzBasepRollbackSecurityAttributeChanges(_DWORD *a1, __int64 a2)
 {
   char v2; // bl
   __int64 v4; // rdx
-  int v5; // eax
-  _QWORD *v6; // r14
-  _QWORD *v7; // rsi
-  int v8; // eax
+  __int64 v5; // r8
+  int v6; // eax
+  _QWORD *v7; // r14
+  _QWORD *v8; // rsi
+  int v9; // eax
 
   v2 = 1;
   AuthzBasepRemoveSecurityAttributeFromLists(a1, (__int64 *)a2, 0, 1);
-  v5 = *(_DWORD *)(v4 + 56);
-  if ( (v5 & 4) != 0 )
+  v6 = *(_DWORD *)(v4 + 56);
+  if ( (v6 & 4) != 0 )
   {
-    if ( (v5 & 1) == 0 )
+    if ( (v6 & 1) == 0 )
     {
-      AuthzBasepFreeSecurityAttributeValues(v4, 0);
+      AuthzBasepFreeSecurityAttributeValues(v4, 0, v5);
       return v2;
     }
-    *(_DWORD *)(v4 + 56) = v5 & 0xFFFFFFFB;
-    AuthzBasepFreeSecurityAttributeValues(v4, 1);
+    *(_DWORD *)(v4 + 56) = v6 & 0xFFFFFFFB;
+    AuthzBasepFreeSecurityAttributeValues(v4, 1, v5);
   }
-  v6 = (_QWORD *)(a2 + 96);
+  v7 = (_QWORD *)(a2 + 96);
   while ( 1 )
   {
-    v7 = (_QWORD *)*v6;
-    if ( (_QWORD *)*v6 == v6 )
+    v8 = (_QWORD *)*v7;
+    if ( (_QWORD *)*v7 == v7 )
       break;
-    AuthzBasepRemoveSecurityAttributeValueFromLists((_DWORD *)a2, v7 - 2, 0);
-    v8 = *((_DWORD *)v7 + 4);
-    if ( (v8 & 4) != 0 )
+    AuthzBasepRemoveSecurityAttributeValueFromLists((_DWORD *)a2, v8 - 2, 0);
+    v9 = *((_DWORD *)v8 + 4);
+    if ( (v9 & 4) != 0 )
     {
       --*(_DWORD *)(a2 + 64);
-      *((_DWORD *)v7 + 4) &= ~4u;
-      v8 = *((_DWORD *)v7 + 4);
+      *((_DWORD *)v8 + 4) &= ~4u;
+      v9 = *((_DWORD *)v8 + 4);
     }
-    if ( (v8 & 1) == 0 )
-      ExFreePoolWithTag(v7 - 2, 0);
+    if ( (v9 & 1) == 0 )
+      ExFreePoolWithTag(v8 - 2, 0);
   }
   return (*(_BYTE *)(a2 + 56) & 1) == 0;
 }

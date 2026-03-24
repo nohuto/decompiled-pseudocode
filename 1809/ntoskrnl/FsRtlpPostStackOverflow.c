@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlpPostStackOverflow @ 0x140270994
+ * XREFs of FsRtlpPostStackOverflow @ 0x140270A94
  * Callers:
- *     FsRtlPostPagingFileStackOverflow @ 0x1402708E0 (FsRtlPostPagingFileStackOverflow.c)
- *     FsRtlPostStackOverflow @ 0x140270900 (FsRtlPostStackOverflow.c)
+ *     FsRtlPostPagingFileStackOverflow @ 0x1402709E0 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x140270A00 (FsRtlPostStackOverflow.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInsertQueue @ 0x1400DCFE0 (KeInsertQueue.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     KeInsertQueue @ 0x1400DD000 (KeInsertQueue.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,52 +1,51 @@
 /*
- * XREFs of ACPIGetUniqueId @ 0x1C00891A0
+ * XREFs of ACPIGetUniqueId @ 0x1C00B0440
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C00482E4 (AMLIFreeDataBuffs.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIGetUniqueId(__int64 a1, _QWORD *a2)
 {
-  _QWORD *v3; // rcx
+  __int64 *v3; // rcx
   __int64 *v4; // rax
-  volatile signed __int32 *v5; // rsi
+  __int64 v5; // rsi
   int v7; // ebx
-  __int64 v8; // rdx
-  __int128 v9; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-28h]
+  __int128 v8; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v9; // [rsp+30h] [rbp-28h]
   void *Src; // [rsp+40h] [rbp-18h]
 
   *a2 = 0LL;
-  v3 = *(_QWORD **)(a1 + 760);
-  v9 = 0LL;
+  v3 = *(__int64 **)(a1 + 720);
+  v8 = 0LL;
   Src = 0LL;
-  v10 = 0LL;
+  v9 = 0LL;
   v4 = AMLIGetNamedChild(v3, 1145656671);
-  v5 = (volatile signed __int32 *)v4;
+  v5 = (__int64)v4;
   if ( !v4 )
     return 3221226021LL;
-  v7 = AMLIEvalNameSpaceObject(v4, (__int64)&v9, 0, 0LL);
-  AMLIDereferenceHandleEx(v5, v8);
+  v7 = AMLIEvalNameSpaceObject((unsigned __int64 *)v4, (__int64)&v8, 0, 0LL);
+  AMLIDereferenceHandleEx(v5);
   if ( v7 >= 0 )
   {
-    if ( WORD1(v9) == 1 )
+    if ( WORD1(v8) == 1 )
     {
-      *a2 = v10;
+      *a2 = v9;
     }
-    else if ( WORD1(v9) == 2 && (unsigned int)(DWORD2(v10) - 1) <= 8 )
+    else if ( WORD1(v8) == 2 && (unsigned int)(DWORD2(v9) - 1) <= 8 )
     {
-      memmove(a2, Src, (unsigned int)(DWORD2(v10) - 1));
+      memmove(a2, Src, (unsigned int)(DWORD2(v9) - 1));
     }
     else
     {
       v7 = -1073741811;
     }
-    AMLIFreeDataBuffs((__int64)&v9);
+    AMLIFreeDataBuffs((__int64)&v8);
   }
   return (unsigned int)v7;
 }

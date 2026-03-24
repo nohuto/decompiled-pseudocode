@@ -1,10 +1,10 @@
 /*
- * XREFs of ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02A70BC
+ * XREFs of ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02A8928
  * Callers:
- *     FONTOBJ_pvTrueTypeFontFile @ 0x1C0291270 (FONTOBJ_pvTrueTypeFontFile.c)
+ *     FONTOBJ_pvTrueTypeFontFile @ 0x1C0293710 (FONTOBJ_pvTrueTypeFontFile.c)
  * Callees:
- *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A6D40 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
- *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02C1408 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A85AC (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02C2AA0 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
  */
 
 char *__fastcall RFONTOBJ::pvFile(RFONTOBJ *this, unsigned int *a2)

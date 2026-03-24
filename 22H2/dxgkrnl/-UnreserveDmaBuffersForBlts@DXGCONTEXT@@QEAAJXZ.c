@@ -1,54 +1,45 @@
 /*
- * XREFs of ?UnreserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJXZ @ 0x1C0340E74
+ * XREFs of ?UnreserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJXZ @ 0x1C02831BC
  * Callers:
- *     ?ProcessPresent@OUTPUTDUPL_MGR@@QEAAJPEAVDXGCONTEXT@@U_D3DKMT_OUTPUTDUPLPRESENTFLAGS@@IKPEAU_D3DKMT_PRESENT_RGNS@@PEBUDXGK_PRESENT_PARAMS@@IPEAPEAV2@PEAVCOREDEVICEACCESS@@@Z @ 0x1C032E504 (-ProcessPresent@OUTPUTDUPL_MGR@@QEAAJPEAVDXGCONTEXT@@U_D3DKMT_OUTPUTDUPLPRESENTFLAGS@@IKPEAU_D3D.c)
- *     ?ReserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJPEAVCOREDEVICEACCESS@@IPEAPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C03401B0 (-ReserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJPEAVCOREDEVICEACCESS@@IPEAPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?ReserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJPEAVCOREDEVICEACCESS@@IPEAPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C0282224 (-ReserveDmaBuffersForBlts@DXGCONTEXT@@QEAAJPEAVCOREDEVICEACCESS@@IPEAPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?ProcessPresent@OUTPUTDUPL_MGR@@QEAAJPEAVDXGCONTEXT@@U_D3DKMT_OUTPUTDUPLPRESENTFLAGS@@IKPEAU_D3DKMT_PRESENT_RGNS@@PEBUDXGK_PRESENT_PARAMS@@IPEAPEAV2@PEAVCOREDEVICEACCESS@@@Z @ 0x1C029C5D4 (-ProcessPresent@OUTPUTDUPL_MGR@@QEAAJPEAVDXGCONTEXT@@U_D3DKMT_OUTPUTDUPLPRESENTFLAGS@@IKPEAU_D3D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGCONTEXT::UnreserveDmaBuffersForBlts(DXGCONTEXT *this)
 {
-  __int64 v2; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
   __int64 i; // rdi
-  __int64 v4; // rcx
+  __int64 v6; // rcx
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 7877LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      7877LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 7651LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v2 = *((_QWORD *)this + 46);
-  if ( v2 )
+  if ( *((_QWORD *)this + 48) )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 94); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 98); i = (unsigned int)(i + 1) )
     {
-      v4 = *(_QWORD *)(v2 + 8 * i);
-      if ( v4 )
+      v6 = *(_QWORD *)(*((_QWORD *)this + 48) + 8 * i);
+      if ( v6 )
       {
         (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL)
-                                                                        + 760LL)
+                                                                        + 640LL)
                                                             + 8LL)
-                                                + 496LL))(
-          v4,
+                                                + 504LL))(
+          v6,
           0LL);
-        *(_QWORD *)(*((_QWORD *)this + 46) + 8 * i) = 0LL;
-        v2 = *((_QWORD *)this + 46);
+        *(_QWORD *)(*((_QWORD *)this + 48) + 8 * i) = 0LL;
       }
     }
-    *((_QWORD *)this + 46) = 0LL;
-    *((_DWORD *)this + 94) = 0;
+    *((_QWORD *)this + 48) = 0LL;
+    *((_DWORD *)this + 98) = 0;
   }
   return 0LL;
 }

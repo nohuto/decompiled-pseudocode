@@ -1,37 +1,37 @@
 /*
- * XREFs of ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AD924
+ * XREFs of ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025B8BC
  * Callers:
- *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___ @ 0x1802AC5AC (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___.c)
+ *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___ @ 0x18025A780 (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?ProcessAddComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD208 (-ProcessAddComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD290 (-ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD3A0 (-ProcessAddExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddExclusivePresentData@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD428 (-ProcessAddExclusivePresentData@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD4B4 (-ProcessAddExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD58C (-ProcessAddTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD690 (-ProcessAddViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAddWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD7BC (-ProcessAddWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessAttachExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD83C (-ProcessAttachExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD8A0 (-ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADCE8 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADD88 (-ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADE20 (-ProcessRemoveDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADED8 (-ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADF60 (-ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE018 (-ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE0CC (-ProcessRemoveViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE184 (-ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessResizeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE204 (-ProcessResizeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessResizeWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE284 (-ProcessResizeWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessUpdateComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE304 (-ProcessUpdateComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessUpdateDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE38C (-ProcessUpdateDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessUpdateViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE418 (-ProcessUpdateViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?ProcessAddComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B26C (-ProcessAddComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B2D8 (-ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B3D8 (-ProcessAddExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddExclusivePresentData@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B464 (-ProcessAddExclusivePresentData@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B4D4 (-ProcessAddExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B5A0 (-ProcessAddTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B688 (-ProcessAddViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAddWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B7A4 (-ProcessAddWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessAttachExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B804 (-ProcessAttachExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B854 (-ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BC64 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BCF0 (-ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BD68 (-ProcessRemoveDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BDF8 (-ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BE84 (-ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BF1C (-ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BFA8 (-ProcessRemoveViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C038 (-ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessResizeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C098 (-ProcessResizeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessResizeWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C0F8 (-ProcessResizeWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessUpdateComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C158 (-ProcessUpdateComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessUpdateDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C1C4 (-ProcessUpdateDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessUpdateViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C230 (-ProcessUpdateViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
  */
 
 void __fastcall CHolographicClient::ProcessMessage(
@@ -66,36 +66,37 @@ void __fastcall CHolographicClient::ProcessMessage(
   int v29; // edx
   int v30; // edx
   int v31; // edx
-  __int64 v32; // rdx
-  int v33; // edx
+  struct IUnknown *v32; // rax
+  __int64 v33; // rdx
   int v34; // edx
   int v35; // edx
   int v36; // edx
-  __int64 v37; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v38; // [rsp+38h] [rbp-30h] BYREF
-  unsigned __int128 v39; // [rsp+48h] [rbp-20h]
+  int v37; // edx
+  struct IUnknown *v38; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v39; // [rsp+38h] [rbp-30h] BYREF
+  unsigned __int128 v40; // [rsp+48h] [rbp-20h]
   wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
 
   if ( a2 > 0xF )
   {
     if ( a2 > 0x1A )
     {
-      v32 = a2 - 27;
-      if ( (_DWORD)v32 )
+      v33 = a2 - 27;
+      if ( (_DWORD)v33 )
       {
-        v33 = v32 - 2;
-        if ( v33 )
+        v34 = v33 - 2;
+        if ( v34 )
         {
-          v34 = v33 - 1;
-          if ( v34 )
+          v35 = v34 - 1;
+          if ( v35 )
           {
-            v35 = v34 - 1;
-            if ( v35 )
+            v36 = v35 - 1;
+            if ( v36 )
             {
-              v36 = v35 - 1;
-              if ( v36 )
+              v37 = v36 - 1;
+              if ( v37 )
               {
-                if ( v36 != 1 )
+                if ( v37 != 1 )
                   goto LABEL_66;
                 CHolographicClient::ProcessResizeWin32kTexture(this, a3);
               }
@@ -121,8 +122,8 @@ void __fastcall CHolographicClient::ProcessMessage(
       }
       else
       {
-        LODWORD(v32) = (unsigned __int8)a4;
-        (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 232LL))(*((_QWORD *)this + 3), v32);
+        LODWORD(v33) = (unsigned __int8)a4;
+        (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 232LL))(*((_QWORD *)this + 3), v33);
       }
     }
     else if ( a2 == 26 )
@@ -177,17 +178,24 @@ void __fastcall CHolographicClient::ProcessMessage(
             DynArrayImpl<0>::ShrinkToSize((__int64)this + 224, 0x20u);
           }
         }
-        else if ( *((struct IUnknown **)this + 26) != a3 )
+        else
         {
-          if ( a3 )
-            ((void (__fastcall *)(struct IUnknown *, __int64, struct IUnknown *, void *))a3->lpVtbl->AddRef)(
-              a3,
-              v27,
-              a3,
-              a4);
-          v37 = *((_QWORD *)this + 26);
-          *((_QWORD *)this + 26) = a3;
-          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v37);
+          v32 = (struct IUnknown *)*((_QWORD *)this + 26);
+          if ( v32 != a3 )
+          {
+            if ( a3 )
+            {
+              ((void (__fastcall *)(struct IUnknown *, __int64, struct IUnknown *, void *))a3->lpVtbl->AddRef)(
+                a3,
+                v27,
+                a3,
+                a4);
+              v32 = (struct IUnknown *)*((_QWORD *)this + 26);
+            }
+            v38 = v32;
+            *((_QWORD *)this + 26) = a3;
+            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v38);
+          }
         }
       }
       else if ( a4 )
@@ -278,18 +286,19 @@ void __fastcall CHolographicClient::ProcessMessage(
 LABEL_66:
                 wil::details::in1diag3::_FailFast_Unexpected(
                   retaddr,
-                  440LL,
+                  (void *)0x1B8,
                   (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicclient.cpp",
                   (const char *)a4);
+                __debugbreak();
               }
               CHolographicClient::ProcessAddDisplay(this, a3);
             }
             else
             {
-              *((_QWORD *)&v38 + 1) = a5;
-              v39 = __PAIR128__((unsigned __int64)a7, (unsigned __int64)a6);
+              *((_QWORD *)&v39 + 1) = a5;
+              v40 = __PAIR128__((unsigned __int64)a7, (unsigned __int64)a6);
               v15 = *((_DWORD *)this + 62);
-              LODWORD(v38) = (_DWORD)a4;
+              LODWORD(v39) = (_DWORD)a4;
               v16 = v15 + 1;
               if ( v15 + 1 < v15 )
               {
@@ -297,7 +306,7 @@ LABEL_66:
               }
               else if ( v16 > *((_DWORD *)this + 61) )
               {
-                v19 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 224, 32, 1, &v38);
+                v19 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 224, 32, 1, &v39);
                 if ( v19 < 0 )
                   MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xC0u, 0LL);
               }
@@ -306,8 +315,8 @@ LABEL_66:
                 v17 = v15;
                 v18 = *((_QWORD *)this + 28);
                 v17 *= 32LL;
-                *(_OWORD *)(v17 + v18) = v38;
-                *(_OWORD *)(v17 + v18 + 16) = v39;
+                *(_OWORD *)(v17 + v18) = v39;
+                *(_OWORD *)(v17 + v18 + 16) = v40;
                 *((_DWORD *)this + 62) = v16;
               }
             }

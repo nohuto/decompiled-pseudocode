@@ -1,51 +1,41 @@
 /*
- * XREFs of PfLogEvent @ 0x14028BF68
+ * XREFs of PfLogEvent @ 0x14026E544
  * Callers:
- *     PfHardFaultLog @ 0x1402A2F88 (PfHardFaultLog.c)
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     PfLogFileDataAccess @ 0x1402DFBD4 (PfLogFileDataAccess.c)
- *     PfpLogApplicationEvent @ 0x1402FA074 (PfpLogApplicationEvent.c)
- *     PfpRpLogDeprioEvent @ 0x1402FA3C0 (PfpRpLogDeprioEvent.c)
- *     PfLogForegroundProcess @ 0x1403609F0 (PfLogForegroundProcess.c)
- *     PfpLogScenarioEvent @ 0x1407D4068 (PfpLogScenarioEvent.c)
- *     PfpLogEventRequest @ 0x14097DE88 (PfpLogEventRequest.c)
- *     PfPowerActionNotify @ 0x140A9FF34 (PfPowerActionNotify.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140AA0194 (PfpPowerActionStartScenarioTracing.c)
+ *     PfHardFaultLog @ 0x14026DE20 (PfHardFaultLog.c)
+ *     PfpLogApplicationEvent @ 0x14026E010 (PfpLogApplicationEvent.c)
+ *     PfpRpLogDeprioEvent @ 0x14026E348 (PfpRpLogDeprioEvent.c)
+ *     PfLogForegroundProcess @ 0x14026E4C8 (PfLogForegroundProcess.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     PfLogFileDataAccess @ 0x140564D88 (PfLogFileDataAccess.c)
+ *     PfpLogEventRequest @ 0x1407770EC (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x1407771C4 (PfpLogScenarioEvent.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140990F10 (PfpPowerActionStartScenarioTracing.c)
+ *     PfPowerActionNotify @ 0x140991198 (PfPowerActionNotify.c)
  * Callees:
- *     PfFbLogEntryReserve @ 0x14028BAB4 (PfFbLogEntryReserve.c)
- *     PfFbLogEntryComplete @ 0x14028BD60 (PfFbLogEntryComplete.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     PfFbLogEntryReserve @ 0x14026E634 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x14026E710 (PfFbLogEntryComplete.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall PfLogEvent(int a1, int a2, const void *a3, unsigned int a4)
 {
-  unsigned int v8; // ebx
-  __int64 v9; // rdx
-  int v10; // edi
-  unsigned __int64 *v11; // rdx
-  __int64 v12; // rdx
-  PSLIST_ENTRY ListEntry; // [rsp+20h] [rbp-28h] BYREF
-  unsigned __int64 *v15; // [rsp+28h] [rbp-20h] BYREF
+  __int16 v8; // bx
+  int v9; // edi
 
-  ListEntry = 0LL;
-  v15 = 0LL;
-  v8 = (a4 + 31) & 0xFFFFFFF0;
-  v10 = PfFbLogEntryReserve(&stru_140C653A0, &ListEntry, &v15, v8);
-  if ( v10 < 0 )
+  v8 = (a4 + 31) & 0xFFF0;
+  v9 = PfFbLogEntryReserve(&stru_140C4FD20);
+  if ( v9 < 0 )
   {
-    _InterlockedExchangeAdd((_DWORD *)&xmmword_140C65550 + 1, 1u);
-    if ( ListEntry )
-      PfFbLogEntryComplete(ListEntry, v9, 0LL);
+    _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4FED0 + 1, 1u);
   }
   else
   {
-    v11 = v15;
-    *v15 = *v15 & 0xFFFFFFFFFFFFF003uLL | ((v8 & 0x3FF0 | 0x8000CuLL) >> 2);
-    *((_DWORD *)v11 + 2) = a2;
-    *v11 ^= (*(_DWORD *)v11 ^ (a1 << 12)) & 0x1F000;
-    memmove(v11 + 2, a3, a4);
-    PfFbLogEntryComplete(ListEntry, v12, v8);
+    MEMORY[0] = MEMORY[0] & 0xFFFFFFFFFFFFF003uLL | ((v8 & 0x3FF0 | 0x8000CuLL) >> 2);
+    MEMORY[8] = a2;
+    MEMORY[0] ^= (MEMORY[0] ^ (a1 << 12)) & 0x1F000;
+    memmove((void *)0x10, a3, a4);
+    PfFbLogEntryComplete(0LL);
     return 0;
   }
-  return (unsigned int)v10;
+  return (unsigned int)v9;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProcessor@CKeyboardSensor@@EEAAPEAVCBaseProcessor@@XZ @ 0x1C00C90B0
+ * XREFs of ?GetProcessor@CKeyboardSensor@@EEAAPEAVCBaseProcessor@@XZ @ 0x1C00BBF60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CBaseProcessor *__fastcall CKeyboardSensor::GetProcessor(CKeyboardSensor *this)
 {
-  return (struct CBaseProcessor *)*((_QWORD *)this + 168);
+  return (struct CBaseProcessor *)*((_QWORD *)this + 160);
 }

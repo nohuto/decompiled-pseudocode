@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpMountPreloadedHives @ 0x140735800
+ * XREFs of CmpMountPreloadedHives @ 0x1407357E0
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
  * Callees:
  *     RtlAreBitsClear @ 0x14000F1D0 (RtlAreBitsClear.c)
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
@@ -12,25 +12,25 @@
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpInitializeActualFileSizes @ 0x1405A6144 (CmpInitializeActualFileSizes.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
  *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpInitCmRM @ 0x14067F308 (CmpInitCmRM.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8960 (CmpDoFileSetSizeEx.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406C8EE4 (CmpQueryHiveRedirectionFileList.c)
- *     CmRmFinalizeRecovery @ 0x1406CDC48 (CmRmFinalizeRecovery.c)
- *     HvpDropPagedBins @ 0x1407365B4 (HvpDropPagedBins.c)
- *     CmpDiskFullWarning @ 0x1407FB084 (CmpDiskFullWarning.c)
- *     ExRaiseHardError @ 0x1408D6600 (ExRaiseHardError.c)
- *     SyspartGetSystemPartition @ 0x1408F4ED8 (SyspartGetSystemPartition.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406C8EC4 (CmpQueryHiveRedirectionFileList.c)
+ *     CmRmFinalizeRecovery @ 0x1406CDC28 (CmRmFinalizeRecovery.c)
+ *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
+ *     CmpDiskFullWarning @ 0x1407FB064 (CmpDiskFullWarning.c)
+ *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
+ *     SyspartGetSystemPartition @ 0x1408F4EB8 (SyspartGetSystemPartition.c)
  */
 
 void CmpMountPreloadedHives()

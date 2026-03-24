@@ -1,14 +1,14 @@
 /*
- * XREFs of PspProcessClose @ 0x1406B4E90
+ * XREFs of PspProcessClose @ 0x1406952B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PsTerminateProcess @ 0x1407D80A4 (PsTerminateProcess.c)
- *     PspRundownProcess @ 0x1409B18CC (PspRundownProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
+ *     PspRundownProcess @ 0x14090B24C (PspRundownProcess.c)
  */
 
 __int64 __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

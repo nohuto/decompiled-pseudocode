@@ -1,11 +1,11 @@
 /*
- * XREFs of MiEnablePagingOfDriver @ 0x14072B590
+ * XREFs of MiEnablePagingOfDriver @ 0x14072B570
  * Callers:
  *     MiEnablePagingTheExecutive @ 0x1409BCDDC (MiEnablePagingTheExecutive.c)
  * Callees:
- *     MiSetPagingOfDriver @ 0x1400DADDC (MiSetPagingOfDriver.c)
- *     MiImagePagable @ 0x140653BA0 (MiImagePagable.c)
- *     MiSnapDriverRange @ 0x140653C00 (MiSnapDriverRange.c)
+ *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
+ *     MiImagePagable @ 0x140653B80 (MiImagePagable.c)
+ *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiEnablePagingOfDriver(_QWORD *a1)

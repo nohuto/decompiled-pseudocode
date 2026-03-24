@@ -1,43 +1,43 @@
 /*
- * XREFs of ?VidSchiNotifyReadyQueueAdded@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001CF9C
+ * XREFs of ?VidSchiNotifyReadyQueueAdded@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0037DD0
  * Callers:
- *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C001D3A4 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0046604 (VidSchiSuspendResumeHwContext.c)
+ *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C0038590 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C148 (VidSchiSuspendResumeHwContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall VidSchiNotifyReadyQueueAdded(struct VIDSCH_HW_QUEUE *a1)
+void __fastcall VidSchiNotifyReadyQueueAdded(struct VIDSCH_HW_QUEUE *a1, __int64 a2)
 {
-  __int64 v1; // rdx
-  int v2; // eax
+  struct VIDSCH_HW_QUEUE *v2; // rdi
   __int64 v3; // rbx
-  void (__fastcall *v4)(_QWORD); // rax
+  int v4; // eax
+  void (__fastcall *v5)(_QWORD); // rax
+  _QWORD *v6; // rax
 
-  v1 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
-  v2 = *(_DWORD *)(v1 + 1712);
-  v3 = *(_QWORD *)(v1 + 24);
-  if ( v2 == -1 || *(_DWORD *)(v3 + 68) == -1 )
+  v2 = a1;
+  v3 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
+  v4 = *(_DWORD *)(v3 + 1704);
+  if ( v4 == -1 || (a1 = *(struct VIDSCH_HW_QUEUE **)(v3 + 24), *((_DWORD *)a1 + 15) == -1) )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 281LL, 28672LL, a1, v1, 0LL);
+    v6 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v6[7] = 0LL;
+    v6[3] = 281LL;
+    v6[4] = 28672LL;
+    v6[5] = v2;
+    v6[6] = v3;
+    WdLogEvent5_WdCriticalError(v6);
     __debugbreak();
-    JUMPOUT(0x1C001D079LL);
+    JUMPOUT(0x1C0037E8ALL);
   }
-  *(_DWORD *)(v1 + 1712) = v2 + 1;
-  if ( !*((_BYTE *)a1 + 144) )
-    ++*(_DWORD *)(v1 + 1716);
-  ++*(_DWORD *)(v3 + 68);
-  if ( *(_DWORD *)(v1 + 1712) == 1 && *(_DWORD *)(v1 + 11272) != -1 )
+  *(_DWORD *)(v3 + 1704) = v4 + 1;
+  if ( !*((_BYTE *)v2 + 144) )
+    ++*(_DWORD *)(v3 + 1708);
+  ++*((_DWORD *)a1 + 15);
+  if ( *(_DWORD *)(v3 + 1704) == 1 && *(_DWORD *)(v3 + 11224) != -1 )
   {
-    v4 = *(void (__fastcall **)(_QWORD))(v3 + 3080);
-    if ( v4 )
-      v4(*(_QWORD *)(v3 + 3120));
-  }
-  if ( *(_DWORD *)(v3 + 68) == 1 )
-  {
-    *(_QWORD *)(v3 + 1224) = MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)(v3 + 1192), 0, 0);
+    v5 = (void (__fastcall *)(_QWORD))*((_QWORD *)a1 + 373);
+    if ( v5 )
+      v5(*((_QWORD *)a1 + 378));
   }
 }

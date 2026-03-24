@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z @ 0x1C00B2624
+ * XREFs of ?Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z @ 0x1C006F338
  * Callers:
- *     ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C00B25A4 (-ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z.c)
- *     DoAccel @ 0x1C01E7A10 (DoAccel.c)
+ *     ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C006F2B8 (-ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z.c)
+ *     DoAccel @ 0x1C01AE6C0 (DoAccel.c)
  * Callees:
- *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C003C040 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C003C1A0 (--0CLockedInputSpace@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C0044158 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C006F558 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDeviceAcceleration::Accelerate(CDeviceAcceleration *this, int *a2, int *a3, struct _SUBPIXELS *a4)
@@ -85,14 +85,14 @@ void __fastcall CDeviceAcceleration::Accelerate(CDeviceAcceleration *this, int *
       }
       v21 = v8 - 1;
       v22 = *(_QWORD *)(v35 + 8 * v21) + (*(_QWORD *)(v34 + 8 * v21) << 16) / v19;
-      if ( dword_1C0296C00 < (unsigned int)v21 )
-        v22 = (*(_QWORD *)(v35 + 8LL * (unsigned int)dword_1C0296C00)
-             + (*(_QWORD *)(v34 + 8LL * (unsigned int)dword_1C0296C00) << 16) / v19
+      if ( dword_1C0251E40 < (unsigned int)v21 )
+        v22 = (*(_QWORD *)(v35 + 8LL * (unsigned int)dword_1C0251E40)
+             + (*(_QWORD *)(v34 + 8LL * (unsigned int)dword_1C0251E40) << 16) / v19
              + v22) >> 1;
-      dword_1C0296C00 = v21;
-      v23 = qword_1C0296C08 + ((v22 * v13) >> 16);
+      dword_1C0251E40 = v21;
+      v23 = qword_1C0251E38 + ((v22 * v13) >> 16);
       v24 = -v23;
-      v25 = qword_1C0296BF8 + ((v22 * v12) >> 16);
+      v25 = qword_1C0251E30 + ((v22 * v12) >> 16);
       if ( v23 < 0 )
       {
         v27 = v23;
@@ -105,7 +105,7 @@ void __fastcall CDeviceAcceleration::Accelerate(CDeviceAcceleration *this, int *
       }
       v28 = -(__int64)(v24 & 0xFFFFFFFFFFFF0000uLL);
       *(_DWORD *)a4 = v23 - v26;
-      qword_1C0296C08 = v23 - v26;
+      qword_1C0251E38 = v23 - v26;
       if ( v23 < 0 )
         v27 = v28;
       v29 = -v25;
@@ -122,7 +122,7 @@ void __fastcall CDeviceAcceleration::Accelerate(CDeviceAcceleration *this, int *
       }
       v32 = -(__int64)(v29 & 0xFFFFFFFFFFFF0000uLL);
       *((_DWORD *)a4 + 1) = v25 - v30;
-      qword_1C0296BF8 = v25 - v30;
+      qword_1C0251E30 = v25 - v30;
       if ( v25 < 0 )
         v31 = v32;
       *a3 = v31 >> 16;

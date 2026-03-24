@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x1406EBBBC
+ * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x1406EBB9C
  * Callers:
- *     PoFxPrepareDevice @ 0x14015A53C (PoFxPrepareDevice.c)
+ *     PoFxPrepareDevice @ 0x14015A55C (PoFxPrepareDevice.c)
  * Callees:
- *     PopFxQueryBiosDeviceName @ 0x14015A65C (PopFxQueryBiosDeviceName.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x140179B94 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxQueryBiosDeviceName @ 0x14015A67C (PopFxQueryBiosDeviceName.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140179BB4 (PopFxFindAcpiDeviceByUniqueId.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

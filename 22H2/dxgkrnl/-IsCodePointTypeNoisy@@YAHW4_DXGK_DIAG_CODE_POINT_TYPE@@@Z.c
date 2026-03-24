@@ -1,63 +1,13 @@
 /*
- * XREFs of ?IsCodePointTypeNoisy@@YAHW4_DXGK_DIAG_CODE_POINT_TYPE@@@Z @ 0x1C0003764
+ * XREFs of ?IsCodePointTypeNoisy@@YAHW4_DXGK_DIAG_CODE_POINT_TYPE@@@Z @ 0x1C000C248
  * Callers:
- *     ?WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0003468 (-WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0003660 (-WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000BA2C (-WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000C19C (-WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IsCodePointTypeNoisy(int a1)
+_BOOL8 __fastcall IsCodePointTypeNoisy(int a1)
 {
-  int v1; // ecx
-  int v2; // ecx
-  int v3; // ecx
-  int v4; // ecx
-  int v6; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-
-  if ( a1 <= 38 )
-  {
-    if ( a1 == 38 )
-      return 1LL;
-    v8 = a1 - 17;
-    if ( !v8 )
-      return 1LL;
-    v9 = v8 - 8;
-    if ( !v9 )
-      return 1LL;
-    v10 = v9 - 3;
-    if ( !v10 )
-      return 1LL;
-    v11 = v10 - 4;
-    if ( !v11 )
-      return 1LL;
-    v12 = v11 - 1;
-    if ( !v12 )
-      return 1LL;
-    return v12 == 4;
-  }
-  else
-  {
-    v1 = a1 - 39;
-    if ( !v1 )
-      return 1LL;
-    v2 = v1 - 3;
-    if ( !v2 )
-      return 1LL;
-    v3 = v2 - 18;
-    if ( !v3 )
-      return 1LL;
-    v4 = v3 - 17;
-    if ( !v4 )
-      return 1LL;
-    v6 = v4 - 40;
-    if ( !v6 )
-      return 1LL;
-    return v6 == 1;
-  }
+  return a1 == 28 || a1 == 17 || a1 > 31 && (a1 <= 33 || a1 > 36 && (a1 == 77 || a1 <= 38 || a1 == 60));
 }

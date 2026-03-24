@@ -1,21 +1,19 @@
 /*
- * XREFs of W32kGenerateMoveData @ 0x1C0270440
+ * XREFs of W32kGenerateMoveData @ 0x1C0277CC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall W32kGenerateMoveData(__int64 a1)
+__int64 W32kGenerateMoveData()
 {
-  __int64 v1; // rbx
   int IsRemoteAndNotDisconnectConnection; // eax
-  unsigned int v3; // ecx
+  unsigned int v1; // ecx
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
   IsRemoteAndNotDisconnectConnection = UserIsRemoteAndNotDisconnectConnection();
-  v3 = 0;
-  if ( IsRemoteAndNotDisconnectConnection || *(_DWORD *)(v1 + 8684) )
+  v1 = 0;
+  if ( IsRemoteAndNotDisconnectConnection || g_bUseMoveHints )
     return 1;
-  return v3;
+  return v1;
 }

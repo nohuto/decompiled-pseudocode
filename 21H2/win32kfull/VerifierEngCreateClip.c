@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierEngCreateClip @ 0x1C029CC80
+ * XREFs of VerifierEngCreateClip @ 0x1C029E3A0
  * Callers:
  *     <none>
  * Callees:
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029C964 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029E070 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 CLIPOBJ *VerifierEngCreateClip()

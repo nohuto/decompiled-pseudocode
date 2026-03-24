@@ -1,19 +1,26 @@
 /*
- * XREFs of ?Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z @ 0x1801EA364
+ * XREFs of ?Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z @ 0x1801A4E6C
  * Callers:
- *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801E9360 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
+ *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801A4120 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
  * Callees:
- *     ??$ReportFailure_GetLastError@$01@details@wil@@YAKPEAXIPEBD110@Z @ 0x1801E8C3C (--$ReportFailure_GetLastError@$01@details@wil@@YAKPEAXIPEBD110@Z.c)
+ *     ?ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z @ 0x18014E594 (-ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z.c)
  */
 
 __int64 __fastcall wil::details::in1diag3::Log_GetLastError(
         wil::details::in1diag3 *this,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         const char *a4)
 {
-  int v5; // [rsp+20h] [rbp-18h]
-  char *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v5; // [rsp+20h] [rbp-28h]
+  const char *retaddr; // [rsp+48h] [rbp+0h]
 
-  return wil::details::ReportFailure_GetLastError<2>(this, a2, a3, a4, v5, retaddr);
+  return wil::details::ReportFailure_GetLastError(
+           this,
+           (void *)0xBF,
+           (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+           a4,
+           v5,
+           retaddr,
+           2);
 }

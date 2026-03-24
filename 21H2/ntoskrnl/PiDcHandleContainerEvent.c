@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcHandleContainerEvent @ 0x14076DC10
+ * XREFs of PiDcHandleContainerEvent @ 0x14075BA14
  * Callers:
- *     PiDcHandleObjectEvent @ 0x14076D7D4 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x1407586D4 (PiDcHandleObjectEvent.c)
  * Callees:
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1406E9E7C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1407729A0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleContainerEvent(__int64 a1)

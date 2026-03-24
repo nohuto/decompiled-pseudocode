@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSetWnfProcessNotificationEvent @ 0x1406B3040
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x1406B3020
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExpWnfCreateProcessContext @ 0x1406B3108 (ExpWnfCreateProcessContext.c)
+ *     ExpWnfCreateProcessContext @ 0x1406B30E8 (ExpWnfCreateProcessContext.c)
  */
 
 __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)

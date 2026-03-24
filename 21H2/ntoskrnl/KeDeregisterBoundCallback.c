@@ -1,14 +1,14 @@
 /*
- * XREFs of KeDeregisterBoundCallback @ 0x14056A090
+ * XREFs of KeDeregisterBoundCallback @ 0x140514130
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExWaitForCallBacks @ 0x1409FB4DC (ExWaitForCallBacks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExCompareExchangeCallBack @ 0x1403A7E6C (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExWaitForCallBacks @ 0x14094F00C (ExWaitForCallBacks.c)
  */
 
 __int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
       if ( v8 == v7 )
         goto LABEL_8;
     }
-    ExReleaseRundownProtection(v5);
+    ExReleaseRundownProtection_0(v5);
 LABEL_8:
     if ( v6 )
     {
@@ -49,6 +49,6 @@ LABEL_8:
       v3 = 0;
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

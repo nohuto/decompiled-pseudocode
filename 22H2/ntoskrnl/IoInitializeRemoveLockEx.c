@@ -1,10 +1,9 @@
 /*
- * XREFs of IoInitializeRemoveLockEx @ 0x1403C4A40
+ * XREFs of IoInitializeRemoveLockEx @ 0x14037EB50
  * Callers:
- *     PopFxCreateDeviceCommon @ 0x1403956A4 (PopFxCreateDeviceCommon.c)
- *     DifIoInitializeRemoveLockExWrapper @ 0x1405DFE90 (DifIoInitializeRemoveLockExWrapper.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
- *     VfFilterAttach @ 0x140AE020C (VfFilterAttach.c)
+ *     PopFxCreateDeviceCommon @ 0x1403BE568 (PopFxCreateDeviceCommon.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
+ *     VfFilterAttach @ 0x1409E4F04 (VfFilterAttach.c)
  * Callees:
  *     <none>
  */

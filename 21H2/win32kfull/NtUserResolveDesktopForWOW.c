@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserResolveDesktopForWOW @ 0x1C01FC160
+ * XREFs of NtUserResolveDesktopForWOW @ 0x1C02011F0
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     xxxResolveDesktopForWOW @ 0x1C01E43F8 (xxxResolveDesktopForWOW.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E9C64 (xxxResolveDesktopForWOW.c)
  */
 
 __int64 __fastcall NtUserResolveDesktopForWOW(struct _UNICODE_STRING *a1)
@@ -33,7 +33,7 @@ __int64 __fastcall NtUserResolveDesktopForWOW(struct _UNICODE_STRING *a1)
   v15 = 0LL;
   v16 = 0LL;
   v12 = 0;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = (ULONG64)a1;
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     v2 = MmUserProbeAddress;
@@ -51,7 +51,7 @@ __int64 __fastcall NtUserResolveDesktopForWOW(struct _UNICODE_STRING *a1)
     if ( (v3 & 1) != 0 )
     {
 LABEL_10:
-      MicrosoftTelemetryAssertTriggeredNoArgsKM();
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 922);
       v6 = (_BYTE **)MmUserProbeAddress;
       goto LABEL_11;
     }
@@ -68,7 +68,7 @@ LABEL_12:
   epi16 = _mm_extract_epi16((__m128i)SourceString, 1);
   if ( epi16 )
   {
-    v8 = (WCHAR *)Win32AllocPoolWithQuotaZInit(epi16, 2037674837LL);
+    v8 = (WCHAR *)Win32AllocPoolWithQuota(epi16, 2037674837LL);
     SourceString.Buffer = v8;
     if ( !v8 )
       ExRaiseStatus(-1073741801);

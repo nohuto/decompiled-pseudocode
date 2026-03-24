@@ -1,23 +1,23 @@
 /*
- * XREFs of Bulk_FindStage @ 0x1C000E248
+ * XREFs of Bulk_FindStage @ 0x1C000BD10
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAF4 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046D58 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00442A0 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
  * Callees:
- *     TR_DoesSegmentContainDequeuePointer @ 0x1C000E380 (TR_DoesSegmentContainDequeuePointer.c)
- *     WPP_RECORDER_SF_DDDqq @ 0x1C0012848 (WPP_RECORDER_SF_DDDqq.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C000CFB8 (WPP_RECORDER_SF_DDDqq.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 char __fastcall Bulk_FindStage(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
   char v5; // di
   int v7; // r13d
-  __int64 v8; // rbp
+  __int64 v8; // r14
   __int64 v9; // rcx
-  __int64 *i; // r14
+  __int64 *i; // rsi
   __int64 NextStage; // rax
   __int64 v12; // rdx
   _QWORD **v13; // rax
@@ -39,12 +39,12 @@ char __fastcall Bulk_FindStage(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
       {
         v18 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
         LOBYTE(v18) = 4;
-        WPP_RECORDER_SF_DDD(
+        WPP_RECORDER_SF_ddL(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v18,
           14,
           49,
-          (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+          (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_DWORD *)(a1 + 64));
@@ -104,12 +104,12 @@ LABEL_10:
   {
     v17 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
     LOBYTE(v17) = 4;
-    WPP_RECORDER_SF_DDD(
+    WPP_RECORDER_SF_ddL(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v17,
       14,
       48,
-      (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+      (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
       *(_DWORD *)(a1 + 64));

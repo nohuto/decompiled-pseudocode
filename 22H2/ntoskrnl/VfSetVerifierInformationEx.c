@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSetVerifierInformationEx @ 0x140ADE920
+ * XREFs of VfSetVerifierInformationEx @ 0x1409ECD04
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140AC3240 (VfProbeAndCaptureUnicodeString.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfSetVerifierRunningMode @ 0x140ADBD3C (VfSetVerifierRunningMode.c)
- *     VfWdSetCancelTimeout @ 0x140ADF17C (VfWdSetCancelTimeout.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x1409C6194 (VfProbeAndCaptureUnicodeString.c)
+ *     VfSetVerifierRunningMode @ 0x1409D9810 (VfSetVerifierRunningMode.c)
+ *     VfWdSetCancelTimeout @ 0x1409E0D00 (VfWdSetCancelTimeout.c)
  */
 
 __int64 __fastcall VfSetVerifierInformationEx(int *a1)
@@ -33,16 +33,16 @@ __int64 __fastcall VfSetVerifierInformationEx(int *a1)
     if ( v4 >= 0 )
     {
 LABEL_7:
-      ++dword_140C139E0;
-      v4 = VfProbeAndCaptureUnicodeString((__int64)&v7, (unsigned __int64)(a1 + 2), 64LL);
+      ++dword_140C2A958;
+      v4 = VfProbeAndCaptureUnicodeString((__int64)&v7, (unsigned __int64)(a1 + 2), 512LL);
       if ( v4 >= 0 )
       {
         VfDriverLock();
-        v5 = (__m128i)xmmword_140C139E8;
-        *(_OWORD *)P = xmmword_140C139E8;
-        xmmword_140C139E8 = v7;
+        v5 = (__m128i)xmmword_140C2A960;
+        *(_OWORD *)P = xmmword_140C2A960;
+        xmmword_140C2A960 = v7;
         ViDriversLoadLockOwner = 0LL;
-        KeReleaseMutex(&ViDriversLoadLock, 0);
+        KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
         if ( (unsigned __int16)_mm_cvtsi128_si32(v5) )
           ExFreePoolWithTag(P[1], 0);
       }

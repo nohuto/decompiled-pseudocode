@@ -1,47 +1,37 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x14035EDE8
+ * XREFs of ApiSetResolveToHost @ 0x14037263C
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     ExIsMultiSessionSku @ 0x140861E24 (ExIsMultiSessionSku.c)
+ *     MiResolveImageReferences @ 0x14075C9FC (MiResolveImageReferences.c)
+ *     ExIsMultiSessionSku @ 0x1407D1AC8 (ExIsMultiSessionSku.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x14035EF30 (ApiSetpSearchForApiSet.c)
- *     ApiSetResolveToHost_V7 @ 0x14041661C (ApiSetResolveToHost_V7.c)
- *     ApiSetpSearchForApiSetHost @ 0x140614958 (ApiSetpSearchForApiSetHost.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A2C30 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1405BE40C (ApiSetpSearchForApiSetHost.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)
 {
-  __int64 v7; // rbx
-  char v9; // di
-  __int64 v10; // rcx
-  _QWORD *v11; // rdx
-  unsigned __int64 v12; // rax
+  char v6; // bl
+  __int64 v9; // rcx
+  _QWORD *v10; // rdx
+  unsigned __int64 v11; // rax
+  __int64 result; // rax
   unsigned int v13; // eax
   _WORD *v14; // rcx
   unsigned __int16 v15; // ax
   __int64 v16; // rax
   __int64 v17; // rcx
 
-  v7 = a1;
-  if ( *(_BYTE *)a1 == 7 )
-    return ApiSetResolveToHost_V7(a1, (_DWORD)a2, a3, (_DWORD)a4, a5);
-  if ( *(_DWORD *)a1 == 6 && (*(_DWORD *)(a1 + 8) & 4) != 0 )
-  {
-    a1 += 28LL;
-    if ( *(_BYTE *)a1 == 7 )
-      return ApiSetResolveToHost_V7(a1, (_DWORD)a2, a3, (_DWORD)a4, a5);
-  }
-  v9 = 0;
+  v6 = 0;
   *(_OWORD *)a5 = 0LL;
-  v10 = *a2;
-  if ( (unsigned int)v10 >= 8 )
+  v9 = *a2;
+  if ( (unsigned int)v9 >= 8 )
   {
-    v11 = (_QWORD *)*((_QWORD *)a2 + 1);
-    v12 = *v11 & 0xFFFFFFDFFFDFFFDFuLL;
-    if ( v12 == 0x2D004900500041LL || v12 == 0x2D005400580045LL )
+    v10 = (_QWORD *)*((_QWORD *)a2 + 1);
+    v11 = *v10 & 0xFFFFFFDFFFDFFFDFuLL;
+    if ( v11 == 0x2D004900500041LL || v11 == 0x2D005400580045LL )
     {
-      v13 = v10;
-      v14 = (_WORD *)((char *)v11 + v10);
+      v13 = v9;
+      v14 = (_WORD *)((char *)v10 + v9);
       do
       {
         if ( v13 <= 1 )
@@ -53,29 +43,28 @@ __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64
       v15 = (unsigned __int16)v13 >> 1;
       if ( v15 )
       {
-        v16 = ApiSetpSearchForApiSet(v7, v11, v15, a4);
+        v16 = ApiSetpSearchForApiSet(a1, v10, v15);
         if ( v16 )
         {
           if ( a3 && *(_DWORD *)(v16 + 20) > 1u )
           {
-            v17 = ApiSetpSearchForApiSetHost(v16, *(_QWORD *)(a3 + 8), *(_WORD *)a3 >> 1, v7);
-LABEL_19:
-            v9 = 1;
-            *(_QWORD *)(a5 + 8) = v7 + *(unsigned int *)(v17 + 12);
-            *(_WORD *)(a5 + 2) = *(_WORD *)(v17 + 16);
-            *(_WORD *)a5 = *(_WORD *)(v17 + 16);
-            goto LABEL_20;
+            v17 = ApiSetpSearchForApiSetHost(v16, *(_QWORD *)(a3 + 8), *(_WORD *)a3 >> 1, a1);
+            goto LABEL_14;
           }
           if ( *(_DWORD *)(v16 + 20) )
           {
-            v17 = v7 + *(unsigned int *)(v16 + 16);
-            goto LABEL_19;
+            v17 = a1 + *(unsigned int *)(v16 + 16);
+LABEL_14:
+            v6 = 1;
+            *(_QWORD *)(a5 + 8) = a1 + *(unsigned int *)(v17 + 12);
+            *(_WORD *)(a5 + 2) = *(_WORD *)(v17 + 16);
+            *(_WORD *)a5 = *(_WORD *)(v17 + 16);
           }
         }
       }
     }
   }
-LABEL_20:
-  *a4 = v9;
-  return 0LL;
+  result = 0LL;
+  *a4 = v6;
+  return result;
 }

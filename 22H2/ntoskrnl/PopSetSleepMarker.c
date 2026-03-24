@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetSleepMarker @ 0x140981550
+ * XREFs of PopSetSleepMarker @ 0x140774988
  * Callers:
- *     PopIssueActionRequest @ 0x140989D54 (PopIssueActionRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopIssueActionRequest @ 0x140776468 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D1F4 (PopBsdHandleRequest.c)
- *     PopGetTransitionsToOnCount @ 0x14059523C (PopGetTransitionsToOnCount.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopGetTransitionsToOnCount @ 0x14038292C (PopGetTransitionsToOnCount.c)
+ *     PopBsdHandleRequest @ 0x1403F76F4 (PopBsdHandleRequest.c)
  */
 
 void __fastcall PopSetSleepMarker(char a1)
@@ -21,6 +21,6 @@ void __fastcall PopSetSleepMarker(char a1)
   WORD6(PopBsdPowerTransition) = TransitionsToOnCount;
   BYTE8(PopBsdPowerTransition) = (16 * a1) | BYTE8(PopBsdPowerTransition) & 0xF;
   BYTE14(PopBsdPowerTransition) = PopSleepCheckpointStatus & 0xF | BYTE14(PopBsdPowerTransition) & 0xF0;
-  PopBsdHandleRequest(9u);
-  PopReleaseRwLock(&PopBsdUpdateLock);
+  PopBsdHandleRequest(8);
+  PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

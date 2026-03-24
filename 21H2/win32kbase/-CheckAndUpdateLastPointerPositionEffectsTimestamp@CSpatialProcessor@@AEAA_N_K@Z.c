@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckAndUpdateLastPointerPositionEffectsTimestamp@CSpatialProcessor@@AEAA_N_K@Z @ 0x1C00CDFA8
+ * XREFs of ?CheckAndUpdateLastPointerPositionEffectsTimestamp@CSpatialProcessor@@AEAA_N_K@Z @ 0x1C00A94FC
  * Callers:
- *     ?CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z @ 0x1C00CDE80 (-CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z.c)
+ *     ?CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z @ 0x1C00A93E8 (-CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ char __fastcall CSpatialProcessor::CheckAndUpdateLastPointerPositionEffectsTimes
 
   PerformanceFrequency.QuadPart = 0LL;
   KeQueryPerformanceCounter(&PerformanceFrequency);
-  if ( a2 - *((_QWORD *)this + 2) <= PerformanceFrequency.QuadPart / 0x1EuLL )
+  if ( a2 - *((_QWORD *)this + 3) <= PerformanceFrequency.QuadPart / 0x1EuLL )
     return 0;
-  *((_QWORD *)this + 2) = a2;
+  *((_QWORD *)this + 3) = a2;
   return 1;
 }

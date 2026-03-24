@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C006433C
+ * XREFs of McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00567C4
  * Callers:
- *     DpiMiracastDdiMiracastIoControl @ 0x1C038CE68 (DpiMiracastDdiMiracastIoControl.c)
+ *     DpiMiracastDdiMiracastIoControl @ 0x1C02CDD98 (DpiMiracastDdiMiracastIoControl.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

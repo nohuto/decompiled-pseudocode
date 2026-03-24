@@ -1,85 +1,36 @@
 /*
- * XREFs of NtUserDestroyActivationObject @ 0x1C000EB80
+ * XREFs of NtUserDestroyActivationObject @ 0x1C0002FB0
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z @ 0x1C000D8A0 (-DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DestroyActivationObjectInternal@CActivationObjectManager@@AEAAJPEAVCActivationObject@@@Z @ 0x1C0003048 (-DestroyActivationObjectInternal@CActivationObjectManager@@AEAAJPEAVCActivationObject@@@Z.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?GetActivationObjectFromLuid@CActivationObjectManager@@AEBAPEAVCActivationObject@@AEBU_LUID@@@Z @ 0x1C009DC5C (-GetActivationObjectFromLuid@CActivationObjectManager@@AEBAPEAVCActivationObject@@AEBU_LUID@@@Z.c)
  */
 
 __int64 __fastcall NtUserDestroyActivationObject(struct _LUID *a1)
 {
-  struct _LUID *v1; // rsi
   int v2; // edi
-  struct tagTHREADINFO *v3; // rax
-  __int64 v4; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v6; // rax
-  char v7; // al
-  struct tagKERNELHANDLETABLEENTRY *v8; // rbx
-  CActivationObjectManager *v9; // rcx
-  NTSTATUS v10; // eax
-  ULONG v12; // eax
-  struct _LUID v13; // [rsp+58h] [rbp+10h] BYREF
+  struct CActivationObject *ActivationObjectFromLuid; // rax
+  NTSTATUS v4; // eax
+  ULONG v6; // eax
+  struct _LUID v7; // [rsp+58h] [rbp+10h] BYREF
 
-  v1 = a1;
   v2 = 1;
-  LOBYTE(a1) = 1;
-  v3 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(a1);
-  gptiCurrent = v3;
-  if ( v3 )
-  {
-    *((_DWORD *)v3 + 387) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
-    if ( CurrentProcessWin32Process )
-    {
-      v6 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      if ( v6 )
-      {
-        if ( (*(_DWORD *)(v6 + 12) & 0x8000) != 0 )
-        {
-          if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-            || (v7 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-          {
-            v7 = 0;
-          }
-          if ( v7 )
-          {
-            while ( 1 )
-            {
-              v8 = gpSharedUserCritDeferredUnlockListHead;
-              if ( !gpSharedUserCritDeferredUnlockListHead )
-                break;
-              gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                           + 2);
-              *((_QWORD *)v8 + 2) = 0LL;
-              if ( !*(_DWORD *)(*(_QWORD *)v8 + 8LL) )
-              {
-                v13.LowPart = 0x20000;
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-              }
-              HMUnlockObject(*(_QWORD *)v8);
-            }
-          }
-        }
-      }
-    }
-  }
-  v13 = 0LL;
-  v9 = (CActivationObjectManager *)&v1[1];
-  if ( &v1[1] < v1 || (unsigned __int64)v9 > MmUserProbeAddress )
-    v1 = (struct _LUID *)MmUserProbeAddress;
-  v13 = *v1;
-  v10 = CActivationObjectManager::DestroyActivationObject(v9, &v13);
-  if ( v10 < 0 )
+  EnterSharedCrit(0LL, 1LL);
+  v7 = 0LL;
+  if ( &a1[1] < a1 || (unsigned __int64)&a1[1] > MmUserProbeAddress )
+    a1 = (struct _LUID *)MmUserProbeAddress;
+  v7 = *a1;
+  ActivationObjectFromLuid = CActivationObjectManager::GetActivationObjectFromLuid(qword_1C0250798, &v7);
+  v4 = CActivationObjectManager::DestroyActivationObjectInternal(qword_1C0250798, ActivationObjectFromLuid);
+  if ( v4 < 0 )
   {
     v2 = 0;
-    v12 = RtlNtStatusToDosError(v10);
-    UserSetLastError(v12);
+    v6 = RtlNtStatusToDosError(v4);
+    UserSetLastError(v6);
   }
   UserSessionSwitchLeaveCrit();
   return v2;

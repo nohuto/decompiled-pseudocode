@@ -1,75 +1,61 @@
 /*
- * XREFs of MiLargeFreePageToMdl @ 0x1403D70E4
+ * XREFs of MiLargeFreePageToMdl @ 0x1402EEF1C
  * Callers:
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiChangePageHeatImmediate @ 0x140653E5C (MiChangePageHeatImmediate.c)
+ *     MiUpdatePageFileHighInPte @ 0x14023D6F0 (MiUpdatePageFileHighInPte.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402837A0 (MiIsFreeZeroPfnCold.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1402EF1FC (MiTryUnlinkNodeLargePage.c)
+ *     MiUnlockPage @ 0x140306A9C (MiUnlockPage.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F52A8 (MiConvertEntireLargePageToSmall.c)
+ *     MiChangePageHeatImmediate @ 0x1403F7330 (MiChangePageHeatImmediate.c)
+ *     MiLockPage @ 0x14054F844 (MiLockPage.c)
  */
 
-__int64 __fastcall MiLargeFreePageToMdl(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
+__int64 __fastcall MiLargeFreePageToMdl(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, char a5)
 {
-  __int16 v7; // ax
-  __int64 v8; // rsi
-  ULONG_PTR v9; // rbx
+  __int64 v6; // r9
+  __int64 v8; // rbp
+  __int64 v9; // rbx
   __int64 result; // rax
-  __int64 v11; // rbp
-  unsigned __int64 v12; // r14
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  unsigned __int64 v18; // r8
-  _QWORD *v19; // r8
-  int v20; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v11; // rdi
+  int v12; // eax
+  __int64 updated; // rax
+  char v14; // r8
+  __int64 v15; // rdx
+  unsigned __int64 v16; // r8
+  _QWORD *v17; // r8
+  int v18; // [rsp+60h] [rbp+18h] BYREF
 
-  v20 = 0;
-  v7 = 0;
-  if ( KeGetCurrentIrql() < 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 && (a5 & 8) == 0 )
-    v7 = 128;
+  v18 = 0;
+  v6 = 0LL;
+  if ( KeGetCurrentIrql() < 2u && (a5 & 8) == 0 )
+    v6 = 16LL;
   v8 = MiLargePageSizes[a3];
   v9 = a2 & ~(v8 - 1);
-  result = MiTryUnlinkNodeLargePages(a1, v9, a3, 1LL, v7, &v20, 0LL);
-  v11 = result;
-  if ( result )
+  result = MiTryUnlinkNodeLargePage(a1, v9, a3, v6, &v18);
+  if ( (_DWORD)result )
   {
-    if ( MiIsFreeZeroPfnCold(result) && (a5 & 0x3000000) == 0 )
+    v11 = 48 * v9 - 0x58000000000LL;
+    LOBYTE(v12) = MiIsFreeZeroPfnCold(v11);
+    if ( v12 )
     {
       MiChangePageHeatImmediate(v9, a3, 1LL);
-      v12 = (unsigned __int8)MiLockPageInline(v11);
-      *(_QWORD *)(v11 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v11 + 16), 0LL);
-      _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-      __writecr8(v12);
+      MiLockPage(48 * v9 - 0x58000000000LL);
+      updated = MiUpdatePageFileHighInPte(*(_QWORD *)(v11 + 16), 0LL);
+      LOBYTE(v15) = v14;
+      *(_QWORD *)(v11 + 16) = updated;
+      MiUnlockPage(48 * v9 - 0x58000000000LL, v15);
     }
-    MiConvertEntireLargePageToSmall(v11, a3, 0, 1, 0LL, 0LL, 0LL);
+    MiConvertEntireLargePageToSmall(48 * v9, a3, 0, 1, 0LL, 0LL);
     if ( a4 )
     {
-      v18 = ((unsigned __int64)*(unsigned int *)(a4 + 40) >> 12) + 6;
+      v16 = ((unsigned __int64)*(unsigned int *)(a4 + 40) >> 12) + 6;
       *(_DWORD *)(a4 + 40) += (_DWORD)v8 << 12;
-      v19 = (_QWORD *)(a4 + 8 * v18);
+      v17 = (_QWORD *)(a4 + 8 * v16);
       do
       {
-        *v19++ = v9++;
+        *v17++ = v9++;
         --v8;
       }
       while ( v8 );

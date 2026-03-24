@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpIrpDeviceEnumerated @ 0x1401605A8
+ * XREFs of PnpIrpDeviceEnumerated @ 0x1401605C8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
  */
 

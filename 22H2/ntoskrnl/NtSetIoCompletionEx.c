@@ -1,51 +1,64 @@
 /*
- * XREFs of NtSetIoCompletionEx @ 0x14077A340
+ * XREFs of NtSetIoCompletionEx @ 0x14065F390
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx @ 0x14031A7E0 (IoSetIoCompletionEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IoSetIoCompletionEx @ 0x1402E6D30 (IoSetIoCompletionEx.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetIoCompletionEx(void *a1, void *a2, int a3, int a4, int a5, __int64 a6)
+NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
 {
-  NTSTATUS v9; // eax
-  PVOID v10; // rsi
-  int v11; // edi
-  NTSTATUS v12; // eax
-  PVOID v13; // rbx
+  NTSTATUS result; // eax
+  KPROCESSOR_MODE PreviousMode; // r9
+  int v11; // ebx
+  signed __int32 v12; // eax
+  struct _DMA_ADAPTER *v13; // rsi
+  __int64 v14; // r8
+  struct _DMA_ADAPTER *v15; // rdi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
-  PVOID v16; // [rsp+48h] [rbp-10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-10h] BYREF
 
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(
+             a1,
+             2u,
+             IoCompletionObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             (PVOID *)&DmaAdapter,
+             0LL);
+  if ( result < 0 )
+    return result;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(a1, 2u, IoCompletionObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
-  v10 = Object;
-  v11 = v9;
-  if ( v9 < 0 )
-    return (unsigned int)v11;
-  v16 = 0LL;
-  v12 = ObReferenceObjectByHandle(a2, 2u, ObjectType, KeGetCurrentThread()->PreviousMode, &v16, 0LL);
-  v13 = v16;
-  v11 = v12;
-  if ( v12 >= 0 )
+  v11 = ObReferenceObjectByHandle(a2, 2u, ObjectType, PreviousMode, &Object, 0LL);
+  if ( v11 < 0 )
   {
-    if ( _InterlockedCompareExchange((volatile signed __int32 *)v16, 1, 0) )
-    {
-      v11 = -1073741584;
-    }
-    else
-    {
-      v11 = IoSetIoCompletionEx((int)Object, a3, a4, a5, a6, 0, (__int64)v13 + 8);
-      if ( v11 >= 0 )
-        goto LABEL_5;
-      *(_DWORD *)v16 = 0;
-    }
+    v15 = DmaAdapter;
+    goto LABEL_5;
+  }
+  v12 = _InterlockedCompareExchange((volatile signed __int32 *)Object, 1, 0);
+  v13 = (struct _DMA_ADAPTER *)Object;
+  if ( v12 )
+  {
+    v15 = DmaAdapter;
+    v11 = -1073741584;
+LABEL_11:
     if ( v13 )
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter(v13);
+    goto LABEL_5;
+  }
+  v14 = a4;
+  v15 = DmaAdapter;
+  v11 = IoSetIoCompletionEx((__int64)DmaAdapter, a3, v14, (_DWORD *)a5, a6, 0, (__int64)Object + 8);
+  if ( v11 < 0 )
+  {
+    *(_DWORD *)&v13->Version = 0;
+    goto LABEL_11;
   }
 LABEL_5:
-  if ( v10 )
-    ObfDereferenceObject(v10);
-  return (unsigned int)v11;
+  if ( v15 )
+    HalPutDmaAdapter(v15);
+  return v11;
 }

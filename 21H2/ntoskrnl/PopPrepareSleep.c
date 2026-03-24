@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPrepareSleep @ 0x14038BAA8
+ * XREFs of PopPrepareSleep @ 0x140382D5C
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
  * Callees:
- *     PopDiagTracePrepareSleep @ 0x1407FE600 (PopDiagTracePrepareSleep.c)
- *     PopDiagTracePrepareSleepEnd @ 0x1407FE61C (PopDiagTracePrepareSleepEnd.c)
- *     PopDispatchStateCallout @ 0x1407FE82C (PopDispatchStateCallout.c)
- *     PopCheckpointSystemSleep @ 0x140A4B974 (PopCheckpointSystemSleep.c)
+ *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
+ *     PopDiagTracePrepareSleep @ 0x14077498C (PopDiagTracePrepareSleep.c)
+ *     PopDiagTracePrepareSleepEnd @ 0x1407749A8 (PopDiagTracePrepareSleepEnd.c)
+ *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
  */
 
 __int64 __fastcall PopPrepareSleep(__int64 a1)

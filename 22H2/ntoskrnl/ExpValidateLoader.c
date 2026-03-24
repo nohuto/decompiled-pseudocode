@@ -1,23 +1,31 @@
 /*
- * XREFs of ExpValidateLoader @ 0x140B765C4
+ * XREFs of ExpValidateLoader @ 0x140A73C7C
  * Callers:
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExpValidateLoader(unsigned int *a1)
 {
+  ULONG_PTR v1; // r10
   ULONG_PTR result; // rax
-  unsigned int *v2; // rdx
+  unsigned int v3; // edx
+  unsigned int v4; // r8d
+  unsigned int *v5; // r9
 
+  v1 = *a1;
   result = 0LL;
-  if ( *(_QWORD *)a1 != 10LL
-    || a1[2] != 368
-    || (v2 = (unsigned int *)*((_QWORD *)a1 + 30), result = *v2, (_DWORD)result != 3880)
-    || v2[746] != 167772172 )
+  if ( (_DWORD)v1 != 10 || (v3 = a1[1]) != 0 || (v4 = a1[2], v4 != 352) )
   {
-    KeBugCheckEx(0x100u, *a1, a1[1], a1[2], result);
+    v4 = a1[2];
+    v3 = a1[1];
+    goto LABEL_8;
   }
+  v5 = (unsigned int *)*((_QWORD *)a1 + 30);
+  result = *v5;
+  if ( (_DWORD)result != 3640 || v5[738] != 167772168 )
+LABEL_8:
+    KeBugCheckEx(0x100u, v1, v3, v4, result);
   return result;
 }

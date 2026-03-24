@@ -1,42 +1,42 @@
 /*
- * XREFs of RtlpSizeHeapInternal @ 0x1405EB088
+ * XREFs of RtlpSizeHeapInternal @ 0x14058BA58
  * Callers:
- *     RtlSizeHeap @ 0x1405E50D0 (RtlSizeHeap.c)
+ *     RtlSizeHeap @ 0x140586600 (RtlSizeHeap.c)
  * Callees:
- *     RtlpProbeUserBufferSafe @ 0x1405EADE8 (RtlpProbeUserBufferSafe.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpHpVsChunkSize @ 0x1405F39B4 (RtlpHpVsChunkSize.c)
+ *     RtlpProbeUserBufferSafe @ 0x14058B7B8 (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkSize @ 0x140595734 (RtlpHpVsChunkSize.c)
  */
 
 __int64 __fastcall RtlpSizeHeapInternal(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // esi
-  __int64 v5; // rbp
-  __int64 v6; // r9
+  __int64 v5; // r9
+  __int64 v6; // r14
   unsigned __int8 *v8; // rcx
   int v9; // ecx
   unsigned __int8 v10; // dl
   int v11; // r8d
-  int v12; // edx
+  int v12; // eax
   unsigned __int16 v13; // ax
   int v15; // eax
   unsigned __int16 v16; // r9
   unsigned __int64 v17; // r8
-  int v18; // edx
+  int v18; // eax
   unsigned __int16 v19; // ax
-  __int64 v20; // [rsp+20h] [rbp-38h]
-  __int64 v21; // [rsp+28h] [rbp-30h]
-  int v22; // [rsp+38h] [rbp-20h]
-  int v23; // [rsp+38h] [rbp-20h]
-  int v24; // [rsp+48h] [rbp-10h]
+  __int64 v20; // [rsp+20h] [rbp-40h]
+  __int64 v21; // [rsp+28h] [rbp-38h]
+  int v22; // [rsp+38h] [rbp-28h]
+  int v23; // [rsp+48h] [rbp-18h]
+  int v24; // [rsp+58h] [rbp-8h]
 
   v3 = a3;
   if ( *(_DWORD *)(a1 + 16) == -857879331 )
   {
-    v5 = RtlpHpVsChunkSize(a1 + 64, a3, a3, 0LL);
-    if ( v5 == -1 )
-      RtlpLogHeapFailure(9, a1, v3, v6, v6 & v20, v6 & v21);
-    return v5;
+    v6 = RtlpHpVsChunkSize(a1 + 64, a3, a3, 0LL);
+    if ( v6 == -1 )
+      RtlpLogHeapFailure(9, a1, v3, v5, v5 & v20, v5 & v21);
+    return v6;
   }
   if ( (*(_DWORD *)(a1 + 120) & 1) != 0 )
   {

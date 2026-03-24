@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindRange @ 0x14083BD60
+ * XREFs of RtlFindRange @ 0x140760360
  * Callers:
- *     IopPortFindSuitableRange @ 0x14083B8B0 (IopPortFindSuitableRange.c)
- *     ArbFindSuitableRange @ 0x14083BC60 (ArbFindSuitableRange.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x140962A18 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     ArbFindSuitableRange @ 0x1407B8FE0 (ArbFindSuitableRange.c)
+ *     IopPortFindSuitableRange @ 0x1407D0C30 (IopPortFindSuitableRange.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C (KiTpIsExcludedKernelTracepointLocation.c)
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14083BEC0 (RtlpIsRangeAvailable.c)
- *     RtlGetLastRange @ 0x14083C040 (RtlGetLastRange.c)
+ *     RtlpIsRangeAvailable @ 0x14076057C (RtlpIsRangeAvailable.c)
+ *     RtlGetLastRange @ 0x140760770 (RtlGetLastRange.c)
  */
 
 __int64 __fastcall RtlFindRange(
@@ -23,11 +23,11 @@ __int64 __fastcall RtlFindRange(
 {
   unsigned __int64 v10; // rbp
   unsigned __int64 v13; // rbx
-  char v14; // r12
-  char v15; // r14
-  unsigned __int64 v16; // r15
-  int v17; // r9d
-  __int64 v18; // r13
+  int v14; // r14d
+  char v15; // r13
+  char v16; // r15
+  unsigned __int64 v17; // r12
+  int v18; // r9d
   unsigned __int64 v20; // rbx
   __int128 v21; // [rsp+50h] [rbp-48h] BYREF
   __int128 v22; // [rsp+60h] [rbp-38h]
@@ -36,17 +36,19 @@ __int64 __fastcall RtlFindRange(
   v21 = 0LL;
   v13 = a3 - a4 + 1 - (a3 - a4 + 1) % a5;
   v22 = 0LL;
-  if ( a2 > a3 || a3 - a2 < a4 - 1 || a2 + a5 < a2 || v13 < a2 || !a4 || !a5 )
+  if ( a2 > a3 )
     return 3221225485LL;
-  v14 = a6 & 1;
-  v15 = a6 & 2;
-  v16 = a3 - (a3 - a4 + 1) % a5;
+  v14 = a4 - 1;
+  if ( a3 - a2 < a4 - 1 || a2 + a5 < a2 || v13 < a2 || !a4 || !a5 )
+    return 3221225485LL;
+  v15 = a6 & 1;
+  v16 = a6 & 2;
+  v17 = a3 - (a3 - a4 + 1) % a5;
   RtlGetLastRange(a1, &v21, &a5);
-  v18 = a9;
   do
   {
-    LOBYTE(v17) = a7;
-    if ( (unsigned __int8)RtlpIsRangeAvailable((unsigned int)&v21, v13, v16, v17, v14, v15, 0, a8, v18) )
+    LOBYTE(v18) = a7;
+    if ( (unsigned __int8)RtlpIsRangeAvailable((unsigned int)&v21, v13, v17, v18, v15, v16, 0, a8, a9) )
     {
       *a10 = v13;
       return 0LL;
@@ -55,7 +57,7 @@ __int64 __fastcall RtlFindRange(
     if ( v20 > *(_QWORD *)v22 )
       break;
     v13 = v20 - v20 % v10;
-    LODWORD(v16) = v13 + a4 - 1;
+    LODWORD(v17) = v14 + v13;
   }
   while ( v13 >= a2 );
   return 3221225473LL;

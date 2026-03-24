@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDecompressFragmentLZNT1 @ 0x1407D80F0
+ * XREFs of RtlDecompressFragmentLZNT1 @ 0x1406840B0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     LZNT1DecompressChunkNewThread @ 0x14035D158 (LZNT1DecompressChunkNewThread.c)
- *     LZNT1DecompressChunk @ 0x14042ABE0 (LZNT1DecompressChunk.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     LZNT1DecompressChunkNewThread @ 0x14029B998 (LZNT1DecompressChunkNewThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     LZNT1DecompressChunk @ 0x140408B50 (LZNT1DecompressChunk.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall RtlDecompressFragmentLZNT1(
@@ -25,13 +25,13 @@ __int64 __fastcall RtlDecompressFragmentLZNT1(
   char *v9; // rsi
   unsigned __int64 v10; // r13
   int v11; // ebx
-  __int16 v12; // cx
-  unsigned int v13; // r14d
-  __int64 v14; // rax
-  __int16 *v15; // rcx
+  __int16 v12; // dx
+  __int16 *v13; // rcx
+  unsigned int v14; // r14d
+  __int64 v15; // rax
   __int64 v16; // r15
   int v17; // r12d
-  unsigned int v18; // edx
+  unsigned int v18; // ecx
   __int64 v19; // rax
   bool v20; // zf
   _BYTE *v22; // rdx
@@ -57,54 +57,55 @@ __int64 __fastcall RtlDecompressFragmentLZNT1(
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
   v12 = *(_WORD *)v8;
   v27 = 1LL;
-  v13 = a5;
+  v13 = (__int16 *)v8;
+  v14 = a5;
   while ( 1 )
   {
     v30 = 4096;
-    v14 = (v12 & 0xFFFu) + 3;
-    if ( v13 < 0x1000 )
+    v15 = (v12 & 0xFFFu) + 3;
+    if ( v14 < 0x1000 )
       break;
-    v15 = (__int16 *)(v8 + (unsigned int)v14);
-    if ( (unsigned __int64)v15 > v10 )
+    v13 = (__int16 *)((char *)v13 + v15);
+    if ( (unsigned __int64)v13 > v10 )
       goto LABEL_41;
-    v13 -= 4096;
-    v8 += (unsigned int)v14;
-    if ( (unsigned __int64)v15 <= v10 - 2 )
+    v14 -= 4096;
+    v8 = (unsigned __int64)v13;
+    if ( (unsigned __int64)v13 <= v10 - 2 )
     {
-      v12 = *v15;
-      if ( v12 )
+      v12 = *v13;
+      if ( *v13 )
         continue;
     }
     *a7 = 0;
-    goto LABEL_23;
+    goto LABEL_19;
   }
-  v16 = (unsigned int)v14;
-  if ( v8 + v14 > v10 )
+  v16 = (unsigned int)v15;
+  if ( (unsigned __int64)v13 + v15 > v10 )
   {
 LABEL_41:
     v11 = -1073741246;
     *a7 = v8;
-    goto LABEL_23;
+    goto LABEL_19;
   }
   v17 = a6;
   v18 = v29;
   while ( 1 )
   {
-    v19 = 4096 - v13;
+    v19 = 4096 - v14;
     if ( (unsigned int)v19 >= v18 )
       v19 = v18;
     LODWORD(Size) = v19;
     if ( v12 >= 0 )
     {
       v23 = (unsigned int)v19;
-      if ( v13 + v19 + v8 + 2 > v10 )
+      if ( v14 + v19 + v8 + 2 > v10 )
         goto LABEL_41;
-      v22 = (_BYTE *)(v8 + v13 + 2LL);
+      v22 = (_BYTE *)(v8 + v14 + 2LL);
 LABEL_32:
       memmove(v9, v22, v23);
-      goto LABEL_17;
+      goto LABEL_13;
     }
-    if ( v13 || (_DWORD)v19 != 4096 )
+    if ( v14 || (_DWORD)v19 != 4096 )
       break;
     if ( v17 )
     {
@@ -123,20 +124,20 @@ LABEL_35:
         goto LABEL_39;
       }
     }
-LABEL_17:
-    v13 = 0;
+LABEL_13:
+    v14 = 0;
     v9 += (unsigned int)Size;
     v20 = v29 == (_DWORD)Size;
     v18 = v29 - Size;
     v29 -= Size;
     if ( v20 )
-      goto LABEL_22;
+      goto LABEL_18;
     v8 += v16;
     if ( v8 > v10 - 2 )
-      goto LABEL_22;
+      goto LABEL_18;
     v12 = *(_WORD *)v8;
     if ( !*(_WORD *)v8 )
-      goto LABEL_22;
+      goto LABEL_18;
     v30 = 4096;
     v16 = (v12 & 0xFFF) + 3LL;
     if ( v8 + v16 > v10 )
@@ -145,14 +146,14 @@ LABEL_17:
   v11 = LZNT1DecompressChunk(a8, a8 + 4096, (_BYTE *)(v8 + 2), v16 + v8, &v30);
   if ( v11 >= 0 )
   {
-    v22 = &a8[v13];
-    if ( v30 - v13 < (unsigned int)Size )
+    v22 = &a8[v14];
+    if ( v30 - v14 < (unsigned int)Size )
     {
-      memmove(v9, v22, v30 - v13);
-      LODWORD(v9) = v30 - v13 + (_DWORD)v9;
-LABEL_22:
+      memmove(v9, v22, v30 - v14);
+      LODWORD(v9) = v30 - v14 + (_DWORD)v9;
+LABEL_18:
       *a7 = (_DWORD)v9 - v28;
-      goto LABEL_23;
+      goto LABEL_19;
     }
     v23 = (unsigned int)Size;
     goto LABEL_32;
@@ -160,7 +161,7 @@ LABEL_22:
   v24 = v30;
 LABEL_39:
   *a7 = v24;
-LABEL_23:
+LABEL_19:
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)&v27, 0xFFFFFFFF) == 1 )
     KeSetEvent(&Event, 0, 0);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);

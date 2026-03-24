@@ -1,9 +1,9 @@
 /*
- * XREFs of Win7RtlGetVersion @ 0x1409658C0
+ * XREFs of Win7RtlGetVersion @ 0x1408C18D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetVersion @ 0x1406C2630 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x1406AC620 (RtlGetVersion.c)
  */
 
 NTSTATUS __fastcall Win7RtlGetVersion(struct _OSVERSIONINFOW *a1)

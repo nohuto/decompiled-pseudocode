@@ -1,11 +1,11 @@
 /*
- * XREFs of ExDisableAllLookasideLists @ 0x14060B2A8
+ * XREFs of ExDisableAllLookasideLists @ 0x1405B682C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ExDisableAllLookasideLists()
@@ -34,19 +34,22 @@ __int64 ExDisableAllLookasideLists()
     *((_DWORD *)v1 - 12) = -65536;
     v1 = (__int64 *)*v1;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&ExNPagedLookasideLock);
+  KxReleaseSpinLock(&ExNPagedLookasideLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v7 = (v6 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v6;
-      if ( v7 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v7 = (v6 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v6;
+        if ( v7 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);
@@ -58,22 +61,23 @@ __int64 ExDisableAllLookasideLists()
     *((_DWORD *)v9 - 12) = -65536;
     v9 = (__int64 *)*v9;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ExPagedLookasideLock);
+  KxReleaseSpinLock(&ExPagedLookasideLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v10 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v12 = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v13 = v12->SchedulerAssist;
-      v7 = ((unsigned int)result & v13[5]) == 0;
-      v13[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v12);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        v12 = KeGetCurrentPrcb();
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v13 = v12->SchedulerAssist;
+        v7 = ((unsigned int)result & v13[5]) == 0;
+        v13[5] &= result;
+        if ( v7 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)v12);
+      }
     }
   }
   __writecr8(v10);

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C000A1D4
+ * XREFs of ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C00378B4
  * Callers:
- *     ?DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z @ 0x1C016B940 (-DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z.c)
+ *     ?DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z @ 0x1C0215D10 (-DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z.c)
  * Callees:
- *     ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0008F10 (-UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ.c)
- *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C000A3B0 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x1C0044900 (McTemplateK0_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0039BE4 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
+ *     ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0039D34 (-UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0039F04 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 void __fastcall DXGADAPTER::LatencyToleranceTimerNotification(KSPIN_LOCK *this, __int64 a2)
@@ -22,22 +22,22 @@ void __fastcall DXGADAPTER::LatencyToleranceTimerNotification(KSPIN_LOCK *this, 
   int v12; // edi
   __int64 v13; // rax
   _QWORD *v14; // rcx
-  __int64 v15; // rcx
-  int v16; // eax
-  KSPIN_LOCK v17; // rcx
-  __int64 v18; // rcx
+  int v15; // eax
+  KSPIN_LOCK v16; // rcx
+  __int64 v17; // rcx
+  _QWORD *v18; // rax
   _QWORD *v19; // rax
-  _QWORD *v20; // rax
+  __int64 v20; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
   char v22; // [rsp+48h] [rbp-30h]
 
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
     McTemplateK0_EtwWriteTransfer(this, &Dxgk_LatencyToleranceTimer);
   v22 = 0;
-  KeAcquireInStackQueuedSpinLock(this + 420, &LockHandle);
-  v5 = this + 418;
-  this[421] = (KSPIN_LOCK)KeGetCurrentThread();
-  v6 = (_QWORD *)this[418];
+  KeAcquireInStackQueuedSpinLock(this + 408, &LockHandle);
+  v5 = this + 406;
+  this[409] = (KSPIN_LOCK)KeGetCurrentThread();
+  v6 = (_QWORD *)this[406];
   v22 = 1;
   while ( v6 != v5 )
   {
@@ -46,12 +46,12 @@ void __fastcall DXGADAPTER::LatencyToleranceTimerNotification(KSPIN_LOCK *this, 
     v6 = (_QWORD *)*v6;
     if ( *((_BYTE *)v7 - 44) || *((_DWORD *)v7 - 14) == *((_DWORD *)v7 - 98) - 1 )
     {
-      if ( (_QWORD *)v6[1] != v8 || (v20 = (_QWORD *)v8[1], (_QWORD *)*v20 != v8) )
-LABEL_34:
+      if ( (_QWORD *)v6[1] != v8 || (v19 = (_QWORD *)v8[1], (_QWORD *)*v19 != v8) )
+LABEL_31:
         __fastfail(3u);
-      *v20 = v6;
-      v6[1] = v20;
-LABEL_14:
+      *v19 = v6;
+      v6[1] = v19;
+LABEL_13:
       *v8 = 0LL;
     }
     else if ( *(v7 - 1) <= a2 )
@@ -61,31 +61,31 @@ LABEL_14:
       {
         if ( v9 == 6 )
         {
-          v16 = *((_DWORD *)this + 835);
-          switch ( v16 )
+          v15 = *((_DWORD *)this + 811);
+          switch ( v15 )
           {
             case 0:
-              *((_DWORD *)this + 835) = 1;
-              v17 = this[402];
-LABEL_28:
-              *(v7 - 1) = a2 + v17;
-              goto LABEL_30;
+              *((_DWORD *)this + 811) = 1;
+              v16 = this[390];
+LABEL_19:
+              *(v7 - 1) = a2 + v16;
+              goto LABEL_20;
             case 1:
-              *((_DWORD *)this + 835) = 2;
-              v17 = this[404];
-              goto LABEL_28;
+              *((_DWORD *)this + 811) = 2;
+              v16 = this[392];
+              goto LABEL_19;
             case 2:
-              *((_DWORD *)this + 835) = 3;
-              v18 = *v8;
+              *((_DWORD *)this + 811) = 3;
+              v17 = *v8;
               if ( *(_QWORD **)(*v8 + 8LL) != v8 )
-                goto LABEL_34;
-              v19 = (_QWORD *)v8[1];
-              if ( (_QWORD *)*v19 != v8 )
-                goto LABEL_34;
-              *v19 = v18;
-              *(_QWORD *)(v18 + 8) = v19;
+                goto LABEL_31;
+              v18 = (_QWORD *)v8[1];
+              if ( (_QWORD *)*v18 != v8 )
+                goto LABEL_31;
+              *v18 = v17;
+              *(_QWORD *)(v17 + 8) = v18;
               *v8 = 0LL;
-LABEL_30:
+LABEL_20:
               DXGADAPTER::UpdateLatencyTolerances((DXGADAPTER *)this);
               break;
           }
@@ -99,42 +99,45 @@ LABEL_30:
         DXGADAPTER::SetPowerComponentLatencyCB(
           (DXGADAPTER *)this,
           *((_DWORD *)v7 - 99),
-          *(_QWORD *)(this[398] + 16 * (v10 + 1)));
+          *(_QWORD *)(this[386] + 16 * (v10 + 1)));
         *((_DWORD *)v7 - 4) = v12;
-        *(v7 - 1) = a2 + *(_QWORD *)(this[398] + 16 * v11 + 8);
+        *(v7 - 1) = a2 + *(_QWORD *)(this[386] + 16 * v11 + 8);
         if ( v12 == *((_DWORD *)v7 - 3) )
         {
           v13 = *v7;
           if ( *(_QWORD **)(*v7 + 8LL) != v7 )
-            goto LABEL_34;
+            goto LABEL_31;
           v14 = (_QWORD *)v7[1];
           if ( (_QWORD *)*v14 != v7 )
-            goto LABEL_34;
+            goto LABEL_31;
           *v14 = v13;
           *(_QWORD *)(v13 + 8) = v14;
-          goto LABEL_14;
+          goto LABEL_13;
         }
       }
     }
   }
   if ( (_QWORD *)*v5 == v5 )
   {
-    *((_BYTE *)this + 3332) = 0;
+    *((_BYTE *)this + 3236) = 0;
     LOBYTE(v4) = 0;
   }
   else
   {
-    LOBYTE(v4) = *((_BYTE *)this + 3332);
+    LOBYTE(v4) = *((_BYTE *)this + 3236);
   }
-  (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(this[350] + 624) + 8LL) + 864LL))(
-    *(_QWORD *)(this[350] + 632),
+  (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(this[338] + 616) + 8LL) + 864LL))(
+    *(_QWORD *)(this[338] + 624),
     v4);
   if ( v22 )
   {
     v22 = 0;
-    this[421] = 0LL;
+    this[409] = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0_EtwWriteTransfer(v15, &Dxgk_LatencyToleranceTimerEnd);
+  if ( bTracingEnabled )
+  {
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+      McTemplateK0_EtwWriteTransfer(v20, &Dxgk_LatencyToleranceTimerEnd);
+  }
 }

@@ -2,9 +2,9 @@
  * XREFs of EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1405B38C0
  * Callers:
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14066C548 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  */
 
 char __fastcall EtwpAppStateChangeSummaryShouldLogCommandLine(__int64 a1)

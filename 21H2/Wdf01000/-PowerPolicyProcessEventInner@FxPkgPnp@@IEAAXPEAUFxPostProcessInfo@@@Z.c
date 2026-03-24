@@ -1,55 +1,57 @@
 /*
- * XREFs of ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C00161D8
+ * XREFs of ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C0011B40
  * Callers:
- *     ?PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z @ 0x1C0015C14 (-PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z.c)
- *     ?_PowerPolicyProcessEventInner@FxPkgPnp@@KAXPEAV1@PEAUFxPostProcessInfo@@PEAX@Z @ 0x1C00160B0 (-_PowerPolicyProcessEventInner@FxPkgPnp@@KAXPEAV1@PEAUFxPostProcessInfo@@PEAX@Z.c)
+ *     ?_PowerPolicyProcessEventInner@FxPkgPnp@@KAXPEAV1@PEAUFxPostProcessInfo@@PEAX@Z @ 0x1C0011480 (-_PowerPolicyProcessEventInner@FxPkgPnp@@KAXPEAV1@PEAUFxPostProcessInfo@@PEAX@Z.c)
+ *     ?PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z @ 0x1C0011910 (-PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?PowerPolicyCompleteSystemPowerIrp@FxPkgPnp@@IEAAXXZ @ 0x1C000CB78 (-PowerPolicyCompleteSystemPowerIrp@FxPkgPnp@@IEAAXXZ.c)
- *     ?NotPowerPolicyOwnerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C00151A0 (-NotPowerPolicyOwnerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z.c)
- *     ?GetNotPowerPolicyOwnerTableEntry@FxPkgPnp@@KAPEBUNOT_POWER_POLICY_OWNER_STATE_TABLE@@W4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C0015AD8 (-GetNotPowerPolicyOwnerTableEntry@FxPkgPnp@@KAPEBUNOT_POWER_POLICY_OWNER_STATE_TABLE@@W4_WDF_DEV.c)
- *     ?PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C001666C (-PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z.c)
- *     WPP_IFR_SF_qqLL @ 0x1C0016980 (WPP_IFR_SF_qqLL.c)
- *     ?Feature_Servicing_WdfPowerFailure_31388879__private_IsEnabled@@YAHXZ @ 0x1C0036750 (-Feature_Servicing_WdfPowerFailure_31388879__private_IsEnabled@@YAHXZ.c)
- *     WPP_IFR_SF_qqLLL @ 0x1C0085584 (WPP_IFR_SF_qqLLL.c)
- *     ?AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ @ 0x1C008A7D4 (-AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C008F414 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PowerPolicyCompleteSystemPowerIrp@FxPkgPnp@@IEAAXXZ @ 0x1C00100C8 (-PowerPolicyCompleteSystemPowerIrp@FxPkgPnp@@IEAAXXZ.c)
+ *     ?NotPowerPolicyOwnerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C0011308 (-NotPowerPolicyOwnerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z.c)
+ *     ?PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C0012030 (-PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z.c)
+ *     WPP_IFR_SF_qqLL @ 0x1C0012660 (WPP_IFR_SF_qqLL.c)
+ *     ?AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ @ 0x1C001C7E4 (-AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ.c)
+ *     ?Feature_Servicing_WdfPowerMgmtFixes__private_IsEnabled@@YAHXZ @ 0x1C001C824 (-Feature_Servicing_WdfPowerMgmtFixes__private_IsEnabled@@YAHXZ.c)
+ *     WPP_IFR_SF_qqLLL @ 0x1C007C768 (WPP_IFR_SF_qqLLL.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C008E734 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall FxPkgPnp::PowerPolicyProcessEventInner(FxPkgPnp *this, FxPostProcessInfo *Info)
 {
   FxPowerPolicyMachine *p_m_PowerPolicyMachine; // r15
-  unsigned __int64 *p_m_Lock; // r12
-  signed int _a3; // esi
-  __int64 v6; // r14
+  unsigned __int64 *p_m_Lock; // r14
+  unsigned int _a3; // ebp
+  __int64 v6; // rsi
   KIRQL v7; // al
-  __int64 v8; // rdx
+  __int64 v8; // rcx
   KIRQL v9; // r8
-  FxPowerPolicyEvent _a4; // edi
+  FxPowerPolicyEvent _a4; // ebx
   unsigned int v11; // ecx
   _WDF_DEVICE_POWER_POLICY_STATE TargetState; // edx
-  const POWER_POLICY_EVENT_TARGET_STATE *OtherTargetStates; // rcx
+  const POWER_POLICY_EVENT_TARGET_STATE *OtherTargetStates; // r8
   FxPowerPolicyEvent PowerPolicyEvent; // eax
-  __int64 v15; // r8
+  __int64 v15; // rcx
   __int64 v16; // rdx
-  const void *_a1; // rax
-  __int64 v18; // rdx
-  _FX_DRIVER_GLOBALS *v19; // r10
-  bool v20; // bp
-  const void *ObjectHandleUnchecked; // rax
-  __int64 v22; // rdx
-  unsigned int v23; // r8d
-  bool v24; // zf
-  bool v25; // cc
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  FxDeviceBase *m_DeviceBase; // r8
+  const void *_a1; // rdx
+  FxPwrPolStateInfo *p_StateInfo; // r14
+  int v21; // esi
+  unsigned __int64 v22; // rax
+  __int64 v23; // rcx
+  FxDeviceBase *v24; // r8
+  const void *v25; // rdx
+  const char *v26; // rcx
+  const char *v27; // rcx
   unsigned __int8 m_QueueFlags; // al
-  const NOT_POWER_POLICY_OWNER_STATE_TABLE *NotPowerPolicyOwnerTableEntry; // rdi
-  KIRQL v28; // al
-  __int64 m_QueueHead; // rdx
-  FxPowerPolicyEvent v30; // esi
+  int v29; // ecx
+  const NOT_POWER_POLICY_OWNER_STATE_TABLE *v30; // rbx
+  int CurrentTargetState; // eax
+  KIRQL v32; // al
+  __int64 m_QueueHead; // rcx
+  FxPowerPolicyEvent v34; // esi
   unsigned int m_SingularEventsPresent; // ecx
   unsigned int TargetStatesCount; // ecx
-  __int64 v33; // rax
-  const POWER_POLICY_EVENT_TARGET_STATE *TargetStates; // rdx
+  const POWER_POLICY_EVENT_TARGET_STATE *TargetStates; // r8
+  int v38; // eax
 
   p_m_PowerPolicyMachine = &this->m_PowerPolicyMachine;
   p_m_Lock = &this->m_PowerPolicyMachine.m_QueueLock.m_Lock;
@@ -57,40 +59,49 @@ void __fastcall FxPkgPnp::PowerPolicyProcessEventInner(FxPkgPnp *this, FxPostPro
   {
     while ( 1 )
     {
-      while ( 1 )
+LABEL_55:
+      v29 = 0;
+      v30 = FxPkgPnp::m_WdfNotPowerPolicyOwnerStates;
+      CurrentTargetState = 1280;
+      do
       {
-LABEL_60:
-        NotPowerPolicyOwnerTableEntry = FxPkgPnp::GetNotPowerPolicyOwnerTableEntry((_WDF_DEVICE_POWER_POLICY_STATE)*(_DWORD *)&this->m_DeviceBase[1].m_Type);
-        v28 = KeAcquireSpinLockRaiseToDpc(p_m_Lock);
-        m_QueueHead = p_m_PowerPolicyMachine->m_QueueHead;
-        v9 = v28;
-        if ( (_BYTE)m_QueueHead == p_m_PowerPolicyMachine->m_QueueTail )
+        if ( CurrentTargetState == *(_DWORD *)&this->m_DeviceBase[1].m_Type )
           goto LABEL_59;
-        v30 = this->m_PowerPolicyMachine.m_Queue[m_QueueHead];
-        if ( (v30 & 0x60030) == 0 && !NotPowerPolicyOwnerTableEntry->QueueOpen )
-          goto LABEL_59;
-        m_SingularEventsPresent = this->m_PowerPolicyMachine.m_SingularEventsPresent;
-        if ( (m_SingularEventsPresent & v30) != 0 )
-          this->m_PowerPolicyMachine.m_SingularEventsPresent = m_SingularEventsPresent & ~v30;
-        p_m_PowerPolicyMachine->m_QueueHead = ((int)m_QueueHead + 1)
-                                            % (unsigned int)p_m_PowerPolicyMachine->m_QueueDepth;
-        KeReleaseSpinLock(p_m_Lock, v28);
-        if ( NotPowerPolicyOwnerTableEntry )
+        v30 = &FxPkgPnp::m_WdfNotPowerPolicyOwnerStates[++v29];
+        CurrentTargetState = v30->CurrentTargetState;
+      }
+      while ( v30->CurrentTargetState != WdfDevStatePwrPolNull );
+      v30 = 0LL;
+LABEL_59:
+      v32 = KeAcquireSpinLockRaiseToDpc(p_m_Lock);
+      m_QueueHead = p_m_PowerPolicyMachine->m_QueueHead;
+      if ( (_BYTE)m_QueueHead == p_m_PowerPolicyMachine->m_QueueTail
+        || (v34 = this->m_PowerPolicyMachine.m_Queue[m_QueueHead], (v34 & 0x60030) == 0) && !v30->QueueOpen )
+      {
+        KeReleaseSpinLock(p_m_Lock, v32);
+        return;
+      }
+      m_SingularEventsPresent = this->m_PowerPolicyMachine.m_SingularEventsPresent;
+      if ( (m_SingularEventsPresent & v34) != 0 )
+        this->m_PowerPolicyMachine.m_SingularEventsPresent = m_SingularEventsPresent & ~v34;
+      p_m_PowerPolicyMachine->m_QueueHead = ((unsigned int)p_m_PowerPolicyMachine->m_QueueHead + 1)
+                                          % p_m_PowerPolicyMachine->m_QueueDepth;
+      KeReleaseSpinLock(p_m_Lock, v32);
+      if ( v30 )
+      {
+        TargetStatesCount = v30->TargetStatesCount;
+        if ( (_BYTE)TargetStatesCount )
         {
-          TargetStatesCount = NotPowerPolicyOwnerTableEntry->TargetStatesCount;
-          if ( (_BYTE)TargetStatesCount )
-            break;
+          TargetStates = v30->TargetStates;
+          v38 = 0;
+          while ( v34 != TargetStates[v38].PowerPolicyEvent )
+          {
+            if ( ++v38 >= TargetStatesCount )
+              goto LABEL_55;
+          }
+          FxPkgPnp::NotPowerPolicyOwnerEnterNewState(this, TargetStates[v38].TargetState);
         }
       }
-      v33 = 0LL;
-      TargetStates = NotPowerPolicyOwnerTableEntry->TargetStates;
-      while ( v30 != TargetStates[v33].PowerPolicyEvent )
-      {
-        v33 = (unsigned int)(v33 + 1);
-        if ( (unsigned int)v33 >= TargetStatesCount )
-          goto LABEL_60;
-      }
-      FxPkgPnp::NotPowerPolicyOwnerEnterNewState(this, TargetStates[v33].TargetState);
     }
   }
   while ( 1 )
@@ -104,11 +115,12 @@ LABEL_60:
       break;
     _a4 = this->m_PowerPolicyMachine.m_Queue[v8];
     if ( (_a4 & 0x3A3F07F0) == 0 && (*(_DWORD *)&FxPkgPnp::m_WdfPowerPolicyStates[v6].StateInfo.Bits & 1) == 0 )
-      goto LABEL_59;
+      goto LABEL_54;
     v11 = this->m_PowerPolicyMachine.m_SingularEventsPresent;
     if ( (v11 & _a4) != 0 )
       this->m_PowerPolicyMachine.m_SingularEventsPresent = v11 & ~_a4;
-    p_m_PowerPolicyMachine->m_QueueHead = ((int)v8 + 1) % (unsigned int)p_m_PowerPolicyMachine->m_QueueDepth;
+    p_m_PowerPolicyMachine->m_QueueHead = ((unsigned int)p_m_PowerPolicyMachine->m_QueueHead + 1)
+                                        % p_m_PowerPolicyMachine->m_QueueDepth;
     KeReleaseSpinLock(p_m_Lock, v7);
     if ( FxPkgPnp::m_WdfPowerPolicyStates[v6].FirstTargetState.PowerPolicyEvent == _a4 )
     {
@@ -118,11 +130,11 @@ LABEL_60:
     {
       OtherTargetStates = FxPkgPnp::m_WdfPowerPolicyStates[v6].OtherTargetStates;
       if ( !OtherTargetStates )
-        goto LABEL_14;
+        goto LABEL_16;
       PowerPolicyEvent = OtherTargetStates->PowerPolicyEvent;
       LODWORD(v15) = 0;
       if ( OtherTargetStates->PowerPolicyEvent == PwrPolNull )
-        goto LABEL_14;
+        goto LABEL_16;
       v16 = 0LL;
       while ( PowerPolicyEvent != _a4 )
       {
@@ -130,103 +142,114 @@ LABEL_60:
         v16 = (unsigned int)v15;
         PowerPolicyEvent = OtherTargetStates[v15].PowerPolicyEvent;
         if ( PowerPolicyEvent == PwrPolNull )
-          goto LABEL_14;
+          goto LABEL_16;
       }
       TargetState = OtherTargetStates[v16].TargetState;
     }
     if ( TargetState == WdfDevStatePwrPolNull )
     {
-LABEL_14:
-      if ( this->m_Globals->FxVerboseOn )
+LABEL_16:
+      m_Globals = this->m_Globals;
+      if ( m_Globals->FxVerboseOn )
       {
-        _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+        m_DeviceBase = this->m_DeviceBase;
+        _a1 = (const void *)((unsigned __int64)m_DeviceBase ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !m_DeviceBase->m_ObjectSize )
+          _a1 = 0LL;
         WPP_IFR_SF_qqLL(
-          v19,
+          m_Globals,
           5u,
           0xCu,
           0x13u,
           WPP_PowerPolicyStateMachine_cpp_Traceguids,
           _a1,
-          *(const void **)(v18 + 144),
+          m_DeviceBase->m_DeviceObject.m_DeviceObject,
           _a3,
           _a4);
       }
-      v20 = ((*(_DWORD *)&FxPkgPnp::m_WdfPowerPolicyStates[v6].StateInfo.Bits >> 1) & _a4) == 0;
-      if ( !Feature_Servicing_WdfPowerFailure_31388879__private_IsEnabled() && _a4 == PwrPolS0 && _a3 == 1379 || v20 )
+      p_StateInfo = &FxPkgPnp::m_WdfPowerPolicyStates[v6].StateInfo;
+      v21 = _a4 & (*(_DWORD *)&FxPkgPnp::m_WdfPowerPolicyStates[v6].StateInfo.Bits >> 1);
+      if ( !Feature_Servicing_WdfPowerMgmtFixes__private_IsEnabled()
+        && _a4 == PwrPolS0
+        && (v22 = _a3 - 1379, (unsigned int)v22 <= 0x26)
+        && (v23 = 0x4200000001LL, _bittest64(&v23, v22))
+        || !v21 )
       {
-        ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+        v24 = this->m_DeviceBase;
+        v25 = (const void *)((unsigned __int64)v24 ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !v24->m_ObjectSize )
+          v25 = 0LL;
         WPP_IFR_SF_qqLLL(
           this->m_Globals,
           2u,
-          v23,
+          (unsigned int)v24,
           0x14u,
           WPP_PowerPolicyStateMachine_cpp_Traceguids,
-          ObjectHandleUnchecked,
-          *(const void **)(v22 + 144),
+          v25,
+          v24->m_DeviceObject.m_DeviceObject,
           _a3,
           _a4,
-          *(_DWORD *)&FxPkgPnp::m_WdfPowerPolicyStates[v6].StateInfo.Bits >> 1);
+          *(_DWORD *)&p_StateInfo->Bits >> 1);
         if ( _a4 >= PwrPolDeviceDirectedPowerDown || (_a3 & 0xFFFF7FFF) >= 0x599 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("wdf01000.sys", _a3, _a4);
+          MicrosoftTelemetryAssertTriggeredArgsKM(v26, _a3, _a4);
       }
-      if ( _a4 == PwrPolSx )
-      {
-        FxPkgPnp::PowerPolicyCompleteSystemPowerIrp(this);
-      }
-      else if ( _a4 == PwrPolS0 )
-      {
-        if ( Feature_Servicing_WdfPowerFailure_31388879__private_IsEnabled() )
-        {
-          v24 = _a3 == 1379;
-          v25 = _a3 <= 1379;
-          goto LABEL_38;
-        }
-        v24 = _a3 == 1379;
-        v25 = _a3 <= 1379;
-        if ( _a3 == 1379 )
-        {
-          MicrosoftTelemetryAssertTriggeredArgsKM("wdf01000.sys", 0x563u, 8u);
-        }
-        else
-        {
-LABEL_38:
-          if ( v25 )
-          {
-            if ( v24 )
-              goto LABEL_45;
-            if ( _a3 != 1280 )
-            {
-              if ( _a3 == 1285 || _a3 == 1288 || _a3 == 1329 || _a3 == 1342 )
-                goto LABEL_45;
-LABEL_51:
-              MicrosoftTelemetryAssertTriggeredArgsKM("wdf01000.sys", _a3, 8u);
-            }
-          }
-          else if ( _a3 == 1381 || _a3 == 1390 || _a3 == 1412 || _a3 == 1417 )
-          {
-LABEL_45:
-            FxPowerPolicyMachine::AcknowledgeS0(p_m_PowerPolicyMachine);
-          }
-          else if ( _a3 != 1422 )
-          {
-            goto LABEL_51;
-          }
-        }
-      }
-      else if ( ((_a4 - 512) & 0xFFFFFDFF) != 0 )
+      if ( _a4 > PwrPolWakeFailed )
       {
         if ( _a4 == PwrPolUsbSelectiveSuspendCallback )
         {
           KeSetEvent((PRKEVENT)this->m_PowerPolicyMachine.m_Owner->m_UsbIdle->m_IdleCallbackEvent, 0, 0);
+          goto $LL287;
         }
-        else if ( _a4 == PwrPolUsbSelectiveSuspendCompleted )
+        p_m_Lock = &this->m_PowerPolicyMachine.m_QueueLock.m_Lock;
+        if ( _a4 == PwrPolUsbSelectiveSuspendCompleted )
         {
           this->m_PowerPolicyMachine.m_Owner->m_UsbIdle->m_EventDropped = 1;
+          goto $LL287;
         }
       }
       else
       {
-        this->m_PowerPolicyMachine.m_Owner->m_WakeCompletionEventDropped = 1;
+        if ( _a4 == PwrPolWakeFailed )
+          goto LABEL_35;
+        if ( _a4 == PwrPolSx )
+        {
+          FxPkgPnp::PowerPolicyCompleteSystemPowerIrp(this);
+          goto $LL287;
+        }
+        if ( _a4 != PwrPolS0 )
+        {
+          if ( _a4 != PwrPolWakeSuccess )
+            goto $LL287;
+LABEL_35:
+          this->m_PowerPolicyMachine.m_Owner->m_WakeCompletionEventDropped = 1;
+          goto $LL287;
+        }
+        p_m_Lock = &this->m_PowerPolicyMachine.m_QueueLock.m_Lock;
+        if ( Feature_Servicing_WdfPowerMgmtFixes__private_IsEnabled() )
+        {
+          switch ( _a3 )
+          {
+            case 0x500u:
+            case 0x58Eu:
+              break;
+            case 0x505u:
+            case 0x508u:
+            case 0x531u:
+            case 0x53Eu:
+            case 0x563u:
+            case 0x565u:
+            case 0x56Eu:
+            case 0x584u:
+            case 0x589u:
+              FxPowerPolicyMachine::AcknowledgeS0(p_m_PowerPolicyMachine);
+              break;
+            default:
+              MicrosoftTelemetryAssertTriggeredArgsKM(v27, _a3, 8u);
+              break;
+          }
+$LL287:
+          p_m_Lock = &this->m_PowerPolicyMachine.m_QueueLock.m_Lock;
+        }
       }
     }
     else
@@ -249,6 +272,6 @@ LABEL_45:
       this->m_PowerPolicyMachine.m_WorkItemFinished = 0LL;
     }
   }
-LABEL_59:
+LABEL_54:
   KeReleaseSpinLock(p_m_Lock, v9);
 }

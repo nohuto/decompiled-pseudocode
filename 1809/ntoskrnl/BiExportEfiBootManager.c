@@ -1,24 +1,24 @@
 /*
- * XREFs of BiExportEfiBootManager @ 0x1408F36A8
+ * XREFs of BiExportEfiBootManager @ 0x1408F3688
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x1408F39F8 (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiGetElement @ 0x1408F1118 (BiGetElement.c)
- *     BiDeleteEfiVariable @ 0x1408F337C (BiDeleteEfiVariable.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1408F401C (BiHandleFirmwareDefaultEntry.c)
- *     BiQueryBootEntryOrder @ 0x1408F4304 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x1408F43D8 (BiQueryBootOptions.c)
- *     BiSetBootEntryOrder @ 0x1408F455C (BiSetBootEntryOrder.c)
- *     BiSetBootOptions @ 0x1408F45CC (BiSetBootOptions.c)
- *     BiTranslateDisplayOrder @ 0x1408F4720 (BiTranslateDisplayOrder.c)
- *     BiTranslateObjectIdentifier @ 0x1408F487C (BiTranslateObjectIdentifier.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
+ *     BiDeleteEfiVariable @ 0x1408F335C (BiDeleteEfiVariable.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1408F3FFC (BiHandleFirmwareDefaultEntry.c)
+ *     BiQueryBootEntryOrder @ 0x1408F42E4 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x1408F43B8 (BiQueryBootOptions.c)
+ *     BiSetBootEntryOrder @ 0x1408F453C (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x1408F45AC (BiSetBootOptions.c)
+ *     BiTranslateDisplayOrder @ 0x1408F4700 (BiTranslateDisplayOrder.c)
+ *     BiTranslateObjectIdentifier @ 0x1408F485C (BiTranslateObjectIdentifier.c)
  */
 
 __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of CiConfigQueryTaskFromRegistry @ 0x1C000DD10
+ * XREFs of CiConfigQueryTaskFromRegistry @ 0x1C000DD90
  * Callers:
- *     CiConfigInitializeFromRegistry @ 0x1C000D8D0 (CiConfigInitializeFromRegistry.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000D960 (CiConfigInitializeFromRegistry.c)
  * Callees:
- *     CiConfigQueryValue @ 0x1C000DE00 (CiConfigQueryValue.c)
+ *     CiConfigQueryValue @ 0x1C000DE80 (CiConfigQueryValue.c)
  */
 
 __int64 __fastcall CiConfigQueryTaskFromRegistry(HANDLE KeyHandle, char *a2, __int64 a3)

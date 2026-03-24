@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDestroyLowBoxAtoms @ 0x140232EF0
+ * XREFs of RtlDestroyLowBoxAtoms @ 0x1402BC604
  * Callers:
- *     ExRemoveLowBoxAtomReferences @ 0x140232EC0 (ExRemoveLowBoxAtomReferences.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x1402BC5D4 (ExRemoveLowBoxAtomReferences.c)
  * Callees:
- *     RtlpDereferenceAtom @ 0x140232FC4 (RtlpDereferenceAtom.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     RtlpUnlockAtomTable @ 0x1407A09E4 (RtlpUnlockAtomTable.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
+ *     RtlpDereferenceAtom @ 0x1402BC6D8 (RtlpDereferenceAtom.c)
+ *     RtlpUnlockAtomTable @ 0x14061A41C (RtlpUnlockAtomTable.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
  */
 
 __int64 __fastcall RtlDestroyLowBoxAtoms(__int64 a1, int a2)

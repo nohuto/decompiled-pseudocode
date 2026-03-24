@@ -10,7 +10,7 @@
  *     PiCMReleaseRegistryPropertyInputData @ 0x14059530C (PiCMReleaseRegistryPropertyInputData.c)
  *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1254 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall PiCMGetRegistryProperty(

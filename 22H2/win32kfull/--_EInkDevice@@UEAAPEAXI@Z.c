@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C023DF80
+ * XREFs of ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C024EC90
  * Callers:
- *     ??_EInkDevice@@WCA@EAAPEAXI@Z @ 0x1C0141B00 (--_EInkDevice@@WCA@EAAPEAXI@Z.c)
- *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C023E04C (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C023E890 (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
+ *     ??_EInkDevice@@WCA@EAAPEAXI@Z @ 0x1C016DEF0 (--_EInkDevice@@WCA@EAAPEAXI@Z.c)
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024ECFC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024F600 (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
  * Callees:
- *     ??1InkDevice@@UEAA@XZ @ 0x1C0243114 (--1InkDevice@@UEAA@XZ.c)
+ *     ??1InkDevice@@UEAA@XZ @ 0x1C0254608 (--1InkDevice@@UEAA@XZ.c)
  */
 
 InkDevice *__fastcall InkDevice::`vector deleting destructor'(InkDevice *this, char a2)

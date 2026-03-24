@@ -1,30 +1,21 @@
 /*
- * XREFs of ?QueryMitigatedRanges@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_QUERYMITIGATEDRANGES@@@Z @ 0x1C036F390
+ * XREFs of ?QueryMitigatedRanges@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_QUERYMITIGATEDRANGES@@@Z @ 0x1C0236350
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::QueryMitigatedRanges(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_QUERYMITIGATEDRANGES *a2)
 {
-  ULONG NumRanges; // eax
+  __int64 v3; // rax
 
-  NumRanges = a2->NumRanges;
-  if ( !NumRanges )
+  if ( !a2->NumRanges )
     return 0LL;
-  WdLogSingleEntry1(2LL, NumRanges);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Invalid mitigation range count: 0x%I64x",
-    a2->NumRanges,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v3 = WdLogNewEntry5_WdError(this, a2);
+  *(_QWORD *)(v3 + 24) = a2->NumRanges;
+  WdLogEvent5_WdError(v3);
   return 3221225485LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C0003B20
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C000CBC4
  * Callers:
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0003B8C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0040908 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B63B0 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
- *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037FA00 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000CAFC (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0038EFC (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C020C6D8 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0242980 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x1C0003C50 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C000CC30 (RtlUnicodeStringValidateWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(

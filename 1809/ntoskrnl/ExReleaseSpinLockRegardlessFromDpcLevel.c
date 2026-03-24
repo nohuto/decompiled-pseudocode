@@ -1,5 +1,5 @@
 /*
- * XREFs of ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7448
+ * XREFs of ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -9,11 +9,11 @@
  *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall ExReleaseSpinLockRegardlessFromDpcLevel(volatile LONG *BugCheckParameter1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CommitSlot@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C00A6BBC
+ * XREFs of ?CommitSlot@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C00F90F8
  * Callers:
- *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00A6A80 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00F8FC4 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 char __fastcall NSInstrumentation::CSectionBitmapAllocator<36864,144>::CommitSlot(__int64 a1, unsigned int a2)
@@ -17,7 +17,7 @@ char __fastcall NSInstrumentation::CSectionBitmapAllocator<36864,144>::CommitSlo
   v5 = (void *)(((a2 / 0x1C) << 12) + (*(_QWORD *)(a1 + 8) ^ *(_QWORD *)(a1 + 16)));
   if ( (int)MmCommitSessionMappedView(v5, 4096LL) >= 0 )
   {
-    memset_0(v5, 0, 0x1000uLL);
+    memset(v5, 0, 0x1000uLL);
     ++*(_DWORD *)(a1 + 36);
     return 1;
   }

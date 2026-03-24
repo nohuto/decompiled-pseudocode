@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessorGetMsiConnectionData @ 0x1C009ACF4
+ * XREFs of ProcessorGetMsiConnectionData @ 0x1C00958E0
  * Callers:
- *     MsiGetTargetInfo @ 0x1C00A06A8 (MsiGetTargetInfo.c)
+ *     MsiGetTargetInfo @ 0x1C0095864 (MsiGetTargetInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ProcessorGetDestinationMode @ 0x1C009ABC8 (ProcessorGetDestinationMode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ProcessorGetDestinationMode @ 0x1C0095974 (ProcessorGetDestinationMode.c)
  */
 
 __int64 __fastcall ProcessorGetMsiConnectionData(__int64 a1)
@@ -19,9 +19,9 @@ __int64 __fastcall ProcessorGetMsiConnectionData(__int64 a1)
   __int128 v9; // [rsp+28h] [rbp-50h] BYREF
   __int128 v10; // [rsp+38h] [rbp-40h]
   __int128 v11; // [rsp+48h] [rbp-30h]
-  int v12; // [rsp+58h] [rbp-20h]
+  __int64 v12; // [rsp+58h] [rbp-20h]
 
-  v12 = 0;
+  v12 = 0LL;
   v1 = 0;
   v8 = 0;
   v9 = 0LL;

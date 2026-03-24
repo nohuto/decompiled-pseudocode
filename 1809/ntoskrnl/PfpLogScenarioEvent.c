@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpLogScenarioEvent @ 0x14071BCD4
+ * XREFs of PfpLogScenarioEvent @ 0x14071BCB4
  * Callers:
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfpProcessScenarioPhase @ 0x14071BBDC (PfpProcessScenarioPhase.c)
+ *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
- *     PfTSetTraceWorkerPriority @ 0x140175A7C (PfTSetTraceWorkerPriority.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
+ *     PfTSetTraceWorkerPriority @ 0x140175A9C (PfTSetTraceWorkerPriority.c)
  *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)
- *     PfGenerateTrace @ 0x14071BDE4 (PfGenerateTrace.c)
+ *     PfGenerateTrace @ 0x14071BDC4 (PfGenerateTrace.c)
  */
 
 __int64 __fastcall PfpLogScenarioEvent(int a1, char a2, char a3, unsigned __int16 a4, char a5)

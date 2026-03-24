@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ @ 0x18000B148
+ * XREFs of ?GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ @ 0x1800116CC
  * Callers:
- *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x18000A984 (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18009A7CC (--1CVisual@@MEAA@XZ.c)
+ *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x180010F4C (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A08FC (--1CVisual@@MEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ struct CCachedWindowBackgroundTreatment *__fastcall CVisual::GetCachedWindowBack
   __int64 v4; // rcx
   unsigned int i; // eax
 
-  v1 = (_DWORD *)*((_QWORD *)this + 29);
+  v1 = (_DWORD *)*((_QWORD *)this + 28);
   if ( (*v1 & 0x100000) == 0 )
     return 0LL;
   v2 = (unsigned int)v1[1];

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateCloneChain @ 0x140663A8C
+ * XREFs of MiCreateCloneChain @ 0x140559A00
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140A489C4 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D90B0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289A20 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140297040 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateCloneChain(struct _KPROCESS *a1, _QWORD *a2)
@@ -18,18 +18,16 @@ __int64 __fastcall MiCreateCloneChain(struct _KPROCESS *a1, _QWORD *a2)
   _QWORD *v5; // rsi
   unsigned __int64 v6; // r14
   _KPROCESS *Process; // rdi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v9; // al
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned __int8 v12; // r13
-  _QWORD *v13; // rcx
+  unsigned __int8 v10; // r13
+  _QWORD *v11; // rcx
   _QWORD *i; // rbx
   _QWORD *Pool; // rax
-  _QWORD **v16; // rax
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rbx
+  _QWORD **v14; // rax
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rcx
+  _QWORD *v17; // rbx
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -38,16 +36,16 @@ __int64 __fastcall MiCreateCloneChain(struct _KPROCESS *a1, _QWORD *a2)
   v5 = 0LL;
   v6 = 0LL;
   Process = CurrentThread->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v9 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  v12 = v9;
-  v13 = (_QWORD *)Process[1].Affinity.StaticBitmap[12];
+  SharedVm[1] = 0;
+  v10 = v9;
+  v11 = (_QWORD *)Process[1].Affinity.Bitmap[12];
   i = 0LL;
-  while ( v13 )
+  while ( v11 )
   {
-    i = v13;
-    v13 = (_QWORD *)*v13;
+    i = v11;
+    v11 = (_QWORD *)*v11;
   }
   while ( i )
   {
@@ -64,37 +62,42 @@ __int64 __fastcall MiCreateCloneChain(struct _KPROCESS *a1, _QWORD *a2)
       Pool[8] = i[8];
       v6 += i[8];
     }
-    v16 = (_QWORD **)i[1];
-    v17 = i;
-    if ( v16 )
+    v14 = (_QWORD **)i[1];
+    v15 = i;
+    if ( v14 )
     {
-      v18 = *v16;
-      for ( i = (_QWORD *)i[1]; v18; v18 = (_QWORD *)*v18 )
-        i = v18;
+      v16 = *v14;
+      for ( i = (_QWORD *)i[1]; v16; v16 = (_QWORD *)*v16 )
+        i = v16;
     }
     else
     {
       while ( 1 )
       {
         i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !i || (_QWORD *)*i == v17 )
+        if ( !i || (_QWORD *)*i == v15 )
           break;
-        v17 = i;
+        v15 = i;
       }
     }
   }
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v12, v10, v11);
-  if ( v4 < 0 || v6 && (v4 = PsChargeProcessNonPagedPoolQuota(a1, v6), v4 < 0) )
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v10);
+  if ( v4 < 0 )
+    goto LABEL_22;
+  if ( v6 )
+    v4 = PsChargeProcessNonPagedPoolQuota(a1, v6);
+  if ( v4 < 0 )
   {
+LABEL_22:
     if ( v5 )
     {
       do
       {
-        v19 = (_QWORD *)*v5;
+        v17 = (_QWORD *)*v5;
         ExFreePoolWithTag(v5, 0);
-        v5 = v19;
+        v5 = v17;
       }
-      while ( v19 );
+      while ( v17 );
     }
     v5 = 0LL;
   }

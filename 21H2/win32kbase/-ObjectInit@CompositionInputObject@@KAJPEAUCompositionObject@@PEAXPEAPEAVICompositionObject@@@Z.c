@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ObjectInit@CompositionInputObject@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C0096490
+ * XREFs of ?ObjectInit@CompositionInputObject@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C0058710
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C0096548 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
- *     ??0CInputSink@@QEAA@XZ @ 0x1C0096834 (--0CInputSink@@QEAA@XZ.c)
+ *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C00587C0 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
+ *     ??0CInputSink@@QEAA@XZ @ 0x1C0058B0C (--0CInputSink@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CompositionInputObject::ObjectInit(
@@ -18,6 +18,6 @@ __int64 __fastcall CompositionInputObject::ObjectInit(
   if ( a1 != (struct CompositionObject *)-24LL )
     CInputSink::CInputSink((struct CompositionObject *)((char *)a1 + 24));
   *a3 = v3;
-  *((_DWORD *)a1 + 46) = *((_DWORD *)a2 + 72);
+  *((_DWORD *)a1 + 48) = *((_DWORD *)a2 + 72);
   return CInputSink::Initialize(v3, a2);
 }

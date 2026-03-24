@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCancelStackWalkApc @ 0x1405FFBB0
+ * XREFs of EtwpCancelStackWalkApc @ 0x1405A6AD0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpFinalizePendingApc @ 0x140468234 (EtwpFinalizePendingApc.c)
+ *     EtwpFinalizePendingApc @ 0x1405A6AEC (EtwpFinalizePendingApc.c)
  */
 
-void __fastcall EtwpCancelStackWalkApc(__int64 a1)
+__int64 __fastcall EtwpCancelStackWalkApc(__int64 a1)
 {
-  EtwpFinalizePendingApc(*(unsigned int **)(a1 + 56), a1);
+  return EtwpFinalizePendingApc(*(_QWORD *)(a1 + 56), a1);
 }

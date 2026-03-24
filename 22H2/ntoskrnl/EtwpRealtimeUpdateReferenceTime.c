@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeUpdateReferenceTime @ 0x1408863B8
+ * XREFs of EtwpRealtimeUpdateReferenceTime @ 0x1407D04F8
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1408018AC (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x140941CB0 (EtwpRealtimeResetReferenceTime.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140228180 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x140370F68 (EtwpInitializeBufferHeader.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140708E10 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeSaveBuffer @ 0x1407F61BC (EtwpRealtimeSaveBuffer.c)
+ *     EtwpResetBufferHeader @ 0x14032F37C (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x14035FEAC (EtwpInitializeBufferHeader.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1406A1ABC (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x1406BEAC8 (EtwpRealtimeDeliverBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeUpdateReferenceTime(__int64 a1, __int128 *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpRealtimeUpdateReferenceTime(__int64 a1, __int128 *a2)
   EtwpInitializeBufferHeader((__int16 *)a1, v7);
   WORD2(v7[6]) &= ~0x100u;
   EtwpResetBufferHeader((__int64)v7, 3);
-  v4 = *(_DWORD *)(a1 + 424) == 0;
+  v4 = *(_DWORD *)(a1 + 440) == 0;
   v5 = *a2;
   HIDWORD(v7[5]) = 3;
   LODWORD(v7[6]) = 72;

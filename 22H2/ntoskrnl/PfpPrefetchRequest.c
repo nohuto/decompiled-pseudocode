@@ -1,22 +1,22 @@
 /*
- * XREFs of PfpPrefetchRequest @ 0x140683EC8
+ * XREFs of PfpPrefetchRequest @ 0x14070ADA8
  * Callers:
- *     PfSetSuperfetchInformation @ 0x14075FEA4 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140709624 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PfPrefetchRequestVerify @ 0x1406840C8 (PfPrefetchRequestVerify.c)
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
+ *     PfPrefetchRequestVerify @ 0x14070C1CC (PfPrefetchRequestVerify.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
 {
-  __int64 Pool2; // rbx
+  unsigned int *PoolWithTag; // rbx
   unsigned int v5; // eax
   __int64 v6; // rax
   unsigned __int64 v7; // rcx
@@ -31,7 +31,7 @@ __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
   PVOID Object; // [rsp+90h] [rbp+18h] BYREF
   PVOID P; // [rsp+98h] [rbp+20h]
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v16 = 0;
   if ( *(_DWORD *)(a1 + 8) == 5 )
   {
@@ -42,9 +42,9 @@ __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, v5, 1364354640LL);
-      P = (PVOID)Pool2;
-      if ( Pool2 )
+      PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v5, 0x51526650u);
+      P = PoolWithTag;
+      if ( PoolWithTag )
       {
         if ( a2 )
         {
@@ -58,27 +58,27 @@ __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
               MEMORY[0x7FFFFFFF0000] = 0;
           }
         }
-        memmove((void *)Pool2, *(const void **)(a1 + 16), *(unsigned int *)(a1 + 24));
-        if ( (unsigned int)PfPrefetchRequestVerify(Pool2, *(unsigned int *)(a1 + 24)) )
+        memmove(PoolWithTag, *(const void **)(a1 + 16), *(unsigned int *)(a1 + 24));
+        if ( (unsigned int)PfPrefetchRequestVerify(PoolWithTag, *(unsigned int *)(a1 + 24)) )
         {
           v9 = -1073741701;
         }
         else
         {
-          v8 = *(void **)(Pool2 + 72);
+          v8 = (void *)*((_QWORD *)PoolWithTag + 9);
           if ( v8 )
           {
             Object = 0LL;
             v9 = ObReferenceObjectByHandle(v8, 1u, (POBJECT_TYPE)ExEventObjectType, a2, &Object, 0LL);
-            *(_QWORD *)(Pool2 + 72) = Object;
+            *((_QWORD *)PoolWithTag + 9) = Object;
             if ( v9 < 0 )
               goto LABEL_20;
             v16 = 1;
           }
-          v9 = PfpPrefetchRequestPerform(Pool2);
-          v10 = *(unsigned int *)(Pool2 + 40);
-          v11 = (_DWORD *)(v10 + Pool2);
-          v12 = v10 + Pool2 + 48LL * *(unsigned int *)(Pool2 + 12);
+          v9 = PfpPrefetchRequestPerform(PoolWithTag);
+          v10 = PoolWithTag[10];
+          v11 = (unsigned int *)((char *)PoolWithTag + v10);
+          v12 = (unsigned __int64)&PoolWithTag[12 * PoolWithTag[3]] + v10;
           v13 = *(_QWORD *)(a1 + 16);
           v14 = (_DWORD *)(v10 + v13);
           if ( a2 )
@@ -89,10 +89,10 @@ __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
             v11 += 12;
             v14 += 12;
           }
-          *(_OWORD *)(v13 + 84) = *(_OWORD *)(Pool2 + 84);
-          *(_OWORD *)(v13 + 100) = *(_OWORD *)(Pool2 + 100);
-          *(_QWORD *)(v13 + 116) = *(_QWORD *)(Pool2 + 116);
-          *(_DWORD *)(v13 + 124) = *(_DWORD *)(Pool2 + 124);
+          *(_OWORD *)(v13 + 84) = *(_OWORD *)(PoolWithTag + 21);
+          *(_OWORD *)(v13 + 100) = *(_OWORD *)(PoolWithTag + 25);
+          *(_QWORD *)(v13 + 116) = *(_QWORD *)(PoolWithTag + 29);
+          *(_DWORD *)(v13 + 124) = PoolWithTag[31];
         }
       }
       else
@@ -107,8 +107,8 @@ __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)
   }
 LABEL_20:
   if ( v16 )
-    ObfDereferenceObject(*(PVOID *)(Pool2 + 72));
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    HalPutDmaAdapter(*((PADAPTER_OBJECT *)PoolWithTag + 9));
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)v9;
 }

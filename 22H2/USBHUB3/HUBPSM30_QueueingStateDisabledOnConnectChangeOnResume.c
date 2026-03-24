@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_QueueingStateDisabledOnConnectChangeOnResume @ 0x1C0013A60
+ * XREFs of HUBPSM30_QueueingStateDisabledOnConnectChangeOnResume @ 0x1C0012540
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_QueueingStateDisabledOnConnectChangeOnResume(__int64 a1)

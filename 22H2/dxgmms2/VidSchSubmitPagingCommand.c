@@ -1,31 +1,39 @@
 /*
- * XREFs of VidSchSubmitPagingCommand @ 0x1C0108678
+ * XREFs of VidSchSubmitPagingCommand @ 0x1C006E44C
  * Callers:
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
  * Callees:
- *     VidSchiSetPriorityContext @ 0x1C00048C4 (VidSchiSetPriorityContext.c)
- *     VidSchiSubmitCommandPacketToQueue @ 0x1C0006E60 (VidSchiSubmitCommandPacketToQueue.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0017494 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
- *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0019678 (VidSchiSchedulerNodeToDriverEngine.c)
- *     VidSchiAllocateQueuePacket @ 0x1C00ADF10 (VidSchiAllocateQueuePacket.c)
- *     VidSchiSubmitHwPagingCommand @ 0x1C01094F4 (VidSchiSubmitHwPagingCommand.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00018E8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0007740 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchiSetPriorityContext @ 0x1C0011234 (VidSchiSetPriorityContext.c)
+ *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0015520 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C007E910 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiSubmitHwPagingCommand @ 0x1C00D24C8 (VidSchiSubmitHwPagingCommand.c)
  */
 
-void __fastcall VidSchSubmitPagingCommand(__int64 a1, __int64 a2)
+void __fastcall VidSchSubmitPagingCommand(__int64 a1, __int128 *a2)
 {
   __int64 v4; // rcx
   struct _VIDSCH_CONTEXT *v5; // rsi
-  struct _VIDSCH_CONTEXT *v6; // rcx
-  __int64 QueuePacket; // r14
+  __int64 QueuePacket; // rax
+  __int128 v7; // xmm0
+  __int64 v8; // r14
+  __int128 v9; // xmm1
+  __int64 v10; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  __int128 v12; // xmm0
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  struct _VIDSCH_CONTEXT *v15; // rcx
   KPRIORITY PriorityThread; // eax
 
   if ( VidSchIsTDRPending(a1) )
   {
     if ( (*(_DWORD *)a2 & 0x100) != 0 )
       VIDMM_DMA_POOL::ReleaseBuffer(
-        *(VIDMM_DMA_POOL **)(*(_QWORD *)(a2 + 8) + 136LL),
-        *(struct _VIDMM_DMA_BUFFER **)(a2 + 8),
+        *(VIDMM_DMA_POOL **)(*((_QWORD *)a2 + 1) + 136LL),
+        *((struct _VIDMM_DMA_BUFFER **)a2 + 1),
         1);
   }
   else if ( *(_BYTE *)(a1 + 55) )
@@ -34,33 +42,42 @@ void __fastcall VidSchSubmitPagingCommand(__int64 a1, __int64 a2)
   }
   else
   {
-    v4 = (unsigned int)VidSchiSchedulerNodeToDriverEngine(a1, *(_DWORD *)(a2 + 76));
-    v5 = *(struct _VIDSCH_CONTEXT **)(*(_QWORD *)(a1 + 264) + 8 * v4);
-    if ( *(_BYTE *)(a2 + 80) )
+    v4 = (unsigned int)VidSchiSchedulerNodeToDriverEngine(a1, *((_DWORD *)a2 + 19));
+    v5 = *(struct _VIDSCH_CONTEXT **)(*(_QWORD *)(a1 + 256) + 8 * v4);
+    if ( *((_BYTE *)a2 + 80) )
     {
-      v6 = *(struct _VIDSCH_CONTEXT **)(*(_QWORD *)(a1 + 288) + 8 * v4);
-      if ( v6 )
-        v5 = v6;
+      v15 = *(struct _VIDSCH_CONTEXT **)(*(_QWORD *)(a1 + 280) + 8 * v4);
+      if ( v15 )
+        v5 = v15;
     }
-    QueuePacket = VidSchiAllocateQueuePacket((__int64)v5, 1);
+    QueuePacket = VidSchiAllocateQueuePacket(v5, 1LL);
+    v7 = *a2;
+    v8 = QueuePacket;
+    v9 = a2[1];
     *(_DWORD *)QueuePacket = 895576406;
     *(_DWORD *)(QueuePacket + 48) = 8;
     *(_QWORD *)(QueuePacket + 56) = MEMORY[0xFFFFF78000000320];
-    *(_DWORD *)(QueuePacket + 52) = 2;
-    *(_QWORD *)(QueuePacket + 88) = v5;
-    *(_QWORD *)(QueuePacket + 104) = KeGetCurrentThread();
-    *(_OWORD *)(QueuePacket + 272) = *(_OWORD *)a2;
-    *(_OWORD *)(QueuePacket + 288) = *(_OWORD *)(a2 + 16);
-    *(_OWORD *)(QueuePacket + 304) = *(_OWORD *)(a2 + 32);
-    *(_OWORD *)(QueuePacket + 320) = *(_OWORD *)(a2 + 48);
-    *(_OWORD *)(QueuePacket + 336) = *(_OWORD *)(a2 + 64);
-    *(_QWORD *)(QueuePacket + 352) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(QueuePacket + 72) = *(_QWORD *)a2;
-    if ( (*(_DWORD *)(a1 + 2536) & 2) != 0 )
+    v10 = *(_QWORD *)a2;
+    *(_DWORD *)(v8 + 52) = 2;
+    *(_QWORD *)(v8 + 88) = v5;
+    CurrentThread = KeGetCurrentThread();
+    *(_OWORD *)(v8 + 272) = v7;
+    *(_QWORD *)(v8 + 104) = CurrentThread;
+    v12 = a2[2];
+    *(_OWORD *)(v8 + 288) = v9;
+    *(_QWORD *)(v8 + 72) = v10;
+    v13 = a2[3];
+    *(_OWORD *)(v8 + 304) = v12;
+    v14 = a2[4];
+    *(_OWORD *)(v8 + 320) = v13;
+    *(_QWORD *)&v13 = *((_QWORD *)a2 + 10);
+    *(_OWORD *)(v8 + 336) = v14;
+    *(_QWORD *)(v8 + 352) = v13;
+    if ( (*(_DWORD *)(a1 + 2448) & 2) != 0 )
     {
       PriorityThread = KeQueryPriorityThread(KeGetCurrentThread());
       VidSchiSetPriorityContext(v5, PriorityThread);
     }
-    VidSchiSubmitCommandPacketToQueue(QueuePacket);
+    VidSchiSubmitCommandPacketToQueue(v8);
   }
 }

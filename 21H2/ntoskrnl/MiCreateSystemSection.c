@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateSystemSection @ 0x1402D9E3C
+ * XREFs of MiCreateSystemSection @ 0x1403720DC
  * Callers:
- *     MiCreateSectionForDriver @ 0x14076185C (MiCreateSectionForDriver.c)
- *     MiOpenHotPatchFile @ 0x14097638C (MiOpenHotPatchFile.c)
+ *     MiCreateSectionForDriver @ 0x14075DC48 (MiCreateSectionForDriver.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB08 (MiOpenHotPatchFile.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140230680 (ObFastDereferenceObjectDeferDelete.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14027A794 (MiReferenceControlAreaFileWithTag.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     CcZeroEndOfLastPage @ 0x14028866C (CcZeroEndOfLastPage.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     MiCreateSection @ 0x1406FD4A0 (MiCreateSection.c)
- *     PsReferencePrimaryToken @ 0x1407AFED0 (PsReferencePrimaryToken.c)
- *     SeCompareSigningLevels @ 0x140811D10 (SeCompareSigningLevels.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     CcZeroEndOfLastPage @ 0x1403570FC (CcZeroEndOfLastPage.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeCompareSigningLevels @ 0x14077F240 (SeCompareSigningLevels.c)
  */
 
 __int64 __fastcall MiCreateSystemSection(
@@ -32,36 +32,38 @@ __int64 __fastcall MiCreateSystemSection(
 {
   char v15; // bl
   void *v16; // rdi
-  int v17; // r15d
+  int v17; // ebp
   int v18; // r13d
   __int64 v19; // r12
   int i; // eax
   unsigned int v21; // esi
   __int64 v22; // rcx
   unsigned __int64 v23; // rax
-  signed __int64 *v24; // rdi
+  __int64 v24; // rdi
   struct _FILE_OBJECT *v25; // rbx
   _KPROCESS *Process; // rcx
-  PACCESS_TOKEN v28; // rax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  char v31; // si
-  __int64 v32; // [rsp+B8h] [rbp+20h] BYREF
+  char v28; // bp
+  PACCESS_TOKEN v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  char v32; // si
+  __int64 v33; // [rsp+B8h] [rbp+20h] BYREF
 
-  v32 = 0LL;
+  v33 = 0LL;
   if ( a12 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
-    v15 = BYTE1(Process[2].Header.WaitListHead.Flink);
-    v28 = PsReferencePrimaryToken(Process);
-    v31 = a13;
-    v16 = v28;
+    v28 = BYTE1(Process[2].Header.WaitListHead.Flink);
+    v29 = PsReferencePrimaryToken(Process);
+    v32 = a13;
+    v16 = v29;
+    v15 = v28;
     if ( a13 )
     {
-      LOBYTE(v29) = a13;
-      LOBYTE(v30) = v15;
-      if ( !(unsigned int)SeCompareSigningLevels(v30, v29) )
-        v15 = v31 & 0xF | v15 & 0x30;
+      LOBYTE(v30) = a13;
+      LOBYTE(v31) = v28;
+      if ( !(unsigned int)SeCompareSigningLevels(v31, v30) )
+        v15 = v32 & 0xF | v28 & 0x30;
     }
   }
   else
@@ -72,27 +74,24 @@ __int64 __fastcall MiCreateSystemSection(
   v17 = a11;
   v18 = a7;
   v19 = a8;
-  for ( i = MiCreateSection((unsigned int)&v32, a3, 0, a5, a6, a7, (__int64)v16, v15, a8, 0LL, 0, a11, 0LL);
+  for ( i = MiCreateSection((unsigned int)&v33, a3, 0, a5, a6, a7, (__int64)v16, v15, a8, 0LL, 0, a11, 0LL);
         ;
-        i = MiCreateSection((unsigned int)&v32, a3, 0, a5, a6, v18, (__int64)v16, v15, v19, 0LL, 0, v17, 0LL) )
+        i = MiCreateSection((unsigned int)&v33, a3, 0, a5, a6, v18, (__int64)v16, v15, v19, 0LL, 0, v17, 0LL) )
   {
     v21 = i;
     if ( i >= 0 )
     {
       if ( v16 )
-        ObfDereferenceObject(v16);
-      v22 = v32;
-      *a1 = v32;
+        ObfDereferenceObjectWithTag(v16, 0x746C6644u);
+      v22 = v33;
+      *a1 = v33;
       v23 = MiSectionControlArea(v22);
-      if ( v23 )
+      v24 = v23;
+      if ( v23 && *(_QWORD *)(v23 + 64) )
       {
-        v24 = (signed __int64 *)(v23 + 64);
-        if ( *(_QWORD *)(v23 + 64) )
-        {
-          v25 = (struct _FILE_OBJECT *)MiReferenceControlAreaFileWithTag(v23, 1666411853LL);
-          CcZeroEndOfLastPage(v25);
-          ObFastDereferenceObjectDeferDelete(v24, (unsigned __int64)v25, 0x63536D4Du);
-        }
+        v25 = (struct _FILE_OBJECT *)MiReferenceControlAreaFile(v23);
+        CcZeroEndOfLastPage(v25);
+        MiDereferenceControlAreaFile(v24, (unsigned __int64)v25);
       }
       return v21;
     }
@@ -101,6 +100,6 @@ __int64 __fastcall MiCreateSystemSection(
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiHalfSecond);
   }
   if ( v16 )
-    ObfDereferenceObject(v16);
+    ObfDereferenceObjectWithTag(v16, 0x746C6644u);
   return v21;
 }

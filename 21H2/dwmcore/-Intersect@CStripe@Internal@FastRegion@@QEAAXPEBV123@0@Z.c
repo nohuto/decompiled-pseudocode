@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Intersect@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x1800843F8
+ * XREFs of ?Intersect@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x18009AE78
  * Callers:
- *     ?Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x1800841B0 (-Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18009AC38 (-Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -53,7 +53,7 @@ void __fastcall FastRegion::Internal::CStripe::Intersect(
       {
         v4 = v13 + 1;
         v17 = v4 == (int *)v5;
-        goto LABEL_23;
+        goto LABEL_24;
       }
       v11 = v6 + 1;
       if ( v9 >= *v13 )
@@ -73,11 +73,11 @@ LABEL_7:
         v7 = v14 + 1;
         if ( v4 == (int *)v5 )
           goto LABEL_10;
-        goto LABEL_22;
+        goto LABEL_13;
       }
       *v14 = v16;
       v7 = v14 + 1;
-LABEL_15:
+LABEL_19:
       if ( v6 == (int *)v8 )
         goto LABEL_10;
     }
@@ -100,11 +100,11 @@ LABEL_6:
     if ( v12 >= v9 )
     {
       v13 = v4 + 1;
-      goto LABEL_15;
+      goto LABEL_19;
     }
-LABEL_22:
+LABEL_13:
     v17 = v6 == (int *)v8;
-LABEL_23:
+LABEL_24:
     ;
   }
   while ( !v17 );

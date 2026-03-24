@@ -5,7 +5,7 @@
  * Callees:
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     PsAddProcessEnergyValues @ 0x14008E740 (PsAddProcessEnergyValues.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopEtEnergyValuesDeltaCalculate @ 0x1405FC994 (PopEtEnergyValuesDeltaCalculate.c)
  *     PopEtAggregateGet @ 0x1405FCD54 (PopEtAggregateGet.c)
  */

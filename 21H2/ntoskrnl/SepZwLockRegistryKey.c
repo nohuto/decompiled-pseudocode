@@ -1,9 +1,9 @@
 /*
- * XREFs of SepZwLockRegistryKey @ 0x140865540
+ * XREFs of SepZwLockRegistryKey @ 0x1407D57D0
  * Callers:
  *     <none>
  * Callees:
- *     ZwLockRegistryKey @ 0x14041D9C0 (ZwLockRegistryKey.c)
+ *     ZwLockRegistryKey @ 0x1403FC540 (ZwLockRegistryKey.c)
  */
 
 __int64 __fastcall SepZwLockRegistryKey(__int64 a1, __int64 a2)

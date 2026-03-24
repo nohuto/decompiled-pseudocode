@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x1800FBCC0
+ * XREFs of ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x1800E3150
  * Callers:
  *     <none>
  * Callees:

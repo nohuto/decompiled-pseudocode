@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCreateShadowMapping @ 0x14072A178
+ * XREFs of MmCreateShadowMapping @ 0x14072A158
  * Callers:
  *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
  * Callees:
@@ -12,11 +12,11 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiInitializeColorBase @ 0x14017E4B8 (MiInitializeColorBase.c)
- *     MiPageTablesNeeded @ 0x14017E4D0 (MiPageTablesNeeded.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiMakeShadowPageTableRange @ 0x14072A324 (MiMakeShadowPageTableRange.c)
+ *     MiInitializeColorBase @ 0x14017E4D8 (MiInitializeColorBase.c)
+ *     MiPageTablesNeeded @ 0x14017E4F0 (MiPageTablesNeeded.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiMakeShadowPageTableRange @ 0x14072A304 (MiMakeShadowPageTableRange.c)
  */
 
 __int64 __fastcall MmCreateShadowMapping(__int64 PteAddress, __int64 a2)

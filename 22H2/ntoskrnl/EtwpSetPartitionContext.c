@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpSetPartitionContext @ 0x140601804
+ * XREFs of EtwpSetPartitionContext @ 0x1405B09E0
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     PsReferencePartitionByHandle @ 0x140676644 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall EtwpSetPartitionContext(__int64 *a1, __int64 a2, __int64 a3)

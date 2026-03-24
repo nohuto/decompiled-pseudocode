@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteString @ 0x1406305E0
+ * XREFs of EtwWriteString @ 0x1405A58E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpLevelKeywordEnabled @ 0x1403031F0 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall EtwWriteString(
@@ -66,7 +66,7 @@ NTSTATUS __stdcall EtwWriteString(
            v15,
            0,
            v8,
-           (__int64)v28,
+           (unsigned __int16 *)v28,
            4,
            0,
            (GUID *)ActivityId,
@@ -86,7 +86,7 @@ NTSTATUS __stdcall EtwWriteString(
            v17,
            0,
            0,
-           (__int64)v28,
+           (unsigned __int16 *)v28,
            4,
            0,
            (GUID *)ActivityId,
@@ -111,7 +111,7 @@ NTSTATUS __stdcall EtwWriteString(
              v21,
              0,
              0,
-             (__int64)v28,
+             (unsigned __int16 *)v28,
              4,
              0,
              (GUID *)ActivityId,
@@ -132,7 +132,7 @@ NTSTATUS __stdcall EtwWriteString(
                  *(_BYTE *)(v9 + 101),
                  0,
                  0,
-                 (__int64)v28,
+                 (unsigned __int16 *)v28,
                  4,
                  0,
                  (GUID *)ActivityId,

@@ -1,86 +1,103 @@
 /*
- * XREFs of CalcWindowFullScreen @ 0x1C00CF81C
+ * XREFs of CalcWindowFullScreen @ 0x1C006A9C4
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     CalcWindowsFullScreen @ 0x1C00BE230 (CalcWindowsFullScreen.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     SetVisible @ 0x1C00EBC94 (SetVisible.c)
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C01521BA (-UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     SetVisible @ 0x1C004BCA0 (SetVisible.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E8B8 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C00F1F74 (-UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z.c)
+ *     CalcWindowsFullScreen @ 0x1C01252C0 (CalcWindowsFullScreen.c)
  * Callees:
- *     GetMonitorRectForWindow @ 0x1C00CF9A8 (GetMonitorRectForWindow.c)
- *     UnionRect @ 0x1C00CF9E4 (UnionRect.c)
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D003C (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042160 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     GetMonitorRectForWindow @ 0x1C00427D4 (GetMonitorRectForWindow.c)
+ *     PostShellHookMessages @ 0x1C0043540 (PostShellHookMessages.c)
+ *     UnionRect @ 0x1C0104BAC (UnionRect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-char __fastcall CalcWindowFullScreen(struct tagWND *a1)
+__int64 __fastcall CalcWindowFullScreen(struct tagWND *a1)
 {
-  unsigned __int8 v2; // di
-  __int64 v3; // rcx
-  __int64 v4; // rax
+  __int64 v1; // rdx
+  int v2; // esi
+  __int64 v4; // rcx
   __int64 v5; // rax
-  struct tagMONITOR *v6; // rax
-  __int64 v7; // rdx
-  __int128 v8; // xmm0
-  __int64 v9; // rdx
-  int v10; // eax
-  unsigned __int64 v11; // rcx
-  __int128 v13; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v14; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+  __int64 result; // rax
+  struct tagMONITOR *v9; // rax
+  int v10; // edi
+  __int64 v11; // rdx
+  __int128 v12; // xmm0
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  unsigned __int64 v15; // rcx
+  __int128 v16; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v17; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v18; // [rsp+40h] [rbp-20h] BYREF
 
+  v1 = *((_QWORD *)a1 + 13);
   v2 = 0;
-  v3 = *((_QWORD *)a1 + 13);
-  v15 = 0LL;
-  if ( v3
-    && (v4 = *((_QWORD *)a1 + 3)) != 0
-    && (v5 = *(_QWORD *)(v4 + 8)) != 0
-    && v3 == *(_QWORD *)(v5 + 24)
-    && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0 )
+  v18 = 0LL;
+  if ( !v1 )
+    goto LABEL_6;
+  v4 = *((_QWORD *)a1 + 3);
+  v5 = 0LL;
+  if ( v4 )
   {
-    v6 = _MonitorFromWindowInternal(a1, 2u, 0);
+    v6 = *(_QWORD *)(v4 + 8);
     if ( v6 )
+      v5 = *(_QWORD *)(v6 + 24);
+  }
+  if ( v1 == v5 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0 )
+  {
+    v9 = _MonitorFromWindowInternal(a1, 2, 0);
+    v10 = 1;
+    if ( v9 )
     {
-      v7 = *((_QWORD *)a1 + 5);
-      if ( (*(_BYTE *)(v7 + 30) & 0xC4) == 0xC4 )
-        v8 = *(_OWORD *)(v7 + 104);
+      v11 = *((_QWORD *)a1 + 5);
+      if ( (*(_BYTE *)(v11 + 30) & 0xC4) == 0xC4 )
+        v12 = *(_OWORD *)(v11 + 104);
       else
-        v8 = *(_OWORD *)(v7 + 88);
-      v14 = v8;
-      v13 = *(_OWORD *)GetMonitorRectForWindow(&v13, v6, a1);
-      UnionRect(&v15, &v14, &v13);
-      v9 = v15 - v14;
-      if ( (_QWORD)v15 == (_QWORD)v14 )
-        v9 = *((_QWORD *)&v15 + 1) - *((_QWORD *)&v14 + 1);
-      v2 = v9 == 0;
+        v12 = *(_OWORD *)(v11 + 88);
+      v17 = v12;
+      v16 = *GetMonitorRectForWindow(&v16, (__int64)v9, a1);
+      UnionRect(&v18, &v17, &v16);
+      v13 = v18 - v17;
+      if ( (_QWORD)v18 == (_QWORD)v17 )
+        v13 = *((_QWORD *)&v18 + 1) - *((_QWORD *)&v17 + 1);
+      if ( !v13 )
+      {
+        v2 = 1;
+        v10 = 0;
+      }
     }
-    LOBYTE(v10) = (*((_DWORD *)a1 + 80) & 0x400) != 0;
-    if ( v2 != (_BYTE)v10 )
+    v14 = *((_QWORD *)a1 + 5);
+    result = (*(_DWORD *)(v14 + 232) & 0x8000u) >> 15;
+    if ( v2 != (_DWORD)result )
     {
-      *((_DWORD *)a1 + 80) ^= 0x400u;
-      if ( gpqForeground && *(struct tagWND **)(gpqForeground + 128LL) == a1 )
+      *(_DWORD *)(v14 + 232) = (v2 << 15) | *(_DWORD *)(v14 + 232) & 0xFFFF7FFF;
+      if ( gpqForeground && *(struct tagWND **)(gpqForeground + 120LL) == a1 )
       {
         if ( v2 )
           EtwTraceForegroundWindowFullScreenStart(0LL);
         else
           EtwTraceForegroundWindowFullScreenStop(0LL);
       }
-      v11 = (v2 ^ 1u) + 53;
-      goto LABEL_22;
+      v15 = (unsigned int)(v10 + 53);
+      return PostShellHookMessages(v15, *(_QWORD *)a1);
     }
   }
   else
   {
-    v10 = *((_DWORD *)a1 + 80);
-    if ( (v10 & 0x400) != 0 )
+LABEL_6:
+    v7 = *((_QWORD *)a1 + 5);
+    result = *(unsigned int *)(v7 + 232);
+    if ( (result & 0x8000) != 0 )
     {
-      v11 = 54LL;
-      *((_DWORD *)a1 + 80) = v10 & 0xFFFFFBFF;
-LABEL_22:
-      LOBYTE(v10) = PostShellHookMessagesEx(v11, *(_QWORD *)a1, 0LL);
+      *(_DWORD *)(v7 + 232) = result & 0xFFFF7FFF;
+      v15 = 54LL;
+      return PostShellHookMessages(v15, *(_QWORD *)a1);
     }
   }
-  return v10;
+  return result;
 }

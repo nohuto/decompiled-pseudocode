@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSurfaceLuid@CDxHandleBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180108D00
+ * XREFs of ?GetSurfaceLuid@CDxHandleBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x1800E3830
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 struct _LUID __fastcall CDxHandleBitmapRealization::GetSurfaceLuid(CDxHandleBitmapRealization *this, _QWORD *a2)
 {
-  *a2 = *(_QWORD *)((char *)this - 276);
+  *a2 = *(_QWORD *)((char *)this - 244);
   return (struct _LUID)a2;
 }

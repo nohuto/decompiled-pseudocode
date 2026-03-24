@@ -1,12 +1,12 @@
 /*
- * XREFs of PopOpenThermalLoggingKey @ 0x140191FE4
+ * XREFs of PopOpenThermalLoggingKey @ 0x140192004
  * Callers:
- *     PopThermalWriteShutdownToRegistry @ 0x1402DC3F4 (PopThermalWriteShutdownToRegistry.c)
- *     PopThermalHandlePreviousShutdown @ 0x140760834 (PopThermalHandlePreviousShutdown.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x1402DC4F4 (PopThermalWriteShutdownToRegistry.c)
+ *     PopThermalHandlePreviousShutdown @ 0x140760814 (PopThermalHandlePreviousShutdown.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
  */
 

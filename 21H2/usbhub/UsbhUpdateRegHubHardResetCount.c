@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhUpdateRegHubHardResetCount @ 0x1C00466B0
+ * XREFs of UsbhUpdateRegHubHardResetCount @ 0x1C0047A30
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhGetPdoRegistryParameter @ 0x1C0044750 (UsbhGetPdoRegistryParameter.c)
- *     UsbhSetPdoRegistryParameter @ 0x1C0046494 (UsbhSetPdoRegistryParameter.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045A10 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0047814 (UsbhSetPdoRegistryParameter.c)
  */
 
 __int64 __fastcall UsbhUpdateRegHubHardResetCount(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall UsbhUpdateRegHubHardResetCount(__int64 a1)
   {
     if ( Data != -1 )
       ++Data;
-    return UsbhSetPdoRegistryParameter(v1, L"HardResetCount", 4u, &Data, 4u);
+    return UsbhSetPdoRegistryParameter(v1, L"HardResetCount", 4LL, &Data, 4u);
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {

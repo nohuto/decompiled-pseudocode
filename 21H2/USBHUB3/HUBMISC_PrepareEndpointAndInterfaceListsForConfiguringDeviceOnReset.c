@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset @ 0x1C002E34C
+ * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset @ 0x1C002DCD0
  * Callers:
- *     HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset @ 0x1C001D450 (HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset.c)
+ *     HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset @ 0x1C001CF10 (HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset.c)
  * Callees:
  *     <none>
  */

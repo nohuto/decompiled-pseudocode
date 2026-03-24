@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GenerateDrawList@CParticleEmitter@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180241A00
+ * XREFs of ?GenerateDrawList@CParticleEmitter@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801DC460
  * Callers:
  *     <none>
  * Callees:
@@ -12,5 +12,5 @@ __int64 __fastcall CParticleEmitter::GenerateDrawList(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  return CParticleEmitterVisual::GenerateDrawList(this[9], a2, a3, a4);
+  return CParticleEmitterVisual::GenerateDrawList(this[8], a2, a3, a4);
 }

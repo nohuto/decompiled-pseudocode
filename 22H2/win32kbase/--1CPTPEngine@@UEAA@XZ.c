@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CPTPEngine@@UEAA@XZ @ 0x1C01FED34
+ * XREFs of ??1CPTPEngine@@UEAA@XZ @ 0x1C01C346C
  * Callers:
- *     ??_GCPTPEngine@@UEAAPEAXI@Z @ 0x1C01FED90 (--_GCPTPEngine@@UEAAPEAXI@Z.c)
+ *     ??_GCPTPEngine@@UEAAPEAXI@Z @ 0x1C01C34C0 (--_GCPTPEngine@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C0203FF4 (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
+ *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C01C877C (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
  */
 
 void __fastcall CPTPEngine::~CPTPEngine(CPTPEngine *this)

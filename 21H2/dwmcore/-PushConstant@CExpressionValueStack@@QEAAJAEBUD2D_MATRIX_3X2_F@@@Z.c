@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PushConstant@CExpressionValueStack@@QEAAJAEBUD2D_MATRIX_3X2_F@@@Z @ 0x18024F5D4
+ * XREFs of ?PushConstant@CExpressionValueStack@@QEAAJAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1802001E4
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ @ 0x180071D2C (-EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ @ 0x1800ACBDC (-EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *this, const struct D2D_MATRIX_3X2_F *a2)
@@ -18,7 +18,13 @@ __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *th
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST, 1LL, v4, 0x237u);
+    MilInstrumentationCheckHR_MaybeFailFast(
+      v5,
+      &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
+      1u,
+      v4,
+      0x231u,
+      0LL);
   }
   else
   {

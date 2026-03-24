@@ -1,5 +1,5 @@
 /*
- * XREFs of IoInitializeMiniCompletionPacket @ 0x14081D0E0
+ * XREFs of IoInitializeMiniCompletionPacket @ 0x14081D0C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhReset2Timeout @ 0x1C004DDF0
+ * XREFs of UsbhReset2Timeout @ 0x1C004F200
  * Callers:
- *     UsbhReset2TimeoutBadEnable @ 0x1C004DFD0 (UsbhReset2TimeoutBadEnable.c)
+ *     UsbhReset2TimeoutBadEnable @ 0x1C004F3E0 (UsbhReset2TimeoutBadEnable.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhResetPort @ 0x1C001AB54 (UsbhResetPort.c)
- *     Usbh_UsbdReadFrameCounter @ 0x1C001AE7C (Usbh_UsbdReadFrameCounter.c)
- *     UsbhAllocateTimeoutObject @ 0x1C001B058 (UsbhAllocateTimeoutObject.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C000174C (UsbhAllocateTimeoutObject.c)
+ *     UsbhResetPort @ 0x1C00018E8 (UsbhResetPort.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C0001BF8 (Usbh_UsbdReadFrameCounter.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  */
 
 __int64 __fastcall UsbhReset2Timeout(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmpUtilsGetControlDevice @ 0x1409D8B9C
+ * XREFs of SmpUtilsGetControlDevice @ 0x14092E6CC
  * Callers:
- *     SmcCacheManagerStart @ 0x1409D7A90 (SmcCacheManagerStart.c)
+ *     SmcCacheManagerStart @ 0x14092D544 (SmcCacheManagerStart.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmpUtilsGetControlDevice(__int64 a1, _QWORD *a2, PDEVICE_OBJECT *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall SmpUtilsGetControlDevice(__int64 a1, _QWORD *a2, PDEVICE_OBJE
       *a2 = v6;
     }
     if ( Object )
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
   if ( FileHandle )
     ZwClose(FileHandle);

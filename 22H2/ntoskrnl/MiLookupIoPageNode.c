@@ -1,101 +1,62 @@
 /*
- * XREFs of MiLookupIoPageNode @ 0x1403B02A8
+ * XREFs of MiLookupIoPageNode @ 0x1402EB6EC
  * Callers:
- *     MiInsertPhysicalPteMapping @ 0x1402F1714 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlCommon @ 0x1403A6DE0 (MiMapMdlCommon.c)
- *     MmGetCacheAttributeEx @ 0x14061ED10 (MmGetCacheAttributeEx.c)
- *     MmProtectMdlSystemAddress @ 0x14061EE40 (MmProtectMdlSystemAddress.c)
+ *     MiInsertPhysicalPteMapping @ 0x1402EB468 (MiInsertPhysicalPteMapping.c)
+ *     MmGetCacheAttributeEx @ 0x140531F60 (MmGetCacheAttributeEx.c)
+ *     MmProtectMdlSystemAddress @ 0x1405320F0 (MmProtectMdlSystemAddress.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x1403362B4 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x140336AB0 (MiLockIoPfnTree.c)
- *     MiIoSpaceGetBounds @ 0x140336B50 (MiIoSpaceGetBounds.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, int a2)
+_QWORD *__fastcall MiLookupIoPageNode(unsigned __int64 a1)
 {
-  unsigned __int8 CurrentIrql; // di
-  __int64 v5; // r10
-  unsigned __int8 v6; // r11
-  _QWORD *v7; // r8
-  ULONG_PTR v8; // rax
-  int v9; // ebx
+  KIRQL v2; // al
+  _QWORD *v3; // rbx
+  unsigned __int64 v4; // rdi
+  unsigned __int64 v5; // rcx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rax
-  unsigned __int8 v13; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
-  __int128 v18; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-18h]
+  int v10; // edx
+  bool v11; // zf
 
-  v18 = 0LL;
-  v19 = 0LL;
-  CurrentIrql = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  v2 = ExAcquireSpinLockShared(&dword_140C4EC40);
+  v3 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
+  v4 = v2;
+  while ( v3 )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v12) = 4;
-    if ( CurrentIrql != 2 )
-      v12 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v12;
-  }
-  MiIoSpaceGetBounds((__int64)&v18, BugCheckParameter2);
-  if ( HIDWORD(v19) == 3 )
-  {
-    MiLockIoPfnTree(5);
-    v7 = (_QWORD *)*((_QWORD *)&xmmword_140C69680 + 1);
-    while ( v7 )
+    v5 = v3[5];
+    if ( a1 < v5 )
     {
-      v8 = v7[3];
-      if ( BugCheckParameter2 < v8 )
-      {
-        v7 = (_QWORD *)*v7;
-      }
-      else
-      {
-        if ( BugCheckParameter2 < v8 + 512 )
-          break;
-        v7 = (_QWORD *)v7[1];
-      }
-    }
-    if ( v7 )
-    {
-      v9 = *((_DWORD *)v7
-           + ((unsigned __int64)(2
-                               * (((unsigned int)BugCheckParameter2 & ((1 << (dword_140C65BE0 - 12)) - 1))
-                                - *((_DWORD *)v7 + 6))) >> 5)
-           + 11) >> ((2 * ((BugCheckParameter2 & ((1 << (dword_140C65BE0 - 12)) - 1)) - *((_BYTE *)v7 + 24))) & 0x1F);
-      MiUnlockIoPfnTree(CurrentIrql, 1);
-      return v9 & 3;
+      v3 = (_QWORD *)*v3;
     }
     else
     {
-      if ( a2 )
-        KeBugCheckEx(0x1Au, 0x61949uLL, BugCheckParameter2, 1uLL, 0LL);
-      return 3LL;
+      if ( a1 < v5 + 512 )
+        break;
+      v3 = (_QWORD *)v3[1];
     }
   }
-  else
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EC40);
+  if ( KiIrqlFlags )
   {
-    if ( KiIrqlFlags )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= v6 && CurrentIrql <= v6 && v13 >= 2u )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v15 = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(v5 << (CurrentIrql + 1));
-        v17 = (v16 & v15[5]) == 0;
-        v15[5] &= v16;
-        if ( v17 )
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(CurrentIrql);
-    return (unsigned int)v19;
   }
+  __writecr8(v4);
+  return v3;
 }

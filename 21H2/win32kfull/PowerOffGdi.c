@@ -1,10 +1,10 @@
 /*
- * XREFs of PowerOffGdi @ 0x1C0154F60
+ * XREFs of PowerOffGdi @ 0x1C0163F30
  * Callers:
- *     xxxRemoteDisconnect @ 0x1C0123098 (xxxRemoteDisconnect.c)
+ *     xxxRemoteDisconnect @ 0x1C0128460 (xxxRemoteDisconnect.c)
  * Callees:
- *     TransitionCursorSuppressionState @ 0x1C0097DC0 (TransitionCursorSuppressionState.c)
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
+ *     TransitionCursorSuppressionState @ 0x1C0028D10 (TransitionCursorSuppressionState.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -22,7 +22,7 @@ __int64 PowerOffGdi()
     DestroyMonitorDCs();
     gbGDIOn = 0;
   }
-  DrvDxgkLogCodePointPacket(12LL, *((_DWORD *)&gPowerState + 15) == 5, 0LL, 0LL);
+  DrvDxgkLogCodePointPacket(12LL, *((_DWORD *)&gPowerState + 15) == 5, 0LL);
   result = DrvSetMDEVPowerState(*(_QWORD *)(gpDispInfo + 16LL), 0LL);
   if ( MDEVPowerState )
   {

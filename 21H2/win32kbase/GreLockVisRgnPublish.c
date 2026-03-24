@@ -1,9 +1,9 @@
 /*
- * XREFs of GreLockVisRgnPublish @ 0x1C0097990
+ * XREFs of GreLockVisRgnPublish @ 0x1C0084170
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0178CB8 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C014C9A8 (McTemplateK0pqz_EtwWriteTransfer.c)
  */
 
 PVOID __fastcall GreLockVisRgnPublish(__int64 a1, int a2, int a3)

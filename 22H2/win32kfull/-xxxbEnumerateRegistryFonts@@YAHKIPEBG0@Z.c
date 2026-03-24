@@ -1,17 +1,17 @@
 /*
- * XREFs of ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0089388
+ * XREFs of ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0025BA0
  * Callers:
- *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0089090 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
- *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00891E8 (-xxxLoadPermanentFonts@@YAHXZ.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025D38 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C0025E90 (-xxxLoadPermanentFonts@@YAHXZ.c)
  * Callees:
- *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00229B4 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ThreadLockExchange @ 0x1C008C7A8 (ThreadLockExchange.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C0021DB0 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     ThreadLockExchange @ 0x1C00C1250 (ThreadLockExchange.c)
  */
 
 __int64 __fastcall xxxbEnumerateRegistryFonts(
-        unsigned int a1,
+        int a1,
         unsigned int a2,
         const unsigned __int16 *a3,
         const unsigned __int16 *a4)
@@ -51,24 +51,24 @@ __int64 __fastcall xxxbEnumerateRegistryFonts(
     if ( !v6 )
       return 0LL;
   }
-  v8 = (void *)OpenCacheKeyEx(v6, a2, 131097LL);
+  v8 = (void *)OpenCacheKeyEx(v6, a2, 131097LL, 0LL);
   if ( v6 )
     FreeProfileUserName(v6, &v20);
   if ( !v8 )
     return 0LL;
   v9 = xxxbEnumerateRegistryFontsInternal(v8, a1);
-  v10 = Win32AllocPoolZInit(544LL, 1919972181LL);
+  v10 = Win32AllocPool(544LL, 1919972181LL);
   v11 = (unsigned int *)v10;
   if ( !v10 )
     return v9;
-  PushW32ThreadLock(v10, &v18, (__int64)Win32FreePool);
+  PushW32ThreadLock(v10, &v18, Win32FreePool);
   for ( i = 0; ; ++i )
   {
     v13 = ZwEnumerateKey(v8, i, KeyBasicInformation, v11, v7 - 2, &ResultLength);
     if ( v13 != -2147483643 && v13 != -1073741789 )
       break;
     ResultLength += 2;
-    v15 = Win32AllocPoolZInit(ResultLength, 1919972181LL);
+    v15 = Win32AllocPool(ResultLength, 1919972181LL);
     v16 = (unsigned int *)v15;
     if ( v15 )
     {
@@ -101,7 +101,7 @@ LABEL_20:
     }
     goto LABEL_20;
   }
-  PopAndFreeAlwaysW32ThreadLock((__int64)&v18);
+  PopAndFreeAlwaysW32ThreadLock(&v18);
   ZwClose(v8);
   return v9;
 }

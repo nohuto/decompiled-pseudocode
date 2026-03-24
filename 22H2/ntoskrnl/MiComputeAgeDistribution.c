@@ -1,99 +1,108 @@
 /*
- * XREFs of MiComputeAgeDistribution @ 0x140222608
+ * XREFs of MiComputeAgeDistribution @ 0x1402FF7AC
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402201DC (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x14046B68E (MiOrderTrimList.c)
+ *     MiComputeSystemTrimCriteria @ 0x14033A450 (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x14053B580 (MiOrderTrimList.c)
  * Callees:
- *     MiUpdateClaimDistribution @ 0x140222770 (MiUpdateClaimDistribution.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiUpdateClaimDistribution @ 0x1402FF920 (MiUpdateClaimDistribution.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
+__int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
 {
   _QWORD *v4; // rdi
   _QWORD **v5; // rsi
   _QWORD *i; // rbx
-  unsigned __int64 v7; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rbx
   unsigned __int64 OldIrql; // rsi
-  int v11; // ecx
-  unsigned int j; // edx
+  unsigned int v11; // edx
+  int v12; // ecx
   unsigned __int64 v13; // r8
-  unsigned __int64 v14; // rax
+  unsigned __int64 v14; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
+  int v19; // eax
+  bool v20; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-78h] BYREF
   _BYTE Src[64]; // [rsp+40h] [rbp-58h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(Src, 0, sizeof(Src));
-  v4 = *(_QWORD **)(a1 + 16920);
-  if ( a2 )
+  v4 = *(_QWORD **)(a1 + 6848);
+  if ( a2 == 1 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-    v5 = (_QWORD **)(a1 + 16928);
+    KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+    v5 = (_QWORD **)(a1 + 6856);
     for ( i = *v5; i != v5; i = (_QWORD *)*i )
       MiUpdateClaimDistribution(i - 3, Src);
     memmove(v4 + 302, Src, 0x40uLL);
-    v7 = 0LL;
-    v8 = v4 + 308;
-    v9 = 2LL;
+    v7 = v4 + 308;
+    v8 = 2LL;
+    v9 = 0LL;
     do
     {
-      v7 += *v8++;
-      --v9;
+      v9 += *v7++;
+      --v8;
     }
-    while ( v9 );
-    v4[301] = v7;
-    KxReleaseQueuedSpinLock(&LockHandle);
+    while ( v8 );
+    v4[301] = v9;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v19 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v20 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
   }
   else
   {
-    v7 = v4[301];
+    v9 = v4[301];
   }
-  v11 = 0;
-  for ( j = 5; v7 < 4LL * v4[298]; --j )
+  v11 = 5;
+  v12 = 0;
+  while ( v9 < 4LL * v4[298] )
   {
-    ++v11;
-    v7 += v4[j + 302];
-    if ( j == 1 )
+    ++v12;
+    v9 += v4[v11 + 302];
+    if ( v11 == 1 )
       break;
+    --v11;
   }
   v13 = v4[294];
   if ( v13 )
   {
-    v14 = (unsigned int)(1000 * v11) / v13;
+    v14 = (unsigned int)(1000 * v12) / v13;
     if ( (unsigned __int16)v14 > 0x3E8u )
       LOWORD(v14) = 1000;
+    return (unsigned __int16)v14;
+  }
+  else if ( v12 )
+  {
+    return 1000LL;
   }
   else
   {
-    LOWORD(v14) = v11 != 0 ? 0x3E8 : 0;
+    return 0LL;
   }
-  return v14;
 }

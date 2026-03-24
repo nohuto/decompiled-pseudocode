@@ -1,9 +1,9 @@
 /*
- * XREFs of iswalpha @ 0x1403D9B2C
+ * XREFs of iswalpha @ 0x1403D210C
  * Callers:
- *     PiDrvDbFindSystemFilePathToken @ 0x14096FFCC (PiDrvDbFindSystemFilePathToken.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x1408B5E34 (PiDrvDbFindSystemFilePathToken.c)
  * Callees:
- *     iswctype @ 0x1403DBCE4 (iswctype.c)
+ *     iswctype @ 0x1403D426C (iswctype.c)
  */
 
 int __cdecl iswalpha(wint_t C)

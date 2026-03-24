@@ -1,14 +1,16 @@
 /*
- * XREFs of KeContextFromKframes @ 0x14030DF40
+ * XREFs of KeContextFromKframes @ 0x14033CB10
  * Callers:
- *     KiSaveProcessorState @ 0x14020E570 (KiSaveProcessorState.c)
- *     KiDispatchException @ 0x14030CAC0 (KiDispatchException.c)
- *     KiInitializeUserApc @ 0x14030EFF8 (KiInitializeUserApc.c)
+ *     KiInitializeUserApc @ 0x140309CE4 (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x14033C330 (KiDispatchException.c)
+ *     KiSaveProcessorState @ 0x140525350 (KiSaveProcessorState.c)
+ *     KeCopyContextFromUch @ 0x1408BE1D0 (KeCopyContextFromUch.c)
+ *     KiCaptureUmsThreadContext @ 0x1408BEBA0 (KiCaptureUmsThreadContext.c)
  * Callees:
- *     KeCopyLastBranchInformation @ 0x14030E350 (KeCopyLastBranchInformation.c)
- *     RtlXSaveS @ 0x14036DE54 (RtlXSaveS.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCopyXStateArea @ 0x140572780 (KiCopyXStateArea.c)
+ *     RtlXSaveS @ 0x14031A7EC (RtlXSaveS.c)
+ *     KeCopyLastBranchInformation @ 0x1403409D0 (KeCopyLastBranchInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyXStateArea @ 0x140519ED0 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)
@@ -19,13 +21,12 @@ __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)
   __int64 v9; // rax
   __int64 v10; // r9
   _QWORD *SparePtr; // rcx
-  _QWORD *i; // rax
+  __int64 v12; // r8
   __int64 v13; // rcx
-  __int64 v14; // rdx
-  unsigned __int8 v15; // al
+  _QWORD *i; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v18; // zf
+  bool v17; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   if ( !CurrentIrql )
@@ -71,28 +72,24 @@ __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)
     {
       v10 = *(int *)(a3 + 1248);
       SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
-      if ( !SparePtr )
-        goto LABEL_29;
-      for ( i = (_QWORD *)*SparePtr; i; i = (_QWORD *)*i )
-        SparePtr = i;
-      if ( SparePtr[5] )
-        KiCopyXStateArea(a3 + v10 + 720, MEMORY[0xFFFFF780000003D8] & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( SparePtr )
+      {
+        for ( i = (_QWORD *)*SparePtr; i; i = (_QWORD *)*i )
+          SparePtr = i;
+        v12 = SparePtr[5];
+      }
       else
-LABEL_29:
-        RtlXSaveS(a3 + v10 + 720, (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
+      {
+        v12 = 0LL;
+      }
+      v13 = a3 + v10 + 720;
+      if ( v12 )
+        KiCopyXStateArea(v13, MEMORY[0xFFFFF780000003D8] & 0xFFFFFFFFFFFFFFFCuLL);
+      else
+        RtlXSaveS(v13, (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
     }
     *(_DWORD *)(a3 + 52) = *(_DWORD *)(a1 + 44);
     *(_DWORD *)(a3 + 280) = *(_DWORD *)(a1 + 44);
-  }
-  if ( (v7 & 0x100080) == 0x100080 && (*(_BYTE *)(a1 + 368) & 1) == 0 )
-  {
-    v13 = *(_QWORD *)(a1 + 216);
-    v14 = *(int *)(a3 + 1256);
-    *(_QWORD *)(v14 + a3 + 1232) = *(_QWORD *)v13;
-    *(_QWORD *)(v14 + a3 + 1240) = *(_QWORD *)(v13 + 8);
-    *(_WORD *)(v14 + a3 + 1248) = *(_WORD *)(v13 + 16);
-    *(_WORD *)(v14 + a3 + 1250) = 0;
-    *(_DWORD *)(v14 + a3 + 1252) = 0;
   }
   if ( (v7 & 0x100008) == 0x100008 )
   {
@@ -132,29 +129,25 @@ LABEL_29:
     else
     {
       *(_QWORD *)(a3 + 72) = 0LL;
-      v9 = 0LL;
       *(_QWORD *)(a3 + 80) = 0LL;
       *(_QWORD *)(a3 + 88) = 0LL;
       *(_QWORD *)(a3 + 96) = 0LL;
       *(_QWORD *)(a3 + 104) = 0LL;
+      v9 = 0LL;
     }
     *(_QWORD *)(a3 + 112) = v9;
     result = KeCopyLastBranchInformation(a3, a1);
   }
   if ( !CurrentIrql )
   {
-    if ( KiIrqlFlags )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v15 - 2) <= 0xDu )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
-        SchedulerAssist[5] &= 0xFFFF0001;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v17 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+      SchedulerAssist[5] &= 0xFFFF0001;
+      if ( v17 )
+        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
     result = 0LL;
     __writecr8(0LL);

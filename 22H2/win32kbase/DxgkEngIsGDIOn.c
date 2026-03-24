@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkEngIsGDIOn @ 0x1C00C75A0
+ * XREFs of DxgkEngIsGDIOn @ 0x1C00BBB90
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCountWslesInPageTable @ 0x140274720
+ * XREFs of MiCountWslesInPageTable @ 0x140285180
  * Callers:
- *     MiRebuildPageTableLeafAges @ 0x140274030 (MiRebuildPageTableLeafAges.c)
- *     MiTerminateWsle @ 0x1403146E0 (MiTerminateWsle.c)
- *     MiSetVaAgeList @ 0x1403171A0 (MiSetVaAgeList.c)
- *     MiAddWorkingSetEntries @ 0x1403234A0 (MiAddWorkingSetEntries.c)
- *     MiTerminateWsleCluster @ 0x14032F750 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
+ *     MiAddWorkingSetEntries @ 0x1402123C0 (MiAddWorkingSetEntries.c)
+ *     MiRebuildPageTableLeafAges @ 0x140285060 (MiRebuildPageTableLeafAges.c)
+ *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
+ *     MiTerminateWsle @ 0x140336DB0 (MiTerminateWsle.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiTerminateWsleCluster @ 0x14033AD20 (MiTerminateWsleCluster.c)
  * Callees:
  *     <none>
  */

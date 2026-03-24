@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetSlabStandbyListWorker @ 0x1405B11A0
+ * XREFs of MiGetSlabStandbyListWorker @ 0x140552F60
  * Callers:
  *     <none>
  * Callees:
- *     MiCompareSlabEntry @ 0x140248F48 (MiCompareSlabEntry.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1405B0AC0 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552B48 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  */
 
 __int64 __fastcall MiGetSlabStandbyListWorker(__int64 a1, __int64 a2, __int64 *a3)

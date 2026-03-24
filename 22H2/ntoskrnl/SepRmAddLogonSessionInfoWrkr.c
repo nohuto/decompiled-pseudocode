@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmAddLogonSessionInfoWrkr @ 0x1407C7C00
+ * XREFs of SepRmAddLogonSessionInfoWrkr @ 0x140692450
  * Callers:
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
  * Callees:
- *     SepUpdateLogonSessionTrack @ 0x1407C7C24 (SepUpdateLogonSessionTrack.c)
+ *     SepUpdateLogonSessionTrack @ 0x140692474 (SepUpdateLogonSessionTrack.c)
  */
 
 __int64 __fastcall SepRmAddLogonSessionInfoWrkr(__int64 a1, __int64 a2)

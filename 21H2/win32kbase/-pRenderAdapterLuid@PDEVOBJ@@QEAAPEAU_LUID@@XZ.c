@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pRenderAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C016B030
+ * XREFs of ?pRenderAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C013E080
  * Callers:
  *     <none>
  * Callees:
@@ -13,24 +13,22 @@ struct _LUID *__fastcall PDEVOBJ::pRenderAdapterLuid(PDEVOBJ *this)
   __int64 v3; // rdx
 
   v1 = *(_QWORD *)this;
-  v2 = *(_QWORD *)(*(_QWORD *)this + 2552LL);
+  v2 = *(_QWORD *)(*(_QWORD *)this + 2576LL);
   if ( v2 == -4 )
   {
-    if ( _bittest((const signed __int32 *)(v1 + 40), 0x11u) )
+    if ( (*(_DWORD *)(v1 + 40) & 0x20000) != 0 )
     {
-      v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 1768) + 40LL) + 2552LL);
+      v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 1800) + 40LL) + 2576LL);
       if ( (*(_DWORD *)(v3 + 160) & 0x4800000) == 0x4000000 )
         return (struct _LUID *)(v3 + 296);
       else
         return (struct _LUID *)(v3 + 248);
     }
   }
-  else if ( !v2 )
+  else if ( !v2 || (*(_DWORD *)(v1 + 40) & 0x20000) != 0 )
   {
     return 0LL;
   }
-  if ( _bittest((const signed __int32 *)(v1 + 40), 0x11u) )
-    return 0LL;
   if ( (*(_DWORD *)(v2 + 160) & 0x4800000) == 0x4000000 )
     return (struct _LUID *)(v2 + 296);
   else

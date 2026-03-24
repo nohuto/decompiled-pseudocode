@@ -1,18 +1,18 @@
 /*
- * XREFs of MmDisableModifiedWriteOfSection @ 0x14020EF90
+ * XREFs of MmDisableModifiedWriteOfSection @ 0x14033AA50
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E7B0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapEx @ 0x14022DF30 (CcInitializeCacheMapEx.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x14033D954 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
 {
-  bool v1; // di
+  bool v1; // bl
   __int64 v2; // rax
-  unsigned __int8 v3; // bl
+  unsigned __int8 v3; // di
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -30,7 +30,7 @@ char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
     else
       *(_DWORD *)(v2 + 56) |= 8u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
       v3 = v10;
       if ( v10 <= 0xFu && CurrentIrql >= 2u )

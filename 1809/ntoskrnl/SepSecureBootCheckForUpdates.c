@@ -1,12 +1,12 @@
 /*
- * XREFs of SepSecureBootCheckForUpdates @ 0x1409F839C
+ * XREFs of SepSecureBootCheckForUpdates @ 0x1409F83AC
  * Callers:
  *     SeSecureBootRegisterPolicy @ 0x1409DC17C (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
  */
 
@@ -32,7 +32,7 @@ NTSTATUS SepSecureBootCheckForUpdates()
   {
     result = ZwQueryValueKey(
                KeyHandle,
-               (PUNICODE_STRING)&stru_140355F50,
+               (PUNICODE_STRING)&stru_140355F40,
                KeyValuePartialInformation,
                KeyValueInformation,
                0x14u,

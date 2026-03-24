@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00C8610
+ * XREFs of ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00E4C40
  * Callers:
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 char __fastcall bGetRegString(HANDLE KeyHandle, const unsigned __int16 *a2, unsigned __int16 *a3)

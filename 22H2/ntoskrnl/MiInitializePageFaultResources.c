@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePageFaultResources @ 0x140375EE0
+ * XREFs of MiInitializePageFaultResources @ 0x1403CA0A8
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiInsertInPageBlock @ 0x1402BD368 (MiInsertInPageBlock.c)
- *     MiAllocateInPageSupportBlock @ 0x1403627E4 (MiAllocateInPageSupportBlock.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiInsertInPageBlock @ 0x14027CFDC (MiInsertInPageBlock.c)
+ *     MiAllocateInPageSupportBlock @ 0x1403223BC (MiAllocateInPageSupportBlock.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
  */
 
 __int64 MiInitializePageFaultResources()
@@ -19,22 +19,24 @@ __int64 MiInitializePageFaultResources()
   unsigned __int64 v5; // r14
   unsigned int *v6; // rbx
   unsigned int v7; // ecx
-  ULONG_PTR v8; // rax
+  __int64 v8; // r8
+  unsigned __int64 v9; // r9
+  ULONG_PTR v10; // rax
 
   v0 = 0;
   for ( i = 0LL; ; ++i )
   {
     v2 = 2LL * v0;
-    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 2108]);
-    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 2112]);
+    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 1154]);
+    InitializeSListHead((PSLIST_HEADER)&MiState[v2 + 1158]);
     v3 = v0 != 0 ? 16 : 8;
-    *((_BYTE *)&MiState[2116] + i) = v0 != 0 ? 16 : 8;
+    *((_BYTE *)&MiState[1162] + i) = v0 != 0 ? 16 : 8;
     v4 = (char *)MiAllocateInPageSupportBlock(v0, v3);
     if ( !v4 )
       break;
-    MiState[i + 2117] = (__int64)v4;
+    MiState[i + 1163] = (__int64)v4;
     v5 = (-(__int64)(v0 != 0) & 0xFFFFFFFFFFFFF880uLL) + 2368;
-    MiState[i + 2119] = (__int64)&v4[v5 * v3];
+    MiState[i + 1165] = (__int64)&v4[v5 * v3];
     v6 = (unsigned int *)(v4 + 192);
     do
     {
@@ -49,11 +51,11 @@ __int64 MiInitializePageFaultResources()
     while ( v3 );
     if ( ++v0 >= 2 )
     {
-      v8 = MiReservePtes((__int64)&qword_140C69A40, 0x10u);
-      if ( v8 )
+      v10 = MiReservePtes((__int64)&qword_140C4EF40, 0x10u, v8, v9);
+      if ( v10 )
       {
-        qword_140C697D0 = 0LL;
-        qword_140C697C8 = v8;
+        qword_140C4ED40 = 0LL;
+        qword_140C4ED38 = v10;
         return 1LL;
       }
       return 0LL;

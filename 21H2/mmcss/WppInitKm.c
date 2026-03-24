@@ -1,9 +1,9 @@
 /*
- * XREFs of WppInitKm @ 0x1C000BBD0
+ * XREFs of WppInitKm @ 0x1C000BF00
  * Callers:
- *     CsInitialize @ 0x1C000D320 (CsInitialize.c)
+ *     CsInitialize @ 0x1C000D2D0 (CsInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 void WppInitKm()

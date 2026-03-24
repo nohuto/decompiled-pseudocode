@@ -1,61 +1,81 @@
 /*
- * XREFs of NtQueryCompositionSurfaceBinding @ 0x1C0004DC0
+ * XREFs of NtQueryCompositionSurfaceBinding @ 0x1C000F2D0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00054E8 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     ?QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z @ 0x1C0005818 (-QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C00072FC (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000FC78 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C000FE74 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     ?QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z @ 0x1C0010104 (-QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall NtQueryCompositionSurfaceBinding(CCompositionSurface *a1, unsigned __int64 a2, char *a3)
+__int64 __fastcall NtQueryCompositionSurfaceBinding(CCompositionSurface *a1, unsigned __int64 a2, _OWORD *a3)
 {
+  _OWORD *v3; // rdi
   unsigned __int64 *v4; // rbx
   unsigned __int64 v6; // rsi
   char v7; // r8
   int Binding; // ebx
-  CCompositionSurface *v10; // [rsp+28h] [rbp-570h] BYREF
-  PVOID Object; // [rsp+30h] [rbp-568h] BYREF
-  unsigned __int64 v12; // [rsp+38h] [rbp-560h]
-  char *v13; // [rsp+48h] [rbp-550h]
-  HANDLE Src[164]; // [rsp+50h] [rbp-548h] BYREF
+  HANDLE *v9; // rax
+  __int64 v10; // rcx
+  CCompositionSurface *v12; // [rsp+28h] [rbp-460h] BYREF
+  PVOID Object; // [rsp+30h] [rbp-458h] BYREF
+  unsigned __int64 v14; // [rsp+38h] [rbp-450h]
+  _OWORD *v15; // [rsp+48h] [rbp-440h]
+  HANDLE v16[130]; // [rsp+50h] [rbp-438h] BYREF
 
+  v3 = a3;
   v4 = (unsigned __int64 *)a2;
-  v10 = a1;
-  v13 = a3;
+  v12 = a1;
+  v15 = a3;
   v6 = 0LL;
-  v12 = 0LL;
+  v14 = 0LL;
   Object = 0LL;
-  memset(Src, 0, sizeof(Src));
+  memset(v16, 0, sizeof(v16));
   if ( a2 )
   {
     if ( a2 + 8 < a2 || a2 + 8 > MmUserProbeAddress )
       v4 = (unsigned __int64 *)MmUserProbeAddress;
     v6 = *v4;
-    v12 = *v4;
+    v14 = *v4;
   }
   KeEnterCriticalRegion();
   Binding = CompositionSurfaceObject::ResolveHandle(a1, 1u, v7, (struct CompositionSurfaceObject **)&Object);
   if ( Binding >= 0 )
   {
-    v10 = 0LL;
-    Binding = CompositionSurfaceObject::LockForRead((CompositionSurfaceObject *)Object, &v10);
+    v12 = 0LL;
+    Binding = CompositionSurfaceObject::LockForRead(Object, &v12);
     if ( Binding >= 0 )
     {
-      Binding = CCompositionSurface::QueryBinding(v10, v6, (struct CSM_BUFFER_INFO *)Src);
-      CCompositionSurface::UnlockAndRelease(v10);
+      Binding = CCompositionSurface::QueryBinding(v12, v6, (struct CSM_BUFFER_INFO *)v16);
+      CCompositionSurface::UnlockAndRelease(v12);
     }
     ObfDereferenceObject(Object);
   }
-  if ( a3 )
+  if ( v3 )
   {
-    if ( a3 + 1312 < a3 || (unsigned __int64)(a3 + 1312) > MmUserProbeAddress )
+    if ( v3 + 65 < v3 || (unsigned __int64)(v3 + 65) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(a3, Src, 0x520uLL);
+    v9 = v16;
+    v10 = 8LL;
+    do
+    {
+      *v3 = *(_OWORD *)v9;
+      v3[1] = *((_OWORD *)v9 + 1);
+      v3[2] = *((_OWORD *)v9 + 2);
+      v3[3] = *((_OWORD *)v9 + 3);
+      v3[4] = *((_OWORD *)v9 + 4);
+      v3[5] = *((_OWORD *)v9 + 5);
+      v3[6] = *((_OWORD *)v9 + 6);
+      v3 += 8;
+      *(v3 - 1) = *((_OWORD *)v9 + 7);
+      v9 += 16;
+      --v10;
+    }
+    while ( v10 );
+    *v3 = *(_OWORD *)v9;
   }
   else
   {

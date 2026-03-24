@@ -1,60 +1,45 @@
 /*
- * XREFs of ??1DXGADAPTERSYNCOBJECT@@QEAA@XZ @ 0x1C019A254
+ * XREFs of ??1DXGADAPTERSYNCOBJECT@@QEAA@XZ @ 0x1C0114F20
  * Callers:
- *     ??_GDXGADAPTERSYNCOBJECTCA@@QEAAPEAXI@Z @ 0x1C00599F4 (--_GDXGADAPTERSYNCOBJECTCA@@QEAAPEAXI@Z.c)
- *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C019A330 (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
+ *     ??_GDXGADAPTERSYNCOBJECTCA@@QEAAPEAXI@Z @ 0x1C0049180 (--_GDXGADAPTERSYNCOBJECTCA@@QEAAPEAXI@Z.c)
+ *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C01147F0 (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C03099FC (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0268F1C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
  */
 
-void __fastcall DXGADAPTERSYNCOBJECT::~DXGADAPTERSYNCOBJECT(DXGADAPTERSYNCOBJECT *this)
+void __fastcall DXGADAPTERSYNCOBJECT::~DXGADAPTERSYNCOBJECT(DXGADAPTERSYNCOBJECT *this, __int64 a2)
 {
-  __int64 v2; // rdi
-  DXGADAPTERSYNCOBJECT *v3; // rcx
-  DXGADAPTERSYNCOBJECT **v4; // rax
-  int v5; // eax
-  int v6; // eax
-  __int64 v7; // rcx
+  DXGADAPTERSYNCOBJECT *v2; // rbx
+  __int64 v3; // rdi
+  __int64 v4; // rdx
+  __int64 *v5; // rax
+  __int64 v6; // rax
 
+  v2 = this;
   if ( *((_BYTE *)this + 24) )
   {
-    v2 = *((_QWORD *)this + 2) + 192LL;
-    DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)v2);
-    v3 = *(DXGADAPTERSYNCOBJECT **)this;
-    if ( *(DXGADAPTERSYNCOBJECT **)(*(_QWORD *)this + 8LL) != this
-      || (v4 = (DXGADAPTERSYNCOBJECT **)*((_QWORD *)this + 1), *v4 != this) )
+    v3 = *((_QWORD *)this + 2);
+    DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v3 + 192));
+    v4 = *(_QWORD *)v2;
+    if ( *(DXGADAPTERSYNCOBJECT **)(*(_QWORD *)v2 + 8LL) != v2
+      || (v5 = (__int64 *)*((_QWORD *)v2 + 1), (DXGADAPTERSYNCOBJECT *)*v5 != v2) )
     {
       __fastfail(3u);
     }
-    *v4 = v3;
-    *((_QWORD *)v3 + 1) = v4;
-    if ( *(struct _KTHREAD **)(v2 + 24) != KeGetCurrentThread() )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, v2, 0LL, 0LL);
-    v5 = *(_DWORD *)(v2 + 32);
-    if ( v5 <= 0 )
-    {
-      WdLogSingleEntry1(1LL, 516LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OwnerAcquireCount > 0", 516LL, 0LL, 0LL, 0LL, 0LL);
-      v5 = *(_DWORD *)(v2 + 32);
-    }
-    v6 = v5 - 1;
-    *(_DWORD *)(v2 + 32) = v6;
-    if ( !v6 )
-    {
-      *(_QWORD *)(v2 + 24) = 0LL;
-      ExReleasePushLockExclusiveEx(v2 + 8, 0LL);
-    }
-    KeLeaveCriticalRegion();
-    v7 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
-    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 24), 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      DXGGLOBAL::DestroyAdapter(*(DXGGLOBAL **)(v7 + 16), (struct DXGADAPTER *)v7);
+    *v5 = v4;
+    *(_QWORD *)(v4 + 8) = v5;
+    DXGFASTMUTEX::Release((struct _KTHREAD **)(v3 + 192), v4);
+    this = *(DXGADAPTERSYNCOBJECT **)(*((_QWORD *)v2 + 2) + 16LL);
+    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)this + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)this + 2), this);
   }
-  if ( *((_QWORD *)this + 4) )
+  if ( *((_QWORD *)v2 + 4) )
   {
-    WdLogSingleEntry1(1LL, 1607LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pVidSchSyncObject == NULL", 1607LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 1616LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)v2 + 2) = 0LL;
 }

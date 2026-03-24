@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetCommonClassRegKeyPath @ 0x1407881B4
+ * XREFs of _CmGetCommonClassRegKeyPath @ 0x1406BDDC0
  * Callers:
- *     _CmOpenCommonClassRegKeyWorker @ 0x140787F44 (_CmOpenCommonClassRegKeyWorker.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1407FAF84 (PiDqGetRelativeObjectRegPath.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A611A8 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x14068CB1C (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1406BDEF8 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140974E98 (_CmDeleteCommonClassRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     _CmValidateInstallerClassName @ 0x140787D8C (_CmValidateInstallerClassName.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     _CmValidateInstallerClassName @ 0x14069BFB8 (_CmValidateInstallerClassName.c)
  */
 
 int __fastcall CmGetCommonClassRegKeyPath(
@@ -19,7 +19,7 @@ int __fastcall CmGetCommonClassRegKeyPath(
         size_t cchDest,
         _DWORD *a8)
 {
-  int v11; // ebp
+  int v11; // esi
   int result; // eax
   const wchar_t *v13; // r8
   __int64 v14; // rax
@@ -36,8 +36,8 @@ int __fastcall CmGetCommonClassRegKeyPath(
     return -1073741811;
   if ( (unsigned __int8)a3 == 32 )
   {
+    v11 = (unsigned __int8)a3 - 30;
     result = CmValidateInstallerClassName(a1, a2);
-    v11 = 2;
   }
   else
   {

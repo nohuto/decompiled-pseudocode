@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDispatchPassiveInterrupts @ 0x14045B710
+ * XREFs of KiDispatchPassiveInterrupts @ 0x140521390
  * Callers:
- *     KiScanInterruptObjectList @ 0x140421050 (KiScanInterruptObjectList.c)
+ *     KiScanInterruptObjectList @ 0x1403FF9B0 (KiScanInterruptObjectList.c)
  * Callees:
- *     IoProcessPassiveInterrupts @ 0x140560798 (IoProcessPassiveInterrupts.c)
+ *     IoProcessPassiveInterrupts @ 0x14050D054 (IoProcessPassiveInterrupts.c)
  */
 
-__int64 __fastcall KiDispatchPassiveInterrupts(__int64 a1)
+__int64 KiDispatchPassiveInterrupts()
 {
-  return IoProcessPassiveInterrupts(*(unsigned int *)(a1 + 88));
+  return IoProcessPassiveInterrupts();
 }

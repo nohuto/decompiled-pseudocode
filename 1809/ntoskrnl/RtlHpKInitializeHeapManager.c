@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlHpKInitializeHeapManager @ 0x14018D528
+ * XREFs of RtlHpKInitializeHeapManager @ 0x14018D548
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x14018D258 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x14018D278 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     RtlHpHeapManagerStart @ 0x140170248 (RtlHpHeapManagerStart.c)
- *     RtlHpHeapManagerInitialize @ 0x1401707B0 (RtlHpHeapManagerInitialize.c)
- *     RtlHpGlobalsInitialize @ 0x14018D5B0 (RtlHpGlobalsInitialize.c)
+ *     RtlHpHeapManagerStart @ 0x140170268 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x1401707D0 (RtlHpHeapManagerInitialize.c)
+ *     RtlHpGlobalsInitialize @ 0x14018D5D0 (RtlHpGlobalsInitialize.c)
  */
 
 NTSTATUS RtlHpKInitializeHeapManager()

@@ -1,37 +1,45 @@
 /*
- * XREFs of xxxGetControlColor @ 0x1C0152424
+ * XREFs of xxxGetControlColor @ 0x1C015114C
  * Callers:
- *     xxxPaintRect @ 0x1C00C1B34 (xxxPaintRect.c)
- *     xxxGetControlBrush @ 0x1C014C034 (xxxGetControlBrush.c)
- *     NtUserGetControlColor @ 0x1C01F3BD0 (NtUserGetControlColor.c)
+ *     xxxPaintRect @ 0x1C004555C (xxxPaintRect.c)
+ *     xxxGetControlBrush @ 0x1C0151084 (xxxGetControlBrush.c)
+ *     NtUserGetControlColor @ 0x1C01F9330 (NtUserGetControlColor.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     xxxDefWindowProc @ 0x1C00A3F90 (xxxDefWindowProc.c)
+ *     xxxDefWindowProc @ 0x1C0048580 (xxxDefWindowProc.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
  */
 
-__int64 __fastcall xxxGetControlColor(struct tagWND *a1, unsigned __int64 *a2, unsigned __int64 a3, unsigned int a4)
+__int64 __fastcall xxxGetControlColor(
+        unsigned __int64 a1,
+        struct _LARGE_STRING **a2,
+        unsigned __int64 a3,
+        unsigned int a4)
 {
-  unsigned __int64 v8; // rbx
-  __int64 v9; // rax
-  __int64 v10; // rsi
+  __int64 v8; // rbx
+  struct _LARGE_STRING *v9; // r9
+  __int64 v10; // rax
+  __int64 v11; // rsi
 
   v8 = 0LL;
-  if ( PsGetCurrentProcessWin32Process(a1) == *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) )
+  if ( PsGetCurrentProcessWin32Process(a1) == *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) )
   {
-    v9 = xxxSendMessage((ULONG_PTR)a1);
-    v10 = v9;
-    if ( !v9 || !(unsigned int)GreValidateServerHandle(v9, 16LL) )
+    v9 = 0LL;
+    if ( a2 )
+      v9 = *a2;
+    v10 = xxxSendMessage(a1, a4, a3, v9);
+    v11 = v10;
+    if ( !v10 || !(unsigned int)GreValidateServerHandle(v10, 16LL) )
     {
       if ( a2 )
-        v8 = *a2;
-      return xxxDefWindowProc(a1, a4, a3, v8);
+        v8 = (__int64)*a2;
+      return xxxDefWindowProc((struct tagWND *)a1, a4, a3, v8);
     }
-    return v10;
+    return v11;
   }
   else
   {
     if ( a2 )
-      v8 = *a2;
-    return xxxDefWindowProc(a1, a4, a3, v8);
+      v8 = (__int64)*a2;
+    return xxxDefWindowProc((struct tagWND *)a1, a4, a3, v8);
   }
 }

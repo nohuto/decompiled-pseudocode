@@ -1,10 +1,10 @@
 /*
- * XREFs of RegisterOpRegionHandler @ 0x1C00B0E70
+ * XREFs of RegisterOpRegionHandler @ 0x1C00B1C10
  * Callers:
  *     <none>
  * Callees:
- *     OSConvertDeviceHandleToNSHANDLE @ 0x1C004998C (OSConvertDeviceHandleToNSHANDLE.c)
- *     RegisterOperationRegionHandler @ 0x1C009F5F8 (RegisterOperationRegionHandler.c)
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C00118BC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
  */
 
 NTSTATUS __stdcall RegisterOpRegionHandler(

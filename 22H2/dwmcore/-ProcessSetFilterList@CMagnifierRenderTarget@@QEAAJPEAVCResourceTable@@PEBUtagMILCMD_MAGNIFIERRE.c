@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetFilterList@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_SETFILTERLIST@@@Z @ 0x1801F0780
+ * XREFs of ?ProcessSetFilterList@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_SETFILTERLIST@@@Z @ 0x18018B74C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??4?$com_ptr_t@VCVisualGroup@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisualGroup@@@Z @ 0x1801B4504 (--4-$com_ptr_t@VCVisualGroup@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisualGroup@@@Z.c)
+ *     ??4?$com_ptr_t@VCDeviceTextureTarget@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDeviceTextureTarget@@@Z @ 0x180026794 (--4-$com_ptr_t@VCDeviceTextureTarget@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDeviceTe.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::ProcessSetFilterList(
@@ -16,51 +16,50 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessSetFilterList(
         struct CResourceTable *a2,
         const struct tagMILCMD_MAGNIFIERRENDERTARGET_SETFILTERLIST *a3)
 {
-  struct CResource *v3; // rbx
+  struct CResource *v3; // rdi
   unsigned int v5; // edx
   unsigned int v6; // esi
-  __int64 Resource; // rax
+  CMILCOMBase *Resource; // rax
   int v9; // eax
   __int64 v10; // rcx
-  CResource *v11; // rcx
-  CResource *v12; // rcx
-  struct CResource *v13; // rax
-  CResource *v15; // [rsp+40h] [rbp+8h] BYREF
+  CRenderTargetBitmap *v11; // rcx
+  CRenderTargetBitmap *v12; // rcx
+  CRenderTargetBitmap *v14; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0LL;
   v5 = *((_DWORD *)a3 + 2);
   v6 = 0;
-  v15 = 0LL;
+  v14 = 0LL;
   if ( v5 )
   {
-    Resource = CResourceTable::GetResource((__int64)a2, v5, 0xC7u);
-    wil::com_ptr_t<CVisualGroup,wil::err_returncode_policy>::operator=(&v15, Resource);
-    v3 = v15;
+    Resource = (CMILCOMBase *)CResourceTable::GetResource((__int64)a2, v5, 0xC5u);
+    wil::com_ptr_t<CDeviceTextureTarget,wil::err_returncode_policy>::operator=(&v14, Resource);
+    v3 = v14;
   }
-  if ( v3 != this[264] )
+  if ( v3 != this[266] )
   {
     v9 = CResource::RegisterNotifier((CResource *)this, v3);
     v6 = v9;
-    if ( v9 < 0 )
+    if ( v9 >= 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x13Du, 0LL);
-    }
-    else
-    {
-      CResource::UnRegisterNotifierInternal((CResource *)this, this[264]);
-      v11 = this[264];
-      this[264] = 0LL;
+      CResource::UnRegisterNotifierInternal((CResource *)this, this[266]);
+      v11 = this[266];
+      this[266] = 0LL;
       if ( v11 )
-        CResource::InternalRelease(v11);
-      v12 = this[264];
-      v13 = v3;
-      v3 = 0LL;
-      this[264] = v13;
+        CRenderTargetBitmap::Release(v11);
+      v12 = this[266];
+      this[266] = v3;
       if ( v12 )
-        CResource::InternalRelease(v12);
+        goto LABEL_12;
+      return v6;
     }
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x13Eu, 0LL);
   }
   if ( v3 )
-    CResource::InternalRelease(v3);
+  {
+    v12 = v3;
+LABEL_12:
+    CRenderTargetBitmap::Release(v12);
+  }
   return v6;
 }

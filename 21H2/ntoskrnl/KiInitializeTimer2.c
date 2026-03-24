@@ -1,21 +1,17 @@
 /*
- * XREFs of KiInitializeTimer2 @ 0x1403588EC
+ * XREFs of KiInitializeTimer2 @ 0x1402E927C
  * Callers:
- *     ExAllocateTimerInternal2 @ 0x1402D5B80 (ExAllocateTimerInternal2.c)
- *     KeInitializeTimer2 @ 0x1403588D0 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x1403725A0 (KeInitializeIRTimer.c)
- *     MiStoreEvictThread @ 0x1403CDBF0 (MiStoreEvictThread.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403D6F40 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1403DDE4C (KiInitializeIdealProcessorRebalancer.c)
- *     PopSleepstudyInitialize @ 0x140B02344 (PopSleepstudyInitialize.c)
- *     PopPowerAggregatorInitialize @ 0x140B02408 (PopPowerAggregatorInitialize.c)
- *     ExInitializeTimeRefresh @ 0x140B0E000 (ExInitializeTimeRefresh.c)
- *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140B24034 (KiInitializeDpcRuntimeHistoryHashTables.c)
- *     PopThermalInit @ 0x140B246C0 (PopThermalInit.c)
- *     SshpAlpcInitialize @ 0x140B2984C (SshpAlpcInitialize.c)
- *     HalpBlkWdInitialize @ 0x140B4D9C8 (HalpBlkWdInitialize.c)
+ *     ExAllocateTimerInternal2 @ 0x140280440 (ExAllocateTimerInternal2.c)
+ *     KeInitializeTimer2 @ 0x1402E9260 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x1403813E0 (KeInitializeIRTimer.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B4750 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     MiStoreEvictThread @ 0x1403C1000 (MiStoreEvictThread.c)
+ *     PopPowerAggregatorInitialize @ 0x140A40878 (PopPowerAggregatorInitialize.c)
+ *     PopSleepstudyInitialize @ 0x140A40C80 (PopSleepstudyInitialize.c)
+ *     ExInitializeTimeRefresh @ 0x140A5B1EC (ExInitializeTimeRefresh.c)
+ *     HalpBlkWdInitialize @ 0x140A8E3E8 (HalpBlkWdInitialize.c)
  * Callees:
- *     PsTimerResolutionActive @ 0x140357CE4 (PsTimerResolutionActive.c)
+ *     PsTimerResolutionActive @ 0x140260174 (PsTimerResolutionActive.c)
  */
 
 char __fastcall KiInitializeTimer2(__int64 a1, __int64 a2, __int64 a3, int a4)

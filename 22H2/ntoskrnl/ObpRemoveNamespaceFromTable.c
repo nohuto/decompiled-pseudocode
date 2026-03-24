@@ -1,46 +1,46 @@
 /*
- * XREFs of ObpRemoveNamespaceFromTable @ 0x1407CBFEC
+ * XREFs of ObpRemoveNamespaceFromTable @ 0x14068AEEC
  * Callers:
- *     ObpCloseDirectoryObject @ 0x1407CBFC0 (ObpCloseDirectoryObject.c)
- *     NtDeletePrivateNamespace @ 0x140886460 (NtDeletePrivateNamespace.c)
+ *     ObpCloseDirectoryObject @ 0x14068AEC0 (ObpCloseDirectoryObject.c)
+ *     NtDeletePrivateNamespace @ 0x1408DF640 (NtDeletePrivateNamespace.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall ObpRemoveNamespaceFromTable(volatile signed __int32 *Object)
+__int64 __fastcall ObpRemoveNamespaceFromTable(PADAPTER_OBJECT DmaAdapter, __int64 a2)
 {
-  unsigned int v2; // edi
-  void *CurrentServerSiloGlobals; // rsi
+  unsigned int v3; // edi
+  _DWORD *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
-  __int64 v6; // rdx
-  _QWORD *v7; // rcx
+  _QWORD *v6; // rax
+  __int64 v7; // rdx
+  _QWORD *v8; // rcx
 
-  v2 = -1072103391;
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  v3 = -1072103391;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)DmaAdapter, a2);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)CurrentServerSiloGlobals + 720, 0LL);
-  _InterlockedOr(Object + 84, 2u);
-  v5 = (_QWORD *)*((_QWORD *)Object + 40);
-  if ( v5 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
+  _InterlockedOr((volatile signed __int32 *)&DmaAdapter[21], 2u);
+  v6 = *(_QWORD **)&DmaAdapter[20].Version;
+  if ( v6 )
   {
-    *((_QWORD *)Object + 40) = 0LL;
-    v5[2] = 0LL;
-    v6 = *v5;
-    if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v7 = (_QWORD *)v5[1], (_QWORD *)*v7 != v5) )
+    *(_QWORD *)&DmaAdapter[20].Version = 0LL;
+    v6[2] = 0LL;
+    v7 = *v6;
+    if ( *(_QWORD **)(*v6 + 8LL) != v6 || (v8 = (_QWORD *)v6[1], (_QWORD *)*v8 != v6) )
       __fastfail(3u);
-    *v7 = v6;
-    *(_QWORD *)(v6 + 8) = v7;
-    --*((_DWORD *)CurrentServerSiloGlobals + 182);
-    ObfDereferenceObject((PVOID)Object);
-    v2 = 0;
+    *v8 = v7;
+    *(_QWORD *)(v7 + 8) = v8;
+    --CurrentServerSiloGlobals[182];
+    HalPutDmaAdapter(DmaAdapter);
+    v3 = 0;
   }
-  ExReleasePushLockEx((__int64 *)CurrentServerSiloGlobals + 90, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v2;
+  return v3;
 }

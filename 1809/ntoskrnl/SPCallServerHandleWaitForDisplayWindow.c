@@ -1,13 +1,13 @@
 /*
- * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14071CD4C
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14071CD2C
  * Callers:
- *     sub_140685860 @ 0x140685860 (sub_140685860.c)
+ *     sub_140685840 @ 0x140685840 (sub_140685840.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

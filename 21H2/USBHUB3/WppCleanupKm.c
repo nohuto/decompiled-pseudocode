@@ -1,10 +1,10 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C007348C
+ * XREFs of WppCleanupKm @ 0x1C007248C
  * Callers:
- *     DriverCleanup @ 0x1C0001D70 (DriverCleanup.c)
- *     DriverEntry @ 0x1C008C008 (DriverEntry.c)
+ *     DriverCleanup @ 0x1C0001CB0 (DriverCleanup.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppCleanupKm(__int64 a1)

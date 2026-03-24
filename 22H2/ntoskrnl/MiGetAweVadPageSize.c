@@ -1,33 +1,26 @@
 /*
- * XREFs of MiGetAweVadPageSize @ 0x140A41DCC
+ * XREFs of MiGetAweVadPageSize @ 0x1408D60F8
  * Callers:
- *     MiVadPageTableChargeLevel @ 0x140277AF0 (MiVadPageTableChargeLevel.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
+ *     MiVadPageTableChargeLevel @ 0x14021B9E0 (MiVadPageTableChargeLevel.c)
  * Callees:
- *     MiLocateVadEvent @ 0x14030B2DC (MiLocateVadEvent.c)
- *     MiGetAwePageSize @ 0x14064A988 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064AA28 (MiGetAweViewPageSize.c)
+ *     MiLocateVadEvent @ 0x14027EA34 (MiLocateVadEvent.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381AA0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweViewPageSize @ 0x14054C418 (MiGetAweViewPageSize.c)
  */
 
-__int64 __fastcall MiGetAweVadPageSize(__int64 a1)
+_BOOL8 __fastcall MiGetAweVadPageSize(__int64 a1)
 {
-  __int64 AweViewPageSize; // r8
   __int64 VadEvent; // rax
-  __int64 v3; // r9
-  __int64 v4; // rcx
+  unsigned __int64 AweViewPageSize; // rax
+  __int64 v3; // r8
 
-  AweViewPageSize = 1LL;
-  if ( (*(_DWORD *)(a1 + 48) & 0x6200000) != 0x4200000 )
-  {
-    VadEvent = MiLocateVadEvent(a1, 256LL);
-    AweViewPageSize = MiGetAweViewPageSize(VadEvent + 8);
-    if ( !AweViewPageSize )
-    {
-      v4 = *(_QWORD *)(v3 + 40);
-      if ( (*(_DWORD *)(v4 + 8) & 1) == 0 )
-        return MiGetAwePageSize(v4);
-    }
-  }
-  return AweViewPageSize;
+  if ( (*(_DWORD *)(a1 + 48) & 0x3100000) == 0x2100000 )
+    return 0LL;
+  VadEvent = MiLocateVadEvent(a1, 256LL);
+  if ( (**(_DWORD **)(VadEvent + 40) & 1) != 0 )
+    return 0LL;
+  AweViewPageSize = MiGetAweViewPageSize(VadEvent + 8);
+  if ( !AweViewPageSize )
+    AweViewPageSize = ExGetCallBackBlockRoutine(v3);
+  return AweViewPageSize >= 0x200;
 }

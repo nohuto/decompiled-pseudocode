@@ -1,71 +1,132 @@
 /*
- * XREFs of xxxGetSysMenuPtr @ 0x1C006347C
+ * XREFs of xxxGetSysMenuPtr @ 0x1C006190C
  * Callers:
- *     xxxMNCanClose @ 0x1C00632C4 (xxxMNCanClose.c)
- *     NtUserGetSysMenuOffset @ 0x1C01D3E30 (NtUserGetSysMenuOffset.c)
- *     xxxHandleNCMouseGuys @ 0x1C0200A20 (xxxHandleNCMouseGuys.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     xxxGetSysMenu @ 0x1C02221A0 (xxxGetSysMenu.c)
- *     xxxSetSysMenu @ 0x1C0222254 (xxxSetSysMenu.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
+ *     xxxSetSysMenu @ 0x1C0046C70 (xxxSetSysMenu.c)
+ *     xxxMNCanClose @ 0x1C00614C0 (xxxMNCanClose.c)
+ *     xxxGetSysMenu @ 0x1C00DAE14 (xxxGetSysMenu.c)
+ *     xxxHandleNCMouseGuys @ 0x1C0223744 (xxxHandleNCMouseGuys.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     xxxGetSysMenuOffset @ 0x1C023EFE0 (xxxGetSysMenuOffset.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     xxxLoadSysDesktopMenu @ 0x1C00AF9D4 (xxxLoadSysDesktopMenu.c)
- *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ @ 0x1C0108994 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C01291D4 (xxxLoadSysDesktopMenu.c)
  */
 
 __int64 __fastcall xxxGetSysMenuPtr(_QWORD *a1)
 {
-  __int64 ThreadWin32Thread; // rax
-  __int64 v3; // rax
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  _QWORD *v6; // rcx
-  __int64 v8; // rdx
-  __int64 SysDesktopMenu; // rax
-  __int64 v10; // rdx
-  __int64 *v11; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-10h]
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v3; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rbx
+  __int64 v11; // rdi
+  struct _KTHREAD *v12; // r14
+  __int64 v13; // rsi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 *v17; // rax
+  _QWORD *v18; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v22; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v24; // rax
+  int v25; // ebx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 *v28; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v29; // [rsp+28h] [rbp-18h] BYREF
+  __int64 v30; // [rsp+30h] [rbp-10h]
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v11 = (__int64 *)gSmartObjNullRef;
-  v12 = *(_QWORD *)(ThreadWin32Thread + 1512);
-  *(_QWORD *)(ThreadWin32Thread + 1512) = &v12;
-  v3 = a1[5];
-  v13 = 0LL;
-  if ( (*(_BYTE *)(v3 + 30) & 8) == 0 )
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v5, v4, v6),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v22),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    v10 = 0LL;
-    goto LABEL_12;
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = *ThreadWin32Thread;
   }
-  SmartObjStackRefBase<tagMENU>::operator=(&v11, a1[20]);
-  if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(&v11) )
+  v28 = (__int64 *)gSmartObjNullRef;
+  v29 = *(_QWORD *)(v3 + 1472);
+  *(_QWORD *)(v3 + 1472) = &v29;
+  v9 = a1[5];
+  v30 = 0LL;
+  if ( (*(_BYTE *)(v9 + 30) & 8) == 0 )
+    goto LABEL_25;
+  v10 = a1[20];
+  if ( v10 == *v28 )
+    goto LABEL_38;
+  if ( v28 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v28 + 2) )
   {
-    v8 = *(_QWORD *)(a1[3] + 56LL);
-    v13 = 0LL;
-    SmartObjStackRefBase<tagMENU>::operator=(&v11, v8);
-    if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(&v11) )
+    if ( *((_BYTE *)v28 + 12) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v28);
+  }
+  if ( v10 )
+  {
+    v28 = *(__int64 **)(v10 + 152);
+    ++*((_DWORD *)v28 + 2);
+  }
+  else
+  {
+    v28 = (__int64 *)gSmartObjNullRef;
+  }
+  if ( !v30 )
+  {
+LABEL_38:
+    if ( *v28 )
     {
+LABEL_11:
+      v11 = *v28;
+      goto LABEL_12;
+    }
+    v30 = 0LL;
+    SmartObjStackRefBase<tagMENU>::operator=(&v28);
+    if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(&v28) )
+    {
+      v8 = gptiCurrent;
       if ( (*(_DWORD *)(gptiCurrent + 488LL) & 5) == 0 )
       {
-        SysDesktopMenu = xxxLoadSysDesktopMenu(a1[3] + 56LL, 16LL);
-        v13 = 0LL;
-        v10 = SysDesktopMenu;
-LABEL_12:
-        SmartObjStackRefBase<tagMENU>::operator=(&v11, v10);
+        xxxLoadSysDesktopMenu(a1[3] + 56LL, 16LL);
+        v30 = 0LL;
+LABEL_25:
+        SmartObjStackRefBase<tagMENU>::operator=(&v28);
       }
     }
   }
-  v4 = v13;
-  if ( !v13 )
-    v4 = *v11;
-  v5 = W32GetThreadWin32Thread(KeGetCurrentThread());
-  SmartObjStackRefBase<tagMENU>::DecrementCountAndTryFree(&v11);
-  v6 = *(_QWORD **)(v5 + 1512);
-  if ( v6 )
-    *(_QWORD *)(v5 + 1512) = *v6;
-  return v4;
+  v11 = v30;
+  if ( !v30 )
+    goto LABEL_11;
+LABEL_12:
+  v12 = KeGetCurrentThread();
+  v13 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v8)
+    || (v24 = PsGetCurrentProcess(v15, v14, v16),
+        v25 = PsGetProcessSessionIdEx(v24),
+        v27 = PsGetCurrentThreadProcess(v26),
+        v25 == (unsigned int)PsGetProcessSessionIdEx(v27)) )
+  {
+    v17 = (__int64 *)PsGetThreadWin32Thread(v12);
+    if ( v17 )
+      v13 = *v17;
+  }
+  if ( v28 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v28 + 2) )
+  {
+    if ( *((_BYTE *)v28 + 12) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v28);
+  }
+  v18 = *(_QWORD **)(v13 + 1472);
+  if ( v18 )
+    *(_QWORD *)(v13 + 1472) = *v18;
+  return v11;
 }

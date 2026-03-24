@@ -1,42 +1,38 @@
 /*
- * XREFs of MmUnsecureVirtualMemory @ 0x1406B0260
+ * XREFs of MmUnsecureVirtualMemory @ 0x14061FB80
  * Callers:
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     DifMmUnsecureVirtualMemoryWrapper @ 0x1405E7D90 (DifMmUnsecureVirtualMemoryWrapper.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     AlpcpPrepareViewForDelivery @ 0x14071A2D8 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A8C8 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcViewDestroyProcedure @ 0x14071ED50 (AlpcViewDestroyProcedure.c)
- *     WbFreeMemoryBlock @ 0x1407649FC (WbFreeMemoryBlock.c)
- *     AlpcpRestoreWriteAccess @ 0x1407C34A0 (AlpcpRestoreWriteAccess.c)
- *     AlpcpForceUnlinkSecureView @ 0x14097958C (AlpcpForceUnlinkSecureView.c)
- *     VmUnsecureBackingMemory @ 0x1409DCDD0 (VmUnsecureBackingMemory.c)
- *     VmpLockMemoryForPin @ 0x1409DD2B8 (VmpLockMemoryForPin.c)
- *     VmpUnlockMemoryForPin @ 0x1409DD890 (VmpUnlockMemoryForPin.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A45BD0 (MmStoreAllocateVirtualMemory.c)
- *     AslpFilePartialViewFree @ 0x140A59D88 (AslpFilePartialViewFree.c)
+ *     RtlFileMapFree @ 0x140371CCC (RtlFileMapFree.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     AlpcViewDestroyProcedure @ 0x14061E250 (AlpcViewDestroyProcedure.c)
+ *     AlpcpRestoreWriteAccess @ 0x14061FD70 (AlpcpRestoreWriteAccess.c)
+ *     WbFreeMemoryBlock @ 0x140667C48 (WbFreeMemoryBlock.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406991AC (MmStoreAllocateVirtualMemory.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406DA940 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpPrepareViewForDelivery @ 0x1406DADA8 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpForceUnlinkSecureView @ 0x1408C35C0 (AlpcpForceUnlinkSecureView.c)
+ *     MiDeleteHotPatchEntry @ 0x1408C99B8 (MiDeleteHotPatchEntry.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
+ *     VmUnsecureBackingMemory @ 0x14092F300 (VmUnsecureBackingMemory.c)
+ *     AslpFilePartialViewFree @ 0x14096C72C (AslpFilePartialViewFree.c)
  * Callees:
- *     MiObtainReferencedSecureVad @ 0x1402159F4 (MiObtainReferencedSecureVad.c)
- *     MiRemoveSecureEntry @ 0x140217310 (MiRemoveSecureEntry.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiRemoveSecureEntry @ 0x14025AE40 (MiRemoveSecureEntry.c)
+ *     MiObtainReferencedSecureVad @ 0x14025AF50 (MiObtainReferencedSecureVad.c)
  */
 
 void __stdcall MmUnsecureVirtualMemory(HANDLE SecureHandle)
 {
-  _QWORD *v1; // rbx
+  __int64 *v1; // rbx
   ULONG_PTR v2; // rax
-  __int64 v3; // r8
-  __int64 v4; // r9
-  char *v5; // rdi
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  char *v3; // rdi
+  int v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
-  v1 = (_QWORD *)((unsigned __int64)SecureHandle ^ qword_140C65B40 ^ (__int64)KeGetCurrentThread()->ApcState.Process);
-  v2 = MiObtainReferencedSecureVad((ULONG_PTR)v1, &v6);
-  v5 = (char *)v2;
+  v1 = (__int64 *)((unsigned __int64)SecureHandle ^ qword_140C4DE50 ^ (__int64)KeGetCurrentThread()->ApcState.Process);
+  v2 = MiObtainReferencedSecureVad((ULONG_PTR)v1, &v4);
+  v3 = (char *)v2;
   if ( v2 )
   {
-    MiRemoveSecureEntry(v2, v1, v3, v4);
-    MiUnlockAndDereferenceVad(v5);
+    MiRemoveSecureEntry(v2, v1);
+    MiUnlockAndDereferenceVad(v3);
   }
 }

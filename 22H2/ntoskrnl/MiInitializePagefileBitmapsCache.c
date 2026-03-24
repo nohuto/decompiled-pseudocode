@@ -1,32 +1,33 @@
 /*
- * XREFs of MiInitializePagefileBitmapsCache @ 0x140394350
+ * XREFs of MiInitializePagefileBitmapsCache @ 0x1403BF7D4
  * Callers:
- *     MiRescanPagefileBitmaps @ 0x140393DC0 (MiRescanPagefileBitmaps.c)
- *     MiCheckFreeModifiedReservations @ 0x140638D70 (MiCheckFreeModifiedReservations.c)
- *     MiCreatePagefile @ 0x1408355E4 (MiCreatePagefile.c)
+ *     MiModifiedPageWriter @ 0x1403BEA70 (MiModifiedPageWriter.c)
+ *     MiRescanPagefileBitmaps @ 0x1403BF614 (MiRescanPagefileBitmaps.c)
+ *     MiCreatePagefile @ 0x1407B7A10 (MiCreatePagefile.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
 {
-  bool v1; // bl
-  __int64 v2; // r14
+  __int64 v1; // r14
+  bool v2; // bl
   __int64 v3; // r15
   __int64 v4; // rsi
   _QWORD *v6; // rdi
   _QWORD *v7; // rbp
-  _QWORD *v8; // rax
-  unsigned __int64 v9; // rdx
-  bool v10; // r8
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rax
+  _QWORD *i; // rax
+  _QWORD *v9; // rcx
+  unsigned __int64 v10; // rdx
+  bool v11; // r8
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // rax
   char result; // al
 
-  v1 = 0;
-  v2 = a1 + 144;
+  v1 = a1 + 144;
+  v2 = 0;
   *(_QWORD *)(a1 + 144) = 0LL;
   v3 = a1 + 160;
   *(_QWORD *)(a1 + 152) = 0LL;
@@ -38,80 +39,95 @@ char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
   *(_QWORD *)(a1 + 176) = a1 + 176;
   v7 = v6 + 3577;
   memset(v6, 0, 0x7000uLL);
-  while ( v6 < v7 )
+  if ( v6 < v6 + 3577 )
   {
-    v8 = *(_QWORD **)(v4 + 8);
-    if ( *v8 != v4 )
-      __fastfail(3u);
-    *v6 = v4;
-    v6[1] = v8;
-    *v8 = v6;
-    *(_QWORD *)(v4 + 8) = v6;
-    v6 += 7;
+    for ( i = *(_QWORD **)(v4 + 8); ; i = v9 )
+    {
+      v9 = v6;
+      if ( *i != v4 )
+        __fastfail(3u);
+      *v6 = v4;
+      v6[1] = i;
+      *i = v6;
+      *(_QWORD *)(v4 + 8) = v6;
+      v6 += 7;
+      if ( v6 >= v7 )
+        break;
+    }
   }
   *((_DWORD *)v6 + 13) = -1;
   *((_DWORD *)v6 + 12) = -1;
-  v9 = *(_QWORD *)v2;
-  if ( (*(_BYTE *)(v2 + 8) & 1) != 0 && v9 )
-    v9 ^= v2;
-  v10 = 0;
-  if ( v9 )
+  v10 = *(_QWORD *)v1;
+  if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
   {
-    while ( 1 )
-    {
-      v11 = *(_QWORD *)(v9 + 8);
-      if ( (*(_BYTE *)(v2 + 8) & 1) != 0 )
-      {
-        if ( !v11 )
-          break;
-        v11 ^= v9;
-      }
-      if ( !v11 )
-        break;
-      v9 = v11;
-    }
-    v10 = 1;
+    if ( v10 )
+      v10 ^= v1;
+    else
+      v10 = 0LL;
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v2, v9, v10, (unsigned __int64)v6);
-  v12 = *(_QWORD *)v3;
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 && v12 )
-    v12 ^= v3;
-  if ( v12 )
+  v11 = 0;
+  if ( v10 )
   {
     while ( 1 )
     {
-      if ( *((_DWORD *)v6 + 12) >= *(_DWORD *)(v12 + 24) )
+      v12 = *(_QWORD *)(v10 + 8);
+      if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
       {
-        v13 = *(_QWORD *)(v12 + 8);
+        if ( !v12 )
+          break;
+        v12 ^= v10;
+      }
+      if ( !v12 )
+        break;
+      v10 = v12;
+    }
+    v11 = 1;
+  }
+  RtlRbInsertNodeEx((unsigned __int64 *)v1, v10, v11, (unsigned __int64)v6);
+  v13 = *(_QWORD *)v3;
+  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
+  {
+    if ( v13 )
+      v13 ^= v3;
+    else
+      v13 = 0LL;
+  }
+  if ( v13 )
+  {
+    while ( 1 )
+    {
+      if ( *((_DWORD *)v6 + 12) < *(_DWORD *)(v13 + 24) )
+      {
+        v14 = *(_QWORD *)v13;
         if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
         {
-          if ( !v13 )
-            goto LABEL_25;
-          v13 ^= v12;
+          if ( !v14 )
+            break;
+          v14 ^= v13;
         }
-        if ( !v13 )
-        {
-LABEL_25:
-          v1 = 1;
+        if ( !v14 )
           break;
-        }
       }
       else
       {
-        v13 = *(_QWORD *)v12;
+        v14 = *(_QWORD *)(v13 + 8);
         if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
         {
-          if ( !v13 )
-            break;
-          v13 ^= v12;
+          if ( !v14 )
+            goto LABEL_26;
+          v14 ^= v13;
         }
-        if ( !v13 )
+        if ( !v14 )
+        {
+LABEL_26:
+          v2 = 1;
           break;
+        }
       }
-      v12 = v13;
+      v13 = v14;
     }
   }
-  result = RtlRbInsertNodeEx((unsigned __int64 *)v3, v12, v1, (unsigned __int64)(v6 + 3));
+  result = RtlRbInsertNodeEx((unsigned __int64 *)v3, v13, v2, (unsigned __int64)(v6 + 3));
   *(_DWORD *)(a1 + 140) = -1;
   return result;
 }

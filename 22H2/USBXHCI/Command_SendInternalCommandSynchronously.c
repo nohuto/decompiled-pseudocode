@@ -1,9 +1,9 @@
 /*
- * XREFs of Command_SendInternalCommandSynchronously @ 0x1C0030124
+ * XREFs of Command_SendInternalCommandSynchronously @ 0x1C002E748
  * Callers:
- *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014180 (Command_D0EntryPostInterruptsEnabled.c)
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014C14 (Command_D0EntryPostInterruptsEnabled.c)
  * Callees:
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
  */
 
 NTSTATUS __fastcall Command_SendInternalCommandSynchronously(__int64 a1, __int64 a2)

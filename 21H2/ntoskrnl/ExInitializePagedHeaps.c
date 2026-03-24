@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializePagedHeaps @ 0x1403C41C8
+ * XREFs of ExInitializePagedHeaps @ 0x1403C3B30
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     ExCreateHeap @ 0x14036F5D4 (ExCreateHeap.c)
- *     RtlpDynamicLookasideInitialize @ 0x1403C4368 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x14039D748 (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1403C3CD0 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePagedHeaps()
@@ -22,7 +22,7 @@ __int64 ExInitializePagedHeaps()
 
   v9 = 0LL;
   v0 = 0;
-  if ( dword_140C5EA20 )
+  if ( dword_140C58090 )
   {
     while ( 1 )
     {
@@ -46,10 +46,10 @@ __int64 ExInitializePagedHeaps()
       v4 = v9;
       ++v0;
       *(_QWORD *)((char *)&ExPoolState + v1 + 14616) = v9;
-      *(_DWORD *)(v4 + 880) |= 2u;
-      *(_BYTE *)(v4 + 333) |= 8u;
-      *(_BYTE *)(v4 + 525) |= 8u;
-      if ( v0 >= dword_140C5EA20 )
+      *(_DWORD *)(v4 + 816) |= 2u;
+      *(_BYTE *)(v4 + 269) |= 8u;
+      *(_BYTE *)(v4 + 461) |= 8u;
+      if ( v0 >= dword_140C58090 )
         goto LABEL_5;
     }
   }
@@ -65,19 +65,19 @@ LABEL_5:
       v8 = 0LL;
       LOBYTE(v8) = 10;
       v6 = v8;
-      *(_DWORD *)(v9 + 880) |= 2u;
-      *(_BYTE *)(v5 + 333) |= 8u;
-      *(_BYTE *)(v5 + 525) |= 8u;
-      qword_140CE1A50 = v5;
+      *(_DWORD *)(v9 + 816) |= 2u;
+      *(_BYTE *)(v5 + 269) |= 8u;
+      *(_BYTE *)(v5 + 461) |= 8u;
+      qword_140CDB0D0 = v5;
       v8 = v6;
       result = ExCreateHeap(&v8, 0LL, &v9);
       if ( (int)result >= 0 )
       {
         v7 = v9;
-        *(_DWORD *)(v9 + 880) |= 2u;
-        *(_BYTE *)(v7 + 333) |= 8u;
-        *(_BYTE *)(v7 + 525) |= 8u;
-        qword_140CE1A58 = v7;
+        *(_DWORD *)(v9 + 816) |= 2u;
+        *(_BYTE *)(v7 + 269) |= 8u;
+        *(_BYTE *)(v7 + 461) |= 8u;
+        qword_140CDB0D8 = v7;
         return 0LL;
       }
     }

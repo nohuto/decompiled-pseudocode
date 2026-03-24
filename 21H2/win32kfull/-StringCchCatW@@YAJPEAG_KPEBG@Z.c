@@ -1,8 +1,8 @@
 /*
- * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00149E4
+ * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00A0B98
  * Callers:
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C0014850 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A09FC (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, char *a3)
 {
   __int64 v4; // r9
   unsigned __int16 *v5; // rax
-  __int64 v6; // r8
   __int64 result; // rax
+  __int64 v7; // r8
   unsigned __int16 *v8; // rcx
   __int64 v9; // rdx
   __int64 v10; // rax
@@ -30,13 +30,16 @@ __int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, char *a3)
     --v4;
   }
   while ( v4 );
-  v6 = (260 - v4) & -(__int64)(v4 != 0);
   result = v4 == 0 ? 0x80070057 : 0;
   if ( v4 )
+    v7 = 260 - v4;
+  else
+    v7 = 0LL;
+  if ( v4 )
   {
-    v8 = &a1[v6];
-    v9 = 260 - v6;
-    if ( 260 != v6 )
+    v8 = &a1[v7];
+    v9 = 260 - v7;
+    if ( 260 != v7 )
     {
       v10 = 2147483646LL;
       v11 = (char *)(a3 - (char *)v8);

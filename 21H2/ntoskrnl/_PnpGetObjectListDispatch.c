@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpGetObjectListDispatch @ 0x14078A0E8
+ * XREFs of _PnpGetObjectListDispatch @ 0x140638768
  * Callers:
- *     _PnpGetObjectList @ 0x140789FA0 (_PnpGetObjectList.c)
+ *     _PnpGetObjectList @ 0x140638828 (_PnpGetObjectList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x14077DE44 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpGetObjectListDispatch(

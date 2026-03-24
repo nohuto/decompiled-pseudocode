@@ -1,46 +1,45 @@
 /*
- * XREFs of ACPIQuerySpareDsm @ 0x1C0089428
+ * XREFs of ACPIQuerySpareDsm @ 0x1C00B06C8
  * Callers:
- *     ACPIInternalSetSpare @ 0x1C00884A8 (ACPIInternalSetSpare.c)
- *     ACPIModuleGetSpareProperties @ 0x1C0089270 (ACPIModuleGetSpareProperties.c)
+ *     ACPIInternalSetSpare @ 0x1C009C950 (ACPIInternalSetSpare.c)
+ *     ACPIModuleGetSpareProperties @ 0x1C00B0510 (ACPIModuleGetSpareProperties.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIFreeDataBuffs @ 0x1C00482E4 (AMLIFreeDataBuffs.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     ACPIEvaluateSpareDsm @ 0x1C0089078 (ACPIEvaluateSpareDsm.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIEvaluateSpareDsm @ 0x1C00B0320 (ACPIEvaluateSpareDsm.c)
  */
 
 __int64 __fastcall ACPIQuerySpareDsm(__int64 a1, void *a2)
 {
-  _QWORD *v2; // rcx
+  __int64 *v2; // rcx
   __int64 *v4; // rax
-  volatile signed __int32 *v5; // rdi
+  __int64 v5; // rdi
   int v6; // ebx
-  __int64 v7; // rdx
-  size_t v8; // r8
-  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
+  size_t v7; // r8
+  __int128 v9; // [rsp+20h] [rbp-38h] BYREF
   size_t Size[2]; // [rsp+30h] [rbp-28h]
   void *Src; // [rsp+40h] [rbp-18h]
 
-  v2 = *(_QWORD **)(a1 + 760);
+  v2 = *(__int64 **)(a1 + 720);
   Src = 0LL;
-  v10 = 0LL;
+  v9 = 0LL;
   *(_OWORD *)Size = 0LL;
   v4 = AMLIGetNamedChild(v2, 1297302623);
-  v5 = (volatile signed __int32 *)v4;
+  v5 = (__int64)v4;
   if ( v4 )
   {
-    v6 = ACPIEvaluateSpareDsm(v4, 0, 0LL, (__int64)&v10);
-    AMLIDereferenceHandleEx(v5, v7);
+    v6 = ACPIEvaluateSpareDsm((unsigned __int64 *)v4, 0, 0LL, (__int64)&v9);
+    AMLIDereferenceHandleEx(v5);
     if ( v6 >= 0 )
     {
-      if ( WORD1(v10) == 3 && Src )
+      if ( WORD1(v9) == 3 && Src )
       {
-        v8 = 4LL;
+        v7 = 4LL;
         if ( LODWORD(Size[1]) < 4 )
-          v8 = LODWORD(Size[1]);
-        memmove(a2, Src, v8);
+          v7 = LODWORD(Size[1]);
+        memmove(a2, Src, v7);
         v6 = 0;
       }
       else
@@ -53,6 +52,6 @@ __int64 __fastcall ACPIQuerySpareDsm(__int64 a1, void *a2)
   {
     v6 = -1073741275;
   }
-  AMLIFreeDataBuffs((__int64)&v10);
+  AMLIFreeDataBuffs((__int64)&v9);
   return (unsigned int)v6;
 }

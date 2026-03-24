@@ -3,8 +3,8 @@
  * Callers:
  *     PopBuildMemoryImageHeader @ 0x14056B820 (PopBuildMemoryImageHeader.c)
  * Callees:
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void __fastcall PopBootLoaderTraceCopyPfnList(_QWORD *MemoryMap, __int64 a2)

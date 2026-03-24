@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWakeFileOnlyReaper @ 0x1402B716C
+ * XREFs of MiWakeFileOnlyReaper @ 0x1402B726C
  * Callers:
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     MiQueueExtentPfnDeletion @ 0x1402B6A8C (MiQueueExtentPfnDeletion.c)
+ *     MiQueueExtentPfnDeletion @ 0x1402B6B8C (MiQueueExtentPfnDeletion.c)
  * Callees:
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 LONG MiWakeFileOnlyReaper()

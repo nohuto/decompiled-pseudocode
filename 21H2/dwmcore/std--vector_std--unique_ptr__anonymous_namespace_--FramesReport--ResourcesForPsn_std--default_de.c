@@ -1,11 +1,11 @@
 /*
- * XREFs of std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::emplace_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____ @ 0x18005F554
+ * XREFs of std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::emplace_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____ @ 0x180034ABC
  * Callers:
- *     _anonymous_namespace_::FramesReport::UpdateResourceCountersForPsn @ 0x18005F320 (_anonymous_namespace_--FramesReport--UpdateResourceCountersForPsn.c)
+ *     _anonymous_namespace_::FramesReport::UpdateResourceCountersForPsn @ 0x180034900 (_anonymous_namespace_--FramesReport--UpdateResourceCountersForPsn.c)
  * Callees:
- *     std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::_Emplace_reallocate_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____ @ 0x18005F60C (std--vector_std--unique_ptr__anonymous_namespace_--FramesReport--ResourcesForPsn_st_ea_18005F60C.c)
- *     std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator__std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn__0_ @ 0x1800F5DB0 (std--unique_ptr__anonymous_namespace_--FramesReport--ResourcesForPsn_std--default_delete__anonym.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::_Emplace_reallocate_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____ @ 0x180034B7C (std--vector_std--unique_ptr__anonymous_namespace_--FramesReport--ResourcesForPsn_st_ea_180034B7C.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator_ @ 0x1800D7EC0 (std--unique_ptr__anonymous_namespace_--FramesReport--ResourcesForPsn_std--default_delete__anonym.c)
  */
 
 _QWORD *__fastcall std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::emplace_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____(
@@ -14,15 +14,14 @@ _QWORD *__fastcall std::vector_std::unique_ptr__anonymous_namespace_::FramesRepo
         _QWORD *a3,
         void **a4)
 {
-  _QWORD *v6; // rdx
-  void *v7; // rax
+  _QWORD *v4; // rsi
+  void *v8; // rax
   _QWORD *v9; // rdi
   __int64 v10; // rax
-  _QWORD *v11; // rcx
-  void *v12; // [rsp+28h] [rbp-10h] BYREF
+  void *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = *(_QWORD **)(a1 + 8);
-  if ( v6 == *(_QWORD **)(a1 + 16) )
+  v4 = *(_QWORD **)(a1 + 8);
+  if ( *(_QWORD **)(a1 + 16) == v4 )
   {
     *a2 = std::vector_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn____std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______::_Emplace_reallocate_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_____(
             a1,
@@ -31,33 +30,37 @@ _QWORD *__fastcall std::vector_std::unique_ptr__anonymous_namespace_::FramesRepo
   }
   else
   {
-    v7 = *a4;
+    v8 = *a4;
     *a4 = 0LL;
-    if ( a3 == v6 )
+    if ( a3 == v4 )
     {
-      *v6 = v7;
+      *v4 = v8;
       *(_QWORD *)(a1 + 8) += 8LL;
     }
     else
     {
-      v9 = v6 - 1;
-      v12 = v7;
-      v10 = *(v6 - 1);
-      *(v6 - 1) = 0LL;
-      *v6 = v10;
+      v9 = v4 - 1;
+      v11 = v8;
+      v10 = *(v4 - 1);
+      *(v4 - 1) = 0LL;
+      *v4 = v10;
       *(_QWORD *)(a1 + 8) += 8LL;
-      while ( v9 != a3 )
+      if ( v4 - 1 != a3 )
       {
-        v11 = v9--;
-        std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator__std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn__0_(
-          v11,
-          v9);
+        do
+        {
+          --v9;
+          std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator_(
+            v9 + 1,
+            v9);
+        }
+        while ( v9 != a3 );
       }
-      std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator__std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn__0_(
+      std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator_(
         a3,
-        &v12);
-      if ( v12 )
-        operator delete(v12, 0x70uLL);
+        &v11);
+      if ( v11 )
+        operator delete(v11, 0x70uLL);
     }
     *a2 = a3;
   }

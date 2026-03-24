@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1402DA1E0
+ * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1402DA2E0
  * Callers:
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x1402D9868 (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1402D9928 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x1402D9968 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1402D9A28 (PopFxSetGlobalDeviceAccountingEnabled.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +14,14 @@ __int64 __fastcall PopFxUpdateGlobalDeviceAccountingInfo(unsigned __int64 a1, un
   __int64 v4; // rdx
   unsigned __int64 *i; // r9
 
-  result = qword_140418E68;
-  if ( qword_140418E68 < a1 )
+  result = qword_140418EA8;
+  if ( qword_140418EA8 < a1 )
   {
-    v3 = a1 - qword_140418E68;
-    qword_140418E70 += a1 - qword_140418E68;
-    if ( a1 - qword_140418E68 < a2 )
+    v3 = a1 - qword_140418EA8;
+    qword_140418EB0 += a1 - qword_140418EA8;
+    if ( a1 - qword_140418EA8 < a2 )
     {
-      qword_140418E78 += v3;
+      qword_140418EB8 += v3;
     }
     else
     {

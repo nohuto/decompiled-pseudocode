@@ -1,24 +1,24 @@
 /*
- * XREFs of ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608
+ * XREFs of ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C
  * Callers:
- *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x180132E62 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x180235CA4 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA?AUInertiaCallbackValues@@PEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237FCC (-CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA-AUInertiaCal.c)
- *     ?TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x180238FC4 (-TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInterac.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x1801CB6A8 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x1801CCF34 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA?AUInertiaCallbackValues@@PEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CEE84 (-CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA-AUInertiaCal.c)
+ *     ?TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x1801D0124 (-TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInterac.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801329B2 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x180232E04 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
- *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x180232F38 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
- *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x180232F58 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
- *     ?GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180265028 (-GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ.c)
- *     ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x18026616C (-GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180266224 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x18026628C (-GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180266698 (-GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
- *     ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18026674C (-GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
- *     ?GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x1802667A4 (-GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
- *     ?GetModifiedRestingValue@CMotion@@QEBAMXZ @ 0x18026ECA4 (-GetModifiedRestingValue@CMotion@@QEBAMXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C7FE0 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x1801C9A00 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
+ *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B60 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B80 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180203954 (-GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ.c)
+ *     ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204AE4 (-GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204BA8 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204C10 (-GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18020508C (-GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ *     ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180205134 (-GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ *     ?GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18020518C (-GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ *     ?GetModifiedRestingValue@CMotion@@QEBAMXZ @ 0x18020E4E8 (-GetModifiedRestingValue@CMotion@@QEBAMXZ.c)
  */
 
 __int64 __fastcall CInteractionTracker::CalculateInertiaCallbackValues(__int64 a1, __int64 a2)
@@ -39,47 +39,53 @@ __int64 __fastcall CInteractionTracker::CalculateInertiaCallbackValues(__int64 a
   __int64 v17; // rcx
   char v18; // si
   __int64 v19; // rcx
-  __int64 v20; // rcx
-  bool v21; // al
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  int v24; // xmm0_4
-  int v25; // xmm1_4
-  int v26; // xmm2_4
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  int v29; // xmm1_4
-  __int64 v30; // rcx
-  int v31; // eax
-  int v32; // xmm1_4
-  int v33; // xmm2_4
-  int v34; // xmm1_4
-  int v35; // xmm3_4
-  int v36; // xmm1_4
-  int v37; // xmm2_4
-  CScrollScaleKeyframeAnimation *v38; // rcx
+  char v20; // al
+  __int64 v21; // rcx
+  char v22; // al
+  bool v23; // al
+  __int64 v24; // rcx
+  __int64 v25; // rcx
+  int v26; // xmm0_4
+  int v27; // xmm1_4
+  int v28; // xmm3_4
+  int v29; // xmm2_4
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rcx
+  int v33; // eax
+  int v34; // xmm0_4
+  __m128 v35; // xmm2
+  unsigned __int64 v36; // xmm1_8
+  __m128 v37; // xmm2
+  int v38; // eax
+  int v39; // xmm0_4
+  __m128 v40; // xmm1
+  int v41; // xmm0_4
+  int v42; // eax
+  int v43; // eax
+  CScrollScaleKeyframeAnimation *v44; // rcx
   float NaturalEndpoint; // xmm7_4
   float LastKeyframeValueForScale; // xmm6_4
   float ScaleVelocity; // xmm0_4
-  int v42; // xmm1_4
-  int v43; // xmm1_4
-  int v44; // xmm1_4
-  int v45; // xmm2_4
-  int v46; // xmm3_4
-  int v47; // xmm1_4
-  int v48; // xmm2_4
-  int v49; // xmm0_4
-  int v50; // xmm1_4
-  int v51; // eax
-  int v53; // [rsp+20h] [rbp-50h] BYREF
-  int v54; // [rsp+24h] [rbp-4Ch]
-  int v55; // [rsp+28h] [rbp-48h]
-  int v56; // [rsp+30h] [rbp-40h] BYREF
-  int v57; // [rsp+34h] [rbp-3Ch]
-  int v58; // [rsp+38h] [rbp-38h]
-  int v59; // [rsp+40h] [rbp-30h] BYREF
-  int v60; // [rsp+44h] [rbp-2Ch]
-  int v61; // [rsp+48h] [rbp-28h]
+  unsigned int v48; // xmm1_4
+  unsigned int v49; // xmm1_4
+  int v50; // xmm0_4
+  __m128 v51; // xmm2
+  unsigned __int64 v52; // xmm1_8
+  int v53; // eax
+  int v54; // xmm0_4
+  int v55; // xmm1_4
+  int v56; // eax
+  unsigned int v58; // [rsp+20h] [rbp-60h] BYREF
+  unsigned int v59; // [rsp+24h] [rbp-5Ch]
+  int v60; // [rsp+28h] [rbp-58h]
+  unsigned int v61; // [rsp+30h] [rbp-50h] BYREF
+  unsigned int v62; // [rsp+34h] [rbp-4Ch]
+  int v63; // [rsp+38h] [rbp-48h]
+  unsigned int v64; // [rsp+40h] [rbp-40h] BYREF
+  unsigned int v65; // [rsp+44h] [rbp-3Ch]
+  int v66; // [rsp+48h] [rbp-38h]
+  int v67; // [rsp+58h] [rbp-28h]
 
   *(_OWORD *)a2 = 0LL;
   *(_OWORD *)(a2 + 16) = 0LL;
@@ -88,144 +94,151 @@ __int64 __fastcall CInteractionTracker::CalculateInertiaCallbackValues(__int64 a
   if ( CInteractionTracker::AreInteractionAnimationsAlive((CInteractionTracker *)a1) )
   {
     HasImpulse = CInteractionTracker::HasImpulse(v4);
-    v6 = *(_QWORD *)(a1 + 336);
+    v6 = *(_QWORD *)(a1 + 328);
     *(_BYTE *)(a2 + 53) = HasImpulse;
     v7 = *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v6 + 328LL))(v6) + 48);
-    v8 = (__m128)*(unsigned int *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 344) + 328LL))(*(_QWORD *)(a1 + 344))
+    v8 = (__m128)*(unsigned int *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 336) + 328LL))(*(_QWORD *)(a1 + 336))
                                  + 48);
     *(_DWORD *)a2 = v7;
     *(_DWORD *)(a2 + 4) = v8.m128_i32[0];
     *(_DWORD *)(a2 + 8) = 0;
-    *(_DWORD *)(a2 + 12) = *(_DWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 328) + 328LL))(*(_QWORD *)(a1 + 328))
+    *(_DWORD *)(a2 + 12) = *(_DWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 320) + 328LL))(*(_QWORD *)(a1 + 320))
                                      + 48);
-    v8.m128_f32[0] = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(a1 + 336));
+    v8.m128_f32[0] = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(a1 + 328));
     v9 = v8;
-    v8.m128_f32[0] = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(a1 + 344));
-    v61 = 0;
-    v10 = *(CScrollAnimation **)(a1 + 328);
+    v8.m128_f32[0] = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(a1 + 336));
+    v66 = 0;
+    v10 = *(CScrollAnimation **)(a1 + 320);
     *(_QWORD *)(a2 + 16) = _mm_unpacklo_ps(v9, v8).m128_u64[0];
     *(_DWORD *)(a2 + 24) = 0;
     v8.m128_f32[0] = CScrollAnimation::GetNaturalEndpoint(v10);
-    v11 = *(_QWORD *)(a1 + 336);
+    v11 = *(_QWORD *)(a1 + 328);
     *(_DWORD *)(a2 + 28) = v8.m128_i32[0];
     v12 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 328LL))(v11);
     v8.m128_f32[0] = CMotion::GetModifiedRestingValue(v12);
     v13 = v8;
-    v14 = (CMotion *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 344) + 328LL))(*(_QWORD *)(a1 + 344));
+    v14 = (CMotion *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 336) + 328LL))(*(_QWORD *)(a1 + 336));
     v8.m128_f32[0] = CMotion::GetModifiedRestingValue(v14);
-    v15 = *(_QWORD *)(a1 + 328);
-    v61 = 0;
+    v15 = *(_QWORD *)(a1 + 320);
+    v66 = 0;
     *(_QWORD *)(a2 + 32) = _mm_unpacklo_ps(v13, v8).m128_u64[0];
     *(_DWORD *)(a2 + 40) = 0;
     v16 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v15 + 328LL))(v15);
     v8.m128_f32[0] = CMotion::GetModifiedRestingValue(v16);
-    v17 = *(_QWORD *)(a1 + 336);
+    v17 = *(_QWORD *)(a1 + 328);
     *(_DWORD *)(a2 + 48) = v8.m128_i32[0];
     v18 = 1;
-    v19 = *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v17 + 328LL))(v17) + 96);
-    v21 = 0;
-    if ( !v19 || (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v19 + 48LL))(v19) )
+    v19 = *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v17 + 328LL))(v17) + 136);
+    if ( v19 )
+      v20 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 48LL))(v19);
+    else
+      v20 = 1;
+    v23 = 0;
+    if ( v20 )
     {
-      v20 = *(_QWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 344) + 328LL))(*(_QWORD *)(a1 + 344)) + 96);
-      if ( !v20 || (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v20 + 48LL))(v20) )
-        v21 = 1;
+      v21 = *(_QWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 336) + 328LL))(*(_QWORD *)(a1 + 336))
+                      + 136);
+      v22 = v21 ? (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v21 + 48LL))(v21) : 1;
+      if ( v22 )
+        v23 = 1;
     }
-    v22 = *(_QWORD *)(a1 + 328);
-    *(_BYTE *)(a2 + 44) = v21;
-    v23 = *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v22 + 328LL))(v22) + 96);
-    if ( v23 )
-      v18 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v23 + 48LL))(v23);
+    v24 = *(_QWORD *)(a1 + 320);
+    *(_BYTE *)(a2 + 44) = v23;
+    v25 = *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v24 + 328LL))(v24) + 136);
+    if ( v25 )
+      v18 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v25 + 48LL))(v25);
     *(_BYTE *)(a2 + 52) = v18;
   }
   else
   {
-    v24 = *((_DWORD *)v4 + 20);
-    v25 = *((_DWORD *)v4 + 21);
-    v26 = *((_DWORD *)v4 + 22);
+    v26 = *((_DWORD *)v4 + 18);
+    v27 = *((_DWORD *)v4 + 19);
+    v28 = *((_DWORD *)v4 + 20);
+    v29 = *((_DWORD *)v4 + 32);
     if ( CInteractionTracker::HasDefaultAnimations(v4) )
     {
-      *(_WORD *)(v27 + 52) = 257;
-      *(_BYTE *)(v27 + 44) = 1;
-      *(_DWORD *)(v27 + 16) = v24;
-      *(_DWORD *)(v27 + 20) = v25;
-      *(_DWORD *)(v27 + 24) = v26;
-      v29 = *(_DWORD *)(v28 + 136);
-      v30 = *(_QWORD *)(v28 + 464);
-      v31 = *(_DWORD *)(v27 + 24);
-      *(_QWORD *)(v27 + 32) = *(_QWORD *)(v27 + 16);
-      *(_DWORD *)(v27 + 28) = v29;
-      *(_DWORD *)(v27 + 48) = v29;
-      *(_DWORD *)(v27 + 40) = v31;
-      if ( v30 )
+      *(_WORD *)(v30 + 52) = 257;
+      *(_BYTE *)(v30 + 44) = 1;
+      *(_DWORD *)(v30 + 16) = v26;
+      *(_DWORD *)(v30 + 20) = v27;
+      *(_DWORD *)(v30 + 24) = v28;
+      v32 = *(_QWORD *)(v31 + 456);
+      v33 = *(_DWORD *)(v30 + 24);
+      *(_QWORD *)(v30 + 32) = *(_QWORD *)(v30 + 16);
+      *(_DWORD *)(v30 + 40) = v33;
+      *(_DWORD *)(v30 + 28) = v29;
+      *(_DWORD *)(v30 + 48) = v29;
+      if ( v32 )
       {
-        CScrollPositionKeyframeAnimation::GetNaturalEndpoint(v30, &v59);
-        CScrollPositionKeyframeAnimation::GetLastKeyframeValueForPosition(*(_QWORD *)(a1 + 464), &v56);
-        CScrollPositionKeyframeAnimation::GetPositionVelocity(*(_QWORD *)(a1 + 464), &v53);
-        v32 = v54;
-        v33 = v55;
-        *(_DWORD *)a2 = v53;
-        *(_DWORD *)(a2 + 4) = v32;
-        *(_DWORD *)(a2 + 8) = v33;
-        v34 = v58;
-        v35 = v57;
-        *(_DWORD *)(a2 + 32) = v56;
-        *(_DWORD *)(a2 + 36) = v35;
-        *(_DWORD *)(a2 + 40) = v34;
-        v36 = v60;
-        v37 = v61;
-        *(_DWORD *)(a2 + 16) = v59;
-        *(_DWORD *)(a2 + 20) = v36;
-        *(_DWORD *)(a2 + 24) = v37;
+        CScrollPositionKeyframeAnimation::GetNaturalEndpoint(v32, &v64);
+        CScrollPositionKeyframeAnimation::GetLastKeyframeValueForPosition(*(_QWORD *)(a1 + 456), &v61);
+        CScrollPositionKeyframeAnimation::GetPositionVelocity(*(_QWORD *)(a1 + 456), &v58);
+        v34 = v60;
+        v35 = (__m128)v62;
+        *(_QWORD *)a2 = _mm_unpacklo_ps((__m128)v58, (__m128)v59).m128_u64[0];
+        v36 = _mm_unpacklo_ps((__m128)v61, v35).m128_u64[0];
+        v37 = (__m128)v65;
+        v38 = v34;
+        v39 = v63;
+        *(_QWORD *)(a2 + 32) = v36;
+        v40 = (__m128)v64;
+        v67 = v39;
+        v41 = v66;
+        *(_DWORD *)(a2 + 8) = v38;
+        v42 = v67;
+        v67 = v41;
+        *(_DWORD *)(a2 + 40) = v42;
+        v43 = v67;
+        *(_QWORD *)(a2 + 16) = _mm_unpacklo_ps(v40, v37).m128_u64[0];
+        *(_DWORD *)(a2 + 24) = v43;
       }
-      v38 = *(CScrollScaleKeyframeAnimation **)(a1 + 472);
-      if ( v38 )
+      v44 = *(CScrollScaleKeyframeAnimation **)(a1 + 464);
+      if ( v44 )
       {
-        NaturalEndpoint = CScrollScaleKeyframeAnimation::GetNaturalEndpoint(v38);
-        LastKeyframeValueForScale = CScrollScaleKeyframeAnimation::GetLastKeyframeValueForScale(*(CScrollScaleKeyframeAnimation **)(a1 + 472));
-        ScaleVelocity = CScrollScaleKeyframeAnimation::GetScaleVelocity(*(CScrollScaleKeyframeAnimation **)(a1 + 472));
-        v42 = *(_DWORD *)(a2 + 36);
+        NaturalEndpoint = CScrollScaleKeyframeAnimation::GetNaturalEndpoint(v44);
+        LastKeyframeValueForScale = CScrollScaleKeyframeAnimation::GetLastKeyframeValueForScale(*(CScrollScaleKeyframeAnimation **)(a1 + 464));
+        ScaleVelocity = CScrollScaleKeyframeAnimation::GetScaleVelocity(*(CScrollScaleKeyframeAnimation **)(a1 + 464));
+        v48 = *(_DWORD *)(a2 + 36);
         *(float *)(a2 + 12) = ScaleVelocity;
-        v59 = *(_DWORD *)(a2 + 32);
-        v61 = *(_DWORD *)(a2 + 40);
+        v64 = *(_DWORD *)(a2 + 32);
+        v66 = *(_DWORD *)(a2 + 40);
         *(float *)(a2 + 48) = LastKeyframeValueForScale;
         *(float *)(a2 + 28) = NaturalEndpoint;
-        v60 = v42;
-        CInteractionTracker::GetScaleAdjustedPositionIfNeeded(a1, &v56, &v59);
-        v43 = *(_DWORD *)(a2 + 20);
-        v59 = *(_DWORD *)(a2 + 16);
-        v61 = *(_DWORD *)(a2 + 24);
-        v60 = v43;
-        CInteractionTracker::GetScaleAdjustedPositionIfNeeded(a1, &v53, &v59);
-        v44 = v57;
-        v45 = v58;
-        *(_DWORD *)(a2 + 32) = v56;
-        *(_DWORD *)(a2 + 36) = v44;
-        *(_DWORD *)(a2 + 40) = v45;
-        v46 = v54;
-        v47 = v55;
-        *(_DWORD *)(a2 + 16) = v53;
-        *(_DWORD *)(a2 + 20) = v46;
-        *(_DWORD *)(a2 + 24) = v47;
+        v65 = v48;
+        CInteractionTracker::GetScaleAdjustedPositionIfNeeded(a1, &v61, &v64);
+        v49 = *(_DWORD *)(a2 + 20);
+        v64 = *(_DWORD *)(a2 + 16);
+        v66 = *(_DWORD *)(a2 + 24);
+        v65 = v49;
+        CInteractionTracker::GetScaleAdjustedPositionIfNeeded(a1, &v58, &v64);
+        v50 = v63;
+        v51 = (__m128)v59;
+        *(_QWORD *)(a2 + 32) = _mm_unpacklo_ps((__m128)v61, (__m128)v62).m128_u64[0];
+        v52 = _mm_unpacklo_ps((__m128)v58, v51).m128_u64[0];
+        v67 = v60;
+        *(_DWORD *)(a2 + 40) = v50;
+        v53 = v67;
+        *(_QWORD *)(a2 + 16) = v52;
+        *(_DWORD *)(a2 + 24) = v53;
       }
     }
     else
     {
-      *(_DWORD *)(v27 + 32) = v24;
-      *(_DWORD *)(v27 + 36) = v25;
-      *(_DWORD *)(v27 + 40) = v26;
-      v48 = *(_DWORD *)(v28 + 136);
-      v49 = *(_DWORD *)(v28 + 84);
-      v50 = *(_DWORD *)(v28 + 88);
-      v51 = *(_DWORD *)(v28 + 80);
-      *(_DWORD *)(v27 + 48) = v48;
-      *(_DWORD *)(v27 + 16) = v51;
-      *(_DWORD *)(v27 + 20) = v49;
-      *(_DWORD *)(v27 + 24) = v50;
-      *(_DWORD *)(v27 + 28) = v48;
-      *(_DWORD *)v27 = 0;
-      *(_DWORD *)(v27 + 4) = 0;
-      *(_DWORD *)(v27 + 8) = 0;
-      *(_DWORD *)(v27 + 12) = 0;
+      *(_DWORD *)(v30 + 32) = v26;
+      *(_DWORD *)(v30 + 36) = v27;
+      *(_DWORD *)(v30 + 40) = v28;
+      v54 = *(_DWORD *)(v31 + 76);
+      v55 = *(_DWORD *)(v31 + 80);
+      v56 = *(_DWORD *)(v31 + 72);
+      *(_DWORD *)(v30 + 48) = v29;
+      *(_DWORD *)(v30 + 16) = v56;
+      *(_DWORD *)(v30 + 20) = v54;
+      *(_DWORD *)(v30 + 24) = v55;
+      *(_DWORD *)(v30 + 28) = v29;
+      *(_DWORD *)v30 = 0;
+      *(_DWORD *)(v30 + 4) = 0;
+      *(_DWORD *)(v30 + 8) = 0;
+      *(_DWORD *)(v30 + 12) = 0;
     }
   }
   return a2;

@@ -1,34 +1,39 @@
 /*
- * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@PEAU_VIDSCH_QUEUE_PACKET@@$01$0DIGBGJFG@@@QEAAPEAPEAU_VIDSCH_QUEUE_PACKET@@I@Z @ 0x1C0001008
+ * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@PEAU_VIDSCH_QUEUE_PACKET@@$01$0DIGBGJFG@@@QEAAPEAPEAU_VIDSCH_QUEUE_PACKET@@I@Z @ 0x1C0032ABC
  * Callers:
- *     VidSchSubmitSignalToHwQueue @ 0x1C0044820 (VidSchSubmitSignalToHwQueue.c)
- *     VidSchEnqueueCpuEvent @ 0x1C0085AA0 (VidSchEnqueueCpuEvent.c)
+ *     VidSchSubmitSignalToHwQueue @ 0x1C003A310 (VidSchSubmitSignalToHwQueue.c)
+ *     VidSchEnqueueCpuEvent @ 0x1C00CFA50 (VidSchEnqueueCpuEvent.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
-__int64 __fastcall NonPagedPoolZeroedArray<_VIDSCH_QUEUE_PACKET *,2,945908054>::AllocateElements(
-        __int64 *a1,
+PVOID __fastcall NonPagedPoolZeroedArray<_VIDSCH_QUEUE_PACKET *,2,945908054>::AllocateElements(
+        _DWORD *a1,
         unsigned int a2)
 {
-  void *v4; // rcx
-  __int64 result; // rax
+  __int64 v4; // rbx
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 2 )
   {
-    v4 = a1 + 1;
-    *a1 = (__int64)v4;
-    if ( a2 )
-      memset(v4, 0, 8LL * a2);
-    goto LABEL_4;
+    result = a1 + 2;
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 8 )
+  else
   {
-    *a1 = ExAllocatePool2(64LL, 8LL * a2, 945908054LL);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 6) = a2;
-    return result;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
+      return 0LL;
+    result = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * a2, 0x38616956u);
   }
-  return 0LL;
+  *(_QWORD *)a1 = result;
+  a1[6] = a2;
+  if ( result )
+  {
+    if ( a2 )
+    {
+      memset(result, 0, 8 * v4);
+      return *(PVOID *)a1;
+    }
+  }
+  return result;
 }

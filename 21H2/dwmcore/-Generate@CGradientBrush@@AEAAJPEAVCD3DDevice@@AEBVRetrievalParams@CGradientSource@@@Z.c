@@ -1,15 +1,14 @@
 /*
- * XREFs of ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x18003FB3C
+ * XREFs of ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x1801E6C94
  * Callers:
- *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18003F5F8 (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
- *     ?GetD2DBrush@CLinearGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x1800AD180 (-GetD2DBrush@CLinearGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@.c)
- *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x18023A320 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
+ *     ?GetCurrentD2DLinearGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1LinearGradientBrush@@@Z @ 0x1801E6E1C (-GetCurrentD2DLinearGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1LinearGr.c)
+ *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x1801E6EE8 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
+ *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801E6FB4 (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@_N33W4D2D1_EXTEND_MODE@@@Z @ 0x18003FC68 (-Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V-$span@$$CBUD2D1_GRADIENT.c)
- *     ?ToD2D1ExtendMode@ExtendMode@@YA?AW4D2D1_EXTEND_MODE@@W4Enum@1@@Z @ 0x18003FF38 (-ToD2D1ExtendMode@ExtendMode@@YA-AW4D2D1_EXTEND_MODE@@W4Enum@1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ToD2D1ExtendMode@ExtendMode@@YA?AW4D2D1_EXTEND_MODE@@W4Enum@1@@Z @ 0x18019DF58 (-ToD2D1ExtendMode@ExtendMode@@YA-AW4D2D1_EXTEND_MODE@@W4Enum@1@@Z.c)
+ *     ?Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@_N33W4D2D1_EXTEND_MODE@@@Z @ 0x180209F04 (-Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V-$span@$$CBUD2D1_GRADIENT.c)
  */
 
 __int64 __fastcall CGradientBrush::Generate(
@@ -17,57 +16,45 @@ __int64 __fastcall CGradientBrush::Generate(
         struct CD3DDevice *a2,
         const struct CGradientSource::RetrievalParams *a3)
 {
-  __int64 v3; // rdi
-  __int64 v6; // rdx
-  gsl::details *v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  bool v10; // zf
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  int v13; // eax
-  char v14; // r8
-  char v15; // r9
-  int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v18; // edi
-  _QWORD v20[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  int v8; // eax
+  char v9; // r8
+  char v10; // r9
+  struct CD3DDevice *v11; // r11
+  int v12; // eax
+  __int64 v13; // rcx
+  unsigned int v14; // edi
 
-  v3 = *((_QWORD *)this + 24);
-  gsl::details::extent_type<-1>::extent_type<-1>(
-    (gsl::details *)v20,
-    0xCCCCCCCCCCCCCCCDuLL * ((*((_QWORD *)this + 25) - v3) >> 2));
-  v20[1] = v3;
-  if ( v20[0] == -1LL || !v3 && v20[0] )
+  v4 = *((_QWORD *)this + 18);
+  v5 = (*((_QWORD *)this + 19) - v4) / 20;
+  if ( v5 < 0 || !v4 && v5 )
   {
-    gsl::details::terminate(v7);
-    JUMPOUT(0x18003FC61LL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
-  v10 = *((_DWORD *)this + 40) == 4;
-  LOBYTE(v8) = 1;
-  *((_BYTE *)this + 225) = 1;
-  v11 = *((_QWORD *)this + 24);
-  LOBYTE(v9) = v10;
-  v12 = *((_QWORD *)this + 25);
-  if ( v11 != v12 )
+  v6 = v4;
+  *((_BYTE *)this + 177) = 1;
+  v7 = *((_QWORD *)this + 19);
+  if ( v6 != v7 )
   {
-    while ( *(float *)(v11 + 16) >= 1.0 )
+    while ( *(float *)(v6 + 16) >= 1.0 )
     {
-      v11 += 20LL;
-      if ( v11 == v12 )
-        goto LABEL_6;
+      v6 += 20LL;
+      if ( v6 == v7 )
+        goto LABEL_9;
     }
-    *((_BYTE *)this + 225) = 0;
-    LOBYTE(v8) = 0;
+    *((_BYTE *)this + 177) = 0;
   }
-LABEL_6:
-  LOBYTE(v12) = *((_BYTE *)this + 152);
-  v13 = ExtendMode::ToD2D1ExtendMode(v12, v6, v8, v9);
-  v16 = CGradientSource::Generate((CGradientBrush *)((char *)this + 88), a2, v15, v14, *((_BYTE *)this + 226), v13);
-  v18 = v16;
-  if ( v16 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x182u, 0LL);
+LABEL_9:
+  v8 = ExtendMode::ToD2D1ExtendMode(*((_BYTE *)this + 104));
+  v12 = CGradientSource::Generate((CGradientBrush *)((char *)this + 80), v11, v10, v9, *((_BYTE *)this + 178), v8);
+  v14 = v12;
+  if ( v12 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x187u, 0LL);
   else
-    *((_BYTE *)this + 224) = 1;
-  return v18;
+    *((_BYTE *)this + 176) = 1;
+  return v14;
 }

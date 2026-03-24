@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIBusIrpStartDeviceCompletion @ 0x1C0017220
+ * XREFs of ACPIBusIrpStartDeviceCompletion @ 0x1C0030800
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPICheckModuleStarted @ 0x1C00324F8 (ACPICheckModuleStarted.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPICheckModuleStarted @ 0x1C0058954 (ACPICheckModuleStarted.c)
  */
 
 void __fastcall ACPIBusIrpStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
 {
   struct _WORK_QUEUE_ITEM *v4; // rdi
   unsigned int MinorFunction; // r14d
-  KIRQL v8; // al
+  __int64 v8; // rcx
+  KIRQL v9; // al
   _QWORD *i; // r8
-  __int64 v10; // rcx
   __int64 v11; // rax
   const char *v12; // rcx
   const char *v13; // rdx
@@ -24,51 +24,42 @@ void __fastcall ACPIBusIrpStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
   a2->IoStatus.Status = a3;
   if ( a3 >= 0 )
   {
-    *(_QWORD *)(a1 + 1008) |= 0x80000uLL;
-    *(_DWORD *)(a1 + 368) = 2;
+    *(_QWORD *)(a1 + 960) |= 0x80000uLL;
+    *(_DWORD *)(a1 + 328) = 2;
   }
-  if ( _bittest64((const signed __int64 *)(a1 + 8), 0x25u) )
+  if ( (*(_QWORD *)(a1 + 8) & 0x2000000000LL) != 0 )
   {
-    v8 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+    v9 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
     if ( !*(_BYTE *)(a1 + 185) )
     {
-      for ( i = *(_QWORD **)(a1 + 800); i != (_QWORD *)(a1 + 800); i = (_QWORD *)*i )
+      for ( i = *(_QWORD **)(a1 + 760); i != (_QWORD *)(a1 + 760); i = (_QWORD *)*i )
       {
-        if ( _bittest64(i - 101, 0x25u) )
-          *((_BYTE *)i - 631) = 0;
+        if ( (*(i - 96) & 0x2000000000LL) != 0 )
+          *((_BYTE *)i - 591) = 0;
       }
     }
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v8);
-    v10 = a1;
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v9);
+    v8 = a1;
   }
   else
   {
-    v10 = *(_QWORD *)(a1 + 792);
-    if ( !_bittest64((const signed __int64 *)(v10 + 8), 0x25u) )
-      goto LABEL_13;
+    v8 = *(_QWORD *)(a1 + 752);
+    if ( (*(_QWORD *)(v8 + 8) & 0x2000000000LL) == 0 )
+      goto LABEL_5;
   }
-  ACPICheckModuleStarted(v10, (unsigned int)a3);
-LABEL_13:
-  if ( a3 >= 0 )
-  {
-    v4->List.Flink = 0LL;
-    v4->WorkerRoutine = (void (__fastcall *)(void *))ACPIBusIrpStartDeviceWorker;
-    v4->Parameter = v4;
-    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 768);
-    v4[1].List.Blink = (_LIST_ENTRY *)a2;
-    ExQueueWorkItem(v4, DelayedWorkQueue);
-  }
-  else
+  ACPICheckModuleStarted(v8, (unsigned int)a3);
+LABEL_5:
+  if ( a3 < 0 )
   {
     IofCompleteRequest(a2, 0);
     v11 = *(_QWORD *)(a1 + 8);
-    v12 = (const char *)&unk_1C00622D0;
-    v13 = (const char *)&unk_1C00622D0;
+    v12 = (const char *)&unk_1C00701BA;
+    v13 = (const char *)&unk_1C00701BA;
     if ( (v11 & 0x200000000000LL) != 0 )
     {
-      v12 = *(const char **)(a1 + 608);
+      v12 = *(const char **)(a1 + 568);
       if ( (v11 & 0x400000000000LL) != 0 )
-        v13 = *(const char **)(a1 + 616);
+        v13 = *(const char **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -80,13 +71,22 @@ LABEL_13:
         4u,
         5u,
         0x3Du,
-        (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+        (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
         (char)a2,
-        (__int64)(&ACPIDispatchPnpTableNames)[v14],
+        ACPIDispatchPnpTableNames[v14],
         a3,
         a1,
         v12,
         v13);
     }
+  }
+  else
+  {
+    v4->List.Flink = 0LL;
+    v4->WorkerRoutine = (void (__fastcall *)(void *))ACPIBusIrpStartDeviceWorker;
+    v4->Parameter = v4;
+    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 728);
+    v4[1].List.Blink = (_LIST_ENTRY *)a2;
+    ExQueueWorkItem(v4, DelayedWorkQueue);
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeDisconnectInterrupt @ 0x1403AEB58
+ * XREFs of KeDisconnectInterrupt @ 0x140376D34
  * Callers:
- *     KeConnectInterrupt @ 0x1403AF5E4 (KeConnectInterrupt.c)
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x1403777CC (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
  * Callees:
- *     KiIntSteerDisable @ 0x1403AEC40 (KiIntSteerDisable.c)
- *     KeMaskInterrupt @ 0x1403AED64 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x1403AF3B4 (KiDisconnectInterruptCommon.c)
- *     KiIsInterruptTypeSecondary @ 0x1403AFE68 (KiIsInterruptTypeSecondary.c)
- *     KiDisconnectSecondaryInterrupt @ 0x14056EE94 (KiDisconnectSecondaryInterrupt.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiIntSteerDisable @ 0x140376E1C (KiIntSteerDisable.c)
+ *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x1403770AC (KiDisconnectInterruptCommon.c)
+ *     KiIsInterruptTypeSecondary @ 0x140378194 (KiIsInterruptTypeSecondary.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14051920C (KiDisconnectSecondaryInterrupt.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)

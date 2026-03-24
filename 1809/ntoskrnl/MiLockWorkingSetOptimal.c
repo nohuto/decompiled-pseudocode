@@ -3,9 +3,9 @@
  * Callers:
  *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
  *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     MiMarkPteDirty @ 0x1400ADFE0 (MiMarkPteDirty.c)
- *     MiMakeSystemCachePteValid @ 0x1400D7A60 (MiMakeSystemCachePteValid.c)
- *     MiDirtySystemCachePte @ 0x140128EE4 (MiDirtySystemCachePte.c)
+ *     MiMarkPteDirty @ 0x1400AE000 (MiMarkPteDirty.c)
+ *     MiMakeSystemCachePteValid @ 0x1400D7A80 (MiMakeSystemCachePteValid.c)
+ *     MiDirtySystemCachePte @ 0x140128F04 (MiDirtySystemCachePte.c)
  * Callees:
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)

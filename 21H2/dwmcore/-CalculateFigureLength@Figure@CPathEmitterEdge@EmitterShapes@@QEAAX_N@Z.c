@@ -1,54 +1,59 @@
 /*
- * XREFs of ?CalculateFigureLength@Figure@CPathEmitterEdge@EmitterShapes@@QEAAX_N@Z @ 0x1802591D8
+ * XREFs of ?CalculateFigureLength@Figure@CPathEmitterEdge@EmitterShapes@@QEAAX_N@Z @ 0x180208C3C
  * Callers:
- *     ?EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x1802595B0 (-EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z.c)
+ *     ?EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x180209040 (-EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ??$_Emplace_reallocate@M@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAM$$QEAM@Z @ 0x18022BD54 (--$_Emplace_reallocate@M@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAM$$QEAM@Z.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ??$_Emplace_reallocate@AEBM@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z @ 0x1801DC9D0 (--$_Emplace_reallocate@AEBM@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z.c)
  */
 
 void __fastcall EmitterShapes::CPathEmitterEdge::Figure::CalculateFigureLength(
         EmitterShapes::CPathEmitterEdge::Figure *this,
         char a2)
 {
-  __int64 v3; // rax
-  float v4; // xmm0_4
-  float *v5; // rdx
-  float *v6; // rcx
-  float *v7; // rax
-  float v8; // xmm0_4
-  float v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // rbx
+  __int64 v4; // rax
+  float v5; // xmm0_4
+  float *v6; // rdx
+  float *v7; // rcx
+  unsigned __int64 v8; // rax
+  float v9; // xmm0_4
+  float v10; // [rsp+38h] [rbp+10h] BYREF
 
+  v2 = 0LL;
   if ( a2 )
   {
-    v3 = *((_QWORD *)this + 1);
-    v4 = o_sqrtf_0(
-           (float)((float)(*(float *)(v3 - 4) - *(float *)(*(_QWORD *)this + 4LL))
-                 * (float)(*(float *)(v3 - 4) - *(float *)(*(_QWORD *)this + 4LL)))
-         + (float)((float)(*(float *)(v3 - 8) - **(float **)this) * (float)(*(float *)(v3 - 8) - **(float **)this)));
-    v5 = (float *)*((_QWORD *)this + 4);
-    v9 = v4;
-    if ( v5 == *((float **)this + 5) )
+    v4 = *((_QWORD *)this + 1);
+    v5 = sqrtf_0(
+           (float)((float)(*(float *)(v4 - 4) - *(float *)(*(_QWORD *)this + 4LL))
+                 * (float)(*(float *)(v4 - 4) - *(float *)(*(_QWORD *)this + 4LL)))
+         + (float)((float)(*(float *)(v4 - 8) - **(float **)this) * (float)(*(float *)(v4 - 8) - **(float **)this)));
+    v6 = (float *)*((_QWORD *)this + 4);
+    v10 = v5;
+    if ( *((float **)this + 5) == v6 )
     {
-      std::vector<float>::_Emplace_reallocate<float>((_QWORD *)this + 3, v5, &v9);
+      std::vector<float>::_Emplace_reallocate<float const &>((const void **)this + 3, v6, &v10);
     }
     else
     {
-      *v5 = v4;
-      *((_QWORD *)this + 4) = v5 + 1;
+      *((_QWORD *)this + 4) += 4LL;
+      *v6 = v5;
     }
   }
   *((_DWORD *)this + 12) = 0;
-  v6 = (float *)*((_QWORD *)this + 4);
   v7 = (float *)*((_QWORD *)this + 3);
-  if ( v7 != v6 )
+  v8 = (unsigned __int64)(*((_QWORD *)this + 4) - (_QWORD)v7 + 3LL) >> 2;
+  if ( (unsigned __int64)v7 > *((_QWORD *)this + 4) )
+    v8 = 0LL;
+  if ( v8 )
   {
-    v8 = 0.0;
+    v9 = 0.0;
     do
     {
-      v8 = v8 + *v7++;
-      *((float *)this + 12) = v8;
+      v9 = v9 + *v7++;
+      ++v2;
+      *((float *)this + 12) = v9;
     }
-    while ( v7 != v6 );
+    while ( v2 != v8 );
   }
 }

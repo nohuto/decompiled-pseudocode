@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaControllerInitializeController @ 0x140519438
+ * XREFs of HalpDmaControllerInitializeController @ 0x1404CE7A8
  * Callers:
- *     HalpDmaInitializeControllers @ 0x1403CE2B4 (HalpDmaInitializeControllers.c)
+ *     HalpDmaInitializeControllers @ 0x1403BC1A4 (HalpDmaInitializeControllers.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140214190 (MmAllocateContiguousNodeMemory.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerInitializeController(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall HalpDmaControllerInitializeController(__int64 a1)
   if ( v3 < 0x40 )
     v4 = (1LL << v3) - 1;
   else
-    LODWORD(v4) = -1;
+    v4 = -1LL;
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 44); i = (unsigned int)(i + 1) )
   {
     v6 = *(_QWORD *)(a1 + 56);
@@ -33,7 +33,7 @@ __int64 __fastcall HalpDmaControllerInitializeController(__int64 a1)
     result = *(unsigned int *)(v6 + 160 * i + 120);
     if ( (_DWORD)result )
     {
-      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory((unsigned int)result, 0, v4, 0, 516, 0x80000000);
+      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(result, 0LL, v4, 0, 0x204u, 0x80000000);
       *(_QWORD *)(v6 + v7 + 128) = ContiguousNodeMemory;
       PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
       v10 = *(_QWORD *)(v6 + v7 + 128);

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DdcciGetCapabilitiesStringFromMonitor@CPhysicalMonitorHandle@@AEAAJXZ @ 0x1C026EB18
+ * XREFs of ?DdcciGetCapabilitiesStringFromMonitor@CPhysicalMonitorHandle@@AEAAJXZ @ 0x1C0270EFC
  * Callers:
- *     ?DdcciGetCapabilitiesStringInternal@CPhysicalMonitorHandle@@AEAAJXZ @ 0x1C026EFCC (-DdcciGetCapabilitiesStringInternal@CPhysicalMonitorHandle@@AEAAJXZ.c)
+ *     ?DdcciGetCapabilitiesStringInternal@CPhysicalMonitorHandle@@AEAAJXZ @ 0x1C02713B0 (-DdcciGetCapabilitiesStringInternal@CPhysicalMonitorHandle@@AEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C026F4AC (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
- *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C026F560 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
- *     ?IsDDCCICapabilitiesStringInitialized@CPhysicalMonitorHandle@@AEBAEXZ @ 0x1C026FBC4 (-IsDDCCICapabilitiesStringInitialized@CPhysicalMonitorHandle@@AEBAEXZ.c)
- *     ?RtlStringCbCopyA@@YAJPEAD_KPEBD@Z @ 0x1C026FBDC (-RtlStringCbCopyA@@YAJPEAD_KPEBD@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C0271890 (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C0271944 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?IsDDCCICapabilitiesStringInitialized@CPhysicalMonitorHandle@@AEBAEXZ @ 0x1C0271FA4 (-IsDDCCICapabilitiesStringInitialized@CPhysicalMonitorHandle@@AEBAEXZ.c)
+ *     ?RtlStringCbCopyA@@YAJPEAD_KPEBD@Z @ 0x1C0271FBC (-RtlStringCbCopyA@@YAJPEAD_KPEBD@Z.c)
  */
 
 __int64 __fastcall CPhysicalMonitorHandle::DdcciGetCapabilitiesStringFromMonitor(CPhysicalMonitorHandle *this)
@@ -20,7 +20,7 @@ __int64 __fastcall CPhysicalMonitorHandle::DdcciGetCapabilitiesStringFromMonitor
   int v6; // ebx
   unsigned __int8 v7; // si
   unsigned int v8; // r13d
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v10; // rbx
   unsigned int v11; // edi
   char *v12; // rax
@@ -77,16 +77,16 @@ LABEL_21:
       {
         LODWORD(v3) = 2048;
       }
-      Pool2 = (char *)ExAllocatePool2(258LL, (unsigned int)v3, 1664248135LL);
-      v10 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v3, 0x63326947u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
       {
         v6 = -1073741801;
         break;
       }
       if ( v2 )
       {
-        memmove(Pool2, v2, v4);
+        memmove(PoolWithTag, v2, v4);
         ExFreePoolWithTag(v2, 0x63326947u);
       }
       v2 = v10;
@@ -108,7 +108,7 @@ LABEL_18:
           OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v15, (CPhysicalMonitorHandle *)((char *)this + 72));
           if ( !CPhysicalMonitorHandle::IsDDCCICapabilitiesStringInitialized(this) )
           {
-            v12 = (char *)ExAllocatePool2(258LL, v11, 1664248135LL);
+            v12 = (char *)ExAllocatePoolWithTag(PagedPool, v11, 0x63326947u);
             *((_QWORD *)this + 10) = v12;
             if ( v12 )
             {

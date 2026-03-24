@@ -1,7 +1,7 @@
 /*
- * XREFs of KiPublishProcessorFeatures @ 0x140AFABB0
+ * XREFs of KiPublishProcessorFeatures @ 0x140A40A08
  * Callers:
- *     KiSetProcessorSignature @ 0x140A56118 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x14099EA34 (KiSetProcessorSignature.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ __int64 __fastcall KiPublishProcessorFeatures(__int64 a1)
   result = KeLoaderBlock_0;
   if ( (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 132LL) & 0x8000) == 0 )
   {
-    result = (*(_QWORD *)(a1 + 35232) >> 33) & 1LL;
-    KeSmapEnabled = (*(_QWORD *)(a1 + 35232) >> 33) & 1;
+    result = (*(_QWORD *)(a1 + 34208) >> 33) & 1LL;
+    KeSmapEnabled = (*(_QWORD *)(a1 + 34208) >> 33) & 1;
   }
   return result;
 }

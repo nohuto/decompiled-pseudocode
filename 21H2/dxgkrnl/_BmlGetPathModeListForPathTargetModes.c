@@ -1,318 +1,249 @@
 /*
- * XREFs of _BmlGetPathModeListForPathTargetModes @ 0x1C03AC0EC
+ * XREFs of _BmlGetPathModeListForPathTargetModes @ 0x1C02ECB80
  * Callers:
- *     _BmlGetPathModeListForPath @ 0x1C03ABDDC (_BmlGetPathModeListForPath.c)
+ *     _BmlGetPathModeListForPath @ 0x1C02EC830 (_BmlGetPathModeListForPath.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000FD8C (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z @ 0x1C0010CA8 (-IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0011924 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ @ 0x1C0011B4C (-GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ.c)
- *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C0013010 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
- *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C01A6D08 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
- *     ?SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ @ 0x1C01A965C (-SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ.c)
- *     BmlDoesTargetModeObeyConstraint @ 0x1C01B5890 (BmlDoesTargetModeObeyConstraint.c)
- *     ?SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NAEBU_D3DDDI_RATIONAL@@I@Z @ 0x1C01B5CB4 (-SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NAEBU_D3DDDI_RATIONAL@@I@Z.c)
- *     BmlPinPathContentScaling @ 0x1C01BDD7C (BmlPinPathContentScaling.c)
- *     BmlPinPathContentRotation @ 0x1C01BDE20 (BmlPinPathContentRotation.c)
- *     ?AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z @ 0x1C03A8E64 (-AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z.c)
- *     BmlUnPinPartialPathModalityOnPath @ 0x1C03AB628 (BmlUnPinPartialPathModalityOnPath.c)
- *     _BmlBuildVirtualRefreshRateListFromTargetModeSet @ 0x1C03ABA68 (_BmlBuildVirtualRefreshRateListFromTargetModeSet.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C00083B8 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C00084B8 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ @ 0x1C000A5C8 (-GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C000A680 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C0125010 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C013B368 (BmlDoesTargetModeObeyConstraint.c)
+ *     BmlPinPathContentScaling @ 0x1C013E9C4 (BmlPinPathContentScaling.c)
+ *     BmlPinPathContentRotation @ 0x1C013EA74 (BmlPinPathContentRotation.c)
+ *     ?AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z @ 0x1C02EA440 (-AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z.c)
+ *     BmlUnPinPartialPathModalityOnPath @ 0x1C02EC11C (BmlUnPinPartialPathModalityOnPath.c)
  */
 
 __int64 __fastcall BmlGetPathModeListForPathTargetModes(
         __int64 a1,
         __int64 a2,
-        unsigned __int16 a3,
+        __int64 a3,
         __int64 a4,
         CCD_MODE_RESULT_SET *a5)
 {
-  _QWORD *v5; // rbx
-  __int64 v6; // r14
-  __int64 v8; // r12
-  int refreshed; // esi
-  __int64 v11; // rdi
+  int v5; // edi
+  __int64 v6; // r13
+  __int64 v8; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rbx
   __int64 v12; // rax
-  __int64 v13; // rdi
-  __int64 v14; // r13
-  __int64 v15; // rax
-  _QWORD *v16; // r13
-  _QWORD *v17; // rcx
-  _QWORD *v18; // r12
-  DMMVIDPNSOURCEMODE *v19; // rdx
-  struct DMMVIDPNSOURCEMODE *v20; // rax
-  struct DMMVIDPNSOURCEMODE *NextMode; // r14
-  _QWORD *v22; // rcx
-  bool v23; // zf
-  __int64 v24; // rdi
-  _QWORD *v25; // rdx
-  __int64 v26; // rcx
-  unsigned __int16 v27; // r12
-  __int64 v28; // rdi
-  DMMVIDPNSOURCEMODE *v29; // rdi
+  __int64 v13; // rbx
+  __int64 v14; // rax
+  __int64 v15; // r15
+  __int64 v16; // rax
+  _QWORD *v17; // r15
+  _QWORD *v18; // rax
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  _QWORD *v22; // r12
+  DMMVIDPNSOURCEMODE *v23; // rdx
+  __int64 v24; // rax
+  _QWORD *v25; // rcx
+  struct DMMVIDPNSOURCEMODE *NextMode; // rsi
+  __int64 v27; // rbx
+  _QWORD *v28; // rdx
+  __int64 v29; // r8
+  __int64 v30; // r9
+  __int64 v31; // rcx
+  unsigned int v32; // eax
   const struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *GraphicsInfo; // rax
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int128 v33; // xmm0
-  __int128 v34; // xmm1
-  __int128 v35; // xmm0
-  __int64 v36; // r8
-  __int64 v37; // r9
-  unsigned __int64 v38; // r8
-  _QWORD *v39; // rax
-  struct _D3DDDI_RATIONAL v40; // rcx
-  int v41; // edx
-  unsigned int v42; // r12d
-  __int64 v43; // rdi
-  int v44; // edi
-  void *v45; // rcx
-  unsigned __int64 v47; // [rsp+40h] [rbp-A1h] BYREF
-  struct _D3DDDI_RATIONAL v48; // [rsp+48h] [rbp-99h] BYREF
-  struct DMMVIDPNSOURCEMODE *v49; // [rsp+50h] [rbp-91h]
-  DMMVIDPNSOURCEMODE *v50; // [rsp+58h] [rbp-89h]
-  __int64 v51; // [rsp+60h] [rbp-81h]
-  __int64 v52; // [rsp+68h] [rbp-79h] BYREF
-  VIDPN_MGR *v53; // [rsp+70h] [rbp-71h]
-  _QWORD *v54; // [rsp+78h] [rbp-69h] BYREF
-  _OWORD v55[3]; // [rsp+80h] [rbp-61h] BYREF
-  __int64 v56; // [rsp+B0h] [rbp-31h]
-  __int128 v57; // [rsp+B8h] [rbp-29h]
-  __int128 v58; // [rsp+C8h] [rbp-19h]
-  __int64 v59; // [rsp+D8h] [rbp-9h]
-  __int64 v60; // [rsp+E0h] [rbp-1h]
-  bool v61; // [rsp+E8h] [rbp+7h]
-  __int16 v62; // [rsp+E9h] [rbp+8h]
-  char v63; // [rsp+EBh] [rbp+Ah]
-  int v64; // [rsp+ECh] [rbp+Bh]
-  _QWORD *v67; // [rsp+158h] [rbp+77h] BYREF
+  __int128 v34; // xmm0
+  __int128 v35; // xmm1
+  __int128 v36; // xmm0
+  __int128 v37; // xmm1
+  __int128 v38; // xmm0
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  int v44; // r12d
+  __int64 v45; // rax
+  _QWORD *v46; // rax
+  __int64 v48; // [rsp+20h] [rbp-81h]
+  struct DMMVIDPNSOURCEMODE *v49; // [rsp+28h] [rbp-79h]
+  DMMVIDPNSOURCEMODE *v50; // [rsp+30h] [rbp-71h]
+  __int64 v51; // [rsp+38h] [rbp-69h] BYREF
+  VIDPN_MGR *v52; // [rsp+40h] [rbp-61h]
+  _QWORD *v53; // [rsp+48h] [rbp-59h] BYREF
+  _OWORD v54[3]; // [rsp+50h] [rbp-51h] BYREF
+  __int64 v55; // [rsp+80h] [rbp-21h]
+  __int128 v56; // [rsp+88h] [rbp-19h]
+  __int128 v57; // [rsp+98h] [rbp-9h]
+  bool v58; // [rsp+A8h] [rbp+7h]
+  __int16 v59; // [rsp+A9h] [rbp+8h]
+  char v60; // [rsp+ABh] [rbp+Ah]
+  int v61; // [rsp+ACh] [rbp+Bh]
+  unsigned __int16 v63; // [rsp+110h] [rbp+6Fh]
+  unsigned int v64; // [rsp+118h] [rbp+77h]
 
-  v5 = 0LL;
-  v6 = a3;
-  v8 = 120LL * a3;
-  v53 = *(VIDPN_MGR **)(a2 + 48);
-  v51 = v8;
-  refreshed = 0;
-  if ( !v53 )
-    WdLogSingleEntry0(1LL);
+  v63 = a3;
+  v5 = 0;
+  v6 = (unsigned __int16)a3;
+  v8 = 104LL * (unsigned __int16)a3;
+  v52 = *(VIDPN_MGR **)(a2 + 48);
+  v48 = v8;
+  if ( !v52 )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v10);
+  }
   v11 = *(_QWORD *)(a4 + 88);
   v12 = *(_QWORD *)(v11 + 104);
-  if ( v12 )
+  if ( !v12 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(v12 + 96));
-    v13 = *(_QWORD *)(v11 + 104);
-    v52 = v13;
-    if ( !v13 )
-      goto LABEL_6;
-    v14 = *(_QWORD *)(a4 + 96);
-    v15 = *(_QWORD *)(v14 + 104);
-    if ( v15 )
+    v51 = 0LL;
+LABEL_6:
+    v14 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v14 + 24) = v6;
+    WdLogEvent5_WdError(v14);
+    v5 = -1071774968;
+    goto LABEL_41;
+  }
+  _InterlockedIncrement((volatile signed __int32 *)(v12 + 96));
+  v13 = *(_QWORD *)(v11 + 104);
+  v51 = v13;
+  if ( !v13 )
+    goto LABEL_6;
+  v15 = *(_QWORD *)(a4 + 96);
+  v16 = *(_QWORD *)(v15 + 104);
+  if ( v16 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v16 + 96));
+    v17 = *(_QWORD **)(v15 + 104);
+  }
+  else
+  {
+    v17 = 0LL;
+  }
+  v53 = v17;
+  v18 = (_QWORD *)WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
+  v18[3] = v17;
+  v18[4] = *(unsigned __int16 *)(v8 + a1 + 68);
+  v21 = *(unsigned __int16 *)(v8 + a1 + 70);
+  v18[5] = v21;
+  if ( !v17 )
+  {
+    v5 = -1071774967;
+    goto LABEL_40;
+  }
+  v22 = v17 + 6;
+  if ( (_QWORD *)*v22 != v22 )
+  {
+    v23 = *(DMMVIDPNSOURCEMODE **)(v13 + 144);
+    v50 = v23;
+    if ( !v23 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(v15 + 96));
-      v16 = *(_QWORD **)(v14 + 104);
-    }
-    else
-    {
-      v16 = 0LL;
-    }
-    v54 = v16;
-    v17 = (_QWORD *)WdLogNewEntry5_WdTrace(a1, a2);
-    v17[3] = v16;
-    v17[4] = *(unsigned __int16 *)(v8 + a1 + 68);
-    v17[5] = *(unsigned __int16 *)(v8 + a1 + 70);
-    if ( !v16 )
-    {
-      refreshed = -1071774967;
-      goto LABEL_56;
-    }
-    v18 = v16 + 6;
-    if ( (_QWORD *)*v18 == v18 )
-    {
-LABEL_56:
-      auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v54, 0LL);
-      goto LABEL_57;
-    }
-    v19 = *(DMMVIDPNSOURCEMODE **)(v13 + 144);
-    v50 = v19;
-    if ( !v19 )
-    {
-      WdLogSingleEntry2(1LL, v13, v6);
-      refreshed = -1071774968;
-      goto LABEL_56;
+      v24 = WdLogNewEntry5_WdAssertion(v21, 0LL);
+      *(_QWORD *)(v24 + 24) = v13;
+      *(_QWORD *)(v24 + 32) = v6;
+      WdLogEvent5_WdAssertion(v24);
+      v5 = -1071774968;
+      goto LABEL_40;
     }
     if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
     {
-      WdLogNewEntry5_WdTrace(v17, v19);
+      WdLogNewEntry5_WdTrace(v21, v23, v19, v20);
       v50 = *(DMMVIDPNSOURCEMODE **)(v13 + 144);
     }
-    v20 = (struct DMMVIDPNSOURCEMODE *)v16[18];
+    v25 = (_QWORD *)*v22;
+    v49 = (struct DMMVIDPNSOURCEMODE *)v17[18];
     NextMode = 0LL;
-    v47 = 0LL;
-    v67 = 0LL;
-    v22 = (_QWORD *)*v18;
-    v23 = *v18 == (_QWORD)v18;
-    v49 = v20;
-    if ( !v23 )
-      NextMode = (struct DMMVIDPNSOURCEMODE *)(v22 - 1);
-    if ( !NextMode )
+    if ( (_QWORD *)*v22 != v22 )
+      NextMode = (struct DMMVIDPNSOURCEMODE *)(v25 - 1);
+    if ( NextMode )
     {
-LABEL_54:
-      v45 = v5;
-      goto LABEL_55;
-    }
-    v24 = v51;
-    while ( 1 )
-    {
-      v25 = (_QWORD *)WdLogNewEntry5_WdTrace(v22, v19);
-      v25[3] = *((_DWORD *)NextMode + 6) + ((*((_DWORD *)NextMode + 30) & 0x1F8u) << 13);
-      v25[4] = *((unsigned int *)NextMode + 21);
-      v25[5] = *((unsigned int *)NextMode + 22);
-      v25[6] = *((unsigned int *)NextMode + 23);
-      v25[7] = *((unsigned int *)NextMode + 24);
-      ++*(_DWORD *)(v24 + a1 + 100);
-      if ( v49 && v49 != NextMode || (v27 = a3, !BmlDoesTargetModeObeyConstraint(a1, a3, (__int64)NextMode)) )
+      v27 = v48;
+      do
       {
-        WdLogNewEntry5_WdTrace(v26, v25);
-        goto LABEL_52;
-      }
-      ++*(_DWORD *)(v24 + a1 + 104);
-      v28 = *((unsigned int *)NextMode + 6);
-      if ( v49 )
-        break;
-      refreshed = VIDPN_MGR::PinVidPnTargetMode(v53, (struct DMMVIDPNTARGETMODESET *const)v16, v28, 1);
-      if ( refreshed >= 0 )
-        goto LABEL_29;
-      refreshed = 0;
-LABEL_49:
-      v44 = BmlUnPinPartialPathModalityOnPath(a1, a2, v27);
-      if ( v44 < 0 )
-      {
-        WdLogSingleEntry3(3LL, a1, v27, a2);
-        refreshed = v44;
-        goto LABEL_60;
-      }
-      if ( v49 )
-        goto LABEL_53;
-      v24 = v51;
-LABEL_52:
-      NextMode = DMMVIDPNSOURCEMODESET::GetNextMode((DMMVIDPNSOURCEMODESET *)v16, NextMode);
-      if ( !NextMode )
-      {
-LABEL_53:
-        v5 = v67;
-        goto LABEL_54;
-      }
-    }
-    refreshed = 0;
-LABEL_29:
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v26, v25) + 24) = v28;
-    if ( (int)BmlPinPathContentScaling(a1, a2, a3) >= 0 && (int)BmlPinPathContentRotation(a1, a2, a3) >= 0 )
-    {
-      v29 = v50;
-      v62 = 0;
-      v63 = 0;
-      GraphicsInfo = DMMVIDPNSOURCEMODE::GetGraphicsInfo(v50);
-      v31 = *(_OWORD *)&GraphicsInfo->PrimSurfSize.cx;
-      v32 = *(_OWORD *)&GraphicsInfo->Stride;
-      v59 = *((_QWORD *)NextMode + 19);
-      v60 = *((_QWORD *)NextMode + 18);
-      LODWORD(GraphicsInfo) = *((_DWORD *)NextMode + 32);
-      v57 = v31;
-      v64 = (int)GraphicsInfo;
-      v33 = *(_OWORD *)((char *)NextMode + 72);
-      LODWORD(GraphicsInfo) = *((_DWORD *)v29 + 18);
-      v58 = v32;
-      v34 = *(_OWORD *)((char *)NextMode + 88);
-      v55[0] = v33;
-      v35 = *(_OWORD *)((char *)NextMode + 104);
-      v55[1] = v34;
-      v61 = (unsigned int)((_DWORD)GraphicsInfo - 3) <= 1;
-      *(_QWORD *)&v34 = *((_QWORD *)NextMode + 15);
-      v55[2] = v35;
-      v56 = v34;
-      refreshed = CCD_MODE_RESULT_SET::AddMode(a5, (const struct D3DKMT_PATHMODALITY_MODE_RESULT *)v55);
-      if ( refreshed < 0 )
-        goto LABEL_58;
-      if ( DMMVIDPNTARGETMODE::SupportVirtualRefreshRate(NextMode) )
-      {
-        v38 = v47;
-        if ( !v47 )
+        v28 = (_QWORD *)WdLogNewEntry5_WdTrace(v25, v23, v19, v20);
+        v28[3] = *((_DWORD *)NextMode + 6) + ((*((_DWORD *)NextMode + 30) & 0x1F8u) << 13);
+        v28[4] = *((unsigned int *)NextMode + 21);
+        v28[5] = *((unsigned int *)NextMode + 22);
+        v31 = *((unsigned int *)NextMode + 23);
+        v28[6] = v31;
+        v28[7] = *((unsigned int *)NextMode + 24);
+        ++*(_DWORD *)(v27 + a1 + 100);
+        if ( (!v49 || v49 == NextMode) && BmlDoesTargetModeObeyConstraint(a1, v63, (__int64)NextMode) )
         {
-          refreshed = BmlBuildVirtualRefreshRateListFromTargetModeSet(
-                        (DMMVIDPNSOURCEMODESET *)v16,
-                        &v47,
-                        (void **)&v67,
-                        v37);
-          if ( refreshed < 0 )
-            goto LABEL_58;
-          v38 = v47;
-        }
-        v39 = v67;
-        if ( v67 )
-        {
-          v40 = *(struct _D3DDDI_RATIONAL *)((char *)NextMode + 92);
-          v41 = (*((_DWORD *)NextMode + 30) >> 3) & 0x3F;
-          if ( v41 )
+          ++*(_DWORD *)(v27 + a1 + 104);
+          v32 = *((_DWORD *)NextMode + 6);
+          v64 = v32;
+          if ( v49 )
           {
-            v48.Numerator = *(_QWORD *)((char *)NextMode + 92);
-            v48.Denominator = v41 * v40.Denominator;
-            v40 = v48;
+            v5 = 0;
           }
-          v48 = v40;
-          v42 = 0;
-          if ( v38 )
+          else
           {
-            v43 = 0LL;
-            while ( 1 )
+            v5 = VIDPN_MGR::PinVidPnTargetMode(v52, (struct DMMVIDPNTARGETMODESET *const)v17, v32, 1);
+            v32 = v64;
+          }
+          if ( v5 < 0 )
+          {
+            v5 = 0;
+          }
+          else
+          {
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(v31, v28, v29, v30) + 24) = v32;
+            if ( (int)BmlPinPathContentScaling(a1, a2, v63) >= 0 && (int)BmlPinPathContentRotation(a1, a2, v63) >= 0 )
             {
-              if ( !DMMVIDEOSIGNALMODE::IsFreqWithinToleranceRange(&v48, (const struct _D3DDDI_RATIONAL *)&v39[v43], 0) )
+              v59 = 0;
+              v60 = 0;
+              GraphicsInfo = DMMVIDPNSOURCEMODE::GetGraphicsInfo(v50);
+              v34 = *(_OWORD *)&GraphicsInfo->PrimSurfSize.cx;
+              v35 = *(_OWORD *)&GraphicsInfo->Stride;
+              LODWORD(GraphicsInfo) = *((_DWORD *)NextMode + 32);
+              v56 = v34;
+              v61 = (int)GraphicsInfo;
+              v36 = *(_OWORD *)((char *)NextMode + 72);
+              LODWORD(GraphicsInfo) = *((_DWORD *)v50 + 18);
+              v57 = v35;
+              v37 = *(_OWORD *)((char *)NextMode + 88);
+              v54[0] = v36;
+              v38 = *(_OWORD *)((char *)NextMode + 104);
+              v54[1] = v37;
+              v58 = (unsigned int)((_DWORD)GraphicsInfo - 3) <= 1;
+              *(_QWORD *)&v37 = *((_QWORD *)NextMode + 15);
+              v54[2] = v38;
+              v55 = v37;
+              v5 = CCD_MODE_RESULT_SET::AddMode(a5, (const struct D3DKMT_PATHMODALITY_MODE_RESULT *)v54);
+              if ( v5 < 0 )
               {
-                if ( DMMVIDPNTARGETMODE::SupportVirtualRefreshRate(
-                       NextMode,
-                       (const struct _D3DDDI_RATIONAL *)&v67[v43],
-                       1) )
-                {
-                  v59 = v67[v43];
-                  refreshed = CCD_MODE_RESULT_SET::AddMode(a5, (const struct D3DKMT_PATHMODALITY_MODE_RESULT *)v55);
-                  if ( refreshed < 0 )
-                    break;
-                }
+                v45 = WdLogNewEntry5_WdError(v40, v39);
+                WdLogEvent5_WdError(v45);
+                break;
               }
-              v43 = ++v42;
-              if ( v42 >= v47 )
-                goto LABEL_48;
-              v39 = v67;
             }
-LABEL_58:
-            WdLogSingleEntry0(2LL);
-LABEL_60:
-            v45 = v67;
-LABEL_55:
-            operator delete(v45);
-            goto LABEL_56;
+            v27 = v48;
           }
-LABEL_48:
-          v27 = a3;
+          v44 = BmlUnPinPartialPathModalityOnPath(a1, a2, v63);
+          if ( v44 < 0 )
+          {
+            v46 = (_QWORD *)WdLogNewEntry5_WdWarning(v42, v41, v43);
+            v46[5] = a2;
+            v46[3] = a1;
+            v46[4] = v6;
+            WdLogEvent5_WdWarning(v46);
+            v5 = v44;
+            break;
+          }
+          if ( v49 )
+            break;
         }
+        else
+        {
+          WdLogNewEntry5_WdTrace(v31, v28, v29, v30);
+        }
+        NextMode = DMMVIDPNSOURCEMODESET::GetNextMode((DMMVIDPNSOURCEMODESET *)v17, NextMode);
       }
-      else if ( g_OSTestSigningEnabled )
-      {
-        wil_details_FeatureReporting_ReportUsageToService(
-          (__int64)&Feature_VirtualRefreshRateTest__private_reporting,
-          0x1A59657u,
-          v36,
-          v37,
-          (const struct FEATURE_LOGGED_TRAITS *)&Feature_MockDriverValidation_logged_traits,
-          0);
-      }
+      while ( NextMode );
     }
-    goto LABEL_49;
   }
-  v52 = 0LL;
-LABEL_6:
-  WdLogSingleEntry1(2LL, v6);
-  refreshed = -1071774968;
-LABEL_57:
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v52, 0LL);
-  return (unsigned int)refreshed;
+LABEL_40:
+  auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v53, 0LL);
+LABEL_41:
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v51, 0LL);
+  return (unsigned int)v5;
 }

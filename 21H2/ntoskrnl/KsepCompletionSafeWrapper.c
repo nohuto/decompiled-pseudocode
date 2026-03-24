@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCompletionSafeWrapper @ 0x14057D680
+ * XREFs of KsepCompletionSafeWrapper @ 0x140526E30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KsepCompletionSafeWrapper(__int64 a1, __int64 a2, _QWORD *a3)
@@ -46,6 +46,6 @@ LABEL_6:
   }
 LABEL_8:
   ExFreePoolWithTag(a3, 0x6245534Bu);
-  _InterlockedIncrement(&dword_140C2A1AC);
+  _InterlockedIncrement(&dword_140C2AA2C);
   return v3;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z @ 0x18027DCDC
+ * XREFs of ?D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z @ 0x18021CF8C
  * Callers:
- *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x18023C8D0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
- *     ?Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ @ 0x18025F3DC (-Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ.c)
- *     ?Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x18026001C (-Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7838 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ @ 0x1801FE6B8 (-Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x1801FF374 (-Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

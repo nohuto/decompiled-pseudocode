@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEmModuleAddressMatchCallback @ 0x1405D9260
+ * XREFs of PopEmModuleAddressMatchCallback @ 0x140579190
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitString @ 0x14036B950 (RtlInitString.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
  */
 
 __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3, int a4, int a5, int a6)
@@ -38,7 +38,7 @@ __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3
                 v8 = *(const UNICODE_STRING **)v7;
                 if ( *(_QWORD *)v7 )
                 {
-                  RtlInitString(&DestinationString, *a3);
+                  RtlInitAnsiString(&DestinationString, *a3);
                   if ( RtlAnsiStringToUnicodeString(&String1, &DestinationString, 1u) >= 0 )
                     v6 = RtlEqualUnicodeString(&String1, v8, 1u) != 0 ? 2 : 0;
                 }
@@ -49,6 +49,6 @@ __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3
       }
     }
   }
-  RtlFreeUnicodeString(&String1);
+  RtlFreeAnsiString(&String1);
   return v6;
 }

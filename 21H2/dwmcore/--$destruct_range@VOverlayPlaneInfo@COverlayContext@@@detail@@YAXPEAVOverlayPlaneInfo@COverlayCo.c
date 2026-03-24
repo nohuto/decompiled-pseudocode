@@ -1,28 +1,27 @@
 /*
- * XREFs of ??$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayContext@@0@Z @ 0x18001D1D8
+ * XREFs of ??$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayContext@@0@Z @ 0x18002FA50
  * Callers:
- *     ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x180008224 (-reserve_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneI.c)
- *     ?clear_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18001D154 (-clear_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneInf.c)
+ *     ?clear_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18002F9C0 (-clear_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneInf.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18017D2C4 (-ensure_extra_capacity@-$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansi.c)
+ *     ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x18017D4BC (-reserve_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneI.c)
  * Callees:
- *     ??_GOverlayPlaneInfo@COverlayContext@@QEAAPEAXI@Z @ 0x18000E77C (--_GOverlayPlaneInfo@COverlayContext@@QEAAPEAXI@Z.c)
+ *     ??1OverlayPlaneInfo@COverlayContext@@QEAA@XZ @ 0x18016BE04 (--1OverlayPlaneInfo@COverlayContext@@QEAA@XZ.c)
  */
 
-COverlayContext::OverlayPlaneInfo *__fastcall detail::destruct_range<COverlayContext::OverlayPlaneInfo>(
+void __fastcall detail::destruct_range<COverlayContext::OverlayPlaneInfo>(
         COverlayContext::OverlayPlaneInfo *this,
         COverlayContext::OverlayPlaneInfo *a2)
 {
   COverlayContext::OverlayPlaneInfo *v3; // rbx
-  COverlayContext::OverlayPlaneInfo *result; // rax
 
   if ( this != a2 )
   {
     v3 = this;
     do
     {
-      result = COverlayContext::OverlayPlaneInfo::`scalar deleting destructor'(v3);
+      COverlayContext::OverlayPlaneInfo::~OverlayPlaneInfo(v3);
       v3 = (COverlayContext::OverlayPlaneInfo *)((char *)v3 + 224);
     }
     while ( v3 != a2 );
   }
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPartitionCreateThreadIfNecessary @ 0x14012AF00
+ * XREFs of ExpPartitionCreateThreadIfNecessary @ 0x14012AF20
  * Callers:
- *     ExpTryQueueWorkItem @ 0x1400D170C (ExpTryQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
  * Callees:
- *     ExpNewThreadNecessary @ 0x1400B6AE0 (ExpNewThreadNecessary.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     ExpNewThreadNecessary @ 0x1400B6B00 (ExpNewThreadNecessary.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 char __fastcall ExpPartitionCreateThreadIfNecessary(__int64 a1, __int64 a2, __int64 a3)

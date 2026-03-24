@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpRecordBootStatusData @ 0x1407ED100
+ * XREFs of RtlpRecordBootStatusData @ 0x14078A454
  * Callers:
- *     RtlpGetSetBootStatusData @ 0x1407ECEEC (RtlpGetSetBootStatusData.c)
- *     RtlInitializeBootStatusDataBlackBox @ 0x140803260 (RtlInitializeBootStatusDataBlackBox.c)
- *     RtlRestoreBootStatusDefaults @ 0x1409BDB50 (RtlRestoreBootStatusDefaults.c)
+ *     RtlpGetSetBootStatusData @ 0x14078A240 (RtlpGetSetBootStatusData.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x14079A978 (RtlInitializeBootStatusDataBlackBox.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409155F8 (RtlRestoreBootStatusDefaults.c)
  * Callees:
- *     ZwPowerInformation @ 0x14041B280 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1403FA600 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall RtlpRecordBootStatusData(char a1, __int64 a2, __int64 a3, __int64 a4)

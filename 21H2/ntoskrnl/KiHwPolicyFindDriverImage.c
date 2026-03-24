@@ -1,16 +1,16 @@
 /*
- * XREFs of KiHwPolicyFindDriverImage @ 0x140AFACD8
+ * XREFs of KiHwPolicyFindDriverImage @ 0x140A652D8
  * Callers:
- *     KeHwPolicyLocateResource @ 0x140AFAC30 (KeHwPolicyLocateResource.c)
+ *     KeHwPolicyLocateResource @ 0x140A65230 (KeHwPolicyLocateResource.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall KiHwPolicyFindDriverImage(__int64 a1)
 {
-  __int64 *v1; // rdi
+  __int64 *v1; // rsi
   int *i; // rbx
-  __int64 v3; // rcx
+  __int64 v3; // rdi
   UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&String2.Length = 1703960LL;
@@ -27,5 +27,5 @@ __int64 __fastcall KiHwPolicyFindDriverImage(__int64 a1)
         break;
     }
   }
-  return *(_QWORD *)(*((_QWORD *)i + 6) + 48LL);
+  return *(_QWORD *)(v3 + 48);
 }

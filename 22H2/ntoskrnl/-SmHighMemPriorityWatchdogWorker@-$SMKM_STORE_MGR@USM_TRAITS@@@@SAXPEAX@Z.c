@@ -1,59 +1,56 @@
 /*
- * XREFs of ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1405BFDD0
+ * XREFs of ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140599290
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReferenceEx @ 0x140344C68 (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x1405C1808 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
- *     SmQuerySystemInformation @ 0x1405CDB30 (SmQuerySystemInformation.c)
+ *     SmKmStoreReferenceEx @ 0x1402673EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599544 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
  */
 
-__int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int64 a1, __int64 a2)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int64 a1)
 {
-  __int64 v2; // rsi
-  __int64 v4; // r8
-  unsigned __int64 v5; // rcx
-  unsigned int v6; // edi
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rbx
-  struct _EX_RUNDOWN_REF *v10; // rax
-  unsigned __int64 v12; // [rsp+20h] [rbp-68h] BYREF
-  _OWORD v13[3]; // [rsp+28h] [rbp-60h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-30h]
+  __int64 v1; // r14
+  unsigned __int64 v3; // rcx
+  unsigned int v4; // esi
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // rdi
+  struct _EX_RUNDOWN_REF *v8; // rax
+  unsigned __int64 v9; // [rsp+20h] [rbp-68h] BYREF
+  _OWORD v10[3]; // [rsp+28h] [rbp-60h] BYREF
+  __int64 v11; // [rsp+58h] [rbp-30h]
 
-  v2 = a1 - 1816;
-  memset(v13, 0, sizeof(v13));
-  v14 = 0LL;
-  if ( (int)SmQuerySystemInformation(a1 - 1816, a2, v13) >= 0 )
+  v1 = a1 - 1800;
+  memset(v10, 0, sizeof(v10));
+  v11 = 0LL;
+  if ( (int)ZwQuerySystemInformation(182LL, (__int64)v10) >= 0 )
   {
-    v5 = 128000LL;
-    v6 = 0;
-    if ( *(_QWORD *)&v13[0] <= 0x51400000uLL )
-      v5 = 15360LL;
-    v7 = 3 * (*(_QWORD *)&v13[0] / 0x14000uLL);
-    if ( v7 >= v5 )
-      v7 = v5;
-    v12 = v7;
+    v3 = 128000LL;
+    v4 = 0;
+    if ( *(_QWORD *)&v10[0] <= 0x51400000uLL )
+      v3 = 15360LL;
+    v5 = 3 * (*(_QWORD *)&v10[0] / 0x14000uLL);
+    if ( v5 >= v3 )
+      v5 = v3;
+    v9 = v5;
     do
     {
-      v8 = SmKmStoreReferenceEx(v2, v6, v4);
-      v9 = v8;
-      if ( v8 )
+      v6 = SmKmStoreReferenceEx(v1, v4);
+      v7 = v6;
+      if ( v6 )
       {
-        if ( *(_BYTE *)(v8 + 6023) != 1 )
-          SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(v8, &v12);
-        v10 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(v2, *(_DWORD *)(v9 + 6016) & 0x3FF);
-        ExReleaseRundownProtection_0(v10 + 1);
+        if ( *(_BYTE *)(v6 + 6023) != 1 )
+          SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(v6, &v9);
+        v8 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(v1, *(_DWORD *)(v7 + 6016) & 0x3FF);
+        ExReleaseRundownProtection(v8 + 1);
       }
-      ++v6;
+      ++v4;
     }
-    while ( v6 < 0x400 );
+    while ( v4 < 0x400 );
   }
   _InterlockedExchange64((volatile __int64 *)(a1 + 24), 0LL);
-  return (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v2 + 1864))(v2, 0LL, 9LL);
 }

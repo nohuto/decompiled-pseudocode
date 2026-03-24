@@ -1,43 +1,39 @@
 /*
- * XREFs of HalpRemoveProfileSourceFromList @ 0x14050BA34
+ * XREFs of HalpRemoveProfileSourceFromList @ 0x1404BF12C
  * Callers:
- *     EmonRemoveProfileSource @ 0x140521670 (EmonRemoveProfileSource.c)
- *     Amd64RemoveProfileSource @ 0x14052C660 (Amd64RemoveProfileSource.c)
+ *     EmonRemoveProfileSource @ 0x1404D4430 (EmonRemoveProfileSource.c)
+ *     Amd64RemoveProfileSource @ 0x1404DE020 (Amd64RemoveProfileSource.c)
  * Callees:
- *     KiSubtractAffinityEx @ 0x1402FEDA0 (KiSubtractAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x14038A10C (HalpGetProfileDescriptor.c)
+ *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
  */
 
-char __fastcall HalpRemoveProfileSourceFromList(int *a1, __int64 a2, _QWORD *a3)
+char __fastcall HalpRemoveProfileSourceFromList(int *a1, _QWORD **a2, _QWORD *a3)
 {
-  int v3; // ecx
-  __int64 *v4; // r10
-  __int64 v5; // r11
-  __int64 v6; // rbx
-  unsigned __int16 v7; // r9
-  __int64 v8; // rdx
-  _QWORD *v9; // rcx
+  _QWORD *v3; // r10
+  __int64 v4; // r11
+  __int64 v5; // rbx
+  __int64 v6; // rdx
+  _QWORD *v7; // rcx
   char result; // al
-  __int64 v11; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
 
-  v11 = a2;
   *a3 = 0LL;
-  v3 = *a1;
-  v11 = 0LL;
-  if ( (int)HalpGetProfileDescriptor(v3, a2, &v11) < 0 )
+  v9 = 0LL;
+  if ( (int)HalpGetProfileDescriptor(*a1, a2, &v9) < 0 )
     return 0;
-  v6 = v11;
-  v7 = 0;
-  *v4 = v11;
-  if ( v6 != -32 )
-    v7 = *(_WORD *)(v6 + 34);
-  if ( (unsigned int)KiSubtractAffinityEx((_WORD *)(v6 + 32), (char *)(v5 + 8), (_BYTE *)(v6 + 32), v7) )
+  v5 = v9;
+  *v3 = v9;
+  if ( (unsigned int)KeSubtractAffinityEx(
+                       (unsigned __int16 *)(v5 + 32),
+                       (unsigned __int16 *)(v4 + 8),
+                       (_BYTE *)(v5 + 32)) )
     return 0;
-  v8 = *(_QWORD *)(v6 + 8);
-  if ( *(_QWORD *)(v8 + 8) != v6 + 8 || (v9 = *(_QWORD **)(v6 + 16), *v9 != v6 + 8) )
+  v6 = *(_QWORD *)(v5 + 8);
+  if ( *(_QWORD *)(v6 + 8) != v5 + 8 || (v7 = *(_QWORD **)(v5 + 16), *v7 != v5 + 8) )
     __fastfail(3u);
-  *v9 = v8;
+  *v7 = v6;
   result = 1;
-  *(_QWORD *)(v8 + 8) = v9;
+  *(_QWORD *)(v6 + 8) = v7;
   return result;
 }

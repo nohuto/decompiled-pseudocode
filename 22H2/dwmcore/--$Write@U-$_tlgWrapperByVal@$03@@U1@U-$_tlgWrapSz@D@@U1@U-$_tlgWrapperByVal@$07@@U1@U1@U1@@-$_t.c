@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333@Z @ 0x18022BC64
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333@Z @ 0x1801C0418
  * Callers:
- *     ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x18022C340 (-LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z.c)
+ *     ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x1801C0B70 (-LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
@@ -14,14 +14,14 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        const char **a7,
+        const unsigned __int16 **a7,
         __int64 a8,
         __int64 a9,
         __int64 a10,
         __int64 a11,
         __int64 a12)
 {
-  const char *v12; // rcx
+  const unsigned __int16 *v12; // rcx
   __int64 v13; // rax
   int v14; // eax
   struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+30h] [rbp-99h] BYREF
@@ -29,7 +29,7 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   __int64 v18; // [rsp+58h] [rbp-71h]
   __int64 v19; // [rsp+60h] [rbp-69h]
   __int64 v20; // [rsp+68h] [rbp-61h]
-  const char *v21; // [rsp+70h] [rbp-59h]
+  const unsigned __int16 *v21; // [rsp+70h] [rbp-59h]
   int v22; // [rsp+78h] [rbp-51h]
   int v23; // [rsp+7Ch] [rbp-4Dh]
   __int64 v24; // [rsp+80h] [rbp-49h]
@@ -59,12 +59,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v13 = -1LL;
     do
       ++v13;
-    while ( v12[v13] );
+    while ( *((_BYTE *)v12 + v13) );
     v14 = v13 + 1;
   }
   else
   {
-    v12 = word_18033C020;
+    v12 = &word_1802CE406;
     v14 = 1;
   }
   v22 = v14;
@@ -74,5 +74,5 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   v23 = 0;
   v20 = 4LL;
   v18 = 4LL;
-  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_1803E3798, a2, 0LL, 0LL, 0xAu, &v16);
+  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_180344E80, a2, 0LL, 0LL, 0xAu, &v16);
 }

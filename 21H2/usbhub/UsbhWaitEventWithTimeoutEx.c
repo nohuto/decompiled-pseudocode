@@ -1,30 +1,30 @@
 /*
- * XREFs of UsbhWaitEventWithTimeoutEx @ 0x1C0011440
+ * XREFs of UsbhWaitEventWithTimeoutEx @ 0x1C00038F0
  * Callers:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     Usbh_PCE_Disable_Action @ 0x1C0011DA0 (Usbh_PCE_Disable_Action.c)
- *     UsbhWaitForResetTimeout @ 0x1C001EEA4 (UsbhWaitForResetTimeout.c)
- *     Usbh_PCE_Close_Action @ 0x1C0034E08 (Usbh_PCE_Close_Action.c)
- *     UsbhNotifyPnpOfFailure_Action @ 0x1C00383C8 (UsbhNotifyPnpOfFailure_Action.c)
- *     UsbhWaitForPortResume @ 0x1C0039CEC (UsbhWaitForPortResume.c)
- *     UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4 (UsbhPdoWaitForD3Reconnect.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
+ *     Usbh_PCE_Disable_Action @ 0x1C0004C90 (Usbh_PCE_Disable_Action.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhWaitForResetTimeout @ 0x1C001C87C (UsbhWaitForResetTimeout.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00360C4 (Usbh_PCE_Close_Action.c)
+ *     UsbhNotifyPnpOfFailure_Action @ 0x1C0039698 (UsbhNotifyPnpOfFailure_Action.c)
+ *     UsbhWaitForPortResume @ 0x1C003AFFC (UsbhWaitForPortResume.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003D494 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     UsbhPCE_wRun @ 0x1C001E6FC (UsbhPCE_wRun.c)
- *     UsbhTrapFatalTimeout_x9f @ 0x1C002D664 (UsbhTrapFatalTimeout_x9f.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_wRun @ 0x1C0002848 (UsbhPCE_wRun.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatalTimeout_x9f @ 0x1C002EA74 (UsbhTrapFatalTimeout_x9f.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int a4, unsigned int a5, __int64 a6)
 {
-  __int64 v6; // r15
-  __int64 v9; // rdx
+  __int64 v6; // r13
+  __int64 v9; // r8
   __int64 v10; // rcx
   __int64 v11; // rsi
   __int64 v12; // rdx
@@ -32,14 +32,14 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
   __int64 v14; // rdi
   __int64 v15; // rdx
   __int64 v16; // rcx
-  __int64 v17; // r13
-  NTSTATUS v18; // r13d
+  __int64 v17; // r12
+  NTSTATUS v18; // r12d
   NTSTATUS v19; // eax
   __int64 v20; // r8
   __int64 v21; // rdx
   __int64 v22; // rcx
   _DWORD *v23; // rdx
-  struct _KEVENT *v24; // r15
+  struct _KEVENT *v24; // r13
   __int64 Signalling; // r9
   _QWORD *v26; // r8
   unsigned __int8 v27; // cl
@@ -48,7 +48,7 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
   __int64 v30; // rdx
   _QWORD *v31; // rax
   _QWORD *v32; // rcx
-  void *v33; // r15
+  void *v33; // r13
   __int64 v34; // rax
   __int64 v35; // r8
   __int64 v36; // rdx
@@ -90,12 +90,12 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
             * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v9 + 880)) & *(_DWORD *)(v9 + 884));
         *(_DWORD *)v10 = v57;
         *(_QWORD *)(v10 + 8) = 0LL;
-        *(_QWORD *)(v10 + 16) = a3;
+        *(_QWORD *)(v10 + 16) = v6;
         *(_QWORD *)(v10 + 24) = a2;
       }
     }
   }
-  v11 = 10000LL * a3 + (int)(KeQueryTimeIncrement() - 1);
+  v11 = 10000 * v6 + (int)(KeQueryTimeIncrement() - 1);
   v51 = v11;
   if ( (UsbhLogMask & 8) != 0 )
   {
@@ -138,7 +138,7 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
     if ( !a5 )
     {
       v18 = KeWaitForSingleObject(a2, Executive, 0, 0, &Timeout);
-      goto LABEL_47;
+      goto LABEL_48;
     }
     v17 = a6;
     if ( a6 )
@@ -155,7 +155,7 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
           {
             v18 = KeWaitForSingleObject(a2, Executive, 0, 0, &v50);
             if ( !v18 )
-              goto LABEL_34;
+              goto LABEL_35;
             Timeout.QuadPart = MEMORY[0xFFFFF78000000008] - v11 - v14;
             v53 = a6 + 2464;
             v19 = KeWaitForMultipleObjects(2u, &Object, WaitAny, Executive, 0, 0, &Timeout, 0LL);
@@ -163,29 +163,32 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
             switch ( v19 )
             {
               case 0:
-                goto LABEL_34;
+                goto LABEL_35;
               case 1:
                 v20 = *(unsigned __int16 *)(a6 + 4);
-                if ( (UsbhLogMask & 0x200) != 0 && a1 && (v21 = *(_QWORD *)(a1 + 64)) != 0 )
+                if ( (UsbhLogMask & 0x200) != 0 )
                 {
-                  v22 = *(_QWORD *)(v21 + 888)
-                      + 32LL
-                      * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v21 + 880)) & *(_DWORD *)(v21 + 884));
-                  *(_DWORD *)v22 = 1850889303;
-                  *(_QWORD *)(v22 + 8) = 0LL;
-                  *(_QWORD *)(v22 + 16) = a6;
-                  *(_QWORD *)(v22 + 24) = v20;
-                  *(_DWORD *)(a6 + 2844) = a5;
+                  if ( a1 )
+                  {
+                    v21 = *(_QWORD *)(a1 + 64);
+                    if ( v21 )
+                    {
+                      v22 = *(_QWORD *)(v21 + 888)
+                          + 32LL
+                          * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v21 + 880)) & *(_DWORD *)(v21 + 884));
+                      *(_DWORD *)v22 = 1850889303;
+                      *(_QWORD *)(v22 + 8) = 0LL;
+                      *(_QWORD *)(v22 + 16) = a6;
+                      *(_QWORD *)(v22 + 24) = v20;
+                    }
+                  }
                 }
-                else
-                {
-                  *(_DWORD *)(a6 + 2844) = a5;
-                  if ( !a1 )
-                    goto LABEL_80;
-                }
+                *(_DWORD *)(a6 + 2844) = a5;
+                if ( !a1 )
+                  goto LABEL_79;
                 v23 = *(_DWORD **)(a1 + 64);
                 if ( !v23 )
-                  goto LABEL_81;
+                  goto LABEL_80;
                 if ( *v23 != 541218120 )
                   UsbhTrapFatal_Dbg(a1, v23);
                 if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
@@ -203,30 +206,30 @@ __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int 
                 KeSetEvent((PRKEVENT)(a6 + 2464), 0, 0);
                 break;
               case 258:
-                goto LABEL_34;
+                goto LABEL_35;
             }
             v53 = a6 + 496;
           }
           else if ( v18 == 258 )
           {
-            goto LABEL_34;
+            goto LABEL_35;
           }
           if ( MEMORY[0xFFFFF78000000008] - v14 >= v11 )
             break;
           Timeout.QuadPart = MEMORY[0xFFFFF78000000008] - v14 - v11;
           v18 = KeWaitForMultipleObjects(2u, &Object, WaitAny, Executive, 0, 0, &Timeout, 0LL);
           if ( !v18 )
-            goto LABEL_34;
+            goto LABEL_35;
         }
         v18 = 258;
       }
-LABEL_34:
+LABEL_35:
       if ( !a1 )
-LABEL_80:
+LABEL_79:
         UsbhTrapFatal_Dbg(0LL, 0LL);
       v24 = *(struct _KEVENT **)(a1 + 64);
       if ( !v24 )
-LABEL_81:
+LABEL_80:
         UsbhTrapFatal_Dbg(a1, 0LL);
       if ( v24->Header.LockNV != 541218120 )
         UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
@@ -272,7 +275,7 @@ LABEL_81:
         }
       }
       KeSetEvent(v24 + 139, 0, 0);
-      goto LABEL_47;
+      goto LABEL_48;
     }
   }
   else
@@ -281,15 +284,15 @@ LABEL_81:
   }
   if ( a5 != 11 )
   {
-    Log(a1, 8, 2004112472, 0LL, 0LL);
+    Log(a1, 8, 2004112472, 0, 0LL);
     v33 = a2;
     v18 = KeWaitForSingleObject(a2, Executive, 0, v47, 0LL);
-    goto LABEL_48;
+    goto LABEL_49;
   }
   v54 = a2;
   v41 = (PVOID)(v17 + 496);
   P = (PVOID)(v17 + 496);
-LABEL_62:
+LABEL_63:
   v55 = v41;
   do
   {
@@ -314,13 +317,13 @@ LABEL_62:
         UsbhPCE_wRun(a1, v45 + 24, v45);
       }
       v41 = P;
-      goto LABEL_62;
+      goto LABEL_63;
     }
   }
   while ( v43 != 258 );
-LABEL_47:
-  v33 = a2;
 LABEL_48:
+  v33 = a2;
+LABEL_49:
   v34 = MEMORY[0xFFFFF78000000008];
   if ( (UsbhLogMask & 8) != 0 )
   {
@@ -361,8 +364,8 @@ LABEL_48:
   {
     if ( v37 < v11 )
     {
-      Log(a1, 8, 1465135393, SHIDWORD(v37), (unsigned int)v37);
-      Log(a1, 8, 1465135649, SHIDWORD(v51), (unsigned int)v11);
+      Log(a1, 8, 1465135393, HIDWORD(v37), (unsigned int)v37);
+      Log(a1, 8, 1465135649, HIDWORD(v51), (unsigned int)v11);
     }
     if ( a5 )
     {

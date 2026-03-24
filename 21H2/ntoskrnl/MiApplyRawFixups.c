@@ -1,10 +1,10 @@
 /*
- * XREFs of MiApplyRawFixups @ 0x14097FB60
+ * XREFs of MiApplyRawFixups @ 0x1408D7ACC
  * Callers:
- *     MiPerformFixups @ 0x1407BF2E0 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiDoSingleFixup @ 0x14097FCE4 (MiDoSingleFixup.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiDoSingleFixup @ 0x1408D7C50 (MiDoSingleFixup.c)
  */
 
 __int64 __fastcall MiApplyRawFixups(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 a3, __int64 a4)

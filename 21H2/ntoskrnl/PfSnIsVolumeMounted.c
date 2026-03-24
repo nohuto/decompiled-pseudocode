@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnIsVolumeMounted @ 0x1407E0A98
+ * XREFs of PfSnIsVolumeMounted @ 0x1406C7944
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x1407DDABC (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1406C7A68 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     NtQueryVolumeInformationFile @ 0x1407AF670 (NtQueryVolumeInformationFile.c)
- *     NtCreateFile @ 0x1407E0BC0 (NtCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     NtCreateFile @ 0x14060B430 (NtCreateFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
  */
 
 __int64 __fastcall PfSnIsVolumeMounted(PCWSTR SourceString, int *a2, int *a3)
@@ -21,12 +21,13 @@ __int64 __fastcall PfSnIsVolumeMounted(PCWSTR SourceString, int *a2, int *a3)
 
   FileHandle = 0LL;
   FsInformation = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

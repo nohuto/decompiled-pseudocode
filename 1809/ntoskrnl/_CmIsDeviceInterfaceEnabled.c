@@ -3,7 +3,7 @@
  * Callers:
  *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059EE90 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  *     PiPnpRtlInterfaceFilterCallback @ 0x1405C56A0 (PiPnpRtlInterfaceFilterCallback.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14074AEA0 (_CmDeviceClassesSubkeyCallback.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x14074AE80 (_CmDeviceClassesSubkeyCallback.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     _NtPlugPlayGetDeviceInterfaceEnabled @ 0x1405C582C (_NtPlugPlayGetDeviceInterfaceEnabled.c)

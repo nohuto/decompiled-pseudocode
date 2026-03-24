@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0szzqqq_EtwWriteTransfer @ 0x1C013EA38
+ * XREFs of McTemplateK0szzqqq_EtwWriteTransfer @ 0x1C0127488
  * Callers:
- *     EtwTraceTimerNoCoalescing @ 0x1C013B1B0 (EtwTraceTimerNoCoalescing.c)
+ *     EtwTraceTimerNoCoalescing @ 0x1C0123DB0 (EtwTraceTimerNoCoalescing.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0szzqqq_EtwWriteTransfer(
@@ -18,14 +18,14 @@ NTSTATUS __fastcall McTemplateK0szzqqq_EtwWriteTransfer(
         char a8,
         char a9)
 {
-  const wchar_t *v9; // r10
-  __int64 v10; // rcx
-  const wchar_t *v11; // rdx
-  __int64 v12; // rax
-  int v13; // eax
-  int v14; // r9d
-  __int64 v15; // rax
-  int v16; // r8d
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  int v11; // eax
+  const wchar_t *v12; // rax
+  int v13; // r9d
+  __int64 v14; // rdx
+  int v15; // r8d
+  const wchar_t *v16; // rax
   bool v17; // zf
   struct _EVENT_DATA_DESCRIPTOR v19; // [rsp+30h] [rbp-51h] BYREF
   const char *v20; // [rsp+40h] [rbp-41h]
@@ -44,63 +44,63 @@ NTSTATUS __fastcall McTemplateK0szzqqq_EtwWriteTransfer(
   char *v33; // [rsp+90h] [rbp+Fh]
   __int64 v34; // [rsp+98h] [rbp+17h]
 
-  v9 = a6;
-  v10 = -1LL;
-  v11 = a5;
+  v9 = -1LL;
   if ( a4 )
   {
-    v12 = -1LL;
+    v10 = -1LL;
     do
-      ++v12;
-    while ( a4[v12] );
-    v13 = v12 + 1;
+      ++v10;
+    while ( a4[v10] );
+    v11 = v10 + 1;
   }
   else
   {
-    v13 = 5;
+    v11 = 5;
   }
-  v21 = v13;
-  v22 = 0;
+  v21 = v11;
+  v12 = a5;
   if ( !a4 )
     a4 = "NULL";
+  v22 = 0;
   v20 = a4;
-  v14 = 10;
+  v13 = 10;
   if ( a5 )
   {
-    v15 = -1LL;
+    v14 = -1LL;
     do
-      ++v15;
-    while ( a5[v15] );
-    v16 = 2 * v15 + 2;
+      ++v14;
+    while ( a5[v14] );
+    v15 = 2 * v14 + 2;
   }
   else
   {
-    v16 = 10;
+    v15 = 10;
   }
-  v24 = v16;
+  v24 = v15;
   v25 = 0;
   if ( !a5 )
-    v11 = L"NULL";
-  v23 = v11;
+    v12 = L"NULL";
+  v23 = v12;
+  v16 = a6;
   v17 = a6 == 0LL;
   if ( a6 )
   {
     do
-      ++v10;
-    while ( a6[v10] );
-    v14 = 2 * v10 + 2;
+      ++v9;
+    while ( a6[v9] );
+    v13 = 2 * v9 + 2;
     v17 = a6 == 0LL;
   }
   if ( v17 )
-    v9 = L"NULL";
-  v27 = v14;
-  v26 = v9;
-  v29 = &a7;
+    v16 = L"NULL";
+  v27 = v13;
+  v26 = v16;
   v28 = 0;
-  v31 = &a8;
+  v29 = &a7;
   v30 = 4LL;
-  v33 = &a9;
+  v31 = &a8;
   v32 = 4LL;
+  v33 = &a9;
   v34 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(v10, &TimerNoCoalescing, &W32kControlGuid, 7u, &v19);
+  return McGenEventWrite_EtwWriteTransfer(v9, &TimerNoCoalescing, &W32kControlGuid, 7u, &v19);
 }

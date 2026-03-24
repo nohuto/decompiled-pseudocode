@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C01A1EF8
+ * XREFs of ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C016DFCC
  * Callers:
- *     RIMActivatePointerDeviceDeadzone @ 0x1C01886E0 (RIMActivatePointerDeviceDeadzone.c)
+ *     RIMActivatePointerDeviceDeadzone @ 0x1C015A320 (RIMActivatePointerDeviceDeadzone.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?ClearSession@DeadzonePalmTelemetry@@QEAAXXZ @ 0x1C01B7010 (-ClearSession@DeadzonePalmTelemetry@@QEAAXXZ.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?ClearSession@DeadzonePalmTelemetry@@QEAAXXZ @ 0x1C01808E8 (-ClearSession@DeadzonePalmTelemetry@@QEAAXXZ.c)
  */
 
 void __fastcall RIMDeadzone::ActivateTelemetrySession(RIMDeadzone *this, int a2)
@@ -15,17 +15,8 @@ void __fastcall RIMDeadzone::ActivateTelemetrySession(RIMDeadzone *this, int a2)
 
   v2 = *((_QWORD *)this + 7);
   v5 = (DeadzonePalmTelemetry *)v2;
-  if ( v2 )
+  if ( v2 && a2 && *((_DWORD *)this + 4) == 2 )
   {
-    if ( !a2 )
-    {
-LABEL_7:
-      if ( *((_DWORD *)this + 4) == 2 )
-        DeadzonePalmTelemetry::ClearSession(v5);
-      return;
-    }
-    if ( *((_DWORD *)this + 4) != 2 )
-      return;
     *(_DWORD *)(v2 + 4) = 0;
     memset((void *)(v2 + 2060), 0, 0x2800uLL);
     memset((void *)(v2 + 13), 0, 0x7FFuLL);
@@ -35,6 +26,6 @@ LABEL_7:
     *(_DWORD *)(v2 + 8) = v6;
     v5 = (DeadzonePalmTelemetry *)*((_QWORD *)this + 7);
   }
-  if ( v5 && !a2 )
-    goto LABEL_7;
+  if ( v5 && !a2 && *((_DWORD *)this + 4) == 2 )
+    DeadzonePalmTelemetry::ClearSession(v5);
 }

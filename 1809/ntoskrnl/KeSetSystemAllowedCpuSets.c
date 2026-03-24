@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetSystemAllowedCpuSets @ 0x14011497C
+ * XREFs of KeSetSystemAllowedCpuSets @ 0x14011499C
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KeCpuSetReportParkedProcessors @ 0x140114A84 (KeCpuSetReportParkedProcessors.c)
- *     RtlWriteAcquireTickLock @ 0x140117A50 (RtlWriteAcquireTickLock.c)
- *     KiValidateCpuSetMasks @ 0x140117A74 (KiValidateCpuSetMasks.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140114AA4 (KeCpuSetReportParkedProcessors.c)
+ *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
+ *     KiValidateCpuSetMasks @ 0x140117A94 (KiValidateCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)

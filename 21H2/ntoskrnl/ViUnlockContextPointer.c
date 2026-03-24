@@ -1,8 +1,8 @@
 /*
- * XREFs of ViUnlockContextPointer @ 0x140A83764
+ * XREFs of ViUnlockContextPointer @ 0x1409C860C
  * Callers:
- *     VfInsertContext @ 0x1405FE110 (VfInsertContext.c)
- *     VfRemoveContext @ 0x1405FE2E0 (VfRemoveContext.c)
+ *     VfInsertContext @ 0x1405A0850 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405A0A20 (VfRemoveContext.c)
  * Callees:
  *     <none>
  */

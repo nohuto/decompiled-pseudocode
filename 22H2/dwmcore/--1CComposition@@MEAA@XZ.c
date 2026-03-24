@@ -1,300 +1,223 @@
 /*
- * XREFs of ??1CComposition@@MEAA@XZ @ 0x1801B3CEC
+ * XREFs of ??1CComposition@@MEAA@XZ @ 0x180154BF0
  * Callers:
- *     ??_ECComposition@@MEAAPEAXI@Z @ 0x1801B4550 (--_ECComposition@@MEAAPEAXI@Z.c)
- *     ??_ECGlobalComposition@@UEAAPEAXI@Z @ 0x1801F27B0 (--_ECGlobalComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECComposition@@MEAAPEAXI@Z @ 0x180155110 (--_ECComposition@@MEAAPEAXI@Z.c)
+ *     ??_ECGlobalComposition@@EEAAPEAXI@Z @ 0x180162580 (--_ECGlobalComposition@@EEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CPreComputeContext@@QEAA@XZ @ 0x18001DA54 (--1CPreComputeContext@@QEAA@XZ.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ??$ReleaseInterface@VCChannelContext@@@@YAXAEAPEAVCChannelContext@@@Z @ 0x1800AAEE8 (--$ReleaseInterface@VCChannelContext@@@@YAXAEAPEAVCChannelContext@@@Z.c)
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800B9E80 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@@std@@@s.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x1800BCE8C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?clear_region@?$vector_facade@PEAVCVisualTree@@V?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800C7F00 (-clear_region@-$vector_facade@PEAVCVisualTree@@V-$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x1800E28C4 (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
- *     ?Reset@CComposition@@UEAAXXZ @ 0x1800EBF50 (-Reset@CComposition@@UEAAXXZ.c)
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FFF80 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
- *     ??$_Destroy_range@V?$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDeviceManager@@QEAV12@AEAV?$allocator@VDeviceInfo@CDeviceManager@@@0@@Z @ 0x1801045E4 (--$_Destroy_range@V-$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDevice.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@V?$com_ptr_t@VVertexAAOffsetsResource@Mesh@@Uerr_returncode_policy@wil@@@wil@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@V?$com_ptr_t@VVertexAAOffsetsResource@Mesh@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@V?$com_ptr_t@VVertexAAOffsetsResource@Mesh@@Uerr_returncode_policy@wil@@@wil@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@V?$com_ptr_t@VVertexAAOffsetsResource@Mesh@@Uerr_returncode_policy@wil@@@wil@@@std@@PEAX@1@@Z @ 0x1801B39CC (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManage.c)
- *     ??1CRenderTargetManager@@IEAA@XZ @ 0x1801B4304 (--1CRenderTargetManager@@IEAA@XZ.c)
- *     ??1CSuperWetInkManager@@QEAA@XZ @ 0x1801B4410 (--1CSuperWetInkManager@@QEAA@XZ.c)
- *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B468C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
- *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x1801B5058 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
- *     ?ReleaseNotificationChannels@CComposition@@AEAAXXZ @ 0x1801B509C (-ReleaseNotificationChannels@CComposition@@AEAAXXZ.c)
- *     ?UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ @ 0x1801B522C (-UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ.c)
- *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801B5738 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
- *     ??1CSceneResourceManager@@QEAA@XZ @ 0x1801BC988 (--1CSceneResourceManager@@QEAA@XZ.c)
- *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180271C68 (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800358E8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x18004584C (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180062C44 (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?Reset@CComposition@@UEAAXXZ @ 0x1800DEE50 (-Reset@CComposition@@UEAAXXZ.c)
+ *     ??$_Destroy_range@V?$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDeviceManager@@0AEAV?$allocator@VDeviceInfo@CDeviceManager@@@0@@Z @ 0x1800DFF88 (--$_Destroy_range@V-$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDevice.c)
+ *     ??_GCCursorVisualReference@@QEAAPEAXI@Z @ 0x1800E4DDC (--_GCCursorVisualReference@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??_GCRenderTargetManager@@IEAAPEAXI@Z @ 0x1801551AC (--_GCRenderTargetManager@@IEAAPEAXI@Z.c)
+ *     ??_GCSuperWetInkManager@@QEAAPEAXI@Z @ 0x18015521C (--_GCSuperWetInkManager@@QEAAPEAXI@Z.c)
+ *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180155AF0 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
+ *     ?ReleaseNotificationChannels@CComposition@@AEAAXXZ @ 0x180155B20 (-ReleaseNotificationChannels@CComposition@@AEAAXXZ.c)
+ *     ?UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ @ 0x180155C70 (-UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ.c)
+ *     ?clear_region@?$vector_facade@PEAVCDesktopTree@@V?$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180155E6C (-clear_region@-$vector_facade@PEAVCDesktopTree@@V-$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x180163524 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ??1CSceneResourceManager@@QEAA@XZ @ 0x180168090 (--1CSceneResourceManager@@QEAA@XZ.c)
+ *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180210960 (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
  */
 
 void __fastcall CComposition::~CComposition(CComposition *this, int a2)
 {
-  __int64 v3; // rsi
   unsigned int i; // ebx
-  unsigned int v5; // eax
-  __int64 v6; // rbx
-  void **v7; // rbx
-  CSceneResourceManager *v8; // rbx
-  unsigned int v9; // edx
-  unsigned int v10; // eax
-  __int64 v11; // rbx
-  CExcludeVisualReference *v12; // rcx
+  unsigned int v4; // eax
+  __int64 v5; // rbx
+  __int64 v6; // rsi
+  CSceneResourceManager *v7; // rbx
+  unsigned int v8; // eax
+  __int64 v9; // rbx
+  __int64 v10; // rsi
+  CCursorVisualReference *v11; // rcx
   unsigned int j; // ebx
-  __int64 v14; // rcx
+  __int64 v13; // rcx
+  unsigned int v14; // edx
   __int64 v15; // rcx
   __int64 v16; // rcx
-  void *v17; // rbx
+  CRenderTargetManager *v17; // rcx
   __int64 v18; // rcx
-  volatile signed __int32 *v19; // rcx
+  CDrawListEntry *v19; // rcx
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  _QWORD *v22; // rdx
-  _QWORD *v23; // rsi
-  __int64 v24; // rbx
-  volatile signed __int32 *v25; // rcx
-  void *v26; // rdx
-  _QWORD *v27; // rcx
-  wil::details *v28; // rcx
-  volatile signed __int32 *v29; // rcx
-  Microsoft::Bamo::BaseBamoConnection *v30; // rcx
-  void *v31; // rcx
-  CResource *v32; // rcx
-  CResource *v33; // rcx
-  void *v34; // rbx
-  void **v35; // rbx
-  void *v36; // rbx
-  void *v37; // rbx
-  void **v38; // rbx
-  __int64 v39; // r8
-  void *v40; // rcx
-  bool v41; // zf
-  __int64 v42; // [rsp+50h] [rbp+8h] BYREF
+  CDrawListEntry *v21; // rcx
+  __int64 v22; // rcx
+  void *v23; // rcx
+  CRenderTargetBitmap *v24; // rcx
+  Microsoft::Bamo::BaseBamoConnection *v25; // rcx
+  void *v26; // rcx
+  CRenderTargetBitmap *v27; // rcx
+  CRenderTargetBitmap *v28; // rcx
+  unsigned int v29; // edx
+  void *v30; // rbx
+  CSuperWetInkManager *v31; // rcx
+  CComposition **v32; // rbx
+  CComposition *v33; // rcx
+  CDrawListEntry *v34; // [rsp+50h] [rbp+8h] BYREF
 
   *(_QWORD *)this = &CComposition::`vftable';
   CComposition::Reset(this, a2);
-  v3 = 0LL;
-  for ( i = 0; i < *((_DWORD *)this + 134); ++i )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(*(volatile signed __int32 **)(*((_QWORD *)this + 64) + 8LL * i));
-  *((_DWORD *)this + 134) = 0;
-  v5 = *((_DWORD *)this + 116);
-  if ( v5 )
+  for ( i = 0; i < *((_DWORD *)this + 96); ++i )
+    CDrawListEntry::Release(*(CDrawListEntry **)(*((_QWORD *)this + 45) + 8LL * i));
+  *((_DWORD *)this + 96) = 0;
+  v4 = *((_DWORD *)this + 80);
+  if ( v4 )
   {
-    v6 = 0LL;
-    v3 = v5;
+    v5 = 0LL;
+    v6 = v4;
     do
     {
-      v42 = *(_QWORD *)(v6 + *((_QWORD *)this + 55));
-      ReleaseInterface<CChannelContext>(&v42);
-      v6 += 8LL;
-      --v3;
+      v34 = *(CDrawListEntry **)(v5 + *((_QWORD *)this + 37));
+      ReleaseInterface<CProcessAttribution>(&v34);
+      v5 += 8LL;
+      --v6;
     }
-    while ( v3 );
+    while ( v6 );
   }
-  *((_DWORD *)this + 116) = v3;
-  DynArrayImpl<1>::ShrinkToSize((__int64)this + 440, 8u);
+  *((_DWORD *)this + 80) = 0;
+  DynArrayImpl<1>::ShrinkToSize((__int64)this + 296, 8u);
   CComposition::ReleaseNotificationChannels(this);
-  v7 = (void **)*((_QWORD *)this + 35);
-  *((_QWORD *)this + 35) = v3;
+  v7 = (CSceneResourceManager *)*((_QWORD *)this + 19);
+  *((_QWORD *)this + 19) = 0LL;
   if ( v7 )
   {
-    std::_Tree_val<std::_Tree_simple_types<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,wil::com_ptr_t<Mesh::VertexAAOffsetsResource,wil::err_returncode_policy>>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,wil::com_ptr_t<Mesh::VertexAAOffsetsResource,wil::err_returncode_policy>>,void *>>>(
-      (__int64)v7,
-      (__int64)v7,
-      *((_QWORD *)*v7 + 1));
-    std::_Deallocate<16,0>(*v7, 0x38uLL);
+    CSceneResourceManager::~CSceneResourceManager(v7);
     operator delete(v7);
   }
-  v8 = (CSceneResourceManager *)*((_QWORD *)this + 36);
-  *((_QWORD *)this + 36) = v3;
+  std::_Destroy_range<std::allocator<CDeviceManager::DeviceInfo>>(qword_18034B618, xmmword_18034B620);
+  *(_QWORD *)&xmmword_18034B620 = qword_18034B618;
+  *((_DWORD *)this + 140) = 0;
+  v8 = *((_DWORD *)this + 210);
   if ( v8 )
   {
-    CSceneResourceManager::~CSceneResourceManager(v8);
-    operator delete(v8);
-  }
-  std::_Destroy_range<std::allocator<CDeviceManager::DeviceInfo>>(qword_1803EA158, xmmword_1803EA160);
-  *(_QWORD *)&xmmword_1803EA160 = qword_1803EA158;
-  v10 = *((_DWORD *)this + 248);
-  if ( v10 )
-  {
-    v11 = v3;
-    v3 = v10;
+    v9 = 0LL;
+    v10 = v8;
     do
     {
-      v12 = *(CExcludeVisualReference **)(v11 + *((_QWORD *)this + 121));
-      if ( v12 )
-        CExcludeVisualReference::`scalar deleting destructor'(v12, v9);
-      v11 += 8LL;
-      --v3;
+      v11 = *(CCursorVisualReference **)(v9 + *((_QWORD *)this + 102));
+      if ( v11 )
+        CCursorVisualReference::`scalar deleting destructor'(v11);
+      v9 += 8LL;
+      --v10;
     }
-    while ( v3 );
+    while ( v10 );
   }
-  *((_DWORD *)this + 248) = v3;
-  DynArrayImpl<0>::ShrinkToSize((__int64)this + 968, 8u);
-  for ( j = v3; j < *((_DWORD *)this + 196); ++j )
+  *((_DWORD *)this + 210) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 816, 8u);
+  for ( j = 0; j < *((_DWORD *)this + 158); ++j )
   {
-    v14 = *(_QWORD *)(*((_QWORD *)this + 95) + 8LL * j);
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+    v13 = *(_QWORD *)(*((_QWORD *)this + 76) + 8LL * j);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
   }
-  *((_DWORD *)this + 196) = v3;
-  DynArrayImpl<0>::ShrinkToSize((__int64)this + 760, 8u);
+  *((_DWORD *)this + 158) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 608, 8u);
   CComposition::UnmapDeferredSharedSectionViews(this);
-  v15 = *((_QWORD *)this + 40);
-  *((_QWORD *)this + 40) = v3;
+  v15 = *((_QWORD *)this + 21);
+  *((_QWORD *)this + 21) = 0LL;
   if ( v15 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
-  v16 = *((_QWORD *)this + 41);
-  *((_QWORD *)this + 41) = v3;
+  v16 = *((_QWORD *)this + 22);
+  *((_QWORD *)this + 22) = 0LL;
   if ( v16 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
-  v17 = (void *)*((_QWORD *)this + 27);
+  v17 = (CRenderTargetManager *)*((_QWORD *)this + 11);
   if ( v17 )
-  {
-    CRenderTargetManager::~CRenderTargetManager(*((CRenderTargetManager **)this + 27));
-    operator delete(v17);
-  }
-  v18 = *((_QWORD *)this + 28);
+    CRenderTargetManager::`scalar deleting destructor'(v17, v14);
+  v18 = *((_QWORD *)this + 12);
   if ( v18 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 8LL))(v18);
-  v19 = (volatile signed __int32 *)*((_QWORD *)this + 53);
+  v19 = (CDrawListEntry *)*((_QWORD *)this + 34);
   if ( v19 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v19);
-  v20 = *((_QWORD *)this + 29);
+    CDrawListEntry::Release(v19);
+  v20 = *((_QWORD *)this + 13);
   if ( v20 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
-  v21 = *((_QWORD *)this + 30);
+  v21 = (CDrawListEntry *)*((_QWORD *)this + 15);
   if ( v21 )
-  {
-    *((_QWORD *)this + 30) = v3;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
-  }
-  while ( 1 )
-  {
-    v22 = (_QWORD *)*((_QWORD *)this + 167);
-    if ( *((_QWORD **)this + 166) == v22 )
-      break;
-    v23 = (_QWORD *)*((_QWORD *)this + 166);
-    v24 = *((_QWORD *)this + 168);
-    *((_QWORD *)this + 168) = 0LL;
-    *((_QWORD *)this + 167) = 0LL;
-    *((_QWORD *)this + 166) = 0LL;
-    if ( v23 )
-    {
-      std::_Destroy_range<std::allocator<wil::com_ptr_t<CVisual,wil::err_returncode_policy>>>(v23, v22);
-      std::_Deallocate<16,0>(v23, (v24 - (_QWORD)v23) & 0xFFFFFFFFFFFFFFF8uLL);
-    }
-  }
-  v25 = (volatile signed __int32 *)*((_QWORD *)this + 31);
-  if ( v25 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v25);
+    CDrawListEntry::Release(v21);
+  v22 = *((_QWORD *)this + 14);
+  if ( v22 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
   CThreadContext::DestroyObjectCaches();
+  v23 = (void *)*((_QWORD *)this + 146);
   g_pFrameId = 0LL;
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 169);
-  v27 = (_QWORD *)*((_QWORD *)this + 166);
+  if ( v23 )
+  {
+    std::_Deallocate<16,0>(v23, (*((_QWORD *)this + 148) - (_QWORD)v23) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 146) = 0LL;
+    *((_QWORD *)this + 147) = 0LL;
+    *((_QWORD *)this + 148) = 0LL;
+  }
+  v24 = (CRenderTargetBitmap *)*((_QWORD *)this + 137);
+  if ( v24 )
+  {
+    *((_QWORD *)this + 137) = 0LL;
+    CRenderTargetBitmap::Release(v24);
+  }
+  v25 = (Microsoft::Bamo::BaseBamoConnection *)*((_QWORD *)this + 136);
+  if ( v25 )
+  {
+    *((_QWORD *)this + 136) = 0LL;
+    Microsoft::Bamo::BaseBamoConnection::Release(v25);
+  }
+  operator delete(*((void **)this + 122));
+  v26 = (void *)*((_QWORD *)this + 116);
+  if ( v26 )
+  {
+    std::_Deallocate<16,0>(v26, (*((_QWORD *)this + 118) - (_QWORD)v26) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 116) = 0LL;
+    *((_QWORD *)this + 117) = 0LL;
+    *((_QWORD *)this + 118) = 0LL;
+  }
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 896);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 864);
+  v27 = (CRenderTargetBitmap *)*((_QWORD *)this + 107);
   if ( v27 )
-  {
-    std::_Destroy_range<std::allocator<wil::com_ptr_t<CVisual,wil::err_returncode_policy>>>(
-      v27,
-      *((_QWORD **)this + 167));
-    std::_Deallocate<16,0>(
-      *((void **)this + 166),
-      (*((_QWORD *)this + 168) - *((_QWORD *)this + 166)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 166) = 0LL;
-    *((_QWORD *)this + 167) = 0LL;
-    *((_QWORD *)this + 168) = 0LL;
-  }
-  v28 = (wil::details *)*((_QWORD *)this + 158);
+    CRenderTargetBitmap::Release(v27);
+  v28 = (CRenderTargetBitmap *)*((_QWORD *)this + 106);
   if ( v28 )
-    wil::details::CloseHandle(v28, v26);
-  v29 = (volatile signed __int32 *)*((_QWORD *)this + 157);
-  if ( v29 )
-  {
-    *((_QWORD *)this + 157) = 0LL;
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v29);
-  }
-  v30 = (Microsoft::Bamo::BaseBamoConnection *)*((_QWORD *)this + 156);
+    CRenderTargetBitmap::Release(v28);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 816);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 656);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 608);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 568);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 536);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 424);
+  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 49);
+  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 45);
+  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 37);
+  CMmcssTask::UnloadRuntime((CComposition *)((char *)this + 184));
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 184));
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 22);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 21);
+  v30 = (void *)*((_QWORD *)this + 19);
   if ( v30 )
   {
-    *((_QWORD *)this + 156) = 0LL;
-    Microsoft::Bamo::BaseBamoConnection::Release(v30);
+    CSceneResourceManager::~CSceneResourceManager(*((CSceneResourceManager **)this + 19));
+    operator delete(v30);
   }
-  operator delete(*((void **)this + 141));
-  v31 = (void *)*((_QWORD *)this + 135);
+  v31 = (CSuperWetInkManager *)*((_QWORD *)this + 16);
   if ( v31 )
+    CSuperWetInkManager::`scalar deleting destructor'(v31, v29);
+  v32 = (CComposition **)((char *)this + 56);
+  v33 = (CComposition *)*((_QWORD *)this + 7);
+  if ( (__int64)(*((_QWORD *)this + 8) - (_QWORD)v33) >> 3 )
   {
-    std::_Deallocate<16,0>(v31, (*((_QWORD *)this + 137) - (_QWORD)v31) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 135) = 0LL;
-    *((_QWORD *)this + 136) = 0LL;
-    *((_QWORD *)this + 137) = 0LL;
+    detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region((char *)this + 56);
+    v33 = *v32;
   }
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 1048);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 1016);
-  v32 = (CResource *)*((_QWORD *)this + 126);
-  if ( v32 )
-    CResource::InternalRelease(v32);
-  v33 = (CResource *)*((_QWORD *)this + 125);
-  if ( v33 )
-    CResource::InternalRelease(v33);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 968);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 808);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 760);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 720);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 688);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 576);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 68);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 64);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 55);
-  CMmcssTask::UnloadRuntime((CComposition *)((char *)this + 336));
-  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 336));
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 41);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 40);
-  v34 = (void *)*((_QWORD *)this + 36);
-  if ( v34 )
-  {
-    CSceneResourceManager::~CSceneResourceManager(*((CSceneResourceManager **)this + 36));
-    operator delete(v34);
-  }
-  v35 = (void **)*((_QWORD *)this + 35);
-  if ( v35 )
-  {
-    std::_Tree_val<std::_Tree_simple_types<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,wil::com_ptr_t<Mesh::VertexAAOffsetsResource,wil::err_returncode_policy>>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,wil::com_ptr_t<Mesh::VertexAAOffsetsResource,wil::err_returncode_policy>>,void *>>>(
-      *((_QWORD *)this + 35),
-      *((_QWORD *)this + 35),
-      *((_QWORD *)*v35 + 1));
-    std::_Deallocate<16,0>(*v35, 0x38uLL);
-    operator delete(v35);
-  }
-  v36 = (void *)*((_QWORD *)this + 32);
-  if ( v36 )
-  {
-    CSuperWetInkManager::~CSuperWetInkManager(*((CSuperWetInkManager **)this + 32));
-    operator delete(v36);
-  }
-  v37 = (void *)*((_QWORD *)this + 26);
-  if ( v37 )
-  {
-    CPreComputeContext::~CPreComputeContext(*((void ***)this + 26));
-    operator delete(v37);
-  }
-  v38 = (void **)((char *)this + 56);
-  v39 = (__int64)(*((_QWORD *)this + 8) - *((_QWORD *)this + 7)) >> 3;
-  if ( v39 )
-    detail::vector_facade<CVisualTree *,detail::buffer_impl<CVisualTree *,16,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)this + 7,
-      0LL,
-      v39);
-  v40 = *v38;
-  v41 = *((_QWORD *)this + 7) == (_QWORD)this + 80;
-  *v38 = 0LL;
-  if ( v41 )
-    v40 = 0LL;
-  operator delete(v40);
+  *v32 = 0LL;
+  if ( v33 == (CComposition *)((char *)this + 80) )
+    v33 = 0LL;
+  operator delete(v33);
   DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 16));
 }

@@ -1,170 +1,145 @@
 /*
- * XREFs of ?SortTouchContacts@@YAHPEAUtagPOINTER_TOUCH_INFO@@I@Z @ 0x1C01D60A0
+ * XREFs of ?SortTouchContacts@@YAHPEAUtagPOINTER_TOUCH_INFO@@I@Z @ 0x1C01DBBFC
  * Callers:
- *     xxxInjectTouchInput @ 0x1C01D73EC (xxxInjectTouchInput.c)
+ *     xxxInjectTouchInput @ 0x1C01DCDAC (xxxInjectTouchInput.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0077CC4 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C003AD34 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall SortTouchContacts(struct tagPOINTER_TOUCH_INFO *a1, unsigned int a2)
 {
-  PDEVICE_OBJECT v4; // rcx
-  bool v5; // r10
-  bool v6; // r8
-  __int64 v7; // rdx
-  unsigned int v8; // r8d
-  unsigned int v9; // edx
-  int v10; // ebx
-  __int128 *v11; // r11
-  __int64 v12; // r14
-  int v13; // r12d
-  __int64 v14; // r10
-  char *v15; // rsi
+  unsigned int v2; // r10d
+  struct tagPOINTER_TOUCH_INFO *v3; // rbx
+  int v4; // r9d
+  unsigned int v5; // r8d
+  int v6; // r11d
+  __int128 *v7; // r9
+  __int64 v8; // rsi
+  int v9; // r15d
+  __int64 v10; // r13
+  char *v11; // rdi
+  __int64 v12; // rdx
+  _OWORD *v13; // rdx
+  __int128 v14; // xmm0
+  __int64 v15; // rcx
   _OWORD *v16; // rdx
-  __int128 v17; // xmm0
-  __int64 v18; // rcx
-  _OWORD *v19; // rdx
-  unsigned int v20; // edx
   _DWORD *i; // r8
-  __int16 v23; // [rsp+30h] [rbp-D8h]
-  int v24; // [rsp+40h] [rbp-C8h]
-  __int128 v25; // [rsp+50h] [rbp-B8h]
-  __int128 v26; // [rsp+60h] [rbp-A8h]
-  __int128 v27; // [rsp+70h] [rbp-98h]
-  __int128 v28; // [rsp+80h] [rbp-88h]
-  __int128 v29; // [rsp+90h] [rbp-78h]
-  __int128 v30; // [rsp+A0h] [rbp-68h]
-  __int128 v31; // [rsp+B0h] [rbp-58h]
-  __int128 v32; // [rsp+C0h] [rbp-48h]
-  __int128 v33; // [rsp+D0h] [rbp-38h]
+  int v19; // [rsp+28h] [rbp-C0h]
+  __int128 v20; // [rsp+30h] [rbp-B8h]
+  __int128 v21; // [rsp+40h] [rbp-A8h]
+  __int128 v22; // [rsp+50h] [rbp-98h]
+  __int128 v23; // [rsp+60h] [rbp-88h]
+  __int128 v24; // [rsp+70h] [rbp-78h]
+  __int128 v25; // [rsp+80h] [rbp-68h]
+  __int128 v26; // [rsp+90h] [rbp-58h]
+  __int128 v27; // [rsp+A0h] [rbp-48h]
+  __int128 v28; // [rsp+B0h] [rbp-38h]
 
-  if ( !a2 )
+  v2 = a2;
+  v3 = a1;
+  if ( a2 )
   {
-    v4 = WPP_GLOBAL_Control;
-    v5 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-    v6 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v5 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return 0LL;
-    LOBYTE(v24) = 0;
-    LODWORD(v7) = 17;
-    v23 = 17;
-    goto LABEL_36;
-  }
-  v5 = 1;
-  v8 = 1;
-  v9 = a2 / 9;
-  if ( a2 / 9 <= 1 )
-    goto LABEL_40;
-  do
-    v8 = 3 * v8 + 1;
-  while ( v8 < v9 );
-  if ( v8 )
-  {
-LABEL_40:
+    v5 = 1;
+    if ( a2 / 9 <= 1 )
+      goto LABEL_28;
     do
+      v5 = 3 * v5 + 1;
+    while ( v5 < a2 / 9 );
+    if ( v5 )
     {
-      if ( v8 < a2 )
+LABEL_28:
+      do
       {
-        v10 = 0;
-        v11 = (__int128 *)((char *)a1 + 144 * v8);
-        do
+        if ( v5 < v2 )
         {
-          v12 = v10;
-          v13 = v10;
-          v25 = *v11;
-          v26 = v11[1];
-          v27 = v11[2];
-          v28 = v11[3];
-          v29 = v11[4];
-          v30 = v11[5];
-          v31 = v11[6];
-          v32 = v11[7];
-          v33 = v11[8];
-          if ( v10 >= 0 )
+          v6 = 0;
+          v7 = (__int128 *)((char *)v3 + 144 * v5);
+          do
           {
-            v14 = v10 + v8;
-            v15 = (char *)a1 + 144 * v10;
-            do
+            v8 = v6;
+            v9 = v6;
+            v20 = *v7;
+            v21 = v7[1];
+            v22 = v7[2];
+            v23 = v7[3];
+            v24 = v7[4];
+            v25 = v7[5];
+            v26 = v7[6];
+            v27 = v7[7];
+            v28 = v7[8];
+            if ( v6 >= 0 )
             {
-              if ( *((_DWORD *)v15 + 1) <= DWORD1(v25) )
-                break;
-              v13 -= v8;
-              v16 = (_OWORD *)((char *)a1 + 144 * v14);
-              v14 = (unsigned int)v14 - v8;
-              *v16 = *(_OWORD *)v15;
-              v16[1] = *((_OWORD *)v15 + 1);
-              v16[2] = *((_OWORD *)v15 + 2);
-              v16[3] = *((_OWORD *)v15 + 3);
-              v16[4] = *((_OWORD *)v15 + 4);
-              v16[5] = *((_OWORD *)v15 + 5);
-              v16[6] = *((_OWORD *)v15 + 6);
-              v16[7] = *((_OWORD *)v15 + 7);
-              v17 = *((_OWORD *)v15 + 8);
-              v15 -= 144 * (int)v8;
-              v12 -= (int)v8;
-              v16[8] = v17;
+              v10 = v6 + v5;
+              v11 = (char *)v3 + 144 * v6;
+              do
+              {
+                if ( *((_DWORD *)v11 + 1) <= DWORD1(v20) )
+                  break;
+                v9 -= v5;
+                v12 = 144 * v10;
+                v10 = (unsigned int)v10 - v5;
+                v13 = (_OWORD *)((char *)v3 + v12);
+                *v13 = *(_OWORD *)v11;
+                v13[1] = *((_OWORD *)v11 + 1);
+                v13[2] = *((_OWORD *)v11 + 2);
+                v13[3] = *((_OWORD *)v11 + 3);
+                v13[4] = *((_OWORD *)v11 + 4);
+                v13[5] = *((_OWORD *)v11 + 5);
+                v13[6] = *((_OWORD *)v11 + 6);
+                v13[7] = *((_OWORD *)v11 + 7);
+                v14 = *((_OWORD *)v11 + 8);
+                v11 -= 144 * (int)v5;
+                v8 -= (int)v5;
+                v13[8] = v14;
+              }
+              while ( v8 >= 0 );
             }
-            while ( v12 >= 0 );
-            v5 = 1;
+            v15 = v9 + v5;
+            if ( v6 + v5 != (_DWORD)v15 )
+            {
+              v16 = (_OWORD *)((char *)v3 + 144 * v15);
+              *v16 = v20;
+              v16[1] = v21;
+              v16[2] = v22;
+              v16[3] = v23;
+              v16[4] = v24;
+              v16[5] = v25;
+              v16[6] = v26;
+              v16[7] = v27;
+              v16[8] = v28;
+            }
+            ++v6;
+            v7 += 9;
           }
-          v18 = v13 + v8;
-          if ( v10 + v8 != (_DWORD)v18 )
-          {
-            v19 = (_OWORD *)((char *)a1 + 144 * v18);
-            *v19 = v25;
-            v19[1] = v26;
-            v19[2] = v27;
-            v19[3] = v28;
-            v19[4] = v29;
-            v19[5] = v30;
-            v19[6] = v31;
-            v19[7] = v32;
-            v19[8] = v33;
-          }
-          ++v10;
-          v11 += 9;
+          while ( v6 + v5 < v2 );
         }
-        while ( v10 + v8 < a2 );
+        v5 /= 3u;
       }
-      v8 /= 3u;
+      while ( v5 );
     }
-    while ( v8 );
-  }
-  v20 = 1;
-  if ( a2 <= 1 )
-    return 1LL;
-  for ( i = (_DWORD *)((char *)a1 + 148); *i != *((_DWORD *)a1 + 36 * v20 - 35); i += 36 )
-  {
-    if ( ++v20 >= a2 )
+    a2 = 1;
+    if ( v2 <= 1 )
       return 1LL;
+    for ( i = (_DWORD *)((char *)v3 + 148); *i != *((_DWORD *)v3 + 36 * a2 - 35); i += 36 )
+    {
+      if ( ++a2 >= v2 )
+        return 1LL;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v4 = 18;
+      LODWORD(a1) = 18 * a2;
+      v19 = *((_DWORD *)v3 + 36 * a2 + 1);
+      goto LABEL_24;
+    }
   }
-  v4 = WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = 0;
-  }
-  v6 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v7 = 18LL * v20;
-    v24 = *((_DWORD *)a1 + 2 * v7 + 1);
-    v23 = 18;
-LABEL_36:
-    LOBYTE(v7) = v5;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      v4->AttachedDevice,
-      v7,
-      v6,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      2,
-      20,
-      v23,
-      (__int64)&WPP_7f0ff6f8c25b358727b761e93ff3e21d_Traceguids,
-      v24);
+    v4 = 17;
+    v19 = 0;
+LABEL_24:
+    LOBYTE(a2) = 2;
+    WPP_RECORDER_SF_d((_DWORD)a1, a2, 20, v4, (__int64)&WPP_a7556dcd6e523d00d7fcf3c18afb0c6e_Traceguids, v19);
   }
   return 0LL;
 }

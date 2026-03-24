@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Destroy@FxDevice@@QEAAXXZ @ 0x1C00302A8
+ * XREFs of ?Destroy@FxDevice@@QEAAXXZ @ 0x1C005067C
  * Callers:
- *     ?CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z @ 0x1C001F658 (-CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z.c)
- *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C00301DC (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
- *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760 (-Dispose@FxDevice@@UEAAEXZ.c)
- *     ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0088068 (-DeleteDevice@FxPkgPnp@@IEAAXXZ.c)
+ *     ?CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z @ 0x1C003AEC8 (-CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z.c)
+ *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C0051B74 (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
+ *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20 (-Dispose@FxDevice@@UEAAEXZ.c)
+ *     ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0080004 (-DeleteDevice@FxPkgPnp@@IEAAXXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C002BB4C (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
+ *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C0050620 (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
  */
 
 void __fastcall FxDevice::Destroy(FxDevice *this)
@@ -18,9 +18,9 @@ void __fastcall FxDevice::Destroy(FxDevice *this)
   const void *_a2; // rax
   const void *_a1; // rdx
   _DEVICE_OBJECT *v5; // rcx
+  _DEVICE_OBJECT *v6; // rcx
   wchar_t *Buffer; // rcx
-  wchar_t *v7; // rcx
-  _DEVICE_OBJECT *v8; // rcx
+  wchar_t *v8; // rcx
 
   m_DeviceObject = this->m_DeviceObject.m_DeviceObject;
   if ( m_DeviceObject )
@@ -44,11 +44,11 @@ void __fastcall FxDevice::Destroy(FxDevice *this)
   if ( this->m_DeviceObject.m_DeviceObject )
   {
     FxDevice::DeleteSymbolicLink(this);
-    v8 = this->m_DeviceObject.m_DeviceObject;
+    v6 = this->m_DeviceObject.m_DeviceObject;
     if ( this->m_DeviceObjectDeleted )
-      ObfDereferenceObject(v8);
+      ObfDereferenceObject(v6);
     else
-      IoDeleteDevice(v8);
+      IoDeleteDevice(v6);
     this->m_DeviceObject.m_DeviceObject = 0LL;
   }
   Buffer = this->m_DeviceName.Buffer;
@@ -57,10 +57,10 @@ void __fastcall FxDevice::Destroy(FxDevice *this)
     FxPoolFree((FX_POOL_TRACKER *)Buffer);
     this->m_DeviceName = 0LL;
   }
-  v7 = this->m_MofResourceName.Buffer;
-  if ( v7 )
+  v8 = this->m_MofResourceName.Buffer;
+  if ( v8 )
   {
-    FxPoolFree((FX_POOL_TRACKER *)v7);
+    FxPoolFree((FX_POOL_TRACKER *)v8);
     this->m_MofResourceName = 0LL;
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EmitUpdateCommands@CColorGradientStopMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A5AD0
+ * XREFs of ?EmitUpdateCommands@CColorGradientStopMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E62B0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed87___ @ 0x1C00A5B48 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed8.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f904___ @ 0x1C00A5BCC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f90.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f904___ @ 0x1C01E61A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f90.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed87___ @ 0x1C01E6224 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed8.c)
  */
 
 char __fastcall DirectComposition::CColorGradientStopMarshaler::EmitUpdateCommands(
         DirectComposition::CColorGradientStopMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   int v2; // eax
   char v3; // di
@@ -20,10 +20,10 @@ char __fastcall DirectComposition::CColorGradientStopMarshaler::EmitUpdateComman
   v7 = this;
   if ( (v2 & 0x20) != 0 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed87___(
-                             this,
-                             a2,
-                             &v7) )
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed87___(
+            (__int64)this,
+            a2,
+            (__int64)&v7) )
       return v3;
     *((_DWORD *)this + 4) &= ~0x20u;
     v2 = *((_DWORD *)this + 4);
@@ -31,10 +31,10 @@ char __fastcall DirectComposition::CColorGradientStopMarshaler::EmitUpdateComman
   v7 = this;
   if ( (v2 & 0x40) == 0 )
     return 1;
-  if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f904___(
-                          this,
-                          a2,
-                          &v7) )
+  if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f904___(
+         (__int64)this,
+         a2,
+         (__int64)&v7) )
   {
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;

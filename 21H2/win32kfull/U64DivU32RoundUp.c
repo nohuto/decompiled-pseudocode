@@ -1,8 +1,8 @@
 /*
- * XREFs of U64DivU32RoundUp @ 0x1C00953DC
+ * XREFs of U64DivU32RoundUp @ 0x1C001DD68
  * Callers:
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     MulDivFD6Pairs @ 0x1C00972DC (MulDivFD6Pairs.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     MulDivFD6Pairs @ 0x1C011B400 (MulDivFD6Pairs.c)
  * Callees:
  *     <none>
  */
@@ -142,7 +142,7 @@ __int64 __fastcall U64DivU32RoundUp(unsigned int a1, unsigned int a2, unsigned i
     {
       v7 = v6 | (v3 << 16);
       LOWORD(v8) = v7 / (unsigned __int16)a3;
-      v9 = (((v7 % (unsigned __int16)a3) << 16) | (unsigned __int16)v4) / (unsigned __int16)a3;
+      LOWORD(v9) = (((v7 % (unsigned __int16)a3) << 16) | (unsigned __int64)(unsigned __int16)v4) / (unsigned __int16)a3;
     }
     else
     {

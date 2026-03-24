@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgFreeDeviceMigrationNode @ 0x14095E510
+ * XREFs of PiDevCfgFreeDeviceMigrationNode @ 0x1408A6828
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14095DB3C (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x14095EEB0 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x14076DED4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E54 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x1408A7284 (PiDevCfgQueryDeviceMigrationNode.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeDeviceMigrationNode(char *P)
@@ -19,18 +19,18 @@ void __fastcall PiDevCfgFreeDeviceMigrationNode(char *P)
   v2 = (void *)*((_QWORD *)P + 5);
   if ( v2 )
     ZwClose(v2);
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 24));
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 24));
   v3 = (UNICODE_STRING *)(P + 48);
   v4 = 2LL;
   do
   {
-    RtlFreeUnicodeString(v3++);
+    RtlFreeAnsiString(v3++);
     --v4;
   }
   while ( v4 );
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 104));
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 120));
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 136));
-  RtlFreeUnicodeString((PUNICODE_STRING)P + 10);
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 104));
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 120));
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 136));
+  RtlFreeAnsiString((PUNICODE_STRING)P + 10);
   ExFreePoolWithTag(P, 0);
 }

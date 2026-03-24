@@ -1,24 +1,19 @@
 /*
- * XREFs of GreClientRgnUpdatedStable @ 0x1C0288070
+ * XREFs of GreClientRgnUpdatedStable @ 0x1C0071524
  * Callers:
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GreClientRgnUpdatedStable(Gre::Base *a1)
+// write access to const memory has been detected, the output may be wrong!
+__int64 GreClientRgnUpdatedStable()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rdi
-  Gre::Base *v2; // rcx
-  int v3; // ebx
-  Gre::Base *v4; // rcx
-
-  v1 = Gre::Base::Globals(a1);
-  GreAcquireSemaphore(*((_QWORD *)v1 + 12));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemVisRgnUniqueness", *((_QWORD *)v1 + 12), 10LL);
-  v3 = *((_DWORD *)Gre::Base::Globals(v2) + 1629);
-  *((_DWORD *)Gre::Base::Globals(v4) + 1630) = v3;
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemVisRgnUniqueness");
-  return GreReleaseSemaphoreInternal(*((_QWORD *)v1 + 12));
+  GreAcquireSemaphore(ghsemVisRgnUniqueness);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness, 10LL);
+  giVisRgnUniquenessStable = giVisRgnUniqueness;
+  EtwTraceGreLockReleaseSemaphore(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
+  return GreReleaseSemaphoreInternal(ghsemVisRgnUniqueness);
 }

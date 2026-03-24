@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140652340
+ * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C9000
  * Callers:
- *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140651480 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C7120 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
  * Callees:
- *     ?ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z @ 0x140650AA8 (-ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z.c)
- *     ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x1406520B8 (-ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x1405C8C48 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
+ *     ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x1405C8D78 (-ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 void __fastcall SC_DEVICE::SaveStorageProperty(
@@ -24,21 +24,16 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
         v6 = 152LL;
         break;
       case StorageDeviceIdProperty:
-        v6 = 184LL;
-        break;
-      case StorageMiniportProperty:
-        v6 = 192LL;
-        break;
-      case StorageDeviceFaultDomainProperty:
         v6 = 176LL;
         break;
-      case StorageDeviceUnsafeShutdownCount|StorageDeviceIdProperty:
+      case StorageMiniportProperty:
+        v6 = 184LL;
+        break;
+      case StorageDeviceFaultDomainProperty:
         v6 = 168LL;
         break;
       default:
-        if ( a3 )
-          SC_ENV::Free(a3);
-        return;
+        goto LABEL_17;
     }
   }
   else
@@ -49,18 +44,15 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
   if ( v7 )
     SC_ENV::Free(v7);
   *(_QWORD *)((char *)this + v6) = a3;
+  a3 = 0LL;
   if ( a2 )
   {
     if ( a2 == StorageDeviceFaultDomainProperty )
       SC_DEVICE::ExtractFaultDomainIds(this);
+    return;
   }
-  else
-  {
-    ScExtractDeviceStrings(
-      *((struct _STORAGE_DEVICE_DESCRIPTOR **)this + 20),
-      (struct _UNICODE_STRING *)((char *)this + 24),
-      (struct _UNICODE_STRING *)((char *)this + 40),
-      (struct _UNICODE_STRING *)((char *)this + 56),
-      (struct _UNICODE_STRING *)((char *)this + 72));
-  }
+  SC_DEVICE::ExtractDeviceStrings(this);
+LABEL_17:
+  if ( a3 )
+    SC_ENV::Free(a3);
 }

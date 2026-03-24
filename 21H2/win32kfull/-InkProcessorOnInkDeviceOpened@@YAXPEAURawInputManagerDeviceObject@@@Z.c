@@ -1,12 +1,12 @@
 /*
- * XREFs of ?InkProcessorOnInkDeviceOpened@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C021AA0C
+ * XREFs of ?InkProcessorOnInkDeviceOpened@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C0220620
  * Callers:
- *     EditionDevicePnpNotification @ 0x1C0102A40 (EditionDevicePnpNotification.c)
- *     Win32kRIMDevChangeCallback @ 0x1C01CD100 (Win32kRIMDevChangeCallback.c)
+ *     EditionDevicePnpNotification @ 0x1C0107A80 (EditionDevicePnpNotification.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D670 (Win32kRIMDevChangeCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024CB60 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F638 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  */
 
 void __fastcall InkProcessorOnInkDeviceOpened(struct RawInputManagerDeviceObject *a1)
@@ -21,12 +21,12 @@ void __fastcall InkProcessorOnInkDeviceOpened(struct RawInputManagerDeviceObject
   {
     InkProcessor::OnDeviceOpened(InkProcessor::s_pInstance, a1);
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
     v1 = -1073741823;
     v3 = &v1;
     v5 &= (unsigned int)InkProcessor::s_pInstance;
     v4 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0326250, (unsigned __int8 *)dword_1C02EFE22, 0LL, 0LL, 3u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032B288, (unsigned __int8 *)dword_1C02F2FAC, 0LL, 0LL, 3u, &v2);
   }
 }

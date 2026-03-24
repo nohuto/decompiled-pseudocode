@@ -1,62 +1,33 @@
 /*
- * XREFs of PiDrvDbMountNode @ 0x14095C12C
+ * XREFs of PiDrvDbMountNode @ 0x1408B6074
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x14077AA70 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x140564D60 (PiDrvDbFindNode.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PiDrvDbQueryHiveFileName @ 0x14095CC40 (PiDrvDbQueryHiveFileName.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x14051017C (PiDrvDbFindNode.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall PiDrvDbMountNode(PCWSTR SourceString)
 {
-  int appended; // ebx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-30h] BYREF
-  UNICODE_STRING Source; // [rsp+40h] [rbp-20h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v7; // [rsp+78h] [rbp+18h] BYREF
+  unsigned int v2; // ebx
+  UNICODE_STRING String2; // [rsp+20h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-20h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v7; // [rsp+68h] [rbp+18h] BYREF
 
-  Source = 0LL;
   v7 = 0LL;
+  String2 = 0LL;
   DestinationString = 0LL;
   UnicodeString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  RtlInitUnicodeString(&Source, SourceString);
-  if ( (int)PiDrvDbFindNode(&Source, &v7) < 0 )
-  {
-    DestinationString.Length = 0;
-    DestinationString.MaximumLength = Source.Length + 38;
-    DestinationString.Buffer = (wchar_t *)ExpAllocateStringRoutine((unsigned __int16)(Source.Length + 38));
-    if ( DestinationString.Buffer )
-    {
-      appended = RtlAppendUnicodeToString(&DestinationString, L"\\REGISTRY\\MACHINE\\");
-      if ( appended >= 0 )
-      {
-        appended = RtlAppendUnicodeStringToString(&DestinationString, &Source);
-        if ( appended >= 0 )
-        {
-          appended = PiDrvDbQueryHiveFileName(&DestinationString, &UnicodeString);
-          if ( appended >= 0 )
-            appended = PiDrvDbRegisterNode(SourceString, 24, 0);
-        }
-      }
-    }
-    else
-    {
-      appended = -1073741670;
-    }
-  }
+  RtlInitUnicodeString(&String2, SourceString);
+  if ( (int)PiDrvDbFindNode(&String2, &v7) < 0 )
+    v2 = -1073741637;
   else
-  {
-    appended = (*(_DWORD *)(v7 + 64) & 1) != 0 ? -1073741790 : 0x40000000;
-  }
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
-  return (unsigned int)appended;
+    v2 = (*(_DWORD *)(v7 + 64) & 1) != 0 ? -1073741790 : 0x40000000;
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&UnicodeString);
+  return v2;
 }

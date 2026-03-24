@@ -1,83 +1,83 @@
 /*
- * XREFs of IopCloseFile @ 0x14072E9E0
+ * XREFs of IopCloseFile @ 0x1406FCA20
  * Callers:
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
  * Callees:
- *     IopCloseFileObjectExtension @ 0x14020B0A0 (IopCloseFileObjectExtension.c)
- *     IopSetLockOperationProcess @ 0x1402A36D0 (IopSetLockOperationProcess.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     IopCancelIrpsInFileObjectList @ 0x1402A7370 (IopCancelIrpsInFileObjectList.c)
- *     IoGetAttachedDevice @ 0x1402A78F0 (IoGetAttachedDevice.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopAllocateIrpMustSucceed @ 0x1402AA860 (IopAllocateIrpMustSucceed.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     IopReleaseFileObjectLock @ 0x1402AD350 (IopReleaseFileObjectLock.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MmIsDriverVerifying @ 0x1402D87B0 (MmIsDriverVerifying.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     IopDequeueIrpFromThread @ 0x1403489B0 (IopDequeueIrpFromThread.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopCleanupProcessResources @ 0x1406C9A28 (IopCleanupProcessResources.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
- *     IopCleanupFileObjectIosbRange @ 0x140933FE8 (IopCleanupFileObjectIosbRange.c)
- *     IopFreeBandwidthContract @ 0x14093FC6C (IopFreeBandwidthContract.c)
- *     VfFastIoCheckState @ 0x140A8A8D4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140A8A9AC (VfFastIoSnapState.c)
+ *     IopUpdateOtherOperationCount @ 0x14022BCB0 (IopUpdateOtherOperationCount.c)
+ *     PsIsThreadTerminating @ 0x1402754A0 (PsIsThreadTerminating.c)
+ *     IopCloseFileObjectExtension @ 0x1402B9618 (IopCloseFileObjectExtension.c)
+ *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
+ *     IopAllocateIrpMustSucceed @ 0x1403518E0 (IopAllocateIrpMustSucceed.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
+ *     IopDequeueIrpFromThread @ 0x140353760 (IopDequeueIrpFromThread.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     IopSetLockOperationProcess @ 0x14035770C (IopSetLockOperationProcess.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopCleanupProcessResources @ 0x14069DC34 (IopCleanupProcessResources.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopFreeBandwidthContract @ 0x14089B0C4 (IopFreeBandwidthContract.c)
+ *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
  */
 
 void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // r10
-  __int64 FileObjectExtension; // r13
-  __int64 v8; // rbp
-  int v9; // r15d
+  __int64 FileObjectExtension; // rsi
+  __int64 v7; // r14
+  int v8; // r15d
+  _QWORD *v9; // r8
+  ULONG v10; // edi
+  PDEVICE_OBJECT RelatedDeviceObject; // rax
+  struct _DEVICE_OBJECT *v12; // rbp
+  PFAST_IO_DISPATCH FastIoDispatch; // rsi
+  struct _KTHREAD *v14; // rax
+  __int64 v15; // rax
+  __int64 (__fastcall *FastIoUnlockAll)(struct _FILE_OBJECT *, _KPROCESS *, __int128 *, struct _DEVICE_OBJECT *); // rsi
+  void *v17; // rdi
+  _KPROCESS *CurrentProcess; // rax
+  char v19; // r14
+  IRP *v20; // rdi
+  struct _IO_STACK_LOCATION *v21; // rcx
   ULONG Flags; // edi
   PDEVICE_OBJECT AttachedDevice; // rax
-  int v12; // edi
-  struct _DEVICE_OBJECT *v13; // r14
+  int v24; // edi
+  struct _DEVICE_OBJECT *v25; // r13
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v15; // rax
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  _DWORD *v30; // r9
   IRP *MustSucceed; // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  struct _KTHREAD *v18; // rax
-  _QWORD *v19; // r8
-  __int64 v20; // rcx
-  ULONG v21; // edi
-  PDEVICE_OBJECT RelatedDeviceObject; // rax
-  struct _DEVICE_OBJECT *v23; // rsi
-  PFAST_IO_DISPATCH FastIoDispatch; // rbp
-  struct _KTHREAD *v25; // rax
-  __int64 v26; // rax
-  __int64 (__fastcall *FastIoUnlockAll)(struct _FILE_OBJECT *, _KPROCESS *, __int128 *, struct _DEVICE_OBJECT *); // rbp
-  void *v28; // rdi
-  char v29; // r14
-  IRP *v30; // rdi
-  struct _IO_STACK_LOCATION *v31; // rcx
-  __int64 v32; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v33; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v33; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v34; // [rsp+38h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+48h] [rbp-40h] BYREF
-  __int64 v35; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v36; // [rsp+A0h] [rbp+18h] BYREF
 
-  v4 = a4;
   FileObjectExtension = 0LL;
-  v8 = 0LL;
-  v9 = 0;
+  v7 = 0LL;
+  v8 = 0;
   memset(&Event, 0, sizeof(Event));
   if ( a3 == 1 )
   {
     if ( a2->FileObjectExtension )
     {
       FileObjectExtension = IopGetFileObjectExtension((__int64)a2, 2, 0LL);
-      v8 = IopGetFileObjectExtension(v20, (int)v19 + 4, v19);
+      v7 = IopGetFileObjectExtension((__int64)a2, 4, v9);
     }
-    if ( v4 == 1 )
+    if ( a4 == 1 )
     {
       Flags = a2->Flags;
       if ( (Flags & 0x800) != 0 )
@@ -89,33 +89,32 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
         AttachedDevice = IoGetRelatedDeviceObject(a2);
         Flags = a2->Flags;
       }
-      v12 = Flags | 0x40000;
-      v13 = AttachedDevice;
-      a2->Flags = v12;
-      if ( a1 && (v12 & 2) != 0 )
+      v24 = Flags | 0x40000;
+      v25 = AttachedDevice;
+      a2->Flags = v24;
+      if ( a1 && (v24 & 2) != 0 )
       {
-        v9 = 1;
+        v8 = 1;
         while ( 1 )
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          v15 = KeAbPreAcquire((__int64)&a2->Lock, 0LL);
+          v27 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
           if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
             break;
-          if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0LL, 0LL, v15, &v32) )
-            goto LABEL_14;
+          if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v27, &v33) )
+            goto LABEL_45;
         }
-        if ( v15 )
-          *(_BYTE *)(v15 + 18) = 1;
+        if ( v27 )
+          *(_BYTE *)(v27 + 26) |= 1u;
         ObfReferenceObject(a2);
       }
-LABEL_14:
-      if ( v8 )
+LABEL_45:
+      if ( v7 )
         IopFreeBandwidthContract(a2);
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
-      if ( (a2->Flags & 0x4000000) == 0 )
-        KeResetEvent(&a2->Event);
-      MustSucceed = (IRP *)IopAllocateIrpMustSucceed((__int64)v13, (unsigned __int8)v13->StackSize);
+      IopResetEvent((__int64)a2, v28, v29, v30);
+      MustSucceed = (IRP *)IopAllocateIrpMustSucceed((__int64)v25, (unsigned __int8)v25->StackSize);
       MustSucceed->Tail.Overlay.OriginalFileObject = a2;
       MustSucceed->Tail.Overlay.Thread = KeGetCurrentThread();
       MustSucceed->UserIosb = &MustSucceed->IoStatus;
@@ -127,102 +126,91 @@ LABEL_14:
       CurrentStackLocation[-1].MajorFunction = 18;
       CurrentStackLocation[-1].FileObject = a2;
       IopQueueThreadIrp((__int64)MustSucceed);
-      v18 = KeGetCurrentThread();
-      ++v18->OtherOperationCount;
-      __incgsdword(0x2EE4u);
-      if ( IofCallDriver(v13, MustSucceed) == 259 )
+      IopUpdateOtherOperationCount();
+      if ( IofCallDriver(v25, MustSucceed) == 259 )
         KeWaitForSingleObject(&Event, UserRequest, 0, 0, 0LL);
       MustSucceed->Tail.Overlay.Thread = KeGetCurrentThread();
       IopDequeueIrpFromThread(MustSucceed);
       IoFreeIrp(MustSucceed);
-      if ( v9 )
-        IopReleaseFileObjectLock((volatile __int32 *)&a2->Type);
-      IopCancelIrpsInFileObjectList((__int64)a2, a1, 0LL, 0LL, 1, 1);
-      for ( ; FileObjectExtension; FileObjectExtension = *(_QWORD *)(FileObjectExtension + 40) )
-      {
-        if ( *(_QWORD *)(FileObjectExtension + 32) == a1 )
-          IopCleanupFileObjectIosbRange(FileObjectExtension);
-      }
+      if ( v8 )
+        IopReleaseFileObjectLock((PADAPTER_OBJECT)a2);
+      if ( a2->CompletionContext || FileObjectExtension )
+        IopCleanupProcessResources((__int64)a2, a1, FileObjectExtension);
       if ( a2->FileObjectExtension )
         IopCloseFileObjectExtension((__int64)a2);
     }
     else
     {
-      IopCleanupProcessResources((__int64)a2, a1, FileObjectExtension);
+      if ( a2->CompletionContext || FileObjectExtension )
+        IopCleanupProcessResources((__int64)a2, a1, FileObjectExtension);
       if ( (int)IopSetLockOperationProcess((__int64)a2, a1, 1) >= 0 )
       {
-        v21 = a2->Flags;
-        v33 = 0LL;
-        if ( (v21 & 0x800) != 0 )
+        v10 = a2->Flags;
+        v34 = 0LL;
+        if ( (v10 & 0x800) != 0 )
         {
           RelatedDeviceObject = IoGetAttachedDevice(a2->DeviceObject);
         }
         else
         {
           RelatedDeviceObject = IoGetRelatedDeviceObject(a2);
-          v21 = a2->Flags;
+          v10 = a2->Flags;
         }
-        v23 = RelatedDeviceObject;
+        v12 = RelatedDeviceObject;
         FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
-        if ( (v21 & 2) != 0 && (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) == 0 )
+        if ( (v10 & 2) != 0 && !PsIsThreadTerminating(KeGetCurrentThread()) )
         {
-          v9 = 1;
+          v8 = 1;
           while ( 1 )
           {
-            v25 = KeGetCurrentThread();
-            --v25->KernelApcDisable;
-            v26 = KeAbPreAcquire((__int64)&a2->Lock, 0LL);
+            v14 = KeGetCurrentThread();
+            --v14->KernelApcDisable;
+            v15 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
             if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
               break;
-            if ( !(unsigned int)IopWaitAndAcquireFileObjectLock(
-                                  (volatile signed __int32 *)&a2->Type,
-                                  0LL,
-                                  0LL,
-                                  v26,
-                                  &v35) )
-              goto LABEL_40;
+            if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v15, &v36) )
+              goto LABEL_21;
           }
-          if ( v26 )
-            *(_BYTE *)(v26 + 18) = 1;
+          if ( v15 )
+            *(_BYTE *)(v15 + 26) |= 1u;
           ObfReferenceObject(a2);
         }
-LABEL_40:
+LABEL_21:
         if ( !FastIoDispatch )
-          goto LABEL_49;
+          goto LABEL_29;
         FastIoUnlockAll = (__int64 (__fastcall *)(struct _FILE_OBJECT *, _KPROCESS *, __int128 *, struct _DEVICE_OBJECT *))FastIoDispatch->FastIoUnlockAll;
         if ( !FastIoUnlockAll )
-          goto LABEL_49;
-        if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(v23->DriverObject) )
-          v28 = (void *)VfFastIoSnapState();
+          goto LABEL_29;
+        if ( (MmVerifierData & 0x10) != 0 )
+          v17 = (void *)VfFastIoSnapState();
         else
-          v28 = 0LL;
-        v29 = FastIoUnlockAll(a2, KeGetCurrentThread()->ApcState.Process, &v33, v23);
-        if ( v28 )
-          VfFastIoCheckState(v28);
-        if ( !v29 )
+          v17 = 0LL;
+        CurrentProcess = PsGetCurrentProcess();
+        v19 = FastIoUnlockAll(a2, CurrentProcess, &v34, v12);
+        if ( v17 )
+          VfFastIoCheckState(v17);
+        if ( !v19 )
         {
-LABEL_49:
+LABEL_29:
           KeInitializeEvent(&Event, SynchronizationEvent, 0);
-          if ( (a2->Flags & 0x4000000) == 0 )
-            KeResetEvent(&a2->Event);
-          v30 = (IRP *)IopAllocateIrpMustSucceed((__int64)v23, (unsigned __int8)v23->StackSize);
-          v30->Tail.Overlay.OriginalFileObject = a2;
-          v30->Tail.Overlay.Thread = KeGetCurrentThread();
-          v30->UserIosb = &v30->IoStatus;
-          v31 = v30->Tail.Overlay.CurrentStackLocation;
-          v30->RequestorMode = 0;
-          v30->UserEvent = &Event;
-          v30->Flags = 4;
-          v30->Overlay.AllocationSize.QuadPart = 0LL;
-          *(_WORD *)&v31[-1].MajorFunction = 785;
-          v31[-1].FileObject = a2;
+          v20 = (IRP *)IopAllocateIrpMustSucceed((__int64)v12, (unsigned __int8)v12->StackSize);
+          v20->Tail.Overlay.OriginalFileObject = a2;
+          v20->Tail.Overlay.Thread = KeGetCurrentThread();
+          v20->UserIosb = &v20->IoStatus;
+          v21 = v20->Tail.Overlay.CurrentStackLocation;
+          v20->RequestorMode = 0;
+          v20->UserEvent = &Event;
+          v20->Flags = 4100;
+          v20->Overlay.AllocationSize.QuadPart = 0LL;
+          *(_WORD *)&v21[-1].MajorFunction = 785;
+          v21[-1].FileObject = a2;
           ObfReferenceObject(a2);
-          IopQueueThreadIrp((__int64)v30);
-          if ( IofCallDriver(v23, v30) == 259 )
+          IopQueueThreadIrp((__int64)v20);
+          if ( IofCallDriver(v12, v20) == 259 )
             KeWaitForSingleObject(&Event, UserRequest, 0, 0, 0LL);
         }
-        if ( v9 == 1 )
-          IopReleaseFileObjectLock((volatile __int32 *)&a2->Type);
+        if ( v8 == 1 )
+          IopReleaseFileObjectLock((PADAPTER_OBJECT)a2);
       }
     }
   }

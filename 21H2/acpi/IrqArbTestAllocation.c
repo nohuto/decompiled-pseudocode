@@ -1,13 +1,13 @@
 /*
- * XREFs of IrqArbTestAllocation @ 0x1C009C8F0
+ * XREFs of IrqArbTestAllocation @ 0x1C0095B20
  * Callers:
  *     <none>
  * Callees:
- *     ArbTestAllocation @ 0x1C009C590 (ArbTestAllocation.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009C700 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     ArbTestAllocation @ 0x1C00959B0 (ArbTestAllocation.c)
  */
 
-__int64 __fastcall IrqArbTestAllocation(__int64 a1, __int64 ****a2)
+__int64 __fastcall IrqArbTestAllocation(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax
 

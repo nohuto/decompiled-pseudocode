@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0112E5C
+ * XREFs of ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C01331E4
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C00A08E4 (ReadPointerDeviceSettingsFull.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0A64 (ReadPointerDeviceSettingsFull.c)
  * Callees:
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00A1014 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00A1108 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1864 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E19C8 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CreatePredictionSettings(
@@ -13,29 +13,28 @@ __int64 __fastcall CreatePredictionSettings(
         const unsigned __int16 *a2,
         unsigned __int16 *a3)
 {
-  int v4; // ebx
-  ULONG v5; // r8d
-  _DWORD *v6; // rdi
-  __int64 v7; // r14
+  NTSTATUS v4; // ebx
+  _DWORD *v5; // rdi
+  __int64 v6; // r14
   ULONG Disposition[2]; // [rsp+48h] [rbp-C0h] BYREF
   void *KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
-  struct _UNICODE_STRING v11; // [rsp+58h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING v10; // [rsp+58h] [rbp-B0h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
-  char v13; // [rsp+98h] [rbp-70h] BYREF
+  char v12; // [rsp+98h] [rbp-70h] BYREF
 
-  *(_QWORD *)&v11.Length = 45875200LL;
+  *(_QWORD *)&v10.Length = 45875200LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  v11.Buffer = (PWSTR)&v13;
-  v4 = RtlUnicodeStringCopyString(&v11, a2);
+  v10.Buffer = (PWSTR)&v12;
+  v4 = RtlUnicodeStringCopyString(&v10, a2);
   if ( v4 >= 0 )
   {
-    v4 = RtlUnicodeStringCatString(&v11, L"\\Software\\Microsoft\\TouchPrediction", v5);
+    v4 = RtlUnicodeStringCatString(&v10, L"\\Software\\Microsoft\\TouchPrediction");
     if ( v4 >= 0 )
     {
       ObjectAttributes.Length = 48;
-      ObjectAttributes.ObjectName = &v11;
+      ObjectAttributes.ObjectName = &v10;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -44,17 +43,17 @@ __int64 __fastcall CreatePredictionSettings(
       if ( v4 >= 0 )
       {
         v4 = 0;
-        v6 = (_DWORD *)((char *)a1 + 12);
-        v7 = 3LL;
+        v5 = (_DWORD *)((char *)a1 + 12);
+        v6 = 3LL;
         do
         {
           if ( (int)ReadPointerDeviceCfgDWORDSetting(KeyHandle, a1) < 0 )
-            *v6 = -1;
+            *v5 = -1;
           a1 = (struct tagDEVICECONFIG_SETTING *)((char *)a1 + 16);
-          v6 += 4;
-          --v7;
+          v5 += 4;
+          --v6;
         }
-        while ( v7 );
+        while ( v6 );
         ZwClose(KeyHandle);
       }
     }

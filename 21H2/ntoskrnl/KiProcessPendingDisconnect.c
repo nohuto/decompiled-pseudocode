@@ -1,10 +1,10 @@
 /*
- * XREFs of KiProcessPendingDisconnect @ 0x14045B77E
+ * XREFs of KiProcessPendingDisconnect @ 0x140521D44
  * Callers:
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     KiInterruptDispatchCommon @ 0x140521428 (KiInterruptDispatchCommon.c)
  * Callees:
- *     KiDisconnectInterruptInternal @ 0x1403AF4FC (KiDisconnectInterruptInternal.c)
- *     KiDisconnectSecondaryInterruptInternal @ 0x14056EFD8 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiDisconnectInterruptInternal @ 0x1403771F4 (KiDisconnectInterruptInternal.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x140519350 (KiDisconnectSecondaryInterruptInternal.c)
  */
 
 _QWORD *__fastcall KiProcessPendingDisconnect(int a1, __int64 a2, __int64 a3)
@@ -24,7 +24,7 @@ _QWORD *__fastcall KiProcessPendingDisconnect(int a1, __int64 a2, __int64 a3)
       if ( a1 )
         v7 = KiDisconnectSecondaryInterruptInternal(a2);
       else
-        v7 = KiDisconnectInterruptInternal(a2, *(_DWORD **)(v6 + 8));
+        v7 = KiDisconnectInterruptInternal(a2, *(_QWORD *)(v6 + 8));
       *(_DWORD *)(v6 + 16) = v7;
       v8 = (_QWORD *)(a2 + 8);
       result = *(_QWORD **)(a3 + 8);

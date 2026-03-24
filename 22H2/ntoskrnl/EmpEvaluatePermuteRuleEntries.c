@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpEvaluatePermuteRuleEntries @ 0x1403A23A8
+ * XREFs of EmpEvaluatePermuteRuleEntries @ 0x1403C5004
  * Callers:
- *     EmpEvaluateUpdateRuleEvalState @ 0x1403A22FC (EmpEvaluateUpdateRuleEvalState.c)
- *     EmpEvaluatePermuteRuleEntries @ 0x1403A23A8 (EmpEvaluatePermuteRuleEntries.c)
+ *     EmpEvaluateUpdateRuleEvalState @ 0x1403C4F54 (EmpEvaluateUpdateRuleEvalState.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1403C5004 (EmpEvaluatePermuteRuleEntries.c)
  * Callees:
- *     EmpEvaluatePermuteRuleEntries @ 0x1403A23A8 (EmpEvaluatePermuteRuleEntries.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1403C5004 (EmpEvaluatePermuteRuleEntries.c)
  */
 
 char __fastcall EmpEvaluatePermuteRuleEntries(__int64 a1, int a2, __int64 a3, char a4)
@@ -14,7 +14,7 @@ char __fastcall EmpEvaluatePermuteRuleEntries(__int64 a1, int a2, __int64 a3, ch
   __int64 v8; // r8
   __int64 v9; // rdx
   __int64 v10; // rdi
-  char v11; // al
+  char v11; // cl
   _QWORD *v12; // rax
 
   v4 = 0;
@@ -28,12 +28,7 @@ char __fastcall EmpEvaluatePermuteRuleEntries(__int64 a1, int a2, __int64 a3, ch
       v11 = EmpEvaluatePermuteRuleEntries(a1, v9, a3, 0LL);
     else
       v11 = 1;
-    if ( v10 == a3 )
-    {
-      if ( !v11 )
-        return v4;
-    }
-    else
+    if ( v10 != a3 )
     {
       if ( !v11 )
         return v4;
@@ -45,6 +40,8 @@ char __fastcall EmpEvaluatePermuteRuleEntries(__int64 a1, int a2, __int64 a3, ch
       }
       *(_QWORD *)(v10 + 32) = *(_QWORD *)(v10 + 40);
     }
+    if ( !v11 )
+      return v4;
     return 1;
   }
   for ( i = 0; i < *(_DWORD *)(a1 + 48); ++i )

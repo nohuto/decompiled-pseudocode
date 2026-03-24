@@ -1,14 +1,15 @@
 /*
- * XREFs of ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0273714
+ * XREFs of ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0275E08
  * Callers:
- *     NtGdiDdDDISharedPrimaryLockNotification @ 0x1C0275840 (NtGdiDdDDISharedPrimaryLockNotification.c)
+ *     NtGdiDdDDISharedPrimaryLockNotification @ 0x1C02780C0 (NtGdiDdDDISharedPrimaryLockNotification.c)
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026E10 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C011778C (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C02741B4 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
- *     ?bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027EEA4 (-bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018F2C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002AA38 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C02768A8 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C0281230 (-bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
  */
 
 __int64 __fastcall DxLddmSharedPrimaryLockNotification(struct _LUID a1, int a2, const struct _RECTL *a3)
@@ -16,159 +17,160 @@ __int64 __fastcall DxLddmSharedPrimaryLockNotification(struct _LUID a1, int a2, 
   DWORD LowPart; // ebx
   unsigned int v4; // edi
   int v5; // r12d
-  int v7; // r14d
+  int v7; // esi
+  DYNAMICMODECHANGESHARELOCK *v8; // rcx
   HDEV i; // rcx
-  int v9; // eax
-  struct _LUID *v10; // rax
-  HDEV v11; // r14
-  unsigned __int64 v12; // r13
+  int v10; // eax
+  struct _LUID *v11; // rax
+  HDEV v12; // r15
+  unsigned int CurrentProcessId; // eax
   LONG top; // ecx
+  unsigned int v15; // r9d
   LONG right; // r9d
-  struct tagSIZE v15; // rax
-  int v16; // r9d
   struct tagSIZE v17; // rax
-  int v18; // r10d
-  __int64 ProcessEntry; // rdx
-  __int64 v20; // rax
-  __int64 v21; // rax
-  int v22; // eax
-  struct _RECTL *v23; // r9
-  LONG v24; // eax
-  LONG v25; // eax
+  int v18; // r9d
+  struct tagSIZE v19; // rax
+  int v20; // r10d
+  _DWORD *ProcessEntry; // rsi
+  _DWORD *v22; // rax
+  __int64 v23; // rcx
+  int v24; // eax
+  struct _RECTL *v25; // rdx
+  LONG v26; // eax
+  LONG v27; // eax
   LONG bottom; // eax
-  HDEV v27; // rax
-  HDEV v28; // r15
-  HDEV v30; // [rsp+20h] [rbp-50h] BYREF
-  _BYTE v31[4]; // [rsp+28h] [rbp-48h] BYREF
-  int v32; // [rsp+2Ch] [rbp-44h]
-  struct _LUID v33; // [rsp+30h] [rbp-40h]
-  __int128 v34; // [rsp+58h] [rbp-18h] BYREF
+  HDEV v29; // rax
+  HDEV v30; // r13
+  HDEV v32; // [rsp+20h] [rbp-60h] BYREF
+  char v33[4]; // [rsp+28h] [rbp-58h] BYREF
+  int v34; // [rsp+2Ch] [rbp-54h]
+  __int64 v35; // [rsp+30h] [rbp-50h]
+  struct _LUID v36; // [rsp+38h] [rbp-48h]
+  __int128 v37; // [rsp+60h] [rbp-20h] BYREF
 
   LowPart = a1.LowPart;
-  v33 = a1;
+  v36 = a1;
   v4 = 0;
-  v32 = a2;
+  v34 = a2;
   v5 = 0;
   v7 = a2;
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v31);
+  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v33);
   if ( !g_pDwmState )
   {
-    for ( i = 0LL; ; i = v28 )
+    for ( i = 0LL; ; i = v30 )
     {
-      v27 = (HDEV)hdevEnumerate(i);
-      v28 = v27;
-      if ( !v27 )
+      v29 = (HDEV)hdevEnumerate(i);
+      v30 = v29;
+      if ( !v29 )
+        break;
+      v32 = v29;
+      v10 = *((_DWORD *)v29 + 10);
+      if ( (v10 & 0x400) == 0 && (v10 & 0x20000) == 0 )
       {
-        v4 = v5;
-        goto LABEL_44;
-      }
-      v30 = v27;
-      v9 = *((_DWORD *)v27 + 10);
-      if ( (v9 & 0x400) == 0 && (v9 & 0x20000) == 0 )
-      {
-        if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v30) )
+        if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v32) )
         {
-          if ( LowPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v30)->LowPart )
+          if ( LowPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v32)->LowPart )
           {
-            v10 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v30);
-            if ( v33.HighPart == v10->HighPart && *(_DWORD *)(*((_QWORD *)v30 + 319) + 256LL) == v7 )
-              break;
+            v11 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v32);
+            if ( v36.HighPart == v11->HighPart && *(_DWORD *)(*((_QWORD *)v32 + 322) + 256LL) == v7 )
+            {
+              GreLockVisRgn(v32);
+              GreLockSprite(v32);
+              GreLockDisplayDevice(v32);
+              v12 = v32 + 656;
+              CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
+              v37 = 0LL;
+              top = a3->top;
+              v35 = CurrentProcessId & 0xFFFFFFFC;
+              if ( top || a3->left || a3->right || a3->bottom )
+              {
+                right = a3->right;
+                if ( right <= a3->left
+                  || a3->bottom <= top
+                  || a3->left < 0
+                  || right < 0
+                  || (v17 = PDEVOBJ::sizl((PDEVOBJ *)&v32), v18 > *(_DWORD *)v17.cx)
+                  || (v19 = PDEVOBJ::sizl((PDEVOBJ *)&v32), v20 > *(_DWORD *)(*(_QWORD *)&v19 + 4LL)) )
+                {
+                  v5 = -1073741811;
+                }
+                v15 = v35;
+              }
+              else
+              {
+                DWORD2(v37) = *(_DWORD *)PDEVOBJ::sizl((PDEVOBJ *)&v32).cx;
+                a3 = (const struct _RECTL *)&v37;
+                HIDWORD(v37) = *(_DWORD *)(*(_QWORD *)&PDEVOBJ::sizl((PDEVOBJ *)&v32) + 4LL);
+              }
+              if ( v5 >= 0 )
+              {
+                ProcessEntry = (_DWORD *)DxLddmFindProcessEntry(v12, v15);
+                if ( !ProcessEntry )
+                {
+                  v22 = PALLOCMEM2(0x30uLL, 1684305988LL, 1);
+                  if ( v22 )
+                  {
+                    v22[4] = v35;
+                    v23 = *(_QWORD *)v12;
+                    if ( *(HDEV *)(*(_QWORD *)v12 + 8LL) != v12 )
+                      __fastfail(3u);
+                    *(_QWORD *)v22 = v23;
+                    ProcessEntry = v22;
+                    *((_QWORD *)v22 + 1) = v12;
+                    *(_QWORD *)(v23 + 8) = v22;
+                    *(_QWORD *)v12 = v22;
+                  }
+                  else
+                  {
+                    v5 = -1073741801;
+                  }
+                }
+                if ( v5 >= 0 )
+                {
+                  ++ProcessEntry[5];
+                  ++*((_DWORD *)v32 + 660);
+                  v24 = ProcessEntry[6];
+                  if ( v24 != -1 )
+                    ProcessEntry[6] = v24 + 1;
+                  v25 = (struct _RECTL *)(ProcessEntry + 7);
+                  if ( ProcessEntry[5] == 1 )
+                  {
+                    *v25 = *a3;
+                    ProcessEntry[11] = giVisRgnUniqueness;
+                  }
+                  else
+                  {
+                    if ( a3->left < v25->left )
+                      v25->left = a3->left;
+                    v26 = a3->top;
+                    if ( v26 < ProcessEntry[8] )
+                      ProcessEntry[8] = v26;
+                    v27 = a3->right;
+                    if ( v27 > ProcessEntry[9] )
+                      ProcessEntry[9] = v27;
+                    bottom = a3->bottom;
+                    if ( bottom > ProcessEntry[10] )
+                      ProcessEntry[10] = bottom;
+                  }
+                  bSpTearDownSprites(v32, v25, 1);
+                  PDEVOBJ::vSync(
+                    (PDEVOBJ *)&v32,
+                    (struct _SURFOBJ *)((*((_QWORD *)v32 + 319) + 24LL) & -(__int64)(*((_QWORD *)v32 + 319) != 0LL)),
+                    0LL,
+                    6u);
+                }
+                v7 = v34;
+              }
+              GreUnlockDisplayDevice(v32);
+              GreUnlockSprite(v32);
+              GreUnlockVisRgn(v32);
+            }
           }
         }
       }
-LABEL_41:
-      ;
     }
-    GreLockVisRgn(v30);
-    GreLockSprite(v30);
-    GreLockDisplayDevice(v30);
-    v11 = v30 + 650;
-    v12 = (unsigned __int64)PsGetCurrentProcessId() & 0xFFFFFFFC;
-    v34 = 0LL;
-    top = a3->top;
-    if ( top || a3->left || a3->right || a3->bottom )
-    {
-      right = a3->right;
-      if ( right <= a3->left
-        || a3->bottom <= top
-        || a3->left < 0
-        || right < 0
-        || (v15 = PDEVOBJ::sizl((PDEVOBJ *)&v30), v16 > *(_DWORD *)v15.cx)
-        || (v17 = PDEVOBJ::sizl((PDEVOBJ *)&v30), v18 > *(_DWORD *)(*(_QWORD *)&v17 + 4LL)) )
-      {
-        v5 = -1073741811;
-        goto LABEL_40;
-      }
-    }
-    else
-    {
-      DWORD2(v34) = *(_DWORD *)PDEVOBJ::sizl((PDEVOBJ *)&v30).cx;
-      a3 = (const struct _RECTL *)&v34;
-      HIDWORD(v34) = *(_DWORD *)(*(_QWORD *)&PDEVOBJ::sizl((PDEVOBJ *)&v30) + 4LL);
-    }
-    if ( v5 >= 0 )
-    {
-      ProcessEntry = DxLddmFindProcessEntry(v11, (unsigned int)v12);
-      if ( ProcessEntry )
-      {
-LABEL_25:
-        ++*(_DWORD *)(ProcessEntry + 20);
-        ++*((_DWORD *)v30 + 654);
-        v22 = *(_DWORD *)(ProcessEntry + 24);
-        if ( v22 != -1 )
-          *(_DWORD *)(ProcessEntry + 24) = v22 + 1;
-        v23 = (struct _RECTL *)(ProcessEntry + 28);
-        if ( *(_DWORD *)(ProcessEntry + 20) == 1 )
-        {
-          *v23 = *a3;
-          *(_DWORD *)(ProcessEntry + 44) = giVisRgnUniqueness;
-        }
-        else
-        {
-          if ( a3->left < v23->left )
-            v23->left = a3->left;
-          v24 = a3->top;
-          if ( v24 < *(_DWORD *)(ProcessEntry + 32) )
-            *(_DWORD *)(ProcessEntry + 32) = v24;
-          v25 = a3->right;
-          if ( v25 > *(_DWORD *)(ProcessEntry + 36) )
-            *(_DWORD *)(ProcessEntry + 36) = v25;
-          bottom = a3->bottom;
-          if ( bottom > *(_DWORD *)(ProcessEntry + 40) )
-            *(_DWORD *)(ProcessEntry + 40) = bottom;
-        }
-        bSpTearDownSprites(v30, (struct _RECTL *)(ProcessEntry + 28), 1);
-        PDEVOBJ::vSync(
-          (PDEVOBJ *)&v30,
-          (struct _SURFOBJ *)((*((_QWORD *)v30 + 316) + 24LL) & -(__int64)(*((_QWORD *)v30 + 316) != 0LL)),
-          0LL,
-          6u);
-        goto LABEL_40;
-      }
-      v20 = Win32AllocPoolZInit(48LL, 1684305988LL);
-      ProcessEntry = v20;
-      if ( v20 )
-      {
-        *(_DWORD *)(v20 + 16) = v12;
-        v21 = *(_QWORD *)v11;
-        if ( *(HDEV *)(*(_QWORD *)v11 + 8LL) != v11 )
-          __fastfail(3u);
-        *(_QWORD *)ProcessEntry = v21;
-        *(_QWORD *)(ProcessEntry + 8) = v11;
-        *(_QWORD *)(v21 + 8) = ProcessEntry;
-        *(_QWORD *)v11 = ProcessEntry;
-        goto LABEL_25;
-      }
-      v5 = -1073741801;
-    }
-LABEL_40:
-    GreUnlockDisplayDevice(v30);
-    GreUnlockSprite(v30);
-    GreUnlockVisRgn(v30);
-    v7 = v32;
-    goto LABEL_41;
+    v4 = v5;
   }
-LABEL_44:
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v31);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v8);
   return v4;
 }

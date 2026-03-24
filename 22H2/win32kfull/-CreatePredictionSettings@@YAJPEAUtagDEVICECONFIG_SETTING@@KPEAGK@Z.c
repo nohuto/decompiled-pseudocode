@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0049A84
+ * XREFs of ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0132E34
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C0047820 (ReadPointerDeviceSettingsFull.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0714 (ReadPointerDeviceSettingsFull.c)
  * Callees:
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0043C68 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1678 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CreatePredictionSettings(
@@ -13,7 +13,7 @@ __int64 __fastcall CreatePredictionSettings(
         const unsigned __int16 *a2,
         unsigned __int16 *a3)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   _DWORD *v5; // rdi
   __int64 v6; // r14
   ULONG Disposition[2]; // [rsp+48h] [rbp-C0h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall CreatePredictionSettings(
   v4 = RtlUnicodeStringCopyString(&v10, a2);
   if ( v4 >= 0 )
   {
-    v4 = RtlUnicodeStringCatString(&v10, (wchar_t *)L"\\Software\\Microsoft\\TouchPrediction");
+    v4 = RtlUnicodeStringCatString(&v10, L"\\Software\\Microsoft\\TouchPrediction");
     if ( v4 >= 0 )
     {
       ObjectAttributes.Length = 48;

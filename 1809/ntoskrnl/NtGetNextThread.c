@@ -1,18 +1,18 @@
 /*
- * XREFs of NtGetNextThread @ 0x14088E9B0
+ * XREFs of NtGetNextThread @ 0x14088E990
  * Callers:
  *     <none>
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     PsGetNextProcessThread @ 0x140675900 (PsGetNextProcessThread.c)
- *     PsSynchronizeWithThreadInsertion @ 0x140888638 (PsSynchronizeWithThreadInsertion.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     PsGetNextProcessThread @ 0x1406758E0 (PsGetNextProcessThread.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x140888618 (PsSynchronizeWithThreadInsertion.c)
  */
 
 __int64 __fastcall NtGetNextThread(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, int a3, int a4, int a5, HANDLE *a6)

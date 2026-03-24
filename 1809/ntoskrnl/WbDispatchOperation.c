@@ -3,8 +3,8 @@
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     PsGetProcessId @ 0x1400A56F0 (PsGetProcessId.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WbDecryptEncryptionSegment @ 0x140583E04 (WbDecryptEncryptionSegment.c)
  *     WbReEncryptEncryptionSegment @ 0x140583EC8 (WbReEncryptEncryptionSegment.c)
@@ -14,8 +14,8 @@
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
  *     sub_14062554C @ 0x14062554C (sub_14062554C.c)
  *     WbGetWarbirdProcess @ 0x140625584 (WbGetWarbirdProcess.c)
- *     WbProcessModuleUnload @ 0x1406B09E4 (WbProcessModuleUnload.c)
- *     WbProcessStartup @ 0x1406CFE14 (WbProcessStartup.c)
+ *     WbProcessModuleUnload @ 0x1406B09C4 (WbProcessModuleUnload.c)
+ *     WbProcessStartup @ 0x1406CFDF4 (WbProcessStartup.c)
  */
 
 __int64 __fastcall WbDispatchOperation(char *Src, SIZE_T NumberOfBytes)

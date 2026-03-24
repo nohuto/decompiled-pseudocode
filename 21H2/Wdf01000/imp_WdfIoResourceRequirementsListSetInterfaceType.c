@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoResourceRequirementsListSetInterfaceType @ 0x1C006FD10
+ * XREFs of imp_WdfIoResourceRequirementsListSetInterfaceType @ 0x1C005D080
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 void __fastcall imp_WdfIoResourceRequirementsListSetInterfaceType(
@@ -16,7 +16,7 @@ void __fastcall imp_WdfIoResourceRequirementsListSetInterfaceType(
 
   pIoResReqList = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)RequirementsList,
     0x1037u,
     (void **)&pIoResReqList);

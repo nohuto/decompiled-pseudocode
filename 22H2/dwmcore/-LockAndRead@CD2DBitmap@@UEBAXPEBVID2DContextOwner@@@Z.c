@@ -1,14 +1,14 @@
 /*
- * XREFs of ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x18029FA8C
+ * XREFs of ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x180249088
  * Callers:
- *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@A@EBAXPEBVID2DContextOwner@@@Z @ 0x1801202A0 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@A@EBAXPEBVID2DContextOwner@@@Z.c)
- *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@CI@EBAXPEBVID2DContextOwner@@@Z @ 0x180120580 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@CI@EBAXPEBVID2DContextOwner@@@Z.c)
- *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z @ 0x180123800 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z.c)
+ *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@A@EBAXPEBVID2DContextOwner@@@Z @ 0x1800F5B00 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@A@EBAXPEBVID2DContextOwner@@@Z.c)
+ *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z @ 0x1800F5B10 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z.c)
+ *     ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@CI@EBAXPEBVID2DContextOwner@@@Z @ 0x1800F7B40 (-LockAndRead@CD2DBitmap@@$4PPPPPPPM@CI@EBAXPEBVID2DContextOwner@@@Z.c)
  * Callees:
- *     ?FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z @ 0x18001A230 (-FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x180272F28 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
+ *     ?FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z @ 0x180041110 (-FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x180210010 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
  */
 
 void __fastcall CD2DBitmap::LockAndRead(CD2DBitmap *this, const struct ID2DContextOwner *a2)

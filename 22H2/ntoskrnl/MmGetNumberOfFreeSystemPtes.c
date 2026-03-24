@@ -1,20 +1,21 @@
 /*
- * XREFs of MmGetNumberOfFreeSystemPtes @ 0x14021DCB0
+ * XREFs of MmGetNumberOfFreeSystemPtes @ 0x14033B290
  * Callers:
- *     MiIssueNoPtesBugcheck @ 0x14062F0A8 (MiIssueNoPtesBugcheck.c)
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
+ *     MiIssueNoPtesBugcheck @ 0x140537480 (MiIssueNoPtesBugcheck.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406BF5C0 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     MiGetNumberOfCachedPtes @ 0x14021E42C (MiGetNumberOfCachedPtes.c)
+ *     MiGetNumberOfCachedPtes @ 0x14033B434 (MiGetNumberOfCachedPtes.c)
  */
 
 __int64 MmGetNumberOfFreeSystemPtes()
 {
-  __int64 v0; // rbx
-  unsigned __int64 v1; // rbx
+  unsigned int NumberOfCachedPtes; // eax
+  __int64 v1; // r10
+  unsigned __int64 v2; // r10
 
-  v0 = (qword_140C66EA0 << 9) - qword_140C69A70;
-  v1 = qword_140C69A90 + (unsigned int)MiGetNumberOfCachedPtes(&qword_140C69A40) + v0;
-  if ( v1 >= 0x100000000LL )
-    LODWORD(v1) = -1;
-  return (unsigned int)v1;
+  NumberOfCachedPtes = MiGetNumberOfCachedPtes(&qword_140C4EF40);
+  v2 = qword_140C4EF98 + NumberOfCachedPtes + v1;
+  if ( v2 >= 0x100000000LL )
+    LODWORD(v2) = -1;
+  return (unsigned int)v2;
 }

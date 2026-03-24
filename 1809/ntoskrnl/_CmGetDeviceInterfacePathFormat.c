@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceInterfacePathFormat @ 0x1406D5608
+ * XREFs of _CmGetDeviceInterfacePathFormat @ 0x1406D55E8
  * Callers:
- *     IoGetDeviceInterfaceAlias @ 0x1406D52C0 (IoGetDeviceInterfaceAlias.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1406D52A0 (IoGetDeviceInterfaceAlias.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)

@@ -1,24 +1,15 @@
 /*
- * XREFs of DrvGetMonitorOrientation @ 0x1C0167550
+ * XREFs of DrvGetMonitorOrientation @ 0x1C0147AB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvGetMonitorOrientation(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // ebp
-  __int64 DxgkWin32kInterface; // rax
-
-  v6 = a2;
-  if ( !a1 )
+  if ( a1 )
+    return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64, __int64))qword_1C0250998)(*a1, a2, 0LL, a3, a4);
+  else
     return 3221225485LL;
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-  return (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, __int64))(DxgkWin32kInterface + 264))(
-           *a1,
-           v6,
-           0LL,
-           a3,
-           a4);
 }

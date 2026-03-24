@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxSetInternalWindowPos @ 0x1C02108F0
+ * XREFs of xxxSetInternalWindowPos @ 0x1C020930C
  * Callers:
- *     NtUserSetInternalWindowPos @ 0x1C01FD640 (NtUserSetInternalWindowPos.c)
+ *     NtUserSetInternalWindowPos @ 0x1C0202280 (NtUserSetInternalWindowPos.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     _MonitorFromRect @ 0x1C007B570 (_MonitorFromRect.c)
- *     UpdateCheckpoint @ 0x1C007C924 (UpdateCheckpoint.c)
- *     GetMonitorRect @ 0x1C007CB08 (GetMonitorRect.c)
- *     GetMonitorWorkRect @ 0x1C007CB4C (GetMonitorWorkRect.c)
+ *     UpdateCheckpoint @ 0x1C0041238 (UpdateCheckpoint.c)
+ *     GetMonitorWorkRect @ 0x1C0041430 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0041DF8 (GetMonitorRect.c)
+ *     _MonitorFromRect @ 0x1C0042310 (_MonitorFromRect.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C0049254 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
  */
 
 __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2, struct tagRECT *a3, _QWORD *a4)
@@ -27,9 +27,9 @@ __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2
   __int128 v18; // xmm0
   unsigned int v19; // ecx
   char v20; // dl
-  _BYTE v21[16]; // [rsp+40h] [rbp-38h] BYREF
+  __int128 v21; // [rsp+40h] [rbp-38h] BYREF
 
-  result = UpdateCheckpoint(a1);
+  result = UpdateCheckpoint((__int64)a1);
   v9 = result;
   if ( result )
   {
@@ -39,8 +39,8 @@ __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2
       if ( *((_QWORD *)a1 + 13) == GetDesktopWindow((__int64)a1) )
       {
         v10 = MonitorFromRect(a3, 1u, 0);
-        v11 = *(__m128i *)GetMonitorWorkRect((__int64)v21, v10);
-        v12 = *(_QWORD *)GetMonitorRect((__int64)v21, v10);
+        v11 = *(__m128i *)GetMonitorWorkRect(&v21, v10);
+        v12 = *(_QWORD *)GetMonitorRect(&v21, v10);
         v13 = _mm_cvtsi128_si32(_mm_srli_si128(v11, 4)) - HIDWORD(v12);
         *(_DWORD *)(v9 + 12) += v13;
         v14 = _mm_cvtsi128_si32(v11) - v12;
@@ -59,8 +59,8 @@ __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2
       if ( *((_QWORD *)a1 + 13) == GetDesktopWindow((__int64)a1) )
       {
         v15 = MonitorFromRect((struct tagRECT *)v9, 1u, 0);
-        v16 = *(__m128i *)GetMonitorWorkRect((__int64)v21, v15);
-        MonitorRect = (__int128 *)GetMonitorRect((__int64)v21, v15);
+        v16 = *(__m128i *)GetMonitorWorkRect(&v21, v15);
+        MonitorRect = GetMonitorRect(&v21, v15);
         v18 = *MonitorRect;
         *(_DWORD *)(v9 + 32) += _mm_cvtsi128_si32(v16) - *MonitorRect;
         *(_DWORD *)(v9 + 36) += _mm_cvtsi128_si32(_mm_srli_si128(v16, 4)) - DWORD1(v18);
@@ -85,7 +85,7 @@ __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2
         a3->bottom - a3->top,
         4);
     }
-    xxxShowWindowEx((ULONG_PTR)a1, a2, 0);
+    xxxShowWindowEx(a1, a2, 0);
     return 1LL;
   }
   return result;

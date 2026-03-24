@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140316D50
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x1403160B0 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureApcRelease @ 0x1403161C0 (EtwpCovSampCaptureApcRelease.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x140316360 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140316428 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140316444 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140316A2C (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureSample @ 0x140316DC4 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampLookasidePop @ 0x1403170D4 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1408C4510 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureApc @ 0x1403161B0 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1403162C0 (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140316460 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140316528 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140316544 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140316B2C (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureSample @ 0x140316EC4 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampLookasidePop @ 0x1403171D4 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1408C44F0 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)

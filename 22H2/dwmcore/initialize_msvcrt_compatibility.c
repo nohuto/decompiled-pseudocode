@@ -1,10 +1,10 @@
 /*
- * XREFs of initialize_msvcrt_compatibility @ 0x18010EEF0
+ * XREFs of initialize_msvcrt_compatibility @ 0x1800E6B10
  * Callers:
  *     <none>
  * Callees:
- *     __local_stdio_printf_options @ 0x18010EEC4 (__local_stdio_printf_options.c)
- *     __local_stdio_scanf_options @ 0x18010EED4 (__local_stdio_scanf_options.c)
+ *     __local_stdio_printf_options @ 0x1800E6A9C (__local_stdio_printf_options.c)
+ *     __local_stdio_scanf_options @ 0x1800E6AF4 (__local_stdio_scanf_options.c)
  */
 
 __int64 initialize_msvcrt_compatibility()

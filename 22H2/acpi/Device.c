@@ -1,11 +1,11 @@
 /*
- * XREFs of Device @ 0x1C00504B0
+ * XREFs of Device @ 0x1C0022980
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     PushScope @ 0x1C0053D60 (PushScope.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     PushScope @ 0x1C0022A38 (PushScope.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Device(__int64 a1, _QWORD *a2)

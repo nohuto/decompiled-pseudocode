@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessRemoveBinding@CBaseAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEANIMATION_REMOVEBINDING@@@Z @ 0x1800EC518
+ * XREFs of ?ProcessRemoveBinding@CBaseAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEANIMATION_REMOVEBINDING@@@Z @ 0x1800D36E4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBaseAnimation::ProcessRemoveBinding(
@@ -29,27 +29,27 @@ __int64 __fastcall CBaseAnimation::ProcessRemoveBinding(
   {
     v7 = 0;
     v8 = 0;
-    if ( *((_DWORD *)this + 24) )
+    if ( *((_DWORD *)this + 22) )
     {
-      v9 = *((_QWORD *)this + 9);
+      v9 = *((_QWORD *)this + 8);
       while ( *(struct CResource **)(v9 + 16LL * v7) != ResourceWithoutType
            || *(_DWORD *)(v9 + 16LL * v7 + 8) != *(_DWORD *)(v5 + 12) )
       {
-        if ( ++v7 >= *((_DWORD *)this + 24) )
+        if ( ++v7 >= *((_DWORD *)this + 22) )
           return v8;
       }
-      if ( !(*(unsigned __int8 (__fastcall **)(CBaseAnimation *))(*(_QWORD *)this + 192LL))(this) )
-        (**((void (__fastcall ***)(char *))this + 8))((char *)this + 64);
-      if ( *((_DWORD *)this + 24) )
+      if ( !(*(unsigned __int8 (__fastcall **)(CBaseAnimation *))(*(_QWORD *)this + 208LL))(this) )
+        (**((void (__fastcall ***)(char *))this + 7))((char *)this + 56);
+      if ( *((_DWORD *)this + 22) )
       {
-        v11 = *((unsigned int *)this + 24);
+        v11 = *((unsigned int *)this + 22);
         if ( v7 >= (unsigned int)v11 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2147024809, 0x19Cu);
+          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024809, 0x19Cu, 0LL);
         }
         else
         {
-          v12 = *((_QWORD *)this + 9);
+          v12 = *((_QWORD *)this + 8);
           if ( v7 < (int)v11 - 1 )
           {
             do
@@ -58,11 +58,11 @@ __int64 __fastcall CBaseAnimation::ProcessRemoveBinding(
               v14 = 2LL * v7;
               v7 = v10;
               *(_OWORD *)(v12 + 8 * v14) = *(_OWORD *)(v12 + 16 * v10);
-              LODWORD(v11) = *((_DWORD *)this + 24);
+              LODWORD(v11) = *((_DWORD *)this + 22);
             }
             while ( (unsigned int)v10 < (int)v11 - 1 );
           }
-          *((_DWORD *)this + 24) = v11 - 1;
+          *((_DWORD *)this + 22) = v11 - 1;
         }
         (*(void (__fastcall **)(struct CResource *, __int64, __int64))(*(_QWORD *)ResourceWithoutType + 16LL))(
           ResourceWithoutType,
@@ -74,7 +74,7 @@ __int64 __fastcall CBaseAnimation::ProcessRemoveBinding(
   else
   {
     v8 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2003303421, 0x44u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2003303421, 0x44u, 0LL);
   }
   return v8;
 }

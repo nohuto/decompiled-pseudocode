@@ -1,63 +1,61 @@
 /*
- * XREFs of AlpcpAllocateBlob @ 0x14073A150
+ * XREFs of AlpcpAllocateBlob @ 0x1406D984C
  * Callers:
- *     AlpcpAllocateMessage @ 0x140716914 (AlpcpAllocateMessage.c)
- *     AlpcpCreateClientPort @ 0x1407177B4 (AlpcpCreateClientPort.c)
- *     AlpcpCreateView @ 0x14071C394 (AlpcpCreateView.c)
- *     AlpcpCreateSecurityContext @ 0x14071CA38 (AlpcpCreateSecurityContext.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
- *     AlpcpCreateSection @ 0x14076C8D8 (AlpcpCreateSection.c)
- *     AlpcpCreateRegion @ 0x1407BA370 (AlpcpCreateRegion.c)
- *     AlpcpCaptureHandleAttributeInternal @ 0x1407BD478 (AlpcpCaptureHandleAttributeInternal.c)
- *     AlpcpCreateConnectionPort @ 0x1407CC8A8 (AlpcpCreateConnectionPort.c)
- *     AlpcpCreateReserve @ 0x1407D03D4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpAllocateMessage @ 0x1405E09E4 (AlpcpAllocateMessage.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x140664DFC (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCreateConnectionPort @ 0x14068D758 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateReserve @ 0x140693ED4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D93AC (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateView @ 0x1406D9900 (AlpcpCreateView.c)
+ *     AlpcpCreateRegion @ 0x1406FFF24 (AlpcpCreateRegion.c)
+ *     AlpcpCreateSection @ 0x140701CAC (AlpcpCreateSection.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char *__fastcall AlpcpAllocateBlob(__int64 a1, __int64 a2, int a3)
+_OWORD *__fastcall AlpcpAllocateBlob(__int64 a1, __int64 a2, int a3)
 {
-  unsigned __int64 v3; // rdx
-  char *result; // rax
+  SIZE_T v3; // rdx
+  _OWORD *result; // rax
   char v6; // dl
-  char v7; // cl
+  _OWORD *v7; // rcx
+  char v8; // al
 
   v3 = a2 + 48;
   if ( a3 || *(_QWORD *)(a1 + 48) < v3 )
   {
     if ( *(_QWORD *)(a1 + 48) )
-      result = (char *)(*((__int64 (__fastcall **)(__int64, unsigned __int64, _QWORD))&AlpcpLookasides
-                        + 16 * (unsigned __int64)*(unsigned int *)(a1 + 8)
-                        + 6))(
-                         1LL,
-                         v3,
-                         *(unsigned int *)(a1 + 4));
+      result = (_OWORD *)(*((__int64 (__fastcall **)(__int64, SIZE_T, _QWORD))&AlpcpLookasides
+                          + 16 * (unsigned __int64)*(unsigned int *)(a1 + 8)
+                          + 6))(
+                           1LL,
+                           v3,
+                           *(unsigned int *)(a1 + 4));
     else
-      result = (char *)ExAllocatePool2(256LL, v3, *(unsigned int *)(a1 + 4));
+      result = ExAllocatePoolWithTag(PagedPool, v3, *(_DWORD *)(a1 + 4));
     v6 = 0;
   }
   else
   {
-    result = (char *)ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&AlpcpLookasides + *(unsigned int *)(a1 + 8));
+    result = ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&AlpcpLookasides + *(unsigned int *)(a1 + 8));
     v6 = 2;
   }
+  v7 = result;
   if ( result )
   {
-    *(_QWORD *)result = 0LL;
-    *((_QWORD *)result + 1) = 0LL;
-    *((_QWORD *)result + 2) = 0LL;
-    *((_QWORD *)result + 3) = 0LL;
-    *((_QWORD *)result + 5) = 0LL;
-    *((_QWORD *)result + 4) = 0LL;
-    result[17] = *(_BYTE *)a1;
-    v7 = result[16];
-    *((_QWORD *)result + 1) = result;
-    *(_QWORD *)result = result;
-    result[16] = v6 | v7 & 0xFD;
-    *((_QWORD *)result + 3) = 1LL;
-    result += 48;
+    *result = 0LL;
+    result[1] = 0LL;
+    result[2] = 0LL;
+    *((_BYTE *)result + 17) = *(_BYTE *)a1;
+    v8 = result[1] & 0xFD;
+    *((_QWORD *)v7 + 1) = v7;
+    *(_QWORD *)v7 = v7;
+    *((_BYTE *)v7 + 16) = v6 | v8;
+    result = v7 + 3;
+    *((_QWORD *)v7 + 3) = 1LL;
   }
   return result;
 }

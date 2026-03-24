@@ -3,7 +3,7 @@
  * Callers:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
  * Callees:
- *     HvpViewMapAdjustFlag @ 0x140740928 (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapAdjustFlag @ 0x140740908 (HvpViewMapAdjustFlag.c)
  */
 
 int __fastcall HvUnlockHiveFilePages(__int64 a1)

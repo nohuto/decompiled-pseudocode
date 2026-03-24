@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpReleaseHandleInfo @ 0x140697C08
+ * XREFs of ObpReleaseHandleInfo @ 0x140697BE8
  * Callers:
  *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140112034 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140112054 (OBJECT_HEADER_TO_HANDLE_INFO.c)
  */
 
 __int64 __fastcall ObpReleaseHandleInfo(__int64 a1)

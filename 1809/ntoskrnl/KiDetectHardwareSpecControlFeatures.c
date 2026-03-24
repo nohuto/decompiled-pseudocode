@@ -1,20 +1,20 @@
 /*
- * XREFs of KiDetectHardwareSpecControlFeatures @ 0x14017D764
+ * XREFs of KiDetectHardwareSpecControlFeatures @ 0x14017D784
  * Callers:
- *     KiSetHardwareSpeculationControlFeatures @ 0x14017D5C0 (KiSetHardwareSpeculationControlFeatures.c)
- *     KiDetermineRetpolineEnablement @ 0x1401930BC (KiDetermineRetpolineEnablement.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401B4504 (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1401B455C (KiIsKvaShadowNeededForTsa.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x14017D5E0 (KiSetHardwareSpeculationControlFeatures.c)
+ *     KiDetermineRetpolineEnablement @ 0x1401930DC (KiDetermineRetpolineEnablement.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401B4524 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1401B457C (KiIsKvaShadowNeededForTsa.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140176B90 (HviIsAnyHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x14017D6F0 (HviGetHypervisorFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x14017D730 (HviGetEnlightenmentInformation.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBB0 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiIsBranchConfusionPresent @ 0x1401B44C0 (KiIsBranchConfusionPresent.c)
- *     KiIsRfdsPresent @ 0x1401B45D8 (KiIsRfdsPresent.c)
- *     KiIsSrsoPresent @ 0x1401B46F4 (KiIsSrsoPresent.c)
- *     KiIsTsaPresent @ 0x1401B47B8 (KiIsTsaPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x14017D750 (HviGetEnlightenmentInformation.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBD0 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiIsBranchConfusionPresent @ 0x1401B44E0 (KiIsBranchConfusionPresent.c)
+ *     KiIsRfdsPresent @ 0x1401B45F8 (KiIsRfdsPresent.c)
+ *     KiIsSrsoPresent @ 0x1401B4714 (KiIsSrsoPresent.c)
+ *     KiIsTsaPresent @ 0x1401B47D8 (KiIsTsaPresent.c)
  */
 
 bool *__fastcall KiDetectHardwareSpecControlFeatures(__int64 a1, char a2, __int64 a3, bool *a4)

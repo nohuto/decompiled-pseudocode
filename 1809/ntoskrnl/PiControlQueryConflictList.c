@@ -1,5 +1,5 @@
 /*
- * XREFs of PiControlQueryConflictList @ 0x14083BD80
+ * XREFs of PiControlQueryConflictList @ 0x14083BD60
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     IopQueryConflictList @ 0x140841FDC (IopQueryConflictList.c)
+ *     IopQueryConflictList @ 0x140841FBC (IopQueryConflictList.c)
  */
 
 __int64 __fastcall PiControlQueryConflictList(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)

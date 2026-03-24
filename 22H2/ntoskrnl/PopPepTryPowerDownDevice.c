@@ -1,44 +1,43 @@
 /*
- * XREFs of PopPepTryPowerDownDevice @ 0x140310AF0
+ * XREFs of PopPepTryPowerDownDevice @ 0x140260C70
  * Callers:
- *     PopPepProcessEvent @ 0x140313720 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1402612E4 (PopPepProcessEvent.c)
  * Callees:
- *     PopPepStartActivity @ 0x14031365C (PopPepStartActivity.c)
- *     PopPepRequestWork @ 0x1403138C0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313904 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313A80 (PopPepPromoteActivities.c)
- *     PopPepTriggerActivity @ 0x140313F1C (PopPepTriggerActivity.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     PopPepStartActivity @ 0x140261288 (PopPepStartActivity.c)
+ *     PopPepReleaseActivityLink @ 0x140261488 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1402614FC (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261688 (PopPepPromoteActivities.c)
+ *     PopPepTriggerActivity @ 0x140261A58 (PopPepTriggerActivity.c)
  */
 
 char __fastcall PopPepTryPowerDownDevice(__int64 a1, __int64 a2)
 {
   char started; // di
-  __int64 v5; // r8
-  __int64 v6; // r9
-  char v7; // r15
-  unsigned int v8; // ebp
-  char v10; // [rsp+50h] [rbp+8h] BYREF
+  KIRQL v5; // al
+  __int64 v6; // r8
+  __int64 v7; // r9
+  bool v8; // zf
+  KIRQL v9; // r15
+  unsigned int v10; // r14d
 
   started = 0;
-  v10 = 0;
-  v7 = PopPepLockActivityLink(a1, 0LL, 6LL, 4LL, &v10);
-  if ( (*(_BYTE *)(a1 + 24) & 1) == 0
-    && !*(_DWORD *)(a1 + 140)
-    && *(_BYTE *)(a1 + 136)
-    && !**(_DWORD **)(a1 + 104)
-    && !**(_DWORD **)(a1 + 112) )
+  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
+  v8 = (*(_BYTE *)(a1 + 24) & 1) == 0;
+  v9 = v5;
+  *(_BYTE *)(a1 + 125) = 1;
+  if ( v8 && !*(_DWORD *)(a1 + 140) && *(_BYTE *)(a1 + 136) && !**(_DWORD **)(a1 + 104) && !**(_DWORD **)(a1 + 112) )
   {
-    v8 = *(_DWORD *)(a1 + 120);
+    v10 = *(_DWORD *)(a1 + 120);
     PopPepTriggerActivity(a1, 0LL, 4LL, 0LL);
     PopPepPromoteActivities(a1, 0LL, 1LL);
     if ( a2 && **(_DWORD **)(a1 + 104) == 2 )
       started = PopPepStartActivity(a1, 0, (int)a1 + 72, 4, a1 + 120, a2);
     else
-      PopPepRequestWork(a1, v8, *(unsigned int *)(a1 + 120));
+      PopPepRequestWork(v10, *(unsigned int *)(a1 + 120));
   }
-  LOBYTE(v6) = v10;
-  LOBYTE(v5) = v7;
-  PopPepReleaseActivityLink(a1, 0LL, v5, v6);
+  LOBYTE(v7) = v9;
+  LOBYTE(v6) = 1;
+  PopPepReleaseActivityLink(a1, 0LL, v6, v7);
   return started;
 }

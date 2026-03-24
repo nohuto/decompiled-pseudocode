@@ -1,12 +1,12 @@
 /*
- * XREFs of MiImageUnused @ 0x140127800
+ * XREFs of MiImageUnused @ 0x140127820
  * Callers:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)

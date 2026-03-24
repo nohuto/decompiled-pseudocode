@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRealAllocateAdapterChannelV3 @ 0x1405175E0
+ * XREFs of HalRealAllocateAdapterChannelV3 @ 0x1404CA380
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateAdapterChannel @ 0x140517630 (HalpAllocateAdapterChannel.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA3D0 (HalpAllocateAdapterChannel.c)
  */
 
 __int64 __fastcall HalRealAllocateAdapterChannelV3(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsRCZClick@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@PEAPEAUtagPOINT@@@Z @ 0x1C0201A00
+ * XREFs of ?IsRCZClick@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@PEAPEAUtagPOINT@@@Z @ 0x1C01C60AC
  * Callers:
- *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01FF674 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01C3EF0 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
  */
 
 __int64 __fastcall CPTPEngine::IsRCZClick(
@@ -12,24 +12,25 @@ __int64 __fastcall CPTPEngine::IsRCZClick(
         struct CContactState *a3,
         struct tagPOINT **a4)
 {
-  unsigned int v4; // edi
-  unsigned __int64 v5; // rbx
+  unsigned int v4; // ebx
+  unsigned __int64 v5; // rdi
   CPTPEngine *v8; // r11
   unsigned int v10; // eax
   unsigned int v11; // r15d
   unsigned __int64 *v12; // r9
   __int64 v13; // rsi
-  _DWORD *v14; // rcx
-  int v15; // r8d
-  struct CContactState *v16; // r10
-  BOOL v17; // eax
-  unsigned __int64 v18; // rdx
-  bool v19; // cl
+  _DWORD *v14; // r10
+  _DWORD *v15; // rcx
+  int v16; // r8d
+  struct CContactState *v17; // r10
+  BOOL v18; // eax
+  unsigned __int64 v19; // rdx
+  bool v20; // cl
 
   v4 = 0;
   v5 = 0LL;
   v8 = this;
-  if ( (*((_DWORD *)this + 118) & 2) == 0 )
+  if ( (*((_DWORD *)this + 106) & 2) == 0 )
     return 0LL;
   v10 = *((_DWORD *)a2 + 12);
   if ( v10 )
@@ -39,20 +40,21 @@ __int64 __fastcall CPTPEngine::IsRCZClick(
     v13 = v10;
     do
     {
-      if ( (*((_DWORD *)v8 + 100 * (*((_DWORD *)v12 - 9) % v11) + 302) & 0x20000000) != 0 )
+      v14 = (_DWORD *)((char *)v8 + 392 * (*((_DWORD *)v12 - 9) % v11) + 1160);
+      if ( (*v14 & 0x8000000) != 0 && v14[5] >= *((_DWORD *)v8 + 943) )
       {
-        v17 = PtInRect((_DWORD *)v8 + 968, *v12) && PtInRect(v14, *((_QWORD *)v16 + 3));
-        if ( (v15 & 1) != 0 )
-          v17 = v17 && (v15 & 0x40) == 0 && (v15 & 0x10000000) == 0;
-        v18 = *((_QWORD *)v16 + 10);
-        v19 = v18 > v5 || v18 == v5 && v17;
+        v18 = PtInRect((_DWORD *)v8 + 942, *v12) && PtInRect(v15, *((_QWORD *)v17 + 2));
+        if ( (v16 & 1) != 0 )
+          v18 = v18 && (v16 & 0x40) == 0 && (v16 & 0x4000000) == 0;
+        v19 = *((_QWORD *)v17 + 9);
+        v20 = v19 > v5 || v19 == v5 && v18;
         if ( a3 )
-          v19 = v16 == a3;
-        if ( v19 )
+          v20 = v17 == a3;
+        if ( v20 )
         {
-          v5 = *((_QWORD *)v16 + 10);
+          v5 = *((_QWORD *)v17 + 9);
           *a4 = (struct tagPOINT *)v12;
-          v4 = v17;
+          v4 = v18;
         }
       }
       v12 += 12;

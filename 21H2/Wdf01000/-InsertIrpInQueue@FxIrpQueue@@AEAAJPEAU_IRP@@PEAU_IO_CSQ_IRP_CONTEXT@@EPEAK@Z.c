@@ -1,11 +1,10 @@
 /*
- * XREFs of ?InsertIrpInQueue@FxIrpQueue@@AEAAJPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@EPEAK@Z @ 0x1C0002B90
+ * XREFs of ?InsertIrpInQueue@FxIrpQueue@@AEAAJPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@EPEAK@Z @ 0x1C0019D90
  * Callers:
- *     ?InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C000A934 (-InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
- *     ?InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C000E1B8 (-InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
- *     ?PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z @ 0x1C007409C (-PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C00154A8 (-InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
+ *     ?PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z @ 0x1C006576C (-PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z.c)
  * Callees:
- *     ?RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z @ 0x1C0011584 (-RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z.c)
+ *     ?RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z @ 0x1C0018624 (-RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z.c)
  */
 
 __int64 __fastcall FxIrpQueue::InsertIrpInQueue(
@@ -15,8 +14,8 @@ __int64 __fastcall FxIrpQueue::InsertIrpInQueue(
         unsigned __int8 InsertInHead)
 {
   _LIST_ENTRY *p_ListEntry; // rax
-  _LIST_ENTRY *Blink; // rdx
   _LIST_ENTRY *Flink; // rdx
+  _LIST_ENTRY *Blink; // rdx
   __int64 v9; // r10
   __int64 v10; // r11
   FxIrp v11; // [rsp+38h] [rbp+10h] BYREF
@@ -34,27 +33,27 @@ __int64 __fastcall FxIrpQueue::InsertIrpInQueue(
     Irp->Tail.Overlay.DriverContext[3] = this;
   }
   p_ListEntry = &Irp->Tail.Overlay.ListEntry;
-  if ( InsertInHead )
+  if ( !InsertInHead )
   {
-    Flink = this->m_Queue.Flink;
-    if ( (FxIrpQueue *)this->m_Queue.Flink->Blink == this )
+    Blink = this->m_Queue.Blink;
+    if ( (FxIrpQueue *)Blink->Flink == this )
     {
-      p_ListEntry->Flink = Flink;
-      p_ListEntry->Blink = &this->m_Queue;
-      Flink->Blink = p_ListEntry;
-      this->m_Queue.Flink = p_ListEntry;
+      p_ListEntry->Flink = &this->m_Queue;
+      p_ListEntry->Blink = Blink;
+      Blink->Flink = p_ListEntry;
+      this->m_Queue.Blink = p_ListEntry;
       goto LABEL_6;
     }
-LABEL_10:
+LABEL_11:
     __fastfail(3u);
   }
-  Blink = this->m_Queue.Blink;
-  if ( (FxIrpQueue *)Blink->Flink != this )
-    goto LABEL_10;
-  p_ListEntry->Flink = &this->m_Queue;
-  p_ListEntry->Blink = Blink;
-  Blink->Flink = p_ListEntry;
-  this->m_Queue.Blink = p_ListEntry;
+  Flink = this->m_Queue.Flink;
+  if ( (FxIrpQueue *)this->m_Queue.Flink->Blink != this )
+    goto LABEL_11;
+  p_ListEntry->Flink = Flink;
+  p_ListEntry->Blink = &this->m_Queue;
+  Flink->Blink = p_ListEntry;
+  this->m_Queue.Flink = p_ListEntry;
 LABEL_6:
   ++this->m_RequestCount;
   Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;

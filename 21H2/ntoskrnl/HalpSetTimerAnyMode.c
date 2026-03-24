@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetTimerAnyMode @ 0x14050C47C
+ * XREFs of HalpSetTimerAnyMode @ 0x1404BF9BC
  * Callers:
- *     HalpTimerClockPowerChange @ 0x14050BFD0 (HalpTimerClockPowerChange.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x14050D91C (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpTimerClockPowerChange @ 0x1404BF510 (HalpTimerClockPowerChange.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
  * Callees:
- *     HalpSetTimer @ 0x140354420 (HalpSetTimer.c)
- *     HalpTimerClearProblem @ 0x14050C570 (HalpTimerClearProblem.c)
+ *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
+ *     HalpTimerClearProblem @ 0x1404BFAB0 (HalpTimerClearProblem.c)
  */
 
-__int64 __fastcall HalpSetTimerAnyMode(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 *a4)
+__int64 __fastcall HalpSetTimerAnyMode(__int64 a1, ULONGLONG a2, __int64 a3, unsigned __int64 *a4)
 {
   int v7; // eax
   __int64 v8; // r8

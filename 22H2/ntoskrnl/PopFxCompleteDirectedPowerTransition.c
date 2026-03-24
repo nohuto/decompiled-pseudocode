@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxCompleteDirectedPowerTransition @ 0x14058972C
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x14056A49C
  * Callers:
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589C08 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14058A530 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14056A6F4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056ABE8 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x140311BE8 (PopFxDisableWorkOrderWatchdog.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x14058A3A0 (PopFxEnforceDirectedPowerTransition.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1405904A4 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x14059354C (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x1402623B8 (PopFxDisableWorkOrderWatchdog.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x14056AA4C (PopFxEnforceDirectedPowerTransition.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1405721A0 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140576964 (PopCompleteDirectedPowerTransitionCallback.c)
  */
 
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, char a2)
@@ -22,21 +22,17 @@ LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter
   signed __int32 v5; // ett
   signed __int32 v6; // eax
   signed __int32 v7; // ett
-  unsigned __int64 v8; // r14
-  unsigned __int8 v9; // r9
-  unsigned __int32 v10; // eax
-  unsigned __int32 v11; // ett
-  __int64 v12; // r12
-  unsigned int v13; // esi
-  unsigned int v14; // edi
-  unsigned int v15; // eax
-  char v16; // si
-  __int64 v17; // rdx
+  unsigned __int64 v8; // rbp
+  signed __int32 v9; // eax
+  signed __int32 v10; // ett
+  __int64 v11; // r15
+  unsigned int v12; // edi
+  __int64 v13; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v21; // eax
-  bool v22; // zf
+  int v17; // eax
+  bool v18; // zf
   LONG result; // eax
 
   _m_prefetchw((const void *)(BugCheckParameter3 + 32));
@@ -48,7 +44,7 @@ LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter
   }
   while ( v5 != v4 );
   if ( (v4 & 0x2000) == 0 )
-    goto LABEL_25;
+    goto LABEL_23;
   _m_prefetchw((const void *)(BugCheckParameter3 + 1160));
   v6 = *(_DWORD *)(BugCheckParameter3 + 1160);
   do
@@ -58,61 +54,54 @@ LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter
   }
   while ( v7 != v6 );
   if ( v6 )
-    goto LABEL_25;
+    goto LABEL_23;
   PopFxDisableWorkOrderWatchdog((__int64 *)(BugCheckParameter3 + 976));
   v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(BugCheckParameter3 + 1152));
   PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter3 + 48), 0, 24, 1LL);
   _InterlockedAnd((volatile signed __int32 *)(BugCheckParameter3 + 32), 0xFFFFDFFF);
   _m_prefetchw((const void *)(BugCheckParameter3 + 32));
-  v10 = *(_DWORD *)(BugCheckParameter3 + 32);
+  v9 = *(_DWORD *)(BugCheckParameter3 + 32);
   do
   {
-    v11 = v10;
-    v10 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter3 + 32), v10, v10);
+    v10 = v9;
+    v9 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter3 + 32), v9, v9);
   }
-  while ( v11 != v10 );
-  if ( (v9 & (unsigned __int8)(v10 >> 12)) != a2 )
-LABEL_25:
+  while ( v10 != v9 );
+  if ( ((v9 & 0x1000) != 0) != a2 )
+LABEL_23:
     PopFxBugCheck(0x910uLL, 2uLL, BugCheckParameter3, 0LL);
-  v12 = *(_QWORD *)(BugCheckParameter3 + 1168);
-  v13 = *(_DWORD *)(BugCheckParameter3 + 1180);
-  v14 = *(_DWORD *)(BugCheckParameter3 + 1176);
-  v15 = v13 & 0xFFFFFFFD;
+  v11 = *(_QWORD *)(BugCheckParameter3 + 1168);
+  v12 = *(_DWORD *)(BugCheckParameter3 + 1176);
   *(_QWORD *)(BugCheckParameter3 + 1168) = 0LL;
   *(_DWORD *)(BugCheckParameter3 + 1176) = 0;
-  v16 = v9 & (v13 >> 1);
-  *(_DWORD *)(BugCheckParameter3 + 1180) = v15;
-  KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter3 + 1152));
+  *(_DWORD *)(BugCheckParameter3 + 1180) &= ~2u;
+  KxReleaseSpinLock((PKSPIN_LOCK)(BugCheckParameter3 + 1152));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v17 = -1LL << ((unsigned __int8)v8 + 1);
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v21 = ~(unsigned __int16)v17;
-      v22 = (v21 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v21;
-      if ( v22 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v13 = -1LL << ((unsigned __int8)v8 + 1);
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v17 = ~(unsigned __int16)v13;
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v8);
-  LOBYTE(v17) = a2;
-  PopDiagTraceFxDeviceDirectedCompletion(*(_QWORD *)(BugCheckParameter3 + 48), v17);
-  if ( byte_140C3F3F4 )
-    goto LABEL_21;
-  if ( v16 )
-  {
+  LOBYTE(v13) = a2;
+  PopDiagTraceFxDeviceDirectedCompletion(*(_QWORD *)(BugCheckParameter3 + 48), v13);
+  if ( byte_140C24ED4 )
+    v12 = 0;
+  else
     PopFxEnforceDirectedPowerTransition(BugCheckParameter3);
-    goto LABEL_22;
-  }
-  if ( (*(_DWORD *)(BugCheckParameter3 + 824) & 1) != 0 )
-LABEL_21:
-    v14 = 0;
-LABEL_22:
-  PopCompleteDirectedPowerTransitionCallback(BugCheckParameter3, v12, v14);
+  PopCompleteDirectedPowerTransitionCallback(BugCheckParameter3, v11, v12);
   result = _InterlockedDecrement((volatile signed __int32 *)(BugCheckParameter3 + 244));
   if ( !result )
     return KeSetEvent((PRKEVENT)(BugCheckParameter3 + 248), 0, 0);

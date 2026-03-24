@@ -1,44 +1,45 @@
 /*
- * XREFs of IoAdjustStackSizeForRedirection @ 0x140556680
+ * XREFs of IoAdjustStackSizeForRedirection @ 0x140505390
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
  */
 
-__int64 __fastcall IoAdjustStackSizeForRedirection(__int64 a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall IoAdjustStackSizeForRedirection(PDEVICE_OBJECT DeviceObject, __int64 a2, _BYTE *a3)
 {
-  int v4; // esi
+  int v4; // ebp
   KIRQL v7; // al
-  char v8; // bl
-  KIRQL v9; // r9
-  char v10; // al
+  CCHAR StackSize; // di
+  KIRQL v9; // r15
+  char v10; // bl
   char v11; // bl
-  __int64 v12; // r8
-  __int64 i; // rax
-  __int64 v14; // rax
+  PDEVICE_OBJECT AttachedDevice; // r8
 
   v4 = 0;
   v7 = KeAcquireQueuedSpinLock(0xAuLL);
-  v8 = *(_BYTE *)(a2 + 76);
+  StackSize = DeviceObject->StackSize;
   v9 = v7;
-  v10 = *(_BYTE *)(a1 + 76);
-  if ( v10 < v8 )
+  v10 = *(_BYTE *)(a2 + 76);
+  if ( StackSize < v10 )
   {
-    v11 = v8 - v10;
-    v12 = a1;
-    for ( i = *(_QWORD *)(a1 + 24); i; i = *(_QWORD *)(i + 24) )
-      v12 = i;
-    if ( (unsigned __int16)v11 + (unsigned int)(unsigned __int16)*(char *)(v12 + 76) < 0x7D )
+    v11 = v10 - StackSize;
+    AttachedDevice = IoGetAttachedDevice(DeviceObject);
+    if ( (unsigned __int16)v11 + (unsigned int)(unsigned __int16)AttachedDevice->StackSize < 0x7D )
     {
-      while ( v12 != a1 )
+      if ( AttachedDevice != DeviceObject )
       {
-        v14 = *(_QWORD *)(v12 + 312);
-        *(_BYTE *)(v12 + 76) += v11;
-        v12 = *(_QWORD *)(v14 + 48);
+        do
+        {
+          AttachedDevice->StackSize += v11;
+          AttachedDevice = AttachedDevice->DeviceObjectExtension->AttachedTo;
+        }
+        while ( AttachedDevice != DeviceObject );
+        StackSize = DeviceObject->StackSize;
       }
-      *(_BYTE *)(a1 + 76) += v11;
+      DeviceObject->StackSize = v11 + StackSize;
     }
     else
     {

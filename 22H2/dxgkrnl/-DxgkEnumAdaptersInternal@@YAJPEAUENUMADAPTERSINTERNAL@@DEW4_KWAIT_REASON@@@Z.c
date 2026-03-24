@@ -1,245 +1,196 @@
 /*
- * XREFs of ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x1C017EFB0
+ * XREFs of ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x1C013C0D4
  * Callers:
- *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x1C017E6B0 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
- *     ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C02CE700 (-DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z.c)
- *     ?DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z @ 0x1C02CECB8 (-DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x1C013B380 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C0173BF0 (-DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z @ 0x1C0221CF8 (-DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z.c)
  * Callees:
- *     ?Acquire@DXGUSERCRIT@@QEAAXH@Z @ 0x1C00037DC (-Acquire@DXGUSERCRIT@@QEAAXH@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C017F1B0 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
- *     ?WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z @ 0x1C017F698 (-WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z.c)
- *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C018CFB8 (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?Acquire@DXGUSERCRIT@@QEAAXH@Z @ 0x1C000A41C (-Acquire@DXGUSERCRIT@@QEAAXH@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C00EDC54 (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C013C28C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     DxgkWaitForPnPTransitionDone @ 0x1C013C5FC (DxgkWaitForPnPTransitionDone.c)
  */
 
 __int64 __fastcall DxgkEnumAdaptersInternal(struct ENUMADAPTERSINTERNAL *a1, char a2, __int64 a3, unsigned int a4)
 {
-  char v5; // bl
+  char v5; // si
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
   struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v9; // rsi
-  unsigned int ProcessSessionId; // ebx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct DXGPROCESS *v15; // rdi
+  unsigned int ProcessSessionId; // eax
+  __int64 v17; // rdx
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rsi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v12; // r8
-  int v13; // eax
-  struct DXGGLOBAL *v14; // rax
-  int v15; // esi
-  struct DXGGLOBAL *v16; // rax
-  struct DXGGLOBAL *v17; // rax
-  unsigned int v18; // ebx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v22; // rbx
-  struct DXGPROCESS *v23; // rbx
-  unsigned int v24; // ecx
-  int v25; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-28h]
-  char v27; // [rsp+60h] [rbp-20h]
-  char v28[8]; // [rsp+68h] [rbp-18h] BYREF
-  struct DXGPROCESS *v29; // [rsp+70h] [rbp-10h]
-  char v30; // [rsp+78h] [rbp-8h]
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  int v27; // edi
+  unsigned int v28; // eax
+  struct DXGGLOBAL *v29; // rax
+  unsigned int v30; // eax
+  struct DXGGLOBAL *v31; // rax
+  unsigned int v32; // eax
+  unsigned int v33; // ebx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rax
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  __int64 v50; // r9
+  struct _KTHREAD **v51; // rsi
+  int v52; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v53; // [rsp+28h] [rbp-28h]
+  char v54; // [rsp+30h] [rbp-20h]
+  char v55[8]; // [rsp+38h] [rbp-18h] BYREF
+  struct DXGPROCESS *v56; // [rsp+40h] [rbp-10h]
+  char v57; // [rsp+48h] [rbp-8h]
 
-  v25 = -1;
+  v52 = -1;
+  v53 = 0LL;
   v5 = a3;
-  v26 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v27 = 1;
-    v25 = 2078;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v54 = 1;
+    v52 = 2078;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 2078);
   }
   else
   {
-    v27 = 0;
+    v54 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v25, 2078);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v52, 2078LL);
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 1573LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pEnumAdapters != NULL", 1573LL, 0LL, 0LL, 0LL, 0LL);
+    v37 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v37 + 24) = 1524LL;
+    WdLogEvent5_WdAssertion(v37);
   }
-  Current = DXGPROCESS::GetCurrent();
-  v9 = Current;
+  Current = DXGPROCESS::GetCurrent(v9, v8, v10, v11);
+  v15 = Current;
   if ( Current )
   {
     if ( v5 )
     {
       ProcessSessionId = PsGetProcessSessionId(*((_QWORD *)Current + 7));
-      Global = DXGGLOBAL::GetGlobal();
-      LOBYTE(v12) = a2;
-      v13 = DXGSESSIONMGR::WaitForPnPTransitionDone(*((_QWORD *)Global + 118), a4, v12, ProcessSessionId, 0);
-      if ( v13 < 0 )
+      LOBYTE(v17) = a2;
+      v18 = DxgkWaitForPnPTransitionDone(a4, v17, ProcessSessionId, 0LL, v52, v53);
+      v21 = v18;
+      if ( v18 < 0 )
       {
-        v22 = v13;
-        WdLogSingleEntry1(2LL, v13);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to wait for PnP notification on current session (ntStatus = 0x%I64x).",
-          v22,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v39 = WdLogNewEntry5_WdError(v20, v19);
+        *(_QWORD *)(v39 + 24) = v21;
+        WdLogEvent5_WdError(v39);
       }
     }
-    v29 = v9;
-    v30 = 0;
-    if ( a2 == 1 )
-      DXGUSERCRIT::Acquire((DXGUSERCRIT *)v28, 0);
+    v56 = v15;
+    v57 = 0;
+    DXGUSERCRIT::Acquire((DXGUSERCRIT *)v55, 0LL);
     *(_DWORD *)a1 = 0;
     *((_DWORD *)a1 + 2) = 0;
-    v14 = DXGGLOBAL::GetGlobal();
-    v15 = DXGGLOBAL::IterateAdaptersWithCallback(v14, EnumAdaptersCallback, a1, 4LL);
+    Global = DXGGLOBAL::GetGlobal(v23, v22);
+    v27 = DXGGLOBAL::IterateAdaptersWithCallback(Global, EnumAdaptersCallback, a1, 4LL);
+    v28 = *(_DWORD *)a1;
     if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 1) )
     {
-      WdLogSingleEntry1(1LL, 1631LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->AdaptersBufferCount",
-        1631LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v40 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v40 + 24) = 1579LL;
+      WdLogEvent5_WdAssertion(v40);
+      v28 = *(_DWORD *)a1;
     }
-    if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 2) )
+    if ( v28 > *((_DWORD *)a1 + 2) )
     {
-      WdLogSingleEntry1(1LL, 1632LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->RequiredAdaptersBufferCount",
-        1632LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v41 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v41 + 24) = 1580LL;
+      WdLogEvent5_WdAssertion(v41);
     }
-    if ( v15 < 0 )
-      goto LABEL_33;
-    v16 = DXGGLOBAL::GetGlobal();
-    v15 = DXGGLOBAL::IterateAdaptersWithCallback(v16, EnumAdaptersCallback, a1, 3LL);
+    if ( v27 < 0 )
+      goto LABEL_31;
+    v29 = DXGGLOBAL::GetGlobal(v26, v25);
+    v27 = DXGGLOBAL::IterateAdaptersWithCallback(v29, EnumAdaptersCallback, a1, 3LL);
+    v30 = *(_DWORD *)a1;
     if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 1) )
     {
-      WdLogSingleEntry1(1LL, 1644LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->AdaptersBufferCount",
-        1644LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v42 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v42 + 24) = 1592LL;
+      WdLogEvent5_WdAssertion(v42);
+      v30 = *(_DWORD *)a1;
     }
-    if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 2) )
+    if ( v30 > *((_DWORD *)a1 + 2) )
     {
-      WdLogSingleEntry1(1LL, 1645LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->RequiredAdaptersBufferCount",
-        1645LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v43 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v43 + 24) = 1593LL;
+      WdLogEvent5_WdAssertion(v43);
     }
-    if ( v15 < 0 )
-      goto LABEL_33;
-    v17 = DXGGLOBAL::GetGlobal();
-    v15 = DXGGLOBAL::IterateAdaptersWithCallback(v17, EnumAdaptersCallback, a1, 5LL);
+    if ( v27 < 0 )
+      goto LABEL_31;
+    v31 = DXGGLOBAL::GetGlobal(v26, v25);
+    v27 = DXGGLOBAL::IterateAdaptersWithCallback(v31, EnumAdaptersCallback, a1, 5LL);
+    v32 = *(_DWORD *)a1;
     if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 1) )
     {
-      WdLogSingleEntry1(1LL, 1658LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->AdaptersBufferCount",
-        1658LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v44 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v44 + 24) = 1606LL;
+      WdLogEvent5_WdAssertion(v44);
+      v32 = *(_DWORD *)a1;
     }
-    if ( *(_DWORD *)a1 > *((_DWORD *)a1 + 2) )
+    if ( v32 > *((_DWORD *)a1 + 2) )
     {
-      WdLogSingleEntry1(1LL, 1659LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pEnumAdapters->NumAdapters <= pEnumAdapters->RequiredAdaptersBufferCount",
-        1659LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v45 = WdLogNewEntry5_WdAssertion(v26, v25);
+      *(_QWORD *)(v45 + 24) = 1607LL;
+      WdLogEvent5_WdAssertion(v45);
     }
-    if ( v15 < 0 )
+    if ( v27 < 0 )
     {
-LABEL_33:
-      WdLogSingleEntry1(2LL, v15);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to iterate all the adapters (ntStatus = 0x%I64x).",
-        v15,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v23 = DXGPROCESS::GetCurrent();
+LABEL_31:
+      v46 = WdLogNewEntry5_WdError(v26, v25);
+      *(_QWORD *)(v46 + 24) = v27;
+      WdLogEvent5_WdError(v46);
+      v51 = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v48, v47, v49, v50);
       while ( *(_DWORD *)a1 )
-      {
-        v24 = *(_DWORD *)a1 - 1;
-        *(_DWORD *)a1 = v24;
-        DXGADAPTER::DestroyHandle(v23, *(_DWORD *)(*((_QWORD *)a1 + 2) + 20LL * v24));
-      }
+        DXGADAPTER::DestroyHandle(v51, *(unsigned int *)(*((_QWORD *)a1 + 2) + 20LL * (unsigned int)--*(_DWORD *)a1));
     }
-    v18 = v15;
-    if ( v30 )
+    v33 = v27;
+    if ( v57 )
     {
-      v30 = 0;
-      (*(void (**)(void))(*((_QWORD *)v29 + 11) + 40LL))();
+      v57 = 0;
+      (*(void (**)(void))(*((_QWORD *)v56 + 11) + 40LL))();
     }
   }
   else
   {
-    v18 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v38 = WdLogNewEntry5_WdError(v14, v13);
+    v33 = -1073741811;
+    *(_QWORD *)(v38 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v38);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v25);
-  if ( v27 )
-  {
-    LOBYTE(v19) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v25);
-  }
-  return v18;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v52, v25);
+  if ( v54 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v52);
+  return v33;
 }

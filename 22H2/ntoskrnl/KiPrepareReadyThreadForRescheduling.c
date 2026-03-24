@@ -1,47 +1,19 @@
 /*
- * XREFs of KiPrepareReadyThreadForRescheduling @ 0x1402BD220
+ * XREFs of KiPrepareReadyThreadForRescheduling @ 0x14035BA40
  * Callers:
- *     KiRescheduleThreadAfterAffinityChange @ 0x140203570 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiSetPriorityThread @ 0x1402B05A0 (KiSetPriorityThread.c)
- *     KiApplyForegroundBoostThread @ 0x14034FED8 (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KiApplyForegroundBoostThread @ 0x14035B5EC (KiApplyForegroundBoostThread.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14035DB70 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiSetHeteroPolicyThread @ 0x1405202A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KiInsertDeferredReadyList @ 0x1402B9C24 (KiInsertDeferredReadyList.c)
- *     KiSetPriorityBoost @ 0x1403079D8 (KiSetPriorityBoost.c)
+ *     KiSetPriorityBoost @ 0x140315DB0 (KiSetPriorityBoost.c)
+ *     KiInsertDeferredReadyList @ 0x14035BAA0 (KiInsertDeferredReadyList.c)
  */
 
-__int64 __fastcall KiPrepareReadyThreadForRescheduling(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall KiPrepareReadyThreadForRescheduling(_KTHREAD *a1, int a2, __int64 a3)
 {
-  int v4; // r10d
-  char v6; // cl
-  int v7; // r8d
-
-  v4 = KiLockQuantumTarget;
-  v6 = 15;
-  v7 = 800;
-  if ( (KiVelocityFlags & 0x8000) == 0 || a2 < 8 )
-  {
-    if ( a2 <= 0 )
-      return KiInsertDeferredReadyList(a3, a1);
-    goto LABEL_8;
-  }
-  if ( a2 > 9 )
-  {
-LABEL_8:
-    if ( a2 >= 15 )
-      return KiInsertDeferredReadyList(a3, a1);
-    goto LABEL_9;
-  }
-  if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - KiNormalPriorityBoostReadyTimeTicks) < *(_DWORD *)(a1 + 436) )
-  {
-LABEL_9:
-    if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - 300) < *(_DWORD *)(a1 + 436) )
-      return KiInsertDeferredReadyList(a3, a1);
-    goto LABEL_6;
-  }
-  v6 = 11;
-  v4 = KiLockQuantumTarget * KiNormalPriorityBoostingPeriodMultiplier;
-LABEL_6:
-  LOBYTE(v7) = v6;
-  KiSetPriorityBoost(0, a1, v7, *(_QWORD *)(a1 + 72), v4);
+  if ( (unsigned int)(a2 - 1) <= 0xD && (unsigned int)(MEMORY[0xFFFFF78000000320] - 300) >= a1->WaitBlock[2].SpareLong )
+    KiSetPriorityBoost(0LL, a1, 15, a1->CycleTime);
   return KiInsertDeferredReadyList(a3, a1);
 }

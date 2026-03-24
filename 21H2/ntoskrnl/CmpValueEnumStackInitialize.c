@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpValueEnumStackInitialize @ 0x14069F47C
+ * XREFs of CmpValueEnumStackInitialize @ 0x14072A23C
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x1402260D0 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x14065AAAC (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407F6698 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECE88 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
  * Callees:
- *     CmpValueEnumStackEntryInitialize @ 0x1402264A8 (CmpValueEnumStackEntryInitialize.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     CmpValueEnumStackEntryInitialize @ 0x1402D3894 (CmpValueEnumStackEntryInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall CmpValueEnumStackInitialize(_DWORD *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of AddEventHooksWdfIoQueueCreate @ 0x1C00C5070
+ * XREFs of AddEventHooksWdfIoQueueCreate @ 0x1C00C4070
  * Callers:
- *     imp_VfWdfIoQueueCreate @ 0x1C00C2020 (imp_VfWdfIoQueueCreate.c)
+ *     imp_VfWdfIoQueueCreate @ 0x1C00C1020 (imp_VfWdfIoQueueCreate.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     VfAddContextToHandle @ 0x1C00C52D4 (VfAddContextToHandle.c)
- *     VfAllocateContext @ 0x1C00C5428 (VfAllocateContext.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     VfAddContextToHandle @ 0x1C00C42D4 (VfAddContextToHandle.c)
+ *     VfAllocateContext @ 0x1C00C4430 (VfAllocateContext.c)
  */
 
 int __fastcall AddEventHooksWdfIoQueueCreate(
@@ -50,7 +50,7 @@ int __fastcall AddEventHooksWdfIoQueueCreate(
   queue = 0LL;
   contextHeader = 0LL;
   if ( !Config )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   if ( Config->Size != 96 )
   {
     result = 0;

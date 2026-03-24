@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDatabaseClose @ 0x140694D78
+ * XREFs of KseShimDatabaseClose @ 0x140758578
  * Callers:
- *     KsepDbGetDriverShims @ 0x140694A54 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x14080AA9C (KsepDbCacheReadDevice.c)
- *     KsepDbGetShimInfo @ 0x140856450 (KsepDbGetShimInfo.c)
- *     KseInitialize @ 0x140B4CCCC (KseInitialize.c)
+ *     KsepDbCacheReadDevice @ 0x14075566C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetDriverShims @ 0x140758450 (KsepDbGetDriverShims.c)
+ *     KsepDbGetShimInfo @ 0x1408BF86C (KsepDbGetShimInfo.c)
+ *     KseInitialize @ 0x140A3BCCC (KseInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepSdbUnmapFromMemory @ 0x1406950AC (KsepSdbUnmapFromMemory.c)
- *     KseShimDatabaseBootRelease @ 0x140845854 (KseShimDatabaseBootRelease.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepSdbUnmapFromMemory @ 0x140755C2C (KsepSdbUnmapFromMemory.c)
+ *     KseShimDatabaseBootRelease @ 0x1407BD420 (KseShimDatabaseBootRelease.c)
  */
 
 void __fastcall KseShimDatabaseClose(__int64 a1)
@@ -47,8 +47,8 @@ void __fastcall KseShimDatabaseClose(__int64 a1)
       v3 = KsepShimDbRefCount;
       if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v3 == 1) )
       {
-        KsepSdbUnmapFromMemory(&KsepShimDb);
-        KsepSdbUnmapFromMemory(&unk_140C40CB8);
+        KsepSdbUnmapFromMemory(KsepShimDb);
+        KsepSdbUnmapFromMemory(qword_140C2AF78);
         KsepShimDbHandle = 0LL;
       }
     }

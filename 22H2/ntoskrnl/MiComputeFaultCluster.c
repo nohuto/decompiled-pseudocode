@@ -1,123 +1,117 @@
 /*
- * XREFs of MiComputeFaultCluster @ 0x1402EE628
+ * XREFs of MiComputeFaultCluster @ 0x1402E3EC4
  * Callers:
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPteInStore @ 0x1402E1DE0 (MiIsPteInStore.c)
+ *     MiAdvanceFaultList @ 0x1402E40E8 (MiAdvanceFaultList.c)
+ *     MiGetPagingFileOffset @ 0x14033A2B0 (MiGetPagingFileOffset.c)
  */
 
 __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int a4)
 {
-  __int64 v5; // rbx
-  __int64 v6; // rax
-  __int64 v7; // r8
-  unsigned __int64 v8; // rdi
-  unsigned __int64 v10; // r15
+  __int64 v4; // rbx
+  __int64 v5; // rax
+  __int64 v6; // r10
+  unsigned __int64 v7; // rsi
+  unsigned __int64 v10; // r14
   __int64 v11; // r11
   unsigned __int64 v12; // r12
-  unsigned __int64 v13; // r14
-  unsigned __int64 v14; // rbp
-  unsigned __int64 v15; // rdi
-  unsigned __int64 v16; // rax
-  __int64 v17; // rax
-  unsigned __int64 v18; // r11
+  unsigned __int64 v13; // r15
   __int64 result; // rax
+  unsigned __int64 v15; // rbp
+  unsigned __int64 v16; // rsi
+  unsigned __int64 v17; // rax
+  __int64 v18; // rax
+  unsigned __int64 v19; // r11
   __int64 v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  unsigned __int16 v24; // bx
-  __int64 v25; // rax
-  int v26; // eax
-  __int64 v27; // [rsp+20h] [rbp-58h] BYREF
-  unsigned __int64 v28; // [rsp+28h] [rbp-50h]
-  __int64 v29; // [rsp+30h] [rbp-48h]
-  __int64 v30; // [rsp+38h] [rbp-40h]
-  int v32; // [rsp+88h] [rbp+10h]
+  unsigned __int16 v21; // bx
+  __int64 v22; // rax
+  __int64 v23; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v24; // [rsp+28h] [rbp-50h]
+  __int64 v25; // [rsp+30h] [rbp-48h]
+  __int64 v26; // [rsp+38h] [rbp-40h]
+  int v28; // [rsp+88h] [rbp+10h]
 
-  v5 = a2[4];
-  v6 = a2[1];
-  v7 = 2LL * a2[3];
-  v8 = a2[2];
-  v29 = a2[3];
-  v10 = *(_QWORD *)(v6 + 8 * v7) + (v5 << 12);
-  v30 = v5;
-  v28 = v8;
+  v4 = a2[4];
+  v5 = a2[1];
+  v6 = 2LL * a2[3];
+  v7 = a2[2];
+  v25 = a2[3];
+  v10 = *(_QWORD *)(v5 + 8 * v6) + (v4 << 12);
+  v26 = v4;
+  v24 = v7;
   MiAdvanceFaultList(a2);
   v12 = a2[3];
   v13 = 1LL;
-  if ( v12 < v8 )
+  if ( v12 < v7 )
   {
-    v32 = 0;
-    v14 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFFFF8LL;
-    v15 = 256LL;
-    if ( a4 && *(unsigned int *)(a1 + 1196) < 0x100uLL )
-      v15 = *(unsigned int *)(a1 + 1196);
+    v28 = 0;
+    v15 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFFFF8LL;
+    v16 = 256LL;
+    if ( a4 && *(unsigned int *)(a1 + 1164) < 0x100uLL )
+      v16 = *(unsigned int *)(a1 + 1164);
     if ( a3 )
     {
-      v16 = (*(unsigned int *)(a3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a3 + 33) << 32)) - (v10 >> 12) + 1;
-      if ( v15 <= v16 )
-        v16 = v15;
-      v15 = v16;
-      v17 = *(unsigned int *)(a3 + 52);
-      LODWORD(v17) = v17 & 0x7FFFFFFF;
-      if ( v17 | ((unsigned __int64)*(unsigned __int8 *)(a3 + 34) << 31) )
+      v17 = (*(unsigned int *)(a3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a3 + 33) << 32)) - (v10 >> 12) + 1;
+      if ( v16 <= v17 )
+        v17 = v16;
+      v16 = v17;
+      v18 = *(unsigned int *)(a3 + 52);
+      LODWORD(v18) = v18 & 0x7FFFFFFF;
+      if ( v18 | ((unsigned __int64)*(unsigned __int8 *)(a3 + 34) << 31) )
       {
         a3 = 0LL;
-        v32 = 1;
+        v28 = 1;
       }
     }
-    if ( v15 > 1 )
+    if ( v16 > 1 )
     {
       while ( 1 )
       {
         if ( !a3 )
         {
-          if ( (v14 & 0xFFF) == 0 )
-            goto LABEL_13;
-          v20 = MI_READ_PTE_LOCK_FREE(v14);
-          v27 = v20;
-          v24 = v20;
-          if ( (v20 & 1) != 0 )
-            goto LABEL_13;
-          v25 = v20 & 0x400;
-          if ( v32 )
+          if ( (v15 & 0xFFF) == 0 || (v20 = MI_READ_PTE_LOCK_FREE(v15), v23 = v20, v21 = v20, (v20 & 1) != 0) )
           {
-            if ( !v25 )
-              goto LABEL_13;
-          }
-          else if ( v25
-                 || (v24 & 0x800) != 0
-                 || !(unsigned int)MiGetPagingFileOffset(&v27, v21, v22, v23)
-                 || ((v24 & 4) != 0 ? (v26 = v24 >> 12 == *(_DWORD *)(a1 + 1188)) : (v26 = 0), a4 != v26) )
-          {
-LABEL_13:
-            v11 = v29;
-            v5 = v30;
+LABEL_14:
+            v11 = v25;
+            v4 = v26;
             break;
           }
-          v14 += 8LL;
+          v22 = v20 & 0x400;
+          if ( v28 )
+          {
+            if ( !v22 )
+              goto LABEL_14;
+          }
+          else if ( v22
+                 || (v21 & 0x800) != 0
+                 || !(unsigned int)MiGetPagingFileOffset(&v23)
+                 || a4 != (unsigned int)MiIsPteInStore(a1, v21) )
+          {
+            goto LABEL_14;
+          }
+          v15 += 8LL;
         }
         if ( ((*(_QWORD *)(a2[1] + 16 * v12) + (a2[4] << 12)) & 0xFFFFFFFFFFFFF000uLL) - 4096 == (v10 & 0xFFFFFFFFFFFFF000uLL) )
         {
           ++v13;
           MiAdvanceFaultList(a2);
           v12 = a2[3];
-          if ( v12 != v28 )
+          if ( v12 != v24 )
           {
-            v10 = v18;
-            if ( v13 < v15 )
+            v10 = v19;
+            if ( v13 < v16 )
               continue;
           }
         }
-        goto LABEL_13;
+        goto LABEL_14;
       }
     }
   }
-  a2[4] = v5;
+  a2[4] = v4;
   result = (unsigned int)v13;
   a2[3] = v11;
   return result;

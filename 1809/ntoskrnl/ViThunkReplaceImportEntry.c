@@ -4,7 +4,7 @@
  *     VfThunkApplyDriverAddedThunks @ 0x140936998 (VfThunkApplyDriverAddedThunks.c)
  *     ViThunkReplaceAllThunkedImports @ 0x140937180 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1402AB0CC (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceImportEntry(__int64 **a1, _QWORD *a2)

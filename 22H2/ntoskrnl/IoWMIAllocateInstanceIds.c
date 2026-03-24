@@ -1,23 +1,23 @@
 /*
- * XREFs of IoWMIAllocateInstanceIds @ 0x1409DEB90
+ * XREFs of IoWMIAllocateInstanceIds @ 0x140930D80
  * Callers:
- *     DifIoWMIAllocateInstanceIdsWrapper @ 0x1405E1AC0 (DifIoWMIAllocateInstanceIdsWrapper.c)
+ *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)
 {
   _QWORD *v3; // rdi
   _QWORD *v8; // rdx
-  unsigned int v9; // r8d
+  unsigned int v9; // r9d
   _QWORD *v10; // rcx
   ULONG v11; // r10d
-  __int64 v12; // r9
-  __int64 Pool2; // rax
+  __int64 v12; // r8
+  _QWORD *PoolWithTag; // rax
   _QWORD *v14; // rbx
   GUID v15; // xmm0
 
@@ -58,14 +58,14 @@ LABEL_11:
   }
   else
   {
-    Pool2 = ExAllocatePool2(256LL, 168LL, 1768516951LL);
-    v14 = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xA8uLL, 0x69696D57u);
+    v14 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       KeReleaseMutex(&WmipSMMutex, 0);
       return -1073741670;
     }
-    memset((void *)(Pool2 + 8), 255, 0xA0uLL);
+    memset(PoolWithTag + 1, 255, 0xA0uLL);
     *v14 = 0LL;
     if ( v3 )
       *v3 = v14;

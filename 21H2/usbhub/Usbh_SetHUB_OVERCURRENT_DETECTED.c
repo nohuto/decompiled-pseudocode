@@ -1,14 +1,14 @@
 /*
- * XREFs of Usbh_SetHUB_OVERCURRENT_DETECTED @ 0x1C0046DB0
+ * XREFs of Usbh_SetHUB_OVERCURRENT_DETECTED @ 0x1C0048130
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
  */
 
-_UNKNOWN **__fastcall Usbh_SetHUB_OVERCURRENT_DETECTED(__int64 a1, __int64 a2, _DWORD *a3, int a4)
+_UNKNOWN **__fastcall Usbh_SetHUB_OVERCURRENT_DETECTED(__int64 a1, const wchar_t *a2, _DWORD *a3, int a4)
 {
   _UNKNOWN **result; // rax
   __int64 v8; // [rsp+28h] [rbp-20h]
@@ -19,10 +19,10 @@ _UNKNOWN **__fastcall Usbh_SetHUB_OVERCURRENT_DETECTED(__int64 a1, __int64 a2, _
   {
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
       result = (_UNKNOWN **)WPP_RECORDER_SF_S(
-                              WPP_GLOBAL_Control->DeviceExtension,
-                              a2,
-                              (_DWORD)a3,
-                              18,
+                              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                              (__int64)a2,
+                              (__int64)a3,
+                              0x12u,
                               (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
                               a2);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )

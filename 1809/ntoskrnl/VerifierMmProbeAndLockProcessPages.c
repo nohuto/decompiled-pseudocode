@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)
  *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)

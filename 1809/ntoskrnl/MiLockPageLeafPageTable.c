@@ -8,7 +8,7 @@
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiLockPageLeafPageTable(unsigned __int64 *a1)

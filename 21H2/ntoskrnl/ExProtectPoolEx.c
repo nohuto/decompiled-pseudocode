@@ -1,57 +1,57 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x140367008
+ * XREFs of ExProtectPoolEx @ 0x140362BE8
  * Callers:
- *     CmpProtectPoolEx @ 0x140248E20 (CmpProtectPoolEx.c)
- *     CmpProtectPool @ 0x14024DE3C (CmpProtectPool.c)
- *     SmHpBufferProtectEx @ 0x1403813C0 (SmHpBufferProtectEx.c)
+ *     SmHpBufferProtectEx @ 0x140253F00 (SmHpBufferProtectEx.c)
+ *     ExProtectPool @ 0x140362BC8 (ExProtectPool.c)
+ *     CmpProtectPool @ 0x140363DB0 (CmpProtectPool.c)
+ *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     MiDeterminePoolType @ 0x140366FB0 (MiDeterminePoolType.c)
- *     MmProtectPool @ 0x140367190 (MmProtectPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MmProtectPool @ 0x140362D68 (MmProtectPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExProtectPoolEx(unsigned __int16 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
 {
-  int v6; // eax
-  unsigned __int64 v7; // rdx
-  __int64 v8; // r8
-  int v9; // r12d
-  unsigned __int64 v10; // r13
-  __int64 v11; // rbp
-  int v12; // r14d
-  unsigned __int64 v13; // rbx
+  int v8; // eax
+  char v9; // r8
+  int v10; // r12d
+  unsigned __int64 v11; // r13
+  __int64 v12; // rbp
+  int v13; // r14d
   unsigned __int64 v14; // rdi
-  unsigned __int64 v15; // rax
-  __int64 v16; // r11
-  unsigned __int64 v17; // r9
-  unsigned __int64 v18; // rdx
-  unsigned __int64 v19; // r8
-  __int64 v20; // r10
-  unsigned int v21; // ebp
+  unsigned __int64 v15; // r10
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rdx
+  unsigned __int64 v18; // r8
+  __int64 v19; // r9
+  unsigned int v20; // ebp
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v26; // eax
-  bool v27; // zf
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r10
-  _DWORD *v30; // r8
-  int v31; // eax
-  unsigned __int64 v32; // [rsp+68h] [rbp+10h]
+  int v25; // eax
+  bool v26; // zf
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r10
+  _DWORD *v29; // r8
+  int v30; // eax
+  unsigned __int64 v31; // [rsp+68h] [rbp+10h]
 
-  if ( (((unsigned __int16)a2 | a1) & 0xFFF) != 0 )
+  if ( ((a2 | a1) & 0xFFF) != 0 )
     return 0LL;
-  v6 = MiDeterminePoolType(a2);
-  if ( v6 != 32 && (v6 & 0x20) != 0 )
-    return 0LL;
-  v32 = a2 + v8 - 1;
+  v8 = MiDeterminePoolType(a2);
   v9 = 0;
-  v10 = 0LL;
-  LOWORD(v11) = 0;
-  LOBYTE(v12) = 0;
-  v13 = ((40543 * (unsigned __int64)(unsigned int)(v7 >> 12)) >> 32) ^ (40543LL * (unsigned int)(v7 >> 12));
+  if ( v8 != 32 )
+    v9 = v8;
+  if ( (v9 & 0x20) != 0 )
+    return 0LL;
+  v31 = a2 + a3 - 1;
+  v10 = 0;
+  v11 = 0LL;
+  LOWORD(v12) = 0;
+  LOBYTE(v13) = 0;
   v14 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   if ( !PoolBigPageTable )
   {
@@ -65,10 +65,10 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int16 a1, unsigned __int64 a2, __i
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-          v27 = (v26 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v26;
-          if ( v27 )
+          v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v26 = (v25 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v25;
+          if ( v26 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -76,63 +76,66 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int16 a1, unsigned __int64 a2, __i
     __writecr8(v14);
     return 0LL;
   }
-  v15 = v32;
-  v16 = 32LL * ((unsigned int)v13 & ((_DWORD)PoolBigPageTableSize - 1));
-  v17 = PoolBigPageTable + 32 * PoolBigPageTableSize;
-  v18 = v16 + PoolBigPageTable;
+  v15 = PoolBigPageTable + 24 * PoolBigPageTableSize;
+  v16 = v31;
+  v17 = PoolBigPageTable
+      + 24
+      * ((((40543 * (unsigned __int64)(unsigned int)(a1 >> 12)) >> 32) ^ (40543 * (unsigned int)(a1 >> 12))) & (unsigned int)(PoolBigPageTableSize - 1));
   while ( 1 )
   {
-    v19 = *(_QWORD *)v18;
-    if ( (*(_QWORD *)v18 & 1) != 0 )
-      goto LABEL_16;
-    if ( a2 < v19 )
-      goto LABEL_16;
-    v20 = *(_QWORD *)(v18 + 16);
-    if ( v15 >= v20 + v19 )
-      goto LABEL_16;
-    if ( (v20 & 0xFFF) == 0 || ((v32 + 4095) & 0xFFFFFFFFFFFFF000uLL) < ((v20 + v19 + 4095) & 0xFFFFFFFFFFFFF000uLL) )
+    v18 = *(_QWORD *)v17;
+    if ( (*(_QWORD *)v17 & 1) != 0 )
+      goto LABEL_17;
+    if ( a2 < v18 )
+      goto LABEL_17;
+    v19 = *(_QWORD *)(v17 + 16);
+    if ( v16 >= v19 + v18 )
+      goto LABEL_17;
+    if ( (v19 & 0xFFF) == 0 || ((v31 + 4095) & 0xFFFFFFFFFFFFF000uLL) < ((v19 + v18 + 4095) & 0xFFFFFFFFFFFFF000uLL) )
       break;
-    v15 = v32;
-LABEL_16:
-    v18 += 32LL;
-    if ( v18 >= v17 )
+    v16 = v31;
+LABEL_17:
+    v17 += 24LL;
+    if ( v17 >= v15 )
     {
-      if ( v9 == 1 )
-        goto LABEL_11;
-      v18 = PoolBigPageTable;
-      v9 = 1;
-      v17 = v16 + PoolBigPageTable;
+      if ( v10 == 1 )
+        goto LABEL_12;
+      v17 = PoolBigPageTable;
+      v10 = 1;
+      v15 = PoolBigPageTable
+          + 24
+          * ((((40543 * (unsigned __int64)(unsigned int)(a1 >> 12)) >> 32) ^ (40543 * (unsigned int)(a1 >> 12))) & (unsigned int)(PoolBigPageTableSize - 1));
     }
   }
-  v10 = *(_QWORD *)v18;
-  v12 = *(_DWORD *)(v18 + 12) >> 8;
-  v11 = *(_QWORD *)(v18 + 16);
-LABEL_11:
+  v11 = *(_QWORD *)v17;
+  v13 = *(_DWORD *)(v17 + 12) >> 8;
+  v12 = *(_QWORD *)(v17 + 16);
+LABEL_12:
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v28 = KeGetCurrentIrql();
-      if ( v28 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v28 >= 2u )
+      v27 = KeGetCurrentIrql();
+      if ( v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = v29->SchedulerAssist;
-        v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-        v27 = (v31 & v30[5]) == 0;
-        v30[5] &= v31;
-        if ( v27 )
-          KiRemoveSystemWorkPriorityKick(v29);
+        v28 = KeGetCurrentPrcb();
+        v29 = v28->SchedulerAssist;
+        v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+        v26 = (v30 & v29[5]) == 0;
+        v29[5] &= v30;
+        if ( v26 )
+          KiRemoveSystemWorkPriorityKick(v28);
       }
     }
   }
   __writecr8(v14);
-  if ( !v10 )
+  if ( !v11 )
     return 0LL;
-  v21 = v11 & 0xFFF;
-  if ( v21 )
+  v20 = v12 & 0xFFF;
+  if ( v20 )
   {
-    if ( (v12 & 0x40) == 0 || v21 > 0x10uLL )
+    if ( (v13 & 0x40) == 0 || v20 > 0x10uLL )
       return 0LL;
   }
   if ( a4 == -1 )

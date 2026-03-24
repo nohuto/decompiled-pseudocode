@@ -1,78 +1,74 @@
 /*
- * XREFs of ??$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDiagnosticCallbacksManager@@@Z @ 0x1800AFB30
+ * XREFs of ??$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDiagnosticCallbacksManager@@@Z @ 0x1800B4254
  * Callers:
- *     ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FD254 (-Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B4320 (-Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?JoinConversationAsServer@BaseBamoConnection@Bamo@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG@Z @ 0x1800AD450 (-JoinConversationAsServer@BaseBamoConnection@Bamo@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMess.c)
- *     ??0DiagnosticCallbacksManager@@QEAA@XZ @ 0x1800AFDAC (--0DiagnosticCallbacksManager@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$com_ptr_t@VBaseBamoConnection@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801B8B70 (--1-$com_ptr_t@VBaseBamoConnection@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800B376C (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
+ *     ??0DiagnosticCallbacksManager@@QEAA@XZ @ 0x1800B41D0 (--0DiagnosticCallbacksManager@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180155AF0 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-__int64 Microsoft::Bamo::BaseBamoConnection::CreateServer<DiagnosticCallbacksManager>(
+__int64 __fastcall Microsoft::Bamo::BaseBamoConnection::CreateServer<DiagnosticCallbacksManager>(
         __int64 *a1,
         __int64 a2,
         __int128 *a3,
-        ...)
+        __int64 a4,
+        DiagnosticCallbacksManager **a5)
 {
-  DiagnosticCallbacksManager **v3; // rsi
-  DiagnosticCallbacksManager *v7; // rax
-  DiagnosticCallbacksManager *v8; // rdi
-  int v9; // eax
-  unsigned int v10; // ebx
-  __int64 v12; // rdx
-  __int64 v13; // r9
-  int v14; // [rsp+20h] [rbp-38h]
-  __int128 v15; // [rsp+30h] [rbp-28h] BYREF
+  DiagnosticCallbacksManager *v8; // rax
+  DiagnosticCallbacksManager *v9; // rax
+  DiagnosticCallbacksManager *v10; // rsi
+  Microsoft::Bamo::BaseBamoConnection *v11; // rbx
+  __int64 v12; // rax
+  int v13; // eax
+  unsigned int v14; // edi
+  __int64 v16; // rdx
+  __int64 v17; // r9
+  int v18; // [rsp+20h] [rbp-38h]
+  __int128 v19; // [rsp+30h] [rbp-28h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
-  DiagnosticCallbacksManager *v17; // [rsp+78h] [rbp+20h] BYREF
-  va_list va; // [rsp+78h] [rbp+20h]
-  DiagnosticCallbacksManager **v19; // [rsp+80h] [rbp+28h]
-  va_list va1; // [rsp+88h] [rbp+30h] BYREF
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v17 = va_arg(va1, DiagnosticCallbacksManager *);
-  v19 = va_arg(va1, DiagnosticCallbacksManager **);
-  v3 = v19;
-  *v19 = 0LL;
-  v7 = (DiagnosticCallbacksManager *)DefaultHeap::AllocClear(0x110uLL);
-  if ( !v7 )
+  *a5 = 0LL;
+  v8 = (DiagnosticCallbacksManager *)DefaultHeap::AllocClear(0xD0uLL);
+  if ( !v8 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  v17 = DiagnosticCallbacksManager::DiagnosticCallbacksManager(v7);
-  v8 = v17;
-  if ( v17 )
+  v9 = DiagnosticCallbacksManager::DiagnosticCallbacksManager(v8);
+  v10 = v9;
+  v11 = v9;
+  if ( v9 )
   {
-    v15 = *a3;
-    v9 = Microsoft::Bamo::BaseBamoConnection::JoinConversationAsServer(
-           (__int64)v17,
-           a1,
-           a2,
-           &v15,
-           L"Microsoft.DiagCallbackConversation");
-    v10 = v9;
-    if ( v9 >= 0 )
+    v12 = (*(__int64 (__fastcall **)(DiagnosticCallbacksManager *))(*(_QWORD *)v9 + 24LL))(v9);
+    v19 = *a3;
+    v13 = Microsoft::BamoImpl::BaseBamoConnectionImpl::Join(v12, a1, a2, &v19, L"Microsoft.DiagCallbackConversation");
+    v14 = v13;
+    if ( v13 >= 0 )
     {
-      *v3 = v8;
-      return 0LL;
+      v11 = 0LL;
+      *a5 = v10;
+      v14 = 0;
+      goto LABEL_5;
     }
-    v13 = (unsigned int)v9;
-    v12 = 2785LL;
+    v17 = (unsigned int)v13;
+    v16 = 1809LL;
   }
   else
   {
-    v10 = -2147024882;
-    v12 = 2783LL;
-    v13 = 2147942414LL;
+    v14 = -2147024882;
+    v16 = 1807LL;
+    v17 = 2147942414LL;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)v12,
-    (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-    (const char *)v13,
-    v14);
-  wil::com_ptr_t<Microsoft::Bamo::BaseBamoConnection,wil::err_returncode_policy>::~com_ptr_t<Microsoft::Bamo::BaseBamoConnection,wil::err_returncode_policy>((DiagnosticCallbacksManager **)va);
-  return v10;
+    (void *)v16,
+    (unsigned int)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
+    (const char *)v17,
+    v18);
+LABEL_5:
+  if ( v11 )
+    Microsoft::Bamo::BaseBamoConnection::Release(v11);
+  return v14;
 }

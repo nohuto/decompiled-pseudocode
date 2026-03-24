@@ -1,11 +1,10 @@
 /*
- * XREFs of PpmGetPerfPolicyClass @ 0x14025582C
+ * XREFs of PpmGetPerfPolicyClass @ 0x1402F8FAC
  * Callers:
- *     PpmPerfSelectProcessorState @ 0x1402554C0 (PpmPerfSelectProcessorState.c)
- *     PpmPerfCalculateQosClassPolicies @ 0x14032A788 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmPerfApplyDomainState @ 0x140352098 (PpmPerfApplyDomainState.c)
- *     PpmPerfApplyLatencyHint @ 0x14035A68C (PpmPerfApplyLatencyHint.c)
- *     PpmPerfResizeHistory @ 0x140986AC0 (PpmPerfResizeHistory.c)
+ *     PpmPerfApplyDomainState @ 0x1402F8940 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyLatencyHint @ 0x14037C004 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x1403A26EC (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmPerfResizeHistory @ 0x1408E6318 (PpmPerfResizeHistory.c)
  * Callees:
  *     <none>
  */
@@ -20,16 +19,13 @@ char __fastcall PpmGetPerfPolicyClass(_BYTE *a1)
     if ( (unsigned __int8)PpmHeteroNominalPerformanceClasses > 1u )
     {
       if ( *(_QWORD *)a1 )
-        result = *(_BYTE *)(*(_QWORD *)a1 + 301LL);
+        result = *(_BYTE *)(*(_QWORD *)a1 + 205LL);
     }
     else
     {
-      if ( !a1[68] )
+      if ( !a1[60] )
         return result;
-      if ( KeHeteroSystem )
-        result = a1[88];
-      else
-        result = a1[91];
+      result = a1[80];
     }
     if ( result )
       return 1;

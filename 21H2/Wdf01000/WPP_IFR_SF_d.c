@@ -1,20 +1,20 @@
 /*
- * XREFs of WPP_IFR_SF_D @ 0x1C005B340
+ * XREFs of WPP_IFR_SF_D @ 0x1C0039220
  * Callers:
- *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C0003728 (-Stop@FxTimer@@QEAAEE@Z.c)
- *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
- *     ?ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPTOR@@K@Z @ 0x1C001A074 (-ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPT.c)
- *     GetImageName @ 0x1C0026FBC (GetImageName.c)
- *     imp_WdfDeviceSetSpecialFileSupport @ 0x1C002E0B0 (imp_WdfDeviceSetSpecialFileSupport.c)
- *     imp_WdfDeviceInitSetFileObjectConfig @ 0x1C0031890 (imp_WdfDeviceInitSetFileObjectConfig.c)
- *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C005B4F0 (imp_WdfFdoRetrieveNextStaticChild.c)
- *     ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C0060714 (-LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceC.c)
- *     imp_WdfControlDeviceInitSetShutdownNotification @ 0x1C0061BB0 (imp_WdfControlDeviceInitSetShutdownNotification.c)
- *     imp_WdfCxDeviceInitSetFileObjectConfig @ 0x1C0065780 (imp_WdfCxDeviceInitSetFileObjectConfig.c)
- *     ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C006D898 (-InitializeLockOrder@FxVerifierLock@@AEAAXXZ.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C000D5C8 (-Stop@FxTimer@@QEAAEE@Z.c)
+ *     ?ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPTOR@@K@Z @ 0x1C0017B54 (-ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPT.c)
+ *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C0039660 (imp_WdfFdoRetrieveNextStaticChild.c)
+ *     ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C0042CA8 (-LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceC.c)
+ *     imp_WdfControlDeviceInitSetShutdownNotification @ 0x1C00442A0 (imp_WdfControlDeviceInitSetShutdownNotification.c)
+ *     imp_WdfDeviceInitSetFileObjectConfig @ 0x1C0044CE0 (imp_WdfDeviceInitSetFileObjectConfig.c)
+ *     imp_WdfCxDeviceInitSetFileObjectConfig @ 0x1C004B520 (imp_WdfCxDeviceInitSetFileObjectConfig.c)
+ *     ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C005A8FC (-InitializeLockOrder@FxVerifierLock@@AEAAXXZ.c)
+ *     GetImageName @ 0x1C005FDD8 (GetImageName.c)
+ *     ?SetSpecialFileSupport@FxPkgPnp@@QEAAXW4_WDF_SPECIAL_FILE_TYPE@@E@Z @ 0x1C0082DF8 (-SetSpecialFileSupport@FxPkgPnp@@QEAAXW4_WDF_SPECIAL_FILE_TYPE@@E@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_D(

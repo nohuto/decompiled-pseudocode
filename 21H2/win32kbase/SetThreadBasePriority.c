@@ -1,22 +1,24 @@
 /*
- * XREFs of SetThreadBasePriority @ 0x1C0054860
+ * XREFs of SetThreadBasePriority @ 0x1C009DF40
  * Callers:
- *     SetThreadPriority @ 0x1C00546A0 (SetThreadPriority.c)
- *     ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C00547BC (-DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ.c)
- *     IVWorkerThread @ 0x1C01F01F0 (IVWorkerThread.c)
+ *     SetThreadPriority @ 0x1C009DE20 (SetThreadPriority.c)
+ *     ?DeclareThreadAsInput@CInputThread@@QEAA_NXZ @ 0x1C009DE98 (-DeclareThreadAsInput@CInputThread@@QEAA_NXZ.c)
+ *     ?IVWorkerThread@@YAXPEAX@Z @ 0x1C01B5F50 (-IVWorkerThread@@YAXPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __fastcall SetThreadBasePriority(PETHREAD Thread, int a2)
 {
-  _QWORD SystemInformation[2]; // [rsp+20h] [rbp-28h] BYREF
-  int v6; // [rsp+30h] [rbp-18h]
-  int v7; // [rsp+34h] [rbp-14h]
+  __int128 v5; // [rsp+20h] [rbp-38h]
+  __int128 SystemInformation; // [rsp+30h] [rbp-28h] BYREF
+  int v7; // [rsp+40h] [rbp-18h]
+  int v8; // [rsp+44h] [rbp-14h]
 
-  v7 = 0;
-  SystemInformation[0] = PsGetThreadProcessId(Thread);
-  SystemInformation[1] = PsGetThreadId(Thread);
-  v6 = a2;
-  return ZwSetSystemInformation(SystemThreadPriorityClientIdInformation, SystemInformation, 0x18uLL);
+  v8 = 0;
+  *(_QWORD *)&v5 = PsGetThreadProcessId(Thread);
+  v7 = a2;
+  *((_QWORD *)&v5 + 1) = PsGetThreadId(Thread);
+  SystemInformation = v5;
+  return ZwSetSystemInformation(SystemThreadPriorityClientIdInformation, &SystemInformation, 0x18uLL);
 }

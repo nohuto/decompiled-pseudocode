@@ -1,34 +1,34 @@
 /*
- * XREFs of xxxScrollWindowEx @ 0x1C00BFE8C
+ * XREFs of xxxScrollWindowEx @ 0x1C006788C
  * Callers:
- *     NtUserScrollWindowEx @ 0x1C00BFCA0 (NtUserScrollWindowEx.c)
- *     xxxMNSetTop @ 0x1C0233C0C (xxxMNSetTop.c)
- *     xxxMNUpdateShownMenu @ 0x1C02451B0 (xxxMNUpdateShownMenu.c)
+ *     NtUserScrollWindowEx @ 0x1C00676A0 (NtUserScrollWindowEx.c)
+ *     xxxMNSetTop @ 0x1C023B578 (xxxMNSetTop.c)
+ *     xxxMNUpdateShownMenu @ 0x1C0249854 (xxxMNUpdateShownMenu.c)
  * Callees:
- *     _IsDescendant @ 0x1C00205E8 (_IsDescendant.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0049764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     GetRect @ 0x1C00688B4 (GetRect.c)
- *     IsVisible @ 0x1C006C350 (IsVisible.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     OffsetChildren @ 0x1C00848F0 (OffsetChildren.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C00C09C8 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
- *     UnionRect @ 0x1C00C1640 (UnionRect.c)
- *     zzzInternalShowCaret @ 0x1C00C2D88 (zzzInternalShowCaret.c)
- *     zzzInternalHideCaret @ 0x1C00C33BC (zzzInternalHideCaret.c)
- *     SpbCheckRect @ 0x1C00DC7C0 (SpbCheckRect.c)
- *     GreTransformPoints @ 0x1C00E2F9C (GreTransformPoints.c)
- *     MirrorRegion @ 0x1C00F9228 (MirrorRegion.c)
- *     ThreadLockExchangeAlways @ 0x1C010150C (ThreadLockExchangeAlways.c)
- *     GetDCOrgOnScreen @ 0x1C014C0D4 (GetDCOrgOnScreen.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GetDCOrgOnScreen @ 0x1C0042B50 (GetDCOrgOnScreen.c)
+ *     _IsDescendant @ 0x1C004C618 (_IsDescendant.c)
+ *     OffsetChildren @ 0x1C004CA1C (OffsetChildren.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     GetRect @ 0x1C0063F28 (GetRect.c)
+ *     zzzInternalHideCaret @ 0x1C0067540 (zzzInternalHideCaret.c)
+ *     IsVisible @ 0x1C0068164 (IsVisible.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     zzzInternalShowCaret @ 0x1C006A12C (zzzInternalShowCaret.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0071654 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0072764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ThreadLockExchangeAlways @ 0x1C00C135C (ThreadLockExchangeAlways.c)
+ *     GreTransformPoints @ 0x1C00FA65C (GreTransformPoints.c)
+ *     UnionRect @ 0x1C0104EFC (UnionRect.c)
+ *     MirrorRegion @ 0x1C010E31C (MirrorRegion.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     SpbCheckRect @ 0x1C021A844 (SpbCheckRect.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -38,168 +38,165 @@ __int64 __fastcall xxxScrollWindowEx(
         int a3,
         struct tagRECT *a4,
         struct tagRECT *a5,
-        HRGN a6,
+        __int64 a6,
         struct tagRECT *a7,
         __int16 a8)
 {
   int v8; // r10d
   __int64 v9; // r14
-  HRGN v10; // r11
+  __int64 v10; // r11
   int v11; // r12d
   struct tagWND *v12; // rbx
-  __int64 v14; // rax
+  int v14; // edx
   int v15; // edx
-  int v16; // edx
-  __int64 v17; // r9
-  __int16 v18; // si
+  __int64 v16; // r9
+  __int16 v17; // si
+  __int64 ThreadWin32Thread; // rax
   int v19; // edi
-  int v21; // eax
-  unsigned int v22; // edi
+  unsigned int v21; // edi
   HDC DCEx; // r15
-  int v24; // r15d
-  int v25; // r12d
-  int v26; // edi
-  HDC v27; // rdi
-  __int64 v28; // rax
-  HRGN v29; // rcx
-  __int64 v30; // rcx
-  int v31; // edx
-  int v32; // eax
-  struct tagRECT *v33; // r13
-  bool v34; // zf
-  __int64 v35; // rdx
-  int v36; // edx
-  LONG v37; // eax
-  LONG v38; // edx
-  int v39; // eax
-  struct tagRECT *v40; // r13
-  __int128 v41; // xmm0
-  int v42; // r8d
-  __int64 v43; // rax
-  int v44; // ecx
-  int v45; // edx
-  int v46; // edi
-  int v47; // edx
-  int v48; // ecx
-  __int64 v49; // rax
-  int v50; // edx
-  int v51; // r8d
-  __int64 v52; // rdx
-  __int64 v53; // r8
-  __int64 v54; // rdx
-  __int64 v55; // rcx
-  __int64 v56; // r8
+  unsigned int v23; // r15d
+  int v24; // r12d
+  int v25; // edi
+  HDC v26; // rdi
+  __int64 v27; // rax
+  HRGN v28; // rcx
+  __int64 v29; // rcx
+  int v30; // edx
+  unsigned int v31; // eax
+  struct tagRECT *v32; // r13
+  bool v33; // zf
+  __int64 v34; // rdx
+  int v35; // edx
+  LONG v36; // eax
+  LONG v37; // edx
+  int v38; // eax
+  struct tagRECT v39; // xmm0
+  LONG left; // r8d
+  __int64 v41; // rax
+  int v42; // ecx
+  int v43; // edx
+  int v44; // edi
+  LONG v45; // edx
+  int v46; // ecx
+  __int64 v47; // rax
+  int v48; // edx
+  int v49; // r8d
+  __int64 v50; // rcx
   __int64 DesktopWindow; // rax
-  int v58; // ecx
-  __int64 v59; // rcx
-  __int64 v60; // rcx
-  unsigned __int64 *i; // rdi
-  unsigned __int64 v62; // rax
-  int v63; // r9d
-  int v64; // eax
-  unsigned __int64 v65; // r8
-  __int64 v66; // rdx
-  int v67; // [rsp+50h] [rbp-B0h]
-  _BYTE v68[4]; // [rsp+54h] [rbp-ACh] BYREF
-  int v69; // [rsp+58h] [rbp-A8h]
-  int v70; // [rsp+5Ch] [rbp-A4h]
-  int v71; // [rsp+60h] [rbp-A0h]
-  struct tagRECT *v72; // [rsp+68h] [rbp-98h]
-  HRGN v73; // [rsp+70h] [rbp-90h]
-  HDC v74[2]; // [rsp+78h] [rbp-88h] BYREF
-  struct tagRECT *v75[2]; // [rsp+90h] [rbp-70h] BYREF
-  int v76; // [rsp+A0h] [rbp-60h]
-  unsigned int v77; // [rsp+A8h] [rbp-58h] BYREF
-  unsigned int v78; // [rsp+ACh] [rbp-54h]
+  __int64 v52; // rdx
+  int v53; // ecx
+  __int64 v54; // rcx
+  unsigned int v55; // edx
+  int v56; // r8d
+  __int64 v57; // rcx
+  unsigned __int64 i; // rdi
+  __int64 v59; // rax
+  int v60; // r9d
+  int v61; // eax
+  __int64 v62; // r8
+  __int64 v63; // rdx
+  int v64; // [rsp+20h] [rbp-E0h]
+  int v65; // [rsp+50h] [rbp-B0h]
+  int v66; // [rsp+54h] [rbp-ACh]
+  unsigned int v67; // [rsp+54h] [rbp-ACh]
+  int v69; // [rsp+5Ch] [rbp-A4h]
+  HRGN v71; // [rsp+68h] [rbp-98h]
+  HDC v72[2]; // [rsp+70h] [rbp-90h] BYREF
+  int v73; // [rsp+80h] [rbp-80h]
+  struct tagRECT v74; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v75; // [rsp+A0h] [rbp-60h] BYREF
+  unsigned int v76; // [rsp+A4h] [rbp-5Ch]
+  int v77; // [rsp+A8h] [rbp-58h]
+  int v78; // [rsp+ACh] [rbp-54h]
   int v79; // [rsp+B0h] [rbp-50h]
   int v80; // [rsp+B4h] [rbp-4Ch]
   int v81; // [rsp+B8h] [rbp-48h]
   int v82; // [rsp+BCh] [rbp-44h]
-  int v83; // [rsp+C0h] [rbp-40h]
-  int v84; // [rsp+C4h] [rbp-3Ch]
-  struct tagRECT *v85[2]; // [rsp+C8h] [rbp-38h] BYREF
-  __int128 v86; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v87; // [rsp+E8h] [rbp-18h]
-  __int128 v88; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v89; // [rsp+100h] [rbp+0h]
-  __int128 v90; // [rsp+110h] [rbp+10h] BYREF
-  struct tagRECT *v91[2]; // [rsp+120h] [rbp+20h] BYREF
-  __int128 v92; // [rsp+130h] [rbp+30h] BYREF
-  __int128 v93; // [rsp+140h] [rbp+40h] BYREF
+  struct tagRECT *v83; // [rsp+C0h] [rbp-40h]
+  struct tagRECT *v84; // [rsp+C8h] [rbp-38h]
+  struct tagRECT *v85; // [rsp+D0h] [rbp-30h]
+  char v86[8]; // [rsp+D8h] [rbp-28h] BYREF
+  __int128 v87; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v88; // [rsp+F0h] [rbp-10h]
+  __int128 v89; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 v90; // [rsp+108h] [rbp+8h]
+  __int128 v91; // [rsp+110h] [rbp+10h] BYREF
+  struct tagRECT v92; // [rsp+120h] [rbp+20h] BYREF
+  struct tagRECT v93; // [rsp+130h] [rbp+30h] BYREF
+  struct tagRECT v94; // [rsp+140h] [rbp+40h] BYREF
+  __int128 v95; // [rsp+150h] [rbp+50h] BYREF
 
-  v71 = 0;
+  v69 = 0;
   v8 = 0;
-  v77 = 0;
-  v78 = 0;
+  v75 = 0;
+  v76 = 0;
   v9 = 0LL;
   v10 = a6;
   v11 = a2;
-  v89 = 0LL;
+  v90 = 0LL;
   v12 = a1;
-  v87 = 0LL;
-  v72 = a4;
-  v70 = a3;
-  v69 = a2;
-  v85[0] = a4;
-  v91[0] = a5;
-  v73 = a6;
-  v75[0] = a7;
-  v67 = 0;
-  v92 = 0LL;
   v88 = 0LL;
-  v86 = 0LL;
+  v66 = a2;
+  v83 = a4;
+  v85 = a5;
+  v71 = (HRGN)a6;
+  v84 = a7;
+  v65 = 0;
+  v93 = 0LL;
+  v89 = 0LL;
+  v87 = 0LL;
   if ( !a1 )
   {
-    v14 = *(_QWORD *)(gptiCurrent + 456LL);
-    v71 = 1;
-    v12 = *(struct tagWND **)(*(_QWORD *)(v14 + 8) + 24LL);
+    v69 = 1;
+    v12 = *(struct tagWND **)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL);
   }
   if ( (*(_BYTE *)(*((_QWORD *)v12 + 5) + 26LL) & 0x40) != 0 )
   {
     v11 = -a2;
-    v69 = -a2;
+    v66 = -a2;
     MirrorRegion(v12, a6, 1LL);
     if ( a4 )
     {
-      v15 = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a4->left;
+      v14 = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a4->left;
       a4->left = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a4->right;
-      a4->right = v15;
+      a4->right = v14;
     }
-    v10 = v73;
+    v10 = a6;
     v8 = 0;
     if ( a5 )
     {
-      v16 = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a5->left;
+      v15 = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a5->left;
       a5->left = *(_DWORD *)(*((_QWORD *)v12 + 5) + 112LL) - *(_DWORD *)(*((_QWORD *)v12 + 5) + 104LL) - a5->right;
-      a5->right = v16;
+      a5->right = v15;
     }
   }
-  if ( !(v11 | v70) )
+  if ( !(v11 | a3) )
     goto LABEL_25;
-  if ( (unsigned int)IsVisible((__int64)v12) )
+  if ( (unsigned int)IsVisible(v12) )
   {
-    v18 = a8;
+    v17 = a8;
     goto LABEL_15;
   }
   if ( (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 0x20) != 0 )
   {
 LABEL_25:
-    v18 = a8;
+    v17 = a8;
   }
   else
   {
-    v18 = a8;
-    if ( (a8 & 1) != 0 && !v17 )
+    v17 = a8;
+    if ( (a8 & 1) != 0 && !v16 )
     {
       v8 = 1;
-      v18 = a8 & 0xFFFD;
-      v67 = 1;
+      v17 = a8 & 0xFFFD;
+      v65 = 1;
     }
   }
   if ( v10 )
   {
     SetEmptyRgn(v10);
-    v8 = v67;
+    v8 = v65;
   }
   if ( a7 )
     *a7 = 0LL;
@@ -207,271 +204,267 @@ LABEL_25:
     return 1LL;
 LABEL_15:
   ++gdwDeferWinEvent;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v68);
-  v76 = 0;
-  if ( v71 )
-    ThreadLock((__int64)v12, (__int64 *)&v88);
-  if ( !v67 )
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v86);
+  v73 = 0;
+  if ( v69 )
+  {
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)&v89 = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = &v89;
+    *((_QWORD *)&v89 + 1) = v12;
+    HMLockObject(v12);
+  }
+  if ( !v65 )
   {
     v9 = *(_QWORD *)(gptiCurrent + 432LL) + 296LL;
     if ( *(_QWORD *)v9 )
     {
       if ( (unsigned int)IsDescendant(*(_QWORD *)v9, (__int64)v12) )
       {
-        v76 = 1;
+        v73 = 1;
         zzzInternalHideCaret();
       }
     }
   }
-  v83 = v18 & 1;
-  if ( v18 < 0 )
+  v19 = 65538;
+  v81 = v17 & 1;
+  if ( v17 < 0 )
   {
     v19 = (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)v12 + 17) + 8LL) + 8LL) & 0x60) != 0 ? 0x10000 : 65538;
-    if ( (v18 & 1) != 0 && (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 2) != 0 )
-      v19 = 589826;
+    if ( (v17 & 1) != 0 && (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 2) != 0 )
+      v19 |= 0x80002u;
   }
-  else
+  else if ( (v17 & 1) != 0 )
   {
-    v21 = 65538;
-    if ( (v18 & 1) != 0 )
-      v21 = 589826;
-    v19 = v21;
+    v19 = 589826;
   }
   GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  v22 = v19 | 0x40000000;
-  DCEx = (HDC)_GetDCEx(v12, 0LL, v22);
-  v74[0] = DCEx;
-  v84 = v18 & 2;
-  if ( (v18 & 2) != 0 )
+  v21 = v19 | 0x40000000;
+  DCEx = (HDC)_GetDCEx(v12, 0LL, v21);
+  v72[0] = DCEx;
+  v82 = v17 & 2;
+  if ( (v17 & 2) != 0 )
   {
-    GetDCOrgOnScreen(DCEx, &v77);
-    if ( !v73 )
-      v73 = (HRGN)ghrgnSW;
+    GetDCOrgOnScreen((__int64)DCEx, &v75);
+    if ( !a6 )
+      v71 = (HRGN)ghrgnSW;
   }
-  if ( !v72 )
+  if ( !a4 )
   {
-    v85[0] = (struct tagRECT *)&v92;
-    GetRect((__int64)v12, (__int64)&v92, 17);
-    if ( (v22 & 2) == 0 )
+    v83 = &v93;
+    GetRect((__int64)v12, (__int64)&v93, 17);
+    if ( (v21 & 2) == 0 )
       GreTransformPoints(DCEx, 0);
   }
-  v24 = v11;
-  v25 = v70;
-  v90 = (__int128)*v85[0];
-  v26 = v22 & 2;
-  if ( !v26 )
+  v23 = v11;
+  v24 = a3;
+  v92 = *v83;
+  v25 = v21 & 2;
+  if ( !v25 )
   {
-    GreTransformPoints(v74[0], 1);
-    v80 = 0;
-    v79 = 0;
-    v81 = v69;
-    v82 = v25;
-    GreTransformPoints(v74[0], 1);
-    v24 = v81 - v79;
-    v25 = v82 - v80;
+    GreTransformPoints(v72[0], 1);
+    v78 = 0;
+    v77 = 0;
+    v79 = v66;
+    v80 = a3;
+    GreTransformPoints(v72[0], 1);
+    v23 = v79 - v77;
+    v24 = v80 - v78;
   }
-  if ( v67 )
+  if ( v65 )
   {
-    v27 = v74[0];
-    v69 = 1;
+    v26 = v72[0];
+    v67 = 1;
   }
   else
   {
-    v28 = *((_QWORD *)v12 + 5);
-    v29 = *(HRGN *)(v28 + 136);
-    if ( v18 < 0 && (*(_BYTE *)(v28 + 21) & 1) == 0 )
+    v27 = *((_QWORD *)v12 + 5);
+    v28 = *(HRGN *)(v27 + 136);
+    if ( v17 < 0 && (*(_BYTE *)(v27 + 21) & 1) == 0 )
     {
-      if ( (unsigned __int64)v29 > 1 )
+      if ( (unsigned __int64)v28 > 1 )
       {
-        v93 = 0LL;
-        if ( (unsigned int)GreGetRgnBox(v29, &v93) )
+        v95 = 0LL;
+        if ( (unsigned int)GreGetRgnBox(v28, &v95) )
         {
-          v30 = *((_QWORD *)v12 + 5);
-          v31 = v25 - *(_DWORD *)(v30 + 108);
-          v32 = v24 - *(_DWORD *)(v30 + 104);
-          HIDWORD(v93) += v31;
-          DWORD1(v93) += v31;
-          LODWORD(v93) = v32 + v93;
-          DWORD2(v93) += v32;
-          xxxRedrawWindow(v12, (int *)&v93, 0LL, 133);
+          v29 = *((_QWORD *)v12 + 5);
+          v30 = v24 - *(_DWORD *)(v29 + 108);
+          v31 = v23 - *(_DWORD *)(v29 + 104);
+          HIDWORD(v95) += v30;
+          DWORD1(v95) += v30;
+          LODWORD(v95) = v31 + v95;
+          DWORD2(v95) += v31;
+          xxxRedrawWindow(v12);
         }
       }
-      v29 = 0LL;
+      v28 = 0LL;
     }
-    v33 = v75[0];
-    v34 = v26 == 0;
-    v27 = v74[0];
-    v69 = InternalScrollDC(v12, v74[0], v69, v70, v85[0], v91[0], v29, v73, v75[0], v34);
-    if ( v33 )
+    v32 = v84;
+    v33 = v25 == 0;
+    v26 = v72[0];
+    v67 = InternalScrollDC(v12, v72[0], v66, a3, v83, v85, v28, v71, v84, v33);
+    if ( v32 )
     {
-      v35 = *((_QWORD *)v12 + 5);
-      if ( (*(_BYTE *)(v35 + 26) & 0x40) != 0 )
+      v34 = *((_QWORD *)v12 + 5);
+      if ( (*(_BYTE *)(v34 + 26) & 0x40) != 0 )
       {
-        v36 = *(_DWORD *)(v35 + 112) - *(_DWORD *)(v35 + 104);
-        v37 = v36 - v33->right;
-        v38 = v36 - v33->left;
-        v33->left = v37;
-        v33->right = v38;
+        v35 = *(_DWORD *)(v34 + 112) - *(_DWORD *)(v34 + 104);
+        v36 = v35 - v32->right;
+        v37 = v35 - v32->left;
+        v32->left = v36;
+        v32->right = v37;
       }
     }
   }
-  _ReleaseDC(v27);
-  v39 = v67;
-  v40 = v72;
-  if ( !v67 )
+  _ReleaseDC(v26);
+  v38 = v65;
+  if ( !v65 )
   {
     if ( *(_QWORD *)(gpDispInfo + 32LL) )
     {
-      if ( v72 )
+      if ( a4 )
       {
-        if ( v12 == (struct tagWND *)GetDesktopWindow((__int64)v12) )
+        if ( v12 == (struct tagWND *)GetDesktopWindow(v12) )
         {
-          v41 = v90;
-          v92 = v90;
-          v42 = v90;
+          v39 = v92;
+          v93 = v92;
+          left = v92.left;
         }
         else
         {
-          v43 = *((_QWORD *)v12 + 5);
-          v44 = *(_DWORD *)(v43 + 104);
-          v42 = v44 + v90;
-          v45 = *(_DWORD *)(v43 + 108);
-          DWORD2(v92) = DWORD2(v90) + v44;
-          LODWORD(v92) = v44 + v90;
-          DWORD1(v92) = v45 + DWORD1(v90);
-          HIDWORD(v92) = v45 + HIDWORD(v90);
-          v41 = v92;
+          v41 = *((_QWORD *)v12 + 5);
+          v42 = *(_DWORD *)(v41 + 104);
+          left = v42 + v92.left;
+          v43 = *(_DWORD *)(v41 + 108);
+          v93.right = v92.right + v42;
+          v93.left = v42 + v92.left;
+          v93.top = v43 + v92.top;
+          v93.bottom = v43 + v92.bottom;
+          v39 = v93;
         }
-        LODWORD(v75[1]) = v24 + DWORD2(v41);
-        HIDWORD(v75[1]) = v25 + HIDWORD(v41);
-        HIDWORD(v75[0]) = v25 + DWORD1(v41);
-        LODWORD(v75[0]) = v42 + v24;
-        UnionRect(v75, v75, &v92);
+        v74.right = v23 + v39.right;
+        v74.bottom = v24 + v39.bottom;
+        v74.top = v24 + v39.top;
+        v74.left = left + v23;
+        UnionRect(&v74, &v74, &v93);
       }
       else
       {
-        *(_OWORD *)v75 = *(_OWORD *)(*((_QWORD *)v12 + 5) + 104LL);
+        v74 = *(struct tagRECT *)(*((_QWORD *)v12 + 5) + 104LL);
       }
-      SpbCheckRect(v12, (struct tagRECT *)v75, 0);
+      SpbCheckRect(v12, &v74, 0);
     }
-    v39 = 0;
+    v38 = 0;
   }
-  v46 = v83;
-  if ( !v83 )
-    goto LABEL_76;
-  *(_OWORD *)v91 = 0LL;
-  if ( v39 || v12 != *(struct tagWND **)v9 )
+  v44 = v81;
+  if ( v81 )
   {
-LABEL_70:
-    if ( !v40 )
-      goto LABEL_74;
-    goto LABEL_71;
+    v94 = 0LL;
+    if ( !v38 && v12 == *(struct tagWND **)v9 )
+    {
+      if ( !a4
+        || (v45 = *(_DWORD *)(v9 + 24),
+            v94.left = *(_DWORD *)(v9 + 20),
+            v94.right = *(_DWORD *)(v9 + 32) + v94.left,
+            v46 = *(_DWORD *)(v9 + 28),
+            v94.top = v45,
+            v94.bottom = v45 + v46,
+            (unsigned int)IntersectRect(&v94, &v94, &v92)) )
+      {
+        *(_DWORD *)(v9 + 20) += v23;
+        *(_DWORD *)(v9 + 24) += v24;
+      }
+    }
+    if ( a4 )
+    {
+      if ( v12 == (struct tagWND *)GetDesktopWindow(v12) )
+      {
+        v94 = v92;
+      }
+      else
+      {
+        v47 = *((_QWORD *)v12 + 5);
+        v48 = *(_DWORD *)(v47 + 104);
+        v49 = *(_DWORD *)(v47 + 108);
+        v94.left = v48 + v92.left;
+        v94.right = v48 + v92.right;
+        v94.top = v49 + v92.top;
+        v94.bottom = v49 + v92.bottom;
+      }
+    }
+    if ( *((_QWORD *)v12 + 14) )
+    {
+      OffsetChildren(v12, v23, v24, (unsigned __int64)&v94 & -(__int64)(a4 != 0LL), v64);
+      zzzLockDisplayAreaAndInvalidateDCCache(v12, (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 2) != 0 ? 4 : 2, 0LL);
+    }
   }
-  if ( !v40
-    || (v47 = *(_DWORD *)(v9 + 24),
-        LODWORD(v91[0]) = *(_DWORD *)(v9 + 20),
-        LODWORD(v91[1]) = *(_DWORD *)(v9 + 32) + LODWORD(v91[0]),
-        v48 = *(_DWORD *)(v9 + 28),
-        HIDWORD(v91[0]) = v47,
-        HIDWORD(v91[1]) = v47 + v48,
-        (unsigned int)IntersectRect(v91, (int *)v91, (int *)&v90)) )
+  if ( v82 )
   {
-    *(_DWORD *)(v9 + 20) += v24;
-    *(_DWORD *)(v9 + 24) += v25;
-    goto LABEL_70;
-  }
-LABEL_71:
-  if ( v12 == (struct tagWND *)GetDesktopWindow((__int64)v12) )
-  {
-    *(_OWORD *)v91 = v90;
-  }
-  else
-  {
-    v49 = *((_QWORD *)v12 + 5);
-    v50 = *(_DWORD *)(v49 + 104);
-    v51 = *(_DWORD *)(v49 + 108);
-    LODWORD(v91[0]) = v50 + v90;
-    LODWORD(v91[1]) = v50 + DWORD2(v90);
-    HIDWORD(v91[0]) = v51 + DWORD1(v90);
-    HIDWORD(v91[1]) = v51 + HIDWORD(v90);
-  }
-LABEL_74:
-  if ( *((_QWORD *)v12 + 14) )
-  {
-    OffsetChildren(v12, v24, v25, (int *)((unsigned __int64)v91 & -(__int64)(v40 != 0LL)));
-    zzzLockDisplayAreaAndInvalidateDCCache(
-      (__int64)v12,
-      (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 2) != 0 ? 4 : 2,
-      0LL);
-  }
-LABEL_76:
-  if ( v84 )
-  {
-    if ( v73 != (HRGN)ghrgnSW )
-      GreCombineRgn(ghrgnSW, v73, 0LL, 5LL);
-    GreOffsetRgn(ghrgnSW, v77, v78);
-    xxxInternalInvalidate(v12, ghrgnSW, v18 & 4 | 0x81);
+    if ( v71 != (HRGN)ghrgnSW )
+      GreCombineRgn(ghrgnSW, v71, 0LL, 5LL);
+    GreOffsetRgn(ghrgnSW, v75, v76);
+    xxxInternalInvalidate(v12, ghrgnSW, v17 & 4 | 0x81);
   }
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v68, v52, v53);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v86);
   zzzEndDeferWinEventNotify();
-  if ( v46 )
+  if ( v44 )
   {
-    *(_OWORD *)v85 = 0LL;
-    *(_OWORD *)v74 = 0LL;
-    if ( v40 )
+    v91 = 0LL;
+    *(_OWORD *)v72 = 0LL;
+    if ( a4 )
     {
-      DesktopWindow = GetDesktopWindow((__int64)v12);
-      if ( v54 == DesktopWindow )
+      DesktopWindow = GetDesktopWindow(v12);
+      if ( v52 == DesktopWindow )
       {
-        LODWORD(v74[0]) = v24 + v90;
-        LODWORD(v74[1]) = v24 + DWORD2(v90);
-        HIDWORD(v74[0]) = v25 + DWORD1(v90);
-        v58 = v25 + HIDWORD(v90);
+        LODWORD(v72[0]) = v23 + v92.left;
+        LODWORD(v72[1]) = v23 + v92.right;
+        HIDWORD(v72[0]) = v24 + v92.top;
+        v53 = v24 + v92.bottom;
       }
       else
       {
-        v59 = *(_QWORD *)(v54 + 40);
-        v54 = (unsigned int)(v24 + *(_DWORD *)(v59 + 104));
-        v56 = (unsigned int)(v25 + *(_DWORD *)(v59 + 108));
-        LODWORD(v74[0]) = v54 + v90;
-        LODWORD(v74[1]) = v54 + DWORD2(v90);
-        HIDWORD(v74[0]) = v56 + DWORD1(v90);
-        v58 = v56 + HIDWORD(v90);
+        v54 = *(_QWORD *)(v52 + 40);
+        v55 = v23 + *(_DWORD *)(v54 + 104);
+        v56 = v24 + *(_DWORD *)(v54 + 108);
+        LODWORD(v72[0]) = v55 + v92.left;
+        LODWORD(v72[1]) = v55 + v92.right;
+        HIDWORD(v72[0]) = v56 + v92.top;
+        v53 = v56 + v92.bottom;
       }
-      HIDWORD(v74[1]) = v58;
+      HIDWORD(v72[1]) = v53;
     }
-    v60 = gptiCurrent;
-    *(_QWORD *)&v86 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v86;
-    *((_QWORD *)&v86 + 1) = 0LL;
-    for ( i = (unsigned __int64 *)*((_QWORD *)v12 + 14); i; i = (unsigned __int64 *)i[11] )
+    v57 = gptiCurrent;
+    *(_QWORD *)&v87 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v87;
+    *((_QWORD *)&v87 + 1) = 0LL;
+    for ( i = *((_QWORD *)v12 + 14); i; i = *(_QWORD *)(i + 88) )
     {
-      if ( !v40 || (unsigned int)IntersectRect(v85, (int *)v74, (int *)(i[5] + 88)) )
+      if ( !a4 || (unsigned int)IntersectRect(&v91, v72, *(_QWORD *)(i + 40) + 88LL) )
       {
-        ThreadLockExchangeAlways(i, &v86);
-        if ( v12 == (struct tagWND *)GetDesktopWindow((__int64)v12) )
+        ThreadLockExchangeAlways(i, &v87);
+        if ( v12 == (struct tagWND *)GetDesktopWindow(v12) )
         {
-          v62 = i[5];
-          v63 = *(unsigned __int16 *)(v62 + 108);
-          v64 = *(unsigned __int16 *)(v62 + 104);
+          v59 = *(_QWORD *)(i + 40);
+          v60 = *(unsigned __int16 *)(v59 + 108);
+          v61 = *(unsigned __int16 *)(v59 + 104);
         }
         else
         {
-          v65 = i[5];
-          v66 = *((_QWORD *)v12 + 5);
-          v63 = (unsigned __int16)(*(_WORD *)(v65 + 108) - *(_WORD *)(v66 + 108));
-          v64 = (unsigned __int16)(*(_WORD *)(v65 + 104) - *(_WORD *)(v66 + 104));
+          v62 = *(_QWORD *)(i + 40);
+          v63 = *((_QWORD *)v12 + 5);
+          v60 = (unsigned __int16)(*(_WORD *)(v62 + 108) - *(_WORD *)(v63 + 108));
+          v61 = (unsigned __int16)(*(_WORD *)(v62 + 104) - *(_WORD *)(v63 + 104));
         }
         _InterlockedIncrement(&glSendMessage);
-        xxxSendTransformableMessageTimeout(i, 3u, 0LL, v64 | (v63 << 16), 0, 0, 0LL, 1, 0);
+        xxxSendTransformableMessageTimeout(i, 3u, 0LL, (struct _LARGE_STRING *)(v61 | (v60 << 16)), 0, 0, 0LL, 1, 0);
       }
     }
-    ThreadUnlock1(v60, v54, v56);
+    ThreadUnlock1(v57);
   }
-  if ( v76 )
+  if ( v73 )
     zzzInternalShowCaret();
-  if ( v71 )
-    ThreadUnlock1(v55, v54, v56);
-  return (unsigned int)v69;
+  if ( v69 )
+    ThreadUnlock1(v50);
+  return v67;
 }

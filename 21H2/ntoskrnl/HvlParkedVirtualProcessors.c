@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlParkedVirtualProcessors @ 0x140549B84
+ * XREFs of HvlParkedVirtualProcessors @ 0x1404F7F50
  * Callers:
- *     PpmParkReportMask @ 0x14023F570 (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x1402B7C90 (PpmParkReportMask.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140292F90 (KeIsEmptyAffinityEx.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039DECC (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039048C (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
  */
 
 char HvlParkedVirtualProcessors()
@@ -25,10 +25,10 @@ char HvlParkedVirtualProcessors()
     {
       if ( !(unsigned int)KeIsEmptyAffinityEx(PpmPerfCoreParkingMask) )
       {
-        v2 = qword_140C0B9F8;
+        v2 = qword_140C11498;
         if ( !HvlpVirtualProcessorsIdentityMapped )
         {
-          for ( i = &unk_140D0CBD3; ; i += 4 )
+          for ( i = &unk_140D006C3; ; i += 4 )
           {
             if ( (v2 & 1) != 0 )
               v1 |= 1LL << *(i - 2);

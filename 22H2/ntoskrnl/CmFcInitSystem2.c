@@ -1,14 +1,14 @@
 /*
- * XREFs of CmFcInitSystem2 @ 0x140B3A224
+ * XREFs of CmFcInitSystem2 @ 0x140A38398
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14020BC40 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SeAssignSecurity @ 0x1407C2210 (SeAssignSecurity.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B3B6E8 (CmFcManagerStartRuntimePhase.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039DF10 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeAssignSecurity @ 0x1406E32F0 (SeAssignSecurity.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  */
 
 __int64 CmFcInitSystem2()

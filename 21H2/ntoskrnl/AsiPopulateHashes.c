@@ -1,9 +1,9 @@
 /*
- * XREFs of AsiPopulateHashes @ 0x1406478F8
+ * XREFs of AsiPopulateHashes @ 0x1405BED1C
  * Callers:
- *     ApiSetComposeSchema @ 0x14064717C (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
  * Callees:
- *     qsort @ 0x1403E1E70 (qsort.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
  */
 
 __int64 __fastcall AsiPopulateHashes(unsigned int *a1)
@@ -28,7 +28,7 @@ __int64 __fastcall AsiPopulateHashes(unsigned int *a1)
   unsigned int v19; // r8d
 
   v1 = a1[3];
-  v2 = qword_1400421F0;
+  v2 = qword_14003BE50;
   v3 = v1;
   for ( i = 0; i < 0x64; ++i )
   {

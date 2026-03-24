@@ -1,35 +1,31 @@
 /*
- * XREFs of PopDiagTraceFxDeviceStartPowerManagement @ 0x140838D84
+ * XREFs of PopDiagTraceFxDeviceStartPowerManagement @ 0x1407B4D90
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-BOOLEAN __fastcall PopDiagTraceFxDeviceStartPowerManagement(__int64 a1)
+void __fastcall PopDiagTraceFxDeviceStartPowerManagement(__int64 a1)
 {
-  BOOLEAN result; // al
-  char v2; // r9
-  REGHANDLE v3; // rbx
-  __int64 v4; // [rsp+30h] [rbp-28h] BYREF
+  REGHANDLE v1; // rbx
+  __int64 v2; // [rsp+30h] [rbp-28h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-20h] BYREF
 
-  v4 = a1;
-  result = (unsigned __int8)PopFxAddLogEntry(a1, 0, 3, 0LL);
-  if ( PopDiagHandleRegistered != v2 )
+  v2 = a1;
+  PopFxAddLogEntry(a1, 0, 3, 0LL);
+  if ( PopDiagHandleRegistered )
   {
-    v3 = PopDiagHandle;
-    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_START_POWER_MANAGEMENT);
-    if ( result )
+    v1 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_START_POWER_MANAGEMENT) )
     {
       UserData.Reserved = 0;
-      UserData.Ptr = (ULONGLONG)&v4;
+      UserData.Ptr = (ULONGLONG)&v2;
       UserData.Size = 8;
-      return EtwWrite(v3, &POP_ETW_EVENT_DEVICE_START_POWER_MANAGEMENT, 0LL, 1u, &UserData);
+      EtwWrite(v1, &POP_ETW_EVENT_DEVICE_START_POWER_MANAGEMENT, 0LL, 1u, &UserData);
     }
   }
-  return result;
 }

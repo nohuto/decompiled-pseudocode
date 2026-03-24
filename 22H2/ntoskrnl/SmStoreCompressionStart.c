@@ -1,38 +1,35 @@
 /*
- * XREFs of SmStoreCompressionStart @ 0x1409D78D8
+ * XREFs of SmStoreCompressionStart @ 0x140689A80
  * Callers:
- *     MmProcessWorkingSetControl @ 0x140A43584 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x140689770 (MmProcessWorkingSetControl.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmpKeyedStoreEntryGet @ 0x1403445F4 (SmpKeyedStoreEntryGet.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1406531F4 (MmQueryProcessWorkingSetSwapPages.c)
- *     MmStoreFlushOutstandingEvictions @ 0x14065D0A4 (MmStoreFlushOutstandingEvictions.c)
- *     SmSwapStore @ 0x140681864 (SmSwapStore.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1402637E8 (MmQueryProcessWorkingSetSwapPages.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x140317EF8 (MmStoreFlushOutstandingEvictions.c)
+ *     SmSwapStore @ 0x1406FB13C (SmSwapStore.c)
  */
 
 int SmStoreCompressionStart()
 {
   _KPROCESS *Process; // rdi
-  __int64 ProcessPartition; // rbx
-  __int64 v2; // rax
-  __int64 v3; // rsi
-  _KPROCESS *v5; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v1; // rax
+  __int64 v2; // rbx
+  _KPROCESS *v4; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  v5 = Process;
-  ProcessPartition = SmpGetProcessPartition((__int64)Process);
-  v2 = SmpKeyedStoreEntryGet(ProcessPartition + 2072, &v5, 0, 0);
-  v3 = v2;
-  if ( v2 || *(_DWORD *)(ProcessPartition + 2112) != -1 )
+  v4 = Process;
+  v1 = SmpKeyedStoreEntryGet((ULONG_PTR)qword_140D24188, &v4, 0, 0);
+  v2 = v1;
+  if ( v1 || dword_140D241B0 != -1 )
   {
-    LODWORD(v2) = MmStoreFlushOutstandingEvictions(*(_QWORD **)(ProcessPartition + 1936));
-    if ( v3 )
+    LODWORD(v1) = MmStoreFlushOutstandingEvictions();
+    if ( v2 )
     {
-      LODWORD(v2) = MmQueryProcessWorkingSetSwapPages((__int64)Process, &v6);
-      if ( (int)v2 >= 0 )
-        LODWORD(v2) = SmSwapStore(*(_QWORD *)(ProcessPartition + 1936), 0);
+      LODWORD(v1) = MmQueryProcessWorkingSetSwapPages((__int64)Process, &v5);
+      if ( (int)v1 >= 0 )
+        LODWORD(v1) = SmSwapStore(0LL);
     }
   }
-  return v2;
+  return v1;
 }

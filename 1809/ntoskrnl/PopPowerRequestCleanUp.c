@@ -10,9 +10,9 @@
  *     PopPowerRequestExecuteCallbacks @ 0x1400038BC (PopPowerRequestExecuteCallbacks.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     PopNotifySessionUserPowerRequestDeleted @ 0x1405886DC (PopNotifySessionUserPowerRequestDeleted.c)
  *     PopProcessDisplayRequiredChange @ 0x1405886FC (PopProcessDisplayRequiredChange.c)
  *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058999C (PopUpdatePowerRequestProcessWakeCounter.c)
@@ -65,7 +65,7 @@ void __fastcall PopPowerRequestCleanUp(unsigned int *Object)
   *v6 = v5;
   v5[1] = (unsigned int *)v6;
   *(_QWORD *)v4 = 0LL;
-  if ( v4[11] && (byte_140418254 || v1) )
+  if ( v4[11] && (byte_140418234 || v1) )
   {
     v4[11] = 0;
     if ( !v1 && (v4[6] & 8) == 0 )

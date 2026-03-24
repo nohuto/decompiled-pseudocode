@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateSubsectionCrossPartitionRefs @ 0x1405C4C6C
+ * XREFs of MiUpdateSubsectionCrossPartitionRefs @ 0x1405551CC
  * Callers:
- *     MiInsertUnusedSubsection @ 0x140220AAC (MiInsertUnusedSubsection.c)
- *     MiAppendSubsectionChain @ 0x14022CBE0 (MiAppendSubsectionChain.c)
- *     MiDeleteControlArea @ 0x1402700FC (MiDeleteControlArea.c)
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
- *     MiIncrementSubsectionViewCount @ 0x140286EC0 (MiIncrementSubsectionViewCount.c)
- *     MiConvertStaticSubsections @ 0x14028AED4 (MiConvertStaticSubsections.c)
+ *     MiInsertUnusedSubsection @ 0x140263D60 (MiInsertUnusedSubsection.c)
+ *     MiAppendSubsectionChain @ 0x1402A147C (MiAppendSubsectionChain.c)
+ *     MiDeleteControlArea @ 0x1402F7AE4 (MiDeleteControlArea.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
+ *     MiConvertStaticSubsections @ 0x140358B88 (MiConvertStaticSubsections.c)
  * Callees:
  *     <none>
  */

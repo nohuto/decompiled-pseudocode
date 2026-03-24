@@ -1,41 +1,48 @@
 /*
- * XREFs of VidSchiMonitorRefreshPeriodFromNode @ 0x1C0018FA4
+ * XREFs of VidSchiMonitorRefreshPeriodFromNode @ 0x1C0014DBC
  * Callers:
- *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0006920 (VidSchiUpdateLastCompletedPresentTimestamp.c)
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0008770 (VidSchiProcessDpcCompletedPacket.c)
- *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003785C (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0009610 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D450 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014C24 (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall VidSchiMonitorRefreshPeriodFromNode(__int64 a1)
+__int64 __fastcall VidSchiMonitorRefreshPeriodFromNode(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rdi
-  ULONGLONG v3; // rcx
+  __int64 v2; // rdi
+  ULONGLONG v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rbx
   __int64 result; // rax
-  __int64 v5; // rax
-  __int64 v6; // rdx
+  __int64 v10; // rax
 
-  v1 = *(_QWORD *)(a1 + 24);
-  v3 = *(unsigned int *)(a1 + 1768);
-  if ( !v3 )
+  v2 = *(_QWORD *)(a1 + 24);
+  v4 = *(unsigned int *)(a1 + 1760);
+  if ( !v4 )
   {
-    result = *(unsigned int *)(*(_QWORD *)(v1 + 3200) + 82944LL);
+    result = *(unsigned int *)(*(_QWORD *)(v2 + 3104) + 70580LL);
     if ( (_DWORD)result )
       return result;
-    WdLogSingleEntry1(3LL, 0LL);
+    v10 = WdLogNewEntry5_WdWarning(0LL, a2);
+    *(_QWORD *)(v10 + 24) = 0LL;
+LABEL_9:
+    WdLogEvent5_WdWarning(v10);
     return 16LL;
   }
-  v5 = *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 16LL * (unsigned int)RtlFindMostSignificantBit(v3) + 2056) + 96LL)
-                       + 504LL);
-  if ( (unsigned int)v5 > *(_DWORD *)(v1 + 40) )
-    v5 = 0LL;
-  v6 = (unsigned int)v5;
-  result = *(unsigned int *)(*(_QWORD *)(v1 + 8 * v5 + 3200) + 82944LL);
+  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 16 * ((unsigned int)RtlFindMostSignificantBit(v4) + 128LL)) + 96LL);
+  v7 = *(unsigned int *)(v6 + 504);
+  if ( (unsigned int)v7 > *(_DWORD *)(v2 + 40) )
+    v7 = 0LL;
+  v8 = (unsigned int)v7;
+  result = *(unsigned int *)(*(_QWORD *)(v2 + 8 * v7 + 3104) + 70580LL);
   if ( !(_DWORD)result )
   {
-    WdLogSingleEntry1(3LL, v6);
-    return 16LL;
+    v10 = WdLogNewEntry5_WdWarning(v6, v5);
+    *(_QWORD *)(v10 + 24) = v8;
+    goto LABEL_9;
   }
   return result;
 }

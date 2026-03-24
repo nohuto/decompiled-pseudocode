@@ -1,223 +1,268 @@
 /*
- * XREFs of MiGetSystemAddressForImage @ 0x140696090
+ * XREFs of MiGetSystemAddressForImage @ 0x14075E09C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9248 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiSessionInsertImage @ 0x14020AE84 (MiSessionInsertImage.c)
- *     MiFreePrivateFixupEntryForSystemImage @ 0x14020B168 (MiFreePrivateFixupEntryForSystemImage.c)
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1403AB6D4 (MiAddPrivateFixupEntryForSystemImage.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiImageSuitableForSystem @ 0x140696284 (MiImageSuitableForSystem.c)
- *     MiFindDataTableEntryBySection @ 0x1406962B4 (MiFindDataTableEntryBySection.c)
- *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
- *     MiReservePrivilegedPtes @ 0x140696B28 (MiReservePrivilegedPtes.c)
- *     MiSelectSystemImageAddress @ 0x140696DA4 (MiSelectSystemImageAddress.c)
- *     MiReleasePrivilegedPtes @ 0x1406971C4 (MiReleasePrivilegedPtes.c)
- *     MiReturnSystemImageAddress @ 0x140698C68 (MiReturnSystemImageAddress.c)
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x14039E848 (MiFreePrivateFixupEntryForSystemImage.c)
+ *     MiSessionInsertImage @ 0x1403A2274 (MiSessionInsertImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403A51D8 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiUnmapImageInSystemSpace @ 0x14066BB40 (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
+ *     MiBytesToMapSystemImage @ 0x1406FF140 (MiBytesToMapSystemImage.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
+ *     MiReservePrivilegedPtes @ 0x14075E2C0 (MiReservePrivilegedPtes.c)
+ *     MiImageSuitableForSystem @ 0x14075E324 (MiImageSuitableForSystem.c)
+ *     MiReturnSystemImageAddress @ 0x14075F494 (MiReturnSystemImageAddress.c)
+ *     MiSelectSystemImageAddress @ 0x14075F648 (MiSelectSystemImageAddress.c)
+ *     MiReleasePrivilegedPtes @ 0x1407738F8 (MiReleasePrivilegedPtes.c)
  */
 
 unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWORD *a3)
 {
   char v4; // r12
-  _BYTE *v6; // r15
+  unsigned __int64 v6; // r15
   unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rbx
+  __int64 v8; // r8
   unsigned __int64 v9; // rsi
-  int v10; // r11d
-  int v11; // r13d
-  __int64 v12; // r8
-  int v13; // r12d
-  unsigned int v15; // esi
-  unsigned __int64 v16; // rax
-  __int64 v17; // rcx
-  int v18; // edx
-  int v19; // eax
-  int v20; // edx
-  int v21; // [rsp+30h] [rbp-148h] BYREF
-  __int64 v22; // [rsp+38h] [rbp-140h]
-  int v23; // [rsp+40h] [rbp-138h]
-  int v24; // [rsp+44h] [rbp-134h]
-  __int64 PteAddress; // [rsp+48h] [rbp-130h]
-  int v26; // [rsp+50h] [rbp-128h]
-  int v27; // [rsp+58h] [rbp-120h]
-  int v28; // [rsp+60h] [rbp-118h]
-  _BYTE *v29; // [rsp+68h] [rbp-110h]
-  __int64 v30[10]; // [rsp+70h] [rbp-108h] BYREF
-  _QWORD v31[14]; // [rsp+C0h] [rbp-B8h] BYREF
+  unsigned __int64 v10; // rbx
+  int v11; // r9d
+  PVOID *v12; // r8
+  PVOID *v13; // r10
+  __int64 v14; // rcx
+  int v15; // r13d
+  int v16; // r12d
+  unsigned int v18; // ebx
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // rbx
+  __int64 v21; // rdx
+  int v22; // ecx
+  unsigned int v23; // eax
+  int v24; // eax
+  int v25; // ecx
+  unsigned int v26; // eax
+  int v27; // ebx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  int v30; // [rsp+30h] [rbp-138h] BYREF
+  unsigned int v31; // [rsp+34h] [rbp-134h]
+  unsigned int v32; // [rsp+38h] [rbp-130h]
+  __int64 PteAddress; // [rsp+40h] [rbp-128h]
+  int v34; // [rsp+48h] [rbp-120h]
+  int v35; // [rsp+4Ch] [rbp-11Ch]
+  int v36; // [rsp+50h] [rbp-118h]
+  unsigned __int64 v37; // [rsp+58h] [rbp-110h]
+  unsigned __int64 v38[10]; // [rsp+60h] [rbp-108h] BYREF
+  _QWORD v39[14]; // [rsp+B0h] [rbp-B8h] BYREF
 
   v4 = a2;
-  v27 = a2;
-  v21 = 0;
-  memset(v31, 0, sizeof(v31));
-  memset(v30, 0, sizeof(v30));
+  v36 = a2;
+  v30 = 0;
+  memset(v39, 0, sizeof(v39));
+  memset(v38, 0, sizeof(v38));
   *a3 = 1;
-  v6 = (_BYTE *)MiSectionControlArea(a1);
-  v29 = v6;
+  v6 = MiSectionControlArea(a1);
+  v37 = v6;
   v7 = MiBytesToMapSystemImage((unsigned int)(*(_DWORD *)(*(_QWORD *)v6 + 8LL) << 12));
   if ( !v7 )
     return 0LL;
-  v8 = v7 >> 12;
-  v26 = v7 >> 12;
-  v9 = MiImageSuitableForSystem(v6, &v21);
-  if ( v9 && MiFindDataTableEntryBySection() )
+  v9 = v7 >> 12;
+  v35 = v7 >> 12;
+  v10 = MiImageSuitableForSystem(v6, &v30, v8, 0LL);
+  if ( v10 )
   {
-    *a3 = 0;
-    v10 = 1;
-  }
-  if ( !v9
-    || v10 == 1
-    || (v4 & 2) != 0
-    || (v11 = v4 & 1, (v4 & 1) != 0) && (unsigned int)MiGetSystemRegionType(v9) != 1
-    || (v4 & 1) == 0 && (unsigned int)MiGetSystemRegionType(v9) == 1 )
-  {
-    v11 = v4 & 1;
-    v28 = v11;
-    v15 = v11 + 1;
-    LODWORD(PteAddress) = v15;
-    if ( v21 )
-      goto LABEL_17;
-    v24 = MiMapImageInSystemSpace(v6, 3LL, v30);
-    if ( v24 < 0 )
-      return 0LL;
-    v22 = v30[0];
-    v23 = 0;
-    v17 = RtlImageNtHeader(v30[0]);
-    LODWORD(v22) = *(_DWORD *)(v22 + 60);
-    v23 = v22;
-    LOWORD(v31[6]) = *(_WORD *)(v17 + 24);
-    LODWORD(v31[1]) = *(_DWORD *)(v17 + 60);
-    HIDWORD(v31[1]) = *(_DWORD *)(v17 + 56);
-    LODWORD(v31[2]) = *(_DWORD *)(v17 + 80);
-    if ( LOWORD(v31[6]) == 523 )
+    v12 = (PVOID *)PsLoadedModuleList;
+    v13 = &PsLoadedModuleList;
+    while ( v12 != v13 )
     {
-      v18 = *(_DWORD *)(v17 + 128);
-      HIDWORD(v31[2]) = v18;
-      v31[0] = *(_QWORD *)(v17 + 48);
-      LODWORD(v31[3]) = *(_DWORD *)(v17 + 84);
-      HIDWORD(v31[3]) = *(_DWORD *)(v17 + 40);
-      v31[4] = *(_QWORD *)(v17 + 96);
-      v31[5] = *(_QWORD *)(v17 + 104);
-      WORD1(v31[6]) = *(_WORD *)(v17 + 92);
-      HIDWORD(v31[6]) = *(_DWORD *)(v17 + 72);
-      LODWORD(v31[7]) = *(_DWORD *)(v17 + 64);
-      WORD2(v31[7]) = *(_WORD *)(v17 + 94);
-      LODWORD(v31[8]) = *(_DWORD *)(v17 + 88);
-      HIDWORD(v31[8]) = *(_DWORD *)(v17 + 28);
-      v31[13] = 0LL;
-      if ( *(_DWORD *)(v17 + 132) > 6u && *(_DWORD *)(v17 + 184) )
-        v31[13] = *(_QWORD *)(v17 + 184);
-      if ( *(_DWORD *)(v17 + 132) > 0xCu )
-        v31[9] = *(_QWORD *)(v17 + 232);
-      if ( *(_DWORD *)(v17 + 132) <= 0xEu )
+      v14 = (__int64)v12[14];
+      if ( v14 && v6 == MiSectionControlArea(v14) )
       {
-        v31[10] = 0LL;
+        *a3 = 0;
+        v11 = 1;
+        break;
       }
-      else
+      v12 = (PVOID *)*v12;
+    }
+  }
+  if ( v10 )
+  {
+    if ( v11 != 1 && (v4 & 2) == 0 )
+    {
+      v15 = v4 & 1;
+      if ( ((v4 & 1) == 0 || (unsigned int)MiGetSystemRegionType(v10) == 1)
+        && ((v4 & 1) != 0 || (unsigned int)MiGetSystemRegionType(v10) != 1) )
       {
-        v31[10] = *(_QWORD *)(v17 + 248);
-        if ( *(_DWORD *)(v17 + 248) && *(_DWORD *)(v17 + 252) )
-          HIDWORD(v31[2]) = v18 | 1;
-      }
-      if ( *(_DWORD *)(v17 + 132) <= 5u )
-        v31[11] = 0LL;
-      else
-        v31[11] = *(_QWORD *)(v17 + 176);
-      if ( *(_DWORD *)(v17 + 132) > 0xAu )
-      {
-        LODWORD(v31[12]) = *(_DWORD *)(v17 + 216);
-        v19 = *(_DWORD *)(v17 + 220);
-LABEL_56:
-        HIDWORD(v31[12]) = v19;
-LABEL_58:
-        MiUnmapImageInSystemSpace(v30);
-        if ( v24 < 0 )
-          return 0LL;
-        if ( (int)MiRelocateImage(*(_QWORD *)v6, (unsigned int)v31, v22, v15, -1LL, 1) < 0 )
-          return 0LL;
-        MiImageSuitableForSystem(v6, &v21);
-        if ( !v21 && (v6[62] & 0xC) == 0 )
-          return 0LL;
-LABEL_17:
-        v16 = MiSelectSystemImageAddress(v15, (unsigned int)v8);
-        v9 = v16;
-        if ( !v16 )
-          return 0LL;
-        PteAddress = MiGetPteAddress(v16);
-        if ( (int)MiReservePrivilegedPtes(v6, PteAddress, (unsigned int)v8, v4 & 0x20) >= 0 )
+        PteAddress = MiGetPteAddress(v10);
+        if ( (int)MiReservePrivilegedPtes(v6, PteAddress, (unsigned int)v9, v4 & 0x20) >= 0 )
         {
-          v13 = 1;
-          if ( (unsigned int)MiAddPrivateFixupEntryForSystemImage(v6, v9) )
-            goto LABEL_13;
-          MiReleasePrivilegedPtes(PteAddress, (unsigned int)v8);
+          v16 = 0;
+          goto LABEL_17;
         }
-LABEL_66:
-        MiReturnSystemImageAddress(v9, (unsigned int)((_DWORD)v8 << 12));
         return 0LL;
       }
     }
+  }
+  v15 = v4 & 1;
+  LODWORD(PteAddress) = v15;
+  v32 = v15 + 1;
+  if ( v30 )
+  {
+    v18 = (v4 & 1) + 1;
+    goto LABEL_21;
+  }
+  v34 = MiMapImageInSystemSpace((__int64 *)v6, 3, (__int64)v38);
+  if ( v34 < 0 )
+    return 0LL;
+  v20 = v38[0];
+  v21 = RtlImageNtHeader(v38[0]);
+  v31 = *(_DWORD *)(v20 + 60) + 48;
+  if ( *(_WORD *)(v21 + 24) != 523 )
+  {
+    LOWORD(v39[6]) = *(_WORD *)(v21 + 24);
+    LODWORD(v39[1]) = *(_DWORD *)(v21 + 60);
+    HIDWORD(v39[1]) = *(_DWORD *)(v21 + 56);
+    LODWORD(v39[2]) = *(_DWORD *)(v21 + 80);
+    v25 = *(_DWORD *)(v21 + 112);
+    HIDWORD(v39[2]) = v25;
+    v39[0] = *(unsigned int *)(v21 + 52);
+    LODWORD(v39[3]) = *(_DWORD *)(v21 + 84);
+    HIDWORD(v39[3]) = *(_DWORD *)(v21 + 40);
+    v39[4] = *(unsigned int *)(v21 + 96);
+    v39[5] = *(unsigned int *)(v21 + 100);
+    WORD1(v39[6]) = *(_WORD *)(v21 + 92);
+    HIDWORD(v39[6]) = *(_DWORD *)(v21 + 72);
+    LODWORD(v39[7]) = *(_DWORD *)(v21 + 64);
+    WORD2(v39[7]) = *(_WORD *)(v21 + 94);
+    LODWORD(v39[8]) = *(_DWORD *)(v21 + 88);
+    HIDWORD(v39[8]) = *(_DWORD *)(v21 + 28);
+    v39[13] = 0LL;
+    v26 = *(_DWORD *)(v21 + 116);
+    if ( v26 > 6 && *(_DWORD *)(v21 + 168) )
+    {
+      v39[13] = *(_QWORD *)(v21 + 168);
+      v26 = *(_DWORD *)(v21 + 116);
+    }
+    if ( v26 > 0xC )
+    {
+      v39[9] = *(_QWORD *)(v21 + 216);
+      v26 = *(_DWORD *)(v21 + 116);
+    }
+    if ( v26 <= 0xE )
+    {
+      v39[10] = 0LL;
+    }
     else
     {
-      v20 = *(_DWORD *)(v17 + 112);
-      HIDWORD(v31[2]) = v20;
-      v31[0] = *(unsigned int *)(v17 + 52);
-      LODWORD(v31[3]) = *(_DWORD *)(v17 + 84);
-      HIDWORD(v31[3]) = *(_DWORD *)(v17 + 40);
-      v31[4] = *(unsigned int *)(v17 + 96);
-      v31[5] = *(unsigned int *)(v17 + 100);
-      WORD1(v31[6]) = *(_WORD *)(v17 + 92);
-      HIDWORD(v31[6]) = *(_DWORD *)(v17 + 72);
-      LODWORD(v31[7]) = *(_DWORD *)(v17 + 64);
-      WORD2(v31[7]) = *(_WORD *)(v17 + 94);
-      LODWORD(v31[8]) = *(_DWORD *)(v17 + 88);
-      HIDWORD(v31[8]) = *(_DWORD *)(v17 + 28);
-      v31[13] = 0LL;
-      if ( *(_DWORD *)(v17 + 116) > 6u && *(_DWORD *)(v17 + 168) )
-        v31[13] = *(_QWORD *)(v17 + 168);
-      if ( *(_DWORD *)(v17 + 116) > 0xCu )
-        v31[9] = *(_QWORD *)(v17 + 216);
-      if ( *(_DWORD *)(v17 + 116) <= 0xEu )
-      {
-        v31[10] = 0LL;
-      }
-      else
-      {
-        v31[10] = *(_QWORD *)(v17 + 232);
-        if ( *(_DWORD *)(v17 + 232) && *(_DWORD *)(v17 + 236) )
-          HIDWORD(v31[2]) = v20 | 1;
-      }
-      if ( *(_DWORD *)(v17 + 116) <= 5u )
-        v31[11] = 0LL;
-      else
-        v31[11] = *(_QWORD *)(v17 + 160);
-      if ( *(_DWORD *)(v17 + 116) > 0xAu )
-      {
-        LODWORD(v31[12]) = *(_DWORD *)(v17 + 200);
-        v19 = *(_DWORD *)(v17 + 204);
-        goto LABEL_56;
-      }
+      v39[10] = *(_QWORD *)(v21 + 232);
+      if ( *(_DWORD *)(v21 + 232) && *(_DWORD *)(v21 + 236) )
+        HIDWORD(v39[2]) = v25 | 1;
     }
-    v31[12] = 0LL;
-    goto LABEL_58;
+    if ( *(_DWORD *)(v21 + 116) <= 5u )
+      v39[11] = 0LL;
+    else
+      v39[11] = *(_QWORD *)(v21 + 160);
+    if ( *(_DWORD *)(v21 + 116) > 0xAu )
+    {
+      LODWORD(v39[12]) = *(_DWORD *)(v21 + 200);
+      v24 = *(_DWORD *)(v21 + 204);
+      goto LABEL_62;
+    }
+LABEL_63:
+    v39[12] = 0LL;
+    goto LABEL_64;
   }
-  PteAddress = MiGetPteAddress(v9);
-  if ( (int)MiReservePrivilegedPtes(v6, PteAddress, (unsigned int)v8, v4 & 0x20) < 0 )
+  LOWORD(v39[6]) = 523;
+  LODWORD(v39[1]) = *(_DWORD *)(v21 + 60);
+  HIDWORD(v39[1]) = *(_DWORD *)(v21 + 56);
+  LODWORD(v39[2]) = *(_DWORD *)(v21 + 80);
+  v22 = *(_DWORD *)(v21 + 128);
+  HIDWORD(v39[2]) = v22;
+  v39[0] = *(_QWORD *)(v21 + 48);
+  LODWORD(v39[3]) = *(_DWORD *)(v21 + 84);
+  HIDWORD(v39[3]) = *(_DWORD *)(v21 + 40);
+  v39[4] = *(_QWORD *)(v21 + 96);
+  v39[5] = *(_QWORD *)(v21 + 104);
+  WORD1(v39[6]) = *(_WORD *)(v21 + 92);
+  HIDWORD(v39[6]) = *(_DWORD *)(v21 + 72);
+  LODWORD(v39[7]) = *(_DWORD *)(v21 + 64);
+  WORD2(v39[7]) = *(_WORD *)(v21 + 94);
+  LODWORD(v39[8]) = *(_DWORD *)(v21 + 88);
+  HIDWORD(v39[8]) = *(_DWORD *)(v21 + 28);
+  v39[13] = 0LL;
+  v23 = *(_DWORD *)(v21 + 132);
+  if ( v23 > 6 && *(_DWORD *)(v21 + 184) )
+  {
+    v39[13] = *(_QWORD *)(v21 + 184);
+    v23 = *(_DWORD *)(v21 + 132);
+  }
+  if ( v23 > 0xC )
+  {
+    v39[9] = *(_QWORD *)(v21 + 232);
+    v23 = *(_DWORD *)(v21 + 132);
+  }
+  if ( v23 <= 0xE )
+  {
+    v39[10] = 0LL;
+  }
+  else
+  {
+    v39[10] = *(_QWORD *)(v21 + 248);
+    if ( *(_DWORD *)(v21 + 248) && *(_DWORD *)(v21 + 252) )
+      HIDWORD(v39[2]) = v22 | 1;
+  }
+  if ( *(_DWORD *)(v21 + 132) <= 5u )
+    v39[11] = 0LL;
+  else
+    v39[11] = *(_QWORD *)(v21 + 176);
+  if ( *(_DWORD *)(v21 + 132) <= 0xAu )
+    goto LABEL_63;
+  LODWORD(v39[12]) = *(_DWORD *)(v21 + 216);
+  v24 = *(_DWORD *)(v21 + 220);
+LABEL_62:
+  HIDWORD(v39[12]) = v24;
+LABEL_64:
+  v27 = v34;
+  MiUnmapImageInSystemSpace(v38);
+  if ( v27 < 0 )
     return 0LL;
-  v13 = 0;
-LABEL_13:
-  if ( !v11 || (int)MiSessionInsertImage(v9, (__int64)v6, v12) >= 0 )
-    return v9;
-  if ( v13 == 1 )
-    MiFreePrivateFixupEntryForSystemImage(v9, 1);
-  MiReleasePrivilegedPtes(PteAddress, (unsigned int)v8);
-  if ( v13 == 1 )
-    goto LABEL_66;
+  v18 = v32;
+  if ( (int)MiRelocateImage(*(_QWORD *)v6, (__int64)v39, v31, v32, -1LL, 1) < 0 )
+    return 0LL;
+  MiImageSuitableForSystem(v6, &v30, v28, v29);
+  if ( !v30 && (*(_DWORD *)(v6 + 56) & 0x40000000) == 0 )
+    return 0LL;
+LABEL_21:
+  v19 = MiSelectSystemImageAddress(v18, (unsigned int)v9);
+  v10 = v19;
+  if ( v19 )
+  {
+    PteAddress = MiGetPteAddress(v19);
+    if ( (int)MiReservePrivilegedPtes(v6, PteAddress, (unsigned int)v9, v4 & 0x20) < 0 )
+    {
+LABEL_70:
+      MiReturnSystemImageAddress(v10, (unsigned int)((_DWORD)v9 << 12));
+      return 0LL;
+    }
+    v16 = 1;
+    if ( !(unsigned int)MiAddPrivateFixupEntryForSystemImage((_DWORD *)v6, v10) )
+    {
+LABEL_69:
+      MiReleasePrivilegedPtes(PteAddress, (unsigned int)v9);
+      goto LABEL_70;
+    }
+LABEL_17:
+    if ( !v15 || (int)MiSessionInsertImage(v10, (__int64 *)v6) >= 0 )
+      return v10;
+    if ( v16 == 1 )
+      MiFreePrivateFixupEntryForSystemImage(v10, 1);
+    goto LABEL_69;
+  }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncChildLink @ 0x1C0072BCC
+ * XREFs of DwmAsyncChildLink @ 0x1C00E9F50
  * Callers:
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0098738 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9C98 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncChildLink(PVOID Object, __int64 a2, __int64 a3, __int64 a4, int a5)

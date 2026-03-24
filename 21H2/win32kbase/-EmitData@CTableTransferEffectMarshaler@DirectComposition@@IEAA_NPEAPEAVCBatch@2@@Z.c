@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CTableTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217D0C
+ * XREFs of ?EmitData@CTableTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1B10
  * Callers:
- *     ?EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217F10 (-EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1D00 (-EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CTableTransferEffectMarshaler::EmitData(
@@ -20,13 +20,13 @@ bool __fastcall DirectComposition::CTableTransferEffectMarshaler::EmitData(
   v3 = (char *)v5;
   *(_DWORD *)v5 = 20;
   *(_OWORD *)(v3 + 4) = 0LL;
-  *((_DWORD *)v3 + 1) = 500;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-  v3[12] = *((_BYTE *)this + 184) & 1;
-  v3[13] = (*((_BYTE *)this + 184) & 2) != 0;
+  *((_DWORD *)v3 + 1) = 505;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+  v3[12] = *((_BYTE *)this + 176) & 1;
+  v3[13] = (*((_BYTE *)this + 176) & 2) != 0;
   result = 1;
-  v3[14] = (*((_BYTE *)this + 184) & 4) != 0;
-  v3[15] = (*((_BYTE *)this + 184) & 8) != 0;
-  v3[16] = (*((_BYTE *)this + 184) & 0x10) != 0;
+  v3[14] = (*((_BYTE *)this + 176) & 4) != 0;
+  v3[15] = (*((_BYTE *)this + 176) & 8) != 0;
+  v3[16] = (*((_BYTE *)this + 176) & 0x10) != 0;
   return result;
 }

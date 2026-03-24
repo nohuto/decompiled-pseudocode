@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x14055B634
+ * XREFs of IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x140509E8C
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B25C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AC3CC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559E30 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14050895C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceQueryHvlDumpSizeFailure(int a1)

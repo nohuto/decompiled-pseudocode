@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAJXZ @ 0x18010BA30
+ * XREFs of ?IsValid@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F8C00
  * Callers:
  *     <none>
  * Callees:

@@ -1,23 +1,22 @@
 /*
- * XREFs of ??_G?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@UEAAPEAXI@Z @ 0x1C0008EC0
+ * XREFs of ??_G?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@UEAAPEAXI@Z @ 0x1C00064A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
  */
 
 _QWORD *__fastcall DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::`scalar deleting destructor'(
         _QWORD *P,
-        char a2)
+        __int64 a2)
 {
+  char v2; // si
   _QWORD **v3; // rdi
   _QWORD *v5; // rcx
   _QWORD *v7; // rax
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
+  __int64 v8; // rax
 
+  v2 = a2;
   *P = &DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::`vftable';
   v3 = (_QWORD **)(P + 2);
   while ( 1 )
@@ -32,30 +31,15 @@ _QWORD *__fastcall DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElemen
     --P[4];
     *v5 = 0LL;
     v5[1] = 0LL;
-    ReferenceCounted::Release((ReferenceCounted *)(v5 + 10));
+    ReferenceCounted::Release((ReferenceCounted *)(v5 + 10), a2);
   }
   if ( P[4] )
   {
-    WdLogSingleEntry1(1LL, 394LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v9,
-          v8,
-          v10,
-          0,
-          2,
-          -1,
-          (__int64)L"this->GetNumElements() == 0",
-          394LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v8 = WdLogNewEntry5_WdAssertion(v5, a2);
+    *(_QWORD *)(v8 + 24) = 394LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  if ( (a2 & 1) != 0 )
+  if ( (v2 & 1) != 0 )
     ExFreePoolWithTag(P, 0);
   return P;
 }

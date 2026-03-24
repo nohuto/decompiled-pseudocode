@@ -1,16 +1,16 @@
 /*
- * XREFs of IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00BE17C
+ * XREFs of IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00AD25C
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
- *     ApiSetEditionSetProcessWindowStationAtProcessInit @ 0x1C020BBA8 (ApiSetEditionSetProcessWindowStationAtProcessInit.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
+ *     ApiSetEditionSetProcessWindowStationAtProcessInit @ 0x1C01CE13C (ApiSetEditionSetProcessWindowStationAtProcessInit.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsEditionSetProcessWindowStationAtProcessInitSupported()
 {
-  if ( qword_1C029BC08 )
-    return qword_1C029BC08();
+  if ( qword_1C0256EB8 )
+    return qword_1C0256EB8();
   else
     return 3221225659LL;
 }

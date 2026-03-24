@@ -1,12 +1,14 @@
 /*
- * XREFs of McTemplateK0x_EtwWriteTransfer @ 0x1C013EC58
+ * XREFs of McTemplateK0x_EtwWriteTransfer @ 0x1C01276A8
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
- *     ?DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00C342C (-DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
- *     EtwTraceFlipManagerStopCompleteToken @ 0x1C013A8F0 (EtwTraceFlipManagerStopCompleteToken.c)
+ *     ?DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C0078A98 (-DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     EtwTraceFlipManagerStartCompleteToken @ 0x1C0122520 (EtwTraceFlipManagerStartCompleteToken.c)
+ *     EtwTraceFlipManagerStartTokenReleaseToFrame @ 0x1C0122550 (EtwTraceFlipManagerStartTokenReleaseToFrame.c)
+ *     EtwTraceFlipManagerStopCompleteToken @ 0x1C0122580 (EtwTraceFlipManagerStopCompleteToken.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0x_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

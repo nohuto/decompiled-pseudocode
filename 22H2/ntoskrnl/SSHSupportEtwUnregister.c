@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportEtwUnregister @ 0x1409A2528
+ * XREFs of SSHSupportEtwUnregister @ 0x1408FBB08
  * Callers:
- *     SshInitialize @ 0x140B51AA0 (SshInitialize.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  * Callees:
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
  */
 
 NTSTATUS SSHSupportEtwUnregister()

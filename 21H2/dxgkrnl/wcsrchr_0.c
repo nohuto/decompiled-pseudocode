@@ -1,8 +1,8 @@
 /*
- * XREFs of wcsrchr_0 @ 0x1C002B1CF
+ * XREFs of wcsrchr_0 @ 0x1C002496F
  * Callers:
- *     ?GetInfoInternal@CFlipExBuffer@@QEBAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C001C8E8 (-GetInfoInternal@CFlipExBuffer@@QEBAJPEAUCSM_BUFFER_INFO@@@Z.c)
- *     DpiGdoCreateServiceEntry @ 0x1C0204B18 (DpiGdoCreateServiceEntry.c)
+ *     ?GetInfoInternal@CFlipExBuffer@@QEBAJPEAUCSM_BUFFER_INFO@@_N@Z @ 0x1C0018218 (-GetInfoInternal@CFlipExBuffer@@QEBAJPEAUCSM_BUFFER_INFO@@_N@Z.c)
+ *     DpiGdoCreateServiceEntry @ 0x1C018AC5C (DpiGdoCreateServiceEntry.c)
  * Callees:
  *     <none>
  */

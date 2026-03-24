@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseFaultPte @ 0x140634070
+ * XREFs of MiReleaseFaultPte @ 0x14053A8AC
  * Callers:
- *     MiValidateImagePfn @ 0x1406B0FF8 (MiValidateImagePfn.c)
+ *     MiValidateImagePfn @ 0x140680124 (MiValidateImagePfn.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReleaseFaultPte(unsigned __int64 a1)
@@ -30,10 +30,10 @@ __int64 __fastcall MiReleaseFaultPte(unsigned __int64 a1)
   v3 = 0;
   if ( MiPteInShadowRange(a1) )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
       v3 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_9;
       v5 = (ZeroPte & 1) == 0;
     }
@@ -51,26 +51,27 @@ LABEL_9:
   if ( v3 )
     MiWritePteShadow(a1, v1, v4);
   KeFlushSingleTb((__int64)(a1 << 25) >> 16, 0, 1u);
-  v6 = (__int64)(a1 - qword_140C697C8) >> 3;
-  KeAcquireInStackQueuedSpinLock(&qword_140C697D0, &LockHandle);
-  byte_140C697D8[(unsigned __int64)(unsigned int)v6 >> 3] &= ~(1 << (v6 & 7));
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  v6 = (__int64)(a1 - qword_140C4ED38) >> 3;
+  KeAcquireInStackQueuedSpinLock(&qword_140C4ED40, &LockHandle);
+  _bittestandreset(&dword_140C4ED48, v6);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v5 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v5 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

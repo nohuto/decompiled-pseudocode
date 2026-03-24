@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIrpWatchdogBugcheck @ 0x1405C68A8
+ * XREFs of PopIrpWatchdogBugcheck @ 0x140565198
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x1403A4EC4 (PopDequeueQuerySetIrp.c)
- *     PopIrpWatchdog @ 0x1405C6870 (PopIrpWatchdog.c)
+ *     PopDequeueQuerySetIrp @ 0x14039814C (PopDequeueQuerySetIrp.c)
+ *     PopIrpWatchdog @ 0x140565160 (PopIrpWatchdog.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405C6658 (PopInternalAddToDumpFile.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140564F44 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall __noreturn PopIrpWatchdogBugcheck(__int64 MaxDataSize)
@@ -38,7 +38,7 @@ void __fastcall __noreturn PopIrpWatchdogBugcheck(__int64 MaxDataSize)
   BugCheckParameter4 = *(_QWORD *)(v1 + 16);
   PopInternalAddToDumpFile(0LL, 0, *(_QWORD *)(v1 + 24));
   IoAddTriageDumpDataBlock(BugCheckParameter4, (PVOID)*(unsigned __int16 *)(BugCheckParameter4 + 2));
-  IoAddTriageDumpDataBlock(v1, (PVOID)0x120);
+  IoAddTriageDumpDataBlock(v1, (PVOID)0x100);
   BugCheckParameter3[1] = (ULONG_PTR)&PopIrpList;
   BugCheckParameter3[0] = 163840LL;
   BugCheckParameter3[2] = (ULONG_PTR)&PopIrpThreadList;

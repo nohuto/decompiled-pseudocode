@@ -1,84 +1,79 @@
 /*
- * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029E3CC
+ * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029738C
  * Callers:
- *     GreEnableEUDC @ 0x1C008A748 (GreEnableEUDC.c)
+ *     GreEnableEUDC @ 0x1C00E9258 (GreEnableEUDC.c)
  * Callees:
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0085D98 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0115160 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1C50 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1E64 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
  */
 
-__int64 __fastcall bSetupDefaultFlEntry(__int64 a1)
+__int64 bSetupDefaultFlEntry(void)
 {
+  char *v0; // rbx
   unsigned int v1; // esi
-  unsigned int v2; // edi
-  __int64 v3; // r14
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // r15
-  PFTOBJ *v7; // rcx
-  __int64 *v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  __int128 v12; // [rsp+40h] [rbp-30h] BYREF
-  _QWORD v13[2]; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-10h] BYREF
-  unsigned int v15; // [rsp+A0h] [rbp+30h] BYREF
-  struct PFF *v16; // [rsp+A8h] [rbp+38h] BYREF
+  unsigned int i; // edi
+  __int64 v3; // rcx
+  unsigned __int16 *v4; // r14
+  PFTOBJ *v5; // rcx
+  __int64 *v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int128 v10; // [rsp+40h] [rbp-20h] BYREF
+  _QWORD v11[2]; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v12; // [rsp+A0h] [rbp+40h] BYREF
+  struct PFF *v13; // [rsp+A8h] [rbp+48h] BYREF
+  struct _FONTHASH **v14; // [rsp+B0h] [rbp+50h] BYREF
 
+  v0 = (char *)&unk_1C0333ABC;
+  v14 = gpPFTPublic;
   v1 = 0;
-  v2 = 0;
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v4 = v3 + 14212;
-  v14 = *(_QWORD *)(v3 + 20272);
-  do
+  for ( i = 0; i < 7; ++i )
   {
-    if ( *(_DWORD *)(v4 - 124) && *(_WORD *)v4 && !*(_QWORD *)(v4 + 524) )
+    if ( *((_DWORD *)v0 - 31) && *(_WORD *)v0 && !*(_QWORD *)(v0 + 524) )
     {
-      v5 = 664LL * v2;
-      v12 = 0LL;
-      v13[0] = &v12;
-      v15 = 0;
-      v16 = 0LL;
-      v13[1] = v5 + v3 + 14146;
-      v6 = v5 + v3;
+      v3 = 664LL * i;
+      v10 = 0LL;
+      v11[0] = &v10;
+      v12 = 0;
+      v13 = 0LL;
+      v11[1] = (char *)&FontAssocDefaultTable + v3 + 58;
+      v4 = (unsigned __int16 *)((char *)&FontAssocDefaultTable + v3);
       if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
                            (PUBLIC_PFTOBJ *)&v14,
-                           (const unsigned __int16 *)(v5 + v3 + 14212),
-                           &v15,
+                           (unsigned __int16 *)((char *)&FontAssocDefaultTable + v3 + 124),
+                           &v12,
                            0xAu,
-                           &v16,
-                           (struct _EUDCLOAD *)v13,
+                           &v13,
+                           (struct _EUDCLOAD *)v11,
                            0) )
       {
-        if ( (_QWORD)v12 )
+        if ( (_QWORD)v10 )
         {
-          v8 = (__int64 *)&v12;
-          v9 = 2LL;
+          v6 = (__int64 *)&v10;
+          v7 = 2LL;
           do
           {
-            v10 = *v8++;
-            *(_DWORD *)(v10 + 12) |= 0x200u;
-            --v9;
+            v8 = *v6++;
+            *(_DWORD *)(v8 + 12) |= 0x200u;
+            --v7;
           }
-          while ( v9 );
+          while ( v7 );
           v1 = 1;
-          *(_OWORD *)(v4 + 524) = v12;
+          *(_OWORD *)(v0 + 524) = v10;
         }
         else
         {
-          PFTOBJ::bUnloadEUDCFont(v7, (unsigned __int16 *)(v6 + 14212));
-          *(_WORD *)v4 = 0;
+          PFTOBJ::bUnloadEUDCFont(v5, v4 + 62);
+          *(_WORD *)v0 = 0;
         }
       }
       else
       {
-        *(_WORD *)v4 = 0;
-        *(_OWORD *)(v4 + 524) = 0LL;
+        *(_WORD *)v0 = 0;
+        *(_OWORD *)(v0 + 524) = 0LL;
       }
     }
-    ++v2;
-    v4 += 664LL;
+    v0 += 664;
   }
-  while ( v2 < 7 );
   return v1;
 }

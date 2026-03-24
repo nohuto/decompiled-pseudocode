@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIAssert @ 0x1C00228CC
+ * XREFs of ACPIAssert @ 0x1C0024258
  * Callers:
- *     ACPIProcessHardwareInformation @ 0x1C0096E88 (ACPIProcessHardwareInformation.c)
- *     ACPILoadTableCheckSum @ 0x1C00BD8B0 (ACPILoadTableCheckSum.c)
+ *     ACPIProcessHardwareInformation @ 0x1C009F214 (ACPIProcessHardwareInformation.c)
+ *     ACPILoadTableCheckSum @ 0x1C00BE5F0 (ACPILoadTableCheckSum.c)
  * Callees:
- *     WPP_RECORDER_SF_LLss @ 0x1C00499A8 (WPP_RECORDER_SF_LLss.c)
+ *     WPP_RECORDER_SF_LLss @ 0x1C004AECC (WPP_RECORDER_SF_LLss.c)
  */
 
 _UNKNOWN **__fastcall ACPIAssert(int a1, int a2, int a3, int a4)

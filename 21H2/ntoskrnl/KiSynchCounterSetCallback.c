@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSynchCounterSetCallback @ 0x140960D50
+ * XREFs of KiSynchCounterSetCallback @ 0x1408BAEA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PcwAddInstance @ 0x1407E18E0 (PcwAddInstance.c)
- *     EtwDereferenceSpinLockCounters @ 0x1409E93FC (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1409E9458 (EtwReferenceSpinLockCounters.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
+ *     EtwDereferenceSpinLockCounters @ 0x14093CE54 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x14093CEB0 (EtwReferenceSpinLockCounters.c)
  */
 
 NTSTATUS __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)
@@ -50,7 +50,7 @@ NTSTATUS __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)
     RtlStringCbPrintfW(pszDest, 0x16uLL, L"%u", v4);
     RtlInitUnicodeString(&DestinationString, pszDest);
     Data.Size = 184;
-    Data.Data = (const void *)(v7 + 35008);
+    Data.Data = (const void *)(v7 + 33984);
     result = PcwAddInstance(v3, &DestinationString, v4, 1u, &Data);
     if ( result < 0 )
       break;

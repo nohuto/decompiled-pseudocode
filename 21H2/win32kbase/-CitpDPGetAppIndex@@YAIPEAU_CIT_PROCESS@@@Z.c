@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CitpDPGetAppIndex@@YAIPEAU_CIT_PROCESS@@@Z @ 0x1C00AC734
+ * XREFs of ?CitpDPGetAppIndex@@YAIPEAU_CIT_PROCESS@@@Z @ 0x1C0096540
  * Callers:
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall CitpDPGetAppIndex(struct _CIT_PROCESS *a1)
 
   pImageFileName = 0LL;
   v1 = 0;
-  v2 = *((_DWORD *)a1 + 20) == 1;
+  v2 = *((_DWORD *)a1 + 16) == 1;
   DestinationString = 0LL;
   String2 = 0LL;
   if ( v2 )
@@ -35,7 +35,7 @@ __int64 __fastcall CitpDPGetAppIndex(struct _CIT_PROCESS *a1)
   }
   else
   {
-    RtlInitUnicodeString(&DestinationString, *((PCWSTR *)a1 + 6));
+    RtlInitUnicodeString(&DestinationString, *((PCWSTR *)a1 + 4));
     v3 = pImageFileName;
   }
   Buffer = DestinationString.Buffer;
@@ -54,7 +54,7 @@ __int64 __fastcall CitpDPGetAppIndex(struct _CIT_PROCESS *a1)
   if ( v3 )
     RtlUpcaseUnicodeString(&String2, &String2, 0);
   v7 = 0;
-  v8 = (PCUNICODE_STRING *)&unk_1C0244E20;
+  v8 = (PCUNICODE_STRING *)&unk_1C0204E40;
   while ( !RtlEqualUnicodeString(v8[1], &String2, 0) )
   {
     ++v7;
@@ -68,31 +68,31 @@ __int64 __fastcall CitpDPGetAppIndex(struct _CIT_PROCESS *a1)
     switch ( v1 )
     {
       case 7u:
-        if ( (unsigned int)dword_1C028F1B4 < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024BCAC < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F1A8;
-          goto LABEL_24;
+          v10 = &off_1C024BCA0;
+          goto LABEL_25;
         }
         break;
       case 8u:
-        if ( (unsigned int)dword_1C028F1FC < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024A3AC < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F1F0;
-          goto LABEL_24;
+          v10 = &off_1C024A3A0;
+          goto LABEL_25;
         }
         break;
       case 9u:
-        if ( (unsigned int)dword_1C028F1E4 < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024BC64 < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F1D8;
-          goto LABEL_24;
+          v10 = &off_1C024BC58;
+          goto LABEL_25;
         }
         break;
       default:
-        if ( v1 == 10 && (unsigned int)dword_1C028F19C < MEMORY[0xFFFFF7800000037C] )
+        if ( v1 == 10 && (unsigned int)dword_1C024BC7C < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F190;
-          goto LABEL_24;
+          v10 = &off_1C024BC70;
+          goto LABEL_25;
         }
         break;
     }
@@ -102,44 +102,44 @@ __int64 __fastcall CitpDPGetAppIndex(struct _CIT_PROCESS *a1)
     switch ( v1 )
     {
       case 6u:
-        if ( (unsigned int)dword_1C028F1CC < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024BCC4 < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F1C0;
-          goto LABEL_24;
+          v10 = &off_1C024BCB8;
+          goto LABEL_25;
         }
         break;
       case 1u:
-        if ( (unsigned int)dword_1C028D87C >= MEMORY[0xFFFFF7800000037C] )
-          break;
-        v10 = &off_1C028D870;
-        goto LABEL_24;
-      case 2u:
-        if ( (unsigned int)dword_1C028F22C < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024A3C4 < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F220;
-          goto LABEL_24;
+          v10 = &off_1C024A3B8;
+LABEL_25:
+          EtwTelemetryCoverageReport(v10);
         }
         break;
+      case 2u:
+        if ( (unsigned int)dword_1C024A3DC >= MEMORY[0xFFFFF7800000037C] )
+          break;
+        v10 = &off_1C024A3D0;
+        goto LABEL_25;
       case 3u:
-        if ( (unsigned int)dword_1C028F214 < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024BC94 < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028F208;
-          goto LABEL_24;
+          v10 = &off_1C024BC88;
+          goto LABEL_25;
         }
         break;
       case 4u:
-        if ( (unsigned int)dword_1C028D864 < MEMORY[0xFFFFF7800000037C] )
+        if ( (unsigned int)dword_1C024A40C < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028D858;
-          goto LABEL_24;
+          v10 = &off_1C024A400;
+          goto LABEL_25;
         }
         break;
       default:
-        if ( v1 == 5 && (unsigned int)dword_1C028D84C < MEMORY[0xFFFFF7800000037C] )
+        if ( v1 == 5 && (unsigned int)dword_1C024A3F4 < MEMORY[0xFFFFF7800000037C] )
         {
-          v10 = &off_1C028D840;
-LABEL_24:
-          EtwTelemetryCoverageReport(v10);
+          v10 = &off_1C024A3E8;
+          goto LABEL_25;
         }
         break;
     }

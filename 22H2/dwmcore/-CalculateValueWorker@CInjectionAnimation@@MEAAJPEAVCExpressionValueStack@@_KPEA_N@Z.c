@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18022F120
+ * XREFs of ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801C4930
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800BC8E8 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x18020DBFC (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800AD0B4 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801D4088 (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
  */
 
 __int64 __fastcall CInjectionAnimation::CalculateValueWorker(
@@ -15,59 +15,50 @@ __int64 __fastcall CInjectionAnimation::CalculateValueWorker(
         __int64 a3,
         bool *a4)
 {
-  __int64 v4; // rsi
-  CManipulation *v7; // rsi
-  int v8; // ecx
-  int v9; // edx
-  int v10; // eax
-  __int64 v11; // r9
-  __int64 v12; // r8
-  int v13; // eax
-  __int64 v14; // rcx
-  unsigned int v15; // edi
+  CManipulation *v4; // rsi
+  int v7; // ecx
+  int v8; // eax
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  int v11; // eax
+  __int64 v12; // rcx
+  unsigned int v13; // edi
 
-  v4 = *((_QWORD *)this + 23);
+  v4 = (CManipulation *)*((_QWORD *)this + 22);
   if ( v4 )
+    v4 = (CManipulation *)*((_QWORD *)v4 + 2);
+  if ( v4 && (*(unsigned __int8 (__fastcall **)(CManipulation *, __int64))(*(_QWORD *)v4 + 56LL))(v4, 103LL) )
   {
-    v7 = *(CManipulation **)(v4 + 16);
-    if ( v7 )
+    *a4 = 1;
+    v7 = *((_DWORD *)this + 80);
+    if ( v7 < *((_DWORD *)this + 81) )
     {
-      if ( (*(unsigned __int8 (__fastcall **)(CManipulation *, __int64))(*(_QWORD *)v7 + 56LL))(v7, 105LL) )
+      v8 = *((_DWORD *)this + 80);
+      do
       {
-        *a4 = 1;
-        v8 = *((_DWORD *)this + 86);
-        v9 = *((_DWORD *)this + 87);
-        if ( v8 < v9 )
+        v9 = *((_QWORD *)this + 39);
+        v10 = 132LL * v8;
+        if ( *(_DWORD *)(v10 + v9) != *((_DWORD *)this + 82) )
+          break;
+        v11 = CManipulation::InjectManipulation(v4, (const struct InjectManipulationArgs *)(v9 + 4 + v10));
+        v13 = v11;
+        if ( v11 < 0 )
         {
-          v10 = *((_DWORD *)this + 86);
-          do
-          {
-            v11 = *((_QWORD *)this + 42);
-            v12 = 132LL * v10;
-            if ( *(_DWORD *)(v12 + v11) != *((_DWORD *)this + 88) )
-              break;
-            v13 = CManipulation::InjectManipulation(v7, (const struct InjectManipulationArgs *)(v12 + v11 + 4));
-            v15 = v13;
-            if ( v13 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xA5u, 0LL);
-              return v15;
-            }
-            v8 = *((_DWORD *)this + 86) + 1;
-            *((_DWORD *)this + 86) = v8;
-            v10 = v8;
-            v9 = *((_DWORD *)this + 87);
-          }
-          while ( v8 < v9 );
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xA0u, 0LL);
+          return v13;
         }
-        ++*((_DWORD *)this + 88);
-        if ( v8 == v9 )
-        {
-          *((_BYTE *)this + 216) &= ~1u;
-          CBaseExpression::NotifyAnimationCompleted(this);
-          *a4 = 0;
-        }
+        v7 = *((_DWORD *)this + 80) + 1;
+        *((_DWORD *)this + 80) = v7;
+        v8 = v7;
       }
+      while ( v7 < *((_DWORD *)this + 81) );
+    }
+    ++*((_DWORD *)this + 82);
+    if ( v7 == *((_DWORD *)this + 81) )
+    {
+      *((_BYTE *)this + 208) &= ~1u;
+      CBaseExpression::NotifyAnimationCompleted(this);
+      *a4 = 0;
     }
   }
   return 1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiMiracastMoveChunkList @ 0x1C0060B40
+ * XREFs of DpiMiracastMoveChunkList @ 0x1C0054080
  * Callers:
  *     <none>
  * Callees:
- *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C005F9E8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
+ *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0052EF8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
  */
 
 char __fastcall DpiMiracastMoveChunkList(struct MIRACAST_CHUNK_LIST **a1)

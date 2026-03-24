@@ -1,17 +1,15 @@
 /*
- * XREFs of ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDA48
+ * XREFs of ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0171EFC
  * Callers:
- *     ?DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C01EF7C8 (-DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
- *     ?UnpinDeviceAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C01EF824 (-UnpinDeviceAllocations@DXGDEVICE@@QEAAXXZ.c)
- *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02D7560 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?UnpinResource@DXGDEVICE@@QEAAJI_NPEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDCD0 (-UnpinResource@DXGDEVICE@@QEAAJI_NPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?UnpinResource@DXGDEVICE@@QEAAJI_NPEAVCOREDEVICEACCESS@@@Z @ 0x1C0171DA8 (-UnpinResource@DXGDEVICE@@QEAAJI_NPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C01767A8 (-DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
+ *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02281C0 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?DxgkReferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z @ 0x1C01B4018 (-DxgkReferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z.c)
- *     ?DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C01B622C (-DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z.c)
- *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C02ECB20 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
- *     ?UnpinDirectFlipAllocationSynchronous@DXGDEVICE@@QEAAJIPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDBA0 (-UnpinDirectFlipAllocationSynchronous@DXGDEVICE@@QEAAJIPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C0115D70 (-DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z.c)
+ *     ?DxgkReferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z @ 0x1C011662C (-DxgkReferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z.c)
+ *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C0171FB0 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
+ *     ?UnpinDirectFlipAllocationSynchronous@DXGDEVICE@@QEAAJIPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0257490 (-UnpinDirectFlipAllocationSynchronous@DXGDEVICE@@QEAAJIPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@.c)
  */
 
 __int64 __fastcall DXGDEVICE::UnpinDirectFlipAllocation(
@@ -24,41 +22,42 @@ __int64 __fastcall DXGDEVICE::UnpinDirectFlipAllocation(
   __int64 v5; // rbx
   int v7; // esi
   struct DXGALLOCATION *v10; // rdi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // rax
 
   LODWORD(v5) = 0;
   v7 = 0;
   do
   {
     v10 = *a4;
-    if ( DXGDEVICE::RemoveDirectFlipAllocationFromList((struct _KTHREAD **)this, a2, *a4) )
+    if ( DXGDEVICE::RemoveDirectFlipAllocationFromList(this, a2, *a4) )
     {
       if ( !*((_QWORD *)v10 + 5) )
       {
-        WdLogSingleEntry1(1LL, 7074LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"NULL != pCurrentAlloc->m_pOwningResource",
-          7074LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v14 = WdLogNewEntry5_WdAssertion(v12, v11);
+        *(_QWORD *)(v14 + 24) = 6987LL;
+        WdLogEvent5_WdAssertion(v14);
       }
       DxgkReferenceDxgAllocation((struct _EX_RUNDOWN_REF *)v10);
       DxgkReferenceDxgResource(*((struct _EX_RUNDOWN_REF **)v10 + 5));
-      LODWORD(v5) = (*(__int64 (__fastcall **)(_QWORD, struct DXGALLOCATION *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL)
+      LODWORD(v5) = (*(__int64 (__fastcall **)(_QWORD, struct DXGALLOCATION *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL)
                                                                                           + 8LL)
-                                                                              + 232LL))(
-                      *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
+                                                                              + 248LL))(
+                      *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
                       v10);
       if ( (int)v5 < 0 )
       {
         v5 = (int)DXGDEVICE::UnpinDirectFlipAllocationSynchronous(this, a2, v10, a5);
         ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)v10 + 5) + 72LL));
         ExReleaseRundownProtection((PEX_RUNDOWN_REF)v10 + 11);
-        WdLogSingleEntry1(3LL, v5);
+        v18 = WdLogNewEntry5_WdWarning(v16, v15, v17);
+        *(_QWORD *)(v18 + 24) = v5;
+        WdLogEvent5_WdWarning(v18);
         if ( (int)v5 < 0 )
           break;
       }

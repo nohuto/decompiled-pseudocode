@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CCachedVisualImage@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18001A520
+ * XREFs of ?HrFindInterface@CCachedVisualImage@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC1A0
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18001A570 (-HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC3F0 (-HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CCachedVisualImage::HrFindInterface(CCachedVisualImage *this, const struct _GUID *a2, void **a3)
@@ -23,7 +23,7 @@ __int64 __fastcall CCachedVisualImage::HrFindInterface(CCachedVisualImage *this,
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 72) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

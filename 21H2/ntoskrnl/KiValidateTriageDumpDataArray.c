@@ -1,11 +1,11 @@
 /*
- * XREFs of KiValidateTriageDumpDataArray @ 0x1403D7ED0
+ * XREFs of KiValidateTriageDumpDataArray @ 0x1403CA18C
  * Callers:
- *     KeAddTriageDumpDataBlock @ 0x1403D7DF0 (KeAddTriageDumpDataBlock.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140567DA0 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     IopLiveDumpAddTriageDumpData @ 0x140A656A0 (IopLiveDumpAddTriageDumpData.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403CA0D0 (KeAddTriageDumpDataBlock.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405185EC (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x1409AB280 (IopLiveDumpAddTriageDumpData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
+ *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
  */
 
 char __fastcall KiValidateTriageDumpDataArray(__int64 a1, __int64 a2, unsigned int a3)
@@ -15,8 +15,8 @@ char __fastcall KiValidateTriageDumpDataArray(__int64 a1, __int64 a2, unsigned i
   unsigned __int64 v7; // rdx
   unsigned int v8; // r9d
   unsigned int v9; // edx
-  __int64 *v10; // rcx
-  __int64 v11; // rax
+  __int64 *v11; // rcx
+  __int64 v12; // rax
 
   v5 = 0;
   if ( (unsigned __int8)KiIsAddressRangeValid(a1, 48LL) )
@@ -38,22 +38,22 @@ char __fastcall KiValidateTriageDumpDataArray(__int64 a1, __int64 a2, unsigned i
         v9 = 0;
         if ( v8 )
         {
-          v10 = (__int64 *)(a1 + 56);
+          v11 = (__int64 *)(a1 + 56);
           while ( 1 )
           {
-            v11 = *v10;
-            if ( (unsigned __int64)*v10 > 0xFFFFFFFF || (unsigned int)v11 + v5 < v5 )
+            v12 = *v11;
+            if ( (unsigned __int64)*v11 > 0xFFFFFFFF || (unsigned int)v12 + v5 < v5 )
               break;
             ++v9;
-            v10 += 2;
-            v5 += v11;
+            v11 += 2;
+            v5 += v12;
             if ( v9 >= v8 )
-              goto LABEL_16;
+              goto LABEL_12;
           }
         }
         else
         {
-LABEL_16:
+LABEL_12:
           if ( *(_DWORD *)(a1 + 24) == v5 && v5 <= *(_DWORD *)(a1 + 28) )
             return 1;
         }

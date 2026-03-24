@@ -1,11 +1,11 @@
 /*
- * XREFs of NtTerminateThread @ 0x140676540
+ * XREFs of NtTerminateThread @ 0x140676520
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspTerminateThreadByPointer @ 0x1406765B0 (PspTerminateThreadByPointer.c)
+ *     PspTerminateThreadByPointer @ 0x140676590 (PspTerminateThreadByPointer.c)
  */
 
 NTSTATUS __stdcall NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)

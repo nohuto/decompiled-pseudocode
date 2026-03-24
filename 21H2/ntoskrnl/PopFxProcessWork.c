@@ -1,374 +1,382 @@
 /*
- * XREFs of PopFxProcessWork @ 0x140354CBC
+ * XREFs of PopFxProcessWork @ 0x140260844
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x14022ED94 (PopFxDispatchPluginWorkOnce.c)
- *     PopFxActivateComponentWorker @ 0x140355144 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x140355534 (PopFxIdleWorkerTail.c)
- *     PoFxCompleteIdleState @ 0x14045DD10 (PoFxCompleteIdleState.c)
+ *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140260EC0 (PopFxIdleWorkerTail.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402636DC (PopFxDispatchPluginWorkOnce.c)
+ *     PoFxCompleteIdleState @ 0x1403A66A0 (PoFxCompleteIdleState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopFxScheduleDeviceIdleTimer @ 0x14035489C (PopFxScheduleDeviceIdleTimer.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140354990 (PopFxCompleteDevicePowerRequired.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140354FB4 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     IoAcquireRemoveLockEx @ 0x1403553A0 (IoAcquireRemoveLockEx.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x1403556F4 (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x140355774 (PopFxCompleteComponentActivation.c)
- *     PopPluginDevicePower @ 0x1403562C8 (PopPluginDevicePower.c)
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     PopFxDeliverDevicePowerRequired @ 0x1403B6570 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x1403D93F4 (PopFxUpdateDeviceIdleTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopPluginComponentIdleState @ 0x14045DEFE (PopPluginComponentIdleState.c)
- *     PopDiagTraceFxComponentIdleState @ 0x14045E1D6 (PopDiagTraceFxComponentIdleState.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxCompleteComponentPerfState @ 0x1405CBC30 (PopFxCompleteComponentPerfState.c)
- *     PopDiagTraceFxPerfRequestProgress @ 0x1405D2C00 (PopDiagTraceFxPerfRequestProgress.c)
- *     PopPepCompleteComponentIdleState @ 0x1405D4C64 (PopPepCompleteComponentIdleState.c)
- *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405DDD88 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
- *     PopFxAcpiForwardPepWorkRequest @ 0x1405DDE24 (PopFxAcpiForwardPepWorkRequest.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x1402605EC (PopFxScheduleDeviceIdleTimer.c)
+ *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x140260C10 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x140261084 (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x140261104 (PopFxCompleteComponentActivation.c)
+ *     PopPluginDevicePower @ 0x1402618F8 (PopPluginDevicePower.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140262744 (PopFxCompleteDevicePowerRequired.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopPluginComponentIdleState @ 0x1403A4984 (PopPluginComponentIdleState.c)
+ *     PopDiagTraceFxComponentIdleState @ 0x1403A6184 (PopDiagTraceFxComponentIdleState.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1403A6B68 (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x1403C8684 (PopFxUpdateDeviceIdleTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A458 (PopFxCompleteComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x140572980 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopPepCompleteComponentIdleState @ 0x140574194 (PopPepCompleteComponentIdleState.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14057DE10 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x14057DEA4 (PopFxAcpiForwardPepWorkRequest.c)
  */
 
 __int64 __fastcall PopFxProcessWork(ULONG_PTR BugCheckParameter2, int *a2, __int64 a3)
 {
   __int64 result; // rax
-  __int64 v6; // rdx
-  char v7; // r13
-  ULONG_PTR v8; // rbx
-  __int64 v9; // rcx
-  char v10; // si
+  ULONG_PTR v6; // rdx
+  ULONG_PTR v7; // rbx
+  __int64 v8; // rcx
+  char v9; // si
+  KSPIN_LOCK *v10; // r14
   unsigned __int64 v11; // rbp
-  ULONG_PTR v12; // rsi
-  ULONG_PTR v13; // rdi
-  __int64 v14; // rbx
-  unsigned __int64 v15; // r14
-  _DWORD *SchedulerAssist; // r8
-  void (__fastcall *v17)(_QWORD, _QWORD); // rax
-  signed __int32 v18; // eax
-  signed __int32 v19; // ett
-  BOOLEAN v20; // al
-  char v21; // al
-  struct _KPRCB *v22; // r10
-  _DWORD *v23; // r9
-  bool v24; // zf
-  __int64 v25; // rsi
-  __int64 v26; // rbp
-  __int64 v27; // rbx
-  int v28; // ecx
-  signed __int32 v29; // eax
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // rsi
-  __int64 v33; // rdx
-  __int64 v34; // r14
-  __int64 v35; // rbp
-  signed __int32 v36; // ebx
-  __int64 v37; // r9
-  __int64 v38; // rsi
-  unsigned int v39; // ebx
-  __int64 v40; // rbx
-  unsigned __int64 v41; // rsi
-  struct _KPRCB *v42; // r9
-  _DWORD *v43; // r8
-  __int64 v44; // rbx
-  NTSTATUS v45; // esi
-  __int64 v46; // rax
-  __int64 v47; // rdx
+  char v12; // bl
+  ULONG_PTR v13; // rbp
+  __int64 v14; // rsi
+  __int64 v15; // rbx
+  unsigned __int64 v16; // r12
+  __int64 v17; // r8
+  void (__fastcall *v18)(_QWORD, _QWORD); // rax
+  signed __int32 v19; // eax
+  signed __int32 v20; // ett
+  BOOLEAN v21; // al
+  char v22; // al
+  __int64 v23; // rsi
+  __int64 v24; // rbp
+  __int64 v25; // rbx
+  int v26; // ecx
+  signed __int32 v27; // eax
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  struct _KPRCB *v30; // r10
+  _DWORD *v31; // r9
+  bool v32; // zf
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  int v50; // eax
-  _QWORD v51[4]; // [rsp+40h] [rbp-68h] BYREF
-  NTSTATUS v52; // [rsp+60h] [rbp-48h]
-  int v53; // [rsp+64h] [rbp-44h]
-  __int64 v54; // [rsp+C0h] [rbp+18h] BYREF
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v36; // eax
+  __int64 v37; // rsi
+  __int64 v38; // rdx
+  __int64 v39; // r14
+  __int64 v40; // rbp
+  signed __int32 v41; // ebx
+  __int64 v42; // r9
+  __int64 v43; // rsi
+  unsigned int v44; // ebx
+  __int64 v45; // rbx
+  unsigned __int64 v46; // rsi
+  struct _KPRCB *v47; // r9
+  _DWORD *v48; // r8
+  __int64 v49; // rbx
+  NTSTATUS v50; // esi
+  __int64 v51; // rax
+  __int64 v52; // rdx
+  int RemlockSize; // [rsp+20h] [rbp-88h]
+  _QWORD v54[4]; // [rsp+40h] [rbp-68h] BYREF
+  NTSTATUS v55; // [rsp+60h] [rbp-48h]
+  int v56; // [rsp+64h] [rbp-44h]
+  __int64 v57; // [rsp+C0h] [rbp+18h] BYREF
 
-  v54 = 0LL;
+  v57 = 0LL;
   result = *a2;
   if ( (unsigned int)result > 8 )
     PopFxBugCheck(0x603uLL, BugCheckParameter2, *a2, 0LL);
   while ( 1 )
   {
     v6 = *a2;
-    v7 = 0;
     if ( !(_DWORD)v6 )
     {
-      v12 = *((_QWORD *)a2 + 1);
+      v13 = *((_QWORD *)a2 + 1);
       if ( BugCheckParameter2 )
-LABEL_112:
-        PopFxBugCheck(0x603uLL, BugCheckParameter2, *a2, 0LL);
-      v13 = (unsigned int)a2[4];
-      if ( (unsigned int)v13 >= *(_DWORD *)(v12 + 828) )
-        PopFxBugCheck(0x611uLL, 0LL, v12, v13);
+        goto LABEL_112;
+      v14 = (unsigned int)a2[4];
+      if ( (unsigned int)v14 >= *(_DWORD *)(v13 + 828) )
+        PopFxBugCheck(0x611uLL, 0LL, *((_QWORD *)a2 + 1), (unsigned int)a2[4]);
       _mm_lfence();
-      v14 = *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * v13);
-      if ( *(_DWORD *)(v14 + 152) )
-        PopFxBugCheck(0x615uLL, 0LL, v13, 0LL);
-      if ( *(int *)(v14 + 88) < 0 )
-        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * v13), 1uLL);
-      if ( (*(_DWORD *)(v14 + 88) & 0x3FFFFFFF) == 0 )
-        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * v13), 2uLL);
-      if ( *(_DWORD *)(v14 + 140) )
-        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * v13), 3uLL);
-      v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v14 + 200));
-      if ( *(int *)(v14 + 216) > 0 )
+      v15 = *(_QWORD *)(*(_QWORD *)(v13 + 832) + 8 * v14);
+      if ( *(_DWORD *)(v15 + 152) )
+        PopFxBugCheck(0x615uLL, 0LL, (unsigned int)a2[4], 0LL);
+      if ( *(int *)(v15 + 88) < 0 )
+        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v13 + 832) + 8 * v14), 1uLL);
+      if ( (*(_DWORD *)(v15 + 88) & 0x3FFFFFFF) == 0 )
+        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v13 + 832) + 8 * v14), 2uLL);
+      if ( *(_DWORD *)(v15 + 140) )
+        PopFxBugCheck(0x615uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v13 + 832) + 8 * v14), 3uLL);
+      v16 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v15 + 200));
+      if ( *(int *)(v15 + 216) > 0 )
       {
-        *(_QWORD *)(v14 + 224) = MEMORY[0xFFFFF78000000008];
-        *(_BYTE *)(v14 + 208) = 1;
+        *(_QWORD *)(v15 + 224) = MEMORY[0xFFFFF78000000008];
+        *(_BYTE *)(v15 + 208) = 1;
       }
-      KxReleaseSpinLock((PKSPIN_LOCK)(v14 + 200));
+      KxReleaseSpinLock((PKSPIN_LOCK)(v15 + 200));
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v50 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v24 = (v50 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v50;
-            if ( v24 )
+            v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+            v32 = (v36 & SchedulerAssist[5]) == 0;
+            v17 = (unsigned int)v36 & SchedulerAssist[5];
+            SchedulerAssist[5] = v17;
+            if ( v32 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
       }
-      __writecr8(v15);
-      LOBYTE(SchedulerAssist) = 1;
-      PopDiagTraceFxComponentLogicalCondition(*(_QWORD *)(v12 + 48), (unsigned int)v13, SchedulerAssist);
-      v17 = *(void (__fastcall **)(_QWORD, _QWORD))(v12 + 112);
-      if ( v17 )
-        v17(*(_QWORD *)(v12 + 192), (unsigned int)v13);
-      PopPepProcessEvent(*(_QWORD *)(v12 + 56), 208 * v13 + *(_QWORD *)(v12 + 56) + 192, 2, 3);
-      return PopFxCompleteComponentActivation(v12);
+      __writecr8(v16);
+      LOBYTE(v17) = 1;
+      PopDiagTraceFxComponentLogicalCondition(*(_QWORD *)(v13 + 48), (unsigned int)v14, v17);
+      v18 = *(void (__fastcall **)(_QWORD, _QWORD))(v13 + 112);
+      if ( v18 )
+        v18(*(_QWORD *)(v13 + 192), (unsigned int)v14);
+      PopPepProcessEvent(*(_QWORD *)(v13 + 56), *(_QWORD *)(v13 + 56) + 200 * v14 + 184, 2, 3, RemlockSize, 0LL);
+      result = PopFxCompleteComponentActivation(v13);
+      v12 = 0;
+      goto LABEL_18;
     }
     if ( (_DWORD)v6 != 1 )
       break;
-    v25 = *((_QWORD *)a2 + 1);
+    v23 = *((_QWORD *)a2 + 1);
     if ( BugCheckParameter2 )
-      goto LABEL_112;
-    v26 = (unsigned int)a2[4];
-    if ( (unsigned int)v26 >= *(_DWORD *)(v25 + 828) )
+LABEL_112:
+      PopFxBugCheck(0x603uLL, BugCheckParameter2, v6, 0LL);
+    v24 = (unsigned int)a2[4];
+    if ( (unsigned int)v24 >= *(_DWORD *)(v23 + 828) )
       PopFxBugCheck(0x611uLL, 0LL, *((_QWORD *)a2 + 1), (unsigned int)a2[4]);
     _mm_lfence();
-    v27 = *(_QWORD *)(*(_QWORD *)(v25 + 832) + 8 * v26);
-    if ( (unsigned int)a2[5] >= *(_DWORD *)(v27 + 156) )
-      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v25 + 832) + 8 * v26), 0LL);
-    v28 = a2[5];
-    if ( v28 == *(_DWORD *)(v27 + 152) )
-      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v25 + 832) + 8 * v26), 1uLL);
-    if ( v28 && *(_DWORD *)(v27 + 152) )
-      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v25 + 832) + 8 * v26), 2uLL);
-    *(_DWORD *)(v27 + 152) = a2[5];
-    *(_DWORD *)(v27 + 140) = 2;
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(v25 + 128))(
-      *(_QWORD *)(v25 + 192),
-      (unsigned int)v26,
+    v25 = *(_QWORD *)(*(_QWORD *)(v23 + 832) + 8 * v24);
+    if ( (unsigned int)a2[5] >= *(_DWORD *)(v25 + 156) )
+      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v23 + 832) + 8 * v24), 0LL);
+    v26 = a2[5];
+    if ( v26 == *(_DWORD *)(v25 + 152) )
+      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v23 + 832) + 8 * v24), 1uLL);
+    if ( v26 && *(_DWORD *)(v25 + 152) )
+      PopFxBugCheck(0x616uLL, 0LL, *(_QWORD *)(*(_QWORD *)(v23 + 832) + 8 * v24), 2uLL);
+    *(_DWORD *)(v25 + 152) = a2[5];
+    *(_DWORD *)(v25 + 140) = 2;
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(v23 + 128))(
+      *(_QWORD *)(v23 + 192),
+      (unsigned int)v24,
       (unsigned int)a2[5]);
-    v29 = _InterlockedExchangeAdd((volatile signed __int32 *)(v27 + 140), 0xFFFFFFFF);
-    v30 = *(_QWORD *)(v25 + 48);
-    if ( v29 == 1 )
+    v27 = _InterlockedExchangeAdd((volatile signed __int32 *)(v25 + 140), 0xFFFFFFFF);
+    v28 = *(_QWORD *)(v23 + 48);
+    if ( v27 == 1 )
     {
-      PopDiagTraceFxComponentIdleState(v30, (unsigned int)v26, (unsigned int)a2[5]);
-      result = PopPluginComponentIdleState(v25, (unsigned int)v26, v31, a2);
-      v7 = result;
+      PopDiagTraceFxComponentIdleState(v28, (unsigned int)v24, (unsigned int)a2[5]);
+      result = PopPluginComponentIdleState(v23, (unsigned int)v24, v29, a2);
+      v12 = result;
     }
     else
     {
-      result = PopFxAddLogEntry(v30, (unsigned int)v26, 14LL);
+      result = PopFxAddLogEntry(v28, (unsigned int)v24, 14LL);
+      v12 = 0;
     }
-LABEL_37:
-    if ( !v7 )
+LABEL_18:
+    if ( !v12 )
       return result;
   }
   switch ( (_DWORD)v6 )
   {
     case 2:
-      v8 = *((_QWORD *)a2 + 1);
+      v7 = *((_QWORD *)a2 + 1);
       if ( BugCheckParameter2 )
         goto LABEL_112;
-      v9 = *(_QWORD *)(v8 + 48);
-      v10 = *((_BYTE *)a2 + 16);
-      if ( v9 )
+      v8 = *(_QWORD *)(v7 + 48);
+      v9 = *((_BYTE *)a2 + 16);
+      if ( v8 )
       {
         LOBYTE(a3) = *((_BYTE *)a2 + 16);
         LOBYTE(v6) = 1;
-        PopDiagTraceFxDevicePowerRequirement(v9, v6, a3);
+        PopDiagTraceFxDevicePowerRequirement(v8, v6, a3);
       }
-      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 360));
-      if ( !v10 )
+      v10 = (KSPIN_LOCK *)(v7 + 360);
+      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 360));
+      if ( v9 )
       {
-        _m_prefetchw((const void *)(v8 + 32));
-        if ( (_InterlockedOr((volatile signed __int32 *)(v8 + 32), 0) & 0x80u) != 0 )
-          PopFxBugCheck(0x609uLL, 0LL, v8, 1uLL);
-        PopPluginDevicePower(v8, 0LL, 0LL);
-        _InterlockedOr((volatile signed __int32 *)(v8 + 32), 0x80u);
-        if ( *(_QWORD *)(v8 + 144) )
+        *(_DWORD *)(v7 + 36) = 2;
+        _m_prefetchw((const void *)(v7 + 32));
+        v19 = *(_DWORD *)(v7 + 32);
+        do
         {
-          if ( *(_DWORD *)(v8 + 36) || *(_DWORD *)(v8 + 40) || (*(_DWORD *)(v8 + 32) & 4) != 0 )
-            PopFxBugCheck(0x610uLL, 0LL, v8, 0LL);
-          *(_DWORD *)(v8 + 40) = 2;
-          if ( !PopFxScheduleDeviceIdleTimer(v8) )
+          v20 = v19;
+          v19 = _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 32), v19 & 0xFFFFFF7F, v19);
+        }
+        while ( v20 != v19 );
+        if ( (v19 & 0x80u) == 0 )
+          PopFxBugCheck(0x609uLL, 0LL, v7, 0LL);
+        _m_prefetchw((const void *)(v7 + 32));
+        if ( (_InterlockedOr((volatile signed __int32 *)(v7 + 32), 0) & 4) != 0 )
+        {
+          _InterlockedAnd((volatile signed __int32 *)(v7 + 32), 0xFFFFFFFB);
+          *(_DWORD *)(v7 + 40) = 0;
+          v21 = KeCancelTimer((PKTIMER)(v7 + 368));
+          _InterlockedAdd((volatile signed __int32 *)(v7 + 36), 0xFFFFFFFF);
+          if ( !v21 )
+            goto LABEL_15;
+          v22 = PopFxCompleteDevicePowerRequired(v7);
+        }
+        else
+        {
+          if ( *(_DWORD *)(v7 + 40) )
+            goto LABEL_15;
+          v22 = PopFxDeliverDevicePowerRequired(v7);
+        }
+        v12 = v22;
+      }
+      else
+      {
+        _m_prefetchw((const void *)(v7 + 32));
+        if ( (_InterlockedOr((volatile signed __int32 *)(v7 + 32), 0) & 0x80u) != 0 )
+          PopFxBugCheck(0x609uLL, 0LL, v7, 1uLL);
+        PopPluginDevicePower(v7, 0LL, 0LL);
+        _InterlockedOr((volatile signed __int32 *)(v7 + 32), 0x80u);
+        if ( *(_QWORD *)(v7 + 144) )
+        {
+          if ( *(_DWORD *)(v7 + 36) || *(_DWORD *)(v7 + 40) || (*(_DWORD *)(v7 + 32) & 4) != 0 )
+            PopFxBugCheck(0x610uLL, 0LL, v7, 0LL);
+          *(_DWORD *)(v7 + 40) = 2;
+          if ( !PopFxScheduleDeviceIdleTimer(v7) )
           {
-            PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(v8 + 48), 0LL, 0LL);
-            (*(void (__fastcall **)(_QWORD))(v8 + 144))(*(_QWORD *)(v8 + 192));
-            _InterlockedOr((volatile signed __int32 *)(v8 + 32), 0x40u);
-            if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v8 + 40), 0xFFFFFFFF) != 1 )
-              PopFxAddLogEntry(*(_QWORD *)(v8 + 48), 0LL, 17LL);
+            PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(v7 + 48), 0LL, 0LL);
+            (*(void (__fastcall **)(_QWORD))(v7 + 144))(*(_QWORD *)(v7 + 192));
+            _InterlockedOr((volatile signed __int32 *)(v7 + 32), 0x40u);
+            if ( _InterlockedDecrement((volatile signed __int32 *)(v7 + 40)) )
+              PopFxAddLogEntry(*(_QWORD *)(v7 + 48), 0LL, 17LL);
           }
         }
         else
         {
-          PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(v8 + 48), 0LL, 0LL);
-          _InterlockedOr((volatile signed __int32 *)(v8 + 32), 0x40u);
+          PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(v7 + 48), 0LL, 0LL);
+          _InterlockedOr((volatile signed __int32 *)(v7 + 32), 0x40u);
         }
-        goto LABEL_35;
+LABEL_15:
+        v12 = 0;
       }
-      *(_DWORD *)(v8 + 36) = 2;
-      _m_prefetchw((const void *)(v8 + 32));
-      v18 = *(_DWORD *)(v8 + 32);
-      do
-      {
-        v19 = v18;
-        v18 = _InterlockedCompareExchange((volatile signed __int32 *)(v8 + 32), v18 & 0xFFFFFF7F, v18);
-      }
-      while ( v19 != v18 );
-      if ( (v18 & 0x80u) == 0 )
-        PopFxBugCheck(0x609uLL, 0LL, v8, 0LL);
-      _m_prefetchw((const void *)(v8 + 32));
-      if ( (_InterlockedOr((volatile signed __int32 *)(v8 + 32), 0) & 4) != 0 )
-      {
-        _InterlockedAnd((volatile signed __int32 *)(v8 + 32), 0xFFFFFFFB);
-        *(_DWORD *)(v8 + 40) = 0;
-        v20 = KeCancelTimer((PKTIMER)(v8 + 368));
-        _InterlockedAdd((volatile signed __int32 *)(v8 + 36), 0xFFFFFFFF);
-        if ( !v20 )
-          goto LABEL_35;
-        v21 = PopFxCompleteDevicePowerRequired(v8, (__int64)a2);
-      }
-      else
-      {
-        if ( *(_DWORD *)(v8 + 40) )
-        {
-LABEL_35:
-          KxReleaseSpinLock((PKSPIN_LOCK)(v8 + 360));
-          result = (unsigned int)KiIrqlFlags;
-          if ( KiIrqlFlags )
-          {
-            if ( (KiIrqlFlags & 1) != 0 )
-            {
-              result = KeGetCurrentIrql();
-              if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v11 <= 0xFu && (unsigned __int8)result >= 2u )
-              {
-                v22 = KeGetCurrentPrcb();
-                v23 = v22->SchedulerAssist;
-                result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-                v24 = ((unsigned int)result & v23[5]) == 0;
-                a3 = (unsigned int)result & v23[5];
-                v23[5] = a3;
-                if ( v24 )
-                  result = KiRemoveSystemWorkPriorityKick(v22);
-              }
-            }
-          }
-          __writecr8(v11);
-          goto LABEL_37;
-        }
-        v21 = PopFxDeliverDevicePowerRequired(v8);
-      }
-      v7 = v21;
-      goto LABEL_35;
-    case 3:
-      v44 = *((_QWORD *)a2 + 1);
-      v45 = -1073741822;
-      if ( *(_QWORD *)(v44 + 152) )
-      {
-        v45 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v44 + 240), 0LL, &Src, 1u, 0x20u);
-        if ( v45 >= 0 )
-        {
-          v45 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, __int64 *))(v44 + 152))(
-                  *(_QWORD *)(v44 + 192),
-                  *((_QWORD *)a2 + 2),
-                  *((_QWORD *)a2 + 4),
-                  *((_QWORD *)a2 + 5),
-                  *((_QWORD *)a2 + 6),
-                  *((_QWORD *)a2 + 7),
-                  &v54);
-          if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v44 + 244), 0xFFFFFFFF) == 1 )
-            KeSetEvent((PRKEVENT)(v44 + 248), 0, 0);
-        }
-      }
-      v46 = *(_QWORD *)(v44 + 56);
-      v53 = 0;
-      v52 = v45;
-      v47 = *(_QWORD *)(v46 + 32);
-      v51[0] = *(_QWORD *)(v47 + 72);
-      v51[1] = *((_QWORD *)a2 + 2);
-      v51[2] = *((_QWORD *)a2 + 3);
-      v51[3] = v54;
-      return (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)(v47 + 64) + 96LL))(15LL, v51);
-    case 4:
-      v40 = *((_QWORD *)a2 + 1);
-      v41 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v40 + 360));
-      if ( *((_BYTE *)a2 + 16) )
-        _InterlockedOr((volatile signed __int32 *)(v40 + 32), 8u);
-      else
-        _InterlockedAnd((volatile signed __int32 *)(v40 + 32), 0xFFFFFFF7);
-      PopFxUpdateDeviceIdleTimer(v40);
-      KxReleaseSpinLock((PKSPIN_LOCK)(v40 + 360));
+      KxReleaseSpinLock(v10);
       result = (unsigned int)KiIrqlFlags;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           result = KeGetCurrentIrql();
-          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v41 <= 0xFu && (unsigned __int8)result >= 2u )
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v11 <= 0xFu && (unsigned __int8)result >= 2u )
           {
-            v42 = KeGetCurrentPrcb();
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v41 + 1));
-            v43 = v42->SchedulerAssist;
-            v24 = ((unsigned int)result & v43[5]) == 0;
-            v43[5] &= result;
-            if ( v24 )
-              result = KiRemoveSystemWorkPriorityKick(v42);
+            v30 = KeGetCurrentPrcb();
+            v31 = v30->SchedulerAssist;
+            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+            v32 = ((unsigned int)result & v31[5]) == 0;
+            a3 = (unsigned int)result & v31[5];
+            v31[5] = a3;
+            if ( v32 )
+              result = KiRemoveSystemWorkPriorityKick(v30);
           }
         }
       }
-      __writecr8(v41);
+      __writecr8(v11);
+      goto LABEL_18;
+    case 3:
+      v49 = *((_QWORD *)a2 + 1);
+      v50 = -1073741822;
+      if ( *(_QWORD *)(v49 + 152) )
+      {
+        v50 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v49 + 240), 0LL, &Src, 1u, 0x20u);
+        if ( v50 >= 0 )
+        {
+          v50 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, __int64 *))(v49 + 152))(
+                  *(_QWORD *)(v49 + 192),
+                  *((_QWORD *)a2 + 2),
+                  *((_QWORD *)a2 + 4),
+                  *((_QWORD *)a2 + 5),
+                  *((_QWORD *)a2 + 6),
+                  *((_QWORD *)a2 + 7),
+                  &v57);
+          if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v49 + 244), 0xFFFFFFFF) == 1 )
+            KeSetEvent((PRKEVENT)(v49 + 248), 0, 0);
+        }
+      }
+      v51 = *(_QWORD *)(v49 + 56);
+      v56 = 0;
+      v55 = v50;
+      v52 = *(_QWORD *)(v51 + 32);
+      v54[0] = *(_QWORD *)(v52 + 72);
+      v54[1] = *((_QWORD *)a2 + 2);
+      v54[2] = *((_QWORD *)a2 + 3);
+      v54[3] = v57;
+      return (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)(v52 + 64) + 96LL))(15LL, v54);
+    case 4:
+      v45 = *((_QWORD *)a2 + 1);
+      v46 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v45 + 360));
+      if ( *((_BYTE *)a2 + 16) )
+        _InterlockedOr((volatile signed __int32 *)(v45 + 32), 8u);
+      else
+        _InterlockedAnd((volatile signed __int32 *)(v45 + 32), 0xFFFFFFF7);
+      PopFxUpdateDeviceIdleTimer(v45);
+      KxReleaseSpinLock((PKSPIN_LOCK)(v45 + 360));
+      result = (unsigned int)KiIrqlFlags;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          result = KeGetCurrentIrql();
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v46 <= 0xFu && (unsigned __int8)result >= 2u )
+          {
+            v47 = KeGetCurrentPrcb();
+            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v46 + 1));
+            v48 = v47->SchedulerAssist;
+            v32 = ((unsigned int)result & v48[5]) == 0;
+            v48[5] &= result;
+            if ( v32 )
+              result = KiRemoveSystemWorkPriorityKick(v47);
+          }
+        }
+      }
+      __writecr8(v46);
       break;
     case 5:
-      v38 = *((_QWORD *)a2 + 1);
+      v43 = *((_QWORD *)a2 + 1);
       if ( !BugCheckParameter2 )
-        goto LABEL_81;
-      v39 = a2[4];
-      if ( v39 >= *(_DWORD *)(v38 + 828) )
+        goto LABEL_86;
+      v44 = a2[4];
+      if ( v44 >= *(_DWORD *)(v43 + 828) )
         PopFxBugCheck(0x611uLL, BugCheckParameter2, *((_QWORD *)a2 + 1), (unsigned int)a2[4]);
-      PopFxAddLogEntry(*(_QWORD *)(v38 + 48), v39, 18LL);
-      return PopPepCompleteComponentIdleState(*(_QWORD *)(v38 + 56), v39);
+      PopFxAddLogEntry(*(_QWORD *)(v43 + 48), v44, 18LL);
+      return PopPepCompleteComponentIdleState(*(_QWORD *)(v43 + 56), v44);
     case 6:
-      v32 = *((_QWORD *)a2 + 1);
+      v37 = *((_QWORD *)a2 + 1);
       if ( BugCheckParameter2 )
       {
-        v33 = (unsigned int)a2[4];
-        if ( (unsigned int)v33 >= *(_DWORD *)(v32 + 828) )
+        v38 = (unsigned int)a2[4];
+        if ( (unsigned int)v38 >= *(_DWORD *)(v37 + 828) )
           PopFxBugCheck(0x611uLL, BugCheckParameter2, *((_QWORD *)a2 + 1), (unsigned int)a2[4]);
         _mm_lfence();
-        v34 = *(_QWORD *)(*(_QWORD *)(v32 + 832) + 8 * v33);
-        v35 = *(_QWORD *)(v34 + 424);
-        v36 = _InterlockedDecrement((volatile signed __int32 *)(v35 + 40));
-        _InterlockedOr((volatile signed __int32 *)(v35 + 40), 0x20000000u);
-        if ( (v36 & 0x8000000) == 0 )
-          PopFxAddLogEntry(*(_QWORD *)(v32 + 48), v33, 20LL);
-        PopDiagTraceFxPerfRequestProgress(v35, v36 & 7);
-        LOBYTE(v37) = *((_BYTE *)a2 + 20);
-        return PopFxCompleteComponentPerfState(v32, *(unsigned int *)(v34 + 16), *(_QWORD *)(v34 + 424), v37);
+        v39 = *(_QWORD *)(*(_QWORD *)(v37 + 832) + 8 * v38);
+        v40 = *(_QWORD *)(v39 + 424);
+        v41 = _InterlockedDecrement((volatile signed __int32 *)(v40 + 40));
+        _InterlockedOr((volatile signed __int32 *)(v40 + 40), 0x20000000u);
+        if ( (v41 & 0x8000000) == 0 )
+          PopFxAddLogEntry(*(_QWORD *)(v37 + 48), v38, 20LL);
+        PopDiagTraceFxPerfRequestProgress(v40, v41 & 7);
+        LOBYTE(v42) = *((_BYTE *)a2 + 20);
+        return PopFxCompleteComponentPerfState(v37, *(unsigned int *)(v39 + 16), *(_QWORD *)(v39 + 424), v42);
       }
-LABEL_81:
-      PopFxBugCheck(0x603uLL, 0LL, *a2, 0LL);
+LABEL_86:
+      PopFxBugCheck(0x603uLL, 0LL, v6, 0LL);
     case 7:
       return PopFxAcpiForwardPepAcpiNotifyRequest(*((_QWORD *)a2 + 1));
     case 8:

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspChangeJobMemoryUsageByProcess @ 0x14068C750
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x14068C730
  * Callers:
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
@@ -11,9 +11,9 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
  *     PspUnlockJobMemoryLimitsExclusive @ 0x140603450 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspScheduleEnforcementWorker @ 0x14068CAC8 (PspScheduleEnforcementWorker.c)
+ *     PspScheduleEnforcementWorker @ 0x14068CAA8 (PspScheduleEnforcementWorker.c)
  */
 
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, __int64 a4)

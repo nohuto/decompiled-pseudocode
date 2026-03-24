@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlPruneTunnelCache @ 0x140694FD0
+ * XREFs of FsRtlPruneTunnelCache @ 0x140688E84
  * Callers:
- *     FsRtlAddToTunnelCacheEx @ 0x140694B30 (FsRtlAddToTunnelCacheEx.c)
- *     FsRtlFindInTunnelCacheEx @ 0x140694E60 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1406889F0 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x140688B60 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
  */
 
 __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
   while ( 1 )
   {
     result = *(unsigned __int16 *)(a1 + 80);
-    if ( (unsigned int)result <= *(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
+    if ( (unsigned int)result <= TunnelMaxEntries )
       break;
     FsRtlRemoveNodeFromTunnel(a1, (RTL_SPLAY_LINKS *)(*v3 - 24LL), a2, &v11);
   }

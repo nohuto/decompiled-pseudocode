@@ -1,5 +1,5 @@
 /*
- * XREFs of MouseAccelerationEnabled @ 0x1C01E80B0
+ * XREFs of MouseAccelerationEnabled @ 0x1C01AEBD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 char MouseAccelerationEnabled()
 {
-  return *((_BYTE *)qword_1C0288098 + 112);
+  return *((_BYTE *)qword_1C0246098 + 112);
 }

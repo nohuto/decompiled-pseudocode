@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GFxCmResList@@MEAAPEAXI@Z @ 0x1C0020CC0
+ * XREFs of ??_GFxCmResList@@MEAAPEAXI@Z @ 0x1C007F110
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxCollection@@UEAA@XZ @ 0x1C0021F48 (--1FxCollection@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxCollection@@UEAA@XZ @ 0x1C00618A0 (--1FxCollection@@UEAA@XZ.c)
  */
 
 FxCmResList *__fastcall FxCmResList::`scalar deleting destructor'(FxCmResList *this, char a2)

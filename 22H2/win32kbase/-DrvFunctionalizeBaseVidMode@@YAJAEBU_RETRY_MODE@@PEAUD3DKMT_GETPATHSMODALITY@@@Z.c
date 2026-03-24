@@ -1,75 +1,77 @@
 /*
- * XREFs of ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0161304
+ * XREFs of ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01444D4
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
  * Callees:
- *     ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C0011FFC (-GetCcdRawmodeFlag@@YAIXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C00B409C (-GetCcdRawmodeFlag@@YAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvFunctionalizeBaseVidMode(const struct _RETRY_MODE *a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
-  unsigned int v2; // ebx
-  struct D3DKMT_GETPATHSMODALITY *v3; // rdi
-  int v5; // eax
-  unsigned __int64 v6; // rcx
-  __int64 v7; // rax
-  unsigned __int64 v8; // rax
-  __int64 (__fastcall *v9)(_QWORD, struct D3DKMT_GETPATHSMODALITY *); // rbx
-  int CcdRawmodeFlag; // eax
+  unsigned int v2; // edi
+  __int64 v5; // rax
+  int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  unsigned __int64 v9; // rax
+  unsigned int CcdRawmodeFlag; // eax
+  __int64 v11; // rcx
 
   v2 = 0;
-  v3 = a2;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v5 = *((_DWORD *)a1 + 1);
-  v6 = 0xFFFFFFFFLL;
-  if ( v5 == -1 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(a1, 0LL);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  v6 = *((_DWORD *)a1 + 1);
+  if ( v6 == -1 )
   {
     if ( *((_DWORD *)a1 + 2) == -1 )
     {
-      v6 = *((unsigned __int16 *)v3 + 10);
-      if ( *((_WORD *)v3 + 10) )
+      if ( *((_WORD *)a2 + 10) )
       {
-        v7 = *((_QWORD *)v3 + 7);
+        v7 = *((_QWORD *)a2 + 6);
         do
         {
-          a2 = (struct D3DKMT_GETPATHSMODALITY *)0xFFFFFBFFFE7CFE78LL;
           ++v2;
-          v7 &= 0xFFFFFBFFFE7CFE78uLL;
+          v7 &= 0xFFFFFBFFFF7CFE78uLL;
+          *((_QWORD *)a2 + 6) = v7;
         }
-        while ( v2 < (unsigned int)v6 );
-        *((_QWORD *)v3 + 7) = v7;
+        while ( v2 < *((unsigned __int16 *)a2 + 10) );
       }
       goto LABEL_14;
     }
   }
-  else if ( !v5 )
+  else if ( !v6 )
   {
     goto LABEL_14;
   }
   if ( *((_DWORD *)a1 + 2) )
   {
-    if ( *((_WORD *)v3 + 10) != 1 )
-      WdLogSingleEntry0(1LL);
-    v6 = 0xFFFFFBFFFE7EFF7CuLL;
-    v8 = *((_QWORD *)v3 + 7) & 0xFFFFFBFFFE7EFF7CuLL;
-    *((_BYTE *)v3 + 184) = 0;
-    *((_DWORD *)v3 + 47) = 1;
-    *((_QWORD *)v3 + 7) = v8 | 0x20304;
-    *((_DWORD *)v3 + 34) = 9;
-    *((_DWORD *)v3 + 52) = *((_DWORD *)a1 + 1);
-    *((_DWORD *)v3 + 53) = *((_DWORD *)a1 + 2);
-    *((_DWORD *)v3 + 38) = *((_DWORD *)a1 + 1);
-    *((_DWORD *)v3 + 39) = *((_DWORD *)a1 + 2);
-    *((_DWORD *)v3 + 40) = *((_DWORD *)a1 + 1);
-    *((_DWORD *)v3 + 41) = *((_DWORD *)a1 + 2);
-    *((_DWORD *)v3 + 43) = 21;
-    *((_DWORD *)v3 + 42) = 0;
-    *((_QWORD *)v3 + 22) = 0LL;
+    if ( *((_WORD *)a2 + 10) != 1 )
+    {
+      v8 = WdLogNewEntry5_WdAssertion(0xFFFFFFFFLL, a2);
+      WdLogEvent5_WdAssertion(v8);
+    }
+    v9 = *((_QWORD *)a2 + 6) & 0xFFFFFBFFFF7EFF7CuLL;
+    *((_BYTE *)a2 + 176) = 0;
+    *((_DWORD *)a2 + 45) = 1;
+    *((_QWORD *)a2 + 6) = v9 | 0x20304;
+    *((_DWORD *)a2 + 32) = 9;
+    *((_DWORD *)a2 + 50) = *((_DWORD *)a1 + 1);
+    *((_DWORD *)a2 + 51) = *((_DWORD *)a1 + 2);
+    *((_DWORD *)a2 + 36) = *((_DWORD *)a1 + 1);
+    *((_DWORD *)a2 + 37) = *((_DWORD *)a1 + 2);
+    *((_DWORD *)a2 + 38) = *((_DWORD *)a1 + 1);
+    *((_DWORD *)a2 + 39) = *((_DWORD *)a1 + 2);
+    *((_DWORD *)a2 + 41) = 21;
+    *((_DWORD *)a2 + 40) = 0;
+    *((_QWORD *)a2 + 21) = 0LL;
   }
 LABEL_14:
-  v9 = *(__int64 (__fastcall **)(_QWORD, struct D3DKMT_GETPATHSMODALITY *))(DxDdGetDxgkWin32kInterface(v6, a2) + 152);
   CcdRawmodeFlag = GetCcdRawmodeFlag();
-  return v9(CcdRawmodeFlag | 0x8000u, v3);
+  v11 = CcdRawmodeFlag;
+  LODWORD(v11) = CcdRawmodeFlag | 0x8000;
+  return ((__int64 (__fastcall *)(__int64, struct D3DKMT_GETPATHSMODALITY *))qword_1C0250928)(v11, a2);
 }

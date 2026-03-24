@@ -1,19 +1,19 @@
 /*
- * XREFs of NtOpenPrivateNamespace @ 0x1406C0720
+ * XREFs of NtOpenPrivateNamespace @ 0x1406E4CB0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1406C0D00 (ObpCaptureBoundaryDescriptor.c)
- *     ObpLookupNamespaceEntry @ 0x1406C12F4 (ObpLookupNamespaceEntry.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1406E52CC (ObpCaptureBoundaryDescriptor.c)
+ *     ObpLookupNamespaceEntry @ 0x1406E5668 (ObpLookupNamespaceEntry.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3, void *a4)
@@ -21,18 +21,20 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
   KPROCESSOR_MODE AccessMode; // r12
   __int64 v7; // rcx
   __int64 result; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   char *CurrentServerSiloGlobals; // rbx
   struct _KTHREAD *CurrentThread; // rcx
-  ULONG_PTR v11; // rsi
-  __int64 v12; // r14
-  void *v13; // r14
-  int v14; // [rsp+40h] [rbp-38h]
+  ULONG_PTR v13; // rsi
+  __int64 v14; // r14
+  struct _DMA_ADAPTER *v15; // r14
+  int v16; // [rsp+40h] [rbp-38h]
   unsigned int P; // [rsp+48h] [rbp-30h]
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
 
   Handle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v14 = 0;
+  v16 = 0;
   if ( AccessMode )
   {
     v7 = 0x7FFFFFFF0000LL;
@@ -43,44 +45,44 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
     {
       if ( (a3 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v14 = *(_DWORD *)(a3 + 24);
+      v16 = *(_DWORD *)(a3 + 24);
     }
   }
   else if ( a3 )
   {
-    v14 = *(_DWORD *)(a3 + 24);
+    v16 = *(_DWORD *)(a3 + 24);
   }
   result = ObpCaptureBoundaryDescriptor(a4);
   if ( (int)result >= 0 )
   {
-    CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
+    CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals(v10, v9);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v11 = (ULONG_PTR)(CurrentServerSiloGlobals + 720);
+    v13 = (ULONG_PTR)(CurrentServerSiloGlobals + 720);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 720), 0LL);
-    v12 = ObpLookupNamespaceEntry(CurrentServerSiloGlobals + 128, 0LL);
+    v14 = ObpLookupNamespaceEntry(CurrentServerSiloGlobals + 128, 0LL);
     ExFreePoolWithTag(0LL, 0x534E624Fu);
-    if ( v12 && (v13 = *(void **)(v12 + 16)) != 0LL )
+    if ( v14 && (v15 = *(struct _DMA_ADAPTER **)(v14 + 16)) != 0LL )
     {
-      ObfReferenceObject(v13);
-      ExReleasePushLockEx(v11, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      ObfReferenceObject(v15);
+      ExReleasePushLockEx(v13, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       P = ObOpenObjectByPointer(
-            v13,
-            v14 & (AccessMode != 0 ? 7666 : 73714),
+            v15,
+            v16 & (AccessMode != 0 ? 7666 : 73714),
             0LL,
             a2,
             ObpDirectoryObjectType,
             AccessMode,
             &Handle);
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter(v15);
       *a1 = Handle;
       return P;
     }
     else
     {
-      ExReleasePushLockEx(v11, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      ExReleasePushLockEx(v13, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 3221225530LL;
     }
   }

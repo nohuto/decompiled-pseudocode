@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1C007D854
+ * XREFs of ?Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1C0066A6C
  * Callers:
- *     ?Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@Z @ 0x1C007D5B0 (-Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@.c)
+ *     ?Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@Z @ 0x1C0066874 (-Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z @ 0x1C000F7C4 (-Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z @ 0x1C001219C (-Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionBuffer::Initialize(
@@ -16,21 +16,19 @@ __int64 __fastcall CCompositionBuffer::Initialize(
   __int128 v3; // xmm0
   __int128 v5; // xmm1
   struct DXGGLOBAL *Global; // rax
-  int v8; // edi
+  int v8; // esi
   __int128 v9; // xmm0
-  struct CBufferRealization *v10; // rbx
-  _OWORD v12[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-18h]
-  struct CBufferRealization *v14; // [rsp+60h] [rbp+8h] BYREF
+  struct CBufferRealization *v10; // rdi
+  _OWORD v12[2]; // [rsp+20h] [rbp-28h] BYREF
+  struct CBufferRealization *v13; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = *(_OWORD *)a3;
-  v14 = 0LL;
+  v13 = 0LL;
   v5 = *((_OWORD *)a3 + 1);
   v12[0] = v3;
-  v13 = *((_QWORD *)a3 + 4);
   v12[1] = v5;
-  Global = DXGGLOBAL::GetGlobal();
-  v8 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)Global + 38069) + 32LL))((char *)this + 280);
+  Global = DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2);
+  v8 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)Global + 38048) + 16LL))((char *)this + 248);
   if ( v8 >= 0 )
   {
     v9 = *(_OWORD *)a2;
@@ -42,15 +40,14 @@ __int64 __fastcall CCompositionBuffer::Initialize(
     *((_OWORD *)this + 7) = *((_OWORD *)a2 + 4);
     *((_OWORD *)this + 8) = *((_OWORD *)a2 + 5);
     *((_OWORD *)this + 9) = *((_OWORD *)a2 + 6);
-    *((_OWORD *)this + 10) = *((_OWORD *)a2 + 7);
-    *((_OWORD *)this + 11) = *((_OWORD *)a2 + 8);
-    v8 = CBufferRealization::Create((const struct CSM_REALIZATION_INFO *)v12, 0, &v14);
+    *((_QWORD *)this + 20) = *((_QWORD *)a2 + 14);
+    v8 = CBufferRealization::Create((const struct CSM_REALIZATION_INFO *)v12, 0, &v13);
     if ( v8 >= 0 )
     {
-      v10 = v14;
-      v8 = (*(__int64 (__fastcall **)(CCompositionBuffer *, struct CBufferRealization *))(*(_QWORD *)this + 216LL))(
+      v10 = v13;
+      v8 = (*(__int64 (__fastcall **)(CCompositionBuffer *, struct CBufferRealization *))(*(_QWORD *)this + 200LL))(
              this,
-             v14);
+             v13);
       if ( v8 < 0 )
       {
         if ( v10 )

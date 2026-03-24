@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsInMotion@CExpressionForce@@UEBA_NXZ @ 0x180276200
+ * XREFs of ?IsInMotion@CExpressionForce@@UEBA_NXZ @ 0x180214AF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CExpressionForce::IsInMotion(CExpressionForce *this)
 {
-  return CScalarForceEvaluator::IsInMotion((CExpressionForce *)((char *)this + 8));
+  return CScalarForceEvaluator::IsInMotion((CExpressionForce *)((char *)this + 24));
 }

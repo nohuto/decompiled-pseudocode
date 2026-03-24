@@ -1,92 +1,84 @@
 /*
- * XREFs of CmpQueryKeySecurity @ 0x1406D5C50
+ * XREFs of CmpQueryKeySecurity @ 0x1406DE150
  * Callers:
- *     CmpSecurityMethod @ 0x1406D5980 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x1406DDF10 (CmpSecurityMethod.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D56E8 (CmpLockKcbStackShared.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5730 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1406D5DF0 (SeQuerySecurityDescriptorInfo.c)
- *     CmpStartKcbStack @ 0x1406D7DD0 (CmpStartKcbStack.c)
- *     CmpPopulateKcbStack @ 0x1406D7E10 (CmpPopulateKcbStack.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140768D0C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpAcquireShutdownRundown @ 0x140AF6380 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpLockKcbStackShared @ 0x140648B00 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14066DDB4 (CmpTransSearchAddTransFromKeyBody.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1406DE310 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
  */
 
-__int64 __fastcall CmpQueryKeySecurity(
-        _QWORD *a1,
-        ULONG *a2,
-        void *a3,
-        ULONG *a4,
-        PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor)
+__int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, ULONG *a2, void *a3, ULONG *a4, __int64 a5)
 {
   char v5; // si
-  PSECURITY_DESCRIPTOR v9; // r15
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v14; // r14
-  __int64 v15; // rbp
-  NTSTATUS started; // ebx
-  __int64 v17; // rcx
-  __int128 v19; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v20; // [rsp+30h] [rbp-38h]
+  struct _KTHREAD *CurrentThread; // rax
+  BOOLEAN v11; // r14
+  int started; // ebx
+  __int64 v13; // rbp
+  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v16; // [rsp+28h] [rbp-50h] BYREF
+  __int128 v17; // [rsp+38h] [rbp-40h]
 
   v5 = 0;
-  v9 = 0LL;
-  v19 = 0LL;
-  ObjectsSecurityDescriptor = 0LL;
-  v20 = 0LL;
-  WORD1(v19) = -1;
-  v14 = CmpAcquireShutdownRundown(a1, a2, a3);
-  if ( v14 )
+  v16 = 0LL;
+  a5 = 0LL;
+  v17 = 0LL;
+  WORD1(v16) = -1;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v11 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( v11 )
   {
-    CmpLockRegistry(v11, v10, v12, v13);
-    v15 = a1[1];
+    CmpLockRegistry();
     v5 = 1;
-    started = CmpStartKcbStack(&v19, *(unsigned __int16 *)(v15 + 66));
-    if ( started >= 0 )
+    started = CmpStartKcbStackForTopLayerKcb(&v16, a1[1]);
+    if ( started < 0 )
+      goto LABEL_10;
+    CmpLockKcbStackShared((__int64)&v16);
+    started = CmpPerformKeyBodyDeletionCheck((__int64)a1, 0LL);
+    if ( started < 0 )
+      goto LABEL_9;
+    if ( a1[7] || a1[8] )
     {
-      CmpPopulateKcbStack(&v19, v15);
-      CmpLockKcbStackShared((__int64)&v19);
-      started = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-      if ( started >= 0 )
+      started = CmpTransSearchAddTransFromKeyBody(a1, &a5);
+      if ( started < 0 || (v13 = a5, started = CmpPerformKeyBodyDeletionCheck((__int64)a1, a5), started < 0) )
       {
-        if ( !a1[7] && !a1[8]
-          || (started = CmpTransSearchAddTransFromKeyBody(a1, &ObjectsSecurityDescriptor), started >= 0)
-          && (v9 = ObjectsSecurityDescriptor,
-              started = CmpPerformKeyBodyDeletionCheck(a1, ObjectsSecurityDescriptor),
-              started >= 0) )
-        {
-          ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(CmpGetSecurityCacheEntryForKcbStack(
-                                                               (__int64)&v19,
-                                                               (__int64)v9,
-                                                               0LL)
-                                                           + 32);
-          started = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
-          if ( started >= 0 )
-            started = 0;
-        }
+LABEL_9:
+        CmpUnlockKcbStack((__int64)&v16);
+        goto LABEL_10;
       }
-      CmpUnlockKcbStack((__int64)&v19);
     }
+    else
+    {
+      v13 = a5;
+    }
+    ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(CmpGetSecurityCacheEntryForKcbStack((__int64)&v16, v13, 0LL) + 32);
+    started = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
+    if ( started >= 0 )
+      started = 0;
+    goto LABEL_9;
   }
-  else
-  {
-    started = -1073741431;
-  }
-  v17 = *((_QWORD *)&v20 + 1);
-  if ( *((_QWORD *)&v20 + 1) )
-    CmSiFreeMemory(*((PPRIVILEGE_SET *)&v20 + 1));
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  started = -1073741431;
+LABEL_10:
+  if ( *((_QWORD *)&v17 + 1) )
+    CmSiFreeMemory(*((PPRIVILEGE_SET *)&v17 + 1));
   if ( v5 )
-    CmpUnlockRegistry(v17, v10, v12, v13);
-  if ( v14 )
-    CmpReleaseShutdownRundown(v17, v10);
+    CmpUnlockRegistry();
+  if ( v11 )
+  {
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
   return (unsigned int)started;
 }

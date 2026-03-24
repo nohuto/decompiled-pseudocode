@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiGetPowerActionQueueEntry@@YAPEAU_LIST_ENTRY@@PEAU_FDO_CONTEXT@@@Z @ 0x1C0024668
+ * XREFs of ?DpiGetPowerActionQueueEntry@@YAPEAU_LIST_ENTRY@@PEAU_FDO_CONTEXT@@@Z @ 0x1C00201F8
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,8 @@ struct _LIST_ENTRY *__fastcall DpiGetPowerActionQueueEntry(KSPIN_LOCK *a1)
   __int64 v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(a1 + 510, &LockHandle);
-  v2 = (__int64 **)(a1 + 496);
+  KeAcquireInStackQueuedSpinLock(a1 + 509, &LockHandle);
+  v2 = (__int64 **)(a1 + 495);
   v3 = 0LL;
   v4 = *v2;
   if ( *v2 != (__int64 *)v2 )

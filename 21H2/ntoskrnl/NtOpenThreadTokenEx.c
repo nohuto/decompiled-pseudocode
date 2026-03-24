@@ -1,29 +1,26 @@
 /*
- * XREFs of NtOpenThreadTokenEx @ 0x140725A50
+ * XREFs of NtOpenThreadTokenEx @ 0x140705F00
  * Callers:
- *     NtOpenThreadToken @ 0x140725A30 (NtOpenThreadToken.c)
+ *     NtOpenThreadToken @ 0x140705EE0 (NtOpenThreadToken.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     SepSetTokenTrust @ 0x1407259B0 (SepSetTokenTrust.c)
- *     PsDisableImpersonation @ 0x140725F50 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140726090 (PsRestoreImpersonation.c)
- *     PsSwapImpersonationToken @ 0x1407261F4 (PsSwapImpersonationToken.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepCreateImpersonationTokenDacl @ 0x1407B468C (SepCreateImpersonationTokenDacl.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     SepCreateImpersonationTokenDacl @ 0x14065B8D0 (SepCreateImpersonationTokenDacl.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     PsDisableImpersonation @ 0x140706410 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140706540 (PsRestoreImpersonation.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     PsSwapImpersonationToken @ 0x140706BD0 (PsSwapImpersonationToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SepSetTokenTrust @ 0x140707310 (SepSetTokenTrust.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenThreadTokenEx(
@@ -33,208 +30,202 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
         ULONG HandleAttributes,
         PHANDLE TokenHandle)
 {
-  void *v6; // r12
-  KPROCESSOR_MODE PreviousMode; // r15
-  int v8; // esi
-  ULONG v9; // esi
-  PHANDLE v10; // r14
-  __int64 v11; // rcx
-  KPROCESSOR_MODE v12; // r9
+  char PreviousMode; // al
+  int v6; // ebx
+  ULONG v7; // ebx
+  PHANDLE v8; // rsi
+  __int64 v9; // rax
+  KPROCESSOR_MODE v10; // r9
   NTSTATUS result; // eax
-  _DWORD *v14; // rdi
-  struct _KTHREAD *CurrentThread; // rbx
-  signed __int64 *v16; // r13
-  _DWORD *v17; // rbx
-  char v18; // di
-  int v19; // r13d
-  __int64 v20; // rdi
-  unsigned __int64 v21; // rbx
-  NTSTATUS inserted; // r15d
-  PACL v23; // rbx
-  __int64 v24; // rdx
-  bool v25; // [rsp+40h] [rbp-D8h]
-  bool v26; // [rsp+41h] [rbp-D7h]
-  BOOLEAN v27; // [rsp+42h] [rbp-D6h]
-  char v28; // [rsp+44h] [rbp-D4h]
+  _DWORD *v12; // rdi
+  struct _KTHREAD *CurrentThread; // r15
+  signed __int64 *v14; // r14
+  _DWORD *v15; // rbx
+  struct _DMA_ADAPTER *v16; // r12
+  int v17; // edi
+  unsigned int v18; // r13d
+  char v19; // r15
+  NTSTATUS inserted; // eax
+  PVOID v21; // rbx
+  NTSTATUS ImpersonationTokenDacl; // r14d
+  struct _KPROCESS *v23; // rdi
+  struct _DMA_ADAPTER *v24; // rbx
+  __int64 v25; // rdx
+  bool v26; // [rsp+40h] [rbp-D8h]
+  char v27; // [rsp+41h] [rbp-D7h]
+  char v28; // [rsp+42h] [rbp-D6h]
+  BOOLEAN v29; // [rsp+43h] [rbp-D5h]
+  KPROCESSOR_MODE v30; // [rsp+44h] [rbp-D4h]
   PVOID Object; // [rsp+48h] [rbp-D0h] BYREF
-  PVOID v30; // [rsp+50h] [rbp-C8h] BYREF
-  int v31; // [rsp+58h] [rbp-C0h]
-  PACL Dacl; // [rsp+60h] [rbp-B8h] BYREF
-  unsigned __int8 *v33; // [rsp+68h] [rbp-B0h]
-  HANDLE Handle; // [rsp+70h] [rbp-A8h] BYREF
-  struct _KTHREAD *v35; // [rsp+78h] [rbp-A0h]
+  int v32; // [rsp+50h] [rbp-C8h]
+  PVOID v33; // [rsp+58h] [rbp-C0h] BYREF
+  ULONG HandleAttributesa; // [rsp+60h] [rbp-B8h]
+  PVOID P; // [rsp+68h] [rbp-B0h] BYREF
+  __int64 v36; // [rsp+70h] [rbp-A8h]
+  HANDLE Handle; // [rsp+78h] [rbp-A0h] BYREF
   _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+80h] [rbp-98h] BYREF
-  __int128 v37; // [rsp+90h] [rbp-88h] BYREF
-  __int128 v38; // [rsp+A0h] [rbp-78h]
-  _BYTE *v39; // [rsp+B0h] [rbp-68h]
-  __int64 v40; // [rsp+B8h] [rbp-60h]
-  _BYTE SecurityDescriptor[32]; // [rsp+C0h] [rbp-58h] BYREF
-  __int64 v42; // [rsp+E0h] [rbp-38h]
+  __int128 v39; // [rsp+90h] [rbp-88h] BYREF
+  __int128 v40; // [rsp+A0h] [rbp-78h]
+  __int128 v41; // [rsp+B0h] [rbp-68h]
+  _WORD v42[16]; // [rsp+C0h] [rbp-58h] BYREF
+  PVOID v43; // [rsp+E0h] [rbp-38h]
 
-  v6 = 0LL;
-  v30 = 0LL;
-  v28 = 0;
-  v26 = 0;
-  v31 = 0;
-  ImpersonationState = 0LL;
-  v27 = 0;
-  Handle = 0LL;
-  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v42 = 0LL;
-  v37 = 0LL;
-  v38 = 0LL;
-  v39 = 0LL;
-  LODWORD(v40) = 0;
-  Dacl = 0LL;
   v33 = 0LL;
-  v25 = 0;
+  v27 = 0;
+  v28 = 0;
+  v32 = 0;
+  ImpersonationState = 0LL;
+  v29 = 0;
+  Handle = 0LL;
+  memset(v42, 0, sizeof(v42));
+  v43 = 0LL;
+  v39 = 0LL;
+  v40 = 0LL;
+  v41 = 0LL;
+  P = 0LL;
+  v36 = 0LL;
+  v26 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v8 = 73714;
+  v30 = PreviousMode;
+  v6 = 73714;
   if ( PreviousMode )
-    v8 = 7666;
-  v9 = HandleAttributes & v8;
+    v6 = 7666;
+  v7 = HandleAttributes & v6;
+  HandleAttributesa = v7;
   if ( PreviousMode )
   {
-    v10 = TokenHandle;
-    v11 = (__int64)TokenHandle;
+    v8 = TokenHandle;
+    v9 = (__int64)TokenHandle;
     if ( (unsigned __int64)TokenHandle >= 0x7FFFFFFF0000LL )
-      v11 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)v11 = *(_QWORD *)v11;
+      v9 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v9 = *(_QWORD *)v9;
   }
   else
   {
-    v10 = TokenHandle;
+    v8 = TokenHandle;
   }
-  v12 = KeGetCurrentThread()->PreviousMode;
+  v10 = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(ThreadHandle, 0x800u, (POBJECT_TYPE)PsThreadType, v12, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ThreadHandle, 0x800u, (POBJECT_TYPE)PsThreadType, v10, &Object, 0LL);
   if ( result >= 0 )
   {
-    v14 = Object;
-    if ( (*((_DWORD *)Object + 344) & 8) == 0 )
+    v12 = Object;
+    if ( (*((_DWORD *)Object + 324) & 8) == 0 )
       goto LABEL_9;
     CurrentThread = KeGetCurrentThread();
-    v35 = CurrentThread;
     --CurrentThread->KernelApcDisable;
-    v16 = (signed __int64 *)((char *)Object + 1360);
-    ExAcquirePushLockSharedEx((ULONG_PTR)Object + 1360, 0LL);
-    if ( (v14[344] & 8) != 0 )
+    v14 = (signed __int64 *)((char *)Object + 1280);
+    ExAcquirePushLockSharedEx((ULONG_PTR)Object + 1280, 0LL);
+    if ( (v12[324] & 8) != 0 )
     {
-      v17 = Object;
-      v6 = (void *)(*((_QWORD *)Object + 159) & 0xFFFFFFFFFFFFFFF8uLL);
-      v18 = BYTE1(v14[344]) & 1;
-      v28 = v18;
-      ObfReferenceObjectWithTag(v6, 0x74726853u);
-      v31 = v17[318] & 3;
-      v26 = (v17[318] & 4) != 0;
-      CurrentThread = v35;
+      v15 = Object;
+      v16 = (struct _DMA_ADAPTER *)(*((_QWORD *)Object + 149) & 0xFFFFFFFFFFFFFFF8uLL);
+      v17 = v12[324];
+      ObfReferenceObject(v16);
+      v32 = v15[298] & 3;
+      v28 = (v15[298] & 4) != 0;
+      v27 = BYTE1(v17) & 1;
+      v7 = HandleAttributesa;
     }
     else
     {
-      v18 = 0;
+      v16 = 0LL;
     }
-    if ( _InterlockedCompareExchange64(v16, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v16);
-    KeAbPostRelease((ULONG_PTR)v16);
+    if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v14);
+    KeAbPostRelease((ULONG_PTR)v14);
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    if ( v6 )
+    if ( !v16 )
     {
-      v19 = v31;
-      if ( v31 )
+LABEL_9:
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+      return -1073741700;
+    }
+    v18 = v32;
+    if ( !v32 )
+    {
+      HalPutDmaAdapter(v16);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+      return -1073741658;
+    }
+    if ( OpenAsSelf )
+    {
+      v29 = PsDisableImpersonation(KeGetCurrentThread(), &ImpersonationState);
+      v18 = v32;
+    }
+    v19 = v27;
+    if ( v27 )
+    {
+      if ( OpenAsSelf )
       {
-        if ( OpenAsSelf )
-          v27 = PsDisableImpersonation(KeGetCurrentThread(), &ImpersonationState);
-        if ( v18 )
+        if ( ImpersonationState.Token )
         {
-          if ( OpenAsSelf )
-          {
-            if ( ImpersonationState.Token )
-            {
-              v33 = (unsigned __int8 *)*((_QWORD *)ImpersonationState.Token + 138);
-              v25 = 1;
-            }
-          }
-          else
-          {
-            v24 = *((_QWORD *)Object + 193);
-            if ( v24 )
-              v33 = *(unsigned __int8 **)(v24 + 1104);
-            v25 = v24 != 0;
-          }
-          v20 = *((_QWORD *)Object + 68);
-          v21 = PsReferencePrimaryTokenWithTag(v20, 0x746C6644u);
-          inserted = SepCreateImpersonationTokenDacl(v6, v21, &Dacl);
-          ObFastDereferenceObject((signed __int64 *)(v20 + 1208), v21, 0x746C6644u);
-          v23 = Dacl;
-          if ( inserted >= 0 )
-          {
-            if ( Dacl )
-            {
-              SecurityDescriptor[0] = 1;
-              RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, Dacl, 0);
-            }
-            LODWORD(v37) = 48;
-            *((_QWORD *)&v37 + 1) = 0LL;
-            DWORD2(v38) = v9;
-            *(_QWORD *)&v38 = 0LL;
-            if ( v23 )
-              v39 = SecurityDescriptor;
-            else
-              v39 = 0LL;
-            v40 = 0LL;
-            inserted = SepDuplicateToken((_DWORD)v6, (unsigned int)&v37, v26, 2, v19, 0, 0, (__int64)&v30);
-            if ( inserted >= 0 )
-            {
-              if ( v25 )
-                inserted = SepSetTokenTrust((__int64)v30, v33);
-              if ( inserted >= 0 )
-              {
-                ObfReferenceObject(v30);
-                inserted = ObInsertObjectEx(v30, 0LL, 0, 0LL, (__int64)&Handle);
-              }
-            }
-          }
-          v18 = v28;
+          v36 = *((_QWORD *)ImpersonationState.Token + 138);
+          v26 = 1;
         }
-        else
-        {
-          inserted = ObOpenObjectByPointer(
-                       v6,
-                       v9,
-                       0LL,
-                       DesiredAccess,
-                       (POBJECT_TYPE)SeTokenObjectType,
-                       PreviousMode,
-                       &Handle);
-          v23 = Dacl;
-        }
-        if ( v23 )
-          ExFreePoolWithTag(v23, 0);
-        if ( v27 )
-          PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
-        if ( inserted >= 0 && v18 )
-          PsSwapImpersonationToken(Object, v6, v30);
-        ObfDereferenceObjectWithTag(v6, 0x74726853u);
-        if ( v30 )
-          ObfDereferenceObject(v30);
-        ObfDereferenceObject(Object);
-        if ( inserted >= 0 )
-          *v10 = Handle;
-        return inserted;
       }
       else
       {
-        ObfDereferenceObjectWithTag(v6, 0x74726853u);
-        ObfDereferenceObject(Object);
-        return -1073741658;
+        v25 = *((_QWORD *)Object + 183);
+        if ( v25 )
+          v36 = *(_QWORD *)(v25 + 1104);
+        v26 = v25 != 0;
       }
+      v23 = (struct _KPROCESS *)*((_QWORD *)Object + 68);
+      v24 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(v23);
+      ImpersonationTokenDacl = SepCreateImpersonationTokenDacl((__int64)v16, (__int64)v24, (ACL **)&P);
+      ObFastDereferenceObject((signed __int64 *)&v23[1].Affinity.Bitmap[5], v24);
+      v21 = P;
+      if ( ImpersonationTokenDacl < 0 )
+        goto LABEL_22;
+      if ( P )
+      {
+        LOBYTE(v42[0]) = 1;
+        if ( v42[1] >= 0 )
+        {
+          v43 = P;
+          v42[1] = v42[1] & 0xFFF3 | 4;
+        }
+      }
+      LODWORD(v39) = 48;
+      *((_QWORD *)&v39 + 1) = 0LL;
+      DWORD2(v40) = HandleAttributesa;
+      *(_QWORD *)&v40 = 0LL;
+      *(_QWORD *)&v41 = P ? v42 : 0LL;
+      *((_QWORD *)&v41 + 1) = 0LL;
+      ImpersonationTokenDacl = SepDuplicateToken((__int64)v16, (int)&v39, v28, 2, v18, 0, 0, &v33);
+      if ( ImpersonationTokenDacl < 0 )
+        goto LABEL_22;
+      if ( v26 )
+        ImpersonationTokenDacl = SepSetTokenTrust(v33, v36);
+      if ( ImpersonationTokenDacl < 0 )
+        goto LABEL_22;
+      ObfReferenceObject(v33);
+      inserted = ObInsertObjectEx((char *)v33, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&Handle);
     }
     else
     {
-LABEL_9:
-      ObfDereferenceObject(Object);
-      return -1073741700;
+      inserted = ObOpenObjectByPointer(v16, v7, 0LL, DesiredAccess, (POBJECT_TYPE)SeTokenObjectType, v30, &Handle);
+      v21 = P;
     }
+    ImpersonationTokenDacl = inserted;
+LABEL_22:
+    if ( v21 )
+      ExFreePoolWithTag(v21, 0);
+    if ( v29 )
+    {
+      PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
+      v19 = v27;
+    }
+    if ( ImpersonationTokenDacl >= 0 && v19 )
+      PsSwapImpersonationToken(Object, v16, v33);
+    HalPutDmaAdapter(v16);
+    if ( v33 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)v33);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+    if ( ImpersonationTokenDacl >= 0 )
+      *v8 = Handle;
+    return ImpersonationTokenDacl;
   }
   return result;
 }

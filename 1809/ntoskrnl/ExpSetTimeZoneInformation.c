@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpSetTimeZoneInformation @ 0x1408CC994
+ * XREFs of ExpSetTimeZoneInformation @ 0x1408CC974
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExpReadSiloTimeZoneMarker @ 0x14058387C (ExpReadSiloTimeZoneMarker.c)
  *     ExpWriteSiloTimeZoneMarker @ 0x140583AE4 (ExpWriteSiloTimeZoneMarker.c)
- *     ExAcquireTimeRefreshLock @ 0x14066585C (ExAcquireTimeRefreshLock.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x14089592C (RtlpSetTimeZoneInformationWorker.c)
- *     NtSetSystemTime @ 0x1408CD2D0 (NtSetSystemTime.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14089590C (RtlpSetTimeZoneInformationWorker.c)
+ *     NtSetSystemTime @ 0x1408CD2B0 (NtSetSystemTime.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall ExpSetTimeZoneInformation(_OWORD *a1, int a2)

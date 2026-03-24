@@ -1,15 +1,14 @@
 /*
- * XREFs of IoUnregisterShutdownNotification @ 0x140A65430
+ * XREFs of IoUnregisterShutdownNotification @ 0x1409AB010
  * Callers:
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     DifIoUnregisterShutdownNotificationWrapper @ 0x1406113D0 (DifIoUnregisterShutdownNotificationWrapper.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140241620 (MmUnlockPagableImageSection.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmLockPagableSectionByHandle @ 0x1406BC300 (MmLockPagableSectionByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     MmUnlockPagableImageSection @ 0x14031AA10 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
@@ -41,7 +40,7 @@ LABEL_16:
       *v7 = v6;
       v6[1] = v7;
       v3 = (PVOID *)v3[1];
-      ObfDereferenceObject(DeviceObject);
+      HalPutDmaAdapter((PADAPTER_OBJECT)DeviceObject);
       ExFreePoolWithTag(v5, 0);
     }
     v3 = (PVOID *)*v3;
@@ -60,7 +59,7 @@ LABEL_16:
       *v11 = v10;
       v10[1] = v11;
       i = (PVOID *)i[1];
-      ObfDereferenceObject(DeviceObject);
+      HalPutDmaAdapter((PADAPTER_OBJECT)DeviceObject);
       ExFreePoolWithTag(v9, 0);
     }
   }

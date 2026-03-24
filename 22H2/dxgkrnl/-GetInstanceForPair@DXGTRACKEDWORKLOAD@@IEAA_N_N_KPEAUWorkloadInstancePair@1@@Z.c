@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z @ 0x1C035E27C
+ * XREFs of ?GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z @ 0x1C02BCFE0
  * Callers:
- *     ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C035F028 (-UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD.c)
+ *     ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C02BD83C (-UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD.c)
  * Callees:
  *     <none>
  */
@@ -17,6 +17,7 @@ char __fastcall DXGTRACKEDWORKLOAD::GetInstanceForPair(
   __int64 v6; // rbx
   char *v7; // rax
   char v8; // cl
+  _BYTE *v10; // rax
 
   v4 = *((_DWORD *)this + 27);
   v5 = 0LL;
@@ -41,8 +42,9 @@ LABEL_9:
   }
   if ( v8 )
     goto LABEL_9;
-  *((_QWORD *)a4 + 16) = v7;
-  *v7 = 1;
+  v10 = (_BYTE *)(v6 + 24 * v5);
+  *((_QWORD *)a4 + 16) = v10;
+  *v10 = 1;
   *(_QWORD *)(*((_QWORD *)a4 + 16) + 8LL) = a3;
   *(_QWORD *)(*((_QWORD *)a4 + 16) + 16LL) = 0LL;
   return 1;

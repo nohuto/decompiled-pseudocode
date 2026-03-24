@@ -1,15 +1,15 @@
 /*
  * XREFs of KsepShimDbMapToMemory @ 0x1405A2050
  * Callers:
- *     KseShimDatabaseOpen @ 0x14067DAD8 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x14067DAB8 (KseShimDatabaseOpen.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1401B8AB0 (ZwCreateSection.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
  *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)

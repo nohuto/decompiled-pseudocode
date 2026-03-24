@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x180263FFC
+ * XREFs of ?ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x1802130C0
  * Callers:
- *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180263CE4 (--1InteractionSourceManager@@QEAA@XZ.c)
- *     ?OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ @ 0x18026471C (-OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ.c)
- *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18026473C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180212D08 (--1InteractionSourceManager@@QEAA@XZ.c)
+ *     ?OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ @ 0x1802137E8 (-OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18021380C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
  * Callees:
- *     ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801F46CC (-SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z.c)
+ *     ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801D4C34 (-SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z.c)
  */
 
 void __fastcall InteractionSourceManager::ClearActiveManipulations(InteractionSourceManager *this)
@@ -19,7 +19,8 @@ void __fastcall InteractionSourceManager::ClearActiveManipulations(InteractionSo
   {
     CManipulation::SetCaptureState_RenderThread(*(CManipulation **)(*(_QWORD *)(*((_QWORD *)this + 11)
                                                                               + 8
-                                                                              * ((*((_QWORD *)this + 12) - 1LL) & (v1 >> 1)))
+                                                                              * ((v1 >> 1) & (*((_QWORD *)this + 12)
+                                                                                            - 1LL)))
                                                                   + 8 * (v1 & 1)));
     ++v1;
   }

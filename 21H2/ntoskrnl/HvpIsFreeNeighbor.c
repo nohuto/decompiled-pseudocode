@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpIsFreeNeighbor @ 0x14079BF50
+ * XREFs of HvpIsFreeNeighbor @ 0x1407096E0
  * Callers:
- *     HvFreeCell @ 0x14079BD98 (HvFreeCell.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     HvpDelistFreeCell @ 0x14079C014 (HvpDelistFreeCell.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     HvpDelistFreeCell @ 0x1407097A4 (HvpDelistFreeCell.c)
  */
 
 char __fastcall HvpIsFreeNeighbor(ULONG_PTR BugCheckParameter2, _DWORD *a2, int *a3, int **a4, int a5)
@@ -43,7 +43,7 @@ LABEL_6:
   }
   v11 = a5;
   *a4 = v6;
-  if ( a5 != 1 && (int)HvpMarkCellDirty(BugCheckParameter2, (unsigned int)((_DWORD)v6 + a2[1] - (_DWORD)a2), 1) < 0 )
+  if ( a5 != 1 && !HvpMarkCellDirty(BugCheckParameter2, (unsigned int)((_DWORD)v6 + a2[1] - (_DWORD)a2), 1) )
     return 0;
 LABEL_11:
   HvpDelistFreeCell(BugCheckParameter2, (unsigned int)((_DWORD)v6 + (v11 << 31) + a2[1] - (_DWORD)a2));

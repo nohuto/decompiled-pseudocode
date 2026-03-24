@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1402A0140
+ * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1402A0240
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KsepDsEventPnpIrp @ 0x1402A0DEC (KsepDsEventPnpIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KsepDsEventPnpIrp @ 0x1402A0EEC (KsepDsEventPnpIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)

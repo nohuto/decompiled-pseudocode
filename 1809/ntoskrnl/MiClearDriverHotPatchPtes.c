@@ -1,17 +1,17 @@
 /*
- * XREFs of MiClearDriverHotPatchPtes @ 0x140854920
+ * XREFs of MiClearDriverHotPatchPtes @ 0x140854900
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x1400EDB64 (MiInitializeTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1400EDB84 (MiInitializeTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiClearDriverHotPatchPtes(__int64 a1)

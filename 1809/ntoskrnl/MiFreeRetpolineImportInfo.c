@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x1401B50BC
+ * XREFs of MiFreeRetpolineImportInfo @ 0x1401B50DC
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1406F9584
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1406F9564
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x1406F9440 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x1406F9420 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

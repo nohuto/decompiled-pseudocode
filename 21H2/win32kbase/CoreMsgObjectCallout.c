@@ -1,12 +1,12 @@
 /*
- * XREFs of CoreMsgObjectCallout @ 0x1C00B30E8
+ * XREFs of CoreMsgObjectCallout @ 0x1C004DEAC
  * Callers:
- *     W32CalloutDispatch @ 0x1C00E4D10 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004DFB0 (W32CalloutDispatch.c)
  * Callees:
- *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C003BBA0 (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C004D5FC (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CoreMsgObjectCallout(unsigned int a1, _QWORD *a2)
@@ -26,13 +26,13 @@ __int64 __fastcall CoreMsgObjectCallout(unsigned int a1, _QWORD *a2)
   int v17; // [rsp+64h] [rbp-Ch]
 
   v12[0] = 0;
-  if ( (unsigned int)dword_1C028D8C0 > 5 )
+  if ( (unsigned int)dword_1C024A450 > 5 )
   {
     v17 = 0;
     v15 = &v13;
     v13 = a1;
     v16 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028D8C0, (unsigned __int8 *)dword_1C026624E, 0LL, 0LL, 3u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024A450, (int)&dword_1C02231BF, 0, 0, 3u, &v14);
   }
   CoreMessagingK::EntryLock::Acquire(v12, 5u);
   v4 = a1 - 33;
@@ -78,15 +78,15 @@ LABEL_8:
     }
   }
 LABEL_9:
-  if ( (unsigned int)dword_1C028D8C0 > 5 )
+  if ( (unsigned int)dword_1C024A450 > 5 )
   {
     v17 = 0;
     v15 = &v13;
     v13 = v7;
     v16 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028D8C0, (unsigned __int8 *)dword_1C02662AB, 0LL, 0LL, 3u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024A450, (int)&dword_1C022318E, 0, 0, 3u, &v14);
   }
   if ( v12[0] )
-    KeReleaseMutex(Mutex, 0);
+    KeReleaseMutex(P, 0);
   return v7;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PointerPromotionGetCurrentPointerId @ 0x1C0156390
+ * XREFs of PointerPromotionGetCurrentPointerId @ 0x1C0219670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PointerPromotionGetCurrentPointerId(__int64 a1)
+__int64 PointerPromotionGetCurrentPointerId()
 {
-  return *(unsigned __int16 *)(SGDGetUserSessionState(a1) + 16056);
+  return (unsigned __int16)word_1C0339AD0[0];
 }

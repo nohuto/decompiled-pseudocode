@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitLogQMsg@@YAXXZ @ 0x1C011FC5C
+ * XREFs of ?InitLogQMsg@@YAXXZ @ 0x1C01342E4
  * Callers:
- *     InitModuleAllocations @ 0x1C011FBC0 (InitModuleAllocations.c)
+ *     InitModuleAllocations @ 0x1C01341E0 (InitModuleAllocations.c)
  * Callees:
- *     ?EnsureQMsgLog@@YAHXZ @ 0x1C01D96C0 (-EnsureQMsgLog@@YAHXZ.c)
- *     MsgQRegGetDWORD @ 0x1C01D9C54 (MsgQRegGetDWORD.c)
+ *     ?EnsureQMsgLog@@YAHXZ @ 0x1C01D2BE4 (-EnsureQMsgLog@@YAHXZ.c)
+ *     MsgQRegGetDWORD @ 0x1C01D3134 (MsgQRegGetDWORD.c)
  */
 
 void InitLogQMsg(void)
@@ -17,11 +17,11 @@ void InitLogQMsg(void)
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   gMsgQLog = 0uLL;
-  *(_QWORD *)((char *)&xmmword_1C03319E0 + 12) = 0LL;
-  dword_1C03319F4 = 0;
+  *(_QWORD *)((char *)&xmmword_1C0336660 + 12) = 0LL;
+  dword_1C0336674 = 0;
   DestinationString = 0LL;
-  *(_QWORD *)&xmmword_1C03319E0 = 0x1000000100LL;
-  DWORD2(xmmword_1C03319E0) = 1;
+  *(_QWORD *)&xmmword_1C0336660 = 0x1000000100LL;
+  DWORD2(xmmword_1C0336660) = 1;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\USERPostMessageLog");
@@ -35,17 +35,17 @@ void InitLogQMsg(void)
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
       LODWORD(gMsgQLog) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
-      LODWORD(xmmword_1C03319E0) = 0;
+      LODWORD(xmmword_1C0336660) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
-      DWORD2(xmmword_1C03319E0) = 0;
+      DWORD2(xmmword_1C0336660) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
-      DWORD1(xmmword_1C03319E0) = 0;
+      DWORD1(xmmword_1C0336660) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
       DWORD1(gMsgQLog) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
       DWORD2(gMsgQLog) = 0;
     if ( (int)MsgQRegGetDWORD(KeyHandle) >= 0 )
-      HIDWORD(xmmword_1C03319E0) = 0;
+      HIDWORD(xmmword_1C0336660) = 0;
     EnsureQMsgLog();
     ZwClose(KeyHandle);
   }

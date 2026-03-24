@@ -1,15 +1,15 @@
 /*
- * XREFs of PspFreeUserFiberShadowStack @ 0x1409B1208
+ * XREFs of PspFreeUserFiberShadowStack @ 0x14090A1C4
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     KiDispatchException @ 0x14030CAC0 (KiDispatchException.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmUpdateUserShadowStackValue @ 0x1406467F0 (MmUpdateUserShadowStackValue.c)
- *     MmFreeVirtualMemory @ 0x1407455D0 (MmFreeVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KiDispatchException @ 0x14033C330 (KiDispatchException.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmUpdateUserShadowStackValue @ 0x1403F3CA8 (MmUpdateUserShadowStackValue.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmFreeVirtualMemory @ 0x14063AD20 (MmFreeVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
@@ -19,7 +19,7 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
   _QWORD *i; // r8
   __int64 v6; // [rsp+30h] [rbp-F8h] BYREF
   _OWORD MemoryInformation[3]; // [rsp+38h] [rbp-F0h] BYREF
-  ULONG_PTR v8[20]; // [rsp+70h] [rbp-B8h] BYREF
+  _QWORD v8[20]; // [rsp+70h] [rbp-B8h] BYREF
 
   memset(v8, 0, 0x98uLL);
   memset(MemoryInformation, 0, sizeof(MemoryInformation));
@@ -63,7 +63,7 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
         InitialStack = (_QWORD *)InitialStack[5];
       while ( (InitialStack[1] & 1) != 0 );
     }
-    KiDispatchException((NTSTATUS *)v8, (__int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
+    KiDispatchException((NTSTATUS *)v8, (unsigned __int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
   }
   return (unsigned int)updated;
 }

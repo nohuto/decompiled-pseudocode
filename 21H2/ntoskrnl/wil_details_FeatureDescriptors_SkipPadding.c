@@ -1,22 +1,23 @@
 /*
- * XREFs of wil_details_FeatureDescriptors_SkipPadding @ 0x1403C77F8
+ * XREFs of wil_details_FeatureDescriptors_SkipPadding @ 0x1403F0554
  * Callers:
- *     wil_details_OnFeatureConfigurationChange @ 0x1409116D0 (wil_details_OnFeatureConfigurationChange.c)
- *     wil_details_UpdateFeatureConfiguredStates @ 0x140911780 (wil_details_UpdateFeatureConfiguredStates.c)
- *     CmInitSystem0 @ 0x140B131D4 (CmInitSystem0.c)
- *     wil_InitializeFeatureStagingFromBuffers @ 0x140B15550 (wil_InitializeFeatureStagingFromBuffers.c)
- *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B15608 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ *     wil_RegisterFeatureStagingChangeNotification @ 0x1405CC564 (wil_RegisterFeatureStagingChangeNotification.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1405CC62C (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1405CC7E0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A385E8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  * Callees:
  *     <none>
  */
 
 __int64 *__fastcall wil_details_FeatureDescriptors_SkipPadding(__int64 *a1)
 {
-  while ( a1 < &wil_details_featureDescriptors_z )
+  while ( 1 )
   {
+    if ( a1 >= &wil_details_featureDescriptors_z )
+      return 0LL;
     if ( *a1 )
-      return a1;
+      break;
     ++a1;
   }
-  return 0LL;
+  return a1;
 }

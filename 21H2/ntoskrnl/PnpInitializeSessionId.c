@@ -1,57 +1,58 @@
 /*
- * XREFs of PnpInitializeSessionId @ 0x14076B24C
+ * XREFs of PnpInitializeSessionId @ 0x14076EAB4
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IopGetSessionIdFromPDO @ 0x140749588 (IopGetSessionIdFromPDO.c)
- *     _PnpSetObjectProperty @ 0x14077198C (_PnpSetObjectProperty.c)
+ *     IopGetSessionIdFromPDO @ 0x14073E25C (IopGetSessionIdFromPDO.c)
+ *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
  */
 
 void __fastcall PnpInitializeSessionId(__int64 a1, __int64 a2, char a3)
 {
   int SessionIdFromPDO; // r10d
   __int64 v5; // rcx
-  struct _DEVICE_OBJECT *v7; // rcx
-  int v8; // ecx
-  int *v9; // rdx
-  int v10; // r8d
-  int v11; // [rsp+70h] [rbp+18h] BYREF
+  struct _DEVICE_OBJECT *v8; // rcx
+  unsigned int v9; // ecx
+  int *v10; // rdx
+  int v11; // r8d
+  int v12; // [rsp+70h] [rbp+18h] BYREF
 
   SessionIdFromPDO = -1;
   v5 = *(_QWORD *)(a1 + 16);
-  v11 = -1;
+  v12 = -1;
   if ( v5 )
   {
-    v7 = *(struct _DEVICE_OBJECT **)(v5 + 32);
-    if ( (v7->DeviceObjectExtension->ExtensionFlags & 0x400) != 0 )
+    v8 = *(struct _DEVICE_OBJECT **)(v5 + 32);
+    if ( (v8->DeviceObjectExtension->ExtensionFlags & 0x400) != 0 )
     {
-      SessionIdFromPDO = IopGetSessionIdFromPDO(v7);
-      v11 = SessionIdFromPDO;
+      SessionIdFromPDO = IopGetSessionIdFromPDO(v8);
+      v12 = SessionIdFromPDO;
     }
   }
   if ( !a3 || SessionIdFromPDO != -1 )
   {
     if ( SessionIdFromPDO == -1 )
     {
-      v8 = 0;
-      v9 = 0LL;
-      v10 = 0;
+      v9 = 0;
+      v10 = 0LL;
+      v11 = 0;
     }
     else
     {
-      v8 = 4;
-      v9 = &v11;
-      v10 = 7;
+      v9 = 4;
+      v10 = &v12;
+      v11 = 7;
     }
     PnpSetObjectProperty(
-      PiPnpRtlCtx,
+      *(__int64 *)&PiPnpRtlCtx,
       *(_QWORD *)(a1 + 48),
-      1,
+      1u,
+      a2,
       0LL,
       (__int64)&DEVPKEY_Device_SessionId,
-      v10,
-      (__int64)v9,
-      v8,
+      v11,
+      (__int64)v10,
+      v9,
       a3 != 0 ? 0x20000 : 0);
   }
 }

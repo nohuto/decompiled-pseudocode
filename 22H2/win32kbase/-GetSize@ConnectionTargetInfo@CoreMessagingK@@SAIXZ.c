@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@ConnectionTargetInfo@CoreMessagingK@@SAIXZ @ 0x1C00CA1E0
+ * XREFs of ?GetSize@ConnectionTargetInfo@CoreMessagingK@@SAIXZ @ 0x1C00BC780
  * Callers:
  *     <none>
  * Callees:

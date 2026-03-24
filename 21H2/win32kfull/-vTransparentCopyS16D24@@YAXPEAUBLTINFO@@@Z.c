@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C028FE60
+ * XREFs of ?vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0292190
  * Callers:
  *     <none>
  * Callees:
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C013C7F4 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C0150314 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vTransparentCopyS16D24(struct BLTINFO *a1)

@@ -1,34 +1,46 @@
 /*
- * XREFs of NtGdiEngUnlockSurface @ 0x1C014ED60
+ * XREFs of NtGdiEngUnlockSurface @ 0x1C015E960
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z @ 0x1C014EDC8 (-UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z @ 0x1C015E9DC (-UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiEngUnlockSurface(struct _SURFOBJ *a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  UMPDOBJ *v4; // rcx
-  unsigned int v5; // edi
-  struct UMPDOBJ *v6; // rbx
+  __int64 v3; // rcx
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  UMPDOBJ *v5; // rcx
+  unsigned int v6; // edi
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v5 = 0;
-  v6 = ThreadCurrentObj;
-  if ( ThreadCurrentObj )
+  if ( !ThreadCurrentObj )
+    goto LABEL_5;
+  if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage(v3) )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    UMPDOBJ::UnlockSurface(v4, a1);
-    --*((_DWORD *)v6 + 105);
+    if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+    {
+      ThreadCurrentObj = 0LL;
+LABEL_5:
+      v6 = -1073741811;
+      goto LABEL_6;
+    }
   }
   else
   {
-    return (unsigned int)-1073741811;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
   }
-  return v5;
+  UMPDOBJ::UnlockSurface(v5, a1);
+  v6 = 0;
+LABEL_6:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v6;
 }

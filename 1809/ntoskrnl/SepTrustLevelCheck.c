@@ -1,15 +1,15 @@
 /*
- * XREFs of SepTrustLevelCheck @ 0x1400AA8B8
+ * XREFs of SepTrustLevelCheck @ 0x1400AA8D8
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     SeGetTrustLabelAce @ 0x1400AA930 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
  *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
  */

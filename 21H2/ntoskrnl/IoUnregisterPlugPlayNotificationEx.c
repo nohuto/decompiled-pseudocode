@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotificationEx @ 0x1406E7890
+ * XREFs of IoUnregisterPlugPlayNotificationEx @ 0x14078EB20
  * Callers:
- *     PopPolicyDeviceTargetChange @ 0x140997FD0 (PopPolicyDeviceTargetChange.c)
+ *     <none>
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x14025AA04 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14037FC30 (PnpUnregisterPlugPlayNotification.c)
  */
 
 NTSTATUS __stdcall IoUnregisterPlugPlayNotificationEx(PVOID NotificationEntry)

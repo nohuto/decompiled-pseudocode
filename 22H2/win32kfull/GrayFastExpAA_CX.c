@@ -1,5 +1,5 @@
 /*
- * XREFs of GrayFastExpAA_CX @ 0x1C0262280
+ * XREFs of GrayFastExpAA_CX @ 0x1C026AA60
  * Callers:
  *     <none>
  * Callees:
@@ -15,10 +15,10 @@ void __fastcall GrayFastExpAA_CX(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4, i
   int v11; // ebp
   __int64 v12; // rax
   int v13; // ecx
-  int v14; // r8d
+  int v14; // edx
   int v15; // r10d
   int v16; // ebx
-  int v17; // edx
+  int v17; // r8d
   int v18; // r9d
   int v19; // r11d
   int v20; // r11d
@@ -28,11 +28,11 @@ void __fastcall GrayFastExpAA_CX(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4, i
   _WORD *v24; // rdi
   unsigned int v25; // ecx
   int v26; // r11d
-  int v27; // r8d
+  _WORD *v27; // rdi
   _WORD *v28; // rdi
-  _WORD *v29; // rdi
-  int v30; // ecx
-  unsigned int v31; // ecx
+  int v29; // ecx
+  unsigned int v30; // ecx
+  _WORD *v31; // rdi
   unsigned __int16 v32; // [rsp+4h] [rbp-34h]
   unsigned __int16 v33; // [rsp+48h] [rbp+10h]
 
@@ -64,36 +64,36 @@ void __fastcall GrayFastExpAA_CX(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4, i
         case 2:
           *a3 = (unsigned int)(v18 + 3 * v15 + 2) >> 2;
           a3 = (_WORD *)((char *)a3 + a5);
-          v31 = (unsigned int)(v11 + 3 * v15 + 2) >> 2;
+          v30 = (unsigned int)(v11 + 3 * v15 + 2) >> 2;
           goto LABEL_16;
         case 3:
-          *a3 = (unsigned int)(v16 + v19 + 2 * (2 * v16 + v19 + 2)) >> 3;
-          v29 = (_WORD *)((char *)a3 + a5);
-          v30 = 2 * v16 + 2;
-          *v29 = (v19 + v11 + 14 * v16 + 8) >> 4;
+          *a3 = (unsigned int)(v19 + v16 + 2 * (2 * v16 + v19 + 2)) >> 3;
+          v31 = (_WORD *)((char *)a3 + a5);
+          *v31 = (v11 + v19 + 14 * v16 + 8) >> 4;
+          a3 = (_WORD *)((char *)v31 + a5);
+          v29 = 2 * v16 + v11 + 2;
 LABEL_11:
-          a3 = (_WORD *)((char *)v29 + a5);
-          v31 = (unsigned int)(v16 + v11 + 2 * (v11 + v30)) >> 3;
+          v30 = (unsigned int)(v11 + v16 + 2 * v29) >> 3;
 LABEL_16:
-          *a3 = v31;
+          *a3 = v30;
           goto LABEL_17;
         case 4:
           v16 = v9;
           v26 = 2 * v9;
-          v27 = 4 * v9;
-          *a3 = (v9 + v32 + 2 * (v26 + (unsigned int)v32 + 2)) >> 3;
-          v28 = (_WORD *)((char *)a3 + a5);
-          *v28 = (v32 + v27 + 8 + v11 + 2 * ((unsigned int)v32 + v27)) >> 4;
-          v29 = (_WORD *)((char *)v28 + a5);
-          v30 = v26 + 2;
-          *v29 = (v27 + v11 + 8 + (unsigned int)v32 + 2 * (v27 + v11)) >> 4;
+          *a3 = (v32 + v9 + 2 * (v26 + (unsigned int)v32 + 2)) >> 3;
+          v27 = (_WORD *)((char *)a3 + a5);
+          *v27 = (v32 + 4 * v9 + 8 + v11 + 2 * (v32 + 4 * (unsigned int)v9)) >> 4;
+          v28 = (_WORD *)((char *)v27 + a5);
+          *v28 = (v11 + 4 * v9 + 8 + v32 + 2 * (v11 + 4 * (unsigned int)v9)) >> 4;
+          a3 = (_WORD *)((char *)v28 + a5);
+          v29 = v11 + v26 + 2;
           goto LABEL_11;
         case 5:
           v20 = 19 * v9;
           v21 = 25 * v9;
           *a3 = (v20 + 13 * (unsigned int)v33 + 16) >> 5;
           v22 = (_WORD *)((char *)a3 + a5);
-          *v22 = (v11 + 6 * (unsigned int)v33 + v21 + 16) >> 5;
+          *v22 = (v11 + v21 + 2 * (v33 + 2 * ((unsigned int)v33 + 4))) >> 5;
           v23 = (_WORD *)((char *)v22 + a5);
           *v23 = (v33 + v11 + 2 * (v33 + v11 + 13 * (unsigned int)v9 + 8)) >> 5;
           v24 = (_WORD *)((char *)v23 + a5);
@@ -108,9 +108,9 @@ LABEL_17:
       if ( a3 == a4 )
         return;
     }
-    v25 = v17 + v11 + 2 * (v14 + 2 * (v17 + v14 + v11 + 4 * v14 + 4));
+    v25 = v11 + v17 + 2 * (v14 + 2 * (v11 + v14 + v17 + 4 * (v14 + 1)));
 LABEL_15:
-    v31 = v25 >> 5;
+    v30 = v25 >> 5;
     goto LABEL_16;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PartitionSwitchRemotingMode@CChannel@@UEAAJW4Enum@DwmRemotingMode@@@Z @ 0x1800F4660
+ * XREFs of ?PartitionSwitchRemotingMode@CChannel@@UEAAJW4Enum@DwmRemotingMode@@@Z @ 0x1800DD8E0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  */
 
 __int64 __fastcall CChannel::PartitionSwitchRemotingMode(__int64 a1, int a2)
@@ -16,9 +16,9 @@ __int64 __fastcall CChannel::PartitionSwitchRemotingMode(__int64 a1, int a2)
 
   v8 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
-  v6 = 278;
+  v6 = 285;
   v7 = a2;
-  v4 = CChannel::SendCommand((CDataStreamWriter **)a1, &v6, 8u);
+  v4 = CChannel::SendCommand((CChannel *)a1, &v6, 8u);
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v8);
   return v4;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDeviceReleaseIrp @ 0x1403A38F8
+ * XREFs of PopDiagTraceDeviceReleaseIrp @ 0x14039929C
  * Callers:
- *     PoDeviceReleaseIrp @ 0x1403A38BC (PoDeviceReleaseIrp.c)
+ *     PoDeviceReleaseIrp @ 0x14037CF94 (PoDeviceReleaseIrp.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDeviceReleaseIrp(__int64 a1, __int64 a2)

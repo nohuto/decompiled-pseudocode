@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmTerminateCompanionContext @ 0x1C002D5B0
+ * XREFs of VidMmTerminateCompanionContext @ 0x1C0023170
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z @ 0x1C00DC3E8 (-VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z.c)
+ *     ?VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z @ 0x1C00B68FC (-VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z.c)
  */
 
 void __fastcall VidMmTerminateCompanionContext(struct VIDMM_COMPANION_CONTEXT *a1)

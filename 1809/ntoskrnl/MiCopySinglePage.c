@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCopySinglePage @ 0x1400EA608
+ * XREFs of MiCopySinglePage @ 0x1400EA628
  * Callers:
- *     MmCopyMemory @ 0x1400EA850 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1400EA870 (MmCopyMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
@@ -9,12 +9,12 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiIsPageSecured @ 0x1400EA7C0 (MiIsPageSecured.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     MiIsPageSecured @ 0x1400EA7E0 (MiIsPageSecured.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall MiCopySinglePage(void *a1, unsigned __int64 a2, __int64 a3, size_t a4, unsigned __int64 a5, char a6)

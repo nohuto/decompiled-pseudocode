@@ -5,8 +5,8 @@
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     MmMapMemoryDumpMdlEx @ 0x140144400 (MmMapMemoryDumpMdlEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     IopLiveDumpGetCapturePagesNoLock @ 0x140578C58 (IopLiveDumpGetCapturePagesNoLock.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of CountUTF8ToUnicode @ 0x1403CAFEC
+ * XREFs of CountUTF8ToUnicode @ 0x14058EFA8
  * Callers:
- *     RtlUTF8ToUnicodeN @ 0x14075AA20 (RtlUTF8ToUnicodeN.c)
- *     RtlUTF8StringToUnicodeString @ 0x1409BEC80 (RtlUTF8StringToUnicodeString.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8StringToUnicodeString @ 0x140919780 (RtlUTF8StringToUnicodeString.c)
  * Callees:
  *     <none>
  */
@@ -12,176 +12,172 @@ __int64 __fastcall CountUTF8ToUnicode(char *a1, int a2, _DWORD *a3)
   int v3; // r9d
   char *v4; // rbx
   unsigned int v5; // r11d
-  char *v7; // r10
-  unsigned int v8; // r8d
-  unsigned int v9; // r9d
-  __int64 result; // rax
+  unsigned int v7; // r8d
+  unsigned int v8; // r9d
+  unsigned int v9; // eax
+  unsigned int v10; // r9d
   unsigned __int64 v11; // r10
   unsigned int v12; // r8d
-  unsigned int v13; // eax
-  unsigned int v14; // r9d
-  char v15; // r9
-  char v16; // r8
-  __int64 v17; // rax
-  int v18; // eax
+  char v13; // r9
+  char v14; // r8
+  __int64 v15; // rax
+  int v16; // eax
+  __int64 result; // rax
 
   v3 = 0;
   v4 = &a1[a2];
   v5 = 0;
-  while ( 1 )
+  while ( a1 < v4 )
   {
-    while ( 1 )
+    v7 = *a1++;
+    if ( v3 )
     {
-      while ( 1 )
+      if ( (v7 & 0xC0) != 0x80 )
       {
-        v7 = a1;
-        if ( a1 >= v4 )
+        --a1;
+        a2 += v3 >> 30;
+LABEL_7:
+        v5 = 263;
+        ++a2;
+        goto LABEL_8;
+      }
+      v3 = (v3 << 6) | v7 & 0x3F;
+      if ( (v3 & 0x20000000) != 0 )
+      {
+LABEL_17:
+        if ( (unsigned __int64)(v4 - a1) <= 0xD )
         {
-          if ( v3 )
+          while ( a1 < v4 )
           {
-            a2 += (v3 >> 30) + 1;
-            v5 = 263;
+            v8 = *a1++;
+            if ( v8 > 0x7F )
+              goto LABEL_20;
           }
-          goto LABEL_12;
-        }
-        v8 = *a1++;
-        if ( v3 )
+          v3 = 0;
           break;
-        v9 = v8;
-LABEL_5:
-        if ( v9 <= 0x7F )
-          goto LABEL_6;
-        --a2;
-        if ( (v9 & 0x40) == 0 )
-          goto LABEL_30;
-        if ( (v9 & 0x20) != 0 )
+        }
+        v11 = (unsigned __int64)(v4 - 7);
+        while ( (unsigned __int64)a1 < v11 )
         {
-          v13 = v9 & 0xF;
-          if ( (v9 & 0x10) != 0 )
+          v12 = *a1++;
+          if ( v12 <= 0x7F )
           {
-            if ( v13 > 4 )
-              goto LABEL_30;
-            v3 = v13 | 0x504D0C00;
+            if ( ((unsigned __int8)a1 & 1) == 0 || (v12 = *a1, ++a1, v12 <= 0x7F) )
+            {
+              if ( ((unsigned __int8)a1 & 2) == 0 )
+                goto LABEL_37;
+              LOWORD(v12) = *(_WORD *)a1;
+              if ( (*(_WORD *)a1 & 0x8080) == 0 )
+              {
+                a1 += 2;
+LABEL_37:
+                while ( (unsigned __int64)a1 < v11 )
+                {
+                  v12 = *(_DWORD *)a1;
+                  if ( ((*(_DWORD *)a1 | *((_DWORD *)a1 + 1)) & 0x80808080) != 0 )
+                    goto LABEL_42;
+                  a1 += 8;
+                  if ( (unsigned __int64)a1 >= v11 )
+                    break;
+                  v12 = *(_DWORD *)a1;
+                  if ( ((*(_DWORD *)a1 | *((_DWORD *)a1 + 1)) & 0x80808080) != 0 )
+                    goto LABEL_42;
+                  a1 += 8;
+                }
+                break;
+              }
+LABEL_42:
+              ++a1;
+              if ( (unsigned __int8)v12 <= 0x7Fu )
+                continue;
+            }
           }
-          else
+          v13 = *a1++;
+          if ( (v12 & 0x40) == 0 || (v13 & 0xC0) != 0x80 )
           {
-            v3 = v13 | 0x48228000;
+LABEL_60:
+            a1 -= 2;
+            break;
+          }
+          if ( (v12 & 0x20) != 0 )
+          {
+            if ( (v12 & 0x10) != 0 )
+            {
+              if ( ((v13 & 0x3F | ((v12 & 0xF) << 6)) >> 4) - 1 > 0xF )
+                goto LABEL_60;
+              v14 = *a1 & 0xC0;
+              if ( v14 != (char)0x80 || (a1[1] & 0xC0) != v14 )
+                goto LABEL_60;
+              v15 = 2LL;
+            }
+            else
+            {
+              v16 = v13 & 0x20 | ((v12 & 0xF) << 6) & 0x3E0;
+              if ( !v16 || v16 == 864 || (*a1 & 0xC0) != 0x80 )
+                goto LABEL_60;
+              v15 = 1LL;
+            }
+            --a2;
+            a1 += v15;
+          }
+          else if ( (v12 & 0x1E) == 0 )
+          {
+            goto LABEL_60;
           }
           --a2;
         }
-        else
-        {
-          v14 = v9 & 0x1F;
-          if ( v14 <= 1 )
-            goto LABEL_30;
-          v3 = v14 | 0x800000;
-        }
+LABEL_8:
+        v3 = 0;
       }
-      if ( (v8 & 0xC0) != 0x80 )
-      {
-        a1 = v7;
-        a2 += v3 >> 30;
-LABEL_30:
-        v5 = 263;
-        ++a2;
-        goto LABEL_25;
-      }
-      v3 = (v3 << 6) | v8 & 0x3F;
-      if ( (v3 & 0x20000000) != 0 )
-        break;
-      if ( (v3 & 0x10000000) != 0 )
+      else if ( (v3 & 0x10000000) != 0 )
       {
         if ( (v3 & 0x800000) == 0 && (v3 & 0x1F0u) - 16 > 0xF0 )
-          goto LABEL_30;
+          goto LABEL_7;
       }
       else if ( (v3 & 0x3E0) == 0 || (v3 & 0x3E0) == 0x360 )
       {
-        goto LABEL_30;
+        goto LABEL_7;
       }
     }
-LABEL_6:
-    if ( (unsigned __int64)(v4 - a1) <= 0xD )
-      break;
-    v11 = (unsigned __int64)(v4 - 7);
-    while ( (unsigned __int64)a1 < v11 )
+    else
     {
-      v12 = *a1++;
-      if ( v12 <= 0x7F )
-      {
-        if ( ((unsigned __int8)a1 & 1) == 0 || (v12 = *a1, ++a1, v12 <= 0x7F) )
-        {
-          if ( ((unsigned __int8)a1 & 2) == 0 )
-            goto LABEL_20;
-          LOWORD(v12) = *(_WORD *)a1;
-          if ( (*(_WORD *)a1 & 0x8080) == 0 )
-          {
-            a1 += 2;
+      v8 = v7;
 LABEL_20:
-            while ( (unsigned __int64)a1 < v11 )
-            {
-              v12 = *(_DWORD *)a1;
-              if ( ((*(_DWORD *)a1 | *((_DWORD *)a1 + 1)) & 0x80808080) != 0 )
-                goto LABEL_48;
-              a1 += 8;
-              if ( (unsigned __int64)a1 >= v11 )
-                break;
-              v12 = *(_DWORD *)a1;
-              if ( ((*(_DWORD *)a1 | *((_DWORD *)a1 + 1)) & 0x80808080) != 0 )
-                goto LABEL_48;
-              a1 += 8;
-            }
-            break;
-          }
-LABEL_48:
-          ++a1;
-          if ( (unsigned __int8)v12 <= 0x7Fu )
-            continue;
-        }
-      }
-      v15 = *a1++;
-      if ( (v12 & 0x40) == 0 || (v15 & 0xC0) != 0x80 )
-      {
-LABEL_64:
-        a1 -= 2;
-        break;
-      }
-      if ( (v12 & 0x20) != 0 )
-      {
-        if ( (v12 & 0x10) != 0 )
-        {
-          if ( ((v15 & 0x3F | ((v12 & 0xF) << 6)) >> 4) - 1 > 0xF )
-            goto LABEL_64;
-          v16 = *a1 & 0xC0;
-          if ( v16 != (char)0x80 || (a1[1] & 0xC0) != v16 )
-            goto LABEL_64;
-          v17 = 2LL;
-        }
-        else
-        {
-          v18 = v15 & 0x20 | ((v12 & 0xF) << 6) & 0x3E0;
-          if ( !v18 || v18 == 864 || (*a1 & 0xC0) != 0x80 )
-            goto LABEL_64;
-          v17 = 1LL;
-        }
-        --a2;
-        a1 += v17;
-      }
-      else if ( (v12 & 0x1E) == 0 )
-      {
-        goto LABEL_64;
-      }
+      if ( v8 <= 0x7F )
+        goto LABEL_17;
       --a2;
+      if ( (v8 & 0x40) == 0 )
+        goto LABEL_7;
+      if ( (v8 & 0x20) != 0 )
+      {
+        v9 = v8 & 0xF;
+        if ( (v8 & 0x10) != 0 )
+        {
+          if ( v9 <= 4 )
+          {
+            v3 = v9 | 0x504D0C00;
+            goto LABEL_26;
+          }
+          goto LABEL_7;
+        }
+        v3 = v9 | 0x48228000;
+LABEL_26:
+        --a2;
+      }
+      else
+      {
+        v10 = v8 & 0x1F;
+        if ( v10 <= 1 )
+          goto LABEL_7;
+        v3 = v10 | 0x800000;
+      }
     }
-LABEL_25:
-    v3 = 0;
   }
-  while ( a1 < v4 )
+  if ( v3 )
   {
-    v9 = *a1++;
-    if ( v9 > 0x7F )
-      goto LABEL_5;
+    a2 += (v3 >> 30) + 1;
+    v5 = 263;
   }
-LABEL_12:
   result = v5;
   *a3 = 2 * a2;
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTimerAdjust @ 0x14060BDCC
+ * XREFs of ExpTimerAdjust @ 0x1405B66D4
  * Callers:
- *     PspSetProcessTimerDelayForKTimers @ 0x1405A4840 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405823A8 (PspSetProcessTimerDelayForKTimers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     KeCancelTimerInternal @ 0x140369280 (KeCancelTimerInternal.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     KeCancelTimerInternal @ 0x140320F88 (KeCancelTimerInternal.c)
  */
 
 char __fastcall ExpTimerAdjust(PKTIMER Timer, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
@@ -79,6 +79,6 @@ char __fastcall ExpTimerAdjust(PKTIMER Timer, unsigned int a2, __int64 a3, __int
       Lock,
       (PKDPC)((unsigned __int64)&Timer[2].TimerListEntry & -(__int64)(v17 != 0)));
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&Timer[1].Header.Lock);
+  KxReleaseSpinLock((PKSPIN_LOCK)&Timer[1]);
   return v9;
 }

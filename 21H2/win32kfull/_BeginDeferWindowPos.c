@@ -1,10 +1,9 @@
 /*
- * XREFs of _BeginDeferWindowPos @ 0x1C009DBF8
+ * XREFs of _BeginDeferWindowPos @ 0x1C0032010
  * Callers:
- *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009DA04 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
- *     NtUserBeginDeferWindowPos @ 0x1C009DBB0 (NtUserBeginDeferWindowPos.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0033494 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
  * Callees:
- *     AllocateCvr @ 0x1C009DC70 (AllocateCvr.c)
+ *     AllocateCvr @ 0x1C0032080 (AllocateCvr.c)
  */
 
 __int64 __fastcall BeginDeferWindowPos(unsigned int a1, __int64 a2, __int64 a3)

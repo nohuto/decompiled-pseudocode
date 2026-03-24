@@ -1,27 +1,28 @@
 /*
- * XREFs of KiChargeSchedulingGroupCycleTime @ 0x140308808
+ * XREFs of KiChargeSchedulingGroupCycleTime @ 0x140259900
  * Callers:
- *     KiCheckMaxOverQuotaTransition @ 0x140305858 (KiCheckMaxOverQuotaTransition.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1403084DC (KiTransitionSchedulingGroupGeneration.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140364F20 (KiRecomputeGroupSchedulingRank.c)
+ *     KiComputeGroupSchedulingRank @ 0x1402594A0 (KiComputeGroupSchedulingRank.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x140259550 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x14030DA40 (KiCheckMaxOverQuotaTransition.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x14035DE50 (KiRecomputeGroupSchedulingRank.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
  */
 
-bool __fastcall KiChargeSchedulingGroupCycleTime(volatile signed __int64 *a1, _QWORD *a2)
+_BOOL8 __fastcall KiChargeSchedulingGroupCycleTime(volatile signed __int64 *a1, _QWORD *a2)
 {
-  unsigned __int64 v3; // rcx
-  bool v4; // bl
-  ULONG_PTR v6; // rcx
+  unsigned __int64 v2; // r8
+  bool v3; // bl
+  struct _KDPC *v5; // rax
 
-  v3 = a2[5] - *a2;
+  v2 = a2[5] - *a2;
   a2[5] = *a2;
-  v4 = (__int64)(v3 + _InterlockedExchangeAdd64(a1 + 6, v3)) <= 0;
-  if ( *((__int64 *)a1 + 4) > 0 && (__int64)(v3 + _InterlockedExchangeAdd64(a1 + 4, v3)) <= 0 )
+  v3 = (__int64)(v2 + _InterlockedExchangeAdd64(a1 + 6, v2)) <= 0;
+  if ( *((__int64 *)a1 + 4) > 0 && (__int64)(v2 + _InterlockedExchangeAdd64(a1 + 4, v2)) <= 0 )
   {
-    v6 = _InterlockedExchange64(a1 + 9, 0LL);
-    if ( v6 )
-      KiInsertQueueDpc(v6, 0LL, 0LL, 0LL, 0);
+    v5 = (struct _KDPC *)_InterlockedExchange64(a1 + 9, 0LL);
+    if ( v5 )
+      KeInsertQueueDpc(v5, 0LL, 0LL);
   }
-  return v4;
+  return v3;
 }

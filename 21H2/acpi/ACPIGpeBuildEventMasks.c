@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIGpeBuildEventMasks @ 0x1C001B8FC
+ * XREFs of ACPIGpeBuildEventMasks @ 0x1C001718C
  * Callers:
- *     ACPITableLoad @ 0x1C001F8F0 (ACPITableLoad.c)
- *     ACPITableUnload @ 0x1C0060860 (ACPITableUnload.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
+ *     ACPITableUnload @ 0x1C005FA70 (ACPITableUnload.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     AMLIIterateSiblingsNext @ 0x1C001BA54 (AMLIIterateSiblingsNext.c)
- *     ACPIGpeInstallRemoveIndex @ 0x1C001D2F0 (ACPIGpeInstallRemoveIndex.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
- *     AMLIGetFirstChild @ 0x1C002BFAC (AMLIGetFirstChild.c)
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIGetFirstChild @ 0x1C001665C (AMLIGetFirstChild.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C00172E4 (ACPIGpeInstallRemoveIndex.c)
+ *     AMLIIterateSiblingsNext @ 0x1C0017560 (AMLIIterateSiblingsNext.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
  */
 
 void ACPIGpeBuildEventMasks()
@@ -18,8 +18,8 @@ void ACPIGpeBuildEventMasks()
   KIRQL v0; // di
   int v1; // eax
   __int64 v2; // rcx
-  _QWORD *i; // rax
-  _QWORD *v4; // rbx
+  volatile signed __int32 *i; // rax
+  volatile signed __int32 *v4; // rbx
   __int64 v5; // rax
   int v6; // r8d
   unsigned int v7; // edx
@@ -31,20 +31,20 @@ void ACPIGpeBuildEventMasks()
   unsigned int j; // ebx
   unsigned int *v14; // r10
   int v15; // edx
-  __int64 v16; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v16; // [rsp+40h] [rbp+8h] BYREF
 
   v16 = 0LL;
   v0 = KeAcquireSpinLockRaiseToDpc(&GpeTableLock);
   KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
-  v1 = AMLIGetNameSpaceObject("\\_GPE", 0LL, &v16, 0);
+  v1 = AMLIGetNameSpaceObject("\\_GPE", 0LL, (unsigned __int64 *)&v16, 0);
   if ( v1 >= 0 )
   {
-    for ( i = (_QWORD *)AMLIGetFirstChild(v16); ; i = (_QWORD *)AMLIIterateSiblingsNext(v4) )
+    for ( i = AMLIGetFirstChild(v16); ; i = (volatile signed __int32 *)AMLIIterateSiblingsNext(v4) )
     {
       v4 = i;
       if ( !i )
         goto LABEL_14;
-      v5 = *i;
+      v5 = *(_QWORD *)i;
       if ( *(_WORD *)(v5 + 66) == 8 && *(_BYTE *)(v5 + 40) == 95 )
       {
         v6 = *(_DWORD *)(v5 + 40) >> 8;
@@ -69,14 +69,14 @@ void ACPIGpeBuildEventMasks()
         if ( (_BYTE)v6 == 76 )
         {
           v12 = 1LL;
-LABEL_11:
+LABEL_10:
           ACPIGpeInstallRemoveIndex(v11, v12, 1LL, &v16);
           continue;
         }
         if ( (_BYTE)v6 == 69 )
         {
           v12 = 0LL;
-          goto LABEL_11;
+          goto LABEL_10;
         }
       }
     }

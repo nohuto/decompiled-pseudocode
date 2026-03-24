@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x140124818
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x140124838
  * Callers:
- *     MiFindBestOutswapPagefile @ 0x1400E4D8C (MiFindBestOutswapPagefile.c)
- *     MiGetKernelStackSwapSupport @ 0x140124014 (MiGetKernelStackSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x14012411C (MiFindFreePageFileSpace.c)
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x1402B8970 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiFindBestOutswapPagefile @ 0x1400E4DAC (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x140124034 (MiGetKernelStackSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1402B8A70 (MiTrimUnusedPageFileRegionsWorker.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)

@@ -1,25 +1,25 @@
 /*
- * XREFs of ?FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z @ 0x1C01D2150
+ * XREFs of ?FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z @ 0x1C01D6500
  * Callers:
- *     _NotifyOverlayWindow @ 0x1C01D3A0C (_NotifyOverlayWindow.c)
+ *     _NotifyOverlayWindow @ 0x1C01D7BA0 (_NotifyOverlayWindow.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     BuildHwndList @ 0x1C0071A90 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00722E0 (FreeHwndList.c)
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     ?SetWindowCompositionVideoOverlayActive@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C0212E70 (-SetWindowCompositionVideoOverlayActive@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION.c)
+ *     BuildHwndList @ 0x1C006CB60 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DAC0 (FreeHwndList.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     SetWindowCompositionVideoOverlayActive @ 0x1C021469C (SetWindowCompositionVideoOverlayActive.c)
  */
 
 __int64 __fastcall FixupOverlayWindowAttributes(struct tagWND *a1)
 {
   unsigned int v1; // ebx
   __int64 TopLevelWindow; // rax
-  struct tagWND *v3; // rsi
-  int v4; // eax
-  BOOL v5; // ebp
+  struct tagWND *v3; // rbp
+  __int64 v4; // rax
+  int v5; // edi
   struct tagBWL *v6; // rax
   struct tagBWL *v7; // r14
-  _QWORD *i; // rdi
+  unsigned __int64 *i; // rsi
   __int64 v9; // rax
   __int128 v11; // [rsp+20h] [rbp-28h] BYREF
   __int64 v12; // [rsp+30h] [rbp-18h]
@@ -29,27 +29,25 @@ __int64 __fastcall FixupOverlayWindowAttributes(struct tagWND *a1)
   v3 = (struct tagWND *)TopLevelWindow;
   if ( TopLevelWindow )
   {
-    v4 = *(_DWORD *)(TopLevelWindow + 320) & 0x10000;
-    v5 = v4 != 0;
-    if ( (v4 & 0x10000) != 0 )
+    v4 = *(_QWORD *)(TopLevelWindow + 40);
+    v5 = -__CFSHR__(*(_DWORD *)(v4 + 232), 11);
+    if ( __CFSHR__(*(_DWORD *)(v4 + 232), 11) )
     {
 LABEL_12:
       v11 = 0LL;
       LODWORD(v11) = v5;
       v12 = 0LL;
-      LOBYTE(v1) = (int)SetWindowCompositionVideoOverlayActive(
-                          v3,
-                          (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v11) >= 0;
+      LOBYTE(v1) = (int)SetWindowCompositionVideoOverlayActive(v3, &v11) >= 0;
       return v1;
     }
-    v6 = BuildHwndList(v3, (const struct tagWND *)1, 0LL, 1);
+    v6 = BuildHwndList(v3, 1, 0LL);
     v7 = v6;
     if ( v6 )
     {
-      for ( i = (_QWORD *)((char *)v6 + 32); *i != 1LL; ++i )
+      for ( i = (unsigned __int64 *)((char *)v6 + 32); *i != 1; ++i )
       {
         v9 = HMValidateHandleNoSecure(*i, 1);
-        if ( v9 && (*(_DWORD *)(v9 + 320) & 0x10000) != 0 )
+        if ( v9 && (*(_DWORD *)(*(_QWORD *)(v9 + 40) + 232LL) & 0x400) != 0 )
         {
           v5 = 1;
           break;

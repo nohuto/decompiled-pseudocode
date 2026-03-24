@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRotation@CDxHandleBitmapRealization@@UEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x18000E270
+ * XREFs of ?GetRotation@CDxHandleBitmapRealization@@UEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180017FD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetRotation(CDxHandleBitmapRealization *this)
 {
-  return D3DDDIRotationToDXGIRotation(*((unsigned int *)this + 41));
+  return D3DDDIRotationToDXGIRotation(*((unsigned int *)this + 40));
 }

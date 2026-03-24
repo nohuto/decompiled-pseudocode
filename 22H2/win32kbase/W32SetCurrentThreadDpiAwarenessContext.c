@@ -1,48 +1,44 @@
 /*
- * XREFs of W32SetCurrentThreadDpiAwarenessContext @ 0x1C004D160
+ * XREFs of W32SetCurrentThreadDpiAwarenessContext @ 0x1C00B2BE8
  * Callers:
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
- *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C004D3B0 (CaptureAndValidateUserModeDpiAwarenessContext.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C002C07C (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall W32SetCurrentThreadDpiAwarenessContext(int a1)
 {
   unsigned int v1; // ebx
   int v2; // esi
-  __int64 v3; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v5; // rcx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rdi
   int *v6; // rax
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v9; // rdx
 
   v1 = 0;
   v2 = 0;
   if ( a1 >= 0 )
     v2 = a1;
-  v3 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v5 = ThreadWin32Thread;
   if ( ThreadWin32Thread )
-    v3 = *ThreadWin32Thread;
-  if ( v3 )
   {
-    if ( *(_QWORD *)(v3 + 360) )
-      CaptureAndValidateUserModeDpiAwarenessContext(v3);
-    v1 = *(_DWORD *)(v3 + 340);
-    *(_DWORD *)(v3 + 340) = v2;
-    v6 = *(int **)(v3 + 360);
+    v6 = *(int **)(ThreadWin32Thread + 360);
+    if ( v6 )
+    {
+      CaptureAndValidateUserModeDpiAwarenessContext(v5);
+      v6 = *(int **)(v5 + 360);
+    }
+    v1 = *(_DWORD *)(v5 + 340);
+    *(_DWORD *)(v5 + 340) = v2;
     if ( v6 )
       *v6 = v2;
   }
   if ( !v1 )
-  {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v5);
-    v9 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v9 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-    return *(_DWORD *)(v9 + 280) | 0x80000000;
-  }
+    v1 = *(_DWORD *)(PsGetCurrentProcessWin32Process(v4) + 280) | 0x80000000;
+  if ( v5 && (*(_DWORD *)(v5 + 328) & 4) != 0 && (v1 & 0xF) == 2 && (v1 & 0xF0) == 0x20 )
+    v1 |= 0x20000000u;
   return v1;
 }

@@ -1,26 +1,32 @@
 /*
- * XREFs of ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C015E830
+ * XREFs of ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C014B2DC
  * Callers:
- *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C02F38DC (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
- *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3AF0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F4330 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
- *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F4428 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C014B170 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C014B1F8 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014B544 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02CF1D4 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DDA_CLIPLINE::vUnflip(DDA_CLIPLINE *this, int *a2, int *a3)
 {
-  int v3; // r9d
+  int v3; // eax
+  int v4; // r9d
 
+  v3 = *(_DWORD *)this;
   if ( (*(_DWORD *)this & 5) != 0 )
   {
-    v3 = *a2;
+    v4 = *a2;
     *a2 = *a3;
-    *a3 = v3;
+    *a3 = v4;
+    v3 = *(_DWORD *)this;
   }
-  if ( (*(_DWORD *)this & 8) != 0 )
+  if ( (v3 & 8) != 0 )
+  {
     *a3 = -*a3;
-  if ( (*(_DWORD *)this & 0x20) != 0 )
+    v3 = *(_DWORD *)this;
+  }
+  if ( (v3 & 0x20) != 0 )
     *a2 = -*a2;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBusIrpEject @ 0x1C00AC920
+ * XREFs of ACPIBusIrpEject @ 0x1C00ADD60
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpInvokeDispatchRoutine @ 0x1C009FC64 (ACPIIrpInvokeDispatchRoutine.c)
+ *     ACPIIrpInvokeDispatchRoutine @ 0x1C00A19F4 (ACPIIrpInvokeDispatchRoutine.c)
  */
 
 __int64 __fastcall ACPIBusIrpEject(ULONG_PTR a1, IRP *a2, __int64 a3)

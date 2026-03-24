@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkOpenDwmHandleForCompositionObjectReference@@YAJPEAXPEAPEAX@Z @ 0x1C0005270
+ * XREFs of ?DxgkOpenDwmHandleForCompositionObjectReference@@YAJPEAXPEAPEAX@Z @ 0x1C0018530
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0007114 (-OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0018548 (-OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DxgkOpenDwmHandleForCompositionObjectReference(void *a1, void **a2)

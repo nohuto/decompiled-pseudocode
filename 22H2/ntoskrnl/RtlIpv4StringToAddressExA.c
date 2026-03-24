@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv4StringToAddressExA @ 0x1405AED90
+ * XREFs of RtlIpv4StringToAddressExA @ 0x14058C150
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv4StringToAddressA @ 0x1403CEE10 (RtlIpv4StringToAddressA.c)
- *     __isascii @ 0x1403D99D0 (__isascii.c)
- *     isdigit @ 0x1403D99F0 (isdigit.c)
- *     islower @ 0x1403D9A20 (islower.c)
- *     isxdigit @ 0x1403D9AE0 (isxdigit.c)
+ *     RtlIpv4StringToAddressA @ 0x140390860 (RtlIpv4StringToAddressA.c)
+ *     __isascii @ 0x1403D1FB0 (__isascii.c)
+ *     isdigit @ 0x1403D1FD0 (isdigit.c)
+ *     islower @ 0x1403D2000 (islower.c)
+ *     isxdigit @ 0x1403D20C0 (isxdigit.c)
  */
 
 NTSTATUS __stdcall RtlIpv4StringToAddressExA(
@@ -16,71 +16,75 @@ NTSTATUS __stdcall RtlIpv4StringToAddressExA(
         struct in_addr *Address,
         PUSHORT Port)
 {
-  PCSTR v5; // rsi
+  PCSTR v5; // rdi
   unsigned __int16 v6; // bx
   unsigned __int16 v7; // r14
-  CHAR v8; // bp
-  int v9; // eax
-  int v10; // ecx
-  __int16 v11; // bx
-  int v12; // eax
-  __int16 v13; // cx
-  PCSTR v15; // [rsp+50h] [rbp+8h] BYREF
+  CHAR v8; // r15
+  CHAR v9; // bp
+  int v10; // eax
+  int v11; // ecx
+  __int16 v12; // bx
+  int v13; // eax
+  __int16 v14; // cx
+  PCSTR v16; // [rsp+50h] [rbp+8h] BYREF
 
-  v15 = 0LL;
-  if ( !AddressString || !Address || !Port || RtlIpv4StringToAddressA(AddressString, Strict, &v15, Address) < 0 )
+  v16 = 0LL;
+  if ( !AddressString || !Address || !Port || RtlIpv4StringToAddressA(AddressString, Strict, &v16, Address) < 0 )
     return -1073741811;
-  if ( *v15 == 58 )
+  if ( *v16 != 58 )
   {
-    v5 = v15 + 1;
-    v6 = 0;
-    v7 = 10;
-    if ( v15[1] == 48 )
+    if ( !*v16 )
     {
-      v7 = 8;
-      v5 = v15 + 2;
-      if ( ((v15[2] - 88) & 0xDF) == 0 )
-      {
-        v7 = 16;
-        v5 = v15 + 3;
-      }
-    }
-    v8 = *v5;
-    if ( *v5 )
-    {
-      while ( 1 )
-      {
-        ++v5;
-        if ( _isascii(v8) && isdigit(v8) && (unsigned __int16)(v8 - 48) < v7 )
-        {
-          if ( v6 * (unsigned int)v7 + v8 - 48 > 0xFFFF )
-            return -1073741811;
-          v6 = v8 + v6 * v7 - 48;
-        }
-        else
-        {
-          if ( v7 != 16 || !_isascii(v8) || !isxdigit(v8) )
-            return -1073741811;
-          if ( !_isascii(v8) || (v9 = islower(v8), v10 = 97, !v9) )
-            v10 = 65;
-          if ( v8 + 16 * (unsigned int)v6 - v10 + 10 > 0xFFFF )
-            return -1073741811;
-          v11 = 16 * v6;
-          if ( !_isascii(v8) || (v12 = islower(v8), v13 = 97, !v12) )
-            v13 = 65;
-          v6 = v8 - v13 + 10 + v11;
-        }
-        v8 = *v5;
-        if ( !*v5 )
-          goto LABEL_30;
-      }
+      v6 = 0;
+      goto LABEL_31;
     }
     return -1073741811;
   }
-  if ( *v15 )
-    return -1073741811;
+  v5 = v16 + 1;
   v6 = 0;
-LABEL_30:
+  v7 = 10;
+  if ( v16[1] == 48 )
+  {
+    v7 = 8;
+    v5 = v16 + 2;
+    if ( ((v16[2] - 88) & 0xDF) == 0 )
+    {
+      v7 = 16;
+      v5 = v16 + 3;
+    }
+  }
+  v8 = *v5;
+  v9 = *v5;
+  if ( !*v5 )
+    return -1073741811;
+  do
+  {
+    ++v5;
+    if ( _isascii(v9) && isdigit(v9) && (unsigned __int16)(v9 - 48) < v7 )
+    {
+      if ( v6 * (unsigned int)v7 + v9 - 48 > 0xFFFF )
+        return -1073741811;
+      v6 = v9 + v6 * v7 - 48;
+    }
+    else
+    {
+      if ( v7 != 16 || !_isascii(v9) || !isxdigit(v9) )
+        return -1073741811;
+      if ( !_isascii(v9) || (v10 = islower(v9), v11 = 97, !v10) )
+        v11 = 65;
+      if ( v9 + 16 * (unsigned int)v6 - v11 + 10 > 0xFFFF )
+        return -1073741811;
+      v12 = 16 * v6;
+      if ( !_isascii(v9) || (v13 = islower(v9), v14 = 97, !v13) )
+        v14 = 65;
+      v6 = v9 - v14 + 10 + v12;
+    }
+    v9 = *v5;
+  }
+  while ( *v5 );
+  if ( !v8 )
+    return -1073741811;
+LABEL_31:
   *Port = __ROR2__(v6, 8);
   return 0;
 }

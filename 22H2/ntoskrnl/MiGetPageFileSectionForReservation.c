@@ -1,54 +1,51 @@
 /*
- * XREFs of MiGetPageFileSectionForReservation @ 0x14063ACB4
+ * XREFs of MiGetPageFileSectionForReservation @ 0x1403873C0
  * Callers:
- *     MiReservePageFileSpace @ 0x140284880 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x140638354 (MiBuildReservationCluster.c)
+ *     MiReservePageFileSpace @ 0x14023CB00 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x1403866F0 (MiBuildReservationCluster.c)
  * Callees:
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiReleasePageFileSectionInfo @ 0x14063B5E8 (MiReleasePageFileSectionInfo.c)
- *     MiReferencePfBackedSection @ 0x140669B60 (MiReferencePfBackedSection.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
+ *     MiReferencePfBackedSection @ 0x14031E588 (MiReferencePfBackedSection.c)
+ *     MiReleasePageFileSectionInfo @ 0x140387384 (MiReleasePageFileSectionInfo.c)
  */
 
-__int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, _QWORD *a2, int a3)
 {
   _QWORD *v6; // rax
-  _QWORD *v7; // r9
+  _QWORD *v7; // rcx
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // r8
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rdx
+  __int64 v13; // rax
 
   v6 = (_QWORD *)MiReferencePfBackedSection(a1);
   v7 = v6;
   if ( v6 )
   {
-    *(_QWORD *)a2 = *v6;
-    *(_QWORD *)(a2 + 16) = a1 & 0xFFFFFFFFFFFFF000uLL;
+    *a2 = *v6;
     v8 = a1 & 0xFFFFFFFFFFFFF000uLL;
+    a2[2] = a1 & 0xFFFFFFFFFFFFF000uLL;
     v9 = (a1 & 0xFFFFFFFFFFFFF000uLL) + 4088;
-    *(_QWORD *)(a2 + 24) = v9;
+    a2[3] = v9;
     v10 = v7[1];
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) < v10 )
       v8 = v7[1];
-    *(_QWORD *)(a2 + 16) = v8;
+    a2[2] = v8;
     v11 = v10 + 8LL * (unsigned int)(*((_DWORD *)v7 + 11) - 1);
-    v12 = (a1 & 0xFFFFFFFFFFFFF000uLL) + 4088;
     if ( v9 > v11 )
-      v12 = v11;
-    *(_QWORD *)(a2 + 24) = v12;
+      v9 = v11;
+    a2[3] = v9;
     if ( !a3 )
     {
-      *(_QWORD *)(a2 + 8) = 0LL;
+      a2[1] = 0LL;
       return 1LL;
     }
-    v14 = MiLockProtoPoolPage(a1, (unsigned __int8 *)(a2 + 32));
-    *(_QWORD *)(a2 + 8) = v14;
-    if ( v14 )
+    v13 = MiLockProtoPoolPage(a1, (__int64)(a2 + 4));
+    a2[1] = v13;
+    if ( v13 )
       return 1LL;
-    MiReleasePageFileSectionInfo(a2, v15);
+    MiReleasePageFileSectionInfo((__int64)a2);
   }
   return 0LL;
 }

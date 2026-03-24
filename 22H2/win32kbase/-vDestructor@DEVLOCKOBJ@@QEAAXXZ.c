@@ -1,96 +1,95 @@
 /*
- * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003881C
+ * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003C54C
  * Callers:
- *     GreGetClipBox @ 0x1C00389B0 (GreGetClipBox.c)
- *     GreGetNearestColor @ 0x1C005FC20 (GreGetNearestColor.c)
- *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C01545DC (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C0155B48 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C0156018 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
- *     pProcessDfbSurfacesInternal @ 0x1C015AC60 (pProcessDfbSurfacesInternal.c)
- *     GreSetMagicColors @ 0x1C016C76C (GreSetMagicColors.c)
+ *     GreGetNearestColor @ 0x1C0021710 (GreGetNearestColor.c)
+ *     GreGetClipBox @ 0x1C003B540 (GreGetClipBox.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003C518 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE880 (pProcessDfbSurfacesInternal.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C013E41C (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     GreSetMagicColors @ 0x1C0149888 (GreSetMagicColors.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0031470 (IsThreadCrossSessionAttached.c)
+ *     GreDecLockCount @ 0x1C003ED30 (GreDecLockCount.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DEVLOCKOBJ::vDestructor(struct _ERESOURCE *this)
+void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
 {
-  struct _ERESOURCE *v1; // rbx
-  int v2; // eax
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v4; // rax
-  __int64 *v5; // rax
-  __int64 v6; // rax
-  int v7; // eax
-  struct _LIST_ENTRY *Blink; // rdi
-  __int64 v9; // rcx
-  int v10; // r8d
-  struct _ERESOURCE *v11; // rcx
-  __int64 v12; // rax
+  int v2; // edi
+  int v3; // eax
+  int v4; // eax
+  int v5; // eax
+  __int64 v6; // rdx
+  struct _ERESOURCE *v7; // rcx
+  __int64 ThreadWin32Thread; // rax
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 *v10; // rax
+  __int64 v11; // rax
 
-  v1 = this;
-  if ( qword_1C0294730 && (int)qword_1C0294730() >= 0 && qword_1C0294738 )
-    qword_1C0294738(v1);
-  v2 = *(_DWORD *)&v1->ActiveCount;
-  if ( (v2 & 0x1000) != 0 )
+  v2 = -1073741637;
+  if ( qword_1C0255320 )
+    v3 = qword_1C0255320();
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 && qword_1C0255328 )
+    qword_1C0255328(this);
+  v4 = *((_DWORD *)this + 6);
+  if ( (v4 & 0x1000) != 0 )
   {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
     if ( ThreadWin32Thread )
+      --*(_DWORD *)(ThreadWin32Thread + 104);
+    *((_DWORD *)this + 6) &= ~0x1000u;
+    CurrentThread = KeGetCurrentThread();
+    if ( !IsThreadCrossSessionAttached() )
     {
-      v4 = *ThreadWin32Thread;
-      if ( v4 )
-        --*(_DWORD *)(v4 + 104);
-    }
-    *(_DWORD *)&v1->ActiveCount &= ~0x1000u;
-    v5 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v5 )
-    {
-      v6 = *v5;
-      if ( v6 )
+      v10 = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( v10 )
       {
-        *(_QWORD *)(v6 + 320) = 0LL;
-        *(_QWORD *)(v6 + 312) = 0LL;
+        v11 = *v10;
+        if ( v11 )
+        {
+          *(_QWORD *)(v11 + 320) = 0LL;
+          *(_QWORD *)(v11 + 312) = 0LL;
+        }
       }
     }
   }
-  else if ( (v2 & 0x800000) != 0 )
+  else if ( (v4 & 0x800000) != 0 )
   {
-    v12 = W32GetThreadWin32Thread(KeGetCurrentThread());
-    if ( v12 )
-      --*(_DWORD *)(v12 + 104);
-    *(_DWORD *)&v1->ActiveCount &= ~0x800000u;
+    GreDecLockCount();
+    *((_DWORD *)this + 6) &= ~0x800000u;
   }
-  if ( v1->SystemResourcesList.Flink )
+  if ( *(_QWORD *)this )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemTrg", v1->SystemResourcesList.Flink);
-    this = (struct _ERESOURCE *)v1->SystemResourcesList.Flink;
-    if ( v1->SystemResourcesList.Flink )
+    EtwTraceGreLockReleaseSemaphore(L"hsemTrg", *(_QWORD *)this);
+    if ( *(_QWORD *)this )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(this);
+      ExReleaseResourceAndLeaveCriticalRegion(*(PERESOURCE *)this);
       PsLeavePriorityRegion();
     }
   }
-  v7 = *(_DWORD *)&v1->ActiveCount;
-  if ( (v7 & 8) != 0 )
-    *(_DWORD *)&v1->ActiveCount = v7 & 0xFFFFFFF7;
-  Blink = v1->SystemResourcesList.Blink;
-  if ( Blink )
+  v5 = *((_DWORD *)this + 6);
+  if ( (v5 & 8) != 0 )
+    *((_DWORD *)this + 6) = v5 & 0xFFFFFFF7;
+  v6 = *((_QWORD *)this + 1);
+  if ( v6 )
   {
-    v9 = *(_QWORD *)(SGDGetSessionState(this) + 24);
-    if ( *(_DWORD *)(v9 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      McTemplateK0pz_EtwWriteTransfer(v9, (unsigned int)&LockRelease, v10, (_DWORD)Blink, (__int64)L"hsemDMC");
-    v11 = (struct _ERESOURCE *)v1->SystemResourcesList.Blink;
-    if ( v11 )
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v6);
+    v7 = (struct _ERESOURCE *)*((_QWORD *)this + 1);
+    if ( v7 )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v11);
+      ExReleaseResourceAndLeaveCriticalRegion(v7);
       PsLeavePriorityRegion();
     }
   }
-  if ( qword_1C0294740 && (int)qword_1C0294740() >= 0 )
+  if ( qword_1C0255330 )
+    v2 = qword_1C0255330();
+  if ( v2 >= 0 )
   {
-    if ( qword_1C0294748 )
-      qword_1C0294748(&v1[1], &v1->SpinLock, &v1->Address, &v1->26 + 1);
+    if ( qword_1C0255338 )
+      qword_1C0255338((char *)this + 104, (char *)this + 96, (char *)this + 88, (char *)this + 28);
   }
 }

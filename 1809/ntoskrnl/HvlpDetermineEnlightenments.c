@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlpDetermineEnlightenments @ 0x140278BB4
+ * XREFs of HvlpDetermineEnlightenments @ 0x140278CB4
  * Callers:
- *     HvlPhase0Initialize @ 0x1407259E8 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x1407259C8 (HvlPhase0Initialize.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x14017D6F0 (HviGetHypervisorFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x14017D730 (HviGetEnlightenmentInformation.c)
- *     VslGetNestedPageProtectionFlags @ 0x14018DD30 (VslGetNestedPageProtectionFlags.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvlpGetRegister128 @ 0x14027897C (HvlpGetRegister128.c)
- *     HvlpQueryExtendedCapabilities @ 0x140279118 (HvlpQueryExtendedCapabilities.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1402791B0 (HvlpTryToLockCpuManagementVersion.c)
- *     HviGetHardwareFeatures @ 0x140322250 (HviGetHardwareFeatures.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x14017D750 (HviGetEnlightenmentInformation.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvlpGetRegister128 @ 0x140278A7C (HvlpGetRegister128.c)
+ *     HvlpQueryExtendedCapabilities @ 0x140279218 (HvlpQueryExtendedCapabilities.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x1402792B0 (HvlpTryToLockCpuManagementVersion.c)
+ *     HviGetHardwareFeatures @ 0x140322350 (HviGetHardwareFeatures.c)
  */
 
 __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)

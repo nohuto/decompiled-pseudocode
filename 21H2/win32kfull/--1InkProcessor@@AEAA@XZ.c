@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1InkProcessor@@AEAA@XZ @ 0x1C00EFCC4
+ * XREFs of ??1InkProcessor@@AEAA@XZ @ 0x1C012DE0C
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
- *     ?RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C00F0088 (-RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
- *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024D10C (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
+ *     ?RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C012E00C (-RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
+ *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024FBC0 (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
  */
 
 void __fastcall InkProcessor::~InkProcessor(InkProcessor **this)
@@ -31,9 +31,9 @@ void __fastcall InkProcessor::~InkProcessor(InkProcessor **this)
   }
   if ( this[5] )
     InkFeedbackServer::RemoveInkFeedbackProvider(v2, (struct InkFeedbackProviderBase *)(this + 4));
-  v4 = RegHandle;
-  RegHandle = 0LL;
-  dword_1C0326250 = 0;
+  v4 = qword_1C032B2A8;
+  qword_1C032B2A8 = 0LL;
+  dword_1C032B288 = 0;
   EtwUnregister(v4);
   ExReleasePushLockExclusiveEx(this, 0LL);
   KeLeaveCriticalRegion();

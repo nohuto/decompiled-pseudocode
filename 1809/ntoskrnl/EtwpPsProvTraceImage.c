@@ -4,8 +4,8 @@
  *     EtwpTraceImageUnload @ 0x140089324 (EtwpTraceImageUnload.c)
  *     PerfLogImageLoad @ 0x1405F5ADC (PerfLogImageLoad.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)

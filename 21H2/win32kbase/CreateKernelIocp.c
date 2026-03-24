@@ -1,44 +1,28 @@
 /*
- * XREFs of CreateKernelIocp @ 0x1C005CCB0
+ * XREFs of CreateKernelIocp @ 0x1C00B3780
  * Callers:
- *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C005CC08 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C00B358C (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
  */
 
 void *__fastcall CreateKernelIocp(ULONG NumberOfConcurrentThreads)
 {
   NTSTATUS v1; // eax
   int v2; // edx
-  int v3; // r8d
-  struct _OBJECT_ATTRIBUTES v5; // [rsp+50h] [rbp-38h] BYREF
-  void *v6; // [rsp+98h] [rbp+10h] BYREF
+  struct _OBJECT_ATTRIBUTES v4; // [rsp+30h] [rbp-38h] BYREF
+  void *v5; // [rsp+78h] [rbp+10h] BYREF
 
-  memset(&v5.Length + 1, 0, 20);
-  memset(&v5.Attributes + 1, 0, 20);
-  v6 = 0LL;
-  v5.Length = 48;
-  v5.Attributes = 512;
-  v1 = ZwCreateIoCompletion(&v6, 0x1F0003u, &v5, NumberOfConcurrentThreads);
-  if ( v1 < 0 )
+  memset(&v4.Length + 1, 0, 20);
+  memset(&v4.Attributes + 1, 0, 20);
+  v5 = 0LL;
+  v4.Length = 48;
+  v4.Attributes = 512;
+  v1 = ZwCreateIoCompletion(&v5, 0x1F0003u, &v4, NumberOfConcurrentThreads);
+  if ( v1 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v2,
-        v3,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        17,
-        13,
-        (__int64)&WPP_afdc3993018130db7fa6d08e89ab931d_Traceguids,
-        v1);
-    }
+    LOBYTE(v2) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, v2, 17, 12, (__int64)&WPP_eb65e8752d313ccdb5208ac13de848c5_Traceguids, v1);
   }
-  return v6;
+  return v5;
 }

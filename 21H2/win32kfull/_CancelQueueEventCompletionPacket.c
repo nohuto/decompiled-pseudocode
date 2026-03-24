@@ -1,8 +1,7 @@
 /*
- * XREFs of _CancelQueueEventCompletionPacket @ 0x1C01D9E38
+ * XREFs of _CancelQueueEventCompletionPacket @ 0x1C01D32E0
  * Callers:
- *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00A52B0 (NtUserMsgWaitForMultipleObjectsEx.c)
- *     NtUserCancelQueueEventCompletionPacket @ 0x1C01F1A50 (NtUserCancelQueueEventCompletionPacket.c)
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052BA0 (NtUserMsgWaitForMultipleObjectsEx.c)
  * Callees:
  *     <none>
  */

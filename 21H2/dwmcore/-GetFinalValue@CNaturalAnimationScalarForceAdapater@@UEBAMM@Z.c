@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetFinalValue@CNaturalAnimationScalarForceAdapater@@UEBAMM@Z @ 0x180267220
+ * XREFs of ?GetFinalValue@CNaturalAnimationScalarForceAdapater@@UEBAMM@Z @ 0x180216180
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z @ 0x1802672BC (-GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ?GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z @ 0x18021621C (-GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z.c)
  */
 
 float __fastcall CNaturalAnimationScalarForceAdapater::GetFinalValue(
@@ -20,14 +20,14 @@ float __fastcall CNaturalAnimationScalarForceAdapater::GetFinalValue(
   struct CVector3Force *v9; // [rsp+40h] [rbp+8h] BYREF
 
   v9 = 0LL;
-  v3 = *((_QWORD *)this + 4);
+  v3 = *((_QWORD *)this + 5);
   if ( v3 )
     v4 = *(CNaturalAnimation **)(v3 + 16);
   else
     v4 = 0LL;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v9);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v9);
   CNaturalAnimation::GetVector3Force(v4, &v9);
-  v5 = *((_DWORD *)this + 4);
+  v5 = *((_DWORD *)this + 6);
   if ( v5 )
   {
     if ( v5 != 1 )
@@ -38,6 +38,6 @@ float __fastcall CNaturalAnimationScalarForceAdapater::GetFinalValue(
   {
     v6 = *((float *)v9 + 85);
   }
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v9);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v9);
   return v6;
 }

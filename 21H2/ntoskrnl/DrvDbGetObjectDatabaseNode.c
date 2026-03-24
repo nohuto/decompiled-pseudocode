@@ -1,13 +1,13 @@
 /*
- * XREFs of DrvDbGetObjectDatabaseNode @ 0x140784454
+ * XREFs of DrvDbGetObjectDatabaseNode @ 0x14063ECFC
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x1407827F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A2DA0C (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC44 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     DrvDbFindDatabaseNode @ 0x1406C2248 (DrvDbFindDatabaseNode.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
  */
 
 __int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t **a3, const UNICODE_STRING **a4)
@@ -34,7 +34,7 @@ __int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t *
   {
     v10 = a2;
 LABEL_3:
-    *a4 = *(const UNICODE_STRING **)(a1 + 48);
+    *a4 = *(const UNICODE_STRING **)(a1 + 40);
     goto LABEL_4;
   }
   if ( v10 == a2 )
@@ -43,7 +43,7 @@ LABEL_3:
   if ( DatabaseNode < 0 )
     return (unsigned int)DatabaseNode;
   DatabaseNode = DrvDbFindDatabaseNode(a1, StringOut.Buffer, a4);
-  RtlFreeUnicodeString(&StringOut);
+  RtlFreeAnsiString(&StringOut);
   if ( DatabaseNode == -1073741772 )
     return (unsigned int)-1073741766;
   if ( DatabaseNode < 0 )

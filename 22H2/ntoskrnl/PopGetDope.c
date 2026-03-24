@@ -1,26 +1,27 @@
 /*
- * XREFs of PopGetDope @ 0x1403C4BE8
+ * XREFs of PopGetDope @ 0x140399604
  * Callers:
- *     PoRegisterDeviceForIdleDetection @ 0x140305040 (PoRegisterDeviceForIdleDetection.c)
- *     PopAssociateThermalRequest @ 0x14084EE80 (PopAssociateThermalRequest.c)
- *     PoVolumeDevice @ 0x14087269C (PoVolumeDevice.c)
- *     PopDeactiveThermalRequest @ 0x140982F78 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x140983228 (PopOrphanCoolingExtension.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x140360670 (PoRegisterDeviceForIdleDetection.c)
+ *     PoVolumeDevice @ 0x14078018C (PoVolumeDevice.c)
+ *     PopAssociateThermalRequest @ 0x14079AC80 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2C38 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1408E2EE8 (PopOrphanCoolingExtension.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopGetDope(__int64 a1)
 {
   __int64 v1; // rdi
-  __int64 Pool2; // rax
-  void *v4; // rbx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v4; // rbx
   unsigned __int64 v5; // rsi
-  unsigned __int8 CurrentIrql; // dl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
@@ -29,34 +30,36 @@ __int64 __fastcall PopGetDope(__int64 a1)
   v1 = *(_QWORD *)(a1 + 312);
   if ( !*(_QWORD *)(v1 + 24) )
   {
-    Pool2 = ExAllocatePool2(64LL, 96LL, 1162891076LL);
-    v4 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x45504F44u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 52) = 0;
-      *(_DWORD *)(Pool2 + 56) = 0;
-      *(_QWORD *)(Pool2 + 40) = Pool2 + 32;
-      *(_QWORD *)(Pool2 + 32) = Pool2 + 32;
-      *(_QWORD *)(Pool2 + 24) = a1;
+      memset(PoolWithTag, 0, 0x60uLL);
+      v4[3] = a1;
+      v4[5] = v4 + 4;
+      v4[4] = v4 + 4;
       v5 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
       if ( !*(_QWORD *)(v1 + 24) )
       {
         *(_QWORD *)(v1 + 24) = v4;
         v4 = 0LL;
       }
-      KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+      KxReleaseSpinLock(&PopDopeGlobalLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-          v11 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+            v11 = (v10 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v5);

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrCtxQuery @ 0x1403628D8
+ * XREFs of RtlpHpVaMgrCtxQuery @ 0x14030944C
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x140351880 (RtlpHpSegMgrCommit.c)
- *     RtlpHpQueryVA @ 0x140362864 (RtlpHpQueryVA.c)
+ *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x140362978 (RtlSparseArrayElementAllocated.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
+ *     RtlSparseArrayElementAllocated @ 0x1403094EC (RtlSparseArrayElementAllocated.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)a3 = v7 << 20;
     v8 = *(unsigned __int8 *)(v6 + 1) + 45LL;
     *(_DWORD *)(a3 + 24) = 16;
-    *(_DWORD *)(a3 + 8) = (*(unsigned __int8 *)(a1 + 48 * v8 + 46) >> 1) & 7;
+    *(_DWORD *)(a3 + 8) = (*(unsigned __int8 *)(a1 + 48 * v8 + 46) >> 1) & 3;
     *(_DWORD *)(a3 + 12) = *(unsigned __int8 *)(a1 + 48 * v8 + 45);
     *(_QWORD *)(a3 + 16) = v6 + 8;
     return 0LL;

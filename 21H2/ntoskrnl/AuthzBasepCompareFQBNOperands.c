@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepCompareFQBNOperands @ 0x14064A96C
+ * XREFs of AuthzBasepCompareFQBNOperands @ 0x1405C1890
  * Callers:
- *     AuthzBasepValueInSet @ 0x140218D80 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x140219B90 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024F320 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
  * Callees:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14021984C (AuthzBasepUnicodeStringFromOperandValue.c)
- *     AuthzBasepGetConstantOperand @ 0x140219CE4 (AuthzBasepGetConstantOperand.c)
- *     RtlIsNameInExpression @ 0x140219D90 (RtlIsNameInExpression.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14021A454 (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     AuthzBasepCompareUnsigned @ 0x14064AE5C (AuthzBasepCompareUnsigned.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14024EDC0 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepGetConstantOperand @ 0x14024F278 (AuthzBasepGetConstantOperand.c)
+ *     RtlIsNameInExpression @ 0x14024F7F0 (RtlIsNameInExpression.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14024FF20 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     AuthzBasepCompareUnsigned @ 0x1405C1D84 (AuthzBasepCompareUnsigned.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
@@ -46,8 +46,7 @@ __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
 
   v25 = 0;
   memset(v31, 0, sizeof(v31));
-  LODWORD(v32) = 0;
-  WORD2(v32) = 0;
+  v32 = 0LL;
   v27 = 0LL;
   v28 = 0LL;
   v24[0] = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetUpdateDsAccounting @ 0x1405D8880
+ * XREFs of PopNetUpdateDsAccounting @ 0x1405786E0
  * Callers:
- *     PdcPoNetworkResiliency @ 0x140996B90 (PdcPoNetworkResiliency.c)
+ *     PdcPoNetworkResiliency @ 0x1408EF890 (PdcPoNetworkResiliency.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopNetUpdateDsAccounting(char a1)
@@ -20,12 +20,12 @@ __int64 __fastcall PopNetUpdateDsAccounting(char a1)
   if ( a1 )
   {
     if ( PopNetStandbyState == 2 )
-      qword_140C224B8 = MEMORY[0xFFFFF78000000008];
+      qword_140C23118 = MEMORY[0xFFFFF78000000008];
   }
-  else if ( qword_140C224B8 )
+  else if ( qword_140C23118 )
   {
-    qword_140C224C0 += (MEMORY[0xFFFFF78000000008] - qword_140C224B8) / 0xAuLL;
-    qword_140C224B8 = 0LL;
+    qword_140C23120 += (MEMORY[0xFFFFF78000000008] - qword_140C23118) / 0xAuLL;
+    qword_140C23118 = 0LL;
   }
   KxReleaseSpinLock(&PopCsResiliencyStatsLock);
   result = (unsigned int)KiIrqlFlags;

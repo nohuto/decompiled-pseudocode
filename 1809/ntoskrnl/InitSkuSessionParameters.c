@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExIsMultiSessionSku @ 0x1407613F4 (ExIsMultiSessionSku.c)
+ *     ExIsMultiSessionSku @ 0x1407613D4 (ExIsMultiSessionSku.c)
  */
 
 int InitSkuSessionParameters()

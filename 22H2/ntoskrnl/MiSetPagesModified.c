@@ -1,222 +1,177 @@
 /*
- * XREFs of MiSetPagesModified @ 0x14062896C
+ * XREFs of MiSetPagesModified @ 0x140534FF0
  * Callers:
- *     MiCreateNewSection @ 0x140746A00 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140700490 (MiCreateNewSection.c)
  * Callees:
- *     MiGetCommittedPages @ 0x1402197E0 (MiGetCommittedPages.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiLockLowestValidPageTable @ 0x14025A170 (MiLockLowestValidPageTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiReleasePageFileInfo @ 0x1402951BC (MiReleasePageFileInfo.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A22D0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiUpdateControlAreaCommitCount @ 0x1402EBFC8 (MiUpdateControlAreaCommitCount.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317C60 (KiAbThreadRemoveBoostsSlow.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     MiCapturePageFileInfoInline @ 0x1403487C4 (MiCapturePageFileInfoInline.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
- *     MiDeleteFileExtents @ 0x1406B0AB0 (MiDeleteFileExtents.c)
- *     MiPrefetchControlArea @ 0x1407DCE8C (MiPrefetchControlArea.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiLockLowestValidPageTable @ 0x140285C40 (MiLockLowestValidPageTable.c)
+ *     MiGetCommittedPages @ 0x140297350 (MiGetCommittedPages.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiCapturePageFileInfoInline @ 0x1402FB540 (MiCapturePageFileInfoInline.c)
+ *     MiUpdateControlAreaCommitCount @ 0x14030F5E0 (MiUpdateControlAreaCommitCount.c)
+ *     MiReleasePageFileInfo @ 0x140330CC0 (MiReleasePageFileInfo.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140339E94 (MiGetEffectivePagePriorityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiDeleteFileExtents @ 0x140635998 (MiDeleteFileExtents.c)
+ *     MiUnmapImageInSystemSpace @ 0x14066BB40 (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
+ *     MiPrefetchControlArea @ 0x14066BF34 (MiPrefetchControlArea.c)
  */
 
 __int64 __fastcall MiSetPagesModified(__int64 a1, int a2)
 {
-  __int64 v4; // rbx
+  __int64 v4; // r14
   __int64 v5; // r15
-  struct _KTHREAD *CurrentThread; // r12
+  unsigned __int64 v7; // r13
   unsigned int EffectivePagePriorityThread; // eax
-  int v9; // r14d
-  __int64 v10; // rcx
-  unsigned __int64 v11; // r14
-  __int64 v12; // rbx
-  unsigned __int64 v13; // rax
-  __int64 v14; // r9
+  int v9; // ebx
+  __int64 v10; // rbx
+  unsigned __int64 v11; // rsi
+  __int64 v12; // r12
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  __int64 i; // r14
   unsigned __int64 valid; // rax
-  unsigned __int64 v16; // r13
-  unsigned __int64 v17; // rbx
-  __int64 CommittedPages; // r14
-  __int64 v19; // rcx
-  __int64 v20; // r15
-  ULONG_PTR v21; // rbx
-  struct _KTHREAD *v22; // r15
-  __int64 v23; // r14
-  unsigned int AbEntrySummary; // eax
-  unsigned int v25; // ecx
-  struct _KPRCB *CurrentPrcb; // r8
-  signed __int32 *SchedulerAssist; // rdx
-  signed __int32 v28; // eax
-  signed __int32 v29; // ett
-  int SessionId; // eax
-  bool v31; // zf
-  unsigned __int8 v32; // [rsp+30h] [rbp-128h]
-  __int64 v33; // [rsp+38h] [rbp-120h]
-  __int64 v34; // [rsp+40h] [rbp-118h]
-  unsigned __int64 v35; // [rsp+40h] [rbp-118h]
-  unsigned int v36; // [rsp+48h] [rbp-110h]
-  unsigned __int64 v37; // [rsp+58h] [rbp-100h]
-  __int64 v38; // [rsp+60h] [rbp-F8h]
-  int v39; // [rsp+70h] [rbp-E8h] BYREF
-  __int64 v40; // [rsp+78h] [rbp-E0h]
-  __int64 v41; // [rsp+80h] [rbp-D8h]
-  __int64 v42; // [rsp+88h] [rbp-D0h]
-  _QWORD v43[6]; // [rsp+90h] [rbp-C8h] BYREF
-  unsigned __int64 v44; // [rsp+C0h] [rbp-98h]
-  unsigned __int64 v45; // [rsp+C8h] [rbp-90h] BYREF
-  unsigned __int64 v46; // [rsp+D0h] [rbp-88h]
-  _QWORD v47[10]; // [rsp+E0h] [rbp-78h] BYREF
+  __int64 v18; // r14
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  unsigned __int64 v22; // rbx
+  __int64 v23; // rsi
+  __int64 CommittedPages; // rbx
+  __int64 v25; // r15
+  unsigned __int64 v26; // r12
+  struct _KTHREAD *v27; // r14
+  volatile signed __int64 *v28; // rsi
+  unsigned __int8 v29; // [rsp+30h] [rbp-128h]
+  int v31; // [rsp+40h] [rbp-118h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-110h]
+  __int64 v33; // [rsp+50h] [rbp-108h]
+  __int64 v34; // [rsp+58h] [rbp-100h]
+  __int64 v35; // [rsp+60h] [rbp-F8h]
+  __int64 v36; // [rsp+68h] [rbp-F0h]
+  __int64 v37; // [rsp+70h] [rbp-E8h]
+  __int64 v38; // [rsp+78h] [rbp-E0h]
+  unsigned __int64 v39; // [rsp+80h] [rbp-D8h]
+  unsigned __int64 v40; // [rsp+88h] [rbp-D0h]
+  __int64 v41; // [rsp+90h] [rbp-C8h]
+  __int64 v42; // [rsp+98h] [rbp-C0h]
+  unsigned __int64 v43; // [rsp+A0h] [rbp-B8h]
+  unsigned __int64 v44; // [rsp+A8h] [rbp-B0h] BYREF
+  __int64 v45; // [rsp+B0h] [rbp-A8h] BYREF
+  unsigned __int64 v46; // [rsp+B8h] [rbp-A0h]
+  struct _KTHREAD *CurrentThread; // [rsp+C0h] [rbp-98h]
+  _QWORD v48[10]; // [rsp+D0h] [rbp-88h] BYREF
 
-  v45 = 0LL;
-  memset(v47, 0, sizeof(v47));
-  v4 = *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
-  v41 = v4;
+  v44 = 0LL;
+  memset(v48, 0, sizeof(v48));
+  v4 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v38 = v4;
+  v37 = v4;
   v42 = *(_QWORD *)a1;
-  v43[2] = v42;
+  v35 = v42;
   v5 = *(unsigned int *)(v42 + 8);
-  v43[3] = v5;
-  if ( !(unsigned int)MiChargeCommit(v4, (unsigned int)v5, 0LL) )
+  v36 = v5;
+  if ( !(unsigned int)MiChargeCommit(v4, (unsigned int)v5, 0) )
     return 3221225773LL;
-  v37 = *(_QWORD *)(a1 + 136);
-  v44 = v37 + 8 * v5;
+  v7 = *(_QWORD *)(a1 + 136);
+  v39 = v7;
+  v43 = v7 + 8 * v5;
   CurrentThread = KeGetCurrentThread();
-  v43[1] = CurrentThread;
   EffectivePagePriorityThread = MiGetEffectivePagePriorityThread((__int64)CurrentThread);
   if ( EffectivePagePriorityThread > 5 )
     EffectivePagePriorityThread = 5;
-  MiPrefetchControlArea(a1, CLFS_LSN_NULL_EXT[0], 0, EffectivePagePriorityThread, 0, a2);
-  v9 = MiMapImageInSystemSpace(a1, 3LL, v47);
+  MiPrefetchControlArea(a1, RtlpInterceptorRoutines[0], 0, EffectivePagePriorityThread, 0, a2);
+  v9 = MiMapImageInSystemSpace(a1, 3LL, v48);
   if ( v9 >= 0 )
   {
-    v33 = v47[3];
-    v10 = v47[0];
-    v38 = v47[0];
-    v11 = ((v47[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v32 = v48[3];
+    v10 = v48[0];
+    v34 = v48[0];
+    v11 = ((v48[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v12 = 0LL;
-    v40 = 0LL;
-    v13 = v37;
+    v33 = 0LL;
     while ( 1 )
     {
-      v43[5] = v10;
-      v43[4] = v11;
-      if ( v13 >= v44 )
+      v41 = v10;
+      v40 = v11;
+      if ( v7 >= v43 )
         break;
-      v43[0] = MI_READ_PTE_LOCK_FREE(v13);
-      if ( v43[0] )
+      if ( MI_READ_PTE_LOCK_FREE(v7) )
       {
-        while ( 1 )
+        for ( i = v32; ; MiUnlockWorkingSetShared(i, v29) )
         {
-          v32 = MiLockWorkingSetShared(v33);
-          valid = MiLockLowestValidPageTable(v33, v11, &v45, v14);
+          v29 = MiLockWorkingSetShared(i, v13, v14, v15);
+          valid = MiLockLowestValidPageTable(i, v11, &v44);
           v46 = valid;
           if ( valid == ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && (*(_BYTE *)v11 & 1) != 0 )
             break;
-          MiUnlockPageTableInternal(v33, valid);
-          MiUnlockWorkingSetShared(v33, v32);
+          MiUnlockPageTableInternal(i, valid);
         }
-        v34 = ++v12;
-        v40 = v12;
-        v43[0] = MI_READ_PTE_LOCK_FREE(v11);
-        v16 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v43) >> 12) & 0xFFFFFFFFFFLL)
-            - 0x220000000000LL;
-        if ( *(__int64 *)(v16 + 40) < 0 )
+        v33 = ++v12;
+        v45 = MI_READ_PTE_LOCK_FREE(v11);
+        v18 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v45) >> 12) & 0xFFFFFFFFFLL)
+            - 0x58000000000LL;
+        if ( MI_PFN_IS_PROTO(v18) )
         {
-          v17 = 0LL;
-          v39 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
+          v22 = 0LL;
+          v31 = 0;
+          while ( _interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0x3FuLL) )
           {
             do
-              KeYieldProcessorEx(&v39);
-            while ( *(__int64 *)(v16 + 24) < 0 );
+              KeYieldProcessorEx(&v31, v19, v20, v21);
+            while ( *(__int64 *)(v18 + 24) < 0 );
           }
-          if ( (!_bittest64((const signed __int64 *)(v16 + 16), 0xAu) & (unsigned __int8)~(*(_BYTE *)(v16 + 34) >> 3)) != 0 )
-            v17 = MiCapturePageFileInfoInline((unsigned __int64 *)(v16 + 16), 1, 0);
-          *(_BYTE *)(v16 + 34) |= 0x10u;
-          _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( v17 )
-            MiReleasePageFileInfo(*(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL)), v17, 1);
-          v12 = v34;
+          if ( (*(_DWORD *)(v18 + 16) & 0x400LL) == 0 && (*(_BYTE *)(v18 + 34) & 8) == 0 )
+            v22 = MiCapturePageFileInfoInline((unsigned __int64 *)(v18 + 16), 1, 0);
+          *(_BYTE *)(v18 + 34) |= 0x10u;
+          _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          if ( v22 )
+            MiReleasePageFileInfo(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v18 + 40) >> 39) & 0x3FFLL)), v22, 1);
+          v10 = v34;
         }
-        MiUnlockPageTableInternal(v33, v46);
-        MiUnlockWorkingSetShared(v33, v32);
+        MiUnlockPageTableInternal(v32, v46);
+        MiUnlockWorkingSetShared(v32, v29);
+        v4 = v38;
       }
-      v13 = v37 + 8;
-      v37 += 8LL;
+      v7 += 8LL;
+      v39 = v7;
       v11 += 8LL;
-      v10 = v38 + 4096;
-      v38 += 4096LL;
+      v10 += 4096LL;
+      v34 = v10;
     }
-    MiUnmapImageInSystemSpace(v47);
+    v23 = v42;
+    MiUnmapImageInSystemSpace(v48);
     CommittedPages = MiGetCommittedPages((_QWORD *)a1);
-    v19 = CommittedPages - v12;
-    v20 = CommittedPages - v12 + v5;
-    if ( v20 )
-      MiReturnCommit(v41, v20);
-    v35 = v12 - CommittedPages;
-    if ( v12 != CommittedPages )
+    v25 = CommittedPages - v12 + v5;
+    if ( v25 )
+      MiReturnCommit(v4, v25);
+    v26 = v12 - CommittedPages;
+    if ( v26 )
     {
+      v27 = CurrentThread;
       --CurrentThread->SpecialApcDisable;
-      v21 = v42 + 40;
-      v22 = KeGetCurrentThread();
-      v23 = 0LL;
-      _disable();
-      AbEntrySummary = v22->AbEntrySummary;
-      if ( v22->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(v19, (__int64)v22)) != 0 )
-      {
-        _BitScanForward(&v25, AbEntrySummary);
-        v36 = v25;
-        v22->AbEntrySummary = AbEntrySummary & ~(1 << v25);
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-        if ( SchedulerAssist )
-        {
-          _m_prefetchw(SchedulerAssist);
-          v28 = *SchedulerAssist;
-          do
-          {
-            v29 = v28;
-            v28 = _InterlockedCompareExchange(SchedulerAssist, v28 & 0xFFDFFFFF, v28);
-          }
-          while ( v29 != v28 );
-          if ( (v28 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        }
-        _enable();
-        v23 = (__int64)(&v22[1].Process + 12 * v36);
-        if ( v21 - qword_140C65AE8 >= 0x8000000000LL )
-          SessionId = -1;
-        else
-          SessionId = MmGetSessionIdEx((__int64)v22->ApcState.Process);
-        *(_DWORD *)(v23 + 8) = SessionId;
-        *(_QWORD *)v23 = v21 & 0x7FFFFFFFFFFFFFFCLL;
-      }
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v21, v23, v21);
-      if ( v23 )
-        *(_BYTE *)(v23 + 18) = 1;
-      MiUpdateControlAreaCommitCount(a1, v35);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v21, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)v21);
-      KeAbPostRelease(v21);
-      v31 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v31
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      v28 = (volatile signed __int64 *)(v23 + 40);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)v28, 0LL);
+      MiUpdateControlAreaCommitCount(a1, v26);
+      if ( (_InterlockedExchangeAdd64(v28, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v28);
+      KeAbPostRelease((ULONG_PTR)v28);
+      KiLeaveGuardedRegionUnsafe((__int64)v27);
     }
     MiDeleteFileExtents(a1);
     return 0LL;

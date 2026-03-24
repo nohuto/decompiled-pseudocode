@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSetDirtyAndBoundsRectCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010A2C
+ * XREFs of ?EmitSetDirtyAndBoundsRectCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061140
  * Callers:
- *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010620 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060DD0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoundsRectCommand(
@@ -28,12 +28,12 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoun
     *(_DWORD *)v10 = 28;
     *(_OWORD *)(v9 + 4) = 0LL;
     *(_QWORD *)(v9 + 20) = 0LL;
-    *((_DWORD *)v9 + 1) = 298;
-    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 8);
-    *(_OWORD *)(v9 + 12) = *(_OWORD *)((char *)this + 188);
+    *((_DWORD *)v9 + 1) = 305;
+    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 6);
+    *(_OWORD *)(v9 + 12) = *(_OWORD *)((char *)this + 180);
     *((_DWORD *)this + 4) &= ~0x100u;
   }
-  v5 = *((_DWORD *)this + 46);
+  v5 = *((_DWORD *)this + 44);
   if ( v5 )
   {
     v10 = 0LL;
@@ -44,11 +44,11 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoun
       *(_DWORD *)v10 = v6;
       *(_QWORD *)(v7 + 4) = 0LL;
       *((_DWORD *)v7 + 3) = 0;
-      *((_DWORD *)v7 + 1) = 299;
-      *((_DWORD *)v7 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v7 + 3) = *((_DWORD *)this + 46);
-      memmove(v7 + 16, (char *)this + 120, 16LL * *((unsigned int *)this + 46));
-      *((_DWORD *)this + 46) = 0;
+      *((_DWORD *)v7 + 1) = 306;
+      *((_DWORD *)v7 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v7 + 3) = *((_DWORD *)this + 44);
+      memmove(v7 + 16, (char *)this + 112, 16LL * *((unsigned int *)this + 44));
+      *((_DWORD *)this + 44) = 0;
       return v4;
     }
     return 0;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOwningProcessSequenceNumber@CWindowNode@@UEBA_KXZ @ 0x1800FBA40
+ * XREFs of ?GetOwningProcessSequenceNumber@CWindowNode@@UEBA_KXZ @ 0x1800E2FD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 unsigned __int64 __fastcall CWindowNode::GetOwningProcessSequenceNumber(CWindowNode *this)
 {
-  return *(_QWORD *)(*((_QWORD *)this + 93) + 16LL);
+  return *(_QWORD *)(*((_QWORD *)this + 79) + 16LL);
 }

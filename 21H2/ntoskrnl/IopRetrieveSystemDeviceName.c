@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRetrieveSystemDeviceName @ 0x1406CDB38
+ * XREFs of IopRetrieveSystemDeviceName @ 0x1406B36E8
  * Callers:
- *     IoQuerySystemDeviceName @ 0x1406CDACC (IoQuerySystemDeviceName.c)
+ *     IoQuerySystemDeviceName @ 0x1406B367C (IoQuerySystemDeviceName.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopRetrieveSystemDeviceName(

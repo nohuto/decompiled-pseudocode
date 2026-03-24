@@ -4,13 +4,13 @@
  *     PiUEventProcessEventWorker @ 0x14058E940 (PiUEventProcessEventWorker.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     PiUEventQueueBroadcastEventEntry @ 0x1406FEDF0 (PiUEventQueueBroadcastEventEntry.c)
- *     IopGetSessionIdFromSymbolicName @ 0x14070A700 (IopGetSessionIdFromSymbolicName.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x1406FEDD0 (PiUEventQueueBroadcastEventEntry.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)

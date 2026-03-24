@@ -1,29 +1,23 @@
 /*
- * XREFs of Bulk_EP_Disable @ 0x1C000F9B0
+ * XREFs of Bulk_EP_Disable @ 0x1C000A820
  * Callers:
  *     <none>
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
+ *     <none>
  */
 
-char __fastcall Bulk_EP_Disable(__int64 a1)
+__int64 __fastcall Bulk_EP_Disable(__int64 a1)
 {
-  char result; // al
-  int v3; // ecx
+  __int64 result; // rax
 
-  while ( 1 )
+  do
   {
-    result = Controller_IsControllerAccessible(*(_QWORD *)(a1 + 40));
-    if ( !result )
-      break;
-    v3 = *(_DWORD *)(a1 + 108);
-    result = v3 - 1;
-    if ( ((v3 - 1) & 0xFFFFFFFD) != 0 )
-    {
-      if ( v3 )
-        _InterlockedExchange((volatile __int32 *)(a1 + 108), 0);
-      return result;
-    }
+    do
+      result = *(unsigned int *)(a1 + 108);
+    while ( (_DWORD)result == 3 );
   }
+  while ( (_DWORD)result == 1 );
+  if ( (_DWORD)result )
+    _InterlockedExchange((volatile __int32 *)(a1 + 108), 0);
   return result;
 }

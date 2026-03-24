@@ -1,28 +1,29 @@
 /*
- * XREFs of CmpSignalDeferredPosts @ 0x1407687C4
+ * XREFs of CmpSignalDeferredPosts @ 0x1406E0680
  * Callers:
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     CmpCloseKeyObject @ 0x1407685A0 (CmpCloseKeyObject.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpDeleteKeyObject @ 0x1406E03B0 (CmpDeleteKeyObject.c)
+ *     CmpCloseKeyObject @ 0x1406E3D70 (CmpCloseKeyObject.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     CmpFreePostBlock @ 0x140768860 (CmpFreePostBlock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     CmpFreePostBlock @ 0x1406E0850 (CmpFreePostBlock.c)
  */
 
 _QWORD *__fastcall CmpSignalDeferredPosts(_QWORD **a1)
 {
   _QWORD *result; // rax
   _QWORD *v3; // rcx
-  PVOID **v4; // rdi
-  __int64 v5; // r9
+  PADAPTER_OBJECT **v4; // rdi
+  PADAPTER_OBJECT *v5; // r9
   struct _KEVENT *v6; // rcx
   struct _WORK_QUEUE_ITEM *v7; // rcx
 
@@ -34,22 +35,25 @@ _QWORD *__fastcall CmpSignalDeferredPosts(_QWORD **a1)
     if ( (_QWORD **)result[1] != a1 || (v3 = (_QWORD *)*result, *(_QWORD **)(*result + 8LL) != result) )
       __fastfail(3u);
     *a1 = v3;
-    v4 = (PVOID **)(result - 2);
+    v4 = (PADAPTER_OBJECT **)(result - 2);
     v3[1] = a1;
-    v5 = result[6];
+    v5 = (PADAPTER_OBJECT *)result[6];
     if ( (unsigned __int16)*((_DWORD *)result + 10) != 3 )
     {
-      v6 = *(struct _KEVENT **)v5;
+      v6 = (struct _KEVENT *)*v5;
 LABEL_6:
       KeSetEvent(v6, 0, 0);
-      ObfDereferenceObject(*v4[8]);
+      HalPutDmaAdapter(*v4[8]);
       goto LABEL_7;
     }
-    v7 = *(struct _WORK_QUEUE_ITEM **)(v5 + 8);
+    v7 = (struct _WORK_QUEUE_ITEM *)v5[1];
     if ( v7 )
-      ExQueueWorkItem(v7, *(WORK_QUEUE_TYPE *)(v5 + 16));
-    v6 = (struct _KEVENT *)*v4[8];
-    if ( v6 )
+    {
+      ExQueueWorkItem(v7, *((WORK_QUEUE_TYPE *)v5 + 4));
+      v5 = v4[8];
+    }
+    v6 = (struct _KEVENT *)*v5;
+    if ( *v5 )
       goto LABEL_6;
 LABEL_7:
     CmpFreePostBlock(v4);

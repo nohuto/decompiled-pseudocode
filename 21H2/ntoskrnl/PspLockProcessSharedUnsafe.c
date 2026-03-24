@@ -1,9 +1,9 @@
 /*
- * XREFs of PspLockProcessSharedUnsafe @ 0x1405E07FC
+ * XREFs of PspLockProcessSharedUnsafe @ 0x1405818DC
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockProcessSharedUnsafe(__int64 a1)

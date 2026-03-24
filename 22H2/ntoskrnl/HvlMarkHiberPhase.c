@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlMarkHiberPhase @ 0x1405469A4
+ * XREFs of HvlMarkHiberPhase @ 0x1404F7B30
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140AA36CC (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991E0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     HvlpMarkHvlPagesForHibernation @ 0x1405470E0 (HvlpMarkHvlPagesForHibernation.c)
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1405471B4 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlpMarkHvlPagesForHibernation @ 0x1404F8148 (HvlpMarkHvlPagesForHibernation.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1404F821C (HvlpMarkHypervisorPagesForHibernation.c)
  */
 
 __int64 HvlMarkHiberPhase()

@@ -3,15 +3,15 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 PipInitDeviceOverrideCache()
@@ -60,7 +60,7 @@ LABEL_17:
     goto LABEL_18;
   }
   v2 = 0;
-  v3 = (int *)&unk_1403691A8;
+  v3 = (int *)&unk_1403692B8;
   while ( v21 >= 3 * *v3 )
   {
     ++v2;

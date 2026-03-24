@@ -1,25 +1,33 @@
 /*
- * XREFs of PsGetCurrentProcessSessionId @ 0x140287F00
+ * XREFs of PsGetCurrentProcessSessionId @ 0x14025F5C0
  * Callers:
- *     NtSetInformationObject @ 0x1406B9250 (NtSetInformationObject.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     PfpProcessScenarioPhase @ 0x14081BB14 (PfpProcessScenarioPhase.c)
- *     IoGetContainerInformation @ 0x1409371A0 (IoGetContainerInformation.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
+ *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
+ *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
+ *     IoGetContainerInformation @ 0x1408949C0 (IoGetContainerInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
+ *     <none>
  */
 
 __int64 PsGetCurrentProcessSessionId()
 {
-  unsigned int SessionId; // ecx
-  __int64 result; // rax
+  _KPROCESS *Process; // rdx
+  unsigned __int64 v1; // rcx
+  unsigned int v2; // eax
+  unsigned int v3; // ecx
 
-  SessionId = MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process);
-  result = 0LL;
-  if ( SessionId != -1 )
-    return SessionId;
-  return result;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v1 = Process[1].AffinityPadding[5];
+  if ( !v1 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+    v2 = -1;
+  else
+    v2 = *(_DWORD *)(v1 + 8);
+  v3 = 0;
+  if ( v2 != -1 )
+    return v2;
+  return v3;
 }

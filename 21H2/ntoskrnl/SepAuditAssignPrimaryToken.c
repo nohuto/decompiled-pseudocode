@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAuditAssignPrimaryToken @ 0x140847400
+ * XREFs of SepAuditAssignPrimaryToken @ 0x1407BBDE4
  * Callers:
- *     SeAssignPrimaryToken @ 0x1408471EC (SeAssignPrimaryToken.c)
- *     SeExchangePrimaryToken @ 0x140847260 (SeExchangePrimaryToken.c)
+ *     SeAssignPrimaryToken @ 0x1407BBBD0 (SeAssignPrimaryToken.c)
+ *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAuditAssignPrimaryToken(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ void __fastcall SepAuditAssignPrimaryToken(__int64 a1, __int64 a2)
   memset(Src, 0, 0x418uLL);
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   v5 = (__int64)CurrentThreadProcess;
-  if ( CurrentThreadProcess[1].ActiveProcessors.StaticBitmap[2] )
+  if ( CurrentThreadProcess[1].ActiveProcessors.Bitmap[2] )
   {
     Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
     SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)&SubjectContext[1]);
@@ -45,17 +45,17 @@ void __fastcall SepAuditAssignPrimaryToken(__int64 a1, __int64 a2)
     if ( v7 )
     {
       v8 = *v7[19];
-      AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(v5, SubjectContext);
+      AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(v5, (__int64)SubjectContext);
       if ( AllocatedFullProcessImageName >= 0 )
       {
         v10 = *(_QWORD *)(a1 + 1088);
-        AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(a1, &P);
+        AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(a1, (__int64)&P);
         if ( AllocatedFullProcessImageName >= 0 )
         {
           v11 = *(unsigned __int8 *)(v8 + 1);
           Src[0] = 0x125800000005LL;
           Src[11] = 0x800000005LL;
-          LODWORD(Src[2]) = 524421;
+          LODWORD(Src[2]) = 524422;
           HIDWORD(Src[3]) = 4 * v11 + 8;
           LODWORD(Src[3]) = 4;
           Src[6] = v8;

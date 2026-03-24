@@ -1,16 +1,16 @@
 /*
- * XREFs of InitSafeBoot @ 0x1409F3340
+ * XREFs of InitSafeBoot @ 0x1409F3348
  * Callers:
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
  */
 
 int __fastcall InitSafeBoot(char a1)

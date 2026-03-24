@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpGetEffectiveTokenMessage @ 0x140714C9C
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x1406644BC
  * Callers:
- *     AlpcpQuerySidMessage @ 0x140714BEC (AlpcpQuerySidMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x140978A64 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x140664354 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C243C (AlpcpQueryTokenModifiedIdMessage.c)
  * Callees:
- *     SeCreateClientSecurityEx @ 0x14071D220 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurityEx @ 0x1406D6D20 (SeCreateClientSecurityEx.c)
  */
 
 __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, _BYTE *a5)
 {
   __int64 v8; // rax
-  __int64 v9; // rdx
-  int v10; // ecx
-  __int64 v11; // rax
+  __int64 v9; // rax
   __int64 result; // rax
+  __int64 v11; // rdx
+  int v12; // ecx
   __int64 v13; // rcx
 
   if ( (*(_DWORD *)(a2 + 40) & 0x80u) != 0 )
@@ -23,35 +23,33 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
   {
     if ( *(int *)(v8 + 36) >= 1 )
     {
-      v11 = *(_QWORD *)(v8 + 48);
-      goto LABEL_8;
-    }
-    return 3221225506LL;
-  }
-  v9 = *(_QWORD *)(a2 + 24);
-  if ( (*(_DWORD *)(a1 + 416) & 6) != 2 )
-    return 3221225506LL;
-  if ( !v9 )
-    return 3221225506LL;
-  v10 = *(_DWORD *)(v9 + 416);
-  if ( (v10 & 6) != 4 )
-    return 3221225506LL;
-  if ( (v10 & 0x400) == 0 )
-  {
-    v11 = *(_QWORD *)(v9 + 80);
-    if ( v11 )
-    {
-LABEL_8:
-      *a3 = v11;
+      v9 = *(_QWORD *)(v8 + 48);
+LABEL_5:
+      *a3 = v9;
       *a5 = 0;
       return 0LL;
     }
     return 3221225506LL;
   }
+  v11 = *(_QWORD *)(a2 + 24);
+  if ( (*(_DWORD *)(a1 + 416) & 6) != 2 )
+    return 3221225506LL;
+  if ( !v11 )
+    return 3221225506LL;
+  v12 = *(_DWORD *)(v11 + 416);
+  if ( (v12 & 6) != 4 )
+    return 3221225506LL;
+  if ( (v12 & 0x400) == 0 )
+  {
+    v9 = *(_QWORD *)(v11 + 80);
+    if ( v9 )
+      goto LABEL_5;
+    return 3221225506LL;
+  }
   v13 = *(_QWORD *)(a2 + 32);
   if ( !v13 )
     return 3221225506LL;
-  result = SeCreateClientSecurityEx(v13, v9 + 260, 0LL);
+  result = SeCreateClientSecurityEx(v13, v11 + 260, 0LL, a4);
   if ( (int)result >= 0 )
   {
     *a3 = *(_QWORD *)(a4 + 16);

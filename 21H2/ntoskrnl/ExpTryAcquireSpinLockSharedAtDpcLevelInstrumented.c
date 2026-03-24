@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14063D914
+ * XREFs of ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5E7C
  * Callers:
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1404619C0 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1405B5B00 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140632C48 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB3D4 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1)

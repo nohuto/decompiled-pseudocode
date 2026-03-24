@@ -1,14 +1,14 @@
 /*
- * XREFs of BcdFlushStore @ 0x1408009E0
+ * XREFs of BcdFlushStore @ 0x14077A294
  * Callers:
- *     PopBcdClearPendingResume @ 0x140800968 (PopBcdClearPendingResume.c)
+ *     PopBcdClearPendingResume @ 0x140781D60 (PopBcdClearPendingResume.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14025DBFC (BiSanitizeHandle.c)
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     ZwFlushKey @ 0x14041D540 (ZwFlushKey.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
+ *     BiSanitizeHandle @ 0x1402D333C (BiSanitizeHandle.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     ZwFlushKey @ 0x1403FC0E0 (ZwFlushKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
  */
 
 __int64 __fastcall BcdFlushStore(__int64 a1)

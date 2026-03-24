@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCreateUserThreadEx @ 0x14068CF34
+ * XREFs of RtlpCreateUserThreadEx @ 0x14068CF14
  * Callers:
- *     ExpWorkerFactoryCreateThread @ 0x140106DFC (ExpWorkerFactoryCreateThread.c)
- *     RtlCreateUserThread @ 0x140890460 (RtlCreateUserThread.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140106E1C (ExpWorkerFactoryCreateThread.c)
+ *     RtlCreateUserThread @ 0x140890440 (RtlCreateUserThread.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateThreadEx @ 0x1401B98F0 (ZwCreateThreadEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateThreadEx @ 0x1401B9910 (ZwCreateThreadEx.c)
  */
 
 __int64 __fastcall RtlpCreateUserThreadEx(

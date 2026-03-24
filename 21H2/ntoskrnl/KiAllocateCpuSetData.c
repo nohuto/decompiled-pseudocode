@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocateCpuSetData @ 0x140B3023C
+ * XREFs of KiAllocateCpuSetData @ 0x140A40960
  * Callers:
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     KiCreateCpuSetForProcessor @ 0x140A58F00 (KiCreateCpuSetForProcessor.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiCreateCpuSetForProcessor @ 0x14099E2CC (KiCreateCpuSetForProcessor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiAllocateCpuSetData(unsigned int a1)

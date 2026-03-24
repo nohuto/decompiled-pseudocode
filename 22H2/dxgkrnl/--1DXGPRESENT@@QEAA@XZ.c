@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1DXGPRESENT@@QEAA@XZ @ 0x1C01F3D0C
+ * XREFs of ??1DXGPRESENT@@QEAA@XZ @ 0x1C0169830
  * Callers:
- *     ??1DXGCONTEXT@@QEAA@XZ @ 0x1C018E26C (--1DXGCONTEXT@@QEAA@XZ.c)
+ *     ??1DXGCONTEXT@@QEAA@XZ @ 0x1C00EFE34 (--1DXGCONTEXT@@QEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 void __fastcall DXGPRESENT::~DXGPRESENT(void **this)
@@ -12,10 +12,10 @@ void __fastcall DXGPRESENT::~DXGPRESENT(void **this)
   __int64 i; // rsi
   unsigned int v4; // ecx
 
-  operator delete(this[2]);
+  operator delete[](this[2]);
   v2 = this[15];
   this[2] = 0LL;
-  operator delete(v2);
+  operator delete[](v2);
   this[15] = 0LL;
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
@@ -24,10 +24,10 @@ void __fastcall DXGPRESENT::~DXGPRESENT(void **this)
       v4 = *((_DWORD *)this + 17);
     if ( (unsigned int)i >= v4 )
       break;
-    operator delete(this[i + 28]);
+    operator delete[](this[i + 28]);
     this[i + 28] = 0LL;
   }
-  operator delete(this[140]);
-  operator delete(this[106]);
-  operator delete(this[92]);
+  operator delete[](this[140]);
+  operator delete[](this[106]);
+  operator delete[](this[92]);
 }

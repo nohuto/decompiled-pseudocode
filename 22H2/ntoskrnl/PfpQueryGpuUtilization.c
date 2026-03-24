@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpQueryGpuUtilization @ 0x14068261C
+ * XREFs of PfpQueryGpuUtilization @ 0x14069EE9C
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075DE28 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PfpQueryGpuUtilization(__int64 a1, char a2, _DWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PfpQueryGpuUtilization(__int64 a1, char a2, _DWORD *a3)
   SessionId = DWORD1(v7);
   if ( DWORD1(v7) == -1 )
     SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-  result = PsInvokeWin32Callout(25LL, (char *)&v7 + 8, 1LL, &SessionId);
+  result = PsInvokeWin32Callout(25, (__int64)&v7 + 8, 1, (__int64)&SessionId);
   if ( (int)result >= 0 )
   {
     *(_OWORD *)*(_QWORD *)(a1 + 16) = v7;

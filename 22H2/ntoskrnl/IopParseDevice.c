@@ -1,94 +1,92 @@
 /*
- * XREFs of IopParseDevice @ 0x14072CDC0
+ * XREFs of IopParseDevice @ 0x14064E680
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
- *     IopParseFile @ 0x1407BC1D0 (IopParseFile.c)
+ *     IopParseFile @ 0x14067B690 (IopParseFile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     MmIsDriverVerifying @ 0x14020A590 (MmIsDriverVerifying.c)
- *     PsIsServerSilo @ 0x14020C040 (PsIsServerSilo.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsGetCurrentProcessSessionId @ 0x1402A1CC0 (PsGetCurrentProcessSessionId.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IopCheckDeviceAndDriver @ 0x1402AF020 (IopCheckDeviceAndDriver.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     IoGetAttachedDevice @ 0x1402AF3E0 (IoGetAttachedDevice.c)
- *     IopCheckVpbMounted @ 0x1402AF410 (IopCheckVpbMounted.c)
- *     SepPrivilegeCheck @ 0x1402AF660 (SepPrivilegeCheck.c)
- *     IopDequeueIrpFromThread @ 0x1402AF700 (IopDequeueIrpFromThread.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     IopDecrementDeviceObjectRef @ 0x1402AFD80 (IopDecrementDeviceObjectRef.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     IopDeleteFileObjectExtension @ 0x1402BB7E0 (IopDeleteFileObjectExtension.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0850 (PsGetServerSiloServiceSessionId.c)
- *     IopSymlinkGetECP @ 0x1402FD8B0 (IopSymlinkGetECP.c)
- *     IopSymlinkRemoveECP @ 0x1402FD8D4 (IopSymlinkRemoveECP.c)
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     IopIncrementVpbRefCount @ 0x140302780 (IopIncrementVpbRefCount.c)
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
- *     IoGetSilo @ 0x140302B50 (IoGetSilo.c)
- *     IopDereferenceVpbAndFree @ 0x140319D70 (IopDereferenceVpbAndFree.c)
- *     IoSetActivityIdThread @ 0x14031E490 (IoSetActivityIdThread.c)
- *     PsReleaseSiloHardReference @ 0x140353F50 (PsReleaseSiloHardReference.c)
- *     IopCreateSecurityCheck @ 0x14035A14C (IopCreateSecurityCheck.c)
- *     RtlGetActiveConsoleId @ 0x14035E670 (RtlGetActiveConsoleId.c)
- *     PsAcquireSiloHardReference @ 0x140365D00 (PsAcquireSiloHardReference.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopCheckSessionDeviceAccess @ 0x1405576C8 (IopCheckSessionDeviceAccess.c)
- *     IopAllowRemoteDASD @ 0x140558C64 (IopAllowRemoteDASD.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     SeFastTraverseCheck @ 0x1405B7984 (SeFastTraverseCheck.c)
- *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeUnlockSubjectContext @ 0x1406C31E0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     IopAllocRealFileObject @ 0x14072F370 (IopAllocRealFileObject.c)
- *     IopCloseFile @ 0x14072FFC0 (IopCloseFile.c)
- *     IopRetrieveTransactionParameters @ 0x1407306C0 (IopRetrieveTransactionParameters.c)
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14073A280 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E630 (FsRtlFreeExtraCreateParameter.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
- *     IoGetIrpExtraCreateParameter @ 0x140765840 (IoGetIrpExtraCreateParameter.c)
- *     IopCheckTopDeviceHint @ 0x140768088 (IopCheckTopDeviceHint.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A60F0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     IopQueryInformation @ 0x1407ABEB0 (IopQueryInformation.c)
- *     SeAppendPrivileges @ 0x1407B6990 (SeAppendPrivileges.c)
- *     IopSymlinkCreateECP @ 0x1407CDD54 (IopSymlinkCreateECP.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1407CDF28 (IopSymlinkInitializeSymlinkInfo.c)
- *     SeTokenIsAdmin @ 0x1407D0A20 (SeTokenIsAdmin.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1407D99A8 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkProcessReparse @ 0x1407DFF9C (IopSymlinkProcessReparse.c)
- *     IopSymlinkUpdateECP @ 0x140880C2C (IopSymlinkUpdateECP.c)
- *     IopSymlinkSetFoExtension @ 0x140881820 (IopSymlinkSetFoExtension.c)
- *     IopCancelAlertedRequest @ 0x14094442C (IopCancelAlertedRequest.c)
- *     IoCancelFileOpen @ 0x140946DB0 (IoCancelFileOpen.c)
- *     IopCheckAndUpdateStopOnSymlinkEcp @ 0x140947954 (IopCheckAndUpdateStopOnSymlinkEcp.c)
- *     IopGetNetworkOpenInformation @ 0x1409480E0 (IopGetNetworkOpenInformation.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x140948EB4 (IopSymlinkEnforceEnabledTypes.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     VfFastIoCheckState @ 0x140ACC204 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140ACC2DC (VfFastIoSnapState.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
+ *     PsAcquireSiloHardReference @ 0x140200A10 (PsAcquireSiloHardReference.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     IopDeleteFileObjectExtension @ 0x1402524EC (IopDeleteFileObjectExtension.c)
+ *     KeEnterCriticalRegionThread @ 0x14025ABE0 (KeEnterCriticalRegionThread.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentProcessSessionId @ 0x14025EE20 (PsGetCurrentProcessSessionId.c)
+ *     KeReadStateSemaphore @ 0x14026E9C0 (KeReadStateSemaphore.c)
+ *     IopIncrementVpbRefCount @ 0x14028F728 (IopIncrementVpbRefCount.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IopCheckDeviceAndDriver @ 0x1402D3AF0 (IopCheckDeviceAndDriver.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
+ *     IopDequeueIrpFromThread @ 0x1402D3F10 (IopDequeueIrpFromThread.c)
+ *     IoCallDriverWithTracing @ 0x1402D4050 (IoCallDriverWithTracing.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IopCheckVpbMounted @ 0x1402D40D0 (IopCheckVpbMounted.c)
+ *     IopDoFullTraverseCheck @ 0x1402D42F0 (IopDoFullTraverseCheck.c)
+ *     IopDecrementDeviceObjectRef @ 0x1402D4340 (IopDecrementDeviceObjectRef.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     IopGetSetSpecificExtension @ 0x1402D7298 (IopGetSetSpecificExtension.c)
+ *     IopDereferenceVpbAndFree @ 0x1402F4AA0 (IopDereferenceVpbAndFree.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x1403142D0 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x1403142F0 (IopSymlinkGetECP.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14032D5C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsIsThreadTerminating @ 0x14033E4B0 (PsIsThreadTerminating.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlGetActiveConsoleId @ 0x14034ADC0 (RtlGetActiveConsoleId.c)
+ *     IopGetDevicePDO @ 0x14034C5D8 (IopGetDevicePDO.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403618B0 (IopSetFileObjectExtensionFlag.c)
+ *     IoGetSilo @ 0x1403618F0 (IoGetSilo.c)
+ *     PsIsServerSilo @ 0x140361920 (PsIsServerSilo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopCheckSessionDeviceAccess @ 0x1405063DC (IopCheckSessionDeviceAccess.c)
+ *     IopAllowRemoteDASD @ 0x140507690 (IopAllowRemoteDASD.c)
+ *     IopIsSecurityContextAppContainer @ 0x14050774C (IopIsSecurityContextAppContainer.c)
+ *     SeFastTraverseCheck @ 0x140595CD0 (SeFastTraverseCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406435B0 (SeUnlockSubjectContext.c)
+ *     IopCloseFile @ 0x14064A140 (IopCloseFile.c)
+ *     RtlMapGenericMask @ 0x1406505C0 (RtlMapGenericMask.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140650610 (IoGetIrpExtraCreateParameter.c)
+ *     IopCheckBackupRestorePrivilege @ 0x140650630 (IopCheckBackupRestorePrivilege.c)
+ *     SeSetAccessStateGenericMapping @ 0x140650800 (SeSetAccessStateGenericMapping.c)
+ *     IopAllocRealFileObject @ 0x140650820 (IopAllocRealFileObject.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140650C60 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopRetrieveTransactionParameters @ 0x1406511B0 (IopRetrieveTransactionParameters.c)
+ *     IopQueryInformation @ 0x140668540 (IopQueryInformation.c)
+ *     IopCheckTopDeviceHint @ 0x14067C0AC (IopCheckTopDeviceHint.c)
+ *     IopSymlinkUpdateECP @ 0x140682B0C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkCreateECP @ 0x140682E30 (IopSymlinkCreateECP.c)
+ *     IopSymlinkProcessReparse @ 0x140683108 (IopSymlinkProcessReparse.c)
+ *     IoQueryFileInformation @ 0x1406A5170 (IoQueryFileInformation.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x1406A64E4 (IopSymlinkEnforceEnabledTypes.c)
+ *     SeTokenIsAdmin @ 0x14070E6D0 (SeTokenIsAdmin.c)
+ *     IopCancelAlertedRequest @ 0x1408910DC (IopCancelAlertedRequest.c)
+ *     IoCancelFileOpen @ 0x140893670 (IoCancelFileOpen.c)
+ *     IopCheckAndUpdateStopOnSymlinkEcp @ 0x140894114 (IopCheckAndUpdateStopOnSymlinkEcp.c)
+ *     IopGetNetworkOpenInformation @ 0x1408948E4 (IopGetNetworkOpenInformation.c)
+ *     PsGetParentSilo @ 0x140905B40 (PsGetParentSilo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfFastIoCheckState @ 0x1409C99C4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409C9A9C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopParseDevice(
@@ -97,1541 +95,1246 @@ __int64 __fastcall IopParseDevice(
         struct _ACCESS_STATE *a3,
         char a4,
         int a5,
-        UNICODE_STRING *a6,
-        const UNICODE_STRING *a7,
+        PUNICODE_STRING AbsoluteObjectName,
+        PCUNICODE_STRING SourceString,
         __int64 a8,
         __int64 a9,
         __int64 a10,
-        PFILE_OBJECT *a11)
+        PADAPTER_OBJECT *a11)
 {
-  PDEVICE_OBJECT v11; // rbx
-  __int64 v12; // r12
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  ULONG_PTR v15; // rdi
-  unsigned __int64 DeviceType; // rcx
+  int v11; // r14d
+  PACCESS_STATE v12; // rbx
+  unsigned int *v13; // rsi
+  __int64 v14; // r12
+  __int64 v15; // r9
+  __int64 v16; // rdx
+  ULONG_PTR v17; // r13
+  unsigned __int64 v18; // rcx
   __int64 result; // rax
-  bool v18; // al
-  __int64 v19; // rax
-  _QWORD *v20; // rax
-  ULONG_PTR v21; // rbx
-  ULONG_PTR v22; // r8
-  ULONG_PTR v23; // r9
-  void *v24; // r10
-  _QWORD *v25; // rcx
-  _QWORD *v26; // rdx
-  void *v27; // r11
+  bool v20; // al
+  __int64 v21; // rax
+  ULONG_PTR v22; // rax
+  ULONG_PTR v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
   __int64 CurrentServerSilo; // rax
   int ServerSiloServiceSessionId; // ebx
-  _DWORD *DevicePDO; // rax
-  void *v31; // rbx
-  PACCESS_STATE v32; // r10
-  signed int RemainingDesiredAccess; // eax
-  int OriginalDesiredAccess; // eax
-  ACCESS_MASK v35; // esi
-  char v36; // r11
-  char v37; // r14
-  int v38; // edx
-  char v39; // r12
-  char v40; // r15
-  ULONG Flags; // ecx
-  int v42; // ebx
-  unsigned int v43; // edi
-  __int64 ClientToken; // rcx
-  char v45; // al
-  int v46; // edi
-  __int64 PrimaryToken; // rcx
-  bool v48; // zf
-  char v49; // dl
-  __int64 v50; // rcx
-  int v51; // r9d
-  int v52; // edi
-  struct _DEVICE_OBJECT *v53; // r14
-  int v54; // eax
+  struct _DMA_ADAPTER *DevicePDO; // rax
+  struct _DMA_ADAPTER *v29; // rbx
+  ACCESS_MASK *p_RemainingDesiredAccess; // rsi
+  ACCESS_MASK RemainingDesiredAccess; // r15d
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  int v34; // r10d
+  char v35; // r9
+  char v36; // r14
   int ActiveConsoleId; // ebx
-  __int64 v56; // rax
-  int v57; // ebx
-  bool v58; // di
-  PACCESS_STATE v59; // r15
-  SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // rbx
-  PACCESS_TOKEN v61; // rcx
-  int v62; // ecx
-  PSECURITY_DESCRIPTOR *p_SecurityDescriptor; // rdi
-  BOOLEAN v64; // al
-  ACCESS_MASK v65; // eax
-  struct _ACCESS_STATE *v66; // r15
-  char v67; // al
-  char v68; // di
-  PCUNICODE_STRING v69; // r15
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  int v41; // ebx
+  bool v42; // bl
+  SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // rdi
+  char v44; // r14
+  PACCESS_TOKEN ClientToken; // rcx
+  PACCESS_STATE v46; // rbx
+  ACCESS_MASK v47; // eax
+  UNICODE_STRING *v48; // rsi
+  struct _KTHREAD *v49; // rsi
+  char v50; // al
+  char v51; // r14
   unsigned __int16 Length; // r8
-  __int64 v71; // rbx
-  __int64 v72; // rdx
-  PDEVICE_OBJECT AttachedDevice; // rdi
-  int v74; // r9d
-  PDEVICE_OBJECT v75; // rcx
-  int v76; // r9d
-  __int64 v77; // rax
-  ULONG Characteristics; // ecx
-  struct _ACCESS_STATE *v79; // r15
-  int v80; // eax
+  __int64 v53; // rdx
+  __int64 v54; // rbx
+  PDEVICE_OBJECT AttachedDevice; // r14
+  int v56; // esi
+  __int64 v57; // rax
+  int v58; // ecx
+  _BOOL8 v59; // r8
+  PCUNICODE_STRING v60; // rsi
+  int v61; // eax
+  PACCESS_STATE v62; // rsi
   __int64 Irp; // rax
-  __int64 v82; // r13
-  char v83; // dl
-  __int64 v84; // r14
-  int v85; // eax
-  char v86; // al
-  PFILE_OBJECT v87; // r15
-  _QWORD *v88; // rbx
-  unsigned __int64 v89; // rax
-  __int64 v90; // rcx
-  __int64 v91; // rax
+  __int64 v64; // r13
+  char v65; // dl
+  __int64 v66; // rsi
+  int v67; // eax
+  int v68; // r8d
+  char v69; // al
+  ULONG_PTR v70; // rdi
+  PADAPTER_OBJECT v71; // rdi
+  struct _DMA_ADAPTER *v72; // rbx
+  ULONG_PTR v73; // rbx
+  unsigned __int64 DeviceType; // rax
+  __int64 v75; // rcx
+  __int64 v76; // rcx
+  __int64 v77; // rax
+  __int64 v78; // rdx
   _DWORD *Silo; // rbx
   NTSTATUS SetSpecificExtension; // eax
-  _DWORD *v94; // rdi
-  __int64 v95; // rax
-  int v96; // edx
-  unsigned __int16 v97; // ax
-  __int64 Pool2; // rax
-  wchar_t *Buffer; // rcx
-  unsigned __int16 v100; // ax
-  __int64 v101; // rax
-  PVOID v102; // rsi
-  struct _ECP_LIST *v103; // rcx
-  NTSTATUS v104; // eax
-  __int16 *v105; // rdx
-  __int64 v106; // rax
+  _DWORD *v81; // rsi
+  __int64 v82; // rax
+  int v83; // edx
+  unsigned __int16 v84; // ax
+  PVOID PoolWithTag; // rax
+  void *v86; // rcx
+  unsigned __int16 v87; // ax
+  PVOID v88; // rax
+  ULONG_PTR v89; // rdi
+  __int16 *MostRecentlyUsedName; // rdx
   NTSTATUS updated; // eax
-  KEVENT *p_Event; // rsi
-  _QWORD *v109; // r14
-  char v110; // dl
-  _BYTE *v111; // rax
-  struct _LIST_ENTRY *v113; // rbx
-  NTSTATUS v114; // edi
-  unsigned __int8 v115; // al
-  int v116; // edx
-  BOOLEAN v117; // di
+  struct _KSEMAPHORE *p_DmaOperations; // rsi
+  char v93; // dl
+  NTSTATUS v94; // eax
+  unsigned __int8 v95; // al
+  int v96; // edx
+  BOOLEAN v97; // di
   unsigned __int8 CurrentIrql; // bl
-  unsigned __int8 v119; // cl
+  unsigned __int8 v99; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v122; // eax
-  unsigned __int8 v123; // cl
-  struct _KPRCB *v124; // r10
-  _DWORD *v125; // r9
-  int v126; // eax
-  NTSTATUS v127; // eax
-  struct _ECP_LIST *v128; // rcx
-  int v129; // edi
-  unsigned __int8 v130; // r12
-  struct _ECP_LIST *v131; // rax
-  _DWORD *v132; // rbx
-  __int64 v133; // rcx
-  __int64 v134; // rcx
-  char v135; // al
-  int v136; // r8d
-  int v137; // ecx
-  int v138; // ecx
-  __int64 v139; // rax
-  _WORD *v140; // rbx
-  int v141; // edi
-  ULONG_PTR v142; // rsi
-  __int64 RelatedFileObject; // rcx
-  __int64 FileObjectExtension; // rsi
-  FSRTL_ALLOCATE_ECP_FLAGS v145; // r8d
-  int v146; // ecx
-  unsigned int v147; // r14d
-  ULONG_PTR v148; // rax
-  __int64 v149; // r13
-  unsigned __int64 v150; // rcx
-  __int64 v151; // rax
-  PUNICODE_STRING v152; // rcx
-  wchar_t *v153; // rdi
-  wchar_t *v154; // rcx
-  __int64 v155; // rax
-  _QWORD *v156; // r14
-  ULONG_PTR v157; // rdx
-  PFILE_OBJECT v158; // rcx
-  PFILE_OBJECT v159; // rbx
-  PVOID v160; // rcx
-  int v161; // ecx
-  void *v162; // rcx
-  __int64 v163; // r8
-  int v164; // ecx
-  unsigned __int64 v165; // rax
-  __int64 v166; // r10
-  unsigned int v167; // ecx
-  PACCESS_STATE v168; // r15
-  __int64 v169; // rbx
-  __int64 v170; // rdx
-  PDEVICE_OBJECT RelatedDeviceObject; // rdi
-  ULONG_PTR Vpb; // rcx
-  __int64 v173; // rbx
-  struct _FILE_OBJECT *v174; // rax
-  NTSTATUS XxxInformation; // eax
-  char v176; // si
-  struct _DRIVER_OBJECT *DriverObject; // rcx
-  PFAST_IO_DISPATCH FastIoDispatch; // rax
-  void *v179; // r14
-  PFILE_OBJECT *FastIoQueryBasicInfo; // rbx
-  void *v181; // rbx
-  __int64 (__fastcall *FastIoQueryNetworkOpenInfo)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD); // r14
-  void *v183; // rbx
-  NTSTATUS v184; // eax
-  int PreviouslyGrantedAccess; // [rsp+20h] [rbp-1B8h]
-  int GenericMapping; // [rsp+30h] [rbp-1A8h]
-  int AccessMode; // [rsp+38h] [rbp-1A0h]
-  int GrantedAccess; // [rsp+40h] [rbp-198h]
-  ACCESS_MASK GrantedAccessa; // [rsp+40h] [rbp-198h]
-  NTSTATUS AccessStatus; // [rsp+60h] [rbp-178h] BYREF
-  char v191; // [rsp+64h] [rbp-174h]
-  int v192; // [rsp+68h] [rbp-170h]
-  char v193; // [rsp+6Ch] [rbp-16Ch]
-  char v194; // [rsp+6Dh] [rbp-16Bh]
-  char v195[2]; // [rsp+6Eh] [rbp-16Ah] BYREF
-  ACCESS_MASK DesiredAccess[2]; // [rsp+70h] [rbp-168h] BYREF
-  PACCESS_STATE AccessState; // [rsp+78h] [rbp-160h]
-  PVOID Object; // [rsp+80h] [rbp-158h]
-  PFILE_OBJECT FileObject; // [rsp+88h] [rbp-150h] BYREF
-  int v200; // [rsp+90h] [rbp-148h]
-  ACCESS_MASK v201; // [rsp+94h] [rbp-144h] BYREF
-  PUNICODE_STRING AbsoluteObjectName; // [rsp+98h] [rbp-140h]
-  PCUNICODE_STRING SourceString; // [rsp+A0h] [rbp-138h]
-  PPRIVILEGE_SET v204; // [rsp+A8h] [rbp-130h] BYREF
-  __int64 v205; // [rsp+B0h] [rbp-128h]
-  __int64 v206; // [rsp+B8h] [rbp-120h]
-  struct _KTHREAD *CurrentThread; // [rsp+C0h] [rbp-118h]
-  struct _ECP_LIST *ExtraCreateParameter; // [rsp+C8h] [rbp-110h] BYREF
-  char v209; // [rsp+D0h] [rbp-108h]
-  _DWORD Size[3]; // [rsp+D4h] [rbp-104h] BYREF
-  PVOID EcpContext; // [rsp+E0h] [rbp-F8h] BYREF
-  PVOID P; // [rsp+E8h] [rbp-F0h]
-  __int64 v213; // [rsp+F0h] [rbp-E8h]
-  int v214; // [rsp+F8h] [rbp-E0h]
-  PFILE_OBJECT *v215; // [rsp+100h] [rbp-D8h]
-  ULONG_PTR BugCheckParameter4[2]; // [rsp+108h] [rbp-D0h] BYREF
-  _DWORD *v217; // [rsp+118h] [rbp-C0h] BYREF
-  _QWORD *v218; // [rsp+120h] [rbp-B8h]
-  UNICODE_STRING ObjectTypeName; // [rsp+128h] [rbp-B0h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+138h] [rbp-A0h]
-  _DWORD *v221; // [rsp+140h] [rbp-98h]
-  __int128 v222; // [rsp+148h] [rbp-90h] BYREF
-  __int64 v223; // [rsp+158h] [rbp-80h]
-  _BYTE *v224; // [rsp+160h] [rbp-78h]
-  void *v225; // [rsp+168h] [rbp-70h]
-  __int64 v226; // [rsp+170h] [rbp-68h]
-  struct _PRIVILEGE_SET Privileges; // [rsp+178h] [rbp-60h] BYREF
-  struct _LIST_ENTRY v228; // [rsp+190h] [rbp-48h] BYREF
+  int v102; // eax
+  bool v103; // zf
+  unsigned __int8 v104; // al
+  struct _KPRCB *v105; // r10
+  _DWORD *v106; // r9
+  int v107; // eax
+  int v108; // esi
+  unsigned __int8 v109; // r15
+  struct _ECP_LIST *v110; // r14
+  _DWORD *v111; // rbx
+  unsigned __int64 v112; // rcx
+  __int64 v113; // rax
+  __int64 v114; // rcx
+  char v115; // al
+  int v116; // r8d
+  int v117; // ecx
+  int v118; // ecx
+  PDEVICE_OBJECT v119; // rbx
+  ULONG_PTR v120; // rax
+  unsigned __int64 v121; // rcx
+  __int64 v122; // rax
+  PUNICODE_STRING v123; // r13
+  wchar_t *v124; // rsi
+  wchar_t *Buffer; // rcx
+  __int64 v126; // rax
+  ULONG_PTR v127; // rdi
+  ULONG_PTR v128; // rdx
+  struct _DMA_ADAPTER *v129; // rcx
+  ULONG_PTR v130; // rcx
+  PADAPTER_OBJECT v131; // rbx
+  ULONG_PTR v132; // rcx
+  int v133; // ecx
+  void *v134; // rcx
+  __int64 v135; // r8
+  int v136; // ecx
+  unsigned __int64 v137; // rax
+  __int64 v138; // r10
+  unsigned int v139; // ecx
+  PACCESS_STATE v140; // rcx
+  __int64 v141; // rbx
+  __int64 v142; // rdx
+  PDEVICE_OBJECT RelatedDeviceObject; // r14
+  ULONG_PTR v144; // rcx
+  __int64 v145; // rbx
+  __int64 v146; // rax
+  unsigned __int64 v147; // rax
+  __int64 v148; // rcx
+  NTSTATUS FileInformation; // eax
+  char v150; // si
+  PFAST_IO_DISPATCH FastIoDispatch; // rcx
+  __int64 v152; // rdx
+  __int64 (__fastcall *FastIoQueryBasicInfo)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD); // rbx
+  void *v154; // r15
+  PVOID Pool; // rbx
+  __int64 (__fastcall *FastIoQueryNetworkOpenInfo)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD); // r15
+  void *v157; // rbx
+  NTSTATUS v158; // eax
+  NTSTATUS AccessStatus; // [rsp+60h] [rbp-F8h] BYREF
+  int v160; // [rsp+64h] [rbp-F4h]
+  int v161; // [rsp+68h] [rbp-F0h]
+  ACCESS_MASK GrantedAccess; // [rsp+6Ch] [rbp-ECh] BYREF
+  ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-E8h]
+  PPRIVILEGE_SET Privileges; // [rsp+78h] [rbp-E0h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+80h] [rbp-D8h] BYREF
+  __int64 v166; // [rsp+88h] [rbp-D0h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+90h] [rbp-C8h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-C0h]
+  char v169; // [rsp+A0h] [rbp-B8h]
+  ULONG ReturnedLength; // [rsp+A4h] [rbp-B4h] BYREF
+  PVOID v171; // [rsp+A8h] [rbp-B0h] BYREF
+  PVOID P; // [rsp+B0h] [rbp-A8h]
+  int v173; // [rsp+B8h] [rbp-A0h]
+  struct _ECP_LIST *v174; // [rsp+C0h] [rbp-98h] BYREF
+  ULONG_PTR BugCheckParameter4[2]; // [rsp+C8h] [rbp-90h] BYREF
+  _DWORD *v176; // [rsp+D8h] [rbp-80h] BYREF
+  _BYTE *v177; // [rsp+E0h] [rbp-78h]
+  UNICODE_STRING ObjectTypeName; // [rsp+E8h] [rbp-70h] BYREF
+  struct _ECP_LIST *ExtraCreateParameter; // [rsp+F8h] [rbp-60h] BYREF
+  __int128 v180; // [rsp+100h] [rbp-58h] BYREF
+  __int64 v181; // [rsp+110h] [rbp-48h]
+  void *v182; // [rsp+118h] [rbp-40h]
+  __int64 (__fastcall *v184)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD); // [rsp+168h] [rbp+10h] BYREF
+  PACCESS_STATE AccessState; // [rsp+170h] [rbp+18h]
+  char v186; // [rsp+178h] [rbp+20h]
 
-  v191 = a4;
+  v186 = a4;
   AccessState = a3;
-  v11 = BugCheckParameter2;
-  DeviceObject = BugCheckParameter2;
-  AbsoluteObjectName = a6;
-  SourceString = a7;
-  v12 = a8;
-  v205 = a8;
-  v226 = a8;
-  v213 = a10;
-  v215 = a11;
-  v201 = 0;
+  v12 = a3;
+  v13 = (unsigned int *)BugCheckParameter2;
+  v14 = a8;
+  GrantedAccess = 0;
   AccessStatus = 0;
   *(_OWORD *)BugCheckParameter4 = 0LL;
-  v222 = 0LL;
-  v223 = 0LL;
-  v214 = 0;
-  LOBYTE(v200) = 0;
-  memset(Size, 0, sizeof(Size));
+  v180 = 0LL;
+  v181 = 0LL;
+  v173 = 0;
+  LOBYTE(v161) = 0;
+  ReturnedLength = 0;
   ObjectTypeName = 0LL;
-  v204 = 0LL;
+  Privileges = 0LL;
   P = 0LL;
-  ExtraCreateParameter = 0LL;
+  v174 = 0LL;
+  v171 = 0LL;
   if ( a2 != IoFileObjectType )
     return 3221225508LL;
   CurrentThread = KeGetCurrentThread();
-  LOBYTE(v192) = 4;
+  LOBYTE(v11) = 4;
   RtlInitUnicodeString(&ObjectTypeName, L"File");
   *a11 = 0LL;
-  FileObject = 0LL;
-  if ( !a8 )
+  DmaAdapter = 0LL;
+  if ( !v14 )
     return 3221225508LL;
   while ( 1 )
   {
-    v13 = 0x60010000110040LL;
-    v14 = 0x1080020004LL;
-    if ( *(_WORD *)v12 != 8 || *(_WORD *)(v12 + 2) != 224 )
+    v15 = 0x60010000110040LL;
+    v16 = 0x1080020084LL;
+    if ( *(_WORD *)v14 != 8 || *(_WORD *)(v14 + 2) != 224 )
       return 3221225508LL;
-    v15 = (ULONG_PTR)v11;
-    Object = v11;
-    v221 = (_DWORD *)(v12 + 32);
-    if ( *(_DWORD *)(v12 + 32) == 1 )
+    v17 = (ULONG_PTR)v13;
+    BugCheckParameter1 = (ULONG_PTR)v13;
+    if ( *(_DWORD *)(v14 + 32) == 1 )
     {
-      *(_DWORD *)(v12 + 32) = -1096154543;
-      *(_QWORD *)(v12 + 40) = v11;
-      *(_DWORD *)(v12 + 16) = 0;
-      ObfReferenceObject(v11);
+      *(_DWORD *)(v14 + 32) = -1096154543;
+      *(_QWORD *)(v14 + 40) = v13;
+      *(_DWORD *)(v14 + 16) = 0;
+      ObfReferenceObject(v13);
       return 0LL;
     }
-    if ( (*(_DWORD *)(v12 + 152) & 0x10) != 0 )
+    if ( (*(_DWORD *)(v14 + 152) & 0x10) != 0 )
     {
-      DeviceType = v11->DeviceType;
-      if ( *(_QWORD *)(v12 + 24) == 2684354563LL )
+      v18 = v13[18];
+      if ( *(_QWORD *)(v14 + 24) == 2684354563LL )
       {
-        if ( (_DWORD)DeviceType != 7 && ((unsigned int)DeviceType > 0x24 || !_bittest64(&v14, DeviceType)) )
-          goto LABEL_11;
+        if ( (unsigned int)v18 > 0x24 || !_bittest64(&v16, v18) )
+          goto LABEL_10;
       }
       else
       {
-        LOBYTE(v14) = (_DWORD)DeviceType == 7 || (unsigned int)DeviceType <= 0x24 && _bittest64(&v14, DeviceType);
-        v18 = (unsigned int)DeviceType <= 0x36 && _bittest64(&v13, DeviceType);
-        if ( !(_BYTE)v14 && !v18 )
+        LOBYTE(v16) = (unsigned int)v18 <= 0x24 && _bittest64(&v16, v18);
+        v20 = (unsigned int)v18 <= 0x36 && _bittest64(&v15, v18);
+        if ( !(_BYTE)v16 && !v20 )
         {
-LABEL_11:
-          *(_DWORD *)(v12 + 16) = -1073741192;
+LABEL_10:
+          *(_DWORD *)(v14 + 16) = -1073741192;
           return 3221226104LL;
         }
-        result = IopSymlinkEnforceEnabledTypes(*(_BYTE *)(v12 + 152) & 8, v14, *(_QWORD *)(v12 + 168));
+        result = IopSymlinkEnforceEnabledTypes(*(_BYTE *)(v14 + 152) & 8, v16, *(_QWORD *)(v14 + 168));
         AccessStatus = result;
         if ( (int)result < 0 )
-          goto LABEL_419;
+          goto LABEL_431;
       }
     }
-    v19 = *(_QWORD *)(v12 + 40);
-    if ( v19 )
+    v21 = *(_QWORD *)(v14 + 40);
+    if ( v21 )
     {
-      v15 = *(_QWORD *)(v19 + 8);
-      Object = (PVOID)v15;
+      v17 = *(_QWORD *)(v21 + 8);
+      BugCheckParameter1 = v17;
     }
-    if ( *(_DWORD *)(v15 + 72) == 7 )
+    if ( *(_DWORD *)(v17 + 72) == 7 )
     {
-      v20 = (_QWORD *)v15;
-      v21 = v15;
-      v22 = v15;
-      v23 = v15;
-      v24 = (void *)v15;
+      v22 = v17;
+      v23 = v17;
       do
       {
-        v25 = (_QWORD *)v22;
-        v26 = (_QWORD *)v23;
-        v27 = v24;
-        if ( v20[7] )
+        if ( *(_QWORD *)(v22 + 56) )
           break;
-        v20 = *(_QWORD **)(v21 + 24);
-        *(_QWORD *)DesiredAccess = v20;
-        v21 = (ULONG_PTR)v20;
-        v22 = (ULONG_PTR)v20;
-        v25 = v20;
-        v23 = (ULONG_PTR)v20;
-        v26 = v20;
-        v24 = v20;
-        v27 = v20;
+        v22 = *(_QWORD *)(v22 + 24);
+        v23 = v22;
       }
-      while ( v20 );
-      if ( v25 && v26 != (_QWORD *)v15 )
+      while ( v22 );
+      if ( v23 && v23 != v17 )
       {
-        *(_DWORD *)(v12 + 152) |= 2u;
-        v15 = (ULONG_PTR)v27;
-        Object = v27;
+        *(_DWORD *)(v14 + 152) |= 2u;
+        v17 = v23;
+        BugCheckParameter1 = v23;
       }
     }
-    result = IopCheckDeviceAndDriver(v12, v15);
+    result = IopCheckDeviceAndDriver(v14, v17);
     AccessStatus = result;
     if ( (int)result < 0 )
-      goto LABEL_419;
-    if ( (*(_DWORD *)(*(_QWORD *)(v15 + 312) + 32LL) & 0x400) != 0 && !*(_QWORD *)(v12 + 40) )
+      goto LABEL_431;
+    if ( (*(_DWORD *)(*(_QWORD *)(v17 + 312) + 32LL) & 0x400) != 0 && !*(_QWORD *)(v14 + 40) )
     {
-      CurrentServerSilo = PsGetCurrentServerSilo();
+      CurrentServerSilo = PsGetCurrentServerSilo(v25, v24);
       ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(CurrentServerSilo);
       if ( ServerSiloServiceSessionId != (unsigned int)PsGetCurrentProcessSessionId()
-        || IopSessionZeroAccessCheckEnabled && (*(_DWORD *)(v12 + 64) & 0x40000) == 0 )
+        || IopSessionZeroAccessCheckEnabled && (*(_DWORD *)(v14 + 64) & 0x40000) == 0 )
       {
-        DevicePDO = IopGetDevicePDO(v15);
-        v31 = DevicePDO;
+        DevicePDO = (struct _DMA_ADAPTER *)IopGetDevicePDO(v17);
+        v29 = DevicePDO;
         if ( DevicePDO )
         {
           if ( !IopCheckSessionDeviceAccess((__int64)DevicePDO) )
           {
-            ObfDereferenceObject(v31);
-            IopDecrementDeviceObjectRef(v15, 0);
-            *(_DWORD *)(v12 + 16) = -1073741790;
+            HalPutDmaAdapter(v29);
+            IopDecrementDeviceObjectRef(v17, 0);
+            *(_DWORD *)(v14 + 16) = -1073741790;
             return 3221225506LL;
           }
-          ObfDereferenceObject(v31);
+          HalPutDmaAdapter(v29);
         }
       }
+      v12 = AccessState;
     }
-    v32 = AccessState;
-    RemainingDesiredAccess = AccessState->RemainingDesiredAccess;
-    if ( RemainingDesiredAccess < 0 )
-      RemainingDesiredAccess |= *((_DWORD *)IoFileObjectType + 19);
-    if ( (RemainingDesiredAccess & 0x40000000) != 0 )
-      RemainingDesiredAccess |= *((_DWORD *)IoFileObjectType + 20);
-    if ( (RemainingDesiredAccess & 0x20000000) != 0 )
-      RemainingDesiredAccess |= *((_DWORD *)IoFileObjectType + 21);
-    if ( (RemainingDesiredAccess & 0x10000000) != 0 )
-      RemainingDesiredAccess |= *((_DWORD *)IoFileObjectType + 22);
-    AccessState->RemainingDesiredAccess = RemainingDesiredAccess & 0xFFFFFFF;
-    OriginalDesiredAccess = v32->OriginalDesiredAccess;
-    if ( OriginalDesiredAccess < 0 )
-      OriginalDesiredAccess |= *((_DWORD *)IoFileObjectType + 19);
-    if ( (OriginalDesiredAccess & 0x40000000) != 0 )
-      OriginalDesiredAccess |= *((_DWORD *)IoFileObjectType + 20);
-    if ( (OriginalDesiredAccess & 0x20000000) != 0 )
-      OriginalDesiredAccess |= *((_DWORD *)IoFileObjectType + 21);
-    if ( (OriginalDesiredAccess & 0x10000000) != 0 )
-      OriginalDesiredAccess |= *((_DWORD *)IoFileObjectType + 22);
-    v32->OriginalDesiredAccess = OriginalDesiredAccess & 0xFFFFFFF;
-    *(_OWORD *)((char *)v32->AuxData + 8) = *(_OWORD *)((char *)IoFileObjectType + 76);
-    v35 = v32->RemainingDesiredAccess;
-    DesiredAccess[0] = v35;
-    v36 = v191;
-    v37 = v191 || (*(_DWORD *)(v12 + 84) & 1) != 0;
-    v38 = *(_DWORD *)(v12 + 88);
-    memset(&Privileges, 0, sizeof(Privileges));
-    v39 = 0;
-    v40 = 0;
-    Flags = v32->Flags;
-    if ( (Flags & 0x100) != 0 )
+    p_RemainingDesiredAccess = &v12->RemainingDesiredAccess;
+    RtlMapGenericMask(&v12->RemainingDesiredAccess, (PGENERIC_MAPPING)((char *)IoFileObjectType + 76));
+    RtlMapGenericMask(&v12->OriginalDesiredAccess, (PGENERIC_MAPPING)((char *)IoFileObjectType + 76));
+    SeSetAccessStateGenericMapping(v12, (PGENERIC_MAPPING)((char *)IoFileObjectType + 76));
+    RemainingDesiredAccess = v12->RemainingDesiredAccess;
+    IopCheckBackupRestorePrivilege(v12);
+    v32 = *(unsigned __int8 *)(v14 + 136);
+    if ( (_BYTE)v32 && !SourceString->Length || (v12->Flags & 0x100) != 0 )
+      RemainingDesiredAccess |= v12->PreviouslyGrantedAccess;
+    v33 = *(_QWORD *)(v14 + 40);
+    LOBYTE(v34) = v161;
+    if ( v33 && (*(_DWORD *)(v33 + 80) & 0x400000) != 0 )
     {
-      v12 = v205;
-      goto LABEL_92;
-    }
-    if ( (*(_DWORD *)(v205 + 64) & 0x4000) == 0 )
-    {
-      v12 = v205;
-      goto LABEL_92;
-    }
-    v32->Flags = Flags | 0x100;
-    v42 = v35 | 0x11F01BF;
-    if ( (v35 & 0x2000000) == 0 )
-      v42 = v35;
-    if ( ((v38 - 1) & 0xFFFFFFF9) != 0 || v38 == 7 )
-    {
-      v40 = 1;
-      v43 = v42;
-      goto LABEL_77;
-    }
-    v43 = v42;
-    if ( (v42 & 0x11200A9) != 0 )
-    {
-      Privileges.PrivilegeCount = 1;
-      Privileges.Control = 1;
-      Privileges.Privilege[0].Luid = SeBackupPrivilege;
-      Privileges.Privilege[0].Attributes = 0;
-      if ( !v37 )
-        goto LABEL_75;
-      ClientToken = (__int64)v32->SubjectSecurityContext.ClientToken;
-      if ( ClientToken )
-      {
-        if ( v32->SubjectSecurityContext.ImpersonationLevel < SecurityImpersonation )
-          goto LABEL_76;
-      }
-      else
-      {
-        ClientToken = (__int64)v32->SubjectSecurityContext.PrimaryToken;
-      }
-      v45 = SepPrivilegeCheck(ClientToken, (__int64)Privileges.Privilege, 1u, 1, v37);
-      v32 = AccessState;
-      if ( v45 )
-      {
-LABEL_75:
-        v39 = 1;
-        SeAppendPrivileges(v32, &Privileges);
-        v32 = AccessState;
-        AccessState->PreviouslyGrantedAccess |= v42 & 0x11200A9;
-        v32->RemainingDesiredAccess &= 0xFEEDFF56;
-        v43 = v42 & 0xFEEDFF56;
-        v32->Flags |= 2u;
-      }
-    }
-LABEL_76:
-    v35 = DesiredAccess[0];
-LABEL_77:
-    v46 = v43 & 0x11F0116;
-    if ( v46 || v40 )
-    {
-      Privileges.PrivilegeCount = 1;
-      Privileges.Control = 1;
-      Privileges.Privilege[0].Luid = SeRestorePrivilege;
-      Privileges.Privilege[0].Attributes = 0;
-      if ( !v37 )
-        goto LABEL_85;
-      PrimaryToken = (__int64)v32->SubjectSecurityContext.ClientToken;
-      if ( PrimaryToken )
-      {
-        if ( v32->SubjectSecurityContext.ImpersonationLevel < SecurityImpersonation )
-          goto LABEL_88;
-      }
-      else
-      {
-        PrimaryToken = (__int64)v32->SubjectSecurityContext.PrimaryToken;
-      }
-      if ( !SepPrivilegeCheck(PrimaryToken, (__int64)Privileges.Privilege, 1u, 1, v37) )
-      {
-        v32 = AccessState;
-      }
-      else
-      {
-LABEL_85:
-        v39 = 1;
-        SeAppendPrivileges(AccessState, &Privileges);
-        v32 = AccessState;
-        AccessState->PreviouslyGrantedAccess |= v46;
-        v32->RemainingDesiredAccess &= 0xFEE0FEE9;
-        v32->Flags |= 4u;
-      }
-    }
-LABEL_88:
-    v36 = v191;
-    v48 = v39 == 0;
-    v12 = v205;
-    if ( v48 )
-      *(_DWORD *)(v205 + 64) &= ~0x4000u;
-LABEL_92:
-    v49 = *(_BYTE *)(v12 + 136);
-    if ( v49 && !SourceString->Length || (v32->Flags & 0x100) != 0 )
-      v35 |= v32->PreviouslyGrantedAccess;
-    v50 = *(_QWORD *)(v12 + 40);
-    LOBYTE(v51) = v200;
-    if ( v50 && (*(_DWORD *)(v50 + 80) & 0x400000) != 0 )
-    {
-      v51 = (unsigned __int8)v200;
+      v34 = (unsigned __int8)v161;
       if ( !SourceString->Length )
-        v51 = 1;
-      v200 = v51;
+        v34 = 1;
+      v161 = v34;
     }
-    if ( !v36 && (*(_DWORD *)(v12 + 84) & 1) == 0 || v50 && !(_BYTE)v51 )
+    v35 = v186;
+    if ( (v186 || (*(_DWORD *)(v14 + 84) & 1) != 0) && (!v33 || (_BYTE)v34) && !(_BYTE)v32 )
     {
-      v53 = (struct _DEVICE_OBJECT *)Object;
-      v52 = v192;
-      goto LABEL_140;
-    }
-    v52 = v192;
-    v53 = (struct _DEVICE_OBJECT *)Object;
-    if ( !v49 )
-    {
-      LOBYTE(v52) = v192 & 0xDF;
-      v192 = v52;
-      v54 = *((_DWORD *)Object + 13);
-      if ( !SourceString->Length )
+      v36 = v11 & 0xDF;
+      if ( SourceString->Length )
       {
-        v58 = 0;
-        if ( (v54 & 0x40001) != 0 && (v35 & 0xFFEDFF7F) != 0 )
+        p_SubjectSecurityContext = &v12->SubjectSecurityContext;
+        if ( IopDoFullTraverseCheck(v17, v186, &v12->SubjectSecurityContext) )
         {
-          ActiveConsoleId = RtlGetActiveConsoleId();
-          if ( ActiveConsoleId != (unsigned int)PsGetCurrentProcessSessionId() )
-          {
-            v56 = PsGetCurrentServerSilo();
-            v57 = PsGetServerSiloServiceSessionId(v56);
-            if ( v57 != (unsigned int)PsGetCurrentProcessSessionId() && !IopAllowRemoteDASD() )
-              v58 = 1;
-          }
-        }
-        v204 = 0LL;
-        --CurrentThread->KernelApcDisable;
-        ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
-        v59 = AccessState;
-        p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
-        SeLockSubjectContext(&AccessState->SubjectSecurityContext);
-        LOBYTE(v192) = v192 | 0x20;
-        if ( !v58 )
-          goto LABEL_119;
-        v61 = p_SubjectSecurityContext->ClientToken;
-        if ( !p_SubjectSecurityContext->ClientToken )
-          v61 = v59->SubjectSecurityContext.PrimaryToken;
-        if ( SeTokenIsAdmin(v61) )
-        {
-LABEL_119:
-          p_SecurityDescriptor = &v53->SecurityDescriptor;
-          v64 = SeAccessCheck(
-                  v53->SecurityDescriptor,
-                  p_SubjectSecurityContext,
-                  (v192 & 0x20) != 0,
-                  v35,
-                  0,
-                  &v204,
-                  (PGENERIC_MAPPING)((char *)IoFileObjectType + 76),
-                  1,
-                  &v201,
-                  &AccessStatus);
-          v62 = v192;
-          LOBYTE(v62) = (v192 ^ v64) & 1 ^ v192;
-          v192 = v62;
-          if ( v204 )
-          {
-            SeAppendPrivileges(v59, v204);
-            CmSiFreeMemory(v204);
-            LOBYTE(v62) = v192;
-          }
-          if ( (v62 & 1) != 0 )
-          {
-            v65 = v201;
-            v59->PreviouslyGrantedAccess |= v201;
-            v59->RemainingDesiredAccess &= ~(v65 | 0x2000000);
-            *(_BYTE *)(v12 + 136) = 1;
-          }
-        }
-        else
-        {
-          v62 = v192;
-          LOBYTE(v62) = v192 & 0xFE;
-          v192 = v62;
-          AccessStatus = -1073741790;
-          p_SecurityDescriptor = &v53->SecurityDescriptor;
-        }
-        SeOpenObjectAuditAlarmWithTransaction(
-          &ObjectTypeName,
-          v53,
-          AbsoluteObjectName,
-          *p_SecurityDescriptor,
-          v59,
-          0,
-          v62 & 1,
-          1,
-          0LL,
-          &v59->GenerateOnClose);
-        ExReleaseResourceLite(&IopSecurityResource);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        v52 = v192;
-        goto LABEL_136;
-      }
-      if ( (v54 & 0x20100) == 0x20000 || !v36 )
-      {
-        p_SubjectSecurityContext = &v32->SubjectSecurityContext;
-      }
-      else
-      {
-        v193 = 0;
-        p_SubjectSecurityContext = &v32->SubjectSecurityContext;
-        SeIsAppContainerOrIdentifyLevelContext(&v32->SubjectSecurityContext);
-        if ( v193 )
-        {
-          LOBYTE(v52) = (v52 ^ IopCreateSecurityCheck(
-                                 (__int64)v53,
+          v48 = AbsoluteObjectName;
+          LOBYTE(v11) = (v36 ^ IopCreateSecurityCheck(
+                                 v17,
                                  0LL,
-                                 AccessState,
-                                 v35 | 0x20,
+                                 v12,
+                                 RemainingDesiredAccess | 0x20,
                                  1,
-                                 v204,
-                                 &v201,
+                                 Privileges,
+                                 &GrantedAccess,
                                  AbsoluteObjectName,
                                  &ObjectTypeName,
                                  (__int64)CurrentThread,
-                                 0)) & 1 ^ v52;
-LABEL_136:
-          if ( (v52 & 0x20) != 0 )
-            SeUnlockSubjectContext(p_SubjectSecurityContext);
-          if ( (v52 & 1) == 0 )
-            goto LABEL_188;
-          v32 = AccessState;
-          v36 = v191;
-          goto LABEL_140;
+                                 0)) & 1 ^ v36;
         }
-        v32 = AccessState;
-      }
-      if ( (v32->Flags & 1) != 0 )
-      {
-        LOBYTE(v52) = v52 | 1;
+        else
+        {
+          if ( (v12->Flags & 1) != 0 )
+          {
+            LOBYTE(v11) = v36 | 1;
+          }
+          else
+          {
+            v49 = CurrentThread;
+            KeEnterCriticalRegionThread((__int64)CurrentThread);
+            ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
+            LOBYTE(v11) = (v36 ^ SeFastTraverseCheck(*(_QWORD *)(v17 + 272), (__int64)v12, 32)) & 1 ^ v36;
+            if ( (v11 & 1) == 0 )
+            {
+              Privileges = 0LL;
+              SeLockSubjectContext(p_SubjectSecurityContext);
+              LOBYTE(v11) = ((v11 | 0x20) ^ SeAccessCheck(
+                                              *(PSECURITY_DESCRIPTOR *)(v17 + 272),
+                                              p_SubjectSecurityContext,
+                                              1u,
+                                              0x20u,
+                                              0,
+                                              &Privileges,
+                                              (PGENERIC_MAPPING)((char *)IoFileObjectType + 76),
+                                              1,
+                                              &GrantedAccess,
+                                              &AccessStatus)) & 1 ^ (v11 | 0x20);
+              if ( Privileges )
+              {
+                SeAppendPrivileges(AccessState, Privileges);
+                CmSiFreeMemory(Privileges);
+              }
+            }
+            ExReleaseResourceLite(&IopSecurityResource);
+            KeLeaveCriticalRegionThread((__int64)v49);
+          }
+          v48 = AbsoluteObjectName;
+        }
       }
       else
       {
-        --CurrentThread->KernelApcDisable;
-        ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
-        v66 = AccessState;
-        LOBYTE(v52) = (v52 ^ SeFastTraverseCheck((__int64)v53->SecurityDescriptor, (__int64)AccessState, 32)) & 1 ^ v52;
-        if ( (v52 & 1) == 0 )
+        v42 = 0;
+        if ( (*(_DWORD *)(v17 + 52) & 0x40001) != 0 && (RemainingDesiredAccess & 0xFFEDFF7F) != 0 )
         {
-          v204 = 0LL;
-          SeLockSubjectContext(p_SubjectSecurityContext);
-          LOBYTE(v52) = ((v52 | 0x20) ^ SeAccessCheck(
-                                          v53->SecurityDescriptor,
-                                          p_SubjectSecurityContext,
-                                          1u,
-                                          0x20u,
-                                          0,
-                                          &v204,
-                                          (PGENERIC_MAPPING)((char *)IoFileObjectType + 76),
-                                          1,
-                                          &v201,
-                                          &AccessStatus)) & 1 ^ (v52 | 0x20);
-          if ( v204 )
+          ActiveConsoleId = RtlGetActiveConsoleId(v33, v32);
+          if ( ActiveConsoleId != (unsigned int)PsGetCurrentProcessSessionId() )
           {
-            SeAppendPrivileges(v66, v204);
-            CmSiFreeMemory(v204);
+            v40 = PsGetCurrentServerSilo(v39, v38);
+            v41 = PsGetServerSiloServiceSessionId(v40);
+            if ( v41 != (unsigned int)PsGetCurrentProcessSessionId() && !IopAllowRemoteDASD() )
+              v42 = 1;
           }
         }
+        Privileges = 0LL;
+        KeEnterCriticalRegionThread((__int64)CurrentThread);
+        ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
+        p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
+        SeLockSubjectContext(&AccessState->SubjectSecurityContext);
+        v44 = v36 | 0x20;
+        if ( !v42 )
+          goto LABEL_68;
+        ClientToken = p_SubjectSecurityContext->ClientToken;
+        if ( !p_SubjectSecurityContext->ClientToken )
+          ClientToken = AccessState->SubjectSecurityContext.PrimaryToken;
+        if ( SeTokenIsAdmin(ClientToken) )
+        {
+LABEL_68:
+          LOBYTE(v11) = (v44 ^ SeAccessCheck(
+                                 *(PSECURITY_DESCRIPTOR *)(v17 + 272),
+                                 p_SubjectSecurityContext,
+                                 (v44 & 0x20) != 0,
+                                 RemainingDesiredAccess,
+                                 0,
+                                 &Privileges,
+                                 (PGENERIC_MAPPING)((char *)IoFileObjectType + 76),
+                                 1,
+                                 &GrantedAccess,
+                                 &AccessStatus)) & 1 ^ v44;
+          v46 = AccessState;
+          if ( Privileges )
+          {
+            SeAppendPrivileges(AccessState, Privileges);
+            CmSiFreeMemory(Privileges);
+          }
+          if ( (v11 & 1) != 0 )
+          {
+            v47 = GrantedAccess;
+            v46->PreviouslyGrantedAccess |= GrantedAccess;
+            *p_RemainingDesiredAccess &= ~(v47 | 0x2000000);
+            *(_BYTE *)(v14 + 136) = 1;
+          }
+        }
+        else
+        {
+          LOBYTE(v11) = v44 & 0xFE;
+          AccessStatus = -1073741790;
+        }
+        v48 = AbsoluteObjectName;
+        SeOpenObjectAuditAlarm(
+          &ObjectTypeName,
+          (PVOID)v17,
+          AbsoluteObjectName,
+          *(PSECURITY_DESCRIPTOR *)(v17 + 272),
+          AccessState,
+          0,
+          v11 & 1,
+          1,
+          &AccessState->GenerateOnClose);
         ExReleaseResourceLite(&IopSecurityResource);
         KeLeaveCriticalRegionThread((__int64)CurrentThread);
       }
-      goto LABEL_136;
+      if ( (v11 & 0x20) != 0 )
+        SeUnlockSubjectContext(p_SubjectSecurityContext);
+      if ( (v11 & 1) == 0 )
+        goto LABEL_317;
+      v35 = v186;
     }
-LABEL_140:
-    v67 = *(_BYTE *)(v12 + 137) || *(_BYTE *)(v12 + 138) ? 64 : 0;
-    v68 = v67 | v52 & 0xBF;
-    v69 = SourceString;
-    Length = SourceString->Length;
-    if ( SourceString->Length || *(_QWORD *)(v12 + 40) || (v35 & 0xFEE1FF7F) != 0 || (v68 & 0x40) != 0 )
-      LOBYTE(v52) = v68 & 0xF7;
     else
-      LOBYTE(v52) = v68 | 8;
-    v192 = v52;
-    v71 = 0LL;
-    v206 = 0LL;
-    v72 = *(_QWORD *)(v12 + 40);
-    if ( !v72 || (*(_DWORD *)(v72 + 80) & 0x800) != 0 )
     {
-      AttachedDevice = v53;
-      *(_QWORD *)DesiredAccess = v53;
-      v75 = v53;
-      v76 = v192;
-      if ( v53->Vpb && (v192 & 8) == 0 )
+      v48 = AbsoluteObjectName;
+    }
+    if ( *(_BYTE *)(v14 + 137) || *(_BYTE *)(v14 + 138) )
+      v50 = 64;
+    else
+      v50 = 0;
+    v51 = v50 | v11 & 0xBF;
+    Length = SourceString->Length;
+    if ( SourceString->Length
+      || (v53 = *(_QWORD *)(v14 + 40)) != 0
+      || (RemainingDesiredAccess & 0xFEE1FF7F) != 0
+      || (v51 & 0x40) != 0 )
+    {
+      LOBYTE(v11) = v51 & 0xF7;
+      v53 = *(_QWORD *)(v14 + 40);
+    }
+    else
+    {
+      LOBYTE(v11) = v51 | 8;
+    }
+    v160 = v11;
+    v54 = 0LL;
+    v166 = 0LL;
+    if ( !v53 || (*(_DWORD *)(v53 + 80) & 0x800) != 0 )
+    {
+      AttachedDevice = (PDEVICE_OBJECT)v17;
+      DeviceObject = (PDEVICE_OBJECT)v17;
+      v56 = v160;
+      if ( *(_QWORD *)(v17 + 56) && (v160 & 8) == 0 )
       {
-        if ( (v53->Characteristics & 0x100) != 0
-          && (v53->DeviceObjectExtension->ExtensionFlags & 0x800) == 0
-          && (v36 || (*(_DWORD *)(v12 + 84) & 1) != 0)
-          && (v72 || Length)
-          && !(_BYTE)v200 )
+        if ( (*(_DWORD *)(v17 + 52) & 0x100) != 0
+          && (*(_DWORD *)(*(_QWORD *)(v17 + 312) + 32LL) & 0x800) == 0
+          && (v35 || (*(_DWORD *)(v14 + 84) & 1) != 0)
+          && (v53 || Length)
+          && !(_BYTE)v161 )
         {
-          v204 = 0LL;
+          Privileges = 0LL;
           if ( !IopCreateSecurityCheck(
-                  (__int64)v53,
-                  v53,
-                  v32,
-                  v35,
-                  *(_DWORD *)(v12 + 88),
+                  v17,
+                  (void *)v17,
+                  AccessState,
+                  RemainingDesiredAccess,
+                  *(_DWORD *)(v14 + 88),
                   0LL,
-                  &v201,
+                  &GrantedAccess,
                   AbsoluteObjectName,
                   &ObjectTypeName,
                   (__int64)CurrentThread,
                   0) )
-            goto LABEL_188;
+            goto LABEL_317;
         }
-        v77 = IopCheckVpbMounted(v12, (ULONG_PTR)v53, (__int64)v69, &AccessStatus);
-        v71 = v77;
-        v206 = v77;
-        if ( !v77 )
+        v57 = IopCheckVpbMounted(v14, v17, (__int64)SourceString, &AccessStatus);
+        v54 = v57;
+        v166 = v57;
+        if ( !v57 )
           return (unsigned int)AccessStatus;
-        AttachedDevice = *(PDEVICE_OBJECT *)(v77 + 8);
-        *(_QWORD *)DesiredAccess = AttachedDevice;
-        v75 = AttachedDevice;
-        v76 = v192;
+        AttachedDevice = *(PDEVICE_OBJECT *)(v57 + 8);
+        DeviceObject = AttachedDevice;
       }
-      if ( (*(_DWORD *)(v12 + 152) & 1) != 0 )
+      if ( (*(_DWORD *)(v14 + 152) & 1) != 0 )
       {
-        LOBYTE(v76) = v76 | 2;
-        v192 = v76;
+        LOBYTE(v56) = v56 | 2;
+        v160 = v56;
       }
-      else if ( v75->AttachedDevice )
+      else if ( AttachedDevice->AttachedDevice )
       {
         AttachedDevice = IoGetAttachedDevice(AttachedDevice);
-        *(_QWORD *)DesiredAccess = AttachedDevice;
+        DeviceObject = AttachedDevice;
       }
     }
     else
     {
-      AttachedDevice = DeviceObject;
-      *(_QWORD *)DesiredAccess = DeviceObject;
-      if ( *(_QWORD *)(v72 + 16) )
+      AttachedDevice = BugCheckParameter2;
+      DeviceObject = BugCheckParameter2;
+      if ( *(_QWORD *)(v53 + 16) )
       {
-        v71 = *(_QWORD *)(v72 + 16);
-        v206 = v71;
-        if ( (v53->Characteristics & 0x100) != 0
-          && (v53->DeviceObjectExtension->ExtensionFlags & 0x800) == 0
-          && (v36 || (*(_DWORD *)(v12 + 84) & 1) != 0)
-          && !(_BYTE)v200 )
+        v54 = *(_QWORD *)(v53 + 16);
+        v166 = v54;
+        if ( (*(_DWORD *)(v17 + 52) & 0x100) != 0
+          && (*(_DWORD *)(*(_QWORD *)(v17 + 312) + 32LL) & 0x800) == 0
+          && (v35 || (*(_DWORD *)(v14 + 84) & 1) != 0)
+          && !(_BYTE)v161 )
         {
-          v204 = 0LL;
+          Privileges = 0LL;
           if ( !IopCreateSecurityCheck(
-                  (__int64)v53,
-                  v53,
-                  v32,
-                  v35,
-                  *(_DWORD *)(v12 + 88),
+                  v17,
+                  (void *)v17,
+                  AccessState,
+                  RemainingDesiredAccess,
+                  *(_DWORD *)(v14 + 88),
                   0LL,
-                  &v201,
-                  AbsoluteObjectName,
+                  &GrantedAccess,
+                  v48,
                   &ObjectTypeName,
                   (__int64)CurrentThread,
                   0) )
-            goto LABEL_188;
+            goto LABEL_317;
         }
-        IopIncrementVpbRefCount(v71, 1);
+        IopIncrementVpbRefCount(v54, 1);
       }
-      if ( (*(_DWORD *)(v12 + 152) & 1) != 0 )
+      if ( (*(_DWORD *)(v14 + 152) & 1) != 0 )
       {
-        if ( v71 )
+        if ( v54 )
         {
-          AttachedDevice = *(PDEVICE_OBJECT *)(v71 + 8);
-          *(_QWORD *)DesiredAccess = AttachedDevice;
+          AttachedDevice = *(PDEVICE_OBJECT *)(v54 + 8);
+          DeviceObject = AttachedDevice;
         }
-        v74 = v192;
-        LOBYTE(v74) = v192 | 2;
-        v192 = v74;
+        v56 = v160;
+        LOBYTE(v56) = v160 | 2;
+        v160 = v56;
+      }
+      else
+      {
+        LOBYTE(v56) = v160;
       }
     }
-    Characteristics = v53->Characteristics;
-    if ( (Characteristics & 0x40001) == 0 || (v53->Flags & 0x600100) != 0 )
+    v58 = *(_DWORD *)(v17 + 52);
+    if ( (v58 & 0x40001) != 0
+      && (*(_DWORD *)(v17 + 48) & 0x600100) == 0
+      && (v58 & 0x100) == 0
+      && IopIsSecurityContextAppContainer(&AccessState->SubjectSecurityContext) )
     {
-      v79 = AccessState;
-    }
-    else
-    {
-      v79 = AccessState;
-      if ( (Characteristics & 0x100) == 0 )
+      if ( !v54 )
+        goto LABEL_317;
+      if ( (*(_DWORD *)(*(_QWORD *)(v54 + 8) + 48LL) & 0x20000) == 0 )
       {
-        v194 = 0;
-        SeIsAppContainerOrIdentifyLevelContext(&AccessState->SubjectSecurityContext);
-        if ( v194 )
-        {
-          if ( !v71 )
-            goto LABEL_188;
-          if ( (*(_DWORD *)(*(_QWORD *)(v71 + 8) + 48LL) & 0x20000) == 0 )
-          {
-            IopDereferenceVpbAndFree(v71);
-LABEL_188:
-            IopDecrementDeviceObjectRef((ULONG_PTR)v53, 0);
-            return 3221225506LL;
-          }
-        }
-      }
-    }
-    if ( (v192 & 2) != 0 )
-      break;
-LABEL_193:
-    v80 = *(_DWORD *)(v12 + 152);
-    if ( (v80 & 0x10) != 0 )
-      *(_DWORD *)(v12 + 152) = v80 & 0xFFFFFFEF;
-    if ( ((AttachedDevice->Characteristics & 0x100) != 0
-       || IopRequireDeviceAccessCheck && (v53->Characteristics & 0x100000) != 0)
-      && (v191 || (*(_DWORD *)(v12 + 84) & 1) != 0)
-      && (*(_QWORD *)(v12 + 40) || SourceString->Length)
-      && !(_BYTE)v200 )
-    {
-      v204 = 0LL;
-      if ( !IopCreateSecurityCheck(
-              (__int64)v53,
-              AttachedDevice,
-              v79,
-              v35,
-              *(_DWORD *)(v12 + 88),
-              0LL,
-              &v201,
-              AbsoluteObjectName,
-              &ObjectTypeName,
-              (__int64)CurrentThread,
-              1) )
-      {
-        IopDecrementDeviceObjectRef((ULONG_PTR)v53, 0);
-        if ( v71 )
-          IopDereferenceVpbAndFree(v71);
+        IopDereferenceVpbAndFree(v54);
+LABEL_317:
+        IopDecrementDeviceObjectRef(v17, 0);
         return 3221225506LL;
       }
     }
-    Irp = IopAllocateIrpExReturn((__int64)AttachedDevice, (unsigned __int8)AttachedDevice->StackSize, 0LL);
-    v82 = Irp;
+    if ( (v56 & 2) != 0 )
+    {
+      v59 = (v56 & 8) != 0;
+      v60 = SourceString;
+      AccessStatus = IopCheckTopDeviceHint(&DeviceObject, v14, v59, SourceString);
+      if ( AccessStatus < 0 )
+      {
+        if ( v54 )
+          IopDereferenceVpbAndFree(v54);
+        IopDecrementDeviceObjectRef(v17, 0);
+        return (unsigned int)AccessStatus;
+      }
+      AttachedDevice = DeviceObject;
+    }
+    else
+    {
+      v60 = SourceString;
+    }
+    v61 = *(_DWORD *)(v14 + 152);
+    if ( (v61 & 0x10) != 0 )
+      *(_DWORD *)(v14 + 152) = v61 & 0xFFFFFFEF;
+    if ( ((AttachedDevice->Characteristics & 0x100) != 0
+       || IopRequireDeviceAccessCheck && (*(_DWORD *)(v17 + 52) & 0x100000) != 0)
+      && (v186 || (*(_DWORD *)(v14 + 84) & 1) != 0)
+      && (*(_QWORD *)(v14 + 40) || v60->Length) )
+    {
+      v62 = AccessState;
+      if ( !(_BYTE)v161 )
+      {
+        Privileges = 0LL;
+        if ( !IopCreateSecurityCheck(
+                v17,
+                AttachedDevice,
+                AccessState,
+                RemainingDesiredAccess,
+                *(_DWORD *)(v14 + 88),
+                0LL,
+                &GrantedAccess,
+                AbsoluteObjectName,
+                &ObjectTypeName,
+                (__int64)CurrentThread,
+                1) )
+        {
+          IopDecrementDeviceObjectRef(v17, 0);
+          if ( v54 )
+            IopDereferenceVpbAndFree(v54);
+          return 3221225506LL;
+        }
+      }
+    }
+    else
+    {
+      v62 = AccessState;
+    }
+    Irp = IopAllocateIrpExReturn();
+    v64 = Irp;
     if ( !Irp )
     {
-      IopDecrementDeviceObjectRef((ULONG_PTR)v53, 0);
-      if ( v71 )
-        IopDereferenceVpbAndFree(v71);
+      IopDecrementDeviceObjectRef(BugCheckParameter1, 0);
+      if ( v54 )
+        IopDereferenceVpbAndFree(v54);
       return 3221225626LL;
     }
     *(_QWORD *)(Irp + 152) = CurrentThread;
-    v83 = v191;
-    *(_BYTE *)(Irp + 64) = v191;
+    v65 = v186;
+    *(_BYTE *)(Irp + 64) = v186;
     *(_DWORD *)(Irp + 16) = 2180;
-    *(_QWORD *)&v222 = a9;
-    *((_QWORD *)&v222 + 1) = v79;
-    LODWORD(v223) = v35;
-    HIDWORD(v223) = *(_DWORD *)(v12 + 64);
-    v84 = *(_QWORD *)(Irp + 184) - 72LL;
-    v224 = (_BYTE *)v84;
-    *(_BYTE *)(v84 + 3) = 0;
-    v85 = *(_DWORD *)(v12 + 120);
-    if ( v85 )
+    *(_QWORD *)&v180 = a9;
+    *((_QWORD *)&v180 + 1) = v62;
+    LODWORD(v181) = RemainingDesiredAccess;
+    HIDWORD(v181) = *(_DWORD *)(v14 + 64);
+    v66 = *(_QWORD *)(Irp + 184) - 72LL;
+    v177 = (_BYTE *)v66;
+    *(_BYTE *)(v66 + 3) = 0;
+    v67 = *(_DWORD *)(v14 + 120);
+    v68 = a5;
+    if ( v67 )
     {
-      if ( v85 == 1 )
-        *(_BYTE *)v84 = 1;
+      if ( v67 == 1 )
+        *(_BYTE *)v66 = 1;
       else
-        *(_BYTE *)v84 = 19;
-      *(_QWORD *)(v84 + 32) = *(_QWORD *)(v12 + 128);
+        *(_BYTE *)v66 = 19;
+      *(_QWORD *)(v66 + 32) = *(_QWORD *)(v14 + 128);
     }
     else
     {
-      *(_BYTE *)v84 = 0;
-      *(_DWORD *)(v84 + 32) = *(_DWORD *)(v12 + 80);
-      v86 = *(_BYTE *)(v12 + 84);
-      *(_BYTE *)(v84 + 2) = v86;
-      if ( (a5 & 0x40) == 0 )
-        *(_BYTE *)(v84 + 2) = v86 | 0x80;
+      *(_BYTE *)v66 = 0;
+      *(_DWORD *)(v66 + 32) = *(_DWORD *)(v14 + 80);
+      v69 = *(_BYTE *)(v14 + 84);
+      *(_BYTE *)(v66 + 2) = v69;
+      if ( (v68 & 0x40) == 0 )
+        *(_BYTE *)(v66 + 2) = v69 | 0x80;
     }
-    *(_QWORD *)(v82 + 88) = *(_QWORD *)(v12 + 56);
-    *(_QWORD *)(v82 + 24) = *(_QWORD *)(v12 + 72);
-    *(_DWORD *)(v84 + 16) = (*(_DWORD *)(v12 + 88) << 24) | *(_DWORD *)(v12 + 64) & 0xFFFFFF;
-    *(_WORD *)(v84 + 24) = *(_WORD *)(v12 + 68);
-    *(_WORD *)(v84 + 26) = *(_WORD *)(v12 + 70);
-    *(_QWORD *)(v84 + 8) = &v222;
-    *(_QWORD *)(v82 + 112) = *(_QWORD *)(v12 + 168);
-    *(_QWORD *)(v82 + 72) = BugCheckParameter4;
-    *(_QWORD *)(v82 + 8) = 0LL;
-    *(_BYTE *)(v82 + 65) = 0;
-    *(_BYTE *)(v82 + 68) = 0;
-    *(_QWORD *)(v82 + 80) = 0LL;
-    *(_QWORD *)(v82 + 104) = 0LL;
-    *(_QWORD *)(v82 + 160) = 0LL;
-    if ( *(_BYTE *)(v12 + 137) )
+    *(_QWORD *)(v64 + 88) = *(_QWORD *)(v14 + 56);
+    *(_QWORD *)(v64 + 24) = *(_QWORD *)(v14 + 72);
+    *(_DWORD *)(v66 + 16) = (*(_DWORD *)(v14 + 88) << 24) | *(_DWORD *)(v14 + 64) & 0xFFFFFF;
+    *(_WORD *)(v66 + 24) = *(_WORD *)(v14 + 68);
+    *(_WORD *)(v66 + 26) = *(_WORD *)(v14 + 70);
+    *(_QWORD *)(v66 + 8) = &v180;
+    *(_QWORD *)(v64 + 112) = *(_QWORD *)(v14 + 168);
+    *(_QWORD *)(v64 + 72) = BugCheckParameter4;
+    *(_QWORD *)(v64 + 8) = 0LL;
+    *(_BYTE *)(v64 + 65) = 0;
+    *(_BYTE *)(v64 + 68) = 0;
+    *(_QWORD *)(v64 + 80) = 0LL;
+    *(_QWORD *)(v64 + 104) = 0LL;
+    *(_QWORD *)(v64 + 160) = 0LL;
+    if ( !*(_BYTE *)(v14 + 137) )
     {
-      v88 = *(_QWORD **)(v12 + 144);
-      memset(v88, 0, 0x110uLL);
-      v87 = (PFILE_OBJECT)(v88 + 6);
-      FileObject = (PFILE_OBJECT)(v88 + 6);
-      *((_BYTE *)v88 + 24) = ObHeaderCookie ^ *((_BYTE *)IoFileObjectType + 40) ^ BYTE1(v88);
-      *v88 = 1LL;
-      if ( (a5 & 0x40) == 0 )
-        *((_DWORD *)v88 + 32) |= 0x20000u;
-      v87->Type = 5;
-      *((_WORD *)v88 + 25) = 216;
-      v88[14] = *(_QWORD *)(v12 + 40);
-      v88[7] = Object;
-      if ( (*(_DWORD *)(v12 + 152) & 0x20) != 0 )
-      {
-        if ( v191 )
-        {
-          if ( (AttachedDevice->Flags & 0x40000) != 0
-            || (v89 = AttachedDevice->DeviceType, (_DWORD)v89 == 8)
-            || (unsigned int)v89 <= 0x35 && (v90 = 0x20000100100008LL, _bittest64(&v90, v89)) )
-          {
-            AccessStatus = IopRetrieveTransactionParameters(AttachedDevice, v12, v35, v88 + 6);
-            if ( AccessStatus < 0 )
-            {
-LABEL_420:
-              IoFreeIrp((PIRP)v82);
-              IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-              if ( v206 )
-              {
-                IopDereferenceVpbAndFree(v206);
-                result = (unsigned int)AccessStatus;
-                *(_DWORD *)(v12 + 16) = AccessStatus;
-                return result;
-              }
-LABEL_418:
-              result = (unsigned int)AccessStatus;
-LABEL_419:
-              *(_DWORD *)(v12 + 16) = result;
-              return result;
-            }
-          }
-        }
-      }
-      if ( !PsIsHostSilo(*(_QWORD *)(v213 + 8)) || v88[14] && (v91 = IoGetSilo(v88[14]), !PsIsHostSilo(v91)) )
-      {
-        v217 = 0LL;
-        if ( v88[14] && PsIsServerSilo(*(_QWORD *)(v213 + 8)) )
-          Silo = (_DWORD *)IoGetSilo(v88[14]);
-        else
-          Silo = *(_DWORD **)(v213 + 8);
-        if ( !PsIsHostSilo((__int64)Silo) )
-        {
-          AccessStatus = PsAcquireSiloHardReference(Silo);
-          if ( AccessStatus < 0 )
-            goto LABEL_420;
-          SetSpecificExtension = IopGetSetSpecificExtension((__int64)v87, 7u, 0x10u, 1, &v217, 0LL);
-          AccessStatus = SetSpecificExtension;
-          if ( SetSpecificExtension < 0 )
-          {
-            PsReleaseSiloHardReference(Silo);
-            SetSpecificExtension = AccessStatus;
-          }
-          v94 = v217;
-          if ( SetSpecificExtension < 0 )
-            goto LABEL_420;
-          *v217 = 16;
-          *((_QWORD *)v94 + 1) = Silo;
-          v94[1] |= 1u;
-          ObfReferenceObjectWithTag(Silo, 0x70536F49u);
-        }
-        AttachedDevice = *(PDEVICE_OBJECT *)DesiredAccess;
-      }
-    }
-    else
-    {
+      v70 = BugCheckParameter1;
       AccessStatus = IopAllocRealFileObject(
-                       (unsigned int)&FileObject,
+                       (unsigned int)&DmaAdapter,
                        (_DWORD)AttachedDevice,
-                       (_DWORD)Object,
-                       a5,
-                       v83,
-                       v12,
-                       v213,
+                       BugCheckParameter1,
+                       v68,
+                       v65,
+                       v14,
+                       a10,
                        0,
-                       v35);
+                       RemainingDesiredAccess);
       if ( AccessStatus < 0 )
       {
-        IoFreeIrp((PIRP)v82);
-        IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-        if ( v71 )
-          IopDereferenceVpbAndFree(v71);
-        v158 = FileObject;
-        if ( FileObject )
+        IoFreeIrp((PIRP)v64);
+        IopDecrementDeviceObjectRef(v70, 0);
+        if ( v54 )
+          IopDereferenceVpbAndFree(v54);
+        v129 = DmaAdapter;
+        if ( DmaAdapter )
         {
-          FileObject->DeviceObject = 0LL;
-          ObfDereferenceObject(v158);
+          DmaAdapter->DmaOperations = 0LL;
+          HalPutDmaAdapter(v129);
+          result = (unsigned int)AccessStatus;
+          *(_DWORD *)(v14 + 16) = AccessStatus;
+          return result;
         }
-        goto LABEL_418;
+        goto LABEL_430;
       }
-      v87 = FileObject;
+      v71 = DmaAdapter;
+      goto LABEL_186;
     }
-    if ( (v192 & 8) != 0 )
-      v87->Flags |= 0x800u;
-    v95 = *(_QWORD *)(v12 + 216);
-    if ( (v95 & 1) != 0 )
+    v72 = *(struct _DMA_ADAPTER **)(v14 + 144);
+    memset(v72, 0, 0x110uLL);
+    v71 = v72 + 3;
+    DmaAdapter = v72 + 3;
+    LOBYTE(v72[1].DmaOperations) = ObHeaderCookie ^ *((_BYTE *)IoFileObjectType + 40) ^ BYTE1(v72);
+    *(_QWORD *)&v72->Version = 1LL;
+    if ( (a5 & 0x40) == 0 )
+      *(_DWORD *)&v72[8].Version |= 0x20000u;
+    *(_DWORD *)&v71->Version = 14155781;
+    *(_QWORD *)&v72[7].Version = *(_QWORD *)(v14 + 40);
+    v73 = BugCheckParameter1;
+    v71->DmaOperations = (_DMA_OPERATIONS *)BugCheckParameter1;
+    if ( (*(_DWORD *)(v14 + 152) & 0x20) != 0 )
     {
-      v96 = 32;
-LABEL_244:
-      IopSetFileObjectExtensionFlag((__int64)v87, v96, 1);
-      goto LABEL_245;
+      if ( v186 )
+      {
+        if ( (AttachedDevice->Flags & 0x40000) != 0
+          || (DeviceType = AttachedDevice->DeviceType, (unsigned int)DeviceType <= 0x35)
+          && (v75 = 0x20000100100108LL, _bittest64(&v75, DeviceType)) )
+        {
+          AccessStatus = IopRetrieveTransactionParameters(AttachedDevice, v14, RemainingDesiredAccess, v71);
+          if ( AccessStatus < 0 )
+            break;
+        }
+      }
     }
-    if ( (v95 & 2) != 0 )
+    if ( !PsIsHostSilo(*(_QWORD *)(a10 + 8))
+      || (v76 = *(_QWORD *)&v71[4].Version) != 0 && (v77 = IoGetSilo(v76), !PsIsHostSilo(v77)) )
     {
-      v96 = 64;
-      goto LABEL_244;
+      v176 = 0LL;
+      if ( *(_QWORD *)&v71[4].Version && PsIsServerSilo(*(_QWORD *)(a10 + 8)) )
+        Silo = (_DWORD *)IoGetSilo(v78);
+      else
+        Silo = *(_DWORD **)(a10 + 8);
+      if ( !PsIsHostSilo((__int64)Silo) )
+      {
+        AccessStatus = PsAcquireSiloHardReference(Silo);
+        if ( AccessStatus < 0 )
+          goto LABEL_329;
+        SetSpecificExtension = IopGetSetSpecificExtension((__int64)v71, 7u, 0x10u, 1, &v176, 0LL);
+        AccessStatus = SetSpecificExtension;
+        if ( SetSpecificExtension < 0 )
+        {
+          PsReleaseSiloHardReference(Silo);
+          SetSpecificExtension = AccessStatus;
+        }
+        v81 = v176;
+        if ( SetSpecificExtension < 0 )
+        {
+LABEL_329:
+          IoFreeIrp((PIRP)v64);
+          v130 = BugCheckParameter1;
+          goto LABEL_327;
+        }
+        *v176 = 16;
+        *((_QWORD *)v81 + 1) = Silo;
+        v81[1] |= 1u;
+        ObfReferenceObjectWithTag(Silo, 0x70536F49u);
+      }
+      v66 = (__int64)v177;
+LABEL_186:
+      v73 = BugCheckParameter1;
     }
-LABEL_245:
-    *(_QWORD *)(v82 + 192) = v87;
-    *(_QWORD *)(v84 + 48) = v87;
-    v97 = SourceString->Length;
+    if ( (v160 & 8) != 0 )
+      *(_DWORD *)&v71[5].Version |= 0x800u;
+    v82 = *(_QWORD *)(v14 + 216);
+    if ( (v82 & 1) != 0 )
+    {
+      v83 = 32;
+LABEL_193:
+      IopSetFileObjectExtensionFlag((__int64)v71, v83, 1);
+      goto LABEL_194;
+    }
+    if ( (v82 & 2) != 0 )
+    {
+      v83 = 64;
+      goto LABEL_193;
+    }
+LABEL_194:
+    *(_QWORD *)(v64 + 192) = v71;
+    *(_QWORD *)(v66 + 48) = v71;
+    v84 = SourceString->Length;
     if ( SourceString->Length )
     {
-      if ( v97 >= 0x38u )
+      if ( v84 >= 0x38u )
       {
-        if ( v97 >= 0x78u )
+        if ( v84 >= 0x78u )
         {
-          if ( v97 < 0xF8u )
-            v97 = 248;
+          if ( v84 < 0xF8u )
+            v84 = 248;
         }
         else
         {
-          v97 = 120;
+          v84 = 120;
         }
       }
       else
       {
-        v97 = 56;
+        v84 = 56;
       }
-      v87->FileName.MaximumLength = v97;
-      Pool2 = ExAllocatePool2(256LL, v97, 1833856841LL);
-      v87->FileName.Buffer = (wchar_t *)Pool2;
-      if ( !Pool2 )
+      WORD1(v71[5].DmaOperations) = v84;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v84, 0x6D4E6F49u);
+      *(_QWORD *)&v71[6].Version = PoolWithTag;
+      if ( !PoolWithTag )
       {
-        IoFreeIrp((PIRP)v82);
-        IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-        if ( v206 )
-          IopDereferenceVpbAndFree(v206);
-        v87->DeviceObject = 0LL;
-        if ( !*(_BYTE *)(v12 + 137) )
+        IoFreeIrp((PIRP)v64);
+        IopDecrementDeviceObjectRef(v73, 0);
+        if ( v166 )
+          IopDereferenceVpbAndFree(v166);
+        v71->DmaOperations = 0LL;
+        if ( !*(_BYTE *)(v14 + 137) )
         {
-          ObfDereferenceObject(v87);
-          return 3221225626LL;
-        }
-        if ( v87->FileObjectExtension )
-        {
-          IopDeleteFileObjectExtension((__int64)v87);
+          HalPutDmaAdapter(v71);
           return 3221225626LL;
         }
         return 3221225626LL;
       }
     }
-    RtlCopyUnicodeString(&v87->FileName, SourceString);
-    if ( *(_BYTE *)(v12 + 137) )
+    RtlCopyUnicodeString((PUNICODE_STRING)&v71[5].DmaOperations, SourceString);
+    if ( *(_BYTE *)(v14 + 137) )
     {
-      v195[0] = 0;
-      AccessStatus = IopQueryInformation(v12, AttachedDevice, v82, v84, v195);
-      if ( AccessStatus < 0 || v195[0] )
+      LOBYTE(v184) = 0;
+      AccessStatus = IopQueryInformation(v14, AttachedDevice, v64, v66, &v184);
+      if ( AccessStatus < 0 || (_BYTE)v184 )
       {
-        v161 = *(_DWORD *)(v82 + 48);
-        *(_DWORD *)(v12 + 16) = v161;
-        *(_QWORD *)(v12 + 24) = *(_QWORD *)(v82 + 56);
-        if ( v161 == 260 )
+        v133 = *(_DWORD *)(v64 + 48);
+        *(_DWORD *)(v14 + 16) = v133;
+        *(_QWORD *)(v14 + 24) = *(_QWORD *)(v64 + 56);
+        if ( v133 == 260 )
         {
-          v162 = *(void **)(v82 + 160);
-          if ( v162 )
+          v134 = *(void **)(v64 + 160);
+          if ( v134 )
           {
-            ExFreePoolWithTag(v162, 0);
-            *(_QWORD *)(v82 + 160) = 0LL;
-            *(_QWORD *)(v12 + 40) = 0LL;
+            ExFreePoolWithTag(v134, 0);
+            *(_QWORD *)(v64 + 160) = 0LL;
+            *(_QWORD *)(v14 + 40) = 0LL;
           }
         }
-        if ( v87->FileName.Length )
-          ExFreePoolWithTag(v87->FileName.Buffer, 0);
-        if ( v87->FileObjectExtension )
-          IopDeleteFileObjectExtension((__int64)v87);
-        v160 = Object;
-        goto LABEL_446;
+        if ( LOWORD(v71[5].DmaOperations) )
+          ExFreePoolWithTag(*(PVOID *)&v71[6].Version, 0);
+        if ( *(_QWORD *)&v71[13].Version )
+          IopDeleteFileObjectExtension((__int64)v71);
+        v132 = BugCheckParameter1;
+        goto LABEL_352;
       }
-      if ( !RtlEqualUnicodeString(&v87->FileName, SourceString, 0) )
+      if ( !RtlEqualUnicodeString((PCUNICODE_STRING)&v71[5].DmaOperations, SourceString, 0) )
       {
-        Buffer = v87->FileName.Buffer;
-        if ( Buffer )
+        v86 = *(void **)&v71[6].Version;
+        if ( v86 )
         {
-          ExFreePoolWithTag(Buffer, 0);
-          RtlInitUnicodeString(&v87->FileName, 0LL);
+          ExFreePoolWithTag(v86, 0);
+          RtlInitUnicodeString((PUNICODE_STRING)&v71[5].DmaOperations, 0LL);
         }
-        v100 = SourceString->Length;
+        v87 = SourceString->Length;
         if ( SourceString->Length )
         {
-          if ( v100 >= 0x38u )
+          if ( v87 >= 0x38u )
           {
-            if ( v100 >= 0x78u )
+            if ( v87 >= 0x78u )
             {
-              if ( v100 < 0xF8u )
-                v100 = 248;
+              if ( v87 < 0xF8u )
+                v87 = 248;
             }
             else
             {
-              v100 = 120;
+              v87 = 120;
             }
           }
           else
           {
-            v100 = 56;
+            v87 = 56;
           }
-          v87->FileName.MaximumLength = v100;
-          v101 = ExAllocatePool2(256LL, v100, 1833856841LL);
-          v87->FileName.Buffer = (wchar_t *)v101;
-          if ( !v101 )
+          WORD1(v71[5].DmaOperations) = v87;
+          v88 = ExAllocatePoolWithTag(PagedPool, v87, 0x6D4E6F49u);
+          *(_QWORD *)&v71[6].Version = v88;
+          if ( !v88 )
           {
-            if ( v87->FileObjectExtension )
-              IopDeleteFileObjectExtension((__int64)v87);
-            IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-            if ( v206 )
-              IopDereferenceVpbAndFree(v206);
-            IoFreeIrp((PIRP)v82);
+            if ( *(_QWORD *)&v71[13].Version )
+              IopDeleteFileObjectExtension((__int64)v71);
+            IopDecrementDeviceObjectRef(BugCheckParameter1, 0);
+            if ( v166 )
+              IopDereferenceVpbAndFree(v166);
+            IoFreeIrp((PIRP)v64);
             return 3221225626LL;
           }
-          RtlCopyUnicodeString(&v87->FileName, SourceString);
+          RtlCopyUnicodeString((PUNICODE_STRING)&v71[5].DmaOperations, SourceString);
         }
       }
-      GrantedAccessa = v35;
-      v102 = Object;
+      v89 = BugCheckParameter1;
       AccessStatus = IopAllocRealFileObject(
-                       (unsigned int)&FileObject,
+                       (unsigned int)&DmaAdapter,
                        (_DWORD)AttachedDevice,
-                       (_DWORD)Object,
+                       BugCheckParameter1,
                        a5,
-                       v191,
-                       v12,
-                       v213,
+                       v186,
+                       v14,
+                       a10,
                        1,
-                       GrantedAccessa);
+                       RemainingDesiredAccess);
       if ( AccessStatus < 0 )
       {
-        v159 = FileObject;
-        if ( FileObject->FileName.Length )
-          ExFreePoolWithTag(FileObject->FileName.Buffer, 0);
-        if ( v159->FileObjectExtension )
-          IopDeleteFileObjectExtension((__int64)v159);
-        v160 = v102;
-LABEL_446:
-        IopDecrementDeviceObjectRef((ULONG_PTR)v160, 0);
-        if ( v206 )
-          IopDereferenceVpbAndFree(v206);
-        IoFreeIrp((PIRP)v82);
+        v131 = DmaAdapter;
+        if ( LOWORD(DmaAdapter[5].DmaOperations) )
+          ExFreePoolWithTag(*(PVOID *)&DmaAdapter[6].Version, 0);
+        if ( *(_QWORD *)&v131[13].Version )
+          IopDeleteFileObjectExtension((__int64)v131);
+        v132 = v89;
+LABEL_352:
+        IopDecrementDeviceObjectRef(v132, 0);
+        if ( v166 )
+          IopDereferenceVpbAndFree(v166);
+        IoFreeIrp((PIRP)v64);
         return (unsigned int)AccessStatus;
       }
-      v87 = FileObject;
-      *(_QWORD *)(v84 + 48) = FileObject;
-      *(_QWORD *)(v82 + 192) = v87;
+      v71 = DmaAdapter;
+      *(_QWORD *)(v66 + 48) = DmaAdapter;
+      *(_QWORD *)(v64 + 192) = v71;
     }
-    if ( !*(_DWORD *)(v12 + 120) )
+    if ( !*(_DWORD *)(v14 + 120) )
     {
-      v103 = 0LL;
-      if ( (*(_DWORD *)(v82 + 16) & 0x80) != 0 )
-        v103 = *(struct _ECP_LIST **)(v82 + 112);
-      v104 = -1073741811;
-      if ( (*(_DWORD *)(v82 + 16) & 0x80) != 0 )
-        v104 = 0;
-      AccessStatus = v104;
-      if ( v103 && IopSymlinkGetECP(v103, (PVOID *)&Size[1]) != -1073741275 )
+      ExtraCreateParameter = 0LL;
+      AccessStatus = IoGetIrpExtraCreateParameter((PIRP)v64, &ExtraCreateParameter);
+      if ( ExtraCreateParameter )
       {
-        v105 = *(__int16 **)&Size[1];
-        if ( *(_QWORD *)(*(_QWORD *)&Size[1] + 8LL) )
+        if ( IopSymlinkGetECP(ExtraCreateParameter, &v171) != -1073741275 )
         {
-          v106 = *(_QWORD *)(*(_QWORD *)&Size[1] + 8LL);
-          do
+          MostRecentlyUsedName = (__int16 *)IopSymlinkGetMostRecentlyUsedName((__int64)v171);
+          if ( !MostRecentlyUsedName[2] )
           {
-            v105 = (__int16 *)v106;
-            v106 = *(_QWORD *)(v106 + 8);
-          }
-          while ( v106 );
-        }
-        if ( !v105[2] )
-        {
-          updated = IopSymlinkUpdateECP((PIRP)v82, v105, AbsoluteObjectName->Length - SourceString->Length, v105[1]);
-          AccessStatus = updated;
-          if ( updated < 0 )
-          {
-            *(_DWORD *)(v82 + 48) = updated;
-            *(_QWORD *)(v82 + 56) = 0LL;
-            LOBYTE(v192) = v192 & 0xFB;
+            updated = IopSymlinkUpdateECP(
+                        (PIRP)v64,
+                        MostRecentlyUsedName,
+                        AbsoluteObjectName->Length - SourceString->Length,
+                        MostRecentlyUsedName[1]);
+            AccessStatus = updated;
+            if ( updated < 0 )
+            {
+              *(_DWORD *)(v64 + 48) = updated;
+              *(_QWORD *)(v64 + 56) = 0LL;
+              LOBYTE(v160) = v160 & 0xFB;
+            }
           }
         }
       }
     }
-    p_Event = &v87->Event;
-    KeInitializeEvent(&v87->Event, NotificationEvent, 0);
-    v109 = (_QWORD *)(v12 + 8);
-    v218 = (_QWORD *)(v12 + 8);
-    *(_QWORD *)(v12 + 8) = v87;
-    v110 = v192;
-    if ( (v192 & 4) != 0 )
+    p_DmaOperations = (struct _KSEMAPHORE *)&v71[9].DmaOperations;
+    KeInitializeEvent((PRKEVENT)&v71[9].DmaOperations, NotificationEvent, 0);
+    *(_QWORD *)(v14 + 8) = v71;
+    v93 = v160;
+    if ( (v160 & 4) != 0 )
     {
-      IopQueueThreadIrp(v82);
-      if ( *(char *)(v82 + 71) >= 0 && (v111 = *(_BYTE **)(v82 + 200)) != 0LL && (*v111 & 2) != 0 )
-      {
-        v228 = 0LL;
-        v228 = *(struct _LIST_ENTRY *)(*(_QWORD *)(v82 + 200) + 24LL);
-        v113 = IoSetActivityIdThread(&v228);
-        v114 = IofCallDriver(AttachedDevice, (PIRP)v82);
-        IoSetActivityIdThread(v113);
-      }
-      else
-      {
-        v114 = IofCallDriver(AttachedDevice, (PIRP)v82);
-      }
-      AccessStatus = v114;
-      v110 = v192;
+      IopQueueThreadIrp(v64);
+      v94 = IoCallDriverWithTracing(AttachedDevice, v64);
+      AccessStatus = v94;
+      v93 = v160;
     }
     else
     {
-      v114 = AccessStatus;
+      v94 = AccessStatus;
     }
-    if ( v114 == 259 )
+    if ( v94 == 259 )
     {
-      v115 = v110 | 0x80;
-      v116 = v110 & 0x7F;
+      v95 = v93 | 0x80;
+      v96 = v93 & 0x7F;
       if ( (KeGetCurrentThread()->MiscFlags & 0x400) == 0 )
-        v116 = v115;
-      v192 = v116;
-      v117 = (unsigned __int8)v116 >> 7;
-      AccessStatus = KeWaitForSingleObject(&v87->Event, Executive, 0, (unsigned __int8)v116 >> 7, 0LL);
+        v96 = v95;
+      v160 = v96;
+      v97 = (unsigned __int8)v96 >> 7;
+      AccessStatus = KeWaitForSingleObject(p_DmaOperations, Executive, 0, (unsigned __int8)v96 >> 7, 0LL);
       if ( AccessStatus == 257 )
       {
         while ( 1 )
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(1uLL);
-          v87 = FileObject;
-          if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0
-            || !FileObject->Event.Header.SignalState && *(_BYTE *)(v82 + 68) )
+          if ( PsIsThreadTerminating(KeGetCurrentThread())
+            || !KeReadStateSemaphore(p_DmaOperations) && *(_BYTE *)(v64 + 68) )
           {
             break;
           }
           if ( KiIrqlFlags )
           {
-            v119 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v119 <= 0xFu && CurrentIrql <= 0xFu && v119 >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v122 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v48 = (v122 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v122;
-              if ( v48 )
-                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-              v87 = FileObject;
+              v99 = KeGetCurrentIrql();
+              if ( v99 <= 0xFu && CurrentIrql <= 0xFu && v99 >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                v102 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                v103 = (v102 & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= v102;
+                if ( v103 )
+                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              }
             }
           }
           __writecr8(CurrentIrql);
-          AccessStatus = KeWaitForSingleObject(p_Event, Executive, 0, v117, 0LL);
+          AccessStatus = KeWaitForSingleObject(p_DmaOperations, Executive, 0, v97, 0LL);
           if ( AccessStatus != 257 )
-            goto LABEL_321;
+            goto LABEL_252;
         }
         if ( KiIrqlFlags )
         {
-          v123 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v123 <= 0xFu && CurrentIrql <= 0xFu && v123 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v124 = KeGetCurrentPrcb();
-            v125 = v124->SchedulerAssist;
-            v126 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v48 = (v126 & v125[5]) == 0;
-            v125[5] &= v126;
-            if ( v48 )
-              KiRemoveSystemWorkPriorityKick((__int64)v124);
-            v87 = FileObject;
+            v104 = KeGetCurrentIrql();
+            if ( v104 <= 0xFu && CurrentIrql <= 0xFu && v104 >= 2u )
+            {
+              v105 = KeGetCurrentPrcb();
+              v106 = v105->SchedulerAssist;
+              v107 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v103 = (v107 & v106[5]) == 0;
+              v106[5] &= v107;
+              if ( v103 )
+                KiRemoveSystemWorkPriorityKick((__int64)v105);
+            }
           }
         }
         __writecr8(CurrentIrql);
-        IopCancelAlertedRequest(&v87->Event, (PIRP)v82);
+        IopCancelAlertedRequest(p_DmaOperations, (PIRP)v64);
       }
-      else
-      {
-        v87 = FileObject;
-      }
-LABEL_321:
+LABEL_252:
       AccessStatus = BugCheckParameter4[0];
+      v71 = DmaAdapter;
     }
-    if ( (*(_DWORD *)(v82 + 16) & 0x80u) != 0 )
+    AccessStatus = IoGetIrpExtraCreateParameter((PIRP)v64, &v174);
+    v108 = *(_DWORD *)(v14 + 84) & 8;
+    v109 = v108 != 0;
+    v110 = v174;
+    if ( *(_DWORD *)(v64 + 48) == 260 )
     {
-      v128 = *(struct _ECP_LIST **)(v82 + 112);
-      ExtraCreateParameter = v128;
-      v127 = 0;
+      P = *(PVOID *)(v64 + 160);
+      if ( !v174 || IopSymlinkGetECP(v174, &v171) == -1073741275 )
+      {
+        AccessStatus = IopSymlinkCreateECP((PIRP)v64, (__int64)&v171);
+        if ( AccessStatus >= 0 )
+        {
+          if ( !v110 )
+          {
+            AccessStatus = IoGetIrpExtraCreateParameter((PIRP)v64, &v174);
+            v110 = v174;
+          }
+        }
+        else
+        {
+          *(_QWORD *)(v64 + 56) = 0LL;
+          *(_DWORD *)(v64 + 48) = AccessStatus;
+        }
+      }
+      if ( *(_DWORD *)(v64 + 48) == 260 )
+      {
+        v111 = P;
+        if ( v108 && v110 )
+          v109 = IopCheckAndUpdateStopOnSymlinkEcp(v110, *(unsigned int *)(v64 + 56), P);
+        IopSymlinkProcessReparse(v64, v71, v111, v109);
+        v112 = *(_QWORD *)(v64 + 56) - 2684354563LL;
+        if ( v112 <= 0x16 )
+        {
+          v113 = 4194817LL;
+          if ( _bittest64(&v113, v112) )
+          {
+            if ( *(int *)(v64 + 48) < 0 )
+              goto LABEL_280;
+            v114 = *((unsigned __int16 *)v111 + 3);
+            v115 = 0;
+            if ( !(_WORD)v114 )
+              v115 = 16;
+            v116 = v160;
+            LOBYTE(v116) = v115 | v160 & 0xEF;
+            v160 = v116;
+            if ( (v116 & 0x10) == 0 && *(wchar_t *)((char *)SourceString->Buffer + SourceString->Length - v114) != 58 )
+              goto LABEL_280;
+            v117 = *(_DWORD *)(v14 + 64);
+            if ( (v117 & 0x41) != 0 || *v177 )
+              goto LABEL_280;
+            if ( *v111 == -1610612733 )
+              goto LABEL_278;
+            if ( *v111 != -1610612724 )
+              goto LABEL_280;
+            if ( (int)v111[4] < 0 )
+            {
+LABEL_278:
+              v118 = v117 | 1;
+LABEL_279:
+              *(_DWORD *)(v14 + 64) = v118;
+            }
+            else if ( (v111[4] & 0x40000000) != 0 )
+            {
+              v118 = v117 | 0x40;
+              goto LABEL_279;
+            }
+LABEL_280:
+            if ( !v109 )
+            {
+              ExFreePoolWithTag(v111, 0);
+              P = 0LL;
+            }
+          }
+        }
+      }
+    }
+    if ( *(_DWORD *)(v64 + 48) || *(_DWORD *)(v14 + 120) )
+    {
+      v119 = DeviceObject;
     }
     else
     {
-      v127 = -1073741811;
-      v128 = ExtraCreateParameter;
-    }
-    AccessStatus = v127;
-    v129 = *(_DWORD *)(v12 + 84) & 8;
-    v130 = v129 != 0;
-    if ( *(_DWORD *)(v82 + 48) != 260 )
-      goto LABEL_356;
-    P = *(PVOID *)(v82 + 160);
-    if ( v128 && IopSymlinkGetECP(v128, (PVOID *)&Size[1]) != -1073741275 )
-      goto LABEL_332;
-    AccessStatus = IopSymlinkCreateECP((PIRP)v82, (__int64)&Size[1]);
-    if ( AccessStatus < 0 )
-    {
-      *(_QWORD *)(v82 + 56) = 0LL;
-      *(_DWORD *)(v82 + 48) = AccessStatus;
-LABEL_332:
-      v131 = ExtraCreateParameter;
-      goto LABEL_333;
-    }
-    v131 = ExtraCreateParameter;
-    if ( !ExtraCreateParameter )
-    {
-      AccessStatus = IoGetIrpExtraCreateParameter((PIRP)v82, &ExtraCreateParameter);
-      goto LABEL_332;
-    }
-LABEL_333:
-    if ( *(_DWORD *)(v82 + 48) == 260 )
-    {
-      v132 = P;
-      if ( v129 && v131 )
-        v130 = IopCheckAndUpdateStopOnSymlinkEcp(v131, *(unsigned int *)(v82 + 56), P);
-      IopSymlinkProcessReparse(v82, v87, v132, v130);
-      v133 = *(_QWORD *)(v82 + 56);
-      if ( v133 == 2684354563LL || v133 == 2684354572LL || v133 == 2684354585LL )
+      AccessStatus = IopSymlinkPropagateToExtensionIfNeeded(v71, v110, AbsoluteObjectName);
+      v119 = DeviceObject;
+      if ( AccessStatus < 0 )
       {
-        if ( *(int *)(v82 + 48) < 0 )
-          goto LABEL_354;
-        v134 = *((unsigned __int16 *)v132 + 3);
-        v135 = 0;
-        if ( !(_WORD)v134 )
-          v135 = 16;
-        v136 = v192;
-        LOBYTE(v136) = v135 | v192 & 0xEF;
-        v192 = v136;
-        if ( (v136 & 0x10) == 0 && *(wchar_t *)((char *)SourceString->Buffer + SourceString->Length - v134) != 58 )
-          goto LABEL_354;
-        v137 = *(_DWORD *)(v205 + 64);
-        if ( (v137 & 0x41) != 0 || *v224 )
-          goto LABEL_354;
-        if ( *v132 == -1610612733 )
-          goto LABEL_352;
-        if ( *v132 != -1610612724 )
-          goto LABEL_354;
-        if ( (int)v132[4] < 0 )
-        {
-LABEL_352:
-          v138 = v137 | 1;
-LABEL_353:
-          *(_DWORD *)(v205 + 64) = v138;
-        }
-        else if ( (v132[4] & 0x40000000) != 0 )
-        {
-          v138 = v137 | 0x40;
-          goto LABEL_353;
-        }
-LABEL_354:
-        if ( !v130 )
-        {
-          ExFreePoolWithTag(v132, 0);
-          P = 0LL;
-        }
+        IoCancelFileOpen(DeviceObject, (PFILE_OBJECT)v71);
+        *(_QWORD *)(v64 + 56) = 0LL;
+        *(_DWORD *)(v64 + 48) = AccessStatus;
       }
     }
-LABEL_356:
-    v139 = v205;
-    if ( *(_DWORD *)(v82 + 48) || *(_DWORD *)(v205 + 120) )
-    {
-      v142 = *(_QWORD *)DesiredAccess;
-      goto LABEL_379;
-    }
-    v140 = 0LL;
-    EcpContext = 0LL;
-    if ( !ExtraCreateParameter )
-      goto LABEL_367;
-    IopSymlinkRemoveECP(ExtraCreateParameter, &EcpContext);
-    v140 = EcpContext;
-    if ( EcpContext )
-    {
-      if ( (*((_BYTE *)EcpContext + 2) & 1) == 0 )
-        goto LABEL_361;
-LABEL_367:
-      if ( v140 )
-        goto LABEL_375;
-    }
-    RelatedFileObject = (__int64)v87->RelatedFileObject;
-    if ( !RelatedFileObject )
-    {
-LABEL_361:
-      v141 = 0;
-      goto LABEL_362;
-    }
-    FileObjectExtension = IopGetFileObjectExtension(RelatedFileObject, 5, 0LL);
-    if ( !FileObjectExtension )
-    {
-      v141 = 0;
-      goto LABEL_362;
-    }
-    v146 = AbsoluteObjectName->Length + 2;
-    v147 = v146 + *(unsigned __int16 *)(FileObjectExtension + 16);
-    if ( v147 >= 0xFFFF )
-    {
-      v141 = -1073741562;
-LABEL_362:
-      if ( v140 )
-      {
-        IopSymlinkFreeRelatedMountPointChain(v140);
-        FsRtlFreeExtraCreateParameter(v140);
-      }
-      goto LABEL_364;
-    }
-    v141 = FsRtlAllocateExtraCreateParameterFromLookasideList(
-             &IopSymlinkECPGuid,
-             (unsigned __int16)(v146 + *(_WORD *)(FileObjectExtension + 16)) + 32,
-             v145,
-             IopSymlinkCleanupECP,
-             &IopSymlinkInfoLookasideList,
-             &EcpContext);
-    v140 = EcpContext;
-    if ( v141 < 0 )
-      goto LABEL_362;
-    LOWORD(GrantedAccess) = *(_WORD *)(FileObjectExtension + 2);
-    LOWORD(AccessMode) = *(_WORD *)(FileObjectExtension + 4);
-    LOWORD(GenericMapping) = *(_WORD *)(FileObjectExtension + 16);
-    LOWORD(PreviouslyGrantedAccess) = 0;
-    IopSymlinkInitializeSymlinkInfo(
-      EcpContext,
-      v147 + 32,
-      AbsoluteObjectName->Buffer,
-      AbsoluteObjectName->Length,
-      PreviouslyGrantedAccess,
-      *(_QWORD *)(FileObjectExtension + 24),
-      GenericMapping,
-      AccessMode,
-      GrantedAccess,
-      0LL);
-    *v140 = *(_WORD *)FileObjectExtension + v140[8] - *(_WORD *)(FileObjectExtension + 16);
-LABEL_375:
-    v141 = IopSymlinkSetFoExtension(v87, v140);
-    if ( v141 < 0 )
-      goto LABEL_362;
-    IopSymlinkFreeRelatedMountPointChain(v140);
-    EcpContext = 0LL;
-LABEL_364:
-    AccessStatus = v141;
-    v142 = *(_QWORD *)DesiredAccess;
-    if ( v141 < 0 )
-    {
-      IoCancelFileOpen(*(PDEVICE_OBJECT *)DesiredAccess, v87);
-      *(_QWORD *)(v82 + 56) = 0LL;
-      *(_DWORD *)(v82 + 48) = AccessStatus;
-    }
-    v109 = v218;
-    v139 = v205;
-LABEL_379:
-    if ( ExtraCreateParameter )
-      *(_QWORD *)(v139 + 168) = ExtraCreateParameter;
-    *(_OWORD *)BugCheckParameter4 = *(_OWORD *)(v82 + 48);
+    if ( v110 )
+      *(_QWORD *)(v14 + 168) = v110;
+    *(_OWORD *)BugCheckParameter4 = *(_OWORD *)(v64 + 48);
     AccessStatus = _mm_cvtsi128_si32(*(__m128i *)BugCheckParameter4);
-    v87->Event.Header.SignalState = 1;
-    if ( (v192 & 4) != 0 )
+    HIDWORD(v71[9].DmaOperations) = 1;
+    v11 = v160;
+    if ( (v160 & 4) != 0 )
     {
-      *(_QWORD *)(v82 + 152) = CurrentThread;
-      IopDequeueIrpFromThread((_QWORD *)v82);
+      *(_QWORD *)(v64 + 152) = CurrentThread;
+      IopDequeueIrpFromThread((_QWORD *)v64);
     }
-    if ( (*(_BYTE *)(v82 + 16) & 0x30) == 0x30 )
-      ExFreePoolWithTag(*(PVOID *)(v82 + 24), 0);
-    IoFreeIrp((PIRP)v82);
-    v148 = BugCheckParameter4[1];
-    v149 = v205;
-    *(_QWORD *)(v205 + 24) = BugCheckParameter4[1];
+    if ( (*(_BYTE *)(v64 + 16) & 0x30) == 0x30 )
+      ExFreePoolWithTag(*(PVOID *)(v64 + 24), 0);
+    IoFreeIrp((PIRP)v64);
+    v120 = BugCheckParameter4[1];
+    *(_QWORD *)(v14 + 24) = BugCheckParameter4[1];
     if ( AccessStatus < 0 )
     {
-      if ( (v87->Flags & 0x200000) != 0 )
+      if ( (*(_DWORD *)&v71[5].Version & 0x200000) != 0 )
       {
-        ObfDereferenceObject(v87);
-        *v109 = 0LL;
+        HalPutDmaAdapter(v71);
+        *(_QWORD *)(v14 + 8) = 0LL;
         result = (unsigned int)AccessStatus;
-        *(_DWORD *)(v149 + 16) = AccessStatus;
+        *(_DWORD *)(v14 + 16) = AccessStatus;
+        return result;
       }
-      else
+      if ( LOWORD(v71[5].DmaOperations) )
       {
-        if ( v87->FileName.Length )
-        {
-          ExFreePoolWithTag(v87->FileName.Buffer, 0);
-          v87->FileName.Length = 0;
-        }
-        v87->DeviceObject = 0LL;
-        ObfDereferenceObject(v87);
-        IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-        if ( v206 )
-          IopDereferenceVpbAndFree(v206);
-        *v109 = 0LL;
-        result = (unsigned int)AccessStatus;
-        *(_DWORD *)(v149 + 16) = AccessStatus;
+        ExFreePoolWithTag(*(PVOID *)&v71[6].Version, 0);
+        LOWORD(v71[5].DmaOperations) = 0;
       }
-      return result;
+      v71->DmaOperations = 0LL;
+      HalPutDmaAdapter(v71);
+      IopDecrementDeviceObjectRef(BugCheckParameter1, 0);
+      if ( v166 )
+        IopDereferenceVpbAndFree(v166);
+      *(_QWORD *)(v14 + 8) = 0LL;
+      goto LABEL_430;
     }
     if ( AccessStatus != 260 )
     {
-      RelatedDeviceObject = IoGetRelatedDeviceObject(v87);
-      if ( (PDEVICE_OBJECT)v142 != RelatedDeviceObject )
+      RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)v71);
+      if ( v119 != RelatedDeviceObject )
       {
-        Vpb = (ULONG_PTR)v87->Vpb;
-        v173 = v206;
-        if ( Vpb != v206 )
+        v144 = *(_QWORD *)&v71[1].Version;
+        v145 = v166;
+        if ( v144 != v166 )
         {
-          if ( Vpb )
-            IopIncrementVpbRefCount(Vpb, 1);
-          if ( v173 )
-            IopDereferenceVpbAndFree(v173);
+          if ( v144 )
+            IopIncrementVpbRefCount(v144, 1);
+          if ( v145 )
+            IopDereferenceVpbAndFree(v145);
         }
       }
-      if ( (v192 & 0x40) == 0 )
+      if ( (v160 & 0x40) == 0 )
       {
-        *v215 = v87;
-        *v221 = -1096154543;
-        ObfReferenceObject(v87);
-        v174 = v87->RelatedFileObject;
-        if ( (!v174 || (v174->Flags & 0x400000) != 0)
-          && !v87->FileName.Length
-          && (RelatedDeviceObject->DeviceType == 3
-           || RelatedDeviceObject->DeviceType == 8
-           || RelatedDeviceObject->DeviceType == 9
-           || RelatedDeviceObject->DeviceType == 32) )
+        *a11 = v71;
+        *(_DWORD *)(v14 + 32) = -1096154543;
+        ObfReferenceObject(v71);
+        v146 = *(_QWORD *)&v71[4].Version;
+        if ( (!v146 || (*(_DWORD *)(v146 + 80) & 0x400000) != 0) && !LOWORD(v71[5].DmaOperations) )
         {
-          v87->Flags |= 0x400000u;
+          v147 = RelatedDeviceObject->DeviceType;
+          if ( (unsigned int)v147 <= 0x20 )
+          {
+            v148 = 0x100000308LL;
+            if ( _bittest64(&v148, v147) )
+              *(_DWORD *)&v71[5].Version |= 0x400000u;
+          }
         }
         result = LODWORD(BugCheckParameter4[0]);
-        *(_DWORD *)(v149 + 16) = BugCheckParameter4[0];
+        *(_DWORD *)(v14 + 16) = BugCheckParameter4[0];
         return result;
       }
-      if ( *(_BYTE *)(v149 + 137) )
+      if ( *(_BYTE *)(v14 + 137) )
       {
-        if ( *(_BYTE *)(v149 + 208) )
+        if ( *(_BYTE *)(v14 + 208) )
         {
-          XxxInformation = IopQueryXxxInformation(v87, *(_QWORD *)(v149 + 112), v149 + 204, 1);
-          goto LABEL_519;
+          FileInformation = IoQueryFileInformation(
+                              (PFILE_OBJECT)v71,
+                              *(FILE_INFORMATION_CLASS *)(v14 + 200),
+                              *(_DWORD *)(v14 + 204),
+                              *(PVOID *)(v14 + 112),
+                              (PULONG)(v14 + 204));
+          goto LABEL_421;
         }
-        v176 = 0;
-        DriverObject = RelatedDeviceObject->DriverObject;
-        FastIoDispatch = DriverObject->FastIoDispatch;
-        if ( *(_BYTE *)(v149 + 139) )
+        v150 = 0;
+        FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
+        if ( *(_BYTE *)(v14 + 139) )
         {
           if ( FastIoDispatch )
           {
@@ -1640,72 +1343,74 @@ LABEL_379:
               FastIoQueryNetworkOpenInfo = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))FastIoDispatch->FastIoQueryNetworkOpenInfo;
               if ( FastIoQueryNetworkOpenInfo )
               {
-                v183 = (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(DriverObject)
-                     ? (void *)VfFastIoSnapState()
-                     : 0LL;
-                LOBYTE(v170) = 1;
-                v176 = FastIoQueryNetworkOpenInfo(
-                         v87,
-                         v170,
-                         *(_QWORD *)(v149 + 104),
+                v157 = (MmVerifierData & 0x10) != 0 ? (void *)VfFastIoSnapState() : 0LL;
+                LOBYTE(v142) = 1;
+                v150 = FastIoQueryNetworkOpenInfo(
+                         v71,
+                         v142,
+                         *(_QWORD *)(v14 + 104),
                          BugCheckParameter4,
                          RelatedDeviceObject);
-                if ( v183 )
-                  VfFastIoCheckState(v183);
+                if ( v157 )
+                  VfFastIoCheckState(v157);
               }
             }
           }
-          if ( !v176 )
+          if ( !v150 )
           {
-            v184 = IopQueryXxxInformation(v87, *(_QWORD *)(v149 + 104), (__int64)Size, 1);
-            AccessStatus = v184;
-            if ( v184 == -1073741811 || v184 == -1073741822 )
+            v158 = IoQueryFileInformation(
+                     (PFILE_OBJECT)v71,
+                     FileNetworkOpenInformation,
+                     0x38u,
+                     *(PVOID *)(v14 + 104),
+                     &ReturnedLength);
+            AccessStatus = v158;
+            if ( v158 == -1073741811 || v158 == -1073741822 )
             {
-              XxxInformation = IopGetNetworkOpenInformation(v87);
-LABEL_519:
-              AccessStatus = XxxInformation;
+              FileInformation = IopGetNetworkOpenInformation(v71);
+LABEL_421:
+              AccessStatus = FileInformation;
             }
           }
         }
         else
         {
-          v179 = 0LL;
-          *(_QWORD *)&Size[1] = 0LL;
+          v152 = 0LL;
+          v171 = 0LL;
           if ( FastIoDispatch )
-            FastIoQueryBasicInfo = (PFILE_OBJECT *)FastIoDispatch->FastIoQueryBasicInfo;
+            FastIoQueryBasicInfo = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))FastIoDispatch->FastIoQueryBasicInfo;
           else
             FastIoQueryBasicInfo = 0LL;
-          v215 = FastIoQueryBasicInfo;
+          v184 = FastIoQueryBasicInfo;
           if ( FastIoQueryBasicInfo )
           {
-            if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(DriverObject) )
-              v179 = (void *)VfFastIoSnapState();
-            v225 = v179;
-            LOBYTE(v170) = 1;
-            v176 = ((__int64 (__fastcall *)(PFILE_OBJECT, __int64, _QWORD, ULONG_PTR *, PDEVICE_OBJECT))FastIoQueryBasicInfo)(
-                     v87,
-                     v170,
-                     *(_QWORD *)(v149 + 96),
-                     BugCheckParameter4,
-                     RelatedDeviceObject);
-            v209 = v176;
-            if ( v179 )
-              VfFastIoCheckState(v179);
+            v154 = (MmVerifierData & 0x10) != 0 ? (void *)VfFastIoSnapState() : 0LL;
+            v182 = v154;
+            LOBYTE(v152) = 1;
+            v150 = FastIoQueryBasicInfo(v71, v152, *(_QWORD *)(v14 + 96), BugCheckParameter4, RelatedDeviceObject);
+            v169 = v150;
+            if ( v154 )
+              VfFastIoCheckState(v154);
           }
-          if ( v176 )
+          if ( v150 )
           {
             AccessStatus = BugCheckParameter4[0];
           }
           else
           {
-            v181 = (void *)ExAllocatePool2(64LL, 40LL, 538996553LL);
-            *(_QWORD *)&Size[1] = v181;
-            if ( v181 )
+            Pool = IopVerifierExAllocatePool(NonPagedPoolNx, 0x28uLL);
+            v171 = Pool;
+            if ( Pool )
             {
-              AccessStatus = IopQueryXxxInformation(v87, (__int64)v181, (__int64)Size, 1);
+              AccessStatus = IoQueryFileInformation(
+                               (PFILE_OBJECT)v71,
+                               FileBasicInformation,
+                               0x28u,
+                               Pool,
+                               &ReturnedLength);
               if ( AccessStatus >= 0 )
-                memmove(*(void **)(v149 + 96), v181, Size[0]);
-              ExFreePoolWithTag(v181, 0);
+                memmove(*(void **)(v14 + 96), Pool, ReturnedLength);
+              ExFreePoolWithTag(Pool, 0);
             }
             else
             {
@@ -1714,87 +1419,90 @@ LABEL_519:
           }
         }
       }
-      *v221 = -1096154543;
-      IopCloseFile(0LL, v87, 1LL, 1LL);
-      ObfDereferenceObject(v87);
-      *v218 = 0LL;
+      *(_DWORD *)(v14 + 32) = -1096154543;
+      IopCloseFile(0LL, (struct _FILE_OBJECT *)v71, 1LL, 1LL);
+      HalPutDmaAdapter(v71);
+      *(_QWORD *)(v14 + 8) = 0LL;
       result = (unsigned int)AccessStatus;
-      *(_DWORD *)(v149 + 16) = AccessStatus;
+      *(_DWORD *)(v14 + 16) = AccessStatus;
       return result;
     }
-    if ( (v148 & 0xFFFFFFFFFFFFFFFDuLL) == 0
-      || (v150 = v148 - 2684354563u, v148 - 2684354563u <= 0x16) && (v151 = 4194817LL, _bittest64(&v151, v150)) && !v130 )
+    if ( (v120 & 0xFFFFFFFFFFFFFFFDuLL) != 0
+      && ((v121 = v120 - 2684354563u, v120 - 2684354563u > 0x16) || (v122 = 4194817LL, !_bittest64(&v122, v121)) || v109) )
     {
-      v152 = AbsoluteObjectName;
-      if ( AbsoluteObjectName->MaximumLength < v87->FileName.Length )
+      v123 = AbsoluteObjectName;
+    }
+    else
+    {
+      v123 = AbsoluteObjectName;
+      if ( AbsoluteObjectName->MaximumLength < LOWORD(v71[5].DmaOperations) )
       {
-        v153 = (wchar_t *)ExAllocatePool2(256LL, v87->FileName.Length, 1665560393LL);
-        if ( !v153 )
+        v124 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, LOWORD(v71[5].DmaOperations), 0x63466F49u);
+        if ( !v124 )
         {
-          *(_DWORD *)(v149 + 16) = -1073741670;
+          *(_DWORD *)(v14 + 16) = -1073741670;
           return 3221225626LL;
         }
-        v154 = AbsoluteObjectName->Buffer;
-        if ( v154 )
-          ExFreePoolWithTag(v154, 0);
-        v152 = AbsoluteObjectName;
-        AbsoluteObjectName->Buffer = v153;
-        v152->MaximumLength = v87->FileName.Length;
+        Buffer = v123->Buffer;
+        if ( Buffer )
+          ExFreePoolWithTag(Buffer, 0);
+        v123->Buffer = v124;
+        v123->MaximumLength = (unsigned __int16)v71[5].DmaOperations;
       }
-      RtlCopyUnicodeString(v152, &v87->FileName);
+      RtlCopyUnicodeString(v123, (PCUNICODE_STRING)&v71[5].DmaOperations);
       if ( BugCheckParameter4[1] - 2684354563u <= 0x16 )
       {
-        v155 = 4194817LL;
-        if ( _bittest64(&v155, BugCheckParameter4[1] - 2684354563u) )
-          *(_QWORD *)(v149 + 40) = 0LL;
+        v126 = 4194817LL;
+        if ( _bittest64(&v126, BugCheckParameter4[1] - 2684354563u) )
+          *(_QWORD *)(v14 + 40) = 0LL;
       }
     }
-    if ( v87->FileName.Length )
+    if ( LOWORD(v71[5].DmaOperations) )
     {
-      ExFreePoolWithTag(v87->FileName.Buffer, 0);
-      v87->FileName.Length = 0;
+      ExFreePoolWithTag(*(PVOID *)&v71[6].Version, 0);
+      LOWORD(v71[5].DmaOperations) = 0;
     }
-    v87->DeviceObject = 0LL;
-    ObfDereferenceObject(v87);
-    *v109 = 0LL;
-    v156 = Object;
-    IopDecrementDeviceObjectRef((ULONG_PTR)Object, 0);
-    if ( v206 )
-      IopDereferenceVpbAndFree(v206);
-    v157 = BugCheckParameter4[1];
+    v71->DmaOperations = 0LL;
+    HalPutDmaAdapter(v71);
+    *(_QWORD *)(v14 + 8) = 0LL;
+    v127 = BugCheckParameter1;
+    IopDecrementDeviceObjectRef(BugCheckParameter1, 0);
+    if ( v166 )
+      IopDereferenceVpbAndFree(v166);
+    v128 = BugCheckParameter4[1];
     if ( BugCheckParameter4[1] != 1 )
     {
-      *(_QWORD *)(v149 + 40) = 0LL;
-      v163 = 4194817LL;
-      if ( v157 - 2684354563u <= 0x16 && _bittest64(&v163, v157 - 2684354563u) )
+      *(_QWORD *)(v14 + 40) = 0LL;
+      v135 = 4194817LL;
+      if ( v128 - 2684354563u <= 0x16 && _bittest64(&v135, v128 - 2684354563u) )
       {
-        v164 = *(_DWORD *)(v149 + 152) | 0x10;
-        *(_DWORD *)(v149 + 152) = v164;
-        v165 = *((unsigned int *)v156 + 18);
-        if ( (_DWORD)v165 == 7 || (unsigned int)v165 <= 0x24 && (v166 = 0x1080020004LL, _bittest64(&v166, v165)) )
-          v167 = v164 | 8;
+        *(_DWORD *)(v14 + 152) |= 0x10u;
+        v136 = *(_DWORD *)(v14 + 152);
+        v137 = *(unsigned int *)(v127 + 72);
+        if ( (unsigned int)v137 <= 0x24 && (v138 = 0x1080020084LL, _bittest64(&v138, v137)) )
+          v139 = v136 | 8;
         else
-          v167 = v164 & 0xFFFFFFF7;
-        *(_DWORD *)(v149 + 152) = v167;
+          v139 = v136 & 0xFFFFFFF7;
+        *(_DWORD *)(v14 + 152) = v139;
       }
-      if ( *(_BYTE *)(v149 + 136) )
-        KeBugCheckEx(0xF9u, (ULONG_PTR)v156, v142, (ULONG_PTR)AbsoluteObjectName, v157);
-      if ( (*(_DWORD *)(v156[39] + 32LL) & 0x800) == 0 )
+      if ( *(_BYTE *)(v14 + 136) )
+        KeBugCheckEx(0xF9u, v127, (ULONG_PTR)DeviceObject, (ULONG_PTR)v123, v128);
+      if ( (*(_DWORD *)(*(_QWORD *)(v127 + 312) + 32LL) & 0x800) == 0 )
       {
-        v168 = AccessState;
+        v140 = AccessState;
         *(_QWORD *)&AccessState->RemainingDesiredAccess = AccessState->OriginalDesiredAccess;
-        v168->Flags &= ~0x100u;
+        v140->Flags &= ~0x100u;
       }
-      if ( v157 - 2684354563u <= 0x16 && _bittest64(&v163, v157 - 2684354563u) && v130 )
+      if ( v128 - 2684354563u <= 0x16 && _bittest64(&v135, v128 - 2684354563u) && v109 )
       {
-        *(_QWORD *)(v149 + 24) = P;
-        *(_DWORD *)(v149 + 16) = -2147483603;
+        *(_QWORD *)(v14 + 24) = P;
+        *(_DWORD *)(v14 + 16) = -2147483603;
         return 2147483693LL;
       }
-      else if ( v157 == 2684354585 || v157 == 2 )
+      else if ( v128 == 2684354585 || v128 == 2 )
       {
-        v169 = v213;
-        *(_QWORD *)(v169 + 8) = PsGetParentSilo(*(_QWORD *)(v213 + 8));
+        v141 = a10;
+        *(_QWORD *)(v141 + 8) = PsGetParentSilo(*(_QWORD *)(a10 + 8));
         return 872LL;
       }
       else
@@ -1802,21 +1510,27 @@ LABEL_519:
         return 260LL;
       }
     }
-    if ( (unsigned int)++v214 > 0x20 )
+    if ( (unsigned int)++v173 > 0x20 )
       return 3221225473LL;
-    *v215 = 0LL;
-    FileObject = 0LL;
-    v12 = v205;
-    v11 = DeviceObject;
+    *a11 = 0LL;
+    DmaAdapter = 0LL;
+    v12 = AccessState;
+    v13 = (unsigned int *)BugCheckParameter2;
   }
-  AccessStatus = IopCheckTopDeviceHint(DesiredAccess, v12, (v192 & 8) != 0, SourceString);
-  if ( AccessStatus >= 0 )
+  IoFreeIrp((PIRP)v64);
+  v130 = v73;
+LABEL_327:
+  IopDecrementDeviceObjectRef(v130, 0);
+  if ( v166 )
   {
-    AttachedDevice = *(PDEVICE_OBJECT *)DesiredAccess;
-    goto LABEL_193;
+    IopDereferenceVpbAndFree(v166);
+    result = (unsigned int)AccessStatus;
+    *(_DWORD *)(v14 + 16) = AccessStatus;
+    return result;
   }
-  if ( v71 )
-    IopDereferenceVpbAndFree(v71);
-  IopDecrementDeviceObjectRef((ULONG_PTR)v53, 0);
-  return (unsigned int)AccessStatus;
+LABEL_430:
+  result = (unsigned int)AccessStatus;
+LABEL_431:
+  *(_DWORD *)(v14 + 16) = result;
+  return result;
 }

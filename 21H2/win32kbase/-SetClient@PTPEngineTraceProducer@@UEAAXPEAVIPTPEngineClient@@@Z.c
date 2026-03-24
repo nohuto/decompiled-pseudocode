@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetClient@PTPEngineTraceProducer@@UEAAXPEAVIPTPEngineClient@@@Z @ 0x1C00CB0A0
+ * XREFs of ?SetClient@PTPEngineTraceProducer@@UEAAXPEAVIPTPEngineClient@@@Z @ 0x1C00BBEF0
  * Callers:
  *     <none>
  * Callees:

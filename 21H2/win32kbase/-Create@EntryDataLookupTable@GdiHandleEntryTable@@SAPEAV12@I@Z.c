@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z @ 0x1C0055C14
+ * XREFs of ?Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z @ 0x1C006BB18
  * Callers:
- *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C0055B6C (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
+ *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C006BA80 (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 struct GdiHandleEntryTable::EntryDataLookupTable *__fastcall GdiHandleEntryTable::EntryDataLookupTable::Create(int a1)
@@ -16,11 +16,7 @@ struct GdiHandleEntryTable::EntryDataLookupTable *__fastcall GdiHandleEntryTable
   v2 = 8 * ((unsigned int)(a1 + 255) >> 8);
   if ( v2 >= 0xFFFFFFF0 )
     return 0LL;
-  v3 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-         (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-         260LL,
-         v2 + 16,
-         1953260871);
+  v3 = Win32AllocPool(v2 + 16, 0x746C6547u);
   v4 = v3;
   if ( v3 )
   {

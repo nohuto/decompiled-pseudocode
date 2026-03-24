@@ -1,7 +1,7 @@
 /*
- * XREFs of BuildFirmwareActivateCommand @ 0x1C001A08C
+ * XREFs of BuildFirmwareActivateCommand @ 0x1C0011038
  * Callers:
- *     FirmwareActivate @ 0x1C001A838 (FirmwareActivate.c)
+ *     FirmwareActivate @ 0x1C00117D0 (FirmwareActivate.c)
  * Callees:
  *     <none>
  */

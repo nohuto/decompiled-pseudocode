@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x1802A5A74
+ * XREFs of ?GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x180265FC0
  * Callers:
- *     ?GetDevice@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x18010C510 (-GetDevice@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
- *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802A6358 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?GetDevice@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F9180 (-GetDevice@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802667B8 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +13,6 @@ struct CD3DDevice *__fastcall CDxHandleYUVBitmapRealization::GetDevice(CDxHandle
 
   result = (struct CD3DDevice *)*((_QWORD *)this - 14);
   if ( result )
-    return *(struct CD3DDevice **)(*((_QWORD *)result + 3) + 80LL);
+    return *(struct CD3DDevice **)(*((_QWORD *)result + 2) + 80LL);
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetMinTintCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0222768
+ * XREFs of ?EmitSetMinTintCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8B48
  * Callers:
- *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0224C60 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB150 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMinTintCommand(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMinTintCo
     *(_DWORD *)v5 = 28;
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
-    *((_DWORD *)v3 + 1) = 581;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 140);
+    *((_DWORD *)v3 + 1) = 576;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 132);
     *((_DWORD *)this + 4) &= ~0x4000u;
     return 1;
   }

@@ -1,18 +1,18 @@
 /*
- * XREFs of BgkpAcquireConsole @ 0x14054F028
+ * XREFs of BgkpAcquireConsole @ 0x1404FF608
  * Callers:
- *     BgkDisplayStringEx @ 0x14054EE44 (BgkDisplayStringEx.c)
- *     BgkSetTextColor @ 0x14054EF60 (BgkSetTextColor.c)
- *     BgkSolidColorFill @ 0x14054EFB0 (BgkSolidColorFill.c)
- *     BgkDisplayCharacter @ 0x140AF1F70 (BgkDisplayCharacter.c)
- *     BgkGetConsoleState @ 0x140AF2040 (BgkGetConsoleState.c)
- *     BgkGetCursorState @ 0x140AF2090 (BgkGetCursorState.c)
- *     BgkSetCursor @ 0x140AF2120 (BgkSetCursor.c)
+ *     BgkDisplayStringEx @ 0x1404FF424 (BgkDisplayStringEx.c)
+ *     BgkSetTextColor @ 0x1404FF540 (BgkSetTextColor.c)
+ *     BgkSolidColorFill @ 0x1404FF590 (BgkSolidColorFill.c)
+ *     BgkDisplayCharacter @ 0x1409F6340 (BgkDisplayCharacter.c)
+ *     BgkGetConsoleState @ 0x1409F6410 (BgkGetConsoleState.c)
+ *     BgkGetCursorState @ 0x1409F6460 (BgkGetCursorState.c)
+ *     BgkSetCursor @ 0x1409F64F0 (BgkSetCursor.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
 bool BgkpAcquireConsole()
 {
-  return ExAcquireRundownProtection_0(&stru_140C0BD38) != 0;
+  return ExAcquireRundownProtection(&stru_140C113B8) != 0;
 }

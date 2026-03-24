@@ -6,8 +6,8 @@
  *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
  *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  */
 
 __int64 ViCiPreprocessOptions(_DWORD *a1, const char *a2, char a3, __int64 a4, __int64 a5, __int64 a6, ...)

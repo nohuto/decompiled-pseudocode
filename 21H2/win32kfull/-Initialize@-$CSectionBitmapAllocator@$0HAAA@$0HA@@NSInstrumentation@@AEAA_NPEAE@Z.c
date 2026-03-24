@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NPEAE@Z @ 0x1C021B764
+ * XREFs of ?Initialize@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NPEAE@Z @ 0x1C0221628
  * Callers:
- *     ?Create@?$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C021B3DC (-Create@-$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
+ *     ?Create@?$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C02212D4 (-Create@-$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
  * Callees:
- *     ??R_lambda_8d660a2ac28037d1603312a9876d8eb9_@@QEBAPEAU_RTL_BITMAP@@I@Z @ 0x1C021AF58 (--R_lambda_8d660a2ac28037d1603312a9876d8eb9_@@QEBAPEAU_RTL_BITMAP@@I@Z.c)
+ *     ??R_lambda_708b72b517c297332c9e46f575701bcb_@@QEBAPEAU_RTL_BITMAP@@I@Z @ 0x1C0220E7C (--R_lambda_708b72b517c297332c9e46f575701bcb_@@QEBAPEAU_RTL_BITMAP@@I@Z.c)
  */
 
 char __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Initialize(_QWORD *a1, __int64 a2)
@@ -12,7 +12,7 @@ char __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Initializ
   ULONG v5; // eax
   bool v6; // zf
   __int64 v7; // rax
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v9; // rcx
   struct _RTL_BITMAP *v10; // rax
   unsigned __int64 v11; // rcx
@@ -33,12 +33,12 @@ char __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Initializ
     v7 = 1LL;
   }
   a1[3] ^= v7;
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 8LL, 1869834581LL);
-  *a1 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 8uLL, 0x6F736955u);
+  *a1 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  *Pool2 = 0LL;
-  v10 = _lambda_8d660a2ac28037d1603312a9876d8eb9_::operator()(v9, 0xFCu);
+  *PoolWithTag = 0LL;
+  v10 = _lambda_708b72b517c297332c9e46f575701bcb_::operator()(v9, 0xFCu);
   if ( !v10 )
     return 0;
   v11 = (unsigned __int64)v10 ^ a1[2];

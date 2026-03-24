@@ -1,10 +1,10 @@
 /*
- * XREFs of __scrt_acquire_startup_lock @ 0x180100810
+ * XREFs of __scrt_acquire_startup_lock @ 0x1800E6FE0
  * Callers:
- *     dllmain_crt_process_attach @ 0x180100C68 (dllmain_crt_process_attach.c)
- *     dllmain_crt_process_detach @ 0x180100D90 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7458 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_detach @ 0x1800E7574 (dllmain_crt_process_detach.c)
  * Callees:
- *     __scrt_is_ucrt_dll_in_use @ 0x180101460 (__scrt_is_ucrt_dll_in_use.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x1800E7E44 (__scrt_is_ucrt_dll_in_use.c)
  */
 
 char _scrt_acquire_startup_lock()

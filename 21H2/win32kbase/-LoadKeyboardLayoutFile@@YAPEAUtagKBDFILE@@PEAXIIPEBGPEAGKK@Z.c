@@ -1,14 +1,14 @@
 /*
- * XREFs of ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0050970
+ * XREFs of ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0069760
  * Callers:
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C004EC08 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0008658 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
  * Callees:
- *     HMAllocObjectEx @ 0x1C002D20C (HMAllocObjectEx.c)
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C0050A58 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
- *     wcsncpycch @ 0x1C0051368 (wcsncpycch.c)
- *     _wcsicmp @ 0x1C00D60C0 (_wcsicmp.c)
- *     ?PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z @ 0x1C01E3FD8 (-PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     HMAllocObject @ 0x1C0032C10 (HMAllocObject.c)
+ *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C0069B24 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
+ *     wcsncpycch @ 0x1C006B1A8 (wcsncpycch.c)
+ *     _wcsicmp @ 0x1C00C5384 (_wcsicmp.c)
+ *     ?PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z @ 0x1C01AAC20 (-PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z.c)
  */
 
 struct tagKBDFILE *__fastcall LoadKeyboardLayoutFile(
@@ -29,7 +29,7 @@ struct tagKBDFILE *__fastcall LoadKeyboardLayoutFile(
     if ( Str2 && !wcsicmp((const wchar_t *)(i + 56), Str2) )
       return (struct tagKBDFILE *)i;
   }
-  v11 = HMAllocObjectEx(0LL, 0LL, 0xEu, 0x78u, 0);
+  v11 = HMAllocObject(0LL, 0LL, 0xEu, 0x78u);
   i = v11;
   if ( v11 )
   {
@@ -58,7 +58,7 @@ struct tagKBDFILE *__fastcall LoadKeyboardLayoutFile(
       gpkfList = i;
       return (struct tagKBDFILE *)i;
     }
-    HMFreeObject((char **)i);
+    HMFreeObject((_DWORD *)i);
   }
   return 0LL;
 }

@@ -1,9 +1,7 @@
 /*
- * XREFs of KeQueryGroupAffinityEx @ 0x1403B6330
+ * XREFs of KeQueryGroupAffinityEx @ 0x140513600
  * Callers:
- *     KiAddThreadToReadyQueue @ 0x1402348C0 (KiAddThreadToReadyQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x140238920 (KiAddThreadToPrcbQueue.c)
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372248 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     <none>
  * Callees:
  *     <none>
  */

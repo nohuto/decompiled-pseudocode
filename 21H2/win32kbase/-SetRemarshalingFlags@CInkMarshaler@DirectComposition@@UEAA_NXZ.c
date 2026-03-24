@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CInkMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C00CB240
+ * XREFs of ?SetRemarshalingFlags@CInkMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C00BC050
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ bool __fastcall DirectComposition::CInkMarshaler::SetRemarshalingFlags(DirectCom
 
   *((_DWORD *)this + 4) &= 0xFFFFFF1F;
   result = 1;
-  *((_DWORD *)this + 40) = 0;
+  *((_DWORD *)this + 38) = 0;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of DeviceSlot_ControllerResetPreReset @ 0x1C0037B6C
+ * XREFs of DeviceSlot_ControllerResetPreReset @ 0x1C00360AC
  * Callers:
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall DeviceSlot_ControllerResetPreReset(__int64 a1)
@@ -28,7 +28,7 @@ void __fastcall DeviceSlot_ControllerResetPreReset(__int64 a1)
       do
       {
         if ( *(_QWORD *)v5 )
-          ESM_AddEvent((KSPIN_LOCK *)(*(_QWORD *)v5 + 296LL), 15);
+          ESM_AddEvent((KSPIN_LOCK *)(*(_QWORD *)v5 + 288LL), 15);
         v5 += 8LL;
         --v6;
       }

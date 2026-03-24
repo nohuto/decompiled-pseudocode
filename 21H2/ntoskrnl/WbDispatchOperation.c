@@ -1,129 +1,107 @@
 /*
- * XREFs of WbDispatchOperation @ 0x1407E2B70
+ * XREFs of WbDispatchOperation @ 0x14064EE24
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     WbProcessModuleUnload @ 0x1406D5B38 (WbProcessModuleUnload.c)
- *     WbProcessStartup @ 0x1406E158C (WbProcessStartup.c)
- *     WbRemoveWarbirdProcess @ 0x1407E15B4 (WbRemoveWarbirdProcess.c)
- *     WbFreeWarbirdProcess @ 0x1407E17A4 (WbFreeWarbirdProcess.c)
- *     WbGetWarbirdProcess @ 0x1407E2D60 (WbGetWarbirdProcess.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
- *     WbHeapExecuteCall @ 0x1407E3070 (WbHeapExecuteCall.c)
- *     sub_1407E3F30 @ 0x1407E3F30 (sub_1407E3F30.c)
- *     sub_140A0F208 @ 0x140A0F208 (sub_140A0F208.c)
- *     sub_140A100D4 @ 0x140A100D4 (sub_140A100D4.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     WbDecryptEncryptionSegment @ 0x1405D6EA4 (WbDecryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x1405D6F68 (WbReEncryptEncryptionSegment.c)
+ *     WbHeapExecuteCall @ 0x14064D638 (WbHeapExecuteCall.c)
+ *     sub_14064DB58 @ 0x14064DB58 (sub_14064DB58.c)
+ *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     sub_14064F00C @ 0x14064F00C (sub_14064F00C.c)
+ *     WbGetWarbirdProcess @ 0x14064F044 (WbGetWarbirdProcess.c)
+ *     WbRemoveWarbirdProcess @ 0x1406A2524 (WbRemoveWarbirdProcess.c)
+ *     WbProcessModuleUnload @ 0x1406A2680 (WbProcessModuleUnload.c)
+ *     WbProcessStartup @ 0x1406C3058 (WbProcessStartup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WbDispatchOperation(char *Src, size_t Size)
+__int64 __fastcall WbDispatchOperation(char *Src, SIZE_T NumberOfBytes)
 {
-  size_t v2; // r14
-  unsigned int v4; // ebx
-  char *v5; // rax
-  int WarbirdProcess; // edi
-  int *v7; // rdi
+  size_t v2; // rsi
+  char *v4; // rax
+  int WarbirdProcess; // ebx
+  int *v6; // rbx
+  int v7; // eax
+  BOOL v8; // ebx
   HANDLE ProcessId; // rax
-  int v9; // eax
-  int v11; // [rsp+24h] [rbp-44h]
-  int v12; // [rsp+28h] [rbp-40h]
-  PVOID v13; // [rsp+70h] [rbp+8h] BYREF
-  PVOID P; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v10; // rdx
+  int v11; // eax
+  int v13; // [rsp+28h] [rbp-30h]
+  _QWORD *v14; // [rsp+60h] [rbp+8h] BYREF
+  PVOID P; // [rsp+70h] [rbp+18h] BYREF
 
-  v2 = (unsigned int)Size;
-  v4 = 0;
-  v13 = 0LL;
+  v2 = (unsigned int)NumberOfBytes;
+  v14 = 0LL;
   P = 0LL;
-  if ( !Src )
+  if ( Src )
   {
-    v12 = 4;
-LABEL_11:
-    v4 = 1;
-    goto LABEL_12;
-  }
-  if ( (unsigned int)Size < 8 )
-  {
-    WarbirdProcess = -1073741811;
-    v11 = -1073741811;
-    goto LABEL_19;
-  }
-  v5 = &Src[(unsigned int)Size];
-  if ( (unsigned __int64)v5 > 0x7FFFFFFF0000LL || v5 < Src )
-    MEMORY[0x7FFFFFFF0000] = 0;
-  WarbirdProcess = WbAlloc((unsigned int)Size, &P);
-  v11 = WarbirdProcess;
-  if ( WarbirdProcess < 0 )
-    goto LABEL_19;
-  v7 = (int *)P;
-  memmove(P, Src, v2);
-  v12 = *v7;
-  if ( *v7 != 7 )
-    goto LABEL_11;
-LABEL_12:
-  ProcessId = PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
-  WarbirdProcess = WbGetWarbirdProcess(ProcessId, v4, &v13);
-  v11 = WarbirdProcess;
-  if ( WarbirdProcess < 0 )
-    goto LABEL_19;
-  if ( v12 == 3 )
-  {
-    v9 = WbHeapExecuteCall(v13, P, Src, (unsigned int)v2);
-    goto LABEL_18;
-  }
-  if ( v12 == 4 )
-  {
-    if ( !P )
+    if ( (unsigned int)NumberOfBytes < 8 )
     {
-      v9 = sub_1407E3F30(v13);
-LABEL_18:
-      WarbirdProcess = v9;
-      v11 = v9;
-      goto LABEL_19;
+      WarbirdProcess = -1073741811;
+      goto LABEL_18;
     }
-LABEL_30:
-    WarbirdProcess = -1073741811;
-    v11 = -1073741811;
+    v4 = &Src[(unsigned int)NumberOfBytes];
+    if ( (unsigned __int64)v4 > 0x7FFFFFFF0000LL || v4 < Src )
+      MEMORY[0x7FFFFFFF0000] = 0;
+    WarbirdProcess = WbAlloc((unsigned int)NumberOfBytes, &P);
+    if ( WarbirdProcess < 0 )
+      goto LABEL_18;
+    v6 = (int *)P;
+    memmove(P, Src, v2);
+    v7 = *v6;
+    v13 = *v6;
   }
   else
   {
-    switch ( v12 )
-    {
-      case 1:
-        v9 = sub_140A0F208(v13, P, (unsigned int)v2);
-        goto LABEL_18;
-      case 2:
-        v9 = sub_140A100D4(v13, P, (unsigned int)v2);
-        goto LABEL_18;
-      case 5:
-      case 6:
-        WarbirdProcess = -1073741811;
-        if ( Src )
-          WarbirdProcess = -1073741822;
-        v11 = WarbirdProcess;
-        break;
-      case 7:
-        v9 = WbRemoveWarbirdProcess(*(_QWORD *)v13);
-        goto LABEL_18;
-      case 8:
-        v9 = WbProcessStartup((__int64)v13, P, v2);
-        goto LABEL_18;
-      case 9:
-        v9 = WbProcessModuleUnload((__int64)v13, P, v2);
-        goto LABEL_18;
-      default:
-        goto LABEL_30;
-    }
+    v7 = 4;
+    v13 = 4;
   }
-LABEL_19:
-  if ( v13 )
+  v8 = v7 != 7;
+  ProcessId = PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
+  WarbirdProcess = WbGetWarbirdProcess(ProcessId, v8, &v14);
+  if ( WarbirdProcess < 0 )
+    goto LABEL_18;
+  switch ( v13 )
   {
-    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v13 + 29, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      WbFreeWarbirdProcess(v13);
-    WarbirdProcess = v11;
+    case 1:
+      v11 = WbDecryptEncryptionSegment((__int64)v14, (__int64)P, (unsigned int)v2);
+      goto LABEL_17;
+    case 2:
+      v11 = WbReEncryptEncryptionSegment((__int64)v14, (__int64)P, (unsigned int)v2);
+      goto LABEL_17;
+    case 3:
+      v11 = WbHeapExecuteCall((__int64)v14, P, Src, v2);
+      goto LABEL_17;
+    case 4:
+      if ( !P )
+      {
+        v11 = sub_14064DB58((__int64)v14, v10);
+LABEL_17:
+        WarbirdProcess = v11;
+        goto LABEL_18;
+      }
+      break;
+    case 5:
+    case 6:
+      WarbirdProcess = Src != 0LL ? -1073741822 : -1073741811;
+      goto LABEL_18;
+    case 7:
+      v11 = WbRemoveWarbirdProcess(*v14);
+      goto LABEL_17;
+    case 8:
+      v11 = WbProcessStartup(v14, P, (unsigned int)v2);
+      goto LABEL_17;
+    case 9:
+      v11 = WbProcessModuleUnload(v14, P, (unsigned int)v2);
+      goto LABEL_17;
   }
+  WarbirdProcess = -1073741811;
+LABEL_18:
+  sub_14064F00C(v14);
   if ( P )
-    ExFreePoolWithTag(P, 0);
+    ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)WarbirdProcess;
 }

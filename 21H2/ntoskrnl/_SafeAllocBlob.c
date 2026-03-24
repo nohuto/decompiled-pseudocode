@@ -1,12 +1,12 @@
 /*
- * XREFs of _SafeAllocBlob @ 0x1403C5E48
+ * XREFs of _SafeAllocBlob @ 0x1403AD3E0
  * Callers:
- *     RtlpMuiRegCreateLanguages @ 0x14082FF1C (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x14082FF7C (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpMuiRegCreateStringPool @ 0x14082FFE4 (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegCreateLanguages @ 0x140794320 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140794380 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1407943E8 (RtlpMuiRegCreateStringPool.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall SafeAllocBlob(

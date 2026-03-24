@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x140A96660
+ * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x1409DBBC0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfMiscCheckKernelAddress @ 0x1406021F8 (VfMiscCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140A8B2AC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140A96894 (ViKeIrqlLogAndTrimMemory.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(PKSPIN_LOCK SpinLock, KIRQL *a2, __int64 a3)
@@ -15,12 +15,12 @@ KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(PKSPIN_LOCK SpinLock, KIRQL 
   __int64 v6; // rbx
   KIRQL result; // al
 
-  ++dword_140C29FC8;
+  ++dword_140C2A868;
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetIncrementCounter(a3, 164LL);
-  VfMiscCheckKernelAddress((ULONG_PTR)SpinLock, 8uLL);
+    ViTargetIncrementCounter(a3, 156LL);
+  VfUtilCheckKernelAddress((ULONG_PTR)SpinLock, 8uLL);
   LOBYTE(v5) = 2;
-  v6 = ViKeIrqlLogAndTrimMemory(v5);
+  v6 = ViKeRaiseIrqlSanityChecks(v5, 0LL);
   result = KeAcquireSpinLockRaiseToDpc(SpinLock);
   *a2 = result;
   if ( v6 )

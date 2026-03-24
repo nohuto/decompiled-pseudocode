@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0076320
+ * XREFs of imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0068CB0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_qqD @ 0x1C0072928 (WPP_IFR_SF_qqD.c)
- *     ?FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C0079B6C (-FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     WPP_IFR_SF_qqD @ 0x1C0062CCC (WPP_IFR_SF_qqD.c)
+ *     ?FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C006D050 (-FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
  */
 
 __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForReset(
@@ -24,7 +24,11 @@ __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForReset(
 
   pRequest = 0LL;
   pUsbPipe = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Pipe, 0x1203u, (void **)&pUsbPipe);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Pipe,
+    0x1203u,
+    (void **)&pUsbPipe);
   m_Globals = pUsbPipe->m_Globals;
   if ( m_Globals->FxVerboseOn )
     WPP_IFR_SF_qq(m_Globals, 5u, 0xEu, 0x23u, WPP_FxUsbPipeAPI_cpp_Traceguids, Pipe, Request);

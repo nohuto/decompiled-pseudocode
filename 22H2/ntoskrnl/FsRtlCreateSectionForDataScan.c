@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlCreateSectionForDataScan @ 0x140305100
+ * XREFs of FsRtlCreateSectionForDataScan @ 0x14035A570
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     CcZeroEndOfLastPage @ 0x1402A21C8 (CcZeroEndOfLastPage.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     FsRtlAcquireToCreateMappedSection @ 0x14072387C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlReleaseFile @ 0x140723980 (FsRtlReleaseFile.c)
- *     ObInsertObject @ 0x14076BAA0 (ObInsertObject.c)
- *     MmGetFileObjectForSection @ 0x14076C710 (MmGetFileObjectForSection.c)
- *     MmCreateSectionEx @ 0x14076CBB8 (MmCreateSectionEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     CcZeroEndOfLastPage @ 0x1402D78AC (CcZeroEndOfLastPage.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x140655004 (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x140655100 (FsRtlReleaseFile.c)
+ *     ObInsertObject @ 0x140701A90 (ObInsertObject.c)
+ *     MmGetFileObjectForSection @ 0x140701AC0 (MmGetFileObjectForSection.c)
+ *     MmCreateSectionEx @ 0x140701FD4 (MmCreateSectionEx.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
  */
 
 NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
@@ -30,29 +30,28 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
 {
   PVOID *v12; // r13
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v14; // ebx
+  NTSTATUS MappedSection; // ebx
   int inserted; // edi
   ULONG LowPart; // ebx
-  char v17; // r13
+  int v17; // r13d
   int Section; // eax
   struct _FILE_OBJECT *FileObjectForSection; // rax
   struct _FILE_OBJECT *v20; // rbx
   PVOID v21; // rbx
   NTSTATUS result; // eax
-  int v23; // [rsp+40h] [rbp-40h]
-  ULONGLONG ullMultiplicand; // [rsp+50h] [rbp-30h]
-  char v25[4]; // [rsp+60h] [rbp-20h] BYREF
-  int v26; // [rsp+64h] [rbp-1Ch] BYREF
-  PVOID Object; // [rsp+68h] [rbp-18h] BYREF
-  LARGE_INTEGER FileSize; // [rsp+70h] [rbp-10h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp-8h] BYREF
+  ULONGLONG ullMultiplicand; // [rsp+48h] [rbp-28h]
+  int v24; // [rsp+50h] [rbp-20h] BYREF
+  int v25; // [rsp+54h] [rbp-1Ch] BYREF
+  PVOID Object; // [rsp+58h] [rbp-18h] BYREF
+  LARGE_INTEGER FileSize; // [rsp+60h] [rbp-10h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-8h] BYREF
 
   v12 = SectionObject;
   FileSize.QuadPart = 0LL;
   Object = 0LL;
   Handle = 0LL;
-  *(_DWORD *)v25 = 0;
-  v26 = 0;
+  v24 = 0;
+  v25 = 0;
   if ( (SectionPageProtection & 0xFFFFFFF9) != 0 || !SectionPageProtection )
     return -1073741578;
   if ( (AllocationAttributes & 0xFF7FFFFF) != 0x8000000 )
@@ -62,11 +61,16 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
   KeGetCurrentThread()[1].TrapFrame = (_KTRAP_FRAME *)1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v14 = FsRtlAcquireToCreateMappedSection(FileObject, SectionPageProtection, 1LL, AllocationAttributes, v25, &v26);
-  if ( v14 < 0 )
+  MappedSection = FsRtlAcquireToCreateMappedSection(
+                    (_DWORD)FileObject,
+                    SectionPageProtection,
+                    1,
+                    (unsigned int)&v24,
+                    (__int64)&v25);
+  if ( MappedSection < 0 )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    result = v14;
+    result = MappedSection;
     KeGetCurrentThread()[1].TrapFrame = 0LL;
   }
   else
@@ -77,7 +81,7 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
       LowPart = FileSize.LowPart;
       if ( FileSize.QuadPart )
       {
-        v17 = v25[0];
+        v17 = v24;
         while ( 1 )
         {
           LODWORD(ullMultiplicand) = 0;
@@ -90,7 +94,6 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
                       0LL,
                       (__int64)FileObject,
                       v17,
-                      v23,
                       0LL,
                       ullMultiplicand);
           inserted = Section;

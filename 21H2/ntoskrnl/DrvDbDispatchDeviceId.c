@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbDispatchDeviceId @ 0x1407880F0
+ * XREFs of DrvDbDispatchDeviceId @ 0x1406C4020
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbGetDeviceIdMappedProperty @ 0x140785234 (DrvDbGetDeviceIdMappedProperty.c)
- *     _PnpCtxGetObjectContext @ 0x1407882D4 (_PnpCtxGetObjectContext.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A2DA0C (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x140A2E0D0 (DrvDbGetDeviceIdMappedPropertyKeys.c)
- *     DrvDbGetObjectList @ 0x140A2EF0C (DrvDbGetObjectList.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A2F540 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbSetDeviceIdMappedProperty @ 0x140A2F964 (DrvDbSetDeviceIdMappedProperty.c)
- *     DrvDbValidateDeviceIdName @ 0x140A3037C (DrvDbValidateDeviceIdName.c)
+ *     _PnpCtxGetObjectContext @ 0x14063C148 (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140734DA0 (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140735174 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC44 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x14097D2D0 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x14097DF1C (DrvDbGetObjectList.c)
+ *     DrvDbValidateDeviceIdName @ 0x14097E6D4 (DrvDbValidateDeviceIdName.c)
  */
 
-__int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int *a5)
+__int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, int a3, __int64 a4, int *a5)
 {
   int ObjectContext; // eax
   int v7; // r9d
@@ -30,7 +30,7 @@ __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3
   int v18; // r10d
   int DeviceIdMappedProperty; // eax
   int v21; // r8d
-  __int64 v22[3]; // [rsp+40h] [rbp-18h] BYREF
+  _QWORD v22[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v22[0] = 0LL;
   ObjectContext = PnpCtxGetObjectContext(a1, a3, v22);
@@ -38,7 +38,7 @@ __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3
   if ( ObjectContext < 0 )
     return (unsigned int)v9;
   v10 = v22[0];
-  v11 = *(unsigned int *)(v22[0] + 12);
+  v11 = *(unsigned int *)(v22[0] + 12LL);
   if ( (v11 & 0x10000000) == 0 )
   {
     if ( !(_DWORD)v11 )
@@ -48,36 +48,37 @@ __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3
     }
     if ( v8 == 2 )
     {
-      if ( !*((_BYTE *)a5 + 4) )
-        goto LABEL_24;
+      if ( *((_BYTE *)a5 + 4) )
+      {
+LABEL_27:
+        v11 = (unsigned int)v11 >> 30;
+        LOBYTE(v11) = v11 & 1;
+        goto LABEL_29;
+      }
     }
     else
     {
       if ( v8 <= 2 )
-        goto LABEL_3;
-      if ( v8 > 4 )
       {
-        if ( v8 > 6 && v8 != 8 )
-        {
-          if ( v8 != 9 )
-            goto LABEL_3;
-          goto LABEL_23;
-        }
-LABEL_24:
-        v11 = (unsigned int)v11 >> 31;
 LABEL_25:
-        v9 = (_BYTE)v11 == 0 ? 0xC0000022 : 0;
-        if ( !(_BYTE)v11 )
-          return (unsigned int)v9;
-        goto LABEL_3;
+        LOBYTE(v11) = 1;
+        goto LABEL_29;
+      }
+      if ( v8 <= 4 )
+        goto LABEL_27;
+      if ( v8 > 6 && v8 != 8 )
+      {
+        if ( v8 != 9 )
+          goto LABEL_25;
+        goto LABEL_27;
       }
     }
-LABEL_23:
-    v11 = (unsigned int)v11 >> 30;
-    LOBYTE(v11) = v11 & 1;
-    goto LABEL_25;
+    v11 = (unsigned int)v11 >> 31;
+LABEL_29:
+    v9 = (_BYTE)v11 == 0 ? 0xC0000022 : 0;
+    if ( !(_BYTE)v11 )
+      return (unsigned int)v9;
   }
-LABEL_3:
   v12 = v8 - 1;
   if ( !v12 )
   {
@@ -127,12 +128,12 @@ LABEL_11:
             DeviceIdMappedProperty = DrvDbGetDeviceIdMappedProperty(
                                        v22[0],
                                        a2,
-                                       *(HANDLE *)a5,
+                                       *(_QWORD *)a5,
                                        *((_QWORD *)a5 + 2),
-                                       *((_DWORD **)a5 + 3),
+                                       *((_QWORD *)a5 + 3),
                                        *((_QWORD *)a5 + 4),
                                        a5[10],
-                                       *((unsigned int **)a5 + 6));
+                                       *((_QWORD *)a5 + 6));
           }
         }
         else

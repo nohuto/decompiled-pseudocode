@@ -1,28 +1,28 @@
 /*
- * XREFs of ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B404
+ * XREFs of ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014F40
  * Callers:
- *     ?StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C000F900 (-StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z.c)
- *     imp_WdfIoQueuePurge @ 0x1C001B6E0 (imp_WdfIoQueuePurge.c)
- *     imp_WdfIoQueueDrain @ 0x1C0080F70 (imp_WdfIoQueueDrain.c)
- *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0081AB0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
- *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0081E40 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
- *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C008217C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C00128F8 (-StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z.c)
+ *     imp_WdfIoQueuePurge @ 0x1C0014EE0 (imp_WdfIoQueuePurge.c)
+ *     imp_WdfIoQueueDrain @ 0x1C0074400 (imp_WdfIoQueueDrain.c)
+ *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0075FA0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076AF8 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076E3C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
- *     ?CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C000DD74 (-CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
- *     ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C000E238 (-CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ?PurgeForwardProgressIrps@FxIoQueue@@AEAAXPEAU_FILE_OBJECT@@@Z @ 0x1C0013580 (-PurgeForwardProgressIrps@FxIoQueue@@AEAAXPEAU_FILE_OBJECT@@@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z @ 0x1C001B57C (-GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z.c)
- *     ?SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z @ 0x1C001B62C (-SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z @ 0x1C00150B8 (-GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z @ 0x1C001518C (-SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z.c)
+ *     ?CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0015784 (-CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C0075AB4 (-CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z.c)
+ *     ?PurgeForwardProgressIrps@FxIoQueue@@AEAAXPEAU_FILE_OBJECT@@@Z @ 0x1C0076A70 (-PurgeForwardProgressIrps@FxIoQueue@@AEAAXPEAU_FILE_OBJECT@@@Z.c)
  */
 
 __int64 __fastcall FxIoQueue::QueuePurge(
@@ -46,13 +46,12 @@ __int64 __fastcall FxIoQueue::QueuePurge(
   unsigned int v21; // r14d
   unsigned __int8 v22; // r8
   const void *v23; // rax
-  const void *_a2; // rdx
+  __int64 _a2; // rdx
   const void *v25; // rax
   const void *v26; // rdx
   const void *_a1; // rax
   unsigned __int8 v28; // dl
-  unsigned __int8 v29; // r8
-  const void *v30; // rax
+  const void *v29; // rax
   unsigned __int8 irql; // [rsp+70h] [rbp+30h] BYREF
 
   m_Globals = this->m_Globals;
@@ -73,7 +72,7 @@ LABEL_24:
   {
     v23 = (const void *)FxObject::GetObjectHandleUnchecked(this);
     v21 = -1073741808;
-    WPP_IFR_SF_qqd(m_Globals, 2u, 0xDu, 0x47u, WPP_FxIoQueue_cpp_Traceguids, v23, _a2, -1073741808);
+    WPP_IFR_SF_qid(m_Globals, 2u, 0xDu, 0x47u, WPP_FxIoQueue_cpp_Traceguids, v23, _a2, -1073741808);
     goto LABEL_24;
   }
   this->m_PurgeCompleteContext = Context;
@@ -129,12 +128,12 @@ LABEL_5:
         (void *)0x75657551,
         4093,
         "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
-      FxIoQueue::CancelForDriver(this, v17, v29);
+      FxIoQueue::CancelForDriver(this, v17);
     }
     if ( m_Globals->FxVerboseOn )
     {
-      v30 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-      WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x4Au, WPP_FxIoQueue_cpp_Traceguids, v30);
+      v29 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+      WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x4Au, WPP_FxIoQueue_cpp_Traceguids, v29);
     }
     FxNonPagedObject::Unlock(this, irql, v16);
   }

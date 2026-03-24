@@ -1,11 +1,11 @@
 /*
- * XREFs of PopForceCompleteCsSleepStudySessionWorker @ 0x140874CD0
+ * XREFs of PopForceCompleteCsSleepStudySessionWorker @ 0x140874CB0
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087059C (PopDiagStopCsSleepStudySession.c)
+ *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
  */
 
 __int64 PopForceCompleteCsSleepStudySessionWorker()
@@ -16,8 +16,8 @@ __int64 PopForceCompleteCsSleepStudySessionWorker()
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopForceSleepStudyLock);
   v0 = PopSleepStudySessionInfo;
-  v1 = dword_1404166B4;
-  v2 = dword_1404166B8;
+  v1 = dword_140416604;
+  v2 = dword_140416608;
   PopReleaseRwLock((ULONG_PTR)&PopForceSleepStudyLock);
   PopDiagStopCsSleepStudySession(v0, v1, v2);
   return (unsigned int)_InterlockedExchange(&PopForceSleepStudyWorkItemQueued, 0);

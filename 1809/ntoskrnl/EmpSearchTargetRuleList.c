@@ -4,7 +4,7 @@
  *     EmpUpdateRuleState @ 0x140010758 (EmpUpdateRuleState.c)
  *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
  *     EmClientRuleEvaluate @ 0x1405654A0 (EmClientRuleEvaluate.c)
- *     EmpClientRuleRegisterNotification @ 0x140813680 (EmpClientRuleRegisterNotification.c)
+ *     EmpClientRuleRegisterNotification @ 0x140813660 (EmpClientRuleRegisterNotification.c)
  *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)
  * Callees:
  *     <none>

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C021A090
+ * XREFs of ?GetFloatAnimatableProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E3CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0215740 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::GetFloatAnimatableProperty(
@@ -11,12 +11,11 @@ __int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::GetFloatAnima
         unsigned int a2,
         float *a3)
 {
-  unsigned int v3; // r10d
+  __int64 result; // rax
 
-  v3 = 0;
+  result = 0LL;
   if ( a2 >= 0x10 )
-    return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
-  else
-    *a3 = *((float *)this + a2 + 20);
-  return v3;
+    return 3221225485LL;
+  *a3 = *((float *)this + a2 + 18);
+  return result;
 }

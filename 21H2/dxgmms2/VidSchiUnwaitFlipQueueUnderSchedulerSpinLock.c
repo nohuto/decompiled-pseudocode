@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchiUnwaitFlipQueueUnderSchedulerSpinLock @ 0x1C001C228
+ * XREFs of VidSchiUnwaitFlipQueueUnderSchedulerSpinLock @ 0x1C0032254
  * Callers:
- *     VidSchiResumeFlipQueues @ 0x1C00ABA3C (VidSchiResumeFlipQueues.c)
+ *     VidSchiResumeFlipQueues @ 0x1C00D0490 (VidSchiResumeFlipQueues.c)
  * Callees:
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchUnwaitFlipQueue @ 0x1C000BDB0 (VidSchUnwaitFlipQueue.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     VidSchUnwaitFlipQueue @ 0x1C000D800 (VidSchUnwaitFlipQueue.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 void __fastcall VidSchiUnwaitFlipQueueUnderSchedulerSpinLock(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall VidSchiUnwaitFlipQueueUnderSchedulerSpinLock(__int64 a1)
   __int16 v5; // [rsp+58h] [rbp-8h]
 
   v5 = 0;
-  v4[0] = a1 + 1728;
+  v4[0] = a1 + 1712;
   AcquireSpinLock::Acquire((Acquire *)v4);
   v3 = 0;
   v2[1] = v2;

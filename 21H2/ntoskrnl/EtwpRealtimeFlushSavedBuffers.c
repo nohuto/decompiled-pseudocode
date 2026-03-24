@@ -1,82 +1,84 @@
 /*
- * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x14079A870
+ * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0
  * Callers:
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     EtwpSendSessionNotification @ 0x1406EF58C (EtwpSendSessionNotification.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140798E18 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeRestoreBuffer @ 0x14084BFF4 (EtwpRealtimeRestoreBuffer.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x14085CC28 (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1409EDE34 (EtwpRealtimeResetReferenceTime.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140645D0C (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x1407BE620 (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x1407CD2B8 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x140941C60 (EtwpRealtimeResetReferenceTime.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
 {
-  __int64 Pool2; // rsi
-  __int64 v4; // rbx
-  __int64 v5; // r8
-  int v6; // edx
+  PVOID PoolWithTag; // rax
+  __int64 v4; // rsi
+  int v5; // edx
+  __int64 v6; // rbx
   __int64 v7; // r8
-  bool v8; // sf
-  int v9; // eax
+  __int64 v8; // r8
+  bool v9; // sf
 
-  if ( !*(_DWORD *)(a1 + 424) || !*(_DWORD *)(a1 + 344) )
+  if ( !*(_DWORD *)(a1 + 440) || !*(_DWORD *)(a1 + 360) )
     return 0LL;
-  Pool2 = ExAllocatePool2(256LL, *(unsigned int *)(a1 + 4), 1350005829LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a1 + 4), 0x50777445u);
+  v4 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( *(_DWORD *)(a1 + 424) )
+    memset(PoolWithTag, 0, *(unsigned int *)(a1 + 4));
+    v5 = *(_DWORD *)(a1 + 440);
+    if ( v5 )
     {
-      while ( *(_DWORD *)(a1 + 344) )
+      while ( *(_DWORD *)(a1 + 360) )
       {
-        v4 = *(_QWORD *)(a1 + 392);
-        if ( (int)EtwpRealtimeRestoreBuffer(a1, Pool2) < 0 )
+        v6 = *(_QWORD *)(a1 + 408);
+        if ( (int)EtwpRealtimeRestoreBuffer(a1, v4) < 0 )
         {
-          *(_DWORD *)(a1 + 260) += *(_DWORD *)(a1 + 424);
-          *(_DWORD *)(a1 + 424) = 0;
-          *(_QWORD *)(a1 + 408) = 0LL;
-          *(_DWORD *)(a1 + 448) = 3;
-          EtwpSendSessionNotification(a1, 4u, 0xC0000102);
+          *(_DWORD *)(a1 + 276) += *(_DWORD *)(a1 + 440);
+          *(_DWORD *)(a1 + 440) = 0;
+          *(_QWORD *)(a1 + 424) = 0LL;
+          *(_DWORD *)(a1 + 464) = 3;
+          EtwpSendSessionNotification(a1, 4LL, 3221225730LL);
           EtwpRealtimeZeroTruncateLogfile(a1);
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-          if ( (*(_DWORD *)(a1 + 816) & 1) != 0 )
+          ExFreePoolWithTag((PVOID)v4, 0);
+          if ( (*(_DWORD *)(a1 + 832) & 1) != 0 )
             EtwpRealtimeResetReferenceTime(a1);
           return 3221225730LL;
         }
-        if ( (int)EtwpRealtimeDeliverBuffer(a1, Pool2) < 0 )
+        if ( (int)EtwpRealtimeDeliverBuffer(a1, v4) < 0 )
         {
-          v9 = *(_DWORD *)(a1 + 424);
-          *(_QWORD *)(a1 + 392) = v4;
-          if ( v9 )
-            break;
-          goto LABEL_14;
+          v5 = *(_DWORD *)(a1 + 440);
+          *(_QWORD *)(a1 + 408) = v6;
+          break;
         }
-        if ( (*(_DWORD *)(a1 + 816) & 1) != 0 && *(_WORD *)(Pool2 + 54) == 3 )
-          *(_OWORD *)(a1 + 432) = *(_OWORD *)(Pool2 + 56);
-        v5 = *(_QWORD *)(a1 + 408);
-        v6 = *(_DWORD *)(a1 + 424) - 1;
-        *(_DWORD *)(a1 + 424) = v6;
-        v7 = v5 - *(unsigned int *)(Pool2 + 48);
-        v8 = *(int *)(a1 + 16) < 0;
-        *(_QWORD *)(a1 + 408) = v7;
-        if ( v8
-          && *(_QWORD *)(a1 + 416) - v7 > (unsigned __int64)(unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 236)) )
+        if ( (*(_DWORD *)(a1 + 832) & 1) != 0 && *(_WORD *)(v4 + 54) == 3 )
+          *(_OWORD *)(a1 + 448) = *(_OWORD *)(v4 + 56);
+        v7 = *(_QWORD *)(a1 + 424);
+        v5 = *(_DWORD *)(a1 + 440) - 1;
+        *(_DWORD *)(a1 + 440) = v5;
+        v8 = v7 - *(unsigned int *)(v4 + 48);
+        v9 = *(int *)(a1 + 16) < 0;
+        *(_QWORD *)(a1 + 424) = v8;
+        if ( v9
+          && *(_QWORD *)(a1 + 432) - v8 > (unsigned __int64)(unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 252)) )
         {
           _InterlockedExchange((volatile __int32 *)(a1 + 16), 0);
-          v6 = *(_DWORD *)(a1 + 424);
+          v5 = *(_DWORD *)(a1 + 440);
         }
-        if ( !v6 )
+        if ( !v5 )
           goto LABEL_14;
       }
+      if ( v5 )
+        goto LABEL_15;
     }
-    else
-    {
 LABEL_14:
-      EtwpRealtimeZeroTruncateLogfile(a1);
-    }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    EtwpRealtimeZeroTruncateLogfile(a1);
+LABEL_15:
+    ExFreePoolWithTag((PVOID)v4, 0);
     return 0LL;
   }
   return 3221225495LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerComputeCpuSet @ 0x14057A138
+ * XREFs of KiIntSteerComputeCpuSet @ 0x1405226E0
  * Callers:
- *     KiIntSteerCalculateDistribution @ 0x1402216B0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerAssignCpuSet @ 0x140579F10 (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerCalculateDistribution @ 0x140229770 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerAssignCpuSet @ 0x14052265C (KiIntSteerAssignCpuSet.c)
  * Callees:
- *     KiIntSteerVerifyDestination @ 0x14031FF14 (KiIntSteerVerifyDestination.c)
- *     KiComputeCpuSetAffinityMask @ 0x140576684 (KiComputeCpuSetAffinityMask.c)
+ *     KiIntSteerVerifyDestination @ 0x14031CA7C (KiIntSteerVerifyDestination.c)
+ *     KiComputeCpuSetAffinityMask @ 0x14051D068 (KiComputeCpuSetAffinityMask.c)
  */
 
 __int64 __fastcall KiIntSteerComputeCpuSet(__int64 a1)
@@ -14,7 +14,6 @@ __int64 __fastcall KiIntSteerComputeCpuSet(__int64 a1)
   unsigned __int64 v2; // r9
   int v4; // eax
   __int64 v5; // r9
-  __int64 result; // rax
   __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = *(unsigned __int16 *)(a1 + 144);
@@ -22,16 +21,14 @@ __int64 __fastcall KiIntSteerComputeCpuSet(__int64 a1)
   v7 = 0LL;
   *(_QWORD *)&v7 = KiComputeCpuSetAffinityMask(0LL, (__int64 *)(a1 + 152), v1, v2);
   v4 = KiIntSteerVerifyDestination(a1, (__int64)&v7);
-  if ( v4 >= 0 )
+  if ( v4 >> 31 == -1 )
   {
-    *(_WORD *)(a1 + 184) = WORD4(v7);
-    result = 0LL;
-    *(_QWORD *)(a1 + 176) = v5;
+    *(_QWORD *)(a1 + 176) = 0LL;
   }
   else
   {
-    *(_QWORD *)(a1 + 176) = 0LL;
-    return (v4 >> 31) & 0xC0000001;
+    *(_WORD *)(a1 + 184) = WORD4(v7);
+    *(_QWORD *)(a1 + 176) = v5;
   }
-  return result;
+  return (v4 >> 31) & 0xC0000001;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogRelocationFaults @ 0x140707460
+ * XREFs of MiLogRelocationFaults @ 0x14071384C
  * Callers:
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiLogRelocationRva @ 0x1407E5148 (MiLogRelocationRva.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     MiLogRelocationRva @ 0x1407138D4 (MiLogRelocationRva.c)
  */
 
 void __fastcall MiLogRelocationFaults(__int64 a1, unsigned int *a2, __int64 a3)
 {
-  unsigned __int64 v6; // rbp
+  ULONG_PTR v6; // rbp
   __int64 **i; // rbx
   __int64 v8; // rcx
 

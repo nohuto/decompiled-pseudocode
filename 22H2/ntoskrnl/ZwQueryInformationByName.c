@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationByName @ 0x14041D0C0
+ * XREFs of ZwQueryInformationByName @ 0x1403FC340
  * Callers:
- *     SdbpGetFileTimestamp @ 0x140A4E9A4 (SdbpGetFileTimestamp.c)
+ *     <none>
  * Callees:
  *     <none>
  */

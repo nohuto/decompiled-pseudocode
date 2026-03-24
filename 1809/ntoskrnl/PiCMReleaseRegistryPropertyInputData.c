@@ -2,7 +2,7 @@
  * XREFs of PiCMReleaseRegistryPropertyInputData @ 0x14059530C
  * Callers:
  *     PiCMGetRegistryProperty @ 0x140594FA0 (PiCMGetRegistryProperty.c)
- *     PiCMSetRegistryProperty @ 0x140838EC4 (PiCMSetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x140838EA4 (PiCMSetRegistryProperty.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
  */

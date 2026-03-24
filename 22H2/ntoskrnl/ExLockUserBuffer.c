@@ -1,30 +1,33 @@
 /*
- * XREFs of ExLockUserBuffer @ 0x140687918
+ * XREFs of ExLockUserBuffer @ 0x1406605D0
  * Callers:
- *     ExpGetLookasideInformation @ 0x140605318 (ExpGetLookasideInformation.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x1406875CC (ExpGetFirmwareEnvironmentVariable.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     NtSystemDebugControl @ 0x1407E1650 (NtSystemDebugControl.c)
- *     NtQueryBootEntryOrder @ 0x14083F3D0 (NtQueryBootEntryOrder.c)
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140860054 (EtwQueryPerformanceTraceInformation.c)
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
- *     ExpGetHandleInformation @ 0x1409F6564 (ExpGetHandleInformation.c)
- *     ExpGetHandleInformationEx @ 0x1409F65E4 (ExpGetHandleInformationEx.c)
- *     ExpGetLockInformation @ 0x1409F6664 (ExpGetLockInformation.c)
- *     ExpGetObjectInformation @ 0x1409F66E4 (ExpGetObjectInformation.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FDFA4 (ExpSetFirmwareEnvironmentVariable.c)
- *     NtEnumerateDriverEntries @ 0x1409FEC70 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x1409FF130 (NtEnumerateSystemEnvironmentValuesEx.c)
- *     NtQueryDriverEntryOrder @ 0x1409FF390 (NtQueryDriverEntryOrder.c)
- *     MiCopyLargeVad @ 0x140A493BC (MiCopyLargeVad.c)
+ *     ExpGetLookasideInformation @ 0x1405B1BC0 (ExpGetLookasideInformation.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     ExGetSessionPoolTagInformation @ 0x14066070C (ExGetSessionPoolTagInformation.c)
+ *     NtSystemDebugControl @ 0x1407CFB20 (NtSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
+ *     MmGetSessionMappedViewInformation @ 0x1408C4920 (MmGetSessionMappedViewInformation.c)
+ *     MiCopyLargeVad @ 0x1408D9D70 (MiCopyLargeVad.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937EBC (EtwQueryPerformanceTraceInformation.c)
+ *     ExGetSessionBigPoolInformation @ 0x140949FB0 (ExGetSessionBigPoolInformation.c)
+ *     ExpGetHandleInformation @ 0x14094A3D4 (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformationEx @ 0x14094A454 (ExpGetHandleInformationEx.c)
+ *     ExpGetLockInformation @ 0x14094A4D4 (ExpGetLockInformation.c)
+ *     ExpGetObjectInformation @ 0x14094A554 (ExpGetObjectInformation.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x140950804 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140951F1C (ExpSetFirmwareEnvironmentVariable.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1409539B0 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x140953E70 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtQueryBootEntryOrder @ 0x140954190 (NtQueryBootEntryOrder.c)
+ *     NtQueryDriverEntryOrder @ 0x140954710 (NtQueryDriverEntryOrder.c)
  * Callees:
- *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     MmSizeOfMdl @ 0x1402EB830 (MmSizeOfMdl.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExLockUserBuffer(
@@ -37,7 +40,7 @@ __int64 __fastcall ExLockUserBuffer(
 {
   __int64 v8; // r13
   SIZE_T v10; // rax
-  struct _MDL *Pool2; // rax
+  struct _MDL *PoolWithQuotaTag; // rax
   struct _MDL *v12; // rbx
   PVOID MappedSystemVa; // rax
 
@@ -45,17 +48,17 @@ __int64 __fastcall ExLockUserBuffer(
   *P = 0LL;
   *a6 = 0LL;
   v10 = MmSizeOfMdl((PVOID)a1, a2);
-  Pool2 = (struct _MDL *)ExAllocatePool2(65LL, v10, 1868983881LL);
-  v12 = Pool2;
-  if ( Pool2 )
+  PoolWithQuotaTag = (struct _MDL *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v10, 0x6F666E49u);
+  v12 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
   {
-    Pool2->Next = 0LL;
-    Pool2->Size = 8 * ((((a1 & 0xFFF) + v8 + 4095) >> 12) + 6);
-    Pool2->MdlFlags = 0;
-    Pool2->StartVa = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
-    Pool2->ByteOffset = a1 & 0xFFF;
-    Pool2->ByteCount = v8;
-    MmProbeAndLockPages(Pool2, a3, a4);
+    PoolWithQuotaTag->Next = 0LL;
+    PoolWithQuotaTag->Size = 8 * ((((a1 & 0xFFF) + v8 + 4095) >> 12) + 6);
+    PoolWithQuotaTag->MdlFlags = 0;
+    PoolWithQuotaTag->StartVa = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
+    PoolWithQuotaTag->ByteOffset = a1 & 0xFFF;
+    PoolWithQuotaTag->ByteCount = v8;
+    MmProbeAndLockPages(PoolWithQuotaTag, a3, a4);
     v12->MdlFlags |= 0x2000u;
     if ( (v12->MdlFlags & 5) != 0 )
       MappedSystemVa = v12->MappedSystemVa;

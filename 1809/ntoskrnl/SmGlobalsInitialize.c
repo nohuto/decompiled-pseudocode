@@ -5,9 +5,9 @@
  * Callees:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E1C8 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SmRegistrationCtxInitialize @ 0x1406D0DA0 (SmRegistrationCtxInitialize.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E1E8 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SmRegistrationCtxInitialize @ 0x1406D0D80 (SmRegistrationCtxInitialize.c)
  */
 
 __int64 __fastcall SmGlobalsInitialize(__int64 a1)

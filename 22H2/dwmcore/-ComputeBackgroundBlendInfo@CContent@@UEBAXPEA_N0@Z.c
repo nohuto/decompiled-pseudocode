@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ComputeBackgroundBlendInfo@CContent@@UEBAXPEA_N0@Z @ 0x1801055A0
+ * XREFs of ?ComputeBackgroundBlendInfo@CContent@@UEBAXPEA_N0@Z @ 0x1800E1BA0
  * Callers:
  *     <none>
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSetGraphicsPtes @ 0x1408504D0
+ * XREFs of MmSetGraphicsPtes @ 0x1408504B0
  * Callers:
  *     <none>
  * Callees:
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiGetAweNode @ 0x1402B0C18 (MiGetAweNode.c)
- *     MiLockAweVadsExclusive @ 0x1402B11DC (MiLockAweVadsExclusive.c)
- *     MiSetGraphicsPtes @ 0x1402B1DA4 (MiSetGraphicsPtes.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B200C (MiUnlockAweVadsExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
+ *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
+ *     MiSetGraphicsPtes @ 0x1402B1EA4 (MiSetGraphicsPtes.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(

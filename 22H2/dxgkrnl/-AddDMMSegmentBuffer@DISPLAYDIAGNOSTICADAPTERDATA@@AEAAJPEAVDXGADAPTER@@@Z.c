@@ -1,13 +1,12 @@
 /*
- * XREFs of ?AddDMMSegmentBuffer@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02F6564
+ * XREFs of ?AddDMMSegmentBuffer@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02B99B4
  * Callers:
- *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02F7728 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02BA930 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?DmmCollectBlackScreenDiagInfo@@YAJPEAX_K0@Z @ 0x1C03AC55C (-DmmCollectBlackScreenDiagInfo@@YAJPEAX_K0@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmCollectBlackScreenDiagInfo@@YAJPEAX_K0@Z @ 0x1C02DC4D0 (-DmmCollectBlackScreenDiagInfo@@YAJPEAX_K0@Z.c)
  */
 
 int __fastcall DISPLAYDIAGNOSTICADAPTERDATA::AddDMMSegmentBuffer(
@@ -15,57 +14,48 @@ int __fastcall DISPLAYDIAGNOSTICADAPTERDATA::AddDMMSegmentBuffer(
         struct DXGADAPTER *a2)
 {
   int result; // eax
-  void *v5; // rax
-  unsigned __int64 v6; // rdx
-  int v7; // edi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  PVOID v8; // rax
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rax
+  int v14; // edi
 
   if ( !a2 )
     return -1073741811;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a2) )
   {
-    WdLogSingleEntry1(1LL, 1172LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDisplayAdapter->IsCoreResourceSharedOwner()",
-      1172LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v7 + 24) = 1045LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  v5 = (void *)operator new[](0x2000uLL, 0x4B677844u, 256LL);
-  *((_QWORD *)this + 6) = v5;
-  if ( v5 )
+  v8 = operator new[](0x2000uLL, 0x4B677844u, PagedPool);
+  *((_QWORD *)this + 6) = v8;
+  if ( v8 )
   {
-    result = DmmCollectBlackScreenDiagInfo(a2, v6, v5);
-    v7 = result;
+    result = DmmCollectBlackScreenDiagInfo(a2, v9, v8);
+    v14 = result;
     if ( result >= 0 )
     {
       *((_BYTE *)this + 56) = 1;
     }
     else
     {
-      operator delete(*((void **)this + 6));
+      operator delete[](*((void **)this + 6));
       *((_QWORD *)this + 6) = 0LL;
-      result = v7;
+      result = v14;
       *((_BYTE *)this + 56) = 0;
     }
   }
   else
   {
-    WdLogSingleEntry1(6LL, 0x2000LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating DMM Segment data (size 0x%I64x)",
-      0x2000LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdLowResource(v10, v9, v11, v12);
+    *(_QWORD *)(v13 + 24) = 0x2000LL;
+    WdLogEvent5_WdLowResource(v13);
     return -1073741801;
   }
   return result;

@@ -1,18 +1,27 @@
 /*
- * XREFs of InitKeyboard @ 0x1C003EF0C
+ * XREFs of InitKeyboard @ 0x1C0008FC0
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
- *     ?GetBiosNumLockStatus@@YAXXZ @ 0x1C003CEA4 (-GetBiosNumLockStatus@@YAXXZ.c)
- *     ?ClearCachedHotkeyModifiers@@YAXXZ @ 0x1C006CF50 (-ClearCachedHotkeyModifiers@@YAXXZ.c)
+ *     ?GetBiosNumLockStatus@@YAXXZ @ 0x1C000903C (-GetBiosNumLockStatus@@YAXXZ.c)
  */
 
-void InitKeyboard()
+// write access to const memory has been detected, the output may be wrong!
+__int64 InitKeyboard()
 {
+  __int64 result; // rax
+
+  result = gProtocolType;
   if ( !gProtocolType )
   {
     GetBiosNumLockStatus();
-    ClearCachedHotkeyModifiers();
+    result = gfsSASModifiersDown;
+    gfsModifiers = 0;
+    gfsModOnlyCandidate = 0;
+    gfsRawModifiersForHotKey = 0;
+    gfsSASModifiersDown = 0;
+    WindowArrangementSequence::fWindowArrangementSequenceInProgress = 0;
   }
+  return result;
 }

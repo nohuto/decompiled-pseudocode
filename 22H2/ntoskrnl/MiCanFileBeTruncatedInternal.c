@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x14028B880
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x1402F93FC
  * Callers:
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x140349FB0 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x140238510 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1402F9380 (MmCanFileBeTruncated.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiEndingOffset @ 0x140279DE8 (MiEndingOffset.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFindLastSubsection @ 0x140293138 (MiFindLastSubsection.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312010 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmFlushImageSection @ 0x14034DE00 (MmFlushImageSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiEndingOffset @ 0x14029CED0 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFindLastSubsection @ 0x1402F974C (MiFindLastSubsection.c)
+ *     MmFlushImageSection @ 0x1403107A0 (MmFlushImageSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char *__fastcall MiCanFileBeTruncatedInternal(
+volatile signed __int32 *__fastcall MiCanFileBeTruncatedInternal(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         unsigned __int64 *a2,
         int a3,
@@ -22,27 +22,28 @@ char *__fastcall MiCanFileBeTruncatedInternal(
 {
   bool v8; // zf
   unsigned __int64 v9; // rbx
-  char *DataSectionObject; // rsi
+  volatile signed __int32 *DataSectionObject; // rdi
   __int64 LastSubsection; // rax
   __int64 i; // rcx
   unsigned __int64 v14; // rax
+  volatile LONG *v15; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // r10
-  _DWORD *v21; // r9
-  int v22; // eax
-  unsigned __int8 v23; // al
-  struct _KPRCB *v24; // r9
-  _DWORD *v25; // r8
-  int v26; // eax
-  unsigned __int64 v27; // rax
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  _DWORD *v30; // r8
-  int v31; // eax
+  int v19; // eax
+  unsigned __int8 v20; // al
+  struct _KPRCB *v21; // r10
+  _DWORD *v22; // r9
+  int v23; // eax
+  unsigned __int8 v24; // al
+  struct _KPRCB *v25; // r9
+  _DWORD *v26; // r8
+  int v27; // eax
+  unsigned __int64 v28; // rax
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r9
+  _DWORD *v31; // r8
+  int v32; // eax
 
   while ( 1 )
   {
@@ -50,112 +51,131 @@ char *__fastcall MiCanFileBeTruncatedInternal(
     *a5 = 17;
     if ( v8 )
     {
-      v9 = ExAcquireSpinLockExclusive(&dword_140C65640);
+      v9 = ExAcquireSpinLockExclusive(&dword_140C4C980);
       if ( !SectionObjectPointer->ImageSectionObject )
         goto LABEL_3;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v8 = (v18 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v18;
-          if ( v8 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v8 = (v19 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v19;
+            if ( v8 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v9);
     }
     if ( !MmFlushImageSection(SectionObjectPointer, MmFlushForWrite) )
       return 0LL;
-    LOBYTE(v9) = ExAcquireSpinLockExclusive(&dword_140C65640);
+    LOBYTE(v9) = ExAcquireSpinLockExclusive(&dword_140C4C980);
 LABEL_3:
-    DataSectionObject = (char *)SectionObjectPointer->DataSectionObject;
+    DataSectionObject = (volatile signed __int32 *)SectionObjectPointer->DataSectionObject;
     if ( !SectionObjectPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
       if ( KiIrqlFlags )
       {
-        v28 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v29 = KeGetCurrentPrcb();
-          v30 = v29->SchedulerAssist;
-          v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v8 = (v31 & v30[5]) == 0;
-          v30[5] &= v31;
-          if ( v8 )
-            KiRemoveSystemWorkPriorityKick(v29);
+          v29 = KeGetCurrentIrql();
+          if ( v29 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v29 >= 2u )
+          {
+            v30 = KeGetCurrentPrcb();
+            v31 = v30->SchedulerAssist;
+            v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v8 = (v32 & v31[5]) == 0;
+            v31[5] &= v32;
+            if ( v8 )
+              KiRemoveSystemWorkPriorityKick(v30);
+          }
         }
       }
       __writecr8((unsigned __int8)v9);
       *a5 = 0;
       return 0LL;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 18) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
     if ( KiIrqlFlags )
     {
-      v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v19 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v20 = KeGetCurrentPrcb();
-        v21 = v20->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v8 = (v22 & v21[5]) == 0;
-        v21[5] &= v22;
-        if ( v8 )
-          KiRemoveSystemWorkPriorityKick(v20);
+        v20 = KeGetCurrentIrql();
+        if ( v20 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v20 >= 2u )
+        {
+          v21 = KeGetCurrentPrcb();
+          v22 = v21->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v8 = (v23 & v22[5]) == 0;
+          v22[5] &= v23;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick(v21);
+        }
       }
     }
     __writecr8((unsigned __int8)v9);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
-  if ( *((_DWORD *)DataSectionObject + 14) & 1 | ((*((_DWORD *)DataSectionObject + 14) & 2) != 0)
-    || *((_QWORD *)DataSectionObject + 14) > 1uLL && (*((_DWORD *)DataSectionObject + 14) & 8) == 0 && !a4 )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  if ( DataSectionObject[14] & 1 | ((DataSectionObject[14] & 2) != 0)
+    || *((_QWORD *)DataSectionObject + 14) > 1uLL && (DataSectionObject[14] & 8) == 0 && !a4 )
   {
-    goto LABEL_21;
+    goto LABEL_22;
   }
-  if ( *((_QWORD *)DataSectionObject + 6) && (!a3 || *((_QWORD *)DataSectionObject + 5) && !a4) )
+  if ( *((_QWORD *)DataSectionObject + 6) && (a3 != 1 || *((_QWORD *)DataSectionObject + 5) && a4 != 1) )
   {
-    if ( !a2 )
-      goto LABEL_21;
-    LastSubsection = (__int64)(DataSectionObject + 128);
-    if ( *((_QWORD *)DataSectionObject + 8) )
-      LastSubsection = MiFindLastSubsection(DataSectionObject, 1LL);
-    for ( i = *(_QWORD *)(LastSubsection + 16); i; i = *(_QWORD *)(i + 16) )
-      LastSubsection = i;
-    v14 = MiEndingOffset(LastSubsection);
-    if ( *a2 < v14 )
+    if ( a2 )
     {
-LABEL_21:
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)DataSectionObject + 18);
-      if ( KiIrqlFlags )
+      LastSubsection = (__int64)(DataSectionObject + 32);
+      if ( *((_QWORD *)DataSectionObject + 8) )
+        LastSubsection = MiFindLastSubsection(DataSectionObject, 1LL);
+      for ( i = *(_QWORD *)(LastSubsection + 16); i; i = *(_QWORD *)(i + 16) )
+        LastSubsection = i;
+      v14 = MiEndingOffset(LastSubsection);
+      if ( *a2 >= v14 )
       {
-        v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+        v28 = (v14 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+        if ( *a2 < v28 )
+          *a2 = v28;
+        goto LABEL_11;
+      }
+      v15 = DataSectionObject + 18;
+      goto LABEL_20;
+    }
+LABEL_22:
+    v15 = DataSectionObject + 18;
+LABEL_20:
+    ExReleaseSpinLockExclusiveFromDpcLevel(v15);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v24 = KeGetCurrentIrql();
+        if ( v24 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v24 >= 2u )
         {
-          v24 = KeGetCurrentPrcb();
-          v25 = v24->SchedulerAssist;
-          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v8 = (v26 & v25[5]) == 0;
-          v25[5] &= v26;
+          v25 = KeGetCurrentPrcb();
+          v26 = v25->SchedulerAssist;
+          v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v8 = (v27 & v26[5]) == 0;
+          v26[5] &= v27;
           if ( v8 )
-            KiRemoveSystemWorkPriorityKick(v24);
+            KiRemoveSystemWorkPriorityKick(v25);
         }
       }
-      __writecr8((unsigned __int8)v9);
-      return 0LL;
     }
-    v27 = (v14 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    if ( *a2 < v27 )
-      *a2 = v27;
+    __writecr8((unsigned __int8)v9);
+    return 0LL;
   }
+LABEL_11:
   *a5 = v9;
   return DataSectionObject;
 }

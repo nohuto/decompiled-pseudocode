@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUsbdStatus@FxUsbPipeRequestContext@@UEAAJXZ @ 0x1C000BCF0
+ * XREFs of ?GetUsbdStatus@FxUsbPipeRequestContext@@UEAAJXZ @ 0x1C000DC30
  * Callers:
  *     <none>
  * Callees:

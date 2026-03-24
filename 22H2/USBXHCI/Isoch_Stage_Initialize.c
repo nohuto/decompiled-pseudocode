@@ -1,7 +1,7 @@
 /*
- * XREFs of Isoch_Stage_Initialize @ 0x1C0045200
+ * XREFs of Isoch_Stage_Initialize @ 0x1C0042570
  * Callers:
- *     Isoch_Stage_Acquire @ 0x1C0045108 (Isoch_Stage_Acquire.c)
+ *     Isoch_Stage_Acquire @ 0x1C0042478 (Isoch_Stage_Acquire.c)
  * Callees:
  *     <none>
  */

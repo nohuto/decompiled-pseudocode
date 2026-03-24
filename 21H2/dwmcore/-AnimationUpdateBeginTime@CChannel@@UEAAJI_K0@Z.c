@@ -1,18 +1,14 @@
 /*
- * XREFs of ?AnimationUpdateBeginTime@CChannel@@UEAAJI_K0@Z @ 0x1801A9D80
+ * XREFs of ?AnimationUpdateBeginTime@CChannel@@UEAAJI_K0@Z @ 0x18014F660
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CChannel::AnimationUpdateBeginTime(
-        CDataStreamWriter **this,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CChannel::AnimationUpdateBeginTime(CChannel *this, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int128 v5; // rdi
   unsigned int v7; // ebx
@@ -22,8 +18,8 @@ __int64 __fastcall CChannel::AnimationUpdateBeginTime(
 
   *((_QWORD *)&v5 + 1) = a4;
   *(_QWORD *)&v5 = a3;
-  v11 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  v11 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle((__int64)this, a2, 2);
   v9[0] = 12;
   v9[1] = a2;

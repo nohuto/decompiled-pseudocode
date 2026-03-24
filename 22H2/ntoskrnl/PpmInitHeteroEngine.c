@@ -1,100 +1,40 @@
 /*
- * XREFs of PpmInitHeteroEngine @ 0x140B6C438
+ * XREFs of PpmInitHeteroEngine @ 0x140A72E48
  * Callers:
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PpmInitHeteroEngine()
 {
-  _QWORD *v0; // rdi
-  ULONG MaximumProcessorCount; // ebx
-  ULONG_PTR v2; // r15
-  _QWORD *Pool2; // rsi
-  __int64 v4; // r14
-  unsigned int v5; // r12d
-  __int64 v6; // rax
-  __int64 v7; // rbp
-  __int64 v8; // rax
-  int v9; // eax
-  unsigned int v10; // ebx
-  void *v12; // rcx
-  void *v13; // rcx
-  void *v14; // rcx
-  void *v15; // rcx
+  ULONG MaximumProcessorCount; // r14d
+  unsigned int v1; // ebp
+  unsigned int v2; // edi
+  ULONG *v3; // rsi
+  ULONG *v4; // rbx
 
-  v0 = 0LL;
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  v2 = 4 * PpmHeteroWorkloadClasses * MaximumProcessorCount + 24;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, v2, 0x704D5050u);
-  if ( Pool2 )
+  v1 = 3 * (MaximumProcessorCount + 2);
+  v2 = 0;
+  PpmHeteroCapability = ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x704D5050u);
+  if ( !PpmHeteroCapability )
+    return (unsigned int)-1073741670;
+  PpmHeteroCapabilityTest = ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x704D5050u);
+  v3 = (ULONG *)PpmHeteroCapabilityTest;
+  if ( !PpmHeteroCapabilityTest )
   {
-    v4 = ExAllocatePool2(64LL, MaximumProcessorCount, 0x704D5050u);
-    if ( !v4 )
-      goto LABEL_12;
-    v5 = 2 * PpmHeteroWorkloadClasses;
-    v6 = ExAllocatePool2(64LL, (unsigned int)(2 * PpmHeteroWorkloadClasses), 0x704D5050u);
-    if ( !v6 )
-      goto LABEL_12;
-    Pool2[1] = v4;
-    Pool2[2] = v6;
-    *((_DWORD *)Pool2 + 1) = PpmHeteroWorkloadClasses;
-    *(_DWORD *)Pool2 = MaximumProcessorCount;
-    v0 = (_QWORD *)ExAllocatePool2(64LL, (unsigned int)v2, 0x704D5050u);
-    if ( v0
-      && (v7 = ExAllocatePool2(64LL, MaximumProcessorCount, 0x704D5050u)) != 0
-      && (v8 = ExAllocatePool2(64LL, v5, 0x704D5050u)) != 0 )
-    {
-      v0[2] = v8;
-      v9 = PpmHeteroWorkloadClasses;
-      *(_DWORD *)v0 = MaximumProcessorCount;
-      v10 = 0;
-      *((_DWORD *)v0 + 1) = v9;
-      v0[1] = v7;
-      PpmHeteroCapability = Pool2;
-      PpmHeteroCapabilityTest = v0;
-    }
-    else
-    {
-LABEL_12:
-      v10 = -1073741670;
-      v12 = (void *)Pool2[2];
-      if ( v12 )
-      {
-        ExFreePoolWithTag(v12, 0x704D5050u);
-        Pool2[2] = 0LL;
-      }
-      v13 = (void *)Pool2[1];
-      if ( v13 )
-      {
-        ExFreePoolWithTag(v13, 0x704D5050u);
-        Pool2[1] = 0LL;
-      }
-      ExFreePoolWithTag(Pool2, 0x704D5050u);
-      if ( v0 )
-      {
-        v14 = (void *)v0[2];
-        if ( v14 )
-        {
-          ExFreePoolWithTag(v14, 0x704D5050u);
-          v0[2] = 0LL;
-        }
-        v15 = (void *)v0[1];
-        if ( v15 )
-        {
-          ExFreePoolWithTag(v15, 0x704D5050u);
-          v0[1] = 0LL;
-        }
-        ExFreePoolWithTag(v0, 0x704D5050u);
-      }
-    }
-  }
-  else
-  {
+    ExFreePoolWithTag(PpmHeteroCapability, 0x704D5050u);
+    PpmHeteroCapability = 0LL;
     return (unsigned int)-1073741670;
   }
-  return v10;
+  v4 = (ULONG *)PpmHeteroCapability;
+  memset(PpmHeteroCapability, 0, v1);
+  memset(v3, 0, v1);
+  *v4 = MaximumProcessorCount;
+  *v3 = MaximumProcessorCount;
+  return v2;
 }

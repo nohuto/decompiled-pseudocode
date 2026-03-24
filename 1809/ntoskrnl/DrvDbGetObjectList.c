@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetObjectList @ 0x140901F60
+ * XREFs of DrvDbGetObjectList @ 0x140901F40
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x1406D2690 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDriverPackage @ 0x1406D28C0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDeviceId @ 0x1406F5040 (DrvDbDispatchDeviceId.c)
- *     DrvDbDispatchDriverFile @ 0x140903FD0 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1406D2670 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406D28A0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F5020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverFile @ 0x140903FB0 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E58 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406D2FE4 (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbGetObjectSubKeyList @ 0x140902470 (DrvDbGetObjectSubKeyList.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E38 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406D2FC4 (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectSubKeyList @ 0x140902450 (DrvDbGetObjectSubKeyList.c)
  */
 
 __int64 __fastcall DrvDbGetObjectList(

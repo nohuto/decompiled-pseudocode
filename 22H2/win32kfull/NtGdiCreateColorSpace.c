@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreateColorSpace @ 0x1C0138630
+ * XREFs of NtGdiCreateColorSpace @ 0x1C01656E0
  * Callers:
  *     <none>
  * Callees:

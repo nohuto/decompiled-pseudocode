@@ -1,98 +1,104 @@
 /*
- * XREFs of PnpGetDeviceLocationStrings @ 0x1407FD2B8
+ * XREFs of PnpGetDeviceLocationStrings @ 0x140764D44
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiQueryRemovableDeviceOverride @ 0x1407C1720 (PiQueryRemovableDeviceOverride.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PiQueryRemovableDeviceOverride @ 0x140763520 (PiQueryRemovableDeviceOverride.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpGetDeviceLocationStrings(__int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall PnpGetDeviceLocationStrings(__int64 a1, char **a2, _DWORD *a3)
 {
-  __int64 v3; // rbx
-  _BYTE *v4; // rsi
+  __int64 v3; // rsi
+  char *v4; // r14
   _QWORD *v5; // rcx
-  __int64 v6; // r14
+  unsigned int v6; // edi
   _QWORD *v7; // rax
-  __int64 v8; // r15
+  PVOID PoolWithTag; // rax
   PVOID *v9; // r13
-  _DWORD *v10; // r12
+  SIZE_T v10; // rbx
   int v11; // r15d
-  unsigned int v12; // r13d
-  int v13; // edi
-  int v14; // r8d
-  int v15; // r9d
-  unsigned int v16; // edx
-  _WORD *v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rax
+  _DWORD *v12; // rax
+  _DWORD *v13; // r12
+  unsigned int v14; // r13d
+  int v15; // ebx
+  int v16; // r8d
+  int v17; // r9d
+  unsigned int v18; // edx
+  _WORD *i; // rcx
   __int64 v20; // rax
-  size_t v21; // r14
-  void *v22; // rax
-  _WORD *v23; // rax
-  unsigned int v24; // r12d
-  int v25; // ebx
-  char v26; // dl
-  char v27; // r8
-  __int64 v28; // rcx
-  void *v29; // rax
-  unsigned int v30; // r10d
-  char *v31; // rbx
-  unsigned int v32; // esi
-  unsigned int v33; // edi
-  unsigned int v34; // r12d
-  unsigned int v35; // eax
-  char *v36; // r14
-  char v37; // r13
-  char v38; // r9
-  char v39; // r15
-  unsigned int v40; // edx
-  _WORD *v41; // rsi
-  char v42; // dl
-  char v43; // r8
-  __int64 v44; // r8
-  __int64 v45; // rcx
-  char *v46; // r14
-  __int64 v47; // r8
-  __int64 v48; // rcx
-  __int64 v49; // rax
-  PVOID *v50; // rbx
-  int v52; // r11d
-  unsigned int v53; // [rsp+38h] [rbp-69h]
-  int v54; // [rsp+3Ch] [rbp-65h]
-  unsigned int v55; // [rsp+40h] [rbp-61h]
-  void *Src; // [rsp+48h] [rbp-59h] BYREF
-  int v57; // [rsp+50h] [rbp-51h]
-  unsigned int v58; // [rsp+54h] [rbp-4Dh]
-  unsigned int v59; // [rsp+58h] [rbp-49h]
-  PVOID P; // [rsp+60h] [rbp-41h]
-  unsigned int v61; // [rsp+68h] [rbp-39h]
-  int v62; // [rsp+6Ch] [rbp-35h]
-  __int64 Pool2; // [rsp+70h] [rbp-31h]
-  PVOID v64; // [rsp+78h] [rbp-29h]
-  __int64 v65; // [rsp+80h] [rbp-21h]
-  int v66; // [rsp+88h] [rbp-19h]
-  __int128 v67; // [rsp+90h] [rbp-11h] BYREF
-  __int128 v68; // [rsp+A0h] [rbp-1h]
-  __int64 (__fastcall *v69)(_QWORD, void **); // [rsp+B0h] [rbp+Fh]
-  __int64 v70; // [rsp+108h] [rbp+67h]
-  char v71; // [rsp+108h] [rbp+67h]
+  __int64 v21; // rax
+  __int64 v22; // rax
+  SIZE_T v23; // rdi
+  PVOID v24; // rax
+  _WORD *v25; // rax
+  unsigned int v26; // r12d
+  int v27; // esi
+  char v28; // dl
+  char v29; // r8
+  __int64 v30; // rcx
+  __int64 v31; // rsi
+  PVOID *v32; // rdi
+  SIZE_T v34; // rdi
+  char *v35; // rax
+  unsigned int v36; // r10d
+  char *v37; // rdi
+  unsigned int v38; // esi
+  unsigned int v39; // ebx
+  unsigned int v40; // r15d
+  unsigned int v41; // eax
+  char *v42; // r14
+  char v43; // r13
+  char v44; // r9
+  char v45; // r12
+  unsigned int v46; // edx
+  _WORD *v47; // rsi
+  char v48; // dl
+  char v49; // r8
+  __int64 v50; // r8
+  __int64 v51; // rcx
+  char *v52; // r14
+  _DWORD *v53; // r8
+  __int64 v54; // rcx
+  __int64 v55; // rax
+  int v56; // r11d
+  int v57; // r10d
+  unsigned int v58; // [rsp+38h] [rbp-69h]
+  unsigned int v59; // [rsp+3Ch] [rbp-65h]
+  void *Src; // [rsp+40h] [rbp-61h] BYREF
+  PVOID P; // [rsp+48h] [rbp-59h]
+  int v62; // [rsp+50h] [rbp-51h]
+  unsigned int v63; // [rsp+54h] [rbp-4Dh]
+  unsigned int v64; // [rsp+58h] [rbp-49h]
+  unsigned int v65; // [rsp+5Ch] [rbp-45h]
+  unsigned int v66; // [rsp+60h] [rbp-41h]
+  char *v67; // [rsp+68h] [rbp-39h]
+  _DWORD *v68; // [rsp+70h] [rbp-31h]
+  int v69; // [rsp+78h] [rbp-29h]
+  __int64 v70; // [rsp+80h] [rbp-21h]
+  __int128 v71; // [rsp+88h] [rbp-19h] BYREF
+  __int128 v72; // [rsp+98h] [rbp-9h]
+  __int64 (__fastcall *v73)(_QWORD, void **); // [rsp+A8h] [rbp+7h]
+  __int64 v74; // [rsp+108h] [rbp+67h]
+  char v75; // [rsp+108h] [rbp+67h]
+  int v78; // [rsp+120h] [rbp+7Fh]
 
-  v70 = a1;
-  v3 = a1;
+  v74 = a1;
+  v73 = 0LL;
   Src = 0LL;
-  v69 = 0LL;
-  LOBYTE(v57) = 0;
-  v58 = -1;
-  v53 = -1;
+  LOBYTE(v62) = 0;
+  v3 = a1;
+  v63 = -1;
   v4 = 0LL;
-  v64 = 0LL;
+  v58 = -1;
   v67 = 0LL;
-  v68 = 0LL;
+  v71 = 0LL;
+  v72 = 0LL;
   if ( !a1 || !a2 || !a3 )
     return 3221225485LL;
   v5 = IopRootDeviceNode;
@@ -100,339 +106,346 @@ __int64 __fastcall PnpGetDeviceLocationStrings(__int64 a1, _QWORD *a2, _DWORD *a
   *a3 = 0;
   if ( (_QWORD *)v3 == v5 )
     return 3221225486LL;
-  LODWORD(v6) = 0;
+  v6 = 0;
   v7 = (_QWORD *)v3;
   do
   {
     v7 = (_QWORD *)v7[2];
-    v6 = (unsigned int)(v6 + 1);
+    ++v6;
   }
   while ( v7 != v5 );
-  v8 = (unsigned int)v6;
-  v62 = v6;
-  v65 = (unsigned int)v6;
-  P = (PVOID)ExAllocatePool2(256LL, 8 * v6, 1970499664LL);
-  v9 = (PVOID *)P;
-  if ( !P )
-    return (unsigned int)-1073741670;
-  Pool2 = ExAllocatePool2(256LL, 4 * v6, 1970499664LL);
-  v10 = (_DWORD *)Pool2;
-  if ( !Pool2 )
+  v66 = v6;
+  v70 = v6;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v6, 0x75737050u);
+  P = PoolWithTag;
+  v9 = (PVOID *)PoolWithTag;
+  if ( PoolWithTag )
   {
-    v13 = -1073741670;
-    goto LABEL_90;
-  }
-  v11 = 1;
-  v54 = 1;
-  v12 = 0;
-  if ( (PVOID)v3 == IopRootDeviceNode )
-    goto LABEL_53;
-  while ( 1 )
-  {
-    v13 = PnpQueryInterface(*(PVOID *)(v3 + 32), 0LL, &v67);
-    if ( v13 < 0 )
+    memset(PoolWithTag, 0, 8LL * v6);
+    v10 = 4LL * v6;
+    v11 = 1;
+    v12 = ExAllocatePoolWithTag(PagedPool, v10, 0x75737050u);
+    v68 = v12;
+    v13 = v12;
+    if ( v12 )
     {
-      v4 = 0LL;
-      goto LABEL_89;
-    }
-    if ( !v69 )
-    {
-      v13 = -1073741823;
-      goto LABEL_42;
-    }
-    Src = 0LL;
-    v13 = v69(*((_QWORD *)&v67 + 1), &Src);
-    if ( v13 < 0 )
-      goto LABEL_111;
-    if ( !Src )
-    {
-      v13 = -1073741637;
-LABEL_111:
-      if ( Src )
+      memset(v12, 0, v10);
+      v78 = 1;
+      v14 = 0;
+      if ( (PVOID)v3 != IopRootDeviceNode )
       {
-        ExFreePoolWithTag(Src, 0);
-        Src = 0LL;
-      }
-      goto LABEL_42;
-    }
-    v14 = 0;
-    v15 = 0;
-    v16 = 0;
-    v10[v12] = 0;
-    v17 = Src;
-    if ( *(_WORD *)Src )
-    {
-      do
-      {
-        ++v14;
-        v18 = -1LL;
-        v10[v12] = v14;
-        do
-          ++v18;
-        while ( v17[v18] );
-        v15 += v18 + 1;
-        v19 = -1LL;
-        do
-          ++v19;
-        while ( v17[v19] );
-        if ( (unsigned int)v19 <= v16 )
-          LODWORD(v19) = v16;
-        v16 = v19;
-        v20 = -1LL;
-        do
-          ++v20;
-        while ( v17[v20] );
-        v17 += v20 + 1;
-      }
-      while ( *v17 );
-      v3 = v70;
-    }
-    LODWORD(v4) = v16 + (_DWORD)v4;
-    v21 = 2LL * (unsigned int)(v15 + 1);
-    v54 *= v14;
-    v22 = (void *)ExAllocatePool2(256LL, v21, 1970499664LL);
-    *((_QWORD *)P + v12) = v22;
-    if ( v22 )
-    {
-      memmove(v22, Src, v21);
-      v23 = (_WORD *)*((_QWORD *)P + v12);
-      if ( *v23 )
-      {
-        v24 = v58;
-        LOBYTE(v25) = v57;
         while ( 1 )
         {
-          v26 = 0;
-          v27 = 0;
-          while ( 1 )
+          v15 = PnpQueryInterface(*(PDEVICE_OBJECT *)(v3 + 32), 0LL, &v71);
+          if ( v15 < 0 )
           {
-            if ( *v23 == 33 )
-            {
-              v26 = 1;
-              goto LABEL_50;
-            }
-            if ( *v23 != 64 )
-              break;
-            v27 = 1;
-LABEL_50:
-            ++v23;
+            v4 = 0LL;
+            goto LABEL_53;
           }
-          v25 = (unsigned __int8)v25;
-          if ( v27 )
-            v25 = 1;
-          if ( v26 && v24 == -1 )
-            v24 = v12;
-          v28 = -1LL;
-          do
-            ++v28;
-          while ( v23[v28] );
-          v23 += v28 + 1;
-          if ( !*v23 )
+          if ( v73 )
           {
-            v57 = v25;
-            v3 = v70;
-            v58 = v24;
-            v10 = (_DWORD *)Pool2;
+            Src = 0LL;
+            v15 = v73(*((_QWORD *)&v71 + 1), &Src);
+            if ( v15 < 0 )
+              goto LABEL_112;
+            if ( !Src )
+              v15 = -1073741637;
+            if ( v15 < 0 )
+            {
+LABEL_112:
+              if ( Src )
+              {
+                ExFreePoolWithTag(Src, 0);
+                Src = 0LL;
+              }
+            }
+            else
+            {
+              v16 = 0;
+              v17 = 0;
+              v18 = 0;
+              v13[v14] = 0;
+              for ( i = Src; *i; i += v22 + 1 )
+              {
+                ++v16;
+                v20 = -1LL;
+                v13[v14] = v16;
+                do
+                  ++v20;
+                while ( i[v20] );
+                v17 += v20 + 1;
+                v21 = -1LL;
+                do
+                  ++v21;
+                while ( i[v21] );
+                if ( (unsigned int)v21 <= v18 )
+                  LODWORD(v21) = v18;
+                v18 = v21;
+                v22 = -1LL;
+                do
+                  ++v22;
+                while ( i[v22] );
+              }
+              LODWORD(v4) = v18 + (_DWORD)v4;
+              v23 = 2LL * (unsigned int)(v17 + 1);
+              v78 *= v16;
+              v24 = ExAllocatePoolWithTag(PagedPool, v23, 0x75737050u);
+              *((_QWORD *)P + v14) = v24;
+              if ( v24 )
+              {
+                memmove(v24, Src, v23);
+                v25 = (_WORD *)*((_QWORD *)P + v14);
+                if ( *v25 )
+                {
+                  v26 = v63;
+                  LOBYTE(v27) = v62;
+                  while ( 1 )
+                  {
+                    v28 = 0;
+                    v29 = 0;
+                    while ( 1 )
+                    {
+                      if ( *v25 == 33 )
+                      {
+                        v28 = 1;
+                        goto LABEL_51;
+                      }
+                      if ( *v25 != 64 )
+                        break;
+                      v29 = 1;
+LABEL_51:
+                      ++v25;
+                    }
+                    v27 = (unsigned __int8)v27;
+                    if ( v29 )
+                      v27 = 1;
+                    if ( v28 && v26 == -1 )
+                      v26 = v14;
+                    v30 = -1LL;
+                    do
+                      ++v30;
+                    while ( v25[v30] );
+                    v25 += v30 + 1;
+                    if ( !*v25 )
+                    {
+                      v62 = v27;
+                      v3 = v74;
+                      v63 = v26;
+                      v13 = v68;
+                      break;
+                    }
+                  }
+                }
+                ++v14;
+              }
+              else
+              {
+                v15 = -1073741670;
+              }
+              ExFreePoolWithTag(Src, 0);
+              v6 = v66;
+              Src = 0LL;
+            }
+          }
+          else
+          {
+            v15 = -1073741823;
+          }
+          if ( *((_QWORD *)&v72 + 1) )
+            (*((void (__fastcall **)(_QWORD))&v72 + 1))(*((_QWORD *)&v71 + 1));
+          if ( v15 < 0 )
+          {
+            v4 = v67;
+            goto LABEL_53;
+          }
+          if ( v15 == 288 || v14 == v6 )
+          {
+            LODWORD(v4) = (_DWORD)v4 + 1;
+LABEL_66:
+            v11 = v78;
             break;
           }
+          v3 = *(_QWORD *)(v3 + 16);
+          LODWORD(v4) = (_DWORD)v4 + 1;
+          v74 = v3;
+          if ( (PVOID)v3 == IopRootDeviceNode )
+            goto LABEL_66;
         }
       }
-      ++v12;
+      v15 = 0;
+      v69 = 0;
+      v34 = 2LL * (unsigned int)(v11 * (_DWORD)v4 + 1);
+      v35 = (char *)ExAllocatePoolWithTag(PagedPool, v34, 0x75737050u);
+      v67 = v35;
+      v4 = v35;
+      if ( v35 )
+      {
+        memset(v35, 0, v34);
+        v36 = v14 - 1;
+        v59 = v14 - 1;
+        v37 = v4;
+        v64 = 0;
+        v38 = 0;
+        if ( !v11 )
+        {
+LABEL_102:
+          *(_WORD *)v37 = 0;
+          *a2 = v4;
+          *a3 = (v37 - v4 + 2) >> 1;
+          goto LABEL_53;
+        }
+        v39 = v78;
+LABEL_70:
+        v40 = v36;
+        v65 = v39;
+        v41 = v39;
+        v75 = 0;
+        v42 = v37;
+        v43 = 0;
+        v44 = 0;
+        v45 = 0;
+LABEL_71:
+        v46 = v38 / (v41 / v68[v40]) % v68[v40];
+        v47 = (_WORD *)*((_QWORD *)P + v40);
+        if ( v46 )
+        {
+          v54 = v46;
+          do
+          {
+            v55 = -1LL;
+            do
+              ++v55;
+            while ( v47[v55] );
+            v47 += v55 + 1;
+            --v54;
+          }
+          while ( v54 );
+          v39 = v78;
+        }
+        v48 = 0;
+        v49 = 0;
+        while ( 1 )
+        {
+          if ( *v47 == 33 )
+          {
+            v48 = 1;
+          }
+          else
+          {
+            if ( *v47 != 64 )
+            {
+              if ( v40 == v36 )
+              {
+                v56 = -1;
+                v75 = v48;
+                v43 = v48;
+                v44 = v48;
+                v45 = v48;
+                if ( v48 )
+                  v56 = v40;
+                v58 = v56;
+              }
+              if ( v48 )
+              {
+                if ( !(_BYTE)v62 && !v45 )
+                  goto LABEL_100;
+                v58 = v40;
+                v43 = 1;
+                v45 = v44 != 0 ? v45 : 0;
+              }
+              else
+              {
+                v75 = 0;
+              }
+              if ( v49 )
+              {
+                v57 = -1;
+                v75 = v48;
+                v42 = v37;
+                v43 = v48;
+                v45 = v48;
+                if ( v48 )
+                  v57 = v40;
+                v58 = v57;
+              }
+              v50 = -1LL;
+              do
+                ++v50;
+              while ( v47[v50] );
+              memmove(v42, v47, 2 * v50);
+              v51 = -1LL;
+              do
+                ++v51;
+              while ( v47[v51] );
+              v52 = &v42[2 * v51];
+              if ( v40 )
+              {
+                v53 = v68;
+                v44 = v75;
+                v38 = v64;
+                v36 = v59;
+                *(_WORD *)v52 = 35;
+                v42 = v52 + 2;
+                v41 = v65 / v53[v40--];
+                v65 = v41;
+                goto LABEL_71;
+              }
+              if ( !v43 || v45 && v58 <= v63 )
+              {
+                *(_WORD *)v52 = 0;
+                v37 = v52 + 2;
+              }
+              v36 = v59;
+LABEL_100:
+              v38 = v64 + 1;
+              v64 = v38;
+              if ( v38 >= v39 )
+              {
+                v15 = v69;
+                v4 = v67;
+                v13 = v68;
+                goto LABEL_102;
+              }
+              goto LABEL_70;
+            }
+            v49 = 1;
+          }
+          ++v47;
+        }
+      }
+      v15 = -1073741670;
+LABEL_53:
+      v9 = (PVOID *)P;
     }
     else
     {
-      v13 = -1073741670;
+      v15 = -1073741670;
     }
-    ExFreePoolWithTag(Src, 0);
-    LODWORD(v6) = v62;
-    Src = 0LL;
-LABEL_42:
-    if ( *((_QWORD *)&v68 + 1) )
-      (*((void (__fastcall **)(_QWORD))&v68 + 1))(*((_QWORD *)&v67 + 1));
-    if ( v13 < 0 )
+    if ( v66 )
     {
-      v4 = v64;
-      goto LABEL_89;
-    }
-    if ( v13 == 288 || v12 == (_DWORD)v6 )
-      break;
-    v3 = *(_QWORD *)(v3 + 16);
-    LODWORD(v4) = (_DWORD)v4 + 1;
-    v70 = v3;
-    if ( (PVOID)v3 == IopRootDeviceNode )
-      goto LABEL_52;
-  }
-  LODWORD(v4) = (_DWORD)v4 + 1;
-LABEL_52:
-  v11 = v54;
-LABEL_53:
-  v66 = 0;
-  v13 = 0;
-  v29 = (void *)ExAllocatePool2(256LL, 2LL * (unsigned int)(v11 * (_DWORD)v4 + 1), 1970499664LL);
-  v64 = v29;
-  v4 = v29;
-  if ( !v29 )
-  {
-    v13 = -1073741670;
-    goto LABEL_89;
-  }
-  v59 = 0;
-  v30 = v12 - 1;
-  v55 = v12 - 1;
-  v31 = (char *)v29;
-  v32 = 0;
-  if ( !v11 )
-    goto LABEL_88;
-  v33 = v54;
-  while ( 2 )
-  {
-    v34 = v30;
-    v35 = v33;
-    v36 = v31;
-    v37 = 0;
-    v38 = 0;
-    v39 = 0;
-    while ( 2 )
-    {
-      v61 = v35;
-      v71 = v38;
-      v40 = v32 / (v35 / *(_DWORD *)(Pool2 + 4LL * v34)) % *(_DWORD *)(Pool2 + 4LL * v34);
-      v41 = (_WORD *)*((_QWORD *)P + v34);
-      if ( v40 )
-      {
-        v48 = v40;
-        do
-        {
-          v49 = -1LL;
-          do
-            ++v49;
-          while ( v41[v49] );
-          v41 += v49 + 1;
-          --v48;
-        }
-        while ( v48 );
-        v33 = v54;
-      }
-      v42 = 0;
-      v43 = 0;
-      while ( 2 )
-      {
-        if ( *v41 == 33 )
-        {
-          v42 = 1;
-LABEL_73:
-          ++v41;
-          continue;
-        }
-        break;
-      }
-      if ( *v41 == 64 )
-      {
-        v43 = 1;
-        goto LABEL_73;
-      }
-      if ( v34 == v30 )
-      {
-        v71 = v42;
-        v37 = v42;
-        v38 = v42;
-        v39 = v42;
-        if ( v42 )
-        {
-          v53 = v34;
-          goto LABEL_63;
-        }
-        v53 = -1;
-LABEL_75:
-        v71 = 0;
-        goto LABEL_65;
-      }
-      if ( !v42 )
-        goto LABEL_75;
-LABEL_63:
-      if ( !(_BYTE)v57 && !v39 )
-        goto LABEL_86;
-      v53 = v34;
-      v37 = 1;
-      v39 = v38 != 0 ? v39 : 0;
-LABEL_65:
-      if ( v43 )
-      {
-        v52 = -1;
-        v71 = v42;
-        v36 = v31;
-        v37 = v42;
-        v39 = v42;
-        if ( v42 )
-          v52 = v34;
-        v53 = v52;
-      }
-      v44 = -1LL;
+      v31 = v70;
+      v32 = v9;
       do
-        ++v44;
-      while ( v41[v44] );
-      memmove(v36, v41, 2 * v44);
-      v45 = -1LL;
-      do
-        ++v45;
-      while ( v41[v45] );
-      v46 = &v36[2 * v45];
-      if ( v34 )
       {
-        v47 = Pool2;
-        v38 = v71;
-        v32 = v59;
-        v30 = v55;
-        *(_WORD *)v46 = 35;
-        v36 = v46 + 2;
-        v35 = v61 / *(_DWORD *)(v47 + 4LL * v34--);
-        continue;
+        if ( *v32 )
+          ExFreePoolWithTag(*v32, 0);
+        ++v32;
+        --v31;
       }
-      break;
+      while ( v31 );
     }
-    if ( !v37 || v39 && v53 <= v58 )
+    ExFreePoolWithTag(v9, 0);
+    if ( v13 )
+      ExFreePoolWithTag(v13, 0);
+    if ( v15 < 0 )
     {
-      *(_WORD *)v46 = 0;
-      v31 = v46 + 2;
+      if ( v4 )
+        ExFreePoolWithTag(v4, 0);
     }
-    v30 = v55;
-LABEL_86:
-    v32 = v59 + 1;
-    v59 = v32;
-    if ( v32 < v33 )
-      continue;
-    break;
   }
-  v13 = v66;
-  v10 = (_DWORD *)Pool2;
-LABEL_88:
-  v4 = v64;
-  *(_WORD *)v31 = 0;
-  *a2 = v4;
-  *a3 = (v31 - v4 + 2) >> 1;
-LABEL_89:
-  v8 = v65;
-  v9 = (PVOID *)P;
-LABEL_90:
-  if ( v62 )
+  else
   {
-    v50 = v9;
-    do
-    {
-      if ( *v50 )
-        ExFreePoolWithTag(*v50, 0);
-      ++v50;
-      --v8;
-    }
-    while ( v8 );
+    return (unsigned int)-1073741670;
   }
-  ExFreePoolWithTag(v9, 0);
-  if ( v10 )
-    ExFreePoolWithTag(v10, 0);
-  if ( v13 < 0 )
-  {
-    if ( v4 )
-      ExFreePoolWithTag(v4, 0);
-  }
-  return (unsigned int)v13;
+  return (unsigned int)v15;
 }

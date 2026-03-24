@@ -1,37 +1,40 @@
 /*
- * XREFs of PspUnlockJobChain @ 0x1406A0C10
+ * XREFs of PspUnlockJobChain @ 0x140616570
  * Callers:
- *     PspUnlockJobsAndProcessExclusive @ 0x14069F5E8 (PspUnlockJobsAndProcessExclusive.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E653C (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x1407E7464 (PspGetMemoryPartitionImplicit.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspGetMemoryPartitionImplicit @ 0x140614404 (PspGetMemoryPartitionImplicit.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x14071EC9C (PspUnlockJobsAndProcessExclusive.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJobChain(__int64 a1, __int64 a2, char a3)
 {
-  unsigned __int64 v6; // rsi
-  unsigned __int64 i; // rsi
+  unsigned __int64 v3; // rax
+  unsigned __int64 v7; // rdi
 
-  if ( *(_QWORD *)(a1 + 1320) > 1uLL )
-    ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(a1 + 1296) + 56LL));
-  v6 = *(_QWORD *)(a1 + 1320);
-  if ( v6 > 2 )
+  v3 = *(_QWORD *)(a1 + 1104);
+  if ( v3 > 1 )
   {
-    for ( i = v6 - 2; i; --i )
-      ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(*(_QWORD *)(a1 + 1328) + 8 * i - 8) + 56LL));
+    ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(a1 + 1080) + 56LL));
+    v3 = *(_QWORD *)(a1 + 1104);
   }
-  if ( *(_QWORD *)(a1 + 1320) )
-    ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(a1 + 1288) + 56LL));
+  if ( v3 > 2 )
+  {
+    v7 = v3 - 2;
+    do
+      ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(*(_QWORD *)(a1 + 1112) + 8 * v7-- - 8) + 56LL));
+    while ( v7 );
+    v3 = *(_QWORD *)(a1 + 1104);
+  }
+  if ( v3 )
+    ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)(a1 + 1072) + 56LL));
   if ( (a3 & 1) == 0 )
   {
     ExReleaseResourceLite((PERESOURCE)(a1 + 56));
     if ( a2 )
-    {
-      if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF && *(_QWORD *)(a2 + 152) != a2 + 152 )
-        KiCheckForKernelApcDelivery();
-    }
+      KiLeaveGuardedRegionUnsafe(a2);
   }
 }

@@ -2,7 +2,7 @@
  * XREFs of MmCreateSpecialImageSection @ 0x14060A404
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspLocateSystemDll @ 0x14075615C (PspLocateSystemDll.c)
+ *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
  * Callees:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)

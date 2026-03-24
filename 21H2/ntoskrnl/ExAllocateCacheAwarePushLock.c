@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAllocateCacheAwarePushLock @ 0x140389430
+ * XREFs of ExAllocateCacheAwarePushLock @ 0x1403C86C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x140349710 (ExpAllocatePoolWithTagFromNode.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreeCacheAwarePushLock @ 0x14063C290 (ExFreeCacheAwarePushLock.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreeCacheAwarePushLock @ 0x1405B3E30 (ExFreeCacheAwarePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
@@ -70,56 +70,56 @@ ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
       return v5;
     }
     v10 = 0LL;
-LABEL_28:
-    ExFreeCacheAwarePushLock(v5);
-    return v10;
   }
-  v12 = KeNumberProcessors_0;
-  v13 = 0;
-  v18 = KeNumberProcessors_0;
-  v19 = (_QWORD *)v5;
-  while ( 1 )
+  else
   {
-    v14 = v13 >= v12 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v13);
-    v15 = v14->SchedulerSubNode->Affinity.Reserved[0];
-    if ( v2 )
+    v12 = KeNumberProcessors_0;
+    v13 = 0;
+    v18 = KeNumberProcessors_0;
+    v19 = (_QWORD *)v5;
+    while ( 1 )
     {
-      PoolWithTagFromNode = (_QWORD *)ExpAllocatePoolWithTagFromNode(NonPagedPoolNx, 0x80uLL, 1818455120LL, v15, 0);
-    }
-    else
-    {
-      KeQueryNodeActiveAffinity(v15, &Affinity, 0LL);
-      if ( v1 )
+      v14 = v13 >= v12 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v13);
+      v15 = v14->ParentNode->Affinity.Reserved[0];
+      if ( v2 )
       {
-        KeSetSystemGroupAffinityThread(&Affinity, 0LL);
+        PoolWithTagFromNode = (_QWORD *)ExpAllocatePoolWithTagFromNode(NonPagedPoolNx, 0x80uLL, 0x6C636C50u, v15, 0);
       }
       else
       {
-        KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
-        v1 = 1;
+        KeQueryNodeActiveAffinity(v15, &Affinity, 0LL);
+        if ( v1 )
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, 0LL);
+        }
+        else
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+          v1 = 1;
+        }
+        PoolWithTagFromNode = ExAllocatePoolWithTag(v3, 0x80uLL, 0x6C636C50u);
       }
-      PoolWithTagFromNode = ExAllocatePoolWithTag(v3, 0x80uLL, 0x6C636C50u);
+      v17 = PoolWithTagFromNode;
+      if ( !PoolWithTagFromNode )
+        break;
+      memset(PoolWithTagFromNode, 0, 0x80uLL);
+      ++v13;
+      v17[2] = v5;
+      *v19++ = v17;
+      if ( v13 >= 0x20 )
+      {
+        v10 = v5;
+        v5 = 0LL;
+        goto LABEL_25;
+      }
+      v12 = v18;
     }
-    v17 = PoolWithTagFromNode;
-    if ( !PoolWithTagFromNode )
-      break;
-    memset(PoolWithTagFromNode, 0, 0x80uLL);
-    ++v13;
-    v17[2] = v5;
-    *v19++ = v17;
-    if ( v13 >= 0x20 )
-    {
-      v10 = v5;
-      v5 = 0LL;
-      goto LABEL_25;
-    }
-    v12 = v18;
-  }
-  v10 = 0LL;
+    v10 = 0LL;
 LABEL_25:
-  if ( v1 )
-    KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+    if ( v1 )
+      KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+  }
   if ( v5 )
-    goto LABEL_28;
+    ExFreeCacheAwarePushLock(v5);
   return v10;
 }

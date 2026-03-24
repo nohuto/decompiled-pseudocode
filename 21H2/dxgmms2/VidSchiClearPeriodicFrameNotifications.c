@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiClearPeriodicFrameNotifications @ 0x1C001B554
+ * XREFs of VidSchiClearPeriodicFrameNotifications @ 0x1C002F258
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C000317C (VidSchiSetFlipDevice.c)
- *     VidSchTerminateAdapter @ 0x1C00F55F0 (VidSchTerminateAdapter.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011D1C (VidSchiSetFlipDevice.c)
+ *     VidSchTerminateAdapter @ 0x1C00D2C00 (VidSchTerminateAdapter.c)
  * Callees:
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003CE00 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034090 (VidSchDestroyPeriodicFrameNotification.c)
  */
 
 void __fastcall VidSchiClearPeriodicFrameNotifications(__int64 a1, unsigned int a2)
@@ -15,14 +15,14 @@ void __fastcall VidSchiClearPeriodicFrameNotifications(__int64 a1, unsigned int 
   void *v6; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 8LL * a2 + 3200);
-  if ( *(_QWORD *)(v3 + 78592) )
+  v3 = *(_QWORD *)(a1 + 8LL * a2 + 3104);
+  if ( *(_QWORD *)(v3 + 66448) )
   {
     v4 = 0LL;
     v5 = 8LL;
     do
     {
-      v6 = *(void **)(v4 + *(_QWORD *)(v3 + 78592));
+      v6 = *(void **)(v4 + *(_QWORD *)(v3 + 66448));
       if ( v6 )
         VidSchDestroyPeriodicFrameNotification(v6);
       v4 += 8LL;
@@ -30,9 +30,9 @@ void __fastcall VidSchiClearPeriodicFrameNotifications(__int64 a1, unsigned int 
     }
     while ( v5 );
     memset(&LockHandle, 0, sizeof(LockHandle));
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-    ExFreePoolWithTag(*(PVOID *)(v3 + 78592), 0x62616956u);
-    *(_QWORD *)(v3 + 78592) = 0LL;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
+    ExFreePoolWithTag(*(PVOID *)(v3 + 66448), 0x62616956u);
+    *(_QWORD *)(v3 + 66448) = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
 }

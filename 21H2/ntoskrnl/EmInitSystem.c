@@ -1,67 +1,66 @@
 /*
- * XREFs of EmInitSystem @ 0x140B0B630
+ * XREFs of EmInitSystem @ 0x140A4528C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x1406E24E0 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x14082D070 (EmpProviderRegister.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     HalRegisterErrataCallbacks @ 0x140B0B970 (HalRegisterErrataCallbacks.c)
- *     EmpParseInfDatabase @ 0x140B0B9A8 (EmpParseInfDatabase.c)
- *     EmpCacheBiosDate @ 0x140B0D974 (EmpCacheBiosDate.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x14076DBC0 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x14079CFE0 (EmpProviderRegister.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalRegisterErrataCallbacks @ 0x140A455B0 (HalRegisterErrataCallbacks.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
+ *     EmpCacheBiosDate @ 0x140A4768C (EmpCacheBiosDate.c)
  */
 
 __int64 __fastcall EmInitSystem(int a1, __int64 a2)
 {
-  _DWORD *Pool2; // r14
-  __int64 v3; // rdi
+  _DWORD *PoolWithTag; // r14
+  WCHAR *v3; // rdi
   int v4; // ebx
-  NTSTATUS v5; // eax
+  NTSTATUS Key; // eax
   ULONG v6; // r15d
+  ULONG v7; // r13d
   NTSTATUS i; // eax
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  ULONG v11; // r13d
-  void *v12; // rax
-  void *v13; // rsi
-  void *v14; // rcx
-  ULONG ResultLength; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE KeyHandle; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v18; // [rsp+78h] [rbp-88h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
-  STRING Destination; // [rsp+90h] [rbp-70h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 FileInformation; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v24; // [rsp+F0h] [rbp-10h]
-  char v25; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  ULONG v12; // r12d
+  PVOID v13; // rax
+  PVOID v14; // rsi
+  void *v15; // rcx
+  ULONG ResultLength[2]; // [rsp+68h] [rbp-A0h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-98h] BYREF
+  HANDLE DestinationString[3]; // [rsp+78h] [rbp-90h] BYREF
+  STRING Destination; // [rsp+90h] [rbp-78h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-68h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D0h] [rbp-38h] BYREF
+  __int128 FileInformation; // [rsp+E0h] [rbp-28h] BYREF
+  __int64 v23; // [rsp+F0h] [rbp-18h]
+  char v24; // [rsp+F8h] [rbp-10h] BYREF
 
-  v24 = 0LL;
-  Pool2 = 0LL;
-  ResultLength = 0;
-  KeyHandle = (HANDLE)-1LL;
+  ResultLength[0] = 0;
+  v23 = 0LL;
+  PoolWithTag = 0LL;
+  DestinationString[0] = (HANDLE)-1LL;
   v3 = 0LL;
   Handle = (HANDLE)-1LL;
   FileInformation = 0LL;
   Destination = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  DestinationString = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  *(_OWORD *)&DestinationString[1] = 0LL;
   if ( !a1 )
   {
-    dword_140C48C88 |= 0x80000000;
+    dword_140C478E8 |= 0x80000000;
     EmpRuleUpdateWorker.WorkerRoutine = (void (__fastcall *)(void *))EmpRuleUpdateWorkerThread;
     EmpParseLock = 0LL;
     EmpDatabaseLock = 0LL;
@@ -75,17 +74,17 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
     EmpWorkerBusy = 0;
     EmpRuleUpdateWorker.Parameter = 0LL;
     EmpRuleUpdateWorker.List.Flink = 0LL;
-    v9 = *(_QWORD *)(a2 + 240);
+    v10 = *(_QWORD *)(a2 + 240);
     EmpStringTable = 0LL;
     EmpNumberOfEntryTypes = 0;
     EmpNumberOfCallbacks = 0;
-    v10 = *(_QWORD *)(v9 + 24);
+    v11 = *(_QWORD *)(v10 + 24);
     EmpNumberOfRules = 0;
     EmpNumberOfStrings = 0;
     EmpNumberOfTargetRules = 0;
-    if ( v10 )
+    if ( v11 )
     {
-      if ( *(_DWORD *)(v9 + 32) )
+      if ( *(_DWORD *)(v10 + 32) )
       {
         v4 = ((__int64 (*)(void))EmpParseInfDatabase)();
         if ( v4 < 0 )
@@ -94,8 +93,7 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
     }
     EmpCacheBiosDate();
     HalRegisterErrataCallbacks();
-    EmpProviderRegister(0LL, 0LL, 0, (__int64)&off_140003610, 1u, &v18);
-    v4 = EmpProviderRegister(0LL, 0LL, 0, (__int64)&BuiltinCallbackReg, 6u, &EmBuiltinProviderHandle);
+    v4 = EmpProviderRegister(0LL, 0LL, 0, (__int64)&BuiltinCallbackReg, 6u, EmBuiltinProviderHandle);
     if ( v4 < 0 )
       goto LABEL_11;
 LABEL_10:
@@ -104,37 +102,39 @@ LABEL_10:
   }
   if ( a1 != 1 )
     goto LABEL_10;
-  RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Errata\\Dynamic");
-  ObjectAttributes.ObjectName = &DestinationString;
+  RtlInitUnicodeString(
+    (PUNICODE_STRING)&DestinationString[1],
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Errata\\Dynamic");
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v4 = ZwCreateKey(&KeyHandle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, 0LL);
+  v4 = ZwCreateKey(DestinationString, 0x20019u, &ObjectAttributes, 0, 0LL, 0, 0LL);
   if ( v4 < 0 )
     goto LABEL_11;
-  v5 = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &ResultLength);
-  v4 = v5;
-  if ( v5 == -1073741789 || v5 == -2147483643 )
+  Key = ZwQueryKey(DestinationString[0], KeyFullInformation, 0LL, 0, ResultLength);
+  v4 = Key;
+  if ( Key == -1073741789 || Key == -2147483643 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, ResultLength, 0x74694D45u);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength[0], 0x74694D45u);
+    if ( !PoolWithTag )
       goto LABEL_29;
-    v4 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, ResultLength, &ResultLength);
+    v4 = ZwQueryKey(DestinationString[0], KeyFullInformation, PoolWithTag, ResultLength[0], ResultLength);
     if ( v4 < 0 )
       goto LABEL_11;
-    v6 = Pool2[10] + 16;
-    v3 = ExAllocatePool2(256LL, v6, 0x74694D45u);
+    v6 = PoolWithTag[10] + 16;
+    v3 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v6, 0x74694D45u);
     if ( !v3 )
     {
 LABEL_29:
       v4 = -1073741670;
       goto LABEL_11;
     }
-    LODWORD(v18) = 0;
-    for ( i = ZwEnumerateValueKey(KeyHandle, 0, KeyValuePartialInformation, (PVOID)v3, v6, &ResultLength);
+    v7 = 0;
+    for ( i = ZwEnumerateValueKey(DestinationString[0], 0, KeyValuePartialInformation, v3, v6, ResultLength);
           ;
-          i = ZwEnumerateValueKey(KeyHandle, v18, KeyValuePartialInformation, (PVOID)v3, v6, &ResultLength) )
+          i = ZwEnumerateValueKey(DestinationString[0], v7, KeyValuePartialInformation, v3, v6, ResultLength) )
     {
       v4 = i;
       if ( i == -2147483622 )
@@ -142,16 +142,16 @@ LABEL_29:
       if ( i < 0 )
         goto LABEL_11;
       *(_DWORD *)&Destination.Length = 0x1000000;
-      Destination.Buffer = &v25;
-      RtlInitUnicodeString(&DestinationString, L"\\SystemRoot\\inf\\");
-      RtlAppendStringToString(&Destination, (const STRING *)&DestinationString);
-      *(_BYTE *)(*(unsigned int *)(v3 + 8) + v3 + 12) = 0;
-      RtlInitUnicodeString(&DestinationString, (PCWSTR)(v3 + 12));
-      RtlAppendStringToString(&Destination, (const STRING *)&DestinationString);
+      Destination.Buffer = &v24;
+      RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"\\SystemRoot\\inf\\");
+      RtlAppendStringToString(&Destination, (const STRING *)&DestinationString[1]);
+      *((_BYTE *)v3 + *((unsigned int *)v3 + 2) + 12) = 0;
+      RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], v3 + 6);
+      RtlAppendStringToString(&Destination, (const STRING *)&DestinationString[1]);
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&Destination;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)&Destination;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       v4 = ZwCreateFile(&Handle, 0x120089u, &ObjectAttributes, &IoStatusBlock, 0LL, 0x80u, 1u, 1u, 0x20u, 0LL, 0);
       if ( v4 < 0 )
@@ -167,40 +167,40 @@ LABEL_29:
         ZwClose(Handle);
         goto LABEL_27;
       }
-      v11 = DWORD2(FileInformation);
-      v12 = (void *)ExAllocatePool2(256LL, DWORD2(FileInformation), 0x74694D45u);
-      v13 = v12;
-      if ( !v12 )
+      v12 = DWORD2(FileInformation);
+      v13 = ExAllocatePoolWithTag(PagedPool, DWORD2(FileInformation), 0x74694D45u);
+      v14 = v13;
+      if ( !v13 )
       {
         ZwClose(Handle);
         goto LABEL_29;
       }
-      v4 = ZwReadFile(Handle, 0LL, 0LL, 0LL, &IoStatusBlock, v12, v11, 0LL, 0LL);
+      v4 = ZwReadFile(Handle, 0LL, 0LL, 0LL, &IoStatusBlock, v13, v12, 0LL, 0LL);
       ZwClose(Handle);
-      v14 = v13;
+      v15 = v14;
       if ( v4 < 0 )
         goto LABEL_39;
-      v4 = EmpParseInfDatabase(v13, v11);
+      v4 = EmpParseInfDatabase(v14, v12);
       if ( v4 < 0 )
       {
-        v14 = v13;
+        v15 = v14;
 LABEL_39:
-        ExFreePoolWithTag(v14, 0x74694D45u);
+        ExFreePoolWithTag(v15, 0x74694D45u);
         goto LABEL_11;
       }
-      LODWORD(v18) = v18 + 1;
+      ++v7;
     }
     goto LABEL_10;
   }
-  if ( !v5 )
+  if ( !Key )
 LABEL_27:
     v4 = -1073741823;
 LABEL_11:
-  if ( KeyHandle != (HANDLE)-1LL )
-    ZwClose(KeyHandle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x74694D45u);
+  if ( DestinationString[0] != (HANDLE)-1LL )
+    ZwClose(DestinationString[0]);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x74694D45u);
   if ( v3 )
-    ExFreePoolWithTag((PVOID)v3, 0x74694D45u);
+    ExFreePoolWithTag(v3, 0x74694D45u);
   return (unsigned int)v4;
 }

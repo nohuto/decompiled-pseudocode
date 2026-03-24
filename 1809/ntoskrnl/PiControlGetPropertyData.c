@@ -13,9 +13,9 @@
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     PnpGetDeviceDependencyList @ 0x140824310 (PnpGetDeviceDependencyList.c)
- *     PiControlGetDevicePowerData @ 0x14083B688 (PiControlGetDevicePowerData.c)
- *     PiControlGetDeviceStack @ 0x14083B8D4 (PiControlGetDeviceStack.c)
+ *     PnpGetDeviceDependencyList @ 0x1408242F0 (PnpGetDeviceDependencyList.c)
+ *     PiControlGetDevicePowerData @ 0x14083B668 (PiControlGetDevicePowerData.c)
+ *     PiControlGetDeviceStack @ 0x14083B8B4 (PiControlGetDeviceStack.c)
  */
 
 __int64 __fastcall PiControlGetPropertyData(__int64 a1, __int16 *a2, __int64 a3, char a4)

@@ -1,21 +1,18 @@
 /*
- * XREFs of VfFlushDmaBuffer @ 0x1405CE900
+ * XREFs of VfFlushDmaBuffer @ 0x1405A0F20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-__int64 __fastcall VfFlushDmaBuffer(int a1, __int64 a2, char a3)
+__int64 __fastcall VfFlushDmaBuffer(__int64 a1, __int64 a2, char a3)
 {
-  __int64 RealDmaAdapter; // rax
-  __int64 v6; // r8
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, __int64); // rax
+  __int64 v7; // r8
 
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  LOBYTE(v6) = a3;
-  return (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 240LL))(
-           RealDmaAdapter,
-           a2,
-           v6);
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, __int64))ViGetRealDmaOperation(a1);
+  LOBYTE(v7) = a3;
+  return RealDmaOperation(a1, a2, v7);
 }

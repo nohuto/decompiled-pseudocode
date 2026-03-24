@@ -1,8 +1,8 @@
 /*
- * XREFs of VfSuspectDriversInsert @ 0x140ADB6D0
+ * XREFs of VfSuspectDriversInsert @ 0x1409D9B74
  * Callers:
- *     VfSuspectDriversParseRegistryString @ 0x140B97D8C (VfSuspectDriversParseRegistryString.c)
- *     VfTriageAddDrivers @ 0x140B980A8 (VfTriageAddDrivers.c)
+ *     VfTriageAddDrivers @ 0x140A93974 (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ _QWORD *__fastcall VfSuspectDriversInsert(_QWORD *a1)
 {
   _QWORD *result; // rax
 
-  result = (_QWORD *)qword_140C373B8;
-  if ( *(__int64 **)qword_140C373B8 != &VfSuspectDriversList )
+  result = (_QWORD *)qword_140C1D108;
+  if ( *(__int64 **)qword_140C1D108 != &VfSuspectDriversList )
     __fastfail(3u);
   *a1 = &VfSuspectDriversList;
   a1[1] = result;
   *result = a1;
-  qword_140C373B8 = (__int64)a1;
+  qword_140C1D108 = (__int64)a1;
   return result;
 }

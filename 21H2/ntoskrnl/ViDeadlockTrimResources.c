@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockTrimResources @ 0x140A9A0E0
+ * XREFs of ViDeadlockTrimResources @ 0x1409DFEB8
  * Callers:
- *     ViDeadlockSearchResource @ 0x140A99F58 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchResource @ 0x1409DFD30 (ViDeadlockSearchResource.c)
  * Callees:
- *     ViDeadlockForgetResourceHistory @ 0x140A996AC (ViDeadlockForgetResourceHistory.c)
+ *     ViDeadlockForgetResourceHistory @ 0x1409DF494 (ViDeadlockForgetResourceHistory.c)
  */
 
 PVOID __fastcall ViDeadlockTrimResources(_QWORD **a1, _QWORD *a2, __int64 a3)

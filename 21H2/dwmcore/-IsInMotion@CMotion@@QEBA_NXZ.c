@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsInMotion@CMotion@@QEBA_NXZ @ 0x18025F1A8
+ * XREFs of ?IsInMotion@CMotion@@QEBA_NXZ @ 0x18020E8EC
  * Callers:
- *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180254680 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
+ *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180203E00 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x1802544BC (-HasImpulse@CMotion@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x180203C38 (-HasImpulse@CMotion@@QEBA_NXZ.c)
  */
 
 char __fastcall CMotion::IsInMotion(CMotion *this)
@@ -25,11 +25,11 @@ char __fastcall CMotion::IsInMotion(CMotion *this)
   {
     if ( CMotion::HasImpulse(this) )
       return 1;
-    v5 = *((_QWORD *)this + 12);
+    v5 = *((_QWORD *)this + 17);
     if ( !v5 )
       return *((float *)this + 17) > *((float *)this + 6);
     if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v5 + 24LL))(v5)
-      && *((float *)this + 26) > *((float *)this + 6) )
+      && *((float *)this + 36) > *((float *)this + 6) )
     {
       return 1;
     }

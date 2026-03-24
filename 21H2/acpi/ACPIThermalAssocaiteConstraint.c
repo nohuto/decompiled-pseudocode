@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalAssocaiteConstraint @ 0x1C0003E44
+ * XREFs of ACPIThermalAssocaiteConstraint @ 0x1C000E118
  * Callers:
- *     ACPIThermalActivateConstraint @ 0x1C0003F18 (ACPIThermalActivateConstraint.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C0005398 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalActivateConstraint @ 0x1C000E3E4 (ACPIThermalActivateConstraint.c)
  * Callees:
- *     ACPIThermalReevaluateConstraints @ 0x1C0003ED4 (ACPIThermalReevaluateConstraints.c)
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0047A40 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
   bool v9; // zf
 
   result = a2;
-  v3 = *(_QWORD *)(a1 + 656);
+  v3 = *(_QWORD *)(a1 + 616);
   if ( !*(_QWORD *)(a2 + 40) )
   {
     v5 = (_QWORD *)(a2 + 16);
@@ -46,7 +46,7 @@ __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
     {
       AcpiDiagTracePassiveCoolingConstraint(*(_QWORD *)(result + 32), a1, 0LL);
     }
-    return ACPIThermalReevaluateConstraints(*(PVOID *)(a1 + 656));
+    return ACPIThermalReevaluateConstraints(*(PVOID *)(a1 + 616));
   }
   return result;
 }

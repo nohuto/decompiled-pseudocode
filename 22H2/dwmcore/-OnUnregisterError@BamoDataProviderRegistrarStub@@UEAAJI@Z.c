@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnUnregisterError@BamoDataProviderRegistrarStub@@UEAAJI@Z @ 0x1801E10F0
+ * XREFs of ?OnUnregisterError@BamoDataProviderRegistrarStub@@UEAAJI@Z @ 0x18017E770
  * Callers:
  *     <none>
  * Callees:
- *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800AD14C (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800AD180 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
- *     ?OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x1801E113C (-OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800D71B0 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800D71E4 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x18017E7BC (-OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall BamoDataProviderRegistrarStub::OnUnregisterError(
@@ -18,7 +18,7 @@ __int64 __fastcall BamoDataProviderRegistrarStub::OnUnregisterError(
   v3 = this;
   Microsoft::BamoImpl::InternalLock::InternalLock(
     (Microsoft::BamoImpl::InternalLock *)&v5,
-    *(struct Microsoft::BamoImpl::ConnectionIndirector **)(*((_QWORD *)this + 5) + 24LL));
+    *(struct Microsoft::BamoImpl::ConnectionIndirector **)(*((_QWORD *)this + 6) + 24LL));
   LODWORD(v3) = BamoImpl::BamoDataProviderRegistrarStubImpl::OnUnregisterError(
                   (BamoDataProviderRegistrarStub *)((char *)v3 + 8),
                   a2);

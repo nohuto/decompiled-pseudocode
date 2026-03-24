@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x1409C0320
+ * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x140917500
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationFile @ 0x1407250E0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall RtlIsPartialPlaceholderFileHandle(void *a1, bool *a2)

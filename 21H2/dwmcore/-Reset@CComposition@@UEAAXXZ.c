@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Reset@CComposition@@UEAAXXZ @ 0x1800E7B10
+ * XREFs of ?Reset@CComposition@@UEAAXXZ @ 0x1800DEF50
  * Callers:
- *     ??1CComposition@@MEAA@XZ @ 0x18019233C (--1CComposition@@MEAA@XZ.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154FA0 (--1CComposition@@MEAA@XZ.c)
  * Callees:
- *     ?NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z @ 0x1800E7C58 (-NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z.c)
- *     McTemplateU0qqx_EventWriteTransfer @ 0x180193918 (McTemplateU0qqx_EventWriteTransfer.c)
+ *     ?NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z @ 0x1800CF650 (-NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z.c)
+ *     McTemplateU0qqx_EventWriteTransfer @ 0x180156308 (McTemplateU0qqx_EventWriteTransfer.c)
  */
 
 void __fastcall CComposition::Reset(CComposition *this, int a2)
@@ -16,9 +16,9 @@ void __fastcall CComposition::Reset(CComposition *this, int a2)
   __int128 v7; // [rsp+34h] [rbp-24h]
   __int64 v8; // [rsp+44h] [rbp-14h]
 
-  for ( i = 0; i < *((_DWORD *)this + 150); *(_QWORD *)(v4 + 8) = 0LL )
+  for ( i = 0; i < *((_DWORD *)this + 112); *(_QWORD *)(v4 + 8) = 0LL )
   {
-    v4 = *((_QWORD *)this + 72) + 16LL * i;
+    v4 = *((_QWORD *)this + 53) + 16LL * i;
     if ( (unsigned int)(*(_DWORD *)(v4 + 4) - 1) <= 1 )
     {
       v6 = 8;
@@ -33,6 +33,6 @@ void __fastcall CComposition::Reset(CComposition *this, int a2)
     *(_DWORD *)(v4 + 4) = 0;
     ++i;
   }
-  *((_DWORD *)this + 150) = 0;
-  DynArrayImpl<0>::ShrinkToSize((__int64)this + 576, 0x10u);
+  *((_DWORD *)this + 112) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 424, 0x10u);
 }

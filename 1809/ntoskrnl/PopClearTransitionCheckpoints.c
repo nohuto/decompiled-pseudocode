@@ -1,5 +1,5 @@
 /*
- * XREFs of PopClearTransitionCheckpoints @ 0x1406E02D0
+ * XREFs of PopClearTransitionCheckpoints @ 0x1406E02B0
  * Callers:
  *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
  * Callees:

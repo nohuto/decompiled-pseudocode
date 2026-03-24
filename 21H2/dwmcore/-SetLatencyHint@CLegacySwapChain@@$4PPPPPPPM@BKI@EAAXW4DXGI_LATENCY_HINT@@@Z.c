@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetLatencyHint@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAXW4DXGI_LATENCY_HINT@@@Z @ 0x18010A850
+ * XREFs of ?SetLatencyHint@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAXW4DXGI_LATENCY_HINT@@@Z @ 0x1800F7FF0
  * Callers:
  *     <none>
  * Callees:

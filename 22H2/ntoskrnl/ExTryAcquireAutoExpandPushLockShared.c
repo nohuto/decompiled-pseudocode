@@ -1,56 +1,47 @@
 /*
- * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x1403CD420
+ * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x140390300
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x14032F93C (ExfTryAcquirePushLockSharedEx.c)
- *     ExpTryAcquireFannedOutPushLockShared @ 0x1403CD4FC (ExpTryAcquireFannedOutPushLockShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExfTryAcquirePushLockShared @ 0x1402E0E80 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
+ *     ExpTryAcquireFannedOutPushLockShared @ 0x1403903C0 (ExpTryAcquireFannedOutPushLockShared.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  ULONG_PTR v2; // rbp
-  unsigned int v3; // esi
-  ULONG_PTR v4; // rbx
-  int v6; // r14d
-  int v7; // ecx
-  unsigned int v8; // esi
+  unsigned __int64 v2; // rsi
+  ULONG_PTR v3; // rbx
+  int v5; // ebp
+  int v6; // ecx
 
   v2 = 0LL;
-  v3 = BugCheckParameter1;
-  v4 = 0LL;
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
+  v3 = 0LL;
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
-  v6 = BugCheckParameter1 & 2;
+  v5 = BugCheckParameter1 & 2;
   if ( (BugCheckParameter1 & 2) == 0 )
-    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-  v7 = *(_DWORD *)(BugCheckParameter2 + 8);
-  if ( (v7 & 1) != 0 )
+    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+  v6 = *(_DWORD *)(BugCheckParameter2 + 8);
+  if ( (v6 & 1) != 0 )
   {
-    v4 = ExpTryAcquireFannedOutPushLockShared(v7 & 0xFFFFFFF8, v3);
+    v3 = ExpTryAcquireFannedOutPushLockShared(v6 & 0xFFFFFFF8);
   }
-  else
+  else if ( !_InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL)
+         || ExfTryAcquirePushLockShared((unsigned __int64 *)BugCheckParameter2) )
   {
-    v8 = v3 | 2;
-    if ( (v8 & 0xFFFFFFF8) != 0 )
-      KeBugCheckEx(0x152u, v8, BugCheckParameter2, 0LL, 0LL);
-    if ( !_InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL)
-      || ExfTryAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, v8) )
-    {
-      v4 = BugCheckParameter2 | 1;
-    }
+    v3 = BugCheckParameter2 | 1;
   }
-  if ( !v6 && v4 )
-    v4 |= 2uLL;
+  if ( !v5 && v3 )
+    v3 |= 2uLL;
   if ( v2 )
   {
-    if ( v4 )
-      *(_BYTE *)(v2 + 18) = 1;
+    if ( v3 )
+      *(_BYTE *)(v2 + 26) |= 1u;
     else
       KeAbPostReleaseEx(BugCheckParameter2, v2);
   }
-  return v4;
+  return v3;
 }

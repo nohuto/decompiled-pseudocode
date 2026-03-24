@@ -1,52 +1,40 @@
 /*
- * XREFs of RemoteRedrawRectangle @ 0x1C01F5AA8
+ * XREFs of RemoteRedrawRectangle @ 0x1C021DFCC
  * Callers:
- *     NtUserRemoteRedrawRectangle @ 0x1C01D9B80 (NtUserRemoteRedrawRectangle.c)
- *     CtxDisplayIOCtl @ 0x1C0202F7C (CtxDisplayIOCtl.c)
+ *     NtUserRemoteRedrawRectangle @ 0x1C0200950 (NtUserRemoteRedrawRectangle.c)
+ *     CtxDisplayIOCtl @ 0x1C0225CA4 (CtxDisplayIOCtl.c)
  * Callees:
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     GetThreadDesktopWindow @ 0x1C00EC080 (GetThreadDesktopWindow.c)
- *     vDrvInvalidateRect @ 0x1C02DDB64 (vDrvInvalidateRect.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     vDrvInvalidateRect @ 0x1C02C0398 (vDrvInvalidateRect.c)
  */
 
-__int64 __fastcall RemoteRedrawRectangle(__int64 a1)
+__int64 __fastcall RemoteRedrawRectangle(int *a1)
 {
-  bool v2; // dl
   __int64 result; // rax
-  struct tagWND *v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int128 v8; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-18h]
+  struct tagWND *v3; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v5; // rcx
+  _QWORD v6[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      12,
-      4,
-      3,
-      12,
-      (__int64)&WPP_713a73a9a0bc322488e80543f5fb9642_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)a1, 4, 9, 18, (__int64)&WPP_edddbb69987e325f9f0b7090eb098db8_Traceguids);
   result = gspdeskShouldBeForeground;
   if ( !gspdeskShouldBeForeground )
   {
-    result = GetThreadDesktopWindow(0LL);
-    v4 = (struct tagWND *)result;
-    if ( result )
+    v3 = gspwndFullScreen;
+    if ( gspwndFullScreen )
     {
-      v8 = 0LL;
-      v9 = 0LL;
-      ThreadLock(result, &v8);
+      v6[2] = 0LL;
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v6[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v6;
+      v6[1] = v3;
+      HMLockObject(v3);
       vDrvInvalidateRect(*(_QWORD *)(gpDispInfo + 40LL), a1);
-      xxxRedrawWindow(v4, a1, 0LL, 645);
-      return ThreadUnlock1(v6, v5, v7);
+      xxxRedrawWindow(gspwndFullScreen, a1, 0LL, 645);
+      return ThreadUnlock1(v5);
     }
   }
   return result;

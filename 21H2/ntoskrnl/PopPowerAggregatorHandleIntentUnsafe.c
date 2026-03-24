@@ -1,71 +1,68 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x1407F22AC
+ * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14
  * Callers:
- *     PopPowerAggregatorHandleIntent @ 0x1407F2244 (PopPowerAggregatorHandleIntent.c)
- *     PopPowerAggregatorNotifySuspendResume @ 0x1407FFBAC (PopPowerAggregatorNotifySuspendResume.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140995B08 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140775D28 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1408EE214 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1408EE308 (PopPowerAggregatorHandleIntent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorHandleResumeIntent @ 0x1405D4840 (PopPowerAggregatorHandleResumeIntent.c)
- *     PopPowerAggregatorHandleSuspendIntent @ 0x1405D48D0 (PopPowerAggregatorHandleSuspendIntent.c)
- *     PopPowerAggregatorHandleActiveIntent @ 0x1406EB830 (PopPowerAggregatorHandleActiveIntent.c)
- *     PopPowerAggregatorRecordIntent @ 0x1407F2400 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorIsAtTargetState @ 0x1407F27A8 (PopPowerAggregatorIsAtTargetState.c)
- *     PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x1407F5030 (PopPowerAggregatorHandleSystemTransitionStartIntent.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1408080F0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140809508 (PopPowerAggregatorScheduleWorker.c)
- *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x14080BD60 (PopPowerAggregatorHandleSystemTransitionIntent.c)
- *     PopPowerAggregatorHandleDirectedDripsIntent @ 0x140995C10 (PopPowerAggregatorHandleDirectedDripsIntent.c)
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140995C40 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x140726470 (PopPowerAggregatorHandleSystemTransitionStartIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x140775F60 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140776390 (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorIsAtTargetState @ 0x1407763C4 (PopPowerAggregatorIsAtTargetState.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x14077A620 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopPowerAggregatorCachePoPolicy @ 0x14078E37C (PopPowerAggregatorCachePoPolicy.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x1408EE290 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopPowerAggregatorHandleDirectedDripsIntent @ 0x1408EE2D0 (PopPowerAggregatorHandleDirectedDripsIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE360 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE420 (PopPowerAggregatorHandleModernStandbyResumeIntent.c)
+ *     PopPowerAggregatorHandleModernStandbySuspendIntent @ 0x1408EE480 (PopPowerAggregatorHandleModernStandbySuspendIntent.c)
  */
 
-__int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, unsigned int a2, unsigned int a3)
 {
   __int64 v5; // rdi
-  int v7; // r14d
-  __int64 (__fastcall *v8)(__int64 *, __int128 *, _QWORD, __int64); // rax
-  int v9; // ebx
-  __int128 v11; // [rsp+48h] [rbp-9h] BYREF
-  _BYTE v12[24]; // [rsp+58h] [rbp+7h]
-  _OWORD v13[2]; // [rsp+70h] [rbp+1Fh] BYREF
-  __int64 v14; // [rsp+90h] [rbp+3Fh]
+  __int64 (__fastcall *v6)(__int64 *, __int128 *, _QWORD); // rax
+  int v7; // ebx
+  __int128 v9; // [rsp+48h] [rbp-9h] BYREF
+  __m256 v10; // [rsp+58h] [rbp+7h] BYREF
+  __int128 v11; // [rsp+78h] [rbp+27h] BYREF
+  __m256 v12; // [rsp+88h] [rbp+37h]
 
+  v11 = xmmword_140C21798;
   v5 = (int)a1;
-  v13[0] = xmmword_140C20BD0;
-  v7 = a2;
-  *(_QWORD *)v12 = ++PopPowerAggregatorContext;
-  v14 = qword_140C20BF0;
-  LODWORD(v11) = 5;
-  *((_QWORD *)&v11 + 1) = a4;
-  DWORD1(v11) = (_DWORD)a1;
-  *(_OWORD *)&v12[8] = 0LL;
-  v13[1] = xmmword_140C20BE0;
-  if ( (unsigned int)((_DWORD)a1 - 1) <= 9
-    && a3 <= 2
-    && (a1 = PopPowerAggregatorIntentHandlers,
-        (v8 = (__int64 (__fastcall *)(__int64 *, __int128 *, _QWORD, __int64))PopPowerAggregatorIntentHandlers[v5]) != 0LL) )
+  *(_QWORD *)v10.m256_f32 = ++PopPowerAggregatorContext;
+  v12 = ymmword_140C217A8;
+  LODWORD(v9) = 4;
+  *((_QWORD *)&v9 + 1) = a3;
+  DWORD1(v9) = (_DWORD)a1;
+  memset(&v10.m256_f32[2], 0, 24);
+  if ( (unsigned int)((_DWORD)a1 - 1) <= 7
+    && a2 <= 2
+    && (PopPowerAggregatorCachePoPolicy(),
+        a1 = PopPowerAggregatorIntentHandlers,
+        (v6 = (__int64 (__fastcall *)(__int64 *, __int128 *, _QWORD))PopPowerAggregatorIntentHandlers[v5]) != 0LL) )
   {
-    v9 = v8(&PopPowerAggregatorContext, &v11, (unsigned int)v5, a2);
-    if ( v9 >= 0 )
+    v7 = v6(&PopPowerAggregatorContext, &v9, (unsigned int)v5);
+    if ( v7 >= 0 )
     {
-      xmmword_140C20BD0 = v11;
-      qword_140C20BF0 = *(_QWORD *)&v12[16];
-      xmmword_140C20BE0 = *(_OWORD *)v12;
+      xmmword_140C21798 = v9;
+      ymmword_140C217A8 = v10;
       if ( (unsigned __int8)PopPowerAggregatorIsAtTargetState() )
       {
-        v9 = 0;
+        v7 = 0;
       }
       else
       {
-        v9 = 259;
+        v7 = 259;
         PopPowerAggregatorScheduleWorker(&PopPowerAggregatorContext);
       }
     }
   }
   else
   {
-    v9 = -1073741811;
+    v7 = -1073741811;
   }
-  PopPowerAggregatorRecordIntent((_DWORD)a1, v5, v7, a3, a4, (__int64)v13, (__int64)&v11, v9);
-  return (unsigned int)v9;
+  PopPowerAggregatorRecordIntent((_DWORD)a1, v5, a2, a3, (__int64)&v11, (__int64)&v9, v7);
+  return (unsigned int)v7;
 }

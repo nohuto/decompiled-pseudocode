@@ -18,11 +18,11 @@
  *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiReservePageFileSpaceForPage(struct _KEVENT *a1, unsigned __int64 a2, char a3, _WORD *a4)

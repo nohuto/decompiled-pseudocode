@@ -1,12 +1,12 @@
 /*
- * XREFs of CreateField @ 0x1C001B760
+ * XREFs of CreateField @ 0x1C00671F0
  * Callers:
  *     <none>
  * Callees:
- *     CreateXField @ 0x1C0018484 (CreateXField.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     CreateXField @ 0x1C00291A8 (CreateXField.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall CreateField(__int64 a1, __int64 a2)
@@ -35,9 +35,9 @@ __int64 __fastcall CreateField(__int64 a1, __int64 a2)
   else
   {
     v5 = -1072431096;
-    LogError(3222536200LL);
-    AcpiDiagTraceAmlError(a1, 3222536200LL);
-    PrintDebugMessage(34, 0, 0, 0, 0LL);
+    LogError(-1072431096);
+    AcpiDiagTraceAmlError(a1, -1072431096);
+    PrintDebugMessage(34, 0LL, 0LL, 0LL, 0LL);
   }
   return v5;
 }

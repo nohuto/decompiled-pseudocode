@@ -1,20 +1,20 @@
 /*
- * XREFs of NtUserQueryBSDRWindow @ 0x1C01FB540
+ * XREFs of NtUserQueryBSDRWindow @ 0x1C0200800
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtUserQueryBSDRWindow(__int64 a1, __int64 a2, __int64 a3)
+__int64 NtUserQueryBSDRWindow()
 {
-  __int64 v3; // rcx
-  __int64 v4; // rbx
+  __int64 v0; // rcx
+  __int64 v1; // rbx
 
-  EnterSharedCrit(a1, a2, a3);
-  v4 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v1 = 0LL;
   if ( gspwndBSDR )
-    v4 = *(_QWORD *)gspwndBSDR;
-  UserSessionSwitchLeaveCrit(v3);
-  return v4;
+    v1 = *(_QWORD *)gspwndBSDR;
+  UserSessionSwitchLeaveCrit(v0);
+  return v1;
 }

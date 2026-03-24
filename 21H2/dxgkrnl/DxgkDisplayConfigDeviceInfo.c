@@ -1,1714 +1,1390 @@
 /*
- * XREFs of DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0
+ * XREFs of DxgkDisplayConfigDeviceInfo @ 0x1C012C020
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C000A6FC (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C000BD4C (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C000F16C (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
- *     ?GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C000F208 (-GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
- *     ?AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z @ 0x1C000F25C (-AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z.c)
- *     ?GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C000F2B0 (-GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000F45C (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0011EC8 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0019DE4 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0026CEC (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     ?IsCurrentProcessAdmin@@YAEXZ @ 0x1C0043CF4 (-IsCurrentProcessAdmin@@YAEXZ.c)
- *     ?GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATMONITOR_AND_LINK_HDR_CAPS@@@Z @ 0x1C01631B4 (-GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATM.c)
- *     MonitorGetPseudoSpecializedState @ 0x1C0163BCC (MonitorGetPseudoSpecializedState.c)
- *     ?BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018A1E0 (-BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C01985C4 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
- *     ?GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C01A0570 (-GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z.c)
- *     MonitorReleaseMonitorHandle @ 0x1C01A05B4 (MonitorReleaseMonitorHandle.c)
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C01A46EC (DxgkReleaseSessionModeChangeLock.c)
- *     MonitorIsMonitorAndDriverWCGCapable @ 0x1C01A68E8 (MonitorIsMonitorAndDriverWCGCapable.c)
- *     ?_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C01A69AC (-_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z.c)
- *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C01A7544 (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
- *     ?IsCurrentModeAdvancedColor@@YAJPEAVDXGADAPTER@@IPEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@PEAW4_D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE@@PEA_N@Z @ 0x1C01A9898 (-IsCurrentModeAdvancedColor@@YAJPEAVDXGADAPTER@@IPEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@PEAW4_.c)
- *     ?CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z @ 0x1C01A9974 (-CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z.c)
- *     MonitorGetIsAutoColorManagementSupported @ 0x1C01A9AC4 (MonitorGetIsAutoColorManagementSupported.c)
- *     DMMVideoSignalInfoToDisplayConfigVideoSignalInfo @ 0x1C01B2BF0 (DMMVideoSignalInfoToDisplayConfigVideoSignalInfo.c)
- *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C01B53E0 (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
- *     ?BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01BC760 (-BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_.c)
- *     DxgkIsVirtualizationDisabledForTarget @ 0x1C01D7DA0 (DxgkIsVirtualizationDisabledForTarget.c)
- *     MonitorIsBoostRefreshRateEnabledByDefault @ 0x1C01E316C (MonitorIsBoostRefreshRateEnabledByDefault.c)
- *     ?ConvertDmmToDisplayConfigColorEncoding@@YA?AW4_DISPLAYCONFIG_COLOR_ENCODING@@T_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C01E3A50 (-ConvertDmmToDisplayConfigColorEncoding@@YA-AW4_DISPLAYCONFIG_COLOR_ENCODING@@T_D3DKMDT_WIRE_FOR.c)
- *     ?DisplayConfigGetTargetBaseType@@YAJPEAUDISPLAYCONFIG_TARGET_BASE_TYPE@@@Z @ 0x1C01E6AE0 (-DisplayConfigGetTargetBaseType@@YAJPEAUDISPLAYCONFIG_TARGET_BASE_TYPE@@@Z.c)
- *     ?GetVirtualMonitorInfo@DXGADAPTER@@QEAAJIPEAU_DXGK_IDD_VIRTUAL_MONITOR_INFO@@@Z @ 0x1C02BBB60 (-GetVirtualMonitorInfo@DXGADAPTER@@QEAAJIPEAU_DXGK_IDD_VIRTUAL_MONITOR_INFO@@@Z.c)
- *     ?DodGetRenderAdapter@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z @ 0x1C02C0798 (-DodGetRenderAdapter@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z.c)
- *     DxgkCreateLightweightDeviceAndContext @ 0x1C02D0B18 (DxgkCreateLightweightDeviceAndContext.c)
- *     ?TriggerCabcWnf@@YAJ_N@Z @ 0x1C02F2B08 (-TriggerCabcWnf@@YAJ_N@Z.c)
- *     ?TriggerSDRWhiteLevelChangedWnf@@YAJXZ @ 0x1C02F2BA8 (-TriggerSDRWhiteLevelChangedWnf@@YAJXZ.c)
- *     ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C030A218 (-FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z.c)
- *     ?FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z @ 0x1C030A574 (-FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z.c)
- *     ?FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFIER_HOST@1@@Z @ 0x1C033D650 (-FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFI.c)
- *     DxgkNotifyDisplayChange @ 0x1C034961C (DxgkNotifyDisplayChange.c)
- *     MonitorDisableMonitorVirtualModeSupport @ 0x1C03B013C (MonitorDisableMonitorVirtualModeSupport.c)
- *     MonitorEnableBoostRefreshRateEnabledByDefault @ 0x1C03B02CC (MonitorEnableBoostRefreshRateEnabledByDefault.c)
- *     MonitorEnableDisableAdvancedColor @ 0x1C03B03A8 (MonitorEnableDisableAdvancedColor.c)
- *     MonitorGetSDRWhiteLevel @ 0x1C03B066C (MonitorGetSDRWhiteLevel.c)
- *     MonitorIsMonitorAndLinkHDRCapable @ 0x1C03B06F4 (MonitorIsMonitorAndLinkHDRCapable.c)
- *     MonitorIsMonitorVirtualModeDisabled @ 0x1C03B07D0 (MonitorIsMonitorVirtualModeDisabled.c)
- *     MonitorSetAdvancedColorParams @ 0x1C03B0D88 (MonitorSetAdvancedColorParams.c)
- *     MonitorSetAppOverride @ 0x1C03B0ED4 (MonitorSetAppOverride.c)
- *     MonitorSetAutoColorManagementSupported @ 0x1C03B1114 (MonitorSetAutoColorManagementSupported.c)
- *     MonitorSetDefaultAdvancedColorParams @ 0x1C03B11C4 (MonitorSetDefaultAdvancedColorParams.c)
- *     MonitorSetSDRWhiteLevel @ 0x1C03B1328 (MonitorSetSDRWhiteLevel.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00024D8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0002BD4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007D94 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C0009E30 (-GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
+ *     ?GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C0009E84 (-GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
+ *     ?AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z @ 0x1C0009FFC (-AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z.c)
+ *     ??1DXGSESSIONMODECHANGELOCK@@QEAA@XZ @ 0x1C000A05C (--1DXGSESSIONMODECHANGELOCK@@QEAA@XZ.c)
+ *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000A8B4 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D178 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x1C001AE00 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??1DXGADAPTER_REFERENCE@@QEAA@XZ @ 0x1C00365C0 (--1DXGADAPTER_REFERENCE@@QEAA@XZ.c)
+ *     ?IsCurrentProcessAdmin@@YAEXZ @ 0x1C0037868 (-IsCurrentProcessAdmin@@YAEXZ.c)
+ *     ?IsCurrentModeAdvancedColor@@YAJPEAVDXGADAPTER@@IPEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@PEAW4_D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE@@PEA_N@Z @ 0x1C00DD33C (-IsCurrentModeAdvancedColor@@YAJPEAVDXGADAPTER@@IPEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@PEAW4_.c)
+ *     MonitorGetMonitorHandle @ 0x1C0129A20 (MonitorGetMonitorHandle.c)
+ *     MonitorIsMonitorAndLinkHDRCapable @ 0x1C012BAB8 (MonitorIsMonitorAndLinkHDRCapable.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C012F96C (MonitorReleaseMonitorHandle.c)
+ *     MonitorIsMonitorAndDriverWCGCapable @ 0x1C012F9FC (MonitorIsMonitorAndDriverWCGCapable.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C0133D8C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0136884 (-BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z @ 0x1C0136918 (-CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z.c)
+ *     DMMVideoSignalInfoToDisplayConfigVideoSignalInfo @ 0x1C0139A6C (DMMVideoSignalInfoToDisplayConfigVideoSignalInfo.c)
+ *     ?ConvertDmmToDisplayConfigColorEncoding@@YA?AW4_DISPLAYCONFIG_COLOR_ENCODING@@T_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C013AC5C (-ConvertDmmToDisplayConfigColorEncoding@@YA-AW4_DISPLAYCONFIG_COLOR_ENCODING@@T_D3DKMDT_WIRE_FOR.c)
+ *     ?GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C013ACA8 (-GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z.c)
+ *     DxgkIsVirtualizationDisabledForTarget @ 0x1C0149470 (DxgkIsVirtualizationDisabledForTarget.c)
+ *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C01646B8 (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     MonitorGetWideColorModeEnforced @ 0x1C0168380 (MonitorGetWideColorModeEnforced.c)
+ *     ?BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01690F4 (-BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_.c)
+ *     ?DisplayConfigGetTargetBaseType@@YAJPEAUDISPLAYCONFIG_TARGET_BASE_TYPE@@@Z @ 0x1C017480C (-DisplayConfigGetTargetBaseType@@YAJPEAUDISPLAYCONFIG_TARGET_BASE_TYPE@@@Z.c)
+ *     ?GetVirtualMonitorInfo@DXGADAPTER@@QEAAJIPEAU_DXGK_IDD_VIRTUAL_MONITOR_INFO@@@Z @ 0x1C020D41C (-GetVirtualMonitorInfo@DXGADAPTER@@QEAAJIPEAU_DXGK_IDD_VIRTUAL_MONITOR_INFO@@@Z.c)
+ *     ?DodGetRenderAdapter@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z @ 0x1C0211EA8 (-DodGetRenderAdapter@ADAPTER_DISPLAY@@QEAAJIPEAU_LUID@@@Z.c)
+ *     DxgkCreateLightweightDeviceAndContext @ 0x1C0222C40 (DxgkCreateLightweightDeviceAndContext.c)
+ *     ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C02696B0 (-FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z.c)
+ *     ?FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z @ 0x1C02699E4 (-FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z.c)
+ *     ?TriggerSDRWhiteLevelChangedWnf@@YAJXZ @ 0x1C02979C8 (-TriggerSDRWhiteLevelChangedWnf@@YAJXZ.c)
+ *     DxgkNotifyDisplayChange @ 0x1C02A0134 (DxgkNotifyDisplayChange.c)
+ *     ?FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER@1@0@Z @ 0x1C02C3E6C (-FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER@1@0@Z.c)
+ *     MonitorDisableMonitorVirtualModeSupport @ 0x1C02F3610 (MonitorDisableMonitorVirtualModeSupport.c)
+ *     MonitorEnableDisableAdvancedColor @ 0x1C02F382C (MonitorEnableDisableAdvancedColor.c)
+ *     MonitorGetSDRWhiteLevel @ 0x1C02F3D54 (MonitorGetSDRWhiteLevel.c)
+ *     MonitorIsMonitorVirtualModeDisabled @ 0x1C02F3E30 (MonitorIsMonitorVirtualModeDisabled.c)
+ *     MonitorSetAdvancedColorParams @ 0x1C02F45B8 (MonitorSetAdvancedColorParams.c)
+ *     MonitorSetAppOverride @ 0x1C02F4808 (MonitorSetAppOverride.c)
+ *     MonitorSetDefaultAdvancedColorParams @ 0x1C02F4B1C (MonitorSetDefaultAdvancedColorParams.c)
+ *     MonitorSetEnforceWideColorMode @ 0x1C02F4C44 (MonitorSetEnforceWideColorMode.c)
+ *     MonitorSetSDRWhiteLevel @ 0x1C02F4E8C (MonitorSetSDRWhiteLevel.c)
  */
 
-__int64 __fastcall DxgkDisplayConfigDeviceInfo(bool a1, __int64 a2)
+__int64 __fastcall DxgkDisplayConfigDeviceInfo(char a1, __int64 a2)
 {
   __int64 v4; // rcx
   __int64 v5; // r8
-  int v6; // r13d
+  int v6; // r15d
   __int64 v7; // rdx
-  __int64 v8; // r14
-  unsigned int v9; // eax
-  __int64 DeviceInterfaces; // r12
-  struct DXGFASTMUTEX *v11; // rbx
-  int v12; // edi
-  int v13; // eax
-  struct DXGADAPTER *v14; // rsi
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  struct _LUID v18; // rbx
-  struct DXGADAPTER *v19; // rdi
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  char v22; // bl
-  int v23; // eax
-  struct DXGADAPTER *const v24; // rdx
-  int v25; // eax
-  int v26; // eax
-  int MonitorHandle; // eax
-  struct _LUID v28; // r14
-  PZZWSTR v29; // rdi
-  enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE LinkInfo; // eax
-  int v31; // eax
-  int v32; // eax
-  __int64 v33; // rdx
-  bool v34; // di
-  unsigned int v35; // eax
-  int v36; // eax
-  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v37; // ecx
-  int ColorDepthFromPickedWireFormat; // eax
-  __int64 Value; // rcx
-  bool v40; // zf
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v41; // eax
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // rdx
-  __int64 v45; // rcx
-  int v46; // ecx
-  int v47; // eax
-  int v48; // ecx
+  __int64 v8; // rcx
+  struct _DEVICE_OBJECT *v9; // rbx
+  __int64 v10; // rax
+  unsigned int v11; // eax
+  __int64 v12; // rcx
+  struct DXGADAPTER *DeviceInterfaces; // rsi
+  unsigned int v14; // eax
+  unsigned int v15; // eax
+  unsigned int v16; // eax
+  __int64 v17; // rax
   int TargetBaseType; // eax
-  struct _DEVICE_OBJECT *v50; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  struct DXGADAPTER *v22; // rsi
+  _QWORD *v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rax
+  struct _DEVICE_OBJECT *v28; // rcx
+  __int64 v29; // rax
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // rax
-  struct _DEVICE_OBJECT *v52; // rbx
-  PZZWSTR v53; // rcx
-  unsigned int v54; // edx
-  struct _LUID v55; // rcx
-  unsigned int v56; // edx
-  int v57; // ecx
-  enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE LowPart; // eax
-  unsigned int v59; // ebx
-  unsigned int v60; // edx
-  int v61; // eax
-  int v62; // eax
-  __int64 v63; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // rax
+  DXGADAPTERSTOPRESETLOCKSHARED *v35; // rcx
+  PZZWSTR v36; // rcx
+  DXGADAPTERSTOPRESETLOCKSHARED *v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  unsigned int v40; // ebx
+  __int64 v41; // rax
+  unsigned int v42; // edx
+  struct _LUID v43; // rcx
+  __int64 v44; // rax
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // r8
+  __int64 v48; // r9
+  __int64 v49; // rax
+  int v50; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // rax
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  __int64 v57; // r8
+  _QWORD *v58; // rax
+  __int64 v59; // rdx
+  __int64 v60; // rax
+  _QWORD *v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rdx
   __int64 v64; // rdx
-  unsigned int v65; // edx
-  __int64 v66; // r8
-  bool v67; // zf
-  int IsBoostRefreshRateEnabledByDefault; // eax
-  bool v69; // al
-  __int64 v70; // rax
-  int v71; // eax
-  int v72; // eax
-  __int64 v73; // r8
-  unsigned int v74; // edx
-  int SourceConnectedToTargetInClientVidPn; // eax
-  const struct _DXGK_DISPLAYMODE_INFO *DisplayModeInfo; // rax
-  int v77; // eax
-  int RegistryValues; // eax
-  __int64 v79; // rdx
-  int v80; // eax
-  __int64 v81; // rdi
-  int PseudoSpecializedState; // eax
+  __int64 v65; // rax
+  unsigned int v66; // edx
+  __int64 v67; // rdx
+  __int64 v68; // rcx
+  __int64 v69; // r8
+  _QWORD *v70; // rax
+  DXGSESSIONMODECHANGELOCK *v71; // rcx
+  DXGSESSIONMODECHANGELOCK *v72; // rcx
+  struct DXGADAPTER *v73; // r14
+  __int64 v74; // rdx
+  int MonitorHandle; // eax
+  __int64 v76; // rdx
+  __int64 v77; // rcx
+  _QWORD *v78; // rax
+  struct HDXGMONITOR__ *v79; // rbx
+  __int64 v80; // rax
+  __int128 v81; // xmm0
   struct DXGGLOBAL *Global; // rax
-  unsigned int v84; // edx
-  struct _LUID v85; // rbx
-  __int64 v86; // rdi
-  __int64 v87; // rdx
+  int v83; // eax
+  __int64 v84; // rax
+  struct DXGGLOBAL *v85; // rax
+  int v86; // eax
+  __int64 v87; // rax
   __int64 v88; // rcx
-  int v89; // eax
-  int v90; // eax
-  __int64 v91; // r14
-  bool v92; // r13
-  int v93; // eax
-  __int64 v94; // rdx
-  __int64 v95; // rax
-  __int64 v96; // rcx
-  __int64 v97; // rbx
-  const wchar_t *v98; // r9
-  struct DXGADAPTER *v99; // rdi
-  __int64 v100; // rbx
-  int v101; // eax
-  int v102; // eax
-  int v103; // eax
-  struct DXGADAPTER *v104; // rdi
-  struct _LUID *v105; // rdx
-  __int64 v106; // r8
-  __int64 v107; // rax
-  struct DXGGLOBAL *v108; // rax
-  __int64 v109; // rdx
-  int v110; // eax
-  __int64 v111; // rbx
-  bool *v112; // rax
-  void *p_DestinationString; // r8
-  __int64 v114; // r9
-  void *v115; // rdx
-  __int128 v116; // xmm0
-  int v117; // r9d
-  unsigned int *v118; // rdi
-  unsigned int *v119; // rsi
-  unsigned int *v120; // r14
-  __int64 v121; // rax
-  const wchar_t *v122; // r9
-  __int64 v123; // rcx
-  struct DXGGLOBAL *v124; // rax
-  int v125; // eax
-  struct DXGGLOBAL *v126; // rax
-  unsigned int v127; // edx
-  __int64 v128; // rax
-  bool *v129; // [rsp+28h] [rbp-E0h]
-  int v130; // [rsp+30h] [rbp-D8h]
-  struct _UNICODE_STRING *v131; // [rsp+38h] [rbp-D0h]
-  bool v132[4]; // [rsp+58h] [rbp-B0h] BYREF
-  bool v133; // [rsp+5Ch] [rbp-ACh]
-  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v134[2]; // [rsp+60h] [rbp-A8h] BYREF
-  struct DXGADAPTER *v135[2]; // [rsp+68h] [rbp-A0h] BYREF
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v136; // [rsp+78h] [rbp-90h] BYREF
-  enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE v137[3]; // [rsp+7Ch] [rbp-8Ch] BYREF
-  struct _LUID v138[2]; // [rsp+88h] [rbp-80h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v140; // [rsp+A8h] [rbp-60h]
-  PZZWSTR SymbolicLinkList[2]; // [rsp+B8h] [rbp-50h] BYREF
-  int v142; // [rsp+C8h] [rbp-40h] BYREF
-  __int64 v143; // [rsp+D0h] [rbp-38h]
-  char v144; // [rsp+D8h] [rbp-30h]
-  _OWORD v145[2]; // [rsp+E0h] [rbp-28h] BYREF
-  _QWORD v146[44]; // [rsp+108h] [rbp+0h] BYREF
-  _QWORD v147[10]; // [rsp+268h] [rbp+160h] BYREF
+  _QWORD *v89; // rcx
+  __int64 v90; // rax
+  __int64 v91; // rcx
+  __int64 v92; // rdx
+  __int64 v93; // rcx
+  __int64 v94; // r8
+  __int64 v95; // r9
+  __int64 v96; // rdx
+  __int64 v97; // rcx
+  __int64 v98; // r8
+  _QWORD *v99; // rax
+  __int64 v100; // rdx
+  _QWORD *v101; // rax
+  unsigned int v102; // edx
+  __int64 v103; // rax
+  struct DXGADAPTER *v104; // rbx
+  __int64 v105; // rcx
+  __int64 LowPart; // rax
+  __int64 v107; // rdx
+  __int64 v108; // rcx
+  __int64 v109; // r8
+  __int64 v110; // r9
+  __int64 v111; // rax
+  struct DXGADAPTER *v112; // rdx
+  int v113; // ecx
+  int v114; // eax
+  int v115; // ecx
+  int v116; // eax
+  unsigned int v117; // edx
+  struct _LUID v118; // rcx
+  __int64 v119; // rdx
+  __int64 v120; // rcx
+  unsigned int v121; // edx
+  int v122; // ecx
+  __int64 v123; // rax
+  struct DXGFASTMUTEX *v124; // r14
+  int v125; // ebx
+  __int64 v126; // rdx
+  int v127; // eax
+  unsigned int *v128; // rbx
+  unsigned int *v129; // r12
+  __int64 v130; // rcx
+  __int64 v131; // rcx
+  struct _LUID v132; // rbx
+  __int64 v133; // r12
+  __int64 v134; // rdx
+  __int64 v135; // rcx
+  __int64 v136; // r8
+  __int64 v137; // r9
+  struct DXGADAPTER *v138; // r14
+  __int64 HighPart; // rax
+  int v140; // eax
+  __int64 v141; // rdx
+  __int64 v142; // rcx
+  __int64 v143; // rax
+  __int64 v144; // rdx
+  __int64 v145; // rcx
+  __int64 v146; // r8
+  _QWORD *v147; // rax
+  _QWORD *v148; // rax
+  int v149; // eax
+  __int64 v150; // rdx
+  __int64 v151; // rcx
+  _QWORD *v152; // rax
+  struct HDXGMONITOR__ *v153; // rbx
+  __int64 v154; // rdx
+  int v155; // eax
+  __int64 v156; // rdx
+  __int64 v157; // rcx
+  int v158; // r15d
+  int v159; // eax
+  __int64 v160; // rdx
+  __int64 v161; // rcx
+  _QWORD *v162; // rax
+  _QWORD *v163; // rax
+  __int64 v164; // rdx
+  __int64 v165; // rdx
+  _QWORD *v166; // rax
+  struct _DEVICE_OBJECT *v167; // rsi
+  __int64 v168; // rdx
+  __int64 v169; // rcx
+  __int64 v170; // r8
+  __int64 v171; // r9
+  struct DXGADAPTER *v172; // r14
+  int v173; // eax
+  __int64 v174; // rdx
+  __int64 v175; // rcx
+  __int64 v176; // rax
+  __int64 v177; // rdx
+  __int64 v178; // rcx
+  __int64 v179; // r8
+  _QWORD *v180; // rax
+  __int64 v181; // rdx
+  _QWORD *v182; // rax
+  __int64 v183; // rdx
+  __int64 v184; // rcx
+  __int64 v185; // r8
+  _QWORD *v186; // rax
+  int v187; // eax
+  __int64 v188; // rdx
+  __int64 v189; // rcx
+  __int64 v190; // rsi
+  _QWORD *v191; // rax
+  struct HDXGMONITOR__ *v192; // rsi
+  __int64 v193; // rax
+  int IsMonitorAndLinkHDRCapable; // eax
+  __int64 v195; // rdx
+  __int64 v196; // rcx
+  _QWORD *v197; // rax
+  int IsMonitorAndDriverWCGCapable; // eax
+  int v199; // eax
+  __int64 v200; // rax
+  unsigned int v201; // eax
+  __int64 v202; // rax
+  int WideColorModeEnforced; // eax
+  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v204; // ecx
+  unsigned int ColorDepthFromPickedWireFormat; // eax
+  __int64 Value; // rcx
+  __int64 v207; // rdx
+  __int64 v208; // rcx
+  __int64 v209; // rax
+  int v210; // eax
+  __int64 v211; // rax
+  int v212; // eax
+  int SDRWhiteLevel; // eax
+  __int64 v214; // rdx
+  __int64 v215; // rcx
+  __int64 v216; // r8
+  _QWORD *v217; // rax
+  __int64 v218; // rax
+  int v219; // eax
+  __int64 v220; // rdx
+  __int64 v221; // rcx
+  _QWORD *v222; // rax
+  struct _LUID *v223; // rdx
+  __int64 v224; // r8
+  __int64 v225; // rdx
+  struct DXGGLOBAL *v226; // rax
+  __int64 v227; // rcx
+  __int64 v228; // r8
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *v230; // [rsp+28h] [rbp-E0h]
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *v231; // [rsp+30h] [rbp-D8h]
+  unsigned __int8 v232; // [rsp+58h] [rbp-B0h] BYREF
+  bool v233; // [rsp+59h] [rbp-AFh] BYREF
+  char v234; // [rsp+5Ah] [rbp-AEh] BYREF
+  char v235; // [rsp+5Bh] [rbp-ADh]
+  char v236; // [rsp+5Ch] [rbp-ACh] BYREF
+  char v237; // [rsp+5Dh] [rbp-ABh]
+  char v238; // [rsp+5Eh] [rbp-AAh]
+  char v239; // [rsp+5Fh] [rbp-A9h] BYREF
+  unsigned __int8 v240[4]; // [rsp+60h] [rbp-A8h] BYREF
+  unsigned __int8 v241[4]; // [rsp+64h] [rbp-A4h] BYREF
+  unsigned int v242; // [rsp+68h] [rbp-A0h] BYREF
+  int v243; // [rsp+6Ch] [rbp-9Ch] BYREF
+  struct DXGADAPTER *v244[2]; // [rsp+70h] [rbp-98h] BYREF
+  struct HDXGMONITOR__ *v245; // [rsp+80h] [rbp-88h] BYREF
+  union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE v246; // [rsp+88h] [rbp-80h] BYREF
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v247; // [rsp+8Ch] [rbp-7Ch] BYREF
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v248; // [rsp+90h] [rbp-78h] BYREF
+  int v249; // [rsp+94h] [rbp-74h] BYREF
+  unsigned int v250; // [rsp+98h] [rbp-70h] BYREF
+  PZZWSTR SymbolicLinkList; // [rsp+A0h] [rbp-68h] BYREF
+  enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE v252; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v253; // [rsp+B0h] [rbp-58h] BYREF
+  int v254; // [rsp+B8h] [rbp-50h]
+  struct _LUID v255; // [rsp+C0h] [rbp-48h] BYREF
+  struct HDXGMONITOR__ *v256; // [rsp+C8h] [rbp-40h] BYREF
+  struct _LUID v257; // [rsp+D0h] [rbp-38h] BYREF
+  unsigned __int64 v258; // [rsp+D8h] [rbp-30h] BYREF
+  struct HDXGMONITOR__ *v259; // [rsp+E0h] [rbp-28h] BYREF
+  int v260; // [rsp+E8h] [rbp-20h] BYREF
+  __int64 v261; // [rsp+F0h] [rbp-18h]
+  char v262; // [rsp+F8h] [rbp-10h]
+  __int64 v263; // [rsp+100h] [rbp-8h] BYREF
+  int v264; // [rsp+108h] [rbp+0h]
+  char v265[8]; // [rsp+110h] [rbp+8h] BYREF
+  struct DXGADAPTER *v266; // [rsp+118h] [rbp+10h]
+  char v267; // [rsp+120h] [rbp+18h]
+  char v268[8]; // [rsp+128h] [rbp+20h] BYREF
+  struct DXGADAPTER *v269; // [rsp+130h] [rbp+28h]
+  char v270; // [rsp+138h] [rbp+30h]
+  DXGADAPTER *v271[2]; // [rsp+140h] [rbp+38h] BYREF
+  _BYTE v272[16]; // [rsp+150h] [rbp+48h] BYREF
+  __int128 v273; // [rsp+160h] [rbp+58h] BYREF
+  __int64 v274; // [rsp+170h] [rbp+68h]
+  __int128 v275; // [rsp+178h] [rbp+70h]
+  _OWORD v276[2]; // [rsp+188h] [rbp+80h] BYREF
+  _QWORD v277[10]; // [rsp+1A8h] [rbp+A0h] BYREF
+  _QWORD v278[40]; // [rsp+1F8h] [rbp+F0h] BYREF
+  _BYTE v279[144]; // [rsp+338h] [rbp+230h] BYREF
+  _BYTE v280[144]; // [rsp+3C8h] [rbp+2C0h] BYREF
+  _BYTE v281[144]; // [rsp+458h] [rbp+350h] BYREF
+  _BYTE v282[144]; // [rsp+4E8h] [rbp+3E0h] BYREF
 
-  v132[1] = a1;
-  v135[0] = 0LL;
-  memset(v147, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v147[1]);
+  v244[0] = 0LL;
+  memset(v277, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v277[1]);
   v6 = 1;
-  v142 = -1;
-  v147[8] = MEMORY[0xFFFFF78000000014];
-  LOBYTE(v147[6]) = -1;
-  LODWORD(v147[3]) = 39;
-  v143 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v260 = -1;
+  v277[8] = MEMORY[0xFFFFF78000000014];
+  LOBYTE(v277[6]) = -1;
+  LODWORD(v277[3]) = 39;
+  v261 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v144 = 1;
-    v142 = 2184;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v262 = 1;
+    v260 = 2184;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(v4, &EventProfilerEnter, v5, 2184);
   }
   else
   {
-    v144 = 0;
+    v262 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v142, 2184);
-  LODWORD(v8) = -1073741811;
-  if ( !a2 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v260, 2184LL);
+  LODWORD(v9) = -1073741811;
+  if ( a2 )
   {
-    WdLogSingleEntry1(1LL, 5088LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"io_pRequestPacket != NULL", 5088LL, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_98;
-  }
-  v9 = *(_DWORD *)a2;
-  LODWORD(DeviceInterfaces) = 0;
-  if ( *(_DWORD *)a2 <= 0xFFFFFFE8 )
-  {
-    if ( v9 == -24 )
+    v11 = *(_DWORD *)a2;
+    v12 = 4294967274LL;
+    LODWORD(DeviceInterfaces) = 0;
+    if ( *(_DWORD *)a2 <= 0xFFFFFFEA )
     {
-      Global = DXGGLOBAL_GetGlobal();
-      v84 = *(_DWORD *)(a2 + 16);
-      if ( !*((_BYTE *)Global + 304912) )
+      if ( v11 != -22 )
       {
-        *(_QWORD *)(a2 + 20) = *(_QWORD *)(a2 + 8);
-        *(_DWORD *)(a2 + 28) = v84;
-        goto LABEL_10;
-      }
-      *(_QWORD *)&DestinationString.Length = *(_QWORD *)(a2 + 8);
-      DestinationString.Buffer = (wchar_t *)v84;
-      v138[0] = 0LL;
-      v138[1].LowPart = 0;
-      LODWORD(DeviceInterfaces) = REMOTEMONITORMAPPING::FindMappingFromGuestId(
-                                    (struct DXGGLOBAL *)((char *)Global + 304864),
-                                    (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER_GUEST *)&DestinationString,
-                                    (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER_HOST *)v138);
-      if ( (int)DeviceInterfaces < 0 )
-        goto LABEL_10;
-      *(struct _LUID *)(a2 + 20) = v138[0];
-      LowPart = v138[1].LowPart;
-      goto LABEL_79;
-    }
-    if ( v9 <= 0xB )
-    {
-      if ( v9 >= 9 )
-      {
-LABEL_19:
-        v18 = *(struct _LUID *)(a2 + 8);
-        v19 = (struct DXGADAPTER *)*(unsigned int *)(a2 + 16);
-        v138[0] = v18;
-        v136 = (int)v19;
-        DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, v138);
-        v14 = v135[0];
-        if ( !v135[0] )
+        if ( v11 <= 8 )
         {
-          v107 = WdLogNewEntry5_WdTrace(v21, v20);
-          LODWORD(DeviceInterfaces) = -1073741811;
-          *(_QWORD *)(v107 + 24) = v138[0].HighPart;
-          *(_QWORD *)(v107 + 32) = v18.LowPart;
-          goto LABEL_11;
+          if ( v11 < 7 )
+          {
+            v14 = v11 - 2;
+            if ( !v14 )
+            {
+              if ( !a1 )
+              {
+                v44 = WdLogNewEntry5_WdAssertion(4294967274LL, v7);
+                *(_QWORD *)(v44 + 24) = 5180LL;
+                WdLogEvent5_WdAssertion(v44);
+              }
+              TargetBaseType = DisplayConfigFillTargetDeviceInfo((struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
+              goto LABEL_261;
+            }
+            v15 = v14 - 1;
+            if ( !v15 )
+            {
+              if ( !a1 )
+              {
+                v38 = WdLogNewEntry5_WdAssertion(4294967274LL, v7);
+                *(_QWORD *)(v38 + 24) = 5113LL;
+                WdLogEvent5_WdAssertion(v38);
+              }
+              memset(v278, 0, sizeof(v278));
+              v40 = 0;
+              LODWORD(DeviceInterfaces) = -1071774970;
+              do
+              {
+                if ( v40 >= 0x10 )
+                  break;
+                if ( v278[34] )
+                {
+                  v41 = WdLogNewEntry5_WdAssertion(v39, v7);
+                  *(_QWORD *)(v41 + 24) = 5125LL;
+                  WdLogEvent5_WdAssertion(v41);
+                }
+                memset(v278, 0, sizeof(v278));
+                v42 = *(_DWORD *)(a2 + 16);
+                v43 = *(struct _LUID *)(a2 + 8);
+                v238 = 0;
+                v237 = 0;
+                LODWORD(DeviceInterfaces) = DxgkIsVirtualizationDisabledForTarget(
+                                              v43,
+                                              v42,
+                                              (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)&v278[17],
+                                              (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)&v278[17] + 1,
+                                              (__int64)&v278[32] + 4);
+                if ( (int)DeviceInterfaces >= 0 )
+                {
+                  v278[8] = *(_QWORD *)(a2 + 8);
+                  HIDWORD(v278[9]) = *(_DWORD *)(a2 + 16);
+                  HIDWORD(v278[2]) = 65537;
+                  LODWORD(v278[9]) = v40;
+                  LODWORD(v278[29]) = -13434880;
+                  BYTE1(v278[22]) = (v237 == 0 ? 2 : 0) | (v238 == 0);
+                  v278[6] = 0xCF00000000000LL;
+                  LODWORD(DeviceInterfaces) = BmlGetPathModalityForAdapter(v278, a2 + 8, 0LL, 1LL, 0);
+                  if ( (int)DeviceInterfaces >= 0 )
+                  {
+                    DMMVideoSignalInfoToDisplayConfigVideoSignalInfo(&v278[10], a2 + 32);
+                    *(_QWORD *)(a2 + 20) = *(_QWORD *)(a2 + 56);
+                  }
+                  BmlFreePathsModality((struct D3DKMT_GETPATHSMODALITY *)v278);
+                  ++v40;
+                }
+              }
+              while ( (_DWORD)DeviceInterfaces == -1071774970 );
+              goto LABEL_262;
+            }
+            v16 = v15 - 1;
+            if ( v16 )
+            {
+              if ( v16 == 2 )
+              {
+                if ( !a1 )
+                {
+                  v17 = WdLogNewEntry5_WdAssertion(4294967274LL, v7);
+                  *(_QWORD *)(v17 + 24) = 5190LL;
+                  WdLogEvent5_WdAssertion(v17);
+                }
+                TargetBaseType = DisplayConfigGetTargetBaseType((struct DISPLAYCONFIG_TARGET_BASE_TYPE *)a2);
+                goto LABEL_261;
+              }
+              goto LABEL_97;
+            }
+            DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, (struct _LUID *)(a2 + 8));
+            v22 = v244[0];
+            if ( !v244[0] )
+            {
+              v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v20, v19, v21);
+              v23[3] = *(unsigned int *)(a2 + 8);
+              v23[4] = *(int *)(a2 + 12);
+              v23[5] = -1073741811LL;
+              WdLogEvent5_WdWarning(v23);
+              goto LABEL_263;
+            }
+            v266 = v244[0];
+            v267 = 0;
+            DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v265);
+            if ( *((_DWORD *)v22 + 50) != 1 )
+            {
+              v27 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+              LODWORD(v9) = -1073741130;
+              *(struct DXGADAPTER **)(v27 + 24) = v244[0];
+              *(_QWORD *)(v27 + 32) = -1073741130LL;
+              WdLogEvent5_WdWarning(v27);
+LABEL_26:
+              v35 = (DXGADAPTERSTOPRESETLOCKSHARED *)v265;
+LABEL_27:
+              DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED(v35);
+              goto LABEL_263;
+            }
+            v9 = (struct _DEVICE_OBJECT *)v244[0];
+            v28 = (struct _DEVICE_OBJECT *)*((_QWORD *)v244[0] + 27);
+            if ( !v28 )
+            {
+              v29 = WdLogNewEntry5_WdError(0LL, v24);
+              *(_QWORD *)(v29 + 24) = v9;
+              WdLogEvent5_WdError(v29);
+              LODWORD(v9) = -1073741275;
+              goto LABEL_26;
+            }
+            DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v28);
+            SymbolicLinkList = 0LL;
+            v9 = DeviceAttachmentBaseRef;
+            DeviceInterfaces = (struct DXGADAPTER *)IoGetDeviceInterfaces(
+                                                      &GUID_DEVINTERFACE_DISPLAY_ADAPTER,
+                                                      DeviceAttachmentBaseRef,
+                                                      0,
+                                                      &SymbolicLinkList);
+            ObfDereferenceObject(v9);
+            if ( (int)DeviceInterfaces < 0 )
+            {
+              v34 = WdLogNewEntry5_WdWarning(v32, v31, v33);
+              *(_QWORD *)(v34 + 24) = v9;
+              *(_QWORD *)(v34 + 32) = DeviceInterfaces;
+              WdLogEvent5_WdWarning(v34);
+              LODWORD(v9) = (_DWORD)DeviceInterfaces;
+              goto LABEL_26;
+            }
+            wcsncpy_s((wchar_t *)(a2 + 20), 0x80uLL, SymbolicLinkList, 0xFFFFFFFFFFFFFFFFuLL);
+            v36 = SymbolicLinkList;
+            *(_WORD *)(a2 + 22) = 92;
+            ExFreePoolWithTag(v36, 0);
+            v37 = (DXGADAPTERSTOPRESETLOCKSHARED *)v265;
+            goto LABEL_29;
+          }
+          DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, (struct _LUID *)(a2 + 8));
+          DeviceInterfaces = v244[0];
+          if ( !v244[0] )
+          {
+LABEL_46:
+            v49 = WdLogNewEntry5_WdTrace(v46, v45, v47, v48);
+            *(_QWORD *)(v49 + 24) = *(int *)(a2 + 12);
+            *(_QWORD *)(v49 + 32) = *(unsigned int *)(a2 + 8);
+            goto LABEL_263;
+          }
+          v232 = 0;
+          v50 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v232, 0);
+          v9 = (struct _DEVICE_OBJECT *)v50;
+          if ( v50 < 0 )
+          {
+            v54 = WdLogNewEntry5_WdWarning(v52, v51, v53);
+            *(_QWORD *)(v54 + 24) = v9;
+            WdLogEvent5_WdWarning(v54);
+LABEL_66:
+            v71 = (DXGSESSIONMODECHANGELOCK *)&v232;
+LABEL_203:
+            DXGSESSIONMODECHANGELOCK::~DXGSESSIONMODECHANGELOCK(v71);
+            goto LABEL_263;
+          }
+          COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v279, DeviceInterfaces, 0LL);
+          if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v279, 0LL) < 0 )
+          {
+            v58 = (_QWORD *)WdLogNewEntry5_WdWarning(v56, v55, v57);
+            v58[3] = DeviceInterfaces;
+            v58[4] = *((int *)DeviceInterfaces + 80);
+            v58[5] = *((unsigned int *)DeviceInterfaces + 79);
+            WdLogEvent5_WdWarning(v58);
+            LODWORD(v9) = -1073741811;
+LABEL_65:
+            COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v279, v59);
+            goto LABEL_66;
+          }
+          v60 = *((_QWORD *)DeviceInterfaces + 337);
+          if ( !v60 || !*(_BYTE *)(v60 + 250) )
+          {
+            v61 = (_QWORD *)WdLogNewEntry5_WdWarning(v56, v55, v57);
+            v61[3] = DeviceInterfaces;
+            v61[4] = *((int *)DeviceInterfaces + 80);
+            v61[5] = *((unsigned int *)DeviceInterfaces + 79);
+            WdLogEvent5_WdWarning(v61);
+            LODWORD(v9) = -1073741637;
+            goto LABEL_65;
+          }
+          if ( *(_DWORD *)a2 == 7 )
+          {
+            v239 = 0;
+            if ( !a1 )
+            {
+              v62 = WdLogNewEntry5_WdAssertion(v56, v55);
+              *(_QWORD *)(v62 + 24) = 5269LL;
+              WdLogEvent5_WdAssertion(v62);
+            }
+            v63 = *(unsigned int *)(a2 + 16);
+            *(_DWORD *)(a2 + 20) = 0;
+            LODWORD(DeviceInterfaces) = MonitorIsMonitorVirtualModeDisabled(DeviceInterfaces, v63, &v239);
+            if ( (int)DeviceInterfaces >= 0 )
+              *(_DWORD *)(a2 + 20) = (v239 != 0) | *(_DWORD *)(a2 + 20) & 0xFFFFFFFE;
+          }
+          else
+          {
+            if ( a1 || *(_DWORD *)a2 != 8 )
+            {
+              v65 = WdLogNewEntry5_WdAssertion(v56, v55);
+              *(_QWORD *)(v65 + 24) = 5286LL;
+              WdLogEvent5_WdAssertion(v65);
+            }
+            v66 = *(_DWORD *)(a2 + 16);
+            v240[0] = 0;
+            if ( (int)CheckGivenTargetIsPartOfCloneGroup(DeviceInterfaces, v66, v240) >= 0 && v240[0] )
+            {
+              v70 = (_QWORD *)WdLogNewEntry5_WdWarning(v68, v67, v69);
+              v70[3] = *((int *)DeviceInterfaces + 80);
+              v70[4] = *((unsigned int *)DeviceInterfaces + 79);
+              v70[5] = *(unsigned int *)(a2 + 16);
+              WdLogEvent5_WdWarning(v70);
+              LODWORD(v9) = -1073741649;
+              goto LABEL_65;
+            }
+            LOBYTE(v69) = *(_BYTE *)(a2 + 20) & 1;
+            LODWORD(DeviceInterfaces) = MonitorDisableMonitorVirtualModeSupport(
+                                          DeviceInterfaces,
+                                          *(unsigned int *)(a2 + 16),
+                                          v69,
+                                          v277);
+          }
+          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v279, v64);
+          v72 = (DXGSESSIONMODECHANGELOCK *)&v232;
+LABEL_69:
+          DXGSESSIONMODECHANGELOCK::~DXGSESSIONMODECHANGELOCK(v72);
+          goto LABEL_262;
         }
-        v22 = 0;
-        v132[0] = 0;
-        v23 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)v132, 0);
-        v8 = v23;
-        if ( v23 < 0 )
+        if ( v11 > 0xB )
         {
-          WdLogSingleEntry1(2LL, v23);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to acquire session mode change shared lock (Status = 0x%I64x)",
-            v8,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          if ( v11 != 100 )
+          {
+            if ( v11 != -24 )
+            {
+              if ( v11 == -23 )
+              {
+                if ( !IsCurrentProcessAdmin() )
+                {
+                  LODWORD(v9) = -1073741790;
+                  goto LABEL_263;
+                }
+                DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, (struct _LUID *)(a2 + 8));
+                v73 = v244[0];
+                if ( v244[0] )
+                {
+                  v74 = *(unsigned int *)(a2 + 16);
+                  v259 = 0LL;
+                  MonitorHandle = MonitorGetMonitorHandle(
+                                    (__int64)v244[0],
+                                    v74,
+                                    0LL,
+                                    &DxgkDisplayConfigDeviceInfo,
+                                    &v259);
+                  v9 = (struct _DEVICE_OBJECT *)MonitorHandle;
+                  if ( MonitorHandle < 0 )
+                  {
+                    v78 = (_QWORD *)WdLogNewEntry5_WdError(v77, v76);
+                    v78[3] = *((int *)v73 + 80);
+                    v78[4] = *((unsigned int *)v73 + 79);
+                    v78[5] = *(unsigned int *)(a2 + 16);
+                    v78[6] = v9;
+                    WdLogEvent5_WdError(v78);
+                    goto LABEL_263;
+                  }
+                  v79 = v259;
+                  if ( !v259 )
+                  {
+                    v80 = WdLogNewEntry5_WdAssertion(v77, v76);
+                    *(_QWORD *)(v80 + 24) = 6116LL;
+                    WdLogEvent5_WdAssertion(v80);
+                  }
+                  v81 = *(_OWORD *)(a2 + 20);
+                  v271[0] = 0LL;
+                  v275 = v81;
+                  DXGADAPTER_REFERENCE::Assign(v271, v73);
+                  LODWORD(DeviceInterfaces) = MonitorSetAppOverride(
+                                                (DXGADAPTER_REFERENCE *)v271,
+                                                v79,
+                                                *(_QWORD *)(a2 + 40));
+                  MonitorReleaseMonitorHandle(v73, v79, &DxgkDisplayConfigDeviceInfo);
+LABEL_262:
+                  LODWORD(v9) = (_DWORD)DeviceInterfaces;
+                  goto LABEL_263;
+                }
+                goto LABEL_46;
+              }
+LABEL_97:
+              LODWORD(DeviceInterfaces) = -1073741811;
+              goto LABEL_262;
+            }
+            Global = DXGGLOBAL::GetGlobal(4294967274LL, v7);
+            v7 = *(unsigned int *)(a2 + 16);
+            if ( !*((_BYTE *)Global + 304664) )
+            {
+              *(_QWORD *)(a2 + 20) = *(_QWORD *)(a2 + 8);
+              *(_DWORD *)(a2 + 28) = v7;
+              goto LABEL_262;
+            }
+            v263 = *(_QWORD *)(a2 + 8);
+            v264 = v7;
+            v253 = 0LL;
+            v254 = 0;
+            LODWORD(DeviceInterfaces) = REMOTEMONITORMAPPING::FindMappingFromGuestId(
+                                          (struct DXGGLOBAL *)((char *)Global + 304616),
+                                          (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER *)&v263,
+                                          (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER *)&v253);
+            if ( (int)DeviceInterfaces < 0 )
+              goto LABEL_262;
+            *(_QWORD *)(a2 + 20) = v253;
+            v83 = v254;
+LABEL_86:
+            *(_DWORD *)(a2 + 28) = v83;
+            goto LABEL_262;
+          }
+          goto LABEL_120;
+        }
+LABEL_186:
+        v132 = *(struct _LUID *)(a2 + 8);
+        v167 = (struct _DEVICE_OBJECT *)*(unsigned int *)(a2 + 16);
+        v257 = v132;
+        DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, &v257);
+        v172 = v244[0];
+        if ( !v244[0] )
+        {
+          v105 = WdLogNewEntry5_WdTrace(v169, v168, v170, v171);
+          HighPart = v257.HighPart;
+          goto LABEL_188;
+        }
+        v236 = 0;
+        v173 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v236, 0);
+        v9 = (struct _DEVICE_OBJECT *)v173;
+        if ( v173 < 0 )
+        {
+          v176 = WdLogNewEntry5_WdError(v175, v174);
+          *(_QWORD *)(v176 + 24) = v9;
+          WdLogEvent5_WdError(v176);
+LABEL_202:
+          v71 = (DXGSESSIONMODECHANGELOCK *)&v236;
+          goto LABEL_203;
+        }
+        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v282, v172, 0LL);
+        if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v282, 0LL) < 0 )
+        {
+          v180 = (_QWORD *)WdLogNewEntry5_WdError(v178, v177);
+          v180[3] = v172;
+          v180[4] = *((int *)v172 + 80);
+          v180[5] = *((unsigned int *)v172 + 79);
+          WdLogEvent5_WdError(v180);
+          LODWORD(v9) = -1073741811;
+LABEL_201:
+          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v282, v181);
+          goto LABEL_202;
+        }
+        if ( !*((_QWORD *)v172 + 337) )
+        {
+          v182 = (_QWORD *)WdLogNewEntry5_WdWarning(v178, v177, v179);
+          v182[3] = v172;
+          v182[4] = *((int *)v172 + 80);
+          v182[5] = *((unsigned int *)v172 + 79);
+          WdLogEvent5_WdWarning(v182);
+          LODWORD(v9) = -1073741637;
+          goto LABEL_201;
+        }
+        v241[0] = 0;
+        v9 = v167;
+        if ( (unsigned int)CheckGivenTargetIsPartOfCloneGroup(v172, (unsigned int)v167, v241) == -1073741275 )
+        {
+          v186 = (_QWORD *)WdLogNewEntry5_WdWarning(v184, v183, v185);
+          v186[3] = *((int *)v172 + 80);
+          v186[4] = *((unsigned int *)v172 + 79);
+          v186[5] = v167;
+          v186[6] = -1073741275LL;
+          WdLogEvent5_WdWarning(v186);
+          v232 = 0;
         }
         else
         {
-          BYTE1(v146[0]) = 0;
-          COREACCESS::COREACCESS((COREACCESS *)&v146[1], v14);
-          COREACCESS::COREACCESS((COREACCESS *)&v146[9], v24);
-          if ( *(_DWORD *)a2 == 10 || *(_DWORD *)a2 == -18 )
-            v25 = COREADAPTERACCESS::AcquireExclusive((__int64)v146);
-          else
-            v25 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v146, 0LL);
-          if ( v25 < 0 )
+          v232 = v241[0];
+        }
+        v245 = 0LL;
+        v187 = MonitorGetMonitorHandle((__int64)v172, (unsigned int)v167, 0LL, &DxgkDisplayConfigDeviceInfo, &v245);
+        v190 = v187;
+        if ( v187 < 0 )
+        {
+          v191 = (_QWORD *)WdLogNewEntry5_WdError(v189, v188);
+          v191[3] = *((int *)v172 + 80);
+          v191[4] = *((unsigned int *)v172 + 79);
+          v191[5] = v9;
+          v191[6] = v190;
+          WdLogEvent5_WdError(v191);
+          LODWORD(v9) = v190;
+          goto LABEL_201;
+        }
+        v192 = v245;
+        if ( !v245 )
+        {
+          v193 = WdLogNewEntry5_WdAssertion(v189, v188);
+          *(_QWORD *)(v193 + 24) = 5837LL;
+          WdLogEvent5_WdAssertion(v193);
+        }
+        v242 = 0;
+        IsMonitorAndLinkHDRCapable = MonitorIsMonitorAndLinkHDRCapable(v192, &v242);
+        DeviceInterfaces = (struct DXGADAPTER *)IsMonitorAndLinkHDRCapable;
+        if ( IsMonitorAndLinkHDRCapable >= 0 )
+        {
+          v235 = 0;
+          IsMonitorAndDriverWCGCapable = MonitorIsMonitorAndDriverWCGCapable(v245);
+          DeviceInterfaces = (struct DXGADAPTER *)IsMonitorAndDriverWCGCapable;
+          if ( IsMonitorAndDriverWCGCapable >= 0 )
           {
-            WdLogSingleEntry3(2LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Could not acquire adapter core access; adapter probably suspended. (pAdapter = 0x%I64x, pAdapter-"
-                        ">GetLuid() = <0x%I64x, 0x%I64x>)",
-              (__int64)v14,
-              *((int *)v14 + 102),
-              *((unsigned int *)v14 + 101),
-              0LL,
-              0LL);
-            LODWORD(v8) = -1073741811;
-          }
-          else if ( *((_QWORD *)v14 + 349) )
-          {
-            v132[2] = 0;
-            v26 = CheckGivenTargetIsPartOfCloneGroup(v14, (unsigned int)v19, (unsigned __int8 *)&v132[2]);
-            LODWORD(DeviceInterfaces) = -1073741275;
-            v135[0] = v19;
-            if ( v26 == -1073741275 )
+            v246.Value = 0;
+            v252 = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709;
+            v233 = 0;
+            v199 = IsCurrentModeAdvancedColor(v172, (unsigned int)v9, &v246, &v252, &v233);
+            DeviceInterfaces = (struct DXGADAPTER *)v199;
+            if ( v199 >= 0 )
             {
-              WdLogSingleEntry4(3LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v19, -1073741275LL);
-              v133 = 0;
-            }
-            else
-            {
-              v133 = v132[2];
-            }
-            v138[0] = 0LL;
-            MonitorHandle = MonitorGetMonitorHandle(
-                              (__int64)v14,
-                              (unsigned int)v19,
-                              0,
-                              &DxgkDisplayConfigDeviceInfo,
-                              (DXGMONITOR **)v138);
-            v8 = MonitorHandle;
-            if ( MonitorHandle >= 0 )
-            {
-              v28 = v138[0];
-              if ( v138[0] )
+              if ( v232 && v233 )
               {
-                v134[0].Value = 0;
-                MONITOR_MGR::AcquireMonitorShared(SymbolicLinkList, *(_QWORD *)v138);
-                v29 = SymbolicLinkList[0];
-                if ( SymbolicLinkList[0] )
+                v200 = WdLogNewEntry5_WdAssertion(v196, v195);
+                *(_QWORD *)(v200 + 24) = 5888LL;
+                WdLogEvent5_WdAssertion(v200);
+              }
+              v201 = *(_DWORD *)a2;
+              if ( *(_DWORD *)a2 == 9 )
+              {
+                if ( !a1 )
                 {
-                  *(_QWORD *)&DestinationString.Length = 0LL;
-                  LODWORD(DestinationString.Buffer) = 0;
-                  LinkInfo = (unsigned int)DXGMONITOR::_GetLinkInfo(
-                                             (DXGMONITOR *)SymbolicLinkList[0],
-                                             (struct _DXGK_MONITORLINKINFO *)&DestinationString);
-                  v137[0] = LinkInfo;
-                  if ( LinkInfo == -1073741275 )
+                  v202 = WdLogNewEntry5_WdAssertion(v196, v195);
+                  *(_QWORD *)(v202 + 24) = 5898LL;
+                  WdLogEvent5_WdAssertion(v202);
+                }
+                v241[1] = 0;
+                WideColorModeEnforced = MonitorGetWideColorModeEnforced(v245, &v241[1]);
+                DeviceInterfaces = (struct DXGADAPTER *)WideColorModeEnforced;
+                if ( WideColorModeEnforced >= 0 )
+                {
+                  if ( (v242 & 1) == 0 && !v235 || v232 )
+                    v6 = 0;
+                  v204.0 = v246.0;
+                  *(_DWORD *)(a2 + 20) = (v241[1] != 0 ? 4 : 0) | (v233 ? 2 : 0) | v6 & 0xFFFFFFF9 | *(_DWORD *)(a2 + 20) & 0xFFFFFFF8;
+                  ColorDepthFromPickedWireFormat = GetColorDepthFromPickedWireFormat(v204);
+                  Value = v246.Value;
+                  *(_DWORD *)(a2 + 28) = ColorDepthFromPickedWireFormat;
+                  *(_DWORD *)(a2 + 24) = ConvertDmmToDisplayConfigColorEncoding(Value);
+                  *(_DWORD *)(a2 + 20) = *(_DWORD *)(a2 + 20) & 0xFFFFFFF7 | (*((_BYTE *)DXGGLOBAL::GetGlobal(
+                                                                                           v208,
+                                                                                           v207)
+                                                                              + 304564) == 0
+                                                                            ? 8
+                                                                            : 0);
+                  goto LABEL_259;
+                }
+              }
+              else
+              {
+                if ( v201 != 10 )
+                {
+                  if ( v201 == 11 )
                   {
-                    RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)SymbolicLinkList);
-LABEL_34:
-                    v132[2] = 0;
-                    v31 = ((__int64 (__fastcall *)(_QWORD, _QWORD))MonitorIsMonitorAndDriverWCGCapable)(v28, &v132[2]);
-                    LODWORD(DeviceInterfaces) = v31;
-                    if ( v31 < 0 )
+                    if ( !a1 )
                     {
-                      v19 = v135[0];
-                      v97 = v31;
-                      WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v31);
-                      v98 = L"MonitorIsMonitorAndDriverWCGCapable() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).";
+                      v211 = WdLogNewEntry5_WdAssertion(v196, v195);
+                      *(_QWORD *)(v211 + 24) = 5974LL;
+                      WdLogEvent5_WdAssertion(v211);
                     }
-                    else
+                    v212 = 1000;
+                    v243 = 1000;
+                    if ( v233 && (v242 & 1) != 0 )
                     {
-                      v134[0].Value = 0;
-                      v137[0] = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709;
-                      v132[3] = 0;
-                      v32 = IsCurrentModeAdvancedColor(v14, v136, v134, v137, &v132[3]);
-                      LODWORD(DeviceInterfaces) = v32;
-                      if ( v32 < 0 )
+                      SDRWhiteLevel = MonitorGetSDRWhiteLevel(v245, &v243);
+                      DeviceInterfaces = (struct DXGADAPTER *)SDRWhiteLevel;
+                      if ( SDRWhiteLevel >= 0 )
                       {
-                        v19 = v135[0];
-                        v97 = v32;
-                        WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v32);
-                        v98 = L"IsCurrentModeAdvancedColor() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).";
+                        v212 = v243;
                       }
                       else
                       {
-                        v34 = v132[3];
-                        if ( v133 && v132[3] )
-                        {
-                          WdLogSingleEntry1(1LL, 6110LL);
-                          DxgkLogInternalTriageEvent(
-                            0LL,
-                            262146,
-                            -1,
-                            (__int64)L"!bCurrentModeAdvancedColor",
-                            6110LL,
-                            0LL,
-                            0LL,
-                            0LL,
-                            0LL);
-                        }
-                        v35 = *(_DWORD *)a2;
-                        if ( *(_DWORD *)a2 == 9 )
-                        {
-                          if ( !v132[1] )
-                          {
-                            WdLogSingleEntry1(1LL, 6120LL);
-                            DxgkLogInternalTriageEvent(
-                              0LL,
-                              262146,
-                              -1,
-                              (__int64)L"i_bGetDeviceInfo",
-                              6120LL,
-                              0LL,
-                              0LL,
-                              0LL,
-                              0LL);
-                          }
-                          v132[3] = 0;
-                          v36 = ((__int64 (__fastcall *)(_QWORD, _QWORD))MonitorGetIsAutoColorManagementSupported)(
-                                  v28,
-                                  &v132[3]);
-                          LODWORD(DeviceInterfaces) = v36;
-                          if ( v36 < 0 )
-                          {
-                            v99 = v135[0];
-                            v100 = v36;
-                            WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v36);
-                            DxgkLogInternalTriageEvent(
-                              0LL,
-                              0x40000,
-                              -1,
-                              (__int64)L"MonitorGetIsAutoColorManagementSupported() failed on adapter:0x%I64x%08I64x targe"
-                                        "t:0x%I64x (Status = 0x%I64x).",
-                              *((int *)v14 + 102),
-                              *((unsigned int *)v14 + 101),
-                              (__int64)v99,
-                              v100,
-                              0LL);
-                          }
-                          else
-                          {
-                            if ( (v22 & 1) == 0 && !v132[2] || v133 )
-                              v6 = 0;
-                            v37.0 = (struct _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE::$BC67B894A1A9CCB3D1B7060E96581CDD)v134[0];
-                            *(_DWORD *)(a2 + 20) = (v132[3] ? 4 : 0) | (v34 ? 2 : 0) | v6 & 0xFFFFFFF9 | *(_DWORD *)(a2 + 20) & 0xFFFFFFF8;
-                            ColorDepthFromPickedWireFormat = GetColorDepthFromPickedWireFormat(v37);
-                            Value = v134[0].Value;
-                            *(_DWORD *)(a2 + 28) = ColorDepthFromPickedWireFormat;
-                            *(_DWORD *)(a2 + 24) = ConvertDmmToDisplayConfigColorEncoding(Value);
-                            *(_DWORD *)(a2 + 20) = *(_DWORD *)(a2 + 20) & 0xFFFFFFF7 | (*((_BYTE *)DXGGLOBAL_GetGlobal()
-                                                                                        + 304812) == 0
-                                                                                      ? 8
-                                                                                      : 0);
-                          }
-                          goto LABEL_45;
-                        }
-                        if ( v35 != 10 )
-                        {
-                          if ( v35 == 11 )
-                          {
-                            if ( !v132[1] )
-                            {
-                              WdLogSingleEntry1(1LL, 6196LL);
-                              DxgkLogInternalTriageEvent(
-                                0LL,
-                                262146,
-                                -1,
-                                (__int64)L"i_bGetDeviceInfo",
-                                6196LL,
-                                0LL,
-                                0LL,
-                                0LL,
-                                0LL);
-                            }
-                            v41 = 1000;
-                            v136 = 1000;
-                            if ( v34 && (v22 & 1) != 0 )
-                            {
-                              v102 = ((__int64 (__fastcall *)(_QWORD, _QWORD))MonitorGetSDRWhiteLevel)(v28, &v136);
-                              LODWORD(DeviceInterfaces) = v102;
-                              if ( v102 >= 0 )
-                              {
-                                v41 = v136;
-                              }
-                              else
-                              {
-                                WdLogSingleEntry4(3LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v102);
-                                v41 = 3000;
-                              }
-                            }
-                            *(_DWORD *)(a2 + 20) = v41;
-                            goto LABEL_45;
-                          }
-                          if ( v35 != -18 )
-                            goto LABEL_45;
-                          if ( v132[1] )
-                          {
-                            WdLogSingleEntry1(1LL, 6225LL);
-                            DxgkLogInternalTriageEvent(
-                              0LL,
-                              262146,
-                              -1,
-                              (__int64)L"!i_bGetDeviceInfo",
-                              6225LL,
-                              0LL,
-                              0LL,
-                              0LL,
-                              0LL);
-                          }
-                          if ( (unsigned int)(*(_DWORD *)(a2 + 20) - 1000) > 0x1388 )
-                          {
-                            LODWORD(DeviceInterfaces) = -1073741811;
-                          }
-                          else
-                          {
-                            if ( v34 && (v22 & 1) != 0 )
-                            {
-                              v103 = ((__int64 (__fastcall *)(_QWORD))MonitorSetSDRWhiteLevel)(v28);
-                              DeviceInterfaces = v103;
-                              if ( v103 < 0 )
-                              {
-                                v104 = v135[0];
-                                WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v103);
-                                DxgkLogInternalTriageEvent(
-                                  0LL,
-                                  0x40000,
-                                  -1,
-                                  (__int64)L"MonitorSetSDRWhiteLevel() failed on adapter:0x%I64x%08I64x target:0x%I64x (St"
-                                            "atus = 0x%I64x).",
-                                  *((int *)v14 + 102),
-                                  *((unsigned int *)v14 + 101),
-                                  (__int64)v104,
-                                  DeviceInterfaces,
-                                  0LL);
-                                goto LABEL_270;
-                              }
-                              if ( v103 )
-                              {
-                                if ( v103 == 255 )
-                                  LODWORD(DeviceInterfaces) = 0;
-                                goto LABEL_270;
-                              }
-                              if ( *(_BYTE *)(a2 + 24) )
-                              {
-                                TriggerSDRWhiteLevelChangedWnf();
-                                SymbolicLinkList[0] = 0LL;
-                                memset(v145, 0, sizeof(v145));
-                                LODWORD(v145[0]) = 13;
-                                DXGADAPTER::IsAdapterSessionized(v14, v105, 0LL, (unsigned __int64 *)SymbolicLinkList);
-                                SMgrGdiCallout(v145, SymbolicLinkList[0], v106, 0LL, 0LL, 0LL);
-                                goto LABEL_270;
-                              }
-LABEL_45:
-                              MonitorReleaseMonitorHandle((__int64)v14, *(_QWORD *)v138, &DxgkDisplayConfigDeviceInfo);
-                              COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-                              v40 = !v132[0];
-                              goto LABEL_46;
-                            }
-                            LODWORD(DeviceInterfaces) = -1073741637;
-                          }
-LABEL_270:
-                          if ( *(_BYTE *)(a2 + 24) )
-                            DxgkNotifyDisplayChange(0LL);
-                          goto LABEL_45;
-                        }
-                        if ( v132[1] )
-                        {
-                          WdLogSingleEntry1(1LL, 6150LL);
-                          DxgkLogInternalTriageEvent(
-                            0LL,
-                            262146,
-                            -1,
-                            (__int64)L"!i_bGetDeviceInfo",
-                            6150LL,
-                            0LL,
-                            0LL,
-                            0LL,
-                            0LL);
-                        }
-                        if ( (v22 & 1) == 0 && !v132[2] || v133 )
-                        {
-                          LODWORD(DeviceInterfaces) = -1073741637;
-                          goto LABEL_45;
-                        }
-                        LOBYTE(v33) = *(_BYTE *)(a2 + 20) & 1;
-                        v101 = ((__int64 (__fastcall *)(_QWORD, _QWORD))MonitorEnableDisableAdvancedColor)(v28, v33);
-                        LODWORD(DeviceInterfaces) = v101;
-                        if ( v101 >= 0 )
-                        {
-                          if ( v101 == 255 && (*(_BYTE *)(a2 + 20) & 1) != v34 )
-                            LODWORD(DeviceInterfaces) = 0;
-                          goto LABEL_45;
-                        }
-                        v19 = v135[0];
-                        v97 = v101;
-                        WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v135[0], v101);
-                        v98 = L"MonitorEnableDisableAdvancedColor() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).";
+                        v217 = (_QWORD *)WdLogNewEntry5_WdWarning(v215, v214, v216);
+                        v217[3] = *((int *)v172 + 80);
+                        v217[4] = *((unsigned int *)v172 + 79);
+                        v217[5] = v9;
+                        v217[6] = DeviceInterfaces;
+                        WdLogEvent5_WdWarning(v217);
+                        v212 = 3000;
                       }
                     }
-LABEL_228:
-                    DxgkLogInternalTriageEvent(
-                      0LL,
-                      0x40000,
-                      -1,
-                      (__int64)v98,
-                      *((int *)v14 + 102),
-                      *((unsigned int *)v14 + 101),
-                      (__int64)v19,
-                      v97,
-                      0LL);
-                    goto LABEL_45;
+                    *(_DWORD *)(a2 + 20) = v212;
+                    goto LABEL_259;
                   }
-                  if ( LinkInfo >= D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709 )
+                  if ( v201 == -18 )
                   {
-                    DxgMonitor::MonitorColorState::GetMonitorAndLinkHdrCapable(
-                      *((DxgMonitor::MonitorColorState **)v29 + 28),
-                      (const struct _DXGK_MONITORLINKINFO *)&DestinationString,
-                      (union MONITOR_AND_LINK_HDR_CAPS *)v134);
-                    ExReleaseResourceLite((PERESOURCE)(v29 + 12));
-                    KeLeaveCriticalRegion();
-                    v22 = (char)v134[0].0;
-                    goto LABEL_34;
+                    if ( a1 )
+                    {
+                      v218 = WdLogNewEntry5_WdAssertion(v196, v195);
+                      *(_QWORD *)(v218 + 24) = 6003LL;
+                      WdLogEvent5_WdAssertion(v218);
+                    }
+                    if ( (unsigned int)(*(_DWORD *)(a2 + 20) - 1000) > 0x1388 )
+                    {
+                      LODWORD(DeviceInterfaces) = -1073741811;
+                    }
+                    else if ( v233 && (v242 & 1) != 0 )
+                    {
+                      v219 = MonitorSetSDRWhiteLevel(v245);
+                      DeviceInterfaces = (struct DXGADAPTER *)v219;
+                      if ( v219 >= 0 )
+                      {
+                        if ( v219 )
+                        {
+                          if ( v219 == 255 )
+                            LODWORD(DeviceInterfaces) = 0;
+                        }
+                        else
+                        {
+                          if ( !*(_BYTE *)(a2 + 24) )
+                            goto LABEL_259;
+                          TriggerSDRWhiteLevelChangedWnf();
+                          v258 = 0LL;
+                          memset(v276, 0, sizeof(v276));
+                          LODWORD(v276[0]) = 13;
+                          DXGADAPTER::IsAdapterSessionized(v172, v223, 0LL, &v258);
+                          SMgrGdiCallout(
+                            v276,
+                            v258,
+                            v224,
+                            0LL,
+                            v224 & (unsigned __int64)v230,
+                            v224 & (unsigned __int64)v231);
+                        }
+                      }
+                      else
+                      {
+                        v222 = (_QWORD *)WdLogNewEntry5_WdError(v221, v220);
+                        v222[3] = *((int *)v172 + 80);
+                        v222[4] = *((unsigned int *)v172 + 79);
+                        v222[5] = v9;
+                        v222[6] = DeviceInterfaces;
+                        WdLogEvent5_WdError(v222);
+                      }
+                    }
+                    else
+                    {
+                      LODWORD(DeviceInterfaces) = -1073741637;
+                    }
+                    if ( *(_BYTE *)(a2 + 24) )
+                      DxgkNotifyDisplayChange(0LL);
                   }
-                  RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)SymbolicLinkList);
-                  SLODWORD(DeviceInterfaces) = v137[0];
+LABEL_259:
+                  MonitorReleaseMonitorHandle(v172, v245, &DxgkDisplayConfigDeviceInfo);
+                  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v282, v225);
+                  v72 = (DXGSESSIONMODECHANGELOCK *)&v236;
+                  goto LABEL_69;
+                }
+                if ( a1 )
+                {
+                  v209 = WdLogNewEntry5_WdAssertion(v196, v195);
+                  *(_QWORD *)(v209 + 24) = 5928LL;
+                  WdLogEvent5_WdAssertion(v209);
+                }
+                if ( (v242 & 1) == 0 && !v235 || v232 )
+                {
+                  LODWORD(DeviceInterfaces) = -1073741637;
+                  goto LABEL_259;
+                }
+                LOBYTE(v195) = *(_BYTE *)(a2 + 20) & 1;
+                v210 = MonitorEnableDisableAdvancedColor(v245, v195);
+                DeviceInterfaces = (struct DXGADAPTER *)v210;
+                if ( v210 >= 0 )
+                {
+                  if ( v210 == 255 && (*(_BYTE *)(a2 + 20) & 1) != v233 )
+                    LODWORD(DeviceInterfaces) = 0;
+                  goto LABEL_259;
+                }
+              }
+            }
+          }
+        }
+        v197 = (_QWORD *)WdLogNewEntry5_WdError(v196, v195);
+        v197[3] = *((int *)v172 + 80);
+        v197[4] = *((unsigned int *)v172 + 79);
+        v197[5] = v9;
+        v197[6] = DeviceInterfaces;
+        WdLogEvent5_WdError(v197);
+        goto LABEL_259;
+      }
+      TargetBaseType = DxgkCreateLightweightDeviceAndContext((struct _LUID *)(a2 + 8));
+LABEL_261:
+      LODWORD(DeviceInterfaces) = TargetBaseType;
+      goto LABEL_262;
+    }
+    if ( v11 == -19 )
+    {
+      v226 = DXGGLOBAL::GetGlobal(4294967274LL, v7);
+      TargetBaseType = DXGGLOBAL::IterateAdaptersWithCallback(v226, SendColorimetricControlToDriverCallback, a2, 4LL);
+      goto LABEL_261;
+    }
+    if ( v11 == -18 )
+      goto LABEL_186;
+    if ( v11 != -16 )
+    {
+      switch ( v11 )
+      {
+        case 0xFFFFFFF2:
+          v124 = (struct DXGGLOBAL *)((char *)DXGGLOBAL::GetGlobal(4294967274LL, v7) + 1272);
+          DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v272, v124, 0);
+          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v272);
+          v125 = *((_DWORD *)v124 + 15);
+          DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v272);
+          *(_DWORD *)(a2 + 24) = v125;
+          *(_DWORD *)(a2 + 32) = DXGADAPTERSOURCEHASH::GetHashBitMask(v124, v126);
+          *(_DWORD *)(a2 + 28) = DXGADAPTERSOURCEHASH::GetHashBitShift(v124);
+          v127 = *(_DWORD *)(a2 + 36);
+          if ( (v127 & 2) != 0 )
+            goto LABEL_262;
+          v128 = (unsigned int *)(a2 + 20);
+          v129 = (unsigned int *)(a2 + 16);
+          if ( (v127 & 1) != 0 )
+          {
+            LODWORD(DeviceInterfaces) = DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(
+                                          v124,
+                                          *v128,
+                                          (struct _LUID *)(a2 + 8),
+                                          (unsigned int *)(a2 + 16));
+            if ( (int)DeviceInterfaces >= 0 )
+              goto LABEL_262;
+            v89 = (_QWORD *)WdLogNewEntry5_WdError(v130, v7);
+            v90 = *v128;
+LABEL_110:
+            v89[3] = v90;
+LABEL_111:
+            WdLogEvent5_WdError(v89);
+            goto LABEL_262;
+          }
+          LODWORD(DeviceInterfaces) = DXGADAPTERSOURCEHASH::FindHashForAdapterAndSource(
+                                        v124,
+                                        (const struct _LUID *)(a2 + 8),
+                                        *v129,
+                                        (unsigned int *)(a2 + 20));
+          if ( (int)DeviceInterfaces >= 0 )
+            goto LABEL_262;
+          v89 = (_QWORD *)WdLogNewEntry5_WdError(v131, v7);
+          v89[3] = *(int *)(a2 + 12);
+          v89[4] = *(unsigned int *)(a2 + 8);
+          v123 = *v129;
+          break;
+        case 0xFFFFFFF3:
+          v117 = *(_DWORD *)(a2 + 16);
+          v118 = *(struct _LUID *)(a2 + 8);
+          v240[1] = 0;
+          v240[2] = 0;
+          v247 = D3DKMDT_VOT_HD15;
+          v248 = D3DKMDT_VOT_HD15;
+          v249 = 0;
+          LODWORD(DeviceInterfaces) = DxgkIsVirtualizationDisabledForTarget(v118, v117, &v247, &v248, (__int64)&v249);
+          if ( (int)DeviceInterfaces >= 0 )
+          {
+            v121 = (v240[1] != 0) | *(_DWORD *)(a2 + 32) & 0xFFFFFFFE;
+            v122 = -(v240[2] != 0);
+            *(_DWORD *)(a2 + 20) = v247;
+            *(_DWORD *)(a2 + 24) = v248;
+            v83 = v249;
+            v7 = v122 & 2 | v121 & 0xFFFFFFFD;
+            *(_DWORD *)(a2 + 32) = v7;
+            goto LABEL_86;
+          }
+          v89 = (_QWORD *)WdLogNewEntry5_WdError(v120, v119);
+          v89[3] = *(int *)(a2 + 12);
+          v89[4] = *(unsigned int *)(a2 + 8);
+          v123 = *(unsigned int *)(a2 + 16);
+          break;
+        case 0xFFFFFFF4:
+          *(_DWORD *)(a2 + 20) = 0;
+          DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, (struct _LUID *)(a2 + 8));
+          v104 = v244[0];
+          if ( v244[0] )
+          {
+            v269 = v244[0];
+            v270 = 0;
+            DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v268);
+            if ( *((_DWORD *)v104 + 50) != 1 )
+            {
+              v111 = WdLogNewEntry5_WdTrace(v108, v107, v109, v110);
+              LODWORD(v9) = -1073741130;
+              *(struct DXGADAPTER **)(v111 + 24) = v244[0];
+              *(_QWORD *)(v111 + 32) = -1073741130LL;
+              v35 = (DXGADAPTERSTOPRESETLOCKSHARED *)v268;
+              goto LABEL_27;
+            }
+            v112 = v244[0];
+            *(_DWORD *)(a2 + 20) ^= (*(_DWORD *)(a2 + 20) ^ (*((_DWORD *)v244[0] + 510) >> 2)) & 1;
+            v113 = *(_DWORD *)(a2 + 20) ^ (*(_DWORD *)(a2 + 20) ^ (*((_DWORD *)v112 + 510) >> 2)) & 2;
+            *(_DWORD *)(a2 + 20) = v113;
+            v114 = v113 ^ ((unsigned __int8)v113 ^ (unsigned __int8)(*((_DWORD *)v112 + 510) >> 2)) & 4;
+            *(_DWORD *)(a2 + 20) = v114;
+            v115 = v114 ^ ((unsigned __int8)v114 ^ (unsigned __int8)(32 * *((_DWORD *)v112 + 510))) & 0x20;
+            *(_DWORD *)(a2 + 20) = v115;
+            v116 = v115 ^ ((unsigned __int8)v115 ^ (unsigned __int8)(8 * *((_DWORD *)v112 + 510))) & 0x10;
+            v37 = (DXGADAPTERSTOPRESETLOCKSHARED *)v268;
+            *(_DWORD *)(a2 + 20) = v116;
+LABEL_29:
+            DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED(v37);
+            goto LABEL_262;
+          }
+LABEL_136:
+          v105 = WdLogNewEntry5_WdTrace(v93, v92, v94, v95);
+          *(_QWORD *)(v105 + 24) = *(int *)(a2 + 12);
+          LowPart = *(unsigned int *)(a2 + 8);
+LABEL_189:
+          *(_QWORD *)(v105 + 32) = LowPart;
+          LODWORD(v9) = -1073741811;
+          goto LABEL_263;
+        case 0xFFFFFFF6:
+LABEL_120:
+          DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, (struct _LUID *)(a2 + 8));
+          v9 = (struct _DEVICE_OBJECT *)v244[0];
+          if ( v244[0] )
+          {
+            COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v280, v244[0], 0LL);
+            if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v280, 0LL) < 0 )
+              goto LABEL_122;
+            if ( (HIDWORD(v9[1].DriverObject) & 0x100) == 0 )
+            {
+              v101 = (_QWORD *)WdLogNewEntry5_WdWarning(v97, v96, v98);
+              v101[3] = v9;
+              v101[4] = SLODWORD(v9->Reserved);
+              v101[5] = HIDWORD(v9->DeviceObjectExtension);
+              WdLogEvent5_WdWarning(v101);
+              LODWORD(v9) = -1073741637;
+LABEL_134:
+              COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v280, v100);
+              goto LABEL_263;
+            }
+            if ( *(_DWORD *)a2 == -10 )
+            {
+              if ( (int)ADAPTER_DISPLAY::DodGetRenderAdapter(
+                          (ADAPTER_DISPLAY *)v9[8].DriverObject,
+                          *(_DWORD *)(a2 + 16),
+                          (struct _LUID *)(a2 + 20)) < 0 )
+                goto LABEL_122;
+            }
+            else
+            {
+              if ( *(_DWORD *)a2 != 100 )
+              {
+                v103 = WdLogNewEntry5_WdAssertion(v97, v96);
+                *(_QWORD *)(v103 + 24) = 5424LL;
+                WdLogEvent5_WdAssertion(v103);
+                goto LABEL_133;
+              }
+              v102 = *(_DWORD *)(a2 + 16);
+              v274 = 0LL;
+              v273 = 0LL;
+              if ( (int)DXGADAPTER::GetVirtualMonitorInfo(
+                          (DXGADAPTER *)v9,
+                          v102,
+                          (struct _DXGK_IDD_VIRTUAL_MONITOR_INFO *)&v273) < 0 )
+              {
+LABEL_122:
+                v99 = (_QWORD *)WdLogNewEntry5_WdWarning(v97, v96, v98);
+                v99[3] = v9;
+                v99[4] = SLODWORD(v9->Reserved);
+                v99[5] = HIDWORD(v9->DeviceObjectExtension);
+                WdLogEvent5_WdWarning(v99);
+LABEL_133:
+                LODWORD(v9) = -1073741811;
+                goto LABEL_134;
+              }
+              *(_DWORD *)(a2 + 20) = DWORD1(v273);
+            }
+            COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v280, v96);
+            goto LABEL_262;
+          }
+          goto LABEL_136;
+        case 0xFFFFFFFA:
+          if ( a1 )
+          {
+            v87 = WdLogNewEntry5_WdAssertion(4294967274LL, v7);
+            *(_QWORD *)(v87 + 24) = 5327LL;
+            WdLogEvent5_WdAssertion(v87);
+          }
+          if ( g_OSTestSigningEnabled && !*(_DWORD *)(a2 + 20) )
+          {
+            *((_DWORD *)DXGGLOBAL::GetGlobal(v12, v7) + 310) = 0;
+            goto LABEL_262;
+          }
+          v88 = *(unsigned int *)(a2 + 20);
+          if ( (unsigned int)(v88 - 1) <= 3 )
+          {
+            v91 = (unsigned int)(v88 - 1);
+            if ( (_DWORD)v91 )
+            {
+              v91 = (unsigned int)(v91 - 1);
+              if ( (_DWORD)v91 )
+              {
+                v91 = (unsigned int)(v91 - 1);
+                if ( (_DWORD)v91 )
+                {
+                  if ( (_DWORD)v91 == 1 )
+                    v6 = 4;
                 }
                 else
                 {
-                  WdLogSingleEntry1(2LL, -1073741275LL);
-                  RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)SymbolicLinkList);
+                  v6 = 3;
                 }
-                v19 = v135[0];
               }
               else
               {
-                WdLogSingleEntry1(1LL, 6059LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"MonitorHandle != NULL",
-                  6059LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-                LODWORD(DeviceInterfaces) = -1073741811;
+                v6 = 2;
               }
-              v97 = (int)DeviceInterfaces;
-              WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v19, (int)DeviceInterfaces);
-              v98 = L"MonitorIsMonitorAndLinkHDRCapable() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).";
-              goto LABEL_228;
             }
-            WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v19, MonitorHandle);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"MonitorGetMonitorHandle() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).",
-              *((int *)v14 + 102),
-              *((unsigned int *)v14 + 101),
-              (__int64)v19,
-              v8,
-              0LL);
+            *((_DWORD *)DXGGLOBAL::GetGlobal(v91, v7) + 310) = v6;
+            goto LABEL_262;
           }
-          else
-          {
-            WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-            LODWORD(v8) = -1073741637;
-          }
-          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-        }
-        v67 = !v132[0];
-        goto LABEL_131;
-      }
-      switch ( v9 )
-      {
-        case 2u:
+          LODWORD(DeviceInterfaces) = -1073741811;
+          v89 = (_QWORD *)WdLogNewEntry5_WdError(v88, v7);
+          v90 = *(int *)(a2 + 20);
+          v89[4] = -1073741811LL;
+          goto LABEL_110;
+        case 0xFFFFFFFB:
           if ( !a1 )
           {
-            WdLogSingleEntry1(1LL, 5244LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_bGetDeviceInfo", 5244LL, 0LL, 0LL, 0LL, 0LL);
+            v84 = WdLogNewEntry5_WdAssertion(4294967274LL, v7);
+            *(_QWORD *)(v84 + 24) = 5317LL;
+            WdLogEvent5_WdAssertion(v84);
           }
-          TargetBaseType = DisplayConfigFillTargetDeviceInfo((struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
-          goto LABEL_64;
-        case 3u:
-          if ( !a1 )
-          {
-            WdLogSingleEntry1(1LL, 5174LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_bGetDeviceInfo", 5174LL, 0LL, 0LL, 0LL, 0LL);
-          }
-          memset(v146, 0, sizeof(v146));
-          v59 = 0;
-          LODWORD(DeviceInterfaces) = -1071774970;
-          do
-          {
-            if ( v59 >= 0x10 )
-              break;
-            if ( v146[38] )
-            {
-              WdLogSingleEntry1(1LL, 5186LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"PathForTarget.Descriptors[0].pDevMode == NULL",
-                5186LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-            memset(v146, 0, sizeof(v146));
-            v60 = *(_DWORD *)(a2 + 16);
-            v132[1] = 0;
-            v132[2] = 0;
-            v132[0] = 0;
-            LODWORD(DeviceInterfaces) = DxgkIsVirtualizationDisabledForTarget(
-                                          *(struct _LUID *)(a2 + 8),
-                                          v60,
-                                          (__int64)v132,
-                                          (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)&v146[18],
-                                          (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)&v146[18] + 1,
-                                          (__int64)&v146[33] + 4);
-            if ( (int)DeviceInterfaces >= 0 )
-            {
-              v146[9] = *(_QWORD *)(a2 + 8);
-              HIDWORD(v146[10]) = *(_DWORD *)(a2 + 16);
-              HIDWORD(v146[2]) = 65537;
-              LODWORD(v146[10]) = v59;
-              LODWORD(v146[30]) = -13434880;
-              BYTE1(v146[23]) = (!v132[0] ? 4 : 0) | (!v132[2] ? 2 : 0) | !v132[1];
-              v146[7] = 0xCF00000000000LL;
-              LODWORD(DeviceInterfaces) = BmlGetPathModalityForAdapter(v146, a2 + 8, 0LL, 1LL, 0);
-              if ( (int)DeviceInterfaces >= 0 )
-              {
-                DMMVideoSignalInfoToDisplayConfigVideoSignalInfo(&v146[11], a2 + 32);
-                *(_QWORD *)(a2 + 20) = *(_QWORD *)(a2 + 56);
-              }
-              BmlFreePathsModality((struct D3DKMT_GETPATHSMODALITY *)v146);
-              ++v59;
-            }
-          }
-          while ( (_DWORD)DeviceInterfaces == -1071774970 );
-          goto LABEL_10;
-        case 6u:
-          if ( !a1 )
-          {
-            WdLogSingleEntry1(1LL, 5254LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_bGetDeviceInfo", 5254LL, 0LL, 0LL, 0LL, 0LL);
-          }
-          TargetBaseType = DisplayConfigGetTargetBaseType((struct DISPLAYCONFIG_TARGET_BASE_TYPE *)a2);
-          goto LABEL_64;
-        case 4u:
-          DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-          v14 = v135[0];
-          if ( !v135[0] )
-          {
-            WdLogSingleEntry3(3LL, *(unsigned int *)(a2 + 8), *(int *)(a2 + 12), -1073741811LL);
-            goto LABEL_12;
-          }
-          DestinationString.Buffer = (wchar_t *)v135[0];
-          LOBYTE(v140) = 0;
-          DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)&DestinationString);
-          if ( *((_DWORD *)v14 + 50) == 1 )
-          {
-            v14 = v135[0];
-            v50 = (struct _DEVICE_OBJECT *)*((_QWORD *)v135[0] + 27);
-            if ( v50 )
-            {
-              DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v50);
-              SymbolicLinkList[0] = 0LL;
-              v52 = DeviceAttachmentBaseRef;
-              DeviceInterfaces = IoGetDeviceInterfaces(
-                                   &GUID_DEVINTERFACE_DISPLAY_ADAPTER,
-                                   DeviceAttachmentBaseRef,
-                                   0,
-                                   SymbolicLinkList);
-              ObfDereferenceObject(v52);
-              if ( (int)DeviceInterfaces < 0 )
-              {
-                WdLogSingleEntry2(3LL, v52, DeviceInterfaces);
-              }
-              else
-              {
-                wcsncpy_s((wchar_t *)(a2 + 20), 0x80uLL, SymbolicLinkList[0], 0xFFFFFFFFFFFFFFFFuLL);
-                v53 = SymbolicLinkList[0];
-                *(_WORD *)(a2 + 22) = 92;
-                ExFreePoolWithTag(v53, 0);
-              }
-            }
-            else
-            {
-              WdLogSingleEntry1(2LL, v135[0]);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"Adapter 0x%I64x had no FDO",
-                (__int64)v14,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-              LODWORD(DeviceInterfaces) = -1073741275;
-            }
-          }
-          else
-          {
-            v14 = v135[0];
-            WdLogSingleEntry2(3LL, v135[0], -1073741130LL);
-            LODWORD(DeviceInterfaces) = -1073741130;
-          }
-          goto LABEL_58;
+          v85 = DXGGLOBAL::GetGlobal(v12, v7);
+          v86 = D3DKMDT_VPPR_GET_CONTENT_ROTATION(*((_DWORD *)v85 + 310));
+          if ( (unsigned int)(v86 - 1) <= 3 )
+            v6 = v86;
+          *(_DWORD *)(a2 + 20) = v6;
+          goto LABEL_262;
+        default:
+          goto LABEL_97;
       }
-      if ( v9 - 7 > 1 )
-        goto LABEL_310;
-      DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-      v14 = v135[0];
-      if ( !v135[0] )
-        goto LABEL_295;
-      v132[1] = 0;
-      v61 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v132[1], 0);
-      v8 = v61;
-      if ( v61 < 0 )
-        goto LABEL_102;
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v146, v14, 0LL);
-      if ( *(_DWORD *)a2 == 7 )
-        v62 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v146, 0LL);
-      else
-        v62 = COREADAPTERACCESS::AcquireExclusive((__int64)v146);
-      if ( v62 < 0 )
-      {
-        WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-        LODWORD(v8) = -1073741811;
-LABEL_126:
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-        goto LABEL_127;
-      }
-      v63 = *((_QWORD *)v14 + 349);
-      if ( !v63 || !*(_BYTE *)(v63 + 290) )
-      {
-        WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-        LODWORD(v8) = -1073741637;
-        goto LABEL_126;
-      }
-      if ( *(_DWORD *)a2 == 7 )
-      {
-        v132[0] = 0;
-        if ( !a1 )
-        {
-          WdLogSingleEntry1(1LL, 5340LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_bGetDeviceInfo", 5340LL, 0LL, 0LL, 0LL, 0LL);
-        }
-        v64 = *(unsigned int *)(a2 + 16);
-        *(_DWORD *)(a2 + 20) = 0;
-        LODWORD(DeviceInterfaces) = MonitorIsMonitorVirtualModeDisabled(v14, v64, v132);
-        if ( (int)DeviceInterfaces >= 0 )
-          *(_DWORD *)(a2 + 20) = v132[0] | *(_DWORD *)(a2 + 20) & 0xFFFFFFFE;
-      }
-      else
-      {
-        if ( a1 || *(_DWORD *)a2 != 8 )
-        {
-          WdLogSingleEntry1(1LL, 5357LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(!i_bGetDeviceInfo)&& (io_pRequestPacket->type == DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION)",
-            5357LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        v65 = *(_DWORD *)(a2 + 16);
-        v132[0] = 0;
-        if ( (int)CheckGivenTargetIsPartOfCloneGroup(v14, v65, (unsigned __int8 *)v132) >= 0 && v132[0] )
-        {
-          WdLogSingleEntry3(3LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), *(unsigned int *)(a2 + 16));
-          LODWORD(v8) = -1073741649;
-          goto LABEL_126;
-        }
-        LOBYTE(v66) = *(_BYTE *)(a2 + 20) & 1;
-        LODWORD(DeviceInterfaces) = MonitorDisableMonitorVirtualModeSupport(v14, *(unsigned int *)(a2 + 16), v66, v147);
-      }
-LABEL_123:
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-      v40 = !v132[1];
-      goto LABEL_46;
+      v89[5] = v123;
+      goto LABEL_111;
     }
-    switch ( v9 )
+    v132 = *(struct _LUID *)(a2 + 8);
+    v133 = *(unsigned int *)(a2 + 16);
+    v255 = v132;
+    DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v244, &v255);
+    v138 = v244[0];
+    if ( !v244[0] )
     {
-      case 0xCu:
-        DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-        v14 = v135[0];
-        if ( v135[0] )
-        {
-          v79 = *(unsigned int *)(a2 + 16);
-          v138[0] = 0LL;
-          v80 = MonitorGetMonitorHandle((__int64)v135[0], v79, 0, &DxgkDisplayConfigDeviceInfo, (DXGMONITOR **)v138);
-          v8 = v80;
-          if ( v80 < 0 )
-          {
-            WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), *(unsigned int *)(a2 + 16), v80);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"MonitorGetMonitorHandle() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).",
-              *((int *)v14 + 102),
-              *((unsigned int *)v14 + 101),
-              *(unsigned int *)(a2 + 16),
-              v8,
-              0LL);
-            goto LABEL_12;
-          }
-          v81 = (__int64)v138[0];
-          if ( !*(_QWORD *)v138 )
-          {
-            WdLogSingleEntry1(1LL, 6427LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorHandle != NULL", 6427LL, 0LL, 0LL, 0LL, 0LL);
-          }
-          v132[0] = 0;
-          v132[1] = 0;
-          v132[2] = 0;
-          PseudoSpecializedState = MonitorGetPseudoSpecializedState(v81, &v132[1], &v132[2], v132);
-          DeviceInterfaces = PseudoSpecializedState;
-          if ( PseudoSpecializedState >= 0 )
-          {
-            *(_DWORD *)(a2 + 20) = (v132[1] ? 2 : 0) | (v132[2] ? 4 : 0) | v132[0] | *(_DWORD *)(a2 + 20) & 0xFFFFFFF8;
-          }
-          else
-          {
-            WdLogSingleEntry1(2LL, PseudoSpecializedState);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Failed to call MonitorGetPseudoSpecializedState with status 0x%I64x",
-              DeviceInterfaces,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          MonitorReleaseMonitorHandle((__int64)v14, v81, &DxgkDisplayConfigDeviceInfo);
-          goto LABEL_11;
-        }
-        goto LABEL_295;
-      case 0xDu:
-        goto LABEL_275;
-      case 0x64u:
-        goto LABEL_326;
+      v105 = WdLogNewEntry5_WdTrace(v135, v134, v136, v137);
+      HighPart = v255.HighPart;
+LABEL_188:
+      *(_QWORD *)(v105 + 24) = HighPart;
+      LowPart = v132.LowPart;
+      goto LABEL_189;
     }
-    if ( v9 <= 0xFFFFFFE2 )
-      goto LABEL_310;
-    if ( v9 <= 0xFFFFFFE4 )
+    v234 = 0;
+    v140 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v234, 0);
+    v9 = (struct _DEVICE_OBJECT *)v140;
+    if ( v140 < 0 )
     {
-      if ( *(_DWORD *)(a2 + 4) >= 0x18u )
-      {
-        DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-        v14 = v135[0];
-        if ( !v135[0] )
-          goto LABEL_295;
-        if ( *((_QWORD *)v135[0] + 349) )
-        {
-          if ( *(_DWORD *)a2 == -28 )
-          {
-            v77 = TriggerCabcWnf(*(_BYTE *)(a2 + 20) != 0);
-            DeviceInterfaces = v77;
-            if ( v77 < 0 )
-            {
-              WdLogSingleEntry1(2LL, v77);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"TriggerCabcWnf failed 0x%I64x",
-                DeviceInterfaces,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-          }
-          else
-          {
-            v134[0].Value = 0;
-            v137[0] = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709;
-            v146[2] = L"DisableCABC";
-            v146[0] = 0LL;
-            v146[3] = v134;
-            LODWORD(v146[1]) = 288;
-            v146[5] = v137;
-            LODWORD(v146[4]) = 0x4000000;
-            LODWORD(v146[6]) = 4;
-            v146[7] = 0LL;
-            LODWORD(v146[8]) = 0;
-            memset(&v146[9], 0, 40);
-            RegistryValues = RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", v146, 0LL, 0LL);
-            LODWORD(DeviceInterfaces) = RegistryValues;
-            if ( RegistryValues < 0 )
-              WdLogSingleEntry1(3LL, RegistryValues);
-            *(_BYTE *)(a2 + 20) = v134[0].Value != 0;
-          }
-          goto LABEL_11;
-        }
-        goto LABEL_162;
-      }
+      v143 = WdLogNewEntry5_WdError(v142, v141);
+      *(_QWORD *)(v143 + 24) = v9;
+      WdLogEvent5_WdError(v143);
+LABEL_185:
+      v71 = (DXGSESSIONMODECHANGELOCK *)&v234;
+      goto LABEL_203;
+    }
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v281, v138, 0LL);
+    if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v281, 1LL) < 0 )
+    {
+      v147 = (_QWORD *)WdLogNewEntry5_WdError(v145, v144);
+      v147[3] = v138;
+      v147[4] = *((int *)v138 + 80);
+      v147[5] = *((unsigned int *)v138 + 79);
+      WdLogEvent5_WdError(v147);
+      LODWORD(v9) = -1073741811;
+LABEL_184:
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v281, v144);
+      goto LABEL_185;
+    }
+    if ( !*((_QWORD *)v138 + 337) )
+    {
+      v148 = (_QWORD *)WdLogNewEntry5_WdWarning(v145, v144, v146);
+      v148[3] = v138;
+      v148[4] = *((int *)v138 + 80);
+      v148[5] = *((unsigned int *)v138 + 79);
+      WdLogEvent5_WdWarning(v148);
+LABEL_166:
+      LODWORD(v9) = -1073741637;
+      goto LABEL_184;
+    }
+    if ( *(_DWORD *)(a2 + 64) && (*((int *)v138 + 582) < 9216 || (*((_DWORD *)v138 + 510) & 8) == 0) )
+      goto LABEL_166;
+    v256 = 0LL;
+    LOBYTE(v146) = 1;
+    v149 = MonitorGetMonitorHandle((__int64)v138, (unsigned int)v133, v146, &DxgkDisplayConfigDeviceInfo, &v256);
+    v9 = (struct _DEVICE_OBJECT *)v149;
+    if ( v149 < 0 )
+    {
+      v152 = (_QWORD *)WdLogNewEntry5_WdError(v151, v150);
+      v152[3] = *((int *)v138 + 80);
+      v152[4] = *((unsigned int *)v138 + 79);
+      v152[5] = v133;
+      v152[6] = v9;
+      WdLogEvent5_WdError(v152);
+      goto LABEL_184;
+    }
+    v153 = v256;
+    v250 = 0;
+    MonitorIsMonitorAndLinkHDRCapable(v256, &v250);
+    if ( (v250 & 1) != 0 && *(_DWORD *)(a2 + 64) )
+    {
+      MonitorReleaseMonitorHandle(v138, v153, &DxgkDisplayConfigDeviceInfo);
+      goto LABEL_166;
+    }
+    v240[3] = 0;
+    MonitorGetWideColorModeEnforced(v153, &v240[3]);
+    LOBYTE(v154) = *(_DWORD *)(a2 + 64) != 0;
+    v155 = MonitorSetEnforceWideColorMode(v153, v154);
+    DeviceInterfaces = (struct DXGADAPTER *)v155;
+    if ( v155 < 0 )
+    {
+      v166 = (_QWORD *)WdLogNewEntry5_WdError(v157, v156);
+      v166[3] = *((int *)v138 + 80);
+      v166[4] = *((unsigned int *)v138 + 79);
+      v166[5] = v133;
+      v166[6] = DeviceInterfaces;
+      WdLogEvent5_WdError(v166);
     }
     else
     {
-      if ( v9 > 0xFFFFFFE6 )
-        goto LABEL_310;
-      if ( *(_DWORD *)(a2 + 4) >= 0x18u )
+      v158 = v240[3];
+      if ( !v240[3] || *(_DWORD *)(a2 + 64) || *(_DWORD *)(a2 + 56) )
       {
-        DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-        v14 = v135[0];
-        if ( !v135[0] )
-          goto LABEL_295;
-        if ( *((_QWORD *)v135[0] + 349) )
-        {
-          if ( *(_DWORD *)a2 != -26 )
-          {
-            v132[1] = 0;
-            v71 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v132[1], 0);
-            v8 = v71;
-            if ( v71 < 0 )
-            {
-LABEL_102:
-              WdLogSingleEntry1(3LL, v8);
-LABEL_127:
-              v67 = !v132[1];
-LABEL_131:
-              if ( !v67 )
-                DxgkReleaseSessionModeChangeLock();
-              goto LABEL_12;
-            }
-            COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v146, v14, 0LL);
-            v72 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v146, 0LL);
-            LODWORD(v8) = v72;
-            if ( v72 < 0 )
-            {
-              WdLogSingleEntry4(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v72);
-              goto LABEL_126;
-            }
-            LOBYTE(v73) = *(_BYTE *)(a2 + 20) != 0;
-            LODWORD(DeviceInterfaces) = MonitorEnableBoostRefreshRateEnabledByDefault(
-                                          v14,
-                                          *(unsigned int *)(a2 + 16),
-                                          v73);
-            if ( (_DWORD)DeviceInterfaces == -1073741802 )
-            {
-              v74 = *(_DWORD *)(a2 + 16);
-              v134[0].Value = 0;
-              SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(
-                                                       v14,
-                                                       v74,
-                                                       (unsigned int *)v134);
-              LODWORD(DeviceInterfaces) = SourceConnectedToTargetInClientVidPn;
-              if ( SourceConnectedToTargetInClientVidPn == -1071774884
-                || SourceConnectedToTargetInClientVidPn == -1071774912 )
-              {
-                LODWORD(DeviceInterfaces) = 0;
-              }
-              else if ( SourceConnectedToTargetInClientVidPn >= 0 )
-              {
-                DisplayModeInfo = ADAPTER_DISPLAY::GetDisplayModeInfo(*((ADAPTER_DISPLAY **)v14 + 349), v134[0].Value);
-                if ( *(_BYTE *)(a2 + 20) || *((_DWORD *)DisplayModeInfo + 18) >= 2u )
-                  LODWORD(DeviceInterfaces) = -1073741802;
-              }
-            }
-            goto LABEL_123;
-          }
-          v132[0] = 0;
-          DestinationString.Buffer = (wchar_t *)v135[0];
-          LOBYTE(v140) = 0;
-          DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)&DestinationString);
-          if ( *((_DWORD *)v14 + 50) != 1 )
-            goto LABEL_336;
-          v14 = v135[0];
-          IsBoostRefreshRateEnabledByDefault = MonitorIsBoostRefreshRateEnabledByDefault(
-                                                 v135[0],
-                                                 *(unsigned int *)(a2 + 16),
-                                                 v132);
-          LODWORD(DeviceInterfaces) = IsBoostRefreshRateEnabledByDefault;
-          if ( IsBoostRefreshRateEnabledByDefault == -1073741632 )
-          {
-            LODWORD(DeviceInterfaces) = 0;
-            v69 = 0;
-          }
-          else
-          {
-            if ( IsBoostRefreshRateEnabledByDefault < 0 )
-              goto LABEL_58;
-            v69 = v132[0];
-          }
-          *(_BYTE *)(a2 + 20) = v69;
-LABEL_58:
-          if ( (_BYTE)v140 )
-            DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)&DestinationString);
-          goto LABEL_11;
-        }
-LABEL_162:
-        WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-        LODWORD(v8) = -1073741637;
-        goto LABEL_12;
+        LODWORD(DeviceInterfaces) = MonitorSetAdvancedColorParams(
+                                      (_DWORD)v153,
+                                      (int)a2 + 20,
+                                      (int)a2 + 28,
+                                      (int)a2 + 36,
+                                      a2 + 44,
+                                      *(_DWORD *)(a2 + 52),
+                                      *(_DWORD *)(a2 + 56),
+                                      *(_DWORD *)(a2 + 60));
       }
-    }
-    v70 = WdLogNewEntry5_WdTrace(4294967272LL, v7);
-    LODWORD(v8) = -1073741789;
-    *(_QWORD *)(v70 + 24) = *(unsigned int *)(a2 + 4);
-    *(_QWORD *)(v70 + 32) = -1073741789LL;
-    goto LABEL_98;
-  }
-  if ( v9 <= 0xFFFFFFF2 )
-  {
-    if ( v9 == -14 )
-    {
-      v11 = (struct DXGGLOBAL *)((char *)DXGGLOBAL_GetGlobal() + 1416);
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&DestinationString, v11, 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&DestinationString);
-      v12 = *((_DWORD *)v11 + 17);
-      if ( LOBYTE(DestinationString.Buffer) )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&DestinationString);
-      *(_DWORD *)(a2 + 24) = v12;
-      *(_DWORD *)(a2 + 32) = DXGADAPTERSOURCEHASH::GetHashBitMask(v11);
-      *(_DWORD *)(a2 + 28) = DXGADAPTERSOURCEHASH::GetHashBitShift(v11);
-      v13 = *(_DWORD *)(a2 + 36);
-      if ( (v13 & 2) != 0 )
-        goto LABEL_10;
-      v118 = (unsigned int *)(a2 + 20);
-      v119 = (unsigned int *)(a2 + 16);
-      v120 = (unsigned int *)(a2 + 8);
-      if ( (v13 & 1) != 0 )
+      else
       {
-        LODWORD(DeviceInterfaces) = DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(
-                                      v11,
-                                      *v118,
-                                      (struct _LUID *)(a2 + 8),
-                                      (unsigned int *)(a2 + 16));
-        if ( (int)DeviceInterfaces < 0 )
+        v159 = MonitorSetDefaultAdvancedColorParams(v153);
+        DeviceInterfaces = (struct DXGADAPTER *)v159;
+        if ( v159 < 0 )
         {
-          WdLogSingleEntry1(2LL, *v118);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to find source/adapter from hash 0x%I64x",
-            *v118,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v162 = (_QWORD *)WdLogNewEntry5_WdError(v161, v160);
+          v162[3] = *((int *)v138 + 80);
+          v162[4] = *((unsigned int *)v138 + 79);
+          v162[5] = v133;
+          v162[6] = DeviceInterfaces;
+          WdLogEvent5_WdError(v162);
+LABEL_183:
+          LODWORD(v9) = (_DWORD)DeviceInterfaces;
+          goto LABEL_184;
         }
-        goto LABEL_10;
       }
-      LODWORD(DeviceInterfaces) = DXGADAPTERSOURCEHASH::FindHashForAdapterAndSource(
-                                    v11,
-                                    (const struct _LUID *)(a2 + 8),
-                                    *v119,
-                                    (unsigned int *)(a2 + 20));
-      if ( (int)DeviceInterfaces < 0 )
+      if ( (int)DeviceInterfaces > -1 )
       {
-        WdLogSingleEntry3(2LL, *(int *)(a2 + 12), *v120, *v119);
-        v121 = *v119;
-        v122 = L"Failed to find has for adapter <0x%I64x, 0x%I64x>, source:0x%I64x";
-        v123 = *v120;
-LABEL_339:
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v122, *(int *)(a2 + 12), v123, v121, 0LL, 0LL);
-      }
-LABEL_10:
-      v14 = v135[0];
-LABEL_11:
-      LODWORD(v8) = DeviceInterfaces;
-      goto LABEL_12;
-    }
-    if ( v9 != -23 )
-    {
-      switch ( v9 )
-      {
-        case 0xFFFFFFEA:
-          TargetBaseType = DxgkCreateLightweightDeviceAndContext((struct _LUID *)(a2 + 8));
-          break;
-        case 0xFFFFFFED:
-          v108 = DXGGLOBAL_GetGlobal();
-          TargetBaseType = DXGGLOBAL::IterateAdaptersWithCallback(
-                             (__int64)v108,
-                             (__int64 (__fastcall *)(_QWORD *, __int64))SendColorimetricControlToDriverCallback,
-                             a2,
-                             4LL);
-          break;
-        case 0xFFFFFFEE:
-          goto LABEL_19;
-        case 0xFFFFFFF0:
-          v85 = *(struct _LUID *)(a2 + 8);
-          v86 = *(unsigned int *)(a2 + 16);
-          v138[0] = v85;
-          DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, v138);
-          v14 = v135[0];
-          if ( v135[0] )
-          {
-            v132[1] = 0;
-            v89 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v132[1], 0);
-            DeviceInterfaces = v89;
-            if ( v89 < 0 )
-            {
-              WdLogSingleEntry1(2LL, v89);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"Failed to acquire session mode change shared lock (Status = 0x%I64x)",
-                DeviceInterfaces,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-LABEL_219:
-              v40 = !v132[1];
-LABEL_46:
-              if ( !v40 )
-                DxgkReleaseSessionModeChangeLock();
-              goto LABEL_11;
-            }
-            COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v146, v14, 0LL);
-            if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v146) < 0 )
-            {
-              WdLogSingleEntry3(2LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"Could not acquire adapter core access; adapter probably suspended. (pAdapter = 0x%I64x, pAdapte"
-                          "r->GetLuid() = <0x%I64x, 0x%I64x>)",
-                (__int64)v14,
-                *((int *)v14 + 102),
-                *((unsigned int *)v14 + 101),
-                0LL,
-                0LL);
-LABEL_217:
-              LODWORD(DeviceInterfaces) = v8;
-              goto LABEL_218;
-            }
-            if ( *((_QWORD *)v14 + 349) )
-            {
-              if ( !*(_DWORD *)(a2 + 64) || *((int *)v14 + 606) >= 9216 && (*((_DWORD *)v14 + 534) & 8) != 0 )
-              {
-                v138[0] = 0LL;
-                v90 = MonitorGetMonitorHandle(
-                        (__int64)v14,
-                        (unsigned int)v86,
-                        1u,
-                        &DxgkDisplayConfigDeviceInfo,
-                        (DXGMONITOR **)v138);
-                v8 = v90;
-                if ( v90 < 0 )
-                {
-                  WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v86, v90);
-                  DxgkLogInternalTriageEvent(
-                    0LL,
-                    0x40000,
-                    -1,
-                    (__int64)L"MonitorGetMonitorHandle() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).",
-                    *((int *)v14 + 102),
-                    *((unsigned int *)v14 + 101),
-                    v86,
-                    v8,
-                    0LL);
-                  goto LABEL_217;
-                }
-                v91 = (__int64)v138[0];
-                v134[0].Value = 0;
-                MonitorIsMonitorAndLinkHDRCapable(*(_QWORD *)v138, v134);
-                if ( (*(_BYTE *)&v134[0].0 & 1) == 0 || !*(_DWORD *)(a2 + 64) )
-                {
-                  v132[0] = 0;
-                  MonitorGetIsAutoColorManagementSupported(v91, v132);
-                  v92 = v132[0];
-                  if ( !v132[0] || *(_DWORD *)(a2 + 64) || *(_DWORD *)(a2 + 56) )
-                  {
-                    LODWORD(DeviceInterfaces) = MonitorSetAdvancedColorParams(
-                                                  v91,
-                                                  (int)a2 + 20,
-                                                  (int)a2 + 28,
-                                                  (int)a2 + 36,
-                                                  a2 + 44,
-                                                  *(_DWORD *)(a2 + 52),
-                                                  *(_DWORD *)(a2 + 56),
-                                                  *(_DWORD *)(a2 + 60));
-                  }
-                  else
-                  {
-                    v93 = MonitorSetDefaultAdvancedColorParams(v91);
-                    DeviceInterfaces = v93;
-                    if ( v93 < 0 )
-                    {
-                      WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), v86, v93);
-                      DxgkLogInternalTriageEvent(
-                        0LL,
-                        0x40000,
-                        -1,
-                        (__int64)L"MonitorSetDefaultAdvancedColorParams() failed on adapter:0x%I64x%08I64x target:0x%I64x "
-                                  "(Status = 0x%I64x).",
-                        *((int *)v14 + 102),
-                        *((unsigned int *)v14 + 101),
-                        v86,
-                        DeviceInterfaces,
-                        0LL);
-LABEL_218:
-                      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-                      goto LABEL_219;
-                    }
-                  }
-                  if ( (int)DeviceInterfaces > -1 )
-                  {
-                    MonitorReleaseMonitorHandle((__int64)v14, v91, &DxgkDisplayConfigDeviceInfo);
-                    if ( (_DWORD)DeviceInterfaces != 255 )
-                      LODWORD(DeviceInterfaces) = 255;
-                  }
-                  else
-                  {
-                    WdLogSingleEntry4(
-                      2LL,
-                      *((int *)v14 + 102),
-                      *((unsigned int *)v14 + 101),
-                      v86,
-                      (int)DeviceInterfaces);
-                    DxgkLogInternalTriageEvent(
-                      0LL,
-                      0x40000,
-                      -1,
-                      (__int64)L"MonitorSetAdvancedColorParams() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).",
-                      *((int *)v14 + 102),
-                      *((unsigned int *)v14 + 101),
-                      v86,
-                      (int)DeviceInterfaces,
-                      0LL);
-                    LOBYTE(v94) = v92;
-                    MonitorSetAutoColorManagementSupported(v91, v94);
-                    MonitorReleaseMonitorHandle((__int64)v14, v91, &DxgkDisplayConfigDeviceInfo);
-                  }
-                  goto LABEL_218;
-                }
-                MonitorReleaseMonitorHandle((__int64)v14, v91, &DxgkDisplayConfigDeviceInfo);
-              }
-            }
-            else
-            {
-              WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-            }
-            LODWORD(v8) = -1073741637;
-            goto LABEL_217;
-          }
-          v95 = WdLogNewEntry5_WdTrace(v88, v87);
-          *(_QWORD *)(v95 + 24) = v138[0].HighPart;
-          v96 = v85.LowPart;
-LABEL_296:
-          *(_QWORD *)(v95 + 32) = v96;
-          goto LABEL_12;
-        default:
-LABEL_310:
-          LODWORD(DeviceInterfaces) = -1073741811;
-          goto LABEL_10;
-      }
-LABEL_64:
-      LODWORD(DeviceInterfaces) = TargetBaseType;
-      goto LABEL_10;
-    }
-LABEL_275:
-    if ( IsCurrentProcessAdmin() )
-    {
-      DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-      v14 = v135[0];
-      if ( v135[0] )
-      {
-        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v146, v135[0], 0LL);
-        if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v146) < 0 )
+        MonitorReleaseMonitorHandle(v138, v153, &DxgkDisplayConfigDeviceInfo);
+        if ( *(_DWORD *)(a2 + 64) == v158 )
         {
-          WdLogSingleEntry3(2LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Could not acquire adapter core access; adapter probably suspended. (pAdapter = 0x%I64x, pAdapter->G"
-                      "etLuid() = <0x%I64x, 0x%I64x>)",
-            (__int64)v14,
-            *((int *)v14 + 102),
-            *((unsigned int *)v14 + 101),
-            0LL,
-            0LL);
-LABEL_283:
-          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-          goto LABEL_12;
-        }
-        v109 = *(unsigned int *)(a2 + 16);
-        v138[0] = 0LL;
-        v110 = MonitorGetMonitorHandle((__int64)v14, v109, 0, &DxgkDisplayConfigDeviceInfo, (DXGMONITOR **)v138);
-        DeviceInterfaces = v110;
-        if ( v110 < 0 )
-        {
-          WdLogSingleEntry4(2LL, *((int *)v14 + 102), *((unsigned int *)v14 + 101), *(unsigned int *)(a2 + 16), v110);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"MonitorGetMonitorHandle() failed on adapter:0x%I64x%08I64x target:0x%I64x (Status = 0x%I64x).",
-            *((int *)v14 + 102),
-            *((unsigned int *)v14 + 101),
-            *(unsigned int *)(a2 + 16),
-            DeviceInterfaces,
-            0LL);
-          LODWORD(v8) = DeviceInterfaces;
-          goto LABEL_283;
-        }
-        v111 = (__int64)v138[0];
-        if ( !*(_QWORD *)v138 )
-        {
-          WdLogSingleEntry1(1LL, 6353LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorHandle != NULL", 6353LL, 0LL, 0LL, 0LL, 0LL);
-        }
-        if ( *(_DWORD *)a2 == -23 )
-        {
-          v112 = *(bool **)(a2 + 40);
-          p_DestinationString = &DestinationString;
-          v114 = *(unsigned int *)(a2 + 36);
-          v115 = v138;
-          v131 = 0LL;
-          DestinationString = 0LL;
-          v116 = *(_OWORD *)(a2 + 20);
-          LOBYTE(v130) = 0;
-          v129 = v112;
+          if ( (_DWORD)DeviceInterfaces != 255 )
+            LODWORD(DeviceInterfaces) = 255;
         }
         else
         {
-          if ( *(_DWORD *)a2 != 13 )
-            goto LABEL_294;
-          v138[0] = 0LL;
-          if ( (int)RtlStringCbLengthW((const unsigned __int16 *)(a2 + 56), 0x100uLL, (unsigned __int64 *)v138) < 0
-            || !*(_QWORD *)v138 )
-          {
-            WdLogSingleEntry1(2LL, 6376LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION was called with an invalid app name string.",
-              6376LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            LODWORD(DeviceInterfaces) = -1073741811;
-            goto LABEL_294;
-          }
-          DestinationString = 0LL;
-          RtlInitUnicodeString(&DestinationString, (PCWSTR)(a2 + 56));
-          v117 = *(_DWORD *)(a2 + 20);
-          v116 = *(_OWORD *)(a2 + 40);
-          v131 = &DestinationString;
-          p_DestinationString = v138;
-          LOBYTE(v130) = 1;
-          v115 = SymbolicLinkList;
-          *(_OWORD *)SymbolicLinkList = *(_OWORD *)(a2 + 24);
-          v129 = 0LL;
-          v114 = v117 & 1;
+          LODWORD(DeviceInterfaces) = 259;
         }
-        *(_OWORD *)&v138[0].LowPart = v116;
-        LODWORD(DeviceInterfaces) = MonitorSetAppOverride(v111, v115, p_DestinationString, v114, v129, v130, v131);
-LABEL_294:
-        MonitorReleaseMonitorHandle((__int64)v14, v111, &DxgkDisplayConfigDeviceInfo);
-LABEL_335:
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v146);
-        goto LABEL_11;
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v281, v165);
+        v72 = (DXGSESSIONMODECHANGELOCK *)&v234;
+        goto LABEL_69;
       }
-LABEL_295:
-      v95 = WdLogNewEntry5_WdTrace(v43, v42);
-      *(_QWORD *)(v95 + 24) = *(int *)(a2 + 12);
-      v96 = *(unsigned int *)(a2 + 8);
-      goto LABEL_296;
+      v163 = (_QWORD *)WdLogNewEntry5_WdError(v161, v160);
+      v163[3] = *((int *)v138 + 80);
+      v163[4] = *((unsigned int *)v138 + 79);
+      v163[6] = (int)DeviceInterfaces;
+      v163[5] = v133;
+      WdLogEvent5_WdError(v163);
+      LOBYTE(v164) = v158;
+      MonitorSetEnforceWideColorMode(v153, v164);
     }
-    LODWORD(v8) = -1073741790;
-LABEL_98:
-    v14 = v135[0];
-    goto LABEL_12;
+    MonitorReleaseMonitorHandle(v138, v153, &DxgkDisplayConfigDeviceInfo);
+    goto LABEL_183;
   }
-  if ( v9 != -12 )
-  {
-    if ( v9 == -13 )
-    {
-      v54 = *(_DWORD *)(a2 + 16);
-      v55 = *(struct _LUID *)(a2 + 8);
-      v132[3] = 0;
-      v132[0] = 0;
-      v132[2] = 0;
-      v136 = D3DKMDT_VOT_HD15;
-      v134[0].Value = 0;
-      v137[0] = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709;
-      LODWORD(DeviceInterfaces) = DxgkIsVirtualizationDisabledForTarget(
-                                    v55,
-                                    v54,
-                                    (__int64)&v132[2],
-                                    &v136,
-                                    (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)v134,
-                                    (__int64)v137);
-      if ( (int)DeviceInterfaces < 0 )
-      {
-        WdLogSingleEntry3(2LL, *(int *)(a2 + 12), *(unsigned int *)(a2 + 8), *(unsigned int *)(a2 + 16));
-        v121 = *(unsigned int *)(a2 + 16);
-        v122 = L"Failed DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_INFO_INTERNAL for adapter <0x%I64x, 0x%I64x>, target:0x%I64x";
-        v123 = *(unsigned int *)(a2 + 8);
-        goto LABEL_339;
-      }
-      v56 = (v132[0] ? 2 : 0) | v132[3] | *(_DWORD *)(a2 + 32) & 0xFFFFFFFC;
-      v57 = -v132[2];
-      *(_DWORD *)(a2 + 20) = v136;
-      *(union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE *)(a2 + 24) = v134[0];
-      LowPart = v137[0];
-      *(_DWORD *)(a2 + 32) = v57 & 4 | v56 & 0xFFFFFFFB;
-LABEL_79:
-      *(_DWORD *)(a2 + 28) = LowPart;
-      goto LABEL_10;
-    }
-    if ( v9 != -10 )
-    {
-      if ( v9 == -6 )
-      {
-        if ( a1 )
-        {
-          WdLogSingleEntry1(1LL, 5549LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!i_bGetDeviceInfo", 5549LL, 0LL, 0LL, 0LL, 0LL);
-        }
-        if ( !g_OSTestSigningEnabled || *(_DWORD *)(a2 + 20) )
-        {
-          if ( (unsigned int)(*(_DWORD *)(a2 + 20) - 1) <= 3 )
-          {
-            v126 = DXGGLOBAL_GetGlobal();
-            if ( *(_DWORD *)(a2 + 20) != 1 )
-            {
-              switch ( *(_DWORD *)(a2 + 20) )
-              {
-                case 2:
-                  v6 = 2;
-                  break;
-                case 3:
-                  v6 = 3;
-                  break;
-                case 4:
-                  v6 = 4;
-                  break;
-              }
-            }
-            *((_DWORD *)v126 + 346) = v6;
-          }
-          else
-          {
-            LODWORD(DeviceInterfaces) = -1073741811;
-            WdLogSingleEntry2(2LL, *(int *)(a2 + 20), -1073741811LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Caller specified a wrong rotataion mode 0x%I64x, returning 0x%I64x.",
-              *(int *)(a2 + 20),
-              -1073741811LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-        }
-        else
-        {
-          *((_DWORD *)DXGGLOBAL_GetGlobal() + 346) = 0;
-        }
-        goto LABEL_10;
-      }
-      if ( v9 == -5 )
-      {
-        if ( !a1 )
-        {
-          WdLogSingleEntry1(1LL, 5539LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_bGetDeviceInfo", 5539LL, 0LL, 0LL, 0LL, 0LL);
-        }
-        v124 = DXGGLOBAL_GetGlobal();
-        v125 = D3DKMDT_VPPR_GET_CONTENT_ROTATION(*((_DWORD *)v124 + 346));
-        if ( (unsigned int)(v125 - 1) <= 3 )
-          v6 = v125;
-        *(_DWORD *)(a2 + 20) = v6;
-        goto LABEL_10;
-      }
-      goto LABEL_310;
-    }
-LABEL_326:
-    DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-    v14 = v135[0];
-    if ( v135[0] )
-    {
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v146, v135[0], 0LL);
-      if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v146, 0LL) >= 0 )
-      {
-        if ( (*((_DWORD *)v14 + 109) & 0x100) == 0 )
-        {
-          WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-          LODWORD(v8) = -1073741637;
-          goto LABEL_283;
-        }
-        if ( *(_DWORD *)a2 == -10 )
-        {
-          if ( (int)ADAPTER_DISPLAY::DodGetRenderAdapter(
-                      *((ADAPTER_DISPLAY **)v14 + 349),
-                      *(_DWORD *)(a2 + 16),
-                      (struct _LUID *)(a2 + 20)) >= 0 )
-            goto LABEL_335;
-        }
-        else
-        {
-          if ( *(_DWORD *)a2 != 100 )
-          {
-            WdLogSingleEntry1(1LL, 5646LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"DISPLAYCONFIG_DEVICE_INFO type not handled",
-              5646LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            goto LABEL_283;
-          }
-          v127 = *(_DWORD *)(a2 + 16);
-          v140 = 0LL;
-          DestinationString = 0LL;
-          if ( (int)DXGADAPTER::GetVirtualMonitorInfo(
-                      v14,
-                      v127,
-                      (struct _DXGK_IDD_VIRTUAL_MONITOR_INFO *)&DestinationString) >= 0 )
-          {
-            *(_DWORD *)(a2 + 20) = *(_DWORD *)(&DestinationString.MaximumLength + 1);
-            goto LABEL_335;
-          }
-        }
-      }
-      WdLogSingleEntry3(3LL, v14, *((int *)v14 + 102), *((unsigned int *)v14 + 101));
-      goto LABEL_283;
-    }
-    goto LABEL_295;
-  }
-  *(_DWORD *)(a2 + 20) = 0;
-  DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v135, (struct _LUID *)(a2 + 8));
-  v14 = v135[0];
-  if ( !v135[0] )
-    goto LABEL_295;
-  DestinationString.Buffer = (wchar_t *)v135[0];
-  LOBYTE(v140) = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)&DestinationString);
-  if ( *((_DWORD *)v14 + 50) == 1 )
-  {
-    v14 = v135[0];
-    *(_DWORD *)(a2 + 20) ^= (*(_DWORD *)(a2 + 20) ^ (*((_DWORD *)v135[0] + 534) >> 2)) & 1;
-    v46 = *(_DWORD *)(a2 + 20) ^ ((unsigned __int8)*(_DWORD *)(a2 + 20) ^ (unsigned __int8)(*((_DWORD *)v14 + 534) >> 2)) & 2;
-    *(_DWORD *)(a2 + 20) = v46;
-    v47 = v46 ^ ((unsigned __int8)v46 ^ (unsigned __int8)(*((_DWORD *)v14 + 534) >> 2)) & 4;
-    *(_DWORD *)(a2 + 20) = v47;
-    v48 = v47 ^ ((unsigned __int8)v47 ^ (unsigned __int8)(32 * *((_DWORD *)v14 + 534))) & 0x20;
-    *(_DWORD *)(a2 + 20) = v48;
-    *(_DWORD *)(a2 + 20) = v48 ^ ((unsigned __int8)v48 ^ (unsigned __int8)(8 * *((_DWORD *)v14 + 534))) & 0x10;
-    goto LABEL_58;
-  }
-LABEL_336:
-  v128 = WdLogNewEntry5_WdTrace(v45, v44);
-  LODWORD(v8) = -1073741130;
-  v14 = v135[0];
-  *(struct DXGADAPTER **)(v128 + 24) = v135[0];
-  *(_QWORD *)(v128 + 32) = -1073741130LL;
-  if ( (_BYTE)v140 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)&DestinationString);
-LABEL_12:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v142);
-  if ( v144 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v142);
-  if ( v14 )
-    DXGADAPTER::ReleaseReference(v14);
-  return (unsigned int)v8;
+  v10 = WdLogNewEntry5_WdAssertion(v8, v7);
+  *(_QWORD *)(v10 + 24) = 5027LL;
+  WdLogEvent5_WdAssertion(v10);
+LABEL_263:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v260, v7);
+  if ( v262 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v227, &EventProfilerExit, v228, v260);
+  DXGADAPTER_REFERENCE::~DXGADAPTER_REFERENCE(v244);
+  return (unsigned int)v9;
 }

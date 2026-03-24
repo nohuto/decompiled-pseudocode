@@ -1,11 +1,11 @@
 /*
- * XREFs of cUnicodeRangesSupported @ 0x1C00E7E10
+ * XREFs of cUnicodeRangesSupported @ 0x1C00A49B4
  * Callers:
- *     EngComputeGlyphSet @ 0x1C00E7D30 (EngComputeGlyphSet.c)
+ *     EngComputeGlyphSet @ 0x1C00A48E0 (EngComputeGlyphSet.c)
  * Callees:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
- *     cComputeGlyphSet @ 0x1C00E8038 (cComputeGlyphSet.c)
- *     vSort @ 0x1C00E8188 (vSort.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
+ *     cComputeGlyphSet @ 0x1C00A4BE4 (cComputeGlyphSet.c)
+ *     vSort @ 0x1C00A4D58 (vSort.c)
  */
 
 __int64 __fastcall cUnicodeRangesSupported(unsigned int a1, int a2, unsigned int a3, _WORD *a4, _BYTE *a5)
@@ -50,35 +50,7 @@ __int64 __fastcall cUnicodeRangesSupported(unsigned int a1, int a2, unsigned int
     while ( v11 );
   }
   v12 = 393233;
-  if ( a1 - 932 <= 0x12 && _bittest(&v12, a1 - 932) )
-  {
-    if ( (unsigned int)ConvertToAndFromWideChar(a1, a4, 2LL, v5, 1, 1) == -1 )
-      a1 = 1252;
-    if ( (_DWORD)v6 )
-    {
-      v17 = (_BYTE *)v5;
-      v18 = v7;
-      v19 = v5;
-      v20 = v7;
-      v21 = v6;
-      do
-      {
-        if ( (unsigned int)ConvertToAndFromWideChar(a1, v20, 2LL, v19, 1, 1) == -1 || !*v18 && *v17 )
-          *v18 = -1;
-        ++v19;
-        ++v20;
-        ++v17;
-        ++v18;
-        --v21;
-      }
-      while ( v21 );
-      v5 = (__int64)a5;
-      v7 = v25;
-      v9 = v22;
-      goto LABEL_10;
-    }
-  }
-  else
+  if ( a1 - 932 > 0x12 || !_bittest(&v12, a1 - 932) )
   {
     if ( a1 > 1 )
     {
@@ -96,9 +68,9 @@ __int64 __fastcall cUnicodeRangesSupported(unsigned int a1, int a2, unsigned int
       }
     }
     ConvertToAndFromWideChar((unsigned __int16)a1, v7, (unsigned int)(2 * v6), v5, v6, 1);
+LABEL_10:
     if ( (_DWORD)v6 )
     {
-LABEL_10:
       v13 = (_BYTE *)v5;
       v14 = v6;
       do
@@ -108,7 +80,34 @@ LABEL_10:
       }
       while ( v14 );
     }
+    goto LABEL_13;
   }
+  if ( (unsigned int)ConvertToAndFromWideChar(a1, a4, 2LL, v5, 1, 1) == -1 )
+    a1 = 1252;
+  if ( (_DWORD)v6 )
+  {
+    v17 = (_BYTE *)v5;
+    v18 = v7;
+    v19 = v5;
+    v20 = v7;
+    v21 = v6;
+    do
+    {
+      if ( (unsigned int)ConvertToAndFromWideChar(a1, v20, 2LL, v19, 1, 1) == -1 || !*v18 && *v17 )
+        *v18 = -1;
+      ++v19;
+      ++v20;
+      ++v17;
+      ++v18;
+      --v21;
+    }
+    while ( v21 );
+    v5 = (__int64)a5;
+    v7 = v25;
+    v9 = v22;
+    goto LABEL_10;
+  }
+LABEL_13:
   vSort(v7, v5, (unsigned int)v6);
   return cComputeGlyphSet((_DWORD)v7, v15, v6, 0, 0LL);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of Crashdump_EventRing_PrepareForDump @ 0x1C004E6F0
+ * XREFs of Crashdump_EventRing_PrepareForDump @ 0x1C004BC1C
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004C768 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E8FC (Crashdump_EventRing_UpdateDequeuePointer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004BE28 (Crashdump_EventRing_UpdateDequeuePointer.c)
  */
 
 ULONG __fastcall Crashdump_EventRing_PrepareForDump(__int64 a1)
 {
   __int64 v1; // r8
-  __int64 v3; // rax
-  __int64 v4; // rdx
+  __int64 v3; // rdx
+  __int64 v4; // rax
   _QWORD *v5; // rax
   _QWORD *v6; // rcx
   unsigned int v7; // eax
@@ -25,10 +25,10 @@ ULONG __fastcall Crashdump_EventRing_PrepareForDump(__int64 a1)
   v1 = a1 + 112;
   *(_QWORD *)(a1 + 120) = a1 + 112;
   *(_QWORD *)(a1 + 112) = a1 + 112;
-  v3 = *(_QWORD *)(a1 + 104);
-  v4 = *(_QWORD *)(a1 + 56);
-  *(_QWORD *)(a1 + 72) = v4;
-  *(_QWORD *)(v3 + 16) = v4;
+  v3 = *(_QWORD *)(a1 + 56);
+  v4 = *(_QWORD *)(a1 + 104);
+  *(_QWORD *)(a1 + 72) = v3;
+  *(_QWORD *)(v4 + 16) = v3;
   *(_QWORD *)(*(_QWORD *)(a1 + 104) + 24LL) = *(_QWORD *)(a1 + 48);
   *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40LL) = *(_DWORD *)(a1 + 64);
   v5 = *(_QWORD **)(a1 + 120);

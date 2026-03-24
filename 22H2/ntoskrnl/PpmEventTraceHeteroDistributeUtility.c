@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x14059B880
+ * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x14057A6D4
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x1405973F0 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x140577E80 (PpmHeteroDistributeUtility.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a3)
@@ -41,7 +41,7 @@ char __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a
       v16 = 0;
       UserData.Ptr = a1 + 4;
       v12 = 1;
-      v8 = a1 + 16;
+      v8 = a1 + 8;
       v11 = &v18;
       v14 = &v19;
       v15 = 1;

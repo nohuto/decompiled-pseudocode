@@ -1,164 +1,158 @@
 /*
- * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x140723B90
+ * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x1406552D0
  * Callers:
- *     FsRtlAcquireToCreateMappedSection @ 0x14072387C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlAcquireFileExclusive @ 0x140723950 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x140655004 (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x1406550D0 (FsRtlAcquireFileExclusive.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1D30 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterCtrlInit @ 0x1402A1D70 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1E00 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1E90 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x1402A21A8 (FsFilterCtrlFree.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     FsFilterCtrlFree @ 0x1402D7408 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402D7430 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402D74C0 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x1402D77E0 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402D7870 (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14034C520 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileExclusiveCommon(
         PFILE_OBJECT FileObject,
         unsigned int a2,
         unsigned int a3,
-        unsigned int a4,
-        unsigned int a5,
-        struct _DEVICE_OBJECT *a6)
+        int a4,
+        struct _DEVICE_OBJECT *a5)
 {
-  int v8; // ebx
-  PDEVICE_OBJECT *v9; // rdi
-  char v10; // r15
+  int v7; // ebx
+  PDEVICE_OBJECT *v8; // rsi
+  char v9; // r15
   PDEVICE_OBJECT RelatedDeviceObject; // rbp
-  PDEVICE_OBJECT BaseFileSystemDeviceObject; // rax
-  __int64 v13; // r9
-  PDEVICE_OBJECT DeviceAttachmentBaseRef; // r13
-  struct _DRIVER_OBJECT *DriverObject; // rcx
-  PFAST_IO_DISPATCH FastIoDispatch; // rdx
-  PDRIVER_EXTENSION DriverExtension; // rcx
-  PDRIVER_ADD_DEVICE AddDevice; // r14
+  __int64 v11; // r9
+  struct _DMA_ADAPTER *BaseFileSystemDeviceObject; // r13
+  _DMA_OPERATIONS *DmaOperations; // rax
+  unsigned int (__fastcall *ReadDmaCounter)(_DMA_ADAPTER *); // rcx
+  void (__fastcall *FreeAdapterChannel)(_DMA_ADAPTER *); // rax
+  __int64 v16; // r14
   __int64 result; // rax
-  struct _KTHREAD *v20; // rax
-  int v21; // eax
+  struct _KTHREAD *v18; // rax
+  int v19; // eax
+  int v20; // ecx
   struct _KTHREAD *CurrentThread; // rax
-  char v23; // bp
-  struct _DRIVER_OBJECT *v24; // rax
-  void (__fastcall *AcquireFileForNtCreateSection)(PFILE_OBJECT); // rax
+  char v22; // di
+  _DMA_OPERATIONS *v23; // rax
+  void (__fastcall *v24)(PFILE_OBJECT); // rax
   PVOID FsContext; // rax
-  struct _ERESOURCE *v27; // rcx
-  int v28; // [rsp+30h] [rbp-2B8h] BYREF
-  unsigned int v29; // [rsp+34h] [rbp-2B4h]
-  unsigned int v30; // [rsp+38h] [rbp-2B0h]
-  struct _DEVICE_OBJECT *v31; // [rsp+40h] [rbp-2A8h]
-  struct _FAST_IO_DISPATCH *v32; // [rsp+48h] [rbp-2A0h]
-  PDEVICE_OBJECT v33[72]; // [rsp+50h] [rbp-298h] BYREF
+  struct _ERESOURCE *v26; // rcx
+  int v27; // [rsp+30h] [rbp-2B8h] BYREF
+  unsigned int v28; // [rsp+34h] [rbp-2B4h]
+  int v29; // [rsp+38h] [rbp-2B0h]
+  struct _DEVICE_OBJECT *v30; // [rsp+40h] [rbp-2A8h]
+  unsigned int (__fastcall *v31)(_DMA_ADAPTER *); // [rsp+48h] [rbp-2A0h]
+  PDEVICE_OBJECT v32[72]; // [rsp+50h] [rbp-298h] BYREF
 
-  v29 = a3;
-  v31 = a6;
-  v30 = a4;
-  memset(v33, 0, 0x238uLL);
-  v8 = 0;
-  v9 = v33;
-  v28 = 0;
-  v10 = 0;
+  v28 = a3;
+  v30 = a5;
+  v29 = a4;
+  memset(v32, 0, 0x238uLL);
+  v7 = 0;
+  v8 = v32;
+  v27 = 0;
+  v9 = 0;
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
-  BaseFileSystemDeviceObject = IoGetBaseFileSystemDeviceObject(FileObject);
-  DeviceAttachmentBaseRef = BaseFileSystemDeviceObject;
-  DriverObject = BaseFileSystemDeviceObject->DriverObject;
-  FastIoDispatch = DriverObject->FastIoDispatch;
-  DriverExtension = DriverObject->DriverExtension;
-  v32 = FastIoDispatch;
-  AddDevice = DriverExtension[1].AddDevice;
-  if ( AddDevice
-    && (*(_DWORD *)AddDevice >= 0x10u && *((_QWORD *)AddDevice + 1)
-     || *(_DWORD *)AddDevice >= 0x18u && *((_QWORD *)AddDevice + 2)) )
-  {
-    v10 = 1;
-  }
-  if ( RelatedDeviceObject == BaseFileSystemDeviceObject && !v10 )
+  BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetBaseFileSystemDeviceObject(FileObject);
+  DmaOperations = BaseFileSystemDeviceObject->DmaOperations;
+  ReadDmaCounter = DmaOperations->ReadDmaCounter;
+  FreeAdapterChannel = DmaOperations->FreeAdapterChannel;
+  v31 = ReadDmaCounter;
+  v16 = *((_QWORD *)FreeAdapterChannel + 6);
+  if ( v16 && (*(_DWORD *)v16 >= 0x10u && *(_QWORD *)(v16 + 8) || *(_DWORD *)v16 >= 0x18u && *(_QWORD *)(v16 + 16)) )
+    v9 = 1;
+  if ( RelatedDeviceObject == (PDEVICE_OBJECT)BaseFileSystemDeviceObject && !v9 )
   {
     CurrentThread = KeGetCurrentThread();
-    v9 = 0LL;
+    v8 = 0LL;
     --CurrentThread->KernelApcDisable;
-    goto LABEL_30;
+    goto LABEL_10;
   }
   if ( a2 == 1 )
-    LOBYTE(v8) = 1;
-  result = FsFilterCtrlInit((__int64)v33, 255, (__int64)RelatedDeviceObject, v13, (__int64)FileObject, v8);
+    LOBYTE(v7) = 1;
+  result = FsFilterCtrlInit((__int64)v32, 255, (__int64)RelatedDeviceObject, v11, (__int64)FileObject, v7);
   if ( (int)result >= 0 )
   {
-    v33[4] = v31;
-    v33[5] = (PDEVICE_OBJECT)__PAIR64__(a5, v30);
-    v33[3] = (PDEVICE_OBJECT)__PAIR64__(v29, a2);
-    v20 = KeGetCurrentThread();
-    --v20->KernelApcDisable;
-    v21 = FsFilterPerformCallbacks((__int64)v33, v8, v8, &v28);
-    v8 = v21;
-    if ( v21 < 0 )
+    v32[4] = v30;
+    LODWORD(v32[5]) = v29;
+    v32[3] = (PDEVICE_OBJECT)__PAIR64__(v28, a2);
+    v18 = KeGetCurrentThread();
+    --v18->KernelApcDisable;
+    v19 = FsFilterPerformCallbacks((__int64)v32, v7, v7, &v27);
+    ReadDmaCounter = v31;
+    v7 = v19;
+LABEL_10:
+    if ( v7 >= 0 )
     {
-LABEL_13:
-      if ( v8 == -1073741808 && (v28 & 1) != 0 )
+      if ( v7 )
       {
-        FsContext = FileObject->FsContext;
-        if ( FsContext )
-        {
-          v27 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
-          if ( v27 )
-            ExAcquireResourceExclusiveLite(v27, 1u);
-        }
-        v8 = 0;
-      }
-      if ( v9 )
-      {
-        if ( *((_WORD *)v9 + 37) )
-          FsFilterPerformCompletionCallbacks((__int64)v33, v8);
-        FsFilterCtrlFree((__int64)v33);
-      }
-      if ( v8 < 0 )
-        KeLeaveCriticalRegion();
-      return (unsigned int)v8;
-    }
-    if ( v21 )
-    {
-      v8 = 0;
-      if ( v21 != 294 )
-        v8 = v21;
-      goto LABEL_13;
-    }
-    FileObject = (PFILE_OBJECT)v33[2];
-    if ( ((__int64)v33[8] & 4) != 0 )
-    {
-      DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v33[1]);
-      v23 = 1;
-      v24 = DeviceAttachmentBaseRef->DriverObject;
-      FastIoDispatch = v24->FastIoDispatch;
-      AddDevice = v24->DriverExtension[1].AddDevice;
-      goto LABEL_31;
-    }
-    FastIoDispatch = v32;
-LABEL_30:
-    v23 = 0;
-LABEL_31:
-    if ( !AddDevice
-      || (*(_DWORD *)AddDevice < 0x10u || !*((_QWORD *)AddDevice + 1))
-      && (*(_DWORD *)AddDevice < 0x18u || !*((_QWORD *)AddDevice + 2)) )
-    {
-      if ( FastIoDispatch
-        && FastIoDispatch->SizeOfFastIoDispatch >= 0x60
-        && (AcquireFileForNtCreateSection = (void (__fastcall *)(PFILE_OBJECT))FastIoDispatch->AcquireFileForNtCreateSection) != 0LL )
-      {
-        AcquireFileForNtCreateSection(FileObject);
+        v20 = 0;
+        if ( v7 != 294 )
+          v20 = v7;
+        v7 = v20;
       }
       else
       {
-        v8 = -1073741808;
+        if ( v8 && (FileObject = (PFILE_OBJECT)v32[2], ((__int64)v32[8] & 4) != 0) )
+        {
+          BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetDeviceAttachmentBaseRef(v32[1]);
+          v22 = 1;
+          v23 = BaseFileSystemDeviceObject->DmaOperations;
+          ReadDmaCounter = v23->ReadDmaCounter;
+          v16 = *((_QWORD *)v23->FreeAdapterChannel + 6);
+        }
+        else
+        {
+          v22 = 0;
+        }
+        if ( !v16
+          || (*(_DWORD *)v16 < 0x10u || !*(_QWORD *)(v16 + 8)) && (*(_DWORD *)v16 < 0x18u || !*(_QWORD *)(v16 + 16)) )
+        {
+          if ( ReadDmaCounter
+            && *(_DWORD *)ReadDmaCounter >= 0x60u
+            && (v24 = (void (__fastcall *)(PFILE_OBJECT))*((_QWORD *)ReadDmaCounter + 11)) != 0LL )
+          {
+            v24(FileObject);
+          }
+          else
+          {
+            v7 = -1073741808;
+          }
+          v27 |= 1u;
+        }
+        if ( v22 )
+          HalPutDmaAdapter(BaseFileSystemDeviceObject);
       }
-      v28 |= 1u;
     }
-    if ( v23 )
-      ObfDereferenceObject(DeviceAttachmentBaseRef);
-    goto LABEL_13;
+    if ( v7 == -1073741808 && (v27 & 1) != 0 )
+    {
+      FsContext = FileObject->FsContext;
+      if ( FsContext )
+      {
+        v26 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
+        if ( v26 )
+          ExAcquireResourceExclusiveLite(v26, 1u);
+      }
+      v7 = 0;
+    }
+    if ( v8 )
+    {
+      if ( *((_WORD *)v8 + 37) )
+        FsFilterPerformCompletionCallbacks((__int64)v32, v7);
+      FsFilterCtrlFree((__int64)v32);
+    }
+    if ( v7 < 0 )
+      KeLeaveCriticalRegion();
+    return (unsigned int)v7;
   }
   return result;
 }

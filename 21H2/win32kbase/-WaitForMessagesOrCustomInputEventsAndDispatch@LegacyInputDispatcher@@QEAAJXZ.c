@@ -1,60 +1,73 @@
 /*
- * XREFs of ?WaitForMessagesOrCustomInputEventsAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C01DCA20
+ * XREFs of ?WaitForMessagesOrCustomInputEventsAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C01A48A0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     ?Dispatch@LegacyInputDispatcher@@QEBAJI@Z @ 0x1C00B7C14 (-Dispatch@LegacyInputDispatcher@@QEBAJI@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     ?Dispatch@LegacyInputDispatcher@@QEBAJI@Z @ 0x1C00491C4 (-Dispatch@LegacyInputDispatcher@@QEBAJI@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 NTSTATUS __fastcall LegacyInputDispatcher::WaitForMessagesOrCustomInputEventsAndDispatch(LegacyInputDispatcher *this)
 {
   NTSTATUS result; // eax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
+  bool v3; // zf
+  bool v4; // sf
+  unsigned int v5; // edx
+  unsigned int v6; // ecx
 
   if ( !*((_QWORD *)this + 2) )
     return -1073741790;
   **((_QWORD **)this + 2) = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1416);
-  while ( 1 )
+  result = KeWaitForMultipleObjects(
+             *((_DWORD *)this + 12),
+             *((PVOID **)this + 2),
+             WaitAny,
+             WrUserRequest,
+             *((_BYTE *)this + 56),
+             *((_BYTE *)this + 57),
+             0LL,
+             *((PKWAIT_BLOCK *)this + 3));
+  v3 = result == 0;
+  v4 = result < 0;
+  if ( result >= 0 )
   {
-    result = KeWaitForMultipleObjects(
-               *((_DWORD *)this + 12),
-               *((PVOID **)this + 2),
-               WaitAny,
-               WrUserRequest,
-               *((_BYTE *)this + 56),
-               *((_BYTE *)this + 57),
-               0LL,
-               *((PKWAIT_BLOCK *)this + 3));
-    if ( result < 0 )
-      break;
-    if ( !result )
+    do
     {
-      result = *((_DWORD *)this + 15);
-      break;
-    }
-    v3 = *((unsigned int *)this + 10);
-    v4 = *((unsigned int *)this + 13);
-    if ( (unsigned int)v3 >= (unsigned int)v4 )
-    {
-LABEL_9:
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, v3, v5);
-      v3 = 0LL;
-    }
-    else
-    {
-      v5 = *((_QWORD *)this + 1);
-      while ( *(_QWORD *)(v5 + 8LL * (unsigned int)v3) != *(_QWORD *)(*((_QWORD *)this + 2) + 8LL * (unsigned int)result) )
+      if ( v3 )
+        break;
+      v5 = *((_DWORD *)this + 10);
+      v6 = *((_DWORD *)this + 13);
+      if ( v5 >= v6 )
       {
-        v3 = (unsigned int)(v3 + 1);
-        if ( (unsigned int)v3 >= (unsigned int)v4 )
-          goto LABEL_9;
+LABEL_8:
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2941);
+        v5 = 0;
       }
+      else
+      {
+        while ( *(_QWORD *)(*((_QWORD *)this + 1) + 8LL * v5) != *(_QWORD *)(*((_QWORD *)this + 2) + 8LL * result) )
+        {
+          if ( ++v5 >= v6 )
+            goto LABEL_8;
+        }
+      }
+      LegacyInputDispatcher::Dispatch(this, v5);
+      result = KeWaitForMultipleObjects(
+                 *((_DWORD *)this + 12),
+                 *((PVOID **)this + 2),
+                 WaitAny,
+                 WrUserRequest,
+                 *((_BYTE *)this + 56),
+                 *((_BYTE *)this + 57),
+                 0LL,
+                 *((PKWAIT_BLOCK *)this + 3));
+      v3 = result == 0;
+      v4 = result < 0;
     }
-    LegacyInputDispatcher::Dispatch(this, v3, v5);
+    while ( result >= 0 );
+    if ( !v4 )
+      result = *((_DWORD *)this + 15);
   }
   *((_DWORD *)this + 12) = 1;
   return result;

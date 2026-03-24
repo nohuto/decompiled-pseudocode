@@ -1,26 +1,27 @@
 /*
- * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x14077ED0C
+ * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x140640854
  * Callers:
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x140781814 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _CmGetDeviceInterfaceClassGuidString @ 0x1407875CC (_CmGetDeviceInterfaceClassGuidString.c)
+ *     _CmGetDeviceInterfaceClassGuidString @ 0x14063DF68 (_CmGetDeviceInterfaceClassGuidString.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x140644CEC (_CmGetDeviceInterfaceRegKeyPath.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyNExW @ 0x1402DFEFC (RtlStringCchCopyNExW.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     _CmValidateDeviceInterfaceName @ 0x14077F150 (_CmValidateDeviceInterfaceName.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyNExW @ 0x1402655E8 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406419CC (_CmValidateDeviceInterfaceName.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
  */
 
 int __fastcall CmGetDeviceInterfaceSubkeyPath(
         __int64 a1,
         const wchar_t *a2,
-        char a3,
+        __int64 a3,
         wchar_t *a4,
         wchar_t *pszDest,
         unsigned int cchDest)
 {
+  char v7; // r12
   int result; // eax
   wchar_t *v10; // rax
   __int64 v11; // rcx
@@ -35,8 +36,9 @@ int __fastcall CmGetDeviceInterfaceSubkeyPath(
   ppszDestEnd = 0LL;
   pcchRemaining = 0LL;
   Guid = 0LL;
+  v7 = a3;
   DestinationString = 0LL;
-  result = CmValidateDeviceInterfaceName(a1, a2);
+  result = CmValidateDeviceInterfaceName(a1, a2, a3);
   if ( result >= 0 )
   {
     v10 = wcschr(a2 + 4, 0x5Cu);
@@ -59,7 +61,7 @@ int __fastcall CmGetDeviceInterfaceSubkeyPath(
     if ( (unsigned int)v13 < 0x30 )
       return -1073741773;
     v14 = (unsigned int)(v13 + 1);
-    if ( a3 )
+    if ( v7 )
     {
       v14 += 2LL;
       if ( v12 )
@@ -87,7 +89,7 @@ int __fastcall CmGetDeviceInterfaceSubkeyPath(
         if ( result >= 0 )
         {
           *(_QWORD *)pszDest = 0x23003F00230023LL;
-          if ( a3 )
+          if ( v7 )
           {
             result = RtlStringCchCopyExW(ppszDestEnd, pcchRemaining, L"\\#", &ppszDestEnd, &pcchRemaining, 0x800u);
             if ( result >= 0 )

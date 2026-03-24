@@ -1,184 +1,172 @@
 /*
- * XREFs of xxxCapture @ 0x1C00117FC
+ * XREFs of xxxCapture @ 0x1C00C02CC
  * Callers:
- *     xxxReleaseCapture @ 0x1C0011688 (xxxReleaseCapture.c)
- *     xxxSetCapture @ 0x1C0011784 (xxxSetCapture.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
- *     xxxCancelTrackingForThread @ 0x1C01F2B00 (xxxCancelTrackingForThread.c)
- *     xxxMNSetCapture @ 0x1C021A104 (xxxMNSetCapture.c)
- *     xxxSBTrackInit @ 0x1C022A46C (xxxSBTrackInit.c)
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
+ *     xxxMakeWindowForegroundWithState @ 0x1C003A9E8 (xxxMakeWindowForegroundWithState.c)
+ *     xxxReleaseCapture @ 0x1C00DAB00 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00DAC30 (xxxSetCapture.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
+ *     xxxCancelTrackingForThread @ 0x1C0210E30 (xxxCancelTrackingForThread.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
+ *     xxxMNSetCapture @ 0x1C023AEB4 (xxxMNSetCapture.c)
+ *     xxxSBTrackInit @ 0x1C0245640 (xxxSBTrackInit.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
  * Callees:
- *     LockCaptureWindow @ 0x1C0011A2C (LockCaptureWindow.c)
- *     ?SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z @ 0x1C0011AC4 (-SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0025058 (zzzEndDeferWinEventNotify.c)
- *     xxxSendMessageCallback @ 0x1C004D5BC (xxxSendMessageCallback.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     IsMiPEnabledForThread @ 0x1C00A1F58 (IsMiPEnabledForThread.c)
- *     xxxCancelMouseMoveTracking @ 0x1C00B6B88 (xxxCancelMouseMoveTracking.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C01180A8 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     IsMiPEnabledForWindow @ 0x1C0150E7A (IsMiPEnabledForWindow.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C002D95C (xxxCancelMouseMoveTracking.c)
+ *     xxxSendMessageCallback @ 0x1C0040544 (xxxSendMessageCallback.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C0051568 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DEA4 (zzzEndDeferWinEventNotify.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     LockCaptureWindow @ 0x1C00C0664 (LockCaptureWindow.c)
+ *     ?SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z @ 0x1C00C0724 (-SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z.c)
+ *     IsMiPEnabledForThread @ 0x1C00C1220 (IsMiPEnabledForThread.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     IsMiPEnabledForWindow @ 0x1C01E18C8 (IsMiPEnabledForWindow.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxCapture(__int64 a1, struct tagWND *a2, int a3)
+void __fastcall xxxCapture(__int64 a1, __int64 a2, int a3)
 {
-  const struct tagQ **v3; // r12
-  struct tagWND *v6; // rsi
-  __int64 v7; // rcx
-  int v8; // ebp
-  __int64 v9; // rcx
-  const struct tagQ *v10; // r14
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  int v13; // ebp
-  __int64 v14; // r15
-  int v15; // ecx
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 result; // rax
-  const struct tagQ *v21; // rbx
+  int v3; // ebx
+  __int64 v6; // rsi
+  __int64 v7; // rbp
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // r9
+  int *v12; // rdx
+  int v13; // ecx
+  int v14; // r8d
+  __int64 v15; // r15
+  __int64 v16; // rbx
+  unsigned int v17; // ebx
+  unsigned int v18; // ecx
+  __int64 v19; // rcx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v21; // r9
   __int64 v22; // rcx
-  __int64 v23; // rax
-  struct tagWND *v24; // rax
-  __int64 v25; // r9
-  unsigned int *v26; // rdx
-  struct tagQ *v27; // rbx
-  __int128 v28; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v29; // [rsp+60h] [rbp-38h]
-  int v30; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v23; // rbx
+  __int128 v24; // [rsp+50h] [rbp-78h]
+  __int128 v25; // [rsp+60h] [rbp-68h] BYREF
+  _QWORD v26[11]; // [rsp+70h] [rbp-58h] BYREF
+  char v27; // [rsp+D0h] [rbp+8h] BYREF
+  int v28; // [rsp+E0h] [rbp+18h]
 
-  v3 = (const struct tagQ **)(a1 + 432);
+  v3 = a3;
   v6 = 0LL;
-  v7 = 2LL;
   if ( a3 == 6 )
   {
-    *((_QWORD *)&v28 + 1) = a2;
-    *(_QWORD *)&v28 = SGDGetUserSessionState(2LL) + 15904;
-    HMAssignmentLock(&v28, 0LL);
-    InputTraceLogging::Mouse::SetCapture(*v3, a2, 1);
-    v7 = 2LL;
-    v8 = 2;
+    *(_QWORD *)&v24 = gspwndInternalCapture;
+    *((_QWORD *)&v24 + 1) = a2;
+    v25 = v24;
+    HMAssignmentLock(&v25);
+    InputTraceLogging::Mouse::SetCapture(*(const struct tagQ **)(a1 + 432), (struct tagWND *)a2, 1);
+    v3 = 2;
   }
-  else
+  if ( !v3 && gspwndInternalCapture && a1 == *(_QWORD *)(gspwndInternalCapture + 16LL) )
   {
-    v8 = a3;
-    if ( !a3 )
-    {
-      if ( *(_QWORD *)(SGDGetUserSessionState(2LL) + 15904)
-        && a1 == *(_QWORD *)(*(_QWORD *)(SGDGetUserSessionState(v9) + 15904) + 16LL) )
-      {
-        v23 = SGDGetUserSessionState(v22);
-        HMAssignmentUnlock(v23 + 15904);
-        InputTraceLogging::Mouse::SetCapture(*v3, 0LL, 1);
-      }
-      v7 = 2LL;
-    }
+    HMAssignmentUnlock(gspwndInternalCapture);
+    InputTraceLogging::Mouse::SetCapture(*(const struct tagQ **)(a1 + 432), 0LL, 1);
   }
-  v10 = *v3;
-  if ( *v3 )
+  v7 = *(_QWORD *)(a1 + 432);
+  if ( v7 )
   {
-    v11 = *(_QWORD *)(a1 + 456);
-    if ( (*(_DWORD *)(v11 + 48) & 0xC0) != 0 && *(_DWORD *)(v11 + 200) == 1 )
+    v8 = *(_QWORD *)(a1 + 456);
+    if ( (*(_DWORD *)(v8 + 48) & 0xC0) != 0 && *(_DWORD *)(v8 + 192) == 1 )
     {
-      if ( (v24 = *(struct tagWND **)(v11 + 192), v24 == a2) && v8 != 2
-        || v24 == *((struct tagWND **)v10 + 14) && *((_DWORD *)v10 + 39) != 2 )
+      if ( (v9 = *(_QWORD *)(v8 + 184), v9 == a2) && v3 != 2
+        || v9 == *(_QWORD *)(v7 + 104) && *(_DWORD *)(v7 + 148) != 2 )
       {
-        AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v30);
-        xxxCancelMouseMoveTracking(
-          *(unsigned int *)(v11 + 48),
-          *(_QWORD *)(v11 + 192),
-          *(unsigned int *)(v11 + 200),
-          192LL);
-        AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v30);
+        UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v27);
+        xxxCancelMouseMoveTracking(*(_DWORD *)(v8 + 48), *(_QWORD *)(v8 + 184), *(_DWORD *)(v8 + 192), 192);
+        UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v27);
       }
     }
-    v12 = LockCaptureWindow(v10, a2);
-    *((_DWORD *)v10 + 39) = v8;
-    v6 = (struct tagWND *)v12;
+    v10 = LockCaptureWindow((struct tagQ *)v7, (struct tagWND *)a2);
+    *(_DWORD *)(v7 + 148) = v3;
+    v6 = v10;
     if ( a2 )
     {
-      if ( (unsigned int)IsMiPEnabledForThread(*((_QWORD *)a2 + 2)) )
+      if ( (unsigned int)IsMiPEnabledForThread(*(_QWORD *)(a2 + 16)) )
       {
         if ( !(unsigned int)IsMiPEnabledForWindow(a2) )
         {
-          v26 = *(unsigned int **)(v25 + 1352);
-          if ( v26 )
+          v12 = *(int **)(v11 + 1280);
+          if ( v12 )
           {
-            v7 = *v26;
-            if ( (v7 & 4) == 0 && (v7 & 2) == 0 && (v7 & 0x10) == 0 && (v7 & 1) != 0 )
+            v13 = *v12;
+            v14 = 4;
+            if ( (*v12 & 4) == 0 && (v13 & 2) == 0 && (v13 & 0x10) == 0 && (v13 & 1) != 0 )
             {
-              if ( (v7 & 0x20) != 0 || (v26[9] & 0x1F0) != 0 )
-                v7 = (unsigned int)v7 | 4;
-              else
-                v7 = (unsigned int)v7 | 2;
-              *v26 = v7;
-              **(_DWORD **)(v25 + 1352) &= ~0x10u;
+              if ( (v13 & 0x20) == 0 && (v12[9] & 0x1F0) == 0 )
+                v14 = 2;
+              *v12 = v14 | v13;
+              **(_DWORD **)(v11 + 1280) &= ~0x10u;
             }
           }
         }
       }
     }
   }
-  v13 = 3;
   ++gdwDeferWinEvent;
-  if ( a2 )
+  if ( !a2 )
   {
     if ( !v6 )
     {
-LABEL_19:
-      if ( !gdwDeferWinEvent )
-        v13 = 1;
-      xxxWindowEvent(8u, v13);
-      goto LABEL_22;
+LABEL_51:
+      zzzEndDeferWinEventNotify();
+      return;
     }
-  }
-  else
-  {
-    if ( !v6 )
-      return zzzEndDeferWinEventNotify(v7);
-    v14 = *((_QWORD *)v6 + 2);
-    if ( _bittest64((const signed __int64 *)(v14 + 648), 0x3Cu) )
+    v15 = *(_QWORD *)(v6 + 16);
+    if ( (*(_QWORD *)(v15 + 648) & 0x1000000000000000LL) != 0 )
     {
-      v27 = *(struct tagQ **)(v14 + 432);
-      *((_DWORD *)v27 + 99) |= 0x20u;
-      SetSystemInputSource((char *)v27 + 420);
-      WakeSomeone(v27, (struct tagTHREADINFO *)v14, 0x200u, 0LL);
+      v16 = *(_QWORD *)(v15 + 432);
+      *(_DWORD *)(v16 + 388) |= 0x20u;
+      SetSystemInputSource(v16 + 420);
+      WakeSomeone((struct tagQ *)v16, (struct tagTHREADINFO *)v15, 0x200u, 0LL);
     }
     GenerateMouseMove(0LL);
   }
-  v15 = 3;
-  if ( !gdwDeferWinEvent )
-    v15 = 1;
-  xxxWindowEvent(9u, v15);
-  if ( a2 )
-    goto LABEL_19;
-LABEL_22:
-  if ( !v6 )
-    return zzzEndDeferWinEventNotify(v7);
-  v7 = *((_QWORD *)v6 + 5);
-  if ( (*(_BYTE *)(v7 + 21) & 2) == 0 || *(__int16 *)(v7 + 42) < 0 )
-    return zzzEndDeferWinEventNotify(v7);
-  v28 = 0LL;
-  v29 = 0LL;
-  if ( *(_QWORD *)(a1 + 608) && a2 )
-    *((_DWORD *)v10 + 99) |= 0x100000u;
-  ThreadLockAlways(v6, &v28);
-  zzzEndDeferWinEventNotify(v16);
-  xxxSendMessageCallback(v6, 0x215u, 0LL, 0LL, 0LL, 0, 0, 1);
-  result = ThreadUnlock1(v18, v17, v19);
-  v21 = *v3;
-  if ( !*v3 )
+  v17 = 3;
+  if ( v6 )
   {
-    v30 = 0x20000;
-    result = MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 363LL);
+    v18 = 3;
+    if ( !gdwDeferWinEvent )
+      v18 = 1;
+    xxxWindowEvent(9u, (struct tagWND *)v6, 0, 0, v18);
   }
-  *((_DWORD *)v21 + 99) &= ~0x100000u;
-  return result;
+  if ( a2 )
+  {
+    if ( !gdwDeferWinEvent )
+      v17 = 1;
+    xxxWindowEvent(8u, (struct tagWND *)a2, 0, 0, v17);
+  }
+  if ( !v6 )
+    goto LABEL_51;
+  v19 = *(_QWORD *)(v6 + 40);
+  if ( (*(_BYTE *)(v19 + 21) & 2) == 0 || *(__int16 *)(v19 + 42) < 0 )
+    goto LABEL_51;
+  v26[2] = 0LL;
+  if ( *(_QWORD *)(a1 + 608) && a2 )
+    *(_DWORD *)(v7 + 388) |= 0x100000u;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v26[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v26;
+  v26[1] = v6;
+  HMLockObject(v6);
+  zzzEndDeferWinEventNotify();
+  v21 = 0LL;
+  if ( a2 )
+    v21 = *(_QWORD *)a2;
+  xxxSendMessageCallback((unsigned __int64 *)v6, 0x215u, 0LL, v21, 0LL, 0LL, 0, 0, 1);
+  ThreadUnlock1(v22);
+  v23 = *(_QWORD *)(a1 + 432);
+  if ( !v23 )
+  {
+    v28 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 356LL);
+  }
+  *(_DWORD *)(v23 + 388) &= ~0x100000u;
 }

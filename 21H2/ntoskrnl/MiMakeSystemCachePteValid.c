@@ -1,93 +1,171 @@
 /*
- * XREFs of MiMakeSystemCachePteValid @ 0x140367828
+ * XREFs of MiMakeSystemCachePteValid @ 0x14035E91C
  * Callers:
- *     MmCopyToCachedPage @ 0x1402BE8E0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiLockAndDecrementShareCount @ 0x140228660 (MiLockAndDecrementShareCount.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140230680 (ObFastDereferenceObjectDeferDelete.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14027A794 (MiReferenceControlAreaFileWithTag.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MiLockWorkingSetOptimal @ 0x1402D0490 (MiLockWorkingSetOptimal.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MiAllocateWsle @ 0x140322F10 (MiAllocateWsle.c)
- *     MiStartingOffset @ 0x1403342D0 (MiStartingOffset.c)
- *     PfSnLogPageFault @ 0x140365C94 (PfSnLogPageFault.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
+ *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiLockAndDecrementShareCount @ 0x1402D5EE0 (MiLockAndDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiLockWorkingSetOptimal @ 0x14030FC94 (MiLockWorkingSetOptimal.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     PfSnLogPageFault @ 0x14035EB88 (PfSnLogPageFault.c)
  */
 
 void __fastcall MiMakeSystemCachePteValid(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
 {
-  unsigned __int64 ValidPte; // rbx
-  __int64 v6; // rsi
-  __int64 v9; // rdi
-  int v10; // r12d
-  __int64 v11; // r13
-  unsigned __int8 v12; // al
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  unsigned __int64 v16; // rbx
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rbp
-  __int64 v19; // rsi
-  __int64 v20; // rsi
-  __int64 v21; // rdi
-  __int64 v22; // rbx
-  int v23; // eax
-  unsigned __int64 v24; // [rsp+88h] [rbp+10h] BYREF
-  unsigned __int8 v25; // [rsp+90h] [rbp+18h]
+  unsigned __int64 v6; // rbx
+  BOOL v9; // esi
+  _QWORD *v10; // rdi
+  int v11; // r15d
+  unsigned __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  __int64 v16; // rbx
+  _DWORD *v17; // r9
+  __int64 v18; // r8
+  unsigned __int64 v19; // rdx
+  unsigned __int64 ValidPte; // r8
+  unsigned __int64 v21; // rdx
+  __int64 v22; // rsi
+  unsigned __int64 v23; // r14
+  int Wsle; // eax
+  __int64 v25; // rsi
+  __int64 v26; // rdi
+  ULONG_PTR v27; // rbx
+  unsigned __int64 v28; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v30; // rax
+  struct _LIST_ENTRY *v31; // rdx
+  __int64 v32; // rax
+  __int64 v33; // r8
+  unsigned __int8 v34; // [rsp+40h] [rbp-20h]
+  __int64 v35; // [rsp+48h] [rbp-18h] BYREF
+  unsigned __int64 v36; // [rsp+50h] [rbp-10h]
+  char v37; // [rsp+A8h] [rbp+48h] BYREF
+  unsigned __int64 v38; // [rsp+B0h] [rbp+50h] BYREF
 
-  LOBYTE(v24) = 0;
-  ValidPte = a3;
-  v6 = (a3 >> 12) & 0xFFFFFFFFFFLL;
-  v9 = 48 * v6 - 0x220000000000LL;
-  v10 = 0;
-  v11 = 48 * ((*(_QWORD *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-  v12 = MiLockPageInline(v11);
-  v13 = *(_QWORD *)(v11 + 24);
-  v25 = v12;
-  *(_QWORD *)(v11 + 24) = v13 ^ (v13 ^ (v13 + 1)) & 0x3FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v14 = MiLockWorkingSetOptimal(a1, a2, &v24);
-  v15 = *(_QWORD *)a2;
-  v24 = v14;
-  if ( (v15 & 1) != 0 )
+  v38 = a3;
+  v37 = 0;
+  v6 = a3;
+  v9 = MiPteInShadowRange((unsigned __int64)&v38);
+  if ( v9
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v6 & 1) != 0
+    && ((v6 & 0x20) == 0 || (v6 & 0x42) == 0) )
   {
-    v18 = 0LL;
-    v19 = 0LL;
-LABEL_18:
-    MiLockAndDecrementShareCount(v9, 0);
-    MiLockAndDecrementShareCount(v11, 0);
-    goto LABEL_7;
-  }
-  if ( (v15 & 8) != 0 )
-    ValidPte = MiMakeValidPte(a2, v6, 536870913);
-  v16 = ValidPte & 0xFFFFFFFFFFFFFEFBuLL;
-  v17 = v16 | ((unsigned __int64)(word_140C51864 & 1) << 8);
-  if ( (a4 & 8) != 0 && _bittest64((const signed __int64 *)(v9 + 40), 0x35u) )
-    v17 = v16 & 0xFFFFFFFFFFFFFFBDuLL | ((unsigned __int64)(word_140C51864 & 1) << 8);
-  v18 = *(_QWORD *)(v9 + 8) | 0x8000000000000000uLL;
-  v19 = *(_QWORD *)(v9 + 16);
-  if ( !(unsigned int)MiAllocateWsle(a1, a2, (_QWORD *)v9, 0, v17, 0, 0LL) )
-    goto LABEL_18;
-  if ( PfSnNumActiveTraces && (v19 & 0x400) != 0 )
-    v10 = 1;
-LABEL_7:
-  MiUnlockPageTableInternal(a1, v24);
-  MiUnlockWorkingSetShared(a1, v25);
-  if ( v10 )
-  {
-    if ( qword_140C50780 )
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
     {
-      if ( (v19 & 0x10) == 0 )
-        v19 &= ~qword_140C50780;
+      v6 |= 0x20uLL;
+      v30 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v38 >> 3) & 0x1FF));
+      if ( (v30 & 0x20) == 0 )
+        v6 = a3;
+      if ( (v30 & 0x42) != 0 )
+        v6 |= 0x42uLL;
     }
-    v20 = v19 >> 16;
-    v21 = *(_QWORD *)v20;
-    v22 = MiReferenceControlAreaFileWithTag(*(_QWORD *)v20, 1666411853LL);
-    v23 = MiStartingOffset(v20, v18, 0xFFFFFFFF);
-    PfSnLogPageFault(v22, v23, 4u);
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(v21 + 64), v22, 0x63536D4Du);
+    else
+    {
+      v6 = v38;
+    }
+  }
+  v10 = (_QWORD *)(48 * ((v6 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+  v11 = 0;
+  v35 = MI_READ_PTE_LOCK_FREE(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  v12 = v35;
+  if ( MiPteInShadowRange((unsigned __int64)&v35) && (MiFlags & 0xC00000) != 0 )
+  {
+    v13 = 1LL;
+    if ( KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v12 & 1) != 0
+      && ((v12 & 0x20) == 0 || (v12 & 0x42) == 0) )
+    {
+      v13 = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v13 )
+      {
+        if ( (*(_QWORD *)(v13 + 8 * (((unsigned __int64)&v35 >> 3) & 0x1FF)) & 0x20) != 0 )
+          v12 |= 0x20uLL;
+      }
+    }
+  }
+  v16 = 48 * ((v12 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+  v34 = MiLockPageInline(v16, v13, v14, v15);
+  *(_QWORD *)(v16 + 24) ^= (*(_QWORD *)(v16 + 24) ^ (*(_QWORD *)(v16 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+  _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v36 = MiLockWorkingSetOptimal(a1, a2, &v37, v17);
+  v35 = MI_READ_PTE_LOCK_FREE(a2);
+  if ( (v35 & 1) != 0 )
+  {
+    Wsle = 0;
+    v23 = 0LL;
+    v22 = 0LL;
+    goto LABEL_10;
+  }
+  v19 = v38;
+  ValidPte = v38;
+  if ( v9
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v38 & 1) != 0
+    && ((v38 & 0x20) == 0 || (v38 & 0x42) == 0) )
+  {
+    v31 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( v31 )
+    {
+      v32 = *((_QWORD *)&v31->Flink + (((unsigned __int64)&v38 >> 3) & 0x1FF));
+      v19 = v38 | 0x20;
+      if ( (v32 & 0x20) == 0 )
+        v19 = v38;
+      if ( (v32 & 0x42) != 0 )
+        v19 |= 0x42uLL;
+    }
+    else
+    {
+      v19 = v38;
+    }
+  }
+  if ( (v35 & 8) != 0 )
+    ValidPte = MiMakeValidPte(a2, (v19 >> 12) & 0xFFFFFFFFFLL, 536870913);
+  v21 = ValidPte & 0xFFFFFFFFFFFFFEFBuLL | ((unsigned __int64)(word_140C4E008 & 1) << 8);
+  if ( (a4 & 8) != 0 && MiIsPfnFileOnly((__int64)v10) )
+    v21 &= 0xFFFFFFFFFFFFFFBDuLL;
+  v22 = v10[2];
+  v23 = v10[1] | 0x8000000000000000uLL;
+  Wsle = MiAllocateWsle(a1, a2, v10, 0, v21, 0, 0LL);
+  if ( Wsle )
+  {
+    if ( PfSnNumActiveTraces && (v22 & 0x400) != 0 )
+      v11 = 1;
+LABEL_10:
+    if ( Wsle )
+      goto LABEL_11;
+  }
+  MiLockAndDecrementShareCount((__int64)v10, 0LL, v18);
+  MiLockAndDecrementShareCount(v16, 0LL, v33);
+LABEL_11:
+  MiUnlockPageTableInternal(a1, v36);
+  MiUnlockWorkingSetShared(a1, v34);
+  if ( v11 )
+  {
+    if ( qword_140C4DF40 )
+    {
+      if ( (v22 & 0x10) == 0 )
+        v22 &= ~qword_140C4DF40;
+    }
+    v25 = v22 >> 16;
+    v26 = *(_QWORD *)v25;
+    v27 = MiReferenceControlAreaFile(*(_QWORD *)v25);
+    v28 = MiStartingOffset((__int64 *)v25, v23, 0xFFFFFFFF);
+    PfSnLogPageFault(v27, v28, 4LL);
+    MiDereferenceControlAreaFile(v26, v27);
   }
 }

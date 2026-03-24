@@ -1,135 +1,146 @@
 /*
- * XREFs of rimProcessAnyQueuedCompleteFrames @ 0x1C01A9638
+ * XREFs of rimProcessAnyQueuedCompleteFrames @ 0x1C0174D2C
  * Callers:
- *     RIMOnPnpNotification @ 0x1C0042B50 (RIMOnPnpNotification.c)
- *     rimCompleteReads @ 0x1C0044C40 (rimCompleteReads.c)
+ *     rimCompleteReads @ 0x1C0053548 (rimCompleteReads.c)
+ *     RIMOnPnpNotification @ 0x1C00539C0 (RIMOnPnpNotification.c)
+ *     rimDispatchAutoRepeatCompleteFrame @ 0x1C0174214 (rimDispatchAutoRepeatCompleteFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     RimDeviceTypeToRimInputType @ 0x1C00A2040 (RimDeviceTypeToRimInputType.c)
- *     ?DispatchFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@W4DispatchType@12@@Z @ 0x1C00E6BB8 (-DispatchFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@W4DispatchType@12@@Z.c)
- *     rimDispatchCompleteFrames @ 0x1C00E6CDC (rimDispatchCompleteFrames.c)
- *     WPP_RECORDER_AND_TRACE_SF_qi @ 0x1C01A9144 (WPP_RECORDER_AND_TRACE_SF_qi.c)
- *     rimFindOtherQueuedFrames @ 0x1C01A9290 (rimFindOtherQueuedFrames.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0055804 (RimDeviceTypeToRimInputType.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0057C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     rimFreeAutoRepeatCompleteFrame @ 0x1C00B7C50 (rimFreeAutoRepeatCompleteFrame.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DispatchFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@W4DispatchType@12@@Z @ 0x1C01739B4 (-DispatchFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@W4DispatchType@12@@Z.c)
+ *     WPP_RECORDER_SF_qi @ 0x1C0174140 (WPP_RECORDER_SF_qi.c)
+ *     rimDispatchCompleteFrame @ 0x1C0174464 (rimDispatchCompleteFrame.c)
  */
 
-_UNKNOWN **__fastcall rimProcessAnyQueuedCompleteFrames(struct RawInputManagerObject *a1, __int64 a2, __int64 a3)
+void __fastcall rimProcessAnyQueuedCompleteFrames(struct RawInputManagerObject *a1, __int64 a2)
 {
-  _QWORD *v5; // r8
-  _UNKNOWN **result; // rax
-  int v7; // r9d
-  unsigned int *v8; // rsi
-  _UNKNOWN **v9; // rdx
-  _UNKNOWN **v10; // rcx
-  _DWORD *v11; // rbp
-  int v12; // r10d
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  int OtherQueuedFrames; // eax
-  LARGE_INTEGER *v18; // rdx
-  char *v19; // rsi
-  int v20; // [rsp+70h] [rbp+8h] BYREF
-  void *v21; // [rsp+78h] [rbp+10h] BYREF
-  unsigned int *v22; // [rsp+80h] [rbp+18h] BYREF
+  struct RawInputManagerObject *v4; // r14
+  struct RawInputManagerObject *v5; // rbx
+  struct RawInputManagerObject *v6; // rax
+  LARGE_INTEGER *v7; // rbp
+  int v8; // eax
+  int v9; // edx
+  int v10; // r8d
+  char *v11; // rsi
+  int v12; // r12d
+  int v13; // eax
+  int v14; // eax
+  __int64 v15; // rax
+  struct RawInputManagerObject **v16; // rcx
+  PVOID Object; // [rsp+70h] [rbp+8h] BYREF
 
   if ( (*(_DWORD *)(a2 + 200) & 0x80u) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( (*(_DWORD *)(a2 + 184) & 0x200) != 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v5 = (_QWORD *)((char *)a1 + 776);
-  result = (_UNKNOWN **)*((_QWORD *)a1 + 97);
-  if ( result != (_UNKNOWN **)((char *)a1 + 776) && *((_BYTE *)a1 + 808) )
   {
-    v7 = 0;
-    while ( 1 )
+    LODWORD(Object) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 769);
+  }
+  if ( (*(_DWORD *)(a2 + 184) & 0x200) != 0 )
+  {
+    LODWORD(Object) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 770);
+  }
+  v4 = (struct RawInputManagerObject *)((char *)a1 + 552);
+  v5 = (struct RawInputManagerObject *)*((_QWORD *)a1 + 69);
+  if ( v5 != (struct RawInputManagerObject *)((char *)a1 + 552) && *((_BYTE *)a1 + 584) )
+  {
+    Object = 0LL;
+    if ( *((_QWORD *)a1 + 80) || *((_DWORD *)a1 + 216) )
     {
-      v8 = (unsigned int *)(result - 1);
-      v9 = result;
-      v10 = result;
-      result = (_UNKNOWN **)*result;
-      v11 = v9[4];
-      if ( !*((_QWORD *)a1 + 108) && !*((_DWORD *)a1 + 272) )
-        break;
-      v12 = v11[68];
-      if ( (v12 & 0x2000) == 0 || (v12 & 0x1000000) != 0 )
-        break;
-      v7 = -1073741823;
-      if ( result == v5 )
-        goto LABEL_13;
-    }
-    if ( result[1] != (_UNKNOWN *)v9 || (v5 = v9[1], (_UNKNOWN **)*v5 != v9) )
-      __fastfail(3u);
-    *v5 = result;
-    result[1] = v5;
-    v10[1] = v10;
-    *v10 = v10;
-    v10[4] = 0LL;
-    if ( v7 < 0 )
-    {
-LABEL_13:
-      LOBYTE(v9) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      result = &WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      while ( 1 )
       {
-        LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_(
-                              WPP_GLOBAL_Control->AttachedDevice,
-                              (_DWORD)v9,
-                              (_DWORD)v5,
-                              (_DWORD)gRimLog,
-                              4,
-                              1,
-                              20,
-                              (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids);
+        v7 = (LARGE_INTEGER *)((char *)v5 - 8);
+        v13 = RawInputManagerDeviceObjectResolveHandle(*((char **)v5 + 3), 3u, *((_DWORD *)v5 + 18) == 0, &Object);
+        v11 = (char *)Object;
+        v12 = v13;
+        if ( v13 >= 0 )
+        {
+          v14 = *((_DWORD *)Object + 68);
+          if ( (v14 & 0x2000) == 0 || (v14 & 0x400000) != 0 )
+          {
+            v15 = *(_QWORD *)v5;
+            if ( *(struct RawInputManagerObject **)(*(_QWORD *)v5 + 8LL) == v5 )
+            {
+              v16 = (struct RawInputManagerObject **)*((_QWORD *)v5 + 1);
+              if ( *v16 == v5 )
+              {
+                *v16 = (struct RawInputManagerObject *)v15;
+                *(_QWORD *)(v15 + 8) = v16;
+                *((_QWORD *)v5 + 1) = v5;
+                *(_QWORD *)v5 = v5;
+                goto LABEL_12;
+              }
+            }
+LABEL_27:
+            __fastfail(3u);
+          }
+          v12 = -1073741823;
+          ObfDereferenceObject(Object);
+        }
+        v5 = *(struct RawInputManagerObject **)v5;
+        if ( v5 == v4 )
+          goto LABEL_12;
       }
-      return result;
     }
-    v13 = *((_QWORD *)v11 + 35) - 1LL;
-    *((_QWORD *)v11 + 35) = v13;
-    LOBYTE(v9) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( *((struct RawInputManagerObject **)v5 + 1) != v4 )
+      goto LABEL_27;
+    v6 = *(struct RawInputManagerObject **)v5;
+    if ( *(struct RawInputManagerObject **)(*(_QWORD *)v5 + 8LL) != v5 )
+      goto LABEL_27;
+    *(_QWORD *)v4 = v6;
+    v7 = (LARGE_INTEGER *)((char *)v5 - 8);
+    *((_QWORD *)v6 + 1) = v4;
+    *((_QWORD *)v5 + 1) = v5;
+    *(_QWORD *)v5 = v5;
+    v8 = RawInputManagerDeviceObjectResolveHandle(*((char **)v5 + 3), 3u, *((_DWORD *)v5 + 18) == 0, &Object);
+    v11 = (char *)Object;
+    v12 = v8;
+LABEL_12:
+    if ( v12 < 0 )
     {
-      LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_qi(WPP_GLOBAL_Control->AttachedDevice, (_DWORD)v9, (_DWORD)v5, v13);
-    }
-    if ( ((unsigned int)RimDeviceTypeToRimInputType((unsigned __int64)(v11 + 22) & -(__int64)(v11 != 0LL), 2) & *((_DWORD *)a1 + 21)) == 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v14, v16);
-    if ( (*(_DWORD *)(((unsigned __int64)(v11 + 22) & -(__int64)(v11 != 0LL)) + 0xC8) & 0x80u) == 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v14, v16);
-    *((_BYTE *)a1 + 808) = 0;
-    InputTraceLogging::RIM::DispatchFrame((unsigned __int64)(v11 + 22) & -(__int64)(v11 != 0LL));
-    v22 = 0LL;
-    v21 = 0LL;
-    v20 = 0;
-    OtherQueuedFrames = rimFindOtherQueuedFrames(
-                          (__int64)a1,
-                          (unsigned __int64)(v11 + 22) & -(__int64)(v11 != 0LL),
-                          v8,
-                          &v22,
-                          (__int64 *)&v21,
-                          (unsigned int *)&v20);
-    v18 = (LARGE_INTEGER *)((unsigned __int64)(v11 + 22) & -(__int64)(v11 != 0LL));
-    if ( OtherQueuedFrames )
-    {
-      v19 = (char *)v21;
-      rimDispatchCompleteFrames(a1, v18, (__int64)v22, (unsigned __int64)v21, v20);
-      if ( v19 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v19);
+      if ( *((_QWORD *)a1 + 80) || *((_DWORD *)a1 + 216) )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v9) = 4;
+          WPP_RECORDER_SF_((_DWORD)gRimLog, v9, 1, 21, (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids);
+        }
+      }
+      else
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v9) = 4;
+          WPP_RECORDER_SF_q(
+            (_DWORD)gRimLog,
+            v9,
+            1,
+            22,
+            (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
+            v7[4].QuadPart);
+        }
+        Win32FreePool((__int64)v7);
+      }
     }
     else
     {
-      rimDispatchCompleteFrames(a1, v18, (__int64)v8, (unsigned __int64)v8, *v8);
+      --*((_QWORD *)v11 + 35);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_qi(*((_QWORD *)v11 + 35), v9, v10, 20);
+      if ( ((unsigned int)RimDeviceTypeToRimInputType((__int64)(v11 + 88), 2) & *((_DWORD *)a1 + 21)) == 0 )
+      {
+        LODWORD(Object) = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 861);
+      }
+      rimFreeAutoRepeatCompleteFrame((__int64)(v11 + 88));
+      *((_BYTE *)a1 + 584) = 0;
+      InputTraceLogging::RIM::DispatchFrame((__int64)(v11 + 88), (__int64)v7, 2);
+      rimDispatchCompleteFrame(a1, (struct RIMDEV *)(v11 + 88), v7);
+      ObfDereferenceObject(v11);
     }
-    return (_UNKNOWN **)ObfDereferenceObject(v11);
   }
-  return result;
 }

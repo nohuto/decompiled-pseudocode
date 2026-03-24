@@ -1,21 +1,17 @@
 /*
- * XREFs of RtlGetDefaultCodePage @ 0x1406E9F80
+ * XREFs of RtlGetDefaultCodePage @ 0x140771E10
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     <none>
  */
 
-__int64 RtlGetDefaultCodePage()
+__int64 __fastcall RtlGetDefaultCodePage(_WORD *a1, _WORD *a2)
 {
-  _WORD *CurrentServerSiloGlobals; // rax
-  _WORD *v1; // r9
   __int64 result; // rax
-  _WORD *v3; // rdx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  *v1 = CurrentServerSiloGlobals[532];
-  result = (unsigned __int16)CurrentServerSiloGlobals[564];
-  *v3 = result;
+  *a1 = NlsAnsiCodePage;
+  result = (unsigned __int16)NlsOemCodePage;
+  *a2 = NlsOemCodePage;
   return result;
 }

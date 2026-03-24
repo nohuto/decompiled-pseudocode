@@ -1,76 +1,78 @@
 /*
- * XREFs of ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01E6F44
+ * XREFs of ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01AD7C8
  * Callers:
- *     NtUserDestroyPalmRejectionDelayZone @ 0x1C0143790 (NtUserDestroyPalmRejectionDelayZone.c)
+ *     NtUserDestroyPalmRejectionDelayZone @ 0x1C012D780 (NtUserDestroyPalmRejectionDelayZone.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z @ 0x1C01E7098 (-RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z.c)
- *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01FBF0C (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z @ 0x1C01AD8E8 (-RemoveDelayZoneFromListInternal@DelayZonePalmRejection@@AEAA_NPEAPEAUCPalmRejectZoneInfo@@@Z.c)
+ *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01BD460 (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
  */
 
 bool __fastcall DelayZonePalmRejection::RemoveDelayZoneFromList(DelayZonePalmRejection *this, int a2)
 {
   int v4; // edx
-  int v5; // r8d
-  __int64 *i; // rbx
-  bool v7; // bl
-  __int128 v9; // xmm6
+  char *v5; // r8
+  char *v6; // rax
+  char *v7; // rbx
+  __int128 v8; // xmm6
+  bool v9; // bl
   __int64 v10; // r8
   __int64 v11; // rcx
   __int64 v12; // rdx
-  __int128 v13; // [rsp+40h] [rbp-68h] BYREF
-  CInpLockGuard *v14[10]; // [rsp+50h] [rbp-58h] BYREF
-  struct CPalmRejectZoneInfo *v15; // [rsp+B0h] [rbp+8h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-68h] BYREF
+  CInpLockGuard *v15[10]; // [rsp+40h] [rbp-58h] BYREF
+  struct CPalmRejectZoneInfo *v16; // [rsp+A0h] [rbp+8h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v14,
+    (CInpLockGuardExclusiveIfNeeded *)v15,
     (DelayZonePalmRejection *)((char *)this + 112),
     0LL);
-  for ( i = (__int64 *)*((_QWORD *)this + 9); ; i = (__int64 *)*i )
+  v5 = (char *)this + 72;
+  v6 = (char *)*((_QWORD *)this + 9);
+  if ( v6 == (char *)this + 72 )
+    goto LABEL_12;
+  do
   {
-    if ( i == (__int64 *)((char *)this + 72) )
-      goto LABEL_5;
-    if ( *((_DWORD *)i + 14) == a2 )
+    v7 = v6;
+    if ( *((_DWORD *)v6 + 14) == a2 )
       break;
+    v6 = *(char **)v6;
   }
-  v15 = (struct CPalmRejectZoneInfo *)i;
-  if ( !i || (struct _KTHREAD *)i[2] != KeGetCurrentThread() )
+  while ( v6 != v5 );
+  if ( v6 == v5
+    || (v16 = (struct CPalmRejectZoneInfo *)v7) == 0LL
+    || *((struct _KTHREAD **)v7 + 2) != KeGetCurrentThread() )
   {
-LABEL_5:
-    v7 = 0;
-    goto LABEL_6;
+LABEL_12:
+    v9 = 0;
   }
-  LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  else
   {
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      v5,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      4,
-      28,
-      (__int64)&WPP_0bb50b5e51eb3eed098c0ba758ca157d_Traceguids);
-  }
-  v9 = *(_OWORD *)(i + 3);
-  v7 = DelayZonePalmRejection::RemoveDelayZoneFromListInternal(this, &v15);
-  if ( v7 )
-  {
-    v11 = *((_QWORD *)this + 16);
-    if ( v11 )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v12 = *((unsigned int *)this + 1);
-      v13 = v9;
-      DelayZoneTelemetry::UpdateDelayZoneStateInfo(v11, v12, v10, 4LL, &v13);
+      LOBYTE(v4) = 4;
+      WPP_RECORDER_SF_(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v4,
+        8,
+        28,
+        (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids);
+    }
+    v8 = *(_OWORD *)(v7 + 24);
+    v9 = DelayZonePalmRejection::RemoveDelayZoneFromListInternal(this, &v16);
+    if ( v9 )
+    {
+      v11 = *((_QWORD *)this + 16);
+      if ( v11 )
+      {
+        v12 = *((unsigned int *)this + 1);
+        v14 = v8;
+        DelayZoneTelemetry::UpdateDelayZoneStateInfo(v11, v12, v10, 4LL, &v14);
+      }
     }
   }
-LABEL_6:
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v14);
-  return v7;
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v15);
+  return v9;
 }

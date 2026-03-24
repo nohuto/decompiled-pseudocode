@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetInformation @ 0x14075A834
+ * XREFs of KeQueryCpuSetInformation @ 0x14075A814
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
  *     RtlTryEndReadTickLock @ 0x14008A4D4 (RtlTryEndReadTickLock.c)
  *     RtlBeginReadTickLock @ 0x14008A5E4 (RtlBeginReadTickLock.c)
- *     KiGetCpuSetData @ 0x14013B9EC (KiGetCpuSetData.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiGetCpuSetData @ 0x14013BA0C (KiGetCpuSetData.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KeQueryCpuSetInformation(void *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlLogCcFlushError @ 0x14093D190
+ * XREFs of FsRtlLogCcFlushError @ 0x14088AE40
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x140537924 (CcMmLogLostDelayedWriteError.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1404EA508 (CcMmLogLostDelayedWriteError.c)
  * Callees:
- *     MmIsWriteErrorFatal @ 0x1402F49DC (MmIsWriteErrorFatal.c)
- *     IoAllocateErrorLogEntry @ 0x1403C6A80 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x1403C6CB0 (IoWriteErrorLogEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IoRaiseInformationalHardError @ 0x140556E00 (IoRaiseInformationalHardError.c)
+ *     MmIsWriteErrorFatal @ 0x140255188 (MmIsWriteErrorFatal.c)
+ *     IoAllocateErrorLogEntry @ 0x14037FD60 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x140380230 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IoRaiseInformationalHardError @ 0x140505BB0 (IoRaiseInformationalHardError.c)
  */
 
 NTSTATUS __stdcall FsRtlLogCcFlushError(
@@ -17,87 +17,94 @@ NTSTATUS __stdcall FsRtlLogCcFlushError(
         NTSTATUS FlushError,
         ULONG Flags)
 {
-  NTSTATUS v7; // ebp
+  NTSTATUS v7; // r15d
   NTSTATUS result; // eax
-  NTSTATUS v10; // ecx
-  int v11; // esi
-  bool v12; // zf
-  UCHAR v13; // di
+  bool v10; // zf
+  NTSTATUS v11; // ecx
+  int v12; // ebp
+  UCHAR v13; // si
   char *ErrorLogEntry; // rax
-  void *v15; // r14
-  char *v16; // rsi
-  void *v17; // rcx
+  void *v15; // rdi
+  int v16; // ebp
+  char *v17; // rsi
+  unsigned int v18; // ebp
+  void *v19; // rcx
   size_t Length; // rax
   wchar_t *Buffer; // rdx
-  unsigned int v20; // r12d
-  unsigned int v21; // edi
-  char *v22; // rsi
-  unsigned int v23; // r12d
-  char *v24; // rsi
+  unsigned int v22; // eax
+  unsigned int v23; // ebp
+  __int64 v24; // rbx
+  char *v25; // rsi
+  char *v26; // rsi
 
   v7 = 0;
   result = MmIsWriteErrorFatal(1, (DeviceObject->Characteristics >> 4) & 1, FlushError);
   if ( !result )
     return result;
-  if ( FlushError > -1073741620 )
+  if ( FlushError > -1073741623 )
   {
-    if ( FlushError > -1073741247 )
+    if ( FlushError > -1073741252 )
     {
-      if ( FlushError == -1073740964 || FlushError == -1073740698 || FlushError == -1073740697 )
-        goto LABEL_30;
-      v12 = FlushError == -1073740672;
+      if ( FlushError == -1073741247 || FlushError == -1073740964 )
+        goto LABEL_29;
+      if ( FlushError > -1073740699 )
+      {
+        if ( FlushError <= -1073740697 )
+          goto LABEL_29;
+        v10 = FlushError == -1073740672;
+        goto LABEL_27;
+      }
     }
     else
     {
-      if ( FlushError == -1073741247
-        || FlushError == -1073741309
-        || FlushError == -1073741300
-        || FlushError == -1073741299
-        || FlushError == -1073741258 )
+      if ( FlushError == -1073741252 || FlushError == -1073741620 || FlushError == -1073741309 )
+        goto LABEL_29;
+      if ( FlushError > -1073741301 )
       {
-        goto LABEL_30;
+        if ( FlushError <= -1073741299 )
+          goto LABEL_29;
+        v10 = FlushError == -1073741258;
+        goto LABEL_27;
       }
-      v12 = FlushError == -1073741252;
     }
 LABEL_28:
-    if ( !v12 )
-      goto LABEL_29;
-LABEL_30:
-    v10 = -1073700736;
-    v11 = -2147221365;
-    goto LABEL_31;
-  }
-  if ( FlushError == -1073741620 )
+    v11 = -1073741278;
+    v12 = -2147221454;
     goto LABEL_30;
-  if ( FlushError > -1073741662 )
-  {
-    if ( FlushError == -1073741636 || FlushError == -1073741634 || FlushError == -1073741628 )
-      goto LABEL_30;
-    v12 = FlushError == -1073741623;
-    goto LABEL_28;
   }
-  if ( FlushError != -1073741662 )
+  switch ( FlushError )
   {
-    if ( FlushError == -1073741816 || FlushError == -1073741790 || FlushError == -1073741697 )
-    {
-      v10 = -1073700735;
-      v11 = -2147221364;
-      goto LABEL_31;
-    }
-    if ( FlushError != -1073741672 && FlushError != -1073741667 )
-    {
+    case -1073741623:
+      goto LABEL_29;
+    case -1073741816:
+    case -1073741790:
+    case -1073741697:
+      v11 = -1073700735;
+      v12 = -2147221364;
+      break;
+    case -1073741672:
+    case -1073741667:
+    case -1073741662:
+      v11 = -1073700734;
+      v12 = -2147221363;
+      break;
+    case -1073741636:
+    case -1073741634:
+      goto LABEL_29;
+    default:
+      v10 = FlushError == -1073741628;
+LABEL_27:
+      if ( !v10 )
+        goto LABEL_28;
 LABEL_29:
-      v10 = -1073741278;
-      v11 = -2147221454;
-      goto LABEL_31;
-    }
+      v11 = -1073700736;
+      v12 = -2147221365;
+      break;
   }
-  v10 = -1073700734;
-  v11 = -2147221363;
-LABEL_31:
-  __incgsdword(0x847Cu);
+LABEL_30:
+  __incgsdword(0x813Cu);
   if ( (Flags & 1) == 0 )
-    IoRaiseInformationalHardError(v10, FileName, 0LL);
+    IoRaiseInformationalHardError(v11, FileName, 0LL);
   if ( (Flags & 2) == 0 )
   {
     v13 = -16;
@@ -107,34 +114,36 @@ LABEL_31:
     v15 = ErrorLogEntry;
     if ( ErrorLogEntry )
     {
-      *((_DWORD *)ErrorLogEntry + 3) = v11;
+      *((_DWORD *)ErrorLogEntry + 3) = v12;
       *ErrorLogEntry = 4;
-      v16 = ErrorLogEntry + 48;
-      *((_DWORD *)ErrorLogEntry + 5) = FlushError;
-      *((_WORD *)ErrorLogEntry + 3) = 48;
+      v16 = v13;
       v17 = ErrorLogEntry + 48;
+      *((_WORD *)ErrorLogEntry + 3) = 48;
+      v18 = v16 - 50;
+      *((_DWORD *)ErrorLogEntry + 5) = FlushError;
+      v19 = ErrorLogEntry + 48;
       *(_DWORD *)(ErrorLogEntry + 2) = 65540;
       *((_DWORD *)ErrorLogEntry + 10) = FlushError;
       Length = FileName->Length;
       Buffer = FileName->Buffer;
-      v20 = v13 - 50;
-      if ( v20 >= (unsigned int)Length )
+      if ( v18 >= (unsigned int)Length )
       {
-        memmove(v17, Buffer, Length);
-        v24 = &v16[2 * ((unsigned __int64)FileName->Length >> 1)];
+        memmove(v19, Buffer, Length);
+        v26 = &v17[2 * ((unsigned __int64)FileName->Length >> 1)];
       }
       else
       {
-        v21 = 2 * (v20 >> 2) - 4;
-        memmove(v17, Buffer, v21);
-        v22 = &v16[v21];
-        v23 = v20 - v21 - 8;
-        *(_QWORD *)v22 = 0x20002E002E0020LL;
-        v22 += 8;
-        memmove(v22, (char *)FileName->Buffer + FileName->Length - (unsigned __int64)v23, v23);
-        v24 = &v22[v23];
+        v22 = 2 * (v18 >> 2) - 4;
+        v23 = v18 - v22 - 8;
+        v24 = v22;
+        memmove(v19, Buffer, v22);
+        v25 = &v17[v24];
+        *(_QWORD *)v25 = 0x20002E002E0020LL;
+        v25 += 8;
+        memmove(v25, (char *)FileName->Buffer + FileName->Length - (unsigned __int64)v23, v23);
+        v26 = &v25[v23];
       }
-      *(_WORD *)v24 = 0;
+      *(_WORD *)v26 = 0;
       IoWriteErrorLogEntry(v15);
     }
     else

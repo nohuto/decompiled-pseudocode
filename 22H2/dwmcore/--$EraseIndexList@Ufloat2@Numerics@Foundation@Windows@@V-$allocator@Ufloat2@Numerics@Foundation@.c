@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x180241B98
+ * XREFs of ??$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DC614
  * Callers:
- *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1802455F4 (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
+ *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1801DFFCC (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
  * Callees:
  *     <none>
  */
@@ -9,28 +9,39 @@
 __int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
         __int64 a1,
         __int64 *a2,
-        int **a3)
+        char **a3)
 {
-  int *v3; // r10
-  int *i; // r9
-  __int64 v5; // rcx
+  char *v3; // r11
+  __int64 v4; // r10
+  unsigned __int64 v6; // r9
+  __int64 v7; // rcx
   __int64 result; // rax
-  __int64 v7; // r8
-  int v8; // xmm1_4
-  int v9; // xmm2_4
+  __int64 v9; // rdx
+  int v10; // xmm1_4
+  int v11; // xmm2_4
 
-  v3 = a3[1];
-  for ( i = *a3; i != v3; ++i )
+  v3 = *a3;
+  v4 = 0LL;
+  v6 = (unsigned __int64)(a3[1] - *a3 + 3) >> 2;
+  if ( *a3 > a3[1] )
+    v6 = 0LL;
+  if ( v6 )
   {
-    v5 = *i;
-    result = *a2;
-    v7 = a2[1];
-    v8 = *(_DWORD *)(*a2 + 8 * v5);
-    v9 = *(_DWORD *)(*a2 + 8 * v5 + 4);
-    *(_QWORD *)(*a2 + 8 * v5) = *(_QWORD *)(v7 - 8);
-    *(_DWORD *)(v7 - 8) = v8;
-    *(_DWORD *)(v7 - 4) = v9;
-    a2[1] -= 8LL;
+    do
+    {
+      v7 = *(int *)v3;
+      ++v4;
+      result = *a2;
+      v3 += 4;
+      v9 = a2[1];
+      v10 = *(_DWORD *)(*a2 + 8 * v7);
+      v11 = *(_DWORD *)(*a2 + 8 * v7 + 4);
+      *(_QWORD *)(*a2 + 8 * v7) = *(_QWORD *)(v9 - 8);
+      *(_DWORD *)(v9 - 8) = v10;
+      *(_DWORD *)(v9 - 4) = v11;
+      a2[1] -= 8LL;
+    }
+    while ( v4 != v6 );
   }
   return result;
 }

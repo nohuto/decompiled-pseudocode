@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckArmPeriod @ 0x1403B3E84
+ * XREFs of PpmCheckArmPeriod @ 0x1403C1B34
  * Callers:
- *     PpmCheckReInit @ 0x14081A3AC (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
  * Callees:
- *     PpmCheckResetProcessors @ 0x1403B3F5C (PpmCheckResetProcessors.c)
+ *     PpmCheckResetProcessors @ 0x1403C2064 (PpmCheckResetProcessors.c)
  */
 
 char PpmCheckArmPeriod()
@@ -13,13 +13,13 @@ char PpmCheckArmPeriod()
 
   result = PpmCheckArmed;
   v1 = PpmCheckMinimumPeriod;
-  if ( (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[534 * dword_140C232CC + 7])) > (unsigned __int64)PpmCheckMinimumPeriod )
-    v1 = (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[534 * dword_140C232CC + 7]));
+  if ( (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C23E8C + 7])) > (unsigned __int64)PpmCheckMinimumPeriod )
+    v1 = (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C23E8C + 7]));
   if ( !PpmCheckArmed )
     goto LABEL_7;
   if ( v1 != PpmCheckPeriod )
   {
-    _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, 0LL);
+    _InterlockedExchange64(&PpmCheckLastExecutionTime, 0LL);
     result = 0;
     PpmCheckArmed = 0;
   }
@@ -28,7 +28,7 @@ char PpmCheckArmPeriod()
 LABEL_7:
     PpmCheckPeriod = v1;
     PpmCheckResetProcessors(0LL);
-    result = _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, 1LL);
+    result = _InterlockedExchange64(&PpmCheckLastExecutionTime, 1LL);
     PpmCheckArmed = 1;
   }
   return result;

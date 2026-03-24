@@ -1,16 +1,15 @@
 /*
- * XREFs of VfDriverUnloadImage @ 0x140A7C248
+ * XREFs of VfDriverUnloadImage @ 0x1409C2474
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     VfTargetDriversRemove @ 0x1402DB738 (VfTargetDriversRemove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfRemLockDeleteMemoryRange @ 0x140A7F132 (VfRemLockDeleteMemoryRange.c)
- *     VfDeadlockDeleteMemoryRange @ 0x140A7F844 (VfDeadlockDeleteMemoryRange.c)
- *     ViThunkRemoveImportEntry @ 0x140A94248 (ViThunkRemoveImportEntry.c)
- *     VfSuspectDriversUnloadCallback @ 0x140A9ACE0 (VfSuspectDriversUnloadCallback.c)
- *     VfVolatileClearDifRuleClass @ 0x140A9CAB4 (VfVolatileClearDifRuleClass.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     VfTargetDriversRemove @ 0x14037E990 (VfTargetDriversRemove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VfRemLockDeleteMemoryRange @ 0x1409D670C (VfRemLockDeleteMemoryRange.c)
+ *     ViThunkRemoveImportEntry @ 0x1409D9250 (ViThunkRemoveImportEntry.c)
+ *     VfSuspectDriversUnloadCallback @ 0x1409D9FBC (VfSuspectDriversUnloadCallback.c)
+ *     VfDeadlockDeleteMemoryRange @ 0x1409DDE30 (VfDeadlockDeleteMemoryRange.c)
  */
 
 void __fastcall VfDriverUnloadImage(__int64 a1)
@@ -57,9 +56,4 @@ void __fastcall VfDriverUnloadImage(__int64 a1)
   VfTargetDriversRemove(a1);
   if ( (*(_DWORD *)(a1 + 104) & 0x2000000) != 0 )
     VfSuspectDriversUnloadCallback(a1);
-  if ( VfDifRunningWithoutReboot )
-  {
-    if ( (__int64 *)VfSuspectDriversList == &VfSuspectDriversList )
-      VfVolatileClearDifRuleClass();
-  }
 }

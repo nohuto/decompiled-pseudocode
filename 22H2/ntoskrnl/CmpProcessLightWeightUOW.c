@@ -1,188 +1,153 @@
 /*
- * XREFs of CmpProcessLightWeightUOW @ 0x140A1C95C
+ * XREFs of CmpProcessLightWeightUOW @ 0x14066EB84
  * Callers:
- *     CmpCommitPreparedLightWeightTransaction @ 0x140A1C694 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x140A1C804 (CmpPrepareLightWeightTransaction.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x14066E164 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x14066E294 (CmpPrepareLightWeightTransaction.c)
  * Callees:
- *     CmpLightWeightCommitRecreateKeyUoW @ 0x140680A38 (CmpLightWeightCommitRecreateKeyUoW.c)
- *     CmpLightWeightPrepareRecreateKeyUoW @ 0x140680B00 (CmpLightWeightPrepareRecreateKeyUoW.c)
- *     CmpSignalDeferredPosts @ 0x1407687C4 (CmpSignalDeferredPosts.c)
- *     CmpReportNotify @ 0x1407D2130 (CmpReportNotify.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A28074 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28218 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140A2844C (CmpLightWeightCommitDeleteValueKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A287A0 (CmpLightWeightCommitSetSecDescUoW.c)
- *     CmpLightWeightCommitSetUserFlagsUoW @ 0x140A28884 (CmpLightWeightCommitSetUserFlagsUoW.c)
- *     CmpLightWeightCommitSetValueKeyUoW @ 0x140A28940 (CmpLightWeightCommitSetValueKeyUoW.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A28DA0 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29058 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140A2922C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29450 (CmpLightWeightPrepareRenameKeyUoW.c)
- *     CmpLightWeightPrepareSetKeyUserFlags @ 0x140A29824 (CmpLightWeightPrepareSetKeyUserFlags.c)
- *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A298C4 (CmpLightWeightPrepareSetSecDescUoW.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A29B60 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightCommitRecreateKeyUoW @ 0x1405CD7BC (CmpLightWeightCommitRecreateKeyUoW.c)
+ *     CmpLightWeightPrepareRecreateKeyUoW @ 0x1405CD868 (CmpLightWeightPrepareRecreateKeyUoW.c)
+ *     CmpReportNotify @ 0x14066ED7C (CmpReportNotify.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x14066EE08 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14066EF68 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpSignalDeferredPosts @ 0x1406E0680 (CmpSignalDeferredPosts.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140731D08 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140732C8C (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitSetUserFlagsUoW @ 0x140733184 (CmpLightWeightCommitSetUserFlagsUoW.c)
+ *     CmpLightWeightPrepareSetKeyUserFlags @ 0x1407334D4 (CmpLightWeightPrepareSetKeyUserFlags.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14087EB9C (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ED24 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F10C (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F404 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F660 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F814 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x14087FB40 (CmpLightWeightPrepareSetSecDescUoW.c)
  */
 
 __int64 __fastcall CmpProcessLightWeightUOW(__int64 a1, _QWORD *a2, int a3, __int64 a4)
 {
-  int v4; // r10d
-  int v9; // r10d
-  int v10; // r10d
-  int v11; // r10d
-  int v12; // r10d
-  int v13; // r10d
-  unsigned int v14; // ebx
-  int v15; // eax
-  int v16; // r8d
-  int v17; // r10d
-  int v18; // r10d
-  int v19; // r10d
-  int v20; // r10d
-  int v21; // r10d
-  int v22; // r10d
-  _QWORD *v24[3]; // [rsp+20h] [rbp-18h] BYREF
+  int v8; // eax
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // r8
+  _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *(_DWORD *)(a1 + 68);
-  v24[1] = v24;
-  v24[0] = v24;
-  if ( v4 <= 7 )
+  v13[1] = v13;
+  v13[0] = v13;
+  v8 = *(_DWORD *)(a1 + 68);
+  if ( v8 > 7 )
   {
-    if ( v4 == 7 )
+    if ( v8 == 8 )
+      goto LABEL_47;
+    if ( v8 == 9 )
     {
       if ( !a3 )
       {
-LABEL_27:
-        v15 = CmpLightWeightPrepareSetKeyUserFlags(a1);
-        goto LABEL_45;
+        v10 = CmpLightWeightPrepareSetSecDescUoW(a1, a2);
+        goto LABEL_43;
       }
-LABEL_14:
-      if ( a3 == 1 )
-        CmpLightWeightCommitSetUserFlagsUoW(a1, a2);
-      goto LABEL_49;
+      CmpLightWeightCommitSetSecDescUoW(a1, a2);
+      v11 = 10LL;
+LABEL_46:
+      ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, v11, v13);
+      goto LABEL_47;
     }
-    if ( v4 )
-    {
-      v9 = v4 - 1;
-      if ( v9 )
-      {
-        v10 = v9 - 1;
-        if ( v10 )
-        {
-          v11 = v10 - 1;
-          if ( v11 )
-          {
-            v12 = v11 - 1;
-            if ( v12 )
-            {
-              v13 = v12 - 1;
-              if ( v13 )
-              {
-                if ( v13 == 1 )
-                {
-                  if ( !a3 )
-                  {
-                    v14 = CmpLightWeightPrepareDeleteValueKeyUoW(a1, a2);
-                    if ( (v14 & 0x80000000) != 0 )
-                      return v14;
-                    goto LABEL_27;
-                  }
-                  CmpLightWeightCommitDeleteValueKeyUoW(a1, a2, a4);
-                  CmpReportNotify(*(_QWORD *)(a1 + 48), 0, 4, (__int64)v24);
-                  goto LABEL_14;
-                }
-                return (unsigned int)-1073741811;
-              }
-            }
-            if ( !a3 )
-            {
-              v15 = CmpLightWeightPrepareSetValueKeyUoW(a1, a2);
-              goto LABEL_45;
-            }
-            CmpLightWeightCommitSetValueKeyUoW(a1, a2, a4);
-            v16 = 4;
-            goto LABEL_48;
-          }
-        }
-        else
-        {
-          if ( !a3 )
-          {
-            v15 = CmpLightWeightPrepareDeleteKeyUoW(a1, a4);
-            goto LABEL_45;
-          }
-          CmpReportNotify(*(_QWORD *)(a1 + 48), 0, 1, (__int64)v24);
-          CmpLightWeightCommitDeleteKeyUoW(a1, a2, a4);
-        }
-      }
-LABEL_49:
-      v14 = 0;
-      CmpSignalDeferredPosts(v24);
-      return v14;
-    }
-    if ( !a3 )
-    {
-      v15 = CmpLightWeightPrepareAddKeyUoW(a1, a2);
-      goto LABEL_45;
-    }
-    CmpLightWeightCommitAddKeyUoW(a1, a2);
-    goto LABEL_25;
-  }
-  v17 = v4 - 8;
-  if ( !v17 )
-    goto LABEL_49;
-  v18 = v17 - 1;
-  if ( v18 )
-  {
-    v19 = v18 - 1;
-    if ( !v19 )
-      goto LABEL_49;
-    v20 = v19 - 1;
-    if ( !v20 )
-      goto LABEL_49;
-    v21 = v20 - 1;
-    if ( v21 )
-    {
-      v22 = v21 - 1;
-      if ( !v22 )
-        goto LABEL_49;
-      if ( v22 != 1 )
-        return (unsigned int)-1073741811;
-      if ( a3 )
-      {
-        CmpLightWeightCommitRecreateKeyUoW(a1, a2, a4);
-LABEL_25:
-        v16 = 1;
-LABEL_48:
-        CmpReportNotify(*(_QWORD *)(a1 + 48), 0, v16, (__int64)v24);
-        goto LABEL_49;
-      }
-      v15 = CmpLightWeightPrepareRecreateKeyUoW(a1);
-    }
-    else
+    if ( v8 <= 11 )
+      goto LABEL_47;
+    if ( v8 == 12 )
     {
       if ( a3 )
       {
         if ( a3 == 1 )
           CmpLightWeightCommitRenameKeyUoW(a1, a2, a4);
-        goto LABEL_49;
+        goto LABEL_47;
       }
-      v15 = CmpLightWeightPrepareRenameKeyUoW(a1, a2);
+      v10 = CmpLightWeightPrepareRenameKeyUoW(a1, a2);
+      goto LABEL_43;
     }
-  }
-  else
-  {
-    if ( a3 )
+    if ( v8 == 13 )
+      goto LABEL_47;
+    if ( v8 != 14 )
+      return (unsigned int)-1073741811;
+    if ( !a3 )
     {
-      CmpLightWeightCommitSetSecDescUoW(a1, a2);
-      v16 = 10;
-      goto LABEL_48;
+      v10 = CmpLightWeightPrepareRecreateKeyUoW(a1);
+      goto LABEL_43;
     }
-    v15 = CmpLightWeightPrepareSetSecDescUoW(a1, a2);
+    CmpLightWeightCommitRecreateKeyUoW(a1, a2, a4);
+LABEL_24:
+    v11 = 1LL;
+    goto LABEL_46;
   }
-LABEL_45:
-  v14 = v15;
-  if ( v15 >= 0 )
-    goto LABEL_49;
-  return v14;
+  switch ( v8 )
+  {
+    case 7:
+      goto LABEL_13;
+    case 0:
+      if ( !a3 )
+      {
+        v10 = CmpLightWeightPrepareAddKeyUoW(a1, a2);
+        goto LABEL_43;
+      }
+      CmpLightWeightCommitAddKeyUoW(a1, a2);
+      goto LABEL_24;
+    case 1:
+      goto LABEL_47;
+  }
+  if ( v8 != 2 )
+  {
+    if ( v8 != 3 )
+    {
+      if ( v8 > 3 )
+      {
+        if ( v8 > 5 )
+        {
+          if ( !a3 )
+          {
+            v9 = CmpLightWeightPrepareDeleteValueKeyUoW(a1, a2);
+            if ( (v9 & 0x80000000) != 0 )
+              return v9;
+            goto LABEL_14;
+          }
+          CmpLightWeightCommitDeleteValueKeyUoW(a1, a2, a4);
+          ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, 4LL, v13);
+LABEL_13:
+          if ( a3 )
+          {
+            if ( a3 == 1 )
+              CmpLightWeightCommitSetUserFlagsUoW(a1, a2);
+            goto LABEL_47;
+          }
+LABEL_14:
+          v10 = CmpLightWeightPrepareSetKeyUserFlags(a1);
+          goto LABEL_43;
+        }
+        if ( !a3 )
+        {
+          v10 = CmpLightWeightPrepareSetValueKeyUoW(a1, a2);
+          goto LABEL_43;
+        }
+        CmpLightWeightCommitSetValueKeyUoW(a1, a2, a4);
+        v11 = 4LL;
+        goto LABEL_46;
+      }
+      return (unsigned int)-1073741811;
+    }
+LABEL_47:
+    v9 = 0;
+    CmpSignalDeferredPosts(v13);
+    return v9;
+  }
+  if ( a3 )
+  {
+    ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, 1LL, v13);
+    CmpLightWeightCommitDeleteKeyUoW(a1, a2, a4);
+    goto LABEL_47;
+  }
+  v10 = CmpLightWeightPrepareDeleteKeyUoW(a1, a4);
+LABEL_43:
+  v9 = v10;
+  if ( v10 >= 0 )
+    goto LABEL_47;
+  return v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01AF02C
+ * XREFs of ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01DB1A8
  * Callers:
- *     ForwardTouchMessage @ 0x1C01B01AC (ForwardTouchMessage.c)
+ *     ForwardTouchMessage @ 0x1C01DC09C (ForwardTouchMessage.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z @ 0x1C01AEC08 (-AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z.c)
- *     ?CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z @ 0x1C01AED8C (-CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z @ 0x1C01DAE3C (-AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z.c)
+ *     ?CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z @ 0x1C01DAF5C (-CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z.c)
  */
 
 struct HTOUCHINPUT__ *__fastcall CreateValidTouchInputInfo(
@@ -21,42 +21,44 @@ struct HTOUCHINPUT__ *__fastcall CreateValidTouchInputInfo(
   int v11; // eax
   struct tagTOUCHINPUT *v12; // rbx
   ULONG v14; // eax
-  unsigned int v15; // [rsp+30h] [rbp-30h] BYREF
-  unsigned int v16; // [rsp+34h] [rbp-2Ch]
-  struct tagTOUCHINPUT *v17[2]; // [rsp+38h] [rbp-28h]
-  _DWORD v18[2]; // [rsp+48h] [rbp-18h] BYREF
-  struct tagTOUCHINPUT *v19; // [rsp+50h] [rbp-10h]
-  __int64 v20; // [rsp+58h] [rbp-8h]
-  unsigned int v21; // [rsp+88h] [rbp+28h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  unsigned int v17; // [rsp+30h] [rbp-30h] BYREF
+  unsigned int v18; // [rsp+34h] [rbp-2Ch]
+  struct tagTOUCHINPUT *v19[2]; // [rsp+38h] [rbp-28h]
+  _DWORD v20[2]; // [rsp+48h] [rbp-18h] BYREF
+  struct tagTOUCHINPUT *v21; // [rsp+50h] [rbp-10h]
+  __int64 v22; // [rsp+58h] [rbp-8h]
+  unsigned int v23; // [rsp+88h] [rbp+28h] BYREF
 
   v4 = 0LL;
-  v20 = 0LL;
-  v21 = 0;
+  v22 = 0LL;
+  v23 = 0;
   v8 = 48LL * a3;
-  *(_OWORD *)v17 = 0LL;
+  *(_OWORD *)v19 = 0LL;
   if ( v8 > 0xFFFFFFFF )
   {
     v10 = -1073741675;
     goto LABEL_10;
   }
-  v16 = 0;
-  v15 = a3;
-  v17[0] = (struct tagTOUCHINPUT *)Win32AllocPoolZInit((unsigned int)v8, 1952871253LL);
-  if ( !v17[0] )
+  v18 = 0;
+  v17 = a3;
+  v19[0] = (struct tagTOUCHINPUT *)Win32AllocPool((unsigned int)v8, 1952871253LL);
+  if ( !v19[0] )
   {
     v10 = -1073741801;
 LABEL_10:
     v14 = RtlNtStatusToDosError(v10);
-    UserSetLastError(v14);
+    UserSetLastError(v14, v15, v16);
     return 0LL;
   }
-  v18[0] = a3;
-  v18[1] = a3;
-  v19 = a4;
-  v11 = CopyTouchInputListSorted((const struct tagTOUCHINPUTLIST *)v18, (struct tagTOUCHINPUTLIST *)&v15, v9, &v21);
-  v12 = v17[0];
+  v20[0] = a3;
+  v20[1] = a3;
+  v21 = a4;
+  v11 = CopyTouchInputListSorted((const struct tagTOUCHINPUTLIST *)v20, (struct tagTOUCHINPUTLIST *)&v17, v9, &v23);
+  v12 = v19[0];
   if ( v11 )
-    v4 = AllocTouchInputInfo(a1, v16, v17[0], v21);
+    v4 = AllocTouchInputInfo(a1, v18, v19[0], v23);
   if ( v12 )
     Win32FreePool(v12);
   return v4;

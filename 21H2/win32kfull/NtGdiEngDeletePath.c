@@ -1,38 +1,49 @@
 /*
- * XREFs of NtGdiEngDeletePath @ 0x1C02B14B0
+ * XREFs of NtGdiEngDeletePath @ 0x1C02B2C10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     EngDeletePath @ 0x1C016EC90 (EngDeletePath.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     EngDeletePath @ 0x1C0286AA0 (EngDeletePath.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiEngDeletePath(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
   unsigned int v4; // edi
-  struct UMPDOBJ *v5; // rbx
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v4 = 0;
-  v5 = ThreadCurrentObj;
-  if ( ThreadCurrentObj )
+  if ( !ThreadCurrentObj )
+    goto LABEL_5;
+  if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    if ( a1 && a1 == *((_QWORD *)ThreadCurrentObj + 31) )
+    if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
     {
-      EngDeletePath(*((PATHOBJ **)ThreadCurrentObj + 30));
-      *((_QWORD *)v5 + 30) = 0LL;
-      *((_QWORD *)v5 + 31) = 0LL;
+      ThreadCurrentObj = 0LL;
+LABEL_5:
+      v4 = -1073741811;
+      goto LABEL_6;
     }
-    --*((_DWORD *)v5 + 105);
   }
   else
   {
-    return (unsigned int)-1073741811;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
   }
+  if ( a1 && a1 == *((_QWORD *)ThreadCurrentObj + 31) )
+  {
+    EngDeletePath(*((PATHOBJ **)ThreadCurrentObj + 30));
+    *((_QWORD *)ThreadCurrentObj + 30) = 0LL;
+    *((_QWORD *)ThreadCurrentObj + 31) = 0LL;
+  }
+  v4 = 0;
+LABEL_6:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
   return v4;
 }

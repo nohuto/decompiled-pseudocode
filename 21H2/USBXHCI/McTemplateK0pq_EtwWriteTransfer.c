@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0pq_EtwWriteTransfer @ 0x1C00354F4
+ * XREFs of McTemplateK0pq_EtwWriteTransfer @ 0x1C0035254
  * Callers:
- *     Controller_D0EntryRestoreState @ 0x1C0030DA4 (Controller_D0EntryRestoreState.c)
- *     Controller_D0ExitSaveState @ 0x1C00310D8 (Controller_D0ExitSaveState.c)
- *     Controller_InternalReset @ 0x1C00321C8 (Controller_InternalReset.c)
+ *     Controller_D0EntryRestoreState @ 0x1C0030AF4 (Controller_D0EntryRestoreState.c)
+ *     Controller_D0ExitSaveState @ 0x1C0030E1C (Controller_D0ExitSaveState.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0pq_EtwWriteTransfer(

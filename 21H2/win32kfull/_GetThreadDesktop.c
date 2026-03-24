@@ -1,10 +1,10 @@
 /*
- * XREFs of _GetThreadDesktop @ 0x1C00F046C
+ * XREFs of _GetThreadDesktop @ 0x1C0104484
  * Callers:
- *     EditionGetThreadDesktopEntryPoint @ 0x1C00F0430 (EditionGetThreadDesktopEntryPoint.c)
+ *     EditionGetThreadDesktopEntryPoint @ 0x1C0104440 (EditionGetThreadDesktopEntryPoint.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     GetConsoleDesktop @ 0x1C01E4070 (GetConsoleDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01E987C (GetConsoleDesktop.c)
  */
 
 HANDLE __fastcall GetThreadDesktop(__int64 a1)
@@ -16,7 +16,7 @@ HANDLE __fastcall GetThreadDesktop(__int64 a1)
   HANDLE result; // rax
   PRKPROCESS *v6; // rbx
   __int64 v7; // rdx
-  HANDLE v8; // rcx
+  __int64 v8; // r8
   int v9; // eax
   NTSTATUS v10; // eax
   PVOID v11; // rbx
@@ -57,26 +57,22 @@ HANDLE __fastcall GetThreadDesktop(__int64 a1)
       v12 = v10;
       KeDetachProcess();
       if ( v12 < 0
-        || (CurrentProcess = PsGetCurrentProcess(v13, v7),
+        || (CurrentProcess = PsGetCurrentProcess(v13, v7, v8),
             !(unsigned __int8)ObFindHandleForObject(CurrentProcess, v11, 0LL, &HandleInformation, &Handle)) )
       {
-        v8 = 0LL;
         Handle = 0LL;
-        if ( v12 < 0 )
-          goto LABEL_6;
       }
-      ObfDereferenceObject(v11);
+      if ( v12 >= 0 )
+        ObfDereferenceObject(v11);
     }
-    v8 = Handle;
-LABEL_6:
-    if ( v8 )
+    if ( Handle )
     {
-      v9 = SetHandleFlag(v8, 1LL, 1LL);
+      v9 = SetHandleFlag(Handle, 1LL, 1LL);
       return (HANDLE)((unsigned __int64)Handle & -(__int64)(v9 != 0));
     }
     else
     {
-      UserSetLastError(5LL, v7);
+      UserSetLastError(5LL, v7, v8);
       return Handle;
     }
   }

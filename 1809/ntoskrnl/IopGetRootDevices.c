@@ -1,20 +1,20 @@
 /*
- * XREFs of IopGetRootDevices @ 0x1406DA414
+ * XREFs of IopGetRootDevices @ 0x1406DA3F4
  * Callers:
- *     IopPnPDispatch @ 0x140702B50 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x140702B30 (IopPnPDispatch.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1406BB8CC (_CmGetMatchingFilteredDeviceList.c)
- *     IopInitializeDeviceInstanceKey @ 0x1406DA66C (IopInitializeDeviceInstanceKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1406BB8AC (_CmGetMatchingFilteredDeviceList.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
  */
 
 __int64 __fastcall IopGetRootDevices(_QWORD *a1)

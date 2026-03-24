@@ -1,17 +1,16 @@
 /*
- * XREFs of NtDCompositionDuplicateHandleToProcess @ 0x1C0209690
+ * XREFs of NtDCompositionDuplicateHandleToProcess @ 0x1C01D2320
  * Callers:
  *     <none>
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C001B580 (UserIsCurrentProcessDwm.c)
- *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0099788 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     UserIsCurrentProcessDwm @ 0x1C0048F20 (UserIsCurrentProcessDwm.c)
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0083AC4 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2, _QWORD *a3)
 {
-  _QWORD *v3; // r14
   void *v4; // r15
   int v6; // edi
   int ProcessInformation; // [rsp+40h] [rbp-128h] BYREF
@@ -24,12 +23,11 @@ __int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-E8h] BYREF
   ULONG_PTR BugCheckParameter1[16]; // [rsp+B0h] [rbp-B8h] BYREF
 
-  v3 = (_QWORD *)a3;
   v4 = (void *)(int)a2;
   v6 = -1073741790;
-  if ( !UserIsCurrentProcessDwm((__int64)a1, a2, a3) )
+  if ( !UserIsCurrentProcessDwm((__int64)a1, a2) )
     return (unsigned int)v6;
-  if ( (_DWORD)v4 != -1414746709 || v3 )
+  if ( (_DWORD)v4 != -1414746709 || a3 )
   {
     v13 = 0LL;
     v6 = CompositionObject::ResolveHandle(a1, 1u, 1, 1, &v13);
@@ -66,9 +64,9 @@ __int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2
               v6 = ObDuplicateObject(v11, a1, Object, &Handle, 0x80000000, 0, 2, 1);
               if ( v6 >= 0 )
               {
-                if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-                  v3 = (_QWORD *)MmUserProbeAddress;
-                *v3 = Handle;
+                if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+                  a3 = (_QWORD *)MmUserProbeAddress;
+                *a3 = Handle;
               }
               ObfDereferenceObjectWithTag(v11, 0);
             }

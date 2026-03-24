@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerWatchdogStart @ 0x14050B7A0
+ * XREFs of HalpTimerWatchdogStart @ 0x1404C25B0
  * Callers:
- *     HalpTimerInitializeSystemWatchdog @ 0x14050B64C (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x1404C2420 (HalpTimerInitializeSystemWatchdog.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpSetTimer @ 0x140337740 (HalpSetTimer.c)
- *     HalpTimerWatchdogWakeSetDueTime @ 0x1403D3E6C (HalpTimerWatchdogWakeSetDueTime.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpSetTimer @ 0x14024DCEC (HalpSetTimer.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x1403933BC (HalpTimerWatchdogWakeSetDueTime.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerWatchdogStart()
@@ -25,7 +25,7 @@ void HalpTimerWatchdogStart()
       InternalData = HalpTimerGetInternalData(HalpWatchdogTimer);
       (*(void (__fastcall **)(__int64))(v0 + 104))(InternalData);
       HalpTimerWatchdogLastReset = MEMORY[0xFFFFF78000000008];
-      if ( (int)HalpSetTimer(v0, 3, HalpTimerWatchdogTimeout, 1, &v3) >= 0 )
+      if ( (int)HalpSetTimer(v0, 3u, HalpTimerWatchdogTimeout, 1, &v3) >= 0 )
       {
         HalpTimerWatchdogArmed = 1;
         HalpTimerWatchdogWakeSetDueTime();

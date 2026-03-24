@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended @ 0x1C0083190
+ * XREFs of HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended @ 0x1C0081C20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00812DC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70 (HUBREG_WriteValueToDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended(__int64 a
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
              WdfDriverGlobals,
              v2,
-             off_1C00670F8);
+             off_1C00660D0);
   v4 = *(_QWORD *)(result + 24);
   if ( v4 )
   {

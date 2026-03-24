@@ -1,9 +1,9 @@
 /*
- * XREFs of _CreateAcceleratorTable @ 0x1C0107B34
+ * XREFs of _CreateAcceleratorTable @ 0x1C011CDD4
  * Callers:
- *     NtUserCreateAcceleratorTable @ 0x1C0107A70 (NtUserCreateAcceleratorTable.c)
+ *     NtUserCreateAcceleratorTable @ 0x1C011CD10 (NtUserCreateAcceleratorTable.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall CreateAcceleratorTable(void *Src, size_t Size, __int64 a3)

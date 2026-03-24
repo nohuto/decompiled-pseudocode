@@ -1,12 +1,12 @@
 /*
- * XREFs of BgDisplayBackgroundUpdate @ 0x140AAED40
+ * XREFs of BgDisplayBackgroundUpdate @ 0x1409F4748
  * Callers:
- *     BgkDestroy @ 0x140AAE8BC (BgkDestroy.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
+ *     BgkDisplayBackgroundUpdate @ 0x140A969D4 (BgkDisplayBackgroundUpdate.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     AnFwDisplayBackgroundUpdate @ 0x140AAED7C (AnFwDisplayBackgroundUpdate.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x1409F4784 (AnFwDisplayBackgroundUpdate.c)
  */
 
 __int64 __fastcall BgDisplayBackgroundUpdate(char a1)
@@ -15,7 +15,7 @@ __int64 __fastcall BgDisplayBackgroundUpdate(char a1)
   unsigned int v3; // ebx
 
   BgpFwAcquireLock();
-  if ( (dword_140C0DF90 & 1) != 0 )
+  if ( (dword_140C134F0 & 1) != 0 )
   {
     LOBYTE(v2) = a1;
     v3 = AnFwDisplayBackgroundUpdate(v2);

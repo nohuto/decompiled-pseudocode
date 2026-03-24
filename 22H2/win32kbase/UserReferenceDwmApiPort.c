@@ -1,33 +1,31 @@
 /*
- * XREFs of UserReferenceDwmApiPort @ 0x1C0086FA0
+ * XREFs of UserReferenceDwmApiPort @ 0x1C004AAF0
  * Callers:
- *     NtDCompositionRegisterThumbnailVisual @ 0x1C000AF70 (NtDCompositionRegisterThumbnailVisual.c)
- *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C000EF50 (NtDCompositionRegisterVirtualDesktopVisual.c)
- *     ?EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtagRECT@@@Z @ 0x1C0086AC8 (-EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtag.c)
- *     NtDCompositionSendDwmLpcMessage @ 0x1C00D5730 (NtDCompositionSendDwmLpcMessage.c)
- *     NtDCompositionSetChildRootVisual @ 0x1C0209C10 (NtDCompositionSetChildRootVisual.c)
+ *     NtDCompositionRegisterThumbnailVisual @ 0x1C0003B00 (NtDCompositionRegisterThumbnailVisual.c)
+ *     NtDCompositionSendDwmLpcMessage @ 0x1C00CDE80 (NtDCompositionSendDwmLpcMessage.c)
+ *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C01D27F0 (NtDCompositionRegisterVirtualDesktopVisual.c)
+ *     NtDCompositionSetChildRootVisual @ 0x1C01D2930 (NtDCompositionSetChildRootVisual.c)
  * Callees:
- *     GreLockDwmState @ 0x1C0087030 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
+ *     GreLockDwmState @ 0x1C0048DD0 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C004AB60 (GreIsSemaphoreOwnedOrSharedByCurrentThread.c)
  */
 
-PVOID __fastcall UserReferenceDwmApiPort(__int64 a1)
+PVOID UserReferenceDwmApiPort()
 {
-  int v1; // edi
-  struct _ERESOURCE *v2; // rbx
-  PVOID DeviceContext; // rbx
+  int v0; // edi
+  PVOID v1; // rbx
 
-  v1 = 0;
-  v2 = *(struct _ERESOURCE **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 72LL);
-  if ( !ExIsResourceAcquiredExclusiveLite(v2) && !ExIsResourceAcquiredSharedLite(v2) )
+  v0 = 0;
+  if ( !(unsigned int)GreIsSemaphoreOwnedOrSharedByCurrentThread((PERESOURCE)ghsemDwmState) )
   {
     GreLockDwmState();
-    v1 = 1;
+    v0 = 1;
   }
-  DeviceContext = WPP_MAIN_CB.Queue.Wcb.DeviceContext;
-  if ( WPP_MAIN_CB.Queue.Wcb.DeviceContext )
-    ObfReferenceObject(WPP_MAIN_CB.Queue.Wcb.DeviceContext);
-  if ( v1 )
+  v1 = g_pDwmApiPort;
+  if ( g_pDwmApiPort )
+    ObfReferenceObject(g_pDwmApiPort);
+  if ( v0 )
     GreUnlockDwmState();
-  return DeviceContext;
+  return v1;
 }

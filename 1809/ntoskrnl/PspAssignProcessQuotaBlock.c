@@ -1,20 +1,20 @@
 /*
- * XREFs of PspAssignProcessQuotaBlock @ 0x14065A154
+ * XREFs of PspAssignProcessQuotaBlock @ 0x14065A134
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     PspSetQuotaLimits @ 0x1406D1118 (PspSetQuotaLimits.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     PspUnlockQuotaListShared @ 0x1400DD0F0 (PspUnlockQuotaListShared.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PspUnlockQuotaListShared @ 0x1400DD110 (PspUnlockQuotaListShared.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PspDereferenceQuotaBlock @ 0x1405CACF4 (PspDereferenceQuotaBlock.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     PspLookupProcessQuotaBlock @ 0x14065A320 (PspLookupProcessQuotaBlock.c)
- *     PspReadUserQuotaLimits @ 0x14065A44C (PspReadUserQuotaLimits.c)
- *     PspSafeReferenceQuotaBlock @ 0x14065AABC (PspSafeReferenceQuotaBlock.c)
- *     PspInitializeQuotaBlock @ 0x14075E3B0 (PspInitializeQuotaBlock.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     PspLookupProcessQuotaBlock @ 0x14065A300 (PspLookupProcessQuotaBlock.c)
+ *     PspReadUserQuotaLimits @ 0x14065A42C (PspReadUserQuotaLimits.c)
+ *     PspSafeReferenceQuotaBlock @ 0x14065AA9C (PspSafeReferenceQuotaBlock.c)
+ *     PspInitializeQuotaBlock @ 0x14075E390 (PspInitializeQuotaBlock.c)
  */
 
 __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3)

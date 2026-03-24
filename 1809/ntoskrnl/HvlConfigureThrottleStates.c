@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlConfigureThrottleStates @ 0x140276800
+ * XREFs of HvlConfigureThrottleStates @ 0x140276900
  * Callers:
- *     PpmPerfRegisterHvStates @ 0x14087B640 (PpmPerfRegisterHvStates.c)
+ *     PpmPerfRegisterHvStates @ 0x14087B620 (PpmPerfRegisterHvStates.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     HvlpSetLogicalProcessorProperty @ 0x140272C48 (HvlpSetLogicalProcessorProperty.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x140272D48 (HvlpSetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlConfigureThrottleStates(int a1, const void *a2)

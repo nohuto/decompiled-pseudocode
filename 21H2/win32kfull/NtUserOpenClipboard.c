@@ -1,246 +1,261 @@
 /*
- * XREFs of NtUserOpenClipboard @ 0x1C00CCB80
+ * XREFs of NtUserOpenClipboard @ 0x1C002FA90
  * Callers:
  *     <none>
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _OpenClipboard @ 0x1C00CCE18 (_OpenClipboard.c)
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0110580 (-ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     UserGetLastError @ 0x1C0113B5C (UserGetLastError.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F0198 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F0290 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$.c)
+ *     _OpenClipboard @ 0x1C002FF98 (_OpenClipboard.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C01266DC (-ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     UserGetLastError @ 0x1C012D0A8 (UserGetLastError.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F5A88 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F5B80 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$.c)
  */
 
 __int64 __fastcall NtUserOpenClipboard(__int64 a1, _DWORD *a2)
 {
-  __int64 v4; // rdx
+  int v4; // r8d
   ULONG64 v5; // rcx
-  __int64 v6; // rsi
-  __int64 v7; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  int v8; // r8d
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v9; // rcx
-  int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r8
-  __int64 v15; // r9
-  ULONG64 v16; // rdx
-  __int64 v18; // r11
-  __int64 v19; // r14
-  __int64 v20; // rax
-  int v21; // ecx
-  int v22; // r8d
-  const char *v23; // rbx
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  int v27; // ecx
-  int v28; // r8d
-  __int64 v29; // rcx
-  __int64 v30; // rcx
+  __int64 v10; // rcx
+  __int64 ThreadWin32Thread; // rax
+  int v12; // ebx
+  __int64 v13; // rcx
+  int v14; // r8d
+  __int64 v16; // r11
+  __int64 v17; // rsi
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21; // r8d
+  __int64 v22; // rcx
   signed int LastError; // eax
-  int v32; // eax
-  bool v33; // sf
-  __int64 v34; // rdx
-  __int64 v35; // r8
-  __int64 v36; // r9
-  signed int v37; // eax
-  __int64 v38; // rcx
-  int v39; // ecx
-  int v40; // r8d
-  __int64 v41; // [rsp+40h] [rbp-58h] BYREF
-  _QWORD v42[2]; // [rsp+48h] [rbp-50h] BYREF
-  __int128 v43; // [rsp+58h] [rbp-40h] BYREF
-  __int64 v44; // [rsp+68h] [rbp-30h]
-  __int64 v45; // [rsp+A0h] [rbp+8h] BYREF
-  __int64 v46; // [rsp+B0h] [rbp+18h] BYREF
-  const char *v47; // [rsp+B8h] [rbp+20h] BYREF
+  int v24; // eax
+  bool v25; // sf
+  signed int v26; // eax
+  __int64 v27; // rcx
+  _DWORD v28[2]; // [rsp+40h] [rbp-138h] BYREF
+  _DWORD v29[2]; // [rsp+48h] [rbp-130h] BYREF
+  _DWORD v30[2]; // [rsp+58h] [rbp-120h] BYREF
+  __int64 v31; // [rsp+60h] [rbp-118h]
+  __int64 v32; // [rsp+68h] [rbp-110h] BYREF
+  const char *v33; // [rsp+70h] [rbp-108h] BYREF
+  _QWORD v34[3]; // [rsp+78h] [rbp-100h] BYREF
+  __int64 v35; // [rsp+90h] [rbp-E8h] BYREF
+  const char *v36; // [rsp+98h] [rbp-E0h] BYREF
+  _QWORD v37[3]; // [rsp+A0h] [rbp-D8h] BYREF
+  __int64 v38; // [rsp+B8h] [rbp-C0h] BYREF
+  const char *v39; // [rsp+C0h] [rbp-B8h] BYREF
+  _QWORD v40[3]; // [rsp+C8h] [rbp-B0h] BYREF
+  __int64 v41; // [rsp+108h] [rbp-70h] BYREF
+  const char *v42; // [rsp+110h] [rbp-68h] BYREF
+  _QWORD v43[3]; // [rsp+118h] [rbp-60h] BYREF
+  __int128 v44; // [rsp+130h] [rbp-48h] BYREF
+  __int64 v45; // [rsp+140h] [rbp-38h]
+  int v46; // [rsp+180h] [rbp+8h] BYREF
+  int v47; // [rsp+190h] [rbp+18h] BYREF
+  int v48; // [rsp+198h] [rbp+20h]
 
-  v43 = 0LL;
   v44 = 0LL;
-  LODWORD(v45) = 0;
-  EnterCrit(0LL, 0LL);
+  v45 = 0LL;
+  v46 = 0;
+  EnterCrit(0LL, 1LL);
   if ( a1 && (a1 = ValidateHwnd(a1)) == 0 )
   {
-    v10 = 0;
+    v12 = 0;
   }
   else
   {
-    v6 = *(_QWORD *)(gptiCurrent + 424LL) + 992LL;
-    v46 = v6;
+    v6 = gptiCurrent;
+    v7 = *(_QWORD *)(gptiCurrent + 424LL) + 992LL;
+    v31 = v7;
     if ( gbLockScreenActive || *(PVOID *)(gptiCurrent + 456LL) == grpdeskLogon )
     {
-      if ( (unsigned int)dword_1C03263C0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263C0, 0x400000000000LL) )
+      if ( (unsigned int)dword_1C032B240 > 5
+        && (qword_1C032B250 & 0x400000000000LL) != 0
+        && (qword_1C032B258 & 0x400000000000LL) == qword_1C032B258 )
       {
-        v46 = v6;
-        LODWORD(v45) = -2147024891;
-        v23 = "OnLockscreen";
-        v47 = "OnLockscreen";
-        v42[0] = 1LL;
+        v41 = v7;
+        v30[0] = -2147024891;
+        v42 = "OnLockscreen";
+        v43[0] = 1LL;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-          v39,
-          (unsigned int)&unk_1C02EFA93,
-          v40,
-          (unsigned int)v42,
-          (__int64)&v47,
-          (__int64)&v45,
-          (__int64)&v46);
+          gptiCurrent,
+          (unsigned int)&unk_1C02F2B5B,
+          v4,
+          (unsigned int)v43,
+          (__int64)&v42,
+          (__int64)v30,
+          (__int64)&v41);
       }
-      else
-      {
-        v23 = "OnLockscreen";
-      }
-      if ( (unsigned int)dword_1C03263F8 <= 5 || !(unsigned __int8)tlgKeywordOn(&dword_1C03263F8, 1LL) )
-        goto LABEL_56;
-LABEL_55:
-      v46 = v6;
-      LODWORD(v45) = -2147024891;
-      v47 = v23;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-        v24,
-        &unk_1C02EFA56);
-LABEL_56:
-      v30 = 5LL;
-LABEL_57:
-      v10 = 0;
-      UserSetLastError(v30, v4);
-      goto LABEL_13;
+      if ( (unsigned int)dword_1C032B3D8 <= 5 || (qword_1C032B3E8 & 1) == 0 || (qword_1C032B3F0 & 1) != qword_1C032B3F0 )
+        goto LABEL_65;
+      v43[1] = v7;
+      v30[1] = -2147024891;
+      v43[2] = "OnLockscreen";
+      goto LABEL_64;
     }
     if ( *(_DWORD *)(PsGetCurrentProcessWin32Process(gptiCurrent) + 884) )
     {
-      v18 = gptiCurrent;
-      v19 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 40LL);
+      v16 = gptiCurrent;
+      v17 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 40LL);
       if ( !gpqForeground || !(unsigned int)ForegroundInputOwnerMatch(gptiCurrent, 1) )
       {
-        v20 = *(_QWORD *)(v19 + 112);
-        if ( !v20 || *(_QWORD *)(v20 + 16) != v18 )
+        v18 = *(_QWORD *)(v17 + 112);
+        if ( !v18 || *(_QWORD *)(v18 + 16) != v16 )
         {
-          if ( (unsigned int)dword_1C03263C0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263C0, 0x400000000000LL) )
+          if ( (unsigned int)dword_1C032B240 > 5
+            && (qword_1C032B250 & 0x400000000000LL) != 0
+            && (qword_1C032B258 & 0x400000000000LL) == qword_1C032B258 )
           {
-            v46 = v6;
-            LODWORD(v45) = -2147024891;
-            v23 = "NoForeground";
-            v47 = "NoForeground";
-            v41 = 1LL;
+            v32 = v7;
+            v47 = -2147024891;
+            v33 = "NoForeground";
+            v34[0] = 1LL;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-              v21,
-              (unsigned int)&unk_1C02EFA93,
-              v22,
-              (unsigned int)&v41,
+              v6,
+              (unsigned int)&unk_1C02F2B5B,
+              v8,
+              (unsigned int)v34,
+              (__int64)&v33,
               (__int64)&v47,
-              (__int64)&v45,
-              (__int64)&v46);
+              (__int64)&v32);
           }
-          else
+          if ( (unsigned int)dword_1C032B3D8 <= 5
+            || (qword_1C032B3E8 & 1) == 0
+            || (qword_1C032B3F0 & 1) != qword_1C032B3F0 )
           {
-            v23 = "NoForeground";
+            goto LABEL_65;
           }
-          if ( (unsigned int)dword_1C03263F8 <= 5 || !(unsigned __int8)tlgKeywordOn(&dword_1C03263F8, 1LL) )
-            goto LABEL_56;
-          goto LABEL_55;
+          v34[1] = v7;
+          v48 = -2147024891;
+          v34[2] = "NoForeground";
+LABEL_64:
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+            v6,
+            &unk_1C02F2BA4);
+LABEL_65:
+          v22 = 5LL;
+LABEL_66:
+          v12 = 0;
+          UserSetLastError(v22);
+          goto LABEL_15;
         }
       }
     }
     if ( a1 )
     {
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v7);
-      v9 = *(_QWORD *)(a1 + 16);
-      if ( *(_QWORD *)(*(_QWORD *)(v9 + 424) + 664LL) != *(_QWORD *)(CurrentProcessWin32Process + 664) )
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
+      v10 = *(_QWORD *)(a1 + 16);
+      if ( *(_QWORD *)(*(_QWORD *)(v10 + 424) + 664LL) != *(_QWORD *)(CurrentProcessWin32Process + 664) )
       {
-        if ( *(_QWORD *)(PsGetCurrentProcessWin32Process(v9) + 664) )
+        if ( *(_QWORD *)(PsGetCurrentProcessWin32Process(v10) + 664) )
         {
-          v26 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
-          if ( *(_QWORD *)(v26 + 664)
-            || (*(_DWORD *)(*(_QWORD *)(PsGetCurrentProcessWin32Process(v26) + 664) + 64LL) & 4) != 0 )
+          v19 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
+          if ( *(_QWORD *)(v19 + 664)
+            || (*(_DWORD *)(*(_QWORD *)(PsGetCurrentProcessWin32Process(v19) + 664) + 64LL) & 4) != 0 )
           {
-            UserSetLastError(87LL, v25);
-            if ( (unsigned int)dword_1C03263C0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263C0, 0x400000000000LL) )
+            UserSetLastError(87LL);
+            if ( (unsigned int)dword_1C032B240 > 5
+              && (qword_1C032B250 & 0x400000000000LL) != 0
+              && (qword_1C032B258 & 0x400000000000LL) == qword_1C032B258 )
             {
-              v46 = v6;
-              LODWORD(v45) = -2147024809;
-              v47 = "InvalidParameter";
-              v41 = 1LL;
+              v35 = v7;
+              v28[0] = -2147024809;
+              v36 = "InvalidParameter";
+              v37[0] = 1LL;
               _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-                v27,
-                (unsigned int)&unk_1C02EFA93,
-                v28,
-                (unsigned int)&v41,
-                (__int64)&v47,
-                (__int64)&v45,
-                (__int64)&v46);
+                v20,
+                (unsigned int)&unk_1C02F2B5B,
+                v21,
+                (unsigned int)v37,
+                (__int64)&v36,
+                (__int64)v28,
+                (__int64)&v35);
             }
-            if ( (unsigned int)dword_1C03263F8 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263F8, 1LL) )
+            if ( (unsigned int)dword_1C032B3D8 > 5
+              && (qword_1C032B3E8 & 1) != 0
+              && (qword_1C032B3F0 & 1) == qword_1C032B3F0 )
             {
-              v46 = v6;
-              LODWORD(v45) = -2147024809;
-              v47 = "InvalidParameter";
+              v37[1] = v7;
+              v28[1] = -2147024809;
+              v37[2] = "InvalidParameter";
               _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-                v29,
-                &unk_1C02EFA56);
+                v20,
+                &unk_1C02F2BA4);
             }
-            v30 = 0LL;
-            goto LABEL_57;
+            v22 = 0LL;
+            goto LABEL_66;
           }
         }
       }
     }
-    ThreadLock(a1, (__int64 *)&v43);
-    v10 = OpenClipboard(a1, &v45);
-    ThreadUnlock1(v12, v11, v13);
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)&v44 = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = &v44;
+    *((_QWORD *)&v44 + 1) = a1;
+    if ( a1 )
+      HMLockObject(a1);
+    v12 = OpenClipboard(a1, &v46);
+    ThreadUnlock1(v13);
     v5 = MmUserProbeAddress;
-    v16 = MmUserProbeAddress;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
       a2 = (_DWORD *)MmUserProbeAddress;
-    *a2 = v45;
-    if ( (unsigned int)dword_1C03263C0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263C0, 0x400000000000LL) )
+    *a2 = v46;
+    if ( (unsigned int)dword_1C032B240 > 5
+      && (qword_1C032B250 & 0x400000000000LL) != 0
+      && (qword_1C032B258 & 0x400000000000LL) == qword_1C032B258 )
     {
-      v47 = (const char *)v6;
-      if ( v10 )
+      if ( v12 )
       {
         LastError = 0;
       }
       else
       {
-        LastError = UserGetLastError(v5, v16, v14, v15);
+        LastError = UserGetLastError();
         if ( LastError > 0 )
           LastError = (unsigned __int16)LastError | 0x80070000;
       }
-      LODWORD(v45) = LastError;
-      v41 = (__int64)"FunctionExit";
-      v42[0] = 1LL;
+      v38 = v7;
+      v29[0] = LastError;
+      v39 = "FunctionExit";
+      v40[0] = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
         v5,
-        (unsigned int)&unk_1C02EFA93,
+        (unsigned int)&unk_1C02F2B5B,
         v14,
-        (unsigned int)v42,
-        (__int64)&v41,
-        (__int64)&v45,
-        (__int64)&v47);
+        (unsigned int)v40,
+        (__int64)&v39,
+        (__int64)v29,
+        (__int64)&v38);
     }
-    if ( !v10 )
+    if ( !v12 )
     {
-      v32 = UserGetLastError(v5, v16, v14, v15);
-      v33 = v32 < 0;
-      if ( v32 > 0 )
-        v33 = 1;
-      if ( v33 && (unsigned int)dword_1C03263F8 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C03263F8, 1LL) )
+      v24 = UserGetLastError();
+      v25 = v24 < 0;
+      if ( v24 > 0 )
+        v25 = 1;
+      if ( v25
+        && (unsigned int)dword_1C032B3D8 > 5
+        && (qword_1C032B3E8 & 1) != 0
+        && (qword_1C032B3F0 & 1) == qword_1C032B3F0 )
       {
-        v45 = v6;
-        v37 = UserGetLastError(v5, v34, v35, v36);
-        if ( v37 > 0 )
-          v37 = (unsigned __int16)v37 | 0x80070000;
-        LODWORD(v46) = v37;
-        v47 = "FunctionExit";
+        v26 = UserGetLastError();
+        if ( v26 > 0 )
+          v26 = (unsigned __int16)v26 | 0x80070000;
+        v40[1] = v7;
+        v29[1] = v26;
+        v40[2] = "FunctionExit";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-          v38,
-          &unk_1C02EFA56);
+          v27,
+          &unk_1C02F2BA4);
       }
     }
   }
-LABEL_13:
+LABEL_15:
   UserSessionSwitchLeaveCrit(v5);
-  return v10;
+  return v12;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetPolicyAction @ 0x140854A90
+ * XREFs of PpmGetPolicyAction @ 0x1407C4E80
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x1407FCE7C (PpmSetProfilePolicySetting.c)
- *     PpmCompareAndApplyPolicySettings @ 0x14099788C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmSetProfilePolicySetting @ 0x14067A000 (PpmSetProfilePolicySetting.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1408F07C0 (PpmCompareAndApplyPolicySettings.c)
  * Callees:
  *     <none>
  */
@@ -39,7 +39,7 @@ __int64 __fastcall PpmGetPolicyAction(__int64 *a1, int *a2)
     *a2 |= 2u;
   if ( (result & 0xCC54000000EC0LL) != 0 )
     *a2 |= 2u;
-  if ( (result & 0x20180000000000LL) != 0 )
+  if ( (result & 0x180000000000LL) != 0 )
     *a2 |= 0x1000u;
   if ( (result & 0x10000000030000LL) != 0 )
     *a2 |= 0xCu;

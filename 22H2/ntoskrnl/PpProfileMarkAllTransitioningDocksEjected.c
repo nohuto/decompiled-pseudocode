@@ -1,10 +1,10 @@
 /*
- * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x140963E84
+ * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x1408AB73C
  * Callers:
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 void PpProfileMarkAllTransitioningDocksEjected()
@@ -17,5 +17,5 @@ void PpProfileMarkAllTransitioningDocksEjected()
     if ( *((_DWORD *)i - 2) != 1 )
       *((_DWORD *)i - 2) = 4;
   }
-  ExReleaseFastMutex(&PiProfileDeviceListLock);
+  KeReleaseGuardedMutex(&PiProfileDeviceListLock);
 }

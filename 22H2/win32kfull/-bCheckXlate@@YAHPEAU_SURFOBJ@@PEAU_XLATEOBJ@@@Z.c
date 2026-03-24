@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C02C7CE8
+ * XREFs of ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C013D510
  * Callers:
- *     NtGdiEngAlphaBlend @ 0x1C02C8580 (NtGdiEngAlphaBlend.c)
- *     NtGdiEngBitBlt @ 0x1C02C8940 (NtGdiEngBitBlt.c)
- *     NtGdiEngCopyBits @ 0x1C02C8FB0 (NtGdiEngCopyBits.c)
- *     NtGdiEngPlgBlt @ 0x1C02CA710 (NtGdiEngPlgBlt.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngTransparentBlt @ 0x1C02CC410 (NtGdiEngTransparentBlt.c)
+ *     NtGdiEngCopyBits @ 0x1C013AC00 (NtGdiEngCopyBits.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013B6A0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngAlphaBlend @ 0x1C02B1E70 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngPlgBlt @ 0x1C02B30F0 (NtGdiEngPlgBlt.c)
+ *     NtGdiEngTransparentBlt @ 0x1C02B3D60 (NtGdiEngTransparentBlt.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall bCheckXlate(struct _SURFOBJ *a1, struct _XLATEOBJ *a2)
   unsigned int v2; // r8d
   ULONG v3; // ecx
   ULONG v4; // ecx
-  bool v5; // zf
+  bool v6; // zf
 
   v2 = 1;
   if ( !a1 || !a2 || (a2->flXlate & 1) != 0 )
@@ -26,17 +26,17 @@ __int64 __fastcall bCheckXlate(struct _SURFOBJ *a1, struct _XLATEOBJ *a2)
   if ( !v3 )
   {
     v2 = 0;
-    v5 = a2->cEntries == 2;
-    goto LABEL_10;
+    v6 = a2->cEntries == 2;
+LABEL_10:
+    LOBYTE(v2) = v6;
+    return v2;
   }
   v4 = v3 - 1;
   if ( !v4 )
   {
     v2 = 0;
-    v5 = ((a2->cEntries - 8) & 0xFFFFFFF7) == 0;
-LABEL_10:
-    LOBYTE(v2) = v5;
-    return v2;
+    v6 = ((a2->cEntries - 8) & 0xFFFFFFF7) == 0;
+    goto LABEL_10;
   }
   if ( v4 == 1 )
     return a2->cEntries <= 0x100;

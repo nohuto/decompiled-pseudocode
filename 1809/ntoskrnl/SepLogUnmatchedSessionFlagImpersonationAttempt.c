@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1402FFF5C
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x14030005C
  * Callers:
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -67,7 +67,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v25 = 2LL;
     v26 = v6;
     v27[1] = 0;
-    TlgWrite(&stru_140400278, &unk_140372B8D, 0LL, 0LL, 8u, &pData);
+    TlgWrite(&stru_140400278, &unk_140372C9D, 0LL, 0LL, 8u, &pData);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

@@ -1,26 +1,26 @@
 /*
- * XREFs of ExCompareExchangeCallBack @ 0x14039FB68
+ * XREFs of ExCompareExchangeCallBack @ 0x1403AEFFC
  * Callers:
- *     IoRegisterPriorityCallback @ 0x14039FAC0 (IoRegisterPriorityCallback.c)
- *     IoUnregisterPriorityCallback @ 0x140557580 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x14056C3A0 (KeDeregisterBoundCallback.c)
- *     KeRegisterBoundCallback @ 0x14056CA90 (KeRegisterBoundCallback.c)
- *     DbgkLkmdRegisterCallback @ 0x140844A20 (DbgkLkmdRegisterCallback.c)
- *     PsEstablishWin32Callouts @ 0x140844AE0 (PsEstablishWin32Callouts.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140844B70 (PsSetLoadImageNotifyRoutineEx.c)
- *     PoRegisterCoalescingCallback @ 0x140844D00 (PoRegisterCoalescingCallback.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x140844DF4 (PspSetCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140844E98 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdUnregisterCallback @ 0x14093AD40 (DbgkLkmdUnregisterCallback.c)
- *     PoUnregisterCoalescingCallback @ 0x140986EF0 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B5CC0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5DB0 (PsRemoveLoadImageNotifyRoutine.c)
+ *     IoRegisterPriorityCallback @ 0x1403AEF50 (IoRegisterPriorityCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x140506290 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x140514070 (KeDeregisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x1405147E0 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x1407996C0 (DbgkLkmdRegisterCallback.c)
+ *     PsEstablishWin32Callouts @ 0x140799790 (PsEstablishWin32Callouts.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140799870 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PoRegisterCoalescingCallback @ 0x1407999B0 (PoRegisterCoalescingCallback.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140799AB4 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140799B58 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x1408881C0 (DbgkLkmdUnregisterCallback.c)
+ *     PoUnregisterCoalescingCallback @ 0x1408E6760 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C400 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14090C4F0 (PsRemoveLoadImageNotifyRoutine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireRundownProtectionEx @ 0x14026D9B0 (ExAcquireRundownProtectionEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN_REF *a2, __int64 a3)
@@ -80,16 +80,19 @@ char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpCallBackFlush);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+          v17 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v12);

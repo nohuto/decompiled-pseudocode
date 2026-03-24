@@ -1,42 +1,41 @@
 /*
- * XREFs of PiPagePathSetState @ 0x140854B58
+ * XREFs of PiPagePathSetState @ 0x1407C9D60
  * Callers:
- *     MiCreatePagingFile @ 0x140834C2C (MiCreatePagingFile.c)
- *     PpPagePathAssign @ 0x140854B40 (PpPagePathAssign.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1408550BC (CmpVolumeContextSendDeviceUsageNotification.c)
- *     CmpVolumeContextCleanup @ 0x140862E34 (CmpVolumeContextCleanup.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
+ *     CmpVolumeContextCleanup @ 0x140872E20 (CmpVolumeContextCleanup.c)
+ *     PpPagePathAssign @ 0x1408A0FF0 (PpPagePathAssign.c)
+ *     PpPagePathRelease @ 0x1408A1008 (PpPagePathRelease.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoQueueThreadIrp @ 0x1403C7120 (IoQueueThreadIrp.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     IoGetRelatedTargetDevice @ 0x140794AAC (IoGetRelatedTargetDevice.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x140854C40 (PpIrpAllocateDeviceUsageNotification.c)
- *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x140854CF0 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IoQueueThreadIrp @ 0x140381250 (IoQueueThreadIrp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     IoGetRelatedTargetDevice @ 0x14071B8AC (IoGetRelatedTargetDevice.c)
+ *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x1407C9E48 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1407C9EAC (PpIrpAllocateDeviceUsageNotification.c)
  */
 
-__int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, char a2)
+__int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *DmaAdapter, char a2)
 {
   IRP *DeviceUsageNotification; // rax
   IRP *v5; // rbx
   NTSTATUS v6; // ebx
   __int64 v7; // rdx
   PDEVICE_OBJECT DeviceObject[8]; // [rsp+30h] [rbp-40h] BYREF
-  PVOID Objecta; // [rsp+80h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdaptera; // [rsp+80h] [rbp+10h] BYREF
 
   memset(DeviceObject, 0, sizeof(DeviceObject));
-  Objecta = 0LL;
-  ObfReferenceObject(Object);
-  DeviceObject[0] = IoGetRelatedDeviceObject(Object);
+  DmaAdaptera = 0LL;
+  ObfReferenceObject(DmaAdapter);
+  DeviceObject[0] = IoGetRelatedDeviceObject(DmaAdapter);
   LODWORD(DeviceObject[1]) = 1;
   BYTE4(DeviceObject[1]) = a2;
-  DeviceObject[2] = (PDEVICE_OBJECT)Object;
+  DeviceObject[2] = (PDEVICE_OBJECT)DmaAdapter;
   DeviceUsageNotification = (IRP *)PpIrpAllocateDeviceUsageNotification(DeviceObject);
   v5 = DeviceUsageNotification;
   if ( DeviceUsageNotification )
@@ -49,18 +48,18 @@ __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, char a2)
       KeWaitForSingleObject(&DeviceObject[5], Executive, 0, 0, 0LL);
       v6 = (NTSTATUS)DeviceObject[3];
     }
-    if ( v6 >= 0 && (int)IoGetRelatedTargetDevice(Object, &Objecta) >= 0 )
+    if ( v6 >= 0 && (int)IoGetRelatedTargetDevice(DmaAdapter, &DmaAdaptera) >= 0 )
     {
       LOBYTE(v7) = a2;
-      PoDirectedDripsNotifyPagingDeviceUsage(Objecta, v7);
-      ObfDereferenceObject(Objecta);
+      PoDirectedDripsNotifyPagingDeviceUsage(DmaAdaptera, v7);
+      HalPutDmaAdapter(DmaAdaptera);
     }
     PpDevNodeUnlockTree(1);
     return (unsigned int)v6;
   }
   else
   {
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
     return 3221225495LL;
   }
 }

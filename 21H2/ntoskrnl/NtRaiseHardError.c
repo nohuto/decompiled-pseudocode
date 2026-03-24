@@ -1,19 +1,24 @@
 /*
- * XREFs of NtRaiseHardError @ 0x1406CDD90
+ * XREFs of NtRaiseHardError @ 0x1409567C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExpRaiseHardError @ 0x1406CDFAC (ExpRaiseHardError.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseHardError @ 0x140A02230 (ExRaiseHardError.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x140956428 (ExpRaiseHardError.c)
  */
 
-__int64 __fastcall NtRaiseHardError(__int64 a1, unsigned int a2, int a3, char *a4, unsigned int a5, _DWORD *a6)
+__int64 __fastcall NtRaiseHardError(
+        unsigned int a1,
+        unsigned int a2,
+        unsigned int a3,
+        char *a4,
+        unsigned int a5,
+        _DWORD *a6)
 {
   __int64 v7; // rbx
-  int v8; // r12d
   __int64 v9; // rcx
   __int64 v10; // rdi
   unsigned int i; // eax
@@ -30,30 +35,25 @@ __int64 __fastcall NtRaiseHardError(__int64 a1, unsigned int a2, int a3, char *a
   _QWORD v23[15]; // [rsp+78h] [rbp-C0h] BYREF
 
   v7 = a2;
-  v8 = a1;
   v19 = 0;
   if ( a2 > 5 )
     return 3221225712LL;
-  if ( !a4 )
+  if ( a4 )
   {
-    if ( !a2 )
-      goto LABEL_4;
+    if ( a2 )
+      goto LABEL_6;
     return 3221225712LL;
   }
-  if ( !a2 )
+  if ( a2 )
     return 3221225712LL;
-LABEL_4:
-  if ( !KeGetCurrentThread()->PreviousMode )
+LABEL_6:
+  if ( KeGetCurrentThread()->PreviousMode )
   {
-    v17 = ExRaiseHardError(a1, a2);
-    *a6 = v19;
-    return v17;
-  }
-  if ( a5 <= 8 )
-  {
-    v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a6;
+    if ( a5 > 8 )
+      return 3221225714LL;
+    v9 = (__int64)a6;
+    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
     if ( a4 )
     {
@@ -74,10 +74,10 @@ LABEL_4:
           v20 = i;
           if ( i >= (unsigned int)v7 )
             break;
-          if ( _bittest(&a3, i) )
+          if ( _bittest((const int *)&a3, i) )
           {
             v12 = i;
-            v13 = (_OWORD *)Src[v12];
+            v13 = (_OWORD *)Src[i];
             if ( ((unsigned __int8)v13 & 7) != 0 )
               ExRaiseDatatypeMisalignment();
             v14 = 2LL * i;
@@ -95,10 +95,14 @@ LABEL_4:
         }
       }
     }
-    v17 = ExpRaiseHardError(v8, v7, a3, (unsigned int)Src, (__int64)v23, a5, (__int64)&v19);
+    v17 = ExpRaiseHardError(a1, (unsigned int)v7, a3, Src, (__int64)v23, a5, (unsigned int *)&v19);
     v21 = v17;
     *a6 = v19;
-    return v17;
   }
-  return 3221225714LL;
+  else
+  {
+    v17 = ExRaiseHardError(a1, a2, a3, a4, a5, &v19);
+    *a6 = v19;
+  }
+  return v17;
 }

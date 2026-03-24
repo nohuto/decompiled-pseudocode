@@ -1,5 +1,5 @@
 /*
- * XREFs of ProcgrpQueryGroupAffinity @ 0x1C0091E20
+ * XREFs of ProcgrpQueryGroupAffinity @ 0x1C0091F40
  * Callers:
  *     <none>
  * Callees:

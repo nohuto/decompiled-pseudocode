@@ -1,13 +1,13 @@
 /*
- * XREFs of WPP_RECORDER_SF_qqqss @ 0x1C0049724
+ * XREFs of WPP_RECORDER_SF_qqqss @ 0x1C004AC64
  * Callers:
- *     ACPIIsPowerNodeInTransition @ 0x1C002E8E0 (ACPIIsPowerNodeInTransition.c)
- *     ACPIDeviceCancelWaitWakeIrp @ 0x1C004F0F0 (ACPIDeviceCancelWaitWakeIrp.c)
- *     ACPIBusIrpQueryBusRelations @ 0x1C00A0C78 (ACPIBusIrpQueryBusRelations.c)
- *     ACPIDockIrpQueryEjectRelations @ 0x1C00AAAB8 (ACPIDockIrpQueryEjectRelations.c)
- *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AC5AC (ACPIBusAndFilterIrpQueryEjectRelations.c)
+ *     ACPIIsPowerNodeInTransition @ 0x1C0031C40 (ACPIIsPowerNodeInTransition.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C00502C0 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C00A2AC0 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C00ABD18 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AD9B0 (ACPIBusAndFilterIrpQueryEjectRelations.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qqqss(

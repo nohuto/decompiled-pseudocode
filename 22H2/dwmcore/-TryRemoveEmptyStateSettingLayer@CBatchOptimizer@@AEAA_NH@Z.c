@@ -1,13 +1,13 @@
 /*
- * XREFs of ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x18000D700
+ * XREFs of ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011F8C
  * Callers:
- *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18008E4D0 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E890 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0170 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C058C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
  * Callees:
- *     ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000D650 (-PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?GetNearestRenderingLayerUnderEmptyLayer@CBatchOptimizer@@AEBAHH@Z @ 0x18000D910 (-GetNearestRenderingLayerUnderEmptyLayer@CBatchOptimizer@@AEBAHH@Z.c)
- *     ?DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z @ 0x18000D964 (-DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E890 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180011EF8 (-PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?GetNearestRenderingLayerUnderEmptyLayer@CBatchOptimizer@@AEBAHH@Z @ 0x1800121A0 (-GetNearestRenderingLayerUnderEmptyLayer@CBatchOptimizer@@AEBAHH@Z.c)
+ *     ?DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z @ 0x180012254 (-DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C058C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
  */
 
 char __fastcall CBatchOptimizer::TryRemoveEmptyStateSettingLayer(CBatchOptimizer *this, int a2)
@@ -36,7 +36,7 @@ char __fastcall CBatchOptimizer::TryRemoveEmptyStateSettingLayer(CBatchOptimizer
   v10 = (int *)((char *)this + 4 * NearestRenderingLayerUnderEmptyLayer + 48);
   while ( v9 == v5 )
   {
-LABEL_9:
+LABEL_10:
     ++v7;
     ++v8;
     ++v10;
@@ -58,7 +58,7 @@ LABEL_9:
       if ( v9 != v5 )
         continue;
     }
-    goto LABEL_9;
+    goto LABEL_10;
   }
   if ( v13 )
     CBatchOptimizer::PurgeStateSettingEntriesFromLayer(this, v6--);

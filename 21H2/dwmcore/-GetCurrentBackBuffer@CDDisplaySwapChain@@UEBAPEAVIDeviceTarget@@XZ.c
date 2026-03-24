@@ -1,7 +1,9 @@
 /*
- * XREFs of ?GetCurrentBackBuffer@CDDisplaySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1801C86A0
+ * XREFs of ?GetCurrentBackBuffer@CDDisplaySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x18018C5B0
  * Callers:
- *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C8C7C (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE604 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x18018C750 (-Present@CDDisplayRenderTarget@@UEAAJ_N@Z.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CE0C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +13,7 @@ struct IDeviceTarget *__fastcall CDDisplaySwapChain::GetCurrentBackBuffer(CDDisp
   __int64 v1; // rdx
   struct IDeviceTarget *result; // rax
 
-  v1 = *((_QWORD *)this + 37);
+  v1 = *((_QWORD *)this + 20);
   result = 0LL;
   if ( v1 )
     return (struct IDeviceTarget *)(*(int *)(*(_QWORD *)(v1 + 8) + 24LL) + v1 + 8);

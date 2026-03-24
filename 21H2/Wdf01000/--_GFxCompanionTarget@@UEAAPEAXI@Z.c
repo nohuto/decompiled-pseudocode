@@ -1,27 +1,30 @@
 /*
- * XREFs of ??_GFxCompanionTarget@@UEAAPEAXI@Z @ 0x1C0060F80
+ * XREFs of ??_GFxCompanionTarget@@UEAAPEAXI@Z @ 0x1C00435B0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
  */
 
-FxCompanionTarget *__fastcall FxCompanionTarget::`scalar deleting destructor'(FxCompanionTarget *this, unsigned int a2)
+FxCompanionTarget *__fastcall FxCompanionTarget::`scalar deleting destructor'(
+        FxCompanionTarget *this,
+        unsigned int a2,
+        unsigned int a3)
 {
-  char v2; // bl
-  FxCompanionTarget *v4; // rcx
+  char v3; // bl
+  FxCompanionTarget *v5; // rcx
 
-  v2 = a2;
+  v3 = a2;
   this->FxNonPagedObject::FxObject::__vftable = (FxCompanionTarget_vtbl *)FxCompanionTarget::`vftable'{for `FxNonPagedObject'};
   this->IDeviceCompanionCallbacks::__vftable = (IDeviceCompanionCallbacks_vtbl *)FxCompanionTarget::`vftable'{for `IDeviceCompanionCallbacks'};
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxCompanionTarget *)((char *)this - 48);
+    v5 = (FxCompanionTarget *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

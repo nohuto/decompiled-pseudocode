@@ -1,60 +1,60 @@
 /*
- * XREFs of ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801F6D64
+ * XREFs of ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801AD254
  * Callers:
- *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x1801B0228 (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
+ *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x18017531C (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x18002ECD0 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
- *     ??0?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA@XZ @ 0x1800307C4 (--0-$deque@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$com_pt.c)
- *     ??0CColorBrush@@QEAA@PEAVCComposition@@@Z @ 0x180041A78 (--0CColorBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180046514 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@XZ @ 0x1801B2AD4 (-GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimat.c)
- *     ?_Buy_raw@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z @ 0x1801B45F4 (-_Buy_raw@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z.c)
- *     ?_Tidy@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAXXZ @ 0x1801B46A0 (-_Tidy@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAXXZ.c)
- *     ??$_Emplace_back_internal@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@AEAAX$$QEAV?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@1@@Z @ 0x1801F64F4 (--$_Emplace_back_internal@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@.c)
- *     ??0?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCColorBrush@@@Z @ 0x1801F67FC (--0-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCColorBrush@@@Z.c)
- *     ??4?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCKeyframeAnimation@@@Z @ 0x1801F6864 (--4-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCKeyframeAn.c)
- *     ?SetDirtyRegionVisualizationData@CVisual@@QEAAXPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@@Z @ 0x1801F8594 (-SetDirtyRegionVisualizationData@CVisual@@QEAAXPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnima.c)
- *     ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x1802223E0 (-Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Comp.c)
+ *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x180009424 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025B70 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CColorBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B4D08 (--0CColorBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA@XZ @ 0x1800B6B58 (--0-$deque@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$com_pt.c)
+ *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800D1E24 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800F0108 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAA@XZ @ 0x18016BBF0 (--1-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAA@XZ.c)
+ *     ?GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@XZ @ 0x18017761C (-GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimat.c)
+ *     ?_Buy_raw@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z @ 0x180178B0C (-_Buy_raw@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z.c)
+ *     ?SetDirtyRegionVisualizationData@CVisual@@QEAAXPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@@Z @ 0x1801AECE4 (-SetDirtyRegionVisualizationData@CVisual@@QEAAXPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnima.c)
+ *     ?_Push_back_internal@?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@AEAAX$$QEAV?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@2@@Z @ 0x1801AF128 (-_Push_back_internal@-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@w.c)
+ *     ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x1801D1650 (-Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Comp.c)
  */
 
 __int64 __fastcall CVisual::AppendDirtyRegionVisualizationRects(__int64 a1, __int64 a2)
 {
   unsigned int v4; // esi
-  CColorBrush *v5; // rax
+  void *v5; // r14
   CColorBrush *v6; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rbx
-  int v9; // eax
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  __int64 v12; // rcx
-  void *v13; // r14
-  __int128 v14; // xmm0
+  CColorBrush *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  int v10; // eax
+  __int64 v11; // rcx
+  _QWORD *v12; // rax
+  __int128 v13; // xmm0
+  CKeyframeAnimation *v14; // rax
   CKeyframeAnimation *v15; // rax
-  CKeyframeAnimation *v16; // rax
-  __int64 v17; // rcx
-  _QWORD *v18; // rdi
-  int v19; // eax
-  __int64 v20; // rcx
-  _QWORD *v21; // rax
-  __int64 v22; // rcx
-  _QWORD *v23; // rax
+  __int64 v16; // rcx
+  _QWORD *v17; // rdi
+  int v18; // eax
+  __int64 v19; // rcx
+  _QWORD *v20; // rax
+  __int64 v21; // rcx
+  _QWORD *v22; // rax
   __int64 DirtyRegionVisualizationData; // rax
-  unsigned __int64 v25; // r15
-  __int64 v26; // rcx
-  const void *v27; // r13
-  char *v28; // rdx
-  char *v29; // r12
-  size_t v30; // r15
-  __int64 v31; // rax
+  unsigned __int64 v24; // r15
+  __int64 v25; // rcx
+  const void *v26; // r13
+  char *v27; // rdx
+  char *v28; // r12
+  size_t v29; // r15
+  __int64 v30; // rax
+  unsigned int v32; // [rsp+28h] [rbp-E0h]
   _QWORD *v33; // [rsp+88h] [rbp-80h] BYREF
   __int64 v34; // [rsp+90h] [rbp-78h] BYREF
   void *v35[2]; // [rsp+98h] [rbp-70h] BYREF
@@ -66,118 +66,126 @@ __int64 __fastcall CVisual::AppendDirtyRegionVisualizationRects(__int64 a1, __in
   __int128 v41; // [rsp+E8h] [rbp-20h] BYREF
 
   v4 = 0;
+  v5 = 0LL;
   v34 = 0LL;
   v33 = 0LL;
-  if ( *(_DWORD *)(a2 + 24) )
+  if ( !*(_DWORD *)(a2 + 24) )
+    goto LABEL_31;
+  v6 = (CColorBrush *)DefaultHeap::AllocClear(0x88uLL);
+  if ( v6 )
+    v7 = CColorBrush::CColorBrush(v6, *(struct CComposition **)(a1 + 16));
+  else
+    v7 = 0LL;
+  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=(&v34, (__int64)v7);
+  v9 = v34;
+  if ( !v34 )
   {
-    v5 = (CColorBrush *)DefaultHeap::AllocClear(0x90uLL);
-    if ( v5 )
-      v6 = CColorBrush::CColorBrush(v5, *(struct CComposition **)(a1 + 16));
-    else
-      v6 = 0LL;
-    wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=(&v34, (__int64)v6);
-    v8 = v34;
-    if ( !v34 )
+    v32 = 5460;
+LABEL_7:
+    v4 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, v32, 0LL);
+    goto LABEL_31;
+  }
+  v41 = _xmm;
+  v10 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v34 + 96LL))(v34, 0LL, 70LL, &v41);
+  v4 = v10;
+  if ( v10 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1556u, 0LL);
+  }
+  else
+  {
+    v12 = DefaultHeap::Alloc(0x60uLL);
+    v5 = v12;
+    if ( !v12 )
     {
-      v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024882, 0x15E5u);
-      goto LABEL_27;
+      v32 = 5465;
+      goto LABEL_7;
     }
-    v41 = _xmm;
-    v9 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v34 + 96LL))(v34, 0LL, 70LL, &v41);
-    v4 = v9;
-    if ( v9 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x15E7u);
-      goto LABEL_27;
-    }
-    v11 = DefaultHeap::Alloc(0x60uLL);
-    v13 = v11;
-    if ( !v11 )
-    {
-      v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, -2147024882, 0x15EAu);
-      goto LABEL_27;
-    }
-    *v11 = 0LL;
-    *((_DWORD *)v11 + 6) = 3;
-    v14 = *(_OWORD *)(v8 + 88);
-    v11[6] = 1065353216LL;
-    *((_DWORD *)v11 + 18) = 1;
-    v37 = v14;
+    *v12 = 0LL;
+    *((_DWORD *)v12 + 6) = 3;
+    v13 = *(_OWORD *)(v9 + 80);
+    v12[6] = 1065353216LL;
+    *((_DWORD *)v12 + 18) = 1;
+    v37 = v13;
     HIDWORD(v37) = 0;
-    *((_OWORD *)v11 + 5) = v37;
-    v15 = (CKeyframeAnimation *)DefaultHeap::AllocClear(0x240uLL);
-    if ( v15 )
-      v16 = CKeyframeAnimation::CKeyframeAnimation(v15, *(struct CComposition **)(a1 + 16));
+    *((_OWORD *)v12 + 5) = v37;
+    v14 = (CKeyframeAnimation *)DefaultHeap::AllocClear(0x228uLL);
+    if ( v14 )
+      v15 = CKeyframeAnimation::CKeyframeAnimation(v14, *(struct CComposition **)(a1 + 16));
     else
-      v16 = 0LL;
-    wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>::operator=((__int64 *)&v33, (__int64)v16);
-    v18 = v33;
+      v15 = 0LL;
+    wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)&v33, (__int64)v15);
+    v17 = v33;
     if ( !v33 )
     {
       v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, -2147024882, 0x15F7u);
-LABEL_25:
-      DefaultHeap::Free(v13);
-      goto LABEL_27;
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, 0x1566u, 0LL);
+      goto LABEL_29;
     }
-    v19 = CKeyframeAnimation::Initialize(v33, v8, 0LL, 70LL);
-    v4 = v19;
-    if ( v19 < 0 )
+    v18 = CKeyframeAnimation::Initialize(v33, v9, 0LL, 70LL);
+    v4 = v18;
+    if ( v18 >= 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x1607u);
-      goto LABEL_25;
-    }
-    if ( (**(_DWORD **)(a1 + 232) & 0x80000) == 0 )
-    {
-      v21 = DefaultHeap::Alloc(0x28uLL);
-      if ( !v21
-        || (v23 = std::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>(v21)) == 0LL )
+      if ( (**(_DWORD **)(a1 + 224) & 0x80000) == 0 )
       {
-        v4 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, -2147024882, 0x160Cu);
-        goto LABEL_25;
+        v20 = DefaultHeap::Alloc(0x28uLL);
+        if ( v20 )
+          v22 = std::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>(v20);
+        else
+          v22 = 0LL;
+        if ( !v22 )
+        {
+          v4 = -2147024882;
+          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, -2147024882, 0x157Bu, 0LL);
+          goto LABEL_29;
+        }
+        CVisual::SetDirtyRegionVisualizationData(a1, v22);
       }
-      CVisual::SetDirtyRegionVisualizationData(a1, v23);
+      DirtyRegionVisualizationData = CVisual::GetDirtyRegionVisualizationData(a1);
+      v24 = *(unsigned int *)(a2 + 24);
+      v25 = 0LL;
+      v26 = *(const void **)a2;
+      v27 = 0LL;
+      v28 = 0LL;
+      *(_QWORD *)&v37 = DirtyRegionVisualizationData;
+      v36 = 0LL;
+      *(_OWORD *)v35 = 0LL;
+      if ( v24 )
+      {
+        std::vector<MilRectF>::_Buy_raw((__int64 *)v35, v24);
+        v28 = (char *)v35[0];
+        v29 = 16 * v24;
+        memmove_0(v35[0], v26, v29);
+        v25 = v36;
+        v27 = &v28[v29];
+      }
+      v38[1] = v27;
+      v38[2] = v25;
+      v36 = 0LL;
+      v38[0] = v28;
+      *(_OWORD *)v35 = 0LL;
+      wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+        &v39,
+        v9);
+      v30 = *v17;
+      v40 = v17;
+      (*(void (__fastcall **)(_QWORD *))(v30 + 8))(v17);
+      std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::_Push_back_internal(
+        v37,
+        v38);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v40);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v39);
+      std::vector<tagRECT>::~vector<tagRECT>((__int64)v38);
+      std::vector<tagRECT>::~vector<tagRECT>((__int64)v35);
+      goto LABEL_29;
     }
-    DirtyRegionVisualizationData = CVisual::GetDirtyRegionVisualizationData(a1);
-    v25 = *(unsigned int *)(a2 + 24);
-    v26 = 0LL;
-    v27 = *(const void **)a2;
-    v28 = 0LL;
-    v29 = 0LL;
-    *(_QWORD *)&v37 = DirtyRegionVisualizationData;
-    v36 = 0LL;
-    *(_OWORD *)v35 = 0LL;
-    if ( v25 )
-    {
-      std::vector<MilRectF>::_Buy_raw((__int64 *)v35, v25);
-      v29 = (char *)v35[0];
-      v30 = 16 * v25;
-      memmove_0(v35[0], v27, v30);
-      v26 = v36;
-      v28 = &v29[v30];
-    }
-    v36 = 0LL;
-    v38[1] = v28;
-    v38[2] = v26;
-    *(_OWORD *)v35 = 0LL;
-    v38[0] = v29;
-    wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::com_ptr_t<CColorBrush,wil::err_returncode_policy>(&v39, v8);
-    v31 = *v18;
-    v40 = v18;
-    (*(void (__fastcall **)(_QWORD *))(v31 + 8))(v18);
-    std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::_Emplace_back_internal<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>(
-      (_QWORD *)v37,
-      v38);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v40);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v39);
-    std::vector<MilRectF>::_Tidy((__int64)v38);
-    std::vector<MilRectF>::_Tidy((__int64)v35);
-    goto LABEL_25;
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1576u, 0LL);
   }
-LABEL_27:
+LABEL_29:
+  if ( v5 )
+    operator delete(v5);
+LABEL_31:
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v33);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v34);
   return v4;

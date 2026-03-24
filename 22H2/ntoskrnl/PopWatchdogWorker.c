@@ -1,185 +1,153 @@
 /*
- * XREFs of PopWatchdogWorker @ 0x1403D5C40
+ * XREFs of PopWatchdogWorker @ 0x140578DB0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     MmDetachSession @ 0x140355CB0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140355D50 (MmAttachSession.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x14036FDA0 (PopUpdateWatchdogNoWorkersEvent.c)
- *     PopResolveWatchdogParam @ 0x1403D5EB8 (PopResolveWatchdogParam.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmQuitNextSession @ 0x140884DE0 (MmQuitNextSession.c)
+ *     MmGetSessionById @ 0x1402063D0 (MmGetSessionById.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmDetachSession @ 0x1402EC090 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EC130 (MmAttachSession.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x140349850 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopResolveWatchdogParam @ 0x140578CAC (PopResolveWatchdogParam.c)
+ *     MmQuitNextSession @ 0x1406A6080 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall PopWatchdogWorker(__int64 a1)
 {
-  unsigned __int64 v2; // rsi
-  __int128 v3; // xmm1
-  __int128 v4; // xmm0
-  __int128 v5; // xmm1
-  __int64 v6; // rdx
-  _KPROCESS *SessionById; // rax
-  __int64 v8; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  ULONG_PTR v11; // r15
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  ULONG_PTR v14; // r12
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  ULONG_PTR v17; // r13
-  __int64 v18; // rax
-  __int64 InterruptTimePrecise; // rax
-  void (__fastcall *QuadPart)(LARGE_INTEGER, _QWORD, ULONG_PTR, ULONG_PTR, ULONG_PTR, ULONG_PTR); // r10
-  unsigned __int64 v21; // r15
-  __int64 result; // rax
+  bool v2; // r12
+  unsigned __int64 v3; // r14
+  __int64 v4; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v26; // eax
-  bool v27; // zf
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  int v30; // eax
-  _DWORD *v31; // r8
-  unsigned __int8 v32; // al
-  struct _KPRCB *v33; // r9
-  _DWORD *v34; // r8
-  int v35; // eax
-  char v36; // [rsp+40h] [rbp-89h]
-  ULONG_PTR BugCheckParameter4; // [rsp+48h] [rbp-81h]
-  LARGE_INTEGER v38[12]; // [rsp+50h] [rbp-79h] BYREF
-  LARGE_INTEGER v39; // [rsp+B0h] [rbp-19h] BYREF
-  LARGE_INTEGER v40; // [rsp+B8h] [rbp-11h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v41; // [rsp+C0h] [rbp-9h] BYREF
+  int v8; // eax
+  bool v9; // zf
+  _KPROCESS *SessionById; // r14
+  ULONG_PTR v11; // r13
+  ULONG_PTR BugCheckParameter4; // rax
+  unsigned __int64 v13; // r13
+  __int64 result; // rax
+  unsigned __int8 v15; // cl
+  struct _KPRCB *v16; // r9
+  _DWORD *v17; // r8
+  struct _KPRCB *v18; // r9
+  _DWORD *v19; // r8
+  __int64 BugCheckParameter3; // [rsp+40h] [rbp-69h]
+  __int64 BugCheckParameter2; // [rsp+48h] [rbp-61h]
+  ULONG BugCheckCode[4]; // [rsp+50h] [rbp-59h]
+  __int128 v23; // [rsp+60h] [rbp-49h]
+  __int128 v24; // [rsp+70h] [rbp-39h]
+  __int128 v25; // [rsp+80h] [rbp-29h]
+  __int64 v26; // [rsp+90h] [rbp-19h]
+  _OWORD v27[3]; // [rsp+A0h] [rbp-9h] BYREF
 
-  memset(&v41, 0, sizeof(v41));
-  memset(&v38[2], 0, 0x48uLL);
-  v36 = 0;
-  v39.QuadPart = 0LL;
-  *(_QWORD *)(a1 + 360) = RtlGetInterruptTimePrecise(&v39);
-  v2 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
-  if ( *(_BYTE *)(a1 + 208)
-    && (v38[0].QuadPart = 0LL, (unsigned __int64)RtlGetInterruptTimePrecise(v38) >= *(_QWORD *)(a1 + 304)) )
+  v2 = 0;
+  memset(v27, 0, sizeof(v27));
+  v3 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
+  if ( *(_BYTE *)(a1 + 216) && MEMORY[0xFFFFF78000000008] >= *(_QWORD *)(a1 + 208) )
   {
-    v3 = *(_OWORD *)(a1 + 232);
-    *(_OWORD *)&v38[2].LowPart = *(_OWORD *)(a1 + 216);
-    v4 = *(_OWORD *)(a1 + 248);
-    *(_OWORD *)&v38[4].LowPart = v3;
-    v5 = *(_OWORD *)(a1 + 264);
-    *(_OWORD *)&v38[6].LowPart = v4;
-    v38[10] = *(LARGE_INTEGER *)(a1 + 280);
-    *(_OWORD *)&v38[8].LowPart = v5;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
+    *(_OWORD *)BugCheckCode = *(_OWORD *)(a1 + 224);
+    v23 = *(_OWORD *)(a1 + 240);
+    v24 = *(_OWORD *)(a1 + 256);
+    v26 = *(_QWORD *)(a1 + 288);
+    v25 = *(_OWORD *)(a1 + 272);
+    KxReleaseSpinLock(&PopWatchdogLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v6 = -1LL << ((unsigned __int8)v2 + 1);
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v26 = ~(unsigned __int16)v6;
-        v27 = (v26 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v26;
-        if ( v27 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v4 = -1LL << ((unsigned __int8)v3 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)v4;
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v2);
-    if ( v38[2].HighPart == -1 )
-    {
-      v8 = 0LL;
-    }
+    __writecr8(v3);
+    if ( BugCheckCode[1] == -1 )
+      SessionById = 0LL;
     else
-    {
-      SessionById = (_KPROCESS *)MmGetSessionById(v38[2].HighPart);
-      v8 = (__int64)SessionById;
-      if ( SessionById && (int)MmAttachSession(SessionById, (__int64)&v41) >= 0 )
-        v36 = 1;
-    }
-    LOBYTE(v6) = v38[8].LowPart;
-    v9 = ((__int64 (__fastcall *)(_QWORD, _QWORD))PopResolveWatchdogParam)((LARGE_INTEGER)v38[4].QuadPart, v6);
-    LOBYTE(v10) = BYTE1(v38[8].LowPart);
-    v11 = v9;
-    v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD))PopResolveWatchdogParam)((LARGE_INTEGER)v38[5].QuadPart, v10);
-    LOBYTE(v13) = BYTE2(v38[8].u.LowPart);
-    v14 = v12;
-    v15 = ((__int64 (__fastcall *)(_QWORD, _QWORD))PopResolveWatchdogParam)((LARGE_INTEGER)v38[6].QuadPart, v13);
-    LOBYTE(v16) = BYTE3(v38[8].QuadPart);
-    v17 = v15;
-    v18 = ((__int64 (__fastcall *)(_QWORD, _QWORD))PopResolveWatchdogParam)((LARGE_INTEGER)v38[7].QuadPart, v16);
-    v40.QuadPart = 0LL;
-    BugCheckParameter4 = v18;
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v40);
-    QuadPart = (void (__fastcall *)(LARGE_INTEGER, _QWORD, ULONG_PTR, ULONG_PTR, ULONG_PTR, ULONG_PTR))v38[9].QuadPart;
-    *(_QWORD *)(a1 + 368) = InterruptTimePrecise;
-    *(_BYTE *)(a1 + 209) = 1;
-    if ( !QuadPart )
-      KeBugCheckEx(v38[3].LowPart, v11, v14, v17, BugCheckParameter4);
-    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))QuadPart)(
-      (LARGE_INTEGER)v38[10].QuadPart,
-      v38[3].LowPart,
+      SessionById = (_KPROCESS *)MmGetSessionById(BugCheckCode[1], v4);
+    if ( SessionById )
+      v2 = (int)MmAttachSession(SessionById, (__int64)v27) >= 0;
+    v11 = PopResolveWatchdogParam(v23, v25);
+    BugCheckParameter2 = PopResolveWatchdogParam(*((__int64 *)&v23 + 1), SBYTE1(v25));
+    BugCheckParameter3 = PopResolveWatchdogParam(v24, SBYTE2(v25));
+    BugCheckParameter4 = PopResolveWatchdogParam(*((__int64 *)&v24 + 1), SBYTE3(v25));
+    if ( !*((_QWORD *)&v25 + 1) )
+      KeBugCheckEx(BugCheckCode[2], v11, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+    (*((void (__fastcall **)(__int64, _QWORD, ULONG_PTR, __int64, __int64, ULONG_PTR))&v25 + 1))(
+      v26,
+      BugCheckCode[2],
       v11,
-      v14,
-      v17,
+      BugCheckParameter2,
+      BugCheckParameter3,
       BugCheckParameter4);
-    v21 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
+    v13 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
     *(_BYTE *)(a1 + 21) = 0;
     PopUpdateWatchdogNoWorkersEvent(a1);
-    KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
+    KxReleaseSpinLock(&PopWatchdogLock);
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v28 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
-        v31 = v29->SchedulerAssist;
-        v27 = (v30 & v31[5]) == 0;
-        v31[5] &= v30;
-        if ( v27 )
-          KiRemoveSystemWorkPriorityKick(v29);
+        v15 = KeGetCurrentIrql();
+        if ( v15 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v15 >= 2u )
+        {
+          v16 = KeGetCurrentPrcb();
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+          v17 = v16->SchedulerAssist;
+          v9 = ((unsigned int)result & v17[5]) == 0;
+          v17[5] &= result;
+          if ( v9 )
+            result = KiRemoveSystemWorkPriorityKick((__int64)v16);
+        }
       }
     }
-    __writecr8(v21);
-    if ( v36 )
+    __writecr8(v13);
+    if ( v2 )
     {
-      MmDetachSession(v8, &v41);
-      MmQuitNextSession(v8);
+      MmDetachSession((__int64)SessionById, (__int64)v27);
+      return MmQuitNextSession(SessionById);
     }
   }
   else
   {
     *(_BYTE *)(a1 + 21) = 0;
     PopUpdateWatchdogNoWorkersEvent(a1);
-    KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
+    KxReleaseSpinLock(&PopWatchdogLock);
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v2 <= 0xFu && v32 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v33 = KeGetCurrentPrcb();
-        v34 = v33->SchedulerAssist;
-        v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v27 = (v35 & v34[5]) == 0;
-        v34[5] &= v35;
-        if ( v27 )
-          KiRemoveSystemWorkPriorityKick(v33);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v3 <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          v18 = KeGetCurrentPrcb();
+          v19 = v18->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v9 = ((unsigned int)result & v19[5]) == 0;
+          v19[5] &= result;
+          if ( v9 )
+            result = KiRemoveSystemWorkPriorityKick((__int64)v18);
+        }
       }
     }
-    __writecr8(v2);
+    __writecr8(v3);
   }
-  result = RtlGetInterruptTimePrecise(v38);
-  *(_QWORD *)(a1 + 376) = result;
   return result;
 }

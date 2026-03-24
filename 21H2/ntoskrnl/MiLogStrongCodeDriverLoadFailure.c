@@ -1,101 +1,104 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x14096C6C4
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x1408C7FCC
  * Callers:
- *     MiProcessKernelCfgImageLoadConfig @ 0x14075C330 (MiProcessKernelCfgImageLoadConfig.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiResolveImageImports @ 0x140761604 (MiResolveImageImports.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14075CF74 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiResolveImageImports @ 0x14075CFC4 (MiResolveImageImports.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1403699D0 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
 {
-  __int64 v4; // r10
-  __int64 v5; // rdi
+  __int64 v4; // r8
+  __int64 v5; // r10
+  __int64 v6; // rdi
   _QWORD *Pool; // rax
-  __int64 v7; // rbx
-  void *v8; // rcx
-  __int64 *v9; // rax
-  int v10; // [rsp+40h] [rbp-59h] BYREF
-  int v11; // [rsp+44h] [rbp-55h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-51h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+50h] [rbp-49h] BYREF
-  _BYTE v14[16]; // [rsp+70h] [rbp-29h] BYREF
-  _DWORD *v15; // [rsp+80h] [rbp-19h]
-  int v16; // [rsp+88h] [rbp-11h]
-  int v17; // [rsp+8Ch] [rbp-Dh]
-  __int64 v18; // [rsp+90h] [rbp-9h]
-  _DWORD v19[2]; // [rsp+98h] [rbp-1h] BYREF
-  int *v20; // [rsp+A0h] [rbp+7h]
-  int v21; // [rsp+A8h] [rbp+Fh]
-  int v22; // [rsp+ACh] [rbp+13h]
-  int *v23; // [rsp+B0h] [rbp+17h]
-  int v24; // [rsp+B8h] [rbp+1Fh]
-  int v25; // [rsp+BCh] [rbp+23h]
-  __int64 *v26; // [rsp+C0h] [rbp+27h]
-  int v27; // [rsp+C8h] [rbp+2Fh]
-  int v28; // [rsp+CCh] [rbp+33h]
+  __int64 v8; // rbx
+  void *v9; // rcx
+  __int64 *v10; // rax
+  int v11; // [rsp+20h] [rbp-D8h]
+  int v12; // [rsp+28h] [rbp-D0h]
+  int v13; // [rsp+40h] [rbp-B8h] BYREF
+  int v14; // [rsp+44h] [rbp-B4h] BYREF
+  __int64 v15; // [rsp+48h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+50h] [rbp-A8h] BYREF
+  _BYTE v17[16]; // [rsp+70h] [rbp-88h] BYREF
+  _DWORD *v18; // [rsp+80h] [rbp-78h]
+  int v19; // [rsp+88h] [rbp-70h]
+  int v20; // [rsp+8Ch] [rbp-6Ch]
+  __int64 v21; // [rsp+90h] [rbp-68h]
+  _DWORD v22[2]; // [rsp+98h] [rbp-60h] BYREF
+  int *v23; // [rsp+A0h] [rbp-58h]
+  int v24; // [rsp+A8h] [rbp-50h]
+  int v25; // [rsp+ACh] [rbp-4Ch]
+  int *v26; // [rsp+B0h] [rbp-48h]
+  int v27; // [rsp+B8h] [rbp-40h]
+  int v28; // [rsp+BCh] [rbp-3Ch]
+  __int64 *v29; // [rsp+C0h] [rbp-38h]
+  int v30; // [rsp+C8h] [rbp-30h]
+  int v31; // [rsp+CCh] [rbp-2Ch]
 
-  if ( *(_QWORD *)&qword_140C53448 )
+  if ( *(_QWORD *)&qword_140C4EEE0 )
   {
-    if ( **(_DWORD **)&qword_140C53448 > 5u )
+    if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
     {
-      if ( tlgKeywordOn(*(__int64 *)&qword_140C53448, 0x400000000000LL) )
+      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL) )
       {
-        tlgCreate1Sz_char((__int64)v14, Src);
-        v17 = 0;
-        v19[1] = 0;
-        v22 = 0;
+        tlgCreate1Sz_char((__int64)v17, Src);
+        v20 = 0;
+        v22[1] = 0;
         v25 = 0;
         v28 = 0;
-        v15 = v19;
-        v18 = *(_QWORD *)(a2 + 96);
-        v19[0] = *(unsigned __int16 *)(a2 + 88);
-        v10 = *(_DWORD *)(a2 + 120);
-        v20 = &v10;
-        v11 = *(_DWORD *)(a2 + 156);
-        v23 = &v11;
-        v12 = 2164260864LL;
-        v21 = 4;
+        v31 = 0;
+        v18 = v22;
+        v21 = *(_QWORD *)(a2 + 96);
+        v22[0] = *(unsigned __int16 *)(a2 + 88);
+        v13 = *(_DWORD *)(a2 + 120);
+        v23 = &v13;
+        v14 = *(_DWORD *)(a2 + 156);
+        v26 = &v14;
+        v15 = 2164260864LL;
         v24 = 4;
-        v26 = &v12;
-        v27 = 8;
-        v16 = 2;
-        tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_14002CC2F, 0LL, 1u, 0, 0, 8u, &v13);
+        v27 = 4;
+        v29 = &v15;
+        v30 = 8;
+        v19 = 2;
+        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_140025D13, v4, 1u, v11, v12, 8u, &v16);
       }
     }
   }
   else
   {
-    v5 = -1LL;
+    v6 = -1LL;
     do
-      ++v5;
-    while ( Src[v5] );
-    Pool = MiAllocatePool(256, v5 + *(unsigned __int16 *)(a2 + 88) + 49LL, 0x46446D4Du);
-    v7 = (__int64)Pool;
+      ++v6;
+    while ( Src[v6] );
+    Pool = MiAllocatePool(256, v6 + *(unsigned __int16 *)(a2 + 88) + 49LL, 0x46446D4Du);
+    v8 = (__int64)Pool;
     if ( Pool )
     {
       Pool[2] = Pool + 6;
-      memmove(Pool + 6, Src, v5 + 1);
-      v8 = (void *)(v7 + v5 + 49);
-      *(_QWORD *)(v7 + 32) = v8;
-      memmove(v8, *(const void **)(a2 + 96), *(unsigned __int16 *)(a2 + 88));
-      *(_WORD *)(v7 + 24) = *(_WORD *)(a2 + 88);
-      *(_WORD *)(v7 + 26) = *(_WORD *)(a2 + 88);
-      *(_DWORD *)(v7 + 40) = *(_DWORD *)(a2 + 120);
-      *(_DWORD *)(v7 + 44) = *(_DWORD *)(a2 + 156);
-      v9 = (__int64 *)qword_140C4F4C8;
-      if ( *(PVOID **)qword_140C4F4C8 != &qword_140C4F4C0 )
+      memmove(Pool + 6, Src, v6 + 1);
+      v9 = (void *)(v8 + v6 + 49);
+      *(_QWORD *)(v8 + 32) = v9;
+      memmove(v9, *(const void **)(a2 + 96), *(unsigned __int16 *)(a2 + 88));
+      *(_WORD *)(v8 + 24) = *(_WORD *)(a2 + 88);
+      *(_WORD *)(v8 + 26) = *(_WORD *)(a2 + 88);
+      *(_DWORD *)(v8 + 40) = *(_DWORD *)(a2 + 120);
+      *(_DWORD *)(v8 + 44) = *(_DWORD *)(a2 + 156);
+      v10 = (__int64 *)qword_140C4CD10;
+      if ( *(PVOID **)qword_140C4CD10 != &qword_140C4CD08 )
         __fastfail(3u);
-      *(_QWORD *)v7 = &qword_140C4F4C0;
-      *(_QWORD *)(v7 + 8) = v9;
-      *v9 = v7;
-      qword_140C4F4C8 = v7;
+      *(_QWORD *)v8 = &qword_140C4CD08;
+      *(_QWORD *)(v8 + 8) = v10;
+      *v10 = v8;
+      qword_140C4CD10 = v8;
     }
   }
 }

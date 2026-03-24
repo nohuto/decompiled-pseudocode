@@ -1,23 +1,24 @@
 /*
- * XREFs of ??_ECFlipExSwapchainStatistics@@MEAAPEAXI@Z @ 0x1801159F0
+ * XREFs of ??_ECFlipExSwapchainStatistics@@MEAAPEAXI@Z @ 0x18020D300
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CFlipExSwapchainStatistics *__fastcall CFlipExSwapchainStatistics::`vector deleting destructor'(
         CFlipExSwapchainStatistics *this,
         char a2)
 {
-  *(_QWORD *)this = &CFlipExSwapchainStatistics::`vftable';
+  *((_QWORD *)this + 2) = &CFlipExSwapchainStatistics::`vftable'{for `ICompositionSurfaceStatistics'};
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x28);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

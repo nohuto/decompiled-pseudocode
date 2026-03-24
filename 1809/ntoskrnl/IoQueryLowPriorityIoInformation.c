@@ -1,5 +1,5 @@
 /*
- * XREFs of IoQueryLowPriorityIoInformation @ 0x1406CBA58
+ * XREFs of IoQueryLowPriorityIoInformation @ 0x1406CBA38
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:

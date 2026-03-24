@@ -1,82 +1,89 @@
 /*
- * XREFs of ?Add@?$CMergedRectBase@$03@@UEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180085350
+ * XREFs of ?Add@?$CMergedRectBase@$03@@UEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801ACFE0
  * Callers:
- *     ?Add@CMergedDirtyRect@@UEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800852E0 (-Add@CMergedDirtyRect@@UEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
+ *     <none>
  * Callees:
- *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x180085884 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
- *     ?DoesIntersectUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x180085994 (-DoesIntersectUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV.c)
- *     ?AreaUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBAMXZ @ 0x1800B34A0 (-AreaUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBAMXZ.c)
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800C9E90 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x18006B5B0 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
+ *     ?AreaUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBAMXZ @ 0x18006BAF8 (-AreaUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBAMXZ.c)
+ *     ?DoesIntersectUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006BB30 (-DoesIntersectUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006BE00 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
  */
 
-_UNKNOWN **__fastcall CMergedRectBase<4>::Add(__int64 a1, __int64 a2)
+char __fastcall CMergedRectBase<4>::Add(__int64 a1, float *a2)
 {
-  _UNKNOWN **result; // rax
-  unsigned int v5; // r12d
-  unsigned int v6; // esi
-  unsigned int v7; // r11d
-  _BYTE *v8; // rbp
-  _OWORD *v9; // r15
-  __int64 v10; // r14
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  double v13; // xmm0_8
-  float v14; // xmm4_4
-  float v15; // xmm5_4
-  _OWORD v16[2]; // [rsp+20h] [rbp-28h] BYREF
-  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
+  char result; // al
+  float v5; // xmm6_4
+  unsigned int v6; // r14d
+  unsigned int v7; // esi
+  unsigned int v8; // r9d
+  _BYTE *v9; // r10
+  __int128 *v10; // rbp
+  float *v11; // rdx
+  float *v12; // rcx
+  __int64 v13; // r11
+  double v14; // xmm0_8
+  float v15; // xmm4_4
+  float v16; // xmm4_4
+  __int128 v17; // [rsp+20h] [rbp-28h] BYREF
 
-  result = &retaddr;
-  if ( *(float *)(a2 + 8) > *(float *)a2 && *(float *)(a2 + 12) > *(float *)(a2 + 4) )
+  result = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(a2);
+  if ( !result )
   {
-    v5 = -1;
+    v5 = FLOAT_3_4028235e38;
     v6 = -1;
-    CMergedRectBase<4>::Optimize(a1, 0LL);
-    v7 = 0;
-    v8 = (_BYTE *)(a1 + 72);
-    v9 = (_OWORD *)(a1 + 8);
+    v7 = -1;
+    CMergedRectBase<4>::Optimize(a1, 0);
+    v8 = 0;
+    v9 = (_BYTE *)(a1 + 72);
+    v10 = (__int128 *)(a1 + 8);
     do
     {
-      if ( *v8 )
+      if ( *v9 )
       {
-        v10 = 16LL * v7 + a1 + 8;
-        if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesIntersectUnsafe(
-                                v10,
-                                a2) )
-          goto LABEL_10;
+        if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesIntersectUnsafe(
+               (float *)(16LL * v8 + a1 + 8),
+               a2) )
+        {
+          goto LABEL_13;
+        }
         if ( *(_DWORD *)(a1 + 80) == 4 )
         {
-          v16[0] = *v9;
-          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(v16, v11);
-          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe(v16);
-          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe(v10);
-          v13 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe(a2);
-          if ( v15 > (float)(v14 - *(float *)&v13) )
-            v5 = v7;
+          v17 = *v10;
+          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)&v17, v11);
+          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe((__int64)&v17);
+          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe(v13);
+          v14 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::AreaUnsafe((__int64)a2);
+          v16 = v15 - *(float *)&v14;
+          if ( v5 > v16 )
+          {
+            v5 = v16;
+            v6 = v8;
+          }
         }
       }
       else
       {
-        v6 = v7;
+        v7 = v8;
       }
-      ++v7;
       ++v8;
       ++v9;
+      ++v10;
     }
-    while ( v7 < 4 );
-    if ( v6 != -1 )
+    while ( v8 < 4 );
+    if ( v7 != -1 )
     {
-      result = (_UNKNOWN **)(2LL * v6);
-      *(_OWORD *)(a1 + 16LL * v6 + 8) = *(_OWORD *)a2;
-      *(_BYTE *)(v6 + a1 + 72) = 1;
+      result = 2 * v7;
+      *(_OWORD *)(a1 + 16LL * v7 + 8) = *(_OWORD *)a2;
+      *(_BYTE *)(v7 + a1 + 72) = 1;
       ++*(_DWORD *)(a1 + 76);
       ++*(_DWORD *)(a1 + 80);
       return result;
     }
     v11 = a2;
-    v12 = 16LL * v5 + a1 + 8;
-LABEL_10:
-    result = (_UNKNOWN **)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(v12, v11);
+    v12 = (float *)(16LL * v6 + a1 + 8);
+LABEL_13:
+    result = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(v12, v11);
     ++*(_DWORD *)(a1 + 76);
   }
   return result;

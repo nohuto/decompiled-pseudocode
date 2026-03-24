@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpCleanupEcps @ 0x14066EE14
+ * XREFs of FsRtlpCleanupEcps @ 0x14060C8C0
  * Callers:
- *     NtQueryFullAttributesFile @ 0x14066E950 (NtQueryFullAttributesFile.c)
- *     NtQueryAttributesFile @ 0x14066EBE0 (NtQueryAttributesFile.c)
- *     IopCleanupExtraCreateParameters @ 0x1407F97EC (IopCleanupExtraCreateParameters.c)
- *     IopFastQueryNetworkAttributes @ 0x140936A54 (IopFastQueryNetworkAttributes.c)
+ *     NtQueryFullAttributesFile @ 0x14060C400 (NtQueryFullAttributesFile.c)
+ *     NtQueryAttributesFile @ 0x14060C690 (NtQueryAttributesFile.c)
+ *     IopCleanupExtraCreateParameters @ 0x1406C3DD4 (IopCleanupExtraCreateParameters.c)
+ *     IopFastQueryNetworkAttributes @ 0x140894148 (IopFastQueryNetworkAttributes.c)
  * Callees:
- *     FsRtlFreeExtraCreateParameterList @ 0x14066EEA0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14066EF20 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14060C920 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
  */
 
 char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
@@ -39,7 +39,7 @@ char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
     Flink = Flink->Flink;
     if ( ((__int64)v5[2].Blink & 1) == 0 )
     {
-      if ( Flink->Blink != v5 || (Blink = v6->Blink, Blink->Flink != v6) )
+      if ( Flink->Blink != v6 || (Blink = v6->Blink, Blink->Flink != v6) )
         __fastfail(3u);
       Blink->Flink = Flink;
       Flink->Blink = Blink;

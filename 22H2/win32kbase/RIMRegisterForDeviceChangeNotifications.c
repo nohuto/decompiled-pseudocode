@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMRegisterForDeviceChangeNotifications @ 0x1C0079F44
+ * XREFs of RIMRegisterForDeviceChangeNotifications @ 0x1C00B4778
  * Callers:
- *     rimOnPnpArrived @ 0x1C0076A78 (rimOnPnpArrived.c)
+ *     rimOnPnpArrived @ 0x1C0056904 (rimOnPnpArrived.c)
  * Callees:
- *     RimDeviceTypeToRimInputType @ 0x1C0005B28 (RimDeviceTypeToRimInputType.c)
- *     WPP_RECORDER_AND_TRACE_SF_DSd @ 0x1C019A02C (WPP_RECORDER_AND_TRACE_SF_DSd.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0056804 (RimDeviceTypeToRimInputType.c)
+ *     WPP_RECORDER_SF_DSd @ 0x1C016D164 (WPP_RECORDER_SF_DSd.c)
  */
 
 __int64 __fastcall RIMRegisterForDeviceChangeNotifications(
@@ -15,15 +15,12 @@ __int64 __fastcall RIMRegisterForDeviceChangeNotifications(
         PVOID *a5)
 {
   void *v5; // r8
-  NTSTATUS v7; // ebx
-  char v9; // r11
-  char v10; // r11
-  int v11; // edx
-  __int64 v12; // r10
-  int v13; // r8d
-  int v14; // [rsp+20h] [rbp-48h]
-  int v15; // [rsp+28h] [rbp-40h]
-  int v16; // [rsp+30h] [rbp-38h]
+  NTSTATUS v7; // edi
+  char v9; // al
+  int v10; // edx
+  int v11; // r8d
+  int v12; // r9d
+  int v13; // [rsp+20h] [rbp-28h]
 
   v5 = *(void **)(a1 + 232);
   v7 = -1073741823;
@@ -37,20 +34,10 @@ __int64 __fastcall RIMRegisterForDeviceChangeNotifications(
            (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)RIMDeviceNotify,
            a4,
            a5);
-    if ( v7 < 0 )
+    if ( v7 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (v9 = 1, (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0)
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v9 = 0;
-      }
-      if ( v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        RimDeviceTypeToRimInputType(a1, *(unsigned __int8 *)(a1 + 48));
-        LOBYTE(v11) = v10;
-        WPP_RECORDER_AND_TRACE_SF_DSd(*(_QWORD *)(v12 + 24), v11, v13, (_DWORD)gRimLog, v14, v15, v16);
-      }
+      v9 = RimDeviceTypeToRimInputType(a1, *(unsigned __int8 *)(a1 + 48));
+      WPP_RECORDER_SF_DSd(*(_QWORD *)(a1 + 216), v10, v11, v12, v13, v7, *(_QWORD *)(a1 + 216), v9);
     }
   }
   return (unsigned int)v7;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CleanUpPFF@@YAXPEAVPFF@@@Z @ 0x1C02D6050
+ * XREFs of ?CleanUpPFF@@YAXPEAVPFF@@@Z @ 0x1C02BAB30
  * Callers:
  *     <none>
  * Callees:
- *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02D6950 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
+ *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02BB3A0 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall CleanUpPFF(struct PFF *a1)

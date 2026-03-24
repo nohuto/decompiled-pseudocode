@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetClockIntervalToMinimumRequested @ 0x1400FCCF0
+ * XREFs of KiSetClockIntervalToMinimumRequested @ 0x1400FCD10
  * Callers:
  *     KiCheckForTimerExpiration @ 0x1400605D0 (KiCheckForTimerExpiration.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiSetClockInterval @ 0x14012EAD8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BCC (KiResetClockInterval.c)
+ *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KiSetClockTickRate @ 0x1400FCDB4 (KiSetClockTickRate.c)
- *     KiGetClockIntervalOneShot @ 0x1400FCF84 (KiGetClockIntervalOneShot.c)
+ *     KiSetClockTickRate @ 0x1400FCDD4 (KiSetClockTickRate.c)
+ *     KiGetClockIntervalOneShot @ 0x1400FCFA4 (KiGetClockIntervalOneShot.c)
  */
 
 __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2)

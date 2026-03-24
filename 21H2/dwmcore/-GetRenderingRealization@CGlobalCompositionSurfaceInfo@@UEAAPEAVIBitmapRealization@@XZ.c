@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRenderingRealization@CGlobalCompositionSurfaceInfo@@UEAAPEAVIBitmapRealization@@XZ @ 0x180066000
+ * XREFs of ?GetRenderingRealization@CGlobalCompositionSurfaceInfo@@UEAAPEAVIBitmapRealization@@XZ @ 0x1800BD930
  * Callers:
  *     <none>
  * Callees:
- *     ?ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ @ 0x18006604C (-ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ.c)
+ *     ?ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ @ 0x1800BD97C (-ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ.c)
  */
 
 struct IBitmapRealization *__fastcall CGlobalCompositionSurfaceInfo::GetRenderingRealization(
@@ -11,11 +11,11 @@ struct IBitmapRealization *__fastcall CGlobalCompositionSurfaceInfo::GetRenderin
 {
   struct IBitmapRealization *result; // rax
 
-  result = (struct IBitmapRealization *)*((_QWORD *)this + 25);
+  result = (struct IBitmapRealization *)*((_QWORD *)this + 23);
   if ( result )
     return (struct IBitmapRealization *)((char *)result + *(int *)(*((_QWORD *)result + 1) + 16LL) + 8);
   CGlobalCompositionSurfaceInfo::ForceUpdateRenderingRealization(this);
-  if ( (result = (struct IBitmapRealization *)*((_QWORD *)this + 25)) != 0LL )
+  if ( (result = (struct IBitmapRealization *)*((_QWORD *)this + 23)) != 0LL )
     return (struct IBitmapRealization *)((char *)result + *(int *)(*((_QWORD *)result + 1) + 16LL) + 8);
   return result;
 }

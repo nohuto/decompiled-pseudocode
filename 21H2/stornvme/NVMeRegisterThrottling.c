@@ -1,29 +1,29 @@
 /*
- * XREFs of NVMeRegisterThrottling @ 0x1C00061A0
+ * XREFs of NVMeRegisterThrottling @ 0x1C001529C
  * Callers:
- *     NVMeEnableThrottling @ 0x1C00060DC (NVMeEnableThrottling.c)
+ *     NVMeEnableThrottling @ 0x1C000E9A8 (NVMeEnableThrottling.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall NVMeRegisterThrottling(__int64 a1, int a2, unsigned int a3)
 {
-  __int64 v4; // rbp
-  __int64 v5; // rbx
+  __int64 v4; // rdi
+  __int64 v5; // rbp
   __int64 result; // rax
 
-  v4 = a3;
-  v5 = a2;
-  if ( a2 < 0 || *(_QWORD *)(a1 + 8LL * a2 + 3896) )
+  v4 = a2;
+  v5 = a3;
+  if ( *(_QWORD *)(a1 + 8LL * a2 + 3880) )
     return 3238002695LL;
   result = StorPortExtendedFunction(0LL, a1, 32LL, 1701672526LL);
   if ( !(_DWORD)result )
   {
-    MEMORY[0] = v5;
+    MEMORY[0] = v4;
     MEMORY[8] = 0LL;
-    MEMORY[0x10] = 10 * v4;
+    MEMORY[0x10] = 10 * v5;
     MEMORY[0x18] = 0;
-    *(_QWORD *)(a1 + 8 * v5 + 3896) = 0LL;
+    *(_QWORD *)(a1 + 8 * v4 + 3880) = 0LL;
     return 0LL;
   }
   return result;

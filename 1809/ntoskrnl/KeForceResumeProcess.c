@@ -1,16 +1,16 @@
 /*
- * XREFs of KeForceResumeProcess @ 0x1400F349C
+ * XREFs of KeForceResumeProcess @ 0x1400F34BC
  * Callers:
- *     MiReAcquireCommitFailWorker @ 0x1402A4AA0 (MiReAcquireCommitFailWorker.c)
+ *     MiReAcquireCommitFailWorker @ 0x1402A4BA0 (MiReAcquireCommitFailWorker.c)
  *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspTerminateProcess @ 0x14067789C (PspTerminateProcess.c)
+ *     PspTerminateProcess @ 0x14067787C (PspTerminateProcess.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiThawSingleThread @ 0x1400F49E0 (KiThawSingleThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiThawSingleThread @ 0x1400F4A00 (KiThawSingleThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeForceResumeProcess(__int64 a1)

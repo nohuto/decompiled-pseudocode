@@ -1,57 +1,57 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x14084E4F0
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x140915430
  * Callers:
- *     PopBootStatCheckIntegrity @ 0x14084E3B0 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2344 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     ZwReadFile @ 0x14041A760 (ZwReadFile.c)
- *     RtlBootStatusItemInfo @ 0x1407ED0C8 (RtlBootStatusItemInfo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwReadFile @ 0x1403F9AE0 (ZwReadFile.c)
+ *     RtlBootStatusItemInfo @ 0x14078A41C (RtlBootStatusItemInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
 {
   char v4; // r14
   int v5; // ebx
-  void *Pool2; // rsi
+  PVOID Buffer; // rsi
   __int64 v7; // rcx
   _BYTE *v8; // rax
   int v10; // [rsp+50h] [rbp-20h] BYREF
   LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-18h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-10h] BYREF
-  ULONG Buffer; // [rsp+B0h] [rbp+40h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+B0h] [rbp+40h] BYREF
   int v14; // [rsp+B8h] [rbp+48h] BYREF
 
   v14 = 0;
   v10 = 0;
-  Buffer = 0;
+  LODWORD(NumberOfBytes) = 0;
   ByteOffset.QuadPart = 0LL;
   v4 = 0;
   IoStatusBlock = 0LL;
-  v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0LL);
+  v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &NumberOfBytes, 4u, &ByteOffset, 0LL);
   if ( v5 >= 0 )
   {
-    v5 = RtlBootStatusItemInfo(15, &v14, &v10);
+    v5 = RtlBootStatusItemInfo(0xFu, &v14, &v10);
     if ( v5 >= 0 )
     {
-      if ( Buffer < v14 + v10 || Buffer > 0x800 )
+      if ( (unsigned int)NumberOfBytes < v14 + v10 || (unsigned int)NumberOfBytes > 0x800 )
       {
         *a2 = 0;
       }
       else
       {
-        Pool2 = (void *)ExAllocatePool2(256LL, Buffer, 1717859170LL);
-        if ( Pool2 )
+        Buffer = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x66647362u);
+        if ( Buffer )
         {
-          v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Buffer, &ByteOffset, 0LL);
+          v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, NumberOfBytes, &ByteOffset, 0LL);
           if ( v5 >= 0 )
           {
-            v7 = Buffer;
-            if ( IoStatusBlock.Information == Buffer )
+            v7 = (unsigned int)NumberOfBytes;
+            if ( IoStatusBlock.Information == (unsigned int)NumberOfBytes )
             {
-              if ( Buffer )
+              if ( (_DWORD)NumberOfBytes )
               {
-                v8 = Pool2;
+                v8 = Buffer;
                 do
                 {
                   v4 += *v8++;
@@ -66,7 +66,7 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
               *a2 = 0;
             }
           }
-          ExFreePoolWithTag(Pool2, 0);
+          ExFreePoolWithTag(Buffer, 0);
         }
         else
         {

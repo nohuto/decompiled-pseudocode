@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E6CA4
+ * XREFs of ?ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B199C
  * Callers:
- *     VidMmReferenceAllocationForTokenSubmission @ 0x1C002D240 (VidMmReferenceAllocationForTokenSubmission.c)
+ *     VidMmReferenceAllocationForTokenSubmission @ 0x1C0022F10 (VidMmReferenceAllocationForTokenSubmission.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall VIDMM_GLOBAL::ReferenceAllocationForTokenSubmission(
@@ -12,27 +12,27 @@ __int64 __fastcall VIDMM_GLOBAL::ReferenceAllocationForTokenSubmission(
         struct _VIDMM_MULTI_ALLOC *a3,
         struct VIDMM_ALLOC **a4)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rcx
+  __int64 v6; // rdi
   __int64 v7; // rcx
-  __int64 v8; // rcx
   __int64 v9; // rcx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
 
   *a4 = 0LL;
-  v4 = **(_QWORD **)a3;
-  if ( *(_BYTE *)(v4 + 81) )
+  v6 = **(_QWORD **)a3;
+  if ( *(_BYTE *)(v6 + 88) )
   {
     if ( g_IsInternalReleaseOrDbg )
     {
       WdLogNewEntry5_WdTrace(this);
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v5) + 24) = v4;
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v7) + 24) = v6;
     }
     return 3223191814LL;
   }
   else
   {
-    v7 = *(unsigned int *)(*(_QWORD *)(v4 + 536) + 12LL);
-    if ( (_DWORD)v7 )
+    v9 = *(unsigned int *)(*(_QWORD *)(v6 + 496) + 12LL);
+    if ( (_DWORD)v9 )
     {
       if ( !a2 || *((struct VIDMM_DEVICE **)a3 + 1) == a2 )
       {
@@ -42,8 +42,11 @@ __int64 __fastcall VIDMM_GLOBAL::ReferenceAllocationForTokenSubmission(
       }
       else
       {
-        WdLogSingleEntry3(1LL, a2, a3, *((_QWORD *)a3 + 1));
-        DxgkLogInternalTriageEvent(v9, 0x40000LL);
+        v11 = (_QWORD *)WdLogNewEntry5_WdAssertion(v9, a2, a3);
+        v11[3] = a2;
+        v11[4] = a3;
+        v11[5] = *((_QWORD *)a3 + 1);
+        WdLogEvent5_WdAssertion(v11);
         return 3223191829LL;
       }
     }
@@ -51,8 +54,8 @@ __int64 __fastcall VIDMM_GLOBAL::ReferenceAllocationForTokenSubmission(
     {
       if ( g_IsInternalReleaseOrDbg )
       {
-        WdLogNewEntry5_WdTrace(v7);
-        *(_QWORD *)(WdLogNewEntry5_WdTrace(v8) + 24) = v4;
+        WdLogNewEntry5_WdTrace(v9);
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(v10) + 24) = v6;
       }
       return 3223191812LL;
     }

@@ -1,134 +1,180 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x140A12DA0
+ * XREFs of SdbpResolveMatchingFile @ 0x1407539DC
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x1408414E0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingDir @ 0x140A10CF0 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingTextEntry @ 0x140A11614 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A11A00 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140964370 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslPathClean @ 0x140A15610 (AslPathClean.c)
- *     AslPathToNetworkPathNt @ 0x140A15C98 (AslPathToNetworkPathNt.c)
- *     AslEnvExpandStrings2 @ 0x140A177D8 (AslEnvExpandStrings2.c)
- *     AslEnvGetProcessWowInfo @ 0x140A179E0 (AslEnvGetProcessWowInfo.c)
- *     AslImageFileToArchitecture @ 0x140A180E8 (AslImageFileToArchitecture.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AslEnvExpandStrings2 @ 0x140753C30 (AslEnvExpandStrings2.c)
+ *     AslImageFileToArchitecture @ 0x140754238 (AslImageFileToArchitecture.c)
+ *     AslEnvGetProcessWowInfo @ 0x140754264 (AslEnvGetProcessWowInfo.c)
+ *     AslPathToNetworkPathNt @ 0x14075431C (AslPathToNetworkPathNt.c)
+ *     AslPathClean @ 0x140754394 (AslPathClean.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpResolveMatchingFile(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, __int64 a5, _QWORD *a6)
 {
-  _QWORD *v6; // r12
-  unsigned int v7; // edi
-  __int64 v12; // r15
+  _QWORD *v6; // r13
+  unsigned int v11; // r12d
+  __int64 v12; // r14
   __int16 v13; // ax
   int v14; // ecx
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  SIZE_T v19; // rsi
-  _QWORD *v20; // rax
-  _QWORD *v21; // rbx
-  __int16 v22; // ax
-  __int64 v23; // r8
-  int v25; // [rsp+28h] [rbp-28h]
-  int v26; // [rsp+30h] [rbp-20h]
-  __int64 v27; // [rsp+40h] [rbp-10h] BYREF
-  _QWORD *v28; // [rsp+48h] [rbp-8h] BYREF
-  __int16 v31; // [rsp+A8h] [rbp+58h] BYREF
+  ULONGLONG v15; // rax
+  __int64 v16; // rcx
+  ULONGLONG v17; // rdi
+  _QWORD *v18; // rax
+  _QWORD *v19; // rbx
+  __int16 v20; // ax
+  __int64 v21; // r8
+  const char *v23; // r9
+  int v24; // r8d
+  unsigned __int64 v25; // rcx
+  unsigned __int64 v26; // rdx
+  const char *v27; // r9
+  int v28; // r8d
+  int v29; // [rsp+28h] [rbp-28h]
+  int v30; // [rsp+30h] [rbp-20h]
+  ULONGLONG pullResult; // [rsp+40h] [rbp-10h] BYREF
+  _QWORD *v32; // [rsp+48h] [rbp-8h] BYREF
+  __int16 v35; // [rsp+A8h] [rbp+58h] BYREF
 
   v6 = a6;
-  v7 = 0;
-  v27 = 0LL;
-  v28 = 0LL;
+  pullResult = 0LL;
+  v32 = 0LL;
   *a6 = 0LL;
-  v31 = -1;
+  v35 = -1;
+  v11 = 0;
   LOWORD(a6) = -1;
   if ( !a4 )
+  {
+    v23 = "Invalid match file length";
+    v24 = 734;
     goto LABEL_32;
+  }
   v12 = a5;
   if ( *a3 != 37 )
   {
-    v16 = *(unsigned int *)(a5 + 8);
-    v17 = v16 + a4;
-    if ( v17 >= v16 )
+    v25 = *(unsigned int *)(a5 + 8);
+    v26 = v25 + a4;
+    if ( v26 >= v25 )
     {
-      v15 = v17 + 1;
-      if ( v17 + 1 >= v17 )
-        goto LABEL_11;
+      v15 = v26 + 1;
+      if ( v26 + 1 >= v26 )
+        goto LABEL_8;
+      v24 = 790;
     }
-LABEL_32:
-    AslLogCallPrintf(1LL);
-    return v7;
-  }
-  if ( (int)AslEnvGetProcessWowInfo(&a6, &v31) < 0 )
+    else
+    {
+      v24 = 785;
+    }
+LABEL_46:
+    v23 = "Invalid path size";
     goto LABEL_32;
+  }
+  if ( (int)AslEnvGetProcessWowInfo(&a6, &v35) < 0 )
+  {
+    v23 = "AslEnvGetProcessWowInfo failed [%x]";
+    v24 = 755;
+    goto LABEL_32;
+  }
   v13 = AslImageFileToArchitecture(*(unsigned __int16 *)(a1 + 576));
   if ( v13 == -1 )
-    v13 = v31;
-  v14 = AslEnvExpandStrings2(*(_QWORD *)(a2 + 56), a3, 0LL, 0LL, &v27, (_WORD)a6, v13);
+    v13 = v35;
+  v14 = AslEnvExpandStrings2(*(_QWORD *)(a2 + 56), a3, 0LL, 0LL, &pullResult, (_WORD)a6, v13);
   if ( (int)(v14 + 0x80000000) >= 0 && v14 != -1073741789 )
-    goto LABEL_32;
-  v15 = 2 * v27;
-LABEL_11:
-  v18 = v15 + 20;
+  {
+    v23 = "AslEnvExpandStrings2 failed [%x]";
+    v24 = 772;
+LABEL_32:
+    AslLogCallPrintf(1, (unsigned int)"SdbpResolveMatchingFile", v24, (_DWORD)v23);
+    return v11;
+  }
+  v15 = 2 * pullResult;
+LABEL_8:
   if ( v15 + 20 < v15 )
-    goto LABEL_32;
-  v27 = 0LL;
-  v19 = 2 * v18;
-  if ( !is_mul_ok(v18, 2uLL) )
-    goto LABEL_32;
-  v27 = 2 * v18;
-  if ( v19 < 0x208 )
-    v19 = 520LL;
-  v20 = AslAlloc(v18, v19);
-  v21 = v20;
-  if ( !v20 )
-    goto LABEL_32;
-  if ( *a3 == 37 )
   {
-    if ( (int)AslEnvGetProcessWowInfo(&a6, &v31) < 0 )
-      goto LABEL_24;
-    v22 = AslImageFileToArchitecture(*(unsigned __int16 *)(a1 + 576));
-    if ( v22 == -1 )
-      v22 = v31;
-    LOWORD(v26) = v22;
-    LOWORD(v25) = (_WORD)a6;
-    if ( (int)AslEnvExpandStrings2(*(_QWORD *)(a2 + 56), a3, v21, v19 >> 1, &v27, v25, v26) < 0 )
-      goto LABEL_24;
+    v24 = 796;
+    goto LABEL_46;
   }
-  else
+  pullResult = v15 + 20;
+  if ( RtlULongLongMult(v15 + 20, 2uLL, &pullResult) < 0 )
   {
-    memmove(v20, *(const void **)v12, 2LL * *(unsigned int *)(v12 + 8));
-    memmove((char *)v21 + 2 * *(unsigned int *)(v12 + 8), a3, 2LL * (a4 + 1));
+    v23 = "Invalid buffer size";
+    v24 = 801;
+    goto LABEL_32;
   }
-  if ( (int)AslPathClean(v21, v21) < 0 )
+  v17 = pullResult;
+  if ( pullResult < 0x208 )
+    v17 = 520LL;
+  v18 = (_QWORD *)AslAlloc(v16, v17);
+  v19 = v18;
+  if ( !v18 )
   {
-LABEL_24:
-    AslLogCallPrintf(1LL);
-    ExFreePoolWithTag(v21, 0x74705041u);
-    return v7;
+    v23 = "Out of memory";
+    v24 = 809;
+    goto LABEL_32;
   }
-  if ( (int)AslPathToNetworkPathNt(&v28, v21) < 0 )
+  if ( *a3 != 37 )
   {
-    if ( wcsnicmp((const wchar_t *)v21, L"\\??\\", 4uLL) )
+    memmove(v18, *(const void **)v12, 2LL * *(unsigned int *)(v12 + 8));
+    memmove((char *)v19 + 2 * *(unsigned int *)(v12 + 8), a3, 2LL * (a4 + 1));
+    goto LABEL_18;
+  }
+  if ( (int)AslEnvGetProcessWowInfo(&a6, &v35) < 0 )
+  {
+    v27 = "AslEnvGetProcessWowInfo failed [%x]";
+    v28 = 821;
+LABEL_41:
+    AslLogCallPrintf(1, (unsigned int)"SdbpResolveMatchingFile", v28, (_DWORD)v27);
+    goto LABEL_25;
+  }
+  v20 = AslImageFileToArchitecture(*(unsigned __int16 *)(a1 + 576));
+  if ( v20 == -1 )
+    v20 = v35;
+  LOWORD(v30) = v20;
+  LOWORD(v29) = (_WORD)a6;
+  if ( (int)AslEnvExpandStrings2(*(_QWORD *)(a2 + 56), a3, v19, v17 >> 1, &pullResult, v29, v30) >= 0 )
+  {
+LABEL_18:
+    if ( (int)AslPathClean((wchar_t *)v19, v19) >= 0 )
     {
-      v23 = -1LL;
-      do
-        ++v23;
-      while ( *((_WORD *)v21 + v23) );
-      memmove(v21 + 1, v21, 2 * v23 + 2);
-      *v21 = *(_QWORD *)L"\\??\\";
+      if ( (int)AslPathToNetworkPathNt(&v32, v19) >= 0 )
+      {
+        ExFreePoolWithTag(v19, 0x74705041u);
+        v19 = v32;
+      }
+      else if ( wcsnicmp((const wchar_t *)v19, L"\\??\\", 4uLL) )
+      {
+        v21 = -1LL;
+        do
+          ++v21;
+        while ( *((_WORD *)v19 + v21) );
+        memmove(v19 + 1, v19, 2 * v21 + 2);
+        *v19 = *(_QWORD *)L"\\??\\";
+      }
+      *v6 = v19;
+      v11 = 1;
+      v19 = 0LL;
+      goto LABEL_25;
     }
+    v27 = "AslPathClean failed [%x]";
+    v28 = 863;
+    goto LABEL_41;
   }
-  else
-  {
-    ExFreePoolWithTag(v21, 0x74705041u);
-    v21 = v28;
-  }
-  *v6 = v21;
-  return 1;
+  AslLogCallPrintf(
+    1,
+    (unsigned int)"SdbpResolveMatchingFile",
+    838,
+    (unsigned int)"AslEnvExpandStrings2 failed to expand strings for %ws [%x]");
+LABEL_25:
+  if ( v19 )
+    ExFreePoolWithTag(v19, 0x74705041u);
+  return v11;
 }

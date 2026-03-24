@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInt64ToUnicodeString @ 0x14075A520
+ * XREFs of RtlInt64ToUnicodeString @ 0x14062C590
  * Callers:
- *     ExpWnfComposeValueName @ 0x14075A480 (ExpWnfComposeValueName.c)
+ *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlLargeIntegerToChar @ 0x14075A900 (RtlLargeIntegerToChar.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlLargeIntegerToChar @ 0x14062C870 (RtlLargeIntegerToChar.c)
  */
 
 NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)

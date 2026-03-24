@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionPowerRequestCreated @ 0x140885310
+ * XREFs of TtmiLogSessionPowerRequestCreated @ 0x1408852F0
  * Callers:
  *     PopNotifySessionUserPowerRequestCreated @ 0x140588440 (PopNotifySessionUserPowerRequestCreated.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionPowerRequestCreated()
@@ -38,7 +38,7 @@ void TtmiLogSessionPowerRequestCreated()
       v9 = 4LL;
       v11 = 4LL;
       v13 = v0;
-      TlgWrite(&stru_14096D820, &unk_1403723EE, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140372601, 0LL, 0LL, 5u, &pData);
     }
   }
 }

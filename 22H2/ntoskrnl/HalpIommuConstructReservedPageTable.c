@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpIommuConstructReservedPageTable @ 0x140A8AD6C
+ * XREFs of HalpIommuConstructReservedPageTable @ 0x1409A75E8
  * Callers:
- *     HalpIommuConstructReservedPageTables @ 0x140A8AE7C (HalpIommuConstructReservedPageTables.c)
+ *     HalpIommuConstructReservedPageTables @ 0x1409A7700 (HalpIommuConstructReservedPageTables.c)
  * Callees:
- *     HalpIommuMapLogicalRange @ 0x14037DE28 (HalpIommuMapLogicalRange.c)
- *     HalpIommuGetDmarptRootAddress @ 0x140380460 (HalpIommuGetDmarptRootAddress.c)
- *     HalpIommuGetPageTableType @ 0x1403804A0 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x1403804F8 (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuGetPageTableType @ 0x1404C96FC (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1404DB8FC (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1404DBB78 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC14C (HalpIommuMapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDRESS *a2, unsigned int a3)
 {
-  int PageTableType; // ecx
+  int PageTableType; // r8d
   __int64 v7; // r9
   __int64 *v8; // rsi
   __int64 i; // rdi
   signed __int64 QuadPart; // rax
   signed __int64 v11; // rcx
   __int64 v12; // rax
-  int v14; // [rsp+20h] [rbp-28h]
-  int v15; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v14; // [rsp+20h] [rbp-28h]
+  unsigned int v15; // [rsp+68h] [rbp+20h] BYREF
 
   v15 = 0;
   if ( HalpHvIommu || !a2[3].LowPart )
@@ -28,11 +28,11 @@ __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDR
   }
   else
   {
-    PageTableType = HalpIommuGetPageTableType(0, &v15);
+    PageTableType = HalpIommuGetPageTableType((int *)&v15);
     if ( PageTableType >= 0 )
     {
       v8 = (__int64 *)&a2[1];
-      PageTableType = HalpIommuCreateDmarPageTable((unsigned int)v15, a3, a3, v7, v14, a1, (char **)&a2[1]);
+      PageTableType = HalpIommuCreateDmarPageTable(v15, a3, a3, v7, v14, a1, (__int64 *)&a2[1]);
       if ( PageTableType >= 0 )
       {
         PageTableType = HalpIommuGetDmarptRootAddress(*v8, a3, a2 + 2);

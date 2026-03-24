@@ -1,55 +1,98 @@
 /*
- * XREFs of ?xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FA140
+ * XREFs of ?xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021B190
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z @ 0x1C01F99B8 (-FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z.c)
- *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C01F9B74 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
- *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FA300 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
- *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAE68 (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     xxxClientFreeDDEHandle @ 0x1C0212740 (xxxClientFreeDDEHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F390 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00C1CCC (WPP_RECORDER_SF_qqq.c)
+ *     ?FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z @ 0x1C021A6D4 (-FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C021A8E4 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C021B45C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C021BB28 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C31C (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  */
 
 unsigned int __fastcall xxxAdviseDataAck(unsigned int *a1, __int64 *a2, struct tagDDECONV *a3)
 {
-  unsigned int v3; // edi
-  bool v5; // zf
-  unsigned int v7; // esi
-  __int64 v8; // r9
+  bool v4; // zf
+  __int64 *v5; // rsi
+  unsigned int v8; // ebx
   int v9; // edx
-  unsigned int v10; // eax
-  __int64 v11; // rdx
-  struct tagINTDDEINFO *v12; // [rsp+30h] [rbp+8h] BYREF
+  struct tagDDECONV *v10; // rcx
+  __int64 v11; // rbx
+  struct tagINTDDEINFO *v12; // rsi
+  int v13; // r8d
+  int v14; // r9d
+  struct tagINTDDEINFO *v15; // [rsp+70h] [rbp+8h] BYREF
 
-  v3 = 0;
-  v5 = *a1 == 996;
-  v12 = 0LL;
-  if ( !v5 )
+  v4 = *a1 == 996;
+  v5 = a2;
+  v15 = 0LL;
+  if ( !v4 )
     return xxxUnexpectedClientPost(a1, a2, a3);
-  v7 = xxxCopyAckIn(a1, a2, a3, &v12);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 32, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+  }
+  v8 = xxxCopyAckIn(a1, v5, a3, &v15);
   if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
-    return v3;
-  v3 = v7;
-  if ( v7 != 2 )
-    return v3;
-  v8 = *((_QWORD *)a3 + 7);
-  v9 = *(_DWORD *)(v8 + 64);
-  if ( (*(_DWORD *)v12 & 0x8000LL) != 0 )
+    v8 = 0;
+  if ( v8 != 2 )
+    return v8;
+  v11 = *((_QWORD *)a3 + 7);
+  v12 = v15;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qqq(
+      (__int64)v10,
+      4u,
+      0xEu,
+      0x21u,
+      (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+      *(_QWORD *)(v11 + 40),
+      *(_QWORD *)(v11 + 48),
+      *(_QWORD *)v15);
+  if ( (*(_DWORD *)v12 & 0x8000LL) == 0 )
   {
-    v10 = v9 & 0xFFFFFFFE;
-    if ( (v9 & 0x400) != 0 )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      FreeListAdd(*((struct tagDDECONV **)a3 + 4), *(void **)(v8 + 48), v10);
-      goto LABEL_12;
+LABEL_21:
+      v13 = *(_DWORD *)(v11 + 64);
+      goto LABEL_22;
     }
-    v11 = v10;
+    v14 = 36;
+LABEL_20:
+    LOBYTE(v9) = 4;
+    WPP_RECORDER_SF_q(
+      (_DWORD)v10,
+      v9,
+      14,
+      v14,
+      (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+      *(_QWORD *)(v11 + 40));
+    goto LABEL_21;
   }
-  else
+  v13 = *(_DWORD *)(v11 + 64);
+  if ( (v13 & 0x400) != 0 )
   {
-    v11 = v9 & 0xFFFFFFFE;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v9) = 4;
+      WPP_RECORDER_SF_((_DWORD)v10, v9, 14, 34, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+      v13 = *(_DWORD *)(v11 + 64);
+    }
+    FreeListAdd(*((PETHREAD ***)a3 + 4), *(void **)(v11 + 48), v13 & 0xFFFFFFFE);
+    goto LABEL_23;
   }
-  xxxClientFreeDDEHandle(*(_QWORD *)(v8 + 40), v11);
-LABEL_12:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v14 = 35;
+    goto LABEL_20;
+  }
+LABEL_22:
+  xxxFreeDDEHandle(v10, *(void **)(v11 + 40), v13 & 0xFFFFFFFE);
+LABEL_23:
   if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
     return 0;
   PopState(a3);

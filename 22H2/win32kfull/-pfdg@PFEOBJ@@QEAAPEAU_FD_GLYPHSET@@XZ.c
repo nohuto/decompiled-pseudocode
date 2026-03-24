@@ -1,25 +1,25 @@
 /*
- * XREFs of ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C0081018
+ * XREFs of ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C009EC80
  * Callers:
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00822BC (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
- *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0083CD4 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
- *     ?GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C028DCCC (-GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D950 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
+ *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00A2D34 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     GreGetFontUnicodeRanges @ 0x1C015BBC8 (GreGetFontUnicodeRanges.c)
  * Callees:
- *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C0081158 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02D6514 (-bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z.c)
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C009F3F8 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02BAF24 (-bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z.c)
  */
 
-struct _FD_GLYPHSET *__fastcall PFEOBJ::pfdg(PFEOBJ *this)
+struct _FD_GLYPHSET *__fastcall PFEOBJ::pfdg(__int64 **this)
 {
-  struct _FD_GLYPHSET *v1; // rsi
-  int v3; // r12d
+  struct _FD_GLYPHSET *v2; // rsi
+  int v3; // r15d
   __int64 v4; // r13
   __int64 v5; // rbx
-  __int64 v6; // r14
-  int v7; // r15d
+  __int64 *v6; // rax
+  int v7; // r14d
   __int64 v8; // rbx
   bool v10; // al
   void (__fastcall *v11)(struct _FD_GLYPHSET *, unsigned __int64); // rax
@@ -28,52 +28,53 @@ struct _FD_GLYPHSET *__fastcall PFEOBJ::pfdg(PFEOBJ *this)
   unsigned __int64 v14; // [rsp+88h] [rbp+48h] BYREF
   struct _FD_GLYPHSET *v15; // [rsp+90h] [rbp+50h] BYREF
 
-  v1 = 0LL;
+  v2 = 0LL;
   v3 = 0;
-  v4 = **(_QWORD **)this;
+  v4 = **this;
   v12 = v4;
   v5 = *(_QWORD *)(v4 + 88);
   v14 = 0LL;
-  v6 = *(_QWORD *)(SGDGetSessionState(this) + 32);
-  GreAcquireSemaphore(*(_QWORD *)(v6 + 23640));
-  if ( !*(_QWORD *)(*(_QWORD *)this + 16LL) )
+  GreAcquireSemaphore(ghsemGlyphSet);
+  v6 = *this;
+  if ( !(*this)[2] )
   {
     v7 = *(_DWORD *)(v5 + 40) & 0x8000;
     if ( v7 )
     {
-      EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemGlyphSet");
-      GreReleaseSemaphoreInternal(*(_QWORD *)(v6 + 23640));
+      EtwTraceGreLockReleaseSemaphore(L"ghsemGlyphSet", ghsemGlyphSet);
+      GreReleaseSemaphoreInternal(ghsemGlyphSet);
+      v6 = *this;
     }
     v13 = (struct _FD_GLYPHSET *)PFFOBJ::QueryFontTree(
                                    (PFFOBJ *)&v12,
                                    *(struct DHPDEV__ **)(v4 + 96),
                                    *(_QWORD *)(v4 + 80),
-                                   *(_DWORD *)(*(_QWORD *)this + 8LL),
+                                   *((_DWORD *)v6 + 2),
                                    3u,
                                    &v14);
-    v1 = v13;
+    v2 = v13;
     if ( v7 )
-      GreAcquireSemaphore(*(_QWORD *)(v6 + 23640));
-    if ( v1 )
+      GreAcquireSemaphore(ghsemGlyphSet);
+    if ( v2 )
     {
-      if ( *(_QWORD *)(*(_QWORD *)this + 16LL) )
+      if ( (*this)[2] )
       {
 LABEL_16:
         v3 = 1;
         goto LABEL_9;
       }
-      *(_QWORD *)(*(_QWORD *)this + 16LL) = v1;
-      *(_QWORD *)(*(_QWORD *)this + 24LL) = v14;
+      (*this)[2] = (__int64)v2;
+      (*this)[3] = v14;
       if ( v7 )
       {
-        if ( *(_BYTE *)(*(_QWORD *)(*(_QWORD *)this + 32LL) + 44LL) == 2 )
+        if ( *(_BYTE *)((*this)[4] + 44) == 2 )
         {
           v15 = 0LL;
           v10 = bExtendGlyphSet(&v13, &v15);
-          v1 = v13;
+          v2 = v13;
           if ( v10 )
           {
-            *(_QWORD *)(*(_QWORD *)this + 16LL) = v15;
+            (*this)[2] = (__int64)v15;
             goto LABEL_16;
           }
         }
@@ -81,16 +82,16 @@ LABEL_16:
     }
   }
 LABEL_9:
-  if ( *(_QWORD *)(*(_QWORD *)this + 16LL) )
-    ++*(_DWORD *)(*(_QWORD *)this + 136LL);
+  if ( (*this)[2] )
+    ++*((_DWORD *)*this + 34);
   if ( v3 )
   {
-    v11 = *(void (__fastcall **)(struct _FD_GLYPHSET *, unsigned __int64))(v5 + 3000);
+    v11 = *(void (__fastcall **)(struct _FD_GLYPHSET *, unsigned __int64))(v5 + 3024);
     if ( v11 )
-      v11(v1, v14);
+      v11(v2, v14);
   }
-  v8 = *(_QWORD *)(*(_QWORD *)this + 16LL);
-  EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemGlyphSet");
-  GreReleaseSemaphoreInternal(*(_QWORD *)(v6 + 23640));
+  v8 = (*this)[2];
+  EtwTraceGreLockReleaseSemaphore(L"ghsemGlyphSet", ghsemGlyphSet);
+  GreReleaseSemaphoreInternal(ghsemGlyphSet);
   return (struct _FD_GLYPHSET *)v8;
 }

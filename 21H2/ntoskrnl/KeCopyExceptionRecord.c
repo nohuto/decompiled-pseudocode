@@ -1,13 +1,13 @@
 /*
- * XREFs of KeCopyExceptionRecord @ 0x14025E1EC
+ * XREFs of KeCopyExceptionRecord @ 0x1402D3BE8
  * Callers:
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
- *     KiInitializeUserApc @ 0x14029A86C (KiInitializeUserApc.c)
- *     DbgkForwardException @ 0x1406EA7D0 (DbgkForwardException.c)
- *     DbgkpSendErrorMessage @ 0x14092A29C (DbgkpSendErrorMessage.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x1402B2594 (KiInitializeUserApc.c)
+ *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
+ *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall KeCopyExceptionRecord(_OWORD *a1, __int64 a2)

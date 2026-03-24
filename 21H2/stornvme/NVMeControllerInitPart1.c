@@ -1,126 +1,100 @@
 /*
- * XREFs of NVMeControllerInitPart1 @ 0x1C0007384
+ * XREFs of NVMeControllerInitPart1 @ 0x1C000DC0C
  * Callers:
- *     NVMeHwFindAdapter @ 0x1C000ACD0 (NVMeHwFindAdapter.c)
- *     NVMeControllerPowerUp @ 0x1C0018D60 (NVMeControllerPowerUp.c)
- *     NVMeControllerReset @ 0x1C001906C (NVMeControllerReset.c)
- *     NVMeControllerReinitialize @ 0x1C00220A4 (NVMeControllerReinitialize.c)
+ *     NVMeHwFindAdapter @ 0x1C000A790 (NVMeHwFindAdapter.c)
+ *     NVMeControllerPowerUp @ 0x1C000E398 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E684 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C0018290 (NVMeControllerPanicResetActionWorkItem.c)
  * Callees:
- *     ControllerConfigure @ 0x1C0007144 (ControllerConfigure.c)
- *     NVMeGetNVMSetAttributeList @ 0x1C00071B8 (NVMeGetNVMSetAttributeList.c)
- *     GetProcessorInformation @ 0x1C00075B8 (GetProcessorInformation.c)
- *     NVMeControllerIdentify @ 0x1C0007C08 (NVMeControllerIdentify.c)
- *     NVMeGetControllerIoCommandSetIdentify @ 0x1C0007D08 (NVMeGetControllerIoCommandSetIdentify.c)
- *     AdminQueueInitialize @ 0x1C0007E00 (AdminQueueInitialize.c)
- *     NVMeNameSpaceIdentify @ 0x1C0007F68 (NVMeNameSpaceIdentify.c)
- *     IsDumpMode @ 0x1C0008544 (IsDumpMode.c)
- *     NVMeGetNamespaceDescriptorListIdentify @ 0x1C0008768 (NVMeGetNamespaceDescriptorListIdentify.c)
- *     ControllerEnable @ 0x1C0009298 (ControllerEnable.c)
- *     NVMeGetNamespaceIoCommandSetIdentify @ 0x1C000B0FC (NVMeGetNamespaceIoCommandSetIdentify.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memset @ 0x1C00109C0 (memset.c)
- *     FillControllerRuntimeLog @ 0x1C0017A04 (FillControllerRuntimeLog.c)
+ *     AdminQueueInitialize @ 0x1C000B088 (AdminQueueInitialize.c)
+ *     ControllerEnable @ 0x1C000B354 (ControllerEnable.c)
+ *     GetProcessorInformation @ 0x1C000BAB4 (GetProcessorInformation.c)
+ *     NVMeControllerIdentify @ 0x1C0018128 (NVMeControllerIdentify.c)
+ *     NVMeNameSpaceIdentify @ 0x1C001A730 (NVMeNameSpaceIdentify.c)
  */
 
-__int64 __fastcall NVMeControllerInitPart1(__int64 a1, char a2)
+char __fastcall NVMeControllerInitPart1(__int64 a1, char a2)
 {
-  const wchar_t *v4; // rsi
-  unsigned int v5; // edi
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  int v13; // eax
-  int v14; // eax
-  signed __int32 v16[10]; // [rsp+0h] [rbp-E8h] BYREF
-  const wchar_t *v17; // [rsp+28h] [rbp-C0h]
-  int v18; // [rsp+30h] [rbp-B8h]
-  _BYTE *v19; // [rsp+38h] [rbp-B0h]
-  int v20; // [rsp+40h] [rbp-A8h]
-  _DWORD *v21; // [rsp+48h] [rbp-A0h]
-  int *v22; // [rsp+50h] [rbp-98h]
-  int v23; // [rsp+60h] [rbp-88h] BYREF
-  _DWORD v24[2]; // [rsp+68h] [rbp-80h] BYREF
-  _BYTE v25[96]; // [rsp+70h] [rbp-78h] BYREF
+  signed __int32 v4; // ecx
+  const wchar_t *v5; // rax
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  signed __int32 v14[10]; // [rsp+0h] [rbp-78h] BYREF
+  const wchar_t *v15; // [rsp+28h] [rbp-50h]
+  int v16; // [rsp+30h] [rbp-48h]
+  __int64 v17; // [rsp+38h] [rbp-40h]
+  int v18; // [rsp+40h] [rbp-38h]
+  __int64 v19; // [rsp+48h] [rbp-30h]
+  int *v20; // [rsp+50h] [rbp-28h]
+  int v21; // [rsp+88h] [rbp+10h] BYREF
+  int v22; // [rsp+90h] [rbp+18h] BYREF
+  int v23; // [rsp+98h] [rbp+20h] BYREF
 
-  memset(v25, 0, 0x58uLL);
-  if ( !a2 || (unsigned __int8)AdminQueueInitialize(a1) )
+  if ( a2 && !AdminQueueInitialize(a1) )
   {
-    *(_DWORD *)(*(_QWORD *)(a1 + 176) + 36LL) = (*(_WORD *)(a1 + 300) - 1) & 0xFFF | (((*(_WORD *)(a1 + 300) - 1) & 0xFFF) << 16);
-    _InterlockedOr(v16, 0);
-    v6 = *(_QWORD *)(a1 + 176);
-    v7 = *(_QWORD *)(a1 + 456);
-    *(_DWORD *)(v6 + 48) = v7;
-    _InterlockedOr(v16, 0);
-    *(_DWORD *)(v6 + 52) = HIDWORD(v7);
-    _InterlockedOr(v16, 0);
-    v8 = *(_QWORD *)(a1 + 176);
-    v9 = *(_QWORD *)(a1 + 320);
-    *(_DWORD *)(v8 + 40) = v9;
-    _InterlockedOr(v16, 0);
-    *(_DWORD *)(v8 + 44) = HIDWORD(v9);
-    _InterlockedOr(v16, 0);
-    ControllerConfigure(a1);
-    v5 = ControllerEnable(a1);
-    if ( v5 )
-    {
-      v4 = L"Controller enable failed";
-      v10 = 8;
-    }
-    else
-    {
-      if ( a2 || (*(_DWORD *)(a1 + 32) & 0x20) != 0 )
-      {
-        *(_DWORD *)(a1 + 32) &= ~0x20u;
-        NVMeControllerIdentify(a1);
-        NVMeGetControllerIoCommandSetIdentify(a1);
-        if ( a2 )
-        {
-          if ( !(unsigned __int8)IsDumpMode(a1) )
-            NVMeGetNVMSetAttributeList(v11);
-          NVMeNameSpaceIdentify(a1);
-          NVMeGetNamespaceDescriptorListIdentify(a1);
-          NVMeGetNamespaceIoCommandSetIdentify(a1);
-        }
-      }
-      if ( (unsigned __int8)IsDumpMode(a1) )
-      {
-        *(_DWORD *)(a1 + 232) = 65537;
-        return v5;
-      }
-      if ( (unsigned __int8)GetProcessorInformation() )
-        return v5;
-      v4 = L"Get processor information failed";
-      v5 = -1056964607;
-      v10 = 10;
-    }
-    *(_DWORD *)(a1 + 36) = v10;
+    v21 = -1056964606;
+    v20 = &v21;
+    v4 = 7;
+    v5 = L"Admin Queue Initialize failed";
+LABEL_4:
+    v19 = 0LL;
+    v18 = 0;
+    v17 = 0LL;
+    v16 = 0;
+    v15 = v5;
+    v14[8] = v4;
+    *(_DWORD *)(a1 + 28) = v4;
+    StorPortNotification(4109LL, a1, 0LL);
+    return 0;
   }
-  else
+  *(_DWORD *)(*(_QWORD *)(a1 + 160) + 36LL) = (*(_WORD *)(a1 + 284) - 1) & 0xFFF | (((*(_WORD *)(a1 + 284) - 1) & 0xFFF) << 16);
+  _InterlockedOr(v14, 0);
+  v7 = *(_QWORD *)(a1 + 160);
+  v8 = *(_QWORD *)(a1 + 440);
+  *(_DWORD *)(v7 + 48) = v8;
+  _InterlockedOr(v14, 0);
+  *(_DWORD *)(v7 + 52) = HIDWORD(v8);
+  _InterlockedOr(v14, 0);
+  v9 = *(_QWORD *)(a1 + 160);
+  v10 = *(_QWORD *)(a1 + 304);
+  *(_DWORD *)(v9 + 40) = v10;
+  _InterlockedOr(v14, 0);
+  *(_DWORD *)(v9 + 44) = HIDWORD(v10);
+  _InterlockedOr(v14, 0);
+  *(_DWORD *)(*(_QWORD *)(a1 + 160) + 20LL) = 4587520;
+  _InterlockedOr(v14, 0);
+  StorPortStallExecution(5000LL);
+  if ( !ControllerEnable(a1) )
   {
-    *(_DWORD *)(a1 + 36) = 7;
-    v4 = L"Admin Queue Initialize failed";
-    v5 = -1056964607;
+    v22 = -1056964606;
+    v20 = &v22;
+    v4 = 8;
+    v5 = L"Controller enable failed";
+    goto LABEL_4;
   }
-  if ( !(unsigned __int8)IsDumpMode(a1) )
+  if ( a2 || (*(_DWORD *)(a1 + 24) & 0x20) != 0 )
   {
-    FillControllerRuntimeLog(v12, v25);
-    v13 = *(_DWORD *)(a1 + 32);
-    v22 = &v23;
-    v24[0] = v13;
-    v14 = *(_DWORD *)(a1 + 36);
-    v21 = v24;
-    v20 = 8;
-    v19 = v25;
-    v24[1] = v14;
-    v18 = 88;
-    v17 = v4;
-    v16[8] = (unsigned __int16)v14;
+    *(_DWORD *)(a1 + 24) &= ~0x20u;
+    NVMeControllerIdentify(a1);
+    if ( a2 )
+      NVMeNameSpaceIdentify(a1);
+  }
+  if ( *(_BYTE *)(a1 + 16) )
+  {
+    *(_DWORD *)(a1 + 216) = 65537;
+  }
+  else if ( !GetProcessorInformation(a1, v11, v12, v13) )
+  {
     v23 = -1056964606;
-    StorPortNotification(4109LL, a1, 0LL, 0LL);
+    v20 = &v23;
+    v4 = 10;
+    v5 = L"Get processor information failed";
+    goto LABEL_4;
   }
-  return v5;
+  return 1;
 }

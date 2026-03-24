@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBorderColor@CDxHandleBitmapRealization@@UEBA?AU_D3DCOLORVALUE@@XZ @ 0x180108C90
+ * XREFs of ?GetBorderColor@CDxHandleBitmapRealization@@UEBA?AU_D3DCOLORVALUE@@XZ @ 0x1800E37C0
  * Callers:
  *     <none>
  * Callees:
@@ -13,6 +13,6 @@ struct _D3DCOLORVALUE *__fastcall CDxHandleBitmapRealization::GetBorderColor(
   struct _D3DCOLORVALUE *result; // rax
 
   result = retstr;
-  *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)((char *)this - 244);
+  *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)((char *)this - 212);
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PiSwAllocateGenericTableEntry @ 0x1406DC160
+ * XREFs of PiSwAllocateGenericTableEntry @ 0x1406DC140
  * Callers:
  *     <none>
  * Callees:

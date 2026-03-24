@@ -1,14 +1,13 @@
 /*
- * XREFs of MmProbeAndLockPagesPrivate @ 0x1402FBEF8
+ * XREFs of MmProbeAndLockPagesPrivate @ 0x1402F67E8
  * Callers:
- *     sub_140762650 @ 0x140762650 (sub_140762650.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x1407653A4 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x1406666C8 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     sub_140666A00 @ 0x140666A00 (sub_140666A00.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
  */
 
-__int64 __fastcall MmProbeAndLockPagesPrivate(__int64 a1, __int64 a2)
+void __fastcall MmProbeAndLockPagesPrivate(__int64 a1)
 {
-  LOBYTE(a2) = 1;
-  return MiProbeAndLockPages(a1, a2, 3LL);
+  MiProbeAndLockPages(a1, 1, 3u);
 }

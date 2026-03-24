@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLocatePagefileSubsection @ 0x14026F0F0
+ * XREFs of MiLocatePagefileSubsection @ 0x140316CFC
  * Callers:
- *     MiSkipEntirePagefileRegions @ 0x14026F050 (MiSkipEntirePagefileRegions.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiOffsetToProtos @ 0x140286F90 (MiOffsetToProtos.c)
- *     MiAdvanceVadView @ 0x1402ED77C (MiAdvanceVadView.c)
- *     MmCommitSessionMappedView @ 0x1406A3F90 (MmCommitSessionMappedView.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x140700A40 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiAdvanceVadView @ 0x1402FE5F4 (MiAdvanceVadView.c)
+ *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
+ *     MiSkipEntirePagefileRegions @ 0x140547750 (MiSkipEntirePagefileRegions.c)
+ *     MmCommitSessionMappedView @ 0x1406A5250 (MmCommitSessionMappedView.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406EA060 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
  *     <none>
  */
@@ -18,11 +18,11 @@ unsigned int *__fastcall MiLocatePagefileSubsection(unsigned int *a1, unsigned _
   unsigned int *v4; // r9
   unsigned __int64 v5; // rbx
   bool v6; // cf
-  unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // r8
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // r8
 
   v3 = *a2;
   v4 = a1;
@@ -41,19 +41,19 @@ unsigned int *__fastcall MiLocatePagefileSubsection(unsigned int *a1, unsigned _
       return 0LL;
     }
   }
-  v7 = (-(__int64)v6 & 0xFFFFFFFFFFFE0000uLL) + 0x40000;
-  v8 = v3 / v7;
-  v9 = v3 % v7;
-  v10 = (unsigned int)(v3 / v7);
-  v11 = v10 + 1;
-  if ( !v9 )
-    v11 = v10;
-  if ( v11 <= v5 )
+  v8 = (-(__int64)v6 & 0xFFFFFFFFFFFE0000uLL) + 0x40000;
+  v9 = v3 / v8;
+  v10 = v3 % v8;
+  v11 = (unsigned int)(v3 / v8);
+  v12 = v11 + 1;
+  if ( !v10 )
+    v12 = v11;
+  if ( v12 <= v5 )
   {
-    v4 += 22 * v8;
-    if ( v9 < v4[11] )
+    v4 += 22 * v9;
+    if ( v10 < v4[11] )
     {
-      *a2 = v9;
+      *a2 = v10;
       return v4;
     }
   }

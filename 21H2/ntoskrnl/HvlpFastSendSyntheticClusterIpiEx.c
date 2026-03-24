@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFastSendSyntheticClusterIpiEx @ 0x140549468
+ * XREFs of HvlpFastSendSyntheticClusterIpiEx @ 0x1404F769C
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x14039DE70 (HvlSendSyntheticClusterIpi.c)
+ *     HvlSendSyntheticClusterIpi @ 0x140390430 (HvlSendSyntheticClusterIpi.c)
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpAffinityToHvProcessorSet @ 0x14054C8F0 (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FAB30 (HvlpAffinityToHvProcessorSet.c)
  */
 
 __int64 __fastcall HvlpFastSendSyntheticClusterIpiEx(__int64 a1, unsigned int a2)
@@ -16,7 +16,7 @@ __int64 __fastcall HvlpFastSendSyntheticClusterIpiEx(__int64 a1, unsigned int a2
 
   v4 = a2;
   v2 = HvlpAffinityToHvProcessorSet(a1, v5, 88LL);
-  return (unsigned __int16)HvcallFastExtended(((v2 + 7) << 14) & 0x3FE0000 | 0x10015u, (__int64)&v4, v2 + 24, 0LL, 0) != 0
+  return (unsigned __int16)HvcallFastExtended(((v2 + 7) << 14) & 0x3FE0000 | 0x10015u, (__int64)&v4, v2 + 24, 0, 0) != 0
        ? 0xC0000001
        : 0;
 }

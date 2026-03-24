@@ -1,8 +1,8 @@
 /*
- * XREFs of ClearAppStarting @ 0x1C00AE540
+ * XREFs of ClearAppStarting @ 0x1C0046FF0
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     InitSystemThread @ 0x1C00AE200 (InitSystemThread.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
+ *     InitSystemThread @ 0x1C0084E20 (InitSystemThread.c)
  * Callees:
  *     <none>
  */

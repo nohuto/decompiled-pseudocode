@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCheckSecondaryInterruptSupported @ 0x1407EB588
+ * XREFs of HalpCheckSecondaryInterruptSupported @ 0x1406A6900
  * Callers:
- *     HalpInitializeSecondaryInterruptServices @ 0x140B608B8 (HalpInitializeSecondaryInterruptServices.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140A628CC (HalpInitializeSecondaryInterruptServices.c)
  * Callees:
  *     <none>
  */

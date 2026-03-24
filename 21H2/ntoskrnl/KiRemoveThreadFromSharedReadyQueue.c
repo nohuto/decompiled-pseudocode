@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x140210C6C
+ * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x1402EA708
  * Callers:
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140210C14 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiNormalPriorityReadyScan @ 0x1402447EC (KiNormalPriorityReadyScan.c)
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KiSetThreadSchedulingGroup @ 0x14035EE9C (KiSetThreadSchedulingGroup.c)
+ *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402EA570 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiFindReadyThread @ 0x1402EA5D0 (KiFindReadyThread.c)
+ *     KiSetThreadSchedulingGroup @ 0x1402EC058 (KiSetThreadSchedulingGroup.c)
  * Callees:
  *     <none>
  */
@@ -25,8 +25,8 @@ __int64 __fastcall KiRemoveThreadFromSharedReadyQueue(__int64 a1, __int64 a2, ch
   v3[1] = v4;
   if ( v4 == v3 )
     *(_DWORD *)(a1 + 8) ^= 1 << a3;
-  --*(_DWORD *)(a1 + 672);
-  result = *(unsigned int *)(a2 + 1648);
-  *(_QWORD *)(a1 + 680) -= result;
+  --*(_DWORD *)(a1 + 608);
+  result = *(unsigned int *)(a2 + 1568);
+  *(_QWORD *)(a1 + 616) -= result;
   return result;
 }

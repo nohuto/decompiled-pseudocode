@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncNotifyDisplayModeChange @ 0x1C00BB890
+ * XREFs of DwmAsyncNotifyDisplayModeChange @ 0x1C012DFB0
  * Callers:
  *     <none>
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall DwmAsyncNotifyDisplayModeChange(PVOID Object)
@@ -14,10 +14,10 @@ __int64 __fastcall DwmAsyncNotifyDisplayModeChange(PVOID Object)
   int v6; // [rsp+48h] [rbp-10h]
 
   v2 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    v6 = 1073741879;
+    v6 = 1073741878;
     v5 = 0LL;
     memset(v4, 0, sizeof(v4));
     LODWORD(v4[0]) = 2883588;

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFlushBuffersFile @ 0x14065C790
+ * XREFs of NtFlushBuffersFile @ 0x14065C770
  * Callers:
  *     <none>
  * Callees:
- *     NtFlushBuffersFileEx @ 0x14065C7C0 (NtFlushBuffersFileEx.c)
+ *     NtFlushBuffersFileEx @ 0x14065C7A0 (NtFlushBuffersFileEx.c)
  */
 
 NTSTATUS __stdcall NtFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)

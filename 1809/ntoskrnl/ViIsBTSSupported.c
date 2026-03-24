@@ -3,10 +3,10 @@
  * Callers:
  *     VfInitializeBranchTracing @ 0x1409362B0 (VfInitializeBranchTracing.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     DbgPrint @ 0x1401262B0 (DbgPrint.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 ViIsBTSSupported()

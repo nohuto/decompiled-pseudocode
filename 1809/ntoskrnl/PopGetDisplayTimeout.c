@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetDisplayTimeout @ 0x1406DC4F0
+ * XREFs of PopGetDisplayTimeout @ 0x1406DC4D0
  * Callers:
- *     PopRemoteSessionActiveInput @ 0x1406DC4B4 (PopRemoteSessionActiveInput.c)
- *     PopSessionInputChange @ 0x1406DC520 (PopSessionInputChange.c)
- *     PopCheckConsoleTimeouts @ 0x140878CB4 (PopCheckConsoleTimeouts.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
+ *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
+ *     PopCheckConsoleTimeouts @ 0x140878C94 (PopCheckConsoleTimeouts.c)
  * Callees:
- *     PopGetLockConsoleTimeout @ 0x1406DCE14 (PopGetLockConsoleTimeout.c)
+ *     PopGetLockConsoleTimeout @ 0x1406DCDF4 (PopGetLockConsoleTimeout.c)
  */
 
 __int64 __fastcall PopGetDisplayTimeout(int a1)

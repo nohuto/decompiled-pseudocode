@@ -1,7 +1,7 @@
 /*
- * XREFs of GetPointerInputSource @ 0x1C00E5C80
+ * XREFs of GetPointerInputSource @ 0x1C01B1450
  * Callers:
- *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01CED30 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019885C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
  * Callees:
  *     <none>
  */
@@ -9,45 +9,41 @@
 __int64 __fastcall GetPointerInputSource(int a1, int a2, int a3, _DWORD *a4)
 {
   __int64 result; // rax
-  int v5; // r10d
+  int v5; // ecx
   int v6; // ecx
   int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
 
-  result = 4LL;
-  v5 = 2;
-  v6 = a1 - 1;
-  if ( !v6 )
-    goto LABEL_10;
-  v7 = v6 - 1;
-  if ( !v7 )
+  result = 2LL;
+  v5 = a1 - 2;
+  if ( v5 )
+  {
+    v6 = v5 - 1;
+    if ( v6 )
+    {
+      v7 = v6 - 1;
+      if ( v7 )
+      {
+        if ( v7 == 1 )
+          *a4 = 16;
+        else
+          *a4 = 0;
+      }
+      else
+      {
+        *a4 = 2;
+      }
+    }
+    else
+    {
+      *a4 = 8;
+    }
+  }
+  else
   {
     *a4 = 4;
-    goto LABEL_11;
   }
-  v8 = v7 - 1;
-  if ( !v8 )
-  {
-    *a4 = 8;
-    goto LABEL_11;
-  }
-  v9 = v8 - 1;
-  if ( !v9 )
-  {
-    *a4 = 2;
-    goto LABEL_11;
-  }
-  if ( v9 != 1 )
-  {
-LABEL_10:
-    *a4 = 0;
-    goto LABEL_11;
-  }
-  *a4 = 16;
-LABEL_11:
   if ( !a2 || a3 )
-    v5 = 1;
-  a4[1] = v5;
+    result = 1LL;
+  a4[1] = result;
   return result;
 }

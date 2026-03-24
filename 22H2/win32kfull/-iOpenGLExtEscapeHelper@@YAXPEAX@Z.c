@@ -1,9 +1,9 @@
 /*
- * XREFs of ?iOpenGLExtEscapeHelper@@YAXPEAX@Z @ 0x1C02773B0
+ * XREFs of ?iOpenGLExtEscapeHelper@@YAXPEAX@Z @ 0x1C027BC40
  * Callers:
  *     <none>
  * Callees:
- *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02E11B4 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C00A7278 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
  */
 
 void __fastcall iOpenGLExtEscapeHelper(PVOID Parameter)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetDisplayId@CD2DBitmap@@UEBA?AVDisplayId@@XZ @ 0x1800FC430
+ * XREFs of ?GetDisplayId@CD2DBitmap@@UEBA?AVDisplayId@@XZ @ 0x1800E2580
  * Callers:
- *     ?GetDisplayId@CD2DBitmap@@$4PPPPPPPM@OA@EBA?AVDisplayId@@XZ @ 0x180109750 (-GetDisplayId@CD2DBitmap@@$4PPPPPPPM@OA@EBA-AVDisplayId@@XZ.c)
- *     ?GetDisplayId@CD2DBitmap@@$4PPPPPPPM@BAI@EBA?AVDisplayId@@XZ @ 0x1801099D0 (-GetDisplayId@CD2DBitmap@@$4PPPPPPPM@BAI@EBA-AVDisplayId@@XZ.c)
+ *     ?GetDisplayId@CD2DBitmap@@$4PPPPPPPM@OA@EBA?AVDisplayId@@XZ @ 0x1800F6150 (-GetDisplayId@CD2DBitmap@@$4PPPPPPPM@OA@EBA-AVDisplayId@@XZ.c)
+ *     ?GetDisplayId@CD2DBitmap@@$4PPPPPPPM@BAI@EBA?AVDisplayId@@XZ @ 0x1800F8220 (-GetDisplayId@CD2DBitmap@@$4PPPPPPPM@BAI@EBA-AVDisplayId@@XZ.c)
  * Callees:
  *     <none>
  */

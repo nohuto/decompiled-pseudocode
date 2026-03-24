@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMirrorAddPagesToBrownList @ 0x14015279C
+ * XREFs of MiMirrorAddPagesToBrownList @ 0x1401527BC
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140152540 (MiMirrorGatherBrownPages.c)
- *     MiMirrorNodeLargePages @ 0x140152B88 (MiMirrorNodeLargePages.c)
+ *     MiMirrorGatherBrownPages @ 0x140152560 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
  * Callees:
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
  */

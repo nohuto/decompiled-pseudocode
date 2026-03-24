@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_BugcheckSystemOnBootDeviceEnumerationFailure @ 0x1C0033B6C
+ * XREFs of HUBMISC_BugcheckSystemOnBootDeviceEnumerationFailure @ 0x1C0030B04
  * Callers:
- *     HUBDSM_BugcheckingSystemOnBootDeviceEnumerationFailure @ 0x1C001F030 (HUBDSM_BugcheckingSystemOnBootDeviceEnumerationFailure.c)
+ *     HUBDSM_BugcheckingSystemOnBootDeviceEnumerationFailure @ 0x1C001C620 (HUBDSM_BugcheckingSystemOnBootDeviceEnumerationFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall __noreturn HUBMISC_BugcheckSystemOnBootDeviceEnumerationFailure(__int64 a1)

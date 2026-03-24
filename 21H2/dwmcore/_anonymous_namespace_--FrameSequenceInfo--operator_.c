@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::FrameSequenceInfo::operator_ @ 0x18007816C
+ * XREFs of _anonymous_namespace_::FrameSequenceInfo::operator_ @ 0x180028C48
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180077634 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028740 (_anonymous_namespace_--SealCurrentFrameSequence.c)
  * Callees:
- *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign @ 0x1800780FC (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0x155_ea_1800780FC.c)
- *     ?_Move_assign@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@AEAAXAEAV12@U_Equal_allocators@2@@Z @ 0x180078584 (-_Move_assign@-$_Tree@V-$_Tset_traits@_KU-$less@_K@std@@V-$allocator@_K@2@$0A@@std@@@std@@AEAAXA.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign @ 0x180028BD8 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0xd209ef2d--Animat.c)
+ *     ?_Move_assign@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@AEAAXAEAV12@U_Equal_allocators@2@@Z @ 0x180029060 (-_Move_assign@-$_Tree@V-$_Tset_traits@_KU-$less@_K@std@@V-$allocator@_K@2@$0A@@std@@@std@@AEAAXA.c)
  */
 
 __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::operator_(__int64 a1, __int64 a2)
@@ -104,7 +104,7 @@ __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::operator_(__int64 a1
   if ( a1 + 424 != a2 + 424 )
     std::_Tree<std::_Tset_traits<unsigned __int64,std::less<unsigned __int64>,std::allocator<unsigned __int64>,0>>::_Move_assign();
   if ( a1 + 440 != a2 + 440 )
-    std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign(
+    std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign(
       a1 + 440,
       a2 + 440);
   *(_QWORD *)(a1 + 464) = *(_QWORD *)(a2 + 464);

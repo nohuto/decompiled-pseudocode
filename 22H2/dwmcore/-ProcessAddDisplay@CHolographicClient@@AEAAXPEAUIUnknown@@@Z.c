@@ -1,55 +1,65 @@
 /*
- * XREFs of ?ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD290
+ * XREFs of ?ProcessAddDisplay@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B2D8
  * Callers:
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AD924 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025B8BC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CHolographicClient::ProcessAddDisplay(CHolographicClient *this, struct IUnknown *a2)
 {
-  __int64 v3; // rcx
-  unsigned int v4; // eax
-  unsigned int v5; // r8d
-  __int64 v6; // rcx
-  int v7; // eax
+  struct IUnknownVtbl *lpVtbl; // rax
+  __int64 v4; // rcx
+  unsigned int v5; // eax
+  unsigned int v6; // r8d
+  int v7; // ebx
   __int64 v8; // rcx
-  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = 0LL;
-  if ( ((__int64 (__fastcall *)(struct IUnknown *, GUID *, __int64 *))a2->lpVtbl->QueryInterface)(
+  lpVtbl = a2->lpVtbl;
+  v11 = 0LL;
+  if ( ((__int64 (__fastcall *)(struct IUnknown *, GUID *, __int64 *))lpVtbl->QueryInterface)(
          a2,
          &GUID_5e01b98c_b7d8_4f41_8bf2_9dc251835cd5,
-         &v9) >= 0 )
+         &v11) >= 0 )
   {
-    v4 = *((_DWORD *)this + 38);
-    v5 = v4 + 1;
-    if ( v4 + 1 < v4 )
+    v5 = *((_DWORD *)this + 38);
+    v6 = v5 + 1;
+    if ( v5 + 1 >= v5 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      if ( v6 <= *((_DWORD *)this + 37) )
+      {
+        *(_QWORD *)(*((_QWORD *)this + 16) + 8LL * *((unsigned int *)this + 38)) = v11;
+        *((_DWORD *)this + 38) = v6;
+        goto LABEL_6;
+      }
+      v9 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 128, 8, 1, &v11);
+      v7 = v9;
+      if ( v9 >= 0 )
+        goto LABEL_6;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xC0u, 0LL);
     }
     else
     {
-      if ( v5 <= *((_DWORD *)this + 37) )
-      {
-        *(_QWORD *)(*((_QWORD *)this + 16) + 8LL * v4) = v9;
-        *((_DWORD *)this + 38) = v5;
-LABEL_5:
-        (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 88LL))(*((_QWORD *)this + 3), v9);
-        v6 = 0LL;
-        v9 = 0LL;
-        goto LABEL_10;
-      }
-      v7 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 128, 8, 1, &v9);
-      if ( v7 >= 0 )
-        goto LABEL_5;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC0u, 0LL);
+      v7 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024362, 0xB5u, 0LL);
     }
-    v6 = v9;
-LABEL_10:
-    if ( v6 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    if ( v7 < 0 )
+    {
+      v8 = v11;
+LABEL_7:
+      if ( v8 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+      return;
+    }
+LABEL_6:
+    (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 88LL))(*((_QWORD *)this + 3), v11);
+    v8 = 0LL;
+    v11 = 0LL;
+    goto LABEL_7;
   }
 }

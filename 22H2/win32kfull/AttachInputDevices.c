@@ -1,42 +1,29 @@
 /*
- * XREFs of AttachInputDevices @ 0x1C01336F4
+ * XREFs of AttachInputDevices @ 0x1C0162F40
  * Callers:
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AttachInputDevices(__int64 a1)
+__int64 __fastcall AttachInputDevices(int a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rcx
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rax
+  _QWORD *v1; // rcx
+  __int64 v2; // rdx
 
-  if ( (_DWORD)a1 )
+  if ( a1 )
   {
-    v1 = SGDGetUserSessionState(a1);
-    CBaseInput::HandleTSRequest(*(_QWORD *)(v1 + 3272), 2LL);
-    v3 = SGDGetUserSessionState(v2);
-    CBaseInput::HandleTSRequest(*(_QWORD *)(v3 + 12672), 2LL);
-    v5 = SGDGetUserSessionState(v4);
-    v6 = 2LL;
-    v7 = *(_QWORD *)(v5 + 16840);
+    CBaseInput::HandleTSRequest(gpMouseSensor, 2LL);
+    CBaseInput::HandleTSRequest(gpKeyboardSensor, 2LL);
+    v1 = (_QWORD *)gpHidInput;
+    v2 = 2LL;
   }
   else
   {
     gbPendRecreateTouchInjectionDevices = 1;
-    v9 = SGDGetUserSessionState(a1);
-    CBaseInput::HandleTSRequest(*(_QWORD *)(v9 + 3272), 0LL);
-    v11 = SGDGetUserSessionState(v10);
-    v6 = 0LL;
-    v7 = *(_QWORD *)(v11 + 12672);
+    CBaseInput::HandleTSRequest(gpMouseSensor, 0LL);
+    v1 = (_QWORD *)gpKeyboardSensor;
+    v2 = 0LL;
   }
-  return CBaseInput::HandleTSRequest(v7, v6);
+  return CBaseInput::HandleTSRequest(*v1, v2);
 }

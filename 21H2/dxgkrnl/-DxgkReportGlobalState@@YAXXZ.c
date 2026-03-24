@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DxgkReportGlobalState@@YAXXZ @ 0x1C0309C18
+ * XREFs of ?DxgkReportGlobalState@@YAXXZ @ 0x1C0269140
  * Callers:
- *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0029028 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C002372C (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C030C1C8 (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C026B2DC (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
  */
 
-void DxgkReportGlobalState(void)
+void __fastcall DxgkReportGlobalState(__int64 a1, __int64 a2)
 {
   DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL_GetGlobal();
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
   DXGGLOBAL::ReportState(Global);
 }

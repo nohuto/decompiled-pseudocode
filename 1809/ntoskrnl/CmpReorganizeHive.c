@@ -12,21 +12,21 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpClearKeyAccessBits @ 0x1406B2B50 (CmpClearKeyAccessBits.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF54 (HvMarkBaseBlockDirty.c)
- *     CmpCopyKeyPartial @ 0x1406FF8E0 (CmpCopyKeyPartial.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14075E830 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpLogReorganizeEvent @ 0x1407EC7AC (CmpLogReorganizeEvent.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65F8 (CmpCreateEmptyHiveClone.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     CmpSwapHiveStorage @ 0x1407F6920 (CmpSwapHiveStorage.c)
- *     CmpCopySyncTree @ 0x1407FCB80 (CmpCopySyncTree.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpClearKeyAccessBits @ 0x1406B2B30 (CmpClearKeyAccessBits.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
+ *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14075E810 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpLogReorganizeEvent @ 0x1407EC78C (CmpLogReorganizeEvent.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpSwapHiveStorage @ 0x1407F6900 (CmpSwapHiveStorage.c)
+ *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpReorganizeHive(ULONG_PTR BugCheckParameter2, __int16 *a2)
@@ -203,7 +203,7 @@ LABEL_11:
               v56 = 8LL;
               v58 = 4LL;
               v60 = 4LL;
-              TlgWrite(&stru_1403FFAA0, &unk_14036C1CC, 0LL, 0LL, 5u, &v54);
+              TlgWrite(&stru_1403FFAA0, &unk_14036C2DC, 0LL, 0LL, 5u, &v54);
             }
             CmpLockRegistry();
             ExAcquirePushLockSharedEx(BugCheckParameter2 + 72, 0LL);
@@ -241,7 +241,7 @@ LABEL_11:
               v29 = v18;
               v63 = 4LL;
               v65 = 4LL;
-              TlgWrite(&stru_1403FFAA0, &unk_14036C212, 0LL, 0LL, 4u, &v61);
+              TlgWrite(&stru_1403FFAA0, &unk_14036C322, 0LL, 0LL, 4u, &v61);
             }
             CmpLockRegistry();
             ExAcquirePushLockSharedEx(BugCheckParameter2 + 72, 0LL);
@@ -281,7 +281,7 @@ LABEL_11:
             v50 = 2LL;
             v51 = &v36[54];
             v53 = 0;
-            TlgWrite(&stru_1403FFAA0, &unk_14036C26A, 0LL, 0LL, 9u, &v37);
+            TlgWrite(&stru_1403FFAA0, &unk_14036C37A, 0LL, 0LL, 9u, &v37);
           }
           if ( v6 != -1073741492 && v6 != -2147483606 )
             goto LABEL_69;
@@ -319,7 +319,7 @@ LABEL_23:
     v32 = v6;
     v67 = &v32;
     v68 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C19A, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C2AA, 0LL, 0LL, 3u, &pData);
   }
   return (unsigned int)v6;
 }

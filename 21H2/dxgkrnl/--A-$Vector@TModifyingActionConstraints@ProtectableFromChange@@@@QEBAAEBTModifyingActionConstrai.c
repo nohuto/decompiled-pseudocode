@@ -1,7 +1,7 @@
 /*
- * XREFs of ??A?$Vector@TModifyingActionConstraints@ProtectableFromChange@@@@QEBAAEBTModifyingActionConstraints@ProtectableFromChange@@_K@Z @ 0x1C0011E2C
+ * XREFs of ??A?$Vector@TModifyingActionConstraints@ProtectableFromChange@@@@QEBAAEBTModifyingActionConstraints@ProtectableFromChange@@_K@Z @ 0x1C000B638
  * Callers:
- *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C01B0B38 (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
+ *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C013BC8C (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,12 @@ unsigned __int64 __fastcall Vector<ProtectableFromChange::ModifyingActionConstra
         __int64 a1,
         unsigned __int64 a2)
 {
+  __int64 v5; // rax
+
   if ( a2 >= *(_QWORD *)(a1 + 16) )
-    WdLogSingleEntry0(1LL);
+  {
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v5);
+  }
   return a2 + *(_QWORD *)(a1 + 24);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceShared @ 0x14039CBAC
+ * XREFs of ExpReleaseDisownedFastResourceShared @ 0x14038E5EC
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x14039CB30 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceShared @ 0x14063C7A0 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x14038E570 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x1405B4320 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x14035B8F4 (KeWakeWaitChain.c)
- *     KeAbCrossThreadRelease @ 0x14039CE24 (KeAbCrossThreadRelease.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x14039CEC8 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpPrepareToWakeResourceShared @ 0x14039D2EC (ExpPrepareToWakeResourceShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeAbCrossThreadRelease @ 0x14038E820 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x14038EB48 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14038EC38 (ExpPrepareToWakeResourceShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 *a2)
@@ -21,16 +21,16 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 *a2
   __int64 *v6; // rcx
   __int64 **v7; // rax
   LONG_PTR result; // rax
+  _QWORD *v9; // r14
+  volatile __int64 *v10; // rdx
+  _QWORD *v11; // rax
+  __int64 v12; // rdx
+  _QWORD *v13; // rcx
+  __int64 *v14; // rcx
+  __int64 **v15; // rax
+  _DWORD *v16; // r9
+  __int64 v17; // r8
   _DWORD *SchedulerAssist; // r9
-  _QWORD *v10; // r14
-  volatile __int64 *v11; // rdx
-  _QWORD *v12; // rax
-  __int64 v13; // rdx
-  _QWORD *v14; // rcx
-  __int64 *v15; // rcx
-  __int64 **v16; // rax
-  _DWORD *v17; // r9
-  __int64 v18; // r8
   unsigned __int8 v19; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v21; // r8
@@ -60,8 +60,8 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 *a2
   }
   v5 = a2[4];
   LockHandle.LockQueue.Next = 0LL;
-  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 1672);
-  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v5 + 1672));
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 1592);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v5 + 1592));
   if ( !*((_BYTE *)a2 + 18) )
   {
     v6 = (__int64 *)*a2;
@@ -95,52 +95,52 @@ LABEL_5:
       __writecr8(CurrentIrql);
       goto LABEL_7;
     }
-LABEL_22:
+LABEL_19:
     __fastfail(3u);
   }
-  v10 = a2 + 5;
+  v9 = a2 + 5;
   v28.LockQueue.Next = 0LL;
-  v11 = (volatile __int64 *)(a1 + 96);
+  v10 = (volatile __int64 *)(a1 + 96);
   v28.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 96);
-  if ( (_QWORD *)*v10 != v10 )
+  if ( (_QWORD *)*v9 != v9 )
   {
-    KxAcquireQueuedSpinLock((__int64)&v28, v11);
-    LOBYTE(v18) = 1;
-    ExpRotateFastOwnerEntrySublistHead(a1, a2, v18);
+    KxAcquireQueuedSpinLock((__int64)&v28, v10);
+    LOBYTE(v17) = 1;
+    ExpRotateFastOwnerEntrySublistHead(a1, a2, v17);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&v28);
     v6 = (__int64 *)*a2;
     v7 = (__int64 **)a2[1];
     if ( *(__int64 **)(*a2 + 8) == a2 && *v7 == a2 )
       goto LABEL_5;
-    goto LABEL_22;
+    goto LABEL_19;
   }
-  KxAcquireQueuedSpinLock((__int64)&v28, v11);
+  KxAcquireQueuedSpinLock((__int64)&v28, v10);
   ExpPrepareToWakeResourceShared(a1, &v32, &v31, &v30, v28.LockQueue.Next, v28.LockQueue.Lock, *(_QWORD *)&v28.OldIrql);
-  v12 = a2 + 7;
-  v13 = a2[7];
-  v14 = (_QWORD *)a2[8];
-  if ( *(__int64 **)(v13 + 8) != a2 + 7 )
-    goto LABEL_22;
-  if ( (_QWORD *)*v14 != v12 )
-    goto LABEL_22;
-  *v14 = v13;
-  *(_QWORD *)(v13 + 8) = v14;
-  *v12 = 0LL;
+  v11 = a2 + 7;
+  v12 = a2[7];
+  v13 = (_QWORD *)a2[8];
+  if ( *(__int64 **)(v12 + 8) != a2 + 7 )
+    goto LABEL_19;
+  if ( (_QWORD *)*v13 != v11 )
+    goto LABEL_19;
+  *v13 = v12;
+  *(_QWORD *)(v12 + 8) = v13;
+  *v11 = 0LL;
   a2[8] = 0LL;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&v28);
   *((_BYTE *)a2 + 18) = 0;
-  v15 = (__int64 *)*a2;
-  v16 = (__int64 **)a2[1];
-  if ( *(__int64 **)(*a2 + 8) != a2 || *v16 != a2 )
-    goto LABEL_22;
-  *v16 = v15;
-  v15[1] = (__int64)v16;
+  v14 = (__int64 *)*a2;
+  v15 = (__int64 **)a2[1];
+  if ( *(__int64 **)(*a2 + 8) != a2 || *v15 != a2 )
+    goto LABEL_19;
+  *v15 = v14;
+  v14[1] = (__int64)v15;
   *a2 = 0LL;
   a2[1] = 0LL;
-  *v10 = 0LL;
+  *v9 = 0LL;
   a2[6] = 0LL;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  KeWakeWaitChain(&v32, 0LL, 2 * (unsigned int)(v31 != 0) + 1, v17);
+  KeWakeWaitChain(&v32, 0LL, 2 * (unsigned int)(v31 != 0) + 1, v16);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

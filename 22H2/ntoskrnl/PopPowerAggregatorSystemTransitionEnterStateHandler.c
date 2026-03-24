@@ -1,38 +1,47 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140994090
+ * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140775580
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874ED8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776C08 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1403C733C (PopGetMonitorReasonFromPowerEventId.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorSetCurrentState @ 0x1408782B8 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
- *     PopPowerRequestRevokeRequestsForSleep @ 0x140981980 (PopPowerRequestRevokeRequestsForSleep.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x1407756F4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776AA8 (PopPowerAggregatorSetCurrentState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a1)
 {
-  __int64 MonitorReasonFromPowerEventId; // rax
-  unsigned int v3; // ebx
-  _OWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  int v1; // eax
+  int v4; // eax
+  int v5; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v6; // [rsp+24h] [rbp-24h]
+  int v7; // [rsp+34h] [rbp-14h]
+  __int64 v8; // [rsp+38h] [rbp-10h]
 
-  if ( *(_DWORD *)(a1 + 56) != 5 )
+  v1 = *(_DWORD *)(a1 + 72);
+  if ( (v1 & 0xFFFFFFFC) != 0 || v1 == 1 )
   {
-    MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(*(_DWORD *)(a1 + 60));
-    memset(v5, 0, sizeof(v5));
-    v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
-    LODWORD(v5[0]) = 5;
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v5);
-    PopReleaseRwLock(&PopPowerAggregatorLock);
-    if ( qword_140C6B030 )
-      qword_140C6B030(1LL);
-    PopPowerRequestRevokeRequestsForSleep();
-    KeSetEvent((PRKEVENT)(a1 + 264), 0, 0);
-    PopSleepstudyStartNextSession(3, v3);
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+    v4 = *(_DWORD *)(a1 + 88);
+    if ( v4 >= 0 && (v4 <= 2 || v4 == 4) )
+    {
+      PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+      if ( qword_140C543E0 )
+        qword_140C543E0(1LL);
+      PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+      KeSetEvent((PRKEVENT)(a1 + 280), 0, 0);
+      PopPowerAggregatorStartNextSession(3LL, *(unsigned int *)(a1 + 76));
+      *(_DWORD *)(a1 + 88) = 3;
+    }
+  }
+  else
+  {
+    v8 = 0LL;
+    v5 = 5;
+    v6 = 0LL;
+    v7 = 3;
+    PopPowerAggregatorSetCurrentState(a1, &v5);
   }
   return 0LL;
 }

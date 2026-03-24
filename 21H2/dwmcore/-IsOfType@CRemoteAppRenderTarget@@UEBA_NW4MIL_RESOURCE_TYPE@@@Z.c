@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CRemoteAppRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C2950
+ * XREFs of ?IsOfType@CRemoteAppRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180186570
  * Callers:
  *     <none>
  * Callees:
@@ -14,9 +14,9 @@ bool __fastcall CRemoteAppRenderTarget::IsOfType(__int64 a1, int a2)
 
   v2 = (unsigned int)(a2 - 112);
   result = 0;
-  if ( (unsigned int)v2 <= 0x21 )
+  if ( (unsigned int)v2 <= 0x22 )
   {
-    v3 = 0x240000001LL;
+    v3 = 0x480000001LL;
     if ( _bittest64(&v3, v2) )
       return 1;
   }

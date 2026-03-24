@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetInteractionContext@CInteraction@@UEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x1801F2180
+ * XREFs of ?GetInteractionContext@CInteraction@@UEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x1801C6290
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CInteraction::GetInteractionContext(__int64 a1, int a2, _QWORD *a3)
+__int64 __fastcall CInteraction::GetInteractionContext(__int64 a1)
 {
-  return CInteractionProcessor::GetInteractionContext((CInteractionProcessor *)(a1 + 288), a2, a3);
+  return CInteractionProcessor::GetInteractionContext(a1 + 344);
 }

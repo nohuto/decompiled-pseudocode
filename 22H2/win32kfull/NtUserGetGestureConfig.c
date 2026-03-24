@@ -1,122 +1,101 @@
 /*
- * XREFs of NtUserGetGestureConfig @ 0x1C01D12B0
+ * XREFs of NtUserGetGestureConfig @ 0x1C01F90C0
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GetGestureConfigSettings @ 0x1C02045D0 (GetGestureConfigSettings.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GetGestureConfigSettings @ 0x1C0227088 (GetGestureConfigSettings.c)
  */
 
 __int64 __fastcall NtUserGetGestureConfig(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        int a3,
         unsigned int *a4,
         volatile void *Address,
         int a6)
 {
-  int v7; // r12d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  struct tagWND *v11; // rsi
-  __int64 v12; // r8
-  __int64 v13; // r9
+  __int64 v9; // rsi
   int GestureConfigSettings; // ebx
-  struct tagTHREADINFO *v15; // rax
-  int v16; // ecx
-  __int64 v17; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  size_t v17; // r15
   __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rax
-  __int64 v21; // rbx
-  size_t v22; // r15
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  void *v25; // rdi
-  __int64 v26; // r8
+  void *v19; // rdi
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  _BYTE v33[4]; // [rsp+30h] [rbp-78h] BYREF
-  unsigned int v34; // [rsp+34h] [rbp-74h]
-  void *v35; // [rsp+38h] [rbp-70h]
-  __int128 v36; // [rsp+68h] [rbp-40h] BYREF
-  __int64 v37; // [rsp+78h] [rbp-30h]
+  __int64 v21; // rcx
+  _BYTE v23[8]; // [rsp+68h] [rbp-40h] BYREF
+  __int128 v24; // [rsp+70h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+80h] [rbp-28h]
 
-  v7 = a3;
-  v35 = 0LL;
-  v34 = 0;
-  v36 = 0LL;
-  v37 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v33);
-  v11 = (struct tagWND *)ValidateHwnd(a1);
-  if ( v11 )
+  v24 = 0LL;
+  v25 = 0LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v23);
+  v9 = ValidateHwnd(a1);
+  if ( v9 )
   {
-    v15 = PtiCurrentShared(v10, v9, v12, v13);
-    *(_QWORD *)&v36 = *((_QWORD *)v15 + 52);
-    *((_QWORD *)v15 + 52) = &v36;
-    *((_QWORD *)&v36 + 1) = v11;
-    HMLockObject(v11);
+    *(_QWORD *)&v24 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v24;
+    *((_QWORD *)&v24 + 1) = v9;
+    HMLockObject(v9);
     if ( a6 == 12 )
     {
-      if ( (v7 & 0xFFFFFFFE) != 0 )
+      if ( (a3 & 0xFFFFFFFE) != 0 )
       {
-        UserSetLastError(1004);
+        UserSetLastError(1004LL, v11, v12);
         GestureConfigSettings = 0;
-LABEL_21:
-        ThreadUnlock1(v18, v17, v19);
-        goto LABEL_22;
+LABEL_20:
+        ThreadUnlock1(v14);
+        goto LABEL_21;
       }
-      v20 = *((_QWORD *)v11 + 5);
-      if ( *(char *)(v20 + 20) < 0 || *(char *)(v20 + 19) < 0 )
+      v15 = *(_QWORD *)(v9 + 40);
+      if ( *(char *)(v15 + 20) < 0 || *(char *)(v15 + 19) < 0 )
       {
-        v16 = 1400;
-        goto LABEL_20;
+        v13 = 1400LL;
+        goto LABEL_19;
       }
       if ( Address )
       {
         if ( (unsigned __int64)a4 >= MmUserProbeAddress )
           a4 = (unsigned int *)MmUserProbeAddress;
-        v34 = *a4;
-        v21 = v34;
-        if ( v34 - 1 <= 0xFF )
+        v16 = *a4;
+        if ( (unsigned int)(v16 - 1) <= 0xFF )
         {
-          v22 = 12 * v34;
-          v25 = (void *)Win32AllocPoolWithQuotaZInit(v22, 1667724117LL);
-          v35 = v25;
-          if ( v25 )
+          v17 = (unsigned int)(12 * v16);
+          v19 = (void *)Win32AllocPoolWithQuota(v17, 1667724117LL);
+          if ( v19 )
           {
-            CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v24, v23, v26);
-            ProbeForWrite(Address, 12 * v21, CurrentProcessWow64Process != 0 ? 1 : 4);
-            memmove(v25, (const void *)Address, v22);
-            GestureConfigSettings = GetGestureConfigSettings(v11, (__int64)v25);
+            CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v18);
+            ProbeForWrite(Address, 12 * v16, CurrentProcessWow64Process != 0 ? 1 : 4);
+            memmove(v19, (const void *)Address, v17);
+            GestureConfigSettings = GetGestureConfigSettings((struct tagWND *)v9, (__int64)v19);
             if ( GestureConfigSettings )
-              memmove((void *)Address, v25, v22);
-            if ( v25 )
-              Win32FreePool(v25);
-            goto LABEL_21;
+              memmove((void *)Address, v19, v17);
+            Win32FreePool(v19);
+            goto LABEL_20;
           }
-          v16 = 8;
-          goto LABEL_20;
+          v13 = 8LL;
+          goto LABEL_19;
         }
       }
     }
-    v16 = 87;
-LABEL_20:
+    v13 = 87LL;
+LABEL_19:
     GestureConfigSettings = 0;
-    UserSetLastError(v16);
-    goto LABEL_21;
+    UserSetLastError(v13, v11, v12);
+    goto LABEL_20;
   }
   GestureConfigSettings = 0;
-LABEL_22:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v33, v9, v12);
-  UserSessionSwitchLeaveCrit(v29, v28, v30, v31);
+LABEL_21:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v23);
+  UserSessionSwitchLeaveCrit(v21);
   return GestureConfigSettings;
 }

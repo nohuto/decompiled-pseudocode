@@ -1,277 +1,271 @@
 /*
- * XREFs of DpiFdoHandleSystemPower @ 0x1C01F02DC
+ * XREFs of DpiFdoHandleSystemPower @ 0x1C017695C
  * Callers:
- *     DpiFdoDispatchPower @ 0x1C01F02B0 (DpiFdoDispatchPower.c)
+ *     DpiFdoDispatchPower @ 0x1C0176930 (DpiFdoDispatchPower.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiDxgkDdiSetPowerState @ 0x1C01F0768 (DpiDxgkDdiSetPowerState.c)
- *     DpiFdoStopMiracastSession @ 0x1C01F0830 (DpiFdoStopMiracastSession.c)
- *     DpiFdoInvalidateChildRelations @ 0x1C01F3230 (DpiFdoInvalidateChildRelations.c)
- *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01F43EC (DpiAcquirePostDisplayInfoFromBgfx.c)
- *     DpiKsrSetBootGraphicsInformation @ 0x1C03944F0 (DpiKsrSetBootGraphicsInformation.c)
- *     DpiKsrStopAdapter @ 0x1C03945BC (DpiKsrStopAdapter.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiCorrectPowerAction @ 0x1C0020068 (DpiCorrectPowerAction.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C0028380 (Feature_KsrDisplay__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C0177000 (DpiDxgkDdiSetPowerState.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01770D0 (DpiFdoStopMiracastSession.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C0179340 (DpiFdoInvalidateChildRelations.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C017B43C (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DpiKsrSetBootGraphicsInformation @ 0x1C02D3004 (DpiKsrSetBootGraphicsInformation.c)
+ *     DpiKsrStopAdapters @ 0x1C02D30D0 (DpiKsrStopAdapters.c)
  */
 
-NTSTATUS __fastcall DpiFdoHandleSystemPower(PDEVICE_OBJECT DeviceObject, IRP *Context, __int64 a3, __int64 a4)
+NTSTATUS __fastcall DpiFdoHandleSystemPower(PDEVICE_OBJECT DeviceObject, _QWORD *Context)
 {
   char *DeviceExtension; // rsi
-  bool v5; // al
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
-  IRP *v8; // r12
-  struct _IO_REMOVE_LOCK *v9; // rbx
-  struct _IO_STACK_LOCATION *v10; // rax
-  struct _IO_STACK_LOCATION *v11; // rax
-  NTSTATUS v12; // eax
-  int Status; // r15d
-  __int64 v14; // rdx
-  unsigned int LowPart; // eax
-  __int64 v16; // rcx
-  POWER_STATE v17; // ebx
-  DWORD v18; // eax
-  __int64 v19; // rcx
-  NTSTATUS v21; // eax
-  int v22; // ebx
-  NTSTATUS v23; // eax
-  __int64 v24; // rdx
-  char v25; // [rsp+40h] [rbp-79h]
-  char v26; // [rsp+41h] [rbp-78h]
-  union _LARGE_INTEGER Timeout; // [rsp+48h] [rbp-71h] BYREF
-  PDEVICE_OBJECT v28; // [rsp+50h] [rbp-69h]
-  PIO_REMOVE_LOCK RemoveLock; // [rsp+58h] [rbp-61h]
-  struct _KEVENT Event; // [rsp+60h] [rbp-59h] BYREF
-  _QWORD v31[10]; // [rsp+80h] [rbp-39h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // r15
+  struct _IO_REMOVE_LOCK *v8; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r12
+  __int64 v16; // rax
+  bool v17; // cl
+  int v18; // ebx
+  __int64 v19; // rax
+  NTSTATUS v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbx
+  __int64 v24; // rax
+  NTSTATUS v25; // eax
+  unsigned int v26; // eax
+  __int64 v27; // rdx
+  POWER_STATE v28; // ebx
+  char v29; // di
+  __int64 v30; // rcx
+  NTSTATUS v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  char v35; // [rsp+30h] [rbp-69h]
+  int v36; // [rsp+34h] [rbp-65h]
+  __int64 v38; // [rsp+40h] [rbp-59h] BYREF
+  union _LARGE_INTEGER Timeout; // [rsp+48h] [rbp-51h] BYREF
+  struct _IO_REMOVE_LOCK *v40; // [rsp+50h] [rbp-49h]
+  struct _KEVENT Event; // [rsp+58h] [rbp-41h] BYREF
+  _QWORD v42[10]; // [rsp+70h] [rbp-29h] BYREF
 
   DeviceExtension = (char *)DeviceObject->DeviceExtension;
-  v5 = 0;
-  CurrentStackLocation = Context->Tail.Overlay.CurrentStackLocation;
-  v28 = DeviceObject;
-  memset(&Event, 0, sizeof(Event));
-  v26 = 0;
-  v8 = Context;
-  if ( CurrentStackLocation->MinorFunction != 2 )
+  v35 = 0;
+  v5 = 0LL;
+  v6 = Context[23];
+  if ( *(_BYTE *)(v6 + 1) != 2 )
   {
-    if ( CurrentStackLocation->MinorFunction != 3 )
+    if ( *(_BYTE *)(v6 + 1) == 3 )
     {
-      ++Context->CurrentLocation;
-      Context->Tail.Overlay.CurrentStackLocation = CurrentStackLocation + 1;
-      return PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), Context);
+      if ( *(_DWORD *)(v6 + 24) != 1 )
+      {
+        v38 = -300000000LL;
+        LOBYTE(v5) = 1;
+        DpiFdoStopMiracastSession(DeviceObject, v5, &v38, 131LL);
+      }
+      goto LABEL_8;
     }
-    if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart != 1 )
+    LODWORD(v5) = -1073741637;
+LABEL_4:
+    if ( (_DWORD)v5 == -1073741637 )
     {
-      Timeout.QuadPart = -300000000LL;
-      LOBYTE(Context) = 1;
-      DpiFdoStopMiracastSession(DeviceObject, Context, &Timeout, 131LL);
+      ++*((_BYTE *)Context + 67);
+      Context[23] = v6 + 72;
+      return PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), (PIRP)Context);
     }
-LABEL_7:
-    v9 = (struct _IO_REMOVE_LOCK *)(DeviceExtension + 64);
-    RemoveLock = (PIO_REMOVE_LOCK)(DeviceExtension + 64);
-    IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 2, v8, File, 1u, 0x20u);
+LABEL_8:
+    v8 = (struct _IO_REMOVE_LOCK *)(DeviceExtension + 64);
+    v40 = (struct _IO_REMOVE_LOCK *)(DeviceExtension + 64);
+    IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 2, Context, File, 1u, 0x20u);
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v10 = v8->Tail.Overlay.CurrentStackLocation;
-    *(_OWORD *)&v10[-1].MajorFunction = *(_OWORD *)&v10->MajorFunction;
-    *(_OWORD *)&v10[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v10->Parameters.NotifyDirectoryEx.CompletionFilter;
-    *(_OWORD *)(&v10[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v10->Parameters.SetQuota + 6);
-    v10[-1].FileObject = v10->FileObject;
-    v10[-1].Control = 0;
-    v11 = v8->Tail.Overlay.CurrentStackLocation;
-    v11[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)DpiFdoPowerCompletionRoutine;
-    v11[-1].Context = &Event;
-    v11[-1].Control = -32;
-    PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), v8);
-    v12 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    Status = v12;
-    if ( v12 )
+    v9 = Context[23];
+    *(_OWORD *)(v9 - 72) = *(_OWORD *)v9;
+    *(_OWORD *)(v9 - 56) = *(_OWORD *)(v9 + 16);
+    *(_OWORD *)(v9 - 40) = *(_OWORD *)(v9 + 32);
+    *(_QWORD *)(v9 - 24) = *(_QWORD *)(v9 + 48);
+    *(_BYTE *)(v9 - 69) = 0;
+    v10 = Context[23];
+    *(_QWORD *)(v10 - 16) = DpiFdoPowerCompletionRoutine;
+    *(_QWORD *)(v10 - 8) = &Event;
+    *(_BYTE *)(v10 - 69) = -32;
+    PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 20), (PIRP)Context);
+    v11 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+    v15 = v11;
+    if ( v11 )
     {
-      WdLogSingleEntry1(2LL, v12);
-      goto LABEL_36;
+      v16 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v16 + 24) = v15;
+      WdLogEvent5_WdError(v16);
+      goto LABEL_65;
     }
-    Status = v8->IoStatus.Status;
-    if ( Status < 0 )
+    LODWORD(v15) = *((_DWORD *)Context + 12);
+    if ( (int)v15 < 0 )
     {
-      WdLogSingleEntry1(3LL, CurrentStackLocation->MinorFunction);
-      goto LABEL_37;
+      v19 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+      *(_QWORD *)(v19 + 24) = *(unsigned __int8 *)(v6 + 1);
+      WdLogEvent5_WdWarning(v19);
+LABEL_65:
+      if ( (_DWORD)v15 != 259 )
+      {
+        PoStartNextPowerIrp((PIRP)Context);
+        *((_DWORD *)Context + 12) = v15;
+        IofCompleteRequest((PIRP)Context, 0);
+        IoReleaseRemoveLockEx(v8, Context, 0x20u);
+        if ( v35 )
+          LODWORD(v15) = 259;
+      }
+      return v15;
     }
-    if ( CurrentStackLocation->MinorFunction == 2
-      && DeviceExtension[1159]
-      && CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 1
+    if ( *(_BYTE *)(v6 + 1) == 2
+      && DeviceExtension[1158]
+      && *(_DWORD *)(v6 + 24) == 1
       && *((_DWORD *)DeviceExtension + 71) != 1 )
     {
       Timeout.QuadPart = -150000000LL;
-      v23 = KeWaitForSingleObject(DeviceExtension + 1240, Executive, 0, 0, &Timeout);
-      v24 = 258LL;
-      if ( v23 == 258 )
+      v20 = KeWaitForSingleObject(DeviceExtension + 1240, Executive, 0, 0, &Timeout);
+      v23 = v20;
+      if ( v20 == 258 )
       {
-LABEL_60:
-        WdLogSingleEntry1(2LL, v24);
-        goto LABEL_11;
+        v24 = WdLogNewEntry5_WdError(v22, v21);
+        *(_QWORD *)(v24 + 24) = 258LL;
       }
-      if ( v23 < 0 || (v23 = KeWaitForSingleObject(DeviceExtension + 1264, Executive, 0, 0, 0LL), v23 < 0) )
+      else
       {
-        v24 = v23;
-        goto LABEL_60;
+        if ( v20 >= 0 )
+        {
+          v25 = KeWaitForSingleObject(DeviceExtension + 1264, Executive, 0, 0, 0LL);
+          v23 = v25;
+          if ( v25 >= 0 )
+            goto LABEL_34;
+        }
+        v24 = WdLogNewEntry5_WdError(v22, v21);
+        *(_QWORD *)(v24 + 24) = v23;
       }
+      WdLogEvent5_WdError(v24);
     }
-LABEL_11:
+LABEL_34:
     KeEnterCriticalRegion();
     if ( DeviceExtension[484] )
       DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
     ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-    if ( CurrentStackLocation->MinorFunction == 2 )
+    if ( *(_BYTE *)(v6 + 1) == 2 )
     {
-      LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-      if ( LowPart > 1 )
-        *((_DWORD *)DeviceExtension + 70) = LowPart;
+      v26 = *(_DWORD *)(v6 + 24);
+      if ( v26 > 1 )
+        *((_DWORD *)DeviceExtension + 70) = v26;
     }
-    v16 = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-    v17.SystemState = *(SYSTEM_POWER_STATE *)&DeviceExtension[4 * v16 + 1312];
-    if ( DeviceExtension[1159] )
-      goto LABEL_33;
-    if ( !DeviceExtension[480] )
+    v27 = *(int *)(v6 + 24);
+    v28.SystemState = *(SYSTEM_POWER_STATE *)&DeviceExtension[4 * v27 + 1312];
+    if ( !DeviceExtension[1158] )
     {
-      v26 = 1;
-      v8->Tail.Overlay.CurrentStackLocation->Control |= 1u;
-      v21 = PoRequestPowerIrp(
-              DeviceObject,
-              CurrentStackLocation->MinorFunction,
-              v17,
-              (PREQUEST_POWER_COMPLETE)DpiFdoDevicePowerCompletionCallback,
-              v8,
-              0LL);
-      Status = v21;
-      if ( v21 != 259 )
-        WdLogSingleEntry1(2LL, v21);
-      goto LABEL_33;
-    }
-    Status = 0;
-    if ( *((_DWORD *)DeviceExtension + 4) != 1953656900
-      || *((_DWORD *)DeviceExtension + 5) != 2
-      || *((_DWORD *)DeviceExtension + 59) != 2
-      || CurrentStackLocation->MinorFunction != 2 )
-    {
-LABEL_32:
-      *((_DWORD *)DeviceExtension + 70) = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-LABEL_33:
-      if ( DeviceExtension[484] )
-        DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
-      ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
-      KeLeaveCriticalRegion();
-      v9 = RemoveLock;
-LABEL_36:
-      if ( Status == 259 )
-        return Status;
-LABEL_37:
-      PoStartNextPowerIrp(v8);
-      v8->IoStatus.Status = Status;
-      IofCompleteRequest(v8, 0);
-      IoReleaseRemoveLockEx(v9, v8, 0x20u);
-      if ( v26 )
-        return 259;
-      return Status;
-    }
-    Timeout.LowPart = CurrentStackLocation->Parameters.Create.EaLength;
-    if ( !DeviceExtension[1154] || (v25 = 1, (unsigned int)(dword_1C01307F0 - 4) > 1) )
-      v25 = 0;
-    if ( v17.SystemState != PowerSystemWorking )
-    {
-LABEL_28:
-      if ( v25 && v17.SystemState < *((_DWORD *)DeviceExtension + 71) && byte_1C0130810 )
+      if ( DeviceExtension[480] )
       {
-        LOBYTE(v14) = 1;
-        DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C0130750, v14, 0LL);
-        byte_1C0130810 = 0;
-        dword_1C013083C = 1;
-        qword_1C01307F8 = (__int64)KeGetCurrentThread();
-        qword_1C0130800 = (__int64)DeviceObject;
-      }
-      ((void (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
-        *((_QWORD *)DeviceExtension + 5),
-        *((_QWORD *)DeviceExtension + 6),
-        -1,
-        (POWER_STATE)v17.SystemState,
-        Timeout.LowPart);
-      if ( v25 )
-      {
-        if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 5 )
+        LODWORD(v15) = 0;
+        if ( *((_DWORD *)DeviceExtension + 4) == 1953656900
+          && *((_DWORD *)DeviceExtension + 5) == 2
+          && *((_DWORD *)DeviceExtension + 59) == 2
+          && *(_BYTE *)(v6 + 1) == 2 )
         {
-          byte_1C0130810 = 1;
-          LOBYTE(v19) = 1;
-          InbvNotifyDisplayOwnershipChange(v19, DpiEnterSystemDisplay);
+          v36 = *(_DWORD *)(v6 + 32);
+          if ( !DeviceExtension[1154] || (v29 = 1, (unsigned int)(dword_1C00B2E68 - 4) > 1) )
+            v29 = 0;
+          if ( v28.SystemState == PowerSystemWorking )
+            v36 = DpiCorrectPowerAction((__int64)DeviceObject, v27, *(_DWORD *)(v6 + 32));
+          if ( v29 && v28.SystemState < *((_DWORD *)DeviceExtension + 71) && byte_1C00B2E88 )
+          {
+            LOBYTE(v27) = 1;
+            DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C00B2DC8, v27, 0LL);
+            byte_1C00B2E88 = 0;
+            dword_1C00B2EB4 = 1;
+            qword_1C00B2E70 = (__int64)KeGetCurrentThread();
+            qword_1C00B2E78 = (__int64)DeviceObject;
+          }
+          ((void (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
+            *((_QWORD *)DeviceExtension + 5),
+            *((_QWORD *)DeviceExtension + 6),
+            -1,
+            (POWER_STATE)v28.SystemState,
+            v36);
+          if ( v29 )
+          {
+            if ( *(_DWORD *)(v6 + 24) == 5 )
+            {
+              byte_1C00B2E88 = 1;
+              LOBYTE(v30) = 1;
+              InbvNotifyDisplayOwnershipChange(v30, DpiEnterSystemDisplay);
+            }
+            else if ( v28.SystemState < *((_DWORD *)DeviceExtension + 71) )
+            {
+              xmmword_1C00B2DD8 = 0LL;
+              DWORD2(xmmword_1C00B2DD8) = -1;
+              xmmword_1C00B2DC8 = 0LL;
+              memset(&xmmword_1C00B2DE8, 0, 0x80uLL);
+              qword_1C00B2E78 = 0LL;
+              qword_1C00B2E70 = (__int64)KeGetCurrentThread();
+            }
+          }
+          KeEnterCriticalRegion();
+          ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3792), 1u);
+          *((POWER_STATE *)DeviceExtension + 71) = v28;
+          ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3792));
+          KeLeaveCriticalRegion();
+          if ( v28.SystemState == PowerSystemWorking )
+          {
+            memset(v42, 0, 0x48uLL);
+            EtwActivityIdControl(3u, (LPGUID)&v42[1]);
+            v42[8] = MEMORY[0xFFFFF78000000014];
+            LODWORD(v42[3]) = 11;
+            LOBYTE(v42[6]) = -1;
+            DpiFdoInvalidateChildRelations(DeviceObject, 6LL, v42);
+          }
         }
-        else if ( v17.SystemState < *((_DWORD *)DeviceExtension + 71) )
+        *((_DWORD *)DeviceExtension + 70) = *(_DWORD *)(v6 + 24);
+      }
+      else
+      {
+        v35 = 1;
+        *(_BYTE *)(Context[23] + 3LL) |= 1u;
+        v31 = PoRequestPowerIrp(
+                DeviceObject,
+                *(_BYTE *)(v6 + 1),
+                v28,
+                (PREQUEST_POWER_COMPLETE)DpiFdoDevicePowerCompletionCallback,
+                Context,
+                0LL);
+        v15 = v31;
+        if ( v31 != 259 )
         {
-          xmmword_1C0130760 = 0LL;
-          DWORD2(xmmword_1C0130760) = -1;
-          xmmword_1C0130750 = 0LL;
-          memset(&xmmword_1C0130770, 0, 0x80uLL);
-          qword_1C0130800 = 0LL;
-          qword_1C01307F8 = (__int64)KeGetCurrentThread();
+          v34 = WdLogNewEntry5_WdError(v33, v32);
+          *(_QWORD *)(v34 + 24) = v15;
+          WdLogEvent5_WdError(v34);
         }
       }
-      KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3792), 1u);
-      *((POWER_STATE *)DeviceExtension + 71) = v17;
-      ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3792));
-      KeLeaveCriticalRegion();
-      if ( v17.SystemState == PowerSystemWorking )
-      {
-        memset(v31, 0, 0x48uLL);
-        EtwActivityIdControl(3u, (LPGUID)&v31[1]);
-        v31[8] = MEMORY[0xFFFFF78000000014];
-        LODWORD(v31[3]) = 11;
-        LOBYTE(v31[6]) = -1;
-        DpiFdoInvalidateChildRelations(v28, 6LL, v31);
-      }
-      goto LABEL_32;
     }
-    v18 = Timeout.LowPart;
-    if ( Timeout.LowPart != 3 )
-    {
-LABEL_27:
-      Timeout.LowPart = v18;
-      goto LABEL_28;
-    }
-    if ( (int)v16 >= 2 )
-    {
-      if ( (int)v16 <= 4 )
-      {
-        Timeout.LowPart = 2;
-        WdLogSingleEntry1(4LL, DeviceObject);
-        goto LABEL_67;
-      }
-      if ( (_DWORD)v16 == 5 )
-      {
-        WdLogSingleEntry1(4LL, DeviceObject);
-LABEL_67:
-        v18 = Timeout.LowPart;
-        goto LABEL_27;
-      }
-    }
-    WdLogSingleEntry1(2LL, DeviceObject);
-    goto LABEL_67;
+    if ( DeviceExtension[484] )
+      DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
+    ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
+    KeLeaveCriticalRegion();
+    v8 = v40;
+    goto LABEL_65;
   }
+  v17 = 0;
   if ( DeviceExtension && *((_DWORD *)DeviceExtension + 4) == 1953656900 && *((_DWORD *)DeviceExtension + 5) == 2 )
-    v5 = DeviceExtension[5000] != 0;
-  if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart != 6 )
-    goto LABEL_7;
-  if ( v5 )
-    goto LABEL_7;
-  if ( !HIBYTE(word_1C0130998) )
-    goto LABEL_7;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_KsrDisplay__private_reporting,
-    0xB841E8u,
-    a3,
-    a4,
-    (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-    1);
-  v22 = DpiKsrStopAdapter(DeviceObject, v8);
-  if ( v22 == -1073741637 )
-    goto LABEL_7;
-  if ( (unsigned int)(dword_1C01307F0 - 1) <= 1 )
+    v17 = DeviceExtension[5072] != 0;
+  if ( *(_DWORD *)(v6 + 24) != 6 || v17 || !HIBYTE(word_1C00B3010) )
+    goto LABEL_4;
+  Feature_KsrDisplay__private_ReportDeviceUsage();
+  v18 = DpiKsrStopAdapters(DeviceObject, (PIRP)Context);
+  if ( v18 == -1073741637 )
+    goto LABEL_8;
+  if ( (unsigned int)(dword_1C00B2E68 - 1) <= 1 )
     DpiKsrSetBootGraphicsInformation();
-  return v22;
+  return v18;
 }

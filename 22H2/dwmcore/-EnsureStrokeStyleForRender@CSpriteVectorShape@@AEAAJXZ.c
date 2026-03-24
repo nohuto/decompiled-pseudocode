@@ -1,114 +1,120 @@
 /*
- * XREFs of ?EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ @ 0x18001DE78
+ * XREFs of ?EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ @ 0x1801ED3B8
  * Callers:
- *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1800845B8 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
+ *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1801ECF04 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
  * Callees:
- *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x18001E058 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
- *     ??$?0M$0?0$0?0$0A@@?$span@$$CBM$0?0@gsl@@QEAA@AEBV?$span@M$0?0@1@@Z @ 0x180025564 (--$-0M$0-0$0-0$0A@@-$span@$$CBM$0-0@gsl@@QEAA@AEBV-$span@M$0-0@1@@Z.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x1800FA780 (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ??$_Emplace_reallocate@M@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAM$$QEAM@Z @ 0x1802421CC (--$_Emplace_reallocate@M@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAM$$QEAM@Z.c)
+ *     ??$?0URampPair@CoordMap@@$0?0X@?$span@$$CBURampPair@CoordMap@@$0?0@gsl@@QEAA@AEBV?$span@URampPair@CoordMap@@$0?0@1@@Z @ 0x180016774 (--$-0URampPair@CoordMap@@$0-0X@-$span@$$CBURampPair@CoordMap@@$0-0@gsl@@QEAA@AEBV-$span@URampPai.c)
+ *     ??$narrow@_J_K@gsl@@YA_J_K@Z @ 0x180042514 (--$narrow@_J_K@gsl@@YA_J_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x180173B34 (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
+ *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x180173C70 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
+ *     ??$_Emplace_reallocate@AEBM@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z @ 0x1801DC770 (--$_Emplace_reallocate@AEBM@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z.c)
  */
 
 __int64 __fastcall CSpriteVectorShape::EnsureStrokeStyleForRender(CSpriteVectorShape *this)
 {
-  unsigned int v1; // ebx
-  __int64 *v2; // r14
-  float v5; // xmm0_4
-  __int64 v6; // rdx
-  float v7; // xmm6_4
-  float *v8; // r15
-  float *v9; // rsi
-  float *v10; // rbx
+  __int64 *v1; // r14
+  unsigned int v3; // ebx
+  float v4; // xmm0_4
+  __int64 v5; // rdx
+  float v6; // xmm6_4
+  __int64 v7; // r15
+  float *v8; // rsi
+  float *v9; // rbx
+  unsigned __int64 v10; // r12
   float v11; // xmm0_4
-  __int64 v12; // rsi
-  __int64 v13; // rcx
-  gsl::details *v14; // rcx
-  int v15; // eax
-  unsigned int v16; // ecx
-  float v17; // xmm0_4
-  float v18; // [rsp+38h] [rbp-49h] BYREF
-  __int128 v19; // [rsp+40h] [rbp-41h] BYREF
-  float *v20; // [rsp+50h] [rbp-31h]
-  _QWORD v21[2]; // [rsp+58h] [rbp-29h] BYREF
-  unsigned int v22; // [rsp+68h] [rbp-19h] BYREF
-  __int64 v23; // [rsp+70h] [rbp-11h]
-  _DWORD v24[4]; // [rsp+78h] [rbp-9h] BYREF
-  int v25; // [rsp+88h] [rbp+7h]
-  int v26; // [rsp+8Ch] [rbp+Bh]
-  float v27; // [rsp+90h] [rbp+Fh]
-  BOOL v28; // [rsp+94h] [rbp+13h]
+  float v12; // xmm0_4
+  float *v13; // rsi
+  bool v14; // zf
+  __int64 v15; // rax
+  int v16; // eax
+  __int64 v17; // rcx
+  float *v19; // [rsp+38h] [rbp-59h] BYREF
+  float *v20; // [rsp+40h] [rbp-51h]
+  float *v21; // [rsp+48h] [rbp-49h]
+  float v22; // [rsp+50h] [rbp-41h] BYREF
+  __int64 v23[2]; // [rsp+58h] [rbp-39h] BYREF
+  __int64 v24[2]; // [rsp+68h] [rbp-29h] BYREF
+  _DWORD v25[4]; // [rsp+78h] [rbp-19h] BYREF
+  int v26; // [rsp+88h] [rbp-9h]
+  int v27; // [rsp+8Ch] [rbp-5h]
+  float v28; // [rsp+90h] [rbp-1h]
+  BOOL v29; // [rsp+94h] [rbp+3h]
 
-  v1 = 0;
-  v2 = (__int64 *)((char *)this + 136);
-  if ( !*((_QWORD *)this + 17) )
+  v1 = (__int64 *)((char *)this + 128);
+  v3 = 0;
+  if ( !*((_QWORD *)this + 16) )
   {
-    v5 = fmaxf(0.0, *((float *)this + 52));
-    v6 = *((_QWORD *)this + 21) - *((_QWORD *)this + 20);
-    v20 = 0LL;
-    v7 = 1.0 / v5;
+    v4 = fmaxf(0.0, *((float *)this + 50));
+    v5 = *((_QWORD *)this + 20) - *((_QWORD *)this + 19);
     v19 = 0LL;
-    std::vector<float>::reserve(&v19, v6 >> 2);
-    v8 = (float *)*((_QWORD *)this + 21);
-    v9 = (float *)*((_QWORD *)this + 20);
-    v10 = (float *)*((_QWORD *)&v19 + 1);
-    while ( v9 != v8 )
+    v6 = 1.0 / v4;
+    v20 = 0LL;
+    v21 = 0LL;
+    std::vector<float>::reserve(&v19, v5 >> 2);
+    v7 = 0LL;
+    v8 = (float *)*((_QWORD *)this + 19);
+    v9 = v20;
+    v10 = (unsigned __int64)(*((_QWORD *)this + 20) - (_QWORD)v8 + 3LL) >> 2;
+    if ( (unsigned __int64)v8 > *((_QWORD *)this + 20) )
+      v10 = 0LL;
+    if ( v10 )
     {
-      v17 = v7 * *v9;
-      v18 = v17;
-      if ( v10 == v20 )
+      do
       {
-        std::vector<float>::_Emplace_reallocate<float>(&v19, v10, &v18);
-        v10 = (float *)*((_QWORD *)&v19 + 1);
+        v11 = v6 * *v8;
+        v22 = v11;
+        if ( v21 == v9 )
+        {
+          std::vector<float>::_Emplace_reallocate<float const &>((const void **)&v19, v9, &v22);
+          v9 = v20;
+        }
+        else
+        {
+          *v9++ = v11;
+          v20 = v9;
+        }
+        ++v8;
+        ++v7;
       }
-      else
-      {
-        *v10++ = v17;
-        *((_QWORD *)&v19 + 1) = v10;
-      }
-      ++v9;
+      while ( v7 != v10 );
     }
-    v11 = *((float *)this + 51);
-    v24[0] = *((_DWORD *)this + 47);
-    v24[1] = *((_DWORD *)this + 48);
-    v24[2] = *((_DWORD *)this + 46);
-    v24[3] = *((_DWORD *)this + 49);
-    if ( v11 >= 1.0 )
-      v25 = LODWORD(v11);
+    v12 = *((float *)this + 49);
+    v25[0] = *((_DWORD *)this + 45);
+    v25[1] = *((_DWORD *)this + 46);
+    v25[2] = *((_DWORD *)this + 44);
+    v25[3] = *((_DWORD *)this + 47);
+    if ( v12 >= 1.0 )
+      v26 = LODWORD(v12);
     else
-      v25 = 1065353216;
-    v12 = v19;
-    v13 = *v2;
-    v27 = v7 * *((float *)this + 50);
-    v26 = v10 != (float *)v19 ? 5 : 0;
-    v28 = *((_BYTE *)this + 212) != 0;
-    if ( v13 )
+      v26 = 1065353216;
+    v13 = v19;
+    v28 = v6 * *((float *)this + 48);
+    v14 = *((_BYTE *)this + 204) == 0;
+    v27 = v9 != v19 ? 5 : 0;
+    v29 = !v14;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v1);
+    v15 = gsl::narrow<__int64,unsigned __int64>(v9 - v13);
+    v23[0] = v15;
+    if ( v15 < 0 || (v23[1] = (__int64)v13) == 0 && v15 )
     {
-      *v2 = 0LL;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
+      ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+      __debugbreak();
     }
-    gsl::details::extent_type<-1>::extent_type<-1>(v21, ((__int64)v10 - v12) >> 2);
-    v21[1] = v12;
-    if ( v21[0] == -1LL || !v12 && v21[0] )
-    {
-      gsl::details::terminate(v14);
-      JUMPOUT(0x18001E04FLL);
-    }
-    gsl::span<float const,-1>::span<float const,-1>(&v22, v21);
-    v15 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, __int64, _QWORD, __int64 *))(*g_DeviceManager + 144LL))(
+    gsl::span<CoordMap::RampPair const,-1>::span<CoordMap::RampPair const,-1>(v24, v23);
+    v16 = (*(__int64 (__fastcall **)(void *, _DWORD *, __int64, _QWORD, __int64 *))(*(_QWORD *)g_DeviceManager + 144LL))(
             g_DeviceManager,
-            v24,
-            v23,
-            v22,
-            v2);
-    v1 = v15;
-    if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1FFu, 0LL);
-    std::vector<float>::_Tidy(&v19);
+            v25,
+            v24[1],
+            LODWORD(v24[0]),
+            v1);
+    v3 = v16;
+    if ( v16 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1FAu, 0LL);
+    std::vector<float>::_Tidy((__int64)&v19);
   }
-  return v1;
+  return v3;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpUpdateIrtDestinationId @ 0x14051DB48
+ * XREFs of HalpUpdateIrtDestinationId @ 0x1404D1598
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A62BC0 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A8C54 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     HalpIommuUpdateRemappingDestination @ 0x140A61B28 (HalpIommuUpdateRemappingDestination.c)
+ *     HalpIommuUpdateRemappingDestination @ 0x1409A7420 (HalpIommuUpdateRemappingDestination.c)
  */
 
 __int64 HalpUpdateIrtDestinationId()

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InsertTail@?$DoublyLinkedList@UDISPMODECHANGEREQUEST@VIDPN_MGR@@U?$DoubleLinkedListElementDeleter@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C00023DC
+ * XREFs of ?InsertTail@?$DoublyLinkedList@UDISPMODECHANGEREQUEST@VIDPN_MGR@@U?$DoubleLinkedListElementDeleter@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C0002268
  * Callers:
- *     ?Enqueue@?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C000235C (-Enqueue@-$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@.c)
+ *     ?Enqueue@?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C00021E0 (-Enqueue@-$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@.c)
  * Callees:
  *     <none>
  */
@@ -10,37 +10,37 @@ char __fastcall DoublyLinkedList<VIDPN_MGR::DISPMODECHANGEREQUEST,DoubleLinkedLi
         _QWORD *a1,
         __int64 a2)
 {
-  _QWORD *v2; // r8
-  __int64 v5; // rdx
-  _QWORD *v6; // rax
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rax
+  _QWORD *v3; // rcx
+  __int64 v4; // r9
+  _QWORD *v5; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rdx
   char result; // al
 
-  v2 = a1 + 2;
   if ( a2 )
   {
-    v5 = 0LL;
-    if ( (_QWORD *)*v2 != v2 )
-      v5 = *v2 - 8LL;
-    while ( v5 )
+    v3 = a1 + 2;
+    v4 = 0LL;
+    if ( (_QWORD *)*v3 != v3 )
+      v4 = *v3 - 8LL;
+    while ( v4 && v4 != a2 )
     {
-      if ( v5 == a2 )
-        return 0;
-      v6 = *(_QWORD **)(v5 + 8);
-      v5 = (__int64)(v6 - 1);
-      if ( v6 == v2 )
-        v5 = 0LL;
+      v5 = *(_QWORD **)(v4 + 8);
+      v4 = (__int64)(v5 - 1);
+      if ( v5 == v3 )
+        v4 = 0LL;
     }
+    if ( v4 )
+      return 0;
   }
+  v6 = (_QWORD *)(a2 + 8);
   v7 = (_QWORD *)a1[3];
-  v8 = (_QWORD *)(a2 + 8);
-  if ( (_QWORD *)*v7 != v2 )
+  if ( (_QWORD *)*v7 != a1 + 2 )
     __fastfail(3u);
-  *v8 = v2;
-  *(_QWORD *)(a2 + 16) = v7;
-  *v7 = v8;
-  v2[1] = v8;
+  *v6 = a1 + 2;
+  v6[1] = v7;
+  *v7 = v6;
+  a1[3] = v6;
   result = 1;
   ++a1[4];
   return result;

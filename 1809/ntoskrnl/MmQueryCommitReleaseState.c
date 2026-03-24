@@ -1,19 +1,19 @@
 /*
- * XREFs of MmQueryCommitReleaseState @ 0x140130934
+ * XREFs of MmQueryCommitReleaseState @ 0x140130954
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiPrepareAttachThread @ 0x1400EEA1C (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1400EEA7C (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x140127F54 (KeForceDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1400EEA9C (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmQueryCommitReleaseState(ULONG_PTR a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)

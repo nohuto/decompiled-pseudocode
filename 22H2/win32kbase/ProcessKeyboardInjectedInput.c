@@ -1,12 +1,12 @@
 /*
- * XREFs of ProcessKeyboardInjectedInput @ 0x1C0002558
+ * XREFs of ProcessKeyboardInjectedInput @ 0x1C01B05E4
  * Callers:
- *     ProcessKeyboardInjectedInputViaRim @ 0x1C00024FC (ProcessKeyboardInjectedInputViaRim.c)
- *     NtMITSynthesizeKeyboardInput @ 0x1C0009460 (NtMITSynthesizeKeyboardInput.c)
+ *     NtMITSynthesizeKeyboardInput @ 0x1C012BDD0 (NtMITSynthesizeKeyboardInput.c)
+ *     ProcessKeyboardInjectedInputViaRim @ 0x1C01B07B0 (ProcessKeyboardInjectedInputViaRim.c)
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     VKFromVSC @ 0x1C01EB390 (VKFromVSC.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
+ *     VKFromVSC @ 0x1C01B16A0 (VKFromVSC.c)
  */
 
 __int64 __fastcall ProcessKeyboardInjectedInput(__int64 a1, _QWORD *a2, __int64 a3)
@@ -17,103 +17,105 @@ __int64 __fastcall ProcessKeyboardInjectedInput(__int64 a1, _QWORD *a2, __int64 
   unsigned __int8 v7; // al
   __int16 v8; // dx
   __int16 v9; // ax
-  __int16 v10; // cx
-  __int64 v11; // rcx
-  _WORD *v12; // rax
-  int v13; // eax
-  __int16 v15; // dx
-  __int16 v16; // ax
-  __int64 v17; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-28h]
-  __int128 v19; // [rsp+40h] [rbp-20h]
+  __int16 v10; // dx
+  __int16 v11; // ax
+  __int64 v12; // rcx
+  __int16 *v13; // rax
+  int v14; // eax
+  __int64 v16; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-28h]
+  __int128 v18; // [rsp+40h] [rbp-20h]
 
-  v17 = 0LL;
+  v16 = 0LL;
   v3 = a3;
   v4 = a2;
   LOBYTE(a3) = 0;
-  v19 = 0LL;
+  v18 = 0LL;
   if ( a2 )
-    v18 = *a2;
+    v17 = *a2;
   else
-    v18 = 0LL;
+    v17 = 0LL;
   v6 = *(_WORD *)(a1 + 4);
   if ( (v6 & 0x60) != 0 )
   {
-    v8 = WORD1(v17);
+    v8 = WORD1(v16);
   }
   else
   {
-    LOBYTE(v17) = *(_BYTE *)(a1 + 2);
+    LOBYTE(v16) = *(_BYTE *)(a1 + 2);
     LOBYTE(a2) = (v6 & 2) != 0 ? 0xE0 : 0;
-    v7 = VKFromVSC(&v17, a2, a3);
-    a3 = v7;
+    v7 = VKFromVSC(&v16, a2, a3);
+    v6 = *(_WORD *)(a1 + 4);
+    LOBYTE(a3) = v7;
     v8 = v7;
-    WORD1(v17) = v7;
+    WORD1(v16) = v7;
   }
-  v9 = *(_WORD *)(a1 + 4);
-  if ( (v9 & 0x40) != 0 )
+  if ( (v6 & 0x40) != 0 )
   {
-    v10 = *(_WORD *)(a1 + 2);
+    v9 = *(_WORD *)(a1 + 2);
     LOBYTE(a3) = *(_BYTE *)(a1 + 2);
-    switch ( v10 )
+    switch ( v9 )
     {
       case 16:
         LOBYTE(a3) = -95;
         break;
       case 17:
-        LOBYTE(a3) = ((v9 & 2) != 0) | 0xA2;
+        LOBYTE(a3) = ((v6 & 2) != 0) | 0xA2;
         break;
       case 18:
-        LOBYTE(a3) = ((v9 & 2) != 0) | 0xA4;
+        LOBYTE(a3) = ((v6 & 2) != 0) | 0xA4;
         break;
     }
     v8 = (unsigned __int8)a3 | 0x2000;
     *(_WORD *)(a1 + 2) = 0;
-    WORD1(v17) = v8;
-    v9 &= ~0x40u;
-    *(_WORD *)(a1 + 4) = v9;
+    WORD1(v16) = v8;
+    v6 &= ~0x40u;
+    *(_WORD *)(a1 + 4) = v6;
   }
-  if ( (v9 & 1) != 0 )
+  if ( (v6 & 1) != 0 )
   {
     v8 |= 0x8000u;
-    WORD1(v17) = v8;
+    WORD1(v16) = v8;
   }
-  if ( (v9 & 0x20) != 0 )
+  if ( (v6 & 0x20) != 0 )
   {
-    LOWORD(v17) = *(_WORD *)(a1 + 2);
-    v15 = ((v9 & 1) << 15) | 0x10E7 | v8;
+    LOWORD(v16) = *(_WORD *)(a1 + 2);
+    v10 = ((v6 & 1) << 15) | 0x10E7 | v8;
+LABEL_30:
+    WORD1(v16) = v10;
+    goto LABEL_31;
   }
-  else
+  if ( (v6 & 2) != 0 )
   {
-    if ( (v9 & 2) != 0 )
-    {
-      v16 = 256;
-    }
-    else
-    {
-      if ( (unsigned __int8)(a3 - 96) > 9u && (_BYTE)a3 != 110 )
-      {
-        LODWORD(v11) = 0;
-        v12 = &ausNumPadCvt;
-        while ( (_BYTE)a3 != *(_BYTE *)v12 )
-        {
-          v11 = (unsigned int)(v11 + 1);
-          v12 = (_WORD *)((char *)&ausNumPadCvt + 2 * v11);
-          if ( !*v12 )
-            goto LABEL_20;
-        }
-      }
-      v16 = 2048;
-    }
-    v15 = v16 | v8;
+    v11 = 256;
+LABEL_29:
+    v10 = v11 | v8;
+    goto LABEL_30;
   }
-  WORD1(v17) = v15;
-LABEL_20:
-  v13 = *(_DWORD *)(a1 + 8);
+  if ( (unsigned __int8)(a3 - 96) <= 9u || (_BYTE)a3 == 110 )
+  {
+LABEL_28:
+    v11 = 2048;
+    goto LABEL_29;
+  }
+  LODWORD(v12) = 0;
+  if ( ausNumPadCvt[0] )
+  {
+    v13 = ausNumPadCvt;
+    while ( (_BYTE)a3 != *(_BYTE *)v13 )
+    {
+      v12 = (unsigned int)(v12 + 1);
+      v13 = &ausNumPadCvt[v12];
+      if ( !*v13 )
+        goto LABEL_31;
+    }
+    goto LABEL_28;
+  }
+LABEL_31:
+  v14 = *(_DWORD *)(a1 + 8);
   *(_DWORD *)(a1 + 8) = 0;
-  LOBYTE(a3) = 1;
-  *(_QWORD *)&v19 = *(_QWORD *)a1;
-  HIDWORD(v17) = v13;
-  DWORD2(v19) = 0;
-  return xxxProcessKeyEvent(&v17, 0LL, a3, 0LL, v4, v3);
+  *(_QWORD *)&v18 = *(_QWORD *)a1;
+  HIDWORD(v16) = v14;
+  DWORD2(v18) = 0;
+  return xxxProcessKeyEvent(&v16, 0LL, 1LL, 0LL, v4, v3);
 }

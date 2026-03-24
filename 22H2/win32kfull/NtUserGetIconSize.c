@@ -1,51 +1,46 @@
 /*
- * XREFs of NtUserGetIconSize @ 0x1C0028390
+ * XREFs of NtUserGetIconSize @ 0x1C010F280
  * Callers:
  *     <none>
  * Callees:
- *     ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C00287B8 (-GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z.c)
- *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0028B20 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z @ 0x1C00B6570 (-GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z.c)
+ *     ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C0066F34 (-GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z.c)
+ *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0066FD4 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ?GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z @ 0x1C0081300 (-GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z.c)
  */
 
-__int64 __fastcall NtUserGetIconSize(__int64 a1, int a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall NtUserGetIconSize(unsigned __int64 a1, int a2, _DWORD *a3, _DWORD *a4)
 {
   int v8; // edi
-  __int64 v9; // rdx
-  struct tagCURSOR *v10; // rax
-  __int64 v11; // rdx
-  ULONG64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  struct tagCURSOR *v9; // rax
+  ULONG64 v10; // rcx
   struct tagCURSOR *VirtualizedDpiCursor; // rax
-  int v17; // [rsp+20h] [rbp-28h] BYREF
-  int v18[9]; // [rsp+24h] [rbp-24h] BYREF
+  int v13; // [rsp+20h] [rbp-28h] BYREF
+  int v14[9]; // [rsp+24h] [rbp-24h] BYREF
 
   v8 = 0;
-  v17 = 0;
-  v18[0] = 0;
-  EnterSharedCrit();
-  LOBYTE(v9) = 3;
-  v10 = (struct tagCURSOR *)HMValidateHandle(a1, v9);
-  if ( v10 )
+  v13 = 0;
+  v14[0] = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v9 = (struct tagCURSOR *)HMValidateHandle(a1, 3u);
+  if ( v9 )
   {
-    VirtualizedDpiCursor = GetVirtualizedDpiCursor(v10);
+    VirtualizedDpiCursor = GetVirtualizedDpiCursor(v9);
     if ( (*((_DWORD *)VirtualizedDpiCursor + 20) & 8) == 0
       || (VirtualizedDpiCursor = GetAnimatedCursorFrame(VirtualizedDpiCursor, a2)) != 0LL )
     {
-      GetVirtualizedCursorSize(VirtualizedDpiCursor, &v17, v18);
-      v12 = MmUserProbeAddress;
+      GetVirtualizedCursorSize(VirtualizedDpiCursor, &v13, v14);
+      v10 = MmUserProbeAddress;
       if ( (unsigned __int64)a3 >= MmUserProbeAddress )
         a3 = (_DWORD *)MmUserProbeAddress;
-      *a3 = v17;
+      *a3 = v13;
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
         a4 = (_DWORD *)MmUserProbeAddress;
-      *a4 = v18[0];
+      *a4 = v14[0];
       v8 = 1;
-      v18[1] = 1;
+      v14[1] = 1;
     }
   }
-  UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
+  UserSessionSwitchLeaveCrit(v10);
   return v8;
 }

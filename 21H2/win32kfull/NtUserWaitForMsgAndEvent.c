@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserWaitForMsgAndEvent @ 0x1C0200910
+ * XREFs of NtUserWaitForMsgAndEvent @ 0x1C02048E0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 NtUserWaitForMsgAndEvent()
 {
   __int64 v0; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   UserSessionSwitchLeaveCrit(v0);
   return 0LL;
 }

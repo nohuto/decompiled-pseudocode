@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpSetFirmwareEnvironmentVariable @ 0x1409FE284
+ * XREFs of ExpSetFirmwareEnvironmentVariable @ 0x140951ECC
  * Callers:
- *     NtSetSystemEnvironmentValueEx @ 0x1406DCB10 (NtSetSystemEnvironmentValueEx.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FB890 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4A0 (ExSetFirmwareEnvironmentVariable.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140955660 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     IoSetEnvironmentVariableEx @ 0x14093E830 (IoSetEnvironmentVariableEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899D5C (IoSetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall ExpSetFirmwareEnvironmentVariable(
-        const WCHAR *a1,
+        const size_t *a1,
         __int64 a2,
         unsigned __int64 a3,
         unsigned int a4,
@@ -35,7 +35,7 @@ __int64 __fastcall ExpSetFirmwareEnvironmentVariable(
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     v11 = IoSetEnvironmentVariableEx(a1, a2, v12, a4, a5);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( P )
       ExUnlockUserBuffer((struct _MDL *)P);
     return v11;

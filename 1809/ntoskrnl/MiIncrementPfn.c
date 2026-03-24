@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIncrementPfn @ 0x140177FD8
+ * XREFs of MiIncrementPfn @ 0x140177FF8
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x1401542A0 (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionAddressSpace @ 0x1401542C0 (MiDeleteSessionAddressSpace.c)
  *     MxRelocatePageTables @ 0x1409BFC44 (MxRelocatePageTables.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIncrementPfn(__int64 a1)

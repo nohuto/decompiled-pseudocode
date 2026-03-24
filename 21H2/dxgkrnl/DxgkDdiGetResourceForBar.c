@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkDdiGetResourceForBar @ 0x1C03599B4
+ * XREFs of DxgkDdiGetResourceForBar @ 0x1C0231238
  * Callers:
- *     ?DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z @ 0x1C00656C0 (-DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z.c)
- *     DpiIovGetBackingResource @ 0x1C03914F0 (DpiIovGetBackingResource.c)
+ *     ?DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z @ 0x1C0058A90 (-DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z.c)
+ *     DpiIovGetBackingResource @ 0x1C02D41D0 (DpiIovGetBackingResource.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@@Z @ 0x1C0357C9C (-GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@@Z @ 0x1C022FDF4 (-GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@.c)
  */
 
 __int64 __fastcall DxgkDdiGetResourceForBar(_QWORD *a1, int a2, unsigned __int16 a3, unsigned __int16 a4, __int64 a5)
@@ -20,7 +20,7 @@ __int64 __fastcall DxgkDdiGetResourceForBar(_QWORD *a1, int a2, unsigned __int16
   __int64 v14; // [rsp+48h] [rbp-10h]
 
   v5 = a3;
-  v7 = a1[350];
+  v7 = a1[338];
   v13[0] = a3;
   v8 = a4;
   v13[1] = a4;

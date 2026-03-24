@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIMovePowerListUnblockedItems @ 0x1C002236C
+ * XREFs of ACPIMovePowerListUnblockedItems @ 0x1C0052110
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C001E5E0 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIIsPowerRequestBlocked @ 0x1C0022270 (ACPIIsPowerRequestBlocked.c)
- *     ACPIInternalMovePowerList @ 0x1C002EC54 (ACPIInternalMovePowerList.c)
+ *     ACPIInternalMovePowerList @ 0x1C001E594 (ACPIInternalMovePowerList.c)
+ *     ACPIIsPowerRequestBlocked @ 0x1C002942C (ACPIIsPowerRequestBlocked.c)
  */
 
 __int64 *__fastcall ACPIMovePowerListUnblockedItems(__int64 **a1)
@@ -44,7 +44,7 @@ __int64 *__fastcall ACPIMovePowerListUnblockedItems(__int64 **a1)
       *(_DWORD *)(v3 + 56) &= 0xEEFFFFFF;
     }
   }
-  ACPIInternalMovePowerList(a1, &AcpiPowerPhase4List);
+  ACPIInternalMovePowerList(a1, (__int64)&AcpiPowerPhase4List);
   result = v8;
   if ( v8 != (__int64 *)&v8 )
   {

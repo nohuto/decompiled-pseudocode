@@ -1,23 +1,18 @@
 /*
- * XREFs of GetWindowFrameMetricForDpi @ 0x1C00AB1E4
+ * XREFs of GetWindowFrameMetricForDpi @ 0x1C00E0B68
  * Callers:
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
- *     GetWindowNCMetrics @ 0x1C00F0894 (GetWindowNCMetrics.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     GetWindowNCMetrics @ 0x1C00E0960 (GetWindowNCMetrics.c)
  * Callees:
- *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00AB228 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E0F70 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ *     GetAppCompatFlags2 @ 0x1C00E0FC0 (GetAppCompatFlags2.c)
  */
 
 __int64 __fastcall GetWindowFrameMetricForDpi(__int64 a1, unsigned int a2)
 {
-  __int64 ThreadWin32Thread; // rax
+  unsigned int AppCompatFlags2; // eax
   int v4; // ecx
-  unsigned int v5; // r8d
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  if ( *(_DWORD *)(ThreadWin32Thread + 632) > 0x9900u )
-    v5 = 0;
-  else
-    v5 = *(_DWORD *)(ThreadWin32Thread + 648);
-  return GetWindowFrameMetricForDpiWithCompatFlags2(v4, a2, v5);
+  AppCompatFlags2 = GetAppCompatFlags2(39168LL);
+  return GetWindowFrameMetricForDpiWithCompatFlags2(v4, a2, AppCompatFlags2);
 }

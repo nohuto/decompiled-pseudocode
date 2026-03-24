@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhCompletePdoWakeIrp @ 0x1C000F058
+ * XREFs of UsbhCompletePdoWakeIrp @ 0x1C001507C
  * Callers:
- *     UsbhPdoSetDx @ 0x1C0001178 (UsbhPdoSetDx.c)
- *     UsbhCompletePdoWakeIrps @ 0x1C0001D80 (UsbhCompletePdoWakeIrps.c)
- *     UsbhSS_PdoWakeWorker @ 0x1C00023B0 (UsbhSS_PdoWakeWorker.c)
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
- *     UsbhPdoRemoveCleanup @ 0x1C0056374 (UsbhPdoRemoveCleanup.c)
+ *     UsbhCompletePdoWakeIrps @ 0x1C0001D70 (UsbhCompletePdoWakeIrps.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhSS_PdoWakeWorker @ 0x1C0016F40 (UsbhSS_PdoWakeWorker.c)
+ *     UsbhPdoSetDx @ 0x1C0018BE0 (UsbhPdoSetDx.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0057A34 (UsbhPdoRemoveCleanup.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogDeviceIrpEvent @ 0x1C000E150 (UsbhEtwLogDeviceIrpEvent.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     WPP_RECORDER_SF_ddqqD @ 0x1C003C4F4 (WPP_RECORDER_SF_ddqqD.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_ddqqD @ 0x1C003D6D4 (WPP_RECORDER_SF_ddqqD.c)
  */
 
 char __fastcall UsbhCompletePdoWakeIrp(__int64 a1, __int64 a2, int a3)

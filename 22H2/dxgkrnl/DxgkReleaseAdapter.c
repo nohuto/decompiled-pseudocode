@@ -1,29 +1,34 @@
 /*
- * XREFs of DxgkReleaseAdapter @ 0x1C01F3600
+ * XREFs of DxgkReleaseAdapter @ 0x1C01778A0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001B994 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001FFE8 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-void __fastcall DxgkReleaseAdapter(DXGADAPTER *a1)
+void __fastcall DxgkReleaseAdapter(DXGADAPTER *a1, __int64 a2)
 {
-  __int64 v1; // rcx
-  DXGSESSIONMGR *v2; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  DXGSESSIONMGR *v4; // rbx
   unsigned int CurrentProcessSessionId; // eax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
 
   if ( a1 )
     DXGADAPTER::ReleaseReference(a1);
-  v2 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v2 )
+  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)a1, a2) + 102);
+  if ( v4 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v1);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v2, CurrentProcessSessionId);
-    if ( SessionDataForSpecifiedSession )
-      DXGSESSIONDATA::SetAdapterLuidInRemoteSession(SessionDataForSpecifiedSession, 0LL);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v3, v2);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v4, CurrentProcessSessionId);
   }
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( SessionDataForSpecifiedSession )
+    DXGSESSIONDATA::SetAdapterLuidInRemoteSession(SessionDataForSpecifiedSession, 0LL);
 }

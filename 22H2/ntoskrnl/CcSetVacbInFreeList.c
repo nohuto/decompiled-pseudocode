@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSetVacbInFreeList @ 0x1402A0AE0
+ * XREFs of CcSetVacbInFreeList @ 0x14029027C
  * Callers:
- *     CcUnmapVacbArray @ 0x14029ECA0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x14029EFF0 (CcGetVacbMiss.c)
- *     CcInitializePartitionVacbs @ 0x1403A0520 (CcInitializePartitionVacbs.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
- *     CcUninitializePartitionVacbs @ 0x1405397AC (CcUninitializePartitionVacbs.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
+ *     CcUnmapVacbArray @ 0x1402934F0 (CcUnmapVacbArray.c)
+ *     CcInitializePartitionVacbs @ 0x1403C2F88 (CcInitializePartitionVacbs.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
+ *     CcUninitializePartitionVacbs @ 0x1404EC364 (CcUninitializePartitionVacbs.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall CcSetVacbInFreeList(__int64 a1, _QWORD *a2, char a3)
@@ -23,16 +23,16 @@ unsigned __int64 __fastcall CcSetVacbInFreeList(__int64 a1, _QWORD *a2, char a3)
   result = (unsigned __int64)(a2 + 2);
   if ( a3 )
   {
-    v7 = (unsigned __int64 *)(a1 + 1232);
-    v8 = *(_QWORD *)(a1 + 1232);
-    if ( *(_QWORD *)(v8 + 8) == a1 + 1232 )
+    v7 = (unsigned __int64 *)(a1 + 904);
+    v8 = *(_QWORD *)(a1 + 904);
+    if ( *(_QWORD *)(v8 + 8) == a1 + 904 )
     {
       *(_QWORD *)result = v8;
       a2[3] = v7;
       *(_QWORD *)(v8 + 8) = result;
       *v7 = result;
       a2[1] = 0LL;
-      ++*(_DWORD *)(a1 + 1248);
+      ++*(_DWORD *)(a1 + 920);
       return result;
     }
 LABEL_7:

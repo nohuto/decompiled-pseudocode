@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionDestroyEdgePalmRejectionZones @ 0x1C0207BA0
+ * XREFs of EditionDestroyEdgePalmRejectionZones @ 0x1C0207550
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenTimer @ 0x14041DE20
+ * XREFs of ZwOpenTimer @ 0x1403FC9A0
  * Callers:
- *     DifZwOpenTimerWrapper @ 0x140622D90 (DifZwOpenTimerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

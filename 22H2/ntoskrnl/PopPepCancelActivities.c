@@ -1,33 +1,33 @@
 /*
- * XREFs of PopPepCancelActivities @ 0x140313FF8
+ * XREFs of PopPepCancelActivities @ 0x140261B44
  * Callers:
- *     PopPepTriggerActivity @ 0x140313F1C (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x140261A58 (PopPepTriggerActivity.c)
  * Callees:
- *     PopPepCancelActivityRange @ 0x1403136B8 (PopPepCancelActivityRange.c)
+ *     PopPepCancelActivityRange @ 0x140381B90 (PopPepCancelActivityRange.c)
  */
 
-__int64 *__fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
 {
-  __int64 *result; // rax
-  volatile signed __int32 *v7; // rbx
+  __int64 result; // rax
+  __int64 v7; // rbx
 
-  result = (__int64 *)(unsigned int)dword_140001AF4[34 * a3];
+  result = (unsigned int)dword_140001194[34 * a3];
   if ( (_DWORD)result )
   {
     if ( (_DWORD)result == 1 )
     {
-      v7 = (volatile signed __int32 *)(a1 + 120);
-      PopPepCancelActivityRange(a1 + 72, a3, 0, 0, (volatile signed __int32 *)(a1 + 120));
-      return PopPepCancelActivityRange(a1 + 72, a3, 4, 5, v7);
+      v7 = a1 + 120;
+      PopPepCancelActivityRange(a1 + 72, a3, 0, 0, a1 + 120);
+      return PopPepCancelActivityRange((int)a1 + 72, a3, 4, 5, v7);
     }
     if ( (_DWORD)result == 2 )
     {
-      v7 = (volatile signed __int32 *)(a1 + 120);
+      v7 = a1 + 120;
       if ( *(_BYTE *)(a1 + 125) )
-        PopPepCancelActivityRange(a1 + 72, a3, 0, 0, (volatile signed __int32 *)(a1 + 120));
-      result = PopPepCancelActivityRange(a2 + 56, a3, 1, 3, (volatile signed __int32 *)(a2 + 104));
+        PopPepCancelActivityRange(a1 + 72, a3, 0, 0, a1 + 120);
+      result = PopPepCancelActivityRange((int)a2 + 56, a3, 1, 3, a2 + 104);
       if ( *(_BYTE *)(a1 + 125) )
-        return PopPepCancelActivityRange(a1 + 72, a3, 4, 5, v7);
+        return PopPepCancelActivityRange((int)a1 + 72, a3, 4, 5, v7);
     }
   }
   return result;

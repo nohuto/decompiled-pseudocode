@@ -1,33 +1,31 @@
 /*
- * XREFs of ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18008CC54
+ * XREFs of ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A778
  * Callers:
- *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180020CC4 (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z @ 0x1800214F4 (-BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z.c)
- *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x18003AD00 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18008BA8C (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18010A2F8 (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E8994 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA030 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@AEBVCDirtyRegion@@PEAW4ProtectionMode@1@@Z @ 0x1801EBA70 (-RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@AEBVCDirtyR.c)
- *     ?RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801EDDB0 (-RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
- *     ?Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F16F8 (-Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F9888 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A9CE4 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     ?DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z @ 0x18003EA80 (-DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z.c)
+ *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180042FFC (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x180060630 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EC91C (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ECD04 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE094 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE35C (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE720 (-Render@CLegacyStereoRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EEC74 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@@Z @ 0x180186994 (-RenderDirtyRegion@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVISwapChain@@@Z.c)
+ *     ?RenderDirtyRegion@CLocalAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@@Z @ 0x18018AA60 (-RenderDirtyRegion@CLocalAppRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@@Z.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180257E24 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
  * Callees:
- *     ??4?$com_ptr_t@VIDeviceTarget@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIDeviceTarget@@@Z @ 0x18003D540 (--4-$com_ptr_t@VIDeviceTarget@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIDeviceTarget@@@.c)
- *     ?Push@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@CDrawingContext@@@Z @ 0x18005B5F4 (-Push@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@.c)
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?GetNullProcessAttribution@CProcessAttributionManager@@QEAAPEAVCProcessAttribution@@XZ @ 0x18008CF7C (-GetNullProcessAttribution@CProcessAttributionManager@@QEAAPEAVCProcessAttribution@@XZ.c)
- *     ?Push@?$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackBackfaceVisibilityEntry@CDrawingContext@@@Z @ 0x18008D014 (-Push@-$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUSta.c)
- *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x18008D934 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ??4?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCD3DDevice@@@Z @ 0x1800CF080 (--4-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCD3DDevice@@@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0ppffffubr6_EventWriteTransfer @ 0x18012EFD2 (McTemplateU0ppffffubr6_EventWriteTransfer.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x18003425C (-CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEA.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076964 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?Push@?$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackBackfaceVisibilityEntry@CDrawingContext@@@Z @ 0x18007AAC0 (-Push@-$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUSta.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _Init_thread_footer @ 0x1800E7650 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E76B8 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0ppffffubr6_EventWriteTransfer @ 0x1801787F0 (McTemplateU0ppffffubr6_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CDrawingContext::BeginFrame(
@@ -39,108 +37,106 @@ __int64 __fastcall CDrawingContext::BeginFrame(
 {
   __int64 v9; // rax
   int v10; // eax
-  unsigned int v11; // ecx
+  __int64 v11; // rcx
   unsigned int v12; // esi
-  CMILMatrix *v13; // rcx
-  char v14; // al
-  struct COverlayContext *v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  char v18; // al
-  int v19; // eax
-  unsigned int v20; // ecx
+  char *v13; // rcx
+  _OWORD *v14; // rcx
+  char v15; // al
+  int v16; // eax
+  __int64 v17; // rcx
   unsigned int i; // r14d
-  __int64 v22; // rcx
-  _DWORD *v23; // rax
-  CProcessAttributionManager *v24; // rcx
-  struct CProcessAttribution *NullProcessAttribution; // rax
-  struct CProcessAttribution *v26; // rdi
-  int v27; // eax
-  unsigned int v28; // ecx
-  unsigned int v29; // eax
-  unsigned int v30; // edx
-  char *v32; // rcx
-  __int64 v33; // rax
-  int v34; // eax
-  unsigned int v35; // ecx
-  unsigned int v36; // ebx
-  char v37; // si
-  char *v38; // rcx
-  float v39; // xmm6_4
-  char *v40; // rcx
-  _DWORD *v41; // rax
-  int v42; // edx
-  __int64 v43; // rcx
-  float v44; // [rsp+30h] [rbp-50h]
-  __int128 v45; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v46; // [rsp+60h] [rbp-20h]
+  __int64 v19; // rcx
+  _QWORD *ThreadLocalStoragePointer; // rax
+  __int64 v21; // rcx
+  CProcessAttributionManager *v22; // rdi
+  __int64 v23; // rcx
+  struct CProcessAttribution *v24; // rdi
+  int v25; // eax
+  __int64 v26; // rcx
+  unsigned int v27; // eax
+  unsigned int v28; // edx
+  int v30; // eax
+  __int64 v31; // rcx
+  int v32; // ebx
+  int v33; // eax
+  char v34; // si
+  char *v35; // rcx
+  float v36; // xmm6_4
+  char *v37; // rcx
+  _DWORD *v38; // rax
+  int v39; // edx
+  __int64 v40; // rcx
+  float v41; // [rsp+30h] [rbp-50h]
+  __int64 v42; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v43; // [rsp+58h] [rbp-28h]
   void *retaddr; // [rsp+A8h] [rbp+28h]
-  struct CProcessAttribution *v48; // [rsp+B0h] [rbp+30h] BYREF
-  char v49; // [rsp+B8h] [rbp+38h] BYREF
+  struct CProcessAttribution *v45; // [rsp+B0h] [rbp+30h] BYREF
+  char v46; // [rsp+B8h] [rbp+38h] BYREF
 
-  *((_OWORD *)this + 503) = 0LL;
-  *((_OWORD *)this + 504) = 0LL;
-  *((_QWORD *)this + 1010) = 0LL;
-  v9 = (**(__int64 (__fastcall ***)(struct IDeviceTarget *, __int128 *))a2)(a2, &v45);
+  *((_OWORD *)this + 370) = 0LL;
+  *((_QWORD *)this + 742) = 0LL;
+  v9 = (**(__int64 (__fastcall ***)(struct IDeviceTarget *, __int64 *))a2)(a2, &v42);
   *(_OWORD *)((char *)this + 56) = *(_OWORD *)v9;
   *((_QWORD *)this + 9) = *(_QWORD *)(v9 + 16);
-  if ( *((_QWORD *)this + 26) )
+  v10 = CDrawingContext::PushRenderTarget(this, a2);
+  v12 = v10;
+  if ( v10 < 0 )
   {
-    wil::com_ptr_t<IDeviceTarget,wil::err_returncode_policy>::operator=((__int64 *)this + 4, (__int64)a2);
-    v32 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 8LL) + 8;
-    v33 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)v32 + 8LL))(v32);
-    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::operator=((char *)this + 40, v33);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xE4u, 0LL);
+    return v12;
   }
-  else
+  v13 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 8LL) + 8;
+  *((_BYTE *)this + 5958) = *(_QWORD *)((*(__int64 (__fastcall **)(char *))(*(_QWORD *)v13 + 8LL))(v13) + 608) != 0LL;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80u) != 0 )
   {
-    v10 = CDrawingContext::PushRenderTarget(this, a2);
-    v12 = v10;
-    if ( v10 < 0 )
+    if ( !a3 || (v34 = 1, (unsigned __int8)CMILMatrix::IsIdentity<0>(a3)) )
+      v34 = 0;
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80u) != 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xE2u, 0LL);
-      return v12;
-    }
-  }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000) != 0 )
-  {
-    if ( !a3 || (v37 = 1, CMILMatrix::IsIdentity<0>((__int64)a3)) )
-      v37 = 0;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000) != 0 )
-    {
-      v38 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
-      v39 = (float)*(int *)((**(__int64 (__fastcall ***)(char *, struct CProcessAttribution **))v38)(v38, &v48) + 4);
-      v40 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
-      v41 = (_DWORD *)(**(__int64 (__fastcall ***)(char *, char *))v40)(v40, &v49);
-      v44 = (float)(int)*v41;
+      v35 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
+      v36 = (float)*(int *)((**(__int64 (__fastcall ***)(char *, struct CProcessAttribution **))v35)(v35, &v45) + 4);
+      v37 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
+      v38 = (_DWORD *)(**(__int64 (__fastcall ***)(char *, char *))v37)(v37, &v46);
+      v41 = (float)(int)*v38;
       McTemplateU0ppffffubr6_EventWriteTransfer(
-        *v41,
-        v42,
+        *v38,
+        v39,
         (_DWORD)this,
         (_DWORD)a2,
         0,
         0,
-        SLOBYTE(v44),
-        SLOBYTE(v39),
-        v37 != 0 ? 0x44 : 0,
+        SLOBYTE(v41),
+        SLOBYTE(v36),
+        v34 != 0 ? 0x44 : 0,
         (__int64)a3);
     }
   }
-  v13 = (CDrawingContext *)((char *)this + 96);
+  v14 = (_OWORD *)((char *)this + 96);
   if ( a3 )
   {
-    *(_OWORD *)v13 = *(_OWORD *)a3;
+    *v14 = *(_OWORD *)a3;
     *((_OWORD *)this + 7) = *((_OWORD *)a3 + 1);
     *((_OWORD *)this + 8) = *((_OWORD *)a3 + 2);
     *((_OWORD *)this + 9) = *((_OWORD *)a3 + 3);
     *((_DWORD *)this + 40) = *((_DWORD *)a3 + 16);
-    v14 = CMILMatrix::IsIdentity<0>((__int64)v13);
+    v15 = CMILMatrix::IsIdentity<0>(v14);
   }
   else
   {
-    CMILMatrix::SetToIdentity(v13);
-    v14 = 1;
+    v15 = 1;
+    *(_DWORD *)v14 = 1065353216;
+    *(_QWORD *)((char *)this + 100) = 0LL;
+    *(_QWORD *)((char *)this + 108) = 0LL;
+    *(_QWORD *)((char *)this + 116) = 1065353216LL;
+    *(_QWORD *)((char *)this + 124) = 0LL;
+    *((_DWORD *)this + 33) = 0;
+    *((_QWORD *)this + 17) = 1065353216LL;
+    *((_QWORD *)this + 18) = 0LL;
+    *((_DWORD *)this + 38) = 0;
+    *((_DWORD *)this + 39) = 1065353216;
+    *((_WORD *)this + 80) = 32085;
   }
-  *((_BYTE *)this + 8168) = v14;
+  *((_BYTE *)this + 5952) = v15;
   if ( a4 )
   {
     *((struct _D3DCOLORVALUE *)this + 5) = *(const struct _D3DCOLORVALUE *)&a4->r;
@@ -150,86 +146,86 @@ __int64 __fastcall CDrawingContext::BeginFrame(
     *((_QWORD *)this + 10) = 0LL;
     *((_QWORD *)this + 11) = 0LL;
   }
-  v15 = a5;
   *((_QWORD *)this + 6) = a5;
-  if ( v15 )
+  *((_DWORD *)this + 68) = 1;
+  *(_QWORD *)((char *)this + 276) = 1LL;
+  *(_QWORD *)((char *)this + 284) = 0LL;
+  v42 = 0LL;
+  LOBYTE(v43) = 1;
+  v16 = CWatermarkStack<CDrawingContext::StackBackfaceVisibilityEntry,64,2,10>::Push((char *)this + 3448, &v42);
+  v12 = v16;
+  if ( v16 < 0 )
   {
-    v16 = *(_QWORD *)v15 + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)v15 + 8LL) + 12LL);
-    v17 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v16 + 8LL))(v16);
-    *(_OWORD *)((char *)this + 164) = *(_OWORD *)v17;
-    *(_QWORD *)((char *)this + 180) = *(_QWORD *)(v17 + 16);
-    *((_DWORD *)this + 47) = *(_DWORD *)(v17 + 24);
-    v18 = 1;
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x117u, 0LL);
+    return v12;
+  }
+  for ( i = 0; i < *((_DWORD *)this + 156); ++i )
+  {
+    v40 = *(_QWORD *)(*((_QWORD *)this + 75) + 16LL * i);
+    if ( v40 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v40 + 16LL))(v40);
+  }
+  *((_DWORD *)this + 156) = 0;
+  DynArrayImpl<0>::ShrinkToSize((char *)this + 600, 16LL);
+  v19 = *((_QWORD *)this + 88);
+  if ( v19 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 8LL))(v19);
+    *((_QWORD *)this + 88) = 0LL;
+  }
+  *((_DWORD *)this + 202) = 0;
+  DynArrayImpl<0>::ShrinkToSize((char *)this + 784, 8LL);
+  ThreadLocalStoragePointer = NtCurrentTeb()->ThreadLocalStoragePointer;
+  v21 = (unsigned int)tls_index;
+  v22 = lpMem;
+  *((_DWORD *)this + 1487) = 0;
+  v23 = ThreadLocalStoragePointer[v21];
+  *((_QWORD *)this + 435) = 0LL;
+  if ( dword_18034B160 > *(_DWORD *)(v23 + 4) )
+  {
+    Init_thread_header(&dword_18034B160);
+    if ( dword_18034B160 == -1 )
+    {
+      v33 = CProcessAttributionManager::CreateProcessAttribution(
+              v22,
+              -1,
+              (const struct CProcessAttributionManager::ProcessAttributionRecord *)&unk_1803475B0,
+              0,
+              &v45);
+      if ( v33 < 0 )
+        ModuleFailFastForHRESULT((unsigned int)v33, retaddr);
+      qword_180347560 = (__int64)v45;
+      Init_thread_footer(&dword_18034B160);
+    }
+  }
+  v24 = (struct CProcessAttribution *)qword_180347560;
+  LODWORD(v42) = 11;
+  v43 = 0LL;
+  v25 = CWatermarkStack<CDrawingContext::StackBackfaceVisibilityEntry,64,2,10>::Push((char *)this + 376, &v42);
+  if ( v25 < 0 )
+    ModuleFailFastForHRESULT((unsigned int)v25, retaddr);
+  v27 = *((_DWORD *)this + 216);
+  v45 = v24;
+  v28 = v27 + 1;
+  if ( v27 + 1 < v27 )
+  {
+    v32 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   else
   {
-    v18 = 0;
-    *(_OWORD *)((char *)this + 164) = 0LL;
-    v46 = 0LL;
-    *(_QWORD *)((char *)this + 180) = 0LL;
-    *((_DWORD *)this + 47) = 0;
-  }
-  *((_BYTE *)this + 192) = v18;
-  *((_DWORD *)this + 83) = 1;
-  *((_QWORD *)this + 42) = 1LL;
-  *((_QWORD *)this + 43) = 0LL;
-  *(_QWORD *)&v45 = 0LL;
-  BYTE8(v45) = 1;
-  v19 = CWatermarkStack<CDrawingContext::StackBackfaceVisibilityEntry,64,2,10>::Push((char *)this + 3392, &v45);
-  v12 = v19;
-  if ( v19 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x126u, 0LL);
-    return v12;
-  }
-  for ( i = 0; i < *((_DWORD *)this + 146); ++i )
-  {
-    v43 = *(_QWORD *)(*((_QWORD *)this + 70) + 16LL * i);
-    if ( v43 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v43 + 16LL))(v43);
-  }
-  *((_DWORD *)this + 146) = 0;
-  DynArrayImpl<0>::ShrinkToSize((char *)this + 560, 16LL);
-  v22 = *((_QWORD *)this + 83);
-  if ( v22 )
-  {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 8LL))(v22);
-    *((_QWORD *)this + 83) = 0LL;
-  }
-  *((_DWORD *)this + 192) = 0;
-  DynArrayImpl<0>::ShrinkToSize((char *)this + 744, 8LL);
-  v23 = (_DWORD *)*((_QWORD *)this + 1012);
-  v24 = qword_1803E5C98;
-  *((_DWORD *)this + 2023) = 0;
-  *((_QWORD *)this + 428) = 0LL;
-  *v23 = 0;
-  NullProcessAttribution = CProcessAttributionManager::GetNullProcessAttribution(v24);
-  LODWORD(v45) = 11;
-  *((_QWORD *)&v45 + 1) = 0LL;
-  v26 = NullProcessAttribution;
-  v27 = CWatermarkStack<CDrawingContext::StackStateEntry,64,2,10>::Push((unsigned int *)this + 92, &v45);
-  if ( v27 < 0 )
-    ModuleFailFastForHRESULT((unsigned int)v27, retaddr);
-  v29 = *((_DWORD *)this + 206);
-  v48 = v26;
-  v30 = v29 + 1;
-  if ( v29 + 1 < v29 )
-  {
-    v36 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, -2147024362, 0xB5u, 0LL);
-    goto LABEL_37;
-  }
-  if ( v30 > *((_DWORD *)this + 205) )
-  {
-    v34 = DynArrayImpl<0>::AddMultipleAndSet((char *)this + 800, 8LL, 1LL, &v48);
-    v36 = v34;
-    if ( v34 >= 0 )
+    if ( v28 <= *((_DWORD *)this + 215) )
+    {
+      *(_QWORD *)(*((_QWORD *)this + 105) + 8LL * v27) = v24;
+      *((_DWORD *)this + 216) = v28;
       return v12;
-    MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0xC0u, 0LL);
-LABEL_37:
-    ModuleFailFastForHRESULT(v36, retaddr);
+    }
+    v30 = DynArrayImpl<0>::AddMultipleAndSet((char *)this + 840, 8LL, 1LL, &v45);
+    v32 = v30;
+    if ( v30 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0xC0u, 0LL);
   }
-  *(_QWORD *)(*((_QWORD *)this + 100) + 8LL * v29) = v26;
-  *((_DWORD *)this + 206) = v30;
+  if ( v32 < 0 )
+    ModuleFailFastForHRESULT((unsigned int)v32, retaddr);
   return v12;
 }

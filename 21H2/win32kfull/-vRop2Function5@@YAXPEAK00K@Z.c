@@ -1,18 +1,24 @@
 /*
- * XREFs of ?vRop2Function5@@YAXPEAK00K@Z @ 0x1C02DB830
+ * XREFs of ?vRop2Function5@@YAXPEAK00K@Z @ 0x1C02DD400
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall vRop2Function5(unsigned int *a1, unsigned int *a2, unsigned int *a3, int a4)
+void __fastcall vRop2Function5(char *a1, char *a2, unsigned int *a3, int a4)
 {
-  int v4; // eax
+  signed __int64 v4; // rcx
 
-  for ( ; a4; --a4 )
+  if ( a4 )
   {
-    v4 = *a2++;
-    *a1++ = ~v4;
+    v4 = a1 - a2;
+    do
+    {
+      *(_DWORD *)&a2[v4] = ~*(_DWORD *)a2;
+      a2 += 4;
+      --a4;
+    }
+    while ( a4 );
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExWakeTimersResume @ 0x140142A20
+ * XREFs of ExWakeTimersResume @ 0x140142A40
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpTimerResume @ 0x14013178C (ExpTimerResume.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTimerResume @ 0x1401317AC (ExpTimerResume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 signed __int64 ExWakeTimersResume()

@@ -1,10 +1,10 @@
 /*
- * XREFs of GreUnrealizeObject @ 0x1C02B66F8
+ * XREFs of GreUnrealizeObject @ 0x1C02B85B8
  * Callers:
- *     NtGdiUnrealizeObject @ 0x1C02AEB60 (NtGdiUnrealizeObject.c)
+ *     NtGdiUnrealizeObject @ 0x1C02B0400 (NtGdiUnrealizeObject.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C00921F8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019C48 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall GreUnrealizeObject(HPALETTE a1)
@@ -13,14 +13,15 @@ __int64 __fastcall GreUnrealizeObject(HPALETTE a1)
   __int64 v2; // rbx
   _DWORD *v3; // rax
   _DWORD *v4; // rax
-  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v5; // rdx
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 0;
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v6, a1);
-  v2 = v6;
-  if ( v6 )
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v7, a1);
+  v2 = v7;
+  if ( v7 )
   {
-    v6 = ghsemPalette;
+    v7 = ghsemPalette;
     GreAcquireSemaphore(ghsemPalette);
     v3 = *(_DWORD **)(v2 + 72);
     if ( v3 )
@@ -29,8 +30,8 @@ __int64 __fastcall GreUnrealizeObject(HPALETTE a1)
     if ( v4 )
       *v4 = 0;
     v1 = 1;
-    SEMOBJ::vUnlock((SEMOBJ *)&v6);
-    DEC_SHARE_REF_CNT(v2);
+    SEMOBJ::vUnlock((SEMOBJ *)&v7);
+    DEC_SHARE_REF_CNT(v2, v5);
   }
   return v1;
 }

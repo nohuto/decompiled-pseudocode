@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIMarkPagingPathPowerNodeEnum @ 0x1C0001E90
+ * XREFs of ACPIMarkPagingPathPowerNodeEnum @ 0x1C000CA10
  * Callers:
  *     <none>
  * Callees:

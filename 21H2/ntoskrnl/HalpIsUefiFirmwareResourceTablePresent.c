@@ -1,32 +1,30 @@
 /*
- * XREFs of HalpIsUefiFirmwareResourceTablePresent @ 0x14081E924
+ * XREFs of HalpIsUefiFirmwareResourceTablePresent @ 0x1407AE878
  * Callers:
- *     HalpAddDevice @ 0x14081E300 (HalpAddDevice.c)
+ *     HalpAddDevice @ 0x1407AE4B0 (HalpAddDevice.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
  */
 
-char HalpIsUefiFirmwareResourceTablePresent()
+bool HalpIsUefiFirmwareResourceTablePresent()
 {
-  char v0; // bl
+  NTSTATUS v0; // ebx
   _QWORD v2[2]; // [rsp+20h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
-  HANDLE KeyHandle; // [rsp+70h] [rbp+10h] BYREF
+  HANDLE KeyHandle; // [rsp+78h] [rbp+18h] BYREF
 
-  v2[0] = 4194366LL;
-  v2[1] = L"\\REGISTRY\\MACHINE\\HARDWARE\\UEFI";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  v0 = 0;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
   KeyHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
-  {
-    v0 = 1;
+  v2[1] = L"\\REGISTRY\\MACHINE\\HARDWARE\\UEFI";
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
+  v2[0] = 4194366LL;
+  ObjectAttributes.Length = 48;
+  v0 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( v0 >= 0 )
     ZwClose(KeyHandle);
-  }
-  return v0;
+  return v0 >= 0;
 }

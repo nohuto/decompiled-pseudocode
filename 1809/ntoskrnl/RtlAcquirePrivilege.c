@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlAcquirePrivilege @ 0x1406BABEC
+ * XREFs of RtlAcquirePrivilege @ 0x1406BABCC
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     ZwSetInformationThread @ 0x1401B8310 (ZwSetInformationThread.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenProcessTokenEx @ 0x1401B8770 (ZwOpenProcessTokenEx.c)
- *     ZwAdjustPrivilegesToken @ 0x1401B8990 (ZwAdjustPrivilegesToken.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     ZwSetInformationThread @ 0x1401B8330 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x1401B8790 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x1401B89B0 (ZwAdjustPrivilegesToken.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlImpersonateSelfEx @ 0x1406BAE14 (RtlImpersonateSelfEx.c)
- *     RtlpOpenThreadToken @ 0x1406BAF38 (RtlpOpenThreadToken.c)
+ *     RtlImpersonateSelfEx @ 0x1406BADF4 (RtlImpersonateSelfEx.c)
+ *     RtlpOpenThreadToken @ 0x1406BAF18 (RtlpOpenThreadToken.c)
  */
 
 NTSTATUS __stdcall RtlAcquirePrivilege(PULONG Privilege, ULONG NumPriv, ULONG Flags, PVOID *ReturnedState)

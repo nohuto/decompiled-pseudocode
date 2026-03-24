@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C03BC3BC
+ * XREFs of ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C02FD7C0
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CEBF4 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015E550 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
  * Callees:
- *     ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C03BB550 (-CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z.c)
- *     ?SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ @ 0x1C03BE9F0 (-SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ.c)
+ *     ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C02FCB18 (-CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z.c)
+ *     ?SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ @ 0x1C02FF978 (-SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ.c)
  */
 
 __int64 __fastcall BLTENTRY::IndirectBlt(LARGE_INTEGER *this)
@@ -21,7 +21,7 @@ __int64 __fastcall BLTENTRY::IndirectBlt(LARGE_INTEGER *this)
   if ( (this[8].LowPart & 8) == 0 )
   {
     QuadPart = (BLTQUEUE *)this[3].QuadPart;
-    if ( !*((_DWORD *)QuadPart + 694) )
+    if ( !*((_DWORD *)QuadPart + 690) )
       v2 = BLTQUEUE::CompletePresentIndirectInternal(QuadPart, (struct BLTENTRY *)this, &PerformanceCounter);
   }
   v4 = KeQueryPerformanceCounter(0LL);

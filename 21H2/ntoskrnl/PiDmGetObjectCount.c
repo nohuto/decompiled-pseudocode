@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetObjectCount @ 0x140948F60
+ * XREFs of PiDmGetObjectCount @ 0x1408A348C
  * Callers:
- *     PiDqQueryAppendActionEntry @ 0x140777CF0 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryAppendActionEntry @ 0x14062FC34 (PiDqQueryAppendActionEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1402D8A70 (RtlNumberGenericTableElementsAvl.c)
- *     PiDmGetObjectManagerForObjectType @ 0x14077B33C (PiDmGetObjectManagerForObjectType.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x1402AE5C0 (RtlNumberGenericTableElementsAvl.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140636D90 (PiDmGetObjectManagerForObjectType.c)
  */
 
 __int64 __fastcall PiDmGetObjectCount(int a1)
@@ -24,6 +24,6 @@ __int64 __fastcall PiDmGetObjectCount(int a1)
   ExAcquireResourceSharedLite(ObjectManagerForObjectType, 1u);
   v4 = RtlNumberGenericTableElementsAvl((PRTL_AVL_TABLE)&v3[1]);
   ExReleaseResourceLite(v3);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v4;
 }

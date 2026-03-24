@@ -1,157 +1,155 @@
 /*
- * XREFs of MiZeroPageWrite @ 0x1403C1194
+ * XREFs of MiZeroPageWrite @ 0x1403193E8
  * Callers:
- *     MmZeroPageWrite @ 0x1403C1114 (MmZeroPageWrite.c)
+ *     MmZeroPageWrite @ 0x140319368 (MmZeroPageWrite.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     MiSynchronousPageWrite @ 0x1403C1408 (MiSynchronousPageWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiRetardMdl @ 0x14061CA30 (MiRetardMdl.c)
+ *     MiIsRetryIoStatus @ 0x140255144 (MiIsRetryIoStatus.c)
+ *     IoSynchronousPageWriteEx @ 0x14029C49C (IoSynchronousPageWriteEx.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiRetardMdl @ 0x140530C30 (MiRetardMdl.c)
  */
 
-__int64 __fastcall MiZeroPageWrite(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall MiZeroPageWrite(struct _FILE_OBJECT *a1, _QWORD *a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // r15
-  __int64 v6; // r9
-  struct _MDL *Mdl; // rbx
-  __int64 v8; // rdi
-  unsigned __int64 v9; // r14
-  unsigned __int64 v10; // rdi
+  PMDL Mdl; // rbx
+  __int64 v7; // rdi
+  unsigned __int64 v8; // r14
+  unsigned __int64 v9; // rdi
   CSHORT MdlFlags; // r12
-  CSHORT v12; // r12
-  struct _MDL *v13; // rdx
-  __int64 v14; // rsi
-  unsigned int v15; // eax
-  __int64 v16; // rcx
-  unsigned __int64 v17; // r13
-  CSHORT v18; // ax
-  struct _MDL *v19; // rcx
-  __int64 v20; // rdx
-  NTSTATUS v21; // r15d
+  CSHORT v11; // r12
+  PMDL v12; // rdx
+  __int64 v13; // rsi
+  unsigned int v14; // eax
+  __int64 v15; // rcx
+  unsigned __int64 v16; // r13
+  CSHORT v17; // ax
+  _QWORD *p_Next; // rcx
+  __int64 v19; // rdx
+  int Status; // r15d
+  CSHORT v21; // ax
   int v23; // [rsp+40h] [rbp-C0h]
   __int16 v24; // [rsp+48h] [rbp-B8h]
-  __int16 Object; // [rsp+50h] [rbp-B0h] BYREF
-  char v26; // [rsp+52h] [rbp-AEh]
-  char v27; // [rsp+53h] [rbp-ADh]
-  int v28; // [rsp+54h] [rbp-ACh]
-  _QWORD v29[2]; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD *v30; // [rsp+68h] [rbp-98h]
-  _DWORD v31[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v32; // [rsp+78h] [rbp-88h]
-  __int64 v33; // [rsp+80h] [rbp-80h]
-  _BYTE v34[176]; // [rsp+90h] [rbp-70h] BYREF
+  struct _KEVENT Object; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD *v26; // [rsp+68h] [rbp-98h]
+  struct _IO_STATUS_BLOCK v27; // [rsp+70h] [rbp-90h] BYREF
+  struct _FILE_OBJECT *v28; // [rsp+80h] [rbp-80h]
+  _BYTE MemoryDescriptorList[176]; // [rsp+90h] [rbp-70h] BYREF
 
-  v31[1] = 0;
+  HIDWORD(v27.Pointer) = 0;
   v5 = a3;
-  v30 = a2;
-  v33 = a1;
+  v26 = a2;
+  v28 = a1;
   v24 = a3;
-  v27 = 0;
-  memset(v34, 0, sizeof(v34));
+  Object.Header.Reserved1 = 0;
+  memset(MemoryDescriptorList, 0, sizeof(MemoryDescriptorList));
   Mdl = 0LL;
-  v8 = (unsigned int)v5;
-  v9 = (unsigned __int64)(v5 + 4095) >> 12;
+  v7 = (unsigned int)v5;
+  v8 = (unsigned __int64)(v5 + 4095) >> 12;
   if ( a4 && (unsigned int)v5 > a4 )
-    v8 = a4;
-  if ( (unsigned int)v8 > 0x10000 )
-    Mdl = (struct _MDL *)IopAllocateMdl(0LL, v8, 0, v6, 0LL, 0);
-  v10 = (unsigned __int64)(v8 + 4095) >> 12;
+    v7 = a4;
+  if ( (unsigned int)v7 > 0x10000 )
+    Mdl = IoAllocateMdl(0LL, v7, 0, 0, 0LL);
+  v9 = (unsigned __int64)(v7 + 4095) >> 12;
   if ( Mdl )
   {
     MdlFlags = Mdl->MdlFlags;
   }
   else
   {
-    Mdl = (struct _MDL *)v34;
     MdlFlags = 0;
-    if ( (unsigned int)v10 > 0x10 )
-      LODWORD(v10) = 16;
+    Mdl = (PMDL)MemoryDescriptorList;
+    if ( (unsigned int)v9 > 0x10 )
+      LODWORD(v9) = 16;
   }
   v23 = 0;
-  v12 = MdlFlags | 0x4002;
-  v13 = Mdl + 1;
-  LODWORD(v14) = v10;
+  v11 = MdlFlags | 0x4002;
+  v12 = Mdl + 1;
+  LODWORD(v13) = v9;
   while ( 1 )
   {
-    v15 = v9;
-    if ( (unsigned int)v14 <= (unsigned int)v9 )
-      v15 = v14;
-    v14 = v15;
-    v16 = v15 << 12;
-    if ( (_DWORD)v9 == v15 )
+    v14 = v8;
+    if ( (unsigned int)v13 <= (unsigned int)v8 )
+      v14 = v13;
+    v13 = v14;
+    v15 = v14 << 12;
+    if ( (_DWORD)v8 == v14 )
     {
-      LODWORD(v10) = v9;
+      LODWORD(v9) = v8;
       if ( (v5 & 0xFFF) != 0 )
-        v16 = (v5 & 0xFFF | (unsigned int)v16) - 4096;
+        v15 = (v5 & 0xFFF | (unsigned int)v15) - 4096;
     }
-    v17 = (unsigned int)v16;
-    Mdl->ByteCount = v16;
-    v18 = 8 * (((unsigned __int64)(v16 + 4095) >> 12) + 6);
-    v19 = v13;
+    v16 = (unsigned int)v15;
+    Mdl->ByteCount = v15;
+    v17 = 8 * (((unsigned __int64)(v15 + 4095) >> 12) + 6);
+    p_Next = &v12->Next;
     Mdl->Next = 0LL;
-    Mdl->Size = v18;
+    Mdl->Size = v17;
     Mdl->StartVa = 0LL;
     Mdl->ByteOffset = 0;
-    Mdl->MdlFlags = v12;
-    if ( (_DWORD)v14 )
+    Mdl->MdlFlags = v11;
+    if ( (_DWORD)v13 )
     {
-      v20 = v14;
+      v19 = v13;
       do
       {
-        v19->Next = (struct _MDL *)qword_140C69810;
-        v19 = (struct _MDL *)((char *)v19 + 8);
-        --v20;
+        *p_Next++ = qword_140C4ED80;
+        --v19;
       }
-      while ( v20 );
+      while ( v19 );
     }
-    Object = 0;
-    v29[1] = v29;
-    v28 = 0;
-    v29[0] = v29;
-    v31[0] = 0;
-    v32 = 0LL;
-    v26 = 6;
-    v21 = MiSynchronousPageWrite(v33, (_DWORD)Mdl, (_DWORD)v30, (unsigned int)&Object, 0, 0LL, (__int64)v31);
-    if ( v21 >= 0 )
+    LOWORD(Object.Header.Lock) = 0;
+    Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
+    Object.Header.SignalState = 0;
+    Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
+    v27.Status = 0;
+    v27.Information = 0LL;
+    Object.Header.Size = 6;
+    Status = IoSynchronousPageWriteEx(v28, Mdl, v26, &Object, 0, 0LL, &v27);
+    if ( Status >= 0 )
     {
       KeWaitForSingleObject(&Object, WrPageOut, 0, 0, 0LL);
-      v21 = v31[0];
+      Status = v27.Status;
     }
-    if ( _bittest16(&Mdl->MdlFlags, 9u) )
+    v21 = Mdl->MdlFlags;
+    if ( (v21 & 0x200) != 0 )
+    {
       MiRetardMdl(Mdl);
-    if ( (Mdl->MdlFlags & 1) != 0 )
+      v21 = Mdl->MdlFlags;
+    }
+    if ( (v21 & 1) != 0 )
       MmUnmapLockedPages(Mdl->MappedSystemVa, Mdl);
-    if ( v21 < 0 )
+    if ( Status < 0 )
       break;
-    LODWORD(v9) = v9 - v14;
-    *v30 += v17;
+    LODWORD(v8) = v8 - v13;
+    *v26 += v16;
     if ( v23 )
     {
       --v23;
     }
-    else if ( (unsigned int)v14 < (unsigned int)v10 )
+    else if ( (unsigned int)v13 < (unsigned int)v9 )
     {
-      LODWORD(v14) = v10;
+      LODWORD(v13) = v9;
     }
 LABEL_25:
-    v13 = Mdl + 1;
-    if ( !(_DWORD)v9 )
+    v12 = Mdl + 1;
+    if ( !(_DWORD)v8 )
       goto LABEL_26;
     LOWORD(v5) = v24;
   }
   v23 = 8;
-  if ( MiIsRetryIoStatus(v21, v17) && (_DWORD)v14 != 1 )
+  if ( MiIsRetryIoStatus(Status, v16) && (_DWORD)v13 != 1 )
   {
-    LODWORD(v14) = (unsigned int)v14 >> 1;
+    LODWORD(v13) = (unsigned int)v13 >> 1;
     goto LABEL_25;
   }
 LABEL_26:
-  if ( Mdl != (struct _MDL *)v34 )
+  if ( Mdl != (PMDL)MemoryDescriptorList )
     IoFreeMdl(Mdl);
-  return (unsigned int)v21;
+  return (unsigned int)Status;
 }

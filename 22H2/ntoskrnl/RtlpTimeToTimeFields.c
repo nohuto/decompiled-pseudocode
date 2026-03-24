@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x14033B4C8
+ * XREFs of RtlpTimeToTimeFields @ 0x14030D368
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
- *     HalpSetVirtualRtc @ 0x14033B3F0 (HalpSetVirtualRtc.c)
- *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
- *     HalpQueryVirtualRtc @ 0x14050B590 (HalpQueryVirtualRtc.c)
- *     HalEfiSetTime @ 0x14050CF50 (HalEfiSetTime.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C444 (HalpCheckWakeupTimeAndAdjust.c)
- *     WheapGetTimestamp @ 0x1406123C4 (WheapGetTimestamp.c)
- *     GetBootSystemTime @ 0x140B37C28 (GetBootSystemTime.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
+ *     HalpSetVirtualRtc @ 0x14030D8CC (HalpSetVirtualRtc.c)
+ *     RtlTimeToTimeFields @ 0x14036DE60 (RtlTimeToTimeFields.c)
+ *     HalpQueryVirtualRtc @ 0x1403840FC (HalpQueryVirtualRtc.c)
+ *     HalEfiSetTime @ 0x1404C3C00 (HalEfiSetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1404D27C8 (HalpCheckWakeupTimeAndAdjust.c)
+ *     WheapGetTimestamp @ 0x1405BC8B4 (WheapGetTimestamp.c)
+ *     GetBootSystemTime @ 0x140A7182C (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033B5A4 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14030D444 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 a3)
@@ -56,7 +56,7 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 a3)
       {
         if ( v6 < v13 + 10000000 )
         {
-          if ( v6 < v13 || v6 >= v13 + 10000000 )
+          if ( v6 < v13 )
             break;
           v9 |= 4u;
         }

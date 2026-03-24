@@ -1,125 +1,119 @@
 /*
- * XREFs of DpiFdoInvalidateChildRelations @ 0x1C01F5100
+ * XREFs of DpiFdoInvalidateChildRelations @ 0x1C01780D0
  * Callers:
- *     DxgkPowerOnOffMonitor @ 0x1C01EFB34 (DxgkPowerOnOffMonitor.c)
- *     DpiFdoHandleSystemPower @ 0x1C01F0DA4 (DpiFdoHandleSystemPower.c)
- *     DpiFdoInvalidateChildWorkItem @ 0x1C01F33D0 (DpiFdoInvalidateChildWorkItem.c)
- *     DpiFdoHandleQueryDeviceRelations @ 0x1C01F4DD0 (DpiFdoHandleQueryDeviceRelations.c)
- *     DpiFdoCreateRelatedObjects @ 0x1C02110C8 (DpiFdoCreateRelatedObjects.c)
- *     DpiPollDisplayChildren @ 0x1C03995E0 (DpiPollDisplayChildren.c)
- *     DpiAcpiProcessEventRequests @ 0x1C03A6E68 (DpiAcpiProcessEventRequests.c)
+ *     DpiFdoHandleSystemPower @ 0x1C017572C (DpiFdoHandleSystemPower.c)
+ *     DxgkPowerOnOffMonitor @ 0x1C0176CB4 (DxgkPowerOnOffMonitor.c)
+ *     DpiFdoHandleQueryDeviceRelations @ 0x1C0177DD0 (DpiFdoHandleQueryDeviceRelations.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C0188434 (DpiFdoCreateRelatedObjects.c)
+ *     DpiPollDisplayChildren @ 0x1C02C71CC (DpiPollDisplayChildren.c)
+ *     DpiFdoInvalidateChildWorkItem @ 0x1C02CB770 (DpiFdoInvalidateChildWorkItem.c)
+ *     DpiAcpiProcessEventRequests @ 0x1C02D6A7C (DpiAcpiProcessEventRequests.c)
  * Callees:
- *     DxgkDiagCalcDuration1us @ 0x1C001BFE8 (DxgkDiagCalcDuration1us.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiDxgkDdiDisplayDetectControl @ 0x1C01F5348 (DpiDxgkDdiDisplayDetectControl.c)
+ *     DxgkDiagCalcDuration1us @ 0x1C0020364 (DxgkDiagCalcDuration1us.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C0178308 (DpiDxgkDdiDisplayDetectControl.c)
  */
 
 __int64 __fastcall DpiFdoInvalidateChildRelations(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 v3; // r14
-  int v5; // r15d
+  __int64 v3; // r15
+  int v5; // r14d
   __int64 v6; // rdi
   __int64 v7; // rbx
   __int64 v8; // rbx
   int v9; // r13d
   int v10; // ecx
-  __int64 v11; // r8
+  int v11; // eax
   __int64 v12; // rdx
-  int v13; // eax
-  unsigned int v14; // esi
+  __int64 v13; // rcx
+  __int64 v14; // rsi
   __int64 v15; // rbx
   int v16; // eax
   __int64 v18; // rdx
   __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  _QWORD *v22; // rcx
-  __int64 v23; // rax
-  _DWORD v24[2]; // [rsp+20h] [rbp-59h] BYREF
-  __int64 v25; // [rsp+28h] [rbp-51h]
-  bool v26; // [rsp+30h] [rbp-49h]
-  bool v27; // [rsp+31h] [rbp-48h]
-  char v28; // [rsp+32h] [rbp-47h]
-  bool v29; // [rsp+33h] [rbp-46h]
-  int v30; // [rsp+34h] [rbp-45h]
-  __int64 v31; // [rsp+38h] [rbp-41h] BYREF
-  _DWORD v32[2]; // [rsp+40h] [rbp-39h] BYREF
-  _BYTE v33[24]; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v34; // [rsp+60h] [rbp-19h]
-  int v35; // [rsp+68h] [rbp-11h]
-  int v36; // [rsp+6Ch] [rbp-Dh]
-  int v37; // [rsp+70h] [rbp-9h]
-  int v38; // [rsp+74h] [rbp-5h]
-  int v39; // [rsp+78h] [rbp-1h]
-  unsigned int v40; // [rsp+7Ch] [rbp+3h]
-  __int64 v41; // [rsp+80h] [rbp+7h]
+  _QWORD *v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  _QWORD v23[2]; // [rsp+20h] [rbp-59h] BYREF
+  __int64 v24; // [rsp+30h] [rbp-49h]
+  __int64 v25; // [rsp+38h] [rbp-41h] BYREF
+  _DWORD v26[2]; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE v27[24]; // [rsp+48h] [rbp-31h] BYREF
+  __int64 v28; // [rsp+60h] [rbp-19h]
+  int v29; // [rsp+68h] [rbp-11h]
+  int v30; // [rsp+6Ch] [rbp-Dh]
+  int v31; // [rsp+70h] [rbp-9h]
+  int v32; // [rsp+74h] [rbp-5h]
+  int v33; // [rsp+78h] [rbp-1h]
+  int v34; // [rsp+7Ch] [rbp+3h]
+  __int64 v35; // [rsp+80h] [rbp+7h]
 
   v3 = a2;
   v5 = a1;
   v6 = *(_QWORD *)(a1 + 64);
-  v31 = MEMORY[0xFFFFF78000000320];
+  v25 = MEMORY[0xFFFFF78000000320];
   KeEnterCriticalRegion();
-  ExAcquireResourceExclusiveLite((PERESOURCE)(v6 + 3320), 1u);
+  ExAcquireResourceExclusiveLite((PERESOURCE)(v6 + 3304), 1u);
   v7 = MEMORY[0xFFFFF78000000320];
   v8 = KeQueryTimeIncrement() * v7;
   v9 = v3 & 1;
   v10 = (v3 & 0xFFFFFFFE) - 1;
   if ( (v3 & 1) == 0 )
     v10 = v3 & 0xFFFFFFFE;
-  if ( *(_DWORD *)(v6 + 3568) < v10 || v8 - *(_QWORD *)(v6 + 3576) >= 10000000 || (v3 & 8) != 0 )
+  if ( *(_DWORD *)(v6 + 3552) >= v10 && v8 - *(_QWORD *)(v6 + 3560) < 10000000 )
   {
-    v11 = *(_QWORD *)(v6 + 48);
-    v12 = *(_QWORD *)(v6 + 40);
-    v24[1] = 0;
-    v30 = 0;
-    *(_DWORD *)(v6 + 3568) = v10;
-    v24[0] = (v9 << 28) | 0x2000000;
-    *(_QWORD *)(v6 + 3576) = v8;
-    v25 = a3;
-    v26 = (v3 & 4) != 0;
-    v27 = (v3 & 2) != 0;
-    v29 = (v3 & 8) != 0;
-    v28 = 1;
-    v13 = ((__int64 (__fastcall *)(__int64, __int64, __int64, _DWORD *))DpiDxgkDdiDisplayDetectControl)(
-            v6,
-            v12,
-            v11,
-            v24);
-    v14 = v13;
-    if ( v13 < 0 )
-      WdLogSingleEntry2(2LL, *(_QWORD *)(*(_QWORD *)(v6 + 40) + 1128LL), v13);
-    ExReleaseResourceLite((PERESOURCE)(v6 + 3320));
+    ExReleaseResourceLite((PERESOURCE)(v6 + 3304));
     KeLeaveCriticalRegion();
-    *(_BYTE *)(v6 + 3529) = 0;
+    LODWORD(v14) = 1075708985;
+    v20 = (_QWORD *)WdLogNewEntry5_WdTrace(v19, v18);
+    v20[3] = DpiFdoInvalidateChildRelations;
+    v21 = *(int *)(v6 + 3552);
+    v20[6] = v3;
+    v20[4] = v21;
+    v20[5] = v8;
+    v20[7] = 1075708985LL;
   }
   else
   {
-    ExReleaseResourceLite((PERESOURCE)(v6 + 3320));
+    *(_DWORD *)(v6 + 3552) = v10;
+    *(_QWORD *)(v6 + 3560) = v8;
+    v24 = 0x10000LL;
+    v23[1] = a3;
+    v23[0] = (v9 << 28) | 0x2000000u;
+    LOBYTE(v24) = (v3 & 4) != 0;
+    BYTE1(v24) = (v3 & 2) != 0;
+    v11 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD *))DpiDxgkDdiDisplayDetectControl)(
+            v6,
+            *(_QWORD *)(v6 + 40),
+            *(_QWORD *)(v6 + 48),
+            v23);
+    v14 = v11;
+    if ( v11 < 0 )
+    {
+      v22 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v22 + 24) = *(_QWORD *)(*(_QWORD *)(v6 + 40) + 1128LL);
+      *(_QWORD *)(v22 + 32) = v14;
+      WdLogEvent5_WdError(v22);
+    }
+    ExReleaseResourceLite((PERESOURCE)(v6 + 3304));
     KeLeaveCriticalRegion();
-    v14 = 1075708985;
-    v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v19, v18, v20, v21);
-    v22[3] = DpiFdoInvalidateChildRelations;
-    v23 = *(int *)(v6 + 3568);
-    v22[6] = v3;
-    v22[4] = v23;
-    v22[5] = v8;
-    v22[7] = 1075708985LL;
+    *(_BYTE *)(v6 + 3513) = 0;
   }
-  memset(v33, 0, sizeof(v33));
-  v36 = 0;
+  memset(v27, 0, sizeof(v27));
+  v30 = 0;
   v15 = *(_QWORD *)(v6 + 2672);
-  v16 = DxgkDiagCalcDuration1us(&v31);
-  v32[0] = 30;
-  v32[1] = 72;
-  v38 = v9 | v5 & 0xFFFF00;
-  v35 = 0;
-  v34 = 0LL;
-  memset(v33, 0, sizeof(v33));
-  v37 = 37;
-  v39 = v16;
-  v40 = v14;
-  v41 = v15;
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v32, *(_QWORD *)(v6 + 5744));
-  return v14;
+  v16 = DxgkDiagCalcDuration1us(&v25);
+  v26[0] = 30;
+  v26[1] = 72;
+  v32 = v9 | v5 & 0xFFFF00;
+  v29 = 0;
+  v28 = 0LL;
+  memset(v27, 0, sizeof(v27));
+  v31 = 37;
+  v33 = v16;
+  v34 = v14;
+  v35 = v15;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v26, *(_QWORD *)(v6 + 5936));
+  return (unsigned int)v14;
 }

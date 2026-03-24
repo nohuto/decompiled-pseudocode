@@ -1,39 +1,47 @@
 /*
- * XREFs of GetWindowNCMetrics @ 0x1C006492C
+ * XREFs of GetWindowNCMetrics @ 0x1C00E0CB0
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     GetScaledLogFontForDpi @ 0x1C0063C80 (GetScaledLogFontForDpi.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     GetDpiForSystem @ 0x1C006878C (GetDpiForSystem.c)
- *     GetDPIServerInfo @ 0x1C00BA3D4 (GetDPIServerInfo.c)
- *     GetResizeBorderWidthForDpi @ 0x1C00BB5D8 (GetResizeBorderWidthForDpi.c)
- *     GetWindowFrameMetricForDpi @ 0x1C00BB618 (GetWindowFrameMetricForDpi.c)
- *     GetDPIMetrics @ 0x1C00BE974 (GetDPIMetrics.c)
+ *     GetScaledLogFontForDpi @ 0x1C0047AC4 (GetScaledLogFontForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063CBC (GetDpiForSystem.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     GetDPIMetrics @ 0x1C00E0DEC (GetDPIMetrics.c)
+ *     GetDPIServerInfo @ 0x1C00E0E18 (GetDPIServerInfo.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00E0E90 (GetResizeBorderWidthForDpi.c)
+ *     GetWindowFrameMetricForDpi @ 0x1C00E0EB8 (GetWindowFrameMetricForDpi.c)
  */
 
 _BOOL8 __fastcall GetWindowNCMetrics(__int64 a1)
 {
-  __int64 DpiForSystem; // rsi
+  unsigned int DpiForSystem; // esi
   __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
   __int64 DPIServerInfo; // rbx
-  HBRUSH *DPIMetrics; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  HSURF *DPIMetrics; // rdi
 
-  DpiForSystem = (unsigned int)GetDpiForSystem();
+  DpiForSystem = GetDpiForSystem(a1);
   *(_DWORD *)(a1 + 20) = GetDpiDependentMetric(13LL, DpiForSystem);
-  *(_DWORD *)(a1 + 220) = GetDpiDependentMetric(26LL, (unsigned int)DpiForSystem);
+  *(_DWORD *)(a1 + 220) = GetDpiDependentMetric(26LL, DpiForSystem);
   *(_DWORD *)(a1 + 4) = GetResizeBorderWidthForDpi(DpiForSystem);
-  *(_DWORD *)(a1 + 8) = GetDpiDependentMetric(0LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 12) = GetDpiDependentMetric(10LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 16) = GetDpiDependentMetric(12LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 116) = GetDpiDependentMetric(23LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 120) = GetDpiDependentMetric(24LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 216) = GetDpiDependentMetric(25LL, (unsigned int)DpiForSystem);
-  *(_DWORD *)(a1 + 500) = GetWindowFrameMetricForDpi(v3, (unsigned int)DpiForSystem);
-  DPIServerInfo = GetDPIServerInfo();
-  DPIMetrics = (HBRUSH *)GetDPIMetrics();
-  GreExtGetObjectW(*(HBRUSH *)(DPIServerInfo + 8), 92LL, (char *)(a1 + 24));
+  *(_DWORD *)(a1 + 8) = GetDpiDependentMetric(0LL, DpiForSystem);
+  *(_DWORD *)(a1 + 12) = GetDpiDependentMetric(10LL, DpiForSystem);
+  *(_DWORD *)(a1 + 16) = GetDpiDependentMetric(12LL, DpiForSystem);
+  *(_DWORD *)(a1 + 116) = GetDpiDependentMetric(23LL, DpiForSystem);
+  *(_DWORD *)(a1 + 120) = GetDpiDependentMetric(24LL, DpiForSystem);
+  *(_DWORD *)(a1 + 216) = GetDpiDependentMetric(25LL, DpiForSystem);
+  *(_DWORD *)(a1 + 500) = GetWindowFrameMetricForDpi(v3, DpiForSystem);
+  DPIServerInfo = GetDPIServerInfo(v5, v4, v6, v7);
+  DPIMetrics = (HSURF *)GetDPIMetrics(v10, v9, v11, v12);
+  GreExtGetObjectW(*(HSURF *)(DPIServerInfo + 8), 92LL, (char *)(a1 + 24));
   GreExtGetObjectW(DPIMetrics[4], 92LL, (char *)(a1 + 124));
   GreExtGetObjectW(*DPIMetrics, 92LL, (char *)(a1 + 224));
   GreExtGetObjectW(DPIMetrics[7], 92LL, (char *)(a1 + 316));

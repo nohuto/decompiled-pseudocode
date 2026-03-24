@@ -1,33 +1,35 @@
 /*
- * XREFs of PopThermalCsExit @ 0x14058F95C
+ * XREFs of PopThermalCsExit @ 0x14056F730
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE170 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopQueueWorkItem @ 0x14032CB04 (PopQueueWorkItem.c)
- *     PopThermalStandbyEndTracking @ 0x14058FC28 (PopThermalStandbyEndTracking.c)
- *     PopThermalStandbyNotify @ 0x14058FC80 (PopThermalStandbyNotify.c)
+ *     PopQueueWorkItem @ 0x14032CC74 (PopQueueWorkItem.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopThermalStandbyEndTracking @ 0x14038A770 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x14056F7AC (PopThermalStandbyNotify.c)
  */
 
 char PopThermalCsExit()
 {
-  __int64 v0; // rcx
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  __int64 v2; // rcx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
-  PopThermalStandbyEndTracking(1LL);
-  LOBYTE(word_140C3C830) = 1;
-  if ( dword_140C3C834 )
+  PopThermalStandbyEndTracking(1LL, v0, v1);
+  LOBYTE(word_140C22E70) = 1;
+  if ( dword_140C22E74 )
   {
-    LOBYTE(v0) = 1;
-    PopThermalStandbyNotify(v0);
-    word_140C3C830 = 256;
+    LOBYTE(v2) = 1;
+    PopThermalStandbyNotify(v2);
+    word_140C22E70 = 256;
   }
-  else if ( HIBYTE(word_140C3C830) )
+  else if ( HIBYTE(word_140C22E70) )
   {
     PopThermalStandbyNotify(0LL);
-    HIBYTE(word_140C3C830) = 0;
+    HIBYTE(word_140C22E70) = 0;
   }
-  PopReleaseRwLock(&PopSystemThermalInfo);
-  return PopQueueWorkItem((__int64)&unk_140C3C8E8, DelayedWorkQueue);
+  PopReleaseRwLock((ULONG_PTR)&PopSystemThermalInfo);
+  return PopQueueWorkItem((__int64)&unk_140C22F28, DelayedWorkQueue);
 }

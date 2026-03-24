@@ -1,21 +1,21 @@
 /*
- * XREFs of PspTeardownPartition @ 0x1409B6760
+ * XREFs of PspTeardownPartition @ 0x14090D0E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiDeletePartition @ 0x14062941C (MiDeletePartition.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PsTerminateMinimalProcess @ 0x1409B3900 (PsTerminateMinimalProcess.c)
- *     ExpPartitionDestroy @ 0x140A00998 (ExpPartitionDestroy.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiDeletePartition @ 0x14053561C (MiDeletePartition.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PsTerminateMinimalProcess @ 0x14090AD5C (PsTerminateMinimalProcess.c)
+ *     ExpPartitionDestroy @ 0x140955EC4 (ExpPartitionDestroy.c)
  */
 
 LONG_PTR __fastcall PspTeardownPartition(PVOID Object)
@@ -24,7 +24,7 @@ LONG_PTR __fastcall PspTeardownPartition(PVOID Object)
   void *v3; // rcx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // r15
-  _DWORD *v6; // rbp
+  struct _DMA_ADAPTER *v6; // rbp
   void *v7; // r12
   PVOID v8; // rax
 
@@ -44,23 +44,23 @@ LONG_PTR __fastcall PspTeardownPartition(PVOID Object)
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 104, 0LL);
-  v5 = *((_QWORD *)Object + 8);
-  v6 = (_DWORD *)*((_QWORD *)Object + 14);
-  v7 = (void *)*((_QWORD *)Object + 15);
-  *((_QWORD *)Object + 8) = MmBadPointer;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 96, 0LL);
+  v5 = *((_QWORD *)Object + 7);
+  v6 = (struct _DMA_ADAPTER *)*((_QWORD *)Object + 13);
+  v7 = (void *)*((_QWORD *)Object + 14);
+  *((_QWORD *)Object + 7) = MmBadPointer;
   v8 = MmBadPointer;
-  *((_QWORD *)Object + 15) = 0LL;
-  *((_QWORD *)Object + 14) = v8;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)Object + 13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)Object + 13);
-  KeAbPostRelease((ULONG_PTR)Object + 104);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  *((_QWORD *)Object + 14) = 0LL;
+  *((_QWORD *)Object + 13) = v8;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)Object + 12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)Object + 12);
+  KeAbPostRelease((ULONG_PTR)Object + 96);
+  KeLeaveCriticalRegion();
   if ( v6 )
   {
     PsTerminateMinimalProcess(v6, 0);
     KeWaitForSingleObject(v6, Executive, 0, 0, 0LL);
-    ObfDereferenceObject(v6);
+    HalPutDmaAdapter(v6);
     ObCloseHandle(v7, 0);
   }
   PsDereferencePartition(v5);

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x14085BC34
+ * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x14085BC14
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x14070F3B4 (MiMarkKernelImageCfgBits.c)
+ *     MiMarkKernelImageCfgBits @ 0x14070F394 (MiMarkKernelImageCfgBits.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)

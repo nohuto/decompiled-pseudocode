@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompletion @ 0x1C001CE40
+ * XREFs of HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompletion @ 0x1C001A5D0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompletion(__int64 a1, __int64 a2, __int64 a3)
@@ -25,13 +25,11 @@ __int64 __fastcall HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompleti
   __int64 v19; // [rsp+98h] [rbp+18h] BYREF
 
   v3 = 0;
-  LODWORD(v12) = 0;
-  HIDWORD(v10[0]) = 0;
   v19 = 0LL;
   if ( *(_BYTE *)(a2 + 65) )
     *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
   v6 = *(_QWORD *)(a3 + 16);
-  v18 = off_1C0069148;
+  v18 = off_1C0066120;
   v12 = 0LL;
   v13 = 0;
   v17 = 0LL;
@@ -52,7 +50,7 @@ __int64 __fastcall HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompleti
     *(_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                  WdfDriverGlobals,
                  v19,
-                 off_1C0069148) = a2;
+                 off_1C0066120) = a2;
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3040))(WdfDriverGlobals, v19);
     return (unsigned int)-1073741802;
   }
@@ -63,8 +61,8 @@ __int64 __fastcall HUBPDO_WdmPnpPowerIrpCompletionRoutineForAsynchronousCompleti
       *(_QWORD *)(*(_QWORD *)(a3 + 8) + 1432LL),
       2u,
       5u,
-      0xA3u,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      0x8Fu,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v9);
   }
   return v3;

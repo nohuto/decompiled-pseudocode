@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x140168C18
+ * XREFs of MiComputeMaximumFaultCluster @ 0x140168C38
  * Callers:
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     KeInvalidAccessAllowed @ 0x140117CEC (KeInvalidAccessAllowed.c)
- *     MiFaultListPagesRemaining @ 0x14012068C (MiFaultListPagesRemaining.c)
+ *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
+ *     MiFaultListPagesRemaining @ 0x1401206AC (MiFaultListPagesRemaining.c)
  */
 
 unsigned __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2)

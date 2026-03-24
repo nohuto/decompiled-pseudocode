@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerFromGuid @ 0x14036C210
+ * XREFs of SleepstudyHelperCreateBlockerFromGuid @ 0x1402CC3E0
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407F1308 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x14085DA10 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1408FB460 (SleepstudyHelper_RegisterComponentEx.c)
  * Callees:
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x14036C2F0 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407F15C0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SSHSupportAllocatePaged @ 0x1407F16F0 (SSHSupportAllocatePaged.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x1402CC4E0 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1406B7AB0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SSHSupportAllocatePaged @ 0x1406BA61C (SSHSupportAllocatePaged.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerFromGuid(
@@ -15,43 +15,39 @@ __int64 __fastcall SleepstudyHelperCreateBlockerFromGuid(
         __int128 *a3,
         __int64 a4,
         unsigned int a5,
-        __int64 *a6)
+        _QWORD *a6)
 {
-  unsigned int v6; // ebx
-  __int64 Paged; // rax
-  __int64 v12; // rdi
-  __int128 v13; // xmm1
-  int v14; // ebp
+  _DWORD *v6; // rdi
+  _DWORD *Paged; // rax
+  __int128 v12; // xmm1
+  int v13; // ebx
 
-  v6 = 0;
-  if ( a1
-    && a2
-    && a3
-    && a4
-    && a5 <= 7
-    && a6
-    && (Paged = SSHSupportAllocatePaged(96LL, *(unsigned int *)(a1 + 24)), (v12 = Paged) != 0) )
+  v6 = 0LL;
+  if ( a1 && a2 && a3 && a4 && a5 <= 6 && a6 )
   {
-    *(_QWORD *)Paged = a1;
-    *(_DWORD *)(Paged + 8) = a5;
-    *(_OWORD *)(Paged + 16) = *a2;
-    v13 = *a3;
-    *(_BYTE *)(Paged + 88) = 1;
-    *(_OWORD *)(Paged + 32) = v13;
-    v14 = SleepstudyHelperSetBlockerFriendlyName(Paged, a4);
-    if ( v14 < 0 )
+    Paged = (_DWORD *)SSHSupportAllocatePaged(0x50uLL, *(_DWORD *)(a1 + 24));
+    v6 = Paged;
+    if ( !Paged )
+      return (unsigned int)-1073741811;
+    memset(Paged, 0, 0x50uLL);
+    *(_QWORD *)v6 = a1;
+    v6[2] = a5;
+    *((_OWORD *)v6 + 1) = *a2;
+    v12 = *a3;
+    *((_BYTE *)v6 + 72) = 1;
+    *((_OWORD *)v6 + 2) = v12;
+    v13 = SleepstudyHelperSetBlockerFriendlyName(v6, a4);
+    if ( v13 >= 0 )
     {
-      SleepstudyHelperDestroyBlockerBuilder(v12);
-      return (unsigned int)v14;
-    }
-    else
-    {
-      *a6 = v12;
+      *a6 = v6;
+      return 0;
     }
   }
   else
   {
-    return (unsigned int)-1073741811;
+    v13 = -1073741811;
   }
-  return v6;
+  if ( v6 )
+    SleepstudyHelperDestroyBlockerBuilder(v6);
+  return (unsigned int)v13;
 }

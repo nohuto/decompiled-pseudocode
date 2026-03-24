@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetMargins@CGDIBitmapRealization@@UEAAXAEBU_MARGINS@@@Z @ 0x1800FCAC0
+ * XREFs of ?SetMargins@CGDIBitmapRealization@@UEAAXAEBU_MARGINS@@@Z @ 0x1800E3A70
  * Callers:
  *     <none>
  * Callees:

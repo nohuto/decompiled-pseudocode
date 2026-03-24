@@ -1,74 +1,84 @@
 /*
- * XREFs of NtGdiPATHOBJ_bEnumClipLines @ 0x1C02CD450
+ * XREFs of NtGdiPATHOBJ_bEnumClipLines @ 0x1C02B4A20
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02C6C90 (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
- *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C02D923C (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C014ABB4 (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B117C (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
  */
 
-__int64 __fastcall NtGdiPATHOBJ_bEnumClipLines(__int64 a1, unsigned int a2, volatile void *a3)
+_BOOL8 __fastcall NtGdiPATHOBJ_bEnumClipLines(__int64 a1, unsigned int a2, volatile void *a3)
 {
-  unsigned __int64 v3; // rdi
-  unsigned int v5; // r14d
-  struct _CLIPLINE *v6; // rsi
+  unsigned __int64 v4; // r13
+  BOOL v6; // r14d
+  struct _CLIPLINE *v7; // rsi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v9; // r12
-  _DWORD *v10; // rbx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v13; // r13
-  struct _CLIPLINE *v14; // rax
-  __int64 v15; // rax
+  struct UMPDOBJ *v10; // rbx
+  unsigned __int64 v11; // r15
+  struct _CLIPLINE *v12; // rax
+  __int64 v13; // rax
 
-  v3 = a2;
-  v5 = 0;
-  v6 = 0LL;
+  v4 = a2;
+  v6 = 0;
+  v7 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v9 = ThreadCurrentObj;
-  v10 = (_DWORD *)((char *)ThreadCurrentObj + 436);
+  v10 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 0LL;
-  ++*v10;
-  if ( (unsigned int)(v3 - 33) > 0x270FFDF )
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  if ( (unsigned int)(v4 - 33) > 0x270FFDF )
   {
-    --*v10;
+    --*((_DWORD *)ThreadCurrentObj + 105);
     return 0LL;
   }
-  v13 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v13 )
+  v11 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
+  if ( v11 )
   {
-    v14 = (struct _CLIPLINE *)Win32AllocPool(v3, 1886221639LL, v11, v12);
-    v6 = v14;
-    if ( v14 )
+    v12 = (struct _CLIPLINE *)PALLOCMEM2((unsigned int)v4, 1886221639LL, 0);
+    v7 = v12;
+    if ( v12 )
     {
-      memset(v14, 0, v3);
-      if ( (*((_DWORD *)v9 + 107) & 0x100) != 0 )
+      memset(v12, 0, v4);
+      if ( (*((_DWORD *)v10 + 103) & 0x100) != 0 )
       {
-        v15 = *(_QWORD *)(v13 + 72);
-        if ( v15 )
-          v5 = *(_QWORD *)(v15 + 144) == 0LL;
-        else
-          v5 = 1;
+        v13 = *(_QWORD *)(v11 + 72);
+        if ( !v13 )
+        {
+          if ( gfUMPDDebug )
+            DbgPrint(
+              "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiPATHOBJ_bEnumClipLines:ppo->pco == NULL\n",
+              4222);
+          v6 = 1;
+          goto LABEL_16;
+        }
+        if ( !*(_QWORD *)(v13 + 144) )
+        {
+          if ( gfUMPDDebug )
+            DbgPrint(
+              "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiPATHOBJ_bEnumClipLines:ppo->pco->pcle == NULL\n",
+              4228);
+          v6 = 1;
+        }
       }
-      v3 = a2;
-      if ( !v5 )
-        v5 = XCLIPOBJ::bEnumPath(*(XCLIPOBJ **)(v13 + 72), (struct _PATHOBJ *)v13, a2, v6, 0);
+      if ( !v6 )
+        v6 = XCLIPOBJ::bEnumPath(*(XCLIPOBJ **)(v11 + 72), (struct _PATHOBJ *)v11, v4, v7, 0);
     }
   }
-  ProbeForWrite(a3, v3, 4u);
-  if ( v6 )
-    memmove((void *)a3, v6, v3);
+LABEL_16:
+  ProbeForWrite(a3, v4, 4u);
+  if ( v7 )
+    memmove((void *)a3, v7, v4);
   else
-    memset_0((void *)a3, 0, v3);
-  if ( v6 )
-    Win32FreePool(v6);
-  --*v10;
-  return v5;
+    memset((void *)a3, 0, v4);
+  if ( v7 )
+    Win32FreePool(v7);
+  --*((_DWORD *)v10 + 105);
+  return v6;
 }

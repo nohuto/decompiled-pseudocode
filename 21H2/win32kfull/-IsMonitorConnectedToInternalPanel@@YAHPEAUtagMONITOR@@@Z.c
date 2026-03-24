@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsMonitorConnectedToInternalPanel@@YAHPEAUtagMONITOR@@@Z @ 0x1C01CD5FC
+ * XREFs of ?IsMonitorConnectedToInternalPanel@@YAHPEAUtagMONITOR@@@Z @ 0x1C01D1238
  * Callers:
- *     NtUserSetActiveProcessForMonitor @ 0x1C010F280 (NtUserSetActiveProcessForMonitor.c)
+ *     NtUserSetActiveProcessForMonitor @ 0x1C0125810 (NtUserSetActiveProcessForMonitor.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IsMonitorConnectedToInternalPanel(struct tagMONITOR *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall IsMonitorConnectedToInternalPanel(struct tagMONITOR *a1)
   v2 = 1;
   v5 = 1;
   if ( (int)DrvQueryDisplayConfig(3221225474LL, &v5, v7, 0LL) < 0
-    || !(unsigned int)DrvGetWDDMAdapterInfo(*((_QWORD *)a1 + 10), 0LL, &v6, &v4) )
+    || !(unsigned int)DrvGetWDDMAdapterInfo(*((_QWORD *)a1 + 29), 0LL, &v6, &v4) )
   {
     return 0LL;
   }

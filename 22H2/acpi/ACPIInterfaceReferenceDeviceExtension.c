@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInterfaceReferenceDeviceExtension @ 0x1C0081C00
+ * XREFs of ACPIInterfaceReferenceDeviceExtension @ 0x1C00AE270
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
  */
 
 char __fastcall ACPIInterfaceReferenceDeviceExtension(__int64 a1)

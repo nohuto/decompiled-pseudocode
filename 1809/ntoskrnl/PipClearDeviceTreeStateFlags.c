@@ -2,7 +2,7 @@
  * XREFs of PipClearDeviceTreeStateFlags @ 0x1405796E0
  * Callers:
  *     IoFreePoDeviceNotifyList @ 0x14056D534 (IoFreePoDeviceNotifyList.c)
- *     PopDisengageDirectedDrips @ 0x140868894 (PopDisengageDirectedDrips.c)
+ *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
  * Callees:
  *     <none>
  */

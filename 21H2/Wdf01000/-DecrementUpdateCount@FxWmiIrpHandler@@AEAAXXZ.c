@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005E01C
+ * XREFs of ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C003E268
  * Callers:
- *     ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C0025E7C (-_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
- *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C005F1C4 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
- *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005F37C (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C003E4DC (-_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
+ *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C0040010 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
+ *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C00402B4 (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

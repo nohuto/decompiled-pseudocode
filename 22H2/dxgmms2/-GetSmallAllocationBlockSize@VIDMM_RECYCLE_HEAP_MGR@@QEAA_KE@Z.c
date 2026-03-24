@@ -1,8 +1,9 @@
 /*
- * XREFs of ?GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A08
+ * XREFs of ?GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00027A4
  * Callers:
- *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A3C (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C008EDC4 (-CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z.c)
+ *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00158AC (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ?ShrinkOnTailRangeFree@VIDMM_RECYCLE_BLOCK@@QEAA?AW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00796C4 (-ShrinkOnTailRangeFree@VIDMM_RECYCLE_BLOCK@@QEAA-AW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@PEAVVIDMM.c)
+ *     ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C0087734 (-CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,23 +13,23 @@ unsigned __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationBlockSize(
   int v2; // eax
   int v4; // eax
 
-  if ( (unsigned __int64)qword_1C0076288 <= 0x53333333 )
+  if ( (unsigned __int64)qword_1C00501D8 <= 0x53333333 )
   {
     if ( !a2 )
     {
-      v2 = dword_1C0076498;
+      v2 = dword_1C00503E8;
       return (unsigned int)(v2 << 20);
     }
-    v4 = dword_1C007649C;
+    v4 = dword_1C00503EC;
   }
   else
   {
     if ( !a2 )
     {
-      v2 = dword_1C0076488;
+      v2 = dword_1C00503D8;
       return (unsigned int)(v2 << 20);
     }
-    v4 = dword_1C007648C;
+    v4 = dword_1C00503DC;
   }
   return (unsigned int)(v4 << 10);
 }

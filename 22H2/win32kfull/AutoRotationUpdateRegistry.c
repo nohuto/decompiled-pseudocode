@@ -1,9 +1,9 @@
 /*
- * XREFs of AutoRotationUpdateRegistry @ 0x1C01A7DF0
+ * XREFs of AutoRotationUpdateRegistry @ 0x1C01D1C00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 AutoRotationUpdateRegistry()

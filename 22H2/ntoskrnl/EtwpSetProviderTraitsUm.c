@@ -1,48 +1,48 @@
 /*
- * XREFs of EtwpSetProviderTraitsUm @ 0x1406BE3A0
+ * XREFs of EtwpSetProviderTraitsUm @ 0x1406BBE50
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     EtwpEventWriteRegistrationStatus @ 0x1409E39EC (EtwpEventWriteRegistrationStatus.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BC01C (EtwpSetProviderTraitsCommon.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x140939B28 (EtwpEventWriteRegistrationStatus.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
 {
-  PVOID v6; // rsi
+  struct _DMA_ADAPTER *v6; // rsi
   void *v7; // rcx
   NTSTATUS v8; // ebx
-  __int16 v9; // ax
-  __int64 v10; // rax
-  unsigned __int64 v11; // rcx
-  __int64 Pool2; // rax
+  unsigned __int16 Size; // ax
+  __int64 v10; // rdx
+  unsigned __int64 v11; // r8
+  char *PoolWithTag; // rax
   void *v13; // rbx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  PVOID Object; // [rsp+80h] [rbp+8h] BYREF
-  PVOID v19; // [rsp+98h] [rbp+20h]
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  PADAPTER_OBJECT DmaAdapter; // [rsp+80h] [rbp+8h] BYREF
+  PADAPTER_OBJECT v19; // [rsp+98h] [rbp+20h]
 
   v6 = 0LL;
   if ( !*(_QWORD *)(a1 + 8) || !*(_WORD *)(a1 + 16) )
-    goto LABEL_19;
+    goto LABEL_15;
   v7 = *(void **)a1;
-  Object = 0LL;
-  v8 = ObReferenceObjectByHandle(v7, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
-  v6 = Object;
-  v19 = Object;
+  DmaAdapter = 0LL;
+  v8 = ObReferenceObjectByHandle(v7, 0x800u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
+  v6 = DmaAdapter;
+  v19 = DmaAdapter;
   if ( v8 < 0 )
-    goto LABEL_14;
-  v9 = *((_WORD *)Object + 49);
-  if ( (v9 & 8) == 0 && (v9 & 2) != 0 )
+    goto LABEL_16;
+  Size = DmaAdapter[6].Size;
+  if ( (Size & 8) == 0 && (Size & 2) != 0 )
   {
-    if ( *((_QWORD *)Object + 13) )
+    if ( DmaAdapter[6].DmaOperations )
     {
       v8 = -1073741823;
     }
@@ -53,13 +53,16 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
       {
         v11 = *(_QWORD *)(a1 + 8);
         if ( v11 + v10 > 0x7FFFFFFF0000LL || v11 + v10 < v11 )
+        {
           MEMORY[0x7FFFFFFF0000] = 0;
+          LOWORD(v10) = *(_WORD *)(a1 + 16);
+        }
       }
-      Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(a1 + 16) + 28LL, 1417114693LL);
-      v13 = (void *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v10 + 28LL, 0x54777445u);
+      v13 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove((void *)(Pool2 + 28), *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
+        memmove(PoolWithTag + 28, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
         v8 = EtwpSetProviderTraitsCommon(
                a1,
                a2,
@@ -78,15 +81,15 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   }
   else
   {
-LABEL_19:
+LABEL_15:
     v8 = -1073741811;
   }
-LABEL_14:
+LABEL_16:
   if ( v6 )
   {
     if ( v8 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
-      EtwpEventWriteRegistrationStatus(v16, v15, v17, v6, v8);
-    ObfDereferenceObject(v6);
+      EtwpEventWriteRegistrationStatus(v15, v14, v16, v6, v8);
+    HalPutDmaAdapter(v6);
   }
   return (unsigned int)v8;
 }

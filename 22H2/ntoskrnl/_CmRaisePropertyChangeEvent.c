@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmRaisePropertyChangeEvent @ 0x14086D074
+ * XREFs of _CmRaisePropertyChangeEvent @ 0x140740874
  * Callers:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _CmSetDeviceRegPropWorker @ 0x14086CE70 (_CmSetDeviceRegPropWorker.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x140A63400 (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140740618 (_CmSetDeviceRegPropWorker.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140975AA0 (_CmSetInstallerClassRegPropWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
  */
 
 __int64 (__fastcall *__fastcall CmRaisePropertyChangeEvent(
@@ -19,16 +19,17 @@ __int64 (__fastcall *__fastcall CmRaisePropertyChangeEvent(
 {
   DEVPROPKEY **v9; // rax
   unsigned int v10; // r8d
-  unsigned int v11; // ecx
-  DEVPROPKEY **v12; // rdx
-  unsigned int v13; // eax
-  __int64 v14; // r9
+  unsigned int v11; // edx
+  DEVPROPKEY **v12; // rcx
+  int v13; // eax
+  __int64 v14; // rdx
+  int v15; // r9d
   __int64 (__fastcall *result)(__int64, __int64, _QWORD, __int64, __int64 *); // rax
-  __int64 v16; // [rsp+30h] [rbp-18h] BYREF
-  int v17; // [rsp+38h] [rbp-10h]
-  int v18; // [rsp+3Ch] [rbp-Ch]
+  __int64 v17; // [rsp+30h] [rbp-18h] BYREF
+  int v18; // [rsp+38h] [rbp-10h]
+  int v19; // [rsp+3Ch] [rbp-Ch]
 
-  v18 = 0;
+  v19 = 0;
   if ( a3 == 1 )
   {
     v9 = &CmDeviceRegPropMap;
@@ -55,15 +56,15 @@ __int64 (__fastcall *__fastcall CmRaisePropertyChangeEvent(
   if ( v12 && *v12 )
   {
     v13 = CmMapCmObjectTypeToPnpObjectType(a3);
-    PnpObjectRaisePropertyChangeEvent(a1, a2, v13, a4, 0LL, v14);
+    PnpObjectRaisePropertyChangeEvent(a1, a2, v13, v15, 0LL, v14);
   }
 LABEL_9:
   result = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, __int64 *))(a1 + 512);
   if ( result )
   {
-    v16 = a4;
-    v17 = a5;
-    return (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, __int64 *))result(a1, a2, a3, 4LL, &v16);
+    v17 = a4;
+    v18 = a5;
+    return (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, __int64 *))result(a1, a2, a3, 4LL, &v17);
   }
   return result;
 }

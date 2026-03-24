@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIConvertWideStringToUpperCaseHelper @ 0x1C00439BC
+ * XREFs of ACPIConvertWideStringToUpperCaseHelper @ 0x1C0060960
  * Callers:
- *     ACPIDeviceIdMutiStringMatchCallback @ 0x1C002C850 (ACPIDeviceIdMutiStringMatchCallback.c)
+ *     ACPIDeviceIdMutiStringMatchCallback @ 0x1C0056110 (ACPIDeviceIdMutiStringMatchCallback.c)
  * Callees:
  *     <none>
  */

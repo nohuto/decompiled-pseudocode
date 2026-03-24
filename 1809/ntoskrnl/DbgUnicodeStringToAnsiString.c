@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgUnicodeStringToAnsiString @ 0x1400F4A5C
+ * XREFs of DbgUnicodeStringToAnsiString @ 0x1400F4A7C
  * Callers:
- *     DbgLoadImageSymbolsUnicode @ 0x1400F4BEC (DbgLoadImageSymbolsUnicode.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14016C794 (DbgUnLoadImageSymbolsUnicode.c)
- *     MiLoadUserSymbols @ 0x140760AD8 (MiLoadUserSymbols.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1400F4C0C (DbgLoadImageSymbolsUnicode.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14016C7B4 (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiLoadUserSymbols @ 0x140760AB8 (MiLoadUserSymbols.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BEB0 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
  */
 
 __int64 __fastcall DbgUnicodeStringToAnsiString(PANSI_STRING DestinationString, PCUNICODE_STRING SourceString)

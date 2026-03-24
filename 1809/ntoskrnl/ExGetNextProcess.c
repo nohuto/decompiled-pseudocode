@@ -5,7 +5,7 @@
  * Callees:
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 _DWORD *__fastcall ExGetNextProcess(PVOID Object, char a2)

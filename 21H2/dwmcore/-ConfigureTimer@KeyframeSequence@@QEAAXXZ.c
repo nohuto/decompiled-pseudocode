@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x18004F554
+ * XREFs of ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800AC58C
  * Callers:
- *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x18004F31C (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x18004F7F8 (-Play@KeyframeSequence@@QEAAXXZ.c)
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x18006FDA0 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
- *     ?ProgressSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800D8810 (-ProgressSeek@CKeyframeAnimation@@AEAAJM@Z.c)
- *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800EB7C0 (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
- *     ?StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ @ 0x180222910 (-StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ.c)
- *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x180256AD8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187CC (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800A9948 (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9A4C (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC518 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?ProgressSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D1B5C (-ProgressSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x1801D1DF8 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
  * Callees:
  *     <none>
  */

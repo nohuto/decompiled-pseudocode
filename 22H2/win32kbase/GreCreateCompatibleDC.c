@@ -1,16 +1,16 @@
 /*
- * XREFs of GreCreateCompatibleDC @ 0x1C003BC40
+ * XREFs of GreCreateCompatibleDC @ 0x1C003C7B0
  * Callers:
- *     NtGdiCreateCompatibleDC @ 0x1C003B5C0 (NtGdiCreateCompatibleDC.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
+ *     NtGdiCreateCompatibleDC @ 0x1C003C710 (NtGdiCreateCompatibleDC.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00385C4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003BD24 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003BD68 (--1DCOBJ@@QEAA@XZ.c)
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     GreSetLayout @ 0x1C00C2AA0 (GreSetLayout.c)
- *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C0152204 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003A724 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003C8E8 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003C948 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     GreSetLayout @ 0x1C0093E60 (GreSetLayout.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C013CA14 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
  */
 
 HDC __fastcall GreCreateCompatibleDC(HDC a1)
@@ -21,7 +21,7 @@ HDC __fastcall GreCreateCompatibleDC(HDC a1)
   unsigned int v4; // r8d
   _QWORD v6[6]; // [rsp+20h] [rbp-68h] BYREF
   _QWORD v7[7]; // [rsp+50h] [rbp-38h] BYREF
-  char v8; // [rsp+90h] [rbp+8h] BYREF
+  int v8; // [rsp+90h] [rbp+8h] BYREF
 
   v1 = 0LL;
   if ( a1 )
@@ -51,7 +51,7 @@ HDC __fastcall GreCreateCompatibleDC(HDC a1)
   else
   {
     ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v8);
-    v1 = (HDC)GreCreateDisplayDC(*((HDEV *)gpDispInfo + 5), 1u);
+    v1 = (HDC)GreCreateDisplayDC(*(HDEV *)(gpDispInfo + 40), 1u);
     if ( !v8 )
       UserSessionSwitchLeaveCrit();
   }

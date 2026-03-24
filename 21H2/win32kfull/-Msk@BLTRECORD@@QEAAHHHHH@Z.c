@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C02917A4
+ * XREFs of ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0293D34
  * Callers:
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
  * Callees:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B63B0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
  */
 
 __int64 __fastcall BLTRECORD::Msk(struct _POINTL *this, LONG a2, LONG a3, LONG a4, LONG a5)

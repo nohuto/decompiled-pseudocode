@@ -1,9 +1,9 @@
 /*
- * XREFs of HalCalculateScatterGatherListSizeV3 @ 0x1403B0410
+ * XREFs of HalCalculateScatterGatherListSizeV3 @ 0x1403A08D0
  * Callers:
  *     <none>
  * Callees:
- *     HalGetDmaTransferInfo @ 0x14045B420 (HalGetDmaTransferInfo.c)
+ *     HalGetDmaTransferInfo @ 0x1404C61B0 (HalGetDmaTransferInfo.c)
  */
 
 __int64 __fastcall HalCalculateScatterGatherListSizeV3(
@@ -40,7 +40,7 @@ __int64 __fastcall HalCalculateScatterGatherListSizeV3(
     v8 = DWORD2(v12);
     LODWORD(v7) = v12;
 LABEL_4:
-    if ( (unsigned int)v7 > *(_DWORD *)(a1 + 232) )
+    if ( (unsigned int)v7 > *(_DWORD *)(a1 + 224) )
     {
       return 3221225626LL;
     }

@@ -1,29 +1,31 @@
 /*
- * XREFs of NtQueryEaFile @ 0x1407CA550
+ * XREFs of NtQueryEaFile @ 0x14067F740
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopProbeAndLockPages_1 @ 0x140555B70 (IopProbeAndLockPages_1.c)
- *     IopSynchronousApiServiceTail @ 0x140687008 (IopSynchronousApiServiceTail.c)
- *     IopSynchronousServiceTail @ 0x1406E3F40 (IopSynchronousServiceTail.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765710 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x1409441F4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanupEx @ 0x140944A28 (IopExceptionCleanupEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x14022B640 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopReferenceFileObject @ 0x1402C90B0 (IopReferenceFileObject.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x1402D2590 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopProbeAndLockPages_3 @ 0x1405087BC (IopProbeAndLockPages_3.c)
+ *     IopVerifierExAllocatePool_3 @ 0x140508828 (IopVerifierExAllocatePool_3.c)
+ *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406352D8 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x14064C4A0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x14067D3EC (IopSynchronousApiServiceTail.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpCleanup @ 0x140890EA4 (IopAllocateIrpCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQueryEaFile(
@@ -32,339 +34,307 @@ __int64 __fastcall NtQueryEaFile(
         void *a3,
         ULONG a4,
         char a5,
-        void *Src,
-        unsigned int Size,
+        char *Src,
+        size_t Size,
         ULONG *a8,
         char a9)
 {
-  struct _KEVENT *v11; // r12
-  KPROCESSOR_MODE PreviousMode; // r13
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rax
-  UNICODE_STRING *v15; // rbx
-  UNICODE_STRING *v16; // rdi
-  int v17; // ecx
+  KPROCESSOR_MODE PreviousMode; // r12
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  char *v14; // rax
+  unsigned __int8 *v15; // rdi
+  int v16; // ecx
+  __int64 result; // rax
   unsigned int v18; // eax
   __int64 v19; // rdx
-  __int64 v20; // rax
-  __int64 result; // rax
-  int v22; // edi
-  int v23; // edi
-  char v24; // r15
-  struct _FILE_OBJECT *v25; // r14
-  _DWORD *v26; // r13
-  char v27; // di
-  struct _KTHREAD *v28; // rax
-  volatile __int32 *v29; // rbx
-  __int64 v30; // r9
-  unsigned int v31; // ebx
-  __int64 v32; // rdx
-  IRP *v33; // rax
-  IRP *Irp; // rdi
-  ULONG *p_Flags; // r12
-  struct _IO_STATUS_BLOCK *v36; // rax
-  struct _KEVENT *v37; // rcx
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
-  struct _DEVICE_OBJECT *v39; // rcx
+  int v20; // ebx
+  int v21; // ebx
+  struct _DMA_ADAPTER *v22; // r15
+  _DWORD *v23; // rsi
+  bool v24; // di
+  struct _KTHREAD *v25; // rax
+  volatile __int32 *v26; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v30; // rdx
+  __int64 v31; // r8
+  _DWORD *v32; // r9
+  char v33; // r12
+  PVOID v34; // rdi
+  struct _KEVENT *Pool_3; // rax
+  PDEVICE_OBJECT RelatedDeviceObject; // r13
+  IRP *v37; // rax
+  IRP *Irp; // rbx
+  struct _IO_STATUS_BLOCK *v39; // rax
+  __int64 v40; // rcx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
+  UNICODE_STRING *v42; // rdi
   ULONG Flags; // eax
-  ULONG v41; // eax
-  char v42; // r12
-  char v43; // al
-  char v44; // bl
-  struct _KEVENT *v45; // rax
-  UNICODE_STRING *Pool2; // rax
-  bool v47; // zf
-  __int64 v48; // rax
+  struct _IRP *PoolWithQuota; // rcx
   PMDL Mdl; // rcx
-  char v50; // [rsp+40h] [rbp-88h]
-  char v51; // [rsp+41h] [rbp-87h]
-  _WORD v52[7]; // [rsp+42h] [rbp-86h] BYREF
-  ULONG v53; // [rsp+50h] [rbp-78h]
-  PVOID Object; // [rsp+58h] [rbp-70h] BYREF
-  PVOID P; // [rsp+60h] [rbp-68h]
-  PDEVICE_OBJECT RelatedDeviceObject; // [rsp+68h] [rbp-60h]
-  UNICODE_STRING *v57; // [rsp+70h] [rbp-58h]
-  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-50h]
-  PIRP v59; // [rsp+80h] [rbp-48h]
-  __int128 v60; // [rsp+88h] [rbp-40h] BYREF
+  char v46; // di
+  char v47; // al
+  char v48; // [rsp+40h] [rbp-78h]
+  char v49; // [rsp+41h] [rbp-77h]
+  _WORD v50[7]; // [rsp+42h] [rbp-76h] BYREF
+  int v51; // [rsp+50h] [rbp-68h]
+  ULONG v52; // [rsp+54h] [rbp-64h]
+  PVOID Object; // [rsp+58h] [rbp-60h] BYREF
+  PVOID P; // [rsp+60h] [rbp-58h]
+  unsigned __int8 *v55; // [rsp+68h] [rbp-50h]
+  PIRP v56; // [rsp+70h] [rbp-48h]
+  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-40h]
+  __int128 v58; // [rsp+80h] [rbp-38h] BYREF
 
   Object = 0LL;
-  v11 = 0LL;
   P = 0LL;
-  *(_QWORD *)&v52[3] = 0LL;
-  v51 = 0;
-  v53 = 0;
-  v60 = 0LL;
+  *(_QWORD *)&v50[3] = 0LL;
+  v48 = 0;
+  v52 = 0;
+  v58 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
-  v50 = PreviousMode;
+  v49 = PreviousMode;
   if ( !PreviousMode )
   {
-    if ( Src && Size )
+    if ( Src && (_DWORD)Size )
     {
-      v51 = 1;
-      Pool2 = (UNICODE_STRING *)ExAllocatePool2(65LL, Size, 1631940425LL);
-      v15 = Pool2;
-      *(_QWORD *)&v52[3] = Pool2;
-      if ( !Pool2 )
-        return 3221225626LL;
-      memmove(Pool2, Src, Size);
-    }
-    else
-    {
-      v15 = *(UNICODE_STRING **)&v52[3];
+      v48 = 1;
+      *(_QWORD *)&v50[3] = IopVerifierExAllocatePoolWithQuota((__int64)a1, (unsigned int)Size);
+      memmove(*(void **)&v50[3], Src, (unsigned int)Size);
     }
     if ( a8 )
-      v53 = *a8;
-LABEL_31:
-    v23 = IopReferenceFileObject(a1, 8u, PreviousMode, &Object, 0LL);
-    v24 = 0;
-    if ( v23 < 0 )
+      v52 = *a8;
+LABEL_33:
+    v21 = IopReferenceFileObject(a1, 8u, PreviousMode, &Object, 0LL);
+    if ( v21 < 0 )
     {
-      if ( v51 )
-        ExFreePoolWithTag(v15, 0);
-      return (unsigned int)v23;
+      if ( v48 )
+        ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
+      return (unsigned int)v21;
     }
-    v25 = (struct _FILE_OBJECT *)Object;
-    v26 = (char *)Object + 80;
+    v22 = (struct _DMA_ADAPTER *)Object;
+    v23 = (char *)Object + 80;
     if ( (*((_DWORD *)Object + 20) & 2) != 0 )
     {
-      v27 = (*((_DWORD *)Object + 20) & 4) != 0;
-      v28 = KeGetCurrentThread();
-      --v28->KernelApcDisable;
-      v29 = (volatile __int32 *)Object;
-      v30 = KeAbPreAcquire((__int64)Object + 128, 0LL);
-      LOBYTE(v52[0]) = 0;
-      if ( _InterlockedExchange(v29 + 29, 1) )
+      v24 = (*((_DWORD *)Object + 20) & 4) != 0;
+      v25 = KeGetCurrentThread();
+      --v25->KernelApcDisable;
+      v26 = (volatile __int32 *)Object;
+      v29 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0LL);
+      LOBYTE(v50[0]) = 0;
+      if ( _InterlockedExchange(v26 + 29, 1) )
       {
-        v25 = (struct _FILE_OBJECT *)Object;
-        v31 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)Object, v50, v27, v30, v52);
+        LOBYTE(v28) = v24;
+        LOBYTE(v27) = PreviousMode;
+        v22 = (struct _DMA_ADAPTER *)Object;
+        v21 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)Object, v27, v28, v29, v50);
       }
       else
       {
-        if ( v30 )
-          *(_BYTE *)(v30 + 18) = 1;
-        v25 = (struct _FILE_OBJECT *)Object;
+        if ( v29 )
+          *(_BYTE *)(v29 + 26) |= 1u;
+        v22 = (struct _DMA_ADAPTER *)Object;
         ObfReferenceObject(Object);
-        v31 = 0;
+        v21 = 0;
       }
-      if ( !LOBYTE(v52[0]) )
+      if ( LOBYTE(v50[0]) )
       {
-        v24 = 1;
-        v15 = *(UNICODE_STRING **)&v52[3];
-LABEL_39:
-        LOBYTE(v52[0]) = v24;
-        if ( (*v26 & 0x4000000) == 0 )
-          KeResetEvent(&v25->Event);
-        RelatedDeviceObject = IoGetRelatedDeviceObject(v25);
-        LOBYTE(v32) = RelatedDeviceObject->StackSize;
-        v33 = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v32, 0LL);
-        Irp = v33;
-        v59 = v33;
-        if ( v33 )
-        {
-          v33->Tail.Overlay.OriginalFileObject = v25;
-          v33->Tail.Overlay.Thread = CurrentThread;
-          v33->RequestorMode = v50;
-          p_Flags = &v33->Flags;
-          if ( v24 )
-          {
-            v36 = (struct _IO_STATUS_BLOCK *)a2;
-            v37 = 0LL;
-          }
-          else
-          {
-            *p_Flags = 4;
-            v36 = (struct _IO_STATUS_BLOCK *)&v60;
-            v37 = (struct _KEVENT *)P;
-          }
-          Irp->UserEvent = v37;
-          Irp->UserIosb = v36;
-          Irp->Overlay.AllocationSize.QuadPart = 0LL;
-          CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-          CurrentStackLocation[-1].MajorFunction = 7;
-          CurrentStackLocation[-1].FileObject = v25;
-          if ( v51 )
-          {
-            Irp->Tail.Overlay.AuxiliaryBuffer = (PCHAR)v15;
-            CurrentStackLocation[-1].Parameters.QueryDirectory.FileName = v15;
-            CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = Size;
-          }
-          v39 = RelatedDeviceObject;
-          Flags = RelatedDeviceObject->Flags;
-          if ( (Flags & 4) == 0 )
-          {
-            if ( (Flags & 0x10) != 0 )
-            {
-              if ( a4 )
-              {
-                Mdl = IoAllocateMdl(a3, a4, 0, 1u, Irp);
-                if ( !Mdl )
-                  RtlRaiseStatus(-1073741670);
-                v42 = v50;
-                IopProbeAndLockPages_1(
-                  (__int64)Mdl,
-                  v50,
-                  1,
-                  (__int64)RelatedDeviceObject,
-                  CurrentStackLocation[-1].MajorFunction);
-                v39 = RelatedDeviceObject;
-                v41 = a4;
-                goto LABEL_51;
-              }
-              goto LABEL_49;
-            }
-LABEL_48:
-            Irp->UserBuffer = a3;
-LABEL_49:
-            v41 = a4;
-LABEL_50:
-            v42 = v50;
+        if ( v48 )
+          ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
 LABEL_51:
-            CurrentStackLocation[-1].Parameters.Read.Length = v41;
-            CurrentStackLocation[-1].Parameters.Create.EaLength = v53;
-            CurrentStackLocation[-1].Flags = 0;
-            v43 = 0;
-            if ( a9 )
-            {
-              CurrentStackLocation[-1].Flags = 1;
-              v43 = 1;
-            }
-            if ( a5 )
-            {
-              v43 |= 2u;
-              CurrentStackLocation[-1].Flags = v43;
-            }
-            if ( a8 )
-              CurrentStackLocation[-1].Flags = v43 | 4;
-            v44 = v52[0];
-            result = IopSynchronousServiceTail(v39, (__int64)Irp, v25, 0, v42, v52[0], 2u);
-            if ( !v44 )
-              return IopSynchronousApiServiceTail(result, P, Irp, v42, (unsigned int *)&v60, (_OWORD *)a2);
-            return result;
-          }
-          v41 = a4;
-          if ( !a4 )
-          {
-            Irp->AssociatedIrp.MasterIrp = 0LL;
-            *p_Flags |= 0x50u;
-            goto LABEL_50;
-          }
-          v48 = ExAllocatePool2(65LL, a4, 1112764233LL);
-          Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v48;
-          if ( v48 )
-          {
-            *p_Flags |= 0x70u;
-            v39 = RelatedDeviceObject;
-            goto LABEL_48;
-          }
-          IopExceptionCleanupEx(v25, Irp, 0LL, P, (*v26 & 2) != 0);
-          v47 = v15 == 0LL;
-        }
-        else
-        {
-          if ( (*v26 & 2) == 0 )
-            ExFreePoolWithTag(v11, 0);
-          IopAllocateIrpCleanup(v25, 0LL);
-          v47 = v51 == 0;
-        }
-        if ( !v47 )
-          ExFreePoolWithTag(v15, 0);
-        return 3221225626LL;
+        HalPutDmaAdapter(v22);
+        return (unsigned int)v21;
       }
-      if ( v51 )
-        ExFreePoolWithTag(*(PVOID *)&v52[3], 0);
+      v33 = 1;
+      v34 = P;
     }
     else
     {
-      v45 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1984261961LL);
-      v11 = v45;
-      P = v45;
-      if ( v45 )
+      Pool_3 = (struct _KEVENT *)IopVerifierExAllocatePool_3();
+      v34 = Pool_3;
+      P = Pool_3;
+      if ( !Pool_3 )
       {
-        KeInitializeEvent(v45, SynchronizationEvent, 0);
-        goto LABEL_39;
+        if ( v48 )
+          ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
+        v21 = -1073741670;
+        goto LABEL_51;
       }
-      if ( v51 )
-        ExFreePoolWithTag(v15, 0);
-      v31 = -1073741670;
+      KeInitializeEvent(Pool_3, SynchronizationEvent, 0);
+      v33 = 0;
     }
-    ObfDereferenceObject(v25);
-    return v31;
+    IopResetEvent((__int64)v22, v30, v31, v32);
+    RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)v22);
+    v37 = (IRP *)IopAllocateIrpExReturn();
+    Irp = v37;
+    v56 = v37;
+    if ( !v37 )
+    {
+      if ( (*v23 & 2) == 0 )
+        ExFreePoolWithTag(v34, 0);
+      IopAllocateIrpCleanup(v22, 0LL);
+      if ( v48 )
+        ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
+      return 3221225626LL;
+    }
+    v37->Tail.Overlay.OriginalFileObject = (PFILE_OBJECT)v22;
+    v37->Tail.Overlay.Thread = CurrentThread;
+    v37->RequestorMode = v49;
+    if ( v33 )
+    {
+      v39 = (struct _IO_STATUS_BLOCK *)a2;
+      v40 = 0LL;
+    }
+    else
+    {
+      v37->Flags = 4;
+      v39 = (struct _IO_STATUS_BLOCK *)&v58;
+      v40 = (__int64)v34;
+    }
+    Irp->UserEvent = (PKEVENT)v40;
+    Irp->UserIosb = v39;
+    Irp->Overlay.AllocationSize.QuadPart = 0LL;
+    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+    CurrentStackLocation[-1].MajorFunction = 7;
+    CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v22;
+    if ( v48 )
+    {
+      v42 = *(UNICODE_STRING **)&v50[3];
+      Irp->Tail.Overlay.AuxiliaryBuffer = *(PCHAR *)&v50[3];
+      CurrentStackLocation[-1].Parameters.QueryDirectory.FileName = v42;
+      CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = Size;
+    }
+    Flags = RelatedDeviceObject->Flags;
+    if ( (Flags & 4) != 0 )
+    {
+      if ( a4 )
+      {
+        PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(v40, a4);
+        Irp->AssociatedIrp.MasterIrp = PoolWithQuota;
+        if ( !IopDisableBufferedIoInit )
+          memset(PoolWithQuota, 0, a4);
+        Irp->Flags |= 0x70u;
+        goto LABEL_74;
+      }
+      Irp->AssociatedIrp.MasterIrp = 0LL;
+      Irp->Flags |= 0x50u;
+    }
+    else
+    {
+      if ( (Flags & 0x10) == 0 )
+      {
+LABEL_74:
+        Irp->UserBuffer = a3;
+        goto LABEL_75;
+      }
+      if ( a4 )
+      {
+        Mdl = IoAllocateMdl(a3, a4, 0, 1u, Irp);
+        if ( !Mdl )
+          RtlRaiseStatus(0xC000009A);
+        v46 = v49;
+        IopProbeAndLockPages_3(
+          (__int64)Mdl,
+          v49,
+          1,
+          (__int64)RelatedDeviceObject,
+          CurrentStackLocation[-1].MajorFunction);
+        goto LABEL_76;
+      }
+    }
+LABEL_75:
+    v46 = v49;
+LABEL_76:
+    CurrentStackLocation[-1].Parameters.Read.Length = a4;
+    CurrentStackLocation[-1].Parameters.Create.EaLength = v52;
+    CurrentStackLocation[-1].Flags = 0;
+    v47 = 0;
+    if ( a9 )
+    {
+      CurrentStackLocation[-1].Flags = 1;
+      v47 = 1;
+    }
+    if ( a5 )
+    {
+      v47 |= 2u;
+      CurrentStackLocation[-1].Flags = v47;
+    }
+    if ( a8 )
+      CurrentStackLocation[-1].Flags = v47 | 4;
+    result = IopSynchronousServiceTail(RelatedDeviceObject, Irp, (__int64)v22, 0LL, v46, v33, 2u);
+    if ( !v33 )
+      return IopSynchronousApiServiceTail(result, P, Irp, v46, (unsigned int *)&v58, (_OWORD *)a2);
+    return result;
   }
-  v13 = 0x7FFFFFFF0000LL;
+  v12 = 0x7FFFFFFF0000LL;
   if ( a2 < 0x7FFFFFFF0000LL )
-    v13 = a2;
-  *(_DWORD *)v13 = *(_DWORD *)v13;
+    v12 = a2;
+  *(_DWORD *)v12 = *(_DWORD *)v12;
   ProbeForWrite(a3, a4, 4u);
   if ( a8 )
   {
-    v20 = 0x7FFFFFFF0000LL;
+    v13 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a8 < 0x7FFFFFFF0000LL )
-      v20 = (__int64)a8;
-    v53 = *(_DWORD *)v20;
+      v13 = (__int64)a8;
+    v52 = *(_DWORD *)v13;
   }
-  if ( !Src || !Size )
-  {
-    v15 = *(UNICODE_STRING **)&v52[3];
-    goto LABEL_31;
-  }
-  v57 = 0LL;
-  *(_DWORD *)&v52[1] = 0;
-  v51 = 1;
+  if ( !Src || !(_DWORD)Size )
+    goto LABEL_33;
+  v55 = 0LL;
+  v51 = 0;
+  v48 = 1;
   if ( ((unsigned __int8)Src & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v14 = (unsigned __int64)Src + Size;
-  if ( v14 > 0x7FFFFFFF0000LL || v14 < (unsigned __int64)Src )
+  v14 = &Src[(unsigned int)Size];
+  if ( (unsigned __int64)v14 > 0x7FFFFFFF0000LL || v14 < Src )
     MEMORY[0x7FFFFFFF0000] = 0;
-  v15 = (UNICODE_STRING *)ExAllocatePool2(97LL, Size, 1631940425LL);
-  *(_QWORD *)&v52[3] = v15;
-  memmove(v15, Src, Size);
-  v16 = v15;
-  v57 = v15;
-  v17 = Size;
-  *(_DWORD *)&v52[1] = Size;
+  v15 = (unsigned __int8 *)IopVerifierExAllocatePoolWithQuota(0x7FFFFFFF0000LL, (unsigned int)Size);
+  *(_QWORD *)&v50[3] = v15;
+  memmove(v15, Src, (unsigned int)Size);
+  v55 = v15;
+  v16 = Size;
+  v51 = Size;
   while ( 1 )
   {
-    if ( v17 < 5 )
+    if ( v16 < 5 )
     {
-      *(_DWORD *)&v52[1] = 0;
-      ExFreePoolWithTag(v15, 0);
-      *(_QWORD *)&v52[3] = 0LL;
+      v51 = 0;
+      ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
+      *(_QWORD *)&v50[3] = 0LL;
       *(_DWORD *)a2 = -2147483628;
       *(_QWORD *)(a2 + 8) = 0LL;
       return 2147483668LL;
     }
-    v18 = *((unsigned __int8 *)&v16->MaximumLength + 2) + 6;
-    if ( v17 < v18 )
+    v18 = v15[4] + 6;
+    if ( v16 < v18 )
       break;
-    v19 = *(unsigned int *)&v16->Length;
+    v19 = *(unsigned int *)v15;
     if ( !(_DWORD)v19 )
     {
-      *(_DWORD *)&v52[1] = v17 - v18;
-      if ( (int)(v17 - v18) >= 0 )
-      {
-        v11 = 0LL;
-        goto LABEL_31;
-      }
+      v51 = v16 - v18;
+      if ( (int)(v16 - v18) >= 0 )
+        goto LABEL_33;
       break;
     }
-    if ( ((*((unsigned __int8 *)&v16->MaximumLength + 2) + 9) & 0xFFFFFFFC) != (_DWORD)v19 )
+    if ( ((v15[4] + 9) & 0xFFFFFFFC) != (_DWORD)v19 )
       break;
     if ( (int)v19 < 0 )
       break;
-    v17 -= v19;
-    *(_DWORD *)&v52[1] = v17;
-    if ( v17 < 0 )
+    v16 -= v19;
+    v51 = v16;
+    if ( v16 < 0 )
       break;
-    v16 = (UNICODE_STRING *)((char *)v16 + v19);
-    v57 = v16;
+    v15 += v19;
+    v55 = v15;
   }
-  v22 = (_DWORD)v16 - (_DWORD)v15;
-  *(_DWORD *)&v52[1] = v22;
-  ExFreePoolWithTag(v15, 0);
-  *(_QWORD *)&v52[3] = 0LL;
+  v20 = (_DWORD)v15 - *(_DWORD *)&v50[3];
+  v51 = (_DWORD)v15 - *(_DWORD *)&v50[3];
+  ExFreePoolWithTag(*(PVOID *)&v50[3], 0);
+  *(_QWORD *)&v50[3] = 0LL;
   *(_DWORD *)a2 = -2147483628;
-  *(_QWORD *)(a2 + 8) = v22;
+  *(_QWORD *)(a2 + 8) = v20;
   return 2147483668LL;
 }

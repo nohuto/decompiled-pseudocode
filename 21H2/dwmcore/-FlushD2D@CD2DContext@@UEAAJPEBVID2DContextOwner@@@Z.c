@@ -1,25 +1,32 @@
 /*
- * XREFs of ?FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z @ 0x180278C80
+ * XREFs of ?FlushD2D@CD2DContext@@UEAAJPEBVID2DContextOwner@@@Z @ 0x180041250
  * Callers:
- *     ?FlushD2D@CDrawingContext@@QEAAJXZ @ 0x1801B21B8 (-FlushD2D@CDrawingContext@@QEAAJXZ.c)
- *     ?AddShadowToShape@CCursorState@@AEAA?AV?$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z @ 0x180268E4C (-AddShadowToShape@CCursorState@@AEAA-AV-$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z.c)
- *     ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x180290238 (-LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z.c)
+ *     ?FlushD2D@CDrawingContext@@QEAAJXZ @ 0x180041214 (-FlushD2D@CDrawingContext@@QEAAJXZ.c)
+ *     ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x180249378 (-LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z.c)
  * Callees:
- *     ?FlushD2DInternal@CD2DContext@@AEAAJXZ @ 0x180019EC8 (-FlushD2DInternal@CD2DContext@@AEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18007FAC8 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x180090B3C (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::FlushD2D(CD2DContext *this, const struct ID2DContextOwner *a2)
 {
-  int v3; // eax
-  __int64 v4; // rcx
-  int v5; // edi
+  unsigned int v3; // edi
+  int v4; // eax
+  unsigned int v5; // ecx
 
+  v3 = 0;
   CD2DContext::FlushDrawList(this);
-  v3 = CD2DContext::FlushD2DInternal(this);
-  v5 = v3;
-  if ( v3 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x315u);
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext(((unsigned __int64)this - 16) & -(__int64)(this != 0LL), v5, 0);
+  if ( *((_BYTE *)this + 485) && *((_BYTE *)this + 486) )
+  {
+    v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 30) + 336LL))(
+           *((_QWORD *)this + 30),
+           0LL,
+           0LL);
+    v3 = v4;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x30Cu, 0LL);
+    *((_BYTE *)this + 486) = 0;
+  }
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((char *)this - 16, v3, 0LL);
 }

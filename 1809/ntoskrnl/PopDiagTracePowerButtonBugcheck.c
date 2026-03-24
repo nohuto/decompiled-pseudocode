@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140873C00
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140873BE0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1402E46A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745168 (PopRecordLongPowerButtonPressDetected.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
  */
 
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
@@ -93,7 +93,7 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
         v36 = 4LL;
         v37 = &v11;
         v38 = 4LL;
-        TlgWrite(&pCallbackContext, &unk_140370E20, 0LL, 0LL, 0xEu, &pData);
+        TlgWrite(&pCallbackContext, &unk_140370F30, 0LL, 0LL, 0xEu, &pData);
       }
     }
   }
@@ -135,6 +135,6 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
     v36 = 4LL;
     v37 = &v4;
     v38 = 4LL;
-    TlgWrite(&pCallbackContext, &unk_140370CFB, 0LL, 0LL, 0xEu, &pData);
+    TlgWrite(&pCallbackContext, &unk_140370E0B, 0LL, 0LL, 0xEu, &pData);
   }
 }

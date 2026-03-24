@@ -1,50 +1,55 @@
 /*
- * XREFs of VslSvcEnterIumSecureMode @ 0x14054CBF4
+ * XREFs of VslSvcEnterIumSecureMode @ 0x1404FD6F8
  * Callers:
- *     VmCallSkSvc @ 0x1405F89A0 (VmCallSkSvc.c)
+ *     VmCallSkSvc @ 0x1405A26F0 (VmCallSkSvc.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall VslSvcEnterIumSecureMode(_OWORD *a1)
+NTSTATUS __fastcall VslSvcEnterIumSecureMode(__int128 *a1)
 {
   __int128 v2; // xmm1
   __int128 v3; // xmm0
   __int128 v4; // xmm1
   __int128 v5; // xmm0
   __int128 v6; // xmm1
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v8; // xmm1
   __int128 v9; // xmm0
   __int128 v10; // xmm1
   __int128 v11; // xmm0
   __int128 v12; // xmm1
-  _QWORD v13[14]; // [rsp+20h] [rbp-29h] BYREF
+  __int64 v13; // [rsp+20h] [rbp-29h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-21h]
+  __int128 v15; // [rsp+38h] [rbp-11h]
+  __int128 v16; // [rsp+48h] [rbp-1h]
+  __int128 v17; // [rsp+58h] [rbp+Fh]
+  __int128 v18; // [rsp+68h] [rbp+1Fh]
+  __int128 v19; // [rsp+78h] [rbp+2Fh]
 
-  memset(v13, 0, 0x68uLL);
   v2 = a1[1];
-  *(_OWORD *)&v13[1] = *a1;
+  v14 = *a1;
+  v13 = 0LL;
   v3 = a1[2];
-  *(_OWORD *)&v13[3] = v2;
+  v15 = v2;
   v4 = a1[3];
-  *(_OWORD *)&v13[5] = v3;
+  v16 = v3;
   v5 = a1[4];
-  *(_OWORD *)&v13[7] = v4;
+  v17 = v4;
   v6 = a1[5];
-  *(_OWORD *)&v13[9] = v5;
-  *(_OWORD *)&v13[11] = v6;
-  result = VslpEnterIumSecureMode(2u, 268, 0, (__int64)v13);
-  v8 = *(_OWORD *)&v13[3];
-  *a1 = *(_OWORD *)&v13[1];
-  v9 = *(_OWORD *)&v13[5];
+  v18 = v5;
+  v19 = v6;
+  result = VslpEnterIumSecureMode(2u, 267, 0, (__int64)&v13);
+  v8 = v15;
+  *a1 = v14;
+  v9 = v16;
   a1[1] = v8;
-  v10 = *(_OWORD *)&v13[7];
+  v10 = v17;
   a1[2] = v9;
-  v11 = *(_OWORD *)&v13[9];
+  v11 = v18;
   a1[3] = v10;
-  v12 = *(_OWORD *)&v13[11];
+  v12 = v19;
   a1[4] = v11;
   a1[5] = v12;
   return result;

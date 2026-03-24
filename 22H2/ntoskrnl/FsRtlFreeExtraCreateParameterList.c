@@ -1,19 +1,20 @@
 /*
- * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14073E5B0
+ * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14060CD80
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspCreateUserProcessEcp @ 0x1406B9360 (PspCreateUserProcessEcp.c)
- *     FsRtlpCleanupEcps @ 0x14073E6E0 (FsRtlpCleanupEcps.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1407CDE5C (IopSymlinkAllocateAndAddECP.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     FsRtlpCleanupEcps @ 0x14060CD20 (FsRtlpCleanupEcps.c)
+ *     PspCreateUserProcessEcp @ 0x14060D1E4 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14068303C (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E630 (FsRtlFreeExtraCreateParameter.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060CE40 (FsRtlFreeExtraCreateParameter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
 {
-  _LIST_ENTRY *p_EcpList; // rdi
+  _LIST_ENTRY *p_EcpList; // rbx
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *v4; // rax
 
@@ -32,7 +33,20 @@ void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
     FsRtlFreeExtraCreateParameter(&Flink[4]);
   }
   if ( (EcpList->Flags & 4) != 0 )
-    ExFreeToNPagedLookasideList(&FsRtlEcpListLookaside, EcpList);
+  {
+    ++dword_140CDB55C;
+    if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= (unsigned __int16)word_140CDB550 )
+    {
+      ++dword_140CDB560;
+      ((void (__fastcall *)(PECP_LIST))qword_140CDB578)(EcpList);
+    }
+    else
+    {
+      RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, (PSLIST_ENTRY)EcpList);
+    }
+  }
   else
+  {
     ExFreePoolWithTag(EcpList, 0);
+  }
 }

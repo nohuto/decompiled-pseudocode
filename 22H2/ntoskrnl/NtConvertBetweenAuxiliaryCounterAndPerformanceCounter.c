@@ -1,11 +1,11 @@
 /*
- * XREFs of NtConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x140A04310
+ * XREFs of NtConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x14095AB30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
@@ -34,9 +34,9 @@ __int64 __fastcall NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
     ProbeForWrite(a3, 8uLL, 4u);
     if ( a4 )
       ProbeForWrite(a4, 8uLL, 4u);
-    v8 = off_140C01D38[0];
+    v8 = off_140C00928[0];
     if ( !a1 )
-      v8 = off_140C01D30[0];
+      v8 = off_140C00920[0];
     v9 = ((__int64 (__fastcall *)(__int64, __int64 *, _QWORD *))v8)(v7, &v12, v13);
     if ( v9 >= 0 )
     {
@@ -47,9 +47,9 @@ __int64 __fastcall NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
   }
   else
   {
-    v10 = off_140C01D38[0];
+    v10 = off_140C00928[0];
     if ( !a1 )
-      v10 = off_140C01D30[0];
+      v10 = off_140C00920[0];
     return ((unsigned int (__fastcall *)(_QWORD, _QWORD *, _QWORD *))v10)(*(_QWORD *)a2, a3, a4);
   }
   return (unsigned int)v9;

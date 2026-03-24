@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFoDetermineFontInformation @ 0x140B9D9D8
+ * XREFs of BgpFoDetermineFontInformation @ 0x140A96D5C
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x140B9D3E8 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x140384DB0 (BgpFoGetTextMetrics.c)
- *     BgpFoGetFontHandle @ 0x140AEEB84 (BgpFoGetFontHandle.c)
+ *     BgpFoGetTextMetrics @ 0x14039C08C (BgpFoGetTextMetrics.c)
+ *     BgpFoGetFontHandle @ 0x1409F334C (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall BgpFoDetermineFontInformation(
@@ -18,45 +18,42 @@ __int64 __fastcall BgpFoDetermineFontInformation(
   __int64 result; // rax
   unsigned int v9; // ebx
   __int64 *v10; // rdi
-  unsigned int v11; // r15d
-  int v12; // ecx
-  unsigned int *v13; // rax
-  _DWORD v14[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int64 *v15; // [rsp+28h] [rbp-18h]
-  unsigned int v16; // [rsp+30h] [rbp-10h]
-  int v17; // [rsp+34h] [rbp-Ch]
-  __int64 *v18; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v19; // [rsp+80h] [rbp+40h] BYREF
+  int v11; // ecx
+  unsigned int *v12; // rax
+  _DWORD v13[2]; // [rsp+20h] [rbp-20h] BYREF
+  __int64 *v14; // [rsp+28h] [rbp-18h]
+  unsigned int v15; // [rsp+30h] [rbp-10h]
+  int v16; // [rsp+34h] [rbp-Ch]
+  __int64 *v17; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+30h] BYREF
 
-  v16 = 0;
+  v17 = 0LL;
   v18 = 0LL;
-  v19 = 0LL;
-  result = BgpFoGetFontHandle(0LL, &v18);
+  result = BgpFoGetFontHandle(0LL, &v17);
   if ( (int)result >= 0 )
   {
-    v14[0] = 0;
+    v13[0] = 0;
     v9 = 4;
-    v14[1] = -1;
-    v10 = v18;
-    v17 = 0;
-    v15 = v18;
+    v13[1] = -1;
+    v10 = v17;
+    v16 = 0;
+    v14 = v17;
     do
     {
-      v11 = v9++;
-      v16 = v9;
-      result = BgpFoGetTextMetrics((__int64)v14, (__int64)&v19);
+      v15 = ++v9;
+      result = BgpFoGetTextMetrics((__int64)v13, (__int64)&v18);
       if ( (int)result < 0 )
         return result;
-      v12 = HIDWORD(v19);
+      v11 = HIDWORD(v18);
     }
-    while ( HIDWORD(v19) < a1 );
-    if ( HIDWORD(v19) <= a1 )
+    while ( HIDWORD(v18) < a1 );
+    if ( HIDWORD(v18) <= a1 )
     {
 LABEL_6:
-      *a4 = v19;
-      v13 = a5;
-      a4[1] = v12;
-      *v13 = v9;
+      *a4 = v18;
+      v12 = a5;
+      a4[1] = v11;
+      *v12 = v9;
       *a6 = v10;
       return 0LL;
     }
@@ -66,12 +63,11 @@ LABEL_6:
     }
     else
     {
-      v9 = v11;
-      v16 = v11;
-      result = BgpFoGetTextMetrics((__int64)v14, (__int64)&v19);
+      v15 = --v9;
+      result = BgpFoGetTextMetrics((__int64)v13, (__int64)&v18);
       if ( (int)result >= 0 )
       {
-        v12 = HIDWORD(v19);
+        v11 = HIDWORD(v18);
         goto LABEL_6;
       }
     }

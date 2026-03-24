@@ -2,17 +2,17 @@
  * XREFs of MiDecrementModifiedWriteCount @ 0x140022DA0
  * Callers:
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
- *     MiTrimSharedPage @ 0x1400E9750 (MiTrimSharedPage.c)
- *     MiReleasePageFileSectionInfo @ 0x140157C7C (MiReleasePageFileSectionInfo.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1402A217C (MiFlushControlArea.c)
- *     MiFlushComplete @ 0x1402B4850 (MiFlushComplete.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6520 (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     MiReleasePageFileSectionInfo @ 0x140157C9C (MiReleasePageFileSectionInfo.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1402A227C (MiFlushControlArea.c)
+ *     MiFlushComplete @ 0x1402B4950 (MiFlushComplete.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
  * Callees:
  *     MiBuildWakeList @ 0x14001E4A8 (MiBuildWakeList.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)

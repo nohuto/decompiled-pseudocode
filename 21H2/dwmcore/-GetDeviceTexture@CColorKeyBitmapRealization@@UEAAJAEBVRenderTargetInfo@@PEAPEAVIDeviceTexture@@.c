@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDeviceTexture@CColorKeyBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180116190
+ * XREFs of ?GetDeviceTexture@CColorKeyBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180262770
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800683A0 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180063900 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
  */
 
 __int64 __fastcall CColorKeyBitmapRealization::GetDeviceTexture(
@@ -19,6 +19,6 @@ __int64 __fastcall CColorKeyBitmapRealization::GetDeviceTexture(
   CachedTexture = CD2DBitmapCache::GetCachedTexture((CColorKeyBitmapRealization *)((char *)this - 152), a2, a3);
   v5 = CachedTexture;
   if ( CachedTexture < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, CachedTexture, 0x8Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, CachedTexture, 0x8Eu, 0LL);
   return v5;
 }

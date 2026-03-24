@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EDID_V1_GetColorDataRaw@@YAJKPEBEPEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C002AA90
+ * XREFs of ?EDID_V1_GetColorDataRaw@@YAJKPEBEPEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C00224B0
  * Callers:
- *     ?GetColorDataRaw@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C021A260 (-GetColorDataRaw@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z.c)
+ *     ?_ParseEDIDForHDRParams@DXGMONITOR@@AEAAJXZ @ 0x1C018CD9C (-_ParseEDIDForHDRParams@DXGMONITOR@@AEAAJXZ.c)
  * Callees:
- *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0018CC0 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000A26C (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
  */
 
 __int64 __fastcall EDID_V1_GetColorDataRaw(unsigned int a1, unsigned __int8 *a2, struct DISPLAY_COLOR_DATA_RAW *a3)

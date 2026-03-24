@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgSystemAnsiCodePage @ 0x1C00BE800
+ * XREFs of GetgSystemAnsiCodePage @ 0x1C0137510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgSystemAnsiCodePage(__int64 a1)
+unsigned __int16 *GetgSystemAnsiCodePage()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 18744LL;
+  return &gSystemAnsiCodePage;
 }

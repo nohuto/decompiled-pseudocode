@@ -1,229 +1,157 @@
 /*
- * XREFs of BmlGetNextBestTargetMode @ 0x1C0177670
+ * XREFs of BmlGetNextBestTargetMode @ 0x1C01445E8
  * Callers:
- *     BmlPinNextBestTargetMode @ 0x1C016F54C (BmlPinNextBestTargetMode.c)
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0178EE0 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ *     BmlPinNextBestTargetMode @ 0x1C0143070 (BmlPinNextBestTargetMode.c)
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0146674 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
  * Callees:
- *     ?GetNextMode@DMMVIDPNTARGETMODESET@@QEAAPEAVDMMVIDPNTARGETMODE@@QEBV2@@Z @ 0x1C0002B60 (-GetNextMode@DMMVIDPNTARGETMODESET@@QEAAPEAVDMMVIDPNTARGETMODE@@QEBV2@@Z.c)
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C0002F24 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?FindById@?$IndexedSet@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@I@Z @ 0x1C0015E74 (-FindById@-$IndexedSet@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@I@Z.c)
- *     ?SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NAEBU_D3DDDI_RATIONAL@@I@Z @ 0x1C0173444 (-SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NAEBU_D3DDDI_RATIONAL@@I@Z.c)
- *     ?SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ @ 0x1C01735E4 (-SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ.c)
- *     BmlDoesTargetModeObeyConstraint @ 0x1C017793C (BmlDoesTargetModeObeyConstraint.c)
- *     BmlCompareTargetModes @ 0x1C0177B08 (BmlCompareTargetModes.c)
- *     _BmlBuildVirtualRefreshRateListFromTargetModeSet @ 0x1C03BDE08 (_BmlBuildVirtualRefreshRateListFromTargetModeSet.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@I@Z @ 0x1C0006FC4 (-FindById@-$IndexedSet@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@I@Z.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C000B820 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000BAD8 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C0144804 (BmlDoesTargetModeObeyConstraint.c)
+ *     BmlCompareTargetModes @ 0x1C0144980 (BmlCompareTargetModes.c)
  */
 
 __int64 __fastcall BmlGetNextBestTargetMode(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
-        DMMVIDPNTARGETMODESET *a4,
-        _QWORD *a5,
+        unsigned __int16 a3,
+        DMMVIDPNSOURCEMODESET *a4,
+        __int64 a5,
         unsigned int a6,
-        _DWORD *a7,
-        struct _D3DDDI_RATIONAL *a8,
-        int *a9)
+        _DWORD *a7)
 {
-  __int64 v10; // rsi
-  __int64 v13; // rax
-  __int64 v14; // r8
-  __int64 v15; // r9
-  char v16; // r12
-  _QWORD *v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r15
-  __int64 v20; // rsi
-  __int64 v21; // rbx
-  _QWORD *v22; // rbp
-  struct DMMVIDPNTARGETMODE *NextMode; // rbp
-  _QWORD *v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rcx
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  struct _D3DDDI_RATIONAL v32; // rax
-  int Numerator; // ecx
-  __int64 v34; // rdi
-  __int64 v35; // rbx
-  struct _D3DDDI_RATIONAL v37; // rax
-  unsigned int v38; // ebx
-  bool refreshed; // al
-  const struct _D3DDDI_RATIONAL *v40; // rcx
-  const struct _D3DDDI_RATIONAL *v41; // rdx
-  struct _D3DDDI_RATIONAL v42; // rax
-  struct _D3DDDI_RATIONAL v43; // [rsp+30h] [rbp-48h]
-  unsigned __int16 v45; // [rsp+90h] [rbp+18h]
-  void *v46; // [rsp+A0h] [rbp+28h]
-  void *v47; // [rsp+A0h] [rbp+28h]
-  void *v48; // [rsp+A0h] [rbp+28h]
+  __int64 v8; // rbp
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // r14
+  __int64 v16; // r12
+  struct DMMVIDPNSOURCEMODE *v17; // rdi
+  int v18; // ebx
+  bool v19; // zf
+  _QWORD *v20; // rbx
+  struct DMMVIDPNSOURCEMODE *NextMode; // rbx
+  _QWORD *v22; // rdx
+  __int64 v23; // r9
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  unsigned int v30; // ebx
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  char v35; // [rsp+88h] [rbp+30h]
 
-  v45 = a3;
-  v10 = (unsigned __int16)a3;
-  v13 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-  v16 = 0;
-  *(_QWORD *)(v13 + 24) = a4;
-  *(_QWORD *)(v13 + 32) = a6;
+  v8 = a3;
+  v11 = WdLogNewEntry5_WdTrace(a1, a2);
+  *(_QWORD *)(v11 + 24) = a4;
+  *(_QWORD *)(v11 + 32) = a6;
   if ( !a4 )
-    WdLogSingleEntry0(1LL);
+  {
+    v31 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v31);
+  }
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v17 = a5;
-  if ( !a5[18] )
   {
-    WdLogSingleEntry2(1LL, a5, v10);
-    return 3223192328LL;
+    v32 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v32);
   }
-  v18 = 0xFFFFFFFFLL;
-  v19 = 0LL;
-  *a7 = -1;
-  if ( a6 != -1 )
+  if ( *(_QWORD *)(a5 + 144) )
   {
-    v19 = IndexedSet<DMMVIDPNTARGETMODE>::FindById((__int64)a4 + 24, a6);
-    if ( !v19 )
+    v14 = 0xFFFFFFFFLL;
+    v15 = 0LL;
+    *a7 = -1;
+    if ( a6 != -1 )
     {
-      v38 = -1071774959;
-      goto LABEL_34;
-    }
-  }
-  v20 = 120 * v10;
-  v21 = 0LL;
-  *(_QWORD *)(v20 + a1 + 100) = 0LL;
-  if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
-  {
-    WdLogNewEntry5_WdTrace(v18, v17, v14, v15);
-    v16 = 1;
-  }
-  v22 = (_QWORD *)*((_QWORD *)a4 + 6);
-  if ( v22 == (_QWORD *)((char *)a4 + 48) )
-    goto LABEL_33;
-  NextMode = (struct DMMVIDPNTARGETMODE *)(v22 - 1);
-  if ( !NextMode )
-    goto LABEL_33;
-  do
-  {
-    v24 = (_QWORD *)WdLogNewEntry5_WdTrace(v18, v17, v14, v15);
-    v24[3] = *((_DWORD *)NextMode + 6) + ((*((_DWORD *)NextMode + 30) & 0x1F8u) << 13);
-    v24[4] = *((unsigned int *)NextMode + 21);
-    v24[5] = *((unsigned int *)NextMode + 22);
-    v27 = *((unsigned int *)NextMode + 23);
-    v24[6] = v27;
-    v24[7] = *((unsigned int *)NextMode + 24);
-    ++*(_DWORD *)(v20 + a1 + 100);
-    if ( NextMode == (struct DMMVIDPNTARGETMODE *)v19
-      || (LOBYTE(v26) = v16, !(unsigned __int8)BmlDoesTargetModeObeyConstraint(a1, v45, NextMode, v26)) )
-    {
-      WdLogNewEntry5_WdTrace(v27, v24, v25, v26);
-    }
-    else
-    {
-      ++*(_DWORD *)(v20 + a1 + 104);
-      if ( (unsigned int)BmlCompareTargetModes(a1, a2, v45, (_DWORD)NextMode, v21, v16) == 1
-        && (!v19 || (unsigned int)BmlCompareTargetModes(a1, a2, v45, (_DWORD)NextMode, v19, v16) == -1) )
+      v15 = IndexedSet<DMMVIDPNTARGETMODE>::FindById((__int64)a4 + 24, a6);
+      if ( !v15 )
       {
-        WdLogNewEntry5_WdTrace(v29, v28, v30, v31);
-        v21 = (__int64)NextMode;
+        v30 = -1071774959;
+        goto LABEL_23;
       }
     }
-    NextMode = DMMVIDPNTARGETMODESET::GetNextMode(a4, NextMode);
-  }
-  while ( NextMode );
-  if ( !v21 )
-  {
-LABEL_33:
-    v38 = -1071774970;
-LABEL_34:
-    WdLogNewEntry5_WdTrace(v18, v17, v14, v15);
-    return v38;
-  }
-  *a7 = *(_DWORD *)(v21 + 24);
-  if ( (**(_DWORD **)(v20 + a1 + 16) & 0x1000000) != 0 )
-  {
-    if ( DMMVIDPNTARGETMODE::SupportVirtualRefreshRate((DMMVIDPNTARGETMODE *)v21) )
+    v16 = 104 * v8;
+    v17 = 0LL;
+    *(_DWORD *)(v16 + a1 + 100) = 0;
+    *(_DWORD *)(v16 + a1 + 104) = 0;
+    v18 = *(_DWORD *)(a1 + 8) & 8;
+    if ( v18 )
+      WdLogNewEntry5_WdTrace(v14, v12);
+    v19 = v18 == 0;
+    v20 = (_QWORD *)*((_QWORD *)a4 + 6);
+    v35 = !v19;
+    if ( v20 == (_QWORD *)((char *)a4 + 48) )
+      goto LABEL_22;
+    NextMode = (struct DMMVIDPNSOURCEMODE *)(v20 - 1);
+    if ( !NextMode )
+      goto LABEL_22;
+    do
     {
-      refreshed = DMMVIDPNTARGETMODE::SupportVirtualRefreshRate(
-                    (DMMVIDPNTARGETMODE *)v21,
-                    (const struct _D3DDDI_RATIONAL *)(*(_QWORD *)(v20 + a1 + 16) + 224LL),
-                    *(_DWORD *)(*(_QWORD *)(v20 + a1 + 16) + 240LL));
-      v40 = *(const struct _D3DDDI_RATIONAL **)(v20 + a1 + 16);
-      v41 = v40 + 28;
-      if ( refreshed )
+      v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v14, v12);
+      v22[3] = *((_DWORD *)NextMode + 6) + ((*((_DWORD *)NextMode + 30) & 0x1F8u) << 13);
+      v22[4] = *((unsigned int *)NextMode + 21);
+      v22[5] = *((unsigned int *)NextMode + 22);
+      v24 = *((unsigned int *)NextMode + 23);
+      v22[6] = v24;
+      v22[7] = *((unsigned int *)NextMode + 24);
+      ++*(_DWORD *)(v16 + a1 + 100);
+      if ( NextMode == (struct DMMVIDPNSOURCEMODE *)v15
+        || (LOBYTE(v23) = v35, !(unsigned __int8)BmlDoesTargetModeObeyConstraint(
+                                                   a1,
+                                                   (unsigned __int16)v8,
+                                                   NextMode,
+                                                   v23)) )
       {
-        Numerator = v40[30].Numerator;
-        v32 = *v41;
-        goto LABEL_21;
-      }
-      if ( DMMVIDPNTARGETMODE::SupportVirtualRefreshRate((DMMVIDPNTARGETMODE *)v21, v41, 1) )
-      {
-        v32 = *(struct _D3DDDI_RATIONAL *)(*(_QWORD *)(v20 + a1 + 16) + 224LL);
+        WdLogNewEntry5_WdTrace(v24, v22);
       }
       else
       {
-        v32 = *(struct _D3DDDI_RATIONAL *)(v21 + 92);
-        if ( ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) != 0 )
+        ++*(_DWORD *)(v16 + a1 + 104);
+        if ( (unsigned int)BmlCompareTargetModes(a1, a2, (unsigned __int16)v8, (_DWORD)NextMode, (__int64)v17, v35) == 1
+          && (!v15 || (unsigned int)BmlCompareTargetModes(a1, a2, (unsigned __int16)v8, (_DWORD)NextMode, v15, v35) == -1) )
         {
-          LODWORD(v47) = *(_QWORD *)(v21 + 92);
-          HIDWORD(v47) = ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) * v32.Denominator;
-          v32 = (struct _D3DDDI_RATIONAL)v47;
+          WdLogNewEntry5_WdTrace(v26, v25);
+          v17 = NextMode;
         }
       }
+      NextMode = DMMVIDPNSOURCEMODESET::GetNextMode(a4, NextMode);
     }
-    else
+    while ( NextMode );
+    if ( !v17 )
     {
-      v32 = *(struct _D3DDDI_RATIONAL *)(v21 + 92);
-      if ( ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) != 0 )
-      {
-        LODWORD(v46) = *(_QWORD *)(v21 + 92);
-        HIDWORD(v46) = ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) * v32.Denominator;
-        v32 = (struct _D3DDDI_RATIONAL)v46;
-      }
-    }
-    Numerator = 1;
-LABEL_21:
-    *a8 = v32;
-    *a9 = Numerator;
-    goto LABEL_22;
-  }
-  if ( (*(_DWORD *)(v20 + a1 + 128) & 1) != 0 )
-  {
-    v34 = v21;
-    BmlBuildVirtualRefreshRateListFromTargetModeSet(a4);
-    v42 = *(struct _D3DDDI_RATIONAL *)(v21 + 92);
-    if ( ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) != 0 )
-    {
-      v43.Numerator = *(_QWORD *)(v21 + 92);
-      v43.Denominator = ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) * v42.Denominator;
-      v42 = v43;
-    }
-    *a8 = v42;
-    *a9 = 1;
-    operator delete(0LL);
-    goto LABEL_23;
-  }
-  v37 = *(struct _D3DDDI_RATIONAL *)(v21 + 92);
-  if ( ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) != 0 )
-  {
-    LODWORD(v48) = *(_QWORD *)(v21 + 92);
-    HIDWORD(v48) = ((*(_DWORD *)(v21 + 120) >> 3) & 0x3F) * v37.Denominator;
-    v37 = (struct _D3DDDI_RATIONAL)v48;
-  }
-  *a9 = 1;
-  *a8 = v37;
 LABEL_22:
-  v34 = v21;
+      v30 = -1071774970;
 LABEL_23:
-  v35 = *(_QWORD *)(a2 + 48);
-  if ( !*(_QWORD *)(v35 + 8) )
-    WdLogSingleEntry0(1LL);
-  DxgkLogCodePointPacket(
-    0x21u,
-    v45,
-    *(_DWORD *)(v34 + 84),
-    *(_DWORD *)(v34 + 88),
-    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v35 + 8) + 16LL) + 404LL));
-  return 0LL;
+      WdLogNewEntry5_WdTrace(v14, v12);
+      return v30;
+    }
+    v27 = *(_QWORD *)(a2 + 48);
+    *a7 = *((_DWORD *)v17 + 6);
+    v28 = *(_QWORD *)(v27 + 8);
+    if ( !v28 )
+    {
+      v34 = WdLogNewEntry5_WdAssertion(a7, v12);
+      WdLogEvent5_WdAssertion(v34);
+      v28 = *(_QWORD *)(v27 + 8);
+    }
+    DxgkLogCodePointPacket(
+      0x21u,
+      v8,
+      *((_DWORD *)v17 + 21),
+      *((_DWORD *)v17 + 22),
+      *(_QWORD *)(*(_QWORD *)(v28 + 16) + 316LL));
+    return 0LL;
+  }
+  else
+  {
+    v33 = WdLogNewEntry5_WdAssertion(v13, v12);
+    *(_QWORD *)(v33 + 24) = a5;
+    *(_QWORD *)(v33 + 32) = v8;
+    WdLogEvent5_WdAssertion(v33);
+    return 3223192328LL;
+  }
 }

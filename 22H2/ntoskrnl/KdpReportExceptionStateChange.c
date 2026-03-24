@@ -1,15 +1,15 @@
 /*
- * XREFs of KdpReportExceptionStateChange @ 0x140AB25A4
+ * XREFs of KdpReportExceptionStateChange @ 0x1409B7CE0
  * Callers:
- *     KiFreezeTargetExecution @ 0x14020E1F0 (KiFreezeTargetExecution.c)
- *     KdpReport @ 0x14030E694 (KdpReport.c)
+ *     KdpReport @ 0x140511924 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x14051DDA0 (KiFreezeTargetExecution.c)
  * Callees:
- *     KdpSetCommonState @ 0x14033EF5C (KdpSetCommonState.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
- *     KdpSetContextState @ 0x140AB1BD4 (KdpSetContextState.c)
- *     KdpQuickMoveMemory @ 0x140AB2880 (KdpQuickMoveMemory.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KdpSetCommonState @ 0x14051131C (KdpSetCommonState.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
+ *     KdpSetContextState @ 0x1409B9E90 (KdpSetContextState.c)
  */
 
 __int64 __fastcall KdpReportExceptionStateChange(__int64 a1, __int64 a2, char a3)
@@ -28,11 +28,11 @@ __int64 __fastcall KdpReportExceptionStateChange(__int64 a1, __int64 a2, char a3
     KdpSetCommonState(12336, a2, (__int64)v10);
     KdpQuickMoveMemory(&v10[8], a1, 152LL);
     v10[46] = a3 == 0;
-    KdpSetContextState((__int64)v10, a2);
+    KdpSetContextState(v10, a2);
     LOWORD(v8) = 240;
     *((_QWORD *)&v8 + 1) = v10;
     LOWORD(v9) = 0;
-    result = KdpSendWaitContinue(v6, (__int64)&v8, (__int64)&v9, a2);
+    result = KdpSendWaitContinue(v6, &v8, &v9, a2);
   }
   while ( (_DWORD)result == 2 );
   return result;

@@ -6,7 +6,7 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void MiInitializeTopLevelBitmap()

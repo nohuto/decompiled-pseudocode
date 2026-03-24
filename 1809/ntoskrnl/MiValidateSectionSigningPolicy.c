@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x14064F460
+ * XREFs of MiValidateSectionSigningPolicy @ 0x14064F440
  * Callers:
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
- *     MiValidateExistingImage @ 0x14064F1A4 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x14064F184 (MiValidateExistingImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BCFDC (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BCFBC (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -55,11 +55,11 @@ LABEL_19:
   {
     if ( v18 < 0 )
       return 0;
-    if ( qword_14040DDC0 )
+    if ( qword_14040DDA0 )
     {
       LOBYTE(v16) = a11;
       LOBYTE(v17) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-      if ( (unsigned int)qword_14040DDC0(v17, v16) )
+      if ( (unsigned int)qword_14040DDA0(v17, v16) )
         return (unsigned int)v18;
     }
     LOBYTE(v19) = a11;

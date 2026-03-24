@@ -1,27 +1,27 @@
 /*
- * XREFs of MiMapImageInSystemSpace @ 0x1406AC9FC
+ * XREFs of MiMapImageInSystemSpace @ 0x14066BCCC
  * Callers:
- *     MiSetPagesModified @ 0x14062896C (MiSetPagesModified.c)
- *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
- *     MiParseComAndCetHeaders @ 0x1406AB9A4 (MiParseComAndCetHeaders.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiOpenHotPatchFile @ 0x140A3A3C0 (MiOpenHotPatchFile.c)
- *     MiCreateSessionDriverProtos @ 0x140A45E40 (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x140534FF0 (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiParseComAndCetHeaders @ 0x1407000C4 (MiParseComAndCetHeaders.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
+ *     MiGetSystemAddressForImage @ 0x14075E09C (MiGetSystemAddressForImage.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB58 (MiOpenHotPatchFile.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA828 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiControlAreaRequiresCharge @ 0x140214CE4 (MiControlAreaRequiresCharge.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiGetControlAreaPartition @ 0x140275590 (MiGetControlAreaPartition.c)
- *     MiReferenceActiveSubsection @ 0x140288C80 (MiReferenceActiveSubsection.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625D6C (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MiMapImageInSystemProcess @ 0x140A30C24 (MiMapImageInSystemProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiControlAreaRequiresCharge @ 0x14025A51C (MiControlAreaRequiresCharge.c)
+ *     MiGetControlAreaPartition @ 0x14025AC04 (MiGetControlAreaPartition.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiReferenceActiveSubsection @ 0x140296380 (MiReferenceActiveSubsection.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A864 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiMapViewInSystemSpace @ 0x140635F9C (MiMapViewInSystemSpace.c)
+ *     MiMapImageInSystemProcess @ 0x1408C47F4 (MiMapImageInSystemProcess.c)
  */
 
 __int64 __fastcall MiMapImageInSystemSpace(__int64 *a1, int a2, __int64 a3)
@@ -29,22 +29,24 @@ __int64 __fastcall MiMapImageInSystemSpace(__int64 *a1, int a2, __int64 a3)
   unsigned int v6; // r14d
   __int64 *v7; // rax
   unsigned int v8; // esi
-  __int64 v9; // rax
-  __int64 v10; // r14
+  ULONG_PTR v9; // rax
+  unsigned __int64 v10; // r14
   __int64 SessionId; // rax
   unsigned int v12; // r15d
   int v13; // r12d
   char *AnyMultiplexedVm; // rax
   __int64 result; // rax
   _KPROCESS *v16; // r13
-  int v17; // r14d
-  _QWORD v18[8]; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v19; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v20; // [rsp+C0h] [rbp+50h] BYREF
-  __int64 v21; // [rsp+C8h] [rbp+58h] BYREF
+  _DWORD *v17; // r9
+  int v18; // r14d
+  __int64 v19; // [rsp+40h] [rbp-29h] BYREF
+  _QWORD v20[14]; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v21; // [rsp+D0h] [rbp+67h] BYREF
+  __int64 v22; // [rsp+E0h] [rbp+77h] BYREF
+  unsigned __int64 v23; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v19 = 0LL;
-  memset(v18, 0, sizeof(v18));
+  v21 = 0LL;
+  memset(v20, 0, 0x40uLL);
   *(_QWORD *)a3 = 0LL;
   v6 = *(_DWORD *)(*(_QWORD *)(*a1 + 56) + 64LL);
   if ( !v6 )
@@ -65,46 +67,46 @@ __int64 __fastcall MiMapImageInSystemSpace(__int64 *a1, int a2, __int64 a3)
     v8 = *(_DWORD *)(*a1 + 8);
   else
     v8 = (v6 >> 12) + ((v6 & 0xFFF) != 0);
-  v18[6] = (unsigned __int64)v8 << 12;
+  v20[6] = (unsigned __int64)v8 << 12;
   v9 = MiReferenceControlAreaFile((__int64)a1);
   v10 = v9;
   if ( (*(_DWORD *)(*(_QWORD *)(v9 + 8) + 52LL) & 0x10) != 0 )
-    v18[5] = v9 | 1;
+    v20[5] = v9 | 1;
   else
-    v18[5] = a1;
+    v20[5] = a1;
   SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-  LODWORD(v18[7]) |= 0x20u;
-  v20 = 0LL;
+  LODWORD(v20[7]) |= 0x20u;
+  v22 = 0LL;
   v12 = a2 | 8;
-  HIDWORD(v18[7]) = HIDWORD(v18[7]) & 0x80000002 | ((SessionId & 0x7FFFF) << 12) | 2;
-  v21 = v8 << 12;
-  v13 = MiMapViewInSystemSpace((unsigned int)v18, (unsigned int)&v19, (unsigned int)&v21, (unsigned int)&v20, 1LL, v12);
+  HIDWORD(v20[7]) = HIDWORD(v20[7]) & 0x80000002 | ((SessionId & 0x7FFFF) << 12) | 2;
+  v23 = v8 << 12;
+  v13 = MiMapViewInSystemSpace((__int64)v20, (__int64)qword_140C4CD68, &v21, &v23, &v22, 1LL, v12);
   MiDereferenceControlAreaFile((__int64)a1, v10);
   if ( v13 >= 0 )
   {
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
 LABEL_10:
     *(_QWORD *)(a3 + 24) = AnyMultiplexedVm;
-    *(_QWORD *)a3 = v19;
+    *(_QWORD *)a3 = v21;
     result = 0LL;
     *(_DWORD *)(a3 + 16) = v8;
     return result;
   }
   if ( (v12 & 2) != 0 )
   {
-    v21 = 0LL;
-    v16 = *(_KPROCESS **)(*(_QWORD *)(MiGetControlAreaPartition((__int64)a1) + 200) + 112LL);
-    KiStackAttachProcess(v16, 0, a3 + 32);
-    v17 = MiMapImageInSystemProcess(a1, v12, &v19, &v21);
-    if ( v17 >= 0 )
+    v19 = 0LL;
+    v16 = *(_KPROCESS **)(*(_QWORD *)(MiGetControlAreaPartition((__int64)a1) + 176) + 104LL);
+    KiStackAttachProcess(v16, 0LL, a3 + 32, v17);
+    v18 = MiMapImageInSystemProcess(a1, v12, &v21, &v19);
+    if ( v18 >= 0 )
     {
-      AnyMultiplexedVm = (char *)&v16[1].ActiveProcessors.StaticBitmap[26];
+      AnyMultiplexedVm = (char *)&v16[1].ActiveProcessorsPadding[6];
       goto LABEL_10;
     }
-    KiUnstackDetachProcess(($115DCDF994C6370D29323EAB0E0C9502 *)(a3 + 32));
+    KiUnstackDetachProcess(a3 + 32, 0);
     if ( *(_QWORD *)(a3 + 8) )
       MiReturnCrossPartitionControlAreaCharges((__int64)a1);
-    return (unsigned int)v17;
+    return (unsigned int)v18;
   }
   else
   {

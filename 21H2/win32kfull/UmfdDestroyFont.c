@@ -1,12 +1,12 @@
 /*
- * XREFs of UmfdDestroyFont @ 0x1C0018410
+ * XREFs of UmfdDestroyFont @ 0x1C009CF20
  * Callers:
  *     <none>
  * Callees:
- *     FONTOBJ_GetCachedGlyphAttrs @ 0x1C0018484 (FONTOBJ_GetCachedGlyphAttrs.c)
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C001B9B8 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
- *     FONTOBJ_SetCachedGlyphAttrs @ 0x1C02A73D8 (FONTOBJ_SetCachedGlyphAttrs.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     FONTOBJ_GetCachedGlyphAttrs @ 0x1C009CEF0 (FONTOBJ_GetCachedGlyphAttrs.c)
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C00FE024 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     FONTOBJ_SetCachedGlyphAttrs @ 0x1C02A8C48 (FONTOBJ_SetCachedGlyphAttrs.c)
  */
 
 __int64 __fastcall UmfdDestroyFont(__int64 a1)
@@ -15,13 +15,13 @@ __int64 __fastcall UmfdDestroyFont(__int64 a1)
   void *v3; // rax
   _QWORD v5[9]; // [rsp+20h] [rbp-48h] BYREF
 
-  CachedGlyphAttrs = (void *)FONTOBJ_GetCachedGlyphAttrs(a1, 0LL);
+  CachedGlyphAttrs = (void *)FONTOBJ_GetCachedGlyphAttrs(a1, 0);
   if ( CachedGlyphAttrs )
   {
     EngFreeMem(CachedGlyphAttrs);
     FONTOBJ_SetCachedGlyphAttrs(a1, 0LL, 0LL);
   }
-  v3 = (void *)FONTOBJ_GetCachedGlyphAttrs(a1, 1LL);
+  v3 = (void *)FONTOBJ_GetCachedGlyphAttrs(a1, 1u);
   if ( v3 )
   {
     EngFreeMem(v3);
@@ -31,5 +31,5 @@ __int64 __fastcall UmfdDestroyFont(__int64 a1)
   v5[6] = 0LL;
   v5[0] = &DestroyFontRequest::`vftable';
   v5[5] = a1;
-  return UmfdClientSendAndWaitForCompletion(*(unsigned int *)(*(_QWORD *)(a1 + 24) + 8LL), v5);
+  return UmfdClientSendAndWaitForCompletion(*(_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL), (__int64)v5);
 }

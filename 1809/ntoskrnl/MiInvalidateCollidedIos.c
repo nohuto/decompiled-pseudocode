@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInvalidateCollidedIos @ 0x140117D28
+ * XREFs of MiInvalidateCollidedIos @ 0x140117D48
  * Callers:
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiPurgeImageSection @ 0x140176600 (MiPurgeImageSection.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleaseInPageRefs @ 0x140117F88 (MiReleaseInPageRefs.c)
- *     MiUpdateTransitionPteFrame @ 0x140118984 (MiUpdateTransitionPteFrame.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiReleaseInPageRefs @ 0x140117FA8 (MiReleaseInPageRefs.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)

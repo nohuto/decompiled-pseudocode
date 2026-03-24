@@ -1,30 +1,26 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x140759C40
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x1405EDB00
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1402D9DB4 (DbgUnicodeStringToAnsiString.c)
- *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x14061BBF0 (DifRtlUnicodeStringToAnsiStringWrapper.c)
- *     EtwpBuildProcessEvent @ 0x14070B610 (EtwpBuildProcessEvent.c)
- *     MmGetSystemRoutineAddress @ 0x140759130 (MmGetSystemRoutineAddress.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140759410 (ExpConvertLdrEntryToModuleInfo.c)
- *     ExpQueryModuleInformation @ 0x140759A80 (ExpQueryModuleInformation.c)
- *     CmpQueryDowncastString @ 0x14075AF34 (CmpQueryDowncastString.c)
- *     AslStringUpcaseToMultiByteN @ 0x14075B0E4 (AslStringUpcaseToMultiByteN.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
- *     CmpLoadLayerVersion @ 0x140836EAC (CmpLoadLayerVersion.c)
- *     KsepGetModuleInfoByName @ 0x140964D68 (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x140A00DB0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x140A01700 (NtSetSystemEnvironmentValue.c)
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
- *     ViThunkHookExportAddress @ 0x140A94030 (ViThunkHookExportAddress.c)
- *     HdlspProcessDumpCommand @ 0x140AA9C94 (HdlspProcessDumpCommand.c)
- *     IopReassignSystemRoot @ 0x140B2BC5C (IopReassignSystemRoot.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140372054 (DbgUnicodeStringToAnsiString.c)
+ *     ExpQueryModuleInformation @ 0x1405ED940 (ExpQueryModuleInformation.c)
+ *     EtwpBuildProcessEvent @ 0x140602610 (EtwpBuildProcessEvent.c)
+ *     MmGetSystemRoutineAddress @ 0x1406B6EC0 (MmGetSystemRoutineAddress.c)
+ *     AslStringUpcaseToMultiByteN @ 0x14075A7D0 (AslStringUpcaseToMultiByteN.c)
+ *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
+ *     CmpQueryEditionVersion @ 0x1407A8330 (CmpQueryEditionVersion.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x1407B179C (ExpConvertLdrEntryToModuleInfo.c)
+ *     KsepGetModuleInfoByName @ 0x1408C0D28 (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1409549F0 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x140955340 (NtSetSystemEnvironmentValue.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
+ *     ViThunkAdjustExportAddressIfHooked @ 0x1409D8D3C (ViThunkAdjustExportAddressIfHooked.c)
+ *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlUnicodeToMultiByteSize @ 0x140759DB0 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeToCustomCPN @ 0x140759E60 (RtlUnicodeToCustomCPN.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1405EDC80 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1405EDEA0 (RtlUnicodeToMultiByteN.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
@@ -32,70 +28,64 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
         PCUNICODE_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  char v6; // r12
-  NTSTATUS v7; // ebx
-  ULONG v8; // esi
+  NTSTATUS v6; // esi
+  SIZE_T v7; // rcx
+  unsigned __int16 v8; // ax
+  unsigned __int16 MaximumLength; // cx
+  ULONG v10; // edx
+  int v11; // edi
   char *StringRoutine; // rax
-  ULONG MaximumLength; // eax
-  ULONG BytesInUnicodeString; // r14d
-  wchar_t *UnicodeString; // r15
-  int v14; // esi
-  char *Buffer; // r13
-  struct _CPTABLEINFO *v16; // rax
-  unsigned __int16 v17; // dx
-  signed __int32 v18[8]; // [rsp+0h] [rbp-78h] BYREF
-  int v19; // [rsp+30h] [rbp-48h]
-  ULONG v20; // [rsp+88h] [rbp+10h] BYREF
-  BOOLEAN v21; // [rsp+90h] [rbp+18h]
-  ULONG BytesInCustomCPString; // [rsp+98h] [rbp+20h] BYREF
+  ULONG v14; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN v15; // [rsp+80h] [rbp+18h]
+  ULONG BytesInMultiByteString; // [rsp+88h] [rbp+20h] BYREF
 
-  v21 = AllocateDestinationString;
+  v15 = AllocateDestinationString;
+  BytesInMultiByteString = 0;
   v6 = 0;
-  v7 = 0;
-  v20 = 0;
-  RtlUnicodeToMultiByteSize(&v20, SourceString->Buffer, SourceString->Length);
-  v8 = v20 + 1;
-  BytesInCustomCPString = v20 + 1;
-  if ( v20 + 1 > 0xFFFF )
+  v14 = 0;
+  RtlUnicodeToMultiByteSize(&v14, SourceString->Buffer, SourceString->Length);
+  v7 = v14 + 1;
+  if ( (unsigned int)v7 > 0xFFFF )
     return -1073741584;
+  v8 = v14;
+  DestinationString->Length = v14;
   if ( AllocateDestinationString )
   {
-    StringRoutine = (char *)ExpAllocateStringRoutine(v8);
+    DestinationString->MaximumLength = v7;
+    StringRoutine = (char *)ExpAllocateStringRoutine(v7);
     DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
-    DestinationString->MaximumLength = v8;
   }
   else
   {
     MaximumLength = DestinationString->MaximumLength;
-    if ( v8 > MaximumLength )
+    if ( v8 >= MaximumLength )
     {
-      if ( !(_WORD)MaximumLength )
+      if ( !MaximumLength )
         return -2147483643;
-      v6 = 1;
+      v6 = -2147483643;
+      DestinationString->Length = MaximumLength - 1;
     }
   }
-  v19 = 0;
-  BytesInUnicodeString = SourceString->Length;
-  UnicodeString = SourceString->Buffer;
-  v14 = DestinationString->MaximumLength;
-  Buffer = DestinationString->Buffer;
-  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
+  v11 = RtlUnicodeToMultiByteN(
+          DestinationString->Buffer,
+          DestinationString->Length,
+          &BytesInMultiByteString,
+          SourceString->Buffer,
+          SourceString->Length);
+  if ( v11 < 0 )
   {
-    v16 = &Utf8TableInfo;
+    if ( AllocateDestinationString )
+    {
+      ExFreePoolWithTag(DestinationString->Buffer, v10);
+      DestinationString->Buffer = 0LL;
+    }
   }
   else
   {
-    _InterlockedOr(v18, 0);
-    v16 = (struct _CPTABLEINFO *)((char *)PsGetCurrentServerSiloGlobals() + 1064);
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
+    return v6;
   }
-  RtlUnicodeToCustomCPN(v16, Buffer, v14 - 1, &BytesInCustomCPString, UnicodeString, BytesInUnicodeString);
-  v19 = 0;
-  v17 = BytesInCustomCPString;
-  DestinationString->Buffer[BytesInCustomCPString] = 0;
-  DestinationString->Length = v17;
-  if ( v6 )
-    return -2147483643;
-  return v7;
+  return v11;
 }

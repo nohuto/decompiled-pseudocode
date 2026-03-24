@@ -1,147 +1,152 @@
 /*
- * XREFs of BgpTxtCreateRegion @ 0x140AAC868
+ * XREFs of BgpTxtCreateRegion @ 0x1409F30D4
  * Callers:
- *     ResFwConfigureDisplayStringResources @ 0x140AAB88C (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x140AAB930 (AnFwConfigureProgressResources.c)
- *     BgpDisplayCharacterGetContext @ 0x140AAE79C (BgpDisplayCharacterGetContext.c)
+ *     ResFwConfigureDisplayStringResources @ 0x1409F16A8 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x1409F1744 (AnFwConfigureProgressResources.c)
+ *     BgpDisplayCharacterGetContext @ 0x1409F4A4C (BgpDisplayCharacterGetContext.c)
  * Callees:
- *     BgpGetResolution @ 0x14025E2BC (BgpGetResolution.c)
- *     BgpGxFillRectangle @ 0x1403A8954 (BgpGxFillRectangle.c)
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     BgpFoGetTextMetrics @ 0x1403CAD78 (BgpFoGetTextMetrics.c)
- *     memset @ 0x140435E00 (memset.c)
- *     BgpFoGetFontHandle @ 0x140AABE98 (BgpFoGetFontHandle.c)
- *     BgpGxRectangleDestroy @ 0x140AAD3E0 (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x140AAD404 (BgpGxRectangleCreate.c)
+ *     BgpGetResolution @ 0x1402D3BC0 (BgpGetResolution.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     BgpFoGetTextMetrics @ 0x14039C78C (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x14039C9C0 (BgpGxFillRectangle.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x1409F32C0 (BgpGxRectangleCreate.c)
+ *     BgpFoGetFontHandle @ 0x1409F334C (BgpFoGetFontHandle.c)
  */
 
-__int64 __fastcall BgpTxtCreateRegion(_DWORD *a1, _DWORD *a2, __int64 a3, _QWORD *a4, __int64 *a5, char a6)
+__int64 __fastcall BgpTxtCreateRegion(_DWORD *a1, _DWORD *a2, _OWORD *a3, __int64 *a4, char a5)
 {
-  __int64 v6; // r15
-  __int64 v7; // r14
-  int FontHandle; // edi
-  _DWORD *v11; // rdx
+  __int64 v7; // r15
+  __int64 v8; // r14
+  int FontHandle; // ebx
   void *Memory; // rax
-  __int64 v13; // rbx
-  unsigned int *v14; // r13
-  _QWORD *v15; // r12
-  unsigned int v16; // eax
+  __int64 v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  _OWORD *v15; // rax
+  unsigned int *v16; // r12
   int v17; // eax
   int v18; // eax
-  int v20; // eax
-  __int64 *v21; // rcx
-  __int64 v22; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+28h] [rbp-38h] BYREF
-  __int64 *v24; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-28h]
-  _DWORD v26[6]; // [rsp+48h] [rbp-18h] BYREF
+  bool v19; // zf
+  int v21; // eax
+  __int64 v22; // rcx
+  __int64 v23; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v24; // [rsp+28h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+30h] [rbp-30h]
+  __int64 v26; // [rsp+38h] [rbp-28h]
+  int v27[6]; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v28; // [rsp+A0h] [rbp+40h] BYREF
+  _OWORD *v29; // [rsp+B0h] [rbp+50h]
+  __int64 *v30; // [rsp+B8h] [rbp+58h]
 
-  v6 = 0LL;
-  v24 = 0LL;
+  v30 = a4;
+  v29 = a3;
+  v25 = 0LL;
+  v28 = 0LL;
   v7 = 0LL;
-  FontHandle = 0;
-  v22 = 0LL;
+  *a4 = 0LL;
+  v8 = 0LL;
   v23 = 0LL;
-  *a5 = 0LL;
+  FontHandle = 0;
+  v24 = 0LL;
   if ( a1 )
   {
     if ( a2 )
     {
-      v25 = *(_QWORD *)BgpGetResolution(v26);
-      if ( *v11 <= (unsigned int)v25 && v11[1] <= HIDWORD(v25) )
+      v26 = *(_QWORD *)BgpGetResolution(v27);
+      if ( *a1 <= (unsigned int)v26 && a1[1] <= HIDWORD(v26) )
       {
-        Memory = (void *)BgpFwAllocateMemory(0x50uLL);
-        v13 = (__int64)Memory;
+        Memory = (void *)BgpFwAllocateMemory(0x48uLL);
+        v11 = (__int64)Memory;
         if ( !Memory )
         {
           FontHandle = -1073741801;
-LABEL_24:
-          *a5 = v13;
-          return (unsigned int)FontHandle;
+          goto LABEL_23;
         }
-        memset(Memory, 0, 0x50uLL);
-        if ( a3 )
+        memset(Memory, 0, 0x48uLL);
+        v15 = v29;
+        if ( v29 )
         {
-          v14 = (unsigned int *)(v13 + 40);
-          *(_OWORD *)(v13 + 40) = *(_OWORD *)a3;
-          *(_QWORD *)(v13 + 56) = *(_QWORD *)(a3 + 16);
+          v16 = (unsigned int *)(v11 + 40);
+          *(_OWORD *)(v11 + 40) = *v29;
+          *(_QWORD *)(v11 + 56) = *((_QWORD *)v15 + 2);
         }
         else
         {
-          FontHandle = BgpFoGetFontHandle(0LL, &v24);
+          FontHandle = BgpFoGetFontHandle(0LL);
           if ( FontHandle < 0 )
-            goto LABEL_37;
-          *(_DWORD *)(v13 + 44) = -1;
-          v14 = (unsigned int *)(v13 + 40);
-          *(_DWORD *)(v13 + 40) = 0;
-          v21 = v24;
-          *(_DWORD *)(v13 + 60) = 0;
-          *(_QWORD *)(v13 + 48) = v21;
-          *(_DWORD *)(v13 + 56) = 18;
+            goto LABEL_34;
+          *(_DWORD *)(v11 + 44) = -1;
+          v16 = (unsigned int *)(v11 + 40);
+          *(_DWORD *)(v11 + 40) = 0;
+          v22 = v25;
+          *(_DWORD *)(v11 + 60) = 0;
+          *(_QWORD *)(v11 + 48) = v22;
+          *(_DWORD *)(v11 + 56) = 18;
         }
-        v15 = (_QWORD *)(v13 + 64);
-        if ( a4 )
-        {
-          *v15 = *a4;
-          goto LABEL_10;
-        }
-        FontHandle = BgpFoGetTextMetrics((__int64)v14, v13 + 64);
+        if ( (a5 & 1) != 0 )
+          goto LABEL_14;
+        FontHandle = BgpFoGetTextMetrics((__int64)v16, (__int64)&v28);
         if ( FontHandle >= 0 )
         {
-LABEL_10:
-          if ( (a6 & 1) == 0 )
-          {
-            v16 = *(_DWORD *)(v13 + 68);
-            if ( a2[1] < v16 )
-              a2[1] = v16;
-            if ( *a2 < *(_DWORD *)v15 )
-              *a2 = *(_DWORD *)v15;
-          }
-          if ( *a1 + *a2 > (unsigned int)v25 || (unsigned int)(a1[1] + a2[1]) > HIDWORD(v25) )
+          if ( a2[1] < HIDWORD(v28) )
+            a2[1] = HIDWORD(v28);
+          if ( *a2 < (unsigned int)v28 )
+            *a2 = v28;
+LABEL_14:
+          if ( *a2 + *a1 > (unsigned int)v26 || (unsigned int)(a1[1] + a2[1]) > HIDWORD(v26) )
           {
             FontHandle = -1073741811;
-            goto LABEL_33;
+            goto LABEL_22;
           }
-          if ( (a6 & 2) == 0 )
+          if ( (a5 & 2) == 0 )
           {
-            v20 = BgpGxRectangleCreate(a2, 32LL, &v22);
-            v6 = v22;
-            FontHandle = v20;
-            if ( v20 < 0 )
-              goto LABEL_33;
-            BgpGxFillRectangle(v22, *v14);
+            v21 = BgpGxRectangleCreate(a2, 32LL, &v23);
+            v7 = v23;
+            FontHandle = v21;
+            if ( v21 < 0 )
+              goto LABEL_30;
+            BgpGxFillRectangle(v23, *v16);
           }
-          if ( (a6 & 9) == 0 )
-            goto LABEL_21;
-          v17 = BgpGxRectangleCreate(a2, 32LL, &v23);
-          v7 = v23;
+          if ( (a5 & 9) == 0 )
+            goto LABEL_20;
+          v17 = BgpGxRectangleCreate(a2, 32LL, &v24);
+          v8 = v24;
           FontHandle = v17;
           if ( v17 >= 0 )
           {
-            *(_QWORD *)(v13 + 32) = v23;
-LABEL_21:
-            *(_QWORD *)v13 = *(_QWORD *)a1;
-            *(_QWORD *)(v13 + 8) = *(_QWORD *)a2;
+            *(_QWORD *)(v11 + 32) = v24;
+LABEL_20:
+            *(_QWORD *)v11 = *(_QWORD *)a1;
+            *(_QWORD *)(v11 + 8) = *(_QWORD *)a2;
             v18 = a2[2];
-            *(_DWORD *)(v13 + 76) = 0;
-            *(_DWORD *)(v13 + 16) = v18;
-            *(_QWORD *)(v13 + 24) = v6;
-            *(_DWORD *)(v13 + 72) = 1;
-            if ( (a6 & 4) != 0 )
-              *(_DWORD *)(v13 + 72) = 5;
+            *(_DWORD *)(v11 + 68) = 0;
+            v19 = (a5 & 4) == 0;
+            *(_DWORD *)(v11 + 16) = v18;
+            *(_QWORD *)(v11 + 24) = v7;
+            *(_DWORD *)(v11 + 64) = 1;
+            if ( !v19 )
+              *(_DWORD *)(v11 + 64) = 5;
+LABEL_22:
             if ( FontHandle >= 0 )
-              goto LABEL_24;
+            {
+LABEL_23:
+              *v30 = v11;
+              return (unsigned int)FontHandle;
+            }
           }
-LABEL_33:
-          if ( v6 )
-            BgpGxRectangleDestroy(v6);
+LABEL_30:
           if ( v7 )
-            BgpGxRectangleDestroy(v7);
+            BgpGxRectangleDestroy(v7, v12, v13, v14);
+          if ( v8 )
+            BgpGxRectangleDestroy(v8, v12, v13, v14);
         }
-LABEL_37:
-        BgpFwFreeMemory(v13);
-        goto LABEL_24;
+LABEL_34:
+        BgpFwFreeMemory(v11, v12, v13, v14);
+        goto LABEL_23;
       }
     }
   }

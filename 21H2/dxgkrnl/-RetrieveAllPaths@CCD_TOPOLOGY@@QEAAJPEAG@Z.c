@@ -1,53 +1,49 @@
 /*
- * XREFs of ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C01E8700
+ * XREFs of ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C016D890
  * Callers:
- *     DxgkGetPathsModality @ 0x1C01AE940 (DxgkGetPathsModality.c)
+ *     DxgkGetPathsModality @ 0x1C01365A0 (DxgkGetPathsModality.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000F45C (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C01A46EC (DxgkReleaseSessionModeChangeLock.c)
- *     ?FillPathsTargetFlags@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C01ABA20 (-FillPathsTargetFlags@CCD_TOPOLOGY@@QEAAJXZ.c)
- *     ?_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z @ 0x1C01ABCA4 (-_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z.c)
- *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01ACA7C (-Global@CCD_BTL@@SAAEAV1@XZ.c)
- *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C01E878C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007D94 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0122794 (DxgkReleaseSessionModeChangeLock.c)
+ *     ?FillPathsTargetFlags@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C0132790 (-FillPathsTargetFlags@CCD_TOPOLOGY@@QEAAJXZ.c)
+ *     ?_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z @ 0x1C013508C (-_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z.c)
+ *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01352C8 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
+ *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C016D91C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::RetrieveAllPaths(CCD_TOPOLOGY *this, unsigned __int16 *a2)
 {
   int v4; // eax
-  __int64 v5; // rdi
-  CCD_BTL *v6; // rax
-  char v8; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  CCD_BTL *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v12; // rax
+  char v13; // [rsp+40h] [rbp+18h] BYREF
 
-  v8 = 0;
-  v4 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v8, 0);
-  v5 = v4;
+  v13 = 0;
+  v4 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v13, 0);
+  v7 = v4;
   if ( v4 < 0 )
   {
-    WdLogSingleEntry1(2LL, v4);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire session mode change lock shared (Status = 0x%I64x)",
-      v5,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v12 + 24) = v7;
+    WdLogEvent5_WdError(v12);
   }
   else
   {
-    v6 = CCD_BTL::Global();
-    LODWORD(v5) = CCD_BTL::RetrieveAllPaths(v6, this, a2);
-    if ( (int)v5 >= 0 )
+    v8 = CCD_BTL::Global(v6, v5);
+    LODWORD(v7) = CCD_BTL::RetrieveAllPaths(v8, this, a2);
+    if ( (int)v7 >= 0 )
     {
-      LODWORD(v5) = CCD_TOPOLOGY::_FillPathsActiveFlagsFromTopology(this, this);
-      if ( (int)v5 >= 0 )
-        LODWORD(v5) = CCD_TOPOLOGY::FillPathsTargetFlags(this);
+      LODWORD(v7) = CCD_TOPOLOGY::_FillPathsActiveFlagsFromTopology(this, this);
+      if ( (int)v7 >= 0 )
+        LODWORD(v7) = CCD_TOPOLOGY::FillPathsTargetFlags(this, v9);
     }
   }
-  if ( v8 )
-    DxgkReleaseSessionModeChangeLock();
-  return (unsigned int)v5;
+  if ( v13 )
+    DxgkReleaseSessionModeChangeLock(v10, v9);
+  return (unsigned int)v7;
 }

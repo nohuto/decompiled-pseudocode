@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxUnlockMenuState @ 0x1C013C950
+ * XREFs of xxxUnlockMenuState @ 0x1C02229A0
  * Callers:
- *     xxxMNStartMenuState @ 0x1C020009C (xxxMNStartMenuState.c)
+ *     <none>
  * Callees:
- *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C01FF08C (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
+ *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C0221234 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
  */
 
 __int64 __fastcall xxxUnlockMenuState(struct tagMENUSTATE *a1)

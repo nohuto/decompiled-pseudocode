@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigActivateService @ 0x14087C60C
+ * XREFs of PipHardwareConfigActivateService @ 0x14077B9C0
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     PiOpenDriverRedirectedStateKey @ 0x14087C6F0 (PiOpenDriverRedirectedStateKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x14077BAA4 (PiOpenDriverRedirectedStateKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigActivateService(PCWSTR SourceString)
@@ -38,7 +38,7 @@ __int64 __fastcall PipHardwareConfigActivateService(PCWSTR SourceString)
     else
       v5 = 0LL;
     v6 = Handle;
-    v3 = RegRtlDeleteTreeInternal(Handle, L"StartOverride", v5, 0);
+    v3 = RegRtlDeleteTreeInternal((char *)Handle, L"StartOverride", v5, 0);
     if ( v3 == -1073741772 )
       v3 = 0;
     goto LABEL_10;

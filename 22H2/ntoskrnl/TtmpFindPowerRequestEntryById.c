@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpFindPowerRequestEntryById @ 0x1409A5348
+ * XREFs of TtmpFindPowerRequestEntryById @ 0x1408FF9BC
  * Callers:
- *     TtmiSetDisplayPowerRequest @ 0x1409A4C4C (TtmiSetDisplayPowerRequest.c)
- *     TtmpSetDisplayRequestEnded @ 0x1409A5C10 (TtmpSetDisplayRequestEnded.c)
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A5DFC (TtmpUpdateDisplayRequiredPowerRequest.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x1409A5ECC (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1408FF288 (TtmiSetDisplayPowerRequest.c)
+ *     TtmpSetDisplayRequestEnded @ 0x1409002B0 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409004A0 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x140900570 (TtmpUpdatePowerRequestAttribute.c)
  * Callees:
- *     TtmpPowerRequestEntryComparator @ 0x1409A582C (TtmpPowerRequestEntryComparator.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
+ *     TtmpPowerRequestEntryComparator @ 0x1408FFEB8 (TtmpPowerRequestEntryComparator.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 bool __fastcall TtmpFindPowerRequestEntryById(__int64 a1, int a2, __int64 *a3)
@@ -23,14 +23,15 @@ bool __fastcall TtmpFindPowerRequestEntryById(__int64 a1, int a2, __int64 *a3)
   v3 = 0LL;
   v4 = a2;
   v5 = 0LL;
-LABEL_2:
-  v8 = -1LL << (*(_BYTE *)(a1 + 276) & 0x1F);
-  v9 = v8 & v4;
-  if ( v5 )
-    goto LABEL_5;
-  v10 = *(_DWORD *)(a1 + 276) >> 5;
-  if ( v10 )
+  while ( 1 )
   {
+    v8 = -1LL << (*(_BYTE *)(a1 + 276) & 0x1F);
+    v9 = v8 & v4;
+    if ( v5 )
+      goto LABEL_5;
+    v10 = *(_DWORD *)(a1 + 276) >> 5;
+    if ( !v10 )
+      break;
     v12 = v8 & v4;
     v5 = *(_QWORD *)(a1 + 280)
        + 8LL
@@ -49,20 +50,25 @@ LABEL_5:
       if ( (v5 & 1) != 0 )
         break;
       if ( v9 == (v8 & *(_QWORD *)(v5 + 8)) )
-      {
-        if ( !v5 )
-          break;
-        if ( (unsigned int)TtmpPowerRequestEntryComparator(v5, v4) )
-        {
-          v3 = v5;
-          goto LABEL_11;
-        }
-        goto LABEL_2;
-      }
+        goto LABEL_9;
     }
+    v5 = 0LL;
+LABEL_9:
+    if ( !v5 )
+      goto LABEL_14;
+    if ( (unsigned int)TtmpPowerRequestEntryComparator(v5, v4) )
+      goto LABEL_13;
   }
-  TtmiLogError("TtmpFindPowerRequestEntryById", 401LL, 3221226021LL, 0xFFFFFFFFLL);
-LABEL_11:
+  v5 = 0LL;
+LABEL_13:
+  if ( !v5 )
+  {
+LABEL_14:
+    TtmiLogError("TtmpFindPowerRequestEntryById", 401LL, 3221226021LL, 0xFFFFFFFFLL);
+    goto LABEL_16;
+  }
+  v3 = v5;
+LABEL_16:
   if ( a3 )
     *a3 = v3;
   return v3 != 0;

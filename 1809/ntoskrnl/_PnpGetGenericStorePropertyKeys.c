@@ -1,23 +1,23 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1406FA568
+ * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1406FA548
  * Callers:
- *     PiDevCfgCopyObjectProperties @ 0x1406FA464 (PiDevCfgCopyObjectProperties.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x14082AF8C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140840BC0 (PiCreateDriverSwDeviceCallback.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x1408FA30C (_PnpGetObjectPropertyKeysWorker.c)
- *     DrvDbDeleteObjectSubKey @ 0x140900ED4 (DrvDbDeleteObjectSubKey.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1406FA444 (PiDevCfgCopyObjectProperties.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x14082AF6C (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140840BA0 (PiCreateDriverSwDeviceCallback.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x1408FA2EC (_PnpGetObjectPropertyKeysWorker.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140900EB4 (DrvDbDeleteObjectSubKey.c)
  * Callees:
  *     RtlUnalignedStringCchLengthW @ 0x140015DA0 (RtlUnalignedStringCchLengthW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
- *     _PnpCtxRegEnumValue @ 0x1406F5604 (_PnpCtxRegEnumValue.c)
- *     _RegRtlEnumKey @ 0x1406F97E8 (_RegRtlEnumKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
  */
 
 signed int __fastcall PnpGetGenericStorePropertyKeys(

@@ -1,13 +1,13 @@
 /*
- * XREFs of AMLIGetNSObjectType @ 0x1C00483C8
+ * XREFs of AMLIGetNSObjectType @ 0x1C0002924
  * Callers:
- *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7B0 (ACPIBusAndFilterIrpQueryCapabilities.c)
- *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE94 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C007F584 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C007FC4C (ACPIBusIrpQueryHardwareId.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
- *     ACPIProcessorDeviceControl @ 0x1C008C580 (ACPIProcessorDeviceControl.c)
- *     ACPIProcessorGetInitialApicId @ 0x1C008C758 (ACPIProcessorGetInitialApicId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIProcessorGetInitialApicId @ 0x1C00910B8 (ACPIProcessorGetInitialApicId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30 (ACPIBusAndFilterIrpQueryCapabilities.c)
  * Callees:
  *     <none>
  */

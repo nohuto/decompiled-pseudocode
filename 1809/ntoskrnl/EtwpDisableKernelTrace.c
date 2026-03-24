@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x1406C5A4C
+ * XREFs of EtwpDisableKernelTrace @ 0x1406C5A2C
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeCancelTimer2 @ 0x1400FAF50 (KeCancelTimer2.c)
- *     IoPerfReset @ 0x1402851C4 (IoPerfReset.c)
- *     KeStopProfile @ 0x140295C40 (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1402EC8F0 (DbgSetDebugPrintCallback.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406C5BD8 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcUnregisterLogRoutine @ 0x14084B6A8 (AlpcUnregisterLogRoutine.c)
- *     WmiSetNetworkNotify @ 0x1408B43AC (WmiSetNetworkNotify.c)
+ *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
+ *     IoPerfReset @ 0x1402852C4 (IoPerfReset.c)
+ *     KeStopProfile @ 0x140295D40 (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1402EC9F0 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1406C5BB8 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x14084B688 (AlpcUnregisterLogRoutine.c)
+ *     WmiSetNetworkNotify @ 0x1408B438C (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
@@ -122,7 +122,7 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     if ( (v12 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStopProfile((ULONG_PTR)qword_14040A238 + 248 * i);
+        KeStopProfile((ULONG_PTR)qword_14040A388 + 248 * i);
     }
     if ( (a2[4] & 0x80u) != 0 )
     {

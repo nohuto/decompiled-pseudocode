@@ -1,34 +1,33 @@
 /*
- * XREFs of RIMHandlePowerDeviceArrival @ 0x1C0005C78
+ * XREFs of RIMHandlePowerDeviceArrival @ 0x1C00AD30C
  * Callers:
- *     rimDoRimDevChange @ 0x1C0003BFC (rimDoRimDevChange.c)
+ *     rimDoRimDevChange @ 0x1C00533E4 (rimDoRimDevChange.c)
  * Callees:
- *     RIMUpdateDeviceForInputMode @ 0x1C0005CE4 (RIMUpdateDeviceForInputMode.c)
- *     RIMGetCurrentPowerInputMode @ 0x1C0005D44 (RIMGetCurrentPowerInputMode.c)
- *     ?RIMQueryWakeCapableProperty@@YAXPEAURIMDEV@@@Z @ 0x1C0005E48 (-RIMQueryWakeCapableProperty@@YAXPEAURIMDEV@@@Z.c)
- *     isChildPartition @ 0x1C004FE70 (isChildPartition.c)
- *     RIMSetDeviceIdleTimeout @ 0x1C0183260 (RIMSetDeviceIdleTimeout.c)
- *     RIMHandleTTMDeviceArrival @ 0x1C01B44FC (RIMHandleTTMDeviceArrival.c)
+ *     isChildPartition @ 0x1C00423A0 (isChildPartition.c)
+ *     RIMUpdateDeviceForInputMode @ 0x1C00AD370 (RIMUpdateDeviceForInputMode.c)
+ *     RIMGetCurrentPowerInputMode @ 0x1C00AD3B8 (RIMGetCurrentPowerInputMode.c)
+ *     RIMSetDeviceIdleTimeout @ 0x1C0162510 (RIMSetDeviceIdleTimeout.c)
+ *     RIMHandleTTMDeviceArrival @ 0x1C018202C (RIMHandleTTMDeviceArrival.c)
  */
 
-__int64 __fastcall RIMHandlePowerDeviceArrival(struct RIMDEV *a1)
+__int64 __fastcall RIMHandlePowerDeviceArrival(_DWORD *a1)
 {
-  unsigned int v2; // eax
+  bool v2; // al
+  unsigned int v3; // eax
 
-  if ( (unsigned __int8)isChildPartition() )
+  v2 = isChildPartition();
+  a1[331] = -1;
+  if ( v2 )
   {
-    *((_DWORD *)a1 + 329) = -1;
-    *((_DWORD *)a1 + 330) = 0;
+    a1[332] = 0;
     return 0LL;
   }
-  RIMQueryWakeCapableProperty(a1);
-  *((_DWORD *)a1 + 329) = -1;
-  v2 = RIMGetCurrentPowerInputMode();
-  *((_DWORD *)a1 + 330) = v2;
-  RIMUpdateDeviceForInputMode(a1, v2);
-  if ( (*((_DWORD *)a1 + 50) & 0x80u) != 0 )
+  v3 = RIMGetCurrentPowerInputMode();
+  a1[332] = v3;
+  RIMUpdateDeviceForInputMode(a1, v3);
+  if ( (a1[50] & 0x80u) != 0 )
     RIMSetDeviceIdleTimeout(a1);
-  if ( !*(_BYTE *)SGDGetUserGdiSessionState() )
+  if ( !gbTtmEnabled )
     return 0LL;
   return RIMHandleTTMDeviceArrival(a1);
 }

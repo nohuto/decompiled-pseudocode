@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIGetUsedDebuggingDevices @ 0x1C00900C4
+ * XREFs of ACPIGetUsedDebuggingDevices @ 0x1C0090E84
  * Callers:
- *     ACPIGlobalInitialize @ 0x1C00BC3C4 (ACPIGlobalInitialize.c)
+ *     ACPIGlobalInitialize @ 0x1C00BC294 (ACPIGlobalInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ACPIGetUsedDebuggingDevices()
 {
   __int64 result; // rax
-  __int64 Pool2; // rax
+  unsigned int *PoolWithTag; // rax
   unsigned int *v2; // rdi
   unsigned int v3; // ebp
   const WCHAR *v4; // rbx
@@ -17,29 +17,29 @@ __int64 ACPIGetUsedDebuggingDevices()
   unsigned int i; // esi
   __int64 v7; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v9; // [rsp+60h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
 
-  v9 = 0;
+  LODWORD(NumberOfBytes) = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   gDebuggingDevicesInUse[0] = 0LL;
-  xmmword_1C0080B30 = 0LL;
-  result = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+  xmmword_1C0081970 = 0LL;
+  result = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
              33LL,
              0LL,
              0LL,
-             &v9);
+             &NumberOfBytes);
   if ( (_DWORD)result == -2147483643 )
   {
-    Pool2 = ExAllocatePool2(256LL, v9, 1114661697LL);
-    v2 = (unsigned int *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x42706341u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      result = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+      result = ((__int64 (__fastcall *)(__int64, _QWORD, unsigned int *, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
                  33LL,
-                 v9,
-                 Pool2,
-                 &v9);
+                 (unsigned int)NumberOfBytes,
+                 PoolWithTag,
+                 &NumberOfBytes);
       if ( (int)result >= 0 )
       {
         v3 = 0;

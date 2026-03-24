@@ -1,24 +1,25 @@
 /*
- * XREFs of PspDeleteSilo @ 0x1407F8C6C
+ * XREFs of PspDeleteSilo @ 0x140906418
  * Callers:
- *     PspJobDelete @ 0x140207100 (PspJobDelete.c)
+ *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
- *     PspDeleteServerSiloGlobals @ 0x1409ABFB0 (PspDeleteServerSiloGlobals.c)
+ *     PsGetServerSiloState @ 0x1402BDFAC (PsGetServerSiloState.c)
+ *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
  */
 
-char __fastcall PspDeleteSilo(__int64 a1)
+void __fastcall PspDeleteSilo(__int64 a1)
 {
-  char result; // al
+  __int64 v2; // rcx
   __int64 v3; // rcx
 
   if ( *(_DWORD *)(a1 + 216) )
-    __int2c();
-  result = PsIsServerSilo(a1);
-  if ( result )
+    NT_ASSERT("Silo->ActiveProcesses == 0");
+  if ( PsIsServerSilo(a1) && (unsigned int)PsGetServerSiloState(v2) != 4 )
+    NT_ASSERT("PsGetServerSiloState(Silo) == SERVERSILO_TERMINATED");
+  if ( PsIsServerSilo(v2) )
   {
-    result = PspDeleteServerSiloGlobals(*(PVOID *)(v3 + 1464));
-    *(_QWORD *)(a1 + 1464) = 0LL;
+    PspDeleteServerSiloGlobals(*(char **)(v3 + 1272));
+    *(_QWORD *)(a1 + 1272) = 0LL;
   }
-  return result;
 }

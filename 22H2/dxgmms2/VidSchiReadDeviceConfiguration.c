@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiReadDeviceConfiguration @ 0x1C0090ADC
+ * XREFs of VidSchiReadDeviceConfiguration @ 0x1C007FE38
  * Callers:
- *     VidSchiCreateDeviceInternal @ 0x1C00900F0 (VidSchiCreateDeviceInternal.c)
+ *     VidSchiCreateDeviceInternal @ 0x1C007FAC0 (VidSchiCreateDeviceInternal.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 __int64 __fastcall VidSchiReadDeviceConfiguration(__int64 a1)

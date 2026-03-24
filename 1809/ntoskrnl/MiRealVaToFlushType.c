@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRealVaToFlushType @ 0x14016A828
+ * XREFs of MiRealVaToFlushType @ 0x14016A848
  * Callers:
- *     MiFlushValidPteFromTb @ 0x14016A790 (MiFlushValidPteFromTb.c)
- *     MiDbgReleaseAddress @ 0x1402BAD0C (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x1402BB284 (MiDbgWriteCheck.c)
+ *     MiFlushValidPteFromTb @ 0x14016A7B0 (MiFlushValidPteFromTb.c)
+ *     MiDbgReleaseAddress @ 0x1402BAE0C (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepGetModuleInfoByName @ 0x140977654
+ * XREFs of KsepGetModuleInfoByName @ 0x1408C0D78
  * Callers:
- *     KsepResolveShimHooks @ 0x14085BECC (KsepResolveShimHooks.c)
+ *     KsepResolveShimHooks @ 0x1408C00F4 (KsepResolveShimHooks.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlCompareString @ 0x1406D7E90 (RtlCompareString.c)
- *     RtlFreeAnsiString @ 0x140756D50 (RtlFreeAnsiString.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlCompareString @ 0x1405EC6B0 (RtlCompareString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWORD *a3)
@@ -50,6 +50,6 @@ LABEL_8:
     }
   }
   if ( DestinationString.Buffer )
-    RtlFreeAnsiString(&DestinationString);
+    RtlFreeAnsiString((PUNICODE_STRING)&DestinationString);
   return (unsigned int)v5;
 }

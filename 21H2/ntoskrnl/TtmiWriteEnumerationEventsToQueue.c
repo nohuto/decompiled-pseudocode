@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiWriteEnumerationEventsToQueue @ 0x1409A50EC
+ * XREFs of TtmiWriteEnumerationEventsToQueue @ 0x1408FF4DC
  * Callers:
- *     TtmpDispatchCreateEventQueue @ 0x1409A6714 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140900B3C (TtmpDispatchCreateEventQueue.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     TtmiPublishDeviceEnumerationEvents @ 0x1409A1D70 (TtmiPublishDeviceEnumerationEvents.c)
- *     TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A5AA4 (TtmpPublishDisplayRequiredPowerRequestEvents.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiWriteEventToSingleQueue @ 0x1409AB3EC (TtmiWriteEventToSingleQueue.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     TtmiPublishDeviceEnumerationEvents @ 0x1408FC310 (TtmiPublishDeviceEnumerationEvents.c)
+ *     TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1408FFEB8 (TtmpPublishDisplayRequiredPowerRequestEvents.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1409056FC (TtmiWriteEventToSingleQueue.c)
  */
 
 __int64 __fastcall TtmiWriteEnumerationEventsToQueue(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall TtmiWriteEnumerationEventsToQueue(__int64 a1, __int64 a2)
   v4 = TtmiPublishDeviceEnumerationEvents(a1, a2);
   if ( v4 < 0 )
   {
-    v5 = 2113LL;
+    v5 = 2117LL;
 LABEL_3:
     TtmiLogError("TtmiWriteEnumerationEventsToQueue", v5, (unsigned int)v4, (unsigned int)v4);
     return (unsigned int)v4;
@@ -30,7 +30,7 @@ LABEL_3:
   v4 = TtmiWriteEventToSingleQueue(a2, v7);
   if ( v4 < 0 )
   {
-    v5 = 2132LL;
+    v5 = 2136LL;
     goto LABEL_3;
   }
   return 0LL;

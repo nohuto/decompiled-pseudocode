@@ -1,74 +1,79 @@
 /*
- * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x14071A518
+ * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x1406DAFE8
  * Callers:
- *     AlpcpPrepareViewForDelivery @ 0x14071A2D8 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A8C8 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406DA940 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpPrepareViewForDelivery @ 0x1406DADA8 (AlpcpPrepareViewForDelivery.c)
  * Callees:
- *     MiSetReadOnlyOnSectionView @ 0x140215318 (MiSetReadOnlyOnSectionView.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiVadSupportsPrivateCommit @ 0x140274A30 (MiVadSupportsPrivateCommit.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x14027CE20 (MiVadMapsLargeImage.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiIsRangeFullyCommitted @ 0x1406F61C0 (MiIsRangeFullyCommitted.c)
- *     MiCheckSecuredVad @ 0x14071A124 (MiCheckSecuredVad.c)
- *     MiAddSecureEntry @ 0x140746294 (MiAddSecureEntry.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1407C7B9C (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x14021B200 (MiVadSupportsPrivateCommit.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x14021CBE0 (MiVadMapsLargeImage.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140240500 (MiSetReadOnlyOnSectionView.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiAddSecureEntry @ 0x14061FBE0 (MiAddSecureEntry.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x14061FD14 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiIsRangeFullyCommitted @ 0x14063D9E0 (MiIsRangeFullyCommitted.c)
+ *     MiCheckSecuredVad @ 0x1406DB1E8 (MiCheckSecuredVad.c)
  */
 
-__int64 __fastcall MmSecureVirtualMemoryAgainstWrites(__int64 a1, unsigned __int64 a2, __int64 a3)
+unsigned __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v3; // rbp
-  __int64 v7; // rdi
-  unsigned __int64 v8; // r14
-  __int64 *v9; // rax
-  ULONG_PTR v10; // rbx
-  int v11; // eax
-  __int64 v12; // rcx
+  unsigned __int64 v4; // rsi
+  int v5; // r15d
+  int v6; // r14d
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rbp
+  volatile signed __int32 *v10; // rax
+  ULONG_PTR v11; // rbx
+  int v12; // ecx
+  int v13; // eax
+  __int64 v14; // rcx
   _KPROCESS *Process; // [rsp+30h] [rbp-88h]
-  int v15; // [rsp+38h] [rbp-80h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+40h] [rbp-78h] BYREF
+  int v17; // [rsp+38h] [rbp-80h] BYREF
+  _OWORD v18[3]; // [rsp+40h] [rbp-78h] BYREF
 
-  v3 = a2 & 0xFFFFFFFFFFFFF000uLL;
-  memset(&v16, 0, sizeof(v16));
+  v4 = a2 & 0xFFFFFFFFFFFFF000uLL;
+  v5 = a3;
+  v6 = a2;
+  memset(v18, 0, sizeof(v18));
   if ( (a2 & 0xFFFFFFFFFFFFF000uLL) != a2 || (a3 & 0xFFF) != 0 )
     return 0LL;
-  v7 = 0LL;
-  v8 = (a3 + a2 - 1) | 0xFFF;
+  v8 = 0LL;
+  v9 = (a3 + a2 - 1) | 0xFFF;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( Process == (_KPROCESS *)a1 )
     Process = 0LL;
   else
-    KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v16);
-  v9 = MiObtainReferencedVadEx(v3, 0, &v15);
-  v10 = (ULONG_PTR)v9;
-  if ( v9 )
+    KiStackAttachProcess((_KPROCESS *)a1, 0LL, (__int64)v18, a4);
+  v10 = MiObtainReferencedVadEx(v4, 0, &v17);
+  v11 = (ULONG_PTR)v10;
+  if ( v10 )
   {
-    if ( v8 >> 12 <= (*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32))
-      && MiVadSupportsPrivateCommit((__int64)v9)
-      && ((*(_DWORD *)(v10 + 48) & 8) == 0 || (int)MiCheckSecuredVad(v10, a2, a3, 1u, 0) >= 0)
-      && (*(_DWORD *)(v10 + 48) & 0x200000) == 0
-      && (*(_DWORD *)(v10 + 64) & 0x4000000) == 0
-      && (MmCompatibleProtectionMask[(*(_DWORD *)(v10 + 48) >> 7) & 7] | 0x702) == (MmCompatibleProtectionMask[(*(_DWORD *)(v10 + 48) >> 7) & 7] | 0x700) )
+    if ( v9 >> 12 <= (*((unsigned int *)v10 + 7) | ((unsigned __int64)*((unsigned __int8 *)v10 + 33) << 32))
+      && MiVadSupportsPrivateCommit((__int64)v10)
+      && ((*(_DWORD *)(v11 + 48) & 8) == 0 || (int)MiCheckSecuredVad(v12, v6, v5, 1, 0) >= 0)
+      && (*(_DWORD *)(v11 + 48) & 0x100000) == 0
+      && (*(_DWORD *)(v11 + 64) & 0x4000000) == 0
+      && (MmCompatibleProtectionMask[(*(_DWORD *)(v11 + 48) >> 7) & 7] | 0x702) == (MmCompatibleProtectionMask[(*(_DWORD *)(v11 + 48) >> 7) & 7] | 0x700) )
     {
-      if ( (v11 = *(_DWORD *)(**(_QWORD **)(v10 + 72) + 56LL), (v11 & 0x80u) != 0) && (v11 & 0x20) == 0
-        || !(unsigned int)MiVadMapsLargeImage(v10) && (unsigned int)MiIsRangeFullyCommitted(v12, v3, v8) )
+      if ( (v13 = *(_DWORD *)(**(_QWORD **)(v11 + 72) + 56LL), (v13 & 0x80u) != 0) && (v13 & 0x20) == 0
+        || !MiVadMapsLargeImage(v11) && (unsigned int)MiIsRangeFullyCommitted(v14, v4, v9) )
       {
-        if ( (int)MiSetReadOnlyOnSectionView(a1, v10, v3, v8) >= 0 )
+        if ( (int)MiSetReadOnlyOnSectionView(a1, v11, v4, v9) >= 0 )
         {
-          v7 = MiAddSecureEntry(v10, v3, v8, -1073741823, 0);
-          if ( !v7 )
-            MiUnsecureVirtualMemoryAgainstWrites(v10, v3, v8);
+          v8 = (unsigned __int64)MiAddSecureEntry(v11, v4, v9, -1073741823, 0);
+          if ( !v8 )
+            MiUnsecureVirtualMemoryAgainstWrites(v11, v4, v9);
         }
       }
     }
-    MiUnlockAndDereferenceVad((char *)v10);
+    MiUnlockAndDereferenceVad((char *)v11);
   }
   if ( Process )
-    KiUnstackDetachProcess(&v16);
-  if ( v7 )
-    return qword_140C65B40 ^ a1 ^ v7;
-  return v7;
+    KiUnstackDetachProcess((__int64)v18, 0);
+  if ( v8 )
+    v8 ^= a1 ^ qword_140C4DE50;
+  return v8;
 }

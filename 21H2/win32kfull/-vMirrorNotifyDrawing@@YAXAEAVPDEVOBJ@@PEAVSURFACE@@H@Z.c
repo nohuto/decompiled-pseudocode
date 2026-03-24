@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C0299D04
+ * XREFs of ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C029B434
  * Callers:
- *     vMirrorIncludeNotifyWrap @ 0x1C00E1DD0 (vMirrorIncludeNotifyWrap.c)
+ *     vMirrorIncludeNotifyWrap @ 0x1C00FAAA0 (vMirrorIncludeNotifyWrap.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C0299790 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029AEB4 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
  */
 
 void __fastcall vMirrorNotifyDrawing(struct PDEVOBJ *a1, struct SURFACE *a2, int a3)
@@ -27,17 +27,17 @@ void __fastcall vMirrorNotifyDrawing(struct PDEVOBJ *a1, struct SURFACE *a2, int
   v5 = a3;
   if ( *(_QWORD *)a1 && (*(_DWORD *)(v3 + 40) & 0x1000000) != 0 )
   {
-    for ( i = **(struct _DISPSURF ***)(v3 + 1768); i; i = *(struct _DISPSURF **)i )
+    for ( i = **(struct _DISPSURF ***)(v3 + 1800); i; i = *(struct _DISPSURF **)i )
     {
       v7 = *((_QWORD *)i + 6);
       if ( v7 )
       {
-        if ( (*(_DWORD *)(v7 + 1792) & 0x8000000) != 0 )
+        if ( (*(_DWORD *)(v7 + 1824) & 0x8000000) != 0 )
         {
-          v8 = *(_DWORD *)(v7 + 2096);
+          v8 = *(_DWORD *)(v7 + 2128);
           if ( (v8 & 0x1000) != 0 )
           {
-            v9 = *(_QWORD *)(v7 + 1760);
+            v9 = *(_QWORD *)(v7 + 1792);
             if ( (v8 & 0x8000) != 0 )
             {
               if ( *(_QWORD *)(v9 + 760) )
@@ -57,7 +57,7 @@ void __fastcall vMirrorNotifyDrawing(struct PDEVOBJ *a1, struct SURFACE *a2, int
                   v14 = (char *)a2 + 24;
                 else
                   v14 = 0LL;
-                v13 = *(_QWORD *)(v7 + 1768);
+                v13 = *(_QWORD *)(v7 + 1800);
                 v15 = v5;
                 v16 = 0;
                 v12(v13, 1LL, 16LL, &v14);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801230A0
+ * XREFs of ?GetPresentAllowedTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F89E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkAcquireDisplayOwnership @ 0x14027D8F0
+ * XREFs of BgkAcquireDisplayOwnership @ 0x14027D9F0
  * Callers:
  *     <none>
  * Callees:
- *     BgLibraryEnable @ 0x140159808 (BgLibraryEnable.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     BgLibraryEnable @ 0x140159828 (BgLibraryEnable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall BgkAcquireDisplayOwnership(__int64 a1))(_QWORD, _QWORD, _QWORD)

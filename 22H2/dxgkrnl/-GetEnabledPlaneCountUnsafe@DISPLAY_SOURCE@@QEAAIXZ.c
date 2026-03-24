@@ -1,38 +1,32 @@
 /*
- * XREFs of ?GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ @ 0x1C02BD9BC
+ * XREFs of ?GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ @ 0x1C02139C8
  * Callers:
- *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C01BC948 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
+ *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C0110B50 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z @ 0x1C01C3530 (-GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z.c)
+ *     ?GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z @ 0x1C015F6C0 (-GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z.c)
  */
 
 __int64 __fastcall DISPLAY_SOURCE::GetEnabledPlaneCountUnsafe(DISPLAY_SOURCE *this)
 {
-  unsigned int v2; // edi
-  unsigned int i; // ebx
+  struct _KTHREAD *CurrentThread; // rdx
+  __int64 v3; // rax
+  unsigned int v4; // esi
+  unsigned int i; // edi
   struct _DISPLAY_PLANE_CONFIG *LatestPlaneConfigInternal; // rax
 
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 632LL) != KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 536LL) != CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 10048LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DisplayCore->IsDisplayStateMutexOwner()",
-      10048LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, CurrentThread);
+    *(_QWORD *)(v3 + 24) = 9793LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v2 = 0;
-  for ( i = 0; i < *((_DWORD *)this + 940); ++i )
+  v4 = 0;
+  for ( i = 0; i < *((_DWORD *)this + 934); ++i )
   {
     LatestPlaneConfigInternal = DISPLAY_SOURCE::GetLatestPlaneConfigInternal(this, i);
     if ( LatestPlaneConfigInternal && (*((_DWORD *)LatestPlaneConfigInternal + 2) & 1) != 0 )
-      ++v2;
+      ++v4;
   }
-  return v2;
+  return v4;
 }

@@ -1,21 +1,26 @@
 /*
- * XREFs of RtlGetCurrentServiceSessionId @ 0x14036DE20
+ * XREFs of RtlGetCurrentServiceSessionId @ 0x1403A5970
  * Callers:
- *     SepValidateReferencedCachedHandles @ 0x1407F51D0 (SepValidateReferencedCachedHandles.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409BCC7C (RtlpGetTokenNamedObjectPath.c)
+ *     SepValidateReferencedCachedHandles @ 0x14070F440 (SepValidateReferencedCachedHandles.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409145B8 (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+__int64 __fastcall RtlGetCurrentServiceSessionId(__int64 a1, __int64 a2)
 {
-  __int64 CurrentServerSilo; // rax
-  unsigned int **v1; // rax
+  __int64 ThreadServerSilo; // rax
+  unsigned int **v3; // rax
 
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  if ( CurrentServerSilo )
-    v1 = *(unsigned int ***)(CurrentServerSilo + 1488);
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(a1, a2)
+    || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
+  {
+    v3 = (unsigned int **)&PspHostSiloGlobals;
+  }
   else
-    v1 = (unsigned int **)&PspHostSiloGlobals;
-  return *v1[165];
+  {
+    v3 = *(unsigned int ***)(ThreadServerSilo + 1272);
+  }
+  return *v3[141];
 }

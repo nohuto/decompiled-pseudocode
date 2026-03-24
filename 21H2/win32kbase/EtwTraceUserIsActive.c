@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceUserIsActive @ 0x1C007DF10
+ * XREFs of EtwTraceUserIsActive @ 0x1C00483C0
  * Callers:
- *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C007DBA0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0048090 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
  * Callees:
- *     McTemplateK0qqm_EtwWriteTransfer @ 0x1C0150C64 (McTemplateK0qqm_EtwWriteTransfer.c)
+ *     McTemplateK0qqm_EtwWriteTransfer @ 0x1C0126658 (McTemplateK0qqm_EtwWriteTransfer.c)
  */
 
 LONGLONG __fastcall EtwTraceUserIsActive(_DWORD *a1, LONGLONG *a2)
@@ -42,9 +42,9 @@ LABEL_5:
   if ( a2 )
     *a2 = result;
   if ( (W32kEtwEnabledKeyword & 0x8000000000020000uLL) != 0
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x8000000000020000uLL) != 0
-    && (qword_1C028DB28 & 0x8000000000020000uLL) == qword_1C028DB28
+    && (unsigned __int8)(byte_1C024A738 - 1) > 2u
+    && (qword_1C024A720 & 0x8000000000020000uLL) != 0
+    && (qword_1C024A728 & 0x8000000000020000uLL) == qword_1C024A728
     && (Microsoft_Windows_Win32kEnableBits & 0x20) != 0 )
   {
     McTemplateK0qqm_EtwWriteTransfer((unsigned int)&v9, (_DWORD)a2, 0x20000, v5, v7, (__int64)&v9);

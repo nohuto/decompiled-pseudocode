@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18028C19C
+ * XREFs of ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18002A9A8
  * Callers:
- *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800D1920 (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
- *     ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18029C9BC (-MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ.c)
+ *     ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x18002A94C (-MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18024C8EC (-MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DResource::MarkInvalid(CD2DResource *this)

@@ -1,45 +1,55 @@
 /*
- * XREFs of NormBuffer__GetLastChar @ 0x1405B0674
+ * XREFs of NormBuffer__GetLastChar @ 0x14058DAD8
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1409C13E8 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x1409185E0 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     Normalization__PageLookup @ 0x1409C1C34 (Normalization__PageLookup.c)
- *     Normalization__TableLookup @ 0x1409C1C4C (Normalization__TableLookup.c)
+ *     Normalization__PageLookup @ 0x140918DF8 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x140918E10 (Normalization__TableLookup.c)
  */
 
 __int64 __fastcall NormBuffer__GetLastChar(__int64 a1)
 {
+  __int64 v1; // r10
   unsigned __int16 *v2; // rcx
-  unsigned int v4; // r11d
-  __int64 v5; // r10
-  unsigned int v6; // r11d
-  char v7; // cl
-  char v8; // al
-  char v9; // cl
+  unsigned int v3; // eax
+  __int64 v4; // rdx
+  int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  char v9; // al
+  char v10; // cl
+  char v11; // al
 
+  v1 = a1;
   v2 = (unsigned __int16 *)(*(_QWORD *)(a1 + 40) - 2LL);
-  if ( *(unsigned __int16 **)(a1 + 64) == v2 )
-    return *(unsigned int *)(a1 + 56);
-  v4 = *v2;
-  *(_QWORD *)(a1 + 64) = v2;
-  *(_DWORD *)(a1 + 56) = v4;
-  if ( v4 - 56321 <= 0x3FE )
+  if ( *(unsigned __int16 **)(v1 + 64) != v2 )
   {
-    v4 += (*(v2 - 1) - 55287) << 10;
-    *(_DWORD *)(a1 + 56) = v4;
+    v3 = *v2;
+    *(_QWORD *)(v1 + 64) = v2;
+    v4 = v3;
+    *(_DWORD *)(v1 + 56) = v3;
+    if ( v3 > 0xDC00 && v3 <= 0xDFFF )
+    {
+      v4 = v3 + ((*(v2 - 1) - 55287) << 10);
+      *(_DWORD *)(v1 + 56) = v4;
+    }
+    v5 = Normalization__PageLookup(*(_QWORD *)(v1 + 112), v4);
+    v8 = (unsigned int)(v5 - 1);
+    if ( (unsigned __int8)(v5 - 1) > 0xF9u )
+    {
+      v10 = 0;
+      v11 = 0;
+    }
+    else
+    {
+      LOBYTE(v8) = v5;
+      v9 = Normalization__TableLookup(v7, v6, v8);
+      v10 = v9 & 0xC0;
+      v11 = v9 & 0x3F;
+    }
+    *(_BYTE *)(v1 + 72) = v11;
+    *(_BYTE *)(v1 + 73) = v10;
   }
-  if ( (unsigned __int8)(Normalization__PageLookup(*(_QWORD *)(a1 + 112), v4) - 1) > 0xF9u )
-  {
-    v8 = 0;
-    v9 = 0;
-  }
-  else
-  {
-    v7 = Normalization__TableLookup();
-    v8 = v7 & 0xC0;
-    v9 = v7 & 0x3F;
-  }
-  *(_BYTE *)(v5 + 72) = v9;
-  *(_BYTE *)(v5 + 73) = v8;
-  return v6;
+  return *(unsigned int *)(v1 + 56);
 }

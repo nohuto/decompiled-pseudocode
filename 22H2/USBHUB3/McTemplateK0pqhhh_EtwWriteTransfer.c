@@ -1,12 +1,11 @@
 /*
- * XREFs of McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C00142E8
+ * XREFs of McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C0012DBC
  * Callers:
- *     HUBPDO_PoFxDripsWatchdogCallback @ 0x1C001D1F0 (HUBPDO_PoFxDripsWatchdogCallback.c)
- *     HUBPDO_EvtWorkItemDripsWatchDogCallback @ 0x1C007F410 (HUBPDO_EvtWorkItemDripsWatchDogCallback.c)
- *     TUNNEL_EvtWorkitemPnpInterfaceNotification @ 0x1C008C930 (TUNNEL_EvtWorkitemPnpInterfaceNotification.c)
+ *     HUBPDO_PoFxDripsWatchdogCallback @ 0x1C001A970 (HUBPDO_PoFxDripsWatchdogCallback.c)
+ *     HUBPDO_EvtWorkItemDripsWatchDogCallback @ 0x1C007AC50 (HUBPDO_EvtWorkItemDripsWatchDogCallback.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqhhh_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CTurbulenceEffect@@MEBAAEBU_GUID@@XZ @ 0x180107880
+ * XREFs of ?GetEffectGuid@CTurbulenceEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E2CD0
  * Callers:
  *     <none>
  * Callees:

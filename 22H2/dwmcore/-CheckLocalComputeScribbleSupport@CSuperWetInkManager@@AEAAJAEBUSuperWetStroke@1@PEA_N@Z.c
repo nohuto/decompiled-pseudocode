@@ -1,13 +1,15 @@
 /*
- * XREFs of ?CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z @ 0x1801CBADC
+ * XREFs of ?CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z @ 0x180194C40
  * Callers:
- *     ?TryReadyForCurrentFrame@CSuperWetInkManager@@AEAAJPEAUSuperWetStroke@1@PEA_N@Z @ 0x1801CCC88 (-TryReadyForCurrentFrame@CSuperWetInkManager@@AEAAJPEAUSuperWetStroke@1@PEA_N@Z.c)
+ *     ?ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x1800C37FC (-ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV-$TMilRect@I.c)
+ *     ?TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195D50 (-TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingCont.c)
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x1801CB954 (-CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x180194A78 (-CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z.c)
+ *     ?EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z @ 0x180194EB8 (-EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z.c)
  */
 
 __int64 __fastcall CSuperWetInkManager::CheckLocalComputeScribbleSupport(
@@ -15,79 +17,75 @@ __int64 __fastcall CSuperWetInkManager::CheckLocalComputeScribbleSupport(
         const struct CSuperWetInkManager::SuperWetStroke *a2,
         bool *a3)
 {
-  int v5; // eax
-  unsigned int v6; // ebx
-  __int64 v8; // rax
-  __int64 v9; // rsi
-  __int64 v10; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  bool v14; // zf
-  __int64 v15; // rcx
-  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
-  CSuperWetInkManager *v17; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+60h] [rbp+18h] BYREF
+  unsigned int v4; // ebx
+  int v6; // eax
+  unsigned int v7; // edi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  CSuperWetInkManager *v15; // rcx
+  int v16; // eax
+  int v17; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  CSuperWetInkManager *v19; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v20; // [rsp+50h] [rbp+18h] BYREF
 
-  v17 = this;
+  v19 = this;
+  v4 = 0;
   *a3 = 0;
-  v5 = CSuperWetInkManager::CheckCommonComputeScribbleSupport(this, (bool *)&v17);
-  v6 = v5;
-  if ( v5 < 0 )
+  v6 = CSuperWetInkManager::CheckCommonComputeScribbleSupport(this, (bool *)&v19);
+  v7 = v6;
+  if ( v6 < 0 )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x111,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
-      (const char *)(unsigned int)v5);
-    return v6;
+      (void *)0xF5,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+      (const char *)(unsigned int)v6);
+    return v7;
   }
-  if ( !(_BYTE)v17 )
+  if ( !(_BYTE)v19 )
     return 0LL;
-  v8 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 1) + 144LL))(*((_QWORD *)a2 + 1));
-  v9 = v8;
-  if ( !v8 )
+  v9 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 1) + 120LL))(*((_QWORD *)a2 + 1));
+  v11 = v9;
+  if ( !v9 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-      McTemplateU0q_EventWriteTransfer(
-        (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-        (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-        10LL);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+      McTemplateU0q_EventWriteTransfer(v10, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, 10LL);
     return 0LL;
   }
-  v18 = 0LL;
-  v10 = *(int *)(*(_QWORD *)(v8 + 8) + 4LL);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v18);
-  if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))(v10 + v9 + 8))(
-         v10 + v9 + 8,
+  v12 = *(int *)(*(_QWORD *)(v9 + 8) + 4LL) + 8LL;
+  v20 = 0LL;
+  if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))(v9 + v12))(
+         v9 + v12,
          &GUID_d1f4aa89_764d_40c8_b46d_5c9e9777fb37,
-         &v18) < 0
-    || (v11 = v9 + *(int *)(*(_QWORD *)(v9 + 8) + 12LL) + 8LL,
-        (v12 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11)) == 0)
-    || !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64, char *, _QWORD))(**(_QWORD **)a2 + 288LL))(
+         &v20) < 0
+    || (v13 = v11 + *(int *)(*(_QWORD *)(v11 + 8) + 12LL) + 8LL,
+        (v14 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v13 + 8LL))(v13)) == 0)
+    || !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64, char *))(**(_QWORD **)a2 + 8LL))(
           *(_QWORD *)a2,
-          v12,
-          (char *)a2 + 16,
-          0LL) )
+          v14,
+          (char *)a2 + 16)
+    || !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 1) + 128LL))(*((_QWORD *)a2 + 1)) )
   {
-    v13 = v18;
-    goto LABEL_12;
+    v17 = 0;
+    goto LABEL_15;
   }
-  v14 = (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 1) + 152LL))(*((_QWORD *)a2 + 1)) == 0;
-  v13 = v18;
-  if ( v14 )
+  v16 = CSuperWetInkManager::EnsureLocalSuperWetResources(v15, *((struct IMonitorTarget **)a2 + 1), a3);
+  v17 = v16;
+  if ( v16 < 0 )
   {
-LABEL_12:
-    if ( v13 )
-      goto LABEL_15;
-    return 0LL;
-  }
-  *a3 = 1;
-  if ( v13 )
-  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x11D,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+      (const char *)(unsigned int)v16);
 LABEL_15:
-    v15 = *(int *)(*(_QWORD *)(v13 + 8) + 4LL) + v13 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
+    v4 = v17;
   }
-  return 0LL;
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v20);
+  return v4;
 }

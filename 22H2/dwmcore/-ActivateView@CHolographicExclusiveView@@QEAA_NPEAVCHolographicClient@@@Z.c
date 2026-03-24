@@ -1,36 +1,43 @@
 /*
- * XREFs of ?ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z @ 0x1802A8534
+ * XREFs of ?ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z @ 0x180256B28
  * Callers:
- *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x1802ACE40 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
+ *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x18025AF20 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ActivateSwapChain@CHolographicExclusiveView@@AEAAJXZ @ 0x1802A844C (-ActivateSwapChain@CHolographicExclusiveView@@AEAAJXZ.c)
- *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A86E0 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
- *     ?OnExclusiveViewActivate@CHolographicClient@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x1802AD0B4 (-OnExclusiveViewActivate@CHolographicClient@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ActivateSwapChain@CHolographicExclusiveView@@AEAAJXZ @ 0x180256A5C (-ActivateSwapChain@CHolographicExclusiveView@@AEAAJXZ.c)
+ *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180256CE4 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ *     ?OnExclusiveViewActivate@CHolographicClient@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x18025B194 (-OnExclusiveViewActivate@CHolographicClient@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
  */
 
 bool __fastcall CHolographicExclusiveView::ActivateView(CHolographicExclusiveView *this, struct CHolographicClient *a2)
 {
-  int v4; // eax
-  __int64 v5; // rcx
+  int v2; // edi
+  int v5; // eax
   __int64 v6; // rcx
+  __int64 v7; // rcx
 
-  if ( *((_BYTE *)this + 83) )
+  v2 = 0;
+  if ( *((_BYTE *)this + 75) )
   {
-    *((_BYTE *)this + 80) = 1;
-    return *((_BYTE *)this + 80);
+    *((_BYTE *)this + 72) = 1;
   }
-  v4 = CHolographicExclusiveView::ActivateSwapChain(this, (__int64)a2);
-  if ( v4 < 0 )
+  else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0xD2u, 0LL);
-    goto LABEL_6;
+    v5 = CHolographicExclusiveView::ActivateSwapChain(this, (__int64)a2);
+    v2 = v5;
+    if ( v5 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xD2u, 0LL);
+    }
+    else if ( !CHolographicClient::OnExclusiveViewActivate(a2, this) )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147467259, 0xD5u, 0LL);
+LABEL_8:
+      CHolographicExclusiveView::DeactivateSwapChain(this);
+      return *((_BYTE *)this + 72);
+    }
   }
-  if ( !CHolographicClient::OnExclusiveViewActivate(a2, this) )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147467259, 0xD5u, 0LL);
-LABEL_6:
-    CHolographicExclusiveView::DeactivateSwapChain(this);
-  }
-  return *((_BYTE *)this + 80);
+  if ( v2 < 0 )
+    goto LABEL_8;
+  return *((_BYTE *)this + 72);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlZeroHeap @ 0x1409BAF80
+ * XREFs of RtlZeroHeap @ 0x140915930
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlpHeapExceptionFilter @ 0x1405F1AA4 (RtlpHeapExceptionFilter.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F1C10 (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1405F22DC (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x1405F2400 (RtlpHeapAddListEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1405F26CC (RtlpHeapRemoveListEntry.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlpHeapExceptionFilter @ 0x140593454 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x140593C94 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x140593DB8 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x140594088 (RtlpHeapRemoveListEntry.c)
  */
 
 __int64 __fastcall RtlZeroHeap(ULONG_PTR a1, unsigned __int8 a2)
@@ -46,8 +46,8 @@ __int64 __fastcall RtlZeroHeap(ULONG_PTR a1, unsigned __int8 a2)
   unsigned __int64 v32; // rdx
   char v33; // [rsp+30h] [rbp-98h]
   ULONG_PTR v34; // [rsp+40h] [rbp-88h]
-  ULONG_PTR v35; // [rsp+48h] [rbp-80h]
-  int v36; // [rsp+80h] [rbp-48h]
+  ULONG_PTR v35; // [rsp+68h] [rbp-60h]
+  int v36; // [rsp+88h] [rbp-40h]
 
   v3 = 0LL;
   v33 = 0;
@@ -64,7 +64,7 @@ LABEL_6:
   if ( v6 != v5 )
   {
     v7 = v6[5];
-    v35 = v7;
+    v34 = v7;
     while ( 1 )
     {
       if ( v7 >= v6[6] )
@@ -83,7 +83,7 @@ LABEL_15:
       if ( (v8 & 1) != 0 )
         goto LABEL_66;
       v9 = v7;
-      v34 = v7;
+      v35 = v7;
       if ( (v8 & 8) != 0 )
       {
         v10 = *(_QWORD *)(v7 + 16);
@@ -132,8 +132,8 @@ LABEL_25:
               if ( (v21 & *(_DWORD *)(a1 + 124)) != 0 )
                 v36 = v21 ^ *(_DWORD *)(a1 + 136);
               v22 = v36;
-              v7 = v35;
-              v9 = v34;
+              v7 = v34;
+              v9 = v35;
             }
             else
             {
@@ -230,7 +230,7 @@ LABEL_66:
           v7 += *(_QWORD *)(v7 + 56) + 64LL;
         else
           v7 += 16LL * *(unsigned __int16 *)(v7 + 8);
-        v35 = v7;
+        v34 = v7;
       }
     }
     v3[11] = v3[8] ^ v3[9] ^ v3[10];

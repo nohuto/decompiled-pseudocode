@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetHandleProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C000C540
+ * XREFs of ?SetHandleProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C005A240
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C000C59C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
+ *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C005A29C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::SetHandleProperty(
@@ -24,11 +24,11 @@ __int64 __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::SetHandl
     {
       if ( v8 != 1 )
         return 3221225485LL;
-      v9 = (struct DirectComposition::CEvent **)((char *)this + 96);
+      v9 = (struct DirectComposition::CEvent **)((char *)this + 88);
     }
     else
     {
-      v9 = (struct DirectComposition::CEvent **)((char *)this + 104);
+      v9 = (struct DirectComposition::CEvent **)((char *)this + 96);
     }
     result = DirectComposition::CEvent::Create(a3, v8, v9);
     if ( !(_DWORD)result )

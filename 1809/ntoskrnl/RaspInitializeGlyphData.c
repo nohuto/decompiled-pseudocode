@@ -1,13 +1,13 @@
 /*
- * XREFs of RaspInitializeGlyphData @ 0x14017B84C
+ * XREFs of RaspInitializeGlyphData @ 0x14017B86C
  * Callers:
- *     RaspLoadGlyphData @ 0x14017C148 (RaspLoadGlyphData.c)
+ *     RaspLoadGlyphData @ 0x14017C168 (RaspLoadGlyphData.c)
  * Callees:
- *     RaspFreeMemory @ 0x14017AB3C (RaspFreeMemory.c)
- *     FioFwReadUshortAtOffset @ 0x14017B818 (FioFwReadUshortAtOffset.c)
- *     FioFwReadBytesAtOffset @ 0x14017BC28 (FioFwReadBytesAtOffset.c)
- *     RaspAllocateMemory @ 0x14017C044 (RaspAllocateMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
+ *     FioFwReadUshortAtOffset @ 0x14017B838 (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x14017BC48 (FioFwReadBytesAtOffset.c)
+ *     RaspAllocateMemory @ 0x14017C064 (RaspAllocateMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall RaspInitializeGlyphData(__int64 a1, int a2, __int64 *a3, _QWORD *a4)

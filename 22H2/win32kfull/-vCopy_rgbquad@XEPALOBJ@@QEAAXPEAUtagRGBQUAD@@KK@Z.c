@@ -1,10 +1,11 @@
 /*
- * XREFs of ?vCopy_rgbquad@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C00E0C6C
+ * XREFs of ?vCopy_rgbquad@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C00A9A78
  * Callers:
- *     ?GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX@Z @ 0x1C00DF680 (-GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX.c)
- *     GreSetDIBColorTable @ 0x1C02D1F00 (GreSetDIBColorTable.c)
+ *     GreCreateDIBitmapReal @ 0x1C00ABE5C (GreCreateDIBitmapReal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00ADD74 (GreStretchDIBitsInternal.c)
+ *     GreSetDIBColorTable @ 0x1C02B73B0 (GreSetDIBColorTable.c)
  * Callees:
- *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C00E0CE0 (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ *     <none>
  */
 
 void __fastcall XEPALOBJ::vCopy_rgbquad(XEPALOBJ *this, struct tagRGBQUAD *a2, unsigned int a3, unsigned int a4)
@@ -15,6 +16,8 @@ void __fastcall XEPALOBJ::vCopy_rgbquad(XEPALOBJ *this, struct tagRGBQUAD *a2, u
   BYTE *p_rgbGreen; // rcx
   char *v9; // rdx
   BYTE v10; // al
+  signed __int32 v11; // ecx
+  __int64 v12; // rdx
 
   v5 = *(_QWORD *)(*(_QWORD *)this + 112LL);
   v6 = *(_DWORD *)(*(_QWORD *)this + 28LL);
@@ -38,5 +41,9 @@ void __fastcall XEPALOBJ::vCopy_rgbquad(XEPALOBJ *this, struct tagRGBQUAD *a2, u
     }
     while ( a4 );
   }
-  XEPALOBJ::vUpdateTime(this);
+  v11 = _InterlockedIncrement(*(volatile signed __int32 **)&ulXlatePalUnique);
+  *(_DWORD *)(*(_QWORD *)this + 32LL) = v11;
+  v12 = *(_QWORD *)(*(_QWORD *)this + 120LL);
+  if ( v12 != *(_QWORD *)this )
+    *(_DWORD *)(v12 + 32) = v11;
 }

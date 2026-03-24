@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBUMsgCallTypeDefinition@@PEBEIIPEBXI@Z @ 0x1C0069310
+ * XREFs of ?UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBUMsgCallTypeDefinition@@PEBEIIPEBXI@Z @ 0x1C00AA7E0
  * Callers:
- *     CoreUICallReceive @ 0x1C0069258 (CoreUICallReceive.c)
+ *     CoreUICallReceive @ 0x1C00AA718 (CoreUICallReceive.c)
  * Callees:
- *     ?ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z @ 0x1C00695DC (-ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C0236A04 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
+ *     ?ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z @ 0x1C00A7CCC (-ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z.c)
+ *     ?NotifyProtocolViolationHelper@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallReceiveHost@@PEAUMsgCallState@@@Z @ 0x1C00CE83C (-NotifyProtocolViolationHelper@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallRece.c)
+ *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C0200DC8 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::ReceiveProcessor::UnmarshalReceive(
@@ -15,126 +15,109 @@ __int64 __fastcall CoreMessaging::Calling::ReceiveProcessor::UnmarshalReceive(
         const unsigned __int8 *a4,
         bool a5,
         unsigned int a6,
-        char *a7,
+        _DWORD *a7,
         unsigned int a8)
 {
-  __int64 v9; // rsi
-  char *v10; // rcx
-  _DWORD *v11; // rdi
-  __int64 v12; // r8
-  char *v13; // rdx
-  __int64 v14; // rdx
-  int v15; // ecx
-  int v16; // eax
-  __int64 v17; // rcx
-  char *v18; // rax
-  unsigned int v19; // ecx
-  __int64 v20; // rdx
-  bool v21; // zf
+  _DWORD *v8; // r8
+  __int64 v10; // rsi
+  struct MsgCallState *v12; // rdi
+  int v13; // r9d
+  __int64 v14; // rax
+  _DWORD *v15; // rdx
+  unsigned int v16; // r8d
+  int v17; // ecx
+  int v18; // eax
+  __int64 v19; // rcx
+  char *v20; // rax
+  __int64 v21; // rcx
   __int64 v22; // rdx
-  int v23; // ecx
-  char *v24; // rdx
+  int v23; // r8d
+  char *v24; // rcx
   char v25; // al
-  _BYTE *v26; // rdx
+  _BYTE *v26; // rcx
   __int64 v27; // rbp
-  int v28; // ecx
-  unsigned int v29; // eax
-  unsigned int *v30; // rdx
-  unsigned int v31; // eax
-  __int64 v32; // rax
-  __int64 v33; // rcx
-  int v34; // eax
-  const unsigned __int8 *v36; // [rsp+48h] [rbp+20h] BYREF
+  unsigned int v28; // ecx
+  unsigned int *v29; // rcx
+  unsigned int v30; // eax
+  unsigned int v31; // edx
+  __int64 v32; // rcx
+  CoreMessaging::Calling::ReceiveProcessor *v33; // rcx
+  const unsigned __int8 *v34; // [rsp+48h] [rbp+20h] BYREF
 
-  v36 = a4;
+  v34 = a4;
+  v8 = a7;
   if ( !a2 )
     return 2147942487LL;
-  v9 = a8;
+  v10 = a8;
   if ( !a8 )
     return 0LL;
-  v10 = a7;
   if ( !a7 )
     return 2147942487LL;
   *((_DWORD *)this + 31) = -1;
-  v11 = (_DWORD *)((char *)this + 120);
-  v12 = 0LL;
+  v12 = (CoreMessaging::Calling::ReceiveProcessor *)((char *)this + 120);
+  v13 = 0;
   *((_QWORD *)this + 17) = a2;
   *((_DWORD *)this + 30) = 0;
-  if ( (((_DWORD)v9 + 3) & 0xFFFFFFFC) != (_DWORD)v9 )
-    goto LABEL_52;
-  v13 = &v10[v9];
+  if ( (((_DWORD)v10 + 3) & 0xFFFFFFFC) != (_DWORD)v10 )
+    goto LABEL_50;
   *((_BYTE *)this + 112) = 1;
-  *((_QWORD *)this + 11) = v10;
-  *((_QWORD *)this + 12) = v10;
-  if ( &v10[v9] < v10 )
+  v14 = -1LL;
+  *((_QWORD *)this + 11) = v8;
+  *((_QWORD *)this + 12) = v8;
+  if ( (_DWORD *)((char *)v8 + v10) >= v8 )
+    v14 = (__int64)v8 + v10;
+  *((_QWORD *)this + 13) = v14;
+  if ( (_DWORD *)((char *)v8 + v10) < v8 || (unsigned int)v10 < 8 )
   {
-    *((_QWORD *)this + 13) = -1LL;
-    goto LABEL_52;
+LABEL_50:
+    *(_DWORD *)v12 = 102;
+    goto LABEL_51;
   }
-  *((_QWORD *)this + 13) = v13;
-  if ( (unsigned int)v9 < 8 )
-  {
-LABEL_52:
-    *v11 = 2;
-    goto LABEL_36;
-  }
-  if ( (unsigned int)((_DWORD)v13 - *((_DWORD *)this + 24)) < 8
-    || (v14 = *((_QWORD *)this + 12), *((_QWORD *)this + 12) = v14 + 8, !v14) )
-  {
+  if ( (unsigned int)(v14 - (_DWORD)v8) < 8 || (v15 = v8, *((_QWORD *)this + 12) = v8 + 2, !v8) )
     CoreMessaging::Calling::FailFast::Error((ULONG_PTR)"mincore\\coreui\\dev\\calling\\receiveprocessor.cpp", 0x86uLL);
-  }
-  v15 = *((_DWORD *)this + 32);
-  if ( !(*(_DWORD *)v14 >> v15) )
+  v16 = *v8;
+  v17 = *((_DWORD *)this + 32);
+  if ( !(v16 >> v17) )
   {
-    if ( (*(_DWORD *)v14 & (unsigned int)((1 << v15) - 1)) << *((_DWORD *)this + 33) <= (unsigned int)v9 )
+    if ( (v16 & ((1 << v17) - 1)) << *((_DWORD *)this + 33) <= (unsigned int)v10 )
     {
-      v16 = 0;
-      v17 = 0LL;
+      v18 = 0;
+      v19 = 0LL;
       while ( *(_WORD *)((char *)&Microsoft::CoreUI::Registrar::IRegistrarClient_Receive<CoreMessagingK::RegistrarClientThunk>::Interfaces
-                       + v17) != *(_WORD *)(v14 + 4) )
+                       + v19) != *((_WORD *)v15 + 2) )
       {
-        ++v16;
-        v17 += 16LL;
-        if ( v16 >= 1 )
-          goto LABEL_45;
+        ++v18;
+        v19 += 16LL;
+        if ( v18 >= 1 )
+          goto LABEL_20;
       }
-      v18 = (char *)&Microsoft::CoreUI::Registrar::IRegistrarClient_Receive<CoreMessagingK::RegistrarClientThunk>::Interfaces
-          + 16 * v16;
-      if ( !v18 )
+      v20 = (char *)&Microsoft::CoreUI::Registrar::IRegistrarClient_Receive<CoreMessagingK::RegistrarClientThunk>::Interfaces
+          + 16 * v18;
+      if ( !v20 )
       {
-LABEL_45:
-        *v11 = 3;
-        goto LABEL_36;
+LABEL_20:
+        *(_DWORD *)v12 = 103;
+        goto LABEL_51;
       }
-      v19 = *(unsigned __int16 *)(v14 + 6);
-      if ( (unsigned __int16)v19 >= *((_WORD *)v18 + 1) )
+      v21 = *((unsigned __int16 *)v15 + 3);
+      if ( (unsigned __int16)v21 < *((_WORD *)v20 + 1) )
       {
-        *v11 = 5;
-      }
-      else
-      {
-        *((_QWORD *)this + 18) = v18;
-        v20 = 16LL * v19;
-        v21 = *((_QWORD *)v18 + 1) + v20 == 0;
-        v22 = *((_QWORD *)v18 + 1) + v20;
+        *((_QWORD *)this + 18) = v20;
+        v22 = *((_QWORD *)v20 + 1) + 16 * v21;
         *((_QWORD *)this + 19) = v22;
-        if ( v21 )
-        {
-          *v11 = 201;
-        }
-        else
+        if ( v22 )
         {
           v23 = *(unsigned __int8 *)(v22 + 10);
           *((_DWORD *)this + 20) = v23;
           if ( v23 )
           {
-            *(_QWORD *)this = Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_v6_E_vySEVWcCmpXKquzqZATsBE_IRegistrar;
-            v24 = &Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_v6_E_vySEVWcCmpXKquzqZATsBE_IRegistrar[*(unsigned __int16 *)(v22 + 8)];
+            *(_QWORD *)this = Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_tIzsWgdZFlpFj7khRRzdWgeERWU_IRegistrar;
+            v24 = &Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_tIzsWgdZFlpFj7khRRzdWgeERWU_IRegistrar[*(unsigned __int16 *)(v22 + 8)];
             *(_QWORD *)this = v24;
-            if ( v24 >= byte_1C0247944
-              || v24 < Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_v6_E_vySEVWcCmpXKquzqZATsBE_IRegistrar )
+            if ( v24 >= byte_1C020DE06
+              || v24 < Microsoft::CoreUI::MessageCall::CoreMessagingK_g_parameters_tIzsWgdZFlpFj7khRRzdWgeERWU_IRegistrar )
             {
-              *v11 = 202;
+              *(_DWORD *)v12 = 202;
             }
             else
             {
@@ -148,90 +131,99 @@ LABEL_45:
                 *((_DWORD *)this + 31) = 0;
                 while ( 1 )
                 {
-                  v28 = *((_DWORD *)this + 26);
-                  v29 = v28 - *((_DWORD *)this + 24);
+                  v28 = *((_DWORD *)this + 26) - *((_DWORD *)this + 24);
                   a6 = 0;
-                  LODWORD(v36) = 0;
+                  LODWORD(v34) = 0;
                   a5 = 0;
-                  if ( v29 < 4 )
+                  if ( v28 < 4 )
                     break;
-                  v30 = (unsigned int *)*((_QWORD *)this + 12);
-                  *((_QWORD *)this + 12) = v30 + 1;
-                  if ( !v30 )
+                  v29 = (unsigned int *)*((_QWORD *)this + 12);
+                  *((_QWORD *)this + 12) = v29 + 1;
+                  if ( !v29 )
                     break;
-                  v31 = *v30;
-                  *((_DWORD *)this + 21) = *v30;
-                  if ( v31 > 0xFFFFFFFC )
-                    goto LABEL_42;
-                  if ( v31 )
+                  v30 = *v29;
+                  *((_DWORD *)this + 21) = *v29;
+                  if ( v30 > 0xFFFFFFFC )
+                    goto LABEL_48;
+                  if ( v30 )
                   {
-                    v32 = (v31 + 3) & 0xFFFFFFFC;
-                    if ( v28 - *((_DWORD *)this + 24) >= (unsigned int)v32 )
+                    v31 = (v30 + 3) & 0xFFFFFFFC;
+                    if ( *((_DWORD *)this + 26) - *((_DWORD *)this + 24) >= v31 )
                     {
-                      v33 = *((_QWORD *)this + 12);
-                      *((_QWORD *)this + 12) = v33 + v32;
+                      v32 = *((_QWORD *)this + 12);
+                      *((_QWORD *)this + 12) = v32 + v31;
                     }
                     else
                     {
-                      v33 = 0LL;
+                      v32 = 0LL;
                     }
-                    *((_QWORD *)this + 52) = v33;
-                    if ( !v33 )
-                      goto LABEL_52;
+                    *((_QWORD *)this + 52) = v32;
+                    if ( !v32 )
+                      goto LABEL_50;
                   }
                   else
                   {
                     *((_QWORD *)this + 52) = 0LL;
                   }
-                  v34 = CoreMessaging::Calling::ReceiveProcessor::ReadExpectedParameterSize(
+                  v13 = CoreMessaging::Calling::ReceiveProcessor::ReadExpectedParameterSize(
                           this,
                           &a6,
                           &a5,
-                          (unsigned int *)&v36);
-                  v12 = (unsigned int)v34;
-                  if ( v34 < 0 )
-                    goto LABEL_36;
+                          (unsigned int *)&v34);
+                  if ( v13 < 0 )
+                    goto LABEL_51;
                   if ( a6 != *((_DWORD *)this + 21) && a6 )
-                    goto LABEL_42;
+                    goto LABEL_48;
                   *((_QWORD *)this + v27 + 20) = *((_QWORD *)this + 52);
                   v27 = (unsigned int)(v27 + 1);
                   if ( a5 )
                   {
-                    *((_QWORD *)this + v27 + 20) = (unsigned int)v36;
+                    *((_QWORD *)this + v27 + 20) = (unsigned int)v34;
                     v27 = (unsigned int)(v27 + 1);
                   }
                   if ( ++*((_DWORD *)this + 31) >= *((_DWORD *)this + 20) )
-                    goto LABEL_33;
+                    goto LABEL_46;
                 }
               }
-              *v11 = 6;
+              *(_DWORD *)v12 = 106;
             }
           }
           else
           {
-LABEL_33:
-            if ( *((_DWORD *)this + 24) - *((_DWORD *)this + 22) == (_DWORD)v9 )
-              v12 = 0LL;
+LABEL_46:
+            if ( *((_DWORD *)this + 24) - *((_DWORD *)this + 22) == (_DWORD)v10 )
+              v13 = 0;
             else
-LABEL_42:
-              *v11 = 7;
+LABEL_48:
+              *(_DWORD *)v12 = 107;
           }
         }
+        else
+        {
+          *(_DWORD *)v12 = 201;
+        }
       }
-      goto LABEL_36;
+      else
+      {
+        *(_DWORD *)v12 = 105;
+      }
+      goto LABEL_51;
     }
-    goto LABEL_52;
+    goto LABEL_50;
   }
-  *v11 = 8;
-LABEL_36:
-  if ( *v11 )
+  *(_DWORD *)v12 = 108;
+LABEL_51:
+  v33 = (CoreMessaging::Calling::ReceiveProcessor *)*(unsigned int *)v12;
+  if ( (_DWORD)v33 )
   {
-    LODWORD(v12) = (*(__int64 (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 17) + 32LL))(
-                     *((_QWORD *)this + 17),
-                     (char *)this + 120,
-                     v12);
-    if ( (int)v12 >= 0 )
-      LODWORD(v12) = -2018375668;
+    if ( (unsigned int)((_DWORD)v33 - 100) > 0x63 && (unsigned int)((_DWORD)v33 - 200) > 0x63 )
+      CoreMessaging::Calling::FailFast::Error(
+        (ULONG_PTR)"mincore\\coreui\\dev\\calling\\receiveprocessor.cpp",
+        0x181uLL);
+    return (unsigned int)CoreMessaging::Calling::ReceiveProcessor::NotifyProtocolViolationHelper(
+                           v33,
+                           *((struct IMessageCallReceiveHost **)this + 17),
+                           v12);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

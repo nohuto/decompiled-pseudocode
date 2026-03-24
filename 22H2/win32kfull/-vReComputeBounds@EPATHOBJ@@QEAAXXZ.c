@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vReComputeBounds@EPATHOBJ@@QEAAXXZ @ 0x1C02F3308
+ * XREFs of ?vReComputeBounds@EPATHOBJ@@QEAAXXZ @ 0x1C02CEFD0
  * Callers:
- *     NtGdiWidenPath @ 0x1C02C1980 (NtGdiWidenPath.c)
+ *     NtGdiWidenPath @ 0x1C02AD7F0 (NtGdiWidenPath.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,8 @@ void __fastcall EPATHOBJ::vReComputeBounds(EPATHOBJ *this)
   int *v5; // rdx
   unsigned __int64 v6; // r10
   _DWORD *v7; // rax
-  int *v8; // r11
+  int v8; // r9d
   int v9; // r9d
-  int v10; // r9d
 
   v2 = *((_QWORD *)this + 1);
   if ( v2 )
@@ -35,28 +34,27 @@ void __fastcall EPATHOBJ::vReComputeBounds(EPATHOBJ *this)
         while ( (unsigned __int64)v5 < v6 )
         {
           v7 = (_DWORD *)*((_QWORD *)this + 1);
-          v8 = v5;
+          v8 = *v5;
+          if ( v7[12] <= *v5 )
+          {
+            if ( v7[14] < v8 )
+              v7[14] = v8;
+          }
+          else
+          {
+            v7[12] = v8;
+          }
+          v9 = v5[1];
+          if ( v7[15] >= v9 )
+          {
+            if ( v7[13] > v9 )
+              v7[13] = v9;
+          }
+          else
+          {
+            v7[15] = v9;
+          }
           v5 += 2;
-          v9 = *v8;
-          if ( v7[12] <= *v8 )
-          {
-            if ( v7[14] < v9 )
-              v7[14] = v9;
-          }
-          else
-          {
-            v7[12] = v9;
-          }
-          v10 = v8[1];
-          if ( v7[15] >= v10 )
-          {
-            if ( v7[13] > v10 )
-              v7[13] = v10;
-          }
-          else
-          {
-            v7[15] = v10;
-          }
         }
       }
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x18004F928
+ * XREFs of ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AC65C
  * Callers:
- *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x18004D7F8 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AA738 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::DetermineCoordinateSpace(int a1, int a2, int *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall CKeyframeAnimation::DetermineCoordinateSpace(int a1, int a2, 
   int v9; // ecx
   int v10; // ecx
   int v11; // ecx
-  unsigned int v12; // ecx
+  __int64 v12; // rcx
   unsigned int v13; // [rsp+20h] [rbp-18h]
 
   v3 = a1 - 11;
@@ -33,15 +33,15 @@ LABEL_4:
     v4 = 0;
     goto LABEL_5;
   }
-  v12 = v11 - 1;
-  if ( v12 )
+  v12 = (unsigned int)(v11 - 1);
+  if ( (_DWORD)v12 )
   {
-    if ( v12 == 1 )
+    if ( (_DWORD)v12 == 1 )
     {
       v4 = 1;
       goto LABEL_5;
     }
-    v13 = 1402;
+    v13 = 1389;
 LABEL_21:
     v7 = -2003303421;
     MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, v13, 0LL);
@@ -66,7 +66,7 @@ LABEL_21:
     if ( a2 != 4 )
     {
 LABEL_20:
-      v13 = 1392;
+      v13 = 1379;
       goto LABEL_21;
     }
   }

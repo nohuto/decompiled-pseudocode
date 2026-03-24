@@ -1,32 +1,32 @@
 /*
- * XREFs of IoReferenceIoAttributionFromThread @ 0x1402F5EA0
+ * XREFs of IoReferenceIoAttributionFromThread @ 0x1402F88E8
  * Callers:
- *     MiCheckAndUpdateIoAttribution @ 0x140243EC4 (MiCheckAndUpdateIoAttribution.c)
- *     CcScheduleReadAheadNuma @ 0x14029CC2C (CcScheduleReadAheadNuma.c)
- *     CcAsyncCopyRead @ 0x1402F5790 (CcAsyncCopyRead.c)
- *     CcCopyReadEx @ 0x14032A8C0 (CcCopyReadEx.c)
+ *     CcAsyncCopyRead @ 0x1402F8440 (CcAsyncCopyRead.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x1402F8A18 (MiCheckAndUpdateIoAttribution.c)
+ *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
+ *     CcCopyReadEx @ 0x140320720 (CcCopyReadEx.c)
  * Callees:
- *     IopReferenceIoAttributionFromProcess @ 0x1402F5F14 (IopReferenceIoAttributionFromProcess.c)
- *     PsGetWorkOnBehalfThread @ 0x1402F6220 (PsGetWorkOnBehalfThread.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1402F895C (IopReferenceIoAttributionFromProcess.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
  */
 
-__int64 __fastcall IoReferenceIoAttributionFromThread(__int64 a1, __int64 a2)
+__int64 __fastcall IoReferenceIoAttributionFromThread(struct _KTHREAD *a1, __int64 a2)
 {
-  __int64 WorkOnBehalfThread; // rax
-  void *v5; // rbx
-  __int64 v6; // rcx
+  _KPROCESS **WorkOnBehalfThread; // rax
+  _KPROCESS **v5; // rbx
+  _KPROCESS *Process; // rcx
   unsigned int v7; // edi
   int v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0;
-  WorkOnBehalfThread = PsGetWorkOnBehalfThread(a1, &v9);
-  v5 = (void *)WorkOnBehalfThread;
+  WorkOnBehalfThread = (_KPROCESS **)PsGetWorkOnBehalfThread(a1, &v9);
+  v5 = WorkOnBehalfThread;
   if ( WorkOnBehalfThread )
-    v6 = *(_QWORD *)(WorkOnBehalfThread + 544);
+    Process = WorkOnBehalfThread[68];
   else
-    v6 = *(_QWORD *)(a1 + 544);
-  v7 = IopReferenceIoAttributionFromProcess(v6, 0LL, a2);
+    Process = a1->Process;
+  v7 = IopReferenceIoAttributionFromProcess(Process, 0LL, a2);
   if ( v9 )
     ObDereferenceObjectDeferDelete(v5);
   return v7;

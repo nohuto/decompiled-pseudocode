@@ -1,50 +1,39 @@
 /*
- * XREFs of HalpIommuFreeDmaDomain @ 0x1405181F0
+ * XREFs of HalpIommuFreeDmaDomain @ 0x1404C94AC
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A91BC (HalpIommuAllocateDmaDomain.c)
- *     IommuDomainDelete @ 0x140935770 (IommuDomainDelete.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4A38 (HalpDmaDereferenceDomainObject.c)
+ *     IommuDomainDelete @ 0x140866820 (IommuDomainDelete.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpIommuCleanupPageTable @ 0x140526D84 (HalpIommuCleanupPageTable.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpIommuCleanupPageTable @ 0x1404DB790 (HalpIommuCleanupPageTable.c)
  */
 
 __int64 __fastcall HalpIommuFreeDmaDomain(__int64 a1)
 {
-  _BYTE *v3; // rdi
+  unsigned int v1; // ebx
   __int64 v4; // rsi
   __int64 v5; // rcx
-  unsigned int v6; // esi
-  int v7; // eax
-  __int64 v8; // rcx
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
+  v1 = 0;
   if ( !a1 )
     return 0LL;
-  v3 = (_BYTE *)(a1 + 52);
-  if ( !HalpHvIommu || *v3 )
+  if ( HalpHvIommu )
   {
-    v4 = *(_QWORD *)(a1 + 40);
+    v6 = *(unsigned int *)(a1 + 32);
+    BYTE4(v6) = *(_BYTE *)(a1 + 40);
+    v1 = ((__int64 (__fastcall *)(__int64 *))qword_140C4A388)(&v6);
+  }
+  else
+  {
+    v4 = *(_QWORD *)(a1 + 24);
     if ( v4 )
     {
-      HalpIommuCleanupPageTable(*(_QWORD *)(a1 + 40));
+      HalpIommuCleanupPageTable(*(_QWORD *)(a1 + 24));
       HalpMmAllocCtxFree(v5, v4);
     }
   }
-  v6 = 0;
-  if ( HalpHvIommu )
-  {
-    v7 = *(_DWORD *)(a1 + 8);
-    if ( !v7 || v7 == 2 )
-    {
-      v9 = *(unsigned int *)(a1 + 48);
-      BYTE4(v9) = *v3;
-      v6 = ((__int64 (__fastcall *)(__int64 *))qword_140C62720)(&v9);
-    }
-  }
-  v8 = *(_QWORD *)(a1 + 64);
-  if ( v8 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 32LL))(v8);
-  HalpMmAllocCtxFree(v8, a1);
-  return v6;
+  HalpMmAllocCtxFree(a1, a1);
+  return v1;
 }

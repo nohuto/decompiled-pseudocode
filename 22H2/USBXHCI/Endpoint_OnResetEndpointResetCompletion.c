@@ -1,16 +1,16 @@
 /*
- * XREFs of Endpoint_OnResetEndpointResetCompletion @ 0x1C003B310
+ * XREFs of Endpoint_OnResetEndpointResetCompletion @ 0x1C00393F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     UsbDevice_GetEndpointState @ 0x1C00111E4 (UsbDevice_GetEndpointState.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0038FE8 (XilEndpoint_FetchStreamContextArray.c)
- *     Endpoint_OnResetSetDequeuePointer @ 0x1C003B54C (Endpoint_OnResetSetDequeuePointer.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     UsbDevice_GetEndpointState @ 0x1C0010088 (UsbDevice_GetEndpointState.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
+ *     Endpoint_OnResetSetDequeuePointer @ 0x1C0039624 (Endpoint_OnResetSetDequeuePointer.c)
  */
 
 void __fastcall Endpoint_OnResetEndpointResetCompletion(__int64 a1, int a2, __int128 *a3)
@@ -37,17 +37,17 @@ void __fastcall Endpoint_OnResetEndpointResetCompletion(__int64 a1, int a2, __in
         a2,
         13,
         45,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
         *(_DWORD *)(v6 + 144));
     }
 LABEL_4:
     StreamContextArray = -1073741823;
 LABEL_5:
-    *(_DWORD *)(v6 + 288) = StreamContextArray;
+    *(_DWORD *)(v6 + 280) = StreamContextArray;
     _m_prefetchw((const void *)(v6 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v6 + 32), 2u) & 2) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v6 + 296), 12);
+      ESM_AddEvent((KSPIN_LOCK *)(v6 + 288), 12);
     return;
   }
   v8 = *(_BYTE *)(a1 + 60);
@@ -62,7 +62,7 @@ LABEL_5:
         v9,
         13,
         46,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
         *(_DWORD *)(v6 + 144),
         v8);
@@ -75,7 +75,7 @@ LABEL_5:
       "Endpoint Reset Command failed",
       (__int128 *)(a1 + 24),
       a3);
-    Controller_ReportFatalErrorEx(*(_QWORD *)v6, 2u, 4123, 0LL, 0LL, *(_QWORD *)(v6 + 16), v6, 0LL);
+    Controller_ReportFatalError(*(_QWORD *)v6, 2, 4123, 0LL, *(_QWORD *)(v6 + 16), v6, 0LL);
     goto LABEL_4;
   }
   EndpointState = UsbDevice_GetEndpointState(*(_QWORD *)(v6 + 16), *(_DWORD *)(v6 + 144));
@@ -88,7 +88,7 @@ LABEL_5:
       EndpointState,
       13,
       47,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
       *(_DWORD *)(v6 + 144),
       v13);

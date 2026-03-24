@@ -1,19 +1,18 @@
 /*
- * XREFs of ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C034B894
+ * XREFs of ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C02AB99C
  * Callers:
- *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C0225596 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
- *     ?OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z @ 0x1C034B318 (-OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z.c)
+ *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C02AA004 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
+ *     ?OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z @ 0x1C02AB53C (-OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009A8C (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009B5C (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0009BB0 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C005B130 (-SwitchClient@DXGSWAPCHAIN@@AEAA-AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?OpenSyncObject@DXGGLOBAL@@QEAAJIPEAPEAVDXGSYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01ECAB0 (-OpenSyncObject@DXGGLOBAL@@QEAAJIPEAPEAVDXGSYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z.c)
- *     ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C034A6D8 (-DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0004370 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C00070D0 (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0007124 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C004BFC0 (-SwitchClient@DXGSWAPCHAIN@@AEAA-AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?OpenSyncObject@DXGGLOBAL@@QEAAJIPEAPEAVDXGSYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C0171A20 (-OpenSyncObject@DXGGLOBAL@@QEAAJIPEAPEAVDXGSYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z.c)
+ *     ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C02AAB2C (-DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener(
@@ -22,169 +21,140 @@ __int64 __fastcall DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener(
         int a3,
         void **a4)
 {
-  int v8; // eax
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // r12
-  int v15; // ebx
-  struct DXGSYNCOBJECT *v16; // r13
-  __int64 v17; // r15
+  __int64 v8; // rax
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r14
+  __int64 v14; // r15
   __int64 CurrentProcess; // rax
-  int v19; // eax
-  __int64 v20; // rdx
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rsi
+  __int64 v20; // rax
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // r13
-  __int64 v25; // rax
-  struct DXGSYNCOBJECT *v26; // r14
+  __int64 v22; // rbx
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  PERESOURCE *Global; // rax
+  __int64 v26; // rdx
   __int64 v27; // rdx
   __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 v31; // rax
-  __int64 v32; // r8
-  __int64 v33; // r9
-  struct DXGGLOBAL *Global; // rax
-  PERESOURCE *v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rax
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  __int64 v45; // rax
-  struct DXGPROCESS *Current; // rbp
-  unsigned int v47; // esi
-  unsigned int v48; // ecx
-  __int64 v49; // r8
-  int v50; // edx
-  unsigned __int64 v51; // rbx
-  int v52; // [rsp+38h] [rbp-60h]
-  _BYTE v53[8]; // [rsp+50h] [rbp-48h] BYREF
-  char v54; // [rsp+58h] [rbp-40h]
-  struct DXGSYNCOBJECT *v55; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v56; // [rsp+B0h] [rbp+18h] BYREF
+  PERESOURCE *v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  __int64 v34; // rbx
+  __int64 v35; // rdx
+  struct DXGPROCESS *Current; // r15
+  unsigned int v37; // r14d
+  unsigned int v38; // ecx
+  __int64 v39; // rdx
+  unsigned __int64 v40; // rbx
+  __int64 v41; // rax
+  bool v42; // zf
+  struct DXGSYNCOBJECT *v43; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE v44[8]; // [rsp+48h] [rbp-50h] BYREF
+  char v45; // [rsp+50h] [rbp-48h]
+  __int64 v46; // [rsp+A0h] [rbp+8h]
+  unsigned int v47; // [rsp+B0h] [rbp+18h] BYREF
 
-  if ( this[3] != KeGetCurrentThread() )
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2208LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 2208LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v8 + 24) = 2154LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  v8 = DXGSWAPCHAIN::SwitchClient((__int64)this, a3 == 0);
-  v12 = v8 == 0 ? 0x30 : 0;
-  v13 = *(__int64 *)((char *)this + v12 + 112);
-  if ( !v13 )
+  v9 = DXGSWAPCHAIN::SwitchClient((__int64)this, a3 == 0);
+  v11 = v9 == 0 ? 0x30 : 0;
+  v12 = *(__int64 *)((char *)this + v11 + 104);
+  if ( !v12 )
     return 3221225558LL;
-  v15 = *((_DWORD *)this + 18);
-  v16 = (struct DXGSYNCOBJECT *)(32LL * v8);
-  v55 = v16;
-  v17 = 32LL * (a3 == 0);
-  LOBYTE(v9) = -(v8 == 0);
-  CurrentProcess = PsGetCurrentProcess(v9, v12, v10, v11);
-  LOBYTE(v52) = 1;
-  v19 = ObDuplicateObject(
-          v13,
-          *(_QWORD *)((char *)v16 + (_QWORD)a2 + 72),
+  v14 = 32LL * v9;
+  v46 = 32LL * (a3 == 0);
+  LOBYTE(v10) = -(v9 == 0);
+  CurrentProcess = PsGetCurrentProcess(v10, v11);
+  v16 = ObDuplicateObject(
+          v12,
+          *(_QWORD *)((char *)a2 + v14 + 72),
           CurrentProcess,
-          (char *)a2 + v17 + 72,
-          v15,
+          (char *)a2 + v46 + 72,
+          *((_DWORD *)this + 16),
           0,
           4,
-          v52);
-  v24 = v19;
-  if ( v19 >= 0 )
+          1);
+  v19 = v16;
+  if ( v16 >= 0 )
   {
     if ( a4 )
-      *a4 = *(void **)((char *)a2 + v17 + 72);
-    Global = DXGGLOBAL_GetGlobal();
-    DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v53, Global, 0);
-    DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v53);
-    v56 = 0;
-    v35 = (PERESOURCE *)DXGGLOBAL_GetGlobal();
-    LODWORD(v24) = DXGGLOBAL::OpenSyncObject(v35, *((_DWORD *)a2 + 7), &v55, &v56, 0LL);
-    if ( (int)v24 >= 0 )
+      *a4 = *(void **)((char *)a2 + v46 + 72);
+    Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v18, v17);
+    DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v44, Global, 0);
+    DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v44, v26);
+    v47 = 0;
+    v29 = (PERESOURCE *)DXGGLOBAL::GetGlobal(v28, v27);
+    LODWORD(v19) = DXGGLOBAL::OpenSyncObject(v29, *((unsigned int *)a2 + 7), &v43, &v47, 0LL);
+    if ( (int)v19 >= 0 )
     {
-      Current = DXGPROCESS::GetCurrent(v37, v36, v38, v39);
-      DXGPUSHLOCK::AcquireExclusive((struct DXGPROCESS *)((char *)Current + 248));
-      v47 = v56;
-      v48 = (v56 >> 6) & 0xFFFFFF;
-      if ( v48 < *((_DWORD *)Current + 74) )
+      Current = DXGPROCESS::GetCurrent(v31, v30);
+      DXGPUSHLOCK::AcquireExclusive((struct DXGPROCESS *)((char *)Current + 208));
+      v37 = v47;
+      v38 = (v47 >> 6) & 0xFFFFFF;
+      if ( v38 < *((_DWORD *)Current + 64) )
       {
-        v49 = *((_QWORD *)Current + 35);
-        v50 = *(_DWORD *)(v49 + 16LL * v48 + 8);
-        if ( ((v56 >> 25) & 0x60) == (v50 & 0x60) && (v50 & 0x1F) != 0 )
+        v39 = *((_QWORD *)Current + 30);
+        if ( ((v47 >> 25) & 0x60) == (*(_BYTE *)(v39 + 16LL * v38 + 8) & 0x60)
+          && (*(_DWORD *)(v39 + 16LL * v38 + 8) & 0x1F) != 0 )
         {
-          v51 = 2 * (((unsigned __int64)v56 >> 6) & 0xFFFFFF);
-          if ( (*(_DWORD *)(v49 + 16 * (((unsigned __int64)v56 >> 6) & 0xFFFFFF) + 8) & 0x2000) == 0 )
+          v40 = 2 * (((unsigned __int64)v47 >> 6) & 0xFFFFFF);
+          if ( (*(_DWORD *)(v39 + 16 * (((unsigned __int64)v47 >> 6) & 0xFFFFFF) + 8) & 0x2000) == 0 )
           {
-            WdLogSingleEntry1(1LL, 217LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"m_pEntryTable[GetIndex(hObject)].Destroyed",
-              217LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            v49 = *((_QWORD *)Current + 35);
+            v41 = WdLogNewEntry5_WdAssertion((v47 >> 25) & 0x60, v39);
+            *(_QWORD *)(v41 + 24) = 222LL;
+            WdLogEvent5_WdAssertion(v41);
+            v39 = *((_QWORD *)Current + 30);
           }
-          *(_DWORD *)(v49 + 8 * v51 + 8) &= ~0x2000u;
+          *(_DWORD *)(v39 + 8 * v40 + 8) &= ~0x2000u;
         }
       }
-      *((_QWORD *)Current + 32) = 0LL;
-      ExReleasePushLockExclusiveEx((char *)Current + 248, 0LL);
+      *((_QWORD *)Current + 27) = 0LL;
+      ExReleasePushLockExclusiveEx((char *)Current + 208, 0LL);
       KeLeaveCriticalRegion();
-      *(_DWORD *)((char *)a2 + v17 + 56) = v47;
-      if ( v54 )
-        DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v53);
-      *((_BYTE *)a2 + v17 + 48) = 1;
-      return (unsigned int)v24;
+      v42 = v45 == 0;
+      *(_DWORD *)((char *)a2 + v46 + 56) = v37;
+      if ( !v42 )
+        DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v44);
+      *((_BYTE *)a2 + v46 + 48) = 1;
     }
-    v40 = PsGetCurrentProcess(v37, v36, v38, v39);
-    WdLogSingleEntry2(2LL, *((unsigned int *)a2 + 7), v40);
-    v45 = PsGetCurrentProcess(v42, v41, v43, v44);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to open GPU fence 0x%I64x in process 0x%I64x",
-      *((unsigned int *)a2 + 7),
-      v45,
-      0LL,
-      0LL,
-      0LL);
-    if ( v54 )
-      DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v53);
+    else
+    {
+      v32 = WdLogNewEntry5_WdError(v31, v30);
+      v33 = *((unsigned int *)a2 + 7);
+      v34 = v32;
+      *(_QWORD *)(v32 + 24) = v33;
+      *(_QWORD *)(v32 + 32) = PsGetCurrentProcess(v33, v35);
+      WdLogEvent5_WdError(v34);
+      if ( v45 )
+        DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v44);
+    }
   }
   else
   {
-    v25 = PsGetCurrentProcess(v21, v20, v22, v23);
-    v26 = v55;
-    WdLogSingleEntry4(2LL, *(_QWORD *)((char *)a2 + (_QWORD)v55 + 72), v13, v25, v24);
-    v31 = PsGetCurrentProcess(v28, v27, v29, v30);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to dup NT handle 0x%I64x into from creator process 0x%I64x, to process 0x%I64x, status 0x%I64x",
-      *(_QWORD *)((char *)a2 + (_QWORD)v26 + 72),
-      v13,
-      v31,
-      v24,
-      0LL);
+    v20 = WdLogNewEntry5_WdError(v18, v17);
+    v21 = *(_QWORD *)((char *)a2 + v14 + 72);
+    v22 = v20;
+    *(_QWORD *)(v20 + 24) = v21;
+    *(_QWORD *)(v20 + 32) = v12;
+    v24 = PsGetCurrentProcess(v21, v23);
+    *(_QWORD *)(v22 + 48) = v19;
+    *(_QWORD *)(v22 + 40) = v24;
+    WdLogEvent5_WdError(v22);
   }
-  DXGSWAPCHAIN::DestroySwapchainLocalClient(
-    (DXGSWAPCHAIN *)this,
-    (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)((char *)this + (a3 != 0 ? 144LL : 96LL)),
-    v32,
-    v33);
-  return (unsigned int)v24;
+  if ( (int)v19 < 0 )
+    DXGSWAPCHAIN::DestroySwapchainLocalClient(
+      (DXGSWAPCHAIN *)this,
+      (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)((char *)this + (a3 != 0 ? 136LL : 88LL)));
+  return (unsigned int)v19;
 }

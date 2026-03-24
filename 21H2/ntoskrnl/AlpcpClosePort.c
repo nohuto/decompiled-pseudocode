@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpClosePort @ 0x14074DA90
+ * XREFs of AlpcpClosePort @ 0x1405E2CA0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpDoPortCleanup @ 0x14074DB0C (AlpcpDoPortCleanup.c)
- *     AlpcpSendCloseMessage @ 0x14074E73C (AlpcpSendCloseMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpSendCloseMessage @ 0x1405E1FC8 (AlpcpSendCloseMessage.c)
+ *     AlpcpDoPortCleanup @ 0x1405E20E8 (AlpcpDoPortCleanup.c)
  */
 
-char __fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)
+_QWORD *__fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rax
@@ -25,10 +25,10 @@ char __fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)
     if ( v5 == a1 )
     {
 LABEL_6:
-      AlpcpDoPortCleanup(a2, a1);
+      AlpcpDoPortCleanup(a2);
       if ( (*(_DWORD *)(a2 + 256) & 0x1000) == 0 )
         AlpcpSendCloseMessage(a2);
     }
   }
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

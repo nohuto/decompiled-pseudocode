@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSetTokenAllApplicationPackagesPolicy @ 0x140377258
+ * XREFs of SepSetTokenAllApplicationPackagesPolicy @ 0x140597450
  * Callers:
- *     SeSubProcessToken @ 0x140671BE0 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
  */
 
 __int64 __fastcall SepSetTokenAllApplicationPackagesPolicy(__int64 a1, unsigned int a2)

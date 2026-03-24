@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpApplyLogEntryDataToFileBackedHive @ 0x1407FEC7C
+ * XREFs of HvpApplyLogEntryDataToFileBackedHive @ 0x140873D8C
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x1407FE5D8 (HvpApplyIncrementalLogFile.c)
- *     HvpApplyLegacyLogFile @ 0x140A2A2BC (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140881368 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x14088159C (HvpApplyLegacyLogFile.c)
  * Callees:
- *     HvpSetRangeProtection @ 0x140709A04 (HvpSetRangeProtection.c)
- *     HvpCopyModifiedData @ 0x1407FED30 (HvpCopyModifiedData.c)
+ *     HvpSetRangeProtection @ 0x140657508 (HvpSetRangeProtection.c)
+ *     HvpCopyModifiedData @ 0x140873E40 (HvpCopyModifiedData.c)
  */
 
 __int64 __fastcall HvpApplyLogEntryDataToFileBackedHive(
@@ -29,7 +29,11 @@ __int64 __fastcall HvpApplyLogEntryDataToFileBackedHive(
     while ( 1 )
     {
       v12 = *(unsigned int *)(a3 + 8 * v7 + 4);
-      if ( !HvpSetRangeProtection(BugCheckParameter2, *(unsigned int *)(a3 + 8 * v7), *(_DWORD *)(a3 + 8 * v7 + 4), 4) )
+      if ( !(unsigned __int8)HvpSetRangeProtection(
+                               BugCheckParameter2,
+                               *(unsigned int *)(a3 + 8 * v7),
+                               *(_DWORD *)(a3 + 8 * v7 + 4),
+                               4u) )
         return 3221225626LL;
       HvpCopyModifiedData(BugCheckParameter2);
       a4 += v12;

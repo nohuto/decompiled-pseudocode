@@ -1,68 +1,84 @@
 /*
- * XREFs of SepGetAnonymousToken @ 0x140370BA8
+ * XREFs of SepGetAnonymousToken @ 0x14035F51C
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14071D960 (SepCreateClientSecurityEx.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9410 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCreateClientSecurityEx @ 0x1406D6F20 (SepCreateClientSecurityEx.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C690 (SepCopyAnonymousTokenAndSetSilo.c)
  * Callees:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140225390 (AuthzBasepDuplicateSecurityAttributes.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     SepSetTokenPackage @ 0x140714E10 (SepSetTokenPackage.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402D6890 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
+ *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenPackage @ 0x140710940 (SepSetTokenPackage.c)
  */
 
-__int64 __fastcall SepGetAnonymousToken(__int64 a1, PVOID *a2)
+__int64 __fastcall SepGetAnonymousToken(__int64 a1, PADAPTER_OBJECT *a2)
 {
   int v4; // ebx
-  _DWORD *v6; // rcx
-  _QWORD v7[3]; // [rsp+40h] [rbp-30h] BYREF
-  int v8; // [rsp+58h] [rbp-18h]
-  int v9; // [rsp+5Ch] [rbp-14h]
-  __int128 v10; // [rsp+60h] [rbp-10h]
-  PVOID Object; // [rsp+90h] [rbp+20h] BYREF
+  _DWORD *v5; // rcx
+  PADAPTER_OBJECT v6; // rcx
+  struct _DMA_ADAPTER *v8; // rcx
+  _DWORD v9[2]; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-28h]
+  __int64 v11; // [rsp+50h] [rbp-20h]
+  int v12; // [rsp+58h] [rbp-18h]
+  int v13; // [rsp+5Ch] [rbp-14h]
+  __int128 v14; // [rsp+60h] [rbp-10h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+90h] [rbp+20h] BYREF
 
-  Object = 0LL;
-  v9 = 0;
-  v7[1] = 0LL;
-  v8 = 0;
-  v7[2] = 0LL;
-  v7[0] = 48LL;
+  DmaAdapter = 0LL;
+  v9[1] = 0;
+  v13 = 0;
   v10 = 0LL;
-  v4 = SepDuplicateToken((_DWORD)SeAnonymousLogonTokenNoEveryone, (unsigned int)v7, 1, 2, 2, 0, 1, (__int64)&Object);
+  v12 = 0;
+  v11 = 0LL;
+  v9[0] = 48;
+  v14 = 0LL;
+  v4 = SepDuplicateToken((_DWORD)SeAnonymousLogonTokenNoEveryone, (unsigned int)v9, 1, 2, 2, 0, 1, (__int64)&DmaAdapter);
   if ( v4 >= 0 )
   {
-    if ( a1 )
+    if ( !a1 )
     {
-      v4 = SepSetTokenPackage(Object, *(_QWORD *)(a1 + 784));
-      if ( v4 < 0
-        || (v4 = SepSetTokenCapabilities(
-                   Object,
-                   *(_QWORD *)(a1 + 784),
-                   *(_QWORD *)(a1 + 792),
-                   *(unsigned int *)(a1 + 800)),
-            v4 < 0)
-        || (SepSetTokenSessionById((_DWORD)Object, *(_DWORD *)(a1 + 120), 0, 0, 0LL),
-            *((_DWORD *)Object + 30) = *(_DWORD *)(a1 + 120),
-            v4 = SepSetTokenLowboxNumber(Object, *(_QWORD *)(a1 + 784)),
-            v4 < 0)
-        || (v6 = *(_DWORD **)(a1 + 776)) != 0LL
-        && *v6
-        && (v4 = AuthzBasepDuplicateSecurityAttributes((__int64)v6, *((_QWORD **)Object + 97), 0), v4 < 0) )
-      {
-        ObfDereferenceObject(Object);
-        return (unsigned int)v4;
-      }
-      *((_QWORD *)Object + 9) &= 0x200800000uLL;
-      *((_QWORD *)Object + 10) &= 0x200800000uLL;
-      *((_QWORD *)Object + 8) &= 0x200800000uLL;
-      *((_DWORD *)Object + 50) &= ~0x2000u;
-      *((_DWORD *)Object + 50) |= 0x4000u;
-      *((_DWORD *)Object + 50) |= *(_DWORD *)(a1 + 200) & 0x380000;
+LABEL_10:
+      v6 = DmaAdapter;
+      *a2 = DmaAdapter;
+      return (unsigned int)v4;
     }
-    *a2 = Object;
+    v4 = SepSetTokenPackage(DmaAdapter, *(_QWORD *)(a1 + 784));
+    if ( v4 >= 0 )
+    {
+      v4 = SepSetTokenCapabilities(
+             DmaAdapter,
+             *(_QWORD *)(a1 + 784),
+             *(_QWORD *)(a1 + 792),
+             *(unsigned int *)(a1 + 800));
+      if ( v4 >= 0 )
+      {
+        SepSetTokenSessionById((_DWORD)DmaAdapter, *(_DWORD *)(a1 + 120), 0, 0, 0LL);
+        LODWORD(DmaAdapter[7].DmaOperations) = *(_DWORD *)(a1 + 120);
+        v4 = SepSetTokenLowboxNumber(DmaAdapter, *(_QWORD *)(a1 + 784));
+        if ( v4 >= 0 )
+        {
+          v5 = *(_DWORD **)(a1 + 776);
+          if ( !v5
+            || !*v5
+            || (v4 = AuthzBasepDuplicateSecurityAttributes((__int64)v5, &DmaAdapter[48].DmaOperations->Size, 0), v4 >= 0) )
+          {
+            DmaAdapter[4].DmaOperations = (_DMA_OPERATIONS *)((unsigned __int64)DmaAdapter[4].DmaOperations & 0x200800000LL);
+            *(_QWORD *)&DmaAdapter[5].Version &= 0x200800000uLL;
+            *(_QWORD *)&DmaAdapter[4].Version &= 0x200800000uLL;
+            LODWORD(DmaAdapter[12].DmaOperations) &= ~0x2000u;
+            LODWORD(DmaAdapter[12].DmaOperations) |= 0x4000u;
+            LODWORD(DmaAdapter[12].DmaOperations) |= *(_DWORD *)(a1 + 200) & 0x380000;
+            goto LABEL_10;
+          }
+        }
+      }
+    }
+    v8 = DmaAdapter;
+    HalPutDmaAdapter(v8);
   }
   return (unsigned int)v4;
 }

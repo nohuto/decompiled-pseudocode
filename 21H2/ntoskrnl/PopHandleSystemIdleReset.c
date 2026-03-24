@@ -1,36 +1,24 @@
 /*
- * XREFs of PopHandleSystemIdleReset @ 0x140368FC4
+ * XREFs of PopHandleSystemIdleReset @ 0x140577624
  * Callers:
- *     PopResetIdleTime @ 0x140368F70 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x140283D78 (PopResetIdleTime.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x1402D6254 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x1402D62A8 (PopCheckForWork.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 (__fastcall *__fastcall PopHandleSystemIdleReset(
-        int a1))(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
+__int64 __fastcall PopHandleSystemIdleReset(int a1)
 {
-  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD); // rax
-  int v3; // [rsp+30h] [rbp-18h]
+  __int64 result; // rax
 
   if ( !PopPlatformAoAc )
-    result = wil_details_FeatureReporting_ReportUsageToService(
-               (__int64)&Feature_PowerEventProcessorSystemIdle__private_reporting,
-               0x16F54A4u,
-               0,
-               0,
-               (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-               1u,
-               v3);
+    KeBugCheckEx(0xA0u, 0xAuLL, 0x102uLL, 0LL, 0LL);
   if ( a1 == 2 )
   {
-    if ( PopIdleScanInterval )
-    {
-      _InterlockedOr(&PopPendingSystemIdleResetMask, 4u);
-      PopGetPolicyWorker(128);
-      return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))PopCheckForWork();
-    }
+    _InterlockedOr(&PopPendingSystemIdleResetMask, 4u);
+    PopGetPolicyWorker(128);
+    return PopCheckForWork();
   }
   return result;
 }

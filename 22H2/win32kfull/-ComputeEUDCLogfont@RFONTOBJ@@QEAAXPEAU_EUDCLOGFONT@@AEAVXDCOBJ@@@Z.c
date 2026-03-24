@@ -1,248 +1,228 @@
 /*
- * XREFs of ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C02B395C
+ * XREFs of ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C00E8C04
  * Callers:
- *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02B46D0 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B4F3C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B5720 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7AAC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A7164 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A7388 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z @ 0x1C0083498 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ??1LFONTOBJ@@QEAA@XZ @ 0x1C028D8B4 (--1LFONTOBJ@@QEAA@XZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z @ 0x1C009BFA8 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 void __fastcall RFONTOBJ::ComputeEUDCLogfont(RFONTOBJ *this, struct _EUDCLOGFONT *a2, struct XDCOBJ *a3)
 {
-  struct XDCOBJ *v4; // r15
+  struct XDCOBJ *v4; // rsi
   struct HLFONT__ *v6; // rdx
-  struct LFONT *v7; // rbx
-  __int64 v8; // r12
-  __int64 v9; // rcx
-  int v10; // r13d
-  __int64 v11; // rax
+  HDC *v7; // rdx
+  __int64 v8; // rbx
+  __int64 v9; // rbx
+  __int64 v10; // rdx
+  int v11; // r13d
   bool v12; // zf
-  __int64 v13; // rsi
+  __int64 v13; // rcx
   int v14; // eax
-  int v15; // eax
-  __int64 v16; // rcx
+  __int64 v15; // rcx
+  int v16; // eax
   int v17; // eax
-  int v18; // eax
-  int v19; // eax
-  __int64 v20; // rcx
-  __m128i v21; // xmm0
-  __int64 v22; // r15
-  int v23; // r8d
-  float *v24; // rdx
-  int v25; // esi
+  __int64 v18; // rcx
+  _DWORD *v19; // r14
+  int v20; // esi
+  int v21; // eax
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  int v24; // r12d
+  int v25; // ecx
   int v26; // eax
-  int v27; // eax
-  unsigned int v28; // r8d
-  int v29; // r12d
-  float v30; // xmm0_4
-  int v31; // eax
-  float v32; // xmm2_4
-  float v33; // xmm1_4
-  __int64 v34; // rdx
-  int v35; // eax
-  __int64 v36; // rcx
-  unsigned int v37; // r8d
-  unsigned int v38; // eax
-  __int64 v39; // rcx
-  int v40; // r8d
-  int v41; // r9d
-  __int64 v42; // [rsp+20h] [rbp-50h]
-  __int64 v43; // [rsp+28h] [rbp-48h]
-  _QWORD v44[5]; // [rsp+30h] [rbp-40h] BYREF
-  int v45; // [rsp+58h] [rbp-18h]
-  __int64 v46; // [rsp+B0h] [rbp+40h] BYREF
-  struct XDCOBJ *v47; // [rsp+C0h] [rbp+50h] BYREF
-  struct LFONT *v48; // [rsp+C8h] [rbp+58h] BYREF
+  float v27; // xmm2_4
+  float v28; // xmm1_4
+  __int64 v29; // rdx
+  int v30; // eax
+  __int64 v31; // rcx
+  unsigned int v32; // r8d
+  unsigned int v33; // eax
+  __int64 v34; // rcx
+  int v35; // r8d
+  int v36; // r9d
+  __int64 v37; // [rsp+20h] [rbp-59h]
+  _BYTE v38[16]; // [rsp+28h] [rbp-51h] BYREF
+  _BYTE v39[40]; // [rsp+38h] [rbp-41h] BYREF
+  _QWORD v40[5]; // [rsp+60h] [rbp-19h] BYREF
+  __int64 v41; // [rsp+E0h] [rbp+67h] BYREF
+  struct XDCOBJ *v42; // [rsp+F0h] [rbp+77h] BYREF
+  __int64 v43; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v47 = a3;
+  v42 = a3;
   v4 = a3;
-  v6 = *(struct HLFONT__ **)(*(_QWORD *)a3 + 1744LL);
-  v46 = *(_QWORD *)(*(_QWORD *)a3 + 48LL);
-  LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v48, v6, (struct PDEVOBJ *)&v46);
-  v46 = *(_QWORD *)this;
+  v6 = *(struct HLFONT__ **)(*(_QWORD *)a3 + 1752LL);
+  v41 = *(_QWORD *)(*(_QWORD *)a3 + 48LL);
+  LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v43, v6, (struct PDEVOBJ *)&v41);
+  v7 = *(HDC **)v4;
+  v41 = *(_QWORD *)this;
+  v8 = *(_QWORD *)(v41 + 120);
+  DCOBJ::DCOBJ((DCOBJ *)v38, *v7);
   IFIOBJR::IFIOBJR(
-    (IFIOBJR *)v44,
-    *(const struct _IFIMETRICS **)(*(_QWORD *)(v46 + 120) + 32LL),
-    (struct RFONTOBJ *)&v46,
-    v4);
-  v7 = v48;
-  if ( !v48 )
-  {
-    v46 = 0LL;
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v46);
-    LFONTOBJ::~LFONTOBJ(&v48);
-    return;
-  }
-  v8 = v44[0];
-  v42 = v44[0];
-  *(_DWORD *)a2 = *(unsigned __int16 *)(v44[0] + 52LL);
-  v9 = *(unsigned int *)(*(_QWORD *)this + 12LL);
-  *((_DWORD *)a2 + 1) = v9;
-  *((_DWORD *)a2 + 3) = *((_DWORD *)v7 + 69);
-  *((_DWORD *)a2 + 2) = *((_DWORD *)v7 + 70);
-  *((_DWORD *)a2 + 4) = *((_DWORD *)v7 + 71);
-  *((_DWORD *)a2 + 5) = *((_DWORD *)v7 + 72);
+    (IFIOBJR *)v40,
+    *(const struct _IFIMETRICS **)(v8 + 32),
+    (struct RFONTOBJ *)&v41,
+    (struct DCOBJ *)v38);
+  v9 = v43;
+  if ( !v43 )
+    goto LABEL_56;
+  v10 = v40[0];
+  v37 = v40[0];
+  *(_DWORD *)a2 = *(unsigned __int16 *)(v40[0] + 52LL);
+  *((_DWORD *)a2 + 1) = *(_DWORD *)(*(_QWORD *)this + 12LL);
+  *((_DWORD *)a2 + 3) = *(_DWORD *)(v9 + 276);
+  *((_DWORD *)a2 + 2) = *(_DWORD *)(v9 + 280);
+  *((_DWORD *)a2 + 4) = *(_DWORD *)(v9 + 284);
+  *((_DWORD *)a2 + 5) = *(_DWORD *)(v9 + 288);
   *((_DWORD *)a2 + 7) = 1065353216;
-  v10 = *(_DWORD *)(v8 + 48) & 0x401000;
-  v11 = SGDGetSessionState(v9);
-  v12 = (*(_DWORD *)(v8 + 48) & 0x3000010) == 0;
-  v13 = *(_QWORD *)(v11 + 32);
-  *((_DWORD *)a2 + 6) = *(_DWORD *)(v8 + 48) & 0x3000010;
-  v43 = v13;
-  v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL);
+  v11 = *(_DWORD *)(v10 + 48) & 0x401000;
+  v12 = (*(_DWORD *)(v10 + 48) & 0x3000010) == 0;
+  *((_DWORD *)a2 + 6) = *(_DWORD *)(v10 + 48) & 0x3000010;
+  v13 = 2050LL;
   if ( !v12 )
   {
-    v22 = *(_QWORD *)this;
-    v23 = *(_DWORD *)(*(_QWORD *)this + 324LL);
-    v24 = (float *)(*(_QWORD *)this + 684LL);
-    if ( (v14 & 0x802) == 0x802 )
+    v19 = *(_DWORD **)this;
+    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x802) == 0x802 )
     {
-      v25 = (v23 + 8) >> 4;
+      v20 = (*(_DWORD *)(*(_QWORD *)this + 324LL) + 8) >> 4;
     }
     else
     {
-      LODWORD(v46) = 0;
-      bFToL((float)v23 * *v24, (int *)&v46, 0);
-      v25 = v46;
-      v24 = (float *)(v22 + 684);
+      LODWORD(v41) = 0;
+      bFToL(2050LL, &v41, 0LL);
+      v20 = v41;
     }
-    LODWORD(v46) = 0;
-    v26 = *(_DWORD *)(v22 + 380);
-    if ( v26 == 0x80000000 )
+    v21 = v19[95];
+    LODWORD(v41) = 0;
+    if ( v21 == 0x80000000 )
     {
-      v27 = *(__int16 *)(v8 + 56);
-      LODWORD(v48) = *(_DWORD *)(v22 + 216);
-      bFToL((float)v27 * *(float *)&v48, (int *)&v46, 0);
-      v29 = v25 - v46;
-      if ( !v10 || *(_DWORD *)(v43 + 19400) != v28 )
-        goto LABEL_34;
-      LODWORD(v48) = *(_DWORD *)(v22 + 212);
-      v30 = (float)v45 * *(float *)&v48;
+      LODWORD(v43) = v19[54];
+      bFToL(v13, &v41, 0LL);
+      v24 = v20 - v41;
+      if ( v11 && gbJpn98FixPitch == (_DWORD)v23 )
+      {
+        LODWORD(v43) = v19[53];
+LABEL_28:
+        LODWORD(v41) = v23 & v41;
+        bFToL(v22, &v41, v23);
+        *((_DWORD *)a2 + 2) = v41;
+      }
     }
     else
     {
-      bFToL((float)v26 * *v24, (int *)&v46, 0);
-      v29 = v46;
-      if ( !v10 || *(_DWORD *)(v43 + 19400) != v28 )
-        goto LABEL_34;
-      v30 = (float)*(int *)(v22 + 388) * *(float *)(v22 + 680);
+      bFToL(v13, &v41, 0LL);
+      v24 = v41;
+      if ( v11 && gbJpn98FixPitch == (_DWORD)v23 )
+        goto LABEL_28;
     }
-    LODWORD(v46) = v28 & v46;
-    bFToL(v30, (int *)&v46, v28);
-    *((_DWORD *)a2 + 2) = v46;
-LABEL_34:
-    if ( v29 >= 0 )
-      v31 = v25 - v29;
-    else
-      v31 = v25 + v29;
-    *((_DWORD *)a2 + 3) = v31;
-    if ( v31 > 13 )
-      goto LABEL_45;
-    if ( v31 == 11 )
+    v25 = v20 + v24;
+    if ( v24 >= 0 )
+      v25 = v20 - v24;
+    *((_DWORD *)a2 + 3) = v25;
+    if ( v25 > 13 )
+      goto LABEL_39;
+    if ( v25 == 11 )
     {
-      v31 = 12;
-      if ( v25 < 12 )
-        goto LABEL_45;
+      v26 = 12;
+      if ( v20 < 12 )
+        goto LABEL_39;
     }
     else
     {
-      if ( v31 != 13 )
-        goto LABEL_45;
-      if ( v25 >= 15 )
-        v31 = 15;
+      if ( v25 != 13 )
+        goto LABEL_39;
+      v26 = 13;
+      if ( v20 >= 15 )
+        v26 = 15;
     }
-    *((_DWORD *)a2 + 3) = v31;
-LABEL_45:
-    if ( *((_DWORD *)v7 + 70) && !v10 )
+    *((_DWORD *)a2 + 3) = v26;
+LABEL_39:
+    if ( *(_DWORD *)(v9 + 280) && !v11 )
     {
       *((_DWORD *)a2 + 2) = 0;
-      v32 = *(float *)(*(_QWORD *)this + 152LL);
-      v33 = *(float *)(*(_QWORD *)this + 136LL);
-      *(float *)&v46 = v32;
-      if ( EFLOAT::bIsZero((EFLOAT *)&v46) )
+      v27 = *(float *)(*(_QWORD *)this + 152LL);
+      v28 = *(float *)(*(_QWORD *)this + 136LL);
+      *(float *)&v41 = v27;
+      if ( EFLOAT::bIsZero((EFLOAT *)&v41) )
       {
-        v33 = *(float *)(v34 + 140);
-        v32 = *(float *)(v34 + 156);
+        v28 = *(float *)(v29 + 140);
+        v27 = *(float *)(v29 + 156);
       }
-      *((float *)a2 + 7) = v33 / v32;
+      *((float *)a2 + 7) = v28 / v27;
     }
-    v8 = v42;
-    v4 = v47;
-    goto LABEL_51;
+    v4 = v42;
+    goto LABEL_45;
   }
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x802) != 0x802 )
   {
-    if ( v10 )
+    if ( v11 )
     {
-      v19 = *(__int16 *)(v8 + 76);
-      LODWORD(v47) = 0;
-      bFToL((float)(16 * v19) * *(float *)(*(_QWORD *)this + 680LL), (int *)&v47, 0);
-      *((_DWORD *)a2 + 2) = (_DWORD)v47;
+      LODWORD(v42) = 0;
+      bFToL(2050LL, &v42, 0LL);
+      *((_DWORD *)a2 + 2) = (_DWORD)v42;
     }
-    LODWORD(v47) = 0;
-    v20 = *(_QWORD *)this;
-    if ( (*(_DWORD *)(v13 + 13308) & 0x4000) != 0 )
-      v21 = _mm_cvtsi32_si128(*(_DWORD *)(v20 + 324));
-    else
-      v21 = _mm_cvtsi32_si128(*(_DWORD *)(v20 + 316));
-    bFToL(_mm_cvtepi32_ps(v21).m128_f32[0] * *(float *)(v20 + 684), (int *)&v47, 0);
-    *((_DWORD *)a2 + 3) = (_DWORD)v47;
-    goto LABEL_21;
+    v18 = *(_QWORD *)this;
+    LODWORD(v42) = 0;
+    bFToL(v18, &v42, 0LL);
+    *((_DWORD *)a2 + 3) = (_DWORD)v42;
+    goto LABEL_17;
   }
-  if ( v10 )
-    *((_DWORD *)a2 + 2) = *(__int16 *)(v8 + 76);
-  v15 = _wcsicmp((const wchar_t *)(v8 + *(int *)(v8 + 16)), L"Ms Sans Serif");
-  v16 = *(_QWORD *)this;
-  if ( v15 )
+  if ( v11 )
+    *((_DWORD *)a2 + 2) = *(__int16 *)(v10 + 76);
+  v14 = _wcsicmp((const wchar_t *)(v10 + *(int *)(v10 + 16)), L"Ms Sans Serif");
+  v15 = *(_QWORD *)this;
+  if ( v14 )
   {
-    if ( (*(_DWORD *)(v13 + 13308) & 0x4000) != 0 )
+    if ( (ulFontLinkControl & 0x4000) != 0 )
     {
-      v18 = *(_DWORD *)(v16 + 324);
-LABEL_13:
-      v17 = (v18 + 8) >> 4;
-      goto LABEL_14;
-    }
+      v17 = *(_DWORD *)(v15 + 324);
 LABEL_12:
-    v18 = *(_DWORD *)(v16 + 316);
-    goto LABEL_13;
-  }
-  if ( (unsigned int)(*(_DWORD *)(v16 + 324) - 193) > 0x4E )
+      v16 = (v17 + 8) >> 4;
+      goto LABEL_13;
+    }
+LABEL_11:
+    v17 = *(_DWORD *)(v15 + 316);
     goto LABEL_12;
-  v17 = 12;
-LABEL_14:
-  *((_DWORD *)a2 + 3) = v17;
-LABEL_21:
-  if ( v10 )
+  }
+  if ( (unsigned int)(*(_DWORD *)(v15 + 324) - 193) > 0x4E )
+    goto LABEL_11;
+  v16 = 12;
+LABEL_13:
+  *((_DWORD *)a2 + 3) = v16;
+LABEL_17:
+  if ( v11 )
     *((_DWORD *)a2 + 2) *= *(_DWORD *)(*(_QWORD *)this + 648LL);
-LABEL_51:
-  v35 = *(_DWORD *)(v8 + 48);
-  if ( (v35 & 0x10) == 0 )
+LABEL_45:
+  v30 = *(_DWORD *)(v37 + 48);
+  if ( (v30 & 0x10) == 0 )
   {
-    if ( (v35 & 0x200000) != 0 )
+    if ( (v30 & 0x200000) != 0 )
     {
-      v36 = *((unsigned int *)a2 + 5);
-      if ( (_DWORD)v36 )
+      v31 = *((unsigned int *)a2 + 5);
+      if ( (_DWORD)v31 )
       {
-        v37 = lNormAngle(v36);
-        v38 = 900 * (v37 / 0x384);
-        *((_DWORD *)a2 + 5) = v38;
-        if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x40) != 0 && v37 != v38 )
-          *((_DWORD *)a2 + 5) = lNormAngle(v38 + 900);
+        v32 = lNormAngle(v31);
+        v33 = 900 * (v32 / 0x384);
+        *((_DWORD *)a2 + 5) = v33;
+        if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x40) != 0 && v32 != v33 )
+          *((_DWORD *)a2 + 5) = lNormAngle(v33 + 900);
       }
-      v39 = *((unsigned int *)a2 + 4);
-      if ( (_DWORD)v39 )
+      v34 = *((unsigned int *)a2 + 4);
+      if ( (_DWORD)v34 )
       {
-        v40 = lNormAngle(v39);
-        v41 = 900 * (v40 / 900);
-        *((_DWORD *)a2 + 4) = v41;
-        if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x40) != 0 && v40 != v41 )
-          *((_DWORD *)a2 + 4) = lNormAngle((unsigned int)(v41 + 900));
+        v35 = lNormAngle(v34);
+        v36 = 900 * (v35 / 900);
+        *((_DWORD *)a2 + 4) = v36;
+        if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v4 + 976LL) + 340LL) & 0x40) != 0 && v35 != v36 )
+          *((_DWORD *)a2 + 4) = lNormAngle((unsigned int)(v36 + 900));
       }
     }
     else
@@ -250,8 +230,11 @@ LABEL_51:
       *((_QWORD *)a2 + 2) = 0LL;
     }
   }
-  v46 = 0LL;
-  RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v46);
-  if ( v7 )
-    DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v7);
+LABEL_56:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v38);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v39);
+  v41 = 0LL;
+  RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v41);
+  if ( v9 )
+    DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v9);
 }

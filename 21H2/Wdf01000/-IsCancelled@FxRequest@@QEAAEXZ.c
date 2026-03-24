@@ -1,7 +1,8 @@
 /*
- * XREFs of ?IsCancelled@FxRequest@@QEAAEXZ @ 0x1C0064114
+ * XREFs of ?IsCancelled@FxRequest@@QEAAEXZ @ 0x1C0001A34
  * Callers:
- *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B8B0 (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     imp_WdfRequestIsCanceled @ 0x1C00019E0 (imp_WdfRequestIsCanceled.c)
+ *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014E1C (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
  * Callees:
  *     <none>
  */

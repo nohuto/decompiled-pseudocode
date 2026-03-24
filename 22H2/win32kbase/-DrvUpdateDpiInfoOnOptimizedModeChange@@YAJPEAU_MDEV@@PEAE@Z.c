@@ -1,33 +1,36 @@
 /*
- * XREFs of ?DrvUpdateDpiInfoOnOptimizedModeChange@@YAJPEAU_MDEV@@PEAE@Z @ 0x1C016261C
+ * XREFs of ?DrvUpdateDpiInfoOnOptimizedModeChange@@YAJPEAU_MDEV@@PEAE@Z @ 0x1C01452A0
  * Callers:
- *     DrvProcessDxgkDisplayCallout @ 0x1C01679B0 (DrvProcessDxgkDisplayCallout.c)
+ *     DrvProcessDxgkDisplayCallout @ 0x1C0147C78 (DrvProcessDxgkDisplayCallout.c)
  * Callees:
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001CAB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memcmp @ 0x1C00D6840 (memcmp.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0012124 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memcmp @ 0x1C00CE910 (memcmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvUpdateDpiInfoOnOptimizedModeChange(struct _MDEV *a1, unsigned __int8 *a2)
 {
-  unsigned int v2; // ebp
-  unsigned int i; // edi
+  __int64 v2; // rbp
+  unsigned int i; // esi
   __int64 v6; // r15
-  __int64 v7; // rsi
+  __int64 v7; // rbx
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  __int64 DxgkWin32kInterface; // rax
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  __int128 v15; // xmm1
   int v16; // eax
-  __int64 v18; // [rsp+30h] [rbp-A8h] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  _QWORD *v19; // rax
+  __int64 v21; // [rsp+30h] [rbp-A8h] BYREF
   _OWORD Buf1[6]; // [rsp+40h] [rbp-98h] BYREF
 
-  v2 = 0;
+  LODWORD(v2) = 0;
   *a2 = 0;
   if ( a1 )
   {
@@ -35,46 +38,47 @@ __int64 __fastcall DrvUpdateDpiInfoOnOptimizedModeChange(struct _MDEV *a1, unsig
     {
       v6 = 56LL * i;
       v7 = *(_QWORD *)((char *)a1 + v6 + 40);
-      v18 = v7;
-      if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v18) )
+      v21 = v7;
+      if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v21) )
       {
-        v10 = *(_OWORD *)(v7 + 2440);
-        Buf1[0] = *(_OWORD *)(v7 + 2424);
-        v11 = *(_OWORD *)(v7 + 2456);
-        Buf1[1] = v10;
-        v12 = *(_OWORD *)(v7 + 2472);
-        Buf1[2] = v11;
-        v13 = *(_OWORD *)(v7 + 2488);
-        Buf1[3] = v12;
-        v14 = *(_OWORD *)(v7 + 2504);
-        Buf1[4] = v13;
-        Buf1[5] = v14;
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v9, v8);
-        v16 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, __int64))(DxgkWin32kInterface + 520))(
-                *(_QWORD *)(*(_QWORD *)(v7 + 2552) + 232LL),
-                *(unsigned int *)(*(_QWORD *)(v7 + 2552) + 248LL),
-                0LL,
-                v7 + 2104,
-                v7 + 2424);
+        v8 = *(_QWORD *)(v7 + 2576);
+        v9 = *(_OWORD *)(v7 + 2472);
+        Buf1[0] = *(_OWORD *)(v7 + 2456);
+        v10 = *(_OWORD *)(v7 + 2488);
+        v11 = *(_QWORD *)(v8 + 240);
+        v12 = *(unsigned int *)(v8 + 256);
+        Buf1[1] = v9;
+        v13 = *(_OWORD *)(v7 + 2504);
+        Buf1[2] = v10;
+        v14 = *(_OWORD *)(v7 + 2520);
+        Buf1[3] = v13;
+        v15 = *(_OWORD *)(v7 + 2536);
+        Buf1[4] = v14;
+        Buf1[5] = v15;
+        v16 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))qword_1C0250AA0)(
+                v11,
+                v12,
+                v7 + 2136,
+                v7 + 2456);
         v2 = v16;
         if ( v16 >= 0 )
         {
-          if ( memcmp(Buf1, (const void *)(v7 + 2424), 0x60uLL) )
+          if ( memcmp(Buf1, (const void *)(v7 + 2456), 0x60uLL) )
           {
-            *(_DWORD *)((char *)a1 + v6 + 72) = *(_DWORD *)(v7 + 2432);
+            *(_DWORD *)((char *)a1 + v6 + 72) = *(_DWORD *)(v7 + 2464);
             *a2 = 1;
           }
         }
         else
         {
-          WdLogSingleEntry3(
-            2LL,
-            v16,
-            *(_QWORD *)(*(_QWORD *)(v7 + 2552) + 232LL),
-            *(unsigned int *)(*(_QWORD *)(v7 + 2552) + 248LL));
+          v19 = (_QWORD *)WdLogNewEntry5_WdError(v18, v17);
+          v19[3] = v2;
+          v19[4] = *(_QWORD *)(*(_QWORD *)(v7 + 2576) + 240LL);
+          v19[5] = *(unsigned int *)(*(_QWORD *)(v7 + 2576) + 256LL);
+          WdLogEvent5_WdError(v19);
         }
       }
     }
   }
-  return v2;
+  return (unsigned int)v2;
 }

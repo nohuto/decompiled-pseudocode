@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetIoPriorityHintIntoFileObject @ 0x1405571D0
+ * XREFs of IoSetIoPriorityHintIntoFileObject @ 0x140505FA0
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140250C30 (IopAllocateFileObjectExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14022BB40 (IopAllocateFileObjectExtension.c)
  */
 
 __int64 __fastcall IoSetIoPriorityHintIntoFileObject(__int64 a1, unsigned int a2)
@@ -16,6 +16,6 @@ __int64 __fastcall IoSetIoPriorityHintIntoFileObject(__int64 a1, unsigned int a2
     return 3221225485LL;
   result = IopAllocateFileObjectExtension(a1, &v4);
   if ( (int)result >= 0 )
-    *(_DWORD *)(v4 + 88) = a2 + 1;
+    *(_DWORD *)(v4 + 80) = a2 + 1;
   return result;
 }

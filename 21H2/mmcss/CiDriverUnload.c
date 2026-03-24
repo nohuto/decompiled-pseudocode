@@ -1,10 +1,11 @@
 /*
- * XREFs of CiDriverUnload @ 0x1C000C4B0
+ * XREFs of CiDriverUnload @ 0x1C000C770
  * Callers:
  *     <none>
  * Callees:
- *     WPP_SF_ @ 0x1C00046A8 (WPP_SF_.c)
- *     CsTerminate @ 0x1C000C514 (CsTerminate.c)
+ *     WPP_SF_ @ 0x1C00043F8 (WPP_SF_.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C000A008 (wil_UninitializeFeatureStaging.c)
+ *     CsTerminate @ 0x1C000C7D8 (CsTerminate.c)
  */
 
 __int64 CiDriverUnload()
@@ -13,11 +14,12 @@ __int64 CiDriverUnload()
     WPP_SF_(
       (__int64)WPP_GLOBAL_Control->AttachedDevice,
       0x13u,
-      (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids);
+      (__int64)&WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids);
   if ( CiDeviceObject )
   {
     IoDeleteDevice(CiDeviceObject);
     CiDeviceObject = 0LL;
   }
-  return CsTerminate();
+  CsTerminate();
+  return wil_UninitializeFeatureStaging();
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpCreateEvent @ 0x14085075C
+ * XREFs of PfpCreateEvent @ 0x1407BFE50
  * Callers:
- *     PfpScenCtxStart @ 0x14085071C (PfpScenCtxStart.c)
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
- *     PfpParametersInitialize @ 0x140B23B40 (PfpParametersInitialize.c)
- *     PfSnInitializePrefetcher @ 0x140B23CDC (PfSnInitializePrefetcher.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfpScenCtxStart @ 0x1407BFDD0 (PfpScenCtxStart.c)
+ *     PfpParametersInitialize @ 0x140A6A864 (PfpParametersInitialize.c)
+ *     PfSnInitializePrefetcher @ 0x140A6AA00 (PfSnInitializePrefetcher.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
   int Acl; // ebx
   ULONG v7; // ebx
   ULONG v8; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v10; // rdi
   PVOID Object; // [rsp+30h] [rbp-29h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+38h] [rbp-21h] BYREF
@@ -33,18 +33,18 @@ __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
 
   v14 = 0LL;
   EventHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   if ( Acl >= 0 )
   {
     v7 = RtlLengthSid(SeAliasAdminsSid);
     v8 = RtlLengthSid(SeLocalSystemSid) + 32 + v7;
-    Pool2 = (ACL *)ExAllocatePool2(256LL, v8, 1818452292LL);
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v8, 0x6C636144u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Acl = RtlCreateAcl(Pool2, v8, 2u);
+      Acl = RtlCreateAcl(PoolWithTag, v8, 2u);
       if ( Acl >= 0 )
       {
         Acl = RtlpAddKnownAce((__int64)v10, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);

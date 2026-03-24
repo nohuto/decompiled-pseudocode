@@ -1,11 +1,12 @@
 /*
- * XREFs of xxEngNineGrid @ 0x1C00D7A18
+ * XREFs of xxEngNineGrid @ 0x1C00C9058
  * Callers:
- *     EngNineGrid @ 0x1C00D7950 (EngNineGrid.c)
+ *     EngNineGrid @ 0x1C00C8F90 (EngNineGrid.c)
  * Callees:
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     RenderNineGrid @ 0x1C00D7F28 (RenderNineGrid.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7A60 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     RenderNineGrid @ 0x1C00C9560 (RenderNineGrid.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxEngNineGrid(
@@ -19,231 +20,227 @@ __int64 __fastcall xxEngNineGrid(
         __int64 a8)
 {
   __int64 v10; // r15
-  unsigned int v11; // r11d
-  signed int v12; // r8d
+  signed int v11; // r8d
+  unsigned int v12; // r11d
   signed int v13; // edx
   int v14; // ecx
   unsigned int v15; // r9d
   unsigned __int8 v16; // r13
-  char v17; // al
-  char v18; // r8
-  char v19; // al
-  int v20; // edi
-  int v21; // ebx
+  int v17; // r10d
+  int v18; // r8d
+  int v19; // edi
+  int v20; // r14d
+  BOOL v21; // eax
+  char v22; // r8
+  int v23; // r9d
+  int v24; // r10d
+  char v25; // dl
+  int v26; // r14d
+  int v27; // edi
   signed int ClearBits; // eax
-  __int64 v23; // r12
-  __int64 v24; // rax
-  _QWORD *v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // rsi
-  SURFOBJ *v28; // rax
-  __int64 v29; // r8
-  int v31; // ebx
-  int v32; // ecx
-  int v33; // edx
-  int v34; // r14d
-  int v35; // r13d
-  int v36; // edi
+  __int64 v29; // r12
+  __int64 v30; // rax
+  _QWORD *v31; // rax
+  __int64 v32; // rcx
+  __int64 v33; // rbx
+  SURFOBJ *v34; // rax
+  __int64 v35; // r8
+  int v36; // ebx
   int v37; // ecx
-  int v38; // esi
-  int v39; // eax
-  int v40; // eax
-  int v41; // eax
-  int v42; // r10d
-  int v43; // r8d
-  unsigned __int8 v44; // [rsp+60h] [rbp-A0h]
-  __int64 v45; // [rsp+68h] [rbp-98h] BYREF
-  char v46; // [rsp+70h] [rbp-90h]
-  int v47; // [rsp+74h] [rbp-8Ch]
-  signed int v48; // [rsp+7Ch] [rbp-84h]
-  __int64 v49; // [rsp+80h] [rbp-80h]
-  __int64 v50; // [rsp+88h] [rbp-78h]
-  __int64 v51; // [rsp+90h] [rbp-70h]
-  __int64 v52; // [rsp+98h] [rbp-68h]
-  __int64 v53; // [rsp+A0h] [rbp-60h]
-  __int64 v54; // [rsp+A8h] [rbp-58h]
-  struct _SURFOBJ *v55; // [rsp+B0h] [rbp-50h]
-  __int128 v56; // [rsp+B8h] [rbp-48h] BYREF
-  __int128 v57; // [rsp+C8h] [rbp-38h]
-  __int64 v58[2]; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v59[2]; // [rsp+F0h] [rbp-10h] BYREF
-  _DWORD v60[4]; // [rsp+100h] [rbp+0h] BYREF
+  int v38; // edx
+  int v39; // r14d
+  int v40; // r13d
+  int v41; // edi
+  int v42; // ecx
+  int v43; // esi
+  int v44; // eax
+  int v45; // eax
+  int v46; // eax
+  unsigned __int8 v48; // [rsp+60h] [rbp-A0h]
+  __int64 v49; // [rsp+68h] [rbp-98h] BYREF
+  char v50; // [rsp+70h] [rbp-90h]
+  int v51; // [rsp+74h] [rbp-8Ch]
+  signed int v52; // [rsp+7Ch] [rbp-84h]
+  __int64 v53; // [rsp+80h] [rbp-80h]
+  __int64 v54; // [rsp+88h] [rbp-78h]
+  __int64 v55; // [rsp+90h] [rbp-70h]
+  __int64 v56; // [rsp+98h] [rbp-68h]
+  __int64 v57; // [rsp+A0h] [rbp-60h]
+  __int64 v58; // [rsp+A8h] [rbp-58h]
+  struct _SURFOBJ *v59; // [rsp+B0h] [rbp-50h]
+  __int128 v60; // [rsp+B8h] [rbp-48h] BYREF
+  __int128 v61; // [rsp+C8h] [rbp-38h]
+  __int64 v62[2]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v63[2]; // [rsp+F0h] [rbp-10h] BYREF
+  _DWORD v64[4]; // [rsp+100h] [rbp+0h] BYREF
 
   v10 = 0LL;
-  v55 = a1;
-  v11 = a5[1];
-  v49 = a3;
-  v12 = a5[2];
-  v50 = a2;
+  v59 = a1;
+  v11 = a5[2];
+  v12 = a5[1];
+  v54 = a2;
   v13 = *a5;
-  v51 = a8;
-  v14 = v12;
-  v54 = a4;
+  v55 = a8;
+  v14 = v11;
+  v58 = a4;
   v15 = a5[3];
-  v59[1] = __PAIR64__(v15, v12);
-  v53 = (__int64)a6;
-  v52 = (__int64)a7;
-  v59[0] = __PAIR64__(v11, v13);
-  if ( v13 > v12 )
-  {
-    v14 = v13;
-    LODWORD(v59[1]) = v13;
-    v13 = v12;
-    v16 = 1;
-    LODWORD(v59[0]) = v12;
-  }
-  else
+  v63[1] = __PAIR64__(v15, v11);
+  v53 = a3;
+  v57 = (__int64)a6;
+  v56 = (__int64)a7;
+  v63[0] = __PAIR64__(v12, v13);
+  if ( v13 <= v11 )
   {
     v16 = 0;
   }
-  v44 = v16;
+  else
+  {
+    v14 = v13;
+    LODWORD(v63[1]) = v13;
+    v13 = v11;
+    v16 = 1;
+    LODWORD(v63[0]) = v11;
+  }
+  v48 = v16;
   if ( (*a7 & 0x20) != 0 )
   {
-    v42 = a6[2] - *a6;
-    v43 = a6[3] - a6[1];
-    if ( v14 - v13 > v42 )
+    v17 = a6[2] - *a6;
+    v18 = a6[3] - a6[1];
+    if ( v14 - v13 > v17 )
     {
       if ( v16 )
-        LODWORD(v59[0]) = v14 - v42;
+        LODWORD(v63[0]) = v14 - v17;
       else
-        LODWORD(v59[1]) = v42 + v13;
+        LODWORD(v63[1]) = v17 + v13;
     }
-    if ( (int)(v15 - v11) > v43 )
+    if ( (int)(v15 - v12) > v18 )
     {
       if ( v16 )
-        HIDWORD(v59[0]) = v15 - v43;
+        HIDWORD(v63[0]) = v15 - v18;
       else
-        HIDWORD(v59[1]) = v11 + v43;
+        HIDWORD(v63[1]) = v12 + v18;
     }
   }
-  *(_OWORD *)v58 = *(_OWORD *)v59;
+  *(_OWORD *)v62 = *(_OWORD *)v63;
   if ( a3 && *(_BYTE *)(a3 + 20) )
-    ERECTL::operator*=((int *)v58, (int *)(a3 + 4));
-  if ( SLODWORD(v58[0]) < 0
-    || v58[0] < 0
-    || SLODWORD(v58[1]) > a1->sizlBitmap.cx
-    || (v17 = 1, SHIDWORD(v58[1]) > a1->sizlBitmap.cy) )
+    ERECTL::operator*=((int *)v62, (int *)(a3 + 4));
+  v19 = HIDWORD(v62[1]);
+  v20 = v62[1];
+  v21 = ERECTL::bWrapped((ERECTL *)v62);
+  v25 = 0;
+  if ( !v21 )
+    v25 = v22;
+  if ( v24 != v20 && v23 != v19 && v25 )
   {
-    v17 = 0;
-  }
-  if ( SLODWORD(v58[0]) >= SLODWORD(v58[1]) || (v18 = 1, SHIDWORD(v58[0]) >= SHIDWORD(v58[1])) )
-    v18 = 0;
-  v19 = v18 & v17;
-  if ( LODWORD(v58[0]) != LODWORD(v58[1]) && HIDWORD(v58[0]) != HIDWORD(v58[1]) && v19 )
-  {
-    v20 = LODWORD(v58[1]) - LODWORD(v58[0]);
-    v45 = 0LL;
-    v21 = HIDWORD(v58[1]) - HIDWORD(v58[0]);
-    v46 = 0;
-    v47 = 0;
+    v26 = v20 - v24;
+    v49 = 0LL;
+    v27 = v19 - v23;
+    v50 = 0;
+    v51 = 0;
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(&nineGridPushLock, 0LL);
     ClearBits = RtlFindClearBits(&apsoNineGridBitmapHeader, 1u, 0);
-    v23 = ClearBits;
-    v48 = ClearBits;
-    if ( ClearBits != -1 )
+    v29 = ClearBits;
+    v52 = ClearBits;
+    if ( ClearBits == -1 || (v10 = apsoNineGrid[ClearBits]) == 0 )
     {
-      v10 = apsoNineGrid[ClearBits];
-      if ( v10 )
-        goto LABEL_27;
-    }
-    v56 = 0LL;
-    v24 = v50 + 104;
-    if ( !v50 )
-      v24 = 128LL;
-    v57 = 0LL;
-    v25 = *(_QWORD **)v24;
-    if ( v25 )
-    {
-      *(_QWORD *)((char *)&v56 + 4) = 0x4000000100LL;
-      v26 = v50 + 72;
-      if ( !v50 )
-        v26 = 96LL;
-      DWORD2(v57) = 0;
-      LODWORD(v56) = *(_DWORD *)v26;
-      *(_QWORD *)&v57 = *v25;
-      if ( SURFMEM::bCreateDIB((SURFMEM *)&v45, (struct _DEVBITMAPINFO *)&v56, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+      v60 = 0LL;
+      v30 = v54 + 104;
+      if ( !v54 )
+        v30 = 128LL;
+      v61 = 0LL;
+      v31 = *(_QWORD **)v30;
+      if ( v31 )
       {
-        v27 = v45;
-        if ( (_DWORD)v23 != -1 )
+        *(_QWORD *)((char *)&v60 + 4) = 0x4000000100LL;
+        v32 = v54 + 72;
+        if ( !v54 )
+          v32 = 96LL;
+        DWORD2(v61) = 0;
+        LODWORD(v60) = *(_DWORD *)v32;
+        *(_QWORD *)&v61 = *v31;
+        if ( SURFMEM::bCreateDIB((SURFMEM *)&v49, (struct _DEVBITMAPINFO *)&v60, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
         {
-          v28 = EngLockSurface(*(HSURF *)(v45 + 32));
-          v46 |= 1u;
-          apsoNineGrid[v23] = v28;
-          LOBYTE(v29) = 5;
-          HmgSetOwner(*(_QWORD *)(v45 + 32), 0LL, v29);
-          *(_DWORD *)(v45 + 92) = 0;
+          v33 = v49;
+          if ( (_DWORD)v29 != -1 )
+          {
+            v34 = EngLockSurface(*(HSURF *)(v49 + 32));
+            v50 |= 1u;
+            apsoNineGrid[v29] = v34;
+            LOBYTE(v35) = 5;
+            HmgSetOwner(*(_QWORD *)(v49 + 32), 0LL, v35);
+            *(_DWORD *)(v49 + 92) = 0;
+          }
+          if ( v33 )
+            v10 = v33 + 24;
+          else
+            v10 = 0LL;
         }
-        if ( v27 )
-          v10 = v27 + 24;
-        else
-          v10 = 0LL;
       }
     }
-    if ( (_DWORD)v23 != -1 )
-LABEL_27:
-      RtlSetBits(&apsoNineGridBitmapHeader, v23, 1u);
+    if ( (_DWORD)v29 != -1 )
+      RtlSetBits(&apsoNineGridBitmapHeader, v29, 1u);
     ExReleasePushLockExclusiveEx(&nineGridPushLock, 0LL);
     KeLeaveCriticalRegion();
     if ( v10 )
     {
-      if ( v21 > 64 || v20 > 256 )
+      if ( v26 > 256 || v27 > 64 )
       {
-        v31 = HIDWORD(v58[0]);
-        v32 = HIDWORD(v58[1]);
-        if ( SHIDWORD(v58[0]) < SHIDWORD(v58[1]) )
+        v36 = HIDWORD(v62[0]);
+        v37 = HIDWORD(v62[1]);
+        if ( SHIDWORD(v62[0]) < SHIDWORD(v62[1]) )
         {
-          v33 = v58[1];
+          v38 = v62[1];
           do
           {
-            v34 = v31 + 64;
-            v35 = v31 + 64;
-            if ( v31 + 64 > v32 || v34 < v31 )
-              v35 = v32;
-            v36 = v58[0];
-            if ( SLODWORD(v58[0]) < v33 )
+            v39 = v36 + 64;
+            v40 = v36 + 64;
+            if ( v36 + 64 > v37 || v39 < v36 )
+              v40 = v37;
+            v41 = v62[0];
+            if ( SLODWORD(v62[0]) < v38 )
             {
-              v37 = v44;
+              v42 = v48;
               do
               {
-                v38 = v36 + 256;
-                v39 = v36 + 256;
-                if ( v36 + 256 > v33 || v38 < v36 )
-                  v39 = v33;
-                v60[2] = v39;
-                v60[0] = v36;
-                v60[1] = v31;
-                v60[3] = v35;
-                RenderNineGrid(v55, (__int64)v60, v54, (__int64)v59, v53, v52, v51, v37);
-                v33 = v58[1];
-                v40 = v36;
-                v36 += 256;
-                if ( v38 < v40 )
+                v43 = v41 + 256;
+                v44 = v41 + 256;
+                if ( v41 + 256 > v38 || v43 < v41 )
+                  v44 = v38;
+                v64[2] = v44;
+                v64[0] = v41;
+                v64[1] = v36;
+                v64[3] = v40;
+                RenderNineGrid(v59, (__int64)v64, v58, (__int64)v63, v57, v56, v55, v42);
+                v38 = v62[1];
+                v45 = v41;
+                v41 += 256;
+                if ( v43 < v45 )
                   break;
-                v37 = v44;
+                v42 = v48;
               }
-              while ( v38 < SLODWORD(v58[1]) );
-              v32 = HIDWORD(v58[1]);
+              while ( v43 < SLODWORD(v62[1]) );
+              v37 = HIDWORD(v62[1]);
             }
-            v41 = v31;
-            v31 += 64;
+            v46 = v36;
+            v36 += 64;
           }
-          while ( v34 < v32 && v34 >= v41 );
-          LODWORD(v23) = v48;
+          while ( v39 >= v46 && v39 < v37 );
+          LODWORD(v29) = v52;
         }
       }
       else
       {
-        RenderNineGrid(a1, (__int64)v58, v54, (__int64)v59, v53, v52, v51, v16);
+        RenderNineGrid(a1, (__int64)v62, v58, (__int64)v63, v57, v56, v55, v16);
       }
     }
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(&nineGridPushLock, 0LL);
-    if ( (_DWORD)v23 != -1 )
-      RtlClearBits(&apsoNineGridBitmapHeader, v23, 1u);
+    if ( (_DWORD)v29 != -1 )
+      RtlClearBits(&apsoNineGridBitmapHeader, v29, 1u);
     ExReleasePushLockExclusiveEx(&nineGridPushLock, 0LL);
     KeLeaveCriticalRegion();
-    SURFMEM::~SURFMEM((SURFMEM *)&v45);
+    SURFMEM::~SURFMEM((SURFMEM *)&v49);
   }
   return 1LL;
 }

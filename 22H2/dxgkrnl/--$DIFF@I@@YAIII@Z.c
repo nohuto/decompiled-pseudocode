@@ -1,8 +1,7 @@
 /*
- * XREFs of ??$DIFF@I@@YAIII@Z @ 0x1C006A354
+ * XREFs of ??$DIFF@I@@YAIII@Z @ 0x1C000B86C
  * Callers:
- *     BmlCompareTargetModesWithConstraint @ 0x1C01762D4 (BmlCompareTargetModesWithConstraint.c)
- *     BmlCompareTargetModeWithVirtualRefreshRate @ 0x1C03BD26C (BmlCompareTargetModeWithVirtualRefreshRate.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C0144AC8 (BmlCompareTargetModesWithConstraint.c)
  * Callees:
  *     <none>
  */

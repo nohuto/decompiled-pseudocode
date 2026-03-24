@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhAsyncStop @ 0x1C0041C0C
+ * XREFs of UsbhAsyncStop @ 0x1C0042EBC
  * Callers:
- *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044150 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0045400 (Usbh_FDO_WaitPnpStop_CB.c)
  * Callees:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhSyncBusPause @ 0x1C0030E9C (UsbhSyncBusPause.c)
- *     UsbhAcquireFdoPnpLock @ 0x1C0031220 (UsbhAcquireFdoPnpLock.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C0039F80 (Usbh_BusPnpFreeResources_PdoEvent.c)
- *     Usbh_HubRootHubInitNotification @ 0x1C003BFE4 (Usbh_HubRootHubInitNotification.c)
- *     UsbhDisableHardReset @ 0x1C003C718 (UsbhDisableHardReset.c)
- *     UsbhSshDisabled @ 0x1C00589F0 (UsbhSshDisabled.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSyncBusPause @ 0x1C0032244 (UsbhSyncBusPause.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0032554 (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003B290 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     Usbh_HubRootHubInitNotification @ 0x1C003D29C (Usbh_HubRootHubInitNotification.c)
+ *     UsbhDisableHardReset @ 0x1C003D8F8 (UsbhDisableHardReset.c)
+ *     UsbhSshDisabled @ 0x1C005A0C0 (UsbhSshDisabled.c)
  */
 
 void __fastcall UsbhAsyncStop(__int64 a1, int a2)
@@ -61,7 +61,7 @@ void __fastcall UsbhAsyncStop(__int64 a1, int a2)
     if ( a2 == 5 )
     {
       UsbhDisableHardReset(*(_QWORD *)(a1 + 8));
-      Usbh_SSH_Event(*(_QWORD *)(a1 + 8), 6u, a1);
+      Usbh_SSH_Event(*(struct _DEVICE_OBJECT **)(a1 + 8), 6u, a1);
       UsbhSshDisabled(*(_QWORD *)(a1 + 8), a1);
       UsbhSyncBusPause(*(struct _DEVICE_OBJECT **)(a1 + 8), a1, 5);
       Usbh_BusPnpFreeResources_PdoEvent(*(_QWORD *)(a1 + 8), a1);

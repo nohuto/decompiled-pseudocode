@@ -1,11 +1,12 @@
 /*
- * XREFs of OSOpenNextSubkey @ 0x1C008E1A8
+ * XREFs of OSOpenNextSubkey @ 0x1C00B2C68
  * Callers:
- *     AMLIAddNextNamespaceOverride @ 0x1C004A3EC (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
  */
 
 __int64 __fastcall OSOpenNextSubkey(HANDLE KeyHandle, ULONG Index, void *a3, _DWORD *a4, __int64 a5)
@@ -13,16 +14,16 @@ __int64 __fastcall OSOpenNextSubkey(HANDLE KeyHandle, ULONG Index, void *a3, _DW
   int v9; // ebx
   NTSTATUS v10; // eax
   ULONG v11; // eax
-  unsigned __int16 *Pool2; // rax
-  int v13; // edx
-  unsigned __int16 *v14; // rsi
-  int v15; // edx
-  int MaximumLength; // r15d
-  struct _STRING DestinationString; // [rsp+38h] [rbp-28h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-18h] BYREF
-  ULONG ResultLength; // [rsp+90h] [rbp+30h] BYREF
+  unsigned __int16 *PoolWithTag; // rax
+  unsigned __int16 *v13; // rsi
+  int MaximumLength; // r14d
+  PULONG ResultLength; // [rsp+28h] [rbp-28h]
+  PULONG ResultLengtha; // [rsp+28h] [rbp-28h]
+  struct _STRING DestinationString; // [rsp+30h] [rbp-20h] BYREF
+  UNICODE_STRING SourceString; // [rsp+40h] [rbp-10h] BYREF
+  ULONG Length; // [rsp+80h] [rbp+30h] BYREF
 
-  ResultLength = 0;
+  Length = 0;
   DestinationString = 0LL;
   SourceString = 0LL;
   if ( !KeyHandle || a4 && *a4 && !a3 )
@@ -31,69 +32,68 @@ __int64 __fastcall OSOpenNextSubkey(HANDLE KeyHandle, ULONG Index, void *a3, _DW
   }
   else
   {
-    v10 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, 0LL, 0, &ResultLength);
+    v10 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, 0LL, 0, &Length);
     v9 = v10;
     if ( v10 )
     {
       if ( v10 == -2147483643 || v10 == -1073741789 )
       {
-        v11 = ResultLength;
-        if ( ResultLength <= 0x18 )
+        v11 = Length;
+        if ( Length <= 0x18 )
           v11 = 24;
-        ResultLength = v11;
-        Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, v11, 1299211073LL);
-        v14 = Pool2;
-        if ( Pool2 )
+        Length = v11;
+        PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, v11, 0x4D706341u);
+        v13 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v9 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, Pool2, ResultLength, &ResultLength);
+          v9 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, PoolWithTag, Length, &Length);
           if ( v9 >= 0 )
           {
-            SourceString.Buffer = v14 + 8;
-            SourceString.Length = v14[6];
-            SourceString.MaximumLength = v14[6] + 2;
+            SourceString.Buffer = v13 + 8;
+            SourceString.Length = v13[6];
+            SourceString.MaximumLength = v13[6] + 2;
             v9 = RtlUnicodeStringToAnsiString(&DestinationString, &SourceString, 1u);
             if ( v9 >= 0 )
             {
-              if ( !a4 )
-                goto LABEL_24;
-              MaximumLength = DestinationString.MaximumLength;
-              if ( *a4 < (unsigned int)DestinationString.MaximumLength )
-                v9 = -1073741789;
-              else
-                memmove(a3, DestinationString.Buffer, DestinationString.MaximumLength);
-              *a4 = MaximumLength;
-              if ( v9 >= 0 )
+              if ( a4 )
               {
-LABEL_24:
-                if ( a5 )
-                  v9 = OSOpenHandle(DestinationString.Buffer, (__int64)KeyHandle, a5);
+                MaximumLength = DestinationString.MaximumLength;
+                if ( *a4 < (unsigned int)DestinationString.MaximumLength )
+                  v9 = -1073741789;
+                else
+                  memmove(a3, DestinationString.Buffer, DestinationString.MaximumLength);
+                *a4 = MaximumLength;
               }
+              if ( v9 >= 0 && a5 )
+                v9 = OSOpenHandle(DestinationString.Buffer, (__int64)KeyHandle, a5);
               RtlFreeAnsiString(&DestinationString);
             }
             else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
-              LOBYTE(v15) = 2;
-              WPP_RECORDER_SF_d(
-                WPP_GLOBAL_Control->DeviceExtension,
-                v15,
-                21,
-                15,
-                (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-                v9);
+              LODWORD(ResultLengtha) = v9;
+              WPP_RECORDER_SF_D(
+                (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                2u,
+                0x15u,
+                0xFu,
+                (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+                ResultLengtha,
+                *(_QWORD *)&DestinationString.Length);
             }
           }
-          ExFreePoolWithTag(v14, 0);
+          ExFreePoolWithTag(v13, 0);
         }
         else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v13) = 2;
+          LODWORD(ResultLength) = Length;
           WPP_RECORDER_SF_d(
-            WPP_GLOBAL_Control->DeviceExtension,
-            v13,
-            21,
-            14,
-            (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-            ResultLength);
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            2u,
+            0x15u,
+            0xEu,
+            (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+            ResultLength,
+            *(_QWORD *)&DestinationString.Length);
         }
       }
     }

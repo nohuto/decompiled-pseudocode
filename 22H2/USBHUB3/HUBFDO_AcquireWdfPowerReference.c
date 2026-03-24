@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBFDO_AcquireWdfPowerReference @ 0x1C000DF34
+ * XREFs of HUBFDO_AcquireWdfPowerReference @ 0x1C000CD44
  * Callers:
- *     HUBHSM_AcquiringWdfPowerReferenceOnInterrupt @ 0x1C0008410 (HUBHSM_AcquiringWdfPowerReferenceOnInterrupt.c)
- *     HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub @ 0x1C0008440 (HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub.c)
- *     HUBHSM_SuspendedWithPendingReset @ 0x1C00091D0 (HUBHSM_SuspendedWithPendingReset.c)
- *     HUBHSM_UnblockResumeWaitingForStop @ 0x1C0009200 (HUBHSM_UnblockResumeWaitingForStop.c)
+ *     HUBHSM_AcquiringWdfPowerReferenceOnInterrupt @ 0x1C0007C60 (HUBHSM_AcquiringWdfPowerReferenceOnInterrupt.c)
+ *     HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub @ 0x1C0007C90 (HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub.c)
+ *     HUBHSM_SuspendedWithPendingReset @ 0x1C0008A00 (HUBHSM_SuspendedWithPendingReset.c)
+ *     HUBHSM_UnblockResumeWaitingForStop @ 0x1C0008A30 (HUBHSM_UnblockResumeWaitingForStop.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBFDO_AcquireWdfPowerReference(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall HUBFDO_AcquireWdfPowerReference(__int64 a1)
          *(_QWORD *)(a1 + 16),
          0LL,
          0LL,
-         2463,
+         2021,
          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
   KeLowerIrql(v2);
   if ( v3 >= 0 )

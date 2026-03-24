@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x18022A818
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x1801DBB04
  * Callers:
- *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x180229FF0 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1801DB2F0 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
  * Callees:
- *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x18022A62C (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@.c)
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x1801DB8F4 (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@.c)
  */
 
 __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::GetValueAt(
@@ -14,11 +14,11 @@ __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numer
         __int64 a5)
 {
   unsigned int FirstFrameIndex; // eax
-  __int64 v7; // rcx
-  __int64 v8; // r10
-  __int64 v9; // r11
-  unsigned __int64 v10; // rbx
-  __int64 v11; // rdx
+  __int64 v7; // r10
+  __int64 v8; // r11
+  __int64 v9; // rbx
+  __int64 v10; // rsi
+  unsigned __int64 v11; // rdi
   float *v12; // rax
   float *v13; // rcx
   float v14; // xmm1_4
@@ -30,32 +30,32 @@ __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numer
                       a1,
                       a3);
   v9 = *(_QWORD *)(v7 + 8);
-  v10 = FirstFrameIndex + 1;
-  if ( v10 >= 0xCCCCCCCCCCCCCCCDuLL * ((*(_QWORD *)(v7 + 16) - v9) >> 2) )
+  v10 = FirstFrameIndex;
+  v11 = FirstFrameIndex + 1;
+  if ( v11 >= (*(_QWORD *)(v7 + 16) - v9) / 20 )
   {
     *(_QWORD *)v8 = *(_QWORD *)(*(_QWORD *)(v7 + 16) - 16LL);
   }
   else
   {
-    v11 = 5LL * FirstFrameIndex;
     v12 = *(float **)(a4 + 8);
     v13 = *(float **)(a5 + 8);
-    v14 = (float)((float)(*v12 * *(float *)(v9 + 4 * v11 + 12)) + *(float *)(v9 + 4 * v11 + 4))
-        + (float)(*v13 * *(float *)(v9 + 4 * v11 + 16));
+    v14 = (float)((float)(*v12 * *(float *)(v9 + 20 * v10 + 12)) + *(float *)(v9 + 20 * v10 + 4))
+        + (float)(*v13 * *(float *)(v9 + 20 * v10 + 16));
     v15 = fmaxf(
             fminf(
-              (float)(a3 - *(float *)(v9 + 4 * v11)) / (float)(*(float *)(v9 + 20 * v10) - *(float *)(v9 + 4 * v11)),
+              (float)(a3 - *(float *)(v9 + 20 * v10)) / (float)(*(float *)(v9 + 20 * v11) - *(float *)(v9 + 20 * v10)),
               1.0),
             0.0);
-    v16 = (float)((float)(v12[1] * *(float *)(v9 + 4 * v11 + 12)) + *(float *)(v9 + 4 * v11 + 8))
-        + (float)(v13[1] * *(float *)(v9 + 4 * v11 + 16));
-    v17 = (float)((float)((float)((float)(v12[1] * *(float *)(v9 + 20 * v10 + 12)) + *(float *)(v9 + 20 * v10 + 8))
-                        + (float)(v13[1] * *(float *)(v9 + 20 * v10 + 16)))
+    v16 = (float)((float)(v12[1] * *(float *)(v9 + 20 * v10 + 12)) + *(float *)(v9 + 20 * v10 + 8))
+        + (float)(v13[1] * *(float *)(v9 + 20 * v10 + 16));
+    v17 = (float)((float)((float)((float)(v12[1] * *(float *)(v9 + 20 * v11 + 12)) + *(float *)(v9 + 20 * v11 + 8))
+                        + (float)(v13[1] * *(float *)(v9 + 20 * v11 + 16)))
                 - v16)
         * v15;
-    *(float *)v8 = (float)((float)((float)((float)((float)(*v12 * *(float *)(v9 + 20 * v10 + 12))
-                                                 + *(float *)(v9 + 20 * v10 + 4))
-                                         + (float)(*v13 * *(float *)(v9 + 20 * v10 + 16)))
+    *(float *)v8 = (float)((float)((float)((float)((float)(*v12 * *(float *)(v9 + 20 * v11 + 12))
+                                                 + *(float *)(v9 + 20 * v11 + 4))
+                                         + (float)(*v13 * *(float *)(v9 + 20 * v11 + 16)))
                                  - v14)
                          * v15)
                  + v14;

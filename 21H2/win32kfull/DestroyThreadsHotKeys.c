@@ -1,9 +1,9 @@
 /*
- * XREFs of DestroyThreadsHotKeys @ 0x1C009DEE0
+ * XREFs of DestroyThreadsHotKeys @ 0x1C0032A50
  * Callers:
  *     <none>
  * Callees:
- *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C009DF10 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
+ *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C0032A80 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
  */
 
 __int64 DestroyThreadsHotKeys()

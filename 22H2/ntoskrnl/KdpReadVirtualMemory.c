@@ -1,37 +1,33 @@
 /*
- * XREFs of KdpReadVirtualMemory @ 0x140AB1B0C
+ * XREFs of KdpReadVirtualMemory @ 0x1409B7A84
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
-__int64 __fastcall KdpReadVirtualMemory(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall KdpReadVirtualMemory(__int64 a1, _WORD *a2, __int64 a3)
 {
   unsigned __int64 v3; // r10
-  unsigned int v6; // eax
-  __int64 v7; // rdx
-  char *v8; // rcx
-  int v9; // eax
-  __int128 v11; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
+  void *v6; // rcx
+  int v7; // eax
+  __int128 v9; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v10; // [rsp+60h] [rbp+18h] BYREF
 
-  v12 = a3;
+  v10 = a3;
   v3 = *(unsigned int *)(a1 + 24);
-  v11 = 0LL;
+  v9 = 0LL;
   if ( v3 > (unsigned __int64)(unsigned int)KdTransportMaxPacketSize - 56 )
     LODWORD(v3) = KdTransportMaxPacketSize - 56;
-  v6 = *(unsigned __int16 *)(a2 + 2);
-  v7 = *(_QWORD *)(a2 + 8);
-  v8 = *(char **)(a1 + 16);
-  if ( (unsigned int)v3 > v6 )
-    LODWORD(v3) = v6;
-  LODWORD(v12) = v3;
-  *(_DWORD *)(a1 + 8) = KdpCopyMemoryChunks(v8, v7, v3, 0, 4, &v12);
-  v9 = v12;
-  *(_WORD *)a2 = v12;
-  *(_DWORD *)(a1 + 28) = v9;
-  LOWORD(v11) = 56;
-  *((_QWORD *)&v11 + 1) = a1;
-  return KdSendPacket(2LL, &v11, a2, &KdpContext);
+  v6 = *(void **)(a1 + 16);
+  if ( (unsigned int)v3 > (unsigned __int16)a2[1] )
+    LODWORD(v3) = (unsigned __int16)a2[1];
+  LODWORD(v10) = v3;
+  *(_DWORD *)(a1 + 8) = KdpCopyMemoryChunks(v6, 4, (__int64)&v10);
+  v7 = v10;
+  *a2 = v10;
+  *(_DWORD *)(a1 + 28) = v7;
+  LOWORD(v9) = 56;
+  *((_QWORD *)&v9 + 1) = a1;
+  return KdSendPacket(2LL, &v9, a2, &KdpContext);
 }

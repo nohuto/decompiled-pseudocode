@@ -1,64 +1,65 @@
 /*
- * XREFs of ACPIEcInitOpRegionHandler @ 0x1C00251D0
+ * XREFs of ACPIEcInitOpRegionHandler @ 0x1C0026A58
  * Callers:
- *     ACPITableLoad @ 0x1C003F190 (ACPITableLoad.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
  * Callees:
- *     ACPIMapNamedTable @ 0x1C00018A0 (ACPIMapNamedTable.c)
- *     RtlStringCchLengthA @ 0x1C00091CC (RtlStringCchLengthA.c)
- *     ACPIEcCreateEcData @ 0x1C00250D4 (ACPIEcCreateEcData.c)
- *     AMLIGetNameSpaceObject @ 0x1C00483D8 (AMLIGetNameSpaceObject.c)
- *     ACPIEcConnectGpeVector @ 0x1C00833C8 (ACPIEcConnectGpeVector.c)
- *     ACPIEcConnectGpioInterrupt @ 0x1C0083404 (ACPIEcConnectGpioInterrupt.c)
- *     ACPIEcDisconnectGpeVector @ 0x1C00834F8 (ACPIEcDisconnectGpeVector.c)
- *     ACPIEcDisconnectGpioInterrupt @ 0x1C0083528 (ACPIEcDisconnectGpioInterrupt.c)
- *     RegisterOperationRegionHandler @ 0x1C008BB34 (RegisterOperationRegionHandler.c)
+ *     ACPIMapNamedTable @ 0x1C0002990 (ACPIMapNamedTable.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     RtlStringCchLengthA @ 0x1C004A554 (RtlStringCchLengthA.c)
+ *     ACPIEcCreateEcData @ 0x1C0053848 (ACPIEcCreateEcData.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
+ *     ACPIEcConnectGpeVector @ 0x1C00AE818 (ACPIEcConnectGpeVector.c)
+ *     ACPIEcConnectGpioInterrupt @ 0x1C00AE854 (ACPIEcConnectGpioInterrupt.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00AE940 (ACPIEcDisconnectGpeVector.c)
+ *     ACPIEcDisconnectGpioInterrupt @ 0x1C00AE970 (ACPIEcDisconnectGpioInterrupt.c)
  */
 
 void ACPIEcInitOpRegionHandler()
 {
-  __int64 Pool2; // rbx
+  char *PoolWithTag; // rbx
   unsigned int v1; // r11d
   size_t v2; // r11
   __int64 EcData; // rax
   _BYTE *v4; // rdi
   int v5; // eax
-  unsigned int v6; // [rsp+40h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
   size_t pcchLength; // [rsp+48h] [rbp+10h] BYREF
 
-  v6 = 0;
+  LODWORD(NumberOfBytes) = 0;
   pcchLength = 0LL;
-  if ( !gECDTContext && (unsigned int)ACPIMapNamedTable(1413759813, 0LL, 0LL, 0LL, &v6) == -1073741789 )
+  if ( !gECDTContext
+    && (unsigned int)ACPIMapNamedTable(1413759813, 0LL, 0LL, 0LL, (unsigned int *)&NumberOfBytes) == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(64LL, v6, 1164993345LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x45706341u);
+    if ( PoolWithTag )
     {
-      if ( (int)ACPIMapNamedTable(1413759813, 0LL, 0LL, (void *)Pool2, &v6) < 0 )
-        goto LABEL_24;
-      v1 = *(_DWORD *)(Pool2 + 4);
+      if ( (int)ACPIMapNamedTable(1413759813, 0LL, 0LL, PoolWithTag, (unsigned int *)&NumberOfBytes) < 0 )
+        goto LABEL_25;
+      v1 = *((_DWORD *)PoolWithTag + 1);
       if ( v1 < 0x42 )
-        goto LABEL_24;
-      if ( RtlStringCchLengthA((STRSAFE_PCNZCH)(Pool2 + 65), v1 - 65, &pcchLength) < 0 )
-        goto LABEL_24;
+        goto LABEL_25;
+      if ( RtlStringCchLengthA(PoolWithTag + 65, v1 - 65, &pcchLength) < 0 )
+        goto LABEL_25;
       if ( v2 < pcchLength + 66 )
-        goto LABEL_24;
+        goto LABEL_25;
       EcData = ACPIEcCreateEcData();
       v4 = (_BYTE *)EcData;
       if ( !EcData )
-        goto LABEL_24;
+        goto LABEL_25;
       *(_QWORD *)EcData = 0LL;
-      if ( *(_BYTE *)(Pool2 + 36) == 1
-        && *(_BYTE *)(Pool2 + 37) == 8
-        && !*(_BYTE *)(Pool2 + 38)
-        && *(_BYTE *)(Pool2 + 48) == 1
-        && *(_BYTE *)(Pool2 + 49) == 8
-        && !*(_BYTE *)(Pool2 + 50) )
+      if ( PoolWithTag[36] == 1
+        && PoolWithTag[37] == 8
+        && !PoolWithTag[38]
+        && PoolWithTag[48] == 1
+        && PoolWithTag[49] == 8
+        && !PoolWithTag[50] )
       {
-        *(_QWORD *)(EcData + 32) = *(_QWORD *)(Pool2 + 40);
-        *(_QWORD *)(EcData + 40) = *(_QWORD *)(Pool2 + 40);
-        *(_QWORD *)(EcData + 24) = *(_QWORD *)(Pool2 + 52);
-        *(_DWORD *)(EcData + 48) = *(unsigned __int8 *)(Pool2 + 64);
-        *(_DWORD *)(EcData + 16) = *(_DWORD *)(Pool2 + 60);
-        if ( (int)AMLIGetNameSpaceObject((void *)(Pool2 + 65)) >= 0 )
+        *(_QWORD *)(EcData + 32) = *((_QWORD *)PoolWithTag + 5);
+        *(_QWORD *)(EcData + 40) = *((_QWORD *)PoolWithTag + 5);
+        *(_QWORD *)(EcData + 24) = *(_QWORD *)(PoolWithTag + 52);
+        *(_DWORD *)(EcData + 48) = (unsigned __int8)PoolWithTag[64];
+        *(_DWORD *)(EcData + 16) = *((_DWORD *)PoolWithTag + 15);
+        if ( (int)AMLIGetNameSpaceObject(PoolWithTag + 65, 0LL, (unsigned __int64 *)(EcData + 56), 0) >= 0 )
         {
           v5 = *((_BYTE *)AcpiInformation + 133) ? ACPIEcConnectGpioInterrupt(v4) : ACPIEcConnectGpeVector(v4);
           if ( v5 >= 0 )
@@ -67,13 +68,13 @@ void ACPIEcInitOpRegionHandler()
                         0,
                         2,
                         3,
-                        (unsigned int)ACPIEcOpRegionHandler,
+                        (unsigned int)&ACPIEcOpRegionHandler,
                         (__int64)v4,
                         (__int64)(v4 + 80)) >= 0 )
             {
               v4[120] = 1;
               gECDTContext = (__int64)v4;
-              goto LABEL_24;
+              goto LABEL_25;
             }
             if ( *((_BYTE *)AcpiInformation + 133) )
               ACPIEcDisconnectGpioInterrupt(v4);
@@ -83,8 +84,8 @@ void ACPIEcInitOpRegionHandler()
         }
       }
       ExFreePoolWithTag(v4, 0);
-LABEL_24:
-      ExFreePoolWithTag((PVOID)Pool2, 0);
+LABEL_25:
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
   }
 }

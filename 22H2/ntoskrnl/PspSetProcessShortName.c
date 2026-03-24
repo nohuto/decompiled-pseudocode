@@ -1,8 +1,8 @@
 /*
- * XREFs of PspSetProcessShortName @ 0x1407CE968
+ * XREFs of PspSetProcessShortName @ 0x1407107D4
  * Callers:
- *     PspInitializeFullProcessImageName @ 0x1406B3468 (PspInitializeFullProcessImageName.c)
- *     PspSetMinimalProcessName @ 0x1408540E4 (PspSetMinimalProcessName.c)
+ *     PspInitializeFullProcessImageName @ 0x14070F8F4 (PspInitializeFullProcessImageName.c)
+ *     PspSetMinimalProcessName @ 0x1407991C0 (PspSetMinimalProcessName.c)
  * Callees:
  *     <none>
  */
@@ -11,40 +11,50 @@ char __fastcall PspSetProcessShortName(__int64 a1, unsigned __int16 *a2)
 {
   unsigned __int64 v2; // r9
   _BYTE *v3; // r8
-  unsigned int v4; // eax
-  _WORD *v5; // rcx
+  _WORD *v4; // rcx
+  unsigned __int64 v5; // rax
   _WORD *v6; // rdx
-  _BYTE *v7; // rdx
+  unsigned __int64 v7; // r9
+  unsigned __int64 v8; // rdx
 
   v2 = *((_QWORD *)a2 + 1);
   v3 = (_BYTE *)(a1 + 1448);
-  v4 = 0;
-  v5 = (_WORD *)(v2 + *a2);
+  v4 = (_WORD *)(v2 + *a2);
+  LODWORD(v5) = 0;
   if ( v2 )
   {
-    if ( (unsigned __int64)v5 > v2 )
+    if ( (unsigned __int64)v4 > v2 )
     {
       while ( 1 )
       {
-        v6 = v5--;
-        if ( *v5 == 92 )
+        v6 = v4--;
+        if ( *v4 == 92 )
           break;
-        ++v4;
-        if ( (unsigned __int64)v5 <= v2 )
+        LODWORD(v5) = v5 + 1;
+        if ( (unsigned __int64)v4 <= v2 )
           goto LABEL_7;
       }
-      v5 = v6;
+      v4 = v6;
 LABEL_7:
-      if ( v4 >= 0xF )
-        v4 = 14;
+      if ( (unsigned int)v5 >= 0xF )
+        LODWORD(v5) = 14;
     }
-    v7 = &v3[v4];
-    while ( v3 < v7 )
+    v7 = (unsigned int)v5;
+    v8 = 0LL;
+    v5 = (unsigned __int64)&v3[(unsigned int)v5];
+    if ( (unsigned __int64)v3 > v5 )
+      v7 = 0LL;
+    if ( v7 )
     {
-      LOBYTE(v4) = *(_BYTE *)v5++;
-      *v3++ = v4;
+      do
+      {
+        LOBYTE(v5) = *(_BYTE *)v4;
+        ++v8;
+        *v3++ = *(_BYTE *)v4++;
+      }
+      while ( v8 < v7 );
     }
   }
   *v3 = 0;
-  return v4;
+  return v5;
 }

@@ -1,22 +1,23 @@
 /*
- * XREFs of SmKmKeyGenLoadKey @ 0x1409D90A8
+ * XREFs of SmKmKeyGenLoadKey @ 0x14092B938
  * Callers:
- *     SmKmKeyGenNewKey @ 0x1409D9224 (SmKmKeyGenNewKey.c)
+ *     SmKmKeyGenNewKey @ 0x14092BAC4 (SmKmKeyGenNewKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall SmKmKeyGenLoadKey(UNICODE_STRING *a1, __int64 a2, HANDLE *a3)
 {
   NTSTATUS v6; // ebx
-  __int64 v7; // r8
-  _WORD *v8; // rdx
-  unsigned int v9; // eax
+  __int64 v7; // rdx
+  _WORD *v8; // rax
+  __int64 v9; // rcx
+  unsigned int v10; // eax
   HANDLE KeyHandle; // [rsp+30h] [rbp-D0h] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-C8h] BYREF
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-C0h] BYREF
@@ -39,17 +40,22 @@ __int64 __fastcall SmKmKeyGenLoadKey(UNICODE_STRING *a1, __int64 a2, HANDLE *a3)
     {
       v7 = 0x7FFFLL;
       v8 = *(_WORD **)(a2 + 16);
-      while ( *v8 )
+      do
       {
+        if ( !*v8 )
+          break;
         ++v8;
-        if ( !--v7 )
-          goto LABEL_8;
+        --v7;
       }
-      ValueName.Buffer = *(wchar_t **)(a2 + 16);
-      ValueName.Length = 2 * (0x7FFF - v7);
-      ValueName.MaximumLength = ValueName.Length + 2;
+      while ( v7 );
+      v9 = (0x7FFF - v7) & -(__int64)(v7 != 0);
+      if ( v7 )
+      {
+        ValueName.Buffer = *(wchar_t **)(a2 + 16);
+        ValueName.Length = 2 * v9;
+        ValueName.MaximumLength = 2 * v9 + 2;
+      }
     }
-LABEL_8:
     v6 = ZwQueryValueKey(
            KeyHandle,
            &ValueName,
@@ -63,10 +69,10 @@ LABEL_8:
       {
         if ( KeyValueInformation[0] == 3 )
         {
-          v9 = *(_DWORD *)(a2 + 32);
-          if ( KeyValueInformation[1] == v9 )
+          v10 = *(_DWORD *)(a2 + 32);
+          if ( KeyValueInformation[1] == v10 )
           {
-            memmove(*(void **)(a2 + 24), &KeyValueInformation[2], v9);
+            memmove(*(void **)(a2 + 24), &KeyValueInformation[2], v10);
             v6 = 0;
             *a3 = KeyHandle;
             return (unsigned int)v6;

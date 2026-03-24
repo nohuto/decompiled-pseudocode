@@ -1,46 +1,45 @@
 /*
- * XREFs of VidSchiProcessPrimariesTerminationList @ 0x1C003B244
+ * XREFs of VidSchiProcessPrimariesTerminationList @ 0x1C0030618
  * Callers:
- *     VidSchiDrainContextFromWorkerThread @ 0x1C003A6F0 (VidSchiDrainContextFromWorkerThread.c)
- *     VidSchiCleanupPacket_PriorityTable @ 0x1C010A0A0 (VidSchiCleanupPacket_PriorityTable.c)
+ *     VidSchiDrainContextFromWorkerThread @ 0x1C002F4D4 (VidSchiDrainContextFromWorkerThread.c)
+ *     VidSchiCleanupPacket_PriorityTable @ 0x1C00D3018 (VidSchiCleanupPacket_PriorityTable.c)
  * Callees:
- *     VidSchiCheckConditionDeviceCommand @ 0x1C001614C (VidSchiCheckConditionDeviceCommand.c)
- *     ?AddPendingTermination@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C002D880 (-AddPendingTermination@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     VidSchiCheckConditionDeviceCommand @ 0x1C0015130 (VidSchiCheckConditionDeviceCommand.c)
+ *     ?AddPendingTermination@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C0023448 (-AddPendingTermination@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
  */
 
 void __fastcall VidSchiProcessPrimariesTerminationList(__int64 a1)
 {
-  _QWORD **v1; // rdi
   __int64 v2; // rcx
-  _QWORD *v3; // r9
-  _QWORD *v4; // rbx
-  _QWORD *v5; // r9
-  VIDMM_GLOBAL ***v6; // r10
-  __int64 v7; // rcx
-  _QWORD *v8; // rax
+  _QWORD **v3; // rbx
+  _QWORD *v4; // r9
+  _QWORD *v5; // rdi
+  _QWORD *v6; // r9
+  VIDMM_GLOBAL ***v7; // r10
+  __int64 v8; // rax
+  _QWORD *v9; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = (_QWORD **)(a1 + 1792);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1760), &LockHandle);
-  v3 = *v1;
-  if ( *v1 != v1 )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1744), &LockHandle);
+  v3 = (_QWORD **)(a1 + 1776);
+  v4 = *v3;
+  if ( *v3 != v3 )
   {
     do
     {
-      v4 = (_QWORD *)*v3;
-      if ( (unsigned int)VidSchiCheckConditionDeviceCommand(v2, (__int64)(v3 - 25)) )
+      v5 = (_QWORD *)*v4;
+      if ( (unsigned int)VidSchiCheckConditionDeviceCommand(v2, (__int64)(v4 - 25)) )
       {
-        v7 = *v5;
-        if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v8 = (_QWORD *)v5[1], (_QWORD *)*v8 != v5) )
+        v8 = *v6;
+        if ( *(_QWORD **)(*v6 + 8LL) != v6 || (v9 = (_QWORD *)v6[1], (_QWORD *)*v9 != v6) )
           __fastfail(3u);
-        *v8 = v7;
-        *(_QWORD *)(v7 + 8) = v8;
-        VIDMM_GLOBAL::AddPendingTermination(*v6[1], (struct VIDMM_ALLOC *)v6);
+        *v9 = v8;
+        *(_QWORD *)(v8 + 8) = v9;
+        VIDMM_GLOBAL::AddPendingTermination(*v7[1], (struct VIDMM_ALLOC *)v7);
       }
-      v3 = v4;
+      v4 = v5;
     }
-    while ( v4 != v1 );
+    while ( v5 != v3 );
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

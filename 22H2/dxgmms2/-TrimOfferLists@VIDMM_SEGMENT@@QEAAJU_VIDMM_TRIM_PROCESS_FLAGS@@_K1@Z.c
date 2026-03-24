@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TrimOfferLists@VIDMM_SEGMENT@@QEAAJU_VIDMM_TRIM_PROCESS_FLAGS@@_K1@Z @ 0x1C00FFDD0
+ * XREFs of ?TrimOfferLists@VIDMM_SEGMENT@@QEAAJU_VIDMM_TRIM_PROCESS_FLAGS@@_K1@Z @ 0x1C00C84B4
  * Callers:
- *     ?ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@@_K@Z @ 0x1C00AFD10 (-ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@.c)
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00FF1F8 (-ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z.c)
+ *     ?ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@@_K@Z @ 0x1C0064B30 (-ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00C7904 (-ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00FFCB4 (-TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00C8390 (-TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
  */
 
 __int64 __fastcall VIDMM_SEGMENT::TrimOfferLists(_QWORD *a1, char a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -16,16 +16,16 @@ __int64 __fastcall VIDMM_SEGMENT::TrimOfferLists(_QWORD *a1, char a2, unsigned _
   _QWORD *i; // rbx
   int v12; // [rsp+20h] [rbp-28h]
 
-  v8 = VIDMM_SEGMENT::TrimOfferList((VIDMM_SEGMENT *)a1, a1 + 35, a2, a3, a4);
+  v8 = VIDMM_SEGMENT::TrimOfferList((__int64)a1, a1 + 35, a2, a3, a4);
   if ( v8 < 0 )
-    v8 = VIDMM_SEGMENT::TrimOfferList((VIDMM_SEGMENT *)a1, a1 + 37, a2, a3, a4);
+    v8 = VIDMM_SEGMENT::TrimOfferList((__int64)a1, a1 + 37, a2, a3, a4);
   if ( (a2 & 8) != 0 )
   {
     for ( i = a1 + 22;
           (_QWORD *)*i != i;
           (*(void (__fastcall **)(_QWORD *, __int64, __int64, _QWORD, int, _QWORD))(*a1 + 48LL))(
             a1,
-            *i - 408LL,
+            *i - 376LL,
             v9,
             0LL,
             v12,

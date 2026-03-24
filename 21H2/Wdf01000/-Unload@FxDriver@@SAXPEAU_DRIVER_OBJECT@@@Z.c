@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Unload@FxDriver@@SAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0069ED0
+ * XREFs of ?Unload@FxDriver@@SAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0053F50
  * Callers:
- *     imp_WdfDriverMiniportUnload @ 0x1C0067100 (imp_WdfDriverMiniportUnload.c)
+ *     imp_WdfDriverMiniportUnload @ 0x1C004D020 (imp_WdfDriverMiniportUnload.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  */
 
 void __fastcall FxDriver::Unload(_DRIVER_OBJECT *DriverObject)
@@ -29,7 +29,7 @@ void __fastcall FxDriver::Unload(_DRIVER_OBJECT *DriverObject)
       _a1 = (const void *)FxObject::GetObjectHandleUnchecked(*DriverObjectExtension);
       WPP_IFR_SF_qq(m_Globals, 5u, 0x11u, 0xDu, WPP_FxDriver_cpp_Traceguids, _a1, DriverObject);
     }
-    if ( *(_QWORD *)&v3[3].m_SpinLock.m_DbgFlagIsInitialized )
+    if ( v3[3].m_ChildListHead.Blink )
     {
       ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(v3);
       v7(ObjectHandleUnchecked);

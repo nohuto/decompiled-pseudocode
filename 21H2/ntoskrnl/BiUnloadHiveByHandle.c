@@ -1,14 +1,14 @@
 /*
- * XREFs of BiUnloadHiveByHandle @ 0x140807354
+ * XREFs of BiUnloadHiveByHandle @ 0x14077936C
  * Callers:
- *     BcdForciblyUnloadStore @ 0x1408072C0 (BcdForciblyUnloadStore.c)
- *     BiCloseStore @ 0x140811EB0 (BiCloseStore.c)
- *     BiCleanupLoadedStores @ 0x140811F10 (BiCleanupLoadedStores.c)
+ *     BcdForciblyUnloadStore @ 0x1407792D8 (BcdForciblyUnloadStore.c)
+ *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
  * Callees:
- *     BiUnloadHiveByName @ 0x1408073EC (BiUnloadHiveByName.c)
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BiUnloadHiveByName @ 0x140779404 (BiUnloadHiveByName.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiUnloadHiveByHandle(__int64 a1, char a2)

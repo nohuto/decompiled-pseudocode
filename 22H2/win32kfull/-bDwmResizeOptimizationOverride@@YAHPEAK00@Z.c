@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bDwmResizeOptimizationOverride@@YAHPEAK00@Z @ 0x1C00B1814
+ * XREFs of ?bDwmResizeOptimizationOverride@@YAHPEAK00@Z @ 0x1C000D154
  * Callers:
- *     GreDwmStartup @ 0x1C00B10F8 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bDwmResizeOptimizationOverride(unsigned int *a1, unsigned int *a2, unsigned int *a3)

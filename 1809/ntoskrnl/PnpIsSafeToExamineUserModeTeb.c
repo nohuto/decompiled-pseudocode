@@ -1,11 +1,11 @@
 /*
  * XREFs of PnpIsSafeToExamineUserModeTeb @ 0x1400065D8
  * Callers:
- *     PnpRequestDeviceAction @ 0x14015EFE4 (PnpRequestDeviceAction.c)
- *     IopInitActivityIdIrp @ 0x14027EEE4 (IopInitActivityIdIrp.c)
+ *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
+ *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
  *     PnpInsertEventInQueue @ 0x14058FED8 (PnpInsertEventInQueue.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x1400CAA70 (KeAreAllApcsDisabled.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
  */
 
 char PnpIsSafeToExamineUserModeTeb()

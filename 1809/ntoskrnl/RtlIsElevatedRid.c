@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsElevatedRid @ 0x140654EF0
+ * XREFs of RtlIsElevatedRid @ 0x140654ED0
  * Callers:
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x14065B668 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14065B648 (SepRemoveDisabledGroupsAndPrivileges.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x1400DCAC0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
  */
 
 char __fastcall RtlIsElevatedRid(__int64 a1)
@@ -30,7 +30,7 @@ char __fastcall RtlIsElevatedRid(__int64 a1)
     v4 = *RtlSubAuthoritySid(v1, (unsigned int)v2 - 1);
   else
     v4 = 0;
-  for ( i = &unk_14035DDB0; v4 != *i; ++i )
+  for ( i = &unk_14035DEC0; v4 != *i; ++i )
   {
     if ( (unsigned int)++v3 >= 0x13 )
       return 0;

@@ -1,147 +1,147 @@
 /*
- * XREFs of RtlpCreateServerAcl @ 0x140794260
+ * XREFs of RtlpCreateServerAcl @ 0x140695804
  * Callers:
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)
 {
   USHORT v7; // bx
-  unsigned __int16 *v9; // rdi
-  unsigned int v10; // r15d
-  USHORT v11; // r9
-  unsigned int v12; // ebp
-  __int64 v13; // r10
+  _BYTE *v9; // rax
+  unsigned __int16 *v10; // rdi
+  unsigned int v11; // r15d
+  USHORT v12; // r9
+  unsigned int v13; // ebp
+  __int64 v14; // r10
   NTSTATUS result; // eax
-  USHORT v15; // cx
-  USHORT v16; // dx
-  __int64 v17; // r10
-  __int64 v18; // r11
-  ACL *Pool2; // rax
-  ACL *v20; // r15
-  unsigned int v21; // ebp
-  unsigned int v22; // eax
-  char *v23; // rbx
-  unsigned __int8 *v24; // r15
-  char v25; // al
-  char *v26; // r12
-  unsigned __int8 *v27; // r14
-  char *v28; // rbx
-  char *v29; // rbx
-  __int64 v30; // rcx
-  __int16 v31; // ax
-  _BYTE *v32; // rax
-  __int16 v33; // ax
+  USHORT v16; // cx
+  USHORT v17; // dx
+  __int16 v18; // ax
+  __int64 v19; // r10
+  __int64 v20; // r11
+  ACL *PoolWithTag; // rax
+  ACL *v22; // r15
+  unsigned int v23; // ebp
+  unsigned int v24; // eax
+  char *v25; // rbx
+  unsigned __int8 *v26; // r15
+  char v27; // al
+  __int64 v28; // rax
+  char *v29; // r12
+  unsigned __int8 *v30; // r14
+  char *v31; // rbx
+  char *v32; // rbx
+  __int16 v33; // cx
   ACL *pusResult; // [rsp+60h] [rbp+8h] BYREF
   void *Src; // [rsp+70h] [rbp+18h]
 
   Src = a3;
   LOWORD(pusResult) = 8;
   v7 = 8;
-  if ( a1 )
+  if ( !a1 )
   {
-    v9 = (unsigned __int16 *)(a1 + 8);
-    v10 = *(unsigned __int16 *)(a1 + 4);
-    v11 = 4 * (a3[1] + 2);
-    v12 = 0;
-    v13 = a1 + 8;
-    if ( *(_WORD *)(a1 + 4) )
+    v9 = a5;
+    *a4 = 0LL;
+    *v9 = 0;
+    return 0;
+  }
+  v10 = (unsigned __int16 *)(a1 + 8);
+  v11 = *(unsigned __int16 *)(a1 + 4);
+  v12 = 4 * (a3[1] + 2);
+  v13 = 0;
+  v14 = a1 + 8;
+  if ( *(_WORD *)(a1 + 4) )
+  {
+    while ( *(_BYTE *)v14 )
     {
-      while ( *(_BYTE *)v13 )
+      if ( a2 && *(_BYTE *)v14 == 4 )
       {
-        if ( a2 && *(_BYTE *)v13 == 4 )
-        {
-          v33 = 4 * *(unsigned __int8 *)(v13 + 13);
-          if ( (unsigned __int16)(v33 + 8) <= v11 )
-            v16 = v11 - v33 - 8;
-          else
-            v16 = v33 + 8 - v11;
-          v15 = v7;
-LABEL_6:
-          result = RtlUShortAdd(v15, v16, (USHORT *)&pusResult);
-          if ( result < 0 )
-            return result;
-          v7 = (unsigned __int16)pusResult;
-        }
-        result = RtlUShortAdd(v7, *(_WORD *)(v13 + 2), (USHORT *)&pusResult);
+        v18 = 4 * *(unsigned __int8 *)(v14 + 13);
+        if ( (unsigned __int16)(v18 + 8) <= v12 )
+          v17 = v12 - v18 - 8;
+        else
+          v17 = v18 + 8 - v12;
+        v16 = v7;
+LABEL_13:
+        result = RtlUShortAdd(v16, v17, (USHORT *)&pusResult);
         if ( result < 0 )
           return result;
         v7 = (unsigned __int16)pusResult;
-        ++v12;
-        v13 = v18 + v17;
-        if ( v12 >= v10 )
-          goto LABEL_10;
       }
-      result = RtlUShortAdd(v7, v11, (USHORT *)&pusResult);
+      result = RtlUShortAdd(v7, *(_WORD *)(v14 + 2), (USHORT *)&pusResult);
       if ( result < 0 )
         return result;
-      v15 = (unsigned __int16)pusResult;
-      v16 = 4;
-      goto LABEL_6;
+      v7 = (unsigned __int16)pusResult;
+      ++v13;
+      v14 = v20 + v19;
+      if ( v13 >= v11 )
+        goto LABEL_17;
     }
-LABEL_10:
-    Pool2 = (ACL *)ExAllocatePool2(256LL, v7, 1665230163LL);
-    *a4 = Pool2;
-    if ( !Pool2 )
-      return -1073741670;
-    *a5 = 1;
-    RtlCreateAcl(Pool2, v7, 3u);
-    v20 = *a4;
-    v21 = 0;
-    LOWORD(v22) = *(_WORD *)(a1 + 4);
-    pusResult = v20;
-    v23 = (char *)&v20[1];
-    if ( (_WORD)v22 )
-    {
-      v24 = (unsigned __int8 *)Src;
-      do
-      {
-        v25 = *(_BYTE *)v9;
-        if ( !*(_BYTE *)v9 || a2 && v25 == 4 )
-        {
-          v26 = v23;
-          if ( v25 )
-            v27 = (unsigned __int8 *)v9 + RtlLengthSid(v9 + 6) + 12;
-          else
-            v27 = (unsigned __int8 *)(v9 + 4);
-          *(_QWORD *)v23 = *(_QWORD *)v9;
-          v28 = v23 + 12;
-          memmove(v28, v24, 4LL * v24[1] + 8);
-          v29 = &v28[(unsigned __int8)(4 * (v24[1] + 2))];
-          memmove(v29, v27, 4LL * v27[1] + 8);
-          v30 = v27[1];
-          v31 = v24[1] + 7;
-          *v26 = 4;
-          v23 = &v29[4 * v30 + 8];
-          *((_WORD *)v26 + 1) = 4 * (v31 + v30);
-          *((_WORD *)v26 + 4) = 1;
-        }
-        else
-        {
-          memmove(v23, v9, v9[1]);
-          v23 += v9[1];
-        }
-        ++v21;
-        v9 = (unsigned __int16 *)((char *)v9 + v9[1]);
-        v22 = *(unsigned __int16 *)(a1 + 4);
-      }
-      while ( v21 < v22 );
-      v20 = pusResult;
-    }
-    v20->AceCount = v22;
+    result = RtlUShortAdd(v7, v12, (USHORT *)&pusResult);
+    if ( result < 0 )
+      return result;
+    v16 = (unsigned __int16)pusResult;
+    v17 = 4;
+    goto LABEL_13;
   }
-  else
+LABEL_17:
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v7, 0x63416553u);
+  *a4 = PoolWithTag;
+  if ( !PoolWithTag )
+    return -1073741670;
+  *a5 = 1;
+  RtlCreateAcl(PoolWithTag, v7, 3u);
+  v22 = *a4;
+  v23 = 0;
+  LOWORD(v24) = *(_WORD *)(a1 + 4);
+  pusResult = v22;
+  v25 = (char *)&v22[1];
+  if ( (_WORD)v24 )
   {
-    v32 = a5;
-    *a4 = 0LL;
-    *v32 = 0;
+    v26 = (unsigned __int8 *)Src;
+    do
+    {
+      v27 = *(_BYTE *)v10;
+      if ( !*(_BYTE *)v10 || a2 && v27 == 4 )
+      {
+        v29 = v25;
+        if ( v27 )
+          v30 = (unsigned __int8 *)v10 + RtlLengthSid(v10 + 6) + 12;
+        else
+          v30 = (unsigned __int8 *)(v10 + 4);
+        *(_QWORD *)v25 = *(_QWORD *)v10;
+        v31 = v25 + 12;
+        memmove(v31, v26, 4LL * v26[1] + 8);
+        v32 = &v31[(unsigned __int8)(4 * (v26[1] + 2))];
+        memmove(v32, v30, 4LL * v30[1] + 8);
+        v28 = v30[1];
+        v33 = v26[1];
+        *v29 = 4;
+        *((_WORD *)v29 + 1) = 4 * (v28 + v33 + 7);
+        *((_WORD *)v29 + 4) = 1;
+        v25 = &v32[4 * v28 + 8];
+        LOWORD(v28) = v10[1];
+      }
+      else
+      {
+        memmove(v25, v10, v10[1]);
+        v28 = v10[1];
+        v25 += v28;
+      }
+      ++v23;
+      v10 = (unsigned __int16 *)((char *)v10 + (unsigned __int16)v28);
+      v24 = *(unsigned __int16 *)(a1 + 4);
+    }
+    while ( v23 < v24 );
+    v22 = pusResult;
   }
+  v22->AceCount = v24;
   return 0;
 }

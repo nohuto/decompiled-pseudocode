@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x14024C0E0
+ * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x1402C5B90
  * Callers:
- *     EtwpTiAsyncVadQueryEventWrite @ 0x14024C070 (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x1402C5B20 (EtwpTiAsyncVadQueryEventWrite.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
   unsigned int v15; // eax
   unsigned int v16; // ecx
   unsigned __int64 v17; // r14
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v19; // rbx
   char *v20; // rbp
   const void **v21; // rdi
@@ -67,14 +67,14 @@ __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
   v17 = 8LL * a6;
   if ( v17 > 0xFFFFFFFF || v16 + (unsigned int)v17 < v16 )
     return 3221225621LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, v16 + (unsigned int)v17, 1853049172LL, a4);
-  v19 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v16 + (unsigned int)v17, 0x6E734954u);
+  v19 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  Pool2[4] = Pool2 + 10;
-  v20 = (char *)Pool2 + (unsigned int)v14 + 80;
-  Pool2[5] = v20;
-  Pool2[9] = &v20[v8];
+  PoolWithTag[4] = PoolWithTag + 10;
+  v20 = (char *)PoolWithTag + (unsigned int)v14 + 80;
+  PoolWithTag[5] = v20;
+  PoolWithTag[9] = &v20[v8];
   if ( (_DWORD)v9 )
   {
     v21 = (const void **)(a1 + 8);

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInsertElementGenericTableFullAvl @ 0x14031EB10
+ * XREFs of RtlInsertElementGenericTableFullAvl @ 0x14032DCF0
  * Callers:
- *     RtlInsertElementGenericTableAvl @ 0x14031EA50 (RtlInsertElementGenericTableAvl.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x140789A18 (PiPnpRtlObjectEventCreate.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14032DC80 (RtlInsertElementGenericTableAvl.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406AE094 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     RebalanceNode @ 0x14031EC50 (RebalanceNode.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     RebalanceNode @ 0x14032DE28 (RebalanceNode.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFullAvl(
@@ -32,7 +32,7 @@ PVOID __stdcall RtlInsertElementGenericTableFullAvl(
   if ( SearchResult == TableFoundNode )
   {
     v11 = (char *)NodeOrParent;
-LABEL_15:
+LABEL_16:
     if ( NewElement )
       *NewElement = SearchResult != TableFoundNode;
     Table->WhichOrderedElement = 0;
@@ -89,7 +89,7 @@ LABEL_15:
         Table->DepthOfTree = 1;
       }
       memmove(v11 + 32, Buffer, v7);
-      goto LABEL_15;
+      goto LABEL_16;
     }
   }
   if ( NewElement )

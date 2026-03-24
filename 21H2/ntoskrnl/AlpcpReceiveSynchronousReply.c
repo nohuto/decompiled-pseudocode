@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpReceiveSynchronousReply @ 0x1407AD8F0
+ * XREFs of AlpcpReceiveSynchronousReply @ 0x1405E7560
  * Callers:
- *     AlpcpReceiveLegacyConnectionReply @ 0x1406640F0 (AlpcpReceiveLegacyConnectionReply.c)
- *     AlpcpProcessConnectionRequest @ 0x140667A4C (AlpcpProcessConnectionRequest.c)
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     AlpcpWaitForSingleObject @ 0x1402F5DDC (AlpcpWaitForSingleObject.c)
- *     AlpcpSignalAndWait @ 0x1402F63D0 (AlpcpSignalAndWait.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     AlpcpCancelMessage @ 0x140662E08 (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x1407A7FBC (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpLogReceiveMessage @ 0x140967B4C (AlpcpLogReceiveMessage.c)
+ *     AlpcpSignalAndWait @ 0x140205180 (AlpcpSignalAndWait.c)
+ *     AlpcpWaitForSingleObject @ 0x1402B6BF8 (AlpcpWaitForSingleObject.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1405E3C64 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3D90 (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveSynchronousReply(
@@ -31,7 +31,7 @@ __int64 __fastcall AlpcpReceiveSynchronousReply(
   unsigned int v10; // edi
   __int64 v11; // rbx
   signed __int64 BugCheckParameter4; // rax
-  int v14; // ecx
+  int v14; // eax
   unsigned int v15; // ecx
   unsigned int v16; // edx
   int v17; // ecx
@@ -56,12 +56,9 @@ __int64 __fastcall AlpcpReceiveSynchronousReply(
     KeBugCheckEx(0x18u, 0LL, v11, 0x26uLL, BugCheckParameter4);
   v14 = *(_DWORD *)(v11 + 40);
   if ( (v14 & 0x800) != 0 )
-  {
-    v14 &= ~0x800u;
-    *(_DWORD *)(v11 + 40) = v14;
-  }
+    *(_DWORD *)(v11 + 40) = v14 & 0xFFFFF7FF;
   --*(_WORD *)(v11 - 30);
-  if ( (v14 & 7) != 5 )
+  if ( (*(_BYTE *)(v11 + 40) & 7) != 5 )
   {
     if ( *(struct _KTHREAD **)(v11 + 32) == CurrentThread )
     {
@@ -71,7 +68,7 @@ __int64 __fastcall AlpcpReceiveSynchronousReply(
     }
     goto LABEL_19;
   }
-  v15 = v14 & 0xFFFFFFF8;
+  v15 = *(_DWORD *)(v11 + 40) & 0xFFFFFFF8;
   *(_DWORD *)(v11 + 40) = v15;
   if ( v10 )
   {

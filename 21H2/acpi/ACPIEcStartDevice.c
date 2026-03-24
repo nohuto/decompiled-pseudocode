@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIEcStartDevice @ 0x1C00530C0
+ * XREFs of ACPIEcStartDevice @ 0x1C00539F0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
- *     AMLIIsEqualHandle @ 0x1C000C8F0 (AMLIIsEqualHandle.c)
- *     ACPIEcCreateEcData @ 0x1C0052F28 (ACPIEcCreateEcData.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     ACPIEcCreateEcData @ 0x1C0053848 (ACPIEcCreateEcData.c)
+ *     AMLIIsEqualHandle @ 0x1C0063534 (AMLIIsEqualHandle.c)
  */
 
 __int64 __fastcall ACPIEcStartDevice(ULONG_PTR a1, __int64 a2)
@@ -14,27 +14,28 @@ __int64 __fastcall ACPIEcStartDevice(ULONG_PTR a1, __int64 a2)
   __int64 DeviceExtension; // rax
   __int64 v5; // rbp
   __int64 v6; // rbx
-  _QWORD *v7; // r8
-  __int64 EcData; // rax
+  ULONG_PTR *v7; // r8
+  ULONG_PTR *EcData; // rax
   __int64 result; // rax
-  __int64 v10; // rcx
+  ULONG_PTR v10; // rcx
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v5 = *(_QWORD *)(a2 + 184);
   v6 = DeviceExtension;
-  v7 = *(_QWORD **)(DeviceExtension + 184);
+  v7 = *(ULONG_PTR **)(DeviceExtension + 184);
   if ( !v7 )
   {
-    if ( !gECDTContext || !AMLIIsEqualHandle(*(_QWORD **)(DeviceExtension + 760), *(_QWORD **)(gECDTContext + 56)) )
+    if ( !gECDTContext
+      || !(unsigned __int8)AMLIIsEqualHandle(*(_QWORD *)(DeviceExtension + 720), *(_QWORD *)(gECDTContext + 56)) )
     {
-      EcData = ACPIEcCreateEcData();
-      v7 = (_QWORD *)EcData;
+      EcData = (ULONG_PTR *)ACPIEcCreateEcData();
+      v7 = EcData;
       if ( !EcData )
         return 3221225626LL;
-      v10 = *(_QWORD *)(v6 + 760);
-      *(_QWORD *)(EcData + 56) = v10;
-      dword_1C0081AC8 = 0;
-      byte_1C0081ACC = 0;
+      v10 = *(_QWORD *)(v6 + 720);
+      EcData[7] = v10;
+      dword_1C0082908 = 0;
+      pszDest = 0;
       if ( (gdwfAMLI & 4) != 0 )
         _InterlockedIncrement((volatile signed __int32 *)(v10 + 8));
     }

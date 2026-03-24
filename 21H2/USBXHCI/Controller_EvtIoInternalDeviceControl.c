@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_EvtIoInternalDeviceControl @ 0x1C0031860
+ * XREFs of Controller_EvtIoInternalDeviceControl @ 0x1C00316E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  */
 
 __int64 __fastcall Controller_EvtIoInternalDeviceControl(__int64 a1, IRP *a2)
@@ -19,14 +19,14 @@ __int64 __fastcall Controller_EvtIoInternalDeviceControl(__int64 a1, IRP *a2)
   v6 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00613D8)
+                     off_1C00603D8)
                  + 8);
   if ( LowPart == 2232247 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v5) = 4;
-      WPP_RECORDER_SF_(*(_QWORD *)(v6 + 72), v5, 4, 207, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v6 + 72), v5, 4, 206, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
     v7 = 0;
     Controller_ReportFatalError(v6, 2, 4159, 0, 0LL, 0LL, 0LL);

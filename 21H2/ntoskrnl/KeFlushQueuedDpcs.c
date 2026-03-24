@@ -1,40 +1,44 @@
 /*
- * XREFs of KeFlushQueuedDpcs @ 0x1402D96F0
+ * XREFs of KeFlushQueuedDpcs @ 0x1402EC6E0
  * Callers:
- *     KeCleanupThreadState @ 0x1402334D8 (KeCleanupThreadState.c)
- *     MmPageEntireDriver @ 0x140761010 (MmPageEntireDriver.c)
- *     IopDeleteDriver @ 0x14085D640 (IopDeleteDriver.c)
- *     ExpTimeZoneCleanupSiloState @ 0x1409F80D4 (ExpTimeZoneCleanupSiloState.c)
- *     ExpPartitionDestroy @ 0x140A01F78 (ExpPartitionDestroy.c)
+ *     KeCleanupThreadState @ 0x1402546C8 (KeCleanupThreadState.c)
+ *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
+ *     ExpTimeZoneCleanupSiloState @ 0x1405D1AD0 (ExpTimeZoneCleanupSiloState.c)
+ *     MmPageEntireDriver @ 0x1406D0C20 (MmPageEntireDriver.c)
+ *     IopDeleteDriver @ 0x140772070 (IopDeleteDriver.c)
+ *     ExpPartitionDestroy @ 0x140955E74 (ExpPartitionDestroy.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KiGetDeepIdleProcessors @ 0x1402D9830 (KiGetDeepIdleProcessors.c)
- *     KeGenericProcessorCallback @ 0x14035BB4C (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x1402EC7D0 (KiGetDeepIdleProcessors.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void KeFlushQueuedDpcs(void)
 {
-  __int64 v0; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned __int16 *v1[3]; // [rsp+30h] [rbp-D8h] BYREF
-  _QWORD v2[34]; // [rsp+48h] [rbp-C0h] BYREF
-  _DWORD v3[68]; // [rsp+158h] [rbp+50h] BYREF
+  int v0; // [rsp+20h] [rbp-E0h] BYREF
+  unsigned __int16 *v1[2]; // [rsp+28h] [rbp-D8h] BYREF
+  __int16 v2; // [rsp+38h] [rbp-C8h]
+  int v3; // [rsp+3Ah] [rbp-C6h]
+  __int16 v4; // [rsp+3Eh] [rbp-C2h]
+  _QWORD v5[22]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int16 v6[88]; // [rsp+F0h] [rbp-10h] BYREF
 
-  LODWORD(v0) = 0;
-  LODWORD(v2[0]) = 2097153;
-  memset((char *)v2 + 4, 0, 0x104uLL);
-  v3[0] = 2097153;
-  memset(&v3[1], 0, 0x104uLL);
-  KiGetDeepIdleProcessors(v2, v3);
-  v1[1] = (unsigned __int16 *)v2[1];
-  v1[0] = (unsigned __int16 *)v2;
-  memset(&v1[2], 0, sizeof(unsigned __int16 *));
+  memset(v5, 0, 0xA8uLL);
+  v3 = 0;
+  v4 = 0;
+  v0 = 0;
+  memset(v6, 0, 0xA8uLL);
+  KiGetDeepIdleProcessors(v5, v6);
+  v1[1] = (unsigned __int16 *)v5[1];
+  v1[0] = (unsigned __int16 *)v5;
+  v2 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v0, v1) )
   {
-    if ( *(_DWORD *)(KiProcessorBlock[(unsigned int)v0] + 13244) )
-      KeAddProcessorAffinityEx((unsigned __int16 *)v3, v0);
+    if ( *(_DWORD *)(KiProcessorBlock[v0] + 12588) )
+      KeAddProcessorAffinityEx(v6, v0);
   }
-  KeGenericProcessorCallback(v3, KiFlushQueuedDpcsWorker, 0LL, 2LL);
+  KeGenericProcessorCallback(v6, (void (__fastcall *)(struct _KPRCB *, __int64))KiFlushQueuedDpcsWorker, 0LL, 2);
 }

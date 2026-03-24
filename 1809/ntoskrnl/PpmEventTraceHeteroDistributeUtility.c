@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x1402E6530
+ * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x1402E6630
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x1402E3EB0 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x1402E3FB0 (PpmHeteroDistributeUtility.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a3)

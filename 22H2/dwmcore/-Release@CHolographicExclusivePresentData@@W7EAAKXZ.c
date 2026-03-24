@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CHolographicExclusivePresentData@@W7EAAKXZ @ 0x180121A60
+ * XREFs of ?Release@CHolographicExclusivePresentData@@W7EAAKXZ @ 0x1800F7E00
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 unsigned int __fastcall CHolographicExclusivePresentData::Release(__int64 a1)
 {
-  return CHolographicExclusivePresentData::Release((CHolographicExclusivePresentData *)(a1 - 8));
+  return CHolographicFrameProcessor::Release((CHolographicFrameProcessor *)(a1 - 8));
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_SysFreeString @ 0x180101CA7
+ * XREFs of __imp_load_SysFreeString @ 0x1800E84E3
  * Callers:
  *     <none>
  * Callees:

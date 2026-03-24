@@ -1,14 +1,14 @@
 /*
- * XREFs of ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x180246E0C
+ * XREFs of ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x1801E1798
  * Callers:
- *     ?GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180241A10 (-GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     ?GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801DC470 (-GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1802441F4 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
- *     ?EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z @ 0x180245014 (-EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z.c)
- *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180246074 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
- *     ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x180246C98 (-UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z.c)
- *     ?UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180246F50 (-UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801DEB14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z @ 0x1801DFA3C (-EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z.c)
+ *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801E0AC4 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x1801E1624 (-UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z.c)
+ *     ?UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801E18D4 (-UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
  */
 
 __int64 __fastcall CParticleEmitterVisual::UpdateParticleSystem(
@@ -16,51 +16,50 @@ __int64 __fastcall CParticleEmitterVisual::UpdateParticleSystem(
         const struct D2D_SIZE_F *a2)
 {
   float v2; // xmm1_4
-  float *v3; // rsi
+  unsigned int v3; // edi
   float v4; // xmm0_4
-  unsigned int v5; // edi
-  float v8; // xmm6_4
-  float v9; // xmm1_4
+  float v7; // xmm6_4
+  float v8; // xmm1_4
   float i; // xmm0_4
-  int v11; // eax
-  __int64 v12; // rcx
+  int v10; // eax
+  __int64 v11; // rcx
 
-  v2 = *((float *)this + 176);
-  v3 = (float *)((char *)this + 712);
-  v4 = *((float *)this + 1602);
-  v5 = 0;
-  v8 = *((float *)this + 177);
+  v2 = *((float *)this + 154);
+  v3 = 0;
+  v4 = *((float *)this + 1580);
+  v7 = *((float *)this + 155);
   if ( v4 > v2 )
   {
-    v4 = v4 - *v3;
-    *((float *)this + 1602) = v4;
+    v4 = v4 - *((float *)this + 156);
+    *((float *)this + 1580) = v4;
   }
-  v9 = (float)(v2 - v4) + *((float *)this + 1597);
-  *((float *)this + 1597) = v9;
-  CParticleEmitterVisual::RemoveDeadParticles(this, v9);
-  for ( i = *((float *)this + 1597); ; *((float *)this + 1597) = i )
+  v8 = (float)(v2 - v4) + *((float *)this + 1575);
+  *((float *)this + 1575) = v8;
+  CParticleEmitterVisual::RemoveDeadParticles(this, v8);
+  for ( i = *((float *)this + 1575); ; *((float *)this + 1575) = i )
   {
-    if ( i <= v8 )
+    if ( i <= v7 )
     {
       CParticleEmitterVisual::UpdateBounds(this, a2);
-      *((_DWORD *)this + 1602) = *((_DWORD *)this + 176);
-      *((_BYTE *)this + 6445) = 0;
-      return v5;
+      *((_DWORD *)this + 1580) = *((_DWORD *)this + 154);
+      *((_BYTE *)this + 6357) = 0;
+      return v3;
     }
-    CParticleEmitterVisual::UpdateParticles(this, v8);
-    if ( *((_BYTE *)this + 6444) )
+    CParticleEmitterVisual::UpdateParticles(this, v7);
+    if ( *((_BYTE *)this + 6356) )
     {
-      if ( *v3 > *((float *)this + 176) && *(float *)(*((_QWORD *)this + 104) + 228LL) > *((float *)this + 1597) )
+      if ( *((float *)this + 156) > *((float *)this + 154)
+        && *(float *)(*((_QWORD *)this + 93) + 220LL) > *((float *)this + 1575) )
       {
-        v11 = CParticleEmitterVisual::EmitParticles(this, v8, a2);
-        v5 = v11;
-        if ( v11 < 0 )
+        v10 = CParticleEmitterVisual::EmitParticles(this, v7, a2);
+        v3 = v10;
+        if ( v10 < 0 )
           break;
       }
     }
-    CParticleEmitterVisual::ApplyActiveBehaviors(this, v8);
-    i = *((float *)this + 1597) - v8;
+    CParticleEmitterVisual::ApplyActiveBehaviors(this, v7);
+    i = *((float *)this + 1575) - v7;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xAFu, 0LL);
-  return v5;
+  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xB6u, 0LL);
+  return v3;
 }

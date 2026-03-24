@@ -1,12 +1,12 @@
 /*
- * XREFs of WriteBuffField @ 0x1C001B368
+ * XREFs of WriteBuffField @ 0x1C0024994
  * Callers:
- *     AccessFieldData @ 0x1C001AC40 (AccessFieldData.c)
+ *     AccessFieldData @ 0x1C0031E7C (AccessFieldData.c)
  * Callees:
- *     WriteSystemMem @ 0x1C001B408 (WriteSystemMem.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     WriteSystemMem @ 0x1C0024A34 (WriteSystemMem.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall WriteBuffField(__int64 a1, __int64 a2, unsigned int *a3)

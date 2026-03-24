@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrFindResourceEx_U @ 0x1409B67D0
+ * XREFs of LdrFindResourceEx_U @ 0x140910A20
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x14075717C (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x14068DCE4 (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrFindResourceEx_U(int a1, __int64 a2, __int64 *a3, unsigned int a4, unsigned __int64 *a5)
+__int64 __fastcall LdrFindResourceEx_U(int a1, __int64 a2, __int64 *a3, unsigned int a4, unsigned int **a5)
 {
   return LdrpSearchResourceSection_U(a2, a3, a4, a1, a5);
 }

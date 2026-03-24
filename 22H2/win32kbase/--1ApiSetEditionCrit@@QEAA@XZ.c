@@ -1,23 +1,44 @@
 /*
- * XREFs of ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0076738
+ * XREFs of ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0054D5C
  * Callers:
- *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C00765F4 (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
- *     RIMReadInput @ 0x1C0077620 (RIMReadInput.c)
- *     InputInitialize @ 0x1C00814D4 (InputInitialize.c)
- *     InputUnInitialize @ 0x1C00B72FC (InputUnInitialize.c)
- *     rimDeviceResetApc @ 0x1C01B4D80 (rimDeviceResetApc.c)
- *     ?OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E2680 (-OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?ivHandlePTPInertiaPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDE40 (-ivHandlePTPInertiaPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
- *     ?ivHandleTouchInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EE140 (-ivHandleTouchInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     RIMDeviceClassNotify @ 0x1C0053EC0 (RIMDeviceClassNotify.c)
+ *     RIMReadInput @ 0x1C00542C0 (RIMReadInput.c)
+ *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C0054D10 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
+ *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C0057124 (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
+ *     InputInitialize @ 0x1C008B0FC (InputInitialize.c)
+ *     rimDeviceResetApc @ 0x1C00AE760 (rimDeviceResetApc.c)
+ *     InputUnInitialize @ 0x1C00B4F7C (InputUnInitialize.c)
+ *     RIMVirtDeviceClassNotify @ 0x1C016C954 (RIMVirtDeviceClassNotify.c)
+ *     rimDoVirtRimDevChange @ 0x1C016D894 (rimDoVirtRimDevChange.c)
+ *     rimInputApc @ 0x1C01745D0 (rimInputApc.c)
+ *     RIMApplyPTPConfigRemedy @ 0x1C018188C (RIMApplyPTPConfigRemedy.c)
+ *     ?OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A9600 (-OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?ivHandlePTPInertiaPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8920 (-ivHandlePTPInertiaPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     ?ivHandleTouchInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B93B0 (-ivHandleTouchInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ApiSetLeaveEditionCrit @ 0x1C0054DE4 (ApiSetLeaveEditionCrit.c)
  */
 
 void __fastcall ApiSetEditionCrit::~ApiSetEditionCrit(ApiSetEditionCrit *this)
 {
-  if ( *(_DWORD *)this && !*((_DWORD *)this + 1) && qword_1C0296218 && (int)qword_1C0296218() >= 0 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      60,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  if ( *(_DWORD *)this && !*((_DWORD *)this + 1) )
+    ApiSetLeaveEditionCrit();
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( qword_1C0296220 )
-      qword_1C0296220();
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        5,
+        10,
+        61,
+        (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
 }

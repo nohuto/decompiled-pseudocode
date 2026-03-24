@@ -1,21 +1,22 @@
 /*
- * XREFs of MmVerifierTrimMemory @ 0x140AE90D0
+ * XREFs of MmVerifierTrimMemory @ 0x1409C5C14
  * Callers:
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD6DA8 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14022E980 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
- *     MiTrimAllSystemPagableMemory @ 0x140635300 (MiTrimAllSystemPagableMemory.c)
+ *     RtlpGetStackLimits @ 0x1402D0BE0 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14053BF80 (MiTrimAllSystemPagableMemory.c)
  */
 
 char *MmVerifierTrimMemory()
 {
+  int v0; // ebx
   char *result; // rax
-  char v1; // bl
-  BOOL v2; // edi
+  char v2; // di
   __int64 v3; // [rsp+30h] [rbp+8h] BYREF
   __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
+  v0 = 0;
   v3 = 0LL;
   v4 = 0LL;
   result = (char *)MEMORY[0xFFFFF78000000320];
@@ -27,26 +28,26 @@ char *MmVerifierTrimMemory()
       result = &KeGetCurrentStackPointer()[-v3];
       if ( (unsigned __int64)result > 0x1A30 )
       {
-        ++dword_140C13980;
-        v1 = ViTrimSpaces;
-        v2 = ViTrimSpaces < 0;
+        ++dword_140C2A900;
+        v2 = ViTrimSpaces;
+        LOBYTE(v0) = ViTrimSpaces < 0;
         if ( (ViTrimSpaces & 1) != 0 )
         {
-          result = (char *)MiTrimAllSystemPagableMemory(0, ViTrimSpaces < 0);
-          if ( (_DWORD)result )
-            ++dword_140C13984;
+          result = (char *)MiTrimAllSystemPagableMemory(0, v0);
+          if ( (_DWORD)result == 1 )
+            ++dword_140C2A904;
         }
-        if ( (v1 & 2) != 0 )
+        if ( (v2 & 2) != 0 )
         {
-          result = (char *)MiTrimAllSystemPagableMemory(1, v2);
-          if ( (_DWORD)result )
-            ++dword_140C139A0;
+          result = (char *)MiTrimAllSystemPagableMemory(1, v0);
+          if ( (_DWORD)result == 1 )
+            ++dword_140C2A91C;
         }
-        if ( (v1 & 4) != 0 )
+        if ( (v2 & 4) != 0 )
         {
-          result = (char *)MiTrimAllSystemPagableMemory(2, v2);
-          if ( (_DWORD)result )
-            ++dword_140C139DC;
+          result = (char *)MiTrimAllSystemPagableMemory(2, v0);
+          if ( (_DWORD)result == 1 )
+            ++dword_140C2A954;
         }
       }
     }

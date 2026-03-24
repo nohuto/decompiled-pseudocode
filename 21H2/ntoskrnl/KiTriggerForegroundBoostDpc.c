@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTriggerForegroundBoostDpc @ 0x14039FE50
+ * XREFs of KiTriggerForegroundBoostDpc @ 0x1402C09C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
  */
 
 void __fastcall KiTriggerForegroundBoostDpc(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxIdleWorker @ 0x1400FE8D4
+ * XREFs of PopFxIdleWorker @ 0x1400FE8F4
  * Callers:
- *     PopFxIdleComponent @ 0x1400FECEC (PopFxIdleComponent.c)
- *     PopFxComponentWork @ 0x140177210 (PopFxComponentWork.c)
+ *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PopFxComponentWork @ 0x140177230 (PopFxComponentWork.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     PopFxAddLogEntry @ 0x1400FE7E4 (PopFxAddLogEntry.c)
- *     PopFxIdleWorkerTail @ 0x1400FE9E8 (PopFxIdleWorkerTail.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
+ *     PopFxIdleWorkerTail @ 0x1400FEA08 (PopFxIdleWorkerTail.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxIdleWorker(__int64 *BugCheckParameter2, unsigned int a2)

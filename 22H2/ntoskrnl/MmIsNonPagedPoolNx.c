@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsNonPagedPoolNx @ 0x140641BA0
+ * XREFs of MmIsNonPagedPoolNx @ 0x140544F28
  * Callers:
- *     EtwTracePool @ 0x1405FD220 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1405A7C04 (EtwTracePool.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 _BOOL8 __fastcall MmIsNonPagedPoolNx(unsigned __int64 a1)

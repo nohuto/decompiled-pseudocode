@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFilterIrpQueryId @ 0x1C0085F10
+ * XREFs of ACPIFilterIrpQueryId @ 0x1C00A26D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
- *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryId(struct _DEVICE_OBJECT *a1, IRP *a2, __int64 a3, __int64 a4)

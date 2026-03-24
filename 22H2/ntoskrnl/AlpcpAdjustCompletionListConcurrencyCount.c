@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x140979658
+ * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1406774F0
  * Callers:
- *     NtAlpcSetInformation @ 0x140785D00 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1406FF480 (NtAlpcSetInformation.c)
  * Callees:
- *     AlpcpQueueIoCompletionPort @ 0x14031A580 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140304AE4 (AlpcpQueueIoCompletionPort.c)
  */
 
-int __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigned __int32 a2)
+char __fastcall AlpcpAdjustCompletionListConcurrencyCount(__int64 *a1, unsigned __int32 a2)
 {
   _UNKNOWN **v2; // rax
   __int64 v3; // rsi
   signed __int32 v6; // edi
-  unsigned __int32 v7; // ecx
+  unsigned __int32 v7; // edx
   __int64 v8; // r14
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   v2 = &retaddr;
   v3 = a1[45];
@@ -21,28 +21,28 @@ int __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigned __
   v6 = *(_DWORD *)(v3 + 144);
   while ( v6 != a2 )
   {
-    while ( 1 )
+    v7 = v6;
+    LODWORD(v2) = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 144), a2, v6);
+    v6 = (int)v2;
+    if ( (_DWORD)v2 == v7 )
     {
-      v7 = v6;
-      LODWORD(v2) = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 144), a2, v6);
-      v6 = (int)v2;
-      if ( (_DWORD)v2 == v7 )
-        break;
-      if ( (unsigned int)v2 >= a2 )
-        return (int)v2;
-    }
-    if ( !a1[4] )
-      break;
-    if ( v7 < a2 )
-    {
-      v8 = a2 - v7;
-      do
+      if ( !a1[4] )
+        return (char)v2;
+      if ( v7 < a2 )
       {
-        LODWORD(v2) = AlpcpQueueIoCompletionPort(a1, 1, 0, 0, 0);
-        --v8;
+        v8 = a2 - v7;
+        do
+        {
+          LOBYTE(v2) = AlpcpQueueIoCompletionPort(a1, 1, 0, 0);
+          --v8;
+        }
+        while ( v8 );
       }
-      while ( v8 );
+    }
+    else if ( (unsigned int)v2 >= a2 )
+    {
+      return (char)v2;
     }
   }
-  return (int)v2;
+  return (char)v2;
 }

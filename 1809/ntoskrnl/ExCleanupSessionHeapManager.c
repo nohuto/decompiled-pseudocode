@@ -1,11 +1,11 @@
 /*
- * XREFs of ExCleanupSessionHeapManager @ 0x140154434
+ * XREFs of ExCleanupSessionHeapManager @ 0x140154454
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x140170098 (ExInitializeSessionHeapManager.c)
- *     MiDereferenceSessionFinal @ 0x1406E05D8 (MiDereferenceSessionFinal.c)
+ *     ExInitializeSessionHeapManager @ 0x1401700B8 (ExInitializeSessionHeapManager.c)
+ *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
  * Callees:
- *     RtlpHpHeapDestroy @ 0x1401544A4 (RtlpHpHeapDestroy.c)
- *     RtlHpHeapManagerCleanup @ 0x1401549D4 (RtlHpHeapManagerCleanup.c)
+ *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
+ *     RtlHpHeapManagerCleanup @ 0x1401549F4 (RtlHpHeapManagerCleanup.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

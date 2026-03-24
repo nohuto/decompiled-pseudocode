@@ -1,56 +1,43 @@
 /*
- * XREFs of AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00BF7E0
+ * XREFs of AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B49C0
  * Callers:
- *     NtGdiCreateOPMProtectedOutput @ 0x1C015C420 (NtGdiCreateOPMProtectedOutput.c)
- *     NtGdiCreateOPMProtectedOutputs @ 0x1C015C560 (NtGdiCreateOPMProtectedOutputs.c)
- *     NtGdiGetCertificate @ 0x1C015C720 (NtGdiGetCertificate.c)
- *     NtGdiGetCertificateSize @ 0x1C015C9D0 (NtGdiGetCertificateSize.c)
- *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C015CC70 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
+ *     NtGdiCreateOPMProtectedOutputs @ 0x1C00BFD80 (NtGdiCreateOPMProtectedOutputs.c)
+ *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C00C0EE0 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
+ *     NtGdiCreateOPMProtectedOutput @ 0x1C0140490 (NtGdiCreateOPMProtectedOutput.c)
+ *     NtGdiGetCertificate @ 0x1C0140720 (NtGdiGetCertificate.c)
+ *     NtGdiGetCertificateSize @ 0x1C0140880 (NtGdiGetCertificateSize.c)
  * Callees:
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E410 (UserRemoteConnectedSessionUsingXddm.c)
- *     UserIsWddmConnectedSession @ 0x1C001EFF0 (UserIsWddmConnectedSession.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     AcquireCriticalSectionAndCheckState @ 0x1C00BF830 (AcquireCriticalSectionAndCheckState.c)
- *     SafeEnableMDEV @ 0x1C00CC6B0 (SafeEnableMDEV.c)
- *     SafeDisableMDEV @ 0x1C00CC700 (SafeDisableMDEV.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E600 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UpdateGraphicsDeviceList @ 0x1C001F2D8 (UpdateGraphicsDeviceList.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionAndCheckState @ 0x1C00B4A20 (AcquireCriticalSectionAndCheckState.c)
  */
 
 __int64 AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList()
 {
   __int64 result; // rax
   __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  unsigned int v5; // ebx
+  int v2; // ebx
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
   result = AcquireCriticalSectionAndCheckState();
+  v2 = result;
   if ( (int)result >= 0 )
   {
-    if ( (unsigned int)UserIsWddmConnectedSession()
-      && !(unsigned int)DrvUpdateGraphicsDeviceList(0)
-      && (unsigned int)SafeDisableMDEV(1LL) )
+    v3 = 0;
+    UpdateGraphicsDeviceList(&v3, v1);
+    if ( v3 && gfSwitchInProgress )
     {
-      DrvUpdateGraphicsDeviceList(1);
-      SafeEnableMDEV(1LL);
-      if ( qword_1C0295A48 )
-        qword_1C0295A48();
-      if ( HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) )
-      {
-        v5 = -1071774232;
-LABEL_12:
-        UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
-        return v5;
-      }
+      v2 = -1071774232;
+LABEL_8:
+      UserSessionSwitchLeaveCrit();
+      return (unsigned int)v2;
     }
-    result = UserRemoteConnectedSessionUsingXddm();
-    if ( (_DWORD)result )
-    {
-      v5 = -1071774240;
-      goto LABEL_12;
-    }
+    if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
+      v2 = -1071774240;
+    if ( v2 < 0 )
+      goto LABEL_8;
+    return 0LL;
   }
   return result;
 }

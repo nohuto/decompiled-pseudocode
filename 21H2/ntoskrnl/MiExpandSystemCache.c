@@ -1,127 +1,90 @@
 /*
- * XREFs of MiExpandSystemCache @ 0x14024280C
+ * XREFs of MiExpandSystemCache @ 0x1402B2F2C
  * Callers:
- *     MiObtainSystemCacheView @ 0x140286210 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x140312500 (MiObtainSystemCacheView.c)
  * Callees:
- *     MiObtainSystemVa @ 0x14026B32C (MiObtainSystemVa.c)
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTablesEx @ 0x14026DC5C (MiMakeZeroedPageTablesEx.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiSetSystemCacheReverseMap @ 0x1402B30D4 (MiSetSystemCacheReverseMap.c)
+ *     MiZeroSystemCacheViewCount @ 0x1402B31BC (MiZeroSystemCacheViewCount.c)
+ *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
+ *     InsertTailListPte @ 0x1403122A0 (InsertTailListPte.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall MiExpandSystemCache(__int16 *a1)
+__int64 __fastcall MiExpandSystemCache(__int16 *a1, unsigned __int64 *a2)
 {
-  _QWORD *Pool; // rsi
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rdi
-  __int16 v5; // bx
-  unsigned __int64 v6; // r14
-  _QWORD *v7; // rcx
-  unsigned int i; // edx
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  __int64 v11; // rax
-  __int16 **v12; // r10
-  unsigned __int64 OldIrql; // rbx
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-29h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-11h]
-  __int128 v22; // [rsp+60h] [rbp-1h]
-  unsigned __int64 v23; // [rsp+70h] [rbp+Fh]
-  __int128 v24; // [rsp+78h] [rbp+17h]
-  __int128 v25; // [rsp+88h] [rbp+27h]
-  __int64 v26; // [rsp+98h] [rbp+37h]
+  __int64 *Pool; // rdi
+  unsigned __int64 v5; // r9
+  __m128i v6; // xmm1
+  __int64 *v7; // rcx
+  __int64 v8; // rdx
+  __m128i v9; // xmm1
+  __m128i v10; // xmm0
+  __m128i v11; // xmm0
+  __int64 v12; // rsi
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rbp
+  __int64 v15; // rbx
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (unsigned __int64)qword_140C51888 <= 0x4000000 )
+  *a2 = 0LL;
+  if ( (unsigned __int64)qword_140C4E048 <= 0x4000000 )
     return 0LL;
-  Pool = (_QWORD *)MiAllocatePool(64LL, 320LL, 1666410829LL);
+  Pool = (__int64 *)MiAllocatePool(64, 0x140uLL, 0x6353694Du);
   if ( !Pool )
     return 0LL;
-  v3 = MiObtainSystemVa(1LL);
-  v4 = v3;
-  if ( !v3 )
+  v5 = _mm_srli_si128((__m128i)0LL, 8).m128i_u64[0];
+  v6 = _mm_cvtsi32_si128(*a1);
+  v7 = Pool + 9;
+  v8 = 4LL;
+  v9 = _mm_slli_epi64(
+         _mm_and_si128(
+           _mm_unpacklo_epi32(
+             _mm_unpacklo_epi16(_mm_shuffle_epi32(_mm_unpacklo_epi16(v6, v6), 0), (__m128i)0LL),
+             (__m128i)0LL),
+           (__m128i)_xmm),
+         6u);
+  do
   {
-LABEL_15:
+    v10.m128i_i64[0] = *(v7 - 5);
+    v10.m128i_i64[1] = *v7;
+    *(v7 - 7) = 0LL;
+    v11 = _mm_or_si128(_mm_and_si128(v10, (__m128i)_xmm_ffffffffffff003fffffffffffff003f), v9);
+    *(v7 - 5) = v11.m128i_i64[0];
+    *v7 = _mm_srli_si128(v11, 8).m128i_u64[0];
+    *(v7 - 2) = v5;
+    v7 += 10;
+    --v8;
+  }
+  while ( v8 );
+  v12 = 8LL;
+  v13 = MiObtainSystemVa(1LL);
+  v14 = v13;
+  if ( !v13 )
+  {
+LABEL_12:
     ExFreePoolWithTag(Pool, 0);
     return 0LL;
   }
+  v15 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( !(unsigned int)MiMakeZeroedPageTablesEx(
-                        (unsigned int)(v3 >> 9) & 0xFFFFFFF8,
-                        ((unsigned int)(v3 >> 9) & 0xFFFFFFF8) + 4088,
+                        (unsigned int)(v13 >> 9) & 0xFFFFFFF8,
+                        ((unsigned int)(v13 >> 9) & 0xFFFFFFF8) + 4088,
                         0,
                         8,
                         0) )
   {
-    MiReturnSystemVa(v4, v4 + 0x200000, 8LL);
-    goto LABEL_15;
+    *a2 = v14;
+    goto LABEL_12;
   }
-  v5 = *a1;
-  v6 = v4;
-  KeAcquireInStackQueuedSpinLock(&qword_140C51C30, &LockHandle);
-  v7 = Pool + 4;
-  for ( i = 0; i < 8; ++i )
+  MiZeroSystemCacheViewCount(v15 << 25 >> 16);
+  MiSetSystemCacheReverseMap(v14, Pool);
+  do
   {
-    v9 = *v7 & 0xFFFFFFFFFFFF003FuLL;
-    *(v7 - 2) = v6;
-    v10 = ((unsigned __int64)(v5 & 0x3FF) << 6) | v9;
-    *v7 = v10;
-    v11 = v10 & 0x3FFFFFFFFFFFFFFFLL;
-    if ( i )
-    {
-      v26 = v11;
-      v24 = 0LL;
-      v25 = 0LL;
-      *v7 = v11;
-      v12 = (__int16 **)*((_QWORD *)a1 + 240);
-      if ( *v12 != a1 + 956 )
-        __fastfail(3u);
-      *(v7 - 3) = v12;
-      *(v7 - 4) = a1 + 956;
-      *v12 = (__int16 *)(v7 - 4);
-      *((_QWORD *)a1 + 240) = v7 - 4;
-    }
-    else
-    {
-      v23 = v11 | 0x8000000000000000uLL;
-      v21 = 0LL;
-      v22 = 0LL;
-      *v7 = v11 | 0x8000000000000000uLL;
-    }
-    v7 += 5;
-    v6 += 0x40000LL;
+    InsertTailListPte(a1 + 892, v15);
+    v15 += 512LL;
+    --v12;
   }
-  *((_QWORD *)a1 + 241) += 7LL;
-  *(_QWORD *)(48 * ((*(_QWORD *)(((v4 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFFLL)
-            - 0x220000000000LL
-            + 16) = Pool;
-  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    if ( (KiIrqlFlags & 1) != 0 )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v19 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-    }
-  }
-  __writecr8(OldIrql);
-  return Pool;
+  while ( v12 );
+  return v15;
 }

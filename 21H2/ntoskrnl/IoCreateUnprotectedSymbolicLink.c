@@ -1,16 +1,16 @@
 /*
- * XREFs of IoCreateUnprotectedSymbolicLink @ 0x140936300
+ * XREFs of IoCreateUnprotectedSymbolicLink @ 0x140893AC0
  * Callers:
- *     DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x14060E570 (DifIoCreateUnprotectedSymbolicLinkWrapper.c)
+ *     <none>
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041D000 (ZwCreateSymbolicLinkObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FBBC0 (ZwCreateSymbolicLinkObject.c)
  */
 
 NTSTATUS __stdcall IoCreateUnprotectedSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)
 {
   NTSTATUS SymbolicLinkObject; // ebx
-  HANDLE Handle; // [rsp+60h] [rbp+10h] BYREF
+  HANDLE Handle; // [rsp+60h] [rbp+8h] BYREF
 
   Handle = 0LL;
   SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);

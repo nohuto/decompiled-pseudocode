@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepShimDatabaseTime @ 0x1407ECB78
+ * XREFs of KsepShimDatabaseTime @ 0x14075F2C8
  * Callers:
- *     KsepShimDbChanged @ 0x140368A88 (KsepShimDbChanged.c)
+ *     KsepShimDbChanged @ 0x1403725F0 (KsepShimDbChanged.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
  */
 
 __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
@@ -27,10 +27,10 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
   __int128 v14; // [rsp+98h] [rbp+2Fh]
   __int64 v15; // [rsp+A8h] [rbp+3Fh]
 
-  *(&ObjectAttributes.Attributes + 1) = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   *a2 = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v15 = 0LL;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
@@ -39,6 +39,7 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v3 = ZwOpenFile(&FileHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 5u, 0);
@@ -53,7 +54,7 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
       KsepHistoryErrors[2 * v8] = 590737;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: ZwQueryInformationFile failed getting DB file!\n");
-      KsepLogError(0LL, (__int64)"KSE: ZwQueryInformationFile failed getting DB file!\n");
+      KsepLogError(0, "KSE: ZwQueryInformationFile failed getting DB file!\n");
     }
     else
     {
@@ -68,7 +69,7 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
     KsepHistoryErrors[2 * v5] = 590724;
     if ( (v6 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: ZwOpenFile failed opening DB file!\n");
-    KsepLogError(0LL, (__int64)"KSE: ZwOpenFile failed opening DB file!\n");
+    KsepLogError(0, "KSE: ZwOpenFile failed opening DB file!\n");
   }
   if ( FileHandle )
     ZwClose(FileHandle);

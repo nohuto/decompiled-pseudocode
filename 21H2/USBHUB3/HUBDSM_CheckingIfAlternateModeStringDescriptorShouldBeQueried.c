@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried @ 0x1C0020020
+ * XREFs of HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried @ 0x1C001FC10
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_LogAlternateMode @ 0x1C002A65C (HUBDTX_LogAlternateMode.c)
+ *     HUBDTX_LogAlternateMode @ 0x1C0029F8C (HUBDTX_LogAlternateMode.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried(__int64 a1)

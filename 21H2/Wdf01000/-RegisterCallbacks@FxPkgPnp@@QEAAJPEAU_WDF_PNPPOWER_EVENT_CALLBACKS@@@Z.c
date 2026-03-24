@@ -1,21 +1,19 @@
 /*
- * XREFs of ?RegisterCallbacks@FxPkgPnp@@QEAAJPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z @ 0x1C002294C
+ * XREFs of ?RegisterCallbacks@FxPkgPnp@@QEAAJPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z @ 0x1C00823B0
  * Callers:
- *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C00225C0 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0080D30 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     ?_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z @ 0x1C0020B34 (-_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z.c)
- *     ?IsCxUsingSelfManagedIo@FxDevice@@QEAAEXZ @ 0x1C0022B1C (-IsCxUsingSelfManagedIo@FxDevice@@QEAAEXZ.c)
+ *     ?IsCxUsingSelfManagedIo@FxDevice@@QEAAEXZ @ 0x1C0080FA4 (-IsCxUsingSelfManagedIo@FxDevice@@QEAAEXZ.c)
+ *     ?InitializeMachine@FxSelfManagedIoMachine@@QEAAXPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z @ 0x1C008B480 (-InitializeMachine@FxSelfManagedIoMachine@@QEAAXPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z.c)
+ *     ?_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z @ 0x1C008B560 (-_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z.c)
  */
 
-__int64 __fastcall FxPkgPnp::RegisterCallbacks(FxPkgPnp *this, _WDF_PNPPOWER_EVENT_CALLBACKS *DispatchTable)
+int __fastcall FxPkgPnp::RegisterCallbacks(FxPkgPnp *this, _WDF_PNPPOWER_EVENT_CALLBACKS *DispatchTable)
 {
-  unsigned int v2; // edi
+  int v2; // edi
   FxPkgPnp *v4; // r11
-  __int64 result; // rax
   FxSelfManagedIoMachine **p_m_SelfManagedIoMachine; // rsi
-  FxSelfManagedIoMachine *v7; // rdx
-  void (__fastcall *EvtDeviceSelfManagedIoCleanup)(WDFDEVICE__ *); // rax
-  FxPkgPnp *m_PkgPnp; // rcx
+  int result; // eax
 
   v2 = 0;
   this->m_DeviceD0Entry.m_Method = DispatchTable->EvtDeviceD0Entry;
@@ -45,38 +43,18 @@ __int64 __fastcall FxPkgPnp::RegisterCallbacks(FxPkgPnp *this, _WDF_PNPPOWER_EVE
   this->m_DeviceUsageNotification.m_Method = DispatchTable->EvtDeviceUsageNotification;
   this->m_DeviceUsageNotificationEx.m_Method = DispatchTable->EvtDeviceUsageNotificationEx;
   this->m_DeviceRelationsQuery.m_Method = DispatchTable->EvtDeviceRelationsQuery;
-  if ( *(_OWORD *)&DispatchTable->EvtDeviceSelfManagedIoCleanup == 0LL
-    && !DispatchTable->EvtDeviceSelfManagedIoInit
-    && !DispatchTable->EvtDeviceSelfManagedIoSuspend
-    && !DispatchTable->EvtDeviceSelfManagedIoRestart
-    && !FxDevice::IsCxUsingSelfManagedIo(this->m_Device) )
+  if ( *(_OWORD *)&DispatchTable->EvtDeviceSelfManagedIoCleanup != 0LL
+    || DispatchTable->EvtDeviceSelfManagedIoInit
+    || DispatchTable->EvtDeviceSelfManagedIoSuspend
+    || DispatchTable->EvtDeviceSelfManagedIoRestart
+    || FxDevice::IsCxUsingSelfManagedIo(this->m_Device) )
   {
-    return v2;
+    p_m_SelfManagedIoMachine = &v4->m_SelfManagedIoMachine;
+    result = FxSelfManagedIoMachine::_CreateAndInit(&v4->m_SelfManagedIoMachine, v4);
+    v2 = result;
+    if ( result < 0 )
+      return result;
+    FxSelfManagedIoMachine::InitializeMachine(*p_m_SelfManagedIoMachine, DispatchTable);
   }
-  p_m_SelfManagedIoMachine = &v4->m_SelfManagedIoMachine;
-  result = FxSelfManagedIoMachine::_CreateAndInit(&v4->m_SelfManagedIoMachine, v4);
-  v2 = result;
-  if ( (int)result >= 0 )
-  {
-    v7 = *p_m_SelfManagedIoMachine;
-    EvtDeviceSelfManagedIoCleanup = DispatchTable->EvtDeviceSelfManagedIoCleanup;
-    m_PkgPnp = (*p_m_SelfManagedIoMachine)->m_PkgPnp;
-    v7->m_DeviceSelfManagedIoCleanup.m_PkgPnp = m_PkgPnp;
-    v7->m_DeviceSelfManagedIoCleanup.m_Method = EvtDeviceSelfManagedIoCleanup;
-    v7->m_DeviceSelfManagedIoCleanup.m_CallbackType = FxCxCallbackSmIoCleanup;
-    v7->m_DeviceSelfManagedIoFlush.m_Method = DispatchTable->EvtDeviceSelfManagedIoFlush;
-    v7->m_DeviceSelfManagedIoFlush.m_PkgPnp = m_PkgPnp;
-    v7->m_DeviceSelfManagedIoFlush.m_CallbackType = FxCxCallbackSmIoFlush;
-    v7->m_DeviceSelfManagedIoInit.m_Method = DispatchTable->EvtDeviceSelfManagedIoInit;
-    v7->m_DeviceSelfManagedIoInit.m_PkgPnp = m_PkgPnp;
-    v7->m_DeviceSelfManagedIoInit.m_CallbackType = FxCxCallbackSmIoInit;
-    v7->m_DeviceSelfManagedIoSuspend.m_Method = DispatchTable->EvtDeviceSelfManagedIoSuspend;
-    v7->m_DeviceSelfManagedIoSuspend.m_PkgPnp = m_PkgPnp;
-    v7->m_DeviceSelfManagedIoSuspend.m_CallbackType = FxCxCallbackSmIoSuspend;
-    v7->m_DeviceSelfManagedIoRestart.m_Method = DispatchTable->EvtDeviceSelfManagedIoRestart;
-    v7->m_DeviceSelfManagedIoRestart.m_PkgPnp = m_PkgPnp;
-    v7->m_DeviceSelfManagedIoRestart.m_CallbackType = FxCxCallbackSmIoRestart;
-    return v2;
-  }
-  return result;
+  return v2;
 }

@@ -1,8 +1,10 @@
 /*
- * XREFs of UsbhEtwGetDeviceInfo @ 0x1C005AC7C
+ * XREFs of UsbhEtwGetDeviceInfo @ 0x1C0013F08
  * Callers:
- *     UsbhEtwLogDeviceDescription @ 0x1C005ACEC (UsbhEtwLogDeviceDescription.c)
- *     UsbhEtwLogDeviceInformation @ 0x1C005AE08 (UsbhEtwLogDeviceInformation.c)
+ *     UsbhEtwLogDevicePowerEvent @ 0x1C0013DA0 (UsbhEtwLogDevicePowerEvent.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhEtwLogDeviceDescription @ 0x1C005C39C (UsbhEtwLogDeviceDescription.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005C4B8 (UsbhEtwLogDeviceInformation.c)
  * Callees:
  *     <none>
  */

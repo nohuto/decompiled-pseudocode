@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetMinAttenuationCutoff@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETMINATTENUATIONCUTOFF@@@Z @ 0x18022503C
+ * XREFs of ?ProcessSetMinAttenuationCutoff@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETMINATTENUATIONCUTOFF@@@Z @ 0x1801BB0C0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CCompositionPointLight::ProcessSetMinAttenuationCutoff(
         struct CResourceTable *a2,
         const struct tagMILCMD_COMPOSITIONPOINTLIGHT_SETMINATTENUATIONCUTOFF *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E4708)(
-           (char *)this + SDWORD2(xmmword_1803E4708),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180345F38)(
+           (char *)this + SDWORD2(xmmword_180345F38),
            &CCompositionPointLight::sc_MinAttenuationCutoff,
            (char *)a3 + 8);
 }

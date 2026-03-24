@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalculateLockData@VIDMM_GLOBAL@@IEAA?AUVIDMM_LOCK2_DATA@@PEAUVIDMM_ALLOC@@@Z @ 0x1C00D5520
+ * XREFs of ?CalculateLockData@VIDMM_GLOBAL@@IEAA?AUVIDMM_LOCK2_DATA@@PEAUVIDMM_ALLOC@@@Z @ 0x1C008B3FC
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
  *     <none>
  */
@@ -22,8 +22,8 @@ __int64 __fastcall VIDMM_GLOBAL::CalculateLockData(__int64 a1, __int64 a2, __int
   v5 = *v3;
   if ( *((_DWORD *)v3 + 19) )
     return a2;
-  v6 = *(_DWORD *)(v5 + 72);
-  v7 = *(_QWORD *)(v5 + 120);
+  v6 = *(_DWORD *)(v5 + 80);
+  v7 = *(_QWORD *)(v5 + 128);
   *(_DWORD *)a2 = 1;
   if ( (v6 & 0x80u) == 0 )
   {
@@ -32,12 +32,12 @@ __int64 __fastcall VIDMM_GLOBAL::CalculateLockData(__int64 a1, __int64 a2, __int
   }
   if ( !v7 )
     return a2;
-  if ( (*(_DWORD *)(a1 + 7056) & 0x20) != 0 )
+  if ( (*(_DWORD *)(a1 + 7048) & 0x20) != 0 )
     goto LABEL_18;
   v8 = *(_DWORD *)(v7 + 80);
   if ( (v8 & 0x1001) != 0 )
     return a2;
-  if ( (**(_DWORD **)(v5 + 528) & 4) != 0 && !*(_BYTE *)(v7 + 474) || (v6 & 0x10000) != 0 )
+  if ( (**(_DWORD **)(v5 + 512) & 4) != 0 && !*(_BYTE *)(v7 + 474) || (v6 & 0x10000) != 0 )
   {
 LABEL_18:
     *(_DWORD *)a2 = 4;
@@ -49,7 +49,7 @@ LABEL_19:
   {
     if ( (v8 & 0x2000) != 0 )
     {
-      v9 = *(_QWORD *)(v5 + 88);
+      v9 = *(_QWORD *)(v5 + 96);
       if ( !v9 || (*(_BYTE *)(v9 + 32) & 1) == 0 )
       {
         *(_BYTE *)(a2 + 4) = 1;
@@ -63,7 +63,7 @@ LABEL_19:
   if ( (v3[4] & 1) == 0 )
   {
     *(_DWORD *)a2 = 3;
-    if ( *(_QWORD *)(v5 + 240) )
+    if ( *(_QWORD *)(v5 + 256) )
       goto LABEL_19;
   }
   return a2;

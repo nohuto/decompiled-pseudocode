@@ -1,30 +1,30 @@
 /*
- * XREFs of IopfCallDriver @ 0x1403B51C4
+ * XREFs of IopfCallDriver @ 0x14036E384
  * Callers:
- *     IofCallDriverSpecifyReturn @ 0x1403B51A0 (IofCallDriverSpecifyReturn.c)
- *     IopPerfCallDriver @ 0x14055969C (IopPerfCallDriver.c)
- *     IovCallDriver @ 0x140A802F0 (IovCallDriver.c)
- *     IovpCallDriverNoIrpTracking @ 0x140A80ACC (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140A80B3C (IovpCallDriverWithStackBuffer.c)
+ *     IofCallDriverSpecifyReturn @ 0x14036E360 (IofCallDriverSpecifyReturn.c)
+ *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
+ *     IovCallDriver @ 0x1409C4CB4 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x1409C5484 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x1409C54F4 (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     IopPoHandleIrp @ 0x1403A374C (IopPoHandleIrp.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     IopPoHandleIrp @ 0x140398634 (IopPoHandleIrp.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IopfCallDriver(struct _DEVICE_OBJECT *a1, IRP *a2)
+__int64 __fastcall IopfCallDriver(__int64 a1, ULONG_PTR a2)
 {
-  struct _IO_STACK_LOCATION *v2; // rax
-  __int64 MajorFunction; // r9
+  unsigned __int8 *v2; // rax
+  __int64 v3; // r9
 
-  if ( --a2->CurrentLocation <= 0 )
-    KeBugCheckEx(0x35u, (ULONG_PTR)a2, 0LL, 0LL, 0LL);
-  v2 = a2->Tail.Overlay.CurrentStackLocation - 1;
-  a2->Tail.Overlay.CurrentStackLocation = v2;
-  MajorFunction = v2->MajorFunction;
-  v2->DeviceObject = a1;
-  if ( (_BYTE)MajorFunction == 22 && (unsigned __int8)(v2->MinorFunction - 2) <= 1u )
+  if ( (char)--*(_BYTE *)(a2 + 67) <= 0 )
+    KeBugCheckEx(0x35u, a2, 0LL, 0LL, 0LL);
+  v2 = (unsigned __int8 *)(*(_QWORD *)(a2 + 184) - 72LL);
+  *(_QWORD *)(a2 + 184) = v2;
+  v3 = *v2;
+  *((_QWORD *)v2 + 5) = a1;
+  if ( (_BYTE)v3 == 22 && (unsigned __int8)(v2[1] - 2) <= 1u )
     return IopPoHandleIrp(a2);
   else
-    return ((__int64 (__fastcall *)(struct _DEVICE_OBJECT *))a1->DriverObject->MajorFunction[MajorFunction])(a1);
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 + 8) + 8 * v3 + 112))(a1);
 }

@@ -1,16 +1,22 @@
 /*
- * XREFs of ?DestroySMWPIfSupported@@YAXPEAUtagSMWP@@@Z @ 0x1C00AC550
+ * XREFs of ?DestroySMWPIfSupported@@YAXPEAUtagSMWP@@@Z @ 0x1C0097510
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DestroySMWPIfSupported(struct tagSMWP *a1)
 {
-  if ( qword_1C0295B78 && (int)qword_1C0295B78() >= 0 )
+  int v2; // eax
+
+  if ( qword_1C0256768 )
+    v2 = qword_1C0256768();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 )
   {
-    if ( qword_1C0295B80 )
-      qword_1C0295B80(a1);
+    if ( qword_1C0256770 )
+      qword_1C0256770(a1);
   }
 }

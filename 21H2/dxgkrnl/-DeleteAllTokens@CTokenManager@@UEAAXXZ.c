@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0002800
+ * XREFs of ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0012530
  * Callers:
  *     <none>
  * Callees:
- *     ?DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ @ 0x1C0002878 (-DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ.c)
- *     ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C00028C8 (-DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ.c)
- *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C000290C (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
- *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0002954 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
- *     ?DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ @ 0x1C00029A0 (-DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ.c)
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0008920 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012260 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ @ 0x1C00123D0 (-DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ @ 0x1C00125A8 (-DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C00125EC (-DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0012630 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
+ *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0012678 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CTokenManager::DeleteAllTokens(CTokenManager *this)
@@ -17,11 +17,11 @@ void __fastcall CTokenManager::DeleteAllTokens(CTokenManager *this)
   CTokenManager::AcquireTokenManagerLock(this);
   CTokenManager::DeleteAllLegacyTokenBuffers(this);
   CTokenManager::DeleteAllTokenQueues(this);
-  CTokenQueue::DeleteAllTokens((CTokenManager *)((char *)this + 344));
-  (*(void (__fastcall **)(CTokenManager *))(*(_QWORD *)this + 144LL))(this);
+  CTokenQueue::DeleteAllTokens((CTokenManager *)((char *)this + 320));
+  (*(void (__fastcall **)(CTokenManager *))(*(_QWORD *)this + 136LL))(this);
   CTokenManager::DeleteAllCompositionTokens(this);
   CTokenManager::DeleteAllFlipManagerTokens(this);
-  *((_QWORD *)this + 3) = 0LL;
-  *((_QWORD *)this + 13) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
 }

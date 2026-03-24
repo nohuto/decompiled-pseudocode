@@ -1,59 +1,50 @@
 /*
- * XREFs of ?PassedHoldTime@CTouchProcessor@@AEAAHK_K0@Z @ 0x1C01CDBAC
+ * XREFs of ?PassedHoldTime@CTouchProcessor@@AEAAHK_K0@Z @ 0x1C019777C
  * Callers:
- *     ?UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z @ 0x1C01DA2C4 (-UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z.c)
+ *     ?UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z @ 0x1C01A0E14 (-UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetGetPenHoldTime @ 0x1C01CF160 (ApiSetGetPenHoldTime.c)
+ *     ApiSetGetTouchHoldTime @ 0x1C01CF238 (ApiSetGetTouchHoldTime.c)
  */
 
 union _LARGE_INTEGER __fastcall CTouchProcessor::PassedHoldTime(struct _KTHREAD **this, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx
   union _LARGE_INTEGER result; // rax
-  unsigned int v10; // ebp
-  unsigned __int64 v11; // rdx
-  unsigned int v12; // ebp
-  struct _KTHREAD *v13; // rsi
-  bool v14; // cf
-  bool v15; // zf
+  unsigned __int64 v10; // rdx
+  struct _KTHREAD *v11; // rsi
+  bool v12; // cf
+  bool v13; // zf
 
   v4 = 0;
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 8865);
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8265);
   result = gliQpcFreq;
   if ( gliQpcFreq.QuadPart )
   {
     if ( (unsigned __int64)(gliQpcFreq.QuadPart - 1) > 0x7FFFFFFD )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 8885);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8285);
     if ( !this[14] )
+      this[14] = (struct _KTHREAD *)(gliQpcFreq.QuadPart * (unsigned int)ApiSetGetPenHoldTime() / 1000);
+    v10 = (unsigned __int64)this[15];
+    if ( !v10 )
     {
-      v10 = 0;
-      if ( qword_1C0296860 && (int)qword_1C0296860() >= 0 && qword_1C0296868 )
-        v10 = qword_1C0296868();
-      this[14] = (struct _KTHREAD *)(gliQpcFreq.QuadPart * v10 / 1000);
+      v10 = gliQpcFreq.QuadPart * (unsigned int)ApiSetGetTouchHoldTime() / 1000;
+      this[15] = (struct _KTHREAD *)v10;
     }
-    v11 = (unsigned __int64)this[15];
-    if ( !v11 )
-    {
-      v12 = 0;
-      if ( qword_1C0296870 && (int)qword_1C0296870() >= 0 && qword_1C0296878 )
-        v12 = qword_1C0296878();
-      v11 = gliQpcFreq.QuadPart * v12 / 1000;
-      this[15] = (struct _KTHREAD *)v11;
-    }
-    v13 = (struct _KTHREAD *)(a4 - a3);
+    v11 = (struct _KTHREAD *)(a4 - a3);
     if ( a2 == 3 )
     {
-      v14 = v13 < this[14];
-      v15 = v13 == this[14];
+      v12 = v11 < this[14];
+      v13 = v11 == this[14];
     }
     else
     {
-      v14 = (unsigned __int64)v13 < v11;
-      v15 = v13 == (struct _KTHREAD *)v11;
+      v12 = (unsigned __int64)v11 < v10;
+      v13 = v11 == (struct _KTHREAD *)v10;
     }
-    LOBYTE(v4) = !v14 && !v15;
+    LOBYTE(v4) = !v12 && !v13;
     return (union _LARGE_INTEGER)v4;
   }
   return result;

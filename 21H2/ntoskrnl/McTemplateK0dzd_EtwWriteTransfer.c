@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0dzd_EtwWriteTransfer @ 0x14055F1E8
+ * XREFs of McTemplateK0dzd_EtwWriteTransfer @ 0x14050C1D4
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0dzd_EtwWriteTransfer(

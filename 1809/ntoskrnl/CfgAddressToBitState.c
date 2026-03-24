@@ -1,8 +1,8 @@
 /*
- * XREFs of CfgAddressToBitState @ 0x1401223D0
+ * XREFs of CfgAddressToBitState @ 0x1401223F0
  * Callers:
  *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
- *     MiValidateUserCallTarget @ 0x1406A7668 (MiValidateUserCallTarget.c)
+ *     MiValidateUserCallTarget @ 0x1406A7648 (MiValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRequestPort @ 0x14041E780
+ * XREFs of ZwRequestPort @ 0x1403FD2C0
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x1402037E8 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x1402C1C08 (SepRmDispatchDataToLsa.c)
  * Callees:
  *     <none>
  */

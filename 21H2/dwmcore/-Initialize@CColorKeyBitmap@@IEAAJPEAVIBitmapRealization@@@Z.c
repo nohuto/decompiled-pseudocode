@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x1802A9064
+ * XREFs of ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x180268590
  * Callers:
- *     ?Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z @ 0x1802A8600 (-Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z.c)
+ *     ?Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z @ 0x180267BA8 (-Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180087F2C (--4-$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapReal.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x1802A8950 (-InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z.c)
+ *     ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180051A80 (--4-$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapReal.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x180267EA4 (-InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::Initialize(CColorKeyBitmap *this, struct IBitmapRealization *a2)
@@ -26,10 +26,10 @@ __int64 __fastcall CColorKeyBitmap::Initialize(CColorKeyBitmap *this, struct IBi
   _BYTE v16[16]; // [rsp+30h] [rbp-38h] BYREF
 
   v2 = *((_QWORD *)a2 + 1);
-  v3 = (char *)this + 40;
-  v6 = *((_QWORD *)this + 5);
+  v3 = (char *)this + 48;
+  v6 = *((_QWORD *)this + 6);
   v7 = *(int *)(v2 + 4);
-  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
   if ( v6 )
   {
     v8 = v6 + 8 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL);
@@ -41,7 +41,7 @@ __int64 __fastcall CColorKeyBitmap::Initialize(CColorKeyBitmap *this, struct IBi
          v3) < 0 )
   {
     v14 = -2003292287;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2003292287, 0x33u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003292287, 0x33u, 0LL);
   }
   else
   {
@@ -50,9 +50,9 @@ __int64 __fastcall CColorKeyBitmap::Initialize(CColorKeyBitmap *this, struct IBi
     inited = CColorKeyBitmap::InitColorKey(this, v11);
     v14 = inited;
     if ( inited < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, inited, 0x2Du);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, inited, 0x2Du, 0LL);
     else
-      wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=((__int64 *)this + 4, (__int64)a2);
+      wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=((__int64 *)this + 5, (__int64)a2);
   }
   return v14;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExGetSessionBigPoolInformation @ 0x1408CB35C
+ * XREFs of ExGetSessionBigPoolInformation @ 0x1408CB33C
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x14031A454 (ExGetBigPoolInfo.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x14031A554 (ExGetBigPoolInfo.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)

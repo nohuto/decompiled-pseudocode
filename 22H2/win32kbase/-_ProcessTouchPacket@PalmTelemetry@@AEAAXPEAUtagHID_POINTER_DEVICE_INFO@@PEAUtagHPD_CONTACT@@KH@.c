@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@Z @ 0x1C01B14EC
+ * XREFs of ?_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@Z @ 0x1C0180CE0
  * Callers:
- *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C00E3672 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
+ *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C0180944 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?_TryBuffer@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z @ 0x1C01B1874 (-_TryBuffer@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_TryBuffer@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z @ 0x1C0181058 (-_TryBuffer@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z.c)
  */
 
 void __fastcall PalmTelemetry::_ProcessTouchPacket(
@@ -14,22 +14,28 @@ void __fastcall PalmTelemetry::_ProcessTouchPacket(
         unsigned int a4,
         int a5)
 {
+  int v7; // ecx
   int v8; // eax
+  int v9; // edx
 
   if ( *(_DWORD *)this == 2 && *((_DWORD *)this + 5) + 250 < a4 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 289);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 289);
   if ( !*((_DWORD *)this + 1) )
   {
-    v8 = *((_DWORD *)a3 + 611) & 4;
+    v7 = 0;
+    v8 = *((_DWORD *)a3 + 605) & 4;
+    v9 = 0;
     if ( a5 )
     {
-      if ( !v8 )
-        return;
+      LOBYTE(v7) = v8 != 0;
     }
-    else if ( v8 )
+    else
     {
-      return;
+      if ( v8 )
+        return;
+      v9 = 1;
     }
-    PalmTelemetry::_TryBuffer(this, a3, *((unsigned int *)a2 + 6));
+    if ( v7 || v9 )
+      PalmTelemetry::_TryBuffer(this, a3);
   }
 }

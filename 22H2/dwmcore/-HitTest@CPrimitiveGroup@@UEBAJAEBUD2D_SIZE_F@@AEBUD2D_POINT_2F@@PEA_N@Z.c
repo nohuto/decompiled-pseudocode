@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HitTest@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180017054
+ * XREFs of ?HitTest@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180013DA0
  * Callers:
- *     ?HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011C9A0 (-HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F4970 (-HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x180017140 (-EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x180013E84 (-EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::HitTest(
@@ -20,17 +20,17 @@ __int64 __fastcall CPrimitiveGroup::HitTest(
   *a4 = 0;
   if ( *((_QWORD *)this - 26) )
   {
-    if ( a3->x >= *((float *)this - 143) && *((float *)this - 141) >= a3->x )
+    if ( a3->x >= *((float *)this - 155) && *((float *)this - 153) >= a3->x )
     {
       y = a3->y;
-      if ( y >= *((float *)this - 142)
-        && *((float *)this - 140) >= y
-        && (int)CPrimitiveGroup::EnsureHitTestRegions((CPrimitiveGroup *)((char *)this - 680)) >= 0 )
+      if ( y >= *((float *)this - 154)
+        && *((float *)this - 152) >= y
+        && (int)CPrimitiveGroup::EnsureHitTestRegions((CPrimitiveGroup *)((char *)this - 720)) >= 0 )
       {
-        v8 = *((_QWORD *)this - 74);
+        v8 = *((_QWORD *)this - 80);
         if ( v8 )
           (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v8 + 56LL))(v8, *a3, 0LL);
-        v10 = *((_QWORD *)this - 73);
+        v10 = *((_QWORD *)this - 79);
         if ( v10 )
           (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v10 + 56LL))(v10, *a3, 0LL);
         *a4 = 0;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCollapseRebalanceRequests @ 0x140564990
+ * XREFs of PiCollapseRebalanceRequests @ 0x140510204
  * Callers:
- *     PnpProcessRebalance @ 0x140564C24 (PnpProcessRebalance.c)
+ *     PnpProcessRebalance @ 0x14051049C (PnpProcessRebalance.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
@@ -75,7 +75,7 @@ bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
   __writecr8(v5);
   for ( i = *v4; i != (__int64 *)a1; i = (__int64 *)*i )
   {
-    ObfDereferenceObject((PVOID)i[2]);
+    ObfDereferenceObjectWithTag((PVOID)i[2], 0x746C6644u);
     i[2] = 0LL;
   }
   return v4 != *(__int64 ***)(a1 + 8);

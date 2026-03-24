@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00AC154
+ * XREFs of ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00D40AC
  * Callers:
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     GreRealizePalette @ 0x1C02D181C (GreRealizePalette.c)
- *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C02D8818 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
- *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C02D890C (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
- *     ?ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z @ 0x1C02D895C (-ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z.c)
- *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C02D9100 (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
- *     ?bSearchCache@EXLATEOBJ@@QEAAHVXEPALOBJ@@000KKKK@Z @ 0x1C02DC87C (-bSearchCache@EXLATEOBJ@@QEAAHVXEPALOBJ@@000KKKK@Z.c)
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00D3E2C (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ *     ?vAddToCache@EXLATEOBJ@@QEAAXVXEPALOBJ@@000@Z @ 0x1C00D3F20 (-vAddToCache@EXLATEOBJ@@QEAAXVXEPALOBJ@@000@Z.c)
+ *     GreRealizePalette @ 0x1C011B8EC (GreRealizePalette.c)
+ *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C0153D54 (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
+ *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C0153DA4 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
+ *     ?ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z @ 0x1C02BC740 (-ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z.c)
  * Callees:
  *     <none>
  */

@@ -11,7 +11,7 @@
  *     VfReadDmaCounter @ 0x14092C380 (VfReadDmaCounter.c)
  *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
 
@@ -24,7 +24,7 @@ void VF_ASSERT_MAX_IRQL()
   if ( CurrentIrql > 2u )
   {
     v1 = CurrentIrql;
-    ViHalPreprocessOptions(byte_140405484, "Bad IRQL -- needed %x or less, got %x.", 268435475, 2);
-    VfReportIssueWithOptions(0xE6u, 0x13uLL, 2uLL, 2uLL, v1, byte_140405484);
+    ViHalPreprocessOptions(byte_140405478, "Bad IRQL -- needed %x or less, got %x.", 268435475, 2);
+    VfReportIssueWithOptions(0xE6u, 0x13uLL, 2uLL, 2uLL, v1, byte_140405478);
   }
 }

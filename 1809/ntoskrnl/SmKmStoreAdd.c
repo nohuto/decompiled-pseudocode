@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x14066B174
+ * XREFs of SmKmStoreAdd @ 0x14066B154
  * Callers:
- *     SmProcessCreateRequest @ 0x14066AE14 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
@@ -11,10 +11,10 @@
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmEtwEnabled @ 0x1400E3E08 (SmEtwEnabled.c)
- *     SmAlloc @ 0x1400E4B34 (SmAlloc.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SmKmEtwLogStoreChange @ 0x1408AC734 (SmKmEtwLogStoreChange.c)
+ *     SmEtwEnabled @ 0x1400E3E28 (SmEtwEnabled.c)
+ *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SmKmEtwLogStoreChange @ 0x1408AC714 (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)

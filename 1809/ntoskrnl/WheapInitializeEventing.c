@@ -3,7 +3,7 @@
  * Callers:
  *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
  */
 
 NTSTATUS WheapInitializeEventing()
@@ -11,8 +11,8 @@ NTSTATUS WheapInitializeEventing()
   NTSTATUS result; // eax
 
   LOWORD(WheapDispatchPtr.Queue.Wcb.DeviceObject) = 1;
-  WheapDispatchPtr.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels;
-  *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = &WheapDispatchPtr.Queue.Wcb.NumberOfChannels;
+  *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
+  WheapDispatchPtr.Queue.Wcb.DeviceContext = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
   BYTE2(WheapDispatchPtr.Queue.Wcb.DeviceObject) = 6;
   WheapDispatchPtr.Queue.Wcb.BufferChainingDpc = (PKDPC)&WheapDispatchPtr.Queue.Wcb.CurrentIrp;
   WheapDispatchPtr.Queue.Wcb.CurrentIrp = &WheapDispatchPtr.Queue.Wcb.CurrentIrp;

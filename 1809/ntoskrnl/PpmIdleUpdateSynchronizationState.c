@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateSynchronizationState @ 0x1402D5350
+ * XREFs of PpmIdleUpdateSynchronizationState @ 0x1402D5450
  * Callers:
- *     PoInitiateProcessorWake @ 0x1402D38A0 (PoInitiateProcessorWake.c)
+ *     PoInitiateProcessorWake @ 0x1402D39A0 (PoInitiateProcessorWake.c)
  * Callees:
  *     <none>
  */

@@ -1,51 +1,50 @@
 /*
- * XREFs of ?IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E4224
+ * XREFs of ?IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AF670
  * Callers:
- *     ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00E4128 (-IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00AF564 (-IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0005BC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006770 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?QueryLocalAllocationResidency@VIDMM_GLOBAL@@QEAA?AW4_D3DKMT_ALLOCATIONRESIDENCYSTATUS@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00E6858 (-QueryLocalAllocationResidency@VIDMM_GLOBAL@@QEAA-AW4_D3DKMT_ALLOCATIONRESIDENCYSTATUS@@PEAU_VID.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006090 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000613C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?QueryLocalAllocationResidency@VIDMM_GLOBAL@@QEAA?AW4_D3DKMT_ALLOCATIONRESIDENCYSTATUS@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00B13E8 (-QueryLocalAllocationResidency@VIDMM_GLOBAL@@QEAA-AW4_D3DKMT_ALLOCATIONRESIDENCYSTATUS@@PEAU_VID.c)
  */
 
-bool __fastcall VIDMM_GLOBAL::IsAllocationRepurposed(VIDMM_GLOBAL *this, struct _VIDMM_GLOBAL_ALLOC *a2)
+bool __fastcall VIDMM_GLOBAL::IsAllocationRepurposed(VIDMM_GLOBAL *this, DXGFASTMUTEX **a2)
 {
   bool v2; // bl
-  struct _KTHREAD **v6; // rsi
-  __int64 v7; // rbp
+  __int64 v6; // rdx
+  DXGFASTMUTEX *v7; // rsi
   PRKPROCESS *v8; // rcx
   __int64 v9; // r9
-  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-68h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-58h] BYREF
 
   v2 = 0;
-  if ( !dword_1C0076574 )
+  if ( !dword_1C00504C4 )
     return 0;
-  v6 = (struct _KTHREAD **)((char *)a2 + 296);
-  DXGFASTMUTEX::Acquire((struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 296));
-  if ( *(_WORD *)(*((_QWORD *)a2 + 67) + 4LL) == 3 )
+  DXGFASTMUTEX::Acquire(a2[39]);
+  if ( *((_WORD *)a2[62] + 2) == 3 )
   {
-    v7 = *((_QWORD *)a2 + 11);
-    v8 = *(PRKPROCESS **)(v7 + 8);
+    v7 = a2[12];
+    v8 = (PRKPROCESS *)*((_QWORD *)v7 + 1);
     memset(&ApcState, 0, sizeof(ApcState));
     KeStackAttachProcess(*v8, &ApcState);
-    if ( dword_1C0076574 == 1 )
+    if ( dword_1C00504C4 == 1 )
     {
-      v2 = VIDMM_GLOBAL::QueryLocalAllocationResidency(this, (struct _VIDMM_LOCAL_ALLOC *)v7) == D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT;
+      v2 = VIDMM_GLOBAL::QueryLocalAllocationResidency(this, v7) == D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT;
     }
-    else if ( dword_1C0076574 == 2 )
+    else if ( dword_1C00504C4 == 2 )
     {
-      if ( (*(int (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)a2 + 11) + 8LL) + 24LL) + 128LL))(
-             *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 11) + 8LL) + 24LL),
-             *(_QWORD *)(*((_QWORD *)a2 + 11) + 24LL)) >= 0 )
+      if ( (*(int (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*((_QWORD *)a2[12] + 1) + 24LL) + 128LL))(
+             *(_QWORD *)(*((_QWORD *)a2[12] + 1) + 24LL),
+             *((_QWORD *)a2[12] + 3)) >= 0 )
       {
         LOBYTE(v9) = 1;
-        (*(void (__fastcall **)(_QWORD, struct _VIDMM_GLOBAL_ALLOC *, _QWORD, __int64))(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)a2 + 11) + 8LL) + 24LL)
-                                                                                      + 120LL))(
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 11) + 8LL) + 24LL),
+        (*(void (__fastcall **)(_QWORD, DXGFASTMUTEX **, _QWORD, __int64))(**(_QWORD **)(*((_QWORD *)a2[12] + 1) + 24LL)
+                                                                         + 120LL))(
+          *(_QWORD *)(*((_QWORD *)a2[12] + 1) + 24LL),
           a2,
-          *(_QWORD *)(*((_QWORD *)a2 + 11) + 24LL),
+          *((_QWORD *)a2[12] + 3),
           v9);
       }
       else
@@ -55,6 +54,6 @@ bool __fastcall VIDMM_GLOBAL::IsAllocationRepurposed(VIDMM_GLOBAL *this, struct 
     }
     KeUnstackDetachProcess(&ApcState);
   }
-  DXGFASTMUTEX::Release(v6);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)a2[39], v6);
   return v2;
 }

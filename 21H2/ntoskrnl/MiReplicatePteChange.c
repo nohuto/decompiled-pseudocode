@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x14036CB28
+ * XREFs of MiReplicatePteChange @ 0x1403A4544
  * Callers:
- *     MiZeroAndFlushPtes @ 0x1402157EC (MiZeroAndFlushPtes.c)
- *     MiDecommitLargePoolVa @ 0x140228464 (MiDecommitLargePoolVa.c)
- *     MiDeleteSystemPageTable @ 0x140228CD0 (MiDeleteSystemPageTable.c)
- *     MiCreateSystemPageTable @ 0x14027CE40 (MiCreateSystemPageTable.c)
- *     MiDeleteVaTail @ 0x14032F0E0 (MiDeleteVaTail.c)
- *     MiReplicatePfnDatabaseMappings @ 0x1405839A4 (MiReplicatePfnDatabaseMappings.c)
- *     MiInitializeShadowPageTable @ 0x14082A974 (MiInitializeShadowPageTable.c)
+ *     MiZeroAndFlushPtes @ 0x140297640 (MiZeroAndFlushPtes.c)
+ *     MiDeleteSystemPageTable @ 0x1402B6DC0 (MiDeleteSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
+ *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
+ *     MiDecommitLargePoolVa @ 0x140370CE0 (MiDecommitLargePoolVa.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052EF2C (MiReplicatePfnDatabaseMappings.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiGetLeafVa @ 0x1402CFEB0 (MiGetLeafVa.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReplicatePteChangeToProcess @ 0x14036C9FC (MiReplicatePteChangeToProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiReplicatePteChangeToProcess @ 0x1403A46A8 (MiReplicatePteChangeToProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
@@ -23,13 +23,13 @@ __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2
   __int64 v4; // rdx
   _KPROCESS *Process; // r15
   unsigned __int64 LeafVa; // rax
-  unsigned __int64 v7; // rdi
-  __int64 *v8; // rsi
+  unsigned __int64 v7; // rsi
+  __int64 *v8; // rdi
   __int64 *i; // rbx
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  __int64 v12; // rcx
-  int v13; // eax
+  _KPROCESS *v12; // rcx
+  int DirectoryTableBase_high; // eax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v16; // zf
@@ -49,34 +49,29 @@ __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2
   LeafVa = MiGetLeafVa(a1);
   if ( (unsigned int)MiGetSystemRegionType(LeafVa) == 1 )
   {
-    v7 = Process[1].Affinity.StaticBitmap[25];
+    v7 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
     v8 = (__int64 *)(v7 + 16);
   }
   else
   {
     v7 = 0LL;
-    v8 = &qword_140C50658;
+    v8 = &qword_140C4DE28;
   }
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  if ( v7 && (*(_BYTE *)(v7 + 377) & 6) == 2 )
-    MiReplicatePteChangeToProcess(
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * Process[1].IdealProcessor[25]) + 176LL) + 104LL),
-      v3,
-      a2);
   for ( i = (__int64 *)*v8; i != v8; i = (__int64 *)*i )
   {
-    v12 = (__int64)i + (v7 != 0 ? -1184LL : -1984LL);
-    v13 = *(_DWORD *)(v12 + 1124);
-    if ( (v13 & 0x800000) == 0 )
+    v12 = (_KPROCESS *)((char *)i + (v7 != 0 ? -1184LL : -1984LL));
+    DirectoryTableBase_high = HIDWORD(v12[1].DirectoryTableBase);
+    if ( (DirectoryTableBase_high & 0x800000) == 0 )
     {
-      if ( (v13 & 0xC00) != 0 && (v13 & 0x80u) == 0 )
+      if ( (DirectoryTableBase_high & 0xC00) != 0 && (DirectoryTableBase_high & 0x80u) == 0 )
       {
-        if ( (_KPROCESS *)v12 != Process )
+        if ( v12 != Process )
           MiReplicatePteChangeToProcess(v12, v3, a2);
       }
       else
       {
-        _InterlockedOr((volatile signed __int32 *)(v12 + 1124), 0x800000u);
+        _InterlockedOr((volatile signed __int32 *)&v12[1].DirectoryTableBase + 1, 0x800000u);
       }
     }
   }

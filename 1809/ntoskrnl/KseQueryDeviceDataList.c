@@ -1,21 +1,21 @@
 /*
- * XREFs of KseQueryDeviceDataList @ 0x1408473D0
+ * XREFs of KseQueryDeviceDataList @ 0x1408473B0
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x1408CB580 (ExpGetDeviceDataInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x1408CB560 (ExpGetDeviceDataInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KsepShimDbChanged @ 0x140178F5C (KsepShimDbChanged.c)
- *     KsepCacheLookup @ 0x14070CAFC (KsepCacheLookup.c)
- *     KsepDbCacheReadDevice @ 0x140720CFC (KsepDbCacheReadDevice.c)
- *     KsepCacheDeviceFree @ 0x140720E70 (KsepCacheDeviceFree.c)
- *     KsepDbCacheInsertDevice @ 0x140722810 (KsepDbCacheInsertDevice.c)
- *     KseResetDeviceCache @ 0x140847568 (KseResetDeviceCache.c)
- *     KsepDbCacheQueryDeviceDataList @ 0x140847758 (KsepDbCacheQueryDeviceDataList.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140847AA4 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KsepShimDbChanged @ 0x140178F7C (KsepShimDbChanged.c)
+ *     KsepCacheLookup @ 0x14070CADC (KsepCacheLookup.c)
+ *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
+ *     KsepCacheDeviceFree @ 0x140720E50 (KsepCacheDeviceFree.c)
+ *     KsepDbCacheInsertDevice @ 0x1407227F0 (KsepDbCacheInsertDevice.c)
+ *     KseResetDeviceCache @ 0x140847548 (KseResetDeviceCache.c)
+ *     KsepDbCacheQueryDeviceDataList @ 0x140847738 (KsepDbCacheQueryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140847A84 (KsepDbQueryRegistryDeviceDataList.c)
  */
 
 __int64 __fastcall KseQueryDeviceDataList(wchar_t *SourceString, __int64 a2, unsigned int a3, __int64 a4)

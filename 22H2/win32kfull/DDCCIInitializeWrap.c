@@ -1,36 +1,34 @@
 /*
- * XREFs of DDCCIInitializeWrap @ 0x1C00BBCC0
+ * XREFs of DDCCIInitializeWrap @ 0x1C0135380
  * Callers:
  *     <none>
  * Callees:
- *     ??0CMonitorAPI@@QEAA@PEAJ@Z @ 0x1C00BBD44 (--0CMonitorAPI@@QEAA@PEAJ@Z.c)
+ *     ??0CMonitorAPI@@QEAA@PEAJ@Z @ 0x1C01353E8 (--0CMonitorAPI@@QEAA@PEAJ@Z.c)
  */
 
-__int64 __fastcall DDCCIInitializeWrap(__int64 a1)
+__int64 DDCCIInitializeWrap()
 {
-  unsigned int v1; // ebx
-  __int64 v2; // rdi
-  CMonitorAPI *Pool2; // rax
-  CMonitorAPI *v4; // rax
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v0; // ebx
+  CMonitorAPI *PoolWithTag; // rax
+  CMonitorAPI *v2; // rax
+  int v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
-  v6 = 0;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  Pool2 = (CMonitorAPI *)ExAllocatePool2(258LL, 40LL, 1664248135LL);
-  if ( Pool2 )
-    v4 = CMonitorAPI::CMonitorAPI(Pool2, &v6);
+  v0 = 0;
+  v4 = 0;
+  PoolWithTag = (CMonitorAPI *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x63326947u);
+  if ( PoolWithTag )
+    v2 = CMonitorAPI::CMonitorAPI(PoolWithTag, &v4);
   else
-    v4 = 0LL;
-  *(_QWORD *)(v2 + 8728) = v4;
-  if ( v4 )
+    v2 = 0LL;
+  qword_1C033A068 = v2;
+  if ( v2 )
   {
-    if ( v6 < 0 )
-      return (unsigned int)v6;
+    if ( v4 < 0 )
+      return (unsigned int)v4;
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v1;
+  return v0;
 }

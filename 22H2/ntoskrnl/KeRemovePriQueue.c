@@ -1,483 +1,417 @@
 /*
- * XREFs of KeRemovePriQueue @ 0x1402BF080
+ * XREFs of KeRemovePriQueue @ 0x140241B40
  * Callers:
- *     ExpWorkerThread @ 0x1402BEB60 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1402417F0 (ExpWorkerThread.c)
  * Callees:
- *     KiGetProcessorEfficiencyClass @ 0x14020E8F4 (KiGetProcessorEfficiencyClass.c)
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248430 (KiEndThreadAccountingPeriodEx.c)
- *     PoGetFrequencyBucket @ 0x140249C00 (PoGetFrequencyBucket.c)
- *     KiProcessThreadWaitList @ 0x140253CA0 (KiProcessThreadWaitList.c)
- *     HalRequestSoftwareInterrupt @ 0x140254BF0 (HalRequestSoftwareInterrupt.c)
- *     KiSetPriorityThread @ 0x1402B05A0 (KiSetPriorityThread.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8400 (KiSetBasePriorityAndClearDecrement.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1402B84FC (KiAdjustRealtimePriorityFloor.c)
- *     KiFastExitThreadWait @ 0x1402BBBE0 (KiFastExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA48 (KiCheckForThreadDispatch.c)
- *     KiAttemptFastRemovePriQueue @ 0x1402BF710 (KiAttemptFastRemovePriQueue.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiDeliverApc @ 0x14030F6B0 (KiDeliverApc.c)
- *     KiSwitchPriQueue @ 0x140367198 (KiSwitchPriQueue.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CCC60 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CCC90 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBeginCounterAccumulation @ 0x140574190 (KiBeginCounterAccumulation.c)
- *     KiGetDueTimeWithThreadTimerDelay @ 0x14057A2B8 (KiGetDueTimeWithThreadTimerDelay.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F230 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KiBeginThreadWait @ 0x140241FA0 (KiBeginThreadWait.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiProcessThreadWaitList @ 0x14024AC40 (KiProcessThreadWaitList.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1402F7A60 (KiAttemptFastRemovePriQueue.c)
+ *     KiSwitchPriQueue @ 0x140328378 (KiSwitchPriQueue.c)
+ *     KiFastExitThreadWait @ 0x140341258 (KiFastExitThreadWait.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14035B22C (KiSetBasePriorityAndClearDecrement.c)
+ *     HvlNotifyLongSpinWait @ 0x14038FA40 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390820 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiGetDueTimeWithThreadTimerDelay @ 0x1405229B0 (KiGetDueTimeWithThreadTimerDelay.c)
  */
 
-struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int64 a4)
+__int64 __fastcall KeRemovePriQueue(
+        _DISPATCHER_HEADER *BugCheckParameter2,
+        unsigned __int8 a2,
+        unsigned __int8 a3,
+        __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  unsigned __int8 CurrentIrql; // dl
-  unsigned __int8 *p_WaitIrql; // r14
-  __int64 v8; // rcx
-  unsigned int v9; // r12d
-  unsigned __int8 v10; // bp
-  $77FB1784F920FE33919952D0EDCFD5FB *v11; // r15
-  int v12; // r9d
+  unsigned int v5; // esi
+  unsigned __int64 v10; // r15
+  $AC3BF0C7EA58B0FE9399BAAA5443B647 *v11; // r14
+  int v12; // ebp
+  unsigned __int8 CurrentIrql; // r10
+  __int64 result; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r9
   _DISPATCHER_HEADER *volatile Queue; // r8
-  __int64 v14; // r8
-  unsigned int v15; // edi
-  __int64 v16; // rdi
   unsigned __int64 DueTimeWithThreadTimerDelay; // rax
-  __int64 v18; // rcx
-  struct _LIST_ENTRY *v19; // rax
-  struct _LIST_ENTRY *v20; // rcx
-  struct _KPRCB *result; // rax
-  _DWORD *SchedulerAssist; // r10
-  __int64 v23; // r8
-  __int64 v24; // rbp
-  int v25; // edi
+  struct _KPRCB *v20; // rsi
+  _DWORD *v21; // rcx
+  __int64 v22; // rcx
+  struct _KPRCB *v23; // rcx
+  _DWORD *v24; // rdx
+  struct _LIST_ENTRY *v25; // rcx
+  struct _LIST_ENTRY *p_WaitListHead; // rax
+  struct _KPRCB *CurrentPrcb; // rsi
+  _DWORD *v28; // rcx
+  __int64 v29; // rsi
+  int v30; // ebp
   __int64 QueuePriority; // rax
-  __int64 v27; // r9
-  struct _KPRCB *v28; // rdi
-  struct _KPRCB *v29; // rdi
-  unsigned __int64 v30; // rdx
-  unsigned __int64 v31; // r8
-  unsigned __int64 CycleTime; // r14
-  unsigned __int64 v33; // rax
-  bool v34; // zf
-  unsigned __int64 v35; // r11
-  struct _KPRCB *v36; // rcx
-  signed __int32 *v37; // r8
-  unsigned __int64 v38; // rcx
-  int v39; // r8d
-  int v40; // edx
-  _DISPATCHER_HEADER *volatile v41; // rcx
-  signed __int32 v42; // eax
-  signed __int32 v43; // ett
-  bool ProcessorEfficiencyClass; // al
-  unsigned __int64 *v45; // rdx
-  __int64 v46; // r10
+  struct _KPRCB *v32; // rdi
+  struct _KPRCB *v33; // rcx
+  unsigned __int64 CycleTime; // rdx
+  unsigned __int64 v35; // rcx
+  unsigned __int8 v36; // r8
+  int v37; // edx
+  _DISPATCHER_HEADER *volatile v38; // rcx
+  unsigned __int8 v39; // r10
+  _DWORD *v40; // rcx
+  _DWORD *v41; // rcx
+  _DWORD *v42; // rcx
+  _DWORD *v43; // rcx
+  _DWORD *SchedulerAssist; // r9
   __int64 UnbiasedInterruptTime; // rax
-  _QWORD *v48; // r11
-  unsigned __int8 v49; // al
-  struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v51; // rdx
-  _DWORD *v52; // r9
-  __int64 v53; // rdx
+  _QWORD *v46; // r11
+  int v47; // eax
+  int v48; // eax
+  int v49; // eax
+  int v50; // ecx
+  unsigned __int64 v51; // r11
+  int v52; // eax
+  int v53; // eax
   int v54; // eax
-  __int64 v55; // rdi
-  int v56; // ecx
-  unsigned __int64 v57; // r11
-  unsigned __int8 v58; // r8
-  _DWORD *v59; // r10
-  __int64 v60; // rdx
-  _BYTE *v61; // rax
+  int v55; // eax
+  _DWORD *v56; // r9
+  struct _KPRCB *v57; // rsi
+  _DWORD *v58; // rcx
+  int v59; // eax
+  _DWORD *v60; // rcx
+  int v61; // eax
+  _DWORD *v62; // rcx
+  int v63; // eax
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
-  int v64; // [rsp+30h] [rbp-68h] BYREF
-  int v65; // [rsp+34h] [rbp-64h] BYREF
-  int v66; // [rsp+38h] [rbp-60h] BYREF
-  __int64 v67; // [rsp+40h] [rbp-58h]
-  int v70; // [rsp+B0h] [rbp+18h] BYREF
-  int v71; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v66; // [rsp+20h] [rbp-58h]
+  int v67; // [rsp+30h] [rbp-48h] BYREF
+  int v68; // [rsp+34h] [rbp-44h] BYREF
+  int v69; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v70; // [rsp+40h] [rbp-38h]
+  int v71; // [rsp+98h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v67 = 0LL;
-  v70 = 0;
-  if ( _bittestandreset((signed __int32 *)&CurrentThread->116, 2u) )
-  {
-    p_WaitIrql = &CurrentThread->WaitIrql;
-  }
-  else
+  v5 = 0;
+  v71 = 0;
+  v70 = 0LL;
+  v10 = 0LL;
+  v11 = &CurrentThread->320;
+  v12 = 2;
+  if ( !_bittestandreset((signed __int32 *)&CurrentThread->116, 2u) )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-        LODWORD(v23) = 4;
-      else
-        v23 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v23;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    p_WaitIrql = &CurrentThread->WaitIrql;
     CurrentThread->WaitIrql = CurrentIrql;
   }
-  v8 = 1LL;
   if ( a4 )
   {
     if ( *(int *)(a4 + 4) < 0 )
     {
       UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(0LL);
-      p_WaitIrql = &CurrentThread->WaitIrql;
-      v8 = *v48 + CurrentThread->RelativeTimerBias;
-      v9 = 2;
-      v67 = UnbiasedInterruptTime - v8;
+      v10 = UnbiasedInterruptTime - (*v46 + CurrentThread->RelativeTimerBias);
     }
     else
     {
-      v9 = 1;
-      v67 = *(_QWORD *)a4;
+      v10 = *(_QWORD *)a4;
+      v12 = 1;
     }
   }
   else
   {
-    v9 = 0;
+    v12 = 0;
   }
   while ( 1 )
   {
-    v10 = *p_WaitIrql;
-    while ( 1 )
-    {
-      CurrentThread->MiscFlags &= ~0x10u;
-      CurrentThread->WaitRegister.Flags = 0;
-      CurrentThread->WaitMode = a2;
-      if ( a3 )
-        CurrentThread->MiscFlags |= 0x10u;
-      v71 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
-      {
-        do
-          KeYieldProcessorEx(&v71);
-        while ( CurrentThread->ThreadLock );
-      }
-      if ( !CurrentThread->ApcState.KernelApcPending || CurrentThread->SpecialApcDisable || v10 )
-        break;
-      CurrentThread->ThreadLock = 0LL;
-      if ( KiIrqlFlags )
-      {
-        v49 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v49 - 2) <= 0xDu )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v51 = CurrentPrcb->SchedulerAssist;
-          v34 = (v51[5] & 0xFFFF0003) == 0;
-          v51[5] &= 0xFFFF0003;
-          if ( v34 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-      __writecr8(1uLL);
-      KiDeliverApc(0LL, 0LL, 0LL);
-      v8 = KeGetCurrentIrql();
-      __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v8 <= 0xFu )
-      {
-        v52 = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( (_BYTE)v8 == 2 )
-        {
-          LODWORD(v53) = 4;
-        }
-        else
-        {
-          v8 = (unsigned int)(unsigned __int8)v8 + 1;
-          v53 = (-1LL << v8) & 4;
-        }
-        v52[5] |= v53;
-      }
-      *p_WaitIrql = 0;
-    }
-    v11 = &CurrentThread->320;
-    if ( a3 )
-    {
-      if ( CurrentThread->Alerted[a2] )
-      {
-        v54 = 257;
-        CurrentThread->Alerted[a2] = 0;
-        v55 = 257LL;
-        v12 = 0;
-      }
-      else if ( !a2
-             || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink == &CurrentThread->ApcStateFill[16] )
-      {
-        v12 = 0;
-        if ( CurrentThread->Alerted[0] )
-        {
-          v54 = 257;
-          CurrentThread->Alerted[0] = 0;
-          v55 = 257LL;
-        }
-        else
-        {
-          v54 = 0;
-          v55 = 0LL;
-        }
-      }
-      else
-      {
-        CurrentThread->ApcState.UserApcPendingAll |= 2u;
-        v54 = 192;
-        v55 = 192LL;
-        v12 = 0;
-      }
-      if ( !v54 )
-      {
-LABEL_16:
-        CurrentThread->WaitBlockFill6[68] = 5;
-        CurrentThread->WaitReason = 15;
-        CurrentThread->WaitBlock[2].SpareLong = MEMORY[0xFFFFF78000000320];
-        CurrentThread->ThreadLock = 0LL;
-        goto LABEL_17;
-      }
-    }
-    else
-    {
-      v12 = 0;
-      if ( (CurrentThread->ApcState.UserApcPendingAll & 2) == 0 || !a2 )
-        goto LABEL_16;
-      v55 = 192LL;
-    }
-    CurrentThread->ThreadLock = 0LL;
-    KiCheckForThreadDispatch((__int64)KeGetCurrentPrcb(), v10);
-    if ( v55 )
-      return (struct _KPRCB *)v55;
-    v12 = 0;
-LABEL_17:
+    result = (int)KiBeginThreadWait(CurrentThread, a2, 15LL, a3);
+    if ( (_DWORD)result )
+      return result;
     Queue = CurrentThread->Queue;
-    if ( (_DISPATCHER_HEADER *volatile)a1 != Queue )
-    {
-      KiSwitchPriQueue(CurrentThread, a1, Queue, 0LL);
-      v12 = 0;
-    }
+    if ( BugCheckParameter2 != Queue )
+      KiSwitchPriQueue(CurrentThread, BugCheckParameter2);
     CurrentThread->WaitBlock[0].WaitType = 3;
-    v14 = 128LL;
     CurrentThread->WaitBlockFill4[17] = 4;
-    v15 = 0;
     CurrentThread->WaitBlock[0].WaitKey = 128;
-    CurrentThread->WaitBlock[0].Object = (PVOID)a1;
-    if ( _interlockedbittestandset((volatile signed __int32 *)a1, 7u) )
+    CurrentThread->WaitBlock[0].Object = BugCheckParameter2;
+    if ( _interlockedbittestandset(&BugCheckParameter2->Lock, 7u) )
     {
       do
       {
-        if ( (++v15 & HvlLongSpinCountMask) == 0
+        if ( (++v5 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v8) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v16, v15, Queue, v17, v66) )
         {
-          HvlNotifyLongSpinWait(v15);
+          HvlNotifyLongSpinWait(v5);
         }
         else
         {
           _mm_pause();
         }
       }
-      while ( (*(_DWORD *)a1 & 0x80u) != 0 || _interlockedbittestandset((volatile signed __int32 *)a1, 7u) );
-      v12 = 0;
+      while ( (BugCheckParameter2->LockNV & 0x80u) != 0 || _interlockedbittestandset(&BugCheckParameter2->Lock, 7u) );
     }
-    if ( *(_DWORD *)(a1 + 4) )
+    if ( BugCheckParameter2->SignalState )
     {
-      v64 = 0;
+      CurrentPrcb = KeGetCurrentPrcb();
+      v67 = 0;
+      v28 = CurrentPrcb->SchedulerAssist;
+      if ( v28 )
+      {
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v47 = v28[6];
+          v28[6] = v47 + 1;
+          if ( v47 == -1 )
+LABEL_66:
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
       while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
       {
-        do
-          KeYieldProcessorEx(&v64);
-        while ( CurrentThread->ThreadLock );
-      }
-      v24 = KiAttemptFastRemovePriQueue(a1);
-      if ( v24 )
-      {
-        v25 = v70;
-        QueuePriority = (unsigned __int8)CurrentThread->QueuePriority;
-        if ( (_DWORD)QueuePriority != v70 )
+        v42 = CurrentPrcb->SchedulerAssist;
+        if ( v42 )
         {
-          v40 = CurrentThread->QueuePriority & 0x100;
-          if ( !v40 )
+          if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v41 = CurrentThread->Queue;
-            _InterlockedDecrement((volatile signed __int32 *)&v41[22].WaitListHead + QueuePriority);
-            _InterlockedIncrement((volatile signed __int32 *)&v41[22].WaitListHead + v70);
-            v25 = v70;
+            v48 = v42[6] - 1;
+            v42[6] = v48;
+            if ( !v48 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
-          CurrentThread->QueuePriority = (unsigned __int8)v25 | v40;
+        }
+        do
+          KeYieldProcessorEx(&v67);
+        while ( CurrentThread->ThreadLock );
+        v43 = CurrentPrcb->SchedulerAssist;
+        if ( v43 )
+        {
+          if ( CurrentPrcb->NestingLevel <= 1u )
+          {
+            v49 = v43[6];
+            v43[6] = v49 + 1;
+            if ( v49 == -1 )
+              goto LABEL_66;
+          }
+        }
+      }
+      v29 = KiAttemptFastRemovePriQueue((ULONG_PTR)BugCheckParameter2);
+      if ( v29 )
+      {
+        v30 = v71;
+        QueuePriority = (unsigned __int8)CurrentThread->QueuePriority;
+        if ( (_DWORD)QueuePriority != v71 )
+        {
+          v37 = CurrentThread->QueuePriority & 0x100;
+          if ( !v37 )
+          {
+            v38 = CurrentThread->Queue;
+            _InterlockedDecrement((volatile signed __int32 *)&v38[22].WaitListHead + QueuePriority);
+            _InterlockedIncrement((volatile signed __int32 *)&v38[22].WaitListHead + v71);
+            v30 = v71;
+          }
+          CurrentThread->QueuePriority = v37 | (unsigned __int8)v30;
         }
         CurrentThread->Saturation = 0;
-        KiSetBasePriorityAndClearDecrement((__int64)CurrentThread, &v70, 0);
-        KiAdjustRealtimePriorityFloor((ULONG_PTR)CurrentThread, v25);
-        if ( v25 != CurrentThread->Priority )
+        KiSetBasePriorityAndClearDecrement(CurrentThread, &v71, 0LL);
+        if ( v30 != CurrentThread->Priority )
         {
-          v29 = KeGetCurrentPrcb();
-          if ( v29->NestingLevel )
+          v33 = KeGetCurrentPrcb();
+          if ( v33->NestingLevel )
           {
             CycleTime = CurrentThread->CycleTime;
           }
           else
           {
             _disable();
-            v29->NestingLevel = 1;
-            v30 = __rdtsc();
-            v31 = v30 - v29->StartCycles;
-            CycleTime = v31 + CurrentThread->CycleTime;
-            CurrentThread->CycleTime = CycleTime;
-            v33 = ((v31 * v29->CpuCycleScalingFactor) >> 16) + CurrentThread->CurrentRunTime;
-            if ( v33 > 0xFFFFFFFF )
-              LODWORD(v33) = -1;
-            v29->StartCycles = v30;
-            v34 = (CurrentThread->Header.Size & 0xBE) == 0;
-            CurrentThread->CurrentRunTime = v33;
-            if ( !v34 )
-              KiEndThreadAccountingPeriodEx((__int64)v29, (__int64)CurrentThread, v31, 0);
-            v35 = __rdtsc();
-            v29->CycleTime += v35 - v29->StartCycles;
-            if ( (CurrentThread->Header.Size & 0x20) != 0 )
-            {
-              PoGetFrequencyBucket((__int64)v29);
-              ProcessorEfficiencyClass = KiGetProcessorEfficiencyClass((__int64)v29);
-              v45 = &v29->Cycles[v27][ProcessorEfficiencyClass];
-              *v45 += v46;
-            }
-            if ( (CurrentThread->Header.Size & 0x40) != 0 )
-            {
-              v61 = CurrentThread->SchedulerAssist;
-              if ( v61 )
-                v61[64] = 1;
-            }
-            v29->StartCycles = v35;
-            if ( (CurrentThread->Header.Size & 2) != 0 )
-              KiBeginCounterAccumulation(CurrentThread, 0LL, v31, v27);
-            v34 = v29->InterruptRequest == 0;
-            v29->NestingLevel = 0;
-            if ( !v34 )
-            {
-              v29->InterruptRequest = 0;
-              HalRequestSoftwareInterrupt(2);
-            }
-            v36 = KeGetCurrentPrcb();
-            v37 = (signed __int32 *)v36->SchedulerAssist;
-            if ( v37 )
-            {
-              _m_prefetchw(v37);
-              v42 = *v37;
-              do
-              {
-                v43 = v42;
-                v42 = _InterlockedCompareExchange(v37, v42 & 0xFFDFFFFF, v42);
-              }
-              while ( v43 != v42 );
-              if ( (v42 & 0x200000) != 0 )
-                KiRemoveSystemWorkPriorityKick(v36);
-            }
+            CycleTime = KiUpdateTotalCyclesCurrentThread((__int64)v33, (__int64)CurrentThread, 0LL);
             _enable();
           }
-          v38 = CycleTime + KiCyclesPerClockQuantum * (unsigned int)CurrentThread->SchedulerApc.SpareByte1;
+          v35 = CycleTime + KiCyclesPerClockQuantum * (unsigned int)CurrentThread->SchedulerApc.SpareByte1;
           if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x20) != 0 )
             _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 5u);
-          v39 = v70;
-          CurrentThread->QuantumTarget = v38;
-          KiSetPriorityThread((__int64)CurrentThread, 0LL, v39);
+          v36 = v71;
+          CurrentThread->QuantumTarget = v35;
+          KiSetPriorityThread(CurrentThread, 0LL, v36);
         }
-        CurrentThread->ThreadLock = 0LL;
-        goto LABEL_44;
+        KiReleaseThreadLockSafe(CurrentThread);
+        goto LABEL_26;
       }
-      v12 = 0;
-      CurrentThread->ThreadLock = 0LL;
+      KiReleaseThreadLockSafe(CurrentThread);
     }
-    if ( (*(_BYTE *)(a1 + 1) & 1) != 0 )
-      break;
-    v16 = v67;
-    DueTimeWithThreadTimerDelay = v67;
-    if ( v9 == 2 )
+    if ( (BugCheckParameter2->Signalling & 1) != 0 )
+    {
+      v57 = KeGetCurrentPrcb();
+      v69 = 0;
+      v58 = v57->SchedulerAssist;
+      if ( v58 )
+      {
+        if ( v57->NestingLevel <= 1u )
+        {
+          v59 = v58[6];
+          v58[6] = v59 + 1;
+          if ( v59 == -1 )
+LABEL_96:
+            KiRemoveSystemWorkPriorityKick(v57);
+        }
+      }
+      while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+      {
+        v60 = v57->SchedulerAssist;
+        if ( v60 )
+        {
+          if ( v57->NestingLevel <= 1u )
+          {
+            v61 = v60[6] - 1;
+            v60[6] = v61;
+            if ( !v61 )
+              KiRemoveSystemWorkPriorityKick(v57);
+          }
+        }
+        do
+          KeYieldProcessorEx(&v69);
+        while ( CurrentThread->ThreadLock );
+        v62 = v57->SchedulerAssist;
+        if ( v62 )
+        {
+          if ( v57->NestingLevel <= 1u )
+          {
+            v63 = v62[6];
+            v62[6] = v63 + 1;
+            if ( v63 == -1 )
+              goto LABEL_96;
+          }
+        }
+      }
+      if ( CurrentThread->Queue == BugCheckParameter2 )
+      {
+        CurrentThread->Queue = 0LL;
+        Flink = CurrentThread->QueueListEntry.Flink;
+        Blink = CurrentThread->QueueListEntry.Blink;
+        if ( Flink->Blink != &CurrentThread->QueueListEntry || Blink->Flink != &CurrentThread->QueueListEntry )
+LABEL_112:
+          __fastfail(3u);
+        Blink->Flink = Flink;
+        Flink->Blink = Blink;
+      }
+      KiReleaseThreadLockSafe(CurrentThread);
+      v29 = 128LL;
+      goto LABEL_26;
+    }
+    DueTimeWithThreadTimerDelay = v10;
+    if ( v12 == 2 )
     {
       KiQueryUnbiasedInterruptTime(0LL);
-      DueTimeWithThreadTimerDelay = KiGetDueTimeWithThreadTimerDelay(CurrentThread, (unsigned int)(v56 + 2), v16, 0LL);
+      DueTimeWithThreadTimerDelay = KiGetDueTimeWithThreadTimerDelay(CurrentThread, (unsigned int)(v50 + 2), v10, 0LL);
     }
     else
     {
-      if ( !v9 )
-        goto LABEL_24;
-      if ( !v67 )
-        goto LABEL_77;
-      v57 = MEMORY[0xFFFFF78000000014];
+      if ( !v12 )
+        goto LABEL_14;
+      if ( !v10 )
+        goto LABEL_46;
+      v51 = MEMORY[0xFFFFF78000000014];
     }
-    if ( v57 > DueTimeWithThreadTimerDelay )
+    if ( v51 > DueTimeWithThreadTimerDelay )
     {
-LABEL_77:
-      v24 = 258LL;
-      goto LABEL_44;
+LABEL_46:
+      v29 = 258LL;
+LABEL_26:
+      _InterlockedAnd(&BugCheckParameter2->Lock, 0xFFFFFF7F);
+      CurrentThread->WaitReason = 0;
+      v32 = KeGetCurrentPrcb();
+      if ( v32->DeferredReadyListHead.Next )
+        KiProcessThreadWaitList(v32, 1LL, 0LL, 2LL);
+      LOBYTE(Queue) = 1;
+      KiFastExitThreadWait(v32, CurrentThread, Queue);
+      return v29;
     }
-LABEL_24:
-    v65 = v12;
+LABEL_14:
+    v20 = KeGetCurrentPrcb();
+    v68 = 0;
+    v21 = v20->SchedulerAssist;
+    if ( v21 )
+    {
+      if ( v20->NestingLevel <= 1u )
+      {
+        v52 = v21[6];
+        v21[6] = v52 + 1;
+        if ( v52 == -1 )
+LABEL_79:
+          KiRemoveSystemWorkPriorityKick(v20);
+      }
+    }
     while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
     {
+      v40 = v20->SchedulerAssist;
+      if ( v40 )
+      {
+        if ( v20->NestingLevel <= 1u )
+        {
+          v53 = v40[6] - 1;
+          v40[6] = v53;
+          if ( !v53 )
+            KiRemoveSystemWorkPriorityKick(v20);
+        }
+      }
       do
-        KeYieldProcessorEx(&v65);
+        KeYieldProcessorEx(&v68);
       while ( CurrentThread->ThreadLock );
+      v41 = v20->SchedulerAssist;
+      if ( v41 )
+      {
+        if ( v20->NestingLevel <= 1u )
+        {
+          v54 = v41[6];
+          v41[6] = v54 + 1;
+          if ( v54 == -1 )
+            goto LABEL_79;
+        }
+      }
     }
-    v18 = (unsigned __int8)CurrentThread->QueuePriority;
-    CurrentThread->QueuePriority = v18 | 0x100;
-    v19 = (struct _LIST_ENTRY *)(a1 + 8);
-    _InterlockedDecrement((volatile signed __int32 *)(a1 + 4 * v18 + 536));
+    v5 = 0;
+    v22 = (unsigned __int8)CurrentThread->QueuePriority;
+    CurrentThread->QueuePriority = (unsigned __int8)CurrentThread->QueuePriority | 0x100;
+    _InterlockedDecrement((volatile signed __int32 *)&BugCheckParameter2[22].WaitListHead + v22);
     CurrentThread->ThreadLock = 0LL;
-    v20 = *(struct _LIST_ENTRY **)(a1 + 8);
-    if ( v20->Blink != (struct _LIST_ENTRY *)(a1 + 8) )
-      goto LABEL_141;
-    v11->WaitBlock[0].WaitListEntry.Flink = v20;
-    CurrentThread->WaitBlock[0].WaitListEntry.Blink = v19;
-    v20->Blink = (struct _LIST_ENTRY *)v11;
-    v19->Flink = (struct _LIST_ENTRY *)v11;
-    _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    CurrentThread->WaitBlockCount = 1;
-    result = KiCommitThreadWait((ULONG_PTR)CurrentThread, (__int64 *)&CurrentThread->320, v9, v16, 0LL);
-    CurrentThread->WaitReason = 0;
-    if ( result != (struct _KPRCB *)256 )
-      return result;
-    v58 = KeGetCurrentIrql();
-    __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v58 <= 0xFu )
+    v23 = KeGetCurrentPrcb();
+    v24 = v23->SchedulerAssist;
+    if ( v24 )
     {
-      v59 = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v58 == 2 )
+      if ( v23->NestingLevel <= 1u )
       {
-        LODWORD(v60) = 4;
+        v55 = v24[6] - 1;
+        v24[6] = v55;
+        if ( !v55 )
+          KiRemoveSystemWorkPriorityKick(v23);
       }
-      else
-      {
-        v8 = (unsigned int)v58 + 1;
-        v60 = (-1LL << (v58 + 1)) & 4;
-      }
-      v59[5] |= v60;
     }
-    *p_WaitIrql = v58;
+    v25 = BugCheckParameter2->WaitListHead.Flink;
+    p_WaitListHead = &BugCheckParameter2->WaitListHead;
+    if ( v25->Blink != &BugCheckParameter2->WaitListHead )
+      goto LABEL_112;
+    v11->WaitBlock[0].WaitListEntry.Flink = v25;
+    CurrentThread->WaitBlock[0].WaitListEntry.Blink = p_WaitListHead;
+    v25->Blink = (struct _LIST_ENTRY *)v11;
+    p_WaitListHead->Flink = (struct _LIST_ENTRY *)v11;
+    _InterlockedAnd(&BugCheckParameter2->Lock, 0xFFFFFF7F);
+    CurrentThread->WaitBlockCount = 1;
+    result = KiCommitThreadWait((_DWORD)CurrentThread, (int)CurrentThread + 320, v12, v10, 0LL);
+    CurrentThread->WaitReason = 0;
+    if ( result != 256 )
+      return result;
+    v39 = KeGetCurrentIrql();
+    __writecr8(2uLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
+    {
+      v56 = KeGetCurrentPrcb()->SchedulerAssist;
+      v56[5] |= ~((unsigned __int8)(1LL << (v39 + 1)) - 1) & 4;
+    }
+    CurrentThread->WaitIrql = v39;
   }
-  v66 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
-  {
-    do
-      KeYieldProcessorEx(&v66);
-    while ( CurrentThread->ThreadLock );
-  }
-  if ( CurrentThread->Queue == (_DISPATCHER_HEADER *volatile)a1 )
-  {
-    CurrentThread->Queue = 0LL;
-    Flink = CurrentThread->QueueListEntry.Flink;
-    Blink = CurrentThread->QueueListEntry.Blink;
-    if ( Flink->Blink != &CurrentThread->QueueListEntry || Blink->Flink != &CurrentThread->QueueListEntry )
-LABEL_141:
-      __fastfail(3u);
-    Blink->Flink = Flink;
-    Flink->Blink = Blink;
-  }
-  CurrentThread->ThreadLock = 0LL;
-  v24 = 128LL;
-LABEL_44:
-  _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  CurrentThread->WaitReason = 0;
-  v28 = KeGetCurrentPrcb();
-  if ( v28->DeferredReadyListHead.Next )
-    KiProcessThreadWaitList((__int64)v28, 1u, 0, 2u);
-  LOBYTE(v14) = 1;
-  KiFastExitThreadWait((__int64)v28, (__int64)CurrentThread, v14);
-  return (struct _KPRCB *)v24;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapReportBootError @ 0x14031F9EC
+ * XREFs of WheapReportBootError @ 0x14031FAEC
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14017D2BC (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14017D2DC (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     WheapAllocErrorRecord @ 0x14031FF88 (WheapAllocErrorRecord.c)
- *     WheapGetErrorSource @ 0x140320354 (WheapGetErrorSource.c)
- *     WheapWorkQueueAddItem @ 0x140321084 (WheapWorkQueueAddItem.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     WheapAllocErrorRecord @ 0x140320088 (WheapAllocErrorRecord.c)
+ *     WheapGetErrorSource @ 0x140320454 (WheapGetErrorSource.c)
+ *     WheapWorkQueueAddItem @ 0x140321184 (WheapWorkQueueAddItem.c)
  */
 
 char __fastcall WheapReportBootError(__int64 a1)

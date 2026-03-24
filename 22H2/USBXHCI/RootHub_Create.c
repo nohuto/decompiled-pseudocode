@@ -1,12 +1,12 @@
 /*
- * XREFs of RootHub_Create @ 0x1C006F778
+ * XREFs of RootHub_Create @ 0x1C0070264
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006FAA0 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_qq @ 0x1C001A34C (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0016398 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
@@ -38,17 +38,17 @@ __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
   v14[10] = RootHub_UcxEvtGetInfo;
   v14[11] = RootHub_UcxEvtGet20PortInfo;
   v14[12] = RootHub_UcxEvtGet30PortInfo;
-  v14[19] = off_1C0063090;
+  v14[19] = off_1C0060090;
   memset(&v14[13], 0, 24);
   LODWORD(v14[13]) = 56;
   v11 = 0LL;
   LODWORD(v11) = 56;
-  v13[3] = off_1C0063248;
+  v13[3] = off_1C0060248;
   v13[0] = 0x100000001LL;
   v5 = *(_QWORD *)(a2 + 8);
   *(_OWORD *)&v14[17] = 0LL;
   *(_OWORD *)&v13[1] = 0LL;
-  v7 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, __int128 *, __int64 *))qword_1C0064808)(
+  v7 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, __int128 *, __int64 *))qword_1C00617A8)(
          UcxDriverGlobals,
          v5,
          v14,
@@ -59,7 +59,7 @@ __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v6) = 2;
-      WPP_RECORDER_SF_d(*(_QWORD *)(a2 + 72), v6, 11, 11, (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids, v7);
+      WPP_RECORDER_SF_d(*(_QWORD *)(a2 + 72), v6, 11, 11, (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids, v7);
     }
   }
   else
@@ -67,7 +67,7 @@ __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
     v9 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      v15,
-                     off_1C0063248);
+                     off_1C0060248);
     *v9 = v15;
     v9[1] = a2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -78,7 +78,7 @@ __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
         v8,
         11,
         10,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v15,
         (char)v9);
     }

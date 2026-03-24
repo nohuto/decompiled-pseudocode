@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpConvertSignatureName @ 0x1409FBD0C
+ * XREFs of ExpConvertSignatureName @ 0x14094F7B0
  * Callers:
- *     ExpTranslateArcPath @ 0x1409FE074 (ExpTranslateArcPath.c)
+ *     ExpTranslateArcPath @ 0x140951FE8 (ExpTranslateArcPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ExpCreateOutputNT @ 0x14084057C (ExpCreateOutputNT.c)
- *     ExpTranslateSymbolicLink @ 0x140840638 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputARC @ 0x1409FBF50 (ExpCreateOutputARC.c)
- *     ExpCreateOutputEFI @ 0x1409FC048 (ExpCreateOutputEFI.c)
- *     ExpFindDiskSignature @ 0x1409FC6CC (ExpFindDiskSignature.c)
- *     ExpParseSignatureName @ 0x1409FCF20 (ExpParseSignatureName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ExpCreateOutputARC @ 0x14094F9F4 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x14094FAEC (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputNT @ 0x14094FCCC (ExpCreateOutputNT.c)
+ *     ExpFindDiskSignature @ 0x140950250 (ExpFindDiskSignature.c)
+ *     ExpParseSignatureName @ 0x140950E14 (ExpParseSignatureName.c)
+ *     ExpTranslateSymbolicLink @ 0x140952C0C (ExpTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpConvertSignatureName(int a1, void *a2, unsigned int *a3, wchar_t *a4, void *Src)
+__int64 __fastcall ExpConvertSignatureName(int a1, void *a2, __int64 a3, wchar_t *a4, void *Src)
 {
   __int64 result; // rax
   char v9; // di
   int v10; // eax
   int v11; // r12d
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   WCHAR *v13; // rdi
-  NTSTATUS v14; // r12d
+  int v14; // r12d
   unsigned int OutputNT; // eax
   unsigned int v16; // ebx
   __int64 v17; // [rsp+20h] [rbp-69h]
-  char v18; // [rsp+40h] [rbp-49h] BYREF
-  _BYTE v19[11]; // [rsp+41h] [rbp-48h] BYREF
+  char v18[8]; // [rsp+40h] [rbp-49h] BYREF
+  int v19; // [rsp+48h] [rbp-41h] BYREF
   unsigned int v20; // [rsp+4Ch] [rbp-3Dh] BYREF
   __int64 v21; // [rsp+50h] [rbp-39h] BYREF
   __int64 v22; // [rsp+58h] [rbp-31h] BYREF
@@ -37,53 +37,53 @@ __int64 __fastcall ExpConvertSignatureName(int a1, void *a2, unsigned int *a3, w
   PVOID P[2]; // [rsp+70h] [rbp-19h] BYREF
   __int128 v26; // [rsp+80h] [rbp-9h] BYREF
 
-  *(_DWORD *)&v19[3] = 0;
+  *(_DWORD *)&v18[4] = 0;
   v20 = 0;
   v21 = 0LL;
   v24 = 0LL;
   v22 = 0LL;
   v23 = 0LL;
   v26 = 0LL;
-  v18 = 0;
-  v19[0] = 0;
+  v18[0] = 0;
+  v18[1] = 0;
   *(_OWORD *)P = 0LL;
-  result = ExpParseSignatureName(a4, (__int64)&v21, (__int64)&v22, (__int64)&v18, (__int64)v19);
+  result = ExpParseSignatureName(a4, (__int64)&v21, (__int64)&v22, (__int64)v18, (__int64)&v18[1]);
   if ( (int)result >= 0 )
   {
-    if ( v19[0] == 1 && a1 == 4 )
-      return ExpCreateOutputEFI(a2, (__int64)&v21, (__int64)&v22, Src, v18);
-    v9 = v18;
+    if ( v18[1] == 1 && a1 == 4 )
+      return ExpCreateOutputEFI(a2, (__int64)&v21, (__int64)&v22, Src, v18[0]);
+    v9 = v18[0];
     v10 = 0;
-    if ( !v18 )
-      v10 = *(_DWORD *)&v19[3];
-    *(_DWORD *)&v19[7] = v10;
+    if ( !v18[0] )
+      v10 = *(_DWORD *)&v18[4];
+    v19 = v10;
     result = ExpFindDiskSignature(
                (unsigned int)&v26,
-               (unsigned int)&v19[7],
+               (unsigned int)&v19,
                (unsigned int)&v20,
                (unsigned int)&v24,
                (__int64)&v23,
-               v18);
+               v18[0]);
     if ( (int)result >= 0 )
     {
-      v11 = *(_DWORD *)&v19[7];
-      if ( v19[0] == 1 && (*(_DWORD *)&v19[3] != *(_DWORD *)&v19[7] || v21 != v24 || v22 != v23) )
+      v11 = v19;
+      if ( v18[1] == 1 && (*(_DWORD *)&v18[4] != v19 || v21 != v24 || v22 != v23) )
         return 3221225485LL;
       if ( a1 == 4 )
         return ExpCreateOutputEFI(a2, (__int64)&v24, (__int64)&v23, Src, v9);
-      Pool2 = (wchar_t *)ExAllocatePool2(64LL, 94LL, 1920364101LL);
-      v13 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x5EuLL, 0x72766E45u);
+      v13 = PoolWithTag;
+      if ( !PoolWithTag )
         return 3221225626LL;
       LODWORD(v17) = v11;
-      swprintf_s(Pool2, 0x2FuLL, L"\\Device\\Harddisk%lu\\Partition%lu", v20, v17);
-      v14 = ExpTranslateSymbolicLink(v13, (UNICODE_STRING *)P);
+      swprintf_s(PoolWithTag, 0x2FuLL, L"\\Device\\Harddisk%lu\\Partition%lu", v20);
+      v14 = ExpTranslateSymbolicLink(v13);
       ExFreePoolWithTag(v13, 0);
       if ( v14 < 0 )
         return (unsigned int)v14;
       if ( a1 == 3 )
       {
-        OutputNT = ExpCreateOutputNT((__int64)a2, a3, (const wchar_t **)P, (const wchar_t *)Src);
+        OutputNT = ExpCreateOutputNT(a2, a3, P, Src, v17);
       }
       else
       {

@@ -1,54 +1,54 @@
 /*
- * XREFs of PspAddProcessToWorkingSetChangeList @ 0x1409B1E98
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140908A10
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsProcessCallback @ 0x1409B2C80 (PspSetJobLimitsProcessCallback.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1406A58C0 (PspSetJobLimitsProcessCallback.c)
  * Callees:
- *     MmEnforceWorkingSetLimit @ 0x14020C05C (MmEnforceWorkingSetLimit.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmEnforceWorkingSetLimit @ 0x140251A38 (MmEnforceWorkingSetLimit.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
 {
-  __int64 Pool2; // rax
-  unsigned __int64 v6; // rdi
-  __int64 *v7; // rcx
+  __int64 PoolWithTag; // rax
+  unsigned __int64 v3; // rdi
+  __int64 *v4; // rcx
 
-  LODWORD(Pool2) = Object[1].DirectoryTableBase;
-  if ( (Pool2 & 1) == 0 )
+  LODWORD(PoolWithTag) = Object[1].DirectoryTableBase;
+  if ( (PoolWithTag & 1) == 0 )
   {
-    v6 = Object[1].Affinity.StaticBitmap[16];
-    if ( (*(_DWORD *)(v6 + 1040) & 1) != 0 )
+    v3 = Object[1].Affinity.Bitmap[16];
+    if ( (*(_DWORD *)(v3 + 848) & 1) != 0 )
     {
-      LOBYTE(Pool2) = ObReferenceObjectSafeWithTag((__int64)Object);
-      if ( (_BYTE)Pool2 )
+      LOBYTE(PoolWithTag) = ObReferenceObjectSafeWithTag((__int64)Object);
+      if ( (_BYTE)PoolWithTag )
       {
-        Pool2 = ExAllocatePool2(256LL, 40LL, 1917023056LL);
-        if ( Pool2 )
+        PoolWithTag = (__int64)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x72437350u);
+        if ( PoolWithTag )
         {
-          *(_QWORD *)(Pool2 + 16) = Object;
-          *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(v6 + 992);
-          *(_QWORD *)(Pool2 + 24) = *(_QWORD *)(v6 + 984);
-          v7 = (__int64 *)qword_140D0C388;
-          if ( *(__int64 **)qword_140D0C388 != &PspWorkingSetChangeHead )
+          *(_QWORD *)(PoolWithTag + 16) = Object;
+          *(_QWORD *)(PoolWithTag + 32) = *(_QWORD *)(v3 + 800);
+          *(_QWORD *)(PoolWithTag + 24) = *(_QWORD *)(v3 + 792);
+          v4 = (__int64 *)qword_140C13268;
+          if ( *(__int64 **)qword_140C13268 != &PspWorkingSetChangeHead )
             __fastfail(3u);
-          *(_QWORD *)Pool2 = &PspWorkingSetChangeHead;
-          *(_QWORD *)(Pool2 + 8) = v7;
-          *v7 = Pool2;
-          qword_140D0C388 = Pool2;
+          *(_QWORD *)PoolWithTag = &PspWorkingSetChangeHead;
+          *(_QWORD *)(PoolWithTag + 8) = v4;
+          *v4 = PoolWithTag;
+          qword_140C13268 = PoolWithTag;
         }
         else
         {
-          LOBYTE(Pool2) = ObfDereferenceObjectWithTag(Object, 0x624A7350u);
+          LOBYTE(PoolWithTag) = ObfDereferenceObjectWithTag(Object, 0x624A7350u);
         }
       }
     }
     else
     {
-      LOBYTE(Pool2) = MmEnforceWorkingSetLimit(Object, 2LL, a3, a4);
+      LOBYTE(PoolWithTag) = MmEnforceWorkingSetLimit(Object, 2);
     }
   }
-  return Pool2;
+  return PoolWithTag;
 }

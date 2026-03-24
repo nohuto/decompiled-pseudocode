@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C0271228
+ * XREFs of ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C02733B8
  * Callers:
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C00408D0 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C890 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
  * Callees:
- *     EngCopyBits @ 0x1C0028BB0 (EngCopyBits.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     EngCopyBits @ 0x1C007EB40 (EngCopyBits.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 int __fastcall bCopySurface(struct SURFMEM *a1, struct _SURFOBJ *a2)

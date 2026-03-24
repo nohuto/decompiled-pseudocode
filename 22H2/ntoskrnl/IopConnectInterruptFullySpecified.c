@@ -1,21 +1,21 @@
 /*
- * XREFs of IopConnectInterruptFullySpecified @ 0x14085B8D0
+ * XREFs of IopConnectInterruptFullySpecified @ 0x1407CBCA0
  * Callers:
- *     IoConnectInterruptEx @ 0x14078F380 (IoConnectInterruptEx.c)
- *     IoConnectInterrupt @ 0x14085B850 (IoConnectInterrupt.c)
+ *     IoConnectInterruptEx @ 0x1407611F0 (IoConnectInterruptEx.c)
+ *     IoConnectInterrupt @ 0x1407CBC20 (IoConnectInterrupt.c)
  * Callees:
- *     KeVerifyGroupAffinity @ 0x140321194 (KeVerifyGroupAffinity.c)
- *     HalGetVectorInput @ 0x1403AD2F0 (HalGetVectorInput.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopConnectInterrupt @ 0x14078EC70 (IopConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x140377C24 (KeVerifyGroupAffinity.c)
+ *     HalGetVectorInput @ 0x1403CA1D0 (HalGetVectorInput.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopConnectInterrupt @ 0x1407617EC (IopConnectInterrupt.c)
  */
 
 __int64 __fastcall IopConnectInterruptFullySpecified(
         _QWORD *a1,
         ULONG_PTR a2,
-        __int64 (__fastcall *a3)(),
+        __int64 (__fastcall *a3)(__int64 a1, __int64 a2),
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -33,7 +33,7 @@ __int64 __fastcall IopConnectInterruptFullySpecified(
   __int64 v20; // [rsp+68h] [rbp-71h] BYREF
   _OWORD v21[6]; // [rsp+70h] [rbp-69h] BYREF
 
-  memset(v21, 0, 0x5CuLL);
+  memset(v21, 0, sizeof(v21));
   v20 = 0LL;
   if ( !a3 || !KeVerifyGroupAffinity((__int64)a11, 0) )
     return 3221225485LL;
@@ -57,7 +57,7 @@ LABEL_5:
   result = HalGetVectorInput(a6);
   if ( (int)result >= 0 )
   {
-    ((__int64 (__fastcall *)(_QWORD, _QWORD))off_140C01B90[0])(0LL, 0LL);
+    ((__int64 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, 0LL);
     *a1 = 0LL;
     LODWORD(v21[4]) = 0;
     if ( (BYTE4(v21[4]) & 1) == 0 )

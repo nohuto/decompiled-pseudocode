@@ -1,10 +1,10 @@
 /*
- * XREFs of MakeSystemRelativePath @ 0x1C02DB990
+ * XREFs of MakeSystemRelativePath @ 0x1C02DD564
  * Callers:
- *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028646C (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
- *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C029CFFC (-EngCreateFile@@YAPEAXPEBG@Z.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C02895DC (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C029E71C (-EngCreateFile@@YAPEAXPEBG@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destination)
@@ -21,10 +21,7 @@ __int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destina
   while ( Source[v2] );
   Destination->Length = 0;
   Destination->MaximumLength = 2 * v2 + 44;
-  if ( 2 * (_DWORD)v2 == -44 )
-    result = 0LL;
-  else
-    result = Win32AllocPool((unsigned int)(2 * v2 + 44), 1818838599LL);
+  result = (__int64)PALLOCMEM2((unsigned int)(2 * v2 + 44), 1818838599LL, 0);
   Destination->Buffer = (PWSTR)result;
   if ( result )
   {

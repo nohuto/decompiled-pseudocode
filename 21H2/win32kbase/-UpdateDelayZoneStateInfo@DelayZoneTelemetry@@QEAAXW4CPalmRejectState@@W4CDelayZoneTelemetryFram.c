@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01F7D94
+ * XREFs of ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01BD530
  * Callers:
- *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01E52F4 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
- *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01E5FB0 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
- *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E6194 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01E6B4C (-RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01AC6D8 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01AD050 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
+ *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01AD1A4 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01AD898 (-RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01F80B0 (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01BD84C (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::UpdateDelayZoneStateInfo(
@@ -38,8 +38,8 @@ void __fastcall DelayZoneTelemetry::UpdateDelayZoneStateInfo(
     *((_DWORD *)a1 + 12 * v9 + 516) = -1;
     *((_DWORD *)a1 + 2 * v11 + 517) = *a5;
     *((_DWORD *)a1 + 2 * v11 + 518) = a5[1];
-    if ( qword_1C029CC80 )
-      v12 = qword_1C029CC80();
+    if ( qword_1C0258060 )
+      v12 = qword_1C0258060();
     else
       v12 = 0;
     *((_DWORD *)a1 + 2 * v11 + 519) = v12;

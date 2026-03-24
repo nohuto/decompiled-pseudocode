@@ -1,18 +1,15 @@
 /*
- * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0039934
+ * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C002EB60
  * Callers:
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchSetMonitorPowerState @ 0x1C0013640 (VidSchSetMonitorPowerState.c)
- *     VidSchiVirtualizeFlipInterval @ 0x1C003CF5C (VidSchiVirtualizeFlipInterval.c)
- *     VidSchPresentDurationPlane @ 0x1C0040160 (VidSchPresentDurationPlane.c)
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C00057F0 (VidSchiProcessDpcVSyncCookie.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
         __int64 a1,
-        const EVENT_DESCRIPTOR *a2,
+        __int64 a2,
         __int64 a3,
         int a4,
         char a5,
@@ -37,7 +34,7 @@ NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
   v11 = &a5;
   v14 = 4LL;
   v13 = &a6;
-  v15 = &a7;
   v16 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, a2, a3, 5u, &v8);
+  v15 = &a7;
+  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventDWMVsyncSignal, a3, 5u, &v8);
 }

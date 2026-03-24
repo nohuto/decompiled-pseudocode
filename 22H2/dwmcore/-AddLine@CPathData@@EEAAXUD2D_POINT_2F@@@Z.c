@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z @ 0x180280030
+ * XREFs of ?AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z @ 0x1802207C0
  * Callers:
  *     <none>
  * Callees:
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FB80 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x1802801B4 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5A28 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x180220944 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
  */
 
 void __fastcall CPathData::AddLine(CPathData *this, struct D2D_POINT_2F a2)
@@ -14,5 +14,5 @@ void __fastcall CPathData::AddLine(CPathData *this, struct D2D_POINT_2F a2)
 
   Path::Segment::Segment(v4, 2);
   v5 = a2;
-  CPathData::AppendSegment(this, (struct Path::Segment *)v4);
+  CPathData::AppendSegment((CPathData *)((char *)this - 16), (struct Path::Segment *)v4);
 }

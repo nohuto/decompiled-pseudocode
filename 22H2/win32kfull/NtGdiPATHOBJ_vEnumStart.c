@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiPATHOBJ_vEnumStart @ 0x1C02CD5E0
+ * XREFs of NtGdiPATHOBJ_vEnumStart @ 0x1C02B4BF0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02C6C90 (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B117C (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiPATHOBJ_vEnumStart(__int64 a1)
@@ -13,17 +13,36 @@ __int64 __fastcall NtGdiPATHOBJ_vEnumStart(__int64 a1)
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
   struct UMPDOBJ *v4; // rbx
-  unsigned __int64 v5; // rax
+  __int64 result; // rax
+  unsigned __int64 v6; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v4 = ThreadCurrentObj;
-  if ( !ThreadCurrentObj )
-    return 3221225485LL;
-  ++*((_DWORD *)ThreadCurrentObj + 109);
-  v5 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v5 && ((*((_DWORD *)v4 + 107) & 0x100) == 0 || *(_QWORD *)(v5 + 8)) )
-    PATHOBJ_vEnumStart((PATHOBJ *)v5);
-  --*((_DWORD *)v4 + 109);
-  return 0LL;
+  if ( ThreadCurrentObj )
+  {
+    ++*((_DWORD *)ThreadCurrentObj + 105);
+    v6 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
+    if ( v6 )
+    {
+      if ( (*((_DWORD *)v4 + 103) & 0x100) == 0 || *(_QWORD *)(v6 + 8) )
+      {
+        PATHOBJ_vEnumStart((PATHOBJ *)v6);
+      }
+      else if ( gfUMPDDebug )
+      {
+        DbgPrint(
+          "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiPATHOBJ_vEnumStart:Invalid EPATHOBJ.\n",
+          4133);
+      }
+    }
+    result = 0LL;
+  }
+  else
+  {
+    result = 3221225485LL;
+  }
+  if ( v4 )
+    --*((_DWORD *)v4 + 105);
+  return result;
 }

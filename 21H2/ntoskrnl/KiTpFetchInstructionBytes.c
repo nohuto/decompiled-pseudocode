@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpFetchInstructionBytes @ 0x140AB3290
+ * XREFs of KiTpFetchInstructionBytes @ 0x140A13210
  * Callers:
- *     KiTpDecodeModRm @ 0x140AB2168 (KiTpDecodeModRm.c)
- *     KiTpEmulateInstruction @ 0x140AB28B8 (KiTpEmulateInstruction.c)
- *     KiTpFetchImmediateOperand @ 0x140AB3214 (KiTpFetchImmediateOperand.c)
- *     KiTpParseInstructionPrefix @ 0x140AB3358 (KiTpParseInstructionPrefix.c)
+ *     KiTpDecodeModRm @ 0x140A12168 (KiTpDecodeModRm.c)
+ *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpFetchImmediateOperand @ 0x140A13198 (KiTpFetchImmediateOperand.c)
+ *     KiTpParseInstructionPrefix @ 0x140A132D8 (KiTpParseInstructionPrefix.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CParticleBehaviorsMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0226FC0
+ * XREFs of ?SetReferenceProperty@CParticleBehaviorsMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01DDD20
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceProperty(
@@ -57,12 +57,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
                     a4,
                     120LL)) )
             {
-              v22 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 18);
+              v22 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
               if ( a4 != v22 )
               {
                 if ( v22 )
                   DirectComposition::CApplicationChannel::ReleaseResource(a2, v22);
-                *((_QWORD *)this + 18) = a4;
+                *((_QWORD *)this + 17) = a4;
                 if ( a4 )
                   DirectComposition::CResourceMarshaler::AddRef(a4);
                 *((_DWORD *)this + 4) |= 0x8000u;
@@ -76,12 +76,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
                       a4,
                       121LL) )
           {
-            v23 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
+            v23 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
             if ( a4 != v23 )
             {
               if ( v23 )
                 DirectComposition::CApplicationChannel::ReleaseResource(a2, v23);
-              *((_QWORD *)this + 17) = a4;
+              *((_QWORD *)this + 16) = a4;
               if ( a4 )
                 DirectComposition::CResourceMarshaler::AddRef(a4);
               *((_DWORD *)this + 4) |= 0x4000u;
@@ -95,12 +95,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
                     a4,
                     121LL) )
         {
-          v24 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
+          v24 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 15);
           if ( a4 != v24 )
           {
             if ( v24 )
               DirectComposition::CApplicationChannel::ReleaseResource(a2, v24);
-            *((_QWORD *)this + 16) = a4;
+            *((_QWORD *)this + 15) = a4;
             if ( a4 )
               DirectComposition::CResourceMarshaler::AddRef(a4);
             *((_DWORD *)this + 4) |= 0x2000u;
@@ -114,12 +114,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
                   a4,
                   122LL) )
       {
-        v25 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 15);
+        v25 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 14);
         if ( a4 != v25 )
         {
           if ( v25 )
             DirectComposition::CApplicationChannel::ReleaseResource(a2, v25);
-          *((_QWORD *)this + 15) = a4;
+          *((_QWORD *)this + 14) = a4;
           if ( a4 )
             DirectComposition::CResourceMarshaler::AddRef(a4);
           *((_DWORD *)this + 4) |= 0x1000u;
@@ -133,12 +133,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
                 a4,
                 120LL) )
     {
-      v26 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 14);
+      v26 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 13);
       if ( a4 != v26 )
       {
         if ( v26 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v26);
-        *((_QWORD *)this + 14) = a4;
+        *((_QWORD *)this + 13) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x800u;
@@ -155,12 +155,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
            a4,
            116LL) )
     {
-      v17 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 13);
+      v17 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
       if ( a4 != v17 )
       {
         if ( v17 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v17);
-        *((_QWORD *)this + 13) = a4;
+        *((_QWORD *)this + 12) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x400u;
@@ -177,12 +177,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
            a4,
            122LL) )
     {
-      v16 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
+      v16 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
       if ( a4 != v16 )
       {
         if ( v16 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v16);
-        *((_QWORD *)this + 8) = a4;
+        *((_QWORD *)this + 7) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x20u;
@@ -200,12 +200,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
            a4,
            122LL) )
     {
-      v15 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
+      v15 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
       if ( a4 != v15 )
       {
         if ( v15 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v15);
-        *((_QWORD *)this + 9) = a4;
+        *((_QWORD *)this + 8) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x40u;
@@ -223,12 +223,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
            a4,
            120LL) )
     {
-      v14 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 10);
+      v14 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
       if ( a4 != v14 )
       {
         if ( v14 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v14);
-        *((_QWORD *)this + 10) = a4;
+        *((_QWORD *)this + 9) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x80u;
@@ -247,12 +247,12 @@ __int64 __fastcall DirectComposition::CParticleBehaviorsMarshaler::SetReferenceP
             a4,
             123LL)) )
     {
-      v12 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
+      v12 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 11);
       if ( a4 != v12 )
       {
         if ( v12 )
           DirectComposition::CApplicationChannel::ReleaseResource(a2, v12);
-        *((_QWORD *)this + 12) = a4;
+        *((_QWORD *)this + 11) = a4;
         if ( a4 )
           DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x200u;
@@ -271,12 +271,12 @@ LABEL_102:
   {
     return (unsigned int)-1073741811;
   }
-  v13 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 11);
+  v13 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 10);
   if ( a4 != v13 )
   {
     if ( v13 )
       DirectComposition::CApplicationChannel::ReleaseResource(a2, v13);
-    *((_QWORD *)this + 11) = a4;
+    *((_QWORD *)this + 10) = a4;
     if ( a4 )
       DirectComposition::CResourceMarshaler::AddRef(a4);
     *((_DWORD *)this + 4) |= 0x100u;

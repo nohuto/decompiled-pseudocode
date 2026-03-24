@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOpaqueRect@CColorBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x180037DE0
+ * XREFs of ?IsOpaqueRect@CColorBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x1800C2230
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall CColorBrush::IsOpaqueRect(CColorBrush *this, const struct D2D_SI
   bool result; // al
   FLOAT height; // xmm1_4
 
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + 25) - 1.0) & _xmm) >= 0.0000011920929 )
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + 23) - 1.0) & _xmm) >= 0.0000011920929 )
     return 0;
   width = a2->width;
   result = 1;

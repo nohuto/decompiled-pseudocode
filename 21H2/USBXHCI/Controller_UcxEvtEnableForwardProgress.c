@@ -1,9 +1,9 @@
 /*
- * XREFs of Controller_UcxEvtEnableForwardProgress @ 0x1C0076EF0
+ * XREFs of Controller_UcxEvtEnableForwardProgress @ 0x1C00759C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_UcxEvtEnableForwardProgress(__int64 a1)
@@ -11,7 +11,7 @@ __int64 __fastcall Controller_UcxEvtEnableForwardProgress(__int64 a1)
   *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                WdfDriverGlobals,
                a1,
-               off_1C0061428)
+               off_1C0060428)
            + 384) = 1;
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaFreeCrashDumpRegisters @ 0x140398FD0
+ * XREFs of HalpDmaFreeCrashDumpRegisters @ 0x14038DBA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaFreeMapRegisters @ 0x14045746C (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
  */
 
 __int64 __fastcall HalpDmaFreeCrashDumpRegisters(int a1)

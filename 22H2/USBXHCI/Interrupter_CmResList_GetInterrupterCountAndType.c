@@ -1,20 +1,20 @@
 /*
- * XREFs of Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C0072478
+ * XREFs of Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C006EAB4
  * Callers:
- *     Interrupter_PrepareHardware @ 0x1C0072C68 (Interrupter_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_dD @ 0x1C00181D4 (WPP_RECORDER_SF_dD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, __int64 a2, _DWORD *a3, int *a4)
 {
   int v4; // ebx
   int v5; // edi
-  unsigned int i; // r14d
+  unsigned int i; // ebp
   __int64 result; // rax
   __int64 v10; // rax
-  __int64 v11; // rbp
+  __int64 v11; // rsi
   int v12; // edx
   int v13; // edx
 
@@ -32,31 +32,30 @@ __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, 
     v11 = v10;
     if ( *(_BYTE *)v10 == 2 )
     {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v12 = *(unsigned __int16 *)(v10 + 2);
-        LOBYTE(v12) = 4;
-        WPP_RECORDER_SF_dD(
-          *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-          v12,
-          9,
-          63,
-          (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
-          i,
-          *(_WORD *)(v10 + 2));
-      }
-      if ( *(_BYTE *)v11 == 2 && (*(_BYTE *)(v11 + 2) & 3) == 3 )
+      if ( (WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+         || (v12 = *(unsigned __int16 *)(v10 + 2),
+             LOBYTE(v12) = 4,
+             WPP_RECORDER_SF_dd(
+               *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+               v12,
+               9,
+               62,
+               (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
+               i,
+               *(_WORD *)(v10 + 2)),
+             *(_BYTE *)v11 == 2))
+        && (*(_BYTE *)(v11 + 2) & 3) == 3 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           v13 = *(unsigned __int16 *)(v11 + 6);
           LOBYTE(v13) = 4;
-          WPP_RECORDER_SF_dD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
             v13,
             9,
-            64,
-            (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+            63,
+            (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
             *(_WORD *)(v11 + 6),
             *(_DWORD *)(v11 + 8));
         }

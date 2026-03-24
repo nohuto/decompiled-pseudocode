@@ -1,14 +1,14 @@
 /*
- * XREFs of SeAuditHandleDuplication @ 0x14089CD8C
+ * XREFs of SeAuditHandleDuplication @ 0x14089CD6C
  * Callers:
  *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
  *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     ObAuditInheritedHandleProcedure @ 0x140860CC0 (ObAuditInheritedHandleProcedure.c)
+ *     ObAuditInheritedHandleProcedure @ 0x140860CA0 (ObAuditInheritedHandleProcedure.c)
  * Callees:
  *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
  */

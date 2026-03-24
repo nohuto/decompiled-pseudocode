@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@?$ValueReference@I@@W7EAAKXZ @ 0x1801083D0
+ * XREFs of ?AddRef@?$ValueReference@I@@W7EAAKXZ @ 0x1800F7030
  * Callers:
  *     <none>
  * Callees:

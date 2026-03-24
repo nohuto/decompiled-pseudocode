@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021D480
+ * XREFs of ?SetBufferProperty@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E6D20
  * Callers:
  *     <none>
  * Callees:
@@ -28,7 +28,7 @@ __int64 __fastcall DirectComposition::CLinearGradientBrushMarshaler::SetBufferPr
     {
       v8 = *a4;
       *((_DWORD *)this + 4) |= 0x800u;
-      *((_QWORD *)this + 16) = v8;
+      *((_QWORD *)this + 15) = v8;
 LABEL_9:
       *a6 = 1;
       return result;
@@ -38,7 +38,7 @@ LABEL_9:
   {
     v9 = *a4;
     *((_DWORD *)this + 4) |= 0x400u;
-    *((_QWORD *)this + 15) = v9;
+    *((_QWORD *)this + 14) = v9;
     goto LABEL_9;
   }
   return 3221225485LL;

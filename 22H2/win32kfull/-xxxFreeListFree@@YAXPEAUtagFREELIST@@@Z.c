@@ -1,41 +1,57 @@
 /*
- * XREFs of ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FA858
+ * XREFs of ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C021BB88
  * Callers:
- *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C01FA218 (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
- *     xxxDDETrackGetMessageHook @ 0x1C01FB134 (xxxDDETrackGetMessageHook.c)
- *     xxxDDETrackPostHook @ 0x1C01FB334 (xxxDDETrackPostHook.c)
- *     xxxDDETrackWindowDying @ 0x1C01FB710 (xxxDDETrackWindowDying.c)
+ *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C021B34C (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C021C734 (xxxDDETrackGetMessageHook.c)
+ *     xxxDDETrackPostHook @ 0x1C021CACC (xxxDDETrackPostHook.c)
+ *     xxxDDETrackWindowDying @ 0x1C021CF78 (xxxDDETrackWindowDying.c)
  * Callees:
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     xxxClientFreeDDEHandle @ 0x1C0212740 (xxxClientFreeDDEHandle.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F390 (WPP_RECORDER_SF_q.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     xxxClientFreeDDEHandle @ 0x1C0232588 (xxxClientFreeDDEHandle.c)
  */
 
 void __fastcall xxxFreeListFree(struct tagFREELIST *a1)
 {
   struct tagFREELIST *v1; // rbx
   int v2; // edi
+  int v3; // edx
+  int v4; // ecx
   __int64 ThreadWin32Thread; // rax
-  struct tagFREELIST *v4; // rcx
-  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+30h] [rbp-18h]
+  struct tagFREELIST *v6; // rcx
+  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-18h]
 
   if ( a1 )
   {
-    v6 = 0LL;
+    v8 = 0LL;
     v1 = a1;
-    v5 = 0LL;
+    v7 = 0LL;
     v2 = *(_DWORD *)(gptiCurrent + 488LL) & 1;
     do
     {
-      PushW32ThreadLock((__int64)v1, &v5, (__int64)FreeListFree);
+      PushW32ThreadLock((__int64)v1, &v7, (__int64)FreeListFree);
       if ( !v2 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v3) = 4;
+          WPP_RECORDER_SF_q(
+            v4,
+            v3,
+            14,
+            55,
+            (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+            *((_QWORD *)v1 + 1));
+        }
         xxxClientFreeDDEHandle(*((_QWORD *)v1 + 1), *((unsigned int *)v1 + 4));
+      }
       ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *(_QWORD *)(ThreadWin32Thread + 16) = v5;
-      v4 = v1;
+      *(_QWORD *)(ThreadWin32Thread + 16) = v7;
+      v6 = v1;
       v1 = *(struct tagFREELIST **)v1;
-      Win32FreePool(v4);
+      Win32FreePool(v6);
     }
     while ( v1 );
   }

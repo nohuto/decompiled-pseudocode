@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocateAutoExpandPushLock @ 0x1403CF330
+ * XREFs of ExAllocateAutoExpandPushLock @ 0x140391D30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall ExAllocateAutoExpandPushLock(char a1)
@@ -12,7 +12,7 @@ _QWORD *__fastcall ExAllocateAutoExpandPushLock(char a1)
   _QWORD *result; // rax
 
   v1 = a1 & 1;
-  result = (_QWORD *)ExAllocatePool2((-(__int64)(v1 != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256, 16LL, 1819305281LL);
+  result = ExAllocatePoolWithTag((POOL_TYPE)(v1 != 0 ? NonPagedPoolNx : PagedPool), 0x10uLL, 0x6C706541u);
   if ( result )
   {
     result[1] = 0LL;

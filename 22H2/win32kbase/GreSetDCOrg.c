@@ -1,12 +1,12 @@
 /*
- * XREFs of GreSetDCOrg @ 0x1C005B960
+ * XREFs of GreSetDCOrg @ 0x1C0022940
  * Callers:
- *     GetMonitorDC @ 0x1C005B3E8 (GetMonitorDC.c)
+ *     GetMonitorDC @ 0x1C003B0E0 (GetMonitorDC.c)
  * Callees:
- *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C0039224 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C004B718 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C004B77C (--1DCOBJA@@QEAA@XZ.c)
- *     ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C005BA14 (-vCalcFillOrigin@DC@@QEAAXXZ.c)
+ *     ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C00228F0 (-vCalcFillOrigin@DC@@QEAAXXZ.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00247A8 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0038DB0 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0038DDC (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreSetDCOrg(HDC a1, int a2, int a3, _OWORD *a4)
@@ -31,6 +31,6 @@ __int64 __fastcall GreSetDCOrg(HDC a1, int a2, int a3, _OWORD *a4)
       *(_DWORD *)(v8 + 36) |= 0x10u;
     }
   }
-  DCOBJA::~DCOBJA((HDC **)v10);
+  DCOBJA::~DCOBJA((DCOBJA *)v10);
   return v7;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspGetJobAssignmentDisposition @ 0x140687EEC
+ * XREFs of PspGetJobAssignmentDisposition @ 0x140720678
  * Callers:
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
- *     PsAssignProcessToJobObject @ 0x140688050 (PsAssignProcessToJobObject.c)
+ *     PsAssignProcessToJobObject @ 0x14071F3B0 (PsAssignProcessToJobObject.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     PspIsProcessInJob @ 0x1406C9B74 (PspIsProcessInJob.c)
- *     PsIsJobParentImmutable @ 0x1406E1784 (PsIsJobParentImmutable.c)
- *     PspIsJobMovable @ 0x1409B0334 (PspIsJobMovable.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     PspIsProcessInJob @ 0x14071D220 (PspIsProcessInJob.c)
+ *     PsIsJobParentImmutable @ 0x14071D250 (PsIsJobParentImmutable.c)
+ *     PspIsJobMovable @ 0x140908F84 (PspIsJobMovable.c)
  */
 
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int6
   if ( a2 )
   {
     v8 = (struct _EX_RUNDOWN_REF *)(a2 + 1112);
-    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
+    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112)) )
     {
       if ( (*(_DWORD *)(a2 + 1124) & 8) != 0 )
       {
@@ -44,7 +44,7 @@ __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int6
           {
             while ( v10 != *(_QWORD *)(a2 + 1296) )
             {
-              v10 = *(_QWORD *)(v10 + 1264);
+              v10 = *(_QWORD *)(v10 + 1072);
               if ( !v10 )
                 goto LABEL_11;
             }
@@ -53,7 +53,7 @@ __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int6
           else
           {
 LABEL_11:
-            if ( (unsigned __int8)PsIsJobParentImmutable(a1) || *(_DWORD *)(a1 + 212) )
+            if ( PsIsJobParentImmutable(a1) || *(_DWORD *)(a1 + 212) )
             {
               if ( (unsigned __int8)PspIsJobMovable(v11) )
                 *a4 = 5;
@@ -71,7 +71,7 @@ LABEL_11:
       {
         *a4 = 1;
       }
-      ExReleaseRundownProtection(v8);
+      ExReleaseRundownProtection_0(v8);
       return v4;
     }
     else
@@ -79,9 +79,7 @@ LABEL_11:
       return 3221225738LL;
     }
   }
-  else if ( (unsigned __int8)((__int64 (*)(void))PsIsJobParentImmutable)()
-         || *(_DWORD *)(v12 + 212)
-         || *(_QWORD *)(v12 + 1752) == -1LL )
+  else if ( PsIsJobParentImmutable(a1) || *(_DWORD *)(v12 + 212) || *(_QWORD *)(v12 + 1560) == -1LL )
   {
     return 3221225659LL;
   }

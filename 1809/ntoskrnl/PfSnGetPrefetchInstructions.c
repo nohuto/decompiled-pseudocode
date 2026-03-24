@@ -1,23 +1,23 @@
 /*
- * XREFs of PfSnGetPrefetchInstructions @ 0x140668838
+ * XREFs of PfSnGetPrefetchInstructions @ 0x140668818
  * Callers:
- *     PfSnBeginScenario @ 0x1406672A4 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     SmDecompressBuffer @ 0x1400E281C (SmDecompressBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     SmDecompressBuffer @ 0x1400E283C (SmDecompressBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     NtOpenFile @ 0x14060B9C0 (NtOpenFile.c)
  *     NtReadFile @ 0x14063A140 (NtReadFile.c)
  *     NtQueryInformationFile @ 0x14063AA10 (NtQueryInformationFile.c)
- *     PfVerifyScenarioBuffer @ 0x140668B10 (PfVerifyScenarioBuffer.c)
+ *     PfVerifyScenarioBuffer @ 0x140668AF0 (PfVerifyScenarioBuffer.c)
  */
 
 __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)

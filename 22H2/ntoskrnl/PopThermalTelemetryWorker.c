@@ -1,16 +1,16 @@
 /*
- * XREFs of PopThermalTelemetryWorker @ 0x140590020
+ * XREFs of PopThermalTelemetryWorker @ 0x14056F840
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopCoolingTelemetryWorker @ 0x140586CB8 (PopCoolingTelemetryWorker.c)
- *     PopTraceThermalZoneActiveActivity @ 0x140595DDC (PopTraceThermalZoneActiveActivity.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140595FB0 (PopTraceThermalZonePassiveHistogram.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x1408025F0 (PopThermalUpdateActiveTimeTracking.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098B070 (PopThermalUpdatePassiveTimeTracking.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x140389D24 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x140389EB4 (PopTraceThermalZoneActiveActivity.c)
+ *     PopCoolingTelemetryWorker @ 0x140568620 (PopCoolingTelemetryWorker.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778578 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DE1C (PopThermalUpdateActiveTimeTracking.c)
  */
 
 void PopThermalTelemetryWorker()
@@ -29,17 +29,17 @@ void PopThermalTelemetryWorker()
     {
       LOBYTE(v2) = *((_BYTE *)i + 80);
       PopThermalUpdatePassiveTimeTracking(i + 63, v2);
-      PopTraceThermalZonePassiveHistogram(i);
+      PopTraceThermalZonePassiveHistogram((__int64)i);
     }
     if ( *((_BYTE *)i + 505) )
     {
       LOBYTE(v2) = *((_BYTE *)i + 69);
       PopThermalUpdateActiveTimeTracking(i + 63, v2);
-      PopTraceThermalZoneActiveActivity(i);
+      PopTraceThermalZoneActiveActivity((__int64)i);
     }
-    PopReleaseRwLock((__int64 *)i + 54);
+    PopReleaseRwLock((ULONG_PTR)(i + 54));
   }
-  PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
+  PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
   PopCoolingTelemetryWorker();
-  _InterlockedExchange(&dword_140C3C908, 0);
+  _InterlockedExchange(&dword_140C22F48, 0);
 }

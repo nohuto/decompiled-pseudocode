@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlCheckNotifyForDelete @ 0x14093FF40
+ * XREFs of FsRtlCheckNotifyForDelete @ 0x14088D480
  * Callers:
- *     FsRtlNotifyFilterChangeDirectory @ 0x140852B70 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140675020 (FsRtlNotifyFilterChangeDirectory.c)
  * Callees:
- *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406758E8 (FsRtlNotifyCompleteIrpList.c)
  */
 
 _QWORD *__fastcall FsRtlCheckNotifyForDelete(_QWORD **a1, __int64 a2)
@@ -20,7 +20,7 @@ _QWORD *__fastcall FsRtlCheckNotifyForDelete(_QWORD **a1, __int64 a2)
       *(_WORD *)(v5 + 72) |= 0x20u;
       result = (_QWORD *)(v5 + 48);
       if ( (_QWORD *)*result != result )
-        result = (_QWORD *)FsRtlNotifyCompleteIrpList(v5, -1073741738);
+        result = FsRtlNotifyCompleteIrpList(v5, -1073741738);
     }
   }
   return result;

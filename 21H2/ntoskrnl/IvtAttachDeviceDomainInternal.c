@@ -1,69 +1,72 @@
 /*
- * XREFs of IvtAttachDeviceDomainInternal @ 0x14052DF88
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x1404DF5C8
  * Callers:
- *     IvtAttachDeviceDomain @ 0x14052DF70 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x14052E450 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x1404DF5B0 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x1404DFA30 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IvtAllocateTranslationStructures @ 0x14052DEFC (IvtAllocateTranslationStructures.c)
- *     IvtFlushTbInternal @ 0x14052E568 (IvtFlushTbInternal.c)
- *     IvtGetDomainId @ 0x14052E9A8 (IvtGetDomainId.c)
- *     IvtUpdateTranslationStructures @ 0x140530270 (IvtUpdateTranslationStructures.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
+ *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
+ *     IvtGetDomainId @ 0x1404DFF98 (IvtGetDomainId.c)
+ *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
  */
 
-__int64 IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, __int64 a3, ...)
+__int64 IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD *a3, ...)
 {
-  __int64 v3; // r9
-  unsigned int *v4; // rax
-  _DWORD *v6; // rsi
-  char v9; // r13
+  unsigned int *v3; // rax
+  _DWORD *v5; // rdi
+  char v8; // r13
   __int64 result; // rax
-  int v11; // eax
-  unsigned __int8 CurrentIrql; // di
+  int v10; // eax
+  unsigned __int8 CurrentIrql; // si
   _DWORD *SchedulerAssist; // r9
-  int v14; // r8d
-  int v15; // edx
-  struct _KPRCB *CurrentPrcb; // r9
+  int v13; // r8d
+  int v14; // r9d
+  __int64 v15; // rdx
+  int v16; // edx
   unsigned __int8 v17; // al
-  _DWORD *v18; // r8
-  int v19; // eax
-  bool v20; // zf
-  int v21; // [rsp+20h] [rbp-B9h]
-  _QWORD v22[2]; // [rsp+50h] [rbp-89h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-79h] BYREF
-  _DWORD v24[44]; // [rsp+80h] [rbp-59h] BYREF
-  __int64 v25; // [rsp+158h] [rbp+7Fh] BYREF
-  va_list va; // [rsp+158h] [rbp+7Fh]
-  va_list va1; // [rsp+160h] [rbp+87h] BYREF
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v19; // r8
+  int v20; // eax
+  bool v21; // zf
+  int v22; // edx
+  int v23; // [rsp+30h] [rbp-71h]
+  int v24; // [rsp+30h] [rbp-71h]
+  _QWORD v25[2]; // [rsp+58h] [rbp-49h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-39h] BYREF
+  _DWORD v27[20]; // [rsp+88h] [rbp-19h] BYREF
+  __int64 v28; // [rsp+120h] [rbp+7Fh] BYREF
+  va_list va; // [rsp+120h] [rbp+7Fh]
+  va_list va1; // [rsp+128h] [rbp+87h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
-  v25 = va_arg(va1, _QWORD);
-  v3 = v25;
-  v4 = *(unsigned int **)(a2 + 32);
+  v28 = va_arg(va1, _QWORD);
+  v3 = *(unsigned int **)(a2 + 32);
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  v6 = (_DWORD *)a3;
-  v25 = 0LL;
-  v9 = 0;
-  result = IvtAllocateTranslationStructures(a1, *v4, a3, v3, (__int64 *)va);
+  v5 = a3;
+  v28 = 0x10000LL;
+  v8 = 0;
+  result = IvtAllocateContextTable(a1, *v3);
   if ( (int)result >= 0 )
   {
-    memset(v24, 0, 0x78uLL);
+    memset(v27, 0, sizeof(v27));
     if ( !a3 )
     {
-      v11 = *(_DWORD *)(a1 + 308);
-      if ( v11 == 2 )
+      v10 = *(_DWORD *)(a1 + 260);
+      if ( v10 == 2 )
       {
-        v24[1] = 1;
+        v27[1] = 1;
       }
-      else if ( v11 != 1 )
+      else if ( v10 != 1 )
       {
         return 3221225473LL;
       }
-      v6 = v24;
+      v5 = v27;
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
@@ -73,14 +76,18 @@ __int64 IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, __int64 a3, ...)
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 208);
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 208));
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 168);
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 168));
     if ( a3 || IvtGetDomainId(a1, **(unsigned int **)(a2 + 32)) == *(_QWORD *)(a2 + 16) )
     {
-      IvtUpdateTranslationStructures(a1, **(_DWORD **)(a2 + 32), v14, v25, v21);
-      v9 = 1;
+      v15 = *(_QWORD *)(a2 + 32);
+      if ( (*(_DWORD *)(a1 + 184) & 0x1000000) != 0 )
+        IvtUpdateExtendedContextEntry(a1, v15, v13, v14, (__int64)v5);
+      else
+        IvtUpdateContextEntry(a1, v15, (_DWORD)v5, v14, 0, (__int64)va);
+      v8 = 1;
     }
-    *(_QWORD *)(a2 + 16) = (unsigned int)v6[12];
+    *(_QWORD *)(a2 + 16) = (unsigned int)v5[6];
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     if ( KiIrqlFlags )
     {
@@ -90,23 +97,23 @@ __int64 IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, __int64 a3, ...)
         if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v18 = CurrentPrcb->SchedulerAssist;
-          v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v20 = (v19 & v18[5]) == 0;
-          v15 = v19 & v18[5];
-          v18[5] = v15;
-          if ( v20 )
+          v19 = CurrentPrcb->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v21 = (v20 & v19[5]) == 0;
+          v16 = v20 & v19[5];
+          v19[5] = v16;
+          if ( v21 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
     __writecr8(CurrentIrql);
-    if ( v9 )
+    if ( v8 )
     {
-      v22[1] = v22;
-      v22[0] = v22;
-      LOBYTE(CurrentPrcb) = 1;
-      IvtFlushTbInternal(a1, v15, 0, (_DWORD)CurrentPrcb, v21);
+      v25[1] = v25;
+      v25[0] = v25;
+      IvtFlushTbInternal(a1, v16, v28, 0, 1, v23, (__int64)v25, 0, 0LL);
+      IvtFlushTbInternal(a1, v22, v5[6], 0, 1, v24, (__int64)v25, 0, 0LL);
     }
     return 0LL;
   }

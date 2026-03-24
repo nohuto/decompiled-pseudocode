@@ -1,192 +1,181 @@
 /*
- * XREFs of Concat @ 0x1C0055F80
+ * XREFs of Concat @ 0x1C0068C00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     CheckAndPromoteAliasedObjects @ 0x1C004AE54 (CheckAndPromoteAliasedObjects.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
- *     ConvertToBuffer @ 0x1C00598A4 (ConvertToBuffer.c)
- *     ConvertToInteger @ 0x1C0059A74 (ConvertToInteger.c)
- *     ConvertToString @ 0x1C0059B40 (ConvertToString.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     ConvertToInteger @ 0x1C000C190 (ConvertToInteger.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     CheckAndPromoteAliasedObjects @ 0x1C006512C (CheckAndPromoteAliasedObjects.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     ConvertToBuffer @ 0x1C006B288 (ConvertToBuffer.c)
+ *     ConvertToString @ 0x1C006B458 (ConvertToString.c)
  */
 
-__int64 __fastcall Concat(__int64 a1, __int64 a2)
+__int64 __fastcall Concat(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   __int64 v3; // rdx
-  unsigned int v5; // edi
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int16 *v9; // rcx
-  __int64 v10; // r13
-  __int64 v11; // rbp
-  __int16 v12; // ax
-  _OWORD *v13; // rsi
-  int v14; // eax
-  __int16 v15; // ax
-  __int64 v16; // r11
+  char v5; // r12
+  unsigned int v6; // edi
+  __int64 v7; // rdx
+  __int64 v8; // rsi
+  __int64 v9; // r15
+  __int16 v10; // ax
+  _OWORD *v11; // rbp
+  int v12; // eax
+  __int16 v13; // cx
+  __int64 v14; // r11
   const void *ObjectTypeName; // rbx
-  const void *v18; // rax
-  __int64 v19; // rcx
-  bool v20; // zf
-  int v21; // eax
-  unsigned int *v22; // r14
-  unsigned int *v23; // r15
-  __int64 v24; // rax
-  __int64 v25; // rax
-  int v26; // edx
-  __int64 v27; // rax
-  __int16 v28; // ax
-  bool v29; // al
-  _QWORD *v30; // rcx
-  size_t v31; // r8
-  const void *v32; // rdx
-  void *v33; // rcx
-  void *v34; // rcx
-  _OWORD v36[2]; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v37; // [rsp+50h] [rbp-48h]
-  char v38; // [rsp+A8h] [rbp+10h]
-  __int64 v39; // [rsp+B0h] [rbp+18h] BYREF
+  const void *v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  int v20; // edx
+  __int64 v21; // rax
+  __int16 v22; // cx
+  bool v23; // al
+  _QWORD *v24; // rdx
+  size_t v25; // r8
+  const void *v26; // rdx
+  bool v27; // zf
+  void *v28; // rcx
+  void *v29; // rcx
+  _OWORD v31[2]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v32; // [rsp+50h] [rbp-38h]
+  __int64 v33; // [rsp+98h] [rbp+10h] BYREF
 
-  v39 = 0LL;
-  v38 = 0;
+  v33 = 0LL;
   v3 = *(_QWORD *)(a2 + 80);
-  memset(v36, 0, sizeof(v36));
-  v37 = 0LL;
-  v5 = ValidateArgTypes(a1, v3, 0, "DD");
-  if ( v5 )
-    return v5;
-  v5 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 80LL, 135, (__int64)&v39);
-  if ( v5 )
-    return v5;
-  v9 = *(__int16 **)(a2 + 80);
-  v10 = v39;
-  if ( v9[41] != 128 )
-    CheckAndPromoteAliasedObjects(v9, v6, v39);
-  v11 = *(_QWORD *)(a2 + 80);
-  v12 = *(_WORD *)(v11 + 2);
-  v13 = (_OWORD *)(v11 + 40);
-  if ( v12 != *(_WORD *)(v11 + 42) )
+  memset(v31, 0, sizeof(v31));
+  v32 = 0LL;
+  v5 = 0;
+  v6 = ValidateArgTypes((__int64)a1, v3, 0, "DD");
+  if ( v6 )
+    return v6;
+  v6 = ValidateTarget((__int64)a1, *(_QWORD *)(a2 + 80) + 80LL, 0x87u, (__int64)&v33);
+  if ( v6 )
+    return v6;
+  v8 = *(_QWORD *)(a2 + 80);
+  v9 = v33;
+  if ( *(_WORD *)(v8 + 82) != 128 )
   {
-    switch ( v12 )
+    CheckAndPromoteAliasedObjects(*(__int16 **)(a2 + 80), v7, v33);
+    v8 = *(_QWORD *)(a2 + 80);
+  }
+  v10 = *(_WORD *)(v8 + 2);
+  v11 = (_OWORD *)(v8 + 40);
+  if ( v10 != *(_WORD *)(v8 + 42) )
+  {
+    switch ( v10 )
     {
       case 1:
-        v14 = ConvertToInteger(v11 + 40, v36, v7, v8);
+        v12 = ConvertToInteger(v8 + 40, (__int64)v31);
         break;
       case 2:
-        v14 = ConvertToString(v11 + 40, 0LL, v36, v8);
+        v12 = ConvertToString(v8 + 40, 0LL, v31);
         break;
       case 3:
-        v14 = ConvertToBuffer(v11 + 40, v36, v7, v8);
+        v12 = ConvertToBuffer(v8 + 40, v31);
         break;
       default:
 LABEL_13:
-        v13 = v36;
-        v38 = 1;
+        v11 = v31;
+        v5 = 1;
         goto LABEL_14;
     }
-    v5 = v14;
-    if ( v14 >= 0 )
+    v6 = v12;
+    if ( v12 >= 0 )
       goto LABEL_13;
   }
 LABEL_14:
-  v15 = *(_WORD *)(v11 + 2);
-  if ( v15 == *((_WORD *)v13 + 1) )
+  v13 = *(_WORD *)(v8 + 2);
+  if ( v13 == *((_WORD *)v11 + 1) )
   {
-    v19 = *(_QWORD *)(a2 + 88);
-    if ( v15 == 1 )
+    v17 = *(_QWORD *)(a2 + 88);
+    if ( v13 == 1 )
     {
-      *(_WORD *)(v19 + 2) = 3;
-      v20 = !IsCompatableDSDTRevision();
-      v21 = 16;
-      if ( v20 )
-        v21 = 8;
-      *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = v21;
-      v22 = (unsigned int *)(v11 + 24);
-      v23 = (unsigned int *)v13 + 6;
+      *(_WORD *)(v17 + 2) = 3;
+      *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = IsCompatableDSDTRevision() ? 16 : 8;
     }
     else
     {
-      *(_WORD *)(v19 + 2) = v15;
-      v22 = (unsigned int *)(v11 + 24);
-      v23 = (unsigned int *)v13 + 6;
-      *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = *(_DWORD *)(v11 + 24) + *((_DWORD *)v13 + 6);
-      v24 = *(_QWORD *)(a2 + 88);
-      if ( *(_WORD *)(v24 + 2) == 2 )
-        --*(_DWORD *)(v24 + 24);
+      *(_WORD *)(v17 + 2) = v13;
+      *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = *((_DWORD *)v11 + 6) + *(_DWORD *)(v8 + 24);
+      v18 = *(_QWORD *)(a2 + 88);
+      if ( *(_WORD *)(v18 + 2) == 2 )
+        --*(_DWORD *)(v18 + 24);
     }
-    v25 = *(_QWORD *)(a2 + 88);
-    v26 = 1381258056;
-    if ( *(_WORD *)(v25 + 2) != 2 )
-      v26 = 1179992648;
-    v27 = HeapAlloc(gpheapGlobal, v26, *(_DWORD *)(v25 + 24));
-    *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v27;
-    if ( v27 )
+    v19 = *(_QWORD *)(a2 + 88);
+    v20 = 1381258056;
+    if ( *(_WORD *)(v19 + 2) != 2 )
+      v20 = 1179992648;
+    v21 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, v20, *(_DWORD *)(v19 + 24));
+    *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v21;
+    if ( v21 )
     {
-      v28 = *(_WORD *)(v11 + 2);
-      if ( v28 == 1 )
+      v22 = *(_WORD *)(v8 + 2);
+      if ( v22 == 1 )
       {
-        v29 = IsCompatableDSDTRevision();
-        v30 = *(_QWORD **)(*(_QWORD *)(a2 + 88) + 32LL);
-        if ( v29 )
+        v23 = IsCompatableDSDTRevision();
+        v24 = *(_QWORD **)(*(_QWORD *)(a2 + 88) + 32LL);
+        if ( v23 )
         {
-          *v30 = *(_QWORD *)(v11 + 16);
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + 8LL) = *((_QWORD *)v13 + 2);
+          *v24 = *(_QWORD *)(v8 + 16);
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + 8LL) = *((_QWORD *)v11 + 2);
         }
         else
         {
-          *(_DWORD *)v30 = *(_DWORD *)(v11 + 16);
-          *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + 4LL) = *((_DWORD *)v13 + 4);
+          *(_DWORD *)v24 = *(_DWORD *)(v8 + 16);
+          *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + 4LL) = *((_DWORD *)v11 + 4);
         }
       }
       else
       {
-        v31 = *v22;
-        v32 = *(const void **)(v11 + 32);
-        v33 = *(void **)(*(_QWORD *)(a2 + 88) + 32LL);
-        if ( v28 == 2 )
+        v25 = *(unsigned int *)(v8 + 24);
+        v26 = *(const void **)(v8 + 32);
+        v27 = v22 == 2;
+        v28 = *(void **)(*(_QWORD *)(a2 + 88) + 32LL);
+        if ( v27 )
         {
-          memmove(v33, v32, (unsigned int)(v31 - 1));
-          v34 = (void *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) - 1LL + *v22);
+          memmove(v28, v26, (unsigned int)(v25 - 1));
+          v29 = (void *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) - 1LL + *(unsigned int *)(v8 + 24));
         }
         else
         {
-          memmove(v33, v32, v31);
-          v34 = (void *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + *v22);
+          memmove(v28, v26, v25);
+          v29 = (void *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + *(unsigned int *)(v8 + 24));
         }
-        memmove(v34, *((const void **)v13 + 4), *v23);
+        memmove(v29, *((const void **)v11 + 4), *((unsigned int *)v11 + 6));
       }
-      if ( !v5 )
-        v5 = WriteObject(a1, v10, *(_QWORD *)(a2 + 88));
+      if ( !v6 )
+        v6 = WriteObject(a1, v9, *(_QWORD *)(a2 + 88));
     }
     else
     {
-      v5 = -1073741670;
+      v6 = -1073741670;
       LogError(-1073741670);
-      AcpiDiagTraceAmlError(a1, -1073741670);
+      AcpiDiagTraceAmlError((__int64)a1, -1073741670);
       PrintDebugMessage(27, 0LL, 0LL, 0LL, 0LL);
     }
   }
   else
   {
-    v5 = -1072431095;
+    v6 = -1072431095;
     LogError(-1072431095);
-    AcpiDiagTraceAmlError(a1, -1072431095);
+    AcpiDiagTraceAmlError((__int64)a1, -1072431095);
     ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(*(_QWORD *)(a2 + 80) + 42LL));
-    v18 = (const void *)GetObjectTypeName(*(unsigned __int16 *)(v16 + 2));
-    PrintDebugMessage(26, v18, ObjectTypeName, 0LL, 0LL);
+    v16 = (const void *)GetObjectTypeName(*(unsigned __int16 *)(v14 + 2));
+    PrintDebugMessage(26, v16, ObjectTypeName, 0LL, 0LL);
   }
-  if ( v38 )
-    FreeDataBuffs((__int64)v36, 1u);
-  return v5;
+  if ( v5 )
+    FreeDataBuffs((__int64)v31, 1u);
+  return v6;
 }

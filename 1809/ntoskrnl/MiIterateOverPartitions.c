@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIterateOverPartitions @ 0x1401528A0
+ * XREFs of MiIterateOverPartitions @ 0x1401528C0
  * Callers:
- *     MiLockAllMemoryLists @ 0x140152810 (MiLockAllMemoryLists.c)
- *     MiUnlockAllMemoryLists @ 0x140152848 (MiUnlockAllMemoryLists.c)
- *     MiResumeFromHibernate @ 0x140152880 (MiResumeFromHibernate.c)
+ *     MiLockAllMemoryLists @ 0x140152830 (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x140152868 (MiUnlockAllMemoryLists.c)
+ *     MiResumeFromHibernate @ 0x1401528A0 (MiResumeFromHibernate.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiIterateOverPartitions(void (__fastcall *a1)(__int64, __int64), __int64 a2)

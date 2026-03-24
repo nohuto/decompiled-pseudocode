@@ -1,41 +1,37 @@
 /*
- * XREFs of HUBFDO_EvtDeviceUsageNotification @ 0x1C000CB20
+ * XREFs of HUBFDO_EvtDeviceUsageNotification @ 0x1C000C740
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBUCX_NotifyForwardProgress @ 0x1C0026B78 (HUBUCX_NotifyForwardProgress.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_NotifyForwardProgress @ 0x1C00266C8 (HUBUCX_NotifyForwardProgress.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 volatile signed __int32 *__fastcall HUBFDO_EvtDeviceUsageNotification(__int64 a1, int a2, char a3)
 {
   volatile signed __int32 *result; // rax
-  volatile signed __int32 *v7; // rdi
-  int v8; // ebx
-  int v9; // ebx
-  int v10; // [rsp+28h] [rbp-30h]
-  __int128 v11; // [rsp+30h] [rbp-28h] BYREF
-  int v12; // [rsp+40h] [rbp-18h]
+  volatile signed __int32 *v7; // rbx
+  int v8; // edi
+  int v9; // edi
+  int v10; // [rsp+28h] [rbp-40h]
+  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
+  int v12; // [rsp+40h] [rbp-28h]
 
   v12 = 0;
   v11 = 0LL;
   result = (volatile signed __int32 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                                         WdfDriverGlobals,
                                         a1,
-                                        off_1C0067198);
+                                        off_1C0066170);
   v7 = result;
   v8 = a2 - 1;
   if ( v8 )
   {
     v9 = v8 - 1;
     if ( !v9 )
-    {
-      if ( !a3 )
-        return result;
       goto LABEL_8;
-    }
     if ( v9 != 2 )
       return result;
   }
@@ -56,12 +52,12 @@ volatile signed __int32 *__fastcall HUBFDO_EvtDeviceUsageNotification(__int64 a1
                                           *((_QWORD *)v7 + 315),
                                           2u,
                                           3u,
-                                          0x21u,
-                                          (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+                                          0x1Du,
+                                          (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
                                           v10);
   }
 LABEL_8:
-  if ( !*((_BYTE *)v7 + 2272) )
+  if ( a3 && !*((_BYTE *)v7 + 2272) )
   {
     *((_BYTE *)v7 + 2272) = 1;
     result = (volatile signed __int32 *)HUBUCX_NotifyForwardProgress(v7);

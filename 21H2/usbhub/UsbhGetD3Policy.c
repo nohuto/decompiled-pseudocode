@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhGetD3Policy @ 0x1C00443E8
+ * XREFs of UsbhGetD3Policy @ 0x1C00456A4
  * Callers:
- *     UsbhReadPdoRegistryKeys @ 0x1C0045AB4 (UsbhReadPdoRegistryKeys.c)
+ *     UsbhReadPdoRegistryKeys @ 0x1C0046E00 (UsbhReadPdoRegistryKeys.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 int __fastcall UsbhGetD3Policy(PDEVICE_OBJECT DeviceObject)
@@ -21,11 +21,11 @@ int __fastcall UsbhGetD3Policy(PDEVICE_OBJECT DeviceObject)
   __int128 KeyValueInformation; // [rsp+88h] [rbp+2Fh] BYREF
   int v13; // [rsp+98h] [rbp+3Fh]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   DeviceRegKey = 0LL;
   ResultLength = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   v13 = 0;
   KeyValueInformation = 0LL;

@@ -1,67 +1,83 @@
 /*
- * XREFs of ?DxgkReadPnPRegistryPath@@YAJPEAVDXGADAPTER@@IW4_DXGK_PNP_KEY_TYPE@@PEAGPEAI@Z @ 0x1C02CF2E4
+ * XREFs of ?DxgkReadPnPRegistryPath@@YAJPEAVDXGADAPTER@@IW4_DXGK_PNP_KEY_TYPE@@PEAGPEAI@Z @ 0x1C0221F78
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     DpiGetPnpRegistryKeyName @ 0x1C01E8B30 (DpiGetPnpRegistryKeyName.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     DpiGetPnpRegistryKeyName @ 0x1C0174C10 (DpiGetPnpRegistryKeyName.c)
  */
 
-__int64 __fastcall DxgkReadPnPRegistryPath(__int64 a1, unsigned int a2, int a3, void *a4, ULONG64 a5)
+__int64 __fastcall DxgkReadPnPRegistryPath(__int64 a1, unsigned int a2, __int64 a3, void *a4, ULONG64 a5)
 {
   __int64 v6; // r15
-  unsigned int v7; // eax
-  _DWORD *v9; // rbx
-  unsigned int *v10; // rax
-  __int64 v11; // r14
-  __int64 v12; // rcx
+  __int64 v7; // rbx
+  unsigned int v8; // eax
+  __int64 v9; // rax
+  _DWORD *v11; // rdi
+  unsigned int *v12; // rax
+  __int64 v13; // r14
+  __int64 v14; // rcx
   int PnpRegistryKeyName; // eax
-  unsigned int v14; // edi
-  unsigned __int16 *v15; // rdx
-  unsigned int v16; // ecx
-  const void *v17; // rdx
-  unsigned __int16 *v18; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  unsigned __int16 *v21; // rdx
+  unsigned int v22; // ebx
+  __int64 v23; // rax
+  const void *v24; // rdx
+  unsigned __int16 *v25; // [rsp+50h] [rbp+8h] BYREF
 
-  v6 = a3;
-  if ( *(int *)(a1 + 2552) < 0x2000 )
-    v7 = 1;
+  v6 = (int)a3;
+  v7 = a2;
+  if ( *(int *)(a1 + 2328) < 0x2000 )
+    v8 = 1;
   else
-    v7 = *(_DWORD *)(a1 + 288);
-  if ( a2 >= v7 )
+    v8 = *(_DWORD *)(a1 + 280);
+  if ( a2 >= v8 )
   {
-    WdLogSingleEntry1(3LL, a2);
+    v9 = WdLogNewEntry5_WdWarning(a1, a1, a3);
+    *(_QWORD *)(v9 + 24) = v7;
+    WdLogEvent5_WdWarning(v9);
     return 3221225485LL;
   }
-  v9 = (_DWORD *)a5;
-  v10 = (unsigned int *)a5;
+  v11 = (_DWORD *)a5;
+  v12 = (unsigned int *)a5;
   if ( a5 >= MmUserProbeAddress )
-    v10 = (unsigned int *)MmUserProbeAddress;
-  v11 = *v10;
-  v12 = *(_QWORD *)(344LL * a2 + *(_QWORD *)(a1 + 2808) + 8);
-  v18 = 0LL;
-  PnpRegistryKeyName = DpiGetPnpRegistryKeyName(v12, a3, (__int64 *)&v18);
-  v14 = PnpRegistryKeyName;
+    v12 = (unsigned int *)MmUserProbeAddress;
+  v13 = *v12;
+  v14 = *(_QWORD *)(360LL * a2 + *(_QWORD *)(a1 + 2584) + 8);
+  v25 = 0LL;
+  PnpRegistryKeyName = DpiGetPnpRegistryKeyName(v14, (unsigned int)a3, (__int64 *)&v25);
+  v19 = PnpRegistryKeyName;
   if ( PnpRegistryKeyName < 0 )
   {
-    WdLogSingleEntry2(3LL, v6, PnpRegistryKeyName);
-    return v14;
+    v20 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+    *(_QWORD *)(v20 + 24) = v6;
+    *(_QWORD *)(v20 + 32) = v19;
+    WdLogEvent5_WdWarning(v20);
+    return (unsigned int)v19;
   }
-  v15 = v18;
-  v16 = (*v18 >> 1) + 1;
-  if ( (unsigned __int64)v9 >= MmUserProbeAddress )
-    v9 = (_DWORD *)MmUserProbeAddress;
-  *v9 = v16;
+  v21 = v25;
+  v22 = (*v25 >> 1) + 1;
+  if ( (unsigned __int64)v11 >= MmUserProbeAddress )
+    v11 = (_DWORD *)MmUserProbeAddress;
+  *v11 = v22;
   if ( a4 )
   {
-    if ( (unsigned int)v11 < v16 )
+    if ( (unsigned int)v13 < v22 )
     {
-      WdLogSingleEntry2(3LL, v11, v16);
+      v23 = WdLogNewEntry5_WdWarning(MmUserProbeAddress, v21, v18);
+      *(_QWORD *)(v23 + 24) = v13;
+      *(_QWORD *)(v23 + 32) = v22;
+      WdLogEvent5_WdWarning(v23);
       return 3221225507LL;
     }
-    v17 = (const void *)*((_QWORD *)v15 + 1);
+    v24 = (const void *)*((_QWORD *)v21 + 1);
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
       a4 = (void *)MmUserProbeAddress;
-    memmove(a4, v17, 2LL * v16);
+    memmove(a4, v24, 2LL * v22);
   }
   return 0LL;
 }

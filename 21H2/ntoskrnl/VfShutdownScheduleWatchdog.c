@@ -1,17 +1,16 @@
 /*
- * XREFs of VfShutdownScheduleWatchdog @ 0x140601514
+ * XREFs of VfShutdownScheduleWatchdog @ 0x1405A2168
  * Callers:
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
  * Callees:
- *     ViShutdownScheduleWatchdog @ 0x140A95A04 (ViShutdownScheduleWatchdog.c)
+ *     ViShutdownScheduleWatchdog @ 0x1409DA3A4 (ViShutdownScheduleWatchdog.c)
  */
 
 __int64 VfShutdownScheduleWatchdog()
 {
   __int64 result; // rax
 
-  result = (unsigned int)VfRuleClasses;
-  if ( (VfRuleClasses & 0x10) != 0 )
+  if ( ViVerifierEnabled )
     return ViShutdownScheduleWatchdog();
   return result;
 }

@@ -1,51 +1,45 @@
 /*
- * XREFs of PnpTraceIommuDeviceProperties @ 0x14096BF1C
+ * XREFs of PnpTraceIommuDeviceProperties @ 0x1408B1D50
  * Callers:
- *     PiIommuAllocateExtension @ 0x14084359C (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x14076553C (PiIommuAllocateExtension.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void PnpTraceIommuDeviceProperties()
 {
   int v0; // r9d
   __int64 v1; // r10
-  int v2; // [rsp+30h] [rbp-29h] BYREF
-  __int64 v3; // [rsp+38h] [rbp-21h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+40h] [rbp-19h] BYREF
-  __int64 *v5; // [rsp+60h] [rbp+7h]
-  __int64 v6; // [rsp+68h] [rbp+Fh]
-  _DWORD *v7; // [rsp+70h] [rbp+17h]
-  __int64 v8; // [rsp+78h] [rbp+1Fh]
-  __int64 v9; // [rsp+80h] [rbp+27h]
-  _DWORD v10[2]; // [rsp+88h] [rbp+2Fh] BYREF
-  int *v11; // [rsp+90h] [rbp+37h]
-  __int64 v12; // [rsp+98h] [rbp+3Fh]
+  int v2; // [rsp+30h] [rbp-19h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+40h] [rbp-9h] BYREF
+  _DWORD *v4; // [rsp+60h] [rbp+17h]
+  __int64 v5; // [rsp+68h] [rbp+1Fh]
+  __int64 v6; // [rsp+70h] [rbp+27h]
+  _DWORD v7[2]; // [rsp+78h] [rbp+2Fh] BYREF
+  int *v8; // [rsp+80h] [rbp+37h]
+  __int64 v9; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03918 > 5 )
+  if ( (unsigned int)dword_140C02DC8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03918, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02DC8, 0x400000000000LL) )
     {
-      v10[1] = 0;
-      v5 = &v3;
+      v7[1] = 0;
+      v4 = v7;
+      v6 = *(_QWORD *)(v1 + 48);
+      v7[0] = *(unsigned __int16 *)(v1 + 40);
+      v8 = &v2;
       v2 = v0;
-      v7 = v10;
-      v9 = *(_QWORD *)(v1 + 48);
-      v10[0] = *(unsigned __int16 *)(v1 + 40);
-      v11 = &v2;
-      v3 = 2048LL;
-      v6 = 8LL;
-      v8 = 2LL;
-      v12 = 4LL;
+      v5 = 2LL;
+      v9 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03918,
-        (unsigned __int8 *)&dword_14002CA54,
+        (__int64)&dword_140C02DC8,
+        (unsigned __int8 *)&dword_1400252B4,
         0LL,
         0LL,
-        6u,
-        &v4);
+        5u,
+        &v3);
     }
   }
 }

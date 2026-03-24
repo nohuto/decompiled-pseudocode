@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x180060F90
+ * XREFs of ?ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A12F0
  * Callers:
- *     ?ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x180060EC0 (-ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
+ *     ?ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A11E0 (-ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x1800BDCA4 (-GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z.c)
- *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800C085C (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x1800A12A4 (-GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800A3070 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
  */
 
 __int64 __fastcall CComposition::ProcessDataOnChannel(
@@ -15,11 +15,11 @@ __int64 __fastcall CComposition::ProcessDataOnChannel(
         unsigned int *a3)
 {
   int AttachedChannel; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   unsigned int v8; // ebx
   int v9; // eax
-  unsigned int v10; // ecx
-  struct CChannelContext *v12; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v10; // rcx
+  CDrawListEntry *v12; // [rsp+48h] [rbp+10h] BYREF
 
   *a3 = 0;
   v12 = 0LL;
@@ -27,16 +27,16 @@ __int64 __fastcall CComposition::ProcessDataOnChannel(
   v8 = AttachedChannel;
   if ( AttachedChannel < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, AttachedChannel, 0x1DDu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, AttachedChannel, 0x188u, 0LL);
   }
   else
   {
     v9 = CComposition::ProcessCommandBatch(this, *((const void **)a2 + 3), *((_DWORD *)a2 + 8), v12, a3);
     v8 = v9;
     if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1E1u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x18Cu, 0LL);
   }
   if ( v12 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v12);
+    CDrawListEntry::Release(v12);
   return v8;
 }

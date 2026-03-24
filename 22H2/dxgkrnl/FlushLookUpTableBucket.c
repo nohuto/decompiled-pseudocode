@@ -1,19 +1,19 @@
 /*
- * XREFs of FlushLookUpTableBucket @ 0x1C0075D78
+ * XREFs of FlushLookUpTableBucket @ 0x1C0062AD4
  * Callers:
- *     LookUpTableFlushComplete @ 0x1C0228560 (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x1C03D7F80 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1C019E9CC (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C030133C (LookUpTableFlushPartial.c)
  * Callees:
- *     FlattenEventEntryTree @ 0x1C0075D30 (FlattenEventEntryTree.c)
- *     FlushEventEntryList @ 0x1C03D7EE0 (FlushEventEntryList.c)
+ *     FlattenEventEntryTree @ 0x1C0062A8C (FlattenEventEntryTree.c)
+ *     FlushEventEntryList @ 0x1C030129C (FlushEventEntryList.c)
  */
 
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi
-  __int64 v5; // r15
+  __int64 v5; // r14
   KIRQL v6; // si
-  const EVENT_DESCRIPTOR *v7; // r14
+  const EVENT_DESCRIPTOR *v7; // r15
   unsigned int v8; // eax
   unsigned int v9; // edi
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryKvaShadowRegion @ 0x14012B12C
+ * XREFs of KeQueryKvaShadowRegion @ 0x14012B14C
  * Callers:
- *     MiCheckRelevantKernelShadows @ 0x14012B0BC (MiCheckRelevantKernelShadows.c)
+ *     MiCheckRelevantKernelShadows @ 0x14012B0DC (MiCheckRelevantKernelShadows.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3430 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)

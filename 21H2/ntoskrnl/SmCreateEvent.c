@@ -1,17 +1,19 @@
 /*
- * XREFs of SmCreateEvent @ 0x1408615B8
+ * XREFs of SmCreateEvent @ 0x1407D1830
  * Callers:
- *     SmRegistrationCtxStart @ 0x140861560 (SmRegistrationCtxStart.c)
+ *     SmRegistrationCtxStart @ 0x1407D17D8 (SmRegistrationCtxStart.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmCreateEvent(__int64 a1, PVOID *a2)
 {
   NTSTATUS v3; // ebx
+  NTSTATUS v4; // eax
+  struct _DMA_ADAPTER *v5; // rcx
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
   HANDLE EventHandle; // [rsp+80h] [rbp+20h] BYREF
   PVOID Object; // [rsp+88h] [rbp+28h] BYREF
@@ -25,17 +27,17 @@ __int64 __fastcall SmCreateEvent(__int64 a1, PVOID *a2)
   if ( v3 >= 0 )
   {
     Object = 0LL;
-    v3 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
-    if ( v3 < 0 )
-    {
-      if ( Object )
-        ObfDereferenceObject(Object);
-    }
-    else
+    v4 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
+    v5 = (struct _DMA_ADAPTER *)Object;
+    v3 = v4;
+    if ( v4 >= 0 )
     {
       *a2 = Object;
+      v5 = 0LL;
       v3 = 0;
     }
+    if ( v5 )
+      HalPutDmaAdapter(v5);
   }
   if ( EventHandle )
     ZwClose(EventHandle);

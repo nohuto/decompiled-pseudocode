@@ -1,23 +1,23 @@
 /*
- * XREFs of EngLineTo @ 0x1C028D530
+ * XREFs of EngLineTo @ 0x1C0149240
  * Callers:
- *     W32kCddLineTo @ 0x1C0270350 (W32kCddLineTo.c)
- *     ?BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C02A1D60 (-BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C02A4F80 (-RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C02B0220 (-MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     NtGdiEngLineTo @ 0x1C02CA140 (NtGdiEngLineTo.c)
- *     OffLineTo @ 0x1C02E8884 (OffLineTo.c)
+ *     W32kCddLineTo @ 0x1C014BEB0 (W32kCddLineTo.c)
+ *     OffLineTo @ 0x1C01510EC (OffLineTo.c)
+ *     ?BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0299780 (-BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C029BF70 (-RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C02A3780 (-MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     NtGdiEngLineTo @ 0x1C02B2C70 (NtGdiEngLineTo.c)
  * Callees:
- *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C000D5A8 (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0091438 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     EngDeletePath @ 0x1C015A800 (EngDeletePath.c)
- *     ??1PRECOMPUTE@@QEAA@XZ @ 0x1C0284E54 (--1PRECOMPUTE@@QEAA@XZ.c)
- *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C0286728 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEB.c)
- *     EngCreatePath @ 0x1C0287170 (EngCreatePath.c)
- *     ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C02FD3B8 (-vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CF858 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ??1PRECOMPUTE@@QEAA@XZ @ 0x1C0145B6C (--1PRECOMPUTE@@QEAA@XZ.c)
+ *     ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C0149360 (-vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z.c)
+ *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C0149D1C (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
+ *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C015A4D4 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     EngCreatePath @ 0x1C02863E0 (EngCreatePath.c)
+ *     EngDeletePath @ 0x1C0286470 (EngDeletePath.c)
  */
 
 BOOL __stdcall EngLineTo(
@@ -33,18 +33,18 @@ BOOL __stdcall EngLineTo(
 {
   unsigned __int64 v11; // r14
   int v12; // ebx
-  PATHOBJ *Path; // rax
-  PATHOBJ *v14; // rsi
+  PATHOBJ *v14; // rax
+  PATHOBJ *v15; // rsi
   int v16; // eax
-  PATHOBJ *v17; // rax
-  struct REGION *v18; // [rsp+50h] [rbp-B0h] BYREF
-  POINTFIX ptfx; // [rsp+58h] [rbp-A8h] BYREF
-  POINTFIX pptfx; // [rsp+60h] [rbp-A0h] BYREF
-  SURFOBJ *v21; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-90h] BYREF
-  struct _LINEATTRS v23; // [rsp+78h] [rbp-88h] BYREF
-  _BYTE v24[32]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v25; // [rsp+C0h] [rbp-40h]
+  PATHOBJ *Path; // rax
+  POINTFIX ptfx; // [rsp+50h] [rbp-B0h] BYREF
+  POINTFIX pptfx; // [rsp+58h] [rbp-A8h] BYREF
+  SURFOBJ *v20; // [rsp+60h] [rbp-A0h] BYREF
+  struct REGION *v21[2]; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v22; // [rsp+78h] [rbp-88h] BYREF
+  struct _LINEATTRS v23; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v24[32]; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v25; // [rsp+C8h] [rbp-38h]
   _BYTE v26[56]; // [rsp+D0h] [rbp-30h] BYREF
   __int64 v27; // [rsp+108h] [rbp+8h]
   __int64 v28; // [rsp+120h] [rbp+20h]
@@ -52,110 +52,96 @@ BOOL __stdcall EngLineTo(
   int v30; // [rsp+150h] [rbp+50h]
   __int64 v31; // [rsp+160h] [rbp+60h]
 
-  v21 = pso;
+  v20 = pso;
   ptfx.y = 16 * y1;
   v11 = (unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL);
   v12 = 0;
   pptfx.x = 16 * x2;
   ptfx.x = 16 * x1;
   pptfx.y = 16 * y2;
-  if ( *(_WORD *)(v11 + 0x64) )
+  if ( !*(_WORD *)(v11 + 0x64) )
   {
-    memset(&v23, 0, sizeof(v23));
-    v23.elWidth.l = 1;
-    Path = EngCreatePath();
-    v14 = Path;
-    if ( Path )
-    {
-      if ( !PATHOBJ_bMoveTo(Path, ptfx) || !PATHOBJ_bPolyLineTo(v14, &pptfx, 1u) )
-        goto LABEL_26;
-      v22 = *(_QWORD *)(v11 + 48);
-      v28 = 0LL;
-      v29 = 0;
-      v30 = 1;
-      v31 = 0LL;
-      v27 = 0LL;
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v18);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v18);
-      if ( !pco )
-      {
-        if ( !v18 )
-        {
-LABEL_17:
-          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v18);
-LABEL_26:
-          EngDeletePath(v14);
-          return v12;
-        }
-        if ( (unsigned int)bUMPDSecurityGateEx() && !prclBounds )
-        {
-          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v18);
-          return 0;
-        }
-        RGNOBJ::vSet((RGNOBJ *)&v18, prclBounds);
-        XCLIPOBJ::vSetup((XCLIPOBJ *)v26, v18, (struct ERECTL *)prclBounds, 0);
-        pco = (CLIPOBJ *)v26;
-      }
-      PRECOMPUTE::vInit(
-        (__int64)v24,
-        (SURFACE *)v11,
-        (PDEVOBJ *)&v22,
-        (struct EPATHOBJ *)v14,
-        (__int64)pco,
-        0LL,
-        &v23,
-        mix,
-        0,
-        0);
-      if ( v25 )
-      {
-        if ( (*(_DWORD *)(v11 + 112) & 0x20) != 0 )
-          v16 = (*(__int64 (__fastcall **)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, _QWORD, BRUSHOBJ *, _QWORD, struct _LINEATTRS *, MIX))(v22 + 2776))(
-                  v21,
-                  v14,
-                  pco,
-                  0LL,
-                  pbo,
-                  0LL,
-                  &v23,
-                  mix);
-        else
-          v16 = ((__int64 (__fastcall *)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, _QWORD, BRUSHOBJ *, _QWORD, struct _LINEATTRS *, MIX))EngStrokePath)(
-                  v21,
-                  v14,
-                  pco,
-                  0LL,
-                  pbo,
-                  0LL,
-                  &v23,
-                  mix);
-        v12 = v16;
-      }
-      PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v24);
-      goto LABEL_17;
-    }
-  }
-  else
-  {
-    v21 = *(SURFOBJ **)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x30);
-    PDEVOBJ::vSync((PDEVOBJ *)&v21, pso, 0LL, 0);
-    if ( pco && pco->iDComplexity == 3 || mix != 3341 )
-    {
-      memset(&v23, 0, sizeof(v23));
-      v17 = EngCreatePath();
-      v14 = v17;
-      if ( v17 )
-      {
-        if ( PATHOBJ_bMoveTo(v17, ptfx) && PATHOBJ_bPolyLineTo(v14, &pptfx, 1u) )
-          v12 = bStrokeCosmetic((struct SURFACE *)v11, v14, pco, pbo, &v23, mix);
-        goto LABEL_26;
-      }
-    }
-    else
+    v20 = *(SURFOBJ **)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x30);
+    PDEVOBJ::vSync((PDEVOBJ *)&v20, pso, 0LL, 0);
+    if ( (!pco || pco->iDComplexity != 3) && mix == 3341 )
     {
       vSolidLine((struct SURFACE *)v11, 0LL, &ptfx, pco, pbo->iSolidColor);
       return 1;
     }
+    memset(&v23, 0, sizeof(v23));
+    Path = EngCreatePath();
+    v15 = Path;
+    if ( !Path )
+      return v12;
+    if ( PATHOBJ_bMoveTo(Path, ptfx) )
+    {
+      if ( PATHOBJ_bPolyLineTo(v15, &pptfx, 1u) )
+        v12 = bStrokeCosmetic((struct SURFACE *)v11, v15, pco, pbo, &v23, mix);
+    }
+LABEL_30:
+    EngDeletePath(v15);
+    return v12;
   }
-  return v12;
+  memset(&v23, 0, sizeof(v23));
+  v23.elWidth.l = 1;
+  v14 = EngCreatePath();
+  v15 = v14;
+  if ( !v14 )
+    return v12;
+  if ( !PATHOBJ_bMoveTo(v14, ptfx) || !PATHOBJ_bPolyLineTo(v15, &pptfx, 1u) )
+    goto LABEL_30;
+  v22 = *(_QWORD *)(v11 + 48);
+  v28 = 0LL;
+  v29 = 0;
+  v30 = 1;
+  v31 = 0LL;
+  v27 = 0LL;
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v21);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v21);
+  if ( pco )
+    goto LABEL_19;
+  if ( !v21[0] )
+  {
+LABEL_25:
+    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v21);
+    goto LABEL_30;
+  }
+  if ( !bUMPDSecurityGateEx() || prclBounds )
+  {
+    RGNOBJ::vSet((RGNOBJ *)v21, prclBounds);
+    XCLIPOBJ::vSetup((XCLIPOBJ *)v26, v21[0], (struct ERECTL *)prclBounds, 0);
+    pco = (CLIPOBJ *)v26;
+LABEL_19:
+    PRECOMPUTE::vInit(v24, v11, &v22, v15, pco, 0LL, &v23, mix, 0, 0);
+    if ( v25 )
+    {
+      if ( (*(_DWORD *)(v11 + 112) & 0x20) != 0 )
+        v16 = (*(__int64 (__fastcall **)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, _QWORD, BRUSHOBJ *, _QWORD, struct _LINEATTRS *, MIX))(v22 + 2800))(
+                v20,
+                v15,
+                pco,
+                0LL,
+                pbo,
+                0LL,
+                &v23,
+                mix);
+      else
+        v16 = ((__int64 (__fastcall *)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, _QWORD, BRUSHOBJ *, _QWORD, struct _LINEATTRS *, MIX))EngStrokePath)(
+                v20,
+                v15,
+                pco,
+                0LL,
+                pbo,
+                0LL,
+                &v23,
+                mix);
+      v12 = v16;
+    }
+    PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v24);
+    goto LABEL_25;
+  }
+  if ( gfUMPDDebug )
+    DbgPrint("clientcore\\windows\\core\\ntgdi\\gre\\windows\\engstrok.cxx:%d:EngLineTo:prclBounds == NULL\n", 732);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v21);
+  return 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsMarkCandidateDevice @ 0x14098C094
+ * XREFs of PopDirectedDripsMarkCandidateDevice @ 0x1408E35C0
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099613C (PopDripsWatchdogCallbackHandler.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F0A0 (PopDirectedDripsUmMarkTestDevices.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEDD8 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x1408F87B8 (PopDirectedDripsUmMarkTestDevices.c)
  * Callees:
- *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099EB84 (PopDirectedDripsDiagTraceMarkDevice.c)
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x1408F8288 (PopDirectedDripsDiagTraceMarkDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsMarkCandidateDevice(__int64 a1)
@@ -15,8 +15,8 @@ __int64 __fastcall PopDirectedDripsMarkCandidateDevice(__int64 a1)
   result = (unsigned int)_InterlockedOr((volatile signed __int32 *)(a1 + 824), 0x40u);
   if ( (result & 0x40) == 0 )
   {
-    ++dword_140C24074;
-    ++dword_140C24258;
+    ++dword_140C24C54;
+    ++dword_140C24E38;
     return PopDirectedDripsDiagTraceMarkDevice(*(_QWORD *)(a1 + 48));
   }
   return result;

@@ -1,8 +1,8 @@
 /*
- * XREFs of CiDecrementTotalThreadCount @ 0x1C000205C
+ * XREFs of CiDecrementTotalThreadCount @ 0x1C0001B50
  * Callers:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  * Callees:
  *     <none>
  */

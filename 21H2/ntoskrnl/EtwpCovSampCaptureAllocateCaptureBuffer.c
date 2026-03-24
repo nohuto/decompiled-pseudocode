@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCovSampCaptureAllocateCaptureBuffer @ 0x1409EE800
+ * XREFs of EtwpCovSampCaptureAllocateCaptureBuffer @ 0x140941F80
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall EtwpCovSampCaptureAllocateCaptureBuffer(__int64 a1, __int64 a2)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v5; // rbx
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, (unsigned int)(8 * *(_DWORD *)(a1 + 1040) + 64), 1450669125LL);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(8 * *(_DWORD *)(a1 + 928) + 64), 0x56777445u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x50uLL);
+    memset(PoolWithTag, 0, 0x50uLL);
     v5[6] = a2;
     v5[2] = 3401298175LL;
-    *((_WORD *)v5 + 30) = *(_WORD *)(a1 + 1040);
+    *((_WORD *)v5 + 30) = *(_WORD *)(a1 + 928);
   }
   return v5;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreatePatternBrushInternal @ 0x1C011E590
+ * XREFs of NtGdiCreatePatternBrushInternal @ 0x1C0132950
  * Callers:
  *     <none>
  * Callees:

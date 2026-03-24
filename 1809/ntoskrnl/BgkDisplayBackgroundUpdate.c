@@ -1,5 +1,5 @@
 /*
- * XREFs of BgkDisplayBackgroundUpdate @ 0x1409FB3D4
+ * XREFs of BgkDisplayBackgroundUpdate @ 0x1409FB3E4
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:

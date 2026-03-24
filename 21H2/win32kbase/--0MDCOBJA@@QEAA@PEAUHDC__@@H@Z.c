@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C00AE7A0
+ * XREFs of ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C009915C
  * Callers:
- *     ?vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00AE664 (-vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00AE6F4 (-vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0099020 (-vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00990B0 (-vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     HmgShareLockEx @ 0x1C0020870 (HmgShareLockEx.c)
+ *     HmgShareLockEx @ 0x1C002D5E0 (HmgShareLockEx.c)
  */
 
 MDCOBJA *__fastcall MDCOBJA::MDCOBJA(MDCOBJA *this, HDC a2)

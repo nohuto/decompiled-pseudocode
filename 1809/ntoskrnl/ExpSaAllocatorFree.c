@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaAllocatorFree @ 0x1401671C8
+ * XREFs of ExpSaAllocatorFree @ 0x1401671E8
  * Callers:
- *     ExSaFree @ 0x140167150 (ExSaFree.c)
+ *     ExSaFree @ 0x140167170 (ExSaFree.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
@@ -14,9 +14,9 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpSaPageGroupFreeMemory @ 0x140167294 (ExpSaPageGroupFreeMemory.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ExpSaAllocatorOptimizeList @ 0x14031F3A4 (ExpSaAllocatorOptimizeList.c)
+ *     ExpSaPageGroupFreeMemory @ 0x1401672B4 (ExpSaPageGroupFreeMemory.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpSaAllocatorOptimizeList @ 0x14031F4A4 (ExpSaAllocatorOptimizeList.c)
  */
 
 _QWORD *__fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __int64 a3, unsigned int a4)

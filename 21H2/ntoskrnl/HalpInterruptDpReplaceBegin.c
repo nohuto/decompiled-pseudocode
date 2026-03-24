@@ -1,316 +1,352 @@
 /*
- * XREFs of HalpInterruptDpReplaceBegin @ 0x140523D5C
+ * XREFs of HalpInterruptDpReplaceBegin @ 0x1404D6A5C
  * Callers:
- *     HalpDpReplaceBegin @ 0x14090A6D0 (HalpDpReplaceBegin.c)
+ *     HalpDpReplaceBegin @ 0x1408664B0 (HalpDpReplaceBegin.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptDpReplaceBegin(
         char *a1,
-        _DWORD *a2,
+        char *a2,
         ULONG *a3,
         unsigned int a4,
         char a5,
         char a6,
         _DWORD *a7)
 {
-  unsigned int v8; // ebx
+  int v8; // ebx
   __int64 v9; // r9
-  char *v11; // r10
-  _DWORD *v12; // r8
-  unsigned int v13; // r14d
+  char *v11; // r11
+  char *v12; // r12
+  char *v13; // r8
   unsigned int v14; // edx
   ULONG_PTR v15; // rcx
-  __int64 v16; // r13
-  unsigned int v17; // r12d
-  unsigned int v18; // esi
-  ULONG_PTR v19; // rcx
-  int v20; // edx
-  __int64 v21; // rcx
-  __int64 (__fastcall *v22)(__int64, char *, __int128 *, __int64); // r14
-  __int64 v23; // r13
-  int v24; // r15d
-  char *v25; // rsi
-  __int64 v26; // r12
-  int v27; // eax
-  __int64 v28; // r9
-  int v29; // eax
-  unsigned int v30; // r15d
-  char *v31; // rax
-  int v32; // esi
-  int v33; // eax
-  int v34; // ecx
-  int v35; // eax
-  __int64 v36; // r9
-  int v37; // eax
-  __int64 v38; // r9
+  unsigned int v16; // r15d
+  __int64 v17; // r13
+  int v18; // r12d
+  unsigned int v19; // esi
+  ULONG_PTR v20; // rcx
+  __int64 (__fastcall *v21)(__int64, char *, __int128 *, __int64); // r15
+  __int64 v22; // r13
+  unsigned int v23; // esi
+  char *v24; // r14
+  __int64 v25; // r12
+  __int64 v26; // r9
+  unsigned int v27; // r14d
+  char *v28; // r12
+  int v29; // esi
+  int v30; // eax
+  __int64 v31; // r9
+  int v32; // r12d
+  __int64 v33; // r9
   unsigned __int64 i; // rdx
-  unsigned __int64 v40; // rcx
-  int v41; // eax
-  unsigned int v43; // [rsp+20h] [rbp-50h]
-  int v44; // [rsp+30h] [rbp-40h]
-  int v45; // [rsp+30h] [rbp-40h]
-  int v46; // [rsp+34h] [rbp-3Ch]
-  __int128 v47; // [rsp+38h] [rbp-38h] BYREF
-  int v48; // [rsp+48h] [rbp-28h]
-  __int128 v49; // [rsp+50h] [rbp-20h] BYREF
-  int v50; // [rsp+60h] [rbp-10h]
-  char *v51; // [rsp+B0h] [rbp+40h]
-  _DWORD *v52; // [rsp+B8h] [rbp+48h]
-  int v53; // [rsp+C8h] [rbp+58h]
+  unsigned __int64 v35; // rcx
+  ULONG_PTR v36; // rcx
+  ULONG_PTR v37; // rcx
+  ULONG_PTR v38; // rcx
+  ULONG_PTR v39; // rcx
+  ULONG_PTR v40; // rcx
+  ULONG_PTR v41; // rcx
+  ULONG_PTR v42; // rcx
+  ULONG_PTR v43; // rcx
+  ULONG_PTR v44; // rcx
+  ULONG_PTR v45; // rcx
+  int v47; // [rsp+30h] [rbp-40h]
+  int v48; // [rsp+30h] [rbp-40h]
+  __int128 v49; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v50; // [rsp+48h] [rbp-28h]
+  __int128 v51; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v52; // [rsp+60h] [rbp-10h]
+  char *v53; // [rsp+B0h] [rbp+40h]
+  int v55; // [rsp+C8h] [rbp+58h]
 
-  v52 = a2;
-  v51 = a1;
-  v53 = 0;
+  v53 = a1;
+  v55 = 0;
   v8 = 0;
-  v48 = 0;
+  v50 = 0LL;
   v9 = 0LL;
-  v50 = 0;
-  v11 = a1;
-  v47 = 0LL;
-  *a7 = 0;
+  v52 = 0LL;
+  v11 = a2;
+  v12 = a1;
   v49 = 0LL;
+  *a7 = 0;
+  v51 = 0LL;
   if ( a4 )
   {
-    v12 = a2;
+    v13 = a2;
     while ( 1 )
     {
-      v13 = HalpInterruptProcessorCount;
       v14 = 0;
       if ( (_DWORD)HalpInterruptProcessorCount )
         break;
 LABEL_7:
       v9 = (unsigned int)(v9 + 1);
-      ++v12;
+      v13 += 4;
       if ( (unsigned int)v9 >= a4 )
-      {
-        v16 = v11 - (char *)a3;
-        v17 = 0;
-        while ( 1 )
-        {
-          v18 = 0;
-          if ( v13 )
-          {
-            while ( 1 )
-            {
-              v19 = HalpInterruptProcessorState + ((unsigned __int64)v18 << 6);
-              if ( *(_BYTE *)(v19 + 12) )
-              {
-                if ( *(_BYTE *)(v19 + 13) && *(_DWORD *)v19 == *(ULONG *)((char *)a3 + v16) )
-                  break;
-              }
-              if ( ++v18 >= v13 )
-                goto LABEL_19;
-            }
-            *a3 = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v19 + 16));
-          }
-LABEL_19:
-          if ( v18 == v13 )
-            break;
-          ++v17;
-          ++a3;
-          if ( v17 >= a4 )
-          {
-            a2 = v52;
-            v11 = v51;
-            goto LABEL_22;
-          }
-        }
-        v43 = 187;
-        v20 = 21;
-        goto LABEL_16;
-      }
+        goto LABEL_8;
     }
     while ( 1 )
     {
       v15 = HalpInterruptProcessorState + ((unsigned __int64)v14 << 6);
       if ( *(_BYTE *)(v15 + 13) )
       {
-        if ( *(_DWORD *)v15 == *v12 )
+        if ( *(_DWORD *)v15 == *(_DWORD *)v13 )
           break;
       }
       if ( ++v14 >= (unsigned int)HalpInterruptProcessorCount )
         goto LABEL_7;
     }
-    v43 = 151;
-    v20 = 24;
-LABEL_16:
-    v21 = 0LL;
-    goto LABEL_17;
+    HalpInterruptLastProblem = 24;
+    return (unsigned int)-1073741811;
   }
-LABEL_22:
-  v22 = *(__int64 (__fastcall **)(__int64, char *, __int128 *, __int64))(HalpInterruptController + 144);
-  v23 = *(_QWORD *)(HalpInterruptController + 16);
-  if ( a4 && v22 && !HalpInterruptPhysicalModeOnly && !a5 )
+LABEL_8:
+  v16 = 0;
+  if ( a4 )
   {
-    v24 = 0;
-    v25 = (char *)a2;
-    v26 = v11 - (char *)a2;
+    v17 = v12 - (char *)a3;
     while ( 1 )
     {
-      LOBYTE(v9) = 1;
-      v27 = v22(v23, &v25[v26], &v49, v9);
-      v8 = v27;
-      if ( v27 < 0 )
+      v18 = HalpInterruptProcessorCount;
+      v19 = 0;
+      if ( (_DWORD)HalpInterruptProcessorCount )
       {
-        HalpInterruptSetProblemEx(
-          HalpInterruptController,
-          9,
-          v27,
-          (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-          0xECu);
-        return v8;
+        while ( 1 )
+        {
+          v20 = HalpInterruptProcessorState + ((unsigned __int64)v19 << 6);
+          if ( *(_BYTE *)(v20 + 12) )
+          {
+            if ( *(_BYTE *)(v20 + 13) && *(_DWORD *)v20 == *(ULONG *)((char *)a3 + v17) )
+              break;
+          }
+          if ( ++v19 >= (unsigned int)HalpInterruptProcessorCount )
+            goto LABEL_19;
+        }
+        *a3 = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v20 + 16));
       }
-      LOBYTE(v28) = 1;
-      v29 = v22(v23, v25, &v47, v28);
-      v8 = v29;
-      if ( v29 < 0 )
-      {
-        HalpInterruptSetProblemEx(
-          HalpInterruptController,
-          9,
-          v29,
-          (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-          0xF9u);
-        return v8;
-      }
-      if ( DWORD2(v49) != DWORD2(v47) )
+LABEL_19:
+      if ( v19 == v18 )
         break;
-      v25 += 4;
-      if ( ++v24 >= a4 )
-        goto LABEL_32;
+      ++v16;
+      ++a3;
+      if ( v16 >= a4 )
+      {
+        v11 = a2;
+        v12 = v53;
+        goto LABEL_22;
+      }
     }
-    v30 = 0;
+    HalpInterruptLastProblem = 21;
+    return (unsigned int)-1073741811;
+  }
+LABEL_22:
+  v21 = *(__int64 (__fastcall **)(__int64, char *, __int128 *, __int64))(HalpInterruptController + 144);
+  v22 = *(_QWORD *)(HalpInterruptController + 16);
+  if ( a4 && v21 && !HalpInterruptPhysicalModeOnly && !a5 )
+  {
+    v23 = 0;
+    v24 = v11;
+    v25 = v12 - v11;
+    do
+    {
+      LOBYTE(v9) = 1;
+      v8 = v21(v22, &v24[v25], &v51, v9);
+      if ( v8 < 0 )
+      {
+        v44 = HalpInterruptController;
+        HalpInterruptLastProblem = 9;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 292) = 9;
+          *(_QWORD *)(v44 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v44 + 296) = v8;
+          *(_DWORD *)(v44 + 312) = 236;
+        }
+        return (unsigned int)v8;
+      }
+      LOBYTE(v26) = 1;
+      v8 = v21(v22, v24, &v49, v26);
+      if ( v8 < 0 )
+      {
+        v43 = HalpInterruptController;
+        HalpInterruptLastProblem = 9;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 292) = 9;
+          *(_QWORD *)(v43 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v43 + 296) = v8;
+          *(_DWORD *)(v43 + 312) = 249;
+        }
+        return (unsigned int)v8;
+      }
+      if ( DWORD2(v51) != DWORD2(v49) )
+        break;
+      v24 += 4;
+      ++v23;
+    }
+    while ( v23 < a4 );
+    if ( v23 >= a4 )
+      goto LABEL_73;
+    v27 = 0;
     while ( 2 )
     {
-      v31 = v51;
-      v32 = 0;
+      v28 = v53;
+      v29 = 0;
       do
       {
-        v44 = v32;
         LOBYTE(v9) = 1;
-        v33 = v22(v23, v31, &v49, v9);
-        v8 = v33;
-        if ( v33 < 0 )
+        v47 = v29;
+        v8 = v21(v22, v28, &v51, v9);
+        if ( v8 < 0 )
         {
-          HalpInterruptSetProblemEx(
-            HalpInterruptController,
-            9,
-            v33,
-            (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-            0x129u);
-          return v8;
+          v42 = HalpInterruptController;
+          HalpInterruptLastProblem = 9;
+          if ( HalpInterruptController )
+          {
+            *(_DWORD *)(HalpInterruptController + 292) = 9;
+            *(_QWORD *)(v42 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+            *(_DWORD *)(v42 + 296) = v8;
+            *(_DWORD *)(v42 + 312) = 297;
+          }
+          return (unsigned int)v8;
         }
-        v34 = v53;
-        if ( !v32 )
-          v34 = DWORD2(v49);
-        v31 = v51 + 4;
-        ++v30;
-        v53 = v34;
-        ++v32;
-        v51 += 4;
+        v30 = v55;
+        if ( !v29 )
+          v30 = DWORD2(v51);
+        v28 += 4;
+        ++v27;
+        v55 = v30;
+        ++v29;
+        v53 = v28;
       }
-      while ( v30 < a4 && DWORD2(v49) == v34 );
+      while ( v27 < a4 && DWORD2(v51) == v30 );
       LOBYTE(v9) = 1;
-      v35 = v22(v23, (char *)v52, &v47, v9);
-      v8 = v35;
-      if ( v35 < 0 )
+      v8 = v21(v22, a2, &v49, v9);
+      if ( v8 < 0 )
       {
-        HalpInterruptSetProblemEx(
-          HalpInterruptController,
-          9,
-          v35,
-          (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-          0x151u);
-        return v8;
+        v41 = HalpInterruptController;
+        HalpInterruptLastProblem = 9;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 292) = 9;
+          *(_QWORD *)(v41 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v41 + 296) = v8;
+          *(_DWORD *)(v41 + 312) = 337;
+        }
+        return (unsigned int)v8;
       }
-      v46 = DWORD2(v47);
-      LOBYTE(v36) = 1;
-      v37 = v22(v23, (char *)&v52[v44], &v47, v36);
-      v8 = v37;
-      if ( v37 < 0 )
+      LOBYTE(v31) = 1;
+      v32 = DWORD2(v49);
+      v8 = v21(v22, &a2[4 * v47], &v49, v31);
+      if ( v8 < 0 )
       {
-        HalpInterruptSetProblemEx(
-          HalpInterruptController,
-          9,
-          v37,
-          (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-          0x162u);
-        return v8;
+        v40 = HalpInterruptController;
+        HalpInterruptLastProblem = 9;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 292) = 9;
+          *(_QWORD *)(v40 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v40 + 296) = v8;
+          *(_DWORD *)(v40 + 312) = 354;
+        }
+        return (unsigned int)v8;
       }
-      v45 = DWORD2(v47);
-      if ( v46 == DWORD2(v47) )
+      v48 = DWORD2(v49);
+      if ( v32 == DWORD2(v49) )
       {
         for ( i = HalpInterruptClusterData; i < HalpInterruptClusterDataEnd; i += 24LL )
         {
-          if ( *(_DWORD *)i == v46 )
+          if ( *(_DWORD *)i == v32 )
           {
-            v40 = *(_QWORD *)(i + 8) - ((*(_QWORD *)(i + 8) >> 1) & 0x5555555555555555LL);
+            v35 = *(_QWORD *)(i + 8) - ((*(_QWORD *)(i + 8) >> 1) & 0x5555555555555555LL);
             if ( (unsigned int)((0x101010101010101LL
-                               * (((v40 & 0x3333333333333333LL)
-                                 + ((v40 >> 2) & 0x3333333333333333LL)
-                                 + (((v40 & 0x3333333333333333LL) + ((v40 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 )
+                               * (((v35 & 0x3333333333333333LL)
+                                 + ((v35 >> 2) & 0x3333333333333333LL)
+                                 + (((v35 & 0x3333333333333333LL) + ((v35 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 )
             {
-              v43 = 397;
-              v20 = 26;
-              goto LABEL_63;
+              v37 = HalpInterruptController;
+              HalpInterruptLastProblem = 26;
+              if ( HalpInterruptController )
+              {
+                *(_DWORD *)(HalpInterruptController + 296) = 0;
+                *(_DWORD *)(v37 + 292) = 26;
+                *(_QWORD *)(v37 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+                *(_DWORD *)(v37 + 312) = 397;
+              }
+              return (unsigned int)-1073741811;
             }
             break;
           }
         }
-        if ( v32 )
+        if ( v29 )
         {
-          v43 = 412;
-          v20 = 25;
-          goto LABEL_16;
+          HalpInterruptLastProblem = 25;
+          break;
         }
-        if ( v30 >= a4 )
-          goto LABEL_32;
-        LOBYTE(v38) = 1;
-        v41 = v22(v23, (char *)v52, &v47, v38);
-        v8 = v41;
-        if ( v41 < 0 )
+        if ( v27 >= a4 )
+          goto LABEL_73;
+        LOBYTE(v33) = 1;
+        v8 = v21(v22, a2, &v49, v33);
+        if ( v8 < 0 )
         {
-          HalpInterruptSetProblemEx(
-            HalpInterruptController,
-            9,
-            v41,
-            (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
-            0x1ACu);
-          return v8;
+          v38 = HalpInterruptController;
+          HalpInterruptLastProblem = 9;
+          if ( HalpInterruptController )
+          {
+            *(_DWORD *)(HalpInterruptController + 292) = 9;
+            *(_QWORD *)(v38 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+            *(_DWORD *)(v38 + 296) = v8;
+            *(_DWORD *)(v38 + 312) = 428;
+          }
+          return (unsigned int)v8;
         }
-        if ( v45 != DWORD2(v47) )
+        if ( v48 != DWORD2(v49) )
           continue;
-        v43 = 449;
-        v20 = 27;
+        v36 = HalpInterruptController;
+        HalpInterruptLastProblem = 27;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 296) = 0;
+          *(_DWORD *)(v36 + 292) = 27;
+          *(_QWORD *)(v36 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v36 + 312) = 449;
+        }
       }
       else
       {
-        v43 = 372;
-        v20 = 25;
+        v39 = HalpInterruptController;
+        HalpInterruptLastProblem = 25;
+        if ( HalpInterruptController )
+        {
+          *(_DWORD *)(HalpInterruptController + 296) = 0;
+          *(_QWORD *)(v39 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+          *(_DWORD *)(v39 + 292) = 25;
+          *(_DWORD *)(v39 + 312) = 372;
+        }
       }
       break;
     }
-LABEL_63:
-    v21 = HalpInterruptController;
-LABEL_17:
-    HalpInterruptSetProblemEx(v21, v20, 0, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c", v43);
     return (unsigned int)-1073741811;
   }
-LABEL_32:
+LABEL_73:
   if ( a6 && a4 )
   {
     if ( a5 || !HalpInterruptPhysicalModeOnly )
     {
-      *a7 = *(_DWORD *)(HalpInterruptController + 296);
-      return v8;
+      *a7 = *(_DWORD *)(HalpInterruptController + 288);
+      return (unsigned int)v8;
     }
-    v43 = 476;
-    v20 = 28;
-    goto LABEL_63;
+    v45 = HalpInterruptController;
+    HalpInterruptLastProblem = 28;
+    if ( HalpInterruptController )
+    {
+      *(_DWORD *)(HalpInterruptController + 296) = 0;
+      *(_DWORD *)(v45 + 292) = 28;
+      *(_QWORD *)(v45 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\replace.c";
+      *(_DWORD *)(v45 + 312) = 476;
+    }
+    return (unsigned int)-1073741811;
   }
-  return v8;
+  return (unsigned int)v8;
 }

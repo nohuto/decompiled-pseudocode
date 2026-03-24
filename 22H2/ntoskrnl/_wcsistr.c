@@ -1,53 +1,57 @@
 /*
- * XREFs of _wcsistr @ 0x140A6F03C
+ * XREFs of _wcsistr @ 0x14097FED4
  * Callers:
- *     SubstringMatch @ 0x140A6EFAC (SubstringMatch.c)
+ *     SubstringMatch @ 0x14097FE44 (SubstringMatch.c)
  * Callees:
  *     <none>
  */
 
 _WORD *__fastcall wcsistr(_WORD *a1, char *a2)
 {
-  _WORD *v3; // r8
-  signed __int64 v5; // r9
-  __int16 *v6; // rdx
-  __int16 v7; // bx
-  __int16 v8; // r11
-  __int16 v9; // cx
+  _WORD *v3; // r9
+  __int16 v5; // ax
+  signed __int64 i; // r11
+  __int16 *v7; // r10
+  __int16 v8; // cx
+  __int16 v9; // r8
+  __int16 v10; // dx
+  __int16 v11; // cx
 
   v3 = a1;
   if ( !*(_WORD *)a2 )
     return a1;
-  if ( *a1 )
+  v5 = *a1;
+  if ( !*a1 )
+    return 0LL;
+  for ( i = (char *)a1 - a2; ; i += 2LL )
   {
-    v5 = (char *)a1 - a2;
-    while ( 2 )
-    {
-      v6 = (__int16 *)a2;
-      do
-      {
-        v7 = *v6;
-        if ( !*v6 )
-          return v3;
-        v8 = *(__int16 *)((char *)v6 + v5);
-        if ( (unsigned __int16)(v8 - 97) <= 0x19u )
-          v8 -= 32;
-        v9 = v7 - 32;
-        if ( (unsigned __int16)(v7 - 97) > 0x19u )
-          v9 = *v6;
-        if ( v8 != v9 )
-          break;
-        ++v6;
-      }
-      while ( *(__int16 *)((char *)v6 + v5) );
-      if ( !*v6 )
-        return v3;
-      ++v3;
-      v5 += 2LL;
-      if ( *v3 )
-        continue;
+    v7 = (__int16 *)a2;
+    if ( v5 )
       break;
-    }
+LABEL_13:
+    if ( !*v7 )
+      return v3;
+    v5 = *++v3;
+    if ( !*v3 )
+      return 0LL;
   }
-  return 0LL;
+  while ( 1 )
+  {
+    v8 = *v7;
+    if ( !*v7 )
+      return v3;
+    v9 = *(__int16 *)((char *)v7 + i);
+    v10 = v8 - 32;
+    if ( (unsigned __int16)(v8 - 97) > 0x19u )
+      v10 = *v7;
+    v11 = v9 - 32;
+    if ( (unsigned __int16)(v9 - 97) > 0x19u )
+      v11 = *(__int16 *)((char *)v7 + i);
+    if ( v11 == v10 )
+    {
+      if ( *(__int16 *)((char *)++v7 + i) )
+        continue;
+    }
+    goto LABEL_13;
+  }
 }

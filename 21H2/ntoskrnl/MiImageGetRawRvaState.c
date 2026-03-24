@@ -1,43 +1,49 @@
 /*
- * XREFs of MiImageGetRawRvaState @ 0x1406BC07C
+ * XREFs of MiImageGetRawRvaState @ 0x1406A93E8
  * Callers:
- *     MiImageRvaRawEnumFirst @ 0x1406BBFD0 (MiImageRvaRawEnumFirst.c)
+ *     MiImageRvaRawEnumFirst @ 0x1406A933C (MiImageRvaRawEnumFirst.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiImageGetRawRvaState(_DWORD *a1, int a2)
 {
-  unsigned int v2; // r10d
-  _DWORD *v3; // rax
-  unsigned int v4; // r8d
-  int v5; // r9d
-  __int64 v6; // r11
-  _DWORD *v7; // rdx
-  unsigned int i; // ecx
+  unsigned int v2; // r9d
+  _DWORD *v3; // r8
+  __int64 result; // rax
+  int v6; // r11d
+  __int64 v7; // r10
+  unsigned int v8; // ecx
+  _DWORD *v9; // r8
 
-  v2 = a1[36];
-  v3 = a1 + 38;
-  v4 = 0;
-  v5 = 0;
+  v2 = a1[35];
+  v3 = a1 + 36;
+  result = 0LL;
+  v6 = 0;
   if ( v2 )
   {
-    v6 = v2;
+    v7 = v2;
     do
     {
       if ( *v3 == a2 )
-        v5 |= v3[1];
+        v6 |= v3[1];
       v3 += 10;
-      --v6;
+      --v7;
     }
-    while ( v6 );
-    v7 = a1 + 32;
-    for ( i = 0; i < v2; ++i )
-    {
-      if ( (v5 & *v7) != 0 )
-        v4 |= 1 << i;
-      ++v7;
-    }
+    while ( v7 );
   }
-  return v4;
+  v8 = 0;
+  if ( v2 )
+  {
+    v9 = a1 + 32;
+    do
+    {
+      if ( (v6 & *v9) != 0 )
+        result = (1 << v8) | (unsigned int)result;
+      ++v8;
+      ++v9;
+    }
+    while ( v8 < v2 );
+  }
+  return result;
 }

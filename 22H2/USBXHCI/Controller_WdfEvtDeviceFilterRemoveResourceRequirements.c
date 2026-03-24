@@ -1,15 +1,15 @@
 /*
- * XREFs of Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EB30
+ * XREFs of Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006E660
  * Callers:
  *     <none>
  * Callees:
- *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0008258 (Interrupter_SetSecondaryInterrupterCount.c)
- *     WPP_RECORDER_SF_qq @ 0x1C001A34C (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Interrupter_IoResList_GetMessageCountAndType @ 0x1C006E8C8 (Interrupter_IoResList_GetMessageCountAndType.c)
- *     Interrupter_FilterMessageDescriptors @ 0x1C007227C (Interrupter_FilterMessageDescriptors.c)
- *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C0079D1C (Interrupter_DetermineSecondaryInterrupterCount.c)
- *     Interrupter_FilterAllMSIResources @ 0x1C0079DDC (Interrupter_FilterAllMSIResources.c)
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C00058AC (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0016398 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_IoResList_GetMessageCountAndType @ 0x1C006E764 (Interrupter_IoResList_GetMessageCountAndType.c)
+ *     Interrupter_FilterMessageDescriptors @ 0x1C006E8C8 (Interrupter_FilterMessageDescriptors.c)
+ *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00764E0 (Interrupter_DetermineSecondaryInterrupterCount.c)
+ *     Interrupter_FilterAllMSIResources @ 0x1C00765A0 (Interrupter_FilterAllMSIResources.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int
   __int64 v6; // rbx
   unsigned int v7; // edi
   __int64 v9; // rcx
-  unsigned int v10[6]; // [rsp+40h] [rbp-18h] BYREF
+  _DWORD v10[6]; // [rsp+40h] [rbp-18h] BYREF
   char v11; // [rsp+70h] [rbp+18h] BYREF
   unsigned int v12; // [rsp+78h] [rbp+20h] BYREF
 
@@ -28,7 +28,7 @@ __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int
   v5 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00633D8)
+                     off_1C00603D8)
                  + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -37,8 +37,8 @@ __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int
       *(_QWORD *)(v5 + 72),
       v4,
       4,
-      212,
-      (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+      209,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
       v3,
       a2);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfDeviceIndicateWakeStatus @ 0x1C0063A50
+ * XREFs of imp_WdfDeviceIndicateWakeStatus @ 0x1C0049090
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C0086EF4 (-PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C007DF24 (-PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z.c)
  */
 
 __int64 __fastcall imp_WdfDeviceIndicateWakeStatus(
@@ -21,7 +21,11 @@ __int64 __fastcall imp_WdfDeviceIndicateWakeStatus(
 
   v4 = 0;
   pDevice = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   m_Globals = pDevice->m_Globals;
   if ( !Device || WaitWakeStatus == 259 || WaitWakeStatus == -1073741536 )
   {

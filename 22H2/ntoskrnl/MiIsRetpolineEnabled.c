@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIsRetpolineEnabled @ 0x14020EBC0
+ * XREFs of MiIsRetpolineEnabled @ 0x1402F3630
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1406A723C (MiCaptureRetpolineRelocationTables.c)
- *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
- *     MiCaptureRetpolineImportInfo @ 0x14079DBF8 (MiCaptureRetpolineImportInfo.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140A344A4 (MiMarkKernelImageRetpolineBits.c)
- *     MmGetImageRetpolineCodePage @ 0x140A34620 (MmGetImageRetpolineCodePage.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
- *     MmMarkHiberPhase @ 0x140AACDA0 (MmMarkHiberPhase.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140662620 (MiCaptureRetpolineRelocationTables.c)
+ *     MiParseImageLoadConfig @ 0x140662858 (MiParseImageLoadConfig.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiFinalizeImageRetpolineState @ 0x14075C478 (MiFinalizeImageRetpolineState.c)
+ *     MiCaptureRetpolineImportInfo @ 0x14077DC4C (MiCaptureRetpolineImportInfo.c)
+ *     MmGetImageRetpolineCodePage @ 0x1407CDAC0 (MmGetImageRetpolineCodePage.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x1408D0CB8 (MiMarkKernelImageRetpolineBits.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
+ *     MmMarkHiberPhase @ 0x1409B075C (MmMarkHiberPhase.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
  *     <none>
  */

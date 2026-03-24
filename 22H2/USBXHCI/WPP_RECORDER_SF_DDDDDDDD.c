@@ -1,14 +1,14 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040998
+ * XREFs of WPP_RECORDER_SF_DDDDDDDD @ 0x1C003E404
  * Callers:
- *     RootHub_UcxEvtGetHubStatus @ 0x1C00135D0 (RootHub_UcxEvtGetHubStatus.c)
- *     RootHub_UcxEvtClearPortFeature @ 0x1C0015740 (RootHub_UcxEvtClearPortFeature.c)
- *     RootHub_UcxEvtSetPortFeature @ 0x1C0016FA0 (RootHub_UcxEvtSetPortFeature.c)
- *     RootHub_UcxEvtGetPortStatus @ 0x1C00176B0 (RootHub_UcxEvtGetPortStatus.c)
- *     RootHub_UcxEvtClearHubFeature @ 0x1C003FBE0 (RootHub_UcxEvtClearHubFeature.c)
- *     RootHub_UcxEvtGetPortErrorCount @ 0x1C003FEC0 (RootHub_UcxEvtGetPortErrorCount.c)
+ *     RootHub_UcxEvtGetHubStatus @ 0x1C000EF90 (RootHub_UcxEvtGetHubStatus.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1C00120A0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_UcxEvtGetPortStatus @ 0x1C00128A0 (RootHub_UcxEvtGetPortStatus.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x1C0013360 (RootHub_UcxEvtSetPortFeature.c)
+ *     RootHub_UcxEvtClearHubFeature @ 0x1C003D980 (RootHub_UcxEvtClearHubFeature.c)
+ *     RootHub_UcxEvtGetPortErrorCount @ 0x1C003DC60 (RootHub_UcxEvtGetPortErrorCount.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_DDDDDDDD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)
@@ -52,10 +52,10 @@ __int64 WPP_RECORDER_SF_DDDDDDDD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __in
   va_copy(va7, va6);
   v21 = va_arg(va7, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.Reserved)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+      &WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
       a4,
       (__int64 *)va,
       4LL,
@@ -79,7 +79,7 @@ __int64 WPP_RECORDER_SF_DDDDDDDD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __in
            a1,
            2LL,
            11LL,
-           &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+           &WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
            v8,
            (__int64 *)va,
            4LL,

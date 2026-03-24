@@ -1,16 +1,20 @@
 /*
- * XREFs of EtwpKernelProvEnableCallback @ 0x1408652C0
+ * XREFs of EtwpKernelProvEnableCallback @ 0x1407D4A20
  * Callers:
  *     <none>
  * Callees:
- *     SeEtwEnableCallback @ 0x1403DF4EC (SeEtwEnableCallback.c)
+ *     SeEtwEnableCallback @ 0x1403CF82C (SeEtwEnableCallback.c)
  */
 
 void __fastcall EtwpKernelProvEnableCallback(
         __int64 SourceId,
         __int64 ControlCode,
         __int64 Level,
-        ULONGLONG MatchAnyKeyword)
+        ULONGLONG MatchAnyKeyword,
+        ULONGLONG MatchAllKeyword,
+        int **FilterData)
 {
-  SeEtwEnableCallback(SourceId, ControlCode, Level, MatchAnyKeyword);
+  int v6; // [rsp+20h] [rbp-28h]
+
+  SeEtwEnableCallback(SourceId, ControlCode, Level, MatchAnyKeyword, v6, FilterData);
 }

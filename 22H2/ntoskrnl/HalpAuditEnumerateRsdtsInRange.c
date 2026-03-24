@@ -1,22 +1,24 @@
 /*
- * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140B93168
+ * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140A656CC
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140B930BC (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     HalpAuditAllocateRsdtArrayTable @ 0x140B93014 (HalpAuditAllocateRsdtArrayTable.c)
- *     HalpAuditSelectRsdtOrXsdt @ 0x140B93468 (HalpAuditSelectRsdtOrXsdt.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     HalpAuditSelectRsdtOrXsdt @ 0x140A657A8 (HalpAuditSelectRsdtOrXsdt.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140A658DC (HalpAuditAllocateRsdtArrayTable.c)
  */
 
-__int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, char a3, _DWORD **a4)
+__int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, char a3, __int64 *a4)
 {
   SIZE_T v5; // rbp
   char *v7; // r15
   int RsdtArrayTable; // ebx
   unsigned int i; // edi
-  __int64 v10; // rdx
-  unsigned int v11; // ecx
+  _DWORD *v11; // rcx
+  __int64 v12; // rdx
+  unsigned int v13; // ecx
+  __int64 v14; // rax
 
   v5 = a2;
   v7 = (char *)MmMapIoSpaceEx(a1, a2, 0x204u);
@@ -27,20 +29,23 @@ __int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, c
     {
       if ( *(_QWORD *)&v7[i] == 0x2052545020445352LL )
       {
-        if ( **a4 < (unsigned int)((*a4)[1] + 1) )
+        v11 = (_DWORD *)*a4;
+        if ( *(_DWORD *)*a4 < (unsigned int)(*(_DWORD *)(*a4 + 4) + 1) )
         {
           RsdtArrayTable = HalpAuditAllocateRsdtArrayTable(a4);
           if ( RsdtArrayTable < 0 )
             break;
+          v11 = (_DWORD *)*a4;
         }
-        RsdtArrayTable = HalpAuditSelectRsdtOrXsdt(&v7[i], &(*a4)[8 * (*a4)[1] + 2]);
+        RsdtArrayTable = HalpAuditSelectRsdtOrXsdt(&v7[i], &v11[8 * v11[1] + 2]);
         if ( RsdtArrayTable >= 0 )
         {
-          v11 = *(_DWORD *)(v10 + 12) & 0xFFFFFFF7;
+          v13 = *(_DWORD *)(v12 + 12) & 0xFFFFFFF7;
           if ( a3 )
-            v11 = *(_DWORD *)(v10 + 12) | 8;
-          *(_DWORD *)(v10 + 12) = v11;
-          ++(*a4)[1];
+            v13 = *(_DWORD *)(v12 + 12) | 8;
+          v14 = *a4;
+          *(_DWORD *)(v12 + 12) = v13;
+          ++*(_DWORD *)(v14 + 4);
         }
       }
     }

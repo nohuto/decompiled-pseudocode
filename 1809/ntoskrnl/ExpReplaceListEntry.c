@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpReplaceListEntry @ 0x1401651D0
+ * XREFs of ExpReplaceListEntry @ 0x1401651F0
  * Callers:
- *     ExpRotateFastOwnerEntrySublistHead @ 0x140165124 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x140165144 (ExpRotateFastOwnerEntrySublistHead.c)
  * Callees:
  *     <none>
  */

@@ -1,475 +1,390 @@
 /*
- * XREFs of ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C000DB90
+ * XREFs of ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0014070
  * Callers:
- *     ?DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C000DB54 (-DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0013A08 (-DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
  * Callees:
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00054E8 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     ?IsTokenManagerReady@@YAHXZ @ 0x1C0007288 (-IsTokenManagerReady@@YAHXZ.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0077584 (-NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C01961F0 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
+ *     ?IsTokenManagerReady@@YAHXZ @ 0x1C000164C (-IsTokenManagerReady@@YAHXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00654D4 (-NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C00EF1F4 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
  */
 
 __int64 __fastcall NotifyPendingFlipPresent(int a1, struct _D3DKMT_PRESENTHISTORYTOKEN *a2)
 {
   void *hLogicalSurface; // rbx
-  int v4; // r12d
-  __int64 v5; // r8
-  int v6; // ebx
-  _QWORD *v7; // rdi
-  bool v8; // zf
-  char *v9; // rbp
+  char v4; // r8
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  NTSTATUS v7; // edi
+  _QWORD *v8; // rbx
+  void (__fastcall ***v9)(_QWORD); // r13
+  _QWORD *v10; // r15
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
   struct DXGSESSIONDATA *SessionData; // rax
-  void (__fastcall ***v11)(_QWORD); // rbx
-  __int64 v12; // r13
-  void (__fastcall ***v13)(_QWORD); // r14
-  char *v14; // rax
-  char *v15; // r15
-  char *v16; // r12
-  int v17; // ebx
+  void (__fastcall ***v15)(_QWORD); // r14
+  __int64 v16; // r12
+  _QWORD *v17; // rax
+  _QWORD **v18; // rdi
+  _QWORD *v19; // r14
+  _QWORD *v20; // rcx
+  int v21; // ebx
+  bool v22; // zf
   UINT64 CompositionBindingId; // rcx
-  char *v19; // rax
-  char *v20; // rbx
-  char *v21; // rcx
+  _QWORD *v24; // rax
+  _QWORD *v25; // rbx
+  UINT v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  int v35; // ebx
+  __int64 v36; // rax
+  __int64 v37; // rax
+  struct DXGSESSIONDATA *v38; // rax
+  __int64 v39; // r14
+  int v40; // ebx
   struct DXGGLOBAL *Global; // rax
-  struct DXGGLOBAL *v23; // rax
-  int v24; // edi
-  struct DXGGLOBAL *v25; // rax
-  DXGGLOBAL *v26; // rax
-  struct DXGSESSIONDATA *v27; // rax
-  __int64 v28; // r15
-  int v29; // edi
-  struct DXGGLOBAL *v30; // rax
-  char v31; // r15
-  struct _KPROCESS *v32; // rax
-  struct _KPROCESS *v33; // rbp
-  UINT v35; // eax
-  struct DXGGLOBAL *v36; // rax
-  int v37; // edx
-  int v38; // ecx
-  int v39; // r8d
-  int v40; // edx
-  int v41; // ecx
-  int v42; // r8d
-  int v43; // edx
-  int v44; // ecx
-  int v45; // r8d
-  int v46; // edx
-  int v47; // ecx
-  int v48; // r8d
-  int v49; // edx
-  int v50; // ecx
-  int v51; // r8d
-  int v52; // edx
-  int v53; // ecx
-  int v54; // r8d
-  int v55; // edx
-  int v56; // ecx
-  int v57; // r8d
-  int v58; // edx
-  int v59; // ecx
-  int v60; // r8d
-  int v61; // edx
-  int v62; // ecx
-  int v63; // r8d
-  char v64; // [rsp+60h] [rbp-78h] BYREF
-  char v65[3]; // [rsp+61h] [rbp-77h] BYREF
-  int v66; // [rsp+64h] [rbp-74h] BYREF
-  PVOID Object; // [rsp+68h] [rbp-70h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-68h] BYREF
+  __int64 v42; // rax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  char v45; // r15
+  __int64 v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // rax
+  __int64 v50; // rax
+  __int64 v51; // rax
+  struct _KPROCESS *v52; // rax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  struct _KPROCESS *v55; // r14
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  __int64 v58; // rax
+  __int64 v59; // rax
+  __int64 v60; // r14
+  __int64 v61; // rax
+  UINT64 CompositionSyncKey; // rbx
+  __int64 v63; // rax
+  char v65; // [rsp+50h] [rbp-29h] BYREF
+  char v66[7]; // [rsp+51h] [rbp-28h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-21h] BYREF
+  int v68; // [rsp+60h] [rbp-19h] BYREF
+  int v69; // [rsp+64h] [rbp-15h]
+  void *Handle; // [rsp+68h] [rbp-11h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-9h] BYREF
 
   hLogicalSurface = (void *)a2->Token.Flip.hLogicalSurface;
-  v4 = a1;
-  v66 = a1;
+  v69 = a1;
   Object = 0LL;
   KeEnterCriticalRegion();
-  v6 = CompositionSurfaceObject::ResolveHandle(hLogicalSurface, 2u, v5, (struct CompositionSurfaceObject **)&Object);
-  if ( v6 < 0 )
-    goto LABEL_49;
-  v7 = Object;
-  v6 = ObReferenceObjectByPointer(Object, 3u, g_pDxgkCompositionObjectType, 0);
-  if ( v6 < 0 )
+  v7 = CompositionSurfaceObject::ResolveHandle(hLogicalSurface, 2u, v4, (struct CompositionSurfaceObject **)&Object);
+  if ( v7 < 0 )
+    goto LABEL_94;
+  v8 = Object;
+  v9 = 0LL;
+  v10 = 0LL;
+  v7 = ObReferenceObjectByPointer(Object, 3u, g_pDxgkCompositionObjectType, 0);
+  if ( v7 >= 0 )
   {
-LABEL_97:
-    ObfDereferenceObject(v7);
-    goto LABEL_49;
-  }
-  KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v7 + 6, 0LL);
-  v8 = DXGGLOBAL::m_pGlobal == 0LL;
-  v7[7] = KeGetCurrentThread();
-  v7 = Object;
-  v9 = (char *)Object + 40;
-  if ( v8 )
-  {
-    WdLogSingleEntry1(1LL, 2373LL);
-    if ( bTracingEnabled )
+    v7 = 0;
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))v8[6])(v8 + 6) )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v38,
-          v37,
-          v39,
-          0,
-          2,
-          -1,
-          (__int64)L"m_pGlobal != NULL",
-          2373LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  SessionData = DXGGLOBAL::GetSessionData((DXGGLOBAL *)DXGGLOBAL::m_pGlobal);
-  if ( SessionData )
-  {
-    v11 = (void (__fastcall ***)(_QWORD))*((_QWORD *)SessionData + 2343);
-    if ( v11 )
-    {
-      (**v11)(v11);
-      v12 = 0LL;
-      v13 = v11;
-      if ( !*((_DWORD *)v9 + 22) || (v14 = (char *)*((_QWORD *)v9 + 9), v15 = v9 + 72, v14 == v9 + 72) )
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx(v8 + 7, 0LL);
+      v8[8] = KeGetCurrentThread();
+      if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))v8[6])(v8 + 6) )
       {
-LABEL_63:
-        v6 = -1071775728;
+        v8 = Object;
+LABEL_7:
+        if ( v7 < 0 )
+          ObfDereferenceObject(v8);
+        else
+          v10 = v8 + 5;
+        goto LABEL_11;
+      }
+      CPushLock::ReleaseLock((CPushLock *)(v8 + 6));
+      v8 = Object;
+    }
+    v7 = -1073741816;
+    goto LABEL_7;
+  }
+LABEL_11:
+  if ( v7 >= 0 )
+  {
+    v7 = -1073741823;
+    if ( !DXGGLOBAL::m_pGlobal )
+    {
+      v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+      *(_QWORD *)(v13 + 24) = 2238LL;
+      WdLogEvent5_WdAssertion(v13);
+    }
+    SessionData = DXGGLOBAL::GetSessionData((DXGGLOBAL *)DXGGLOBAL::m_pGlobal);
+    if ( SessionData )
+    {
+      v15 = (void (__fastcall ***)(_QWORD))*((_QWORD *)SessionData + 2340);
+      if ( v15 )
+      {
+        (**v15)(*((_QWORD *)SessionData + 2340));
+        v7 = 0;
+        v9 = v15;
+      }
+    }
+    if ( v7 >= 0 )
+    {
+      v16 = 0LL;
+      if ( !*((_DWORD *)v10 + 20) || (v17 = (_QWORD *)v10[8], v18 = (_QWORD **)(v10 + 8), v17 == v10 + 8) )
+      {
+LABEL_22:
+        v7 = -1071775728;
       }
       else
       {
         while ( 1 )
         {
-          v16 = v14 - 24;
-          if ( *((_QWORD *)v14 - 1) == a2->CompositionBindingId )
+          v19 = v17 - 3;
+          if ( *(v17 - 1) == a2->CompositionBindingId )
             break;
-          v14 = *(char **)v14;
-          if ( v14 == v15 )
-          {
-            v4 = v66;
-            goto LABEL_63;
-          }
+          v17 = (_QWORD *)*v17;
+          if ( v17 == v18 )
+            goto LABEL_22;
         }
-        v17 = (*(__int64 (__fastcall **)(_QWORD *))(*(_QWORD *)v16 + 8LL))((_QWORD *)v14 - 3);
-        v12 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)v16 + 24LL))(v16);
-        if ( v17 != 2 )
-          goto LABEL_65;
-        v8 = *((_DWORD *)v9 + 22) == 0;
+        v21 = (*(__int64 (__fastcall **)(_QWORD *))(*v19 + 8LL))(v17 - 3);
+        v16 = (*(__int64 (__fastcall **)(_QWORD *))(*v19 + 24LL))(v19);
+        if ( v21 != 2 )
+          goto LABEL_26;
+        v22 = *((_DWORD *)v10 + 20) == 0;
         CompositionBindingId = a2->CompositionBindingId;
-        v64 = 0;
-        v65[0] = 0;
-        if ( v8 )
-          goto LABEL_65;
-        v19 = *(char **)v15;
-        if ( *(char **)v15 == v15 )
-          goto LABEL_65;
+        v65 = 0;
+        v66[0] = 0;
+        if ( v22 )
+          goto LABEL_26;
+        v24 = *v18;
+        if ( *v18 == v18 )
+          goto LABEL_26;
         while ( 1 )
         {
-          v20 = v19 - 24;
-          if ( *((_QWORD *)v19 - 1) == CompositionBindingId )
+          v25 = v24 - 3;
+          if ( *(v24 - 1) == CompositionBindingId )
             break;
-          v19 = *(char **)v19;
-          if ( v19 == v15 )
-            goto LABEL_65;
+          v24 = (_QWORD *)*v24;
+          if ( v24 == v18 )
+          {
+            v7 = -1073741811;
+            goto LABEL_23;
+          }
         }
-        if ( (*(unsigned int (__fastcall **)(_QWORD *))(*(_QWORD *)v20 + 8LL))((_QWORD *)v19 - 3) != 2 )
+        if ( (*(unsigned int (__fastcall **)(_QWORD *))(*v25 + 8LL))(v24 - 3) != 2 )
         {
-LABEL_65:
-          v4 = v66;
-          v6 = -1073741811;
+LABEL_26:
+          v7 = -1073741811;
         }
         else
         {
-          (*(void (__fastcall **)(char *, union _D3DKMT_PRESENTHISTORYTOKEN::$04C5B4CD591473CAB2C95D87D2CBE864 *, char *, char *))(*(_QWORD *)v20 + 64LL))(
-            v20,
+          (*(void (__fastcall **)(_QWORD *, union _D3DKMT_PRESENTHISTORYTOKEN::$04C5B4CD591473CAB2C95D87D2CBE864 *, char *, char *))(*v25 + 64LL))(
+            v25,
             &a2->Token,
-            &v64,
-            v65);
-          v6 = 0;
-          if ( v64 )
+            &v65,
+            v66);
+          v7 = 0;
+          if ( v65 )
           {
-            v35 = a2->Token.Flip.Flags.Value | 0x200000;
-            a2->Token.Flip.Flags.Value = v35;
-            if ( v65[0] )
-              a2->Token.Flip.Flags.Value = v35 | 0x400000;
+            v26 = a2->Token.Flip.Flags.Value | 0x200000;
+            a2->Token.Flip.Flags.Value = v26;
+            if ( v66[0] )
+              a2->Token.Flip.Flags.Value = v26 | 0x400000;
           }
-          v4 = v66;
-          a2->Token.Flip.Reserved = *((_DWORD *)v9 + 24);
         }
       }
-      v21 = v9 + 8;
-      if ( KeGetCurrentThread() == *((struct _KTHREAD **)v9 + 2) )
+LABEL_23:
+      v20 = v10 + 2;
+      if ( KeGetCurrentThread() == (struct _KTHREAD *)v10[3] )
       {
-        *((_QWORD *)v9 + 2) = 0LL;
-        ExReleasePushLockExclusiveEx(v21, 0LL);
+        v10[3] = 0LL;
+        ExReleasePushLockExclusiveEx(v20, 0LL);
       }
       else
       {
-        ExReleasePushLockSharedEx(v21, 0LL);
+        ExReleasePushLockSharedEx(v20, 0LL);
       }
       KeLeaveCriticalRegion();
-      ObfDereferenceObject(v9 - 40);
-      if ( v6 < 0 )
-        goto LABEL_94;
-      if ( (a2->Token.Flip.Flags.Value & 0x2000000) != 0 )
-        goto LABEL_29;
-      Global = DXGGLOBAL_GetGlobal();
-      (*(void (**)(void))(*((_QWORD *)Global + 38073) + 440LL))();
-      v23 = DXGGLOBAL_GetGlobal();
-      v24 = (*(__int64 (**)(void))(*((_QWORD *)v23 + 38073) + 472LL))();
-      if ( v12 )
+      ObfDereferenceObject(v10 - 5);
+      if ( v7 < 0 )
+        goto LABEL_91;
+      if ( (a2->Token.Flip.Flags.Value & 0x2000000) == 0 )
       {
-        v66 = 0;
-        v25 = DXGGLOBAL_GetGlobal();
-        if ( (*(unsigned int (__fastcall **)(__int64, int *))(*((_QWORD *)v25 + 38073) + 480LL))(v12, &v66) )
+        if ( !DXGGLOBAL::m_pGlobal )
         {
-          if ( !v4
-            || v24
-            || (v26 = DXGGLOBAL_GetGlobal(), (v27 = DXGGLOBAL::GetSessionData(v26)) == 0LL)
-            || (v28 = *((_QWORD *)v27 + 2343)) == 0
-            || ((**(void (__fastcall ***)(_QWORD))v28)(*((_QWORD *)v27 + 2343)),
-                v29 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v28 + 184LL))(v28),
-                (*(void (__fastcall **)(__int64))(*(_QWORD *)v28 + 8LL))(v28),
-                !v29)
-            || !v66 )
-          {
-            v6 = -1071775733;
-          }
+          v29 = WdLogNewEntry5_WdAssertion(v28, v27);
+          *(_QWORD *)(v29 + 24) = 2238LL;
+          WdLogEvent5_WdAssertion(v29);
         }
-        else
+        (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 208LL))();
+        if ( !DXGGLOBAL::m_pGlobal )
         {
-          v6 = -1071775729;
+          v32 = WdLogNewEntry5_WdAssertion(v31, v30);
+          *(_QWORD *)(v32 + 24) = 2238LL;
+          WdLogEvent5_WdAssertion(v32);
         }
-      }
-      else if ( !v4
-             || v24
-             || !(unsigned int)IsTokenManagerReady()
-             || (v36 = DXGGLOBAL_GetGlobal(), !(*(unsigned int (**)(void))(*((_QWORD *)v36 + 38073) + 456LL))()) )
-      {
-        v6 = -1071775730;
-      }
-      v30 = DXGGLOBAL_GetGlobal();
-      (*(void (**)(void))(*((_QWORD *)v30 + 38073) + 488LL))();
-      if ( v6 >= 0 )
-      {
-LABEL_29:
-        v7 = Object;
-        v6 = ((__int64 (__fastcall *)(void (__fastcall ***)(_QWORD), PVOID))(*v13)[13])(v13, Object);
-        if ( v6 >= 0 )
+        v35 = (*(__int64 (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 240LL))();
+        if ( v16 )
         {
-          v31 = 0;
-          Object = (PVOID)-1LL;
+          v68 = 0;
           if ( !DXGGLOBAL::m_pGlobal )
           {
-            WdLogSingleEntry1(1LL, 2373LL);
-            if ( bTracingEnabled )
-            {
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                  v41,
-                  v40,
-                  v42,
-                  0,
-                  2,
-                  -1,
-                  (__int64)L"m_pGlobal != NULL",
-                  2373LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-            }
+            v36 = WdLogNewEntry5_WdAssertion(v34, v33);
+            *(_QWORD *)(v36 + 24) = 2238LL;
+            WdLogEvent5_WdAssertion(v36);
           }
-          if ( !(*(unsigned int (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 464LL))() )
+          if ( (*(unsigned int (__fastcall **)(__int64, int *))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 248LL))(
+                 v16,
+                 &v68) )
           {
+            if ( !v69 || v35 )
+              goto LABEL_56;
             if ( !DXGGLOBAL::m_pGlobal )
             {
-              WdLogSingleEntry1(1LL, 2373LL);
-              if ( bTracingEnabled )
-              {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                  McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                    v44,
-                    v43,
-                    v45,
-                    0,
-                    2,
-                    -1,
-                    (__int64)L"m_pGlobal != NULL",
-                    2373LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-              }
+              v37 = WdLogNewEntry5_WdAssertion(v34, v33);
+              *(_QWORD *)(v37 + 24) = 2238LL;
+              WdLogEvent5_WdAssertion(v37);
             }
-            if ( !(*(unsigned int (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 368LL))() )
+            v38 = DXGGLOBAL::GetSessionData((DXGGLOBAL *)DXGGLOBAL::m_pGlobal);
+            if ( !v38
+              || (v39 = *((_QWORD *)v38 + 2340)) == 0
+              || ((**(void (__fastcall ***)(_QWORD))v39)(*((_QWORD *)v38 + 2340)),
+                  v40 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v39 + 176LL))(v39),
+                  (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 8LL))(v39),
+                  !v40)
+              || !v68 )
             {
-              if ( !DXGGLOBAL::m_pGlobal )
-              {
-                WdLogSingleEntry1(1LL, 2373LL);
-                if ( bTracingEnabled )
-                {
-                  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                    McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                      v47,
-                      v46,
-                      v48,
-                      0,
-                      2,
-                      -1,
-                      (__int64)L"m_pGlobal != NULL",
-                      2373LL,
-                      0LL,
-                      0LL,
-                      0LL,
-                      0LL);
-                }
-              }
-              (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 376LL))();
-              v31 = 1;
+LABEL_56:
+              v7 = -1071775733;
             }
-          }
-          if ( !DXGGLOBAL::m_pGlobal )
-          {
-            WdLogSingleEntry1(1LL, 2373LL);
-            if ( bTracingEnabled )
-            {
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                  v50,
-                  v49,
-                  v51,
-                  0,
-                  2,
-                  -1,
-                  (__int64)L"m_pGlobal != NULL",
-                  2373LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-            }
-          }
-          v32 = (struct _KPROCESS *)(*(__int64 (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 504LL))();
-          v33 = v32;
-          if ( v32 )
-          {
-            memset(&ApcState, 0, sizeof(ApcState));
-            KeStackAttachProcess(v32, &ApcState);
-            v6 = ObOpenObjectByPointer(v7, 0x40u, 0LL, 3u, g_pDxgkCompositionObjectType, 0, &Object);
-            KeUnstackDetachProcess(&ApcState);
-            if ( !DXGGLOBAL::m_pGlobal )
-            {
-              WdLogSingleEntry1(1LL, 2373LL);
-              if ( bTracingEnabled )
-              {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                  McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                    v53,
-                    v52,
-                    v54,
-                    0,
-                    2,
-                    -1,
-                    (__int64)L"m_pGlobal != NULL",
-                    2373LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-              }
-            }
-            (*(void (__fastcall **)(struct _KPROCESS *))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 432LL))(v33);
           }
           else
           {
-            v6 = -1073741823;
+            v7 = -1071775729;
           }
-          if ( v31 )
+        }
+        else if ( !v69
+               || v35
+               || !(unsigned int)IsTokenManagerReady()
+               || (Global = DXGGLOBAL::GetGlobal(v34, v33),
+                   !(*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 224LL))()) )
+        {
+          v7 = -1071775730;
+        }
+        if ( !DXGGLOBAL::m_pGlobal )
+        {
+          v42 = WdLogNewEntry5_WdAssertion(v34, v33);
+          *(_QWORD *)(v42 + 24) = 2238LL;
+          WdLogEvent5_WdAssertion(v42);
+        }
+        (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 256LL))();
+      }
+      if ( v7 < 0 )
+      {
+LABEL_91:
+        v8 = Object;
+      }
+      else
+      {
+        v8 = Object;
+        v7 = ((__int64 (__fastcall *)(void (__fastcall ***)(_QWORD), PVOID))(*v9)[12])(v9, Object);
+        if ( v7 >= 0 )
+        {
+          v45 = 0;
+          Handle = (void *)-1LL;
+          if ( !DXGGLOBAL::m_pGlobal )
+          {
+            v46 = WdLogNewEntry5_WdAssertion(v44, v43);
+            *(_QWORD *)(v46 + 24) = 2238LL;
+            WdLogEvent5_WdAssertion(v46);
+          }
+          if ( !(*(unsigned int (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 232LL))() )
           {
             if ( !DXGGLOBAL::m_pGlobal )
             {
-              WdLogSingleEntry1(1LL, 2373LL);
-              if ( bTracingEnabled )
-              {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                  McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                    v56,
-                    v55,
-                    v57,
-                    0,
-                    2,
-                    -1,
-                    (__int64)L"m_pGlobal != NULL",
-                    2373LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-              }
+              v49 = WdLogNewEntry5_WdAssertion(v48, v47);
+              *(_QWORD *)(v49 + 24) = 2238LL;
+              WdLogEvent5_WdAssertion(v49);
             }
-            (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 416LL))();
-          }
-          if ( v6 >= 0 )
-          {
-            v8 = DXGGLOBAL::m_pGlobal == 0LL;
-            a2->Token.Flip.hCompSurf = (LONG64)Object;
-            *((_QWORD *)&a2->Token.SurfaceComplete + 7) = v7[3];
-            if ( v8 )
+            if ( !(*(unsigned int (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 136LL))() )
             {
-              WdLogSingleEntry1(1LL, 2373LL);
-              if ( bTracingEnabled )
+              if ( !DXGGLOBAL::m_pGlobal )
               {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                  McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                    v59,
-                    v58,
-                    v60,
-                    0,
-                    2,
-                    -1,
-                    (__int64)L"m_pGlobal != NULL",
-                    2373LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
+                v50 = WdLogNewEntry5_WdAssertion(v48, v47);
+                *(_QWORD *)(v50 + 24) = 2238LL;
+                WdLogEvent5_WdAssertion(v50);
               }
+              (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 144LL))();
+              v45 = 1;
             }
-            (*(void (__fastcall **)(union _D3DKMT_PRESENTHISTORYTOKEN::$04C5B4CD591473CAB2C95D87D2CBE864 *, _QWORD))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 40LL))(
-              &a2->Token,
-              0LL);
+          }
+          if ( !DXGGLOBAL::m_pGlobal )
+          {
+            v51 = WdLogNewEntry5_WdAssertion(v48, v47);
+            *(_QWORD *)(v51 + 24) = 2238LL;
+            WdLogEvent5_WdAssertion(v51);
+          }
+          v52 = (struct _KPROCESS *)(*(__int64 (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 272LL))();
+          v55 = v52;
+          if ( v52 )
+          {
+            memset(&ApcState, 0, sizeof(ApcState));
+            KeStackAttachProcess(v52, &ApcState);
+            v7 = ObOpenObjectByPointer(v8, 0x40u, 0LL, 3u, g_pDxgkCompositionObjectType, 0, &Handle);
+            KeUnstackDetachProcess(&ApcState);
             if ( !DXGGLOBAL::m_pGlobal )
             {
-              WdLogSingleEntry1(1LL, 2373LL);
-              if ( bTracingEnabled )
-              {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                  McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                    v62,
-                    v61,
-                    v63,
-                    0,
-                    2,
-                    -1,
-                    (__int64)L"m_pGlobal != NULL",
-                    2373LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-              }
+              v58 = WdLogNewEntry5_WdAssertion(v57, v56);
+              *(_QWORD *)(v58 + 24) = 2238LL;
+              WdLogEvent5_WdAssertion(v58);
             }
-            (*(void (__fastcall **)(struct _D3DKMT_PRESENTHISTORYTOKEN *, _QWORD *, _QWORD, _QWORD, _QWORD, UINT64, LONG, UINT, UINT))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 336LL))(
+            (*(void (__fastcall **)(struct _KPROCESS *))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 200LL))(v55);
+          }
+          else
+          {
+            v7 = -1073741823;
+          }
+          if ( v45 )
+          {
+            if ( !DXGGLOBAL::m_pGlobal )
+            {
+              v59 = WdLogNewEntry5_WdAssertion(v54, v53);
+              *(_QWORD *)(v59 + 24) = 2238LL;
+              WdLogEvent5_WdAssertion(v59);
+            }
+            (*(void (**)(void))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 184LL))();
+          }
+          if ( v7 >= 0 )
+          {
+            v22 = DXGGLOBAL::m_pGlobal == 0LL;
+            a2->Token.Flip.hCompSurf = (LONG64)Handle;
+            v60 = v8[3];
+            *((_QWORD *)&a2->Token.SurfaceComplete + 7) = v60;
+            if ( v22 )
+            {
+              v61 = WdLogNewEntry5_WdAssertion(v54, v53);
+              *(_QWORD *)(v61 + 24) = 2238LL;
+              WdLogEvent5_WdAssertion(v61);
+            }
+            (*(void (__fastcall **)(struct _D3DKMT_PRESENTHISTORYTOKEN *, _QWORD *, _QWORD, _QWORD, __int64, UINT64, LONG, UINT, UINT))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 104LL))(
               a2,
-              v7,
+              v8,
               a2->Token.Flip.SwapChainIndex,
               a2->Token.Flip.PresentCount,
-              *((_QWORD *)&a2->Token.SurfaceComplete + 7),
+              v60,
               a2->CompositionBindingId,
               a2->Token.Blt.DirtyRegions.Rects[0].bottom,
               a2->Token.Flip.DestWidth,
@@ -477,32 +392,36 @@ LABEL_29:
           }
         }
       }
-      else
-      {
-LABEL_94:
-        v7 = Object;
-      }
-      goto LABEL_47;
     }
   }
-  v13 = 0LL;
-  v6 = -1073741823;
+  ObfDereferenceObject(v8);
   if ( v9 )
+    (*v9)[1](v9);
+LABEL_94:
+  if ( v7 == -1071775730 )
   {
-    CCompositionSurface::UnlockAndRelease((CCompositionSurface *)v9);
-    goto LABEL_97;
+    v7 = NotifySurfaceOfSkippedToken(a2);
+    if ( v7 >= 0 )
+      v7 = -1071775730;
   }
-LABEL_47:
-  ObfDereferenceObject(v7);
-  if ( v13 )
-    (*v13)[1](v13);
-LABEL_49:
-  if ( v6 == -1071775730 )
+  else if ( v7 >= 0 )
   {
-    v6 = NotifySurfaceOfSkippedToken(a2);
-    if ( v6 >= 0 )
-      v6 = -1071775730;
+    goto LABEL_102;
   }
+  CompositionSyncKey = a2->Token.Flip.CompositionSyncKey;
+  if ( CompositionSyncKey )
+  {
+    if ( !DXGGLOBAL::m_pGlobal )
+    {
+      v63 = WdLogNewEntry5_WdAssertion(v6, v5);
+      *(_QWORD *)(v63 + 24) = 2238LL;
+      WdLogEvent5_WdAssertion(v63);
+    }
+    (*(void (__fastcall **)(UINT64, __int64))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 32LL))(
+      CompositionSyncKey,
+      1LL);
+  }
+LABEL_102:
   KeLeaveCriticalRegion();
-  return (unsigned int)v6;
+  return (unsigned int)v7;
 }

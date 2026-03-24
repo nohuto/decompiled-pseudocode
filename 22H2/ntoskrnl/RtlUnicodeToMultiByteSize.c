@@ -1,12 +1,13 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x140758C80
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x1405EDC80
  * Callers:
- *     wcstombs @ 0x1403DB5A0 (wcstombs.c)
- *     RtlxUnicodeStringToOemSize @ 0x1407561F0 (RtlxUnicodeStringToOemSize.c)
+ *     wcstombs @ 0x1403D3B00 (wcstombs.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1406790A0 (RtlxUnicodeStringToOemSize.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075D380 (RtlxUnicodeStringToAnsiSize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
@@ -14,15 +15,12 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  ULONG v7; // edx
-  ULONG v8; // ebx
-  __int64 v9; // r8
-  __int16 v10; // r9
-  __int64 v12; // rax
-  signed __int32 v13[8]; // [rsp+0h] [rbp-38h] BYREF
+  ULONG v6; // edi
+  ULONG v7; // ebx
+  __int64 v9; // rcx
 
-  if ( RtlpIsUtf8Process() )
+  v6 = 0;
+  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
     if ( BytesInUnicodeString )
       RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
@@ -31,23 +29,20 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   }
   else
   {
-    _InterlockedOr(v13, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v8 = BytesInUnicodeString >> 1;
-    v9 = CurrentServerSiloGlobals[138];
-    if ( *((_WORD *)CurrentServerSiloGlobals + 538) == v10 )
+    v7 = BytesInUnicodeString >> 1;
+    if ( (_BYTE)NlsMbCodePageTag )
     {
-      v7 = v8;
+      for ( ; v7; --v7 )
+      {
+        v9 = *UnicodeString++;
+        v6 += (HIBYTE(*(_WORD *)(NlsUnicodeToMbAnsiData + 2 * v9)) != 0) + 1;
+      }
     }
     else
     {
-      for ( ; v8; --v8 )
-      {
-        v12 = *UnicodeString++;
-        v7 += (HIBYTE(*(_WORD *)(v9 + 2 * v12)) != 0) + 1;
-      }
+      v6 = v7;
     }
-    *BytesInMultiByteString = v7;
+    *BytesInMultiByteString = v6;
   }
   return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of DestroyClassSmIcon @ 0x1C00634EC
+ * XREFs of DestroyClassSmIcon @ 0x1C010E6D0
  * Callers:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     xxxRecreateSmallIcons @ 0x1C0158A28 (xxxRecreateSmallIcons.c)
- *     xxxSetClassIcon @ 0x1C0239060 (xxxSetClassIcon.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
+ *     xxxSetClassIcon @ 0x1C023DCF8 (xxxSetClassIcon.c)
+ *     xxxRecreateSmallIcons @ 0x1C024343C (xxxRecreateSmallIcons.c)
  * Callees:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
  */
 
 __int64 __fastcall DestroyClassSmIcon(__int64 **a1)

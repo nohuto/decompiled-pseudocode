@@ -1,37 +1,42 @@
 /*
- * XREFs of ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C00441D0
+ * XREFs of ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C00312D0
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     ?vCleanupDCs@@YAXK@Z @ 0x1C0035FD4 (-vCleanupDCs@@YAXK@Z.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C000BF70 (-vCleanupDCs@@YAXK@Z.c)
+ *     HmgNextOwned @ 0x1C001D6E0 (HmgNextOwned.c)
+ *     bDeleteBrush @ 0x1C001D7B0 (bDeleteBrush.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     HmgFree @ 0x1C007C860 (HmgFree.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
 struct OBJECT *__fastcall GdiHandleManager::GetEntryObject(GdiHandleManager *this, unsigned int a2)
 {
   unsigned int v3; // eax
-  __int64 v4; // r8
-  unsigned int v5; // r9d
-  __int64 v6; // r8
+  __int64 v4; // r9
+  __int64 v5; // r8
+  unsigned __int64 v6; // rdx
+  unsigned int v7; // r10d
+  __int64 v8; // rax
+  __int64 v9; // r9
 
   v3 = GdiHandleManager::DecodeIndex(this, a2);
   v4 = *((_QWORD *)this + 2);
-  v5 = *(_DWORD *)(v4 + 2056);
-  if ( v3 >= v5 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
-    return 0LL;
-  if ( v3 >= v5 )
+  v5 = 0LL;
+  v6 = v3;
+  v7 = *(_DWORD *)(v4 + 2056);
+  if ( v3 < v7 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
   {
-    v6 = *(_QWORD *)(v4 + 8LL * (((v3 - v5) >> 16) + 1) + 8);
-    v3 += -65536 * ((v3 - v5) >> 16) - v5;
+    v8 = ((v3 - v7) >> 16) + 1;
+    if ( (unsigned int)v6 < v7 )
+      v8 = 0LL;
+    v9 = *(_QWORD *)(v4 + 8 * v8 + 8);
+    if ( (_DWORD)v8 )
+      v6 = ((1 - (_DWORD)v8) << 16) - v7 + (unsigned int)v6;
+    if ( (unsigned int)v6 < *(_DWORD *)(v9 + 20) )
+      return *(struct OBJECT **)(*(_QWORD *)(**(_QWORD **)(v9 + 24) + 8 * (v6 >> 8)) + 16LL * (unsigned __int8)v6 + 8);
   }
-  else
-  {
-    v6 = *(_QWORD *)(v4 + 8);
-  }
-  if ( v3 >= *(_DWORD *)(v6 + 20) )
-    return 0LL;
-  else
-    return *(struct OBJECT **)(*(_QWORD *)(**(_QWORD **)(v6 + 24) + 8 * ((unsigned __int64)v3 >> 8))
-                             + 16LL * (unsigned __int8)v3
-                             + 8);
+  return (struct OBJECT *)v5;
 }

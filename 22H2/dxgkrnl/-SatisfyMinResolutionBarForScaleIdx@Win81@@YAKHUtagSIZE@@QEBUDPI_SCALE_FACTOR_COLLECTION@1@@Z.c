@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C0321618
+ * XREFs of ?SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C02B03EC
  * Callers:
- *     ?AdjustScaleFactorForOverride@Win81@@YAKKHUtagSIZE@@PEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C0320D08 (-AdjustScaleFactorForOverride@Win81@@YAKKHUtagSIZE@@PEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z.c)
- *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0321168 (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z @ 0x1C02AFBAC (-AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z.c)
+ *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFF8C (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0320C5C (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C02AFB90 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 __int64 __fastcall Win81::SatisfyMinResolutionBarForScaleIdx(
@@ -14,57 +14,47 @@ __int64 __fastcall Win81::SatisfyMinResolutionBarForScaleIdx(
         const struct Win81::DPI_SCALE_FACTOR_COLLECTION *const a4)
 {
   int v4; // eax
-  int v5; // r8d
-  _DWORD *v6; // r10
-  int v7; // ecx
-  bool v8; // cc
-  unsigned int v9; // r11d
-  __int64 v10; // r9
-  unsigned int v11; // ebx
-  unsigned int v12; // ecx
-  __int64 v13; // r9
-  struct tagSIZE v15; // [rsp+38h] [rbp+10h]
-  struct tagSIZE v16; // [rsp+40h] [rbp+18h] BYREF
+  _DWORD *v5; // r10
+  int v6; // r8d
+  unsigned int v7; // r11d
+  unsigned int v8; // ebx
+  __int64 i; // r9
+  unsigned int v10; // ecx
+  __int64 v11; // r9
+  struct tagSIZE v13; // [rsp+38h] [rbp+10h]
+  struct tagSIZE v14; // [rsp+40h] [rbp+18h] BYREF
 
-  v16 = a3;
+  v14 = a3;
   v4 = a2;
-  v5 = (int)this;
   if ( (int)a2 >= SHIDWORD(a2) )
     LODWORD(a2) = HIDWORD(a2);
   else
     v4 = HIDWORD(a2);
-  v6 = dword_1C009F8B0;
+  v5 = dword_1C007BF40;
   if ( (int)this >= 0 )
   {
-    v7 = 4;
-    v8 = v5 <= 4;
-    if ( v5 <= 4 )
+    v6 = 4;
+    if ( (int)this <= 4 )
+      v6 = (int)this;
+    if ( v6 > 0 )
     {
-      if ( v5 <= 0 )
-        return (unsigned int)v6[v5];
-      v8 = v5 <= 4;
+      v7 = 100 * v4;
+      v8 = 100 * a2;
+      for ( i = v6; i > 0; i = v11 - 1 )
+      {
+        v10 = v5[i];
+        v13.cx = v7 / v10;
+        v13.cy = v8 / v10;
+        v14 = v13;
+        if ( Win81::operator>=(&v14, dword_1C00728C0) )
+          break;
+        --v6;
+      }
     }
-    if ( v8 )
-      v7 = v5;
-    v9 = 100 * v4;
-    v10 = v7;
-    v11 = 100 * a2;
-    do
-    {
-      v12 = v6[v10];
-      v15.cx = v9 / v12;
-      v15.cy = v11 / v12;
-      v16 = v15;
-      if ( Win81::operator>=(&v16, dword_1C008DA08) )
-        break;
-      --v5;
-      v10 = v13 - 1;
-    }
-    while ( v10 > 0 );
   }
   else
   {
-    v5 = 0;
+    v6 = 0;
   }
-  return (unsigned int)v6[v5];
+  return (unsigned int)v5[v6];
 }

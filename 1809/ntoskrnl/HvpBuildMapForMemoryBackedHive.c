@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpBuildMapForMemoryBackedHive @ 0x14073CFFC
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x14073CFDC
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x14073CB2C (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
  * Callees:
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvpPointMapEntriesToBuffer @ 0x1405A3F90 (HvpPointMapEntriesToBuffer.c)
  *     HvpInitMap @ 0x1405A5BE0 (HvpInitMap.c)
  *     CmpClaimGlobalQuota @ 0x1405A7334 (CmpClaimGlobalQuota.c)

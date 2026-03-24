@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PowerWakingPostHardwareEnabledFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0087960
+ * XREFs of ?PowerWakingPostHardwareEnabledFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C001C610
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C000D528 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
- *     WPP_IFR_SF_qqLd @ 0x1C0077C28 (WPP_IFR_SF_qqLd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C00109A4 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
+ *     WPP_IFR_SF_qqLd @ 0x1C006A7CC (WPP_IFR_SF_qqLd.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerWakingPostHardwareEnabledFailed(FxPkgPnp *This)
@@ -14,7 +14,7 @@ __int64 __fastcall FxPkgPnp::PowerWakingPostHardwareEnabledFailed(FxPkgPnp *This
   __int64 v3; // rdx
   const void *_a2; // rax
   __int64 v5; // rdx
-  int v6; // r8d
+  int globals; // r8d
 
   ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
   *(_QWORD *)(v3 + 24) = ObjectHandleUnchecked;
@@ -31,7 +31,7 @@ __int64 __fastcall FxPkgPnp::PowerWakingPostHardwareEnabledFailed(FxPkgPnp *This
       _a2,
       *(const void **)(v5 + 144),
       5u,
-      v6);
+      globals);
   }
   return 827LL;
 }

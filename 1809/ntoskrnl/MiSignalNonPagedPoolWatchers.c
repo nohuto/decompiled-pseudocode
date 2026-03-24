@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSignalNonPagedPoolWatchers @ 0x14017F900
+ * XREFs of MiSignalNonPagedPoolWatchers @ 0x14017F920
  * Callers:
- *     MiInitializeNonPagedPoolThresholds @ 0x14017F898 (MiInitializeNonPagedPoolThresholds.c)
- *     MiCountSystemPool @ 0x1401B4E00 (MiCountSystemPool.c)
- *     MiInitializeMemoryEvents @ 0x14072B9BC (MiInitializeMemoryEvents.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x14017F8B8 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
+ *     MiInitializeMemoryEvents @ 0x14072B99C (MiInitializeMemoryEvents.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiSignalNonPagedPoolWatchers()

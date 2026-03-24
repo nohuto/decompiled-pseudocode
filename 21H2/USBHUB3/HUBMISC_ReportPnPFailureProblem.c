@@ -1,144 +1,139 @@
 /*
- * XREFs of HUBMISC_ReportPnPFailureProblem @ 0x1C007E198
+ * XREFs of HUBMISC_ReportPnPFailureProblem @ 0x1C007CBB8
  * Callers:
- *     HUBHSM_ReportingErrorToPnp @ 0x1C0008990 (HUBHSM_ReportingErrorToPnp.c)
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBHSM_ReportingErrorToPnp @ 0x1C0008680 (HUBHSM_ReportingErrorToPnp.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlStringCbPrintfW @ 0x1C0012E78 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0012978 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBMISC_ReportPnPFailureProblem(__int64 a1, ULONG a2)
 {
   wchar_t *Data; // rbp
   NTSTATUS Message; // ebx
-  unsigned __int64 v6; // rdi
-  BYTE *Text; // rax
-  unsigned __int64 v8; // rdi
-  unsigned __int64 i; // rcx
-  unsigned __int64 v10; // rdi
-  size_t v11; // rdi
-  wchar_t *Pool2; // rax
-  unsigned __int64 v13; // rdi
-  unsigned __int64 v14; // rcx
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rax
+  BYTE *Text; // r8
+  unsigned __int64 i; // rdx
+  __int64 v11; // rax
+  unsigned __int16 v12; // r9
+  SIZE_T v13; // rdi
+  wchar_t *PoolWithTag; // rax
+  unsigned __int64 v15; // rdi
+  int v16; // eax
+  unsigned __int64 v17; // rcx
   wchar_t *j; // rax
-  int v16; // edi
-  struct _DEVICE_OBJECT *v17; // rax
-  NTSTATUS v18; // ebx
-  __int64 v19; // rax
-  __int64 v20; // rax
+  int v19; // edi
+  struct _DEVICE_OBJECT *v20; // rax
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+20h] [rbp-98h]
   ULONG Size[2]; // [rsp+28h] [rbp-90h]
-  ULONG Sizea[2]; // [rsp+28h] [rbp-90h]
-  PMESSAGE_RESOURCE_ENTRY v24; // [rsp+40h] [rbp-78h] BYREF
-  _OWORD v25[3]; // [rsp+48h] [rbp-70h] BYREF
-  __int64 v26; // [rsp+78h] [rbp-40h]
-  int v27; // [rsp+80h] [rbp-38h]
+  PMESSAGE_RESOURCE_ENTRY v23; // [rsp+40h] [rbp-78h] BYREF
+  _OWORD v24[3]; // [rsp+48h] [rbp-70h] BYREF
+  __int64 v25; // [rsp+78h] [rbp-40h]
+  int v26; // [rsp+80h] [rbp-38h]
 
-  v24 = 0LL;
+  v23 = 0LL;
   Data = 0LL;
   Message = -1073741595;
-  v25[0] = *(_OWORD *)L"@System32\\drivers\\usbhub3.sys";
-  v25[1] = *(_OWORD *)L"2\\drivers\\usbhub3.sys";
-  v26 = *(_QWORD *)L"3.sys";
-  v25[2] = *(_OWORD *)L"s\\usbhub3.sys";
-  v27 = *(_DWORD *)L"s";
+  v24[0] = *(_OWORD *)L"@System32\\drivers\\usbhub3.sys";
+  v24[1] = *(_OWORD *)L"2\\drivers\\usbhub3.sys";
+  v25 = *(_QWORD *)L"3.sys";
+  v24[2] = *(_OWORD *)L"s\\usbhub3.sys";
+  v26 = *(_DWORD *)L"s";
   if ( !a2 )
-    goto LABEL_27;
-  Message = RtlFindMessage(*(PVOID *)(g_Usbhub3DriverObject + 24), 0xBu, 0, a2, &v24);
+    goto LABEL_14;
+  Message = RtlFindMessage(*(PVOID *)(g_Usbhub3DriverObject + 24), 0xBu, 0, a2, &v23);
   if ( Message < 0 )
-    goto LABEL_27;
-  v6 = v24->Length - 4LL;
+    goto LABEL_14;
+  v6 = v23->Length - 4LL;
   if ( v6 > 0xFFFFFFFE )
-    goto LABEL_27;
-  Text = v24->Text;
-  v8 = v6 >> 1;
-  if ( v24 == (PMESSAGE_RESOURCE_ENTRY)-4LL || v8 > 0x7FFFFFFF )
-    goto LABEL_26;
-  for ( i = v8; i; --i )
+    goto LABEL_14;
+  v7 = v6 >> 1;
+  v8 = 0LL;
+  Text = v23->Text;
+  if ( v23 == (PMESSAGE_RESOURCE_ENTRY)-4LL || v7 > 0x7FFFFFFF )
   {
-    if ( !*(_WORD *)Text )
-      break;
-    Text += 2;
-  }
-  Message = i == 0 ? 0xC000000D : 0;
-  if ( i )
-    v10 = v8 - i;
-  else
-    v10 = 0LL;
-  if ( !i )
-    goto LABEL_27;
-  v11 = 2 * v10 + 88;
-  Pool2 = (wchar_t *)ExAllocatePool2(64LL, v11, 1748191317LL);
-  Data = Pool2;
-  if ( !Pool2 )
-    goto LABEL_27;
-  LODWORD(MessageResourceEntry) = a2;
-  Message = RtlStringCbPrintfW(Pool2, v11, L"%s,#%d;%s", v25, MessageResourceEntry, v24->Text);
-  if ( Message < 0 )
-    goto LABEL_27;
-  v13 = v11 >> 1;
-  if ( v13 > 0x7FFFFFFF )
-  {
-LABEL_26:
     Message = -1073741811;
-    goto LABEL_27;
   }
-  v14 = v13;
-  for ( j = Data; v14; --v14 )
-  {
-    if ( !*j )
-      break;
-    ++j;
-  }
-  Message = v14 == 0 ? 0xC000000D : 0;
-  if ( v14 )
-    v16 = v13 - v14;
   else
-    v16 = 0;
-  if ( v14 )
   {
-    v17 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 264))(
+    for ( i = v7; i; --i )
+    {
+      if ( !*(_WORD *)Text )
+        break;
+      Text += 2;
+    }
+    Message = i == 0 ? 0xC000000D : 0;
+    v8 = i ? v7 - i : 0LL;
+  }
+  if ( Message < 0 )
+    goto LABEL_14;
+  v13 = 2 * v8 + 88;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v13, 0x68334855u);
+  Data = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_14;
+  LODWORD(MessageResourceEntry) = a2;
+  Message = RtlStringCbPrintfW(PoolWithTag, v13, L"%s,#%d;%s", v24, MessageResourceEntry, v23->Text);
+  if ( Message < 0 )
+    goto LABEL_14;
+  v15 = v13 >> 1;
+  v16 = 0;
+  if ( v15 > 0x7FFFFFFF )
+  {
+    Message = -1073741811;
+  }
+  else
+  {
+    v17 = v15;
+    for ( j = Data; v17; --v17 )
+    {
+      if ( !*j )
+        break;
+      ++j;
+    }
+    Message = v17 == 0 ? 0xC000000D : 0;
+    v16 = v17 ? v15 - v17 : 0;
+  }
+  v19 = 2 * v16;
+  if ( Message >= 0 )
+  {
+    v20 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 264))(
                                      WdfDriverGlobals,
                                      a1);
-    v18 = IoSetDevicePropertyData(v17, &DEVPKEY_Device_DriverProblemDesc, 0, 0, 0x19u, 2 * v16 + 2, Data);
-    if ( v18 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
-              WdfDriverGlobals,
-              WdfDriverGlobals->Driver,
-              off_1C00671E8);
-      Sizea[0] = v18;
-      WPP_RECORDER_SF_d(
-        *(_QWORD *)(v19 + 64),
-        2u,
-        5u,
-        0x79u,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
-        *(_QWORD *)Sizea);
-    }
-LABEL_30:
-    ExFreePoolWithTag(Data, 0x68334855u);
-    return;
-  }
-LABEL_27:
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
+    Message = IoSetDevicePropertyData(v20, &DEVPKEY_Device_DriverProblemDesc, 0, 0, 0x19u, v19 + 2, Data);
+    if ( Message >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_17;
+    v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
             WdfDriverGlobals,
             WdfDriverGlobals->Driver,
-            off_1C00671E8);
-    Size[0] = Message;
-    WPP_RECORDER_SF_d(
-      *(_QWORD *)(v20 + 64),
-      2u,
-      5u,
-      0x7Au,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
-      *(_QWORD *)Size);
+            off_1C00661C0);
+    v12 = 120;
   }
+  else
+  {
+LABEL_14:
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_17;
+    v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
+            WdfDriverGlobals,
+            WdfDriverGlobals->Driver,
+            off_1C00661C0);
+    v12 = 121;
+  }
+  Size[0] = Message;
+  WPP_RECORDER_SF_d(
+    *(_QWORD *)(v11 + 64),
+    2u,
+    5u,
+    v12,
+    (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
+    *(_QWORD *)Size);
+LABEL_17:
   if ( Data )
-    goto LABEL_30;
+    ExFreePoolWithTag(Data, 0x68334855u);
 }

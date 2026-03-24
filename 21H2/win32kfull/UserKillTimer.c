@@ -1,10 +1,10 @@
 /*
- * XREFs of UserKillTimer @ 0x1C0243A90
+ * XREFs of UserKillTimer @ 0x1C0248204
  * Callers:
- *     ?vDisableTimers@@YAXK@Z @ 0x1C0113640 (-vDisableTimers@@YAXK@Z.c)
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C0127FB0 (-vDisableTimers@@YAXK@Z.c)
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00791A0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004F094 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
  */
 
 __int64 __fastcall UserKillTimer(__int64 a1)

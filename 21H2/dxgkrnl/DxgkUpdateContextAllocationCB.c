@@ -1,28 +1,29 @@
 /*
- * XREFs of DxgkUpdateContextAllocationCB @ 0x1C02E2DA0
+ * XREFs of DxgkUpdateContextAllocationCB @ 0x1C02518D0
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0015214 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00067D8 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkUpdateContextAllocationCB(__int64 a1, __int64 a2)
 {
+  __int64 v4; // rdx
   __int64 DxgAdapter; // rax
-  unsigned int v5; // ebx
-  _BYTE v7[8]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned int v6; // ebx
+  _BYTE v8[8]; // [rsp+20h] [rbp-48h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-40h] BYREF
 
-  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v7);
-  DxgAdapter = DpiGetDxgAdapter(a1);
-  v5 = (*(__int64 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(DxgAdapter + 2800) + 648LL) + 8LL)
-                                                  + 856LL))(
-         *(_QWORD *)(*(_QWORD *)(DxgAdapter + 2800) + 656LL),
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v8);
+  DxgAdapter = DpiGetDxgAdapter(a1, v4);
+  v6 = (*(__int64 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(DxgAdapter + 2704) + 640LL) + 8LL)
+                                                  + 848LL))(
+         *(_QWORD *)(*(_QWORD *)(DxgAdapter + 2704) + 648LL),
          a2);
-  if ( v7[0] )
+  if ( v8[0] )
     KeUnstackDetachProcess(&ApcState);
-  return v5;
+  return v6;
 }

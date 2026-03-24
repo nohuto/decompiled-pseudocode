@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDeadlockPreprocessOptions @ 0x140ADA830
+ * XREFs of ViDeadlockPreprocessOptions @ 0x1409DF828
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD7DAC (VfDeadlockAcquireResource.c)
- *     VfDeadlockReleaseResource @ 0x140AD8ECC (VfDeadlockReleaseResource.c)
- *     ViDeadlockAddResource @ 0x140AD93DC (ViDeadlockAddResource.c)
- *     ViDeadlockAnalyze @ 0x140AD9740 (ViDeadlockAnalyze.c)
- *     ViDeadlockRemoveResource @ 0x140ADAA68 (ViDeadlockRemoveResource.c)
- *     ViDeadlockRemoveThread @ 0x140ADAC20 (ViDeadlockRemoveThread.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE348 (VfDeadlockReleaseResource.c)
+ *     ViDeadlockAddResource @ 0x1409DE848 (ViDeadlockAddResource.c)
+ *     ViDeadlockAnalyze @ 0x1409DEBA4 (ViDeadlockAnalyze.c)
+ *     ViDeadlockRemoveResource @ 0x1409DFA5C (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x1409DFBF8 (ViDeadlockRemoveThread.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
  */
 
 __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, ...)
@@ -22,28 +22,27 @@ __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __in
   {
     v9 = a3 & 0xFFF;
     if ( v9 >= 0xC )
-    {
-      *a1 = 4;
-      goto LABEL_7;
-    }
-    result = *(unsigned int *)&ViDeadlockDefaultActions[2 * v9];
+      result = 4LL;
+    else
+      result = *(unsigned int *)&ViDeadlockDefaultActions[2 * v9];
     *a1 = result;
   }
-  if ( !(_DWORD)result )
-    return result;
-  if ( (result & 0x10) != 0 )
-    *a1 = 0;
-LABEL_7:
-  ViDeadlockIssue = a3;
-  qword_140C36A28 = a4;
-  qword_140C36A30 = a5;
-  qword_140C36A38 = a6;
-  VfUtilDbgPrint("************ Verifier Detected a Potential Deadlock *************\n");
-  VfUtilDbgPrint("**\n");
-  VfUtilDbgPrint("** ");
-  if ( a2 )
-    DbgPrintEx(0x65u, 0, a2, a4, a5, a6);
-  VfUtilDbgPrint("\n");
-  VfUtilDbgPrint("**\n");
-  return VfUtilDbgPrint("*****************************************************************\n");
+  if ( (_DWORD)result )
+  {
+    if ( (result & 0x10) != 0 )
+      *a1 = 0;
+    ViDeadlockIssue = a3;
+    qword_140C1CA08 = a4;
+    qword_140C1CA10 = a5;
+    qword_140C1CA18 = a6;
+    VfUtilDbgPrint("************ Verifier Detected a Potential Deadlock *************\n");
+    VfUtilDbgPrint("**\n");
+    VfUtilDbgPrint("** ");
+    if ( a2 )
+      DbgPrintEx(0x65u, 0, a2, a4, a5, a6);
+    VfUtilDbgPrint("\n");
+    VfUtilDbgPrint("**\n");
+    return VfUtilDbgPrint("*****************************************************************\n");
+  }
+  return result;
 }

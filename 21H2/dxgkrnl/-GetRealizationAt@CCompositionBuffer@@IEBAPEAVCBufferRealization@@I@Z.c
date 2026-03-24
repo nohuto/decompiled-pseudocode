@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRealizationAt@CCompositionBuffer@@IEBAPEAVCBufferRealization@@I@Z @ 0x1C0005680
+ * XREFs of ?GetRealizationAt@CCompositionBuffer@@IEBAPEAVCBufferRealization@@I@Z @ 0x1C0010064
  * Callers:
- *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C000564C (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C0010030 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ struct CBufferRealization *__fastcall CCompositionBuffer::GetRealizationAt(CComp
   _QWORD *v5; // rax
 
   v2 = 0LL;
-  v3 = (_QWORD **)((char *)this + 256);
+  v3 = (_QWORD **)((char *)this + 224);
   v4 = 0;
   v5 = *v3;
   while ( v5 != v3 )

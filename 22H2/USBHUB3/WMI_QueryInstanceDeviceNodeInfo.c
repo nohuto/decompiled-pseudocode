@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_QueryInstanceDeviceNodeInfo @ 0x1C003F5E0
+ * XREFs of WMI_QueryInstanceDeviceNodeInfo @ 0x1C003D300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     memset @ 0x1C0044EC0 (memset.c)
- *     WMI_GetPropertyString @ 0x1C008AD38 (WMI_GetPropertyString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     WMI_GetPropertyString @ 0x1C00847C0 (WMI_GetPropertyString.c)
  */
 
 __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int *a4)
@@ -16,14 +16,14 @@ __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, 
   __int64 v9; // rax
   __int64 v10; // rsi
   KIRQL v11; // r13
-  __int64 v12; // r8
-  __int64 v13; // rdx
-  unsigned int v14; // eax
+  __int64 v12; // r9
+  __int64 v13; // r8
+  unsigned int v14; // edx
   _QWORD *v15; // rcx
   __int64 v16; // r9
   __int64 *v17; // r10
   __int64 v18; // r11
-  _DWORD *v19; // r8
+  _DWORD *v19; // rdx
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int64 v22; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, 
   v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           v9,
-          off_1C00690F8);
+          off_1C00660D0);
   v10 = *(_QWORD *)(v32 + 24);
   if ( !v10 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAuditingHardLinkEventsWithContext @ 0x1406EAAB0
+ * XREFs of SeAuditingHardLinkEventsWithContext @ 0x1406B1E40
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
  */
 
 BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(
@@ -12,30 +12,28 @@ BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(
         PSECURITY_SUBJECT_CONTEXT SubjectSecurityContext)
 {
   __int16 v3; // ax
-  PSECURITY_SUBJECT_CONTEXT v4; // r9
-  __int64 v6; // rax
-  char *v7; // rax
+  __int64 v4; // rax
+  char *v5; // rax
 
   v3 = *((_WORD *)SecurityDescriptor + 1);
-  v4 = SubjectSecurityContext;
   if ( (v3 & 0x10) == 0 )
     return 0;
   if ( v3 >= 0 )
   {
-    v7 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+    v5 = (char *)*((_QWORD *)SecurityDescriptor + 3);
   }
   else
   {
-    v6 = *((unsigned int *)SecurityDescriptor + 3);
-    if ( !(_DWORD)v6 )
+    v4 = *((unsigned int *)SecurityDescriptor + 3);
+    if ( !(_DWORD)v4 )
       return 0;
-    v7 = (char *)SecurityDescriptor + v6;
+    v5 = (char *)SecurityDescriptor + v4;
   }
-  if ( !v7 )
-    return 0;
-  if ( !*((_WORD *)v7 + 2) )
-    return 0;
-  LOBYTE(SecurityDescriptor) = AccessGranted;
-  LOBYTE(SubjectSecurityContext) = AccessGranted == 0;
-  return (unsigned __int8)SepAdtAuditThisEventWithContext(116LL, SecurityDescriptor, SubjectSecurityContext, v4) != 0;
+  return v5
+      && *((_WORD *)v5 + 2)
+      && (unsigned __int8)SepAdtAuditThisEventWithContext(
+                            117LL,
+                            AccessGranted,
+                            AccessGranted == 0,
+                            SubjectSecurityContext);
 }

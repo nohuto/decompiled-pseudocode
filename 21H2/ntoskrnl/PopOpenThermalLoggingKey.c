@@ -1,13 +1,13 @@
 /*
- * XREFs of PopOpenThermalLoggingKey @ 0x1403DBE38
+ * XREFs of PopOpenThermalLoggingKey @ 0x1403CC95C
  * Callers:
- *     PopThermalWriteShutdownToRegistry @ 0x1405D0870 (PopThermalWriteShutdownToRegistry.c)
- *     PopThermalHandlePreviousShutdown @ 0x1408604BC (PopThermalHandlePreviousShutdown.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x14056F9D8 (PopThermalWriteShutdownToRegistry.c)
+ *     PopThermalHandlePreviousShutdown @ 0x1407D0A40 (PopThermalHandlePreviousShutdown.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 __fastcall PopOpenThermalLoggingKey(char a1, HANDLE *a2)
@@ -20,9 +20,9 @@ __int64 __fastcall PopOpenThermalLoggingKey(char a1, HANDLE *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   WCHAR SourceString[264]; // [rsp+90h] [rbp-70h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   if ( a1 )
   {

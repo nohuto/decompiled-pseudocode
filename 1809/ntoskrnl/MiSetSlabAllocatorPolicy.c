@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetSlabAllocatorPolicy @ 0x14017EE8C
+ * XREFs of MiSetSlabAllocatorPolicy @ 0x14017EEAC
  * Callers:
- *     MiPartitionActive @ 0x14013DAD8 (MiPartitionActive.c)
+ *     MiPartitionActive @ 0x14013DAF8 (MiPartitionActive.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiSetSlabAllocatorPolicy(__int64 a1)

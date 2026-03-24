@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaReadErrorPresence @ 0x1403AACB4
+ * XREFs of HalpMcaReadErrorPresence @ 0x1403A0D98
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403AAA5C (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x140507820 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A61564 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x1404BADC4 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpWheaReadMsrStatus @ 0x1403AAD30 (HalpWheaReadMsrStatus.c)
+ *     HalpWheaReadMsrStatus @ 0x1403A0E1C (HalpWheaReadMsrStatus.c)
  */
 
 __int64 __fastcall HalpMcaReadErrorPresence(__int64 a1, __int64 a2)

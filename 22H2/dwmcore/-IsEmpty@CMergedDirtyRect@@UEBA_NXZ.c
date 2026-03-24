@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsEmpty@CMergedDirtyRect@@UEBA_NXZ @ 0x1800EA6D0
+ * XREFs of ?IsEmpty@CMergedDirtyRect@@UEBA_NXZ @ 0x1800C9D50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
  */
 
 bool __fastcall CMergedDirtyRect::IsEmpty(CMergedDirtyRect *this)

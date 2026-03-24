@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportUnregisterPowerSettingCallback @ 0x1409A0CD4
+ * XREFs of SSHSupportUnregisterPowerSettingCallback @ 0x1408FBAD4
  * Callers:
- *     SshInitialize @ 0x140B03360 (SshInitialize.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  * Callees:
- *     PoUnregisterPowerSettingCallback @ 0x1407FC690 (PoUnregisterPowerSettingCallback.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140772680 (PoUnregisterPowerSettingCallback.c)
  */
 
 NTSTATUS SSHSupportUnregisterPowerSettingCallback()

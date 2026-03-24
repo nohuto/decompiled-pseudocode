@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhWmiInsufficentPower @ 0x1C0049AC0
+ * XREFs of UsbhWmiInsufficentPower @ 0x1C004AE90
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall UsbhWmiInsufficentPower(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4, __int64 a5)

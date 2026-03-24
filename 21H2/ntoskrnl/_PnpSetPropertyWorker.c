@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpSetPropertyWorker @ 0x140772790
+ * XREFs of _PnpSetPropertyWorker @ 0x1407467E0
  * Callers:
- *     _PnpSetGenericStoreProperty @ 0x140771FFC (_PnpSetGenericStoreProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x140746798 (_PnpSetGenericStoreProperty.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall PnpSetPropertyWorker(
@@ -20,11 +20,11 @@ __int64 __fastcall PnpSetPropertyWorker(
         const wchar_t *a3,
         __int64 a4,
         int a5,
-        void *a6,
+        __int64 a6,
         ULONG a7)
 {
   __int16 v7; // r11
-  NTSTATUS v11; // ebx
+  int v11; // ebx
   int Key; // eax
   int v13; // eax
   int v14; // eax
@@ -32,14 +32,14 @@ __int64 __fastcall PnpSetPropertyWorker(
   __int64 v17; // r8
   __int64 v18; // rax
   __int64 v19; // r8
-  ULONG dwFlags; // [rsp+20h] [rbp-F0h]
+  NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-E8h]
   HANDLE v21; // [rsp+90h] [rbp-80h] BYREF
-  HANDLE v22; // [rsp+98h] [rbp-78h]
+  HANDLE v22; // [rsp+98h] [rbp-78h] BYREF
   int v23; // [rsp+A0h] [rbp-70h] BYREF
   int v24; // [rsp+A4h] [rbp-6Ch] BYREF
   HANDLE Handle; // [rsp+A8h] [rbp-68h] BYREF
   __int64 v26; // [rsp+B0h] [rbp-60h]
-  void *v27; // [rsp+B8h] [rbp-58h]
+  __int64 v27; // [rsp+B8h] [rbp-58h]
   size_t pcchLength; // [rsp+C0h] [rbp-50h] BYREF
   wchar_t Dst[12]; // [rsp+C8h] [rbp-48h] BYREF
   wchar_t pszDest[40]; // [rsp+E0h] [rbp-30h] BYREF
@@ -62,34 +62,16 @@ __int64 __fastcall PnpSetPropertyWorker(
   }
   if ( a5 == 25 && a3 && *a3 != v7 )
     return (unsigned int)-1073741811;
-  if ( RtlStringCchPrintfExW(
-         pszDest,
-         0x27uLL,
-         0LL,
-         0LL,
-         0x800u,
-         L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-         *(_DWORD *)a4,
-         *(unsigned __int16 *)(a4 + 4),
-         *(unsigned __int16 *)(a4 + 6),
-         *(unsigned __int8 *)(a4 + 8),
-         *(unsigned __int8 *)(a4 + 9),
-         *(unsigned __int8 *)(a4 + 10),
-         *(unsigned __int8 *)(a4 + 11),
-         *(unsigned __int8 *)(a4 + 12),
-         *(unsigned __int8 *)(a4 + 13),
-         *(unsigned __int8 *)(a4 + 14),
-         *(unsigned __int8 *)(a4 + 15)) < 0 )
+  if ( RtlStringCchPrintfExW(pszDest, 0x27uLL, 0LL, 0LL, 0x800u, L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}") < 0 )
     goto LABEL_26;
   swprintf_s(Dst, 9uLL, L"%04lX", *(unsigned int *)(a4 + 16));
-  LOBYTE(dwFlags) = 1;
-  v11 = PnpOpenPropertiesKey(a1, v26, 0LL, 4LL, dwFlags);
+  v11 = PnpOpenPropertiesKey(a1, v26, 0LL, 4u, 1, (__int64)pszFormat, &v22);
   if ( v11 < 0 )
   {
     v22 = 0LL;
     goto LABEL_13;
   }
-  Key = PnpCtxRegCreateKey(a1, (_DWORD)v22, (unsigned int)pszDest, 0, 4, 0LL, (__int64)&v21, (__int64)&v24);
+  Key = PnpCtxRegCreateKey(a1, (__int64)v22, (__int64)pszDest, 0, 4u, 0LL, (__int64)&v21, (__int64)&v24);
   if ( Key == -1073741444 )
     goto LABEL_26;
   if ( Key < 0 )
@@ -98,7 +80,7 @@ __int64 __fastcall PnpSetPropertyWorker(
     v11 = Key;
     goto LABEL_13;
   }
-  v13 = PnpCtxRegCreateKey(a1, (_DWORD)v21, (unsigned int)Dst, 0, 65542, 0LL, (__int64)&Handle, (__int64)&v23);
+  v13 = PnpCtxRegCreateKey(a1, (__int64)v21, (__int64)Dst, 0, 0x10006u, 0LL, (__int64)&Handle, (__int64)&v23);
   if ( v13 == -1073741444 )
   {
 LABEL_26:
@@ -113,14 +95,14 @@ LABEL_13:
           v17 = *(_QWORD *)(v16 + 8);
         else
           v17 = 0LL;
-        RegRtlDeleteTreeInternal((__int64)v21, (__int64)Dst, v17, 0);
+        RegRtlDeleteTreeInternal(v21, Dst, v17, 0LL);
       }
     }
     goto LABEL_15;
   }
   if ( v13 >= 0 )
   {
-    v14 = RegRtlSetValue(Handle, a3, a5 | 0xFFFF0000, v27, a7);
+    v14 = RegRtlSetValue(Handle, a7);
     if ( v14 != -1073741444 )
     {
       if ( v14 < 0 )
@@ -141,7 +123,7 @@ LABEL_15:
         v19 = *(_QWORD *)(v18 + 8);
       else
         v19 = 0LL;
-      RegRtlDeleteTreeInternal((__int64)v22, (__int64)pszDest, v19, 0);
+      RegRtlDeleteTreeInternal(v22, pszDest, v19, 0LL);
     }
   }
   if ( v22 )

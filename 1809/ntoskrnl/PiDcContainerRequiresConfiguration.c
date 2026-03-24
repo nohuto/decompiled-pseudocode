@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDcContainerRequiresConfiguration @ 0x1406EB3A4
+ * XREFs of PiDcContainerRequiresConfiguration @ 0x1406EB384
  * Callers:
  *     PiDcHandleCustomDeviceEvent @ 0x14058FC40 (PiDcHandleCustomDeviceEvent.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x1406EB1FC (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcHandleDeviceEvent @ 0x1406EBEC0 (PiDcHandleDeviceEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x1406EC090 (PiDcHandleInterfaceEvent.c)
- *     PiDcHandleSystemFirmwareUpdate @ 0x140829A3C (PiDcHandleSystemFirmwareUpdate.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x1406EB1DC (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcHandleDeviceEvent @ 0x1406EBEA0 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x1406EC070 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x140829A1C (PiDcHandleSystemFirmwareUpdate.c)
  * Callees:
- *     wcscmp @ 0x1401976E0 (wcscmp.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     wcscmp @ 0x140197700 (wcscmp.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpWriteExtendedContext @ 0x1406A8568
+ * XREFs of RtlpWriteExtendedContext @ 0x1406A8548
  * Callers:
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x1406A82D8 (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
  * Callees:
  *     RtlpGetLegacyContextLength @ 0x1400A1EDC (RtlpGetLegacyContextLength.c)
  *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQuitNextJobProcess @ 0x14088A01C
+ * XREFs of PspQuitNextJobProcess @ 0x140889FFC
  * Callers:
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
  * Callees:

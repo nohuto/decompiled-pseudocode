@@ -1,17 +1,18 @@
 /*
- * XREFs of ??0PROXYPORT@@QEAA@_K@Z @ 0x1C02BF3B4
+ * XREFs of ??0PROXYPORT@@QEAA@_K@Z @ 0x1C011F3C0
  * Callers:
- *     ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C02998F4 (-bInit@UMPDOBJ@@QEAAHXZ.c)
+ *     ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C001F170 (-bInit@UMPDOBJ@@QEAAHXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAK@Z @ 0x1C0140350 (-SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAU_REMOTE_PORT_VIEW@@PEAK46@Z @ 0x1C011F7B0 (-SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 PROXYPORT *__fastcall PROXYPORT::PROXYPORT(PROXYPORT *this)
 {
   int v2; // r15d
-  __int64 v3; // rax
+  _DWORD *v3; // rax
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // r8
@@ -21,30 +22,32 @@ PROXYPORT *__fastcall PROXYPORT::PROXYPORT(PROXYPORT *this)
   NTSTATUS v10; // esi
   int v11; // eax
   int v12; // edi
-  void *v13; // rcx
+  void **v13; // rcx
   PULONG ReturnLength; // [rsp+20h] [rbp-E0h]
   ULONG AllocationAttributes[2]; // [rsp+28h] [rbp-D8h]
-  HANDLE FileHandle; // [rsp+30h] [rbp-D0h]
-  unsigned __int8 EffectiveOnly; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 CopyOnOpen[3]; // [rsp+41h] [rbp-BFh] BYREF
-  PVOID TokenInformation; // [rsp+44h] [rbp-BCh] BYREF
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+4Ch] [rbp-B4h] BYREF
-  unsigned int v22; // [rsp+50h] [rbp-B0h] BYREF
-  struct _LUID AuthenticationId; // [rsp+58h] [rbp-A8h] BYREF
-  PVOID P; // [rsp+60h] [rbp-A0h] BYREF
-  struct _PORT_VIEW SectionHandle; // [rsp+68h] [rbp-98h] BYREF
-  union _LARGE_INTEGER MaximumSize; // [rsp+98h] [rbp-68h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-50h] BYREF
-  struct _SECURITY_QUALITY_OF_SERVICE v29; // [rsp+E0h] [rbp-20h] BYREF
-  wchar_t Dst[264]; // [rsp+F0h] [rbp-10h] BYREF
+  struct _REMOTE_PORT_VIEW *FileHandle; // [rsp+30h] [rbp-D0h]
+  void *v18; // [rsp+40h] [rbp-C0h]
+  unsigned int *v19; // [rsp+48h] [rbp-B8h]
+  unsigned __int8 EffectiveOnly; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int8 CopyOnOpen[3]; // [rsp+51h] [rbp-AFh] BYREF
+  PVOID TokenInformation; // [rsp+54h] [rbp-ACh] BYREF
+  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned int v24; // [rsp+60h] [rbp-A0h] BYREF
+  struct _LUID AuthenticationId; // [rsp+68h] [rbp-98h] BYREF
+  PVOID P; // [rsp+70h] [rbp-90h] BYREF
+  struct _PORT_VIEW SectionHandle; // [rsp+78h] [rbp-88h] BYREF
+  union _LARGE_INTEGER MaximumSize; // [rsp+A8h] [rbp-58h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-40h] BYREF
+  struct _SECURITY_QUALITY_OF_SERVICE v31; // [rsp+F0h] [rbp-10h] BYREF
+  wchar_t Dst[264]; // [rsp+100h] [rbp+0h] BYREF
 
-  v22 = 0;
-  *(_WORD *)(&v29.EffectiveOnly + 1) = 0;
+  v24 = 0;
+  *(_WORD *)(&v31.EffectiveOnly + 1) = 0;
   HIDWORD(TokenInformation) = 0;
   memset(&SectionHandle, 0, sizeof(SectionHandle));
   DestinationString = 0LL;
-  memset_0(Dst, 0, 0x208uLL);
+  memset(Dst, 0, 0x208uLL);
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(_QWORD *)this = 0LL;
@@ -56,21 +59,20 @@ PROXYPORT *__fastcall PROXYPORT::PROXYPORT(PROXYPORT *this)
          0LL) >= 0 )
   {
     v2 = HIDWORD(TokenInformation);
-    v29.Length = 0;
-    v29.ImpersonationLevel = SecurityImpersonation;
-    *(_WORD *)&v29.ContextTrackingMode = 257;
-    v3 = Win32AllocPoolZInit(64LL, 1953525831LL);
+    v31.Length = 0;
+    v31.ImpersonationLevel = SecurityImpersonation;
+    *(_WORD *)&v31.ContextTrackingMode = 257;
+    v3 = PALLOCMEM2(0x38uLL, 1953525831LL, 1);
     *(_QWORD *)this = v3;
     if ( v3 )
     {
-      *(_DWORD *)(v3 + 60) = 0;
+      v3[13] = 0;
       *(_QWORD *)(*(_QWORD *)this + 16LL) = 0LL;
       *(_QWORD *)(*(_QWORD *)this + 24LL) = 0LL;
-      *(_QWORD *)(*(_QWORD *)this + 32LL) = 0LL;
-      *(_DWORD *)(*(_QWORD *)this + 56LL) = 0;
+      *(_DWORD *)(*(_QWORD *)this + 48LL) = 0;
       **(_QWORD **)this = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 32LL) = 0LL;
       *(_QWORD *)(*(_QWORD *)this + 40LL) = 0LL;
-      *(_QWORD *)(*(_QWORD *)this + 48LL) = 0LL;
       MaximumSize.QuadPart = 0x400000LL;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
@@ -123,26 +125,27 @@ PROXYPORT *__fastcall PROXYPORT::PROXYPORT(PROXYPORT *this)
         L"%s_%x_%x_%x_%x",
         L"\\RPC Control\\UmpdProxy",
         ReturnLength,
-        *(_QWORD *)AllocationAttributes,
-        FileHandle,
-        v11);
+        *(_QWORD *)AllocationAttributes);
       RtlInitUnicodeString(&DestinationString, Dst);
       v12 = PROXYPORT::SecureConnectPort(
               *(PROXYPORT **)P,
               *(void ***)this,
               &DestinationString,
-              &v29,
+              &v31,
               &SectionHandle,
-              *(PSID *)P,
-              &v22);
+              *(void **)P,
+              FileHandle,
+              &v24,
+              v18,
+              v19);
       if ( v12 >= 0 )
       {
         *(_QWORD *)(*(_QWORD *)this + 8LL) = SectionHandle.SectionHandle;
-        *(_QWORD *)(*(_QWORD *)this + 24LL) = SectionHandle.ViewBase;
-        *(_QWORD *)(*(_QWORD *)this + 32LL) = SectionHandle.ViewSize;
-        *(_QWORD *)(*(_QWORD *)this + 40LL) = SectionHandle.ViewRemoteBase;
-        *(_QWORD *)(*(_QWORD *)this + 48LL) = *(_QWORD *)(*(_QWORD *)this + 24LL) - *(_QWORD *)(*(_QWORD *)this + 40LL);
-        *(_DWORD *)(*(_QWORD *)this + 60LL) = 1;
+        *(_QWORD *)(*(_QWORD *)this + 16LL) = SectionHandle.ViewBase;
+        *(_QWORD *)(*(_QWORD *)this + 24LL) = SectionHandle.ViewSize;
+        *(_QWORD *)(*(_QWORD *)this + 32LL) = SectionHandle.ViewRemoteBase;
+        *(_QWORD *)(*(_QWORD *)this + 40LL) = *(_QWORD *)(*(_QWORD *)this + 16LL) - *(_QWORD *)(*(_QWORD *)this + 32LL);
+        *(_DWORD *)(*(_QWORD *)this + 52LL) = 1;
       }
       ExFreePoolWithTag(P, 0);
       if ( v12 < 0 )
@@ -150,10 +153,13 @@ PROXYPORT *__fastcall PROXYPORT::PROXYPORT(PROXYPORT *this)
 LABEL_19:
         if ( SectionHandle.SectionHandle )
           ZwClose(SectionHandle.SectionHandle);
-        v13 = **(void ***)this;
-        if ( v13 )
-          ObfDereferenceObject(v13);
-        Win32FreePool(*(void **)this);
+        v13 = *(void ***)this;
+        if ( **(_QWORD **)this )
+        {
+          ObfDereferenceObject(**(PVOID **)this);
+          v13 = *(void ***)this;
+        }
+        Win32FreePool(v13);
         *(_QWORD *)this = 0LL;
       }
     }

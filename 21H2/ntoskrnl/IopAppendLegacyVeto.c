@@ -1,34 +1,34 @@
 /*
- * XREFs of IopAppendLegacyVeto @ 0x140957EC8
+ * XREFs of IopAppendLegacyVeto @ 0x1408B2318
  * Callers:
- *     IoGetLegacyVetoList @ 0x140762AEC (IoGetLegacyVetoList.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x140762BAC (IopGetLegacyVetoListDeviceNode.c)
- *     IopGetLegacyVetoListDrivers @ 0x140799218 (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140661930 (IopGetLegacyVetoListDrivers.c)
+ *     IoGetLegacyVetoList @ 0x14067B6B0 (IoGetLegacyVetoList.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14067B770 (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall IopAppendLegacyVeto(const void ***a1, const void **a2)
 {
   unsigned int v3; // r15d
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   _WORD *v6; // rsi
   PVOID *v7; // rdi
   const void *v8; // rdx
   char result; // al
 
   v3 = *(unsigned __int16 *)a2 + 2 + *((_DWORD *)a1 + 2);
-  Pool2 = (_WORD *)ExAllocatePool2(64LL, v3, 1869181008LL);
-  v6 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v3, 0x6F697050u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v7 = (PVOID *)*a1;
     v8 = **a1;
     if ( v8 )
     {
-      memmove(Pool2, v8, *((unsigned int *)a1 + 2));
+      memmove(PoolWithTag, v8, *((unsigned int *)a1 + 2));
       ExFreePoolWithTag(*v7, 0);
       v7 = (PVOID *)*a1;
     }

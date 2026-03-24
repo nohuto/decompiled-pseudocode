@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpTranslateEfiPath @ 0x1409FE5F4
+ * XREFs of ExpTranslateEfiPath @ 0x14095223C
  * Callers:
- *     NtTranslateFilePath @ 0x140A01A20 (NtTranslateFilePath.c)
+ *     NtTranslateFilePath @ 0x140955910 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     wcsncat_s @ 0x1403E7750 (wcsncat_s.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     ExpCreateOutputARC @ 0x1409FBD64 (ExpCreateOutputARC.c)
- *     ExpCreateOutputNT @ 0x1409FC038 (ExpCreateOutputNT.c)
- *     ExpCreateOutputSIGNATURE @ 0x1409FC108 (ExpCreateOutputSIGNATURE.c)
- *     ExpFindDiskSignature @ 0x1409FC5BC (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x1409FC9E0 (ExpGetDriveGeometry.c)
- *     ExpParseEfiPath @ 0x1409FCF40 (ExpParseEfiPath.c)
- *     ExpTranslateSymbolicLink @ 0x1409FEF6C (ExpTranslateSymbolicLink.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403D8300 (wcsncat_s.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExpCreateOutputARC @ 0x14094F9A4 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputNT @ 0x14094FC7C (ExpCreateOutputNT.c)
+ *     ExpCreateOutputSIGNATURE @ 0x14094FD4C (ExpCreateOutputSIGNATURE.c)
+ *     ExpFindDiskSignature @ 0x140950200 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x14095065C (ExpGetDriveGeometry.c)
+ *     ExpParseEfiPath @ 0x140950BB0 (ExpParseEfiPath.c)
+ *     ExpTranslateSymbolicLink @ 0x140952BBC (ExpTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -157,7 +157,7 @@ LABEL_36:
     }
     v9 = v6 + 6;
     LODWORD(v28) = v6[1];
-    DiskSignature = ExpFindDiskSignature((_QWORD *)v6 + 3, &v28, &v29, &v31, &v30, v25);
+    DiskSignature = ExpFindDiskSignature((__int64)(v6 + 6), &v28, &v29, &v31, &v30, v25);
     if ( DiskSignature < 0 )
     {
 LABEL_12:

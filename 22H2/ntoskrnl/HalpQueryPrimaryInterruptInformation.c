@@ -1,39 +1,37 @@
 /*
- * XREFs of HalpQueryPrimaryInterruptInformation @ 0x14082099C
+ * XREFs of HalpQueryPrimaryInterruptInformation @ 0x140865620
  * Callers:
- *     HalpSecondaryInterruptQueryPrimaryInformation @ 0x140820940 (HalpSecondaryInterruptQueryPrimaryInformation.c)
+ *     HalpSecondaryInterruptQueryPrimaryInformation @ 0x1408656C0 (HalpSecondaryInterruptQueryPrimaryInformation.c)
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x140368080 (HalpIsInterruptTypeSecondary.c)
- *     HalpFindSecondaryIcEntry @ 0x14037CCD0 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C4EF0 (HalpIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0B98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpQueryPrimaryInterruptInformation(int *a1, __int64 a2)
 {
   unsigned int v3; // ebx
+  unsigned int v4; // ebx
   __int64 SecondaryIcEntry; // rax
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  unsigned int v7; // ebx
+  __int64 v6; // rdi
 
   if ( SecondaryIcServicesEnabled )
   {
-    v3 = a1[14];
-    if ( HalpIsInterruptTypeSecondary(*a1, v3) )
+    v4 = a1[14];
+    if ( HalpIsInterruptTypeSecondary(*a1, v4) )
     {
-      SecondaryIcEntry = HalpFindSecondaryIcEntry(v3);
-      v5 = SecondaryIcEntry;
+      SecondaryIcEntry = HalpFindSecondaryIcEntry(v4);
+      v6 = SecondaryIcEntry;
       if ( SecondaryIcEntry )
       {
-        v7 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(SecondaryIcEntry + 88))(
+        v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(SecondaryIcEntry + 88))(
                *(_QWORD *)(SecondaryIcEntry + 32),
-               v3,
+               v4,
                a2);
-        if ( v7 == -1073741802 )
-          v7 = 0;
-        LOBYTE(v6) = 1;
-        HalpReleaseSecondaryIcEntryShared(v5, v6);
+        if ( v3 == -1073741802 )
+          v3 = 0;
+        HalpReleaseSecondaryIcEntryShared(v6, 1);
       }
       else
       {
@@ -49,5 +47,5 @@ __int64 __fastcall HalpQueryPrimaryInterruptInformation(int *a1, __int64 a2)
   {
     return (unsigned int)-1073741637;
   }
-  return v7;
+  return v3;
 }

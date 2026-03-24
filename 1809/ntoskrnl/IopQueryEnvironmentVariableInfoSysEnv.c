@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueryEnvironmentVariableInfoSysEnv @ 0x140822460
+ * XREFs of IopQueryEnvironmentVariableInfoSysEnv @ 0x140822440
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     IopIssueSystemEnvironmentRequest @ 0x140822194 (IopIssueSystemEnvironmentRequest.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140822174 (IopIssueSystemEnvironmentRequest.c)
  */
 
 __int64 __fastcall IopQueryEnvironmentVariableInfoSysEnv(

@@ -1,45 +1,46 @@
 /*
- * XREFs of _GetNextQueueWindow @ 0x1C01EE6BC
+ * XREFs of _GetNextQueueWindow @ 0x1C01F3ED8
  * Callers:
- *     xxxSwitchToThisWindow @ 0x1C00038F4 (xxxSwitchToThisWindow.c)
- *     zzzReattachThreads @ 0x1C00A8E58 (zzzReattachThreads.c)
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01ED4B8 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
- *     xxxNextWindow @ 0x1C01EE910 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01EF0A8 (xxxOldNextWindow.c)
+ *     xxxSwitchToThisWindow @ 0x1C0007AA0 (xxxSwitchToThisWindow.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2C38 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     xxxNextWindow @ 0x1C01F412C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F4970 (xxxOldNextWindow.c)
  * Callees:
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C006D740 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0077038 (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
- *     IsWindowUnderActiveLockScreen @ 0x1C00779AC (IsWindowUnderActiveLockScreen.c)
- *     GetLastTopMostWindow @ 0x1C0085494 (GetLastTopMostWindow.c)
- *     GetAppCompatFlags @ 0x1C01027E0 (GetAppCompatFlags.c)
+ *     GetLastTopMostWindow @ 0x1C0038CE8 (GetLastTopMostWindow.c)
+ *     GetWindowCloakState @ 0x1C004DC0C (GetWindowCloakState.c)
+ *     IsWindowUnderActiveLockScreen @ 0x1C004DEE4 (IsWindowUnderActiveLockScreen.c)
+ *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0066ACC (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     GetAppCompatFlags @ 0x1C0110F40 (GetAppCompatFlags.c)
  */
 
 struct tagWND *__fastcall GetNextQueueWindow(__int64 a1, int a2, int a3)
 {
-  int v3; // r14d
+  int v3; // r15d
   __int64 LastTopMostWindow; // rax
-  ULONG_PTR v6; // r13
+  struct tagWND *v6; // r13
   const struct tagWND *TopLevelWindow; // rax
   struct tagWND *CompositeAppFrameWindowOrSelf; // rax
   __int64 v9; // rdx
-  struct tagWND *v10; // rbx
-  __int64 v11; // rsi
-  struct tagWND *v12; // r12
-  struct tagWND *v13; // rdi
+  __int64 v10; // r8
+  struct tagWND *v11; // rbx
+  __int64 v12; // rsi
+  struct tagWND *v13; // r12
+  struct tagWND *v14; // rdi
   struct tagWND *i; // rcx
-  __int64 v15; // rax
-  int v16; // eax
-  __int64 v17; // rax
+  __int64 v16; // rax
+  int v17; // eax
+  __int64 v18; // rax
   struct tagWND *j; // rcx
-  __int64 v19; // r9
-  const struct tagWND *v20; // rcx
-  __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  struct tagWND *v24; // rax
-  struct tagWND *v25; // rcx
+  __int64 v20; // r9
+  _QWORD *v21; // rcx
+  __int64 v22; // r9
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  struct tagWND *v25; // rax
+  struct tagWND *v26; // rcx
 
   v3 = 0;
   LastTopMostWindow = a1;
@@ -52,115 +53,115 @@ struct tagWND *__fastcall GetNextQueueWindow(__int64 a1, int a2, int a3)
   v6 = gspwndAltTab;
   TopLevelWindow = (const struct tagWND *)GetTopLevelWindow(LastTopMostWindow);
   CompositeAppFrameWindowOrSelf = CoreWindowProp::GetCompositeAppFrameWindowOrSelf(TopLevelWindow);
-  v10 = CompositeAppFrameWindowOrSelf;
+  v11 = CompositeAppFrameWindowOrSelf;
   if ( !CompositeAppFrameWindowOrSelf )
     return 0LL;
-  v11 = *((_QWORD *)CompositeAppFrameWindowOrSelf + 13);
-  if ( !v11 )
+  v12 = *((_QWORD *)CompositeAppFrameWindowOrSelf + 13);
+  if ( !v12 )
   {
-    v11 = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL);
-    v10 = *(struct tagWND **)(v11 + 112);
+    v12 = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL);
+    v11 = *(struct tagWND **)(v12 + 112);
   }
-  v12 = v10;
-  if ( !v10 )
+  v13 = v11;
+  if ( !v11 )
     return 0LL;
   while ( 1 )
   {
-    if ( (*(_WORD *)(*((_QWORD *)v10 + 5) + 42LL) & 0x2FFF) != 0x29D )
+    if ( (*(_WORD *)(*((_QWORD *)v11 + 5) + 42LL) & 0x2FFF) != 0x29D )
     {
-      v13 = 0LL;
+      v14 = 0LL;
       if ( (a2 != 0) == -2 )
       {
-        v15 = *((_QWORD *)v10 + 13);
-        if ( v15 )
+        v16 = *((_QWORD *)v11 + 13);
+        if ( v16 )
         {
-          v13 = *(struct tagWND **)(v15 + 112);
-          v16 = GetAppCompatFlags(0LL) & 8;
-          while ( v13 && v16 && (*(_BYTE *)(*((_QWORD *)v13 + 5) + 24LL) & 8) != 0 )
-            v13 = (struct tagWND *)*((_QWORD *)v13 + 11);
+          v14 = *(struct tagWND **)(v16 + 112);
+          v17 = GetAppCompatFlags(0LL) & 8;
+          while ( v14 && v17 && (*(_BYTE *)(*((_QWORD *)v14 + 5) + 24LL) & 8) != 0 )
+            v14 = (struct tagWND *)*((_QWORD *)v14 + 11);
         }
       }
       else if ( (a2 != 0) == -1 )
       {
-        for ( i = *(struct tagWND **)(*((_QWORD *)v10 + 13) + 112LL); i; i = (struct tagWND *)*((_QWORD *)i + 11) )
-          v13 = i;
+        for ( i = *(struct tagWND **)(*((_QWORD *)v11 + 13) + 112LL); i; i = (struct tagWND *)*((_QWORD *)i + 11) )
+          v14 = i;
       }
       else if ( a2 )
       {
         if ( a2 != 0 )
         {
-          v13 = (struct tagWND *)*((_QWORD *)v10 + 12);
+          v14 = (struct tagWND *)*((_QWORD *)v11 + 12);
         }
         else if ( (a2 != 0) == 2 )
         {
-          v13 = (struct tagWND *)*((_QWORD *)v10 + 15);
+          v14 = (struct tagWND *)*((_QWORD *)v11 + 15);
         }
         else
         {
           if ( (a2 != 0) != 3 )
           {
-            UserSetLastError(1443LL, v9);
+            UserSetLastError(1443LL, v9, v10);
             goto LABEL_30;
           }
-          v13 = (struct tagWND *)*((_QWORD *)v10 + 14);
+          v14 = (struct tagWND *)*((_QWORD *)v11 + 14);
         }
       }
       else
       {
-        v13 = (struct tagWND *)*((_QWORD *)v10 + 11);
+        v14 = (struct tagWND *)*((_QWORD *)v11 + 11);
       }
-      v10 = v13;
-      if ( v13 )
+      v11 = v14;
+      if ( v14 )
         goto LABEL_37;
     }
 LABEL_30:
-    v10 = *(struct tagWND **)(v11 + 112);
+    v11 = *(struct tagWND **)(v12 + 112);
     if ( a2 )
     {
-      v17 = *((_QWORD *)v10 + 5);
-      v9 = *(_QWORD *)(v11 + 112);
-      v10 = 0LL;
-      if ( (*(_WORD *)(v17 + 42) & 0x2FFF) != 0x29D )
+      v18 = *((_QWORD *)v11 + 5);
+      v9 = *(_QWORD *)(v12 + 112);
+      v11 = 0LL;
+      if ( (*(_WORD *)(v18 + 42) & 0x2FFF) != 0x29D )
       {
         for ( j = *(struct tagWND **)(*(_QWORD *)(v9 + 104) + 112LL); j; j = (struct tagWND *)*((_QWORD *)j + 11) )
-          v10 = j;
+          v11 = j;
       }
     }
     if ( v3 )
       return 0LL;
     v3 = 1;
-    if ( !v10 )
+    if ( !v11 )
       return 0LL;
 LABEL_37:
-    if ( v10 == v12 )
+    if ( v11 == v13 )
       return 0LL;
-    if ( v10 != (struct tagWND *)v6 )
+    if ( v11 != v6 )
     {
-      v19 = *((_QWORD *)v10 + 5);
-      if ( *(char *)(v19 + 24) >= 0
-        && (*(_BYTE *)(v19 + 27) & 8) == 0
-        && !(unsigned int)IsWindowUnderActiveLockScreen((__int64)v10)
-        && (*(_BYTE *)(v21 + 31) & 0x10) != 0
-        && !(unsigned int)GetWindowCloakState(v20) )
+      v20 = *((_QWORD *)v11 + 5);
+      if ( *(char *)(v20 + 24) >= 0
+        && (*(_BYTE *)(v20 + 27) & 8) == 0
+        && !(unsigned int)IsWindowUnderActiveLockScreen((__int64)v11)
+        && (*(_BYTE *)(v22 + 31) & 0x10) != 0
+        && !(unsigned int)GetWindowCloakState(v21) )
       {
-        v22 = *((_QWORD *)v10 + 25);
-        if ( !v22
-          || (*(_BYTE *)(*(_QWORD *)(v22 + 40) + 31LL) & 8) == 0
-          && (!a3 || (v23 = *((_QWORD *)v10 + 5), (*(_BYTE *)(v23 + 24) & 8) == 0) && (*(_BYTE *)(v23 + 20) & 0x20) == 0) )
+        v23 = *((_QWORD *)v11 + 25);
+        if ( !v23
+          || (*(_BYTE *)(*(_QWORD *)(v23 + 40) + 31LL) & 8) == 0
+          && (!a3 || (v24 = *((_QWORD *)v11 + 5), (*(_BYTE *)(v24 + 24) & 8) == 0) && (*(_BYTE *)(v24 + 20) & 0x20) == 0) )
         {
-          v24 = (struct tagWND *)*((_QWORD *)v10 + 15);
-          v25 = v10;
-          while ( v24 )
+          v25 = (struct tagWND *)*((_QWORD *)v11 + 15);
+          v26 = v11;
+          while ( v25 )
           {
-            v25 = v24;
-            v24 = (struct tagWND *)*((_QWORD *)v24 + 15);
+            v26 = v25;
+            v25 = (struct tagWND *)*((_QWORD *)v25 + 15);
           }
-          if ( v10 == *((struct tagWND **)v25 + 25) )
-            return v10;
+          if ( v11 == *((struct tagWND **)v26 + 25) )
+            return v11;
         }
       }
     }
-    if ( !v10 )
+    if ( !v11 )
       return 0LL;
   }
 }

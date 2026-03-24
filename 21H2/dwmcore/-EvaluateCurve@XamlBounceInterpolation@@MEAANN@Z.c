@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z @ 0x1802572A0
+ * XREFs of ?EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z @ 0x180206C00
  * Callers:
  *     <none>
  * Callees:
- *     floor @ 0x1801018EC (floor.c)
- *     _o_log_0 @ 0x18010191C (_o_log_0.c)
- *     pow @ 0x180101940 (pow.c)
+ *     floor @ 0x1800E8198 (floor.c)
+ *     _o_log_0 @ 0x1800E81B0 (_o_log_0.c)
+ *     pow @ 0x1800E81BC (pow.c)
  */
 
 double __fastcall XamlBounceInterpolation::EvaluateCurve(XamlBounceInterpolation *this, double a2)
@@ -20,6 +20,7 @@ double __fastcall XamlBounceInterpolation::EvaluateCurve(XamlBounceInterpolation
   double v9; // xmm10_8
   double v10; // xmm6_8
   double v11; // xmm7_8
+  double result; // xmm0_8
 
   v2 = (double)*((int *)this + 8);
   v3 = *((float *)this + 9);
@@ -31,9 +32,6 @@ double __fastcall XamlBounceInterpolation::EvaluateCurve(XamlBounceInterpolation
   v9 = (1.0 - v3) * v5;
   v10 = (1.0 - pow(v3, v8)) / v9;
   v11 = ((1.0 - pow(v3, v8 + 1.0)) / v9 - v10) * 0.5;
-  return (a2 - (v11 + v10) - v11)
-       * (COERCE_DOUBLE(COERCE_UNSIGNED_INT64(1.0 / pow(v3, v2 - v8)) ^ _xmm)
-        / (v11
-         * v11))
-       * (a2 - (v11 + v10) + v11);
+  *(_QWORD *)&result = COERCE_UNSIGNED_INT64((a2 - (v11 + v10) - v11) * (1.0 / pow(v3, v2 - v8) / (v11 * v11)) * (a2 - (v11 + v10) + v11)) ^ _xmm;
+  return result;
 }

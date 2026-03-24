@@ -1,8 +1,9 @@
 /*
- * XREFs of SepAuditingEnabledForSubcategory @ 0x1402A4700
+ * XREFs of SepAuditingEnabledForSubcategory @ 0x14025CC30
  * Callers:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
  * Callees:
  *     <none>
  */

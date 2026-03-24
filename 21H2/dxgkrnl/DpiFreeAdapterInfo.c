@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFreeAdapterInfo @ 0x1C0386FF4
+ * XREFs of DpiFreeAdapterInfo @ 0x1C02C64E4
  * Callers:
- *     DpiGetAdapterInfo @ 0x1C01FD7E8 (DpiGetAdapterInfo.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02BA5BC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     DpiGetAdapterInfo @ 0x1C0187DA0 (DpiGetAdapterInfo.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020BED8 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     DxgkFreeUnicodeString @ 0x1C0205754 (DxgkFreeUnicodeString.c)
+ *     DxgkFreeUnicodeString @ 0x1C019FE80 (DxgkFreeUnicodeString.c)
  */
 
 void __fastcall DpiFreeAdapterInfo(_BYTE *a1)

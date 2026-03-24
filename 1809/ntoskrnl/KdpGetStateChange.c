@@ -3,7 +3,7 @@
  * Callers:
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __fastcall KdpGetStateChange(__int64 a1, __int64 a2)

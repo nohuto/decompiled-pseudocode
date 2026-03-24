@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpInsertMemoryRange @ 0x14030C6A0
+ * XREFs of VmpInsertMemoryRange @ 0x14030C7A0
  * Callers:
- *     VmCreateMemoryRange @ 0x1408B0140 (VmCreateMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x1408B0120 (VmCreateMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessContextLockExclusive @ 0x14030D0AC (VmpProcessContextLockExclusive.c)
- *     VmpFreeMemoryRanges @ 0x1408B073C (VmpFreeMemoryRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14030D1AC (VmpProcessContextLockExclusive.c)
+ *     VmpFreeMemoryRanges @ 0x1408B071C (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __int64 a3)

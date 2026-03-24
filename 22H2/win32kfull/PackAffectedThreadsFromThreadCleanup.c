@@ -1,27 +1,20 @@
 /*
- * XREFs of PackAffectedThreadsFromThreadCleanup @ 0x1C0115870
+ * XREFs of PackAffectedThreadsFromThreadCleanup @ 0x1C00124A0
  * Callers:
  *     <none>
  * Callees:
- *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C005BE80 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
- *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C01158D4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C0012370 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ *     ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00124DC (-InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z.c)
  */
 
-void __fastcall PackAffectedThreadsFromThreadCleanup(tagQ **a1)
+void __fastcall PackAffectedThreadsFromThreadCleanup(const struct tagTHREADINFO *a1)
 {
-  _QWORD *v2; // rax
-  _QWORD *i; // rdx
+  struct PTI_LIST *v1; // rax
+  __int64 v2; // rcx
 
-  v2 = (_QWORD *)(SGDGetUserSessionState(a1) + 16880);
-  for ( i = (_QWORD *)*v2; i != v2; i = (_QWORD *)*i )
-  {
-    if ( a1 == (tagQ **)i[2] )
-    {
-      if ( i )
-        i[2] = 0LL;
-      break;
-    }
-  }
-  if ( tagQ::AreMultipleThreadsAttached(a1[54]) )
-    PackAffectedThreadList((const struct tagTHREADINFO *)a1, 0LL);
+  v1 = InAffectedThreadList(a1);
+  if ( v1 )
+    *((_QWORD *)v1 + 2) = 0LL;
+  if ( *(_DWORD *)(*(_QWORD *)(v2 + 432) + 392LL) > 1u )
+    PackAffectedThreadList((const struct tagTHREADINFO *)v2, 0LL);
 }

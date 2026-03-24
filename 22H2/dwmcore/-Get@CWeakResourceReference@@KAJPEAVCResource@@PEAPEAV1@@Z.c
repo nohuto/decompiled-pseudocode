@@ -1,65 +1,55 @@
 /*
- * XREFs of ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x180099B0C
+ * XREFs of ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x18006541C
  * Callers:
- *     ?Create@?$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z @ 0x180099ABC (-Create@-$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z.c)
- *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800E8C04 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
- *     ?_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z @ 0x18020F7A4 (-_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z.c)
- *     ?TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z @ 0x180235B00 (-TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTa.c)
- *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x18023CB9C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
- *     ?Create@?$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z @ 0x180264F20 (-Create@-$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z.c)
+ *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800653D8 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
+ *     ?TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z @ 0x1801CCDB8 (-TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTa.c)
+ *     ?_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z @ 0x1801D5AF0 (-_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z.c)
+ *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1801D7B0C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
+ *     ?Create@?$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z @ 0x180203894 (-Create@-$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??$_Try_emplace@AEBQEBVCResource@@$$V@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_List_node@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@PEAX@std@@_N@1@AEBQEBVCResource@@@Z @ 0x180024FE8 (--$_Try_emplace@AEBQEBVCResource@@$$V@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceRe.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Try_emplace@AEBQEBVCResource@@$$V@?$unordered_map@PEBVCResource@@PEAVCWeakResourceReference@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@4@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@std@@_N@1@AEBQEBVCResource@@@Z @ 0x18004F1F4 (--$_Try_emplace@AEBQEBVCResource@@$$V@-$unordered_map@PEBVCResource@@PEAVCWeakResourceReference@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$com_ptr_t@VCWeakResourceReference@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCWeakResourceReference@@@Z @ 0x1800654BC (--4-$com_ptr_t@VCWeakResourceReference@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCWeakRe.c)
+ *     ??0CWeakResourceReference@@AEAA@PEAVCResource@@@Z @ 0x180065504 (--0CWeakResourceReference@@AEAA@PEAVCResource@@@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CWeakResourceReference::Get(struct CResource *a1, struct CWeakResourceReference **a2)
 {
-  unsigned int v2; // esi
-  HANDLE ProcessHeap; // rax
-  unsigned int v5; // ecx
-  __int64 *v6; // rdi
-  struct CResource *v7; // rax
-  _BYTE v9[24]; // [rsp+30h] [rbp-18h] BYREF
-  struct CResource *v10; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v2; // ebx
+  CWeakResourceReference *v5; // rax
+  __int64 v6; // rcx
+  struct CWeakResourceReference *v7; // rax
+  _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
+  struct CWeakResourceReference *v10; // [rsp+50h] [rbp+8h] BYREF
+  struct CResource *v11; // [rsp+60h] [rbp+18h] BYREF
 
-  v10 = a1;
   v2 = 0;
+  v10 = 0LL;
   if ( (*((_BYTE *)a1 + 32) & 8) != 0 )
   {
-    v6 = *(__int64 **)(*(_QWORD *)std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::_Try_emplace<CResource const * const &,>(
-                                    (__int64)a1,
-                                    (__int64)v9,
-                                    (__int64 *)&v10)
-                     + 24LL);
-    if ( v6 )
-      (*(void (__fastcall **)(__int64 *))*v6)(v6);
+    v11 = a1;
+    std::unordered_map<CResource const *,CWeakResourceReference *>::_Try_emplace<CResource const * const &,>(
+      (unsigned __int64)a1,
+      (__int64)v9,
+      (const unsigned __int8 *)&v11);
+    wil::com_ptr_t<CWeakResourceReference,wil::err_returncode_policy>::operator=(&v10, *(_QWORD *)(v9[0] + 24LL));
+    v7 = v10;
   }
   else
   {
-    ProcessHeap = GetProcessHeap();
-    v6 = (__int64 *)HeapAlloc(ProcessHeap, 8u, 0x30uLL);
-    if ( !v6 )
+    v5 = (CWeakResourceReference *)DefaultHeap::AllocClear(0x30uLL);
+    if ( v5 )
+      v5 = CWeakResourceReference::CWeakResourceReference(v5, a1);
+    wil::com_ptr_t<CWeakResourceReference,wil::err_returncode_policy>::operator=(&v10, v5);
+    v7 = v10;
+    if ( !v10 )
     {
       v2 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x20u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0x20u, 0LL);
       return v2;
     }
-    v7 = v10;
-    *((_DWORD *)v6 + 2) = 0;
-    v6[3] = 0LL;
-    v6[4] = 0LL;
-    v6[5] = 0LL;
-    *v6 = (__int64)&CWeakResourceReference::`vftable';
-    v6[2] = (__int64)v7;
-    *(_QWORD *)(*(_QWORD *)std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::_Try_emplace<CResource const * const &,>(
-                             (__int64)&CWeakResourceReference::`vftable',
-                             (__int64)v9,
-                             v6 + 2)
-              + 24LL) = v6;
-    *(_DWORD *)(v6[2] + 32) |= 8u;
-    (*(void (__fastcall **)(__int64 *))*v6)(v6);
   }
-  *a2 = (struct CWeakResourceReference *)v6;
+  *a2 = v7;
   return v2;
 }

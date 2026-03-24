@@ -1,7 +1,7 @@
 /*
- * XREFs of UserSleep @ 0x1C0165090
+ * XREFs of UserSleep @ 0x1C00AF9E0
  * Callers:
- *     ?Reconnect@CIVChannel@@AEAAJXZ @ 0x1C01F7468 (-Reconnect@CIVChannel@@AEAAJXZ.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B96F0 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
  * Callees:
  *     <none>
  */

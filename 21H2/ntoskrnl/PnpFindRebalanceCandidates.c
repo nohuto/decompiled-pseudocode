@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFindRebalanceCandidates @ 0x140959C24
+ * XREFs of PnpFindRebalanceCandidates @ 0x1408B83A8
  * Callers:
- *     PnpRebalance @ 0x14095A02C (PnpRebalance.c)
+ *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
  * Callees:
- *     PnpQueryRebalance @ 0x140959D3C (PnpQueryRebalance.c)
+ *     PnpQueryRebalance @ 0x1408B84C0 (PnpQueryRebalance.c)
  */
 
 __int64 __fastcall PnpFindRebalanceCandidates(
@@ -14,8 +14,9 @@ __int64 __fastcall PnpFindRebalanceCandidates(
         char a5,
         __int64 a6)
 {
-  __int64 v8; // rdi
-  _DWORD *v9; // rbx
+  __int64 v8; // rbx
+  _DWORD *v9; // rdi
+  int v10; // ecx
   int Rebalance; // eax
   __int64 result; // rax
 
@@ -31,30 +32,27 @@ __int64 __fastcall PnpFindRebalanceCandidates(
   {
     v9 = (_DWORD *)a6;
     *(_QWORD *)(a6 + 40) = a2;
-    if ( *(_DWORD *)(a2 + 300) == 778 )
-    {
-      *(_DWORD *)(a6 + 8) = 1;
-      goto LABEL_6;
-    }
-    v8 = *(_QWORD *)(a2 + 16);
-    *(_DWORD *)(a6 + 8) = 2;
+    v10 = *(_DWORD *)(a2 + 300);
+    if ( v10 != 776 )
+      v8 = *(_QWORD *)(a2 + 16);
+    *(_DWORD *)(a6 + 8) = (v10 != 776) + 1;
     if ( v8 )
     {
-LABEL_6:
-      while ( 1 )
+      do
       {
         Rebalance = PnpQueryRebalance(v8, a3, (_DWORD)a4, (int)a6 + 64, a6 + 80, a5);
         if ( Rebalance != 281 )
           break;
         v8 = *(_QWORD *)(v8 + 16);
-        if ( !v8 )
-          goto LABEL_11;
       }
-      *(_BYTE *)(a6 + 32) = Rebalance >= 0;
-      *(_QWORD *)(a6 + 24) = v8;
+      while ( v8 );
+      if ( v8 )
+      {
+        *(_BYTE *)(a6 + 32) = Rebalance >= 0;
+        *(_QWORD *)(a6 + 24) = v8;
+      }
     }
   }
-LABEL_11:
   result = *a4;
   *v9 = result;
   return result;

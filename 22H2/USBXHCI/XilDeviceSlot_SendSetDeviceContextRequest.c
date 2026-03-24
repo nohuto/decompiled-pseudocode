@@ -1,14 +1,14 @@
 /*
- * XREFs of XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C00388B8
+ * XREFs of XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0036DF8
  * Callers:
- *     XilDeviceSlot_SetDeviceContext @ 0x1C0019DE4 (XilDeviceSlot_SetDeviceContext.c)
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C000F634 (XilDeviceSlot_SetDeviceContext.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0019F8C (XilUsbDevice_GetDeviceContextBufferLA.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C000F868 (XilUsbDevice_GetDeviceContextBufferLA.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilDeviceSlot_SendSetDeviceContextRequest(__int64 *a1, __int64 a2, int a3)
@@ -18,7 +18,7 @@ __int64 __fastcall XilDeviceSlot_SendSetDeviceContextRequest(__int64 *a1, __int6
   __int64 v8; // rax
   int v9; // eax
   int v10; // edx
-  unsigned int v11; // edi
+  unsigned int v11; // ebx
   int v12; // edx
   int v13; // r8d
   int v14; // r9d
@@ -50,7 +50,7 @@ __int64 __fastcall XilDeviceSlot_SendSetDeviceContextRequest(__int64 *a1, __int6
           v10,
           10,
           24,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v16[0]);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v12, v13, v14);
@@ -62,7 +62,7 @@ __int64 __fastcall XilDeviceSlot_SendSetDeviceContextRequest(__int64 *a1, __int6
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v10) = 2;
-    WPP_RECORDER_SF_d(*(_QWORD *)(v6 + 72), v10, 10, 23, (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids, v9);
+    WPP_RECORDER_SF_d(*(_QWORD *)(v6 + 72), v10, 10, 23, (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids, v9);
   }
   return v11;
 }

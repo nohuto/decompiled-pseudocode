@@ -1,49 +1,49 @@
 /*
- * XREFs of MonitorSendAdjustedColorimetryToDriver @ 0x1C01DCE24
+ * XREFs of MonitorSendAdjustedColorimetryToDriver @ 0x1C016C1BC
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0173F88 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00E767C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0014E7C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONIT.c)
- *     ?SendAdjustedHDRParamsToDriver@MonitorColorState@DxgMonitor@@QEAAJ_N0@Z @ 0x1C01DD4A4 (-SendAdjustedHDRParamsToDriver@MonitorColorState@DxgMonitor@@QEAAJ_N0@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z @ 0x1C016C284 (-_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z.c)
  */
 
 __int64 __fastcall MonitorSendAdjustedColorimetryToDriver(struct HDXGMONITOR__ *a1, int a2)
 {
-  __int64 v3; // rbx
-  bool v4; // r8
-  unsigned int v5; // edi
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v2; // ebx
+  __int64 result; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  DXGMONITOR *v7; // rdi
+  bool v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  DXGMONITOR *v13; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
-  {
-    MONITOR_MGR::AcquireMonitorExclusive(&v7, a1);
-    v3 = v7;
-    if ( v7 )
-    {
-      v4 = 0;
-      if ( (!a2 || a2 == 30) && (v4 = 1, *(_DWORD *)(*(_QWORD *)(v7 + 224) + 392LL) == 1000) )
-        v5 = 0;
-      else
-        v5 = DxgMonitor::MonitorColorState::SendAdjustedHDRParamsToDriver(
-               *(DxgMonitor::MonitorColorState **)(v7 + 224),
-               1,
-               v4);
-    }
-    else
-    {
-      v5 = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-    }
-    if ( v3 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v3 + 24));
-      KeLeaveCriticalRegion();
-    }
-    return v5;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+  v2 = 0;
+  if ( !a1 )
     return 3221225485LL;
+  v13 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v13);
+  if ( (int)result >= 0 )
+  {
+    v7 = v13;
+    if ( !v13 )
+    {
+      v9 = WdLogNewEntry5_WdAssertion(v6, v5);
+      WdLogEvent5_WdAssertion(v9);
+      v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+      WdLogEvent5_WdAssertion(v12);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v7 + 296), 1u);
+    v8 = 0;
+    if ( a2 && a2 != 30 || (v8 = 1, *((_DWORD *)v7 + 172) != 1000) )
+      v2 = DXGMONITOR::_SendAdjustedHDRParamsToDriver(v7, 1, v8);
+    ExReleaseResourceLite((PERESOURCE)((char *)v7 + 296));
+    KeLeaveCriticalRegion();
+    return v2;
   }
+  return result;
 }

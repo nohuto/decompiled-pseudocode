@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSetContextEx @ 0x140393C88
+ * XREFs of KdpSetContextEx @ 0x14051142C
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyContext @ 0x140AB15FC (KdpCopyContext.c)
- *     KdpQuickMoveMemory @ 0x140AB2880 (KdpQuickMoveMemory.c)
- *     KdpSanitizeContextFlags @ 0x140AB28A0 (KdpSanitizeContextFlags.c)
+ *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
+ *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
+ *     KdpSanitizeContextFlags @ 0x1409B9D10 (KdpSanitizeContextFlags.c)
  */
 
 __int64 __fastcall KdpSetContextEx(__int64 a1, __int64 a2, __int64 a3)
@@ -24,22 +24,22 @@ __int64 __fastcall KdpSetContextEx(__int64 a1, __int64 a2, __int64 a3)
   v13[0] = 56LL;
   v13[1] = a1;
   v4 = *(unsigned __int16 *)(a1 + 6);
-  if ( (unsigned __int16)v4 < 0x800u && KiProcessorBlock[v4] && KdpContextSent )
+  if ( (unsigned __int16)v4 < 0x500u && KiProcessorBlock[v4] && KdpContextSent )
   {
     v6 = *(unsigned int *)(a1 + 24);
-    if ( (unsigned int)v6 <= 0x3000
+    if ( (unsigned int)v6 <= 0x1000
       && (v7 = *(unsigned int *)(a1 + 16), (unsigned int)v7 < (unsigned int)v6)
       && (v8 = *(unsigned int *)(a1 + 20), (_DWORD)v8)
       && v7 + v8 <= v6 )
     {
-      KdpQuickMoveMemory((char *)&unk_140D12F68 + (unsigned int)v7, *(_QWORD *)(a2 + 8), (unsigned int)v8);
+      KdpQuickMoveMemory((char *)&unk_140CF6898 + (unsigned int)v7, *(_QWORD *)(a2 + 8), (unsigned int)v8);
       if ( v10 == v9 )
       {
         v11 = *(unsigned __int16 *)(a1 + 6);
         if ( (_WORD)v11 != (unsigned __int16)KeGetPcr()->Prcb.Number )
-          a3 = *(_QWORD *)(KiProcessorBlock[v11] + 35264);
-        KdpSanitizeContextFlags(&unk_140D12F68, (unsigned int)v9, &v14);
-        KdpCopyContext(a3, v14, &unk_140D12F68);
+          a3 = *(_QWORD *)(KiProcessorBlock[v11] + 34240);
+        KdpSanitizeContextFlags(&unk_140CF6898, (unsigned int)v9, &v14);
+        KdpCopyContext(a3, v14, &unk_140CF6898);
       }
       *(_DWORD *)(a1 + 8) = 0;
       *(_DWORD *)(a1 + 24) = v8;

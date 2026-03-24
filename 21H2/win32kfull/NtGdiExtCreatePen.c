@@ -1,10 +1,11 @@
 /*
- * XREFs of NtGdiExtCreatePen @ 0x1C014C760
+ * XREFs of NtGdiExtCreatePen @ 0x1C015BC80
  * Callers:
  *     <none>
  * Callees:
- *     GreExtCreatePen @ 0x1C00F2B80 (GreExtCreatePen.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreExtCreatePen @ 0x1C0026340 (GreExtCreatePen.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiExtCreatePen(
@@ -20,9 +21,9 @@ __int64 __fastcall NtGdiExtCreatePen(
         int a10,
         __int64 a11)
 {
-  void *v14; // rbx
-  char *v15; // rdi
-  __int64 Pen; // rsi
+  void *v14; // rsi
+  char *v15; // rbx
+  __int64 Pen; // rdi
   char *v17; // rcx
   size_t v18; // r8
 
@@ -31,8 +32,8 @@ __int64 __fastcall NtGdiExtCreatePen(
   Pen = 1LL;
   if ( a8 )
   {
-    if ( a7 <= 0x9C4000 && 4 * a7 )
-      v14 = (void *)Win32AllocPool(4 * a7, 1886221383LL);
+    if ( a7 <= 0x9C4000 )
+      v14 = PALLOCMEM2(4 * a7, 1886221383LL, 0);
     Pen = -(__int64)(v14 != 0LL) & 1;
   }
   if ( a3 == 6 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InkProcessorOnInkDeviceInputReport@@YAXPEAURawInputManagerDeviceObject@@PEAX@Z @ 0x1C021A97C
+ * XREFs of ?InkProcessorOnInkDeviceInputReport@@YAXPEAURawInputManagerDeviceObject@@PEAX@Z @ 0x1C0220590
  * Callers:
- *     EditionRimDeviceReadNotification @ 0x1C01CCDD0 (EditionRimDeviceReadNotification.c)
+ *     EditionRimDeviceReadNotification @ 0x1C01D0E40 (EditionRimDeviceReadNotification.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z @ 0x1C024D068 (-ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z @ 0x1C024FB24 (-ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z.c)
  */
 
 void __fastcall InkProcessorOnInkDeviceInputReport(
@@ -23,12 +23,12 @@ void __fastcall InkProcessorOnInkDeviceInputReport(
   {
     InkProcessor::ProcessInput(InkProcessor::s_pInstance, a2, a3);
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
     v3 = -1073741823;
     v5 = &v3;
     v7 &= (unsigned int)InkProcessor::s_pInstance;
     v6 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0326250, (unsigned __int8 *)dword_1C02EFE22, 0LL, 0LL, 3u, &v4);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032B288, (unsigned __int8 *)dword_1C02F2FAC, 0LL, 0LL, 3u, &v4);
   }
 }

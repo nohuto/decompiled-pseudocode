@@ -1,16 +1,15 @@
 /*
- * XREFs of KeAndGroupAffinityEx @ 0x140263350
+ * XREFs of KeAndGroupAffinityEx @ 0x1403746A0
  * Callers:
- *     PpmEventDomainPerfStateChange @ 0x140225CB4 (PpmEventDomainPerfStateChange.c)
- *     KeQueryLogicalProcessorRelationship @ 0x140263790 (KeQueryLogicalProcessorRelationship.c)
- *     HalpInterruptSendIpi @ 0x1402ADD00 (HalpInterruptSendIpi.c)
- *     PnpSetDeviceAffinityThread @ 0x1402D301C (PnpSetDeviceAffinityThread.c)
- *     HalSendNMI @ 0x1402DA8E0 (HalSendNMI.c)
- *     KiForwardTick @ 0x140303740 (KiForwardTick.c)
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
- *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x14099B3D8 (PpmEventTraceProcessorPerformanceDomainRundown.c)
+ *     HalpInterruptSendIpi @ 0x140220210 (HalpInterruptSendIpi.c)
+ *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1402AFA30 (KeQueryLogicalProcessorRelationship.c)
+ *     PnpSetDeviceAffinityThread @ 0x140361E70 (PnpSetDeviceAffinityThread.c)
+ *     PpmEventDomainPerfStateChange @ 0x14039A608 (PpmEventDomainPerfStateChange.c)
+ *     HalSendNMI @ 0x1404BDD70 (HalSendNMI.c)
+ *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x1408F3B68 (PpmEventTraceProcessorPerformanceDomainRundown.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeAndGroupAffinityEx(_WORD *a1, __int64 a2, char *a3)

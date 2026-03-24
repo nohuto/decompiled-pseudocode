@@ -1,14 +1,13 @@
 /*
- * XREFs of ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180089C74
+ * XREFs of ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BCE4
  * Callers:
- *     ?Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180107A50 (-Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6A00 (-Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180089D54 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180089D74 (-DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18008A870 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18008CDF0 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?IsIn3DMode@CDrawingContext@@UEBA_NXZ @ 0x180177960 (-IsIn3DMode@CDrawingContext@@UEBA_NXZ.c)
+ *     ?IsHDRTarget@CDrawingContext@@QEBA_NXZ @ 0x18019589C (-IsHDRTarget@CDrawingContext@@QEBA_NXZ.c)
+ *     ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18020BDA8 (-DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
  */
 
 __int64 __fastcall CShapeTree::Draw(
@@ -17,35 +16,27 @@ __int64 __fastcall CShapeTree::Draw(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  __int64 (__fastcall ***v8)(_QWORD, _BYTE *); // rcx
-  enum DXGI_COLOR_SPACE_TYPE v9; // ecx
-  int v10; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
-  int v14; // eax
-  __int64 v15; // rcx
-  _BYTE v16[16]; // [rsp+30h] [rbp-48h] BYREF
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  int v11; // eax
+  __int64 v12; // rcx
 
-  if ( (**((unsigned __int8 (__fastcall ***)(char *))a2 + 3))((char *)a2 + 24)
-    || !*((_DWORD *)a2 + 156) && *((_DWORD *)a2 + 138)
-    || (v8 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)a2 + 4)
-                                                       + 8LL
-                                                       + *(int *)(*(_QWORD *)(*((_QWORD *)a2 + 4) + 8LL) + 12LL)),
-        v9 = *(_DWORD *)((**v8)(v8, v16) + 8),
-        v9 == DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709)
-    || IsDXGIColorSpaceRec2020(v9) )
+  if ( CDrawingContext::IsIn3DMode((struct CDrawingContext *)((char *)a2 + 24))
+    || !*((_DWORD *)a2 + 174) && *((_DWORD *)a2 + 156)
+    || CDrawingContext::IsHDRTarget(a2) )
   {
-    v14 = CContent::Draw((CShapeTree *)((char *)this - 56), a2, a3, a4);
-    v12 = v14;
-    if ( v14 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x16u);
+    v11 = CContent::Draw((CShapeTree *)((char *)this - 56), a2, a3, a4);
+    v10 = v11;
+    if ( v11 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x16u, 0LL);
   }
   else
   {
-    v10 = CShapeTree::DrawShapes((CShapeTree *)((char *)this - 152), a2, a3);
-    v12 = v10;
-    if ( v10 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x1Au);
+    v8 = CShapeTree::DrawShapes((CShapeTree *)((char *)this - 144), a2, a3);
+    v10 = v8;
+    if ( v8 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x1Au, 0LL);
   }
-  return v12;
+  return v10;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpWerFreePool @ 0x14092BED8
+ * XREFs of DbgkpWerFreePool @ 0x140889388
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x140540798 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE658 (DbgkCaptureLiveKernelDump.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DbgkpWerFreePool(void *a1)

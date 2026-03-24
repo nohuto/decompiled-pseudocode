@@ -1,7 +1,8 @@
 /*
- * XREFs of __crt_debugger_hook @ 0x18010FD34
+ * XREFs of __crt_debugger_hook @ 0x1800E7890
  * Callers:
- *     __scrt_fastfail @ 0x18010FD44 (__scrt_fastfail.c)
+ *     __raise_securityfailure @ 0x1800E6B68 (__raise_securityfailure.c)
+ *     __scrt_fastfail @ 0x1800E78A0 (__scrt_fastfail.c)
  * Callees:
  *     <none>
  */

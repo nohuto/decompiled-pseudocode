@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBMISC_QueryKseDeviceFlags @ 0x1C0033034
+ * XREFs of HUBMISC_QueryKseDeviceFlags @ 0x1C002FE4C
  * Callers:
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C0083478 (HUBREG_QueryUsbflagsValuesForDevice.c)
- *     HUBREG_QueryHubErrataFlags @ 0x1C0083F98 (HUBREG_QueryHubErrataFlags.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C007E5AC (HUBREG_QueryHubErrataFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     RtlStringCbPrintfW @ 0x1C0013EA0 (RtlStringCbPrintfW.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0012978 (RtlStringCbPrintfW.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall HUBMISC_QueryKseDeviceFlags(
@@ -27,9 +27,9 @@ int __fastcall HUBMISC_QueryKseDeviceFlags(
         char a15,
         __int64 a16)
 {
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  __int64 v20; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // r8
   size_t v21; // rbx
   int result; // eax
   unsigned __int16 v23; // r9
@@ -55,7 +55,7 @@ int __fastcall HUBMISC_QueryKseDeviceFlags(
     && (v19 = (unsigned __int16)*a6, (_WORD)v19)
     && (v20 = (unsigned __int16)*a7, (_WORD)v20) )
   {
-    v21 = v19 + v20 + v18 + 88;
+    v21 = v19 + v18 + v20 + 88;
   }
   else
   {
@@ -76,7 +76,7 @@ int __fastcall HUBMISC_QueryKseDeviceFlags(
     v23 = 90;
     goto LABEL_12;
   }
-  v24 = WPP_MAIN_CB.Queue.ListEntry.Blink == 0LL;
+  v24 = WPP_MAIN_CB.Queue.ListEntry.Flink == 0LL;
   *a8 = 0LL;
   *a9 = 0LL;
   *a10 = 0LL;
@@ -98,12 +98,12 @@ int __fastcall HUBMISC_QueryKseDeviceFlags(
         v23 = 91;
 LABEL_12:
         LODWORD(v33) = result;
-        result = WPP_RECORDER_SF_d(a16, 2u, 5u, v23, (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, v33);
+        result = WPP_RECORDER_SF_d(a16, 2u, 5u, v23, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v33);
         goto LABEL_59;
       }
       goto LABEL_59;
     }
-    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
       pszDest,
       L"USB",
       a14);
@@ -119,7 +119,7 @@ LABEL_12:
   result = RtlStringCbPrintfW(pszDest, v21, v26, a5, a6, a7);
   if ( result >= 0 )
   {
-    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
       pszDest,
       L"USB",
       a8);
@@ -137,7 +137,7 @@ LABEL_12:
       }
       goto LABEL_59;
     }
-    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
       pszDest,
       L"USB",
       a9);
@@ -154,7 +154,7 @@ LABEL_12:
       }
       goto LABEL_59;
     }
-    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+    ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
       pszDest,
       L"USB",
       a10);
@@ -165,7 +165,7 @@ LABEL_43:
     result = RtlStringCbPrintfW(pszDest, v21, v30, a2, v27, a4);
     if ( result >= 0 )
     {
-      ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+      ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
         pszDest,
         L"USB",
         a11);
@@ -175,7 +175,7 @@ LABEL_43:
       result = RtlStringCbPrintfW(pszDest, v21, v31, a2, v27);
       if ( result >= 0 )
       {
-        ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+        ((void (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
           pszDest,
           L"USB",
           a12);
@@ -185,7 +185,7 @@ LABEL_43:
         result = RtlStringCbPrintfW(pszDest, v21, v32, a2);
         if ( result >= 0 )
         {
-          result = ((__int64 (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Blink)(
+          result = ((__int64 (__fastcall *)(NTSTRSAFE_PWSTR, const wchar_t *, _QWORD *))WPP_MAIN_CB.Queue.ListEntry.Flink)(
                      pszDest,
                      L"USB",
                      a13);

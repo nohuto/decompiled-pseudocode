@@ -1,13 +1,13 @@
 /*
- * XREFs of SiIsWinPEBoot @ 0x1406BAF60
+ * XREFs of SiIsWinPEBoot @ 0x1406A4930
  * Callers:
- *     SiGetFirmwareSystemPartition @ 0x1406BAEF0 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemDisk @ 0x14080AA70 (SiGetSystemDisk.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A22790 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetFirmwareSystemPartition @ 0x1406A4880 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14077ADF0 (SiGetSystemDisk.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B054 (SiIsWinPeHardDiskZeroUfdBoot.c)
  * Callees:
- *     wcsstr @ 0x1403E3540 (wcsstr.c)
- *     SiGetRegistryValue @ 0x1406BB294 (SiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     wcsstr @ 0x1403D4190 (wcsstr.c)
+ *     SiGetRegistryValue @ 0x1406A4BD4 (SiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall SiIsWinPEBoot(int a1, __int64 a2, __int64 a3, int a4)

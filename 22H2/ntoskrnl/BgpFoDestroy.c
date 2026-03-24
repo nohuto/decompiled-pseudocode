@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpFoDestroy @ 0x140AF0360
+ * XREFs of BgpFoDestroy @ 0x1409F41CC
  * Callers:
- *     BgpFwLibraryDisable @ 0x140AED1B0 (BgpFwLibraryDisable.c)
- *     BgpFwLibraryDestroy @ 0x140AEFA48 (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     FopFreeFontData @ 0x140AED2D8 (FopFreeFontData.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     FopFreeFontData @ 0x1409F4294 (FopFreeFontData.c)
  */
 
 void __fastcall BgpFoDestroy(__int64 a1)
@@ -14,8 +14,8 @@ void __fastcall BgpFoDestroy(__int64 a1)
   _QWORD **v3; // rdi
   _QWORD *v4; // rcx
   _QWORD *v5; // rax
-  __int64 v6; // rdx
-  __int64 **v7; // rax
+  __int64 v6; // rax
+  __int64 **v7; // rdx
   __int64 v8; // rcx
 
   if ( FontLibraryInitialized )
@@ -42,7 +42,7 @@ void __fastcall BgpFoDestroy(__int64 a1)
             goto LABEL_16;
           *v3 = v5;
           v5[1] = v3;
-          FopFreeFontData(v4);
+          FopFreeFontData();
         }
         v6 = *v2;
         if ( *(__int64 **)(*v2 + 8) != v2 || (v7 = (__int64 **)v2[1], *v7 != v2) )

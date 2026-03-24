@@ -1,5 +1,5 @@
 /*
- * XREFs of SCDataCompare @ 0x1C0123D80
+ * XREFs of SCDataCompare @ 0x1C0137BE0
  * Callers:
  *     <none>
  * Callees:

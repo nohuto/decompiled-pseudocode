@@ -1,29 +1,29 @@
 /*
- * XREFs of ProcessDpiAwarenessFromKernelDpiAwarenessContext @ 0x1C003EAD0
+ * XREFs of ProcessDpiAwarenessFromKernelDpiAwarenessContext @ 0x1C012B48C
  * Callers:
- *     ?TraceLoggingProcessUsageOnTerminationEvent@@YAXQEAUtagPROCESSINFO@@@Z @ 0x1C001396C (-TraceLoggingProcessUsageOnTerminationEvent@@YAXQEAUtagPROCESSINFO@@@Z.c)
- *     ?TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z @ 0x1C003E9B4 (-TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z.c)
+ *     DestroyProcessInfoEditionRundown @ 0x1C0118A10 (DestroyProcessInfoEditionRundown.c)
+ *     ?TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z @ 0x1C012B3F0 (-TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall ProcessDpiAwarenessFromKernelDpiAwarenessContext(char a1)
+__int64 __fastcall ProcessDpiAwarenessFromKernelDpiAwarenessContext(char a1, __int64 a2, __int64 a3)
 {
-  unsigned int v1; // ebx
-  int v2; // ecx
-  int v3; // ecx
+  unsigned int v3; // ebx
+  int v4; // ecx
+  int v5; // ecx
 
-  v1 = -1;
-  v2 = a1 & 0xF;
-  if ( v2 )
+  v3 = -1;
+  v4 = a1 & 0xF;
+  if ( v4 )
   {
-    v3 = v2 - 1;
-    if ( v3 )
+    v5 = v4 - 1;
+    if ( v5 )
     {
-      if ( v3 == 1 )
+      if ( v5 == 1 )
         return 2;
       else
-        UserSetLastError(87LL);
+        UserSetLastError(87LL, a2, a3);
     }
     else
     {
@@ -34,5 +34,5 @@ __int64 __fastcall ProcessDpiAwarenessFromKernelDpiAwarenessContext(char a1)
   {
     return 0;
   }
-  return v1;
+  return v3;
 }

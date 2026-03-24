@@ -1,44 +1,26 @@
 /*
- * XREFs of RtlpCopyContext @ 0x140295D00
+ * XREFs of RtlpCopyContext @ 0x140275F40
  * Callers:
- *     RtlDispatchException @ 0x140295210 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x140275570 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
 {
-  int v3; // r10d
-  int v4; // r9d
-  int v5; // edx
   __int64 result; // rax
-  _OWORD *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdx
+  _OWORD *v3; // rcx
 
   if ( a2 == a1 )
   {
-    result = *(_DWORD *)(a2 + 48) & 0x1000CF;
+    result = *(_DWORD *)(a2 + 48) & 0x10004F;
     *(_DWORD *)(a1 + 48) = result;
   }
   else
   {
-    v3 = *(_DWORD *)(a1 + 48);
-    v4 = 0;
     *(_DWORD *)(a1 + 48) = 0;
-    v5 = *(_DWORD *)(a2 + 48);
-    if ( (v5 & 0x100080) == 0x100080 && (v3 & 0x100080) == 0x100080 )
-    {
-      v8 = *(int *)(a1 + 1256);
-      *(_DWORD *)(a1 + 48) = 1048704;
-      v9 = *(int *)(a2 + 1256);
-      *(_OWORD *)(v8 + a1 + 1232) = *(_OWORD *)(v9 + a2 + 1232);
-      *(_QWORD *)(v8 + a1 + 1248) = *(_QWORD *)(v9 + a2 + 1248);
-      v5 = *(_DWORD *)(a2 + 48);
-      v4 = *(_DWORD *)(a1 + 48);
-    }
-    *(_DWORD *)(a1 + 48) = v4 | v5 & 0x10000F;
+    *(_DWORD *)(a1 + 48) = *(_DWORD *)(a2 + 48) & 0x10000F;
     *(_QWORD *)(a1 + 248) = *(_QWORD *)(a2 + 248);
     *(_QWORD *)(a1 + 144) = *(_QWORD *)(a2 + 144);
     *(_QWORD *)(a1 + 152) = *(_QWORD *)(a2 + 152);
@@ -64,17 +46,17 @@ __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
     *(_DWORD *)(a1 + 52) = *(_DWORD *)(a2 + 52);
     *(_DWORD *)(a1 + 68) = *(_DWORD *)(a2 + 68);
     result = a2 + 256;
-    v7 = (_OWORD *)(a1 + 256);
-    *v7 = *(_OWORD *)(a2 + 256);
-    v7[1] = *(_OWORD *)(a2 + 272);
-    v7[2] = *(_OWORD *)(a2 + 288);
-    v7[3] = *(_OWORD *)(a2 + 304);
-    v7[4] = *(_OWORD *)(a2 + 320);
-    v7[5] = *(_OWORD *)(a2 + 336);
-    v7[6] = *(_OWORD *)(a2 + 352);
-    v7[7] = *(_OWORD *)(a2 + 368);
-    v7[8] = *(_OWORD *)(a2 + 384);
-    v7[9] = *(_OWORD *)(a2 + 400);
+    v3 = (_OWORD *)(a1 + 256);
+    *v3 = *(_OWORD *)(a2 + 256);
+    v3[1] = *(_OWORD *)(a2 + 272);
+    v3[2] = *(_OWORD *)(a2 + 288);
+    v3[3] = *(_OWORD *)(a2 + 304);
+    v3[4] = *(_OWORD *)(a2 + 320);
+    v3[5] = *(_OWORD *)(a2 + 336);
+    v3[6] = *(_OWORD *)(a2 + 352);
+    v3[7] = *(_OWORD *)(a2 + 368);
+    v3[8] = *(_OWORD *)(a2 + 384);
+    v3[9] = *(_OWORD *)(a2 + 400);
   }
   return result;
 }

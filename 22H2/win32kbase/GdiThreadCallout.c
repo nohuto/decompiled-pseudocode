@@ -1,39 +1,47 @@
 /*
- * XREFs of GdiThreadCallout @ 0x1C008AB80
+ * XREFs of GdiThreadCallout @ 0x1C0074060
  * Callers:
  *     <none>
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     ?vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C008AD98 (-vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z.c)
- *     HmgFreeDcAttr @ 0x1C008AE88 (HmgFreeDcAttr.c)
- *     bDeletePalette @ 0x1C008B2F0 (bDeletePalette.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     HmgFreeDcAttr @ 0x1C002C8BC (HmgFreeDcAttr.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     IsUmfdIsCurrentProcessUmfdHostNoLockSupported @ 0x1C0074260 (IsUmfdIsCurrentProcessUmfdHostNoLockSupported.c)
+ *     ?vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C007428C (-vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     bDeletePalette @ 0x1C0074320 (bDeletePalette.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GdiThreadCallout(__int64 a1, int a2)
 {
-  unsigned int v2; // ebx
-  _QWORD *v5; // rdi
+  unsigned int v4; // ebx
+  int v5; // eax
   _QWORD *v6; // rax
   __int64 v7; // rdx
-  __int64 v9; // rdi
-  __int64 *v10; // rax
-  __int64 v11; // rcx
-  _QWORD **v12; // r14
-  _QWORD *v13; // rsi
-  _QWORD *v14; // rsi
+  __int64 v9; // rsi
+  int v10; // edi
+  int v11; // eax
+  __int64 v12; // rcx
+  _QWORD **v13; // r14
+  _QWORD *v14; // rbp
+  _QWORD *v15; // r14
+  int v16; // edi
   __int64 ThreadWin32Thread; // rax
-  __int64 v16; // r15
-  void (__fastcall *v17)(__int64); // rbp
+  __int64 v18; // r12
+  void (__fastcall *v19)(__int64); // r15
 
-  v2 = 0;
-  if ( qword_1C0294A88 && (int)qword_1C0294A88() >= 0 && qword_1C0294A90 && (unsigned int)qword_1C0294A90() )
+  v4 = 0;
+  if ( (int)IsUmfdIsCurrentProcessUmfdHostNoLockSupported() >= 0
+    && (!qword_1C0255678 ? (v5 = 0) : (v5 = qword_1C0255678()), v5) )
   {
     if ( a2 )
     {
-      if ( a2 == 1 && qword_1C0294AA8 && (int)qword_1C0294AA8() >= 0 && qword_1C0294AB0 )
-        qword_1C0294AB0();
+      if ( a2 == 1 )
+      {
+        v16 = qword_1C0255690 ? qword_1C0255690() : -1073741637;
+        if ( v16 >= 0 && qword_1C0255698 )
+          qword_1C0255698();
+      }
     }
     else
     {
@@ -53,62 +61,60 @@ __int64 __fastcall GdiThreadCallout(__int64 a1, int a2)
   {
     if ( a2 == 1 )
     {
-      v9 = 0LL;
-      v10 = (__int64 *)PsGetThreadWin32Thread(a1);
-      if ( v10 )
-        v9 = *v10;
-      if ( qword_1C0294DE8 && (int)qword_1C0294DE8() >= 0 && qword_1C0294DF0 )
-        qword_1C0294DF0();
-      v11 = *(_QWORD *)(v9 + 24);
-      if ( v11 )
-        HmgFreeDcAttr(v11);
+      v9 = W32GetThreadWin32Thread(a1);
+      v10 = -1073741637;
+      if ( qword_1C02559E0 )
+        v11 = qword_1C02559E0();
+      else
+        v11 = -1073741637;
+      if ( v11 >= 0 && qword_1C02559E8 )
+        qword_1C02559E8();
+      v12 = *(_QWORD *)(v9 + 24);
+      if ( v12 )
+        HmgFreeDcAttr(v12);
       vUMPDThreadCleanup((struct _W32THREAD *)v9);
-      v12 = (_QWORD **)(v9 + 88);
+      v13 = (_QWORD **)(v9 + 88);
       while ( 1 )
       {
-        v13 = *v12;
-        if ( *v12 == v12 )
+        v14 = *v13;
+        if ( *v13 == v13 )
           break;
-        if ( v13 )
+        if ( v14 )
         {
           KeEnterCriticalRegion();
-          v16 = v13[2];
-          v17 = (void (__fastcall *)(__int64))v13[3];
-          PopThreadGuardedObject(v13);
-          if ( v17 )
-            v17(v16);
+          v18 = v14[2];
+          v19 = (void (__fastcall *)(__int64))v14[3];
+          PopThreadGuardedObject(v14);
+          if ( v19 )
+            v19(v18);
           KeLeaveCriticalRegion();
         }
       }
-      v14 = *(_QWORD **)(v9 + 288);
-      if ( v14 )
+      v15 = *(_QWORD **)(v9 + 288);
+      if ( v15 )
       {
         *(_QWORD *)(v9 + 288) = 0LL;
-        bDeletePalette(*v14);
-        if ( qword_1C0294E28 )
-        {
-          if ( (int)qword_1C0294E28() >= 0 && qword_1C0294E30 )
-            qword_1C0294E30(v14);
-        }
+        bDeletePalette(*v15, 0LL, 0LL);
+        if ( qword_1C0255A20 )
+          v10 = qword_1C0255A20();
+        if ( v10 >= 0 && qword_1C0255A28 )
+          qword_1C0255A28(v15);
       }
       if ( *(_QWORD *)(v9 + 80) )
-        DxDdThreadCallout(v9 + 80, 0LL);
+        ((void (__fastcall *)(__int64, _QWORD))qword_1C02509F0)(v9 + 80, 0LL);
     }
   }
   else
   {
-    v5 = 0LL;
-    v6 = (_QWORD *)PsGetThreadWin32Thread(a1);
-    if ( v6 )
-      v5 = (_QWORD *)*v6;
+    v6 = (_QWORD *)W32GetThreadWin32Thread(a1);
     LOBYTE(v7) = 1;
-    v5[6] = v5 + 5;
-    v5[5] = v5 + 5;
-    v5[12] = v5 + 11;
-    v5[11] = v5 + 11;
-    v5[35] = v5 + 14;
-    v5[10] = 0LL;
-    return (unsigned int)DxDdThreadCallout(v5 + 10, v7);
+    v6[6] = v6 + 5;
+    v6[5] = v6 + 5;
+    v6[12] = v6 + 11;
+    v6[11] = v6 + 11;
+    v6[35] = v6 + 14;
+    v6[10] = 0LL;
+    return (unsigned int)((__int64 (__fastcall *)(_QWORD *, __int64))qword_1C02509F0)(v6 + 10, v7);
   }
-  return v2;
+  return v4;
 }

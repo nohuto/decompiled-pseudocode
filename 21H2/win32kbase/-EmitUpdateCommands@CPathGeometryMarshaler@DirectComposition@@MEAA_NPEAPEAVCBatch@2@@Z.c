@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021F650
+ * XREFs of ?EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E8DD0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009E3B0 (-EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a31f4c013bbf96eb9a301cb6dcc37814___ @ 0x1C021F5AC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a31f4c013bbf96eb9a301cb6dcc3781.c)
+ *     ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0063490 (-EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7b3a3b82b7f39f27af6e35449b019669___ @ 0x1C01E8D2C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_7b3a3b82b7f39f27af6e35449b01966.c)
  */
 
 char __fastcall DirectComposition::CPathGeometryMarshaler::EmitUpdateCommands(
@@ -22,7 +22,7 @@ char __fastcall DirectComposition::CPathGeometryMarshaler::EmitUpdateCommands(
     v7 = this;
     if ( v5 )
       return 1;
-    if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a31f4c013bbf96eb9a301cb6dcc37814___(
+    if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7b3a3b82b7f39f27af6e35449b019669___(
            (__int64)this,
            a2,
            (__int64)&v7) )

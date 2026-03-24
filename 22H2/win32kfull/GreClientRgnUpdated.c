@@ -1,141 +1,147 @@
 /*
- * XREFs of GreClientRgnUpdated @ 0x1C00346B4
+ * XREFs of GreClientRgnUpdated @ 0x1C0075010
  * Callers:
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
- *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C02873C0 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0286604 (-vForceClientRgnUpdate@@YAXXZ.c)
  * Callees:
- *     ?vStamp@REGION@@QEAAXXZ @ 0x1C001EA38 (-vStamp@REGION@@QEAAXXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0287848 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
- *     ?vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z @ 0x1C0287AB0 (-vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0286A68 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
+ *     ?vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z @ 0x1C0286CC4 (-vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z.c)
  */
 
-void __fastcall GreClientRgnUpdated(Gre::Base *a1)
+// write access to const memory has been detected, the output may be wrong!
+void __fastcall GreClientRgnUpdated(char a1)
 {
-  char v1; // r15
-  struct Gre::Base::SESSION_GLOBALS *v2; // rbx
-  Gre::Base *v3; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v4; // rax
-  __int64 v5; // rcx
-  __int64 i; // rdi
-  int v7; // eax
-  int v8; // eax
+  TRACKOBJ *i; // rdi
+  int v3; // ecx
+  int v4; // ecx
+  __int64 v5; // rbx
+  int v6; // eax
+  struct _RECTL *v7; // rsi
+  struct _RECTL *v8; // r14
   __int64 j; // rbx
-  int v10; // eax
-  struct _RECTL *v11; // rsi
-  struct _RECTL *v12; // r14
-  __int64 k; // rbx
-  REGION **p_right; // rbx
-  REGION *v15; // rdx
-  __int64 v16; // rdx
-  int v17; // eax
-  __int64 v18; // [rsp+20h] [rbp-20h] BYREF
-  struct _RECTL v19; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v20; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v21; // [rsp+80h] [rbp+40h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+48h] BYREF
+  LONG *p_right; // rbx
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r9
+  __int64 v14; // rdx
+  int v15; // eax
+  __int64 v16; // [rsp+20h] [rbp-50h] BYREF
+  _QWORD v17[2]; // [rsp+28h] [rbp-48h] BYREF
+  _QWORD v18[3]; // [rsp+38h] [rbp-38h] BYREF
+  struct _RECTL v19; // [rsp+50h] [rbp-20h] BYREF
+  struct _RECTL v20; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+B8h] [rbp+48h] BYREF
+  __int64 v22; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v23; // [rsp+C8h] [rbp+58h] BYREF
 
-  v1 = (char)a1;
-  v2 = Gre::Base::Globals(a1);
-  GreAcquireSemaphore(*((_QWORD *)v2 + 12));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemVisRgnUniqueness", *((_QWORD *)v2 + 12), 10LL);
-  v4 = Gre::Base::Globals(v3);
-  ++*((_DWORD *)v4 + 1629);
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemVisRgnUniqueness");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v2 + 12));
-  if ( (v1 & 1) != 0 )
+  GreAcquireSemaphore(ghsemVisRgnUniqueness);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness, 10LL);
+  ++giVisRgnUniqueness;
+  EtwTraceGreLockReleaseSemaphore(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
+  GreReleaseSemaphoreInternal(ghsemVisRgnUniqueness);
+  if ( (a1 & 1) != 0 )
   {
-    v18 = *((_QWORD *)v2 + 7);
-    GreAcquireSemaphore(v18);
-    for ( i = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v5) + 32) + 23664LL); i; i = *(_QWORD *)(i + 8) )
+    v16 = ghsemWndobj;
+    GreAcquireSemaphore(ghsemWndobj);
+    for ( i = gpto; i; i = (TRACKOBJ *)*((_QWORD *)i + 1) )
     {
-      v7 = *(_DWORD *)(i + 48);
-      if ( v7 < 0 )
+      v3 = *((_DWORD *)i + 12);
+      if ( v3 < 0 )
       {
-        v8 = v7 & 0x7FFFFFFF;
-        *(_DWORD *)(i + 48) = v8;
-        if ( (v8 & 0x12) == 0x12 )
+        v4 = v3 & 0x7FFFFFFF;
+        *((_DWORD *)i + 12) = v4;
+        if ( (v4 & 0x12) == 0x12 )
         {
-          for ( j = *(_QWORD *)(i + 24); j; j = *(_QWORD *)(j + 160) )
+          v5 = *((_QWORD *)i + 3);
+          if ( v5 )
           {
-            v10 = *(_DWORD *)(j + 184);
-            if ( v10 >= 0 )
+            do
             {
-              v22 = *(_QWORD *)(j + 200);
-              GreAcquireSemaphore(v22);
-              (*(void (__fastcall **)(__int64, __int64))(i + 40))(j, 2LL);
-              SEMOBJ::vUnlock((SEMOBJ *)&v22);
+              v6 = *(_DWORD *)(v5 + 184);
+              if ( v6 >= 0 )
+              {
+                v21 = *(_QWORD *)(v5 + 200);
+                GreAcquireSemaphore(v21);
+                (*((void (__fastcall **)(__int64, __int64))i + 5))(v5, 2LL);
+                SEMOBJ::vUnlock((SEMOBJ *)&v21);
+              }
+              else
+              {
+                *(_DWORD *)(v5 + 184) = v6 & 0x7FFFFFFF;
+              }
+              v5 = *(_QWORD *)(v5 + 160);
             }
-            else
-            {
-              *(_DWORD *)(j + 184) = v10 & 0x7FFFFFFF;
-            }
+            while ( v5 );
+            v4 = *((_DWORD *)i + 12);
           }
         }
-        if ( (*(_DWORD *)(i + 48) & 0xC) != 0 )
+        if ( (v4 & 0xC) != 0 )
         {
-          v11 = *(struct _RECTL **)(i + 16);
-          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v21);
-          RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v21);
-          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v20);
-          RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v20);
-          if ( v21 && v20 )
+          v7 = (struct _RECTL *)*((_QWORD *)i + 2);
+          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v18, 0, 1);
+          RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v18);
+          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17, 0, 1);
+          RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
+          if ( v18[0] && v17[0] )
           {
-            v12 = v11 + 2;
-            RGNOBJ::vSet((RGNOBJ *)&v20, v11 + 2);
-            for ( k = *(_QWORD *)(i + 24); k; k = *(_QWORD *)(k + 160) )
+            v8 = v7 + 2;
+            RGNOBJ::vSet((RGNOBJ *)v17, v7 + 2);
+            for ( j = *((_QWORD *)i + 3); j; j = *(_QWORD *)(j + 160) )
             {
-              v22 = *(_QWORD *)(k + 56);
-              if ( RGNOBJ::iCombine((RGNOBJ *)&v21, (struct RGNOBJ *)&v20, (struct RGNOBJ *)&v22, 4) )
-                RGNOBJ::vSwap((RGNOBJ *)&v20, (struct RGNOBJ *)&v21);
+              v22 = *(_QWORD *)(j + 56);
+              if ( RGNOBJ::iCombine((RGNOBJ *)v18, (struct RGNOBJ *)v17, (struct RGNOBJ *)&v22, 4) )
+                RGNOBJ::vSwap((RGNOBJ *)v17, (struct RGNOBJ *)v18);
             }
-            if ( (*(_DWORD *)(i + 48) & 4) != 0 )
+            if ( (*((_DWORD *)i + 12) & 4) != 0 )
             {
-              p_right = (REGION **)&v11[3].right;
-              v22 = *(_QWORD *)&v11[3].right;
-              if ( RGNOBJ::iCombine((RGNOBJ *)&v21, (struct RGNOBJ *)&v20, (struct RGNOBJ *)&v22, 4) )
+              p_right = &v7[3].right;
+              v23 = *(_QWORD *)&v7[3].right;
+              if ( RGNOBJ::iCombine((RGNOBJ *)v18, (struct RGNOBJ *)v17, (struct RGNOBJ *)&v23, 4) )
               {
-                RGNOBJ::vSwap((RGNOBJ *)&v11[3].right, (struct RGNOBJ *)&v21);
-                REGION::vStamp(*p_right);
-                v15 = *p_right;
-                v19 = *v12;
-                EWNDOBJ::vSetClip(v11, v15, &v19);
-                TRACKOBJ::vUpdateDrvDelta((TRACKOBJ *)i, (struct EWNDOBJ *)v11, 4u);
+                RGNOBJ::vSwap((RGNOBJ *)&v7[3].right, (struct RGNOBJ *)v18);
+                v11 = *(_QWORD *)p_right;
+                *(_DWORD *)(v11 + 28) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
+                v12 = *(_QWORD *)p_right;
+                v19 = *v8;
+                EWNDOBJ::vSetClip(v7, v12, &v19);
+                TRACKOBJ::vUpdateDrvDelta(i, (struct EWNDOBJ *)v7, 4u);
               }
             }
-            RGNOBJ::vSwap((RGNOBJ *)&v11[3].right, (struct RGNOBJ *)&v20);
-            REGION::vStamp(*(REGION **)&v11[3].right);
-            v16 = *(_QWORD *)&v11[3].right;
-            v19 = *v12;
-            EWNDOBJ::vSetClip(v11, v16, &v19);
-            if ( (*(_DWORD *)(i + 48) & 8) != 0 )
-              (*(void (__fastcall **)(struct _RECTL *, __int64))(i + 40))(v11, 8LL);
+            RGNOBJ::vSwap((RGNOBJ *)&v7[3].right, (struct RGNOBJ *)v17);
+            v13 = *(_QWORD *)&v7[3].right;
+            *(_DWORD *)(v13 + 28) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
+            v14 = *(_QWORD *)&v7[3].right;
+            v20 = *v8;
+            EWNDOBJ::vSetClip(v7, v14, &v20);
+            if ( (*((_DWORD *)i + 12) & 8) != 0 )
+              (*((void (__fastcall **)(struct _RECTL *, __int64))i + 5))(v7, 8LL);
           }
-          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v20);
-          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v21);
+          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v18);
         }
-        (*(void (__fastcall **)(_QWORD, __int64))(i + 40))(0LL, 16LL);
-        v17 = *(_DWORD *)(i + 48);
-        if ( (v17 & 0x40) != 0 )
+        (*((void (__fastcall **)(_QWORD, __int64))i + 5))(0LL, 16LL);
+        v15 = *((_DWORD *)i + 12);
+        if ( (v15 & 0x40) != 0 )
         {
-          if ( (v1 & 2) != 0 )
+          if ( (a1 & 2) != 0 )
           {
-            *(_DWORD *)(i + 48) = v17 | 0x4000000;
+            *((_DWORD *)i + 12) = v15 | 0x4000000;
           }
           else
           {
-            (*(void (__fastcall **)(_QWORD, __int64))(i + 40))(0LL, 64LL);
-            *(_DWORD *)(i + 48) &= ~0x4000000u;
+            (*((void (__fastcall **)(_QWORD, __int64))i + 5))(0LL, 64LL);
+            *((_DWORD *)i + 12) &= ~0x4000000u;
           }
         }
       }
     }
-    SEMOBJ::vUnlock((SEMOBJ *)&v18);
+    SEMOBJ::vUnlock((SEMOBJ *)&v16);
   }
 }

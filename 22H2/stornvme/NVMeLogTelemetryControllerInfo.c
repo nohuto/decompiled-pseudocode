@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeLogTelemetryControllerInfo @ 0x1C0008DB4
+ * XREFs of NVMeLogTelemetryControllerInfo @ 0x1C000F6F0
  * Callers:
- *     NVMeHwPassiveInitialize @ 0x1C0008540 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerInitPart3 @ 0x1C000E014 (NVMeControllerInitPart3.c)
  * Callees:
- *     NVMeGetPowerState @ 0x1C0007DD8 (NVMeGetPowerState.c)
- *     NVMeLogTelemetry @ 0x1C0008AC4 (NVMeLogTelemetry.c)
+ *     NVMeGetPowerState @ 0x1C000EBE0 (NVMeGetPowerState.c)
+ *     NVMeLogTelemetry @ 0x1C000F3E0 (NVMeLogTelemetry.c)
  */
 
 __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
   int v22; // [rsp+40h] [rbp-98h]
   __int64 v23; // [rsp+C0h] [rbp-18h]
 
-  v1 = *(unsigned __int16 **)(a1 + 1840);
+  v1 = *(unsigned __int16 **)(a1 + 1624);
   v23 = v1[260] & 1LL | (2
                        * ((v1[260] >> 1) & 1 | (2
                                               * ((v1[260] >> 2) & 1 | (2
@@ -82,7 +82,7 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
     v16,
     v20,
     "MQES",
-    (unsigned __int16)*(_DWORD *)(a1 + 200),
+    (unsigned __int16)*(_DWORD *)(a1 + 176),
     "MDTS",
     *((unsigned __int8 *)v1 + 77),
     "NN",
@@ -90,13 +90,13 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
     "VWCStatus",
     *((_BYTE *)v1 + 525) & 1,
     "MaxIoSubmissionQueueCount",
-    *(unsigned __int16 *)(a1 + 914),
+    *(unsigned __int16 *)(a1 + 818),
     "MaxIoCompletionQueueCount",
-    *(unsigned __int16 *)(a1 + 916),
+    *(unsigned __int16 *)(a1 + 820),
     "MessageCount",
-    *(unsigned __int16 *)(a1 + 280),
+    *(unsigned __int16 *)(a1 + 256),
     "ProcessorCount",
-    *(unsigned __int16 *)(a1 + 242));
+    *(unsigned __int16 *)(a1 + 218));
   v3 = 0;
   NVMeLogTelemetry(
     a1,

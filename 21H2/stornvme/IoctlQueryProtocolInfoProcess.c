@@ -1,11 +1,11 @@
 /*
- * XREFs of IoctlQueryProtocolInfoProcess @ 0x1C0001414
+ * XREFs of IoctlQueryProtocolInfoProcess @ 0x1C0001EF0
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     QueryProtocolInfoLogPageData @ 0x1C00014A0 (QueryProtocolInfoLogPageData.c)
- *     QueryProtocolInfoFeatureData @ 0x1C001FE84 (QueryProtocolInfoFeatureData.c)
- *     QueryProtocolInfoIdentifyData @ 0x1C0020158 (QueryProtocolInfoIdentifyData.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C0001F7C (QueryProtocolInfoLogPageData.c)
+ *     QueryProtocolInfoFeatureData @ 0x1C0016414 (QueryProtocolInfoFeatureData.c)
+ *     QueryProtocolInfoIdentifyData @ 0x1C001667C (QueryProtocolInfoIdentifyData.c)
  */
 
 __int64 __fastcall IoctlQueryProtocolInfoProcess(__int64 a1, __int64 a2)

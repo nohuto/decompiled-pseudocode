@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhResumeHardReset @ 0x1C003CE38
+ * XREFs of UsbhResumeHardReset @ 0x1C003E018
  * Callers:
- *     UsbhFdoSetD0Warm @ 0x1C003B8A0 (UsbhFdoSetD0Warm.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003CBD0 (UsbhFdoSetD0Warm.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
  */
 
 __int64 __fastcall UsbhResumeHardReset(__int64 a1)

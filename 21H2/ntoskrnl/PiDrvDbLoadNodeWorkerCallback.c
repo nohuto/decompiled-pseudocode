@@ -1,32 +1,32 @@
 /*
- * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x1407F3CF0
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140725DB0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1402D1EB4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     PnpDiagnosticTraceObject @ 0x1402D2774 (PnpDiagnosticTraceObject.c)
- *     ZwSetEvent @ 0x14041B920 (ZwSetEvent.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwResetEvent @ 0x14041E7A0 (ZwResetEvent.c)
- *     _PnpSetObjectProperty @ 0x14077198C (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     PiDrvDbLoadHive @ 0x1407F3F88 (PiDrvDbLoadHive.c)
- *     PiDrvDbUnloadHive @ 0x1407F405C (PiDrvDbUnloadHive.c)
- *     PiDrvDbSetupNodeHive @ 0x140826270 (PiDrvDbSetupNodeHive.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x1403FA560 (ZwSetEvent.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwResetEvent @ 0x1403FD2E0 (ZwResetEvent.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     PiDrvDbUnloadHive @ 0x140726048 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140726094 (PiDrvDbLoadHive.c)
+ *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7E64 (PiDrvDbSetupNodeHive.c)
  */
 
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
 {
   unsigned __int16 *v1; // r14
-  int v3; // ebx
-  __int64 *v4; // r15
-  _DWORD *v5; // rbx
+  int v3; // eax
+  int v4; // ebx
+  __int64 *v5; // r15
+  _DWORD *v6; // rbx
   NTSTATUS result; // eax
-  __int64 v7; // rax
-  int v8; // eax
-  __int64 v9; // r9
+  __int64 v8; // rax
+  int v9; // eax
   __int64 v10; // rdx
   int v11; // [rsp+B0h] [rbp+48h] BYREF
   int v12; // [rsp+B8h] [rbp+50h] BYREF
@@ -41,125 +41,111 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
   PnpDiagnosticTraceObject(&KMPnPEvt_DriverDatabaseLoad_Start, (unsigned __int16 *)(a1 + 16));
   PnpDiagnosticTraceObject(&KMPnPEvt_DriverDatabaseLoaded_Start, v1);
   v3 = PiDrvDbLoadHive(a1 + 32, a1 + 48, 0LL, &Handle);
-  if ( v3 >= 0 )
+  v4 = v3;
+  if ( v3 < 0 )
   {
-    v4 = (__int64 *)(a1 + 72);
-    if ( (int)SysCtxRegOpenKey(0LL, (__int64)Handle, (__int64)L"DriverDatabase", 0, 0x2000000u, a1 + 72) < 0 )
-    {
+    if ( v3 == -1073741772 || v3 == -1073741766 )
       *(_BYTE *)(a1 + 80) = 1;
+    goto LABEL_35;
+  }
+  v5 = (__int64 *)(a1 + 72);
+  if ( (int)SysCtxRegOpenKey(0LL, (__int64)Handle, (__int64)L"DriverDatabase", 0, 0x2000000u, a1 + 72) < 0 )
+  {
+    *(_BYTE *)(a1 + 80) = 1;
+    goto LABEL_5;
+  }
+  if ( *(_QWORD *)(a1 + 480) == 0xFFFFFFFFLL )
+  {
+    if ( (int)PnpGetObjectProperty(
+                *(__int64 *)&PiPnpRtlCtx,
+                *(_QWORD *)(a1 + 24),
+                7LL,
+                *v5,
+                0LL,
+                (__int64)DEVPKEY_DriverDatabase_UnloadTimeout,
+                (__int64)&v11,
+                (__int64)&v13,
+                4,
+                (__int64)&v12,
+                0) >= 0
+      && v11 == 7
+      && v12 == 4 )
+    {
+      v8 = v13;
     }
     else
     {
-      if ( *(_QWORD *)(a1 + 480) == 0xFFFFFFFFLL )
-      {
-        if ( (int)PnpGetObjectProperty(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    *(_QWORD *)(a1 + 24),
-                    7LL,
-                    *v4,
-                    0LL,
-                    (__int64)DEVPKEY_DriverDatabase_UnloadTimeout,
-                    (__int64)&v11,
-                    (__int64)&v13,
-                    4,
-                    (__int64)&v12,
-                    0) >= 0
-          && v11 == 7
-          && v12 == 4 )
-        {
-          v7 = v13;
-        }
-        else
-        {
-          v7 = 120000LL;
-          v13 = 120000;
-        }
-        if ( (_DWORD)v7 != -1 )
-          *(_QWORD *)(a1 + 480) = -10000 * v7;
-      }
-      v5 = (_DWORD *)(a1 + 496);
-      if ( *(_DWORD *)(a1 + 496) != 259 )
-        goto LABEL_5;
-      if ( (int)PnpGetObjectProperty(
-                  *(__int64 *)&PiPnpRtlCtx,
-                  *(_QWORD *)(a1 + 24),
-                  7LL,
-                  *v4,
-                  0LL,
-                  (__int64)DEVPKEY_DriverDatabase_SetupOptions,
-                  (__int64)&v11,
-                  a1 + 492,
-                  4,
-                  (__int64)&v12,
-                  0) < 0
-        || v11 != 7
-        || v12 != 4 )
-      {
-        *(_DWORD *)(a1 + 492) = 51;
-      }
-      if ( (int)PnpGetObjectProperty(
-                  *(__int64 *)&PiPnpRtlCtx,
-                  *(_QWORD *)(a1 + 24),
-                  7LL,
-                  *v4,
-                  0LL,
-                  (__int64)DEVPKEY_DriverDatabase_SetupStatus,
-                  (__int64)&v11,
-                  a1 + 496,
-                  4,
-                  (__int64)&v12,
-                  0) >= 0
-        && v11 == 24
-        && v12 == 4 )
-      {
-        if ( *v5 != 259 )
-          goto LABEL_5;
-      }
-      else
-      {
-        *v5 = 259;
-      }
-      v8 = PiDrvDbSetupNodeHive(a1, *(_QWORD *)(a1 + 24));
-      v9 = *v4;
-      v10 = *(_QWORD *)(a1 + 24);
-      *v5 = v8;
-      PnpSetObjectProperty(
-        *(__int64 *)&PiPnpRtlCtx,
-        v10,
-        7u,
-        v9,
-        0LL,
-        (__int64)DEVPKEY_DriverDatabase_SetupStatus,
-        24,
-        a1 + 496,
-        4u,
-        0);
+      v8 = 120000LL;
+      v13 = 120000;
     }
+    if ( (_DWORD)v8 != -1 )
+      *(_QWORD *)(a1 + 480) = -10000 * v8;
+  }
+  v6 = (_DWORD *)(a1 + 496);
+  if ( *(_DWORD *)(a1 + 496) != 259 )
+    goto LABEL_5;
+  if ( (int)PnpGetObjectProperty(
+              *(__int64 *)&PiPnpRtlCtx,
+              *(_QWORD *)(a1 + 24),
+              7LL,
+              *v5,
+              0LL,
+              (__int64)DEVPKEY_DriverDatabase_SetupOptions,
+              (__int64)&v11,
+              a1 + 492,
+              4,
+              (__int64)&v12,
+              0) < 0
+    || v11 != 7
+    || v12 != 4 )
+  {
+    *(_DWORD *)(a1 + 492) = 51;
+  }
+  if ( (int)PnpGetObjectProperty(
+              *(__int64 *)&PiPnpRtlCtx,
+              *(_QWORD *)(a1 + 24),
+              7LL,
+              *v5,
+              0LL,
+              (__int64)DEVPKEY_DriverDatabase_SetupStatus,
+              (__int64)&v11,
+              a1 + 496,
+              4,
+              (__int64)&v12,
+              0) < 0
+    || v11 != 24
+    || v12 != 4 )
+  {
+    *v6 = 259;
+LABEL_27:
+    v9 = PiDrvDbSetupNodeHive(a1, *(_QWORD *)(a1 + 24));
+    v10 = *(_QWORD *)(a1 + 24);
+    *v6 = v9;
+    PnpSetObjectProperty(PiPnpRtlCtx, v10, 7, 0LL, (__int64)DEVPKEY_DriverDatabase_SetupStatus, 24, a1 + 496, 4, 0);
+    goto LABEL_5;
+  }
+  if ( *v6 == 259 )
+    goto LABEL_27;
 LABEL_5:
-    ZwClose(Handle);
-    ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
-    v3 = PiDrvDbUnloadHive(a1 + 32, *(_QWORD *)(a1 + 472));
-    if ( v3 == 259 )
-    {
-      v3 = 0;
-    }
-    else
-    {
-      if ( v3 < 0 )
-        v3 = 0;
-      ZwSetEvent(*(HANDLE *)(a1 + 472), 0LL);
-    }
+  ZwClose(Handle);
+  ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+  v4 = PiDrvDbUnloadHive(a1 + 32, *(_QWORD *)(a1 + 472));
+  if ( v4 == 259 )
+  {
+    v4 = 0;
     goto LABEL_7;
   }
-  if ( v3 == -1073741772 || v3 == -1073741766 )
-    *(_BYTE *)(a1 + 80) = 1;
-  if ( v3 == -1073741431 )
-    v3 = -1073741077;
+  if ( v4 < 0 )
+    v4 = 0;
+  ZwSetEvent(*(HANDLE *)(a1 + 472), 0LL);
+LABEL_35:
+  if ( v4 == -1073741431 )
+    v4 = -1073741077;
 LABEL_7:
-  *(_DWORD *)(a1 + 256) = v3;
+  *(_DWORD *)(a1 + 256) = v4;
   KeSetEvent((PRKEVENT)(a1 + 200), 0, 0);
-  result = PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoad_Stop, v1, v3);
-  if ( v3 < 0 )
-    return PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoaded_Stop, v1, v3);
+  result = PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoad_Stop, v1, v4);
+  if ( v4 < 0 )
+    return PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoaded_Stop, v1, v4);
   return result;
 }

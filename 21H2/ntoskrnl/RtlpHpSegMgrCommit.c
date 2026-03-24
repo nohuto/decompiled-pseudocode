@@ -1,168 +1,143 @@
 /*
- * XREFs of RtlpHpSegMgrCommit @ 0x140351880
+ * XREFs of RtlpHpSegMgrCommit @ 0x14030A610
  * Callers:
- *     RtlpHpSegPageRangeCommit @ 0x1403507F0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegMgrAllocate @ 0x140362540 (RtlpHpSegMgrAllocate.c)
- *     RtlpHpSegMgrRelease @ 0x14036843C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrAllocate @ 0x1402A4D14 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14030A2B0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
  * Callees:
- *     RtlpHpSegMgrCommitInitiate @ 0x140236A00 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpSegMgrCommitComplete @ 0x140242FF4 (RtlpHpSegMgrCommitComplete.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x140351BF4 (RtlpHpHeapCheckCommitLimit.c)
- *     RtlpHpAllocVA @ 0x140351E90 (RtlpHpAllocVA.c)
- *     RtlpHpVaMgrCtxQuery @ 0x1403628D8 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpFreeVA @ 0x140363E50 (RtlpHpFreeVA.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x1402C7BD4 (RtlpHpSegMgrCommitComplete.c)
+ *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x140309268 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14030944C (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x14030AB10 (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpHpAllocVA @ 0x14030AD50 (RtlpHpAllocVA.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)
+__int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)
 {
-  unsigned __int64 v8; // r14
-  unsigned int v9; // ebx
+  unsigned __int64 v8; // rsi
+  int v9; // r14d
   unsigned __int64 v10; // r15
-  int v11; // r12d
-  unsigned int v12; // esi
-  int v14; // r8d
-  volatile signed __int16 *v15; // rbx
-  size_t v16; // r13
-  void *v17; // r15
-  bool v18; // zf
+  unsigned int v11; // edi
+  volatile signed __int16 *v14; // rcx
+  unsigned __int64 v15; // r15
+  unsigned int v16; // r12d
+  bool v17; // zf
+  int v18; // eax
   int v19; // eax
-  int v20; // eax
-  int v21; // edx
-  __int64 result; // rax
-  int v23; // eax
-  __int64 HeapManager; // rax
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rcx
-  unsigned __int64 v27; // [rsp+30h] [rbp-61h] BYREF
-  __int64 v28; // [rsp+38h] [rbp-59h] BYREF
-  LONG SpinLock[2]; // [rsp+40h] [rbp-51h] BYREF
-  __int128 v30; // [rsp+50h] [rbp-41h] BYREF
-  __int128 v31; // [rsp+60h] [rbp-31h] BYREF
-  __int128 v32; // [rsp+70h] [rbp-21h] BYREF
-  __int128 v33; // [rsp+80h] [rbp-11h] BYREF
-  __int128 v34; // [rsp+90h] [rbp-1h]
-  __int64 v35; // [rsp+E0h] [rbp+4Fh] BYREF
-  unsigned __int64 v36; // [rsp+E8h] [rbp+57h]
+  int v20; // r13d
+  volatile signed __int16 *v21; // rdx
+  void *HeapManager; // rax
+  __int64 v24; // rdx
+  int v25; // eax
+  int v26; // eax
+  unsigned __int64 v27; // rcx
+  int v28; // r9d
+  void *v29; // [rsp+30h] [rbp-51h] BYREF
+  unsigned __int64 v30; // [rsp+38h] [rbp-49h] BYREF
+  int v31[2]; // [rsp+40h] [rbp-41h]
+  LONG SpinLock[2]; // [rsp+48h] [rbp-39h] BYREF
+  __int128 v33; // [rsp+50h] [rbp-31h] BYREF
+  __int128 v34; // [rsp+60h] [rbp-21h] BYREF
+  __int128 v35; // [rsp+70h] [rbp-11h] BYREF
+  __int128 v36; // [rsp+80h] [rbp-1h] BYREF
+  __int128 v37; // [rsp+90h] [rbp+Fh]
+  __int64 v38; // [rsp+D0h] [rbp+4Fh] BYREF
 
-  v36 = a2;
   v8 = a5;
-  v9 = -*(_DWORD *)a1;
+  v9 = a6 & 0x40000000;
   v10 = a3;
-  v11 = a6 & 0x40000000;
-  LOBYTE(v35) = 0;
-  v12 = a6 & 0xBFFFFFFF;
+  v11 = a6 & 0xBFFFFFFF;
+  LOBYTE(v38) = 0;
   *(_QWORD *)SpinLock = 0LL;
-  if ( a5 > 0 )
-  {
-    if ( !(unsigned int)RtlpHpHeapCheckCommitLimit(
-                          a5 << 12,
-                          (*(_QWORD *)(*(_QWORD *)(a1 + 56) + 96LL) + *(_QWORD *)(*(_QWORD *)(a1 + 56) + 136LL)) << 12,
-                          *(_QWORD *)(a1 + 56),
-                          *(_QWORD *)(a1 + 56) + 32LL) )
-      return 3221225773LL;
-    a2 = v36;
-  }
+  if ( a5 > 0 && !(unsigned int)RtlpHpSegHeapCheckCommitLimit(a5 << 12, *(_QWORD *)(a1 + 56)) )
+    return 3221225773LL;
   if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
   {
-    v33 = 0LL;
-    v34 = 0LL;
-    v27 = a2 & 0xFFFFFFFFFFE00000uLL;
-    v30 = *(_OWORD *)(a1 + 40);
-    HeapManager = RtlpHpEnvGetHeapManager(&v30);
-    RtlpHpVaMgrCtxQuery(HeapManager + 88, v25, &v33);
-    a2 = v36;
-    if ( (int)v8 <= 0 || (_DWORD)v10 || v36 <= v27 || v9 >= 0x200000 )
-    {
-      v14 = a7;
-    }
-    else
-    {
-      LOBYTE(v14) = a7;
-      a6 = a7;
-      if ( (a7 & 2) != 0 )
-        goto LABEL_24;
-      v14 = a7 | 1;
-    }
-    a6 = v14;
-LABEL_24:
-    v15 = (volatile signed __int16 *)(v34 + 2 * (v10 >> 9));
-    goto LABEL_6;
+    v36 = 0LL;
+    v37 = 0LL;
+    v33 = *(_OWORD *)(a1 + 40);
+    HeapManager = RtlpHpEnvGetHeapManager(&v33);
+    RtlpHpVaMgrCtxQuery((__int64)HeapManager + 88, v24, (__int64)&v36);
+    v14 = (volatile signed __int16 *)(v37 + 2 * (v10 >> 9));
   }
-  LOBYTE(v14) = a7;
-  v15 = 0LL;
-  a6 = a7;
-LABEL_6:
-  v16 = (unsigned int)(a4 << 12);
-  v17 = (void *)(a2 + (unsigned int)((_DWORD)v10 << 12));
+  else
+  {
+    v14 = 0LL;
+  }
+  v15 = a2 + (unsigned int)((_DWORD)v10 << 12);
+  *(_QWORD *)v31 = v14;
+  v16 = a4 << 12;
   while ( 1 )
   {
-    v27 = (unsigned __int64)v17;
-    v28 = v16;
-    if ( !v15 )
-    {
-LABEL_8:
-      if ( (int)v8 <= 0 )
-        goto LABEL_34;
-      goto LABEL_9;
-    }
-    v23 = RtlpHpSegMgrCommitInitiate(a1, v15, v8, v14, (__int64)SpinLock, (unsigned __int8 *)&v35);
-    if ( v23 == -1073741568 )
+    v29 = (void *)v15;
+    v30 = v16;
+    if ( !v14 )
+      goto LABEL_7;
+    v25 = RtlpHpSegMgrCommitInitiate(a1, v14, v8, a7, (ULONG_PTR)SpinLock, (KIRQL *)&v38);
+    if ( v25 == -1073741568 )
       break;
-    if ( v23 != -1073741566 )
-      goto LABEL_8;
-    v27 &= 0xFFFFFFFFFFE00000uLL;
-    v28 = 0x200000LL;
+    if ( v25 == -1073741566 )
+    {
+      v30 = 0x200000LL;
+      v29 = (void *)(v15 & 0xFFFFFFFFFFE00000uLL);
+      v26 = v11 | 0x20000000;
+      if ( (int)v8 <= 0 )
+        v26 = v11;
+      v11 = v26;
+    }
+LABEL_7:
     if ( (int)v8 <= 0 )
     {
-LABEL_34:
-      v32 = *(_OWORD *)(a1 + 40);
-      v21 = RtlpHpFreeVA(&v27, &v28, v12, &v32);
-      a5 = v21;
-      goto LABEL_13;
+      v35 = *(_OWORD *)(a1 + 40);
+      v20 = RtlpHpFreeVA((unsigned __int64 *)&v29, &v30, v11, &v35);
     }
-    if ( BYTE1(*(_QWORD *)(a1 + 40)) == 2 )
-      v12 |= 0x20400000u;
     else
-      v12 |= 0x20000000u;
-LABEL_9:
-    if ( v11 && (v12 & 0x20000000) == 0 )
-      v12 |= 0x40000000u;
-    v18 = (*(_DWORD *)(*(_QWORD *)(a1 + 56) + 20LL) & 0x40000000) == 0;
-    v19 = 64;
-    v31 = *(_OWORD *)(a1 + 40);
-    if ( v18 )
-      v19 = 4;
-    v20 = RtlpHpAllocVA((unsigned int)&v27, (unsigned int)&v28, 0, v12, v19, (__int64)&v31);
-    a5 = v20;
-    v21 = v20;
-    if ( v11 && v20 >= 0 && (v12 & 0x40000000) == 0 )
     {
-      memset(v17, 0, v16);
-      v21 = a5;
+      if ( v9 && (v11 & 0x20000000) == 0 )
+        v11 |= 0x40000000u;
+      v17 = (*(_DWORD *)(*(_QWORD *)(a1 + 56) + 20LL) & 0x40000000) == 0;
+      v18 = 64;
+      v34 = *(_OWORD *)(a1 + 40);
+      if ( v17 )
+        v18 = 4;
+      v19 = RtlpHpAllocVA((unsigned int)&v29, (unsigned int)&v30, 0, v11, v18, (__int64)&v34);
+      v20 = v19;
+      if ( v9 && v19 >= 0 && (v11 & 0x40000000) == 0 )
+        memset(v29, 0, v16);
     }
-LABEL_13:
-    if ( !v15 )
-      return (unsigned int)v21;
-    if ( _bittest16((const signed __int16 *)v15, 0xEu) && v21 >= 0 )
+    v21 = *(volatile signed __int16 **)v31;
+    if ( !*(_QWORD *)v31 )
+      return (unsigned int)v20;
+    if ( (**(_WORD **)v31 & 0x4000) != 0 )
     {
-      v26 = 1LL;
+      if ( v20 < 0 )
+        goto LABEL_40;
+      v27 = 1LL;
       if ( (int)v8 <= 0 )
-        v26 = -1LL;
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1 + 8), v26);
+        v27 = -1LL;
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1 + 8), v27);
       _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1), v8);
     }
-    RtlpHpSegMgrCommitComplete(a1, v15, v8, v21 >= 0, (__int64)SpinLock, v35);
-    result = (unsigned int)a5;
-    if ( (v12 & 0x20000000) == 0 || a5 >= 0 || (a6 & 2) != 0 )
-      return result;
-    LOBYTE(v14) = a6 | 1;
-    a6 |= 1u;
-    v12 &= ~0x20000000u;
+    if ( v20 < 0 )
+    {
+LABEL_40:
+      v28 = 0;
+      goto LABEL_37;
+    }
+    v28 = 1;
+LABEL_37:
+    RtlpHpSegMgrCommitComplete(a1, v21, v8, v28, SpinLock, v38);
+    if ( (v11 & 0x20000000) == 0 || v20 >= 0 || (a7 & 2) != 0 )
+      return (unsigned int)v20;
+    v14 = *(volatile signed __int16 **)v31;
+    a7 |= 1u;
+    v11 &= ~0x20000000u;
   }
   _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1), v8);
-  if ( v11 )
-    memset(v17, 0, v16);
+  if ( v9 )
+    memset((void *)v15, 0, v16);
   return 0LL;
 }

@@ -1,24 +1,26 @@
 /*
- * XREFs of PspGetSetContextSpecialApc @ 0x1404285E0
+ * XREFs of PspGetSetContextSpecialApc @ 0x140406E10
  * Callers:
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140770CE4 (PspGetContextThreadInternal.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PspGetSetContextInternal @ 0x140724A70 (PspGetSetContextInternal.c)
+ *     KeSignalGate @ 0x14031BEE0 (KeSignalGate.c)
+ *     PspGetSetContextInternal @ 0x1406C2670 (PspGetSetContextInternal.c)
  */
 
-LONG __fastcall PspGetSetContextSpecialApc(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+char __fastcall PspGetSetContextSpecialApc(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   __int64 v4; // rbx
-  LONG result; // eax
-  PRKEVENT Event[9]; // [rsp+C0h] [rbp-48h] BYREF
+  char result; // al
+  __int64 v6; // r8
+  _DWORD *v7; // r9
+  __int64 v8[9]; // [rsp+C0h] [rbp-48h] BYREF
 
   v4 = *(_QWORD *)(a1 + 120);
-  result = PspGetSetContextInternal(a1, *a4, Event);
-  if ( (_BYTE)result )
+  result = PspGetSetContextInternal(a1, *a4, v8);
+  if ( result )
     _fxrstor((void *)(v4 + 256));
-  if ( Event[0] )
-    return KeSetEvent(Event[0], 1, 0);
+  if ( v8[0] )
+    return KeSignalGate(v8[0], 1LL, v6, v7);
   return result;
 }

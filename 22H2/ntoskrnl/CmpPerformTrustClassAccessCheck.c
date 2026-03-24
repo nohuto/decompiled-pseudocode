@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpPerformTrustClassAccessCheck @ 0x14036DC48
+ * XREFs of CmpPerformTrustClassAccessCheck @ 0x14032CC30
  * Callers:
- *     CmpJoinClassOfTrust @ 0x14036DBCC (CmpJoinClassOfTrust.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16AC8 (CmpResolveHiveLoadConflict.c)
+ *     CmpJoinClassOfTrust @ 0x14032CBB4 (CmpJoinClassOfTrust.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E774 (CmpResolveHiveLoadConflict.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CmpPerformTrustClassAccessCheck(__int64 a1, char a2)
 {
-  if ( a2 )
-    return (*(_DWORD *)(a1 + 4112) & 1) == 0 ? 0xC000000D : 0;
+  if ( a2 && (*(_DWORD *)(a1 + 4152) & 1) == 0 )
+    return 3221225485LL;
   else
     return 0LL;
 }

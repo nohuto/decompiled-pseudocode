@@ -1,40 +1,26 @@
 /*
- * XREFs of CleanupLogonProcess @ 0x1C00B1D00
+ * XREFs of CleanupLogonProcess @ 0x1C00B70A0
  * Callers:
- *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00B1AE4 (-Win32kNtUserCleanup@@YAHXZ.c)
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00743A8 (-Win32kNtUserCleanup@@YAHXZ.c)
  * Callees:
- *     isInputVirtualizationEnabled @ 0x1C004FF0C (isInputVirtualizationEnabled.c)
- *     ?CleanupWinlogonRpcHandle@@YAXXZ @ 0x1C00D03F8 (-CleanupWinlogonRpcHandle@@YAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WmsgpDisconnect @ 0x1C027EBAC (WmsgpDisconnect.c)
  */
 
-char __fastcall CleanupLogonProcess(int a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS CleanupLogonProcess()
 {
-  HANDLE v4; // rcx
-  char result; // al
+  NTSTATUS result; // eax
 
-  if ( a1 )
+  if ( gWinLogonRpcHandle )
   {
-    if ( gWinLogonRpcHandle )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 243LL);
-  }
-  else if ( gWinLogonRpcHandle )
-  {
-    CleanupWinlogonRpcHandle();
+    result = WmsgpDisconnect();
+    gWinLogonRpcHandle = 0LL;
     gpidLogon = 0LL;
   }
-  v4 = ghSMSS;
   if ( ghSMSS )
   {
-    ZwClose(ghSMSS);
+    result = ZwClose(ghSMSS);
     ghSMSS = 0LL;
-  }
-  result = isInputVirtualizationEnabled((__int64)v4, a2, a3, a4);
-  if ( result )
-  {
-    if ( gpkeIVThreadShutdown )
-      return KeSetEvent(gpkeIVThreadShutdown, 1, 0);
   }
   return result;
 }

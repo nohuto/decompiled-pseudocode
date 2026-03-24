@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NeedsSurfaceUpdate@CTokenBase@@UEBA_NXZ @ 0x1C0019D00
+ * XREFs of ?NeedsSurfaceUpdate@CTokenBase@@UEBA_NXZ @ 0x1C001B700
  * Callers:
  *     <none>
  * Callees:

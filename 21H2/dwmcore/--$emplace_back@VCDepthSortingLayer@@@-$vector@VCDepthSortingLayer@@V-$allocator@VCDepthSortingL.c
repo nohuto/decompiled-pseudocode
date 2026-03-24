@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAAAEAVCDepthSortingLayer@@$$QEAV2@@Z @ 0x180247580
+ * XREFs of ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAAAEAVCDepthSortingLayer@@$$QEAV2@@Z @ 0x1801FAEE4
  * Callers:
- *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1802475EC (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FAF50 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLa
   __int64 result; // rax
 
   v3 = a1[1];
-  if ( v3 == a1[2] )
+  if ( a1[2] == v3 )
     return std::vector<CDepthSortingLayer>::_Emplace_reallocate<CDepthSortingLayer>(a1, v3, a2);
   *(_QWORD *)v3 = 0LL;
   *(_QWORD *)(v3 + 8) = 0LL;

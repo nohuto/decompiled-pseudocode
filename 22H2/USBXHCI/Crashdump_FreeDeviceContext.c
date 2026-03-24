@@ -1,8 +1,8 @@
 /*
- * XREFs of Crashdump_FreeDeviceContext @ 0x1C004C200
+ * XREFs of Crashdump_FreeDeviceContext @ 0x1C00496F4
  * Callers:
- *     Crashdump_UcxEvtFreeDumpData @ 0x1C004CFA0 (Crashdump_UcxEvtFreeDumpData.c)
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004D100 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_UcxEvtFreeDumpData @ 0x1C004A4D0 (Crashdump_UcxEvtFreeDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
  * Callees:
  *     <none>
  */

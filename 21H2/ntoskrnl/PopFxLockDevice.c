@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxLockDevice @ 0x1403A4868
+ * XREFs of PopFxLockDevice @ 0x14036E284
  * Callers:
- *     PoFxNotifySurprisePowerOn @ 0x140397A80 (PoFxNotifySurprisePowerOn.c)
- *     PopAllocateIrp @ 0x1403A3F0C (PopAllocateIrp.c)
- *     PopFxUnregisterDeviceOrWait @ 0x14080D7EC (PopFxUnregisterDeviceOrWait.c)
+ *     PopAllocateIrp @ 0x14036DF40 (PopAllocateIrp.c)
+ *     PoFxNotifySurprisePowerOn @ 0x14038BB10 (PoFxNotifySurprisePowerOn.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140736750 (PopFxUnregisterDeviceOrWait.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     IoAcquireRemoveLockEx @ 0x1403553A0 (IoAcquireRemoveLockEx.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxLockDevice(__int64 a1, char a2)
@@ -28,16 +28,13 @@ __int64 __fastcall PopFxLockDevice(__int64 a1, char a2)
     v5 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 88));
     v4 = *(_QWORD *)(a1 + 80);
     v6 = v5;
-    if ( !a2
-      || (_m_prefetchw((const void *)(a1 + 296)), (_InterlockedOr((volatile signed __int32 *)(a1 + 296), 0) & 4) != 0) )
+    if ( a2 )
     {
-      if ( v4 && IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 240), 0LL, &Src, 1u, 0x20u) < 0 )
-        v4 = 0LL;
+      _m_prefetchw((const void *)(a1 + 296));
+      v4 &= -(__int64)((_InterlockedOr((volatile signed __int32 *)(a1 + 296), 0) & 4) != 0);
     }
-    else
-    {
+    if ( v4 && IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 240), 0LL, &Src, 1u, 0x20u) < 0 )
       v4 = 0LL;
-    }
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 88));
     if ( KiIrqlFlags )
     {

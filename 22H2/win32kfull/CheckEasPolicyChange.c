@@ -1,9 +1,9 @@
 /*
- * XREFs of CheckEasPolicyChange @ 0x1C01BAF10
+ * XREFs of CheckEasPolicyChange @ 0x1C01D3F88
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 CheckEasPolicyChange()
@@ -35,9 +35,9 @@ __int64 CheckEasPolicyChange()
     ZwQueryKey(KeyHandle, KeyBasicInformation, &KeyInformation, 0x18u, &ResultLength);
     ZwClose(KeyHandle);
   }
-  if ( qword_1C035F8A0 != KeyInformation )
+  if ( qword_1C033C6B8 != KeyInformation )
   {
-    qword_1C035F8A0 = KeyInformation;
+    qword_1C033C6B8 = KeyInformation;
     return 1;
   }
   RtlInitUnicodeString(
@@ -54,9 +54,9 @@ __int64 CheckEasPolicyChange()
     ZwQueryKey(KeyHandle, KeyBasicInformation, &KeyInformation, 0x18u, &ResultLength);
     ZwClose(KeyHandle);
   }
-  if ( qword_1C035F8A8 != KeyInformation )
+  if ( qword_1C033C6B0 != KeyInformation )
   {
-    qword_1C035F8A8 = KeyInformation;
+    qword_1C033C6B0 = KeyInformation;
     return 1;
   }
   return v0;

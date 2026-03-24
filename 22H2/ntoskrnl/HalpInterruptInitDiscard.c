@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptInitDiscard @ 0x140B75224
+ * XREFs of HalpInterruptInitDiscard @ 0x140A72AD4
  * Callers:
- *     HalpInterruptInitSystem @ 0x140A8A2E0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x14099EA00 (HalpInterruptInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140615410 (HviGetHardwareFeatures.c)
- *     HalpInitializeInterrupts @ 0x140B4BA90 (HalpInitializeInterrupts.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1405BEEB0 (HviGetHardwareFeatures.c)
+ *     HalpInitializeInterrupts @ 0x140A44BFC (HalpInitializeInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitDiscard(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,16 +26,16 @@ __int64 __fastcall HalpInterruptInitDiscard(__int64 a1, __int64 a2, __int64 a3, 
   result = HalpInitializeInterrupts(a1);
   if ( (int)result >= 0 )
   {
-    off_140C01B80[0] = (__int64 (__fastcall *)())HalpMaskInterrupt;
-    off_140C01B88[0] = (__int64 (__fastcall *)())HalpUnmaskInterrupt;
-    off_140C01C20[0] = (__int64 (__fastcall *)())HalpInterruptRequestInterrupt;
-    off_140C01C28[0] = (__int64 (__fastcall *)())HalpInterruptEnumerateUnmaskedInterrupts;
-    off_140C02158[0] = (__int64 (__fastcall *)())HaliGetInterruptTranslator;
-    off_140C01B78[0] = (__int64 (__fastcall *)())HalpSecondaryInterruptQueryPrimaryInformation;
-    off_140C01B90[0] = (__int64 (__fastcall *)())HalpIsInterruptTypeSecondary;
-    off_140C01B98[0] = (__int64 (__fastcall *)())HalpAllocateGsivForSecondaryInterrupt;
-    off_140C01CF0[0] = (__int64 (__fastcall *)())HalpInterruptVectorDataToGsiv;
-    off_140C01CF8[0] = (__int64 (__fastcall *)())HalpInterruptGetHighestPriorityInterrupt;
+    off_140C00770[0] = (__int64 (__fastcall *)())HalpMaskInterrupt;
+    off_140C00778[0] = (__int64 (__fastcall *)())HalpUnmaskInterrupt;
+    off_140C00810[0] = (__int64 (__fastcall *)())HalpInterruptRequestInterrupt;
+    off_140C00818[0] = (__int64 (__fastcall *)())HalpInterruptEnumerateUnmaskedInterrupts;
+    off_140C00AD8[0] = (__int64 (__fastcall *)())HaliGetInterruptTranslator;
+    off_140C00768[0] = (__int64 (__fastcall *)())HalpSecondaryInterruptQueryPrimaryInformation;
+    off_140C00780[0] = (__int64 (__fastcall *)())HalpIsInterruptTypeSecondary;
+    off_140C00788[0] = (__int64 (__fastcall *)())HalpAllocateGsivForSecondaryInterrupt;
+    off_140C008E0[0] = (__int64 (__fastcall *)())HalpInterruptVectorDataToGsiv;
+    off_140C008E8[0] = (__int64 (__fastcall *)())HalpInterruptGetHighestPriorityInterrupt;
     return 0LL;
   }
   return result;

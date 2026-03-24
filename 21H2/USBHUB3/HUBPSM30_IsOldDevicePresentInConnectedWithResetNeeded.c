@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_IsOldDevicePresentInConnectedWithResetNeeded @ 0x1C0010F20
+ * XREFs of HUBPSM30_IsOldDevicePresentInConnectedWithResetNeeded @ 0x1C0010B10
  * Callers:
  *     <none>
  * Callees:

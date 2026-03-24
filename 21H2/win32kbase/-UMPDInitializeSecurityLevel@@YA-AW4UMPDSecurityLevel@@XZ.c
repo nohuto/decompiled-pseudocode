@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C0055014
+ * XREFs of ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C009FDB4
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 UMPDInitializeSecurityLevel()

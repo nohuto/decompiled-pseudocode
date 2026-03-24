@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpCreateRegion @ 0x1407BA370
+ * XREFs of AlpcpCreateRegion @ 0x1406FFF24
  * Callers:
- *     AlpcpCreateSectionView @ 0x1407BA274 (AlpcpCreateSectionView.c)
+ *     AlpcpCreateSectionView @ 0x1406FFE28 (AlpcpCreateSectionView.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x14073A150 (AlpcpAllocateBlob.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1406D984C (AlpcpAllocateBlob.c)
  */
 
-__int64 __fastcall AlpcpCreateRegion(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3, char **a4)
+__int64 __fastcall AlpcpCreateRegion(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v9; // r12
@@ -23,9 +23,9 @@ __int64 __fastcall AlpcpCreateRegion(ULONG_PTR BugCheckParameter2, __int64 a2, u
   __int64 v18; // r10
   unsigned __int64 v19; // rax
   __int64 v20; // rbx
-  char *Blob; // rax
-  char *v22; // rsi
-  char **v23; // rax
+  _OWORD *Blob; // rax
+  _OWORD *v22; // rsi
+  _QWORD *v23; // rax
 
   CurrentThread = KeGetCurrentThread();
   *a4 = 0LL;
@@ -89,8 +89,8 @@ LABEL_18:
     {
       memset(Blob, 0, 0x58uLL);
       *((_DWORD *)v22 + 12) &= ~1u;
-      *((_QWORD *)v22 + 8) = v22 + 56;
-      *((_QWORD *)v22 + 7) = v22 + 56;
+      *((_QWORD *)v22 + 8) = (char *)v22 + 56;
+      *((_QWORD *)v22 + 7) = (char *)v22 + 56;
       *((_QWORD *)v22 + 3) = a2;
       *((_QWORD *)v22 + 4) = v12;
       *((_QWORD *)v22 + 5) = v9;
@@ -98,7 +98,7 @@ LABEL_18:
       *((_QWORD *)v22 + 2) = BugCheckParameter2;
       *((_QWORD *)v22 + 1) = v13[1];
       *(_QWORD *)v22 = v13;
-      v23 = (char **)v13[1];
+      v23 = (_QWORD *)v13[1];
       *a4 = v22;
       *v23 = v22;
       v13[1] = v22;

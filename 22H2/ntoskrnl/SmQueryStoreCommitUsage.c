@@ -1,14 +1,14 @@
 /*
- * XREFs of SmQueryStoreCommitUsage @ 0x1405C9BE0
+ * XREFs of SmQueryStoreCommitUsage @ 0x14059CF00
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x1406192E8 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C648 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x1405C2F50 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SmpProcessQueryStoreStats @ 0x14059CF98 (SmpProcessQueryStoreStats.c)
  */
 
-__int64 __fastcall SmQueryStoreCommitUsage(struct _EPROCESS *a1, _QWORD *a2)
+__int64 __fastcall SmQueryStoreCommitUsage(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx
@@ -18,7 +18,7 @@ __int64 __fastcall SmQueryStoreCommitUsage(struct _EPROCESS *a1, _QWORD *a2)
   _DWORD v9[384]; // [rsp+20h] [rbp-618h] BYREF
 
   memset(v9, 0, sizeof(v9));
-  result = SmpProcessQueryStoreStats(a1, (struct _ST_STATS *)v9);
+  result = SmpProcessQueryStoreStats(a1, v9);
   if ( (int)result >= 0 )
   {
     v5 = 0LL;

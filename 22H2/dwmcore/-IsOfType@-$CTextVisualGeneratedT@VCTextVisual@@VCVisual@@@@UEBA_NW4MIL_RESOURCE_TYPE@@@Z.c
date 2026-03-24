@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180255030
+ * XREFs of ?IsOfType@?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F1050
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C2B90 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A90E0 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CTextVisualGeneratedT<CTextVisual,CVisual>::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CTextVisualGeneratedT<CTextVisual,CVisual>::IsOfType(__int64 a1,
   bool v2; // al
   char v3; // cl
 
-  if ( a2 == 185 )
+  if ( a2 == 184 )
     return 1;
   v2 = CVisual::IsOfType(a1, a2);
   v3 = 0;

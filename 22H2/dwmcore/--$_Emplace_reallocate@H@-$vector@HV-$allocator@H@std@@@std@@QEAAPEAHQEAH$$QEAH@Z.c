@@ -1,54 +1,66 @@
 /*
- * XREFs of ??$_Emplace_reallocate@H@?$vector@HV?$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z @ 0x1802420D0
+ * XREFs of ??$_Emplace_reallocate@H@?$vector@HV?$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z @ 0x180152AE8
  * Callers:
- *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180246074 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     std::_Invoker_functor::_Call__lambda_7073ea3a1159c22cf152f2e0fb8a80e9__&_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&_ @ 0x1800EA51C (std--_Invoker_functor--_Call__lambda_7073ea3a1159c22cf152f2e0fb8a80e9__-_void___unsigned_long_un.c)
+ *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801E0AC4 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ??$_Get_size_of_n@$03@std@@YA_K_K@Z @ 0x1801B8880 (--$_Get_size_of_n@$03@std@@YA_K_K@Z.c)
- *     ?_Calculate_growth@?$vector@MV?$allocator@M@std@@@std@@AEBA_K_K@Z @ 0x1801BBE50 (-_Calculate_growth@-$vector@MV-$allocator@M@std@@@std@@AEBA_K_K@Z.c)
- *     ?_Change_array@?$vector@HV?$allocator@H@std@@@std@@AEAAXQEAH_K1@Z @ 0x1801CA5EC (-_Change_array@-$vector@HV-$allocator@H@std@@@std@@AEAAXQEAH_K1@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ?_Change_array@?$vector@HV?$allocator@H@std@@@std@@AEAAXQEAH_K1@Z @ 0x180152CFC (-_Change_array@-$vector@HV-$allocator@H@std@@@std@@AEAAXQEAH_K1@Z.c)
  */
 
-char *__fastcall std::vector<int>::_Emplace_reallocate<int>(_QWORD *a1, _BYTE *a2, _DWORD *a3)
+__int64 __fastcall std::vector<int>::_Emplace_reallocate<int>(const void **a1, _BYTE *a2, _DWORD *a3)
 {
-  _BYTE *v3; // rbp
+  __int64 v4; // rsi
   __int64 v6; // rax
-  __int64 v8; // r15
-  __int64 v9; // r12
-  SIZE_T size_of; // rax
-  char *v11; // rsi
-  char *v12; // r14
-  void *v13; // rcx
-  _BYTE *v14; // r8
-  _BYTE *v15; // rdx
-  size_t v16; // r8
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rbx
+  SIZE_T v12; // rcx
+  char *v13; // r14
+  char *v14; // rcx
+  _BYTE *v15; // r8
+  _BYTE *v16; // rdx
+  size_t v17; // r8
 
-  v3 = (_BYTE *)*a1;
-  v6 = (__int64)(a1[1] - *a1) >> 2;
+  v4 = (a2 - (_BYTE *)*a1) >> 2;
+  v6 = ((_BYTE *)a1[1] - (_BYTE *)*a1) >> 2;
   if ( v6 == 0x3FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
+    std::_Xlength_error("vector<T> too long");
   v8 = v6 + 1;
-  v9 = std::vector<float>::_Calculate_growth(a1, v6 + 1);
-  size_of = std::_Get_size_of_n<4>(v9);
-  v11 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v12 = &v11[4 * ((a2 - v3) >> 2)];
-  *(_DWORD *)v12 = *a3;
-  v13 = v11;
-  v14 = (_BYTE *)a1[1];
-  v15 = (_BYTE *)*a1;
-  if ( a2 == v14 )
+  v9 = ((_BYTE *)a1[2] - (_BYTE *)*a1) >> 2;
+  v10 = v9 >> 1;
+  if ( v9 <= 0x3FFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v16 = v14 - v15;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v6 + 1;
   }
   else
   {
-    memmove_0(v11, v15, (size_t)&a2[-*a1]);
-    v13 = v12 + 4;
-    v16 = a1[1] - (_QWORD)a2;
-    v15 = a2;
+    v11 = v6 + 1;
   }
-  memmove_0(v13, v15, v16);
-  std::vector<int>::_Change_array((__int64)a1, (__int64)v11, v8, v9);
-  return &v11[4 * ((a2 - v3) >> 2)];
+  v12 = 4 * v11;
+  if ( v11 > 0x3FFFFFFFFFFFFFFFLL )
+    v12 = -1LL;
+  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  *(_DWORD *)&v13[4 * v4] = *a3;
+  v14 = v13;
+  v15 = a1[1];
+  v16 = *a1;
+  if ( a2 == v15 )
+  {
+    v17 = v15 - v16;
+  }
+  else
+  {
+    memmove_0(v13, v16, a2 - (_BYTE *)*a1);
+    v17 = (_BYTE *)a1[1] - a2;
+    v14 = &v13[4 * v4 + 4];
+    v16 = a2;
+  }
+  memmove_0(v14, v16, v17);
+  std::vector<int>::_Change_array(a1, v13, v8, v11);
+  return (__int64)*a1 + 4 * v4;
 }

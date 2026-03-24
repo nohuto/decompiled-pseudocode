@@ -1,16 +1,14 @@
 /*
- * XREFs of QueryDeviceResetInterface @ 0x1C008E828
+ * XREFs of QueryDeviceResetInterface @ 0x1C0086918
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
- *     HUBPDO_RegisterPortPLDRCapability @ 0x1C007FB98 (HUBPDO_RegisterPortPLDRCapability.c)
- *     HUBPDO_InvokePortPLDRRecovery @ 0x1C00807C8 (HUBPDO_InvokePortPLDRRecovery.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
-__int64 __fastcall QueryDeviceResetInterface(__int64 a1, _DWORD *a2)
+__int64 __fastcall QueryDeviceResetInterface(__int64 a1, __int64 a2)
 {
   struct _DEVICE_OBJECT *v4; // rax
   PDEVICE_OBJECT AttachedDeviceReference; // rdi
@@ -63,14 +61,17 @@ __int64 __fastcall QueryDeviceResetInterface(__int64 a1, _DWORD *a2)
           WdfDriverGlobals,
           v9,
           v11);
-        memset(a2, 0, 0x50uLL);
         v13[4] = 0LL;
         v7 = v9;
-        *a2 = 65616;
-        v13[1] = &GUID_DEVICE_RESET_INTERFACE_STANDARD;
         LOWORD(v13[0]) = 2075;
-        LODWORD(v13[2]) = 65616;
+        *(_OWORD *)a2 = 0LL;
+        LODWORD(v13[2]) = 65592;
+        *(_OWORD *)(a2 + 16) = 0LL;
         v13[3] = a2;
+        *(_OWORD *)(a2 + 32) = 0LL;
+        *(_QWORD *)(a2 + 48) = 0LL;
+        *(_DWORD *)a2 = 65592;
+        v13[1] = &GUID_DEVICE_RESET_INTERFACE_STANDARD;
         (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *))(WdfFunctions_01015 + 2016))(
           WdfDriverGlobals,
           v7,

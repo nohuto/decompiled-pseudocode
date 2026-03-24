@@ -1,20 +1,20 @@
 /*
- * XREFs of ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C001A108
+ * XREFs of ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C0097F90
  * Callers:
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
  * Callees:
- *     ?bInsertGlyphbits@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C0018B2C (-bInsertGlyphbits@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z.c)
- *     ?bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C0018F90 (-bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
- *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C001A8BC (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z @ 0x1C001AA60 (-gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z.c)
- *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00C49AC (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C00E8A78 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C012451C (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
- *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C01247EC (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
+ *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C001E058 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098AC0 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z @ 0x1C0099480 (-gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z.c)
+ *     ?bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C009C9C8 (-bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertGlyphbits@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C009D990 (-bInsertGlyphbits@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z.c)
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00E3C78 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7468 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C0152D9C (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
  */
 
-struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
+__int64 __fastcall ESTROBJ::vCharPos_H3(
         __int64 a1,
         struct XDCOBJ *a2,
         RFONTOBJ *a3,
@@ -34,28 +34,28 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
   int v17; // ebp
   unsigned __int16 *v18; // rdx
   int v19; // r14d
-  int v20; // r15d
+  int v20; // r13d
   int v21; // edi
   __int64 v22; // rax
   unsigned __int16 *v23; // r9
-  unsigned int v24; // r13d
+  unsigned int v24; // r15d
   struct _GLYPHPOS *v25; // r12
   __int64 v26; // r8
   _DWORD *v27; // rcx
   int v28; // ebp
-  struct GPRUN *v29; // r13
+  struct GPRUN *v29; // r15
   _DWORD *v30; // r8
   int v31; // r14d
   __int64 v32; // rbp
   struct _GLYPHDATA *v33; // r14
-  struct _GLYPHDATA *result; // rax
+  __int64 result; // rax
   __int64 v35; // rax
-  unsigned int v36; // r9d
-  int *i; // r10
-  _DWORD *v38; // r8
-  int v39; // edx
+  unsigned int v36; // r8d
+  int *i; // r9
+  _DWORD *v38; // rdx
+  int v39; // eax
   int v40; // ecx
-  int v41; // eax
+  int v41; // ecx
   int v42; // ecx
   __int64 v43; // rdx
   int v44; // ecx
@@ -149,7 +149,7 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
     v68 = v24;
     if ( !*(_QWORD *)(v22 + 480) )
     {
-      result = (struct _GLYPHDATA *)RFONTOBJ::bAllocateCache(v11, (struct RFONTOBJ *)v18);
+      result = RFONTOBJ::bAllocateCache(v11, (struct RFONTOBJ *)v18);
       if ( !(_DWORD)result )
         return result;
       v23 = a10;
@@ -157,12 +157,10 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
       v18 = a10;
     }
     v26 = *(_QWORD *)v11;
-    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 104LL) + 1792LL) & 0x40000000) != 0 && *(_DWORD *)(v26 + 88) == 1 )
+    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 104LL) + 1824LL) & 0x40000000) != 0 && *(_DWORD *)(v26 + 88) == 1 )
     {
       v28 = 0;
-      result = (struct _GLYPHDATA *)RFONTOBJ::bGetGlyphMetrics(v11, v24, v16, v18, a2, (struct ESTROBJ *)a1);
-      if ( !(_DWORD)result )
-        return result;
+      result = RFONTOBJ::bGetGlyphMetrics(v11, v24, v16, v18, a2, (struct ESTROBJ *)a1);
     }
     else
     {
@@ -177,7 +175,7 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
           v25->pgdf = (GLYPHDEF *)RFONTOBJ::pgdDefault(v11);
           ++v25;
         }
-        goto LABEL_18;
+        goto LABEL_19;
       }
       v29 = (struct GPRUN *)(v27 + 4);
       v61 = &v18[v68];
@@ -192,15 +190,17 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
           if ( (unsigned int)v32 >= *v30 )
           {
             Run = RFONTOBJ::gprunFindRun(v11, v31);
+            v23 = a10;
             v29 = Run;
             v32 = (unsigned int)(v31 - *(_DWORD *)Run);
             v59 = (_DWORD *)((char *)Run + 4);
             if ( (unsigned int)v32 >= *((_DWORD *)Run + 1) )
             {
-              result = RFONTOBJ::wpgdGetLinkMetricsPlus(v11, a2, (struct ESTROBJ *)a1, a10, v58, v68, &a7, 1);
-              v33 = result;
+              result = (__int64)RFONTOBJ::wpgdGetLinkMetricsPlus(v11, a2, (struct ESTROBJ *)a1, a10, v58, v68, &a7, 1);
+              v33 = (struct _GLYPHDATA *)result;
               if ( !result )
                 return result;
+              v23 = a10;
             }
             else
             {
@@ -215,9 +215,7 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
           }
           if ( !v33 )
           {
-            result = (struct _GLYPHDATA *)RFONTOBJ::bInsertMetricsPlus(
-                                            v11,
-                                            (struct _GLYPHDATA **)(*((_QWORD *)v29 + 1) + 8 * v32));
+            result = RFONTOBJ::bInsertMetricsPlus(v11, (struct _GLYPHDATA **)(*((_QWORD *)v29 + 1) + 8 * v32), *v23);
             if ( !(_DWORD)result )
               return result;
             v33 = *(struct _GLYPHDATA **)(*((_QWORD *)v29 + 1) + 8 * v32);
@@ -225,7 +223,7 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
           v28 = a7;
           if ( !v33->gdf.pgb && a7 && *(_DWORD *)(*(_QWORD *)v11 + 88LL) )
           {
-            v28 &= -((unsigned int)RFONTOBJ::bInsertGlyphbits(v11, v33) != 0);
+            v28 &= -((unsigned int)RFONTOBJ::bInsertGlyphbits(v11, v33, a10 == v58) != 0);
             a7 = v28;
           }
           v30 = v59;
@@ -238,11 +236,14 @@ struct _GLYPHDATA *__fastcall ESTROBJ::vCharPos_H3(
         while ( v23 < v61 );
         v19 = 0;
       }
+      result = 1LL;
     }
+    if ( !(_DWORD)result )
+      return result;
   }
   if ( v28 )
   {
-LABEL_18:
+LABEL_19:
     v35 = *(_QWORD *)(a1 + 64);
     *(_DWORD *)(a1 + 232) |= 2u;
     *(_QWORD *)(a1 + 32) = v35;
@@ -253,18 +254,18 @@ LABEL_18:
     for ( i = (int *)p_ptl; ; *i = (v21 + v67) >> 4 )
     {
       v38 = (_DWORD *)*((_QWORD *)i - 1);
-      v39 = v20;
+      v39 = v38[3];
       v40 = v21 + v38[4];
-      v41 = v38[3];
       if ( v40 >= v19 )
         v40 = v19;
-      v20 = v21 + v38[5];
       v19 = v40;
+      v41 = v21 + v38[5];
+      if ( v41 <= v20 )
+        v41 = v20;
+      v21 += v39;
+      v20 = v41;
       v42 = *(_DWORD *)(a1 + 116);
-      if ( v20 <= v39 )
-        v20 = v39;
-      v21 += v41;
-      if ( v42 && v42 + v41 > 0 )
+      if ( v42 && v42 + v39 > 0 )
         v21 += v42;
       if ( *(i - 4) == v57 )
         v21 += *(_DWORD *)(a1 + 120);
@@ -274,7 +275,7 @@ LABEL_18:
       i[1] = v64;
     }
     if ( v21 <= v20 )
-      goto LABEL_32;
+      goto LABEL_33;
   }
   else
   {
@@ -297,7 +298,7 @@ LABEL_18:
     v19 = 0;
   }
   v20 = v21;
-LABEL_32:
+LABEL_33:
   *(_DWORD *)(a1 + 84) = 0;
   *(_DWORD *)(a1 + 112) = v21;
   *(_DWORD *)(a1 + 80) = v21;
@@ -307,13 +308,13 @@ LABEL_32:
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 340LL) & 0x40) != 0 )
   {
     *(_DWORD *)(a1 + 100) = -*(_DWORD *)(v43 + 320);
-    result = *(struct _GLYPHDATA **)v11;
+    result = *(_QWORD *)v11;
     v44 = -*(_DWORD *)(*(_QWORD *)v11 + 316LL);
   }
   else
   {
     *(_DWORD *)(a1 + 100) = *(_DWORD *)(v43 + 316);
-    result = *(struct _GLYPHDATA **)v11;
+    result = *(_QWORD *)v11;
     v44 = *(_DWORD *)(*(_QWORD *)v11 + 320LL);
   }
   *(_DWORD *)(a1 + 108) = v44;

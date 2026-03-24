@@ -1,9 +1,9 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x140125630
+ * XREFs of MiExpandFlushMdl @ 0x140125650
  * Callers:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

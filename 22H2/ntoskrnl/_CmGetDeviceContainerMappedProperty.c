@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedProperty @ 0x14079B0C4
+ * XREFs of _CmGetDeviceContainerMappedProperty @ 0x14068D00C
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14079AF90 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x14068CEB0 (_PnpDispatchDeviceContainer.c)
  * Callees:
- *     _CmIsLocalMachineContainer @ 0x14085DAC8 (_CmIsLocalMachineContainer.c)
- *     _CmGetContainerBooleanProperty @ 0x140A64114 (_CmGetContainerBooleanProperty.c)
+ *     _CmIsLocalMachineContainer @ 0x1407724FC (_CmIsLocalMachineContainer.c)
+ *     _CmGetContainerBooleanProperty @ 0x140976104 (_CmGetContainerBooleanProperty.c)
  */
 
 __int64 __fastcall CmGetDeviceContainerMappedProperty(
@@ -23,87 +23,92 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
   __int64 v13; // rcx
   bool v14; // cf
   __int64 v15; // rcx
-  const DEVPROPKEY *v16; // r9
+  __int64 v16; // rcx
   __int64 v17; // rcx
-  __int64 v18; // rcx
+  const DEVPROPKEY *v18; // r9
 
   v10 = -1073741802;
   *a9 = 0;
-  if ( a4 )
-    return v10;
-  v11 = *(_DWORD *)(a5 + 16);
-  switch ( v11 )
+  if ( !a4 )
   {
-    case 'F':
-      v13 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data1 )
-        v13 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data4;
-      if ( !v13 )
-      {
-        *a6 = 17;
-        *a9 = 1;
-        if ( a8 )
+    v11 = *(_DWORD *)(a5 + 16);
+    switch ( v11 )
+    {
+      case 'F':
+        v13 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data1 )
+          v13 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsLocalMachine.fmtid.Data4;
+        if ( !v13 )
         {
-          v14 = (unsigned __int8)CmIsLocalMachineContainer(a1) != 0;
-          v10 = 0;
-          *a7 = -v14;
+          *a6 = 17;
+          *a9 = 1;
+          if ( a8 )
+          {
+            v14 = (unsigned __int8)CmIsLocalMachineContainer(a1) != 0;
+            v10 = 0;
+            *a7 = -v14;
+          }
+          else
+          {
+            return (unsigned int)-1073741789;
+          }
         }
-        else
+        break;
+      case 'S':
+        v16 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_HasProblem.fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_HasProblem.fmtid.Data1 )
+          v16 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_HasProblem.fmtid.Data4;
+        if ( !v16 )
         {
-          return (unsigned int)-1073741789;
+          v18 = &DEVPKEY_Device_HasProblem;
+          return (unsigned int)CmGetContainerBooleanProperty(
+                                 a1,
+                                 a2,
+                                 a3,
+                                 (_DWORD)v18,
+                                 (__int64)a6,
+                                 (__int64)a7,
+                                 a8,
+                                 (__int64)a9);
         }
-      }
-      return v10;
-    case 'S':
-      v15 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_HasProblem.fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_HasProblem.fmtid.Data1 )
-        v15 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_HasProblem.fmtid.Data4;
-      if ( v15 )
-        return v10;
-      v16 = &DEVPKEY_Device_HasProblem;
-      return (unsigned int)CmGetContainerBooleanProperty(
-                             a1,
-                             a2,
-                             a3,
-                             (_DWORD)v16,
-                             (__int64)a6,
-                             (__int64)a7,
-                             a8,
-                             (__int64)a9);
-    case '7':
-      v17 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsConnected.fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsConnected.fmtid.Data1 )
-        v17 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsConnected.fmtid.Data4;
-      if ( v17 )
-        return v10;
-      v16 = (const DEVPROPKEY *)&DEVPKEY_Device_IsConnected;
-      return (unsigned int)CmGetContainerBooleanProperty(
-                             a1,
-                             a2,
-                             a3,
-                             (_DWORD)v16,
-                             (__int64)a6,
-                             (__int64)a7,
-                             a8,
-                             (__int64)a9);
-    case 'l':
-      v18 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data1;
-      if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data1 )
-        v18 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data4;
-      if ( !v18 )
-      {
-        v16 = &DEVPKEY_Device_IsRebootRequired;
-        return (unsigned int)CmGetContainerBooleanProperty(
-                               a1,
-                               a2,
-                               a3,
-                               (_DWORD)v16,
-                               (__int64)a6,
-                               (__int64)a7,
-                               a8,
-                               (__int64)a9);
-      }
-      break;
+        break;
+      case '7':
+        v17 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsConnected.fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsConnected.fmtid.Data1 )
+          v17 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsConnected.fmtid.Data4;
+        if ( !v17 )
+        {
+          v18 = (const DEVPROPKEY *)&DEVPKEY_Device_IsConnected;
+          return (unsigned int)CmGetContainerBooleanProperty(
+                                 a1,
+                                 a2,
+                                 a3,
+                                 (_DWORD)v18,
+                                 (__int64)a6,
+                                 (__int64)a7,
+                                 a8,
+                                 (__int64)a9);
+        }
+        break;
+      case 'l':
+        v15 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data1 )
+          v15 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceContainer_IsRebootRequired.fmtid.Data4;
+        if ( !v15 )
+        {
+          v18 = &DEVPKEY_Device_IsRebootRequired;
+          return (unsigned int)CmGetContainerBooleanProperty(
+                                 a1,
+                                 a2,
+                                 a3,
+                                 (_DWORD)v18,
+                                 (__int64)a6,
+                                 (__int64)a7,
+                                 a8,
+                                 (__int64)a9);
+        }
+        break;
+    }
   }
   return v10;
 }

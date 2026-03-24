@@ -1,12 +1,12 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CExpressionValueStack::s_emptyValue__ @ 0x18010DA70
+ * XREFs of _dynamic_atexit_destructor_for__CExpressionValueStack::s_emptyValue__ @ 0x1800F98C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 dynamic_atexit_destructor_for__CExpressionValueStack::s_emptyValue__()
+void dynamic_atexit_destructor_for__CExpressionValueStack::s_emptyValue__()
 {
-  return Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)&unk_1803D38C0);
+  CExpressionValue::~CExpressionValue((CExpressionValue *)&CExpressionValueStack::s_emptyValue);
 }

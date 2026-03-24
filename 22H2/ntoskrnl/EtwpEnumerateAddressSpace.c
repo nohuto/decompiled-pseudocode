@@ -1,106 +1,100 @@
 /*
- * XREFs of EtwpEnumerateAddressSpace @ 0x1406ADAFC
+ * XREFs of EtwpEnumerateAddressSpace @ 0x14061A8BC
  * Callers:
- *     EtwTraceProcess @ 0x14075540C (EtwTraceProcess.c)
- *     EtwpProcessEnumCallback @ 0x140827970 (EtwpProcessEnumCallback.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwpProcessEnumCallback @ 0x1407925D0 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpTraceImageUnload @ 0x140211D88 (EtwpTraceImageUnload.c)
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     KeAreAllApcsDisabled @ 0x140215020 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     EtwpTraceImageRundown @ 0x14080B4E4 (EtwpTraceImageRundown.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwpTraceImageUnload @ 0x140259F1C (EtwpTraceImageUnload.c)
+ *     KeAreAllApcsDisabled @ 0x14025A4E0 (KeAreAllApcsDisabled.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E9B0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     EtwpTraceImageRundown @ 0x1407AE428 (EtwpTraceImageRundown.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall EtwpEnumerateAddressSpace(__int64 BugCheckParameter1, __int64 a2, int *a3)
+void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)
 {
   int v3; // eax
-  __int64 *v4; // r12
-  __int64 v5; // r15
+  int v4; // r13d
   ULONG_PTR v6; // r9
-  int v7; // ecx
-  int v8; // edi
-  char v9; // cl
-  unsigned __int16 *Pool2; // r14
-  __int16 v11; // r13
+  int v7; // edx
+  int v8; // ecx
+  int v9; // esi
+  unsigned __int16 *PoolWithTag; // r14
+  unsigned __int16 v11; // r12
   void *v12; // rax
-  __int64 i; // rsi
+  __int64 i; // rdi
   __int64 v14; // rax
   int v15; // edx
   unsigned __int64 v16; // rax
-  __int64 v17; // rax
-  int v18; // r11d
-  int v19; // r9d
-  __int64 v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  void *v23; // r8
-  unsigned int v24; // eax
-  int v25; // ecx
-  unsigned int v26; // r8d
-  __int64 v27; // rcx
+  __int64 v17; // r13
+  __int64 v18; // rax
+  int v19; // r8d
+  int v20; // edx
+  __int64 v21; // r9
+  struct _DMA_ADAPTER *v22; // r8
+  unsigned int v23; // eax
+  int v24; // ecx
+  unsigned int v25; // r8d
+  char v26; // cl
+  unsigned __int64 v27; // rcx
   __m128i v28; // xmm2
   __m128i v29; // xmm3
   unsigned int v30; // ecx
-  int v31; // ecx
-  int v32; // [rsp+54h] [rbp-174h] BYREF
-  __int16 v33; // [rsp+58h] [rbp-170h]
-  __int16 v34; // [rsp+5Ch] [rbp-16Ch]
-  __int16 v35; // [rsp+60h] [rbp-168h]
-  int v36; // [rsp+64h] [rbp-164h]
-  int v37; // [rsp+68h] [rbp-160h]
-  int v38; // [rsp+6Ch] [rbp-15Ch]
-  int v39; // [rsp+70h] [rbp-158h]
-  int v40; // [rsp+74h] [rbp-154h]
-  int v41; // [rsp+78h] [rbp-150h]
-  int v42; // [rsp+7Ch] [rbp-14Ch]
-  int v43; // [rsp+80h] [rbp-148h]
-  int v44; // [rsp+84h] [rbp-144h]
-  int v45; // [rsp+88h] [rbp-140h]
-  int v46; // [rsp+8Ch] [rbp-13Ch]
-  int NameStringMode; // [rsp+90h] [rbp-138h]
-  __int64 v48; // [rsp+98h] [rbp-130h]
-  __int64 v49; // [rsp+A0h] [rbp-128h]
-  int v50; // [rsp+A8h] [rbp-120h]
-  int v51; // [rsp+ACh] [rbp-11Ch]
-  int v52; // [rsp+B0h] [rbp-118h]
-  int v53; // [rsp+B4h] [rbp-114h]
-  __int64 v54; // [rsp+B8h] [rbp-110h] BYREF
-  __int64 v55; // [rsp+C0h] [rbp-108h]
-  __int64 v56; // [rsp+C8h] [rbp-100h]
-  unsigned __int16 *v57; // [rsp+D0h] [rbp-F8h]
-  __int64 v58; // [rsp+D8h] [rbp-F0h]
-  __int64 v59; // [rsp+E0h] [rbp-E8h]
-  __int64 v60; // [rsp+E8h] [rbp-E0h]
-  __int64 v61; // [rsp+F0h] [rbp-D8h]
-  __int64 v62; // [rsp+F8h] [rbp-D0h]
-  __int64 v63; // [rsp+100h] [rbp-C8h]
-  __int64 v64; // [rsp+108h] [rbp-C0h]
-  __int64 v65; // [rsp+110h] [rbp-B8h]
-  __int64 v66; // [rsp+118h] [rbp-B0h]
-  __int64 v67; // [rsp+120h] [rbp-A8h]
-  _DWORD *v68; // [rsp+128h] [rbp-A0h]
-  unsigned __int64 *v69; // [rsp+130h] [rbp-98h]
-  PVOID P; // [rsp+138h] [rbp-90h]
-  __int128 v71; // [rsp+170h] [rbp-58h] BYREF
-  __int64 v72; // [rsp+180h] [rbp-48h] BYREF
-  unsigned int v73; // [rsp+188h] [rbp-40h]
-  int v74; // [rsp+18Ch] [rbp-3Ch]
+  unsigned int v31; // ecx
+  int v32; // [rsp+54h] [rbp-154h] BYREF
+  __int16 v33; // [rsp+58h] [rbp-150h]
+  __int16 v34; // [rsp+5Ch] [rbp-14Ch]
+  __int16 v35; // [rsp+60h] [rbp-148h]
+  int v36; // [rsp+64h] [rbp-144h]
+  int v37; // [rsp+68h] [rbp-140h]
+  int v38; // [rsp+6Ch] [rbp-13Ch]
+  int v39; // [rsp+70h] [rbp-138h]
+  int v40; // [rsp+74h] [rbp-134h]
+  int v41; // [rsp+78h] [rbp-130h]
+  int v42; // [rsp+7Ch] [rbp-12Ch]
+  int v43; // [rsp+80h] [rbp-128h]
+  int v44; // [rsp+84h] [rbp-124h]
+  int v45; // [rsp+88h] [rbp-120h]
+  int v46; // [rsp+8Ch] [rbp-11Ch]
+  int NameStringMode; // [rsp+90h] [rbp-118h]
+  ULONG_PTR BugCheckParameter1; // [rsp+98h] [rbp-110h]
+  __int64 v49; // [rsp+A0h] [rbp-108h]
+  int v50; // [rsp+A8h] [rbp-100h]
+  int v51; // [rsp+ACh] [rbp-FCh]
+  int v52; // [rsp+B0h] [rbp-F8h]
+  int v53; // [rsp+B4h] [rbp-F4h]
+  __int64 v54; // [rsp+B8h] [rbp-F0h] BYREF
+  __int64 v55; // [rsp+C0h] [rbp-E8h]
+  __int64 v56; // [rsp+C8h] [rbp-E0h]
+  unsigned __int16 *v57; // [rsp+D0h] [rbp-D8h]
+  __int64 v58; // [rsp+D8h] [rbp-D0h]
+  __int64 v59; // [rsp+E0h] [rbp-C8h]
+  __int64 v60; // [rsp+E8h] [rbp-C0h]
+  __int64 v61; // [rsp+F0h] [rbp-B8h]
+  __int64 v62; // [rsp+F8h] [rbp-B0h]
+  __int64 v63; // [rsp+100h] [rbp-A8h]
+  ULONG_PTR v64; // [rsp+108h] [rbp-A0h]
+  __int64 v65; // [rsp+110h] [rbp-98h]
+  PVOID P; // [rsp+118h] [rbp-90h]
+  __int128 v67; // [rsp+150h] [rbp-58h] BYREF
+  __int64 v68; // [rsp+160h] [rbp-48h] BYREF
+  unsigned int v69; // [rsp+168h] [rbp-40h]
+  int v70; // [rsp+16Ch] [rbp-3Ch]
 
-  v5 = a2;
-  v6 = BugCheckParameter1;
-  v48 = BugCheckParameter1;
-  v65 = BugCheckParameter1;
-  v66 = a2;
+  v6 = a1;
+  BugCheckParameter1 = a1;
+  v64 = a1;
+  v65 = a2;
   v32 = 0;
-  v71 = 0LL;
+  v67 = 0LL;
   v54 = 0LL;
   if ( !a3 || (v3 = *a3, v7 = 1, (*a3 & 4) == 0) )
     v7 = 0;
@@ -109,51 +103,53 @@ void __fastcall EtwpEnumerateAddressSpace(__int64 BugCheckParameter1, __int64 a2
   v8 = v7 | 4;
   if ( !(_BYTE)v3 )
     v8 = v7;
+  v9 = v8;
   v36 = v8;
   if ( a2 )
   {
-    if ( a3 )
-    {
-      v3 = *a3;
-      if ( (*a3 & 0x8000) != 0 )
-        v8 |= 2u;
-    }
+    if ( !a3 || (v3 = *a3, LOBYTE(v3) = 1, (*a3 & 0x8000) == 0) )
+      LOBYTE(v3) = 0;
     v36 = v8;
+    if ( (_BYTE)v3 )
+    {
+      v9 = v8 | 2;
+      v36 = v8 | 2;
+    }
   }
-  if ( !v8 )
+  if ( !v9 )
   {
-    Pool2 = 0LL;
-    goto LABEL_42;
+    PoolWithTag = 0LL;
+    goto LABEL_38;
   }
   if ( a2 )
   {
     v49 = *(_QWORD *)(a2 + 32);
     v58 = v49;
-    v9 = *(_BYTE *)(a2 + 64);
-    Pool2 = *(unsigned __int16 **)(a2 + 16);
-    LOWORD(a2) = 5124 - (v9 != 0);
-    v40 = a2;
-    v33 = a2;
-    LOWORD(v4) = 1064 - (v9 != 0);
-    LOWORD(v3) = 641 - (v9 != 0);
+    v26 = *(_BYTE *)(a2 + 64);
+    PoolWithTag = *(unsigned __int16 **)(a2 + 16);
+    LOWORD(v7) = 5124 - (v26 != 0);
+    v40 = v7;
+    v33 = v7;
+    LOWORD(v4) = 1064 - (v26 != 0);
+    LOWORD(v3) = 641 - (v26 != 0);
   }
   else
   {
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(64LL, 0x2000LL, 1718773072LL);
-    LODWORD(v4) = 1062;
+    PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x2000uLL, 0x66726550u);
+    v4 = 1062;
     v3 = 611;
     v49 = 0LL;
     v58 = 0LL;
     v40 = 0;
     v33 = 0;
-    v6 = v48;
+    v6 = BugCheckParameter1;
   }
   v35 = v3;
   v43 = v3;
-  v34 = (__int16)v4;
-  v37 = (int)v4;
-  v57 = Pool2;
-  if ( Pool2 || (v8 &= ~1u, (v36 = v8) != 0) )
+  v34 = v4;
+  v37 = v4;
+  v57 = PoolWithTag;
+  if ( PoolWithTag || (v9 &= ~1u, (v36 = v9) != 0) )
   {
     v56 = 0LL;
     v44 = 0;
@@ -172,72 +168,72 @@ void __fastcall EtwpEnumerateAddressSpace(__int64 BugCheckParameter1, __int64 a2
         if ( !*(_QWORD *)i )
         {
           ExFreePoolWithTag(P, 0);
-          goto LABEL_42;
+          goto LABEL_38;
         }
         v14 = *(_QWORD *)i & 3LL;
         *(_QWORD *)i &= 0xFFFFFFFFFFFFFFFCuLL;
         v15 = 0;
         v42 = 0;
-        v53 = 0;
+        v51 = 0;
         if ( !v14 )
           break;
         if ( v14 != 2 )
         {
-          v11 = (__int16)v4;
-          v26 = 0x8000;
+          v11 = v4;
+          v25 = 0x8000;
           v39 = 0x8000;
           v15 = 3;
-          v24 = 44;
+          v23 = 44;
           v32 = 44;
-          v25 = 1;
-          goto LABEL_38;
+          v24 = 1;
+          goto LABEL_34;
         }
         v11 = v43;
-        v26 = 536903680;
+        v25 = 536903680;
         v39 = 536903680;
-        if ( v5 )
+        if ( a2 )
         {
-          v24 = 32;
+          v23 = 32;
           v32 = 32;
         }
         else
         {
           v32 = 24;
           *(_DWORD *)(i + 20) = 0x8000;
-          v24 = v32;
+          v23 = v32;
         }
-LABEL_57:
-        if ( v5 )
+LABEL_58:
+        if ( a2 )
         {
           v30 = 5249026;
           if ( v15 )
             v30 = v15 | 0x501800;
-          *(_QWORD *)&v71 = i;
-          *((_QWORD *)&v71 + 1) = v24;
-          EtwpLogKernelEvent((__int64)&v71, *(_QWORD *)(v49 + 1096), *(_DWORD *)v49, 1u, v11, v30);
+          *(_QWORD *)&v67 = i;
+          *((_QWORD *)&v67 + 1) = v23;
+          EtwpLogKernelEvent((__int64)&v67, *(_QWORD *)(v49 + 1080), *(_DWORD *)v49, 1u, v11, v30);
         }
         else
         {
           v31 = 5249282;
           if ( v15 )
             v31 = v15 | 0x501900;
-          v72 = i;
-          v73 = v24;
-          v74 = 0;
-          EtwTraceKernelEvent((int)&v72, 1, v26, v11, v31);
+          v68 = i;
+          v69 = v23;
+          v70 = 0;
+          EtwTraceKernelEvent((__int64)&v68, 1u, v25, v11, v31);
         }
-LABEL_39:
+LABEL_35:
         ;
       }
-      v4 = (__int64 *)(i + 8);
-      if ( (v8 & 2) != 0 )
+      if ( (v9 & 2) != 0 )
       {
         v38 = 1;
-        v27 = *v4;
-        v56 = ((unsigned __int64)*v4 >> 1) & 0x1F;
-        v44 = v56;
+        v27 = *(_QWORD *)(i + 8);
+        v56 = (v27 >> 1) & 0x1F;
+        v44 = (v27 >> 1) & 0x1F;
         v60 = *(_QWORD *)(i + 32);
-        *v4 = v27 & 0xFFFFFFFFFFFFFFC0uLL;
+        v16 = v27 & 0xFFFFFFFFFFFFFFC0uLL;
+        *(_QWORD *)(i + 8) = v27 & 0xFFFFFFFFFFFFFFC0uLL;
         LODWORD(v27) = v27 & 1;
         v55 = (unsigned int)v27;
         v45 = v27;
@@ -245,14 +241,13 @@ LABEL_39:
       else
       {
         v38 = 0;
+        v16 = *(_QWORD *)(i + 8);
       }
-      v67 = i + 8;
-      v16 = *v4;
-      v63 = ((unsigned __int64)*v4 >> 6) & 0xF;
-      v51 = v63;
-      v64 = (v16 >> 10) & 7;
-      v52 = (v16 >> 10) & 7;
-      *v4 = v16 & 0xFFFFFFFFFFFFE03FuLL;
+      v17 = (v16 >> 6) & 0xF;
+      v53 = (v16 >> 6) & 0xF;
+      v63 = (v16 >> 10) & 7;
+      v50 = (v16 >> 10) & 7;
+      *(_QWORD *)(i + 8) = v16 & 0xFFFFFFFFFFFFE03FuLL;
       v54 = 0LL;
       if ( KeAreAllApcsDisabled() )
         __int2c();
@@ -260,47 +255,60 @@ LABEL_39:
         || (NameStringMode = (*(__int64 (__fastcall **)(_QWORD, __int64, unsigned __int16 *, __int64 *))(FltMgrCallbacks + 24))(
                                *(_QWORD *)i,
                                1024LL,
-                               Pool2,
+                               PoolWithTag,
                                &v54),
             NameStringMode < 0) )
       {
-        NameStringMode = ObQueryNameStringMode(*(_QWORD *)i, (_DWORD)Pool2, 0x2000, (unsigned int)&v32, 0);
+        NameStringMode = ObQueryNameStringMode(*(_QWORD *)i, (_DWORD)PoolWithTag, 0x2000, (unsigned int)&v32, 0);
       }
       v41 = 0;
-      v68 = (_DWORD *)(i + 40);
-      v50 = *(_DWORD *)(i + 40);
-      v46 = v50;
-      v69 = (unsigned __int64 *)(i + 16);
+      v52 = *(_DWORD *)(i + 40);
+      v46 = v52;
       v62 = *(_QWORD *)(i + 16);
       v59 = v62;
-      v17 = RtlImageNtHeader(*v4);
-      if ( v17 )
+      v18 = RtlImageNtHeader(*(_QWORD *)(i + 8));
+      if ( v18 )
       {
-        v18 = *(_DWORD *)(v17 + 88);
-        v46 = v18;
-        v19 = *(_DWORD *)(v17 + 8);
-        v41 = v19;
-        v20 = *(_QWORD *)(v17 + 48);
-        v59 = v20;
+        v19 = *(_DWORD *)(v18 + 88);
+        v46 = v19;
+        v20 = *(_DWORD *)(v18 + 8);
+        v41 = v20;
+        v21 = *(_QWORD *)(v18 + 48);
+        v59 = v21;
       }
       else
       {
-        v19 = v41;
-        v18 = v50;
-        v20 = v62;
+        v20 = v41;
+        v19 = v52;
+        v21 = v62;
       }
-      v21 = v63;
-      v22 = v64;
       if ( NameStringMode >= 0 )
       {
-        if ( v5 )
-          EtwpTraceImageRundown(v49, (unsigned __int16)v40, (_DWORD)Pool2, *(_QWORD *)(v48 + 1088), i, v63, v64);
+        if ( a2 )
+          EtwpTraceImageRundown(
+            v49,
+            (unsigned __int16)v40,
+            (_DWORD)PoolWithTag,
+            *(_QWORD *)(BugCheckParameter1 + 1088),
+            i,
+            v17,
+            v63);
         else
-          EtwpTraceImageUnload(Pool2, v48, *v4, *(_QWORD *)(i + 24), v18, v19, v63, v64, v20, 0);
+          EtwpTraceImageUnload(
+            PoolWithTag,
+            BugCheckParameter1,
+            *(_QWORD *)(i + 8),
+            *(_QWORD *)(i + 24),
+            v19,
+            v20,
+            v17,
+            v63,
+            v21,
+            0);
       }
       if ( v54 )
-        (*(void (__fastcall **)(__int64, __int64, __int64))(FltMgrCallbacks + 32))(v54, v21, v22);
-      v23 = *(void **)i;
+        (*(void (**)(void))(FltMgrCallbacks + 32))();
+      v22 = *(struct _DMA_ADAPTER **)i;
       if ( v38 )
       {
         v28 = *(__m128i *)i;
@@ -308,12 +316,12 @@ LABEL_39:
         *(_OWORD *)i = 0LL;
         *(_OWORD *)(i + 16) = 0LL;
         *(_OWORD *)(i + 32) = 0LL;
-        *v68 = *(_DWORD *)(v48 + 1088);
-        *v4 = *(_QWORD *)(v28.m128i_i64[0] + 24);
+        *(_DWORD *)(i + 40) = *(_DWORD *)(BugCheckParameter1 + 1088);
+        *(_QWORD *)(i + 8) = *(_QWORD *)(v28.m128i_i64[0] + 24);
         *(_QWORD *)i = _mm_srli_si128(v28, 8).m128i_u64[0];
         *(_QWORD *)(i + 24) = _mm_srli_si128(v29, 8).m128i_u64[0];
         *(_QWORD *)(i + 32) = v60;
-        *v69 = *v69 & 0xFF40FFFFFFFFFFFFuLL | ((v56 & 0x1F | (32 * (v55 & 1))) << 48) | 0x40000000000000LL;
+        *(_QWORD *)(i + 16) = *(_QWORD *)(i + 16) & 0xFF40FFFFFFFFFFFFuLL | ((v56 & 0x1F | (32 * (v55 & 1))) << 48) | 0x40000000000000LL;
         LOWORD(v4) = v37;
         v11 = v37;
         v39 = 0x8000;
@@ -324,18 +332,18 @@ LABEL_39:
       {
         LOWORD(v4) = v37;
       }
-      ObfDereferenceObject(v23);
-      v24 = v32;
-      v25 = v38;
+      HalPutDmaAdapter(v22);
+      v23 = v32;
+      v24 = v38;
       v15 = v42;
-      v26 = v39;
-LABEL_38:
-      if ( !v25 )
-        goto LABEL_39;
-      goto LABEL_57;
+      v25 = v39;
+LABEL_34:
+      if ( !v24 )
+        goto LABEL_35;
+      goto LABEL_58;
     }
   }
-LABEL_42:
-  if ( !v5 && Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+LABEL_38:
+  if ( !a2 && PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
 }

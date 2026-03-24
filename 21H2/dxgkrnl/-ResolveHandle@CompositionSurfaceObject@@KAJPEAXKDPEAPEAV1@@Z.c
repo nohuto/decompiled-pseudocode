@@ -1,32 +1,31 @@
 /*
- * XREFs of ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C
+ * XREFs of ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4
  * Callers:
- *     NtNotifyPresentToCompositionSurface @ 0x1C0001F10 (NtNotifyPresentToCompositionSurface.c)
- *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C00039E0 (NtSetCompositionSurfaceIndependentFlipInfo.c)
- *     NtSetCompositionSurfaceBufferUsage @ 0x1C0003D20 (NtSetCompositionSurfaceBufferUsage.c)
- *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C0003EC0 (NtQueryCompositionSurfaceHDRMetaData.c)
- *     NtUnBindCompositionSurface @ 0x1C0004260 (NtUnBindCompositionSurface.c)
- *     NtBindCompositionSurface @ 0x1C0004600 (NtBindCompositionSurface.c)
- *     NtOpenCompositionSurfaceRealizationInfo @ 0x1C0004AD0 (NtOpenCompositionSurfaceRealizationInfo.c)
- *     NtQueryCompositionSurfaceBinding @ 0x1C0004DC0 (NtQueryCompositionSurfaceBinding.c)
- *     NtQueryCompositionSurfaceRenderingRealization @ 0x1C00050A0 (NtQueryCompositionSurfaceRenderingRealization.c)
- *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C00052D0 (NtOpenCompositionSurfaceDirtyRegion.c)
- *     ?InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z @ 0x1C00064CC (-InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z.c)
- *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C000AC70 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
- *     ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C000DB90 (-NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ?CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C0017324 (-CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I.c)
- *     NtValidateCompositionSurfaceHandle @ 0x1C001D090 (NtValidateCompositionSurfaceHandle.c)
- *     NtSetCompositionSurfaceDirectFlipState @ 0x1C0021AB0 (NtSetCompositionSurfaceDirectFlipState.c)
- *     ?DxgkQueryHostCompSurfInfo@@YAJ_JAEAIAEA_K@Z @ 0x1C00772FC (-DxgkQueryHostCompSurfInfo@@YAJ_JAEAIAEA_K@Z.c)
- *     ?NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0077584 (-NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     NtOpenCompositionSurfaceSectionInfo @ 0x1C0077640 (NtOpenCompositionSurfaceSectionInfo.c)
- *     NtSetCompositionSurfaceAnalogExclusive @ 0x1C0077840 (NtSetCompositionSurfaceAnalogExclusive.c)
- *     NtSetCompositionSurfaceStatistics @ 0x1C0077950 (NtSetCompositionSurfaceStatistics.c)
- *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008124C (-Initialize@CContentResource@@IEAAJXZ.c)
- *     ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02DF1F4 (-CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
- *     NtDxgkVailPromoteCompositionSurface @ 0x1C0354840 (NtDxgkVailPromoteCompositionSurface.c)
+ *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0002FB0 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ *     NtSetCompositionSurfaceBufferUsage @ 0x1C000DD00 (NtSetCompositionSurfaceBufferUsage.c)
+ *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C000E1C0 (NtQueryCompositionSurfaceHDRMetaData.c)
+ *     NtUnBindCompositionSurface @ 0x1C000EAD0 (NtUnBindCompositionSurface.c)
+ *     NtBindCompositionSurface @ 0x1C000EFA0 (NtBindCompositionSurface.c)
+ *     NtQueryCompositionSurfaceBinding @ 0x1C000F2D0 (NtQueryCompositionSurfaceBinding.c)
+ *     NtOpenCompositionSurfaceSwapChainHandleInfo @ 0x1C000F4E0 (NtOpenCompositionSurfaceSwapChainHandleInfo.c)
+ *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C000F7A0 (NtOpenCompositionSurfaceDirtyRegion.c)
+ *     ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0014070 (-NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z @ 0x1C00156FC (-InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z.c)
+ *     NtValidateCompositionSurfaceHandle @ 0x1C0018BE0 (NtValidateCompositionSurfaceHandle.c)
+ *     ?CompleteIndendentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C001C1D0 (-CompleteIndendentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z.c)
+ *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C001DAF0 (NtSetCompositionSurfaceIndependentFlipInfo.c)
+ *     NtSetCompositionSurfaceDirectFlipState @ 0x1C001DE70 (NtSetCompositionSurfaceDirectFlipState.c)
+ *     ?DxgkQueryHostCompSurfInfo@@YAJ_JAEAIAEA_K@Z @ 0x1C00652D0 (-DxgkQueryHostCompSurfInfo@@YAJ_JAEAIAEA_K@Z.c)
+ *     ?NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00654D4 (-NotifySurfaceOfSkippedToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     NtNotifyPresentToCompositionSurface @ 0x1C0065590 (NtNotifyPresentToCompositionSurface.c)
+ *     NtOpenCompositionSurfaceSectionInfo @ 0x1C0065930 (NtOpenCompositionSurfaceSectionInfo.c)
+ *     NtSetCompositionSurfaceAnalogExclusive @ 0x1C0065B30 (NtSetCompositionSurfaceAnalogExclusive.c)
+ *     NtSetCompositionSurfaceStatistics @ 0x1C0065C30 (NtSetCompositionSurfaceStatistics.c)
+ *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C006E0E0 (-Initialize@CContentResource@@IEAAJXZ.c)
+ *     ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028C7EC (-CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
+ *     NtDxgkVailPromoteCompositionSurface @ 0x1C02B9070 (NtDxgkVailPromoteCompositionSurface.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CompositionSurfaceObject::ResolveHandle(
@@ -35,27 +34,35 @@ __int64 __fastcall CompositionSurfaceObject::ResolveHandle(
         __int64 a3,
         struct CompositionSurfaceObject **a4)
 {
-  NTSTATUS v5; // eax
-  struct CompositionSurfaceObject *v6; // rdi
-  unsigned int v7; // ebx
+  struct CompositionSurfaceObject *v4; // rsi
+  NTSTATUS v6; // eax
+  struct CompositionSurfaceObject *v7; // rdi
+  int v8; // ebx
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   *a4 = 0LL;
+  v4 = 0LL;
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, a2, g_pDxgkCompositionObjectType, 1, &Object, 0LL);
-  v6 = (struct CompositionSurfaceObject *)Object;
-  v7 = v5;
-  if ( v5 >= 0 )
+  v6 = ObReferenceObjectByHandle(a1, a2, g_pDxgkCompositionObjectType, 1, &Object, 0LL);
+  v7 = (struct CompositionSurfaceObject *)Object;
+  v8 = v6;
+  if ( v6 >= 0 )
   {
-    if ( (***((unsigned int (__fastcall ****)(_QWORD))Object + 2))(*((_QWORD *)Object + 2)) == 1 )
+    if ( (***((unsigned __int8 (__fastcall ****)(_QWORD))Object + 2))(*((_QWORD *)Object + 2)) )
     {
-      *a4 = v6;
+      if ( (*(unsigned int (__fastcall **)(_QWORD *))(**((_QWORD **)v7 + 2) + 16LL))(*((_QWORD **)v7 + 2)) == 1 )
+        v4 = v7;
+      else
+        v8 = -1073741788;
     }
     else
     {
-      ObfDereferenceObject(v6);
-      return (unsigned int)-1073741788;
+      v8 = -1073741816;
     }
+    if ( v8 < 0 )
+      ObfDereferenceObject(v7);
+    else
+      *a4 = v4;
   }
-  return v7;
+  return (unsigned int)v8;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?__EnumDisplayQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C00BC030
+ * XREFs of ?__EnumDisplayQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C00B36A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall __EnumDisplayQueryRoutine(unsigned __int16 *a1, int a2, void *a3, unsigned int a4, _QWORD *a5)
@@ -12,7 +12,7 @@ __int64 __fastcall __EnumDisplayQueryRoutine(unsigned __int16 *a1, int a2, void 
   unsigned int v5; // edi
   size_t v6; // rbx
   void *v8; // rax
-  unsigned int v10; // ebp
+  unsigned int v10; // r14d
   void *v11; // rax
 
   v5 = 0;
@@ -23,16 +23,12 @@ __int64 __fastcall __EnumDisplayQueryRoutine(unsigned __int16 *a1, int a2, void 
     {
       if ( !a5[26] )
       {
-        v8 = (void *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                       gpLeakTrackingAllocator,
-                       260LL,
-                       a4,
-                       0x73726447u);
+        v8 = PALLOCMEM2(a4, 1936876615LL, 0);
         a5[26] = v8;
         if ( v8 )
         {
           memmove(v8, a3, (unsigned int)v6);
-          *((_DWORD *)a5 + 65) = v6;
+          *((_DWORD *)a5 + 67) = v6;
           return v5;
         }
         return (unsigned int)-1073741670;
@@ -41,25 +37,14 @@ __int64 __fastcall __EnumDisplayQueryRoutine(unsigned __int16 *a1, int a2, void 
     else if ( a2 == 3 && !a5[26] )
     {
       v10 = a4 + 2;
-      if ( a4 == -2 )
+      v11 = PALLOCMEM2(a4 + 2, 1936876615LL, 0);
+      a5[26] = v11;
+      if ( v11 )
       {
-        a5[26] = 0LL;
-      }
-      else
-      {
-        v11 = (void *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                        gpLeakTrackingAllocator,
-                        260LL,
-                        v10,
-                        0x73726447u);
-        a5[26] = v11;
-        if ( v11 )
-        {
-          memmove(v11, a3, v6);
-          *(_WORD *)(v6 + a5[26]) = 0;
-          *((_DWORD *)a5 + 65) = v10;
-          return v5;
-        }
+        memmove(v11, a3, v6);
+        *(_WORD *)(v6 + a5[26]) = 0;
+        *((_DWORD *)a5 + 67) = v10;
+        return v5;
       }
       return (unsigned int)-1073741670;
     }

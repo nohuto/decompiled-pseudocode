@@ -1,7 +1,7 @@
 /*
- * XREFs of CcUninitializeAsyncRead @ 0x14026B92C
+ * XREFs of CcUninitializeAsyncRead @ 0x14026BA2C
  * Callers:
- *     CcDeletePartition @ 0x14026B0A0 (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x14026B1A0 (CcDeletePartition.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

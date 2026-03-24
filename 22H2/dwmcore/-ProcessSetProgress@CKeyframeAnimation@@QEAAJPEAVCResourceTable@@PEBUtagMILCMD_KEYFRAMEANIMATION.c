@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetProgress@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPROGRESS@@@Z @ 0x1800E9778
+ * XREFs of ?ProcessSetProgress@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPROGRESS@@@Z @ 0x1800D5D74
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetProgress@CKeyframeAnimation@@AEAAXM@Z @ 0x1800E9798 (-SetProgress@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ?SetProgress@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D5D94 (-SetProgress@CKeyframeAnimation@@AEAAXM@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessSetProgress(

@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttribute @ 0x1400CC860
+ * XREFs of AuthzBasepAllocateSecurityAttribute @ 0x1400CC880
  * Callers:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC5F0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepAddSecurityAttribute @ 0x1400D8DCC (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC610 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1400D8DEC (AuthzBasepAddSecurityAttribute.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

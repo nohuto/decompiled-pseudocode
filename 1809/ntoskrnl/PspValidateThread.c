@@ -1,8 +1,8 @@
 /*
- * XREFs of PspValidateThread @ 0x14010F2B4
+ * XREFs of PspValidateThread @ 0x14010F2D4
  * Callers:
- *     PsSetThreadProperty @ 0x14010F140 (PsSetThreadProperty.c)
- *     PsGetThreadProperty @ 0x14010F180 (PsGetThreadProperty.c)
+ *     PsSetThreadProperty @ 0x14010F160 (PsSetThreadProperty.c)
+ *     PsGetThreadProperty @ 0x14010F1A0 (PsGetThreadProperty.c)
  * Callees:
  *     <none>
  */

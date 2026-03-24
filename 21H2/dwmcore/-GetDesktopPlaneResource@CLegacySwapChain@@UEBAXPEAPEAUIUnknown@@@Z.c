@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetDesktopPlaneResource@CLegacySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x18001A6E4
+ * XREFs of ?GetDesktopPlaneResource@CLegacySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x180249D0C
  * Callers:
- *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAXPEAPEAUIUnknown@@@Z @ 0x180108E30 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAXPEAPEAUIUnknown@@@Z.c)
- *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAXPEAPEAUIUnknown@@@Z @ 0x180109E30 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAXPEAPEAUIUnknown@@@Z.c)
- *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z @ 0x18010A450 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z.c)
- *     ?IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x180292C78 (-IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ *     ?IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x1800F2740 (-IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAXPEAPEAUIUnknown@@@Z @ 0x1800F7520 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAXPEAPEAUIUnknown@@@Z.c)
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAXPEAPEAUIUnknown@@@Z @ 0x1800F79C0 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAXPEAPEAUIUnknown@@@Z.c)
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z @ 0x1800F7CF0 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CLegacySwapChain::GetDesktopPlaneResource(CLegacySwapChain *this, struct IUnknown **a2)
@@ -22,7 +22,7 @@ void __fastcall CLegacySwapChain::GetDesktopPlaneResource(CLegacySwapChain *this
 
   v9 = 0LL;
   v8 = 0LL;
-  v3 = (__int64 (__fastcall ***)(_QWORD))((char *)this + *(int *)(*((_QWORD *)this - 47) + 16LL) - 376);
+  v3 = (__int64 (__fastcall ***)(_QWORD))((char *)this + *(int *)(*((_QWORD *)this - 41) + 16LL) - 328);
   v4 = (**v3)(v3);
   v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 56LL))(v4);
   v6 = *(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v5 + 56LL);
@@ -31,13 +31,13 @@ void __fastcall CLegacySwapChain::GetDesktopPlaneResource(CLegacySwapChain *this
   v6(v5, &v9);
   if ( v8 )
     ((void (__fastcall *)(struct IUnknown *))v8->lpVtbl->Release)(v8);
-  (**(void (__fastcall ***)(__int64, GUID *, struct IUnknown **))v9)(
+  (**(void (__fastcall ***)(__int64, GUID *, __int64 *))v9)(
     v9,
     &GUID_035f3ab4_482e_4e50_b41f_8a7f8bd8960b,
-    &v8);
+    (__int64 *)&v8);
   v7 = v8;
   v8 = 0LL;
   *a2 = v7;
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v8);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v8);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v9);
 }

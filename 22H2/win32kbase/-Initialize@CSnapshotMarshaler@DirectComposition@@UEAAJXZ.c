@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSnapshotMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0223DB0
+ * XREFs of ?Initialize@CSnapshotMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E9DD0
  * Callers:
  *     <none>
  * Callees:

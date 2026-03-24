@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DeleteObject@FxDevice@@UEAAXXZ @ 0x1C0033F90
+ * XREFs of ?DeleteObject@FxDevice@@UEAAXXZ @ 0x1C0051CB0
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0008430 (-DeleteObject@FxObject@@UEAAXXZ.c)
- *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C001C758 (-IsPdo@FxDevice@@QEAAEXZ.c)
- *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C00301DC (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
- *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C005F1C4 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
+ *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C00019B8 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0005D70 (-DeleteObject@FxObject@@UEAAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C0040010 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
+ *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C0051B74 (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
  */
 
 void __fastcall FxDevice::DeleteObject(FxDevice *this)
@@ -19,6 +19,7 @@ void __fastcall FxDevice::DeleteObject(FxDevice *this)
   bool v4; // si
   unsigned __int8 v5; // r8
   _DEVICE_OBJECT *m_DeviceObject; // rcx
+  unsigned __int8 v7; // dl
   FxWmiIrpHandler *m_PkgWmi; // rcx
   unsigned __int8 irql; // [rsp+30h] [rbp+8h] BYREF
 
@@ -33,20 +34,20 @@ void __fastcall FxDevice::DeleteObject(FxDevice *this)
     FxNonPagedObject::Unlock(m_PkgPnp, irql, v5);
     if ( v4 )
       FxDevice::DeleteDeviceFromFailedCreateNoDelete(this, 0xC0000001, 1u);
-LABEL_8:
+LABEL_14:
     FxObject::DeleteObject(this);
     return;
   }
   if ( !this->m_Legacy || !this->m_PkgGeneral || !this->m_DeviceObject.m_DeviceObject )
-    goto LABEL_8;
+    goto LABEL_14;
   FxVerifierCheckIrqlLevel(this->m_Globals, 0);
   m_DeviceObject = this->m_DeviceObject.m_DeviceObject;
   this->m_DeviceObjectDeleted = 1;
   ObfReferenceObject(m_DeviceObject);
   m_PkgWmi = this->m_PkgWmi;
   if ( m_PkgWmi )
-    FxWmiIrpHandler::Deregister(m_PkgWmi);
+    FxWmiIrpHandler::Deregister(m_PkgWmi, v7);
   IoDeleteDevice(this->m_DeviceObject.m_DeviceObject);
   if ( _InterlockedExchangeAdd(&this->m_PkgGeneral->m_OpenHandleCount, 0xFFFFFFFF) == 1 )
-    goto LABEL_8;
+    goto LABEL_14;
 }

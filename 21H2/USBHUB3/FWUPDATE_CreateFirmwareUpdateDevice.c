@@ -1,24 +1,24 @@
 /*
- * XREFs of FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00871F8
+ * XREFs of FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00855B8
  * Callers:
- *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0075090 (HUBFDO_EvtDevicePrepareHardware.c)
- *     FWUPDATE_EvtDeviceReportedMissing @ 0x1C0086D20 (FWUPDATE_EvtDeviceReportedMissing.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     FWUPDATE_EvtDeviceReportedMissing @ 0x1C00850E0 (FWUPDATE_EvtDeviceReportedMissing.c)
  * Callees:
  *     McTemplateK0ppuq_EtwWriteTransfer @ 0x1C00017E0 (McTemplateK0ppuq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     FWUPDATE_AddIdsForFirmwareUpdateDevice @ 0x1C0086E24 (FWUPDATE_AddIdsForFirmwareUpdateDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     FWUPDATE_AddIdsForFirmwareUpdateDevice @ 0x1C00851E4 (FWUPDATE_AddIdsForFirmwareUpdateDevice.c)
  */
 
 __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
 {
-  unsigned int v2; // r14d
+  unsigned int v2; // esi
   __int64 v3; // rcx
-  char v4; // si
+  char v4; // r14
   char v5; // r15
   int updated; // ebx
   __int64 v7; // rax
@@ -45,8 +45,8 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
   __int128 v29; // [rsp+90h] [rbp-78h]
   __int128 v30; // [rsp+A0h] [rbp-68h]
   void *v31; // [rsp+B0h] [rbp-58h]
-  _OWORD v32[4]; // [rsp+B8h] [rbp-50h] BYREF
-  _QWORD v33[12]; // [rsp+F8h] [rbp-10h] BYREF
+  _QWORD v32[12]; // [rsp+B8h] [rbp-50h] BYREF
+  _QWORD v33[8]; // [rsp+118h] [rbp+10h] BYREF
   _QWORD v34[18]; // [rsp+158h] [rbp+50h] BYREF
   __int128 v35; // [rsp+1E8h] [rbp+E0h] BYREF
   __int128 v36; // [rsp+1F8h] [rbp+F0h]
@@ -54,11 +54,11 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
   _QWORD v38[10]; // [rsp+218h] [rbp+110h] BYREF
   char v39; // [rsp+268h] [rbp+160h] BYREF
 
-  LODWORD(v31) = 0;
+  v31 = 0LL;
   v28 = 0LL;
   v29 = 0LL;
   v30 = 0LL;
-  memset(v33, 0, sizeof(v33));
+  memset(v32, 0, sizeof(v32));
   v27 = 0LL;
   v2 = 0;
   v35 = 0LL;
@@ -66,9 +66,9 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
   v37 = 0LL;
   memset(v38, 0, sizeof(v38));
   v25 = 0LL;
+  memset(v33, 0, sizeof(v33));
   LOBYTE(v22) = 0;
-  memset(v32, 0, 60);
-  memset(v34, 0, 0x8CuLL);
+  memset(v34, 0, sizeof(v34));
   v3 = *(unsigned int *)(a1 + 160);
   v24 = 0LL;
   v4 = 0;
@@ -92,7 +92,6 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
                   1);
       if ( updated >= 0 )
       {
-        memset(v34, 0, sizeof(v34));
         v34[1] = FWUPDATE_EvtDeviceD0Entry;
         v34[3] = FWUPDATE_EvtDeviceD0Exit;
         LODWORD(v34[0]) = 144;
@@ -100,14 +99,13 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
           WdfDriverGlobals,
           v23,
           v34);
-        memset(v32, 0, sizeof(v32));
-        *((_QWORD *)&v32[3] + 1) = FWUPDATE_EvtDeviceReportedMissing;
-        *(_QWORD *)&v32[1] = FWUPDATE_EvtDeviceResourceRequirementsQuery;
-        LODWORD(v32[0]) = 64;
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _OWORD *))(WdfFunctions_01015 + 1688))(
+        v33[7] = FWUPDATE_EvtDeviceReportedMissing;
+        v33[2] = FWUPDATE_EvtDeviceResourceRequirementsQuery;
+        LODWORD(v33[0]) = 64;
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *))(WdfFunctions_01015 + 1688))(
           WdfDriverGlobals,
           v23,
-          v32);
+          v33);
         (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01015 + 528))(
           WdfDriverGlobals,
           v23,
@@ -124,8 +122,8 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
           &v25);
         updated = FWUPDATE_AddIdsForFirmwareUpdateDevice(a1, v23);
         if ( updated < 0 )
-          goto LABEL_40;
-        v31 = off_1C0067170;
+          goto LABEL_43;
+        v31 = off_1C0066148;
         *((_QWORD *)&v28 + 1) = FWUPDATE_EvtDeviceCleanup;
         *(_QWORD *)&v28 = 56LL;
         *(_QWORD *)&v29 = 0LL;
@@ -145,9 +143,9 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
           if ( updated < 0 )
           {
             if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_40;
+              goto LABEL_43;
             v9 = 38;
-            goto LABEL_38;
+            goto LABEL_41;
           }
           updated = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const UNICODE_STRING *))(WdfFunctions_01015 + 544))(
                       WdfDriverGlobals,
@@ -156,7 +154,7 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
           if ( updated < 0 )
           {
             if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_40;
+              goto LABEL_43;
             v9 = 39;
             goto LABEL_12;
           }
@@ -171,33 +169,35 @@ __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
             break;
           ++v2;
           if ( v12 != -1073741771 )
-          {
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_40;
-            v9 = 40;
-LABEL_38:
-            v10 = 2;
-            goto LABEL_39;
-          }
+            goto LABEL_23;
         }
         v4 = 1;
+LABEL_23:
+        if ( v12 < 0 )
+        {
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            goto LABEL_43;
+          v9 = 40;
+LABEL_41:
+          v10 = 2;
+          goto LABEL_42;
+        }
         v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                 WdfDriverGlobals,
                 v24,
-                off_1C0067170);
+                off_1C0066148);
         v5 = 0;
         *(_QWORD *)v13 = a1;
         *(_DWORD *)(v13 + 28) = 5;
-        memset(v33, 0, sizeof(v33));
-        v33[6] = FWUPDATE_EvtIoInternalDeviceControl;
-        LODWORD(v33[0]) = 96;
-        v33[5] = FWUPDATE_EvtIoDeviceControl;
-        BYTE5(v33[1]) = 1;
-        *(_QWORD *)((char *)v33 + 4) = 1LL;
+        v32[6] = FWUPDATE_EvtIoInternalDeviceControl;
+        v32[5] = FWUPDATE_EvtIoDeviceControl;
+        LODWORD(v32[0]) = 96;
+        BYTE5(v32[1]) = 1;
+        *(_QWORD *)((char *)v32 + 4) = 1LL;
         updated = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *, _QWORD, __int64 *))(WdfFunctions_01015 + 1216))(
                     WdfDriverGlobals,
                     v24,
-                    v33,
+                    v32,
                     0LL,
                     &v27);
         if ( updated >= 0 )
@@ -260,33 +260,33 @@ LABEL_38:
                 2u,
                 3u,
                 0x2Au,
-                (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+                (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
                 v21);
             }
             *(_QWORD *)(a1 + 2656) = 0LL;
           }
-          goto LABEL_40;
+          goto LABEL_43;
         }
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_40;
+          goto LABEL_43;
         v9 = 41;
       }
       else
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_40;
+          goto LABEL_43;
         v9 = 37;
       }
 LABEL_12:
       v10 = 3;
-LABEL_39:
+LABEL_42:
       LODWORD(v21) = updated;
       WPP_RECORDER_SF_d(
         *(_QWORD *)(a1 + 2520),
         2u,
         v10,
         v9,
-        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
         v21);
     }
     else
@@ -297,7 +297,7 @@ LABEL_39:
           2u,
           3u,
           0x24u,
-          (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+          (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
       updated = -1073741670;
     }
   }
@@ -309,11 +309,11 @@ LABEL_39:
         2u,
         3u,
         0x23u,
-        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
         v3);
     updated = -1073741823;
   }
-LABEL_40:
+LABEL_43:
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 0x40) != 0 )
   {
     LOBYTE(v21) = *(_BYTE *)(a1 + 160);

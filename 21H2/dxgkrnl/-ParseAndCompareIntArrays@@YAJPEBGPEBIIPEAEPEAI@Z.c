@@ -1,100 +1,104 @@
 /*
- * XREFs of ?ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z @ 0x1C0387B88
+ * XREFs of ?ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z @ 0x1C02C7330
  * Callers:
- *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C0202BC4 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C01876E8 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?ParseIntArray@@YAJPEBGPEAII1@Z @ 0x1C0387D84 (-ParseIntArray@@YAJPEBGPEAII1@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ParseIntArray@@YAJPEBGPEAII1@Z @ 0x1C02C7524 (-ParseIntArray@@YAJPEBGPEAII1@Z.c)
  */
 
 __int64 __fastcall ParseAndCompareIntArrays(
         const unsigned __int16 *a1,
-        char *a2,
-        unsigned int a3,
+        unsigned __int64 a2,
+        signed __int64 a3,
         unsigned __int8 *a4,
         unsigned int *a5)
 {
+  unsigned int v6; // edi
+  const unsigned int *v7; // r15
   unsigned __int8 v9; // r14
-  unsigned int v10; // ecx
-  __int64 v11; // rdx
+  unsigned int v10; // r10d
+  __int64 v11; // rcx
   __int64 result; // rax
-  unsigned __int16 v13; // r10
+  unsigned __int16 v13; // r9
   bool v14; // cl
-  bool v15; // dl
-  unsigned int v16; // r8d
-  char *v17; // rax
-  signed __int64 v18; // r11
-  signed __int64 v19; // rsi
-  unsigned int v20; // r8d
-  unsigned int *v21; // rdx
-  bool v22; // zf
-  unsigned int v23; // [rsp+20h] [rbp-30h] BYREF
-  unsigned int v24[4]; // [rsp+28h] [rbp-28h] BYREF
-  unsigned int v25[4]; // [rsp+38h] [rbp-18h] BYREF
+  const unsigned int *v15; // rax
+  char *v16; // r11
+  char *v17; // rsi
+  unsigned int *v18; // rcx
+  bool v19; // zf
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  unsigned int v22; // [rsp+20h] [rbp-30h] BYREF
+  unsigned int v23[4]; // [rsp+28h] [rbp-28h] BYREF
+  unsigned int v24[4]; // [rsp+38h] [rbp-18h] BYREF
 
+  v6 = a3;
+  v7 = (const unsigned int *)a2;
   v9 = 0;
-  v23 = *a5;
-  v10 = v23;
-  if ( a1[v23] != 35 )
+  v22 = *a5;
+  v10 = v22;
+  if ( a1[v22] != 35 )
   {
-    LODWORD(v11) = v23;
+    LODWORD(v11) = v22;
     while ( a1[(unsigned int)v11] )
     {
-      result = ParseIntArray(a1, v24, a3, &v23);
+      result = ParseIntArray(a1, v23, v6, &v22);
       if ( (int)result < 0 )
         return result;
-      v10 = v23;
-      v13 = a1[v23];
+      v10 = v22;
+      v13 = a1[v22];
       if ( v13 == 45 )
       {
-        ++v23;
-        result = ParseIntArray(a1, v25, a3, &v23);
+        ++v22;
+        result = ParseIntArray(a1, v24, v6, &v22);
         if ( (int)result < 0 )
           return result;
         v14 = 0;
-        v15 = 0;
-        v16 = 0;
-        if ( a3 )
+        LOBYTE(a2) = 0;
+        a3 = 0LL;
+        if ( v6 )
         {
-          v17 = a2;
-          v18 = (char *)v24 - a2;
-          v19 = (char *)v25 - a2;
+          v15 = v7;
+          v16 = (char *)((char *)v23 - (char *)v7);
+          v17 = (char *)((char *)v24 - (char *)v7);
           do
           {
             if ( !v14 )
             {
-              if ( *(_DWORD *)v17 < *(_DWORD *)&v17[v18] )
+              if ( *v15 < *(const unsigned int *)((char *)v15 + (_QWORD)v16) )
                 goto LABEL_17;
-              v14 = *(_DWORD *)v17 > *(_DWORD *)&v17[v18];
+              v14 = *v15 > *(const unsigned int *)((char *)v15 + (_QWORD)v16);
             }
-            if ( !v15 )
+            if ( !(_BYTE)a2 )
             {
-              if ( *(_DWORD *)v17 > *(_DWORD *)&v17[v19] )
+              if ( *v15 > *(const unsigned int *)((char *)v15 + (_QWORD)v17) )
                 goto LABEL_17;
-              v15 = *(_DWORD *)v17 < *(_DWORD *)&v17[v19];
+              a2 = *v15 < *(const unsigned int *)((char *)v15 + (_QWORD)v17);
             }
-            ++v16;
-            v17 += 4;
+            a3 = (unsigned int)(a3 + 1);
+            ++v15;
           }
-          while ( v16 < a3 );
+          while ( (unsigned int)a3 < v6 );
         }
         v9 = 1;
 LABEL_17:
-        v10 = v23;
-        if ( a1[v23] != 44 )
+        v10 = v22;
+        if ( a1[v22] != 44 )
           break;
       }
       else
       {
-        v20 = 0;
-        if ( a3 )
+        a2 = 0LL;
+        if ( v6 )
         {
-          v21 = v24;
-          while ( *(unsigned int *)((char *)v21 + a2 - (char *)v24) == *v21 )
+          a3 = (char *)v7 - (char *)v23;
+          v18 = v23;
+          while ( *(unsigned int *)((char *)v18 + a3) == *v18 )
           {
-            ++v20;
-            ++v21;
-            if ( v20 >= a3 )
+            a2 = (unsigned int)(a2 + 1);
+            ++v18;
+            if ( (unsigned int)a2 >= v6 )
               goto LABEL_23;
           }
         }
@@ -107,22 +111,25 @@ LABEL_23:
           break;
       }
       v11 = v10 + 1;
-      v22 = a1[v11] == 35;
+      v19 = a1[v11] == 35;
       ++v10;
-      v23 = v11;
-      if ( v22 )
+      v22 = v11;
+      if ( v19 )
         break;
     }
   }
+  v20 = a1[v10];
   result = 0LL;
-  if ( a1[v10] == 35 )
+  if ( (_WORD)v20 == 35 )
   {
     *a4 = v9;
     *a5 = v10 + 1;
   }
   else
   {
-    WdLogSingleEntry1(3LL, a1);
+    v21 = WdLogNewEntry5_WdWarning(v20, a2, a3);
+    *(_QWORD *)(v21 + 24) = a1;
+    WdLogEvent5_WdWarning(v21);
     return 3221225485LL;
   }
   return result;

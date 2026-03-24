@@ -1,66 +1,171 @@
 /*
- * XREFs of HalpSetSystemInformation @ 0x14085EE10
+ * XREFs of HalpSetSystemInformation @ 0x140733730
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetCpuInfo @ 0x140380C80 (HalpGetCpuInfo.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpSetProfileSourceInterval @ 0x140508090 (HalpSetProfileSourceInterval.c)
- *     HalpRegisterProcessorTraceInterruptHandler @ 0x140521544 (HalpRegisterProcessorTraceInterruptHandler.c)
- *     HalpRegisterProfileSourceInterruptHandler @ 0x140521648 (HalpRegisterProfileSourceInterruptHandler.c)
- *     HalpRegisterTimerInterruptHandler @ 0x14052174C (HalpRegisterTimerInterruptHandler.c)
- *     HaliSetSystemInformation @ 0x14085EE78 (HaliSetSystemInformation.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402D2070 (PsGetCurrentThreadProcessId.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpSetProfileSourceInterval @ 0x14036C6EC (HalpSetProfileSourceInterval.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpTimerGetProfilingHandler @ 0x1404C1778 (HalpTimerGetProfilingHandler.c)
+ *     HalpTimerSetProfilingHandler @ 0x1404C18E4 (HalpTimerSetProfilingHandler.c)
+ *     HaliSetSystemInformation @ 0x140866474 (HaliSetSystemInformation.c)
  */
 
-__int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (__fastcall **a3)(_QWORD))
+__int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void))
 {
-  unsigned __int8 v6; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v6; // ebx
+  unsigned __int64 v7; // rsi
+  unsigned __int8 v8; // al
+  struct _KPRCB *v9; // r9
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
+  __int64 v13; // rcx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // rax
+  _DWORD *SchedulerAssist; // r9
+  int v17; // edx
+  unsigned __int8 v18; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
-  if ( !a1 )
+  v18 = 0;
+  switch ( a1 )
   {
-    if ( a2 == 8 )
-      return HalpSetProfileSourceInterval();
-    return 3221225476LL;
-  }
-  if ( a1 != 1 )
-  {
-    if ( a1 == 10 )
-    {
+    case 0:
       if ( a2 == 8 )
-        return HalpRegisterTimerInterruptHandler((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))*a3);
+        return HalpSetProfileSourceInterval();
       return 3221225476LL;
-    }
-    if ( a1 != 19 )
-    {
-      if ( a1 == 20 )
+    case 1:
+      if ( a2 != 8 )
+        return 3221225476LL;
+      if ( (HalpFeatureBits & 1) == 0 )
+        return 3221225473LL;
+      v6 = 0;
+      v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
+      if ( qword_140CF5580 )
       {
-        if ( (unsigned int)(a2 - 288) <= 0x1F6 )
-          return ((__int64 (__fastcall *)(__int64 (__fastcall **)(_QWORD), _QWORD))HalpProfileInterface[11])(a3, 0LL);
+        if ( qword_140CF5580 == PsGetCurrentThreadProcessId() )
+        {
+          HalpPerfInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
+          if ( !HalpPerfInterruptHandler )
+            qword_140CF5580 = 0LL;
+        }
+        else
+        {
+          v6 = -1073741823;
+        }
       }
       else
       {
-        if ( a1 != 21 )
-          return HaliSetSystemInformation();
-        if ( a2 == 272 )
-          return ((__int64 (__fastcall *)(_QWORD))HalpProfileInterface[12])(a3);
+        HalpPerfInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
+        if ( HalpPerfInterruptHandler )
+          qword_140CF5580 = PsGetCurrentThreadProcessId();
       }
-      return 3221225476LL;
-    }
-    if ( !HalpGetCpuInfo(0LL, 0LL, 0LL, &v6) || v6 != 2 )
-      return 3221225659LL;
-    if ( a2 == 8 )
-    {
-      if ( (HalpFeatureBits & 0x41) == 0x41 )
-        return HalpRegisterProcessorTraceInterruptHandler(*a3);
-      return 3221225659LL;
-    }
+      KxReleaseSpinLock(&HalpPerfInterruptHandlerRegistrationLock);
+      if ( !KiIrqlFlags )
+        goto LABEL_59;
+      if ( (KiIrqlFlags & 1) == 0 )
+        goto LABEL_59;
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql > 0xFu )
+        goto LABEL_59;
+      if ( (unsigned __int8)v7 > 0xFu )
+        goto LABEL_59;
+      if ( CurrentIrql < 2u )
+        goto LABEL_59;
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v12 = (v17 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v17;
+      if ( !v12 )
+        goto LABEL_59;
+      v13 = (__int64)CurrentPrcb;
+      goto LABEL_58;
+    case 10:
+      if ( a2 != 8 )
+        return 3221225476LL;
+      v6 = 0;
+      v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
+      if ( !qword_140CF5570 )
+      {
+        HalpTimerSetProfilingHandler(*a3);
+        if ( HalpTimerGetProfilingHandler() )
+          qword_140CF5570 = PsGetCurrentThreadProcessId();
+        goto LABEL_34;
+      }
+      if ( qword_140CF5570 == PsGetCurrentThreadProcessId() )
+      {
+        HalpTimerSetProfilingHandler(*a3);
+        if ( !HalpTimerGetProfilingHandler() )
+          qword_140CF5570 = 0LL;
+        goto LABEL_34;
+      }
+      goto LABEL_33;
+    case 19:
+      if ( !HalpGetCpuInfo(0LL, 0LL, 0LL, &v18) || v18 != 2 )
+        return 3221225659LL;
+      if ( a2 != 8 )
+        return 3221225476LL;
+      if ( (HalpFeatureBits & 0x41) != 0x41 )
+        return 3221225659LL;
+      v6 = 0;
+      v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
+      if ( !qword_140CF5578 )
+      {
+        HalpProcessorTraceInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
+        if ( HalpProcessorTraceInterruptHandler )
+          qword_140CF5578 = PsGetCurrentThreadProcessId();
+        goto LABEL_34;
+      }
+      if ( qword_140CF5578 == PsGetCurrentThreadProcessId() )
+      {
+        HalpProcessorTraceInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
+        if ( !HalpProcessorTraceInterruptHandler )
+          qword_140CF5578 = 0LL;
+        goto LABEL_34;
+      }
+LABEL_33:
+      v6 = -1073741823;
+LABEL_34:
+      KxReleaseSpinLock(&HalpPerfInterruptHandlerRegistrationLock);
+      if ( !KiIrqlFlags )
+        goto LABEL_59;
+      if ( (KiIrqlFlags & 1) == 0 )
+        goto LABEL_59;
+      v8 = KeGetCurrentIrql();
+      if ( v8 > 0xFu )
+        goto LABEL_59;
+      if ( (unsigned __int8)v7 > 0xFu )
+        goto LABEL_59;
+      if ( v8 < 2u )
+        goto LABEL_59;
+      v9 = KeGetCurrentPrcb();
+      v10 = v9->SchedulerAssist;
+      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v12 = (v11 & v10[5]) == 0;
+      v10[5] &= v11;
+      if ( !v12 )
+        goto LABEL_59;
+      v13 = (__int64)v9;
+LABEL_58:
+      KiRemoveSystemWorkPriorityKick(v13);
+LABEL_59:
+      __writecr8(v7);
+      return v6;
+  }
+  if ( a1 != 20 )
+  {
+    if ( a1 != 21 )
+      return HaliSetSystemInformation();
+    if ( a2 == 176 )
+      return (*((__int64 (__fastcall **)(__int64 (**)(void)))HalpProfileInterface[0] + 11))(a3);
     return 3221225476LL;
   }
-  if ( a2 != 8 )
+  if ( (unsigned int)(a2 - 192) > 0x1F6 )
     return 3221225476LL;
-  if ( (HalpFeatureBits & 1) != 0 )
-    return HalpRegisterProfileSourceInterruptHandler(*a3);
-  else
-    return 3221225473LL;
+  return (*((__int64 (__fastcall **)(__int64 (**)(void), _QWORD))HalpProfileInterface[0] + 10))(a3, 0LL);
 }

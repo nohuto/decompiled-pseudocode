@@ -1,18 +1,13 @@
 /*
- * XREFs of ?InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ @ 0x1C00C4A90
+ * XREFs of ?InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ @ 0x1C006B210
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
- *     ?AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z @ 0x1C00BC680 (-AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z.c)
+ *     Win32AllocPagedLookasideList @ 0x1C006B6E0 (Win32AllocPagedLookasideList.c)
  */
 
-_BOOL8 __fastcall RGNMEMOBJ::InitializeScanLookAsideList(NSInstrumentation::CLeakTrackingAllocator *a1)
+_BOOL8 RGNMEMOBJ::InitializeScanLookAsideList(void)
 {
-  RGNMEMOBJ::s_pSCANLookAsideList = NSInstrumentation::CLeakTrackingAllocator::AllocatePagedLookasideList(
-                                      a1,
-                                      0x70uLL,
-                                      1935764551,
-                                      0x6E637347u,
-                                      0x60u);
+  RGNMEMOBJ::s_pSCANLookAsideList = (void *)Win32AllocPagedLookasideList(112LL, 1935764551LL, 1852011335LL, 96LL);
   return RGNMEMOBJ::s_pSCANLookAsideList != 0LL;
 }

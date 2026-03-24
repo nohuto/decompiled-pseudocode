@@ -1,33 +1,28 @@
 /*
- * XREFs of ?FreeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAXXZ @ 0x1C00F7CCC
+ * XREFs of ?FreeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAXXZ @ 0x1C00C1B80
  * Callers:
- *     ?InitializeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAJXZ @ 0x1C00BA288 (-InitializeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAJXZ.c)
- *     ??1VIDMM_APERTURE_SEGMENT@@UEAA@XZ @ 0x1C00F7AE4 (--1VIDMM_APERTURE_SEGMENT@@UEAA@XZ.c)
+ *     ?InitializeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAJXZ @ 0x1C009058C (-InitializeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAJXZ.c)
+ *     ??1VIDMM_APERTURE_SEGMENT@@UEAA@XZ @ 0x1C00C14E0 (--1VIDMM_APERTURE_SEGMENT@@UEAA@XZ.c)
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 void __fastcall VIDMM_APERTURE_SEGMENT::FreeGuardPages(VIDMM_APERTURE_SEGMENT *this)
 {
-  __int64 v1; // rbp
-  PMDL *v2; // rdi
-  PMDL v4; // rbx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
+  void *v2; // rcx
+  struct _MDL *v3; // rcx
 
-  v1 = *((_QWORD *)this + 64);
-  v2 = (PMDL *)((char *)this + 504);
-  if ( v1 )
+  v2 = (void *)*((_QWORD *)this + 62);
+  if ( v2 )
   {
-    v4 = *v2;
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    (*((void (__fastcall **)(__int64, PMDL))VirtualMemoryInterface + 6))(v1, v4);
-    *((_QWORD *)this + 64) = 0LL;
+    MmUnmapLockedPages(v2, *((PMDL *)this + 61));
+    *((_QWORD *)this + 62) = 0LL;
   }
-  if ( *v2 )
+  v3 = (struct _MDL *)*((_QWORD *)this + 61);
+  if ( v3 )
   {
-    MmFreePagesFromMdl(*v2);
-    ExFreePoolWithTag(*v2, 0);
-    *v2 = 0LL;
+    MmFreePagesFromMdl(v3);
+    ExFreePoolWithTag(*((PVOID *)this + 61), 0);
+    *((_QWORD *)this + 61) = 0LL;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of FindBitmapResource @ 0x140B526E0
+ * XREFs of FindBitmapResource @ 0x140A6B744
  * Callers:
- *     BvgaDriverInitialize @ 0x140B525E0 (BvgaDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140A6B640 (BvgaDriverInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     LdrAccessResource @ 0x140822C20 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x140822C40 (LdrFindResource_U.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     LdrAccessResource @ 0x1407C5ED0 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x1407C5EF0 (LdrFindResource_U.c)
  */
 
 __int64 __fastcall FindBitmapResource(__int64 a1, __int64 a2)

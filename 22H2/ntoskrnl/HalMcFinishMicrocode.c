@@ -1,40 +1,41 @@
 /*
- * XREFs of HalMcFinishMicrocode @ 0x1403B0774
+ * XREFs of HalMcFinishMicrocode @ 0x1403AF500
  * Callers:
- *     HalpProcInitSystem @ 0x140A8AEE0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x14099E630 (HalpProcInitSystem.c)
  * Callees:
- *     HalpIsPartitionCpuManager @ 0x140378548 (HalpIsPartitionCpuManager.c)
- *     HalpMcUpdateFindDataTableEntry @ 0x140379D4C (HalpMcUpdateFindDataTableEntry.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MmGetSystemRoutineAddress @ 0x140756D80 (MmGetSystemRoutineAddress.c)
- *     HalpMcExportAndChargeNeededData @ 0x140860A10 (HalpMcExportAndChargeNeededData.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMcSetUpdateInfoInvalid @ 0x1403AF564 (HalpMcSetUpdateInfoInvalid.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpMcExportAndChargeNeededData @ 0x14079BA98 (HalpMcExportAndChargeNeededData.c)
  */
 
-char __fastcall HalMcFinishMicrocode(__int64 a1, __int64 a2)
+char __fastcall HalMcFinishMicrocode(__int64 a1)
 {
-  __int64 (__fastcall *DataTableEntry)(_QWORD); // rax
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 (__fastcall *v6)(_QWORD); // rbx
-  UNICODE_STRING SystemRoutineName; // [rsp+20h] [rbp-18h] BYREF
+  char v1; // di
+  char result; // al
+  PVOID *v3; // rbx
 
-  *(_QWORD *)&SystemRoutineName.Length = 2621478LL;
-  SystemRoutineName.Buffer = L"MmUnloadSystemImage";
-  LOBYTE(DataTableEntry) = HalpMcExportAndChargeNeededData(a1, a2);
-  if ( a1 )
+  v1 = KeDynamicPartitioningSupported;
+  result = HalpIsMicrosoftCompatibleHvLoaded(a1);
+  v3 = 0LL;
+  if ( result )
   {
-    LOBYTE(DataTableEntry) = HalpIsPartitionCpuManager(v5, v4);
-    if ( !(_BYTE)DataTableEntry )
+    result = (char)qword_140C4A3B8;
+    if ( qword_140C4A3B8 )
     {
-      DataTableEntry = (__int64 (__fastcall *)(_QWORD))HalpMcUpdateFindDataTableEntry((_QWORD *)(a1 + 16));
-      v6 = DataTableEntry;
-      if ( DataTableEntry )
-      {
-        DataTableEntry = (__int64 (__fastcall *)(_QWORD))MmGetSystemRoutineAddress(&SystemRoutineName);
-        if ( DataTableEntry )
-          LOBYTE(DataTableEntry) = DataTableEntry(v6);
-      }
+      if ( !v1 )
+        result = qword_140C4A3B8(0LL, 0LL);
     }
   }
-  return (char)DataTableEntry;
+  if ( HalpMcUpdateRecordingSupported && HalpMcUpdateExportDataFunc )
+  {
+    if ( HalpMcUpdateInfoValid )
+    {
+      if ( !v1 )
+        v3 = &HalpMcUpdateInfoHead;
+    }
+    HalpMcExportAndChargeNeededData(v3);
+    return HalpMcSetUpdateInfoInvalid();
+  }
+  return result;
 }

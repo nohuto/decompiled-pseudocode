@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIInternalQueryExtendedAddress @ 0x1C002ECE0
+ * XREFs of ACPIInternalQueryExtendedAddress @ 0x1C002D3A0
  * Callers:
- *     ACPIMatchHardwareAddress @ 0x1C0088CF8 (ACPIMatchHardwareAddress.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C008823C (ACPIInternalSendSynchronousIrp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall ACPIInternalQueryExtendedAddress(PDEVICE_OBJECT DeviceObject, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_LogDeviceReEnumeration @ 0x1C002BE88
+ * XREFs of HUBMISC_LogDeviceReEnumeration @ 0x1C002B7A8
  * Callers:
- *     HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured @ 0x1C0021540 (HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured.c)
+ *     HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured @ 0x1C00210F0 (HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0030374 (HUBMISC_VerifierDbgBreak.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 NTSTATUS __fastcall HUBMISC_LogDeviceReEnumeration(__int64 a1)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall HUBMISC_LogDeviceReEnumeration(__int64 a1)
       2u,
       5u,
       0xFu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v3);
   }
   result = *(_DWORD *)(a1 + 2436);

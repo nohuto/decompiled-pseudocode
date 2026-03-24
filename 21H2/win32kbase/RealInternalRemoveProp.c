@@ -1,80 +1,42 @@
 /*
- * XREFs of RealInternalRemoveProp @ 0x1C002C720
+ * XREFs of RealInternalRemoveProp @ 0x1C0024880
  * Callers:
- *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C00D7F60 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ *     <none>
  * Callees:
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C002C87C (IS_USERCRIT_OWNED_SHARED.c)
- *     UserGlobalAtomTableCallout @ 0x1C0089494 (UserGlobalAtomTableCallout.c)
- *     UserDeleteAtomFromAtomTable @ 0x1C009A8B0 (UserDeleteAtomFromAtomTable.c)
+ *     _FindProp @ 0x1C0024918 (_FindProp.c)
+ *     UserGlobalAtomTableCallout @ 0x1C008615C (UserGlobalAtomTableCallout.c)
+ *     ??0?$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ @ 0x1C0086274 (--0-$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ.c)
+ *     UserDeleteAtomFromAtomTable @ 0x1C00862C0 (UserDeleteAtomFromAtomTable.c)
  */
 
-__int64 __fastcall RealInternalRemoveProp(__int64 a1, int a2, int a3)
+__int64 __fastcall RealInternalRemoveProp(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
-  __int64 v6; // rdi
-  __int64 v7; // rcx
-  __int64 *v8; // rbx
-  bool v9; // zf
   __int64 result; // rax
-  __int16 v11; // ax
-  __int64 v12; // rbp
-  __int64 v13; // rcx
-  __int64 v14; // rax
+  int v5; // r8d
+  __int16 v6; // r10d^2
+  __int64 v7; // rbx
+  __int64 v8; // rsi
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  _BYTE v11[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !gbInDestroyHandleTableObjects )
+  result = FindProp(a1, a2, a3);
+  v7 = result;
+  if ( result )
   {
-    if ( ExIsResourceAcquiredExclusiveLite(gpresUser) != 1
-      && (!(unsigned int)IS_USERCRIT_OWNED_SHARED() || KeGetCurrentThread() != *(struct _KTHREAD **)(a1 + 8)) )
+    v8 = *(_QWORD *)result;
+    if ( !v5 && ((*(_BYTE *)(result + 10) & 2) != 0 || v6 == 1) )
     {
-      __int2c();
+      CLockDomainExclusive<DLT_JOB>::CLockDomainExclusive<DLT_JOB>(v11);
+      v10 = UserGlobalAtomTableCallout();
+      if ( v10 )
+        UserDeleteAtomFromAtomTable(v10, *(unsigned __int16 *)(v7 + 8));
     }
-    if ( !gbInDestroyHandleTableObjects
-      && ExIsResourceAcquiredExclusiveLite(gpresUser) != 1
-      && (!(unsigned int)IS_USERCRIT_OWNED_SHARED() || KeGetCurrentThread() != *(struct _KTHREAD **)(a1 + 8)) )
-    {
-      __int2c();
-    }
+    --*(_DWORD *)(a1 + 4);
+    result = v8;
+    v9 = 2LL * *(unsigned int *)(a1 + 4);
+    *(_OWORD *)v7 = *(_OWORD *)(a1 + 16LL * *(unsigned int *)(a1 + 4) + 8);
+    *(_OWORD *)(a1 + 8 * v9 + 8) = 0LL;
   }
-  v6 = *(_QWORD *)(a1 + 24);
-  if ( !v6 )
-    return 0LL;
-  if ( !(_WORD)a2 )
-    return 0LL;
-  v7 = *(unsigned int *)(v6 + 4);
-  v8 = (__int64 *)(v6 + 8);
-  if ( !(_DWORD)v7 )
-    return 0LL;
-  while ( 1 )
-  {
-    if ( *((_WORD *)v8 + 4) != (_WORD)a2 )
-      goto LABEL_13;
-    v11 = *((_WORD *)v8 + 5) & 1;
-    if ( a3 )
-      break;
-    if ( !v11 )
-      goto LABEL_17;
-LABEL_13:
-    v8 += 2;
-    v9 = (_DWORD)v7 == 1;
-    v7 = (unsigned int)(v7 - 1);
-    if ( v9 )
-      return 0LL;
-  }
-  if ( !v11 )
-    goto LABEL_13;
-LABEL_17:
-  if ( !v8 )
-    return 0LL;
-  v12 = *v8;
-  if ( !a3 && ((*((_BYTE *)v8 + 10) & 2) != 0 || HIWORD(a2) == 1) )
-  {
-    v14 = UserGlobalAtomTableCallout(v7);
-    if ( v14 )
-      UserDeleteAtomFromAtomTable(v14, *((unsigned __int16 *)v8 + 4));
-  }
-  --*(_DWORD *)(v6 + 4);
-  result = v12;
-  v13 = 2LL * *(unsigned int *)(v6 + 4);
-  *(_OWORD *)v8 = *(_OWORD *)(v6 + 16LL * *(unsigned int *)(v6 + 4) + 8);
-  *(_OWORD *)(v6 + 8 * v13 + 8) = 0LL;
   return result;
 }

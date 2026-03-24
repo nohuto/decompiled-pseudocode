@@ -1,38 +1,41 @@
 /*
- * XREFs of ?GetParentTreeData@CVisual@@AEBAPEBVCTreeData@@PEBVCVisualTree@@PEAV2@PEA_N@Z @ 0x18000B0DC
+ * XREFs of ?GetParentTreeData@CVisual@@AEBAPEBVCTreeData@@PEBVCVisualTree@@PEAV2@PEA_N@Z @ 0x180011620
  * Callers:
- *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x18000A984 (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x180010F4C (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ *     ?IsWorldTransformNewForCurrentFrame@CVisual@@QEBA_NPEBVCVisualTree@@PEAVCTreeData@@@Z @ 0x1801ADE38 (-IsWorldTransformNewForCurrentFrame@CVisual@@QEBA_NPEBVCVisualTree@@PEAVCTreeData@@@Z.c)
  * Callees:
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x180088B84 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ?GetTransformParent@CVisual@@QEBAPEBV1@PEBVCVisualTree@@PEA_N@Z @ 0x18008A730 (-GetTransformParent@CVisual@@QEBAPEBV1@PEBVCVisualTree@@PEA_N@Z.c)
+ *     ?GetTransformParentNoRef@CVisual@@QEBAPEAV1@XZ @ 0x180011698 (-GetTransformParentNoRef@CVisual@@QEBAPEAV1@XZ.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x1800BA3C0 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
  */
 
 const struct CTreeData *__fastcall CVisual::GetParentTreeData(
-        CVisual **this,
+        CVisual *this,
         const struct CVisualTree *a2,
         struct CTreeData *a3,
         bool *a4)
 {
-  const struct CTreeData *result; // rax
-  bool v5; // si
-  CVisual *TransformParent; // rax
+  __int64 v4; // rbx
+  struct CVisual *TransformParentNoRef; // rax
+  CVisual *v9; // rcx
+  unsigned __int64 CurrentFrameId; // rax
+  __int64 v12; // r8
 
-  result = 0LL;
-  v5 = 0;
-  if ( this != *((CVisual ***)a2 + 8) )
+  v4 = 0LL;
+  *a4 = 0;
+  if ( this != *((CVisual **)a2 + 7) )
   {
-    TransformParent = CVisual::GetTransformParent((CVisual *)this, a2, 0LL);
-    if ( TransformParent )
+    if ( *((_BYTE *)a3 + 18) && (CurrentFrameId = GetCurrentFrameId(), *(_QWORD *)(v12 + 280) == CurrentFrameId)
+      || (TransformParentNoRef = CVisual::GetTransformParentNoRef(this)) == 0LL )
     {
-      result = CVisual::FindTreeData(TransformParent, a2);
-      v5 = 1;
+      v9 = (CVisual *)*((_QWORD *)this + 10);
     }
     else
     {
-      result = CVisual::FindTreeData(this[11], a2);
+      *a4 = 1;
+      v9 = TransformParentNoRef;
     }
+    return CVisual::FindTreeData(v9, a2);
   }
-  if ( a4 )
-    *a4 = v5;
-  return result;
+  return (const struct CTreeData *)v4;
 }

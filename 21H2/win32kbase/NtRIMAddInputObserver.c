@@ -1,94 +1,45 @@
 /*
- * XREFs of NtRIMAddInputObserver @ 0x1C017FD90
+ * XREFs of NtRIMAddInputObserver @ 0x1C0152FB0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     rimObsAddInputObserver @ 0x1C01B320C (rimObsAddInputObserver.c)
- *     rimObsCheckForObservationPermissions @ 0x1C01B3B48 (rimObsCheckForObservationPermissions.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     rimObsAddInputObserver @ 0x1C017D8AC (rimObsAddInputObserver.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C017DE84 (rimObsCheckForObservationPermissions.c)
  */
 
-__int64 __fastcall NtRIMAddInputObserver(
-        int a1,
-        __int64 a2,
-        __int64 a3,
-        int a4,
-        int a5,
-        int a6,
-        unsigned int a7,
-        __int64 a8)
+__int64 __fastcall NtRIMAddInputObserver(int a1, int a2, int a3, int a4, int a5, int a6, unsigned int a7, __int64 a8)
 {
-  int v9; // ebp
-  int v10; // r14d
-  char v12; // di
-  unsigned int v13; // ebx
+  int v10; // ebp
+  unsigned int v12; // ebx
 
-  v9 = a3;
   v10 = a2;
-  v12 = 1;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      23,
-      158,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, a2, 23, 149, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
+  }
   if ( a7 )
   {
-    if ( (unsigned int)rimObsCheckForObservationPermissions(a7, a2, a3) )
-      v13 = rimObsAddInputObserver(a1, v10, v9, 1, a4, a5, a6, a7, a8);
+    if ( (unsigned int)rimObsCheckForObservationPermissions(a7) )
+      v12 = rimObsAddInputObserver(a1, v10, a3, 1, a4, a5, a6, a7, a8);
     else
-      v13 = -1073741790;
+      v12 = -1073741790;
   }
   else
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
-        23,
-        159,
-        (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids,
-        0);
+      LOBYTE(a2) = 3;
+      WPP_RECORDER_SF_d((_DWORD)gBaseLog, a2, 23, 150, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, 0);
     }
-    v13 = -1073741811;
+    v12 = -1073741811;
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v12 = 0;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, a2, 23, 151, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, v12);
   }
-  if ( v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a2) = v12;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      23,
-      160,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids,
-      v13);
-  }
-  return v13;
+  return v12;
 }

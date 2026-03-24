@@ -1,5 +1,5 @@
 /*
- * XREFs of ShrinkDIB_CX @ 0x1C02692C0
+ * XREFs of ShrinkDIB_CX @ 0x1C026BEE0
  * Callers:
  *     <none>
  * Callees:

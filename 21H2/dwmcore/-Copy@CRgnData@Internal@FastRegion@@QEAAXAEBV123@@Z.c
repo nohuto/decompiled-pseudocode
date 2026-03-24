@@ -1,7 +1,8 @@
 /*
- * XREFs of ?Copy@CRgnData@Internal@FastRegion@@QEAAXAEBV123@@Z @ 0x1800837CC
+ * XREFs of ?Copy@CRgnData@Internal@FastRegion@@QEAAXAEBV123@@Z @ 0x180099C74
  * Callers:
- *     ?TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z @ 0x180082730 (-TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z.c)
+ *     ?CopyData@CRegion@FastRegion@@IEAAJPEBVCRgnData@Internal@2@@Z @ 0x18009891C (-CopyData@CRegion@FastRegion@@IEAAJPEBVCRgnData@Internal@2@@Z.c)
+ *     ??$AppendRects@UtagRECT@@@CRegion@@QEAAXPEBUtagRECT@@I@Z @ 0x1800989E0 (--$AppendRects@UtagRECT@@@CRegion@@QEAAXPEBUtagRECT@@I@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,24 +11,24 @@ void __fastcall FastRegion::Internal::CRgnData::Copy(
         FastRegion::Internal::CRgnData *this,
         const struct FastRegion::Internal::CRgnData *a2)
 {
-  int v2; // r8d
+  int v2; // r9d
   char *v3; // rsi
   int v5; // ebp
   __int64 v6; // rdx
-  char *v7; // r9
-  char *v8; // r10
+  char *v7; // r10
+  char *v8; // r8
   _DWORD *v9; // rdi
   __int64 v10; // rax
   char *v11; // rcx
   unsigned __int64 v12; // rax
   __int64 v13; // rcx
-  signed __int64 v14; // r10
+  signed __int64 v14; // r8
 
   v2 = *(_DWORD *)a2;
   v3 = (char *)a2 + 12;
   *(_DWORD *)this = *(_DWORD *)a2;
-  v5 = 0;
   *((_DWORD *)this + 1) = *((_DWORD *)a2 + 1);
+  v5 = 0;
   *((_DWORD *)this + 2) = *((_DWORD *)a2 + 2);
   v6 = *((int *)a2 + 4);
   v7 = (char *)this + 8 * v2 + 12;

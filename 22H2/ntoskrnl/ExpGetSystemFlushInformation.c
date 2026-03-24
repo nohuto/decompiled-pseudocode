@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpGetSystemFlushInformation @ 0x14077D590
+ * XREFs of ExpGetSystemFlushInformation @ 0x1406904F0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077EDF0 (ExpGetSystemFirmwareTableInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14069061C (ExpGetSystemFirmwareTableInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
 {
   int v2; // edx
   __int64 v4; // r15
-  unsigned int *Pool2; // rax
+  unsigned int *PoolWithTag; // rax
   unsigned int *v6; // r14
   __int64 v7; // rdx
   unsigned int *v8; // rdx
@@ -24,9 +24,9 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
   _DWORD Src[3]; // [rsp+38h] [rbp-40h] BYREF
   __int64 v14; // [rsp+44h] [rbp-34h]
 
-  v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 1;
-  if ( _bittest64(&KeFeatureBits, 0x23u) )
-    v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 3;
+  v2 = (KeFeatureBits >> 34) & 4 | 1;
+  if ( (KeFeatureBits & 0x800000000LL) != 0 )
+    v2 = (KeFeatureBits >> 34) & 4 | 3;
   *(_DWORD *)a1 = v2;
   *(_DWORD *)(a1 + 4) = KeGetCurrentPrcb()->CFlushSize;
   *(_QWORD *)(a1 + 8) = 0LL;
@@ -41,15 +41,15 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
     Src[2] = 1414088270;
     if ( (unsigned int)ExpGetSystemFirmwareTableInformation(Src) == -1073741789 )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(256LL, 0LL, 1413632087LL);
-      v6 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 0LL, 0x54425057u);
+      v6 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *Pool2 = 1094930505;
-        Pool2[1] = 1;
-        Pool2[2] = 1414088270;
-        Pool2[3] = -16;
-        if ( (int)ExpGetSystemFirmwareTableInformation(Pool2) >= 0 )
+        *PoolWithTag = 1094930505;
+        PoolWithTag[1] = 1;
+        PoolWithTag[2] = 1414088270;
+        PoolWithTag[3] = -16;
+        if ( (int)ExpGetSystemFirmwareTableInformation(PoolWithTag) >= 0 )
         {
           v7 = v6[5];
           if ( (unsigned int)v7 >= 0xFFFFFFF0 )

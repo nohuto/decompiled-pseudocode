@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpLogVetoInformation @ 0x1408330F0
+ * XREFs of PnpLogVetoInformation @ 0x1408330D0
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840770 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840750 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     PsGetProcessImageFileName @ 0x140129C50 (PsGetProcessImageFileName.c)
- *     PnpDiagnosticTraceAppVeto @ 0x140289D9C (PnpDiagnosticTraceAppVeto.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x140129C70 (PsGetProcessImageFileName.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x140289E9C (PnpDiagnosticTraceAppVeto.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x140667218 (PsGetAllocatedFullProcessImageName.c)
- *     PnpTraceDeviceRemoveProcessVeto @ 0x140839968 (PnpTraceDeviceRemoveProcessVeto.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1406671F8 (PsGetAllocatedFullProcessImageName.c)
+ *     PnpTraceDeviceRemoveProcessVeto @ 0x140839948 (PnpTraceDeviceRemoveProcessVeto.c)
  */
 
 _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)

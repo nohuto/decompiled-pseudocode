@@ -1,10 +1,10 @@
 /*
- * XREFs of VmFreePreallocationForRangeCreate @ 0x1409D95D0
+ * XREFs of VmFreePreallocationForRangeCreate @ 0x14092F020
  * Callers:
  *     <none>
  * Callees:
- *     VmpDecodePreallocationRangeHandle @ 0x1409D9FC0 (VmpDecodePreallocationRangeHandle.c)
- *     VmpFreeMemoryRanges @ 0x1409DA014 (VmpFreeMemoryRanges.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x14092F644 (VmpDecodePreallocationRangeHandle.c)
+ *     VmpFreeMemoryRanges @ 0x14092F698 (VmpFreeMemoryRanges.c)
  */
 
 __int64 VmFreePreallocationForRangeCreate()
@@ -12,7 +12,7 @@ __int64 VmFreePreallocationForRangeCreate()
   unsigned __int64 v0; // rcx
   void *v1; // rax
 
-  v0 = KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5];
+  v0 = KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5];
   if ( !v0 )
     NT_ASSERT("0");
   v1 = (void *)VmpDecodePreallocationRangeHandle(v0);

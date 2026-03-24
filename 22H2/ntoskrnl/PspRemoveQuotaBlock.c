@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveQuotaBlock @ 0x1409AE13C
+ * XREFs of PspRemoveQuotaBlock @ 0x1409073F8
  * Callers:
- *     PspDereferenceQuotaBlock @ 0x14069ECF4 (PspDereferenceQuotaBlock.c)
- *     ObpFreeObject @ 0x1407298C0 (ObpFreeObject.c)
+ *     ObpFreeObject @ 0x14063DC40 (ObpFreeObject.c)
+ *     PspDereferenceQuotaBlock @ 0x1406D91D0 (PspDereferenceQuotaBlock.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     PspUnlockQuotaListExclusive @ 0x1403B537C (PspUnlockQuotaListExclusive.c)
- *     PspHashKeyValue @ 0x1407F8E04 (PspHashKeyValue.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403CF5DC (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x140690B48 (PspHashKeyValue.c)
  */
 
 _QWORD *__fastcall PspRemoveQuotaBlock(__int64 a1)
@@ -17,7 +17,7 @@ _QWORD *__fastcall PspRemoveQuotaBlock(__int64 a1)
   __int64 v4; // rax
   __int64 v6; // rcx
   unsigned int v7; // eax
-  volatile signed __int64 *v8; // r14
+  ULONG_PTR v8; // r14
   __int64 v9; // rax
   __int64 **v10; // rcx
 
@@ -30,8 +30,8 @@ _QWORD *__fastcall PspRemoveQuotaBlock(__int64 a1)
     v6 = v4;
   v7 = PspHashKeyValue(v6, 0LL);
   --CurrentThread->KernelApcDisable;
-  v8 = (volatile signed __int64 *)(PspQuotaBlockTable + 24LL * v7);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)v8, 0LL);
+  v8 = PspQuotaBlockTable + 24LL * v7;
+  ExAcquirePushLockExclusiveEx(v8, 0LL);
   if ( v3 == 1 )
   {
     if ( a1 == PspDefaultQuotaBlock )

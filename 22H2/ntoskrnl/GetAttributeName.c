@@ -1,14 +1,14 @@
 /*
- * XREFs of GetAttributeName @ 0x1409D31A4
+ * XREFs of GetAttributeName @ 0x140927080
  * Callers:
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     iswalnum @ 0x1403D9B10 (iswalnum.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     DecodeAttributeName @ 0x1409D2DBC (DecodeAttributeName.c)
- *     IsLegalAttributeChar2 @ 0x1409D4940 (IsLegalAttributeChar2.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     iswalnum @ 0x1403D20F0 (iswalnum.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     DecodeAttributeName @ 0x140926D64 (DecodeAttributeName.c)
+ *     IsLegalAttributeChar2 @ 0x140927EE0 (IsLegalAttributeChar2.c)
  */
 
 __int64 __fastcall GetAttributeName(wchar_t *Str1, __int64 *a2, unsigned int *a3)
@@ -76,16 +76,29 @@ LABEL_10:
     }
     return 1336;
   }
-  if ( v7 < 0xA )
+  if ( v7 < 0xA || wcsnicmp(v5, L"@RESOURCE.", 0xAuLL) )
   {
-    if ( v7 < 6 )
-      goto LABEL_24;
-    goto LABEL_21;
-  }
-  if ( wcsnicmp(v5, L"@RESOURCE.", 0xAuLL) )
-  {
-LABEL_21:
-    if ( !wcsnicmp(v5, L"@USER.", 6uLL) )
+    if ( v7 < 6 || wcsnicmp(v5, L"@USER.", 6uLL) )
+    {
+      if ( v7 < 7 || wcsnicmp(v5, L"@TOKEN.", 7uLL) )
+      {
+        if ( !v7 || !wcsnicmp(v5, L"@", 1uLL) )
+          return 1336;
+        v12 = *a2;
+        v13 = 2 * v7;
+        *(_BYTE *)(*a2 + 1) = -8;
+      }
+      else
+      {
+        if ( v7 == 7 )
+          return 1336;
+        v12 = *a2;
+        v13 = 2 * v7 - 14;
+        v5 += 7;
+        *(_BYTE *)(*a2 + 1) = -4;
+      }
+    }
+    else
     {
       if ( v7 == 6 )
         return 1336;
@@ -93,37 +106,17 @@ LABEL_21:
       v13 = 2 * v7 - 12;
       v5 += 6;
       *(_BYTE *)(*a2 + 1) = -7;
-      goto LABEL_31;
     }
-LABEL_24:
-    if ( v7 < 7 )
-    {
-      if ( !v7 )
-        return 1336;
-    }
-    else if ( !wcsnicmp(v5, L"@TOKEN.", 7uLL) )
-    {
-      if ( v7 == 7 )
-        return 1336;
-      v12 = *a2;
-      v13 = 2 * v7 - 14;
-      v5 += 7;
-      *(_BYTE *)(*a2 + 1) = -4;
-      goto LABEL_31;
-    }
-    if ( !wcsnicmp(v5, L"@", 1uLL) )
+  }
+  else
+  {
+    if ( v7 == 10 )
       return 1336;
     v12 = *a2;
-    v13 = 2 * v7;
-    *(_BYTE *)(*a2 + 1) = -8;
-    goto LABEL_31;
+    v13 = 2 * v7 - 20;
+    v5 += 10;
+    *(_BYTE *)(*a2 + 1) = -6;
   }
-  if ( v7 == 10 )
-    return 1336;
-  v12 = *a2;
-  v13 = 2 * v7 - 20;
-  v5 += 10;
-  *(_BYTE *)(*a2 + 1) = -6;
 LABEL_31:
   *(_DWORD *)(v12 + 4) = v13;
   v14 = *(_BYTE *)(v12 + 1) == 0xF8;

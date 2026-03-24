@@ -1,9 +1,9 @@
 /*
- * XREFs of MiNumberWsSwapPagefiles @ 0x140268BB0
+ * XREFs of MiNumberWsSwapPagefiles @ 0x140273228
  * Callers:
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
- *     MiContractWsSwapPageFile @ 0x1406EC1C4 (MiContractWsSwapPageFile.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14027318C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiContractWsSwapPageFile @ 0x14071068C (MiContractWsSwapPageFile.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
  * Callees:
  *     <none>
  */
@@ -17,11 +17,11 @@ __int64 __fastcall MiNumberWsSwapPagefiles(__int64 a1)
   __int64 v5; // rax
   unsigned int v6; // ecx
 
-  v1 = *(_DWORD *)(a1 + 16728);
+  v1 = *(_DWORD *)(a1 + 6936);
   v2 = 0;
   if ( v1 )
   {
-    v3 = (__int64 *)(a1 + 16736);
+    v3 = (__int64 *)(a1 + 6944);
     v4 = v1;
     do
     {

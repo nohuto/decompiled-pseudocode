@@ -1,85 +1,77 @@
 /*
- * XREFs of CmpCleanupTransactionState @ 0x14069831C
+ * XREFs of CmpCleanupTransactionState @ 0x140770144
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
- *     CmpRunDownCmRM @ 0x1406987D0 (CmpRunDownCmRM.c)
- *     CmObliterateRMTxArray @ 0x140A1C060 (CmObliterateRMTxArray.c)
- *     CmpLazyCommitWorker @ 0x140A1C170 (CmpLazyCommitWorker.c)
+ *     CmpRunDownCmRM @ 0x14066D560 (CmpRunDownCmRM.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
+ *     CmObliterateRMTxArray @ 0x140872A64 (CmObliterateRMTxArray.c)
+ *     CmpLazyCommitWorker @ 0x140872B80 (CmpLazyCommitWorker.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14020B8F0 (ObDereferenceObjectDeferDelete.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpLogCheckpoint @ 0x1406989A4 (CmpLogCheckpoint.c)
- *     CmpTransDereferenceTransaction @ 0x140768F38 (CmpTransDereferenceTransaction.c)
- *     CmpTransMgrFreeVolatileData @ 0x140769424 (CmpTransMgrFreeVolatileData.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpTransDereferenceTransaction @ 0x14066E000 (CmpTransDereferenceTransaction.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071C8A0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLogCheckpoint @ 0x1407702A4 (CmpLogCheckpoint.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall CmpCleanupTransactionState(__int64 a1, _QWORD *a2, __int64 a3, char a4)
+void __fastcall CmpCleanupTransactionState(__int64 a1, _QWORD *a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  char v5; // bp
+  int v6; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v12; // rcx
-  void **v13; // rax
-  void *v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  struct _KTHREAD *v19; // rax
-  __int64 v20; // r8
-  __int64 v21; // rdx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  _OWORD v26[3]; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD *v9; // rcx
+  void **v10; // rax
+  void *v11; // rcx
+  struct _KTHREAD *v12; // rax
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  _OWORD v15[3]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(v26, 0, sizeof(v26));
-  CmpAttachToRegistryProcess(v26);
+  v5 = (char)a4;
+  memset(v15, 0, sizeof(v15));
+  v6 = a3;
+  CmpAttachToRegistryProcess((__int64)v15, (__int64)a2, a3, a4);
   CmpLockRegistryExclusive();
-  CmpTransMgrFreeVolatileData((ULONG_PTR)a2);
-  CmpUnlockRegistry(v8, v7, v9, v10, *(_QWORD *)&v26[0], *((_QWORD *)&v26[0] + 1));
-  CmpDetachFromRegistryProcess(v26);
+  CmpTransMgrFreeVolatileData((ULONG_PTR)a2, v6);
+  CmpUnlockRegistry();
+  KiUnstackDetachProcess((__int64)v15, 0);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  v12 = (_QWORD *)*a2;
-  if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v13 = (void **)a2[1], *v13 != a2) )
+  v9 = (_QWORD *)*a2;
+  if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v10 = (void **)a2[1], *v10 != a2) )
     __fastfail(3u);
-  *v13 = v12;
-  v12[1] = v13;
+  *v10 = v9;
+  v9[1] = v10;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   *((_DWORD *)a2 + 12) |= 0x10u;
   if ( a2[7] )
     CmpTransDereferenceTransaction(a2[7]);
-  v14 = (void *)a2[9];
-  if ( v14 )
-    ObDereferenceObjectDeferDelete(v14);
+  v11 = (void *)a2[9];
+  if ( v11 )
+    ObDereferenceObjectDeferDelete(v11);
   ExFreePoolWithTag(a2, 0x72544D43u);
-  if ( a4 )
+  if ( v5 )
   {
-    CmpLockRegistry(v16, v15, v17, v18);
-    v19 = KeGetCurrentThread();
-    --v19->KernelApcDisable;
+    CmpLockRegistry();
+    v12 = KeGetCurrentThread();
+    --v12->KernelApcDisable;
     ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 128), 1u);
-    LOBYTE(v20) = 1;
-    CmpLogCheckpoint(a1, v21, v20);
+    LOBYTE(v13) = 1;
+    CmpLogCheckpoint(a1, v14, v13);
     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
-    KeLeaveCriticalRegion();
-    CmpUnlockRegistry(v23, v22, v24, v25, *(_QWORD *)&v26[0], *((_QWORD *)&v26[0] + 1));
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    CmpUnlockRegistry();
   }
 }

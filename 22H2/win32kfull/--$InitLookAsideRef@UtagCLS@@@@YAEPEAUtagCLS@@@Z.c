@@ -1,7 +1,8 @@
 /*
- * XREFs of ??$InitLookAsideRef@UtagCLS@@@@YAEPEAUtagCLS@@@Z @ 0x1C001FEC8
+ * XREFs of ??$InitLookAsideRef@UtagCLS@@@@YAEPEAUtagCLS@@@Z @ 0x1C007A618
  * Callers:
- *     ReferenceClass @ 0x1C0020000 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C00254E0 (ReferenceClass.c)
+ *     InternalRegisterClassEx @ 0x1C0079D30 (InternalRegisterClassEx.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +13,7 @@ char __fastcall InitLookAsideRef<tagCLS>(__int64 a1)
 
   if ( !gpStackRefLookAside )
     KeBugCheck(4u);
-  v2 = (_QWORD *)Win32AllocateFromPagedLookasideList();
+  v2 = (_QWORD *)Win32AllocateFromPagedLookasideList(gpStackRefLookAside);
   *(_QWORD *)(a1 + 128) = v2;
   if ( v2 )
   {

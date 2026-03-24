@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroNormalizedUtilityToUtility @ 0x1402572C4
+ * XREFs of PpmHeteroNormalizedUtilityToUtility @ 0x14057820C
  * Callers:
- *     PpmParkDistributeUtility @ 0x140256F50 (PpmParkDistributeUtility.c)
+ *     PpmParkDistributeUtility @ 0x14022A4B0 (PpmParkDistributeUtility.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall PpmHeteroNormalizedUtilityToUtility(__int64 a1, unsigned int 
   unsigned int v2; // r8d
   __int64 result; // rax
 
-  v2 = *(_DWORD *)(a1 + 64);
+  v2 = *(_DWORD *)(a1 + 56);
   result = a2;
   if ( v2 )
     return (a2 << 16) / v2;

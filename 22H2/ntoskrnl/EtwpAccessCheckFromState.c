@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAccessCheckFromState @ 0x1406C03D4
+ * XREFs of EtwpAccessCheckFromState @ 0x1406BD064
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x1406BE860 (EtwpAddRegEntryToGroup.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BC360 (EtwpAddRegEntryToGroup.c)
  * Callees:
- *     SeAccessCheckFromState @ 0x1402286B0 (SeAccessCheckFromState.c)
- *     EtwpFreeSecurityDescriptor @ 0x1406C04DC (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0FAC (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeAccessCheckFromState @ 0x14032F440 (SeAccessCheckFromState.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1406BD0EC (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406BD12C (EtwpGetSecurityDescriptorByGuid.c)
  */
 
 __int64 __fastcall EtwpAccessCheckFromState(__int64 a1, __int64 a2, struct _TOKEN_ACCESS_INFORMATION *a3)

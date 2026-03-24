@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpUpdatePrimaryDisplayWnf @ 0x1409A3EAC
+ * XREFs of TtmpUpdatePrimaryDisplayWnf @ 0x1408FD4E8
  * Callers:
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1409A3ABC (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1408FD0E8 (TtmpPushTerminalDisplayStateOntoDevice.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     TtmpStartCallout @ 0x1409A3D30 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1409A3E1C (TtmpStopCallout.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     TtmpStartCallout @ 0x1408FD36C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD458 (TtmpStopCallout.c)
  */
 
 char __fastcall TtmpUpdatePrimaryDisplayWnf(int *a1, __int64 a2, unsigned int a3)

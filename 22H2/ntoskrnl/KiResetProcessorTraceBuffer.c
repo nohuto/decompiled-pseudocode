@@ -1,22 +1,21 @@
 /*
- * XREFs of KiResetProcessorTraceBuffer @ 0x14056CFC0
+ * XREFs of KiResetProcessorTraceBuffer @ 0x140514CD0
  * Callers:
- *     SwapContext @ 0x140427D00 (SwapContext.c)
+ *     SwapContext @ 0x140405E40 (SwapContext.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiResetProcessorTraceBuffer()
 {
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r10
-  __int64 v2; // rdx
-  unsigned __int64 v3; // rax
-  unsigned __int8 v4; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v6; // r8
-  int v7; // eax
-  bool v8; // zf
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int64 v2; // rax
+  unsigned __int8 v3; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v5; // r8
+  int v6; // eax
+  bool v7; // zf
   __int64 result; // rax
 
   CurrentIrql = KeGetCurrentIrql();
@@ -24,32 +23,31 @@ __int64 KiResetProcessorTraceBuffer()
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v2) = 0x8000;
-    else
-      v2 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v2;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  v3 = __readmsr(0x570u);
-  if ( (v3 & 1) != 0 )
+  v2 = __readmsr(0x570u);
+  if ( (v2 & 1) != 0 )
   {
-    __writemsr(0x570u, v3 & 0xFFFFFFFFFFFFFFFEuLL);
+    __writemsr(0x570u, v2 & 0xFFFFFFFFFFFFFFFEuLL);
     __writemsr(0x561u, 0LL);
     __writemsr(0x571u, 0LL);
-    __writemsr(0x570u, v3);
+    __writemsr(0x570u, v2);
   }
   if ( KiIrqlFlags )
   {
-    v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v6 = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v8 = (v7 & v6[5]) == 0;
-      v6[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v3 = KeGetCurrentIrql();
+      if ( v3 <= 0xFu && CurrentIrql <= 0xFu && v3 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v5 = CurrentPrcb->SchedulerAssist;
+        v6 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v7 = (v6 & v5[5]) == 0;
+        v5[5] &= v6;
+        if ( v7 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

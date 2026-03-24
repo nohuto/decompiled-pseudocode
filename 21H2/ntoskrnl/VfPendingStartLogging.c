@@ -1,8 +1,8 @@
 /*
- * XREFs of VfPendingStartLogging @ 0x140A9120C
+ * XREFs of VfPendingStartLogging @ 0x1409D5AD0
  * Callers:
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
- *     IovpCompleteRequest1 @ 0x140A8C08C (IovpCompleteRequest1.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x1409D04C0 (IovpCompleteRequest1.c)
  * Callees:
  *     <none>
  */

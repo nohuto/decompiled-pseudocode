@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateEnclave @ 0x140859AC8
+ * XREFs of MiCreateEnclave @ 0x140859AA8
  * Callers:
- *     NtCreateEnclave @ 0x14085A8E0 (NtCreateEnclave.c)
+ *     NtCreateEnclave @ 0x14085A8C0 (NtCreateEnclave.c)
  * Callees:
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
- *     MiCreateHardwareEnclave @ 0x140859BB0 (MiCreateHardwareEnclave.c)
- *     MiCreateVsmEnclave @ 0x140859DC8 (MiCreateVsmEnclave.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
+ *     MiCreateHardwareEnclave @ 0x140859B90 (MiCreateHardwareEnclave.c)
+ *     MiCreateVsmEnclave @ 0x140859DA8 (MiCreateVsmEnclave.c)
  */
 
 __int64 __fastcall MiCreateEnclave(

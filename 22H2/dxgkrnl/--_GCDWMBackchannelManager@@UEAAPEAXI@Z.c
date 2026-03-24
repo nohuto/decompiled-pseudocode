@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCDWMBackchannelManager@@UEAAPEAXI@Z @ 0x1C0087F10
+ * XREFs of ??_GCDWMBackchannelManager@@UEAAPEAXI@Z @ 0x1C006D700
  * Callers:
  *     <none>
  * Callees:
- *     ??1CBackchannelManager@@UEAA@XZ @ 0x1C00880B0 (--1CBackchannelManager@@UEAA@XZ.c)
+ *     ??1CBackchannelManager@@UEAA@XZ @ 0x1C006D8DC (--1CBackchannelManager@@UEAA@XZ.c)
  */
 
 CBackchannelManager *__fastcall CDWMBackchannelManager::`scalar deleting destructor'(CBackchannelManager *P, char a2)

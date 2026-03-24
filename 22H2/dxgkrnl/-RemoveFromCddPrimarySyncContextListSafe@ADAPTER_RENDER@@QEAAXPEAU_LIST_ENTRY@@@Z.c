@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveFromCddPrimarySyncContextListSafe@ADAPTER_RENDER@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0004790
+ * XREFs of ?RemoveFromCddPrimarySyncContextListSafe@ADAPTER_RENDER@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00031E8
  * Callers:
- *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C018BDB0 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00F0270 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __fastcall ADAPTER_RENDER::RemoveFromCddPrimarySyncContextListSafe(ADAPTER_
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rax
 
-  v3 = (char *)this + 944;
+  v3 = (char *)this + 808;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v3, 0LL);
   *((_QWORD *)v3 + 1) = KeGetCurrentThread();
@@ -23,7 +23,7 @@ void __fastcall ADAPTER_RENDER::RemoveFromCddPrimarySyncContextListSafe(ADAPTER_
       __fastfail(3u);
     Blink->Flink = Flink;
     Flink->Blink = Blink;
-    --*((_DWORD *)this + 234);
+    --*((_DWORD *)this + 200);
   }
   *((_QWORD *)v3 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v3, 0LL);

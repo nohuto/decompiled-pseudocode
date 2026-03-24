@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSizeMemoryListLocks @ 0x1406D0D40
+ * XREFs of MiSizeMemoryListLocks @ 0x1406D0D20
  * Callers:
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  *     MiInitializeMirroring @ 0x1409BCF88 (MiInitializeMirroring.c)
  * Callees:
  *     <none>

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoNotifyDump @ 0x1401445DC
+ * XREFs of IoNotifyDump @ 0x1401445FC
  * Callers:
  *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IoNotifyDump(int a1)

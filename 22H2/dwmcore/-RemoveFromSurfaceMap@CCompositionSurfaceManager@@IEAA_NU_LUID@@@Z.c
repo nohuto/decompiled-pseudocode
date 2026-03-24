@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z @ 0x1800BA650
+ * XREFs of ?RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z @ 0x180038384
  * Callers:
- *     ??1CCompositionSurfaceInfo@@MEAA@XZ @ 0x1800BA6B0 (--1CCompositionSurfaceInfo@@MEAA@XZ.c)
+ *     ??1CCompositionSurfaceInfo@@MEAA@XZ @ 0x180036C50 (--1CCompositionSurfaceInfo@@MEAA@XZ.c)
  * Callees:
  *     <none>
  */

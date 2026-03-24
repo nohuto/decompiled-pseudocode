@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSceneMeshRendererComponentMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0237AE0
+ * XREFs of ?ReleaseAllReferences@CSceneMeshRendererComponentMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F7730
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CSceneMeshRendererComponentMarshaler::ReleaseAllReferences(
@@ -13,16 +13,16 @@ void __fastcall DirectComposition::CSceneMeshRendererComponentMarshaler::Release
   struct DirectComposition::CResourceMarshaler *v4; // rdx
   struct DirectComposition::CResourceMarshaler *v5; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 8) = 0LL;
+    *((_QWORD *)this + 7) = 0LL;
   }
-  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
+  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
   if ( v5 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
-    *((_QWORD *)this + 9) = 0LL;
+    *((_QWORD *)this + 8) = 0LL;
   }
 }

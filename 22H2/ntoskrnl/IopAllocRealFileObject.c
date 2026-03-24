@@ -1,25 +1,25 @@
 /*
- * XREFs of IopAllocRealFileObject @ 0x14072F370
+ * XREFs of IopAllocRealFileObject @ 0x140650820
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     IopCheckInitiatorHint @ 0x1402118D0 (IopCheckInitiatorHint.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     IoGetSilo @ 0x140302B50 (IoGetSilo.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     ObpFreeObjectNameBuffer @ 0x1406C2FB0 (ObpFreeObjectNameBuffer.c)
- *     ObpCaptureObjectCreateInformation @ 0x1406EEFC0 (ObpCaptureObjectCreateInformation.c)
- *     ObpAllocateObject @ 0x14072FBB0 (ObpAllocateObject.c)
- *     IopRetrieveTransactionParameters @ 0x1407306C0 (IopRetrieveTransactionParameters.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767E50 (IopAllocateFoExtensionsOnCreate.c)
- *     ObpRegisterObject @ 0x14097D464 (ObpRegisterObject.c)
+ *     IopCheckInitiatorHint @ 0x14025FB40 (IopCheckInitiatorHint.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     IoGetSilo @ 0x1403618F0 (IoGetSilo.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpPushStackInfo @ 0x140564C68 (ObpPushStackInfo.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObpAllocateObject @ 0x14064C950 (ObpAllocateObject.c)
+ *     IopRetrieveTransactionParameters @ 0x1406511B0 (IopRetrieveTransactionParameters.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406CF200 (ObpCaptureObjectCreateInformation.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     ObpFreeObjectNameBuffer @ 0x1406DA108 (ObpFreeObjectNameBuffer.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14071F81C (IopAllocateFoExtensionsOnCreate.c)
+ *     ObpRegisterObject @ 0x1408DEE1C (ObpRegisterObject.c)
  */
 
 __int64 __fastcall IopAllocRealFileObject(
@@ -33,235 +33,270 @@ __int64 __fastcall IopAllocRealFileObject(
         char a8,
         unsigned int a9)
 {
-  struct _KPRCB *CurrentPrcb; // rsi
-  POBJECT_TYPE *v10; // rdi
-  char v12; // r14
-  _GENERAL_LOOKASIDE *P; // rbp
-  __int64 v14; // r15
-  PSLIST_ENTRY v15; // rbx
-  int Object; // esi
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // ecx
-  __int64 v20; // rbx
-  _DWORD *v21; // rbx
-  _GENERAL_LOOKASIDE *L; // rbp
+  struct _KPRCB *CurrentPrcb; // r14
+  POBJECT_TYPE *v10; // rbp
+  char v12; // r13
+  _GENERAL_LOOKASIDE *P; // rdi
+  __int64 v14; // r12
+  _DWORD *v15; // rbx
+  PSLIST_ENTRY v16; // rsi
+  unsigned int Number; // eax
+  char v18; // r14
+  int v19; // edx
+  int Information; // edi
+  __int64 v21; // r8
+  __int64 v22; // r9
+  int v23; // ecx
+  char *v24; // rbx
+  int TransactionParameters; // esi
+  __int64 v26; // rdi
+  unsigned int v27; // r12d
+  int v28; // ebp
+  __int64 v29; // rcx
+  __int64 v30; // rbp
+  int v31; // ecx
+  int v32; // eax
+  _QWORD *v33; // rbx
+  __int64 v35; // rcx
+  unsigned __int64 v36; // rax
+  __int64 v37; // rcx
+  __int64 Silo; // rax
+  int v39; // r9d
+  _GENERAL_LOOKASIDE *L; // rdi
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
   __int64 Tag; // r8
   __int64 Type; // rcx
-  __int64 v27; // rcx
-  __int64 v28; // r14
-  int v29; // ecx
-  _QWORD *v30; // rbx
-  __int64 v32; // rcx
-  unsigned __int64 v33; // rax
-  __int64 v34; // rcx
-  __int64 Silo; // rax
-  struct _KPRCB *v36; // rdx
-  _GENERAL_LOOKASIDE *v37; // rcx
+  struct _KPRCB *v45; // rax
+  _GENERAL_LOOKASIDE *v46; // r8
   _SLIST_ENTRY *Next; // rcx
-  struct _KPRCB *v39; // rdx
-  _GENERAL_LOOKASIDE *v40; // rcx
-  __int16 v41; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v42; // [rsp+48h] [rbp-80h] BYREF
-  __int128 v43; // [rsp+50h] [rbp-78h] BYREF
-  _QWORD v44[3]; // [rsp+60h] [rbp-68h] BYREF
-  int v45; // [rsp+78h] [rbp-50h]
-  int v46; // [rsp+7Ch] [rbp-4Ch]
-  __int128 v47; // [rsp+80h] [rbp-48h]
-  char v50; // [rsp+E8h] [rbp+20h]
+  struct _KPRCB *v48; // rdx
+  _GENERAL_LOOKASIDE *v49; // rcx
+  char *v50; // [rsp+40h] [rbp-88h] BYREF
+  __int128 v51; // [rsp+48h] [rbp-80h] BYREF
+  _QWORD v52[3]; // [rsp+58h] [rbp-70h] BYREF
+  int v53; // [rsp+70h] [rbp-58h]
+  int v54; // [rsp+74h] [rbp-54h]
+  __int128 v55; // [rsp+78h] [rbp-50h]
+  __int16 v58; // [rsp+E8h] [rbp+20h] BYREF
 
-  v50 = a4;
   CurrentPrcb = KeGetCurrentPrcb();
   v10 = IoFileObjectType;
-  v41 = 0;
+  v52[0] = 48LL;
+  v54 = 0;
   v12 = a4;
-  v44[0] = 48LL;
   P = CurrentPrcb->PPLookasideList[4].P;
   v14 = a3;
-  v46 = 0;
-  v44[1] = 0LL;
-  v45 = a4;
+  v52[1] = 0LL;
+  v53 = a4;
+  v15 = 0LL;
+  v52[2] = 0LL;
   ++P->TotalAllocates;
-  v44[2] = 0LL;
-  v47 = 0LL;
-  LOBYTE(v41) = 1;
-  v43 = 0LL;
-  v42 = 0LL;
-  v15 = RtlpInterlockedPopEntrySList(&P->ListHead);
-  if ( v15 )
-    goto LABEL_2;
-  ++P->AllocateMisses;
-  L = CurrentPrcb->PPLookasideList[4].L;
-  ++L->TotalAllocates;
-  v15 = RtlpInterlockedPopEntrySList(&L->ListHead);
-  if ( v15
-    || (Size = L->Size,
-        AllocateEx = L->AllocateEx,
-        Tag = L->Tag,
-        Type = (unsigned int)L->Type,
-        ++L->AllocateMisses,
-        (v15 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag)) != 0LL) )
+  v58 = 1;
+  v55 = 0LL;
+  v51 = 0LL;
+  v50 = 0LL;
+  v16 = RtlpInterlockedPopEntrySList(&P->ListHead);
+  if ( !v16 )
   {
-LABEL_2:
-    LODWORD(v15->Next) = CurrentPrcb->Number;
-  }
-  if ( !v15 )
-  {
-    Object = -1073741670;
-LABEL_72:
-    if ( !a8 )
-      *(_QWORD *)a1 = 0LL;
-    return (unsigned int)Object;
-  }
-  Object = ObpCaptureObjectCreateInformation(0, a5, (__int64)v44, &v43, (__int64)v15, 0);
-  if ( Object < 0 )
-  {
-    v36 = KeGetCurrentPrcb();
-    v37 = v36->PPLookasideList[4].P;
-    ++v37->TotalFrees;
-    if ( LOWORD(v37->ListHead.Alignment) < v37->Depth
-      || (++v37->FreeMisses,
-          v37 = v36->PPLookasideList[4].L,
-          ++v37->TotalFrees,
-          LOWORD(v37->ListHead.Alignment) < v37->Depth) )
+    ++P->AllocateMisses;
+    L = CurrentPrcb->PPLookasideList[4].L;
+    ++L->TotalAllocates;
+    v16 = RtlpInterlockedPopEntrySList(&L->ListHead);
+    if ( !v16 )
     {
-      RtlpInterlockedPushEntrySList(&v37->ListHead, v15);
+      Size = L->Size;
+      AllocateEx = L->AllocateEx;
+      Tag = L->Tag;
+      Type = (unsigned int)L->Type;
+      ++L->AllocateMisses;
+      v16 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag);
+      if ( !v16 )
+      {
+        TransactionParameters = -1073741670;
+LABEL_56:
+        if ( !a8 )
+          *(_QWORD *)a1 = 0LL;
+        return (unsigned int)TransactionParameters;
+      }
+    }
+  }
+  Number = CurrentPrcb->Number;
+  v18 = a5;
+  v19 = a5;
+  LODWORD(v16->Next) = Number;
+  Information = ObpCaptureObjectCreateInformation(0, v19, (unsigned int)v52, (unsigned int)&v51, (__int64)v16, 0);
+  if ( Information < 0 )
+  {
+    v45 = KeGetCurrentPrcb();
+    v46 = v45->PPLookasideList[4].P;
+    ++v46->TotalFrees;
+    if ( LOWORD(v46->ListHead.Alignment) < v46->Depth
+      || (++v46->FreeMisses,
+          v46 = v45->PPLookasideList[4].L,
+          ++v46->TotalFrees,
+          LOWORD(v46->ListHead.Alignment) < v46->Depth) )
+    {
+      RtlpInterlockedPushEntrySList(&v46->ListHead, v16);
     }
     else
     {
-      ++v37->FreeMisses;
-      ((void (__fastcall *)(PSLIST_ENTRY))v37->FreeEx)(v15);
+      ++v46->FreeMisses;
+      ((void (__fastcall *)(PSLIST_ENTRY))v46->FreeEx)(v16);
     }
-    goto LABEL_72;
+    goto LABEL_9;
   }
-  if ( ((__int64)v15->Next & (_DWORD)v10[9]) != 0 )
+  if ( ((__int64)v16->Next & (_DWORD)v10[9]) != 0 )
   {
-    Object = -1073741811;
-    goto LABEL_64;
+    Information = -1073741811;
+    goto LABEL_65;
   }
-  if ( ((__int64)v15->Next & 0x10) != 0 && !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, 0) )
+  if ( ((__int64)v16->Next & 0x10) != 0 && !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, 0) )
   {
-    Object = -1073741727;
-    goto LABEL_64;
+    Information = -1073741727;
+    goto LABEL_65;
   }
-  v19 = *((_DWORD *)v10 + 27);
-  HIDWORD(v15[1].Next) = *((_DWORD *)v10 + 26);
-  *((_DWORD *)&v15[1].Next + 2) = v19;
-  Object = ObpAllocateObject((_DWORD)v15, a5, (_DWORD)v10, (unsigned int)&v43, 216, (__int64)&v42, (__int64)&v41);
-  if ( Object < 0 )
+  v23 = *((_DWORD *)v10 + 27);
+  HIDWORD(v16[1].Next) = *((_DWORD *)v10 + 26);
+  *((_DWORD *)&v16[1].Next + 2) = v23;
+  Information = ObpAllocateObject((int *)v16, v18, (__int64)v10, &v51, 216, &v50, &v58);
+  if ( Information < 0 )
   {
-LABEL_64:
-    if ( *((_QWORD *)&v43 + 1) )
-      ObpFreeObjectNameBuffer((__int64)&v43);
-    Next = v15[2].Next;
+LABEL_65:
+    if ( *((_QWORD *)&v51 + 1) )
+      ObpFreeObjectNameBuffer(&v51);
+    Next = v16[2].Next;
     if ( Next )
     {
-      LOBYTE(v17) = 1;
-      SeReleaseSecurityDescriptor(Next, LOBYTE(v15[1].Next), v17, v18);
-      v15[2].Next = 0LL;
+      LOBYTE(v21) = 1;
+      SeReleaseSecurityDescriptor(Next, LOBYTE(v16[1].Next), v21, v22);
+      v16[2].Next = 0LL;
     }
-    v39 = KeGetCurrentPrcb();
-    v40 = v39->PPLookasideList[4].P;
-    ++v40->TotalFrees;
-    if ( LOWORD(v40->ListHead.Alignment) < v40->Depth
-      || (++v40->FreeMisses,
-          v40 = v39->PPLookasideList[4].L,
-          ++v40->TotalFrees,
-          LOWORD(v40->ListHead.Alignment) < v40->Depth) )
+    v48 = KeGetCurrentPrcb();
+    v49 = v48->PPLookasideList[4].P;
+    ++v49->TotalFrees;
+    if ( LOWORD(v49->ListHead.Alignment) < v49->Depth
+      || (++v49->FreeMisses,
+          v49 = v48->PPLookasideList[4].L,
+          ++v49->TotalFrees,
+          LOWORD(v49->ListHead.Alignment) < v49->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&v40->ListHead, v15);
+      RtlpInterlockedPushEntrySList(&v49->ListHead, v16);
     }
     else
     {
-      ++v40->FreeMisses;
-      ((void (__fastcall *)(PSLIST_ENTRY))v40->FreeEx)(v15);
+      ++v49->FreeMisses;
+      ((void (__fastcall *)(PSLIST_ENTRY))v49->FreeEx)(v16);
     }
-    goto LABEL_72;
+    goto LABEL_9;
   }
-  v20 = v42;
+  v24 = v50;
   if ( ObpTraceFlags )
   {
-    ObpRegisterObject(v42);
-    ObpPushStackInfo(v20, 1, 1u, 0x746C6644u);
+    ObpRegisterObject(v50);
+    ObpPushStackInfo((__int64)v24, 1, 1u, 0x746C6644u);
   }
-  v21 = (_DWORD *)(v20 + 48);
-  memset(v21, 0, 0xD8uLL);
+  v15 = v24 + 48;
+LABEL_9:
+  TransactionParameters = Information;
+  if ( Information < 0 )
+    goto LABEL_56;
+  memset(v15, 0, 0xD8uLL);
+  v26 = a6;
   if ( a8 )
   {
-    *((_QWORD *)v21 + 3) = *(_QWORD *)(*(_QWORD *)a1 + 24LL);
-    *((_QWORD *)v21 + 4) = *(_QWORD *)(*(_QWORD *)a1 + 32LL);
-    *((_WORD *)v21 + 44) = *(_WORD *)(*(_QWORD *)a1 + 88LL);
-    *((_WORD *)v21 + 45) = *(_WORD *)(*(_QWORD *)a1 + 90LL);
-    *((_QWORD *)v21 + 12) = *(_QWORD *)(*(_QWORD *)a1 + 96LL);
-    v32 = *(_QWORD *)(*(_QWORD *)a1 + 208LL);
-    if ( v32 )
-      *((_QWORD *)v21 + 26) = v32;
+    *((_QWORD *)v15 + 3) = *(_QWORD *)(*(_QWORD *)a1 + 24LL);
+    *((_QWORD *)v15 + 4) = *(_QWORD *)(*(_QWORD *)a1 + 32LL);
+    *((_WORD *)v15 + 44) = *(_WORD *)(*(_QWORD *)a1 + 88LL);
+    *((_WORD *)v15 + 45) = *(_WORD *)(*(_QWORD *)a1 + 90LL);
+    *((_QWORD *)v15 + 12) = *(_QWORD *)(*(_QWORD *)a1 + 96LL);
+    v35 = *(_QWORD *)(*(_QWORD *)a1 + 208LL);
+    if ( v35 )
+      *((_QWORD *)v15 + 26) = v35;
   }
   else
   {
+    v27 = a9;
+    v28 = a7;
     if ( (*(_DWORD *)(a6 + 152) & 0x47) == 0
       && PsIsHostSilo(*(_QWORD *)(a7 + 8))
-      && ((v27 = *(_QWORD *)(a6 + 40)) == 0 || (Silo = IoGetSilo(v27), PsIsHostSilo(Silo))) )
+      && ((v29 = *(_QWORD *)(v26 + 40)) == 0 || (Silo = IoGetSilo(v29), PsIsHostSilo(Silo))) )
     {
-      v28 = a2;
+      v30 = a2;
     }
     else
     {
-      v28 = a2;
-      Object = IopAllocateFoExtensionsOnCreate((_DWORD)v21, a2, a6, a7, a9);
+      v39 = v28;
+      v30 = a2;
+      TransactionParameters = IopAllocateFoExtensionsOnCreate((_DWORD)v15, a2, v26, v39, v27);
     }
-    if ( Object >= 0 && a5 )
+    if ( TransactionParameters >= 0 )
     {
-      if ( (*(_DWORD *)(a6 + 152) & 0x20) == 0
-        || (*(_DWORD *)(v28 + 48) & 0x40000) == 0
-        && (v33 = *(unsigned int *)(v28 + 72), (_DWORD)v33 != 8)
-        && ((unsigned int)v33 > 0x35 || (v34 = 0x20000100100008LL, !_bittest64(&v34, v33)))
-        || (Object = IopRetrieveTransactionParameters(v28, a6, a9, v21), Object >= 0) )
+      if ( v18 )
       {
-        if ( (*(_DWORD *)(a6 + 64) & 0x20000) != 0 )
-          Object = IopCheckInitiatorHint((__int64)v21, *(_QWORD *)(a6 + 40));
+        if ( (*(_DWORD *)(v26 + 152) & 0x20) != 0 )
+        {
+          if ( (*(_DWORD *)(v30 + 48) & 0x40000) != 0
+            || (v36 = *(unsigned int *)(v30 + 72), (unsigned int)v36 <= 0x35)
+            && (v37 = 0x20000100100108LL, _bittest64(&v37, v36)) )
+          {
+            TransactionParameters = IopRetrieveTransactionParameters(v30, v26, v27, v15);
+          }
+        }
       }
+      if ( TransactionParameters >= 0 && v18 && (*(_DWORD *)(v26 + 64) & 0x20000) != 0 )
+        TransactionParameters = IopCheckInitiatorHint((__int64)v15, *(_QWORD *)(v26 + 40));
     }
-    v12 = v50;
     v14 = a3;
   }
-  *(_QWORD *)a1 = v21;
-  if ( !*(_BYTE *)(a6 + 138) && !*(_BYTE *)(a6 + 137) )
+  *(_QWORD *)a1 = v15;
+  if ( !*(_BYTE *)(v26 + 138) && !*(_BYTE *)(v26 + 137) )
   {
-    if ( (*(_DWORD *)(a6 + 64) & 0x30) != 0 )
+    if ( (*(_DWORD *)(v26 + 64) & 0x30) != 0 )
     {
-      v29 = v21[20] | 2;
-      v21[20] = v29;
-      if ( (*(_DWORD *)(a6 + 64) & 0x10) != 0 )
-        v21[20] = v29 | 4;
+      v31 = v15[20] | 2;
+      v15[20] = v31;
+      if ( (*(_DWORD *)(v26 + 64) & 0x10) != 0 )
+        v15[20] = v31 | 4;
     }
-    if ( (v21[20] & 2) != 0 )
+    if ( (v15[20] & 2) != 0 )
     {
-      KeInitializeEvent((PRKEVENT)(v21 + 32), SynchronizationEvent, 0);
-      v21[28] = 0;
-      *((_QWORD *)v21 + 13) = 0LL;
+      KeInitializeEvent((PRKEVENT)(v15 + 32), SynchronizationEvent, 0);
+      v15[28] = 0;
+      *((_QWORD *)v15 + 13) = 0LL;
     }
-    if ( (*(_DWORD *)(a6 + 64) & 8) != 0 )
-      v21[20] |= 8u;
-    if ( (*(_DWORD *)(a6 + 64) & 2) != 0 )
-      v21[20] |= 0x10u;
-    if ( (*(_DWORD *)(a6 + 64) & 4) != 0 )
-      v21[20] |= 0x20u;
-    if ( (*(_DWORD *)(a6 + 64) & 0x800) != 0 )
-      v21[20] |= 0x100000u;
-    if ( (*(_DWORD *)(a6 + 64) & 0x20000) != 0 )
-      v21[20] |= 0x2000000u;
+    v32 = *(_DWORD *)(v26 + 64);
+    if ( (v32 & 8) != 0 )
+    {
+      v15[20] |= 8u;
+      v32 = *(_DWORD *)(v26 + 64);
+    }
+    if ( (v32 & 2) != 0 )
+    {
+      v15[20] |= 0x10u;
+      v32 = *(_DWORD *)(v26 + 64);
+    }
+    if ( (v32 & 4) != 0 )
+    {
+      v15[20] |= 0x20u;
+      v32 = *(_DWORD *)(v26 + 64);
+    }
+    if ( (v32 & 0x800) != 0 )
+    {
+      v15[20] |= 0x100000u;
+      v32 = *(_DWORD *)(v26 + 64);
+    }
+    if ( (v32 & 0x20000) != 0 )
+      v15[20] |= 0x2000000u;
   }
   if ( (v12 & 0x40) == 0 )
-    v21[20] |= 0x20000u;
-  *v21 = 14155781;
-  *((_QWORD *)v21 + 8) = *(_QWORD *)(a6 + 40);
-  *((_QWORD *)v21 + 1) = v14;
-  *((_QWORD *)v21 + 23) = 0LL;
-  v30 = v21 + 48;
-  v30[1] = v30;
-  *v30 = v30;
-  return (unsigned int)Object;
+    v15[20] |= 0x20000u;
+  *v15 = 14155781;
+  *((_QWORD *)v15 + 8) = *(_QWORD *)(v26 + 40);
+  *((_QWORD *)v15 + 1) = v14;
+  *((_QWORD *)v15 + 23) = 0LL;
+  v33 = v15 + 48;
+  v33[1] = v33;
+  *v33 = v33;
+  return (unsigned int)TransactionParameters;
 }

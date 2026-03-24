@@ -1,36 +1,32 @@
 /*
- * XREFs of _CmCreateDeviceWorker @ 0x140768C60
+ * XREFs of _CmCreateDeviceWorker @ 0x14074CD34
  * Callers:
- *     _CmCreateDevice @ 0x140768AF8 (_CmCreateDevice.c)
+ *     _CmCreateDevice @ 0x14074CBC8 (_CmCreateDevice.c)
  * Callees:
- *     _CmRaiseCreateEvent @ 0x14076A8FC (_CmRaiseCreateEvent.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x14074BAB0 (_CmRaiseCreateEvent.c)
  */
 
-__int64 __fastcall CmCreateDeviceWorker(__int64 a1, __int64 a2, int a3, _QWORD *a4, _BYTE *a5, __int16 a6)
+__int64 __fastcall CmCreateDeviceWorker(__int64 a1, __int64 a2, int a3, __int64 *a4, bool *a5, __int16 a6)
 {
   int v9; // ebx
-  _DWORD v11[6]; // [rsp+40h] [rbp-18h] BYREF
+  bool v10; // dl
+  _DWORD v12[6]; // [rsp+40h] [rbp-18h] BYREF
 
-  v11[0] = 0;
+  v12[0] = 0;
   if ( a6 )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    v9 = CmOpenDeviceRegKey(a1, a2, 16, 0, a3, 1, (__int64)a4, (__int64)v11);
+    v9 = CmOpenDeviceRegKey(a1, a2, 16, 0, a3, 1, (__int64)a4, v12);
     if ( v9 >= 0 )
     {
-      if ( v11[0] == 1 )
-      {
-        *a5 = 1;
-        CmRaiseCreateEvent(a1, a2, 1LL, *a4);
-      }
-      else
-      {
-        *a5 = 0;
-      }
+      v10 = v12[0] == 1;
+      *a5 = v12[0] == 1;
+      if ( v10 )
+        CmRaiseCreateEvent(a1, a2, 1u, *a4);
     }
   }
   return (unsigned int)v9;

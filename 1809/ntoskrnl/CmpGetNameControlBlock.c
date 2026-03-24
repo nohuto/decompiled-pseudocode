@@ -2,10 +2,10 @@
  * XREFs of CmpGetNameControlBlock @ 0x1405D6490
  * Callers:
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)

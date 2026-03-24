@@ -1,24 +1,32 @@
 /*
- * XREFs of MiAssembleLargePagePfnList @ 0x1405C11C0
+ * XREFs of MiAssembleLargePagePfnList @ 0x14055DE20
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x140235E10 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  */
 
-__int64 __fastcall MiAssembleLargePagePfnList(__int64 a1, _QWORD *a2)
+unsigned __int64 __fastcall MiAssembleLargePagePfnList(__int64 a1, _QWORD *a2)
 {
-  __int64 result; // rax
-  _QWORD *v4; // rcx
+  unsigned int PfnPageSizeIndex; // eax
+  __int64 v5; // rdi
+  unsigned __int64 v6; // rsi
+  unsigned __int64 result; // rax
 
-  result = a1 + 24LL * (unsigned int)MiGetPfnPageSizeIndex((__int64)a2);
-  v4 = *(_QWORD **)(result + 8);
-  if ( *v4 != result )
-    __fastfail(3u);
-  *a2 = result;
-  a2[1] = v4;
-  *v4 = a2;
-  *(_QWORD *)(result + 8) = a2;
-  ++*(_QWORD *)(result + 16);
+  PfnPageSizeIndex = MiGetPfnPageSizeIndex((__int64)a2);
+  v5 = PfnPageSizeIndex;
+  v6 = MiLargePageSizes[PfnPageSizeIndex];
+  if ( v6 >= 0x200 && PfnPageSizeIndex > 1 )
+    MiUpdateLargePageBitMap(
+      *(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL)),
+      ((__int64)(a2 + 0xB000000000LL) / 48) & 0xFFFFFFFFFFFFFE00uLL,
+      (((__int64)(a2 + 0xB000000000LL) / 48 + v6 + 511) & 0xFFFFFFFFFFFFFE00uLL)
+    - (((__int64)(a2 + 0xB000000000LL) / 48) & 0xFFFFFFFFFFFFFE00uLL),
+      0,
+      0);
+  result = v6;
+  *a2 = *(_QWORD *)(a1 + 8 * v5);
+  *(_QWORD *)(a1 + 8 * v5) = a2;
   return result;
 }

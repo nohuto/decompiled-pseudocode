@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAttemptErrorRecovery @ 0x140643D54
+ * XREFs of WheapAttemptErrorRecovery @ 0x1405BB878
  * Callers:
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
  * Callees:
- *     WheapAttemptArchitecturalErrorRecovery @ 0x140643CB4 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BB7D8 (WheapAttemptArchitecturalErrorRecovery.c)
  */
 
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)
@@ -17,12 +17,7 @@ __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)
     *(_DWORD *)(a1 + 12) = 2;
   v3 = PshedAttemptErrorRecovery(a1);
   v4 = *(_DWORD *)(a1 + 12);
-  if ( v4 )
-  {
-    if ( v4 == 2 )
-      goto LABEL_9;
-  }
-  else
+  if ( !v4 )
   {
     if ( v3 >= 0 )
     {
@@ -32,7 +27,10 @@ LABEL_9:
       goto LABEL_10;
     }
     *(_DWORD *)(a1 + 12) = 1;
+    v4 = 1;
   }
+  if ( v4 == 2 )
+    goto LABEL_9;
 LABEL_10:
   if ( v2 < 0 && v3 >= 0 )
     return (unsigned int)v3;

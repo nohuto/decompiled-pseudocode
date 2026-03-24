@@ -1,33 +1,37 @@
 /*
- * XREFs of ?vParentError@HFDBASIS64@@QEBAXPEA_J@Z @ 0x1C016E14C
+ * XREFs of ?vParentError@HFDBASIS64@@QEBAXPEA_J@Z @ 0x1C014128C
  * Callers:
- *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C016DA00 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C0140AE0 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall HFDBASIS64::vParentError(HFDBASIS64 *this, __int64 *a2)
 {
-  __int64 v3; // r10
-  __int64 v4; // r8
-  __int64 v5; // rax
-  __int64 v6; // r9
+  __int64 v2; // r9
+  __int64 v4; // rcx
+  __int64 v5; // r9
+  __int64 v6; // rax
   __int64 v7; // rdx
+  __int64 v8; // r10
+  __int64 v9; // rcx
 
-  v3 = *((_QWORD *)this + 2);
-  v4 = 4LL * *((_QWORD *)this + 3);
-  v5 = abs64(v4);
-  v6 = 8 * v3;
-  if ( 8 * v3 - v4 >= 0 )
-    v7 = 8 * v3 - v4;
+  v2 = *((_QWORD *)this + 3);
+  v4 = *((_QWORD *)this + 2);
+  v5 = 4 * v2;
+  v6 = abs64(v5);
+  v7 = 8 * v4;
+  v8 = 8 * v4 - v5;
+  if ( v8 >= 0 )
+    v9 = 8 * v4 - v5;
   else
-    v7 = v4 - v6;
-  if ( v5 <= v7 )
+    v9 = v5 - v7;
+  if ( v6 <= v9 )
   {
-    if ( 8 * v3 - v4 >= 0 )
-      v5 = 8 * v3 - v4;
+    if ( v8 >= 0 )
+      v6 = v8;
     else
-      v5 = v4 - v6;
+      v6 = v5 - v7;
   }
-  *a2 = v5;
+  *a2 = v6;
 }

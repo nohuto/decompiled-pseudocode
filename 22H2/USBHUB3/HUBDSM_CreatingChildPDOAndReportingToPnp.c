@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CreatingChildPDOAndReportingToPnp @ 0x1C0023250
+ * XREFs of HUBDSM_CreatingChildPDOAndReportingToPnp @ 0x1C0020C50
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CreatePdo @ 0x1C007F0F0 (HUBPDO_CreatePdo.c)
+ *     HUBPDO_CreatePdo @ 0x1C007A930 (HUBPDO_CreatePdo.c)
  */
 
 __int64 __fastcall HUBDSM_CreatingChildPDOAndReportingToPnp(__int64 a1)

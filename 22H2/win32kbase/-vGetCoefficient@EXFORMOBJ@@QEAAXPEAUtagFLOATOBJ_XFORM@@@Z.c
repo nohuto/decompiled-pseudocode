@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vGetCoefficient@EXFORMOBJ@@QEAAXPEAUtagFLOATOBJ_XFORM@@@Z @ 0x1C00800B0
+ * XREFs of ?vGetCoefficient@EXFORMOBJ@@QEAAXPEAUtagFLOATOBJ_XFORM@@@Z @ 0x1C0023E70
  * Callers:
  *     <none>
  * Callees:

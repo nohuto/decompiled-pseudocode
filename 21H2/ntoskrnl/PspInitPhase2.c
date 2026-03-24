@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInitPhase2 @ 0x140B24C44
+ * XREFs of PspInitPhase2 @ 0x140A4B134
  * Callers:
- *     PsInitSystem @ 0x140B02300 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14022DB00 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     RtlRandom @ 0x1406E2E20 (RtlRandom.c)
- *     PspInitializeProtectedProcessParameters @ 0x140854454 (PspInitializeProtectedProcessParameters.c)
- *     PspInitializeSystemDlls @ 0x140B24D94 (PspInitializeSystemDlls.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
+ *     RtlRandom @ 0x1406BD150 (RtlRandom.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14079DF18 (PspInitializeProtectedProcessParameters.c)
+ *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -18,18 +18,18 @@ bool PspInitPhase2()
   _QWORD *v2; // rdx
   char v3; // al
   char v4; // al
-  ULONG Seed; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
 
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C03048, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C01AB0, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
   v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
-  PsInitialSystemProcess[2].Affinity.StaticBitmap[7] = MEMORY[0xFFFFF78000000008];
+  PsInitialSystemProcess[2].Affinity.Bitmap[7] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;
-  PsInitialSystemProcess[2].Affinity.StaticBitmap[8] = UnbiasedInterruptTime;
+  PsInitialSystemProcess[2].Affinity.Bitmap[8] = UnbiasedInterruptTime;
   v2[141] = PsInitialSystemProcess[1].ThreadListHead.Flink;
-  v2[288] = PsInitialSystemProcess[2].Affinity.StaticBitmap[7];
-  v2[289] = PsInitialSystemProcess[2].Affinity.StaticBitmap[8];
+  v2[288] = PsInitialSystemProcess[2].Affinity.Bitmap[7];
+  v2[289] = PsInitialSystemProcess[2].Affinity.Bitmap[8];
   RtlGetSystemTimePrecise();
   PspWorkOnBehalfEncodingKey = (unsigned __int64)RtlRandom(&Seed) << 32;
   PspWorkOnBehalfEncodingKey = RtlRandom(&Seed) | (unsigned __int64)PspWorkOnBehalfEncodingKey;

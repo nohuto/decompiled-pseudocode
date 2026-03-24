@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegHeapAddSegment @ 0x14035550C
+ * XREFs of RtlpHpSegHeapAddSegment @ 0x140324C5C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCD0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x140397D78 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14028A070 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037ADF0 (RtlpHpSegContextReserve.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall RtlpHpSegHeapAddSegment(__int64 a1, unsigned __int64 a2)
   __int64 result; // rax
   unsigned __int64 *v3; // r8
 
-  *(_QWORD *)(a2 + 16) = a2 ^ RtlpHpHeapGlobals ^ a1 ^ 0xA2E64EADA2E64EADuLL;
+  *(_QWORD *)(a2 + 16) = a2 ^ a1 ^ RtlpHpHeapGlobals ^ 0xA2E64EADA2E64EADuLL;
   result = a1 + 72;
   v3 = *(unsigned __int64 **)(a1 + 80);
   if ( *v3 != a1 + 72 )

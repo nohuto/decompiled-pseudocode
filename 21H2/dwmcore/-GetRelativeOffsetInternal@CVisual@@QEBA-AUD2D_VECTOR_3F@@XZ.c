@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800E9540
+ * XREFs of ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800D240C
  * Callers:
- *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x1800205B0 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
- *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180045FA0 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ?UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x18008F470 (-UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
- *     ?GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800C9750 (-GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800E941C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180067530 (-GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x1800C77F0 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
+ *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D0DF0 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800D216C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?ComputeLayoutSize@CVisual@@QEAA_NXZ @ 0x1800D22AC (-ComputeLayoutSize@CVisual@@QEAA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ struct D2D_VECTOR_3F *__fastcall CVisual::GetRelativeOffsetInternal(
   FLOAT v3; // eax
   __int64 i; // rcx
 
-  v2 = *((_QWORD *)this + 28);
+  v2 = *((_QWORD *)this + 27);
   if ( (*(_DWORD *)(v2 + 4) & 0x10000000) != 0 )
   {
     for ( i = v2 + 12; (*(_DWORD *)i & 0x7F000000) != 0x4000000; i += (*(_DWORD *)i & 0xFFFFFF) + 4LL )

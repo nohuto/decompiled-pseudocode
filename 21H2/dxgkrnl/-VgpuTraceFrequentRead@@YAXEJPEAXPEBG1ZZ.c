@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0358FC8
+ * XREFs of ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0230C38
  * Callers:
- *     DxgkDdiReadVirtualFunctionConfig @ 0x1C035A15C (DxgkDdiReadVirtualFunctionConfig.c)
- *     DxgkDdiReadVirtualFunctionConfigBlock @ 0x1C035A20C (DxgkDdiReadVirtualFunctionConfigBlock.c)
- *     DxgkDdiWriteVirtualFunctionConfig @ 0x1C035A638 (DxgkDdiWriteVirtualFunctionConfig.c)
- *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C035A6E8 (DxgkDdiWriteVirtualFunctionConfigBlock.c)
- *     ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C035F150 (-VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z.c)
+ *     DxgkDdiReadVirtualFunctionConfig @ 0x1C0231858 (DxgkDdiReadVirtualFunctionConfig.c)
+ *     DxgkDdiReadVirtualFunctionConfigBlock @ 0x1C0231908 (DxgkDdiReadVirtualFunctionConfigBlock.c)
+ *     DxgkDdiWriteVirtualFunctionConfig @ 0x1C0231C2C (DxgkDdiWriteVirtualFunctionConfig.c)
+ *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C0231CDC (DxgkDdiWriteVirtualFunctionConfigBlock.c)
+ *     ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C02360F0 (-VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0pzzq_EtwWriteTransfer @ 0x1C005C280 (McTemplateK0pzzq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     McTemplateK0pzzq_EtwWriteTransfer @ 0x1C0040174 (McTemplateK0pzzq_EtwWriteTransfer.c)
  */
 
 void VgpuTraceFrequentRead(char a1, int a2, void *a3, const unsigned __int16 *a4, wchar_t *Format, ...)
@@ -28,14 +28,14 @@ void VgpuTraceFrequentRead(char a1, int a2, void *a3, const unsigned __int16 *a4
     vswprintf_s(Dst, 0x100uLL, Format, ArgList);
   if ( a1 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) == 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) == 0 )
       return;
     v12 = 0;
     v11 = (const EVENT_DESCRIPTOR *)&EventGpuPartitioningStart;
   }
   else
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) == 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) == 0 )
       return;
     v12 = a2;
     v11 = (const EVENT_DESCRIPTOR *)&EventGpuPartitioningEnd;

@@ -5,16 +5,16 @@
  *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
  *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
  *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     AlpcpAllocateMessageFunction @ 0x1406B15F0 (AlpcpAllocateMessageFunction.c)
- *     RtlpInsertStringAtom @ 0x1406B741C (RtlpInsertStringAtom.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x14084A7B0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     AlpcpAllocateMessageFunction @ 0x1406B15D0 (AlpcpAllocateMessageFunction.c)
+ *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14084A790 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExpAllocateHandleTableEntry @ 0x1405D1470 (ExpAllocateHandleTableEntry.c)
  *     ExpFreeHandleTableEntry @ 0x1405FB378 (ExpFreeHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE17C (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE408 (ExpUpdateDebugInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)

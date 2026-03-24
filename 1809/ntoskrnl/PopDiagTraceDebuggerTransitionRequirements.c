@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDebuggerTransitionRequirements @ 0x1402DFEF0
+ * XREFs of PopDiagTraceDebuggerTransitionRequirements @ 0x1402DFFF0
  * Callers:
- *     PopPepInitializeDebuggerMasks @ 0x1402DD1F0 (PopPepInitializeDebuggerMasks.c)
+ *     PopPepInitializeDebuggerMasks @ 0x1402DD2F0 (PopPepInitializeDebuggerMasks.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDebuggerTransitionRequirements(__int64 a1, __int64 a2, int a3)

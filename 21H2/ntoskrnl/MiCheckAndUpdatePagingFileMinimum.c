@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckAndUpdatePagingFileMinimum @ 0x14059BEE8
+ * XREFs of MiCheckAndUpdatePagingFileMinimum @ 0x140542FC8
  * Callers:
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckAndUpdatePagingFileMinimum(__int64 a1, unsigned int a2)

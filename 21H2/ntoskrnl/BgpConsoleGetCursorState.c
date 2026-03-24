@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleGetCursorState @ 0x140AB0FE0
+ * XREFs of BgpConsoleGetCursorState @ 0x1409F6CE0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
  */
 
 __int64 __fastcall BgpConsoleGetCursorState(_DWORD *a1, _DWORD *a2, _DWORD *a3)
@@ -13,11 +13,11 @@ __int64 __fastcall BgpConsoleGetCursorState(_DWORD *a1, _DWORD *a2, _DWORD *a3)
   unsigned int v7; // ebx
 
   BgpFwAcquireLock();
-  v6 = qword_140CE1AD8;
+  v6 = qword_140CDB158;
   v7 = 0;
-  if ( qword_140CE1AD8 )
+  if ( qword_140CDB158 )
   {
-    *a1 = *(_DWORD *)(qword_140CE1AD8 + 68);
+    *a1 = *(_DWORD *)(qword_140CDB158 + 68);
     *a2 = *(_DWORD *)(v6 + 72);
     *a3 = *(_DWORD *)(v6 + 76);
   }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ??1CInteractionTrackerMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0228118
+ * XREFs of ??1CInteractionTrackerMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01EF264
  * Callers:
- *     ??_ECInteractionTrackerMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0228150 (--_ECInteractionTrackerMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECInteractionTrackerMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01EF290 (--_ECInteractionTrackerMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CInteractionTrackerMarshaler::~CInteractionTrackerMarshaler(
         DirectComposition::CInteractionTrackerMarshaler *this)
 {
-  char *v1; // rdx
+  __int64 v1; // rcx
 
   *(_QWORD *)this = &DirectComposition::CInteractionTrackerMarshaler::`vftable';
-  v1 = (char *)*((_QWORD *)this + 46);
+  v1 = *((_QWORD *)this + 46);
   if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v1);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x180123C80
+ * XREFs of ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F8CB0
  * Callers:
  *     <none>
  * Callees:

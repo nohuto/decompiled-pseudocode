@@ -1,10 +1,10 @@
 /*
- * XREFs of MiChargeProcessCommitment @ 0x1402755B0
+ * XREFs of MiChargeProcessCommitment @ 0x14021AD20
  * Callers:
- *     MiChargeFullProcessCommitment @ 0x1406F78B0 (MiChargeFullProcessCommitment.c)
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
+ *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     PsReportProcessMemoryLimitViolation @ 0x1409B1DEC (PsReportProcessMemoryLimitViolation.c)
+ *     PsReportProcessMemoryLimitViolation @ 0x140908964 (PsReportProcessMemoryLimitViolation.c)
  */
 
 __int64 __fastcall MiChargeProcessCommitment(_QWORD *a1, unsigned __int64 a2)

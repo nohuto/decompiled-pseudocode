@@ -1,47 +1,40 @@
 /*
- * XREFs of ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C005FBA4
+ * XREFs of ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C012635C
  * Callers:
- *     NtUserOpenClipboard @ 0x1C0010FF0 (NtUserOpenClipboard.c)
- *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C005FAE4 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     NtUserSetClipboardData @ 0x1C01DAC20 (NtUserSetClipboardData.c)
+ *     NtUserSetClipboardData @ 0x1C002ECB0 (NtUserSetClipboardData.c)
+ *     NtUserOpenClipboard @ 0x1C002F9F0 (NtUserOpenClipboard.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DBBC (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall ForegroundInputOwnerMatch(const struct tagTHREADINFO *a1, int a2)
+_BOOL8 __fastcall ForegroundInputOwnerMatch(const struct tagTHREADINFO *a1, int a2)
 {
-  bool result; // al
-  __int64 v4; // r8
-  __int64 v5; // r8
-  __int64 v6; // rdx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // ecx
+  __int64 v3; // r8
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  int v6; // eax
+  _BOOL8 result; // rax
 
-  result = 0;
-  v4 = *(_QWORD *)(gpqForeground + 104LL);
+  v3 = *(_QWORD *)(gpqForeground + 96LL);
+  if ( v3 )
+    v3 = *(_QWORD *)(v3 + 424);
+  v4 = *(_QWORD *)(gpqForeground + 88LL);
   if ( v4 )
-    v5 = *(_QWORD *)(v4 + 424);
-  else
-    v5 = 0LL;
-  v6 = *(_QWORD *)(gpqForeground + 96LL);
-  if ( v6 )
-    v7 = *(_QWORD *)(v6 + 424);
-  else
-    v7 = 0LL;
-  v8 = *((_QWORD *)a1 + 53);
-  if ( v5 == v8 || v7 == v8 )
-    return 1;
-  v9 = *(_DWORD *)(v8 + 892);
-  if ( a2 && v9 )
+    v4 = *(_QWORD *)(v4 + 424);
+  v5 = *((_QWORD *)a1 + 53);
+  result = 1;
+  if ( v3 != v5 && v4 != v5 )
   {
-    if ( *(_DWORD *)(gpqForeground + 436LL) != v9 && (!v5 || *(_DWORD *)(v5 + 892) != v9) )
+    v6 = *(_DWORD *)(v5 + 884);
+    if ( !a2 || !v6 )
+      return 0;
+    if ( *(_DWORD *)(gpqForeground + 432LL) != v6
+      && (!v3 || *(_DWORD *)(v3 + 884) != v6)
+      && (!v4 || *(_DWORD *)(v4 + 884) != v6) )
     {
-      if ( v7 )
-        return *(_DWORD *)(v7 + 892) == v9;
-      return result;
+      return 0;
     }
-    return 1;
   }
   return result;
 }

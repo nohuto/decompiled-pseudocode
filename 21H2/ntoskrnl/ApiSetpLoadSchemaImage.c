@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetpLoadSchemaImage @ 0x140A0AA8C
+ * XREFs of ApiSetpLoadSchemaImage @ 0x14095EDC4
  * Callers:
- *     ApiSetLoadSchemaEx @ 0x140A0A574 (ApiSetLoadSchemaEx.c)
+ *     ApiSetLoadSchemaEx @ 0x14095E8B4 (ApiSetLoadSchemaEx.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041BC60 (ZwMapViewOfSection.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x14041C0A0 (ZwCreateSection.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
  */
 
 __int64 __fastcall ApiSetpLoadSchemaImage(__int64 a1, UNICODE_STRING *a2, PVOID *a3, ULONG_PTR *a4)
@@ -22,15 +22,16 @@ __int64 __fastcall ApiSetpLoadSchemaImage(__int64 a1, UNICODE_STRING *a2, PVOID 
 
   BaseAddress = 0LL;
   ViewSize = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a2;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  memset(&v10, 0, 44);
-  IoStatusBlock = 0LL;
   FileHandle = (HANDLE)-1LL;
+  memset(&v10, 0, sizeof(v10));
   SectionHandle = (HANDLE)-1LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
+  IoStatusBlock = 0LL;
   v6 = ZwOpenFile(&FileHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
   if ( v6 >= 0 )
   {

@@ -1,37 +1,37 @@
 /*
- * XREFs of VslAllocatePool @ 0x14054DB08
+ * XREFs of VslAllocatePool @ 0x1404FBED8
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
  * Callees:
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VslAllocatePool(unsigned __int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall VslAllocatePool(SIZE_T NumberOfBytes, ULONG Tag, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   ULONG v7; // ebx
-  struct _MDL *Pool2; // rsi
-  __int64 v10; // rax
+  struct _MDL *PoolWithTag; // rsi
+  _QWORD *v10; // rax
   _QWORD *v11; // rdi
   int v12; // ebx
 
-  v7 = a1;
-  if ( a1 > 0x1FA000 )
+  v7 = NumberOfBytes;
+  if ( NumberOfBytes > 0x1FA000 )
     return 3221225659LL;
-  Pool2 = (struct _MDL *)ExAllocatePool2(64LL, a1, a2);
-  if ( !Pool2 )
+  PoolWithTag = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, NumberOfBytes, Tag);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v10 = ExAllocatePool2(64LL, 72LL, 1416850774LL);
-  v11 = (_QWORD *)v10;
+  v10 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x54736D56u);
+  v11 = v10;
   if ( !v10 )
   {
     v12 = -1073741670;
 LABEL_9:
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return (unsigned int)v12;
   }
-  v12 = VslpLockPagesForTransfer(v10, Pool2, v7, 1, 0);
+  v12 = VslpLockPagesForTransfer((__int64)v10, PoolWithTag, v7, 1, 0);
   if ( v12 < 0 )
   {
     ExFreePoolWithTag(v11, 0);

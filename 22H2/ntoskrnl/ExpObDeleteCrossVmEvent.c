@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpObDeleteCrossVmEvent @ 0x140A05EB0
+ * XREFs of ExpObDeleteCrossVmEvent @ 0x14095C870
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x140A05D78 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x14095C740 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 void __fastcall ExpObDeleteCrossVmEvent(__int64 a1)

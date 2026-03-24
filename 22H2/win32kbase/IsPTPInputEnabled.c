@@ -1,22 +1,18 @@
 /*
- * XREFs of IsPTPInputEnabled @ 0x1C00DEECA
+ * XREFs of IsPTPInputEnabled @ 0x1C011C2A8
  * Callers:
- *     RIMProcessAnyPointerDeviceInput @ 0x1C01A7080 (RIMProcessAnyPointerDeviceInput.c)
- *     RIMApplyPTPConfigRemedyWorker @ 0x1C01B3D38 (RIMApplyPTPConfigRemedyWorker.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01784F4 (RIMProcessAnyPointerDeviceInput.c)
+ *     RIMApplyPTPConfigRemedy @ 0x1C018188C (RIMApplyPTPConfigRemedy.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IsPTPInputEnabled(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 IsPTPInputEnabled()
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  unsigned int v8; // ebx
+  unsigned int v0; // ecx
 
-  v8 = 0;
-  if ( *(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 520) )
-    return *(_DWORD *)(SGDGetUserSessionState(v5, v4, v6, v7) + 544) != 0;
-  return v8;
+  v0 = 0;
+  if ( gPTPEnabled )
+    return (*(_BYTE *)(&qword_1C024ED38 + 1) & 8) != 0;
+  return v0;
 }

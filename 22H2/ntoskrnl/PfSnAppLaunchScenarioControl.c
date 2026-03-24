@@ -1,41 +1,40 @@
 /*
- * XREFs of PfSnAppLaunchScenarioControl @ 0x14097F790
+ * XREFs of PfSnAppLaunchScenarioControl @ 0x1408E0910
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14074DA94 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140709C3C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PfSnBeginAppLaunch @ 0x140760A08 (PfSnBeginAppLaunch.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PfSnBeginAppLaunch @ 0x14062E94C (PfSnBeginAppLaunch.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1, char a2)
+__int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1, KPROCESSOR_MODE a2)
 {
   int v2; // esi
   bool v3; // zf
-  int v4; // edi
+  NTSTATUS v4; // edi
   PVOID v5; // rbx
   PVOID Object; // [rsp+40h] [rbp-48h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v8; // [rsp+48h] [rbp-40h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-40h] BYREF
 
   Object = 0LL;
   v2 = 0;
   v3 = *(_DWORD *)a1 == 1;
-  memset(&v8, 0, sizeof(v8));
+  memset(&ApcState, 0, sizeof(ApcState));
   if ( v3 )
   {
     if ( *(_DWORD *)(a1 + 4) )
     {
-      v4 = ObpReferenceObjectByHandleWithTag(
-             *(_QWORD *)(a1 + 8),
-             8,
-             (__int64)PsProcessType,
+      v4 = ObReferenceObjectByHandleWithTag(
+             *(HANDLE *)(a1 + 8),
+             8u,
+             (POBJECT_TYPE)PsProcessType,
              a2,
              0x73576650u,
              &Object,
-             0LL,
              0LL);
       if ( v4 < 0 )
       {
@@ -47,12 +46,12 @@ __int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1, char a2)
         if ( KeGetCurrentThread()->ApcState.Process != Object )
         {
           v2 = 1;
-          KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v8);
+          KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
         }
-        PfSnBeginAppLaunch(v5, 0LL, 17);
+        PfSnBeginAppLaunch((__int64)v5, 0LL, 9);
         v4 = 0;
         if ( v2 )
-          KiUnstackDetachProcess(&v8);
+          KeUnstackDetachProcess(&ApcState);
       }
       if ( v5 )
         ObfDereferenceObjectWithTag(v5, 0x73576650u);

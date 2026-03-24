@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRunOnceBeginInitialize @ 0x140758380
+ * XREFs of RtlRunOnceBeginInitialize @ 0x14066F630
  * Callers:
- *     RtlRunOnceExecuteOnce @ 0x1407582A0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x14066F550 (RtlRunOnceExecuteOnce.c)
  * Callees:
- *     RtlpRunOnceWaitForInit @ 0x140886338 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x140919748 (RtlpRunOnceWaitForInit.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)
@@ -19,12 +19,7 @@ NTSTATUS __stdcall RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags,
   Value = RunOnce->Value;
   v6 = 0;
   if ( (RunOnce->Value & 3) == 2 )
-  {
-LABEL_3:
-    if ( Context )
-      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
-    return v6;
-  }
+    goto LABEL_3;
   if ( (Flags & 1) == 0 )
   {
     v8 = Flags & 2;
@@ -46,9 +41,12 @@ LABEL_3:
         return -1073741584;
       Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
-    if ( v9 != 3 )
-      goto LABEL_3;
-    return v8 != 0 ? 259 : -1073741584;
+    if ( v9 == 3 )
+      return v8 != 0 ? 259 : -1073741584;
+LABEL_3:
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
+    return v6;
   }
   return -1073741823;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRootEvent @ 0x1C003D020
+ * XREFs of ACPIRootEvent @ 0x1C005EBC0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIInternalEvaluateOST @ 0x1C002E580 (ACPIInternalEvaluateOST.c)
- *     ACPINotifyOsShutdown @ 0x1C003CCC8 (ACPINotifyOsShutdown.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     ACPINotifyOsShutdown @ 0x1C005E9EC (ACPINotifyOsShutdown.c)
  */
 
 _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
@@ -21,28 +21,28 @@ _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = 0;
-  v5 = (const char *)&unk_1C00622D0;
+  v5 = (const char *)&unk_1C00701BA;
   v6 = (_QWORD *)DeviceExtension;
-  v7 = (const char *)&unk_1C00622D0;
+  v7 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v4 = DeviceExtension;
     v8 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v5 = (const char *)v6[76];
+      v5 = (const char *)v6[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = (const char *)v6[77];
+        v7 = (const char *)v6[72];
     }
   }
   result = &WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    result = (_UNKNOWN **)WPP_RECORDER_SF_dqss(
+    result = (_UNKNOWN **)WPP_RECORDER_SF_Dqss(
                             (__int64)WPP_GLOBAL_Control->DeviceExtension,
                             4u,
                             6u,
-                            0x21u,
-                            (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+                            0x20u,
+                            (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
                             a2,
                             v4,
                             v5,
@@ -52,7 +52,7 @@ _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
     if ( AcpiNotifyOsShutdownEnabled && AcpiShutdownNotification )
       return (_UNKNOWN **)ACPINotifyOsShutdown(v6);
     else
-      return (_UNKNOWN **)ACPIInternalEvaluateOST(v6, 129, 131);
+      return (_UNKNOWN **)ACPIInternalEvaluateOST((__int64)v6, 129, 131);
   }
   return result;
 }

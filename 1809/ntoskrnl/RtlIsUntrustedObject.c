@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIsUntrustedObject @ 0x140131B80
+ * XREFs of RtlIsUntrustedObject @ 0x140131BA0
  * Callers:
- *     SeGetImageRequiredSigningLevel @ 0x1406BEA60 (SeGetImageRequiredSigningLevel.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1406BEA40 (SeGetImageRequiredSigningLevel.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x1401BABF0 (ZwQuerySecurityObject.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x1401BAC10 (ZwQuerySecurityObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQuerySecurityObject @ 0x14064FE14 (ObQuerySecurityObject.c)
+ *     ObQuerySecurityObject @ 0x14064FDF4 (ObQuerySecurityObject.c)
  */
 
 NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)

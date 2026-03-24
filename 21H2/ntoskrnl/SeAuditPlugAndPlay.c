@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAuditPlugAndPlay @ 0x1409C78B8
+ * XREFs of SeAuditPlugAndPlay @ 0x14091DE78
  * Callers:
- *     PiAuditDeviceOperation @ 0x14095B69C (PiAuditDeviceOperation.c)
+ *     PiAuditDeviceOperation @ 0x1408B5648 (PiAuditDeviceOperation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AdtpWriteToEtwEx @ 0x14064B24C (AdtpWriteToEtwEx.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AdtpWriteToEtwEx @ 0x1405C2164 (AdtpWriteToEtwEx.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 void __fastcall SeAuditPlugAndPlay(
@@ -71,7 +71,7 @@ void __fastcall SeAuditPlugAndPlay(
   }
   HIDWORD(v22[0]) = v13;
   LODWORD(v22[0]) = 5;
-  HIDWORD(v22[2]) = 524425;
+  HIDWORD(v22[2]) = 524426;
   v22[1] = v14;
   if ( !a9 )
     HIWORD(v22[2]) = 16;

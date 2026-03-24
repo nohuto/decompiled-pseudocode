@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_IFR_SF_qld @ 0x1C0055B64
+ * XREFs of WPP_IFR_SF_qld @ 0x1C0032B88
  * Callers:
- *     ?PowerDown@FxDmaEnabler@@QEAAJXZ @ 0x1C000D2D8 (-PowerDown@FxDmaEnabler@@QEAAJXZ.c)
- *     ?PowerUp@FxDmaEnabler@@QEAAJXZ @ 0x1C00143D4 (-PowerUp@FxDmaEnabler@@QEAAJXZ.c)
- *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C00561E4 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
+ *     ?PowerDown@FxDmaEnabler@@QEAAJXZ @ 0x1C0004C54 (-PowerDown@FxDmaEnabler@@QEAAJXZ.c)
+ *     ?PowerUp@FxDmaEnabler@@QEAAJXZ @ 0x1C0004CF0 (-PowerUp@FxDmaEnabler@@QEAAJXZ.c)
+ *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C0033364 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qld(

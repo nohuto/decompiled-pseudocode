@@ -1,8 +1,8 @@
 /*
- * XREFs of KiShouldScanSharedReadyQueue @ 0x1400D0F00
+ * XREFs of KiShouldScanSharedReadyQueue @ 0x1400D0F20
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
  * Callees:
  *     <none>
  */

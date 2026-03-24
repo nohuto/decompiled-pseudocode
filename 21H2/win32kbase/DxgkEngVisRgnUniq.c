@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkEngVisRgnUniq @ 0x1C00092F0
+ * XREFs of DxgkEngVisRgnUniq @ 0x1C0004CE0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0089800 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C007F220 (EtwTraceGreLockAcquireSemaphoreShared.c)
  */
 
 __int64 DxgkEngVisRgnUniq()

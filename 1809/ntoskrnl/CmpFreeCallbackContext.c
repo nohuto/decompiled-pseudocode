@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreeCallbackContext @ 0x14026BDCC
+ * XREFs of CmpFreeCallbackContext @ 0x14026BECC
  * Callers:
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of CheckBMPNeedFixup @ 0x1C00E4948
+ * XREFs of CheckBMPNeedFixup @ 0x1C00FF2F8
  * Callers:
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
  * Callees:
- *     ComputeByteOffset @ 0x1C006E514 (ComputeByteOffset.c)
- *     IntersectRECTL @ 0x1C00E5034 (IntersectRECTL.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ComputeByteOffset @ 0x1C001D74C (ComputeByteOffset.c)
+ *     IntersectRECTL @ 0x1C001DCF4 (IntersectRECTL.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CheckBMPNeedFixup(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -69,14 +69,14 @@ __int64 __fastcall CheckBMPNeedFixup(__int64 a1, __int64 a2, __int64 a3, unsigne
   if ( !v6 )
     goto LABEL_41;
   if ( v6 <= 2 )
-    goto LABEL_45;
+    goto LABEL_46;
   if ( v6 > 6 )
   {
     if ( v6 <= 0xFB )
       goto LABEL_41;
     if ( v6 > 0xFE )
     {
-LABEL_45:
+LABEL_46:
       result = 1LL;
       *a4 = v4 | 0x240;
       return result;
@@ -86,7 +86,7 @@ LABEL_45:
   v43 = 0LL;
   v44 = v9;
   v45 = *(_DWORD *)(a3 + 16);
-  if ( !(unsigned int)IntersectRECTL(&v43, a4 + 16) )
+  if ( !IntersectRECTL((int *)&v43, (int *)a4 + 16) )
     return 0LL;
   v10 = *(__m128i *)(a2 + 8);
   v11 = *(_OWORD *)(a2 + 40);
@@ -125,29 +125,22 @@ LABEL_45:
   if ( v24 <= 0x4000 )
   {
     v25 = v24 >> 3;
-    v26 = (unsigned int)((v24 >> 3) + 1);
-    if ( (unsigned int)v26 < v24 >> 3 )
-    {
-LABEL_51:
-      *v5 = v4 & 0xFFFFFFBF;
-      return 0LL;
-    }
   }
   else
   {
     v25 = 20;
     DWORD1(v51) = (v16 + 5) / 6;
-    v26 = 21LL;
     HIDWORD(v51) *= 6;
   }
-  v27 = 4 * v26;
-  if ( v27 > 0xFFFFFFFF )
-    goto LABEL_51;
-  if ( (unsigned int)v27 + v23 < v23 )
-    goto LABEL_51;
-  v28 = (char *)EngAllocMem(1u, (unsigned int)v27 + v23, 0x38355448u);
-  if ( !v28 )
-    goto LABEL_51;
+  v26 = (unsigned int)(v25 + 1);
+  if ( (unsigned int)v26 < v25
+    || (v27 = 4 * v26, v27 > 0xFFFFFFFF)
+    || (unsigned int)v27 + v23 < v23
+    || (v28 = (char *)EngAllocMem(1u, (unsigned int)v27 + v23, 0x38355448u)) == 0LL )
+  {
+    *v5 = v4 & 0xFFFFFFBF;
+    return 0LL;
+  }
   v29 = (int)v23;
   v30 = 0;
   v46 = (unsigned int *)&v28[v29];

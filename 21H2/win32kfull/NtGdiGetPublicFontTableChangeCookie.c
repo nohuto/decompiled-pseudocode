@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetPublicFontTableChangeCookie @ 0x1C010ABF0
+ * XREFs of NtGdiGetPublicFontTableChangeCookie @ 0x1C01205D0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 __int64 NtGdiGetPublicFontTableChangeCookie()

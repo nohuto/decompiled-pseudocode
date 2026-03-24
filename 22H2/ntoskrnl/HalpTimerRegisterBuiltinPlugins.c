@@ -1,18 +1,19 @@
 /*
- * XREFs of HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC
+ * XREFs of HalpTimerRegisterBuiltinPlugins @ 0x1403B174C
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A3BB8 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403B1718 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalSocRequestConfigurationData @ 0x140378418 (HalSocRequestConfigurationData.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     HalpRtcDiscover @ 0x1403795E8 (HalpRtcDiscover.c)
- *     HalpHvWatchdogDiscover @ 0x1403A3C70 (HalpHvWatchdogDiscover.c)
- *     HalpTscDiscover @ 0x1403A3E48 (HalpTscDiscover.c)
- *     HalpArtDiscover @ 0x1403A3F78 (HalpArtDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403A405C (HalpApicTimerDiscover.c)
- *     HalpPmTimerDiscover @ 0x1403A41D8 (HalpPmTimerDiscover.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalSocRequestConfigurationData @ 0x1403A179C (HalSocRequestConfigurationData.c)
+ *     HalpPmTimerDiscover @ 0x1403B17DC (HalpPmTimerDiscover.c)
+ *     HalpSfiTimerDiscover @ 0x1403B18DC (HalpSfiTimerDiscover.c)
+ *     HalpRtcDiscover @ 0x1403B1968 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403B1AAC (HalpApicTimerDiscover.c)
+ *     HalpTscDiscover @ 0x1403B1C20 (HalpTscDiscover.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     HalpHvWatchdogDiscover @ 0x1403B3510 (HalpHvWatchdogDiscover.c)
+ *     HalpArtDiscover @ 0x1403B356C (HalpArtDiscover.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpTimerRegisterBuiltinPlugins(int a1)
@@ -38,26 +39,30 @@ __int64 __fastcall HalpTimerRegisterBuiltinPlugins(int a1)
         result = HalpApicTimerDiscover();
         if ( (int)result >= 0 )
         {
-          v4 = 1;
-          if ( (int)HalSocRequestConfigurationData(2, v2, &v4) >= 0 && v4 )
-          {
-            memset(v3, 0, sizeof(v3));
-            LODWORD(v3[15]) = 0;
-            LODWORD(v3[16]) = 0;
-            v3[1] = PdcCreateWatchdogAroundClientCall;
-            v3[0] = 0x9000000001LL;
-            v3[4] = Halp8254TimerArm;
-            v3[3] = xHalTimerWatchdogStop;
-            v3[5] = xHalTimerWatchdogStop;
-            HIDWORD(v3[12]) = 16;
-            v3[13] = 1193182LL;
-            LODWORD(v3[17]) = 4;
-            HIDWORD(v3[14]) = 320;
-            HalpTimerRegister((__int64)v3, 0LL);
-          }
-          result = HalpArtDiscover();
+          result = HalpSfiTimerDiscover();
           if ( (int)result >= 0 )
-            return HalpHvWatchdogDiscover();
+          {
+            v4 = 1;
+            if ( (int)HalSocRequestConfigurationData(2, v2, &v4) >= 0 && v4 )
+            {
+              memset(v3, 0, sizeof(v3));
+              LODWORD(v3[15]) = 0;
+              LODWORD(v3[16]) = 0;
+              v3[1] = HalSystemVectorDispatchEntry;
+              v3[0] = 0x9000000001LL;
+              v3[4] = Halp8254TimerArm;
+              v3[3] = xHalTimerWatchdogStop;
+              v3[5] = xHalTimerWatchdogStop;
+              HIDWORD(v3[12]) = 16;
+              v3[13] = 1193182LL;
+              LODWORD(v3[17]) = 4;
+              HIDWORD(v3[14]) = 320;
+              HalpTimerRegister(v3, 0LL);
+            }
+            result = HalpArtDiscover();
+            if ( (int)result >= 0 )
+              return HalpHvWatchdogDiscover();
+          }
         }
       }
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1FxUsbPipeRequestContext@@UEAA@XZ @ 0x1C0079454
+ * XREFs of ??1FxUsbPipeRequestContext@@UEAA@XZ @ 0x1C006C8C8
  * Callers:
- *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0075D60 (imp_WdfUsbTargetPipeAbortSynchronously.c)
- *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C00768B0 (imp_WdfUsbTargetPipeResetSynchronously.c)
- *     ??_EFxUsbPipeRequestContext@@UEAAPEAXI@Z @ 0x1C0079590 (--_EFxUsbPipeRequestContext@@UEAAPEAXI@Z.c)
- *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C007A6DC (-Reset@FxUsbPipe@@QEAAJXZ.c)
+ *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0068680 (imp_WdfUsbTargetPipeAbortSynchronously.c)
+ *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C0069230 (imp_WdfUsbTargetPipeResetSynchronously.c)
+ *     ??_EFxUsbPipeRequestContext@@UEAAPEAXI@Z @ 0x1C006CA00 (--_EFxUsbPipeRequestContext@@UEAAPEAXI@Z.c)
+ *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C006DBE0 (-Reset@FxUsbPipe@@QEAAJXZ.c)
  * Callees:
- *     USBD_UrbFree @ 0x1C0090EF0 (USBD_UrbFree.c)
+ *     USBD_UrbFree @ 0x1C00901E4 (USBD_UrbFree.c)
  */
 
 void __fastcall FxUsbPipeRequestContext::~FxUsbPipeRequestContext(FxUsbPipeRequestContext *this)

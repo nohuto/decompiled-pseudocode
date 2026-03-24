@@ -1,9 +1,9 @@
 /*
- * XREFs of SPCallServerHandleCheckLicense @ 0x1406C8490
+ * XREFs of SPCallServerHandleCheckLicense @ 0x1406C8470
  * Callers:
- *     sub_140685860 @ 0x140685860 (sub_140685860.c)
+ *     sub_140685840 @ 0x140685840 (sub_140685840.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

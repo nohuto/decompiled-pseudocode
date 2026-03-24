@@ -1,20 +1,20 @@
 /*
- * XREFs of VidSchRestartAdapter @ 0x1C00F5200
+ * XREFs of VidSchRestartAdapter @ 0x1C00D25F0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C0014BA0 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U2@U?$_tlgWrapperByVal@$03@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@4AEBU?$_tlgWrapperByVal@$03@@4AEBU?$_tlgWrapSz@D@@@Z @ 0x1C003B3D0 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapBuffer@U_UNIC_ea_1C003B3D0.c)
- *     VidSchResetFlipQueueTimeout @ 0x1C00F2CA4 (VidSchResetFlipQueueTimeout.c)
- *     VidSchResetGPUTimeout @ 0x1C00F2D0C (VidSchResetGPUTimeout.c)
+ *     _tlgKeywordOn @ 0x1C0026C14 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U2@U?$_tlgWrapperByVal@$03@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@4AEBU?$_tlgWrapperByVal@$03@@4AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0032880 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapBuffer@U_UNIC_ea_1C0032880.c)
+ *     VidSchResetFlipQueueTimeout @ 0x1C00CF834 (VidSchResetFlipQueueTimeout.c)
+ *     VidSchResetGPUTimeout @ 0x1C00CF88C (VidSchResetGPUTimeout.c)
  */
 
 __int64 __fastcall VidSchRestartAdapter(__int64 a1)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 v4; // rcx
-  __int64 v5; // rcx
+  __int64 v2; // r9
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // r8
   __int64 v6; // rcx
   __int64 v7; // rdx
   __int64 v9; // [rsp+60h] [rbp-20h] BYREF
@@ -25,22 +25,23 @@ __int64 __fastcall VidSchRestartAdapter(__int64 a1)
   int v14; // [rsp+A0h] [rbp+20h] BYREF
   void *v15; // [rsp+A8h] [rbp+28h] BYREF
 
-  if ( (unsigned int)dword_1C006E048 > 5 && tlgKeywordOn((__int64)&dword_1C006E048, 0x400000000010LL) )
+  if ( (unsigned int)dword_1C0050048 > 5 && tlgKeywordOn((__int64)&dword_1C0050048, 0x400000000010LL) )
   {
-    v4 = *(_QWORD *)(a1 + 3016);
-    v15 = (void *)(v4 + 2821);
-    v9 = *(_QWORD *)(v4 + 2808);
-    v14 = *(_DWORD *)(a1 + 3032);
-    v10 = v4;
-    v5 = *(_QWORD *)(a1 + 16);
-    v11 = *(unsigned __int16 **)(v5 + 1616);
-    v12 = *(_QWORD *)(v5 + 404);
+    v3 = *(_QWORD *)(a1 + 2920);
+    v4 = *(_QWORD *)(a1 + 16);
+    v5 = *(_QWORD *)(v4 + 316);
+    v15 = (void *)(v3 + 2813);
+    v9 = *(_QWORD *)(v3 + 2800);
+    v14 = *(_DWORD *)(a1 + 2936);
+    v10 = v3;
+    v11 = *(unsigned __int16 **)(v4 + 1520);
     v13 = 2;
+    v12 = v5;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
-      v5,
-      byte_1C0052093,
-      v2,
       v3,
+      byte_1C0044129,
+      v5,
+      v2,
       (__int64)&v13,
       (__int64)&v12,
       &v11,
@@ -49,26 +50,26 @@ __int64 __fastcall VidSchRestartAdapter(__int64 a1)
       (__int64)&v9,
       &v15);
   }
-  *(_QWORD *)(a1 + 3016) = 0LL;
+  *(_QWORD *)(a1 + 2920) = 0LL;
   v6 = 0LL;
-  *(_DWORD *)(a1 + 3012) = 0;
-  *(_BYTE *)(a1 + 3036) &= ~4u;
+  *(_DWORD *)(a1 + 2916) = 0;
+  *(_BYTE *)(a1 + 2940) &= ~4u;
+  *(_QWORD *)(a1 + 416) = 0LL;
   *(_QWORD *)(a1 + 424) = 0LL;
-  *(_QWORD *)(a1 + 432) = 0LL;
-  *(_BYTE *)(a1 + 3037) = 0;
-  if ( *(_DWORD *)(a1 + 80) )
+  *(_BYTE *)(a1 + 2941) = 0;
+  if ( *(_DWORD *)(a1 + 72) )
   {
     do
     {
-      v7 = *(_QWORD *)(a1 + 632);
-      if ( (unsigned int)v6 < *(_DWORD *)(a1 + 704) )
+      v7 = *(_QWORD *)(a1 + 624);
+      if ( (unsigned int)v6 < *(_DWORD *)(a1 + 696) )
         v7 += 8 * v6;
       v6 = (unsigned int)(v6 + 1);
       *(_QWORD *)(*(_QWORD *)v7 + 40LL) = 0LL;
     }
-    while ( (unsigned int)v6 < *(_DWORD *)(a1 + 80) );
+    while ( (unsigned int)v6 < *(_DWORD *)(a1 + 72) );
   }
-  *(_QWORD *)(a1 + 3024) = 0LL;
+  *(_QWORD *)(a1 + 2928) = 0LL;
   VidSchResetFlipQueueTimeout(a1);
   VidSchResetGPUTimeout(a1);
   DpiSetSchedulerCallbackState(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 216LL), 3LL);

@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWdCheckForSettingsChange @ 0x140A9CF88
+ * XREFs of VfWdCheckForSettingsChange @ 0x1409E0BA4
  * Callers:
- *     ViSettingsIoCheckForChanges @ 0x140A9B158 (ViSettingsIoCheckForChanges.c)
- *     VfWdSetCancelTimeout @ 0x140A9D0D0 (VfWdSetCancelTimeout.c)
+ *     ViSettingsIoCheckForChanges @ 0x1409E0600 (ViSettingsIoCheckForChanges.c)
+ *     VfWdSetCancelTimeout @ 0x1409E0CF0 (VfWdSetCancelTimeout.c)
  * Callees:
- *     KeRemoveQueueDpcEx @ 0x14024E1A0 (KeRemoveQueueDpcEx.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
  */
 
 __int64 __fastcall VfWdCheckForSettingsChange(char a1)
@@ -23,7 +23,7 @@ __int64 __fastcall VfWdCheckForSettingsChange(char a1)
     {
       result = (unsigned int)VfWdCancelTimeoutTicks;
       if ( VfWdCancelTimeoutTicks )
-        return KiSetTimerEx((unsigned __int64)&ViWdIrpTimer, -10000000LL, 0, 0, (__int64)&ViWdIrpTimerDpc);
+        return KiSetTimerEx((__int64)&ViWdIrpTimer, -10000000LL, 0, 0, (__int64)&ViWdIrpTimerDpc);
     }
   }
   return result;

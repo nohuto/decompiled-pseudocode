@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x1802A1BA0
+ * XREFs of ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x180262634
  * Callers:
- *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x18005E3E8 (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
- *     ?CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z @ 0x180207464 (-CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z.c)
+ *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x180031BA4 (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
+ *     ?CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z @ 0x1801C1CCC (-CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802A1A24 (--0CColorKeyBitmapRealization@@QEAA@XZ.c)
- *     ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x1802A2078 (-Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802624C0 (--0CColorKeyBitmapRealization@@QEAA@XZ.c)
+ *     ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x180262AE8 (-Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z.c)
  */
 
 __int64 __fastcall CColorKeyBitmapRealization::Create(
@@ -21,35 +21,41 @@ __int64 __fastcall CColorKeyBitmapRealization::Create(
   CColorKeyBitmapRealization *v6; // rax
   __int64 v7; // rcx
   CColorKeyBitmapRealization *v8; // rbx
-  CColorKeyBitmapRealization *v9; // rax
-  CColorKeyBitmapRealization *v10; // rdi
-  int v11; // eax
-  __int64 v12; // rcx
-  unsigned int v13; // ebx
+  CColorKeyBitmapRealization *v9; // rbx
+  int v10; // eax
+  __int64 v11; // rcx
+  unsigned int v12; // edi
 
   *a3 = 0LL;
   v6 = (CColorKeyBitmapRealization *)operator new(0xA8uLL);
   v8 = v6;
-  if ( v6
-    && (memset_0(v6, 0, 0xA8uLL), v9 = CColorKeyBitmapRealization::CColorKeyBitmapRealization(v8), (v10 = v9) != 0LL) )
+  if ( v6 )
   {
-    CMILRefCountImpl::AddReference((CColorKeyBitmapRealization *)((char *)v9 + 8));
-    v11 = CColorKeyBitmapRealization::Initialize(v10, a1, a2);
-    v13 = v11;
-    if ( v11 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x19u);
-      CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v10);
-    }
-    else
-    {
-      *a3 = (CColorKeyBitmapRealization *)((char *)v10 + *(int *)(*((_QWORD *)v10 + 2) + 16LL) + 16);
-    }
+    memset_0(v6, 0, 0xA8uLL);
+    v9 = CColorKeyBitmapRealization::CColorKeyBitmapRealization(v8);
   }
   else
   {
-    v13 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024882, 0x17u);
+    v9 = 0LL;
   }
-  return v13;
+  if ( v9 )
+  {
+    CMILCOMBase::InternalAddRef(v9);
+    v10 = CColorKeyBitmapRealization::Initialize(v9, a1, a2);
+    v12 = v10;
+    if ( v10 >= 0 )
+    {
+      *a3 = (CColorKeyBitmapRealization *)((char *)v9 + *(int *)(*((_QWORD *)v9 + 2) + 16LL) + 16);
+      return v12;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x19u, 0LL);
+  }
+  else
+  {
+    v12 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x17u, 0LL);
+  }
+  if ( v9 )
+    CRenderTargetBitmap::Release(v9);
+  return v12;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeIoRangePermanentDpc @ 0x140591A10
+ * XREFs of MiMakeIoRangePermanentDpc @ 0x140536E90
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiMakeIoRangePermanent @ 0x140591814 (MiMakeIoRangePermanent.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiMakeIoRangePermanent @ 0x140536BB8 (MiMakeIoRangePermanent.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanentDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -17,11 +17,11 @@ __int64 __fastcall MiMakeIoRangePermanentDpc(__int64 a1, __int64 a2, volatile si
   int v11; // [rsp+48h] [rbp+10h] BYREF
   int i; // [rsp+58h] [rbp+20h] BYREF
 
+  v11 = 0;
   v6 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v7 = ~v6 & 0x80000000;
   if ( (v6 & 0x7FFFFFFF) != 0 )
   {
-    v11 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v7 )
       KeYieldProcessorEx(&v11, a2, (__int64)a3, a4);
   }

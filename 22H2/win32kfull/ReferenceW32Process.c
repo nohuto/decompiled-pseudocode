@@ -1,7 +1,7 @@
 /*
- * XREFs of ReferenceW32Process @ 0x1C01A2DE0
+ * XREFs of ReferenceW32Process @ 0x1C01CC158
  * Callers:
- *     ?pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z @ 0x1C02C7FB4 (-pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z.c)
+ *     ?pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z @ 0x1C02B18E4 (-pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,174 +1,181 @@
 /*
- * XREFs of ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x180204BC0
+ * XREFs of ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x18000DF58
  * Callers:
- *     ?RenderLayer@CFilterEffectLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801DBF40 (-RenderLayer@CFilterEffectLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x180204BC0 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
+ *     ?RenderLayer@CFilterEffectLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x18000DDA4 (-RenderLayer@CFilterEffectLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x18000DF58 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
  * Callees:
- *     ??$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z @ 0x180022864 (--$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetInputEffect@ID2D1Effect@@QEAAXIPEAU1@H@Z @ 0x1801DBC08 (-SetInputEffect@ID2D1Effect@@QEAAXIPEAU1@H@Z.c)
- *     ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x180204608 (-FindOrCreateResourceNoRef@-$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDe.c)
- *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x180204BC0 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
- *     ?GetInputEffectForAtlasedSurface@CFilterEffect@@AEAAJPEAVCDrawingContext@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCCompositionSurfaceBitmap@@PEAPEAUID2D1Effect@@@Z @ 0x180204EE0 (-GetInputEffectForAtlasedSurface@CFilterEffect@@AEAAJPEAVCDrawingContext@@AEBV-$TMilRect_@HUtagR.c)
+ *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x18000DF58 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
+ *     ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x18000E090 (-FindOrCreateResourceNoRef@-$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDe.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017840 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?SetInputEffect@ID2D1Effect@@QEAAXIPEAU1@H@Z @ 0x1800407D8 (-SetInputEffect@ID2D1Effect@@QEAAXIPEAU1@H@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetInputEffectForAtlasedSurface@CFilterEffect@@AEAAJPEAVCDrawingContext@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCCompositionSurfaceBitmap@@PEAPEAUID2D1Effect@@@Z @ 0x1801B29B0 (-GetInputEffectForAtlasedSurface@CFilterEffect@@AEAAJPEAVCDrawingContext@@AEBV-$TMilRect_@HUtagR.c)
  */
 
 __int64 __fastcall CFilterEffect::GetD2DEffectNoRef(
         CFilterEffect *this,
-        struct CD3DDevice **a2,
+        struct CDrawingContext *a2,
         struct ID2D1Bitmap1 *a3,
         struct ID2D1Effect **a4)
 {
   int v4; // eax
   ID2D1Effect *v5; // rdi
   struct ID2D1Effect *v6; // r14
-  int v9; // ebx
-  int v10; // r9d
-  int D2DEffectNoRef; // eax
+  int v9; // eax
+  unsigned int v10; // ecx
+  int v11; // ebx
   struct ID2D1Effect *v12; // rbx
   int v13; // eax
-  struct ID2D1Effect **v14; // rax
-  __int64 v15; // r15
-  __int64 v16; // r13
-  __int64 v17; // rcx
-  unsigned int v18; // r12d
-  char v19; // al
-  CFilterEffect *v20; // rcx
+  unsigned int v14; // ecx
+  int v15; // eax
+  struct ID2D1Effect **v16; // rax
+  __int64 i; // r15
+  __int64 v19; // r13
+  __int64 v20; // rcx
+  unsigned int v21; // r12d
+  char v22; // al
+  CFilterEffect *v23; // rcx
+  int D2DEffectNoRef; // eax
+  unsigned int v25; // ecx
+  int v26; // r9d
+  unsigned int v27; // ecx
   int InputEffectForAtlasedSurface; // eax
-  __int64 v22; // rcx
-  unsigned int v24; // [rsp+20h] [rbp-28h]
-  struct ID2D1Effect *v25; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v26; // [rsp+38h] [rbp-10h]
-  struct ID2D1Effect *v27; // [rsp+90h] [rbp+48h] BYREF
-  struct CDrawingContext *v28; // [rsp+98h] [rbp+50h]
-  struct ID2D1Bitmap1 *v29; // [rsp+A0h] [rbp+58h]
-  struct ID2D1Effect **v30; // [rsp+A8h] [rbp+60h]
+  unsigned int v29; // ecx
+  int v30; // r9d
+  struct ID2D1Effect *v31; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v32; // [rsp+38h] [rbp-10h]
+  struct ID2D1Effect *v33; // [rsp+90h] [rbp+48h] BYREF
+  struct CDrawingContext *v34; // [rsp+98h] [rbp+50h]
+  struct ID2D1Bitmap1 *v35; // [rsp+A0h] [rbp+58h]
+  struct ID2D1Effect **v36; // [rsp+A8h] [rbp+60h]
 
-  v30 = a4;
-  v29 = a3;
-  v28 = (struct CDrawingContext *)a2;
+  v36 = a4;
+  v35 = a3;
+  v34 = a2;
   v4 = *((_DWORD *)this + 8);
   v5 = 0LL;
-  v25 = 0LL;
+  v31 = 0LL;
   v6 = 0LL;
   *a4 = 0LL;
-  v27 = 0LL;
+  v33 = 0LL;
   *((_DWORD *)this + 8) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 + 2)) & 6;
-  if ( (((unsigned __int8)v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 + 2)) & 6) & 6) != 2 )
+  if ( (((unsigned __int8)v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 + 2)) & 6) & 6) == 2 )
   {
-    v9 = -2147467259;
-    v24 = 27;
-    goto LABEL_3;
-  }
-  D2DEffectNoRef = CDeviceResourceTable<CD2DEffect,CFilterEffect>::FindOrCreateResourceNoRef(
-                     (unsigned __int64)this + 80,
-                     a2[5],
-                     &v25);
-  v9 = D2DEffectNoRef;
-  if ( D2DEffectNoRef < 0 )
-  {
-    v24 = 31;
-    goto LABEL_27;
-  }
-  v12 = v25;
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)v25 + 10) + 8LL))(*((_QWORD *)v25 + 10));
-  v5 = (ID2D1Effect *)*((_QWORD *)v12 + 10);
-  D2DEffectNoRef = (*(__int64 (__fastcall **)(CFilterEffect *, ID2D1Effect *))(*(_QWORD *)this + 208LL))(this, v5);
-  v9 = D2DEffectNoRef;
-  if ( D2DEffectNoRef < 0 )
-  {
-    v24 = 33;
-LABEL_27:
-    v10 = D2DEffectNoRef;
-    goto LABEL_28;
-  }
-  v13 = *((_DWORD *)this + 34);
-  if ( !v13 )
-  {
-    (*(void (__fastcall **)(ID2D1Effect *, _QWORD, struct ID2D1Bitmap1 *, __int64))(*(_QWORD *)v5 + 112LL))(
-      v5,
-      0LL,
-      a3,
-      1LL);
-    goto LABEL_8;
-  }
-  if ( v13 <= 0 )
-  {
-LABEL_8:
-    v14 = v30;
-    *v30 = v5;
+    v9 = CDeviceResourceTable<CD2DEffect,CFilterEffect>::FindOrCreateResourceNoRef(
+           (char *)this + 72,
+           *((_QWORD *)a2 + 5),
+           &v31);
+    v11 = v9;
     if ( v9 < 0 )
-      goto LABEL_30;
-    goto LABEL_31;
-  }
-  v26 = *((int *)this + 34);
-  v15 = 0LL;
-  while ( 1 )
-  {
-    v16 = *(_QWORD *)(*((_QWORD *)this + 16) + 8 * v15);
-    v17 = *(_QWORD *)(v16 + 24);
-    v18 = *(_DWORD *)(*((_QWORD *)this + 15) + 4 * v15);
-    if ( !v17 )
     {
-      (*(void (__fastcall **)(ID2D1Effect *, _QWORD, struct ID2D1Bitmap1 *, __int64))(*(_QWORD *)v5 + 112LL))(
-        v5,
-        v18,
-        v29,
-        1LL);
-      goto LABEL_20;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1Fu, 0LL);
     }
-    v19 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v17 + 56LL))(v17, 59LL);
-    v20 = *(CFilterEffect **)(v16 + 24);
-    if ( v19 )
+    else
     {
-      v25 = 0LL;
-      D2DEffectNoRef = CFilterEffect::GetD2DEffectNoRef(v20, v28, v29, &v25);
-      v9 = D2DEffectNoRef;
-      if ( D2DEffectNoRef < 0 )
+      v12 = v31;
+      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)v31 + 10) + 8LL))(*((_QWORD *)v31 + 10));
+      v5 = (ID2D1Effect *)*((_QWORD *)v12 + 10);
+      v13 = (*(__int64 (__fastcall **)(CFilterEffect *, ID2D1Effect *))(*(_QWORD *)this + 224LL))(this, v5);
+      v11 = v13;
+      if ( v13 >= 0 )
       {
-        v24 = 61;
-        goto LABEL_27;
+        v15 = *((_DWORD *)this + 32);
+        if ( v15 )
+        {
+          if ( v15 > 0 )
+          {
+            v32 = *((int *)this + 32);
+            for ( i = 0LL; i < v32; ++i )
+            {
+              v19 = *(_QWORD *)(*((_QWORD *)this + 15) + 8 * i);
+              v20 = *(_QWORD *)(v19 + 24);
+              v21 = *(_DWORD *)(*((_QWORD *)this + 14) + 4 * i);
+              if ( v20 )
+              {
+                v22 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v20 + 56LL))(v20, 59LL);
+                v23 = *(CFilterEffect **)(v19 + 24);
+                if ( v22 )
+                {
+                  v31 = 0LL;
+                  D2DEffectNoRef = CFilterEffect::GetD2DEffectNoRef(v23, v34, v35, &v31);
+                  v11 = D2DEffectNoRef;
+                  if ( D2DEffectNoRef < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, D2DEffectNoRef, 0x3Du, 0LL);
+                    goto LABEL_33;
+                  }
+                  ID2D1Effect::SetInputEffect(v5, v21, v31, v26);
+                }
+                else
+                {
+                  if ( !(*(unsigned __int8 (__fastcall **)(CFilterEffect *, __int64))(*(_QWORD *)v23 + 56LL))(v23, 40LL) )
+                  {
+                    v11 = -2147467263;
+                    MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, -2147467263, 0x52u, 0LL);
+                    goto LABEL_16;
+                  }
+                  InputEffectForAtlasedSurface = CFilterEffect::GetInputEffectForAtlasedSurface(
+                                                   v27,
+                                                   (_DWORD)v34,
+                                                   (int)v19 + 4,
+                                                   *(_QWORD *)(v19 + 24),
+                                                   (__int64)&v33);
+                  v11 = InputEffectForAtlasedSurface;
+                  if ( InputEffectForAtlasedSurface < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, InputEffectForAtlasedSurface, 0x49u, 0LL);
+                    v6 = v33;
+                    goto LABEL_33;
+                  }
+                  ID2D1Effect::SetInputEffect(v5, v21, v33, v30);
+                  ReleaseInterface<ID2D1Geometry>(&v33);
+                  v6 = v33;
+                }
+              }
+              else
+              {
+                (*(void (__fastcall **)(ID2D1Effect *, _QWORD, struct ID2D1Bitmap1 *, __int64))(*(_QWORD *)v5 + 112LL))(
+                  v5,
+                  v21,
+                  v35,
+                  1LL);
+              }
+            }
+          }
+        }
+        else
+        {
+          (*(void (__fastcall **)(ID2D1Effect *, _QWORD, struct ID2D1Bitmap1 *, __int64))(*(_QWORD *)v5 + 112LL))(
+            v5,
+            0LL,
+            a3,
+            1LL);
+        }
+        v16 = v36;
+        *v36 = v5;
+LABEL_7:
+        if ( v11 >= 0 )
+          goto LABEL_8;
+        goto LABEL_13;
       }
-      ID2D1Effect::SetInputEffect(v5, v18, v25);
-      goto LABEL_20;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x21u, 0LL);
     }
-    if ( !(*(unsigned __int8 (__fastcall **)(CFilterEffect *, __int64))(*(_QWORD *)v20 + 56LL))(v20, 40LL) )
-      break;
-    InputEffectForAtlasedSurface = CFilterEffect::GetInputEffectForAtlasedSurface(
-                                     (_DWORD)this,
-                                     (_DWORD)v28,
-                                     (int)v16 + 4,
-                                     *(_QWORD *)(v16 + 24),
-                                     (__int64)&v27);
-    v9 = InputEffectForAtlasedSurface;
-    if ( InputEffectForAtlasedSurface < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, InputEffectForAtlasedSurface, 0x49u);
-      v6 = v27;
-      goto LABEL_29;
-    }
-    ID2D1Effect::SetInputEffect(v5, v18, v27);
-    ReleaseInterface<ID2D1Effect>((__int64 *)&v27);
-    v6 = v27;
-LABEL_20:
-    if ( ++v15 >= v26 )
-      goto LABEL_8;
+LABEL_33:
+    v16 = v36;
+    goto LABEL_7;
   }
-  v9 = -2147467263;
-  v24 = 82;
-LABEL_3:
-  v10 = v9;
-LABEL_28:
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v10, v24);
-LABEL_29:
-  v14 = v30;
-LABEL_30:
-  *v14 = 0LL;
-LABEL_31:
+  v11 = -2147467259;
+  MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147467259, 0x1Bu, 0LL);
+LABEL_16:
+  v16 = v36;
+LABEL_13:
+  *v16 = 0LL;
+LABEL_8:
   if ( v5 )
     (*(void (__fastcall **)(ID2D1Effect *))(*(_QWORD *)v5 + 16LL))(v5);
   if ( v6 )
     (*(void (__fastcall **)(struct ID2D1Effect *))(*(_QWORD *)v6 + 16LL))(v6);
   *((_DWORD *)this + 8) ^= (*((_DWORD *)this + 8) ^ (2 * (*((_DWORD *)this + 8) >> 1) - 2)) & 6;
-  return (unsigned int)v9;
+  return (unsigned int)v11;
 }

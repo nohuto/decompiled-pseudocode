@@ -1,43 +1,44 @@
 /*
- * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x140678874
+ * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x14073C380
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x140679ADC (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140769CFC (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140203DD0 (RtlGetDaclSecurityDescriptor.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlGetAce @ 0x1402A4750 (RtlGetAce.c)
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x14041E3C0 (ZwQuerySecurityObject.c)
- *     RtlGetGroupSecurityDescriptor @ 0x140678970 (RtlGetGroupSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAce @ 0x140724BB0 (RtlAddAce.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x1403FCF20 (ZwQuerySecurityObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlAddAce @ 0x14065F130 (RtlAddAce.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x14073C7B0 (RtlGetGroupSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(HANDLE Handle, _QWORD *a2)
 {
   ACL *v4; // r12
-  void *v5; // r14
+  void *v5; // rsi
   NTSTATUS v6; // eax
-  NTSTATUS GroupSecurityDescriptor; // ebx
-  ULONG v9; // esi
-  _BYTE *Pool2; // rdi
-  NTSTATUS v11; // eax
-  ULONG v12; // r15d
-  PACL v13; // rsi
-  ULONG v14; // ebx
-  ACL *v15; // rax
-  ULONG v16; // eax
-  void *v17; // rax
+  int GroupSecurityDescriptor; // ebx
+  ULONG v9; // r14d
+  _BYTE *PoolWithTag; // rdi
+  ULONG v11; // r15d
+  PACL v12; // r14
+  ULONG v13; // ebx
+  ACL *v14; // rax
+  ULONG v15; // eax
+  ULONG v16; // ebx
+  PVOID v17; // rax
   BOOLEAN DaclPresent; // [rsp+30h] [rbp-69h] BYREF
   BOOLEAN GroupDefaulted[3]; // [rsp+31h] [rbp-68h] BYREF
   ULONG LengthNeeded; // [rsp+34h] [rbp-65h] BYREF
@@ -74,117 +75,113 @@ __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(HANDLE Handle, _QWORD *a2)
       if ( !RtlEqualSid(Group, PiDevCfgNullSid) )
         return (unsigned int)-1073741720;
       v9 = 240;
-      Pool2 = (_BYTE *)ExAllocatePool2(256LL, 240LL, 1667526736LL);
-      if ( !Pool2 )
-        return (unsigned int)-1073741670;
-      while ( 1 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xF0uLL, 0x63647050u);
+      if ( PoolWithTag )
       {
-        v11 = ZwQuerySecurityObject(Handle, 4u, Pool2, v9, &LengthNeeded);
-        GroupSecurityDescriptor = v11;
-        if ( v11 != -1073741789 )
-          break;
-        if ( LengthNeeded <= v9 )
-          goto LABEL_38;
-        v9 = LengthNeeded;
-        ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (_BYTE *)ExAllocatePool2(256LL, v9, 1667526736LL);
-        if ( !Pool2 )
-          return (unsigned int)-1073741670;
-      }
-      v12 = 0;
-      if ( v11 < 0 )
-        goto LABEL_40;
-      GroupSecurityDescriptor = RtlGetDaclSecurityDescriptor(Pool2, &DaclPresent, &Dacl, GroupDefaulted);
-      if ( GroupSecurityDescriptor < 0 )
-        goto LABEL_40;
-      if ( DaclPresent && (v13 = Dacl) != 0LL )
-      {
+        while ( 1 )
+        {
+          GroupSecurityDescriptor = ZwQuerySecurityObject(Handle, 4u, PoolWithTag, v9, &LengthNeeded);
+          if ( GroupSecurityDescriptor != -1073741789 )
+            break;
+          if ( LengthNeeded <= v9 )
+          {
+            GroupSecurityDescriptor = -1073741595;
+            break;
+          }
+          v9 = LengthNeeded;
+          ExFreePoolWithTag(PoolWithTag, 0);
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x63647050u);
+          if ( !PoolWithTag )
+            goto LABEL_13;
+        }
+        v11 = 0;
+        if ( GroupSecurityDescriptor < 0 )
+          goto LABEL_14;
+        GroupSecurityDescriptor = RtlGetDaclSecurityDescriptor(PoolWithTag, &DaclPresent, &Dacl, GroupDefaulted);
+        if ( GroupSecurityDescriptor < 0 )
+          goto LABEL_14;
+        if ( !DaclPresent || (v12 = Dacl) == 0LL )
+        {
+          GroupSecurityDescriptor = -1073741275;
+          goto LABEL_14;
+        }
         if ( Dacl->AceCount )
         {
           do
           {
-            GroupSecurityDescriptor = RtlGetAce(v13, v12, &Ace);
+            GroupSecurityDescriptor = RtlGetAce(v12, v11, &Ace);
             if ( GroupSecurityDescriptor < 0 )
-              goto LABEL_40;
+              goto LABEL_14;
             if ( !*(_BYTE *)Ace
               && (*((_DWORD *)Ace + 1) & 0xF003F) == 0xF003F
               && RtlEqualSid((char *)Ace + 8, SeLocalSystemSid) )
             {
-              *a2 = Pool2;
+              *a2 = PoolWithTag;
               return (unsigned int)GroupSecurityDescriptor;
             }
           }
-          while ( ++v12 < v13->AceCount );
+          while ( ++v11 < v12->AceCount );
         }
-        v14 = RtlLengthSid(SeLocalSystemSid) + v13->AclSize + 8;
-        v15 = (ACL *)ExAllocatePool2(256LL, v14, 1667526736LL);
-        v4 = v15;
-        if ( !v15 )
-          goto LABEL_37;
-        GroupSecurityDescriptor = RtlCreateAcl(v15, v14, 2u);
-        if ( GroupSecurityDescriptor >= 0 )
+        v13 = RtlLengthSid(SeLocalSystemSid) + v12->AclSize + 8;
+        v14 = (ACL *)ExAllocatePoolWithTag(PagedPool, v13, 0x63647050u);
+        v4 = v14;
+        if ( v14 )
         {
-          GroupSecurityDescriptor = RtlGetAce(v13, 0, &AceList);
-          if ( GroupSecurityDescriptor >= 0 )
+          GroupSecurityDescriptor = RtlCreateAcl(v14, v13, 2u);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          GroupSecurityDescriptor = RtlGetAce(v12, 0, &AceList);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          GroupSecurityDescriptor = RtlAddAce(v4, 2u, 0, AceList, v12->AclSize - 8);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          GroupSecurityDescriptor = RtlpAddKnownAce((__int64)v4, 2u, 2, 983103, (unsigned __int8 *)SeLocalSystemSid, 0);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          GroupSecurityDescriptor = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          GroupSecurityDescriptor = RtlSetDaclSecurityDescriptor(AbsoluteSecurityDescriptor, 1u, v4, 0);
+          if ( GroupSecurityDescriptor < 0 )
+            goto LABEL_14;
+          if ( RtlValidSecurityDescriptor(AbsoluteSecurityDescriptor) )
           {
-            GroupSecurityDescriptor = RtlAddAce(v4, 2u, 0, AceList, v13->AclSize - 8);
-            if ( GroupSecurityDescriptor >= 0 )
+            v15 = RtlLengthSecurityDescriptor(AbsoluteSecurityDescriptor);
+            LODWORD(Group) = v15;
+            if ( v15 >= 0x28 )
             {
-              GroupSecurityDescriptor = RtlpAddKnownAce((int)v4, 2, 2, 983103, SeLocalSystemSid, 0);
-              if ( GroupSecurityDescriptor >= 0 )
+              v16 = v15;
+              v17 = ExAllocatePoolWithTag(PagedPool, v15, 0x63647050u);
+              v5 = v17;
+              if ( v17 )
               {
-                GroupSecurityDescriptor = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);
+                memset(v17, 0, v16);
+                GroupSecurityDescriptor = RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor, v5, (PULONG)&Group);
                 if ( GroupSecurityDescriptor >= 0 )
                 {
-                  GroupSecurityDescriptor = RtlSetDaclSecurityDescriptor(AbsoluteSecurityDescriptor, 1u, v4, 0);
-                  if ( GroupSecurityDescriptor >= 0 )
-                  {
-                    if ( RtlValidSecurityDescriptor(AbsoluteSecurityDescriptor) )
-                    {
-                      v16 = RtlLengthSecurityDescriptor(AbsoluteSecurityDescriptor);
-                      LODWORD(Group) = v16;
-                      if ( v16 >= 0x28 )
-                      {
-                        v17 = (void *)ExAllocatePool2(256LL, v16, 1667526736LL);
-                        v5 = v17;
-                        if ( v17 )
-                        {
-                          GroupSecurityDescriptor = RtlAbsoluteToSelfRelativeSD(
-                                                      AbsoluteSecurityDescriptor,
-                                                      v17,
-                                                      (PULONG)&Group);
-                          if ( GroupSecurityDescriptor >= 0 )
-                          {
-                            *a2 = v5;
-                            v5 = 0LL;
-                          }
-                          goto LABEL_40;
-                        }
-LABEL_37:
-                        GroupSecurityDescriptor = -1073741670;
-                        goto LABEL_40;
-                      }
-                    }
-LABEL_38:
-                    GroupSecurityDescriptor = -1073741595;
-                  }
+                  *a2 = v5;
+                  v5 = 0LL;
                 }
+                goto LABEL_14;
               }
+              goto LABEL_13;
             }
           }
+          GroupSecurityDescriptor = -1073741595;
+LABEL_14:
+          if ( PoolWithTag && PoolWithTag != SecurityDescriptor )
+            ExFreePoolWithTag(PoolWithTag, 0);
+          if ( v5 )
+            ExFreePoolWithTag(v5, 0);
+          if ( v4 )
+            ExFreePoolWithTag(v4, 0);
+          return (unsigned int)GroupSecurityDescriptor;
         }
       }
-      else
-      {
-        GroupSecurityDescriptor = -1073741275;
-      }
-LABEL_40:
-      if ( Pool2 != SecurityDescriptor )
-        ExFreePoolWithTag(Pool2, 0);
-      if ( v5 )
-        ExFreePoolWithTag(v5, 0);
-      if ( v4 )
-        ExFreePoolWithTag(v4, 0);
+LABEL_13:
+      GroupSecurityDescriptor = -1073741670;
+      goto LABEL_14;
     }
   }
   return (unsigned int)GroupSecurityDescriptor;

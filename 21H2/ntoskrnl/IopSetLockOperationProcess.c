@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSetLockOperationProcess @ 0x1402A36D0
+ * XREFs of IopSetLockOperationProcess @ 0x14035770C
  * Callers:
- *     NtLockFile @ 0x14071D220 (NtLockFile.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     NtLockFile @ 0x140708790 (NtLockFile.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1402B6C78 (IopVerifierExAllocatePool_0.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
@@ -18,19 +18,20 @@ __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
   _QWORD *v3; // rbx
   char v4; // r15
   __int64 result; // rax
-  unsigned int v9; // edi
-  __int64 Pool2; // rax
-  __int64 v11; // rbp
-  KIRQL v12; // al
-  __int64 v13; // rdx
-  unsigned __int64 v14; // r13
-  _QWORD *v15; // rcx
+  __int64 v9; // rcx
+  unsigned int v10; // edi
+  _QWORD *Pool_0; // rax
+  __int64 v12; // rsi
+  KIRQL v13; // al
+  __int64 v14; // rdx
+  unsigned __int64 v15; // r13
+  _QWORD *v16; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v19; // eax
-  bool v20; // zf
-  char v21; // [rsp+78h] [rbp+10h]
+  int v20; // eax
+  bool v21; // zf
+  char v22; // [rsp+78h] [rbp+10h]
   __int64 FileObjectExtension; // [rsp+88h] [rbp+20h] BYREF
 
   FileObjectExtension = 0LL;
@@ -40,33 +41,33 @@ __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
     return 3221225485LL;
   if ( a3 )
   {
-    v9 = 0;
-    FileObjectExtension = IopGetFileObjectExtension(a1, 1LL);
-    v11 = FileObjectExtension;
+    v10 = 0;
+    FileObjectExtension = IopGetFileObjectExtension(a1, 1, 0LL);
+    v12 = FileObjectExtension;
     if ( !FileObjectExtension )
       return 3221225473LL;
   }
   else
   {
-    result = IopGetSetSpecificExtension(a1, 1, 32, 1, (__int64)&FileObjectExtension, 0LL);
-    v9 = result;
+    result = IopGetSetSpecificExtension(a1, 1u, 0x20u, 1, &FileObjectExtension, 0LL);
+    v10 = result;
     if ( (int)result < 0 )
       return result;
-    Pool2 = ExAllocatePool2(64LL, 16LL, 538996553LL);
-    v11 = FileObjectExtension;
-    v3 = (_QWORD *)Pool2;
+    Pool_0 = IopVerifierExAllocatePool_0(v9, 0x10uLL);
+    v12 = FileObjectExtension;
+    v3 = Pool_0;
   }
-  v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
-  v13 = *(_QWORD *)(v11 + 16);
-  v14 = v12;
-  v21 = *(_BYTE *)(a1 + 72);
-  if ( v13 )
+  v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
+  v14 = *(_QWORD *)(v12 + 16);
+  v15 = v13;
+  v22 = *(_BYTE *)(a1 + 72);
+  if ( v14 )
   {
-    v15 = *(_QWORD **)(v11 + 16);
-    while ( v15[1] != a2 )
+    v16 = *(_QWORD **)(v12 + 16);
+    while ( v16[1] != a2 )
     {
-      v15 = (_QWORD *)*v15;
-      if ( !v15 )
+      v16 = (_QWORD *)*v16;
+      if ( !v16 )
         goto LABEL_18;
     }
     v4 = 1;
@@ -78,13 +79,13 @@ LABEL_18:
     {
       if ( v3 )
       {
-        *v3 = v13;
-        *(_QWORD *)(v11 + 16) = v3;
+        *v3 = v14;
+        *(_QWORD *)(v12 + 16) = v3;
         v3[1] = a2;
       }
       else
       {
-        v9 = -1073741670;
+        v10 = -1073741670;
       }
     }
   }
@@ -94,26 +95,26 @@ LABEL_18:
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-        v20 = (v19 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v19;
-        if ( v20 )
+        v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+        v21 = (v20 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v20;
+        if ( v21 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v14);
+  __writecr8(v15);
   if ( v4 && v3 )
     ExFreePoolWithTag(v3, 0);
   if ( a3 )
   {
-    if ( v21 && v4 )
+    if ( v22 && v4 )
       return 0LL;
     return 3221225473LL;
   }
-  return v9;
+  return v10;
 }

@@ -1,34 +1,34 @@
 /*
- * XREFs of ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BC50
+ * XREFs of ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DAE80
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002B0C0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
- *     ?EmitSetAngularDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02165E8 (-EmitSetAngularDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatc.c)
- *     ?EmitSetBrushCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0216A1C (-EmitSetBrushCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02170E0 (-EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217518 (-EmitSetDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetEdgeThicknessCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02175A4 (-EmitSetEdgeThicknessCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBa.c)
- *     ?EmitSetEmitFromCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217720 (-EmitSetEmitFromCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
- *     ?EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021779C (-EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAV.c)
- *     ?EmitSetEmitterGeometryCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217824 (-EmitSetEmitterGeometryCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVC.c)
- *     ?EmitSetEmitterLifetimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02178AC (-EmitSetEmitterLifetimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVC.c)
- *     ?EmitSetEmitterTimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217924 (-EmitSetEmitterTimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatc.c)
- *     ?EmitSetEmitterViewBoxCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021799C (-EmitSetEmitterViewBoxCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCB.c)
- *     ?EmitSetForceCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217B28 (-EmitSetForceCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetMaxBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218380 (-EmitSetMaxBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPE.c)
- *     ?EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02185D8 (-EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
- *     ?EmitSetMaxParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218654 (-EmitSetMaxParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
- *     ?EmitSetMinBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02189A8 (-EmitSetMinBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPE.c)
- *     ?EmitSetMinParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218C00 (-EmitSetMinParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
- *     ?EmitSetParticleBehaviorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0219734 (-EmitSetParticleBehaviorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEA.c)
- *     ?EmitSetParticleGeneratorCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02197C0 (-EmitSetParticleGeneratorCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEA.c)
- *     ?EmitSetRandomSeedCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0219CE0 (-EmitSetRandomSeedCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch.c)
- *     ?EmitSetSortModeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021A220 (-EmitSetSortModeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
- *     ?EmitSetTerminalVelocityCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021A750 (-EmitSetTerminalVelocityCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAV.c)
- *     ?EmitSetTimestepCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021AAB0 (-EmitSetTimestepCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
- *     ?EmitSetTorqueCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021AD7C (-EmitSetTorqueCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetAngularDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D617C (-EmitSetAngularDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatc.c)
+ *     ?EmitSetAttractorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D63D0 (-EmitSetAttractorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch.c)
+ *     ?EmitSetBrushCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6968 (-EmitSetBrushCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7174 (-EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D753C (-EmitSetDragCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetEdgeThicknessCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D75C8 (-EmitSetEdgeThicknessCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBa.c)
+ *     ?EmitSetEmitFromCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7744 (-EmitSetEmitFromCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
+ *     ?EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D77C0 (-EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAV.c)
+ *     ?EmitSetEmitterGeometryCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7848 (-EmitSetEmitterGeometryCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVC.c)
+ *     ?EmitSetEmitterLifetimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D78D0 (-EmitSetEmitterLifetimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVC.c)
+ *     ?EmitSetEmitterTimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7948 (-EmitSetEmitterTimeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatc.c)
+ *     ?EmitSetEmitterViewBoxCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D79C0 (-EmitSetEmitterViewBoxCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCB.c)
+ *     ?EmitSetForceCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7AD0 (-EmitSetForceCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetMaxBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8088 (-EmitSetMaxBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPE.c)
+ *     ?EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D82E0 (-EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
+ *     ?EmitSetMaxParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D835C (-EmitSetMaxParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
+ *     ?EmitSetMinBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D86B0 (-EmitSetMinBurstRateInSecondsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPE.c)
+ *     ?EmitSetMinParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8908 (-EmitSetMinParticlesPerBurstCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEA.c)
+ *     ?EmitSetParticleBehaviorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D926C (-EmitSetParticleBehaviorsCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEA.c)
+ *     ?EmitSetParticleGeneratorCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D92F8 (-EmitSetParticleGeneratorCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEA.c)
+ *     ?EmitSetRandomSeedCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D97A8 (-EmitSetRandomSeedCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch.c)
+ *     ?EmitSetSortModeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D9DA8 (-EmitSetSortModeCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
+ *     ?EmitSetTerminalVelocityCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DA28C (-EmitSetTerminalVelocityCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAV.c)
+ *     ?EmitSetTimestepCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DA578 (-EmitSetTimestepCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2.c)
+ *     ?EmitSetTorqueCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DA844 (-EmitSetTorqueCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
  */
 
 char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitUpdateCommands(
@@ -38,7 +38,7 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitUpdateCo
   char v4; // bl
 
   v4 = 0;
-  if ( DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, a2)
+  if ( DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, (struct DirectComposition::CBatch **)a2)
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetEmitterAnimationCommand(this, a2)
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetEmitterTimeCommand(this, a2)
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetTimestepCommand(this, a2)
@@ -62,14 +62,7 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitUpdateCo
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetTerminalVelocityCommand(this, a2)
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetParticleGeneratorCommand(this, a2)
     && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetParticleBehaviorsCommand(this, a2)
-    && DirectComposition::CResourceMarshalerArrayBase::Marshal(
-         (_QWORD *)this + 65,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 137,
-         0x1000000,
-         588,
-         589) )
+    && DirectComposition::CParticleEmitterVisualMarshaler::EmitSetAttractorsCommand(this, a2) )
   {
     return DirectComposition::CParticleEmitterVisualMarshaler::EmitSetClearCommand(this, a2) != 0;
   }

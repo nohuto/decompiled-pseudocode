@@ -1,12 +1,12 @@
 /*
- * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403DF52C
+ * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2A0C
  * Callers:
- *     KiConfigureSchedulingInformation @ 0x140A59154 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x14099FD80 (KiConfigureSchedulingInformation.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 KeDoesSystemHaveHeterogeneousCoreTypes()
+ULONG_PTR KeDoesSystemHaveHeterogeneousCoreTypes()
 {
-  return ((unsigned __int64)KeFeatureBits >> 53) & 1;
+  return (KeFeatureBits >> 53) & 1;
 }

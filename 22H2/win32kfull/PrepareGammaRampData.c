@@ -1,80 +1,93 @@
 /*
- * XREFs of PrepareGammaRampData @ 0x1C003ED50
+ * XREFs of PrepareGammaRampData @ 0x1C011DA70
  * Callers:
- *     xxxSwitchDesktopWithFade @ 0x1C00B444C (xxxSwitchDesktopWithFade.c)
+ *     xxxSwitchDesktopWithFade @ 0x1C011D7D0 (xxxSwitchDesktopWithFade.c)
  * Callees:
- *     <none>
+ *     GreGetDeviceGammaRamp @ 0x1C011DC74 (GreGetDeviceGammaRamp.c)
  */
 
 __int64 __fastcall PrepareGammaRampData(unsigned int *a1, unsigned int **a2, _DWORD *a3)
 {
-  unsigned int v6; // ebx
+  int DeviceGammaRamp; // r14d
+  unsigned int v7; // ebx
   __int64 DCEx; // rax
-  __int64 v8; // rdi
+  __int64 v9; // rsi
   unsigned int DeviceCaps; // eax
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
-  unsigned int *v12; // rax
-  unsigned int *v13; // rsi
-  _QWORD *i; // r9
-  __int64 DisplayDC; // rax
-  __int64 v17; // rax
-  int v18; // ecx
-  unsigned int v19; // eax
+  __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  unsigned int *v13; // rax
+  unsigned int *v14; // rdi
+  unsigned int v15; // ebp
+  _QWORD *i; // rbx
+  HDC DisplayDC; // rsi
+  __int64 v18; // r15
+  __int64 v19; // rax
+  int v20; // ecx
+  unsigned int v21; // eax
 
-  v6 = 0;
+  DeviceGammaRamp = 0;
+  v7 = 0;
   DCEx = _GetDCEx(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL), 0LL, 8388611LL);
-  v8 = DCEx;
+  v9 = DCEx;
   if ( !DCEx )
     return 3221225495LL;
   DeviceCaps = GreGetDeviceCaps(DCEx, 116LL);
   *a1 = DeviceCaps;
   if ( DeviceCaps < 0x3C )
     *a1 = 60;
-  _ReleaseDC(v8);
+  _ReleaseDC(v9);
   GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  v10 = *(_QWORD *)(gpDispInfo + 104LL);
-  while ( v10 )
+  v11 = *(_QWORD *)(gpDispInfo + 104LL);
+  while ( v11 )
   {
-    v17 = *(_QWORD *)(v10 + 40);
-    v10 = *(_QWORD *)(v10 + 56);
-    v18 = *(_DWORD *)(v17 + 24);
-    v19 = v6 + 1;
-    if ( (v18 & 1) == 0 )
-      v19 = v6;
-    v6 = v19;
+    v19 = *(_QWORD *)(v11 + 40);
+    v11 = *(_QWORD *)(v11 + 56);
+    v20 = *(_DWORD *)(v19 + 24);
+    v21 = v7 + 1;
+    if ( (v20 & 1) == 0 )
+      v21 = v7;
+    v7 = v21;
   }
-  v11 = 1544LL * v6;
-  if ( v11 > 0xFFFFFFFF || (unsigned int)v11 >= 0xFFFFF9F8 )
+  v12 = 1544LL * v7;
+  if ( v12 > 0xFFFFFFFF || (unsigned int)v12 >= 0xFFFFF9F8 )
   {
-    _ReleaseDC(v8);
+    _ReleaseDC(v9);
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     return 3221225621LL;
   }
-  v12 = (unsigned int *)Win32AllocPoolZInit((unsigned int)(v11 + 1544), 1835231559LL);
-  v13 = v12;
-  if ( !v12 )
+  v13 = (unsigned int *)Win32AllocPoolZInit((unsigned int)(v12 + 1544), 1835231559LL);
+  v14 = v13;
+  if ( !v13 )
   {
-    _ReleaseDC(v8);
+    _ReleaseDC(v9);
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     return 3221225495LL;
   }
-  *v12 = v6;
+  *v13 = v7;
   if ( !gProtocolType )
   {
+    v15 = 0;
     for ( i = *(_QWORD **)(gpDispInfo + 104LL); i; i = (_QWORD *)i[7] )
     {
       if ( (*(_DWORD *)(i[5] + 24LL) & 1) != 0 )
       {
-        DisplayDC = GreCreateDisplayDC(i[10], 0LL);
-        if ( DisplayDC )
+        DisplayDC = (HDC)GreCreateDisplayDC(i[29], 0LL);
+        if ( !DisplayDC )
+          break;
+        v18 = 386LL * v15;
+        DeviceGammaRamp = GreGetDeviceGammaRamp(DisplayDC);
+        if ( !DeviceGammaRamp )
+        {
           GreDeleteDC(DisplayDC);
-        break;
+          break;
+        }
+        ++v15;
+        *(_QWORD *)&v14[v18 + 386] = DisplayDC;
       }
     }
   }
-  *a3 = 0;
-  *a2 = v13;
+  *a3 = DeviceGammaRamp;
+  *a2 = v14;
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
   return 0LL;
 }

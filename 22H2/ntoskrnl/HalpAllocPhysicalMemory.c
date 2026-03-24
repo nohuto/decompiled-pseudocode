@@ -1,22 +1,23 @@
 /*
- * XREFs of HalpAllocPhysicalMemory @ 0x140B4C03C
+ * XREFs of HalpAllocPhysicalMemory @ 0x140A64AC0
  * Callers:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x14037DDA0 (HalpMmAllocateAndInsertPageTablePage.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpSocApiAllocatePhysicalMemory @ 0x14037E240 (HalpSocApiAllocatePhysicalMemory.c)
- *     HalpAcpiAllocateMemory @ 0x14037E520 (HalpAcpiAllocateMemory.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E658 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpAllocateEarlyPages @ 0x140505660 (HalpAllocateEarlyPages.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F340 (ExtEnvAllocatePhysicalMemory.c)
- *     HalpAllocateScratchMemory @ 0x140AB4920 (HalpAllocateScratchMemory.c)
- *     HalpDmaInitMemory @ 0x140B4BE64 (HalpDmaInitMemory.c)
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
- *     HalpBlkAllocateAndShadowMemory @ 0x140B92BDC (HalpBlkAllocateAndShadowMemory.c)
- *     HalpBlkAllocatePageTablePage @ 0x140B92CD4 (HalpBlkAllocatePageTablePage.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BAD40 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB1A8 (HalpAcpiAllocateMemory.c)
+ *     HalpAllocateEarlyPages @ 0x1404BC840 (HalpAllocateEarlyPages.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5080 (ExtEnvAllocatePhysicalMemory.c)
+ *     HalpSocApiAllocatePhysicalMemory @ 0x1404D55C0 (HalpSocApiAllocatePhysicalMemory.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB6D8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpAllocateScratchMemory @ 0x1409B5E90 (HalpAllocateScratchMemory.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpAllocateNumaConfigData @ 0x140A644EC (HalpAllocateNumaConfigData.c)
+ *     HalpDmaInitMemory @ 0x140A648D4 (HalpDmaInitMemory.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140A8DC88 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140A8DD80 (HalpBlkAllocatePageTablePage.c)
  * Callees:
- *     HalpMapPhysicalMemory64 @ 0x14040F0F0 (HalpMapPhysicalMemory64.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpAllocPhysicalMemoryInternal @ 0x140B4C0AC (HalpAllocPhysicalMemoryInternal.c)
+ *     HalpMapPhysicalMemory64 @ 0x1403EF780 (HalpMapPhysicalMemory64.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpAllocPhysicalMemoryInternal @ 0x140A64B30 (HalpAllocPhysicalMemoryInternal.c)
  */
 
 __int64 __fastcall HalpAllocPhysicalMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -37,7 +38,7 @@ __int64 __fastcall HalpAllocPhysicalMemory(__int64 a1, __int64 a2, unsigned int 
         memset(v8, 0, 0x1000uLL);
         HalpUsedAllocDescriptors = 0;
         HalpAllocationDescriptorArray = v9;
-        HalpAllocationDescriptorArraySize = 85;
+        HalpAllocationDescriptorArraySize = 102;
       }
     }
   }

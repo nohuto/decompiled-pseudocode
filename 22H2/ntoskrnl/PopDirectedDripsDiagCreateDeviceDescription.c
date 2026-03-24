@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E058
+ * XREFs of PopDirectedDripsDiagCreateDeviceDescription @ 0x1408F6E80
  * Callers:
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E17C (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6FA0 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
  * Callees:
- *     PopGenerateDeviceFriendlyName @ 0x14084A464 (PopGenerateDeviceFriendlyName.c)
- *     PopCloneUnicodeString @ 0x1409808D4 (PopCloneUnicodeString.c)
- *     PopDiagQueryDevicePropertyString @ 0x14098C138 (PopDiagQueryDevicePropertyString.c)
+ *     PopGenerateDeviceFriendlyName @ 0x1407BE618 (PopGenerateDeviceFriendlyName.c)
+ *     PopCloneUnicodeString @ 0x1408E1198 (PopCloneUnicodeString.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408E8148 (PopDiagQueryDevicePropertyString.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagCreateDeviceDescription(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PopDirectedDripsDiagCreateDeviceDescription(__int64 a1, __int
   __int64 v8; // r8
 
   *(_QWORD *)(a2 + 32) = *(_QWORD *)(a1 + 32);
-  DeviceFriendlyName = PopGenerateDeviceFriendlyName(a1, 1, (UNICODE_STRING *)(a2 + 48));
+  DeviceFriendlyName = PopGenerateDeviceFriendlyName(a1, (UNICODE_STRING *)(a2 + 48));
   if ( DeviceFriendlyName >= 0 )
   {
     DevicePropertyString = PopDiagQueryDevicePropertyString(

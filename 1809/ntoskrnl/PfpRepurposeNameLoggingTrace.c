@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpRepurposeNameLoggingTrace @ 0x140669AF4
+ * XREFs of PfpRepurposeNameLoggingTrace @ 0x140669AD4
  * Callers:
- *     PfTFreeTraceDump @ 0x1400D89C0 (PfTFreeTraceDump.c)
+ *     PfTFreeTraceDump @ 0x1400D89E0 (PfTFreeTraceDump.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1400E2660 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListInsertInFree @ 0x1400E2680 (PfFbBufferListInsertInFree.c)
  */
 
 void __fastcall PfpRepurposeNameLoggingTrace(PVOID P)

@@ -1,55 +1,51 @@
 /*
- * XREFs of CmpComputeComponentHashes @ 0x140690B10
+ * XREFs of CmpComputeComponentHashes @ 0x1406493E0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     CmpExpandPathInfo @ 0x140690E54 (CmpExpandPathInfo.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
+ *     CmpExpandPathInfo @ 0x140679D00 (CmpExpandPathInfo.c)
  */
 
 __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a3)
 {
-  char v3; // r13
-  __m128i v4; // xmm6
+  __m128i v3; // xmm6
+  char v4; // cl
   __int16 v6; // bx
   __int16 v7; // bp
   _WORD *v8; // rdi
   __int16 v9; // si
   __int64 v10; // rdi
   __int16 v11; // bp
-  __int64 v12; // rsi
-  __int16 v13; // ax
-  int v14; // r9d
-  unsigned __int16 *v15; // r10
-  __int64 v16; // r11
-  unsigned __int16 v17; // dx
+  __int16 v12; // ax
+  int v13; // r9d
+  unsigned __int16 *v14; // r10
+  __int64 v15; // r11
+  unsigned __int16 v16; // ax
   __int64 result; // rax
-  __int16 v19; // r14
-  __int64 v20; // r15
-  int v21; // r9d
-  unsigned __int16 *v22; // r10
-  __int64 v23; // r11
-  unsigned __int16 v24; // dx
-  _QWORD *v25; // rax
-  unsigned __int16 v26; // dx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v28; // dx
-  __m128i v29; // [rsp+20h] [rbp-58h]
-  __m128i v30; // [rsp+30h] [rbp-48h]
+  __int16 v18; // r14
+  __int64 v19; // r15
+  int v20; // r9d
+  unsigned __int16 *v21; // r10
+  __int64 v22; // r11
+  unsigned __int16 v23; // ax
+  __m128i v24; // [rsp+20h] [rbp-68h]
+  __m128i v25; // [rsp+30h] [rbp-58h]
+  char v26; // [rsp+90h] [rbp+8h]
 
-  v3 = 0;
-  v6 = _mm_cvtsi128_si32(*a1);
-  v29 = *a1;
-  v4 = *a1;
-  v30 = *a1;
-  v29.m128i_i16[0] = v6;
+  v3 = *a1;
+  v4 = 0;
+  v26 = 0;
+  v6 = _mm_cvtsi128_si32(v3);
+  v24.m128i_i32[1] = v3.m128i_i32[1];
+  v25 = v3;
+  v24.m128i_i16[0] = v6;
   if ( v6 )
   {
     v7 = 0;
-    v8 = (_WORD *)v29.m128i_i64[1];
-    v9 = v29.m128i_i16[1];
+    v8 = (_WORD *)v3.m128i_i64[1];
+    v9 = v3.m128i_i16[1];
     do
     {
       if ( v7 >= 32 )
@@ -57,51 +53,46 @@ __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a
       if ( *v8 == 92 )
       {
         ++v7;
-        v19 = v30.m128i_i16[0] - v6;
-        v30.m128i_i16[0] = v19;
-        v30.m128i_i16[1] = v19;
-        if ( v7 > 8 && !v3 )
+        v18 = v25.m128i_i16[0] - v6;
+        v25.m128i_i16[0] = v18;
+        v25.m128i_i16[1] = v18;
+        if ( v7 > 8 && !v4 )
         {
           result = CmpExpandPathInfo(a3);
           if ( (int)result < 0 )
             return result;
-          v3 = 1;
+          v26 = 1;
         }
-        v20 = (unsigned int)(v7 - 1);
-        if ( (unsigned int)v20 >= 8 )
-          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v7 - 9) + 6LL)) = v30;
+        v19 = (unsigned int)(v7 - 1);
+        if ( (unsigned int)v19 >= 8 )
+          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v7 - 9) + 6LL)) = v25;
         else
-          *(__m128i *)(a3 + 16 * ((unsigned int)v20 + 2LL)) = v30;
-        v21 = 0;
-        if ( v19 )
+          *(__m128i *)(a3 + 16 * ((unsigned int)v19 + 2LL)) = v25;
+        v20 = 0;
+        if ( v18 )
         {
-          v22 = (unsigned __int16 *)v30.m128i_i64[1];
-          v23 = (unsigned __int16)(((unsigned __int16)(v19 - 1) >> 1) + 1);
+          v21 = (unsigned __int16 *)v25.m128i_i64[1];
+          v22 = (unsigned __int16)(((unsigned __int16)(v18 - 1) >> 1) + 1);
           do
           {
-            v24 = *v22;
-            if ( *v22 >= 0x61u )
+            v23 = *v21;
+            if ( *v21 >= 0x61u )
             {
-              if ( v24 > 0x7Au )
-              {
-                CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-                v24 = NLS_UPCASE(CurrentServerSiloGlobals[154], v28);
-              }
+              if ( v23 > 0x7Au )
+                v23 = NLS_UPCASE(v23);
               else
-              {
-                v24 -= 32;
-              }
+                v23 -= 32;
             }
-            ++v22;
-            v21 = v24 + 37 * v21;
-            --v23;
+            ++v21;
+            v20 = v23 + 37 * v20;
+            --v22;
           }
-          while ( v23 );
+          while ( v22 );
         }
-        if ( (unsigned int)v20 >= 8 )
-          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v7 - 9)) = v21;
+        if ( (unsigned int)v19 >= 8 )
+          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v7 - 9)) = v20;
         else
-          *(_DWORD *)(a3 + 4 * v20) = v21;
+          *(_DWORD *)(a3 + 4 * v19) = v20;
         do
         {
           if ( *v8 != 92 )
@@ -109,20 +100,21 @@ __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a
           v6 -= 2;
           ++v8;
           v9 -= 2;
-          v29.m128i_i16[0] = v6;
+          v24.m128i_i16[0] = v6;
         }
         while ( v6 );
-        v29.m128i_i64[1] = (__int64)v8;
-        v29.m128i_i16[1] = v9;
-        v4 = v29;
-        v30 = v29;
+        v24.m128i_i64[1] = (__int64)v8;
+        v24.m128i_i16[1] = v9;
+        v3 = v24;
+        v4 = v26;
+        v25 = v24;
       }
       else
       {
         ++v8;
         v6 -= 2;
         v9 -= 2;
-        v29.m128i_i16[0] = v6;
+        v24.m128i_i16[0] = v6;
       }
     }
     while ( v6 );
@@ -134,44 +126,38 @@ __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a
     else
     {
       v11 = v7 + 1;
-      if ( v11 <= 8 || v3 || (result = CmpExpandPathInfo(a3), (int)result >= 0) )
+      if ( v11 <= 8 || v4 || (result = CmpExpandPathInfo(a3), (int)result >= 0) )
       {
-        v12 = (unsigned int)(v10 - 8);
         if ( (unsigned int)v10 >= 8 )
-          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)v12 + 6LL)) = v4;
+          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v10 - 8) + 6LL)) = v3;
         else
-          *(__m128i *)(a3 + 16 * (v10 + 2)) = v4;
-        v13 = _mm_cvtsi128_si32(v4);
-        v14 = 0;
-        if ( v13 )
+          *(__m128i *)(a3 + 16 * (v10 + 2)) = v3;
+        v12 = _mm_cvtsi128_si32(v3);
+        v13 = 0;
+        if ( v12 )
         {
-          v15 = (unsigned __int16 *)v4.m128i_i64[1];
-          v16 = (unsigned __int16)(((unsigned __int16)(v13 - 1) >> 1) + 1);
+          v14 = (unsigned __int16 *)v3.m128i_i64[1];
+          v15 = (unsigned __int16)(((unsigned __int16)(v12 - 1) >> 1) + 1);
           do
           {
-            v17 = *v15;
-            if ( *v15 >= 0x61u )
+            v16 = *v14;
+            if ( *v14 >= 0x61u )
             {
-              if ( v17 > 0x7Au )
-              {
-                v25 = PsGetCurrentServerSiloGlobals();
-                v17 = NLS_UPCASE(v25[154], v26);
-              }
+              if ( v16 > 0x7Au )
+                v16 = NLS_UPCASE(v16);
               else
-              {
-                v17 -= 32;
-              }
+                v16 -= 32;
             }
-            ++v15;
-            v14 = v17 + 37 * v14;
-            --v16;
+            ++v14;
+            v13 = v16 + 37 * v13;
+            --v15;
           }
-          while ( v16 );
+          while ( v15 );
         }
         if ( (unsigned int)v10 >= 8 )
-          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4 * v12) = v14;
+          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v10 - 8)) = v13;
         else
-          *(_DWORD *)(a3 + 4 * v10) = v14;
+          *(_DWORD *)(a3 + 4 * v10) = v13;
         *a2 = v11;
         return 0LL;
       }
@@ -179,8 +165,8 @@ __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a
   }
   else
   {
+    result = 0LL;
     *a2 = 0;
-    return 0LL;
   }
   return result;
 }

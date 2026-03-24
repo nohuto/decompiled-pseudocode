@@ -1,209 +1,174 @@
 /*
- * XREFs of InitCreateUserCrit @ 0x1C02E3F18
+ * XREFs of InitCreateUserCrit @ 0x1C029AC78
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     ?InitDomainLocks@@YAJXZ @ 0x1C005D2E4 (-InitDomainLocks@@YAJXZ.c)
- *     CreateKernelSemaphore @ 0x1C005EA70 (CreateKernelSemaphore.c)
- *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00BFD40 (-CleanupDomainLocks@@YAXXZ.c)
- *     ?UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00C5CFC (-UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     ?InitDomainLocks@@YAJXZ @ 0x1C00ACB14 (-InitDomainLocks@@YAJXZ.c)
+ *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00AF7E4 (-CleanupDomainLocks@@YAXXZ.c)
  */
 
 __int64 InitCreateUserCrit()
 {
-  bool v0; // dl
-  struct _ERESOURCE *Pool2; // rax
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
+  struct _ERESOURCE *PoolWithTag; // rax
+  __int64 v1; // rdx
+  struct _ERESOURCE *v2; // rax
+  struct _ERESOURCE *v3; // rax
+  struct _ERESOURCE *v4; // rax
   struct _ERESOURCE *v5; // rax
   struct _ERESOURCE *v6; // rax
-  struct _ERESOURCE *v7; // rax
-  struct _ERESOURCE *v8; // rax
-  struct _KEVENT *v9; // rax
+  struct _KEVENT *v7; // rax
+  int v8; // edx
+  int v9; // edx
   int v10; // edx
-  int v11; // r8d
-  bool v12; // dl
 
-  v0 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xDu)
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      14,
-      14,
-      (__int64)&WPP_6bbaa2e2a0713bd7aecc3a487024d555_Traceguids);
-  Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  gpresUser = Pool2;
-  if ( !Pool2 )
-    goto LABEL_56;
-  if ( ExInitializeResourceLite(Pool2) < 0 )
-    goto LABEL_70;
-  v5 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  gpresRender = v5;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 14, 14, (__int64)&WPP_658ee5f6f19939820aaea989098c75e5_Traceguids);
+  PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresUser = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_25;
+  if ( ExInitializeResourceLite(PoolWithTag) < 0 )
+    goto LABEL_42;
+  v2 = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresRender = v2;
+  if ( !v2 )
+    goto LABEL_25;
+  if ( ExInitializeResourceLite(v2) < 0 )
+    goto LABEL_39;
+  v3 = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresPTPEventQueue = v3;
+  if ( !v3 )
+    goto LABEL_25;
+  if ( ExInitializeResourceLite(v3) < 0 )
+    goto LABEL_36;
+  v4 = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresDitTouchInjection = v4;
+  if ( !v4 )
+    goto LABEL_28;
+  if ( ExInitializeResourceLite(v4) < 0 )
+    goto LABEL_27;
+  v5 = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresDitMouseInjectionFlush = v5;
   if ( !v5 )
-    goto LABEL_56;
+    goto LABEL_25;
   if ( ExInitializeResourceLite(v5) < 0 )
-    goto LABEL_67;
-  v6 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  gpresDitTouchInjection = v6;
+    goto LABEL_30;
+  v6 = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  gpresDitCompositionInputSinkQuery = v6;
   if ( !v6 )
-    goto LABEL_59;
+    goto LABEL_25;
   if ( ExInitializeResourceLite(v6) < 0 )
-    goto LABEL_58;
-  v7 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  gpresDitMouseInjectionFlush = v7;
+    goto LABEL_33;
+  v7 = (struct _KEVENT *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x664B7355u);
+  gpHandleFlagsMutex = v7;
   if ( !v7 )
-    goto LABEL_56;
-  if ( ExInitializeResourceLite(v7) < 0 )
-    goto LABEL_61;
-  v8 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  gpresDitCompositionInputSinkQuery = v8;
-  if ( !v8 )
-    goto LABEL_56;
-  if ( ExInitializeResourceLite(v8) < 0 )
-    goto LABEL_64;
-  v9 = (struct _KEVENT *)ExAllocatePool2(64LL, 56LL);
-  gpHandleFlagsMutex = v9;
-  if ( !v9 )
   {
-LABEL_56:
+LABEL_25:
     if ( !gpresDitTouchInjection )
     {
-LABEL_59:
+LABEL_28:
       if ( !gpresDitMouseInjectionFlush )
       {
-LABEL_62:
+LABEL_31:
         if ( !gpresDitCompositionInputSinkQuery )
         {
-LABEL_65:
-          if ( !gpresRender )
+LABEL_34:
+          if ( !gpresPTPEventQueue )
           {
-LABEL_68:
-            if ( !gpresUser )
+LABEL_37:
+            if ( !gpresRender )
             {
-LABEL_71:
-              UserSetLastError(8LL, v2, v3, v4);
-              return 0LL;
+LABEL_40:
+              if ( !gpresUser )
+              {
+LABEL_43:
+                UserSetLastError(8LL, v1);
+                return 0LL;
+              }
+              ExDeleteResourceLite(gpresUser);
+LABEL_42:
+              ExFreePoolWithTag(gpresUser, 0);
+              gpresUser = 0LL;
+              goto LABEL_43;
             }
-            ExDeleteResourceLite(gpresUser);
-LABEL_70:
-            ExFreePoolWithTag(gpresUser, 0);
-            gpresUser = 0LL;
-            goto LABEL_71;
+            ExDeleteResourceLite(gpresRender);
+LABEL_39:
+            ExFreePoolWithTag(gpresRender, 0);
+            gpresRender = 0LL;
+            goto LABEL_40;
           }
-          ExDeleteResourceLite(gpresRender);
-LABEL_67:
-          ExFreePoolWithTag(gpresRender, 0);
-          gpresRender = 0LL;
-          goto LABEL_68;
+          ExDeleteResourceLite(gpresPTPEventQueue);
+LABEL_36:
+          ExFreePoolWithTag(gpresPTPEventQueue, 0);
+          gpresPTPEventQueue = 0LL;
+          goto LABEL_37;
         }
         ExDeleteResourceLite(gpresDitCompositionInputSinkQuery);
-LABEL_64:
+LABEL_33:
         ExFreePoolWithTag(gpresDitCompositionInputSinkQuery, 0);
         gpresDitCompositionInputSinkQuery = 0LL;
-        goto LABEL_65;
+        goto LABEL_34;
       }
       ExDeleteResourceLite(gpresDitMouseInjectionFlush);
-LABEL_61:
+LABEL_30:
       ExFreePoolWithTag(gpresDitMouseInjectionFlush, 0);
       gpresDitMouseInjectionFlush = 0LL;
-      goto LABEL_62;
+      goto LABEL_31;
     }
     ExDeleteResourceLite(gpresDitTouchInjection);
-LABEL_58:
+LABEL_27:
     ExFreePoolWithTag(gpresDitTouchInjection, 0);
     gpresDitTouchInjection = 0LL;
-    goto LABEL_59;
+    goto LABEL_28;
   }
-  v9->Header.WaitListHead.Flink = 0LL;
-  LODWORD(v9->Header.WaitListHead.Blink) = 0;
-  v9->Header.LockNV = 1;
-  KeInitializeEvent(v9 + 1, SynchronizationEvent, 0);
-  LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xDu)
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v7->Header.WaitListHead.Flink = 0LL;
+  LODWORD(v7->Header.WaitListHead.Blink) = 0;
+  v7->Header.LockNV = 1;
+  KeInitializeEvent(v7 + 1, SynchronizationEvent, 0);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v10,
-      v11,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
+    LOBYTE(v8) = 4;
+    WPP_RECORDER_SF_q(
+      (_DWORD)gBaseLog,
+      v8,
       14,
       15,
-      (__int64)&WPP_6bbaa2e2a0713bd7aecc3a487024d555_Traceguids,
-      (char)gpHandleFlagsMutex);
-  }
-  LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xDu)
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v10,
-      v11,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      14,
-      16,
-      (__int64)&WPP_6bbaa2e2a0713bd7aecc3a487024d555_Traceguids,
-      (char)gpresRender);
-  }
-  LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xDu)
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v10,
-      v11,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      14,
-      17,
-      (__int64)&WPP_6bbaa2e2a0713bd7aecc3a487024d555_Traceguids,
-      (char)gpresUser);
+      (__int64)&WPP_658ee5f6f19939820aaea989098c75e5_Traceguids,
+      gpHandleFlagsMutex);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v9) = 4;
+      WPP_RECORDER_SF_q(
+        (_DWORD)gBaseLog,
+        v9,
+        14,
+        16,
+        (__int64)&WPP_658ee5f6f19939820aaea989098c75e5_Traceguids,
+        gpresRender);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v10) = 4;
+        WPP_RECORDER_SF_q(
+          (_DWORD)gBaseLog,
+          v10,
+          14,
+          17,
+          (__int64)&WPP_658ee5f6f19939820aaea989098c75e5_Traceguids,
+          gpresUser);
+      }
+    }
   }
   if ( (int)InitDomainLocks() < 0 )
   {
-LABEL_55:
     CleanupDomainLocks();
-    goto LABEL_56;
-  }
-  EnterLeaveCritMitRitHandOffHazard::_spkSem = (PVOID)CreateKernelSemaphore(0, 0x7FFFFFFF);
-  if ( !EnterLeaveCritMitRitHandOffHazard::_spkSem )
-  {
-    EnterLeaveCritMitRitHandOffHazard::UnInitialize();
-    goto LABEL_55;
+    goto LABEL_25;
   }
   gRotationProcessLock = 0LL;
-  v12 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-     && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xDu)
-     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v12,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      14,
-      18,
-      (__int64)&WPP_6bbaa2e2a0713bd7aecc3a487024d555_Traceguids);
+  gForegroundActivateRightLock = 0LL;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 14, 18, (__int64)&WPP_658ee5f6f19939820aaea989098c75e5_Traceguids);
   return 1LL;
 }

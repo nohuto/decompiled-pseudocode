@@ -1,20 +1,20 @@
 /*
- * XREFs of XmOutOp @ 0x1403B8430
+ * XREFs of XmOutOp @ 0x140395F20
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     x86BiosWriteIoSpace @ 0x1403C2310 (x86BiosWriteIoSpace.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     x86BiosWriteIoSpace @ 0x140398EA0 (x86BiosWriteIoSpace.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
-__int64 __fastcall XmOutOp(__int64 a1)
+__int64 __fastcall XmOutOp(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int16 v1; // r9
-  __int64 v2; // rcx
+  unsigned __int16 v3; // r9
+  __int64 v4; // rcx
 
   if ( (unsigned int)(*(_DWORD *)(a1 + 120) + *(_DWORD *)(a1 + 108)) > 0xFFFF )
     longjmp((_JBTYPE *)(a1 + 160), 9);
-  XmSetSourceValue(a1, a1 + 24);
-  return x86BiosWriteIoSpace(*(unsigned int *)(v2 + 120), v1, *(unsigned int *)(v2 + 108));
+  XmSetSourceValue(a1, a1 + 24, a3, *(unsigned __int16 *)(a1 + 108));
+  return x86BiosWriteIoSpace(*(unsigned int *)(v4 + 120), v3, *(unsigned int *)(v4 + 108));
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of ?Startup@@YAJXZ @ 0x180025540
+ * XREFs of ?Startup@@YAJXZ @ 0x1800B2AF8
  * Callers:
- *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x180025470 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B297C (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
  * Callees:
- *     ?InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ @ 0x180025ADC (-InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ.c)
- *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x180025F18 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x180261F08 (-RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ @ 0x1800B2C38 (-InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ.c)
+ *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800B2F94 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x18020FBA4 (-RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z.c)
  */
 
 __int64 Startup(void)
 {
   CD2DFactory *v0; // rcx
   int v1; // eax
-  unsigned int v2; // ecx
+  __int64 v2; // rcx
   unsigned int v3; // ebx
   bool v5; // al
   unsigned int v6; // ecx
   bool v7; // al
   unsigned int v8; // ecx
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
   unsigned int v10; // [rsp+30h] [rbp-D0h] BYREF
   HKEY hKey; // [rsp+38h] [rbp-C8h] BYREF
   _SYSTEM_INFO SystemInfo; // [rsp+40h] [rbp-C0h] BYREF
@@ -57,8 +57,8 @@ __int64 Startup(void)
   v3 = v1;
   if ( v1 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v1, 0x65u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v3, 0xF0u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v1, 0x66u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v3, 0xEEu, 0LL);
   }
   return v3;
 }

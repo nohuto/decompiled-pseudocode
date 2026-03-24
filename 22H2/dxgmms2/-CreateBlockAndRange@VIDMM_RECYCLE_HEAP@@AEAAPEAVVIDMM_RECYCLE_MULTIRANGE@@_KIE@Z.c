@@ -1,18 +1,17 @@
 /*
- * XREFs of ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C008EDC4
+ * XREFs of ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C0087734
  * Callers:
- *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C009F334 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z @ 0x1C00A5850 (-Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C007B500 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
  * Callees:
- *     ?GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A08 (-GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A3C (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0017578 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
- *     McTemplateK0pppppppqq_EtwWriteTransfer @ 0x1C00320F0 (McTemplateK0pppppppqq_EtwWriteTransfer.c)
- *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C008EEE8 (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
- *     ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C008EF58 (-CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z.c)
- *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C00A06C0 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
- *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00A1470 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
- *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00B2348 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00027A4 (-GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0015614 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
+ *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00158AC (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     McTemplateK0pppppppqq_EtwWriteTransfer @ 0x1C0027E78 (McTemplateK0pppppppqq_EtwWriteTransfer.c)
+ *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079E00 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
+ *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C007D644 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
+ *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00871A8 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C0087858 (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
+ *     ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C0087984 (-CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z.c)
  */
 
 struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockAndRange(VIDMM_RECYCLE_HEAP_MGR **this)
@@ -23,14 +22,15 @@ struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockAndRa
   unsigned __int8 v5; // r9
   unsigned __int64 SmallAllocationBlockSize; // r10
   unsigned __int64 *BlockForType; // rax
-  unsigned __int64 *v8; // rdi
+  __int64 v8; // rdi
   struct VIDMM_RECYCLE_RANGE *Range; // rbx
-  unsigned __int64 v10; // r9
-  __int64 Multirange; // rax
-  __int64 v12; // rbp
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
+  __int64 v10; // r9
+  PSLIST_ENTRY Multirange; // rax
+  __int64 v12; // r8
+  PSLIST_ENTRY v13; // rbp
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
 
   SmallAllocationSize = VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(
                           (VIDMM_RECYCLE_HEAP_MGR *)this,
@@ -38,7 +38,7 @@ struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockAndRa
   if ( SmallAllocationSize > SmallAllocationBlockSize )
     SmallAllocationBlockSize = VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationBlockSize(v4, v3);
   BlockForType = (unsigned __int64 *)VIDMM_RECYCLE_HEAP::CreateBlockForType(v4, SmallAllocationBlockSize, v5);
-  v8 = BlockForType;
+  v8 = (__int64)BlockForType;
   if ( !BlockForType )
     return 0LL;
   Range = VIDMM_RECYCLE_HEAP_MGR::CreateRange(
@@ -53,35 +53,35 @@ struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockAndRa
   }
   if ( (unsigned int)(*(_DWORD *)this - 3) <= 3 || (unsigned int)(*(_DWORD *)this - 9) <= 1 )
     *((_DWORD *)Range + 20) = 1;
-  *((_QWORD *)Range + 16) = v8 + 9;
-  *((_QWORD *)Range + 15) = v8 + 9;
-  v10 = v8[5];
-  v8[10] = (unsigned __int64)Range + 120;
-  v8[9] = (unsigned __int64)Range + 120;
-  Multirange = VIDMM_RECYCLE_HEAP_MGR::CreateMultirange(this[1], 0LL, v8, v10, v8[6]);
-  v12 = Multirange;
+  *((_QWORD *)Range + 16) = v8 + 72;
+  *((_QWORD *)Range + 15) = v8 + 72;
+  v10 = *(_QWORD *)(v8 + 40);
+  *(_QWORD *)(v8 + 80) = (char *)Range + 120;
+  *(_QWORD *)(v8 + 72) = (char *)Range + 120;
+  Multirange = VIDMM_RECYCLE_HEAP_MGR::CreateMultirange((__int64)this[1], 0, v8, v10, *(_QWORD *)(v8 + 48));
+  v13 = Multirange;
   if ( !Multirange )
   {
-    VIDMM_RECYCLE_HEAP_MGR::DestroyRange(this[1], Range);
+    VIDMM_RECYCLE_HEAP_MGR::DestroyRange(this[1], Range, v12);
     return 0LL;
   }
-  *(_QWORD *)(Multirange + 64) = Range;
-  *(_QWORD *)(Multirange + 72) = Range;
-  VIDMM_RECYCLE_HEAP::AddMultirangeToTree(v8[4], 2LL, Multirange);
-  *((_QWORD *)Range + 17) = v12;
-  if ( (byte_1C0076982 & 2) != 0 )
+  Multirange[4].Next = (struct _SLIST_ENTRY *)Range;
+  *((_QWORD *)&Multirange[4].Next + 1) = Range;
+  VIDMM_RECYCLE_HEAP::AddMultirangeToTree(*(_QWORD **)(v8 + 32), 2LL, (__int64)Multirange);
+  *((_QWORD *)Range + 17) = v13;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
     McTemplateK0pppppppqq_EtwWriteTransfer(
-      v14,
-      v13,
       v15,
+      v14,
+      v16,
       **((_QWORD **)this[1] + 1),
       Range,
       v8,
-      v8[7],
+      *(_QWORD *)(v8 + 56),
       this,
       *((_QWORD *)Range + 4),
       *((_QWORD *)Range + 5),
       *(_DWORD *)this,
       *((_DWORD *)Range + 16));
-  return (struct VIDMM_RECYCLE_MULTIRANGE *)v12;
+  return (struct VIDMM_RECYCLE_MULTIRANGE *)v13;
 }

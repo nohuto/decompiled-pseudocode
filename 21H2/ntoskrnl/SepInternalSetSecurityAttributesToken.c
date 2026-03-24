@@ -1,16 +1,16 @@
 /*
- * XREFs of SepInternalSetSecurityAttributesToken @ 0x1405F3E6C
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x140595BEC
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1405F5440 (SeSetSecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesToken @ 0x1409C6300 (SeSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140597580 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x14091C920 (SeSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepShouldSetDelinkFlags @ 0x1407546B8 (SepShouldSetDelinkFlags.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepShouldSetDelinkFlags @ 0x140675C9C (SepShouldSetDelinkFlags.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, int *a4, __int64 a5)
@@ -49,7 +49,7 @@ __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MO
       }
       _InterlockedOr(v14, 0);
       ExReleaseResourceLite(v10[6]);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
     else
     {

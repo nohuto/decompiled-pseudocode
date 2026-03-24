@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AllocateBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIIPEAPEAX@Z @ 0x1C00B0F70
+ * XREFs of ?AllocateBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIIPEAPEAX@Z @ 0x1C00A3440
  * Callers:
  *     <none>
  * Callees:
- *     ?HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z @ 0x1C00B1030 (-HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z.c)
- *     ??$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z @ 0x1C00B105C (--$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0240E14 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     ??$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z @ 0x1C004D444 (--$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z.c)
+ *     ?HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z @ 0x1C00A3500 (-HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C01FF1F4 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
  */
 
 __int64 __fastcall CoreMessagingK::SendHost::AllocateBuffer(
@@ -16,16 +16,17 @@ __int64 __fastcall CoreMessagingK::SendHost::AllocateBuffer(
         unsigned int a4,
         void **a5)
 {
-  unsigned int v5; // ebx
-  unsigned __int16 v6; // di
-  unsigned __int16 v7; // bx
+  unsigned int v5; // edi
+  unsigned __int16 v6; // bx
+  unsigned __int16 v7; // di
   int v8; // eax
   int v9; // edx
   size_t v10; // r8
-  _DWORD *v11; // rbx
-  void *v13; // [rsp+20h] [rbp-18h] BYREF
+  _WORD *v11; // rdi
+  void *v12; // rax
+  void *v14; // [rsp+20h] [rbp-18h] BYREF
 
-  v13 = 0LL;
+  v14 = 0LL;
   v5 = CoreMessagingK::RegistrarClient::s_MaxSendMessagePayloadSize;
   v6 = a4;
   *a5 = 0LL;
@@ -34,20 +35,23 @@ __int64 __fastcall CoreMessagingK::SendHost::AllocateBuffer(
   if ( a4 > 0xFFAF )
     CoreMessagingK::Runtime::BugCheck(1281LL, a4, 0LL);
   v7 = v5 + 80;
-  v8 = CoreMessagingK::BufferCache::AllocUninitialized<AlpcBufferK>(v7, &v13);
+  v8 = CoreMessagingK::BufferCache::AllocUninitialized<AlpcBufferK>(v7, &v14);
   if ( v8 >= 0 )
   {
     v10 = v7;
-    v11 = v13;
-    memset(v13, 0, v10);
-    v11[18] = v6;
-    *((_WORD *)v11 + 33) = 1;
-    v11[14] = 2;
-    *((_WORD *)v11 + 1) = v6 + 80;
-    *(_WORD *)v11 = v6 + 40;
-    v9 = -v6;
-    *((_WORD *)v11 + 2) = 0x8000;
-    *a5 = (void *)((unsigned __int64)(v11 + 20) & -(__int64)(v6 != 0));
+    v11 = v14;
+    memset(v14, 0, v10);
+    v11[33] = 1;
+    *((_DWORD *)v11 + 14) = 2;
+    *((_DWORD *)v11 + 18) = v6;
+    v11[1] = v6 + 80;
+    *v11 = v6 + 40;
+    v11[2] = 0x8000;
+    if ( v6 )
+      v12 = v11 + 40;
+    else
+      v12 = 0LL;
+    *a5 = v12;
     v8 = 0;
   }
   return CoreMessagingK::HResultUtil::HRESULTFromNTStatus((CoreMessagingK::HResultUtil *)(unsigned int)v8, v9);

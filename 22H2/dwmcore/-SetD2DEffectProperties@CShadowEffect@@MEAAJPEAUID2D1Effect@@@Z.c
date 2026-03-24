@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CShadowEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180258DE0
+ * XREFs of ?SetD2DEffectProperties@CShadowEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F62A0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CShadowEffect::SetD2DEffectProperties(CShadowEffect *this, struct ID2D1Effect *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall CShadowEffect::SetD2DEffectProperties(CShadowEffect *this, st
          a2,
          0LL,
          0LL,
-         (char *)this + 176,
+         (char *)this + 152,
          4);
   v6 = v4;
   if ( v4 < 0 )
@@ -34,7 +34,7 @@ __int64 __fastcall CShadowEffect::SetD2DEffectProperties(CShadowEffect *this, st
            a2,
            1LL,
            0LL,
-           (char *)this + 180,
+           (char *)this + 156,
            16);
     v6 = v7;
     if ( v7 < 0 )
@@ -47,7 +47,7 @@ __int64 __fastcall CShadowEffect::SetD2DEffectProperties(CShadowEffect *this, st
              a2,
              2LL,
              0LL,
-             (char *)this + 196,
+             (char *)this + 172,
              4);
       v6 = v9;
       if ( v9 < 0 )

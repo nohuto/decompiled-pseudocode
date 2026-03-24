@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInitShutdownInProgress @ 0x1C005F760
+ * XREFs of ACPIInitShutdownInProgress @ 0x1C005E94C
  * Callers:
- *     ACPINotifyOsShutdownWorker @ 0x1C005F8A0 (ACPINotifyOsShutdownWorker.c)
- *     AcpiShutdownNotificationTimerWorkItem @ 0x1C0060070 (AcpiShutdownNotificationTimerWorkItem.c)
+ *     ACPINotifyOsShutdownWorker @ 0x1C005EA80 (ACPINotifyOsShutdownWorker.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C005F280 (AcpiShutdownNotificationTimerWorkItem.c)
  * Callees:
- *     ACPIInternalEvaluateOST @ 0x1C00573B4 (ACPIInternalEvaluateOST.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
  */
 
 BOOLEAN __fastcall ACPIInitShutdownInProgress(char *DeferredContext)

@@ -1,13 +1,12 @@
 /*
- * XREFs of McTemplateU0xxx_EventWriteTransfer @ 0x180244868
+ * XREFs of McTemplateU0xxx_EventWriteTransfer @ 0x1801F408C
  * Callers:
- *     ?SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z @ 0x180062144 (-SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z.c)
- *     ?NotifyMetaData@CDummyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x180289CA0 (-NotifyMetaData@CDummyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
- *     ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x180294350 (-NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180299F98 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z @ 0x1800D10C4 (-SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z.c)
+ *     ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1800E5B80 (-NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2900 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)

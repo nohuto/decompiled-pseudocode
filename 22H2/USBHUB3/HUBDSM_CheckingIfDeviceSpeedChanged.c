@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceSpeedChanged @ 0x1C00244B0
+ * XREFs of HUBDSM_CheckingIfDeviceSpeedChanged @ 0x1C0021CD0
  * Callers:
  *     <none>
  * Callees:

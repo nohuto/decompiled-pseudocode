@@ -1,73 +1,71 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedDependencies @ 0x14058458C
+ * XREFs of PpmIdleCheckCoordinatedDependencies @ 0x140565F20
  * Callers:
- *     PpmIdleCheckCoordinatedDependency @ 0x1405846FC (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140584AA4 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566080 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566350 (PpmIdleCheckCoordinatedStateEligibility.c)
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405846FC (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedProcessorDependency @ 0x140584A10 (PpmIdleCheckCoordinatedProcessorDependency.c)
- *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140585500 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566080 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140566C54 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ *     PpmTestAndLockProcessor @ 0x14056796C (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedDependencies(
         __int64 a1,
         int a2,
         int a3,
-        int a4,
+        unsigned int a4,
         __int64 a5,
-        __int64 a6,
-        unsigned int a7,
+        unsigned int a6,
+        __int64 a7,
         __int64 a8,
         __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        unsigned __int64 *a12)
+        __int64 a10)
 {
-  unsigned int v12; // r14d
-  __int64 i; // rdi
-  unsigned int v17; // ecx
+  unsigned int v10; // edi
+  __int64 v14; // rbx
+  __int64 v15; // rsi
+  unsigned int v16; // ecx
   __int64 result; // rax
-  unsigned __int64 v19; // rbx
-  int Prcb; // eax
-  _QWORD v21[2]; // [rsp+60h] [rbp-38h] BYREF
-  int v22; // [rsp+B0h] [rbp+18h]
+  __int64 Prcb; // rsi
+  int v19; // [rsp+90h] [rbp+18h]
 
-  v22 = a3;
-  v12 = 0;
-  v21[0] = 0LL;
-  *a12 = -1LL;
-  if ( a7 )
+  v19 = a3;
+  v10 = 0;
+  if ( !a6 )
+    return 0LL;
+  v14 = a7 + 8;
+  v15 = a10;
+  while ( 1 )
   {
-    for ( i = a8 + 8; ; i += 24LL )
+    v16 = *(_DWORD *)(v14 - 8);
+    if ( v16 == -1 )
     {
-      v17 = *(_DWORD *)(i - 8);
-      if ( v17 == -1 )
-        break;
-      if ( v17 != *(_DWORD *)(a1 + 36) )
-      {
-        Prcb = KeGetPrcb(v17);
-        result = PpmIdleCheckCoordinatedProcessorDependency(Prcb, a4, i, a11, (__int64)v21);
-        goto LABEL_8;
-      }
-      v19 = -1LL;
-      v21[0] = -1LL;
-      result = PpmIdleSelectCoordinatedProcessorDependency(a1, a2, a4, a5, i, a9);
-LABEL_9:
-      if ( result )
-        return result;
-      a3 = v22;
-      if ( *a12 < v19 )
-        v19 = *a12;
-      ++v12;
-      *a12 = v19;
-      if ( v12 >= a7 )
-        return 0LL;
+      result = PpmIdleCheckCoordinatedDependency(a1, a2, a4, a5, a3, v14, a8, a9, v15);
     }
-    result = PpmIdleCheckCoordinatedDependency(a1, a2, a4, a5, a6, a3, i, a9, a10, a11, (__int64)v21);
-LABEL_8:
-    v19 = v21[0];
-    goto LABEL_9;
+    else if ( v16 == *(_DWORD *)(a1 + 36) )
+    {
+      result = PpmIdleSelectCoordinatedProcessorDependency(a1, a2, a4, a5, v14, a8);
+    }
+    else
+    {
+      Prcb = KeGetPrcb(v16);
+      if ( (int)PpmTestAndLockProcessor(Prcb, a10, v14) >= 0 )
+        result = *(_BYTE *)(PpmPlatformStates + 12)
+              && *(_DWORD *)(248LL * *(unsigned int *)(Prcb + 32820) + *(_QWORD *)(Prcb + 0x8000) + 1000) > a4
+               ? 2147483650LL
+               : 0LL;
+      else
+        result = 2147483653LL;
+      v15 = a10;
+    }
+    if ( result )
+      break;
+    a3 = v19;
+    ++v10;
+    v14 += 24LL;
+    if ( v10 >= a6 )
+      return 0LL;
   }
-  return 0LL;
+  return result;
 }

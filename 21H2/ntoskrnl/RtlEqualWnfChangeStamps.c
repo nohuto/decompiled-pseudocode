@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEqualWnfChangeStamps @ 0x1409BB6F0
+ * XREFs of RtlEqualWnfChangeStamps @ 0x1409160A0
  * Callers:
  *     <none>
  * Callees:

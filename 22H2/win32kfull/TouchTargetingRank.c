@@ -1,8 +1,8 @@
 /*
- * XREFs of TouchTargetingRank @ 0x1C024E3F4
+ * XREFs of TouchTargetingRank @ 0x1C025F728
  * Callers:
- *     ?_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C024DAE4 (-_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@.c)
- *     TouchTargetingRankForRectDeep @ 0x1C024E9B8 (TouchTargetingRankForRectDeep.c)
+ *     ?_TTUpdateRankWithSegment@@YAXJJJJPEAUtagPOINT@@PEAGUtagRECT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C025EEB0 (-_TTUpdateRankWithSegment@@YAXJJJJPEAUtagPOINT@@PEAGUtagRECT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025FC80 (TouchTargetingRankForRectDeep.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastDdiMiracastQueryCaps @ 0x1C021BDC0
+ * XREFs of DpiMiracastDdiMiracastQueryCaps @ 0x1C019FB04
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0044DE4 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A3D8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiMiracastDdiMiracastQueryCaps(__int64 a1, __int64 a2, unsigned int *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall DpiMiracastDdiMiracastQueryCaps(__int64 a1, __int64 a2, unsig
   v6 = -1073741637;
   if ( v3 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
     {
       v15 = 0;
       v13 = 0;
@@ -44,7 +44,7 @@ __int64 __fastcall DpiMiracastDdiMiracastQueryCaps(__int64 a1, __int64 a2, unsig
       v7 = v3(*(_QWORD *)(a1 + 48), 8LL, a3);
     }
     v6 = v7;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
     {
       LODWORD(v14) = v7;
       LODWORD(v12) = a3[1];

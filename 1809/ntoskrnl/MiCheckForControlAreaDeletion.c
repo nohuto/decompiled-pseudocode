@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckForControlAreaDeletion @ 0x140119F1C
+ * XREFs of MiCheckForControlAreaDeletion @ 0x140119F3C
  * Callers:
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
  *     MiDecrementControlAreaCount @ 0x140094E14 (MiDecrementControlAreaCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
- *     MiClearFilePointer @ 0x14011A01C (MiClearFilePointer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     MiClearFilePointer @ 0x14011A03C (MiClearFilePointer.c)
  */
 
 int __fastcall MiCheckForControlAreaDeletion(__int64 a1)

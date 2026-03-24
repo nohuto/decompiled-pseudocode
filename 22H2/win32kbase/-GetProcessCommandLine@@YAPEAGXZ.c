@@ -1,24 +1,20 @@
 /*
- * XREFs of ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C01401E8
+ * XREFs of ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C0128894
  * Callers:
- *     NtUserWin32kSysCallFilterStub @ 0x1C014DA60 (NtUserWin32kSysCallFilterStub.c)
+ *     NtUserWin32kSysCallFilterStub @ 0x1C0137110 (NtUserWin32kSysCallFilterStub.c)
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0066FA8 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00AB1EC (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
  */
 
-char *GetProcessCommandLine(void)
+unsigned __int16 *GetProcessCommandLine(void)
 {
   BOOL v0; // esi
-  char *v1; // rbx
+  __int64 v1; // rbx
   char **v2; // rdi
-  unsigned __int64 v3; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v4; // rcx
-  char **QuotaZInit; // rax
-  unsigned __int64 v6; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v7; // rcx
-  char *v8; // rax
+  char **v3; // rax
+  char *v4; // rax
   struct _CLIENT_ID ClientId; // [rsp+30h] [rbp-40h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   ULONG ProcessInformationLength; // [rsp+90h] [rbp+20h] BYREF
@@ -44,30 +40,22 @@ char *GetProcessCommandLine(void)
          &ProcessInformationLength) == -1073741820
     && ProcessInformationLength >= 0x10 )
   {
-    QuotaZInit = (char **)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                            v4,
-                            v3,
-                            ProcessInformationLength + 2LL,
-                            0x79747355u);
-    v2 = QuotaZInit;
-    if ( QuotaZInit )
+    v3 = (char **)Win32AllocPoolWithQuotaZInit(ProcessInformationLength + 2LL, 0x79747355u);
+    v2 = v3;
+    if ( v3 )
     {
       if ( ZwQueryInformationProcess(
              ProcessHandle,
              ProcessImageFileMapping|ProcessUserModeIOPL,
-             QuotaZInit,
+             v3,
              ProcessInformationLength,
              0LL) >= 0 )
       {
-        v8 = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       v7,
-                       v6,
-                       *(unsigned __int16 *)v2 + 2LL,
-                       0x79747355u);
-        v1 = v8;
-        if ( v8 )
+        v4 = (char *)Win32AllocPoolWithQuotaZInit(*(unsigned __int16 *)v2 + 2LL, 0x79747355u);
+        v1 = (__int64)v4;
+        if ( v4 )
           v0 = (int)RtlStringCchCopyNW(
-                      v8,
+                      v4,
                       *(unsigned __int16 *)v2 + 1LL,
                       v2[1],
                       (unsigned __int64)*(unsigned __int16 *)v2 >> 1) >= 0;
@@ -77,11 +65,11 @@ char *GetProcessCommandLine(void)
   if ( ProcessHandle )
     ZwClose(ProcessHandle);
   if ( v2 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v2);
+    Win32FreePool((__int64)v2);
   if ( !v0 && v1 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v1);
     return 0LL;
   }
-  return v1;
+  return (unsigned __int16 *)v1;
 }

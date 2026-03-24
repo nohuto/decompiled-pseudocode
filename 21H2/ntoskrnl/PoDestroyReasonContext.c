@@ -1,34 +1,44 @@
 /*
- * XREFs of PoDestroyReasonContext @ 0x14036B090
+ * XREFs of PoDestroyReasonContext @ 0x140282BD8
  * Callers:
- *     PoRegisterSystemState @ 0x140201CD0 (PoRegisterSystemState.c)
- *     NtSetTimerEx @ 0x1402E3150 (NtSetTimerEx.c)
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     ExpDeleteTimer @ 0x140356E00 (ExpDeleteTimer.c)
- *     NtCancelTimer @ 0x140356F50 (NtCancelTimer.c)
- *     PoCreatePowerRequest @ 0x140369E10 (PoCreatePowerRequest.c)
- *     PopPowerRequestCreateUserModeRequest @ 0x140369ECC (PopPowerRequestCreateUserModeRequest.c)
- *     NtSetTimer @ 0x1403749A0 (NtSetTimer.c)
- *     NtSetThreadExecutionState @ 0x1407EDD60 (NtSetThreadExecutionState.c)
- *     PopPowerRequestDelete @ 0x1407EF930 (PopPowerRequestDelete.c)
- *     PoCreateThermalRequest @ 0x140829400 (PoCreateThermalRequest.c)
- *     PoDeleteThermalRequest @ 0x14098B2F0 (PoDeleteThermalRequest.c)
- *     PopPowerAggregatorInitialize @ 0x140B02408 (PopPowerAggregatorInitialize.c)
- *     PopInitializeHighPerfPowerRequest @ 0x140B2D588 (PopInitializeHighPerfPowerRequest.c)
+ *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
+ *     NtSetTimerEx @ 0x1402491A0 (NtSetTimerEx.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     ExpDeleteTimer @ 0x1402601A0 (ExpDeleteTimer.c)
+ *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     NtSetTimer @ 0x1403769A0 (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
+ *     PopPowerRequestCreateInfo @ 0x14067CFCC (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
+ *     PoCreatePowerRequest @ 0x140772740 (PoCreatePowerRequest.c)
+ *     PoCreateThermalRequest @ 0x140790920 (PoCreateThermalRequest.c)
+ *     PoDeleteThermalRequest @ 0x1408E29D0 (PoDeleteThermalRequest.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140A710FC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PoDestroyReasonContext(_QWORD *P)
 {
   void *v2; // rcx
+  void *v3; // rcx
 
   if ( !*(_DWORD *)P )
   {
     v2 = (void *)P[1];
     if ( v2 )
       ObfDereferenceObjectWithTag(v2, 0x67446F50u);
+  }
+  if ( (unsigned int)Feature_3401902395__private_IsEnabledDeviceUsage() )
+  {
+    if ( *(_DWORD *)P )
+    {
+      v3 = (void *)P[3];
+      if ( v3 )
+        ExFreePoolWithTag(v3, 0x78435250u);
+    }
   }
   ExFreePoolWithTag(P, 0x78435250u);
 }

@@ -4,7 +4,7 @@
  *     PiUEventApplyAdditionalFilters @ 0x14058FB68 (PiUEventApplyAdditionalFilters.c)
  *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
  *     PiPnpRtlIsDeviceEnumerableForUser @ 0x140596B94 (PiPnpRtlIsDeviceEnumerableForUser.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

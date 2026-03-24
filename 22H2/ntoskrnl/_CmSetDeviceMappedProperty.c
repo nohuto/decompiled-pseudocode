@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmSetDeviceMappedProperty @ 0x140799F80
+ * XREFs of _CmSetDeviceMappedProperty @ 0x1407369EC
  * Callers:
- *     _PnpDispatchDevice @ 0x1406CD0C0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x140A6244C (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x1406B51F0 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x14072D948 (_CmDeleteDeviceWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmIsRootDevice @ 0x14079A9A8 (_CmIsRootDevice.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14087C0D0 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140880D70 (_CmSetDeviceMappedPropertyFromRegProp.c)
- *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A67510 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A67674 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A697D8 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmIsRootDevice @ 0x140693D04 (_CmIsRootDevice.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407282BC (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140733E9C (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140736C30 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140736E0C (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BA98 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedProperty(
         __int64 a1,
         const WCHAR *a2,
-        __int64 a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -28,7 +28,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
   unsigned int v13; // r9d
   DEVPROPKEY *v14; // rdx
   DEVPROPKEY **v15; // r8
-  __int64 v16; // r9
+  unsigned int v16; // r9d
   DEVPROPKEY *v17; // rdx
   DEVPROPKEY **v18; // r8
   unsigned int v19; // r9d
@@ -45,11 +45,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
   v11 = -1073741802;
   if ( !a4 )
   {
-    if ( (unsigned __int8)CmIsRootDevice(a2) )
-    {
-      return (unsigned int)-1073741790;
-    }
-    else
+    if ( !CmIsRootDevice(a2) )
     {
       v12 = &CmDeviceRegPropMap;
       v13 = 0;
@@ -69,12 +65,12 @@ __int64 __fastcall CmSetDeviceMappedProperty(
         if ( v13 >= 0x21 )
           goto LABEL_7;
       }
-      v11 = CmSetDeviceMappedPropertyFromRegProp(a1, (_DWORD)a2, a3, a5, a6, (__int64)Time, a8);
+      v11 = CmSetDeviceMappedPropertyFromRegProp(a1, (_DWORD)a2, (_DWORD)a3, a5, a6, (__int64)Time, a8);
       if ( v11 != -1073741802 )
         return v11;
 LABEL_7:
-      v15 = &off_140A7B220;
-      v16 = 0LL;
+      v15 = &off_1409868F0;
+      v16 = 0;
       while ( 1 )
       {
         v17 = *v15;
@@ -86,18 +82,18 @@ LABEL_7:
           if ( !v27 )
             break;
         }
-        v16 = (unsigned int)(v16 + 1);
+        ++v16;
         v15 += 4;
-        if ( (unsigned int)v16 >= 0xD )
+        if ( v16 >= 0xD )
           goto LABEL_10;
       }
       if ( a6 < 2 )
-        CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(a1, a2, a5, v16);
+        CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(a1, (__int64)a2, a5);
       else
         CmSetDeviceMappedPropertyFromDriverKeyRegValue(a1, (int)a2, a5, a6, Time, a8);
       v11 = -1073741802;
 LABEL_10:
-      v18 = &off_140A783B0;
+      v18 = &off_140983E10;
       v19 = 0;
       while ( 1 )
       {
@@ -115,40 +111,36 @@ LABEL_10:
         if ( v19 >= 2 )
           goto LABEL_13;
       }
-      if ( a6 < 2 )
-        v29 = CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(a1, a2, a3, a5);
-      else
+      if ( a6 >= 2 )
         v29 = CmSetDeviceMappedPropertyFromInstanceKeyRegValue(a1, a2, a3, a5, a6, Time, a8);
+      else
+        v29 = CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(a1, (__int64)a2, a3, a5);
       v11 = v29;
       if ( v29 >= 0 )
-      {
-        PnpObjectRaisePropertyChangeEvent(a1, (__int64)a2, 1LL, a3, 0LL, a5);
+        PnpObjectRaisePropertyChangeEvent(a1, (_DWORD)a2, 1, (_DWORD)a3, 0LL, a5);
+      if ( v11 != -1073741802 )
         return v11;
-      }
-      if ( v29 == -1073741802 )
-      {
 LABEL_13:
-        v21 = &off_140A7A7C0;
-        v22 = 0;
-        while ( 1 )
+      v21 = &off_140985E00;
+      v22 = 0;
+      while ( 1 )
+      {
+        v23 = *v21;
+        if ( *(_DWORD *)(a5 + 16) == (*v21)->pid )
         {
-          v23 = *v21;
-          if ( *(_DWORD *)(a5 + 16) == (*v21)->pid )
-          {
-            v25 = *(_QWORD *)a5 - *(_QWORD *)&v23->fmtid.Data1;
-            if ( *(_QWORD *)a5 == *(_QWORD *)&v23->fmtid.Data1 )
-              v25 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v23->fmtid.Data4;
-            if ( !v25 )
-              break;
-          }
-          ++v22;
-          v21 += 2;
-          if ( v22 >= 0x1C )
-            return v11;
+          v25 = *(_QWORD *)a5 - *(_QWORD *)&v23->fmtid.Data1;
+          if ( *(_QWORD *)a5 == *(_QWORD *)&v23->fmtid.Data1 )
+            v25 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v23->fmtid.Data4;
+          if ( !v25 )
+            break;
         }
-        return (unsigned int)-1073741790;
+        ++v22;
+        v21 += 2;
+        if ( v22 >= 0x1B )
+          return v11;
       }
     }
+    return (unsigned int)-1073741790;
   }
   return v11;
 }

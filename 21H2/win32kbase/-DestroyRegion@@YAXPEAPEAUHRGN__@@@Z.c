@@ -1,20 +1,20 @@
 /*
- * XREFs of ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C0051858
+ * XREFs of ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00079E4
  * Callers:
- *     CleanupGDI @ 0x1C00514B8 (CleanupGDI.c)
+ *     CleanupGDI @ 0x1C000763C (CleanupGDI.c)
  * Callees:
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     GreSetRegionOwner @ 0x1C00285E0 (GreSetRegionOwner.c)
+ *     GreSetRegionOwner @ 0x1C0035410 (GreSetRegionOwner.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
  */
 
-void __fastcall DestroyRegion(HRGN *a1)
+void __fastcall DestroyRegion(HBRUSH *a1)
 {
-  HRGN v2; // rcx
+  HBRUSH v2; // rcx
 
   v2 = *a1;
   if ( v2 )
   {
-    GreSetRegionOwner((__int64)v2, 0x80000002);
+    GreSetRegionOwner(v2, 2147483650LL);
     GreDeleteObject(*a1);
     *a1 = 0LL;
   }

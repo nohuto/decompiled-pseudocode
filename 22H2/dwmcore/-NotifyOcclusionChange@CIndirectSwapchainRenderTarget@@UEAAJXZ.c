@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ @ 0x1801EF300
+ * XREFs of ?NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ @ 0x180189A20
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 __int64 __fastcall CIndirectSwapchainRenderTarget::NotifyOcclusionChange(CIndirectSwapchainRenderTarget *this)
 {
   *((_BYTE *)this + 65) = 1;
-  return CIndirectSwapchainRenderTarget::EnsureMetadataBuffer((CIndirectSwapchainRenderTarget *)((char *)this - 1864));
+  return CIndirectSwapchainRenderTarget::EnsureMetadataBuffer((CIndirectSwapchainRenderTarget *)((char *)this - 1880));
 }

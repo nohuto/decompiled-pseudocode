@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnCheckLoggingForThread @ 0x1400D5320
+ * XREFs of PfSnCheckLoggingForThread @ 0x1400D5340
  * Callers:
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     PfFileInfoNotify @ 0x1400D3DC0 (PfFileInfoNotify.c)
- *     PfSnLogPageFault @ 0x1400D7490 (PfSnLogPageFault.c)
+ *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
+ *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall PfSnCheckLoggingForThread(__int64 a1, __int64 a2, char a3)

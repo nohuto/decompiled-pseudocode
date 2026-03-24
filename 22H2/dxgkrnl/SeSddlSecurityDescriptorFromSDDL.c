@@ -1,11 +1,10 @@
 /*
- * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C03970A0
+ * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C02C4724
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C0396E20 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C02C44A0 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C0397944 (SepSddlSecurityDescriptorFromSDDLString.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C02C4FD0 (SepSddlSecurityDescriptorFromSDDLString.c)
  */
 
 __int64 __fastcall SeSddlSecurityDescriptorFromSDDL(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
@@ -14,8 +13,8 @@ __int64 __fastcall SeSddlSecurityDescriptorFromSDDL(unsigned __int16 *a1, __int6
   SIZE_T v6; // r9
   __int64 v7; // rcx
   unsigned __int64 v8; // rdx
-  PVOID PoolWithTag; // rax
-  void *v11; // rsi
+  _WORD *PoolWithTag; // rax
+  _WORD *v11; // rsi
   __int64 v12; // rdx
   unsigned int v13; // ebx
 
@@ -32,9 +31,8 @@ __int64 __fastcall SeSddlSecurityDescriptorFromSDDL(unsigned __int16 *a1, __int6
   v11 = PoolWithTag;
   if ( PoolWithTag )
   {
-    memset(PoolWithTag, 0, *a1 + 2LL);
-    memmove(v11, *((const void **)a1 + 1), *a1);
-    *((_WORD *)v11 + ((unsigned __int64)*a1 >> 1)) = 0;
+    memmove(PoolWithTag, *((const void **)a1 + 1), *a1);
+    v11[(unsigned __int64)*a1 >> 1] = 0;
     v13 = SepSddlSecurityDescriptorFromSDDLString(v11, v12, a3);
     ExFreePoolWithTag(v11, 0);
     return v13;

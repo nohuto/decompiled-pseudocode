@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_PurgingDeviceTreeIoOnReEnumerationInUnConfigured @ 0x1C00215B0
+ * XREFs of HUBDSM_PurgingDeviceTreeIoOnReEnumerationInUnConfigured @ 0x1C0021160
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl @ 0x1C00268B0 (HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl @ 0x1C0026400 (HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_PurgingDeviceTreeIoOnReEnumerationInUnConfigured(__int64 a1)

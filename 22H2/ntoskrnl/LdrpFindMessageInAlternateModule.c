@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpFindMessageInAlternateModule @ 0x1402F6D64
+ * XREFs of LdrpFindMessageInAlternateModule @ 0x140301428
  * Callers:
- *     LdrpLoadResourceFromAlternativeModule @ 0x1402F7700 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140300848 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x140301D18 (LdrpLoadResourceFromAlternativeModule.c)
  * Callees:
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140755C38 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140672638 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
 __int64 __fastcall LdrpFindMessageInAlternateModule(

@@ -1,96 +1,93 @@
 /*
- * XREFs of NtUserUpdateWindowTrackingInfo @ 0x1C01DFC00
+ * XREFs of NtUserUpdateWindowTrackingInfo @ 0x1C0203D60
  * Callers:
  *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C004A8D4 (-TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowT.c)
- *     ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00C098C (-IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     UpdateSizeTrackingInfo @ 0x1C01F2298 (UpdateSizeTrackingInfo.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00496F0 (-IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C011C764 (-TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowT.c)
+ *     UpdateSizeTrackingInfo @ 0x1C0210B38 (UpdateSizeTrackingInfo.c)
  */
 
-__int64 __fastcall NtUserUpdateWindowTrackingInfo(__int64 a1, __int64 *a2, __int64 *a3)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall NtUserUpdateWindowTrackingInfo(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
-  __int64 v6; // rax
-  __int64 v7; // rdx
+  int updated; // edi
+  __int64 v7; // rax
   __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  struct tagWND *v11; // rsi
-  int updated; // ebx
-  __int64 v13; // rdx
-  unsigned int v14; // r8d
-  int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  int v19; // eax
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  INT v23[4]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v24; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v25; // [rsp+40h] [rbp-28h]
-  __int64 v26; // [rsp+88h] [rbp+20h] BYREF
+  struct tagWND *v9; // rsi
+  __int64 v10; // rdx
+  unsigned int v11; // r8d
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rcx
+  INT v19[4]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-28h]
+  unsigned __int64 v22; // [rsp+88h] [rbp+20h] BYREF
 
-  v24 = 0LL;
-  v25 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   EnterCrit(0LL, 1LL);
-  v6 = ValidateHwnd(a1);
-  v11 = (struct tagWND *)v6;
   updated = 0;
-  if ( v6 )
+  gbValidateHandleForIL = 0;
+  v7 = ValidateHwnd(a1);
+  v9 = (struct tagWND *)v7;
+  if ( v7 && (((*(_WORD *)(*(_QWORD *)(v7 + 40) + 42LL) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0 )
   {
-    v8 = (*(_WORD *)(*(_QWORD *)(v6 + 40) + 42LL) & 0x2FFFu) - 669;
-    if ( (v8 & 0xFFFFFFFD) != 0 )
+    *(_QWORD *)&v20 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v20;
+    *((_QWORD *)&v20 + 1) = v7;
+    HMLockObject(v7);
+    if ( IsShellParticipatesInSizing(v9, v10, v11) )
     {
-      *(_QWORD *)&v24 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v24;
-      *((_QWORD *)&v24 + 1) = v6;
-      HMLockObject(v6);
-      if ( IsShellParticipatesInSizing(v11, v13, v14) )
+      if ( *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL)
+                                                                                 + 328LL)
+                                                                     + 16LL)
+                                                         + 424LL)
+        && IAMThreadAccessGranted(gptiCurrent) )
       {
-        if ( *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL)
-                                                                                   + 328LL)
-                                                                       + 16LL)
-                                                           + 424LL)
-          && (LOBYTE(v19) = IAMThreadAccessGranted(gptiCurrent), v19) )
+        if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+          a2 = (unsigned __int64 *)MmUserProbeAddress;
+        v16 = *a2;
+        *(_QWORD *)v19 = *a2;
+        if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+          a3 = (unsigned __int64 *)MmUserProbeAddress;
+        v17 = *a3;
+        v22 = *a3;
+        if ( (int)v16 > 0 )
         {
-          if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-            a2 = (__int64 *)MmUserProbeAddress;
-          v20 = *a2;
-          *(_QWORD *)v23 = *a2;
-          if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-            a3 = (__int64 *)MmUserProbeAddress;
-          v21 = *a3;
-          v26 = *a3;
-          if ( (int)v20 > 0
-            && SHIDWORD(v20) > 0
-            && (int)v21 > 0
-            && SHIDWORD(v21) > 0
-            && (int)v20 >= (int)v21
-            && v23[1] >= SHIDWORD(v26) )
+          v12 = HIDWORD(v16);
+          if ( SHIDWORD(v16) > 0 && (int)v17 > 0 )
           {
-            ShellWindowManagement::TransformWindowTrackInfo((__int64)v11, v23, (INT *)&v26, 1);
-            updated = UpdateSizeTrackingInfo(v11, v23, &v26);
-            goto LABEL_21;
+            v12 = HIDWORD(v17);
+            if ( SHIDWORD(v17) > 0 && (int)v16 >= (int)v17 && v19[1] >= SHIDWORD(v22) )
+            {
+              ShellWindowManagement::TransformWindowTrackInfo((__int64)v9, v19, (INT *)&v22, 1);
+              updated = UpdateSizeTrackingInfo(v9);
+              goto LABEL_21;
+            }
           }
-          v15 = 87;
         }
-        else
-        {
-          v15 = 5;
-        }
+        v14 = 87LL;
       }
       else
       {
-        v15 = 5023;
+        v14 = 5LL;
       }
-      UserSetLastError(v15);
-LABEL_21:
-      ThreadUnlock1(v17, v16, v18);
     }
+    else
+    {
+      v14 = 5023LL;
+    }
+    UserSetLastError(v14, v12, v13);
+LABEL_21:
+    ThreadUnlock1(v15);
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
+  UserSessionSwitchLeaveCrit(v8);
   return updated;
 }

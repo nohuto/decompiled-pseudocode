@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCopyDeviceInstancePath @ 0x14073A098
+ * XREFs of PnpCopyDeviceInstancePath @ 0x14073A078
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406DA66C (IopInitializeDeviceInstanceKey.c)
- *     PiInitializeDevice @ 0x14083C184 (PiInitializeDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x14083C164 (PiInitializeDevice.c)
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
  */
 
 void __fastcall PnpCopyDeviceInstancePath(__int64 a1, const UNICODE_STRING *a2)

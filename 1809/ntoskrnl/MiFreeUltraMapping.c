@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeUltraMapping @ 0x14018FBD8
+ * XREFs of MiFreeUltraMapping @ 0x14018FBF8
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
- *     MiReleaseLargeZeroingVa @ 0x1402C1B60 (MiReleaseLargeZeroingVa.c)
+ *     MiReleaseLargeZeroingVa @ 0x1402C1C60 (MiReleaseLargeZeroingVa.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeUltraMapping(unsigned __int64 a1)

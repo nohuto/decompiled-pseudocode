@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReleaseDriverPtes @ 0x14076200C
+ * XREFs of MiReleaseDriverPtes @ 0x14075FCF0
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MiReturnSystemImageAddress @ 0x140761FC0 (MiReturnSystemImageAddress.c)
- *     MmUnmapLockedRestartPages @ 0x140968160 (MmUnmapLockedRestartPages.c)
- *     MiReleaseSystemImageVa @ 0x140B52AA8 (MiReleaseSystemImageVa.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiReturnSystemImageAddress @ 0x14075FCA4 (MiReturnSystemImageAddress.c)
+ *     MmUnmapLockedRestartPages @ 0x1408C4B70 (MmUnmapLockedRestartPages.c)
+ *     MiReleaseSystemImageVa @ 0x140A92C18 (MiReleaseSystemImageVa.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
- *     MiUnlockDriverMappings @ 0x1402DC188 (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x1402DC334 (MiLockDriverMappings.c)
- *     RtlAreBitsSet @ 0x1402DC360 (RtlAreBitsSet.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     RtlAreBitsSet @ 0x1402AEB10 (RtlAreBitsSet.c)
+ *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
+ *     MiUnlockDriverMappings @ 0x1403729C8 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x140372BBC (MiLockDriverMappings.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, unsigned int a3)
@@ -39,7 +39,7 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, unsign
   v9 = (__int64)(a2 << 25) >> 16;
   MiLockDriverMappings((__int64)CurrentThread);
   v13 = v5;
-  v10 = (RTL_BITMAP *)qword_140C4F4E8[v5];
+  v10 = (RTL_BITMAP *)*(&qword_140C4CD30 + v5);
   if ( !v10 )
     goto LABEL_16;
   do
@@ -73,7 +73,7 @@ LABEL_16:
     if ( v7 )
       *(_QWORD *)&v7->SizeOfBitMap = v12;
     else
-      qword_140C4F4E8[v13] = v12;
+      *(&qword_140C4CD30 + v13) = v12;
     MiUnlockDriverMappings((__int64)CurrentThread);
     ExFreePoolWithTag(v10, 0);
   }

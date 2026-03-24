@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReferencePfBackedSection @ 0x140130400
+ * XREFs of MiReferencePfBackedSection @ 0x140130420
  * Callers:
- *     MiTrimSharedPage @ 0x1400E9750 (MiTrimSharedPage.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576BC (MiGetPageFileSectionForReservation.c)
+ *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiBuildWakeList @ 0x14001E4A8 (MiBuildWakeList.c)
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiReferencePfBackedSection(unsigned __int64 a1)

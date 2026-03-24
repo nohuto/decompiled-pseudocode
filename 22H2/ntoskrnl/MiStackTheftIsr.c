@@ -1,102 +1,106 @@
 /*
- * XREFs of MiStackTheftIsr @ 0x14062D4D0
+ * XREFs of MiStackTheftIsr @ 0x1405363A0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeFlushSingleCurrentTb @ 0x14038A710 (KeFlushSingleCurrentTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCopyKstack @ 0x14062CB50 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x14062D6E8 (MiSwitchKstackPages.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeFlushSingleCurrentTb @ 0x1403897D8 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyKstack @ 0x140535B90 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x1405365AC (MiSwitchKstackPages.c)
  */
 
-ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument)
+ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int64 v1; // r15
+  unsigned __int64 v4; // r15
   unsigned __int8 CurrentIrql; // r14
-  _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
-  signed __int32 v6; // eax
-  unsigned int v7; // ebx
-  __int64 v8; // rdi
-  __int64 v9; // rbx
-  signed __int32 v10; // eax
-  unsigned int v11; // ebx
-  signed __int32 v12; // eax
-  unsigned __int8 v13; // al
+  signed __int32 v7; // eax
+  unsigned int v8; // ebx
+  __int64 v9; // rdi
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  char v14; // al
+  signed __int32 v15; // eax
+  unsigned int v16; // ebx
+  signed __int32 v17; // eax
+  unsigned __int8 v18; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  _DWORD *v20; // r8
+  int v21; // eax
+  bool v22; // zf
   ULONG_PTR result; // rax
-  int v19; // [rsp+60h] [rbp+8h] BYREF
-  int v20; // [rsp+68h] [rbp+10h] BYREF
-  int v21; // [rsp+70h] [rbp+18h] BYREF
+  int v24; // [rsp+60h] [rbp+8h] BYREF
+  int v25; // [rsp+68h] [rbp+10h] BYREF
+  int v26; // [rsp+70h] [rbp+18h] BYREF
 
-  v1 = *(_QWORD *)(Argument + 40);
+  v4 = *(_QWORD *)(Argument + 48);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v5) = 0x8000;
-    else
-      v5 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v5;
+    a2 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  v6 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 64));
-  v7 = ~v6 & 0x80000000;
-  if ( (v6 & 0x7FFFFFFF) != 0 )
+  v25 = 0;
+  v7 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
+  v8 = ~v7 & 0x80000000;
+  if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v20 = 0;
-    while ( (*(_DWORD *)(Argument + 64) & 0x80000000) != v7 )
-      KeYieldProcessorEx(&v20);
-    v12 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 64));
-    v11 = ~v12 & 0x80000000;
-    if ( (v12 & 0x7FFFFFFF) == 0 )
-      goto LABEL_10;
-    v21 = 0;
-    while ( (*(_DWORD *)(Argument + 64) & 0x80000000) != v11 )
-      KeYieldProcessorEx(&v21);
+    while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v8 )
+      KeYieldProcessorEx(&v25, a2, a3, (__int64)SchedulerAssist);
+    v26 = 0;
+    v17 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
+    v16 = ~v17 & 0x80000000;
+    if ( (v17 & 0x7FFFFFFF) == 0 )
+      goto LABEL_7;
+    while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v16 )
+      KeYieldProcessorEx(&v26, a2, a3, (__int64)SchedulerAssist);
   }
   else
   {
-    *(_DWORD *)(Argument + 64) = *(_DWORD *)(Argument + 68) | v7;
-    v8 = 48LL * *(_QWORD *)Argument - 0x220000000000LL;
-    v9 = 48LL * *(_QWORD *)(Argument + 8) - 0x220000000000LL;
-    MiCopyKstack(v9, v8, *(_QWORD *)(Argument + 16));
-    KeFlushSingleCurrentTb(v1, 0);
-    MiSwitchKstackPages(v9, v8);
-    *(_QWORD *)(v8 + 40) &= ~0x8000000000000000uLL;
-    *(_BYTE *)(v8 + 34) &= 0xC7u;
-    *(_BYTE *)(v8 + 35) &= ~0x20u;
-    v10 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 64));
-    v11 = ~v10 & 0x80000000;
-    if ( (v10 & 0x7FFFFFFF) == 0 )
+    *(_DWORD *)(Argument + 72) = v8 | *(_DWORD *)(Argument + 76);
+    v9 = 48LL * *(_QWORD *)Argument - 0x58000000000LL;
+    v10 = 48LL * *(_QWORD *)(Argument + 8) - 0x58000000000LL;
+    MiCopyKstack(v10, v9, *(_QWORD *)(Argument + 16));
+    KeFlushSingleCurrentTb(v4, 0);
+    MiSwitchKstackPages(v10, v9);
+    *(_QWORD *)(v9 + 40) &= ~0x8000000000000000uLL;
+    *(_BYTE *)(v9 + 34) &= 0xC7u;
+    v14 = *(_BYTE *)(v9 + 35) & 0xDF;
+    v24 = 0;
+    *(_BYTE *)(v9 + 35) = v14;
+    v15 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
+    v16 = ~v15 & 0x80000000;
+    if ( (v15 & 0x7FFFFFFF) == 0 )
     {
-LABEL_10:
-      *(_DWORD *)(Argument + 64) = *(_DWORD *)(Argument + 68) | v11;
-      goto LABEL_21;
+LABEL_7:
+      *(_DWORD *)(Argument + 72) = v16 | *(_DWORD *)(Argument + 76);
+      goto LABEL_17;
     }
-    v19 = 0;
-    while ( (*(_DWORD *)(Argument + 64) & 0x80000000) != v11 )
-      KeYieldProcessorEx(&v19);
+    while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v16 )
+      KeYieldProcessorEx(&v24, v11, v12, v13);
   }
-LABEL_21:
-  KeFlushSingleCurrentTb(v1, 0);
+LABEL_17:
+  KeFlushSingleCurrentTb(v4, 0);
   if ( KiIrqlFlags )
   {
-    v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v15 = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v17 = (v16 & v15[5]) == 0;
-      v15[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v18 = KeGetCurrentIrql();
+      if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v20 = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v22 = (v21 & v20[5]) == 0;
+        v20[5] &= v21;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

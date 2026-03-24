@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeReservationRuns @ 0x1406B8E6C
+ * XREFs of MiFreeReservationRuns @ 0x1406B8E4C
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x1402CB990 (MmOutSwapVirtualAddresses.c)
- *     MiReserveWorkingSetSwapSpace @ 0x14085EB6C (MiReserveWorkingSetSwapSpace.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapVirtualAddresses @ 0x1402CBA90 (MmOutSwapVirtualAddresses.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x14085EB4C (MiReserveWorkingSetSwapSpace.c)
  * Callees:
- *     MiFreeReservationRun @ 0x1406B8EB4 (MiFreeReservationRun.c)
+ *     MiFreeReservationRun @ 0x1406B8E94 (MiFreeReservationRun.c)
  */
 
 __int64 __fastcall MiFreeReservationRuns(__int64 a1, unsigned __int64 a2)

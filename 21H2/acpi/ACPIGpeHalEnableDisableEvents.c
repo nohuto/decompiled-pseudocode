@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGpeHalEnableDisableEvents @ 0x1C00564C0
+ * XREFs of ACPIGpeHalEnableDisableEvents @ 0x1C0055F80
  * Callers:
  *     <none>
  * Callees:
- *     ACPIReadGpeStatusRegister @ 0x1C001FEBC (ACPIReadGpeStatusRegister.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
- *     READ_PM1_STATUS @ 0x1C00246E8 (READ_PM1_STATUS.c)
- *     memset @ 0x1C0030080 (memset.c)
+ *     READ_PM1_STATUS @ 0x1C0010154 (READ_PM1_STATUS.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0026904 (ACPIReadGpeStatusRegister.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 void *__fastcall ACPIGpeHalEnableDisableEvents(char a1)

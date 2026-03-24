@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdateLightToWorldForScene@CCompositionLight@@EEAAJPEBVCDrawingContext@@@Z @ 0x180219930
+ * XREFs of ?UpdateLightToWorldForScene@CCompositionLight@@EEAAJPEBVCDrawingContext@@@Z @ 0x1801F4900
  * Callers:
  *     <none>
  * Callees:
- *     ?GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x18004B370 (-GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x1800B71D0 (-GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CCompositionLight::UpdateLightToWorldForScene(
@@ -17,15 +17,15 @@ __int64 __fastcall CCompositionLight::UpdateLightToWorldForScene(
   unsigned int v6; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = (CVisual *)(*(__int64 (__fastcall **)(CCompositionLight *))(*(_QWORD *)this + 200LL))(this);
-  WorldTransform = CVisual::GetWorldTransform(v4, a2[1007], 3, (CCompositionLight *)((char *)this + 184), 0LL, 0LL);
+  v4 = (CVisual *)(*(__int64 (__fastcall **)(CCompositionLight *))(*(_QWORD *)this + 216LL))(this);
+  WorldTransform = CVisual::GetWorldTransform(v4, a2[741], 3, (__int64)this + 176, 0LL, 0LL);
   v6 = WorldTransform;
   if ( WorldTransform >= 0 )
     return 0LL;
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x26B,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionlight.cpp",
+    (void *)0x264,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionlight.cpp",
     (const char *)(unsigned int)WorldTransform);
   return v6;
 }

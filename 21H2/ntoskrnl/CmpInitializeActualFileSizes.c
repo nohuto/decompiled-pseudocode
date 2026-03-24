@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitializeActualFileSizes @ 0x140689C24
+ * XREFs of CmpInitializeActualFileSizes @ 0x140724468
  * Callers:
- *     HvLoadHive @ 0x14068C238 (HvLoadHive.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
+ *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
  * Callees:
- *     CmpGetFileSize @ 0x140689D3C (CmpGetFileSize.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140689DAC (HvpLogTypeToLogArrayIndex.c)
- *     CmpLogFailureToGetFileSize @ 0x14091D320 (CmpLogFailureToGetFileSize.c)
+ *     CmpGetFileSize @ 0x140724580 (CmpGetFileSize.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
+ *     CmpLogFailureToGetFileSize @ 0x140876814 (CmpLogFailureToGetFileSize.c)
  */
 
 __int64 __fastcall CmpInitializeActualFileSizes(__int64 a1, _DWORD *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall CmpInitializeActualFileSizes(__int64 a1, _DWORD *a2)
   __int64 v20; // [rsp+30h] [rbp+8h] BYREF
 
   v20 = 0LL;
-  FileSize = CmpGetFileSize(*(_QWORD *)(a1 + 1544), &v20);
+  FileSize = CmpGetFileSize(*(_QWORD *)(a1 + 1536), &v20);
   v6 = FileSize;
   if ( FileSize < 0 )
   {
@@ -37,7 +37,7 @@ __int64 __fastcall CmpInitializeActualFileSizes(__int64 a1, _DWORD *a2)
     return v6;
   }
   v7 = v20;
-  *(_QWORD *)(a1 + 1800) = v20;
+  *(_QWORD *)(a1 + 1792) = v20;
   if ( v7 )
   {
     v8 = v7;
@@ -48,32 +48,32 @@ __int64 __fastcall CmpInitializeActualFileSizes(__int64 a1, _DWORD *a2)
   {
     v8 = (unsigned int)(*(_DWORD *)(*(_QWORD *)(a1 + 64) + 40LL) + 4096);
   }
-  *(_QWORD *)(a1 + 1800) = v8;
+  *(_QWORD *)(a1 + 1792) = v8;
   if ( a2 )
     *a2 = v8;
-  v9 = *(_DWORD *)(a1 + 168);
+  v9 = *(_DWORD *)(a1 + 164);
   v10 = 1;
   if ( v9 == 1 )
   {
-    v15 = CmpGetFileSize(*(_QWORD *)(a1 + 1552), &v20);
+    v15 = CmpGetFileSize(*(_QWORD *)(a1 + 1544), &v20);
 LABEL_12:
     if ( v15 < 0 )
       CmpLogFailureToGetFileSize(v16, v10, (unsigned int)v15);
     v17 = HvpLogTypeToLogArrayIndex(v10);
-    *(_QWORD *)(a1 + 8LL * v17 + 1808) = v18;
+    *(_QWORD *)(a1 + 8LL * v17 + 1800) = v18;
     return 0;
   }
   if ( (unsigned int)(v9 - 4) <= 1 )
   {
-    v11 = CmpGetFileSize(*(_QWORD *)(a1 + 1576), &v20);
+    v11 = CmpGetFileSize(*(_QWORD *)(a1 + 1568), &v20);
     if ( v11 < 0 )
     {
       CmpLogFailureToGetFileSize(v12, 4LL, (unsigned int)v11);
       v20 = 0LL;
     }
     v13 = HvpLogTypeToLogArrayIndex(4LL);
-    *(_QWORD *)(a1 + 8LL * v13 + 1808) = v14;
-    v15 = CmpGetFileSize(*(_QWORD *)(a1 + 1584), &v20);
+    *(_QWORD *)(a1 + 8LL * v13 + 1800) = v14;
+    v15 = CmpGetFileSize(*(_QWORD *)(a1 + 1576), &v20);
     v10 = 5;
     goto LABEL_12;
   }

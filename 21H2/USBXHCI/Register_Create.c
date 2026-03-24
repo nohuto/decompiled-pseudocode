@@ -1,13 +1,13 @@
 /*
- * XREFs of Register_Create @ 0x1C0071450
+ * XREFs of Register_Create @ 0x1C006E074
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C0005AD0 (Controller_IsSecureDevice.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Register_CreateSecureObject @ 0x1C0077E80 (Register_CreateSecureObject.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Register_CreateSecureObject @ 0x1C0076A80 (Register_CreateSecureObject.c)
  */
 
 __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
   v16 = 0LL;
   v13 = 1;
   v14 = 1;
-  v17 = off_1C0061158;
+  v17 = off_1C0060158;
   v15 = *(_QWORD *)(a1 + 8);
   v11 = 0LL;
   v10 = 56;
@@ -46,7 +46,7 @@ __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v5) = 2;
-      WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 72), v5, 6, 10, (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids, v4);
+      WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 72), v5, 6, 10, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids, v4);
     }
   }
   else
@@ -54,7 +54,7 @@ __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
     v7 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      v18,
-                     off_1C0061158);
+                     off_1C0060158);
     v7[1] = a1;
     *v7 = v18;
     if ( !Controller_IsSecureDevice(a1) || (SecureObject = Register_CreateSecureObject(v7), SecureObject >= 0) )
@@ -67,7 +67,7 @@ __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
           v8,
           6,
           11,
-          (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids,
+          (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
           v18);
       }
       *a2 = v7;

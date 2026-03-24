@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DA38
+ * XREFs of ?EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE118
  * Callers:
- *     ?EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DB30 (-EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE210 (-EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicCompositionMarshaler::EmitCreate(
@@ -23,10 +23,10 @@ char __fastcall DirectComposition::CHolographicCompositionMarshaler::EmitCreate(
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
     *((_DWORD *)v3 + 7) = 0;
-    *((_DWORD *)v3 + 1) = 162;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_OWORD *)(v3 + 12) = *((_OWORD *)this + 5);
-    *((_DWORD *)v3 + 7) = *((_DWORD *)this + 18);
+    *((_DWORD *)v3 + 1) = 171;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 72);
+    *((_DWORD *)v3 + 7) = *((_DWORD *)this + 16);
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;
   }

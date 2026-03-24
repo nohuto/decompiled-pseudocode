@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetNodeChannelRanges @ 0x1407591C4
+ * XREFs of MmGetNodeChannelRanges @ 0x1407591A4
  * Callers:
- *     ExpQueryMemoryTopologyInformation @ 0x140759130 (ExpQueryMemoryTopologyInformation.c)
+ *     ExpQueryMemoryTopologyInformation @ 0x140759110 (ExpQueryMemoryTopologyInformation.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14012B6B0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140141AB0 (MiDereferencePageRuns.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140141AD0 (MiDereferencePageRuns.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

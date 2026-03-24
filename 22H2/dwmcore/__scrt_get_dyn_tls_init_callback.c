@@ -1,7 +1,7 @@
 /*
- * XREFs of __scrt_get_dyn_tls_init_callback @ 0x18010FFAC
+ * XREFs of __scrt_get_dyn_tls_init_callback @ 0x1800E7CAC
  * Callers:
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
  * Callees:
  *     <none>
  */

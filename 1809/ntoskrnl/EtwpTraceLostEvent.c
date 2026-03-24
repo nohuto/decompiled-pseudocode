@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceLostEvent @ 0x140312648
+ * XREFs of EtwpTraceLostEvent @ 0x140312748
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     EtwpFailLogging @ 0x1401130FC (EtwpFailLogging.c)
- *     EtwpWriteUserEvent @ 0x1406473F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     EtwpFailLogging @ 0x14011311C (EtwpFailLogging.c)
+ *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 int __fastcall EtwpTraceLostEvent(_QWORD *a1, __int16 *a2, unsigned __int16 *a3, int a4)

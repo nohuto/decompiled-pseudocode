@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C02050E4
+ * XREFs of ?CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0023CD4
  * Callers:
- *     SfnINSTRINGNULL @ 0x1C0023340 (SfnINSTRINGNULL.c)
- *     SfnINLPCREATESTRUCT @ 0x1C0023990 (SfnINLPCREATESTRUCT.c)
- *     SfnINLPMDICREATESTRUCT @ 0x1C02097E0 (SfnINLPMDICREATESTRUCT.c)
- *     SfnINSTRING @ 0x1C020D030 (SfnINSTRING.c)
- *     fnHkINLPCBTCREATESTRUCT @ 0x1C02103E8 (fnHkINLPCBTCREATESTRUCT.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C001E5E0 (fnHkINLPCBTCREATESTRUCT.c)
+ *     SfnINLPCREATESTRUCT @ 0x1C0020F50 (SfnINLPCREATESTRUCT.c)
+ *     SfnINSTRINGNULL @ 0x1C004FDF0 (SfnINSTRINGNULL.c)
+ *     SfnINSTRING @ 0x1C011EB70 (SfnINSTRING.c)
+ *     SfnINLPMDICREATESTRUCT @ 0x1C022BC60 (SfnINLPMDICREATESTRUCT.c)
  * Callees:
- *     ?FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z @ 0x1C0024614 (-FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z.c)
+ *     ?FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z @ 0x1C0023410 (-FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z.c)
  */
 
 __int64 __fastcall CaptureUnicodeCallbackData(
@@ -17,7 +17,7 @@ __int64 __fastcall CaptureUnicodeCallbackData(
         void **a4)
 {
   __int64 v5; // rdi
-  unsigned __int8 *v8; // r14
+  WCHAR *v7; // r14
   ULONG BytesInUnicodeString; // [rsp+58h] [rbp+10h] BYREF
 
   v5 = MaxBytesInUnicodeString;
@@ -27,20 +27,20 @@ __int64 __fastcall CaptureUnicodeCallbackData(
     *a4 = 0LL;
     return 0LL;
   }
-  if ( MaxBytesInUnicodeString > *((_DWORD *)a1 + 1) )
-    return 2147483653LL;
-  v8 = (unsigned __int8 *)*((_QWORD *)a1 + 2);
-  if ( RtlMultiByteToUnicodeN(
-         (PWCH)v8,
-         MaxBytesInUnicodeString,
-         &BytesInUnicodeString,
-         MultiByteString,
-         MaxBytesInUnicodeString >> 1) >= 0 )
+  if ( MaxBytesInUnicodeString <= *((_DWORD *)a1 + 1) )
   {
-    *((_QWORD *)a1 + 2) = &v8[(v5 + 7) & 0xFFFFFFFFFFFFFFF8uLL];
+    v7 = (WCHAR *)*((_QWORD *)a1 + 2);
+    if ( RtlMultiByteToUnicodeN(
+           v7,
+           MaxBytesInUnicodeString,
+           &BytesInUnicodeString,
+           MultiByteString,
+           MaxBytesInUnicodeString >> 1) < 0 )
+      return 3221225473LL;
+    *((_QWORD *)a1 + 2) = (char *)v7 + ((v5 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
     *((_DWORD *)a1 + 1) -= v5;
-    FixupCaptureDataOffsets(a1, a4, v8);
+    FixupCaptureDataOffsets(a1, a4, (unsigned __int8 *)v7);
     return 0LL;
   }
-  return 3221225473LL;
+  return 2147483653LL;
 }

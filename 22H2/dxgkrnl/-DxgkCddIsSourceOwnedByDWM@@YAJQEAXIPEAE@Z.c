@@ -1,68 +1,61 @@
 /*
- * XREFs of ?DxgkCddIsSourceOwnedByDWM@@YAJQEAXIPEAE@Z @ 0x1C01E89A0
+ * XREFs of ?DxgkCddIsSourceOwnedByDWM@@YAJQEAXIPEAE@Z @ 0x1C00D7B60
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C00052E0 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C0001F24 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x1C001AA94 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
  */
 
-__int64 __fastcall DxgkCddIsSourceOwnedByDWM(DXGADAPTER *a1, unsigned int a2, bool *a3)
+__int64 __fastcall DxgkCddIsSourceOwnedByDWM(void *const a1, unsigned int a2, bool *a3)
 {
+  __int64 v3; // rbx
   __int64 v4; // rdi
-  ADAPTER_DISPLAY *v6; // rcx
-  unsigned int v7; // esi
-  const wchar_t *v9; // r9
-  __int64 v10; // rdi
-  __int64 v11; // rbp
-  __int64 v12; // rdi
-  _BYTE v13[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGADAPTER *v14; // [rsp+58h] [rbp-20h]
-  char v15; // [rsp+60h] [rbp-18h]
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rax
+  ADAPTER_DISPLAY *v9; // rcx
+  _BYTE v11[8]; // [rsp+20h] [rbp-28h] BYREF
+  void *v12; // [rsp+28h] [rbp-20h]
+  char v13; // [rsp+30h] [rbp-18h]
 
+  v3 = (__int64)a1;
+  v12 = a1;
   v4 = a2;
-  v14 = a1;
-  v15 = 0;
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
-  if ( *((_DWORD *)a1 + 50) != 1 )
+  v13 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v11);
+  if ( *(_DWORD *)(v3 + 200) != 1 )
   {
-    v7 = -1073741130;
-    WdLogSingleEntry2(2LL, a1, -1073741130LL);
-    v9 = L"Adapter 0x%I64x has been stopped, returning 0x%I64x.";
-    v10 = -1073741130LL;
-LABEL_11:
-    v11 = v10;
-    v12 = 0LL;
-    goto LABEL_12;
+    v8 = (_QWORD *)WdLogNewEntry5_WdError(v7, v6);
+    v8[3] = v3;
+    v3 = -1073741130LL;
+LABEL_5:
+    v8[4] = v3;
+    goto LABEL_8;
   }
-  v6 = (ADAPTER_DISPLAY *)*((_QWORD *)a1 + 365);
-  if ( !v6 )
+  v9 = *(ADAPTER_DISPLAY **)(v3 + 2696);
+  if ( !v9 )
   {
-    v10 = -1073741811LL;
-    WdLogSingleEntry2(2LL, a1, -1073741811LL);
-    v9 = L"Adapter 0x%I64x is not a display adapter, returning 0x%I64x.";
-    v7 = -1073741811;
-    goto LABEL_11;
+    v8 = (_QWORD *)WdLogNewEntry5_WdError(0LL, v6);
+    v8[3] = v3;
+    v3 = -1073741811LL;
+    goto LABEL_5;
   }
-  if ( *((_DWORD *)v6 + 24) > (unsigned int)v4 )
+  if ( *((_DWORD *)v9 + 20) > (unsigned int)v4 )
   {
-    *a3 = (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType(v6, v4) == 1;
-    v7 = 0;
-    goto LABEL_7;
+    LODWORD(v3) = 0;
+    *a3 = (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType(v9, v4) == 1;
+    goto LABEL_10;
   }
-  v11 = v4;
-  v12 = -1073741811LL;
-  WdLogSingleEntry3(2LL, a1, v11, -1073741811LL);
-  v9 = L"Adapter 0x%I64x does not have VidPn source 0x%I64x, returning 0x%I64x.";
-  v7 = -1073741811;
-LABEL_12:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, (__int64)a1, v11, v12, 0LL, 0LL);
-LABEL_7:
-  if ( v15 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
-  return v7;
+  v8 = (_QWORD *)WdLogNewEntry5_WdError(v9, v6);
+  v8[3] = v3;
+  LODWORD(v3) = -1073741811;
+  v8[5] = -1073741811LL;
+  v8[4] = v4;
+LABEL_8:
+  WdLogEvent5_WdError(v8);
+LABEL_10:
+  DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v11);
+  return (unsigned int)v3;
 }

@@ -1,60 +1,65 @@
 /*
- * XREFs of ACPIFanPowerCallback @ 0x1C0027880
+ * XREFs of ACPIFanPowerCallback @ 0x1C000D2C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     AcpiDiagTraceFanEvent @ 0x1C0008320 (AcpiDiagTraceFanEvent.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIFanLoop @ 0x1C00275BC (ACPIFanLoop.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C000D360 (AcpiDiagTraceFanEvent.c)
+ *     ACPIFanLoop @ 0x1C000D58C (ACPIFanLoop.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
-void __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
 {
-  char v4; // r10
-  const char *v5; // rax
-  const char *v6; // rdx
-  __int64 v7; // rcx
-  bool v8; // al
-  __int16 v9; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v10[32]; // [rsp+58h] [rbp-40h] BYREF
-  __int16 *v11; // [rsp+78h] [rbp-20h]
-  int v12; // [rsp+80h] [rbp-18h]
-  int v13; // [rsp+84h] [rbp-14h]
+  bool v4; // al
+  char v6; // r10
+  void *v7; // rax
+  void *v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // [rsp+40h] [rbp-58h]
+  __int16 v11; // [rsp+50h] [rbp-48h] BYREF
+  _BYTE v12[32]; // [rsp+58h] [rbp-40h] BYREF
+  __int16 *v13; // [rsp+78h] [rbp-20h]
+  int v14; // [rsp+80h] [rbp-18h]
+  int v15; // [rsp+84h] [rbp-14h]
 
   if ( a3 < 0 )
   {
-    v4 = 0;
-    v5 = (const char *)&unk_1C00622D0;
-    v6 = (const char *)&unk_1C00622D0;
+    v6 = 0;
+    v7 = &unk_1C00701BA;
+    v8 = &unk_1C00701BA;
     if ( a1 )
     {
-      v4 = a1;
-      v7 = *(_QWORD *)(a1 + 8);
-      if ( (v7 & 0x200000000000LL) != 0 )
+      v9 = *(_QWORD *)(a1 + 8);
+      v6 = a1;
+      if ( (v9 & 0x200000000000LL) != 0 )
       {
-        v5 = *(const char **)(a1 + 608);
-        if ( (v7 & 0x400000000000LL) != 0 )
-          v6 = *(const char **)(a1 + 616);
+        v7 = *(void **)(a1 + 568);
+        if ( (v9 & 0x400000000000LL) != 0 )
+          v8 = *(void **)(a1 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_dqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        0x10u,
-        0xDu,
-        (__int64)&WPP_851d451e9c8635d57712462b586962d1_Traceguids,
+    {
+      v10 = (__int64)v8;
+      LOBYTE(v8) = 2;
+      WPP_RECORDER_SF_Dqss(
+        WPP_GLOBAL_Control->DeviceExtension,
+        (_DWORD)v8,
+        16,
+        13,
+        (__int64)&WPP_3f41a75ade0b3c322354d339e206c4ba_Traceguids,
         a3,
-        v4,
-        v5,
-        v6);
+        v6,
+        (__int64)v7,
+        v10);
+    }
   }
-  v12 = 2;
-  v8 = *(_DWORD *)(a1 + 384) == 1;
-  v13 = 0;
-  v9 = v8;
-  v11 = &v9;
-  AcpiDiagTraceFanEvent(a1, &ACPI_ETW_EVENT_FAN_POWER_STATE_CHANGE, 3u, (__int64)v10);
-  ACPIFanLoop(a1, 2, 0);
+  v14 = 2;
+  v4 = *(_DWORD *)(a1 + 344) == 1;
+  v15 = 0;
+  v11 = v4;
+  v13 = &v11;
+  AcpiDiagTraceFanEvent(a1, &ACPI_ETW_EVENT_FAN_POWER_STATE_CHANGE, 3LL, v12);
+  return ACPIFanLoop(a1, 2LL);
 }

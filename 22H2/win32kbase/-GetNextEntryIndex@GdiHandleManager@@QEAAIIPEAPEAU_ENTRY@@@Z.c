@@ -1,57 +1,32 @@
 /*
- * XREFs of ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C0035E00
+ * XREFs of ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C000F1D0
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     MultiUserCleanupDCs @ 0x1C00A08D4 (MultiUserCleanupDCs.c)
- *     ?MultiUserGreHmgOwnAll@@YAXXZ @ 0x1C00A9A88 (-MultiUserGreHmgOwnAll@@YAXXZ.c)
- *     ?vReleaseCurrentpMapProcForSurfaces@@YAXXZ @ 0x1C00BF264 (-vReleaseCurrentpMapProcForSurfaces@@YAXXZ.c)
- *     HmgNextGarbageCollectible @ 0x1C0159470 (HmgNextGarbageCollectible.c)
- *     NtGdiGetStats @ 0x1C0159B00 (NtGdiGetStats.c)
+ *     ?vReleaseCurrentpMapProcForSurfaces@@YAXW4_CLEANUPTYPE@@@Z @ 0x1C000EA58 (-vReleaseCurrentpMapProcForSurfaces@@YAXW4_CLEANUPTYPE@@@Z.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C000EABC (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     MultiUserCleanupDCs @ 0x1C000EB58 (MultiUserCleanupDCs.c)
+ *     HmgNextGarbageCollectible @ 0x1C000ECD4 (HmgNextGarbageCollectible.c)
+ *     HmgSafeNextObjtByIndex @ 0x1C000F12C (HmgSafeNextObjtByIndex.c)
+ *     HmgNextOwned @ 0x1C001D6E0 (HmgNextOwned.c)
+ *     MultiUserNtGreCleanup @ 0x1C007D498 (MultiUserNtGreCleanup.c)
+ *     NtGdiGetStats @ 0x1C013F480 (NtGdiGetStats.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
- *     <none>
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
  */
 
 __int64 __fastcall GdiHandleManager::GetNextEntryIndex(GdiHandleManager *this, unsigned int a2, struct _ENTRY **a3)
 {
-  __int64 v4; // r8
-  unsigned int v5; // r11d
-  __int64 v6; // rbx
-  unsigned int v7; // eax
-  struct _ENTRY *v8; // r11
+  GdiHandleManager *v3; // rdi
+  struct _ENTRY *Entry; // rax
 
+  v3 = gpHandleManager;
   *a3 = 0LL;
-  while ( ++a2 < *(_DWORD *)this )
+  while ( ++a2 < *(_DWORD *)v3 )
   {
-    v4 = *((_QWORD *)this + 2);
-    v5 = *(_DWORD *)(v4 + 2056);
-    if ( a2 >= v5 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
-    {
-      *a3 = 0LL;
-    }
-    else
-    {
-      if ( a2 >= v5 )
-      {
-        v6 = *(_QWORD *)(v4 + 8LL * (((a2 - v5) >> 16) + 1) + 8);
-        v7 = a2 + -65536 * ((a2 - v5) >> 16) - v5;
-      }
-      else
-      {
-        v6 = *(_QWORD *)(v4 + 8);
-        v7 = a2;
-      }
-      v8 = 0LL;
-      if ( v7 < *(_DWORD *)(v6 + 20) )
-      {
-        if ( *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v6 + 24) + 8 * ((unsigned __int64)v7 >> 8))
-                       + 16LL * (unsigned __int8)v7
-                       + 8) )
-          v8 = (struct _ENTRY *)(*(_QWORD *)v6 + 24LL * v7);
-      }
-      *a3 = v8;
-      if ( v8 )
-        return a2;
-    }
+    Entry = GdiHandleEntryDirectory::GetEntry(*((GdiHandleEntryDirectory **)v3 + 2), a2, 0);
+    *a3 = Entry;
+    if ( Entry )
+      return a2;
   }
   return 0LL;
 }

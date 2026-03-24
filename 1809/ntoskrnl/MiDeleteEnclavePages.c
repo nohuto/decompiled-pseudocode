@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteEnclavePages @ 0x14085A0E8
+ * XREFs of MiDeleteEnclavePages @ 0x14085A0C8
  * Callers:
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeRemoveEnclavePage @ 0x14028FB30 (KeRemoveEnclavePage.c)
- *     MiDeleteEnclavePage @ 0x1402BDA54 (MiDeleteEnclavePage.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeRemoveEnclavePage @ 0x14028FC30 (KeRemoveEnclavePage.c)
+ *     MiDeleteEnclavePage @ 0x1402BDB54 (MiDeleteEnclavePage.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiReturnReservedEnclavePages @ 0x14085A6E0 (MiReturnReservedEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x14085A7E4 (MiTerminateHardwareEnclave.c)
- *     PsDeleteVsmEnclave @ 0x14088E058 (PsDeleteVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x14085A6C0 (MiReturnReservedEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x14085A7C4 (MiTerminateHardwareEnclave.c)
+ *     PsDeleteVsmEnclave @ 0x14088E038 (PsDeleteVsmEnclave.c)
  */
 
 __int64 __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2)

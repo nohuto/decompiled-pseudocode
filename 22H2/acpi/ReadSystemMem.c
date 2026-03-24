@@ -1,68 +1,70 @@
 /*
- * XREFs of ReadSystemMem @ 0x1C0005CC0
+ * XREFs of ReadSystemMem @ 0x1C0024B7C
  * Callers:
- *     WriteFieldObj @ 0x1C0006080 (WriteFieldObj.c)
- *     AccessBaseField @ 0x1C00517D0 (AccessBaseField.c)
- *     ReadBuffField @ 0x1C0052A34 (ReadBuffField.c)
+ *     AccessBaseField @ 0x1C0001970 (AccessBaseField.c)
+ *     ReadBuffField @ 0x1C00244E8 (ReadBuffField.c)
+ *     WriteFieldObj @ 0x1C0024580 (WriteFieldObj.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ReadSystemMem(unsigned __int64 Src, size_t Size, __int64 a3)
 {
   size_t v5; // rbx
-  int (__fastcall *v7)(_QWORD, unsigned __int64, __int64 *, _QWORD, int *); // rax
-  __int64 v8; // rax
+  int v6; // ebx
+  __int64 v7; // rax
   int v9; // ebx
   int v10; // ebx
-  int v11; // ebx
+  int (__fastcall *v11)(_QWORD, unsigned __int64, __int64 *, _QWORD, int *); // rax
   int v12; // [rsp+48h] [rbp+10h] BYREF
   __int64 v13; // [rsp+58h] [rbp+20h] BYREF
 
   v12 = 0;
   v13 = 0LL;
   v5 = (unsigned int)Size;
-  if ( (unsigned int)Size > 8 )
-    return -1LL;
-  if ( !BYTE1(WPP_MAIN_CB.Queue.ListEntry.Flink)
-    || (v7 = *(int (__fastcall **)(_QWORD, unsigned __int64, __int64 *, _QWORD, int *))(PmHalDispatchTable + 144)) == 0LL
-    || v7(0LL, Src, &v13, (unsigned int)Size, &v12) < 0 )
+  if ( (unsigned int)Size <= 8 )
   {
-    if ( !(Src % v5) )
+    if ( !BYTE1(WPP_MAIN_CB.Queue.ListEntry.Flink)
+      || (v11 = *(int (__fastcall **)(_QWORD, unsigned __int64, __int64 *, _QWORD, int *))(PmHalDispatchTable + 144)) == 0LL
+      || v11(0LL, Src, &v13, (unsigned int)Size, &v12) < 0 )
     {
-      v9 = v5 - 1;
-      if ( v9 )
+      if ( !(Src % v5) )
       {
-        v10 = v9 - 1;
-        if ( v10 )
+        v6 = v5 - 1;
+        if ( v6 )
         {
-          v11 = v10 - 2;
-          if ( v11 )
+          v9 = v6 - 1;
+          if ( v9 )
           {
-            if ( v11 == 4 )
-              v8 = *(_QWORD *)Src;
+            v10 = v9 - 2;
+            if ( v10 )
+            {
+              if ( v10 == 4 )
+                v7 = *(_QWORD *)Src;
+              else
+                v7 = -1LL;
+            }
             else
-              v8 = -1LL;
+            {
+              v7 = *(unsigned int *)Src;
+            }
           }
           else
           {
-            v8 = *(unsigned int *)Src;
+            v7 = *(unsigned __int16 *)Src;
           }
         }
         else
         {
-          v8 = *(unsigned __int16 *)Src;
+          v7 = *(unsigned __int8 *)Src;
         }
+        return a3 & v7;
       }
-      else
-      {
-        v8 = *(unsigned __int8 *)Src;
-      }
-      return a3 & v8;
+      memmove(&v13, (const void *)Src, v5);
     }
-    memmove(&v13, (const void *)Src, v5);
+    v7 = v13;
+    return a3 & v7;
   }
-  v8 = v13;
-  return a3 & v8;
+  return -1LL;
 }

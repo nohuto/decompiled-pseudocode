@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x1406BF048
+ * XREFs of EtwpDisableTraceProviders @ 0x1407147C8
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1407F69E4 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x140710AB0 (EtwpStopLoggerInstance.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     EtwpGetNextGuidEntry @ 0x1406BF130 (EtwpGetNextGuidEntry.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE90 (EtwpClearSessionAndUnreferenceEntry.c)
- *     PsEnumProcesses @ 0x1407CFA2C (PsEnumProcesses.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     PsEnumProcesses @ 0x14062B870 (PsEnumProcesses.c)
+ *     EtwpGetNextGuidEntry @ 0x1407148AC (EtwpGetNextGuidEntry.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1407149E4 (EtwpClearSessionAndUnreferenceEntry.c)
  */
 
 LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
@@ -23,9 +23,9 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
   __int64 v13; // [rsp+50h] [rbp+8h] BYREF
 
   if ( a1 == EtwpHostSiloState )
-    v4 = (_WORD *)(MmWriteableSharedUserData + 896);
+    v4 = (_WORD *)0xFFFFF78000000380LL;
   else
-    v4 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 1320LL) + 550LL);
+    v4 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 1128LL) + 550LL);
   for ( i = EtwpGetNextGuidEntry(a1, 0LL, 0LL); ; i = EtwpGetNextGuidEntry(a1, v6, 0LL) )
   {
     v6 = i;
@@ -50,11 +50,11 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
       if ( k <= 1 )
       {
         v13 = k;
-        PsEnumProcesses(EtwpUpdateProcessTracingCallback, &v13);
+        PsEnumProcesses((__int64 (__fastcall *)(__int64, __int64))EtwpUpdateProcessTracingCallback, (__int64)&v13);
       }
       *v4 = 0;
     }
     ++v4;
   }
-  return KeReleaseMutex(&EtwpGlobalMutex, 0);
+  return KeReleaseMutex((PRKMUTEX)&EtwpGlobalMutex, 0);
 }

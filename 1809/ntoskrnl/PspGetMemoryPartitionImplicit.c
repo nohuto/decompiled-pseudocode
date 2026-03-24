@@ -4,7 +4,7 @@
  *     PspGetMemoryPartitionContext @ 0x14060D560 (PspGetMemoryPartitionContext.c)
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14008FD30 (PsGetEffectiveServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     PspLockJobChain @ 0x1406007CC (PspLockJobChain.c)
  *     PspUnlockJobChain @ 0x140600864 (PspUnlockJobChain.c)
  */

@@ -1,65 +1,64 @@
 /*
- * XREFs of HvlMapGpaPages @ 0x1406790B0
+ * XREFs of HvlMapGpaPages @ 0x1405C9994
  * Callers:
- *     VmpInvalidateSingleGpaRange @ 0x140466668 (VmpInvalidateSingleGpaRange.c)
- *     VmpFillSlat @ 0x1405F9128 (VmpFillSlat.c)
+ *     VmpFillSlat @ 0x1405A33CC (VmpFillSlat.c)
+ *     VmpFlushTbVaRange @ 0x1405A36F0 (VmpFlushTbVaRange.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlpHvToNtStatus @ 0x14045EEB6 (HvlpHvToNtStatus.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1404FA974 (HvlpHvToNtStatus.c)
  */
 
-__int64 __fastcall HvlMapGpaPages(LONGLONG a1, __int64 a2, int a3, unsigned __int64 a4, __int64 a5, __int64 *a6)
+__int64 __fastcall HvlMapGpaPages(__int64 a1, __int64 a2, int a3, unsigned __int64 a4, __int64 a5, __int64 *a6)
 {
   unsigned int v6; // esi
   unsigned __int64 v7; // rdi
-  PHYSICAL_ADDRESS *v10; // r14
-  int v11; // r15d
-  __int64 v12; // rbp
+  __int64 v10; // r9
+  _QWORD *v11; // r15
+  __int64 v12; // r14
   int v13; // r13d
-  __int64 v14; // rax
-  unsigned __int16 v15; // bx
-  __int128 v17; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-48h]
-  __int64 v19; // [rsp+38h] [rbp-40h]
-  int v21; // [rsp+90h] [rbp+18h]
+  int v14; // ebp
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  unsigned __int16 v17; // bx
+  __int128 v19; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-48h]
 
   v6 = 0;
-  v17 = 0LL;
-  v18 = 0LL;
   v7 = a4;
-  LODWORD(v19) = 0;
   *a6 = 0LL;
-  v21 = (a3 >> 31) & 9;
-  v10 = HvlpAcquireHypercallPage((__int64)&v17, 1, 0LL, 0LL);
-  v11 = 0;
-  v10[1].QuadPart = 0LL;
-  v10[2].HighPart = 0;
+  v19 = 0LL;
+  v20 = 0LL;
+  v11 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v19, 1, 0LL, 0LL);
+  v11[1] = 0LL;
+  *((_DWORD *)v11 + 5) = 0;
   v12 = *a6;
-  v10[2].LowPart = a3;
-  v13 = a3 & 0x30000;
-  v10->QuadPart = a1;
+  *((_DWORD *)v11 + 4) = a3;
+  v13 = a3 & 0x700;
+  *v11 = a1;
+  v14 = 0;
   do
   {
     if ( v7 >= 0x1FD )
       v7 = 509LL;
     if ( !v13 )
-      memmove(&v10[3], (const void *)(a5 + 8 * v12), 8 * v7);
-    v11 ^= ((unsigned __int16)v11 ^ (unsigned __int16)v7) & 0xFFF;
-    v10[1].QuadPart = a2 + (v12 << v21);
-    v14 = HvcallInitiateHypercall(75);
-    v15 = v14;
-    if ( (_WORD)v14 )
+      memmove(v11 + 3, (const void *)(a5 + 8 * v12), 8 * v7);
+    v15 = *((_QWORD *)&v20 + 1);
+    v11[1] = v12 + a2;
+    v14 ^= ((unsigned __int16)v14 ^ (unsigned __int16)v7) & 0xFFF;
+    v16 = HvcallInitiateHypercall(75, v15, 0LL, v10);
+    v17 = v16;
+    if ( (_WORD)v16 )
       break;
-    v12 = *a6 + (WORD2(v14) & 0xFFF);
+    v12 = *a6 + (WORD2(v16) & 0xFFF);
     *a6 = v12;
     v7 = a4 - v12;
   }
   while ( a4 != v12 );
-  HvlpReleaseHypercallPage((__int64)&v17);
-  if ( v15 )
-    return (unsigned int)HvlpHvToNtStatus(v15);
+  HvlpReleaseHypercallPage((__int64)&v19);
+  if ( v17 )
+    return (unsigned int)HvlpHvToNtStatus(v17);
   return v6;
 }

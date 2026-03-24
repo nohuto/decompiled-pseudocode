@@ -1,11 +1,11 @@
 /*
- * XREFs of FxRegisterBugCheckCallback @ 0x1C0027A6C
+ * XREFs of FxRegisterBugCheckCallback @ 0x1C009086C
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0027B68 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     FxpGetImageBase @ 0x1C0027CF0 (FxpGetImageBase.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0090314 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     FxpGetImageBase @ 0x1C0090BF8 (FxpGetImageBase.c)
  */
 
 void __fastcall FxRegisterBugCheckCallback(_FX_DRIVER_GLOBALS *FxDriverGlobals, _DRIVER_OBJECT *DriverObject)
@@ -34,7 +34,7 @@ void __fastcall FxRegisterBugCheckCallback(_FX_DRIVER_GLOBALS *FxDriverGlobals, 
     {
       if ( FxTrackDriverForMiniDumpLog )
       {
-        if ( _FX_DRIVER_TRACKER_CACHE_AWARE::Register(&FxLibraryGlobals.DriverTracker, v5) >= 0 )
+        if ( (int)_FX_DRIVER_TRACKER_CACHE_AWARE::Register(&FxLibraryGlobals.DriverTracker, v5) >= 0 )
           FxDriverGlobals->FxTrackDriverForMiniDumpLog = 1;
       }
       p_BugCheckCallbackRecord->State = 0;

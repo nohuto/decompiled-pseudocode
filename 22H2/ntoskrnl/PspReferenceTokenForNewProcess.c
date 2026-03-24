@@ -1,37 +1,41 @@
 /*
- * XREFs of PspReferenceTokenForNewProcess @ 0x1406B9204
+ * XREFs of PspReferenceTokenForNewProcess @ 0x14060D724
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14085CC20 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1407CE380 (PspCreateProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
  */
 
-NTSTATUS __fastcall PspReferenceTokenForNewProcess(__int64 a1, void *a2, KPROCESSOR_MODE a3, _QWORD *a4)
+NTSTATUS __fastcall PspReferenceTokenForNewProcess(struct _KPROCESS *a1, void *a2, KPROCESSOR_MODE a3, _QWORD *a4)
 {
+  PACCESS_TOKEN v5; // rbx
   NTSTATUS result; // eax
-  PVOID v6; // rbx
-  PVOID v7; // [rsp+48h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( a2 )
+  if ( !a2 )
   {
-    v7 = 0LL;
-    result = ObReferenceObjectByHandle(a2, 1u, (POBJECT_TYPE)SeTokenObjectType, a3, &v7, 0LL);
-    v6 = v7;
-    if ( result < 0 )
-      return result;
+    if ( a1 )
+    {
+      v5 = PsReferencePrimaryToken(a1);
+    }
+    else
+    {
+      v5 = PspBootAccessToken;
+      ObfReferenceObject(PspBootAccessToken);
+    }
+    goto LABEL_4;
   }
-  else if ( a1 )
+  Object = 0LL;
+  result = ObReferenceObjectByHandle(a2, 1u, (POBJECT_TYPE)SeTokenObjectType, a3, &Object, 0LL);
+  v5 = Object;
+  if ( result >= 0 )
   {
-    v6 = (PVOID)PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+LABEL_4:
+    *a4 = v5;
+    return 0;
   }
-  else
-  {
-    v6 = PspBootAccessToken;
-    ObfReferenceObject(PspBootAccessToken);
-  }
-  *a4 = v6;
-  return 0;
+  return result;
 }

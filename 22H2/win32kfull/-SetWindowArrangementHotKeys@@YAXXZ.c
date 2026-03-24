@@ -1,28 +1,24 @@
 /*
- * XREFs of ?SetWindowArrangementHotKeys@@YAXXZ @ 0x1C00411B8
+ * XREFs of ?SetWindowArrangementHotKeys@@YAXXZ @ 0x1C0030684
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     _RegisterHotKey @ 0x1C0032BD4 (_RegisterHotKey.c)
  */
 
 void SetWindowArrangementHotKeys(void)
 {
   _DWORD *v0; // rbx
   __int64 v1; // rdi
+  ULONG_PTR BugCheckParameter2; // [rsp+20h] [rbp-18h]
 
-  v0 = &unk_1C030F204;
-  v1 = 8LL;
+  v0 = &unk_1C02E5164;
+  v1 = 14LL;
   do
   {
-    _RegisterHotKey(
-      0LL,
-      (void (*)(unsigned __int64, __int64))lambda_543ccbf82fb17ad955b7b487bb59a6ad_::_lambda_invoker_cdecl_,
-      *(v0 - 1),
-      *v0 | 0x4000,
-      v0[1],
-      0LL);
-    v0 += 10;
+    LODWORD(BugCheckParameter2) = v0[1];
+    RegisterHotKey(0LL, BugCheckParameter2);
+    v0 += 4;
     --v1;
   }
   while ( v1 );

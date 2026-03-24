@@ -1,13 +1,13 @@
 /*
- * XREFs of BiCreateFileDeviceElement @ 0x1408F17A0
+ * XREFs of BiCreateFileDeviceElement @ 0x1408F1780
  * Callers:
- *     BiCreatePartitionDevice @ 0x1407143DC (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x1407143BC (BiCreatePartitionDevice.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     wcscpy_s @ 0x14019BCA0 (wcscpy_s.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

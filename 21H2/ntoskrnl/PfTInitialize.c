@@ -1,21 +1,21 @@
 /*
- * XREFs of PfTInitialize @ 0x14084F9EC
+ * XREFs of PfTInitialize @ 0x1407BED40
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406AD6BC (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
- *     PfpParametersPropagate @ 0x140989028 (PfpParametersPropagate.c)
- *     PfInitializeSuperfetch @ 0x140B23A48 (PfInitializeSuperfetch.c)
+ *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
+ *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeInitializeGuardedMutex @ 0x1402E0710 (KeInitializeGuardedMutex.c)
- *     KeQueryTimeIncrement @ 0x1402F1D40 (KeQueryTimeIncrement.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PfFbBufferListInitialize @ 0x14084FC2C (PfFbBufferListInitialize.c)
- *     PfTAccessTracingInitialize @ 0x140A485D4 (PfTAccessTracingInitialize.c)
+ *     KeQueryTimeIncrement @ 0x14024C490 (KeQueryTimeIncrement.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfFbBufferListInitialize @ 0x1407BEF7C (PfFbBufferListInitialize.c)
+ *     PfTAccessTracingInitialize @ 0x14099AAF4 (PfTAccessTracingInitialize.c)
  */
 
 __int64 __fastcall PfTInitialize(_QWORD *a1, __int64 a2, char a3)
@@ -86,8 +86,8 @@ __int64 __fastcall PfTInitialize(_QWORD *a1, __int64 a2, char a3)
     KeInitializeEvent((PRKEVENT)(a1 + 14), NotificationEvent, 0);
     KeInitializeEvent((PRKEVENT)(a1 + 25), NotificationEvent, 0);
   }
-  PfFbBufferListInitialize((PEX_RUNDOWN_REF)a1 + 28);
+  PfFbBufferListInitialize(a1 + 28);
   InitializeSListHead((PSLIST_HEADER)a1 + 30);
   *((_DWORD *)a1 + 124) = -1;
-  return PfFbBufferListInitialize((PEX_RUNDOWN_REF)a1 + 44);
+  return PfFbBufferListInitialize(a1 + 44);
 }

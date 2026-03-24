@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpSetTimeZoneInformationWorker @ 0x1409BA71C
+ * XREFs of RtlpSetTimeZoneInformationWorker @ 0x14091510C
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     RtlSetDynamicTimeZoneInformation @ 0x1409BA6E0 (RtlSetDynamicTimeZoneInformation.c)
- *     RtlSetTimeZoneInformation @ 0x1409BA700 (RtlSetTimeZoneInformation.c)
- *     ExpSetTimeZoneInformation @ 0x1409F76FC (ExpSetTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     RtlSetDynamicTimeZoneInformation @ 0x1409150D0 (RtlSetDynamicTimeZoneInformation.c)
+ *     RtlSetTimeZoneInformation @ 0x1409150F0 (RtlSetTimeZoneInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x14094B37C (ExpSetTimeZoneInformation.c)
  * Callees:
- *     wcsnlen @ 0x1403E3480 (wcsnlen.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406F1A04 (RtlpGetTimeZoneInfoHandle.c)
+ *     wcsnlen @ 0x1403D40D0 (wcsnlen.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1406E0BD4 (RtlpGetTimeZoneInfoHandle.c)
  */
 
 __int64 __fastcall RtlpSetTimeZoneInformationWorker(wchar_t *ValueData, unsigned int a2)
@@ -18,15 +18,14 @@ __int64 __fastcall RtlpSetTimeZoneInformationWorker(wchar_t *ValueData, unsigned
   size_t v5; // rax
   int v6; // r15d
   size_t v7; // rax
-  __int64 v8; // r8
-  int v9; // r13d
-  size_t v10; // rax
-  int v11; // edi
+  int v8; // r13d
+  size_t v9; // rax
+  int v10; // edi
   __int64 result; // rax
-  NTSTATUS v13; // edi
-  int *v14; // rax
-  int v15; // [rsp+70h] [rbp+40h] BYREF
-  int v16; // [rsp+80h] [rbp+50h] BYREF
+  NTSTATUS v12; // edi
+  int *v13; // rax
+  int v14; // [rsp+70h] [rbp+40h] BYREF
+  int v15; // [rsp+80h] [rbp+50h] BYREF
   PCWSTR Path; // [rsp+88h] [rbp+58h] BYREF
 
   Path = 0LL;
@@ -36,54 +35,54 @@ __int64 __fastcall RtlpSetTimeZoneInformationWorker(wchar_t *ValueData, unsigned
   if ( v5 >= 0x20 )
     return 3221225485LL;
   v7 = wcsnlen(ValueData + 44, 0x20uLL);
-  v9 = v7;
+  v8 = v7;
   if ( v7 >= 0x20 )
     return 3221225485LL;
   if ( a2 < 0x1B0 )
   {
-    v11 = 0;
+    v10 = 0;
   }
   else
   {
-    v10 = wcsnlen(ValueData + 86, 0x80uLL);
-    v11 = v10;
-    if ( v10 >= 0x80 )
+    v9 = wcsnlen(ValueData + 86, 0x80uLL);
+    v10 = v9;
+    if ( v9 >= 0x80 )
       return 3221225485LL;
   }
-  result = RtlpGetTimeZoneInfoHandle(1, (__int64)&Path, v8);
+  result = RtlpGetTimeZoneInfoHandle(1, (HANDLE *)&Path);
   if ( (int)result >= 0 )
   {
     if ( RtlWriteRegistryValue(0x40000000u, Path, L"Bias", 4u, ValueData, 4u) < 0
       || RtlWriteRegistryValue(0x40000000u, Path, L"StandardName", 1u, v2, 2 * v6 + 2) < 0
       || RtlWriteRegistryValue(0x40000000u, Path, L"StandardBias", 4u, ValueData + 42, 4u) < 0
       || RtlWriteRegistryValue(0x40000000u, Path, L"StandardStart", 3u, ValueData + 34, 0x10u) < 0
-      || RtlWriteRegistryValue(0x40000000u, Path, L"DaylightName", 1u, ValueData + 44, 2 * v9 + 2) < 0
+      || RtlWriteRegistryValue(0x40000000u, Path, L"DaylightName", 1u, ValueData + 44, 2 * v8 + 2) < 0
       || RtlWriteRegistryValue(0x40000000u, Path, L"DaylightBias", 4u, ValueData + 84, 4u) < 0
       || RtlWriteRegistryValue(0x40000000u, Path, L"DaylightStart", 3u, ValueData + 76, 0x10u) < 0
       || a2 < 0x1B0 )
     {
-      LOWORD(v15) = 0;
-      v13 = RtlWriteRegistryValue(0x40000000u, Path, L"TimeZoneKeyName", 1u, &v15, 2u);
-      if ( v13 >= 0 )
+      LOWORD(v14) = 0;
+      v12 = RtlWriteRegistryValue(0x40000000u, Path, L"TimeZoneKeyName", 1u, &v14, 2u);
+      if ( v12 >= 0 )
       {
-        v16 = *((unsigned __int8 *)ValueData + 428);
-        v14 = &v16;
+        v15 = *((unsigned __int8 *)ValueData + 428);
+        v13 = &v15;
         goto LABEL_21;
       }
     }
     else
     {
-      v13 = RtlWriteRegistryValue(0x40000000u, Path, L"TimeZoneKeyName", 1u, ValueData + 86, 2 * v11 + 2);
-      if ( v13 >= 0 )
+      v12 = RtlWriteRegistryValue(0x40000000u, Path, L"TimeZoneKeyName", 1u, ValueData + 86, 2 * v10 + 2);
+      if ( v12 >= 0 )
       {
-        v15 = *((unsigned __int8 *)ValueData + 428);
-        v14 = &v15;
+        v14 = *((unsigned __int8 *)ValueData + 428);
+        v13 = &v14;
 LABEL_21:
-        v13 = RtlWriteRegistryValue(0x40000000u, Path, L"DynamicDaylightTimeDisabled", 4u, v14, 4u);
+        v12 = RtlWriteRegistryValue(0x40000000u, Path, L"DynamicDaylightTimeDisabled", 4u, v13, 4u);
       }
     }
     ZwClose((HANDLE)Path);
-    return (unsigned int)v13;
+    return (unsigned int)v12;
   }
   return result;
 }

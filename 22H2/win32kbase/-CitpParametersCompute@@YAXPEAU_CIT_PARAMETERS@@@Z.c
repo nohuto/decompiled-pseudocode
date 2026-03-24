@@ -1,34 +1,45 @@
 /*
- * XREFs of ?CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z @ 0x1C00B6580
+ * XREFs of ?CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z @ 0x1C008D8BC
  * Callers:
- *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C00B5F24 (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
- *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00B6140 (-CitpInitialize@@YAJPEBG@Z.c)
- *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00B6308 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C008C67C (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C008C848 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C008D630 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CitpParametersCompute(struct _CIT_PARAMETERS *a1)
 {
-  int v2; // edx
-  unsigned int v3; // r9d
-  unsigned __int64 v4; // rcx
-  unsigned int v5; // eax
+  int v2; // ecx
+  int v3; // edx
+  unsigned int v4; // r9d
+  bool v5; // zf
+  unsigned int v6; // ecx
+  unsigned __int64 v7; // rcx
+  unsigned int v8; // eax
+  unsigned int v9; // ecx
 
-  v2 = *((_DWORD *)a1 + 2) & 3;
-  *((_BYTE *)a1 + 20) = 1;
-  *((_BYTE *)a1 + 21) = v2 == 3;
-  if ( v2 != 3 )
+  *((_BYTE *)a1 + 36) = 1;
+  v2 = *((_DWORD *)a1 + 4);
+  v3 = v2 & 3;
+  *((_BYTE *)a1 + 38) = v3 == 3;
+  *((_BYTE *)a1 + 37) = v3 == 3;
+  if ( v3 != 3 )
     *(_DWORD *)a1 = 0;
-  v3 = *((_DWORD *)a1 + 3);
-  v4 = (v3 + *((_DWORD *)a1 + 4) - 1) / *((_DWORD *)a1 + 4);
-  if ( v4 >= 0xFF )
+  v4 = *((_DWORD *)a1 + 5);
+  v5 = (v2 & 5) == 1;
+  v6 = *((_DWORD *)a1 + 6);
+  *((_BYTE *)a1 + 39) = !v5;
+  v7 = (v4 + v6 - 1) / v6;
+  if ( v7 >= 0xFF )
   {
-    LODWORD(v4) = 255;
-    *((_DWORD *)a1 + 4) = v3 / 0xFF;
+    LODWORD(v7) = 255;
+    *((_DWORD *)a1 + 6) = v4 / 0xFF;
   }
-  v5 = ((unsigned int)(v4 + 7) >> 3) + 176;
-  if ( v5 < 0xB8 )
-    v5 = 184;
-  *((_DWORD *)a1 + 6) = v5;
+  v8 = ((unsigned int)(v7 + 7) >> 3) + 176;
+  if ( v8 < 0xB8 )
+    v8 = 184;
+  v9 = *((unsigned __int8 *)a1 + 35);
+  *((_DWORD *)a1 + 10) = v8;
+  *((_DWORD *)a1 + 7) = 0x5265C000 / v9;
 }

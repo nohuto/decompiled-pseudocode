@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushStrongCodeDriverLoadFailures @ 0x140B7693C
+ * XREFs of MiFlushStrongCodeDriverLoadFailures @ 0x140A54464
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 _QWORD *MiFlushStrongCodeDriverLoadFailures()
@@ -44,17 +44,17 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
   Lock = MmAcquireLoadLock();
   while ( 1 )
   {
-    v1 = (const CHAR **)qword_140C65A08;
-    if ( qword_140C65A08 == &qword_140C65A08 )
+    v1 = (const CHAR **)qword_140C4CD08;
+    if ( qword_140C4CD08 == &qword_140C4CD08 )
       break;
-    if ( *((PVOID **)qword_140C65A08 + 1) != &qword_140C65A08
-      || (v3 = *(_QWORD *)qword_140C65A08, *(PVOID *)(*(_QWORD *)qword_140C65A08 + 8LL) != qword_140C65A08) )
+    if ( *((PVOID **)qword_140C4CD08 + 1) != &qword_140C4CD08
+      || (v3 = *(_QWORD *)qword_140C4CD08, *(PVOID *)(*(_QWORD *)qword_140C4CD08 + 8LL) != qword_140C4CD08) )
     {
       __fastfail(3u);
     }
-    qword_140C65A08 = *(PVOID *)qword_140C65A08;
-    *(_QWORD *)(v3 + 8) = &qword_140C65A08;
-    if ( **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 0x400000000000LL) )
+    qword_140C4CD08 = *(PVOID *)qword_140C4CD08;
+    *(_QWORD *)(v3 + 8) = &qword_140C4CD08;
+    if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL) )
     {
       tlgCreate1Sz_char((__int64)v12, v1[2]);
       v15 = 0;
@@ -75,7 +75,7 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
       v22 = 4;
       v10 = 0x1000000LL;
       v25 = 8;
-      tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_1400385A3, v4, 1u, v6, v7, 8u, &v11);
+      tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_140025CCB, v4, 1u, v6, v7, 8u, &v11);
     }
     ExFreePoolWithTag(v1, 0);
   }

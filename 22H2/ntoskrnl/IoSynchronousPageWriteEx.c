@@ -1,23 +1,21 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x140250E60
+ * XREFs of IoSynchronousPageWriteEx @ 0x14029C49C
  * Callers:
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     IoSynchronousPageWrite @ 0x14035C970 (IoSynchronousPageWrite.c)
- *     MiSynchronousPageWrite @ 0x1403C1408 (MiSynchronousPageWrite.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x140551184 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     MiIssueSynchronousFlush @ 0x140306D10 (MiIssueSynchronousFlush.c)
+ *     MiZeroPageWrite @ 0x1403193E8 (MiZeroPageWrite.c)
+ *     IoSynchronousPageWrite @ 0x14031B920 (IoSynchronousPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x1403BF9B4 (MiSynchronousPageWrite.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290230 (IopSetDiskIoAttributionExtension.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7B10 (IoSetDiskIoAttributionFromThread.c)
- *     PsGetIoPriorityThread @ 0x1402A8A90 (PsGetIoPriorityThread.c)
- *     IopAllocateBackpocketIrp @ 0x140554A80 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554D18 (IopAllocateReserveIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmIsFileObjectAPagingFile @ 0x14063BD88 (MmIsFileObjectAPagingFile.c)
+ *     PsGetIoPriorityThread @ 0x140242180 (PsGetIoPriorityThread.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14029C670 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14029CAE4 (MmIsFileObjectAPagingFile.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402E66DC (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateBackpocketIrp @ 0x1404FFD50 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1404FFFF0 (IopAllocateReserveIrp.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(
@@ -30,60 +28,48 @@ NTSTATUS __fastcall IoSynchronousPageWriteEx(
         struct _IO_STATUS_BLOCK *a7)
 {
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
-  PDEVICE_OBJECT RelatedDeviceObject; // rbp
+  PDEVICE_OBJECT RelatedDeviceObject; // rdi
   __int64 v13; // rdx
   IRP *Irp; // rbx
-  __int64 v15; // r8
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // r9
-  __int64 v17; // r9
-  int IoPriorityThread; // r10d
-  unsigned int v19; // eax
-  PETHREAD Thread; // r14
-  LIST_ENTRY *p_ThreadListEntry; // rdi
-  struct _LIST_ENTRY *p_SystemCallNumber; // rsi
-  unsigned __int8 CurrentIrql; // r15
-  struct _LIST_ENTRY *Flink; // rax
-  _DWORD *SchedulerAssist; // r8
-  __int64 v27; // r9
+  int IoPriorityThread; // r8d
+  __int64 v16; // r10
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v29; // rcx
-  unsigned __int8 v30; // cl
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v32; // r8
-  int v33; // eax
-  bool v34; // zf
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 ReserveIrp; // rax
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
   SectionObjectPointer = a1->SectionObjectPointer;
   if ( SectionObjectPointer && SectionObjectPointer->SharedCacheMap )
   {
-    __incgsdword(0x8474u);
-    __addgsdword(0x8478u, (a2->ByteCount + 4095) >> 12);
+    __incgsdword(0x8134u);
+    __addgsdword(0x8138u, (a2->ByteCount + 4095) >> 12);
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
-  Irp = (IRP *)IopAllocateIrpExReturn(
-                 (__int64)RelatedDeviceObject,
-                 (unsigned __int8)RelatedDeviceObject->StackSize,
-                 0LL);
-  if ( Irp )
-    goto LABEL_5;
-  if ( (unsigned int)MmIsFileObjectAPagingFile(a1) )
-  {
-    _InterlockedIncrement(&IoSynchronousPageWriteIrpAllocationFailure);
-    Irp = (IRP *)IopAllocateReserveIrp(v29, (unsigned __int8)RelatedDeviceObject->StackSize, 1LL);
-    if ( Irp )
-      goto LABEL_5;
-    return -1073741670;
-  }
-  _InterlockedIncrement(&IoSynchronousPageWriteNonPagefileIrpAllocationFailure);
-  Irp = (IRP *)IopAllocateBackpocketIrp(RelatedDeviceObject, (unsigned __int8)RelatedDeviceObject->StackSize, 0LL);
+  LOBYTE(v13) = RelatedDeviceObject->StackSize;
+  Irp = (IRP *)IopAllocateIrpExReturn(RelatedDeviceObject, v13, 0LL, retaddr);
   if ( !Irp )
-    return -1073741670;
-LABEL_5:
+  {
+    if ( (unsigned int)MmIsFileObjectAPagingFile(a1) )
+    {
+      _InterlockedIncrement(&IoSynchronousPageWriteIrpAllocationFailure);
+      LOBYTE(v19) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateReserveIrp(v20, v19, 1LL);
+    }
+    else
+    {
+      _InterlockedIncrement(&IoSynchronousPageWriteNonPagefileIrpAllocationFailure);
+      LOBYTE(v19) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v19, 0LL);
+    }
+    Irp = (IRP *)ReserveIrp;
+    if ( !ReserveIrp )
+      return -1073741670;
+  }
   Irp->AllocationFlags |= 0x20u;
-  CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Irp->MdlAddress = a2;
   Irp->Flags = 67;
-  IoPriorityThread = PsGetIoPriorityThread(KeGetCurrentThread(), v13, v15, CurrentStackLocation);
+  IoPriorityThread = PsGetIoPriorityThread((__int64)KeGetCurrentThread());
   if ( IoPriorityThread < 2 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -100,60 +86,22 @@ LABEL_5:
       IoPriorityThread = 2;
     }
   }
-  v19 = Irp->Flags & 0xFFF1FFFF;
+  Irp->UserIosb = a7;
   Irp->RequestorMode = 0;
   Irp->UserEvent = a4;
-  Irp->UserIosb = a7;
-  Irp->Flags = v19 | ((IoPriorityThread + 1) << 17);
+  Irp->Flags = ((IoPriorityThread << 17) + 0x20000) | 0x43;
   Irp->UserBuffer = (char *)a2->StartVa + a2->ByteOffset;
   Irp->Tail.Overlay.OriginalFileObject = a1;
   Irp->Tail.Overlay.Thread = KeGetCurrentThread();
-  *(_BYTE *)(v17 - 72) = 4;
-  *(_DWORD *)(v17 - 64) = a2->ByteCount;
-  *(_QWORD *)(v17 - 48) = *a3;
-  *(_BYTE *)(v17 - 70) |= a5;
-  *(_QWORD *)(v17 - 24) = a1;
+  *(_BYTE *)(v16 - 72) = 4;
+  *(_DWORD *)(v16 - 64) = a2->ByteCount;
+  *(_QWORD *)(v16 - 48) = *a3;
+  *(_BYTE *)(v16 - 70) |= a5;
+  *(_QWORD *)(v16 - 24) = a1;
   if ( a6 )
     IopSetDiskIoAttributionExtension(Irp, *(_QWORD *)(a6 + 24), Irp->Tail.Overlay.Thread, 0LL);
   else
     IoSetDiskIoAttributionFromThread(Irp, Irp->Tail.Overlay.Thread);
-  Thread = Irp->Tail.Overlay.Thread;
-  p_ThreadListEntry = &Irp->ThreadListEntry;
-  p_SystemCallNumber = (struct _LIST_ENTRY *)&Thread[1].SystemCallNumber;
-  CurrentIrql = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-  {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v27) = 4;
-    else
-      v27 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v27;
-  }
-  KxAcquireSpinLock((PKSPIN_LOCK)&Thread[1].WaitBlock[0].Thread);
-  Flink = p_SystemCallNumber->Flink;
-  if ( p_SystemCallNumber->Flink->Blink != p_SystemCallNumber )
-    __fastfail(3u);
-  p_ThreadListEntry->Flink = Flink;
-  Irp->ThreadListEntry.Blink = p_SystemCallNumber;
-  Flink->Blink = p_ThreadListEntry;
-  p_SystemCallNumber->Flink = p_ThreadListEntry;
-  KxReleaseSpinLock((volatile signed __int64 *)&Thread[1].WaitBlock[0].Thread);
-  if ( KiIrqlFlags )
-  {
-    v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v32 = CurrentPrcb->SchedulerAssist;
-      v33 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v34 = (v33 & v32[5]) == 0;
-      v32[5] &= v33;
-      if ( v34 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
-  }
-  __writecr8(CurrentIrql);
+  IopQueueThreadIrp(Irp);
   return IofCallDriver(RelatedDeviceObject, Irp);
 }

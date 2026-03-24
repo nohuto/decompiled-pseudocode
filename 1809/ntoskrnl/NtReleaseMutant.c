@@ -1,10 +1,10 @@
 /*
- * XREFs of NtReleaseMutant @ 0x140698730
+ * XREFs of NtReleaseMutant @ 0x140698710
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeReleaseMutant @ 0x1400BF9F0 (KeReleaseMutant.c)
+ *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

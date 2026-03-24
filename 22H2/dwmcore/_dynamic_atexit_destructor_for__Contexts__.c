@@ -1,12 +1,13 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__Contexts__ @ 0x180124600
+ * XREFs of _dynamic_atexit_destructor_for__Contexts__ @ 0x1800F9110
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void dynamic_atexit_destructor_for__Contexts__()
+// attributes: thunk
+void __fastcall dynamic_atexit_destructor_for__Contexts__(ContextTable *a1)
 {
-  ContextTable::~ContextTable((ContextTable *)&Block);
+  ContextTable::~ContextTable(a1);
 }

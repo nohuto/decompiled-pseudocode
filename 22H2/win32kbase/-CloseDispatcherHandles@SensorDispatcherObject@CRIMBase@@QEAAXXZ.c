@@ -1,32 +1,33 @@
 /*
- * XREFs of ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C006E65C
+ * XREFs of ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C00A2BDC
  * Callers:
- *     ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C006E594 (-CleanupHandles@CRIMBase@@IEAAXXZ.c)
- *     ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C00772A8 (-CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z.c)
+ *     ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C008908C (-CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z.c)
+ *     ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C00A2B2C (-CleanupHandles@CRIMBase@@IEAAXXZ.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ @ 0x1C006E750 (-_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ.c)
- *     ProtectHandle @ 0x1C0087A68 (ProtectHandle.c)
+ *     ProtectHandle @ 0x1C0025F3C (ProtectHandle.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     ?_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ @ 0x1C00A2CD0 (-_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ.c)
  */
 
 void __fastcall CRIMBase::SensorDispatcherObject::CloseDispatcherHandles(CRIMBase::SensorDispatcherObject *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  int v2; // edx
+  void *v3; // rcx
   void *v4; // rcx
   void *v5; // rcx
   PVOID *v6; // rdi
 
   RIMLockExclusive((__int64)this);
-  v3 = *((_QWORD *)this + 3);
+  v3 = (void *)*((_QWORD *)this + 3);
   if ( v3 )
   {
     if ( *((_BYTE *)this + 32) )
     {
-      ProtectHandle(v3, v2, ExEventObjectType, 0LL);
+      ProtectHandle(v3, v2, (struct _OBJECT_TYPE *)ExEventObjectType, 0);
+      v3 = (void *)*((_QWORD *)this + 3);
       *((_BYTE *)this + 32) = 0;
     }
-    ObCloseHandle(*((HANDLE *)this + 3), 1);
+    ObCloseHandle(v3, 1);
     *((_QWORD *)this + 3) = 0LL;
   }
   v4 = (void *)*((_QWORD *)this + 5);

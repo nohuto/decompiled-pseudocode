@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceZoneCriticalTripPointExceeded @ 0x140874938
+ * XREFs of PopDiagTraceZoneCriticalTripPointExceeded @ 0x140874918
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14018BED4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     PopDiagTraceTripPointExceeded @ 0x1408746DC (PopDiagTraceTripPointExceeded.c)
+ *     PopDiagTraceTripPointExceeded @ 0x1408746BC (PopDiagTraceTripPointExceeded.c)
  */
 
 void __fastcall PopDiagTraceZoneCriticalTripPointExceeded(__int64 a1, __int64 a2)

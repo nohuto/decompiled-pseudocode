@@ -1,11 +1,11 @@
 /*
- * XREFs of FastUpdateWinIni @ 0x1C0135520
+ * XREFs of FastUpdateWinIni @ 0x1C011DF30
  * Callers:
  *     <none>
  * Callees:
- *     RtlLoadStringOrError @ 0x1C0061FA0 (RtlLoadStringOrError.c)
- *     FastWriteProfileStringW @ 0x1C00C1AA0 (FastWriteProfileStringW.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     RtlLoadStringOrError @ 0x1C0010F50 (RtlLoadStringOrError.c)
+ *     FastWriteProfileStringW @ 0x1C00B5320 (FastWriteProfileStringW.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void *__fastcall FastUpdateWinIni(const UNICODE_STRING *a1, unsigned int a2, ULONG a3, _WORD *a4)

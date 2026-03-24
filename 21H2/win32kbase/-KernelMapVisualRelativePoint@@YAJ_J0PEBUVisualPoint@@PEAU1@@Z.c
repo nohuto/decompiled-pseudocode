@@ -1,14 +1,14 @@
 /*
- * XREFs of ?KernelMapVisualRelativePoint@@YAJ_J0PEBUVisualPoint@@PEAU1@@Z @ 0x1C01451D4
+ * XREFs of ?KernelMapVisualRelativePoint@@YAJ_J0PEBUVisualPoint@@PEAU1@@Z @ 0x1C0116864
  * Callers:
- *     NtMapVisualRelativePoints @ 0x1C0145B90 (NtMapVisualRelativePoints.c)
+ *     NtMapVisualRelativePoints @ 0x1C0117220 (NtMapVisualRelativePoints.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?GetTransformFromInputSink@@YAJPEAXPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0144DE8 (-GetTransformFromInputSink@@YAJPEAXPEAUtagINPUT_TRANSFORM@@@Z.c)
- *     ?InverseTransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0144E50 (-InverseTransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
- *     ?MapVisualRelativePoint@InputSink@InputTraceLogging@@SAXPEAX0AEBUtagINPUT_TRANSFORM@@1UVisualPoint@@2@Z @ 0x1C01457F8 (-MapVisualRelativePoint@InputSink@InputTraceLogging@@SAXPEAX0AEBUtagINPUT_TRANSFORM@@1UVisualPoi.c)
- *     ?TransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0145B10 (-TransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?GetTransformFromInputSink@@YAJPEAXPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C011647C (-GetTransformFromInputSink@@YAJPEAXPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?InverseTransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C01164E0 (-InverseTransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?MapVisualRelativePoint@InputSink@InputTraceLogging@@SAXPEAX0AEBUtagINPUT_TRANSFORM@@1UVisualPoint@@2@Z @ 0x1C0116E88 (-MapVisualRelativePoint@InputSink@InputTraceLogging@@SAXPEAX0AEBUtagINPUT_TRANSFORM@@1UVisualPoi.c)
+ *     ?TransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C01171A0 (-TransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
  */
 
 __int64 __fastcall KernelMapVisualRelativePoint(

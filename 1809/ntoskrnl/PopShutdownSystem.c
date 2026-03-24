@@ -3,10 +3,10 @@
  * Callers:
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270AA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     VslNotifyShutdown @ 0x14027B7DC (VslNotifyShutdown.c)
- *     DbgUnLoadImageSymbols @ 0x1402EC91C (DbgUnLoadImageSymbols.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
+ *     VslNotifyShutdown @ 0x14027B8DC (VslNotifyShutdown.c)
+ *     DbgUnLoadImageSymbols @ 0x1402ECA1C (DbgUnLoadImageSymbols.c)
  *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
  *     PopSetMemoryOverwriteRequestAction @ 0x14057C8FC (PopSetMemoryOverwriteRequestAction.c)
  *     PopNotifyShutdownListener @ 0x14057DFB4 (PopNotifyShutdownListener.c)
@@ -39,7 +39,7 @@ LABEL_12:
   }
   else if ( PopShutdownPowerOffPolicy )
   {
-    qword_1404181E8 = (__int64)PopShutdownHandler;
+    qword_1404181C8 = (__int64)PopShutdownHandler;
   }
   PopInvokeSystemStateHandler(4, 0LL);
   HalReturnToFirmware(1LL);

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIInternalSetSpare @ 0x1C0097F6C
+ * XREFs of ACPIInternalSetSpare @ 0x1C009C950
  * Callers:
- *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0097840 (ACPIFilterIrpQueryResourceRequirements.c)
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0097B70 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C009C430 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
- *     ACPIInternalClearFlags @ 0x1C0001748 (ACPIInternalClearFlags.c)
- *     ACPIQuerySpareDsm @ 0x1C00AFB78 (ACPIQuerySpareDsm.c)
+ *     ACPIInternalClearFlags @ 0x1C0002320 (ACPIInternalClearFlags.c)
+ *     ACPIQuerySpareDsm @ 0x1C00B06C8 (ACPIQuerySpareDsm.c)
  */
 
 __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 792);
+    v6 = *(_QWORD *)(a1 + 752);
     if ( v6 && (*(_DWORD *)(v6 + 8) & 0x4000LL) != 0 )
     {
       LOWORD(v7) = v5 | 0x4000;
@@ -48,7 +48,7 @@ __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
     else
     {
       v7 = *v2;
-      if ( v6 && _bittest64((const signed __int64 *)(v6 + 8), 0x25u) )
+      if ( v6 && (*(_QWORD *)(v6 + 8) & 0x2000000000LL) != 0 )
         v4 = 1;
     }
   }
@@ -56,7 +56,7 @@ __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
   {
     Data = -1;
     return (unsigned int)IoSetDevicePropertyData(
-                           *(PDEVICE_OBJECT *)(a1 + 784),
+                           *(PDEVICE_OBJECT *)(a1 + 744),
                            &DEVPKEY_Spare_Device,
                            0,
                            0,
@@ -66,7 +66,7 @@ __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
   }
   if ( v4
     && IoGetDevicePropertyData(
-         *(PDEVICE_OBJECT *)(a1 + 784),
+         *(PDEVICE_OBJECT *)(a1 + 744),
          &DEVPKEY_Spare_Device,
          0,
          0,
@@ -77,7 +77,7 @@ __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
   {
     Data = 0;
     return (unsigned int)IoSetDevicePropertyData(
-                           *(PDEVICE_OBJECT *)(a1 + 784),
+                           *(PDEVICE_OBJECT *)(a1 + 744),
                            &DEVPKEY_Spare_Device,
                            0,
                            0,

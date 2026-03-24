@@ -4,10 +4,10 @@
  *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     PopDiagGetDriverName @ 0x140155D74 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     PopDiagGetDriverName @ 0x140155D94 (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)

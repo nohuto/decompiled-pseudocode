@@ -1,5 +1,5 @@
 /*
- * XREFs of GetSavedCursorPosition @ 0x1C01E8140
+ * XREFs of GetSavedCursorPosition @ 0x1C01AE8D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 GetSavedCursorPosition()
 {
-  return *(_QWORD *)((char *)&InputDelegation::CInputDelegationInfo::gInstance + 12);
+  return *(&InputDelegation::CInputDelegationInfo::gInstance + 1);
 }

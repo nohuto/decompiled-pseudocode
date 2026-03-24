@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmNotifyDeviceDeparture @ 0x1409A1960
+ * XREFs of TtmNotifyDeviceDeparture @ 0x1408FBF00
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmpFindDeviceByToken @ 0x1409A27A8 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x1409A4B90 (TtmiAcquireCurrentSession.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4D70 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceDepartureNotified @ 0x1409A7A18 (TtmiLogDeviceDepartureNotified.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     TtmpFindDeviceByToken @ 0x1408FCD48 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FEFC4 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceDepartureNotified @ 0x140901EB4 (TtmiLogDeviceDepartureNotified.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceDeparture(unsigned int a1, __int64 a2)
@@ -44,7 +44,7 @@ __int64 __fastcall TtmNotifyDeviceDeparture(unsigned int a1, __int64 a2)
   }
   else
   {
-    TtmiLogError("TtmNotifyDeviceDeparture", 623LL, (unsigned int)v5, (unsigned int)v5);
+    TtmiLogError("TtmNotifyDeviceDeparture", 624LL, (unsigned int)v5, (unsigned int)v5);
   }
   LOBYTE(v6) = DeviceByToken;
   return TtmiLogDeviceDepartureNotified(a1, a2, v6);

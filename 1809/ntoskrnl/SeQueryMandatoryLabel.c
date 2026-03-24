@@ -1,11 +1,11 @@
 /*
- * XREFs of SeQueryMandatoryLabel @ 0x140654E4C
+ * XREFs of SeQueryMandatoryLabel @ 0x140654E2C
  * Callers:
  *     MiAllowImageMap @ 0x1405F48B8 (MiAllowImageMap.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     RtlSubAuthorityCountSid @ 0x1400DCAC0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
  */
 
 __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)

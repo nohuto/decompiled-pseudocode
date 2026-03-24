@@ -1,24 +1,25 @@
 /*
- * XREFs of ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802A6874
+ * XREFs of ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026695C
  * Callers:
- *     ?SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802A3B70 (-SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
- *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802A6358 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180264014 (-SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802667B8 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z @ 0x18006618C (-Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z.c)
- *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x180066388 (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
- *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x180067084 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInf.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18006ACA0 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetSize@CRenderTargetBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800BB0B8 (-GetSize@CRenderTargetBitmap@@UEBA-AUD2D_SIZE_U@@XZ.c)
- *     ?IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ @ 0x1800BB10C (-IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ.c)
- *     ?GetPixelFormatInfo@CRenderTargetBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800BB15C (-GetPixelFormatInfo@CRenderTargetBitmap@@UEBA-AUPixelFormatInfo@@XZ.c)
- *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x1800BCDD0 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
- *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800BCE30 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
- *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800BCEB0 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800BCF30 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z @ 0x180040FE4 (-Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F200 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?GetSize@CRenderTargetBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x180060D8C (-GetSize@CRenderTargetBitmap@@UEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ @ 0x180060DD8 (-IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ.c)
+ *     ?GetPixelFormatInfo@CRenderTargetBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x180060E1C (-GetPixelFormatInfo@CRenderTargetBitmap@@UEBA-AUPixelFormatInfo@@XZ.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18006107C (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180062AB0 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800D0960 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
+ *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800D4530 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x1800D5680 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
+ *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x1800D7544 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInf.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CDecodeBitmap::EnsureTargetBitmap(
@@ -29,7 +30,7 @@ __int64 __fastcall CDecodeBitmap::EnsureTargetBitmap(
 {
   unsigned int v4; // esi
   struct D2D_SIZE_U Size; // rcx
-  struct _LUID v10; // rdx
+  CDeviceManager *v10; // rcx
   int Device; // eax
   __int64 v12; // rcx
   CD3DDevice *v13; // rbx
@@ -63,13 +64,13 @@ __int64 __fastcall CDecodeBitmap::EnsureTargetBitmap(
   }
   if ( !*((_QWORD *)this + 17) )
   {
-    v10 = *(struct _LUID *)a4;
     v22[0] = 0LL;
-    Device = CDeviceManager::GetDevice(this, v10, v22);
+    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(v22);
+    Device = CDeviceManager::GetDevice(v10, *(struct _LUID *)a4, v22);
     v4 = Device;
     if ( Device < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, Device, 0x5Du);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, Device, 0x5Du, 0LL);
       v17 = v22[0];
       if ( v22[0] )
         goto LABEL_19;
@@ -80,11 +81,17 @@ __int64 __fastcall CDecodeBitmap::EnsureTargetBitmap(
       v19 = 0LL;
       v20 = "DWM Rendertarget (DecodeBitmap)";
       v21 = 31;
-      v14 = CD3DDevice::CreateDeviceTextureTarget(v22[0], (const struct CResourceTag *)&v20, a2, a3, a4, &v19);
+      v14 = CD3DDevice::CreateDeviceTextureTarget(
+              (struct CD2DResourceManager **)v22[0],
+              (const struct CResourceTag *)&v20,
+              a2,
+              a3,
+              a4,
+              &v19);
       v4 = v14;
       if ( v14 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x64u);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x64u, 0LL);
       }
       else
       {

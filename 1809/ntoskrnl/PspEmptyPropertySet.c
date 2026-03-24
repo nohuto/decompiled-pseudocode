@@ -4,7 +4,7 @@
  *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
  * Callees:
- *     PspRemoveProperty @ 0x14010F06C (PspRemoveProperty.c)
+ *     PspRemoveProperty @ 0x14010F08C (PspRemoveProperty.c)
  */
 
 _QWORD *__fastcall PspEmptyPropertySet(_QWORD *a1)

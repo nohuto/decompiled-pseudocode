@@ -1,32 +1,32 @@
 /*
- * XREFs of ?_GhostOwnerWindowAndOwnees@@YAHPEAUtagWND@@@Z @ 0x1C0144890
+ * XREFs of ?_GhostOwnerWindowAndOwnees@@YAHPEAUtagWND@@@Z @ 0x1C00037FC
  * Callers:
- *     ?ProcessHungWindow@@YAHPEAUtagWND@@@Z @ 0x1C0144840 (-ProcessHungWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ProcessHungWindow @ 0x1C00037AC (ProcessHungWindow.c)
  * Callees:
- *     IsNonImmersiveBand @ 0x1C00AEDA4 (IsNonImmersiveBand.c)
- *     ?ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00E1344 (-ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?_GhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C0144914 (-_GhostWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ?_GhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C0003880 (-_GhostWindow@@YAHPEAUtagWND@@@Z.c)
+ *     IsNonImmersiveBand @ 0x1C0037374 (IsNonImmersiveBand.c)
+ *     ShouldProcessHungWindow @ 0x1C0127764 (ShouldProcessHungWindow.c)
  */
 
-__int64 __fastcall _GhostOwnerWindowAndOwnees(struct tagWND **a1)
+__int64 __fastcall _GhostOwnerWindowAndOwnees(struct tagWND *a1)
 {
   unsigned int v2; // esi
-  struct tagWND *i; // rbx
-  struct tagWND *j; // rax
+  __int64 i; // rbx
+  __int64 j; // rax
 
   v2 = 0;
-  if ( ShouldProcessHungWindow((struct tagWND *)a1) )
-    v2 = _GhostWindow((struct tagWND *)a1);
-  if ( IsNonImmersiveBand((__int64)a1) )
+  if ( ((__int64 (*)(void))ShouldProcessHungWindow)() )
+    v2 = _GhostWindow(a1);
+  if ( (unsigned int)IsNonImmersiveBand(a1) )
   {
-    for ( i = a1[12]; i; i = (struct tagWND *)*((_QWORD *)i + 12) )
+    for ( i = *((_QWORD *)a1 + 12); i; i = *(_QWORD *)(i + 96) )
     {
-      for ( j = (struct tagWND *)*((_QWORD *)i + 15); j; j = (struct tagWND *)*((_QWORD *)j + 15) )
+      for ( j = *(_QWORD *)(i + 120); j; j = *(_QWORD *)(j + 120) )
       {
-        if ( j == (struct tagWND *)a1 )
+        if ( (struct tagWND *)j == a1 )
         {
           if ( ShouldProcessHungWindow(i) == i )
-            v2 |= _GhostWindow(i);
+            v2 |= _GhostWindow((struct tagWND *)i);
           break;
         }
       }

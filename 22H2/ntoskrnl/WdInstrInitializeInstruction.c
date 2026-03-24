@@ -1,12 +1,12 @@
 /*
- * XREFs of WdInstrInitializeInstruction @ 0x14052A70C
+ * XREFs of WdInstrInitializeInstruction @ 0x1404DE6C4
  * Callers:
- *     HalpWdatExecuteActionBeforeInitialize @ 0x14051EE74 (HalpWdatExecuteActionBeforeInitialize.c)
- *     HalpWdatInitializeWdat @ 0x14051F058 (HalpWdatInitializeWdat.c)
- *     HalpWdatInitializeWdrt @ 0x14051F0F0 (HalpWdatInitializeWdrt.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x1404D4B74 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     HalpWdatInitializeWdat @ 0x1404D4D58 (HalpWdatInitializeWdat.c)
+ *     HalpWdatInitializeWdrt @ 0x1404D4DF0 (HalpWdatInitializeWdrt.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     WdHwCreateHardwareRegister @ 0x14052A348 (WdHwCreateHardwareRegister.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WdHwCreateHardwareRegister @ 0x1404DE308 (WdHwCreateHardwareRegister.c)
  */
 
 __int64 __fastcall WdInstrInitializeInstruction(_BYTE *a1, char a2, char a3, __int64 a4, int a5, int a6, char a7)

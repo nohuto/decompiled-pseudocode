@@ -1,31 +1,24 @@
 /*
- * XREFs of IoBoostThreadIo @ 0x1402019A0
+ * XREFs of IoBoostThreadIo @ 0x140505930
  * Callers:
  *     <none>
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
  */
 
-__int64 __fastcall IoBoostThreadIo(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall IoBoostThreadIo(KSPIN_LOCK *a1, int a2, char a3, int a4)
 {
-  unsigned int v4; // edi
-  bool v6; // zf
-
-  v4 = a2;
   if ( a4 )
     return 3221225485LL;
-  v6 = (_BYTE)a3 == 1;
-  LOBYTE(a3) = 1;
-  if ( v6 )
+  if ( a3 == 1 )
   {
-    LOBYTE(a2) = 1;
-    PsBoostThreadIoEx(a1, a2, a3, 0LL);
+    PsBoostThreadIoEx((__int64)a1, 1, 1, 0LL);
   }
   else
   {
-    PsBoostThreadIoEx(a1, 0LL, a3, 0LL);
-    IoBoostThreadIoPriority(a1, v4, 0x80000000LL);
+    PsBoostThreadIoEx((__int64)a1, 0, 1, 0LL);
+    IoBoostThreadIoPriority(a1, a2, 0x80000000);
   }
   return 0LL;
 }

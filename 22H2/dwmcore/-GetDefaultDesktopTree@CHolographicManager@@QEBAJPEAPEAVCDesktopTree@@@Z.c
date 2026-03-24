@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDefaultDesktopTree@CHolographicManager@@QEBAJPEAPEAVCDesktopTree@@@Z @ 0x1802A575C
+ * XREFs of ?GetDefaultDesktopTree@CHolographicManager@@QEBAJPEAPEAVCDesktopTree@@@Z @ 0x180253744
  * Callers:
- *     ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x1802A93B0 (-GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z.c)
+ *     ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180257990 (-GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
  */
 
 __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this, struct CDesktopTree **a2)
@@ -12,7 +12,7 @@ __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this,
   unsigned int v4; // edi
   __int64 v5; // rcx
   _QWORD *Ptr; // rax
-  __int64 v7; // rcx
+  struct CDesktopTree *v7; // rcx
 
   v4 = 0;
   AcquireSRWLockShared(this + 13);
@@ -25,11 +25,11 @@ __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this,
   }
   else
   {
-    v7 = *(_QWORD *)(v5 + 96);
+    v7 = *(struct CDesktopTree **)(v5 + 88);
     if ( v7 )
     {
-      *a2 = (struct CDesktopTree *)v7;
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v7 + 8));
+      *a2 = v7;
+      CMILCOMBase::InternalAddRef(v7);
     }
     else
     {

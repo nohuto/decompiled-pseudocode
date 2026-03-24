@@ -1,16 +1,15 @@
 /*
- * XREFs of MiReduceCommitLimits @ 0x1405B3268
+ * XREFs of MiReduceCommitLimits @ 0x14055063C
  * Callers:
- *     MiAttemptPageFileReductionApc @ 0x14059B0B0 (MiAttemptPageFileReductionApc.c)
- *     MiInsertPartitionPages @ 0x1405BE81C (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     MiMapNewPfns @ 0x140969514 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
+ *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiComputeCommitThresholds @ 0x1403CF630 (MiComputeCommitThresholds.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiComputeCommitThresholds @ 0x1403BF8C0 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
@@ -23,11 +22,11 @@ __int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(a1 + 2005, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(a1 + 781, &LockHandle);
   if ( a3 )
-    a1[2001] -= a3;
+    a1[777] -= a3;
   if ( a2 )
-    a1[2187] -= a2;
+    a1[949] -= a2;
   MiComputeCommitThresholds(a1);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;

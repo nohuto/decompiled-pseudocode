@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpDiskProvTraceDisk @ 0x1403107D4
+ * XREFs of EtwpDiskProvTraceDisk @ 0x1403108D4
  * Callers:
- *     EtwpTraceIo @ 0x140182F80 (EtwpTraceIo.c)
+ *     EtwpTraceIo @ 0x140182FA0 (EtwpTraceIo.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall EtwpDiskProvTraceDisk(__int16 a1, __int64 a2, __int64 a3, GUID *a4)

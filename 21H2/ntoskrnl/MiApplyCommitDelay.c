@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyCommitDelay @ 0x1405B2E5C
+ * XREFs of MiApplyCommitDelay @ 0x140550230
  * Callers:
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
@@ -32,12 +32,12 @@ void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
   if ( (a2 & 4) == 0
     && (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0
     && KeGetCurrentIrql() < 2u
-    && a3 != *(_QWORD *)(a1 + 16008)
-    && *(_DWORD *)(a1 + 2028) )
+    && a3 != *(_QWORD *)(a1 + 6216)
+    && *(_DWORD *)(a1 + 1868) )
   {
     v4 = (volatile LONG *)(a1 + 1344);
     v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
-    v6 = *(_DWORD *)(a1 + 2024);
+    v6 = *(_DWORD *)(a1 + 1864);
     v7 = v5;
     if ( v6 )
     {
@@ -45,14 +45,14 @@ void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
     }
     else
     {
-      *(_WORD *)(a1 + 2032) = 0;
-      *(_DWORD *)(a1 + 2036) = 0;
-      *(_QWORD *)(a1 + 2048) = a1 + 2040;
-      *(_QWORD *)(a1 + 2040) = a1 + 2040;
+      *(_WORD *)(a1 + 1872) = 0;
+      *(_DWORD *)(a1 + 1876) = 0;
+      *(_QWORD *)(a1 + 1888) = a1 + 1880;
+      *(_QWORD *)(a1 + 1880) = a1 + 1880;
       v8 = 1;
-      *(_BYTE *)(a1 + 2034) = 6;
+      *(_BYTE *)(a1 + 1874) = 6;
     }
-    *(_DWORD *)(a1 + 2024) = v8;
+    *(_DWORD *)(a1 + 1864) = v8;
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
     if ( KiIrqlFlags )
     {
@@ -73,9 +73,9 @@ void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
     }
     __writecr8(v7);
     Timeout = Mi10Milliseconds;
-    KeWaitForSingleObject((PVOID)(a1 + 2032), Executive, 0, 0, &Timeout);
+    KeWaitForSingleObject((PVOID)(a1 + 1872), Executive, 0, 0, &Timeout);
     v14 = ExAcquireSpinLockExclusive(v4);
-    --*(_DWORD *)(a1 + 2024);
+    --*(_DWORD *)(a1 + 1864);
     v15 = v14;
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
     if ( KiIrqlFlags )

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpRegisterPrivateSession @ 0x1408C00B8
+ * XREFs of EtwpRegisterPrivateSession @ 0x1408C0098
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:
@@ -8,14 +8,14 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     PidNodeCompare @ 0x1408C061C (PidNodeCompare.c)
+ *     PidNodeCompare @ 0x1408C05FC (PidNodeCompare.c)
  */
 
 __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _WORD *a3, _DWORD *a4)

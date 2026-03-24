@@ -1,18 +1,18 @@
 /*
- * XREFs of VidSchiCompleteAllPendingCommand @ 0x1C0046E10
+ * XREFs of VidSchiCompleteAllPendingCommand @ 0x1C003C880
  * Callers:
- *     VidSchiReportHwHang @ 0x1C0047458 (VidSchiReportHwHang.c)
- *     VidSchFlushAdapter @ 0x1C01070F0 (VidSchFlushAdapter.c)
+ *     VidSchiReportHwHang @ 0x1C003D024 (VidSchiReportHwHang.c)
+ *     VidSchFlushAdapter @ 0x1C00CFF30 (VidSchFlushAdapter.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000A3C0 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiCompletePendingFlip @ 0x1C001830C (VidSchiCompletePendingFlip.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0042DD8 (-VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z.c)
- *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0046FE8 (VidSchiCompletePendingCommandInNodeHwQueue.c)
- *     VidSchiWaitForCompletePreemption @ 0x1C0106E4C (VidSchiWaitForCompletePreemption.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000B000 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00384B8 (-VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C003CA48 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiCompletePendingFlip @ 0x1C003CD10 (VidSchiCompletePendingFlip.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C00CF594 (VidSchiWaitForCompletePreemption.c)
  */
 
 __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
@@ -31,10 +31,10 @@ __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
   __int16 v14; // [rsp+70h] [rbp-10h]
 
   v1 = 0;
-  for ( i = 0; i < *(_DWORD *)(a1 + 80); ++i )
+  for ( i = 0; i < *(_DWORD *)(a1 + 72); ++i )
   {
-    v4 = *(__int64 **)(a1 + 632);
-    if ( i < *(_DWORD *)(a1 + 704) )
+    v4 = *(__int64 **)(a1 + 624);
+    if ( i < *(_DWORD *)(a1 + 696) )
       v4 += i;
     v5 = *v4;
     if ( (*(_DWORD *)(v5 + 12) & 2) != 0 )
@@ -43,16 +43,15 @@ __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
     }
     else
     {
-      memset(&LockHandle, 0, sizeof(LockHandle));
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
       v6 = (LARGE_INTEGER *)(*(_QWORD *)(v5 + 184) + 112LL * *(unsigned int *)(v5 + 196));
       memset(v6, 0, 0x70uLL);
       *(_DWORD *)(v5 + 196) = (*(_DWORD *)(v5 + 196) + 1) & (*(_DWORD *)(v5 + 192) - 1);
-      v6[1] = KeQueryPerformanceCounter(0LL);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       v6->LowPart = 7;
+      v6[1] = KeQueryPerformanceCounter(0LL);
       v6[2] = *(LARGE_INTEGER *)(v5 + 152);
-      LOBYTE(v6[3].LowPart) = *(_BYTE *)(a1 + 3036) & 1;
+      LOBYTE(v6[3].LowPart) = *(_BYTE *)(a1 + 2940) & 1;
       IsTDRPending = VidSchIsTDRPending(a1);
       BYTE2(v6[3].u.LowPart) = 0;
       BYTE1(v6[3].LowPart) = IsTDRPending;
@@ -60,12 +59,12 @@ __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
       v8 = *(_QWORD *)(v5 + 168);
       *(_QWORD *)(v5 + 64) = v8;
       *(_QWORD *)(v5 + 72) = v8;
-      if ( *(_DWORD *)(v5 + 2900) )
+      if ( *(_DWORD *)(v5 + 2892) )
         VidSchiWaitForCompletePreemption(v5);
     }
   }
   v14 = 0;
-  v13[0] = a1 + 1728;
+  v13[0] = a1 + 1712;
   AcquireSpinLock::Acquire((Acquire *)v13);
   v11 = 0;
   v10[1] = v10;
@@ -73,7 +72,7 @@ __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
   if ( *(_DWORD *)(a1 + 40) )
   {
     do
-      VidSchiCompletePendingFlip((int)v10, a1, v1++, 9);
+      VidSchiCompletePendingFlip(v10, a1, v1++, 9LL);
     while ( v1 < *(_DWORD *)(a1 + 40) );
   }
   HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v10);

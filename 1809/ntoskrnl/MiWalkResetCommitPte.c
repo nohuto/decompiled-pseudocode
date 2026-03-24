@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWalkResetCommitPte @ 0x1402A5360
+ * XREFs of MiWalkResetCommitPte @ 0x1402A5460
  * Callers:
  *     <none>
  * Callees:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiWalkResetCommitPte(__int64 a1, unsigned __int64 a2, int a3)

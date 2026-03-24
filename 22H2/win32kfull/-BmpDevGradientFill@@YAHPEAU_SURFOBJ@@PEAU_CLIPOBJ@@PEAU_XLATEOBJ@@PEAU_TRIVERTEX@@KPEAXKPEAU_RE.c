@@ -1,20 +1,20 @@
 /*
- * XREFs of ?BmpDevGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C02A1B60
+ * XREFs of ?BmpDevGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C0299580
  * Callers:
  *     <none>
  * Callees:
- *     EngGradientFill @ 0x1C0002BB0 (EngGradientFill.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A1234 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A2F10 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     EngGradientFill @ 0x1C00CEFD0 (EngGradientFill.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0298C48 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029A908 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall BmpDevGradientFill(
         struct _SURFOBJ *a1,
         CLIPOBJ *pco,
         XLATEOBJ *pxlo,
-        TRIVERTEX *pVertex,
+        struct _TRIVERTEX *a4,
         ULONG nVertex,
         PVOID pMesh,
         ULONG nMesh,
@@ -23,52 +23,57 @@ __int64 __fastcall BmpDevGradientFill(
         ULONG ulMode)
 {
   unsigned int v14; // esi
-  __int64 v15; // rcx
+  TRIVERTEX *v15; // r9
   __int64 HDEV; // rax
   _QWORD *i; // rbx
   __int64 v18; // r9
-  __int64 v19; // r9
-  __int64 v21; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+68h] [rbp-40h] BYREF
-  struct SURFACE *v23; // [rsp+70h] [rbp-38h] BYREF
+  int v19; // eax
+  __int64 v20; // r9
+  __int64 v22; // [rsp+60h] [rbp-48h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-40h] BYREF
+  struct SURFACE *v24; // [rsp+70h] [rbp-38h] BYREF
 
   v14 = 0;
-  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v23, a1);
+  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v24, a1);
   if ( a1 )
   {
-    v14 = EngGradientFill(a1, pco, pxlo, pVertex, nVertex, pMesh, nMesh, prclExtents, pptlDitherOrg, ulMode);
-    HDEV = UserGetHDEV(v15);
+    v14 = EngGradientFill(a1, pco, pxlo, v15, nVertex, pMesh, nMesh, prclExtents, pptlDitherOrg, ulMode);
+    HDEV = UserGetHDEV();
     if ( HDEV )
     {
       if ( (*(_DWORD *)(HDEV + 40) & 0x20000000) != 0 )
       {
-        for ( i = **(_QWORD ***)(HDEV + 1768); i; i = (_QWORD *)*i )
+        for ( i = **(_QWORD ***)(HDEV + 1800); i; i = (_QWORD *)*i )
         {
           v18 = i[6];
-          v21 = v18;
+          v22 = v18;
           if ( v18 )
           {
-            if ( (*(_DWORD *)(v18 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v18 + 2096) & 0x9000) == 0x9000 )
+            if ( (*(_DWORD *)(v18 + 1824) & 0x8000000) != 0 )
             {
-              if ( *(_QWORD *)(*(_QWORD *)(v18 + 1760) + 608LL) )
+              v19 = *(_DWORD *)(v18 + 2128);
+              if ( (v19 & 0x1000) != 0 && (v19 & 0x8000) != 0 )
               {
-                MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
-                  (MARK_ACCDRV_NOTIFICATION *)&v22,
-                  (struct PDEVOBJ *)&v21,
-                  a1);
-                (*(void (__fastcall **)(struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG))(*(_QWORD *)(v19 + 1760) + 608LL))(
-                  a1,
-                  pco,
-                  pxlo,
-                  pVertex,
-                  nVertex,
-                  pMesh,
-                  nMesh,
-                  prclExtents,
-                  pptlDitherOrg,
-                  ulMode);
-                if ( v22 )
-                  *(_WORD *)(v22 + 78) &= ~0x8000u;
+                if ( *(_QWORD *)(*(_QWORD *)(v18 + 1792) + 608LL) )
+                {
+                  MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
+                    (MARK_ACCDRV_NOTIFICATION *)&v23,
+                    (struct PDEVOBJ *)&v22,
+                    a1);
+                  (*(void (__fastcall **)(struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, struct _TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG))(*(_QWORD *)(v20 + 1792) + 608LL))(
+                    a1,
+                    pco,
+                    pxlo,
+                    a4,
+                    nVertex,
+                    pMesh,
+                    nMesh,
+                    prclExtents,
+                    pptlDitherOrg,
+                    ulMode);
+                  if ( v23 )
+                    *(_WORD *)(v23 + 78) &= ~0x8000u;
+                }
               }
             }
           }
@@ -76,7 +81,7 @@ __int64 __fastcall BmpDevGradientFill(
       }
     }
   }
-  if ( v23 )
-    bBmpMakeOpaque(v23);
+  if ( v24 )
+    bBmpMakeOpaque(v24);
   return v14;
 }

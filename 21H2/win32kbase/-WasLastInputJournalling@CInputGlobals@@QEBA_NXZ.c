@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WasLastInputJournalling@CInputGlobals@@QEBA_NXZ @ 0x1C01DC1F0
+ * XREFs of ?WasLastInputJournalling@CInputGlobals@@QEBA_NXZ @ 0x1C01A3910
  * Callers:
  *     <none>
  * Callees:

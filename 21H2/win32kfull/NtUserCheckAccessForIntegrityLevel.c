@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserCheckAccessForIntegrityLevel @ 0x1C01F1A90
+ * XREFs of NtUserCheckAccessForIntegrityLevel @ 0x1C01F7030
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     LockProcessByClientId @ 0x1C007AC20 (LockProcessByClientId.c)
+ *     LockProcessByClientId @ 0x1C003C118 (LockProcessByClientId.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserCheckAccessForIntegrityLevel(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall NtUserCheckAccessForIntegrityLevel(int a1, int a2, _DWORD *a3)
 {
   void *v4; // rsi
   void *v5; // rbx
@@ -15,47 +15,49 @@ __int64 __fastcall NtUserCheckAccessForIntegrityLevel(__int64 a1, __int64 a2, _D
   __int64 v7; // rdx
   __int64 v8; // rcx
   __int64 ProcessWin32Process; // rbx
-  __int64 v10; // rax
-  int v11; // r8d
-  _DWORD *v12; // rdx
-  PVOID v13; // rcx
-  PVOID v15; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v10; // r8
+  __int64 v11; // rax
+  int v12; // r8d
+  _DWORD *v13; // rdx
+  PVOID v14; // rcx
+  PVOID v16; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
-  v4 = (void *)(int)a2;
-  v5 = (void *)(int)a1;
-  EnterSharedCrit(a1, a2, a3);
-  v15 = 0LL;
+  v4 = (void *)a2;
+  v5 = (void *)a1;
+  EnterSharedCrit(0LL, 1LL);
+  v16 = 0LL;
   Object = 0LL;
   if ( (int)LockProcessByClientId(v5, (PEPROCESS *)&Object) < 0 )
     goto LABEL_2;
   ProcessWin32Process = PsGetProcessWin32Process(Object);
   if ( !ProcessWin32Process )
     goto LABEL_2;
-  if ( PsGetCurrentProcess(v8, v7) != gpepCSRSS && ProcessWin32Process != PsGetCurrentProcessWin32Process(gpepCSRSS) )
+  if ( PsGetCurrentProcess(v8, v7, v10) != gpepCSRSS
+    && ProcessWin32Process != PsGetCurrentProcessWin32Process(gpepCSRSS) )
   {
     v6 = -1073741790;
     goto LABEL_12;
   }
-  if ( (int)LockProcessByClientId(v4, (PEPROCESS *)&v15) < 0 || (v10 = PsGetProcessWin32Process(v15)) == 0 )
+  if ( (int)LockProcessByClientId(v4, (PEPROCESS *)&v16) < 0 || (v11 = PsGetProcessWin32Process(v16)) == 0 )
   {
 LABEL_2:
     v6 = -1073741811;
     goto LABEL_12;
   }
-  v11 = (unsigned __int8)CheckAccess(ProcessWin32Process + 880, v10 + 880);
-  v12 = a3;
+  v12 = (unsigned __int8)CheckAccess(ProcessWin32Process + 880, v11 + 880);
+  v13 = a3;
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    v12 = (_DWORD *)MmUserProbeAddress;
-  *v12 = *v12;
-  *a3 = v11;
+    v13 = (_DWORD *)MmUserProbeAddress;
+  *v13 = *v13;
+  *a3 = v12;
   v6 = 0;
 LABEL_12:
   if ( Object )
     ObfDereferenceObject(Object);
-  v13 = v15;
-  if ( v15 )
-    ObfDereferenceObject(v15);
-  UserSessionSwitchLeaveCrit(v13);
+  v14 = v16;
+  if ( v16 )
+    ObfDereferenceObject(v16);
+  UserSessionSwitchLeaveCrit(v14);
   return v6;
 }

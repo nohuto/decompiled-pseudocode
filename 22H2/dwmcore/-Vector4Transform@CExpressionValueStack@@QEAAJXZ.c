@@ -1,29 +1,28 @@
 /*
- * XREFs of ?Vector4Transform@CExpressionValueStack@@QEAAJXZ @ 0x180263070
+ * XREFs of ?Vector4Transform@CExpressionValueStack@@QEAAJXZ @ 0x180202824
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18027F098 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18027F198 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DMatrix@@@Z @ 0x18027F318 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DMatrix@@@Z.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DQuaternion@@@Z @ 0x18027F3A8 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DQuaternion@@@Z.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DMatrix@@@Z @ 0x18027F4D8 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DMatrix@@@Z.c)
- *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DQuaternion@@@Z @ 0x18027F5B0 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DQuaternion@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18021E1D8 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18021E2D8 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DMatrix@@@Z @ 0x18021E458 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DQuaternion@@@Z @ 0x18021E4E8 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector2@@PEBUD2DQuaternion@@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DMatrix@@@Z @ 0x18021E618 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DQuaternion@@@Z @ 0x18021E6F0 (-D3DXVec4Transform@@YAPEAUD2DVector4@@PEAU1@PEBUD2DVector3@@PEBUD2DQuaternion@@@Z.c)
  */
 
-__int64 __fastcall CExpressionValueStack::Vector4Transform(__int64 this)
+__int64 __fastcall CExpressionValueStack::Vector4Transform(CExpressionValueStack *this)
 {
-  unsigned int v1; // eax
-  __int64 v2; // rsi
-  __int64 v3; // rax
-  unsigned int *v4; // rbx
-  CExpressionValue *v5; // rax
-  _DWORD *v6; // rdi
-  __int64 v7; // rax
+  __int64 v2; // rcx
+  unsigned int v3; // edx
+  __int64 v4; // rax
+  unsigned int *v5; // rbx
+  CExpressionValue *v6; // rax
+  _DWORD *v7; // rdi
   CExpressionValue *v8; // rax
   int v9; // edx
   unsigned __int64 v10; // rax
@@ -39,25 +38,24 @@ __int64 __fastcall CExpressionValueStack::Vector4Transform(__int64 this)
   __int128 v20; // xmm1
   __int128 v21; // xmm0
   unsigned int v22; // ebx
-  unsigned int v24; // [rsp+20h] [rbp-49h]
-  __int128 v25; // [rsp+30h] [rbp-39h] BYREF
-  __int128 v26; // [rsp+40h] [rbp-29h] BYREF
-  __int128 v27; // [rsp+50h] [rbp-19h] BYREF
-  __int128 v28; // [rsp+60h] [rbp-9h] BYREF
-  __int128 v29; // [rsp+70h] [rbp+7h]
-  __int128 v30; // [rsp+80h] [rbp+17h]
-  __int128 v31; // [rsp+90h] [rbp+27h]
-  __int64 v32; // [rsp+D0h] [rbp+67h] BYREF
+  unsigned int v24; // [rsp+28h] [rbp-39h]
+  __int128 v25; // [rsp+38h] [rbp-29h] BYREF
+  __int128 v26; // [rsp+48h] [rbp-19h] BYREF
+  __int128 v27; // [rsp+58h] [rbp-9h] BYREF
+  __int128 v28; // [rsp+68h] [rbp+7h] BYREF
+  __int128 v29; // [rsp+78h] [rbp+17h]
+  __int128 v30; // [rsp+88h] [rbp+27h]
+  __int128 v31; // [rsp+98h] [rbp+37h]
+  __int64 v32; // [rsp+C8h] [rbp+67h] BYREF
 
-  v1 = *(_DWORD *)(this + 16);
-  v2 = this;
-  if ( v1 < 2 )
+  v2 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v2 < 2 )
   {
     v24 = 7708;
 LABEL_28:
     v22 = -2147467259;
     MilInstrumentationCheckHR_MaybeFailFast(
-      this,
+      v2,
       &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
       1u,
       -2147467259,
@@ -65,23 +63,26 @@ LABEL_28:
       0LL);
     return v22;
   }
-  v3 = v1 - 2;
-  v4 = (unsigned int *)&CExpressionValueStack::s_emptyValue;
-  if ( (unsigned int)v3 < *(_DWORD *)(this + 48) )
+  v3 = *((_DWORD *)this + 12);
+  v4 = (unsigned int)(v2 - 2);
+  v5 = (unsigned int *)&CExpressionValueStack::s_emptyValue;
+  if ( (unsigned int)v4 < v3 )
   {
-    v6 = (_DWORD *)(*(_QWORD *)(this + 24) + 80 * v3);
+    v7 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v4);
   }
   else
   {
-    v5 = CExpressionValue::CExpressionValue((CExpressionValue *)&v28);
-    CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v5);
+    v6 = CExpressionValue::CExpressionValue((CExpressionValue *)&v28);
+    CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
     CExpressionValue::~CExpressionValue((CExpressionValue *)&v28);
-    v6 = &CExpressionValueStack::s_emptyValue;
+    LODWORD(v2) = *((_DWORD *)this + 4);
+    v7 = &CExpressionValueStack::s_emptyValue;
+    v3 = *((_DWORD *)this + 12);
   }
-  v7 = (unsigned int)(*(_DWORD *)(v2 + 16) - 1);
-  if ( (unsigned int)v7 < *(_DWORD *)(v2 + 48) )
+  v2 = (unsigned int)(v2 - 1);
+  if ( (unsigned int)v2 < v3 )
   {
-    v4 = (unsigned int *)(*(_QWORD *)(v2 + 24) + 80 * v7);
+    v5 = (unsigned int *)(*((_QWORD *)this + 3) + 80 * v2);
   }
   else
   {
@@ -89,15 +90,15 @@ LABEL_28:
     CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v8);
     CExpressionValue::~CExpressionValue((CExpressionValue *)&v28);
   }
-  v9 = v6[18];
+  v9 = v7[18];
   v10 = (unsigned int)(v9 - 35);
-  if ( (unsigned int)v10 > 0x22 || (this = 0x400020001LL, !_bittest64(&this, v10)) )
+  if ( (unsigned int)v10 > 0x22 || (v2 = 0x400020001LL, !_bittest64(&v2, v10)) )
   {
     v24 = 7722;
     goto LABEL_28;
   }
-  this = v4[18];
-  if ( (_DWORD)this != 71 && (_DWORD)this != 265 )
+  v2 = v5[18];
+  if ( (_DWORD)v2 != 71 && (_DWORD)v2 != 265 )
   {
     v24 = 7731;
     goto LABEL_28;
@@ -105,21 +106,21 @@ LABEL_28:
   switch ( v9 )
   {
     case '#':
-      v32 = *(_QWORD *)v6;
-      if ( (_DWORD)this == 265 )
+      v32 = *(_QWORD *)v7;
+      if ( (_DWORD)v2 == 265 )
       {
-        v11 = *((_OWORD *)v4 + 1);
-        v28 = *(_OWORD *)v4;
-        v12 = *((_OWORD *)v4 + 2);
+        v11 = *((_OWORD *)v5 + 1);
+        v28 = *(_OWORD *)v5;
+        v12 = *((_OWORD *)v5 + 2);
         v29 = v11;
-        v13 = *((_OWORD *)v4 + 3);
+        v13 = *((_OWORD *)v5 + 3);
         v30 = v12;
         v31 = v13;
         D3DXVec4Transform((struct D2DVector4 *)&v26, (const struct D2DVector2 *)&v32, (const struct D2DMatrix *)&v28);
       }
       else
       {
-        v25 = *(_OWORD *)v4;
+        v25 = *(_OWORD *)v5;
         D3DXVec4Transform(
           (struct D2DVector4 *)&v26,
           (const struct D2DVector2 *)&v32,
@@ -127,23 +128,23 @@ LABEL_28:
       }
       break;
     case '4':
-      v14 = v6[2];
-      *(_QWORD *)&v25 = *(_QWORD *)v6;
+      v14 = v7[2];
+      *(_QWORD *)&v25 = *(_QWORD *)v7;
       DWORD2(v25) = v14;
-      if ( (_DWORD)this == 265 )
+      if ( (_DWORD)v2 == 265 )
       {
-        v15 = *((_OWORD *)v4 + 1);
-        v28 = *(_OWORD *)v4;
-        v16 = *((_OWORD *)v4 + 2);
+        v15 = *((_OWORD *)v5 + 1);
+        v28 = *(_OWORD *)v5;
+        v16 = *((_OWORD *)v5 + 2);
         v29 = v15;
-        v17 = *((_OWORD *)v4 + 3);
+        v17 = *((_OWORD *)v5 + 3);
         v30 = v16;
         v31 = v17;
         D3DXVec4Transform((struct D2DVector4 *)&v26, (const struct D2DVector3 *)&v25, (const struct D2DMatrix *)&v28);
       }
       else
       {
-        v27 = *(_OWORD *)v4;
+        v27 = *(_OWORD *)v5;
         D3DXVec4Transform(
           (struct D2DVector4 *)&v26,
           (const struct D2DVector3 *)&v25,
@@ -151,21 +152,21 @@ LABEL_28:
       }
       break;
     case 'E':
-      v25 = *(_OWORD *)v6;
-      if ( (_DWORD)this == 265 )
+      v25 = *(_OWORD *)v7;
+      if ( (_DWORD)v2 == 265 )
       {
-        v18 = *((_OWORD *)v4 + 1);
-        v28 = *(_OWORD *)v4;
-        v19 = *((_OWORD *)v4 + 2);
+        v18 = *((_OWORD *)v5 + 1);
+        v28 = *(_OWORD *)v5;
+        v19 = *((_OWORD *)v5 + 2);
         v29 = v18;
-        v20 = *((_OWORD *)v4 + 3);
+        v20 = *((_OWORD *)v5 + 3);
         v30 = v19;
         v31 = v20;
         D3DXVec4Transform((struct D2DVector4 *)&v26, (const struct D2DVector4 *)&v25, (const struct D2DMatrix *)&v28);
       }
       else
       {
-        v27 = *(_OWORD *)v4;
+        v27 = *(_OWORD *)v5;
         D3DXVec4Transform(
           (struct D2DVector4 *)&v26,
           (const struct D2DVector4 *)&v25,
@@ -174,9 +175,9 @@ LABEL_28:
       break;
   }
   v21 = v26;
-  v6[18] = 69;
-  *((_BYTE *)v6 + 76) = 1;
-  *(_OWORD *)v6 = v21;
-  --*(_DWORD *)(v2 + 16);
+  v7[18] = 69;
+  *((_BYTE *)v7 + 76) = 1;
+  *(_OWORD *)v7 = v21;
+  --*((_DWORD *)this + 4);
   return 0;
 }

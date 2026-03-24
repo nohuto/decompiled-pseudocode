@@ -1,5 +1,5 @@
 /*
- * XREFs of PdcPoSetPowerSettingValue @ 0x14086EF40
+ * XREFs of PdcPoSetPowerSettingValue @ 0x14086EF20
  * Callers:
  *     <none>
  * Callees:

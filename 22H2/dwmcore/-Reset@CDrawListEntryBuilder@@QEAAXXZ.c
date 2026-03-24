@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x180095D44
+ * XREFs of ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x1800934F0
  * Callers:
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18005AAAC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
- *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180095AB0 (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
- *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x180095B5C (--1CDrawListEntryBuilder@@QEAA@XZ.c)
- *     ?RenderOverlayColor@CDrawingContext@@AEAAJAEBU_D3DCOLORVALUE@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801D6CC0 (-RenderOverlayColor@CDrawingContext@@AEAAJAEBU_D3DCOLORVALUE@@AEBV-$TMilRect_@MUMilRectF@@UMil3D.c)
+ *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x1800577C0 (--1CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180068FEC (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
+ *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180094920 (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18026170C (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDrawListEntryBuilder::Reset(CDrawListEntryBuilder *this)
@@ -16,8 +16,8 @@ void __fastcall CDrawListEntryBuilder::Reset(CDrawListEntryBuilder *this)
   __int64 v4; // rax
   __int64 v5; // rcx
 
-  v1 = (_QWORD *)*((_QWORD *)this + 11);
-  v3 = (_QWORD *)*((_QWORD *)this + 12);
+  v1 = (_QWORD *)*((_QWORD *)this + 5);
+  v3 = (_QWORD *)*((_QWORD *)this + 6);
   while ( v1 != v3 )
   {
     if ( *v1 )
@@ -27,14 +27,14 @@ void __fastcall CDrawListEntryBuilder::Reset(CDrawListEntryBuilder *this)
     }
     ++v1;
   }
-  v4 = (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 3;
+  v4 = (__int64)(*((_QWORD *)this + 6) - *((_QWORD *)this + 5)) >> 3;
   if ( v4 )
-    *((_QWORD *)this + 12) -= 8 * v4;
-  *((_BYTE *)this + 4472) = 0;
-  v5 = *((_QWORD *)this + 10);
+    *((_QWORD *)this + 6) -= 8 * v4;
+  *((_DWORD *)this + 24) = 0;
+  v5 = *((_QWORD *)this + 4);
   if ( v5 )
   {
-    *((_QWORD *)this + 10) = 0LL;
+    *((_QWORD *)this + 4) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
   }
 }

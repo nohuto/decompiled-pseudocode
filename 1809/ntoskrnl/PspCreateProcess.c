@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCreateProcess @ 0x14075DE30
+ * XREFs of PspCreateProcess @ 0x14075DE10
  * Callers:
- *     NtCreateProcessEx @ 0x140887EB0 (NtCreateProcessEx.c)
+ *     NtCreateProcessEx @ 0x140887E90 (NtCreateProcessEx.c)
  *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
@@ -18,9 +18,9 @@
  *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
  *     PspReferenceTokenForNewProcess @ 0x14060DA9C (PspReferenceTokenForNewProcess.c)
  *     PspCreateObjectHandle @ 0x140621C88 (PspCreateObjectHandle.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall PspCreateProcess(

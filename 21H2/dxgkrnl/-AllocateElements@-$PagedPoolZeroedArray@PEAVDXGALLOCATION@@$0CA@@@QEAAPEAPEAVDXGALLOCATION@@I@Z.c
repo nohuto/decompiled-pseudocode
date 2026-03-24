@@ -1,36 +1,35 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAVDXGALLOCATION@@$0CA@@@QEAAPEAPEAVDXGALLOCATION@@I@Z @ 0x1C02DB5B0
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAVDXGALLOCATION@@$0CA@@@QEAAPEAPEAVDXGALLOCATION@@I@Z @ 0x1C022C2CC
  * Callers:
- *     DxgkRender @ 0x1C01592B0 (DxgkRender.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
- *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0366FC0 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkRender @ 0x1C00E9810 (DxgkRender.c)
+ *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023BE10 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<DXGALLOCATION *,32>::AllocateElements(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+PVOID __fastcall PagedPoolZeroedArray<DXGALLOCATION *,32>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  __int64 result; // rax
-  void *v7; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 0x20 )
   {
-    v7 = a1 + 1;
-    *a1 = (__int64)v7;
-    if ( a2 )
-      memset(v7, 0, 8LL * a2);
+    result = a1 + 2;
   }
   else
   {
     if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    *a1 = ExAllocatePool2(256LL, 8LL * a2, 1265072196LL, a4);
+    result = ExAllocatePoolWithTag(PagedPool, 8LL * a2, 0x4B677844u);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 66) = a2;
+  *(_QWORD *)a1 = result;
+  a1[66] = a2;
+  if ( result )
+  {
+    memset(result, 0, 8 * v4);
+    return *(PVOID *)a1;
+  }
   return result;
 }

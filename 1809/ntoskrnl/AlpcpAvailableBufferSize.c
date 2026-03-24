@@ -9,8 +9,8 @@
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
  *     AlpcpCaptureMessageDataSafe @ 0x1406361D0 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpCaptureMessageData @ 0x1406A4228 (AlpcpCaptureMessageData.c)
- *     AlpcpCopyRequestData @ 0x14084A8D0 (AlpcpCopyRequestData.c)
+ *     AlpcpCaptureMessageData @ 0x1406A4208 (AlpcpCaptureMessageData.c)
+ *     AlpcpCopyRequestData @ 0x14084A8B0 (AlpcpCopyRequestData.c)
  * Callees:
  *     <none>
  */

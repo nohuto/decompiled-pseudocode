@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCallAssignedToTerminal @ 0x1409A308C
+ * XREFs of TtmpCallAssignedToTerminal @ 0x1408FC6C0
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A2DC0 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC3F4 (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     TtmpStartCallout @ 0x1409A3D30 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1409A3E1C (TtmpStopCallout.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     TtmpStartCallout @ 0x1408FD36C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD458 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallAssignedToTerminal(int a1, __int64 a2)
@@ -27,6 +27,6 @@ void __fastcall TtmpCallAssignedToTerminal(int a1, __int64 a2)
     v4 = v2(*(_QWORD *)(a2 + 24), *(unsigned int *)(a2 + 596));
     TtmpStopCallout(v6, (unsigned int)v4);
     if ( v4 < 0 )
-      TtmiLogError("TtmpCallAssignedToTerminal", 2380LL, (unsigned int)v4, 0xFFFFFFFFLL);
+      TtmiLogError("TtmpCallAssignedToTerminal", 2381LL, (unsigned int)v4, 0xFFFFFFFFLL);
   }
 }

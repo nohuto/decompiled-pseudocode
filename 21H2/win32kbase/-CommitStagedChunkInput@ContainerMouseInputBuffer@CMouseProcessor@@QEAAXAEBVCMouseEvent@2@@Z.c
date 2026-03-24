@@ -1,12 +1,14 @@
 /*
- * XREFs of ?CommitStagedChunkInput@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXAEBVCMouseEvent@2@@Z @ 0x1C01F96B0
+ * XREFs of ?CommitStagedChunkInput@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXAEBVCMouseEvent@2@@Z @ 0x1C01BEFF8
  * Callers:
- *     ?BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z @ 0x1C003595C (-BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z.c)
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C003ADD4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mouseCursorEvent@@@Z @ 0x1C01FB240 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mo.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z @ 0x1C00438A0 (-BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z.c)
+ *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseCursorEvent@@@Z @ 0x1C01C0E58 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseC.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     ?FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ @ 0x1C01FA61C (-FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C00454C0 (HMValidateHandleNoSecure.c)
+ *     Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage @ 0x1C00CD378 (Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage.c)
+ *     ?TransformMouseCoordinates@CDesktopInputTransform@@SA_NAEBUtagPOINT@@PEAU2@@Z @ 0x1C01BAEA8 (-TransformMouseCoordinates@CDesktopInputTransform@@SA_NAEBUtagPOINT@@PEAU2@@Z.c)
+ *     ?FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ @ 0x1C01C01CC (-FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ.c)
  */
 
 void __fastcall CMouseProcessor::ContainerMouseInputBuffer::CommitStagedChunkInput(
@@ -15,10 +17,12 @@ void __fastcall CMouseProcessor::ContainerMouseInputBuffer::CommitStagedChunkInp
 {
   __int64 v4; // r9
   __int64 v5; // rsi
-  __int64 v6; // rcx
+  unsigned __int64 v6; // rcx
   __int64 v7; // rax
-  unsigned int v8; // ecx
-  __int64 v9; // rax
+  __int64 v8; // rax
+  const struct tagPOINT *v9; // rcx
+  unsigned int v10; // ecx
+  struct tagPOINT v11; // [rsp+30h] [rbp+8h] BYREF
 
   if ( *((_BYTE *)this + 1040) )
   {
@@ -47,12 +51,19 @@ void __fastcall CMouseProcessor::ContainerMouseInputBuffer::CommitStagedChunkInp
       *(_BYTE *)(*((_QWORD *)this + 129) + 32LL) = 1;
       *(_QWORD *)(*((_QWORD *)this + 129) + 40LL) = *(_QWORD *)(*((_QWORD *)a2 + 1) + 96LL);
     }
-    *(_DWORD *)(*((_QWORD *)this + 129) + 48LL) |= 4u;
-    v8 = (unsigned __int16)++*((_WORD *)this + 512);
-    v9 = *((unsigned __int16 *)this + 512);
-    *((_WORD *)this + 520) = 256;
-    *((_QWORD *)this + 129) = (char *)this + 64 * v9;
-    if ( v8 > 0x10 )
+    v8 = *((_QWORD *)this + 129);
+    if ( *(_BYTE *)(v8 + 52) )
+    {
+      *(_DWORD *)(v8 + 48) |= 4u;
+      v11 = gptCursorAsync;
+      Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage();
+      CDesktopInputTransform::TransformMouseCoordinates(v9, &v11);
+      *(struct tagPOINT *)(*((_QWORD *)this + 129) + 12LL) = v11;
+    }
+    v10 = (unsigned __int16)++*((_WORD *)this + 512);
+    *((_QWORD *)this + 129) = (char *)this + 64 * (unsigned __int64)*((unsigned __int16 *)this + 512);
+    if ( v10 > 0x10 )
       CMouseProcessor::ContainerMouseInputBuffer::FlushInputDestinedForContainer(this);
+    *((_BYTE *)this + 1040) = 0;
   }
 }

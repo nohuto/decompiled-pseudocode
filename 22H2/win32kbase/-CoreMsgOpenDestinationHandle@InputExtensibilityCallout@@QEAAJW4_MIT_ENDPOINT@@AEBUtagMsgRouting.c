@@ -1,34 +1,36 @@
 /*
- * XREFs of ?CoreMsgOpenDestinationHandle@InputExtensibilityCallout@@QEAAJW4_MIT_ENDPOINT@@AEBUtagMsgRoutingInfo@@@Z @ 0x1C0068E5C
+ * XREFs of ?CoreMsgOpenDestinationHandle@InputExtensibilityCallout@@QEAAJW4_MIT_ENDPOINT@@AEBUtagMsgRoutingInfo@@@Z @ 0x1C0072AA8
  * Callers:
- *     NtMITCoreMsgKOpenConnectionTo @ 0x1C0068C80 (NtMITCoreMsgKOpenConnectionTo.c)
+ *     NtMITCoreMsgKOpenConnectionTo @ 0x1C00A77E0 (NtMITCoreMsgKOpenConnectionTo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     CoreMsgOpenConnection @ 0x1C0068F78 (CoreMsgOpenConnection.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     CoreMsgOpenConnection @ 0x1C0072D4C (CoreMsgOpenConnection.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall InputExtensibilityCallout::CoreMsgOpenDestinationHandle(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdi
-  __int64 CurrentProcess; // rax
+  InputExtensibilityCallout *v3; // rsi
+  __int64 v4; // rdi
+  PVOID CurrentProcess; // rax
   __int64 v7; // r14
   __int64 v8; // rbp
   int v9; // edi
   __int128 v11; // [rsp+20h] [rbp-48h]
 
-  v3 = (int)a2;
-  if ( (unsigned __int64)(int)a2 >= 0x15 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 206LL);
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
-  if ( !CurrentProcess || CurrentProcess != *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 208LL);
+  v3 = gpInputExtensibilityCallout;
+  v4 = (int)a2;
+  if ( (unsigned int)a2 >= 0x13 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 235LL);
+  CurrentProcess = (PVOID)PsGetCurrentProcess(a1, a2);
+  if ( !CurrentProcess || CurrentProcess != g_pepDwm )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 237LL);
   v11 = 0LL;
   v7 = 0LL;
-  RIMLockExclusive(a1 + 8);
-  v8 = 5 * v3;
-  if ( *(_QWORD *)(a1 + 32 + 40 * v3) )
+  RIMLockExclusive((__int64)v3 + 8);
+  v8 = 5 * v4;
+  if ( *((_QWORD *)v3 + 5 * v4 + 4) )
   {
     v9 = -2147020579;
   }
@@ -37,12 +39,12 @@ __int64 __fastcall InputExtensibilityCallout::CoreMsgOpenDestinationHandle(__int
     v9 = CoreMsgOpenConnection(0LL, a3);
     if ( v9 >= 0 )
     {
-      v7 = *(_QWORD *)(a1 + 8 * v8 + 64);
-      v11 = *(_OWORD *)(a1 + 8 * v8 + 48);
+      v7 = *((_QWORD *)v3 + v8 + 8);
+      v11 = *(_OWORD *)((char *)v3 + 8 * v8 + 48);
     }
   }
-  *(_QWORD *)(a1 + 16) = 0LL;
-  ExReleasePushLockExclusiveEx(a1 + 8, 0LL);
+  *((_QWORD *)v3 + 2) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)v3 + 8, 0LL);
   KeLeaveCriticalRegion();
   if ( *((_QWORD *)&v11 + 1) && (v11 & 1) != 0 )
     (*((void (__fastcall **)(__int64, __int64))&v11 + 1))(1LL, v7);

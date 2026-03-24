@@ -1,122 +1,96 @@
 /*
- * XREFs of MiDoGangAssignment @ 0x140389954
+ * XREFs of MiDoGangAssignment @ 0x1405600B0
  * Callers:
- *     MiStartDpcGang @ 0x1403897B4 (MiStartDpcGang.c)
- *     MiDpcGangTarget @ 0x140666F50 (MiDpcGangTarget.c)
+ *     MiDpcGangTarget @ 0x140560260 (MiDpcGangTarget.c)
+ *     MiStartDpcGang @ 0x1405605EC (MiStartDpcGang.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     MiCreatePfnTemplate @ 0x140375BA4 (MiCreatePfnTemplate.c)
- *     MiInitializeNewPfns @ 0x140375DC0 (MiInitializeNewPfns.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x1403899D0 (MiInitializeLargeMdlLeafPfns.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140423F80 (KeZeroPages.c)
- *     RtlCompareMemoryUlong @ 0x1404291E0 (RtlCompareMemoryUlong.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeShouldYieldProcessor @ 0x1402F1320 (KeShouldYieldProcessor.c)
+ *     MiInitializeUnusablePfns @ 0x1403ABE00 (MiInitializeUnusablePfns.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x140402430 (KeZeroPages.c)
+ *     RtlCompareMemoryUlong @ 0x1404078B0 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140533F28 (MiInitializeLargeMdlLeafPfns.c)
  */
 
-int __fastcall MiDoGangAssignment(__int64 a1, ULONG_PTR **a2)
+void __fastcall MiDoGangAssignment(__int64 a1, ULONG_PTR **a2)
 {
-  unsigned __int16 *v2; // rax
-  int v4; // ecx
-  ULONG_PTR *v5; // rbx
-  unsigned __int16 v6; // r12
-  ULONG_PTR *v7; // r14
-  char *v8; // rbx
-  unsigned __int64 v9; // r15
-  unsigned __int64 v10; // rdi
-  int v11; // eax
-  int v12; // edx
-  bool v13; // zf
-  ULONG_PTR v14; // rax
-  __m128i v16[3]; // [rsp+40h] [rbp-48h] BYREF
-  _UNKNOWN *retaddr; // [rsp+88h] [rbp+0h] BYREF
+  int v3; // ecx
+  unsigned __int64 *v4; // rbx
+  __int16 v5; // r13
+  ULONG_PTR *v6; // r15
+  __m128i *v7; // rbx
+  unsigned __int64 v8; // r12
+  unsigned __int64 v9; // rdi
+  int v10; // eax
+  SIZE_T v11; // rax
+  bool v12; // zf
 
-  v2 = (unsigned __int16 *)&retaddr;
-  v4 = *(_DWORD *)(a1 + 184);
-  if ( (v4 & 1) != 0 )
+  v3 = *(_DWORD *)(a1 + 184);
+  if ( (v3 & 1) != 0 )
   {
-    if ( (v4 & 4) != 0 )
+    if ( (v3 & 4) != 0 )
+      v5 = **(_WORD **)(a1 + 168);
+    else
+      v5 = 0;
+    v6 = *a2;
+    if ( (v3 & 0x38) != 0 )
     {
-      v2 = *(unsigned __int16 **)(a1 + 168);
-      v6 = *v2;
+      v8 = 512LL;
+      v7 = (__m128i *)(*(_QWORD *)(a1 + 160) + ((*v6 - *(_QWORD *)a1) << 12));
     }
     else
     {
-      v6 = 0;
-    }
-    v7 = *a2;
-    if ( (v4 & 0x38) != 0 )
-    {
-      v9 = 512LL;
-      v8 = (char *)(*(_QWORD *)(a1 + 160) + ((*v7 - *(_QWORD *)a1) << 12));
-    }
-    else
-    {
-      v8 = 0LL;
-      v9 = 0x4000LL;
+      v7 = 0LL;
+      v8 = 0x4000LL;
     }
     while ( 1 )
     {
-      v10 = v7[1];
-      if ( !v10 )
+      v9 = v6[1];
+      if ( !v9 )
         break;
-      if ( v9 <= v10 )
-        v10 = v9;
-      if ( v8 )
+      if ( v8 <= v9 )
+        v9 = v8;
+      if ( v7 )
       {
-        v11 = *(_DWORD *)(a1 + 184);
-        if ( (v11 & 8) != 0 )
+        v10 = *(_DWORD *)(a1 + 184);
+        if ( (v10 & 8) != 0 )
         {
-          KeZeroPages(v8, v10 << 12);
+          KeZeroPages(v7, v9 << 12);
         }
-        else if ( (v11 & 0x10) != 0 )
+        else if ( (v10 & 0x10) != 0 )
         {
-          memset(v8, -1, v10 << 12);
+          memset(v7, -1, v9 << 12);
         }
-        else if ( (v11 & 0x20) != 0 )
+        else if ( (v10 & 0x20) != 0 )
         {
-          v14 = RtlCompareMemoryUlong(v8, v10 << 12, 0);
-          if ( v14 != v10 << 12 )
-            KeBugCheckEx(0x127u, (ULONG_PTR)v8, *v7, v14, v10 << 12);
+          v11 = RtlCompareMemoryUlong(v7, v9 << 12, 0);
+          if ( v11 != v9 << 12 )
+            KeBugCheckEx(0x127u, (ULONG_PTR)v7, *v6, v11, v9 << 12);
         }
       }
-      LODWORD(v2) = *(_DWORD *)(a1 + 184);
-      if ( ((unsigned __int8)v2 & 4) != 0 )
-      {
-        v12 = *(_DWORD *)(a1 + 180);
-        memset(v16, 0, sizeof(v16));
-        MiCreatePfnTemplate((__int64)v16, v12, v6);
-        LODWORD(v2) = MiInitializeNewPfns(
-                        (__m128i *)(48 * *v7 - 0x220000000000LL),
-                        v10,
-                        v16,
-                        v6,
-                        *(_DWORD *)(a1 + 180),
-                        0LL,
-                        0LL);
-      }
-      v13 = v7[1] == v10;
-      v7[1] -= v10;
-      if ( v13 )
+      if ( (*(_DWORD *)(a1 + 184) & 4) != 0 )
+        MiInitializeUnusablePfns((__m128i *)(48 * *v6 - 0x58000000000LL), v9, v5, *(_DWORD *)(a1 + 180), 0LL, 0LL, 0);
+      v12 = v6[1] == v9;
+      v6[1] -= v9;
+      if ( v12 )
         break;
-      *v7 += v10;
-      LODWORD(v2) = KeShouldYieldProcessor();
-      if ( (_DWORD)v2 )
-        goto LABEL_5;
-      if ( v8 )
-        v8 += 4096 * v10;
+      *v6 += v9;
+      if ( KeShouldYieldProcessor() )
+        goto LABEL_4;
+      if ( v7 )
+        v7 += 256 * v9;
     }
   }
   else
   {
-    v5 = *a2;
+    v4 = *a2;
     if ( **a2 )
     {
-      LODWORD(v2) = MiInitializeLargeMdlLeafPfns(v5, *(_QWORD *)a1);
-      if ( *v5 )
-LABEL_5:
-        *(_DWORD *)(a1 + 204) = 1;
+      MiInitializeLargeMdlLeafPfns(v4, *(_QWORD *)a1);
+      if ( *v4 )
+LABEL_4:
+        *(_DWORD *)(a1 + 196) = 1;
     }
   }
-  return (int)v2;
 }

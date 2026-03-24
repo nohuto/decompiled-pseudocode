@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140253C70
+ * XREFs of IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1402C9BD0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAlertThread @ 0x1402ECB90 (KeAlertThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAlertThread @ 0x1402EA930 (KeAlertThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall IopCancelIrpsInCurrentThreadListSpecialApc(__int64 a1, __int64 a2, __int64 a3, _BYTE **a4)
@@ -19,9 +19,9 @@ LONG __fastcall IopCancelIrpsInCurrentThreadListSpecialApc(__int64 a1, __int64 a
   unsigned int *v9; // rdx
   __int64 v10; // rax
   __int64 v11; // rax
-  int v12; // eax
   __int64 v13; // rax
-  __int64 v14; // rax
+  int v14; // eax
+  __int64 v15; // rax
   unsigned __int8 v16; // al
   struct _KPRCB *v17; // r10
   _DWORD *v18; // r8
@@ -70,11 +70,11 @@ LONG __fastcall IopCancelIrpsInCurrentThreadListSpecialApc(__int64 a1, __int64 a
         v10 = *(_QWORD *)(a1 + 96);
         if ( !v10 || *((_QWORD *)v9 + 5) == v10 )
         {
-          v11 = *(_QWORD *)(a1 + 88);
-          if ( !v11 || *((_QWORD *)v9 + 20) == v11 )
+          v13 = *(_QWORD *)(a1 + 88);
+          if ( !v13 || *((_QWORD *)v9 + 20) == v13 )
           {
-            v12 = *(v9 - 4);
-            if ( (v12 & 0x402) == 0 && ((v12 & 0x84) != 0 || (*((_BYTE *)v9 + 39) & 2) != 0) )
+            v14 = *(v9 - 4);
+            if ( (v14 & 0x402) == 0 && ((v14 & 0x84) != 0 || (*((_BYTE *)v9 + 39) & 2) != 0) )
             {
               *((_BYTE *)v9 + 36) = 1;
               v7 = 1;
@@ -85,11 +85,11 @@ LONG __fastcall IopCancelIrpsInCurrentThreadListSpecialApc(__int64 a1, __int64 a
         }
         if ( !*(_BYTE *)(a1 + 128) )
         {
-          v13 = *(_QWORD *)(a1 + 96);
-          if ( !v13 || *((_QWORD *)v9 + 5) == v13 )
+          v11 = *(_QWORD *)(a1 + 96);
+          if ( !v11 || *((_QWORD *)v9 + 5) == v11 )
           {
-            v14 = *(_QWORD *)(a1 + 88);
-            if ( (!v14 || *((_QWORD *)v9 + 20) == v14) && (*(v9 - 4) & 2) == 0 )
+            v15 = *(_QWORD *)(a1 + 88);
+            if ( (!v15 || *((_QWORD *)v9 + 20) == v15) && (*(v9 - 4) & 2) == 0 )
             {
               *v6 = 1;
               *(_DWORD *)(a1 + 132) = 1;

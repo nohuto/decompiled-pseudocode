@@ -1,186 +1,216 @@
 /*
- * XREFs of ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C02BF554
+ * XREFs of ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C0210DB0
  * Callers:
- *     DxgkHandleVideoParameters @ 0x1C0384354 (DxgkHandleVideoParameters.c)
+ *     DxgkHandleVideoParameters @ 0x1C0294C68 (DxgkHandleVideoParameters.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C000A6A4 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C0045684 (--_GDXGCOPYPROTECTION@@QEAAPEAXI@Z.c)
- *     ?AddCopyProtection@DXGPROCESS@@QEAAXPEAVDXGCOPYPROTECTION@@@Z @ 0x1C0045734 (-AddCopyProtection@DXGPROCESS@@QEAAXPEAVDXGCOPYPROTECTION@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01BC490 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0007634 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C003ABB0 (--_GDXGCOPYPROTECTION@@QEAAPEAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143528 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::CreateCopyProtection(DXGADAPTER **this, unsigned int a2, int a3, unsigned int *a4)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  struct _KTHREAD **Current; // r14
-  NTSTATUS v13; // eax
-  __int64 v14; // r9
-  unsigned int Data1; // ebp
-  char *v16; // rdi
-  DXGADAPTER *v17; // r8
-  unsigned int v18; // r11d
-  int v19; // edx
-  unsigned int v20; // eax
-  char v21; // cl
-  int v22; // edi
-  __int64 v23; // rax
-  struct DXGCOPYPROTECTION *v24; // rbx
-  __int64 v25; // rax
-  struct DXGCOPYPROTECTION *v26; // rax
-  struct DXGCOPYPROTECTION **v27; // rcx
-  union _LARGE_INTEGER Interval; // [rsp+50h] [rbp-68h] BYREF
-  _BYTE v30[16]; // [rsp+58h] [rbp-60h] BYREF
-  UUID Uuid; // [rsp+68h] [rbp-50h] BYREF
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct DXGPROCESS *Current; // rbp
+  __int64 v15; // rax
+  struct _KTHREAD *CurrentThread; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  NTSTATUS v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  unsigned int Data1; // r14d
+  char *v23; // rsi
+  char v24; // r9
+  DXGADAPTER *v25; // r8
+  unsigned int v26; // r11d
+  int v27; // edx
+  unsigned int v28; // eax
+  char v29; // cl
+  __int64 v30; // rax
+  unsigned int v31; // ebx
+  char *v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v36; // r9
+  _QWORD *v37; // rbx
+  __int64 v38; // rax
+  __int64 v39; // rdx
+  __int64 v40; // rax
+  int v41; // esi
+  __int64 v42; // rcx
+  _QWORD *v43; // rdx
+  struct _KTHREAD *v44; // rcx
+  __int64 v45; // rax
+  _QWORD *v46; // rax
+  _QWORD *v47; // rbx
+  __int64 v48; // rcx
+  union _LARGE_INTEGER Interval; // [rsp+20h] [rbp-68h] BYREF
+  _BYTE v51[16]; // [rsp+28h] [rbp-60h] BYREF
+  UUID Uuid; // [rsp+38h] [rbp-50h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 5422LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 5422LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v10 + 24) = 5191LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 5423LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProtectionKey != NULL", 5423LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v11 + 24) = 5192LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v9, v8, v10, v11);
+  Current = DXGPROCESS::GetCurrent(v9, v8);
   if ( !Current )
   {
-    WdLogSingleEntry1(1LL, 5426LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess != NULL", 5426LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v13, v12);
+    *(_QWORD *)(v15 + 24) = 5195LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  if ( Current[50] != KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  v17 = *((_QWORD *)Current + 42);
+  if ( *(struct _KTHREAD **)(v17 + 16) != CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 5427LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pProcess->IsCopyProtectionMutexOwner()",
-      5427LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdAssertion(v17, CurrentThread);
+    *(_QWORD *)(v18 + 24) = 5196LL;
+    WdLogEvent5_WdAssertion(v18);
   }
   *a4 = 0;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v30, (struct DXGFASTMUTEX *const)(this + 4), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v30);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v51, (struct DXGFASTMUTEX *const)(this + 3), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v51);
   _InterlockedIncrement64((volatile signed __int64 *)this[2] + 3);
   Uuid = 0LL;
   while ( 1 )
   {
-    v13 = ExUuidCreate(&Uuid);
-    if ( v13 >= 0 )
+    v19 = ExUuidCreate(&Uuid);
+    if ( v19 >= 0 )
       break;
-    if ( v13 != -1073741267 )
+    if ( v19 != -1073741267 )
     {
-      v22 = -1073741801;
-      WdLogSingleEntry1(2LL, -1073741801LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"ExUuidCreate failed, returning 0x%I64x",
-        -1073741801LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      goto LABEL_33;
+      v30 = WdLogNewEntry5_WdError(v21, v20);
+      v31 = -1073741801;
+      *(_QWORD *)(v30 + 24) = -1073741801LL;
+      WdLogEvent5_WdError(v30);
+      goto LABEL_29;
     }
     Interval.QuadPart = -10000LL;
     KeDelayExecutionThread(0, 0, &Interval);
   }
   Data1 = Uuid.Data1;
-  v16 = (char *)(this + 10);
+  v23 = (char *)(this + 8);
   do
   {
-    LOBYTE(v14) = 1;
-    v17 = this[10];
+    v24 = 1;
+    v25 = this[8];
     while ( 1 )
     {
-      v18 = Data1;
-      if ( v17 == (DXGADAPTER *)v16 || !v17 )
+      v26 = Data1;
+      if ( v25 == (DXGADAPTER *)v23 || !v25 )
         break;
-      v19 = *((_DWORD *)v17 + 12);
-      v20 = Data1 + 1;
-      v17 = *(DXGADAPTER **)v17;
-      if ( v19 != Data1 )
-        v20 = Data1;
-      v21 = 0;
-      Data1 = v20;
-      if ( v19 != v18 )
-        v21 = v14;
-      LOBYTE(v14) = v21;
+      v27 = *((_DWORD *)v25 + 12);
+      v28 = Data1 + 1;
+      v25 = *(DXGADAPTER **)v25;
+      if ( v27 != Data1 )
+        v28 = Data1;
+      v29 = 0;
+      Data1 = v28;
+      if ( v27 != v26 )
+        v29 = v24;
+      v24 = v29;
     }
   }
-  while ( !(_BYTE)v14 );
-  v23 = operator new[](0x40uLL, 0x4B677844u, 256LL, v14);
-  v24 = (struct DXGCOPYPROTECTION *)v23;
-  if ( v23 )
+  while ( !v24 );
+  v32 = (char *)operator new[](0x40uLL, 0x4B677844u, PagedPool);
+  v37 = v32;
+  if ( v32 )
   {
-    *(_QWORD *)(v23 + 16) = this;
-    *(_OWORD *)v23 = 0LL;
-    *(_QWORD *)(v23 + 40) = Current;
-    *(_OWORD *)(v23 + 24) = 0LL;
-    *(_DWORD *)(v23 + 48) = Data1;
-    *(_DWORD *)(v23 + 52) = a2;
-    *(_DWORD *)(v23 + 56) = a3;
-    v25 = *(_QWORD *)v16;
-    if ( *(char **)(*(_QWORD *)v16 + 8LL) != v16 )
-      goto LABEL_31;
-    *(_QWORD *)v24 = v25;
-    *((_QWORD *)v24 + 1) = v16;
-    *(_QWORD *)(v25 + 8) = v24;
-    *(_QWORD *)v16 = v24;
-    v22 = ADAPTER_DISPLAY::SetCopyProtection(this, a2);
-    if ( v22 >= 0 )
-    {
-      DXGPROCESS::AddCopyProtection(Current, v24);
-      *a4 = Data1;
-      goto LABEL_34;
-    }
-    v26 = *(struct DXGCOPYPROTECTION **)v24;
-    if ( *(struct DXGCOPYPROTECTION **)(*(_QWORD *)v24 + 8LL) != v24
-      || (v27 = (struct DXGCOPYPROTECTION **)*((_QWORD *)v24 + 1), *v27 != v24) )
-    {
-LABEL_31:
-      __fastfail(3u);
-    }
-    *v27 = v26;
-    *((_QWORD *)v26 + 1) = v27;
-    DXGCOPYPROTECTION::`scalar deleting destructor'(v24);
+    *((_QWORD *)v32 + 2) = this;
+    *(_OWORD *)v32 = 0LL;
+    *((_QWORD *)v32 + 5) = Current;
+    *(_OWORD *)(v32 + 24) = 0LL;
+    *((_DWORD *)v32 + 12) = Data1;
+    *((_DWORD *)v32 + 13) = a2;
+    *((_DWORD *)v32 + 14) = a3;
   }
   else
   {
-    v22 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating DXGCOPYPROTECTION class, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v37 = 0LL;
   }
-LABEL_33:
+  if ( v37 )
+  {
+    v40 = *(_QWORD *)v23;
+    if ( *(char **)(*(_QWORD *)v23 + 8LL) == v23 )
+    {
+      *v37 = v40;
+      v37[1] = v23;
+      *(_QWORD *)(v40 + 8) = v37;
+      *(_QWORD *)v23 = v37;
+      v41 = ADAPTER_DISPLAY::SetCopyProtection(this, a2);
+      if ( v41 >= 0 )
+      {
+        v44 = KeGetCurrentThread();
+        if ( *(struct _KTHREAD **)(*((_QWORD *)Current + 42) + 16LL) != v44 )
+        {
+          v45 = WdLogNewEntry5_WdAssertion(v44, v39);
+          *(_QWORD *)(v45 + 24) = 795LL;
+          WdLogEvent5_WdAssertion(v45);
+        }
+        v46 = (_QWORD *)((char *)Current + 304);
+        v47 = v37 + 3;
+        v48 = *((_QWORD *)Current + 38);
+        if ( *(struct DXGPROCESS **)(v48 + 8) == (struct DXGPROCESS *)((char *)Current + 304) )
+        {
+          *v47 = v48;
+          v47[1] = v46;
+          *(_QWORD *)(v48 + 8) = v47;
+          *v46 = v47;
+          *a4 = Data1;
+          goto LABEL_39;
+        }
+      }
+      else
+      {
+        v42 = *v37;
+        if ( *(_QWORD **)(*v37 + 8LL) == v37 )
+        {
+          v43 = (_QWORD *)v37[1];
+          if ( (_QWORD *)*v43 == v37 )
+          {
+            *v43 = v42;
+            *(_QWORD *)(v42 + 8) = v43;
+            DXGCOPYPROTECTION::`scalar deleting destructor'((DXGCOPYPROTECTION *)v37);
+            DXGADAPTER::ReleaseReferenceNoTracking(this[2]);
+LABEL_39:
+            v31 = v41;
+            goto LABEL_40;
+          }
+        }
+      }
+    }
+    __fastfail(3u);
+  }
+  v38 = WdLogNewEntry5_WdLowResource(v34, v33, v35, v36);
+  v31 = -1073741801;
+  *(_QWORD *)(v38 + 24) = -1073741801LL;
+  WdLogEvent5_WdLowResource(v38);
+LABEL_29:
   DXGADAPTER::ReleaseReferenceNoTracking(this[2]);
-LABEL_34:
-  if ( v30[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v30);
-  return (unsigned int)v22;
+LABEL_40:
+  if ( v51[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v51, v39);
+  return v31;
 }

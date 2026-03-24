@@ -1,22 +1,23 @@
 /*
- * XREFs of ?PoxRegisterDevice@FxPoxInterface@@AEAAJXZ @ 0x1C00201F0
+ * XREFs of ?PoxRegisterDevice@FxPoxInterface@@AEAAJXZ @ 0x1C008D0D8
  * Callers:
- *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C0020104 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
+ *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C008CA84 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ @ 0x1C001CD74 (-GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ @ 0x1C008CA4C (-GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ.c)
  */
 
 __int64 __fastcall FxPoxInterface::PoxRegisterDevice(FxPoxInterface *this)
 {
   FxPkgPnp *m_PkgPnp; // rcx
   FxPowerPolicyOwnerSettings *m_Owner; // rax
+  unsigned __int64 Flags; // rcx
   _POX_SETTINGS *PowerFrameworkSettings; // rax
-  unsigned int v5; // r10d
-  _POX_SETTINGS *v6; // r9
+  unsigned int v6; // r10d
+  _POX_SETTINGS *v7; // r9
   _GUID *p_Id; // rax
   int _a3; // ebx
   const void *_a1; // rax
@@ -28,69 +29,60 @@ __int64 __fastcall FxPoxInterface::PoxRegisterDevice(FxPoxInterface *this)
   memset(&poxDevice, 0, sizeof(poxDevice));
   m_PkgPnp = this->m_PkgPnp;
   poxDevice.Version = 3;
-  poxDevice.ComponentIdleStateCallback = (void (__fastcall *)(void *, unsigned int, unsigned int))FxPoxInterface::StateCallback;
+  poxDevice.ComponentIdleStateCallback = FxPoxInterface::StateCallback;
   poxDevice.ComponentActiveConditionCallback = (void (__fastcall *)(void *, unsigned int))FxPoxInterface::ComponentActiveCallback;
   poxDevice.ComponentIdleConditionCallback = (void (__fastcall *)(void *, unsigned int))FxPoxInterface::ComponentIdleCallback;
-  poxDevice.DevicePowerRequiredCallback = FxPoxInterface::PowerRequiredCallback;
-  poxDevice.DevicePowerNotRequiredCallback = FxPoxInterface::PowerNotRequiredCallback;
+  poxDevice.DevicePowerRequiredCallback = (void (__fastcall *)(void *))FxPoxInterface::PowerRequiredCallback;
+  poxDevice.DevicePowerNotRequiredCallback = (void (__fastcall *)(void *))FxPoxInterface::PowerNotRequiredCallback;
   memset(&idleState, 0, sizeof(idleState));
   poxDevice.DeviceContext = this;
-  m_Owner = m_PkgPnp->m_PowerPolicyMachine.m_Owner;
-  if ( m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported )
+  if ( m_PkgPnp->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported )
   {
-    poxDevice.DirectedPowerUpCallback = FxPoxInterface::DirectedPowerUpCallback;
-    poxDevice.DirectedPowerDownCallback = FxPoxInterface::DirectedPowerDownCallback;
+    poxDevice.DirectedPowerUpCallback = (void (__fastcall *)(void *, unsigned int))FxPoxInterface::DirectedPowerUpCallback;
+    poxDevice.DirectedPowerDownCallback = (void (__fastcall *)(void *, unsigned int))FxPoxInterface::DirectedPowerDownCallback;
     m_Owner = m_PkgPnp->m_PowerPolicyMachine.m_Owner;
+    Flags = poxDevice.Flags;
+    if ( m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsChildrenOptional )
+      Flags = 6LL;
+    poxDevice.Flags = Flags;
   }
-  poxDevice.Flags = m_Owner->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags;
   poxDevice.ComponentCount = 1;
   PowerFrameworkSettings = FxPoxInterface::GetPowerFrameworkSettings(this);
-  v6 = PowerFrameworkSettings;
+  v7 = PowerFrameworkSettings;
   if ( PowerFrameworkSettings && PowerFrameworkSettings->PowerControlCallback )
+    poxDevice.PowerControlCallback = (int (__fastcall *)(void *, const _GUID *, void *, unsigned __int64, void *, unsigned __int64, unsigned __int64 *))FxPoxInterface::PowerControlCallback;
+  else
+    poxDevice.PowerControlCallback = 0LL;
+  if ( PowerFrameworkSettings && (p_Id = &PowerFrameworkSettings->Component->Id) != 0LL )
   {
-    poxDevice.PowerControlCallback = FxPoxInterface::PowerControlCallback;
+    poxDevice.Components[0].Id = *p_Id;
+    poxDevice.Components[0].IdleStateCount = v7->Component->IdleStateCount;
+    poxDevice.Components[0].DeepestWakeableIdleState = v7->Component->DeepestWakeableIdleState;
+    poxDevice.Components[0].IdleStates = v7->Component->IdleStates;
   }
   else
   {
-    poxDevice.PowerControlCallback = 0LL;
-    if ( !PowerFrameworkSettings )
-    {
-LABEL_7:
-      idleState.NominalPower = -1;
-      poxDevice.Components[0].IdleStates = &idleState;
-      poxDevice.Components[0].IdleStateCount = v5;
-      goto LABEL_8;
-    }
+    idleState.NominalPower = -1;
+    poxDevice.Components[0].IdleStates = &idleState;
+    poxDevice.Components[0].IdleStateCount = v6;
   }
-  p_Id = &PowerFrameworkSettings->Component->Id;
-  if ( !p_Id )
-    goto LABEL_7;
-  poxDevice.Components[0].Id = *p_Id;
-  poxDevice.Components[0].IdleStateCount = v6->Component->IdleStateCount;
-  poxDevice.Components[0].DeepestWakeableIdleState = v6->Component->DeepestWakeableIdleState;
-  poxDevice.Components[0].IdleStates = v6->Component->IdleStates;
-LABEL_8:
-  _a3 = PoFxRegisterDevice(
-          this->m_PkgPnp->m_DeviceBase->m_PhysicalDevice.m_DeviceObject,
-          &poxDevice,
-          &this->m_PoHandle,
-          v6);
-  if ( _a3 < 0 )
+  _a3 = PoFxRegisterDevice(this->m_PkgPnp->m_DeviceBase->m_PhysicalDevice.m_DeviceObject, &poxDevice, &this->m_PoHandle);
+  if ( _a3 >= 0 )
+  {
+    return 0;
+  }
+  else
   {
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_PkgPnp->m_DeviceBase);
-    WPP_IFR_SF_qqd(
+    WPP_IFR_SF_qid(
       *(_FX_DRIVER_GLOBALS **)(v12 + 16),
       2u,
       0xCu,
       0x12u,
       WPP_PoxInterfaceKm_cpp_Traceguids,
       _a1,
-      *(const void **)(v11 + 144),
+      *(_QWORD *)(v11 + 144),
       _a3);
-  }
-  else
-  {
-    return 0;
   }
   return (unsigned int)_a3;
 }

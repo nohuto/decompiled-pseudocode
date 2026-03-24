@@ -1,63 +1,62 @@
 /*
- * XREFs of PopCloneUnicodeString @ 0x1409808D4
+ * XREFs of PopCloneUnicodeString @ 0x1408E1198
  * Callers:
- *     PopQueryMostRecentWakeSourceInfo @ 0x140987724 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E058 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1408F6E80 (PopDirectedDripsDiagCreateDeviceDescription.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCopy @ 0x140206C90 (RtlUnicodeStringCopy.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopCloneUnicodeString(PCUNICODE_STRING SourceString, PUNICODE_STRING DestinationString)
 {
-  unsigned int v2; // ebx
   wchar_t *Buffer; // r8
+  wchar_t *v5; // rdi
   unsigned int Length; // eax
   unsigned int v7; // eax
-  unsigned int v8; // r14d
-  wchar_t *Pool2; // rax
-  wchar_t *v10; // rbp
-  NTSTATUS v11; // edi
+  unsigned int v8; // ebp
+  NTSTATUS v9; // ebx
+  wchar_t *PoolWithTag; // rax
 
-  v2 = 0;
-  *DestinationString = 0LL;
   Buffer = SourceString->Buffer;
-  if ( Buffer )
+  v5 = 0LL;
+  if ( Buffer && (Length = SourceString->Length, Length >= 2) )
   {
-    Length = SourceString->Length;
-    if ( Length >= 2 )
+    v7 = Length >> 1;
+    v8 = 2 * v7 + 2;
+    if ( !Buffer[v7 - 1] )
+      v8 = 2 * v7;
+    if ( v8 >= 0xFFFF )
     {
-      v7 = Length >> 1;
-      v8 = 2 * v7 + 2;
-      if ( !Buffer[v7 - 1] )
-        v8 = 2 * v7;
-      if ( v8 < 0xFFFF )
-      {
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, v8, 1734960208LL);
-        v10 = Pool2;
-        if ( Pool2 )
-        {
-          DestinationString->Buffer = Pool2;
-          DestinationString->Length = 0;
-          DestinationString->MaximumLength = v8;
-          v11 = RtlUnicodeStringCopy(DestinationString, SourceString);
-          if ( v11 < 0 )
-          {
-            ExFreePoolWithTag(v10, 0x67696450u);
-            return (unsigned int)v11;
-          }
-        }
-        else
-        {
-          return (unsigned int)-1073741670;
-        }
-      }
-      else
-      {
-        return (unsigned int)-2147483643;
-      }
+      v9 = -2147483643;
+LABEL_15:
+      *DestinationString = 0LL;
+      return (unsigned int)v9;
     }
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v8, 0x67696450u);
+    v5 = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      v9 = -1073741670;
+      goto LABEL_15;
+    }
+    memset(PoolWithTag, 0, v8);
+    DestinationString->Buffer = v5;
+    DestinationString->Length = 0;
+    DestinationString->MaximumLength = v8;
+    v9 = RtlUnicodeStringCopy(DestinationString, SourceString);
+    if ( v9 >= 0 )
+      return 0;
   }
-  return v2;
+  else
+  {
+    v9 = 0;
+    *SourceString = 0LL;
+  }
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0x67696450u);
+  if ( v9 < 0 )
+    goto LABEL_15;
+  return (unsigned int)v9;
 }

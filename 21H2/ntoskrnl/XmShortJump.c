@@ -1,9 +1,9 @@
 /*
- * XREFs of XmShortJump @ 0x1403A3710
+ * XREFs of XmShortJump @ 0x140398110
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmGetCodeByte @ 0x1403A340C (XmGetCodeByte.c)
+ *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
  */
 
 __int64 __fastcall XmShortJump(__int64 a1)

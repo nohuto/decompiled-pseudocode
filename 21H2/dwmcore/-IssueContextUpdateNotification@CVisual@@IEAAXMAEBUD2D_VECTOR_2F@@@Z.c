@@ -1,20 +1,20 @@
 /*
- * XREFs of ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1800D5E90
+ * XREFs of ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1801AE258
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?GetNotifiedWorldUpVector@CVisual@@QEBA?AUVector3@Numerics@Foundation@Windows@@XZ @ 0x1800D61E0 (-GetNotifiedWorldUpVector@CVisual@@QEBA-AUVector3@Numerics@Foundation@Windows@@XZ.c)
- *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800D6240 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
- *     ?GetNotifiedWorldRenderingScale@CVisual@@QEBAMXZ @ 0x1800D6304 (-GetNotifiedWorldRenderingScale@CVisual@@QEBAMXZ.c)
- *     ?CalculateWorldRenderingScale@CVisual@@IEAAMXZ @ 0x1800D635C (-CalculateWorldRenderingScale@CVisual@@IEAAMXZ.c)
- *     ?GetNotifiedEffectiveLayoutSize@CVisual@@QEBA?AUVector2@Numerics@Foundation@Windows@@XZ @ 0x1800D64D4 (-GetNotifiedEffectiveLayoutSize@CVisual@@QEBA-AUVector2@Numerics@Foundation@Windows@@XZ.c)
- *     ?GetNotifiedWorldOffset@CVisual@@QEBA?AUVector3@Numerics@Foundation@Windows@@XZ @ 0x1800D652C (-GetNotifiedWorldOffset@CVisual@@QEBA-AUVector3@Numerics@Foundation@Windows@@XZ.c)
- *     ?SetNotifiedWorldOffset@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z @ 0x1800D658C (-SetNotifiedWorldOffset@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z.c)
- *     ?SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z @ 0x1800D65D8 (-SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z.c)
- *     ?SetNotifiedWorldUpVector@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z @ 0x1800D6618 (-SetNotifiedWorldUpVector@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z.c)
- *     ?SetNotifiedWorldRenderingScale@CVisual@@QEAAXM@Z @ 0x1800D6664 (-SetNotifiedWorldRenderingScale@CVisual@@QEAAXM@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800C7218 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ?CalculateWorldRenderingScale@CVisual@@IEAAMXZ @ 0x1801AD5C4 (-CalculateWorldRenderingScale@CVisual@@IEAAMXZ.c)
+ *     ?GetNotifiedEffectiveLayoutSize@CVisual@@QEBA?AUVector2@Numerics@Foundation@Windows@@XZ @ 0x1801ADAC0 (-GetNotifiedEffectiveLayoutSize@CVisual@@QEBA-AUVector2@Numerics@Foundation@Windows@@XZ.c)
+ *     ?GetNotifiedWorldOffset@CVisual@@QEBA?AUVector3@Numerics@Foundation@Windows@@XZ @ 0x1801ADB18 (-GetNotifiedWorldOffset@CVisual@@QEBA-AUVector3@Numerics@Foundation@Windows@@XZ.c)
+ *     ?GetNotifiedWorldRenderingScale@CVisual@@QEBAMXZ @ 0x1801ADB78 (-GetNotifiedWorldRenderingScale@CVisual@@QEBAMXZ.c)
+ *     ?GetNotifiedWorldUpVector@CVisual@@QEBA?AUVector3@Numerics@Foundation@Windows@@XZ @ 0x1801ADBD0 (-GetNotifiedWorldUpVector@CVisual@@QEBA-AUVector3@Numerics@Foundation@Windows@@XZ.c)
+ *     ?SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z @ 0x1801AEDE0 (-SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z.c)
+ *     ?SetNotifiedWorldOffset@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z @ 0x1801AEE28 (-SetNotifiedWorldOffset@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z.c)
+ *     ?SetNotifiedWorldRenderingScale@CVisual@@QEAAXM@Z @ 0x1801AEE7C (-SetNotifiedWorldRenderingScale@CVisual@@QEAAXM@Z.c)
+ *     ?SetNotifiedWorldUpVector@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z @ 0x1801AEEC4 (-SetNotifiedWorldUpVector@CVisual@@QEAAXUVector3@Numerics@Foundation@Windows@@@Z.c)
  */
 
 void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, const struct D2D_VECTOR_2F *a3)
@@ -30,11 +30,11 @@ void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, c
   struct D2D_POINT_2F v14; // xmm10_8
   float v15; // xmm9_4
   float v16; // xmm0_4
-  float y; // xmm6_4
-  float x; // xmm7_4
+  float y; // xmm7_4
+  float x; // xmm6_4
   float v19; // xmm0_4
-  float v20; // xmm7_4
-  float v21; // xmm6_4
+  float v20; // xmm6_4
+  float v21; // xmm7_4
   struct D2D_POINT_2F v22; // xmm8_8
   __int64 v23; // rax
   __int64 v24; // rcx
@@ -48,11 +48,11 @@ void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, c
 
   v3 = 0;
   v4 = 0;
-  v5 = (const struct CMILMatrix *)(this + 162);
-  CVisual::GetNotifiedWorldOffset(this, &v28);
-  v9 = this[174];
-  v10 = this[175];
-  v11 = *((_DWORD *)this + 176);
+  v5 = (const struct CMILMatrix *)(this + 90);
+  CVisual::GetNotifiedWorldOffset((__int64)this, (__int64)&v28);
+  v9 = this[102];
+  v10 = this[103];
+  v11 = *((_DWORD *)this + 104);
   v30 = __PAIR64__(LODWORD(v10), LODWORD(v9));
   v31 = v11;
   v12 = *(_QWORD *)&v28 - __PAIR64__(LODWORD(v10), LODWORD(v9));
@@ -66,9 +66,9 @@ void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, c
     CVisual::SetNotifiedWorldOffset(this, &v28);
     v4 = 1;
   }
-  CVisual::GetNotifiedEffectiveLayoutSize(this, &v28);
-  v13 = this[36];
-  v25.x = this[35];
+  CVisual::GetNotifiedEffectiveLayoutSize((__int64)this, &v28);
+  v13 = this[34];
+  v25.x = this[33];
   v25.y = v13;
   v14 = v25;
   if ( v28 != v25 )
@@ -82,11 +82,11 @@ void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, c
     CVisual::SetNotifiedWorldRenderingScale((CVisual *)this, v15);
     v4 = 1;
   }
-  v16 = this[163] * 0.0;
-  v25.x = (float)((float)((float)(this[166] * 0.0) + (float)(*(float *)v5 * 0.0)) + this[174]) + a3->x;
-  v25.y = (float)((float)((float)(this[167] * 0.0) + v16) + this[175]) + a3->y;
+  v16 = this[91] * 0.0;
+  v25.x = (float)((float)((float)(this[94] * 0.0) + (float)(*(float *)v5 * 0.0)) + this[102]) + a3->x;
+  v25.y = (float)((float)((float)(this[95] * 0.0) + v16) + this[103]) + a3->y;
   if ( CHitTestContext::GetPointInLocalSpace(&v25, v5, &v28)
-    && (y = v28.y, x = v28.x, v19 = o_sqrtf_0((float)(y * y) + (float)(x * x)), v19 > 0.00000011920929) )
+    && (y = v28.y, x = v28.x, v19 = sqrtf_0((float)(y * y) + (float)(x * x)), v19 > 0.00000011920929) )
   {
     v29 = 0;
     v20 = x / v19;
@@ -100,27 +100,26 @@ void __fastcall CVisual::IssueContextUpdateNotification(FLOAT *this, float a2, c
     v28 = 0LL;
     v20 = 0.0;
   }
-  CVisual::GetNotifiedWorldUpVector(this, &v25);
+  CVisual::GetNotifiedWorldUpVector((__int64)this, (__int64)&v25);
   v22 = v28;
-  if ( v25.x == v20 && v25.y == v21 )
-  {
-    if ( !v4 )
-      return;
-  }
-  else
+  if ( v25.x != v20 || v25.y != v21 )
   {
     v29 = 0;
     CVisual::SetNotifiedWorldUpVector(this, &v28);
+    v4 = 1;
   }
-  v23 = *((_QWORD *)this + 6);
-  if ( v23 )
-    v3 = *(_DWORD *)(v23 + 76);
-  v24 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1240LL) + 40LL);
-  v27[0] = v3;
-  v27[1] = *((unsigned int *)this + 16);
-  v26 = 0;
-  v31 = v11;
-  v25 = v22;
-  v28 = v14;
-  CoreUICallSend(v24, v27, 2LL, 17LL, 9, &unk_18032C44F);
+  if ( v4 )
+  {
+    v23 = *((_QWORD *)this + 6);
+    if ( v23 )
+      v3 = *(_DWORD *)(v23 + 68);
+    v24 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1080LL) + 48LL);
+    v27[0] = v3;
+    v27[1] = *((unsigned int *)this + 14);
+    v26 = 0;
+    v31 = v11;
+    v25 = v22;
+    v28 = v14;
+    CoreUICallSend(v24, v27, 2LL, 15LL, 9, &unk_1802CE7C9);
+  }
 }

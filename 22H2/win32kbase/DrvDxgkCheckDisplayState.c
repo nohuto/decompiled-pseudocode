@@ -1,57 +1,55 @@
 /*
- * XREFs of DrvDxgkCheckDisplayState @ 0x1C0166E74
+ * XREFs of DrvDxgkCheckDisplayState @ 0x1C01473A4
  * Callers:
- *     xxxDisplayDiagBlackScreenDetected @ 0x1C0136B00 (xxxDisplayDiagBlackScreenDetected.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C011ECA0 (xxxDisplayDiagBlackScreenDetected.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvDxgkCheckDisplayState(int a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5, int a6)
+__int64 __fastcall DrvDxgkCheckDisplayState(int a1, int a2, __int64 a3, __int64 a4, __int128 *a5, int a6)
 {
-  __int64 v6; // rcx
-  int v7; // eax
-  __int64 DxgkWin32kInterface; // rax
-  _DWORD v10[2]; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-28h]
-  __int64 v12; // [rsp+30h] [rbp-20h]
-  __int128 v13; // [rsp+38h] [rbp-18h]
+  int v6; // ecx
+  int v7; // ecx
+  int v8; // ecx
+  int v9; // eax
+  _DWORD v11[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v12; // [rsp+28h] [rbp-30h]
+  __int64 v13; // [rsp+30h] [rbp-28h]
+  __int128 v14; // [rsp+38h] [rbp-20h]
 
-  v13 = 0LL;
-  v6 = (unsigned int)(a1 - 1);
-  if ( !(_DWORD)v6 )
+  v6 = a1 - 1;
+  if ( !v6 )
     goto LABEL_12;
-  v6 = (unsigned int)(v6 - 1);
-  if ( !(_DWORD)v6 )
+  v7 = v6 - 1;
+  if ( !v7 )
   {
-    v10[0] = 2;
+    v11[0] = 2;
     goto LABEL_13;
   }
-  v6 = (unsigned int)(v6 - 2);
-  if ( (_DWORD)v6 )
+  v8 = v7 - 2;
+  if ( v8 )
   {
-    if ( (_DWORD)v6 == 4 )
-      v10[0] = 8;
+    if ( v8 == 4 )
+      v11[0] = 8;
     else
-      v10[0] = 0;
+      v11[0] = 0;
     goto LABEL_13;
   }
   if ( a6 == 2 )
   {
 LABEL_12:
-    v10[0] = 1;
+    v11[0] = 1;
     goto LABEL_13;
   }
-  v7 = 4;
-  v6 = 16LL;
+  v9 = 4;
   if ( a6 == 3 )
-    v7 = 16;
-  v10[0] = v7;
+    v9 = 16;
+  v11[0] = v9;
 LABEL_13:
-  v13 = *a5;
-  v10[1] = a2;
-  v11 = a3;
-  v12 = a4;
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v6, a2);
-  return (*(__int64 (__fastcall **)(_DWORD *))(DxgkWin32kInterface + 744))(v10);
+  v14 = *a5;
+  v11[1] = a2;
+  v12 = a3;
+  v13 = a4;
+  return ((__int64 (__fastcall *)(_DWORD *))qword_1C0250B98)(v11);
 }

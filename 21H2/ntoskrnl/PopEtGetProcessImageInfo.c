@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtGetProcessImageInfo @ 0x1406746F0
+ * XREFs of PopEtGetProcessImageInfo @ 0x14069898C
  * Callers:
- *     PopEtGetProcessAppId @ 0x140673C3C (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     PsGetProcessSectionBaseAddress @ 0x1402A07F0 (PsGetProcessSectionBaseAddress.c)
+ *     PsGetProcessSectionBaseAddress @ 0x1402502F0 (PsGetProcessSectionBaseAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall PopEtGetProcessImageInfo(__int64 a1, __int64 a2)

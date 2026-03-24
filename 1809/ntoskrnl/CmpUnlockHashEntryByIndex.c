@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpUnlockHashEntryByIndex @ 0x1407F95C4
+ * XREFs of CmpUnlockHashEntryByIndex @ 0x1407F95A4
  * Callers:
- *     CmpRunDownDelayDerefKCBEngine @ 0x140692DF4 (CmpRunDownDelayDerefKCBEngine.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12DC (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpRunDownDelayDerefKCBEngine @ 0x140692DD4 (CmpRunDownDelayDerefKCBEngine.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12BC (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)

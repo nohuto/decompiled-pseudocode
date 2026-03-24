@@ -1,5 +1,5 @@
 /*
- * XREFs of KiMcheckAbortShadow @ 0x140AB59C0
+ * XREFs of KiMcheckAbortShadow @ 0x140A149C0
  * Callers:
  *     <none>
  * Callees:
@@ -25,7 +25,7 @@ void __fastcall KiMcheckAbortShadow(
   __writemsr(0xC0000101, retaddr);
   v8 = __readcr3();
   KernelDirectoryTableBase = KeGetPcr()->Prcb.KernelDirectoryTableBase;
-  if ( v8 != KernelDirectoryTableBase && !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+  if ( v8 != KernelDirectoryTableBase && !_bittest(MK_FP(__GS__, 36888LL), 1u) )
     __writecr3(KernelDirectoryTableBase);
   KiMcheckAbort(a1, a2, a3, a4, a5, a6, a7, a8);
 }

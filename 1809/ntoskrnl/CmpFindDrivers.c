@@ -3,14 +3,14 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x1409CC66C (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2CA8 (CmpFindSubKeyByNumber.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
  *     CmpFindRedirectedDriverServiceStateNode @ 0x1409CCD50 (CmpFindRedirectedDriverServiceStateNode.c)
  *     CmpLoadServicesNode @ 0x1409CCF10 (CmpLoadServicesNode.c)
  *     CmpFindGroupOrderList @ 0x1409CCFB0 (CmpFindGroupOrderList.c)
  *     CmpAddDriverToList @ 0x1409CD9F8 (CmpAddDriverToList.c)
  *     CmpIsLoadType @ 0x1409CE6B4 (CmpIsLoadType.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x1409F3F78 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x1409F3F80 (CmpLoadManufacturingProfileServicesNode.c)
  */
 
 char __fastcall CmpFindDrivers(

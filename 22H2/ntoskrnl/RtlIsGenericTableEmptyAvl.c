@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIsGenericTableEmptyAvl @ 0x14031E6B0
+ * XREFs of RtlIsGenericTableEmptyAvl @ 0x14032D550
  * Callers:
- *     PiLookupInDDBCache @ 0x140692D24 (PiLookupInDDBCache.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiDqQueryFreeActiveData @ 0x1407E02C8 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryFreeActiveData @ 0x1406A74F8 (PiDqQueryFreeActiveData.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiLookupInDDBCache @ 0x14073A060 (PiLookupInDDBCache.c)
  * Callees:
  *     <none>
  */

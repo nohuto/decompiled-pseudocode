@@ -1,14 +1,16 @@
 /*
- * XREFs of KeGetAffinitizedInterruptsInfo @ 0x140577F60
+ * XREFs of KeGetAffinitizedInterruptsInfo @ 0x1405224E8
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
+ *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
  */
 
-__int64 __fastcall KeGetAffinitizedInterruptsInfo(unsigned __int16 *a1)
+__int64 __fastcall KeGetAffinitizedInterruptsInfo(_WORD *a1)
 {
-  KiCopyAffinityEx((__int64)a1, a1[1], (unsigned __int16 *)KiIntSteerAffinitizedInterrupts);
-  return KeAddProcessorAffinityEx(a1, KiClockTimerOwner);
+  KeCopyAffinityEx((__int64)a1, (unsigned __int16 *)KiIntSteerAffinitizedInterrupts);
+  KeAddProcessorAffinityEx(a1, KiClockTimerOwner);
+  return 0LL;
 }

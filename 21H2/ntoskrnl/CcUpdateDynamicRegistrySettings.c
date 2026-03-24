@@ -1,254 +1,176 @@
 /*
- * XREFs of CcUpdateDynamicRegistrySettings @ 0x1403A5C60
+ * XREFs of CcUpdateDynamicRegistrySettings @ 0x14039A210
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     CcQueryRegKeyValue @ 0x1403A60FC (CcQueryRegKeyValue.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     CcQueryRegKeyValue @ 0x14039A520 (CcQueryRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
 {
-  bool v1; // bl
-  unsigned int v2; // esi
-  int v3; // r13d
-  unsigned int v4; // r12d
-  int v5; // eax
-  PVOID v6; // rdi
-  const char *v7; // r14
-  const char *v8; // r15
-  const char *v9; // rdx
-  const char *v10; // rcx
-  const char *v11; // r11
-  int v12; // r15d
-  const char *v13; // r10
-  const char *v14; // r9
-  const char *v15; // r8
-  const char *v16; // rax
-  int v17; // r14d
-  __int64 v18; // rax
-  int v19; // ecx
-  const char *v20; // [rsp+28h] [rbp-110h]
-  const char *v21; // [rsp+A8h] [rbp-90h]
-  char v22; // [rsp+B8h] [rbp-80h] BYREF
-  char v23; // [rsp+B9h] [rbp-7Fh]
-  char v24; // [rsp+BAh] [rbp-7Eh]
-  char v25; // [rsp+BBh] [rbp-7Dh]
-  char v26; // [rsp+BCh] [rbp-7Ch]
-  char v27; // [rsp+BDh] [rbp-7Bh]
-  char v28; // [rsp+BEh] [rbp-7Ah]
-  char v29; // [rsp+BFh] [rbp-79h]
-  char v30; // [rsp+C0h] [rbp-78h]
-  char v31; // [rsp+C1h] [rbp-77h]
-  PVOID P; // [rsp+C8h] [rbp-70h] BYREF
-  _DWORD v33[2]; // [rsp+D0h] [rbp-68h] BYREF
-  const wchar_t *v34; // [rsp+D8h] [rbp-60h]
-  const char *v35; // [rsp+E0h] [rbp-58h] BYREF
-  int v36; // [rsp+E8h] [rbp-50h]
-  unsigned int v37; // [rsp+ECh] [rbp-4Ch]
-  int v38; // [rsp+F0h] [rbp-48h]
-  _DWORD v39[2]; // [rsp+F8h] [rbp-40h] BYREF
-  const WCHAR *v40; // [rsp+100h] [rbp-38h]
-  int v41; // [rsp+108h] [rbp-30h]
-  int v42; // [rsp+10Ch] [rbp-2Ch]
-  unsigned int v43; // [rsp+110h] [rbp-28h]
-  unsigned int v44; // [rsp+114h] [rbp-24h]
-  char v45; // [rsp+118h] [rbp-20h] BYREF
+  bool v1; // di
+  unsigned int v2; // r12d
+  unsigned int v3; // ebx
+  int v4; // r13d
+  int v5; // r15d
+  int v6; // r14d
+  int v7; // eax
+  PVOID v8; // rsi
+  const char *v9; // rcx
+  const char *v10; // rdx
+  const char *v11; // r10
+  const char *v12; // r9
+  const char *v13; // r8
+  const char *v14; // rax
+  __int64 v15; // rax
+  int v16; // ecx
+  char v17; // [rsp+80h] [rbp-80h] BYREF
+  char v18; // [rsp+81h] [rbp-7Fh]
+  char v19; // [rsp+82h] [rbp-7Eh]
+  char v20; // [rsp+83h] [rbp-7Dh]
+  char v21; // [rsp+84h] [rbp-7Ch]
+  char v22; // [rsp+85h] [rbp-7Bh]
+  PVOID P; // [rsp+88h] [rbp-78h] BYREF
+  _DWORD v24[2]; // [rsp+90h] [rbp-70h] BYREF
+  const wchar_t *v25; // [rsp+98h] [rbp-68h]
+  const char *v26; // [rsp+A0h] [rbp-60h] BYREF
+  int v27; // [rsp+A8h] [rbp-58h]
+  _DWORD v28[2]; // [rsp+B0h] [rbp-50h] BYREF
+  const WCHAR *v29; // [rsp+B8h] [rbp-48h]
+  char v30; // [rsp+C0h] [rbp-40h] BYREF
 
-  LODWORD(v35) = 156;
-  v39[1] = 0;
-  v33[1] = 0;
-  P = &v45;
-  v22 = 0;
-  v43 = 0;
+  LODWORD(v26) = 156;
+  v28[1] = 0;
+  v24[1] = 0;
+  P = &v30;
+  v17 = 0;
   v1 = 0;
   v2 = 0;
-  v42 = 0;
-  v3 = 0;
-  v29 = 0;
-  v4 = 0;
-  v23 = 0;
-  v36 = 0;
-  v24 = 0;
-  v25 = 0;
-  v41 = 0;
-  v26 = 0;
-  v37 = 0;
   v27 = 0;
-  v44 = 0;
-  v30 = 0;
-  v28 = 0;
-  v38 = 0;
-  v31 = 0;
+  v21 = 0;
+  v3 = 0;
+  v18 = 0;
+  v4 = 0;
+  v19 = 0;
+  v5 = 0;
+  v20 = 0;
+  v6 = 0;
+  v22 = 0;
   DbgPrintEx(0x7Fu, 2u, "CcUpdateDynamicRegistrySettings: Updating Dynamic Registry Keys under: \"%wZ\"\n", a1 + 56);
-  v39[0] = 11141288;
-  v40 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management";
-  v33[0] = 2359330;
-  v34 = L"TopBottomDPTEqual";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
+  v28[0] = 11141288;
+  v29 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management";
+  v24[0] = 2359330;
+  v25 = L"TopBottomDPTEqual";
+  if ( (int)CcQueryRegKeyValue(v28, v24, &v26, &P, &v17) >= 0 )
   {
-    v43 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-    v1 = v43 < 3;
-  }
-  v33[0] = 4063292;
-  v34 = L"LazyWriterPercentageOfNumProcs";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
-  {
-    v29 = 1;
-    v42 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-  }
-  v33[0] = 1966108;
-  v34 = L"LargeWriteSize";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
-  {
-    v23 = 1;
     v2 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
+    v1 = v2 < 3;
   }
-  v33[0] = 3670070;
-  v34 = L"SoftThrottleLargeWriteAtPct";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
+  v24[0] = 4063292;
+  v25 = L"LazyWriterPercentageOfNumProcs";
+  if ( (int)CcQueryRegKeyValue(v28, v24, &v26, &P, &v17) >= 0 )
   {
-    v24 = 1;
-    v36 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
+    v21 = 1;
+    v27 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
   }
-  v33[0] = 2883626;
-  v34 = L"SoftThrottleDelayInMs";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
+  v24[0] = 1966108;
+  v25 = L"LargeWriteSize";
+  if ( (int)CcQueryRegKeyValue(v28, v24, &v26, &P, &v17) >= 0 )
   {
-    v25 = 1;
+    v18 = 1;
     v3 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
   }
-  v33[0] = 2359330;
-  v34 = L"MaxLazyWritePages";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
+  v24[0] = 3670070;
+  v25 = L"SoftThrottleLargeWriteAtPct";
+  if ( (int)CcQueryRegKeyValue(v28, v24, &v26, &P, &v17) >= 0 )
   {
-    v26 = 1;
-    v41 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-  }
-  v33[0] = 4325440;
-  v34 = L"PeriodicTelemetrySampleFrequency";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
-  {
-    v27 = 1;
-    v37 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-  }
-  v33[0] = 4194366;
-  v34 = L"PeriodicTelemetryEventFrequency";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
-  {
-    v30 = 1;
-    v44 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-  }
-  v33[0] = 4325440;
-  v34 = L"PeriodicTelemetryReportFrequency";
-  if ( (int)CcQueryRegKeyValue(v39, v33, &v35, &P, &v22) >= 0 )
-  {
-    v28 = 1;
+    v19 = 1;
     v4 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
   }
-  v33[0] = 2883626;
-  v34 = L"DisableCacheTelemetry";
-  v5 = CcQueryRegKeyValue(v39, v33, &v35, &P, &v22);
-  v6 = P;
-  v35 = "not found";
-  v7 = "valid";
-  if ( v5 >= 0 )
+  v24[0] = 2883626;
+  v25 = L"SoftThrottleDelayInMs";
+  if ( (int)CcQueryRegKeyValue(v28, v24, &v26, &P, &v17) >= 0 )
   {
-    v18 = *((unsigned int *)P + 2);
-    v8 = "valid";
-    v31 = 1;
-    v38 = *(_DWORD *)((char *)P + v18);
+    v20 = 1;
+    v5 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
+  }
+  v24[0] = 2359330;
+  v25 = L"MaxLazyWritePages";
+  v7 = CcQueryRegKeyValue(v28, v24, &v26, &P, &v17);
+  v8 = P;
+  v26 = "not found";
+  v9 = "valid";
+  if ( v7 >= 0 )
+  {
+    v15 = *((unsigned int *)P + 2);
+    v10 = "valid";
+    v22 = 1;
+    v6 = *(_DWORD *)((char *)P + v15);
   }
   else
   {
-    v8 = "not found";
-  }
-  v21 = v8;
-  v9 = "valid";
-  v10 = "valid";
-  if ( !v28 )
-    v9 = "not found";
-  v11 = "valid";
-  v12 = v41;
-  v13 = "valid";
-  if ( !v27 )
     v10 = "not found";
-  v14 = "valid";
-  if ( !v26 )
+  }
+  v11 = "valid";
+  if ( !v20 )
     v11 = "not found";
-  if ( !v25 )
+  v12 = "valid";
+  if ( !v19 )
+    v12 = "not found";
+  v13 = "valid";
+  if ( !v18 )
     v13 = "not found";
-  if ( !v24 )
-    v14 = "not found";
-  v15 = "valid";
-  if ( !v23 )
-    v15 = "not found";
-  v16 = "valid";
-  if ( !v29 )
-    v16 = v35;
+  v14 = "valid";
+  if ( !v21 )
+    v14 = v26;
   if ( !v1 )
-    v7 = v35;
-  v20 = v7;
-  v17 = v43;
+    v9 = "not found";
   DbgPrintEx(
     0x7Fu,
     2u,
     "CcUpdateDynamicRegistrySettings: \n"
-    "\tTopBottom                      : 0x%04lx(%s)\n"
-    "\tLazyWriterPct                  : 0x%04lx(%s) (unsupported)\n"
-    "\tLargeWriteSize                 : 0x%04lx(%s)\n"
-    "\tSoftThrottleAt                 : 0x%04lx(%s)\n"
-    "\tSoftThrottleDelay              : 0x%04lx(%s)\n"
-    "\tMaxLazyWritePages              : 0x%04lx(%s)\n"
-    "\tPeriodicTelmetrySampleFrequency: 0x%04lx(%s)\n"
-    "\tPeriodicTelmetryReportFrequency: 0x%04lx(%s)\n"
-    "\tDisableCacheTelemetry          : 0x%04lx(%s)\n",
-    v43,
-    v20,
-    v42,
-    v16,
+    "\tTopBottom                  : 0x%04lx(%s)\n"
+    "\tLazyWriterPct              : 0x%04lx(%s) (unsupported)\n"
+    "\tLargeWriteSize             : 0x%04lx(%s)\n"
+    "\tSoftThrottleAt             : 0x%04lx(%s)\n"
+    "\tSoftThrottleDelay          : 0x%04lx(%s)\n"
+    "\tMaxLazyWritePages          : 0x%04lx(%s)\n",
     v2,
-    v15,
-    v36,
+    v9,
+    v27,
     v14,
     v3,
     v13,
-    v41,
-    v11,
-    v37,
-    v10,
     v4,
-    v9,
-    v38,
-    v21);
-  if ( v22 )
-    ExFreePoolWithTag(v6, 0x78666343u);
+    v12,
+    v5,
+    v11,
+    v6,
+    v10);
+  if ( v17 )
+    ExFreePoolWithTag(v8, 0x78666343u);
   if ( v1 )
-    CcAzure_TopBottomDPTEqual = v17;
-  if ( v23 )
+    CcAzure_TopBottomDPTEqual = v2;
+  if ( v18 )
   {
-    if ( !v2 || (CcAzure_LargeWriteSize = v2 << 10, v2 << 10 <= v2) )
+    if ( !v3 || (CcAzure_LargeWriteSize = v3 << 10, v3 << 10 <= v3) )
       CcAzure_LargeWriteSize = 0;
   }
-  if ( v24 )
+  if ( v19 )
   {
-    v19 = 0;
-    if ( (unsigned int)(v36 - 1) <= 0x63 )
-      v19 = v36;
-    CcAzure_SoftThrottleLargeWriteAtPct = v19;
+    v16 = 0;
+    if ( (unsigned int)(v4 - 1) <= 0x63 )
+      v16 = v4;
+    CcAzure_SoftThrottleLargeWriteAtPct = v16;
   }
-  if ( v25 && v3 )
-    CcSoftThrottleDelay = v3;
-  if ( v26 && (unsigned int)(v12 - 1) <= 0x7FFF )
-    CcMaxLazyWritePages = v12;
-  if ( v27 && v37 )
-    DueTime.QuadPart = -10000000LL * v37;
-  if ( v30 && v44 )
-    unk_140C498A8 = 10000000LL * v44;
-  if ( v28 && v4 )
-    qword_140C498B0 = 10000000LL * v4;
-  if ( v31 )
-    byte_140C498C1 = v38 != 0;
+  if ( v20 && v5 )
+    CcSoftThrottleDelay = v5;
+  if ( v22 )
+  {
+    if ( (unsigned int)(v6 - 1) <= 0x7FFF )
+      CcMaxLazyWritePages = v6;
+  }
 }

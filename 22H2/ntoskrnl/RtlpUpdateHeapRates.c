@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpUpdateHeapRates @ 0x1405AE4C4
+ * XREFs of RtlpUpdateHeapRates @ 0x14058BB64
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405AC8CC (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405AD0DC (RtlpFindAndCommitPages.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A024 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x14058A878 (RtlpFindAndCommitPages.c)
  * Callees:
  *     <none>
  */

@@ -1,47 +1,33 @@
 /*
- * XREFs of PopBatteryInitPhaseTwo @ 0x140B01A8C
+ * XREFs of PopBatteryInitPhaseTwo @ 0x140A6F604
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x1403C0CB0 (PopReadUlongPowerKey.c)
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
- *     PopBatteryReadOscBits @ 0x140B01A3C (PopBatteryReadOscBits.c)
+ *     PopReadUlongPowerKey @ 0x1403CB944 (PopReadUlongPowerKey.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
  */
 
-char PopBatteryInitPhaseTwo()
+NTSTATUS PopBatteryInitPhaseTwo()
 {
-  NTSTATUS v0; // eax
-  char v2; // [rsp+40h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  char v1; // [rsp+40h] [rbp+8h] BYREF
 
-  PopReadUlongPowerKey(
-    L"ChargerWeakDetectionThresholdPercent",
-    (unsigned int *)&WeakChargerChargeDropMilliPercent,
-    1u,
-    1u,
-    0xAu,
-    100);
+  PopReadUlongPowerKey(L"ChargerWeakDetectionThresholdPercent", &WeakChargerChargeDropMilliPercent);
   WeakChargerChargeDropMilliPercent *= 1000;
-  PopReadUlongPowerKey(
-    L"BatteryChargeTrajectoryThresholdPercent",
-    (unsigned int *)&BatteryChargeTrajectoryThresholdMilliPercent,
-    1u,
-    1u,
-    0xAu,
-    100);
+  PopReadUlongPowerKey(L"BatteryChargeTrajectoryThresholdPercent", &BatteryChargeTrajectoryThresholdMilliPercent);
   BatteryChargeTrajectoryThresholdMilliPercent *= 1000;
-  v0 = EtwRegister(&BATTERY_ETW_PROVIDER, (PETWENABLECALLBACK)PopBatteryEtwCallback, 0LL, &PopBatteryEtwHandle);
-  if ( v0 >= 0 )
+  result = EtwRegister(&BATTERY_ETW_PROVIDER, (PETWENABLECALLBACK)PopBatteryEtwCallback, 0LL, &PopBatteryEtwHandle);
+  if ( result >= 0 )
   {
     PopBatteryEtwRegistered = 1;
-    ExSubscribeWnfStateChange(
-      (int)&v2,
-      (int)&WNF_USB_ERROR_NOTIFICATION,
-      1,
-      0,
-      (__int64)PopUsbErrorWNFNotificationCallback,
-      0LL);
-    LOBYTE(v0) = PopBatteryReadOscBits();
+    return ExSubscribeWnfStateChange(
+             (__int64)&v1,
+             (__int64)&WNF_USB_ERROR_NOTIFICATION,
+             1,
+             0,
+             (__int64)PopUsbErrorWNFNotificationCallback,
+             0LL);
   }
-  return v0;
+  return result;
 }

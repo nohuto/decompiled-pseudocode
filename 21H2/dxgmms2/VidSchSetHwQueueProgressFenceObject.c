@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchSetHwQueueProgressFenceObject @ 0x1C00F5F50
+ * XREFs of VidSchSetHwQueueProgressFenceObject @ 0x1C00D3500
  * Callers:
- *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C00B79C0 (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
+ *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C0098F98 (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
  * Callees:
  *     <none>
  */

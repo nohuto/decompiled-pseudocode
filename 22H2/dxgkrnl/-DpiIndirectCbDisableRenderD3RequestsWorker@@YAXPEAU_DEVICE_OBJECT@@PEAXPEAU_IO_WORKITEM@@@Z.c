@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C03A39F0
+ * XREFs of ?DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02D4C70
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0023BA4 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
- *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C0023CB0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
- *     McTemplateK0xtq_EtwWriteTransfer @ 0x1C0065F54 (McTemplateK0xtq_EtwWriteTransfer.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C03A3F68 (-DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LO.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001E840 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C001E898 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     McTemplateK0xtq_EtwWriteTransfer @ 0x1C0059300 (McTemplateK0xtq_EtwWriteTransfer.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C02D5228 (-DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LO.c)
  */
 
 void __fastcall DpiIndirectCbDisableRenderD3RequestsWorker(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
@@ -32,18 +32,18 @@ void __fastcall DpiIndirectCbDisableRenderD3RequestsWorker(PVOID IoObject, PVOID
 
   while ( 1 )
   {
-    KeWaitForSingleObject(&stru_1C01409B8, Executive, 0, 0, 0LL);
-    v4 = (char *)qword_1C01409F0;
-    if ( qword_1C01409F0 == &qword_1C01409F0 )
+    KeWaitForSingleObject(&stru_1C00B3098, Executive, 0, 0, 0LL);
+    v4 = (char *)qword_1C00B30D0;
+    if ( qword_1C00B30D0 == &qword_1C00B30D0 )
       break;
-    if ( *((void ***)qword_1C01409F0 + 1) != &qword_1C01409F0
-      || (v5 = *(_QWORD *)qword_1C01409F0, *(void **)(*(_QWORD *)qword_1C01409F0 + 8LL) != qword_1C01409F0) )
+    if ( *((void ***)qword_1C00B30D0 + 1) != &qword_1C00B30D0
+      || (v5 = *(_QWORD *)qword_1C00B30D0, *(void **)(*(_QWORD *)qword_1C00B30D0 + 8LL) != qword_1C00B30D0) )
     {
       __fastfail(3u);
     }
-    qword_1C01409F0 = *(void **)qword_1C01409F0;
-    *(_QWORD *)(v5 + 8) = &qword_1C01409F0;
-    KeReleaseMutex(&stru_1C01409B8, 0);
+    qword_1C00B30D0 = *(void **)qword_1C00B30D0;
+    *(_QWORD *)(v5 + 8) = &qword_1C00B30D0;
+    KeReleaseMutex(&stru_1C00B3098, 0);
     v6 = *(_QWORD *)(v4 + 20);
     v17 = 0LL;
     v13 = 0LL;
@@ -59,7 +59,7 @@ void __fastcall DpiIndirectCbDisableRenderD3RequestsWorker(PVOID IoObject, PVOID
                  (struct AUTO_PNPPOWER_LOCK *)&v13,
                  &v19);
     v10 = Miniport;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000000000LL) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
     {
       LODWORD(v12) = Miniport;
       LODWORD(v11) = *((_DWORD *)v4 + 4);
@@ -68,7 +68,7 @@ void __fastcall DpiIndirectCbDisableRenderD3RequestsWorker(PVOID IoObject, PVOID
     if ( v10 >= 0 )
     {
       if ( *((_DWORD *)v4 + 4) )
-        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)v19 + 3) + 64LL) + 4104LL));
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)v19 + 3) + 64LL) + 4080LL));
       else
         DpiEnableD3Requests(*((_QWORD *)v19 + 3));
     }
@@ -76,7 +76,7 @@ void __fastcall DpiIndirectCbDisableRenderD3RequestsWorker(PVOID IoObject, PVOID
     AUTO_PNPPOWER_LOCK::Release((AUTO_PNPPOWER_LOCK *)&v13);
     AUTO_REMOVE_LOCK::Release(&v17);
   }
-  byte_1C01409B0 = 0;
-  KeReleaseMutex(&stru_1C01409B8, 0);
+  byte_1C00B3090 = 0;
+  KeReleaseMutex(&stru_1C00B3098, 0);
   IoFreeWorkItem(IoWorkItem);
 }

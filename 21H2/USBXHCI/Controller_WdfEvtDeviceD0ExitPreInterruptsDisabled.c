@@ -1,14 +1,14 @@
 /*
- * XREFs of Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000C790
+ * XREFs of Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000A530
  * Callers:
  *     <none>
  * Callees:
- *     Interrupter_D0ExitPreInterruptsDisabled @ 0x1C000C884 (Interrupter_D0ExitPreInterruptsDisabled.c)
- *     ControllerPreInterruptsDisableAcpiCallout @ 0x1C000C9B4 (ControllerPreInterruptsDisableAcpiCallout.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C0016390 (WPP_RECORDER_SF_qDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0035568 (McTemplateK0pqqh_EtwWriteTransfer.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00355FC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     Interrupter_D0ExitPreInterruptsDisabled @ 0x1C000A624 (Interrupter_D0ExitPreInterruptsDisabled.c)
+ *     ControllerPreInterruptsDisableAcpiCallout @ 0x1C000A6F4 (ControllerPreInterruptsDisableAcpiCallout.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C00352C8 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003535C (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled(__int64 a1, char a2)
@@ -24,7 +24,7 @@ __int64 __fastcall Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled(__int64 a1
   v4 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00613D8)
+                     off_1C00603D8)
                  + 8);
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3104))(WdfDriverGlobals, a1);
   v8 = v5;
@@ -40,12 +40,12 @@ __int64 __fastcall Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled(__int64 a1
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v6) = 4;
-    WPP_RECORDER_SF_qDD(
+    WPP_RECORDER_SF_qdd(
       *(_QWORD *)(v4 + 72),
       v6,
       4,
       83,
-      (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
       a1,
       a2,
       *(_DWORD *)(v4 + 420));

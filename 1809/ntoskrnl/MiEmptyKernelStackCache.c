@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyKernelStackCache @ 0x1402BB584
+ * XREFs of MiEmptyKernelStackCache @ 0x1402BB684
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiScrubNode @ 0x1402CF5C8 (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
  * Callees:
- *     MiDeleteCachedKernelStack @ 0x1400A5E50 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x1400A5E70 (MiDeleteCachedKernelStack.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 unsigned __int64 MiEmptyKernelStackCache()

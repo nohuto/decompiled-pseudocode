@@ -1,14 +1,15 @@
 /*
- * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1405DF828
+ * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x14057F8F0
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A0C98 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FA9E0 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPowerWatchdogBlackboxInformation()
@@ -17,11 +18,11 @@ void PopRecordPowerWatchdogBlackboxInformation()
   __int64 v1; // rdx
   int v2; // esi
   unsigned __int64 v3; // rbp
-  void *v4; // rbx
+  _DWORD *v4; // rbx
   int v5; // ecx
   bool v6; // zf
-  __int64 v7; // rdi
-  _DWORD *Pool2; // rax
+  SIZE_T v7; // rdi
+  _DWORD *PoolWithTag; // rax
   _DWORD *v9; // r9
   __int64 i; // r8
   unsigned __int8 CurrentIrql; // al
@@ -57,14 +58,15 @@ LABEL_13:
   else
   {
     v7 = 80LL * (unsigned int)(v2 - 1) + 96;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, v7, 1111641936LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x42424F50u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      v9 = Pool2 + 4;
-      Pool2[1] = v7;
-      Pool2[2] = v2;
+      memset(PoolWithTag, 0, v7);
+      *v4 = 1;
+      v9 = v4 + 4;
+      v4[1] = v7;
+      v4[2] = v2;
       for ( i = PopWatchdogList; (__int64 *)i != &PopWatchdogList; i = *(_QWORD *)i )
       {
         if ( *(_BYTE *)(i + 216) )

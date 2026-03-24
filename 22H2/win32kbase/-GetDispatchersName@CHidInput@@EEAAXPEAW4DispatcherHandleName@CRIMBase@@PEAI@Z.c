@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDispatchersName@CHidInput@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00C9040
+ * XREFs of ?GetDispatchersName@CHidInput@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00BBEF0
  * Callers:
  *     <none>
  * Callees:
@@ -12,8 +12,8 @@ void __fastcall CHidInput::GetDispatchersName(
         unsigned int *a3)
 {
   *a3 = 14;
-  *(_OWORD *)a2 = xmmword_1C024BBD0;
-  *((_OWORD *)a2 + 1) = xmmword_1C024BBE0;
-  *((_OWORD *)a2 + 2) = xmmword_1C024BBF0;
-  *((_QWORD *)a2 + 6) = 0xF0000000ELL;
+  *(_OWORD *)a2 = xmmword_1C0210290;
+  *((_OWORD *)a2 + 1) = xmmword_1C02102A0;
+  *((_OWORD *)a2 + 2) = xmmword_1C02102B0;
+  *((_QWORD *)a2 + 6) = 0x100000000FLL;
 }

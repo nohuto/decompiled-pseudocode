@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_ControllerResetPostReset @ 0x1C0045F3C
+ * XREFs of UsbDevice_ControllerResetPostReset @ 0x1C0045A7C
  * Callers:
- *     DeviceSlot_ControllerResetPostReset @ 0x1C0036250 (DeviceSlot_ControllerResetPostReset.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0036010 (DeviceSlot_ControllerResetPostReset.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 NTSTATUS __fastcall UsbDevice_ControllerResetPostReset(__int64 a1)

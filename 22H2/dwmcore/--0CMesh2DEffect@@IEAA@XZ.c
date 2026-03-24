@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CMesh2DEffect@@IEAA@XZ @ 0x1802BEA7C
+ * XREFs of ??0CMesh2DEffect@@IEAA@XZ @ 0x18026C55C
  * Callers:
- *     ?Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z @ 0x1802BEC30 (-Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z.c)
+ *     ?Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z @ 0x18026C6D0 (-Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ CMesh2DEffect *__fastcall CMesh2DEffect::CMesh2DEffect(CMesh2DEffect *this)
   *((_OWORD *)this + 2) = _xmm;
   *((_QWORD *)this + 1) = &CMesh2DEffect::`vftable'{for `ID2D1DrawTransform'};
   *((_OWORD *)this + 3) = _xmm;
-  *((_QWORD *)this + 2) = &CMesh2DEffect::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 2) = &CMesh2DEffect::`vftable'{for `CMILRefCountBase'};
   result = this;
   *((_OWORD *)this + 4) = _xmm;
   *((_QWORD *)this + 16) = 0LL;

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSafebootDriverLoad @ 0x1409456F4
+ * XREFs of IopSafebootDriverLoad @ 0x140891F74
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     IopOpenRegistryKey @ 0x1407CF480 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x1407690C4 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
@@ -52,8 +52,8 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
     v6 = L"NETWORK";
   }
   RtlInitUnicodeString(&DestinationString, v6);
-  Destination.MaximumLength = Source->Length + DestinationString.Length + 8;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(256LL, Destination.MaximumLength, 538996553LL);
+  Destination.MaximumLength = DestinationString.Length + Source->Length + 8;
+  Destination.Buffer = (wchar_t *)IopVerifierExAllocatePool(PagedPool, Destination.MaximumLength);
   if ( !Destination.Buffer )
     return 0;
   RtlCopyUnicodeString(&Destination, &DestinationString);

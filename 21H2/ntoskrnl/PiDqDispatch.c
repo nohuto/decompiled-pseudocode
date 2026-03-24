@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDqDispatch @ 0x140776650
+ * XREFs of PiDqDispatch @ 0x14062EBF0
  * Callers:
- *     PiDaDispatch @ 0x1406B8840 (PiDaDispatch.c)
+ *     PiDaDispatch @ 0x14069D810 (PiDaDispatch.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     wcscmp @ 0x1403E32F0 (wcscmp.c)
- *     PiDqIrpPropertySet @ 0x14076DD0C (PiDqIrpPropertySet.c)
- *     PiDqIrpQueryGetResult @ 0x1407735A0 (PiDqIrpQueryGetResult.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x1407757E0 (PiDqObjectManagerUnregisterQuery.c)
- *     PiDqQueryRelease @ 0x140775854 (PiDqQueryRelease.c)
- *     PiDqQueryGetObjectManager @ 0x1407762A0 (PiDqQueryGetObjectManager.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
- *     PiDqQueryCreate @ 0x140776C38 (PiDqQueryCreate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     wcscmp @ 0x1403D3F40 (wcscmp.c)
+ *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x14062E620 (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqQueryRelease @ 0x14062E694 (PiDqQueryRelease.c)
+ *     PiDqQueryGetObjectManager @ 0x14062E834 (PiDqQueryGetObjectManager.c)
+ *     PiDqQueryCreate @ 0x14062EE18 (PiDqQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpPropertySet @ 0x14072E3E4 (PiDqIrpPropertySet.c)
  */
 
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
@@ -67,7 +67,7 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
           if ( (*(_DWORD *)(FsContext2 + 216) & 4) != 0 )
             ObjectManager = PiDqQueryGetObjectManager(FsContext2);
           ExReleasePushLockEx(FsContext2 + 64, 0LL);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           if ( ObjectManager )
             PiDqObjectManagerUnregisterQuery((__int64)ObjectManager, (__int64 *)FsContext2);
           v17 = KeGetCurrentThread();
@@ -81,7 +81,7 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
             *(_QWORD *)(FsContext2 + 176) = 0LL;
           }
           ExReleasePushLockEx(FsContext2 + 64, 0LL);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           if ( v15 )
           {
             v15->IoStatus.Information = 0LL;

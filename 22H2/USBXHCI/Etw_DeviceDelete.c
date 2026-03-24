@@ -1,17 +1,17 @@
 /*
- * XREFs of Etw_DeviceDelete @ 0x1C004A9F0
+ * XREFs of Etw_DeviceDelete @ 0x1C0048070
  * Callers:
- *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048BB0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0046230 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004AFB8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048A00 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_DeviceDelete(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     return McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer(
              *(unsigned __int8 *)(a2 + 658),
              (unsigned int)&USBXHCI_ETW_EVENT_DEVICE_DELETE_V3,

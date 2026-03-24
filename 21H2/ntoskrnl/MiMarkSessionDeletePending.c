@@ -1,17 +1,19 @@
 /*
- * XREFs of MiMarkSessionDeletePending @ 0x140218288
+ * XREFs of MiMarkSessionDeletePending @ 0x140389DB0
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
+LONG __fastcall MiMarkSessionDeletePending(__int64 a1)
 {
-  __int64 result; // rax
+  LONG result; // eax
   unsigned __int64 v3; // rbx
   unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
@@ -26,13 +28,16 @@ __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   *(_DWORD *)(a1 + 4) |= 2u;
-  if ( *(_DWORD *)(a1 + 92) )
+  if ( *(_DWORD *)(a1 + 100) )
   {
-    *(_DWORD *)(a1 + 100) = 0;
-    *(_QWORD *)(a1 + 112) = a1 + 104;
-    *(_QWORD *)(a1 + 104) = a1 + 104;
-    *(_WORD *)(a1 + 96) = 263;
-    *(_BYTE *)(a1 + 98) = 6;
+    *(_DWORD *)(a1 + 108) = 0;
+    *(_QWORD *)(a1 + 120) = a1 + 112;
+    *(_QWORD *)(a1 + 112) = a1 + 112;
+    *(_WORD *)(a1 + 104) = 263;
+    *(_BYTE *)(a1 + 106) = 6;
+    if ( !dword_140C4DE08 )
+      KeResetEvent(&stru_140C4DDF0);
+    ++dword_140C4DE08;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -53,12 +58,14 @@ __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
       }
     }
     __writecr8(OldIrql);
-    return KeWaitForGate(a1 + 96, 0x12u);
+    result = KeWaitForGate(a1 + 104, 18);
+    if ( !--dword_140C4DE08 )
+      return KeSetEvent(&stru_140C4DDF0, 0, 0);
   }
   else
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    result = (unsigned int)KiIrqlFlags;
+    result = KiIrqlFlags;
     v3 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
@@ -70,7 +77,7 @@ __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
           v10 = KeGetCurrentPrcb();
           v11 = v10->SchedulerAssist;
           result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v9 = ((unsigned int)result & v11[5]) == 0;
+          v9 = (result & v11[5]) == 0;
           v11[5] &= result;
           if ( v9 )
             result = KiRemoveSystemWorkPriorityKick(v10);

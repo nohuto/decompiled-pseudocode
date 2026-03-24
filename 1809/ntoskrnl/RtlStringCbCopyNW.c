@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x140155DBC
+ * XREFs of RtlStringCbCopyNW @ 0x140155DDC
  * Callers:
- *     PopDiagGetDriverName @ 0x140155D74 (PopDiagGetDriverName.c)
- *     IopCheckIfNotNativeDriver @ 0x140819830 (IopCheckIfNotNativeDriver.c)
- *     LocalConvertSidToStringSidW @ 0x1408A5FB4 (LocalConvertSidToStringSidW.c)
- *     AslPathWildcardFindFirst @ 0x1408EA508 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1408EAAE4 (AslPathWildcardFindNext.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x1408EE438 (AuthzBasepCopyoutClaimAttributeValues.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x1408EE6A8 (AuthzBasepCopyoutClaimAttributes.c)
+ *     PopDiagGetDriverName @ 0x140155D94 (PopDiagGetDriverName.c)
+ *     IopCheckIfNotNativeDriver @ 0x140819810 (IopCheckIfNotNativeDriver.c)
+ *     LocalConvertSidToStringSidW @ 0x1408A5F94 (LocalConvertSidToStringSidW.c)
+ *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408EAAC4 (AslPathWildcardFindNext.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x1408EE418 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x1408EE688 (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
- *     RtlStringCopyWorkerW_1 @ 0x1400F50CC (RtlStringCopyWorkerW_1.c)
+ *     RtlStringCopyWorkerW_1 @ 0x1400F50EC (RtlStringCopyWorkerW_1.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToCopy)

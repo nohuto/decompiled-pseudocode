@@ -1,40 +1,41 @@
 /*
- * XREFs of ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0284824
+ * XREFs of ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0144B70
  * Callers:
- *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C02AA938 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
- *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C02AB188 (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
- *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AB378 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
- *     GreAngleArc @ 0x1C02AB948 (GreAngleArc.c)
- *     GrePolyBezierTo @ 0x1C02AC0F0 (GrePolyBezierTo.c)
- *     GrePolyPolygonInternal @ 0x1C02AC44C (GrePolyPolygonInternal.c)
- *     GrePolyPolylineInternal @ 0x1C02AC73C (GrePolyPolylineInternal.c)
- *     GrePolylineTo @ 0x1C02AC970 (GrePolylineTo.c)
- *     GreRectangle @ 0x1C02ACBA0 (GreRectangle.c)
- *     NtGdiEllipse @ 0x1C02AD420 (NtGdiEllipse.c)
- *     NtGdiRoundRect @ 0x1C02AD7B0 (NtGdiRoundRect.c)
- *     NtGdiArcInternal @ 0x1C02C6710 (NtGdiArcInternal.c)
+ *     NtGdiRoundRect @ 0x1C0142270 (NtGdiRoundRect.c)
+ *     GrePolyPolylineInternal @ 0x1C0142620 (GrePolyPolylineInternal.c)
+ *     GrePolylineTo @ 0x1C0143720 (GrePolylineTo.c)
+ *     GreRectangle @ 0x1C0143B30 (GreRectangle.c)
+ *     GrePolyBezierTo @ 0x1C0144380 (GrePolyBezierTo.c)
+ *     GrePolyPolygonInternal @ 0x1C0144990 (GrePolyPolygonInternal.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C0144F14 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C029F4DC (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
+ *     GreAngleArc @ 0x1C029F740 (GreAngleArc.c)
+ *     GrePolyDraw @ 0x1C029FF08 (GrePolyDraw.c)
+ *     NtGdiEllipse @ 0x1C02A03D0 (NtGdiEllipse.c)
+ *     NtGdiArcInternal @ 0x1C02B0BC0 (NtGdiArcInternal.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01597BA (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C015A700 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C015A7AA (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0284DC8 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01457A4 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C0145870 (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0285FE4 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 PATHSTACKOBJ *__fastcall PATHSTACKOBJ::PATHSTACKOBJ(PATHSTACKOBJ *this, DC **a2, int a3)
 {
   int v6; // eax
-  __int64 v7; // rcx
-  int v8; // eax
-  struct HPATH__ *v9; // rdx
-  struct _POINTL *v10; // r8
-  _BYTE v12[16]; // [rsp+20h] [rbp-E0h] BYREF
-  _BYTE v13[8]; // [rsp+30h] [rbp-D0h] BYREF
-  struct HPATH__ **v14; // [rsp+38h] [rbp-C8h]
-  _BYTE v15[8]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v16; // [rsp+B8h] [rbp-48h]
-  __int64 v17; // [rsp+160h] [rbp+60h] BYREF
+  DC *v7; // rdx
+  __int64 v8; // rcx
+  int v9; // eax
+  struct _POINTL *v11; // r8
+  struct HPATH__ *v12; // rdx
+  _BYTE v13[16]; // [rsp+20h] [rbp-E0h] BYREF
+  _BYTE v14[8]; // [rsp+30h] [rbp-D0h] BYREF
+  struct HPATH__ **v15; // [rsp+38h] [rbp-C8h]
+  _BYTE v16[8]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+B8h] [rbp-48h]
+  int v18; // [rsp+160h] [rbp+60h]
+  int v19; // [rsp+164h] [rbp+64h]
 
   *((_QWORD *)this + 9) = 0LL;
   *((_DWORD *)this + 28) = 0;
@@ -51,15 +52,15 @@ PATHSTACKOBJ *__fastcall PATHSTACKOBJ::PATHSTACKOBJ(PATHSTACKOBJ *this, DC **a2,
     if ( (v6 & 2) != 0 )
     {
       *((_DWORD *)*a2 + 62) = v6 & 0xFFFFFFFD;
-      XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v15, *((struct HPATH__ **)*a2 + 25));
-      PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v13);
-      if ( v14 && v16 && EPATHOBJ::bClone((EPATHOBJ *)v13, (struct EPATHOBJ *)v15) )
-        v9 = *v14;
+      XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v16, *((struct HPATH__ **)*a2 + 25));
+      PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v14);
+      if ( v15 && v17 && EPATHOBJ::bClone((EPATHOBJ *)v14, (struct EPATHOBJ *)v16) )
+        v12 = *v15;
       else
-        v9 = 0LL;
-      DC::hpath(*a2, v9);
-      PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v13);
-      XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v15);
+        v12 = 0LL;
+      DC::hpath(*a2, v12);
+      PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v14);
+      XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v16);
     }
     *((_QWORD *)this + 1) = 0LL;
     if ( !*((_DWORD *)this + 28) )
@@ -72,22 +73,22 @@ PATHSTACKOBJ *__fastcall PATHSTACKOBJ::PATHSTACKOBJ(PATHSTACKOBJ *this, DC **a2,
     {
       if ( (*(_DWORD *)(*((_QWORD *)*a2 + 122) + 152LL) & 0x200) != 0 )
       {
-        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v12, (struct XDCOBJ *)a2, 516);
+        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v13, (struct XDCOBJ *)a2, 516);
         EXFORMOBJ::bXformRound(
-          (EXFORMOBJ *)v12,
+          (EXFORMOBJ *)v13,
           (struct _POINTL *)(*((_QWORD *)*a2 + 122) + 216LL),
           (struct _POINTFIX *)(*((_QWORD *)*a2 + 122) + 8LL),
           1uLL);
         *(_DWORD *)(*((_QWORD *)*a2 + 122) + 152LL) &= ~0x200u;
-        v10 = (struct _POINTL *)*((_QWORD *)*a2 + 122);
+        v11 = (struct _POINTL *)*((_QWORD *)*a2 + 122);
       }
       else
       {
-        EPATHOBJ::ptfxGetCurrent(this, &v17);
-        if ( v10[1].x == (_DWORD)v17 && v10[1].y == HIDWORD(v17) )
+        EPATHOBJ::ptfxGetCurrent(this);
+        if ( v11[1].x == v18 && v11[1].y == v19 )
           return this;
       }
-      EPATHOBJ::bMoveTo(this, 0LL, v10 + 1);
+      EPATHOBJ::bMoveTo(this, 0LL, v11 + 1);
     }
   }
   else
@@ -106,22 +107,24 @@ PATHSTACKOBJ *__fastcall PATHSTACKOBJ::PATHSTACKOBJ(PATHSTACKOBJ *this, DC **a2,
     *((_DWORD *)this + 114) = 256;
     if ( a3 )
     {
-      if ( (*(_DWORD *)(*((_QWORD *)*a2 + 122) + 152LL) & 0x200) != 0 )
+      v7 = *a2;
+      if ( (*(_DWORD *)(*((_QWORD *)v7 + 122) + 152LL) & 0x200) != 0 )
       {
-        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v12, (struct XDCOBJ *)a2, 516);
+        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v13, (struct XDCOBJ *)a2, 516);
         EXFORMOBJ::bXformRound(
-          (EXFORMOBJ *)v12,
+          (EXFORMOBJ *)v13,
           (struct _POINTL *)(*((_QWORD *)*a2 + 122) + 216LL),
           (struct _POINTFIX *)(*((_QWORD *)*a2 + 122) + 8LL),
           1uLL);
         *(_DWORD *)(*((_QWORD *)*a2 + 122) + 152LL) &= ~0x200u;
+        v7 = *a2;
       }
-      *((_QWORD *)this + 23) = *(_QWORD *)(*((_QWORD *)*a2 + 122) + 8LL);
-      v7 = *((_QWORD *)*a2 + 122);
-      v8 = *(_DWORD *)(v7 + 152);
-      if ( (v8 & 0x400) != 0 )
+      *((_QWORD *)this + 23) = *(_QWORD *)(*((_QWORD *)v7 + 122) + 8LL);
+      v8 = *((_QWORD *)*a2 + 122);
+      v9 = *(_DWORD *)(v8 + 152);
+      if ( (v9 & 0x400) != 0 )
       {
-        *(_DWORD *)(v7 + 152) = v8 & 0xFFFFFBFF;
+        *(_DWORD *)(v8 + 152) = v9 & 0xFFFFFBFF;
         *((_DWORD *)*a2 + 60) = 0;
       }
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCoreUsbDevice_Create @ 0x1C001BA78
+ * XREFs of XilCoreUsbDevice_Create @ 0x1C001651C
  * Callers:
- *     XilUsbDevice_Create @ 0x1C001BB74 (XilUsbDevice_Create.c)
+ *     XilUsbDevice_Create @ 0x1C001646C (XilUsbDevice_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BB4C (XilCommonBuffer_AcquireBufferEx.c)
- *     XilCoreUsbDevice_FreeResources @ 0x1C0052EC4 (XilCoreUsbDevice_FreeResources.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C00165F0 (XilCommonBuffer_AcquireBufferEx.c)
+ *     XilCoreUsbDevice_FreeResources @ 0x1C00501A4 (XilCoreUsbDevice_FreeResources.c)
  */
 
 __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int a4)
@@ -16,7 +16,7 @@ __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int 
   __int64 v9; // r14
   __int64 v10; // rax
   int v11; // edx
-  unsigned int v12; // ebx
+  unsigned int v12; // edi
   __int64 v13; // rax
   int v15; // r9d
 
@@ -37,7 +37,7 @@ __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int 
       v15 = 10;
 LABEL_8:
       LOBYTE(v11) = 2;
-      WPP_RECORDER_SF_q(
+      WPP_RECORDER_SF_i(
         *(_QWORD *)(*(_QWORD *)(a3 + 8) + 72LL),
         v11,
         12,
@@ -46,9 +46,8 @@ LABEL_8:
         v5);
     }
 LABEL_9:
-    v12 = -1073741670;
     XilCoreUsbDevice_FreeResources(a3);
-    return v12;
+    return (unsigned int)-1073741670;
   }
   v13 = XilCommonBuffer_AcquireBufferEx(
           v8,

@@ -1,61 +1,50 @@
 /*
- * XREFs of HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x1407C3B18
+ * XREFs of HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x140724EF4
  * Callers:
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1407C3A7C (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140724E58 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
  * Callees:
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3BD4 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140724C90 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWORD *a2)
 {
-  __int64 v4; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  __int64 v6; // rdi
   __int64 result; // rax
-  __int64 v6; // r8
-  __int64 v7; // rcx
-  __int64 v8; // r9
-  __int64 v9; // rdi
 
-  v4 = a2[8];
-  if ( v4 )
+  if ( !a2[8] )
+    return 0LL;
+  v4 = a2[5];
+  v5 = v4;
+  v6 = v4;
+  if ( v4 < a2[6] )
   {
-    v6 = a2[5];
-    v7 = a2[6];
-    v8 = v6;
-    v9 = v6;
-    if ( v6 < v7 )
+    while ( a2[8] )
     {
-      while ( v4 )
+      if ( (*((_BYTE *)a2 + ((unsigned __int64)(v6 - a2[3]) >> 12) + 72) & 0x10) == 0 )
       {
-        if ( (*((_BYTE *)a2 + ((unsigned __int64)(v9 - a2[3]) >> 12) + 72) & 0x10) != 0 )
+        if ( v4 != v5 )
         {
-          v9 += 4096LL;
+          result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2, v4, v5);
+          if ( (int)result < 0 )
+            return result;
         }
-        else
-        {
-          if ( v6 != v8 )
-          {
-            result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2);
-            if ( (int)result < 0 )
-              return result;
-            v4 = a2[8];
-            v7 = a2[6];
-          }
-          v6 = v9 + 4096;
-          v8 = v9;
-          v9 += 4096LL;
-        }
-        v8 += 4096LL;
-        if ( v9 >= v7 )
-        {
-          if ( v6 == v8 )
-            return 0LL;
-          result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2);
-          if ( (int)result >= 0 )
-            return 0LL;
-          return result;
-        }
+        v4 = v6 + 4096;
+        v5 = v6;
       }
+      v5 += 4096LL;
+      v6 += 4096LL;
+      if ( v6 >= a2[6] )
+        goto LABEL_6;
     }
+    return 0LL;
   }
-  return 0LL;
+LABEL_6:
+  if ( v4 == v5 )
+    return 0LL;
+  result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2, v4, v5);
+  if ( (int)result >= 0 )
+    return 0LL;
+  return result;
 }

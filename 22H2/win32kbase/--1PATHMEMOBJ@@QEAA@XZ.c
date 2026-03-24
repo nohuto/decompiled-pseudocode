@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1PATHMEMOBJ@@QEAA@XZ @ 0x1C0152DC0
+ * XREFs of ??1PATHMEMOBJ@@QEAA@XZ @ 0x1C0022190
  * Callers:
  *     <none>
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0154170 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0023350 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
  */
 
 void __fastcall PATHMEMOBJ::~PATHMEMOBJ(PATHMEMOBJ *this)
@@ -12,7 +12,7 @@ void __fastcall PATHMEMOBJ::~PATHMEMOBJ(PATHMEMOBJ *this)
   EPATHOBJ::vUnlock(this);
   if ( *((_DWORD *)this + 28) )
   {
-    PopThreadGuardedObject((_QWORD *)this + 10);
+    PopThreadGuardedObject((char *)this + 80);
     *((_DWORD *)this + 28) = 0;
   }
 }

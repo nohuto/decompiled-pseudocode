@@ -1,25 +1,22 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060A594
+ * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B485C
  * Callers:
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     ExAcquireSharedStarveExclusive @ 0x140348830 (ExAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedStarveExclusive @ 0x14029EBB0 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
  * Callees:
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9224 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403C9280 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x140414EF8 (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038E9B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038F46C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char __fastcall ExpFastResourceLegacyAcquireSharedStarveExclusive(_WORD *BugCheckParameter2, char a2)
+char __fastcall ExpFastResourceLegacyAcquireSharedStarveExclusive(ULONG_PTR BugCheckParameter2, char a2)
 {
   _BYTE *OwnerEntryForLegacyShim; // rsi
-  char v6; // bl
+  char v5; // bl
 
-  if ( FeatureFastResource2 )
-    return ExpFastResourceLegacyAcquireSharedStarveExclusive2(BugCheckParameter2, a2);
   OwnerEntryForLegacyShim = ExpAllocateOwnerEntryForLegacyShim();
-  v6 = ExAcquireFastResourceSharedStarveExclusive((ULONG_PTR)BugCheckParameter2, (ULONG_PTR)OwnerEntryForLegacyShim, a2);
-  if ( !v6 )
+  v5 = ExAcquireFastResourceSharedStarveExclusive(BugCheckParameter2, (ULONG_PTR)OwnerEntryForLegacyShim, a2);
+  if ( !v5 )
     ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
-  return v6;
+  return v5;
 }

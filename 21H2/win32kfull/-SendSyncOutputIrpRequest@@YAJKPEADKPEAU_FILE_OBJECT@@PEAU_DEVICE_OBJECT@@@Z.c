@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SendSyncOutputIrpRequest@@YAJKPEADKPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01D000C
+ * XREFs of ?SendSyncOutputIrpRequest@@YAJKPEADKPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C012167C
  * Callers:
- *     ?IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01CFE2C (-IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?IsHIDMouseDeviceRelative@@YAHPEAUDEVICEINFO@@PEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01214F8 (-IsHIDMouseDeviceRelative@@YAHPEAUDEVICEINFO@@PEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -18,9 +18,8 @@ __int64 __fastcall SendSyncOutputIrpRequest(
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+60h] [rbp-28h] BYREF
 
-  memset(&Object, 0, sizeof(Object));
-  v9 = -1073741668;
   IoStatusBlock = 0LL;
+  v9 = -1073741668;
   KeInitializeEvent(&Object, NotificationEvent, 0);
   v10 = IoBuildDeviceIoControlRequest(
           IoControlCode,

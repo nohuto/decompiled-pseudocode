@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CWarpLockSubresource@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F92D0
+ * XREFs of ?HrFindInterface@CWarpLockSubresource@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E3320
  * Callers:
  *     <none>
  * Callees:

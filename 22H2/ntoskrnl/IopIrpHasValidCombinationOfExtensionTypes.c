@@ -1,21 +1,21 @@
 /*
- * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x14028F7F8
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x1405079E0
  * Callers:
- *     IopSetCopyInformationExtension @ 0x14028F84C (IopSetCopyInformationExtension.c)
- *     IopPerfCallDriver @ 0x14045F22A (IopPerfCallDriver.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140558E20 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x140558E80 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140558F20 (IoSetFsZeroingOffsetRequired.c)
+ *     IopSetCopyInformationExtension @ 0x1403F0BDC (IopSetCopyInformationExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140507870 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x1405078D0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507970 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140507C40 (IopPerfCallDriver.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, int a2)
+char __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, int a2)
 {
   __int64 v3; // r8
   int v4; // edx
-  __int16 v5; // ax
-  __int16 v7; // cx
+  __int16 v5; // cx
+  __int16 v7; // ax
 
   if ( *(char *)(a1 + 71) < 0 )
     return 1;
@@ -25,18 +25,23 @@ bool __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, int a2)
   v4 = 1 << a2;
   if ( (v4 & 0xB2) != 0 )
   {
-    v7 = *(_WORD *)(v3 + 2);
-    if ( (v7 & 0xB2) != 0 && (v7 & 0xB2) != v4 )
+    v5 = *(_WORD *)(v3 + 2);
+    if ( (v5 & 0xB2) == 0 || (v5 & 0xB2) == v4 )
+      return 1;
+    if ( a2 != 1 && (v5 & 2) != 0 )
     {
-      if ( a2 == 1 || (v7 & 2) == 0 )
-        return 0;
       *(_QWORD *)(v3 + 40) = 0LL;
-      *(_WORD *)(v3 + 2) = v7 & 0xFFFE;
+      *(_WORD *)(v3 + 2) = v5 & 0xFFFE;
+      return 1;
     }
-    return 1;
   }
-  if ( (v4 & 0x200) == 0 )
-    return 1;
-  v5 = *(_WORD *)(v3 + 2);
-  return (v5 & 0x200) == 0 || (v5 & 0x200) == v4;
+  else
+  {
+    if ( (v4 & 0x200) == 0 )
+      return 1;
+    v7 = *(_WORD *)(v3 + 2);
+    if ( (v7 & 0x200) == 0 || (v7 & 0x200) == v4 )
+      return 1;
+  }
+  return 0;
 }

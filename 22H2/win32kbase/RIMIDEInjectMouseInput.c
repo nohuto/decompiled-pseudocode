@@ -1,40 +1,44 @@
 /*
- * XREFs of RIMIDEInjectMouseInput @ 0x1C0196F20
+ * XREFs of RIMIDEInjectMouseInput @ 0x1C01699D4
  * Callers:
- *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C0196C38 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C0169774 (RIMIDEInjectMouseFromMouseInputStruct.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMQueueMouseInput @ 0x1C0197AEC (RIMQueueMouseInput.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMQueueMouseInput @ 0x1C016A46C (RIMQueueMouseInput.c)
  */
 
 __int64 __fastcall RIMIDEInjectMouseInput(__int64 a1)
 {
-  __int64 v1; // rbp
-  __int64 v2; // rsi
-  unsigned int v3; // eax
-  unsigned int v4; // esi
+  __int64 v1; // rsi
+  __int64 v2; // rbp
+  __int64 v3; // rdi
+  unsigned int v4; // eax
+  __int64 v5; // rcx
+  unsigned int v6; // esi
 
-  v1 = *(_QWORD *)(a1 + 408);
-  v2 = (a1 + 72) & -(__int64)(a1 != 0);
+  v1 = *(_QWORD *)(a1 + 424);
+  v2 = a1 + 88;
+  v3 = v1 + 104;
   RIMLockExclusive(v1 + 104);
   if ( *(_BYTE *)(v1 + 81) )
   {
-    v4 = -1073741637;
+    v6 = -1073741637;
   }
   else
   {
     if ( (*(_DWORD *)(v2 + 184) & 0x2000) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2043);
-    RIMLockExclusive(v1 + 760);
-    v3 = RIMQueueMouseInput((struct RawInputManagerObject *)v1, (struct RIMDEV *)v2);
-    *(_QWORD *)(v1 + 768) = 0LL;
-    v4 = v3;
-    ExReleasePushLockExclusiveEx(v1 + 760, 0LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2042);
+    RIMLockExclusive(v1 + 568);
+    v4 = RIMQueueMouseInput((struct RawInputManagerObject *)v1, (struct RIMDEV *)v2);
+    *(_QWORD *)(v1 + 576) = 0LL;
+    v5 = v1 + 568;
+    v6 = v4;
+    ExReleasePushLockExclusiveEx(v5, 0LL);
     KeLeaveCriticalRegion();
   }
-  *(_QWORD *)(v1 + 112) = 0LL;
-  ExReleasePushLockExclusiveEx(v1 + 104, 0LL);
+  *(_QWORD *)(v3 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(v3, 0LL);
   KeLeaveCriticalRegion();
-  return v4;
+  return v6;
 }

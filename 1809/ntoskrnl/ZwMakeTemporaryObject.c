@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwMakeTemporaryObject @ 0x1401BA290
+ * XREFs of ZwMakeTemporaryObject @ 0x1401BA2B0
  * Callers:
- *     SepCleanupLUIDDeviceMapDirectory @ 0x1406B38EC (SepCleanupLUIDDeviceMapDirectory.c)
- *     IoDeleteSymbolicLink @ 0x14070EBE0 (IoDeleteSymbolicLink.c)
- *     IoCreateDriver @ 0x14073A0B0 (IoCreateDriver.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406B38CC (SepCleanupLUIDDeviceMapDirectory.c)
+ *     IoDeleteSymbolicLink @ 0x14070EBC0 (IoDeleteSymbolicLink.c)
+ *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
  * Callees:
  *     <none>
  */

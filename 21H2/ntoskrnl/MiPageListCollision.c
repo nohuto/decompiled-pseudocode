@@ -1,27 +1,35 @@
 /*
- * XREFs of MiPageListCollision @ 0x140226804
+ * XREFs of MiPageListCollision @ 0x14029A618
  * Callers:
- *     MiReplenishPageSlist @ 0x140264720 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402C8740 (MiUnlinkFreeOrZeroedPage.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402CB2D0 (MiUnlinkNodeLargePageHelper.c)
- *     MiUnlinkHugeRange @ 0x1405891A4 (MiUnlinkHugeRange.c)
- *     MiScrubNodeLargePageList @ 0x1405AF6F0 (MiScrubNodeLargePageList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402363C0 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiReplenishPageSlist @ 0x140318700 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x140318F30 (MiUnlinkNodeLargePageHelper.c)
+ *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
  * Callees:
- *     MiStopPageAccessor @ 0x140226844 (MiStopPageAccessor.c)
- *     MiZeroPageWorkMapping @ 0x14022689C (MiZeroPageWorkMapping.c)
+ *     MiZeroPageWorkMapping @ 0x14029A678 (MiZeroPageWorkMapping.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
  */
 
-__int64 __fastcall MiPageListCollision(__int64 a1, int a2, unsigned int a3)
+__int64 __fastcall MiPageListCollision(__int64 a1)
 {
+  __int64 v1; // r10
   __int64 result; // rax
-  _BYTE *v5; // rdx
+  int v3; // r9d
+  __int64 v4; // r10
+  __int64 v5; // r8
+  _BYTE *v6; // rdx
 
-  result = MiStopPageAccessor(a1, a3);
-  v5 = *(_BYTE **)(result + 32);
-  if ( v5 )
+  v1 = *(_QWORD *)(a1 + 16);
+  *(_BYTE *)(a1 + 34) &= ~8u;
+  *(_QWORD *)(v1 + 24) = 0LL;
+  *(_BYTE *)(v1 + 69) = 1;
+  result = MiSwizzleInvalidPte(128LL);
+  *(_QWORD *)(v5 + 16) = result;
+  v6 = *(_BYTE **)(v4 + 32);
+  if ( v6 )
   {
-    if ( (*v5 & 1) != 0 )
-      return MiZeroPageWorkMapping(*(unsigned int *)(result + 64), v5, a2 == 0 ? 2 : 0);
+    if ( (*v6 & 1) != 0 )
+      return MiZeroPageWorkMapping(*(unsigned int *)(v4 + 64), v6, v3 == 0 ? 2 : 0, (unsigned int)-v3);
   }
   return result;
 }

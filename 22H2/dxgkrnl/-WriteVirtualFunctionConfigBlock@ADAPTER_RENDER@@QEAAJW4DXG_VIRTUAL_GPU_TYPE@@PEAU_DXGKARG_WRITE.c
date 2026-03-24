@@ -1,63 +1,52 @@
 /*
- * XREFs of ?WriteVirtualFunctionConfigBlock@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIGBLOCK@@@Z @ 0x1C0369BD0
+ * XREFs of ?WriteVirtualFunctionConfigBlock@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIGBLOCK@@@Z @ 0x1C02317F4
  * Callers:
- *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C036B1B0 (DxgkDdiWriteVirtualFunctionConfigBlock.c)
+ *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C02326EC (DxgkDdiWriteVirtualFunctionConfigBlock.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetVirtualGpuByIndex@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@I@Z @ 0x1C00400BC (-GetVirtualGpuByIndex@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@I@Z.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::WriteVirtualFunctionConfigBlock(__int64 a1, int a2, __int64 a3)
 {
-  __int64 *v3; // rdi
-  __int64 *v5; // rbx
+  __int64 v6; // rdx
   __int64 v7; // rdx
-  unsigned int v8; // eax
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  _BYTE v13[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v14; // [rsp+58h] [rbp-20h]
-  int v15; // [rsp+60h] [rbp-18h]
+  DXGVIRTUALGPUMANAGER *v8; // rcx
+  struct DXGK_VIRTUAL_GPU *VirtualGpuByIndex; // rax
+  unsigned int v10; // ebx
+  __int64 v11; // rax
+  _BYTE v13[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v14; // [rsp+28h] [rbp-20h]
+  int v15; // [rsp+30h] [rbp-18h]
 
-  v3 = (__int64 *)(a1 + 1864);
-  v5 = (__int64 *)(a1 + 1872);
   if ( a2 == 1 )
-    v7 = *v5;
+    v6 = *(_QWORD *)(a1 + 1640);
   else
-    v7 = *v3;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)(v7 + 40), 0);
+    v6 = *(_QWORD *)(a1 + 1632);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)(v6 + 40), 0);
   DXGPUSHLOCK::AcquireShared(v14);
-  v8 = *(_DWORD *)(a3 + 8);
+  v7 = *(unsigned int *)(a3 + 8);
   v15 = 1;
-  if ( a2 != 1 )
-    v5 = v3;
-  v9 = *v5;
-  if ( *v5
-    && v8 < *(_DWORD *)(v9 + 12)
-    && *(_QWORD *)(*(_QWORD *)(v9 + 24) + 8LL * v8)
-    && (_mm_lfence(), (v10 = *(_QWORD *)(*(_QWORD *)(v9 + 24) + 8LL * v8)) != 0) )
+  if ( a2 == 1 )
+    v8 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1640);
+  else
+    v8 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1632);
+  if ( v8 && (VirtualGpuByIndex = DXGVIRTUALGPUMANAGER::GetVirtualGpuByIndex(v8, v7)) != 0LL )
   {
-    v11 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 64LL))(v10, a3);
+    v10 = (*(__int64 (__fastcall **)(struct DXGK_VIRTUAL_GPU *, __int64))(*(_QWORD *)VirtualGpuByIndex + 64LL))(
+            VirtualGpuByIndex,
+            a3);
   }
   else
   {
-    WdLogSingleEntry1(2LL, *(unsigned int *)(a3 + 8));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid virtual GPU index: %I64n",
-      *(unsigned int *)(a3 + 8),
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v11 = -1073741811;
+    v11 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v11 + 24) = *(unsigned int *)(a3 + 8);
+    WdLogEvent5_WdError(v11);
+    v10 = -1073741811;
   }
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
-  return v11;
+  return v10;
 }

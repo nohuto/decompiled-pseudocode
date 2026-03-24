@@ -1,25 +1,24 @@
 /*
- * XREFs of ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180020750
+ * XREFs of ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180043800
  * Callers:
  *     <none>
  * Callees:
- *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180020700 (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x18004393C (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 VisualCaptureBitsResponse *__fastcall VisualCaptureBitsResponse::`scalar deleting destructor'(
         VisualCaptureBitsResponse *this,
-        void *a2)
+        char a2)
 {
-  char v2; // di
+  unsigned int v4; // r8d
 
-  v2 = (char)a2;
-  VisualCaptureBitsResponse::~VisualCaptureBitsResponse(this, a2);
-  if ( (v2 & 1) != 0 )
+  VisualCaptureBitsResponse::~VisualCaptureBitsResponse(this);
+  if ( (a2 & 1) != 0 )
   {
-    if ( (v2 & 4) != 0 )
-      __global_delete(this, 0x6B0uLL);
+    if ( (a2 & 4) != 0 )
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x6C8, v4);
     else
       operator delete(this);
   }

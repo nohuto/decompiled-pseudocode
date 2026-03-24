@@ -2,20 +2,20 @@
  * XREFs of MiVadMapsLargeImage @ 0x140074A10
  * Callers:
  *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
- *     MiInsertVad @ 0x14011014C (MiInsertVad.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1402A3E30 (MiIsVadEligibleForCommitRelease.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7A20 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiRemoveVad @ 0x1402C5020 (MiRemoveVad.c)
- *     MiCloneVads @ 0x1402C8A68 (MiCloneVads.c)
- *     MiScrubProcessLargePages @ 0x1402CFA3C (MiScrubProcessLargePages.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MiInsertVad @ 0x14011016C (MiInsertVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x1402A3F30 (MiIsVadEligibleForCommitRelease.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7B20 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiRemoveVad @ 0x1402C5120 (MiRemoveVad.c)
+ *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
+ *     MiScrubProcessLargePages @ 0x1402CFB3C (MiScrubProcessLargePages.c)
  *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
  *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
  *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513D4 (MiMarkPrivateImageCfgBits.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x14085E4E8 (MiDeletePartialCloneVads.c)
- *     MiMapChildLargePageVads @ 0x14085E8D4 (MiMapChildLargePageVads.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiMapChildLargePageVads @ 0x14085E8B4 (MiMapChildLargePageVads.c)
  * Callees:
  *     <none>
  */

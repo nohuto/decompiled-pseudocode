@@ -1,70 +1,70 @@
 /*
- * XREFs of CmpSaveKeyByFileCopy @ 0x14090DF50
+ * XREFs of CmpSaveKeyByFileCopy @ 0x14087D8A0
  * Callers:
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     CmpFileRead @ 0x1406D7050 (CmpFileRead.c)
- *     CmpFileFlush @ 0x1406E10CC (CmpFileFlush.c)
- *     CmpFileWrite @ 0x140713F50 (CmpFileWrite.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14083D1A4 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14083D56C (CmpBecomeActiveFlusherAndReconciler.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     CmpFileWrite @ 0x1406720B0 (CmpFileWrite.c)
+ *     CmpFileRead @ 0x1406B48F0 (CmpFileRead.c)
+ *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F5B4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
 {
   _DWORD *PoolWithQuotaTag; // rsi
   unsigned int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  unsigned int v8; // r15d
-  unsigned int v9; // ebx
-  ULONG v10; // r14d
-  NTSTATUS v11; // eax
-  int v12; // ecx
-  _DWORD v14[2]; // [rsp+30h] [rbp-20h] BYREF
-  _DWORD *v15; // [rsp+38h] [rbp-18h]
-  int v16; // [rsp+40h] [rbp-10h]
+  unsigned int v6; // r15d
+  unsigned int v7; // ebx
+  ULONG v8; // r14d
+  NTSTATUS v9; // eax
+  int v10; // ecx
+  _DWORD v12[2]; // [rsp+30h] [rbp-20h] BYREF
+  _DWORD *v13; // [rsp+38h] [rbp-18h]
+  int v14; // [rsp+40h] [rbp-10h]
+  int v15; // [rsp+44h] [rbp-Ch]
 
-  v14[1] = 0;
+  v12[1] = 0;
+  v15 = 0;
   PoolWithQuotaTag = ExAllocatePoolWithQuotaTag(NonPagedPoolBaseCacheAligned|PagedPool|0x8, 0x10000uLL, 0x20204D43u);
   if ( PoolWithQuotaTag )
   {
     CmpBecomeActiveFlusherAndReconciler(a1);
-    if ( (*(_DWORD *)(a1 + 4224) & 2) != 0 )
+    if ( (*(_DWORD *)(a1 + 4264) & 2) != 0 )
     {
       v5 = -1073741670;
     }
     else
     {
-      *(_QWORD *)(a1 + 1560) = a2;
+      *(_QWORD *)(a1 + 1552) = a2;
       if ( (int)CmpFileRead(a1, 0, 0, (char *)PoolWithQuotaTag, 0x1000u) >= 0 )
       {
-        v8 = PoolWithQuotaTag[10];
-        v14[0] = 0;
+        v6 = PoolWithQuotaTag[10];
+        v12[0] = 0;
         ++PoolWithQuotaTag[1];
-        v15 = PoolWithQuotaTag;
-        v16 = 4096;
-        if ( (int)CmpFileWrite(a1, 2u, (int)v14, 1, 0) >= 0 )
+        v13 = PoolWithQuotaTag;
+        v14 = 4096;
+        if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) >= 0 )
         {
-          v9 = 0;
-          if ( v8 )
+          v7 = 0;
+          if ( v6 )
           {
             while ( 1 )
             {
-              v10 = v8 - v9;
-              if ( v8 - v9 > 0x10000 )
-                v10 = 0x10000;
-              if ( (int)CmpFileRead(a1, 0, v9 + 4096, (char *)PoolWithQuotaTag, v10) < 0 )
+              v8 = v6 - v7;
+              if ( v6 - v7 > 0x10000 )
+                v8 = 0x10000;
+              if ( (int)CmpFileRead(a1, 0, v7 + 4096, (char *)PoolWithQuotaTag, v8) < 0 )
                 break;
-              v14[0] = v9 + 4096;
-              v15 = PoolWithQuotaTag;
-              v16 = v10;
-              if ( (int)CmpFileWrite(a1, 2u, (int)v14, 1, 0) < 0 )
+              v12[0] = v7 + 4096;
+              v13 = PoolWithQuotaTag;
+              v14 = v8;
+              if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) < 0 )
                 break;
-              v9 += v10;
-              if ( v9 >= v8 )
+              v7 += v8;
+              if ( v7 >= v6 )
                 goto LABEL_14;
             }
           }
@@ -75,16 +75,16 @@ LABEL_14:
             {
               ++PoolWithQuotaTag[1];
               ++PoolWithQuotaTag[2];
-              v14[0] = 0;
-              v15 = PoolWithQuotaTag;
-              v16 = 4096;
-              if ( (int)CmpFileWrite(a1, 2u, (int)v14, 1, 0) >= 0 )
+              v12[0] = 0;
+              v13 = PoolWithQuotaTag;
+              v14 = 4096;
+              if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) >= 0 )
               {
-                v11 = CmpFileFlush(a1, 2u);
-                v12 = 0;
-                if ( v11 < 0 )
-                  v12 = -1073741491;
-                v5 = v12;
+                v9 = CmpFileFlush(a1, 2u);
+                v10 = 0;
+                if ( v9 < 0 )
+                  v10 = -1073741491;
+                v5 = v10;
                 goto LABEL_20;
               }
             }
@@ -94,8 +94,8 @@ LABEL_14:
       v5 = -1073741491;
     }
 LABEL_20:
-    *(_QWORD *)(a1 + 1560) = 0LL;
-    CmpFinishBeingActiveFlusherAndReconciler(a1, v6, v7);
+    *(_QWORD *)(a1 + 1552) = 0LL;
+    CmpFinishBeingActiveFlusherAndReconciler(a1);
     ExFreePoolWithTag(PoolWithQuotaTag, 0);
     return v5;
   }

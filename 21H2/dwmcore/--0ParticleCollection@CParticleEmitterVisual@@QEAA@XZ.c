@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x18022D3E4
+ * XREFs of ??0ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x1801DE3E0
  * Callers:
- *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18022D114 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x1801DE100 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
  *     <none>
  */

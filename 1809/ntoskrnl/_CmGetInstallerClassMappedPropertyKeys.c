@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x1408FE76C
+ * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x1408FE74C
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x1406F09D0 (_PnpDispatchInstallerClass.c)
- *     _CmDeleteInstallerClassWorker @ 0x1408F7D0C (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x1406F09B0 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1408F7CEC (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406F0D10 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F110C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1406F163C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1406F17E8 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406F0CF0 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F10EC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1406F161C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1406F17C8 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
@@ -136,7 +136,7 @@ LABEL_20:
   if ( v9 < 0 )
     return (unsigned int)v9;
   v23 = 0;
-  v24 = (__int64 *)&off_14090AC00;
+  v24 = (__int64 *)&off_14090ABE0;
   while ( 1 )
   {
     v25 = *v24;
@@ -198,7 +198,7 @@ LABEL_39:
   if ( v9 < 0 )
     return (unsigned int)v9;
   v33 = 0;
-  v34 = (__int64 *)&off_140909400;
+  v34 = (__int64 *)&off_1409093E0;
   while ( 2 )
   {
     v35 = *v34;

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpFastFlushListTbEx @ 0x14054CBD0
+ * XREFs of HvlpFastFlushListTbEx @ 0x1404FAE50
  * Callers:
- *     HvlpFlushRangeListTbEx @ 0x14054CD1C (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTbEx @ 0x1404FAF7C (HvlpFlushRangeListTbEx.c)
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     HvlpCopyFlushVaList @ 0x14039DE18 (HvlpCopyFlushVaList.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     VslFastFlushSecureRangeList @ 0x140459C44 (VslFastFlushSecureRangeList.c)
- *     HvlpAffinityToHvProcessorSet @ 0x14054C8F0 (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     HvlpCopyFlushVaList @ 0x14039055C (HvlpCopyFlushVaList.c)
+ *     VslFastFlushSecureRangeList @ 0x1403905F4 (VslFastFlushSecureRangeList.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FAB30 (HvlpAffinityToHvProcessorSet.c)
  */
 
 void __fastcall HvlpFastFlushListTbEx(
@@ -22,10 +22,10 @@ void __fastcall HvlpFastFlushListTbEx(
   __int64 v9; // rdx
   int v10; // eax
   int v11; // edi
-  __int64 v12; // [rsp+30h] [rbp-98h]
-  __int64 v13; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v14; // [rsp+48h] [rbp-80h]
-  _QWORD v15[12]; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-61h]
+  __int64 v13; // [rsp+40h] [rbp-51h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-49h]
+  _QWORD v15[12]; // [rsp+50h] [rbp-41h] BYREF
 
   if ( a4 )
   {
@@ -40,7 +40,7 @@ void __fastcall HvlpFastFlushListTbEx(
     HIDWORD(v12) = a7 & 0xFFF;
     HvlpCopyFlushVaList(a5, a6, (HvlpFlags & 0x2000) != 0, (__int64 *)((char *)&v13 + (unsigned int)(v10 + 32)));
     LODWORD(v12) = v12 | 0x10000;
-    HvcallFastExtended(v12, (__int64)&v13, v11 + 8 * a7, 0LL, 0);
+    HvcallFastExtended(v12, (__int64)&v13, v11 + 8 * a7, 0, 0);
   }
   if ( a3 )
     VslFastFlushSecureRangeList(a6, a5);

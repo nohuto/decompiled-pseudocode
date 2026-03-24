@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSwapinWorkerThreads @ 0x1406E033C
+ * XREFs of ExSwapinWorkerThreads @ 0x1406E031C
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
@@ -10,12 +10,12 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeInsertQueueApc @ 0x1400F1460 (KeInsertQueueApc.c)
- *     KeSetKernelStackSwapEnable @ 0x140101CC0 (KeSetKernelStackSwapEnable.c)
- *     PsGetNextPartitionUnsafe @ 0x14012015C (PsGetNextPartitionUnsafe.c)
- *     PsGetNextProcessThread @ 0x140675900 (PsGetNextProcessThread.c)
- *     PsReferencePartitionSystemProcess @ 0x1406E04A0 (PsReferencePartitionSystemProcess.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
+ *     KeSetKernelStackSwapEnable @ 0x140101CE0 (KeSetKernelStackSwapEnable.c)
+ *     PsGetNextPartitionUnsafe @ 0x14012017C (PsGetNextPartitionUnsafe.c)
+ *     PsGetNextProcessThread @ 0x1406758E0 (PsGetNextProcessThread.c)
+ *     PsReferencePartitionSystemProcess @ 0x1406E0480 (PsReferencePartitionSystemProcess.c)
  */
 
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)

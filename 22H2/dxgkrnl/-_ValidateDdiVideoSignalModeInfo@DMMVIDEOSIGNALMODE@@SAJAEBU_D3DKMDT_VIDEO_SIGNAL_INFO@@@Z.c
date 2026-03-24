@@ -1,95 +1,115 @@
 /*
- * XREFs of ?_ValidateDdiVideoSignalModeInfo@DMMVIDEOSIGNALMODE@@SAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C000A6EC
+ * XREFs of ?_ValidateDdiVideoSignalModeInfo@DMMVIDEOSIGNALMODE@@SAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C0007280
  * Callers:
- *     ?ConvertVideoSignalInfo@@YAJPEBU_VideoModeDescriptor@@PEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C001F7AC (-ConvertVideoSignalInfo@@YAJPEBU_VideoModeDescriptor@@PEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z.c)
- *     ?AddModeImpl@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEAU_D3DKMDT_VIDPN_TARGET_MODE@@W4_DXGK_VIDPN_INTERFACE_VERSION@@@Z @ 0x1C01B1B20 (-AddModeImpl@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTARGETMODESET__@@QE.c)
- *     ?_InsertMonitorSourceMode@MonitorModes@DxgMonitor@@QEAAJQEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C020D988 (-_InsertMonitorSourceMode@MonitorModes@DxgMonitor@@QEAAJQEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z.c)
+ *     ?Initialize@DMMVIDEOSIGNALMODE@@QEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C000721C (-Initialize@DMMVIDEOSIGNALMODE@@QEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z.c)
+ *     ConvertVideoSignalInfo @ 0x1C0180C90 (ConvertVideoSignalInfo.c)
+ *     ?_InsertMonitorSourceMode@DXGMONITOR@@AEAAJQEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C0196554 (-_InsertMonitorSourceMode@DXGMONITOR@@AEAAJQEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z.c)
  * Callees:
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0171364 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ??$?OU_D3DDDI_RATIONAL@@@@YA_NAEBU_D3DDDI_RATIONAL@@0@Z @ 0x1C00073B0 (--$-OU_D3DDDI_RATIONAL@@@@YA_NAEBU_D3DDDI_RATIONAL@@0@Z.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C012C6F0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
  */
 
-__int64 __fastcall DMMVIDEOSIGNALMODE::_ValidateDdiVideoSignalModeInfo(const struct _D3DKMDT_VIDEO_SIGNAL_INFO *a1)
+__int64 __fastcall DMMVIDEOSIGNALMODE::_ValidateDdiVideoSignalModeInfo(__int64 a1)
 {
-  D3DDDI_RATIONAL *p_VSyncFreq; // rdi
-  unsigned __int64 Numerator; // r10
-  __int64 Denominator; // rdx
-  unsigned __int64 v5; // rdx
-  __int64 v6; // rax
-  unsigned int v8; // eax
-  __int64 cx; // rcx
-  const struct _D3DKMDT_VIDEO_SIGNAL_INFO *v10; // r9
-  __int64 v11; // r8
-  unsigned __int64 v12; // rdx
-  __int64 cy; // rax
+  D3DDDI_RATIONAL *v1; // rsi
+  unsigned __int64 v2; // rdx
+  const struct _D3DKMDT_VIDEO_SIGNAL_INFO *v3; // rdi
+  __int64 v4; // rax
+  unsigned __int64 Numerator; // rdx
+  __int64 Denominator; // rax
+  _QWORD *v8; // rbx
+  _QWORD *v9; // rcx
+  __int64 v10; // rax
+  _QWORD *v11; // rax
+  _QWORD *v12; // rax
+  _QWORD *v13; // rax
+  int v14; // [rsp+30h] [rbp+8h] BYREF
+  int v15; // [rsp+34h] [rbp+Ch]
 
-  p_VSyncFreq = &a1->VSyncFreq;
-  Numerator = a1->VSyncFreq.Numerator;
-  if ( *(_QWORD *)&a1->VSyncFreq != 0xFFFFFFFEFFFFFFFEuLL )
+  v1 = (D3DDDI_RATIONAL *)(a1 + 20);
+  v2 = *(unsigned int *)(a1 + 20);
+  v3 = (const struct _D3DKMDT_VIDEO_SIGNAL_INFO *)a1;
+  if ( *(_QWORD *)(a1 + 20) != 0xFFFFFFFEFFFFFFFEuLL )
   {
-    Denominator = a1->VSyncFreq.Denominator;
-    if ( !(_DWORD)Denominator
-      || Numerator < 5 * Denominator
-      || Numerator > ((-(__int64)DMMVIDEOSIGNALMODE::EnableExperimentalRefreshRates & 0x1F4) + 500)
-                   * (unsigned __int64)(unsigned int)Denominator )
+    v4 = *(unsigned int *)(a1 + 24);
+    if ( !(_DWORD)v4
+      || (a1 = 5 * v4, v2 < 5 * v4)
+      || (v14 = 500, v15 = 1, (unsigned __int8)operator><_D3DDDI_RATIONAL>(v1, &v14)) )
     {
-      cy = a1->ActiveSize.cy;
-      v11 = a1->VSyncFreq.Denominator;
-      cx = a1->ActiveSize.cx;
-      v12 = Numerator;
-      v10 = a1;
+      v13 = (_QWORD *)WdLogNewEntry5_WdError(a1, v2);
+      v13[3] = v1->Numerator;
+      v13[4] = v3->VSyncFreq.Denominator;
+      v13[5] = v3;
+      v13[6] = v3->ActiveSize.cx;
+      v13[7] = v3->ActiveSize.cy;
+      v9 = v13;
       goto LABEL_25;
     }
   }
-  v5 = a1->HSyncFreq.Numerator;
-  if ( *(_QWORD *)&a1->HSyncFreq != 0xFFFFFFFEFFFFFFFEuLL )
+  Numerator = v3->HSyncFreq.Numerator;
+  if ( *(_QWORD *)&v3->HSyncFreq != 0xFFFFFFFEFFFFFFFEuLL )
   {
-    v6 = a1->HSyncFreq.Denominator;
-    if ( !(_DWORD)v6
-      || v5 < 1000 * v6
-      || v5 > ((-(__int64)DMMVIDEOSIGNALMODE::EnableExperimentalRefreshRates & 0xF4240) + 1000000)
-            * (unsigned __int64)(unsigned int)v6 )
+    Denominator = v3->HSyncFreq.Denominator;
+    if ( !(_DWORD)Denominator
+      || (a1 = 1000 * Denominator, Numerator < 1000 * Denominator)
+      || (v14 = 1000000, v15 = 1, (unsigned __int8)operator><_D3DDDI_RATIONAL>(&v3->HSyncFreq, &v14)) )
     {
-      LODWORD(cy) = DmmMapVSyncFromRationalToInteger(
-                      p_VSyncFreq,
-                      (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)&a1->AdditionalSignalInfo << 29) >> 29),
-                      0LL);
-      cx = a1->ActiveSize.cy;
-      v10 = (const struct _D3DKMDT_VIDEO_SIGNAL_INFO *)a1->ActiveSize.cx;
-      v11 = a1->HSyncFreq.Denominator;
-      v12 = a1->HSyncFreq.Numerator;
-      cy = (unsigned int)cy;
-LABEL_25:
-      WdLogSingleEntry5(2LL, v12, v11, v10, cx, cy);
-      return 3223192330LL;
+      v8 = (_QWORD *)WdLogNewEntry5_WdError(a1, Numerator);
+      v8[3] = v3->HSyncFreq.Numerator;
+      v8[4] = v3->HSyncFreq.Denominator;
+      v8[5] = v3->ActiveSize.cx;
+      v8[6] = v3->ActiveSize.cy;
+      v8[7] = DmmMapVSyncFromRationalToInteger(
+                v1,
+                (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)&v3->AdditionalSignalInfo << 29) >> 29),
+                0LL);
+      goto LABEL_20;
     }
   }
-  if ( a1->PixelRate - 1000000 > 0x253FCA1C0LL )
+  if ( v3->PixelRate - 1000000 > 0x253FCA1C0LL )
   {
-    v8 = DmmMapVSyncFromRationalToInteger(
-           p_VSyncFreq,
-           (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)&a1->AdditionalSignalInfo << 29) >> 29),
-           0LL);
-    WdLogSingleEntry4(2LL, a1->PixelRate, a1->ActiveSize.cx, a1->ActiveSize.cy, v8);
+    v8 = (_QWORD *)WdLogNewEntry5_WdError(9999000000LL, Numerator);
+    v8[3] = v3->PixelRate;
+    v8[4] = v3->ActiveSize.cx;
+    v8[5] = v3->ActiveSize.cy;
+    v8[6] = DmmMapVSyncFromRationalToInteger(
+              v1,
+              (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)&v3->AdditionalSignalInfo << 29) >> 29),
+              0LL);
+LABEL_20:
+    v9 = v8;
+LABEL_25:
+    WdLogEvent5_WdError(v9);
     return 3223192330LL;
   }
-  if ( a1->ActiveSize.cx < 0x64 || a1->ActiveSize.cy < 0x64 )
+  if ( v3->ActiveSize.cx < 0x64 || v3->ActiveSize.cy < 0x64 )
   {
-    WdLogSingleEntry3(2LL, a1->ActiveSize.cx, a1->ActiveSize.cy, a1);
+    v12 = (_QWORD *)WdLogNewEntry5_WdError(9999000000LL, Numerator);
+    v12[3] = v3->ActiveSize.cx;
+    v12[4] = v3->ActiveSize.cy;
+    v12[5] = v3;
+    WdLogEvent5_WdError(v12);
     return 3223192331LL;
   }
-  else if ( a1->TotalSize.cx < 0x64 || a1->TotalSize.cy < 0x64 )
+  else if ( v3->TotalSize.cx < 0x64 || v3->TotalSize.cy < 0x64 )
   {
-    WdLogSingleEntry3(2LL, a1->TotalSize.cx, a1->TotalSize.cy, a1);
+    v11 = (_QWORD *)WdLogNewEntry5_WdError(9999000000LL, Numerator);
+    v11[3] = v3->TotalSize.cx;
+    v11[4] = v3->TotalSize.cy;
+    v11[5] = v3;
+    WdLogEvent5_WdError(v11);
     return 3223192332LL;
   }
-  else if ( (int)(*(_DWORD *)&a1->AdditionalSignalInfo << 29) >> 29 == 1
-         || (unsigned int)(((int)(*(_DWORD *)&a1->AdditionalSignalInfo << 29) >> 29) - 2) < 2 )
+  else if ( (unsigned int)(((int)(*(_DWORD *)&v3->AdditionalSignalInfo << 29) >> 29) - 1) > 2 )
   {
-    return 0LL;
+    v10 = WdLogNewEntry5_WdError(9999000000LL, Numerator);
+    *(_QWORD *)(v10 + 24) = (int)(*(_DWORD *)&v3->AdditionalSignalInfo << 29) >> 29;
+    *(_QWORD *)(v10 + 32) = v3;
+    WdLogEvent5_WdError(v10);
+    return 3223192402LL;
   }
   else
   {
-    WdLogSingleEntry2(2LL, (int)(*(_DWORD *)&a1->AdditionalSignalInfo << 29) >> 29, a1);
-    return 3223192402LL;
+    return 0LL;
   }
 }

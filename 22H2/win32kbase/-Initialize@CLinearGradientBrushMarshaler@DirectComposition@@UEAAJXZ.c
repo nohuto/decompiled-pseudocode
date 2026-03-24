@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B8900
+ * XREFs of ?Initialize@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E6C30
  * Callers:
  *     <none>
  * Callees:

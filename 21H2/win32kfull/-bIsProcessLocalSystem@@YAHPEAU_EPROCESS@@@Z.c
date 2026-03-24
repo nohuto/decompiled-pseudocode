@@ -1,15 +1,16 @@
 /*
- * XREFs of ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0285520
+ * XREFs of ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0288960
  * Callers:
- *     NtGdiSetPUMPDOBJ @ 0x1C0127D20 (NtGdiSetPUMPDOBJ.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C012A484 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C012C564 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
- *     NtGdiStartPage @ 0x1C012C8A0 (NtGdiStartPage.c)
- *     ?GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z @ 0x1C012CC5C (-GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z.c)
- *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0140E60 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
- *     NtGdiEngCreateBitmap @ 0x1C014DC90 (NtGdiEngCreateBitmap.c)
- *     NtGdiEngCreateDeviceSurface @ 0x1C014DDD0 (NtGdiEngCreateDeviceSurface.c)
- *     NtGdiEndPage @ 0x1C027ACD0 (NtGdiEndPage.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F188 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     NtGdiSetPUMPDOBJ @ 0x1C00A1260 (NtGdiSetPUMPDOBJ.c)
+ *     ?GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z @ 0x1C013A480 (-GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z.c)
+ *     NtGdiStartPage @ 0x1C013A7B0 (NtGdiStartPage.c)
+ *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0152880 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
+ *     NtGdiEngCreateBitmap @ 0x1C015D510 (NtGdiEngCreateBitmap.c)
+ *     NtGdiEngCreateDeviceSurface @ 0x1C015D7F0 (NtGdiEngCreateDeviceSurface.c)
+ *     NtGdiEndPage @ 0x1C027D170 (NtGdiEndPage.c)
+ *     ?bIsProcessLocalSystem@@YAHXZ @ 0x1C0288A08 (-bIsProcessLocalSystem@@YAHXZ.c)
+ *     NtGdiSetDeviceGammaRamp @ 0x1C02B76B0 (NtGdiSetDeviceGammaRamp.c)
  * Callees:
  *     <none>
  */

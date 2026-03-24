@@ -1,34 +1,22 @@
 /*
- * XREFs of MiGetSharedProtosAtDpcLevel @ 0x140256EAC
+ * XREFs of MiGetSharedProtosAtDpcLevel @ 0x1403A628C
  * Callers:
- *     MiImageProtoChargedCommit @ 0x14024B768 (MiImageProtoChargedCommit.c)
- *     MiGetSharedProtos @ 0x140256DF8 (MiGetSharedProtos.c)
+ *     MiImageProtoChargedCommit @ 0x14037A2A0 (MiImageProtoChargedCommit.c)
+ *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateSessionProtosInSubsection @ 0x1402CF08C (MiLocateSessionProtosInSubsection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 *__fastcall MiGetSharedProtosAtDpcLevel(__int64 a1, unsigned int a2, __int64 a3)
 {
-  volatile LONG *v3; // rsi
-  __int64 *v6; // rbx
+  volatile LONG *v3; // rdi
+  __int64 *SessionProtosInSubsection; // rbx
 
   v3 = (volatile LONG *)(a1 + 72);
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-  v6 = *(__int64 **)(a3 + 24);
-  while ( v6 )
-  {
-    if ( a2 > *((_DWORD *)v6 + 16) )
-    {
-      v6 = (__int64 *)v6[1];
-    }
-    else
-    {
-      if ( a2 >= *((_DWORD *)v6 + 16) )
-        break;
-      v6 = (__int64 *)*v6;
-    }
-  }
+  SessionProtosInSubsection = MiLocateSessionProtosInSubsection(a3, a2);
   ExReleaseSpinLockSharedFromDpcLevel(v3);
-  return v6;
+  return SessionProtosInSubsection;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipQueueRegWork @ 0x1406C8478
+ * XREFs of WmipQueueRegWork @ 0x140755174
  * Callers:
- *     WmipUpdateRegistration @ 0x1406C81D4 (WmipUpdateRegistration.c)
- *     WmipRegisterDevice @ 0x1406C82F8 (WmipRegisterDevice.c)
+ *     WmipUpdateRegistration @ 0x1407537BC (WmipUpdateRegistration.c)
+ *     WmipRegisterDevice @ 0x140755008 (WmipRegisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueueRegWork(int a1, __int64 a2)
@@ -26,13 +26,13 @@ __int64 __fastcall WmipQueueRegWork(int a1, __int64 a2)
     PoolWithTag[4] = a1;
     *((_QWORD *)PoolWithTag + 3) = a2;
     KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-    v7 = off_140C04390[0];
-    if ( *(PVOID **)off_140C04390[0] != &WmipRegWorkList )
+    v7 = off_140C02CF8;
+    if ( *off_140C02CF8 != (_UNKNOWN *)&WmipRegWorkList )
       __fastfail(3u);
     *(_QWORD *)v6 = &WmipRegWorkList;
     *((_QWORD *)v6 + 1) = v7;
     *v7 = v6;
-    off_140C04390[0] = (_UNKNOWN **)v6;
+    off_140C02CF8 = (_UNKNOWN **)v6;
     KeReleaseMutex(&WmipSMMutex, 0);
     if ( _InterlockedIncrement(&WmipRegWorkItemCount) == 1 )
       ExQueueWorkItem(&WmipRegWorkQueue, DelayedWorkQueue);

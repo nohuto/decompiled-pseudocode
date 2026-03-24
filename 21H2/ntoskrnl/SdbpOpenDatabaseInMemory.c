@@ -1,44 +1,48 @@
 /*
- * XREFs of SdbpOpenDatabaseInMemory @ 0x1407ED0C8
+ * XREFs of SdbpOpenDatabaseInMemory @ 0x140756254
  * Callers:
- *     SdbInitDatabaseInMemory @ 0x1407ECFCC (SdbInitDatabaseInMemory.c)
- *     SdbpOpenCompressedDatabase @ 0x140A14498 (SdbpOpenCompressedDatabase.c)
+ *     SdbInitDatabaseInMemory @ 0x140756110 (SdbInitDatabaseInMemory.c)
+ *     SdbpOpenCompressedDatabase @ 0x140967508 (SdbpOpenCompressedDatabase.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     SdbpReadMappedData @ 0x140797F3C (SdbpReadMappedData.c)
- *     SdbpValidateAndApplyCompatFlags @ 0x1407ED16C (SdbpValidateAndApplyCompatFlags.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x1407562E8 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbpReadMappedData @ 0x14075A42C (SdbpReadMappedData.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void *__fastcall SdbpOpenDatabaseInMemory(__int64 a1, int a2, unsigned int a3)
+void *__fastcall SdbpOpenDatabaseInMemory(__int64 a1, int a2)
 {
-  _QWORD *v6; // rax
-  void *v7; // rbx
-  __int64 v9; // [rsp+20h] [rbp-18h] BYREF
-  int v10; // [rsp+28h] [rbp-10h]
+  __int64 v4; // rax
+  void *v5; // rbx
+  __int64 v7; // [rsp+20h] [rbp-18h] BYREF
+  int v8; // [rsp+28h] [rbp-10h]
 
-  v9 = 0LL;
-  v10 = 0;
-  v6 = AslAlloc(a1, 0x580uLL);
-  v7 = v6;
-  if ( v6 )
+  v7 = 0LL;
+  v8 = 0;
+  v4 = AslAlloc(a1, 2688LL);
+  v5 = (void *)v4;
+  if ( v4 )
   {
-    *((_DWORD *)v6 + 4) = 0;
-    *((_DWORD *)v6 + 6) |= 1u;
-    *v6 = 0LL;
-    v6[1] = a1;
-    *((_DWORD *)v6 + 5) = a2;
-    if ( (unsigned int)SdbpReadMappedData((__int64)v6, 0, &v9, 0xCu) )
+    *(_DWORD *)(v4 + 16) = 0;
+    *(_DWORD *)(v4 + 24) |= 1u;
+    *(_QWORD *)v4 = 0LL;
+    *(_QWORD *)(v4 + 8) = a1;
+    *(_DWORD *)(v4 + 20) = a2;
+    if ( (unsigned int)((__int64 (__fastcall *)(__int64, _QWORD, __int64 *, __int64))SdbpReadMappedData)(
+                         v4,
+                         0LL,
+                         &v7,
+                         12LL) )
     {
-      if ( (unsigned int)SdbpValidateAndApplyCompatFlags(v7, &v9, a3) )
-        return v7;
+      if ( (unsigned int)SdbpValidateAndApplyCompatFlags(v5, &v7) )
+        return v5;
     }
     else
     {
       AslLogCallPrintf(1LL);
     }
-    ExFreePoolWithTag(v7, 0x74705041u);
+    ExFreePoolWithTag(v5, 0x74705041u);
   }
   else
   {

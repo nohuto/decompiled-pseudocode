@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhEtwLogDeviceInformation @ 0x1C005AE08
+ * XREFs of UsbhEtwLogDeviceInformation @ 0x1C005C4B8
  * Callers:
- *     UsbhBusConnectPdo @ 0x1C001DE04 (UsbhBusConnectPdo.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
- *     UsbhEtwRundown @ 0x1C005B5E4 (UsbhEtwRundown.c)
+ *     UsbhBusConnectPdo @ 0x1C0017E8C (UsbhBusConnectPdo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
+ *     UsbhEtwRundown @ 0x1C005CC90 (UsbhEtwRundown.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhEtwGetDeviceInfo @ 0x1C005AC7C (UsbhEtwGetDeviceInfo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetDeviceInfo @ 0x1C0013F08 (UsbhEtwGetDeviceInfo.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall UsbhEtwLogDeviceInformation(__int64 a1, const EVENT_DESCRIPTOR *a2, char a3)
@@ -29,7 +29,7 @@ NTSTATUS __fastcall UsbhEtwLogDeviceInformation(__int64 a1, const EVENT_DESCRIPT
   v15 = 0LL;
   v16 = 0;
   memset(v14, 0, sizeof(v14));
-  if ( dword_1C006A690 )
+  if ( dword_1C006C5F0 )
   {
     v7 = FdoExt(*(_QWORD *)(a1 + 1184));
     v9 = v7[1298];

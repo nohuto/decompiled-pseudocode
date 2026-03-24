@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierObfReferenceObjectWithTag @ 0x140AA2140
+ * XREFs of VerifierObfReferenceObjectWithTag @ 0x1409E7E60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
  */
 
-__int64 VerifierObfReferenceObjectWithTag()
+__int64 __fastcall VerifierObfReferenceObjectWithTag(ULONG_PTR a1, unsigned int a2)
 {
-  return ((__int64 (*)(void))pXdvObfReferenceObjectWithTag)();
+  VfUtilCheckKernelAddress(a1, 8uLL);
+  return ((__int64 (__fastcall *)(ULONG_PTR, _QWORD))pXdvObfReferenceObjectWithTag)(a1, a2);
 }

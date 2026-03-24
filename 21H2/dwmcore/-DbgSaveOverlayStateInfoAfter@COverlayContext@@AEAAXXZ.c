@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DbgSaveOverlayStateInfoAfter@COverlayContext@@AEAAXXZ @ 0x1800500BC
+ * XREFs of ?DbgSaveOverlayStateInfoAfter@COverlayContext@@AEAAXXZ @ 0x18017B8A0
  * Callers:
- *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x18004FA7C (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EC2B8 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall COverlayContext::DbgSaveOverlayStateInfoAfter(COverlayContext *this)
@@ -17,15 +17,15 @@ void __fastcall COverlayContext::DbgSaveOverlayStateInfoAfter(COverlayContext *t
   __int128 v8; // xmm1
   __int64 v9; // rcx
 
-  v2 = (char *)this + 1104 * *((int *)this + 4490);
+  v2 = (char *)this + 1104 * *((int *)this + 4520);
   for ( i = 0; ; ++i )
   {
-    v4 = *((_QWORD *)this + 913);
-    if ( i >= -1227133513 * (unsigned int)((*((_QWORD *)this + 914) - v4) >> 5) || i >= 2 )
+    v4 = *((_QWORD *)this + 914);
+    if ( i >= (unsigned int)((*((_QWORD *)this + 915) - v4) / 224) || i >= 2 )
       break;
     v5 = 480LL * i;
     v6 = 224LL * i;
-    v7 = &v2[v5 + 11568];
+    v7 = &v2[v5 + 11688];
     *(_OWORD *)v7 = *(_OWORD *)(v6 + v4);
     *((_OWORD *)v7 + 1) = *(_OWORD *)(v6 + v4 + 16);
     *((_OWORD *)v7 + 2) = *(_OWORD *)(v6 + v4 + 32);
@@ -40,9 +40,9 @@ void __fastcall COverlayContext::DbgSaveOverlayStateInfoAfter(COverlayContext *t
     *((_OWORD *)v7 + 11) = *(_OWORD *)(v6 + v4 + 176);
     *((_OWORD *)v7 + 12) = *(_OWORD *)(v6 + v4 + 192);
     v8 = *(_OWORD *)(v6 + v4 + 208);
-    *(_QWORD *)&v2[v5 + 11800] = v7;
+    *(_QWORD *)&v2[v5 + 11920] = v7;
     *((_OWORD *)v7 + 13) = v8;
-    v9 = *(_QWORD *)(*((_QWORD *)this + 913) + v6 + 16);
-    *(_DWORD *)&v2[v5 + 11812] = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v9 + 328LL))(v9);
+    v9 = *(_QWORD *)(*((_QWORD *)this + 914) + v6 + 16);
+    *(_DWORD *)&v2[v5 + 11932] = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v9 + 264LL))(v9);
   }
 }

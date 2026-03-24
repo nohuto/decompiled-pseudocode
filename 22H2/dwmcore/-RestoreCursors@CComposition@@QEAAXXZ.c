@@ -1,15 +1,15 @@
 /*
- * XREFs of ?RestoreCursors@CComposition@@QEAAXXZ @ 0x180021FCC
+ * XREFs of ?RestoreCursors@CComposition@@QEAAXXZ @ 0x1800432F4
  * Callers:
- *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180020CC4 (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?RestoreVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x180130FA0 (-RestoreVisuals@COffScreenRenderTarget@@MEAAXXZ.c)
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA030 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RestoreVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x1801F0BC0 (-RestoreVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
+ *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180042FFC (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ECD04 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?RestoreVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x1801859B0 (-RestoreVisuals@COffScreenRenderTarget@@MEAAXXZ.c)
+ *     ?RestoreVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x18018BB80 (-RestoreVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x18012E604 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
- *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B468C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
- *     ?RemoveAt@?$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z @ 0x1801B50FC (-RemoveAt@-$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z.c)
+ *     ?RemoveAt@?$DynArray@PEAVCCursorVisualReference@@$0A@@@QEAAJI@Z @ 0x1800D5AE0 (-RemoveAt@-$DynArray@PEAVCCursorVisualReference@@$0A@@@QEAAJI@Z.c)
+ *     ??_GCCursorVisualReference@@QEAAPEAXI@Z @ 0x1800E4DDC (--_GCCursorVisualReference@@QEAAPEAXI@Z.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5388 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CComposition::RestoreCursors(CComposition *this)
@@ -17,22 +17,22 @@ void __fastcall CComposition::RestoreCursors(CComposition *this)
   int v1; // ebx
   _QWORD *v2; // rdi
   __int64 v3; // rbp
-  CExcludeVisualReference *v4; // rsi
+  CCursorVisualReference *v4; // rsi
   unsigned int v5; // edx
 
-  v1 = *((_DWORD *)this + 248);
+  v1 = *((_DWORD *)this + 210);
   if ( v1 > 0 )
   {
-    v2 = (_QWORD *)((char *)this + 968);
+    v2 = (_QWORD *)((char *)this + 816);
     do
     {
       v3 = (unsigned int)(v1 - 1);
-      v4 = *(CExcludeVisualReference **)(*v2 + 8 * v3);
-      (*(void (__fastcall **)(CExcludeVisualReference *))(*(_QWORD *)v4 + 8LL))(v4);
+      v4 = *(CCursorVisualReference **)(*v2 + 8 * v3);
+      (*(void (__fastcall **)(CCursorVisualReference *))(*(_QWORD *)v4 + 8LL))(v4);
       if ( !CExcludeVisualReference::GetVisual(v4) )
       {
-        DynArray<CExcludeVisualReference *,0>::RemoveAt(v2, (unsigned int)v3);
-        CExcludeVisualReference::`scalar deleting destructor'(v4, v5);
+        DynArray<CCursorVisualReference *,0>::RemoveAt(v2, (unsigned int)v3);
+        CCursorVisualReference::`scalar deleting destructor'(v4, v5);
       }
       --v1;
     }

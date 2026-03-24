@@ -1,12 +1,12 @@
 /*
- * XREFs of ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C02138A8
+ * XREFs of ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C0218AB0
  * Callers:
- *     PointerPromotionOnPointerInputRetrieval @ 0x1C0214840 (PointerPromotionOnPointerInputRetrieval.c)
+ *     PointerPromotionOnPointerInputRetrieval @ 0x1C0219C40 (PointerPromotionOnPointerInputRetrieval.c)
  * Callees:
- *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C00F0F50 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C02134EC (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
- *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02136F8 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
- *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C021372C (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0218640 (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
+ *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02188F0 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
+ *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C0218924 (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
  */
 
 void __fastcall PointerPromotion::OnPointerInputRetrieval(
@@ -36,13 +36,13 @@ void __fastcall PointerPromotion::OnPointerInputRetrieval(
     if ( MousePromotionEntry )
     {
       *((_QWORD *)MousePromotionEntry + 1) = v8;
-      if ( !v9 && !word_1C0335D70 )
+      if ( !v9 && !word_1C033ABB0 )
       {
         v11 = v14[0] + 1;
         if ( (unsigned int)v11 < 5 )
         {
           v12 = (unsigned int)(5 - v11);
-          v13 = (struct tagMOUSE_PROMOTION_QUEUE *)((char *)&unk_1C0335CA0 + 24 * v11);
+          v13 = (struct tagMOUSE_PROMOTION_QUEUE *)((char *)&unk_1C033AAE0 + 24 * v11);
           do
           {
             EmptyMousePromotionQueue(v13);

@@ -1,42 +1,42 @@
 /*
- * XREFs of HalpEfiStartRuntimeCode @ 0x14035E538
+ * XREFs of HalpEfiStartRuntimeCode @ 0x1404C3EE8
  * Callers:
- *     HalEfiGetEnvironmentVariable @ 0x14035E41C (HalEfiGetEnvironmentVariable.c)
- *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C450 (HalpEnumerateEnvironmentVariablesWithFilter.c)
- *     HalEfiGetTime @ 0x14050CABC (HalEfiGetTime.c)
- *     HalEfiQueryCapsuleCapabilities @ 0x14050CCEC (HalEfiQueryCapsuleCapabilities.c)
- *     HalEfiQueryVariableInfo @ 0x14050CD7C (HalEfiQueryVariableInfo.c)
- *     HalEfiResetSystem @ 0x14050CE00 (HalEfiResetSystem.c)
- *     HalEfiSetEnvironmentVariable @ 0x14050CE9C (HalEfiSetEnvironmentVariable.c)
- *     HalEfiSetTime @ 0x14050CF50 (HalEfiSetTime.c)
- *     HalEfiUpdateCapsule @ 0x14050D18C (HalEfiUpdateCapsule.c)
+ *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x1404BBE70 (HalpEnumerateEnvironmentVariablesWithFilter.c)
+ *     HalEfiGetEnvironmentVariable @ 0x1404C372C (HalEfiGetEnvironmentVariable.c)
+ *     HalEfiGetTime @ 0x1404C37B8 (HalEfiGetTime.c)
+ *     HalEfiQueryCapsuleCapabilities @ 0x1404C39E8 (HalEfiQueryCapsuleCapabilities.c)
+ *     HalEfiQueryVariableInfo @ 0x1404C3A6C (HalEfiQueryVariableInfo.c)
+ *     HalEfiResetSystem @ 0x1404C3AE0 (HalEfiResetSystem.c)
+ *     HalEfiSetEnvironmentVariable @ 0x1404C3B68 (HalEfiSetEnvironmentVariable.c)
+ *     HalEfiSetTime @ 0x1404C3C00 (HalEfiSetTime.c)
+ *     HalEfiUpdateCapsule @ 0x1404C3E28 (HalEfiUpdateCapsule.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall HalpEfiStartRuntimeCode(unsigned int a1)
 {
-  unsigned int *HalReserved; // rdx
   __int64 result; // rax
+  int *v3; // rdx
 
-  HalReserved = KeGetPcr()->HalReserved;
   result = KeGetCurrentIrql();
-  if ( (unsigned __int8)result >= 2u )
-  {
-    _InterlockedOr((volatile signed __int32 *)HalReserved + 8, a1);
-  }
-  else
+  v3 = (int *)&KeGetPcr()->HalReserved[8];
+  if ( (unsigned __int8)result < 2u )
   {
     while ( 1 )
     {
-      while ( (HalReserved[8] & 0x80000000) != 0 )
+      while ( *v3 < 0 )
         _mm_pause();
-      _m_prefetchw(HalReserved + 8);
-      result = (unsigned int)_InterlockedOr((volatile signed __int32 *)HalReserved + 8, a1);
+      _m_prefetchw(v3);
+      result = (unsigned int)_InterlockedOr(v3, a1);
       if ( (int)result >= 0 )
         break;
-      _InterlockedAnd((volatile signed __int32 *)HalReserved + 8, ~a1);
+      _InterlockedAnd(v3, ~a1);
     }
+  }
+  else
+  {
+    _InterlockedOr(v3, a1);
   }
   return result;
 }

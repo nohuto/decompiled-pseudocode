@@ -1,262 +1,271 @@
 /*
- * XREFs of RaspInitializeGlyphData @ 0x14038601C
+ * XREFs of RaspInitializeGlyphData @ 0x1403AE050
  * Callers:
- *     RaspLoadGlyphData @ 0x1403869FC (RaspLoadGlyphData.c)
+ *     RaspLoadGlyphData @ 0x1403AE92C (RaspLoadGlyphData.c)
  * Callees:
- *     RaspFreeMemory @ 0x140385284 (RaspFreeMemory.c)
- *     FioFwReadUshortAtOffset @ 0x140385FE8 (FioFwReadUshortAtOffset.c)
- *     FioFwReadBytesAtOffset @ 0x1403863C8 (FioFwReadBytesAtOffset.c)
- *     RaspAllocateMemory @ 0x1403867CC (RaspAllocateMemory.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RaspFreeMemory @ 0x1403AD328 (RaspFreeMemory.c)
+ *     FioFwReadUshortAtOffset @ 0x1403AE01C (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403AE41C (FioFwReadBytesAtOffset.c)
+ *     RaspAllocateMemory @ 0x1403AE828 (RaspAllocateMemory.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall RaspInitializeGlyphData(__int64 a1, int a2, __int64 *a3, _QWORD *a4)
 {
   int v6; // ecx
   unsigned int v7; // ebx
-  __int64 v8; // r15
+  __int64 v8; // r12
   unsigned int v9; // ebx
-  unsigned int v10; // r12d
+  unsigned int v10; // r15d
   unsigned int v11; // ebx
-  __int64 v12; // r13
+  unsigned __int16 v12; // r13
   unsigned __int16 v13; // bx
-  __int64 v14; // r14
-  char *v15; // rax
-  char *v16; // rsi
-  __int64 v17; // r14
-  int v18; // ecx
+  char *Memory; // rax
+  char *v15; // rdi
+  __int64 v16; // r14
+  int v17; // ecx
+  _WORD *v18; // rdi
   int v19; // eax
-  int v20; // ecx
-  _WORD *v21; // rsi
-  unsigned int v22; // edi
-  __int64 v23; // rbx
-  unsigned int v24; // edi
-  char *v25; // rsi
-  unsigned int v26; // edi
-  _QWORD *v27; // rbx
-  __int64 v28; // rax
-  __int64 v29; // r12
+  int v20; // esi
+  unsigned int v21; // esi
+  __int64 v22; // rbx
+  unsigned int v23; // esi
+  _QWORD *v24; // r15
+  unsigned int v25; // esi
+  char *v26; // rdi
+  __int64 v27; // rax
+  __int64 v28; // rbx
+  int v29; // r15d
   __int64 v30; // r11
   __int64 v31; // r8
   __int16 v32; // r9
   __int64 v33; // r10
   __int64 v34; // rdx
-  char *v35; // rsi
-  unsigned int v36; // edi
-  __int16 v37; // r12
+  unsigned int v35; // esi
+  char *v36; // rdi
+  __int16 v37; // r13
   char *v38; // rbx
   char v39; // dl
-  __int16 v40; // si
-  __int64 v41; // rcx
-  __int64 v42; // r12
-  _DWORD *v43; // rbx
-  char v44; // dl
-  _QWORD *v45; // rdx
+  char *v40; // rax
+  __int16 v41; // di
+  char *v42; // rbx
+  char v43; // cl
+  _QWORD *v44; // rdx
+  __int64 v45; // rcx
   __int64 v47; // rdx
-  __int64 Memory; // rax
+  __int64 v48; // rax
   unsigned int v49; // edx
-  __int16 v50[8]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v51; // [rsp+30h] [rbp-28h]
-  __int64 v52; // [rsp+38h] [rbp-20h]
-  __int64 v53; // [rsp+40h] [rbp-18h] BYREF
-  __int16 v54[8]; // [rsp+48h] [rbp-10h] BYREF
-  unsigned __int16 v55; // [rsp+A0h] [rbp+48h] BYREF
-  int v56; // [rsp+A8h] [rbp+50h]
-  __int64 *v57; // [rsp+B0h] [rbp+58h]
-  _QWORD *v58; // [rsp+B8h] [rbp+60h]
+  __int16 v50; // [rsp+20h] [rbp-48h] BYREF
+  size_t Size; // [rsp+28h] [rbp-40h]
+  __int64 v52; // [rsp+30h] [rbp-38h]
+  __int64 v53; // [rsp+38h] [rbp-30h]
+  __int64 v54; // [rsp+48h] [rbp-20h] BYREF
+  __int16 v55[12]; // [rsp+50h] [rbp-18h] BYREF
+  char *v56; // [rsp+B0h] [rbp+48h] BYREF
+  int v57; // [rsp+B8h] [rbp+50h]
+  __int64 *v58; // [rsp+C0h] [rbp+58h]
+  _QWORD *v59; // [rsp+C8h] [rbp+60h]
 
-  v58 = a4;
-  v57 = a3;
-  v56 = a2;
-  v53 = 0LL;
-  v54[0] = 0;
-  v55 = 0;
-  v50[0] = 0;
+  v59 = a4;
+  v58 = a3;
+  v57 = a2;
+  v54 = 0LL;
+  v55[0] = 0;
+  LOWORD(v56) = 0;
+  v50 = 0;
   if ( !a1 )
     return 3221225473LL;
   v6 = *(_DWORD *)(a1 + 60);
   if ( !v6 )
     return 3221225473LL;
   v7 = v6 + a2;
-  v8 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL);
-  FioFwReadUshortAtOffset(v8, (unsigned int)(v6 + a2), &v53);
-  FioFwReadUshortAtOffset(v8, v7 + 2, (_WORD *)&v53 + 1);
+  v53 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL);
+  v8 = v53;
+  FioFwReadUshortAtOffset(v53, (unsigned int)(v6 + a2), &v54);
+  FioFwReadUshortAtOffset(v53, v7 + 2, (_WORD *)&v54 + 1);
   v7 += 4;
-  FioFwReadUshortAtOffset(v8, v7, (_WORD *)&v53 + 2);
-  FioFwReadUshortAtOffset(v8, v7 + 2, (_WORD *)&v53 + 3);
+  FioFwReadUshortAtOffset(v53, v7, (_WORD *)&v54 + 2);
+  FioFwReadUshortAtOffset(v53, v7 + 2, (_WORD *)&v54 + 3);
   v9 = v7 + 4;
-  FioFwReadUshortAtOffset(v8, v9, v54);
-  v10 = (unsigned __int16)v53;
-  if ( (v53 & 0x8000u) != 0LL )
+  FioFwReadUshortAtOffset(v53, v9, v55);
+  v10 = (unsigned __int16)v54;
+  if ( (v54 & 0x8000u) != 0LL )
     return 3221225485LL;
-  if ( !(_WORD)v53 )
+  if ( (_WORD)v54 )
   {
-    Memory = RaspAllocateMemory(66LL);
+    v11 = v9 + 2 * (__int16)v54;
+    FioFwReadUshortAtOffset(v53, v11, &v50);
+    v12 = v50 + 1;
+    FioFwReadUshortAtOffset(v8, v11 + 2, &v56);
+    v13 = (unsigned __int16)v56;
+    v52 = (unsigned __int16)v56;
+    Size = v12 + (unsigned __int64)(unsigned __int16)v56 + 8LL * v12 + 2 * ((__int16)v10 + 41LL);
+    Memory = (char *)RaspAllocateMemory(Size);
+    v15 = Memory;
     if ( Memory )
     {
-      v49 = SWORD1(v53);
-      *(_DWORD *)(Memory + 6) = SWORD2(v53);
-      *(_DWORD *)(Memory + 10) = SHIWORD(v53);
-      *(_DWORD *)(Memory + 14) = v54[0];
-      *(_WORD *)Memory = 0;
-      *(_DWORD *)(Memory + 2) = v49;
-      *(_QWORD *)(Memory + 18) = v49;
-      *a3 = Memory;
-      return 0LL;
-    }
-    return 3221225626LL;
-  }
-  v11 = v9 + 2 * (__int16)v53;
-  FioFwReadUshortAtOffset(v8, v11, v50);
-  v12 = (unsigned __int16)(v50[0] + 1);
-  FioFwReadUshortAtOffset(v8, v11 + 2, &v55);
-  v13 = v55;
-  v52 = 4 * v12 + 8;
-  v51 = v55;
-  v14 = v12 + v55 + 2 * (v52 + (__int16)v10);
-  v15 = (char *)RaspAllocateMemory(v14 + 66);
-  v16 = v15;
-  if ( !v15 )
-    return 3221225626LL;
-  memset(v15, 0, v14 + 66);
-  v17 = (__int64)v16;
-  v18 = SWORD1(v53);
-  *(_DWORD *)(v16 + 6) = SWORD2(v53);
-  *(_DWORD *)(v16 + 10) = SHIWORD(v53);
-  v19 = v54[0];
-  *(_DWORD *)(v16 + 2) = v18;
-  *(_DWORD *)(v16 + 18) = v18;
-  v20 = v56;
-  *(_DWORD *)(v16 + 14) = v19;
-  *(_WORD *)v16 = v10;
-  *((_WORD *)v16 + 11) = v13;
-  *((_WORD *)v16 + 12) = v12;
-  v21 = v16 + 66;
-  v22 = v20 + 10 + *(_DWORD *)(a1 + 60);
-  *(_QWORD *)(v17 + 26) = v21;
-  if ( (__int16)v10 > 0 )
-  {
-    v23 = v10;
-    do
-    {
-      FioFwReadUshortAtOffset(v8, v22, v21);
-      v22 += 2;
-      ++v21;
-      --v23;
-    }
-    while ( v23 );
-    v13 = v55;
-  }
-  v24 = v22 + 2;
-  *(_QWORD *)(v17 + 34) = v21;
-  FioFwReadBytesAtOffset(v8, v24, v13, v21);
-  v25 = (char *)v21 + v51;
-  v26 = v13 + v24;
-  v27 = v58;
-  *(_QWORD *)(v17 + 42) = v25;
-  v28 = RaspAllocateMemory(v12);
-  v51 = v28;
-  v29 = v28;
-  if ( !v28 )
-  {
-    RaspFreeMemory(v17, v27);
-    return 3221225626LL;
-  }
-  FioFwReadBytesAtOffset(v8, v26, (unsigned int)v12, v28);
-  LODWORD(v30) = 0;
-  LODWORD(v31) = 0;
-  v32 = 0;
-  if ( (_DWORD)v12 )
-  {
-    do
-    {
-      v33 = (unsigned int)v31;
-      v34 = v32++;
-      *(_BYTE *)(v34 + *(_QWORD *)(v17 + 42)) = *(_BYTE *)((unsigned int)v31 + v29);
-      if ( (*(_BYTE *)((unsigned int)v31 + v29) & 8) != 0 )
+      memset(Memory, 0, Size);
+      v16 = (__int64)v15;
+      v17 = SWORD1(v54);
+      *(_DWORD *)(v15 + 6) = SWORD2(v54);
+      *(_DWORD *)(v15 + 10) = SHIWORD(v54);
+      *(_DWORD *)(v15 + 14) = v55[0];
+      *(_WORD *)v15 = v10;
+      *(_DWORD *)(v15 + 2) = v17;
+      *(_DWORD *)(v15 + 18) = v17;
+      *((_WORD *)v15 + 11) = v13;
+      *((_WORD *)v15 + 12) = v12;
+      v18 = v15 + 66;
+      v19 = *(_DWORD *)(a1 + 60);
+      v20 = v57 + 10;
+      *(_QWORD *)(v16 + 26) = v18;
+      v21 = v19 + v20;
+      if ( (__int16)v10 > 0 )
       {
-        v31 = (unsigned int)(v31 + 1);
-        if ( *(_BYTE *)(v31 + v29) )
+        v22 = v10;
+        do
         {
-          v30 = *(unsigned __int8 *)(v31 + v29);
+          FioFwReadUshortAtOffset(v8, v21, v18);
+          v21 += 2;
+          ++v18;
+          --v22;
+        }
+        while ( v22 );
+        v13 = (unsigned __int16)v56;
+      }
+      v23 = v21 + 2;
+      *(_QWORD *)(v16 + 34) = v18;
+      FioFwReadBytesAtOffset(v8, v23, v13, v18);
+      v24 = v59;
+      v25 = v13 + v23;
+      v26 = (char *)v18 + v52;
+      *(_QWORD *)(v16 + 42) = v26;
+      v27 = RaspAllocateMemory(v12);
+      v52 = v27;
+      v28 = v27;
+      if ( v27 )
+      {
+        v29 = v12;
+        FioFwReadBytesAtOffset(v8, v25, v12, v27);
+        LODWORD(v30) = 0;
+        LODWORD(v31) = 0;
+        v32 = 0;
+        if ( v12 )
+        {
           do
           {
-            v47 = v32++;
-            *(_BYTE *)(v47 + *(_QWORD *)(v17 + 42)) = *(_BYTE *)(v33 + v29);
-            --v30;
+            v33 = (unsigned int)v31;
+            v34 = v32++;
+            *(_BYTE *)(v34 + *(_QWORD *)(v16 + 42)) = *(_BYTE *)((unsigned int)v31 + v28);
+            if ( (*(_BYTE *)((unsigned int)v31 + v28) & 8) != 0 )
+            {
+              v31 = (unsigned int)(v31 + 1);
+              if ( *(_BYTE *)(v31 + v28) )
+              {
+                v30 = *(unsigned __int8 *)(v31 + v28);
+                do
+                {
+                  v47 = v32++;
+                  *(_BYTE *)(v47 + *(_QWORD *)(v16 + 42)) = *(_BYTE *)(v33 + v28);
+                  --v30;
+                }
+                while ( v30 );
+                v29 = v12;
+              }
+            }
+            LODWORD(v31) = v31 + 1;
           }
-          while ( v30 );
+          while ( v32 < v29 );
+          v8 = v53;
         }
-      }
-      LODWORD(v31) = v31 + 1;
-    }
-    while ( v32 < (int)v12 );
-  }
-  v35 = &v25[v12];
-  v36 = v31 + v26;
-  *(_QWORD *)(v17 + 50) = v35;
-  if ( (_DWORD)v12 )
-  {
-    v37 = v30;
-    while ( 1 )
-    {
-      v38 = &v35[4 * v37];
-      *(_DWORD *)v38 = v30;
-      v39 = *(_BYTE *)(v37 + *(_QWORD *)(v17 + 42));
-      if ( (v39 & 2) != 0 )
-      {
-        FioFwReadBytesAtOffset(v8, v36++, 1LL, &v35[4 * v37]);
-        if ( (*(_BYTE *)(v37 + *(_QWORD *)(v17 + 42)) & 0x10) == 0 )
-          *(_DWORD *)v38 = -*(_DWORD *)v38;
-      }
-      else
-      {
-        if ( (v39 & 0x10) != 0 )
-          goto LABEL_20;
-        FioFwReadUshortAtOffset(v8, v36, &v35[4 * v37]);
-        v36 += 2;
-      }
-      LODWORD(v30) = 0;
+        v35 = v31 + v25;
+        v36 = &v26[v12];
+        v37 = v30;
+        *(_QWORD *)(v16 + 50) = v36;
+        if ( v29 )
+        {
+          while ( 1 )
+          {
+            v38 = &v36[4 * v37];
+            *(_DWORD *)v38 = v30;
+            v39 = *(_BYTE *)(v37 + *(_QWORD *)(v16 + 42));
+            if ( (v39 & 2) != 0 )
+            {
+              FioFwReadBytesAtOffset(v8, v35++, 1LL, &v36[4 * v37]);
+              if ( (*(_BYTE *)(v37 + *(_QWORD *)(v16 + 42)) & 0x10) == 0 )
+                *(_DWORD *)v38 = -*(_DWORD *)v38;
+            }
+            else
+            {
+              if ( (v39 & 0x10) != 0 )
+                goto LABEL_20;
+              FioFwReadUshortAtOffset(v8, v35, &v36[4 * v37]);
+              v35 += 2;
+            }
+            LODWORD(v30) = 0;
 LABEL_20:
-      if ( ++v37 >= (int)v12 )
-      {
-        v29 = v51;
-        break;
-      }
-    }
-  }
-  v40 = v30;
-  v41 = *(_QWORD *)(v17 + 50) + v52;
-  *(_QWORD *)(v17 + 58) = v41;
-  if ( !(_DWORD)v12 )
-    goto LABEL_30;
-  v42 = v41;
-  do
-  {
-    v43 = (_DWORD *)(v42 + 4LL * v40);
-    *v43 = v30;
-    v44 = *(_BYTE *)(v40 + *(_QWORD *)(v17 + 42));
-    if ( (v44 & 4) != 0 )
-    {
-      FioFwReadBytesAtOffset(v8, v36++, 1LL, v42 + 4LL * v40);
-      if ( (*(_BYTE *)(v40 + *(_QWORD *)(v17 + 42)) & 0x20) == 0 )
-        *v43 = -*v43;
-      goto LABEL_27;
-    }
-    if ( (v44 & 0x20) == 0 )
-    {
-      FioFwReadUshortAtOffset(v8, v36, (_WORD *)(v42 + 4LL * v40));
-      v36 += 2;
+            if ( ++v37 >= v29 )
+            {
+              v36 = *(char **)(v16 + 50);
+              break;
+            }
+          }
+        }
+        v40 = &v36[4 * v29 + 8];
+        v41 = v30;
+        v56 = v40;
+        *(_QWORD *)(v16 + 58) = v40;
+        if ( v29 )
+        {
+          do
+          {
+            v42 = &v40[4 * v41];
+            *(_DWORD *)v42 = v30;
+            v43 = *(_BYTE *)(*(_QWORD *)(v16 + 42) + v41);
+            if ( (v43 & 4) != 0 )
+            {
+              FioFwReadBytesAtOffset(v8, v35++, 1LL, v42);
+              if ( (*(_BYTE *)(*(_QWORD *)(v16 + 42) + v41) & 0x20) == 0 )
+                *(_DWORD *)v42 = -*(_DWORD *)v42;
+            }
+            else
+            {
+              if ( (v43 & 0x20) != 0 )
+                goto LABEL_27;
+              FioFwReadUshortAtOffset(v8, v35, v42);
+              v35 += 2;
+            }
+            LODWORD(v30) = 0;
 LABEL_27:
-      LODWORD(v30) = 0;
+            ++v41;
+            v40 = v56;
+          }
+          while ( v41 < v29 );
+        }
+        v44 = v59;
+        v45 = v52;
+        *v58 = v16;
+        RaspFreeMemory(v45, v44);
+        return 0LL;
+      }
+      RaspFreeMemory(v16, v24);
     }
-    ++v40;
   }
-  while ( v40 < (int)v12 );
-  v29 = v51;
-LABEL_30:
-  v45 = v58;
-  *v57 = v17;
-  RaspFreeMemory(v29, v45);
-  return 0LL;
+  else
+  {
+    v48 = RaspAllocateMemory(66LL);
+    if ( v48 )
+    {
+      v49 = SWORD1(v54);
+      *(_DWORD *)(v48 + 6) = SWORD2(v54);
+      *(_DWORD *)(v48 + 10) = SHIWORD(v54);
+      *(_DWORD *)(v48 + 14) = v55[0];
+      *(_WORD *)v48 = 0;
+      *(_DWORD *)(v48 + 2) = v49;
+      *(_QWORD *)(v48 + 18) = v49;
+      *a3 = v48;
+      return 0LL;
+    }
+  }
+  return 3221225626LL;
 }

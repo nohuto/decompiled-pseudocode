@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxApplyDockedOrientation@CLegacyRotationMgr@@AEAAXXZ @ 0x1C01A73B8
+ * XREFs of ?xxxApplyDockedOrientation@CLegacyRotationMgr@@AEAAXXZ @ 0x1C01D10F8
  * Callers:
- *     ?xxxRefreshDisplayOrientation@CLegacyRotationMgr@@UEAAXXZ @ 0x1C0041BB0 (-xxxRefreshDisplayOrientation@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01A71E0 (-RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?xxxRefreshDisplayOrientation@CLegacyRotationMgr@@UEAAXXZ @ 0x1C002EAC0 (-xxxRefreshDisplayOrientation@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01D0F20 (-RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ.c)
  * Callees:
- *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C0041E00 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01A6DF8 (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
- *     ?xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z @ 0x1C01A7680 (-xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z.c)
- *     ?xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01A79B4 (-xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z.c)
- *     ?TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z @ 0x1C0202550 (-TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z.c)
+ *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C002EC20 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
+ *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01D0B3C (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
+ *     ?xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z @ 0x1C01D1368 (-xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z.c)
+ *     ?xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01D16C4 (-xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z.c)
+ *     ?TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z @ 0x1C02250B8 (-TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z.c)
  */
 
 void __fastcall CLegacyRotationMgr::xxxApplyDockedOrientation(CLegacyRotationMgr *this)
@@ -25,13 +25,13 @@ void __fastcall CLegacyRotationMgr::xxxApplyDockedOrientation(CLegacyRotationMgr
   v1 = 0;
   DockedOrientationValue = 0;
   v8 = 0;
-  if ( dword_1C035A5FC )
+  if ( dword_1C033562C )
   {
     AutoRotationState = CLegacyRotationMgr::QueryAutoRotationState(this);
     if ( ((AutoRotationState - 64) & 0xFFFFFF3F) != 0 || AutoRotationState == 256 )
     {
       if ( ((AutoRotationState - 65) & 0xFFFFFF3F) == 0 && AutoRotationState != 257 )
-        DockedOrientationValue = dword_1C035A5D4;
+        DockedOrientationValue = dword_1C0335604;
     }
     else
     {
@@ -52,7 +52,7 @@ void __fastcall CLegacyRotationMgr::xxxApplyDockedOrientation(CLegacyRotationMgr
       if ( ((AutoRotationState - 64) & 0xFFFFFF3F) == 0 && AutoRotationState != 256 )
       {
         CLegacyRotationMgr::xxxSetAutoRotationStateInternal(this, 0);
-        PostShellHookMessagesEx(0x32u, dword_1C035A5D8, 0LL);
+        PostShellHookMessagesEx(0x32u, dword_1C0335608, 0LL);
       }
     }
   }

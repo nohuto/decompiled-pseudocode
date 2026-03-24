@@ -1,28 +1,31 @@
 /*
- * XREFs of AlpcpLogReceiveMessage @ 0x14097A4E0
+ * XREFs of AlpcpLogReceiveMessage @ 0x1408C3DE0
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessagePort @ 0x14073B9A0 (AlpcpReceiveMessagePort.c)
- *     AlpcpReceiveSynchronousReply @ 0x14073E1F0 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407BB524 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140677FB0 (AlpcpReceiveDirectMessagePort.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x14097A28C (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1408C3B9C (AlpcpInvokeLogCallbacks.c)
  */
 
-signed __int32 __fastcall AlpcpLogReceiveMessage(__int64 a1)
+char __fastcall AlpcpLogReceiveMessage(__int64 a1)
 {
   __int128 v1; // xmm0
   int v2; // eax
   __int128 v4; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v5; // [rsp+30h] [rbp-28h]
+  int v5; // [rsp+30h] [rbp-28h]
+  int v6; // [rsp+34h] [rbp-24h]
+  int v7; // [rsp+38h] [rbp-20h]
+  int v8; // [rsp+3Ch] [rbp-1Ch]
 
-  v5 = 0LL;
-  v4 = 0LL;
+  v6 = 0;
+  v8 = 0;
   v1 = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
   v2 = *(_DWORD *)(a1 + 264);
-  LODWORD(v5) = 2;
+  v5 = 2;
   v4 = v1;
-  DWORD2(v5) = v2;
+  v7 = v2;
   return AlpcpInvokeLogCallbacks((__int64)&v4, 0x20u);
 }

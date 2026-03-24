@@ -3,7 +3,7 @@
  * Callers:
  *     NtCompareTokens @ 0x1405B9A30 (NtCompareTokens.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x1400A71D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1400A71F0 (AuthzBasepFindSecurityAttribute.c)
  *     AuthzBasepIsCompareRelevantAttribute @ 0x1405BC1C4 (AuthzBasepIsCompareRelevantAttribute.c)
  *     AuthzBasepCompareSecurityAttribute @ 0x1405BC1F8 (AuthzBasepCompareSecurityAttribute.c)
  */

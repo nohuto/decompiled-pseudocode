@@ -5,7 +5,7 @@
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
  *     MmAssignProcessToJob @ 0x140604944 (MmAssignProcessToJob.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

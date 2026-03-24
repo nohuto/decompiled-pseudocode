@@ -1,5 +1,5 @@
 /*
- * XREFs of EngDxIoctl @ 0x1C026FE40
+ * XREFs of EngDxIoctl @ 0x1C02777F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,9 @@
 
 HRESULT __stdcall EngDxIoctl(ULONG ulIoctl, PVOID pBuffer, ULONG ulBufferSize)
 {
-  WdLogSingleEntry0(3LL);
+  __int64 v3; // rax
+
+  v3 = WdLogNewEntry5_WdWarning(ulIoctl, pBuffer, ulBufferSize);
+  WdLogEvent5_WdWarning(v3);
   return -2147467259;
 }

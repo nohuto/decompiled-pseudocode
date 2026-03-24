@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x1406FCAA8
+ * XREFs of PnpConcatPWSTR @ 0x1406FCA88
  * Callers:
- *     PiSwInstanceInfoInit @ 0x1406D6DF0 (PiSwInstanceInfoInit.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406D9CA0 (PiDqOpenUserObjectRegKey.c)
- *     PiSwStopDestroy @ 0x1406ED1B8 (PiSwStopDestroy.c)
- *     PipCheckForDenyExecute @ 0x140709F70 (PipCheckForDenyExecute.c)
+ *     PiSwInstanceInfoInit @ 0x1406D6DD0 (PiSwInstanceInfoInit.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
+ *     PiSwStopDestroy @ 0x1406ED198 (PiSwStopDestroy.c)
+ *     PipCheckForDenyExecute @ 0x140709F50 (PipCheckForDenyExecute.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
  *     RtlStringCbCatW @ 0x140007428 (RtlStringCbCatW.c)

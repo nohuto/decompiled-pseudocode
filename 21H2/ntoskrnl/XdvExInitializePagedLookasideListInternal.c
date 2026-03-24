@@ -1,9 +1,9 @@
 /*
- * XREFs of XdvExInitializePagedLookasideListInternal @ 0x140A8FF10
+ * XREFs of XdvExInitializePagedLookasideListInternal @ 0x1409C27D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall XdvExInitializePagedLookasideListInternal(

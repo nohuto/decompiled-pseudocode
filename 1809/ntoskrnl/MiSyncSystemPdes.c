@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSyncSystemPdes @ 0x14013CC38
+ * XREFs of MiSyncSystemPdes @ 0x14013CC58
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D18B8 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateSystemPdes @ 0x1402A5150 (MiUpdateSystemPdes.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateSystemPdes @ 0x1402A5250 (MiUpdateSystemPdes.c)
  */
 
 __int64 __fastcall MiSyncSystemPdes(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140706594
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140706574
  * Callers:
- *     CmpStartCLFSLog @ 0x14070E7AC (CmpStartCLFSLog.c)
- *     CmpAddRemoveRMLogContainer @ 0x1407F8C58 (CmpAddRemoveRMLogContainer.c)
+ *     CmpStartCLFSLog @ 0x14070E78C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1407F8C38 (CmpAddRemoveRMLogContainer.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PsRestoreImpersonation @ 0x140648D30 (PsRestoreImpersonation.c)
- *     PsDisableImpersonation @ 0x140648E90 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140648D10 (PsRestoreImpersonation.c)
+ *     PsDisableImpersonation @ 0x140648E70 (PsDisableImpersonation.c)
  */
 
 __int64 __fastcall CmpAddRemoveContainerToCLFSLog(

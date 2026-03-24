@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C009AD6C
+ * XREFs of ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C008519C
  * Callers:
- *     DCompositionNotifyPresent @ 0x1C000AE70 (DCompositionNotifyPresent.c)
- *     DCompositionNotifyCompositionTokenPresent @ 0x1C009AD50 (DCompositionNotifyCompositionTokenPresent.c)
+ *     DCompositionNotifyCompositionTokenPresent @ 0x1C0085180 (DCompositionNotifyCompositionTokenPresent.c)
+ *     DCompositionNotifyPresent @ 0x1C00968F0 (DCompositionNotifyPresent.c)
  * Callees:
- *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C009AE0C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
+ *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C008523C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
  */
 
 void __fastcall DirectComposition::CSynchronizationManager::NotifyPresent(__int64 a1, char a2)

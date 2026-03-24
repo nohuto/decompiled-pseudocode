@@ -3,18 +3,18 @@
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
- *     CmpHandlePageFileOpenNotification @ 0x140759604 (CmpHandlePageFileOpenNotification.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407595E4 (CmpHandlePageFileOpenNotification.c)
  * Callees:
  *     CmpArmLazyWriter @ 0x14008CD54 (CmpArmLazyWriter.c)
- *     CmpAdjustFileCFSafety @ 0x1401B3254 (CmpAdjustFileCFSafety.c)
+ *     CmpAdjustFileCFSafety @ 0x1401B3274 (CmpAdjustFileCFSafety.c)
  *     HvUnlockHiveFilePages @ 0x1405A404C (HvUnlockHiveFilePages.c)
  *     HvUnlockHiveFlusherExclusive @ 0x1405A49A4 (HvUnlockHiveFlusherExclusive.c)
  *     HvLockHiveFlusherExclusive @ 0x1405A49D4 (HvLockHiveFlusherExclusive.c)
  *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x1405A49F0 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     HvViewMapContainsLockedPages @ 0x140708824 (HvViewMapContainsLockedPages.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     HvViewMapContainsLockedPages @ 0x140708804 (HvViewMapContainsLockedPages.c)
  */
 
 __int64 __fastcall CmpRecheckHiveVolumePolicy(__int64 a1)

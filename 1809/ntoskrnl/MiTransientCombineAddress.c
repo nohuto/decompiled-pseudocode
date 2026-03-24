@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransientCombineAddress @ 0x1402CC058
+ * XREFs of MiTransientCombineAddress @ 0x1402CC158
  * Callers:
- *     MiRaisedIrqlFault @ 0x140129108 (MiRaisedIrqlFault.c)
+ *     MiRaisedIrqlFault @ 0x140129128 (MiRaisedIrqlFault.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall MiTransientCombineAddress(unsigned __int64 a1, unsigned __int64 a2)

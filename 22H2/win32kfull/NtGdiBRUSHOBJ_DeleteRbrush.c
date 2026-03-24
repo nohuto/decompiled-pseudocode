@@ -1,67 +1,73 @@
 /*
- * XREFs of NtGdiBRUSHOBJ_DeleteRbrush @ 0x1C02C8030
+ * XREFs of NtGdiBRUSHOBJ_DeleteRbrush @ 0x1C02B1970
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C02C6C3C (--$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C013C0DC (--$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiBRUSHOBJ_DeleteRbrush(__int64 a1, __int64 a2)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  __int64 result; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
   __int64 v6; // rbx
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rdi
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rdx
+  unsigned int v7; // esi
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // rdi
+  unsigned __int64 v13; // rdx
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  result = (__int64)UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v6 = result;
-  if ( result )
+  ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+  v6 = (__int64)ThreadCurrentObj;
+  v7 = 1;
+  if ( ThreadCurrentObj )
   {
-    ++*(_DWORD *)(result + 436);
+    ++*((_DWORD *)ThreadCurrentObj + 105);
     if ( a1 )
     {
-      v7 = UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>(result, a1);
-      v8 = v7;
-      if ( v7 )
+      v8 = UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>((__int64)ThreadCurrentObj, a1);
+      v9 = v8;
+      if ( v8 )
       {
-        v9 = *(_QWORD *)(v7 + 8);
-        if ( v9 )
+        v10 = *(_QWORD *)(v8 + 8);
+        if ( v10 )
         {
-          if ( v9 < (unsigned __int64)MmSystemRangeStart )
+          if ( v10 < (unsigned __int64)MmSystemRangeStart )
           {
-            EngFreeUserMem((PVOID)(v9 - 16));
-            *(_QWORD *)(v8 + 8) = 0LL;
+            EngFreeUserMem((PVOID)(v10 - 16));
+            *(_QWORD *)(v9 + 8) = 0LL;
           }
         }
       }
     }
     if ( a2 )
     {
-      v10 = UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>(v6, a2);
-      v11 = v10;
-      if ( v10 )
+      v11 = UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>(v6, a2);
+      v12 = v11;
+      if ( v11 )
       {
-        v12 = *(_QWORD *)(v10 + 8);
-        if ( v12 )
+        v13 = *(_QWORD *)(v11 + 8);
+        if ( v13 )
         {
-          if ( v12 < (unsigned __int64)MmSystemRangeStart )
+          if ( v13 < (unsigned __int64)MmSystemRangeStart )
           {
-            EngFreeUserMem((PVOID)(v12 - 16));
-            *(_QWORD *)(v11 + 8) = 0LL;
+            EngFreeUserMem((PVOID)(v13 - 16));
+            *(_QWORD *)(v12 + 8) = 0LL;
           }
         }
       }
     }
-    --*(_DWORD *)(v6 + 436);
-    return 1LL;
   }
-  return result;
+  else
+  {
+    v7 = 0;
+  }
+  if ( v6 )
+    --*(_DWORD *)(v6 + 420);
+  return v7;
 }

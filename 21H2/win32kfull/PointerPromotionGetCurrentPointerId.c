@@ -1,5 +1,5 @@
 /*
- * XREFs of PointerPromotionGetCurrentPointerId @ 0x1C0214830
+ * XREFs of PointerPromotionGetCurrentPointerId @ 0x1C0219C30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 PointerPromotionGetCurrentPointerId()
 {
-  return (unsigned __int16)word_1C0335C90[0];
+  return (unsigned __int16)word_1C033AAD0[0];
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIndependentFlip@CCompositionBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C001A270
+ * XREFs of ?SetIndependentFlip@CCompositionBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C001BA70
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerMet @ 0x14098CEA4
+ * XREFs of PopDiagTraceBatteryTriggerMet @ 0x1408E86FC
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
@@ -109,20 +109,20 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
     v7 = *(_DWORD *)(a2 + 4);
     v8 = *(_DWORD *)(a2 + 16);
     v9 = *(_DWORD *)(a2 + 20);
-    v10 = dword_140C3D0F4;
-    v11 = unk_140C3D120 & 1;
-    v26 = dword_140C3D28C;
-    v12 = byte_140C3D220 != 0;
-    v27 = dword_140C3D0F4;
+    v10 = dword_140C23C34;
+    v11 = unk_140C23C60 & 1;
+    v26 = dword_140C23DAC;
+    v12 = byte_140C23D40 != 0;
+    v27 = dword_140C23C34;
     v22 = v5;
     v13 = *(_BYTE *)a2 == 0;
     v28 = v5;
     v14 = !v13;
     v29 = v4;
-    LOBYTE(v3) = -45 * (dword_140C3D28C - 12);
+    LOBYTE(v3) = -45 * (dword_140C23DAC - 12);
     v30 = v11;
     v31 = v12;
-    v15 = (dword_140C3D28C + 500) / 0x3E8u;
+    v15 = (dword_140C23DAC + 500) / 0x3E8u;
     v32 = v14;
     v23 = v6;
     v33 = v6;
@@ -177,9 +177,9 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v8 = v25;
       }
     }
-    if ( (unsigned int)dword_140C03950 > 5 )
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
       if ( (_BYTE)v3 )
       {
         v38 = v17;
@@ -217,8 +217,8 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v87 = 4LL;
         v89 = 4LL;
         LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140C03950,
-                       (unsigned __int8 *)&dword_14002DFE4,
+                       (__int64)&dword_140C02228,
+                       (unsigned __int8 *)byte_14002786D,
                        0LL,
                        0LL,
                        0xEu,

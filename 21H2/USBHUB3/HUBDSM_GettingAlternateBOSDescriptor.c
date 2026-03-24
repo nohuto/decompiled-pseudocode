@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingAlternateBOSDescriptor @ 0x1C0020330
+ * XREFs of HUBDSM_GettingAlternateBOSDescriptor @ 0x1C001FF20
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetBOSDescriptorUsingControlTransfer @ 0x1C0028484 (HUBDTX_GetBOSDescriptorUsingControlTransfer.c)
+ *     HUBDTX_GetBOSDescriptorUsingControlTransfer @ 0x1C0027FDC (HUBDTX_GetBOSDescriptorUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingAlternateBOSDescriptor(__int64 a1)

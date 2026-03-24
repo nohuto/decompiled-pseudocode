@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCreateUCREntry @ 0x1405E952C
+ * XREFs of RtlpCreateUCREntry @ 0x140589FA4
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405E966C (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405E9E8C (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1405EA72C (RtlpInitializeHeapSegment.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A0E4 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x14058A938 (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x14058B100 (RtlpInitializeHeapSegment.c)
  * Callees:
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     RtlpInsertUCRBlock @ 0x1405EAD20 (RtlpInsertUCRBlock.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     RtlpInsertUCRBlock @ 0x14058B6F0 (RtlpInsertUCRBlock.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
  */
 
 __int64 *__fastcall RtlpCreateUCREntry(

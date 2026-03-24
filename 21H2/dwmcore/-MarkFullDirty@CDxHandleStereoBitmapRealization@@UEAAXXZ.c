@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ @ 0x1802A4B74
+ * XREFs of ?MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ @ 0x180265138
  * Callers:
- *     ?MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ @ 0x18010C350 (-MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ.c)
+ *     ?MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ @ 0x1800F9050 (-MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ.c)
  * Callees:
- *     ?MarkFullDirty@CBitmapRealization@@UEAAXXZ @ 0x1800D9574 (-MarkFullDirty@CBitmapRealization@@UEAAXXZ.c)
- *     ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800D95A0 (-MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ.c)
+ *     ?MarkFullDirty@CBitmapRealization@@UEAAXXZ @ 0x1800CB488 (-MarkFullDirty@CBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800CB4B4 (-MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ.c)
  */
 
 void __fastcall CDxHandleStereoBitmapRealization::MarkFullDirty(CDxHandleStereoBitmapRealization *this)

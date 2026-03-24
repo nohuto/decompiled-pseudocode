@@ -1,16 +1,16 @@
 /*
- * XREFs of DxgkGetGpuUsageStatistics @ 0x1C01E88D0
+ * XREFs of DxgkGetGpuUsageStatistics @ 0x1C016EE30
  * Callers:
  *     <none>
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-struct DXGGLOBAL *__fastcall DxgkGetGpuUsageStatistics(_QWORD *a1)
+struct DXGGLOBAL *__fastcall DxgkGetGpuUsageStatistics(_QWORD *a1, __int64 a2)
 {
   struct DXGGLOBAL *result; // rax
 
-  result = DXGGLOBAL_GetGlobal();
-  *a1 = *((_QWORD *)result + 19);
+  result = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  *a1 = *((_QWORD *)result + 12);
   return result;
 }

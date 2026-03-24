@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_Enable @ 0x1C0013BA0
+ * XREFs of Bulk_EP_Enable @ 0x1C000F460
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_DDDD @ 0x1C000E150 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
  */
 
 __int64 __fastcall Bulk_EP_Enable(__int64 a1)
@@ -28,12 +28,12 @@ __int64 __fastcall Bulk_EP_Enable(__int64 a1)
       {
         v7 = *(unsigned __int8 *)(v2 + 135);
         LOBYTE(v7) = 4;
-        WPP_RECORDER_SF_DDDD(
+        WPP_RECORDER_SF_dddd(
           *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
           v7,
           14,
           11,
-          (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+          (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
           *(_BYTE *)(v2 + 135),
           *(_DWORD *)(v4 + 144),
           *(_DWORD *)(a1 + 64),

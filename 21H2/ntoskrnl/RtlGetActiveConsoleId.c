@@ -1,28 +1,36 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x1402DEB60
+ * XREFs of RtlGetActiveConsoleId @ 0x140281DB0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D89F0 (PopPowerButtonWorkCallback.c)
- *     PiCMQueryRemove @ 0x14065F7D4 (PiCMQueryRemove.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     PopNotifyConsoleUserPresent @ 0x1407F2A20 (PopNotifyConsoleUserPresent.c)
- *     PoBlockConsoleSwitch @ 0x1407FE7DC (PoBlockConsoleSwitch.c)
- *     PfpProcessScenarioPhase @ 0x14081BB14 (PfpProcessScenarioPhase.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x140281CF4 (PopGetConsoleDisplayRequestCount.c)
+ *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
+ *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
+ *     PopNotifyConsoleUserPresent @ 0x140773100 (PopNotifyConsoleUserPresent.c)
+ *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 __int64 RtlGetActiveConsoleId()
 {
+  __int64 v0; // rdx
+  __int64 v1; // rcx
   __int64 ThreadServerSilo; // rax
-  _QWORD *v2; // rax
+  _QWORD *v4; // rax
 
   if ( !(unsigned __int8)PsIsCurrentThreadInServerSilo() )
     return MEMORY[0xFFFFF780000002D8];
-  ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
-  if ( ThreadServerSilo )
-    v2 = *(_QWORD **)(ThreadServerSilo + 1464);
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v1, v0)
+    || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
+  {
+    v4 = &PspHostSiloGlobals;
+  }
   else
-    v2 = &PspHostSiloGlobals;
-  return *(unsigned int *)(v2[165] + 4LL);
+  {
+    v4 = *(_QWORD **)(ThreadServerSilo + 1272);
+  }
+  return *(unsigned int *)(v4[141] + 4LL);
 }

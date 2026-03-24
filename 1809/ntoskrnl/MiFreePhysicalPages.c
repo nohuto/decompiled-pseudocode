@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreePhysicalPages @ 0x1402B07E0
+ * XREFs of MiFreePhysicalPages @ 0x1402B08E0
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x140850F30 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140850F10 (NtFreeUserPhysicalPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
@@ -11,18 +11,18 @@
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117B80 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FC0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiDecrementAweMapCount @ 0x1402B002C (MiDecrementAweMapCount.c)
- *     MiLockAweVadsExclusive @ 0x1402B11DC (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B200C (MiUnlockAweVadsExclusive.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FE0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiDecrementAweMapCount @ 0x1402B012C (MiDecrementAweMapCount.c)
+ *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiFreePhysicalPages(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetWindow@CInputQueue@@UEBAJPEAPEAUHWND__@@@Z @ 0x1C00CA060
+ * XREFs of ?GetWindow@CInputQueue@@UEBAJPEAPEAUHWND__@@@Z @ 0x1C00BC6A0
  * Callers:
  *     <none>
  * Callees:

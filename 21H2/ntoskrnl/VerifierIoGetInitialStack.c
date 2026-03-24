@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoGetInitialStack @ 0x140A8E730
+ * XREFs of VerifierIoGetInitialStack @ 0x1409D2C70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoGetInitialStack()

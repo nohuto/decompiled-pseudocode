@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguages @ 0x14073DDE8
+ * XREFs of RtlpMuiRegCreateLanguages @ 0x14073DDC8
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x14073DFA8 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1401825B8 (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1401825D8 (_SafeAllocBlob.c)
  */
 
 _QWORD *__fastcall RtlpMuiRegCreateLanguages(unsigned int a1)

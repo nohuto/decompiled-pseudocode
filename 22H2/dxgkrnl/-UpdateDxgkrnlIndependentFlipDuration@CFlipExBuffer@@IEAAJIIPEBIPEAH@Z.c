@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C007EF74
+ * XREFs of ?UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C006717C
  * Callers:
- *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C007E720 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
+ *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C001D750 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
  * Callees:
- *     DxgkSetIndependentFlipMode @ 0x1C02DBF4C (DxgkSetIndependentFlipMode.c)
+ *     DxgkSetIndependentFlipMode @ 0x1C0173704 (DxgkSetIndependentFlipMode.c)
  */
 
 __int64 __fastcall CFlipExBuffer::UpdateDxgkrnlIndependentFlipDuration(
@@ -15,8 +15,8 @@ __int64 __fastcall CFlipExBuffer::UpdateDxgkrnlIndependentFlipDuration(
 {
   __int64 result; // rax
 
-  result = DxgkSetIndependentFlipMode(this[68], a2, a3, (__int64)a4, (__int64)a5, (__int64)(this + 67));
+  result = DxgkSetIndependentFlipMode(this[61], a2, a3, (__int64)a4, (__int64)a5, (__int64)(this + 60));
   if ( (int)result >= 0 )
-    *((_DWORD *)this + 155) = a2;
+    *((_DWORD *)this + 141) = a2;
   return result;
 }

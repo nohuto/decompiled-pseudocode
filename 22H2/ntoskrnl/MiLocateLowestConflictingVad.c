@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLocateLowestConflictingVad @ 0x140223354
+ * XREFs of MiLocateLowestConflictingVad @ 0x1403523E0
  * Callers:
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MiExpandVadBitMap @ 0x1406B2EB0 (MiExpandVadBitMap.c)
+ *     MiUpdateVadBits @ 0x1406FC000 (MiUpdateVadBits.c)
  * Callees:
- *     MiCheckForConflictingVad @ 0x140214E60 (MiCheckForConflictingVad.c)
+ *     MiCheckForConflictingVad @ 0x14025A8CC (MiCheckForConflictingVad.c)
  */
 
 __int64 **__fastcall MiLocateLowestConflictingVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 **result; // rax
-  unsigned __int64 *v5; // r11
+  unsigned __int64 v4; // r11
+  unsigned __int64 *v5; // r10
   unsigned __int64 v6; // rdx
   unsigned __int64 *v7; // rcx
   unsigned __int64 i; // rdx
@@ -39,7 +39,7 @@ __int64 **__fastcall MiLocateLowestConflictingVad(__int64 a1, unsigned __int64 a
         }
       }
       if ( !v6
-        || (((*(unsigned int *)(v6 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32)) << 12) | 0xFFF) < a2 )
+        || (((*(unsigned int *)(v6 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32)) << 12) | 0xFFF) < v4 )
       {
         break;
       }

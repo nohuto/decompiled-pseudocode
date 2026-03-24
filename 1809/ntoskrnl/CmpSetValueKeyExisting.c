@@ -2,10 +2,10 @@
  * XREFs of CmpSetValueKeyExisting @ 0x1405AE27C
  * Callers:
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCE4 (CmpPreserveSystemHiveData.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpSetValueDataNew @ 0x1405ACE10 (CmpSetValueDataNew.c)
  *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
@@ -13,7 +13,7 @@
  *     CmpMarkValueDataDirty @ 0x1405AE578 (CmpMarkValueDataDirty.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpSetValueDataExisting @ 0x1406CE45C (CmpSetValueDataExisting.c)
+ *     CmpSetValueDataExisting @ 0x1406CE43C (CmpSetValueDataExisting.c)
  */
 
 __int64 __fastcall CmpSetValueKeyExisting(

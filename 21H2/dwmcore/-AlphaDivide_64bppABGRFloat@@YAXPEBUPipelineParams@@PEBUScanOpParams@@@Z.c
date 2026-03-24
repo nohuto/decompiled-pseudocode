@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AlphaDivide_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B1120
+ * XREFs of ?AlphaDivide_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021B0E0
  * Callers:
  *     <none>
  * Callees:
- *     ??BCFloat16@@QEAAMXZ @ 0x1802A8200 (--BCFloat16@@QEAAMXZ.c)
+ *     ??BCFloat16@@QEAAMXZ @ 0x18021A75C (--BCFloat16@@QEAAMXZ.c)
  */
 
 void __fastcall AlphaDivide_64bppABGRFloat(const struct PipelineParams *a1, const struct ScanOpParams *a2)
@@ -80,10 +80,10 @@ void __fastcall AlphaDivide_64bppABGRFloat(const struct PipelineParams *a1, cons
     do
     {
       v3 = CFloat16::operator float(v2);
-      if ( v3 != CFloat16::operator float((unsigned __int16 *)&word_1803D2720) )
+      if ( v3 != CFloat16::operator float((unsigned __int16 *)&word_1803467A0) )
       {
         v5 = CFloat16::operator float(v2);
-        if ( v5 != CFloat16::operator float(word_1803D3A00) )
+        if ( v5 != CFloat16::operator float(word_180347800) )
         {
           v65 = 1.0 / CFloat16::operator float(v2);
           v7 = fabs(v65);

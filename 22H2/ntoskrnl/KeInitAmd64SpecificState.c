@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitAmd64SpecificState @ 0x140B739B0
+ * XREFs of KeInitAmd64SpecificState @ 0x140A5F0D4
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140B3FD70 (PipInitializeCoreDriversAndElam.c)
+ *     PsNotifyCoreDriversInitialized @ 0x140A5EF60 (PsNotifyCoreDriversInitialized.c)
  * Callees:
- *     KiFilterFiberContext @ 0x140B18C30 (KiFilterFiberContext.c)
- *     KiSwInterruptPresent @ 0x140B373F0 (KiSwInterruptPresent.c)
+ *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
+ *     KiSwInterruptPresent @ 0x140A41820 (KiSwInterruptPresent.c)
  */
 
 __int64 KeInitAmd64SpecificState()

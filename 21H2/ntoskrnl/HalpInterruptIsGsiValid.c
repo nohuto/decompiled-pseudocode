@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptIsGsiValid @ 0x1409088D0
+ * XREFs of HalpInterruptIsGsiValid @ 0x140864690
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
  */
 
 bool __fastcall HalpInterruptIsGsiValid(__int64 a1)

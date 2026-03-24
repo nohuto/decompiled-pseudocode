@@ -1,7 +1,7 @@
 /*
- * XREFs of ?WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ @ 0x1C00B55C8
+ * XREFs of ?WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ @ 0x1C00B642C
  * Callers:
- *     VidMmWorkerHasQueuedPaging @ 0x1C0018ED0 (VidMmWorkerHasQueuedPaging.c)
+ *     VidMmWorkerHasQueuedPaging @ 0x1C0023230 (VidMmWorkerHasQueuedPaging.c)
  * Callees:
  *     <none>
  */

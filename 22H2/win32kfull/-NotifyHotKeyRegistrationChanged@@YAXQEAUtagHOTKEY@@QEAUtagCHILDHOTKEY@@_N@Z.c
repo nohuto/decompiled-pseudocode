@@ -1,15 +1,14 @@
 /*
- * XREFs of ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C00437DC
+ * XREFs of ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003309C
  * Callers:
- *     ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HGPEAUHWND__@@@Z @ 0x1C00409B8 (-HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HGPEAUHWND__@@@Z.c)
- *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C0042C40 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
- *     DestroyThreadsHotKeys @ 0x1C0042DF0 (DestroyThreadsHotKeys.c)
- *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0042F14 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
- *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
- *     _lambda_326ebf4bf0c0cd31d169d31c796367ee_::_lambda_invoker_cdecl_ @ 0x1C00BEC00 (_lambda_326ebf4bf0c0cd31d169d31c796367ee_--_lambda_invoker_cdecl_.c)
- *     ?HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C013AA64 (-HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryT.c)
+ *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C00329E0 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
+ *     _RegisterHotKey @ 0x1C0032BD4 (_RegisterHotKey.c)
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0032FB8 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ *     ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z @ 0x1C01325BC (-HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z.c)
+ *     _lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_ @ 0x1C0137400 (_lambda_ee96b6502effcc67d9cd908cd78240cc_--_lambda_invoker_cdecl_.c)
+ *     ?HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C01EA614 (-HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryT.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall NotifyHotKeyRegistrationChanged(
@@ -19,7 +18,7 @@ void __fastcall NotifyHotKeyRegistrationChanged(
 {
   unsigned int ThreadId; // r9d
   int v4; // edi
-  unsigned __int64 v6; // rax
+  __int64 v6; // rcx
   __int16 v7; // ax
   __int64 v8; // rdx
   char v9; // al
@@ -33,10 +32,10 @@ void __fastcall NotifyHotKeyRegistrationChanged(
   if ( !*((_QWORD *)a1 + 1) )
   {
     v6 = *((_QWORD *)a1 + 2);
-    if ( v6 < 0xFFFFFFFFFFFFFFFEuLL && v6 != 1 )
+    if ( (unsigned __int64)(v6 - 2) <= 0xFFFFFFFFFFFFFFFBuLL || !v6 )
     {
-      v7 = *((_WORD *)a1 + 17);
-      if ( (v7 & 0x8C00) == 0 )
+      v7 = *((_WORD *)a1 + 13);
+      if ( (v7 & 0x9C00) == 0 )
       {
         v13 = 0;
         if ( a2 )
@@ -52,12 +51,12 @@ void __fastcall NotifyHotKeyRegistrationChanged(
         v10[1] = *(_DWORD *)(*(_QWORD *)(v8 + 424) + 56LL);
         if ( v8 )
           ThreadId = (unsigned int)PsGetThreadId(*(PETHREAD *)v8);
-        v11 = *((_WORD *)a1 + 16);
-        v9 = *((_BYTE *)a1 + 36);
+        v11 = *((_WORD *)a1 + 12);
+        v9 = *((_BYTE *)a1 + 28);
         v10[2] = ThreadId;
         v10[0] = v4;
         v12 = v9;
-        SendMessageTo(14LL, v10);
+        SendMessageTo(15LL, v10);
       }
     }
   }

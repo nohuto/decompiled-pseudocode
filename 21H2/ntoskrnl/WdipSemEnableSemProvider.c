@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemEnableSemProvider @ 0x14083F84C
+ * XREFs of WdipSemEnableSemProvider @ 0x140799338
  * Callers:
- *     WdipSemCleanStart @ 0x14083F570 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x14079905C (WdipSemCleanStart.c)
  * Callees:
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
- *     WdipSemEnableDisableTrace @ 0x140816288 (WdipSemEnableDisableTrace.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
+ *     WdipSemEnableDisableTrace @ 0x140789BC8 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 WdipSemEnableSemProvider()

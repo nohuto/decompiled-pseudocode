@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpInitializeSessionId @ 0x140700C74
+ * XREFs of PnpInitializeSessionId @ 0x140700C54
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC54 (IopGetSessionIdFromPDO.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
  */
 
 void __fastcall PnpInitializeSessionId(__int64 a1, __int64 a2, char a3)

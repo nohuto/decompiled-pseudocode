@@ -7,7 +7,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvpDelistFreeCell @ 0x1405ADE60 (HvpDelistFreeCell.c)
  *     HvpFindFreeCell @ 0x1405F9A70 (HvpFindFreeCell.c)

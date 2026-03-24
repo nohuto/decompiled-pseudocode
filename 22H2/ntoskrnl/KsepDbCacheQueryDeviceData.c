@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDbCacheQueryDeviceData @ 0x14080B0B8
+ * XREFs of KsepDbCacheQueryDeviceData @ 0x1407C7AE4
  * Callers:
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
- *     KsepDbCacheQueryDevice @ 0x14080A9A4 (KsepDbCacheQueryDevice.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
+ *     KsepDbCacheQueryDevice @ 0x14075ED98 (KsepDbCacheQueryDevice.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     KsepCacheDeviceQueryData @ 0x14080B12C (KsepCacheDeviceQueryData.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     KsepCacheDeviceQueryData @ 0x1407C7B58 (KsepCacheDeviceQueryData.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDeviceData(__int64 a1, __int64 a2, _DWORD *a3, unsigned int *a4, void *a5)

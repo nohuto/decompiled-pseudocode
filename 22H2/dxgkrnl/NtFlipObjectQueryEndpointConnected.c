@@ -1,10 +1,10 @@
 /*
- * XREFs of NtFlipObjectQueryEndpointConnected @ 0x1C00813B0
+ * XREFs of NtFlipObjectQueryEndpointConnected @ 0x1C0069B30
  * Callers:
  *     <none>
  * Callees:
- *     ?IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z @ 0x1C0080080 (-IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082498 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z @ 0x1C0068890 (-IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A8D8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectQueryEndpointConnected(void *a1, int a2, _DWORD *a3)

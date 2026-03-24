@@ -1,10 +1,10 @@
 /*
- * XREFs of EvaluateFeature @ 0x1401B371C
+ * XREFs of EvaluateFeature @ 0x1401B373C
  * Callers:
- *     EvaluateCurrentState @ 0x1401B3674 (EvaluateCurrentState.c)
- *     rbc_InitializeFeatureStaging @ 0x1401B6D38 (rbc_InitializeFeatureStaging.c)
+ *     EvaluateCurrentState @ 0x1401B3694 (EvaluateCurrentState.c)
+ *     rbc_InitializeFeatureStaging @ 0x1401B6D58 (rbc_InitializeFeatureStaging.c)
  * Callees:
- *     EvaluateCurrentStateFromRegistry @ 0x1401B369C (EvaluateCurrentStateFromRegistry.c)
+ *     EvaluateCurrentStateFromRegistry @ 0x1401B36BC (EvaluateCurrentStateFromRegistry.c)
  */
 
 __int64 __fastcall EvaluateFeature(unsigned int **a1)

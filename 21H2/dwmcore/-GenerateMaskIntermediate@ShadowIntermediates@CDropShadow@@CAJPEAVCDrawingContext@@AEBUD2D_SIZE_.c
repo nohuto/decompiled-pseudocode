@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GenerateMaskIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18001014C
+ * XREFs of ?GenerateMaskIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18001F730
  * Callers:
- *     ?UpdateIntermediates@ShadowIntermediates@CDropShadow@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@M@Z @ 0x18000F744 (-UpdateIntermediates@ShadowIntermediates@CDropShadow@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@.c)
- *     ?UpdateMaskIntermediate@ShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180212DC4 (-UpdateMaskIntermediate@ShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?UpdateIntermediates@ShadowIntermediates@CDropShadow@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@M@Z @ 0x180008844 (-UpdateIntermediates@ShadowIntermediates@CDropShadow@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@.c)
+ *     ?UpdateMaskIntermediate@ShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x1801BF950 (-UpdateMaskIntermediate@ShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800A9DE0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800BA5D0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800D53DC (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x1800D5448 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x1800409B0 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040A80 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@_NPEAPEAVIRenderTargetBitmap@@@Z @ 0x180040B6C (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x180041590 (-Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x180041730 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDropShadow::ShadowIntermediates::GenerateMaskIntermediate(
@@ -31,30 +31,29 @@ __int64 __fastcall CDropShadow::ShadowIntermediates::GenerateMaskIntermediate(
   char *v17; // rcx
   int v18; // eax
   unsigned int v19; // ecx
-  struct IRenderTargetBitmap *v20; // [rsp+30h] [rbp-28h] BYREF
-  const char *v21; // [rsp+38h] [rbp-20h] BYREF
-  int v22; // [rsp+40h] [rbp-18h]
+  char v20; // [rsp+20h] [rbp-38h]
+  struct IRenderTargetBitmap *v21; // [rsp+30h] [rbp-28h] BYREF
+  const char *v22; // [rsp+38h] [rbp-20h] BYREF
+  int v23; // [rsp+40h] [rbp-18h]
 
-  v20 = 0LL;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v20);
-  v21 = "DWM DropShadow Mask";
-  v22 = 19;
-  v8 = CDrawingContext::PushOffScreenRenderingLayer(this, &v21, a2, DisplayId::None, 4, &v20);
+  v21 = 0LL;
+  v22 = "DWM DropShadow Mask";
+  v23 = 19;
+  v20 = 0;
+  v8 = CDrawingContext::PushOffScreenRenderingLayer(this, &v22, a2, DisplayId::None, v20, &v21);
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x3C0u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x391u, 0LL);
     goto LABEL_6;
   }
   if ( !a3 || (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a3 + 56LL))(a3, 20LL) )
   {
-    v11 = (**((__int64 (__fastcall ***)(char *, const struct _D3DCOLORVALUE *))this + 2))(
-            (char *)this + 16,
-            &stru_1802D2718);
+    v11 = CDrawingContext::Clear((struct CDrawingContext *)((char *)this + 16), &stru_1802ACF28);
     v10 = v11;
     if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x3CAu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x39Bu, 0LL);
       goto LABEL_5;
     }
   }
@@ -64,10 +63,10 @@ __int64 __fastcall CDropShadow::ShadowIntermediates::GenerateMaskIntermediate(
     v10 = v15;
     if ( v15 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x3CFu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x3A0u, 0LL);
       goto LABEL_5;
     }
-    v17 = (char *)a3 + *(int *)(*((_QWORD *)a3 + 8) + 8LL) + 64;
+    v17 = (char *)a3 + *(int *)(*((_QWORD *)a3 + 7) + 8LL) + 56;
     v18 = (*(__int64 (__fastcall **)(char *, struct CDrawingContext *, const struct D2D_SIZE_F *, _QWORD))(*(_QWORD *)v17 + 16LL))(
             v17,
             this,
@@ -76,18 +75,18 @@ __int64 __fastcall CDropShadow::ShadowIntermediates::GenerateMaskIntermediate(
     v10 = v18;
     if ( v18 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x3D5u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x3A6u, 0LL);
       CDrawingContext::PopTransformInternal(this, 1);
       goto LABEL_5;
     }
     CDrawingContext::PopTransformInternal(this, 1);
   }
-  v13 = v20;
-  v20 = 0LL;
+  v13 = v21;
+  v21 = 0LL;
   *a4 = v13;
 LABEL_5:
   CDrawingContext::PopLayer(this);
 LABEL_6:
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v20);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v21);
   return v10;
 }

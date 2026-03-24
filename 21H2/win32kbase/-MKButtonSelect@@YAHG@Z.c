@@ -1,14 +1,14 @@
 /*
- * XREFs of ?MKButtonSelect@@YAHG@Z @ 0x1C01B9540
+ * XREFs of ?MKButtonSelect@@YAHG@Z @ 0x1C0183770
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C020A3A8 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD100 (ApiSetEditionPostAccessibility.c)
  */
 
 __int64 __fastcall MKButtonSelect(__int16 a1)
 {
   gwMKCurrentButton = a1;
-  ApiSetEditionPostAccessibilitySettingChangedEvent(3LL);
+  ApiSetEditionPostAccessibility(3LL);
   return 0LL;
 }

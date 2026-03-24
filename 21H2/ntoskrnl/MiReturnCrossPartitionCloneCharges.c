@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnCrossPartitionCloneCharges @ 0x1405BBC9C
+ * XREFs of MiReturnCrossPartitionCloneCharges @ 0x14055B6E0
  * Callers:
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MiDecrementCloneBlockReference @ 0x1405BA498 (MiDecrementCloneBlockReference.c)
- *     MiHandleForkTransitionPte @ 0x1405BB090 (MiHandleForkTransitionPte.c)
- *     MiReferenceCloneProto @ 0x1405BBB54 (MiReferenceCloneProto.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiDecrementCloneBlockReference @ 0x140559E88 (MiDecrementCloneBlockReference.c)
+ *     MiHandleForkTransitionPte @ 0x14055AA64 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x14055B598 (MiReferenceCloneProto.c)
  * Callees:
- *     MiReturnCrossPartitionCharges @ 0x1405BF468 (MiReturnCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x140562B90 (MiReturnCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiReturnCrossPartitionCloneCharges(__int64 a1)
@@ -38,7 +38,7 @@ LABEL_7:
     if ( !v1 )
       return MiReturnCrossPartitionCharges(a1, 6LL, 0LL, 1LL);
 LABEL_11:
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v1);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v1);
     return MiReturnCrossPartitionCharges(a1, 6LL, 0LL, 1LL);
   }
   while ( 1 )

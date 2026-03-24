@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SendCreateBundleObjectByPointer@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJKPEAPEAXPEAI@Z @ 0x1C033CF14
+ * XREFs of ?SendCreateBundleObjectByPointer@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJKPEAPEAXPEAI@Z @ 0x1C028BEC0
  * Callers:
- *     ?VailSendCreateBundleObjectByPointer@DXGSESSIONDATA@@QEAAJKPEAPEAXPEAI@Z @ 0x1C035259C (-VailSendCreateBundleObjectByPointer@DXGSESSIONDATA@@QEAAJKPEAPEAXPEAI@Z.c)
+ *     ?VailSendCreateBundleObjectByPointer@DXGSESSIONDATA@@QEAAJKPEAPEAXPEAI@Z @ 0x1C02B74C0 (-VailSendCreateBundleObjectByPointer@DXGSESSIONDATA@@QEAAJKPEAPEAXPEAI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::SendCreateBundleObjectByPointer(
@@ -17,132 +16,158 @@ __int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::SendCreateBundleObjectByPointe
         unsigned int *a4)
 {
   __int64 v5; // rdi
-  struct DXGPROCESS *Current; // r13
-  unsigned int v8; // esi
-  _DWORD *v9; // r12
-  void **v10; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v11; // r14
+  _DWORD *v12; // r13
+  void **v13; // rbx
   struct _OBJECT_TYPE *ObjectType; // rax
-  struct _OBJECT_TYPE *v12; // r8
-  void *v13; // rcx
-  int v14; // eax
-  int v15; // eax
-  __int64 v16; // rcx
-  int v17; // eax
-  unsigned int v18; // edi
-  __int64 v19; // rdx
-  unsigned int v21; // [rsp+50h] [rbp-69h] BYREF
-  DXG_GUEST_REMOTEOBJECTCHANNEL *v22; // [rsp+58h] [rbp-61h]
-  int v23; // [rsp+60h] [rbp-59h] BYREF
-  int v24; // [rsp+64h] [rbp-55h]
-  __int64 v25; // [rsp+68h] [rbp-51h]
-  _DWORD v26[2]; // [rsp+70h] [rbp-49h] BYREF
-  __int64 v27; // [rsp+78h] [rbp-41h]
-  int v28; // [rsp+80h] [rbp-39h]
-  _DWORD v29[17]; // [rsp+84h] [rbp-35h] BYREF
+  __int64 v15; // rdx
+  void *v16; // rcx
+  __int64 v17; // r8
+  struct _OBJECT_TYPE *v18; // r12
+  int v19; // eax
+  int v20; // eax
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdi
+  _QWORD *v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  _QWORD *v31; // rax
+  unsigned int v32; // [rsp+30h] [rbp-69h] BYREF
+  struct DXGPROCESS *Current; // [rsp+38h] [rbp-61h]
+  DXG_GUEST_REMOTEOBJECTCHANNEL *v34; // [rsp+40h] [rbp-59h]
+  int v35; // [rsp+48h] [rbp-51h] BYREF
+  int v36; // [rsp+4Ch] [rbp-4Dh]
+  int v37; // [rsp+50h] [rbp-49h]
+  unsigned int v38; // [rsp+54h] [rbp-45h]
+  _DWORD v39[3]; // [rsp+58h] [rbp-41h] BYREF
+  int v40; // [rsp+64h] [rbp-35h]
+  int v41; // [rsp+68h] [rbp-31h]
+  _DWORD v42[17]; // [rsp+6Ch] [rbp-2Dh] BYREF
 
   v5 = (unsigned int)a2;
-  v22 = this;
-  Current = DXGPROCESS::GetCurrent((__int64)this, a2, (__int64)a3, (__int64)a4);
-  if ( Current )
+  v34 = this;
+  Current = DXGPROCESS::GetCurrent((__int64)this, a2);
+  if ( !Current )
   {
-    if ( !a4 || !a3 || (unsigned int)(v5 - 1) > 0xF )
-    {
-      WdLogSingleEntry4(3LL, a4, a3, v5, -1073741811LL);
-      return 3221225485LL;
-    }
-    *a4 = 0;
-    v26[1] = -1073741823;
-    v27 = 1LL;
-    v26[0] = 1869901170;
-    v28 = 0;
-    memset(v29, 0, sizeof(v29));
-    v23 = 1869901170;
-    v24 = -1073741823;
-    v8 = 0;
-    v25 = 2LL;
-    v21 = 16;
-    if ( (_DWORD)v5 )
-    {
-      v9 = &v29[1];
-      v10 = a3;
-      do
-      {
-        ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType(*v10);
-        v12 = ObjectType;
-        if ( ObjectType == g_pDxgkSharedAllocationObjectType )
-        {
-          v13 = *v10;
-          v14 = *((_DWORD *)*v10 + 10);
-        }
-        else
-        {
-          if ( ObjectType != g_pDxgkSharedSyncObjectType )
-          {
-            v18 = -1073741811;
-            WdLogSingleEntry3(3LL, a3[v8], ObjectType, -1073741811LL);
-            return v18;
-          }
-          v13 = *v10;
-          v14 = *((_DWORD *)*v10 + 2);
-        }
-        *v9 = v14;
-        if ( !v14 )
-        {
-          v18 = -1073741811;
-          WdLogSingleEntry4(3LL, (unsigned int)v29[v8 + 1], v13, v12, -1073741811LL);
-          return v18;
-        }
-        ++v8;
-        ++v10;
-        ++v9;
-      }
-      while ( v8 < (unsigned int)v5 );
-    }
-    v28 = v5;
-    v15 = *((_DWORD *)Current + 126);
-    v29[0] |= 1u;
-    v16 = *((_QWORD *)v22 + 1);
-    HIDWORD(v27) = v15;
-    v17 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v16 + 32LL))(
-            v16,
-            v26,
+    v10 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v10);
+    return 3221225485LL;
+  }
+  if ( !a4 || !a3 || (unsigned int)(v5 - 1) > 0xF )
+  {
+    v31 = (_QWORD *)WdLogNewEntry5_WdWarning(v8, v7, v9);
+    v31[3] = a4;
+    v31[4] = a3;
+    v31[5] = v5;
+    v31[6] = -1073741811LL;
+    WdLogEvent5_WdWarning(v31);
+    return 3221225485LL;
+  }
+  *a4 = 0;
+  v40 = 0;
+  v41 = 0;
+  v39[2] = 1;
+  v39[0] = 1869901170;
+  v39[1] = -1073741823;
+  memset(v42, 0, sizeof(v42));
+  v38 = 0;
+  v11 = 0LL;
+  v35 = 1869901170;
+  v36 = -1073741823;
+  v37 = 2;
+  v32 = 16;
+  if ( !(_DWORD)v5 )
+  {
+LABEL_14:
+    v41 = v5;
+    v20 = *((_DWORD *)Current + 106);
+    v21 = *((_QWORD *)v34 + 1);
+    v42[0] |= 1u;
+    v40 = v20;
+    v22 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v21 + 32LL))(
+            v21,
+            v39,
             88LL,
-            &v23,
-            &v21);
-    v18 = v17;
-    if ( v17 < 0 )
+            &v35,
+            &v32);
+    v26 = v22;
+    if ( v22 < 0 )
     {
-      WdLogSingleEntry1(3LL, v17);
-      return v18;
+      v27 = (_QWORD *)WdLogNewEntry5_WdWarning(v24, v23, v25);
+      v27[3] = v26;
+      goto LABEL_18;
     }
-    if ( v21 == 16 )
+    if ( v32 == 16 )
     {
-      if ( (_DWORD)v25 == 2 )
+      if ( v37 == 2 )
       {
-        v18 = v24;
-        if ( v24 >= 0 )
-          *a4 = HIDWORD(v25);
-        return v18;
+        LODWORD(v26) = v36;
+        if ( v36 >= 0 )
+          *a4 = v38;
+        return (unsigned int)v26;
       }
-      v19 = (int)v25;
+      v28 = WdLogNewEntry5_WdWarning(v24, v23, v25);
+      v29 = v37;
     }
     else
     {
-      v19 = v21;
+      v28 = WdLogNewEntry5_WdWarning(v24, v23, v25);
+      v29 = v32;
     }
-    WdLogSingleEntry2(3LL, v19, -1073741823LL);
-    return (unsigned int)-1073741823;
+    *(_QWORD *)(v28 + 24) = v29;
+    *(_QWORD *)(v28 + 32) = -1073741823LL;
+    WdLogEvent5_WdWarning(v28);
+    LODWORD(v26) = -1073741823;
+    return (unsigned int)v26;
   }
-  WdLogSingleEntry1(2LL, -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Invalid process context. Returning 0x%I64x",
-    -1073741811LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225485LL;
+  v12 = &v42[1];
+  v13 = a3;
+  while ( 1 )
+  {
+    ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType(*v13);
+    v18 = ObjectType;
+    if ( ObjectType == g_pDxgkSharedAllocationObjectType )
+    {
+      v16 = *v13;
+      v19 = *((_DWORD *)*v13 + 10);
+      goto LABEL_12;
+    }
+    if ( ObjectType != g_pDxgkSharedSyncObjectType )
+      break;
+    v19 = *((_DWORD *)*v13 + 2);
+LABEL_12:
+    *v12 = v19;
+    if ( !v19 )
+    {
+      LODWORD(v26) = -1073741811;
+      v27 = (_QWORD *)WdLogNewEntry5_WdWarning(v16, v15, v17);
+      v27[3] = (unsigned int)v42[v11 + 1];
+      v27[4] = a3[v11];
+      v27[5] = v18;
+      v27[6] = -1073741811LL;
+      goto LABEL_18;
+    }
+    v11 = (unsigned int)(v11 + 1);
+    ++v13;
+    ++v12;
+    if ( (unsigned int)v11 >= (unsigned int)v5 )
+      goto LABEL_14;
+  }
+  LODWORD(v26) = -1073741811;
+  v27 = (_QWORD *)WdLogNewEntry5_WdWarning(v16, v15, v17);
+  v27[3] = a3[v11];
+  v27[4] = v18;
+  v27[5] = -1073741811LL;
+LABEL_18:
+  WdLogEvent5_WdWarning(v27);
+  return (unsigned int)v26;
 }

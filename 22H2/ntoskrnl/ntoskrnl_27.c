@@ -1,24 +1,20 @@
 /*
- * XREFs of ntoskrnl_27 @ 0x1407AF810
+ * XREFs of ntoskrnl_27 @ 0x14071F4A0
  * Callers:
- *     NtQueryLicenseValue @ 0x1407AF540 (NtQueryLicenseValue.c)
+ *     NtQueryLicenseValue @ 0x14071F530 (NtQueryLicenseValue.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SLQueryLicenseValueInternal @ 0x140811814 (SLQueryLicenseValueInternal.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SLQueryLicenseValueInternal @ 0x1407AB444 (SLQueryLicenseValueInternal.c)
  */
 
-__int64 __fastcall ntoskrnl_27(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall ntoskrnl_27(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  int v8; // r9d
-  __int64 v9; // r11
+  __int64 v9; // rcx
 
-  v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 113);
-  if ( qword_140D534F0 )
-    return qword_140D534F0(v6, v9, v5, v7, v8, a5);
+  v9 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 113);
+  if ( qword_140D2D4E0 )
+    return qword_140D2D4E0(v9, a1, a2, a3, a4, a5);
   else
-    return SLQueryLicenseValueInternal(v6, v9, v5, v7, v8, a5);
+    return SLQueryLicenseValueInternal(v9, a1, a2, a3, a4, a5);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1801B98A4
+ * XREFs of ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x18019390C
  * Callers:
- *     ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x1801B9990 (-OnPresentComplete@CaptureBitsResponse@@UEAAJXZ.c)
+ *     ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x1801939F0 (-OnPresentComplete@CaptureBitsResponse@@UEAAJXZ.c)
  * Callees:
- *     ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x18002052C (-CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x180045254 (-CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CaptureBitsResponse::CreateSectionBitmap(CaptureBitsResponse *this)
+__int64 __fastcall CaptureBitsResponse::CreateSectionBitmap(DWORD *this)
 {
   int v2; // eax
   __int64 v3; // rcx
@@ -16,17 +16,17 @@ __int64 __fastcall CaptureBitsResponse::CreateSectionBitmap(CaptureBitsResponse 
   signed int LastError; // eax
   __int64 v7; // rcx
 
-  v2 = CaptureBitsResponse::CalcSectionBitmapSize((enum DXGI_FORMAT *)this);
+  v2 = CaptureBitsResponse::CalcSectionBitmapSize((CaptureBitsResponse *)this);
   v4 = v2;
   if ( v2 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0LL, v2, 0xE4u);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0xDEu, 0LL);
   }
   else
   {
     SetLastError(0);
-    FileMappingW = CreateFileMappingW((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, 4u, 0, *((_DWORD *)this + 418), 0LL);
-    *((_QWORD *)this + 207) = FileMappingW;
+    FileMappingW = CreateFileMappingW((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, 4u, 0, this[426], 0LL);
+    *((_QWORD *)this + 211) = FileMappingW;
     if ( !FileMappingW )
     {
       LastError = GetLastError();
@@ -35,7 +35,7 @@ __int64 __fastcall CaptureBitsResponse::CreateSectionBitmap(CaptureBitsResponse 
         v4 = (unsigned __int16)LastError | 0x80070000;
       if ( v4 >= 0 )
         v4 = -2003304445;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v4, 0xECu);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v4, 0xE6u, 0LL);
     }
   }
   return (unsigned int)v4;

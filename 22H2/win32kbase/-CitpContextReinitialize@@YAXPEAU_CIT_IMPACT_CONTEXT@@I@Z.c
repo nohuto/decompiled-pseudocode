@@ -1,12 +1,13 @@
 /*
- * XREFs of ?CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C0233C40
+ * XREFs of ?CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C01FD4A8
  * Callers:
- *     ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C0233B0C (-CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z.c)
+ *     ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C01FD324 (-CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z.c)
  * Callees:
- *     ?CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z @ 0x1C023455C (-CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z.c)
+ *     ?CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C008CBF4 (-CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z @ 0x1C01FE6E8 (-CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z.c)
  */
 
-void __fastcall CitpContextReinitialize(struct _CIT_IMPACT_CONTEXT *a1, int a2)
+void __fastcall CitpContextReinitialize(struct _CIT_IMPACT_CONTEXT *a1, DWORD a2)
 {
   char *v2; // rdi
   char *v3; // rsi
@@ -64,7 +65,5 @@ void __fastcall CitpContextReinitialize(struct _CIT_IMPACT_CONTEXT *a1, int a2)
     *((_QWORD *)v13 + 1) = v14;
     *v14 = v13;
   }
-  *((_DWORD *)a1 + 34) = a2;
-  *((_DWORD *)a1 + 72) = a2;
-  *((_QWORD *)a1 + 35) = MEMORY[0xFFFFF78000000014];
+  CitpContextResetTrackingValues((union _LARGE_INTEGER *)a1, a2);
 }

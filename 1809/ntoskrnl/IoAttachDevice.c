@@ -1,13 +1,13 @@
 /*
- * XREFs of IoAttachDevice @ 0x14081BCF0
+ * XREFs of IoAttachDevice @ 0x14081BCD0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IoAttachDeviceToDeviceStackSafe @ 0x140132700 (IoAttachDeviceToDeviceStackSafe.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x140132720 (IoAttachDeviceToDeviceStackSafe.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

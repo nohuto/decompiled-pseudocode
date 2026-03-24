@@ -1,21 +1,22 @@
 /*
- * XREFs of VerifierMmProbeAndLockPages @ 0x140AE4450
+ * XREFs of VerifierMmProbeAndLockPages @ 0x1409E6DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  */
 
-void __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a2, unsigned int a3)
+char __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a2, unsigned int a3)
 {
   unsigned __int8 CurrentIrql; // cl
   __int16 v7; // cx
   unsigned __int16 v8; // dx
   __int64 v9; // rdx
+  char result; // al
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   CurrentIrql = KeGetCurrentIrql();
@@ -33,9 +34,10 @@ void __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a
       *(__int16 *)(BugCheckParameter2 + 10),
       (unsigned __int16)(v8 & v7));
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
-    RtlRaiseStatus(-1073741663);
+    RtlRaiseStatus(0xC00000A1);
   LOBYTE(v9) = a2;
-  ((void (__fastcall *)(ULONG_PTR, __int64, _QWORD))pXdvMmProbeAndLockPages)(BugCheckParameter2, v9, a3);
+  result = ((__int64 (__fastcall *)(ULONG_PTR, __int64, _QWORD))pXdvMmProbeAndLockPages)(BugCheckParameter2, v9, a3);
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetAddToCounter(retaddr, 184LL, 0xC0u, *(unsigned int *)(BugCheckParameter2 + 40));
+    return ViTargetAddToCounter(retaddr, 176LL, 0xB8u, *(unsigned int *)(BugCheckParameter2 + 40));
+  return result;
 }

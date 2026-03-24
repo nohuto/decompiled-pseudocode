@@ -1,21 +1,21 @@
 /*
- * XREFs of MmGetSectionRange @ 0x140A306E8
+ * XREFs of MmGetSectionRange @ 0x1408C8238
  * Callers:
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
  */
 
-__int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, unsigned int *a3)
+__int64 __fastcall MmGetSectionRange(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
 {
   struct _KTHREAD *CurrentThread; // rsi
   unsigned int v7; // ebx
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbp
+  __int64 v8; // rax
+  __int64 v9; // rbp
   __int64 v10; // rcx
   unsigned __int64 v11; // rdi
   __int64 v12; // rax
@@ -23,7 +23,6 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
   unsigned int *v14; // rdx
   unsigned int v15; // r8d
   unsigned __int64 v16; // r10
-  unsigned __int64 v17; // rdx
 
   CurrentThread = KeGetCurrentThread();
   v7 = -1073741275;
@@ -33,7 +32,7 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
   v9 = v8;
   if ( v8 )
   {
-    v10 = v8[6];
+    v10 = *(_QWORD *)(v8 + 48);
     v11 = a1 - v10;
     v12 = RtlImageNtHeader(v10);
     v13 = 0;
@@ -52,9 +51,8 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
         if ( ++v13 >= (unsigned int)*(unsigned __int16 *)(v12 + 6) )
           goto LABEL_11;
       }
-      v17 = v16 + v9[6];
       *a3 = v15;
-      *a2 = v17;
+      *a2 = *(_QWORD *)(v9 + 48) + v16;
       v7 = 0;
     }
   }

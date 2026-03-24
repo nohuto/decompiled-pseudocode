@@ -1,15 +1,15 @@
 /*
- * XREFs of MiClearPageFileHash @ 0x140156868
+ * XREFs of MiClearPageFileHash @ 0x140156888
  * Callers:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)

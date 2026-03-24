@@ -1,16 +1,17 @@
 /*
- * XREFs of HasHidTable @ 0x1C00ABFD0
+ * XREFs of HasHidTable @ 0x1C0052630
  * Callers:
- *     ?HandleRawInput@@YA?AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_SUPPLEMENTAL_INFO@@@Z @ 0x1C00AA5A8 (-HandleRawInput@@YA-AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_.c)
- *     HasRawInputForegroundTarget @ 0x1C00AA6E8 (HasRawInputForegroundTarget.c)
- *     EditionHandleAndPostKeyEvent @ 0x1C00AAD40 (EditionHandleAndPostKeyEvent.c)
- *     UpdateRawMouseMode @ 0x1C00ABF48 (UpdateRawMouseMode.c)
- *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00ADF5C (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
- *     EditionKeyEventLLHook @ 0x1C00EA4C0 (EditionKeyEventLLHook.c)
- *     EditionHandleAltTab @ 0x1C0121AA0 (EditionHandleAltTab.c)
- *     RegisterModernAppThreadForRawKeyboard @ 0x1C01D1230 (RegisterModernAppThreadForRawKeyboard.c)
- *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01D12DC (UnregisterModernAppThreadForRawKeyboard.c)
- *     EditionRawInputRequestedForKeyboard @ 0x1C0207C30 (EditionRawInputRequestedForKeyboard.c)
+ *     EditionKeyEventLLHook @ 0x1C0020240 (EditionKeyEventLLHook.c)
+ *     UpdateRawMouseMode @ 0x1C00525A8 (UpdateRawMouseMode.c)
+ *     ?HandleRawInput@@YA?AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_SUPPLEMENTAL_INFO@@@Z @ 0x1C0105A68 (-HandleRawInput@@YA-AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_.c)
+ *     HasRawInputForegroundTarget @ 0x1C0105BA4 (HasRawInputForegroundTarget.c)
+ *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C0108010 (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C010A160 (EditionHandleAndPostKeyEvent.c)
+ *     EditionHandleAltTab @ 0x1C0131FC0 (EditionHandleAltTab.c)
+ *     ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C01D3FC0 (-TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z.c)
+ *     RegisterModernAppThreadForRawKeyboard @ 0x1C01D5770 (RegisterModernAppThreadForRawKeyboard.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01D581C (UnregisterModernAppThreadForRawKeyboard.c)
+ *     EditionRawInputRequestedForKeyboard @ 0x1C02075C0 (EditionRawInputRequestedForKeyboard.c)
  * Callees:
  *     <none>
  */

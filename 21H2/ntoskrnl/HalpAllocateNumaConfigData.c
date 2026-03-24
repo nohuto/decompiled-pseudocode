@@ -1,88 +1,95 @@
 /*
- * XREFs of HalpAllocateNumaConfigData @ 0x140AFA63C
+ * XREFs of HalpAllocateNumaConfigData @ 0x140A644EC
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140AFA320 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140A63F94 (HalpInitializeConfigurationFromMadt.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpMap @ 0x1403BB938 (HalpMap.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
  */
 
-__int64 __fastcall HalpAllocateNumaConfigData(int a1, unsigned int a2, unsigned int a3, int a4)
+unsigned __int64 __fastcall HalpAllocateNumaConfigData(__int64 a1, int a2, unsigned int a3, unsigned int a4, int a5)
 {
-  __int64 v4; // r13
-  __int64 v5; // r12
-  unsigned int v7; // esi
-  unsigned int v8; // ebp
-  int v9; // edi
-  unsigned int v10; // ebx
-  __int64 result; // rax
-  __int64 v12; // r14
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rax
+  __int64 v6; // r12
+  unsigned int v7; // edi
+  __int64 v8; // r13
+  unsigned int v9; // ebp
+  unsigned int v10; // edx
+  int v11; // ebx
+  unsigned int v12; // esi
+  unsigned __int64 result; // rax
+  __int64 v14; // r14
   unsigned __int64 v15; // rcx
   unsigned __int64 v16; // rax
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // r8
-  char *v20; // r8
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // r8
+  char *v22; // r8
 
-  v4 = 4 * a2;
-  v5 = (unsigned int)(4 * a1);
-  v7 = a3;
-  v8 = 2 * a1 * a1;
-  v9 = a4;
-  v10 = v8
-      + ((((((((((v4 + ((v4 + 79) & 0xFFFFFFF8) + 7) & 0xFFFFFFF8) + v4 + 7) & 0xFFFFFFF8) + v5 + 7) & 0xFFFFFFF8)
-          + v5
+  v6 = (unsigned int)(4 * a2);
+  v7 = a4;
+  v8 = 4 * a3;
+  v9 = 2 * a2 * a2;
+  v10 = v9
+      + ((((((((((v8 + ((v8 + 79) & 0xFFFFFFF8) + 7) & 0xFFFFFFF8) + v8 + 7) & 0xFFFFFFF8) + v6 + 7) & 0xFFFFFFF8)
+          + v6
           + 7) & 0xFFFFFFF8)
-        + v5
+        + v6
         + 7) & 0xFFFFFFF8);
-  if ( a3 )
-  {
-    v7 = a3 + 1;
-    v10 = 16 * (a3 + 1) + ((v10 + 7) & 0xFFFFFFF8);
-  }
   if ( a4 )
   {
-    v9 = a4 + 1;
+    v7 = a4 + 1;
     v10 = 16 * (a4 + 1) + ((v10 + 7) & 0xFFFFFFF8);
   }
-  result = HalpMmAllocateMemoryInternal(v10, 1u);
-  v12 = result;
+  v11 = a5;
+  if ( a5 )
+  {
+    v11 = a5 + 1;
+    v10 = 16 * (a5 + 1) + ((v10 + 7) & 0xFFFFFFF8);
+  }
+  v12 = (v10 + 4095) >> 12;
+  result = HalpAllocPhysicalMemory(a1, 0LL, v12, 0LL);
   if ( result )
   {
-    memset((void *)result, 0, v10);
-    v13 = (v12 + 79) & 0xFFFFFFFFFFFFFFF8uLL;
-    HalpNumaConfig = v12;
-    *(_QWORD *)v12 = v13;
-    *(_DWORD *)(v12 + 64) = a1;
-    v14 = (v13 + v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 8) = v14;
-    v15 = (v14 + v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 16) = v15;
-    v16 = (v15 + v4 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 24) = v16;
-    v17 = ((unsigned int)v5 + 7LL + v16) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 32) = v17;
-    v18 = (v17 + v5 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 40) = v18;
-    v19 = (v18 + v5 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    *(_QWORD *)(v12 + 48) = v19;
-    v20 = (char *)(v8 + v19);
-    result = a2;
-    *(_DWORD *)(v12 + 68) = a2;
-    if ( v7 )
+    result = HalpMap(result, v12, 1u, 0LL, 4u);
+    v14 = result;
+    if ( result )
     {
-      result = 16LL * v7;
-      HalpNumaMemoryRanges = (void *)((unsigned __int64)(v20 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-      v20 = (char *)HalpNumaMemoryRanges + result;
-    }
-    if ( v9 )
-    {
-      HalpChannelMemoryRangeCount = v9;
-      result = (unsigned __int64)(v20 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-      HalpChannelMemoryRanges = (void *)result;
+      memset((void *)result, 0, v12 << 12);
+      v15 = (v14 + 79) & 0xFFFFFFFFFFFFFFF8uLL;
+      HalpNumaConfig = v14;
+      *(_QWORD *)v14 = v15;
+      *(_DWORD *)(v14 + 64) = a2;
+      v16 = (v15 + v8 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 8) = v16;
+      v17 = (v16 + v8 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 16) = v17;
+      v18 = (v17 + v8 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 24) = v18;
+      v19 = ((unsigned int)v6 + 7LL + v18) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 32) = v19;
+      v20 = (v19 + v6 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 40) = v20;
+      v21 = (v20 + v6 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v14 + 48) = v21;
+      v22 = (char *)(v9 + v21);
+      result = a3;
+      *(_DWORD *)(v14 + 68) = a3;
+      if ( v7 )
+      {
+        result = 16LL * v7;
+        HalpNumaMemoryRanges = (void *)((unsigned __int64)(v22 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+        v22 = (char *)HalpNumaMemoryRanges + result;
+      }
+      if ( v11 )
+      {
+        HalpChannelMemoryRangeCount = v11;
+        result = (unsigned __int64)(v22 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+        HalpChannelMemoryRanges = (void *)result;
+      }
     }
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateContiguousMemory @ 0x140512B00
+ * XREFs of HalpDmaAllocateContiguousMemory @ 0x1404C67F8
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409094F8 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864D90 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140865364 (HalpDmaGrowContiguousMapBuffers.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140214190 (MmAllocateContiguousNodeMemory.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousMemory(
@@ -19,7 +19,7 @@ __int64 __fastcall HalpDmaAllocateContiguousMemory(
   __int64 v5; // rsi
   char v6; // r12
   __int64 v7; // rax
-  __int64 v8; // r13
+  int v8; // r13d
   unsigned int v9; // ebp
   __int64 v10; // rdi
   char i; // r14
@@ -31,7 +31,7 @@ __int64 __fastcall HalpDmaAllocateContiguousMemory(
   v5 = *(_QWORD *)(a1 + 136);
   v6 = 0;
   v7 = a1;
-  v8 = (unsigned __int64)a2 << 12;
+  v8 = a2 << 12;
   v9 = a2;
   while ( 2 )
   {
@@ -44,7 +44,7 @@ __int64 __fastcall HalpDmaAllocateContiguousMemory(
       v12 = 0LL;
       if ( !i && (_DWORD)v5 == -1 )
         v12 = 0x1000000LL;
-      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(v8, v12, v5, v10, 4, 0x80000000);
+      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(v8, v12, v5, v10, 4u, 0x80000000);
       v14 = ContiguousNodeMemory;
       if ( ContiguousNodeMemory )
       {

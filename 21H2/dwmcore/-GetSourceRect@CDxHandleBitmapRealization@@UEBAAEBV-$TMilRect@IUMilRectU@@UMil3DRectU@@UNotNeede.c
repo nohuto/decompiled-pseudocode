@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x18000D0B0
+ * XREFs of ?GetSourceRect@CDxHandleBitmapRealization@@UEBAAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800181B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetSourceRect(__int64 a1)
 {
-  return CBitmapRealization::CalcSourceRect(a1 - 360);
+  return CBitmapRealization::CalcSourceRect(a1 - 328);
 }

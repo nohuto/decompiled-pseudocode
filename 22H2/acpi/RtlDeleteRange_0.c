@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDeleteRange_0 @ 0x1C0001A9D
+ * XREFs of RtlDeleteRange_0 @ 0x1C0031D4D
  * Callers:
- *     AcpiPortarbBacktrackAllocation @ 0x1C008C1D0 (AcpiPortarbBacktrackAllocation.c)
- *     IrqArbBacktrackAllocation @ 0x1C009CE30 (IrqArbBacktrackAllocation.c)
- *     ArbBacktrackAllocation @ 0x1C00A1060 (ArbBacktrackAllocation.c)
+ *     AcpiPortarbBacktrackAllocation @ 0x1C00B2050 (AcpiPortarbBacktrackAllocation.c)
+ *     IrqArbBacktrackAllocation @ 0x1C00B6F40 (IrqArbBacktrackAllocation.c)
+ *     ArbBacktrackAllocation @ 0x1C00B7BC0 (ArbBacktrackAllocation.c)
  * Callees:
  *     <none>
  */

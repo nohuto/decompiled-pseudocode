@@ -1,26 +1,39 @@
 /*
- * XREFs of ?HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z @ 0x1801EB8D8
+ * XREFs of ?HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z @ 0x1801A64A0
  * Callers:
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180081554 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800C1954 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
  * Callees:
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180083EF4 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x1800988EC (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
-void __fastcall CComputeScribbleFramebuffer::HasScribbleStarted(int **this, bool *a2, int **a3)
+void __fastcall CComputeScribbleFramebuffer::HasScribbleStarted(
+        const struct FastRegion::Internal::CRgnData **this,
+        bool *a2,
+        const struct FastRegion::Internal::CRgnData **a3)
 {
-  int v5; // eax
+  const struct FastRegion::Internal::CRgnData *v5; // rax
+  int v6; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( *((_BYTE *)this + 152) )
+  if ( *((_BYTE *)this + 208) )
   {
-    v5 = FastRegion::CRegion::Copy(a3, this + 10);
-    if ( v5 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v5, retaddr);
+    if ( *((_BYTE *)this + 233) )
+    {
+      v6 = FastRegion::CRegion::Copy(a3, this + 16);
+      if ( v6 < 0 )
+        ModuleFailFastForHRESULT((unsigned int)v6, retaddr);
+    }
+    else
+    {
+      *(_DWORD *)*a3 = 0;
+    }
+    *a2 = *((_BYTE *)this + 233);
   }
   else
   {
-    **a3 = 0;
+    v5 = *a3;
+    *a2 = 0;
+    *(_DWORD *)v5 = 0;
   }
-  *a2 = *((_BYTE *)this + 152);
 }

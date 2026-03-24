@@ -7,7 +7,7 @@
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)

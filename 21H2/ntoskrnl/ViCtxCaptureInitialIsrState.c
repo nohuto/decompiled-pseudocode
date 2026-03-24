@@ -1,10 +1,10 @@
 /*
- * XREFs of ViCtxCaptureInitialIsrState @ 0x140AA1B9C
+ * XREFs of ViCtxCaptureInitialIsrState @ 0x1409E42A4
  * Callers:
- *     ViCtxIsr @ 0x140AA1E50 (ViCtxIsr.c)
- *     ViCtxIsrMessageBased @ 0x140AA1EB0 (ViCtxIsrMessageBased.c)
+ *     ViCtxIsr @ 0x1409E4560 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x1409E45C0 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x1402423D0 (RtlXSave.c)
+ *     RtlXSave @ 0x1402C1160 (RtlXSave.c)
  */
 
 volatile signed __int32 *__fastcall ViCtxCaptureInitialIsrState(__int64 a1, __int64 a2, __int64 a3)
@@ -22,7 +22,10 @@ volatile signed __int32 *__fastcall ViCtxCaptureInitialIsrState(__int64 a1, __in
     if ( !_InterlockedCompareExchange(v4, 1, 0) )
       break;
     if ( (unsigned int)++v3 >= 0x10 )
-      return 0LL;
+    {
+      v4 = 0LL;
+      break;
+    }
   }
   if ( v4 )
   {

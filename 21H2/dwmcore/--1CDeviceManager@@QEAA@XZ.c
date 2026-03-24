@@ -1,27 +1,39 @@
 /*
- * XREFs of ??1CDeviceManager@@QEAA@XZ @ 0x1801004C0
+ * XREFs of ??1CDeviceManager@@QEAA@XZ @ 0x1800E6070
  * Callers:
- *     _dynamic_atexit_destructor_for__g_DeviceManager__ @ 0x18010DAD0 (_dynamic_atexit_destructor_for__g_DeviceManager__.c)
+ *     _dynamic_atexit_destructor_for__g_DeviceManager__ @ 0x1800F9970 (_dynamic_atexit_destructor_for__g_DeviceManager__.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDeviceManager@@QEAV12@AEAV?$allocator@VDeviceInfo@CDeviceManager@@@0@@Z @ 0x1800F817C (--$_Destroy_range@V-$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDevice.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDeviceManager@@0AEAV?$allocator@VDeviceInfo@CDeviceManager@@@0@@Z @ 0x1800E0088 (--$_Destroy_range@V-$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDeviceManager::~CDeviceManager(CDeviceManager *this)
 {
-  __int64 v2; // rcx
+  void *v1; // rbx
+  int v2; // eax
+  __int64 v3; // rcx
 
-  v2 = *((_QWORD *)this + 8);
-  if ( v2 )
+  v1 = (void *)qword_18034B648;
+  if ( qword_18034B648 )
   {
-    std::_Destroy_range<std::allocator<CDeviceManager::DeviceInfo>>(v2, *((_QWORD *)this + 9));
-    std::_Deallocate<16,0>(
-      *((void **)this + 8),
-      (*((_QWORD *)this + 10) - *((_QWORD *)this + 8)) & 0xFFFFFFFFFFFFFFF0uLL);
-    *((_QWORD *)this + 8) = 0LL;
-    *((_QWORD *)this + 9) = 0LL;
-    *((_QWORD *)this + 10) = 0LL;
+    std::_Destroy_range<std::allocator<CDeviceManager::DeviceInfo>>(qword_18034B648, xmmword_18034B650);
+    std::_Deallocate<16,0>(v1, (*((_QWORD *)&xmmword_18034B650 + 1) - (_QWORD)v1) & 0xFFFFFFFFFFFFFFF0uLL);
+    qword_18034B648 = 0LL;
+    xmmword_18034B650 = 0LL;
   }
-  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
-  CD2DFactory::~CD2DFactory(this);
+  DeleteCriticalSection(&CriticalSection);
+  if ( g_DeviceManager )
+  {
+    v2 = (*(__int64 (__fastcall **)(void *, GUID *))(*(_QWORD *)g_DeviceManager + 192LL))(
+           g_DeviceManager,
+           &CLSID_Mesh2DEffect);
+    if ( v2 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x5Du, 0LL);
+  }
+  if ( *(&g_DeviceManager + 1) )
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*(&g_DeviceManager + 1) + 16LL))(*(&g_DeviceManager + 1));
+  if ( g_DeviceManager )
+    (*(void (__fastcall **)(void *))(*(_QWORD *)g_DeviceManager + 16LL))(g_DeviceManager);
 }

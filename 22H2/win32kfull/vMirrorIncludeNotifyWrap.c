@@ -1,38 +1,43 @@
 /*
- * XREFs of vMirrorIncludeNotifyWrap @ 0x1C0093090
+ * XREFs of vMirrorIncludeNotifyWrap @ 0x1C00FA750
  * Callers:
  *     <none>
  * Callees:
- *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C02A32DC (-bStockSurface@SURFACE@@QEAAHXZ.c)
- *     ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C02A347C (-vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z.c)
+ *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C029AC64 (-bStockSurface@SURFACE@@QEAAHXZ.c)
+ *     ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C029AE04 (-vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z.c)
  */
 
-void __fastcall vMirrorIncludeNotifyWrap(__int64 a1, struct SURFACE *a2, int a3)
+void __fastcall vMirrorIncludeNotifyWrap(__int64 a1, struct SURFACE *a2)
 {
-  __int64 v5; // rcx
-  int v6; // edx
-  Gre::Base *v7; // rcx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rax
+  int v4; // ecx
+  int v5; // edx
+  int v6; // r8d
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
-  v8 = v5;
-  if ( v5
-    && (*(_DWORD *)(v5 + 40) & 0x2020001) == 0x2020001
-    && (*((_DWORD *)a2 + 28) & 0x4000000) != 0
-    && a2 != SURFACE::pdibDefault
-    && !(unsigned int)SURFACE::bStockSurface(a2)
-    && (v6 & 0x400800) == 0 )
+  v3 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
+  v7 = v3;
+  if ( v3 )
   {
-    Gre::Base::Globals(v7);
-    if ( a3 )
+    v4 = *(_DWORD *)(v3 + 40);
+    if ( (v4 & 0x20000) != 0
+      && (v4 & 0x2000000) != 0
+      && (v4 & 1) != 0
+      && (*((_DWORD *)a2 + 28) & 0x4000000) != 0
+      && a2 != SURFACE::pdibDefault
+      && !(unsigned int)SURFACE::bStockSurface(a2)
+      && (v5 & 0x400800) == 0 )
     {
-      *((_DWORD *)a2 + 28) |= 0x10u;
-      vMirrorNotifyDrawing((struct PDEVOBJ *)&v8, a2, 1);
-    }
-    else
-    {
-      vMirrorNotifyDrawing((struct PDEVOBJ *)&v8, a2, 0);
-      *((_DWORD *)a2 + 28) &= ~0x10u;
+      if ( v6 )
+      {
+        *((_DWORD *)a2 + 28) = v5 | 0x10;
+        vMirrorNotifyDrawing((struct PDEVOBJ *)&v7, a2, 1);
+      }
+      else
+      {
+        vMirrorNotifyDrawing((struct PDEVOBJ *)&v7, a2, 0);
+        *((_DWORD *)a2 + 28) &= ~0x10u;
+      }
     }
   }
 }

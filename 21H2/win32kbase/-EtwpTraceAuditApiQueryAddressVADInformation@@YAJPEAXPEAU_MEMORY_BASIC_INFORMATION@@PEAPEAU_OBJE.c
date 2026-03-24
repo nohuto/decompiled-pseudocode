@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EtwpTraceAuditApiQueryAddressVADInformation@@YAJPEAXPEAU_MEMORY_BASIC_INFORMATION@@PEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C00474CC
+ * XREFs of ?EtwpTraceAuditApiQueryAddressVADInformation@@YAJPEAXPEAU_MEMORY_BASIC_INFORMATION@@PEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C005564C
  * Callers:
- *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0046680 (EtwTraceAuditApiRegisterRawInputDevices.c)
+ *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0054EC0 (EtwTraceAuditApiRegisterRawInputDevices.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall EtwpTraceAuditApiQueryAddressVADInformation(
 {
   struct _OBJECT_NAME_INFORMATION *v3; // rbx
   NTSTATUS VirtualMemory; // edi
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
+  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
 
   v3 = 0LL;
   if ( !BaseAddress )
@@ -27,15 +27,15 @@ __int64 __fastcall EtwpTraceAuditApiQueryAddressVADInformation(
                     0LL);
   if ( VirtualMemory >= 0 )
   {
-    Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 512LL);
-    v3 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6D6D4B45u);
+    v3 = PoolWithTag;
+    if ( PoolWithTag )
     {
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         BaseAddress,
                         MemorySectionName,
-                        Pool2,
+                        PoolWithTag,
                         0x200uLL,
                         0LL);
       if ( VirtualMemory < 0 )

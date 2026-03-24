@@ -1,22 +1,25 @@
 /*
- * XREFs of DxgkFreeContiguousMemoryCB @ 0x1C00531C0
+ * XREFs of DxgkFreeContiguousMemoryCB @ 0x1C0042E00
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetSysMmAdapterFromDevice @ 0x1C001275C (DpiGetSysMmAdapterFromDevice.c)
- *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C0012DB0 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
- *     ?SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z @ 0x1C0012E04 (-SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z.c)
+ *     DpiRemoveMemoryTracker @ 0x1C0057AD4 (DpiRemoveMemoryTracker.c)
  */
 
-__int64 __fastcall DxgkFreeContiguousMemoryCB(__int64 a1, struct SYSMM_ADAPTER ***a2)
+__int64 __fastcall DxgkFreeContiguousMemoryCB(__int64 a1, PVOID **a2)
 {
-  struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax
-  struct SYSMM_ADAPTER **v4; // rbx
-  int v5; // r8d
+  PVOID *v2; // rbx
+  __int64 v4; // rax
 
-  SysMmAdapterFromDevice = (struct SYSMM_ADAPTER *)DpiGetSysMmAdapterFromDevice();
-  v4 = *a2;
-  SysMmClosePhysicalObjectByAdapter(v4, SysMmAdapterFromDevice, v5);
-  SysMmUnreferencePhysicalObject((struct SYSMM_PHYSICAL_OBJECT *)v4);
+  v2 = *a2;
+  if ( *((_DWORD *)*a2 + 4) )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v4 + 24) = 937LL;
+    WdLogEvent5_WdAssertion(v4);
+  }
+  DpiRemoveMemoryTracker(a1);
+  MmFreeContiguousMemory(v2[3]);
+  ExFreePoolWithTag(v2, 0);
   return 0LL;
 }

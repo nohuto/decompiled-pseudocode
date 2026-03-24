@@ -1,102 +1,96 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140261CF8
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1402E27A8
  * Callers:
- *     SmProcessCreateRequest @ 0x1406ED528 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140710D34 (SmProcessCreateRequest.c)
  * Callees:
- *     SmKmStoreHelperStart @ 0x140262118 (SmKmStoreHelperStart.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1402621B0 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140262650 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmAcquireReleaseCharges @ 0x140262ED4 (SmAcquireReleaseCharges.c)
- *     SmFpPreAllocate @ 0x1403D735C (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SmKmFileInfoDuplicate @ 0x1409D5860 (SmKmFileInfoDuplicate.c)
- *     SmKmFileInfoInit @ 0x1409D5AC0 (SmKmFileInfoInit.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     SmAcquireReleaseCharges @ 0x1402DE9C0 (SmAcquireReleaseCharges.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1402E1B0C (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x1402E2BCC (SmKmStoreHelperStart.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1402E2C64 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     SmFpPreAllocate @ 0x1403C8F94 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SmKmFileInfoDuplicate @ 0x14092B31C (SmKmFileInfoDuplicate.c)
+ *     SmKmFileInfoInit @ 0x14092B57C (SmKmFileInfoInit.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, __int64 *a2)
+int __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, __int64 *a2)
 {
-  int *v2; // r15
-  int v5; // ecx
-  int v6; // edx
+  unsigned int *v2; // r15
+  unsigned int v5; // ecx
+  unsigned int v6; // edx
   int v7; // eax
   int v8; // eax
-  int v9; // eax
-  char v10; // cl
-  char v11; // dl
-  __int64 result; // rax
+  char v9; // cl
+  char v10; // dl
+  int result; // eax
   PVOID PoolWithTag; // rax
-  int v14; // eax
-  int v15; // edi
-  SIZE_T v16; // rsi
-  PVOID v17; // rax
-  int v18; // eax
-  __int128 v19; // xmm0
-  int v20; // [rsp+20h] [rbp-60h]
-  __int128 v21; // [rsp+30h] [rbp-50h] BYREF
-  int v22; // [rsp+40h] [rbp-40h]
-  int v23; // [rsp+44h] [rbp-3Ch]
-  __int64 v24; // [rsp+48h] [rbp-38h]
-  __int64 v25; // [rsp+50h] [rbp-30h]
-  int v26; // [rsp+58h] [rbp-28h]
-  int v27; // [rsp+5Ch] [rbp-24h]
-  __int64 v28; // [rsp+60h] [rbp-20h]
-  __int64 v29; // [rsp+68h] [rbp-18h]
+  unsigned int v13; // eax
+  unsigned int v14; // edi
+  SIZE_T v15; // rsi
+  PVOID v16; // rax
+  int v17; // eax
+  __int128 v18; // xmm0
+  int v19; // [rsp+20h] [rbp-60h]
+  __int128 v20; // [rsp+30h] [rbp-50h] BYREF
+  unsigned int v21; // [rsp+40h] [rbp-40h]
+  int v22; // [rsp+44h] [rbp-3Ch]
+  __int64 v23; // [rsp+48h] [rbp-38h]
+  __int64 v24; // [rsp+50h] [rbp-30h]
+  int v25; // [rsp+58h] [rbp-28h]
+  int v26; // [rsp+5Ch] [rbp-24h]
+  __int64 v27; // [rsp+60h] [rbp-20h]
+  __int64 v28; // [rsp+68h] [rbp-18h]
 
-  v2 = (int *)*a2;
-  v23 = 0;
-  v27 = 0;
-  v29 = 0LL;
+  v2 = (unsigned int *)*a2;
+  v22 = 0;
+  v26 = 0;
+  v28 = 0LL;
   v5 = *v2;
   if ( (unsigned __int8)*v2 >= 2u )
-    return 3221225485LL;
+    return -1073741811;
   if ( v2[5] )
-    return 3221225485LL;
-  if ( (unsigned int)(v2[3] - 1) > 0x3FFFF )
-    return 3221225485LL;
+    return -1073741811;
+  if ( v2[3] - 1 > 0x3FFFF )
+    return -1073741811;
   v6 = v2[2];
   if ( !v6 || ((v6 - 1) & v6) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (unsigned __int8)*v2 == 1 && (v5 & 0x100) != 0 )
-    return 3221225659LL;
-  v7 = *v2;
-  if ( (v5 & 0x40000) != 0 )
+    return -1073741637;
+  v7 = v5 & 0xA0000;
+  if ( (v5 & 0x40000) == 0 )
   {
-    v8 = v7 & 0xA0000;
+    if ( v7 )
+      return -1073741811;
   }
-  else
-  {
-    v8 = v7 & 0xA0000;
-    if ( v8 )
-      return 3221225485LL;
-  }
-  if ( v8 == 655360 || (v5 & 0x100000) != 0 && (v5 & 0x40000) == 0 )
-    return 3221225485LL;
+  if ( v7 == 655360 || (v5 & 0x100000) != 0 && (v5 & 0x40000) == 0 )
+    return -1073741811;
   *(_QWORD *)(a1 + 6720) = a2[4];
-  v9 = *((_DWORD *)a2 + 14);
-  if ( !v9 )
-    v9 = 7;
-  *(_DWORD *)(a1 + 6728) = v9;
+  v8 = *((_DWORD *)a2 + 14);
+  if ( !v8 )
+    v8 = 7;
+  *(_DWORD *)(a1 + 6728) = v8;
   *(_BYTE *)(a1 + 6020) = *(_BYTE *)v2;
-  *(_BYTE *)(a1 + 6021) ^= (*(_BYTE *)(a1 + 6021) ^ (4 * ((unsigned int)*v2 >> 18))) & 4;
-  v10 = *(_BYTE *)(a1 + 6021) ^ (*(_BYTE *)(a1 + 6021) ^ (8 * ((unsigned int)*v2 >> 17))) & 8;
+  *(_BYTE *)(a1 + 6021) ^= (*(_BYTE *)(a1 + 6021) ^ (4 * (*v2 >> 18))) & 4;
+  v9 = *(_BYTE *)(a1 + 6021) ^ (*(_BYTE *)(a1 + 6021) ^ (8 * (*v2 >> 17))) & 8;
+  *(_BYTE *)(a1 + 6021) = v9;
+  v10 = v9 ^ (v9 ^ (32 * (*v2 >> 19))) & 0x20;
   *(_BYTE *)(a1 + 6021) = v10;
-  v11 = v10 ^ (v10 ^ (32 * ((unsigned int)*v2 >> 19))) & 0x20;
-  *(_BYTE *)(a1 + 6021) = v11;
   *(_DWORD *)(a1 + 6208) = v2[2];
   if ( *(_BYTE *)v2 )
   {
     SmKmFileInfoInit(a1 + 6216);
     *(_DWORD *)(a1 + 6212) = v2[3];
-    v15 = v2[6];
+    v14 = v2[6];
     result = SmKmFileInfoDuplicate(a1 + 6216, *((_QWORD *)v2 + 6));
-LABEL_41:
-    if ( (int)result < 0 )
+LABEL_42:
+    if ( result < 0 )
       return result;
-    goto LABEL_24;
+    goto LABEL_23;
   }
-  if ( (v11 & 4) != 0 )
+  if ( (v10 & 4) != 0 )
   {
     memset((void *)(a1 + 6232), 0, 0x80uLL);
     *(_WORD *)(a1 + 6240) = 0;
@@ -136,74 +130,78 @@ LABEL_41:
     *(_QWORD *)(a1 + 6560) = 0LL;
     *(_QWORD *)(a1 + 6584) = a2[5];
     result = SmKmStoreHelperStart(a1 + 6232, a2[6]);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     result = SmKmStoreHelperStart(a1 + 6360, a2[6]);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     if ( (*(_BYTE *)(a1 + 6021) & 8) != 0 )
-      *(_QWORD *)(a1 + 6344) = &unk_140D32438;
-    *(_QWORD *)(a1 + 6480) = &dword_140D32450;
+      *(_QWORD *)(a1 + 6344) = &unk_140D243F8;
+    *(_QWORD *)(a1 + 6480) = &dword_140D24410;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x6C526D73u);
     *(_QWORD *)(a1 + 6224) = PoolWithTag;
     if ( !PoolWithTag )
-      return 3221225626LL;
+      return -1073741670;
     memset(PoolWithTag, 0, 0x50uLL);
-    if ( !(unsigned int)SmAcquireReleaseCharges(*(unsigned int *)(a1 + 6208), 1LL, 0LL) )
-      return 3221225626LL;
+    if ( !(unsigned int)SmAcquireReleaseCharges(*(unsigned int *)(a1 + 6208), 1, 0) )
+      return -1073741670;
     *(_BYTE *)(a1 + 6021) |= 0x10u;
   }
-  v14 = v2[3];
-  *(_DWORD *)(a1 + 6212) = v14;
-  v15 = 0;
-  v16 = (unsigned int)(8 * v14);
-  v17 = ExAllocatePoolWithTag(NonPagedPoolNx, v16, 0x67526D73u);
-  if ( !v17 )
-    return 3221225626LL;
-  *(_QWORD *)(a1 + 6216) = v17;
-  memset(v17, 0, (unsigned int)v16);
+  v13 = v2[3];
+  *(_DWORD *)(a1 + 6212) = v13;
+  v14 = 0;
+  v15 = 8 * v13;
+  v16 = ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x67526D73u);
+  if ( !v16 )
+    return -1073741670;
+  *(_QWORD *)(a1 + 6216) = v16;
+  memset(v16, 0, (unsigned int)v15);
   if ( (*(_BYTE *)(a1 + 6021) & 4) == 0 )
   {
-    v20 = ((*(_DWORD *)(a1 + 6208) >> 8) ^ 0x100005) & 0xFFFF0 ^ 0x100005;
+    v19 = ((*(_DWORD *)(a1 + 6208) >> 8) ^ 0x100005) & 0xFFFF0 ^ 0x100005;
     result = SmFpPreAllocate((PEX_SPIN_LOCK)(a1 + 6608));
-    goto LABEL_41;
+    goto LABEL_42;
   }
-LABEL_24:
-  v18 = *(_DWORD *)(a1 + 6212);
-  v23 = 0;
-  v27 = 0;
-  v29 = 0LL;
-  v19 = *(_OWORD *)v2;
-  v22 = v15;
-  v24 = a1;
-  v21 = v19;
-  HIDWORD(v21) = v18;
-  v28 = a2[3];
+LABEL_23:
+  v17 = *(_DWORD *)(a1 + 6212);
+  v22 = 0;
+  v26 = 0;
+  v28 = 0LL;
+  v18 = *(_OWORD *)v2;
+  v21 = v14;
+  v23 = a1;
+  v20 = v18;
+  HIDWORD(v20) = v17;
+  v27 = a2[3];
   if ( *(_BYTE *)v2 )
-    v29 = *((_QWORD *)v2 + 8);
-  v25 = a2[1];
-  v26 = *((_DWORD *)a2 + 4);
-  LODWORD(v21) = v21 & 0xFFFFF7FF | (v26 == 0 ? 0x800 : 0);
-  result = ST_STORE<SM_TRAITS>::StStart(a1, &v21);
-  if ( (int)result >= 0 )
+    v28 = *((_QWORD *)v2 + 8);
+  v24 = a2[1];
+  v25 = *((_DWORD *)a2 + 4);
+  LODWORD(v20) = v20 & 0xFFFFF7FF | (v25 == 0 ? 0x800 : 0);
+  result = ST_STORE<SM_TRAITS>::StStart(a1, (__int64)&v20);
+  if ( result >= 0 )
   {
-    if ( (*(_BYTE *)(a1 + 6021) & 4) == 0
-      || (result = SMKM_STORE<SM_TRAITS>::SmStWorkerThreadStartThread(
-                     a1,
-                     a2[6],
-                     SMKM_STORE<SM_TRAITS>::SmStReadThread,
-                     a1 + 6488,
-                     v20),
-          (int)result >= 0) )
+    if ( (*(_BYTE *)(a1 + 6021) & 4) == 0 )
+      goto LABEL_30;
+    result = SMKM_STORE<SM_TRAITS>::SmStWorkerThreadStartThread(
+               a1,
+               a2[6],
+               SMKM_STORE<SM_TRAITS>::SmStReadThread,
+               a1 + 6488,
+               v19);
+    if ( result >= 0 )
+      result = 0;
+    if ( result >= 0 )
     {
+LABEL_30:
       result = SMKM_STORE<SM_TRAITS>::SmStWorkerThreadStartThread(
                  a1,
                  a2[6],
                  SMKM_STORE<SM_TRAITS>::SmStWorkerThread,
                  a1 + 6200,
-                 v20);
-      if ( (int)result >= 0 )
-        return 0LL;
+                 v19);
+      if ( result >= 0 )
+        return 0;
     }
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleSelectCoordinatedProcessorDependency @ 0x1405C8420
+ * XREFs of PpmIdleSelectCoordinatedProcessorDependency @ 0x140566D14
  * Callers:
- *     PpmIdleCheckCoordinatedDependencies @ 0x1405C7638 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140565FE0 (PpmIdleCheckCoordinatedDependencies.c)
  * Callees:
- *     PpmIdleCheckProcessorStateEligibility @ 0x1405C7C38 (PpmIdleCheckProcessorStateEligibility.c)
+ *     PpmIdleCheckProcessorStateEligibility @ 0x140566610 (PpmIdleCheckProcessorStateEligibility.c)
  */
 
 __int64 __fastcall PpmIdleSelectCoordinatedProcessorDependency(

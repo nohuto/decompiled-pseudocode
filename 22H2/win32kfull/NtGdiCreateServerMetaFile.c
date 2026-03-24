@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreateServerMetaFile @ 0x1C02D2D90
+ * XREFs of NtGdiCreateServerMetaFile @ 0x1C02B80D0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtGdiCreateServerMetaFile(int a1, __int64 a2, char *a3, int a4, int a5, int a6)

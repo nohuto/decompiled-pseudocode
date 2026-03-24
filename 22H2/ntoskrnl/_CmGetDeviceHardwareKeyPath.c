@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetDeviceHardwareKeyPath @ 0x1407D0C9C
+ * XREFs of _CmGetDeviceHardwareKeyPath @ 0x140694E80
  * Callers:
- *     _CmGetDeviceRegKeyPath @ 0x1406CE6EC (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406BAECC (_CmGetDeviceRegKeyPath.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
  */
 
 NTSTATUS __fastcall CmGetDeviceHardwareKeyPath(
@@ -20,8 +20,8 @@ NTSTATUS __fastcall CmGetDeviceHardwareKeyPath(
   unsigned __int64 v9; // rax
   __int64 v11; // rax
   unsigned __int64 v12; // rax
-  __int64 v13; // rax
-  unsigned __int64 v14; // rax
+  unsigned __int64 v13; // rax
+  __int64 v14; // rax
   unsigned __int64 v15; // rax
 
   if ( (a3 & 0x200) != 0 )
@@ -30,16 +30,16 @@ NTSTATUS __fastcall CmGetDeviceHardwareKeyPath(
     {
       if ( a4 == -1 )
         return -1073741811;
-      v13 = -1LL;
+      v14 = -1LL;
       do
-        ++v13;
-      while ( *(_WORD *)(a2 + 2 * v13) );
-      v14 = v13 + 79;
-      if ( v14 > 0xFFFFFFFF )
+        ++v14;
+      while ( *(_WORD *)(a2 + 2 * v14) );
+      v15 = v14 + 79;
+      if ( v15 > 0xFFFFFFFF )
         return -1073741675;
       if ( a8 )
-        *a8 = v14;
-      if ( (unsigned int)v14 <= (unsigned int)cchDest )
+        *a8 = v15;
+      if ( (unsigned int)v15 <= (unsigned int)cchDest )
         return RtlStringCchPrintfExW(
                  pszDest,
                  (unsigned int)cchDest,
@@ -83,12 +83,12 @@ NTSTATUS __fastcall CmGetDeviceHardwareKeyPath(
   while ( *(_WORD *)(a2 + 2 * v8) );
   if ( (a3 & 0x100) != 0 )
   {
-    v15 = v8 + 31;
-    if ( v15 > 0xFFFFFFFF )
+    v13 = v8 + 31;
+    if ( v13 > 0xFFFFFFFF )
       return -1073741675;
     if ( a8 )
-      *a8 = v15;
-    if ( (unsigned int)v15 <= (unsigned int)cchDest )
+      *a8 = v13;
+    if ( (unsigned int)v13 <= (unsigned int)cchDest )
       return RtlStringCchPrintfExW(
                pszDest,
                (unsigned int)cchDest,

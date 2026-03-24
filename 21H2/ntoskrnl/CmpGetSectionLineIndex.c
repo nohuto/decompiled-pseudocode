@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpGetSectionLineIndex @ 0x140B0D2E8
+ * XREFs of CmpGetSectionLineIndex @ 0x140A46FF4
  * Callers:
- *     EmpParseEntryTypes @ 0x140B0BE8C (EmpParseEntryTypes.c)
- *     EmpParseCallbacks @ 0x140B0C004 (EmpParseCallbacks.c)
- *     EmpParseRuleExpression @ 0x140B0C394 (EmpParseRuleExpression.c)
- *     EmpParseRules @ 0x140B0C87C (EmpParseRules.c)
- *     EmpParseStrings @ 0x140B0CB80 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x140B0CDAC (EmpParseTargetRules.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140B0D360 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     EmpParseEntryTypes @ 0x140A45B7C (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x140A45CF4 (EmpParseCallbacks.c)
+ *     EmpParseRuleExpression @ 0x140A4608C (EmpParseRuleExpression.c)
+ *     EmpParseRules @ 0x140A46580 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140A4689C (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140A4706C (EmpInfParseGetValueFromSectionAndKeyName.c)
  * Callees:
- *     CmpSearchLineInSectionByIndex @ 0x140B0D440 (CmpSearchLineInSectionByIndex.c)
- *     CmpSearchSectionByName @ 0x140B0D470 (CmpSearchSectionByName.c)
- *     CmpProcessForSimpleStringSub @ 0x140B0D514 (CmpProcessForSimpleStringSub.c)
+ *     CmpSearchLineInSectionByIndex @ 0x140A47150 (CmpSearchLineInSectionByIndex.c)
+ *     CmpSearchSectionByName @ 0x140A47180 (CmpSearchSectionByName.c)
+ *     CmpProcessForSimpleStringSub @ 0x140A4722C (CmpProcessForSimpleStringSub.c)
  */
 
 __int64 __fastcall CmpGetSectionLineIndex(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

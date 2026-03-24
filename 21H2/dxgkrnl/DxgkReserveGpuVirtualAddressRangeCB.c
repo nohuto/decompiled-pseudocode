@@ -1,86 +1,82 @@
 /*
- * XREFs of DxgkReserveGpuVirtualAddressRangeCB @ 0x1C01C9150
+ * XREFs of DxgkReserveGpuVirtualAddressRangeCB @ 0x1C0156940
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsValidationEnabledForAdapterInCallerContext@DXGVALIDATION@@QEAA_NPEAVDXGADAPTER@@@Z @ 0x1C000A8F8 (-IsValidationEnabledForAdapterInCallerContext@DXGVALIDATION@@QEAA_NPEAVDXGADAPTER@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0015214 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?IsValidationEnabledForAdapterInCallerContext@DXGVALIDATION@@QEAA_NPEAVDXGADAPTER@@@Z @ 0x1C00027C8 (-IsValidationEnabledForAdapterInCallerContext@DXGVALIDATION@@QEAA_NPEAVDXGADAPTER@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00067D8 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgkReserveGpuVirtualAddressRangeCB(__int64 a1, __int128 *a2)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  struct DXGADAPTER *DxgAdapter; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGADAPTER *DxgAdapter; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v10; // rdx
-  __int128 *v11; // r14
-  unsigned int v12; // ecx
-  unsigned int v13; // esi
-  __int128 v15; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v16; // [rsp+60h] [rbp-19h]
-  __int128 v17; // [rsp+70h] [rbp-9h]
-  _BYTE v18[8]; // [rsp+80h] [rbp+7h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp+Fh] BYREF
+  __int64 v12; // rdx
+  __int128 *v13; // rsi
+  unsigned int v14; // ecx
+  unsigned int v15; // edi
+  __int64 v17; // rax
+  int v18; // eax
+  __int128 v19; // [rsp+20h] [rbp-29h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-19h]
+  __int128 v21; // [rsp+40h] [rbp-9h]
+  _BYTE v22[8]; // [rsp+50h] [rbp+7h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp+Fh] BYREF
 
-  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v18);
-  if ( (*((_DWORD *)DXGPROCESS::GetCurrent(v5, v4, v6, v7) + 106) & 0x80) != 0 )
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v22);
+  if ( (*((_BYTE *)DXGPROCESS::GetCurrent(v5, v4) + 347) & 0x10) != 0 )
   {
-    WdLogSingleEntry1(2LL, 331LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"KMD should not reserve GPU VA for the VM worker process",
-      331LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v13 = -1073741811;
+    v17 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v17 + 24) = 319LL;
+    WdLogEvent5_WdError(v17);
+    v15 = -1073741811;
   }
   else
   {
-    DxgAdapter = (struct DXGADAPTER *)DpiGetDxgAdapter(a1);
-    Global = DXGGLOBAL_GetGlobal();
-    if ( *((_BYTE *)Global + 1722)
+    DxgAdapter = (struct DXGADAPTER *)DpiGetDxgAdapter(a1, v6);
+    Global = DXGGLOBAL::GetGlobal(v10, v9);
+    if ( *((_BYTE *)Global + 1554)
       && DXGVALIDATION::IsValidationEnabledForAdapterInCallerContext(
-           (struct DXGGLOBAL *)((char *)Global + 1716),
+           (struct DXGGLOBAL *)((char *)Global + 1548),
            DxgAdapter) )
     {
-      v13 = -1073741637;
+      v15 = -1073741637;
     }
     else
     {
-      v10 = *((_QWORD *)DxgAdapter + 350);
-      v11 = a2;
-      v12 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)DxgAdapter + 27) + 64LL) + 40LL) + 28LL);
-      v15 = 0LL;
-      v16 = 0LL;
-      v17 = 0LL;
-      if ( v12 <= 0x5003 )
+      v12 = *((_QWORD *)DxgAdapter + 338);
+      v13 = a2;
+      v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)DxgAdapter + 27) + 64LL) + 40LL) + 28LL);
+      v19 = 0LL;
+      v20 = 0LL;
+      v21 = 0LL;
+      if ( v14 <= 0x5003 )
       {
-        v11 = &v15;
-        LODWORD(v16) = *((_DWORD *)a2 + 4);
-        v15 = *a2;
-        *(_QWORD *)&v17 = 0LL;
-        *((_QWORD *)&v16 + 1) = 0LL;
+        v18 = *((_DWORD *)a2 + 4);
+        v13 = &v19;
+        *(_QWORD *)&v21 = 0LL;
+        *((_QWORD *)&v20 + 1) = 0LL;
+        LODWORD(v20) = v18;
+        v19 = *a2;
       }
-      v13 = (*(__int64 (__fastcall **)(_QWORD, __int128 *))(*(_QWORD *)(*(_QWORD *)(v10 + 648) + 8LL) + 840LL))(
-              *(_QWORD *)(v10 + 656),
-              v11);
-      *((_QWORD *)a2 + 3) = *((_QWORD *)v11 + 3);
+      v15 = (*(__int64 (__fastcall **)(_QWORD, __int128 *))(*(_QWORD *)(*(_QWORD *)(v12 + 640) + 8LL) + 832LL))(
+              *(_QWORD *)(v12 + 648),
+              v13);
+      *((_QWORD *)a2 + 3) = *((_QWORD *)v13 + 3);
     }
   }
-  if ( v18[0] )
+  if ( v22[0] )
     KeUnstackDetachProcess(&ApcState);
-  return v13;
+  return v15;
 }

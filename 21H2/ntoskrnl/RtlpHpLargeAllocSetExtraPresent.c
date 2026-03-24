@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLargeAllocSetExtraPresent @ 0x1405F3544
+ * XREFs of RtlpHpLargeAllocSetExtraPresent @ 0x140595310
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x1405F2F80 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x1405949DC (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpHpLargeLockAcquireShared @ 0x1405F3924 (RtlpHpLargeLockAcquireShared.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpHpLargeLockAcquireShared @ 0x1405956A4 (RtlpHpLargeLockAcquireShared.c)
  */
 
 char __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -17,10 +17,9 @@ char __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, unsigned __int64 a2,
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // rsi
   unsigned __int64 v8; // rbx
-  struct _KTHREAD *CurrentThread; // rcx
-  bool v10; // zf
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  bool v11; // zf
 
   v4 = a3;
   LOBYTE(v6) = RtlpHpLargeLockAcquireShared(a1, a3);
@@ -36,15 +35,15 @@ char __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, unsigned __int64 a2,
   while ( v8 )
   {
     v6 = *(_QWORD *)(v8 + 24) & 0xFFFFFFFFFFFF0000uLL;
-    if ( a2 >= v6 )
+    if ( a2 < v6 )
+    {
+      v6 = *(_QWORD *)v8;
+    }
+    else
     {
       if ( a2 <= v6 )
         goto LABEL_16;
       v6 = *(_QWORD *)(v8 + 8);
-    }
-    else
-    {
-      v6 = *(_QWORD *)v8;
     }
     if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v6 )
       v8 ^= v6;
@@ -69,9 +68,9 @@ LABEL_16:
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
             LODWORD(v6) = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-            v10 = ((unsigned int)v6 & SchedulerAssist[5]) == 0;
+            v11 = ((unsigned int)v6 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v6;
-            if ( v10 )
+            if ( v11 )
               LOBYTE(v6) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
@@ -82,15 +81,8 @@ LABEL_16:
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 64));
-      LOBYTE(v6) = KeAbPostRelease(a1 + 64);
-      CurrentThread = KeGetCurrentThread();
-      v10 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v10 )
-      {
-        v6 = (unsigned __int64)&CurrentThread->152;
-        if ( *(_QWORD *)v6 != v6 )
-          LOBYTE(v6) = KiCheckForKernelApcDelivery();
-      }
+      KeAbPostRelease(a1 + 64);
+      LOBYTE(v6) = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     }
   }
   *(_QWORD *)(v8 + 32) |= 1uLL;

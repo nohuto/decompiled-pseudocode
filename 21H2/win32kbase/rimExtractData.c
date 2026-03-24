@@ -1,9 +1,9 @@
 /*
- * XREFs of rimExtractData @ 0x1C01AF648
+ * XREFs of rimExtractData @ 0x1C017A038
  * Callers:
- *     rimExtractTouchInfo @ 0x1C00E72BC (rimExtractTouchInfo.c)
- *     rimExtractPenInfo @ 0x1C01AFFD4 (rimExtractPenInfo.c)
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPenInfo @ 0x1C017A8FC (rimExtractPenInfo.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractTouchInfo @ 0x1C017B374 (rimExtractTouchInfo.c)
  * Callees:
  *     <none>
  */
@@ -39,13 +39,13 @@ __int64 __fastcall rimExtractData(__int64 a1, __int16 a2, __int16 a3, int a4, _D
   }
   v11 = 60 * v10;
   v12 = 2LL * v7;
-  v5 = *(_DWORD *)(60 * v10 + a1 + 452);
+  v5 = *(_DWORD *)(60 * v10 + a1 + 404);
   v13 = *(_DWORD *)(a1 + 16LL * v7 + 40);
   v14 = *(_DWORD *)(a1 + 8 * v12 + 36);
   if ( v13 != v14 )
   {
-    v15 = *(_DWORD *)(v11 + a1 + 436);
-    v16 = *(_DWORD *)(v11 + a1 + 432);
+    v15 = *(_DWORD *)(v11 + a1 + 388);
+    v16 = *(_DWORD *)(v11 + a1 + 384);
     if ( v15 != v16 )
     {
       if ( (int)v5 >= v16 )

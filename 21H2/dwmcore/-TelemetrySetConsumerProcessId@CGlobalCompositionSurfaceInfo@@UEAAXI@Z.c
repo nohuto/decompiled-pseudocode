@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TelemetrySetConsumerProcessId@CGlobalCompositionSurfaceInfo@@UEAAXI@Z @ 0x1800FBB80
+ * XREFs of ?TelemetrySetConsumerProcessId@CGlobalCompositionSurfaceInfo@@UEAAXI@Z @ 0x1800E30D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ void __fastcall CGlobalCompositionSurfaceInfo::TelemetrySetConsumerProcessId(
         CGlobalCompositionSurfaceInfo *this,
         int a2)
 {
-  *((_DWORD *)this + 96) = a2;
+  *((_DWORD *)this + 88) = a2;
 }

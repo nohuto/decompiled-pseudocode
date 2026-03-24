@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContextLayout(char a1, int a2, __int64 a3, int a4, int *a5)

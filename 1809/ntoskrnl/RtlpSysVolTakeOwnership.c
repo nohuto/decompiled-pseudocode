@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpSysVolTakeOwnership @ 0x1408964A0
+ * XREFs of RtlpSysVolTakeOwnership @ 0x140896480
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1406D62E0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1406D62C0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     NtAdjustPrivilegesToken @ 0x1406099A0 (NtAdjustPrivilegesToken.c)
  *     NtOpenFile @ 0x14060B9C0 (NtOpenFile.c)
- *     NtOpenProcessTokenEx @ 0x140646F20 (NtOpenProcessTokenEx.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
+ *     NtOpenProcessTokenEx @ 0x140646F00 (NtOpenProcessTokenEx.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
  */
 
 int __fastcall RtlpSysVolTakeOwnership(UNICODE_STRING *a1)

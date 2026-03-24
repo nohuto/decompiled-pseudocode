@@ -1,19 +1,20 @@
 /*
- * XREFs of RtlpMuiRegGetLangInfoIndex @ 0x14085EFF8
+ * XREFs of RtlpMuiRegGetLangInfoIndex @ 0x1407CF36C
  * Callers:
- *     RtlpMuiRegGetOrAddLangInfo @ 0x14085EF2C (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x1407CF2A0 (RtlpMuiRegGetOrAddLangInfo.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RtlpMuiRegGetLangInfoIndex(__int64 a1, char *a2)
 {
-  __int16 v3; // bx
+  __int16 v3; // r11
   char *v4; // r9
   __int64 v5; // rdx
   unsigned __int16 v7; // si
   unsigned __int16 v8; // di
-  unsigned int i; // r10d
+  char v9; // al
+  unsigned int v10; // r10d
 
   if ( !a1 )
     return 0xFFFFFFFFLL;
@@ -39,21 +40,31 @@ __int64 __fastcall RtlpMuiRegGetLangInfoIndex(__int64 a1, char *a2)
           v7 = *((_WORD *)a2 + 4);
           v8 = *((_WORD *)v4 + 4);
           if ( ((v8 ^ v7) & 0xC000) == 0 )
-            break;
+          {
+            v9 = 1;
+            v10 = 0;
+            do
+            {
+              if ( v10 >= 4 )
+                break;
+              if ( (((unsigned __int16)(v8 ^ v7) >> (2 * v10)) & 3) == 0 )
+              {
+                v9 = 1;
+                if ( *(_WORD *)&v4[2 * v10 + 12] == *(_WORD *)&a2[2 * v10 + 12] )
+                  continue;
+              }
+              v9 = 0;
+              ++v10;
+            }
+            while ( v9 );
+            if ( v9 )
+              break;
+          }
         }
-LABEL_22:
         ++v5;
         v4 += 28;
         if ( v5 >= *(unsigned __int16 *)(a1 + 6) )
           return 0xFFFFFFFFLL;
-      }
-      for ( i = 0; i < 4; ++i )
-      {
-        if ( (((unsigned __int16)(v8 ^ v7) >> (2 * i)) & 3) != 0
-          || *(_WORD *)&v4[2 * i + 12] != *(_WORD *)&a2[2 * i + 12] )
-        {
-          goto LABEL_22;
-        }
       }
       return (unsigned __int16)v5;
     }

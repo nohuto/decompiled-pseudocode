@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsPgiKernel @ 0x1403DC578
+ * XREFs of KiIsPgiKernel @ 0x1403CD258
  * Callers:
- *     KiDetermineRetpolineEnablement @ 0x1403DC4D0 (KiDetermineRetpolineEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x1403CD1B0 (KiDetermineRetpolineEnablement.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
  */
 
 char KiIsPgiKernel()

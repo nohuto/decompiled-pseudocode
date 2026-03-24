@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmProcessSettingsFromQueryTable @ 0x14099D4A4
+ * XREFs of PpmProcessSettingsFromQueryTable @ 0x1408F5F28
  * Callers:
- *     PpmRegisterSpmSettings @ 0x14099D6D0 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x1408F6140 (PpmRegisterSpmSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PpmSetProfilePolicySetting @ 0x14082DAD0 (PpmSetProfilePolicySetting.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PpmSetProfilePolicySetting @ 0x1406F2DF0 (PpmSetProfilePolicySetting.c)
  */
 
 char __fastcall PpmProcessSettingsFromQueryTable(_QWORD *a1, int a2, __int64 a3)
@@ -16,8 +16,8 @@ char __fastcall PpmProcessSettingsFromQueryTable(_QWORD *a1, int a2, __int64 a3)
   char v6; // r12
   __int64 v7; // r13
   const wchar_t *v8; // r15
-  unsigned int v9; // edi
-  __int64 v10; // rbx
+  wchar_t **v9; // rbx
+  unsigned int v10; // edi
   __int64 v11; // rax
   __int64 v12; // rax
   __int64 v13; // rax
@@ -31,22 +31,22 @@ char __fastcall PpmProcessSettingsFromQueryTable(_QWORD *a1, int a2, __int64 a3)
   v3 = 0LL;
   v4 = (int **)(a3 + 24);
   v5 = 0LL;
-  v17 = a1;
   v6 = 0;
+  v17 = a1;
   v7 = 20LL;
   do
   {
     v8 = (const wchar_t *)*(v4 - 1);
-    v9 = 0;
-    v10 = 0LL;
-    while ( wcsicmp(v8, (&PpmPolicyAliasList)[v10]) )
+    v9 = &PpmPolicyAliasList;
+    v10 = 0;
+    while ( wcsicmp(v8, *v9) )
     {
-      ++v9;
-      v10 += 2LL;
-      if ( v9 >= 0x14 )
+      ++v10;
+      v9 += 2;
+      if ( v10 >= 0x14 )
         goto LABEL_7;
     }
-    v18 = *(_OWORD *)*(&PpmPolicyAliasList + v10 + 1);
+    v18 = *(_OWORD *)v9[1];
     v3 = *((_QWORD *)&v18 + 1);
     v5 = v18;
 LABEL_7:

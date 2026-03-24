@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwLoadDriver @ 0x14041D8C0
+ * XREFs of ZwLoadDriver @ 0x1403FC460
  * Callers:
- *     KsepLoadShimProvider @ 0x14057D548 (KsepLoadShimProvider.c)
- *     DifZwLoadDriverWrapper @ 0x140620EC0 (DifZwLoadDriverWrapper.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406D5860 (EtwpUpdateFileInfoDriverState.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     PopCadTriggerDriverLoad @ 0x14099D210 (PopCadTriggerDriverLoad.c)
- *     EtwpConstructIptData @ 0x1409EE5BC (EtwpConstructIptData.c)
+ *     KsepLoadShimProvider @ 0x140526D00 (KsepLoadShimProvider.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407985F8 (EtwpUpdateFileInfoDriverState.c)
+ *     PopCadTriggerDriverLoad @ 0x1408F57F8 (PopCadTriggerDriverLoad.c)
+ *     EtwpConstructIptData @ 0x140948298 (EtwpConstructIptData.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of SharpenInput @ 0x1C0263170
+ * XREFs of SharpenInput @ 0x1C026B780
  * Callers:
- *     ExpandDIB_CY_ExpCX @ 0x1C025FB80 (ExpandDIB_CY_ExpCX.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0268310 (ExpandDIB_CY_ExpCX.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ unsigned __int64 __fastcall SharpenInput(
         __int64 a5,
         int a6)
 {
-  __int64 v6; // rsi
+  unsigned __int64 v6; // rsi
   unsigned __int64 v7; // r10
   unsigned __int8 *v8; // r11
   unsigned __int8 *v9; // rbx
   unsigned __int8 *v10; // rdi
-  _BYTE *v11; // r8
-  __int64 v12; // r9
+  unsigned __int64 v11; // r9
+  _BYTE *v12; // r8
   int v13; // ecx
   int v14; // ecx
   int v15; // ecx
@@ -45,28 +45,28 @@ unsigned __int64 __fastcall SharpenInput(
       v8 = (unsigned __int8 *)(a4 + 3);
       v9 = (unsigned __int8 *)(a5 + 2);
       v10 = (unsigned __int8 *)(a3 + 2);
-      v11 = (_BYTE *)(a2 + 2);
-      v12 = a4 - a2 - 2;
+      v11 = a4 - a2;
+      v12 = (_BYTE *)(a2 + 2);
       do
       {
-        v13 = (12 * (unsigned __int8)v11[v12] - *(v10 - 2) - *(v9 - 2) - *(v8 - 6) - *v8) >> 3;
+        v13 = (12 * (unsigned __int8)v12[v11 - 2] - *(v10 - 2) - *(v9 - 2) - *(v8 - 6) - *v8) >> 3;
         if ( (v13 & 0xFF00) != 0 )
           LOBYTE(v13) = ~HIBYTE(v13);
-        *(v11 - 2) = v13;
+        *(v12 - 2) = v13;
         v14 = (12 * *(v8 - 2) - *(v10 - 1) - *(v9 - 1) - *(v8 - 5) - v8[1]) >> 3;
         if ( (v14 & 0xFF00) != 0 )
           LOBYTE(v14) = ~HIBYTE(v14);
-        *(v11 - 1) = v14;
+        *(v12 - 1) = v14;
         v15 = (12 * *(v8 - 1) - *(v8 - 4) - v8[2] - *v9 - *v10) >> 3;
         if ( (v15 & 0xFF00) != 0 )
           LOBYTE(v15) = ~HIBYTE(v15);
-        *v11 = v15;
+        *v12 = v15;
+        v12 += 3;
         v8 += 3;
-        v11 += 3;
         v9 += 3;
         v10 += 3;
       }
-      while ( (unsigned __int64)&v11[v12] < v7 );
+      while ( (unsigned __int64)&v12[v11 - 2] < v7 );
     }
   }
   *(_WORD *)(a2 - 3) = *(_WORD *)a2;

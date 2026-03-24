@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC84
+ * XREFs of PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC64
  * Callers:
  *     PiUEventProcessEventWorker @ 0x14058E940 (PiUEventProcessEventWorker.c)
  * Callees:
  *     PiUEventHashStringIntoBucket @ 0x140006568 (PiUEventHashStringIntoBucket.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     PiUEventNotifyClient @ 0x14058F938 (PiUEventNotifyClient.c)
  *     PiUEventApplyAdditionalFilters @ 0x14058FB68 (PiUEventApplyAdditionalFilters.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpGetDeviceInstanceCsConfigFlags @ 0x1407D8FDC
+ * XREFs of PnpGetDeviceInstanceCsConfigFlags @ 0x14075256C
  * Callers:
- *     PnpIsDeviceInstanceEnabled @ 0x1407D8E64 (PnpIsDeviceInstanceEnabled.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14075240C (PnpIsDeviceInstanceEnabled.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstanceCsConfigFlags(unsigned __int16 *a1, __int64 a2, _DWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PnpGetDeviceInstanceCsConfigFlags(unsigned __int16 *a1, __int
   int RegistryValue; // ebx
   PVOID v7; // rcx
   PVOID P[3]; // [rsp+40h] [rbp-18h] BYREF
-  void *v9; // [rsp+70h] [rbp+18h] BYREF
+  __int16 *v9; // [rsp+70h] [rbp+18h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp+20h] BYREF
 
   *a3 = 0;

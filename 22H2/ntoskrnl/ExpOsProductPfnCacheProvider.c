@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpOsProductPfnCacheProvider @ 0x1409FA110
+ * XREFs of ExpOsProductPfnCacheProvider @ 0x14094DCA0
  * Callers:
  *     <none>
  * Callees:
- *     ExpOsProductCacheProviderHelper @ 0x14085DD84 (ExpOsProductCacheProviderHelper.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1407D14C4 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpOsProductPfnCacheProvider(
@@ -14,5 +14,5 @@ __int64 __fastcall ExpOsProductPfnCacheProvider(
         _DWORD *a5,
         _BYTE *a6)
 {
-  return ExpOsProductCacheProviderHelper(a1, (UNICODE_STRING *)&qword_140A77D38, a2, a3, a4, a5, a6);
+  return ExpOsProductCacheProviderHelper(a1, (UNICODE_STRING *)&qword_1409838F0, a2, a3, a4, a5, a6);
 }

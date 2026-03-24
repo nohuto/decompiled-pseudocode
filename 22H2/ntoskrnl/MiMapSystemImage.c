@@ -1,46 +1,47 @@
 /*
- * XREFs of MiMapSystemImage @ 0x140695E88
+ * XREFs of MiMapSystemImage @ 0x14075C8B4
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9248 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x14020B2A0 (MiMakeZeroedPageTables.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDeleteSessionDriverProtos @ 0x140682C1C (MiDeleteSessionDriverProtos.c)
- *     MiChargeSystemImageCommitment @ 0x140695FD0 (MiChargeSystemImageCommitment.c)
- *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiDereferencePerSessionProtos @ 0x1407B6168 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B62B0 (MiCreatePerSessionProtos.c)
- *     MiMapPatchTable @ 0x140A3A2D0 (MiMapPatchTable.c)
- *     MiUnmapPatchTable @ 0x140A3C220 (MiUnmapPatchTable.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiMakeZeroedPageTables @ 0x14039D740 (MiMakeZeroedPageTables.c)
+ *     MiUnmapPatchTable @ 0x14053F0DC (MiUnmapPatchTable.c)
+ *     MiAddMappedPtes @ 0x140636970 (MiAddMappedPtes.c)
+ *     MiDereferencePerSessionProtos @ 0x14069F60C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14069F724 (MiCreatePerSessionProtos.c)
+ *     MiBytesToMapSystemImage @ 0x1406FF140 (MiBytesToMapSystemImage.c)
+ *     MiChargeSystemImageCommitment @ 0x14075E354 (MiChargeSystemImageCommitment.c)
+ *     MiDeleteSessionDriverProtos @ 0x140779528 (MiDeleteSessionDriverProtos.c)
+ *     MiMapPatchTable @ 0x1408CCA68 (MiMapPatchTable.c)
  */
 
 __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v6; // rcx
-  __int64 *v7; // rbx
+  unsigned __int64 v7; // rbx
   __int64 v8; // rbp
   char v9; // r9
-  int v10; // r12d
-  int v11; // esi
+  int v10; // r15d
+  unsigned int v11; // esi
   __int64 result; // rax
-  int PteAddress; // eax
+  __int64 *PteAddress; // rax
   unsigned __int64 v14; // rdi
-  int v15; // r15d
-  __int64 v16; // rdi
+  int v15; // r12d
+  unsigned __int64 v16; // rdi
   unsigned int SessionId; // eax
-  int v18; // eax
-  int v19; // edx
-  __int64 v20; // rax
-  int v21; // [rsp+30h] [rbp-38h]
-  __int64 v22; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  unsigned __int64 v20; // rax
+  __int64 *v21; // [rsp+30h] [rbp-38h]
+  unsigned __int64 v22; // [rsp+38h] [rbp-30h] BYREF
 
   v22 = 0LL;
-  v7 = (__int64 *)MiSectionControlArea(a1);
-  v8 = *(unsigned int *)(*v7 + 8);
+  v7 = MiSectionControlArea(a1);
+  v8 = *(unsigned int *)(*(_QWORD *)v7 + 8LL);
   if ( (v9 & 1) == 0 )
   {
     v10 = 1;
@@ -49,12 +50,12 @@ __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2, __int64 a3)
     if ( (int)result < 0 )
       return result;
 LABEL_3:
-    PteAddress = MiGetPteAddress(a2);
+    PteAddress = (__int64 *)MiGetPteAddress(a2);
     v14 = 0LL;
     v21 = PteAddress;
     if ( a3 )
     {
-      v14 = a2 + ((unsigned __int64)*(unsigned int *)(*v7 + 8) << 12);
+      v14 = a2 + ((unsigned __int64)*(unsigned int *)(*(_QWORD *)v7 + 8LL) << 12);
       v15 = MiMapPatchTable(v14, a3);
       if ( v15 < 0 )
       {
@@ -63,21 +64,21 @@ LABEL_23:
         {
           MiChargeSystemImageCommitment(a1, 0LL);
         }
-        else if ( (v7[7] & 0x8000000) != 0 )
+        else if ( (*(_DWORD *)(v7 + 56) & 0x4000000) != 0 )
         {
-          MiDereferencePerSessionProtos(v7);
+          MiDereferencePerSessionProtos((__int64 *)v7, v11);
         }
-        if ( (unsigned int)MiGetSystemRegionType(a2) == 1 && a2 != *(_QWORD *)(*v7 + 32) )
+        if ( (unsigned int)MiGetSystemRegionType(a2) == 1 && a2 != *(_QWORD *)(*(_QWORD *)v7 + 32LL) )
           MiDeleteSessionDriverProtos(v7);
         return (unsigned int)v15;
       }
       PteAddress = v21;
     }
-    v15 = MiAddMappedPtes(PteAddress, v8, (_DWORD)v7, (unsigned int)&v22, v11, 1);
+    v15 = MiAddMappedPtes(PteAddress, v8, v7, &v22, v11, 1);
     if ( v15 >= 0 )
     {
       if ( v10 == 1 )
-        _InterlockedExchangeAdd((_DWORD *)&xmmword_140C65A50 + 3, v8);
+        _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD48 + 3, v8);
       return 0LL;
     }
     if ( v14 )
@@ -93,14 +94,15 @@ LABEL_23:
   v10 = 0;
   SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
   v11 = SessionId;
-  if ( (v7[7] & 0x8000000) == 0 || (result = MiCreatePerSessionProtos(v7, SessionId), (int)result >= 0) )
+  if ( (*(_DWORD *)(v7 + 56) & 0x4000000) == 0
+    || (result = MiCreatePerSessionProtos((__int64 *)v7, SessionId), (int)result >= 0) )
   {
     MiGetPteAddress(v16 + a2 - 1);
     v18 = MiGetPteAddress(a2);
-    if ( (unsigned int)MiMakeZeroedPageTables(v18, v19, 1, 1) )
+    if ( (unsigned int)MiMakeZeroedPageTables(v18, v19, 1u, 1) )
       goto LABEL_3;
-    if ( (v7[7] & 0x8000000) != 0 )
-      MiDereferencePerSessionProtos(v7);
+    if ( (*(_DWORD *)(v7 + 56) & 0x4000000) != 0 )
+      MiDereferencePerSessionProtos((__int64 *)v7, v11);
     return 3221225495LL;
   }
   return result;

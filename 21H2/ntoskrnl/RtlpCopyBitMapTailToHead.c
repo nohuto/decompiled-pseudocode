@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCopyBitMapTailToHead @ 0x140209DE8
+ * XREFs of RtlpCopyBitMapTailToHead @ 0x140253C5C
  * Callers:
- *     RtlCopyBitMap @ 0x140209CA0 (RtlCopyBitMap.c)
+ *     RtlCopyBitMap @ 0x140253B10 (RtlCopyBitMap.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 unsigned __int64 __fastcall RtlpCopyBitMapTailToHead(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocatePfnRepurposeLogDispatch @ 0x140376DF0
+ * XREFs of MiAllocatePfnRepurposeLogDispatch @ 0x14037BDF0
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void MiAllocatePfnRepurposeLogDispatch()
@@ -37,29 +37,29 @@ void MiAllocatePfnRepurposeLogDispatch()
     Pool[1].Next = v0;
   }
   LockHandle.LockQueue.Next = 0LL;
-  LockHandle.LockQueue.Lock = &qword_140C52B80;
-  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)&qword_140C52B80);
-  v3 = ListEntry;
-  if ( !dword_140C52B68 )
+  LockHandle.LockQueue.Lock = &qword_140C4E840;
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)&qword_140C4E840);
+  v3 = P;
+  if ( !dword_140C4E828 )
   {
-LABEL_13:
-    ListEntry = 0LL;
+LABEL_25:
+    P = 0LL;
     goto LABEL_6;
   }
   if ( v2 )
   {
-    ListEntry = v2;
+    P = v2;
     v2 = 0LL;
     goto LABEL_6;
   }
-  if ( ListEntry )
+  if ( P )
   {
-    if ( ((__int64)ListEntry[2].Next & 0xFFFLL) != 0 )
+    if ( ((__int64)P[2].Next & 0xFFFLL) != 0 )
     {
       v3 = 0LL;
       goto LABEL_6;
     }
-    goto LABEL_13;
+    goto LABEL_25;
   }
 LABEL_6:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -81,22 +81,22 @@ LABEL_6:
       *((_QWORD *)&v3[2].Next + 1) = (char *)Next - 8;
     }
     v3[2].Next = (PSLIST_ENTRY)((char *)v3 + 72);
-    if ( !ExAcquireRundownProtection(&RunRef) )
+    if ( !ExAcquireRundownProtection_0(&RunRef) )
       goto LABEL_27;
     Alignment_low = LOWORD(ListHead.Alignment);
-    if ( LOWORD(ListHead.Alignment) < (unsigned int)dword_140CF5E28 )
+    if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_140CEC328 )
     {
-      RtlpInterlockedPushEntrySList(&ListHead, v3);
-      if ( !Event.Header.SignalState && Alignment_low >= 8 )
-        KeSetEvent(&Event, 0, 0);
-      v6 = 1;
+      _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4FED0, 0x64u);
+      v6 = 0;
     }
     else
     {
-      _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4EC70, 0x64u);
-      v6 = 0;
+      RtlpInterlockedPushEntrySList(&ListHead, v3);
+      if ( Alignment_low >= 8 && !Event.Header.SignalState )
+        KeSetEvent(&Event, 0, 0);
+      v6 = 1;
     }
-    ExReleaseRundownProtection(&RunRef);
+    ExReleaseRundownProtection_0(&RunRef);
     if ( !v6 )
 LABEL_27:
       ExFreePoolWithTag(v3, 0);

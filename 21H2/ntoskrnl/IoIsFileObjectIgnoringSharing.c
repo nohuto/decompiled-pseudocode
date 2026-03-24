@@ -1,5 +1,5 @@
 /*
- * XREFs of IoIsFileObjectIgnoringSharing @ 0x1406EAE50
+ * XREFs of IoIsFileObjectIgnoringSharing @ 0x1406C3880
  * Callers:
  *     <none>
  * Callees:

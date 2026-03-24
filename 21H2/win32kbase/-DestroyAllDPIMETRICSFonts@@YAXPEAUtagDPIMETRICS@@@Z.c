@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C0051938
+ * XREFs of ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C000A650
  * Callers:
- *     CleanupGDI @ 0x1C00514B8 (CleanupGDI.c)
+ *     CleanupGDI @ 0x1C000763C (CleanupGDI.c)
  * Callees:
- *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C0051830 (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
+ *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00079BC (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
  */
 
-void __fastcall DestroyAllDPIMETRICSFonts(HRGN *a1)
+void __fastcall DestroyAllDPIMETRICSFonts(HBRUSH *a1)
 {
   DestroyFont(a1 + 4);
   DestroyFont(a1);

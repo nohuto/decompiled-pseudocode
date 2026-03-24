@@ -1,27 +1,40 @@
 /*
- * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x1406D833C
+ * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x1406070A8
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14085DACC (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     RtlTestProtectedAccess @ 0x14066D068 (RtlTestProtectedAccess.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     RtlTestProtectedAccess @ 0x1406075FC (RtlTestProtectedAccess.c)
  */
 
 __int64 __fastcall PspGetProcessProtectionRequirementsFromImage(__int64 a1)
 {
-  unsigned __int8 v1; // r9
-  unsigned __int8 *v2; // r11
-  char v4; // r10
-  char v5; // r9
+  unsigned __int64 v1; // rax
+  __int64 v2; // rdx
+  char v3; // r9
+  char *v4; // r11
+  __int64 v5; // rcx
+  char v7; // r10
+  char v8; // r9
 
-  if ( (*(_BYTE *)(*(_QWORD *)MiSectionControlArea(a1) + 15LL) & 0xF0) == 0x50 )
+  v1 = MiSectionControlArea(a1);
+  v5 = *(_QWORD *)v1;
+  if ( (*(_BYTE *)(*(_QWORD *)v1 + 15LL) & 0xF0) == 0x50 )
   {
-    v4 = -127;
-    if ( v1 && v1 != 0x81 && RtlTestProtectedAccess(v1, 0x81u) )
-      v4 = v5;
-    v1 = v4;
+    v7 = -127;
+    if ( v3 )
+    {
+      if ( v3 != -127 )
+      {
+        LOBYTE(v2) = -127;
+        LOBYTE(v5) = v3;
+        if ( (unsigned __int8)RtlTestProtectedAccess(v5, v2) )
+          v7 = v8;
+      }
+    }
+    v3 = v7;
   }
-  *v2 = v1;
+  *v4 = v3;
   return 0LL;
 }

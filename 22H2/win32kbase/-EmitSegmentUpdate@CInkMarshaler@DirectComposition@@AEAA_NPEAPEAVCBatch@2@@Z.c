@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSegmentUpdate@CInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0211228
+ * XREFs of ?EmitSegmentUpdate@CInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E2388
  * Callers:
- *     ?EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0211470 (-EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E25F0 (-EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CInkMarshaler::EmitSegmentUpdate(
@@ -23,31 +23,31 @@ bool __fastcall DirectComposition::CInkMarshaler::EmitSegmentUpdate(
     *(_OWORD *)(v4 + 4) = 0LL;
     *(_OWORD *)(v4 + 20) = 0LL;
     *(_OWORD *)(v4 + 36) = 0LL;
-    *((_DWORD *)v4 + 1) = 186;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v4 + 4) = *(_OWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38) + *((_QWORD *)this + 14));
-    *((_DWORD *)v4 + 5) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 1) = 195;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v4 + 4) = *(_OWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18) + *((_QWORD *)this + 14));
+    *((_DWORD *)v4 + 5) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                     + *((_QWORD *)this + 14)
                                     + 4LL);
-    *((_DWORD *)v4 + 6) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 6) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                     + *((_QWORD *)this + 14)
                                     + 8LL);
-    *((_DWORD *)v4 + 7) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 7) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                     + *((_QWORD *)this + 14)
                                     + 12LL);
-    *((_DWORD *)v4 + 8) = *(_OWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 8) = *(_OWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                     + *((_QWORD *)this + 14)
                                     + 16LL);
-    *((_DWORD *)v4 + 9) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 9) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                     + *((_QWORD *)this + 14)
                                     + 20LL);
-    *((_DWORD *)v4 + 10) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 10) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                      + *((_QWORD *)this + 14)
                                      + 24LL);
-    *((_DWORD *)v4 + 11) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 11) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                      + *((_QWORD *)this + 14)
                                      + 28LL);
-    *((_DWORD *)v4 + 12) = *(_DWORD *)(*((_QWORD *)this + 18) * *((unsigned int *)this + 38)
+    *((_DWORD *)v4 + 12) = *(_DWORD *)(*((unsigned int *)this + 38) * *((_QWORD *)this + 18)
                                      + *((_QWORD *)this + 14)
                                      + 32LL);
   }

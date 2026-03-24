@@ -1,17 +1,17 @@
 /*
- * XREFs of WheapPfaReset @ 0x140A0A16C
+ * XREFs of WheapPfaReset @ 0x14095E5C4
  * Callers:
- *     WheapCommitPolicy @ 0x140A0980C (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x14095DD50 (WheapCommitPolicy.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     WheapApplyPolicyChanges @ 0x140A09578 (WheapApplyPolicyChanges.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     WheapApplyPolicyChanges @ 0x14095DB3C (WheapApplyPolicyChanges.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 WheapPfaReset()
+char WheapPfaReset()
 {
   __int64 v0; // rax
   signed __int8 v1; // cf
@@ -21,13 +21,13 @@ __int64 WheapPfaReset()
   PVOID *v5; // rcx
   PVOID **v6; // rdx
 
-  v0 = KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
+  v0 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
   v1 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
   v2 = v0;
   if ( v1 )
-    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (__int64)&WheapPfaLock);
+    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (ULONG_PTR)&WheapPfaLock);
   if ( v2 )
-    *(_BYTE *)(v2 + 18) = 1;
+    *(_BYTE *)(v2 + 26) |= 1u;
   WheapApplyPolicyChanges();
   v3 = (PVOID *)WheapPfaList;
   while ( v3 != &WheapPfaList )

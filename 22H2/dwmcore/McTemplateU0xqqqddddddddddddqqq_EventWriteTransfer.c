@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer @ 0x18013002E
+ * XREFs of McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer @ 0x18017DAEC
  * Callers:
- *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@PEAI@Z @ 0x1800C9D60 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EBD50 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer(
+ULONG __fastcall McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -30,7 +30,7 @@ __int64 __fastcall McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer(
         char a20,
         char a21)
 {
-  _BYTE v22[16]; // [rsp+30h] [rbp-D0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+30h] [rbp-D0h] BYREF
   __int64 *v23; // [rsp+40h] [rbp-C0h]
   __int64 v24; // [rsp+48h] [rbp-B8h]
   int *v25; // [rsp+50h] [rbp-B0h]
@@ -113,9 +113,9 @@ __int64 __fastcall McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer(
   v58 = 4LL;
   v60 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_OVERLAY_PRESENT,
            a3,
-           20LL,
-           v22);
+           0x14u,
+           &v22);
 }

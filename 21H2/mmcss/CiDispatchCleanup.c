@@ -1,9 +1,9 @@
 /*
- * XREFs of CiDispatchCleanup @ 0x1C000A610
+ * XREFs of CiDispatchCleanup @ 0x1C000B870
  * Callers:
  *     <none>
  * Callees:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  */
 
 __int64 __fastcall CiDispatchCleanup(__int64 a1, IRP *a2)

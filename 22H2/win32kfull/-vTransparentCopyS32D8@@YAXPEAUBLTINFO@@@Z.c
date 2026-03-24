@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vTransparentCopyS32D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02970B0
+ * XREFs of ?vTransparentCopyS32D8@@YAXPEAUBLTINFO@@@Z @ 0x1C0292680
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vTransparentCopyS32D8(XLATEOBJ **a1)

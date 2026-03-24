@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLockKcbStackShared @ 0x140644050
+ * XREFs of CmpLockKcbStackShared @ 0x140644030
  * Callers:
- *     CmQueryLayeredKey @ 0x14026BE18 (CmQueryLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14026BF18 (CmQueryLayeredKey.c)
  *     CmCallbackGetKeyObjectIDEx @ 0x1405CB1A0 (CmCallbackGetKeyObjectIDEx.c)
  *     CmpQueryKeySecurity @ 0x1405CB550 (CmpQueryKeySecurity.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     CmCallbackGetKeyObjectID @ 0x1407EAC50 (CmCallbackGetKeyObjectID.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407ED370 (CmEnumerateValueFromLayeredKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1407ED64C (CmQueryMultipleValueForLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x1407EFDA0 (CmpEnumerateLayeredKey.c)
- *     CmSaveKey @ 0x140801F50 (CmSaveKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmCallbackGetKeyObjectID @ 0x1407EAC30 (CmCallbackGetKeyObjectID.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1407ED350 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1407ED62C (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  */

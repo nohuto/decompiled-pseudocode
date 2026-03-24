@@ -1,31 +1,31 @@
 /*
- * XREFs of ?Get@?$CCachedData@UtagRECT@@$0BA@@@QEAAPEAUtagRECT@@K@Z @ 0x1C005727C
+ * XREFs of ?Get@?$CCachedData@UtagRECT@@$0BA@@@QEAAPEAUtagRECT@@K@Z @ 0x1C0048078
  * Callers:
- *     ?SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C03BE3B8 (-SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3.c)
+ *     ?SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02FF450 (-SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-void *__fastcall CCachedData<tagRECT,16>::Get(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+void *__fastcall CCachedData<tagRECT,16>::Get(__int64 a1, unsigned int a2)
 {
-  unsigned __int64 v4; // rdi
-  void *v7; // rcx
-  unsigned __int64 v8; // rax
-  __int64 v9; // rax
+  unsigned __int64 v2; // rdi
+  void *v5; // rcx
+  SIZE_T v6; // rax
+  PVOID v7; // rax
 
-  v4 = a2;
+  v2 = a2;
   if ( a2 <= 0x10 )
     return (void *)a1;
-  v7 = *(void **)(a1 + 256);
+  v5 = *(void **)(a1 + 256);
   if ( a2 <= *(_DWORD *)(a1 + 264) )
-    return v7;
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
-  v8 = 16 * v4;
-  if ( !is_mul_ok(v4, 0x10uLL) )
-    v8 = -1LL;
-  v9 = operator new[](v8, 0x4B677844u, 256LL, a4);
-  *(_QWORD *)(a1 + 256) = v9;
-  *(_DWORD *)(a1 + 264) = v9 != 0 ? v4 : 0;
+    return v5;
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  v6 = 16 * v2;
+  if ( !is_mul_ok(v2, 0x10uLL) )
+    v6 = -1LL;
+  v7 = operator new[](v6, 0x4B677844u, PagedPool);
+  *(_QWORD *)(a1 + 256) = v7;
+  *(_DWORD *)(a1 + 264) = v7 != 0LL ? v2 : 0;
   return *(void **)(a1 + 256);
 }

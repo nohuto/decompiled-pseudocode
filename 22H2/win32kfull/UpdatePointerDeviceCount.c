@@ -1,30 +1,24 @@
 /*
- * XREFs of UpdatePointerDeviceCount @ 0x1C01C34AC
+ * XREFs of UpdatePointerDeviceCount @ 0x1C01EE808
  * Callers:
- *     Win32kRIMDevChangeCallback @ 0x1C01A6A30 (Win32kRIMDevChangeCallback.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D2C0 (Win32kRIMDevChangeCallback.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall UpdatePointerDeviceCount(int a1)
 {
-  __int64 v1; // rcx
-  __int64 v2; // rax
-  __int64 v3; // rax
+  int v1; // ecx
 
-  v1 = (unsigned int)(a1 - 1);
-  if ( (_DWORD)v1 )
+  v1 = a1 - 1;
+  if ( v1 )
   {
-    if ( (_DWORD)v1 == 1 )
-    {
-      v2 = SGDGetUserSessionState(v1);
-      --*(_DWORD *)(v2 + 16328);
-    }
+    if ( v1 == 1 )
+      --gcPointerDevices;
   }
   else
   {
-    v3 = SGDGetUserSessionState(v1);
-    ++*(_DWORD *)(v3 + 16328);
+    ++gcPointerDevices;
   }
-  return *(unsigned int *)(SGDGetUserSessionState(v1) + 16328);
+  return (unsigned int)gcPointerDevices;
 }

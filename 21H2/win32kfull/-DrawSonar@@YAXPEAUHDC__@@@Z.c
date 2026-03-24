@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01E1D94
+ * XREFs of ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01E7684
  * Callers:
- *     zzzAnimateFade @ 0x1C01E2D24 (zzzAnimateFade.c)
- *     zzzStartSonar @ 0x1C01E2F90 (zzzStartSonar.c)
+ *     zzzAnimateFade @ 0x1C01E865C (zzzAnimateFade.c)
+ *     zzzStartSonar @ 0x1C01E88C8 (zzzStartSonar.c)
  * Callees:
- *     FillRect @ 0x1C00C1CEC (FillRect.c)
- *     GreCreatePen @ 0x1C00F2AF8 (GreCreatePen.c)
- *     NtGdiEllipse @ 0x1C029F2E0 (NtGdiEllipse.c)
+ *     GreCreatePen @ 0x1C00262B8 (GreCreatePen.c)
+ *     FillRect @ 0x1C0045734 (FillRect.c)
+ *     NtGdiEllipse @ 0x1C02A0A00 (NtGdiEllipse.c)
  */
 
 void __fastcall DrawSonar(HDC a1)
@@ -24,7 +24,7 @@ void __fastcall DrawSonar(HDC a1)
   v3 = SolidBrush;
   if ( SolidBrush )
   {
-    FillRect(a1, &stru_1C02F3ED8, SolidBrush);
+    FillRect(a1, &stru_1C02F6B90, SolidBrush);
     Pen = GreCreatePen(0, 0, 0xFFFFFFu, 0LL);
     v5 = Pen;
     if ( Pen )

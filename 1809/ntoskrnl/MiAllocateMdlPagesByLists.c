@@ -6,8 +6,8 @@
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiGetEnclavePage @ 0x1402BDC48 (MiGetEnclavePage.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(

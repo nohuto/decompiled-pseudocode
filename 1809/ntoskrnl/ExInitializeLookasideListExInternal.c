@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializeLookasideListExInternal @ 0x1400F2F60
+ * XREFs of ExInitializeLookasideListExInternal @ 0x1400F2F80
  * Callers:
- *     ExInitializeLookasideListEx @ 0x1400F2F10 (ExInitializeLookasideListEx.c)
+ *     ExInitializeLookasideListEx @ 0x1400F2F30 (ExInitializeLookasideListEx.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializeLookasideListExInternal(

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z @ 0x180012850
+ * XREFs of ?RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z @ 0x1800298E8
  * Callers:
- *     ??1CCompositionLight@@UEAA@XZ @ 0x180012758 (--1CCompositionLight@@UEAA@XZ.c)
- *     ?ProcessClearTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_CLEARTARGETS@@@Z @ 0x180012840 (-ProcessClearTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_.c)
- *     ?ProcessClearExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_CLEAREXCLUSIONS@@@Z @ 0x1802197BC (-ProcessClearExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIG.c)
+ *     ??1CCompositionLight@@UEAA@XZ @ 0x180029854 (--1CCompositionLight@@UEAA@XZ.c)
+ *     ?ProcessClearTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_CLEARTARGETS@@@Z @ 0x1800298D8 (-ProcessClearTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_.c)
+ *     ?ProcessClearExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_CLEAREXCLUSIONS@@@Z @ 0x1801F4898 (-ProcessClearExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIG.c)
  * Callees:
- *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x1800128F4 (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x18002998C (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
  */
 
 __int64 __fastcall CCompositionLight::RemoveAllTargets(__int64 a1, unsigned int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall CCompositionLight::RemoveAllTargets(__int64 a1, unsigned int 
 
   v2 = 0;
   v5 = 0;
-  v6 = a1 + (a2 != 0 ? 128LL : 88LL);
+  v6 = a1 + (a2 != 0 ? 120LL : 80LL);
   v7 = *(_DWORD *)(v6 + 24);
   if ( v7 )
   {
@@ -38,7 +38,7 @@ __int64 __fastcall CCompositionLight::RemoveAllTargets(__int64 a1, unsigned int 
       if ( v5 >= v7 )
         goto LABEL_5;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x189u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x182u, 0LL);
   }
   else
   {

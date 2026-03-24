@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001CC30
+ * XREFs of HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001A3C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     WMI_FireNotification @ 0x1C008B468 (WMI_FireNotification.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     WMI_FireNotification @ 0x1C0084F0C (WMI_FireNotification.c)
  */
 
 __int64 __fastcall HUBPDO_EvtOutOfBandwidthTimer(__int64 a1)
@@ -16,6 +16,6 @@ __int64 __fastcall HUBPDO_EvtOutOfBandwidthTimer(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v1,
-         off_1C0069340);
+         off_1C00662E8);
   return WMI_FireNotification(*(_QWORD *)v2, *(unsigned __int16 *)(v2 + 200), 1LL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C0218BD0
+ * XREFs of ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E2950
  * Callers:
- *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0218A00 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
+ *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E2780 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
  * Callees:
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C000B3E0 (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00658DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
@@ -24,7 +24,7 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
   int v13; // esi
   const struct D2D1_INK_BEZIER_SEGMENT *v14; // rdi
 
-  v5 = *((_QWORD *)this + 18);
+  v5 = *((_QWORD *)this + 17);
   v7 = a2;
   v8 = a4;
   v9 = a2;
@@ -35,12 +35,12 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
   }
   else
   {
-    v11 = *((_QWORD *)this + 18);
+    v11 = *((_QWORD *)this + 17);
     if ( v5 <= v10 )
       v11 = a4 + (unsigned __int64)a2;
     v12 = 0LL;
     v13 = DirectComposition::CDCompDynamicArrayBase::SetCount(
-            (DirectComposition::CInkMarshaler *)((char *)this + 120),
+            (DirectComposition::CInkMarshaler *)((char *)this + 112),
             v11,
             0x6B694344u);
     if ( v13 >= 0 )
@@ -50,7 +50,7 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
         v14 = a3;
         do
         {
-          memmove((void *)(*((_QWORD *)this + 15) + *((_QWORD *)this + 19) * (v9 + v12++)), v14, *((_QWORD *)this + 19));
+          memmove((void *)(*((_QWORD *)this + 14) + *((_QWORD *)this + 18) * (v9 + v12++)), v14, *((_QWORD *)this + 18));
           v14 = (const struct D2D1_INK_BEZIER_SEGMENT *)((char *)v14 + 36);
         }
         while ( v12 < v8 );
@@ -58,9 +58,9 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
       }
       if ( v11 != v5 )
         *((_DWORD *)this + 4) &= ~0x80u;
-      if ( *((_DWORD *)this + 40) < v7 )
-        v7 = *((_DWORD *)this + 40);
-      *((_DWORD *)this + 40) = v7;
+      if ( *((_DWORD *)this + 38) < v7 )
+        v7 = *((_DWORD *)this + 38);
+      *((_DWORD *)this + 38) = v7;
       *a5 = 1;
     }
   }

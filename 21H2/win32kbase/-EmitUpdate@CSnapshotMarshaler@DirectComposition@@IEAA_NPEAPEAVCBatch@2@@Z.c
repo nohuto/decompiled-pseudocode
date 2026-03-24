@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdate@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229AD4
+ * XREFs of ?EmitUpdate@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9D90
  * Callers:
- *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229B90 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9E50 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSnapshotMarshaler::EmitUpdate(
@@ -24,21 +24,21 @@ char __fastcall DirectComposition::CSnapshotMarshaler::EmitUpdate(
   *(_DWORD *)v9 = 28;
   *(_OWORD *)(v4 + 4) = 0LL;
   *(_QWORD *)(v4 + 20) = 0LL;
-  *((_DWORD *)v4 + 1) = 366;
-  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-  v5 = *((_QWORD *)this + 8);
+  *((_DWORD *)v4 + 1) = 371;
+  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+  v5 = *((_QWORD *)this + 7);
   if ( v5 )
-    LODWORD(v5) = *(_DWORD *)(v5 + 32);
+    LODWORD(v5) = *(_DWORD *)(v5 + 24);
   *((_DWORD *)v4 + 3) = v5;
-  *((_DWORD *)v4 + 4) = *((_DWORD *)this + 18);
-  *((_DWORD *)v4 + 5) = *((_DWORD *)this + 19);
-  v4[24] = *((_BYTE *)this + 80);
-  v6 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
+  *((_DWORD *)v4 + 4) = *((_DWORD *)this + 16);
+  *((_DWORD *)v4 + 5) = *((_DWORD *)this + 17);
+  v4[24] = *((_BYTE *)this + 72);
+  v6 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
   if ( v6 )
   {
     v7 = (*a2)[1];
     DirectComposition::CApplicationChannel::ReleaseResource(v7, v6);
-    *((_QWORD *)this + 8) = 0LL;
+    *((_QWORD *)this + 7) = 0LL;
     *((_BYTE *)v7 + 240) |= 0x10u;
   }
   return 1;

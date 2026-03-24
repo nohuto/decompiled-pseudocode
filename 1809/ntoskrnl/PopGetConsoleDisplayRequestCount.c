@@ -4,10 +4,10 @@
  *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
  * Callees:
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     TtmIsEnabled @ 0x1405B0C70 (TtmIsEnabled.c)
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     TtmGetSessionDisplayRequiredCount @ 0x14087F84C (TtmGetSessionDisplayRequiredCount.c)
+ *     TtmGetSessionDisplayRequiredCount @ 0x14087F82C (TtmGetSessionDisplayRequiredCount.c)
  */
 
 __int64 PopGetConsoleDisplayRequestCount()

@@ -1,60 +1,59 @@
 /*
- * XREFs of ?DestroyGlobal@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C033F480
+ * XREFs of ?DestroyGlobal@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C02905FC
  * Callers:
- *     ??1DXGKEYEDMUTEX@@QEAA@XZ @ 0x1C033E664 (--1DXGKEYEDMUTEX@@QEAA@XZ.c)
+ *     ??1DXGKEYEDMUTEX@@QEAA@XZ @ 0x1C028F964 (--1DXGKEYEDMUTEX@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x1C000ECF4 (-FreeHandle@DXGGLOBAL@@QEAAXI@Z.c)
- *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C000EF68 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C00068E0 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x1C00191C4 (-FreeHandle@DXGGLOBAL@@QEAAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-void __fastcall DXGKEYEDMUTEX::DestroyGlobal(DXGKEYEDMUTEX *this)
+void __fastcall DXGKEYEDMUTEX::DestroyGlobal(DXGKEYEDMUTEX *this, __int64 a2)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  struct DXGPROCESS *Current; // rax
-  _BYTE v7[24]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v3; // rax
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  _BYTE v11[24]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( *((_QWORD *)this + 3) )
   {
-    WdLogSingleEntry1(1LL, 3679LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_cReference == 0", 3679LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 3702LL;
+    WdLogEvent5_WdAssertion(v3);
   }
   if ( *((DXGKEYEDMUTEX **)this + 12) != (DXGKEYEDMUTEX *)((char *)this + 96) )
   {
-    WdLogSingleEntry1(1LL, 3680LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"IsListEmpty(&m_KeyedMutexWaiterList)",
-      3680LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 3703LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  if ( !*((_BYTE *)this + 176) )
+  if ( !*((_BYTE *)this + 168) )
   {
     if ( *((_DWORD *)this + 8) )
     {
-      DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v7);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
-      DXGGLOBAL::FreeHandle(*((struct _KTHREAD ***)this + 2), *((_DWORD *)this + 8));
+      DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v11, a2);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
+      DXGGLOBAL::FreeHandle(*((struct _KTHREAD ***)this + 2), *((unsigned int *)this + 8));
       *((_DWORD *)this + 8) = 0;
-      if ( v7[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7);
+      if ( v11[8] )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11, v5);
     }
   }
-  operator delete[](*((void **)this + 20));
-  *((_QWORD *)this + 20) = 0LL;
-  *((_DWORD *)this + 42) = 0;
-  Current = DXGPROCESS::GetCurrent(v3, v2, v4, v5);
-  WdLogSingleEntry3(4LL, this, *((unsigned int *)this + 8), Current);
+  operator delete[](*((void **)this + 19));
+  *((_QWORD *)this + 19) = 0LL;
+  *((_DWORD *)this + 40) = 0;
+  v8 = (_QWORD *)WdLogNewEntry5_WdEvent(v7, v6);
+  v8[3] = this;
+  v9 = *((unsigned int *)this + 8);
+  v8[4] = v9;
+  v8[5] = DXGPROCESS::GetCurrent(v9, v10);
+  WdLogEvent5_WdEvent(v8);
 }

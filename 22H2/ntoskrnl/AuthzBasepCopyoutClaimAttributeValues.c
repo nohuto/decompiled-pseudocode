@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x140A59E88
+ * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x14096C82C
  * Callers:
- *     AuthzBasepCopyoutClaimAttributes @ 0x140A5A0BC (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x14096CA9C (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x1403951E0 (RtlStringCbCopyNW.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     RtlStringCbCopyNW @ 0x1403481C8 (RtlStringCbCopyNW.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
@@ -16,161 +16,161 @@ __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
 {
   unsigned int v5; // ebx
   unsigned __int64 v6; // rdi
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  unsigned __int64 v16; // rbp
-  wchar_t *v17; // r10
-  __int64 *v18; // r15
-  __int64 *v19; // r14
-  unsigned int v20; // r13d
-  size_t v21; // r8
-  wchar_t *v22; // r12
-  __int64 v23; // rax
-  unsigned __int64 v24; // rbp
-  __int64 v25; // r14
-  __int64 v26; // r11
-  unsigned int v27; // r12d
-  size_t v28; // r9
-  wchar_t *v29; // r15
-  __int64 v30; // rcx
-  __int64 *v31; // r11
-  unsigned __int64 v32; // r14
-  __int64 v33; // r15
-  __int64 v34; // r11
-  unsigned int v35; // r12d
-  size_t v36; // r9
-  wchar_t *v37; // rbp
-  __int64 *v38; // r11
-  unsigned __int64 v39; // r8
-  _QWORD *v40; // r11
-  unsigned int v41; // r9d
-  _QWORD *i; // rdx
-  __int64 v43; // rcx
+  unsigned __int16 v9; // ax
+  __int64 v10; // rdx
+  unsigned __int64 v11; // r10
+  __int64 *v12; // r15
+  __int64 *v13; // r14
+  unsigned __int64 v14; // r13
+  wchar_t *v15; // r10
+  unsigned int v16; // r12d
+  size_t v17; // r8
+  wchar_t *v18; // rbp
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  unsigned __int64 v21; // r10
+  __int64 *v22; // r15
+  __int64 *v23; // r14
+  unsigned __int64 v24; // r13
+  unsigned int v25; // r12d
+  size_t v26; // rdx
+  wchar_t *v27; // rbp
+  __int64 v28; // rcx
+  __int64 v29; // rdx
+  unsigned __int64 v30; // r10
+  __int64 *v31; // r15
+  __int64 *v32; // r14
+  unsigned int v33; // r12d
+  size_t v34; // rdx
+  wchar_t *v35; // rbp
+  __int64 v36; // r8
+  unsigned __int64 v37; // r10
+  _QWORD *v38; // r11
+  _QWORD *v39; // rdx
+  unsigned int v40; // r9d
+  __int64 v41; // rcx
 
   v5 = 0;
   v6 = a3 + a4;
   if ( a3 + a4 < a3 )
     return (unsigned int)-2147483643;
-  v9 = *(unsigned __int16 *)(a1 + 48);
   *a5 = 0LL;
-  v10 = v9 - 1;
-  if ( v10 )
+  v9 = *(_WORD *)(a1 + 48);
+  if ( !v9 )
+    return (unsigned int)-1073741811;
+  if ( v9 > 2u )
   {
-    v11 = v10 - 1;
-    if ( v11 )
+    switch ( v9 )
     {
-      v12 = v11 - 1;
-      if ( !v12 )
-      {
-        v32 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        v17 = (wchar_t *)(v32 + 8LL * *(unsigned int *)(a1 + 60));
-        if ( (unsigned __int64)v17 <= v6 )
+      case 3u:
+        v29 = 8LL * *(unsigned int *)(a1 + 60);
+        v30 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( v30 + v29 <= v6 )
         {
-          v33 = a1 + 72;
-          *(_QWORD *)(a2 + 24) = v32;
-          v34 = *(_QWORD *)(a1 + 72);
-          v35 = 0;
-          while ( v34 != v33 )
+          *(_QWORD *)(a2 + 24) = v30;
+          v31 = (__int64 *)(a1 + 72);
+          v32 = *(__int64 **)(a1 + 72);
+          v15 = (wchar_t *)(v29 + v30);
+          v33 = 0;
+          while ( v32 != v31 )
           {
-            v36 = *(unsigned __int16 *)(v34 + 40);
-            v37 = (wchar_t *)((char *)v17 + v36 + 2);
-            if ( (unsigned __int64)v37 > v6 )
+            v34 = *((unsigned __int16 *)v32 + 20) + 2LL;
+            v35 = (wchar_t *)((char *)v15 + v34);
+            if ( (unsigned __int64)v15 + v34 > v6 )
               return (unsigned int)-2147483643;
-            *(_QWORD *)(v32 + 8LL * v35) = v17;
-            RtlStringCbCopyNW(v17, v36 + 2, *(STRSAFE_PCNZWCH *)(v34 + 48), v36);
-            v34 = *v38;
-            v17 = v37;
-            ++v35;
+            *(_QWORD *)(((a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) + 8LL * v33) = v15;
+            RtlStringCbCopyNW(v15, v34, (STRSAFE_PCNZWCH)v32[6], v34 - 2);
+            v32 = (__int64 *)*v32;
+            v15 = v35;
+            ++v33;
+          }
+          goto LABEL_33;
+        }
+        return (unsigned int)-2147483643;
+      case 4u:
+        v20 = 16LL * *(unsigned int *)(a1 + 60);
+        v21 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( v21 + v20 <= v6 )
+        {
+          *(_QWORD *)(a2 + 24) = v21;
+          v22 = (__int64 *)(a1 + 72);
+          v23 = *(__int64 **)(a1 + 72);
+          v24 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+          v15 = (wchar_t *)(v20 + v21);
+          v25 = 0;
+          while ( v23 != v22 )
+          {
+            v26 = *((unsigned __int16 *)v23 + 24) + 2LL;
+            v27 = (wchar_t *)((char *)v15 + v26);
+            if ( (unsigned __int64)v15 + v26 > v6 )
+              return (unsigned int)-2147483643;
+            v28 = 2LL * v25;
+            *(_QWORD *)(v24 + 8 * v28) = v23[5];
+            *(_QWORD *)(v24 + 8 * v28 + 8) = v15;
+            RtlStringCbCopyNW(v15, v26, (STRSAFE_PCNZWCH)v23[7], v26 - 2);
+            v23 = (__int64 *)*v23;
+            v15 = v27;
+            ++v25;
+          }
+          goto LABEL_33;
+        }
+        return (unsigned int)-2147483643;
+      case 5u:
+        goto LABEL_10;
+    }
+    if ( v9 != 6 )
+    {
+      if ( v9 == 16 )
+      {
+LABEL_10:
+        v10 = 16LL * *(unsigned int *)(a1 + 60);
+        v11 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( v11 + v10 <= v6 )
+        {
+          *(_QWORD *)(a2 + 24) = v11;
+          v12 = (__int64 *)(a1 + 72);
+          v13 = *(__int64 **)(a1 + 72);
+          v14 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+          v15 = (wchar_t *)(v10 + v11);
+          v16 = 0;
+          while ( v13 != v12 )
+          {
+            v17 = *((unsigned int *)v13 + 12);
+            v18 = (wchar_t *)((char *)v15 + v17);
+            if ( (unsigned __int64)v15 + v17 > v6 )
+              return (unsigned int)-2147483643;
+            v19 = 2LL * v16;
+            *(_QWORD *)(v14 + 8 * v19) = v15;
+            *(_DWORD *)(v14 + 8 * v19 + 8) = v17;
+            memmove(v15, (const void *)v13[5], v17);
+            v13 = (__int64 *)*v13;
+            v15 = v18;
+            ++v16;
           }
           goto LABEL_33;
         }
         return (unsigned int)-2147483643;
       }
-      v13 = v12 - 1;
-      if ( !v13 )
-      {
-        v24 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        v17 = (wchar_t *)(v24 + 16LL * *(unsigned int *)(a1 + 60));
-        if ( (unsigned __int64)v17 <= v6 )
-        {
-          v25 = a1 + 72;
-          *(_QWORD *)(a2 + 24) = v24;
-          v26 = *(_QWORD *)(a1 + 72);
-          v27 = 0;
-          while ( v26 != v25 )
-          {
-            v28 = *(unsigned __int16 *)(v26 + 48);
-            v29 = (wchar_t *)((char *)v17 + v28 + 2);
-            if ( (unsigned __int64)v29 > v6 )
-              return (unsigned int)-2147483643;
-            v30 = 2LL * v27;
-            *(_QWORD *)(v24 + 8 * v30) = *(_QWORD *)(v26 + 40);
-            *(_QWORD *)(v24 + 8 * v30 + 8) = v17;
-            RtlStringCbCopyNW(v17, v28 + 2, *(STRSAFE_PCNZWCH *)(v26 + 56), v28);
-            v26 = *v31;
-            v17 = v29;
-            ++v27;
-          }
-          goto LABEL_33;
-        }
-        return (unsigned int)-2147483643;
-      }
-      v14 = v13 - 1;
-      if ( !v14 )
-        goto LABEL_11;
-      v15 = v14 - 1;
-      if ( v15 )
-      {
-        if ( v15 != 10 )
-          return (unsigned int)-1073741811;
-LABEL_11:
-        v16 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        v17 = (wchar_t *)(v16 + 16LL * *(unsigned int *)(a1 + 60));
-        if ( (unsigned __int64)v17 <= v6 )
-        {
-          v18 = (__int64 *)(a1 + 72);
-          *(_QWORD *)(a2 + 24) = v16;
-          v19 = *(__int64 **)(a1 + 72);
-          v20 = 0;
-          while ( v19 != v18 )
-          {
-            v21 = *((unsigned int *)v19 + 12);
-            v22 = (wchar_t *)((char *)v17 + v21);
-            if ( (unsigned __int64)v17 + v21 > v6 )
-              return (unsigned int)-2147483643;
-            v23 = 2LL * v20;
-            *(_QWORD *)(v16 + 8 * v23) = v17;
-            *(_DWORD *)(v16 + 8 * v23 + 8) = v21;
-            memmove(v17, (const void *)v19[5], v21);
-            v19 = (__int64 *)*v19;
-            v17 = v22;
-            ++v20;
-          }
-          goto LABEL_33;
-        }
-        return (unsigned int)-2147483643;
-      }
+      return (unsigned int)-1073741811;
     }
   }
-  v39 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  v17 = (wchar_t *)(v39 + 8LL * *(unsigned int *)(a1 + 60));
-  if ( (unsigned __int64)v17 <= v6 )
+  v36 = 8LL * *(unsigned int *)(a1 + 60);
+  v37 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( v37 + v36 <= v6 )
   {
-    v40 = (_QWORD *)(a1 + 72);
-    *(_QWORD *)(a2 + 24) = v39;
-    v41 = 0;
-    for ( i = (_QWORD *)*v40; i != v40; i = (_QWORD *)*i )
+    v38 = (_QWORD *)(a1 + 72);
+    *(_QWORD *)(a2 + 24) = v37;
+    v39 = *(_QWORD **)(a1 + 72);
+    v40 = 0;
+    while ( v39 != v38 )
     {
-      v43 = v41++;
-      *(_QWORD *)(v39 + 8 * v43) = i[5];
+      v41 = v40++;
+      *(_QWORD *)(v37 + 8 * v41) = v39[5];
+      v39 = (_QWORD *)*v39;
     }
+    v15 = (wchar_t *)(v36 + v37);
 LABEL_33:
-    *a5 = (char *)v17 - a3;
+    *a5 = (char *)v15 - a3;
     return v5;
   }
   return (unsigned int)-2147483643;

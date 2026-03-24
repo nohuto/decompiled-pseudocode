@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCoverageSamplerStop @ 0x1408C8E50
+ * XREFs of EtwpCoverageSamplerStop @ 0x1408C8E30
  * Callers:
- *     EtwpCoverageSamplerClose @ 0x1408C7C90 (EtwpCoverageSamplerClose.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1408C92DC (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpCoverageSamplerClose @ 0x1408C7C70 (EtwpCoverageSamplerClose.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1408C92BC (EtwpSetCoverageSamplerInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,13 +10,13 @@
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeStopProfile @ 0x140295C40 (KeStopProfile.c)
- *     EtwpCovSampCaptureContextStop @ 0x1403166B0 (EtwpCovSampCaptureContextStop.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeStopProfile @ 0x140295D40 (KeStopProfile.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1403167B0 (EtwpCovSampCaptureContextStop.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x14088C930 (PsRemoveLoadImageNotifyRoutine.c)
- *     EtwpCovSampProcessCleanup @ 0x1408C7150 (EtwpCovSampProcessCleanup.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14088C910 (PsRemoveLoadImageNotifyRoutine.c)
+ *     EtwpCovSampProcessCleanup @ 0x1408C7130 (EtwpCovSampProcessCleanup.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCoverageSamplerStop(__int64 a1)
@@ -40,32 +40,32 @@ struct _KTHREAD *__fastcall EtwpCoverageSamplerStop(__int64 a1)
   v2 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
-  qword_140409E08 = (__int64)KeGetCurrentThread();
-  if ( qword_140409E18 == a1 )
+  qword_140409DC8 = (__int64)KeGetCurrentThread();
+  if ( qword_140409DD8 == a1 )
   {
     v4 = *(_DWORD *)(a1 + 1200);
     if ( (v4 & 2) == 0 )
     {
       *(_DWORD *)(a1 + 1200) = v4 | 2;
-      qword_140409E08 = 0LL;
+      qword_140409DC8 = 0LL;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
       KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140409E20);
-      ExRundownCompleted((PEX_RUNDOWN_REF)&stru_140409E20);
+      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140409DE0);
+      ExRundownCompleted((PEX_RUNDOWN_REF)&stru_140409DE0);
       v5 = KeGetCurrentThread();
       --v5->KernelApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
       v6 = KeGetCurrentThread();
-      v2 = (void *)qword_140409E18;
-      qword_140409E18 = 0LL;
-      v7 = qword_140409E28;
-      qword_140409E08 = (__int64)v6;
+      v2 = (void *)qword_140409DD8;
+      qword_140409DD8 = 0LL;
+      v7 = qword_140409DE8;
+      qword_140409DC8 = (__int64)v6;
       v8 = *(_DWORD *)(a1 + 1132);
       if ( (v8 & 8) != 0 )
       {
-        KeStopProfile(qword_140409E28 + 16);
+        KeStopProfile(qword_140409DE8 + 16);
         *(_DWORD *)(a1 + 1132) &= ~8u;
         v8 = *(_DWORD *)(a1 + 1132);
       }
@@ -109,9 +109,9 @@ struct _KTHREAD *__fastcall EtwpCoverageSamplerStop(__int64 a1)
     }
   }
   result = KeGetCurrentThread();
-  if ( (struct _KTHREAD *)qword_140409E08 == result )
+  if ( (struct _KTHREAD *)qword_140409DC8 == result )
   {
-    qword_140409E08 = 0LL;
+    qword_140409DC8 = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
     KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);

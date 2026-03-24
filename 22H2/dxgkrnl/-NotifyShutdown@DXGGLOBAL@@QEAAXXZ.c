@@ -1,72 +1,85 @@
 /*
- * XREFs of ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C0313B0C
+ * XREFs of ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C026AA48
  * Callers:
- *     DxgkShutdown @ 0x1C030A850 (DxgkShutdown.c)
+ *     DxgkShutdown @ 0x1C0261E90 (DxgkShutdown.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00053F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0197D5C (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00027F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C00EAD78 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
  */
 
 void __fastcall DXGGLOBAL::NotifyShutdown(DXGGLOBAL *this)
 {
-  _QWORD **v1; // rsi
-  _QWORD *v2; // rdi
-  _QWORD *v3; // rbx
-  signed __int64 v4; // rax
-  signed __int64 v5; // rtt
-  __int64 v6; // rcx
-  _QWORD *v7; // rcx
-  __int64 v8; // rcx
-  _BYTE v9[16]; // [rsp+20h] [rbp-B8h] BYREF
-  _BYTE v10[144]; // [rsp+30h] [rbp-A8h] BYREF
+  volatile signed __int64 **v1; // rsi
+  __int64 v2; // rdx
+  volatile signed __int64 *v3; // rbx
+  volatile signed __int64 *v4; // rdi
+  volatile signed __int64 *v5; // rbp
+  signed __int64 v6; // rax
+  signed __int64 v7; // rtt
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _QWORD *v10; // r10
+  _BYTE v11[16]; // [rsp+20h] [rbp-B8h] BYREF
+  _BYTE v12[144]; // [rsp+30h] [rbp-A8h] BYREF
 
-  v1 = (_QWORD **)((char *)this + 768);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DXGGLOBAL *)((char *)this + 672), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
-  v2 = *v1;
-  while ( v2 != v1 && v2 )
+  v1 = (volatile signed __int64 **)((char *)this + 664);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, (DXGGLOBAL *)((char *)this + 584), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
+  v3 = *v1;
+  while ( v3 != (volatile signed __int64 *)v1 && v3 )
   {
-    v3 = v2;
-    v2 = (_QWORD *)*v2;
-    _m_prefetchw(v3 + 3);
-    v4 = v3[3];
-    while ( v4 )
+    v4 = v3;
+    v5 = v3;
+    v3 = (volatile signed __int64 *)*v3;
+    _m_prefetchw((const void *)(v5 + 3));
+    v6 = *((_QWORD *)v5 + 3);
+    while ( v6 )
     {
-      v5 = v4;
-      v4 = _InterlockedCompareExchange64(v3 + 3, v4 + 1, v4);
-      if ( v5 == v4 )
+      v7 = v6;
+      v6 = _InterlockedCompareExchange64(v4 + 3, v6 + 1, v6);
+      if ( v7 == v6 )
       {
-        LOBYTE(v4) = 1;
+        LOBYTE(v6) = 1;
         break;
       }
     }
-    if ( (_BYTE)v4 )
+    if ( (_BYTE)v6 )
     {
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v10, (struct DXGADAPTER *const)v3, 0LL);
-      DXGADAPTER::ReleaseReference((DXGADAPTER *)v3);
-      if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v10, 2LL) >= 0 )
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v12, (struct DXGADAPTER *const)v4, 0LL);
+      DXGADAPTER::ReleaseReference((DXGADAPTER *)v4);
+      if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v12, 2LL) < 0 )
+        goto LABEL_17;
+      v9 = *((_QWORD *)v4 + 338);
+      if ( v9 )
       {
-        v6 = v3[366];
-        if ( v6 )
-          ADAPTER_RENDER::FlushScheduler(v6, 6u, 0xFFFFFFFF, 0);
-        v7 = (_QWORD *)v3[366];
-        if ( v7 && !*(_BYTE *)(v7[2] + 209LL) )
-          (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(v7[95] + 8LL) + 40LL))(v7[96]);
-        v8 = v3[366];
-        if ( v8 )
-          ADAPTER_RENDER::FlushScheduler(v8, 7u, 0xFFFFFFFF, 0);
+        ADAPTER_RENDER::FlushScheduler(v9, 6, 0xFFFFFFFF, 0);
+        v10 = (_QWORD *)*((_QWORD *)v5 + 338);
+        if ( !v10 )
+          goto LABEL_17;
+        if ( !*(_BYTE *)(v10[2] + 209LL) )
+        {
+          (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(v10[80] + 8LL) + 56LL))(v10[81]);
+          v10 = (_QWORD *)*((_QWORD *)v5 + 338);
+        }
       }
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v10);
+      else
+      {
+        v10 = 0LL;
+      }
+      if ( v10 )
+        ADAPTER_RENDER::FlushScheduler((__int64)v10, 7, 0xFFFFFFFF, 0);
+LABEL_17:
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v12, v8);
     }
   }
-  if ( v9[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9);
+  if ( v11[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11, v2);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSignalThreadForApc @ 0x1402EE894
+ * XREFs of KiSignalThreadForApc @ 0x14027A6C0
  * Callers:
- *     KeRequestTerminationThread @ 0x1402ECD10 (KeRequestTerminationThread.c)
- *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
- *     KiInsertDeferredPreemptionApc @ 0x1402EDFE8 (KiInsertDeferredPreemptionApc.c)
- *     KiSuspendThread @ 0x1402EE4D4 (KiSuspendThread.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KiSchedulerApc @ 0x1402EFA40 (KiSchedulerApc.c)
- *     KeTryToInsertQueueApc @ 0x140570750 (KeTryToInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KiSchedulerApc @ 0x140279C00 (KiSchedulerApc.c)
+ *     KiSuspendThread @ 0x14027A324 (KiSuspendThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x14027A5E4 (KiInsertDeferredPreemptionApc.c)
+ *     KeRequestTerminationThread @ 0x1402EA7C8 (KeRequestTerminationThread.c)
+ *     KeTryToInsertQueueApc @ 0x14051A810 (KeTryToInsertQueueApc.c)
  * Callees:
- *     KiSendSoftwareInterrupt @ 0x14022BA48 (KiSendSoftwareInterrupt.c)
- *     HalRequestSoftwareInterrupt @ 0x14022BAA0 (HalRequestSoftwareInterrupt.c)
- *     KiSignalThread @ 0x1402F6ED0 (KiSignalThread.c)
+ *     KiSignalThread @ 0x1402464A0 (KiSignalThread.c)
+ *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
+ *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
  */
 
 char __fastcall KiSignalThreadForApc(__int64 a1, __int64 a2, char a3)
@@ -42,7 +42,8 @@ char __fastcall KiSignalThreadForApc(__int64 a1, __int64 a2, char a3)
             return v4;
           }
 LABEL_24:
-          LOBYTE(v4) = HalRequestSoftwareInterrupt(1);
+          LOBYTE(a1) = 1;
+          LOBYTE(v4) = HalRequestSoftwareInterrupt(a1);
         }
       }
     }
@@ -74,9 +75,12 @@ LABEL_24:
       LOBYTE(v4) = *(_BYTE *)(v3 + 388);
       if ( (_BYTE)v4 == 2 )
       {
-        if ( KeGetPcr()->Prcb.Number != (*(_DWORD *)(v3 + 536) & 0x7FFFFFFF) )
+        a1 = *(unsigned int *)(v3 + 536);
+        LODWORD(a1) = a1 & 0x7FFFFFFF;
+        if ( KeGetPcr()->Prcb.Number != (_DWORD)a1 )
         {
-          LOBYTE(v4) = KiSendSoftwareInterrupt();
+          LOBYTE(a2) = 1;
+          LOBYTE(v4) = KiSendSoftwareInterrupt(a1, a2);
           return v4;
         }
         goto LABEL_24;

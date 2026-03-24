@@ -1,12 +1,12 @@
 /*
- * XREFs of CommonBuffer_WorkItem @ 0x1C0015A10
+ * XREFs of CommonBuffer_WorkItem @ 0x1C0015DF0
  * Callers:
  *     <none>
  * Callees:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10 (XilCoreCommonBuffer_AcquireBuffers.c)
- *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015AD8 (XilCoreCommonBuffer_PreAllocateBuffers.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_qqd @ 0x1C0030A88 (WPP_RECORDER_SF_qqd.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015EB8 (XilCoreCommonBuffer_PreAllocateBuffers.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C00307D8 (WPP_RECORDER_SF_qqd.c)
  */
 
 void __fastcall CommonBuffer_WorkItem(PVOID IoObject, char *Context, PIO_WORKITEM IoWorkItem)

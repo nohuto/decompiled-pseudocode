@@ -1,128 +1,90 @@
 /*
- * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1402B2FD0
+ * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x14024C010
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402437F0 (KiDoesThreadDominateRescheduleContextEntry.c)
- *     KiDirectSwitchThread @ 0x1402B1870 (KiDirectSwitchThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1402B3210 (KiGetThreadEffectiveRankNonZero.c)
- *     KiShouldPreemptionBeDeferred @ 0x140307740 (KiShouldPreemptionBeDeferred.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x140308F6C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiGetComparisonRanks @ 0x1403690E8 (KiGetComparisonRanks.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024CE70 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140259B84 (KiShouldPreemptionBeDeferred.c)
+ *     KiGetComparisonRanks @ 0x14031E20C (KiGetComparisonRanks.c)
  */
 
-bool __fastcall KiEvaluateGroupSchedulingPreemption(__int64 *a1, __int64 a2, int a3, _QWORD *a4)
+bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, _KTHREAD *a2, __int64 a3, _QWORD *a4)
 {
-  unsigned __int8 v4; // al
-  int v5; // ebx
-  __int64 v6; // r13
-  __int64 v7; // r8
-  __int64 v8; // r14
-  __int64 v12; // rbx
-  __int64 v14; // rsi
-  __int64 v15; // r15
-  char v16; // r14
-  unsigned int v17; // r8d
-  unsigned int v18; // eax
-  char v19; // dl
-  __int64 v20; // rbx
-  unsigned int ThreadEffectiveRankNonZero; // eax
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  _DWORD v24[4]; // [rsp+20h] [rbp-48h] BYREF
-  unsigned int v25; // [rsp+70h] [rbp+8h] BYREF
-  int v26; // [rsp+80h] [rbp+18h]
+  int v4; // edi
+  _QWORD *v5; // r15
+  struct _KPRCB *v8; // r10
+  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rsi
+  __int64 v10; // r14
+  unsigned int v11; // r10d
+  unsigned int v12; // eax
+  __int64 v14; // rax
+  int v15; // eax
+  unsigned int v16; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int ThreadEffectiveRankNonZero; // [rsp+68h] [rbp+10h] BYREF
 
-  v26 = a3;
-  v4 = *((_BYTE *)a1 + 32);
-  v5 = 0;
-  v6 = a1[2];
-  v7 = v4;
-  v8 = *a1;
-  if ( (v4 & 1) != 0 )
+  v4 = 0;
+  v5 = a4;
+  v8 = a1;
+  ThreadEffectiveRankNonZero = 0;
+  LOBYTE(a4) = a1->NextThread == a2 || a1 == KeGetCurrentPrcb();
+  SchedulingGroup = a2->SchedulingGroup;
+  if ( SchedulingGroup )
   {
-    *a4 = 0LL;
-    v12 = *(_QWORD *)(a2 + 104);
-    if ( v12 )
-    {
-      v20 = *(unsigned int *)(v8 + 216) + v12;
-      if ( v20 )
-      {
-        LOBYTE(v7) = 1;
-        if ( (unsigned int)KiGetThreadEffectiveRankNonZero(a2, v20, v7, 0LL) )
-          *a4 = v20;
-      }
-    }
-    return 1;
+    SchedulingGroup = (_KSCHEDULING_GROUP *volatile)((char *)SchedulingGroup + a1->ScbOffset);
+    if ( SchedulingGroup )
+      ThreadEffectiveRankNonZero = KiGetThreadEffectiveRankNonZero(
+                                     (_DWORD)a2,
+                                     (_DWORD)SchedulingGroup,
+                                     a3,
+                                     (_DWORD)a4,
+                                     0LL);
   }
-  v14 = *(_QWORD *)(v6 + 104);
-  v24[0] = 0;
-  if ( v14 )
+  v10 = *(_QWORD *)(a3 + 104);
+  v16 = 0;
+  *v5 = 0LL;
+  if ( !v10 )
+    goto LABEL_5;
+  v10 += v8->ScbOffset;
+  if ( !v10 )
+    goto LABEL_5;
+  LOBYTE(a4) = 1;
+  v16 = KiGetThreadEffectiveRankNonZero(a3, v10, a3, (_DWORD)a4, 0LL);
+  v11 = v16;
+  if ( v16 )
   {
-    v14 += *(unsigned int *)(v8 + 216);
-    if ( v14 )
+    *v5 = v10;
+    goto LABEL_6;
+  }
+  v14 = v10;
+  do
+  {
+    v4 += *(_DWORD *)(v14 + 116);
+    v14 = *(_QWORD *)(v14 + 408);
+  }
+  while ( v14 );
+  if ( v4 )
+  {
+    v15 = *(_DWORD *)(a3 + 120);
+    if ( (v15 & 0x200) == 0
+      && *(char *)(a3 + 195) < 16
+      && (v15 & 0xC00) == 0
+      && (unsigned __int8)KiShouldPreemptionBeDeferred(a3) )
     {
-      LOBYTE(v7) = (v4 & 4) != 0;
-      v24[0] = KiGetThreadEffectiveRankNonZero(v6, v14, v7, 0LL);
+      _interlockedbittestandset((volatile signed __int32 *)(a3 + 120), 0xBu);
+LABEL_5:
+      v11 = v16;
     }
   }
-  v15 = *(_QWORD *)(a2 + 104);
-  v25 = 0;
-  *a4 = 0LL;
-  if ( !v15 || (v15 += *(unsigned int *)(v8 + 216)) == 0 )
+LABEL_6:
+  if ( !SchedulingGroup || !v10 )
+    goto LABEL_7;
+  v12 = ThreadEffectiveRankNonZero;
+  if ( ThreadEffectiveRankNonZero && v11 )
   {
-    v16 = v26;
+    KiGetComparisonRanks(SchedulingGroup, v10, &ThreadEffectiveRankNonZero, &v16);
+    v11 = v16;
 LABEL_7:
-    v17 = v25;
-    goto LABEL_8;
+    v12 = ThreadEffectiveRankNonZero;
   }
-  LOBYTE(v7) = 1;
-  ThreadEffectiveRankNonZero = KiGetThreadEffectiveRankNonZero(a2, v15, v7, 0LL);
-  v16 = v26;
-  v17 = ThreadEffectiveRankNonZero;
-  v25 = ThreadEffectiveRankNonZero;
-  if ( ThreadEffectiveRankNonZero )
-  {
-    *a4 = v15;
-    goto LABEL_8;
-  }
-  if ( (v26 & 2) == 0 )
-  {
-    v22 = v15;
-    do
-    {
-      v5 += *(_DWORD *)(v22 + 116);
-      v22 = *(_QWORD *)(v22 + 408);
-    }
-    while ( v22 );
-    if ( v5
-      && (unsigned __int8)KiIsThreadConstrainedBySchedulingGroup(a2)
-      && (*(_DWORD *)(a2 + 120) & 0xC00) == 0
-      && (unsigned __int8)KiShouldPreemptionBeDeferred(v23) )
-    {
-      _interlockedbittestandset((volatile signed __int32 *)(a2 + 120), 0xBu);
-      goto LABEL_7;
-    }
-  }
-LABEL_8:
-  if ( !v14 || !v15 )
-    goto LABEL_9;
-  v18 = v24[0];
-  if ( v24[0] && v17 )
-  {
-    KiGetComparisonRanks(v14, v15, v24, &v25);
-    v17 = v25;
-LABEL_9:
-    v18 = v24[0];
-  }
-  if ( v17 < v18 )
-    return 1;
-  if ( v17 != v18 )
-    return (a1[4] & 0x10) != 0 && (*(_BYTE *)(a2 + 195) || !*(_BYTE *)(v6 + 195));
-  v19 = *(_BYTE *)(a2 + 195);
-  if ( v19 > *(char *)(v6 + 195) || v19 == *(_BYTE *)(v6 + 195) && ((a1[4] & 0x18) != 0 || (v16 & 1) != 0) )
-    return 1;
-  if ( (a1[4] & 0x10) == 0 )
-    return 0;
-  return v19 != 0;
+  return v11 < v12 || v11 == v12 && *(_BYTE *)(a3 + 195) > a2->Priority;
 }

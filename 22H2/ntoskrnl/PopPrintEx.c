@@ -1,21 +1,24 @@
 /*
- * XREFs of PopPrintEx @ 0x14032A4CC
+ * XREFs of PopPrintEx @ 0x140364318
  * Callers:
- *     PopCoalescingSetTimer @ 0x14058DA10 (PopCoalescingSetTimer.c)
- *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopSetSessionDisplayStatus @ 0x1407A6040 (PopSetSessionDisplayStatus.c)
- *     PopSetSessionUserStatus @ 0x1407A62CC (PopSetSessionUserStatus.c)
- *     PopEvaluateGlobalUserStatus @ 0x1407A6464 (PopEvaluateGlobalUserStatus.c)
- *     PopSessionConnectionChange @ 0x1407EBF04 (PopSessionConnectionChange.c)
- *     PopCheckThermalPolicy @ 0x1408024A8 (PopCheckThermalPolicy.c)
- *     PoFxRegisterDevice @ 0x140837E20 (PoFxRegisterDevice.c)
- *     PopCoalescingNotify @ 0x140987090 (PopCoalescingNotify.c)
- *     PopDeferDoze @ 0x14098B6C4 (PopDeferDoze.c)
- *     PopDiagTraceIoCoalescingOff @ 0x14098FCB8 (PopDiagTraceIoCoalescingOff.c)
- *     PopDiagTraceIoCoalescingOn @ 0x14098FCE8 (PopDiagTraceIoCoalescingOn.c)
+ *     PopCoalescingSetTimer @ 0x14056EBA4 (PopCoalescingSetTimer.c)
+ *     PopSessionWinlogonNotification @ 0x1405D8DC4 (PopSessionWinlogonNotification.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopSessionInputChange @ 0x140725094 (PopSessionInputChange.c)
+ *     PopUpdateTimeouts @ 0x140725430 (PopUpdateTimeouts.c)
+ *     PopSetSessionUserStatus @ 0x1407255E4 (PopSetSessionUserStatus.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1407256C8 (PopEvaluateGlobalUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x1407818B8 (PopSetSessionDisplayStatus.c)
+ *     PopSessionConnectionChange @ 0x14078D82C (PopSessionConnectionChange.c)
+ *     PoFxRegisterDevice @ 0x1407B4F30 (PoFxRegisterDevice.c)
+ *     PopCheckThermalPolicy @ 0x1407C0ED4 (PopCheckThermalPolicy.c)
+ *     PopCoalescingNotify @ 0x1408E6900 (PopCoalescingNotify.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x1408EA97C (PopDiagTraceIoCoalescingOff.c)
+ *     PopDiagTraceIoCoalescingOn @ 0x1408EA9AC (PopDiagTraceIoCoalescingOn.c)
+ *     PopDeferDoze @ 0x1408F0498 (PopDeferDoze.c)
+ *     PopCheckConsoleTimeouts @ 0x1408F5014 (PopCheckConsoleTimeouts.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x14032A5D0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1403643E0 (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 PopPrintEx(__int64 a1, __int64 a2, ...)

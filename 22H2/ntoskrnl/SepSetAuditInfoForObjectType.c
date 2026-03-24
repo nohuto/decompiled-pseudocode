@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSetAuditInfoForObjectType @ 0x1409CEE90
+ * XREFs of SepSetAuditInfoForObjectType @ 0x140922524
  * Callers:
- *     SepExamineSaclEx @ 0x1409CE764 (SepExamineSaclEx.c)
+ *     SepExamineSaclEx @ 0x140921DA0 (SepExamineSaclEx.c)
  * Callees:
- *     SepAuditTypeList @ 0x1409CE6B8 (SepAuditTypeList.c)
+ *     SepAuditTypeList @ 0x140921CF4 (SepAuditTypeList.c)
  */
 
 __int64 __fastcall SepSetAuditInfoForObjectType(
@@ -30,7 +30,7 @@ __int64 __fastcall SepSetAuditInfoForObjectType(
       v12 = 64;
   }
   result = a9;
-  if ( ((*(_DWORD *)(a9 + 4LL * a7) | a3) & a2) != 0 )
+  if ( ((a3 | *(_DWORD *)(a9 + 4LL * a7)) & a2) != 0 )
   {
     if ( (a1 & 0x40) != 0 && *(int *)(a8 + 4LL * a7) >= 0 )
     {

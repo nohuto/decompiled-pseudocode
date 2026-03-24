@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqGrowPropertyArray @ 0x1406DB450
+ * XREFs of PiDqGrowPropertyArray @ 0x1406DB430
  * Callers:
- *     PiDqActionDataGetChangedProperties @ 0x1406DB264 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A68C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14082A918 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetChangedProperties @ 0x1406DB244 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A66C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14082A8F8 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

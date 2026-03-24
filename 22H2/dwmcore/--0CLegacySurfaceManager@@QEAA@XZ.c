@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CLegacySurfaceManager@@QEAA@XZ @ 0x1800CC968
+ * XREFs of ??0CLegacySurfaceManager@@QEAA@XZ @ 0x1800B64B0
  * Callers:
- *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800CC584 (--0CGlobalSurfaceManager@@IEAA@XZ.c)
+ *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800B5474 (--0CGlobalSurfaceManager@@IEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ CLegacySurfaceManager *__fastcall CLegacySurfaceManager::CLegacySurfaceManager(C
   *(_QWORD *)this = &CLogicalSurfaceHandleMap::`vftable';
   RtlInitializeGenericTable(
     (PRTL_GENERIC_TABLE)((char *)this + 8),
-    CGenericTableMap<void *,CLogicalSurfaceHandleMap::LSEENTRY>::CompareTableData,
+    CGenericTableMap<unsigned __int64,CWindowManager::SPRITEENTRY>::CompareTableData,
     (PRTL_GENERIC_ALLOCATE_ROUTINE)CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::AllocTableData,
     CGenericTableMap<void *,CLogicalSurfaceHandleMap::LSEENTRY>::FreeTableData,
     0LL);

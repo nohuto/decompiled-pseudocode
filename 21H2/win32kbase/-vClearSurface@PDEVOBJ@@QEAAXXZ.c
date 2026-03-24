@@ -1,37 +1,35 @@
 /*
- * XREFs of ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C016B0B8
+ * XREFs of ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C013E10C
  * Callers:
- *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0170C3C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0143CA4 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
  * Callees:
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C001BAA4 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C001DADC (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DLODCOBJ@@QEAA@XZ @ 0x1C001DB44 (--1DLODCOBJ@@QEAA@XZ.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ?vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00628E0 (-vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     GreReleaseSemaphoreInternal @ 0x1C0038C70 (GreReleaseSemaphoreInternal.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C003B054 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003B0DC (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00BE6F4 (-vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C013E1B4 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall PDEVOBJ::vClearSurface(PDEVOBJ *this)
 {
-  __int64 v2; // rdx
-  int v3; // r8d
-  int v4; // r8d
-  __int64 v5; // rcx
-  _BYTE v6[32]; // [rsp+20h] [rbp-78h] BYREF
-  _BYTE v7[88]; // [rsp+40h] [rbp-58h] BYREF
+  int v2; // r8d
+  _BYTE v3[32]; // [rsp+20h] [rbp-78h] BYREF
+  _QWORD v4[2]; // [rsp+40h] [rbp-58h] BYREF
+  _QWORD v5[9]; // [rsp+50h] [rbp-48h] BYREF
 
   EngAcquireSemaphore(ghsemDriverMgmt);
   EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
-  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v7);
-  DEVLOCKOBJ::vLock((DEVLOCKOBJ *)v6, this);
-  *(_QWORD *)(*(_QWORD *)this + 2528LL) = 0LL;
-  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v6, v2, v3);
-  DLODCOBJ::~DLODCOBJ((DLODCOBJ *)v7);
-  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v4);
-  if ( ghsemDriverMgmt )
-  {
-    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
-    PsLeavePriorityRegion(v5);
-  }
+  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v4);
+  DEVLOCKOBJ::vLock((DEVLOCKOBJ *)v3, this);
+  *(_QWORD *)(*(_QWORD *)this + 2552LL) = 0LL;
+  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v3);
+  if ( v4[0] )
+    DLODCOBJ::vUnlock((DLODCOBJ *)v4);
+  PopThreadGuardedObject(v5);
+  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v2);
+  GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
 }

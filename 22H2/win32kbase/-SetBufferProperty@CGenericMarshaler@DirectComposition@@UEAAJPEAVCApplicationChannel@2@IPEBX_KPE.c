@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetBufferProperty@CGenericMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02309B0
+ * XREFs of ?SetBufferProperty@CGenericMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F6B60
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C020CFB0 (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
- *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C02308F0 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C01D566C (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
+ *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C01F6AA0 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericMarshaler::SetBufferProperty(
@@ -18,60 +18,67 @@ __int64 __fastcall DirectComposition::CGenericMarshaler::SetBufferProperty(
         size_t Size,
         bool *a6)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
-  char **v10; // rbx
-  size_t v11; // rsi
-  unsigned __int64 v12; // rdx
+  size_t v6; // rsi
+  __int64 *v10; // rbx
+  __int64 v11; // rax
   __int64 v13; // rdi
-  __int64 QuotaZInit; // rax
-  bool *v16; // rax
-  char **v17; // [rsp+50h] [rbp+8h] BYREF
+  _WORD *v14; // rax
+  bool *v15; // rax
+  __int64 *v16; // [rsp+50h] [rbp+8h] BYREF
 
-  DirectComposition::CGenericMarshaler::FindProperty((__int64)this, &v17, a3);
-  v9 = (NSInstrumentation::CLeakTrackingAllocator *)*((_QWORD *)this + 8);
-  v10 = v17;
-  v11 = Size;
-  v12 = *((_QWORD *)this + 7) + 8LL * (_QWORD)v9;
-  if ( v17 != (char **)v12 )
+  v6 = Size;
+  DirectComposition::CGenericMarshaler::FindProperty((__int64)this, &v16, a3);
+  v10 = v16;
+  if ( v16 == (__int64 *)(*((_QWORD *)this + 8) + 8LL * *((_QWORD *)this + 9)) )
+    goto LABEL_9;
+  v11 = *v16;
+  if ( *(_BYTE *)(*v16 + 4) != 5 )
+    v11 = 0LL;
+  if ( !v11 )
+    return 3221225485LL;
+  v13 = 0LL;
+  if ( *(_QWORD *)(v11 + 8) >= v6 )
+    v13 = v11;
+  if ( !v13 )
   {
-    v13 = (__int64)*v17;
-    if ( (*v17)[4] != 5 )
+LABEL_9:
+    if ( v6 + 24 < v6 )
+      return 3221225506LL;
+    v14 = Win32AllocPoolWithQuotaZInit(v6 + 24, 0x70674344u);
+    v13 = (__int64)v14;
+    if ( v14 )
+    {
+      *(_DWORD *)v14 = a3;
+      v14[2] = 5;
+      *((_QWORD *)v14 + 1) = v6;
+      *((_QWORD *)v14 + 2) = 0LL;
+    }
+    else
+    {
       v13 = 0LL;
+    }
     if ( !v13 )
-      return 3221225485LL;
-    if ( *(_QWORD *)(v13 + 8) >= Size )
-      goto LABEL_14;
-  }
-  if ( Size + 24 < Size )
-    return 3221225506LL;
-  QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v9, v12, Size + 24, 0x70674344u);
-  v13 = QuotaZInit;
-  if ( QuotaZInit )
-  {
-    *(_DWORD *)QuotaZInit = a3;
-    *(_WORD *)(QuotaZInit + 4) = 5;
-    *(_QWORD *)(QuotaZInit + 8) = v11;
-    *(_QWORD *)(QuotaZInit + 16) = 0LL;
-    if ( v10 != (char **)(*((_QWORD *)this + 7) + 8LL * *((_QWORD *)this + 8)) )
+      return 3221225495LL;
+    if ( v10 == (__int64 *)(*((_QWORD *)this + 8) + 8LL * *((_QWORD *)this + 9)) )
     {
-      if ( *v10 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v10);
-      *v10 = (char *)v13;
-      goto LABEL_14;
+      if ( !DirectComposition::CGenericPropertyList::push_back(
+              (DirectComposition::CGenericMarshaler *)((char *)this + 64),
+              (struct DirectComposition::CGenericProperty *)v13) )
+      {
+        Win32FreePool(v13);
+        return 3221225495LL;
+      }
     }
-    if ( DirectComposition::CGenericPropertyList::push_back(
-           (DirectComposition::CGenericMarshaler *)((char *)this + 56),
-           (struct DirectComposition::CGenericProperty *)QuotaZInit) )
+    else
     {
-LABEL_14:
-      memmove((void *)(v13 + 24), a4, v11);
-      v16 = a6;
-      *(_QWORD *)(v13 + 16) = v11;
-      *(_BYTE *)(v13 + 5) = 1;
-      *v16 = 1;
-      return 0LL;
+      Win32FreePool(*v10);
+      *v10 = v13;
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v13);
   }
-  return 3221225495LL;
+  memmove((void *)(v13 + 24), a4, v6);
+  v15 = a6;
+  *(_QWORD *)(v13 + 16) = v6;
+  *(_BYTE *)(v13 + 5) = 1;
+  *v15 = 1;
+  return 0LL;
 }

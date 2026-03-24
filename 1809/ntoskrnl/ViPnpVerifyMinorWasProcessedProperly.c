@@ -5,10 +5,10 @@
  *     VfPnpVerifyIrpStackUpward @ 0x1409407B0 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1402AB8D0 (MmIsNonPagedSystemAddressValid.c)
- *     IovUtilMarkDeviceObject @ 0x14030ACF8 (IovUtilMarkDeviceObject.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x14030AEC0 (ViErrorReport10.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1402AB9D0 (MmIsNonPagedSystemAddressValid.c)
+ *     IovUtilMarkDeviceObject @ 0x14030ADF8 (IovUtilMarkDeviceObject.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x14030AFC0 (ViErrorReport10.c)
  *     IovUtilGetBottomDeviceObjectWithTag @ 0x140935490 (IovUtilGetBottomDeviceObjectWithTag.c)
  *     IovUtilIsDeviceObjectMarked @ 0x1409355A0 (IovUtilIsDeviceObjectMarked.c)
  */

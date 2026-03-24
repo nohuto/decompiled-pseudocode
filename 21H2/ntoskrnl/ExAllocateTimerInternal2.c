@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAllocateTimerInternal2 @ 0x1402D5B80
+ * XREFs of ExAllocateTimerInternal2 @ 0x140280440
  * Callers:
- *     ExAllocateTimer @ 0x1402D5B50 (ExAllocateTimer.c)
- *     ExAllocateTimerInternal @ 0x14063D9B0 (ExAllocateTimerInternal.c)
+ *     ExAllocateTimer @ 0x140280410 (ExAllocateTimer.c)
+ *     ExAllocateTimerInternal @ 0x1405B6040 (ExAllocateTimerInternal.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x140358884 (ExpExTimerAttributesAreValid.c)
- *     KiInitializeTimer2 @ 0x1403588EC (KiInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x1403725A0 (KeInitializeIRTimer.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExpExTimerAttributesAreValid @ 0x1402E9220 (ExpExTimerAttributesAreValid.c)
+ *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x1403813E0 (KeInitializeIRTimer.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4)

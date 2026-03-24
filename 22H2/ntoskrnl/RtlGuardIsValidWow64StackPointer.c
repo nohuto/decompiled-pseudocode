@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlGuardIsValidWow64StackPointer @ 0x1408862C0
+ * XREFs of RtlGuardIsValidWow64StackPointer @ 0x14067B4B8
  * Callers:
- *     KeVerifyContextRecord @ 0x14030DB94 (KeVerifyContextRecord.c)
- *     PspWow64SetContextThread @ 0x1407A0968 (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x14033FA10 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x14034049C (KeVerifyContextRecord.c)
+ *     PspWow64SetContextThread @ 0x14067A140 (PspWow64SetContextThread.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall RtlGuardIsValidWow64StackPointer(unsigned int a1, void *Teb)
+_BOOL8 __fastcall RtlGuardIsValidWow64StackPointer(unsigned int a1, __int64 Teb)
 {
-  _DWORD *v2; // r9
-  unsigned int v3; // eax
+  unsigned __int64 v2; // rax
+  __int64 v3; // rdx
   struct _KTHREAD *CurrentThread; // rdx
-  unsigned int v6; // [rsp+10h] [rbp+10h]
 
   if ( !Teb )
   {
@@ -20,12 +20,9 @@ _BOOL8 __fastcall RtlGuardIsValidWow64StackPointer(unsigned int a1, void *Teb)
     if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
       Teb = 0LL;
     else
-      Teb = CurrentThread->Teb;
+      Teb = (__int64)CurrentThread->Teb;
   }
-  v2 = (_DWORD *)(((unsigned __int64)Teb + 0x2000) & -(__int64)(Teb != 0LL));
-  v6 = v2[1];
-  v3 = v2[2];
-  if ( a1 >= v3 && a1 <= v6 )
-    return 1LL;
-  return v3 != v2[899] && a1 >= v3 - 4096 && a1 <= v6;
+  v2 = Teb + 0x2000;
+  v3 = -Teb;
+  return a1 >= *(_DWORD *)((v2 & -(__int64)(v3 != 0)) + 8) && a1 <= *(_DWORD *)((v2 & -(__int64)(v3 != 0)) + 4);
 }

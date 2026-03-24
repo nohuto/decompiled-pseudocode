@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTraceHiveRestoreStart @ 0x140A12D0C
+ * XREFs of CmpTraceHiveRestoreStart @ 0x14086AD60
  * Callers:
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpQueryNameString @ 0x140684F94 (CmpQueryNameString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x14070D9E0 (CmpQueryNameString.c)
  */
 
 void __fastcall CmpTraceHiveRestoreStart(void *a1, int a2)
@@ -49,6 +49,6 @@ void __fastcall CmpTraceHiveRestoreStart(void *a1, int a2)
     *(_QWORD *)&UserData[v6].Size = 4LL;
     EtwWrite(v7, &EventDescriptor, 0LL, v5 + 1, UserData);
     if ( a1 )
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
   }
 }

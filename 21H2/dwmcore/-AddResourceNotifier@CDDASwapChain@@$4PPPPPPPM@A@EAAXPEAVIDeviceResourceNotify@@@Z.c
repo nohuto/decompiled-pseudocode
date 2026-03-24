@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x18010A8F0
+ * XREFs of ?AddResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F8020
  * Callers:
  *     <none>
  * Callees:

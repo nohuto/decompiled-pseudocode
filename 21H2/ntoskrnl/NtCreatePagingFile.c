@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreatePagingFile @ 0x14084AA50
+ * XREFs of NtCreatePagingFile @ 0x1407B65E0
  * Callers:
  *     <none>
  * Callees:
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
  */
 
 __int64 __fastcall NtCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

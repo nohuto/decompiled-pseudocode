@@ -1,16 +1,16 @@
 /*
- * XREFs of PopHiberCheckForDebugBreak @ 0x140A4D92C
+ * XREFs of PopHiberCheckForDebugBreak @ 0x14099481C
  * Callers:
- *     PopWriteHiberImage @ 0x140A4C0E8 (PopWriteHiberImage.c)
- *     PopDecompressHiberBlocks @ 0x140A4CD9C (PopDecompressHiberBlocks.c)
- *     ConsumerPeekAndConsumeBuffer @ 0x140A4D310 (ConsumerPeekAndConsumeBuffer.c)
- *     PopRequestRead @ 0x140A4D4A4 (PopRequestRead.c)
- *     ProducerGetBuffer @ 0x140A4D828 (ProducerGetBuffer.c)
- *     ProducerConsumerBufferComplete @ 0x140A4D96C (ProducerConsumerBufferComplete.c)
- *     ConsumerGetBuffer @ 0x140A4DB8C (ConsumerGetBuffer.c)
+ *     PopWriteHiberImage @ 0x140993C74 (PopWriteHiberImage.c)
+ *     ConsumerGetBuffer @ 0x14099414C (ConsumerGetBuffer.c)
+ *     ProducerConsumerBufferComplete @ 0x1409946AC (ProducerConsumerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x140994778 (ProducerGetBuffer.c)
+ *     PopDecompressHiberBlocks @ 0x140994874 (PopDecompressHiberBlocks.c)
+ *     ConsumerPeekAndConsumeBuffer @ 0x1409949AC (ConsumerPeekAndConsumeBuffer.c)
+ *     PopRequestRead @ 0x1409B1854 (PopRequestRead.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x140222368 (KdCheckForDebugBreak.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KdCheckForDebugBreak @ 0x140383EB0 (KdCheckForDebugBreak.c)
  */
 
 LARGE_INTEGER PopHiberCheckForDebugBreak()

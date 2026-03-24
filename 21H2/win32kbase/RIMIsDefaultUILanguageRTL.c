@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIsDefaultUILanguageRTL @ 0x1C00C5510
+ * XREFs of RIMIsDefaultUILanguageRTL @ 0x1C00B7AE0
  * Callers:
- *     UnpackPenSettings @ 0x1C01E8EF0 (UnpackPenSettings.c)
+ *     UnpackPenSettings @ 0x1C01AFAF0 (UnpackPenSettings.c)
  * Callees:
  *     <none>
  */

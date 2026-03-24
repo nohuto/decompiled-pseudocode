@@ -1,10 +1,10 @@
 /*
- * XREFs of pow @ 0x180101940
+ * XREFs of pow @ 0x1800E81BC
  * Callers:
- *     ?Compute@CubicBezierInterpolation@@UEAAXMW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x18001BA10 (-Compute@CubicBezierInterpolation@@UEAAXMW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@1.c)
- *     ?EvaluateCurve@XamlBackInterpolation@@MEAANN@Z @ 0x1800FBC10 (-EvaluateCurve@XamlBackInterpolation@@MEAANN@Z.c)
- *     ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x1800FBCC0 (-EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z.c)
- *     ?EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z @ 0x1802572A0 (-EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z.c)
+ *     ?Compute@CubicBezierInterpolation@@UEAAXMW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x1800295F0 (-Compute@CubicBezierInterpolation@@UEAAXMW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@1.c)
+ *     ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x1800E3150 (-EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z.c)
+ *     ?EvaluateCurve@XamlBackInterpolation@@MEAANN@Z @ 0x180206B80 (-EvaluateCurve@XamlBackInterpolation@@MEAANN@Z.c)
+ *     ?EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z @ 0x180206C00 (-EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z.c)
  * Callees:
  *     <none>
  */

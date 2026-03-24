@@ -1,11 +1,11 @@
 /*
- * XREFs of EngGetRgnBox @ 0x1C0177B40
+ * XREFs of EngGetRgnBox @ 0x1C014B8F0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetObjectOwner @ 0x1C001F0C0 (GreGetObjectOwner.c)
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008EA90 (--0EngModeState@@QEAA@XZ.c)
- *     GreGetRgnBox @ 0x1C0092B40 (GreGetRgnBox.c)
+ *     GreGetObjectOwner @ 0x1C0031450 (GreGetObjectOwner.c)
+ *     GreGetRgnBox @ 0x1C00849A0 (GreGetRgnBox.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB6DC (--0EngModeState@@QEAA@XZ.c)
  */
 
 INT __stdcall EngGetRgnBox(HANDLE hrgn, LPRECT prcl)
@@ -19,6 +19,6 @@ INT __stdcall EngGetRgnBox(HANDLE hrgn, LPRECT prcl)
   else
     result = GreGetRgnBox((HRGN)hrgn, (__int64)prcl);
   if ( v5 )
-    *(_DWORD *)(v5 + 328) &= ~0x10u;
+    *(_DWORD *)(v5 + 328) &= ~0x20u;
   return result;
 }

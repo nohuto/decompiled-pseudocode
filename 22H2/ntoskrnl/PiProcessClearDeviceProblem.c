@@ -1,66 +1,70 @@
 /*
- * XREFs of PiProcessClearDeviceProblem @ 0x140959420
+ * XREFs of PiProcessClearDeviceProblem @ 0x140731AB8
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PnpRestartDeviceNode @ 0x140958D6C (PnpRestartDeviceNode.c)
- *     PipIsProblemReadonly @ 0x140959974 (PipIsProblemReadonly.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PnpRestartDeviceNode @ 0x140731B88 (PnpRestartDeviceNode.c)
+ *     PipIsProblemReadonly @ 0x140731C84 (PipIsProblemReadonly.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
  */
 
 __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
 {
   __int64 v1; // rax
   unsigned int v2; // ebx
-  _DWORD *v3; // rdi
-  int v4; // edx
-  int v5; // r8d
-  int v6; // r9d
-  int v7; // r8d
+  _DWORD *v4; // rdi
+  int v5; // edx
+  int v6; // ecx
+  int v7; // eax
+  bool v9; // zf
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 16);
   v2 = 0;
   P = 0LL;
-  v3 = *(_DWORD **)(*(_QWORD *)(v1 + 312) + 40LL);
-  v4 = v3[75];
-  if ( (unsigned int)(v4 - 769) > 3 && v4 != 788 )
+  v4 = *(_DWORD **)(*(_QWORD *)(v1 + 312) + 40LL);
+  v5 = v4[75];
+  if ( ((v5 - 769) & 0xFFFFFFEE) == 0 && v5 != 785 )
   {
-    if ( (unsigned int)(v4 - 789) <= 1 )
-      return (unsigned int)-1073741738;
+    v6 = v4[99];
+    if ( (v6 & 0x6000) == 0 )
+      return v2;
+    v7 = *(_DWORD *)(a1 + 24);
+    switch ( v7 )
+    {
+      case 1:
+        if ( (unsigned int)PipIsProblemReadonly(v4, (unsigned int)v4[101]) )
+          return (unsigned int)-1073741584;
+        goto LABEL_6;
+      case 3:
+        if ( (v6 & 0x2000) == 0 )
+          return (unsigned int)-1073741808;
+        v9 = v4[101] == 47;
+        break;
+      case 25:
+        if ( (v6 & 0x2000) == 0 )
+          return (unsigned int)-1073741808;
+        v9 = v4[101] == 55;
+        break;
+      default:
+        goto LABEL_6;
+    }
+    if ( !v9 )
+      return (unsigned int)-1073741808;
+LABEL_6:
+    PiPnpRtlBeginOperation(&P);
+    PipClearDevNodeFlags(v4, 0x4000LL);
+    PipClearDevNodeProblem(v4);
+    if ( v4[75] != 769 )
+      PnpRestartDeviceNode(v4);
+    if ( P )
+      PiPnpRtlEndOperation((PVOID **)P);
     return v2;
   }
-  v5 = v3[99];
-  if ( (v5 & 0x6000) == 0 )
-    return v2;
-  v6 = *(_DWORD *)(a1 + 24);
-  if ( v6 == 1 )
-  {
-    if ( (unsigned int)PipIsProblemReadonly(v3, (unsigned int)v3[101]) )
-      return (unsigned int)-1073741584;
-    goto LABEL_13;
-  }
-  if ( v6 != 3 )
-  {
-LABEL_13:
-    v7 = v5 & 0x2000;
-    goto LABEL_14;
-  }
-  v7 = v3[99] & 0x2000;
-  if ( !v7 || v3[101] != 47 )
-    return (unsigned int)-1073741808;
-LABEL_14:
-  if ( v6 == 25 && (!v7 || v3[101] != 55) )
-    return (unsigned int)-1073741808;
-  PiPnpRtlBeginOperation((__int64 **)&P);
-  PipClearDevNodeFlags((__int64)v3, 0x4000);
-  PipClearDevNodeProblem((__int64)v3);
-  if ( (unsigned int)(v3[75] - 769) > 1 )
-    PnpRestartDeviceNode((__int64)v3);
-  if ( P )
-    PiPnpRtlEndOperation((PVOID **)P);
+  if ( (unsigned int)(v5 - 787) <= 1 )
+    return (unsigned int)-1073741738;
   return v2;
 }

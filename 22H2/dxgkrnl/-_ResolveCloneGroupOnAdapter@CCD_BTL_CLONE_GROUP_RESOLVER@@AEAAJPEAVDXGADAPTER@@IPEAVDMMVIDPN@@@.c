@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@Z @ 0x1C0184750
+ * XREFs of ?_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@Z @ 0x1C01403D0
  * Callers:
- *     _BtlPreAcquireSharedAccess_&CCD_BTL_CLONE_GROUP_RESOLVER::_ResolveAdaptersCallback_0_1_ @ 0x1C017B040 (_BtlPreAcquireSharedAccess_-CCD_BTL_CLONE_GROUP_RESOLVER--_ResolveAdaptersCallback_0_1_.c)
+ *     _BtlPreAcquireSharedAccess_&CCD_BTL_CLONE_GROUP_RESOLVER::_ResolveAdaptersCallback_0_1_ @ 0x1C0140180 (_BtlPreAcquireSharedAccess_-CCD_BTL_CLONE_GROUP_RESOLVER--_ResolveAdaptersCallback_0_1_.c)
  * Callees:
- *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE44@Z @ 0x1C017BE84 (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
- *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C0184AA0 (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
- *     ?QueryUnicodeMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_UNICODE_STRING@@@Z @ 0x1C0184B48 (-QueryUnicodeMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_UNICODE_STRING@@@Z.c)
- *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C0199010 (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
+ *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C011BED4 (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
+ *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C01406DC (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
+ *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE4@Z @ 0x1C0140780 (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
+ *     ?QueryUnicodeMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_UNICODE_STRING@@@Z @ 0x1C0140AE8 (-QueryUnicodeMonitorId@CCD_SET_STRING_ID@@QEBAJIPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall CCD_BTL_CLONE_GROUP_RESOLVER::_ResolveCloneGroupOnAdapter(
@@ -15,246 +15,266 @@ __int64 __fastcall CCD_BTL_CLONE_GROUP_RESOLVER::_ResolveCloneGroupOnAdapter(
         unsigned int a3,
         struct DMMVIDPN *a4)
 {
-  __int64 v4; // rbx
-  int v7; // eax
-  unsigned int v8; // edi
-  CCD_SET_STRING_ID *v9; // r10
-  char *v10; // rcx
-  unsigned int PathSourceFromTarget; // esi
-  unsigned int v12; // edi
-  __int64 *v13; // r12
-  int v14; // eax
-  CCD_SET_STRING_ID *v15; // r10
+  struct DMMVIDPN *v4; // r13
+  __int64 v5; // rsi
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  CCD_SET_STRING_ID *v12; // rcx
+  int PathSourceFromTarget; // r14d
+  unsigned int v14; // ebx
+  int v15; // eax
   __int64 v16; // rdx
-  int v17; // eax
-  int v18; // r8d
-  char v19; // r9
-  __int64 v20; // r8
-  unsigned int v21; // r9d
-  _QWORD *v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // r9
-  unsigned int v26; // r10d
-  unsigned int v27; // edx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // r8
-  __int64 v31; // rdx
-  __int64 v32; // rdx
-  __int64 v33; // rax
+  __int64 v17; // rcx
+  __int64 TargetIdFromCcdMonitorId; // r12
+  CCD_SET_STRING_ID *v19; // r13
+  __int64 v20; // rdx
+  int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  unsigned int v24; // r8d
+  __int64 v25; // rdx
+  char v26; // r8
+  unsigned int v27; // r9d
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  unsigned int v31; // r9d
+  unsigned int v32; // r8d
+  CCD_SET_STRING_ID *v33; // rdx
   __int64 v34; // rcx
-  unsigned __int8 v35; // [rsp+50h] [rbp-19h] BYREF
-  unsigned __int8 v36; // [rsp+51h] [rbp-18h] BYREF
-  int TargetIdFromCcdMonitorId; // [rsp+54h] [rbp-15h]
-  unsigned int v38; // [rsp+58h] [rbp-11h] BYREF
-  unsigned int v39; // [rsp+5Ch] [rbp-Dh] BYREF
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v40; // [rsp+60h] [rbp-9h] BYREF
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v41; // [rsp+64h] [rbp-5h] BYREF
-  unsigned int v42; // [rsp+68h] [rbp-1h] BYREF
-  int v43; // [rsp+6Ch] [rbp+3h] BYREF
-  __int64 v44; // [rsp+70h] [rbp+7h]
-  char *v45; // [rsp+78h] [rbp+Fh]
-  struct _UNICODE_STRING UnicodeString; // [rsp+80h] [rbp+17h] BYREF
-  unsigned int v47; // [rsp+D0h] [rbp+67h] BYREF
-  struct DMMVIDPN *v48; // [rsp+E8h] [rbp+7Fh]
+  _QWORD *v35; // rax
+  CCD_SET_STRING_ID *v36; // r8
+  __int64 v37; // rdx
+  _QWORD *v38; // rax
+  _QWORD *v39; // rax
+  _QWORD *v40; // rax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  _QWORD *v43; // rax
+  _QWORD *v44; // rax
+  unsigned __int8 v45[4]; // [rsp+40h] [rbp-30h] BYREF
+  unsigned int v46; // [rsp+44h] [rbp-2Ch] BYREF
+  unsigned int v47; // [rsp+48h] [rbp-28h] BYREF
+  unsigned int v48; // [rsp+4Ch] [rbp-24h] BYREF
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v49; // [rsp+50h] [rbp-20h] BYREF
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v50; // [rsp+54h] [rbp-1Ch] BYREF
+  unsigned int v51; // [rsp+58h] [rbp-18h] BYREF
+  struct _UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-10h] BYREF
+  unsigned int v53; // [rsp+B0h] [rbp+40h] BYREF
+  struct DMMVIDPN *v54; // [rsp+C8h] [rbp+58h]
 
-  v48 = a4;
-  v4 = a3;
-  v42 = 0;
-  v39 = 0;
-  v7 = CCD_SET_STRING_ID::QueryCloneInfo(*this, a3, &v39, &v42, &v47);
-  v8 = v7;
-  if ( v7 < 0 )
+  v54 = a4;
+  v51 = 0;
+  v48 = 0;
+  v4 = a4;
+  v5 = a3;
+  v8 = CCD_SET_STRING_ID::QueryCloneInfo(*this, a3, &v48, &v51, &v53);
+  v11 = v8;
+  if ( v8 < 0 )
   {
-    WdLogSingleEntry5(1LL, v7, a2, v4, *this, v4);
-    return v8;
+    v35 = (_QWORD *)WdLogNewEntry5_WdAssertion(v10, v9);
+    v35[3] = v11;
+    v35[4] = a2;
+    v35[5] = v5;
+    v35[6] = *this;
+    v35[7] = v5;
+    WdLogEvent5_WdAssertion(v35);
+    return (unsigned int)v11;
   }
   else
   {
-    v9 = *this;
-    v10 = (char *)a2 + 404;
+    v12 = *this;
     PathSourceFromTarget = -1;
-    v45 = (char *)a2 + 404;
-    v12 = v4;
-    v13 = (__int64 *)(this + 1);
-    if ( (unsigned int)v4 < *((unsigned __int16 *)v9 + 16) )
+    v14 = v5;
+    if ( (unsigned int)v5 >= *((unsigned __int16 *)*this + 16) )
+    {
+LABEL_21:
+      if ( v4 )
+        return 3221226021LL;
+      PathSourceFromTarget = 0;
+      v31 = *(_DWORD *)(*((_QWORD *)a2 + 337) + 80LL);
+      if ( !v31 )
+        return 3221226021LL;
+      while ( 1 )
+      {
+        v32 = 0;
+        if ( !*((_WORD *)*this + 16) )
+          break;
+        v33 = this[1];
+        while ( 1 )
+        {
+          v34 = 272LL * v32;
+          if ( (*(_QWORD *)((_BYTE *)v33 + v34 + 48) & 0x200000000000LL) != 0
+            && *(_DWORD *)((char *)v33 + v34 + 72) == PathSourceFromTarget
+            && *(_DWORD *)((char *)v33 + v34 + 64) == *((_DWORD *)a2 + 79)
+            && *(_DWORD *)((char *)v33 + v34 + 68) == *((_DWORD *)a2 + 80) )
+          {
+            break;
+          }
+          if ( ++v32 >= *((unsigned __int16 *)*this + 16) )
+            goto LABEL_27;
+        }
+        if ( ++PathSourceFromTarget >= v31 )
+          return 3221226021LL;
+      }
+LABEL_27:
+      if ( PathSourceFromTarget == -1 )
+        return 3221226021LL;
+    }
+    else
     {
       while ( 1 )
       {
-        v47 = 0;
-        v14 = CCD_SET_STRING_ID::QueryCloneInfo(v9, v12, &v47, 0LL, 0LL);
-        TargetIdFromCcdMonitorId = v14;
-        if ( v14 < 0 )
+        v53 = 0;
+        v15 = CCD_SET_STRING_ID::QueryCloneInfo(v12, v14, &v53, 0LL, 0LL);
+        TargetIdFromCcdMonitorId = v15;
+        if ( v15 < 0 )
         {
-          v32 = v14;
-          v33 = v12;
-          v34 = 1LL;
-          goto LABEL_49;
-        }
-        if ( v47 != v39 )
-          goto LABEL_16;
-        v15 = *this;
-        v43 = 0;
-        v44 = v12;
-        if ( v12 >= *((unsigned __int16 *)v15 + 16) )
-        {
-          WdLogSingleEntry4(1LL, v15, *((unsigned __int16 *)v15 + 16), v12, &v43);
-          WdLogSingleEntry5(1LL, -1073741811LL, a2, v4, *this, v44);
-          return 3221225485LL;
-        }
-        v16 = *(unsigned __int16 *)(*((_QWORD *)v15 + 3) + 8LL * v12 + 4);
-        v43 = v16;
-        if ( (_WORD)v16 )
-        {
-          WdLogSingleEntry5(1LL, a2, v4, v15, v16, v12);
-          return 3221225474LL;
-        }
-        v38 = -1;
-        v36 = 0;
-        LOBYTE(v47) = 0;
-        v35 = 0;
-        v40 = D3DKMDT_VOT_UNINITIALIZED;
-        v41 = D3DKMDT_VOT_UNINITIALIZED;
-        UnicodeString = 0LL;
-        v17 = CCD_SET_STRING_ID::QueryUnicodeMonitorId(v15, v12, &UnicodeString);
-        TargetIdFromCcdMonitorId = v17;
-        if ( v17 < 0 )
-        {
-          v32 = v17;
-LABEL_43:
-          v33 = v44;
-          v34 = 2LL;
-LABEL_49:
-          WdLogSingleEntry5(v34, v32, a2, v4, *this, v33);
+          v44 = (_QWORD *)WdLogNewEntry5_WdAssertion(v17, v16);
+          v44[3] = TargetIdFromCcdMonitorId;
+          v44[4] = a2;
+          v44[5] = v5;
+          v44[6] = *this;
+          v44[7] = v14;
+          WdLogEvent5_WdAssertion(v44);
           return (unsigned int)TargetIdFromCcdMonitorId;
         }
-        TargetIdFromCcdMonitorId = DmmGetTargetIdFromCcdMonitorId(
-                                     a2,
-                                     &UnicodeString,
-                                     v18,
-                                     &v38,
-                                     &v40,
-                                     &v41,
-                                     (bool *)&v36,
-                                     (unsigned __int8 *)&v47,
-                                     &v35);
+        if ( v53 != v48 )
+          goto LABEL_16;
+        v47 = 0;
+        v19 = *this;
+        if ( v14 >= *((unsigned __int16 *)*this + 16) )
+        {
+          v40 = (_QWORD *)WdLogNewEntry5_WdAssertion(v17, v16);
+          v40[3] = v19;
+          v40[4] = *((unsigned __int16 *)v19 + 16);
+          v40[6] = &v47;
+          v40[5] = v14;
+          WdLogEvent5_WdAssertion(v40);
+          v43 = (_QWORD *)WdLogNewEntry5_WdAssertion(v42, v41);
+          v43[3] = -1073741811LL;
+          v43[4] = a2;
+          v43[5] = v5;
+          v43[6] = *this;
+          v43[7] = v14;
+          WdLogEvent5_WdAssertion(v43);
+          return 3221225485LL;
+        }
+        v20 = *(unsigned __int16 *)(*((_QWORD *)v19 + 3) + 8LL * v14 + 4);
+        v47 = v20;
+        if ( (_DWORD)v20 )
+        {
+          v39 = (_QWORD *)WdLogNewEntry5_WdAssertion(v17, v20);
+          v39[3] = a2;
+          v39[4] = v5;
+          v39[5] = *this;
+          v39[6] = v47;
+          v39[7] = v14;
+          WdLogEvent5_WdAssertion(v39);
+          return 3221225474LL;
+        }
+        v46 = -1;
+        v45[0] = 0;
+        LOBYTE(v53) = 0;
+        v49 = D3DKMDT_VOT_UNINITIALIZED;
+        v50 = D3DKMDT_VOT_UNINITIALIZED;
+        UnicodeString = 0LL;
+        v21 = CCD_SET_STRING_ID::QueryUnicodeMonitorId(v19, v14, &UnicodeString);
+        TargetIdFromCcdMonitorId = v21;
+        if ( v21 < 0 )
+        {
+LABEL_42:
+          v38 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+          v38[3] = TargetIdFromCcdMonitorId;
+          v38[4] = a2;
+          v38[5] = v5;
+          v38[6] = *this;
+          v38[7] = v14;
+          WdLogEvent5_WdError(v38);
+          return (unsigned int)TargetIdFromCcdMonitorId;
+        }
+        TargetIdFromCcdMonitorId = (int)DmmGetTargetIdFromCcdMonitorId(
+                                          a2,
+                                          &UnicodeString,
+                                          v24,
+                                          &v46,
+                                          &v49,
+                                          &v50,
+                                          v45,
+                                          (unsigned __int8 *)&v53);
         RtlFreeUnicodeString(&UnicodeString);
         UnicodeString = 0LL;
-        if ( TargetIdFromCcdMonitorId == -1073741275 )
+        if ( (_DWORD)TargetIdFromCcdMonitorId == -1073741275 )
           break;
-        if ( TargetIdFromCcdMonitorId < 0 )
+        if ( (int)TargetIdFromCcdMonitorId < 0 )
+          goto LABEL_42;
+        if ( v14 != (_DWORD)v5 && (_BYTE)v53 )
+          goto LABEL_31;
+        v4 = v54;
+        v25 = 272LL * v14;
+        v26 = -(char)v53;
+        *(_DWORD *)((char *)this[1] + v25 + 76) = v46;
+        *(_DWORD *)((char *)this[1] + v25 + 136) = v49;
+        *(_DWORD *)((char *)this[1] + v25 + 140) = v50;
+        *((_BYTE *)this[1] + v25 + 177) = (v26 != 0 ? 2 : 0) | (v45[0] != 0);
+        *(_DWORD *)((char *)this[1] + v25 + 232) = v51 | 0xFE520000;
+        *(_QWORD *)((char *)this[1] + v25 + 48) |= 0xCC00000000000uLL;
+        if ( v4 )
         {
-          v32 = TargetIdFromCcdMonitorId;
-          goto LABEL_43;
-        }
-        v19 = v47;
-        if ( v12 == (_DWORD)v4 || !(_BYTE)v47 )
-        {
-          v20 = 296LL * v12;
-          *(_DWORD *)(v20 + *v13 + 84) = v38;
-          *(_DWORD *)(*v13 + v20 + 144) = v40;
-          *(_DWORD *)(*v13 + v20 + 148) = v41;
-          *(_BYTE *)(*v13 + v20 + 185) = (v35 != 0 ? 4 : 0) | (v19 != 0 ? 2 : 0) | (v36 != 0);
-          *(_DWORD *)(*v13 + v20 + 240) = v42 | 0xFE520000;
-          *(_QWORD *)(*v13 + v20 + 56) |= 0xCC00000000000uLL;
-          if ( v48 )
+          if ( PathSourceFromTarget == -1 )
           {
-            if ( PathSourceFromTarget == -1 )
+            PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget((struct DMMVIDPN *)((char *)v4 + 96), v46);
+            if ( PathSourceFromTarget != -1 )
             {
-              PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget(
-                                       (struct DMMVIDPN *)((char *)v48 + 96),
-                                       v38);
-              if ( PathSourceFromTarget != -1 )
+              v27 = 0;
+              if ( (_DWORD)v5 )
               {
-                v21 = 0;
-                if ( (_DWORD)v4 )
+                v36 = this[1];
+                while ( 1 )
                 {
-                  v30 = *v13;
-                  while ( 1 )
+                  v37 = 272LL * v27;
+                  if ( (*(_QWORD *)((_BYTE *)v36 + v37 + 48) & 0x200000000000LL) != 0
+                    && *(_DWORD *)((char *)v36 + v37 + 72) == PathSourceFromTarget
+                    && *(_DWORD *)((char *)v36 + v37 + 64) == *((_DWORD *)a2 + 79)
+                    && *(_DWORD *)((char *)v36 + v37 + 68) == *((_DWORD *)a2 + 80) )
                   {
-                    v31 = 296LL * v21;
-                    if ( _bittest64((const signed __int64 *)(v31 + v30 + 56), 0x2Du) )
-                    {
-                      if ( *(_DWORD *)(v31 + v30 + 80) == PathSourceFromTarget
-                        && *(_DWORD *)(v31 + v30 + 72) == *((_DWORD *)a2 + 101)
-                        && *(_DWORD *)(v31 + v30 + 76) == *((_DWORD *)a2 + 102) )
-                      {
-                        break;
-                      }
-                    }
-                    if ( ++v21 >= (unsigned int)v4 )
-                      goto LABEL_15;
+                    break;
                   }
-                  PathSourceFromTarget = -1;
+                  if ( ++v27 >= (unsigned int)v5 )
+                    goto LABEL_15;
                 }
+                PathSourceFromTarget = -1;
               }
             }
           }
+        }
 LABEL_15:
-          v9 = *this;
-          if ( ++v12 < *((unsigned __int16 *)*this + 16) )
-            continue;
-        }
-        goto LABEL_16;
+        v12 = *this;
+        if ( ++v14 >= *((unsigned __int16 *)*this + 16) )
+          goto LABEL_16;
       }
-      if ( v12 == (_DWORD)v4 )
+      if ( v14 == (_DWORD)v5 )
         return 3221226021LL;
+LABEL_31:
+      v4 = v54;
 LABEL_16:
-      if ( PathSourceFromTarget != -1 )
-        goto LABEL_17;
-      v10 = (char *)a2 + 404;
+      if ( PathSourceFromTarget == -1 )
+        goto LABEL_21;
     }
-    v45 = v10;
-    if ( v48 )
-      return 3221226021LL;
-    v26 = *(_DWORD *)(*((_QWORD *)a2 + 365) + 96LL);
-    if ( !v26 )
-      return 3221226021LL;
-    v27 = 0;
-    PathSourceFromTarget = 0;
-    if ( *((_WORD *)*this + 16) )
+    if ( (unsigned int)v5 < v14 )
     {
-      while ( 1 )
-      {
-        v28 = *v13;
-        while ( 1 )
-        {
-          v29 = 296LL * v27;
-          if ( _bittest64((const signed __int64 *)(v29 + v28 + 56), 0x2Du) )
-          {
-            if ( *(_DWORD *)(v29 + v28 + 80) == PathSourceFromTarget
-              && *(_DWORD *)(v29 + v28 + 72) == *(_DWORD *)v10
-              && *(_DWORD *)(v29 + v28 + 76) == *((_DWORD *)v10 + 1) )
-            {
-              break;
-            }
-          }
-          if ( ++v27 >= *((unsigned __int16 *)*this + 16) )
-            goto LABEL_28;
-        }
-        if ( ++PathSourceFromTarget >= v26 )
-          return 3221226021LL;
-        v27 = 0;
-      }
-    }
-LABEL_28:
-    if ( PathSourceFromTarget == -1 )
-      return 3221226021LL;
-LABEL_17:
-    if ( (unsigned int)v4 < v12 )
-    {
-      v22 = v45;
-      v23 = 296 * v4;
-      v24 = v12 - (unsigned int)v4;
+      v28 = 272 * v5;
+      v29 = v14 - (unsigned int)v5;
       do
       {
-        v23 += 296LL;
-        *(_QWORD *)(v23 + *v13 - 224) = *v22;
-        *(_DWORD *)(v23 + *v13 - 216) = PathSourceFromTarget;
-        *(_QWORD *)(v23 + *v13 - 240) |= 0x300000000000uLL;
-        --v24;
+        v28 += 272LL;
+        *(_QWORD *)((char *)this[1] + v28 - 208) = *(_QWORD *)((char *)a2 + 316);
+        *(_DWORD *)((char *)this[1] + v28 - 200) = PathSourceFromTarget;
+        *(_QWORD *)((char *)this[1] + v28 - 224) |= 0x300000000000uLL;
+        --v29;
       }
-      while ( v24 );
+      while ( v29 );
     }
     return 0LL;
   }

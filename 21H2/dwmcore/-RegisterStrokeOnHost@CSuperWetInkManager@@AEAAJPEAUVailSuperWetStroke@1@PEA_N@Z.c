@@ -1,13 +1,12 @@
 /*
- * XREFs of ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x1801A7E40
+ * XREFs of ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x180195914
  * Callers:
- *     ?ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIVailRenderTarget@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x1801A8160 (-ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIVailRenderTarget@@AEBV-$TMilRec.c)
- *     ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801A89B4 (-TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingConte.c)
+ *     ?ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIVailRenderTarget@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180195C34 (-ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIVailRenderTarget@@AEBV-$TMilRec.c)
+ *     ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195FDC (-TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingConte.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x1801A70D4 (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
- *     ?DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ @ 0x1801A73B8 (-DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ.c)
- *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x180216AC0 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x180194E9C (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
+ *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C3C58 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
  */
 
 __int64 __fastcall CSuperWetInkManager::RegisterStrokeOnHost(
@@ -15,42 +14,36 @@ __int64 __fastcall CSuperWetInkManager::RegisterStrokeOnHost(
         struct CSuperWetInkManager::VailSuperWetStroke *a2,
         bool *a3)
 {
-  int v6; // edi
-  __int64 v7; // rdx
+  int v5; // esi
+  __int64 v6; // rdx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  bool v10; // [rsp+40h] [rbp+18h] BYREF
 
   *a3 = 0;
-  v10 = 0;
-  v6 = CSuperWetInkManager::CheckHostComputeScribbleSupport(this, a2, &v10);
-  if ( v6 < 0 )
+  v5 = CSuperWetInkManager::CheckHostComputeScribbleSupport(this, a2, a3);
+  if ( v5 < 0 )
   {
-    v7 = 945LL;
+    v6 = 656LL;
 LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)v7,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
-      (const char *)(unsigned int)v6);
-    return (unsigned int)v6;
+      (void *)v6,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+      (const char *)(unsigned int)v5);
+    return (unsigned int)v5;
   }
-  if ( v10 )
+  if ( *a3 )
   {
-    if ( !*((_BYTE *)a2 + 112) )
+    if ( *((_BYTE *)a2 + 80) )
     {
-      v6 = CSuperWetSource::SendMessageToHostForCreation(*(CSuperWetSource **)a2, *((_QWORD *)a2 + 3));
-      if ( v6 < 0 )
+      v5 = CSuperWetSource::SendMessageToHostForCreation(*(CSuperWetSource **)a2, *((_QWORD *)a2 + 2));
+      if ( v5 < 0 )
       {
-        v7 = 953LL;
+        v6 = 664LL;
         goto LABEL_3;
       }
-      *((_BYTE *)a2 + 112) = 1;
+      *((_BYTE *)a2 + 80) = 1;
     }
     *a3 = 1;
-  }
-  else
-  {
-    CSuperWetInkManager::DeactivateCurrentSource((struct CSuperWetSource **)this);
   }
   return 0LL;
 }

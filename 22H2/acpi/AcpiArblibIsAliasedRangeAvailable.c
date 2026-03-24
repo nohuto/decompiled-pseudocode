@@ -1,16 +1,15 @@
 /*
- * XREFs of AcpiArblibIsAliasedRangeAvailable @ 0x1C007D0E8
+ * XREFs of AcpiArblibIsAliasedRangeAvailable @ 0x1C00AD37C
  * Callers:
- *     AcpiPortarbFindSuitableRange @ 0x1C008C270 (AcpiPortarbFindSuitableRange.c)
+ *     AcpiPortarbFindSuitableRange @ 0x1C00B20F0 (AcpiPortarbFindSuitableRange.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiArblibGetNextAlias @ 0x1C007D0B4 (AcpiArblibGetNextAlias.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiArblibGetNextAlias @ 0x1C00AD2A0 (AcpiArblibGetNextAlias.c)
  */
 
 char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)
 {
-  __int64 v4; // rdx
+  __int64 v3; // rdx
   UCHAR AttributeAvailableMask; // r14
   __int64 v6; // rcx
   __int128 v7; // xmm0
@@ -24,15 +23,18 @@ char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)
   int v15; // r15d
   __int64 v16; // rax
   char result; // al
-  _OWORD v18[5]; // [rsp+40h] [rbp-19h] BYREF
+  __int128 v18; // [rsp+40h] [rbp-19h] BYREF
+  __int128 v19; // [rsp+50h] [rbp-9h]
+  __int128 v20; // [rsp+60h] [rbp+7h]
+  __int128 v21; // [rsp+70h] [rbp+17h]
+  __int128 v22; // [rsp+80h] [rbp+27h]
   unsigned __int8 Available; // [rsp+C8h] [rbp+6Fh] BYREF
   ULONGLONG Start; // [rsp+D0h] [rbp+77h] BYREF
 
   Available = 0;
-  memset(v18, 0, sizeof(v18));
-  v4 = *((_QWORD *)a2 + 4);
+  v3 = *((_QWORD *)a2 + 4);
   AttributeAvailableMask = 0;
-  if ( (*(_DWORD *)(v4 + 40) & 0xFFFFFFFD) == 0 || (*(_DWORD *)(v4 + 44) & 1) != 0 )
+  if ( (*(_DWORD *)(v3 + 40) & 0xFFFFFFFD) == 0 || (*(_DWORD *)(v3 + 44) & 1) != 0 )
     AttributeAvailableMask = 1;
   v6 = *((_QWORD *)a2 + 5);
   v7 = *a2;
@@ -41,14 +43,14 @@ char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)
   v10 = *(_QWORD *)(v6 + 40);
   Start = *(_QWORD *)a2;
   v11 = *(_WORD *)(v10 + 4);
-  v18[0] = v7;
+  v18 = v7;
   v12 = a2[2];
-  v18[1] = v9;
+  v19 = v9;
   v13 = a2[3];
-  v18[2] = v12;
+  v20 = v12;
   v14 = a2[4];
-  v18[3] = v13;
-  v18[4] = v14;
+  v21 = v13;
+  v22 = v14;
   v15 = *(_DWORD *)(v6 + 36) & 1;
   while ( AcpiArblibGetNextAlias(v11, v8, &Start) )
   {
@@ -65,9 +67,9 @@ char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)
     if ( Available != 1 )
     {
       v16 = *((_QWORD *)a2 + 5);
-      *(_QWORD *)&v18[1] = v8;
-      *((_QWORD *)&v18[1] + 1) = *(_QWORD *)(v16 + 16) + v8 - 1;
-      result = (*(__int64 (__fastcall **)(__int64, _OWORD *))(a1 + 272))(a1, v18);
+      *(_QWORD *)&v19 = v8;
+      *((_QWORD *)&v19 + 1) = *(_QWORD *)(v16 + 16) + v8 - 1;
+      result = (*(__int64 (__fastcall **)(__int64, __int128 *))(a1 + 272))(a1, &v18);
       if ( !result )
         return result;
     }

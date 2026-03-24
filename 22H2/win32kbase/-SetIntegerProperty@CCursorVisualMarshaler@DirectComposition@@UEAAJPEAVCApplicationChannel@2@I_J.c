@@ -1,33 +1,61 @@
 /*
- * XREFs of ?SetIntegerProperty@CCursorVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021DE60
+ * XREFs of ?SetIntegerProperty@CCursorVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01ED030
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098400 (-SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CCursorVisualMarshaler::SetIntegerProperty(
         DirectComposition::CCursorVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
-        unsigned int a3,
+        int a3,
         __int64 a4,
         bool *a5)
 {
-  unsigned int v5; // r10d
+  unsigned int v5; // edx
+  int v6; // r8d
+  int v7; // r8d
 
   v5 = 0;
-  if ( a3 == 1 )
+  if ( a3 )
   {
-    if ( *((_BYTE *)this + 384) != ((_DWORD)a4 != 0) )
+    v6 = a3 - 1;
+    if ( v6 )
     {
-      *((_DWORD *)this + 97) |= 4u;
-      *((_BYTE *)this + 384) = (_DWORD)a4 != 0;
-      *a5 = 1;
+      v7 = v6 - 1;
+      if ( v7 )
+      {
+        if ( v7 != 2 )
+          return (unsigned int)-1073741811;
+        if ( (_DWORD)a4 == *((_DWORD *)this + 95) )
+          return v5;
+        *((_DWORD *)this + 98) |= 0x10u;
+        *((_DWORD *)this + 95) = a4;
+      }
+      else
+      {
+        if ( (a4 != 0) == *((_BYTE *)this + 376) )
+          return v5;
+        *((_DWORD *)this + 98) |= 4u;
+        *((_BYTE *)this + 376) = a4 != 0;
+      }
     }
+    else
+    {
+      if ( (_DWORD)a4 == *((_DWORD *)this + 93) )
+        return v5;
+      *((_DWORD *)this + 98) |= 2u;
+      *((_DWORD *)this + 93) = a4;
+    }
+    *a5 = 1;
+    return v5;
   }
-  else
+  if ( (_DWORD)a4 != *((_DWORD *)this + 92) )
   {
-    return (unsigned int)DirectComposition::CVisualMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
+    *((_DWORD *)this + 98) |= 1u;
+    *((_DWORD *)this + 92) = a4;
+    *a5 = 1;
   }
   return v5;
 }

@@ -1,29 +1,43 @@
 /*
- * XREFs of MiRemoveDecayClusterTimer @ 0x1402E4D70
+ * XREFs of MiRemoveDecayClusterTimer @ 0x1402AB810
  * Callers:
- *     MiDecayNodeNowEmpty @ 0x1402E4BF0 (MiDecayNodeNowEmpty.c)
- *     MiUnlinkPageFromListEx @ 0x140326870 (MiUnlinkPageFromListEx.c)
+ *     MiEmptyDecayClusterTimers @ 0x140271E00 (MiEmptyDecayClusterTimers.c)
+ *     MiDecayPfnFullyInitialized @ 0x1402AB654 (MiDecayPfnFullyInitialized.c)
+ *     MiDeleteParentDecayNode @ 0x1402AB77C (MiDeleteParentDecayNode.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     MiUnlinkDecayClusterTimer @ 0x1402E4DD4 (MiUnlinkDecayClusterTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x14030F870 (ExpAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140461A66 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     <none>
  */
 
-void __fastcall MiRemoveDecayClusterTimer(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall MiRemoveDecayClusterTimer(__int64 a1)
 {
-  __int64 v3; // rax
+  unsigned __int64 v1; // r9
+  __int64 v2; // r10
+  unsigned __int64 result; // rax
+  __int64 v4; // rdx
+  unsigned __int64 v5; // r11
 
-  LOBYTE(a2) = -1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C52D00, a2);
+  v1 = (unsigned __int64)*(unsigned __int8 *)(a1 + 34) >> 6;
+  v2 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  result = *(_QWORD *)(a1 + 8);
+  v4 = (unsigned int)result >> 1;
+  v5 = result >> 33;
+  if ( v4 == 0x7FFFFFFF )
+    *(_QWORD *)(v2 + 8 * v1 + 4792) = result ^ (result ^ *(_QWORD *)(v2 + 8 * v1 + 4792)) & 0x1FFFFFFFFLL;
   else
-    ExpAcquireSpinLockExclusive(&dword_140C52D00, a2);
-  v3 = *(_QWORD *)(a1 + 8);
-  if ( (v3 & 0x100000000LL) == 0 )
+    *(_QWORD *)(48 * (qword_140C4E9A0 + v4) - 0x58000000000LL + 8) = result ^ (*(_QWORD *)(48 * (qword_140C4E9A0 + v4)
+                                                                                         - 0x58000000000LL
+                                                                                         + 8) ^ result) & 0x1FFFFFFFFLL;
+  if ( v5 == 0x7FFFFFFF )
   {
-    *(_QWORD *)(a1 + 8) = v3 | 0x100000000LL;
-    MiUnlinkDecayClusterTimer(a1);
+    result = (*(_DWORD *)(v2 + 8 * v1 + 4792) ^ (unsigned int)result) & 0xFFFFFFFE;
+    *(_QWORD *)(v2 + 8 * v1 + 4792) ^= result;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C52D00);
+  else
+  {
+    *(_QWORD *)(48 * (v5 + qword_140C4E9A0) - 0x58000000000LL + 8) ^= (result ^ *(_QWORD *)(48 * (v5 + qword_140C4E9A0)
+                                                                                          - 0x58000000000LL
+                                                                                          + 8)) & 0xFFFFFFFE;
+  }
+  return result;
 }

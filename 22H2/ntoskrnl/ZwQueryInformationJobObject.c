@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwQueryInformationJobObject @ 0x14041D120
+ * XREFs of ZwQueryInformationJobObject @ 0x1403FC380
  * Callers:
- *     DifZwQueryInformationJobObjectWrapper @ 0x1405F4700 (DifZwQueryInformationJobObjectWrapper.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

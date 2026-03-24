@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsImageFullyRetpolined @ 0x1401B5FB8
+ * XREFs of RtlIsImageFullyRetpolined @ 0x1401B5FD8
  * Callers:
  *     MiIsImageFullyRetpolined @ 0x140582274 (MiIsImageFullyRetpolined.c)
  *     MiImportOptimizationVetosDriverRelocation @ 0x1409AAEA0 (MiImportOptimizationVetosDriverRelocation.c)
  *     MiIsBootImageTargetFullyRetpolined @ 0x1409AAF30 (MiIsBootImageTargetFullyRetpolined.c)
  *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
  * Callees:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x140682014 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140681FF4 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlIsImageFullyRetpolined(void *a1)

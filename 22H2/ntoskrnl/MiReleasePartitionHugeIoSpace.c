@@ -1,127 +1,75 @@
 /*
- * XREFs of MiReleasePartitionHugeIoSpace @ 0x140622540
+ * XREFs of MiReleasePartitionHugeIoSpace @ 0x1405337C8
  * Callers:
- *     MiReturnPartitionPagesToParent @ 0x14065B4C8 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnPartitionPagesToParent @ 0x140562C04 (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x140622128 (MiMoveBadHugeRangeCrossPartition.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4438C (MiAllocatePartitionPhysicalPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022CF70 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA9C8 (MiAllocatePartitionPhysicalPages.c)
  */
 
-__int64 __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
+void __fastcall MiReleasePartitionHugeIoSpace(_QWORD *BugCheckParameter2)
 {
-  __int64 v2; // rbp
-  __int64 v3; // r8
-  KIRQL v4; // al
-  _QWORD *v5; // rcx
-  KIRQL v6; // si
+  __int64 v1; // r8
+  _QWORD *v3; // rsi
+  unsigned __int64 **v4; // rdi
+  unsigned __int64 *v5; // rbp
+  _QWORD **v6; // r14
   _QWORD *v7; // rdx
-  _QWORD *v8; // rax
-  _QWORD *v9; // rdi
-  _QWORD *v10; // rcx
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  bool v15; // zf
-  _QWORD *i; // rax
-  __int64 v17; // rdi
-  unsigned __int8 v18; // al
-  struct _KPRCB *v19; // r10
-  _DWORD *v20; // r9
-  int v21; // eax
-  __int64 result; // rax
-  ULONG_PTR v23; // r9
+  bool v8; // r8
+  _QWORD *v9; // rax
+  ULONG_PTR v10; // r9
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = **(_QWORD **)(*(_QWORD *)(BugCheckParameter2 + 200) + 64LL);
-  do
+  v1 = BugCheckParameter2[771] << 18;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v3 = **(_QWORD ***)(BugCheckParameter2[22] + 56LL);
+  if ( v1 )
+    MiAllocatePartitionPhysicalPages((_DWORD)BugCheckParameter2, (_DWORD)v3, v1, 0, 769, 1);
+  v4 = (unsigned __int64 **)(BugCheckParameter2 + 612);
+  if ( BugCheckParameter2[612] )
   {
-    v3 = *(_QWORD *)(BugCheckParameter2 + 16216) << 18;
-    if ( v3 )
-      MiAllocatePartitionPhysicalPages(BugCheckParameter2, v2, v3, 0, 769, 1);
-    v4 = ExAcquireSpinLockShared(&dword_140C67410);
-    v5 = (_QWORD *)qword_140C67460;
-    v6 = v4;
-    v7 = 0LL;
-    while ( v5 )
+    KeAcquireInStackQueuedSpinLock(v3 + 516, &LockHandle);
+    v5 = *v4;
+    if ( !*v4 )
+      goto LABEL_14;
+    v6 = (_QWORD **)(v3 + 612);
+    while ( 1 )
     {
-      v7 = v5;
-      v5 = (_QWORD *)*v5;
-    }
-    while ( v7 )
-    {
-      v8 = (_QWORD *)v7[1];
-      v9 = v7;
-      v10 = v7;
-      if ( v8 )
+      RtlAvlRemoveNode(BugCheckParameter2 + 612, v5);
+      v7 = *v6;
+      v8 = 0;
+      if ( !*v6 )
+        goto LABEL_13;
+      while ( (v5[3] & 0x3FFFF) < (v7[3] & 0x3FFFFuLL) )
       {
-        do
-        {
-          v7 = v8;
-          v8 = (_QWORD *)*v8;
-        }
-        while ( v8 );
+        v9 = (_QWORD *)*v7;
+        if ( !*v7 )
+          goto LABEL_13;
+LABEL_11:
+        v7 = v9;
       }
-      else
+      v9 = (_QWORD *)v7[1];
+      if ( v9 )
+        goto LABEL_11;
+      v8 = 1;
+LABEL_13:
+      RtlAvlInsertNodeEx(v3 + 612, (unsigned __int64)v7, v8, v5);
+      --BugCheckParameter2[53];
+      ++v3[53];
+      v5 = *v4;
+      if ( !*v4 )
       {
-        while ( 1 )
-        {
-          v7 = (_QWORD *)(v7[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !v7 || (_QWORD *)*v7 == v10 )
-            break;
-          v10 = v7;
-        }
-      }
-      if ( ((*(_QWORD *)(qword_140C67EF0 + 8LL * (v9[3] & 0x3FFFFF)) >> 4) & 0x7FFLL) == *(_WORD *)BugCheckParameter2 )
-      {
-        ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-        if ( KiIrqlFlags )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v14 = ~(unsigned __int16)(-1LL << (v6 + 1));
-            v15 = (v14 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v14;
-            if ( v15 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          }
-        }
-        __writecr8(v6);
-        MiMoveBadHugeRangeCrossPartition(v9[3], BugCheckParameter2, v2);
-        v6 = ExAcquireSpinLockShared(&dword_140C67410);
-        v7 = 0LL;
-        for ( i = (_QWORD *)qword_140C67460; i; i = (_QWORD *)*i )
-          v7 = i;
+LABEL_14:
+        KeReleaseInStackQueuedSpinLock(&LockHandle);
+        break;
       }
     }
-    v17 = *(_QWORD *)(BugCheckParameter2 + 16216);
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-    if ( KiIrqlFlags )
-    {
-      v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v6 <= 0xFu && v18 >= 2u )
-      {
-        v19 = KeGetCurrentPrcb();
-        v20 = v19->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (v6 + 1));
-        v15 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick((__int64)v19);
-      }
-    }
-    result = v6;
-    __writecr8(v6);
   }
-  while ( v17 );
-  v23 = *(_QWORD *)(BugCheckParameter2 + 448);
-  if ( v23 )
-    KeBugCheckEx(0x1Au, 0x30000003uLL, BugCheckParameter2, v23, *(_QWORD *)(BugCheckParameter2 + 16216));
-  return result;
+  v10 = BugCheckParameter2[53];
+  if ( v10 )
+    KeBugCheckEx(0x1Au, 0x30000003uLL, (ULONG_PTR)BugCheckParameter2, v10, BugCheckParameter2[771]);
 }

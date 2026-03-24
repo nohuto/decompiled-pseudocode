@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vScale@EPOINTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C02DE4BC
+ * XREFs of ?vScale@EPOINTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C02C0560
  * Callers:
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
  */
 
 void __fastcall EPOINTL::vScale(EPOINTL *this, const struct POINTFL *a2)

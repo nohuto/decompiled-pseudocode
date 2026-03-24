@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnTracingStateExWorkerRoutine @ 0x140980040
+ * XREFs of PfSnTracingStateExWorkerRoutine @ 0x1406A6690
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnTracingStateExWorkerRoutine(PVOID P)
@@ -15,29 +15,29 @@ void __fastcall PfSnTracingStateExWorkerRoutine(PVOID P)
   PVOID *v3; // rax
 
   ExAcquireFastMutex(&FastMutex);
-  if ( dword_140C6A764 == 2 )
+  if ( dword_140C504A4 == 2 )
   {
-    ExReleaseFastMutex(&FastMutex);
+    KeReleaseGuardedMutex(&FastMutex);
   }
   else
   {
-    dword_140C6A764 = 1;
-    while ( qword_140C6A718 != &qword_140C6A718 )
+    dword_140C504A4 = 1;
+    while ( qword_140C50458 != &qword_140C50458 )
     {
-      v2 = qword_140C6A720;
-      if ( *(PVOID **)qword_140C6A720 != &qword_140C6A718
-        || (v3 = (PVOID *)*((_QWORD *)qword_140C6A720 + 1), *v3 != qword_140C6A720) )
+      v2 = qword_140C50460;
+      if ( *(PVOID **)qword_140C50460 != &qword_140C50458
+        || (v3 = (PVOID *)*((_QWORD *)qword_140C50460 + 1), *v3 != qword_140C50460) )
       {
         __fastfail(3u);
       }
-      qword_140C6A720 = (PVOID)*((_QWORD *)qword_140C6A720 + 1);
-      *v3 = &qword_140C6A718;
+      qword_140C50460 = (PVOID)*((_QWORD *)qword_140C50460 + 1);
+      *v3 = &qword_140C50458;
       ExFreePoolWithTag(v2, 0);
-      --dword_140C6A760;
+      --dword_140C504A0;
     }
-    ExReleaseFastMutex(&FastMutex);
-    if ( qword_140C6A768 )
-      KeSetEvent(qword_140C6A768, 0, 0);
+    KeReleaseGuardedMutex(&FastMutex);
+    if ( qword_140C504A8 )
+      KeSetEvent(qword_140C504A8, 0, 0);
   }
   ExFreePoolWithTag(P, 0);
 }

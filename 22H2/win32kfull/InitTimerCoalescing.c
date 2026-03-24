@@ -1,10 +1,10 @@
 /*
- * XREFs of InitTimerCoalescing @ 0x1C00BBBB0
+ * XREFs of InitTimerCoalescing @ 0x1C0135270
  * Callers:
  *     <none>
  * Callees:
- *     SetTimerCoalescingTolerance @ 0x1C003CD20 (SetTimerCoalescingTolerance.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     SetTimerCoalescingTolerance @ 0x1C0111E00 (SetTimerCoalescingTolerance.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 int InitTimerCoalescing()
@@ -87,9 +87,9 @@ int InitTimerCoalescing()
                       {
                         if ( (unsigned int)++v0 >= 4 )
                         {
-                          xmmword_1C035A178 = v20;
+                          xmmword_1C0332AC8 = v20;
                           *(_OWORD *)&gTimerCoalescingSpec = v22;
-                          SetTimerCoalescingTolerance(0LL);
+                          SetTimerCoalescingTolerance(0);
                           return ZwClose(KeyHandle);
                         }
                       }

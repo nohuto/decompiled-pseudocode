@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkGetMonitorEdid @ 0x1C01D8820
+ * XREFs of DxgkGetMonitorEdid @ 0x1C01698D0
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C01D8850 (-DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z.c)
+ *     ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C0169900 (-DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z.c)
  */
 
-__int64 __fastcall DxgkGetMonitorEdid(
+int __fastcall DxgkGetMonitorEdid(
         struct _LUID a1,
         unsigned int a2,
         unsigned int a3,

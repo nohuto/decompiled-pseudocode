@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CScalarMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02294D0
+ * XREFs of ?SetFloatProperty@CScalarMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E97A0
  * Callers:
  *     <none>
  * Callees:
@@ -18,13 +18,13 @@ __int64 __fastcall DirectComposition::CScalarMarshaler::SetFloatProperty(
   result = 0LL;
   if ( a2 )
     return 3221225485LL;
-  if ( *((float *)this + 16) == a3 )
+  if ( *((float *)this + 14) == a3 )
   {
     v5 = 0;
   }
   else
   {
-    *((float *)this + 16) = a3;
+    *((float *)this + 14) = a3;
     v5 = 1;
   }
   *a4 = v5;

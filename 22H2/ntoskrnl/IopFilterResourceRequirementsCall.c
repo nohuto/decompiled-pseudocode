@@ -1,67 +1,65 @@
 /*
- * XREFs of IopFilterResourceRequirementsCall @ 0x140790740
+ * XREFs of IopFilterResourceRequirementsCall @ 0x140750270
  * Callers:
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x140259FE0 (IoGetAttachedDeviceReference.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IovUtilWatermarkIrp @ 0x140302C64 (IovUtilWatermarkIrp.c)
+ *     IoGetAttachedDeviceReference @ 0x14022C380 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IovUtilWatermarkIrp @ 0x1403615A4 (IovUtilWatermarkIrp.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
  */
 
 __int64 __fastcall IopFilterResourceRequirementsCall(struct _DEVICE_OBJECT *a1, ULONG_PTR a2, _QWORD *a3)
 {
   PDEVICE_OBJECT AttachedDeviceReference; // rsi
-  PIRP Irp; // rax
-  IRP *v7; // rbx
+  PIRP Irp; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  unsigned int v9; // ebx
-  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v8; // ebx
+  __int128 v10; // [rsp+30h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-28h] BYREF
 
   memset(&Event, 0, sizeof(Event));
-  v11 = 0LL;
+  v10 = 0LL;
   AttachedDeviceReference = IoGetAttachedDeviceReference(a1);
   Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
-  v7 = Irp;
   if ( Irp )
   {
-    IovUtilWatermarkIrp((__int64)Irp, 1LL);
+    IovUtilWatermarkIrp();
     if ( a2 )
     {
-      v7->IoStatus.Status = 0;
-      *((_QWORD *)&v11 + 1) = a2;
-      v7->IoStatus.Information = a2;
+      Irp->IoStatus.Status = 0;
+      *((_QWORD *)&v10 + 1) = a2;
+      Irp->IoStatus.Information = a2;
     }
     else
     {
-      LODWORD(v11) = -1073741637;
-      v7->IoStatus.Status = -1073741637;
+      LODWORD(v10) = -1073741637;
+      Irp->IoStatus.Status = -1073741637;
     }
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v7->UserIosb = (PIO_STATUS_BLOCK)&v11;
-    v7->UserEvent = &Event;
-    v7->Tail.Overlay.Thread = KeGetCurrentThread();
-    IopQueueThreadIrp((__int64)v7);
-    CurrentStackLocation = v7->Tail.Overlay.CurrentStackLocation;
+    Irp->UserIosb = (PIO_STATUS_BLOCK)&v10;
+    Irp->UserEvent = &Event;
+    Irp->Tail.Overlay.Thread = KeGetCurrentThread();
+    IopQueueThreadIrp((__int64)Irp);
+    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
     *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 3355;
     CurrentStackLocation[-1].Parameters.WMI.ProviderId = a2;
-    v9 = IofCallDriver(AttachedDeviceReference, v7);
-    if ( v9 == 259 )
+    v8 = IofCallDriver(AttachedDeviceReference, Irp);
+    if ( v8 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v9 = v11;
+      v8 = v10;
     }
-    *a3 = *((_QWORD *)&v11 + 1);
+    *a3 = *((_QWORD *)&v10 + 1);
   }
   else
   {
-    v9 = -1073741670;
+    v8 = -1073741670;
   }
-  ObfDereferenceObject(AttachedDeviceReference);
-  return v9;
+  HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
+  return v8;
 }

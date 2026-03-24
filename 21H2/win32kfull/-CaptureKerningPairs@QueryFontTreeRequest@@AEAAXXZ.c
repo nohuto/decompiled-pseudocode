@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C013A7AC
+ * XREFs of ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C014CABC
  * Callers:
- *     ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00DD710 (-CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00D1EF0 (-CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z.c)
  * Callees:
- *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00DDA68 (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
- *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00DDFE0 (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00D20EC (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D268C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall QueryFontTreeRequest::CaptureKerningPairs(QueryFontTreeRequest *this)
@@ -18,7 +18,7 @@ void __fastcall QueryFontTreeRequest::CaptureKerningPairs(QueryFontTreeRequest *
   unsigned __int64 v7; // rax
   __int64 v8; // rax
   unsigned int v9; // r14d
-  __int64 v10; // rbx
+  __int64 *v10; // rbx
   int v11; // eax
   char *v12; // rax
 
@@ -49,14 +49,14 @@ void __fastcall QueryFontTreeRequest::CaptureKerningPairs(QueryFontTreeRequest *
       v9 = 6 * v8;
       if ( (unsigned __int64)(6 * v8) <= 0xFFFFFFFF )
       {
-        v10 = **((_QWORD **)this + 8);
+        v10 = (__int64 *)*((_QWORD *)this + 8);
         v11 = (**(__int64 (__fastcall ***)(QueryFontTreeRequest *, ULONG64, const ULONG64))this)(
                 this,
                 v4,
                 MmUserProbeAddress);
         v12 = UmfdAllocation::ObtainKernelmodeAllocation(
                 v11,
-                v10,
+                *v10,
                 v2,
                 v9,
                 0LL,

@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpFindDeviceByDeviceId @ 0x1409A2774
+ * XREFs of TtmpFindDeviceByDeviceId @ 0x1408FCD14
  * Callers:
- *     TtmiAssignDevice @ 0x1409A1BAC (TtmiAssignDevice.c)
- *     TtmiSetInputWakeCapability @ 0x1409A200C (TtmiSetInputWakeCapability.c)
- *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1409A25D0 (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmiAssignDevice @ 0x1408FC14C (TtmiAssignDevice.c)
+ *     TtmiSetInputWakeCapability @ 0x1408FC5AC (TtmiSetInputWakeCapability.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1408FCB70 (TtmpCommitTerminalDisplayStateUpdateWorker.c)
  * Callees:
  *     <none>
  */

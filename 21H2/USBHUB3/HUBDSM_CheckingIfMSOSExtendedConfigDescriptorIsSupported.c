@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfMSOSExtendedConfigDescriptorIsSupported @ 0x1C001F3B0
+ * XREFs of HUBDSM_CheckingIfMSOSExtendedConfigDescriptorIsSupported @ 0x1C001EE70
  * Callers:
  *     <none>
  * Callees:

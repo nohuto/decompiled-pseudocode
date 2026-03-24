@@ -1,9 +1,9 @@
 /*
- * XREFs of CmCompressKey @ 0x1409120AC
+ * XREFs of CmCompressKey @ 0x14086C200
  * Callers:
- *     NtCompressKey @ 0x14090E5E0 (NtCompressKey.c)
+ *     NtCompressKey @ 0x1408682E0 (NtCompressKey.c)
  * Callees:
- *     HvMarkBaseBlockDirty @ 0x1406CA514 (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
  */
 
 __int64 __fastcall CmCompressKey(__int64 a1, unsigned int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall CmCompressKey(__int64 a1, unsigned int a2)
   if ( (a2 & 0xFFFFFFFC) != 0 )
     return 3221225485LL;
   v3 = 0LL;
-  if ( !*(_QWORD *)(a1 + 1544) || (*(_DWORD *)(a1 + 160) & 0x8003) != 0 )
+  if ( !*(_QWORD *)(a1 + 1536) || (*(_DWORD *)(a1 + 160) & 0x8003) != 0 )
     return 3221225485LL;
   if ( a2 != 3 )
     v3 = a2;

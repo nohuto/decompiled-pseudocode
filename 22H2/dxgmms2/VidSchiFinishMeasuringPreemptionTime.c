@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiFinishMeasuringPreemptionTime @ 0x1C0014818
+ * XREFs of VidSchiFinishMeasuringPreemptionTime @ 0x1C0013944
  * Callers:
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C00138CC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012EAC (VidSchiProcessDpcPreemptedPacket.c)
  * Callees:
- *     VidSchiUpdateContextStatus @ 0x1C000BE10 (VidSchiUpdateContextStatus.c)
- *     McTemplateK0ppxx_EtwWriteTransfer @ 0x1C002F5E4 (McTemplateK0ppxx_EtwWriteTransfer.c)
+ *     VidSchiUpdateContextStatus @ 0x1C0007130 (VidSchiUpdateContextStatus.c)
+ *     McTemplateK0ppxx_EtwWriteTransfer @ 0x1C002503C (McTemplateK0ppxx_EtwWriteTransfer.c)
  */
 
 void __fastcall VidSchiFinishMeasuringPreemptionTime(__int64 a1)
@@ -12,17 +12,18 @@ void __fastcall VidSchiFinishMeasuringPreemptionTime(__int64 a1)
   __int64 v2; // rsi
   __int64 v3; // rdi
   __int64 v4; // r14
-  LARGE_INTEGER v5; // r8
+  LARGE_INTEGER v5; // rcx
   unsigned __int128 v6; // rax
   unsigned __int64 v7; // rbp
   unsigned __int64 *v8; // rax
   int v9; // ecx
   __int64 v10; // rdx
   int v11; // eax
-  int v12; // r8d
-  __int64 v13; // r9
+  int v12; // ecx
+  int v13; // r8d
+  __int64 v14; // r9
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+78h] [rbp+10h]
+  __int64 v16; // [rsp+78h] [rbp+10h]
 
   if ( *(_QWORD *)(a1 + 504) )
   {
@@ -32,13 +33,13 @@ void __fastcall VidSchiFinishMeasuringPreemptionTime(__int64 a1)
     PerformanceFrequency.QuadPart = 0LL;
     v5 = (LARGE_INTEGER)(*(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - *(_QWORD *)(a1 + 504));
     v6 = (unsigned __int64)v5.QuadPart * (unsigned __int128)0x989680uLL;
-    v15 = *((_QWORD *)&v6 + 1);
+    v16 = *((_QWORD *)&v6 + 1);
     if ( is_mul_ok(v5.QuadPart, 0x989680uLL) )
       v7 = v6 / (unsigned __int64)PerformanceFrequency.QuadPart;
     else
       v7 = 10000000 * (v5.QuadPart / (unsigned __int64)PerformanceFrequency.QuadPart)
          + 10000000 * (v5.QuadPart % (unsigned __int64)PerformanceFrequency.QuadPart) / PerformanceFrequency.QuadPart;
-    v8 = (unsigned __int64 *)(v3 + 2856);
+    v8 = (unsigned __int64 *)(v3 + 2760);
     v9 = 8;
     v10 = 8LL;
     while ( v7 <= *v8 )
@@ -48,37 +49,37 @@ void __fastcall VidSchiFinishMeasuringPreemptionTime(__int64 a1)
       if ( --v10 < 0 )
         goto LABEL_9;
     }
-    _InterlockedIncrement64((volatile signed __int64 *)(v4 + 8LL * v9 + 2680));
+    _InterlockedIncrement64((volatile signed __int64 *)(v4 + 8LL * v9 + 2672));
 LABEL_9:
-    if ( v7 >= *(_QWORD *)(v3 + 2784) )
+    if ( v7 >= *(_QWORD *)(v3 + 2688) )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(v4 + 2672));
-      if ( v7 >= *(_QWORD *)(v3 + 2768) && !*(_BYTE *)(*(_QWORD *)(v2 + 40) + 2632LL) )
+      _InterlockedIncrement((volatile signed __int32 *)(v4 + 2664));
+      if ( v7 >= *(_QWORD *)(v3 + 2672) && !*(_BYTE *)(*(_QWORD *)(v2 + 40) + 2624LL) )
       {
         v11 = *(_DWORD *)(v2 + 48);
         if ( (v11 & 8) == 0
           && (v11 & 1) == 0
-          && !*(_DWORD *)(v3 + 3012)
+          && !*(_DWORD *)(v3 + 2916)
           && !*(_BYTE *)(v2 + 204)
           && !_InterlockedCompareExchange((volatile signed __int32 *)(v2 + 200), 0, 0)
-          && (*(_DWORD *)(v3 + 2536) & 0x200) != 0 )
+          && (*(_DWORD *)(v3 + 2448) & 0x200) != 0 )
         {
-          KeSetTimer((PKTIMER)(a1 + 512), (LARGE_INTEGER)-*(_QWORD *)(v3 + 2776), (PKDPC)(a1 + 576));
-          VidSchiUpdateContextStatus(a1, 7LL, 28534);
+          KeSetTimer((PKTIMER)(a1 + 512), (LARGE_INTEGER)-*(_QWORD *)(v3 + 2680), (PKDPC)(a1 + 576));
+          VidSchiUpdateContextStatus(a1, 7uLL, 26666LL);
           if ( bTracingEnabled )
           {
-            v13 = *(_QWORD *)(a1 + 56);
-            if ( !v13 || (*(_DWORD *)(a1 + 112) & 0x40) != 0 )
-              LODWORD(v13) = a1;
-            if ( (byte_1C0076981 & 1) != 0 )
+            v14 = *(_QWORD *)(a1 + 56);
+            if ( !v14 || (*(_DWORD *)(a1 + 112) & 0x40) != 0 )
+              LODWORD(v14) = a1;
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
               McTemplateK0ppxx_EtwWriteTransfer(
-                *(_QWORD *)(v3 + 2776),
-                (unsigned int)&EventDelayContextScheduling,
                 v12,
+                (unsigned int)&EventDelayContextScheduling,
                 v13,
-                *(_QWORD *)(v4 + 2640),
+                v14,
+                *(_QWORD *)(v4 + 2632),
                 v7,
-                *(_QWORD *)(v3 + 2776));
+                *(_QWORD *)(v3 + 2680));
           }
         }
       }

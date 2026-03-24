@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiValidateSidebandResources @ 0x1C00B3768
+ * XREFs of PnpiValidateSidebandResources @ 0x1C00B453C
  * Callers:
- *     PnpiAddSidebandResources @ 0x1C00B29B4 (PnpiAddSidebandResources.c)
+ *     PnpiAddSidebandResources @ 0x1C00B30D0 (PnpiAddSidebandResources.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of AslStringXmlSanitize @ 0x14071F91C
+ * XREFs of AslStringXmlSanitize @ 0x14071F8FC
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14071F500 (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x1408EC88C (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x1408ECDA8 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x1408ED388 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x14071F4E0 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1408EC86C (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x1408ECD88 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x1408ED368 (AslpFileGetPeExportNameExeWrapper.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall AslStringXmlSanitize(_WORD *a1)
     {
       v3 = a1[i];
       v4 = 0LL;
-      while ( v3 < *(_WORD *)((char *)&unk_140368E70 + v4) || v3 > *(_WORD *)((char *)&unk_140368E70 + v4 + 2) )
+      while ( v3 < *(_WORD *)((char *)&unk_140368F80 + v4) || v3 > *(_WORD *)((char *)&unk_140368F80 + v4 + 2) )
       {
         v4 += 4LL;
         if ( v4 >= 0x14 )

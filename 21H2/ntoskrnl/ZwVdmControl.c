@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwVdmControl @ 0x14041F2C0
+ * XREFs of ZwVdmControl @ 0x1403FDDC0
  * Callers:
  *     <none>
  * Callees:

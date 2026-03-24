@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbDeleteOwnerRanges @ 0x1408179B0
+ * XREFs of ArbDeleteOwnerRanges @ 0x140760A00
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteOwnersRanges @ 0x140817AA0 (RtlDeleteOwnersRanges.c)
+ *     RtlDeleteOwnersRanges @ 0x140760AD0 (RtlDeleteOwnersRanges.c)
  */
 
 __int64 __fastcall ArbDeleteOwnerRanges(__int64 a1)

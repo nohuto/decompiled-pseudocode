@@ -1,294 +1,357 @@
 /*
- * XREFs of AdjustCcdDatabasePermissions @ 0x1C03AF1BC
+ * XREFs of AdjustCcdDatabasePermissions @ 0x1C02EFD10
  * Callers:
- *     AdjustCcdDatabasePermissions @ 0x1C03AF1BC (AdjustCcdDatabasePermissions.c)
- *     DxgkPrepareCcdDatabaseForAccess @ 0x1C03AFB4C (DxgkPrepareCcdDatabaseForAccess.c)
+ *     AdjustCcdDatabasePermissions @ 0x1C02EFD10 (AdjustCcdDatabasePermissions.c)
+ *     DxgkPrepareCcdDatabaseForAccess @ 0x1C02F07A8 (DxgkPrepareCcdDatabaseForAccess.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6AJPEAX@Z$1?ZwClose@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C001C71C (--1-$unique_storage@U-$resource_policy@PEAXP6AJPEAX@Z$1-ZwClose@@YAJ0@ZU-$integral_constant@_K$0.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ??$?8V?$unique_storage@U?$resource_policy@PEAX$$A6AXPEAX@_E$1?FreePoolWithTag@?$pool_helpers@PEAX$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@@wil@@YA_NAEBV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAX$$A6AXPEAX@_E$1?FreePoolWithTag@?$pool_helpers@PEAX$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@@0@$$T@Z @ 0x1C006B0A0 (--$-8V-$unique_storage@U-$resource_policy@PEAX$$A6AXPEAX@_E$1-FreePoolWithTag@-$pool_helpers@PEA.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1?FreePoolWithTag@?$pool_helpers@PEAU_ACL@@$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C006B0B0 (--1-$unique_storage@U-$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1-FreePoolWithTag@-$pool_helper.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAU_KEY_BASIC_INFORMATION@@$$A6AXPEAU1@@_E$1?FreePoolWithTag@?$pool_helpers@PEAU_KEY_BASIC_INFORMATION@@$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_KEY_BASIC_INFORMATION@@@Z @ 0x1C006B11C (-reset@-$unique_storage@U-$resource_policy@PEAU_KEY_BASIC_INFORMATION@@$$A6AXPEAU1@@_E$1-FreePoo.c)
- *     _CcdOpenRegistrySubkey @ 0x1C01B78F8 (_CcdOpenRegistrySubkey.c)
- *     AdjustCcdDatabasePermissions @ 0x1C03AF1BC (AdjustCcdDatabasePermissions.c)
+ *     ??$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@Z @ 0x1C0028784 (--$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMAT.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??$?8V?$unique_storage@U?$resource_policy@PEAX$$A6AXPEAX@Z$1?FreePoolWithTag@?$pool_helpers@PEAX$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@@wil@@YA_NAEBV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAX$$A6AXPEAX@Z$1?FreePoolWithTag@?$pool_helpers@PEAX$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@@0@$$T@Z @ 0x1C005DD14 (--$-8V-$unique_storage@U-$resource_policy@PEAX$$A6AXPEAX@Z$1-FreePoolWithTag@-$pool_helpers@PEAX.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAU_KEY_BASIC_INFORMATION@@$$A6AXPEAU1@@Z$1?FreePoolWithTag@?$pool_helpers@PEAU_KEY_BASIC_INFORMATION@@$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_KEY_BASIC_INFORMATION@@@Z @ 0x1C005DD58 (-reset@-$unique_storage@U-$resource_policy@PEAU_KEY_BASIC_INFORMATION@@$$A6AXPEAU1@@Z$1-FreePool.c)
+ *     _CcdOpenRegistrySubkey @ 0x1C01364B8 (_CcdOpenRegistrySubkey.c)
+ *     AdjustCcdDatabasePermissions @ 0x1C02EFD10 (AdjustCcdDatabasePermissions.c)
  */
 
-__int64 __fastcall AdjustCcdDatabasePermissions(int a1, const WCHAR *a2, unsigned int a3, void *a4)
+__int64 __fastcall AdjustCcdDatabasePermissions(__int64 a1, const WCHAR *a2, unsigned int a3, void *a4)
 {
-  ULONG v7; // r14d
+  __int64 v6; // rax
   int v8; // eax
-  __int64 v9; // r9
-  __int64 v10; // rdi
-  ULONG v11; // eax
-  void *Pool2; // rax
-  PSECURITY_DESCRIPTOR v13; // rbx
-  NTSTATUS v14; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  ULONG v13; // eax
+  PVOID PoolWithTag; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  PSECURITY_DESCRIPTOR v17; // rdi
+  __int64 v18; // rax
   NTSTATUS DaclSecurityDescriptor; // eax
-  __int64 v16; // rdx
-  PACL v17; // rcx
-  ULONG v18; // ebx
-  NTSTATUS v19; // eax
-  __int64 v20; // r9
-  unsigned __int8 v21; // al
-  ULONG v22; // eax
-  ULONG v23; // edi
-  __int64 v24; // r9
-  struct _ACL *v25; // rax
-  struct _ACL *v26; // rbx
+  __int64 v20; // rdx
+  PACL v21; // rcx
+  ULONG v22; // ebx
+  NTSTATUS v23; // eax
+  unsigned __int8 v24; // al
+  PSECURITY_DESCRIPTOR v25; // rbx
+  __int64 v26; // rax
+  ULONG v27; // eax
+  ULONG v28; // esi
+  struct _ACL *v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  struct _ACL *v32; // r14
+  __int64 v33; // rax
   NTSTATUS Acl; // eax
-  NTSTATUS v28; // eax
-  NTSTATUS v29; // eax
-  NTSTATUS v30; // eax
-  NTSTATUS v31; // eax
-  NTSTATUS v32; // eax
-  ULONG v33; // eax
-  __int64 v34; // r9
-  void *v35; // rax
-  PVOID v36; // rbx
+  __int64 v35; // rdx
+  __int64 v36; // rcx
   NTSTATUS v37; // eax
   NTSTATUS v38; // eax
-  unsigned int *v39; // rbx
-  unsigned int v40; // r15d
-  void *v41; // rax
-  NTSTATUS v42; // eax
-  __int64 v43; // rdi
-  unsigned __int8 DaclDefaulted[8]; // [rsp+50h] [rbp-39h] BYREF
-  PVOID Ace; // [rsp+58h] [rbp-31h] BYREF
-  ULONG Size; // [rsp+60h] [rbp-29h] BYREF
-  ULONG Size_4; // [rsp+64h] [rbp-25h] BYREF
-  PACL Dacl; // [rsp+68h] [rbp-21h] BYREF
-  HANDLE Handle; // [rsp+70h] [rbp-19h] BYREF
-  int v50; // [rsp+78h] [rbp-11h] BYREF
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+80h] [rbp-9h] BYREF
-  PVOID AceList; // [rsp+88h] [rbp-1h] BYREF
-  struct _ACL *v53; // [rsp+90h] [rbp+7h] BYREF
-  _OWORD AbsoluteSecurityDescriptor[2]; // [rsp+98h] [rbp+Fh] BYREF
-  __int64 v55; // [rsp+B8h] [rbp+2Fh]
-  unsigned __int8 DaclPresent; // [rsp+100h] [rbp+77h] BYREF
+  NTSTATUS v39; // eax
+  NTSTATUS v40; // eax
+  NTSTATUS v41; // eax
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  ULONG v44; // eax
+  PVOID v45; // rax
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  __int64 v48; // rax
+  NTSTATUS v49; // eax
+  NTSTATUS v50; // eax
+  unsigned int v51; // r15d
+  unsigned int *v52; // rbx
+  ULONG i; // r14d
+  PVOID v54; // rax
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  NTSTATUS v57; // eax
+  __int64 v58; // rdx
+  __int64 v59; // rsi
+  __int64 v60; // rax
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+38h] [rbp-39h] BYREF
+  unsigned __int8 DaclDefaulted[8]; // [rsp+40h] [rbp-31h] BYREF
+  __int64 (__fastcall *v63)(_QWORD); // [rsp+48h] [rbp-29h] BYREF
+  size_t Size; // [rsp+50h] [rbp-21h] BYREF
+  PVOID Ace; // [rsp+58h] [rbp-19h] BYREF
+  ULONG Length; // [rsp+60h] [rbp-11h] BYREF
+  PACL Dacl; // [rsp+68h] [rbp-9h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-1h] BYREF
+  ULONG v69; // [rsp+78h] [rbp+7h] BYREF
+  _OWORD AbsoluteSecurityDescriptor[2]; // [rsp+80h] [rbp+Fh] BYREF
+  __int64 v71; // [rsp+A0h] [rbp+2Fh]
+  unsigned __int8 DaclPresent; // [rsp+E8h] [rbp+77h] BYREF
 
   if ( a3 > 5 )
   {
-    WdLogSingleEntry0(1LL);
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v6);
     return 0LL;
   }
-  v7 = 0;
-  v50 = 2;
+  v69 = 2;
   Handle = 0LL;
-  v8 = CcdOpenRegistrySubkey((int)&Handle, 983103, a1, a2, (__int64)&v50);
-  LODWORD(v10) = v8;
+  v8 = CcdOpenRegistrySubkey((int)&Handle, 983103, a1, a2, &v69);
+  v11 = v8;
   if ( v8 < 0 )
   {
-    WdLogSingleEntry1(2LL, v8);
-    goto LABEL_61;
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
+    goto LABEL_72;
   }
-  v11 = 336;
+  v13 = 336;
   SecurityDescriptor = 0LL;
-  for ( Size_4 = 336; ; v11 = Size_4 )
+  for ( Length = 336; ; v13 = Length )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v11, 1265072196LL, v9);
-    _reset___unique_storage_U__resource_policy_PEAU_KEY_BASIC_INFORMATION____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_KEY_BASIC_INFORMATION___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__QEAAXPEAU_KEY_BASIC_INFORMATION___Z(
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x4B677844u);
+    wil::details::unique_storage<wil::details::resource_policy<_KEY_BASIC_INFORMATION *,void (_KEY_BASIC_INFORMATION *),&public: static void wil::details::pool_helpers<_KEY_BASIC_INFORMATION *,1265072196>::FreePoolWithTag(_KEY_BASIC_INFORMATION *),wistd::integral_constant<unsigned __int64,0>,_KEY_BASIC_INFORMATION *,_KEY_BASIC_INFORMATION *,0,std::nullptr_t>>::reset(
       &SecurityDescriptor,
-      Pool2);
-    v13 = SecurityDescriptor;
+      PoolWithTag);
+    v17 = SecurityDescriptor;
     if ( !SecurityDescriptor )
-    {
-      LODWORD(v10) = -1073741801;
-      goto LABEL_58;
-    }
-    v14 = ZwQuerySecurityObject(Handle, 4u, SecurityDescriptor, Size_4, &Size_4);
-    LODWORD(v10) = v14;
-    if ( v14 != -1073741789 )
       break;
+    LODWORD(v11) = ZwQuerySecurityObject(Handle, 4u, SecurityDescriptor, Length, &Length);
+    if ( (_DWORD)v11 != -1073741789 )
+      goto LABEL_10;
   }
-  if ( v14 < 0 )
+  LODWORD(v11) = -1073741801;
+LABEL_10:
+  if ( (int)v11 < 0 )
   {
-LABEL_58:
-    v16 = (int)v10;
-    goto LABEL_59;
+    v18 = WdLogNewEntry5_WdError(v16, v15);
+    *(_QWORD *)(v18 + 24) = (int)v11;
+LABEL_69:
+    WdLogEvent5_WdError(v18);
+    goto LABEL_70;
   }
   DaclPresent = 0;
   DaclDefaulted[0] = 0;
   Dacl = 0LL;
-  DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor(v13, &DaclPresent, &Dacl, DaclDefaulted);
-  v10 = DaclSecurityDescriptor;
+  DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor(v17, &DaclPresent, &Dacl, DaclDefaulted);
+  v11 = DaclSecurityDescriptor;
   if ( DaclSecurityDescriptor < 0 )
-    goto LABEL_11;
-  if ( !DaclPresent || (v17 = Dacl) == 0LL )
   {
-    v10 = -1073741275LL;
-LABEL_11:
-    v16 = v10;
-LABEL_59:
-    WdLogSingleEntry1(2LL, v16);
-    goto LABEL_60;
+LABEL_13:
+    v18 = WdLogNewEntry5_WdError(v21, v20);
+LABEL_68:
+    *(_QWORD *)(v18 + 24) = v11;
+    goto LABEL_69;
+  }
+  if ( !DaclPresent || (v21 = Dacl) == 0LL )
+  {
+    v18 = WdLogNewEntry5_WdError(v21, v20);
+    v11 = -1073741275LL;
+    goto LABEL_68;
   }
   DaclPresent = 0;
-  v18 = 0;
+  v22 = 0;
   if ( !Dacl->AceCount )
-    goto LABEL_22;
+    goto LABEL_24;
   while ( 1 )
   {
-    Ace = 0LL;
-    v19 = RtlGetAce(v17, v18, &Ace);
-    v10 = v19;
-    if ( v19 < 0 )
-      goto LABEL_11;
-    if ( !*(_BYTE *)Ace && (*((_DWORD *)Ace + 1) & 0x2001F) == 0x2001F && RtlEqualSid((char *)Ace + 8, a4) )
-      break;
-    v17 = Dacl;
-    if ( ++v18 >= Dacl->AceCount )
+    SecurityDescriptor = 0LL;
+    v23 = RtlGetAce(v21, v22, &SecurityDescriptor);
+    v11 = v23;
+    if ( v23 < 0 )
+      goto LABEL_13;
+    if ( !*(_BYTE *)SecurityDescriptor
+      && (*((_DWORD *)SecurityDescriptor + 1) & 0x2001F) == 0x2001F
+      && RtlEqualSid((char *)SecurityDescriptor + 8, a4) )
     {
-      v21 = DaclPresent;
-      goto LABEL_21;
+      break;
+    }
+    v21 = Dacl;
+    if ( ++v22 >= Dacl->AceCount )
+    {
+      v24 = DaclPresent;
+      goto LABEL_23;
     }
   }
-  v17 = Dacl;
-  v21 = 1;
+  v21 = Dacl;
+  v24 = 1;
   DaclPresent = 1;
-LABEL_21:
-  if ( !v21 )
+LABEL_23:
+  if ( !v24 )
   {
-LABEL_22:
-    Ace = 0LL;
-    v55 = 0LL;
+LABEL_24:
+    v71 = 0LL;
+    v25 = 0LL;
+    SecurityDescriptor = 0LL;
     memset(AbsoluteSecurityDescriptor, 0, sizeof(AbsoluteSecurityDescriptor));
-    if ( v17->AclSize < 8u )
+    if ( v21->AclSize < 8u )
     {
-      WdLogSingleEntry1(1LL, 2567LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Dacl->AclSize >= sizeof(ACL)", 2567LL, 0LL, 0LL, 0LL, 0LL);
+      v26 = WdLogNewEntry5_WdAssertion(v21, v20);
+      *(_QWORD *)(v26 + 24) = 2528LL;
+      WdLogEvent5_WdAssertion(v26);
     }
-    v22 = RtlLengthSid(a4);
-    v23 = v22 + Dacl->AclSize + 8;
-    v25 = (struct _ACL *)ExAllocatePool2(256LL, v23, 1265072196LL, v24);
-    v53 = v25;
-    v26 = v25;
+    v27 = RtlLengthSid(a4);
+    v28 = v27 + Dacl->AclSize + 8;
+    v29 = (struct _ACL *)ExAllocatePoolWithTag(PagedPool, v28, 0x4B677844u);
+    v32 = v29;
+    if ( !v29 )
+    {
+      v33 = WdLogNewEntry5_WdError(v31, v30);
+      v11 = -1073741670LL;
+LABEL_43:
+      *(_QWORD *)(v33 + 24) = v11;
+      WdLogEvent5_WdError(v33);
+      goto LABEL_44;
+    }
+    Acl = RtlCreateAcl(v29, v28, 2u);
+    v11 = Acl;
+    if ( Acl < 0 )
+      goto LABEL_42;
+    Ace = 0LL;
+    v37 = RtlGetAce(Dacl, 0, &Ace);
+    v11 = v37;
+    if ( v37 < 0 )
+      goto LABEL_42;
+    v38 = RtlAddAce(v32, 2u, 0, Ace, Dacl->AclSize - 8);
+    v11 = v38;
+    if ( v38 < 0 )
+      goto LABEL_42;
+    v39 = RtlAddAccessAllowedAceEx(v32, 2u, 2u, 0x2001Fu, a4);
+    v11 = v39;
+    if ( v39 < 0 )
+      goto LABEL_42;
+    v40 = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);
+    v11 = v40;
+    if ( v40 < 0 )
+      goto LABEL_42;
+    v41 = RtlSetDaclSecurityDescriptor(AbsoluteSecurityDescriptor, 1u, v32, 0);
+    v11 = v41;
+    if ( v41 < 0 )
+      goto LABEL_42;
+    if ( !RtlValidSecurityDescriptor(AbsoluteSecurityDescriptor)
+      || (v44 = RtlLengthSecurityDescriptor(AbsoluteSecurityDescriptor), LODWORD(Size) = v44, v44 < 0x28) )
+    {
+      v33 = WdLogNewEntry5_WdError(v43, v42);
+      v11 = -1073741595LL;
+      goto LABEL_43;
+    }
+    v45 = ExAllocatePoolWithTag(PagedPool, v44, 0x4B677844u);
+    wil::details::unique_storage<wil::details::resource_policy<_KEY_BASIC_INFORMATION *,void (_KEY_BASIC_INFORMATION *),&public: static void wil::details::pool_helpers<_KEY_BASIC_INFORMATION *,1265072196>::FreePoolWithTag(_KEY_BASIC_INFORMATION *),wistd::integral_constant<unsigned __int64,0>,_KEY_BASIC_INFORMATION *,_KEY_BASIC_INFORMATION *,0,std::nullptr_t>>::reset(
+      &SecurityDescriptor,
+      v45);
+    if ( wil::operator==<wil::details::unique_storage<wil::details::resource_policy<void *,void (void *),&public: static void wil::details::pool_helpers<void *,1265072196>::FreePoolWithTag(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>>(&SecurityDescriptor) )
+    {
+      v48 = WdLogNewEntry5_WdError(v47, v46);
+      LODWORD(v11) = -1073741670;
+      *(_QWORD *)(v48 + 24) = -1073741670LL;
+      WdLogEvent5_WdError(v48);
+      v25 = SecurityDescriptor;
+LABEL_44:
+      if ( v25 )
+      {
+        SecurityDescriptor = v25;
+        v63 = (__int64 (__fastcall *)(_QWORD))wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+        wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(&v63, &SecurityDescriptor);
+      }
+      if ( v32 )
+      {
+        v63 = (__int64 (__fastcall *)(_QWORD))v32;
+        SecurityDescriptor = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+        wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+          (__int64 (__fastcall **)(_QWORD))&SecurityDescriptor,
+          &v63);
+      }
+      goto LABEL_70;
+    }
+    v25 = SecurityDescriptor;
+    memset(SecurityDescriptor, 0, (unsigned int)Size);
+    v49 = RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor, v25, (PULONG)&Size);
+    v11 = v49;
+    if ( v49 < 0 || (v50 = ZwSetSecurityObject(Handle, 4u, v25), v11 = v50, v50 < 0) )
+    {
+LABEL_42:
+      v33 = WdLogNewEntry5_WdError(v36, v35);
+      goto LABEL_43;
+    }
     if ( v25 )
     {
-      Acl = RtlCreateAcl(v25, v23, 2u);
-      v10 = Acl;
-      if ( Acl < 0 )
-        goto LABEL_55;
-      AceList = 0LL;
-      v28 = RtlGetAce(Dacl, 0, &AceList);
-      v10 = v28;
-      if ( v28 < 0 )
-        goto LABEL_55;
-      v29 = RtlAddAce(v26, 2u, 0, AceList, Dacl->AclSize - 8);
-      v10 = v29;
-      if ( v29 < 0 )
-        goto LABEL_55;
-      v30 = RtlAddAccessAllowedAceEx(v26, 2u, 2u, 0x2001Fu, a4);
-      v10 = v30;
-      if ( v30 < 0 )
-        goto LABEL_55;
-      v31 = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);
-      v10 = v31;
-      if ( v31 < 0 )
-        goto LABEL_55;
-      v32 = RtlSetDaclSecurityDescriptor(AbsoluteSecurityDescriptor, 1u, v26, 0);
-      v10 = v32;
-      if ( v32 < 0 )
-        goto LABEL_55;
-      if ( !RtlValidSecurityDescriptor(AbsoluteSecurityDescriptor)
-        || (v33 = RtlLengthSecurityDescriptor(AbsoluteSecurityDescriptor), Size = v33, v33 < 0x28) )
-      {
-        v10 = -1073741595LL;
-        goto LABEL_55;
-      }
-      v35 = (void *)ExAllocatePool2(256LL, v33, 1265072196LL, v34);
-      _reset___unique_storage_U__resource_policy_PEAU_KEY_BASIC_INFORMATION____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_KEY_BASIC_INFORMATION___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__QEAAXPEAU_KEY_BASIC_INFORMATION___Z(
-        &Ace,
-        v35);
-      if ( !____8V__unique_storage_U__resource_policy_PEAX__A6AXPEAX__E_1_FreePoolWithTag___pool_helpers_PEAX_0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil___wil__YA_NAEBV__unique_any_t_V__unique_storage_U__resource_policy_PEAX__A6AXPEAX__E_1_FreePoolWithTag___pool_helpers_PEAX_0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil___0___T_Z(&Ace) )
-      {
-        v36 = Ace;
-        memset(Ace, 0, Size);
-        v37 = RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor, v36, &Size);
-        v10 = v37;
-        if ( v37 >= 0 )
-        {
-          v38 = ZwSetSecurityObject(Handle, 4u, v36);
-          v10 = v38;
-          if ( v38 >= 0 )
-          {
-            __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&Ace);
-            __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&v53);
-            goto LABEL_39;
-          }
-        }
-LABEL_55:
-        WdLogSingleEntry1(2LL, v10);
-        __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&Ace);
-        __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&v53);
-        goto LABEL_60;
-      }
+      v63 = (__int64 (__fastcall *)(_QWORD))v25;
+      SecurityDescriptor = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+      wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+        (__int64 (__fastcall **)(_QWORD))&SecurityDescriptor,
+        &v63);
     }
-    v10 = -1073741670LL;
-    goto LABEL_55;
+    v63 = (__int64 (__fastcall *)(_QWORD))v32;
+    SecurityDescriptor = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+    wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+      (__int64 (__fastcall **)(_QWORD))&SecurityDescriptor,
+      &v63);
   }
-LABEL_39:
-  v39 = 0LL;
-  v40 = 544;
-  Ace = 0LL;
-  do
+  v51 = 544;
+  v52 = 0LL;
+  SecurityDescriptor = 0LL;
+  for ( i = 0; ; ++i )
   {
-LABEL_40:
-    if ( !v39 )
+    do
     {
-      v41 = (void *)ExAllocatePool2(256LL, v40, 1265072196LL, v20);
-      _reset___unique_storage_U__resource_policy_PEAU_KEY_BASIC_INFORMATION____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_KEY_BASIC_INFORMATION___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__QEAAXPEAU_KEY_BASIC_INFORMATION___Z(
-        &Ace,
-        v41);
-      v39 = (unsigned int *)Ace;
-      if ( !Ace )
+      if ( !v52 )
       {
-        LODWORD(v10) = -1073741670;
-        WdLogSingleEntry1(2LL, -1073741670LL);
-        goto LABEL_53;
+        v54 = ExAllocatePoolWithTag(PagedPool, v51, 0x4B677844u);
+        wil::details::unique_storage<wil::details::resource_policy<_KEY_BASIC_INFORMATION *,void (_KEY_BASIC_INFORMATION *),&public: static void wil::details::pool_helpers<_KEY_BASIC_INFORMATION *,1265072196>::FreePoolWithTag(_KEY_BASIC_INFORMATION *),wistd::integral_constant<unsigned __int64,0>,_KEY_BASIC_INFORMATION *,_KEY_BASIC_INFORMATION *,0,std::nullptr_t>>::reset(
+          &SecurityDescriptor,
+          v54);
+        v52 = (unsigned int *)SecurityDescriptor;
+        if ( !SecurityDescriptor )
+        {
+          v18 = WdLogNewEntry5_WdError(v56, v55);
+          v11 = -1073741670LL;
+          goto LABEL_68;
+        }
+      }
+      LODWORD(Size) = 0;
+      v57 = ZwEnumerateKey(Handle, i, KeyBasicInformation, v52, v51 - 2, (PULONG)&Size);
+      v59 = v57;
+      if ( v57 == -2147483643 || v57 == -1073741789 )
+      {
+        v51 = Size + 2;
+        wil::details::unique_storage<wil::details::resource_policy<_KEY_BASIC_INFORMATION *,void (_KEY_BASIC_INFORMATION *),&public: static void wil::details::pool_helpers<_KEY_BASIC_INFORMATION *,1265072196>::FreePoolWithTag(_KEY_BASIC_INFORMATION *),wistd::integral_constant<unsigned __int64,0>,_KEY_BASIC_INFORMATION *,_KEY_BASIC_INFORMATION *,0,std::nullptr_t>>::reset(
+          &SecurityDescriptor,
+          0LL);
+        v52 = (unsigned int *)SecurityDescriptor;
       }
     }
-    Size = 0;
-    v42 = ZwEnumerateKey(Handle, v7, KeyBasicInformation, v39, v40 - 2, &Size);
-    v43 = v42;
-    if ( v42 != -2147483643 && v42 != -1073741789 )
+    while ( (_DWORD)v59 == -2147483643 || (_DWORD)v59 == -1073741789 );
+    if ( (int)v59 >= 0 )
+    {
+      *((_WORD *)v52 + ((unsigned __int64)v52[3] >> 1) + 8) = 0;
+      AdjustCcdDatabasePermissions(Handle, v52 + 4, a3 + 1, a4);
+      continue;
+    }
+    if ( (_DWORD)v59 == -2147483622 )
       break;
-    v40 = Size + 2;
-    _reset___unique_storage_U__resource_policy_PEAU_KEY_BASIC_INFORMATION____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_KEY_BASIC_INFORMATION___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__QEAAXPEAU_KEY_BASIC_INFORMATION___Z(
-      &Ace,
-      0LL);
-    v39 = (unsigned int *)Ace;
+    v60 = WdLogNewEntry5_WdAssertion(0LL, v58);
+    *(_QWORD *)(v60 + 24) = v59;
+    WdLogEvent5_WdAssertion(v60);
   }
-  while ( (_DWORD)v43 == -2147483643 || (_DWORD)v43 == -1073741789 );
-  if ( (int)v43 >= 0 )
+  LODWORD(v11) = 0;
+  if ( v52 )
   {
-    *((_WORD *)v39 + ((unsigned __int64)v39[3] >> 1) + 8) = 0;
-    AdjustCcdDatabasePermissions(Handle, v39 + 4, a3 + 1, a4);
-LABEL_50:
-    ++v7;
-    goto LABEL_40;
+    v63 = (__int64 (__fastcall *)(_QWORD))v52;
+    Ace = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+    wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+      (__int64 (__fastcall **)(_QWORD))&Ace,
+      &v63);
   }
-  if ( (_DWORD)v43 != -2147483622 )
+LABEL_70:
+  if ( v17 )
   {
-    WdLogSingleEntry1(1LL, v43);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Failed to enumerate key with status 0x%I64x",
-      v43,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_50;
+    v63 = (__int64 (__fastcall *)(_QWORD))v17;
+    Ace = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+    wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+      (__int64 (__fastcall **)(_QWORD))&Ace,
+      &v63);
   }
-  LODWORD(v10) = 0;
-LABEL_53:
-  __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&Ace);
-LABEL_60:
-  __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&SecurityDescriptor);
-LABEL_61:
-  wil::details::unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&Handle);
-  return (unsigned int)v10;
+LABEL_72:
+  if ( Handle )
+  {
+    v63 = (__int64 (__fastcall *)(_QWORD))Handle;
+    Ace = ZwClose;
+    wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+      (__int64 (__fastcall **)(_QWORD))&Ace,
+      &v63);
+  }
+  return (unsigned int)v11;
 }

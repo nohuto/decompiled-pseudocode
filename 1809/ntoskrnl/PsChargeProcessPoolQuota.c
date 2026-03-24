@@ -1,8 +1,8 @@
 /*
- * XREFs of PsChargeProcessPoolQuota @ 0x14011B0B0
+ * XREFs of PsChargeProcessPoolQuota @ 0x14011B0D0
  * Callers:
- *     PsChargePoolQuota @ 0x14011B090 (PsChargePoolQuota.c)
- *     FsRtlCancelNotify @ 0x14011B0F0 (FsRtlCancelNotify.c)
+ *     PsChargePoolQuota @ 0x14011B0B0 (PsChargePoolQuota.c)
+ *     FsRtlCancelNotify @ 0x14011B110 (FsRtlCancelNotify.c)
  * Callees:
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
  */

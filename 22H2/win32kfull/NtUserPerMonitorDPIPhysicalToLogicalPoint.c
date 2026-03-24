@@ -1,67 +1,57 @@
 /*
- * XREFs of NtUserPerMonitorDPIPhysicalToLogicalPoint @ 0x1C01D82F0
+ * XREFs of NtUserPerMonitorDPIPhysicalToLogicalPoint @ 0x1C01FFB00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C0151814 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     DCEPtInRect @ 0x1C00FB848 (DCEPtInRect.c)
  */
 
-__int64 __fastcall NtUserPerMonitorDPIPhysicalToLogicalPoint(__int64 a1, struct tagPOINT *a2, __int64 a3)
+__int64 __fastcall NtUserPerMonitorDPIPhysicalToLogicalPoint(__int64 a1, unsigned __int64 *a2)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  struct tagPOINT v7; // r8
-  __int64 v8; // r9
-  _BYTE *v9; // rdx
-  __int64 v10; // r9
-  unsigned int CurrentThreadDpiAwarenessContext; // r14d
-  __int64 v12; // r9
-  struct tagPOINT v14; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v4; // rcx
+  _QWORD *v5; // rdx
+  unsigned int CurrentThreadDpiAwarenessContext; // eax
+  unsigned int v7; // esi
+  unsigned __int64 v8; // r8
+  unsigned __int64 v10; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v11; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = a1;
-  EnterSharedCrit(a1, a2, a3);
-  if ( !v4 || (v4 = ValidateHwnd(v4)) != 0 )
+  EnterSharedCrit(0LL, 1LL);
+  if ( !a1 || (a1 = ValidateHwnd(a1)) != 0 )
   {
-    v14 = 0LL;
-    v9 = a2;
+    v10 = 0LL;
+    v5 = a2;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      v9 = (_BYTE *)MmUserProbeAddress;
-    *v9 = *v9;
-    v9[7] = v9[7];
-    v14 = *a2;
+      v5 = (_QWORD *)MmUserProbeAddress;
+    *v5 = *v5;
+    v10 = *a2;
     CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(MmUserProbeAddress);
-    if ( v4 )
+    v7 = CurrentThreadDpiAwarenessContext;
+    if ( a1 )
     {
-      ShouldVirtualizeWindowRect(v4, CurrentThreadDpiAwarenessContext);
-      v15 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))GuessMonitorOverrideForCoordinateConversions)(
-              v14,
-              *(unsigned int *)(*(_QWORD *)(v4 + 40) + 288LL),
-              1LL,
-              v12);
-      PhysicalToLogicalDPIPoint(&v14, &v14, *(unsigned int *)(*(_QWORD *)(v4 + 40) + 288LL), &v15);
-      LODWORD(v4) = DCEPtInRect((const struct tagRECT *)(*(_QWORD *)(v4 + 40) + 88LL), v14);
+      if ( (*(_BYTE *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480) + 224LL) & 1) == 0 )
+        W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v11 = GuessMonitorOverrideForCoordinateConversions(v10, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), 1LL);
+      PhysicalToLogicalDPIPoint(&v10, &v10, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), &v11);
+      LODWORD(a1) = DCEPtInRect((_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL), v10);
     }
     else
     {
-      v16 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))GuessMonitorOverrideForCoordinateConversions)(
-              v14,
-              CurrentThreadDpiAwarenessContext,
-              1LL,
-              v10);
-      PhysicalToLogicalDPIPoint(&v14, &v14, CurrentThreadDpiAwarenessContext, &v16);
-      LODWORD(v4) = 1;
-      v7 = v14;
+      v12 = GuessMonitorOverrideForCoordinateConversions(v10, CurrentThreadDpiAwarenessContext, 1LL);
+      PhysicalToLogicalDPIPoint(&v10, &v10, v7, &v12);
+      LODWORD(a1) = 1;
+      v8 = v10;
     }
-    if ( (_DWORD)v4 )
+    if ( (_DWORD)a1 )
     {
-      *a2 = v7;
-      LODWORD(v4) = 1;
+      *a2 = v8;
+      LODWORD(a1) = 1;
     }
   }
-  ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))UserSessionSwitchLeaveCrit)(v6, v5, v7, v8);
-  return (int)v4;
+  UserSessionSwitchLeaveCrit(v4);
+  return (int)a1;
 }

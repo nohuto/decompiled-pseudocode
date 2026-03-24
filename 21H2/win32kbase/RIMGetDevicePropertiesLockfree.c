@@ -1,11 +1,11 @@
 /*
- * XREFs of RIMGetDevicePropertiesLockfree @ 0x1C0183840
+ * XREFs of RIMGetDevicePropertiesLockfree @ 0x1C0156330
  * Callers:
- *     NtRIMGetDevicePropertiesLockfree @ 0x1C01804D0 (NtRIMGetDevicePropertiesLockfree.c)
- *     RIMGetDeviceProperties @ 0x1C0183600 (RIMGetDeviceProperties.c)
+ *     NtRIMGetDevicePropertiesLockfree @ 0x1C0153880 (NtRIMGetDevicePropertiesLockfree.c)
+ *     RIMGetDeviceProperties @ 0x1C01561C0 (RIMGetDeviceProperties.c)
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0043E30 (RawInputManagerDeviceObjectResolveHandle.c)
- *     rimCopyInstancePathFromRimDev @ 0x1C017FA80 (rimCopyInstancePathFromRimDev.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0057C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     rimCopyInstancePathFromRimDev @ 0x1C0152D2C (rimCopyInstancePathFromRimDev.c)
  */
 
 __int64 __fastcall RIMGetDevicePropertiesLockfree(char *a1, ULONG64 a2, int a3)
@@ -133,16 +133,16 @@ LABEL_71:
               v17 = a2 + 8;
               if ( a2 + 8 >= MmUserProbeAddress )
                 v17 = MmUserProbeAddress;
-              *(_OWORD *)v17 = *(_OWORD *)(v6 + 456);
-              *(_QWORD *)(v17 + 16) = *((_QWORD *)v6 + 59);
-              *(_DWORD *)(v17 + 24) = *((_DWORD *)v6 + 120);
+              *(_OWORD *)v17 = *((_OWORD *)v6 + 29);
+              *(_QWORD *)(v17 + 16) = *((_QWORD *)v6 + 60);
+              *(_DWORD *)(v17 + 24) = *((_DWORD *)v6 + 122);
             }
             else
             {
               *(_DWORD *)a2 = 1;
-              *(_OWORD *)(a2 + 8) = *(_OWORD *)(v6 + 456);
-              *(_QWORD *)(a2 + 24) = *((_QWORD *)v6 + 59);
-              *(_DWORD *)(a2 + 32) = *((_DWORD *)v6 + 120);
+              *(_OWORD *)(a2 + 8) = *((_OWORD *)v6 + 29);
+              *(_QWORD *)(a2 + 24) = *((_QWORD *)v6 + 60);
+              *(_DWORD *)(a2 + 32) = *((_DWORD *)v6 + 122);
             }
           }
           else if ( v15 )
@@ -151,10 +151,10 @@ LABEL_71:
             {
               v20 = 0LL;
               v21 = 0;
-              if ( *((_DWORD *)v6 + 334) )
+              if ( *((_DWORD *)v6 + 336) )
               {
-                v20 = *(_QWORD *)(v6 + 1868);
-                v21 = *((_DWORD *)v6 + 470);
+                v20 = *(_QWORD *)(v6 + 1876);
+                v21 = *((_DWORD *)v6 + 472);
               }
               if ( a3 )
               {
@@ -165,15 +165,15 @@ LABEL_71:
                 v23 = (_WORD *)(a2 + 8);
                 if ( a2 + 8 >= MmUserProbeAddress )
                   v23 = (_WORD *)MmUserProbeAddress;
-                *v23 = *(_WORD *)(*((_QWORD *)v6 + 57) + 110LL);
+                *v23 = *(_WORD *)(*((_QWORD *)v6 + 58) + 110LL);
                 v24 = (_WORD *)(a2 + 10);
                 if ( a2 + 10 >= MmUserProbeAddress )
                   v24 = (_WORD *)MmUserProbeAddress;
-                *v24 = *(_WORD *)(*((_QWORD *)v6 + 57) + 112LL);
+                *v24 = *(_WORD *)(*((_QWORD *)v6 + 58) + 112LL);
                 v25 = (_WORD *)(a2 + 12);
                 if ( a2 + 12 >= MmUserProbeAddress )
                   v25 = (_WORD *)MmUserProbeAddress;
-                *v25 = *(_WORD *)(*((_QWORD *)v6 + 57) + 114LL);
+                *v25 = *(_WORD *)(*((_QWORD *)v6 + 58) + 114LL);
                 v26 = (_QWORD *)(a2 + 16);
                 if ( a2 + 16 >= MmUserProbeAddress )
                   v26 = (_QWORD *)MmUserProbeAddress;
@@ -186,9 +186,9 @@ LABEL_71:
               else
               {
                 *(_DWORD *)a2 = 3;
-                *(_WORD *)(a2 + 8) = *(_WORD *)(*((_QWORD *)v6 + 57) + 110LL);
-                *(_WORD *)(a2 + 10) = *(_WORD *)(*((_QWORD *)v6 + 57) + 112LL);
-                *(_WORD *)(a2 + 12) = *(_WORD *)(*((_QWORD *)v6 + 57) + 114LL);
+                *(_WORD *)(a2 + 8) = *(_WORD *)(*((_QWORD *)v6 + 58) + 110LL);
+                *(_WORD *)(a2 + 10) = *(_WORD *)(*((_QWORD *)v6 + 58) + 112LL);
+                *(_WORD *)(a2 + 12) = *(_WORD *)(*((_QWORD *)v6 + 58) + 114LL);
                 *(_QWORD *)(a2 + 16) = v20;
                 *(_DWORD *)(a2 + 24) = v21;
               }
@@ -203,14 +203,14 @@ LABEL_71:
             v19 = a2 + 8;
             if ( a2 + 8 >= MmUserProbeAddress )
               v19 = MmUserProbeAddress;
-            *(_QWORD *)v19 = *((_QWORD *)v6 + 57);
-            *(_DWORD *)(v19 + 8) = *((_DWORD *)v6 + 116);
+            *(_QWORD *)v19 = *((_QWORD *)v6 + 58);
+            *(_DWORD *)(v19 + 8) = *((_DWORD *)v6 + 118);
           }
           else
           {
             *(_DWORD *)a2 = 2;
-            *(_QWORD *)(a2 + 8) = *((_QWORD *)v6 + 57);
-            *(_DWORD *)(a2 + 16) = *((_DWORD *)v6 + 116);
+            *(_QWORD *)(a2 + 8) = *((_QWORD *)v6 + 58);
+            *(_DWORD *)(a2 + 16) = *((_DWORD *)v6 + 118);
           }
         }
         goto LABEL_71;
@@ -222,11 +222,11 @@ LABEL_71:
           v13 = (_QWORD *)(a2 + 8);
           if ( a2 + 8 >= MmUserProbeAddress )
             v13 = (_QWORD *)MmUserProbeAddress;
-          *v13 = *(_QWORD *)(*((_QWORD *)v6 + 59) + 784LL);
+          *v13 = *(_QWORD *)(*((_QWORD *)v6 + 60) + 736LL);
         }
         else
         {
-          *(_QWORD *)(a2 + 8) = *(_QWORD *)(*((_QWORD *)v6 + 59) + 784LL);
+          *(_QWORD *)(a2 + 8) = *(_QWORD *)(*((_QWORD *)v6 + 60) + 736LL);
         }
         goto LABEL_71;
       }

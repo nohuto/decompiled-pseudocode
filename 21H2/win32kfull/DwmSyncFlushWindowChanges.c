@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmSyncFlushWindowChanges @ 0x1C00CC928
+ * XREFs of DwmSyncFlushWindowChanges @ 0x1C002E86C
  * Callers:
- *     xxxSynchronizeDWMWindowChanges @ 0x1C00CC8DC (xxxSynchronizeDWMWindowChanges.c)
+ *     xxxSynchronizeDWMWindowChanges @ 0x1C002E81C (xxxSynchronizeDWMWindowChanges.c)
  * Callees:
- *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C00CC990 (DwmSyncFlushForceRenderAndWaitForBatch.c)
+ *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E8E0 (DwmSyncFlushForceRenderAndWaitForBatch.c)
  */
 
 __int64 __fastcall DwmSyncFlushWindowChanges(void *a1)
@@ -15,14 +15,15 @@ __int64 __fastcall DwmSyncFlushWindowChanges(void *a1)
   v2 = -1073741823;
   if ( a1 )
   {
-    if ( gbInVideoPnpCallout || (v2 = 0, qword_1C032BFB8 == g_cDWMWindowUniqueness) )
+    v2 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( gbInVideoPnpCallout || qword_1C0330C88 == g_cDWMWindowUniqueness )
     {
       ObfDereferenceObject(a1);
     }
     else
     {
       v2 = DwmSyncFlushForceRenderAndWaitForBatch(a1);
-      qword_1C032BFB8 = v1;
+      qword_1C0330C88 = v1;
     }
   }
   return v2;

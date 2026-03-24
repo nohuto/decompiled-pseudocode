@@ -1,39 +1,50 @@
 /*
- * XREFs of ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x180004E20
+ * XREFs of ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x180009FA8
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PostSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008B040 (-PostSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ??$WalkSubtree@VCDrawingContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCDrawingContext@@W4WalkReason@@@Z @ 0x18007B1C0 (--$WalkSubtree@VCDrawingContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCDrawingContext@@W4.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ?DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004F10 (-DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z.c)
+ *     ?DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A05C (-DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C25C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
  */
 
 CProjectedShadowScene **__fastcall CVisual::RenderProjectedShadows(__int64 a1, struct CDrawingContext *a2, int a3)
 {
   CProjectedShadowScene **result; // rax
-  CProjectedShadowScene *v6; // rbp
-  struct CProjectedShadowReceiver **i; // rdi
-  struct CProjectedShadowReceiver *v8; // rsi
-  CProjectedShadowScene **j; // rbx
+  __int64 v6; // rsi
+  struct CProjectedShadowReceiver **v7; // r14
+  unsigned __int64 v8; // rbp
+  struct CProjectedShadowReceiver *v9; // rdi
+  CProjectedShadowScene **i; // rbx
 
-  result = *(CProjectedShadowScene ***)(a1 + 232);
+  result = *(CProjectedShadowScene ***)(a1 + 224);
   if ( (*(_DWORD *)result & 0x20000) != 0 )
   {
-    result = (CProjectedShadowScene **)CVisual::GetProjectedShadowReceivers(a1);
-    v6 = result[1];
-    for ( i = (struct CProjectedShadowReceiver **)*result; i != (struct CProjectedShadowReceiver **)v6; ++i )
+    result = (CProjectedShadowScene **)CVisual::GetProjectedShadowReceivers();
+    v6 = 0LL;
+    v7 = (struct CProjectedShadowReceiver **)*result;
+    v8 = (unsigned __int64)(result[1] - *result + 7) >> 3;
+    if ( *result > result[1] )
+      v8 = 0LL;
+    if ( v8 )
     {
-      v8 = *i;
-      if ( *((_DWORD *)*i + 24) == a3 )
+      do
       {
-        for ( j = (CProjectedShadowScene **)*((_QWORD *)v8 + 10); ; CProjectedShadowScene::DrawShadows(*j, a2, v8) )
+        v9 = *v7;
+        if ( *((_DWORD *)*v7 + 22) == a3 )
         {
-          result = j;
-          if ( j == *((CProjectedShadowScene ***)v8 + 9) )
-            break;
-          --j;
+          for ( i = (CProjectedShadowScene **)*((_QWORD *)v9 + 9); ; CProjectedShadowScene::DrawShadows(*i, a2, v9) )
+          {
+            result = i;
+            if ( i == *((CProjectedShadowScene ***)v9 + 8) )
+              break;
+            --i;
+          }
         }
+        ++v7;
+        ++v6;
       }
+      while ( v6 != v8 );
     }
   }
   return result;

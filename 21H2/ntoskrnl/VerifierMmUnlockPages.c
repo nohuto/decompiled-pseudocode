@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmUnlockPages @ 0x140AA0500
+ * XREFs of VerifierMmUnlockPages @ 0x1409E7000
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140A8B064 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72B0 (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmUnlockPages(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
@@ -25,11 +25,11 @@ __int64 __fastcall VerifierMmUnlockPages(ULONG_PTR BugCheckParameter2, __int64 a
     VerifierBugCheckIfAppropriate(0xC4u, 0x7DuLL, BugCheckParameter2, v5, 0LL);
   if ( (v5 & 0x10) != 0 && (MmVerifierData & 1) != 0 )
     VerifierBugCheckIfAppropriate(0xC4u, 0xB4uLL, BugCheckParameter2, v5, 16LL);
-  if ( (v5 & 1) != 0 && _bittest(&MmVerifierData, 0xCu) )
-    ViTargetAddToCounter(retaddr, 200LL, 0xD0u, -(__int64)*(unsigned int *)(BugCheckParameter2 + 40));
+  if ( (v5 & 1) != 0 && (MmVerifierData & 0x1000) != 0 )
+    ViTargetAddToCounter(retaddr, 192LL, 0xC8u, -(__int64)*(unsigned int *)(BugCheckParameter2 + 40));
   v6 = -(__int64)*(unsigned int *)(BugCheckParameter2 + 40);
-  if ( _bittest(&MmVerifierData, 0xCu) )
-    ViTargetAddToCounter(retaddr, 184LL, 0xC0u, v6);
+  if ( (MmVerifierData & 0x1000) != 0 )
+    ViTargetAddToCounter(retaddr, 176LL, 0xB8u, v6);
   return ((__int64 (__fastcall *)(ULONG_PTR, __int64, __int64, unsigned __int64))pXdvMmUnlockPages)(
            BugCheckParameter2,
            a2,

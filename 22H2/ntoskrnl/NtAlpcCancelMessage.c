@@ -1,32 +1,32 @@
 /*
- * XREFs of NtAlpcCancelMessage @ 0x140779580
+ * XREFs of NtAlpcCancelMessage @ 0x1406A4060
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x140738DC0 (AlpcpLookupMessage.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCancelMessage(void *a1, unsigned int a2, __int64 a3)
+__int64 __fastcall NtAlpcCancelMessage(void *a1, int a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r9
-  int v6; // edi
+  unsigned int v6; // edi
   int v7; // r15d
   void *v8; // rsi
   int v9; // ebx
   __int64 v10; // r9
-  int v11; // edx
-  _DWORD *v12; // rdi
+  __int64 v11; // rdx
+  struct _DMA_ADAPTER *v12; // rdi
   PVOID Object[6]; // [rsp+38h] [rbp-30h] BYREF
-  ULONG_PTR v15; // [rsp+88h] [rbp+20h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp+20h] BYREF
 
-  v15 = 0LL;
+  BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( (a2 & 0xFFFFFFF0) != 0 )
@@ -72,38 +72,38 @@ LABEL_10:
   if ( v9 >= 0 )
   {
     v11 = v6;
-    v12 = Object[0];
-    v9 = AlpcpLookupMessage((__int64)Object[0], v11, v7, v10, &v15);
+    v12 = (struct _DMA_ADAPTER *)Object[0];
+    v9 = AlpcpLookupMessage((__int64)Object[0], v11, v7, v10, &BugCheckParameter2);
     if ( v9 >= 0 )
     {
       if ( (a2 & 8) == 0 )
         goto LABEL_14;
-      if ( (v12[104] & 6) == 4 )
+      if ( (*(_DWORD *)&v12[26].Version & 6) == 4 )
       {
-        if ( v8 == *(void **)(v15 + 104) )
+        if ( v8 == *(void **)(BugCheckParameter2 + 104) )
         {
 LABEL_14:
-          if ( (*(_DWORD *)(v15 + 40) & 0x80u) != 0 )
+          if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) != 0 )
           {
-            AlpcpUnlockMessage(v15);
+            AlpcpUnlockMessage(BugCheckParameter2);
             v9 = -1073740029;
           }
           else
           {
-            v9 = AlpcpCancelMessage(v12, v15, a2);
+            v9 = AlpcpCancelMessage((__int64)v12, BugCheckParameter2, a2);
           }
           goto LABEL_16;
         }
       }
-      else if ( v8 == *(void **)(v15 + 112) )
+      else if ( v8 == *(void **)(BugCheckParameter2 + 112) )
       {
         goto LABEL_14;
       }
-      AlpcpUnlockMessage(v15);
+      AlpcpUnlockMessage(BugCheckParameter2);
       v9 = -1073740007;
     }
 LABEL_16:
-    ObfDereferenceObject(v12);
+    HalPutDmaAdapter(v12);
   }
 LABEL_17:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

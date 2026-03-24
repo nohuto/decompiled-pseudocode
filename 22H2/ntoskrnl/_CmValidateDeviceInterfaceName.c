@@ -1,87 +1,84 @@
 /*
- * XREFs of _CmValidateDeviceInterfaceName @ 0x1406CEA70
+ * XREFs of _CmValidateDeviceInterfaceName @ 0x1406BA7AC
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1406CCF40 (_PnpDispatchDeviceInterface.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406CF54C (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14077DE20 (_CmSetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x14079446C (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C5A60 (IoGetDeviceInterfaceAlias.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1407C5DC4 (_CmGetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1407C5E58 (_CmGetDeviceInterfaceReferenceString.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14082CAC0 (_CmDeviceClassesSubkeyCallback.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406B372C (_CmSetDeviceInterfacePathFormat.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406B5060 (_PnpDispatchDeviceInterface.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406B9634 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072BED0 (IoGetDeviceInterfaceAlias.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x14072C234 (_CmGetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14072C2C8 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140745BC0 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x1407B1440 (_CmDeviceClassesSubkeyCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyNExW @ 0x14022B880 (RtlStringCchCopyNExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
+ *     RtlStringCchCopyNExW @ 0x14032E654 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
  */
 
-NTSTATUS __fastcall CmValidateDeviceInterfaceName(__int64 a1, __int64 a2)
+__int64 __fastcall CmValidateDeviceInterfaceName(__int64 a1, const WCHAR *a2)
 {
-  int v3; // edi
-  __int64 v4; // rbx
-  __int16 v5; // ax
-  __int64 v6; // rcx
-  unsigned __int64 v7; // rbx
-  NTSTATUS result; // eax
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-88h] BYREF
-  GUID Guid; // [rsp+50h] [rbp-78h] BYREF
-  wchar_t pszDest[40]; // [rsp+60h] [rbp-68h] BYREF
+  int v3; // r14d
+  _WORD *v4; // rsi
+  NTSTATUS inited; // ebx
+  _WORD *i; // rax
+  unsigned __int64 v7; // rsi
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-49h] BYREF
+  GUID Guid; // [rsp+50h] [rbp-39h] BYREF
+  wchar_t pszDest[40]; // [rsp+60h] [rbp-29h] BYREF
 
   DestinationString = 0LL;
   v3 = 0;
   v4 = 0LL;
   Guid = 0LL;
-  if ( RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)a2) < 0
-    || (DestinationString.MaximumLength & 0xFFFEu) < 0x62
-    || !RtlPrefixUnicodeString(&stru_140001408, &DestinationString, 0)
-    && !RtlPrefixUnicodeString(&stru_140001418, &DestinationString, 0) )
+  inited = RtlInitUnicodeStringEx(&DestinationString, a2);
+  if ( inited >= 0
+    && (DestinationString.MaximumLength & 0xFFFEu) >= 0x62
+    && (RtlPrefixUnicodeString(&stru_140004980, &DestinationString, 0)
+     || RtlPrefixUnicodeString(&stru_140004960, &DestinationString, 0)) )
   {
-    return -1073741773;
-  }
-  v5 = *(_WORD *)(a2 + 8);
-  v6 = a2 + 8;
-  if ( !v5 )
-    goto LABEL_18;
-  do
-  {
-    if ( v5 == 92 )
+    for ( i = a2 + 4; *i; ++i )
     {
-      if ( (unsigned int)++v3 > 1 )
-        return -1073741773;
-      v4 = v6;
+      if ( *i == 92 )
+      {
+        if ( (unsigned int)++v3 > 1 )
+        {
+          inited = -1073741773;
+          break;
+        }
+        v4 = i;
+      }
     }
-    v5 = *(_WORD *)(v6 + 2);
-    v6 += 2LL;
+    if ( inited >= 0 )
+    {
+      if ( v4 )
+        v7 = v4 - a2;
+      else
+        v7 = (unsigned __int64)DestinationString.Length >> 1;
+      if ( v7 > 0xFFFFFFFF || (unsigned int)v7 < 0x30 )
+      {
+        return (unsigned int)-1073741773;
+      }
+      else
+      {
+        inited = RtlStringCchCopyNExW(pszDest, 0x27uLL, &a2[(unsigned int)v7 - 38], 0x26uLL, 0LL, 0LL, 0x800u);
+        if ( inited >= 0 )
+        {
+          inited = RtlInitUnicodeStringEx(&DestinationString, pszDest);
+          if ( inited >= 0 )
+          {
+            inited = RtlGUIDFromString(&DestinationString, &Guid);
+            if ( inited < 0 )
+              return (unsigned int)-1073741773;
+          }
+        }
+      }
+    }
   }
-  while ( v5 );
-  if ( v4 )
-    v7 = (v4 - a2) >> 1;
   else
-LABEL_18:
-    v7 = (unsigned __int64)DestinationString.Length >> 1;
-  if ( v7 > 0xFFFFFFFF )
-    return -1073741773;
-  if ( (unsigned int)v7 < 0x30 )
-    return -1073741773;
-  result = RtlStringCchCopyNExW(
-             pszDest,
-             0x27uLL,
-             (STRSAFE_PCNZWCH)(a2 + 2 * ((unsigned int)v7 - 38LL)),
-             0x26uLL,
-             0LL,
-             0LL,
-             0x800u);
-  if ( result >= 0 )
   {
-    result = RtlInitUnicodeStringEx(&DestinationString, pszDest);
-    if ( result >= 0 )
-    {
-      result = RtlGUIDFromString(&DestinationString, &Guid);
-      if ( result < 0 )
-        return -1073741773;
-    }
+    return (unsigned int)-1073741773;
   }
-  return result;
+  return (unsigned int)inited;
 }

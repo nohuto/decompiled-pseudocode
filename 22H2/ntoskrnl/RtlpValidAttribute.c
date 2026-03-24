@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttribute @ 0x1409BBB14
+ * XREFs of RtlpValidAttribute @ 0x140912E50
  * Callers:
- *     RtlpValidAttributeInfo @ 0x1409BBC30 (RtlpValidAttributeInfo.c)
+ *     RtlpValidAttributeInfo @ 0x140912F68 (RtlpValidAttributeInfo.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
  */
 
 char __fastcall RtlpValidAttribute(__int64 a1)
@@ -11,10 +11,12 @@ char __fastcall RtlpValidAttribute(__int64 a1)
   const wchar_t *v2; // rcx
   __int64 v3; // r11
   unsigned int v4; // edx
-  __int64 v5; // r8
-  unsigned int v6; // eax
-  unsigned int v8; // eax
-  unsigned int v9; // r9d
+  __int64 v5; // r9
+  unsigned __int16 v6; // ax
+  unsigned int v7; // ecx
+  int v8; // r8d
+  unsigned int v10; // eax
+  unsigned int v11; // r8d
   size_t pcchLength; // [rsp+30h] [rbp+8h] BYREF
 
   pcchLength = 0LL;
@@ -37,27 +39,30 @@ char __fastcall RtlpValidAttribute(__int64 a1)
   v5 = *(_QWORD *)(a1 + 24);
   if ( !v5 )
     return 0;
-  if ( *(_WORD *)(a1 + 8) != 1 && *(_WORD *)(a1 + 8) != 2 )
+  v6 = *(_WORD *)(a1 + 8);
+  if ( !v6 )
+    return 0;
+  if ( v6 > 2u )
   {
-    switch ( *(_WORD *)(a1 + 8) )
+    switch ( v6 )
     {
-      case 3:
-        v9 = v3;
-        while ( *(_QWORD *)(v5 + 8LL * v9) != v3 )
+      case 3u:
+        v11 = v3;
+        while ( *(_QWORD *)(v5 + 8LL * v11) != v3 )
         {
-          if ( ++v9 >= v4 )
+          if ( ++v11 >= v4 )
             return 1;
         }
         break;
-      case 5:
-        v8 = v3;
-        while ( *(_QWORD *)(v5 + 16LL * v8) != v3 && *(_DWORD *)(v5 + 16LL * v8 + 8) != (_DWORD)v3 )
+      case 5u:
+        v10 = v3;
+        while ( *(_QWORD *)(v5 + 16LL * v10) != v3 && *(_DWORD *)(v5 + 16LL * v10 + 8) != (_DWORD)v3 )
         {
-          if ( ++v8 >= v4 )
+          if ( ++v10 >= v4 )
             return 1;
         }
         break;
-      case 6:
+      case 6u:
         while ( *(_QWORD *)(v5 + 8LL * (unsigned int)v3) <= 1uLL )
         {
           LODWORD(v3) = v3 + 1;
@@ -65,22 +70,23 @@ char __fastcall RtlpValidAttribute(__int64 a1)
             return 1;
         }
         break;
-      case 0x10:
-        v6 = v3;
+      case 0x10u:
+        v7 = v3;
         do
         {
-          if ( *(_QWORD *)(v5 + 16LL * v6) )
+          v8 = *(_DWORD *)(v5 + 16LL * v7 + 8);
+          if ( *(_QWORD *)(v5 + 16LL * v7) == v3 )
           {
-            if ( *(_DWORD *)(v5 + 16LL * v6 + 8) == (_DWORD)v3 )
+            if ( v8 )
               return 0;
           }
-          else if ( *(_DWORD *)(v5 + 16LL * v6 + 8) != (_DWORD)v3 )
+          else if ( !v8 )
           {
             return 0;
           }
-          ++v6;
+          ++v7;
         }
-        while ( v6 < v4 );
+        while ( v7 < v4 );
         return 1;
     }
     return 0;

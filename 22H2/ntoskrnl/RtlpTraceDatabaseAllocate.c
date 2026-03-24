@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpTraceDatabaseAllocate @ 0x1405B16A8
+ * XREFs of RtlpTraceDatabaseAllocate @ 0x14058EBC0
  * Callers:
- *     RtlTraceDatabaseCreate @ 0x1405B1310 (RtlTraceDatabaseCreate.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x1405B16D0 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseCreate @ 0x14058E800 (RtlTraceDatabaseCreate.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x14058EBE8 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpTraceDatabaseAllocate(__int64 a1, char a2, __int64 a3)
+PVOID __fastcall RtlpTraceDatabaseAllocate(SIZE_T NumberOfBytes, char a2, ULONG a3)
 {
   bool v3; // zf
-  __int64 v5; // rcx
+  POOL_TYPE v5; // ecx
 
   v3 = (a2 & 4) == 0;
-  v5 = 64LL;
+  v5 = NonPagedPoolNx;
   if ( v3 )
-    v5 = 256LL;
-  return ExAllocatePool2(v5, a1, a3);
+    v5 = PagedPool;
+  return ExAllocatePoolWithTag(v5, NumberOfBytes, a3);
 }

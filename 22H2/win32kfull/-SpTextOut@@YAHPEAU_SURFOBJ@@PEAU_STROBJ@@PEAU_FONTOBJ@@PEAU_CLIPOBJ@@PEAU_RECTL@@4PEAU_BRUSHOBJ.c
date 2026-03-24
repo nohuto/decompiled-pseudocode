@@ -1,16 +1,14 @@
 /*
- * XREFs of ?SpTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C000B5C0
+ * XREFs of ?SpTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C00962A0
  * Callers:
  *     <none>
  * Callees:
- *     OffTextOut @ 0x1C000B840 (OffTextOut.c)
- *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C001A284 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001A564 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C001AC78 (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001ACB0 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?bRedirHooked@SURFACE@@QEAAHXZ @ 0x1C0096494 (-bRedirHooked@SURFACE@@QEAAHXZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C00965B8 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C00968A0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F18C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SpTextOut(
@@ -25,153 +23,360 @@ __int64 __fastcall SpTextOut(
         struct _POINTL *a9,
         unsigned int a10)
 {
-  struct _STROBJ *v10; // rbx
-  unsigned __int64 v11; // rdi
-  unsigned int v14; // r14d
+  _BOOL8 v10; // rdi
+  struct _STROBJ *v11; // rbx
+  unsigned int v14; // r12d
   FLONG flFontType; // ecx
-  HDEV hdev; // rax
   ULONG cGlyphs; // esi
   struct _RECTL *p_rclBkGround; // r9
-  int v19; // eax
-  struct _SURFOBJ *v20; // rbx
-  PVOID *p_pvScan0; // r12
-  USHORT *p_iType; // rsi
-  BOOL (__stdcall *v23)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX); // r14
-  PVOID *v24; // rsi
-  PVOID *v25; // r15
-  PVOID *v26; // r13
+  struct _SURFOBJ *v18; // r14
+  PVOID *p_pvScan0; // rsi
+  USHORT *p_iType; // rbx
+  PVOID *v21; // rdi
   int hsurf; // eax
-  PVOID v29; // rcx
+  CLIPOBJ *v23; // r13
+  struct _RECTL *v24; // rax
+  struct _POINTL v25; // rbx
+  LONG y; // esi
+  int v27; // ecx
+  struct _STROBJ *v28; // rdx
+  LONG v29; // esi
+  int v30; // r14d
+  LONG v31; // ebx
+  int v32; // eax
+  HDEV hdev; // rax
+  bool v35; // zf
   __int64 ThreadWin32Thread; // rax
-  int v31; // [rsp+60h] [rbp-A0h]
-  struct _SURFOBJ *v32; // [rsp+68h] [rbp-98h] BYREF
-  struct _CLIPOBJ *v33; // [rsp+70h] [rbp-90h] BYREF
-  ULONG v34; // [rsp+78h] [rbp-88h]
-  struct _POINTL v35; // [rsp+80h] [rbp-80h] BYREF
-  PVOID *v36; // [rsp+88h] [rbp-78h] BYREF
-  struct _STROBJ *v37; // [rsp+90h] [rbp-70h]
-  struct _POINTL *v38; // [rsp+98h] [rbp-68h]
-  struct _BRUSHOBJ *v39; // [rsp+A0h] [rbp-60h]
-  struct _BRUSHOBJ *v40; // [rsp+A8h] [rbp-58h]
-  struct _RECTL *v41; // [rsp+B0h] [rbp-50h]
-  struct _RECTL *v42; // [rsp+B8h] [rbp-48h]
-  struct _FONTOBJ *v43; // [rsp+C0h] [rbp-40h]
-  _BYTE v44[912]; // [rsp+D0h] [rbp-30h] BYREF
+  int x; // r10d
+  int pwszOrg; // ecx
+  int v39; // r11d
+  __int64 v40; // rax
+  ULONG v41; // r8d
+  _DWORD *v42; // r9
+  _DWORD *v43; // rcx
+  ULONG v44; // ecx
+  _DWORD *v45; // rax
+  struct _STROBJ *v46; // rdx
+  int v47; // r10d
+  int v48; // ecx
+  int v49; // r11d
+  __int64 v50; // rax
+  ULONG v51; // r8d
+  _DWORD *v52; // r9
+  _DWORD *v53; // rcx
+  ULONG v54; // ecx
+  _DWORD *v55; // rax
+  BOOL (__stdcall *v56)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX); // [rsp+60h] [rbp-A0h] BYREF
+  struct _RECTL *v57; // [rsp+68h] [rbp-98h]
+  struct _SURFOBJ *v58; // [rsp+70h] [rbp-90h] BYREF
+  struct _STROBJ *v59; // [rsp+78h] [rbp-88h]
+  CLIPOBJ *ppco; // [rsp+80h] [rbp-80h] BYREF
+  struct _POINTL v61; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v62; // [rsp+90h] [rbp-70h]
+  ULONG v63; // [rsp+98h] [rbp-68h]
+  struct _POINTL v64; // [rsp+A0h] [rbp-60h] BYREF
+  struct _POINTL *v65; // [rsp+A8h] [rbp-58h]
+  struct _BRUSHOBJ *v66; // [rsp+B0h] [rbp-50h]
+  struct _BRUSHOBJ *v67; // [rsp+B8h] [rbp-48h]
+  struct _RECTL *v68; // [rsp+C0h] [rbp-40h]
+  struct _FONTOBJ *v69; // [rsp+C8h] [rbp-38h]
+  __int128 v70; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v71[912]; // [rsp+E0h] [rbp-20h] BYREF
 
-  v35 = 0LL;
-  v32 = a1;
-  v10 = a2;
-  v37 = a2;
-  v11 = 0LL;
-  v43 = a3;
-  v42 = a5;
+  v10 = 0LL;
+  v58 = a1;
+  v11 = a2;
+  v59 = a2;
+  v69 = a3;
   v14 = 1;
-  v40 = a7;
-  v39 = a8;
-  v38 = a9;
+  v68 = a5;
+  v67 = a7;
+  v66 = a8;
+  v65 = a9;
   flFontType = a3->flFontType;
-  v33 = a4;
-  v41 = a6;
-  v31 = 1;
+  ppco = a4;
+  v61 = 0LL;
+  v62 = 0LL;
   if ( (flFontType & 0x10000) != 0 )
   {
     hdev = a1->hdev;
     if ( (flFontType & 0x10000000) != 0 )
-      v11 = ((unsigned __int64)(unsigned int)~*((_DWORD *)hdev + 524) >> 14) & 1;
+    {
+      v35 = ((_DWORD)hdev[532] & 0x4000) == 0;
+      v62 = 0LL;
+      if ( v35 )
+      {
+        v10 = 1LL;
+        v62 = 1LL;
+      }
+    }
     else
-      v11 = ((_DWORD)hdev[448] & 0x1000000) == 0;
+    {
+      v10 = ((_DWORD)hdev[456] & 0x1000000) == 0;
+      v62 = v10;
+    }
   }
-  cGlyphs = v10[1].cGlyphs;
+  cGlyphs = v11[1].cGlyphs;
+  v63 = cGlyphs;
   p_rclBkGround = a6;
-  v34 = cGlyphs;
   if ( !a6 )
-    p_rclBkGround = &v10->rclBkGround;
-  ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v44, a1, a4, p_rclBkGround);
-  v19 = ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v44, &v32, &v35, &v33);
-  while ( v19 )
+    p_rclBkGround = &v11->rclBkGround;
+  ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v71, a1, a4, p_rclBkGround);
+  if ( (unsigned int)ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v71, &v58, &v61, &ppco) )
   {
-    v10[1].cGlyphs = cGlyphs;
-    v20 = v32;
-    p_pvScan0 = &v32[-1].pvScan0;
-    if ( (unsigned int)SURFACE::bRedirHooked((SURFACE *)&v32[-1].pvScan0) )
+    do
     {
-      v23 = (BOOL (__stdcall *)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))RedirTextOut;
-    }
-    else
-    {
-      if ( v11 )
-        goto LABEL_39;
-      p_iType = &v20->iType;
-      if ( v20->iType == 1 )
+      v18 = v58;
+      v11[1].cGlyphs = cGlyphs;
+      p_pvScan0 = &v18[-1].pvScan0;
+      if ( (HIDWORD(v18[1].hsurf) & 1) == 0 && ((_DWORD)p_pvScan0[14] & 0x800) != 0 && *((_WORD *)p_pvScan0 + 50) == 3 )
       {
-        if ( (unsigned int)bAllowShareAccess(v20) )
+        v56 = (BOOL (__stdcall *)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))RedirTextOut;
+        goto LABEL_10;
+      }
+      if ( v10 )
+        goto LABEL_35;
+      p_iType = &v18->iType;
+      if ( v18->iType == 1 )
+      {
+        if ( (unsigned int)bAllowShareAccess(v18) )
         {
-          if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-            && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-            && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-             || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108))
-            && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) & 8) != 0 )
+          if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+            && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+            && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+             || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
+            && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 8) != 0 )
           {
-            ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-            v20 = v32;
-            v23 = *(BOOL (__stdcall **)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))(*(_QWORD *)(ThreadWin32Thread + 280) + 96LL);
-            goto LABEL_13;
+            ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+            v18 = v58;
+            v56 = *(BOOL (__stdcall **)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))(*(_QWORD *)(ThreadWin32Thread + 280) + 96LL);
+            goto LABEL_10;
           }
-          v20 = v32;
+          v18 = v58;
         }
-        if ( *p_iType == 1 && (unsigned int)bAllowShareAccess(v20) )
+        if ( *p_iType == 1 && (unsigned int)bAllowShareAccess(v18) )
         {
-          if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-            && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-            && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-             || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108)) )
+          if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+            && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+            && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+             || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
           {
-            v20 = v32;
-LABEL_39:
-            v23 = EngTextOut;
-            goto LABEL_13;
+            v18 = v58;
+LABEL_35:
+            v56 = EngTextOut;
+            goto LABEL_10;
           }
-          v20 = v32;
+          v18 = v58;
         }
       }
-      if ( ((__int64)v20[1].hsurf & 8) == 0 )
-        goto LABEL_39;
-      v23 = (BOOL (__stdcall *)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))*((_QWORD *)v20->hdev + 166);
-    }
-LABEL_13:
-    v36 = 0LL;
-    v24 = 0LL;
-    v25 = 0LL;
-    v26 = 0LL;
-    if ( v20 )
-    {
-      hsurf = (int)v20[1].hsurf;
-      if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
+      if ( ((__int64)v18[1].hsurf & 8) == 0 )
+        goto LABEL_35;
+      v56 = (BOOL (__stdcall *)(SURFOBJ *, STROBJ *, FONTOBJ *, CLIPOBJ *, RECTL *, RECTL *, BRUSHOBJ *, BRUSHOBJ *, POINTL *, MIX))*((_QWORD *)v18->hdev + 167);
+LABEL_10:
+      v21 = 0LL;
+      if ( !v18
+        || (hsurf = (int)v18[1].hsurf, (hsurf & 0x80004000) == 0)
+        || (hsurf & 0x200) != 0
+        || (v21 = p_pvScan0, GreLockDisplayDevice(p_pvScan0[6]), *((_WORD *)p_pvScan0 + 50) != 1)
+        || EngUpdateDeviceSurface((SURFOBJ *)(p_pvScan0 + 3), &ppco) )
       {
-        v29 = p_pvScan0[6];
-        v36 = p_pvScan0;
-        GreLockDisplayDevice(v29);
-        v24 = p_pvScan0;
-        v25 = p_pvScan0;
-        v26 = p_pvScan0;
+        v23 = ppco;
+        v24 = a6;
+        v25 = v61;
+        y = v61.y;
+        v57 = a6;
+        v70 = 0LL;
+        if ( a6 )
+        {
+          v24 = (struct _RECTL *)&v70;
+          v27 = v61.x + a6->left;
+          v57 = (struct _RECTL *)&v70;
+          LODWORD(v70) = v27;
+          DWORD2(v70) = v61.x + a6->right;
+          DWORD1(v70) = v61.y + a6->top;
+          HIDWORD(v70) = v61.y + a6->bottom;
+        }
+        if ( v61.x || v61.y )
+        {
+          v28 = v59;
+          x = 16 * v61.x;
+          v59->rclBkGround.left += v61.x;
+          v28->rclBkGround.right += v25.x;
+          v28->rclBkGround.top += y;
+          v28->rclBkGround.bottom += y;
+          pwszOrg = (int)v28[4].pwszOrg;
+          if ( (pwszOrg & 0x100) == 0 )
+            x = v25.x;
+          v39 = 16 * y;
+          v40 = *(_QWORD *)&v28[1].rclBkGround.top;
+          if ( ((__int64)v28[4].pwszOrg & 0x100) == 0 )
+            v39 = y;
+          if ( (pwszOrg & 0x1400) != 0 )
+          {
+            v41 = v28->cGlyphs;
+            v42 = *(_DWORD **)&v28[4].rclBkGround.top;
+            if ( v28->cGlyphs )
+            {
+              v43 = (_DWORD *)(v40 + 20);
+              do
+              {
+                if ( *v42 == HIDWORD(v28[4].pwszOrg) )
+                {
+                  *(v43 - 1) += x;
+                  --v41;
+                  *v43 += v39;
+                }
+                v43 += 6;
+                ++v42;
+              }
+              while ( v41 );
+              v24 = v57;
+              goto LABEL_18;
+            }
+          }
+          else
+          {
+            if ( v28->ulCharInc )
+            {
+              *(_DWORD *)(v40 + 16) += x;
+              *(_DWORD *)(v40 + 20) += v39;
+              v24 = v57;
+              goto LABEL_18;
+            }
+            v44 = v28->cGlyphs;
+            if ( v28->cGlyphs )
+            {
+              v45 = (_DWORD *)(v40 + 20);
+              do
+              {
+                *(v45 - 1) += x;
+                *v45 += v39;
+                v45 += 6;
+                --v44;
+              }
+              while ( v44 );
+            }
+          }
+          v24 = v57;
+        }
+        else
+        {
+          v28 = v59;
+        }
+LABEL_18:
+        v64 = 0LL;
+        if ( v23 && (v25.x || y) )
+        {
+          v23->rclBounds.left += v25.x;
+          v23->rclBounds.right += v25.x;
+          v23->rclBounds.top += y;
+          v23->rclBounds.bottom += y;
+          if ( v23->iDComplexity )
+          {
+            v64 = v25;
+            RGNOBJ::bOffset((RGNOBJ *)&v23[2].rclBounds.top, &v64);
+            v24 = v57;
+            v28 = v59;
+          }
+        }
+        v29 = -y;
+        v30 = ((__int64 (__fastcall *)(struct _SURFOBJ *, struct _STROBJ *, struct _FONTOBJ *, CLIPOBJ *, struct _RECTL *, struct _RECTL *, struct _BRUSHOBJ *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int))v56)(
+                v18,
+                v28,
+                v69,
+                v23,
+                v68,
+                v24,
+                v67,
+                v66,
+                v65,
+                a10);
+        v31 = -v25.x;
+        if ( v31 || v29 )
+        {
+          v46 = v59;
+          v47 = 16 * v31;
+          v59->rclBkGround.left += v31;
+          v46->rclBkGround.right += v31;
+          v46->rclBkGround.top += v29;
+          v46->rclBkGround.bottom += v29;
+          v48 = (int)v46[4].pwszOrg;
+          if ( (v48 & 0x100) == 0 )
+            v47 = v31;
+          v49 = 16 * v29;
+          v50 = *(_QWORD *)&v46[1].rclBkGround.top;
+          if ( ((__int64)v46[4].pwszOrg & 0x100) == 0 )
+            v49 = v29;
+          if ( (v48 & 0x1400) != 0 )
+          {
+            v51 = v46->cGlyphs;
+            v52 = *(_DWORD **)&v46[4].rclBkGround.top;
+            if ( v46->cGlyphs )
+            {
+              v53 = (_DWORD *)(v50 + 20);
+              do
+              {
+                if ( *v52 == HIDWORD(v46[4].pwszOrg) )
+                {
+                  *(v53 - 1) += v47;
+                  --v51;
+                  *v53 += v49;
+                }
+                v53 += 6;
+                ++v52;
+              }
+              while ( v51 );
+            }
+          }
+          else if ( v46->ulCharInc )
+          {
+            *(_DWORD *)(v50 + 16) += v47;
+            *(_DWORD *)(v50 + 20) += v49;
+          }
+          else
+          {
+            v54 = v46->cGlyphs;
+            if ( v46->cGlyphs )
+            {
+              v55 = (_DWORD *)(v50 + 20);
+              do
+              {
+                *(v55 - 1) += v47;
+                *v55 += v49;
+                v55 += 6;
+                --v54;
+              }
+              while ( v54 );
+            }
+          }
+        }
+        v56 = 0LL;
+        if ( v23 && (v31 || v29) )
+        {
+          v23->rclBounds.left += v31;
+          v23->rclBounds.right += v31;
+          v23->rclBounds.top += v29;
+          v23->rclBounds.bottom += v29;
+          if ( v23->iDComplexity )
+          {
+            LODWORD(v56) = v31;
+            HIDWORD(v56) = v29;
+            RGNOBJ::bOffset((RGNOBJ *)&v23[2].rclBounds.top, (struct _POINTL *)&v56);
+          }
+        }
+        v14 &= v30;
+        if ( v21 )
+          GreUnlockDisplayDevice(v21[6]);
+        goto LABEL_28;
       }
+      GreUnlockDisplayDevice(p_pvScan0[6]);
+LABEL_28:
+      v32 = ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v71, &v58, &v61, &ppco);
+      v11 = v59;
+      v10 = v62;
+      cGlyphs = v63;
     }
-    if ( (unsigned int)NEEDDDILOCK::bRender((NEEDDDILOCK *)&v36, &v33) )
-    {
-      v14 = OffTextOut(v23, &v35, v20, v37, v43, v33, v42, v41, v40, v39, v38, a10) & v31;
-      v31 = v14;
-      if ( v24 )
-        GreUnlockDisplayDevice(v26[6]);
-    }
-    else
-    {
-      if ( v24 )
-        GreUnlockDisplayDevice(v25[6]);
-      v14 = v31;
-    }
-    v19 = ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v44, &v32, &v35, &v33);
-    v10 = v37;
-    cGlyphs = v34;
+    while ( v32 );
   }
   return v14;
 }

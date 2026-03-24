@@ -1,34 +1,33 @@
 /*
- * XREFs of UmfdQueryFontFile @ 0x1C0109C60
+ * XREFs of UmfdQueryFontFile @ 0x1C00FDE30
  * Callers:
  *     <none>
  * Callees:
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C001B9B8 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C00FE024 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
  */
 
 __int64 __fastcall UmfdQueryFontFile(__int64 a1, int a2, int a3, __int64 a4)
 {
   int v8; // eax
   unsigned int v9; // ecx
-  struct _SLIST_ENTRY v11[2]; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-30h]
-  int v13; // [rsp+50h] [rbp-28h]
-  int v14; // [rsp+54h] [rbp-24h]
-  __int64 v15; // [rsp+58h] [rbp-20h]
-  int v16; // [rsp+60h] [rbp-18h]
-  __int64 v17; // [rsp+68h] [rbp-10h]
+  _QWORD v11[6]; // [rsp+20h] [rbp-58h] BYREF
+  int v12; // [rsp+50h] [rbp-28h]
+  int v13; // [rsp+54h] [rbp-24h]
+  __int64 v14; // [rsp+58h] [rbp-20h]
+  int v15; // [rsp+60h] [rbp-18h]
+  __int64 v16; // [rsp+68h] [rbp-10h]
 
-  FontDriverDdiRequest::FontDriverDdiRequest((__int64)v11, 6);
-  v17 = 0LL;
-  v13 = a2;
-  v11[0].Next = (struct _SLIST_ENTRY *)&QueryFontFileRequest::`vftable';
-  v16 = -1;
-  v12 = a1;
-  v14 = a3;
-  v15 = a4;
-  v8 = UmfdClientSendAndWaitForCompletion(*(_DWORD *)(a1 + 8), v11);
-  v9 = v16;
+  FontDriverDdiRequest::FontDriverDdiRequest(v11, 6LL);
+  v16 = 0LL;
+  v12 = a2;
+  v11[0] = &QueryFontFileRequest::`vftable';
+  v15 = -1;
+  v11[5] = a1;
+  v13 = a3;
+  v14 = a4;
+  v8 = UmfdClientSendAndWaitForCompletion(*(_DWORD *)(a1 + 8), (__int64)v11);
+  v9 = v15;
   if ( v8 < 0 )
     return (unsigned int)-1;
   return v9;

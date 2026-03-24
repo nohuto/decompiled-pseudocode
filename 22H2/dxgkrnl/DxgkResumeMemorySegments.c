@@ -1,52 +1,34 @@
 /*
- * XREFs of DxgkResumeMemorySegments @ 0x1C02C3374
+ * XREFs of DxgkResumeMemorySegments @ 0x1C02182C8
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02C1F78 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02175A4 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
  */
 
-__int64 __fastcall DxgkResumeMemorySegments(__int64 a1)
+__int64 __fastcall DxgkResumeMemorySegments(__int64 a1, __int64 a2)
 {
-  ADAPTER_RENDER *v3; // rcx
+  __int64 v3; // rax
+  unsigned int v4; // ebx
+  ADAPTER_RENDER *v6; // rcx
 
-  if ( a1 )
+  if ( !a1 )
   {
-    v3 = *(ADAPTER_RENDER **)(a1 + 2928);
-    if ( v3 )
-    {
-      return ADAPTER_RENDER::ResumeMemorySegments(v3);
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741637LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"DxgkResumeMemorySegments is called on display only DXGADAPTER 0x%I64x, returning 0x%I64x.",
-        a1,
-        -1073741637LL,
-        0LL,
-        0LL,
-        0LL);
-      return 3221225659LL;
-    }
+    v3 = WdLogNewEntry5_WdError(0LL, a2);
+    v4 = -1073741811;
+    *(_QWORD *)(v3 + 24) = -1073741811LL;
+LABEL_3:
+    WdLogEvent5_WdError(v3);
+    return v4;
   }
-  else
+  v6 = *(ADAPTER_RENDER **)(a1 + 2704);
+  if ( !v6 )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"No pAdapter specified, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v3 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v3 + 24) = a1;
+    v4 = -1073741637;
+    *(_QWORD *)(v3 + 32) = -1073741637LL;
+    goto LABEL_3;
   }
+  return ADAPTER_RENDER::ResumeMemorySegments(v6);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlNotifyCompleteIrpList @ 0x1406ABBF4
+ * XREFs of FsRtlNotifyCompleteIrpList @ 0x140690D48
  * Callers:
- *     FsRtlNotifyFilterReportChange @ 0x1406AA510 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406AB670 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x1406AC2DC (FsRtlNotifyCleanupOneEntry.c)
- *     FsRtlCheckNotifyForDelete @ 0x14092FEAC (FsRtlCheckNotifyForDelete.c)
- *     FsRtlCheckNotifyForDeleteLite @ 0x14092FF10 (FsRtlCheckNotifyForDeleteLite.c)
+ *     FsRtlNotifyFilterReportChange @ 0x14068FB50 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406907E0 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x14069133C (FsRtlNotifyCleanupOneEntry.c)
+ *     FsRtlCheckNotifyForDelete @ 0x14088D430 (FsRtlCheckNotifyForDelete.c)
+ *     FsRtlCheckNotifyForDeleteLite @ 0x14088D494 (FsRtlCheckNotifyForDeleteLite.c)
  * Callees:
- *     FsRtlNotifyCompleteIrp @ 0x1406ABC90 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140690DE4 (FsRtlNotifyCompleteIrp.c)
  */
 
 _QWORD *__fastcall FsRtlNotifyCompleteIrpList(__int64 a1, int a2)

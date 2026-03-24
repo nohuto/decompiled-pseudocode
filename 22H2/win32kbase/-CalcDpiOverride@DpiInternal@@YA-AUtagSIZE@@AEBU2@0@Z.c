@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CalcDpiOverride@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00CB60C
+ * XREFs of ?CalcDpiOverride@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00C40C0
  * Callers:
- *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00CB484 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00C3F48 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ?CalcDpi@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00CB6E8 (-CalcDpi@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
+ *     ?CalcDpi@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00C419C (-CalcDpi@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
  */
 
 struct tagSIZE __fastcall DpiInternal::CalcDpiOverride(
@@ -48,7 +48,7 @@ struct tagSIZE __fastcall DpiInternal::CalcDpiOverride(
          0LL) >= 0 )
   {
     cx = v14;
-    cy = (unsigned int)(*((_DWORD *)this + 1) * v14) / *(_DWORD *)this;
+    cy = (unsigned int)(v14 * *((_DWORD *)this + 1)) / *(_DWORD *)this;
   }
   if ( !cx || !cy )
     return 0LL;

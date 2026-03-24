@@ -1,9 +1,9 @@
 /*
- * XREFs of IopErrorLogDpc @ 0x140286200
+ * XREFs of IopErrorLogDpc @ 0x140286300
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

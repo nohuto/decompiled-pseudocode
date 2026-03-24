@@ -1,14 +1,14 @@
 /*
- * XREFs of ??0FxIoContext@@QEAA@XZ @ 0x1C0005E74
+ * XREFs of ??0FxIoContext@@QEAA@XZ @ 0x1C00051F4
  * Callers:
- *     ?FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject@@@Z @ 0x1C00066D0 (-FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject.c)
- *     FxIoTargetSendIoctl @ 0x1C0019E84 (FxIoTargetSendIoctl.c)
- *     FxIoTargetSendIo @ 0x1C00726D4 (FxIoTargetSendIo.c)
- *     ?FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject@@@Z @ 0x1C0075364 (-FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject.c)
- *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C007CBB8 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
- *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C0080068 (-Reset@FxUsbDevice@@QEAAJXZ.c)
+ *     ?FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject@@@Z @ 0x1C000AD0C (-FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject.c)
+ *     FxIoTargetSendIoctl @ 0x1C0017974 (FxIoTargetSendIoctl.c)
+ *     FxIoTargetSendIo @ 0x1C0062804 (FxIoTargetSendIo.c)
+ *     ?FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject@@@Z @ 0x1C0067B60 (-FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject.c)
+ *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C00703E4 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
+ *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C00737FC (-Reset@FxUsbDevice@@QEAAJXZ.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxIoContext::FxIoContext(FxIoContext *this)

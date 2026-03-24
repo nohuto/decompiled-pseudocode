@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDcHandleInterfaceEvent @ 0x1407DB864
+ * XREFs of PiDcHandleInterfaceEvent @ 0x1407580F4
  * Callers:
- *     PiDcHandleObjectEvent @ 0x140788574 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x140757EC4 (PiDcHandleObjectEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     PiDcContainerRequiresConfiguration @ 0x140878020 (PiDcContainerRequiresConfiguration.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140758E58 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleInterfaceEvent(__int64 a1)

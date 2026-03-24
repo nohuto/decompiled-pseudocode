@@ -1,20 +1,27 @@
 /*
- * XREFs of _ScrollDC @ 0x1C00C08AC
+ * XREFs of _ScrollDC @ 0x1C00FCE74
  * Callers:
- *     NtUserScrollDC @ 0x1C00C0740 (NtUserScrollDC.c)
- *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01EDC90 (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     NtUserScrollDC @ 0x1C00FCD00 (NtUserScrollDC.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01F3450 (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
  * Callees:
- *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C00C09C8 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
- *     FastWindowFromDC @ 0x1C00C1474 (FastWindowFromDC.c)
- *     UnionRect @ 0x1C00C1640 (UnionRect.c)
- *     SpbCheckRect @ 0x1C00DC7C0 (SpbCheckRect.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0071654 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ *     FastWindowFromDC @ 0x1C00FCF90 (FastWindowFromDC.c)
+ *     UnionRect @ 0x1C0104EFC (UnionRect.c)
+ *     SpbCheckRect @ 0x1C021A844 (SpbCheckRect.c)
  */
 
-_BOOL8 __fastcall ScrollDC(HDC a1, int a2, int a3, struct tagRECT *a4, struct tagRECT *a5, HRGN a6, struct tagRECT *a7)
+_BOOL8 __fastcall ScrollDC(
+        HDC a1,
+        int a2,
+        unsigned int a3,
+        struct tagRECT *a4,
+        struct tagRECT *a5,
+        HRGN a6,
+        struct tagRECT *a7)
 {
   HRGN v8; // rdi
-  struct tagWND *v12; // rax
-  struct tagWND *v13; // rbx
+  __int64 v12; // rax
+  __int64 v13; // rbx
   BOOL v14; // r14d
   __int64 v16; // rax
   int v17; // ecx
@@ -25,19 +32,19 @@ _BOOL8 __fastcall ScrollDC(HDC a1, int a2, int a3, struct tagRECT *a4, struct ta
   struct tagRECT v22; // [rsp+60h] [rbp-10h] BYREF
 
   v8 = 0LL;
-  v12 = (struct tagWND *)FastWindowFromDC();
+  v12 = FastWindowFromDC();
   v13 = v12;
   if ( v12 )
   {
-    v8 = *(HRGN *)(*((_QWORD *)v12 + 5) + 136LL);
+    v8 = *(HRGN *)(*(_QWORD *)(v12 + 40) + 136LL);
     if ( v8 == (HRGN)1 )
       v8 = 0LL;
   }
-  v14 = InternalScrollDC(v12, a1, a2, a3, a4, a5, v8, a6, a7, 1) != 0;
-  GreLockVisRgnSharedOrExclusive(*(_QWORD *)(gpDispInfo + 40LL), 0LL);
+  v14 = InternalScrollDC((struct tagWND *)v12, a1, a2, a3, a4, a5, v8, a6, a7, 1) != 0;
+  GreLockVisRgnSharedOrExclusive(*(_QWORD *)(gpDispInfo + 40LL));
   if ( v13 && *(_QWORD *)(gpDispInfo + 32LL) )
   {
-    v16 = *((_QWORD *)v13 + 5);
+    v16 = *(_QWORD *)(v13 + 40);
     if ( a4 )
     {
       v17 = *(_DWORD *)(v16 + 104);
@@ -60,7 +67,7 @@ _BOOL8 __fastcall ScrollDC(HDC a1, int a2, int a3, struct tagRECT *a4, struct ta
     }
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-    SpbCheckRect(v13, &v22, 0);
+    SpbCheckRect((struct tagWND *)v13, &v22, 0);
   }
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
   return v14;

@@ -1,24 +1,25 @@
 /*
- * XREFs of GreCreateFontIndirectW @ 0x1C007B6E8
+ * XREFs of GreCreateFontIndirectW @ 0x1C00B9E30
  * Callers:
- *     CreateFontFromUserProfile @ 0x1C0078200 (CreateFontFromUserProfile.c)
- *     UserSetAltScaleFont @ 0x1C0078308 (UserSetAltScaleFont.c)
- *     xxxSetNCFonts @ 0x1C0078690 (xxxSetNCFonts.c)
- *     ValidateExternalLogFont @ 0x1C0078DC8 (ValidateExternalLogFont.c)
- *     FinishStockFontInit @ 0x1C00863A0 (FinishStockFontInit.c)
- *     CreateScaledFont @ 0x1C01BF458 (CreateScaledFont.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
+ *     CreateFontFromUserProfile @ 0x1C00E27E8 (CreateFontFromUserProfile.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
+ *     ValidateExternalLogFont @ 0x1C00E2FD0 (ValidateExternalLogFont.c)
+ *     UserSetAltScaleFont @ 0x1C00E40D4 (UserSetAltScaleFont.c)
+ *     FinishStockFontInit @ 0x1C00E44C0 (FinishStockFontInit.c)
+ *     CreateScaledFont @ 0x1C01E9E50 (CreateScaledFont.c)
  * Callees:
- *     hfontCreate @ 0x1C007B9C0 (hfontCreate.c)
- *     vConvertLogFontW @ 0x1C0115940 (vConvertLogFontW.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     vConvertLogFontW @ 0x1C00B9DD0 (vConvertLogFontW.c)
+ *     hfontCreate @ 0x1C00BBBA0 (hfontCreate.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall GreCreateFontIndirectW(__int64 a1, unsigned int a2)
 {
   _BYTE Src[432]; // [rsp+30h] [rbp-1C8h] BYREF
 
-  memset_0(Src, 0, 0x1A4uLL);
-  vConvertLogFontW(Src, a1);
+  memset(Src, 0, 0x1A4uLL);
+  vConvertLogFontW((__int64)Src, a1);
   return hfontCreate(Src, a2);
 }

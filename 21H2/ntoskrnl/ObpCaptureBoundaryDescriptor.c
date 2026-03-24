@@ -1,36 +1,36 @@
 /*
- * XREFs of ObpCaptureBoundaryDescriptor @ 0x1406C0D00
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x1406E52CC
  * Callers:
- *     NtOpenPrivateNamespace @ 0x1406C0720 (NtOpenPrivateNamespace.c)
- *     NtCreatePrivateNamespace @ 0x1406C08F0 (NtCreatePrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x1406E4CB0 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1406C1068 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     ObpCheckDuplicateEntries @ 0x1406C11D0 (ObpCheckDuplicateEntries.c)
- *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     ObpCheckDuplicateEntries @ 0x1406E5544 (ObpCheckDuplicateEntries.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, __int64 *a2)
+__int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, char **a2)
 {
   __m128i *v4; // rax
   unsigned int v5; // edi
   char *v6; // rcx
-  __int64 Pool2; // rsi
+  char *PoolWithTag; // rsi
   char v9; // r13
   __int64 v10; // r15
   unsigned __int64 v11; // r15
-  __int64 v12; // r15
-  NTSTATUS v13; // edi
+  char *v12; // r15
+  int v13; // edi
   int v14; // edx
   struct _KTHREAD *CurrentThread; // rcx
   PACCESS_TOKEN PrimaryToken; // rdi
-  _DWORD *v17; // rcx
+  char *v17; // rcx
   unsigned int v18; // eax
   ULONG v19; // [rsp+20h] [rbp-88h]
   PVOID P; // [rsp+28h] [rbp-80h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, __int64 *a2)
     v23 = *Src;
     v5 = v23.m128i_u32[2];
   }
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   LODWORD(TokenInformation) = 0;
   v9 = 0;
   Size = v5;
@@ -98,41 +98,44 @@ __int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, __int64 *a2)
     v13 = -1073741675;
     goto LABEL_20;
   }
-  Pool2 = ExAllocatePool2(256LL, (unsigned int)v11, 1397645903LL);
-  v22 = (PVOID)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x534E624Fu);
+  v22 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v13 = -1073741670;
     goto LABEL_20;
   }
-  *(_QWORD *)(Pool2 + 24) = (unsigned int)v11 - 48LL;
-  v12 = Pool2 + 48;
-  memmove((void *)(Pool2 + 48), Src, Size);
+  *((_QWORD *)PoolWithTag + 3) = (unsigned int)v11 - 48LL;
+  v12 = PoolWithTag + 48;
+  memmove(PoolWithTag + 48, Src, Size);
   if ( P )
   {
-    v17 = (_DWORD *)(v12 + Size);
-    if ( v12 + Size != ((v12 + Size + 7) & 0xFFFFFFFFFFFFFFF8uLL) )
+    v17 = &v12[Size];
+    if ( &v12[Size] != (char *)((unsigned __int64)&v12[Size + 7] & 0xFFFFFFFFFFFFFFF8uLL) )
     {
 LABEL_38:
       v13 = -1073741811;
       goto LABEL_20;
     }
-    *v17 = 2;
+    *(_DWORD *)v17 = 2;
     v18 = ((v19 + 7) & 0xFFFFFFF8) + 8;
-    v17[1] = v18;
+    *((_DWORD *)v17 + 1) = v18;
     v5 += v18;
     ++v23.m128i_i32[1];
-    memmove(v17 + 2, *(const void **)P, v19);
+    memmove(v17 + 8, *(const void **)P, v19);
   }
-  *(_DWORD *)(Pool2 + 56) = v5;
-  *(_DWORD *)(Pool2 + 52) = v23.m128i_i32[1];
-  v13 = RtlEnumerateBoundaryDescriptorEntries(Pool2 + 48, 0LL, 0LL);
-  if ( v13 >= 0 && !(unsigned int)ObpCheckDuplicateEntries(Pool2) )
+  *((_DWORD *)PoolWithTag + 14) = v5;
+  *((_DWORD *)PoolWithTag + 13) = v23.m128i_i32[1];
+  v13 = RtlEnumerateBoundaryDescriptorEntries((_DWORD *)PoolWithTag + 12, 0LL, 0LL);
+  if ( v13 >= 0 && !(unsigned int)ObpCheckDuplicateEntries(PoolWithTag) )
     goto LABEL_38;
-  *(_BYTE *)(Pool2 + 40) = 0;
-  RtlEnumerateBoundaryDescriptorEntries(Pool2 + 48, ObpHashBoundaryFunction, Pool2);
-  v14 = (3134165325u * (unsigned __int64)*(unsigned __int8 *)(Pool2 + 40)) >> 32;
-  *(_BYTE *)(Pool2 + 40) -= 37 * ((v14 + (((unsigned int)*(unsigned __int8 *)(Pool2 + 40) - v14) >> 1)) >> 5);
+  PoolWithTag[40] = 0;
+  RtlEnumerateBoundaryDescriptorEntries(
+    (_DWORD *)PoolWithTag + 12,
+    (unsigned int (__fastcall *)(_DWORD *, __int64))ObpHashBoundaryFunction,
+    (__int64)PoolWithTag);
+  v14 = (3134165325u * (unsigned __int64)(unsigned __int8)PoolWithTag[40]) >> 32;
+  PoolWithTag[40] -= 37 * ((v14 + (((unsigned int)(unsigned __int8)PoolWithTag[40] - v14) >> 1)) >> 5);
 LABEL_20:
   if ( P )
     ExFreePoolWithTag(P, 0);
@@ -140,12 +143,12 @@ LABEL_20:
     SeReleaseSubjectContext(&SubjectContext);
   if ( v13 < 0 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag((PVOID)Pool2, 0x534E624Fu);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x534E624Fu);
   }
   else
   {
-    *a2 = Pool2;
+    *a2 = PoolWithTag;
   }
   return (unsigned int)v13;
 }

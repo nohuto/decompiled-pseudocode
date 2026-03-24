@@ -1,25 +1,37 @@
 /*
- * XREFs of MonitorIsPhysicalMonitor @ 0x1C02172D0
+ * XREFs of MonitorIsPhysicalMonitor @ 0x1C019C4A4
  * Callers:
- *     ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C0029D98 (-SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z.c)
+ *     ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C002406C (-SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-bool __fastcall MonitorIsPhysicalMonitor(__int64 a1)
+bool __fastcall MonitorIsPhysicalMonitor(struct HDXGMONITOR__ *a1)
 {
-  bool v1; // bl
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  struct DXGMONITOR *v3; // rbx
+  struct _ERESOURCE *v4; // rcx
+  bool v5; // bl
+  __int64 v7; // rax
+  struct DXGMONITOR *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
   if ( !a1 )
     return 0;
-  MONITOR_MGR::AcquireMonitorShared(&v3, a1);
-  if ( v3 )
+  v8 = 0LL;
+  if ( (int)MONITOR_MGR::_GetMonitorFromHandle(a1, &v8) < 0 )
+    return 0;
+  v3 = v8;
+  if ( !v8 )
   {
-    v1 = *(_DWORD *)(v3 + 312) == 1;
-    ExReleaseResourceLite((PERESOURCE)(v3 + 24));
-    KeLeaveCriticalRegion();
+    v7 = WdLogNewEntry5_WdAssertion(v2, v1);
+    WdLogEvent5_WdAssertion(v7);
   }
-  return v1;
+  KeEnterCriticalRegion();
+  ExAcquireResourceSharedLite((PERESOURCE)((char *)v3 + 296), 1u);
+  v4 = (struct _ERESOURCE *)((char *)v3 + 296);
+  v5 = *((_DWORD *)v3 + 108) == 1;
+  ExReleaseResourceLite(v4);
+  KeLeaveCriticalRegion();
+  return v5;
 }

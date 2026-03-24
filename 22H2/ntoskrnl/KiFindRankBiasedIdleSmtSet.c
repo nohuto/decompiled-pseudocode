@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFindRankBiasedIdleSmtSet @ 0x140577228
+ * XREFs of KiFindRankBiasedIdleSmtSet @ 0x14051F13C
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392C0 (KiChooseTargetProcessor.c)
- *     KiTryLocalThreadSchedule @ 0x14023A060 (KiTryLocalThreadSchedule.c)
- *     KiSelectIdleProcessor @ 0x140577744 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402C5470 (KiChooseTargetProcessor.c)
+ *     KiTryLocalThreadSchedule @ 0x1402C5BF0 (KiTryLocalThreadSchedule.c)
+ *     KiSelectIdleProcessor @ 0x140390158 (KiSelectIdleProcessor.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ char __fastcall KiFindRankBiasedIdleSmtSet(__int64 a1, _QWORD *a2)
   unsigned __int64 v9; // rax
 
   v2 = 0LL;
-  v3 = *a2 & *(_QWORD *)(*(_QWORD *)(a1 + 192) + 16LL);
+  v3 = *a2 & *(_QWORD *)(*(_QWORD *)(a1 + 192) + 24LL);
   if ( !v3 )
     return 0;
   v4 = *(unsigned __int8 *)(a1 + 208) << 6;
@@ -30,7 +30,7 @@ char __fastcall KiFindRankBiasedIdleSmtSet(__int64 a1, _QWORD *a2)
     v6 = 1LL << v5;
     v3 ^= 1LL << v5;
     v7 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)(v4 + v5)]];
-    v8 = *(_QWORD *)(v7 + 34912) & ~*(_QWORD *)(v7 + 200);
+    v8 = *(_QWORD *)(v7 + 33880) & ~*(_QWORD *)(v7 + 200);
     if ( (v3 & v8) == v8 )
     {
       v3 ^= v8;

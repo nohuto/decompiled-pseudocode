@@ -1,23 +1,23 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x1407195B4
+ * XREFs of pIoQueryBusDescription @ 0x140719594
  * Callers:
- *     IoQueryDeviceDescription @ 0x1407194A0 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407195B4 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x140719480 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1401977E0 (wcsncmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsncmp @ 0x140197800 (wcsncmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopOpenRegistryKey @ 0x1406C68D0 (IopOpenRegistryKey.c)
- *     IopGetRegistryKeyInformation @ 0x1406F337C (IopGetRegistryKeyInformation.c)
- *     pIoQueryDeviceDescription @ 0x140719030 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407195B4 (pIoQueryBusDescription.c)
- *     IopGetRegistryValues @ 0x140719910 (IopGetRegistryValues.c)
+ *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     IopGetRegistryKeyInformation @ 0x1406F335C (IopGetRegistryKeyInformation.c)
+ *     pIoQueryDeviceDescription @ 0x140719010 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
+ *     IopGetRegistryValues @ 0x1407198F0 (IopGetRegistryValues.c)
  */
 
 NTSTATUS __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)

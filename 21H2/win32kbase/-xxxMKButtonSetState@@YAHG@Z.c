@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01B9C40
+ * XREFs of ?xxxMKButtonSetState@@YAHG@Z @ 0x1C0183E70
  * Callers:
- *     ?xxxMKButtonClick@@YAHG@Z @ 0x1C01B9BE0 (-xxxMKButtonClick@@YAHG@Z.c)
- *     ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01BA950 (-xxxMKToggleMouseKeys@@YAHG@Z.c)
+ *     ?xxxMKButtonClick@@YAHG@Z @ 0x1C0183E10 (-xxxMKButtonClick@@YAHG@Z.c)
+ *     ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C0185090 (-xxxMKToggleMouseKeys@@YAHG@Z.c)
  * Callees:
- *     MouseButtonAction @ 0x1C01E80D0 (MouseButtonAction.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C020A3A8 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ *     MouseButtonAction @ 0x1C01AEBF0 (MouseButtonAction.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD100 (ApiSetEditionPostAccessibility.c)
  */
 
 __int64 __fastcall xxxMKButtonSetState(__int16 a1)
@@ -23,6 +23,6 @@ __int64 __fastcall xxxMKButtonSetState(__int16 a1)
   if ( (((unsigned __int8)v2 ^ (unsigned __int8)gwMKButtonState) & 2) != 0 )
     MouseButtonAction(2LL, v1);
   gwMKButtonState = v2;
-  ApiSetEditionPostAccessibilitySettingChangedEvent(3LL);
+  ApiSetEditionPostAccessibility(3LL);
   return 0LL;
 }

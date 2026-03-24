@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022322C
+ * XREFs of ?PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7E4C
  * Callers:
- *     ?EmitUpdateCommands@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02231A0 (-EmitUpdateCommands@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAA_.c)
+ *     ?EmitUpdateCommands@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7DA0 (-EmitUpdateCommands@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAA_.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ @ 0x1C0086C80 (-CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ.c)
+ *     ?CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ @ 0x1C004C870 (-CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler::PrivateEmitUpdateCommand(
@@ -21,8 +21,8 @@ char __fastcall DirectComposition::CCrossContainerGuestReadWriteSharedSectionMar
   *(_DWORD *)v5 = 28;
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_QWORD *)(v3 + 20) = 0LL;
-  *((_DWORD *)v3 + 1) = 461;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 480;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   *(_QWORD *)(v3 + 12) = DirectComposition::CDCompMappedSharedSectionMarshaler::CreateDwmHandle((PVOID *)this);
   *((_DWORD *)v3 + 5) = *((_DWORD *)this + 16);
   return 1;

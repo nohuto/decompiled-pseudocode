@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetNextChildJob @ 0x1406FF7C4
+ * XREFs of PspGetNextChildJob @ 0x140617D5C
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobShared @ 0x1406FFEFC (PspLockJobShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x14061879C (PspLockJobShared.c)
  */
 
 _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
@@ -19,14 +19,14 @@ _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
   v5 = 0LL;
   PspLockJobShared(a1, CurrentThread);
   if ( a2 )
-    v6 = (_QWORD *)a2[154];
+    v6 = (_QWORD *)a2[130];
   else
-    v6 = *(_QWORD **)(a1 + 1248);
-  while ( v6 != (_QWORD *)(a1 + 1248) )
+    v6 = *(_QWORD **)(a1 + 1056);
+  while ( v6 != (_QWORD *)(a1 + 1056) )
   {
-    if ( ObReferenceObjectSafeWithTag((__int64)(v6 - 154)) )
+    if ( ObReferenceObjectSafeWithTag((__int64)(v6 - 130)) )
     {
-      v5 = v6 - 154;
+      v5 = v6 - 130;
       break;
     }
     v6 = (_QWORD *)*v6;

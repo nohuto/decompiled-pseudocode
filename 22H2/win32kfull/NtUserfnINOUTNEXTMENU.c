@@ -1,39 +1,34 @@
 /*
- * XREFs of NtUserfnINOUTNEXTMENU @ 0x1C01E20B0
+ * XREFs of NtUserfnINOUTNEXTMENU @ 0x1C0205C30
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnINOUTNEXTMENU(__int64 a1, __int64 a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
 {
-  unsigned int v8; // esi
-  _BYTE *v10; // rdx
+  __int64 v7; // xmm1_8
   __int64 result; // rax
-  __int128 v12; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-10h]
+  __int128 v9; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-10h]
 
-  v8 = a2;
-  v12 = 0LL;
-  v13 = 0LL;
-  PtiCurrentShared(a1, a2, a3, a4);
-  v10 = (_BYTE *)a4;
+  v9 = 0LL;
+  v10 = 0LL;
   if ( a4 >= MmUserProbeAddress )
-    v10 = (_BYTE *)MmUserProbeAddress;
-  *v10 = *v10;
-  v10[23] = v10[23];
-  v12 = *(_OWORD *)a4;
-  v13 = *(_QWORD *)(a4 + 16);
-  result = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *, __int64))&WPP_MAIN_CB.SectorSize
-            + ((a6 + 6) & 0x1F)))(
+    *(_DWORD *)MmUserProbeAddress = 0;
+  *(_OWORD *)a4 = *(_OWORD *)a4;
+  v7 = *(_QWORD *)(a4 + 16);
+  *(_QWORD *)(a4 + 16) = v7;
+  v9 = *(_OWORD *)a4;
+  v10 = v7;
+  result = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int128 *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
              a1,
-             v8,
+             a2,
              a3,
-             &v12,
+             &v9,
              a5);
-  *(_OWORD *)a4 = v12;
-  *(_QWORD *)(a4 + 16) = v13;
+  *(_OWORD *)a4 = v9;
+  *(_QWORD *)(a4 + 16) = v10;
   return result;
 }

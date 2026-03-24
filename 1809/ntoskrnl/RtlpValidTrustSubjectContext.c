@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpValidTrustSubjectContext @ 0x14016CA9C
+ * XREFs of RtlpValidTrustSubjectContext @ 0x14016CABC
  * Callers:
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x1408955D0 (RtlpValidFilterAclSubjectContext.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x1408955B0 (RtlpValidFilterAclSubjectContext.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  */
 
 char __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

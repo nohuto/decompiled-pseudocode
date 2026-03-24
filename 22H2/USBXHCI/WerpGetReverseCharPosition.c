@@ -1,7 +1,7 @@
 /*
- * XREFs of WerpGetReverseCharPosition @ 0x1C0054AFC
+ * XREFs of WerpGetReverseCharPosition @ 0x1C0051D5C
  * Callers:
- *     WerpParseKeyName @ 0x1C0054B28 (WerpParseKeyName.c)
+ *     WerpParseKeyName @ 0x1C0051D88 (WerpParseKeyName.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1CAsyncFlushResponse@@UEAA@XZ @ 0x1800AC684
+ * XREFs of ??1CAsyncFlushResponse@@UEAA@XZ @ 0x180043DAC
  * Callers:
- *     ??_ECAsyncFlushResponse@@UEAAPEAXI@Z @ 0x1800AC700 (--_ECAsyncFlushResponse@@UEAAPEAXI@Z.c)
+ *     ??_ECAsyncFlushResponse@@UEAAPEAXI@Z @ 0x180043D70 (--_ECAsyncFlushResponse@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??$ReleaseInterface@VCChannelContext@@@@YAXAEAPEAVCChannelContext@@@Z @ 0x1800AAEE8 (--$ReleaseInterface@VCChannelContext@@@@YAXAEAPEAVCChannelContext@@@Z.c)
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800358E8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
  */
 
-void __fastcall CAsyncFlushResponse::~CAsyncFlushResponse(CAsyncFlushResponse *this)
+void __fastcall CAsyncFlushResponse::~CAsyncFlushResponse(CDrawListEntry **this)
 {
-  *(_QWORD *)this = &CAsyncFlushResponse::`vftable';
-  ReleaseInterface<CChannelContext>((__int64 *)this + 5);
-  *(_QWORD *)this = &CResponseItem::`vftable';
+  *this = (CDrawListEntry *)&CAsyncFlushResponse::`vftable';
+  ReleaseInterface<CProcessAttribution>(this + 5);
+  *this = (CDrawListEntry *)&CResponseItem::`vftable';
 }

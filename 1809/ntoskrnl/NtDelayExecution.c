@@ -1,10 +1,10 @@
 /*
  * XREFs of NtDelayExecution @ 0x1405E2B80
  * Callers:
- *     LdrpInitMuiCrits @ 0x1400F4418 (LdrpInitMuiCrits.c)
+ *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtDelayExecution(BOOLEAN Alertable, LARGE_INTEGER *Interval)

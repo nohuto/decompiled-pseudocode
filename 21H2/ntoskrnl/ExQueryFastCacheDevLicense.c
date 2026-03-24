@@ -1,9 +1,9 @@
 /*
- * XREFs of ExQueryFastCacheDevLicense @ 0x140699500
+ * XREFs of ExQueryFastCacheDevLicense @ 0x1406B7B70
  * Callers:
- *     SepIsLockedDown @ 0x1409C599C (SepIsLockedDown.c)
+ *     SepIsLockedDown @ 0x14091BF9C (SepIsLockedDown.c)
  * Callees:
- *     KIsUnlockSettingEnabled @ 0x14069954C (KIsUnlockSettingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406B7BD8 (KIsUnlockSettingEnabled.c)
  */
 
 char ExQueryFastCacheDevLicense()

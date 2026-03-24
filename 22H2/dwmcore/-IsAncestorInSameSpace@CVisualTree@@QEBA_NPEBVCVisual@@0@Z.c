@@ -1,47 +1,44 @@
 /*
- * XREFs of ?IsAncestorInSameSpace@CVisualTree@@QEBA_NPEBVCVisual@@0@Z @ 0x18001501C
+ * XREFs of ?IsAncestorInSameSpace@CVisualTree@@QEBA_NPEBVCVisual@@0@Z @ 0x180003AB0
  * Callers:
- *     ?CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z @ 0x180089840 (-CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z.c)
+ *     ?BuildTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEAVCComposition@@PEBVCVisualTree@@PEAVCVisual@@_K@Z @ 0x180003740 (-BuildTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEAVCComposition@@PEBVCVisualT.c)
  * Callees:
- *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z @ 0x1800095E0 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z.c)
- *     ?IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z @ 0x1800150B8 (-IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z.c)
+ *     ?IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z @ 0x180003B34 (-IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z.c)
+ *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z @ 0x1800C75C8 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z.c)
  */
 
 char __fastcall CVisualTree::IsAncestorInSameSpace(
         const struct CVisual **this,
-        const struct CVisual **a2,
+        const struct CVisual *a2,
         const struct CVisual *a3)
 {
-  const struct CVisual **v4; // rbx
-  char v6; // di
+  CVisualTree *v5; // rcx
+  bool v6; // r8
+  char v7; // r11
+  const struct CVisual **v8; // r10
+  const struct CVisual **v9; // r10
   char IsPreserve3D; // al
-  const struct CVisual *v8; // rdx
-  char v9; // r9
+  const struct CVisual *v11; // rdx
+  char v12; // r9
 
-  v4 = a2;
-  v6 = 0;
-  if ( CVisualTree::_IsInTree((const struct CVisualTree *)this, (__int64)a2, 0) )
+  if ( CVisualTree::_IsInTree((CVisualTree *)this, a2, 0)
+    && CVisualTree::_IsInTree(v5, a3, v6)
+    && v8 != (const struct CVisual **)a3 )
   {
-    if ( CVisualTree::_IsInTree((const struct CVisualTree *)this, (__int64)a3, 0) )
+    CVisual::IsPreserve3D((CVisual *)v8, v8[10]);
+    if ( v9 != (const struct CVisual **)this[7] )
     {
-      if ( v4 != (const struct CVisual **)a3 )
+      do
       {
-        CVisual::IsPreserve3D((CVisual *)v4, v4[11]);
-        if ( v4 != (const struct CVisual **)this[8] )
-        {
-          do
-          {
-            IsPreserve3D = CVisual::IsPreserve3D((CVisual *)v4, v4[11]);
-            if ( v9 != IsPreserve3D )
-              break;
-            if ( v8 == a3 )
-              return 1;
-            v4 = (const struct CVisual **)v8;
-          }
-          while ( v8 != this[8] );
-        }
+        IsPreserve3D = CVisual::IsPreserve3D((CVisual *)v9, v9[10]);
+        if ( v12 != IsPreserve3D )
+          break;
+        if ( v11 == a3 )
+          return 1;
+        v9 = (const struct CVisual **)v11;
       }
+      while ( v11 != this[7] );
     }
   }
-  return v6;
+  return v7;
 }

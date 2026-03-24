@@ -1,9 +1,9 @@
 /*
- * XREFs of IopFreeGenericTableEntry @ 0x140934290
+ * XREFs of IopFreeGenericTableEntry @ 0x140891640
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeGenericTableEntry(struct _RTL_AVL_TABLE *Table, PVOID Buffer)

@@ -1,35 +1,35 @@
 /*
- * XREFs of DpiMiracastFindDisplayAdapterFdo @ 0x1C038CF44
+ * XREFs of DpiMiracastFindDisplayAdapterFdo @ 0x1C02CDE74
  * Callers:
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C0021CB8 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C01EEB90 (DpiMiracastFindDisplayAdapterFdoIhv.c)
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01EECBC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001E5C0 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C0175E10 (DpiMiracastFindDisplayAdapterFdoIhv.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0175F44 (DxgkMiracastQueryMiracastSupportInternal.c)
  */
 
 __int64 __fastcall DpiMiracastFindDisplayAdapterFdo(struct _DEVICE_OBJECT *Object, __int64 *a2, _BYTE *a3)
 {
   char v4; // bl
-  __int64 *v5; // r15
+  __int64 *v5; // r12
   struct _DEVICE_OBJECT *v6; // r13
   __int64 v7; // rbp
   int MiracastSupportInternal; // r14d
   char v9; // al
   int DisplayAdapterFdoIhv; // eax
-  __int64 v11; // r12
+  __int64 v11; // r15
   __int64 v12; // rsi
   bool v13; // zf
-  struct _IO_REMOVE_LOCK *v14; // r15
+  struct _IO_REMOVE_LOCK *v14; // r12
   int v15; // ecx
-  struct _DEVICE_OBJECT *LowerDeviceObject; // r15
+  struct _DEVICE_OBJECT *LowerDeviceObject; // r12
   struct _DEVICE_OBJECT *v17; // r13
-  __int128 v19; // [rsp+30h] [rbp-58h] BYREF
-  int v20; // [rsp+40h] [rbp-48h]
-  __int64 v23; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v20; // [rsp+38h] [rbp-50h] BYREF
+  int v21; // [rsp+48h] [rbp-40h]
 
   v4 = 0;
   v5 = a2;
@@ -39,24 +39,24 @@ __int64 __fastcall DpiMiracastFindDisplayAdapterFdo(struct _DEVICE_OBJECT *Objec
     AcquireMiniportListMutex();
     v4 = 1;
   }
-  v23 = 0LL;
   v19 = 0LL;
-  v20 = 0;
+  v20 = 0LL;
+  v21 = 0;
   v7 = 0LL;
-  MiracastSupportInternal = DxgkMiracastQueryMiracastSupportInternal((__int64)&v19);
+  MiracastSupportInternal = DxgkMiracastQueryMiracastSupportInternal((__int64)&v20);
   if ( MiracastSupportInternal < 0 )
     goto LABEL_48;
-  v9 = BYTE8(v19);
+  v9 = BYTE8(v20);
   if ( a3 )
-    *a3 = BYTE8(v19);
+    *a3 = BYTE8(v20);
   if ( v9 )
   {
-    DisplayAdapterFdoIhv = DpiMiracastFindDisplayAdapterFdoIhv(&v23);
-    v7 = v23;
+    DisplayAdapterFdoIhv = DpiMiracastFindDisplayAdapterFdoIhv(&v19);
+    v7 = v19;
     MiracastSupportInternal = DisplayAdapterFdoIhv;
     goto LABEL_42;
   }
-  v11 = qword_1C01304C8;
+  v11 = qword_1C00B2B40;
   MiracastSupportInternal = -1073741275;
   if ( *(_QWORD *)v11 == v11 )
   {
@@ -79,7 +79,7 @@ LABEL_47:
     {
       v13 = *(_DWORD *)(v12 + 16) == 1953656900;
       v7 = v12;
-      v23 = v12;
+      v19 = v12;
       if ( v13 && *(_DWORD *)(v12 + 20) == 2 )
       {
         v14 = (struct _IO_REMOVE_LOCK *)(v12 + 64);
@@ -98,9 +98,9 @@ LABEL_37:
     v15 = *(_DWORD *)(v12 + 236);
     if ( v15 != 2 && (*(_DWORD *)(v12 + 240) != 2 || ((v15 - 3) & 0xFFFFFFFC) != 0 || v15 == 4)
       || *(_DWORD *)(v12 + 3224) == -1
-      || *(_DWORD *)(v12 + 3984) == 1
+      || *(_DWORD *)(v12 + 3976) == 1
       || *(_DWORD *)(v12 + 284) != 1
-      || !*(_QWORD *)(v12 + 4856) )
+      || !*(_QWORD *)(v12 + 4928) )
     {
       goto LABEL_34;
     }
@@ -108,17 +108,18 @@ LABEL_37:
     ObfReferenceObject(v6);
     if ( v6 )
     {
-      while ( LowerDeviceObject != *(struct _DEVICE_OBJECT **)(v12 + 24) )
+      do
       {
+        if ( LowerDeviceObject == *(struct _DEVICE_OBJECT **)(v12 + 24) )
+          break;
         v17 = LowerDeviceObject;
         LowerDeviceObject = IoGetLowerDeviceObject(LowerDeviceObject);
         if ( v17 )
           ObfDereferenceObject(v17);
-        if ( !LowerDeviceObject )
-          goto LABEL_31;
       }
-      ObfDereferenceObject(LowerDeviceObject);
-LABEL_31:
+      while ( LowerDeviceObject );
+      if ( LowerDeviceObject )
+        ObfDereferenceObject(LowerDeviceObject);
       v6 = Object;
     }
     if ( LowerDeviceObject != *(struct _DEVICE_OBJECT **)(v12 + 24) )
@@ -131,7 +132,7 @@ LABEL_34:
       KeLeaveCriticalRegion();
       IoReleaseRemoveLockEx(v14, (PVOID)v12, 0x20u);
       v7 = 0LL;
-      v23 = 0LL;
+      v19 = 0LL;
       goto LABEL_37;
     }
     MiracastSupportInternal = 0;
@@ -139,7 +140,7 @@ LABEL_40:
     KeReleaseMutex((PRKMUTEX)(v11 + 72), 0);
     v11 = *(_QWORD *)v11;
   }
-  while ( *(_QWORD *)v11 != qword_1C01304C8 );
+  while ( *(_QWORD *)v11 != qword_1C00B2B40 );
   v5 = a2;
 LABEL_42:
   if ( MiracastSupportInternal < 0 )
@@ -159,7 +160,7 @@ LABEL_52:
 LABEL_48:
   if ( v4 )
   {
-    _InterlockedExchange64(&qword_1C01304D8, 0LL);
+    _InterlockedExchange64(&qword_1C00B2B50, 0LL);
     KeReleaseMutex(Mutex, 0);
   }
   return (unsigned int)MiracastSupportInternal;

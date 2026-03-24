@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlPublishInitialPowerDraw @ 0x1405A14A0
+ * XREFs of PopPlPublishInitialPowerDraw @ 0x14057E4E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlPublishSystemPowerChange @ 0x1405A1678 (PopPlPublishSystemPowerChange.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E6B8 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
@@ -64,7 +64,7 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
       v6 = *((unsigned int *)v5 + 10);
       i += v6;
       *((_DWORD *)v5 + 8) = v6;
-      if ( (unsigned int)dword_140C03950 > 5 )
+      if ( (unsigned int)dword_140C02228 > 5 )
       {
         v7 = *v5;
         v25 = 0;
@@ -95,36 +95,29 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
         v40 = &v21;
         v21 = v9;
         v41 = 4;
-        tlgWriteEx_EtwWriteEx(
-          (__int64)&dword_140C03950,
-          (unsigned __int8 *)&dword_14003224C,
-          v6,
-          1u,
-          v15,
-          v16,
-          9u,
-          &v22);
+        tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A4D7, v6, 1u, v15, v16, 9u, &v22);
       }
     }
   }
   PopPlPublishSystemPowerChange(v2, i);
   v10 = *(unsigned __int8 *)(v2 + 24);
-  result = KxReleaseSpinLock((volatile signed __int64 *)(v2 + 16));
+  KxReleaseSpinLock((PKSPIN_LOCK)(v2 + 16));
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v10 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v14 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v10);

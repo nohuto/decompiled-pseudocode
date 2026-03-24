@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIpv6AddressToStringExW @ 0x140252690
+ * XREFs of RtlIpv6AddressToStringExW @ 0x14037E350
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv6AddressToStringW @ 0x1402527A0 (RtlIpv6AddressToStringW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     RtlIpv6AddressToStringW @ 0x14037E430 (RtlIpv6AddressToStringW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlIpv6AddressToStringExW(

@@ -1,52 +1,90 @@
 /*
- * XREFs of ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C007A2C4
+ * XREFs of ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C00119A0
  * Callers:
- *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0079470 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
- *     ?Confirm@CFlipToken@@UEAAXXZ @ 0x1C00795F0 (-Confirm@CFlipToken@@UEAAXXZ.c)
- *     ?Discard@CFlipToken@@UEAAXXZ @ 0x1C00798A0 (-Discard@CFlipToken@@UEAAXXZ.c)
- *     ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0079A80 (-InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z.c)
- *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C0079C88 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
- *     ?Retire@CFlipToken@@UEAAXAEBUDXGI_FRAME_STATISTICS@@0@Z @ 0x1C007A100 (-Retire@CFlipToken@@UEAAXAEBUDXGI_FRAME_STATISTICS@@0@Z.c)
+ *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C000F1B0 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
+ *     ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0011440 (-InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z.c)
+ *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0064CC0 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?StartCompositionEarly@CompositionSurfaceObject@@QEAA_N_K@Z @ 0x1C0077FA0 (-StartCompositionEarly@CompositionSurfaceObject@@QEAA_N_K@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CFlipToken::TraceStateChanged(CFlipToken *this)
+void __fastcall CFlipToken::TraceStateChanged(CFlipToken *this, __int64 a2)
 {
-  CompositionSurfaceObject **v1; // rbx
-  struct DXGGLOBAL *Global; // rax
-  __int64 v4; // r15
-  int v5; // esi
-  int v6; // ebp
-  __int64 v7; // rcx
-  CompositionSurfaceObject *v8; // rax
-  char v9; // bl
-  __int64 v10; // r14
-  void (__fastcall *v11)(_QWORD, _QWORD, _QWORD, __int64, int, int, bool, __int64, __int64, int); // r12
-  __int64 v12; // rdi
-  unsigned int v13; // eax
-  int started; // [rsp+A0h] [rbp+8h]
-  _QWORD *v15; // [rsp+A8h] [rbp+10h]
+  int v2; // ebp
+  int v4; // r14d
+  __int64 v5; // rbx
+  unsigned __int8 v6; // bp
+  __int64 v7; // r14
+  _QWORD *i; // rax
+  __int64 v9; // rcx
+  __int64 v10; // r13
+  __int64 v11; // r12
+  BOOL v12; // r15d
+  int v13; // ebx
+  void (__fastcall *v14)(__int64, _QWORD, _QWORD, _QWORD, int, int, BOOL, __int64, __int64, int); // rdi
+  unsigned int v15; // eax
+  __int64 v16; // rax
+  unsigned int v17; // [rsp+A0h] [rbp+8h]
+  __int64 v18; // [rsp+A8h] [rbp+10h]
 
-  started = 0;
-  v1 = (CompositionSurfaceObject **)((char *)this + 32);
-  v15 = (_QWORD *)((char *)this + 32);
-  if ( *((_DWORD *)this + 6) == 3 )
-    started = (unsigned __int8)CompositionSurfaceObject::StartCompositionEarly(*v1, *((_QWORD *)this + 5));
-  else
-    v15 = (_QWORD *)((char *)this + 32);
-  Global = DXGGLOBAL::GetGlobal();
-  v4 = *((_QWORD *)this + 5);
-  v5 = *((unsigned __int8 *)this + 560);
-  v6 = *((_DWORD *)this + 6);
-  v7 = *((_QWORD *)Global + 38069);
-  v8 = *v1;
-  v9 = *((_BYTE *)this + 563);
-  v10 = *((_QWORD *)this + 12);
-  v11 = *(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, int, int, bool, __int64, __int64, int))(v7 + 384);
-  v12 = *((_QWORD *)v8 + 3);
-  v13 = (*(__int64 (__fastcall **)(CFlipToken *))(*(_QWORD *)this + 112LL))(this);
-  v11(*v15, *((unsigned int *)this + 26), v13, v10, v6, v5, v9 == 0, v12, v4, started);
+  v2 = *((_DWORD *)this + 6);
+  v4 = 0;
+  if ( v2 == 3 )
+  {
+    v5 = *((_QWORD *)this + 4);
+    v6 = 0;
+    v7 = *((_QWORD *)this + 5);
+    if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v5 + 48))(v5 + 48) )
+    {
+      KeEnterCriticalRegion();
+      ExAcquirePushLockSharedEx(v5 + 56, 0LL);
+      if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v5 + 48))(v5 + 48) )
+      {
+        if ( *(_DWORD *)(v5 + 120) )
+        {
+          for ( i = *(_QWORD **)(v5 + 104); i != (_QWORD *)(v5 + 104); i = (_QWORD *)*i )
+          {
+            if ( *(i - 1) == v7 )
+            {
+              v6 = (*(__int64 (__fastcall **)(_QWORD *))(*(i - 3) + 32LL))(i - 3);
+              break;
+            }
+          }
+        }
+        v9 = v5 + 56;
+        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v5 + 64) )
+        {
+          *(_QWORD *)(v5 + 64) = 0LL;
+          ExReleasePushLockExclusiveEx(v9, 0LL);
+        }
+        else
+        {
+          ExReleasePushLockSharedEx(v9, 0LL);
+        }
+        KeLeaveCriticalRegion();
+      }
+      else
+      {
+        CPushLock::ReleaseLock((CPushLock *)(v5 + 48));
+      }
+    }
+    v4 = v6;
+    v2 = *((_DWORD *)this + 6);
+  }
+  v10 = *((_QWORD *)this + 4);
+  v11 = *((_QWORD *)this + 5);
+  v12 = *((_BYTE *)this + 559) == 0;
+  v18 = *(_QWORD *)(v10 + 24);
+  v17 = *((_DWORD *)this + 26);
+  if ( !DXGGLOBAL::m_pGlobal )
+  {
+    v16 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v16 + 24) = 2238LL;
+    WdLogEvent5_WdAssertion(v16);
+  }
+  v13 = *((unsigned __int8 *)this + 556);
+  v14 = *(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, int, int, BOOL, __int64, __int64, int))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 120LL);
+  v15 = (*(__int64 (__fastcall **)(CFlipToken *))(*(_QWORD *)this + 112LL))(this);
+  v14(v10, v17, v15, *((_QWORD *)this + 12), v2, v13, v12, v18, v11, v4);
 }

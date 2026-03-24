@@ -1,35 +1,39 @@
 /*
- * XREFs of SdbReadWORDTag @ 0x14078F124
+ * XREFs of SdbReadWORDTag @ 0x140759ECC
  * Callers:
- *     InitOnceScanIndexes @ 0x140791640 (InitOnceScanIndexes.c)
- *     SdbpCheckForMatch @ 0x1408433DC (SdbpCheckForMatch.c)
+ *     SdbpCheckForMatch @ 0x1407547A4 (SdbpCheckForMatch.c)
+ *     InitOnceScanIndexes @ 0x140759FC0 (InitOnceScanIndexes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpReadTagData @ 0x140791084 (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x140759F40 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbReadWORDTag(__int64 a1, __int64 a2, unsigned __int16 a3)
+__int64 __fastcall SdbReadWORDTag(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // ebx
-  int v6; // eax
-  unsigned __int16 v7; // cx
-  unsigned __int16 v9; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int16 v4; // di
+  unsigned int v5; // ebx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  int v9; // eax
+  unsigned __int16 v10; // cx
+  unsigned __int16 v12; // [rsp+50h] [rbp+18h] BYREF
 
-  v9 = a3;
-  v4 = a2;
-  if ( (SdbGetTagFromTagID(a1, a2) & 0xF000) == 0x3000 )
+  v4 = a3;
+  v12 = a3;
+  v5 = a2;
+  if ( (SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000) == 0x3000 )
   {
-    v6 = SdbpReadTagData(a1, v4, &v9, 2LL);
-    v7 = v9;
-    if ( !v6 )
-      return a3;
-    return v7;
+    v9 = SdbpReadTagData(a1, v5, &v12, 2LL);
+    v10 = v12;
+    if ( !v9 )
+      return v4;
+    return v10;
   }
   else
   {
-    SdbGetTagFromTagID(a1, v4);
+    SdbGetTagFromTagID(a1, v5, v7, v8);
     AslLogCallPrintf(1LL);
-    return a3;
+    return v4;
   }
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmInitializeProcessor @ 0x1407F6D00
+ * XREFs of CmInitializeProcessor @ 0x1407F6CE0
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpAddProcessorConfigurationEntry @ 0x140731E00 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x140731DE0 (CmpAddProcessorConfigurationEntry.c)
  */
 
 NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)

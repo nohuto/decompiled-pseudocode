@@ -1,83 +1,50 @@
 /*
- * XREFs of ?PropertyChanged@BamoCompObjectDiagnosticsRootProxyImpl@BamoImpl@@QEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBEI@Z @ 0x1801E5E14
+ * XREFs of ?PropertyChanged@BamoCompObjectDiagnosticsRootProxyImpl@BamoImpl@@QEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBEI@Z @ 0x180182724
  * Callers:
- *     ?PropertyChanged@BamoCompObjectDiagnosticsRootProxy@@UEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBEI@Z @ 0x1801E5D80 (-PropertyChanged@BamoCompObjectDiagnosticsRootProxy@@UEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@P.c)
+ *     ?PropertyChanged@BamoCompObjectDiagnosticsRootProxy@@UEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBEI@Z @ 0x180182690 (-PropertyChanged@BamoCompObjectDiagnosticsRootProxy@@UEAAJI_KIIW4DCOMPOSITION_EXPRESSION_TYPE@@P.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x1801BBBE0 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
- *     ?IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ @ 0x1801E30B0 (-IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ.c)
- *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x1801E3548 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x180180800 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
  */
 
-__int64 __fastcall BamoImpl::BamoCompObjectDiagnosticsRootProxyImpl::PropertyChanged(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        const char *a4)
+__int64 __fastcall BamoImpl::BamoCompObjectDiagnosticsRootProxyImpl::PropertyChanged(__int64 a1)
 {
-  __int64 v6; // r10
-  int v8; // eax
-  unsigned int v9; // edi
-  struct IMessageCallSendHost *v10; // rcx
-  char *v11; // rax
-  __int64 v12; // [rsp+30h] [rbp-78h]
-  unsigned int v13; // [rsp+70h] [rbp-38h] BYREF
-  struct IMessageCallSendHost *v14[3]; // [rsp+78h] [rbp-30h] BYREF
+  int v2; // ebx
+  __int64 v3; // rdx
+  struct IMessageCallSendHost *v5; // rcx
+  char *v6; // rax
+  unsigned int v7; // [rsp+70h] [rbp-38h] BYREF
+  struct IMessageCallSendHost *v8[3]; // [rsp+78h] [rbp-30h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+A8h] [rbp+0h]
-  unsigned int v16; // [rsp+B0h] [rbp+8h] BYREF
+  unsigned int v10; // [rsp+B0h] [rbp+8h] BYREF
 
-  if ( *(_DWORD *)(*(_QWORD *)(a1 + 16) + 44LL) )
-    wil::details::in1diag3::_FailFast_Unexpected(
-      retaddr,
-      5068LL,
-      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
-      a4);
-  if ( Microsoft::BamoImpl::BamoProxyImpl::IsDisconnected((Microsoft::BamoImpl::BamoProxyImpl *)a1) )
+  if ( !*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL) + 32LL) + 56LL) )
   {
-    if ( v6 )
-      Microsoft::BamoImpl::BaseBamoConnectionImpl::TrackError(
-        *(struct Microsoft::BamoImpl::ConnectionIndirector ***)(*(_QWORD *)(v6 + 24) + 32LL),
-        0x87B20814,
-        0);
+    v2 = -2018375660;
+    v3 = 4337LL;
+LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x13D5,
-      (int)"onecoreuap\\windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
-      (const char *)0x87B20814LL);
-    return 2276591636LL;
+      (void *)v3,
+      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
+      (const char *)(unsigned int)v2);
+    return (unsigned int)v2;
   }
-  else
+  v2 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall((Microsoft::BamoImpl::BamoProxyImpl *)a1, v8, &v10, &v7);
+  if ( v2 < 0 )
   {
-    v8 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(
-           (Microsoft::BamoImpl::BamoProxyImpl *)a1,
-           v14,
-           &v16,
-           &v13);
-    v9 = v8;
-    if ( v8 >= 0 )
-    {
-      v10 = v14[0];
-      if ( *(_BYTE *)(a1 + 31) )
-      {
-        v11 = (char *)v14[0] - 16;
-        if ( !v14[0] )
-          v11 = 0LL;
-        v11[72] = 1;
-      }
-      v14[0] = (struct IMessageCallSendHost *)v16;
-      v14[1] = (struct IMessageCallSendHost *)v13;
-      LODWORD(v12) = a2;
-      return CoreUICallSend(v10, v14, 2LL, 0LL, 3, &unk_180356712, v12);
-    }
-    else
-    {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0x13DC,
-        (int)"onecoreuap\\windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
-        (const char *)(unsigned int)v8);
-      return v9;
-    }
+    v3 = 4344LL;
+    goto LABEL_3;
   }
+  v5 = v8[0];
+  if ( *(_BYTE *)(a1 + 31) )
+  {
+    v6 = (char *)v8[0] - 16;
+    if ( !v8[0] )
+      v6 = 0LL;
+    v6[72] = 1;
+  }
+  v8[0] = (struct IMessageCallSendHost *)v10;
+  v8[1] = (struct IMessageCallSendHost *)v7;
+  return CoreUICallSend(v5, v8, 2LL, 0LL, 3, &unk_1802DA352);
 }

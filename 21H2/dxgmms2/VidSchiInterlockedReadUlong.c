@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiInterlockedReadUlong @ 0x1C00144F0
+ * XREFs of VidSchiInterlockedReadUlong @ 0x1C0011C5C
  * Callers:
- *     VidSchFlushDevice @ 0x1C009A0D0 (VidSchFlushDevice.c)
- *     VidSchFlushContext @ 0x1C009A2F0 (VidSchFlushContext.c)
- *     VidSchFlushAdapter @ 0x1C00F4140 (VidSchFlushAdapter.c)
- *     VidSchFlushHwQueue @ 0x1C00F4440 (VidSchFlushHwQueue.c)
+ *     VidSchFlushHwQueue @ 0x1C0034D90 (VidSchFlushHwQueue.c)
+ *     VidSchFlushContext @ 0x1C0081D80 (VidSchFlushContext.c)
+ *     VidSchFlushDevice @ 0x1C0081F00 (VidSchFlushDevice.c)
+ *     VidSchFlushAdapter @ 0x1C00D1510 (VidSchFlushAdapter.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,6 @@ __int64 __fastcall VidSchiInterlockedReadUlong(KSPIN_LOCK *a1, _DWORD *a2)
 {
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(a1, &LockHandle);
   LODWORD(a2) = *a2;
   KeReleaseInStackQueuedSpinLock(&LockHandle);

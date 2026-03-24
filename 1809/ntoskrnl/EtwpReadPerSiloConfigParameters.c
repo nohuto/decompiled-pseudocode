@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpReadPerSiloConfigParameters @ 0x140185FD8
+ * XREFs of EtwpReadPerSiloConfigParameters @ 0x140185FF8
  * Callers:
- *     EtwInitializeSiloState @ 0x140741454 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
  */
 
 NTSTATUS __fastcall EtwpReadPerSiloConfigParameters(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C0124858
+ * XREFs of ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C0063548
  * Callers:
- *     GreGetGlyphOutlineInternal @ 0x1C00196F4 (GreGetGlyphOutlineInternal.c)
- *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C001A598 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C001B030 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C012451C (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098FC0 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C00997C0 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C1E4 (GreGetGlyphOutlineInternal.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7468 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
  * Callees:
- *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C0124BD4 (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
- *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C0124C98 (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
+ *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C0063464 (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C006411C (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
  */
 
 __int64 __fastcall RFONTOBJ::bIsLinkedGlyph(RFONTOBJ *this, unsigned __int16 a2)
@@ -18,15 +18,15 @@ __int64 __fastcall RFONTOBJ::bIsLinkedGlyph(RFONTOBJ *this, unsigned __int16 a2)
   BOOL v6; // r13d
   int v7; // ebx
   struct _LIST_ENTRY *i; // rsi
-  __int64 v10; // rdi
+  int v10; // edi
   __int64 v11; // rbx
   int v12; // r10d
   unsigned int v13; // edx
   BOOL v14; // r8d
   __int64 v15; // rcx
-  __int64 v16; // rsi
+  int v16; // edi
   __int64 v17; // rbx
-  __int64 v18; // rsi
+  int v18; // edi
   __int64 v19; // rbx
   struct PFE *v20; // [rsp+70h] [rbp+50h] BYREF
   __int64 v21; // [rsp+78h] [rbp+58h] BYREF
@@ -38,7 +38,7 @@ __int64 __fastcall RFONTOBJ::bIsLinkedGlyph(RFONTOBJ *this, unsigned __int16 a2)
     || *(_OWORD *)&gappfeSysEUDC != 0LL
     && (unsigned __int16)v3 >= gqlEUDC
     && (unsigned __int16)v3 <= *(&gqlEUDC + 1)
-    && ((0x80000000 >> (v3 & 0x1F)) & *(_DWORD *)(qword_1C0335A58 + 4 * (v3 >> 5))) != 0 )
+    && ((0x80000000 >> (v3 & 0x1F)) & *(_DWORD *)(qword_1C033A8A8 + 4 * (v3 >> 5))) != 0 )
   {
     v4 = 1;
     goto LABEL_4;
@@ -46,22 +46,28 @@ __int64 __fastcall RFONTOBJ::bIsLinkedGlyph(RFONTOBJ *this, unsigned __int16 a2)
   if ( !bFinallyInitializeFontAssocDefault )
   {
 LABEL_4:
-    if ( !gbSystemDBCSFontEnabled
-      || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 12LL) & 0x10) == 0
-      || (v20 = gappfeSystemDBCS, !*((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1))
-      || (unsigned __int16)v3 < *(_WORD *)PFEOBJ::pql((PFEOBJ *)&v20)
-      || (unsigned __int16)v3 > *((_WORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1)
-      || (v18 = *((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1),
-          v19 = (int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) / 32,
-          ((0x80000000 >> ((int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) % 32)) & *(_DWORD *)(v18 + 4 * v19)) == 0) )
+    if ( gbSystemDBCSFontEnabled )
     {
-      if ( v4 )
-        goto LABEL_8;
-      goto LABEL_6;
+      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 12LL) & 0x10) != 0 )
+      {
+        v20 = gappfeSystemDBCS;
+        if ( *((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) )
+        {
+          if ( (unsigned __int16)v3 >= *(_WORD *)PFEOBJ::pql((PFEOBJ *)&v20)
+            && (unsigned __int16)v3 <= *((_WORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) )
+          {
+            v18 = *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20);
+            v19 = (int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) / 32;
+            if ( ((0x80000000 >> (((int)v3 - v18) % 32)) & *(_DWORD *)(*((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1)
+                                                                     + 4 * v19)) != 0 )
+              v4 = 1;
+          }
+        }
+      }
     }
-LABEL_16:
-    v4 = 1;
-    goto LABEL_8;
+    if ( v4 )
+      goto LABEL_8;
+    goto LABEL_6;
   }
   v12 = *(_DWORD *)(*(_QWORD *)this + 844LL);
   v13 = *(unsigned __int8 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 45LL) >> 4;
@@ -85,10 +91,14 @@ LABEL_16:
       if ( (unsigned __int16)v3 >= *(_WORD *)PFEOBJ::pql((PFEOBJ *)&v20)
         && (unsigned __int16)v3 <= *((_WORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) )
       {
-        v16 = *((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1);
+        v16 = *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20);
         v17 = (int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) / 32;
-        if ( ((0x80000000 >> ((int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) % 32)) & *(_DWORD *)(v16 + 4 * v17)) != 0 )
-          goto LABEL_16;
+        if ( ((0x80000000 >> (((int)v3 - v16) % 32)) & *(_DWORD *)(*((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) + 4 * v17)) != 0 )
+        {
+LABEL_15:
+          v4 = 1;
+          goto LABEL_8;
+        }
       }
     }
   }
@@ -104,10 +114,10 @@ LABEL_6:
       && (unsigned __int16)v3 >= *(_WORD *)PFEOBJ::pql((PFEOBJ *)&v20)
       && (unsigned __int16)v3 <= *((_WORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) )
     {
-      v10 = *((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1);
+      v10 = *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20);
       v11 = (v7 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) / 32;
-      if ( ((0x80000000 >> ((int)(v3 - *(unsigned __int16 *)PFEOBJ::pql((PFEOBJ *)&v20)) % 32)) & *(_DWORD *)(v10 + 4 * v11)) != 0 )
-        goto LABEL_16;
+      if ( ((0x80000000 >> (((int)v3 - v10) % 32)) & *(_DWORD *)(*((_QWORD *)PFEOBJ::pql((PFEOBJ *)&v20) + 1) + 4 * v11)) != 0 )
+        goto LABEL_15;
       v7 = v3;
     }
   }

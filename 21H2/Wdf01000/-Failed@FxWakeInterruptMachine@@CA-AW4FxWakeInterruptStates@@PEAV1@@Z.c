@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Failed@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008E390
+ * XREFs of ?Failed@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008B990
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of memcmp @ 0x1C002FC00
+ * XREFs of memcmp @ 0x1C00320A0
  * Callers:
- *     LogOp2_32 @ 0x1C00276D0 (LogOp2_32.c)
- *     PnpiAddSidebandResources @ 0x1C00B29B4 (PnpiAddSidebandResources.c)
+ *     LogOp2_32 @ 0x1C0002198 (LogOp2_32.c)
+ *     PnpiAddSidebandResources @ 0x1C00B30D0 (PnpiAddSidebandResources.c)
  * Callees:
  *     <none>
  */

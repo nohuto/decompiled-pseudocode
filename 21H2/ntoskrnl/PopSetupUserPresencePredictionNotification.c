@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupUserPresencePredictionNotification @ 0x140864EC4
+ * XREFs of PopSetupUserPresencePredictionNotification @ 0x1407D5058
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupUserPresencePredictionNotification()
@@ -11,8 +11,8 @@ __int64 PopSetupUserPresencePredictionNotification()
   char v1; // [rsp+40h] [rbp+8h] BYREF
 
   return ExSubscribeWnfStateChange(
-           (int)&v1,
-           (int)&WNF_PO_USER_AWAY_PREDICTION,
+           (__int64)&v1,
+           (__int64)&WNF_PO_USER_AWAY_PREDICTION,
            1,
            0,
            (__int64)PopWnfUserAwayPredictionCallback,

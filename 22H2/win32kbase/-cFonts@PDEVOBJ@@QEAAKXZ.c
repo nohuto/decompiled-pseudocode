@@ -1,32 +1,35 @@
 /*
- * XREFs of ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C00199A0
+ * XREFs of ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C009AB30
  * Callers:
- *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C00197E8 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
- *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C005D98C (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
+ *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C009A970 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA7F8 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PDEVOBJ::cFonts(PDEVOBJ *this)
 {
-  __int64 v1; // rax
-  unsigned __int32 v2; // edx
+  unsigned __int32 v2; // ecx
   __int64 result; // rax
-  __int64 v5; // rcx
-  __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD, __int64 *); // rax
+  __int64 v4; // rdx
+  __int64 (__fastcall *v5)(_QWORD, _QWORD, _QWORD, __int64 *); // rax
+  unsigned __int32 v6; // eax
   __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)this;
   v2 = 0;
   v7 = 0LL;
-  result = *(unsigned int *)(v1 + 2072);
+  result = *(unsigned int *)(*(_QWORD *)this + 2104LL);
   if ( (_DWORD)result == -1 )
   {
-    v5 = *(_QWORD *)this;
-    v6 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64 *))(v5 + 2872);
-    if ( v6 )
-      v2 = v6(*(_QWORD *)(v5 + 1768), 0LL, 0LL, &v7);
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)this + 2072LL), v2, -1);
+    v4 = *(_QWORD *)this;
+    v5 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64 *))(*(_QWORD *)this + 2896LL);
+    if ( v5 )
+    {
+      v6 = v5(*(_QWORD *)(v4 + 1800), 0LL, 0LL, &v7);
+      v4 = *(_QWORD *)this;
+      v2 = v6;
+    }
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(v4 + 2104), v2, -1);
     if ( (_DWORD)result == -1 )
       return v2;
   }

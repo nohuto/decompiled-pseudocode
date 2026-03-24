@@ -1,11 +1,11 @@
 /*
- * XREFs of Simulator_EvaluateNode @ 0x1C0064D80
+ * XREFs of Simulator_EvaluateNode @ 0x1C0063B00
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0064B90 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
  */
 
 __int64 __fastcall Simulator_EvaluateNode(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall Simulator_EvaluateNode(__int64 a1)
   v4 = NameSpaceObject;
   if ( NameSpaceObject >= 0 && v6 )
     v4 = AMLIEvalNameSpaceObject(
-           (__int64 *)(v6 + 120),
+           (unsigned __int64 *)(v6 + 120),
            *(_QWORD *)(a1 + 40),
            *(_DWORD *)(a1 + 24),
            *(_QWORD *)(a1 + 32));

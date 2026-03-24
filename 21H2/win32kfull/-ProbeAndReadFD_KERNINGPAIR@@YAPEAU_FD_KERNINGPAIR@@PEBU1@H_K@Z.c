@@ -1,10 +1,11 @@
 /*
- * XREFs of ?ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z @ 0x1C02A7924
+ * XREFs of ?ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z @ 0x1C02A91B8
  * Callers:
- *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02AA350 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02ABC00 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ??9@YA_NAEBU_FD_KERNINGPAIR@@0@Z @ 0x1C02A7620 (--9@YA_NAEBU_FD_KERNINGPAIR@@0@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ??9@YA_NAEBU_FD_KERNINGPAIR@@0@Z @ 0x1C02A8E90 (--9@YA_NAEBU_FD_KERNINGPAIR@@0@Z.c)
  */
 
 struct _FD_KERNINGPAIR *__fastcall ProbeAndReadFD_KERNINGPAIR(
@@ -15,12 +16,13 @@ struct _FD_KERNINGPAIR *__fastcall ProbeAndReadFD_KERNINGPAIR(
   unsigned int v4; // ebx
   const struct _FD_KERNINGPAIR *v5; // rcx
   unsigned int v6; // eax
-  void *v7; // rdi
-  int v9; // [rsp+68h] [rbp+20h] BYREF
-  __int16 v10; // [rsp+6Ch] [rbp+24h]
+  void *v7; // rax
+  void *v8; // rdi
+  int v10; // [rsp+68h] [rbp+20h] BYREF
+  __int16 v11; // [rsp+6Ch] [rbp+24h]
 
-  v9 = 0;
   v10 = 0;
+  v11 = 0;
   v4 = 0;
   if ( !a2 )
   {
@@ -36,21 +38,22 @@ struct _FD_KERNINGPAIR *__fastcall ProbeAndReadFD_KERNINGPAIR(
     if ( v4 + 1 < v4 )
       break;
     ++v4;
-    if ( !operator!=(&Src[v6 - 1].wcFirst, &v9) )
+    if ( !operator!=(&Src[v6 - 1].wcFirst, &v10) )
       goto LABEL_12;
   }
   v4 = 0;
 LABEL_12:
   if ( v4 - 1 > 0x682AA9 )
     return 0LL;
-  v7 = 6 * v4 ? (void *)Win32AllocPoolZInit(6 * v4, 1886221639LL) : 0LL;
+  v7 = PALLOCMEM2(6 * v4, 1886221639LL, 1);
+  v8 = v7;
   if ( !v7 )
     return 0LL;
   memmove(v7, Src, 6LL * v4);
-  if ( operator!=((_WORD *)v7 + 3 * v4 - 3, &v9) )
+  if ( operator!=((_WORD *)v8 + 3 * v4 - 3, &v10) )
   {
-    Win32FreePool(v7);
+    Win32FreePool(v8);
     return 0LL;
   }
-  return (struct _FD_KERNINGPAIR *)v7;
+  return (struct _FD_KERNINGPAIR *)v8;
 }

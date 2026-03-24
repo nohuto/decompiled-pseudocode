@@ -8,7 +8,7 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KeInitializeSemaphore @ 0x14008A3E0 (KeInitializeSemaphore.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
  *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
  */
 
@@ -55,7 +55,7 @@ int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
       LODWORD(p_Semaphore) = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
       if ( *(int *)(a1 + 448) < 0 )
         break;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140417690 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_1404176B0 + 1, &LockHandle);
       v9 = (_QWORD *)*v3;
       if ( *(_QWORD **)(*v3 + 8LL) == v3 )
       {

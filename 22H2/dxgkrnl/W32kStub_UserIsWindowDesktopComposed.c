@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_UserIsWindowDesktopComposed @ 0x1C01EEDB0
+ * XREFs of W32kStub_UserIsWindowDesktopComposed @ 0x1C016E8A0
  * Callers:
  *     <none>
  * Callees:

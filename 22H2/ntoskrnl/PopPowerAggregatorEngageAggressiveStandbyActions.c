@@ -1,39 +1,37 @@
 /*
- * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x140993758
+ * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE1E0
  * Callers:
- *     PopPowerAggregatorEngageModernStandby @ 0x1409937E4 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE840 (PopPowerAggregatorScreenOffEnterStateHandler.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x140864D18 (PopNetSetConnectivityConstraint.c)
- *     PopPdcEngagePhases @ 0x14087828C (PopPdcEngagePhases.c)
- *     PopNetCheckAdaptiveCsState @ 0x1409966E4 (PopNetCheckAdaptiveCsState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopNetSetConnectivityConstraint @ 0x140791690 (PopNetSetConnectivityConstraint.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopPowerAggregatorEngageAggressiveStandbyActions(int a1)
+__int64 __fastcall PopPowerAggregatorEngageAggressiveStandbyActions(int a1, __int64 a2)
 {
-  int v1; // ecx
-  __int64 v2; // rcx
-  __int64 v3; // r8
   __int64 v4; // rdx
+  int v5; // eax
+  int v6; // ecx
+  __int64 v7; // rcx
 
   PopAcquirePolicyLock(a1);
-  if ( dword_140C3D958 )
+  v5 = *(_DWORD *)(a2 + 8);
+  if ( (v5 & 2) != 0 )
   {
-    if ( (unsigned int)PopNetCheckAdaptiveCsState() != 1 )
-      goto LABEL_7;
-    v1 = 7;
+    if ( (v5 & 4) == 0 )
+      goto LABEL_6;
+    v6 = 7;
   }
   else
   {
-    v1 = 1;
+    v6 = 1;
   }
-  PopNetSetConnectivityConstraint(v1);
-  if ( dword_140C3D95C == 1 )
+  PopNetSetConnectivityConstraint(v6);
+LABEL_6:
+  if ( (unsigned int)(a1 - 4) <= 1 )
     PopAggressiveStandbyAppliedActions ^= ((unsigned __int8)PopAggressiveStandbyAppliedActions ^ (unsigned __int8)PopAggressiveStandbyEnabledActions) & 1;
-LABEL_7:
-  v4 = ((unsigned __int8)PopAggressiveStandbyAppliedActions ^ (unsigned __int8)PopAggressiveStandbyEnabledActions) & 4;
-  PopAggressiveStandbyAppliedActions ^= v4;
-  PopReleasePolicyLock(v2, v4, v3);
-  return PopPdcEngagePhases();
+  v7 = ((unsigned __int8)PopAggressiveStandbyAppliedActions ^ (unsigned __int8)PopAggressiveStandbyEnabledActions) & 2;
+  PopAggressiveStandbyAppliedActions ^= v7;
+  return PopReleasePolicyLock(v7, v4);
 }

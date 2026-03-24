@@ -1,23 +1,36 @@
 /*
- * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x14056B430
+ * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1402F1418
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7AE0 (KeAccumulateTicks.c)
- *     KeRelaxTimingConstraints @ 0x14056AFAC (KeRelaxTimingConstraints.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BD60 (MiWalkPageTablesRecursively.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     KeAccumulateTicks @ 0x1402243D0 (KeAccumulateTicks.c)
+ *     KiExpireTimer2 @ 0x14024AF30 (KiExpireTimer2.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x1402B4EB0 (MiDecommitPages.c)
+ *     KeShouldYieldProcessor @ 0x1402F1320 (KeShouldYieldProcessor.c)
+ *     KiDpcWatchdog @ 0x1402F13F0 (KiDpcWatchdog.c)
+ *     KeRelaxTimingConstraints @ 0x140511ED8 (KeRelaxTimingConstraints.c)
  * Callees:
- *     <none>
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)
+void *__fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)
 {
-  __int64 v1; // rdx
-  __int64 result; // rax
+  void *v1; // r9
+  void *result; // rax
+  __int64 v3; // r8
 
-  v1 = *(_QWORD *)(a1 + 34984);
-  if ( v1 && *(_QWORD *)(a1 + 34992) != v1 )
+  v1 = *(void **)(a1 + 33960);
+  if ( v1 && *(void **)(a1 + 33968) != v1 )
   {
-    result = *(unsigned int *)(a1 + 32436);
-    if ( *(_DWORD *)(a1 + 32428) < (int)result )
-      *(_QWORD *)(a1 + 34992) = v1;
+    result = (void *)*(unsigned int *)(a1 + 31732);
+    if ( *(_DWORD *)(a1 + 31724) < (int)result )
+    {
+      v3 = (unsigned int)KiDpcWatchdogProfileArrayLength;
+      *(_QWORD *)(a1 + 33968) = v1;
+      return memset(v1, 0, 8 * v3);
+    }
   }
   return result;
 }

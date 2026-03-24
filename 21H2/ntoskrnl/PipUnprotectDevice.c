@@ -1,37 +1,37 @@
 /*
- * XREFs of PipUnprotectDevice @ 0x14095B55C
+ * XREFs of PipUnprotectDevice @ 0x1408B54F4
  * Callers:
- *     PiProcessDriversLoadedOnSecureDevice @ 0x14095B48C (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5424 (PiProcessDriversLoadedOnSecureDevice.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpQueryInterface @ 0x140765D84 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PipUnprotectDevice(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // rcx
-  __int64 result; // rax
-  __int64 v3; // rbx
-  __int128 v4; // [rsp+30h] [rbp-B8h] BYREF
-  __int128 v5; // [rsp+40h] [rbp-A8h]
-  __int64 (__fastcall *v6)(_QWORD); // [rsp+50h] [rbp-98h]
-  _QWORD v7[14]; // [rsp+60h] [rbp-88h] BYREF
+  int Interface; // ebx
+  __int64 v3; // rdi
+  __int128 v5; // [rsp+30h] [rbp-B8h] BYREF
+  __int128 v6; // [rsp+40h] [rbp-A8h]
+  __int64 (__fastcall *v7)(_QWORD); // [rsp+50h] [rbp-98h]
+  _QWORD v8[14]; // [rsp+60h] [rbp-88h] BYREF
 
   v1 = *(struct _DEVICE_OBJECT **)(a1 + 32);
-  v6 = 0LL;
-  v4 = 0LL;
+  v7 = 0LL;
   v5 = 0LL;
-  result = PnpQueryInterface(v1, (ULONG_PTR)&GUID_SDEV_IDENTIFIER_INTERFACE, 1u, 0x28u, 0LL, (USHORT *)&v4);
-  if ( (int)result >= 0 )
+  v6 = 0LL;
+  Interface = PnpQueryInterface(v1, (ULONG_PTR)&GUID_SDEV_IDENTIFIER_INTERFACE, 1u, 0x28u, 0LL, (USHORT *)&v5);
+  if ( Interface >= 0 )
   {
-    v3 = v6(*((_QWORD *)&v4 + 1));
-    (*((void (__fastcall **)(_QWORD))&v5 + 1))(*((_QWORD *)&v4 + 1));
-    memset(v7, 0, 0x68uLL);
-    v7[1] = v3;
-    return VslpEnterIumSecureMode(2u, 68, 0, (__int64)v7);
+    v3 = v7(*((_QWORD *)&v5 + 1));
+    (*((void (__fastcall **)(_QWORD))&v6 + 1))(*((_QWORD *)&v5 + 1));
+    memset(v8, 0, 0x68uLL);
+    v8[1] = v3;
+    return (unsigned int)VslpEnterIumSecureMode(2u, 66, 0, (__int64)v8);
   }
-  return result;
+  return (unsigned int)Interface;
 }

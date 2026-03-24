@@ -1,27 +1,25 @@
 /*
- * XREFs of IoGetDeviceObjectPointer @ 0x14075B770
+ * XREFs of IoGetDeviceObjectPointer @ 0x140621240
  * Callers:
- *     DifIoGetDeviceObjectPointerWrapper @ 0x1405DF7D0 (DifIoGetDeviceObjectPointerWrapper.c)
- *     IopOpenSystemVariableDevice @ 0x14068779C (IopOpenSystemVariableDevice.c)
- *     NtApphelpCacheControl @ 0x14068E760 (NtApphelpCacheControl.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x140702150 (IoVolumeDeviceNameToGuidPath.c)
- *     IoVolumeDeviceToDosName @ 0x14075B4A0 (IoVolumeDeviceToDosName.c)
- *     HalpDynamicDeviceInterfaceNotification @ 0x140933870 (HalpDynamicDeviceInterfaceNotification.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140983344 (PopRegisterCoolingExtensionProtection.c)
- *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x140994684 (PopPolicyDeviceHandleWakeAlarmNotification.c)
- *     VhdiMountVhdFile @ 0x140A7328C (VhdiMountVhdFile.c)
- *     IopStoreBootDriveLetter @ 0x140B3CE40 (IopStoreBootDriveLetter.c)
- *     IopCreateArcNamesDisk @ 0x140B3D164 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x140B3D2CC (IopCreateArcNamesCd.c)
- *     IopGetBootDiskInformation @ 0x140B94A0C (IopGetBootDiskInformation.c)
- *     SbpAddTransportToInstance @ 0x140B9C95C (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140B9CB50 (SbpStartLanman.c)
+ *     IoVolumeDeviceToDosName @ 0x140620F70 (IoVolumeDeviceToDosName.c)
+ *     NtApphelpCacheControl @ 0x1406660F0 (NtApphelpCacheControl.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x140721790 (IoVolumeDeviceNameToGuidPath.c)
+ *     HalpDynamicDeviceInterfaceNotification @ 0x140864910 (HalpDynamicDeviceInterfaceNotification.c)
+ *     IopOpenSystemVariableDevice @ 0x14089AABC (IopOpenSystemVariableDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1408E3000 (PopRegisterCoolingExtensionProtection.c)
+ *     IopAssignBootDriveLetter @ 0x140A61AA8 (IopAssignBootDriveLetter.c)
+ *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140A61E50 (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
+ *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
+ *     SbpAddTransportToInstance @ 0x140A955E8 (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140A957E8 (SbpStartLanman.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceObjectPointer(
@@ -38,10 +36,11 @@ NTSTATUS __stdcall IoGetDeviceObjectPointer(
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
   HANDLE FileHandle; // [rsp+90h] [rbp+10h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   IoStatusBlock = 0LL;
   ObjectAttributes.ObjectName = ObjectName;
   ObjectAttributes.Attributes = IopCaseInsensitive != 0 ? 576 : 512;

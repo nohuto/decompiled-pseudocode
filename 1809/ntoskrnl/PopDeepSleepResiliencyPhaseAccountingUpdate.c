@@ -6,9 +6,9 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3850 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3950 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3950 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3A50 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
  */
 
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
@@ -29,9 +29,9 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
   v5 = 0;
   v6 = 1 << a1;
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v8 = dword_140417474;
+  v8 = dword_140417494;
   v9 = v7;
-  if ( (dword_140417474 & v6) != 0 )
+  if ( (dword_140417494 & v6) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     if ( a2 )

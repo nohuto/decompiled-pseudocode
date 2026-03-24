@@ -1,22 +1,22 @@
 /*
- * XREFs of HeadlessTerminalAddResources @ 0x14081DBA8
+ * XREFs of HeadlessTerminalAddResources @ 0x140790520
  * Callers:
- *     IoReportHalResourceUsage @ 0x140B44DB0 (IoReportHalResourceUsage.c)
+ *     IoReportHalResourceUsage @ 0x140A39C40 (IoReportHalResourceUsage.c)
  * Callees:
- *     HalTranslateBusAddress @ 0x140375AA0 (HalTranslateBusAddress.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalTranslateBusAddress @ 0x1403A5360 (HalTranslateBusAddress.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HeadlessTerminalAddResources(void *Src, size_t Size, char a3, _QWORD *a4, _DWORD *a5)
 {
-  size_t v8; // rbx
+  size_t v8; // rdi
   __int64 result; // rax
-  void *Pool2; // rax
-  PHYSICAL_ADDRESS v11; // rax
-  _DWORD *v12; // rcx
-  ULONG AddressSpace; // [rsp+30h] [rbp-28h] BYREF
-  LARGE_INTEGER TranslatedAddress; // [rsp+38h] [rbp-20h] BYREF
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v11; // rbx
+  PHYSICAL_ADDRESS v12; // rcx
+  ULONG AddressSpace; // [rsp+30h] [rbp-38h] BYREF
+  LARGE_INTEGER TranslatedAddress; // [rsp+38h] [rbp-30h] BYREF
 
   TranslatedAddress.QuadPart = 0LL;
   AddressSpace = 0;
@@ -31,30 +31,32 @@ LABEL_3:
   }
   *a5 = Size + 36;
   if ( (int)Size + 36 < (unsigned int)Size
-    || (Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)(Size + 36), 1936483400LL), (*a4 = Pool2) == 0LL) )
+    || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(Size + 36), 0x736C6448u),
+        *a4 = PoolWithTag,
+        (v11 = PoolWithTag) == 0LL) )
   {
     result = 3221225626LL;
     goto LABEL_3;
   }
-  memmove(Pool2, Src, v8);
-  v11.QuadPart = HeadlessGlobals[8];
+  memmove(PoolWithTag, Src, v8);
+  v12.QuadPart = HeadlessGlobals[8];
   if ( a3 )
   {
     AddressSpace = 1;
-    HalTranslateBusAddress(Internal, 0, v11, &AddressSpace, &TranslatedAddress);
+    HalTranslateBusAddress(Internal, 0, v12, &AddressSpace, &TranslatedAddress);
+    v11 = (_DWORD *)*a4;
   }
   else
   {
     TranslatedAddress.QuadPart = HeadlessGlobals[8];
   }
-  v12 = (_DWORD *)*a4;
-  ++*v12;
-  *(_QWORD *)((char *)v12 + v8) = 1LL;
-  *(_DWORD *)((char *)v12 + v8 + 12) = 1;
-  *(_DWORD *)((char *)v12 + v8 + 8) = 0;
-  *(_DWORD *)((char *)v12 + v8 + 16) = 66049;
-  *(LARGE_INTEGER *)((char *)v12 + v8 + 20) = TranslatedAddress;
+  ++*v11;
+  *(_QWORD *)((char *)v11 + v8) = 1LL;
+  *(_DWORD *)((char *)v11 + v8 + 12) = 1;
+  *(_DWORD *)((char *)v11 + v8 + 8) = 0;
+  *(_DWORD *)((char *)v11 + v8 + 16) = 66049;
+  *(LARGE_INTEGER *)((char *)v11 + v8 + 20) = TranslatedAddress;
   result = 0LL;
-  *(_DWORD *)((char *)v12 + v8 + 28) = 8;
+  *(_DWORD *)((char *)v11 + v8 + 28) = 8;
   return result;
 }

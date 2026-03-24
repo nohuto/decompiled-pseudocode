@@ -1,15 +1,16 @@
 /*
- * XREFs of UserFindAtomFromAtomTable @ 0x1C00AA930
+ * XREFs of UserFindAtomFromAtomTable @ 0x1C00A01C0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall UserFindAtomFromAtomTable(struct _RTL_ATOM_TABLE *a1, WCHAR *a2)
 {
   NTSTATUS v2; // eax
   ULONG v4; // eax
+  __int64 v5; // rdx
   USHORT Atom; // [rsp+40h] [rbp+18h] BYREF
 
   Atom = 0;
@@ -17,7 +18,7 @@ __int64 __fastcall UserFindAtomFromAtomTable(struct _RTL_ATOM_TABLE *a1, WCHAR *
   if ( (int)(v2 + 0x80000000) >= 0 && v2 != -1073741772 )
   {
     v4 = RtlNtStatusToDosError(v2);
-    UserSetLastError(v4);
+    UserSetLastError(v4, v5);
   }
   return Atom;
 }

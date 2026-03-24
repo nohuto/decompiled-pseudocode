@@ -1,188 +1,193 @@
 /*
- * XREFs of xxxDrawCaptionBar @ 0x1C00C689C
+ * XREFs of xxxDrawCaptionBar @ 0x1C00DCAB8
  * Callers:
- *     xxxRedrawTitle @ 0x1C001F9E4 (xxxRedrawTitle.c)
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     xxxDWP_DoNCActivate @ 0x1C00C9228 (xxxDWP_DoNCActivate.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     xxxRedrawTitle @ 0x1C0046940 (xxxRedrawTitle.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxDWP_DoNCActivate @ 0x1C00DC844 (xxxDWP_DoNCActivate.c)
  * Callees:
- *     PrepareHDCBITSBitmap @ 0x1C0016A4C (PrepareHDCBITSBitmap.c)
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     DrawEdge @ 0x1C002995C (DrawEdge.c)
- *     xxxMNCanClose @ 0x1C00632C4 (xxxMNCanClose.c)
- *     BitBltSysBmp @ 0x1C009A400 (BitBltSysBmp.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     IS_UI_LANGID @ 0x1C009A598 (IS_UI_LANGID.c)
- *     GetResizeBorderWidthForDpi @ 0x1C00A2B34 (GetResizeBorderWidthForDpi.c)
- *     GetWindowFrameMetricForDpi @ 0x1C00AB1E4 (GetWindowFrameMetricForDpi.c)
- *     GetWindowBorders @ 0x1C00C6A7C (GetWindowBorders.c)
- *     IsVisible @ 0x1C00C719C (IsVisible.c)
- *     GetRect @ 0x1C00C7BD0 (GetRect.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     xxxDrawCaptionTemp @ 0x1C022C094 (xxxDrawCaptionTemp.c)
- *     DrawFrame @ 0x1C024C638 (DrawFrame.c)
+ *     DrawEdge @ 0x1C0045148 (DrawEdge.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C618 (GetWindowDpiLastNotify.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     xxxMNCanClose @ 0x1C00614C0 (xxxMNCanClose.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     GetRect @ 0x1C0063E88 (GetRect.c)
+ *     IsVisible @ 0x1C00680C4 (IsVisible.c)
+ *     ClearHungFlag @ 0x1C007BE28 (ClearHungFlag.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     GetWindowBorders @ 0x1C00DCF9C (GetWindowBorders.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00E0B40 (GetResizeBorderWidthForDpi.c)
+ *     GetWindowFrameMetricForDpi @ 0x1C00E0B68 (GetWindowFrameMetricForDpi.c)
+ *     GetAppCompatFlags2 @ 0x1C00E0FC0 (GetAppCompatFlags2.c)
+ *     BitBltSysBmp @ 0x1C0106EBC (BitBltSysBmp.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010721C (PrepareHDCBITSBitmap.c)
+ *     IS_UI_LANGID @ 0x1C01072B0 (IS_UI_LANGID.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
+ *     DrawFrame @ 0x1C015A3A8 (DrawFrame.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 char __fastcall xxxDrawCaptionBar(__int64 a1, HDC a2, int a3)
 {
   char v3; // bl
-  __int64 ThreadWin32Thread; // rax
+  int WindowFrameMetricForDpi; // eax
   __int64 v7; // rax
   __int64 v8; // rax
   int v9; // ecx
   unsigned int WindowDpiLastNotify; // eax
-  __int64 v11; // rdx
-  unsigned int v12; // edi
-  unsigned int v13; // r13d
-  __int64 v14; // rcx
+  unsigned int v11; // edi
+  unsigned int v12; // r13d
+  __int64 v13; // rcx
+  char v14; // dl
   char v15; // al
-  __int64 v16; // rdx
+  char v16; // al
   __int64 v17; // rcx
-  __int64 v18; // rax
-  unsigned int DpiForSystem; // eax
+  unsigned int v18; // eax
+  __int64 v19; // rcx
   __int64 v20; // rdx
-  unsigned int v21; // eax
+  int v21; // r8d
   __int64 v22; // rcx
-  int v23; // r8d
-  int v24; // r8d
-  __int64 v25; // rcx
+  int v23; // edx
+  __int64 v24; // rcx
+  __int64 v25; // rax
   unsigned int v26; // eax
-  int v27; // ebx
-  int v28; // ebx
-  __int64 v29; // rcx
-  unsigned int v30; // eax
   int DpiDependentMetric; // eax
-  unsigned int v32; // eax
-  __int64 v33; // rcx
-  int v34; // r15d
-  unsigned int v35; // eax
-  int v36; // ebx
-  __int64 v37; // rdx
-  __int64 v38; // rcx
-  unsigned int v39; // eax
-  int v40; // eax
-  __int64 v41; // rdx
-  int v42; // edx
-  unsigned int v43; // eax
-  unsigned int v44; // r15d
-  int v45; // ecx
-  int v46; // edx
-  int v47; // eax
-  __int64 v48; // r13
-  __int16 *OemBitmapInfoForDpi; // r15
-  _BOOL8 v50; // rcx
-  int v52; // [rsp+20h] [rbp-B9h]
-  int v53; // [rsp+20h] [rbp-B9h]
-  int v54; // [rsp+20h] [rbp-B9h]
-  unsigned int v55; // [rsp+60h] [rbp-79h]
-  int v56; // [rsp+64h] [rbp-75h]
-  int v57; // [rsp+64h] [rbp-75h]
-  unsigned int v58; // [rsp+68h] [rbp-71h]
-  int v60; // [rsp+70h] [rbp-69h]
-  int v61; // [rsp+74h] [rbp-65h]
-  int v62; // [rsp+78h] [rbp-61h]
-  __int64 v63; // [rsp+80h] [rbp-59h]
-  __int64 v64; // [rsp+88h] [rbp-51h]
-  __int64 v65; // [rsp+90h] [rbp-49h]
-  _DWORD v66[4]; // [rsp+98h] [rbp-41h] BYREF
-  __int64 v67; // [rsp+A8h] [rbp-31h]
-  _DWORD v68[4]; // [rsp+B0h] [rbp-29h] BYREF
-  __int64 v69; // [rsp+C0h] [rbp-19h]
-  int v70; // [rsp+C8h] [rbp-11h]
-  int v71; // [rsp+CCh] [rbp-Dh]
-  int v72; // [rsp+D0h] [rbp-9h]
-  int v73; // [rsp+D4h] [rbp-5h]
-  __int64 v74; // [rsp+D8h] [rbp-1h]
-  int v75[4]; // [rsp+E0h] [rbp+7h] BYREF
+  __int64 v28; // rcx
+  int v29; // ebx
+  unsigned int v30; // eax
+  int v31; // r15d
+  __int64 v32; // rcx
+  unsigned int v33; // eax
+  int v34; // r8d
+  int v35; // edx
+  BOOL v36; // ecx
+  int v37; // ecx
+  HDC v38; // r13
+  __int16 *OemBitmapInfoForDpi; // rbx
+  char v40; // r8
+  unsigned int DpiForSystem; // eax
+  unsigned int v42; // eax
+  int v43; // ebx
+  int v44; // ebx
+  unsigned int v45; // eax
+  unsigned int v46; // ebx
+  bool v47; // cl
+  unsigned int v48; // eax
+  int v49; // ebx
+  int v50; // ecx
+  int v51; // edx
+  int v53; // [rsp+20h] [rbp-99h]
+  int v54; // [rsp+60h] [rbp-59h]
+  int v55; // [rsp+60h] [rbp-59h]
+  bool v56; // [rsp+64h] [rbp-55h]
+  unsigned int v57; // [rsp+68h] [rbp-51h]
+  int v58; // [rsp+6Ch] [rbp-4Dh]
+  int v60; // [rsp+74h] [rbp-45h]
+  int v61; // [rsp+78h] [rbp-41h]
+  __int64 v62; // [rsp+80h] [rbp-39h]
+  __int64 v63; // [rsp+88h] [rbp-31h]
+  __int64 v64; // [rsp+90h] [rbp-29h]
+  int v65; // [rsp+98h] [rbp-21h] BYREF
+  int v66; // [rsp+9Ch] [rbp-1Dh]
+  int v67; // [rsp+A0h] [rbp-19h]
+  int v68; // [rsp+A4h] [rbp-15h]
+  __int64 v69; // [rsp+A8h] [rbp-11h]
+  int v70; // [rsp+B0h] [rbp-9h]
+  int v71; // [rsp+B4h] [rbp-5h]
+  int v72; // [rsp+B8h] [rbp-1h]
+  int v73; // [rsp+BCh] [rbp+3h]
+  __int64 v74; // [rsp+C0h] [rbp+7h]
+  int v75[4]; // [rsp+C8h] [rbp+Fh] BYREF
 
-  v58 = 0;
   v3 = a3;
-  v65 = 0LL;
+  v54 = 0;
+  v64 = 0LL;
   *(_OWORD *)v75 = 0LL;
   if ( (a3 & 0x800) == 0 )
   {
-    LODWORD(ThreadWin32Thread) = IsVisible(a1);
-    if ( !(_DWORD)ThreadWin32Thread )
-      return ThreadWin32Thread;
+    WindowFrameMetricForDpi = IsVisible(a1);
+    if ( !WindowFrameMetricForDpi )
+      return WindowFrameMetricForDpi;
   }
-  GetRect(a1, v75, 34LL);
+  ClearHungFlag((struct tagWND *)a1, 0x310u);
+  GetRect(a1, (__int64)v75, 34);
   if ( !gbDisableAlpha && ((unsigned int)gpdwCPUserPreferencesMask & 0x80000010) == 0x80000010 )
   {
-    v61 = v3 & 1;
     if ( (v3 & 1) != 0 )
       v7 = *(_QWORD *)(gpsi + 4912LL);
     else
       v7 = *(_QWORD *)(gpsi + 4920LL);
-    v62 = 1;
+    v61 = 32;
     goto LABEL_8;
   }
-  v62 = 0;
-  v61 = v3 & 1;
+  v61 = 0;
   if ( (v3 & 1) == 0 )
   {
     v7 = *(_QWORD *)(gpsi + 4720LL);
-    v62 = 0;
-    v61 = v3 & 1;
 LABEL_8:
-    v63 = v7;
+    v62 = v7;
     goto LABEL_9;
   }
-  v63 = *(_QWORD *)(gpsi + 4712LL);
+  v62 = *(_QWORD *)(gpsi + 4712LL);
 LABEL_9:
   v8 = *(_QWORD *)(a1 + 40);
   v9 = *(_DWORD *)(v8 + 288) & 0xF;
   if ( v9 == 3 )
   {
-    v55 = (*(_DWORD *)(v8 + 288) >> 8) & 0x1FF;
+    v57 = (*(_DWORD *)(v8 + 288) >> 8) & 0x1FF;
   }
   else
   {
-    if ( (*(_DWORD *)(v8 + 232) & 0x400) != 0 )
+    if ( (*(_DWORD *)(v8 + 232) & 0x8000000) != 0 )
     {
       WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
 LABEL_12:
-      v55 = WindowDpiLastNotify;
+      v57 = WindowDpiLastNotify;
       goto LABEL_13;
     }
     if ( v9
-      || (v18 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) == 0
-      || (*(_DWORD *)(**(_QWORD **)(v18 + 8) + 64LL) & 1) == 0 )
+      || (v25 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) == 0
+      || (*(_DWORD *)(**(_QWORD **)(v25 + 8) + 64LL) & 1) == 0 )
     {
       WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
       goto LABEL_12;
     }
-    v55 = 96;
+    v57 = 96;
   }
 LABEL_13:
-  v12 = 0;
-  v13 = 8;
+  v11 = 0;
+  v12 = 8;
   if ( !(unsigned int)xxxMNCanClose(a1) )
-    v12 = 16;
-  v14 = *(_QWORD *)(a1 + 40);
-  LOBYTE(v11) = *(_BYTE *)(v14 + 30);
-  v15 = *(_BYTE *)(v14 + 31);
-  if ( (v11 & 1) != 0 )
+    v11 = 16;
+  v13 = *(_QWORD *)(a1 + 40);
+  v14 = *(_BYTE *)(v13 + 30);
+  v15 = *(_BYTE *)(v13 + 31);
+  if ( (v14 & 1) != 0 )
   {
     if ( (v15 & 1) != 0 )
-      v12 |= 2u;
+      v11 |= 2u;
   }
   else
   {
-    v12 |= 8u;
+    v11 |= 8u;
   }
-  if ( (v11 & 2) != 0 )
+  v16 = v15 & 0x20;
+  if ( (v14 & 2) != 0 )
   {
-    if ( (v15 & 0x20) == 0 )
-      goto LABEL_19;
-    v12 |= 1u;
-LABEL_39:
+    if ( !v16 )
+      goto LABEL_20;
+    v11 |= 1u;
+  }
+  else
+  {
+    v11 |= 4u;
+  }
+  if ( v16 )
+  {
     if ( (a3 & 0x8000) != 0 )
     {
       DrawEdge(a2, (RECT *)v75, 5, 8207);
@@ -190,218 +195,219 @@ LABEL_39:
       ++v75[0];
       --v75[2];
       ++v75[1];
+      --v75[3];
     }
     else
     {
       v75[0] += 3;
       v75[2] -= 3;
       v75[1] += 3;
+      v75[3] -= 3;
     }
-    DpiForSystem = GetDpiForSystem(v14, v11);
+    DpiForSystem = GetDpiForSystem(v13);
     v75[3] = v75[1] + GetDpiDependentMetric(13LL, DpiForSystem);
-    v65 = GreSelectBrush(a2, v63);
-    goto LABEL_63;
+    v64 = GreSelectBrush(a2, v62);
+    goto LABEL_48;
   }
-  v12 |= 4u;
-  if ( (v15 & 0x20) != 0 )
-    goto LABEL_39;
-LABEL_19:
-  if ( (*(_BYTE *)(v14 + 25) & 3) == 0 || (*(_BYTE *)(v14 + 20) & 8) != 0 )
-    v64 = 4744LL;
+LABEL_20:
+  if ( (*(_BYTE *)(v13 + 25) & 3) == 0 || (*(_BYTE *)(v13 + 20) & 8) != 0 )
+    v63 = 4744LL;
   else
-    v64 = 4816LL;
+    v63 = 4816LL;
   if ( (a3 & 0x8000) != 0 )
   {
-    v21 = GetDpiForSystem(v14, v11);
-    LODWORD(ThreadWin32Thread) = GetWindowFrameMetricForDpi(v22, v21);
-    v16 = *(_QWORD *)(a1 + 40);
-    v23 = ThreadWin32Thread;
-    v60 = ThreadWin32Thread;
-    if ( (*(_BYTE *)(v16 + 25) & 1) != 0 )
+    v18 = GetDpiForSystem(v13);
+    WindowFrameMetricForDpi = GetWindowFrameMetricForDpi(v19, v18);
+    v20 = *(_QWORD *)(a1 + 40);
+    v21 = WindowFrameMetricForDpi;
+    v60 = WindowFrameMetricForDpi;
+    if ( (*(_BYTE *)(v20 + 25) & 1) != 0 )
     {
-      v24 = 5;
+      v40 = 5;
     }
     else
     {
-      if ( (*(_BYTE *)(v16 + 26) & 2) == 0 )
-        goto LABEL_50;
-      v24 = 2;
+      if ( (*(_BYTE *)(v20 + 26) & 2) == 0 )
+        goto LABEL_31;
+      v40 = 2;
     }
-    LOBYTE(ThreadWin32Thread) = DrawEdge(a2, (RECT *)v75, v24, 8207);
-    v23 = v60;
-LABEL_50:
-    v25 = *(_QWORD *)(a1 + 40);
-    if ( (*(_BYTE *)(v25 + 30) & 4) != 0
-      || v23 > 0
-      && (v16 = *(unsigned int *)(v25 + 28),
-          LOBYTE(ThreadWin32Thread) = (v16 & 0x40000) == 0,
-          (((v16 & 0xC00000) != 12582912) & (unsigned __int8)ThreadWin32Thread) == 0)
-      && ((ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread()),
-           *(_DWORD *)(ThreadWin32Thread + 632) > 0x9900u)
-       || (*(_DWORD *)(ThreadWin32Thread + 648) & 0x30000000) == 0) )
+    LOBYTE(WindowFrameMetricForDpi) = DrawEdge(a2, (RECT *)v75, v40, 8207);
+    v21 = v60;
+LABEL_31:
+    v22 = *(_QWORD *)(a1 + 40);
+    if ( (*(_BYTE *)(v22 + 30) & 4) != 0
+      || v21 > 0
+      && (v23 = *(_DWORD *)(v22 + 28),
+          LOBYTE(WindowFrameMetricForDpi) = (v23 & 0x40000) == 0,
+          (((v23 & 0xC00000) != 12582912) & (unsigned __int8)WindowFrameMetricForDpi) == 0)
+      && (WindowFrameMetricForDpi = GetAppCompatFlags2(39168LL), (WindowFrameMetricForDpi & 0x30000000) == 0) )
     {
-      v26 = GetDpiForSystem(v25, v16);
-      v27 = v60 + GetResizeBorderWidthForDpi(v26);
-      LOBYTE(ThreadWin32Thread) = DrawFrame(a2);
-      v28 = -v27;
-      v75[0] -= v28;
-      v75[2] += v28;
-      v75[1] -= v28;
-      v75[3] += v28;
+      v42 = GetDpiForSystem(v22);
+      v43 = v60 + GetResizeBorderWidthForDpi(v42);
+      LOBYTE(WindowFrameMetricForDpi) = DrawFrame(a2);
+      v44 = -v43;
+      v75[0] -= v44;
+      v75[2] += v44;
+      v75[1] -= v44;
+      v75[3] += v44;
     }
-    v29 = *(_QWORD *)(a1 + 40);
-    if ( (*(_BYTE *)(v29 + 30) & 0xC0) != 0 || (*(_BYTE *)(v29 + 24) & 1) != 0 )
+    v24 = *(_QWORD *)(a1 + 40);
+    if ( (*(_BYTE *)(v24 + 30) & 0xC0) != 0 || (*(_BYTE *)(v24 + 24) & 1) != 0 )
     {
-      LOBYTE(ThreadWin32Thread) = DrawFrame(a2);
+      LOBYTE(WindowFrameMetricForDpi) = DrawFrame(a2);
       ++v75[0];
       --v75[2];
       ++v75[1];
       --v75[3];
     }
-    goto LABEL_23;
+    goto LABEL_24;
   }
-  LODWORD(ThreadWin32Thread) = -(int)GetWindowBorders(*(unsigned int *)(v14 + 28), *(unsigned int *)(v14 + 24));
-  v75[0] -= ThreadWin32Thread;
-  v75[2] += ThreadWin32Thread;
-  v75[1] -= ThreadWin32Thread;
-  v75[3] += ThreadWin32Thread;
-LABEL_23:
+  WindowFrameMetricForDpi = -(int)GetWindowBorders(*(unsigned int *)(v13 + 28), *(unsigned int *)(v13 + 24));
+  v75[0] -= WindowFrameMetricForDpi;
+  v75[2] += WindowFrameMetricForDpi;
+  v75[1] -= WindowFrameMetricForDpi;
+  v75[3] += WindowFrameMetricForDpi;
+LABEL_24:
   v17 = *(_QWORD *)(a1 + 40);
   if ( (*(_BYTE *)(v17 + 16) & 8) == 0 )
-    return ThreadWin32Thread;
-  if ( *(char *)(v17 + 24) >= 0 )
+    return WindowFrameMetricForDpi;
+  if ( *(char *)(v17 + 24) < 0 )
   {
-    v32 = GetDpiForSystem(v17, v16);
-    DpiDependentMetric = GetDpiDependentMetric(13LL, v32);
+    v11 |= 0x20u;
+    v45 = GetDpiForSystem(v17);
+    DpiDependentMetric = GetDpiDependentMetric(24LL, v45);
+    v54 = 41;
   }
   else
   {
-    v12 |= 0x20u;
-    v30 = GetDpiForSystem(v17, v16);
-    DpiDependentMetric = GetDpiDependentMetric(24LL, v30);
-    v58 = 41;
+    v26 = GetDpiForSystem(v17);
+    DpiDependentMetric = GetDpiDependentMetric(13LL, v26);
   }
   v75[3] = v75[1] + DpiDependentMetric;
-  v66[1] = v75[1] + DpiDependentMetric;
-  v66[0] = v75[0];
-  v66[2] = v75[2] - v75[0];
-  v66[3] = 1;
-  v67 = *(_QWORD *)(v64 + gpsi);
-  GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v66, 1u, v52);
-  GreSelectBrush(a2, v63);
-LABEL_63:
-  v33 = *(_QWORD *)(a1 + 40);
-  if ( (*(_BYTE *)(v33 + 30) & 8) != 0 || (*(_BYTE *)(v33 + 21) & 2) == 0 )
+  v66 = v75[1] + DpiDependentMetric;
+  v65 = v75[0];
+  v67 = v75[2] - v75[0];
+  v68 = 1;
+  v69 = *(_QWORD *)(v63 + gpsi);
+  GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)&v65, 1u);
+  GreSelectBrush(a2, v62);
+LABEL_48:
+  v28 = *(_QWORD *)(a1 + 40);
+  if ( (*(_BYTE *)(v28 + 30) & 8) != 0 || (*(_BYTE *)(v28 + 21) & 2) == 0 )
   {
-    v34 = 1;
-    v35 = GetDpiForSystem(v33, v20);
-    v36 = GetDpiDependentMetric(12LL, v35);
-    v39 = GetDpiForSystem(v38, v37);
-    v40 = GetDpiDependentMetric(23LL, v39);
-    v56 = v40;
+    v29 = 1;
+    v30 = GetDpiForSystem(v28);
+    v31 = GetDpiDependentMetric(12LL, v30);
+    v33 = GetDpiForSystem(v32);
+    v34 = GetDpiDependentMetric(23LL, v33);
+    v58 = v34;
     if ( (a3 & 0x1000) != 0 )
     {
-      if ( v12 )
+      if ( v11 )
       {
-        if ( v12 != 12 )
+        if ( v11 != 12 )
         {
           v75[3] -= 2;
           v53 = v75[3] - (v75[1] + 2);
           v75[1] += 2;
           v75[2] -= 2;
-          NtGdiPatBlt(a2, v53, 15728673);
-          v43 = v58;
-          if ( (v12 & 0x10) != 0 )
-          {
-            v43 = v58 + 3;
-            v58 += 3;
-          }
-          v75[2] -= *((__int16 *)GetOemBitmapInfoForDpi(v43, v55) + 2);
-          BitBltSysBmp(a2, (unsigned int)v75[2], v75[1], v58, 1);
-          if ( (v12 & 0xC) != 12 && (v12 & 0x20) == 0 )
+          NtGdiPatBlt(a2, v75[2], v75[1], 2, v53, 15728673);
+          v46 = v54 + 3;
+          if ( (v11 & 0x10) == 0 )
+            v46 = v54;
+          v75[2] -= *(__int16 *)(GetOemBitmapInfoForDpi(v46, v57) + 4);
+          BitBltSysBmp(a2, v75[2], v75[1], 1);
+          v47 = (v11 & 0x20) == 0;
+          v56 = v47;
+          if ( (v11 & 0xC) != 12 && v47 )
           {
             v75[2] -= 2;
-            NtGdiPatBlt(a2, v75[3] - v75[1], 15728673);
-            if ( (v12 & 2) != 0 )
-              v44 = 8;
+            NtGdiPatBlt(a2, v75[2], v75[1], 2, v75[3] - v75[1], 15728673);
+            if ( (v11 & 2) != 0 )
+              v48 = 8;
             else
-              v44 = (v12 & 8) != 0 ? 17 : 14;
-            v75[2] -= *((__int16 *)GetOemBitmapInfoForDpi(v44, v55) + 2);
-            BitBltSysBmp(a2, (unsigned int)v75[2], v75[1], v44, 1);
-            if ( (v12 & 1) == 0 )
-              v13 = (v12 & 4) != 0 ? 7 : 4;
-            v75[2] -= *((__int16 *)GetOemBitmapInfoForDpi(v13, v55) + 2);
-            BitBltSysBmp(a2, (unsigned int)v75[2], v75[1], v13, 1);
+              v48 = (v11 & 8) != 0 ? 17 : 14;
+            v75[2] -= *(__int16 *)(GetOemBitmapInfoForDpi(v48, v57) + 4);
+            BitBltSysBmp(a2, v75[2], v75[1], 1);
+            if ( (v11 & 1) == 0 )
+              v12 = (v11 & 4) != 0 ? 7 : 4;
+            v75[2] -= *(__int16 *)(GetOemBitmapInfoForDpi(v12, v57) + 4);
+            BitBltSysBmp(a2, v75[2], v75[1], 1);
             v75[2] -= 2;
-            NtGdiPatBlt(a2, v75[3] - v75[1], 15728673);
-            v34 = 3;
+            NtGdiPatBlt(a2, v75[2], v75[1], 2, v75[3] - v75[1], 15728673);
+            v47 = v56;
+            v49 = 3;
           }
-          if ( (v12 & 0x1C) != 0 && (v12 & 0x20) == 0 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 4) != 0 )
+          else
+          {
+            v49 = 1;
+          }
+          if ( (v11 & 0x1C) != 0 && v47 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 4) != 0 )
           {
             v75[2] -= 2;
-            NtGdiPatBlt(a2, v75[3] - v75[1], 15728673);
-            v75[2] -= *((__int16 *)GetOemBitmapInfoForDpi(11LL, v55) + 2);
-            BitBltSysBmp(a2, (unsigned int)v75[2], v75[1], 0xBu, 1);
-            ++v34;
+            NtGdiPatBlt(a2, v75[2], v75[1], 2, v75[3] - v75[1], 15728673);
+            v75[2] -= *(__int16 *)(GetOemBitmapInfoForDpi(11LL, v57) + 4);
+            BitBltSysBmp(a2, v75[2], v75[1], 1);
+            ++v49;
           }
-          v45 = v75[1] - 2;
-          v46 = v75[3] + 2;
-          v68[0] = v75[2];
+          v50 = v75[1] - 2;
+          v51 = v75[3] + 2;
+          v65 = v75[2];
           v70 = v75[2];
           v75[1] -= 2;
-          if ( (v12 & 0x20) != 0 )
-            v36 = v56;
+          if ( (v11 & 0x20) != 0 )
+            v31 = v58;
           v69 = 0LL;
           v74 = 0LL;
           v75[3] += 2;
-          v68[1] = v45;
-          v68[3] = 2;
-          v71 = v46 - 2;
-          v68[2] = v36 * v34;
-          v72 = v36 * v34;
+          v66 = v50;
+          v68 = 2;
+          v71 = v51 - 2;
+          v67 = v31 * v49;
+          v72 = v31 * v49;
           v73 = 2;
-          GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v68, 2u, v54);
-          if ( v65 )
-            GreSelectBrush(a2, v65);
-          goto LABEL_102;
+          GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)&v65, 2u);
+          if ( v64 )
+            GreSelectBrush(a2, v64);
+          goto LABEL_55;
         }
-        v47 = v36 + 2;
+        v37 = v31 + 2;
       }
       else
       {
-        v47 = 3 * v36;
+        v37 = 3 * v31;
       }
-      v57 = v47;
-      v48 = PrepareHDCBITSBitmap(0LL, v41);
-      if ( v48 )
+      v55 = v37;
+      v38 = (HDC)PrepareHDCBITSBitmap(0LL);
+      if ( v38 )
       {
-        OemBitmapInfoForDpi = (__int16 *)GetOemBitmapInfoForDpi((v61 ^ 1u) + 39, v55);
-        v75[2] -= v57;
+        OemBitmapInfoForDpi = (__int16 *)GetOemBitmapInfoForDpi((unsigned int)!(a3 & 1) + 39, v57);
+        v75[2] -= v55;
         NtGdiBitBltInternal(
           a2,
           v75[2],
           v75[1],
-          v57,
+          v55,
           OemBitmapInfoForDpi[3],
-          v48,
-          OemBitmapInfoForDpi[2] + *OemBitmapInfoForDpi - v57 - v36,
+          v38,
+          OemBitmapInfoForDpi[2] + *OemBitmapInfoForDpi - v55 - v31,
           OemBitmapInfoForDpi[1],
           13369376,
           0,
           0);
-        if ( v12 )
+        if ( v11 )
         {
           if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 4) != 0 )
           {
-            v75[2] += 2 - v36;
+            v75[2] += 2 - v31;
             NtGdiBitBltInternal(
               a2,
               v75[2],
               v75[1],
-              v36,
+              v31,
               OemBitmapInfoForDpi[3],
-              v48,
-              OemBitmapInfoForDpi[2] + *OemBitmapInfoForDpi - v36,
+              v38,
+              OemBitmapInfoForDpi[2] + *OemBitmapInfoForDpi - v31,
               OemBitmapInfoForDpi[1],
               13369376,
               0,
@@ -413,10 +419,10 @@ LABEL_63:
                 a2,
                 v75[2] - 2,
                 v75[1] + 2,
-                v36 - 4,
+                v31 - 4,
                 OemBitmapInfoForDpi[3] - 4,
-                v48,
-                *OemBitmapInfoForDpi - v36 + 2 + OemBitmapInfoForDpi[2],
+                v38,
+                OemBitmapInfoForDpi[2] + *OemBitmapInfoForDpi - v31 + 2,
                 OemBitmapInfoForDpi[1] + 2,
                 -2134114272,
                 0,
@@ -425,40 +431,32 @@ LABEL_63:
           }
         }
       }
-      goto LABEL_102;
-    }
-    if ( !v12 || (v12 & 0xC) != 12 && (v12 & 0x20) == 0 )
-    {
-      v42 = v75[2];
-      v34 = 3;
     }
     else
     {
-      v42 = v75[2] - 2;
-      v75[2] -= 2;
-      if ( v12 == 12 )
+      if ( !v11 || (v11 & 0xC) != 12 && (v11 & 0x20) == 0 )
       {
-        if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 4) != 0 )
-          v34 = 2;
-        goto LABEL_73;
+        v35 = v75[2];
+        v29 = 3;
       }
+      else
+      {
+        v35 = v75[2] - 2;
+        v75[2] -= 2;
+        if ( v11 == 12 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 4) != 0 )
+          v29 = 2;
+      }
+      if ( (v11 & 0x20) != 0 )
+        v31 = v34;
+      v75[2] = v35 - v29 * v31;
     }
-    if ( (v12 & 0x20) != 0 )
-    {
-LABEL_74:
-      v75[2] = v42 - v34 * v40;
-      goto LABEL_102;
-    }
-LABEL_73:
-    v40 = v36;
-    goto LABEL_74;
   }
-LABEL_102:
-  LOBYTE(ThreadWin32Thread) = a3;
+LABEL_55:
+  LOBYTE(WindowFrameMetricForDpi) = a3;
   if ( (a3 & 0xC) != 0 )
   {
-    v50 = (unsigned int)xxxDrawCaptionTemp(a1, a2, v75, 0LL, 0LL, 0LL, a3 | (32 * v62) | (v12 >> 4) & 2) == 0;
-    LOBYTE(ThreadWin32Thread) = SetOrClrWF(v50, a1, 1800LL, 1LL);
+    v36 = xxxDrawCaptionTemp(a1, a2, v75, 0LL, 0LL, 0LL, a3 | v61 | (v11 >> 4) & 2) == 0;
+    LOBYTE(WindowFrameMetricForDpi) = SetOrClrWF(v36, a1, 0x708u, 1);
   }
-  return ThreadWin32Thread;
+  return WindowFrameMetricForDpi;
 }

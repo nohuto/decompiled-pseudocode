@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlAddToTunnelCacheEx @ 0x140694B30
+ * XREFs of FsRtlAddToTunnelCacheEx @ 0x140688B60
  * Callers:
- *     FsRtlAddToTunnelCache @ 0x14092E130 (FsRtlAddToTunnelCache.c)
+ *     FsRtlAddToTunnelCache @ 0x14088B6F0 (FsRtlAddToTunnelCache.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlCompareNodeAndKey @ 0x14021D7F0 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x14021D85C (FsRtlEmptyFreePoolList.c)
- *     FsRtlFreeTunnelNode @ 0x14021D8B4 (FsRtlFreeTunnelNode.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x140694FD0 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     FsRtlCompareNodeAndKey @ 0x14029FEA8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x14029FF14 (FsRtlEmptyFreePoolList.c)
+ *     FsRtlFreeTunnelNode @ 0x14029FF6C (FsRtlFreeTunnelNode.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140688E84 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall FsRtlAddToTunnelCacheEx(
+char *__fastcall FsRtlAddToTunnelCacheEx(
         PKGUARDED_MUTEX Mutex,
         unsigned __int64 a2,
         const UNICODE_STRING *a3,
@@ -23,18 +23,18 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
         size_t Size,
         void *Src)
 {
-  __int64 v7; // rbp
-  int v9; // r14d
+  __int64 v7; // r14
+  int v9; // ebp
   const UNICODE_STRING *v10; // r15
   const UNICODE_STRING *v11; // r12
   PKGUARDED_MUTEX v12; // rsi
-  __int64 result; // rax
+  char *result; // rax
   int v14; // edi
   int v15; // ecx
   unsigned int v16; // edi
   char *v17; // rbx
   PKGUARDED_MUTEX v18; // r13
-  __int64 v19; // r14
+  __int64 v19; // rbp
   struct _FAST_MUTEX *v20; // rdi
   LONG v21; // eax
   __int64 v22; // rax
@@ -62,20 +62,19 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
   v11 = a3;
   v42 = v9;
   v12 = Mutex;
-  result = a5 & 1;
-  v36 = result;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
+  result = (char *)(a5 & 1);
+  v36 = (char)result;
+  if ( !TunnelMaxEntries )
     return result;
   v14 = Size + a3->Length;
   v15 = a4->Length + 112;
   v37[1] = (__int64)v37;
   v16 = v15 + v14;
   v37[0] = (__int64)v37;
-  if ( v16 > 0xB0
-    || (v17 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&TunnelLookasideList)) == 0LL )
+  if ( v16 > 0xB0 || (v17 = (char *)ExAllocateFromNPagedLookasideList(&TunnelLookasideList)) == 0LL )
   {
-    result = ExAllocatePool2(258LL, v16, 1349416276LL);
-    v17 = (char *)result;
+    result = (char *)ExAllocatePoolWithTag(PagedPool, v16, 0x506E7554u);
+    v17 = result;
     if ( !result )
       return result;
     v35 = 1;
@@ -102,8 +101,8 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
           break;
         v22 = 16LL;
       }
-      v20 = (struct _FAST_MUTEX *)(v19 + v22);
-      v19 = *(_QWORD *)(v19 + v22);
+      v20 = (struct _FAST_MUTEX *)(v22 + v19);
+      v19 = *(_QWORD *)(v22 + v19);
     }
     while ( v19 );
     v12 = Mutex;
@@ -200,5 +199,5 @@ LABEL_39:
     *((_DWORD *)v17 + 14) |= 1u;
   FsRtlPruneTunnelCache(v12, v37);
   KeReleaseGuardedMutex(v12);
-  return (__int64)FsRtlEmptyFreePoolList((_QWORD **)v37);
+  return (char *)FsRtlEmptyFreePoolList((_QWORD **)v37);
 }

@@ -1,33 +1,30 @@
 /*
- * XREFs of ExInitializeFastResource @ 0x1403C4890
+ * XREFs of ExInitializeFastResource @ 0x1403994A0
  * Callers:
  *     <none>
  * Callees:
- *     ExpInitializeResource @ 0x1403C4950 (ExpInitializeResource.c)
- *     ExpAddResourceToSystemResourceList @ 0x1403C49C4 (ExpAddResourceToSystemResourceList.c)
- *     ExInitializeFastResource2 @ 0x1404130C0 (ExInitializeFastResource2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14039951C (ExpAddResourceToSystemResourceList.c)
+ *     ExpInitializeResource @ 0x140399590 (ExpInitializeResource.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExInitializeFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  char v3; // di
+  char v2; // di
   unsigned __int8 CurrentIrql; // al
-  __int16 v6; // ax
+  __int16 v5; // ax
 
-  v3 = BugCheckParameter3;
-  if ( FeatureFastResource2 )
-    return ExInitializeFastResource2(BugCheckParameter2, (unsigned int)BugCheckParameter3);
+  v2 = BugCheckParameter3;
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql > 1u )
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-  if ( (BugCheckParameter3 & 0xFFFFFFF0) != 0 )
+  if ( (BugCheckParameter3 & 0xFFFFFFFE) != 0 )
     KeBugCheckEx(0x1C6u, 0x10uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 0LL);
-  ExpInitializeResource(BugCheckParameter2);
-  v6 = *(_WORD *)(BugCheckParameter2 + 26) | 1;
-  *(_WORD *)(BugCheckParameter2 + 26) = v6;
-  if ( (v3 & 1) != 0 )
-    *(_WORD *)(BugCheckParameter2 + 26) = v6 | 0x40;
+  ExpInitializeResource();
+  v5 = *(_WORD *)(BugCheckParameter2 + 26) | 1;
+  *(_WORD *)(BugCheckParameter2 + 26) = v5;
+  if ( (v2 & 1) != 0 )
+    *(_WORD *)(BugCheckParameter2 + 26) = v5 | 0x40;
   *(_QWORD *)(BugCheckParameter2 + 56) = BugCheckParameter2 + 48;
   *(_QWORD *)(BugCheckParameter2 + 48) = BugCheckParameter2 + 48;
   return ExpAddResourceToSystemResourceList(BugCheckParameter2);

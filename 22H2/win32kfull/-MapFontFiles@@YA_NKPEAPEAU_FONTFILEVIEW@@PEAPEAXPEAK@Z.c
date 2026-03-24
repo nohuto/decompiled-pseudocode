@@ -1,44 +1,40 @@
 /*
- * XREFs of ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C007945C
+ * XREFs of ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C00A4D8C
  * Callers:
- *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C007FA70 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
- *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0080034 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     _lambda_609c7463f0af8f0b222c22162fb8f533_::operator() @ 0x1C0114400 (_lambda_609c7463f0af8f0b222c22162fb8f533_--operator().c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098A30 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C0099684 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
+ *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00A6CFC (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
  * Callees:
- *     EngMapFontFileFDInternal @ 0x1C00794EC (EngMapFontFileFDInternal.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4E0C (EngMapFontFileFDInternal.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
  */
 
 char __fastcall MapFontFiles(unsigned int a1, struct _FONTFILEVIEW **a2, void **a3, unsigned int *a4)
 {
-  __int64 v4; // rdi
+  __int64 v4; // rbx
   struct _FONTFILEVIEW **i; // r15
-  __int64 v10; // rbp
-  signed __int64 v12; // rsi
+  signed __int64 v11; // r14
 
   v4 = 0LL;
   if ( !a1 )
     return 1;
-  for ( i = a2; ; ++i )
+  for ( i = a2; (unsigned int)EngMapFontFileFDInternal(*i, &a3[v4], &a4[v4], 0LL); ++i )
   {
-    v10 = (unsigned int)v4;
-    if ( !(unsigned int)EngMapFontFileFDInternal(*i, &a3[v4], &a4[v4], 0LL) )
-      break;
     v4 = (unsigned int)(v4 + 1);
     if ( (unsigned int)v4 >= a1 )
       return 1;
   }
   if ( (_DWORD)v4 )
   {
-    v12 = (char *)a2 - (char *)a3;
+    v11 = (char *)a2 - (char *)a3;
     do
     {
-      EngUnmapFontFileFD(*(ULONG_PTR *)((char *)a3 + v12));
+      EngUnmapFontFileFD(*(ULONG_PTR *)((char *)a3 + v11));
       *a3++ = 0LL;
       *a4++ = 0;
-      --v10;
+      --v4;
     }
-    while ( v10 );
+    while ( v4 );
   }
   return 0;
 }

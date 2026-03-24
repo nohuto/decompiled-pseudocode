@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpFixedHeapCreate @ 0x14036FD8C
+ * XREFs of RtlpHpFixedHeapCreate @ 0x14037B558
  * Callers:
- *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
- *     RtlpHpVsContextInitialize @ 0x14036FF40 (RtlpHpVsContextInitialize.c)
- *     ZwQueryVirtualMemory @ 0x14041BBC0 (ZwQueryVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     RtlpHpVsContextInitialize @ 0x14037B70C (RtlpHpVsContextInitialize.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 unsigned __int64 __fastcall RtlpHpFixedHeapCreate(

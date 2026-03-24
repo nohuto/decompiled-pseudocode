@@ -1,10 +1,10 @@
 /*
- * XREFs of VfInitSetVerifyDriverTargets @ 0x1409F8488
+ * XREFs of VfInitSetVerifyDriverTargets @ 0x1409F8498
  * Callers:
  *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
- *     ViMakeVerifierSettings @ 0x1409F86F0 (ViMakeVerifierSettings.c)
+ *     ViMakeVerifierSettings @ 0x1409F8700 (ViMakeVerifierSettings.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void *__fastcall VfInitSetVerifyDriverTargets(void *Src, unsigned int a2)

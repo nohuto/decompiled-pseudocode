@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022E690
+ * XREFs of ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F56F0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022DFD0 (-SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
+ *     ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F5060 (-SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
  */
 
 __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::SetBufferProperty(
@@ -20,29 +20,29 @@ __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshale
   *a6 = 0;
   switch ( a3 )
   {
-    case 9:
+    case 8:
       if ( a5 == 16 )
       {
-        *((_OWORD *)this + 9) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 136) = *(_OWORD *)a4;
         *a6 = 1;
         return result;
       }
       break;
-    case 11:
+    case 10:
       if ( a5 == 16 )
       {
-        *((_OWORD *)this + 10) = *(_OWORD *)a4;
-        *a6 = 1;
-        *((_DWORD *)this + 4) |= 0x8000u;
-        return result;
-      }
-      break;
-    case 14:
-      if ( a5 == 16 )
-      {
-        *((_OWORD *)this + 11) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 152) = *(_OWORD *)a4;
         *a6 = 1;
         *((_DWORD *)this + 4) |= 0x4000u;
+        return result;
+      }
+      break;
+    case 13:
+      if ( a5 == 16 )
+      {
+        *(_OWORD *)((char *)this + 168) = *(_OWORD *)a4;
+        *a6 = 1;
+        *((_DWORD *)this + 4) |= 0x2000u;
         return result;
       }
       break;

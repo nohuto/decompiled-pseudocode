@@ -1,9 +1,11 @@
 /*
- * XREFs of _IsChild @ 0x1C011631C
+ * XREFs of _IsChild @ 0x1C012BB3C
  * Callers:
- *     CheckPwndFilter @ 0x1C005C1A8 (CheckPwndFilter.c)
- *     _SelectPalette @ 0x1C00EE130 (_SelectPalette.c)
- *     xxxMNLoop @ 0x1C022E038 (xxxMNLoop.c)
+ *     xxxDoPaint @ 0x1C00534A8 (xxxDoPaint.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     CheckPwndFilter @ 0x1C00C1850 (CheckPwndFilter.c)
+ *     _SelectPalette @ 0x1C0101704 (_SelectPalette.c)
+ *     xxxMNLoop @ 0x1C0234A48 (xxxMNLoop.c)
  * Callees:
  *     <none>
  */

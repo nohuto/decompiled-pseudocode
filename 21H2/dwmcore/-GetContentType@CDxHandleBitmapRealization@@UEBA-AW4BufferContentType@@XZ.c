@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetContentType@CDxHandleBitmapRealization@@UEBA?AW4BufferContentType@@XZ @ 0x1800FCB00
+ * XREFs of ?GetContentType@CDxHandleBitmapRealization@@UEBA?AW4BufferContentType@@XZ @ 0x1800E3AA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetContentType(__int64 a1)
 {
-  return *(unsigned int *)(a1 - 220);
+  return *(unsigned int *)(a1 - 192);
 }

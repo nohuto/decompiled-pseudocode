@@ -1,17 +1,16 @@
 /*
- * XREFs of ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D0A28
+ * XREFs of ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D4DE4
  * Callers:
- *     FreeHidProcessRequest @ 0x1C0102B44 (FreeHidProcessRequest.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D0C50 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     FreeHidProcessRequest @ 0x1C0107C8C (FreeHidProcessRequest.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D512C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  * Callees:
- *     FreeHidTLCInfo @ 0x1C0103208 (FreeHidTLCInfo.c)
+ *     FreeHidTLCInfo @ 0x1C01D55C0 (FreeHidTLCInfo.c)
  */
 
 void __fastcall DerefExcludeRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, int a3)
 {
   __int64 v3; // rax
   bool v4; // zf
-  __int64 v5; // rcx
 
   if ( !a2 )
   {
@@ -19,11 +18,11 @@ void __fastcall DerefExcludeRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, i
       --*(_DWORD *)(*((_QWORD *)a1 + 3) + 40LL);
     v3 = *((_QWORD *)a1 + 3);
     v4 = (*(_DWORD *)(v3 + 36))-- == 1;
-    if ( v4 && a3 )
+    if ( v4
+      && a3
+      && !(*(_DWORD *)(*((_QWORD *)a1 + 3) + 20LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 24LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 32LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 36LL)) )
     {
-      v5 = *((_QWORD *)a1 + 3);
-      if ( !(*(_DWORD *)(v5 + 20) | *(_DWORD *)(v5 + 24) | *(_DWORD *)(v5 + 32) | *(_DWORD *)(v5 + 36)) )
-        FreeHidTLCInfo((_QWORD *)v5);
+      FreeHidTLCInfo();
     }
   }
 }

@@ -1,24 +1,21 @@
 /*
- * XREFs of PopPepDeviceWaitWake @ 0x14028CE64
+ * XREFs of PopPepDeviceWaitWake @ 0x1405744B0
  * Callers:
- *     PopRequestCompletion @ 0x14028DFA0 (PopRequestCompletion.c)
- *     PopRequestPowerIrp @ 0x14028F110 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x140370580 (PopRequestPowerIrp.c)
+ *     PopRequestCompletion @ 0x14037A370 (PopRequestCompletion.c)
  * Callees:
- *     PopPepUpdateConstraints @ 0x14028D114 (PopPepUpdateConstraints.c)
+ *     PopPepUpdateConstraints @ 0x14039FE6C (PopPepUpdateConstraints.c)
  */
 
-__int64 __fastcall PopPepDeviceWaitWake(__int64 a1, char a2, __int64 a3)
+int __fastcall PopPepDeviceWaitWake(__int64 a1, char a2)
 {
-  __int64 result; // rax
+  int result; // eax
 
   if ( a2 )
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 128), 0xFFFFFFFF);
+    result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 128), 0xFFFFFFFF);
   else
-    result = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(a1 + 128));
-  if ( (_DWORD)result == 1 )
-  {
-    LOBYTE(a3) = a2;
-    return PopPepUpdateConstraints(a1, 5LL, a3);
-  }
+    result = _InterlockedIncrement((volatile signed __int32 *)(a1 + 128));
+  if ( result == 1 )
+    return PopPepUpdateConstraints(a1, 5, a2);
   return result;
 }

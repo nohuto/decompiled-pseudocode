@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x1406982C0
+ * XREFs of MiPfAllocateMdls @ 0x1406982A0
  * Callers:
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
@@ -9,9 +9,9 @@
  *     MiFreeInPageSupportBlock @ 0x14002DC80 (MiFreeInPageSupportBlock.c)
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
- *     MiSetInPagePriority @ 0x140113BC4 (MiSetInPagePriority.c)
- *     MmCreateMdl @ 0x140113C20 (MmCreateMdl.c)
- *     MiGetSharedProtos @ 0x140177154 (MiGetSharedProtos.c)
+ *     MiSetInPagePriority @ 0x140113BE4 (MiSetInPagePriority.c)
+ *     MmCreateMdl @ 0x140113C40 (MmCreateMdl.c)
+ *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3)

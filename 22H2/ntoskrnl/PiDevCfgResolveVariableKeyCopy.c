@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyCopy @ 0x140961AC0
+ * XREFs of PiDevCfgResolveVariableKeyCopy @ 0x1408A9A00
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PnpValidateRegistryValue @ 0x1405624EC (PnpValidateRegistryValue.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140961B9C (PiDevCfgResolveVariableKeyHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PnpValidateRegistryValue @ 0x14050E568 (PnpValidateRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9ADC (PiDevCfgResolveVariableKeyHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableKeyCopy(__int64 a1, void *a2, __int64 a3)

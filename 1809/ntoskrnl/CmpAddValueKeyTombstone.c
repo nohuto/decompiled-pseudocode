@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpAddValueKeyTombstone @ 0x1407EFCC4
+ * XREFs of CmpAddValueKeyTombstone @ 0x1407EFCA4
  * Callers:
- *     CmpSetValueKeyTombstone @ 0x1407F05A0 (CmpSetValueKeyTombstone.c)
+ *     CmpSetValueKeyTombstone @ 0x1407F0580 (CmpSetValueKeyTombstone.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCopyName @ 0x1405ACDB0 (CmpCopyName.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpNameSize @ 0x1406A54B4 (CmpNameSize.c)
+ *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
  */
 
 __int64 __fastcall CmpAddValueKeyTombstone(ULONG_PTR a1, unsigned __int16 *a2)

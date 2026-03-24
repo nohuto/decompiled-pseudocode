@@ -1,14 +1,14 @@
 /*
- * XREFs of OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2238
+ * XREFs of OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2958
  * Callers:
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     RtlStringCchCatA @ 0x1C005EFFC (RtlStringCchCatA.c)
- *     RtlStringCchCatNA @ 0x1C005F04C (RtlStringCchCatNA.c)
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCchCatA @ 0x1C005E2F4 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C005E358 (RtlStringCchCatNA.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
  */
 
 __int64 __fastcall OSOpenAMLINamespaceOverrideHandle(__int64 a1)

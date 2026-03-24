@@ -1,69 +1,67 @@
 /*
- * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x14055E734
+ * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x14050A9C4
  * Callers:
- *     SecureDump_Init @ 0x1403B0658 (SecureDump_Init.c)
- *     SecureDump_ReInitialize @ 0x14055E558 (SecureDump_ReInitialize.c)
+ *     SecureDump_Init @ 0x1403C9880 (SecureDump_Init.c)
  * Callees:
- *     SecureDump_LogErrorEvent @ 0x14055E528 (SecureDump_LogErrorEvent.c)
- *     BCryptGenRandom @ 0x1405B7888 (BCryptGenRandom.c)
- *     BCryptGetProperty @ 0x1407623F0 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140812F54 (BCryptOpenAlgorithmProvider.c)
- *     BCryptGenerateSymmetricKey @ 0x1409C9034 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x1409C915C (BCryptSetProperty.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SecureDump_LogErrorEvent @ 0x14050A930 (SecureDump_LogErrorEvent.c)
+ *     BCryptGenRandom @ 0x140595ABC (BCryptGenRandom.c)
+ *     BCryptGetProperty @ 0x14066795C (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x1407AC4E0 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x14091C2B8 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x14091C3E0 (BCryptSetProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SecureDump_SymmetricEncryptionSetup()
 {
-  __int64 v0; // rdx
   NTSTATUS SymmetricKey; // ebx
-  __int64 v2; // r8
-  UCHAR *Pool2; // rax
-  void *v4; // rcx
+  UCHAR *PoolWithTag; // rax
+  void *v2; // rcx
+  ULONG v3; // r9d
+  UCHAR *v4; // rdi
   ULONG v5; // r9d
-  UCHAR *v6; // rdi
-  ULONG v7; // r9d
-  ULONG pbSecret; // [rsp+20h] [rbp-38h]
-  ULONG cbSecret; // [rsp+28h] [rbp-30h]
-  ULONG v11; // [rsp+30h] [rbp-28h]
-  int pbOutput; // [rsp+60h] [rbp+8h] BYREF
-  ULONG pcbResult; // [rsp+68h] [rbp+10h] BYREF
+  ULONG pbSecret; // [rsp+20h] [rbp-28h]
+  ULONG cbSecret; // [rsp+28h] [rbp-20h]
+  ULONG v9; // [rsp+30h] [rbp-18h]
+  int pbOutput; // [rsp+50h] [rbp+8h] BYREF
+  ULONG pcbResult; // [rsp+58h] [rbp+10h] BYREF
 
   pcbResult = 0;
   pbOutput = 0;
-  dword_140C64E18 = 1;
+  dword_140C4C898 = 1;
   SymmetricKey = BCryptOpenAlgorithmProvider(&hAlgorithm, L"XTS-AES", L"Microsoft Primitive Provider", 1u);
   if ( SymmetricKey < 0 )
-    goto LABEL_10;
-  Pool2 = (UCHAR *)ExAllocatePool2(64LL, 64LL, 1886217299LL);
-  v6 = Pool2;
-  if ( !Pool2 )
+    goto LABEL_11;
+  PoolWithTag = (UCHAR *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x706D6453u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     SymmetricKey = -1073741670;
-LABEL_10:
-    SecureDump_LogErrorEvent(1, v0, v2);
-    return (unsigned int)SymmetricKey;
+    goto LABEL_11;
   }
-  SymmetricKey = BCryptGenRandom(v4, Pool2, 0x40u, v5);
-  if ( SymmetricKey < 0 )
+  SymmetricKey = BCryptGenRandom(v2, PoolWithTag, 0x40u, v3);
+  if ( SymmetricKey >= 0 )
   {
-    ExFreePoolWithTag(v6, 0);
-    goto LABEL_10;
-  }
-  SymmetricKey = BCryptGenerateSymmetricKey(hAlgorithm, &hObject, 0LL, 0, v6, 0x40u, v11);
-  ExFreePoolWithTag(v6, 0);
-  if ( SymmetricKey < 0 )
-    goto LABEL_10;
-  SymmetricKey = BCryptGetProperty(hObject, L"KeyLength", (PUCHAR)&pbOutput, v7, &pcbResult, cbSecret);
-  if ( SymmetricKey < 0 )
-    goto LABEL_10;
-  if ( pbOutput == 512 )
-  {
-    pbInput = 4096;
-    SymmetricKey = BCryptSetProperty(hObject, L"MessageBlockLength", (PUCHAR)&pbInput, 4u, pbSecret);
+    SymmetricKey = BCryptGenerateSymmetricKey(hAlgorithm, &hObject, 0LL, 0, v4, 0x40u, v9);
+    ExFreePoolWithTag(v4, 0);
     if ( SymmetricKey < 0 )
-      goto LABEL_10;
+      goto LABEL_11;
+    SymmetricKey = BCryptGetProperty(hObject, L"KeyLength", (PUCHAR)&pbOutput, v5, &pcbResult, cbSecret);
+    if ( SymmetricKey < 0 )
+      goto LABEL_11;
+    if ( pbOutput == 512 )
+    {
+      pbInput = 4096;
+      SymmetricKey = BCryptSetProperty(hObject, L"MessageBlockLength", (PUCHAR)&pbInput, 4u, pbSecret);
+    }
   }
+  else
+  {
+    ExFreePoolWithTag(v4, 0);
+  }
+  if ( SymmetricKey < 0 )
+LABEL_11:
+    SecureDump_LogErrorEvent(1);
   return (unsigned int)SymmetricKey;
 }

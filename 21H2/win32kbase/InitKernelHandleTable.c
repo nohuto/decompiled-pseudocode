@@ -1,9 +1,9 @@
 /*
- * XREFs of InitKernelHandleTable @ 0x1C02E22A0
+ * XREFs of InitKernelHandleTable @ 0x1C029A080
  * Callers:
- *     Win32UserInitialize @ 0x1C02E231C (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0298BBC (Win32UserInitialize.c)
  * Callees:
- *     Win32CreateSection @ 0x1C0055E80 (Win32CreateSection.c)
+ *     Win32CreateSection @ 0x1C006BD78 (Win32CreateSection.c)
  */
 
 __int64 __fastcall InitKernelHandleTable(__int64 a1, __int64 a2, __int64 a3)

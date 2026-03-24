@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C00B8F40
+ * XREFs of ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C0131DDC
  * Callers:
- *     ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C00B8E9C (-xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z.c)
+ *     ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C0131D44 (-xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z.c)
  * Callees:
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     SetMinMetrics @ 0x1C00763E0 (SetMinMetrics.c)
- *     xxxMetricsRecalc @ 0x1C01C88FC (xxxMetricsRecalc.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     SetMinMetrics @ 0x1C00E218C (SetMinMetrics.c)
+ *     xxxMetricsRecalc @ 0x1C01D76D4 (xxxMetricsRecalc.c)
  */
 
 __int64 __fastcall xxxSetAndDrawMinMetrics(struct _UNICODE_STRING *a1, struct tagMINIMIZEDMETRICS *a2)

@@ -1,14 +1,12 @@
 /*
- * XREFs of BiMarkTreatAsSystemStore @ 0x140812260
+ * XREFs of BiMarkTreatAsSystemStore @ 0x140781F20
  * Callers:
- *     BiLoadSystemStore @ 0x140811FE0 (BiLoadSystemStore.c)
- *     BcdOpenStore @ 0x1408125C4 (BcdOpenStore.c)
- *     BcdSetSystemStore @ 0x140A1CAC4 (BcdSetSystemStore.c)
+ *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
  * Callees:
- *     BiDeleteRegistryValue @ 0x140812318 (BiDeleteRegistryValue.c)
- *     BiSetRegistryValue @ 0x1408123B4 (BiSetRegistryValue.c)
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BiDeleteRegistryValue @ 0x1407821E4 (BiDeleteRegistryValue.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
+ *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiMarkTreatAsSystemStore(__int64 a1, char a2)

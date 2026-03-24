@@ -1,38 +1,38 @@
 /*
- * XREFs of MiGetAweNode @ 0x1405AAF14
+ * XREFs of MiGetAweNode @ 0x14054C3E0
  * Callers:
- *     MiGetAwePageSizeFromVa @ 0x1405AAF9C (MiGetAwePageSizeFromVa.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     MiWriteAwePtes @ 0x1405ACB84 (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14097D2A0 (MiReferenceIncomingPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x14097DFA0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14097E270 (NtMapUserPhysicalPagesScatter.c)
+ *     MiGetAwePageSizeFromVa @ 0x14054C45C (MiGetAwePageSizeFromVa.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D6104 (MiReferenceIncomingPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6CE0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D6FA0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall MiGetAweNode(unsigned __int64 a1)
 {
-  _QWORD *v1; // r8
-  unsigned __int64 v2; // r9
-  __int64 v3; // r10
+  _QWORD *v1; // rdx
+  unsigned __int64 v2; // r8
+  __int64 v3; // r9
 
-  v1 = *(_QWORD **)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 384);
+  v1 = *(_QWORD **)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 400);
   if ( !v1 )
     return 0LL;
   v2 = a1 >> 12;
   do
   {
     v3 = v1[3];
-    if ( v2 <= (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) )
+    if ( v2 > (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) )
+    {
+      v1 = (_QWORD *)v1[1];
+    }
+    else
     {
       if ( v2 >= (*(unsigned int *)(v3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 32) << 32)) )
         break;
       v1 = (_QWORD *)*v1;
-    }
-    else
-    {
-      v1 = (_QWORD *)v1[1];
     }
   }
   while ( v1 );

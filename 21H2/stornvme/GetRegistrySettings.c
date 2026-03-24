@@ -1,1115 +1,871 @@
 /*
- * XREFs of GetRegistrySettings @ 0x1C000B42C
+ * XREFs of GetRegistrySettings @ 0x1C001CF78
  * Callers:
- *     NVMeHwFindAdapter @ 0x1C000ACD0 (NVMeHwFindAdapter.c)
+ *     NVMeHwFindAdapter @ 0x1C000A790 (NVMeHwFindAdapter.c)
  * Callees:
- *     ReadMultiSzRegistryValueAndCompareId @ 0x1C0001870 (ReadMultiSzRegistryValueAndCompareId.c)
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     UlongToHex @ 0x1C000C9E8 (UlongToHex.c)
- *     ReadBinaryRegistryValue @ 0x1C000CA18 (ReadBinaryRegistryValue.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memmove @ 0x1C0010700 (memmove.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C001E16C (ReadMultiSzRegistryValueAndCompareId.c)
+ *     UlongToHex @ 0x1C001E338 (UlongToHex.c)
  */
 
 char __fastcall GetRegistrySettings(__int64 a1)
 {
   __int64 v1; // rax
-  int v3; // eax
+  unsigned int v3; // eax
   void *v4; // r10
   char *v5; // rax
   unsigned int v6; // ecx
-  unsigned int v7; // edi
-  __int64 v8; // r8
-  __int64 v9; // r8
-  __int64 v10; // r8
-  __int64 v11; // r8
-  __int64 v12; // r8
-  __int64 v13; // r8
-  __int64 v14; // r8
-  __int64 v15; // r8
-  __int64 v16; // r8
-  __int64 v17; // r8
-  __int64 v18; // r8
-  __int64 v19; // r8
-  __int64 v20; // r8
+  int v7; // edi
+  int v8; // r8d
+  int v9; // r8d
+  int v10; // r8d
+  int v11; // r8d
+  int v12; // r8d
+  int v13; // r8d
+  int v14; // r8d
+  int v15; // r8d
+  int v16; // r8d
+  int v17; // r8d
+  int v18; // r8d
+  int v19; // r8d
+  int v20; // r8d
   void *v21; // rsi
-  __int64 v22; // r8
-  __int64 v23; // r8
-  __int64 v24; // r8
+  int v22; // r8d
+  int v23; // r8d
+  int v24; // r8d
   void *v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r8
-  __int64 v28; // r8
-  __int64 v29; // r8
-  __int64 v30; // r8
-  __int64 v31; // r8
-  __int64 v32; // r8
-  __int64 v33; // r8
-  __int64 v34; // r8
-  __int64 v35; // r8
-  __int64 v36; // r8
-  unsigned int v37; // r15d
-  __int64 v38; // r8
-  __int64 v39; // r8
-  __int64 v40; // r8
-  __int64 v41; // r8
-  __int64 v42; // r8
-  __int64 v43; // r8
-  __int64 v44; // r8
-  __int64 v45; // r8
-  __int64 v46; // r8
-  __int64 v47; // r8
-  __int64 v48; // r8
-  __int64 v49; // r8
-  __int64 v50; // r8
-  int v51; // edx
-  int v52; // r8d
-  unsigned int v53; // esi
-  __int64 v54; // r8
-  __int64 v55; // r8
-  __int64 v56; // r8
-  __int64 v57; // r8
-  __int64 v58; // r8
-  __int64 v59; // r8
-  bool v61[4]; // [rsp+50h] [rbp-9h] BYREF
-  unsigned int v62; // [rsp+54h] [rbp-5h] BYREF
-  unsigned int v63; // [rsp+58h] [rbp-1h] BYREF
-  unsigned int Size[3]; // [rsp+5Ch] [rbp+3h] BYREF
-  char v65[32]; // [rsp+68h] [rbp+Fh] BYREF
+  int v26; // r8d
+  int v27; // r8d
+  int v28; // r8d
+  int v29; // r8d
+  int v30; // r8d
+  int v31; // r8d
+  int v32; // r8d
+  int v33; // r8d
+  int v34; // r8d
+  int v35; // r8d
+  int v36; // r8d
+  int v37; // r8d
+  int v38; // r8d
+  int v39; // r8d
+  int v40; // r8d
+  int v41; // r8d
+  int v42; // r8d
+  int v43; // r8d
+  int v44; // r8d
+  _BYTE v46[4]; // [rsp+50h] [rbp-9h] BYREF
+  unsigned int v47; // [rsp+54h] [rbp-5h] BYREF
+  unsigned int v48; // [rsp+58h] [rbp-1h] BYREF
+  unsigned int v49; // [rsp+5Ch] [rbp+3h] BYREF
+  void *v50; // [rsp+60h] [rbp+7h] BYREF
+  char v51[32]; // [rsp+68h] [rbp+Fh] BYREF
 
   LOBYTE(v1) = aVenVvvvDevDddd[24];
-  strcpy(v65, "VEN_vvvv&DEV_dddd&REV_rr");
-  v63 = 512;
-  if ( !*(_BYTE *)(a1 + 20) )
+  strcpy(v51, "VEN_vvvv&DEV_dddd&REV_rr");
+  v48 = 512;
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    *(_QWORD *)(a1 + 40) = 0LL;
-    *(_DWORD *)(a1 + 92) = -1;
-    *(_DWORD *)(a1 + 108) = -1;
-    *(_DWORD *)(a1 + 112) = -1;
-    *(_DWORD *)(a1 + 124) = -1;
-    *(_DWORD *)(a1 + 140) = -694967296;
-    v3 = *(_DWORD *)(a1 + 64);
-    *(_DWORD *)(a1 + 48) = 0;
-    *(_WORD *)(a1 + 52) = 0;
-    *(_BYTE *)(a1 + 55) = 0;
-    *(_QWORD *)(a1 + 56) = 0LL;
-    *(_DWORD *)(a1 + 68) = 1823;
-    *(_DWORD *)(a1 + 88) = 0;
-    *(_QWORD *)(a1 + 116) = 0LL;
-    *(_DWORD *)(a1 + 132) = 0;
-    *(_DWORD *)(a1 + 136) = 1;
-    *(_DWORD *)(a1 + 96) = 50;
-    *(_DWORD *)(a1 + 100) = 3000;
-    *(_DWORD *)(a1 + 104) = 1000;
-    *(_BYTE *)(a1 + 54) = -1;
-    *(_DWORD *)(a1 + 64) = v3 & 0xFFFFFC20 | 8;
-    *(_QWORD *)(a1 + 72) = 0LL;
-    *(_DWORD *)(a1 + 80) = 100;
-    *(_DWORD *)(a1 + 84) = 0x4000;
-    *(_DWORD *)(a1 + 144) = 600000000;
-    *(_WORD *)(a1 + 148) = 0;
-    *(_BYTE *)(a1 + 160) = 0;
-    v1 = StorPortAllocateRegistryBuffer(a1, &v63);
-    *(_QWORD *)&Size[1] = v1;
+    *(_QWORD *)(a1 + 32) = 0LL;
+    *(_DWORD *)(a1 + 84) = -1;
+    *(_DWORD *)(a1 + 100) = -1;
+    *(_DWORD *)(a1 + 104) = -1;
+    *(_DWORD *)(a1 + 116) = -1;
+    v3 = *(_DWORD *)(a1 + 56) & 0xFFFFFFE8;
+    *(_DWORD *)(a1 + 40) = 0;
+    *(_DWORD *)(a1 + 44) = 16711680;
+    *(_DWORD *)(a1 + 56) = v3 | 8;
+    *(_DWORD *)(a1 + 132) = -694967296;
+    *(_QWORD *)(a1 + 48) = 0LL;
+    *(_QWORD *)(a1 + 60) = 1823LL;
+    *(_QWORD *)(a1 + 76) = 0x4000LL;
+    *(_QWORD *)(a1 + 108) = 0LL;
+    *(_QWORD *)(a1 + 124) = 0LL;
+    *(_DWORD *)(a1 + 88) = 50;
+    *(_DWORD *)(a1 + 92) = 3000;
+    *(_DWORD *)(a1 + 96) = 1000;
+    *(_DWORD *)(a1 + 68) = 0;
+    *(_DWORD *)(a1 + 72) = 100;
+    *(_DWORD *)(a1 + 136) = 600000000;
+    *(_BYTE *)(a1 + 144) = 0;
+    v1 = StorPortAllocateRegistryBuffer(a1, &v48);
+    v50 = (void *)v1;
     if ( v1 )
     {
-      UlongToHex(&v65[4], *(unsigned __int16 *)(a1 + 4), 4LL);
-      UlongToHex(&v65[13], *(unsigned __int16 *)(a1 + 6), 4LL);
-      UlongToHex(&v65[22], *(unsigned __int8 *)(a1 + 8), 2LL);
-      v5 = v65;
+      UlongToHex(&v51[4], *(unsigned __int16 *)(a1 + 4), 4LL);
+      UlongToHex(&v51[13], *(unsigned __int16 *)(a1 + 6), 4LL);
+      UlongToHex(&v51[22], *(unsigned __int8 *)(a1 + 8), 2LL);
+      v5 = v51;
       v6 = 0;
       v7 = 29;
-      while ( *v5 )
+      do
       {
+        if ( !*v5 )
+          break;
         ++v6;
         ++v5;
-        if ( v6 >= 0x1D )
-          goto LABEL_8;
       }
-      v7 = v6;
-LABEL_8:
-      Size[0] = v63;
-      NVMeZeroMemory(v4, v63);
-      v62 = 0;
+      while ( v6 < 0x1D );
+      v49 = v48;
+      if ( v6 < 0x1D )
+        v7 = v6;
+      NVMeZeroMemory(v4, v48);
+      v47 = 0;
       LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                      a1,
-                     (__int64)"MaxTransferSize",
+                     (unsigned int)"MaxTransferSize",
                      v8,
-                     (char **)&Size[1],
-                     &v63,
-                     Size,
-                     (__int64)v65,
+                     (unsigned int)&v50,
+                     (__int64)&v48,
+                     (__int64)&v49,
+                     (__int64)v51,
                      v7,
-                     (__int64)&v62);
-      v61[0] = v1;
+                     (__int64)&v47);
+      v46[0] = v1;
       if ( (_BYTE)v1 == 1 )
       {
-        LODWORD(v1) = v62;
-        if ( v62 )
+        LODWORD(v1) = v47;
+        if ( v47 )
         {
-          if ( v62 > 0x800 )
+          if ( v47 > 0x800 )
             LODWORD(v1) = 2048;
           LODWORD(v1) = (_DWORD)v1 << 10;
-          *(_DWORD *)(a1 + 40) = v1;
+          *(_DWORD *)(a1 + 32) = v1;
         }
       }
-      if ( *(_QWORD *)&Size[1] )
+      if ( v50 )
       {
-        Size[0] = v63;
-        NVMeZeroMemory(*(void **)&Size[1], v63);
-        v62 = 0;
+        v49 = v48;
+        NVMeZeroMemory(v50, v48);
+        v47 = 0;
         LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                        a1,
-                       (__int64)"IoQueueDepth",
+                       (unsigned int)"IoQueueDepth",
                        v9,
-                       (char **)&Size[1],
-                       &v63,
-                       Size,
-                       (__int64)v65,
+                       (unsigned int)&v50,
+                       (__int64)&v48,
+                       (__int64)&v49,
+                       (__int64)v51,
                        v7,
-                       (__int64)&v62);
-        v61[0] = v1;
+                       (__int64)&v47);
+        v46[0] = v1;
         if ( (_BYTE)v1 == 1 )
         {
-          LOBYTE(v1) = v62;
-          if ( v62 )
-            *(_DWORD *)(a1 + 44) = v62;
+          LOBYTE(v1) = v47;
+          if ( v47 )
+            *(_DWORD *)(a1 + 36) = v47;
         }
-        if ( *(_QWORD *)&Size[1] )
+        if ( v50 )
         {
-          Size[0] = v63;
-          NVMeZeroMemory(*(void **)&Size[1], v63);
-          v62 = 0;
+          v49 = v48;
+          NVMeZeroMemory(v50, v48);
+          v47 = 0;
           LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                          a1,
-                         (__int64)"IoSubmissionQueueCount",
+                         (unsigned int)"IoSubmissionQueueCount",
                          v10,
-                         (char **)&Size[1],
-                         &v63,
-                         Size,
-                         (__int64)v65,
+                         (unsigned int)&v50,
+                         (__int64)&v48,
+                         (__int64)&v49,
+                         (__int64)v51,
                          v7,
-                         (__int64)&v62);
-          v61[0] = v1;
+                         (__int64)&v47);
+          v46[0] = v1;
           if ( (_BYTE)v1 == 1 )
           {
-            LOBYTE(v1) = v62;
-            if ( v62 )
-              *(_WORD *)(a1 + 48) = v62;
+            LOBYTE(v1) = v47;
+            if ( v47 )
+              *(_WORD *)(a1 + 40) = v47;
           }
-          if ( *(_QWORD *)&Size[1] )
+          if ( v50 )
           {
-            Size[0] = v63;
-            NVMeZeroMemory(*(void **)&Size[1], v63);
-            v62 = 0;
+            v49 = v48;
+            NVMeZeroMemory(v50, v48);
+            v47 = 0;
             LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                            a1,
-                           (__int64)"IoCompletionQueueCount",
+                           (unsigned int)"IoCompletionQueueCount",
                            v11,
-                           (char **)&Size[1],
-                           &v63,
-                           Size,
-                           (__int64)v65,
+                           (unsigned int)&v50,
+                           (__int64)&v48,
+                           (__int64)&v49,
+                           (__int64)v51,
                            v7,
-                           (__int64)&v62);
-            v61[0] = v1;
+                           (__int64)&v47);
+            v46[0] = v1;
             if ( (_BYTE)v1 == 1 )
             {
-              LOBYTE(v1) = v62;
-              if ( v62 )
-                *(_WORD *)(a1 + 50) = v62;
+              LOBYTE(v1) = v47;
+              if ( v47 )
+                *(_WORD *)(a1 + 42) = v47;
             }
-            if ( *(_QWORD *)&Size[1] )
+            if ( v50 )
             {
-              Size[0] = v63;
-              NVMeZeroMemory(*(void **)&Size[1], v63);
-              v62 = 0;
+              v49 = v48;
+              NVMeZeroMemory(v50, v48);
+              v47 = 0;
               LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                              a1,
-                             (__int64)"InterruptCoalescingTime",
+                             (unsigned int)"InterruptCoalescingTime",
                              v12,
-                             (char **)&Size[1],
-                             &v63,
-                             Size,
-                             (__int64)v65,
+                             (unsigned int)&v50,
+                             (__int64)&v48,
+                             (__int64)&v49,
+                             (__int64)v51,
                              v7,
-                             (__int64)&v62);
-              v61[0] = v1;
+                             (__int64)&v47);
+              v46[0] = v1;
               if ( (_BYTE)v1 == 1 )
               {
-                LOBYTE(v1) = v62;
-                if ( v62 )
-                  *(_BYTE *)(a1 + 52) = v62;
+                LOBYTE(v1) = v47;
+                if ( v47 )
+                  *(_BYTE *)(a1 + 44) = v47;
               }
-              if ( *(_QWORD *)&Size[1] )
+              if ( v50 )
               {
-                Size[0] = v63;
-                NVMeZeroMemory(*(void **)&Size[1], v63);
-                v62 = 0;
+                v49 = v48;
+                NVMeZeroMemory(v50, v48);
+                v47 = 0;
                 LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                a1,
-                               (__int64)"InterruptCoalescingEntry",
+                               (unsigned int)"InterruptCoalescingEntry",
                                v13,
-                               (char **)&Size[1],
-                               &v63,
-                               Size,
-                               (__int64)v65,
+                               (unsigned int)&v50,
+                               (__int64)&v48,
+                               (__int64)&v49,
+                               (__int64)v51,
                                v7,
-                               (__int64)&v62);
-                v61[0] = v1;
+                               (__int64)&v47);
+                v46[0] = v1;
                 if ( (_BYTE)v1 == 1 )
                 {
-                  LOBYTE(v1) = v62;
-                  if ( v62 )
-                    *(_BYTE *)(a1 + 53) = v62;
+                  LOBYTE(v1) = v47;
+                  if ( v47 )
+                    *(_BYTE *)(a1 + 45) = v47;
                 }
-                if ( *(_QWORD *)&Size[1] )
+                if ( v50 )
                 {
-                  Size[0] = v63;
-                  NVMeZeroMemory(*(void **)&Size[1], v63);
-                  v62 = 0;
+                  v49 = v48;
+                  NVMeZeroMemory(v50, v48);
+                  v47 = 0;
                   LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                  a1,
-                                 (__int64)"ArbitrationBurst",
+                                 (unsigned int)"ArbitrationBurst",
                                  v14,
-                                 (char **)&Size[1],
-                                 &v63,
-                                 Size,
-                                 (__int64)v65,
+                                 (unsigned int)&v50,
+                                 (__int64)&v48,
+                                 (__int64)&v49,
+                                 (__int64)v51,
                                  v7,
-                                 (__int64)&v62);
-                  v61[0] = v1;
+                                 (__int64)&v47);
+                  v46[0] = v1;
                   if ( (_BYTE)v1 == 1 )
                   {
-                    LOBYTE(v1) = v62;
-                    if ( v62 )
-                      *(_BYTE *)(a1 + 54) = v62;
+                    LOBYTE(v1) = v47;
+                    if ( v47 )
+                      *(_BYTE *)(a1 + 46) = v47;
                   }
-                  if ( *(_QWORD *)&Size[1] )
+                  if ( v50 )
                   {
-                    Size[0] = v63;
-                    NVMeZeroMemory(*(void **)&Size[1], v63);
-                    v62 = 0;
+                    v49 = v48;
+                    NVMeZeroMemory(v50, v48);
+                    v47 = 0;
                     LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                    a1,
-                                   (__int64)"ContiguousMemoryFromAnyNode",
+                                   (unsigned int)"ContiguousMemoryFromAnyNode",
                                    v15,
-                                   (char **)&Size[1],
-                                   &v63,
-                                   Size,
-                                   (__int64)v65,
+                                   (unsigned int)&v50,
+                                   (__int64)&v48,
+                                   (__int64)&v49,
+                                   (__int64)v51,
                                    v7,
-                                   (__int64)&v62);
-                    v61[0] = v1;
-                    if ( (_BYTE)v1 == 1 && v62 )
-                      *(_DWORD *)(a1 + 64) |= 2u;
-                    if ( *(_QWORD *)&Size[1] )
+                                   (__int64)&v47);
+                    v46[0] = v1;
+                    if ( (_BYTE)v1 == 1 && v47 )
+                      *(_DWORD *)(a1 + 56) |= 2u;
+                    if ( v50 )
                     {
-                      Size[0] = v63;
-                      NVMeZeroMemory(*(void **)&Size[1], v63);
-                      v62 = 0;
+                      v49 = v48;
+                      NVMeZeroMemory(v50, v48);
+                      v47 = 0;
                       LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                      a1,
-                                     (__int64)"ShutdownTimeout",
+                                     (unsigned int)"ShutdownTimeout",
                                      v16,
-                                     (char **)&Size[1],
-                                     &v63,
-                                     Size,
-                                     (__int64)v65,
+                                     (unsigned int)&v50,
+                                     (__int64)&v48,
+                                     (__int64)&v49,
+                                     (__int64)v51,
                                      v7,
-                                     (__int64)&v62);
-                      v61[0] = v1;
+                                     (__int64)&v47);
+                      v46[0] = v1;
                       if ( (_BYTE)v1 == 1 )
                       {
-                        LOBYTE(v1) = v62;
-                        if ( v62 )
+                        LOBYTE(v1) = v47;
+                        if ( v47 )
                         {
-                          if ( v62 > 0xFF )
+                          if ( v47 > 0xFF )
                             LOBYTE(v1) = -1;
-                          *(_BYTE *)(a1 + 55) = v1;
+                          *(_BYTE *)(a1 + 47) = v1;
                         }
                       }
-                      if ( *(_QWORD *)&Size[1] )
+                      if ( v50 )
                       {
-                        Size[0] = v63;
-                        NVMeZeroMemory(*(void **)&Size[1], v63);
-                        v62 = 0;
+                        v49 = v48;
+                        NVMeZeroMemory(v50, v48);
+                        v47 = 0;
                         LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                        a1,
-                                       (__int64)"DeallocateMaxLbaCount",
+                                       (unsigned int)"DeallocateMaxLbaCount",
                                        v17,
-                                       (char **)&Size[1],
-                                       &v63,
-                                       Size,
-                                       (__int64)v65,
+                                       (unsigned int)&v50,
+                                       (__int64)&v48,
+                                       (__int64)&v49,
+                                       (__int64)v51,
                                        v7,
-                                       (__int64)&v62);
-                        v61[0] = v1;
+                                       (__int64)&v47);
+                        v46[0] = v1;
                         if ( (_BYTE)v1 == 1 )
                         {
-                          LOBYTE(v1) = v62;
-                          if ( v62 )
-                            *(_DWORD *)(a1 + 56) = v62;
+                          LOBYTE(v1) = v47;
+                          if ( v47 )
+                            *(_DWORD *)(a1 + 48) = v47;
                         }
-                        if ( *(_QWORD *)&Size[1] )
+                        if ( v50 )
                         {
-                          Size[0] = v63;
-                          NVMeZeroMemory(*(void **)&Size[1], v63);
-                          v62 = 0;
+                          v49 = v48;
+                          NVMeZeroMemory(v50, v48);
+                          v47 = 0;
                           LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                          a1,
-                                         (__int64)"DisableDeallocate",
+                                         (unsigned int)"DisableDeallocate",
                                          v18,
-                                         (char **)&Size[1],
-                                         &v63,
-                                         Size,
-                                         (__int64)v65,
+                                         (unsigned int)&v50,
+                                         (__int64)&v48,
+                                         (__int64)&v49,
+                                         (__int64)v51,
                                          v7,
-                                         (__int64)&v62);
-                          v61[0] = v1;
-                          if ( (_BYTE)v1 == 1 && v62 )
-                            *(_DWORD *)(a1 + 64) |= 1u;
-                          if ( *(_QWORD *)&Size[1] )
+                                         (__int64)&v47);
+                          v46[0] = v1;
+                          if ( (_BYTE)v1 == 1 && v47 )
+                            *(_DWORD *)(a1 + 56) |= 1u;
+                          if ( v50 )
                           {
-                            Size[0] = v63;
-                            NVMeZeroMemory(*(void **)&Size[1], v63);
-                            v62 = 0;
+                            v49 = v48;
+                            NVMeZeroMemory(v50, v48);
+                            v47 = 0;
                             LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                            a1,
-                                           (__int64)"ControllerBasicInit",
+                                           (unsigned int)"ControllerBasicInit",
                                            v19,
-                                           (char **)&Size[1],
-                                           &v63,
-                                           Size,
-                                           (__int64)v65,
+                                           (unsigned int)&v50,
+                                           (__int64)&v48,
+                                           (__int64)&v49,
+                                           (__int64)v51,
                                            v7,
-                                           (__int64)&v62);
-                            v61[0] = v1;
-                            if ( (_BYTE)v1 == 1 && v62 )
-                              *(_DWORD *)(a1 + 64) |= 4u;
-                            if ( *(_QWORD *)&Size[1] )
+                                           (__int64)&v47);
+                            v46[0] = v1;
+                            if ( (_BYTE)v1 == 1 && v47 )
+                              *(_DWORD *)(a1 + 56) |= 4u;
+                            if ( v50 )
                             {
-                              Size[0] = v63;
-                              NVMeZeroMemory(*(void **)&Size[1], v63);
-                              v62 = 0;
+                              v49 = v48;
+                              NVMeZeroMemory(v50, v48);
+                              v47 = 0;
                               LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                              a1,
-                                             (__int64)"AsyncEventMask",
+                                             (unsigned int)"AsyncEventMask",
                                              v20,
-                                             (char **)&Size[1],
-                                             &v63,
-                                             Size,
-                                             (__int64)v65,
+                                             (unsigned int)&v50,
+                                             (__int64)&v48,
+                                             (__int64)&v49,
+                                             (__int64)v51,
                                              v7,
-                                             (__int64)&v62);
+                                             (__int64)&v47);
                               if ( (_BYTE)v1 == 1 )
                               {
-                                LOBYTE(v1) = v62;
-                                if ( v62 )
+                                LOBYTE(v1) = v47;
+                                if ( v47 )
                                 {
-                                  LODWORD(v1) = v62 & 0x1F;
-                                  *(_DWORD *)(a1 + 68) = v1;
+                                  LODWORD(v1) = v47 & 0x1F;
+                                  *(_DWORD *)(a1 + 60) = v1;
                                 }
                               }
-                              v21 = *(void **)&Size[1];
-                              if ( *(_QWORD *)&Size[1] )
+                              v21 = v50;
+                              if ( v50 )
                               {
-                                v61[0] = 0;
-                                if ( !(unsigned int)StorPortExtendedFunction(97LL, a1, 0LL, v61) && v61[0] )
+                                v46[0] = 0;
+                                if ( !(unsigned int)StorPortExtendedFunction(97LL, a1, 0LL, v46) && v46[0] )
                                 {
-                                  *(_DWORD *)(a1 + 88) = 2;
+                                  *(_DWORD *)(a1 + 80) = 2;
 LABEL_71:
-                                  Size[0] = v63;
-                                  NVMeZeroMemory(v21, v63);
-                                  v62 = 0;
-                                  v61[0] = ReadMultiSzRegistryValueAndCompareId(
+                                  v49 = v48;
+                                  NVMeZeroMemory(v21, v48);
+                                  v47 = 0;
+                                  v46[0] = ReadMultiSzRegistryValueAndCompareId(
                                              a1,
-                                             (__int64)"DiagnosticFlags",
+                                             (unsigned int)"DiagnosticFlags",
                                              v23,
-                                             (char **)&Size[1],
-                                             &v63,
-                                             Size,
-                                             (__int64)v65,
+                                             (unsigned int)&v50,
+                                             (__int64)&v48,
+                                             (__int64)&v49,
+                                             (__int64)v51,
                                              v7,
-                                             (__int64)&v62);
-                                  if ( v61[0] && v62 )
-                                    *(_DWORD *)(a1 + 116) = v62;
-                                  LODWORD(v1) = *(_DWORD *)(a1 + 116);
+                                             (__int64)&v47);
+                                  if ( v46[0] == 1 && v47 )
+                                    *(_DWORD *)(a1 + 108) = v47;
+                                  LODWORD(v1) = *(_DWORD *)(a1 + 108);
                                   if ( (v1 & 2) != 0 )
-                                    *(_DWORD *)(a1 + 120) = 0x100000;
-                                  if ( *(_QWORD *)&Size[1] )
+                                    *(_DWORD *)(a1 + 112) = 0x100000;
+                                  if ( v50 )
                                   {
-                                    Size[0] = v63;
-                                    NVMeZeroMemory(*(void **)&Size[1], v63);
-                                    v62 = 0;
-                                    v61[0] = ReadMultiSzRegistryValueAndCompareId(
+                                    v49 = v48;
+                                    NVMeZeroMemory(v50, v48);
+                                    v47 = 0;
+                                    v46[0] = ReadMultiSzRegistryValueAndCompareId(
                                                a1,
-                                               (__int64)"LogSize",
+                                               (unsigned int)"LogSize",
                                                v24,
-                                               (char **)&Size[1],
-                                               &v63,
-                                               Size,
-                                               (__int64)v65,
+                                               (unsigned int)&v50,
+                                               (__int64)&v48,
+                                               (__int64)&v49,
+                                               (__int64)v51,
                                                v7,
-                                               (__int64)&v62);
-                                    if ( v61[0] && v62 )
-                                      *(_DWORD *)(a1 + 120) = v62 << 10;
-                                    LODWORD(v1) = -1431655765 * *(_DWORD *)(a1 + 120);
-                                    v25 = *(void **)&Size[1];
-                                    *(_DWORD *)(a1 + 3876) = *(_DWORD *)(a1 + 120) / 0x18u;
+                                               (__int64)&v47);
+                                    if ( v46[0] == 1 && v47 )
+                                      *(_DWORD *)(a1 + 112) = v47 << 10;
+                                    LODWORD(v1) = -1431655765 * *(_DWORD *)(a1 + 112);
+                                    v25 = v50;
+                                    *(_DWORD *)(a1 + 3860) = *(_DWORD *)(a1 + 112) / 0x18u;
                                     if ( v25 )
                                     {
-                                      Size[0] = v63;
-                                      NVMeZeroMemory(v25, v63);
-                                      v62 = 0;
+                                      v49 = v48;
+                                      NVMeZeroMemory(v25, v48);
+                                      v47 = 0;
                                       LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                      a1,
-                                                     (__int64)"IoStripeAlignment",
+                                                     (unsigned int)"IoStripeAlignment",
                                                      v26,
-                                                     (char **)&Size[1],
-                                                     &v63,
-                                                     Size,
-                                                     (__int64)v65,
+                                                     (unsigned int)&v50,
+                                                     (__int64)&v48,
+                                                     (__int64)&v49,
+                                                     (__int64)v51,
                                                      v7,
-                                                     (__int64)&v62);
-                                      v61[0] = v1;
+                                                     (__int64)&v47);
+                                      v46[0] = v1;
                                       if ( (_BYTE)v1 == 1 )
                                       {
-                                        LOBYTE(v1) = v62;
-                                        if ( v62 )
+                                        LOBYTE(v1) = v47;
+                                        if ( v47 )
                                         {
-                                          LODWORD(v1) = v62 << 10;
-                                          if ( ((v62 << 10) & 0xFFF) == 0 )
-                                            *(_DWORD *)(a1 + 60) = v1;
+                                          LODWORD(v1) = v47 << 10;
+                                          if ( ((v47 << 10) & 0xFFF) == 0 )
+                                            *(_DWORD *)(a1 + 52) = v1;
                                         }
                                       }
-                                      if ( *(_QWORD *)&Size[1] )
+                                      if ( v50 )
                                       {
-                                        Size[0] = v63;
-                                        NVMeZeroMemory(*(void **)&Size[1], v63);
-                                        v62 = 0;
+                                        v49 = v48;
+                                        NVMeZeroMemory(v50, v48);
+                                        v47 = 0;
                                         LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                        a1,
-                                                       (__int64)"MedPowerFxIdleTimeout",
+                                                       (unsigned int)"MedPowerFxIdleTimeout",
                                                        v27,
-                                                       (char **)&Size[1],
-                                                       &v63,
-                                                       Size,
-                                                       (__int64)v65,
+                                                       (unsigned int)&v50,
+                                                       (__int64)&v48,
+                                                       (__int64)&v49,
+                                                       (__int64)v51,
                                                        v7,
-                                                       (__int64)&v62);
-                                        v61[0] = v1;
+                                                       (__int64)&v47);
+                                        v46[0] = v1;
                                         if ( (_BYTE)v1 == 1 )
                                         {
-                                          LOBYTE(v1) = v62;
-                                          *(_DWORD *)(a1 + 92) = v62;
+                                          LOBYTE(v1) = v47;
+                                          *(_DWORD *)(a1 + 84) = v47;
                                         }
-                                        if ( *(_QWORD *)&Size[1] )
+                                        if ( v50 )
                                         {
-                                          Size[0] = v63;
-                                          NVMeZeroMemory(*(void **)&Size[1], v63);
-                                          v62 = 0;
+                                          v49 = v48;
+                                          NVMeZeroMemory(v50, v48);
+                                          v47 = 0;
                                           LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                          a1,
-                                                         (__int64)"LowestPowerFxIdleTimeout",
+                                                         (unsigned int)"LowestPowerFxIdleTimeout",
                                                          v28,
-                                                         (char **)&Size[1],
-                                                         &v63,
-                                                         Size,
-                                                         (__int64)v65,
+                                                         (unsigned int)&v50,
+                                                         (__int64)&v48,
+                                                         (__int64)&v49,
+                                                         (__int64)v51,
                                                          v7,
-                                                         (__int64)&v62);
-                                          v61[0] = v1;
+                                                         (__int64)&v47);
+                                          v46[0] = v1;
                                           if ( (_BYTE)v1 == 1 )
                                           {
-                                            LOBYTE(v1) = v62;
-                                            *(_DWORD *)(a1 + 96) = v62;
+                                            LOBYTE(v1) = v47;
+                                            *(_DWORD *)(a1 + 88) = v47;
                                           }
-                                          if ( *(_QWORD *)&Size[1] )
+                                          if ( v50 )
                                           {
-                                            Size[0] = v63;
-                                            NVMeZeroMemory(*(void **)&Size[1], v63);
-                                            v62 = 0;
+                                            v49 = v48;
+                                            NVMeZeroMemory(v50, v48);
+                                            v47 = 0;
                                             LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                            a1,
-                                                           (__int64)"MedPowerD3IdleTimeout",
+                                                           (unsigned int)"MedPowerD3IdleTimeout",
                                                            v29,
-                                                           (char **)&Size[1],
-                                                           &v63,
-                                                           Size,
-                                                           (__int64)v65,
+                                                           (unsigned int)&v50,
+                                                           (__int64)&v48,
+                                                           (__int64)&v49,
+                                                           (__int64)v51,
                                                            v7,
-                                                           (__int64)&v62);
-                                            v61[0] = v1;
+                                                           (__int64)&v47);
+                                            v46[0] = v1;
                                             if ( (_BYTE)v1 == 1 )
                                             {
-                                              LOBYTE(v1) = v62;
-                                              *(_DWORD *)(a1 + 100) = v62;
+                                              LOBYTE(v1) = v47;
+                                              *(_DWORD *)(a1 + 92) = v47;
                                             }
-                                            if ( *(_QWORD *)&Size[1] )
+                                            if ( v50 )
                                             {
-                                              Size[0] = v63;
-                                              NVMeZeroMemory(*(void **)&Size[1], v63);
-                                              v62 = 0;
+                                              v49 = v48;
+                                              NVMeZeroMemory(v50, v48);
+                                              v47 = 0;
                                               LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                              a1,
-                                                             (__int64)"LowestPowerD3IdleTimeout",
+                                                             (unsigned int)"LowestPowerD3IdleTimeout",
                                                              v30,
-                                                             (char **)&Size[1],
-                                                             &v63,
-                                                             Size,
-                                                             (__int64)v65,
+                                                             (unsigned int)&v50,
+                                                             (__int64)&v48,
+                                                             (__int64)&v49,
+                                                             (__int64)v51,
                                                              v7,
-                                                             (__int64)&v62);
-                                              v61[0] = v1;
+                                                             (__int64)&v47);
+                                              v46[0] = v1;
                                               if ( (_BYTE)v1 == 1 )
                                               {
-                                                LOBYTE(v1) = v62;
-                                                *(_DWORD *)(a1 + 104) = v62;
+                                                LOBYTE(v1) = v47;
+                                                *(_DWORD *)(a1 + 96) = v47;
                                               }
-                                              if ( *(_QWORD *)&Size[1] )
+                                              if ( v50 )
                                               {
-                                                Size[0] = v63;
-                                                NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                v62 = 0;
+                                                v49 = v48;
+                                                NVMeZeroMemory(v50, v48);
+                                                v47 = 0;
                                                 LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                a1,
-                                                               (__int64)"MedPowerResumeLatency",
+                                                               (unsigned int)"MedPowerResumeLatency",
                                                                v31,
-                                                               (char **)&Size[1],
-                                                               &v63,
-                                                               Size,
-                                                               (__int64)v65,
+                                                               (unsigned int)&v50,
+                                                               (__int64)&v48,
+                                                               (__int64)&v49,
+                                                               (__int64)v51,
                                                                v7,
-                                                               (__int64)&v62);
-                                                v61[0] = v1;
+                                                               (__int64)&v47);
+                                                v46[0] = v1;
                                                 if ( (_BYTE)v1 == 1 )
                                                 {
-                                                  LOBYTE(v1) = v62;
-                                                  *(_DWORD *)(a1 + 108) = v62;
+                                                  LOBYTE(v1) = v47;
+                                                  *(_DWORD *)(a1 + 100) = v47;
                                                 }
-                                                if ( *(_QWORD *)&Size[1] )
+                                                if ( v50 )
                                                 {
-                                                  Size[0] = v63;
-                                                  NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                  v62 = 0;
+                                                  v49 = v48;
+                                                  NVMeZeroMemory(v50, v48);
+                                                  v47 = 0;
                                                   LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                  a1,
-                                                                 (__int64)"LowestPowerResumeLatency",
+                                                                 (unsigned int)"LowestPowerResumeLatency",
                                                                  v32,
-                                                                 (char **)&Size[1],
-                                                                 &v63,
-                                                                 Size,
-                                                                 (__int64)v65,
+                                                                 (unsigned int)&v50,
+                                                                 (__int64)&v48,
+                                                                 (__int64)&v49,
+                                                                 (__int64)v51,
                                                                  v7,
-                                                                 (__int64)&v62);
-                                                  v61[0] = v1;
+                                                                 (__int64)&v47);
+                                                  v46[0] = v1;
                                                   if ( (_BYTE)v1 == 1 )
                                                   {
-                                                    LOBYTE(v1) = v62;
-                                                    *(_DWORD *)(a1 + 112) = v62;
+                                                    LOBYTE(v1) = v47;
+                                                    *(_DWORD *)(a1 + 104) = v47;
                                                   }
-                                                  if ( *(_QWORD *)&Size[1] )
+                                                  if ( v50 )
                                                   {
-                                                    Size[0] = v63;
-                                                    NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                    v62 = 0;
+                                                    v49 = v48;
+                                                    NVMeZeroMemory(v50, v48);
+                                                    v47 = 0;
                                                     LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                    a1,
-                                                                   (__int64)"HostMemoryBufferBytes",
+                                                                   (unsigned int)"HostMemoryBufferBytes",
                                                                    v33,
-                                                                   (char **)&Size[1],
-                                                                   &v63,
-                                                                   Size,
-                                                                   (__int64)v65,
+                                                                   (unsigned int)&v50,
+                                                                   (__int64)&v48,
+                                                                   (__int64)&v49,
+                                                                   (__int64)v51,
                                                                    v7,
-                                                                   (__int64)&v62);
-                                                    v61[0] = v1;
+                                                                   (__int64)&v47);
+                                                    v46[0] = v1;
                                                     if ( (_BYTE)v1 == 1 )
                                                     {
-                                                      LOBYTE(v1) = v62;
-                                                      *(_DWORD *)(a1 + 124) = v62;
+                                                      LOBYTE(v1) = v47;
+                                                      *(_DWORD *)(a1 + 116) = v47;
                                                     }
-                                                    if ( *(_QWORD *)&Size[1] )
+                                                    if ( v50 )
                                                     {
-                                                      Size[0] = v63;
-                                                      NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                      v62 = 0;
+                                                      v49 = v48;
+                                                      NVMeZeroMemory(v50, v48);
+                                                      v47 = 0;
                                                       LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                      a1,
-                                                                     (__int64)"BypassSgl",
+                                                                     (unsigned int)"BypassSgl",
                                                                      v34,
-                                                                     (char **)&Size[1],
-                                                                     &v63,
-                                                                     Size,
-                                                                     (__int64)v65,
+                                                                     (unsigned int)&v50,
+                                                                     (__int64)&v48,
+                                                                     (__int64)&v49,
+                                                                     (__int64)v51,
                                                                      v7,
-                                                                     (__int64)&v62);
-                                                      v61[0] = v1;
+                                                                     (__int64)&v47);
+                                                      v46[0] = v1;
                                                       if ( (_BYTE)v1 == 1 )
                                                       {
-                                                        LODWORD(v1) = (*(_DWORD *)(a1 + 64) ^ (8 * v62)) & 8;
-                                                        *(_DWORD *)(a1 + 64) ^= v1;
+                                                        LODWORD(v1) = (*(_DWORD *)(a1 + 56) ^ (8 * v47)) & 8;
+                                                        *(_DWORD *)(a1 + 56) ^= v1;
                                                       }
-                                                      if ( *(_QWORD *)&Size[1] )
+                                                      if ( v50 )
                                                       {
-                                                        Size[0] = v63;
-                                                        NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                        v62 = 0;
+                                                        v49 = v48;
+                                                        NVMeZeroMemory(v50, v48);
+                                                        v47 = 0;
                                                         LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                        a1,
-                                                                       (__int64)"TestMdlDataBufferOffsetInBytes",
+                                                                       (unsigned int)"TestMdlDataBufferOffsetInBytes",
                                                                        v35,
-                                                                       (char **)&Size[1],
-                                                                       &v63,
-                                                                       Size,
-                                                                       (__int64)v65,
+                                                                       (unsigned int)&v50,
+                                                                       (__int64)&v48,
+                                                                       (__int64)&v49,
+                                                                       (__int64)v51,
                                                                        v7,
-                                                                       (__int64)&v62);
-                                                        v61[0] = v1;
+                                                                       (__int64)&v47);
+                                                        v46[0] = v1;
                                                         if ( (_BYTE)v1 == 1 )
                                                         {
-                                                          LOBYTE(v1) = v62;
-                                                          *(_DWORD *)(a1 + 128) = v62;
+                                                          LOBYTE(v1) = v47;
+                                                          *(_DWORD *)(a1 + 120) = v47;
                                                         }
-                                                        if ( *(_QWORD *)&Size[1] )
+                                                        if ( v50 )
                                                         {
-                                                          Size[0] = v63;
-                                                          NVMeZeroMemory(*(void **)&Size[1], v63);
+                                                          v49 = v48;
+                                                          NVMeZeroMemory(v50, v48);
                                                           LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                          a1,
-                                                                         (__int64)"UseDumpPointers",
+                                                                         (unsigned int)"UseDumpPointers",
                                                                          v36,
-                                                                         (char **)&Size[1],
-                                                                         &v63,
-                                                                         Size,
-                                                                         (__int64)v65,
+                                                                         (unsigned int)&v50,
+                                                                         (__int64)&v48,
+                                                                         (__int64)&v49,
+                                                                         (__int64)v51,
                                                                          v7,
                                                                          0LL);
-                                                          v61[0] = v1;
-                                                          v37 = 16;
+                                                          v46[0] = v1;
                                                           if ( (_BYTE)v1 == 1 )
-                                                            *(_DWORD *)(a1 + 64) |= 0x10u;
-                                                          if ( *(_QWORD *)&Size[1] )
+                                                            *(_DWORD *)(a1 + 56) |= 0x10u;
+                                                          if ( v50 )
                                                           {
-                                                            Size[0] = v63;
-                                                            NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                            v62 = 0;
+                                                            v49 = v48;
+                                                            NVMeZeroMemory(v50, v48);
+                                                            v47 = 0;
                                                             LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                            a1,
-                                                                           (__int64)"ReservedQueuePairCount",
-                                                                           v38,
-                                                                           (char **)&Size[1],
-                                                                           &v63,
-                                                                           Size,
-                                                                           (__int64)v65,
+                                                                           (unsigned int)"ReservedQueuePairCount",
+                                                                           v37,
+                                                                           (unsigned int)&v50,
+                                                                           (__int64)&v48,
+                                                                           (__int64)&v49,
+                                                                           (__int64)v51,
                                                                            v7,
-                                                                           (__int64)&v62);
-                                                            v61[0] = v1;
+                                                                           (__int64)&v47);
+                                                            v46[0] = v1;
                                                             if ( (_BYTE)v1 == 1 )
                                                             {
-                                                              LOBYTE(v1) = v62 - 1;
-                                                              if ( v62 - 1 <= 0xFFFE )
-                                                                *(_DWORD *)(a1 + 132) = v62;
+                                                              LOBYTE(v1) = v47 - 1;
+                                                              if ( v47 - 1 <= 0xFFFE )
+                                                                *(_DWORD *)(a1 + 124) = v47;
                                                             }
-                                                            if ( *(_QWORD *)&Size[1] )
+                                                            if ( v50 )
                                                             {
-                                                              Size[0] = v63;
-                                                              NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                              v62 = 0;
+                                                              v49 = v48;
+                                                              NVMeZeroMemory(v50, v48);
+                                                              v47 = 0;
                                                               LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                              a1,
-                                                                             (__int64)"NvmeTestSwitch",
-                                                                             v39,
-                                                                             (char **)&Size[1],
-                                                                             &v63,
-                                                                             Size,
-                                                                             (__int64)v65,
+                                                                             (unsigned int)"NvmeTestSwitch",
+                                                                             v38,
+                                                                             (unsigned int)&v50,
+                                                                             (__int64)&v48,
+                                                                             (__int64)&v49,
+                                                                             (__int64)v51,
                                                                              v7,
-                                                                             (__int64)&v62);
-                                                              v61[0] = v1;
+                                                                             (__int64)&v47);
+                                                              v46[0] = v1;
                                                               if ( (_BYTE)v1 == 1 )
                                                               {
-                                                                LOBYTE(v1) = v62;
-                                                                if ( v62 )
-                                                                  *(_DWORD *)(a1 + 136) = v62;
+                                                                LOBYTE(v1) = v47;
+                                                                if ( v47 )
+                                                                  *(_DWORD *)(a1 + 128) = v47;
                                                               }
-                                                              if ( *(_QWORD *)&Size[1] )
+                                                              if ( v50 )
                                                               {
-                                                                Size[0] = v63;
-                                                                NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                v62 = 0;
+                                                                v49 = v48;
+                                                                NVMeZeroMemory(v50, v48);
+                                                                v47 = 0;
                                                                 LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                a1,
-                                                                               (__int64)"IoQueuePercentageInPollingMode",
-                                                                               v40,
-                                                                               (char **)&Size[1],
-                                                                               &v63,
-                                                                               Size,
-                                                                               (__int64)v65,
+                                                                               (unsigned int)"IoQueuePercentageInPollingMode",
+                                                                               v39,
+                                                                               (unsigned int)&v50,
+                                                                               (__int64)&v48,
+                                                                               (__int64)&v49,
+                                                                               (__int64)v51,
                                                                                v7,
-                                                                               (__int64)&v62);
-                                                                v61[0] = v1;
+                                                                               (__int64)&v47);
+                                                                v46[0] = v1;
                                                                 if ( (_BYTE)v1 == 1 )
                                                                 {
-                                                                  if ( v62 <= 0x64 )
+                                                                  if ( v47 <= 0x64 )
                                                                   {
-                                                                    LOBYTE(v1) = v62;
-                                                                    *(_DWORD *)(a1 + 72) = (unsigned __int16)v62;
+                                                                    LOBYTE(v1) = v47;
+                                                                    *(_DWORD *)(a1 + 64) = (unsigned __int16)v47;
                                                                   }
                                                                   else
                                                                   {
-                                                                    *(_DWORD *)(a1 + 72) = 100;
+                                                                    *(_DWORD *)(a1 + 64) = 100;
                                                                   }
                                                                 }
-                                                                if ( *(_QWORD *)&Size[1] )
+                                                                if ( v50 )
                                                                 {
-                                                                  Size[0] = v63;
-                                                                  NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                  v62 = 0;
+                                                                  v49 = v48;
+                                                                  NVMeZeroMemory(v50, v48);
+                                                                  v47 = 0;
                                                                   LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                  a1,
-                                                                                 (__int64)"IoPollingInterval",
-                                                                                 v41,
-                                                                                 (char **)&Size[1],
-                                                                                 &v63,
-                                                                                 Size,
-                                                                                 (__int64)v65,
+                                                                                 (unsigned int)"IoPollingInterval",
+                                                                                 v40,
+                                                                                 (unsigned int)&v50,
+                                                                                 (__int64)&v48,
+                                                                                 (__int64)&v49,
+                                                                                 (__int64)v51,
                                                                                  v7,
-                                                                                 (__int64)&v62);
-                                                                  v61[0] = v1;
+                                                                                 (__int64)&v47);
+                                                                  v46[0] = v1;
                                                                   if ( (_BYTE)v1 == 1 )
                                                                   {
                                                                     LODWORD(v1) = 100000;
-                                                                    if ( v62 < 0x186A0 )
-                                                                      LODWORD(v1) = v62;
-                                                                    *(_DWORD *)(a1 + 76) = v1;
+                                                                    if ( v47 < 0x186A0 )
+                                                                      LODWORD(v1) = v47;
+                                                                    *(_DWORD *)(a1 + 68) = v1;
                                                                   }
-                                                                  if ( *(_QWORD *)&Size[1] )
+                                                                  if ( v50 )
                                                                   {
-                                                                    Size[0] = v63;
-                                                                    NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                    v62 = 0;
+                                                                    v49 = v48;
+                                                                    NVMeZeroMemory(v50, v48);
+                                                                    v47 = 0;
                                                                     LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                    a1,
-                                                                                   (__int64)"IoCompletionCapInDPC",
-                                                                                   v42,
-                                                                                   (char **)&Size[1],
-                                                                                   &v63,
-                                                                                   Size,
-                                                                                   (__int64)v65,
+                                                                                   (unsigned int)"IoCompletionCapInDPC",
+                                                                                   v41,
+                                                                                   (unsigned int)&v50,
+                                                                                   (__int64)&v48,
+                                                                                   (__int64)&v49,
+                                                                                   (__int64)v51,
                                                                                    v7,
-                                                                                   (__int64)&v62);
-                                                                    v61[0] = v1;
+                                                                                   (__int64)&v47);
+                                                                    v46[0] = v1;
                                                                     if ( (_BYTE)v1 == 1 )
                                                                     {
-                                                                      LODWORD(v1) = v62;
-                                                                      if ( v62 )
+                                                                      LODWORD(v1) = v47;
+                                                                      if ( v47 )
                                                                       {
-                                                                        if ( v62 > 0x80 )
+                                                                        if ( v47 > 0x80 )
                                                                           LODWORD(v1) = 128;
-                                                                        *(_DWORD *)(a1 + 80) = v1;
+                                                                        *(_DWORD *)(a1 + 72) = v1;
                                                                       }
                                                                     }
-                                                                    if ( *(_QWORD *)&Size[1] )
+                                                                    if ( v50 )
                                                                     {
-                                                                      Size[0] = v63;
-                                                                      NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                      v62 = 0;
+                                                                      v49 = v48;
+                                                                      NVMeZeroMemory(v50, v48);
+                                                                      v47 = 0;
                                                                       LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                      a1,
-                                                                                     (__int64)"IoPollingSize",
-                                                                                     v43,
-                                                                                     (char **)&Size[1],
-                                                                                     &v63,
-                                                                                     Size,
-                                                                                     (__int64)v65,
+                                                                                     (unsigned int)"IoPollingSize",
+                                                                                     v42,
+                                                                                     (unsigned int)&v50,
+                                                                                     (__int64)&v48,
+                                                                                     (__int64)&v49,
+                                                                                     (__int64)v51,
                                                                                      v7,
-                                                                                     (__int64)&v62);
-                                                                      v61[0] = v1;
+                                                                                     (__int64)&v47);
+                                                                      v46[0] = v1;
                                                                       if ( (_BYTE)v1 == 1 )
                                                                       {
-                                                                        LOBYTE(v1) = v62;
-                                                                        if ( v62 )
-                                                                          *(_DWORD *)(a1 + 84) = v62;
+                                                                        LOBYTE(v1) = v47;
+                                                                        if ( v47 )
+                                                                          *(_DWORD *)(a1 + 76) = v47;
                                                                       }
-                                                                      if ( *(_QWORD *)&Size[1] )
+                                                                      if ( v50 )
                                                                       {
-                                                                        Size[0] = v63;
-                                                                        NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                        v62 = 0;
+                                                                        v49 = v48;
+                                                                        NVMeZeroMemory(v50, v48);
+                                                                        v47 = 0;
                                                                         LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                        a1,
-                                                                                       (__int64)"ErrorEtwThrottleInterval",
-                                                                                       v44,
-                                                                                       (char **)&Size[1],
-                                                                                       &v63,
-                                                                                       Size,
-                                                                                       (__int64)v65,
+                                                                                       (unsigned int)"ErrorEtwThrottleInterval",
+                                                                                       v43,
+                                                                                       (unsigned int)&v50,
+                                                                                       (__int64)&v48,
+                                                                                       (__int64)&v49,
+                                                                                       (__int64)v51,
                                                                                        v7,
-                                                                                       (__int64)&v62);
-                                                                        v61[0] = v1;
+                                                                                       (__int64)&v47);
+                                                                        v46[0] = v1;
                                                                         if ( (_BYTE)v1 == 1 )
                                                                         {
-                                                                          LODWORD(v1) = v62;
-                                                                          if ( v62 )
+                                                                          LODWORD(v1) = v47;
+                                                                          if ( v47 )
                                                                           {
-                                                                            if ( v62 > 0xD693A400 )
+                                                                            if ( v47 > 0xD693A400 )
                                                                               LODWORD(v1) = -694967296;
-                                                                            *(_DWORD *)(a1 + 140) = v1;
+                                                                            *(_DWORD *)(a1 + 132) = v1;
                                                                           }
                                                                         }
-                                                                        if ( *(_QWORD *)&Size[1] )
+                                                                        if ( v50 )
                                                                         {
-                                                                          Size[0] = v63;
-                                                                          NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                          v62 = 0;
+                                                                          v49 = v48;
+                                                                          NVMeZeroMemory(v50, v48);
+                                                                          v47 = 0;
                                                                           LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                                                          a1,
-                                                                                         (__int64)"EnableAdditionalFLR",
-                                                                                         v45,
-                                                                                         (char **)&Size[1],
-                                                                                         &v63,
-                                                                                         Size,
-                                                                                         (__int64)v65,
+                                                                                         (unsigned int)"ShutdownTimeoutForSurpriseRemove",
+                                                                                         v44,
+                                                                                         (unsigned int)&v50,
+                                                                                         (__int64)&v48,
+                                                                                         (__int64)&v49,
+                                                                                         (__int64)v51,
                                                                                          v7,
-                                                                                         (__int64)&v62);
-                                                                          v61[0] = v1;
-                                                                          if ( (_BYTE)v1 == 1 && v62 )
-                                                                            *(_DWORD *)(a1 + 64) |= 0x40u;
-                                                                          if ( *(_QWORD *)&Size[1] )
+                                                                                         (__int64)&v47);
+                                                                          v46[0] = v1;
+                                                                          if ( (_BYTE)v1 == 1 )
                                                                           {
-                                                                            Size[0] = v63;
-                                                                            NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                            v62 = 0;
-                                                                            LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
-                                                                                           a1,
-                                                                                           (__int64)"ReliabilityDegraded",
-                                                                                           v46,
-                                                                                           (char **)&Size[1],
-                                                                                           &v63,
-                                                                                           Size,
-                                                                                           (__int64)v65,
-                                                                                           v7,
-                                                                                           (__int64)&v62);
-                                                                            v61[0] = v1;
-                                                                            if ( (_BYTE)v1 == 1 && v62 )
-                                                                              *(_DWORD *)(a1 + 64) |= 0x80u;
-                                                                            if ( *(_QWORD *)&Size[1] )
+                                                                            LOBYTE(v1) = v47;
+                                                                            if ( v47 )
                                                                             {
-                                                                              Size[0] = v63;
-                                                                              NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                              v62 = 0;
-                                                                              LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
-                                                                                             a1,
-                                                                                             (__int64)"ReadOnly",
-                                                                                             v47,
-                                                                                             (char **)&Size[1],
-                                                                                             &v63,
-                                                                                             Size,
-                                                                                             (__int64)v65,
-                                                                                             v7,
-                                                                                             (__int64)&v62);
-                                                                              v61[0] = v1;
-                                                                              if ( (_BYTE)v1 == 1 && v62 )
-                                                                                *(_DWORD *)(a1 + 64) |= 0x100u;
-                                                                              if ( *(_QWORD *)&Size[1] )
-                                                                              {
-                                                                                Size[0] = v63;
-                                                                                NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                                v62 = 0;
-                                                                                v61[0] = ReadMultiSzRegistryValueAndCompareId(
-                                                                                           a1,
-                                                                                           (__int64)"VolatileMemoryBackupDeviceFailed",
-                                                                                           v48,
-                                                                                           (char **)&Size[1],
-                                                                                           &v63,
-                                                                                           Size,
-                                                                                           (__int64)v65,
-                                                                                           v7,
-                                                                                           (__int64)&v62);
-                                                                                if ( v61[0] && v62 )
-                                                                                  *(_DWORD *)(a1 + 64) |= 0x200u;
-                                                                                Size[0] = v63;
-                                                                                NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                                v62 = 0;
-                                                                                v61[0] = ReadMultiSzRegistryValueAndCompareId(
-                                                                                           a1,
-                                                                                           (__int64)"AvailableSpare",
-                                                                                           v49,
-                                                                                           (char **)&Size[1],
-                                                                                           &v63,
-                                                                                           Size,
-                                                                                           (__int64)v65,
-                                                                                           v7,
-                                                                                           (__int64)&v62);
-                                                                                if ( v61[0] && v62 )
-                                                                                  *(_BYTE *)(a1 + 148) = v62;
-                                                                                Size[0] = v63;
-                                                                                NVMeZeroMemory(*(void **)&Size[1], v63);
-                                                                                v62 = 0;
-                                                                                LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
-                                                                                               a1,
-                                                                                               (__int64)"AvailableSpareThreshold",
-                                                                                               v50,
-                                                                                               (char **)&Size[1],
-                                                                                               &v63,
-                                                                                               Size,
-                                                                                               (__int64)v65,
-                                                                                               v7,
-                                                                                               (__int64)&v62);
-                                                                                v61[0] = v1;
-                                                                                if ( (_BYTE)v1 == 1 )
-                                                                                {
-                                                                                  LOBYTE(v1) = v62;
-                                                                                  if ( v62 )
-                                                                                    *(_BYTE *)(a1 + 149) = v62;
-                                                                                }
-                                                                                if ( *(_QWORD *)&Size[1] )
-                                                                                {
-                                                                                  Size[0] = v63;
-                                                                                  NVMeZeroMemory(
-                                                                                    *(void **)&Size[1],
-                                                                                    v63);
-                                                                                  LOBYTE(v1) = ReadBinaryRegistryValue(
-                                                                                                 a1,
-                                                                                                 v51,
-                                                                                                 v52,
-                                                                                                 (unsigned int)&Size[1],
-                                                                                                 (__int64)&v63,
-                                                                                                 (__int64)Size);
-                                                                                  v61[0] = v1;
-                                                                                  if ( (_BYTE)v1 == 1 )
-                                                                                  {
-                                                                                    v53 = Size[0];
-                                                                                    if ( Size[0] )
-                                                                                    {
-                                                                                      if ( Size[0] < 0x10 )
-                                                                                        v37 = Size[0];
-                                                                                      memmove(
-                                                                                        (void *)(a1 + 4097),
-                                                                                        *(const void **)&Size[1],
-                                                                                        v37);
-                                                                                      LOBYTE(v1) = *(_BYTE *)(a1 + 4096) | 1;
-                                                                                      *(_BYTE *)(a1 + 4096) = v1;
-                                                                                      if ( v53 > 8 )
-                                                                                      {
-                                                                                        LOBYTE(v1) = v1 | 2;
-                                                                                        *(_BYTE *)(a1 + 4096) = v1;
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                  if ( *(_QWORD *)&Size[1] )
-                                                                                  {
-                                                                                    Size[0] = v63;
-                                                                                    NVMeZeroMemory(
-                                                                                      *(void **)&Size[1],
-                                                                                      v63);
-                                                                                    v62 = 0;
-                                                                                    LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
-                                                                                                   a1,
-                                                                                                   (__int64)"ForcedPhysicalSectorSizeInBytes",
-                                                                                                   v54,
-                                                                                                   (char **)&Size[1],
-                                                                                                   &v63,
-                                                                                                   Size,
-                                                                                                   (__int64)v65,
-                                                                                                   v7,
-                                                                                                   (__int64)&v62);
-                                                                                    v61[0] = v1;
-                                                                                    if ( (_BYTE)v1 == 1 )
-                                                                                    {
-                                                                                      LOBYTE(v1) = v62;
-                                                                                      if ( v62 )
-                                                                                        *(_DWORD *)(a1 + 152) = v62;
-                                                                                    }
-                                                                                    if ( *(_QWORD *)&Size[1] )
-                                                                                    {
-                                                                                      Size[0] = v63;
-                                                                                      NVMeZeroMemory(
-                                                                                        *(void **)&Size[1],
-                                                                                        v63);
-                                                                                      v62 = 0;
-                                                                                      LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
-                                                                                                     a1,
-                                                                                                     (__int64)"RetainAsyncEventControlMask",
-                                                                                                     v55,
-                                                                                                     (char **)&Size[1],
-                                                                                                     &v63,
-                                                                                                     Size,
-                                                                                                     (__int64)v65,
-                                                                                                     v7,
-                                                                                                     (__int64)&v62);
-                                                                                      v61[0] = v1;
-                                                                                      if ( (_BYTE)v1 == 1 )
-                                                                                      {
-                                                                                        LOBYTE(v1) = v62;
-                                                                                        *(_DWORD *)(a1 + 156) = v62;
-                                                                                      }
-                                                                                      if ( *(_QWORD *)&Size[1] )
-                                                                                      {
-                                                                                        Size[0] = v63;
-                                                                                        NVMeZeroMemory(
-                                                                                          *(void **)&Size[1],
-                                                                                          v63);
-                                                                                        v62 = 0;
-                                                                                        LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(a1, (__int64)"ShutdownTimeoutForSurpriseRemove", v56, (char **)&Size[1], &v63, Size, (__int64)v65, v7, (__int64)&v62);
-                                                                                        v61[0] = v1;
-                                                                                        if ( (_BYTE)v1 == 1 )
-                                                                                        {
-                                                                                          LOBYTE(v1) = v62;
-                                                                                          if ( v62 )
-                                                                                          {
-                                                                                            if ( v62 > 0xFF )
-                                                                                              LOBYTE(v1) = -1;
-                                                                                            *(_BYTE *)(a1 + 160) = v1;
-                                                                                          }
-                                                                                        }
-                                                                                        if ( *(_QWORD *)&Size[1] )
-                                                                                        {
-                                                                                          Size[0] = v63;
-                                                                                          NVMeZeroMemory(
-                                                                                            *(void **)&Size[1],
-                                                                                            v63);
-                                                                                          v62 = 0;
-                                                                                          LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(a1, (__int64)"DisableNamespacePreferredValueCheck", v57, (char **)&Size[1], &v63, Size, (__int64)v65, v7, (__int64)&v62);
-                                                                                          v61[0] = v1;
-                                                                                          if ( (_BYTE)v1 == 1 && v62 )
-                                                                                            *(_DWORD *)(a1 + 64) |= 0x800u;
-                                                                                          if ( *(_QWORD *)&Size[1] )
-                                                                                          {
-                                                                                            Size[0] = v63;
-                                                                                            NVMeZeroMemory(
-                                                                                              *(void **)&Size[1],
-                                                                                              v63);
-                                                                                            v62 = 0;
-                                                                                            LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(a1, (__int64)"IgnoreNamespacePreferredValues", v58, (char **)&Size[1], &v63, Size, (__int64)v65, v7, (__int64)&v62);
-                                                                                            v61[0] = v1;
-                                                                                            if ( (_BYTE)v1 == 1 && v62 )
-                                                                                              *(_DWORD *)(a1 + 64) |= 0x1000u;
-                                                                                            if ( *(_QWORD *)&Size[1] )
-                                                                                            {
-                                                                                              Size[0] = v63;
-                                                                                              NVMeZeroMemory(
-                                                                                                *(void **)&Size[1],
-                                                                                                v63);
-                                                                                              v62 = 0;
-                                                                                              LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(a1, (__int64)"EnableSingleDpcForIoCompletion", v59, (char **)&Size[1], &v63, Size, (__int64)v65, v7, (__int64)&v62);
-                                                                                              v61[0] = v1;
-                                                                                              if ( (_BYTE)v1 == 1 && v62 )
-                                                                                                *(_DWORD *)(a1 + 64) |= 0x2000u;
-                                                                                              if ( *(_QWORD *)&Size[1] )
-                                                                                                LOBYTE(v1) = StorPortFreeRegistryBuffer(a1, *(_QWORD *)&Size[1]);
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
+                                                                              if ( v47 > 0xFF )
+                                                                                LOBYTE(v1) = -1;
+                                                                              *(_BYTE *)(a1 + 144) = v1;
                                                                             }
                                                                           }
+                                                                          if ( v50 )
+                                                                            LOBYTE(v1) = StorPortFreeRegistryBuffer(a1);
                                                                         }
                                                                       }
                                                                     }
@@ -1132,28 +888,28 @@ LABEL_71:
                                   }
                                   return v1;
                                 }
-                                Size[0] = v63;
-                                NVMeZeroMemory(v21, v63);
-                                v62 = 0;
+                                v49 = v48;
+                                NVMeZeroMemory(v21, v48);
+                                v47 = 0;
                                 LOBYTE(v1) = ReadMultiSzRegistryValueAndCompareId(
                                                a1,
-                                               (__int64)"IdlePowerMode",
+                                               (unsigned int)"IdlePowerMode",
                                                v22,
-                                               (char **)&Size[1],
-                                               &v63,
-                                               Size,
-                                               (__int64)v65,
+                                               (unsigned int)&v50,
+                                               (__int64)&v48,
+                                               (__int64)&v49,
+                                               (__int64)v51,
                                                v7,
-                                               (__int64)&v62);
-                                v61[0] = v1;
+                                               (__int64)&v47);
+                                v46[0] = v1;
                                 if ( (_BYTE)v1 == 1 )
                                 {
-                                  LOBYTE(v1) = v62;
-                                  if ( v62 < 6 )
-                                    *(_DWORD *)(a1 + 88) = v62;
+                                  LOBYTE(v1) = v47;
+                                  if ( v47 < 6 )
+                                    *(_DWORD *)(a1 + 80) = v47;
                                 }
-                                v21 = *(void **)&Size[1];
-                                if ( *(_QWORD *)&Size[1] )
+                                v21 = v50;
+                                if ( v50 )
                                   goto LABEL_71;
                               }
                             }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvCpuid @ 0x14050AF2C
+ * XREFs of HalpHvCpuid @ 0x1404C1D9C
  * Callers:
- *     HalpInterruptGetIrtInfo @ 0x140820AF0 (HalpInterruptGetIrtInfo.c)
- *     HalpInitializeProfiling @ 0x140A913E4 (HalpInitializeProfiling.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407B9C34 (HalpInterruptGetIrtInfo.c)
+ *     HalpInitializeProfiling @ 0x14099E74C (HalpInitializeProfiling.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpHvCpuid(unsigned int a1, _DWORD *a2)

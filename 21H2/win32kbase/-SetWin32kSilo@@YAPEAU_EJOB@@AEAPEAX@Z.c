@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00ABEB0
+ * XREFs of ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C009BE08
  * Callers:
- *     UnloadWin32kCall @ 0x1C00AB850 (UnloadWin32kCall.c)
- *     InitializeWin32kCall @ 0x1C00AB8EC (InitializeWin32kCall.c)
+ *     InitializeWin32kCall @ 0x1C009B7C0 (InitializeWin32kCall.c)
+ *     UnloadWin32kCall @ 0x1C009BD70 (UnloadWin32kCall.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckSessionPoolAllocations @ 0x1406E0824
+ * XREFs of MiCheckSessionPoolAllocations @ 0x1406E0804
  * Callers:
- *     MiDereferenceSessionFinal @ 0x1406E05D8 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExPoolCleanupExpansionTable @ 0x140141F40 (ExPoolCleanupExpansionTable.c)
+ *     ExPoolCleanupExpansionTable @ 0x140141F60 (ExPoolCleanupExpansionTable.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiDeleteLeakedSessionPool @ 0x1406E0920 (MiDeleteLeakedSessionPool.c)
+ *     MiDeleteLeakedSessionPool @ 0x1406E0900 (MiDeleteLeakedSessionPool.c)
  */
 
 __int64 MiCheckSessionPoolAllocations()

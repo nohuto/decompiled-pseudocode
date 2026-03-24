@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z @ 0x1C00B0104
+ * XREFs of ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z @ 0x1C006706C
  * Callers:
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0K_NAEAVCMilCommandBatchParser@12@PEAII@Z @ 0x1C00275C0 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0K_NAEAVCMilCommandBatc.c)
+ *     ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00600C4 (-EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CApplicationChannel::EmitCallbackIDCommand(
@@ -24,11 +24,11 @@ char __fastcall DirectComposition::CApplicationChannel::EmitCallbackIDCommand(
   *(_QWORD *)(v5 + 20) = 0LL;
   *((_DWORD *)v5 + 1) = 50;
   if ( a3 )
-    v6 = *((_QWORD *)this + 333);
+    v6 = *((_QWORD *)this + 84);
   else
-    v6 = *((_QWORD *)this + 332);
+    v6 = *((_QWORD *)this + 83);
   *(_QWORD *)(v5 + 12) = v6;
   v5[20] = a3;
-  *((_DWORD *)v5 + 6) = *((_DWORD *)this + 674);
+  *((_DWORD *)v5 + 6) = *((_DWORD *)this + 174);
   return 1;
 }

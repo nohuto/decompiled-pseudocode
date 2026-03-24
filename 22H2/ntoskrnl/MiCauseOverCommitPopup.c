@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCauseOverCommitPopup @ 0x140656380
+ * XREFs of MiCauseOverCommitPopup @ 0x140550330
  * Callers:
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     MiPageFileNoFreeSpace @ 0x14063B184 (MiPageFileNoFreeSpace.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x140543B74 (MiPageFileNoFreeSpace.c)
  * Callees:
- *     IoRaiseInformationalHardError @ 0x140556E00 (IoRaiseInformationalHardError.c)
+ *     IoRaiseInformationalHardError @ 0x140505BB0 (IoRaiseInformationalHardError.c)
  */
 
 char __fastcall MiCauseOverCommitPopup(__int64 a1)
@@ -12,12 +12,12 @@ char __fastcall MiCauseOverCommitPopup(__int64 a1)
   int v1; // eax
   NTSTATUS v2; // ecx
 
-  if ( *(_QWORD *)(a1 + 17816) != *(_QWORD *)(a1 + 16392) )
+  if ( *(_QWORD *)(a1 + 7592) != *(_QWORD *)(a1 + 6216) )
   {
-    v1 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 16404));
+    v1 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 6228));
     if ( v1 > 1 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(a1 + 16404));
+      _InterlockedDecrement((volatile signed __int32 *)(a1 + 6228));
       return v1;
     }
     v2 = -1073741112;
@@ -25,12 +25,12 @@ LABEL_8:
     LOBYTE(v1) = IoRaiseInformationalHardError(v2, 0LL, 0LL);
     return v1;
   }
-  v1 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 16400));
+  v1 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 6224));
   if ( v1 <= 1 )
   {
     v2 = -1073741523;
     goto LABEL_8;
   }
-  _InterlockedDecrement((volatile signed __int32 *)(a1 + 16400));
+  _InterlockedDecrement((volatile signed __int32 *)(a1 + 6224));
   return v1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAuditHardLinkCreationWithTransaction @ 0x1409C7700
+ * XREFs of SeAuditHardLinkCreationWithTransaction @ 0x14091DCC0
  * Callers:
- *     SeAuditHardLinkCreation @ 0x1409C76E0 (SeAuditHardLinkCreation.c)
+ *     SeAuditHardLinkCreation @ 0x14091DCA0 (SeAuditHardLinkCreation.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 void __stdcall SeAuditHardLinkCreationWithTransaction(
@@ -29,7 +29,7 @@ void __stdcall SeAuditHardLinkCreationWithTransaction(
   memset(&SubjectContext.ImpersonationLevel + 1, 0, 20);
   memset(Src, 0, 0x418uLL);
   Src[0] = 0x123800000003LL;
-  LOWORD(Src[2]) = 116;
+  LOWORD(Src[2]) = 117;
   v8 = (GUID *)&v14;
   if ( TransactionId )
     v8 = TransactionId;

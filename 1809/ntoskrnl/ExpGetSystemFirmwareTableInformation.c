@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1406B8020
+ * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1406B8000
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExpGetSystemFlushInformation @ 0x1406B7EE8 (ExpGetSystemFlushInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x14075FC0C (ExpGetSystemPlatformBinary.c)
- *     ExGetSystemFirmwareTable @ 0x140760750 (ExGetSystemFirmwareTable.c)
- *     ExEnumerateSystemFirmwareTables @ 0x1408CB270 (ExEnumerateSystemFirmwareTables.c)
+ *     ExpGetSystemFlushInformation @ 0x1406B7EC8 (ExpGetSystemFlushInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x14075FBEC (ExpGetSystemPlatformBinary.c)
+ *     ExGetSystemFirmwareTable @ 0x140760730 (ExGetSystemFirmwareTable.c)
+ *     ExEnumerateSystemFirmwareTables @ 0x1408CB250 (ExEnumerateSystemFirmwareTables.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsIsProcessAppContainer @ 0x1406B8208 (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A30 (ExpFirmwareAccessAppContainerCheck.c)
+ *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
  */
 
 __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsigned int a3, _DWORD *a4)
@@ -119,7 +119,7 @@ LABEL_8:
       v22 = &v19;
       v23 = 4;
       v24 = 0;
-      TlgWrite(&stru_140400AB0, &unk_140373D8B, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_140400AB0, &unk_140373E9B, 0LL, 0LL, 3u, &pData);
     }
   }
 LABEL_14:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsCompositionThread@CPartitionVerticalBlankScheduler@@UEBA_NXZ @ 0x1800ED500
+ * XREFs of ?IsCompositionThread@CPartitionVerticalBlankScheduler@@UEBA_NXZ @ 0x1800C8D60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CPartitionVerticalBlankScheduler::IsCompositionThread(CPartitionVerticalBlankScheduler *this)
 {
-  return GetCurrentThreadId() == *((_DWORD *)this + 4288);
+  return GetCurrentThreadId() == *((_DWORD *)this + 3974);
 }

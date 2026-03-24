@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCompleteLazyWrite @ 0x140366034
+ * XREFs of CmpCompleteLazyWrite @ 0x140323E60
  * Callers:
- *     CmpLazyWriteWorker @ 0x14039FE60 (CmpLazyWriteWorker.c)
+ *     CmpLazyWriteWorker @ 0x1403BFD00 (CmpLazyWriteWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CmpCompleteLazyWrite(PKTIMER Timer, __int64 *a2)
 {
-  volatile signed __int64 *p_DueTime; // r15
+  KSPIN_LOCK *p_QuadPart; // r15
   unsigned __int64 v5; // rsi
   __int64 v6; // rbp
   __int64 v7; // rdi
@@ -25,51 +25,52 @@ __int64 __fastcall CmpCompleteLazyWrite(PKTIMER Timer, __int64 *a2)
   _DWORD *SchedulerAssist; // r9
   bool v15; // zf
 
-  p_DueTime = (volatile signed __int64 *)&Timer[2].DueTime;
+  p_QuadPart = &Timer[2].DueTime.QuadPart;
   v5 = KeAcquireSpinLockRaiseToDpc(&Timer[2].DueTime.QuadPart);
-  if ( a2 || ((__int64)Timer[2].TimerListEntry.Blink & 7) == 3 )
+  if ( !a2 && ((__int64)Timer[2].TimerListEntry.Blink & 7) != 3 )
   {
-    v6 = 1LL;
-    if ( a2 )
-    {
-      v7 = *a2;
-    }
-    else
-    {
-      v7 = 20000000LL;
-      v8 = 1000;
-      UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-      if ( UnbiasedInterruptTime >= v11 )
-        goto LABEL_7;
-      v12 = v11 - UnbiasedInterruptTime;
-      if ( v12 <= 0x1312D00 )
-        goto LABEL_7;
-      v7 = v12;
-    }
-    v8 = *(_DWORD *)&Timer[2].Processor;
-LABEL_7:
-    KeSetCoalescableTimer(Timer, (LARGE_INTEGER)-v7, 0, v8, (PKDPC)&Timer[1]);
-    goto LABEL_8;
+    v6 = 0LL;
+    goto LABEL_6;
   }
-  v6 = 0LL;
-LABEL_8:
+  v6 = 1LL;
+  if ( a2 )
+  {
+    v7 = *a2;
+  }
+  else
+  {
+    v7 = 20000000LL;
+    v8 = 1000;
+    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
+    if ( UnbiasedInterruptTime >= v11 )
+      goto LABEL_5;
+    v12 = v11 - UnbiasedInterruptTime;
+    if ( v12 <= 0x1312D00 )
+      goto LABEL_5;
+    v7 = v12;
+  }
+  v8 = *(_DWORD *)&Timer[2].Processor;
+LABEL_5:
+  KeSetCoalescableTimer(Timer, (LARGE_INTEGER)-v7, 0, v8, (PKDPC)&Timer[1]);
+LABEL_6:
   Timer[2].TimerListEntry.Blink = (struct _LIST_ENTRY *)v6;
-  result = KxReleaseSpinLock(p_DueTime);
+  KxReleaseSpinLock(p_QuadPart);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v5 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v15 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v5 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v15 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);

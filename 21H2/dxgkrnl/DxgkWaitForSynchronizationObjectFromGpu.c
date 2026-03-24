@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkWaitForSynchronizationObjectFromGpu @ 0x1C0170370
+ * XREFs of DxgkWaitForSynchronizationObjectFromGpu @ 0x1C00EBEE0
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkWaitForSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU@@_N1PEB_K1@Z @ 0x1C01703A0 (-DxgkWaitForSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
+ *     ?DxgkWaitForSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU@@_N1PEB_K1@Z @ 0x1C00EBF10 (-DxgkWaitForSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
  */
 
 __int64 __fastcall DxgkWaitForSynchronizationObjectFromGpu(

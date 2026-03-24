@@ -1,10 +1,10 @@
 /*
- * XREFs of EngQuerySystemAttribute @ 0x1C016A3C0
+ * XREFs of EngQuerySystemAttribute @ 0x1C014B5B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 BOOL __stdcall EngQuerySystemAttribute(ENG_SYSTEM_ATTRIBUTE CapNum, PDWORD pCapability)

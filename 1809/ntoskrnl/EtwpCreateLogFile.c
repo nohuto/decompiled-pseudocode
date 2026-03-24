@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpCreateLogFile @ 0x140699B1C
+ * XREFs of EtwpCreateLogFile @ 0x140699AFC
  * Callers:
  *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     EtwpBufferingModeFlush @ 0x1408BE038 (EtwpBufferingModeFlush.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpBufferingModeFlush @ 0x1408BE018 (EtwpBufferingModeFlush.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1401B8650 (ZwSetInformationFile.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     EtwpSendSessionNotification @ 0x140658D88 (EtwpSendSessionNotification.c)
- *     EtwpUpdateFileHeader @ 0x140699E3C (EtwpUpdateFileHeader.c)
- *     EtwpDelayCreate @ 0x14069A114 (EtwpDelayCreate.c)
- *     EtwpFinalizeHeader @ 0x14069A41C (EtwpFinalizeHeader.c)
- *     SeImpersonateClientEx @ 0x14069AF40 (SeImpersonateClientEx.c)
- *     EtwpExpandFileName @ 0x14069AF88 (EtwpExpandFileName.c)
+ *     EtwpSendSessionNotification @ 0x140658D68 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
+ *     EtwpDelayCreate @ 0x14069A0F4 (EtwpDelayCreate.c)
+ *     EtwpFinalizeHeader @ 0x14069A3FC (EtwpFinalizeHeader.c)
+ *     SeImpersonateClientEx @ 0x14069AF20 (SeImpersonateClientEx.c)
+ *     EtwpExpandFileName @ 0x14069AF68 (EtwpExpandFileName.c)
  */
 
 __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C01E79D0
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C01ED30C
  * Callers:
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C016C26C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C01ED250 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EmitSetDirtyAndBoundsRectCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009AA50
+ * XREFs of ?EmitSetDirtyAndBoundsRectCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062140
  * Callers:
- *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009A7E0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DD0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoundsRectCommand(
         DirectComposition::CPrimitiveGroupMarshaler *this,
-        struct DirectComposition::CBatch ***a2)
+        struct DirectComposition::CBatch **a2)
 {
   char v4; // di
   int v5; // eax
@@ -28,8 +28,8 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoun
     *(_DWORD *)v10 = 28;
     *(_OWORD *)(v9 + 4) = 0LL;
     *(_QWORD *)(v9 + 20) = 0LL;
-    *((_DWORD *)v9 + 1) = 288;
-    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v9 + 1) = 305;
+    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 6);
     *(_OWORD *)(v9 + 12) = *(_OWORD *)((char *)this + 180);
     *((_DWORD *)this + 4) &= ~0x100u;
   }
@@ -44,8 +44,8 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitSetDirtyAndBoun
       *(_DWORD *)v10 = v6;
       *(_QWORD *)(v7 + 4) = 0LL;
       *((_DWORD *)v7 + 3) = 0;
-      *((_DWORD *)v7 + 1) = 289;
-      *((_DWORD *)v7 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v7 + 1) = 306;
+      *((_DWORD *)v7 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v7 + 3) = *((_DWORD *)this + 44);
       memmove(v7 + 16, (char *)this + 112, 16LL * *((unsigned int *)this + 44));
       *((_DWORD *)this + 44) = 0;

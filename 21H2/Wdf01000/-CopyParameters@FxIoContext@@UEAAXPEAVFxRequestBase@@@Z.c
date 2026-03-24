@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CopyParameters@FxIoContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C0003100
+ * XREFs of ?CopyParameters@FxIoContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C0004770
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall FxIoContext::CopyParameters(FxIoContext *this, FxRequestBase *Request)

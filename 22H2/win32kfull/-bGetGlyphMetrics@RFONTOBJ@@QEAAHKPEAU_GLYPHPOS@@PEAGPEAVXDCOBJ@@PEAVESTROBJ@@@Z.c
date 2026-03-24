@@ -1,26 +1,28 @@
 /*
- * XREFs of ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0080034
+ * XREFs of ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098A30
  * Callers:
- *     ?GreGetCharABCWidthsW@@YAHPEAUHDC__@@IKPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z @ 0x1C007D848 (-GreGetCharABCWidthsW@@YAHPEAUHDC__@@IKPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C007DDB4 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
- *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C0083684 (-bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
- *     ?bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z @ 0x1C0085224 (-bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z.c)
- *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C010EC30 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0111C28 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?GreGetCharWidthW@@YAHPEAUHDC__@@IIPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z @ 0x1C028D974 (-GreGetCharWidthW@@YAHPEAUHDC__@@IIPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ?bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z @ 0x1C0064224 (-bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00951E0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C0095D10 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
+ *     ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C0097F00 (-vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098F30 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     GreGetCharWidthW @ 0x1C00A2794 (GreGetCharWidthW.c)
+ *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C00E3714 (-bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
+ *     GreGetCharABCWidthsW @ 0x1C00FD238 (GreGetCharABCWidthsW.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0119460 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
  * Callees:
- *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C0021A34 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
- *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C007945C (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
- *     ??1ATTACHOBJ@@QEAA@XZ @ 0x1C00804F4 (--1ATTACHOBJ@@QEAA@XZ.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z @ 0x1C010EFC0 (-gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?ValidateGlyphDataAndBitmap@@YA_NJKPEAX@Z @ 0x1C0140C0C (-ValidateGlyphDataAndBitmap@@YA_NJKPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C02B4CC4 (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C02B5CA8 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0307678 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C001DFB8 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
+ *     ??1ATTACHOBJ@@QEAA@XZ @ 0x1C0098F04 (--1ATTACHOBJ@@QEAA@XZ.c)
+ *     ?gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z @ 0x1C00993F0 (-gprunFindRun@RFONTOBJ@@QEAAPEAUGPRUN@@G@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C00A4D8C (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7118 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C01527DC (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?ValidateGlyphDataAndBitmap@@YA_NJKPEAX@Z @ 0x1C016D924 (-ValidateGlyphDataAndBitmap@@YA_NJKPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C02DF0F0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
  */
 
 __int64 __fastcall RFONTOBJ::bGetGlyphMetrics(
@@ -31,251 +33,261 @@ __int64 __fastcall RFONTOBJ::bGetGlyphMetrics(
         struct XDCOBJ *a5,
         struct ESTROBJ *a6)
 {
-  unsigned __int16 *v6; // r15
-  struct _GLYPHPOS *v7; // r14
-  __int64 v9; // r12
-  __int64 v10; // rax
-  _DWORD *v11; // rcx
-  struct GPRUN *v13; // r13
-  _DWORD *v14; // r10
-  unsigned int v15; // ebx
-  __int64 v16; // r8
+  unsigned __int16 *v6; // rdi
+  __int64 v9; // rax
+  __int64 v10; // r13
+  __int64 v11; // rax
+  _DWORD *v12; // rcx
+  struct GPRUN *v14; // r12
+  _DWORD *v15; // r9
+  unsigned int v16; // r14d
+  __int64 v17; // rbx
   struct GPRUN *Run; // rax
-  struct _GLYPHDATA *LinkMetricsPlus; // r9
-  __int128 *v19; // rcx
-  int v20; // eax
-  unsigned int v21; // eax
-  __int64 v22; // rsi
-  __int64 v23; // rax
-  __int64 v24; // r9
-  _QWORD *v25; // rax
-  int v26; // eax
-  __int64 v27; // rbx
-  bool v28; // zf
-  __int64 v29; // rcx
-  __int64 v30; // rax
+  struct _GLYPHDATA *LinkMetricsPlus; // r8
+  __int64 v20; // rax
+  __int64 v21; // rdi
+  __int64 v22; // rbx
+  unsigned int v23; // eax
+  __int64 v24; // r13
+  __int64 v25; // rax
+  __int64 v26; // rax
+  _QWORD *v27; // rax
+  unsigned int v28; // eax
+  __int64 v29; // r14
+  int v30; // eax
   __int64 v31; // rax
-  __int64 (__fastcall *v32)(__int64, __int64, _QWORD, _QWORD, __int128 *, _QWORD, _DWORD); // rbx
-  unsigned int v33; // edx
-  struct _FONTFILEVIEW **v34; // r10
-  struct _FONTFILEVIEW **v35; // rcx
-  int v36; // r8d
-  int v37; // ebx
-  __int64 v38; // rax
-  __int64 v39; // rcx
-  unsigned int v40; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v41; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v42; // [rsp+50h] [rbp-B0h]
-  int v43[2]; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 *v44; // [rsp+60h] [rbp-A0h]
-  __int64 v45; // [rsp+68h] [rbp-98h]
-  __int64 v46; // [rsp+70h] [rbp-90h]
+  __int64 (__fastcall *v32)(__int64, __int64, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD); // rbx
+  int v33; // eax
+  unsigned int v34; // r10d
+  unsigned int v35; // r8d
+  struct _FONTFILEVIEW **v36; // r11
+  struct _FONTFILEVIEW **v37; // rdx
+  int v38; // eax
+  int v39; // ebx
+  __int64 v40; // rax
+  _QWORD *v41; // rcx
+  __int64 v42; // rcx
+  unsigned int v43; // [rsp+40h] [rbp-C0h]
+  unsigned __int16 v44; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v45; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v46[2]; // [rsp+58h] [rbp-A8h] BYREF
+  int v47; // [rsp+60h] [rbp-A0h]
+  _QWORD *v48; // [rsp+68h] [rbp-98h]
+  unsigned __int16 *v49; // [rsp+70h] [rbp-90h]
   _DWORD *i; // [rsp+78h] [rbp-88h]
-  __int64 v48; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v49; // [rsp+88h] [rbp-78h]
-  unsigned __int16 *v50; // [rsp+90h] [rbp-70h]
-  struct ESTROBJ *v51; // [rsp+98h] [rbp-68h]
-  struct XDCOBJ *v52; // [rsp+A0h] [rbp-60h]
-  __int64 v53; // [rsp+A8h] [rbp-58h]
-  __int64 v54; // [rsp+B0h] [rbp-50h]
-  unsigned __int16 *v55; // [rsp+B8h] [rbp-48h]
-  __int128 v56; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v57; // [rsp+D0h] [rbp-30h]
-  unsigned int v58[2]; // [rsp+100h] [rbp+0h] BYREF
-  int v59; // [rsp+108h] [rbp+8h]
-  void *v60[2]; // [rsp+110h] [rbp+10h] BYREF
-  __int64 v61; // [rsp+120h] [rbp+20h]
+  __int64 v51; // [rsp+80h] [rbp-80h] BYREF
+  int v52; // [rsp+88h] [rbp-78h]
+  unsigned __int16 *v53; // [rsp+90h] [rbp-70h]
+  struct ESTROBJ *v54; // [rsp+98h] [rbp-68h]
+  struct XDCOBJ *v55; // [rsp+A0h] [rbp-60h]
+  __int64 v56; // [rsp+A8h] [rbp-58h]
+  __int64 v57; // [rsp+B0h] [rbp-50h]
+  unsigned __int16 *v58; // [rsp+B8h] [rbp-48h]
+  __int128 v59; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v60; // [rsp+D0h] [rbp-30h]
+  __int128 v61; // [rsp+E0h] [rbp-20h]
+  __int128 v62; // [rsp+F0h] [rbp-10h]
+  unsigned int v63[2]; // [rsp+100h] [rbp+0h] BYREF
+  int v64; // [rsp+108h] [rbp+8h]
+  void *v65[2]; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v66; // [rsp+120h] [rbp+20h]
 
   v6 = a4;
-  v52 = a5;
-  v7 = a3;
-  v51 = a6;
-  v9 = (unsigned int)a2;
-  if ( *(_QWORD *)(*(_QWORD *)this + 480LL)
-    || (unsigned int)RFONTOBJ::bAllocateCache(this, a2, (__int64)a3, (__int64)a4) )
+  v55 = a5;
+  v54 = a6;
+  v9 = *(_QWORD *)this;
+  v10 = (unsigned int)a2;
+  v49 = a4;
+  v47 = (int)a2;
+  if ( *(_QWORD *)(v9 + 480) || (unsigned int)RFONTOBJ::bAllocateCache(this, a2) )
   {
-    v10 = *(_QWORD *)this;
-    v50 = v6;
-    v11 = *(_DWORD **)(v10 + 480);
-    if ( !*v11 )
+    v11 = *(_QWORD *)this;
+    v53 = v6;
+    v12 = *(_DWORD **)(v11 + 480);
+    if ( !*v12 )
     {
-      for ( ; (_DWORD)v9; LODWORD(v9) = v9 - 1 )
+      for ( ; (_DWORD)v10; LODWORD(v10) = v10 - 1 )
       {
-        v7->hg = *(_DWORD *)(*(_QWORD *)this + 460LL);
-        v7->pgdf = (GLYPHDEF *)RFONTOBJ::pgdDefault(this);
-        ++v7;
+        a3->hg = *(_DWORD *)(*(_QWORD *)this + 460LL);
+        a3->pgdf = (GLYPHDEF *)RFONTOBJ::pgdDefault(this);
+        ++a3;
       }
       return 1LL;
     }
-    v55 = &v6[v9];
-    v13 = (struct GPRUN *)(v11 + 4);
-    if ( v6 >= v55 )
+    v58 = &v6[v10];
+    v14 = (struct GPRUN *)(v12 + 4);
+    if ( v6 >= v58 )
       return 1LL;
-    v14 = v11 + 5;
-    for ( i = v11 + 5; ; v14 = i )
+    v15 = v12 + 5;
+    for ( i = v12 + 5; ; v15 = i )
     {
-      v15 = *v6;
-      v42 = v15;
-      v16 = v15 - *(_DWORD *)v13;
-      if ( (unsigned int)v16 < *v14 )
+      v16 = *v6;
+      v43 = v16;
+      v17 = v16 - *(_DWORD *)v14;
+      if ( (unsigned int)v17 < *v15 )
       {
         _mm_lfence();
-        LinkMetricsPlus = *(struct _GLYPHDATA **)(*((_QWORD *)v13 + 1) + 8 * v16);
+        LinkMetricsPlus = *(struct _GLYPHDATA **)(*((_QWORD *)v14 + 1) + 8 * v17);
       }
       else
       {
-        Run = RFONTOBJ::gprunFindRun(this, v15);
-        v13 = Run;
-        v16 = v15 - *(_DWORD *)Run;
+        Run = RFONTOBJ::gprunFindRun(this, v16);
+        v14 = Run;
+        v17 = v16 - *(_DWORD *)Run;
         i = (_DWORD *)((char *)Run + 4);
-        if ( (unsigned int)v16 >= *((_DWORD *)Run + 1) )
+        if ( (unsigned int)v17 >= *((_DWORD *)Run + 1) )
         {
-          v43[0] = 0;
-          LinkMetricsPlus = RFONTOBJ::wpgdGetLinkMetricsPlus(this, v52, v51, v6, v50, v9, v43, 0);
+          v45 = 0;
+          LinkMetricsPlus = RFONTOBJ::wpgdGetLinkMetricsPlus(this, v55, v54, v6, v53, v10, (int *)&v45, 0);
           if ( !LinkMetricsPlus )
             return 0LL;
-          goto LABEL_55;
         }
-        _mm_lfence();
-        LinkMetricsPlus = *(struct _GLYPHDATA **)(*((_QWORD *)Run + 1) + 8 * v16);
+        else
+        {
+          _mm_lfence();
+          LinkMetricsPlus = *(struct _GLYPHDATA **)(*((_QWORD *)Run + 1) + 8 * v17);
+        }
       }
       if ( LinkMetricsPlus )
-        goto LABEL_55;
-      *(_QWORD *)v43 = (unsigned int)v16;
-      v46 = *((_QWORD *)v13 + 1);
-      if ( !*(_QWORD *)(*(_QWORD *)this + 480LL) && !(unsigned int)RFONTOBJ::bAllocateCache(this, a2, v16, 0LL) )
+        goto LABEL_60;
+      v20 = 8 * v17 + *((_QWORD *)v14 + 1);
+      v57 = 8 * v17;
+      v48 = (_QWORD *)v20;
+      if ( !*(_QWORD *)(*(_QWORD *)this + 480LL) && !(unsigned int)RFONTOBJ::bAllocateCache(this, a2) )
         return 0LL;
-      v19 = *(__int128 **)(*(_QWORD *)this + 480LL);
-      v20 = *(_DWORD *)(*(_QWORD *)this + 84LL);
-      v44 = v19;
-      if ( (v20 & 2) != 0 )
+      v21 = *(_QWORD *)this;
+      v22 = *(_QWORD *)(*(_QWORD *)this + 480LL);
+      if ( (*(_DWORD *)(*(_QWORD *)this + 84LL) & 2) != 0 )
       {
-        v40 = 0;
-        LOWORD(v41) = v15;
-        RFONTOBJ::vXlatGlyphArray(this, (const unsigned __int16 *)&v41, 1u, &v40, 0, 0);
-        v21 = v40;
-        v19 = v44;
-        v42 = v40;
+        v44 = v16;
+        v46[0] = 0;
+        RFONTOBJ::vXlatGlyphArray(this, &v44, 1u, v46, 0, 0);
+        v23 = v46[0];
+        v21 = *(_QWORD *)this;
+        v43 = v46[0];
       }
       else
       {
-        v21 = v15;
+        v23 = v16;
       }
-      v22 = *(_QWORD *)this;
-      if ( v21 == *(_DWORD *)(*(_QWORD *)this + 460LL) )
+      v24 = v21;
+      if ( v23 == *(_DWORD *)(v21 + 460) )
       {
-        v23 = *((_QWORD *)v19 + 1);
-        if ( v23 )
+        v25 = *(_QWORD *)(v22 + 8);
+        if ( v25 )
         {
-          v24 = *(_QWORD *)v43;
-          *(_QWORD *)(v46 + 8LL * *(_QWORD *)v43) = v23;
-LABEL_52:
-          v26 = 1;
-          goto LABEL_53;
+          *v48 = v25;
+LABEL_57:
+          v30 = 1;
+          goto LABEL_58;
         }
       }
-      if ( *(_QWORD *)(v22 + 512) + (-(__int64)(*(_DWORD *)(v22 + 640) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64 > *(_QWORD *)(v22 + 520) )
+      v26 = 24LL;
+      if ( !*(_DWORD *)(v21 + 640) )
+        v26 = 64LL;
+      if ( (unsigned __int64)(*(_QWORD *)(v21 + 512) + v26) > *(_QWORD *)(v21 + 520) )
       {
-        v25 = (_QWORD *)Win32AllocPool(1824LL, 1667326791LL, v16, LinkMetricsPlus);
-        if ( !v25 )
-          goto LABEL_26;
-        *v25 = *(_QWORD *)(v22 + 536);
-        *(_QWORD *)(v22 + 520) = v25 + 228;
-        *(_QWORD *)(v22 + 512) = v25 + 2;
-        *(_QWORD *)(v22 + 536) = v25;
+        v27 = (_QWORD *)PALLOCMEM2(0x720uLL);
+        if ( !v27 )
+        {
+          v30 = 0;
+          goto LABEL_58;
+        }
+        *v27 = *(_QWORD *)(v21 + 536);
+        *(_QWORD *)(v21 + 536) = v27;
+        *(_QWORD *)(v21 + 512) = v27 + 2;
+        *(_QWORD *)(v21 + 520) = v27 + 228;
+        v24 = *(_QWORD *)this;
       }
-      v27 = *(_QWORD *)this;
-      v53 = v27;
-      v41 = (*(_DWORD *)(v27 + 88) == 2) + 1;
-      memset_0(&v56, 0, 0x40uLL);
-      v28 = *(_DWORD *)(v27 + 640) == 0;
-      v29 = *(_QWORD *)(v27 + 128);
-      v45 = v29;
-      if ( v28 )
-        v44 = *(__int128 **)(v22 + 512);
+      v28 = (*(_DWORD *)(v24 + 88) == 2) + 1;
+      v59 = 0LL;
+      v45 = v28;
+      v60 = 0LL;
+      v61 = 0LL;
+      v62 = 0LL;
+      v29 = *(_QWORD *)(v24 + 128);
+      if ( *(_DWORD *)(v24 + 640) )
+        *(_QWORD *)v46 = &v59;
       else
-        v44 = &v56;
-      v30 = *(_QWORD *)(v27 + 112);
-      v48 = 0LL;
-      v49 = 0;
-      v54 = v30;
+        *(_QWORD *)v46 = *(_QWORD *)(v21 + 512);
+      v56 = *(_QWORD *)(v24 + 112);
       v31 = *(_QWORD *)(v29 + 88);
-      v32 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD, __int128 *, _QWORD, _DWORD))(v31 + 2888);
-      if ( (*(_DWORD *)(v31 + 40) & 0x2000) != 0 )
+      v51 = 0LL;
+      v52 = 0;
+      v32 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD))(v31 + 2912);
+      if ( (*(_DWORD *)(v31 + 40) & 0x2000) != 0 && *(_DWORD *)(v29 + 36) <= 3u )
       {
-        v40 = *(_DWORD *)(v29 + 36);
-        if ( v40 <= 3 )
+        v33 = *(_DWORD *)(v29 + 52);
+        if ( (v33 & 0x1000) != 0 )
         {
-          if ( (*(_DWORD *)(v29 + 52) & 0x1000) != 0 )
+          MicrosoftTelemetryAssertTriggeredNoArgsKM();
+          v33 = *(_DWORD *)(v29 + 52);
+        }
+        if ( (v33 & 0x2000) != 0 )
+          MicrosoftTelemetryAssertTriggeredNoArgsKM();
+        v34 = *(_DWORD *)(v29 + 36);
+        v35 = 0;
+        if ( v34 )
+        {
+          v36 = *(struct _FONTFILEVIEW ***)(v29 + 200);
+          v37 = v36;
+          while ( 1 )
           {
-            MicrosoftTelemetryAssertTriggeredNoArgsKM();
-            v29 = v45;
+            v38 = *((_DWORD *)*v37 + 10);
+            if ( (v38 & 0x10) == 0 && (v38 & 8) != 0 && !*((_QWORD *)*v37 + 6) )
+              break;
+            ++v35;
+            ++v37;
+            if ( v35 >= v34 )
+              goto LABEL_48;
           }
-          if ( (*(_DWORD *)(v29 + 52) & 0x2000) != 0 )
+          v66 = 0LL;
+          *(_QWORD *)v63 = 0LL;
+          v64 = 0;
+          *(_OWORD *)v65 = 0LL;
+          if ( MapFontFiles(v34, v36, v65, v63) )
           {
-            MicrosoftTelemetryAssertTriggeredNoArgsKM();
-            v29 = v45;
-          }
-          v33 = 0;
-          if ( v40 )
-          {
-            v34 = *(struct _FONTFILEVIEW ***)(v29 + 200);
-            v35 = v34;
-            while ( 1 )
-            {
-              v36 = *((_DWORD *)*v35 + 10);
-              if ( (v36 & 0x10) == 0 && (v36 & 8) != 0 && !*((_QWORD *)*v35 + 6) )
-                break;
-              ++v33;
-              ++v35;
-              if ( v33 >= v40 )
-                goto LABEL_46;
-            }
-            v61 = 0LL;
-            *(_QWORD *)v58 = 0LL;
-            v59 = 0;
-            *(_OWORD *)v60 = 0LL;
-            if ( MapFontFiles(v40, v34, v60, v58) )
-            {
-              v48 = *(_QWORD *)(v45 + 200);
-              v49 = v40;
-            }
+            v51 = *(_QWORD *)(v29 + 200);
+            v52 = *(_DWORD *)(v29 + 36);
           }
         }
       }
-LABEL_46:
-      v37 = v32(v54, v53, v41, v42, v44, 0LL, 0);
-      if ( !ValidateGlyphDataAndBitmap(v37, v41, 0LL) )
-        v37 = -1;
-      ATTACHOBJ::~ATTACHOBJ((ATTACHOBJ *)&v48);
-      if ( v37 != -1 )
+LABEL_48:
+      v39 = v32(v56, v24, v45, v43, *(_QWORD *)v46, 0LL, 0);
+      if ( !ValidateGlyphDataAndBitmap(v39, v45, 0LL) )
+        v39 = -1;
+      ATTACHOBJ::~ATTACHOBJ((ATTACHOBJ *)&v51);
+      if ( v39 != -1 )
       {
         if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
         {
-          v38 = *(_QWORD *)(v22 + 512);
-          *(_OWORD *)v38 = v56;
-          *(_QWORD *)(v38 + 16) = v57;
+          v40 = *(_QWORD *)(v21 + 512);
+          *(_OWORD *)v40 = v59;
+          *(_QWORD *)(v40 + 16) = v60;
         }
-        v24 = *(_QWORD *)v43;
-        v39 = v46;
-        **(_QWORD **)(v22 + 512) = 0LL;
-        *(_QWORD *)(v39 + 8 * v24) = *(_QWORD *)(v22 + 512);
-        *(_QWORD *)(v22 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
-        goto LABEL_52;
+        v41 = v48;
+        **(_QWORD **)(v21 + 512) = 0LL;
+        *v41 = *(_QWORD *)(v21 + 512);
+        v42 = 24LL;
+        if ( !*(_DWORD *)(*(_QWORD *)this + 640LL) )
+          v42 = 64LL;
+        *(_QWORD *)(v21 + 512) += v42;
+        goto LABEL_57;
       }
-LABEL_26:
-      v24 = *(_QWORD *)v43;
-      v26 = 0;
-LABEL_53:
-      if ( !v26 )
+      v30 = 0;
+LABEL_58:
+      if ( !v30 )
         return 0LL;
-      LinkMetricsPlus = *(struct _GLYPHDATA **)(*((_QWORD *)v13 + 1) + 8 * v24);
-LABEL_55:
+      v6 = v49;
+      LODWORD(v10) = v47;
+      LinkMetricsPlus = *(struct _GLYPHDATA **)(v57 + *((_QWORD *)v14 + 1));
+LABEL_60:
       ++v6;
-      v7->hg = LinkMetricsPlus->hg;
-      v7->pgdf = &LinkMetricsPlus->gdf;
-      ++v7;
-      if ( v6 >= v55 )
+      a3->hg = LinkMetricsPlus->hg;
+      a3->pgdf = &LinkMetricsPlus->gdf;
+      ++a3;
+      v49 = v6;
+      if ( v6 >= v58 )
         return 1LL;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPublishPowerButtonState @ 0x140877154
+ * XREFs of PopPublishPowerButtonState @ 0x140877134
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1402E46A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopPublishPowerButtonState(_DWORD *a1)

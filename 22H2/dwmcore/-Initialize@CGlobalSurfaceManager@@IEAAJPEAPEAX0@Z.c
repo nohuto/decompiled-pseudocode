@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z @ 0x1800CCBBC
+ * XREFs of ?Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z @ 0x1800B5238
  * Callers:
- *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800CC058 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
+ *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800B5194 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateTokenThread@CSurfaceManager@@IEAAJP6AKPEAX@ZPEBG@Z @ 0x1800CD650 (-CreateTokenThread@CSurfaceManager@@IEAAJP6AKPEAX@ZPEBG@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CEACC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030E04 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateTokenThread@CGlobalSurfaceManager@@IEAAJXZ @ 0x1800B53CC (-CreateTokenThread@CGlobalSurfaceManager@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::Initialize(CGlobalSurfaceManager *this, void **a2, void **a3)
@@ -16,81 +16,90 @@ __int64 __fastcall CGlobalSurfaceManager::Initialize(CGlobalSurfaceManager *this
   __int64 v9; // rcx
   int v10; // ebx
   LPVOID v11; // rax
-  unsigned int (*v12)(void *); // rdx
-  const unsigned __int16 *v13; // r8
+  HANDLE EventW; // rax
   int TokenThread; // eax
-  int v15; // ebx
-  int v17; // r9d
+  int v14; // ebx
+  int v16; // r9d
   signed int LastError; // eax
   unsigned int dwNumberOfBytesToMap; // [rsp+20h] [rbp-60h]
-  char *v20; // [rsp+30h] [rbp-50h]
-  __int64 v21; // [rsp+38h] [rbp-48h] BYREF
-  char v22; // [rsp+40h] [rbp-40h]
-  char *v23; // [rsp+48h] [rbp-38h]
-  __int64 v24; // [rsp+50h] [rbp-30h] BYREF
-  char v25; // [rsp+58h] [rbp-28h]
-  char *v26; // [rsp+60h] [rbp-20h]
-  __int64 v27; // [rsp+68h] [rbp-18h] BYREF
-  char v28; // [rsp+70h] [rbp-10h]
+  void **v19; // [rsp+30h] [rbp-50h]
+  void *v20; // [rsp+38h] [rbp-48h] BYREF
+  char v21; // [rsp+40h] [rbp-40h]
+  void **v22; // [rsp+48h] [rbp-38h]
+  void *v23; // [rsp+50h] [rbp-30h] BYREF
+  char v24; // [rsp+58h] [rbp-28h]
+  void **v25; // [rsp+60h] [rbp-20h]
+  void *v26; // [rsp+68h] [rbp-18h] BYREF
+  char v27; // [rsp+70h] [rbp-10h]
 
-  v28 = 1;
-  v3 = (void **)((char *)this + 472);
-  v27 = 0LL;
-  v4 = (void **)((char *)this + 136);
-  v26 = (char *)this + 472;
-  v5 = (HANDLE *)((char *)this + 96);
-  v23 = (char *)this + 136;
-  v24 = 0LL;
-  v25 = 1;
-  v20 = (char *)this + 96;
-  v21 = 0LL;
-  v22 = 1;
-  v10 = NtTokenManagerOpenSectionAndEvents(&v21, (char *)this + 112, &v24, &v27);
-  if ( v22 )
+  v27 = 1;
+  v3 = (void **)((char *)this + 440);
+  v26 = 0LL;
+  v4 = (void **)((char *)this + 432);
+  v25 = (void **)((char *)this + 440);
+  v5 = (HANDLE *)((char *)this + 448);
+  v22 = (void **)((char *)this + 432);
+  v23 = 0LL;
+  v24 = 1;
+  v19 = (void **)((char *)this + 448);
+  v20 = 0LL;
+  v21 = 1;
+  v10 = NtTokenManagerOpenSectionAndEvents(&v20, (char *)this + 464, &v23, &v26);
+  if ( v21 )
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      v20,
-      v21);
-  if ( v25 )
+      v19,
+      v20);
+  if ( v24 )
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      v23,
-      v24);
-  if ( v28 )
+      v22,
+      v23);
+  if ( v27 )
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      v26,
-      v27);
+      v25,
+      v26);
   if ( v10 < 0 )
   {
-    v15 = v10 | 0x10000000;
-    dwNumberOfBytesToMap = 89;
-LABEL_16:
-    v17 = v15;
-LABEL_20:
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v17, dwNumberOfBytesToMap, 0LL);
-    return (unsigned int)v15;
+    v14 = v10 | 0x10000000;
+    dwNumberOfBytesToMap = 100;
+LABEL_15:
+    v16 = v14;
+LABEL_22:
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v16, dwNumberOfBytesToMap, 0LL);
+    return (unsigned int)v14;
   }
   SetLastError(0);
-  v11 = MapViewOfFile(*v5, 4u, 0, 0, *((_QWORD *)this + 14));
+  v11 = MapViewOfFile(*v5, 4u, 0, 0, *((_QWORD *)this + 58));
   if ( !v11 )
   {
     LastError = GetLastError();
-    v15 = LastError;
+    v14 = LastError;
     if ( LastError > 0 )
-      v15 = (unsigned __int16)LastError | 0x80070000;
-    if ( v15 >= 0 )
-      v15 = -2003304445;
-    dwNumberOfBytesToMap = 95;
-    goto LABEL_16;
+      v14 = (unsigned __int16)LastError | 0x80070000;
+    dwNumberOfBytesToMap = 106;
+    if ( v14 >= 0 )
+      v14 = -2003304445;
+    goto LABEL_15;
   }
-  *((_QWORD *)this + 13) = v11;
-  TokenThread = CSurfaceManager::CreateTokenThread(this, v12, v13);
-  v15 = TokenThread;
+  *((_QWORD *)this + 57) = v11;
+  EventW = CreateEventW(0LL, 1, 0, 0LL);
+  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+    (void **)this + 53,
+    EventW);
+  if ( ((*((_QWORD *)this + 53) + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) == 0 )
+  {
+    v14 = -2147024882;
+    dwNumberOfBytesToMap = 115;
+    goto LABEL_15;
+  }
+  TokenThread = CGlobalSurfaceManager::CreateTokenThread(this);
+  v14 = TokenThread;
   if ( TokenThread < 0 )
   {
-    v17 = TokenThread;
-    dwNumberOfBytesToMap = 100;
-    goto LABEL_20;
+    v16 = TokenThread;
+    dwNumberOfBytesToMap = 118;
+    goto LABEL_22;
   }
   *a2 = *v4;
   *a3 = *v3;
-  return (unsigned int)v15;
+  return (unsigned int)v14;
 }

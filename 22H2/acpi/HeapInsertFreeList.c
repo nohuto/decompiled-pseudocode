@@ -1,31 +1,31 @@
 /*
- * XREFs of HeapInsertFreeList @ 0x1C004EEC4
+ * XREFs of HeapInsertFreeList @ 0x1C0002F50
  * Callers:
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     ParseCall @ 0x1C0006B60 (ParseCall.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall HeapInsertFreeList(__int64 a1, unsigned int *a2)
 {
-  unsigned int *v2; // r9
+  unsigned int *v2; // r10
   unsigned int *v4; // rax
   __int64 **v5; // rcx
   __int64 *v6; // r8
-  _QWORD *v7; // r10
+  _QWORD *v7; // r9
   __int64 v8; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  unsigned int *v12; // rax
-  unsigned int *v13; // r10
+  unsigned int *v9; // rax
+  unsigned int *v10; // r9
+  _QWORD *result; // rax
+  _QWORD *v12; // rdx
+  __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 *v15; // rcx
   __int64 **v16; // rax
-  _QWORD *result; // rax
-  _QWORD *v18; // rdx
-  __int64 v19; // rcx
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  _QWORD *v19; // rax
 
   v2 = (unsigned int *)(a1 + 40);
   v4 = *(unsigned int **)(a1 + 40);
@@ -51,28 +51,28 @@ _QWORD *__fastcall HeapInsertFreeList(__int64 a1, unsigned int *a2)
   v8 = *v6 - 16;
   if ( (unsigned int *)*v6 != v2 )
   {
-    v9 = a2[1];
-    if ( (unsigned int *)v8 == (unsigned int *)((char *)a2 + v9) )
+    v17 = a2[1];
+    if ( (unsigned int *)v8 == (unsigned int *)((char *)a2 + v17) )
     {
-      a2[1] = *(_DWORD *)(v8 + 4) + v9;
-      v10 = *v7;
+      a2[1] = *(_DWORD *)(v8 + 4) + v17;
+      v18 = *v7;
       if ( *(_QWORD **)(*v7 + 8LL) != v7 )
         goto LABEL_20;
-      v11 = (_QWORD *)v7[1];
-      if ( (_QWORD *)*v11 != v7 )
+      v19 = (_QWORD *)v7[1];
+      if ( (_QWORD *)*v19 != v7 )
         goto LABEL_20;
-      *v11 = v10;
-      *(_QWORD *)(v10 + 8) = v11;
+      *v19 = v18;
+      *(_QWORD *)(v18 + 8) = v19;
     }
   }
-  v12 = (unsigned int *)*((_QWORD *)a2 + 3);
-  v13 = v12 - 4;
-  if ( v12 != v2 )
+  v9 = (unsigned int *)*((_QWORD *)a2 + 3);
+  v10 = v9 - 4;
+  if ( v9 != v2 )
   {
-    v14 = v13[1];
-    if ( a2 == (unsigned int *)((char *)v13 + v14) )
+    v14 = v10[1];
+    if ( a2 == (unsigned int *)((char *)v10 + v14) )
     {
-      v13[1] = a2[1] + v14;
+      v10[1] = a2[1] + v14;
       v15 = (__int64 *)*v6;
       if ( *(__int64 **)(*v6 + 8) != v6 )
         goto LABEL_20;
@@ -80,7 +80,7 @@ _QWORD *__fastcall HeapInsertFreeList(__int64 a1, unsigned int *a2)
       if ( *v16 != v6 )
         goto LABEL_20;
       *v16 = v15;
-      a2 = v13;
+      a2 = v10;
       v15[1] = (__int64)v16;
     }
   }
@@ -88,12 +88,12 @@ _QWORD *__fastcall HeapInsertFreeList(__int64 a1, unsigned int *a2)
   if ( *(_QWORD *)(a1 + 32) > (unsigned __int64)result )
     return result;
   *(_QWORD *)(a1 + 32) = a2;
-  v18 = a2 + 4;
-  v19 = *v18;
-  if ( *(_QWORD **)(*v18 + 8LL) != v18 || (result = (_QWORD *)v18[1], (_QWORD *)*result != v18) )
+  v12 = a2 + 4;
+  v13 = *v12;
+  if ( *(_QWORD **)(*v12 + 8LL) != v12 || (result = (_QWORD *)v12[1], (_QWORD *)*result != v12) )
 LABEL_20:
     __fastfail(3u);
-  *result = v19;
-  *(_QWORD *)(v19 + 8) = result;
+  *result = v13;
+  *(_QWORD *)(v13 + 8) = result;
   return result;
 }

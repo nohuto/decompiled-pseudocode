@@ -1,16 +1,16 @@
 /*
- * XREFs of ExGetNextWakeTime @ 0x140A6CA38
+ * XREFs of ExGetNextWakeTime @ 0x1409B2DE8
  * Callers:
- *     PopIsWakeTimerImmanent @ 0x140997674 (PopIsWakeTimerImmanent.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopIsWakeTimerImmanent @ 0x1408F05D4 (PopIsWakeTimerImmanent.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoStoreDiagnosticContext @ 0x14036AAF4 (PoStoreDiagnosticContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeQueryTimerDueTime @ 0x14056DF08 (KeQueryTimerDueTime.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoStoreDiagnosticContext @ 0x14038AC9C (PoStoreDiagnosticContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryTimerDueTime @ 0x140515E08 (KeQueryTimerDueTime.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall ExGetNextWakeTime(

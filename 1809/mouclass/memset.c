@@ -1,1 +1,89 @@
-/*\n * XREFs of memset @ 0x1C0001AC0\n * Callers:\n *     MouseStart @ 0x1C0004264 (MouseStart.c)\n *     MouCreateClassObject @ 0x1C000C410 (MouCreateClassObject.c)\n *     MouDeterminePortsServiced @ 0x1C000C940 (MouDeterminePortsServiced.c)\n *     MouseAddDeviceEx @ 0x1C000CD54 (MouseAddDeviceEx.c)\n *     MouseClassFindMorePorts @ 0x1C000D530 (MouseClassFindMorePorts.c)\n *     MouseClassGetWaitWakeEnableState @ 0x1C000D9E0 (MouseClassGetWaitWakeEnableState.c)\n *     WppTraceCallback @ 0x1C000E3B0 (WppTraceCallback.c)\n *     DriverEntry @ 0x1C000F080 (DriverEntry.c)\n *     MouConfiguration @ 0x1C000FA00 (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\nvoid *__cdecl memset(void *a1, int Val, size_t Size)\n{\n  void *result; // rax\n  __int64 v4; // rdx\n  size_t v5; // r9\n  char *v6; // rcx\n  size_t v7; // r8\n  __m128 v8; // xmm0\n  char *v9; // r8\n  __m128 *v10; // rcx\n  unsigned __int64 v11; // r8\n  unsigned __int64 v12; // r9\n  unsigned __int64 i; // r9\n  __int64 v14; // r8\n\n  result = a1;\n  if ( Size < 8 )\n  {\n    for ( ; Size; --Size )\n      *((char *)a1 + Size - 1) = Val;\n  }\n  else\n  {\n    v4 = 0x101010101010101LL * (unsigned __int8)Val;\n    if ( Size >= 0x4F )\n    {\n      v8 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);\n      *(__m128 *)a1 = v8;\n      v9 = (char *)a1 + Size;\n      v10 = (__m128 *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);\n      v11 = v9 - (char *)v10;\n      v12 = v11 >> 7;\n      if ( v11 >> 7 )\n      {\n        do\n        {\n          *v10 = v8;\n          v10[1] = v8;\n          v10 += 8;\n          v10[-6] = v8;\n          v10[-5] = v8;\n          --v12;\n          v10[-4] = v8;\n          v10[-3] = v8;\n          v10[-2] = v8;\n          v10[-1] = v8;\n        }\n        while ( v12 );\n        v11 &= 0x7Fu;\n      }\n      for ( i = v11 >> 4; i; --i )\n        *v10++ = v8;\n      v14 = v11 & 0xF;\n      if ( v14 )\n        *(__m128 *)((char *)v10 + v14 - 16) = v8;\n    }\n    else\n    {\n      v5 = Size & 0x78;\n      v6 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);\n      do\n      {\n        *(_QWORD *)((char *)result + v5 - 8) = v4;\n        v5 -= 8LL;\n      }\n      while ( v5 );\n      v7 = Size & 7;\n      if ( v7 )\n        *(_QWORD *)&v6[v7 - 8] = v4;\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of memset @ 0x1C0001AC0
+ * Callers:
+ *     MouseStart @ 0x1C0004264 (MouseStart.c)
+ *     MouCreateClassObject @ 0x1C000C410 (MouCreateClassObject.c)
+ *     MouDeterminePortsServiced @ 0x1C000C940 (MouDeterminePortsServiced.c)
+ *     MouseAddDeviceEx @ 0x1C000CD54 (MouseAddDeviceEx.c)
+ *     MouseClassFindMorePorts @ 0x1C000D530 (MouseClassFindMorePorts.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000D9E0 (MouseClassGetWaitWakeEnableState.c)
+ *     WppTraceCallback @ 0x1C000E3B0 (WppTraceCallback.c)
+ *     DriverEntry @ 0x1C000F080 (DriverEntry.c)
+ *     MouConfiguration @ 0x1C000FA00 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void *__cdecl memset(void *a1, int Val, size_t Size)
+{
+  void *result; // rax
+  __int64 v4; // rdx
+  size_t v5; // r9
+  char *v6; // rcx
+  size_t v7; // r8
+  __m128 v8; // xmm0
+  char *v9; // r8
+  __m128 *v10; // rcx
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  unsigned __int64 i; // r9
+  __int64 v14; // r8
+
+  result = a1;
+  if ( Size < 8 )
+  {
+    for ( ; Size; --Size )
+      *((char *)a1 + Size - 1) = Val;
+  }
+  else
+  {
+    v4 = 0x101010101010101LL * (unsigned __int8)Val;
+    if ( Size >= 0x4F )
+    {
+      v8 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
+      *(__m128 *)a1 = v8;
+      v9 = (char *)a1 + Size;
+      v10 = (__m128 *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
+      v11 = v9 - (char *)v10;
+      v12 = v11 >> 7;
+      if ( v11 >> 7 )
+      {
+        do
+        {
+          *v10 = v8;
+          v10[1] = v8;
+          v10 += 8;
+          v10[-6] = v8;
+          v10[-5] = v8;
+          --v12;
+          v10[-4] = v8;
+          v10[-3] = v8;
+          v10[-2] = v8;
+          v10[-1] = v8;
+        }
+        while ( v12 );
+        v11 &= 0x7Fu;
+      }
+      for ( i = v11 >> 4; i; --i )
+        *v10++ = v8;
+      v14 = v11 & 0xF;
+      if ( v14 )
+        *(__m128 *)((char *)v10 + v14 - 16) = v8;
+    }
+    else
+    {
+      v5 = Size & 0x78;
+      v6 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);
+      do
+      {
+        *(_QWORD *)((char *)result + v5 - 8) = v4;
+        v5 -= 8LL;
+      }
+      while ( v5 );
+      v7 = Size & 7;
+      if ( v7 )
+        *(_QWORD *)&v6[v7 - 8] = v4;
+    }
+  }
+  return result;
+}

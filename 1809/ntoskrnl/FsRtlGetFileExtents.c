@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetFileExtents @ 0x14026E578
+ * XREFs of FsRtlGetFileExtents @ 0x14026E678
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
- *     MiComputeIdealFirstSubsection @ 0x1408529E4 (MiComputeIdealFirstSubsection.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MiComputeIdealFirstSubsection @ 0x1408529C4 (MiComputeIdealFirstSubsection.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IoAllocateIrpEx @ 0x1400B9250 (IoAllocateIrpEx.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     IoSynchronousCallDriver @ 0x1401281F0 (IoSynchronousCallDriver.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     IoSynchronousCallDriver @ 0x140128210 (IoSynchronousCallDriver.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlGetFileExtents(struct _FILE_OBJECT *a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

@@ -1,35 +1,39 @@
 /*
- * XREFs of UsbDevice_DropEndpointsCompletion @ 0x1C00465E0
+ * XREFs of UsbDevice_DropEndpointsCompletion @ 0x1C0046120
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
  */
 
 __int64 __fastcall UsbDevice_DropEndpointsCompletion(__int64 a1, int a2)
 {
-  _QWORD *v2; // rbx
+  __int64 v2; // rbx
   int v3; // edx
-  unsigned __int16 v4; // r9
+  int v4; // r9d
   unsigned int v5; // edi
+  int v6; // edx
+  char v8; // [rsp+28h] [rbp-20h]
 
-  v2 = *(_QWORD **)(a1 + 48);
+  v2 = *(_QWORD *)(a1 + 48);
   if ( a2 == 3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v3 = *((unsigned __int8 *)v2 + 135);
+      v3 = *(unsigned __int8 *)(v2 + 135);
       v4 = 73;
 LABEL_9:
+      v8 = v3;
+      LOBYTE(v3) = 4;
       WPP_RECORDER_SF_dq(
-        *(_QWORD *)(v2[1] + 72LL),
-        4u,
-        0xCu,
-        v4,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        *(_QWORD *)(*(_QWORD *)(v2 + 8) + 72LL),
         v3,
-        *v2);
+        12,
+        v4,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
+        v8,
+        *(_QWORD *)v2);
       goto LABEL_10;
     }
     goto LABEL_10;
@@ -44,19 +48,23 @@ LABEL_9:
       goto LABEL_9;
     }
 LABEL_10:
-    if ( *((_DWORD *)v2 + 112) == 259 )
-      *((_DWORD *)v2 + 112) = -1073741823;
+    if ( *(_DWORD *)(v2 + 448) == 259 )
+      *(_DWORD *)(v2 + 448) = -1073741823;
     v5 = 2;
-    return UsbDevice_QueueConfigureEndpointEvent((__int64)v2, v5);
+    return UsbDevice_QueueConfigureEndpointEvent(v2, v5);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v6 = *(unsigned __int8 *)(a1 + 61);
+    LOBYTE(v6) = 4;
     WPP_RECORDER_SF_dq(
-      *(_QWORD *)(v2[1] + 72LL),
-      4u,
-      0xCu,
-      0x4Au,
-      (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
-      *(unsigned __int8 *)(a1 + 61),
-      *v2);
-  return UsbDevice_QueueConfigureEndpointEvent((__int64)v2, v5);
+      *(_QWORD *)(*(_QWORD *)(v2 + 8) + 72LL),
+      v6,
+      12,
+      74,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
+      *(_BYTE *)(a1 + 61),
+      *(_QWORD *)v2);
+  }
+  return UsbDevice_QueueConfigureEndpointEvent(v2, v5);
 }

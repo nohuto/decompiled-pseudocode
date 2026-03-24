@@ -1,24 +1,28 @@
 /*
- * XREFs of ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C016DF60
+ * XREFs of ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C0141090
  * Callers:
- *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C00921C0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C0081A70 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
  * Callees:
- *     ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C016E0D4 (-vInit@HFDBASIS64@@QEAAXJJJJ@Z.c)
+ *     ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C0141214 (-vInit@HFDBASIS64@@QEAAXJJJJ@Z.c)
  */
 
 void __fastcall BEZIER64::vInit(struct _RECTFX *this, struct _POINTFIX *a2, struct _RECTFX *a3, const __int64 *a4)
 {
   struct _RECTFX *v8; // rax
-  __int64 v9; // rbx
+  __int64 v9; // r10
   __int64 v10; // r8
-  __int64 v11; // r10
+  __int64 v11; // r9
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // rax
   __int64 v15; // rcx
   __int64 v16; // rax
-  __int64 v17; // rax
-  __int64 v18; // rax
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int64 v19; // rax
+  __int64 v20; // r10
+  __int64 v21; // r9
+  __int64 v22; // rax
 
   this[10].yTop = 0;
   this[10].xLeft = 1;
@@ -70,18 +74,22 @@ void __fastcall BEZIER64::vInit(struct _RECTFX *this, struct _POINTFIX *a2, stru
       if ( v15 <= geqErrorHigh )
         break;
     }
-    v17 = *(_QWORD *)&this[4].xRight;
+    v17 = *(_QWORD *)&this[5].xRight;
+    v18 = *(_QWORD *)&this[7].xRight;
+    v19 = *(_QWORD *)&this[4].xRight;
+    v20 = v17 + *(_QWORD *)&this[5].xLeft;
+    v21 = *(_QWORD *)&this[7].xLeft;
     this[10].xLeft *= 2;
-    v9 = (v10 + v9) >> 3;
-    v11 = (v12 + v11) >> 3;
-    *(_QWORD *)&this[4].xRight = (v17 - v9) >> 1;
-    v10 >>= 2;
-    v18 = (*(_QWORD *)&this[6].xRight - v11) >> 1;
-    v12 >>= 2;
+    v9 = v20 >> 3;
+    v11 = (v18 + v21) >> 3;
+    *(_QWORD *)&this[4].xRight = (v19 - v9) >> 1;
+    v10 = v17 >> 2;
+    v22 = (*(_QWORD *)&this[6].xRight - v11) >> 1;
+    v12 = v18 >> 2;
     *(_QWORD *)&this[7].xRight = v12;
     *(_QWORD *)&this[5].xLeft = v9;
     *(_QWORD *)&this[5].xRight = v10;
     *(_QWORD *)&this[7].xLeft = v11;
-    *(_QWORD *)&this[6].xRight = v18;
+    *(_QWORD *)&this[6].xRight = v22;
   }
 }

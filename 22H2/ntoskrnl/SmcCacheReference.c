@@ -1,29 +1,34 @@
 /*
- * XREFs of SmcCacheReference @ 0x1409DAEA0
+ * XREFs of SmcCacheReference @ 0x14092D754
  * Callers:
- *     SmcGetCacheStats @ 0x1409DB190 (SmcGetCacheStats.c)
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
- *     SmcStoreDelete @ 0x1409DB568 (SmcStoreDelete.c)
- *     SmcStoreResize @ 0x1409DB824 (SmcStoreResize.c)
- *     SmcVolumePnpNotification @ 0x1409DBD60 (SmcVolumePnpNotification.c)
+ *     SmcGetCacheStats @ 0x14092DA30 (SmcGetCacheStats.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
+ *     SmcStoreDelete @ 0x14092DE00 (SmcStoreDelete.c)
+ *     SmcStoreResize @ 0x14092E0C8 (SmcStoreResize.c)
+ *     SmcVolumePnpNotification @ 0x14092E620 (SmcVolumePnpNotification.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
-__int64 __fastcall SmcCacheReference(__int64 a1, unsigned int a2)
+struct _EX_RUNDOWN_REF __fastcall SmcCacheReference(__int64 a1, unsigned int a2)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rdi
+  struct _EX_RUNDOWN_REF v3; // rsi
+  struct _EX_RUNDOWN_REF *v4; // rbx
+  BOOLEAN v5; // dl
 
-  v3 = 0LL;
-  v4 = a1 + 32LL * (a2 & 0xF);
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v4 + 8)) )
+  v3.Count = 0LL;
+  v4 = (struct _EX_RUNDOWN_REF *)(a1 + 32LL * (a2 & 0xF));
+  v5 = ExAcquireRundownProtection(v4 + 1);
+  if ( v5 )
   {
-    if ( (*(_DWORD *)(v4 + 24) & 0xFFF) == a2 >> 4 )
-      return *(_QWORD *)v4;
-    else
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v4 + 8));
+    if ( (v4[3].Count & 0xFFF) == a2 >> 4 )
+    {
+      v3.Count = v4->Count;
+      v5 = 0;
+    }
+    if ( v5 )
+      ExReleaseRundownProtection(v4 + 1);
   }
   return v3;
 }

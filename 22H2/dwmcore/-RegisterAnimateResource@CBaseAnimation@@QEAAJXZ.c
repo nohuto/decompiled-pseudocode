@@ -1,64 +1,31 @@
 /*
- * XREFs of ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800F3434
+ * XREFs of ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x180029D80
  * Callers:
- *     ?ProcessSetPrimitives@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPRIMITIVES@@@Z @ 0x1800F3394 (-ProcessSetPrimitives@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPRIMITIVES.c)
- *     ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x18021FA18 (-ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z.c)
- *     ?OnAddBinding@CScalar@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x18024E880 (-OnAddBinding@CScalar@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z.c)
- *     ?ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z @ 0x18024E8BC (-ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z.c)
- *     ?ProcessTrigger@CLegacyAnimationTrigger@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYANIMATIONTRIGGER_TRIGGER@@@Z @ 0x180257088 (-ProcessTrigger@CLegacyAnimationTrigger@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYANIMATIONT.c)
+ *     ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x1800168A8 (-ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z.c)
+ *     ?ProcessTrigger@CLegacyAnimationTrigger@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYANIMATIONTRIGGER_TRIGGER@@@Z @ 0x18001FBD8 (-ProcessTrigger@CLegacyAnimationTrigger@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYANIMATIONT.c)
+ *     ?ProcessSetPrimitives@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPRIMITIVES@@@Z @ 0x180029CE4 (-ProcessSetPrimitives@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETPRIMITIVES.c)
+ *     ?OnAddBinding@CScalar@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x1801E8780 (-OnAddBinding@CScalar@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z.c)
+ *     ?ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z @ 0x1801E87BC (-ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?RegisterAnimateResource@CComposition@@QEAAJPEAUIAnimationResource@@@Z @ 0x180029DC4 (-RegisterAnimateResource@CComposition@@QEAAJPEAUIAnimationResource@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CBaseAnimation::RegisterAnimateResource(CBaseAnimation *this)
+__int64 __fastcall CBaseAnimation::RegisterAnimateResource(CComposition **this)
 {
   unsigned int v1; // ebx
-  __int64 v3; // r10
-  unsigned int v4; // eax
-  unsigned int v5; // edx
-  unsigned int v6; // edi
-  int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // ebp
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  char *v13; // [rsp+40h] [rbp+8h] BYREF
+  int v3; // eax
+  unsigned int v4; // ecx
 
   v1 = 0;
-  if ( !*((_BYTE *)this + 104) )
+  if ( !*((_BYTE *)this + 96) )
   {
-    v3 = *((_QWORD *)this + 2);
-    v13 = (char *)this + 64;
-    v4 = *(_DWORD *)(v3 + 712);
-    v5 = v4 + 1;
-    if ( v4 + 1 < v4 )
-    {
-      v6 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
-      v10 = -2147024362;
-    }
+    v3 = CComposition::RegisterAnimateResource(this[2], (struct IAnimationResource *)(this + 7));
+    v1 = v3;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x78u, 0LL);
     else
-    {
-      v6 = 0;
-      if ( v5 <= *(_DWORD *)(v3 + 708) )
-      {
-        *(_QWORD *)(*(_QWORD *)(v3 + 688) + 8LL * v4) = (char *)this + 64;
-        *(_DWORD *)(v3 + 712) = v5;
-LABEL_5:
-        *((_BYTE *)this + 104) = 1;
-        return v6;
-      }
-      v8 = DynArrayImpl<0>::AddMultipleAndSet(v3 + 688, 8, 1, &v13);
-      v6 = v8;
-      v10 = v8;
-      if ( v8 >= 0 )
-        goto LABEL_5;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC0u, 0LL);
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v6, 0x781u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v6, 0x78u, 0LL);
-    return v10;
+      *((_BYTE *)this + 96) = 1;
   }
   return v1;
 }

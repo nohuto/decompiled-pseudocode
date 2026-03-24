@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeletePxeSharedLocks @ 0x1401B57B4
+ * XREFs of MiDeletePxeSharedLocks @ 0x1401B57D4
  * Callers:
  *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
  * Callees:

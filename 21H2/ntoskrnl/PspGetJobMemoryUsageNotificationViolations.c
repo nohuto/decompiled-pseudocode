@@ -1,9 +1,8 @@
 /*
- * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x1406FF050
+ * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x140618998
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x1406FECE0 (PspChangeJobMemoryUsageByProcess.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +18,7 @@ __int64 __fastcall PspGetJobMemoryUsageNotificationViolations(
   __int64 result; // rax
   unsigned __int64 v7; // rcx
 
-  v4 = *(_QWORD *)(a1 + 1176);
+  v4 = *(_QWORD *)(a1 + 984);
   if ( (*(_DWORD *)v4 & 0x200000) == 0 )
     a3 = a2;
   v5 = *(_QWORD *)(v4 + 40);

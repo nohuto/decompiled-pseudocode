@@ -1,158 +1,142 @@
 /*
- * XREFs of ?DmmEscape@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DMM_ESCAPE_INTERNAL@@@Z @ 0x1C03ACB98
+ * XREFs of ?DmmEscape@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DMM_ESCAPE_INTERNAL@@@Z @ 0x1C02DCBB0
  * Callers:
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C02B84D8 (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
- *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C03AAAC8 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
- *     ?MapEscapeCodeToDiagInfoType@VIDPN_MGR@@SA?AW4DIAGINFO_TYPE@1@W4_D3DKMT_DMMESCAPETYPE@@@Z @ 0x1C03AF2CC (-MapEscapeCodeToDiagInfoType@VIDPN_MGR@@SA-AW4DIAGINFO_TYPE@1@W4_D3DKMT_DMMESCAPETYPE@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C020E6EC (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
+ *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C02DAB84 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
+ *     ?MapEscapeCodeToDiagInfoType@VIDPN_MGR@@SA?AW4DIAGINFO_TYPE@1@W4_D3DKMT_DMMESCAPETYPE@@@Z @ 0x1C02DFA38 (-MapEscapeCodeToDiagInfoType@VIDPN_MGR@@SA-AW4DIAGINFO_TYPE@1@W4_D3DKMT_DMMESCAPETYPE@@@Z.c)
  */
 
 __int64 __fastcall DmmEscape(struct DXGADAPTER *const this, struct _D3DKMT_DMM_ESCAPE_INTERNAL *const a2)
 {
   struct _LUID *v4; // rdx
-  __int64 v5; // rax
-  VIDPN_MGR *v7; // rbp
-  int v8; // ecx
-  __int64 v9; // rbx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  bool v13; // zf
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  unsigned int v17; // esi
-  char *v18; // r14
-  __int128 v19; // xmm3
-  __int64 v20; // xmm0_8
-  __int64 v21; // rcx
-  unsigned int CurrentProcessSessionId; // eax
-  int v23; // eax
-  int v24; // eax
-  __int64 v25; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rax
+  unsigned __int64 v10; // rbp
+  __int64 v11; // rax
+  int v12; // eax
+  char *v13; // rbx
+  char *v14; // r14
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rax
+  unsigned int v20; // edi
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // rax
   __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rax
+  __int64 v27; // rdi
+  __int64 v28; // rdx
+  int v29; // eax
+  int v30; // eax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // rax
+  __int64 v35; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v5 = *((_QWORD *)this + 365);
-  if ( !v5 )
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    WdLogEvent5_WdAssertion(v6);
   }
-  v7 = *(VIDPN_MGR **)(v5 + 104);
+  v7 = *((_QWORD *)this + 337);
   if ( !v7 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v8 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v8 + 24) = this;
+    WdLogEvent5_WdError(v8);
+    return 3223191554LL;
+  }
+  v10 = *(_QWORD *)(v7 + 88);
+  if ( !v10 )
+  {
+    v11 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v11 + 24) = this;
+    WdLogEvent5_WdError(v11);
     return 3223192373LL;
   }
-  v8 = *(_DWORD *)a2;
-  v9 = 0LL;
-  if ( *(int *)a2 > 7 )
+  v12 = *(_DWORD *)a2;
+  v13 = 0LL;
+  if ( *(int *)a2 > 0 && (v12 <= 9 || (unsigned int)(v12 - 12) <= 2) )
   {
-    v15 = v8 - 8;
-    if ( !v15 )
-      goto LABEL_25;
-    v16 = v15 - 1;
-    if ( !v16 )
-      goto LABEL_25;
-    v14 = v16 - 3;
-    v13 = v14 == 0;
+    v14 = (char *)a2 + 24;
+    goto LABEL_19;
   }
-  else
+  v13 = (char *)operator new[](0x2CuLL, 0x4E506456u, PagedPool);
+  if ( v13 )
   {
-    if ( v8 == 7 )
-      goto LABEL_25;
-    v10 = v8 - 1;
-    if ( !v10 )
-      goto LABEL_25;
-    v11 = v10 - 1;
-    if ( !v11 )
-      goto LABEL_25;
-    v12 = v11 - 1;
-    if ( !v12 )
-      goto LABEL_25;
-    v14 = v12 - 1;
-    v13 = v14 == 0;
-  }
-  if ( v13 || (unsigned int)(v14 - 1) < 2 )
-  {
-LABEL_25:
-    v18 = (char *)a2 + 24;
-LABEL_26:
+    operator delete(0LL);
+    if ( *(_DWORD *)a2 == 10 )
+    {
+      v14 = (char *)a2 + 24;
+      *(_DWORD *)v13 = *((_DWORD *)a2 + 6);
+    }
+    else
+    {
+      if ( *(_DWORD *)a2 != 11 )
+      {
+        v21 = WdLogNewEntry5_WdError((unsigned int)(*(_DWORD *)a2 - 10), v4);
+        *(_QWORD *)(v21 + 24) = *(int *)a2;
+        WdLogEvent5_WdError(v21);
+        v20 = -1073741811;
+        goto LABEL_25;
+      }
+      v14 = (char *)a2 + 24;
+      *(_DWORD *)v13 = *((_DWORD *)a2 + 6);
+      *(_OWORD *)(v13 + 4) = *(_OWORD *)((char *)a2 + 28);
+      *(_OWORD *)(v13 + 20) = *(_OWORD *)((char *)a2 + 44);
+      *(_QWORD *)(v13 + 36) = *(_QWORD *)((char *)a2 + 60);
+    }
+LABEL_19:
     if ( DXGADAPTER::IsDiagnosticAllowed(this, v4) )
     {
-      v23 = VIDPN_MGR::MapEscapeCodeToDiagInfoType(*(unsigned int *)a2);
-      v24 = VIDPN_MGR::AcquireDiagInfo(v7, v18, *((_QWORD *)a2 + 1), v23, (int *)v9, (size_t *)a2 + 2);
-      v17 = v24;
-      if ( v24 == -2147483643 )
+      v29 = VIDPN_MGR::MapEscapeCodeToDiagInfoType(*(unsigned int *)a2);
+      v30 = VIDPN_MGR::AcquireDiagInfo(v10, v14, *((_QWORD *)a2 + 1), v29, (int *)v13, (size_t *)a2 + 2);
+      v20 = v30;
+      if ( v30 == -2147483643 )
       {
-        WdLogSingleEntry2(3LL, *((_QWORD *)a2 + 1), *(int *)a2);
-        v17 = 1075707914;
+        v34 = WdLogNewEntry5_WdWarning(v32, v31, v33);
+        *(_QWORD *)(v34 + 24) = *((_QWORD *)a2 + 1);
+        *(_QWORD *)(v34 + 32) = *(int *)a2;
+        WdLogEvent5_WdWarning(v34);
+        v20 = 1075707914;
       }
-      else if ( v24 >= 0 )
+      else if ( v30 >= 0 )
       {
-        v29 = WdLogNewEntry5_WdTrace(v26, v25, v27, v28);
-        v17 = 0;
-        *(_QWORD *)(v29 + 24) = *((_QWORD *)a2 + 1);
-        *(_QWORD *)(v29 + 32) = *(int *)a2;
+        v35 = WdLogNewEntry5_WdTrace(v32, v31);
+        v20 = 0;
+        *(_QWORD *)(v35 + 24) = *((_QWORD *)a2 + 1);
+        *(_QWORD *)(v35 + 32) = *(int *)a2;
       }
     }
     else
     {
-      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v21);
-      WdLogSingleEntry2(3LL, *(int *)a2, CurrentProcessSessionId);
-      v17 = -1073741790;
+      v25 = WdLogNewEntry5_WdWarning(v23, v22, v24);
+      v26 = *(int *)a2;
+      v27 = v25;
+      *(_QWORD *)(v25 + 24) = v26;
+      *(_QWORD *)(v25 + 32) = (unsigned int)PsGetCurrentProcessSessionId(v26, v28);
+      WdLogEvent5_WdWarning(v27);
+      v20 = -1073741790;
     }
-    goto LABEL_32;
+    goto LABEL_25;
   }
-  v9 = operator new[](0x2CuLL, 0x4E506456u, 256LL);
-  if ( !v9 )
-  {
-    WdLogSingleEntry1(6LL, 44LL);
-    v17 = -1073741801;
-    goto LABEL_32;
-  }
-  operator delete(0LL);
-  v4 = (struct _LUID *)*(int *)a2;
-  if ( *(_DWORD *)a2 == 10 )
-  {
-    v18 = (char *)a2 + 24;
-    *(_DWORD *)v9 = *((_DWORD *)a2 + 6);
-    goto LABEL_26;
-  }
-  if ( *(_DWORD *)a2 == 11 )
-  {
-    v18 = (char *)a2 + 24;
-    *(_DWORD *)v9 = *((_DWORD *)a2 + 6);
-    v19 = *(_OWORD *)((char *)a2 + 44);
-    v20 = *(_QWORD *)((char *)a2 + 60);
-    *(_OWORD *)(v9 + 4) = *(_OWORD *)((char *)a2 + 28);
-    *(_OWORD *)(v9 + 20) = v19;
-    *(_QWORD *)(v9 + 36) = v20;
-    goto LABEL_26;
-  }
-  WdLogSingleEntry1(2LL, v4);
-  v17 = -1073741811;
-LABEL_32:
-  operator delete((void *)v9);
-  return v17;
+  v19 = WdLogNewEntry5_WdLowResource(v16, v15, v17, v18);
+  *(_QWORD *)(v19 + 24) = 44LL;
+  WdLogEvent5_WdLowResource(v19);
+  v20 = -1073741801;
+LABEL_25:
+  operator delete(v13);
+  return v20;
 }

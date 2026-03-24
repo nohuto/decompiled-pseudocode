@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpProbeForWriteMessageHeader @ 0x1406A4590
+ * XREFs of AlpcpProbeForWriteMessageHeader @ 0x1406A4570
  * Callers:
  *     AlpcpProcessConnectionRequest @ 0x1406136BC (AlpcpProcessConnectionRequest.c)
- *     LpcpRequestWaitReplyPort @ 0x1406A44C8 (LpcpRequestWaitReplyPort.c)
- *     LpcpReplyWaitReplyPort @ 0x140849A60 (LpcpReplyWaitReplyPort.c)
+ *     LpcpRequestWaitReplyPort @ 0x1406A44A8 (LpcpRequestWaitReplyPort.c)
+ *     LpcpReplyWaitReplyPort @ 0x140849A40 (LpcpReplyWaitReplyPort.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 char __fastcall AlpcpProbeForWriteMessageHeader(unsigned __int64 a1, int a2)

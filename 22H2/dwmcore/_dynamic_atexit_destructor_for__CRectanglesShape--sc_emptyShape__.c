@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CRectanglesShape::sc_emptyShape__ @ 0x180124300
+ * XREFs of _dynamic_atexit_destructor_for__CRectanglesShape::sc_emptyShape__ @ 0x1800F91D0
  * Callers:
  *     <none>
  * Callees:

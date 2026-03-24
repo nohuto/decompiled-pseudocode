@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhGetHubPowerStatus @ 0x1C002BE98
+ * XREFs of UsbhGetHubPowerStatus @ 0x1C002D2B4
  * Callers:
- *     UsbhGetMaxPowerPerPort @ 0x1C002BFE4 (UsbhGetMaxPowerPerPort.c)
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
+ *     UsbhGetMaxPowerPerPort @ 0x1C002D400 (UsbhGetMaxPowerPerPort.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhQueryHubState @ 0x1C00386EC (UsbhQueryHubState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhQueryHubState @ 0x1C00399BC (UsbhQueryHubState.c)
  */
 
 void __fastcall UsbhGetHubPowerStatus(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceImageRundown @ 0x14080B4E4
+ * XREFs of EtwpTraceImageRundown @ 0x1407AE428
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
+ *     EtwpEnumerateAddressSpace @ 0x14061A8BC (EtwpEnumerateAddressSpace.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceImageRundown(
@@ -45,7 +45,7 @@ void __fastcall EtwpTraceImageRundown(
       if ( v10 )
       {
         v11 = *(_DWORD *)a1;
-        v12 = *(_QWORD *)(a1 + 1096);
+        v12 = *(_QWORD *)(a1 + 1080);
         v14 = a4;
         v13[0] = *(_QWORD *)(a5 + 8);
         v13[1] = *(_QWORD *)(a5 + 24);

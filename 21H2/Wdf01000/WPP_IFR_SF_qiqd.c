@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qiqd @ 0x1C0053BD0
+ * XREFs of WPP_IFR_SF_qiqd @ 0x1C002F9D4
  * Callers:
- *     imp_WdfDmaTransactionInitialize @ 0x1C0054510 (imp_WdfDmaTransactionInitialize.c)
+ *     imp_WdfDmaTransactionInitialize @ 0x1C0030590 (imp_WdfDmaTransactionInitialize.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qiqd(

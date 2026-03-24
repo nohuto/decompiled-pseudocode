@@ -1,13 +1,13 @@
 /*
- * XREFs of PspJobNotificationWorker @ 0x1406E9850
+ * XREFs of PspJobNotificationWorker @ 0x140681530
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     PspSendReliableJobNotification @ 0x1406A2200 (PspSendReliableJobNotification.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406FFED4 (PspLockJobExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     PspSendReliableJobNotification @ 0x14068163C (PspSendReliableJobNotification.c)
  */
 
 signed __int64 PspJobNotificationWorker()
@@ -23,18 +23,18 @@ signed __int64 PspJobNotificationWorker()
     v0 = _InterlockedExchange64(&PspJobNotificationList, -1LL);
     do
     {
-      v1 = *(_QWORD *)(v0 + 1160);
-      _m_prefetchw((const void *)(v0 + 1512));
-      v2 = _InterlockedAnd((volatile signed __int32 *)(v0 + 1512), 0xFFFDDFFF);
+      v1 = *(_QWORD *)(v0 + 968);
+      _m_prefetchw((const void *)(v0 + 1320));
+      v2 = _InterlockedAnd((volatile signed __int32 *)(v0 + 1320), 0xFFFDDFFF);
       if ( (v2 & 0x2000) != 0 )
-        ZwUpdateWnfStateData(v0 + 1072, 0LL);
+        ZwUpdateWnfStateData(v0 + 880, 0LL);
       if ( (v2 & 0x20000) != 0 )
       {
         CurrentThread = KeGetCurrentThread();
-        PspLockJobExclusive(v0, CurrentThread);
-        if ( *(_QWORD *)(v0 + 552) && (*(_DWORD *)(v0 + 1068) & 0x1000) != 0 )
-          PspSendReliableJobNotification((PVOID)v0, 0xCu);
-        PspUnlockJob(v0, CurrentThread);
+        PspLockJobExclusive(v0, (__int64)CurrentThread);
+        if ( *(_QWORD *)(v0 + 456) && (*(_DWORD *)(v0 + 876) & 0x1000) != 0 )
+          PspSendReliableJobNotification((PVOID)v0);
+        PspUnlockJob(v0, (__int64)CurrentThread);
       }
       ObfDereferenceObjectWithTag((PVOID)v0, 0x6F4E7350u);
       v0 = v1;

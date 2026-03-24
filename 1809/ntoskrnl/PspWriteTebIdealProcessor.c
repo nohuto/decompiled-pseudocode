@@ -9,7 +9,7 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)

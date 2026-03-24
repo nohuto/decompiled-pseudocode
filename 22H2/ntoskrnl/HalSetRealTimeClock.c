@@ -1,117 +1,119 @@
 /*
- * XREFs of HalSetRealTimeClock @ 0x1404FED20
+ * XREFs of HalSetRealTimeClock @ 0x1404B6A90
  * Callers:
- *     ExpRefreshSystemTime @ 0x140840884 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1409F8340 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140AAAD24 (ExpSetSystemTime.c)
- *     GetBootSystemTime @ 0x140B37C28 (GetBootSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x1407A94CC (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BD60 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140998FB8 (ExpSetSystemTime.c)
+ *     GetBootSystemTime @ 0x140A7182C (GetBootSystemTime.c)
  * Callees:
- *     ExLocalTimeToSystemTime @ 0x14033B0A0 (ExLocalTimeToSystemTime.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B1E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     HalpSetVirtualRtc @ 0x14033B3F0 (HalpSetVirtualRtc.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalEfiSetTime @ 0x14050CF50 (HalEfiSetTime.c)
- *     HalpWriteCmosTime @ 0x1405158EC (HalpWriteCmosTime.c)
- *     HalpSetAcpiRealTimeClock @ 0x140932FC8 (HalpSetAcpiRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x1409330C8 (HalpUtcTimeToAcpiRealTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14030D154 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpSetVirtualRtc @ 0x14030D8CC (HalpSetVirtualRtc.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalEfiSetTime @ 0x1404C3C00 (HalEfiSetTime.c)
+ *     HalpWriteCmosTime @ 0x1404CC2AC (HalpWriteCmosTime.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140864020 (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140864104 (HalpUtcTimeToAcpiRealTime.c)
  */
 
 char __fastcall HalSetRealTimeClock(__int16 *a1)
 {
   char *v2; // rbx
   unsigned int v3; // esi
-  __int64 v4; // rdx
-  LARGE_INTEGER v5; // rax
-  __int64 v6; // r8
-  __int64 *v7; // rbx
-  char v8; // bl
-  int v10; // edi
-  int v11; // ecx
-  char v12; // al
-  char v13; // cl
-  signed __int32 v14[8]; // [rsp+0h] [rbp-50h] BYREF
-  LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-30h] BYREF
-  LARGE_INTEGER v16; // [rsp+28h] [rbp-28h] BYREF
+  __int64 *v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r9
+  __int64 v7; // r8
+  LARGE_INTEGER v8; // rbx
+  unsigned int v10; // ebx
+  int v11; // edi
+  int v12; // ecx
+  char v13; // al
+  char v14; // cl
+  signed __int32 v15[8]; // [rsp+0h] [rbp-50h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-30h] BYREF
+  LARGE_INTEGER v17; // [rsp+28h] [rbp-28h] BYREF
   __int128 InputBuffer; // [rsp+30h] [rbp-20h] BYREF
 
-  LocalTime.QuadPart = 0LL;
-  v16.QuadPart = 0LL;
+  SystemTime.QuadPart = 0LL;
+  v17.QuadPart = 0LL;
   v2 = (char *)ExLeapSecondData;
   InputBuffer = 0LL;
   if ( ExLeapSecondData && *(_BYTE *)ExLeapSecondData )
   {
     v3 = *((_DWORD *)ExLeapSecondData + 1);
-    _InterlockedOr(v14, 0);
-    if ( !RtlpTimeFieldsToTimeNoLeapSeconds(a1, &v16) )
+    _InterlockedOr(v15, 0);
+    if ( !RtlpTimeFieldsToTimeNoLeapSeconds(a1, &v17) )
       return 0;
-    v5 = v16;
-    v6 = 0LL;
+    v7 = 0LL;
     if ( !v3 )
-      goto LABEL_16;
-    v7 = (__int64 *)(v2 + 8);
+    {
+      v8 = v17;
+      goto LABEL_18;
+    }
+    v4 = (__int64 *)(v2 + 8);
+    v8 = v17;
     while ( 1 )
     {
-      v4 = *v7;
-      if ( *v7 < 0 )
+      v5 = *v4;
+      if ( *v4 < 0 )
       {
-        v4 &= ~0x8000000000000000uLL;
-        if ( v5.QuadPart < v4 + 10000000 )
+        v5 &= ~0x8000000000000000uLL;
+        if ( v8.QuadPart < v5 + 10000000 )
         {
-          if ( v5.QuadPart < v4 )
+          if ( v8.QuadPart < v5 )
           {
-LABEL_16:
-            LocalTime = v5;
-            goto LABEL_17;
+LABEL_18:
+            SystemTime = v8;
+            goto LABEL_22;
           }
           return 0;
         }
-        v5.QuadPart -= 10000000LL;
+        v8.QuadPart -= 10000000LL;
       }
-      else if ( v5.QuadPart < v4 + 10000000 )
+      else if ( v8.QuadPart < v5 + 10000000 )
       {
-        if ( v5.QuadPart < v4 )
-          goto LABEL_16;
-        v5.QuadPart = 2 * v5.QuadPart - v4;
+        if ( v8.QuadPart < v5 )
+          goto LABEL_18;
+        v8.QuadPart = 2 * v8.QuadPart - v5;
       }
       else
       {
-        v5.QuadPart += 10000000LL;
+        v8.QuadPart += 10000000LL;
       }
-      v6 = (unsigned int)(v6 + 1);
-      ++v7;
-      if ( (unsigned int)v6 >= v3 )
-        goto LABEL_16;
+      v7 = (unsigned int)(v7 + 1);
+      ++v4;
+      if ( (unsigned int)v7 >= v3 )
+        goto LABEL_18;
     }
   }
-  if ( !RtlpTimeFieldsToTimeNoLeapSeconds(a1, &LocalTime) )
+  if ( !RtlpTimeFieldsToTimeNoLeapSeconds(a1, &SystemTime) )
     return 0;
-LABEL_17:
+  v8 = SystemTime;
+LABEL_22:
   if ( !ExpRealTimeIsUniversal )
-    ExLocalTimeToSystemTime(&LocalTime, &LocalTime);
-  if ( (HalpPlatformFlags & 4) != 0 )
   {
-    HalpWriteCmosTime(a1, v4, v6);
-    v8 = 1;
+    v4 = (__int64 *)*((_QWORD *)PsGetCurrentServerSiloGlobals(v5, (__int64)v4) + 133);
+    SystemTime.QuadPart = v4[55] + v8.QuadPart;
   }
-  else
-  {
-    v8 = 0;
-  }
-  v10 = SystemPowerPhase;
-  v11 = -1073741823;
+  v10 = ((unsigned int)HalpPlatformFlags >> 2) & 1;
+  if ( v10 )
+    HalpWriteCmosTime(a1, v4, v7);
+  v11 = SystemPowerPhase;
+  v12 = -1073741823;
   if ( KeGetCurrentIrql() >= 2u
     || SystemPowerPhase
-    || (v11 = HalpUtcTimeToAcpiRealTime(&LocalTime, (PLARGE_INTEGER)&InputBuffer), v11 < 0)
-    || (v11 = HalpSetAcpiRealTimeClock(&InputBuffer), v11 < 0) )
+    || (v12 = HalpUtcTimeToAcpiRealTime(&SystemTime, (PLARGE_INTEGER)&InputBuffer), v12 < 0)
+    || (v12 = HalpSetAcpiRealTimeClock(&InputBuffer), v12 < 0) )
   {
-    if ( v8 != 1 && HalFirmwareTypeEfi && v10 && (HalpPlatformFlags & 8) == 0 )
-      v11 = HalEfiSetTime(&LocalTime);
+    if ( (_BYTE)v10 != 1 && HalFirmwareTypeEfi && v11 && (HalpPlatformFlags & 8) == 0 )
+      v12 = HalEfiSetTime(&SystemTime, v4, v7);
   }
-  if ( v11 >= 0 )
-    v8 = 1;
-  v12 = HalpSetVirtualRtc((__int64 *)&LocalTime);
-  v13 = v8;
-  if ( v12 )
+  if ( v12 >= 0 )
+    LOBYTE(v10) = 1;
+  v13 = HalpSetVirtualRtc((__int64 *)&SystemTime, (__int64)v4, v7, v6);
+  v14 = v10;
+  if ( v13 )
     return 1;
-  return v13;
+  return v14;
 }

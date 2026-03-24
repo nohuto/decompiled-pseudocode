@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14085B598
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x1407CD2B0
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1403AD1B0 (PopNetEvaluationWorkerCallback.c)
- *     PopNetInitialize @ 0x140B51D10 (PopNetInitialize.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1403CAF50 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140A3EBF8 (PopNetInitialize.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -41,9 +41,9 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
   v2 = &retaddr;
   v26 = a2;
   v25 = a1;
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v17 = 0;
@@ -59,8 +59,8 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
       v9 = 0x1000000LL;
       v22 = 8;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C03950,
-                     (unsigned __int8 *)&word_14002EB06,
+                     (__int64)&dword_140C02228,
+                     (unsigned __int8 *)byte_14002769D,
                      0LL,
                      0LL,
                      5u,

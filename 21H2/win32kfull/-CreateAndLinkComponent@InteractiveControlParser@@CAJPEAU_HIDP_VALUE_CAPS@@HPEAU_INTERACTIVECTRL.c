@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C0258CA4
+ * XREFs of ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C025BF1C
  * Callers:
- *     ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C0258664 (-BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteracti.c)
+ *     ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C025B8DC (-BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteracti.c)
  * Callees:
- *     ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C02591AC (-GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEA.c)
- *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C0259264 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
+ *     ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C025C424 (-GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEA.c)
+ *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C025C4E0 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
  */
 
 __int64 __fastcall InteractiveControlParser::CreateAndLinkComponent(

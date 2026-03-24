@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhGetQualifierDescriptorFromDevice @ 0x1C0053EC8
+ * XREFs of UsbhGetQualifierDescriptorFromDevice @ 0x1C0055554
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
  */
 
 __int64 __fastcall UsbhGetQualifierDescriptorFromDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int16 *a5)

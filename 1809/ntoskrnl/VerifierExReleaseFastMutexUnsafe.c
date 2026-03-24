@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VfDeadlockReleaseResource @ 0x14093C260 (VfDeadlockReleaseResource.c)
  *     ViExCheckAPCsDisabled @ 0x1409426FC (ViExCheckAPCsDisabled.c)
  */

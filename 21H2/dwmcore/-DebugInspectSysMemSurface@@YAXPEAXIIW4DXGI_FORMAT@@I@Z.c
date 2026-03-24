@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x1802629B4
+ * XREFs of ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x18021021C
  * Callers:
- *     ?DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z @ 0x1802624BC (-DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z.c)
- *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x180262AA4 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
+ *     ?DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z @ 0x18020FDB0 (-DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z.c)
+ *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x1802102F0 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
  * Callees:
  *     <none>
  */

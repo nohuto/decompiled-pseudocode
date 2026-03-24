@@ -1,12 +1,13 @@
 /*
- * XREFs of CmLockHive @ 0x14071F2B8
+ * XREFs of CmLockHive @ 0x140663D98
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402A4298 (CmpWaitForLateUnloadWorker.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
+ *     CmpFlushNotify @ 0x14066AE8C (CmpFlushNotify.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall CmLockHive(__int64 a1)
 {
-  ExAcquirePushLockExclusiveEx(a1 + 1680, 0LL);
+  ExAcquirePushLockExclusiveEx(a1 + 1672, 0LL);
 }

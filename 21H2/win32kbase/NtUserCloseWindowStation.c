@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserCloseWindowStation @ 0x1C00B2850
+ * XREFs of NtUserCloseWindowStation @ 0x1C00A14B0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     ApiSetEditionCloseWindowStationEntryPoint @ 0x1C00B28C8 (ApiSetEditionCloseWindowStationEntryPoint.c)
- *     ValidateHwinsta @ 0x1C00B29E0 (ValidateHwinsta.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     ApiSetEditionCloseWindowStationEntryPoint @ 0x1C00A1528 (ApiSetEditionCloseWindowStationEntryPoint.c)
+ *     ValidateHwinsta @ 0x1C00A15F0 (ValidateHwinsta.c)
  */
 
 __int64 __fastcall NtUserCloseWindowStation(__int64 a1, __int64 a2)
@@ -14,8 +14,6 @@ __int64 __fastcall NtUserCloseWindowStation(__int64 a1, __int64 a2)
   NTSTATUS v4; // edi
   ULONG v6; // eax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
   PVOID Object; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0LL;
@@ -28,7 +26,7 @@ __int64 __fastcall NtUserCloseWindowStation(__int64 a1, __int64 a2)
     if ( v4 < 0 )
     {
       v6 = RtlNtStatusToDosError(v4);
-      UserSetLastError(v6, v7, v8, v9);
+      UserSetLastError(v6, v7);
     }
     else
     {

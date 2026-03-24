@@ -1,7 +1,8 @@
 /*
- * XREFs of IsMulDestroyBrushInternalSupported @ 0x1C0014060
+ * XREFs of IsMulDestroyBrushInternalSupported @ 0x1C0058F50
  * Callers:
- *     <none>
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxDesktopThreadWaiter @ 0x1C00D9CA4 (xxxDesktopThreadWaiter.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExCreateHandle @ 0x1407A347C
+ * XREFs of ExCreateHandle @ 0x14094C630
  * Callers:
- *     PsAssignThreadId @ 0x1402F3684 (PsAssignThreadId.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     NtCreateJobObject @ 0x14071EF90 (NtCreateJobObject.c)
  * Callees:
- *     ExCreateHandleEx @ 0x1407A1CE8 (ExCreateHandleEx.c)
+ *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
  */
 
 __int64 __fastcall ExCreateHandle(__int64 a1, __int64 a2)

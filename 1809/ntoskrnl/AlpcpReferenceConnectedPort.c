@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpReferenceConnectedPort @ 0x14068ED54
+ * XREFs of AlpcpReferenceConnectedPort @ 0x14068ED34
  * Callers:
  *     AlpcpPortQueryServerSessionInfo @ 0x140582088 (AlpcpPortQueryServerSessionInfo.c)
  *     AlpcpExposeHandleAttribute @ 0x140633868 (AlpcpExposeHandleAttribute.c)
  *     AlpcpImpersonateMessage @ 0x1406378A0 (AlpcpImpersonateMessage.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x14068EBAC (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x14068EB8C (AlpcpPortQueryConnectedSidInfo.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
  */
 
 __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)

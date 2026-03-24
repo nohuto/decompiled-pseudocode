@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUuidLoadSequenceNumber @ 0x14085F064
+ * XREFs of ExpUuidLoadSequenceNumber @ 0x1407CF68C
  * Callers:
- *     ExpAllocateUuids @ 0x1406DC5A4 (ExpAllocateUuids.c)
+ *     ExpAllocateUuids @ 0x1406B9844 (ExpAllocateUuids.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 ExpUuidLoadSequenceNumber()
@@ -17,8 +17,8 @@ __int64 ExpUuidLoadSequenceNumber()
   int PersistedStateLocation; // ebx
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-70h] BYREF
   int v7; // [rsp+94h] [rbp-6Ch]
   int v8; // [rsp+98h] [rbp-68h]
@@ -27,7 +27,7 @@ __int64 ExpUuidLoadSequenceNumber()
 
   ResultLength = 0;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   memset(SourceString, 0, 0x1FEuLL);
   PersistedStateLocation = RtlGetPersistedStateLocation(

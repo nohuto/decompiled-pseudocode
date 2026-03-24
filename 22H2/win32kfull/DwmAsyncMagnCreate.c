@@ -1,38 +1,35 @@
 /*
- * XREFs of DwmAsyncMagnCreate @ 0x1C026C804
+ * XREFs of DwmAsyncMagnCreate @ 0x1C0273D74
  * Callers:
- *     MagpComposeDesktop @ 0x1C005A938 (MagpComposeDesktop.c)
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncMagnCreate(PVOID Object, __int64 a2, __int64 a3, int a4)
 {
   int v4; // edi
   unsigned int v9; // ebx
-  int v11; // [rsp+20h] [rbp-78h] BYREF
-  __int16 v12; // [rsp+24h] [rbp-74h]
-  int v13; // [rsp+48h] [rbp-50h]
-  __int64 v14; // [rsp+4Ch] [rbp-4Ch]
-  __int64 v15; // [rsp+54h] [rbp-44h]
-  int v16; // [rsp+5Ch] [rbp-3Ch]
+  __int64 v10; // r8
+  __int64 v11; // r9
+  _DWORD v13[16]; // [rsp+20h] [rbp-78h] BYREF
 
   v4 = 0;
   v9 = -1073741823;
   if ( Object )
   {
-    memset_0(&v11, 0, 0x40uLL);
-    v11 = 4194328;
-    v12 = 0x8000;
-    v13 = 1073741923;
-    v14 = a2;
+    memset(v13, 0, sizeof(v13));
+    v13[0] = 4194328;
+    LOWORD(v13[1]) = 0x8000;
+    v13[10] = 1073741919;
+    *(_QWORD *)&v13[11] = a2;
     LOBYTE(v4) = a4 == 0;
-    v15 = a3;
-    v16 = v4;
-    EtwUpdateEvent(a2, 1073741923LL);
-    v9 = LpcRequestPort(Object, &v11);
+    *(_QWORD *)&v13[13] = a3;
+    v13[15] = v4;
+    EtwUpdateEvent(a2, 1073741919LL, v10, v11);
+    v9 = LpcRequestPort(Object, v13);
     ObfDereferenceObject(Object);
   }
   return v9;

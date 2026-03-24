@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInitShutdownNotification @ 0x1C00936B0
+ * XREFs of ACPIInitShutdownNotification @ 0x1C00978B8
  * Callers:
- *     ACPIRootIrpStartDevice @ 0x1C00AA590 (ACPIRootIrpStartDevice.c)
+ *     ACPIRootIrpStartDevice @ 0x1C00BB2A0 (ACPIRootIrpStartDevice.c)
  * Callees:
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 void *ACPIInitShutdownNotification()
@@ -12,7 +12,7 @@ void *ACPIInitShutdownNotification()
   int v1; // [rsp+30h] [rbp+8h] BYREF
   unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
 
-  result = (void *)ExAllocatePool2(64LL, 208LL, 1148216129LL);
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0xD0uLL, 0x44706341u);
   AcpiShutdownNotification = result;
   if ( result )
   {

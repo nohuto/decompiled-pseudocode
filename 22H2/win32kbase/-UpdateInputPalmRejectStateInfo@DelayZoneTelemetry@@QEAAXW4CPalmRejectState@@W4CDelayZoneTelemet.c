@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@K@Z @ 0x1C01FC06C
+ * XREFs of ?UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@K@Z @ 0x1C01BD5C0
  * Callers:
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E662C (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD158 (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  * Callees:
- *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01FC214 (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
+ *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01BD77C (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::UpdateInputPalmRejectStateInfo(
@@ -23,7 +23,7 @@ void __fastcall DelayZoneTelemetry::UpdateInputPalmRejectStateInfo(
     v9 = 6 * v8;
     *((_DWORD *)a1 + 2 * v9 + 524) = 0;
     *((_DWORD *)a1 + 2 * v9 + 522) = a2;
-    *((_DWORD *)a1 + 2 * v9 + 523) = a3;
+    *((_DWORD *)a1 + 12 * v8 + 523) = a3;
     ++*((_DWORD *)a1 + 2);
     if ( *((_DWORD *)a1 + 12 * v8 + 520) == 3 )
       break;

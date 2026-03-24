@@ -1,82 +1,86 @@
 /*
- * XREFs of ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F0238
+ * XREFs of ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00808F8
  * Callers:
- *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B1628 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
- *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B2CD4 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
- *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00F0170 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0080610 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008A300 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00B9D04 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
  * Callees:
- *     VidSchIsWorkerThread @ 0x1C0001BF0 (VidSchIsWorkerThread.c)
- *     VidSchiInterlockedRemoveEntryList @ 0x1C00045B8 (VidSchiInterlockedRemoveEntryList.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
- *     VidSchRegisterCompletionEvent @ 0x1C0088184 (VidSchRegisterCompletionEvent.c)
+ *     VidSchIsWorkerThread @ 0x1C0011B30 (VidSchIsWorkerThread.c)
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014BAC (VidSchiInterlockedRemoveEntryList.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
+ *     VidSchRegisterCompletionEvent @ 0x1C0080B60 (VidSchRegisterCompletionEvent.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_DMA_POOL::WaitDmaBufferNotBusy(
         VIDMM_DMA_POOL *this,
         struct _VIDMM_DMA_BUFFER *a2,
         char a3,
         unsigned __int8 *a4)
 {
-  __int64 v8; // rax
-  __int64 v9; // r14
+  __int64 v8; // rbx
+  __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  int v12; // eax
-  __int64 v13; // rcx
-  int v14; // ecx
-  unsigned int v15; // eax
-  _QWORD v16[20]; // [rsp+38h] [rbp-59h] BYREF
+  int v11; // eax
+  __int64 v12; // rcx
+  int v13; // ecx
+  unsigned int v14; // eax
+  __int64 v15; // rax
+  __int64 v16; // rdi
+  __int64 v17; // rbx
+  _QWORD *v18; // rax
+  _QWORD v19[20]; // [rsp+28h] [rbp-59h] BYREF
 
   if ( g_IsInternalReleaseOrDbg )
   {
-    v8 = WdLogNewEntry5_WdTrace(this);
-    *(_QWORD *)(v8 + 24) = *((_QWORD *)this + 2);
-    *(_QWORD *)(v8 + 32) = a2;
+    v15 = WdLogNewEntry5_WdTrace(this);
+    *(_QWORD *)(v15 + 24) = *((_QWORD *)this + 2);
+    *(_QWORD *)(v15 + 32) = a2;
   }
   if ( a4 )
     *a4 = 0;
-  memset(v16, 0, sizeof(v16));
-  LODWORD(v16[2]) = 0;
-  v9 = *(_QWORD *)this;
-  if ( VidSchIsWorkerThread(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 744LL)) )
+  memset(v19, 0, sizeof(v19));
+  LODWORD(v19[2]) = 0;
+  v8 = *(_QWORD *)this;
+  if ( VidSchIsWorkerThread(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 624LL)) )
   {
-    v10 = *((unsigned int *)a2 + 12);
-    v11 = *((_QWORD *)a2 + 5);
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 22LL, a2, v11, v10);
-    v9 = *(_QWORD *)this;
+    v16 = *((unsigned int *)a2 + 12);
+    v17 = *((_QWORD *)a2 + 5);
+    v18 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v10, v9);
+    v18[3] = 270LL;
+    v18[4] = 22LL;
+    v18[5] = a2;
+    v18[6] = v17;
+    v18[7] = v16;
+    WdLogEvent5_WdCriticalError(v18);
+    v8 = *(_QWORD *)this;
   }
-  v12 = *((_DWORD *)a2 + 7);
-  LOBYTE(v16[19]) = a3;
-  if ( (v12 & 2) == 0 )
+  v11 = *((_DWORD *)a2 + 7);
+  LOBYTE(v19[19]) = a3;
+  if ( (v11 & 2) == 0 )
   {
-    v13 = *((_QWORD *)this + 3);
-    if ( v13 )
+    v12 = *((_QWORD *)this + 3);
+    if ( v12 )
     {
-      if ( (*(_DWORD *)(v13 + 404) & 0x10) != 0 )
+      if ( (*(_DWORD *)(v12 + 420) & 0x10) != 0 )
       {
-        v16[3] = *(_QWORD *)(v13 + 280);
-        v14 = v16[3] != 0LL ? 4 : 0;
-        v15 = v16[4] & 0xFFFFFFFB;
+        v19[3] = *(_QWORD *)(v12 + 296);
+        v13 = v19[3] != 0LL ? 4 : 0;
+        v14 = v19[4] & 0xFFFFFFFB;
       }
       else
       {
-        v16[3] = *(_QWORD *)(v13 + 256);
-        v14 = v16[3] != 0LL ? 2 : 0;
-        v15 = v16[4] & 0xFFFFFFFD;
+        v19[3] = *(_QWORD *)(v12 + 272);
+        v13 = v19[3] != 0LL ? 2 : 0;
+        v14 = v19[4] & 0xFFFFFFFD;
       }
-      LODWORD(v16[4]) = v15 | v14;
+      LODWORD(v19[4]) = v14 | v13;
     }
   }
-  VidSchRegisterCompletionEvent(*(_QWORD *)(*(_QWORD *)(v9 + 16) + 744LL), (__int64)v16);
+  VidSchRegisterCompletionEvent(*(_QWORD *)(*(_QWORD *)(v8 + 16) + 624LL), v19);
   while ( *((_BYTE *)a2 + 24) == 1 )
   {
-    if ( (unsigned int)VidSchWaitForCompletionEvent(
-                         *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 744LL),
-                         (__int64)v16,
-                         1LL) == -1073741130 )
+    if ( (unsigned int)VidSchWaitForCompletionEvent(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 624LL), v19, 1LL) == -1073741130 )
     {
       if ( a4 )
         *a4 = 1;
@@ -84,7 +88,7 @@ void __fastcall VIDMM_DMA_POOL::WaitDmaBufferNotBusy(
     }
   }
   VidSchiInterlockedRemoveEntryList(
-    (KSPIN_LOCK *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 744LL) + 1744LL),
-    v16,
+    (KSPIN_LOCK *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 624LL) + 1728LL),
+    v19,
     0LL);
 }

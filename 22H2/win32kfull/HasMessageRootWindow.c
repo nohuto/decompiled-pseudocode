@@ -1,22 +1,22 @@
 /*
- * XREFs of HasMessageRootWindow @ 0x1C01F2D08
+ * XREFs of HasMessageRootWindow @ 0x1C0208B48
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
  * Callees:
- *     _GetAncestor @ 0x1C0048CF8 (_GetAncestor.c)
+ *     _GetAncestor @ 0x1C010ACE8 (_GetAncestor.c)
  */
 
 __int64 __fastcall HasMessageRootWindow(__int64 a1)
 {
-  unsigned int v1; // r9d
-  __int64 Ancestor; // rax
-  __int64 v3; // r11
+  unsigned int v1; // r10d
+  _QWORD *Ancestor; // rax
+  _QWORD *v3; // r11
 
   v1 = 0;
   if ( a1 )
   {
-    Ancestor = GetAncestor(a1, 4LL);
+    Ancestor = GetAncestor(a1, 4);
     if ( Ancestor == v3 )
       return 1;
   }

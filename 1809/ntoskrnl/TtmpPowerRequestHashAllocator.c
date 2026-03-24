@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmpPowerRequestHashAllocator @ 0x140880F2C
+ * XREFs of TtmpPowerRequestHashAllocator @ 0x140880F0C
  * Callers:
- *     TtmpInsertPowerRequestToSession @ 0x140880BB8 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x140880B98 (TtmpInsertPowerRequestToSession.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */

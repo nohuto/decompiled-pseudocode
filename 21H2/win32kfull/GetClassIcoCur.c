@@ -1,33 +1,40 @@
 /*
- * XREFs of GetClassIcoCur @ 0x1C01065DC
+ * XREFs of GetClassIcoCur @ 0x1C011FFA0
  * Callers:
- *     NtUserGetClassIcoCur @ 0x1C0106510 (NtUserGetClassIcoCur.c)
+ *     <none>
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0060A44 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00EB718 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078DC8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00FF7D0 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
  */
 
 __int64 __fastcall GetClassIcoCur(__int64 a1, int a2)
 {
   __int64 v3; // rbx
-  _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 ThreadWin32Thread; // rdi
+  _QWORD *v5; // rcx
+  __int64 v7[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  SmartObjStackRefBase<tagCLS>::Init(v5, *(_QWORD *)(a1 + 136));
+  SmartObjStackRefBase<tagCLS>::Init(v7, *(_QWORD *)(a1 + 136));
   switch ( a2 )
   {
     case -14:
-      v3 = *(_QWORD *)(*(_QWORD *)v5[0] + 80LL);
+      v3 = *(_QWORD *)(*(_QWORD *)v7[0] + 80LL);
       break;
     case -12:
-      v3 = *(_QWORD *)(*(_QWORD *)v5[0] + 88LL);
+      v3 = *(_QWORD *)(*(_QWORD *)v7[0] + 88LL);
       break;
     case -34:
-      v3 = *(_QWORD *)(*(_QWORD *)v5[0] + 112LL);
+      v3 = *(_QWORD *)(*(_QWORD *)v7[0] + 112LL);
       break;
     default:
       v3 = 0LL;
       break;
   }
-  SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(v5);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v7);
+  v5 = *(_QWORD **)(ThreadWin32Thread + 1472);
+  if ( v5 )
+    *(_QWORD *)(ThreadWin32Thread + 1472) = *v5;
   return v3;
 }

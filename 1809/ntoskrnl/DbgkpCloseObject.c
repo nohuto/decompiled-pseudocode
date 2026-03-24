@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpCloseObject @ 0x14080E7C0
+ * XREFs of DbgkpCloseObject @ 0x14080E7A0
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     DbgkpMarkProcessPeb @ 0x14080EA98 (DbgkpMarkProcessPeb.c)
- *     DbgkpWakeTarget @ 0x14080FA00 (DbgkpWakeTarget.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     DbgkpMarkProcessPeb @ 0x14080EA78 (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x14080F9E0 (DbgkpWakeTarget.c)
  */
 
 void __fastcall DbgkpCloseObject(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

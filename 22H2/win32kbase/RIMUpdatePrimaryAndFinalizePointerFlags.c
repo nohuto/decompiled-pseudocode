@@ -1,54 +1,54 @@
 /*
- * XREFs of RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01A792C
+ * XREFs of RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C0178C24
  * Callers:
- *     RIMCompletePointerDeviceFrame @ 0x1C019F844 (RIMCompletePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C0171424 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMGetPointerInputType @ 0x1C00E1024 (RIMGetPointerInputType.c)
- *     RIMCmActiveContactsEnd @ 0x1C00E3530 (RIMCmActiveContactsEnd.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     RIMUpdatePrimaryDevice @ 0x1C018C4AC (RIMUpdatePrimaryDevice.c)
- *     RIMApiSetIsPointerInputTypeRedirected @ 0x1C01A3530 (RIMApiSetIsPointerInputTypeRedirected.c)
- *     rimFinalizePointerFlags @ 0x1C01AA398 (rimFinalizePointerFlags.c)
- *     rimIsPointerDevicePrimaryContactDown @ 0x1C01AAA90 (rimIsPointerDevicePrimaryContactDown.c)
- *     RIMCmActiveContactsBeginNoButton @ 0x1C01AFE08 (RIMCmActiveContactsBeginNoButton.c)
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMGetPointerInputType @ 0x1C015E558 (RIMGetPointerInputType.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C015FC9C (RIMUpdatePrimaryDevice.c)
+ *     rimFinalizePointerFlags @ 0x1C017B3D4 (rimFinalizePointerFlags.c)
+ *     rimIsPointerDevicePrimaryContactDown @ 0x1C017B9C4 (rimIsPointerDevicePrimaryContactDown.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C017FBB8 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FC4C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
+ *     ApiSetIsPointerInputTypeRedirected @ 0x1C01CF94C (ApiSetIsPointerInputTypeRedirected.c)
  */
 
-void __fastcall RIMUpdatePrimaryAndFinalizePointerFlags(__int64 a1, __int64 a2)
+__int64 __fastcall RIMUpdatePrimaryAndFinalizePointerFlags(__int64 a1, __int64 a2)
 {
   int v2; // r15d
-  __int64 v3; // r12
-  __int64 v4; // r14
-  int v5; // r13d
+  __int64 v3; // r13
+  _DWORD *v4; // r14
+  int v5; // r12d
   __int64 active; // rax
   int v8; // esi
   __int64 v9; // xmm1_8
-  int v10; // edx
-  __int64 v11; // rbx
-  _DWORD *v12; // rcx
-  int v13; // r12d
-  unsigned int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
+  __int64 v10; // rax
+  __int128 v11; // xmm1
+  __int64 v12; // xmm0_8
+  __int64 v13; // rax
+  __int64 result; // rax
+  int v15; // ecx
+  _DWORD *v16; // rbx
+  int v17; // r13d
+  int v18; // eax
+  unsigned int v19; // eax
   int IsPointerInputTypeRedirected; // eax
-  __int64 v19; // rdx
-  int v20; // r15d
-  int v21; // r8d
-  _DWORD *v22; // rdx
-  int v23; // ecx
-  int v24; // eax
+  __int64 v21; // rdx
+  int v22; // r15d
+  int v23; // r8d
+  int v24; // ecx
   int v25; // r14d
   __int64 v26; // rcx
   int v27; // ebx
-  __int128 v28; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v29; // [rsp+30h] [rbp-28h]
-  __int64 v30; // [rsp+38h] [rbp-20h] BYREF
-  int v31; // [rsp+40h] [rbp-18h]
-  __int64 v32; // [rsp+48h] [rbp-10h]
-  int IsContactDeliveringPointerData; // [rsp+B8h] [rbp+60h]
+  __int128 v28; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v29; // [rsp+30h] [rbp-48h]
+  __int128 v30; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v31; // [rsp+48h] [rbp-30h]
+  _BYTE v32[40]; // [rsp+50h] [rbp-28h] BYREF
+  int IsContactDeliveringPointerData; // [rsp+D8h] [rbp+60h]
 
   v2 = 0;
   v3 = a1;
@@ -62,31 +62,43 @@ void __fastcall RIMUpdatePrimaryAndFinalizePointerFlags(__int64 a1, __int64 a2)
   v29 = v9;
   while ( 1 )
   {
-    RIMCmActiveContactsEnd((__int64)&v30, a2);
-    if ( (_QWORD)v28 == v30 && DWORD2(v28) == v31 && v29 == v32 )
-      break;
-    v10 = *(_DWORD *)(v29 + 2668);
-    v11 = v29 - 16;
-    v12 = (_DWORD *)(v29 - 16 + 2444);
-    if ( (v10 & 2) != 0 || (v13 = 1, (*v12 & 2) == 0) )
-      v13 = 0;
-    if ( (v10 & 4) == 0 && (*v12 & 4) != 0 )
-      v2 = 1;
-    if ( (*(_DWORD *)(v11 + 32) & 2) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1702);
-    if ( (*(_DWORD *)(v11 + 32) & 4) != 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1703);
-    if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v11) )
-      ++v5;
-    if ( (*(_DWORD *)(v11 + 2364) & 1) != 0 )
+    v10 = RIMCmActiveContactsEnd(v32, a2);
+    v11 = *(_OWORD *)v10;
+    v12 = *(_QWORD *)(v10 + 16);
+    v13 = *(_QWORD *)v10;
+    v31 = v12;
+    v30 = v11;
+    if ( (_QWORD)v28 == v13 )
     {
-      if ( !*(_QWORD *)(a2 + 1016) && (v13 || v2) && !v4 && !(unsigned int)RIMCmIsContactSuppressed(v11) )
+      result = DWORD2(v30);
+      if ( DWORD2(v28) == DWORD2(v30) && v29 == v31 )
+        break;
+    }
+    v15 = *(_DWORD *)(v29 + 2644);
+    v16 = (_DWORD *)(v29 - 16);
+    if ( (v15 & 2) != 0 || (v17 = 1, (v16[605] & 2) == 0) )
+      v17 = 0;
+    if ( (v15 & 4) == 0 && (v16[605] & 4) != 0 )
+      v2 = 1;
+    v18 = v16[8];
+    if ( (v18 & 2) == 0 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1686);
+      v18 = v16[8];
+    }
+    if ( (v18 & 4) != 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1687);
+    if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v16) )
+      ++v5;
+    if ( (v16[585] & 1) != 0 )
+    {
+      if ( !*(_QWORD *)(a2 + 960) && (v17 || v2) && !v4 && !(unsigned int)RIMCmIsContactSuppressed(v16) )
       {
-        IsContactDeliveringPointerData = RIMCmIsContactDeliveringPointerData(v11);
-        v4 = v11;
+        IsContactDeliveringPointerData = RIMCmIsContactDeliveringPointerData(v16);
+        v4 = v16;
       }
       v3 = a1;
-      rimFinalizePointerFlags(a1, a2, v11);
+      rimFinalizePointerFlags(a1, a2, v16);
     }
     else
     {
@@ -97,42 +109,42 @@ void __fastcall RIMUpdatePrimaryAndFinalizePointerFlags(__int64 a1, __int64 a2)
   }
   if ( v4 && (!v5 || v5 == 1 && IsContactDeliveringPointerData) )
   {
-    if ( *(_QWORD *)(a2 + 1016) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1739);
-    *(_DWORD *)(v4 + 32) |= 8u;
-    *(_DWORD *)(v4 + 2444) |= 0x4000000u;
-    *(_QWORD *)(a2 + 1016) = v4;
+    if ( *(_QWORD *)(a2 + 960) )
+      result = MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1723);
+    v4[8] |= 8u;
+    *(_QWORD *)(a2 + 960) = v4;
   }
-  if ( *(_QWORD *)(a2 + 1016) )
+  if ( *(_QWORD *)(a2 + 960) )
   {
-    v14 = RIMGetPointerInputType(a2);
-    IsPointerInputTypeRedirected = RIMApiSetIsPointerInputTypeRedirected(v14, v15, v16, v17);
-    v19 = *(_QWORD *)(a2 + 1016);
-    v20 = IsPointerInputTypeRedirected;
-    v21 = *(_DWORD *)(v19 + 2684);
-    v22 = (_DWORD *)(v19 + 2444);
-    if ( (v21 & 2) != 0 || (v23 = 1, (*v22 & 2) == 0) )
-      v23 = 0;
-    if ( (v21 & 4) != 0 || (v24 = 1, (*v22 & 4) == 0) )
+    v19 = RIMGetPointerInputType(a2);
+    IsPointerInputTypeRedirected = ApiSetIsPointerInputTypeRedirected(v19);
+    v21 = *(_QWORD *)(a2 + 960);
+    v22 = IsPointerInputTypeRedirected;
+    v23 = *(_DWORD *)(v21 + 2660);
+    if ( (v23 & 2) != 0 || (v24 = 1, (*(_DWORD *)(v21 + 2420) & 2) == 0) )
       v24 = 0;
-    if ( v23 || (v25 = 0, v24) )
+    if ( (v23 & 4) != 0 || (result = 1LL, (*(_DWORD *)(v21 + 2420) & 4) == 0) )
+      result = 0LL;
+    if ( v24 || (v25 = 0, (_DWORD)result) )
       v25 = 1;
     v26 = *(_QWORD *)(v3 + 480);
     if ( v26 )
     {
       v27 = RIMGetPointerInputType(v26);
-      if ( (v27 == (unsigned int)RIMGetPointerInputType(a2)
-         || (unsigned int)rimIsPointerDevicePrimaryContactDown(*(_QWORD *)(v3 + 480))
-         || !(unsigned int)rimIsPointerDevicePrimaryContactDown(a2))
-        && (!*(_DWORD *)(v3 + 488) || v20) )
+      result = RIMGetPointerInputType(a2);
+      if ( v27 == (_DWORD)result
+        || (result = rimIsPointerDevicePrimaryContactDown(*(_QWORD *)(v3 + 480)), (_DWORD)result)
+        || (result = rimIsPointerDevicePrimaryContactDown(a2), !(_DWORD)result) )
       {
-        v8 = 0;
+        if ( !*(_DWORD *)(v3 + 488) || v22 )
+          v8 = 0;
       }
     }
     if ( v25 && v8 )
     {
-      *(_DWORD *)(*(_QWORD *)(a2 + 1016) + 2444LL) |= 0x2000u;
-      RIMUpdatePrimaryDevice(v3, a2);
+      *(_DWORD *)(*(_QWORD *)(a2 + 960) + 2420LL) |= 0x2000u;
+      return RIMUpdatePrimaryDevice(v3, a2);
     }
   }
+  return result;
 }

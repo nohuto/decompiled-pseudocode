@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpKeyEnumStackReset @ 0x14065BC50
+ * XREFs of CmpKeyEnumStackReset @ 0x140729A4C
  * Callers:
- *     CmpSubtreeEnumeratorAdvance @ 0x14065B81C (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorReset @ 0x14091D284 (CmpSubtreeEnumeratorReset.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072998C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorReset @ 0x140876778 (CmpSubtreeEnumeratorReset.c)
  * Callees:
- *     CmpResetKeyNodeStack @ 0x14065BCB0 (CmpResetKeyNodeStack.c)
- *     CmpKeyEnumStackEntryCleanup @ 0x14069F090 (CmpKeyEnumStackEntryCleanup.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14069F130 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x14069F244 (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpKeyEnumStackEntryCleanup @ 0x140699B8C (CmpKeyEnumStackEntryCleanup.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140699C08 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x140699D0C (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpResetKeyNodeStack @ 0x140729AAC (CmpResetKeyNodeStack.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackReset(__int64 a1)
+_DWORD *__fastcall CmpKeyEnumStackReset(__int64 a1)
 {
   __int16 v1; // di
-  __int64 result; // rax
-  __int64 EntryAtLayerHeight; // rbx
+  _DWORD *result; // rax
+  _QWORD *EntryAtLayerHeight; // rbx
 
   v1 = 0;
   *(_BYTE *)(a1 + 4) = 0;
-  result = CmpResetKeyNodeStack(a1 + 8);
+  result = (_DWORD *)CmpResetKeyNodeStack(a1 + 8);
   while ( v1 <= *(__int16 *)a1 )
   {
-    EntryAtLayerHeight = CmpKeyEnumStackGetEntryAtLayerHeight(a1);
+    EntryAtLayerHeight = (_QWORD *)CmpKeyEnumStackGetEntryAtLayerHeight(a1, v1);
     CmpKeyEnumStackEntryCleanup(EntryAtLayerHeight);
-    result = CmpKeyEnumStackEntryInitialize(EntryAtLayerHeight);
+    result = CmpKeyEnumStackEntryInitialize((__int64)EntryAtLayerHeight);
     ++v1;
   }
   return result;

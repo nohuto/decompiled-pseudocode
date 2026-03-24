@@ -1,11 +1,10 @@
 /*
- * XREFs of ExAllocateFromNPagedLookasideList @ 0x1C002B03C
+ * XREFs of ExAllocateFromNPagedLookasideList @ 0x1C0021214
  * Callers:
- *     DpiFdoInitializeConnectionChangePackage @ 0x1C0060760 (DpiFdoInitializeConnectionChangePackage.c)
- *     ?StartPnPTransition@DXGSESSIONMGR@@QEAAPEAXPEAX_K@Z @ 0x1C01FD198 (-StartPnPTransition@DXGSESSIONMGR@@QEAAPEAXPEAX_K@Z.c)
- *     DpiPdoPollChild @ 0x1C0397760 (DpiPdoPollChild.c)
+ *     DpiFdoInitializeConnectionChangePackage @ 0x1C0021114 (DpiFdoInitializeConnectionChangePackage.c)
+ *     DpiPdoPollChild @ 0x1C02D917C (DpiPdoPollChild.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 PVOID __stdcall ExAllocateFromNPagedLookasideList(PNPAGED_LOOKASIDE_LIST Lookaside)

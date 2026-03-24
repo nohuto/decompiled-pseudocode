@@ -1,33 +1,36 @@
 /*
- * XREFs of CmLogTmRmAction @ 0x14069824C
+ * XREFs of CmLogTmRmAction @ 0x1407630E8
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvBufferCheckSum @ 0x1407080A8 (HvBufferCheckSum.c)
- *     CmpTransWriteLog @ 0x140708120 (CmpTransWriteLog.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpTransWriteLog @ 0x1407631B8 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x1407634A8 (HvBufferCheckSum.c)
  */
 
-NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, int a3)
 {
   __int128 v4; // xmm0
   NTSTATUS result; // eax
   CLFS_LSN plsnFlush; // [rsp+30h] [rbp-50h] BYREF
   CLFS_LSN plsnLastFlushed; // [rsp+38h] [rbp-48h] BYREF
-  _OWORD v8[3]; // [rsp+40h] [rbp-40h] BYREF
+  int v8[4]; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v9; // [rsp+50h] [rbp-30h]
+  __int128 v10; // [rsp+60h] [rbp-20h]
 
   plsnFlush.ullOffset = 0LL;
   plsnLastFlushed.ullOffset = 0LL;
   if ( !*(_QWORD *)(a1 + 96) )
     return 0;
-  v8[0] = 0LL;
-  v8[2] = 0LL;
-  DWORD1(v8[0]) = 48;
+  v8[0] = 0;
+  v8[3] = 0;
+  v10 = 0LL;
+  v8[1] = 48;
   v4 = *(_OWORD *)(a2 + 88);
-  *((_QWORD *)&v8[0] + 1) = a3;
-  v8[1] = v4;
-  LODWORD(v8[0]) = HvBufferCheckSum(v8, 48LL);
-  result = CmpTransWriteLog(a1, (unsigned int)v8, 48, 2, &plsnFlush);
+  v8[2] = a3;
+  v9 = v4;
+  v8[0] = HvBufferCheckSum(v8, 48LL);
+  result = CmpTransWriteLog(a1, (int)v8, 48, 2, &plsnFlush);
   if ( result >= 0 )
     return ClfsFlushToLsn(*(PVOID *)(a1 + 96), &plsnFlush, &plsnLastFlushed);
   return result;

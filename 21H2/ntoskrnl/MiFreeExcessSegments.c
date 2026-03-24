@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeExcessSegments @ 0x1402878F0
+ * XREFs of MiFreeExcessSegments @ 0x140314D50
  * Callers:
- *     MiCheckControlArea @ 0x140287660 (MiCheckControlArea.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     MmResourcesAvailable @ 0x14034BAE0 (MmResourcesAvailable.c)
- *     MiCountSystemPool @ 0x140352D90 (MiCountSystemPool.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiCountSystemPool @ 0x14030B920 (MiCountSystemPool.c)
+ *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
+ *     MmResourcesAvailable @ 0x14033E660 (MmResourcesAvailable.c)
  * Callees:
- *     PsGetNextPartition @ 0x140236710 (PsGetNextPartition.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiShouldTrimUnusedSegments @ 0x14058C2E4 (MiShouldTrimUnusedSegments.c)
+ *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiShouldTrimUnusedSegments @ 0x14052AB24 (MiShouldTrimUnusedSegments.c)
  */
 
 unsigned __int64 MiFreeExcessSegments()
@@ -16,8 +16,8 @@ unsigned __int64 MiFreeExcessSegments()
   unsigned __int64 result; // rax
   void *i; // rbx
 
-  result = 9 * (qword_140C593D8 / 0xAuLL);
-  if ( qword_140C592E8 >= result )
+  result = 9 * (qword_140C52B28 / 0xAuLL);
+  if ( qword_140C52AA8 >= result )
   {
     result = MiShouldTrimUnusedSegments();
     if ( (_DWORD)result )

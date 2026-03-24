@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A650
+ * XREFs of HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A100
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBPDO_AllocateForwardProgressResources @ 0x1C001A514 (HUBPDO_AllocateForwardProgressResources.c)
- *     HUBMISC_DbgBreak @ 0x1C00302F4 (HUBMISC_DbgBreak.c)
- *     HUBBOOT_RegisterBootDevice @ 0x1C003DC88 (HUBBOOT_RegisterBootDevice.c)
- *     HUBBOOT_IsBootDeviceExternal @ 0x1C003DD84 (HUBBOOT_IsBootDeviceExternal.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_UpdateSqmFlags @ 0x1C0082C28 (HUBREG_UpdateSqmFlags.c)
- *     WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C00869E4 (WMI_RegisterSurpriseRemovalNotificationInstance.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBPDO_AllocateForwardProgressResources @ 0x1C0019FC4 (HUBPDO_AllocateForwardProgressResources.c)
+ *     HUBMISC_DbgBreak @ 0x1C002FC54 (HUBMISC_DbgBreak.c)
+ *     HUBBOOT_RegisterBootDevice @ 0x1C003D608 (HUBBOOT_RegisterBootDevice.c)
+ *     HUBBOOT_IsBootDeviceExternal @ 0x1C003D704 (HUBBOOT_IsBootDeviceExternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_UpdateSqmFlags @ 0x1C00816B8 (HUBREG_UpdateSqmFlags.c)
+ *     WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C0084DA4 (WMI_RegisterSurpriseRemovalNotificationInstance.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceUsageNotificationEx(__int64 a1, int a2, char a3)
@@ -34,7 +34,7 @@ __int64 __fastcall HUBPDO_EvtDeviceUsageNotificationEx(__int64 a1, int a2, char 
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   ForwardProgressResources = 0;
   v9 = *(_QWORD *)(v7 + 24);
   if ( (*(_DWORD *)(v9 + 1640) & 0x10) == 0 )
@@ -90,13 +90,13 @@ LABEL_29:
           v17 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                   WdfDriverGlobals,
                   WdfDriverGlobals->Driver,
-                  off_1C00671E8);
+                  off_1C00661C0);
           WPP_RECORDER_SF_d(
             *(_QWORD *)(v17 + 64),
             2u,
             2u,
             0x85u,
-            (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+            (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
             v15);
         }
         HUBMISC_DbgBreak("ExRegisterBootDevice Failed", v16);
@@ -107,8 +107,8 @@ LABEL_29:
       v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
               WdfDriverGlobals,
               WdfDriverGlobals->Driver,
-              off_1C00671E8);
-      WPP_RECORDER_SF_(*(_QWORD *)(v18 + 64), 2u, 2u, 0x86u, (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+              off_1C00661C0);
+      WPP_RECORDER_SF_(*(_QWORD *)(v18 + 64), 2u, 2u, 0x86u, (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     }
     _InterlockedOr((volatile signed __int32 *)(v7 + 32), 0x20u);
     _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v7 + 24) + 8LL) + 1336LL), 2u);
@@ -123,7 +123,7 @@ LABEL_28:
       2u,
       5u,
       0x84u,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       -1073741810);
   return ForwardProgressResources;
 }

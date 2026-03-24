@@ -1,34 +1,46 @@
 /*
- * XREFs of ?AcquireDiagVersion@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C03ABD4C
+ * XREFs of ?AcquireDiagVersion@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C02DC070
  * Callers:
- *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C03AAAC8 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
+ *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C02DAB84 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
  * Callees:
- *     ?Initialize@?$AutoBuffer@E@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x1C0069594 (-Initialize@-$AutoBuffer@E@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?Initialize@?$AutoBuffer@E@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z @ 0x1C005C2EC (-Initialize@-$AutoBuffer@E@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::AcquireDiagVersion(__int64 a1, _QWORD *a2)
+__int64 __fastcall VIDPN_MGR::AcquireDiagVersion(__int64 a1, __int64 a2)
 {
-  int v4; // edi
+  __int64 v3; // rax
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // edi
+  __int64 v9; // rax
 
   if ( a2 )
   {
-    if ( a2[4] )
-      WdLogSingleEntry0(1LL);
-    v4 = DMM::AutoBuffer<unsigned char>::Initialize(a2, 2uLL, 0LL, 256LL);
-    if ( v4 >= 0 )
+    if ( *(_QWORD *)(a2 + 32) )
     {
-      *(_WORD *)a2[4] = 24577;
+      v5 = WdLogNewEntry5_WdAssertion(a1, a2);
+      WdLogEvent5_WdAssertion(v5);
+    }
+    v8 = DMM::AutoBuffer<unsigned char>::Initialize(a2, 2uLL, 0LL, PagedPool);
+    if ( v8 >= 0 )
+    {
+      **(_WORD **)(a2 + 32) = 20480;
       return 0LL;
     }
     else
     {
-      WdLogSingleEntry1(2LL, a2);
-      return (unsigned int)v4;
+      v9 = WdLogNewEntry5_WdError(v7, v6);
+      *(_QWORD *)(v9 + 24) = a2;
+      WdLogEvent5_WdError(v9);
+      return (unsigned int)v8;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v3 = WdLogNewEntry5_WdError(a1, 0LL);
+    *(_QWORD *)(v3 + 24) = 0LL;
+    WdLogEvent5_WdError(v3);
     return 3221225485LL;
   }
 }

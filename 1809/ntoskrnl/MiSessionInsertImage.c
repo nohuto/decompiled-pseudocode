@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSessionInsertImage @ 0x14017600C
+ * XREFs of MiSessionInsertImage @ 0x14017602C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
  * Callees:
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
@@ -11,14 +11,14 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
- *     MiManageSubsectionView @ 0x1400ADC60 (MiManageSubsectionView.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MmLockLoadedModuleListExclusive @ 0x1400F5D60 (MmLockLoadedModuleListExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3134 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1400F5D80 (MmLockLoadedModuleListExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

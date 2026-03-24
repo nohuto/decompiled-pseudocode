@@ -1,30 +1,24 @@
 /*
- * XREFs of InbvPortGetByte @ 0x14067960C
+ * XREFs of InbvPortGetByte @ 0x1405C9C14
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
- *     HdlspGetLine @ 0x140AEB690 (HdlspGetLine.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvPortGetByte(unsigned int a1, _BYTE *a2)
 {
-  __int64 v2; // rcx
-
-  if ( a1 < 4 )
+  if ( a1 < 4 && *((_QWORD *)&Ports + 5 * a1) )
   {
-    v2 = 5LL * a1;
-    if ( *((_QWORD *)&Ports + v2) )
+    if ( *((_BYTE *)&Ports + 40 * a1 + 33) )
     {
-      if ( *((_BYTE *)&Ports + 8 * v2 + 33) )
-      {
-        *a2 = *((_BYTE *)&Ports + 8 * v2 + 32);
-        *((_BYTE *)&Ports + 8 * v2 + 33) = 0;
-        return 1;
-      }
-      if ( !(*(unsigned int (__fastcall **)(char *))(UartHardwareDriver + 16))((char *)&Ports + 8 * v2) )
-        return 1;
+      *a2 = *((_BYTE *)&Ports + 40 * a1 + 32);
+      *((_BYTE *)&Ports + 40 * a1 + 33) = 0;
+      return 1;
     }
+    if ( !(*(unsigned int (__fastcall **)(char *))(UartHardwareDriver + 16))((char *)&Ports + 40 * a1) )
+      return 1;
   }
   return 0;
 }

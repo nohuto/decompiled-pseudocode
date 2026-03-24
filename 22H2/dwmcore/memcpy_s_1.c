@@ -1,10 +1,11 @@
 /*
- * XREFs of memcpy_s_1 @ 0x1802545BC
+ * XREFs of memcpy_s_1 @ 0x1801F0634
  * Callers:
- *     ?PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z @ 0x180254124 (-PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z.c)
+ *     ?LookupPerFrameData@CSynchronousSuperWetInk@@AEAAJIPEAV?$shared_ptr@$$BY0A@E@std@@@Z @ 0x1801EF940 (-LookupPerFrameData@CSynchronousSuperWetInk@@AEAAJIPEAV-$shared_ptr@$$BY0A@E@std@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     _invalid_parameter_noinfo @ 0x1800E7E7E (_invalid_parameter_noinfo.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 errno_t __cdecl memcpy_s_1(
@@ -13,7 +14,7 @@ errno_t __cdecl memcpy_s_1(
         const void *const Source,
         const rsize_t SourceSize)
 {
-  int *v8; // rax
+  errno_t *v8; // rax
   errno_t v9; // ebx
 
   if ( !SourceSize )
@@ -29,16 +30,16 @@ errno_t __cdecl memcpy_s_1(
   if ( !Source )
   {
 LABEL_4:
-    v8 = _errno();
+    v8 = (errno_t *)_o__errno(Destination);
     v9 = 22;
 LABEL_5:
     *v8 = v9;
-    _invalid_parameter_noinfo();
+    invalid_parameter_noinfo();
     return v9;
   }
   if ( DestinationSize < SourceSize )
   {
-    v8 = _errno();
+    v8 = (errno_t *)_o__errno(Destination);
     v9 = 34;
     goto LABEL_5;
   }

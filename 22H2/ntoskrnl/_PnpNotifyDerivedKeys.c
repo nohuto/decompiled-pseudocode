@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpNotifyDerivedKeys @ 0x140797D9C
+ * XREFs of _PnpNotifyDerivedKeys @ 0x140742AF0
  * Callers:
- *     _PnpUpdateInterfacesCallback @ 0x1407EAAB0 (_PnpUpdateInterfacesCallback.c)
+ *     _PnpUpdateInterfacesCallback @ 0x1407731A0 (_PnpUpdateInterfacesCallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall PnpNotifyDerivedKeys(

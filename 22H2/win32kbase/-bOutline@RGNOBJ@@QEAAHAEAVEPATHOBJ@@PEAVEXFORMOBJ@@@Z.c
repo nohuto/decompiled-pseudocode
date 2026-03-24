@@ -1,374 +1,381 @@
 /*
- * XREFs of ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156EB4
+ * XREFs of ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCFF4
  * Callers:
- *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156700 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCF60 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
  * Callees:
- *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0153770 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0153828 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015394C (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C00817D0 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0086A30 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0087E80 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
  */
 
 __int64 __fastcall RGNOBJ::bOutline(RGNOBJ *this, struct EPATHOBJ *a2, struct EXFORMOBJ *a3)
 {
   struct EXFORMOBJ *v3; // r9
-  EPATHOBJ *v4; // r15
-  _DWORD *v5; // r13
+  EPATHOBJ *v4; // rsi
+  _DWORD *v5; // r12
   int v6; // eax
-  int v7; // edi
+  int v7; // r14d
   bool v8; // zf
-  __int64 v9; // r12
-  int v10; // r14d
-  _DWORD *v11; // rsi
-  _DWORD *j; // rbx
-  int v13; // ecx
-  int v14; // r8d
-  LONG v15; // edx
-  int v16; // r10d
-  int v17; // eax
-  int v18; // edi
-  int v19; // eax
-  __int64 v20; // r9
-  int v21; // eax
-  int v22; // ecx
-  int v23; // ecx
-  int v24; // eax
-  int v25; // ecx
-  int v26; // eax
-  _DWORD *v27; // r15
-  int v28; // ecx
-  int v29; // eax
+  _DWORD *v10; // rbx
+  int v11; // r15d
+  __int64 v12; // r13
+  _DWORD *v13; // rsi
+  int v14; // edi
+  int v15; // ecx
+  LONG v16; // eax
+  signed int v17; // r14d
+  int v18; // eax
+  struct EXFORMOBJ *v19; // r15
+  int v20; // eax
+  int v21; // ecx
+  _DWORD *v22; // rdi
+  int v23; // esi
+  LONG v24; // eax
+  int v25; // r8d
+  LONG v26; // edx
+  int v27; // eax
+  int v28; // edi
+  int v29; // r10d
   int v30; // eax
-  LONG v31; // eax
-  signed int v32; // r14d
-  int v33; // eax
-  int v34; // eax
-  int v35; // ecx
-  _DWORD *v36; // rdi
+  __int64 v31; // r9
+  int v32; // eax
+  int v33; // ecx
+  int v34; // ecx
+  int v35; // eax
+  int v36; // eax
   int v37; // r8d
   LONG v38; // edx
-  signed int v39; // r10d
-  signed int v40; // esi
+  signed int v39; // esi
+  signed int v40; // r10d
   int v41; // eax
   int v42; // eax
   __int64 v43; // r9
-  int v44; // eax
-  signed int v45; // ecx
-  int v46; // ecx
+  int v44; // ecx
+  int v45; // eax
+  int *v46; // rdi
   int v47; // eax
-  int v48; // ecx
-  int v49; // eax
-  _DWORD *v50; // r15
-  int v51; // ecx
-  int v52; // eax
-  int *v53; // rdi
-  int v54; // eax
-  LONG v55; // eax
-  int v56; // eax
-  LONG v57; // eax
+  int v48; // eax
+  signed int v49; // ecx
+  int v50; // ecx
+  int v51; // eax
+  int v52; // ecx
+  int v53; // eax
+  int v54; // ecx
+  int v55; // eax
+  int v56; // ecx
+  int v57; // eax
+  LONG v58; // eax
+  int v59; // eax
   int i; // [rsp+20h] [rbp-28h]
-  int v60; // [rsp+24h] [rbp-24h]
-  struct _POINTL v61; // [rsp+28h] [rbp-20h] BYREF
-  int v62; // [rsp+30h] [rbp-18h]
-  int v63; // [rsp+34h] [rbp-14h]
-  int v66; // [rsp+A8h] [rbp+60h]
+  int v61; // [rsp+24h] [rbp-24h]
+  struct _POINTL v62; // [rsp+28h] [rbp-20h] BYREF
+  int v63; // [rsp+30h] [rbp-18h]
+  int v64; // [rsp+34h] [rbp-14h]
+  int v67; // [rsp+A8h] [rbp+60h]
 
   v3 = a3;
   v4 = a2;
-  v5 = *(_DWORD **)(*(_QWORD *)this + 32LL);
-  v6 = *(_DWORD *)(*(_QWORD *)this + 52LL);
-LABEL_111:
-  if ( !v6 )
-    return 1LL;
-  v7 = 0;
-  v60 = v6 - 1;
-  v8 = *v5 == 0;
-  for ( i = *v5; ; v8 = v7 == i )
+  v5 = *(_DWORD **)(*(_QWORD *)this + 88LL);
+  v6 = *(_DWORD *)(*(_QWORD *)this + 84LL);
+  if ( v6 )
   {
-    v66 = v7;
-    if ( v8 )
+LABEL_2:
+    v7 = 0;
+    v61 = v6 - 1;
+    v8 = *v5 == 0;
+    for ( i = *v5; ; v8 = v7 == i )
     {
-      v6 = v60;
-      v5 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
-      goto LABEL_111;
-    }
-    if ( (int)v5[v7 + 3] <= 0x7FFFFFF )
-      break;
-LABEL_108:
-    ++v7;
-  }
-  v61.x = v5[v7 + 3];
-  v61.y = v5[1];
-  if ( (unsigned int)EPATHOBJ::bMoveTo(v4, v3, &v61) )
-  {
-    v9 = v7 & 1;
-    v10 = v7;
-    v11 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
-    v5[v7 + 3] += 0x10000000;
-    for ( j = v5; ; j[v10 + 3] += 0x10000000 )
-    {
-      v13 = 1;
-      if ( *v11 )
+      v67 = v7;
+      if ( v8 )
       {
-        do
+        v6 = v61;
+        v5 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
+        if ( v61 )
+          goto LABEL_2;
+        return 1LL;
+      }
+      if ( (int)v5[v7 + 3] > 0x7FFFFFF )
+        goto LABEL_7;
+      v62.x = v5[v7 + 3];
+      v62.y = v5[1];
+      v10 = v5;
+      v11 = v7;
+      if ( !(unsigned int)EPATHOBJ::bMoveTo(v4, v3, &v62) )
+        return 0LL;
+      v12 = v7 & 1;
+      v13 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
+      v5[v7 + 3] += 0x10000000;
+      while ( 2 )
+      {
+        v14 = *v13;
+        v15 = 1;
+        if ( !*v13 )
+          goto LABEL_11;
+        while ( 1 )
         {
-          v14 = j[v10 + 3];
-          v15 = v14;
-          if ( v14 > 0x7FFFFFF )
-            v15 = v14 - 0x10000000;
-          v16 = v9;
-          v17 = v11[(unsigned int)v9 + 3];
-          v18 = *v11 - v9 - 1;
-          if ( v17 > 0x7FFFFFF )
-            v17 -= 0x10000000;
-          if ( v17 <= v15 )
+          v25 = v10[v11 + 3];
+          v26 = v25;
+          if ( v25 > 0x7FFFFFF )
+            v26 = v25 - 0x10000000;
+          v27 = v13[(unsigned int)v12 + 3];
+          v28 = v14 - v12 - 1;
+          v29 = v12;
+          if ( v27 > 0x7FFFFFF )
+            v27 -= 0x10000000;
+          if ( v27 > v26 )
           {
-            v19 = v11[v18 + 3];
-            if ( v19 > 0x7FFFFFF )
-              v19 -= 0x10000000;
-            if ( v19 <= v15 )
-              break;
-            v20 = (unsigned int)(*v11 - 1) >> 1;
-            if ( (_DWORD)v20 != (_DWORD)v9 )
+            v28 = v12;
+          }
+          else
+          {
+            v30 = v13[v28 + 3];
+            if ( v30 > 0x7FFFFFF )
+              v30 -= 0x10000000;
+            if ( v30 <= v26 )
+            {
+LABEL_86:
+              v15 = 1;
+              goto LABEL_11;
+            }
+            v31 = (unsigned int)(v28 + v12) >> 1;
+            if ( (_DWORD)v31 != (_DWORD)v12 )
             {
               do
               {
-                v21 = v11[v20 + 3];
-                if ( v21 > 0x7FFFFFF )
-                  v21 -= 0x10000000;
-                v22 = v20;
-                if ( v21 <= v15 )
+                v32 = v13[v31 + 3];
+                if ( v32 > 0x7FFFFFF )
+                  v32 -= 0x10000000;
+                v33 = v31;
+                if ( v32 <= v26 )
                 {
-                  v22 = v18;
-                  v16 = v20;
+                  v33 = v28;
+                  v29 = v31;
                 }
-                v18 = v22;
-                v20 = (unsigned int)(v16 + v22) >> 1;
+                v28 = v33;
+                v31 = (unsigned int)(v29 + v33) >> 1;
               }
-              while ( (_DWORD)v20 != v16 );
+              while ( (_DWORD)v31 != v29 );
             }
           }
-          else
+          if ( (v28 & 1) != (_DWORD)v12 )
+            break;
+          v50 = v13[v28 + 3];
+          if ( v50 > 0x7FFFFFF )
+            v50 -= 0x10000000;
+          v51 = v10[v11 + 4];
+          if ( v51 > 0x7FFFFFF )
+            v51 -= 0x10000000;
+          if ( v50 >= v51 )
+            goto LABEL_86;
+LABEL_40:
+          v34 = v13[v28 + 3];
+          v35 = v34;
+          if ( v34 > 0x7FFFFFF )
+            v35 = v34 - 0x10000000;
+          if ( v26 != v35 )
+            goto LABEL_120;
+          if ( v25 > 0x7FFFFFF )
+            v25 -= 0x10000000;
+          if ( v25 != v35 )
+            goto LABEL_120;
+          if ( v34 > 0x7FFFFFF )
+            v34 -= 0x10000000;
+          if ( v34 != v35 )
           {
-            v18 = v9;
-          }
-          if ( (v18 & 1) == (_DWORD)v9 )
-          {
-            v25 = v11[v18 + 3];
-            if ( v25 > 0x7FFFFFF )
-              v25 -= 0x10000000;
-            v26 = j[v10 + 4];
-            if ( v26 > 0x7FFFFFF )
-              v26 -= 0x10000000;
-            if ( v25 >= v26 )
-              break;
-          }
-          else
-          {
-            --v18;
-            if ( v10 )
-            {
-              v23 = v11[v18 + 3];
-              if ( v23 > 0x7FFFFFF )
-                v23 -= 0x10000000;
-              v24 = j[v10 + 2];
-              if ( v24 > 0x7FFFFFF )
-                v24 -= 0x10000000;
-              if ( v23 < v24 )
-              {
-                v13 = -1;
-                goto LABEL_47;
-              }
-            }
-          }
-          v27 = &v11[v18];
-          v28 = v27[3];
-          v29 = v28;
-          if ( v28 > 0x7FFFFFF )
-            v29 = v28 - 0x10000000;
-          if ( v15 != v29 )
-            goto LABEL_116;
-          if ( v14 > 0x7FFFFFF )
-            v14 -= 0x10000000;
-          if ( v14 != v29 )
-            goto LABEL_116;
-          if ( v28 > 0x7FFFFFF )
-            v28 -= 0x10000000;
-          if ( v28 != v29 )
-          {
-LABEL_116:
-            v61.x = v15;
-            v61.y = j[2];
-            v63 = j[2];
-            v62 = v29;
-            if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v61, 2u) )
+LABEL_120:
+            v62.x = v26;
+            v62.y = v10[2];
+            v64 = v10[2];
+            v63 = v35;
+            if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v62, 2) )
               return 0LL;
           }
-          v30 = *v11;
-          j = v11;
-          v27[3] += 0x10000000;
-          v10 = v18;
-          v11 = (_DWORD *)((char *)v11 + (unsigned int)(4 * v30 + 16));
+          v36 = *v13;
+          v10 = v13;
+          v11 = v28;
+          v13[v28 + 3] += 0x10000000;
+          v13 = (_DWORD *)((char *)v13 + (unsigned int)(4 * v36 + 16));
+          v14 = *v13;
+          if ( !*v13 )
+          {
+            v15 = 1;
+            goto LABEL_11;
+          }
         }
-        while ( *v11 );
-        v13 = 1;
-LABEL_47:
-        v4 = a2;
-      }
-      v31 = j[v10 + 3];
-      if ( v31 > 0x7FFFFFF )
-        v31 -= 0x10000000;
-      v61.x = v31;
-      v32 = v13 + v10;
-      v61.y = j[2];
-      v63 = j[2];
-      v33 = j[v32 + 3];
-      if ( v33 > 0x7FFFFFF )
-        v33 -= 0x10000000;
-      v62 = v33;
-      if ( !(unsigned int)EPATHOBJ::bPolyLineTo(v4, a3, &v61, 2u) )
-        break;
-      v34 = *(j - 1);
-      j[v32 + 3] += 0x10000000;
-      v35 = -1;
-      v36 = (_DWORD *)((char *)j - (unsigned int)(4 * v34 + 16));
-      if ( *v36 )
-      {
-        do
+        --v28;
+        if ( !v11 )
+          goto LABEL_40;
+        v54 = v13[v28 + 3];
+        if ( v54 > 0x7FFFFFF )
+          v54 -= 0x10000000;
+        v55 = v10[v11 + 2];
+        if ( v55 > 0x7FFFFFF )
+          v55 -= 0x10000000;
+        if ( v54 >= v55 )
+          goto LABEL_40;
+        v15 = -1;
+LABEL_11:
+        v16 = v10[v11 + 3];
+        if ( v16 > 0x7FFFFFF )
+          v16 -= 0x10000000;
+        v62.x = v16;
+        v17 = v15 + v11;
+        v62.y = v10[2];
+        v64 = v10[2];
+        v18 = v10[v15 + 3 + v11];
+        if ( v18 > 0x7FFFFFF )
+          v18 -= 0x10000000;
+        v19 = a3;
+        v63 = v18;
+        if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v62, 2) )
+          return 0LL;
+        v20 = *(v10 - 1);
+        v10[v17 + 3] += 0x10000000;
+        v21 = -1;
+        v22 = (_DWORD *)((char *)v10 - (unsigned int)(4 * v20 + 16));
+        v23 = *v22;
+        if ( !*v22 )
+          goto LABEL_17;
+        while ( 2 )
         {
-          v37 = j[v32 + 3];
+          v37 = v10[v17 + 3];
           v38 = v37;
           if ( v37 > 0x7FFFFFF )
             v38 = v37 - 0x10000000;
-          v39 = v9;
-          v40 = *v36 - v9 - 1;
-          v41 = v36[v40 + 3];
+          v39 = v23 - v12 - 1;
+          v40 = v12;
+          v41 = v22[v39 + 3];
           if ( v41 > 0x7FFFFFF )
             v41 -= 0x10000000;
           if ( v41 >= v38 )
           {
-            v42 = v36[v9 + 3];
+            v42 = v22[v12 + 3];
             if ( v42 > 0x7FFFFFF )
               v42 -= 0x10000000;
             if ( v42 >= v38 )
-              break;
-            v43 = (unsigned int)(*v36 - 1) >> 1;
-            if ( (_DWORD)v43 != (_DWORD)v9 )
+              goto LABEL_73;
+            v43 = (unsigned int)(v39 + v12) >> 1;
+            if ( (_DWORD)v43 != (_DWORD)v12 )
             {
               do
               {
-                v44 = v36[v43 + 3];
-                if ( v44 > 0x7FFFFFF )
-                  v44 -= 0x10000000;
-                v45 = v43;
-                if ( v44 < v38 )
+                v48 = v22[v43 + 3];
+                if ( v48 > 0x7FFFFFF )
+                  v48 -= 0x10000000;
+                v49 = v43;
+                if ( v48 < v38 )
                 {
-                  v45 = v40;
-                  v39 = v43;
+                  v49 = v39;
+                  v40 = v43;
                 }
-                v40 = v45;
-                v43 = (unsigned int)(v39 + v45) >> 1;
+                v39 = v49;
+                v43 = (unsigned int)(v49 + v40) >> 1;
               }
-              while ( (_DWORD)v43 != v39 );
+              while ( (_DWORD)v43 != v40 );
             }
-            v40 = v39;
+            v39 = v40;
           }
-          if ( (v40 & 1) == (_DWORD)v9 )
+          if ( (v39 & 1) != (_DWORD)v12 )
           {
-            ++v40;
-            if ( v32 < (unsigned int)(*j - 1) )
+            v52 = v22[v39 + 3];
+            if ( v52 > 0x7FFFFFF )
+              v52 -= 0x10000000;
+            v53 = v10[v17 + 2];
+            if ( v53 > 0x7FFFFFF )
+              v53 -= 0x10000000;
+            if ( v52 <= v53 )
+              goto LABEL_73;
+LABEL_63:
+            v44 = v22[v39 + 3];
+            v45 = v44;
+            if ( v44 > 0x7FFFFFF )
+              v45 = v44 - 0x10000000;
+            if ( v38 != v45 )
+              goto LABEL_121;
+            if ( v37 > 0x7FFFFFF )
+              v37 -= 0x10000000;
+            if ( v37 != v45 )
+              goto LABEL_121;
+            if ( v44 > 0x7FFFFFF )
+              v44 -= 0x10000000;
+            if ( v44 != v45 )
             {
-              v46 = v36[v40 + 3];
-              if ( v46 > 0x7FFFFFF )
-                v46 -= 0x10000000;
-              v47 = j[v32 + 4];
-              if ( v47 > 0x7FFFFFF )
-                v47 -= 0x10000000;
-              if ( v46 > v47 )
-              {
-                v35 = 1;
-                goto LABEL_94;
-              }
+LABEL_121:
+              v62.x = v38;
+              v62.y = v10[1];
+              v64 = v10[1];
+              v63 = v45;
+              if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v62, 2) )
+                return 0LL;
             }
+            v10 = v22;
+            v17 = v39;
+            v46 = v22 - 1;
+            v47 = *v46;
+            v10[v39 + 3] += 0x10000000;
+            v22 = (int *)((char *)v46 - (unsigned int)(4 * v47 + 16) + 4);
+            v23 = *v22;
+            if ( !*v22 )
+            {
+LABEL_73:
+              v21 = -1;
+              goto LABEL_74;
+            }
+            continue;
           }
-          else
-          {
-            v48 = v36[v40 + 3];
-            if ( v48 > 0x7FFFFFF )
-              v48 -= 0x10000000;
-            v49 = j[v32 + 2];
-            if ( v49 > 0x7FFFFFF )
-              v49 -= 0x10000000;
-            if ( v48 <= v49 )
-              break;
-          }
-          v50 = &v36[v40];
-          v51 = v50[3];
-          v52 = v51;
-          if ( v51 > 0x7FFFFFF )
-            v52 = v51 - 0x10000000;
-          if ( v38 != v52 )
-            goto LABEL_117;
-          if ( v37 > 0x7FFFFFF )
-            v37 -= 0x10000000;
-          if ( v37 != v52 )
-            goto LABEL_117;
-          if ( v51 > 0x7FFFFFF )
-            v51 -= 0x10000000;
-          if ( v51 != v52 )
-          {
-LABEL_117:
-            v61.x = v38;
-            v61.y = j[1];
-            v63 = j[1];
-            v62 = v52;
-            if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v61, 2u) )
-              return 0LL;
-          }
-          j = v36;
-          v32 = v40;
-          v53 = v36 - 1;
-          v54 = *v53;
-          v50[3] += 0x10000000;
-          v36 = (int *)((char *)v53 - (unsigned int)(4 * v54 + 16) + 4);
+          break;
         }
-        while ( *v36 );
-        v35 = -1;
-LABEL_94:
-        v4 = a2;
-      }
-      if ( v5 == j )
-      {
-        v7 = v66;
-        if ( v66 == v32 - 1 )
+        ++v39;
+        if ( v17 >= (unsigned int)(*v10 - 1) )
+          goto LABEL_63;
+        v56 = v22[v39 + 3];
+        if ( v56 > 0x7FFFFFF )
+          v56 -= 0x10000000;
+        v57 = v10[v17 + 4];
+        if ( v57 > 0x7FFFFFF )
+          v57 -= 0x10000000;
+        if ( v56 <= v57 )
+          goto LABEL_63;
+        v21 = 1;
+LABEL_74:
+        v19 = a3;
+LABEL_17:
+        if ( v5 != v10 || v67 != v17 - 1 )
         {
-          v57 = j[v32 + 3];
-          if ( v57 > 0x7FFFFFF )
-            v57 -= 0x10000000;
-          v61.x = v57;
-          v61.y = j[1];
-          if ( (unsigned int)EPATHOBJ::bPolyLineTo(v4, a3, &v61, 1u) && (unsigned int)EPATHOBJ::bCloseFigure(v4) )
+          v58 = v10[v17 + 3];
+          if ( v58 > 0x7FFFFFF )
+            v58 -= 0x10000000;
+          v62.x = v58;
+          v11 = v21 + v17;
+          v62.y = v10[1];
+          v64 = v10[1];
+          v59 = v10[v21 + 3 + v17];
+          if ( v59 > 0x7FFFFFF )
+            v59 -= 0x10000000;
+          v63 = v59;
+          if ( (unsigned int)EPATHOBJ::bPolyLineTo(a2, a3, &v62, 2) )
           {
-            v3 = a3;
-            goto LABEL_108;
+            v13 = (_DWORD *)((char *)v10 + (unsigned int)(4 * *v10 + 16));
+            v10[v11 + 3] += 0x10000000;
+            continue;
           }
           return 0LL;
         }
+        break;
       }
-      v55 = j[v32 + 3];
-      if ( v55 > 0x7FFFFFF )
-        v55 -= 0x10000000;
-      v61.x = v55;
-      v10 = v35 + v32;
-      v61.y = j[1];
-      v63 = j[1];
-      v56 = j[v10 + 3];
-      if ( v56 > 0x7FFFFFF )
-        v56 -= 0x10000000;
-      v62 = v56;
-      if ( !(unsigned int)EPATHOBJ::bPolyLineTo(v4, a3, &v61, 2u) )
+      v24 = v10[v17 + 3];
+      if ( v24 > 0x7FFFFFF )
+        v24 -= 0x10000000;
+      v4 = a2;
+      v62.x = v24;
+      v62.y = v10[1];
+      if ( !(unsigned int)EPATHOBJ::bPolyLineTo(a2, v19, &v62, 1) || !(unsigned int)EPATHOBJ::bCloseFigure(a2) )
         return 0LL;
-      v11 = (_DWORD *)((char *)j + (unsigned int)(4 * *j + 16));
+      v7 = v67;
+      v3 = a3;
+LABEL_7:
+      ++v7;
     }
   }
-  return 0LL;
+  return 1LL;
 }

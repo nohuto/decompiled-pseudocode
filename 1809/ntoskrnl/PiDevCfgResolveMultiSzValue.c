@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgResolveMultiSzValue @ 0x140705840
+ * XREFs of PiDevCfgResolveMultiSzValue @ 0x140705820
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CF4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PnpValidateMultiSzData @ 0x14015D964 (PnpValidateMultiSzData.c)
- *     PnpValidateRegistryMultiSz @ 0x1401698F8 (PnpValidateRegistryMultiSz.c)
- *     PnpMultiSzContainsString @ 0x14016B764 (PnpMultiSzContainsString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PnpValidateMultiSzData @ 0x14015D984 (PnpValidateMultiSzData.c)
+ *     PnpValidateRegistryMultiSz @ 0x140169918 (PnpValidateRegistryMultiSz.c)
+ *     PnpMultiSzContainsString @ 0x14016B784 (PnpMultiSzContainsString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PiDevCfgResolveMultiSzValue(

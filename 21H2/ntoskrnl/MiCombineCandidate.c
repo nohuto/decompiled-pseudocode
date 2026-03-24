@@ -1,17 +1,20 @@
 /*
- * XREFs of MiCombineCandidate @ 0x1403137B0
+ * XREFs of MiCombineCandidate @ 0x1403697A0
  * Callers:
- *     MiRecheckCombineVm @ 0x140227DF0 (MiRecheckCombineVm.c)
- *     MiCapturePfnVm @ 0x14026AEB0 (MiCapturePfnVm.c)
- *     MiMapArbitraryPage @ 0x1403128B0 (MiMapArbitraryPage.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCrcStillIntact @ 0x140339D70 (MiCrcStillIntact.c)
- *     MiCombinePte @ 0x1405B5BA0 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
+ *     MiRecheckCombineVm @ 0x140367AD0 (MiRecheckCombineVm.c)
+ *     MiCrcStillIntact @ 0x140367B74 (MiCrcStillIntact.c)
+ *     MiCapturePfnVm @ 0x140368100 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiMapArbitraryPage @ 0x140369610 (MiMapArbitraryPage.c)
+ *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140239F04 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
- *     MiGetPagePrivilege @ 0x140313B20 (MiGetPagePrivilege.c)
- *     MI_IS_RESET_PTE @ 0x14033B640 (MI_IS_RESET_PTE.c)
+ *     MI_IS_RESET_PTE @ 0x14023DD20 (MI_IS_RESET_PTE.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1402BA73C (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     MiGetPagePrivilege @ 0x1403286F0 (MiGetPagePrivilege.c)
+ *     MiIsSessionMetadata @ 0x14036AE10 (MiIsSessionMetadata.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
@@ -19,130 +22,130 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
   __int128 v3; // xmm1
   __int128 v4; // xmm0
   unsigned __int64 v5; // rdi
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rcx
-  unsigned __int64 v8; // rcx
-  int v9; // eax
-  unsigned int v10; // edx
-  unsigned __int64 v11; // rax
+  unsigned __int64 v6; // r8
+  __int64 v7; // r9
+  unsigned __int64 v8; // rbx
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // r8
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v14; // rax
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  unsigned __int64 v14; // rcx
+  int v15; // eax
+  unsigned int v16; // edx
+  unsigned __int64 v18; // rax
   __int128 BugCheckParameter2; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v16; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v17; // [rsp+40h] [rbp-18h]
-  unsigned __int64 v18; // [rsp+70h] [rbp+18h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v21; // [rsp+40h] [rbp-18h]
+  unsigned __int64 v22; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = a3[1];
   BugCheckParameter2 = *a3;
   v4 = a3[2];
-  v16 = v3;
-  v17 = v4;
+  v20 = v3;
+  v21 = v4;
   if ( (BYTE2(v4) & 7u) <= 1 )
     return 0LL;
   v5 = *((_QWORD *)&BugCheckParameter2 + 1);
-  if ( *(_QWORD *)(qword_140C51F48 + 8 * ((*((_QWORD *)&v17 + 1) >> 43) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
+  if ( *(_QWORD *)(qword_140C4E648 + 8 * ((*((_QWORD *)&v21 + 1) >> 39) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
     return 0LL;
-  if ( v17 < 0
-    || (*((_QWORD *)&v17 + 1) & 0x10000000000LL) != 0
-    || (BYTE3(v17) & 8) != 0
-    || *((_QWORD *)&BugCheckParameter2 + 1) < 0xFFFFF68000000000uLL
-    || *((_QWORD *)&BugCheckParameter2 + 1) > 0xFFFFF6FFFFFFFFFFuLL
-    || (*((_QWORD *)&v16 + 1) & 0x4000000000000000LL) != 0
-    || ((*((_QWORD *)&v17 + 1) >> 60) & 7) == 4
-    || (*((_QWORD *)&BugCheckParameter2 + 1) | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
-    && (*((_QWORD *)&BugCheckParameter2 + 1) | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL
-    && (BYTE3(v17) & 0x20) != 0
-    || byte_140C58C66
-    && _bittest64(
-         (const signed __int64 *)qword_140C58DE0,
-         (0xAAAAAAAAAAAAAAABuLL * ((__int64)(a3 + 0x22000000000LL) >> 4)) >> 9) )
+  if ( (unsigned int)MI_PFN_IS_PROTO(&BugCheckParameter2)
+    || (v6 & 0x1000000000LL) != 0
+    || (BYTE3(v21) & 8) != 0
+    || v5 < 0xFFFFF68000000000uLL
+    || v5 > 0xFFFFF6FFFFFFFFFFuLL
+    || (*((_QWORD *)&v20 + 1) & 0x4000000000000000LL) != 0
+    || ((v6 >> 60) & 7) == 4
+    || (v5 | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
+    && (v5 | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL
+    && (BYTE3(v21) & 0x20) != 0
+    || byte_140C5205E
+    && _bittest64((const signed __int64 *)qword_140C52588, (unsigned __int64)((v7 + 0x58000000000LL) / 48) >> 9) )
   {
     return 0LL;
   }
-  v6 = v16;
-  if ( (unsigned __int64)&v16 >= 0xFFFFF6FB7DBED000uLL
-    && (unsigned __int64)&v16 <= 0xFFFFF6FB7DBED7F8uLL
-    && (MiFlags & 0xC00000) != 0
-    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-    && (v16 & 1) != 0
-    && ((v16 & 0x20) == 0 || (v16 & 0x42) == 0) )
+  v8 = v20;
+  if ( (unsigned __int64)&v20 >= 0xFFFFF6FB7DBED000uLL
+    && (unsigned __int64)&v20 <= 0xFFFFF6FB7DBED7F8uLL
+    && (unsigned int)MiPteHasShadow()
+    && (v9 & 1) != 0
+    && ((v9 & 0x20) == 0 || (v9 & 0x42) == 0) )
   {
-    v6 = v16;
+    v8 = v20;
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v6 = v16 | 0x20;
-      v14 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v16 >> 3) & 0x1FF));
-      if ( (v14 & 0x20) == 0 )
-        v6 = v16;
-      if ( (v14 & 0x42) != 0 )
-        v6 |= 0x42uLL;
+      v8 = v20 | 0x20;
+      v12 = *((_QWORD *)&Flink->Flink + ((v10 >> 3) & 0x1FF));
+      if ( (v12 & 0x20) == 0 )
+        v8 = v9;
+      if ( (v12 & 0x42) != 0 )
+        v8 |= 0x42uLL;
     }
   }
-  v18 = v6;
-  if ( (v6 & 1) != 0 || v6 && qword_140C50780 && (qword_140C50780 & v6) == 0 )
+  v22 = v8;
+  if ( (v8 & 1) != 0 || v8 && qword_140C4DF40 && (qword_140C4DF40 & v8) == 0 )
     return 0LL;
-  v7 = (v6 >> 5) & 0x1F;
-  if ( (_DWORD)v7 == 31
-    || (_DWORD)v7 == 24
-    || ((v6 >> 5) & 0x18) == 0x10
-    || (unsigned int)v7 >= 0x1E
-    || (unsigned int)MiGetPagePrivilege((ULONG_PTR)&BugCheckParameter2) )
+  v13 = (v8 >> 5) & 0x1F;
+  if ( (_DWORD)v13 == 24
+    || (_DWORD)v13 == 31
+    || ((v8 >> 5) & 0x18) == 0x10
+    || (unsigned int)v13 >= 0x1E
+    || (unsigned int)MiGetPagePrivilege((ULONG_PTR)&BugCheckParameter2, 0, 0LL) )
   {
     return 0LL;
   }
-  v8 = (__int64)(v5 << 25) >> 16;
-  if ( v8 >= 0xFFFF800000000000uLL )
-    v9 = (unsigned __int8)byte_140C53F50[((v8 >> 39) & 0x1FF) - 256];
+  v14 = (__int64)(v5 << 25) >> 16;
+  if ( v14 >= 0xFFFF800000000000uLL )
+    v15 = (unsigned __int8)byte_140C4F9C8[((v14 >> 39) & 0x1FF) - 256];
   else
-    v9 = 0;
+    v15 = 0;
   if ( v5 > 0xFFFFF6BFFFFFFF78uLL )
   {
-    if ( v9 == 6 )
+    if ( v15 == 6 )
     {
-      v10 = 2;
+      v16 = 2;
     }
     else
     {
-      if ( v9 != 1 )
+      if ( v15 != 1 || (unsigned int)MiIsSessionMetadata() )
         return 0LL;
-      v10 = 3;
+      v16 = 3;
     }
   }
   else
   {
-    v10 = 1;
+    v16 = 1;
   }
-  if ( (unsigned __int8)((BYTE2(v17) & 7) - 2) <= 1u )
+  if ( (unsigned __int8)((BYTE2(v21) & 7) - 2) > 1u || (_WORD)v21 )
   {
-    if ( !(_WORD)v17
-      && (v10 != 1 || !(unsigned int)MI_IS_RESET_PTE(v6) && !(unsigned int)MI_IS_SOFTWARE_PTE_SHADOW_STACK(&v18)) )
+    if ( (BYTE2(v21) & 7) != 6
+      || (BugCheckParameter2 & 1) == 0
+      || (*((_QWORD *)&v21 + 1) & 0xFFFFFFFFFLL) == 0xFFFFFFFFDLL
+      || (_WORD)v21 != 1
+      || (*((_QWORD *)&v20 + 1) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
     {
-      return v10;
+      return 0LL;
+    }
+    if ( v16 == 1 && (v8 & 0x400) == 0 )
+    {
+      if ( (v8 & 0x800) == 0
+        && (((unsigned __int8)v8 >> 2) & (unsigned __int8)v21) == 0
+        && (((unsigned __int8)v8 >> 1) & (unsigned __int8)v21) == 0 )
+      {
+        v18 = v8;
+        if ( qword_140C4DF40 && (v8 & 0x10) == 0 )
+          v18 = v8 & ~qword_140C4DF40;
+        if ( HIDWORD(v18) == 1 )
+          return 0LL;
+      }
+      if ( (v8 & 0x400) == 0 && ((v8 >> 26) & 1) != 0 )
+        return 0LL;
     }
   }
-  else if ( (BYTE2(v17) & 7) == 6
-         && (BugCheckParameter2 & 1) != 0
-         && (_WORD)v17 == 1
-         && (*((_QWORD *)&v17 + 1) & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL
-         && (*((_QWORD *)&v16 + 1) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+  else if ( v16 == 1 && (MI_IS_RESET_PTE(v8) || (unsigned int)MI_IS_SOFTWARE_PTE_SHADOW_STACK(&v22)) )
   {
-    if ( v10 != 1 || (v6 & 0x400) != 0 )
-      return v10;
-    if ( (v6 & 0x800) != 0 || (v6 & 4) != 0 || (v6 & 2) != 0 )
-      goto LABEL_45;
-    v11 = v6;
-    if ( qword_140C50780 )
-    {
-      if ( (v6 & 0x10) == 0 )
-        v11 = v6 & ~qword_140C50780;
-    }
-    if ( HIDWORD(v11) != 1 )
-    {
-LABEL_45:
-      if ( (v6 & 0x4000000) == 0 )
-        return v10;
-    }
+    return 0LL;
   }
-  return 0LL;
+  return v16;
 }

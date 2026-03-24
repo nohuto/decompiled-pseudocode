@@ -1,70 +1,72 @@
 /*
- * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020A28
+ * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00239FC
  * Callers:
- *     McGenControlCallbackV2 @ 0x1C0020930 (McGenControlCallbackV2.c)
+ *     McGenControlCallbackV2 @ 0x1C0023900 (McGenControlCallbackV2.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0qxq_EtwWriteTransfer @ 0x1C004E9FC (McTemplateK0qxq_EtwWriteTransfer.c)
- *     ?CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ @ 0x1C0312460 (-CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ.c)
- *     ?DxgkDisableStablePowerState@@YAXXZ @ 0x1C03127CC (-DxgkDisableStablePowerState@@YAXXZ.c)
- *     ?DxgkEnableClockCalibration@@YAXE@Z @ 0x1C03127EC (-DxgkEnableClockCalibration@@YAXE@Z.c)
- *     ?DxgkEnableFormattingBuffer@@YAXH@Z @ 0x1C0312810 (-DxgkEnableFormattingBuffer@@YAXH@Z.c)
- *     ?DxgkEnableStablePowerState@@YAXXZ @ 0x1C0312834 (-DxgkEnableStablePowerState@@YAXXZ.c)
- *     ?DxgkReportGlobalState@@YAXXZ @ 0x1C0312854 (-DxgkReportGlobalState@@YAXXZ.c)
- *     DpiControlEtwLogging @ 0x1C0398FC8 (DpiControlEtwLogging.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     McTemplateK0qxq_EtwWriteTransfer @ 0x1C0044C3C (McTemplateK0qxq_EtwWriteTransfer.c)
+ *     ?CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ @ 0x1C0268FF0 (-CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?DxgkDisableStablePowerState@@YAXXZ @ 0x1C02697C8 (-DxgkDisableStablePowerState@@YAXXZ.c)
+ *     ?DxgkEnableClockCalibration@@YAXE@Z @ 0x1C02697E8 (-DxgkEnableClockCalibration@@YAXE@Z.c)
+ *     ?DxgkEnableFormattingBuffer@@YAXH@Z @ 0x1C026980C (-DxgkEnableFormattingBuffer@@YAXH@Z.c)
+ *     ?DxgkEnableStablePowerState@@YAXXZ @ 0x1C0269830 (-DxgkEnableStablePowerState@@YAXXZ.c)
+ *     ?DxgkReportGlobalState@@YAXXZ @ 0x1C0269850 (-DxgkReportGlobalState@@YAXXZ.c)
+ *     DpiControlEtwLogging @ 0x1C02C692C (DpiControlEtwLogging.c)
  */
 
-void __fastcall DxgkEtwEnableCallback(int a1, char a2, __int64 a3, int a4)
+void __fastcall DxgkEtwEnableCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
+  char v4; // di
   char v5; // bl
-  __int64 v6; // r8
-  bool v7; // cl
-  __int64 v8; // rcx
+  bool v6; // cl
+  __int64 v7; // rcx
+  __int64 v8; // r8
   DXGGLOBAL *Global; // rax
   unsigned __int8 v10; // cl
 
+  v4 = a2;
   v5 = 1;
-  if ( a1 != 2 || !bTracingEnabled )
+  if ( (_DWORD)a1 != 2 || !bTracingEnabled )
   {
-    if ( qword_1C013F870 == g_OldAnyKeywords )
+    if ( qword_1C00B19B0 == g_OldAnyKeywords )
       goto LABEL_11;
-    v6 = 4096LL;
-    v7 = (qword_1C013F870 & 0x1000) != 0 && (qword_1C013F870 & 0x2000) == 0;
+    v6 = (qword_1C00B19B0 & 0x1000) != 0 && (qword_1C00B19B0 & 0x2000) == 0;
     if ( (g_OldAnyKeywords & 0x1000) != 0 )
     {
-      if ( (qword_1C013F870 & 0x1000) == 0 )
+      if ( (qword_1C00B19B0 & 0x1000) == 0 )
         DxgkDisableStablePowerState();
     }
-    else if ( (qword_1C013F870 & 0x1000) != 0 && v7 )
+    else if ( (qword_1C00B19B0 & 0x1000) != 0 && v6 )
     {
       DxgkEnableStablePowerState();
     }
-    v8 = qword_1C013F870;
-    if ( _bittest64((const signed __int64 *)&g_OldAnyKeywords, 0xAu) )
+    v7 = qword_1C00B19B0;
+    v8 = 1024LL;
+    if ( (g_OldAnyKeywords & 0x400) != 0 )
     {
-      if ( (qword_1C013F870 & 0x400) != 0 )
+      if ( (qword_1C00B19B0 & 0x400) != 0 )
         goto LABEL_9;
-      v8 = 0LL;
+      v7 = 0LL;
     }
     else
     {
-      if ( (qword_1C013F870 & 0x400) == 0 )
+      if ( (qword_1C00B19B0 & 0x400) == 0 )
         goto LABEL_9;
-      LOBYTE(v8) = 1;
+      LOBYTE(v7) = 1;
     }
-    LOBYTE(v6) = a2;
-    DpiControlEtwLogging(v8, qword_1C013F870 & 0x3000, v6);
+    LOBYTE(v8) = v4;
+    DpiControlEtwLogging(v7, qword_1C00B19B0 & 0x3000, v8);
 LABEL_9:
-    if ( _bittest64((const signed __int64 *)&g_OldAnyKeywords, 0xEu) )
+    if ( (g_OldAnyKeywords & 0x4000) != 0 )
     {
-      if ( _bittest64(&qword_1C013F870, 0xEu) )
+      if ( (qword_1C00B19B0 & 0x4000) != 0 )
         goto LABEL_11;
       DxgkEnableFormattingBuffer(0);
       v10 = 0;
     }
     else
     {
-      if ( !_bittest64(&qword_1C013F870, 0xEu) )
+      if ( (qword_1C00B19B0 & 0x4000) == 0 )
         goto LABEL_11;
       DxgkEnableFormattingBuffer(1);
       v10 = 1;
@@ -74,18 +76,18 @@ LABEL_9:
   }
   if ( a3 == 0x4000000 )
   {
-    Global = DXGGLOBAL::GetGlobal();
+    Global = DXGGLOBAL::GetGlobal(a1, a2);
     DXGGLOBAL::CaptureSchedulerLogs(Global);
   }
   else
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0qxq_EtwWriteTransfer(2, a2, a3, a4, qword_1C013F870, a2);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0qxq_EtwWriteTransfer(2, a2, a3, a4, qword_1C00B19B0, a2);
     DxgkReportGlobalState();
   }
 LABEL_11:
-  if ( (qword_1C013F870 & 0x461C8ED7) == 0 || (qword_1C013F878 & 0xFFFFFFFFB9E37128uLL) != 0 )
+  if ( (qword_1C00B19B0 & 0x61C8ED7) == 0 || (qword_1C00B19B8 & 0xFFFFFFFFF9E37128uLL) != 0 )
     v5 = 0;
   bTracingEnabled = v5;
-  g_OldAnyKeywords = qword_1C013F870;
+  g_OldAnyKeywords = qword_1C00B19B0;
 }

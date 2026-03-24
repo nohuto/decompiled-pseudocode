@@ -1,45 +1,30 @@
 /*
- * XREFs of NtUserfnGESTURE @ 0x1C01E0690
+ * XREFs of NtUserfnGESTURE @ 0x1C0204800
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     SendGestureMessage @ 0x1C0204854 (SendGestureMessage.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     SendGestureMessage @ 0x1C022732C (SendGestureMessage.c)
  */
 
-__int64 __fastcall NtUserfnGESTURE(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int a6)
+__int64 __fastcall NtUserfnGESTURE(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
 {
   __int64 v6; // rbx
-  int v7; // ebp
-  int v8; // r14d
-  int v9; // esi
-  _QWORD v12[3]; // [rsp+40h] [rbp-18h] BYREF
+  _QWORD v8[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v6 = 0LL;
-  v7 = a4;
-  v12[0] = 0LL;
-  v8 = a3;
-  v9 = a2;
-  PtiCurrentShared(a1, a2, a3, a4);
-  if ( v9 == 281 )
+  v8[0] = 0LL;
+  if ( (_DWORD)a2 == 281
+    && a6 >= 0x29E
+    && (a6 <= 0x29F || a6 > 0x2AA && (a6 <= 0x2AC || a6 > 0x2B0 && (a6 <= 0x2B4 || a6 - 695 <= 1))) )
   {
-    if ( a6 > 0x2B2 )
-    {
-      if ( a6 != 691 && a6 != 692 && a6 - 695 > 1 )
-        return v6;
-    }
-    else if ( a6 != 690 && a6 != 670 && a6 != 671 && a6 != 683 && a6 != 684 && a6 != 689 )
-    {
-      return v6;
-    }
     if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     {
-      UserSetLastError(1400);
+      UserSetLastError(1400LL, a2, a3);
     }
-    else if ( (unsigned int)SendGestureMessage(a1, 281, v8, v7, a5, a6, (__int64)v12) )
+    else if ( (unsigned int)SendGestureMessage(a1, 281, a3, a4, a5, a6, (__int64)v8) )
     {
-      return v12[0];
+      return v8[0];
     }
   }
   return v6;

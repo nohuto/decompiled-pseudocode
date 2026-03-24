@@ -1,7 +1,7 @@
 /*
- * XREFs of KevSkipVerification @ 0x1406549F4
+ * XREFs of KevSkipVerification @ 0x1405CA2CC
  * Callers:
- *     ExFreePoolSanityChecks @ 0x140AA7018 (ExFreePoolSanityChecks.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF50 (ExFreePoolSanityChecks.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ _BOOL8 KevSkipVerification()
       if ( (CurrentPrcb->DpcRequestSummary & 8) != 0 )
       {
         v1 = KiSerializeTimerExpiration
-           ? *(_DWORD *)(KiProcessorBlock[0] + 32276)
+           ? *(_DWORD *)(KiProcessorBlock[0] + 31572)
            : CurrentPrcb->TimerTable.TableState.LastTimerHand[1];
         if ( v1 + 100 < (unsigned int)(MEMORY[0xFFFFF78000000008] >> 18) )
           return 1;

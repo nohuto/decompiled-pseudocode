@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSaveSupervisorState @ 0x14029B8E8
+ * XREFs of KeSaveSupervisorState @ 0x140519EF8
  * Callers:
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
- *     KeBugCheck2 @ 0x1405660A0 (KeBugCheck2.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
- *     IopLiveDumpProcessCorralStateChange @ 0x140A677B8 (IopLiveDumpProcessCorralStateChange.c)
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AD37C (IopLiveDumpProcessCorralStateChange.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
  * Callees:
- *     RtlXSaveS @ 0x14024215C (RtlXSaveS.c)
- *     KiSaveIptState @ 0x140570250 (KiSaveIptState.c)
+ *     RtlXSaveS @ 0x1402C112C (RtlXSaveS.c)
+ *     KiSaveIptState @ 0x14051A4D8 (KiSaveIptState.c)
  */
 
 __int64 __fastcall KeSaveSupervisorState(__int64 a1, __int64 a2)
@@ -24,11 +24,11 @@ __int64 __fastcall KeSaveSupervisorState(__int64 a1, __int64 a2)
       result = KiSaveIptState(MEMORY[0xFFFFF78000000600] - (unsigned __int64)MEMORY[0xFFFFF780000003E8] + a1 + 64);
     if ( (KeFeatureBits & 0x800000) != 0 )
     {
-      result = KeEnabledSupervisorXStateFeatures;
-      if ( KeEnabledSupervisorXStateFeatures )
+      result = MEMORY[0xFFFFF780000005F0];
+      if ( MEMORY[0xFFFFF780000005F0] )
       {
-        v5 = KeEnabledSupervisorXStateFeatures & v2;
-        *(_QWORD *)(a1 + 8) = KeEnabledSupervisorXStateFeatures & v2;
+        v5 = MEMORY[0xFFFFF780000005F0] & v2;
+        *(_QWORD *)(a1 + 8) = MEMORY[0xFFFFF780000005F0] & v2;
         return RtlXSaveS(a1 - 512, v5);
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Destroy@CObjectCache@@QEAAXXZ @ 0x180261B0C
+ * XREFs of ?Destroy@CObjectCache@@QEAAXXZ @ 0x180210C00
  * Callers:
- *     ??1CThreadContext@@AEAA@XZ @ 0x180261A1C (--1CThreadContext@@AEAA@XZ.c)
- *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180261B4C (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
+ *     ??1CThreadContext@@AEAA@XZ @ 0x180210B30 (--1CThreadContext@@AEAA@XZ.c)
+ *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180210C40 (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CObjectCache::Destroy(CObjectCache *this)
@@ -17,7 +17,7 @@ void __fastcall CObjectCache::Destroy(CObjectCache *this)
   {
     v3 = v1;
     v1 = (_QWORD *)*v1;
-    DefaultHeap::Free(v3);
+    operator delete(v3);
   }
   *(_DWORD *)this = 0;
   *((_DWORD *)this + 1) = 0;

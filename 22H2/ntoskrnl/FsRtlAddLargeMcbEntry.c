@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlAddLargeMcbEntry @ 0x140339D60
+ * XREFs of FsRtlAddLargeMcbEntry @ 0x1402F5380
  * Callers:
- *     FsRtlAddMcbEntry @ 0x14053CB10 (FsRtlAddMcbEntry.c)
+ *     FsRtlAddMcbEntry @ 0x1404EEE40 (FsRtlAddMcbEntry.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14033A370 (FsRtlAddBaseMcbEntryEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402F5910 (FsRtlAddBaseMcbEntryEx.c)
  */
 
 BOOLEAN __stdcall FsRtlAddLargeMcbEntry(PLARGE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
 {
   ExAcquireFastMutex(Mcb->GuardedMutex);
   LOBYTE(SectorCount) = FsRtlAddBaseMcbEntryEx(&Mcb->BaseMcb, Vbn, Lbn, SectorCount) >= 0;
-  ExReleaseFastMutex(Mcb->GuardedMutex);
+  KeReleaseGuardedMutex(Mcb->GuardedMutex);
   return SectorCount;
 }

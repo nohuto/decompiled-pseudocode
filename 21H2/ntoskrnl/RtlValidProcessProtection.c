@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlValidProcessProtection @ 0x1406E91A0
+ * XREFs of RtlValidProcessProtection @ 0x1406C3630
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140670488 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */

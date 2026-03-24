@@ -1,55 +1,55 @@
 /*
- * XREFs of ?bAdvanceToTopMostOpaqueLayer@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z @ 0x1C027D3DC
+ * XREFs of ?bAdvanceToTopMostOpaqueLayer@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z @ 0x1C01646B4
  * Callers:
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0281B48 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0281D9C (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0163C34 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0283848 (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall ENUMAREAS::bAdvanceToTopMostOpaqueLayer(ENUMAREAS *this, struct SPRITE **a2)
 {
-  unsigned int v2; // edi
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v6; // rbp
-  unsigned __int64 v7; // r15
-  __int64 v8; // rcx
-  _DWORD *v9; // rcx
+  unsigned int v3; // r9d
+  unsigned __int64 v5; // r11
+  unsigned __int64 v6; // rdx
+  unsigned __int64 v7; // r8
   __int64 result; // rax
+  __int64 v9; // rcx
+  _DWORD *v10; // rcx
 
-  v2 = 0;
-  v3 = *((_QWORD *)this + 9);
-  v6 = 0LL;
-  v7 = *(_QWORD *)(*((_QWORD *)this + 8) + 8LL) + *((_QWORD *)this + 8) - 16LL;
-  if ( *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 32) + 23664LL) )
+  v3 = 0;
+  v5 = 0LL;
+  v6 = *(_QWORD *)(*((_QWORD *)this + 8) + 8LL) + *((_QWORD *)this + 8) - 16LL;
+  v7 = *((_QWORD *)this + 9);
+  if ( gpto )
   {
     while ( 1 )
     {
-      v8 = *(_QWORD *)(v3 + 8);
-      if ( (*(_DWORD *)v8 & 8) != 0 )
+      v9 = *(_QWORD *)(v7 + 8);
+      if ( (*(_DWORD *)v9 & 8) != 0 )
       {
-        v9 = *(_DWORD **)(v8 + 184);
-        if ( !v9
-          || v9[12] <= 0x38u
-          && v9[14] <= *(_DWORD *)v3
-          && v9[16] >= *(_DWORD *)(v3 + 4)
-          && v9[15] <= *((_DWORD *)this + 9)
-          && v9[17] >= *((_DWORD *)this + 10) )
+        v10 = *(_DWORD **)(v9 + 184);
+        if ( !v10
+          || v10[20] <= 0x38u
+          && v10[24] <= *(_DWORD *)v7
+          && v10[26] >= *(_DWORD *)(v7 + 4)
+          && v10[25] <= *((_DWORD *)this + 9)
+          && v10[27] >= *((_DWORD *)this + 10) )
         {
-          v6 = v3;
+          v5 = v7;
         }
       }
-      if ( v3 >= v7 || *(_DWORD *)(v3 + 16) != *(_DWORD *)v3 )
+      if ( v7 >= v6 || *(_DWORD *)(v7 + 16) != *(_DWORD *)v7 )
         break;
-      v3 += 16LL;
+      v7 += 16LL;
     }
   }
-  if ( v6 && *a2 != *(struct SPRITE **)(v6 + 8) )
+  if ( v5 && *a2 != *(struct SPRITE **)(v5 + 8) )
   {
-    *((_QWORD *)this + 9) = v6;
-    v2 = 1;
+    *((_QWORD *)this + 9) = v5;
+    v3 = 1;
   }
-  result = v2;
+  result = v3;
   *a2 = *(struct SPRITE **)(*((_QWORD *)this + 9) + 8LL);
   return result;
 }

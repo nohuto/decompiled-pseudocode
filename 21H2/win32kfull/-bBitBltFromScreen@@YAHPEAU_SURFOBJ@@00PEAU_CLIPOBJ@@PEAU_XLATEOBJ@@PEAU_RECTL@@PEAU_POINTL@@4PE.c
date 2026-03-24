@@ -1,21 +1,21 @@
 /*
- * XREFs of ?bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A38B8
+ * XREFs of ?bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A5BB8
  * Callers:
- *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C016F090 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
+ *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A1D40 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     OffBitBlt @ 0x1C0114EC4 (OffBitBlt.c)
- *     OffCopyBits @ 0x1C01568A8 (OffCopyBits.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C016FBC8 (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
- *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C016FC5C (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ??1MULTISURF@@QEAA@XZ @ 0x1C027BB90 (--1MULTISURF@@QEAA@XZ.c)
- *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C029FBD8 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
- *     ?IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z @ 0x1C029FEA0 (-IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C029FEC0 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
- *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A4670 (-bNextSurface@MSURF@@QEAAHXZ.c)
- *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02A4BAC (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     OffBitBlt @ 0x1C0129EF0 (OffBitBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1MULTISURF@@QEAA@XZ @ 0x1C027E020 (--1MULTISURF@@QEAA@XZ.c)
+ *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C02A10D0 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
+ *     ?IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A14F0 (-IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C02A1510 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
+ *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C02A5B24 (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
+ *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C02A67F0 (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A6C44 (-bNextSurface@MSURF@@QEAAHXZ.c)
+ *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02A7184 (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     OffCopyBits @ 0x1C02C9118 (OffCopyBits.c)
  */
 
 __int64 __fastcall bBitBltFromScreen(
@@ -40,15 +40,15 @@ __int64 __fastcall bBitBltFromScreen(
   __int64 v19; // r9
   struct _DISPSURF *v20; // rdx
   struct _SURFOBJ *v21; // r8
-  __int64 v22; // rsi
-  struct _XLATEOBJ *v23; // r14
-  HDEV hdev; // rcx
-  FLONG flXlate; // r10d
-  int v26; // edx
-  ULONG iUniq; // r8d
-  __int64 v28; // r9
-  ULONG *pulXlate; // r11
-  ULONG v30; // r14d
+  __int64 v22; // r14
+  int v23; // ecx
+  struct _XLATEOBJ *v24; // rsi
+  HDEV hdev; // r10
+  ULONG iUniq; // esi
+  int v27; // r11d
+  FLONG flXlate; // ecx
+  ULONG v29; // r8d
+  ULONG *pulXlate; // rdx
   BOOL (__stdcall *v31)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rcx
   BOOL (__stdcall *v32)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
   __int64 v33; // [rsp+70h] [rbp-90h] BYREF
@@ -64,11 +64,11 @@ __int64 __fastcall bBitBltFromScreen(
   __int64 v43; // [rsp+B8h] [rbp-48h]
   __int64 v44; // [rsp+C0h] [rbp-40h]
   _DWORD v45[14]; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 **v46[7]; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v46[56]; // [rsp+100h] [rbp+0h] BYREF
   struct _DISPSURF *v47; // [rsp+138h] [rbp+38h]
   __int64 v48; // [rsp+140h] [rbp+40h]
   __int64 v49; // [rsp+148h] [rbp+48h]
-  int v50[2]; // [rsp+150h] [rbp+50h]
+  int v50[4]; // [rsp+150h] [rbp+50h]
   _BYTE v51[40]; // [rsp+160h] [rbp+60h] BYREF
   __int64 v52; // [rsp+188h] [rbp+88h]
   char v53; // [rsp+190h] [rbp+90h]
@@ -115,83 +115,88 @@ __int64 __fastcall bBitBltFromScreen(
   v53 = 0;
   v54 = 0;
   MULTISURF::vInit((MULTISURF *)v51, v36, v39);
-  for ( i = MSURF::bFindSurface(v46, v38, 0LL, &v57); i; i = MSURF::bNextSurface((MSURF *)v46) )
+  for ( i = MSURF::bFindSurface((MSURF *)v46, v38, 0LL, &v57); i; i = MSURF::bNextSurface((MSURF *)v46) )
   {
     v19 = v48;
     v20 = v47;
     v21 = v36;
-    if ( (*(_DWORD *)(*(_QWORD *)(v48 + 24) + 1792LL) & 0x8000000) == 0 && !IsMetaRedirectionBitmap(v36) )
+    if ( (*(_DWORD *)(*(_QWORD *)(v48 + 24) + 1824LL) & 0x8000000) == 0 && !IsMetaRedirectionBitmap(v36) )
     {
       v22 = *(_QWORD *)v56;
 LABEL_12:
-      v23 = a5;
+      v23 = 0;
       v37 = 0LL;
+      v24 = a5;
       if ( *((_DWORD *)v20 + 6) )
       {
         hdev = *(HDEV *)(v22 + 104);
-        if ( hdev )
-          goto LABEL_20;
-        if ( !a5 )
-          goto LABEL_48;
-        if ( *(_QWORD *)&a5[2].iUniq )
+        if ( !hdev )
         {
-          hdev = *(HDEV *)&a5[2].iUniq;
-          goto LABEL_21;
+          if ( !a5 )
+            goto LABEL_19;
+          if ( *(_QWORD *)&a5[2].iUniq )
+          {
+            hdev = *(HDEV *)&a5[2].iUniq;
+            goto LABEL_22;
+          }
+          if ( (a5->flXlate & 1) != 0 )
+          {
+LABEL_19:
+            if ( (struct _SURFOBJ *)v22 == v21 )
+              hdev = v38[1].hdev;
+          }
+          else
+          {
+            v23 = 1;
+          }
         }
-        if ( (a5->flXlate & 1) != 0 )
+        if ( !v23 )
         {
-LABEL_48:
-          if ( (struct _SURFOBJ *)v22 == v21 )
-            hdev = v38[1].hdev;
-LABEL_20:
+LABEL_22:
           if ( a5 )
-          {
-LABEL_21:
-            flXlate = a5[1].flXlate;
-            v26 = *(_DWORD *)&a5[1].iSrcType;
             iUniq = a5[1].iUniq;
-          }
           else
-          {
-            flXlate = 0;
-            v26 = 0;
             iUniq = 0;
-          }
-          v28 = *(_QWORD *)(v19 + 104);
           if ( a5 )
-          {
-            pulXlate = a5[2].pulXlate;
-            v30 = a5[3].iUniq;
-          }
+            v27 = *(_DWORD *)&a5[1].iSrcType;
           else
-          {
+            v27 = 0;
+          if ( a5 )
+            flXlate = a5[1].flXlate;
+          else
+            flXlate = 0;
+          if ( a5 )
+            v29 = a5[3].iUniq;
+          else
+            v29 = 0;
+          if ( a5 )
+            pulXlate = a5[2].pulXlate;
+          else
             pulXlate = 0LL;
-            v30 = 0;
-          }
           if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
                                (__int64 *)&v37,
                                (__int64)pulXlate,
-                               v30,
-                               v28,
+                               v29,
+                               *(_QWORD *)(v19 + 104),
                                (__int64)hdev,
                                (__int64)ppalDefault,
                                (__int64)ppalDefault,
                                flXlate,
-                               v26,
+                               v27,
                                iUniq,
                                0x2000) )
           {
-            v23 = v37;
+            v24 = v37;
             v19 = v48;
             v20 = v47;
-            goto LABEL_28;
+            goto LABEL_39;
           }
         }
         v13 = 0;
       }
       else
       {
-LABEL_28:
+LABEL_39:
         if ( *(_BYTE *)(v49 + 20) )
         {
           v33 = *(_QWORD *)(v49 + 4);
@@ -208,25 +213,16 @@ LABEL_28:
         if ( a11 == 52428 )
         {
           if ( (*(_DWORD *)(v19 + 88) & 0x400) != 0 )
-            v31 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*((_QWORD *)v20 + 7) + 2816LL);
+            v31 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*((_QWORD *)v20 + 7) + 2840LL);
           else
             v31 = EngCopyBits;
-          v13 &= OffCopyBits(
-                   (__int64 (__fastcall *)(__int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, _DWORD *))v31,
-                   (LONG *)&gptlZero,
-                   v22,
-                   *(int **)v50,
-                   v19,
-                   a4,
-                   (__int64)v23,
-                   v58,
-                   &v33);
+          v13 &= OffCopyBits((int)v31, (int)&gptlZero, v22, v50[0], v19, a4, (__int64)v24, (__int64)v58, (__int64)&v33);
         }
         else
         {
           MULTIBRUSH::LoadElement((MULTIBRUSH *)v45, v20, (struct SURFACE *)(v19 - 24));
           if ( (*(_DWORD *)(v48 + 88) & 1) != 0 )
-            v32 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*((_QWORD *)v47 + 7) + 2808LL);
+            v32 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*((_QWORD *)v47 + 7) + 2832LL);
           else
             v32 = EngBitBlt;
           v13 &= OffBitBlt(
@@ -237,7 +233,7 @@ LABEL_28:
                    v48,
                    v44,
                    a4,
-                   (__int64)v23,
+                   (__int64)v24,
                    (int *)v58,
                    &v33,
                    v43,
@@ -247,7 +243,7 @@ LABEL_28:
           MULTIBRUSH::StoreElement((MULTIBRUSH *)v45, *((_DWORD *)v47 + 4));
         }
       }
-      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v37);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v37, (__int64)v20);
       continue;
     }
     if ( v55 )

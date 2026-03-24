@@ -1,9 +1,9 @@
 /*
- * XREFs of DelayedLogInErrorLog @ 0x1C0051E70
+ * XREFs of DelayedLogInErrorLog @ 0x1C00676F0
  * Callers:
  *     <none>
  * Callees:
- *     LogInErrorLog @ 0x1C00523D8 (LogInErrorLog.c)
+ *     LogInErrorLog @ 0x1C0067C58 (LogInErrorLog.c)
  */
 
 void __fastcall DelayedLogInErrorLog(PDEVICE_OBJECT DeviceObject, PIO_WORKITEM *Context)

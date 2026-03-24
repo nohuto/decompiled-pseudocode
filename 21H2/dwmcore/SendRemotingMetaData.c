@@ -1,15 +1,14 @@
 /*
- * XREFs of SendRemotingMetaData @ 0x180216CB4
+ * XREFs of SendRemotingMetaData @ 0x1801C3E44
  * Callers:
- *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x180216AC0 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
- *     ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x180216BE4 (-SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z.c)
+ *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C3C58 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
+ *     ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C3D74 (-SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??0?$com_ptr_t@VISwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVISwapChain@@@Z @ 0x1800793D8 (--0-$com_ptr_t@VISwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVISwapChain@@@Z.c)
- *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800B2FA8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0?$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z @ 0x1801922E0 (--0-$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z @ 0x180038E0C (--0-$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z.c)
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x18006E9E8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall SendRemotingMetaData(__int64 a1)
@@ -25,21 +24,23 @@ __int64 __fastcall SendRemotingMetaData(__int64 a1)
   __int64 v11; // [rsp+40h] [rbp+18h] BYREF
   __int64 v12; // [rsp+48h] [rbp+20h] BYREF
 
-  PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(*((CRenderTargetManager **)g_pComposition + 27));
+  PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(*((CRenderTargetManager **)g_pComposition + 11));
   wil::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>(
     &v12,
     (__int64)PrimaryMonitorTarget);
   if ( v12 )
   {
-    v4 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 152LL))(v12);
-    wil::com_ptr_t<ISwapChain,wil::err_returncode_policy>::com_ptr_t<ISwapChain,wil::err_returncode_policy>(&v11, v4);
+    v4 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 120LL))(v12);
+    wil::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>(
+      &v11,
+      v4);
     if ( !v11 )
     {
       v3 = -2003304307;
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x42,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+        (void *)0x45,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
         (const char *)0x8898008DLL);
 LABEL_12:
       wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v11);
@@ -51,23 +52,23 @@ LABEL_12:
     v3 = v6;
     if ( v6 >= 0 )
     {
-      v6 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 64LL))(v10, a1);
+      v6 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 48LL))(v10, a1);
       v3 = v6;
       if ( v6 >= 0 )
       {
         v3 = 0;
         goto LABEL_11;
       }
-      v7 = 71LL;
+      v7 = 74LL;
     }
     else
     {
-      v7 = 69LL;
+      v7 = 72LL;
     }
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v7,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
       (const char *)(unsigned int)v6);
 LABEL_11:
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v10);
@@ -76,8 +77,8 @@ LABEL_11:
   v3 = -2003304442;
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x3D,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+    (void *)0x40,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
     (const char *)0x88980006LL);
 LABEL_13:
   wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v12);

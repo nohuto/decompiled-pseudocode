@@ -1,20 +1,20 @@
 /*
- * XREFs of _PnpSetObjectPropertyWorker @ 0x140771B04
+ * XREFs of _PnpSetObjectPropertyWorker @ 0x140745D9C
  * Callers:
- *     _PnpSetObjectProperty @ 0x14077198C (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _PnpValidatePropertyData @ 0x140771CD0 (_PnpValidatePropertyData.c)
- *     _PnpSetMappedPropertyDispatch @ 0x140771F34 (_PnpSetMappedPropertyDispatch.c)
- *     _PnpSetGenericStoreProperty @ 0x140771FFC (_PnpSetGenericStoreProperty.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407720B8 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
+ *     _PnpSetMappedPropertyDispatch @ 0x140745F78 (_PnpSetMappedPropertyDispatch.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpSetGenericStoreProperty @ 0x140746798 (_PnpSetGenericStoreProperty.c)
  */
 
 __int64 __fastcall PnpSetObjectPropertyWorker(
-        int a1,
-        int a2,
-        int a3,
+        __int64 a1,
+        __int64 a2,
+        signed int a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
@@ -23,52 +23,45 @@ __int64 __fastcall PnpSetObjectPropertyWorker(
         ULONG SecurityDescriptorLength,
         int a10)
 {
-  void *v14; // r15
+  __int64 *v14; // r12
   int v15; // ebx
-  int v16; // eax
-  int v17; // edx
-  int v18; // r9d
+  int v16; // edx
+  int v17; // r9d
   HANDLE Handle[2]; // [rsp+50h] [rbp-38h] BYREF
 
   Handle[0] = 0LL;
   if ( (_WORD)a10 || !a8 && SecurityDescriptorLength )
     return (unsigned int)-1073741811;
-  v14 = (void *)(a8 & -(__int64)(SecurityDescriptorLength != 0));
-  v15 = PnpValidatePropertyData(v14, SecurityDescriptorLength);
+  v14 = (__int64 *)(a8 & -(__int64)(SecurityDescriptorLength != 0));
+  v15 = PnpValidatePropertyData(v14, SecurityDescriptorLength, a7);
   if ( v15 >= 0 )
   {
-    v16 = PnpSetMappedPropertyDispatch(a1, a2, a3, a4, a5, a6, a7, (__int64)v14, SecurityDescriptorLength, a10);
-    v15 = v16;
-    if ( v16 >= 0 )
-    {
-      if ( a3 >= 7 )
-        PnpObjectRaisePropertyChangeEvent(a1, a2, a3, a4, a5, a6);
-      goto LABEL_12;
-    }
-    if ( v16 == -1073741802 )
+    v15 = PnpSetMappedPropertyDispatch(a1, a2, a3, a4, a5, a6, a7, (__int64)v14, SecurityDescriptorLength, a10);
+    if ( v15 >= 0 && a3 >= 7 )
+      PnpObjectRaisePropertyChangeEvent(a1, a2, a3, a4, a5, a6);
+    if ( v15 == -1073741802 )
     {
       if ( a4 )
       {
-        v17 = a4;
+        v16 = a4;
         goto LABEL_8;
       }
       v15 = PnpOpenObjectRegKey(a1, a2, a3, 33554439, 0, (__int64)Handle);
       if ( v15 >= 0 )
       {
-        v17 = (int)Handle[0];
+        v16 = (int)Handle[0];
 LABEL_8:
-        v15 = PnpSetGenericStoreProperty(a1, v17, a5, a6, a7, (__int64)v14, SecurityDescriptorLength);
+        v15 = PnpSetGenericStoreProperty(a1, v16, a5, a6, a7, (__int64)v14, SecurityDescriptorLength);
         if ( v15 >= 0 )
         {
-          v18 = (int)Handle[0];
+          v17 = (int)Handle[0];
           if ( a4 )
-            v18 = a4;
-          PnpObjectRaisePropertyChangeEvent(a1, a2, a3, v18, a5, a6);
+            v17 = a4;
+          PnpObjectRaisePropertyChangeEvent(a1, a2, a3, v17, a5, a6);
         }
       }
     }
   }
-LABEL_12:
   if ( Handle[0] )
     ZwClose(Handle[0]);
   return (unsigned int)v15;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializeProcessor @ 0x14017D52C
+ * XREFs of ExInitializeProcessor @ 0x14017D54C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExInitializeSystemLookasideList @ 0x140570370 (ExInitializeSystemLookasideList.c)
  */

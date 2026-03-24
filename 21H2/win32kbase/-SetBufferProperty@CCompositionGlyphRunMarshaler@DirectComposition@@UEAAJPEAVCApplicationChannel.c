@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0226010
+ * XREFs of ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DC880
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0226600 (-SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ *     ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DCD80 (-SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferProperty(
@@ -26,7 +26,7 @@ __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferPr
     {
       v8 = *a4;
       *((_DWORD *)this + 4) |= 0x100u;
-      *((_QWORD *)this + 11) = v8;
+      *((_QWORD *)this + 10) = v8;
       goto LABEL_10;
     }
   }
@@ -38,11 +38,10 @@ __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferPr
     {
       v7 = *a4;
       *((_DWORD *)this + 4) |= 0x200u;
-      *((_QWORD *)this + 12) = v7;
+      *((_QWORD *)this + 11) = v7;
 LABEL_10:
       *a6 = 1;
-      return result;
     }
   }
-  return 3221225485LL;
+  return result;
 }

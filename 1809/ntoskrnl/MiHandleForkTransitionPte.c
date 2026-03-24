@@ -1,7 +1,7 @@
 /*
- * XREFs of MiHandleForkTransitionPte @ 0x1402CA018
+ * XREFs of MiHandleForkTransitionPte @ 0x1402CA118
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -20,17 +20,17 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiLockAndDecrementShareCount @ 0x140118088 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A1F0 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiDuplicateCloneLeaf @ 0x1402C98D8 (MiDuplicateCloneLeaf.c)
- *     MiGetCrossPartitionCloneCharges @ 0x1402C9FAC (MiGetCrossPartitionCloneCharges.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CAAB8 (MiReturnCrossPartitionCloneCharges.c)
- *     MiWriteUselessChildPte @ 0x1402CAF38 (MiWriteUselessChildPte.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A210 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x1402CA0AC (MiGetCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiWriteUselessChildPte @ 0x1402CB038 (MiWriteUselessChildPte.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiHandleForkTransitionPte(

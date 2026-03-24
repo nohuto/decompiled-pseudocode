@@ -1,18 +1,18 @@
 /*
- * XREFs of ACPIAllocateBuffer @ 0x1C0097C3C
+ * XREFs of ACPIAllocateBuffer @ 0x1C008FA90
  * Callers:
- *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE94 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C007F584 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C007FC4C (ACPIBusIrpQueryHardwareId.c)
- *     ACPIBusIrpQueryInstanceId @ 0x1C008061C (ACPIBusIrpQueryInstanceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C00A2000 (ACPIBusIrpQueryInstanceId.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ACPIAllocateBuffer(_QWORD *a1, __int64 a2, __int64 a3)
+PVOID __fastcall ACPIAllocateBuffer(SIZE_T *a1, __int64 a2, SIZE_T a3)
 {
   __int64 v3; // r11
-  __int64 v4; // r9
+  SIZE_T v4; // r9
   __int64 v5; // r8
   __int64 v6; // rax
   __int64 v7; // rax
@@ -26,7 +26,7 @@ __int64 __fastcall ACPIAllocateBuffer(_QWORD *a1, __int64 a2, __int64 a3)
     v6 = -1LL;
     do
       ++v6;
-    while ( *(_BYTE *)(*(_QWORD *)(a2 + 608) + v6) );
+    while ( *(_BYTE *)(*(_QWORD *)(a2 + 568) + v6) );
     v4 += 10 * v6;
     *a1 = v4;
   }
@@ -35,17 +35,17 @@ __int64 __fastcall ACPIAllocateBuffer(_QWORD *a1, __int64 a2, __int64 a3)
     v7 = -1LL;
     do
       ++v7;
-    while ( *(_BYTE *)(*(_QWORD *)(a2 + 616) + v7) );
+    while ( *(_BYTE *)(*(_QWORD *)(a2 + 576) + v7) );
     v4 += 10 * v7;
     *a1 = v4;
   }
-  if ( (*(_BYTE *)(a2 + 1008) & 0x10) != 0 )
+  if ( (*(_BYTE *)(a2 + 960) & 0x10) != 0 )
   {
     do
       ++v5;
-    while ( *(_BYTE *)(*(_QWORD *)(a2 + 624) + v5) );
+    while ( *(_BYTE *)(*(_QWORD *)(a2 + 584) + v5) );
     v4 += 10 * v5;
     *a1 = v4;
   }
-  return ExAllocatePool2(256LL, v4, 1114661697LL);
+  return ExAllocatePoolWithTag(PagedPool, v4, 0x42706341u);
 }

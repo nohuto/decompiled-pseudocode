@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B793C
+ * XREFs of ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00ED5B0
  * Callers:
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030 (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     bSpEnableSprites @ 0x1C00B7A80 (bSpEnableSprites.c)
- *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C0119AE4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ *     bSpEnableSprites @ 0x1C00ED220 (bSpEnableSprites.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C012C7A4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0060BB4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B69FC (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F0830 (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0FDC (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
  */
 
 void __fastcall vSpHook(struct _SPRITESTATE *a1)
@@ -17,24 +17,24 @@ void __fastcall vSpHook(struct _SPRITESTATE *a1)
   bool v4; // zf
 
   v1 = *(_QWORD **)a1;
-  v3 = *(_QWORD *)(*(_QWORD *)a1 + 2528LL);
+  v3 = *(_QWORD *)(*(_QWORD *)a1 + 2552LL);
   *((_DWORD *)a1 + 26) = 1;
   *((_DWORD *)a1 + 25) = *(_DWORD *)(v3 + 112) | 0x3A5EF;
-  v1[349] = SpStrokeAndFillPath;
-  v1[347] = SpStrokePath;
-  v1[348] = SpFillPath;
-  v1[351] = SpBitBlt;
-  v1[352] = SpCopyBits;
-  v1[353] = SpStretchBlt;
-  v1[356] = SpTextOut;
-  v1[364] = SpLineTo;
-  v1[407] = SpTransparentBlt;
-  v1[404] = SpAlphaBlend;
-  v1[403] = SpPlgBlt;
-  v1[401] = SpGradientFill;
-  v1[423] = SpDrawStream;
-  v1[402] = SpStretchBltROP;
-  v1[373] = SpSaveScreenBits;
+  v1[352] = SpStrokeAndFillPath;
+  v1[350] = SpStrokePath;
+  v1[351] = SpFillPath;
+  v1[354] = SpBitBlt;
+  v1[355] = SpCopyBits;
+  v1[356] = SpStretchBlt;
+  v1[359] = SpTextOut;
+  v1[367] = SpLineTo;
+  v1[410] = SpTransparentBlt;
+  v1[407] = SpAlphaBlend;
+  v1[406] = SpPlgBlt;
+  v1[404] = SpGradientFill;
+  v1[426] = SpDrawStream;
+  v1[405] = SpStretchBltROP;
+  v1[376] = SpSaveScreenBits;
   v4 = *((_DWORD *)a1 + 29) == 0;
   *((_DWORD *)a1 + 270) = 1;
   if ( v4 )

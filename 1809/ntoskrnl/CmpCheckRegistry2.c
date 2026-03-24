@@ -3,12 +3,12 @@
  * Callers:
  *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
  *     CmpCheckLexicographicalOrder @ 0x1405DBCF0 (CmpCheckLexicographicalOrder.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCAA0 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x1407FFE48 (CmpRemoveSubKeyCellNoCellRef.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCA80 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x1407FFE28 (CmpRemoveSubKeyCellNoCellRef.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(

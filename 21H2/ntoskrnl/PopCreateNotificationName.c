@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCreateNotificationName @ 0x1406E7694
+ * XREFs of PopCreateNotificationName @ 0x1406C1060
  * Callers:
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1402E0B30 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14041D180 (ZwCreateWnfStateName.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
  */
 
 NTSTATUS __fastcall PopCreateNotificationName(__int64 a1)
@@ -27,13 +27,13 @@ NTSTATUS __fastcall PopCreateNotificationName(__int64 a1)
   SourceString.Buffer = L"lpacPnpNotifications";
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   RtlCreateAcl(&Acl, 0x148u, 2u);
-  RtlpAddKnownAce((int)&Acl, 2, 0, 2031619, SeLocalSystemSid, 0);
-  RtlpAddKnownAce((int)&Acl, 2, 0, 1179649, SeWorldSid, 0);
-  RtlpAddKnownAce((int)&Acl, 2, 0, 1179649, SeAllAppPackagesSid, 0);
+  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
   result = RtlDeriveCapabilitySidsFromName(&SourceString, Sid, Src);
   if ( result >= 0 )
   {
-    RtlpAddKnownAce((int)&Acl, 2, 0, 1179649, Src, 0);
+    RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)Src, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
     return ZwCreateWnfStateName(a1, 3LL);

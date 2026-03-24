@@ -1,23 +1,20 @@
 /*
- * XREFs of ExpResourceTimeoutCaptureLiveDump @ 0x140610000
+ * XREFs of ExpResourceTimeoutCaptureLiveDump @ 0x1405B9A40
  * Callers:
  *     <none>
  * Callees:
- *     DbgkWerCaptureLiveKernelDump @ 0x1408839B0 (DbgkWerCaptureLiveKernelDump.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
  */
 
-void __fastcall ExpResourceTimeoutCaptureLiveDump(_QWORD *P)
+PSLIST_ENTRY __fastcall ExpResourceTimeoutCaptureLiveDump(ULONG_PTR BugCheckParameter2)
 {
   DbgkWerCaptureLiveKernelDump(
-    (unsigned int)L"ResourceTimeout",
-    460,
-    P[5],
-    P[4],
-    *((unsigned int *)P + 12),
-    *((unsigned int *)P + 13),
+    L"ResourceTimeout",
+    *(unsigned int *)(BugCheckParameter2 + 48),
+    *(unsigned int *)(BugCheckParameter2 + 52),
     0LL,
     0LL,
     0);
-  ExFreePoolWithTag(P, 0x6F546552u);
+  return ExFreeHeapPool(BugCheckParameter2);
 }

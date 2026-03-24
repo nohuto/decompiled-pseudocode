@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvPVPGetFirstActiveMonitor @ 0x1C017492C
+ * XREFs of DrvPVPGetFirstActiveMonitor @ 0x1C0147858
  * Callers:
- *     GetCertificateLengthAndMonitorPDO @ 0x1C016CE34 (GetCertificateLengthAndMonitorPDO.c)
+ *     GetCertificateLengthAndMonitorPDO @ 0x1C013FF2C (GetCertificateLengthAndMonitorPDO.c)
  * Callees:
- *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C006A058 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
- *     UpdateMonitorDevices @ 0x1C006C2B0 (UpdateMonitorDevices.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     UpdateMonitorDevices @ 0x1C001CE40 (UpdateMonitorDevices.c)
+ *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00B0224 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvPVPGetFirstActiveMonitor(struct _UNICODE_STRING *a1, __int64 a2, PVOID *a3)
@@ -17,8 +17,8 @@ __int64 __fastcall DrvPVPGetFirstActiveMonitor(struct _UNICODE_STRING *a1, __int
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   Object = 0LL;
-  UpdateMonitorDevices(0);
-  result = DrvGetDeviceFromNameAndValidateDevice(a1, UserMode, (struct tagGRAPHICS_DEVICE **)&Object);
+  UpdateMonitorDevices();
+  result = DrvGetDeviceFromNameAndValidateDevice(a1, UserMode, (wchar_t **)&Object);
   if ( (int)result >= 0 )
   {
     v6 = Object;
@@ -31,7 +31,7 @@ __int64 __fastcall DrvPVPGetFirstActiveMonitor(struct _UNICODE_STRING *a1, __int
         if ( (*(_DWORD *)(v8 + 20 * v7) & 1) != 0 )
         {
           Object = 0LL;
-          if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, PVOID *, PVOID *))qword_1C0296828)(
+          if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, PVOID *, PVOID *))qword_1C0251A38)(
                       v8 + 8 + 20 * v7,
                       *(unsigned int *)(v8 + 20 * v7 + 4),
                       &Object,

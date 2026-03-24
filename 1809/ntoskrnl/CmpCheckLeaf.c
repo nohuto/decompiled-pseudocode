@@ -3,9 +3,9 @@
  * Callers:
  *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
  *     CmpGenerateFastLeafHintForUnicodeString @ 0x1405AF420 (CmpGenerateFastLeafHintForUnicodeString.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)

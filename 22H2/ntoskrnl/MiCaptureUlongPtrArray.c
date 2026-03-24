@@ -1,59 +1,71 @@
 /*
- * XREFs of MiCaptureUlongPtrArray @ 0x140A413F4
+ * XREFs of MiCaptureUlongPtrArray @ 0x1408D57F4
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x140A42390 (NtFreeUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x140A428F0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140A42BA0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6850 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6D30 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D6FF0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall MiCaptureUlongPtrArray(_QWORD *a1, unsigned int *a2, unsigned __int64 a3)
+__int64 __fastcall MiCaptureUlongPtrArray(_QWORD *a1, char *a2, unsigned __int64 a3)
 {
-  _KPROCESS *Process; // r8
-  __int16 v6; // ax
-  char v7; // al
-  unsigned __int64 v8; // rax
-  unsigned __int64 i; // rax
-  __int64 v10; // rcx
-  size_t v11; // r8
+  unsigned __int64 v4; // rcx
+  __int16 v5; // ax
+  __int64 v6; // rax
+  unsigned __int64 v7; // rcx
+  size_t v8; // r8
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30]
-    && ((v6 = WORD2(Process[2].Affinity.StaticBitmap[20]), v6 == 332) || v6 == 452 ? (v7 = 1) : (v7 = 0), v7) )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v4 && ((v5 = *(_WORD *)(v4 + 8), v5 == 332) || v5 == 452) )
   {
+    v6 = 4 * a3;
     if ( 4 * a3 )
     {
       if ( ((unsigned __int8)a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v8 = (unsigned __int64)&a2[a3];
-      if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)a2 )
+      if ( (unsigned __int64)&a2[v6] > 0x7FFFFFFF0000LL || &a2[v6] < a2 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    for ( i = 0LL; i < a3; ++i )
+    v7 = 0LL;
+    if ( (a3 & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
     {
-      v10 = a2[i];
-      a1[i] = v10;
-      if ( (v10 & 0xFFFFFFFF80000000uLL) != 0 )
+      do
       {
-        LODWORD(v10) = v10 & 0x7FFFFFFF;
-        a1[i] = v10;
-        a1[i] = v10 | 0x8000000000000000uLL;
+        a1[v7] = *(unsigned int *)&a2[4 * v7];
+        a1[v7 + 1] = *(unsigned int *)&a2[4 * v7 + 4];
+        a1[v7 + 2] = *(unsigned int *)&a2[4 * v7 + 8];
+        a1[v7 + 3] = *(unsigned int *)&a2[4 * v7 + 12];
+        a1[v7 + 4] = *(unsigned int *)&a2[4 * v7 + 16];
+        a1[v7 + 5] = *(unsigned int *)&a2[4 * v7 + 20];
+        a1[v7 + 6] = *(unsigned int *)&a2[4 * v7 + 24];
+        a1[v7 + 7] = *(unsigned int *)&a2[4 * v7 + 28];
+        v7 += 8LL;
       }
+      while ( v7 < (a3 & 0xFFFFFFFFFFFFFFF8uLL) );
+    }
+    if ( (a3 & 7) != 0 )
+    {
+      do
+      {
+        a1[v7] = *(unsigned int *)&a2[4 * v7];
+        ++v7;
+      }
+      while ( v7 < a3 );
     }
   }
   else
   {
-    v11 = 2 * a3;
-    if ( 8 * a3 )
+    v8 = 8 * a3;
+    if ( v8 )
     {
       if ( ((unsigned __int8)a2 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a2[v11] > 0x7FFFFFFF0000LL || &a2[v11] < a2 )
+      if ( (unsigned __int64)&a2[v8] > 0x7FFFFFFF0000LL || &a2[v8] < a2 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    memmove(a1, a2, v11 * 4);
+    memmove(a1, a2, v8);
   }
   return 0LL;
 }

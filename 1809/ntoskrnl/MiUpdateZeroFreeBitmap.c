@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUpdateZeroFreeBitmap @ 0x1400EE9B4
+ * XREFs of MiUpdateZeroFreeBitmap @ 0x1400EE9D4
  * Callers:
- *     MiReplenishPageSlist @ 0x1400EE380 (MiReplenishPageSlist.c)
+ *     MiReplenishPageSlist @ 0x1400EE3A0 (MiReplenishPageSlist.c)
  * Callees:
  *     <none>
  */

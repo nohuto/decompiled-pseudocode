@@ -1,303 +1,283 @@
 /*
- * XREFs of CalcWakeMask @ 0x1C012A4C0
+ * XREFs of CalcWakeMask @ 0x1C0057700
  * Callers:
- *     TransferWakeBit @ 0x1C005B0A8 (TransferWakeBit.c)
- *     AdjustPwndPtiPqForDelegation @ 0x1C0060D1C (AdjustPwndPtiPqForDelegation.c)
- *     ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00A232C (-CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z.c)
- *     EditionPostMouseMoveToQ @ 0x1C01152F0 (EditionPostMouseMoveToQ.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C004F480 (AdjustPwndPtiPqForDelegation.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00C1298 (-CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z.c)
+ *     TransferWakeBit @ 0x1C00C13F0 (TransferWakeBit.c)
  * Callees:
  *     <none>
  */
 
-int __fastcall CalcWakeMask(unsigned int a1, unsigned int a2, int a3)
+__int64 __fastcall CalcWakeMask(unsigned int a1, unsigned int a2, unsigned int a3)
 {
-  int result; // eax
-  unsigned int v6; // eax
-  int v7; // r8d
+  __int64 result; // rax
+  unsigned int v5; // eax
+  int v6; // r8d
+  int v7; // r10d
   unsigned int v8; // ecx
-  unsigned int v9; // edx
-  int v10; // edx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  unsigned int v16; // edx
-  int v17; // eax
-  int v18; // eax
-  int v19; // eax
-  int v20; // ecx
-  int v21; // ecx
-  int v22; // ecx
-  int v23; // ecx
-  int v24; // ecx
+  int v9; // r10d
+  unsigned int v10; // eax
+  int v11; // r10d
+  unsigned int v12; // ecx
 
   if ( a3 )
   {
-    v10 = a3 | 0x3C07;
-    if ( (a3 & 0x1C07) == 0 )
-      v10 = a3;
-    result = v10 | 0x98;
-    if ( (v10 & 0x98) == 0 )
-      result = v10;
+    if ( (a3 & 0x1C07) != 0 )
+      a3 |= 0x3C07u;
+    result = a3 | 0x98;
+    if ( (a3 & 0x98) == 0 )
+      result = a3;
   }
   else
   {
-    result = 15871;
+    result = 15871LL;
   }
   if ( a1 || a2 != -1 )
   {
-    v6 = result & 0xFFFFFEFF;
-    v7 = 0;
+    v5 = result & 0xFFFFFEFF;
     if ( a1 )
     {
       if ( a1 > a2 )
       {
-        if ( a2 > 0xA0 || (v11 = 0, a1 < 0xA0) )
-          v11 = 1;
-        if ( v11 )
-          goto LABEL_19;
-LABEL_12:
-        if ( !a1 )
+        if ( a2 > 0xA0 || a1 < 0xA0 )
+          goto LABEL_12;
+LABEL_8:
+        if ( a1 )
         {
-          if ( a2 == -1 )
-            goto LABEL_26;
-LABEL_15:
-          if ( a2 >= 0x200 )
+          if ( a1 > a2 )
           {
-LABEL_19:
-            if ( a1 <= a2 )
+            if ( a2 <= 0x200 && a1 >= 0x200 )
+              goto LABEL_11;
+            goto LABEL_12;
+          }
+          if ( a1 > 0x200 )
+          {
+LABEL_11:
+            v5 &= ~2u;
+            goto LABEL_12;
+          }
+        }
+        else if ( a2 == -1 )
+        {
+          goto LABEL_79;
+        }
+        if ( a2 < 0x200 )
+          goto LABEL_11;
+LABEL_12:
+        if ( a1 > a2 )
+        {
+          if ( a2 < 0xA9 && a1 > 0xA1 )
+            goto LABEL_18;
+          goto LABEL_14;
+        }
+        if ( a1 > 0xA9 )
+        {
+LABEL_14:
+          if ( a1 > a2 )
+          {
+            if ( a2 >= 0x20E || a1 <= 0x201 )
+              goto LABEL_17;
+          }
+          else if ( a1 > 0x20E || a2 < 0x201 )
+          {
+LABEL_17:
+            v5 &= ~4u;
+          }
+LABEL_18:
+          v6 = 0;
+          if ( a1 > a2 )
+          {
+            if ( a2 < 0x109 && a1 > 0x100 )
+              goto LABEL_76;
+          }
+          else if ( a1 <= 0x109 && a2 >= 0x100 )
+          {
+LABEL_76:
+            v7 = 1;
+LABEL_21:
+            v8 = v5 & 0xFFFFFFFE;
+            if ( v7 )
+              v8 = v5;
+            if ( a1 > a2 )
             {
-              if ( a1 <= 0xA9 && a2 >= 0xA1 )
-              {
-                v8 = v6;
+              if ( a2 < 0xFF && a1 > 0xFF )
+                goto LABEL_78;
+            }
+            else if ( a1 <= 0xFF && a2 >= 0xFF )
+            {
 LABEL_78:
-                if ( a2 >= 0x100 )
+              v9 = 1;
+LABEL_26:
+              v10 = v8 & 0xFFFFFBFF;
+              if ( v9 )
+                v10 = v8;
+              if ( a1 > a2 )
+              {
+                if ( a2 >= 0x240 || a1 <= 0x240 )
+                  goto LABEL_31;
+              }
+              else if ( a1 > 0x240 || a2 < 0x240 )
+              {
+LABEL_31:
+                v11 = 0;
+                goto LABEL_32;
+              }
+              v11 = 1;
+LABEL_32:
+              v12 = v10;
+              if ( v11 )
+                goto LABEL_38;
+              if ( a1 )
+              {
+                if ( a1 > a2 )
                 {
-LABEL_29:
-                  if ( a1 > 0xFF || a2 < 0xFF )
+                  if ( a2 <= 0x11B && a1 >= 0x11B )
                   {
-                    v8 &= ~0x400u;
-                    result = v8;
-                    v9 = v8;
-                    if ( a1 > 0x240 )
-                      goto LABEL_33;
-                  }
-                  else
-                  {
-                    result = v8;
-                    v9 = v8;
-                  }
-                  if ( a2 >= 0x240 )
-                    goto LABEL_42;
-LABEL_33:
-                  if ( a1 )
-                  {
+LABEL_36:
+                    v12 = v10;
+                    if ( !v6 )
+                      v12 = v10 & 0xFFFFF7FF;
+LABEL_38:
                     if ( a1 > a2 )
                     {
-                      if ( a2 > 0x11B || (v19 = 0, a1 < 0x11B) )
-                        v19 = 1;
-                      v8 = v9;
-                      if ( v19 )
-                        goto LABEL_40;
-                      goto LABEL_39;
+                      if ( a2 < 0x257 && a1 > 0x245 )
+                        goto LABEL_47;
+                      goto LABEL_41;
                     }
-                    if ( a1 > 0x11B )
+                    if ( a1 > 0x257 )
                     {
-LABEL_39:
-                      v8 = v9 & 0xFFFFF7FF;
-                      goto LABEL_40;
-                    }
-                  }
-                  else
-                  {
-                    result = v9;
-                    if ( a2 == -1 )
-                      return result;
-                  }
-                  if ( a2 >= 0x11B )
-                  {
-LABEL_40:
-                    result = v8;
-                    if ( a1 > a2 )
-                    {
-                      if ( a2 >= 0x257 || (v20 = 1, a1 <= 0x245) )
-                        v20 = 0;
-                      if ( v20 )
-                        goto LABEL_52;
-LABEL_45:
+LABEL_41:
                       if ( a1 > a2 )
                       {
-                        if ( a2 >= 0x244 || (v21 = 1, a1 <= 0x241) )
-                          v21 = 0;
-                        if ( !v21 )
-                        {
-                          if ( a2 >= 0x238 || (v22 = 1, a1 <= 0x238) )
-                            v22 = 0;
-                          if ( !v22 )
-                            goto LABEL_51;
-                        }
-                        goto LABEL_52;
+                        if ( a2 < 0x244 && a1 > 0x241 )
+                          goto LABEL_47;
                       }
+                      else if ( a1 <= 0x244 && a2 >= 0x241 )
+                      {
+                        goto LABEL_47;
+                      }
+                      if ( a1 <= a2 )
+                      {
+                        if ( a1 <= 0x238 && a2 >= 0x238 )
+                          goto LABEL_47;
 LABEL_46:
-                      if ( (a1 > 0x244 || a2 < 0x241) && (a1 > 0x238 || a2 < 0x238) )
-LABEL_51:
-                        result &= ~0x1000u;
-LABEL_52:
+                        v12 &= ~0x1000u;
+                        goto LABEL_47;
+                      }
+                      if ( a2 >= 0x238 || a1 <= 0x238 )
+                        goto LABEL_46;
+LABEL_47:
                       if ( a1 )
                       {
                         if ( a1 > a2 )
                         {
-                          if ( a2 > 0xF || (v23 = 0, a1 < 0xF) )
-                            v23 = 1;
-                          if ( v23 )
-                            goto LABEL_143;
+                          if ( a2 <= 0xF && a1 >= 0xF )
+                            goto LABEL_50;
+                          goto LABEL_51;
                         }
-                        else if ( a1 <= 0xF )
+                        if ( a1 > 0xF )
                         {
-                          goto LABEL_55;
+LABEL_50:
+                          v12 &= ~0x20u;
+                          goto LABEL_51;
                         }
+                      }
+                      else if ( a2 == -1 )
+                      {
+                        goto LABEL_58;
+                      }
+                      if ( a2 < 0xF )
+                        goto LABEL_50;
+LABEL_51:
+                      if ( a1 )
+                      {
+                        if ( a1 > a2 )
+                        {
+                          if ( a2 > 0x113 || a1 < 0x113 )
+                            goto LABEL_58;
+                          goto LABEL_54;
+                        }
+                        if ( a1 > 0x113 )
+                        {
+LABEL_54:
+                          if ( a1 )
+                          {
+                            if ( a1 > a2 )
+                            {
+                              if ( a2 > 0x118 || a1 < 0x118 )
+                                goto LABEL_58;
+                              goto LABEL_57;
+                            }
+                            if ( a1 > 0x118 )
+                            {
+LABEL_57:
+                              v12 &= ~0x10u;
+                              goto LABEL_58;
+                            }
+                          }
+                          else if ( a2 == -1 )
+                          {
+                            goto LABEL_58;
+                          }
+                          if ( a2 < 0x118 )
+                            goto LABEL_57;
 LABEL_58:
-                        result &= ~0x20u;
-LABEL_59:
-                        if ( !a1 )
-                        {
-                          if ( a2 == -1 )
-                            return result;
-LABEL_62:
-                          if ( a2 >= 0x113 )
-                            goto LABEL_72;
-LABEL_65:
-                          if ( !a1 )
-                          {
-                            if ( a2 == -1 )
-                              return result;
-LABEL_68:
-                            if ( a2 >= 0x118 )
-                              goto LABEL_72;
-                            goto LABEL_71;
-                          }
-                          if ( a1 > a2 )
-                          {
-                            if ( a2 > 0x118 || a1 < 0x118 )
-                              v7 = 1;
-                            if ( v7 )
-                              goto LABEL_72;
-                            goto LABEL_71;
-                          }
-LABEL_67:
-                          if ( a1 <= 0x118 )
-                            goto LABEL_68;
-LABEL_71:
-                          result &= ~0x10u;
-LABEL_72:
-                          if ( a1 == 35 )
-                            return result | 0x3C07;
+                          result = v12 | 0x3C07;
+                          if ( a1 != 35 )
+                            return v12;
                           return result;
                         }
-                        if ( a1 <= a2 )
-                        {
-                          if ( a1 > 0x113 )
-                            goto LABEL_67;
-                          goto LABEL_62;
-                        }
-LABEL_143:
-                        if ( a2 > 0x113 || (v24 = 0, a1 < 0x113) )
-                          v24 = 1;
-                        if ( v24 )
-                          goto LABEL_72;
-                        goto LABEL_65;
                       }
-                      if ( a2 == -1 )
-                        return result;
-LABEL_55:
-                      if ( a2 >= 0xF )
-                        goto LABEL_59;
-                      goto LABEL_58;
+                      else if ( a2 == -1 )
+                      {
+                        goto LABEL_58;
+                      }
+                      if ( a2 >= 0x113 )
+                        goto LABEL_58;
+                      goto LABEL_54;
                     }
-                    if ( a1 > 0x257 )
-                      goto LABEL_46;
-LABEL_42:
+LABEL_40:
                     if ( a2 >= 0x245 )
-                      goto LABEL_52;
-                    goto LABEL_45;
+                      goto LABEL_47;
+                    goto LABEL_41;
                   }
-                  goto LABEL_39;
+LABEL_68:
+                  v6 = 1;
+                  goto LABEL_36;
                 }
-LABEL_28:
-                v8 = v6 & 0xFFFFFFFE;
-                goto LABEL_29;
+                if ( a1 > 0x11B )
+                  goto LABEL_36;
               }
-              if ( a1 <= 0x20E && a2 >= 0x201 )
+              else if ( a2 == -1 )
               {
-LABEL_27:
-                v8 = v6;
-                if ( a1 > 0x109 )
-                  goto LABEL_28;
-                goto LABEL_78;
-              }
-              goto LABEL_25;
-            }
-            if ( a2 >= 0xA9 || (v13 = 1, a1 <= 0xA1) )
-              v13 = 0;
-            if ( !v13 )
-            {
-              if ( a2 >= 0x20E || (v14 = 1, a1 <= 0x201) )
-                v14 = 0;
-              if ( !v14 )
-LABEL_25:
-                v6 &= ~4u;
-            }
-LABEL_26:
-            if ( a1 > a2 )
-            {
-              if ( a2 >= 0x109 || (v15 = 1, a1 <= 0x100) )
-                v15 = 0;
-              v16 = v6 & 0xFFFFFFFE;
-              if ( v15 )
-                v16 = v6;
-              if ( a2 >= 0xFF || (v17 = 1, a1 <= 0xFF) )
-                v17 = 0;
-              v8 = v16 & 0xFFFFFBFF;
-              if ( v17 )
-                v8 = v16;
-              if ( a2 >= 0x240 || (v18 = 1, a1 <= 0x240) )
-                v18 = 0;
-              v9 = v8;
-              if ( v18 )
                 goto LABEL_40;
-              goto LABEL_33;
+              }
+              if ( a2 < 0x11B )
+                goto LABEL_36;
+              goto LABEL_68;
             }
-            goto LABEL_27;
+            v9 = 0;
+            goto LABEL_26;
           }
-LABEL_18:
-          v6 &= ~2u;
-          goto LABEL_19;
+          v7 = 0;
+          goto LABEL_21;
         }
-        if ( a1 > a2 )
-        {
-          if ( a2 > 0x200 || (v12 = 0, a1 < 0x200) )
-            v12 = 1;
-          if ( v12 )
-            goto LABEL_19;
+LABEL_79:
+        if ( a2 >= 0xA1 )
           goto LABEL_18;
-        }
-LABEL_14:
-        if ( a1 > 0x200 )
-          goto LABEL_18;
-        goto LABEL_15;
+        goto LABEL_14;
       }
       if ( a1 > 0xA0 )
-        goto LABEL_14;
+        goto LABEL_8;
     }
     else if ( a2 == -1 )
     {
-      goto LABEL_26;
+      goto LABEL_79;
     }
     if ( a2 >= 0xA0 )
-      goto LABEL_19;
-    goto LABEL_12;
+      goto LABEL_12;
+    goto LABEL_8;
   }
   return result;
 }

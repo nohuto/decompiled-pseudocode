@@ -1,317 +1,291 @@
 /*
- * XREFs of MiRebuildLargePage @ 0x14046E188
+ * XREFs of MiRebuildLargePage @ 0x140552618
  * Callers:
- *     MiRebuildLargePages @ 0x14065DE60 (MiRebuildLargePages.c)
- *     MmManagePartitionCreateLargePages @ 0x140A45644 (MmManagePartitionCreateLargePages.c)
- *     MmBuildLargePages @ 0x140A45FD8 (MmBuildLargePages.c)
+ *     MiRebuildLargePages @ 0x14038CFC0 (MiRebuildLargePages.c)
+ *     MmBuildLargePages @ 0x1408D7724 (MmBuildLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x1408DB924 (MmManagePartitionCreateLargePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRunsEx @ 0x1403575E4 (MiDereferencePageRunsEx.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B7D00 (MiConvertSmallPageRangeToLarge.c)
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiGetNodeStandbyPageCount @ 0x14046C7CA (MiGetNodeStandbyPageCount.c)
- *     MiFindRebuildCandidate @ 0x14046E012 (MiFindRebuildCandidate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiUpdateLargePageBitMap @ 0x140280710 (MiUpdateLargePageBitMap.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiNodeFreeZeroPages @ 0x140299324 (MiNodeFreeZeroPages.c)
+ *     MiDereferencePageRunsEx @ 0x14031C868 (MiDereferencePageRunsEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403F5800 (MiConvertSmallPageRangeToLarge.c)
+ *     MiLockPageAtDpc @ 0x14054F85C (MiLockPageAtDpc.c)
+ *     MiGetNodeStandbyPageCount @ 0x140550698 (MiGetNodeStandbyPageCount.c)
+ *     MiFindRebuildCandidate @ 0x140551D4C (MiFindRebuildCandidate.c)
  */
 
-unsigned __int64 __fastcall MiRebuildLargePage(
-        __int64 a1,
-        unsigned int a2,
-        unsigned int a3,
-        unsigned __int64 a4,
-        int a5)
+unsigned __int64 __fastcall MiRebuildLargePage(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
+  __int64 v4; // rbx
   unsigned __int64 v5; // r14
-  __int64 v6; // rsi
-  __int64 v8; // rbx
-  unsigned __int8 *v9; // r15
-  __int64 v10; // rdi
-  __int64 v11; // rax
-  __int64 v12; // r9
-  unsigned __int64 v13; // r13
-  unsigned int *v14; // r8
-  int v15; // edx
-  __int64 v16; // rcx
-  int v17; // ecx
-  int v18; // eax
-  __int64 v19; // rdi
-  unsigned __int8 CurrentIrql; // si
+  __int64 v7; // rsi
+  unsigned __int8 *v8; // r15
+  __int64 v9; // rdi
+  __int64 v10; // rax
+  __int64 v11; // r9
+  unsigned __int64 v12; // r12
+  unsigned int *v13; // r8
+  int v14; // edx
+  __int64 v15; // rcx
+  int v16; // eax
+  __int64 v17; // r8
+  _DWORD *v18; // r9
+  __int64 v19; // rdx
+  __int64 v20; // r8
   _DWORD *SchedulerAssist; // r9
-  __int64 v22; // rdx
+  __int64 v22; // r10
+  unsigned __int8 CurrentIrql; // si
   unsigned __int64 inserted; // rdi
-  unsigned __int8 v24; // al
+  unsigned __int8 v25; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v26; // r9
-  int v27; // eax
-  bool v28; // zf
-  struct _KPRCB *v29; // r8
+  _DWORD *v27; // r9
+  int v28; // eax
+  bool v29; // zf
+  struct _KPRCB *v30; // r8
   __int64 CachedResidentAvailable; // rdx
-  signed __int32 v31; // eax
-  unsigned int v32; // r14d
-  unsigned __int64 v33; // rdi
-  unsigned int v34; // esi
-  _QWORD *v35; // rbx
-  __int64 v36; // r8
-  __int64 v37; // rdx
-  __int64 *v38; // r9
-  _QWORD *v39; // rcx
-  __int64 v40; // rdx
-  __int64 v41; // rax
+  signed __int32 v32; // eax
+  unsigned int v33; // r14d
+  unsigned __int64 v34; // rdi
+  unsigned int v35; // esi
+  __int64 v36; // rbx
+  __int64 v37; // r8
+  __int64 v38; // rdx
+  __int64 *v39; // r9
+  _QWORD *v40; // rcx
+  __int64 v41; // rdx
   __int64 v42; // rax
-  unsigned int v43; // r8d
-  int v44; // r8d
-  __int64 RebuildCandidate; // [rsp+78h] [rbp-61h] BYREF
-  int v47; // [rsp+80h] [rbp-59h]
-  unsigned __int64 v48; // [rsp+88h] [rbp-51h]
-  unsigned int *v49; // [rsp+90h] [rbp-49h]
-  int v50; // [rsp+98h] [rbp-41h] BYREF
-  _QWORD *v51; // [rsp+A0h] [rbp-39h]
-  ULONG_PTR v52; // [rsp+A8h] [rbp-31h]
-  __int128 v53; // [rsp+B0h] [rbp-29h] BYREF
-  __int128 v54; // [rsp+C0h] [rbp-19h]
-  struct _KTHREAD *CurrentThread; // [rsp+D0h] [rbp-9h]
-  unsigned __int8 *v56; // [rsp+D8h] [rbp-1h]
-  int v57; // [rsp+138h] [rbp+5Fh]
+  __int64 v43; // rax
+  unsigned int i; // r8d
+  int v45; // r8d
+  __int64 RebuildCandidate; // [rsp+60h] [rbp-49h] BYREF
+  unsigned __int64 v48; // [rsp+68h] [rbp-41h]
+  unsigned int *v49; // [rsp+70h] [rbp-39h]
+  unsigned int v50; // [rsp+78h] [rbp-31h]
+  __int64 v51; // [rsp+80h] [rbp-29h]
+  ULONG_PTR v52; // [rsp+88h] [rbp-21h]
+  __int128 v53; // [rsp+90h] [rbp-19h] BYREF
+  __int64 v54; // [rsp+A0h] [rbp-9h]
+  struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp-1h]
+  unsigned __int8 *v56; // [rsp+B0h] [rbp+7h]
+  unsigned int v57; // [rsp+110h] [rbp+67h]
+  int v58; // [rsp+118h] [rbp+6Fh]
+  unsigned int v59; // [rsp+120h] [rbp+77h]
 
+  v59 = a3;
   RebuildCandidate = 0LL;
+  v4 = a2;
   v5 = 0LL;
-  v6 = (unsigned int)MmNumberOfChannels;
-  v8 = a2;
-  v9 = 0LL;
-  v10 = a3;
-  CurrentThread = KeGetCurrentThread();
-  v53 = 0LL;
-  v48 = 0LL;
   v54 = 0LL;
-  v47 = MmNumberOfChannels;
-  v11 = MiReferencePageRuns(a1, 1u);
-  v12 = qword_140C6F788;
-  v13 = MiLargePageSizes[v10];
-  v14 = (unsigned int *)v11;
-  v15 = 0;
-  v49 = (unsigned int *)v11;
-  v16 = *(_QWORD *)(a1 + 16) + 25408 * v8;
-  v51 = (_QWORD *)v16;
-  v52 = qword_140C6F788;
-  v57 = 0;
-  if ( (unsigned int)v6 > 1 )
+  v7 = (unsigned int)MmNumberOfChannels;
+  v8 = 0LL;
+  v57 = MmNumberOfChannels;
+  v9 = (unsigned int)a3;
+  v50 = a2;
+  v53 = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  v48 = 0LL;
+  v10 = MiReferencePageRuns(a1, 1u, a3, a4);
+  v11 = BugCheckParameter3;
+  v12 = MiLargePageSizes[v9];
+  v13 = (unsigned int *)v10;
+  v14 = 0;
+  v49 = (unsigned int *)v10;
+  v15 = *(_QWORD *)(a1 + 16) + 4544 * v4;
+  v51 = v15;
+  v52 = BugCheckParameter3;
+  v58 = 0;
+  if ( (unsigned int)v7 > 1 )
   {
-    v9 = (unsigned __int8 *)(v16 + 23033);
-    v15 = *(unsigned __int8 *)(v16 + 23033);
-    v57 = v15;
+    v8 = (unsigned __int8 *)(v15 + 4313);
+    v14 = *(unsigned __int8 *)(v15 + 4313);
+    v58 = v14;
   }
-  v56 = &v9[v6];
-  if ( v9 != &v9[v6] )
+  v56 = &v8[v7];
+  if ( v8 != &v8[v7] )
   {
-    while ( 1 )
+    while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
     {
-      while ( 1 )
+      RebuildCandidate = MiFindRebuildCandidate((__int16 *)a1, v4, v14, v12, v11, v13);
+      if ( RebuildCandidate == -1 )
+        goto LABEL_55;
+      v16 = 1082130432;
+      if ( v12 == 512 )
       {
-        if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
-          goto LABEL_59;
-        RebuildCandidate = MiFindRebuildCandidate(a1, v8, v15, v13, v12, v14, a5);
-        if ( RebuildCandidate != -1 )
-          break;
-LABEL_63:
-        ++v9;
-        if ( (unsigned int)v6 <= 1 )
+        v16 = 1115684864;
+      }
+      else if ( v12 == 16 )
+      {
+        v16 = 1098907648;
+      }
+      if ( (int)MiFindContiguousPages(
+                  a1,
+                  RebuildCandidate,
+                  RebuildCandidate + v12 - 1,
+                  v12,
+                  v12,
+                  1u,
+                  v4,
+                  v58,
+                  v16,
+                  0LL,
+                  &RebuildCandidate) >= 0 )
+      {
+        if ( v12 >= 0x200 )
+          MiUpdateLargePageBitMap(a1, RebuildCandidate, v12, 0, 1);
+        MiConvertSmallPageRangeToLarge(RebuildCandidate, v59, v17, v18);
+        v22 = 48 * RebuildCandidate - 0x58000000000LL;
+        CurrentIrql = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
-          v15 = v57;
+          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+          v19 = (-1LL << (CurrentIrql + 1)) & 4;
+          v20 = (unsigned int)v19 | SchedulerAssist[5];
+          SchedulerAssist[5] = v20;
+        }
+        MiLockPageAtDpc(v22, v19, v20, (__int64)SchedulerAssist);
+        *(_QWORD *)&v53 = RebuildCandidate;
+        *((_QWORD *)&v53 + 1) = 1LL;
+        v54 = 2LL;
+        inserted = MiInsertLargePageInNodeList((__int64)&v53);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v25 = KeGetCurrentIrql();
+            if ( v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              v27 = CurrentPrcb->SchedulerAssist;
+              v28 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v29 = (v28 & v27[5]) == 0;
+              v27[5] &= v28;
+              if ( v29 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
+          }
+        }
+        __writecr8(CurrentIrql);
+        MiReturnCommit(a1, inserted);
+        if ( (ULONG_PTR *)a1 == &MiSystemPartition )
+        {
+          v30 = KeGetCurrentPrcb();
+          CachedResidentAvailable = (int)v30->CachedResidentAvailable;
+          if ( (_DWORD)CachedResidentAvailable != -1 )
+          {
+            do
+            {
+              if ( inserted + CachedResidentAvailable > 0x100 || inserted >= 0x80000 )
+                break;
+              v32 = _InterlockedCompareExchange(
+                      (volatile signed __int32 *)&v30->CachedResidentAvailable,
+                      inserted + CachedResidentAvailable,
+                      CachedResidentAvailable);
+              v29 = (_DWORD)CachedResidentAvailable == v32;
+              CachedResidentAvailable = v32;
+              if ( v29 )
+                goto LABEL_36;
+            }
+            while ( v32 != -1 );
+            if ( (int)CachedResidentAvailable > 192
+              && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                      (volatile signed __int32 *)&v30->CachedResidentAvailable,
+                                                      192,
+                                                      CachedResidentAvailable) )
+            {
+              inserted += (int)CachedResidentAvailable - 192;
+            }
+          }
+        }
+        if ( inserted )
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), inserted);
+LABEL_36:
+        v5 += v12;
+        v48 = v5;
+        if ( v5 >= (unsigned __int64)a4 )
+        {
+LABEL_50:
+          v13 = v49;
+          break;
+        }
+      }
+      v33 = MmNumberOfChannels;
+      v34 = 0LL;
+      v35 = 0;
+      if ( MmNumberOfChannels )
+      {
+        v36 = v51;
+        do
+          v34 += MiNodeFreeZeroPages(v36, v35++, 0);
+        while ( v35 < v33 );
+        LODWORD(v4) = v50;
+      }
+      if ( v12 > 0x10 )
+      {
+        v37 = 0LL;
+        v38 = v59 + 1;
+        if ( (unsigned int)v38 <= 2 )
+        {
+          v39 = &MiLargePageSizes[v38];
+          v40 = (_QWORD *)(v51 + 1072LL * (unsigned int)v38);
+          v41 = (unsigned int)(3 - v38);
+          do
+          {
+            v42 = *v40 + v40[1];
+            v40 += 134;
+            v43 = *v39++ * v42;
+            v37 += v43;
+            --v41;
+          }
+          while ( v41 );
+        }
+        v34 += v37;
+      }
+      LODWORD(v7) = v57;
+      if ( v34 >= 0x1000 )
+      {
+        v5 = v48;
+      }
+      else
+      {
+        for ( i = 0; i < v57; i = v45 + 1 )
+          v34 += MiGetNodeStandbyPageCount(a1, v4, i);
+        v5 = v48;
+        if ( v34 < (unsigned __int64)a4 - v48 + 0x8000 )
+          goto LABEL_50;
+      }
+      if ( !RebuildCandidate )
+      {
+LABEL_55:
+        ++v8;
+        if ( (unsigned int)v7 <= 1 )
+        {
+          v14 = v58;
         }
         else
         {
-          v15 = *v9;
-          v57 = v15;
+          v14 = *v8;
+          v58 = v14;
         }
-        v14 = v49;
-        v12 = v52;
-        if ( v9 == v56 )
-          goto LABEL_59;
-      }
-      v17 = 1082130432;
-      if ( v13 == 512 )
-      {
-        v17 = 1115684864;
-      }
-      else if ( v13 == 16 )
-      {
-        v17 = 1098907648;
-      }
-      v18 = v17 | 0x8000000;
-      if ( !a5 )
-        v18 = v17;
-      if ( (int)MiFindContiguousPagesEx(
-                  a1,
-                  RebuildCandidate,
-                  RebuildCandidate + v13 - 1,
-                  v13,
-                  0,
-                  v13,
-                  1u,
-                  v8,
-                  v57,
-                  v18,
-                  0,
-                  0LL,
-                  &RebuildCandidate) >= 0 )
-        break;
-LABEL_45:
-      v32 = MmNumberOfChannels;
-      v33 = 0LL;
-      v34 = 0;
-      if ( MmNumberOfChannels )
-      {
-        v35 = v51;
-        do
-          v33 += MiNodeFreeZeroPages(v35, v34++, 0);
-        while ( v34 < v32 );
-        LODWORD(v8) = a2;
-      }
-      if ( v13 > 0x10 )
-      {
-        v36 = 0LL;
-        v37 = a3 + 1;
-        if ( (unsigned int)v37 <= 2 )
-        {
-          v38 = &MiLargePageSizes[v37];
-          v39 = &v51[134 * (unsigned int)v37];
-          v40 = (unsigned int)(3 - v37);
-          do
-          {
-            v41 = *v39 + v39[1];
-            v39 += 134;
-            v42 = *v38++ * v41;
-            v36 += v42;
-            --v40;
-          }
-          while ( v40 );
-        }
-        v33 += v36;
-      }
-      LODWORD(v6) = v47;
-      if ( v33 >= 0x1000 )
-      {
-        v5 = v48;
+        v13 = v49;
+        v11 = v52;
+        if ( v8 == v56 )
+          break;
       }
       else
       {
-        v43 = 0;
-        if ( v47 )
-        {
-          do
-          {
-            v33 += MiGetNodeStandbyPageCount(a1, v8, v43);
-            v43 = v44 + 1;
-          }
-          while ( v43 < (unsigned int)v6 );
-        }
-        v5 = v48;
-        if ( v33 < a4 - v48 + 0x8000 )
-        {
-LABEL_58:
-          v14 = v49;
-          goto LABEL_59;
-        }
-      }
-      if ( !RebuildCandidate )
-        goto LABEL_63;
-      v15 = v57;
-      v12 = RebuildCandidate - 1;
-      v14 = v49;
-      v52 = RebuildCandidate - 1;
-    }
-    if ( v13 >= 0x200 )
-      MiUpdateLargePageBitMap(a1, RebuildCandidate, v13, 0, 1);
-    MiConvertSmallPageRangeToLarge(RebuildCandidate, a3);
-    v19 = 48 * RebuildCandidate - 0x220000000000LL;
-    CurrentIrql = KeGetCurrentIrql();
-    __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-    {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-        LODWORD(v22) = 4;
-      else
-        v22 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v22;
-    }
-    v50 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
-    {
-      do
-        KeYieldProcessorEx(&v50);
-      while ( *(__int64 *)(v19 + 24) < 0 );
-    }
-    v54 = 0LL;
-    *(_QWORD *)&v53 = RebuildCandidate;
-    *((_QWORD *)&v53 + 1) = 1LL;
-    LOBYTE(v54) = 2;
-    inserted = MiInsertLargePageInNodeList((__int64)&v53);
-    if ( KiIrqlFlags )
-    {
-      v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v26 = CurrentPrcb->SchedulerAssist;
-        v27 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v28 = (v27 & v26[5]) == 0;
-        v26[5] &= v27;
-        if ( v28 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v14 = v58;
+        v11 = RebuildCandidate - 1;
+        v13 = v49;
+        v52 = RebuildCandidate - 1;
       }
     }
-    __writecr8(CurrentIrql);
-    MiReturnCommit(a1, inserted);
-    if ( (_UNKNOWN *)a1 == &MiSystemPartition )
-    {
-      v29 = KeGetCurrentPrcb();
-      CachedResidentAvailable = (int)v29->CachedResidentAvailable;
-      if ( (_DWORD)CachedResidentAvailable != -1 )
-      {
-        if ( inserted + CachedResidentAvailable <= 0x100 && inserted < 0x80000 )
-        {
-          while ( 1 )
-          {
-            v31 = _InterlockedCompareExchange(
-                    (volatile signed __int32 *)&v29->CachedResidentAvailable,
-                    inserted + CachedResidentAvailable,
-                    CachedResidentAvailable);
-            v28 = (_DWORD)CachedResidentAvailable == v31;
-            LODWORD(CachedResidentAvailable) = v31;
-            if ( v28 )
-              break;
-            if ( v31 == -1 || inserted + v31 > 0x100 )
-              goto LABEL_39;
-          }
-LABEL_44:
-          v5 += v13;
-          v48 = v5;
-          if ( v5 >= a4 )
-            goto LABEL_58;
-          goto LABEL_45;
-        }
-LABEL_39:
-        if ( (int)CachedResidentAvailable > 192
-          && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                  (volatile signed __int32 *)&v29->CachedResidentAvailable,
-                                                  192,
-                                                  CachedResidentAvailable) )
-        {
-          inserted += (int)CachedResidentAvailable - 192;
-        }
-      }
-    }
-    if ( inserted )
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17280), inserted);
-    goto LABEL_44;
   }
-LABEL_59:
-  MiDereferencePageRunsEx((__int64)v14, 1);
+  MiDereferencePageRunsEx((__int64)v13, 1);
   return v5;
 }

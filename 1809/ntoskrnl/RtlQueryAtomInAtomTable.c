@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlQueryAtomInAtomTable @ 0x1405F5840
  * Callers:
- *     NtQueryInformationAtom @ 0x1406ADF70 (NtQueryInformationAtom.c)
+ *     NtQueryInformationAtom @ 0x1406ADF50 (NtQueryInformationAtom.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     RtlpLookupLowBox @ 0x1400892B0 (RtlpLookupLowBox.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _snwprintf_s @ 0x14019AC40 (_snwprintf_s.c)
- *     EvaluateCurrentState @ 0x1401B3674 (EvaluateCurrentState.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _snwprintf_s @ 0x14019AC60 (_snwprintf_s.c)
+ *     EvaluateCurrentState @ 0x1401B3694 (EvaluateCurrentState.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlpLockAtomTable @ 0x1405F547C (RtlpLockAtomTable.c)
  *     RtlpAtomMapAtomToHandleEntry @ 0x1405F5614 (RtlpAtomMapAtomToHandleEntry.c)
  */

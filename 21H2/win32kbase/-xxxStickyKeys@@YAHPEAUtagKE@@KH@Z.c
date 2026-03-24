@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01BAA50
+ * XREFs of ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0185190
  * Callers:
  *     <none>
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
- *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E7BD0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01BAF10 (-xxxTurnOffStickyKeys@@YAXXZ.c)
- *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01BAF70 (-xxxTwoKeysDown@@YAHH@Z.c)
- *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01BB060 (-xxxUpdateModifierState@@YAXHH@Z.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C020A3A8 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C020A4F4 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C0074CD0 (PostWinlogonMessage.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01831C0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185650 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01856B0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01857A0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD100 (ApiSetEditionPostAccessibility.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
  */
 
 _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
@@ -37,17 +37,17 @@ _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
   {
     gStickyKeysLeftShiftCount = 0;
     gStickyKeysRightShiftCount = 0;
-    if ( (dword_1C0295A44 & 1) != 0 )
+    if ( (dword_1C0250C1C & 1) != 0 )
     {
       if ( !gPhysModifierState || v3 )
       {
         if ( (unsigned int)AccessProceduresStream(a1, a2, a3) )
-          xxxProcessKeyEvent((unsigned __int8 *)a1, v4, 0, 0, 0LL, 0LL);
+          xxxProcessKeyEvent(a1, v4, 0LL, 0LL, 0LL, 0LL);
         xxxUpdateModifierState((unsigned __int8)gLockBits, a3);
         v19 = gLatchBits == 0;
         gLatchBits = 0;
         if ( !v19 )
-          ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
+          ApiSetEditionPostAccessibility(1LL);
         return 0LL;
       }
       xxxTwoKeysDown(a3);
@@ -73,26 +73,26 @@ _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
   gStickyKeysRightShiftCount = v9;
   if ( (_BYTE)a2 == 10 || v9 == 10 )
   {
-    if ( (dword_1C0295A44 & 4) != 0 )
+    if ( (dword_1C0250C1C & 4) != 0 )
     {
-      if ( (dword_1C0295A44 & 1) != 0 )
+      if ( (dword_1C0250C1C & 1) != 0 )
       {
         xxxTurnOffStickyKeys();
-        if ( (dword_1C0295A44 & 0x10) != 0 )
+        if ( (dword_1C0250C1C & 0x10) != 0 )
           ApiSetEditionPostRitSound(1LL, v18, 0LL);
       }
       else
       {
-        if ( (dword_1C0295A44 & 0x10) != 0 )
+        if ( (dword_1C0250C1C & 0x10) != 0 )
           ApiSetEditionPostRitSound(0LL, a2, 0LL);
-        ApiSetEditionPostAccessibilityShortcutNotification(1LL);
+        PostWinlogonMessage(1026LL, 1u);
       }
     }
     gStickyKeysLeftShiftCount = 0;
     gStickyKeysRightShiftCount = 0;
     return 1LL;
   }
-  if ( (dword_1C0295A44 & 1) == 0 )
+  if ( (dword_1C0250C1C & 1) == 0 )
     return 1LL;
   if ( !v3 )
   {
@@ -146,7 +146,7 @@ _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
       {
         if ( ((unsigned __int8)gCurrentModifierBit & (unsigned __int8)gLockBits) == 0 )
           v15 = gCurrentModifierBit ^ gLatchBits;
-        if ( (dword_1C0295A44 & 0x80u) != 0
+        if ( (dword_1C0250C1C & 0x80u) != 0
           && ((unsigned __int8)(gLockBits | gLatchBits) & (unsigned __int8)gCurrentModifierBit) != 0 )
         {
           v14 = gCurrentModifierBit ^ gLockBits;
@@ -157,8 +157,8 @@ _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
       gLatchBits = v15;
       gLockBits = v14;
       if ( v17 )
-        ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
-      if ( (dword_1C0295A44 & 0x40) != 0 )
+        ApiSetEditionPostAccessibility(1LL);
+      if ( (dword_1C0250C1C & 0x40) != 0 )
       {
         if ( ((unsigned __int8)gLockBits & (unsigned __int8)gCurrentModifierBit) == 0 )
           ApiSetEditionPostRitSound(2LL, a2, 0LL);
@@ -175,8 +175,8 @@ _BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
       gLatchBits = gPhysModifierState;
       gLockBits = 0;
       if ( v11 )
-        ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
-      if ( (dword_1C0295A44 & 0x40) != 0 )
+        ApiSetEditionPostAccessibility(1LL);
+      if ( (dword_1C0250C1C & 0x40) != 0 )
       {
         ApiSetEditionPostRitSound(2LL, v10, 0LL);
         ApiSetEditionPostRitSound(3LL, v12, 0LL);

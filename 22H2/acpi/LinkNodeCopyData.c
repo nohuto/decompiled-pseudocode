@@ -1,8 +1,8 @@
 /*
- * XREFs of LinkNodeCopyData @ 0x1C0099348
+ * XREFs of LinkNodeCopyData @ 0x1C00922F4
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4E0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
  * Callees:
  *     <none>
  */

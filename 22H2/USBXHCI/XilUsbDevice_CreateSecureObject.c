@@ -1,13 +1,13 @@
 /*
- * XREFs of XilUsbDevice_CreateSecureObject @ 0x1C0047E20
+ * XREFs of XilUsbDevice_CreateSecureObject @ 0x1C00454A8
  * Callers:
- *     XilUsbDevice_Create @ 0x1C001BB74 (XilUsbDevice_Create.c)
+ *     XilUsbDevice_Create @ 0x1C001646C (XilUsbDevice_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilUsbDevice_CreateSecureObject(__int64 a1, __int64 a2)
@@ -19,15 +19,15 @@ __int64 __fastcall XilUsbDevice_CreateSecureObject(__int64 a1, __int64 a2)
   __int64 v8; // xmm1_8
   int v9; // eax
   int v10; // edx
-  unsigned int v11; // edi
+  unsigned int v11; // ebx
   int v12; // edx
   int v13; // r8d
   int v14; // r9d
   __int128 v16; // [rsp+40h] [rbp-39h] BYREF
-  int v17; // [rsp+50h] [rbp-29h]
+  __int64 v17; // [rsp+50h] [rbp-29h]
   _QWORD v18[10]; // [rsp+60h] [rbp-19h] BYREF
 
-  v17 = 0;
+  v17 = 0LL;
   v3 = *(_QWORD *)(a1 + 56);
   v16 = 0LL;
   v5 = *(_QWORD **)(v3 + 8);
@@ -36,7 +36,7 @@ __int64 __fastcall XilUsbDevice_CreateSecureObject(__int64 a1, __int64 a2)
   v7 = *(_OWORD *)(a2 + 4);
   LODWORD(v18[4]) = 30;
   v8 = *(_QWORD *)(a2 + 20);
-  v18[5] = v5[77];
+  v18[5] = v5[71];
   LODWORD(v18[6]) = *(_DWORD *)a2;
   *(_OWORD *)((char *)&v18[6] + 4) = v7;
   *(_QWORD *)((char *)&v18[8] + 4) = v8;

@@ -1,20 +1,19 @@
 /*
- * XREFs of ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x18003DEF8
+ * XREFs of ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180038D0C
  * Callers:
- *     ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@I@Z @ 0x18003E0D0 (-CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRI.c)
- *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x1800F2C40 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
+ *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x180038804 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
+ *     ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_REALIZATION_INFO@@@Z @ 0x1800389F8 (-CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRI.c)
  * Callees:
- *     ?Create@CDxHandleBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x18003DD6C (-Create@CDxHandleBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTE.c)
- *     ?Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x18003E040 (-Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCS.c)
- *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x180042FC0 (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetPrimaryYUVRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEBAPEAVIYUVSwapChainRealization@@XZ @ 0x18025B4F0 (-GetPrimaryYUVRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEBAPEAVIYUVSwapChainRealizat.c)
- *     ?Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAPEAVISwapChainRealization@@@Z @ 0x1802B3224 (-Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZAT.c)
- *     ?Create@CDxHandleYUVBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x1802B3C3C (-Create@CDxHandleYUVBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIB.c)
- *     ?CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x1802B3D4C (-CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUC.c)
+ *     ?Create@CDxHandleBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180038E50 (-Create@CDxHandleBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTE.c)
+ *     ?Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x1800393E8 (-Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCS.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x18009CA7C (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAPEAVISwapChainRealization@@@Z @ 0x180264B04 (-Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZAT.c)
+ *     ?Create@CDxHandleYUVBitmapRealization@@SAJU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x180265548 (-Create@CDxHandleYUVBitmapRealization@@SAJU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
+ *     ?CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x18026564C (-CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUC.c)
  */
 
 __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealization(
@@ -30,30 +29,35 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealizatio
   int v12; // ebx
   int SubResource; // eax
   char *v14; // rcx
-  struct CDecodeBitmap *v16; // r12
-  struct _LUID *v17; // rbx
+  struct CDecodeBitmap *v16; // r13
+  struct _LUID v17; // rbx
   int v18; // r9d
-  struct _LUID v19; // rbx
-  struct IYUVSwapChainRealization *PrimaryYUVRealization; // rax
-  char *v21; // rcx
-  unsigned int v22; // [rsp+20h] [rbp-61h]
-  HGDIOBJ ho[2]; // [rsp+30h] [rbp-51h] BYREF
-  int *v24; // [rsp+40h] [rbp-41h] BYREF
-  int v25; // [rsp+48h] [rbp-39h] BYREF
+  struct _LUID *v19; // rdx
+  __int64 v20; // r14
+  __int64 v21; // rax
+  void (__fastcall ***v22)(_QWORD, GUID *, __int64 *); // rcx
+  __int64 v23; // rcx
+  char *v24; // rcx
+  int v25; // [rsp+20h] [rbp-71h]
+  unsigned int v26; // [rsp+20h] [rbp-71h]
+  HGDIOBJ ho; // [rsp+30h] [rbp-61h] BYREF
+  __int64 v28; // [rsp+38h] [rbp-59h] BYREF
+  int *v29; // [rsp+40h] [rbp-51h] BYREF
+  int v30; // [rsp+48h] [rbp-49h] BYREF
 
-  ho[0] = 0LL;
+  ho = 0LL;
   *a5 = 0LL;
-  v9 = NtOpenCompositionSurfaceDirtyRegion(*(_QWORD *)&(*this)[4], this + 3, a3, ho);
-  v10 = (__int64)ho[0];
+  v9 = NtOpenCompositionSurfaceDirtyRegion(*(_QWORD *)&(*this)[4], this + 3, a3, &ho);
+  v10 = (__int64)ho;
   if ( v9 < 0 )
     v10 = 1LL;
-  ho[0] = (HGDIOBJ)v10;
+  ho = (HGDIOBJ)v10;
   v11 = *(_DWORD *)a3 - 1;
   if ( *(_DWORD *)a3 == 1 )
   {
     v12 = -2003292287;
-    v22 = 1449;
-    goto LABEL_28;
+    v26 = 1135;
+    goto LABEL_32;
   }
   if ( *(_DWORD *)a3 == 2 )
   {
@@ -66,17 +70,18 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealizatio
             a5);
     if ( v12 >= 0 )
       goto LABEL_7;
+    LOBYTE(v25) = a4;
     SubResource = CDxHandleBitmapRealization::Create(
-                    *((_DWORD *)this + 8),
+                    *((unsigned int *)this + 8),
                     *(_QWORD *)&(*this)[5],
-                    (__int64)a2,
-                    (__int64)a3,
-                    a4,
+                    a2,
+                    a3,
+                    v25,
                     a5);
     v12 = SubResource;
     if ( SubResource >= 0 )
       goto LABEL_7;
-    v22 = 1469;
+    v26 = 1155;
     goto LABEL_21;
   }
   v11 = *(_DWORD *)a3 - 3;
@@ -86,7 +91,7 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealizatio
     v12 = SubResource;
     if ( SubResource < 0 )
     {
-      v22 = 1479;
+      v26 = 1165;
       goto LABEL_21;
     }
   }
@@ -95,68 +100,79 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealizatio
     if ( *(_DWORD *)a3 != 4 )
     {
       v12 = -2147024809;
-      v22 = 1511;
-LABEL_28:
+      v26 = 1196;
+LABEL_32:
       v18 = v12;
-      goto LABEL_29;
+      goto LABEL_33;
     }
     v16 = (struct CDecodeBitmap *)this[1];
-    v17 = *this;
-    if ( *((_DWORD *)a3 + 8) )
+    v17 = (*this)[5];
+    if ( *((_DWORD *)a3 + 6) )
     {
-      v19 = v17[5];
-      PrimaryYUVRealization = CGlobalCompositionSurfaceInfo::CBindInfo::GetPrimaryYUVRealization((CGlobalCompositionSurfaceInfo::CBindInfo *)this);
-      SubResource = CDxHandleYUVBitmapRealization::CreateSubResource(PrimaryYUVRealization, v19, a2, a3, v16, a5);
-      v12 = SubResource;
-      if ( SubResource < 0 )
+      v19 = this[6];
+      v20 = 0LL;
+      v21 = (char *)this[7] - (char *)v19;
+      v28 = 0LL;
+      if ( v21 >> 3 )
       {
-        v22 = 1505;
-        goto LABEL_21;
+        v22 = (void (__fastcall ***)(_QWORD, GUID *, __int64 *))(*(_QWORD *)v19
+                                                               + 8LL
+                                                               + *(int *)(*(_QWORD *)(*(_QWORD *)v19 + 8LL) + 4LL));
+        (**v22)(v22, &GUID_51e2a1f0_4a0d_4788_800f_3cee7a2512a6, &v28);
+        v20 = v28;
       }
-    }
-    else
-    {
-      SubResource = CDxHandleYUVBitmapRealization::Create(
-                      *((unsigned int *)this + 8),
-                      *(_QWORD *)&v17[5],
+      if ( v20 )
+      {
+        v23 = v20 + *(int *)(*(_QWORD *)(v20 + 8) + 4LL) + 8LL;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 16LL))(v23);
+      }
+      SubResource = CDxHandleYUVBitmapRealization::CreateSubResource(
+                      (struct IYUVSwapChainRealization *)v20,
+                      v17,
                       a2,
                       a3,
                       v16,
                       a5);
       v12 = SubResource;
-      if ( SubResource < 0 )
-      {
-        v22 = 1493;
+      if ( SubResource >= 0 )
+        goto LABEL_7;
+      v26 = 1190;
+      goto LABEL_21;
+    }
+    SubResource = CDxHandleYUVBitmapRealization::Create(v17, a2, a3, (struct CDecodeBitmap *)this[1], a5);
+    v12 = SubResource;
+    if ( SubResource < 0 )
+    {
+      v26 = 1178;
 LABEL_21:
-        v18 = SubResource;
-LABEL_29:
-        MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_180357838, 3u, v18, v22, 0LL);
-        goto LABEL_11;
-      }
+      v18 = SubResource;
+LABEL_33:
+      MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802DC150, 3u, v18, v26, 0LL);
+      goto LABEL_11;
     }
   }
 LABEL_7:
-  if ( !ho[0] )
+  if ( !ho )
     return (unsigned int)v12;
   if ( *a5 )
   {
-    if ( ho[0] == (HGDIOBJ)1 )
+    if ( ho == (HGDIOBJ)1 )
     {
       v14 = (char *)*a5 + *(int *)(*((_QWORD *)*a5 + 1) + 16LL) + 8;
       (*(void (__fastcall **)(char *))(*(_QWORD *)v14 + 40LL))(v14);
     }
     else
     {
-      v25 = 0;
-      v24 = &v25;
-      CRegion::SetHRGN((CRegion *)&v24, (HRGN)ho[0]);
-      v21 = (char *)*a5 + *(int *)(*((_QWORD *)*a5 + 1) + 16LL) + 8;
-      (*(void (__fastcall **)(char *, int **))(*(_QWORD *)v21 + 32LL))(v21, &v24);
-      FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v24);
+      v30 = 0;
+      v29 = &v30;
+      CRegion::SetHRGN((CRegion *)&v29, (HRGN)ho);
+      v24 = (char *)*a5 + *(int *)(*((_QWORD *)*a5 + 1) + 16LL) + 8;
+      (*(void (__fastcall **)(char *, int **))(*(_QWORD *)v24 + 32LL))(v24, &v29);
+      FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v29);
     }
   }
 LABEL_11:
-  if ( ho[0] >= (HGDIOBJ)2 )
-    DeleteObject(ho[0]);
+  if ( (unsigned __int64)ho >= 2 )
+    DeleteObject(ho);
   return (unsigned int)v12;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FillSimpleDevModeField@@YAXQEAU_devicemodeW@@PEAU_DXGK_DIAG_SIMPLE_DEVMODE@@@Z @ 0x1C0162D30
+ * XREFs of ?FillSimpleDevModeField@@YAXQEAU_devicemodeW@@PEAU_DXGK_DIAG_SIMPLE_DEVMODE@@@Z @ 0x1C001A460
  * Callers:
- *     LogDiagCDS @ 0x1C01684F0 (LogDiagCDS.c)
+ *     LogDiagCDS @ 0x1C001A244 (LogDiagCDS.c)
  * Callees:
  *     <none>
  */

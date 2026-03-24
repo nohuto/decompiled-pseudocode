@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DeletingEndpointsForOldInterface @ 0x1C0021FB0
+ * XREFs of HUBDSM_DeletingEndpointsForOldInterface @ 0x1C0021B60
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0025EA0 (HUBUCX_DeleteEndpointsAndFreeResourcesForInterface.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0025A14 (HUBUCX_DeleteEndpointsAndFreeResourcesForInterface.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingEndpointsForOldInterface(__int64 a1)

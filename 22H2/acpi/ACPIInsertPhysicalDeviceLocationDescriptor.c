@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIInsertPhysicalDeviceLocationDescriptor @ 0x1C0097FC8
+ * XREFs of ACPIInsertPhysicalDeviceLocationDescriptor @ 0x1C00A311C
  * Callers:
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098144 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  * Callees:
  *     <none>
  */
@@ -10,13 +10,13 @@ _QWORD *__fastcall ACPIInsertPhysicalDeviceLocationDescriptor(__int64 a1, __int6
 {
   _QWORD *v2; // rax
   __int64 v3; // rax
-  _QWORD *v4; // rdx
-  __int64 v5; // rcx
   _QWORD *result; // rax
+  _QWORD *v5; // rdx
+  __int64 v6; // rcx
 
   v2 = *(_QWORD **)(a1 + 8);
   if ( *v2 != a1 )
-    goto LABEL_17;
+    goto FatalListEntryError_7;
   *(_QWORD *)(a2 + 8) = v2;
   *(_QWORD *)a2 = a1;
   *v2 = a2;
@@ -26,9 +26,9 @@ _QWORD *__fastcall ACPIInsertPhysicalDeviceLocationDescriptor(__int64 a1, __int6
     v3 = *(_QWORD *)(a2 + 112) - *(_QWORD *)GUID_NULL.Data4;
   if ( v3 )
   {
-    v4 = (_QWORD *)(a2 + 88);
-    v5 = a1 + 40;
-    goto LABEL_13;
+    v5 = (_QWORD *)(a2 + 88);
+    v6 = a1 + 40;
+    goto LABEL_15;
   }
   result = (_QWORD *)(*(_QWORD *)(a2 + 136) - *(_QWORD *)&GUID_NULL.Data1);
   if ( !result )
@@ -36,28 +36,26 @@ _QWORD *__fastcall ACPIInsertPhysicalDeviceLocationDescriptor(__int64 a1, __int6
   if ( result )
   {
     *(_OWORD *)(a1 + 56) = *(_OWORD *)(a2 + 136);
+    return result;
   }
-  else
+  if ( (*(_DWORD *)(a2 + 28) & 0x40000) != 0 )
   {
-    if ( (*(_DWORD *)(a2 + 28) & 0x40000) != 0 )
+    v5 = (_QWORD *)(a2 + 72);
+    v6 = a1 + 24;
+LABEL_15:
+    result = *(_QWORD **)(v6 + 8);
+    if ( *result == v6 )
     {
-      v4 = (_QWORD *)(a2 + 72);
-      v5 = a1 + 24;
-LABEL_13:
-      result = *(_QWORD **)(v5 + 8);
-      if ( *result == v5 )
-      {
-        *v4 = v5;
-        v4[1] = result;
-        *result = v4;
-        *(_QWORD *)(v5 + 8) = v4;
-        return result;
-      }
-LABEL_17:
-      __fastfail(3u);
+      *v5 = v6;
+      v5[1] = result;
+      *result = v5;
+      *(_QWORD *)(v6 + 8) = v5;
+      return result;
     }
-    if ( !*(_QWORD *)(a1 + 16) )
-      *(_QWORD *)(a1 + 16) = a2;
+FatalListEntryError_7:
+    __fastfail(3u);
   }
+  if ( !*(_QWORD *)(a1 + 16) )
+    *(_QWORD *)(a1 + 16) = a2;
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ObReferenceObjectExWithTag @ 0x140111EB0
+ * XREFs of ObReferenceObjectExWithTag @ 0x140111ED0
  * Callers:
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
@@ -9,10 +9,10 @@
  *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     ObInitializeFastReference @ 0x14064EA04 (ObInitializeFastReference.c)
+ *     ObInitializeFastReference @ 0x14064E9E4 (ObInitializeFastReference.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 unsigned __int64 __fastcall ObReferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2)

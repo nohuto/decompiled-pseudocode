@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAllocateCompletionBuffer @ 0x1406D479C
+ * XREFs of AlpcpAllocateCompletionBuffer @ 0x1406D477C
  * Callers:
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     AlpcpAllocateFromBitmap @ 0x1406D4870 (AlpcpAllocateFromBitmap.c)
+ *     AlpcpAllocateFromBitmap @ 0x1406D4850 (AlpcpAllocateFromBitmap.c)
  */
 
 __int64 __fastcall AlpcpAllocateCompletionBuffer(__int64 a1, int a2)

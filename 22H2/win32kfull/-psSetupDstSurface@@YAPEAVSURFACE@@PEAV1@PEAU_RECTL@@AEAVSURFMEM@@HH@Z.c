@@ -1,11 +1,11 @@
 /*
- * XREFs of ?psSetupDstSurface@@YAPEAVSURFACE@@PEAV1@PEAU_RECTL@@AEAVSURFMEM@@HH@Z @ 0x1C0002E50
+ * XREFs of ?psSetupDstSurface@@YAPEAVSURFACE@@PEAV1@PEAU_RECTL@@AEAVSURFMEM@@HH@Z @ 0x1C00CF270
  * Callers:
- *     EngGradientFill @ 0x1C0002BB0 (EngGradientFill.c)
- *     EngTransparentBlt @ 0x1C00B9F70 (EngTransparentBlt.c)
+ *     EngGradientFill @ 0x1C00CEFD0 (EngGradientFill.c)
+ *     EngTransparentBlt @ 0x1C00D0490 (EngTransparentBlt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 struct SURFACE *__fastcall psSetupDstSurface(__int64 **a1, struct _RECTL *a2, struct SURFMEM *a3, int a4, int a5)
@@ -16,8 +16,8 @@ struct SURFACE *__fastcall psSetupDstSurface(__int64 **a1, struct _RECTL *a2, st
   __int64 *v11; // rax
   __int64 *v12; // rbx
   int v13; // ecx
-  Gre::Base *v14; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v15; // r9
+  int DIB; // edx
+  bool v15; // zf
   int v16; // eax
   _DWORD v17[2]; // [rsp+60h] [rbp-21h] BYREF
   _DWORD v18[4]; // [rsp+68h] [rbp-19h] BYREF
@@ -45,27 +45,36 @@ struct SURFACE *__fastcall psSetupDstSurface(__int64 **a1, struct _RECTL *a2, st
     v19 = 0LL;
     if ( v11 )
       v19 = *v11;
-    if ( SURFMEM::bCreateDIB(a3, (struct _DEVBITMAPINFO *)v18, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0)
-      && ((SURFACE::hdev(*(SURFACE **)a3, *((HDEV *)v9 + 6)),
-           *(_QWORD *)&v22.left = 0LL,
-           *(_QWORD *)&v22.right = __PAIR64__(v8, v6),
-           !a5)
-       || ((v17[0] = a2->left, v17[1] = a2->top, v15 = Gre::Base::Globals(v14), (*((_DWORD *)v9 + 28) & 0x400) == 0)
-         ? (v16 = ((__int64 (__fastcall *)(__int64, char *, _QWORD, char *, struct _RECTL *, _DWORD *))EngCopyBits)(
-                    (*(_QWORD *)a3 + 24LL) & -(__int64)(*(_QWORD *)a3 != 0LL),
-                    (char *)v9 + 24,
-                    0LL,
-                    (char *)v15 + 6896,
-                    &v22,
-                    v17))
-         : (v16 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, struct _RECTL *, _DWORD *))v12[352])(
-                    (*(_QWORD *)a3 + 24LL) & -(__int64)(*(_QWORD *)a3 != 0LL),
-                    (__int64)v9 + 24,
-                    0LL,
-                    (__int64)v15 + 6896,
-                    &v22,
-                    v17)),
-           v16)) )
+    DIB = SURFMEM::bCreateDIB(a3, (struct _DEVBITMAPINFO *)v18, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+    if ( !DIB )
+      return 0LL;
+    *(_QWORD *)(*(_QWORD *)a3 + 48LL) = *((_QWORD *)v9 + 6);
+    *(_QWORD *)&v22.left = 0LL;
+    *(_QWORD *)&v22.right = __PAIR64__(v8, v6);
+    if ( a5 )
+    {
+      v15 = (*((_DWORD *)v9 + 28) & 0x400) == 0;
+      v17[0] = a2->left;
+      v17[1] = a2->top;
+      if ( v15 )
+        v16 = ((__int64 (__fastcall *)(__int64, char *, _QWORD, XLATEOBJ *const, struct _RECTL *, _DWORD *))EngCopyBits)(
+                (*(_QWORD *)a3 + 24LL) & -(__int64)(*(_QWORD *)a3 != 0LL),
+                (char *)v9 + 24,
+                0LL,
+                xloIdent,
+                &v22,
+                v17);
+      else
+        v16 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD, XLATEOBJ *const, struct _RECTL *, _DWORD *))v12[355])(
+                (*(_QWORD *)a3 + 24LL) & -(__int64)(*(_QWORD *)a3 != 0LL),
+                (__int64)v9 + 24,
+                0LL,
+                xloIdent,
+                &v22,
+                v17);
+      DIB = v16;
+    }
+    if ( DIB )
     {
       *a2 = v22;
       return *(struct SURFACE **)a3;

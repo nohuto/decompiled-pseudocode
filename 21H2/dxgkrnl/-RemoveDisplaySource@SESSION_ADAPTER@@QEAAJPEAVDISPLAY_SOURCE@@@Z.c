@@ -1,10 +1,9 @@
 /*
- * XREFs of ?RemoveDisplaySource@SESSION_ADAPTER@@QEAAJPEAVDISPLAY_SOURCE@@@Z @ 0x1C01E1FC0
+ * XREFs of ?RemoveDisplaySource@SESSION_ADAPTER@@QEAAJPEAVDISPLAY_SOURCE@@@Z @ 0x1C014FF8C
  * Callers:
- *     DxgkUseAdapterViewInCurrentSession @ 0x1C01E1BC4 (DxgkUseAdapterViewInCurrentSession.c)
+ *     DxgkUseAdapterViewInCurrentSession @ 0x1C014FB74 (DxgkUseAdapterViewInCurrentSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall SESSION_ADAPTER::RemoveDisplaySource(SESSION_ADAPTER *this, struct DISPLAY_SOURCE *a2)
@@ -13,6 +12,7 @@ __int64 __fastcall SESSION_ADAPTER::RemoveDisplaySource(SESSION_ADAPTER *this, s
   _QWORD *v6; // rbx
   __int64 v7; // rcx
   _QWORD *v8; // rax
+  __int64 v10; // rax
 
   if ( *((SESSION_ADAPTER **)a2 + 3) == this )
   {
@@ -35,17 +35,10 @@ __int64 __fastcall SESSION_ADAPTER::RemoveDisplaySource(SESSION_ADAPTER *this, s
   }
   else
   {
-    WdLogSingleEntry2(2LL, a2, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified display source 0x%I64x is not owned by current session, returning 0x%I64x.",
-      (__int64)a2,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v10 + 24) = a2;
+    *(_QWORD *)(v10 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v10);
     return 3221225485LL;
   }
 }

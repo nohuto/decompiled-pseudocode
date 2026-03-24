@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0026634
+ * XREFs of ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00335A0
  * Callers:
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C001C600 (-bCompute@DC@@QEAAHXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0024B20 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0032A50 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003AB70 (-bCompute@DC@@QEAAHXZ.c)
  * Callees:
  *     <none>
  */

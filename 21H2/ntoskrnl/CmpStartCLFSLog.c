@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpStartCLFSLog @ 0x14080CD20
+ * XREFs of CmpStartCLFSLog @ 0x14077D984
  * Callers:
- *     CmpStartRMLog @ 0x14080C884 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PsDisableImpersonation @ 0x140725F50 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140726090 (PsRestoreImpersonation.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14080B938 (CmpAddRemoveContainerToCLFSLog.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsDisableImpersonation @ 0x140706410 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140706540 (PsRestoreImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartCLFSLog(
@@ -26,30 +26,30 @@ __int64 __fastcall CmpStartCLFSLog(
         PVOID *a9)
 {
   unsigned __int16 v12; // cx
-  _DWORD *v13; // r9
+  BOOLEAN v13; // r13
   NTSTATUS LogFileInformation; // ebx
-  int TotalContainers; // edi
-  FILE_OBJECT *v16; // rax
   CLFS_INFORMATION *PoolWithTag; // rax
-  CLFS_INFORMATION *v19; // rsi
-  BOOLEAN v20; // [rsp+60h] [rbp-79h]
-  FILE_OBJECT *pplfoLog; // [rsp+68h] [rbp-71h] BYREF
-  ULONG pcbInfoBuffer; // [rsp+70h] [rbp-69h] BYREF
-  UNICODE_STRING Destination; // [rsp+78h] [rbp-61h] BYREF
-  PVOID ppvMarshalContext; // [rsp+88h] [rbp-51h] BYREF
-  PULONGLONG pcbContainer; // [rsp+90h] [rbp-49h]
+  CLFS_INFORMATION *v16; // rsi
+  int TotalContainers; // edi
+  FILE_OBJECT *pplfoLog; // [rsp+60h] [rbp-79h] BYREF
+  ULONG pcbInfoBuffer; // [rsp+68h] [rbp-71h] BYREF
+  UNICODE_STRING Destination; // [rsp+70h] [rbp-69h] BYREF
+  PVOID ppvMarshalContext; // [rsp+80h] [rbp-59h] BYREF
+  PULONGLONG pcbContainer; // [rsp+88h] [rbp-51h]
+  int *v24; // [rsp+90h] [rbp-49h]
   struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
-  _OWORD v27[3]; // [rsp+A8h] [rbp-31h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+A8h] [rbp-31h] BYREF
 
   pcbContainer = a6;
   *a8 = 0LL;
   *a9 = 0LL;
+  v24 = a7;
   v12 = Source->Length + 26 + a2->Length;
   pcbInfoBuffer = 0;
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.MaximumLength = v12;
   ImpersonationState = 0LL;
-  memset(v27, 0, sizeof(v27));
+  memset(&ApcState, 0, sizeof(ApcState));
   Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v12, 0x20204D43u);
   if ( !Destination.Buffer )
     return 3221225626LL;
@@ -61,26 +61,52 @@ __int64 __fastcall CmpStartCLFSLog(
   RtlAppendUnicodeStringToString(&Destination, &CmpLogExt);
   pplfoLog = 0LL;
   ppvMarshalContext = 0LL;
-  v20 = PsDisableImpersonation(KeGetCurrentThread(), &ImpersonationState);
-  KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v27, v13);
+  v13 = PsDisableImpersonation(KeGetCurrentThread(), &ImpersonationState);
+  KeStackAttachProcess(PsInitialSystemProcess, &ApcState);
   LogFileInformation = ClfsCreateLogFile(&pplfoLog, &Destination, 0xC0010000, 0, a4, 1u, 8u, 0, 0x200u, 0LL, 0);
-  if ( LogFileInformation >= 0 )
+  if ( LogFileInformation < 0 )
+  {
+    if ( LogFileInformation == -1073741772 )
+    {
+      LogFileInformation = ClfsCreateLogFile(&pplfoLog, &Destination, 0xC0010000, 0, a4, 2u, 8u, 0, 0x200u, 0LL, 0);
+      if ( LogFileInformation >= 0 )
+      {
+        TotalContainers = 0;
+        while ( 1 )
+        {
+          LogFileInformation = CmpAddRemoveContainerToCLFSLog(
+                                 pplfoLog,
+                                 Source,
+                                 a2,
+                                 &CmpLogExt,
+                                 &CmpContainerSuffix,
+                                 TotalContainers,
+                                 pcbContainer);
+          if ( LogFileInformation < 0 )
+            break;
+          if ( (unsigned int)++TotalContainers >= 3 )
+            goto LABEL_6;
+        }
+      }
+    }
+  }
+  else
   {
     pcbInfoBuffer = 120;
     PoolWithTag = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
-    v19 = PoolWithTag;
+    v16 = PoolWithTag;
     if ( PoolWithTag )
     {
       LogFileInformation = ClfsGetLogFileInformation(pplfoLog, PoolWithTag, &pcbInfoBuffer);
       if ( LogFileInformation < 0 )
       {
-        ExFreePoolWithTag(v19, 0);
+        ExFreePoolWithTag(v16, 0);
       }
       else
       {
-        TotalContainers = v19->TotalContainers;
-        ExFreePoolWithTag(v19, 0);
-LABEL_8:
+        TotalContainers = v16->TotalContainers;
+        ExFreePoolWithTag(v16, 0);
+LABEL_6:
         LogFileInformation = ClfsCreateMarshallingArea(
                                pplfoLog,
                                PagedPool,
@@ -92,9 +118,8 @@ LABEL_8:
                                &ppvMarshalContext);
         if ( LogFileInformation >= 0 )
         {
-          v16 = pplfoLog;
-          *a7 = TotalContainers;
-          *a8 = v16;
+          *v24 = TotalContainers;
+          *a8 = pplfoLog;
           *a9 = ppvMarshalContext;
         }
       }
@@ -104,31 +129,8 @@ LABEL_8:
       LogFileInformation = -1073741670;
     }
   }
-  else if ( LogFileInformation == -1073741772 )
-  {
-    LogFileInformation = ClfsCreateLogFile(&pplfoLog, &Destination, 0xC0010000, 0, a4, 2u, 8u, 0, 0x200u, 0LL, 0);
-    if ( LogFileInformation >= 0 )
-    {
-      TotalContainers = 0;
-      while ( 1 )
-      {
-        LogFileInformation = CmpAddRemoveContainerToCLFSLog(
-                               pplfoLog,
-                               Source,
-                               a2,
-                               &CmpLogExt,
-                               &CmpContainerSuffix,
-                               TotalContainers,
-                               pcbContainer);
-        if ( LogFileInformation < 0 )
-          break;
-        if ( (unsigned int)++TotalContainers >= 3 )
-          goto LABEL_8;
-      }
-    }
-  }
-  KiUnstackDetachProcess((__int64)v27, 0LL);
-  if ( v20 )
+  KeUnstackDetachProcess(&ApcState);
+  if ( v13 )
     PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
   ExFreePoolWithTag(Destination.Buffer, 0);
   if ( LogFileInformation < 0 )

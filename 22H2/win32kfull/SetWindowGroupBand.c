@@ -1,33 +1,29 @@
 /*
- * XREFs of SetWindowGroupBand @ 0x1C002567C
+ * XREFs of SetWindowGroupBand @ 0x1C0036648
  * Callers:
- *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0025464 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025824 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C0065CE8 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
- *     xxxUpdateShadowZorder @ 0x1C02219BC (xxxUpdateShadowZorder.c)
+ *     zzzImeSetFutureOwner @ 0x1C0033FA4 (zzzImeSetFutureOwner.c)
+ *     zzzImeSetOwnerWindow @ 0x1C0035B24 (zzzImeSetOwnerWindow.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0035FF8 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     xxxUpdateShadowZorder @ 0x1C023DB48 (xxxUpdateShadowZorder.c)
  * Callees:
- *     GetBandOrdinal @ 0x1C0024CDC (GetBandOrdinal.c)
- *     ?HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z @ 0x1C00257D0 (-HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z.c)
- *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00952FC (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C00CCE48 (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     LinkWindow @ 0x1C00F2760 (LinkWindow.c)
- *     UnlinkWindow @ 0x1C010B5E0 (UnlinkWindow.c)
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035260 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z @ 0x1C0036924 (-HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z.c)
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0038D6C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     LinkWindow @ 0x1C006FC60 (LinkWindow.c)
+ *     GetBandOrdinal @ 0x1C00701AC (GetBandOrdinal.c)
+ *     UnlinkWindow @ 0x1C007E8D8 (UnlinkWindow.c)
  */
 
-struct tagWND *__fastcall SetWindowGroupBand(struct tagWND *a1, unsigned int a2, int a3)
+__int64 __fastcall SetWindowGroupBand(struct tagWND *a1, unsigned int a2, int a3)
 {
   struct tagWND *RootOwner; // rdi
-  int v5; // ebp
+  unsigned int v5; // ebp
   struct tagWND *i; // rbx
   __int64 v7; // rcx
-  struct tagWND *result; // rax
+  __int64 result; // rax
   struct tagWND *v9; // rsi
-  __int64 v10; // rcx
-  struct tagWND *v11; // rcx
-  struct tagWND *j; // r8
-  __int64 v13; // r8
 
   RootOwner = a1;
   if ( !a3 )
@@ -43,42 +39,16 @@ struct tagWND *__fastcall SetWindowGroupBand(struct tagWND *a1, unsigned int a2,
   }
   do
   {
-    result = (struct tagWND *)*((_QWORD *)i + 5);
-    if ( *((_DWORD *)result + 59) != v5 )
+    result = *((_QWORD *)i + 5);
+    if ( *(_DWORD *)(result + 236) != v5 )
       break;
     v9 = (struct tagWND *)*((_QWORD *)i + 11);
     if ( i != RootOwner )
     {
-      result = i;
-      while ( 1 )
-      {
-        v10 = (__int64)result;
-        if ( result )
-          break;
-LABEL_13:
-        v11 = (struct tagWND *)*((_QWORD *)result + 15);
-        if ( v11 != result )
-        {
-          result = (struct tagWND *)*((_QWORD *)result + 15);
-          if ( v11 )
-            continue;
-        }
-        for ( j = (struct tagWND *)*((_QWORD *)i + 14); j; j = *(struct tagWND **)(v13 + 88) )
-        {
-          result = (struct tagWND *)HasOwnedWindowInTree(j, RootOwner);
-          if ( (_DWORD)result )
-            goto LABEL_21;
-        }
-        goto LABEL_17;
-      }
-      while ( (struct tagWND *)v10 != RootOwner )
-      {
-        v10 = *(_QWORD *)(v10 + 104);
-        if ( !v10 )
-          goto LABEL_13;
-      }
+      result = HasOwnedWindowInTree(i, RootOwner);
+      if ( !(_DWORD)result )
+        continue;
     }
-LABEL_21:
     UnlinkWindow(i, *((_QWORD *)i + 13));
     if ( a2 != 1 )
     {
@@ -86,8 +56,7 @@ LABEL_21:
       SetOrClrWF(1LL, i, 2056LL, 1LL);
     }
     SetWindowTreeBand(i, a2);
-    result = (struct tagWND *)LinkWindow(i);
-LABEL_17:
+    result = LinkWindow(i);
     i = v9;
   }
   while ( v9 );

@@ -1,33 +1,32 @@
 /*
- * XREFs of ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C00B756C
+ * XREFs of ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C0072188
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C001917C (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
- *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00B74E0 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     NtConfigureInputSpace @ 0x1C0140880 (NtConfigureInputSpace.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006E540 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0072104 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     NtConfigureInputSpace @ 0x1C0128D70 (NtConfigureInputSpace.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall CInputSpace::FreeRegions(CInputSpace *this)
 {
-  char **v2; // rdi
-  char *v3; // rdx
-  __int64 v4; // rcx
-  char **v5; // rax
+  _QWORD **v2; // rdi
+  _QWORD *v3; // rcx
+  __int64 v4; // rdx
+  _QWORD *v5; // rax
 
-  v2 = (char **)((char *)this + 1456);
+  v2 = (_QWORD **)((char *)this + 1424);
   while ( 1 )
   {
     v3 = *v2;
-    if ( *v2 == (char *)v2 )
+    if ( *v2 == v2 )
       break;
-    v4 = *(_QWORD *)v3;
-    v5 = (char **)*((_QWORD *)v3 + 1);
-    if ( *(char **)(*(_QWORD *)v3 + 8LL) != v3 || *v5 != v3 )
+    v4 = *v3;
+    if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
       __fastfail(3u);
-    *v5 = (char *)v4;
+    *v5 = v4;
     *(_QWORD *)(v4 + 8) = v5;
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
+    Win32FreePool((__int64)v3);
   }
-  *((_DWORD *)this + 363) = 0;
+  *((_DWORD *)this + 355) = 0;
 }

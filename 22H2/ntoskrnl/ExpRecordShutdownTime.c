@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRecordShutdownTime @ 0x1406061B8
+ * XREFs of ExpRecordShutdownTime @ 0x1405B247C
  * Callers:
- *     ExShutdownSystem @ 0x140AAAC18 (ExShutdownSystem.c)
+ *     ExShutdownSystem @ 0x1409B2C98 (ExShutdownSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwFlushKey @ 0x14041C4A0 (ZwFlushKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwFlushKey @ 0x1403FB760 (ZwFlushKey.c)
  */
 
 int ExpRecordShutdownTime()
@@ -20,8 +20,8 @@ int ExpRecordShutdownTime()
   __int64 Data; // [rsp+98h] [rbp+18h] BYREF
 
   KeyHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
   ValueName = 0LL;
   Data = MEMORY[0xFFFFF78000000014];

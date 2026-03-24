@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03A46F0
+ * XREFs of ?DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E4784
  * Callers:
- *     DpiFdoHandleTargetConnectionState @ 0x1C038A234 (DpiFdoHandleTargetConnectionState.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CACE4 (DpiFdoHandleTargetConnectionState.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?reset@?$auto_rc@VDMMVIDEOPRESENTTARGETSET@@@@QEAAXPEAVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C001F9C4 (-reset@-$auto_rc@VDMMVIDEOPRESENTTARGETSET@@@@QEAAXPEAVDMMVIDEOPRESENTTARGETSET@@@Z.c)
- *     ?DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C039FE64 (-DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?reset@?$auto_rc@VDMMVIDEOPRESENTTARGETSET@@@@QEAAXPEAVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C001B380 (-reset@-$auto_rc@VDMMVIDEOPRESENTTARGETSET@@@@QEAAXPEAVDMMVIDEOPRESENTTARGETSET@@@Z.c)
+ *     ?DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E5E14 (-DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILUR.c)
  */
 
 __int64 __fastcall DmmDestroyDynamicVideoPresentTarget(
@@ -15,18 +15,25 @@ __int64 __fastcall DmmDestroyDynamicVideoPresentTarget(
         unsigned int a2,
         enum _CONNECTION_CHANGE_FAILURE_REASON *a3)
 {
-  __int64 Flink; // rbx
-  DMMVIDEOPRESENTTARGETSET *v8; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 Address; // rbx
+  __int64 v10; // rdx
+  DMMVIDEOPRESENTTARGETSET *v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+20h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  Flink = (__int64)a1[349][1].SystemResourcesList.Flink;
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v9, Flink);
-  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(Flink + 120) + 72LL));
-  v8 = *(DMMVIDEOPRESENTTARGETSET **)(Flink + 120);
-  LODWORD(Flink) = DMMVIDEOPRESENTTARGETSET::DestroyDynamicVideoPresentTarget(v8, a2, a3);
-  auto_rc<DMMVIDEOPRESENTTARGETSET>::reset((__int64 *)&v8, 0LL);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v9 + 40));
-  return (unsigned int)Flink;
+  {
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v8);
+  }
+  Address = (__int64)a1[337]->Address;
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v13, Address);
+  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(Address + 80) + 72LL));
+  v12 = *(DMMVIDEOPRESENTTARGETSET **)(Address + 80);
+  LODWORD(Address) = DMMVIDEOPRESENTTARGETSET::DestroyDynamicVideoPresentTarget(v12, a2, a3);
+  auto_rc<DMMVIDEOPRESENTTARGETSET>::reset((__int64 *)&v12, 0LL);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v13 + 40), v10);
+  return (unsigned int)Address;
 }

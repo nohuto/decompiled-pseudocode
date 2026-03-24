@@ -1,316 +1,295 @@
 /*
- * XREFs of CmpOpenHiveFile @ 0x14068BA80
+ * XREFs of CmpOpenHiveFile @ 0x1406EA6B8
  * Callers:
- *     CmpOpenHiveFiles @ 0x14068B784 (CmpOpenHiveFiles.c)
- *     CmLoadKey @ 0x1406957C0 (CmLoadKey.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
+ *     CmLoadKey @ 0x14069DA54 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
+ *     CmpInitHiveFromFile @ 0x1406E9D98 (CmpInitHiveFromFile.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
  * Callees:
- *     CmSiCreateEvent @ 0x1402088C4 (CmSiCreateEvent.c)
- *     CmSiEventTupleInitialize @ 0x140208998 (CmSiEventTupleInitialize.c)
- *     CmSiEventTupleCleanup @ 0x1402089A8 (CmSiEventTupleCleanup.c)
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmSiWaitForSingleEvent @ 0x140208C58 (CmSiWaitForSingleEvent.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x14041ADC0 (ZwFsControlFile.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     CmSiBugCheck @ 0x1406177C4 (CmSiBugCheck.c)
- *     CmpGetVolumeClusterSize @ 0x14068936C (CmpGetVolumeClusterSize.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1406899A8 (CmpGetVolumeLogFileSizeCap.c)
- *     CmpGetCompleteFileName @ 0x14068BFFC (CmpGetCompleteFileName.c)
- *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     CmpLogHiveFileInaccessible @ 0x14068F4C0 (CmpLogHiveFileInaccessible.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D810 (PsReferenceImpersonationTokenEx.c)
- *     PsImpersonateClient @ 0x140734F30 (PsImpersonateClient.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x140A1CDB4 (CmpOpenFileWithExtremePrejudice.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x1403FA140 (ZwFsControlFile.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x14069E798 (CmpGetVolumeLogFileSizeCap.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406CF720 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x1406D3C60 (PsImpersonateClient.c)
+ *     CmpCreateEvent @ 0x1406EAC60 (CmpCreateEvent.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406EADF0 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpLogHiveFileInaccessible @ 0x1406F00E4 (CmpLogHiveFileInaccessible.c)
+ *     CmpGetVolumeClusterSize @ 0x14071D1A8 (CmpGetVolumeClusterSize.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140873038 (CmpOpenFileWithExtremePrejudice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpOpenHiveFile(
-        PCUNICODE_STRING Source,
-        int a2,
-        _QWORD *a3,
+        UNICODE_STRING *Source,
+        unsigned int a2,
+        HANDLE *a3,
         int *a4,
         unsigned int a5,
         void *a6,
-        int *a7,
+        __int64 a7,
         void *a8,
-        __int64 a9,
-        __int64 a10)
+        __int64 a9)
 {
+  ULONG ShareAccess; // edi
   char v10; // si
-  PCUNICODE_STRING v12; // r12
-  void *v13; // r13
-  __int64 v14; // rcx
-  int v15; // eax
+  struct _DMA_ADAPTER *v12; // r12
+  __int64 v13; // r15
+  __int64 result; // rax
   NTSTATUS Status; // ebx
-  int CompleteFileName; // eax
-  ULONG CreateDisposition; // edi
-  ULONG ShareAccess; // r12d
-  ACCESS_MASK v20; // eax
-  ULONG CreateOptions; // r14d
-  SECURITY_IMPERSONATION_LEVEL *v22; // rbx
-  int Information; // r14d
-  int *v24; // rsi
-  NTSTATUS VolumeClusterSize; // eax
-  HANDLE v26; // rax
-  int v28; // r9d
-  NTSTATUS v29; // eax
-  int v30; // [rsp+20h] [rbp-E0h]
-  char v31; // [rsp+60h] [rbp-A0h]
+  const WCHAR *v16; // r14
+  int v17; // r14d
+  ACCESS_MASK v18; // r13d
+  ULONG CreateOptions; // r15d
+  ULONG v20; // r14d
+  int Information; // edi
+  __int64 v22; // rsi
+  __int64 v23; // rdi
+  unsigned __int16 v24; // di
+  int VolumeClusterSize; // eax
+  HANDLE v26; // rcx
+  ULONG CreateDisposition; // [rsp+38h] [rbp-C8h]
+  char v28; // [rsp+60h] [rbp-A0h]
   BOOLEAN EffectiveOnly; // [rsp+61h] [rbp-9Fh] BYREF
   BOOLEAN CopyOnOpen[6]; // [rsp+62h] [rbp-9Eh] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
   ULONG FileAttributes; // [rsp+70h] [rbp-90h]
-  PCUNICODE_STRING v36; // [rsp+78h] [rbp-88h]
-  ACCESS_MASK DesiredAccess; // [rsp+80h] [rbp-80h]
-  SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+84h] [rbp-7Ch] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF
-  int InputBuffer; // [rsp+98h] [rbp-68h] BYREF
-  int v41; // [rsp+9Ch] [rbp-64h]
-  PETHREAD Thread; // [rsp+A0h] [rbp-60h]
-  HANDLE Event[2]; // [rsp+A8h] [rbp-58h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-48h] BYREF
-  PACCESS_TOKEN Token; // [rsp+C8h] [rbp-38h]
-  void *v46; // [rsp+D0h] [rbp-30h]
-  int *v47; // [rsp+D8h] [rbp-28h]
-  __int64 v48; // [rsp+E0h] [rbp-20h]
-  _QWORD *v49; // [rsp+E8h] [rbp-18h]
-  int *v50; // [rsp+F0h] [rbp-10h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F8h] [rbp-8h] BYREF
-  __m128i si128; // [rsp+128h] [rbp+28h] BYREF
-  __m128i v53; // [rsp+138h] [rbp+38h]
-  __int64 v54; // [rsp+148h] [rbp+48h]
-  __int128 FileInformation; // [rsp+150h] [rbp+50h] BYREF
-  __int64 v56; // [rsp+160h] [rbp+60h]
+  SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+74h] [rbp-8Ch] BYREF
+  HANDLE Event; // [rsp+78h] [rbp-88h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+80h] [rbp-80h]
+  UNICODE_STRING Destination; // [rsp+88h] [rbp-78h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-68h] BYREF
+  int InputBuffer; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned int v39; // [rsp+ACh] [rbp-54h]
+  PETHREAD Thread; // [rsp+B0h] [rbp-50h]
+  PACCESS_TOKEN Token; // [rsp+B8h] [rbp-48h]
+  void *v42; // [rsp+C0h] [rbp-40h]
+  __int64 v43; // [rsp+C8h] [rbp-38h]
+  __int64 v44; // [rsp+D0h] [rbp-30h]
+  HANDLE *v45; // [rsp+D8h] [rbp-28h]
+  int *v46; // [rsp+E0h] [rbp-20h]
+  UNICODE_STRING *v47; // [rsp+E8h] [rbp-18h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F0h] [rbp-10h] BYREF
+  __m128i si128; // [rsp+120h] [rbp+20h] BYREF
+  __m128i v50; // [rsp+130h] [rbp+30h]
+  __int64 v51; // [rsp+140h] [rbp+40h]
+  __int128 FileInformation; // [rsp+148h] [rbp+48h] BYREF
+  __int64 v53; // [rsp+158h] [rbp+58h]
 
+  ShareAccess = 0;
   v10 = a5;
   Token = a6;
-  v12 = Source;
-  v46 = a8;
-  v13 = 0LL;
-  v48 = a9;
-  v41 = a2;
-  v54 = 0LL;
-  v56 = 0LL;
-  ObjectAttributes.SecurityDescriptor = 0LL;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
-  v36 = Source;
-  v47 = a7;
-  ImpersonationLevel = SecurityImpersonation;
-  v50 = a4;
-  v49 = a3;
-  si128 = 0LL;
-  InputBuffer = 0;
+  v43 = a7;
+  v12 = 0LL;
+  v42 = a8;
+  v44 = a9;
+  v51 = 0LL;
   v53 = 0LL;
-  CopyOnOpen[0] = 0;
-  *(_OWORD *)Event = 0LL;
-  Thread = 0LL;
-  FileInformation = 0LL;
-  EffectiveOnly = 0;
-  IoStatusBlock = 0LL;
-  *a3 = 0LL;
-  memset(&ObjectAttributes, 0, 32);
+  ImpersonationLevel = SecurityImpersonation;
+  v13 = a2;
+  v46 = a4;
+  v45 = a3;
+  v39 = a2;
+  v47 = Source;
+  InputBuffer = 0;
+  DmaAdapter = 0LL;
+  Event = 0LL;
   FileHandle = 0LL;
-  v31 = 0;
-  DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, 0LL);
-  CmSiEventTupleInitialize(Event);
-  v15 = CmSiCreateEvent(v14, Event);
-  Status = v15;
-  if ( v15 < 0 )
+  CopyOnOpen[0] = 0;
+  Thread = 0LL;
+  EffectiveOnly = 0;
+  *a3 = 0LL;
+  v28 = 0;
+  FileAttributes = 6;
+  si128 = 0LL;
+  v50 = 0LL;
+  FileInformation = 0LL;
+  IoStatusBlock = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  Destination = 0LL;
+  if ( a2 >= 6 )
+    return 3221225485LL;
+  result = CmpCreateEvent(NotificationEvent);
+  Status = result;
+  if ( (int)result >= 0 )
   {
-    SetFailureLocation(a10, 0, 35, v15, 16);
-    goto LABEL_32;
-  }
-  CompleteFileName = CmpGetCompleteFileName(v12);
-  Status = CompleteFileName;
-  if ( CompleteFileName < 0 )
-  {
-    SetFailureLocation(a10, 0, 35, CompleteFileName, 32);
-    goto LABEL_32;
-  }
-  CreateDisposition = 3;
-  if ( (a5 & 0x20) != 0 )
-  {
-    DesiredAccess = 1;
-    ShareAccess = ((a5 >> 7) & 1) == 0;
-  }
-  else
-  {
-    ShareAccess = 0;
-    v20 = ((a5 & 8) == 0 ? 3 : 0) | 0x20000;
-    if ( a2 )
-      v20 = (a5 & 8) == 0 ? 3 : 0;
-    DesiredAccess = v20;
-  }
-  if ( a2 )
-  {
-    FileAttributes = 6;
-    if ( (a5 & 0x20) != 0 )
-      CreateDisposition = 1;
-    else
-      CreateDisposition = (a5 & 0x10) == 0 ? 3 : 0;
-    CreateOptions = 32772;
-  }
-  else
-  {
-    FileAttributes = 128;
-    CreateOptions = 49188;
-    if ( (a5 & 0x21) != 1 )
-      CreateDisposition = 1;
-  }
-  if ( (a5 & 0x100) != 0 )
-    CreateOptions = CreateOptions & 0xFFFEFFDF | 0x10000;
-  v22 = (SECURITY_IMPERSONATION_LEVEL *)Token;
-  if ( Token )
-  {
-    Thread = KeGetCurrentThread();
-    v13 = (void *)PsReferenceImpersonationTokenEx(
-                    Thread,
-                    1LL,
-                    1953261124LL,
-                    CopyOnOpen,
-                    &EffectiveOnly,
-                    &ImpersonationLevel,
-                    0LL);
-    v29 = PsImpersonateClient(Thread, v22, 0, 0, v22[49]);
-    Status = v29;
-    if ( v29 < 0 )
+    v16 = (const WCHAR *)CmFileNameExtensions[v13];
+    if ( v16 )
     {
-      SetFailureLocation(a10, 0, 35, v29, 48);
-      goto LABEL_31;
+      v23 = -1LL;
+      do
+        ++v23;
+      while ( v16[v23] );
+      v24 = Source->Length + 2 * (v23 + 1);
+      Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v24, 0x62774D43u);
+      if ( !Destination.Buffer )
+      {
+        Status = -1073741670;
+LABEL_34:
+        ZwClose(Event);
+        HalPutDmaAdapter(DmaAdapter);
+        return (unsigned int)Status;
+      }
+      Destination.Length = 0;
+      Destination.MaximumLength = v24;
+      RtlAppendUnicodeStringToString(&Destination, Source);
+      RtlAppendUnicodeToString(&Destination, v16);
+      ShareAccess = 0;
     }
-    v10 = a5 | 0x40;
-    v31 = 1;
-  }
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.SecurityQualityOfService = 0LL;
-  ObjectAttributes.Attributes = 16 * (v10 & 0x40 | 0x24);
-  ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.SecurityDescriptor = v46;
-  ObjectAttributes.Length = 48;
-  Status = ZwCreateFile(
-             &FileHandle,
-             DesiredAccess,
-             &ObjectAttributes,
-             &IoStatusBlock,
-             0LL,
-             FileAttributes,
-             ShareAccess,
-             CreateDisposition,
-             CreateOptions,
-             0LL,
-             0);
-  if ( Status == -1073741790 )
-  {
-    SetFailureLocation(a10, 1, 35, -1073741790, 64);
-    Status = CmpOpenFileWithExtremePrejudice(
+    else
+    {
+      Destination = *Source;
+    }
+    v17 = 3;
+    if ( (a5 & 0x20) != 0 )
+    {
+      v18 = 1;
+      ShareAccess = ((a5 >> 7) & 1) == 0;
+    }
+    else
+    {
+      v18 = ((a5 & 8) == 0 ? 3 : 0) | 0x20000;
+      if ( (_DWORD)v13 )
+        v18 = (a5 & 8) == 0 ? 3 : 0;
+    }
+    if ( (_DWORD)v13 )
+    {
+      if ( (a5 & 0x20) != 0 )
+        v17 = 1;
+      else
+        v17 = (a5 & 0x10) == 0 ? 3 : 0;
+      CreateOptions = 32780;
+    }
+    else
+    {
+      FileAttributes = 128;
+      CreateOptions = 49188;
+      if ( (a5 & 0x21) != 1 )
+        v17 = 1;
+    }
+    if ( Token )
+    {
+      Thread = KeGetCurrentThread();
+      v12 = (struct _DMA_ADAPTER *)PsReferenceImpersonationTokenEx(
+                                     (__int64)Thread,
+                                     1,
+                                     CopyOnOpen,
+                                     (bool *)&EffectiveOnly,
+                                     (int *)&ImpersonationLevel,
+                                     0LL);
+      if ( PsImpersonateClient(Thread, Token, 0, 0, *((SECURITY_IMPERSONATION_LEVEL *)Token + 49)) < 0 )
+        goto LABEL_29;
+      v10 = a5 | 0x40;
+      v28 = 1;
+    }
+    CreateDisposition = v17;
+    v20 = FileAttributes;
+    ObjectAttributes.Attributes = 16 * (v10 & 0x40 | 0x24);
+    ObjectAttributes.ObjectName = &Destination;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    ObjectAttributes.SecurityDescriptor = v42;
+    ObjectAttributes.Length = 48;
+    Status = ZwCreateFile(
                &FileHandle,
+               v18,
                &ObjectAttributes,
                &IoStatusBlock,
+               0LL,
                FileAttributes,
+               ShareAccess,
+               CreateDisposition,
                CreateOptions,
-               a10);
-  }
-  if ( v31 )
-  {
-    if ( v13 )
+               0LL,
+               0);
+    if ( Status == -1073741790 )
+      Status = CmpOpenFileWithExtremePrejudice(&FileHandle, &ObjectAttributes, &IoStatusBlock, v20, CreateOptions);
+    if ( v28 )
     {
-      if ( PsImpersonateClient(Thread, v13, CopyOnOpen[0], EffectiveOnly, ImpersonationLevel) < 0 )
-        CmSiBugCheck(0x26uLL, (ULONG_PTR)v13, 0LL, 0LL);
+      if ( v12 )
+      {
+        if ( PsImpersonateClient(Thread, v12, CopyOnOpen[0], EffectiveOnly, ImpersonationLevel) < 0 )
+          KeBugCheckEx(0x51u, 0x26uLL, (ULONG_PTR)v12, 0LL, 0LL);
+      }
+      else
+      {
+        PsImpersonateClient(KeGetCurrentThread(), 0LL, 0, 0, SecurityImpersonation);
+      }
     }
-    else
+    if ( Status < 0 )
     {
-      PsImpersonateClient(KeGetCurrentThread(), 0LL, 0, 0, SecurityImpersonation);
+      CmpLogHiveFileInaccessible(&Destination, (unsigned int)Status, CreateOptions, ShareAccess);
+      goto LABEL_29;
     }
-  }
-  if ( Status < 0 )
-  {
-    CmpLogHiveFileInaccessible(&DestinationString, (unsigned int)Status, CreateOptions, ShareAccess);
-    v30 = 80;
-LABEL_45:
-    v28 = Status;
-LABEL_46:
-    SetFailureLocation(a10, 0, 35, v28, v30);
-    goto LABEL_31;
-  }
-  Information = IoStatusBlock.Information;
-  if ( (v10 & 0x28) == 0 )
-  {
-    LODWORD(v54) = 0;
-    si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
-    v53 = si128;
-    ZwSetInformationFile(FileHandle, &IoStatusBlock, &si128, 0x28u, FileBasicInformation);
-  }
-  if ( (v10 & 0x22) == 2 )
-  {
-    Status = ZwFsControlFile(FileHandle, Event[0], 0LL, 0LL, &IoStatusBlock, 0x9004Fu, 0LL, 0, 0LL, 0);
+    Information = IoStatusBlock.Information;
+    if ( (v10 & 0x28) == 0 )
+    {
+      LODWORD(v51) = 0;
+      si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
+      v50 = si128;
+      ZwSetInformationFile(FileHandle, &IoStatusBlock, &si128, 0x28u, FileBasicInformation);
+    }
+    if ( (v10 & 0x22) != 2 )
+      goto LABEL_68;
+    Status = ZwFsControlFile(FileHandle, Event, 0LL, 0LL, &IoStatusBlock, 0x9004Fu, 0LL, 0, 0LL, 0);
     if ( Status == 259 )
     {
-      CmSiWaitForSingleEvent((__int64)Event);
+      KeWaitForSingleObject(DmaAdapter, Executive, 0, 0, 0LL);
       Status = IoStatusBlock.Status;
     }
-    if ( (int)(Status + 0x80000000) >= 0 && Status != -1073741808 )
+    if ( (int)(Status + 0x80000000) < 0 || Status == -1073741808 )
     {
-      v30 = 96;
-      goto LABEL_45;
-    }
-  }
-  if ( ZwFsControlFile(FileHandle, Event[0], 0LL, 0LL, &IoStatusBlock, 0x9C040u, &InputBuffer, 4u, 0LL, 0) == 259 )
-    CmSiWaitForSingleEvent((__int64)Event);
-  if ( !v41 )
-  {
-    if ( Information != 2
-      && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation) >= 0
-      && !*((_QWORD *)&FileInformation + 1) )
-    {
-      Information = 2;
-    }
-    v24 = v47;
-    if ( v47 )
-    {
-      VolumeClusterSize = CmpGetVolumeClusterSize(FileHandle, v47);
-      Status = VolumeClusterSize;
-      if ( VolumeClusterSize < 0 )
+LABEL_68:
+      if ( ZwFsControlFile(FileHandle, Event, 0LL, 0LL, &IoStatusBlock, 0x9C040u, &InputBuffer, 4u, 0LL, 0) == 259 )
+        KeWaitForSingleObject(DmaAdapter, Executive, 0, 0, 0LL);
+      if ( v39 )
+        goto LABEL_28;
+      if ( Information != 2
+        && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation) >= 0
+        && !*((_QWORD *)&FileInformation + 1) )
       {
-        v30 = 112;
-        goto LABEL_67;
+        Information = 2;
       }
-      v24[1] = CmpGetVolumeLogFileSizeCap(FileHandle);
+      v22 = v43;
+      if ( v43 )
+      {
+        VolumeClusterSize = CmpGetVolumeClusterSize(FileHandle);
+        v26 = FileHandle;
+        Status = VolumeClusterSize;
+        if ( VolumeClusterSize < 0 )
+        {
+LABEL_65:
+          ZwClose(v26);
+LABEL_29:
+          if ( Destination.Buffer && Destination.Buffer != v47->Buffer )
+            ExFreePoolWithTag(Destination.Buffer, 0);
+          if ( v12 )
+            HalPutDmaAdapter(v12);
+          goto LABEL_34;
+        }
+        *(_DWORD *)(v22 + 4) = CmpGetVolumeLogFileSizeCap(FileHandle);
+      }
+      if ( !v44 || (Status = CmpQueryFileSecurityDescriptor(FileHandle), Status >= 0) )
+      {
+LABEL_28:
+        Status = 0;
+        *v45 = FileHandle;
+        *v46 = Information;
+        goto LABEL_29;
+      }
     }
-    if ( !v48 )
-      goto LABEL_30;
-    VolumeClusterSize = CmpQueryFileSecurityDescriptor(FileHandle);
-    Status = VolumeClusterSize;
-    if ( VolumeClusterSize >= 0 )
-      goto LABEL_30;
-    v30 = 128;
-LABEL_67:
-    v28 = VolumeClusterSize;
-    goto LABEL_46;
+    v26 = FileHandle;
+    goto LABEL_65;
   }
-LABEL_30:
-  v26 = FileHandle;
-  Status = 0;
-  FileHandle = 0LL;
-  *v49 = v26;
-  *v50 = Information;
-LABEL_31:
-  v12 = v36;
-LABEL_32:
-  if ( DestinationString.Buffer && DestinationString.Buffer != v12->Buffer )
-    CmSiFreeMemory((PPRIVILEGE_SET)DestinationString.Buffer);
-  if ( v13 )
-    ObfDereferenceObjectWithTag(v13, 0x746C6644u);
-  CmSiEventTupleCleanup((__int64)Event);
-  if ( FileHandle )
-    ZwClose(FileHandle);
-  return (unsigned int)Status;
+  return result;
 }

@@ -1,24 +1,26 @@
 /*
- * XREFs of MiDecrementSubsections @ 0x14029F910
+ * XREFs of MiDecrementSubsections @ 0x140295740
  * Callers:
- *     MiAddViewsForSection @ 0x140288650 (MiAddViewsForSection.c)
- *     MiUnmapViewSubsections @ 0x14029CAF0 (MiUnmapViewSubsections.c)
- *     MiFlushRelease @ 0x14029F860 (MiFlushRelease.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiReleaseFaultCharges @ 0x140363060 (MiReleaseFaultCharges.c)
- *     MiDecrementSubsection @ 0x1403A5F2C (MiDecrementSubsection.c)
- *     MiUpControlAreaRefs @ 0x140625F6C (MiUpControlAreaRefs.c)
- *     MiUpdateActiveSubsection @ 0x140635C50 (MiUpdateActiveSubsection.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MmPurgeSection @ 0x140238510 (MmPurgeSection.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiFlushRelease @ 0x140295690 (MiFlushRelease.c)
+ *     MiAddViewsForSection @ 0x140295C70 (MiAddViewsForSection.c)
+ *     MiReleaseFaultCharges @ 0x14032243C (MiReleaseFaultCharges.c)
+ *     MiDecrementSubsection @ 0x140325E50 (MiDecrementSubsection.c)
+ *     MiUpControlAreaRefs @ 0x14052AAB0 (MiUpControlAreaRefs.c)
+ *     MiUpdateActiveSubsection @ 0x14053CE20 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiInsertUnusedSubsection @ 0x14028BBE0 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x14029F9B0 (MiDecrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x1402957F0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x1402F5120 (MiInsertUnusedSubsection.c)
  */
 
-__int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
+__int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
 {
   ULONG_PTR v5; // rbx
-  __int64 v6; // rsi
-  __int64 v7; // r14
+  __int64 v6; // r14
+  __int64 v7; // rbp
+  unsigned int v8; // ecx
 
   v5 = BugCheckParameter2;
   v6 = 0LL;
@@ -37,8 +39,10 @@ __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 
     if ( v5 == a2 )
       break;
     v5 = *(_QWORD *)(v5 + 16);
-    if ( !v7 )
-      a3 &= ~8u;
+    v8 = a3 & 0xFFFFFFF7;
+    if ( v7 )
+      v8 = a3;
+    a3 = v8;
   }
   while ( v5 );
   return v6;

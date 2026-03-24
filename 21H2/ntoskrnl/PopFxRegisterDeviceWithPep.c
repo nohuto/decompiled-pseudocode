@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxRegisterDeviceWithPep @ 0x1403BA01C
+ * XREFs of PopFxRegisterDeviceWithPep @ 0x1403BEF6C
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x140823988 (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B592C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     PopPluginRegisterDevice @ 0x1405CED0C (PopPluginRegisterDevice.c)
- *     PopPepRegisterDevice @ 0x140824268 (PopPepRegisterDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopPluginRegisterDevice @ 0x14056DE24 (PopPluginRegisterDevice.c)
+ *     PopPepRegisterDevice @ 0x14078ED18 (PopPepRegisterDevice.c)
  */
 
 __int64 __fastcall PopFxRegisterDeviceWithPep(ULONG_PTR a1, int a2, __int64 a3, int a4)
@@ -42,7 +42,7 @@ __int64 __fastcall PopFxRegisterDeviceWithPep(ULONG_PTR a1, int a2, __int64 a3, 
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopFxPluginLock);
     KeAbPostRelease((ULONG_PTR)&PopFxPluginLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( v9 )
   {

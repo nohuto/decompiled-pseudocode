@@ -1,20 +1,20 @@
 /*
- * XREFs of McTemplateK0upp_EtwWriteTransfer @ 0x1C00615A8
+ * XREFs of McTemplateK0upp_EtwWriteTransfer @ 0x1C0043BE4
  * Callers:
- *     imp_VfWdfIoQueueRetrieveFoundRequest @ 0x1C00C21E0 (imp_VfWdfIoQueueRetrieveFoundRequest.c)
- *     imp_VfWdfIoQueueRetrieveNextRequest @ 0x1C00C2330 (imp_VfWdfIoQueueRetrieveNextRequest.c)
- *     imp_VfWdfIoQueueRetrieveRequestByFileObject @ 0x1C00C2480 (imp_VfWdfIoQueueRetrieveRequestByFileObject.c)
- *     imp_VfWdfRequestComplete @ 0x1C00C3750 (imp_VfWdfRequestComplete.c)
- *     imp_VfWdfRequestCompleteWithInformation @ 0x1C00C38B0 (imp_VfWdfRequestCompleteWithInformation.c)
- *     imp_VfWdfRequestCompleteWithPriorityBoost @ 0x1C00C3A10 (imp_VfWdfRequestCompleteWithPriorityBoost.c)
- *     VfEvtIoDefault @ 0x1C00C6320 (VfEvtIoDefault.c)
- *     VfEvtIoDeviceControl @ 0x1C00C64E0 (VfEvtIoDeviceControl.c)
- *     VfEvtIoInternalDeviceControl @ 0x1C00C66B0 (VfEvtIoInternalDeviceControl.c)
- *     VfEvtIoRead @ 0x1C00C6880 (VfEvtIoRead.c)
- *     VfEvtIoWrite @ 0x1C00C6BC0 (VfEvtIoWrite.c)
+ *     imp_VfWdfIoQueueRetrieveFoundRequest @ 0x1C00C11E0 (imp_VfWdfIoQueueRetrieveFoundRequest.c)
+ *     imp_VfWdfIoQueueRetrieveNextRequest @ 0x1C00C1330 (imp_VfWdfIoQueueRetrieveNextRequest.c)
+ *     imp_VfWdfIoQueueRetrieveRequestByFileObject @ 0x1C00C1480 (imp_VfWdfIoQueueRetrieveRequestByFileObject.c)
+ *     imp_VfWdfRequestComplete @ 0x1C00C2750 (imp_VfWdfRequestComplete.c)
+ *     imp_VfWdfRequestCompleteWithInformation @ 0x1C00C28B0 (imp_VfWdfRequestCompleteWithInformation.c)
+ *     imp_VfWdfRequestCompleteWithPriorityBoost @ 0x1C00C2A10 (imp_VfWdfRequestCompleteWithPriorityBoost.c)
+ *     VfEvtIoDefault @ 0x1C00C5280 (VfEvtIoDefault.c)
+ *     VfEvtIoDeviceControl @ 0x1C00C5430 (VfEvtIoDeviceControl.c)
+ *     VfEvtIoInternalDeviceControl @ 0x1C00C55F0 (VfEvtIoInternalDeviceControl.c)
+ *     VfEvtIoRead @ 0x1C00C57B0 (VfEvtIoRead.c)
+ *     VfEvtIoWrite @ 0x1C00C5AD0 (VfEvtIoWrite.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0061544 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0043B80 (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0upp_EtwWriteTransfer(

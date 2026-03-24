@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlPrivateInsertExclusiveLock @ 0x140326E24
+ * XREFs of FsRtlPrivateInsertExclusiveLock @ 0x140305384
  * Callers:
- *     FsRtlPrivateInsertLock @ 0x14032761C (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateInsertLock @ 0x1402D93EC (FsRtlPrivateInsertLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140326B10 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1403281B8 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlRealSuccessor @ 0x1402F80C0 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14030540C (FsRtlFindFirstOverlappingExclusiveNode.c)
  */
 
 PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPLAY_LINKS *a2)

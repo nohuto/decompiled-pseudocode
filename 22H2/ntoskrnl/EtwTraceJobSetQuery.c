@@ -1,231 +1,228 @@
 /*
- * XREFs of EtwTraceJobSetQuery @ 0x1409E574C
+ * XREFs of EtwTraceJobSetQuery @ 0x14093612C
  * Callers:
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1408A7024 (EtwpCopyJobGuidSafe.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x140936A24 (EtwpCopyJobGuidSafe.c)
  */
 
-_QWORD *__fastcall EtwTraceJobSetQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, unsigned __int16 a6)
+void __fastcall EtwTraceJobSetQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
-  __int64 v6; // rdx
-  __int64 v7; // r8
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  unsigned __int16 v7; // r9
   int v8; // r10d
   _DWORD *v9; // r11
-  __int16 v10; // r9
-  _QWORD *result; // rax
-  int v12; // edx
-  __int64 v13; // r10
-  __int64 v14; // r11
-  char **v15; // rbx
-  _QWORD *v16; // rax
-  __int64 *v17; // rdi
-  __int64 *v18; // rsi
-  _QWORD *v19; // r14
-  unsigned __int64 **v20; // r15
-  unsigned __int64 **v21; // r12
-  _QWORD *v22; // r13
-  _QWORD *v23; // r9
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rax
+  unsigned int v10; // edx
+  __int64 v11; // r10
+  __int64 v12; // r11
+  char **v13; // rbx
+  _QWORD *v14; // rax
+  __int64 *v15; // rdi
+  __int64 *v16; // rsi
+  _QWORD *v17; // r14
+  unsigned __int64 **v18; // r15
+  unsigned __int64 **v19; // r12
+  _QWORD *v20; // r13
+  _QWORD *v21; // r9
+  unsigned __int64 v22; // rax
+  unsigned __int64 v23; // rax
+  _QWORD *v24; // r9
+  _QWORD *v25; // r9
   _QWORD *v26; // r9
-  _QWORD *v27; // r9
-  _QWORD *v28; // r9
-  __int64 v29; // rax
-  _QWORD *v30; // r8
-  __int64 v31; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned __int64 v32; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned __int64 v33; // [rsp+48h] [rbp-C0h] BYREF
-  _QWORD *v34; // [rsp+50h] [rbp-B8h]
-  _QWORD *v35; // [rsp+58h] [rbp-B0h]
-  _QWORD *v36; // [rsp+60h] [rbp-A8h]
-  _QWORD *v37; // [rsp+68h] [rbp-A0h]
-  _QWORD v38[3]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v39; // [rsp+88h] [rbp-80h]
-  _QWORD v40[2]; // [rsp+98h] [rbp-70h] BYREF
-  char *v41; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v42; // [rsp+B0h] [rbp-58h]
-  __int64 v43; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v44; // [rsp+C0h] [rbp-48h]
-  __int64 v45; // [rsp+C8h] [rbp-40h] BYREF
-  __int64 v46; // [rsp+D0h] [rbp-38h]
-  _QWORD v47[2]; // [rsp+D8h] [rbp-30h] BYREF
-  _QWORD v48[2]; // [rsp+E8h] [rbp-20h] BYREF
-  _QWORD v49[2]; // [rsp+F8h] [rbp-10h] BYREF
-  _QWORD v50[2]; // [rsp+108h] [rbp+0h] BYREF
-  _QWORD v51[2]; // [rsp+118h] [rbp+10h] BYREF
-  _QWORD v52[2]; // [rsp+128h] [rbp+20h] BYREF
-  _QWORD v53[2]; // [rsp+138h] [rbp+30h] BYREF
-  _QWORD v54[2]; // [rsp+148h] [rbp+40h] BYREF
-  _QWORD v55[2]; // [rsp+158h] [rbp+50h] BYREF
-  _QWORD v56[2]; // [rsp+168h] [rbp+60h] BYREF
-  _QWORD v57[2]; // [rsp+178h] [rbp+70h] BYREF
-  _QWORD v58[8]; // [rsp+188h] [rbp+80h] BYREF
+  __int64 v27; // rax
+  _QWORD *v28; // r8
+  __int64 v29; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned __int64 v30; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned __int64 v31; // [rsp+48h] [rbp-C0h] BYREF
+  _QWORD *v32; // [rsp+50h] [rbp-B8h]
+  _QWORD *v33; // [rsp+58h] [rbp-B0h]
+  _QWORD *v34; // [rsp+60h] [rbp-A8h]
+  _QWORD *v35; // [rsp+68h] [rbp-A0h]
+  _QWORD v36[3]; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v37; // [rsp+88h] [rbp-80h]
+  _QWORD v38[2]; // [rsp+98h] [rbp-70h] BYREF
+  char *v39; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v40; // [rsp+B0h] [rbp-58h]
+  __int64 v41; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v42; // [rsp+C0h] [rbp-48h]
+  __int64 v43; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v44; // [rsp+D0h] [rbp-38h]
+  _QWORD v45[2]; // [rsp+D8h] [rbp-30h] BYREF
+  _QWORD v46[2]; // [rsp+E8h] [rbp-20h] BYREF
+  _QWORD v47[2]; // [rsp+F8h] [rbp-10h] BYREF
+  _QWORD v48[2]; // [rsp+108h] [rbp+0h] BYREF
+  _QWORD v49[2]; // [rsp+118h] [rbp+10h] BYREF
+  _QWORD v50[2]; // [rsp+128h] [rbp+20h] BYREF
+  _QWORD v51[2]; // [rsp+138h] [rbp+30h] BYREF
+  _QWORD v52[2]; // [rsp+148h] [rbp+40h] BYREF
+  _QWORD v53[2]; // [rsp+158h] [rbp+50h] BYREF
+  _QWORD v54[2]; // [rsp+168h] [rbp+60h] BYREF
+  _QWORD v55[2]; // [rsp+178h] [rbp+70h] BYREF
+  _QWORD v56[8]; // [rsp+188h] [rbp+80h] BYREF
 
-  LODWORD(v31) = 0;
-  v33 = 0LL;
-  v32 = 0LL;
-  v39 = 0LL;
-  *(_OWORD *)&v38[1] = 0LL;
-  EtwpCopyJobGuidSafe(&v38[1], a1);
-  if ( v6 )
-    LODWORD(v39) = *(_DWORD *)(v6 + 1452);
+  LODWORD(v29) = 0;
+  v31 = 0LL;
+  v30 = 0LL;
+  v37 = 0LL;
+  *(_OWORD *)&v36[1] = 0LL;
+  EtwpCopyJobGuidSafe(&v36[1], a1);
+  if ( v5 )
+    LODWORD(v37) = *(_DWORD *)(v5 + 1236);
   else
-    LODWORD(v39) = 0;
-  v10 = a6;
-  result = &v38[1];
-  HIDWORD(v39) = v8;
-  v40[0] = &v38[1];
-  v40[1] = 24LL;
-  if ( a6 != 1829 )
+    LODWORD(v37) = 0;
+  HIDWORD(v37) = v8;
+  v38[0] = &v36[1];
+  v38[1] = 24LL;
+  if ( v7 == 1829 )
   {
-    if ( a6 == 1830 )
+    switch ( v8 )
     {
-      if ( v8 != 13 )
-        return result;
-      v41 = (char *)v7;
-      v43 = v7 + 4;
-      v12 = 19;
-      v42 = 4LL;
-      v45 = v7 + 8;
-      v10 = 1835;
-      v44 = 4LL;
-      v47[0] = v7 + 16;
-      v48[0] = v7 + 24;
-      v49[0] = v7 + 32;
-      v50[0] = v7 + 40;
-      v51[0] = v7 + 48;
-      v52[0] = v7 + 56;
-      v53[0] = v7 + 80;
-      v54[0] = v7 + 64;
-      v55[0] = v7 + 72;
-      v56[0] = v7 + 76;
-      v57[0] = v7 + 88;
-      v58[0] = v7 + 92;
-      v58[2] = v7 + 96;
-      v58[4] = v7 + 100;
-      LODWORD(v31) = *v9;
-      v58[6] = &v31;
-      v46 = 8LL;
-      v47[1] = 8LL;
-      v48[1] = 8LL;
-      v49[1] = 8LL;
-      v50[1] = 8LL;
-      v51[1] = 8LL;
-      v52[1] = 8LL;
-      v53[1] = 8LL;
-      v54[1] = 8LL;
-      v55[1] = 4LL;
-      v56[1] = 4LL;
-      v57[1] = 4LL;
-      v58[1] = 4LL;
-      v58[3] = 4LL;
-      v58[5] = 4LL;
-      v58[7] = 4LL;
+      case 12:
+        v10 = 13;
+        v32 = v49;
+        v13 = &v39;
+        v33 = v50;
+        v15 = &v41;
+        v34 = v51;
+        v16 = &v43;
+        v35 = v52;
+        v17 = v45;
+        v14 = v53;
+        v18 = (unsigned __int64 **)v46;
+        v19 = (unsigned __int64 **)v47;
+        v20 = v48;
+        v11 = v6 + 8;
+        v12 = v6 + 16;
+        break;
+      case 15:
+        v39 = (char *)v6;
+        v41 = v6 + 4;
+        v10 = 3;
+        v40 = 4LL;
+        v7 = 1836;
+        v42 = 4LL;
+        goto LABEL_18;
+      case 32:
+        v39 = (char *)v6;
+        v32 = v52;
+        v11 = v6 + 8;
+        v40 = 4LL;
+        v33 = v53;
+        v12 = v6 + 16;
+        v41 = v6 + 8;
+        v34 = v54;
+        v10 = 16;
+        v42 = 8LL;
+        v35 = v55;
+        v13 = (char **)v45;
+        v14 = v56;
+        v43 = v6 + 16;
+        v44 = 1LL;
+        v15 = v46;
+        v16 = v47;
+        v17 = v48;
+        v18 = (unsigned __int64 **)v49;
+        v19 = (unsigned __int64 **)v50;
+        v20 = v51;
+        break;
+      default:
+        return;
     }
-    else
-    {
-      if ( (unsigned int)a6 - 1831 > 1 )
-        return result;
-      v42 = 4LL;
-      v41 = &a5;
-      v12 = 2;
-    }
-    return (_QWORD *)EtwTraceKernelEvent((int)v40, v12, 0x80000u, v10, 5249284);
-  }
-  if ( v8 == 12 )
-  {
-    v12 = 13;
-    v34 = v51;
-    v15 = &v41;
-    v35 = v52;
-    v17 = &v43;
-    v36 = v53;
-    v18 = &v45;
-    v37 = v54;
-    v19 = v47;
-    v16 = v55;
-    v20 = (unsigned __int64 **)v48;
-    v21 = (unsigned __int64 **)v49;
-    v22 = v50;
-    v13 = v7 + 8;
-    v14 = v7 + 16;
-LABEL_16:
-    *((_DWORD *)v15 + 3) = 0;
-    v23 = v34;
-    *((_DWORD *)v15 + 2) = 4;
-    v38[0] = v16;
-    *v15 = (char *)(v7 + 40);
-    v24 = *(_QWORD *)(v7 + 48);
-    *v17 = v7;
+    *((_DWORD *)v13 + 3) = 0;
+    v21 = v32;
+    *((_DWORD *)v13 + 2) = 4;
+    v36[0] = v14;
+    *v13 = (char *)(v6 + 40);
+    v22 = *(_QWORD *)(v6 + 48);
+    *v15 = v6;
+    v15[1] = 8LL;
+    *v16 = v11;
+    v16[1] = 8LL;
+    *v17 = v12;
     v17[1] = 8LL;
-    *v18 = v13;
-    v18[1] = 8LL;
-    *v19 = v14;
-    v19[1] = 8LL;
-    v20[1] = (unsigned __int64 *)8;
-    v32 = v24 >> 12;
-    *v20 = &v32;
-    v25 = *(_QWORD *)(v7 + 24);
-    v21[1] = (unsigned __int64 *)8;
-    v33 = v25 >> 12;
-    *v21 = &v33;
-    *v22 = v7 + 32;
-    v22[1] = 4LL;
-    *v23 = v7 + 36;
-    v23[1] = 4LL;
+    v18[1] = (unsigned __int64 *)8;
+    v30 = v22 >> 12;
+    *v18 = &v30;
+    v23 = *(_QWORD *)(v6 + 24);
+    v19[1] = (unsigned __int64 *)8;
+    v31 = v23 >> 12;
+    *v19 = &v31;
+    *v20 = v6 + 32;
+    v20[1] = 4LL;
+    *v21 = v6 + 36;
+    v21[1] = 4LL;
+    v24 = v33;
+    *v33 = v6 + 44;
+    v24[1] = 4LL;
+    v25 = v34;
+    *v34 = v6 + 56;
+    v25[1] = 4LL;
     v26 = v35;
-    *v35 = v7 + 44;
+    *v35 = v6 + 60;
+    v27 = v6 + 64;
+    v28 = (_QWORD *)v36[0];
     v26[1] = 4LL;
-    v27 = v36;
-    *v36 = v7 + 56;
-    v27[1] = 4LL;
-    v28 = v37;
-    *v37 = v7 + 60;
-    v29 = v7 + 64;
-    v30 = (_QWORD *)v38[0];
+    v7 = 1833;
+    *v28 = v27;
     v28[1] = 4LL;
-    v10 = 1833;
-    *v30 = v29;
-    v30[1] = 4LL;
-    return (_QWORD *)EtwTraceKernelEvent((int)v40, v12, 0x80000u, v10, 5249284);
+    goto LABEL_18;
   }
-  if ( v8 != 15 )
+  if ( v7 == 1830 )
   {
-    if ( v8 != 32 )
-      return result;
-    v41 = (char *)v7;
-    v34 = v54;
-    v13 = v7 + 8;
+    if ( v8 != 13 )
+      return;
+    v39 = (char *)v6;
+    v41 = v6 + 4;
+    v10 = 19;
+    v40 = 4LL;
+    v43 = v6 + 8;
+    v7 = 1835;
     v42 = 4LL;
-    v35 = v55;
-    v14 = v7 + 16;
-    v43 = v7 + 8;
-    v36 = v56;
-    v12 = 16;
+    v45[0] = v6 + 16;
+    v46[0] = v6 + 24;
+    v47[0] = v6 + 32;
+    v48[0] = v6 + 40;
+    v49[0] = v6 + 48;
+    v50[0] = v6 + 56;
+    v51[0] = v6 + 80;
+    v52[0] = v6 + 64;
+    v53[0] = v6 + 72;
+    v54[0] = v6 + 76;
+    v55[0] = v6 + 88;
+    v56[0] = v6 + 92;
+    v56[2] = v6 + 96;
+    v56[4] = v6 + 100;
+    LODWORD(v29) = *v9;
+    v56[6] = &v29;
     v44 = 8LL;
-    v37 = v57;
-    v15 = (char **)v47;
-    v16 = v58;
-    v45 = v7 + 16;
-    v46 = 1LL;
-    v17 = v48;
-    v18 = v49;
-    v19 = v50;
-    v20 = (unsigned __int64 **)v51;
-    v21 = (unsigned __int64 **)v52;
-    v22 = v53;
-    goto LABEL_16;
+    v45[1] = 8LL;
+    v46[1] = 8LL;
+    v47[1] = 8LL;
+    v48[1] = 8LL;
+    v49[1] = 8LL;
+    v50[1] = 8LL;
+    v51[1] = 8LL;
+    v52[1] = 8LL;
+    v53[1] = 4LL;
+    v54[1] = 4LL;
+    v55[1] = 4LL;
+    v56[1] = 4LL;
+    v56[3] = 4LL;
+    v56[5] = 4LL;
+    v56[7] = 4LL;
+    goto LABEL_18;
   }
-  v41 = (char *)v7;
-  v43 = v7 + 4;
-  v12 = 3;
-  v42 = 4LL;
-  v10 = 1836;
-  v44 = 4LL;
-  return (_QWORD *)EtwTraceKernelEvent((int)v40, v12, 0x80000u, v10, 5249284);
+  if ( v7 > 0x726u && v7 <= 0x728u )
+  {
+    v40 = 4LL;
+    v39 = &a5;
+    v10 = 2;
+LABEL_18:
+    EtwTraceKernelEvent((__int64)v38, v10, 0x80000u, v7, 0x501904u);
+  }
 }

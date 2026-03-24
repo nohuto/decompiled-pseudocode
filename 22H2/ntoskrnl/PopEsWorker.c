@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorker @ 0x140873B60
+ * XREFs of PopEsWorker @ 0x1407810F0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopEsUpdateState @ 0x1403C5BF4 (PopEsUpdateState.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PopEsUpdateSetting @ 0x140861DA0 (PopEsUpdateSetting.c)
- *     PopEsStartTelemetry @ 0x140863BD4 (PopEsStartTelemetry.c)
- *     PopEsPublishState @ 0x140864600 (PopEsPublishState.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopEsUpdateState @ 0x14039A208 (PopEsUpdateState.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
+ *     PopEsStartTelemetry @ 0x14078E674 (PopEsStartTelemetry.c)
+ *     PopEsUpdateSetting @ 0x1407D1CF8 (PopEsUpdateSetting.c)
+ *     PopEsPublishState @ 0x1407D3CB0 (PopEsPublishState.c)
  */
 
 void PopEsWorker()
@@ -66,14 +66,14 @@ void PopEsWorker()
         PopEsUpdateSetting();
       }
       PopEsUpdateState(v0);
-      PopReleaseRwLock(&PopEsLock);
+      PopReleaseRwLock((ULONG_PTR)&PopEsLock);
     }
     else
     {
       PopEsPublishState();
       PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
       PopEsStartTelemetry();
-      PopReleaseRwLock(&PopEsLock);
+      PopReleaseRwLock((ULONG_PTR)&PopEsLock);
       ExSubscribeWnfStateChange(
         (__int64)&PopEsWnfSubscriptionOverride,
         (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE,

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExReferenceHandleDebugInfo @ 0x1409F91B8
+ * XREFs of ExReferenceHandleDebugInfo @ 0x14094CAA4
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     ExpUpdateDebugInfo @ 0x1409F92FC (ExpUpdateDebugInfo.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE04 (ExpUpdateDebugInfo.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 volatile signed __int32 *__fastcall ExReferenceHandleDebugInfo(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitializeAutoExpandPushLock @ 0x140119210
+ * XREFs of ExInitializeAutoExpandPushLock @ 0x140119230
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x14075E88C (MmInitializeHandBuiltProcess.c)
- *     MiAllocateAweInfo @ 0x14084F4FC (MiAllocateAweInfo.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x14075E86C (MmInitializeHandBuiltProcess.c)
+ *     MiAllocateAweInfo @ 0x14084F4DC (MiAllocateAweInfo.c)
  * Callees:
  *     <none>
  */

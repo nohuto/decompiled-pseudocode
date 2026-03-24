@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwApphelpCacheControl @ 0x14041B020
+ * XREFs of ZwApphelpCacheControl @ 0x1403FA3A0
  * Callers:
  *     <none>
  * Callees:

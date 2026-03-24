@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmClearExitLatencySamplingPercentage @ 0x1402D3BBC
+ * XREFs of PpmClearExitLatencySamplingPercentage @ 0x1402D3CBC
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFD8 (KeFlushProcessWriteBuffers.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
  */
 
 void PpmClearExitLatencySamplingPercentage()

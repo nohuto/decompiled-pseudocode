@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C00041BC
+ * XREFs of HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C0004000
  * Callers:
- *     HUBPSM20_AckingConnectChangeOnResume @ 0x1C00117F0 (HUBPSM20_AckingConnectChangeOnResume.c)
+ *     HUBPSM20_AckingConnectChangeOnResume @ 0x1C00113E0 (HUBPSM20_AckingConnectChangeOnResume.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dL @ 0x1C0002CD4 (WPP_RECORDER_SF_dL.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C0002AF8 (WPP_RECORDER_SF_dL.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_AckPortChangeUsingControlTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -44,7 +44,7 @@ __int64 __fastcall HUBHTX_AckPortChangeUsingControlTransfer(__int64 a1, __int64 
         2u,
         4u,
         0x2Du,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v8);
     }
     return (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 1240))(a1, 3008LL);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDriverBlocked @ 0x14096BE14
+ * XREFs of PnpTraceDriverBlocked @ 0x1408B1C48
  * Callers:
- *     PiIsDriverBlocked @ 0x140692F18 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E204 (PiIsDriverBlocked.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x14034B79C (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceDriverBlocked(__int64 a1, __int64 a2)
@@ -32,9 +32,9 @@ void __fastcall PnpTraceDriverBlocked(__int64 a1, __int64 a2)
   int v21; // [rsp+A8h] [rbp+3Fh]
   int v22; // [rsp+ACh] [rbp+43h]
 
-  if ( (unsigned int)dword_140C03918 > 5 )
+  if ( (unsigned int)dword_140C02DC8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03918, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02DC8, 0x400000000000LL) )
     {
       v12 = 0;
       v10 = &v8;
@@ -52,7 +52,7 @@ void __fastcall PnpTraceDriverBlocked(__int64 a1, __int64 a2)
       v15 = 16;
       v6 = v4;
       v7 = v5;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03918, (unsigned __int8 *)byte_14002C991, 0LL, 0LL, 7u, &v9);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02DC8, (unsigned __int8 *)byte_1400251F1, 0LL, 0LL, 7u, &v9);
     }
   }
 }

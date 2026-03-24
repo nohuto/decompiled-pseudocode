@@ -4,7 +4,7 @@
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
  *     MiCommitPagefileBackedSection @ 0x14061DFB0 (MiCommitPagefileBackedSection.c)
- *     MmCommitSessionMappedView @ 0x14069D8E0 (MmCommitSessionMappedView.c)
+ *     MmCommitSessionMappedView @ 0x14069D8C0 (MmCommitSessionMappedView.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -19,10 +19,10 @@
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
  *     MiUpdateControlAreaCommitCount @ 0x140095F94 (MiUpdateControlAreaCommitCount.c)
  *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetSubsectionCharges @ 0x1402C4994 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetSubsectionCharges @ 0x1402C4A94 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  *     MiUpdateProcessSharedCommit @ 0x14061DF18 (MiUpdateProcessSharedCommit.c)
  */
 

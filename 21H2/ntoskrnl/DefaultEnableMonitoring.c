@@ -1,17 +1,15 @@
 /*
- * XREFs of DefaultEnableMonitoring @ 0x14050FC30
+ * XREFs of DefaultEnableMonitoring @ 0x1404BE6F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerStartProfileInterrupt @ 0x14050DFA4 (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerStartProfileInterrupt @ 0x1404C1A48 (HalpTimerStartProfileInterrupt.c)
  */
 
-__int64 __fastcall DefaultEnableMonitoring(int a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall DefaultEnableMonitoring(int a1, int a2)
 {
   if ( a1 || a2 )
     return 3221225659LL;
-  *a4 = 0;
-  *a5 = 0;
-  *a3 = 1;
-  return HalpTimerStartProfileInterrupt();
+  else
+    return HalpTimerStartProfileInterrupt();
 }

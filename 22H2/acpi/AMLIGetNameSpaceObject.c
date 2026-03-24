@@ -1,44 +1,43 @@
 /*
- * XREFs of AMLIGetNameSpaceObject @ 0x1C00483D8
+ * XREFs of AMLIGetNameSpaceObject @ 0x1C000B01C
  * Callers:
- *     ACPIInterruptDispatchEventDpc @ 0x1C0003670 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
- *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
- *     ACPIBuildDeviceResetPowerNode @ 0x1C000CAD0 (ACPIBuildDeviceResetPowerNode.c)
- *     ACPIBuildMissingEjectionRelations @ 0x1C000D9B4 (ACPIBuildMissingEjectionRelations.c)
- *     ACPIBuildWakeEventDeviceContext @ 0x1C00140F0 (ACPIBuildWakeEventDeviceContext.c)
- *     ACPIConvertDependenciesToPnpReservations @ 0x1C00143C8 (ACPIConvertDependenciesToPnpReservations.c)
- *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
- *     AreDependenciesSatisfied @ 0x1C0014914 (AreDependenciesSatisfied.c)
- *     ACPIIsPowerNodeMissingDependencies @ 0x1C0022160 (ACPIIsPowerNodeMissingDependencies.c)
- *     ACPIPowerNodeDiscoverDependencies @ 0x1C0022448 (ACPIPowerNodeDiscoverDependencies.c)
- *     ACPIEcInitOpRegionHandler @ 0x1C00251D0 (ACPIEcInitOpRegionHandler.c)
- *     ACPIGpeBuildEventMasks @ 0x1C002BE64 (ACPIGpeBuildEventMasks.c)
- *     ACPIIoctlEvalPreProcessingV1 @ 0x1C002FE78 (ACPIIoctlEvalPreProcessingV1.c)
- *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C00301B4 (ACPIIoctlEvalPreProcessingV1Ex.c)
- *     ACPIIoctlEvalPreProcessingV2 @ 0x1C00304F4 (ACPIIoctlEvalPreProcessingV2.c)
- *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0030834 (ACPIIoctlEvalPreProcessingV2Ex.c)
- *     ACPIIoctlGetDeviceSpecificData @ 0x1C0030F78 (ACPIIoctlGetDeviceSpecificData.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAF8 (ACPIThermalAcquireCoolingInterfaces.c)
- *     ACPIThermalActivateConstraint @ 0x1C003FCA0 (ACPIThermalActivateConstraint.c)
- *     ACPIThermalGetSensorDevice @ 0x1C0040BD0 (ACPIThermalGetSensorDevice.c)
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     AcpiGetFullyQualifiedBiosName @ 0x1C0084000 (AcpiGetFullyQualifiedBiosName.c)
- *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00842E4 (ExternalRequestBiosNameDeviceAssociation.c)
- *     RegisterOperationRegionHandler @ 0x1C008BB34 (RegisterOperationRegionHandler.c)
- *     UnRegisterOperationRegionHandler @ 0x1C008BE00 (UnRegisterOperationRegionHandler.c)
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
- *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7C0C (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ *     ACPIIoctlEvalPreProcessingV1 @ 0x1C000B5F4 (ACPIIoctlEvalPreProcessingV1.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalActivateConstraint @ 0x1C000E3E4 (ACPIThermalActivateConstraint.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     ACPIConvertDependenciesToPnpReservations @ 0x1C00118D8 (ACPIConvertDependenciesToPnpReservations.c)
+ *     ACPIThermalGetSensorDevice @ 0x1C0011B70 (ACPIThermalGetSensorDevice.c)
+ *     ACPIIsPowerNodeMissingDependencies @ 0x1C00147A8 (ACPIIsPowerNodeMissingDependencies.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C0015E24 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIPowerNodeDiscoverDependencies @ 0x1C002971C (ACPIPowerNodeDiscoverDependencies.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C002C6AC (ACPIIoctlGetDeviceSpecificData.c)
+ *     AreDependenciesSatisfied @ 0x1C002E8F4 (AreDependenciesSatisfied.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002EB38 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     ACPIBuildDeviceResetPowerNode @ 0x1C004B128 (ACPIBuildDeviceResetPowerNode.c)
+ *     ACPIBuildMissingEjectionRelations @ 0x1C004BB44 (ACPIBuildMissingEjectionRelations.c)
+ *     ACPIBuildWakeEventDeviceContext @ 0x1C004C584 (ACPIBuildWakeEventDeviceContext.c)
+ *     ACPIIoctlEvalPreProcessingV2 @ 0x1C0057978 (ACPIIoctlEvalPreProcessingV2.c)
+ *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0057CE8 (ACPIIoctlEvalPreProcessingV2Ex.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
+ *     AcpiGetFullyQualifiedBiosName @ 0x1C00AF420 (AcpiGetFullyQualifiedBiosName.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4 (ExternalRequestBiosNameDeviceAssociation.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C00B1C74 (UnRegisterOperationRegionHandler.c)
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00BDF8C (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AMLIGetNameSpaceObjectNoLock @ 0x1C00484F0 (AMLIGetNameSpaceObjectNoLock.c)
+ *     AMLIGetNameSpaceObjectNoLock @ 0x1C000AF30 (AMLIGetNameSpaceObjectNoLock.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
-__int64 __fastcall AMLIGetNameSpaceObject(_BYTE *Src, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall AMLIGetNameSpaceObject(_BYTE *Src, __int64 *a2, unsigned __int64 *a3, int a4)
 {
   size_t v8; // rbx
-  _BYTE *Pool2; // rdi
+  _BYTE *PoolWithTag; // rdi
   KIRQL v10; // bl
   unsigned int v11; // esi
   _BYTE P[128]; // [rsp+20h] [rbp-B8h] BYREF
@@ -49,20 +48,20 @@ __int64 __fastcall AMLIGetNameSpaceObject(_BYTE *Src, __int64 a2, __int64 a3, un
   while ( Src[v8] );
   if ( v8 + 1 >= 0x80 )
   {
-    Pool2 = (_BYTE *)ExAllocatePool2(64LL, v8 + 1, 1768973121LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v8 + 1, 0x69706341u);
+    if ( !PoolWithTag )
       return 3221225626LL;
   }
   else
   {
-    Pool2 = P;
+    PoolWithTag = P;
   }
-  memmove(Pool2, Src, v8);
-  Pool2[v8] = 0;
+  memmove(PoolWithTag, Src, v8);
+  PoolWithTag[v8] = 0;
   v10 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-  v11 = AMLIGetNameSpaceObjectNoLock(Pool2, a2, a3, a4);
+  v11 = AMLIGetNameSpaceObjectNoLock(PoolWithTag, a2, a3, a4);
   ExReleaseSpinLockShared(&ACPINamespaceLock, v10);
-  if ( P != Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( P != PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return v11;
 }

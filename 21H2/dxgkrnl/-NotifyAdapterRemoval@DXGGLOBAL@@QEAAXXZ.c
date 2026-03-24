@@ -1,63 +1,65 @@
 /*
- * XREFs of ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C030AB20
+ * XREFs of ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C0269FA4
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
- *     DpiFdoHandleStopDevice @ 0x1C0389B60 (DpiFdoHandleStopDevice.c)
- *     DpiFdoStopAdapter @ 0x1C038B430 (DpiFdoStopAdapter.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
+ *     DpiFdoHandleStopDevice @ 0x1C02CA620 (DpiFdoHandleStopDevice.c)
+ *     DpiFdoStopAdapter @ 0x1C02CBE84 (DpiFdoStopAdapter.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C48D8 (-SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0216C20 (-SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ.c)
  */
 
 void __fastcall DXGGLOBAL::NotifyAdapterRemoval(DXGGLOBAL *this)
 {
   ADAPTER_RENDER **v1; // rsi
-  ADAPTER_RENDER *v2; // rdi
-  ADAPTER_RENDER **v3; // rbx
-  signed __int64 v4; // rax
-  signed __int64 v5; // rtt
-  _BYTE v6[16]; // [rsp+20h] [rbp-B8h] BYREF
-  _BYTE v7[144]; // [rsp+30h] [rbp-A8h] BYREF
+  __int64 v2; // rdx
+  ADAPTER_RENDER *v3; // rdi
+  ADAPTER_RENDER **v4; // rbx
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  __int64 v7; // rdx
+  _BYTE v8[16]; // [rsp+20h] [rbp-B8h] BYREF
+  _BYTE v9[144]; // [rsp+30h] [rbp-A8h] BYREF
 
-  v1 = (ADAPTER_RENDER **)((char *)this + 800);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (DXGGLOBAL *)((char *)this + 704), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
-  v2 = *v1;
-  while ( v2 != (ADAPTER_RENDER *)v1 && v2 )
+  v1 = (ADAPTER_RENDER **)((char *)this + 664);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGGLOBAL *)((char *)this + 584), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
+  v3 = *v1;
+  while ( v3 != (ADAPTER_RENDER *)v1 && v3 )
   {
-    v3 = (ADAPTER_RENDER **)v2;
-    v2 = *(ADAPTER_RENDER **)v2;
-    _m_prefetchw(v3 + 3);
-    v4 = (signed __int64)v3[3];
-    while ( v4 )
+    v4 = (ADAPTER_RENDER **)v3;
+    v3 = *(ADAPTER_RENDER **)v3;
+    _m_prefetchw(v4 + 3);
+    v5 = (signed __int64)v4[3];
+    while ( v5 )
     {
-      v5 = v4;
-      v4 = _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 3, v4 + 1, v4);
-      if ( v5 == v4 )
+      v6 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 3, v5 + 1, v5);
+      if ( v6 == v5 )
       {
-        LOBYTE(v4) = 1;
+        LOBYTE(v5) = 1;
         break;
       }
     }
-    if ( (_BYTE)v4 )
+    if ( (_BYTE)v5 )
     {
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v7, (struct DXGADAPTER *const)v3, 0LL);
-      DXGADAPTER::ReleaseReference((DXGADAPTER *)v3);
-      if ( v3[350] )
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v9, (struct DXGADAPTER *const)v4, 0LL);
+      DXGADAPTER::ReleaseReference((DXGADAPTER *)v4);
+      if ( v4[338] )
       {
-        if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v7, 0LL) >= 0 )
-          ADAPTER_RENDER::SignalCrossAdapterSyncObjects(v3[350]);
+        if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v9, 0LL) >= 0 )
+          ADAPTER_RENDER::SignalCrossAdapterSyncObjects(v4[338], v7);
       }
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v7);
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v9, v7);
     }
   }
-  if ( v6[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6);
+  if ( v8[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8, v2);
 }

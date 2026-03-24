@@ -1,53 +1,34 @@
 /*
- * XREFs of IsDCCurrentPalette @ 0x1C02D25D0
+ * XREFs of IsDCCurrentPalette @ 0x1C02B7A10
  * Callers:
- *     xxxRealizePalette @ 0x1C0214E58 (xxxRealizePalette.c)
+ *     xxxRealizePalette @ 0x1C011B890 (xxxRealizePalette.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall IsDCCurrentPalette(HDC a1)
 {
   unsigned int v1; // ebx
-  Gre::Base *v2; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v3; // rax
-  __int64 v4; // r9
-  struct Gre::Base::SESSION_GLOBALS *v5; // rdi
-  __int64 v6; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v8; // rdx
-  _QWORD v10[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v11[40]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v2; // rcx
+  _QWORD v4[2]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v5[40]; // [rsp+30h] [rbp-28h] BYREF
 
   v1 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v10, a1);
-  if ( v10[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
+  if ( v4[0] )
   {
-    v3 = Gre::Base::Globals(v2);
-    v4 = v10[0];
-    v5 = v3;
-    if ( *(_QWORD *)(v10[0] + 80LL) == *((_QWORD *)v3 + 479) )
-      goto LABEL_8;
-    if ( *(_DWORD *)(*(_QWORD *)(v10[0] + 976LL) + 208LL) == 1 )
+    if ( *(HPALETTE *)(v4[0] + 80LL) == hForePalette
+      || *(_DWORD *)(*(_QWORD *)(v4[0] + 976LL) + 208LL) == 1
+      && (v2 = (unsigned __int16)*(_DWORD *)(v4[0] + 80LL) | (*(_DWORD *)(v4[0] + 80LL) >> 8) & 0xFF0000u,
+          (_DWORD)v2 == ((unsigned __int16)hForePalette | ((unsigned int)hForePalette >> 8) & 0xFF0000))
+      && hForePID == (struct _W32PROCESS *)PsGetCurrentProcessWin32Process(v2) )
     {
-      v6 = (unsigned __int16)*(_DWORD *)(v10[0] + 80LL) | (*(_DWORD *)(v10[0] + 80LL) >> 8) & 0xFF0000u;
-      if ( (_DWORD)v6 == ((unsigned __int16)*((_DWORD *)v3 + 958) | (*((_DWORD *)v3 + 958) >> 8) & 0xFF0000) )
-      {
-        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
-        v8 = CurrentProcessWin32Process;
-        if ( CurrentProcessWin32Process )
-          v8 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-        v4 = v10[0];
-        if ( *((_QWORD *)v5 + 480) == v8 )
-LABEL_8:
-          v1 = 1;
-      }
+      v1 = 1;
     }
-    if ( v4 )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v10);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v11);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v4);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
   return v1;
 }

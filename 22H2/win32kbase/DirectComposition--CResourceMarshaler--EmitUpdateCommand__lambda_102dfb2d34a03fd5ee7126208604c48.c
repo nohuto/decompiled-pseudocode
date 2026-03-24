@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_102dfb2d34a03fd5ee7126208604c48c___lambda_0bc58e56ac4a9aab059b2d62d77c79a6___ @ 0x1C009B3B0
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_102dfb2d34a03fd5ee7126208604c48c___lambda_0bc58e56ac4a9aab059b2d62d77c79a6___ @ 0x1C01E63CC
  * Callers:
- *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009B2DC (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E6734 (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_102dfb2d34a03fd5ee7126208604c48c___lambda_0bc58e56ac4a9aab059b2d62d77c79a6___(
@@ -17,10 +17,10 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
 {
   __int64 v6; // r12
   void *v11; // r11
-  unsigned __int64 v12; // r15
+  unsigned __int64 v12; // rbp
   char *v13; // rcx
-  _DWORD *v14; // r8
-  unsigned int v15; // r9d
+  _DWORD *v14; // r9
+  __int64 v15; // r8
   __int64 v16; // rdx
   void *v18; // [rsp+58h] [rbp+10h] BYREF
 
@@ -31,7 +31,7 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
     v18 = v11;
     if ( (unsigned __int64)v11 < 0x18 )
       break;
-LABEL_3:
+LABEL_5:
     v12 = a4 - *a3;
     if ( v12 >= ((unsigned __int64)v11 - 20) >> 2 )
       LODWORD(v12) = ((unsigned __int64)v11 - 20) >> 2;
@@ -41,16 +41,21 @@ LABEL_3:
     *(_DWORD *)v18 = 4 * v12 + 20;
     v14 = v13 + 20;
     *(_OWORD *)(v13 + 4) = 0LL;
-    *((_DWORD *)v13 + 1) = 158;
-    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 32);
+    *((_DWORD *)v13 + 1) = 166;
+    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 24);
     *((_DWORD *)v13 + 4) = 4 * v12;
-    v15 = 0;
-    for ( v13[12] = *a3 != 0; v15 < (unsigned int)v12; ++v14 )
+    v13[12] = *a3 != 0;
+    if ( (_DWORD)v12 )
     {
-      ++v15;
-      v16 = *a3;
-      *a3 = v16 + 1;
-      *v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 96LL) + 8 * v16) + 32LL);
+      v15 = (unsigned int)v12;
+      do
+      {
+        v16 = *a3;
+        *a3 = v16 + 1;
+        *v14++ = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 96LL) + 8 * v16) + 24LL);
+        --v15;
+      }
+      while ( v15 );
     }
     if ( *a3 >= a4 )
       return 1;
@@ -58,7 +63,7 @@ LABEL_3:
   if ( DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v18) )
   {
     v11 = v18;
-    goto LABEL_3;
+    goto LABEL_5;
   }
   return 0;
 }

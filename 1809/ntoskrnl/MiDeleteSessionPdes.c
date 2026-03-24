@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteSessionPdes @ 0x140158D40
+ * XREFs of MiDeleteSessionPdes @ 0x140158D60
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiReturnSystemCharges @ 0x1401207B4 (MiReturnSystemCharges.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiReturnSystemCharges @ 0x1401207D4 (MiReturnSystemCharges.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall MiDeleteSessionPdes(__int64 a1, __int64 a2)

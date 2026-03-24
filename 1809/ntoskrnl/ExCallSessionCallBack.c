@@ -1,5 +1,5 @@
 /*
- * XREFs of ExCallSessionCallBack @ 0x14069E844
+ * XREFs of ExCallSessionCallBack @ 0x14069E824
  * Callers:
  *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
  * Callees:
@@ -10,10 +10,10 @@
  *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a3, int *a4)

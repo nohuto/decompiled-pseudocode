@@ -1,13 +1,13 @@
 /*
- * XREFs of MmLockLoadedModuleListExclusive @ 0x1400F5D60
+ * XREFs of MmLockLoadedModuleListExclusive @ 0x1400F5D80
  * Callers:
- *     RtlInsertInvertedFunctionTable @ 0x1400F5A14 (RtlInsertInvertedFunctionTable.c)
- *     MiProcessLoaderEntry @ 0x1400F5B8C (MiProcessLoaderEntry.c)
- *     MiSessionRemoveImage @ 0x1401580E0 (MiSessionRemoveImage.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14016B81C (RtlRemoveInvertedFunctionTable.c)
- *     MiSessionInsertImage @ 0x14017600C (MiSessionInsertImage.c)
- *     MiShowBadMapper @ 0x1402A5944 (MiShowBadMapper.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1400F5A34 (RtlInsertInvertedFunctionTable.c)
+ *     MiProcessLoaderEntry @ 0x1400F5BAC (MiProcessLoaderEntry.c)
+ *     MiSessionRemoveImage @ 0x140158100 (MiSessionRemoveImage.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14016B83C (RtlRemoveInvertedFunctionTable.c)
+ *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
+ *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */

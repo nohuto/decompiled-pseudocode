@@ -1,68 +1,60 @@
 /*
- * XREFs of zzzAnimateFade @ 0x1C01BD378
+ * XREFs of zzzAnimateFade @ 0x1C01E809C
  * Callers:
- *     xxxSystemTimerProc @ 0x1C0005B40 (xxxSystemTimerProc.c)
- *     zzzStartSonar @ 0x1C01BD5FC (zzzStartSonar.c)
+ *     xxxSystemTimerProc @ 0x1C002AE80 (xxxSystemTimerProc.c)
+ *     zzzStartSonar @ 0x1C01E8308 (zzzStartSonar.c)
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01BC500 (-DrawSonar@@YAXPEAUHDC__@@@Z.c)
- *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BCAE4 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
- *     StopFade @ 0x1C01BCD50 (StopFade.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01E70C4 (-DrawSonar@@YAXPEAUHDC__@@@Z.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01E7584 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     StopFade @ 0x1C01E7A90 (StopFade.c)
  */
 
 __int64 zzzAnimateFade()
 {
   unsigned int v0; // r9d
   unsigned int v1; // ecx
-  unsigned int v2; // edi
+  int v2; // edi
   unsigned int v3; // eax
   int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  bool v9; // zf
+  bool v5; // zf
   __int64 result; // rax
-  __int64 v11; // rcx
-  char v12; // [rsp+40h] [rbp+8h] BYREF
-  struct _BLENDFUNCTION v13; // [rsp+48h] [rbp+10h] BYREF
+  struct _BLENDFUNCTION v7; // [rsp+40h] [rbp+8h] BYREF
+  char v8; // [rsp+48h] [rbp+10h] BYREF
 
-  v0 = gfade[10];
-  v1 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - gfade[11];
+  v0 = gfade[5];
+  v1 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - HIDWORD(gfade[5]);
   if ( v1 > v0 )
     return StopFade();
-  v2 = gfade[12] & 1;
+  v2 = gfade[6] & 1;
   if ( v2 )
     v3 = 255 * v1;
   else
     v3 = 255 * (v0 - v1);
-  *(_WORD *)&v13.BlendOp = 0;
-  v13.AlphaFormat = 0;
+  *(_WORD *)&v7.BlendOp = 0;
+  v7.AlphaFormat = 0;
   v4 = v3 / v0;
-  v13.SourceConstantAlpha = v3 / v0;
-  if ( (gfade[12] & 0x80u) == 0 )
+  v7.SourceConstantAlpha = v3 / v0;
+  if ( (LODWORD(gfade[6]) & 0x80u) == 0 )
   {
-    zzzUpdateFade(0LL, 0LL, 0LL, 0LL, &v13);
+    zzzUpdateFade(0LL, 0LL, 0LL, 0LL, &v7);
   }
   else
   {
-    DrawSonar(*(HDC *)&gfade[2]);
-    AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v12);
-    zzzUpdateFade((struct tagPOINT *)&gfade[6], (struct tagSIZE *)&gfade[8], *(HDC *)&gfade[2], gZero, 0LL);
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v12, v5, v6);
-    v8 = SGDGetUserSessionState(v7);
-    *(_DWORD *)(v8 + 15964) -= 20;
+    DrawSonar((HDC)gfade[1]);
+    UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v8);
+    zzzUpdateFade((struct tagPOINT *)&gfade[3], (struct tagSIZE *)&gfade[4], (HDC)gfade[1], gZero, 0LL);
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v8);
+    giSonarRadius -= 20;
   }
   if ( v2 )
-    v9 = (_BYTE)v4 == 0xFF;
+    v5 = (_BYTE)v4 == 0xFF;
   else
-    v9 = (_BYTE)v4 == 0;
-  if ( v9
-    || (result = *(_QWORD *)gfade, v11 = gfade[12], (v11 & 0x80u) != 0LL)
-    && (result = SGDGetUserSessionState(v11), *(int *)(result + 15964) < 0) )
+    v5 = (_BYTE)v4 == 0;
+  if ( v5 || (result = gfade[0], (LODWORD(gfade[6]) & 0x80u) != 0) && giSonarRadius < 0 )
   {
-    gfade[12] |= 2u;
+    LODWORD(gfade[6]) |= 2u;
     return StopFade();
   }
   return result;

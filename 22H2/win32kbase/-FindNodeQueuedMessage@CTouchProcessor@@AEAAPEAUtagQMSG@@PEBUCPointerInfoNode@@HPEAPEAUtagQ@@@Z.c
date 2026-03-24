@@ -1,13 +1,12 @@
 /*
- * XREFs of ?FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z @ 0x1C01C2A00
+ * XREFs of ?FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z @ 0x1C018E5EC
  * Callers:
- *     ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C01BD564 (-CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z.c)
+ *     ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C018A4B4 (-CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z.c)
  * Callees:
- *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C00572B4 (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C01B5664 (-IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z.c)
- *     ApiSetEditionFindNodeQueuedMessage @ 0x1C020609C (ApiSetEditionFindNodeQueuedMessage.c)
+ *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C004591C (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ApiSetEditionFindNodeQueuedMessage @ 0x1C01CB558 (ApiSetEditionFindNodeQueuedMessage.c)
  */
 
 struct tagQMSG *__fastcall CTouchProcessor::FindNodeQueuedMessage(
@@ -27,17 +26,11 @@ struct tagQMSG *__fastcall CTouchProcessor::FindNodeQueuedMessage(
   __int128 v14; // xmm0
   _OWORD v15[7]; // [rsp+20h] [rbp-88h] BYREF
 
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15615);
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14946);
   if ( !(unsigned int)CPointerInfoNode::IsValid(a2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15617);
-  if ( *((_DWORD *)a2 + 111)
-    && !gbIgnoreStressedOutStuff
-    && !CInputDest::IsEqualByWindowHandle((__int64)a2 + 352, *((_QWORD *)a2 + 24), 1) )
-  {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15623);
-  }
-  result = (struct tagQMSG *)CInputDest::GetQueue((__int64)a2 + 352, 2);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14948);
+  result = (struct tagQMSG *)CInputDest::GetQueue((const struct CPointerInfoNode *)((char *)a2 + 352), 2);
   if ( result )
   {
     v8 = *((_QWORD *)a2 + 2);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmForceSectionClosedEx @ 0x1402A3830
+ * XREFs of MmForceSectionClosedEx @ 0x1402A3930
  * Callers:
  *     <none>
  * Callees:
- *     MiForceSectionClosed @ 0x1401220AC (MiForceSectionClosed.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiForceSectionClosed @ 0x1401220CC (MiForceSectionClosed.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 bool __fastcall MmForceSectionClosedEx(_QWORD *a1, unsigned int a2)

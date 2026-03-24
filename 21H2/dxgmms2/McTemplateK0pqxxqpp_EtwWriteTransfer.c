@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqxxqpp_EtwWriteTransfer @ 0x1C003C2F0
+ * XREFs of McTemplateK0pqxxqpp_EtwWriteTransfer @ 0x1C00337DC
  * Callers:
- *     VidSchCreatePeriodicFrameNotification @ 0x1C003C910 (VidSchCreatePeriodicFrameNotification.c)
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003CE00 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C0033C10 (VidSchCreatePeriodicFrameNotification.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034090 (VidSchDestroyPeriodicFrameNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqxxqpp_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

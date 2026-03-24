@@ -1,38 +1,29 @@
 /*
- * XREFs of ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C02C6F80
+ * XREFs of ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137A1C
  * Callers:
- *     NtGdiEngAlphaBlend @ 0x1C02C8580 (NtGdiEngAlphaBlend.c)
- *     NtGdiEngBitBlt @ 0x1C02C8940 (NtGdiEngBitBlt.c)
- *     NtGdiEngCheckAbort @ 0x1C02C8E50 (NtGdiEngCheckAbort.c)
- *     NtGdiEngCopyBits @ 0x1C02C8FB0 (NtGdiEngCopyBits.c)
- *     NtGdiEngEraseSurface @ 0x1C02C98F0 (NtGdiEngEraseSurface.c)
- *     NtGdiEngFillPath @ 0x1C02C9A40 (NtGdiEngFillPath.c)
- *     NtGdiEngGradientFill @ 0x1C02C9C50 (NtGdiEngGradientFill.c)
- *     NtGdiEngLineTo @ 0x1C02CA140 (NtGdiEngLineTo.c)
- *     NtGdiEngPaint @ 0x1C02CA560 (NtGdiEngPaint.c)
- *     NtGdiEngPlgBlt @ 0x1C02CA710 (NtGdiEngPlgBlt.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngStrokeAndFillPath @ 0x1C02CB750 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02CBBC0 (NtGdiEngStrokePath.c)
- *     NtGdiEngTextOut @ 0x1C02CBFB0 (NtGdiEngTextOut.c)
- *     NtGdiEngTransparentBlt @ 0x1C02CC410 (NtGdiEngTransparentBlt.c)
- *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02CD670 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ *     NtGdiEngCopyBits @ 0x1C013AC00 (NtGdiEngCopyBits.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013B6A0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngTextOut @ 0x1C013BC80 (NtGdiEngTextOut.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngAlphaBlend @ 0x1C02B1E70 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngEraseSurface @ 0x1C02B2440 (NtGdiEngEraseSurface.c)
+ *     NtGdiEngFillPath @ 0x1C02B25C0 (NtGdiEngFillPath.c)
+ *     NtGdiEngGradientFill @ 0x1C02B27D0 (NtGdiEngGradientFill.c)
+ *     NtGdiEngLineTo @ 0x1C02B2C70 (NtGdiEngLineTo.c)
+ *     NtGdiEngPaint @ 0x1C02B2F40 (NtGdiEngPaint.c)
+ *     NtGdiEngPlgBlt @ 0x1C02B30F0 (NtGdiEngPlgBlt.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3540 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B3980 (NtGdiEngStrokePath.c)
+ *     NtGdiEngTransparentBlt @ 0x1C02B3D60 (NtGdiEngTransparentBlt.c)
  * Callees:
- *     ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C02C71B0 (-Cleanup@UMPDSURFOBJ@@SAXPEAX@Z.c)
+ *     ??1CAutoTGO@@QEAA@XZ @ 0x1C011F940 (--1CAutoTGO@@QEAA@XZ.c)
+ *     ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C016CEA0 (-Cleanup@UMPDSURFOBJ@@SAXPEAX@Z.c)
  */
 
 void __fastcall UMPDSURFOBJ::~UMPDSURFOBJ(UMPDSURFOBJ *this)
 {
-  if ( *((_DWORD *)this + 14) )
-  {
-    PopThreadGuardedObject((char *)this + 24);
-    *((_DWORD *)this + 14) = 0;
-  }
+  CAutoTGO::~CAutoTGO((UMPDSURFOBJ *)((char *)this + 24));
   UMPDSURFOBJ::Cleanup(this);
-  if ( *((_DWORD *)this + 14) )
-  {
-    PopThreadGuardedObject((char *)this + 24);
-    *((_DWORD *)this + 14) = 0;
-  }
+  CAutoTGO::~CAutoTGO((UMPDSURFOBJ *)((char *)this + 24));
 }

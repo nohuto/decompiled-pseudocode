@@ -1,41 +1,46 @@
 /*
- * XREFs of PipCheckForDenyExecute @ 0x14076A520
+ * XREFs of PipCheckForDenyExecute @ 0x140748B10
  * Callers:
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     PnpConcatPWSTR @ 0x14078C9E8 (PnpConcatPWSTR.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     PnpConcatPWSTR @ 0x1406A9C64 (PnpConcatPWSTR.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
 {
-  bool v1; // di
+  WCHAR *v1; // rbx
+  bool v2; // di
+  int v3; // eax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  PCWSTR SourceString; // [rsp+A8h] [rbp+28h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp+30h] BYREF
   PVOID P; // [rsp+B8h] [rbp+38h] BYREF
 
   P = 0LL;
   KeyHandle = 0LL;
+  v1 = 0LL;
+  SourceString = 0LL;
   DestinationString = 0LL;
-  v1 = 0;
+  v2 = 0;
   if ( wcsicmp(L"{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}", Str2) )
   {
-    if ( (int)PnpConcatPWSTR(
-                0x200uLL,
-                0x47706E50u,
-                (char)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage") >= 0 )
+    v3 = PnpConcatPWSTR(0x200uLL, 0x47706E50u, (PVOID *)&SourceString, 3uLL);
+    v1 = (WCHAR *)SourceString;
+    if ( v3 >= 0 )
     {
-      RtlInitUnicodeString(&DestinationString, 0LL);
+      RtlInitUnicodeString(&DestinationString, SourceString);
+      *(&ObjectAttributes.Length + 1) = 0;
       memset(&ObjectAttributes.Attributes + 1, 0, 20);
       ObjectAttributes.RootDirectory = 0LL;
-      *(_QWORD *)&ObjectAttributes.Length = 48LL;
       ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
       {
@@ -44,7 +49,7 @@ bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
           if ( !P )
             goto LABEL_11;
           if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) == 4 )
-            v1 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) != 0;
+            v2 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) != 0;
         }
         if ( P )
           ExFreePoolWithTag(P, 0);
@@ -54,5 +59,7 @@ bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
 LABEL_11:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v1;
+  if ( v1 )
+    ExFreePoolWithTag(v1, 0x47706E50u);
+  return v2;
 }

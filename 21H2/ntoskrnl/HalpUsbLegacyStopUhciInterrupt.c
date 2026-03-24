@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpUsbLegacyStopUhciInterrupt @ 0x1405245B8
+ * XREFs of HalpUsbLegacyStopUhciInterrupt @ 0x1404D74A8
  * Callers:
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
- *     HalpStopLegacyUsbInterruptsInternal @ 0x140A6313C (HalpStopLegacyUsbInterruptsInternal.c)
+ *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
+ *     HalpStopLegacyUsbInterruptsInternal @ 0x1409A91D4 (HalpStopLegacyUsbInterruptsInternal.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 unsigned __int16 __fastcall HalpUsbLegacyStopUhciInterrupt(__int64 a1, unsigned int a2, unsigned int a3, char a4)
@@ -20,8 +20,8 @@ unsigned __int16 __fastcall HalpUsbLegacyStopUhciInterrupt(__int64 a1, unsigned 
   *(_DWORD *)v8 = 0;
   if ( a4 )
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C01C88)(a2, a3, v8, 192LL, 4);
-    result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _DWORD *, _QWORD, int))qword_140C01C80)(a2, a3, v9, 0LL, 64);
+    ((void (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C00638)(a2, a3, v8, 192LL, 4);
+    result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _DWORD *, _QWORD, int))qword_140C00630)(a2, a3, v9, 0LL, 64);
     if ( (v9[1] & 1) != 0 )
     {
       *(_DWORD *)v8 = v9[8] & 0xFFFFFFFC;
@@ -40,9 +40,9 @@ unsigned __int16 __fastcall HalpUsbLegacyStopUhciInterrupt(__int64 a1, unsigned 
   }
   else
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C01C80)(a2, a3, v8, 192LL, 4);
+    ((void (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C00630)(a2, a3, v8, 192LL, 4);
     *(_DWORD *)v8 &= 0xFFFF40FF;
-    return ((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C01C88)(
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int16 *, __int64, int))qword_140C00638)(
              a2,
              a3,
              v8,

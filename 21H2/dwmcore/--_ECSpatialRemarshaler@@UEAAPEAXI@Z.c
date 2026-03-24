@@ -1,24 +1,24 @@
 /*
- * XREFs of ??_ECSpatialRemarshaler@@UEAAPEAXI@Z @ 0x18023EF80
+ * XREFs of ??_ECSpatialRemarshaler@@UEAAPEAXI@Z @ 0x1801ECBF0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CResource@@MEAA@XZ @ 0x180049CEC (--1CResource@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A0EAC (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CSpatialRemarshaler *__fastcall CSpatialRemarshaler::`vector deleting destructor'(CSpatialRemarshaler *this, char a2)
 {
-  *((_QWORD *)this + 9) = &CSpatialRemarshaler::`vftable'{for `ISceneNotificationListener'};
+  *((_QWORD *)this + 8) = &CSpatialRemarshaler::`vftable'{for `ISceneNotificationListener'};
   *(_QWORD *)this = &CNotificationResource::`vftable';
   CResource::~CResource(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x48);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

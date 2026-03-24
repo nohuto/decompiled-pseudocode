@@ -1,37 +1,29 @@
 /*
- * XREFs of IvtGetDomainId @ 0x14052CABC
+ * XREFs of IvtGetDomainId @ 0x1404DFED8
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x14052B8B8 (IvtAttachDeviceDomainInternal.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DD14 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF508 (IvtAttachDeviceDomainInternal.c)
  * Callees:
- *     IvtGetScalableModePasidTables @ 0x14052CD64 (IvtGetScalableModePasidTables.c)
+ *     <none>
  */
 
-__int64 __fastcall IvtGetDomainId(__int64 a1, __int64 a2)
+__int64 __fastcall IvtGetDomainId(__int64 a1, unsigned int a2)
 {
-  __int64 ScalableModePasidTables; // rax
+  __int64 v2; // r11
   __int64 v3; // r9
-  __int64 v4; // rcx
-  __int64 v5; // rax
+  __int64 *v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rax
 
-  if ( !*(_BYTE *)(a1 + 320) )
-    return (unsigned __int16)(*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32)
-                                                    + 16 * ((unsigned __int64)(unsigned int)a2 >> 8))
-                                        + 16LL * (unsigned __int8)a2
-                                        + 8) >> 8);
-  ScalableModePasidTables = IvtGetScalableModePasidTables(a1, a2);
-  if ( ScalableModePasidTables )
-  {
-    if ( *(_DWORD *)(ScalableModePasidTables + 32) )
-    {
-      v4 = *(_QWORD *)(ScalableModePasidTables + 56);
-      if ( (*(_QWORD *)v4 & 1) != 0 )
-      {
-        v5 = *(_QWORD *)v4 & 0x1C0LL;
-        if ( v5 == 128 || v5 == 256 )
-          return (unsigned __int16)*(_DWORD *)(v4 + 8);
-      }
-    }
-  }
-  return v3;
+  v2 = *(_QWORD *)(a1 + 32);
+  v3 = *(_QWORD *)(a1 + 184) & 0x1000000LL;
+  if ( v3 )
+    v5 = (__int64 *)(v2 + 8 * (2 * ((unsigned __int64)a2 >> 8) + ((unsigned __int8)((unsigned __int8)a2 >> 3) >= 0x10u)));
+  else
+    v5 = (__int64 *)(v2 + 16 * ((unsigned __int64)a2 >> 8));
+  v6 = *v5;
+  if ( v3 )
+    v7 = *(_QWORD *)(32 * (a2 & 7 | (8LL * ((a2 >> 3) & 0xF))) + v6 + 8);
+  else
+    v7 = *(_QWORD *)(v6 + 16LL * (unsigned __int8)a2 + 8);
+  return (unsigned __int16)((unsigned int)v7 >> 8);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkResumePrepare @ 0x140A99B34
+ * XREFs of BgkResumePrepare @ 0x1409961C8
  * Callers:
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
- *     PopMarkComponentsBootPhase @ 0x140AA36CC (PopMarkComponentsBootPhase.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991E0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
- *     BgkpUnlockBgfxCodeSection @ 0x140AF02E0 (BgkpUnlockBgfxCodeSection.c)
- *     BgkpLockBgfxCodeSection @ 0x140AF0550 (BgkpLockBgfxCodeSection.c)
- *     BgGetContext @ 0x140AF226C (BgGetContext.c)
- *     BgMarkHiberPhase @ 0x140AF2344 (BgMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
+ *     BgGetContext @ 0x1409F1248 (BgGetContext.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x1409F13F0 (BgkpUnlockBgfxCodeSection.c)
+ *     BgkpLockBgfxCodeSection @ 0x1409F3730 (BgkpLockBgfxCodeSection.c)
+ *     BgMarkHiberPhase @ 0x1409F664C (BgMarkHiberPhase.c)
  */
 
 __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
@@ -17,8 +17,8 @@ __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
   __int64 Context; // rax
   void *v4; // rdi
   void *v5; // r8
-  _QWORD *v6; // rdi
-  void *v7; // r8
+  _QWORD *v7; // rdi
+  void *v8; // r8
 
   v1 = 0;
   if ( MemoryMap )
@@ -26,26 +26,23 @@ __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
     BgkpLockBgfxCodeSection();
     Context = BgGetContext();
     v4 = (void *)Context;
-    if ( !Context )
+    if ( Context )
     {
-      BgkpUnlockBgfxCodeSection();
-      return (unsigned int)-1073741670;
+      v5 = *(void **)(Context + 16);
+      if ( v5 )
+        PoSetHiberRange(MemoryMap, 0x8000u, v5, *(unsigned int *)(Context + 24), 0x4B494742u);
+      qword_140C50648 = v4;
+      return v1;
     }
-    v5 = *(void **)(Context + 16);
-    if ( v5 )
-      PoSetHiberRange(MemoryMap, 0x8000u, v5, *(unsigned int *)(Context + 24), 0x4B494742u);
-    qword_140D18490 = v4;
+    BgkpUnlockBgfxCodeSection();
+    return (unsigned int)-1073741670;
   }
-  else
-  {
-    v6 = qword_140D18490;
-    if ( !qword_140D18490 )
-      return (unsigned int)-1073741670;
-    PoSetHiberRange(0LL, 0x10000u, qword_140D18490, *(unsigned int *)qword_140D18490, 0);
-    v7 = (void *)v6[2];
-    if ( v7 )
-      PoSetHiberRange(0LL, 0x10000u, v7, *((unsigned int *)v6 + 6), 0);
-    return (unsigned int)BgMarkHiberPhase();
-  }
-  return v1;
+  v7 = qword_140C50648;
+  if ( !qword_140C50648 )
+    return (unsigned int)-1073741670;
+  PoSetHiberRange(0LL, 0x10000u, qword_140C50648, *(unsigned int *)qword_140C50648, 0);
+  v8 = (void *)v7[2];
+  if ( v8 )
+    PoSetHiberRange(0LL, 0x10000u, v8, *((unsigned int *)v7 + 6), 0);
+  return (unsigned int)BgMarkHiberPhase();
 }

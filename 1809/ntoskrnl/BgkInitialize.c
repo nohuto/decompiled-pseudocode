@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkInitialize @ 0x1409FB8D0
+ * XREFs of BgkInitialize @ 0x1409FB8E0
  * Callers:
  *     InbvDriverInitialize @ 0x1409D6F70 (InbvDriverInitialize.c)
  * Callees:
- *     BgkpTryEnableConsole @ 0x14016F968 (BgkpTryEnableConsole.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     BgkpTryEnableConsole @ 0x14016F988 (BgkpTryEnableConsole.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     BgConsoleGetInterface @ 0x14094E7DC (BgConsoleGetInterface.c)
  *     BgLibraryInitialize @ 0x14094E81C (BgLibraryInitialize.c)
  *     BgkpLockBgfxCodeSection @ 0x140950680 (BgkpLockBgfxCodeSection.c)
@@ -44,7 +44,7 @@ __int64 __fastcall BgkInitialize(__int64 a1, int a2)
         ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))*Interface)(
           (unsigned int)InitConsoleFlags,
           4291217094LL,
-          (unsigned int)dword_1404DC950,
+          (unsigned int)dword_1404DC910,
           0LL);
       v6 = ((__int64 (__fastcall *)(__int64, __int64, int *, char *))off_140400458[0])(9LL, 4LL, &dword_1404DB180, &v8);
       v7 = dword_1404DB180;

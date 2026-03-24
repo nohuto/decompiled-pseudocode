@@ -1,10 +1,10 @@
 /*
- * XREFs of WbProcessStartup @ 0x1406E158C
+ * XREFs of WbProcessStartup @ 0x1406C3058
  * Callers:
- *     WbDispatchOperation @ 0x1407E2B70 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x14064EE24 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
   P = 0LL;
   if ( a3 >= 0x10 && *a2 == 8LL )
   {
-    v5 = WbAlloc(24LL, &P);
+    v5 = WbAlloc(0x18uLL, &P);
     if ( v5 >= 0 )
     {
       v6 = a2[1];
@@ -50,6 +50,6 @@ __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
     v5 = -1073741811;
   }
   if ( P )
-    ExFreePoolWithTag(P, 0);
+    ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)v5;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of DwmAsyncNotifyWindowShadowChange @ 0x1C026D388
+ * XREFs of DwmAsyncNotifyWindowShadowChange @ 0x1C0274A68
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     _NotifyOverlayWindow @ 0x1C01C8800 (_NotifyOverlayWindow.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     _NotifyOverlayWindow @ 0x1C01D75E0 (_NotifyOverlayWindow.c)
  * Callees:
  *     <none>
  */

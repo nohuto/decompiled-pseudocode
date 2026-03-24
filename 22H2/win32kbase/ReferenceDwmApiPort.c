@@ -1,51 +1,156 @@
 /*
- * XREFs of ReferenceDwmApiPort @ 0x1C0047A70
+ * XREFs of ReferenceDwmApiPort @ 0x1C00165F0
  * Callers:
- *     SetConnectCompletedState @ 0x1C0011090 (SetConnectCompletedState.c)
- *     xxxResetDisplayDevice @ 0x1C00138D0 (xxxResetDisplayDevice.c)
- *     UserNotifyDisplayChange @ 0x1C0013D20 (UserNotifyDisplayChange.c)
+ *     UserNotifyDisplayChange @ 0x1C0016550 (UserNotifyDisplayChange.c)
+ *     xxxResetDisplayDevice @ 0x1C0077600 (xxxResetDisplayDevice.c)
+ *     SetConnectCompletedState @ 0x1C00B0CF0 (SetConnectCompletedState.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     EtwTraceAcquiredSharedUserCrit @ 0x1C0053C40 (EtwTraceAcquiredSharedUserCrit.c)
- *     IsEtwUserCritEnabled @ 0x1C0053DF0 (IsEtwUserCritEnabled.c)
+ *     ??1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ @ 0x1C0037480 (--1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C00374D0 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C00376C0 (-getInstance@UserCritTelemetry@@SAAEAV1@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0127794 (McTemplateK0xqx_EtwWriteTransfer.c)
  */
 
-PVOID __fastcall ReferenceDwmApiPort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+PVOID ReferenceDwmApiPort()
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  PVOID v0; // rbx
+  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
+  __int64 v3; // rax
+  __int64 v4; // r8
+  __int64 v5; // r9
+  struct tagTHREADINFO *v6; // rbx
+  struct tagTHREADINFO **v7; // rax
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
-  __int64 v13; // rax
-  PVOID DeviceContext; // rbx
+  PVOID CurrentProcess; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rsi
+  LARGE_INTEGER PerformanceCounter; // rdi
+  LONGLONG v16; // rbx
+  struct UserCritTelemetry *Instance; // rax
+  int v18; // r8d
+  int v19; // [rsp+38h] [rbp-9h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-1h] BYREF
+  unsigned __int8 v21; // [rsp+48h] [rbp+7h]
+  GUID ActivityId; // [rsp+4Ch] [rbp+Bh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+60h] [rbp+1Fh] BYREF
+  int *v24; // [rsp+80h] [rbp+3Fh]
+  int v25; // [rsp+88h] [rbp+47h]
+  int v26; // [rsp+8Ch] [rbp+4Bh]
 
-  if ( IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, a4) )
+  if ( ExIsResourceAcquiredExclusiveLite(gpresUser) == 1 || ExIsResourceAcquiredSharedLite(gpresUser) )
   {
-    DeviceContext = WPP_MAIN_CB.Queue.Wcb.DeviceContext;
-    if ( WPP_MAIN_CB.Queue.Wcb.DeviceContext )
-      ObfReferenceObject(WPP_MAIN_CB.Queue.Wcb.DeviceContext);
+    v0 = g_pDwmApiPort;
+    if ( g_pDwmApiPort )
+      ObfReferenceObject(g_pDwmApiPort);
   }
   else
   {
-    if ( (unsigned int)IsEtwUserCritEnabled(v5, v4, v6, v7) )
+    CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread();
+    if ( CurrentThreadWin32Thread )
+      CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+    ActivityId = 0LL;
+    if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
     {
-      CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread();
-      if ( CurrentThreadWin32Thread )
-        CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+      v21 = 0;
+      v3 = PsGetCurrentThreadWin32Thread();
+      v20 = v3;
+      if ( v3 && (*(int *)(v3 + 24) > 0 || *(_DWORD *)(v20 + 48)) )
+      {
+        EtwActivityIdControl(3u, &ActivityId);
+        if ( (unsigned int)dword_1C024AA90 > 6 )
+        {
+          if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v4, v5) )
+          {
+            v26 = 0;
+            v19 = v21;
+            v25 = 4;
+            v24 = &v19;
+            tlgWriteTransfer_EtwWriteTransfer(
+              (int)&dword_1C024AA90,
+              (int)&dword_1C0217FD7,
+              (int)&ActivityId,
+              0,
+              3u,
+              &v23);
+          }
+        }
+      }
     }
-    v13 = SGDGetUserSessionState(v9, v8, v10, v11);
-    ExEnterCriticalRegionAndAcquireResourceShared(*(PERESOURCE *)(v13 + 8));
-    EtwTraceAcquiredSharedUserCrit();
-    DeviceContext = WPP_MAIN_CB.Queue.Wcb.DeviceContext;
-    if ( WPP_MAIN_CB.Queue.Wcb.DeviceContext )
-      ObfReferenceObject(WPP_MAIN_CB.Queue.Wcb.DeviceContext);
-    UserSessionSwitchLeaveCrit();
+    else
+    {
+      v20 = 0LL;
+    }
+    v6 = 0LL;
+    while ( 1 )
+    {
+      v7 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceShared(gpresUser);
+      if ( v7 )
+        v6 = *v7;
+      CurrentProcess = (PVOID)PsGetCurrentProcess(v9, v8);
+      if ( CurrentProcess )
+      {
+        if ( CurrentProcess == g_pepDwm )
+          break;
+      }
+      if ( (PVOID)PsGetCurrentProcess(v12, v11) == gpepCSRSS && v6 != (struct tagTHREADINFO *)gptiTSRequest
+        || gbDITInHitTest != 1
+        || v6 == gptiRit )
+      {
+        break;
+      }
+      _InterlockedIncrement(&gcDITHitTestWaiters);
+      ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+      KeWaitForSingleObject(gpsemDITHitTestWaiters, UserRequest, 0, 0, 0LL);
+    }
+    InputTraceLogging::Perf::CritAcquire::~CritAcquire((InputTraceLogging::Perf::CritAcquire *)&v20);
+    v14 = PsGetCurrentThreadWin32Thread();
+    if ( v14 )
+    {
+      PerformanceCounter = KeQueryPerformanceCounter(0LL);
+      v16 = PerformanceCounter.QuadPart - *(_QWORD *)(v14 + 8);
+      Instance = UserCritTelemetry::getInstance();
+      UserCritTelemetry::UpdateUserCritInfo(Instance, v16, 1LL);
+      *(LARGE_INTEGER *)(v14 + 8) = PerformanceCounter;
+      if ( (W32kEtwEnabledKeyword & 0x200000010000000LL) != 0
+        && (unsigned __int8)(byte_1C0249748 - 1) > 2u
+        && (qword_1C0249730 & 0x200000010000000LL) != 0
+        && (qword_1C0249738 & 0x200000010000000LL) == qword_1C0249738
+        && (Microsoft_Windows_Win32kEnableBits & 0x800000) != 0 )
+      {
+        McTemplateK0xqx_EtwWriteTransfer(
+          v13,
+          (unsigned int)&AcquiredSharedUserCritEvent,
+          v18,
+          v16,
+          0,
+          (char)gullUserCritAcquireToken);
+      }
+      if ( v16 >= W32kEtwUserCritAcquireDelayTimeoutQPC
+        && PerformanceCounter.QuadPart - W32KEtwUserCritAcquireDelayShLastTelemetryQPC >= W32KEtwUserCritTelemetryThrottleQPC )
+      {
+        if ( (Microsoft_Windows_Win32kEnableBits & 0x1000000000LL) != 0 )
+          McTemplateK0xqx_EtwWriteTransfer(
+            (_DWORD)gullUserCritAcquireToken,
+            (unsigned int)&AcquiredSharedUserCritTelemetryEvent,
+            v18,
+            v16,
+            1000000 * v16 / gliQpcFreq.QuadPart,
+            (char)gullUserCritAcquireToken);
+        _InterlockedExchange64(&W32KEtwUserCritAcquireDelayShLastTelemetryQPC, PerformanceCounter.QuadPart);
+      }
+      *(_QWORD *)(v14 + 16) = _InterlockedIncrement64((volatile signed __int64 *)&gullUserCritAcquireToken);
+    }
+    v0 = g_pDwmApiPort;
+    if ( g_pDwmApiPort )
+      ObfReferenceObject(g_pDwmApiPort);
+    UserSessionSwitchLeaveCrit(v13);
   }
-  return DeviceContext;
+  return v0;
 }

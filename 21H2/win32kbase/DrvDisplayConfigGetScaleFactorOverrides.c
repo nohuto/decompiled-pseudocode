@@ -1,58 +1,54 @@
 /*
- * XREFs of DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0173850
+ * XREFs of DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0146860
  * Callers:
- *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C0070820 (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C00CA9D8 (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0089800 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
-__int64 __fastcall DrvDisplayConfigGetScaleFactorOverrides(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall DrvDisplayConfigGetScaleFactorOverrides(__int64 a1, int a2)
 {
-  int v4; // edi
-  int v5; // r8d
-  struct PDEV *i; // rcx
-  _DWORD *v7; // rdx
-  int v8; // eax
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
+  int v4; // r8d
+  struct PDEV *i; // rbx
+  _DWORD *v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
 
-  v4 = a2;
-  if ( ghsemDriverMgmt )
-    ExEnterPriorityRegionAndAcquireResourceShared(ghsemDriverMgmt, a2);
-  EtwTraceGreLockAcquireSemaphoreShared((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, a3);
+  EngAcquireSemaphore(ghsemDriverMgmt);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
   for ( i = gppdevList; i; i = *(struct PDEV **)i )
   {
     if ( (*((_DWORD *)i + 10) & 0x401) == 1 )
     {
-      v7 = (_DWORD *)*((_QWORD *)i + 319);
-      if ( ((unsigned __int64)(v7 + 1) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
+      v6 = (_DWORD *)*((_QWORD *)i + 322);
+      if ( ((unsigned __int64)(v6 + 1) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
       {
-        v8 = v7[40];
-        if ( (v8 & 0x800000) != 0 )
+        v7 = v6[40];
+        if ( (v7 & 0x800000) != 0 )
         {
-          if ( v4 )
+          if ( a2 )
           {
-            if ( (v8 & 4) != 0 )
-              goto LABEL_9;
+            if ( (v7 & 4) != 0 )
+              goto LABEL_7;
           }
-          else if ( *(_DWORD *)(a1 + 8) == v7[62] && *(_DWORD *)(a1 + 12) == v7[63] && *(_DWORD *)(a1 + 16) == v7[64] )
+          else if ( *(_DWORD *)(a1 + 8) == v6[62] && *(_DWORD *)(a1 + 12) == v6[63] && *(_DWORD *)(a1 + 16) == v6[64] )
           {
-LABEL_9:
-            *(_QWORD *)(a1 + 20) = *((_QWORD *)i + 313);
-            *(_DWORD *)(a1 + 28) = *((_DWORD *)i + 628);
+LABEL_7:
+            *(_QWORD *)(a1 + 20) = *((_QWORD *)i + 317);
+            *(_DWORD *)(a1 + 28) = *((_DWORD *)i + 636);
             break;
           }
         }
       }
     }
   }
-  v9 = i != 0LL ? 0 : 0xC000000D;
-  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v5);
+  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v4);
   if ( ghsemDriverMgmt )
   {
     ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
-    PsLeavePriorityRegion(v10);
+    PsLeavePriorityRegion(v8);
   }
-  return v9;
+  return i == 0LL ? 0xC000000D : 0;
 }

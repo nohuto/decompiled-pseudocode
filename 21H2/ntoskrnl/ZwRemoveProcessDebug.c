@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRemoveProcessDebug @ 0x14041E6C0
+ * XREFs of ZwRemoveProcessDebug @ 0x1403FD200
  * Callers:
  *     <none>
  * Callees:

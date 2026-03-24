@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000D1C0
+ * XREFs of HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000C0E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBREG_UxdShutdown @ 0x1C0086BF0 (HUBREG_UxdShutdown.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_UxdShutdown @ 0x1C008111C (HUBREG_UxdShutdown.c)
  */
 
 __int64 __fastcall HUBFDO_EvtDeviceShutdownPreprocess(__int64 a1, IRP *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall HUBFDO_EvtDeviceShutdownPreprocess(__int64 a1, IRP *a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0069198);
+         off_1C0066170);
   HUBREG_UxdShutdown(v3);
   a2->IoStatus.Status = 0;
   IofCompleteRequest(a2, 0);

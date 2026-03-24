@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0165054
+ * XREFs of ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C01462C0
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
  * Callees:
- *     GetPathsModality @ 0x1C0015BF8 (GetPathsModality.c)
- *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C0018F8C (--8@YA_NAEBU_LUID@@0@Z.c)
- *     ?ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N1PEAUD3DKMT_GETPATHSMODALITY@@PEA_N@Z @ 0x1C015FE7C (-ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@.c)
- *     ?ConvertDisplayConfigScalingToPathModalityForPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEA_N@Z @ 0x1C016039C (-ConvertDisplayConfigScalingToPathModalityForPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAU.c)
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C007EBD8 (--8@YA_NAEBU_LUID@@0@Z.c)
+ *     GetPathsModality @ 0x1C009E934 (GetPathsModality.c)
+ *     ?ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N1PEAUD3DKMT_GETPATHSMODALITY@@PEA_N@Z @ 0x1C0143060 (-ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@.c)
+ *     ?ConvertDisplayConfigScalingToPathModalityForPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEA_N@Z @ 0x1C014353C (-ConvertDisplayConfigScalingToPathModalityForPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAU.c)
  */
 
 __int64 __fastcall SetDisplayConfigHandleOnlyProvidedPath(
@@ -22,9 +22,14 @@ __int64 __fastcall SetDisplayConfigHandleOnlyProvidedPath(
   unsigned int v11; // r14d
   unsigned int i; // ebp
   char *v13; // rdi
-  int v14; // r13d
+  __int64 v14; // rdx
   __int64 v15; // rcx
-  int v16; // [rsp+44h] [rbp-34h]
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  int v19; // r13d
+  __int64 v20; // rcx
+  int v21; // [rsp+44h] [rbp-34h]
 
   v5 = a3;
   result = GetPathsModality((__int64)a1, a2, 0x40u, 0);
@@ -36,21 +41,29 @@ __int64 __fastcall SetDisplayConfigHandleOnlyProvidedPath(
   v9 = *a2;
   LODWORD(v10) = 0;
   v11 = 0;
-  v16 = 0;
+  v21 = 0;
   for ( i = *((unsigned __int16 *)*a2 + 10); v11 < *((unsigned __int16 *)*a2 + 10); ++v11 )
   {
-    v13 = (char *)v9 + 296 * v11;
-    if ( operator==((_DWORD *)v13 + 18, (_DWORD *)a1 + 4)
-      && *((_DWORD *)v13 + 20) == *((_DWORD *)a1 + 6)
-      && *((_DWORD *)v13 + 21) == *((_DWORD *)a1 + 7) )
+    v13 = (char *)v9 + 272 * v11;
+    if ( operator==((_DWORD *)v13 + 16, (_DWORD *)a1 + 4)
+      && *((_DWORD *)v13 + 18) == *((_DWORD *)a1 + 6)
+      && *((_DWORD *)v13 + 19) == *((_DWORD *)a1 + 7) )
     {
-      if ( (*((_DWORD *)v13 + 14) & 0x800LL) == 0 )
-        WdLogSingleEntry0(1LL);
-      v10 = *((_QWORD *)v13 + 25);
-      v16 = HIDWORD(v10);
-      if ( !_bittest64((const signed __int64 *)v13 + 7, 0x32u) )
-        WdLogSingleEntry0(1LL);
-      v14 = *((_DWORD *)v13 + 60);
+      v16 = *((_QWORD *)v13 + 6);
+      if ( (v16 & 0x800) == 0 )
+      {
+        v17 = WdLogNewEntry5_WdAssertion(v15, v14);
+        WdLogEvent5_WdAssertion(v17);
+        v16 = *((_QWORD *)v13 + 6);
+      }
+      v10 = *((_QWORD *)v13 + 24);
+      v21 = HIDWORD(v10);
+      if ( (v16 & 0x4000000000000LL) == 0 )
+      {
+        v18 = WdLogNewEntry5_WdAssertion(0x4000000000000LL, v14);
+        WdLogEvent5_WdAssertion(v18);
+      }
+      v19 = *((_DWORD *)v13 + 58);
       i = v11;
       result = ConvertDisplayConfigPathIntoExistingPathModalityAtIdx(a1, v11, 0xFFFFFFFF, 0, 0, *a2, a3);
       if ( (int)result < 0 )
@@ -58,15 +71,15 @@ __int64 __fastcall SetDisplayConfigHandleOnlyProvidedPath(
         *(_DWORD *)a4 = 34;
         return result;
       }
-      *((_DWORD *)v13 + 60) = v14;
-      *((_QWORD *)v13 + 7) |= 0x4000000000000uLL;
+      *((_DWORD *)v13 + 58) = v19;
+      *((_QWORD *)v13 + 6) |= 0x4000000000000uLL;
       v5 = a3;
     }
     else
     {
       result = ConvertDisplayConfigScalingToPathModalityForPath(
                  a1,
-                 (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v13 + 56),
+                 (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v13 + 48),
                  v5);
       if ( (int)result < 0 )
       {
@@ -78,8 +91,8 @@ __int64 __fastcall SetDisplayConfigHandleOnlyProvidedPath(
   }
   if ( i < *((unsigned __int16 *)v9 + 10) )
   {
-    v15 = 296LL * i;
-    if ( (_DWORD)v10 == *(_DWORD *)((char *)v9 + v15 + 200) && v16 == *(_DWORD *)((char *)v9 + v15 + 204) )
+    v20 = 272LL * i;
+    if ( (_DWORD)v10 == *(_DWORD *)((char *)v9 + v20 + 192) && v21 == *(_DWORD *)((char *)v9 + v20 + 196) )
       return 0LL;
   }
   *(_DWORD *)a4 = 33;

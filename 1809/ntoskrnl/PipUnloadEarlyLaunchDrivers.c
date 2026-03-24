@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwUnloadKey2 @ 0x1401BB990 (ZwUnloadKey2.c)
- *     IopUnloadDriver @ 0x1407089E8 (IopUnloadDriver.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
+ *     IopUnloadDriver @ 0x1407089C8 (IopUnloadDriver.c)
  */
 
 __int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)

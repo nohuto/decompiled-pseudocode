@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetUltraMdlContext @ 0x1405B719C
+ * XREFs of MiGetUltraMdlContext @ 0x14055F368
  * Callers:
- *     MmMapMdl @ 0x140592400 (MmMapMdl.c)
+ *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
  * Callees:
- *     MiDeleteUltraMapContext @ 0x1402682BC (MiDeleteUltraMapContext.c)
- *     MiCreateUltraThreadContextHelper @ 0x14026A5DC (MiCreateUltraThreadContextHelper.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402E3164 (MiCreateUltraThreadContextHelper.c)
+ *     MiDeleteUltraMapContext @ 0x1402E6634 (MiDeleteUltraMapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY MiGetUltraMdlContext()
@@ -33,18 +33,18 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   memset(&LockHandle, 0, sizeof(LockHandle));
   v0 = 0;
   v1 = __rdtsc() >> 4;
-  v2 = 8LL * KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
+  v2 = 8LL * KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
   do
   {
     LODWORD(v1) = v1 & 7;
-    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C530C8 + ((v2 + (unsigned int)v1) << 6)));
+    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC38 + ((v2 + (unsigned int)v1) << 6)));
     if ( result )
       return result;
     LOBYTE(v1) = v1 + 1;
     ++v0;
   }
   while ( v0 < 8 );
-  if ( (unsigned int)dword_140C530C0 >= 0x80 )
+  if ( (unsigned int)dword_140C4EC30 >= 0x80 )
     return 0LL;
   Pool = MiAllocatePool(64, 0x28uLL, 0x6D55694Du);
   v5 = Pool;
@@ -56,11 +56,11 @@ PSLIST_ENTRY MiGetUltraMdlContext()
     return 0LL;
   }
   v6 = 0;
-  KeAcquireInStackQueuedSpinLock(&qword_140C53080, &LockHandle);
-  if ( (unsigned int)dword_140C530C0 >= 0x80 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C4EBF0, &LockHandle);
+  if ( (unsigned int)dword_140C4EC30 >= 0x80 )
     v6 = 1;
   else
-    ++dword_140C530C0;
+    ++dword_140C4EC30;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -83,7 +83,7 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   __writecr8(OldIrql);
   if ( v6 )
   {
-    MiDeleteUltraMapContext((__int64)v5 + 8, 3LL);
+    MiDeleteUltraMapContext((__int64)v5 + 8, 3u);
     ExFreePoolWithTag(v5, 0);
     return 0LL;
   }

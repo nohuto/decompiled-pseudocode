@@ -1,15 +1,13 @@
 /*
- * XREFs of ?ProcessSetSourceVisual@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_SETSOURCEVISUAL@@@Z @ 0x1800E5250
+ * XREFs of ?ProcessSetSourceVisual@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_SETSOURCEVISUAL@@@Z @ 0x1801F2B68
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x180047320 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CVisualSurface::ProcessSetSourceVisual(
@@ -17,12 +15,11 @@ __int64 __fastcall CVisualSurface::ProcessSetSourceVisual(
         struct CResourceTable *a2,
         const struct tagMILCMD_VISUALSURFACE_SETSOURCEVISUAL *a3)
 {
-  struct CResource *Resource; // rbx
+  struct CResource *Resource; // rdi
   unsigned int v5; // edx
   struct CResource *v7; // rdx
-  int VisualTree; // ebx
-  CVisual *v9; // rbx
-  __int64 v11; // rdx
+  int v8; // eax
+  unsigned int v9; // edi
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
   Resource = 0LL;
@@ -30,39 +27,23 @@ __int64 __fastcall CVisualSurface::ProcessSetSourceVisual(
   if ( v5 )
   {
     Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v5, 0xC3u);
-    *((_BYTE *)this + 201) = 0;
+    *((_BYTE *)this + 153) = 0;
   }
-  v7 = (struct CResource *)*((_QWORD *)this + 8);
-  if ( v7 == Resource )
-    goto LABEL_7;
-  CResource::UnRegisterNotifierInternal(this, v7);
-  *((_QWORD *)this + 8) = 0LL;
-  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((char *)this + 72);
-  *((_QWORD *)this + 8) = Resource;
-  if ( !Resource )
-    goto LABEL_7;
-  VisualTree = CResource::RegisterNotifier(this, Resource);
-  if ( VisualTree < 0 )
+  v7 = (struct CResource *)*((_QWORD *)this + 7);
+  if ( v7 == Resource
+    || (CResource::UnRegisterNotifierInternal(this, v7), (*((_QWORD *)this + 7) = Resource) == 0LL)
+    || (v8 = CResource::RegisterNotifier(this, Resource), v9 = v8, v8 >= 0) )
   {
-    v11 = 133LL;
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
+    return 0LL;
   }
   else
   {
-    v9 = (CVisual *)*((_QWORD *)this + 8);
-    wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((char *)this + 72);
-    VisualTree = CVisual::GetVisualTree(v9, (struct CVisualTree **)this + 9);
-    if ( VisualTree >= 0 )
-    {
-LABEL_7:
-      CResource::NotifyOnChanged((__int64)this, 0, 0LL);
-      return 0LL;
-    }
-    v11 = 136LL;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x77,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
+      (const char *)(unsigned int)v8);
+    return v9;
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)v11,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
-    (const char *)(unsigned int)VisualTree);
-  return (unsigned int)VisualTree;
 }

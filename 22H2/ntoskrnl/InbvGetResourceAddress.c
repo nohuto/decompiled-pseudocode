@@ -1,16 +1,16 @@
 /*
- * XREFs of InbvGetResourceAddress @ 0x14054E660
+ * XREFs of InbvGetResourceAddress @ 0x1404FEC40
  * Callers:
- *     DisplayBootBitmap @ 0x1403A9958 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403B46F0 (DisplayBootBitmap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvGetResourceAddress()
 {
   __int64 (*v0)(void); // rax
 
-  if ( qword_140C6AC58 && (v0 = *(__int64 (**)(void))(qword_140C6AC58 + 128)) != 0LL )
+  if ( qword_140C50B78 && (v0 = *(__int64 (**)(void))(qword_140C50B78 + 128)) != 0LL )
     return v0();
   else
     return 0LL;

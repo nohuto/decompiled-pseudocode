@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Evict@DXGDEVICE@@QEAAJPEAVDXGALLOCATIONREFERENCE@@IUD3DDDI_EVICT_FLAGS@@PEA_K@Z @ 0x1C01A289C
+ * XREFs of ?Evict@DXGDEVICE@@QEAAJPEAVDXGALLOCATIONREFERENCE@@IUD3DDDI_EVICT_FLAGS@@PEA_K@Z @ 0x1C0155128
  * Callers:
- *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C01A2B9C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C0154B3C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?UmdManagesResidency@DXGDEVICE@@QEBAEXZ @ 0x1C00078E4 (-UmdManagesResidency@DXGDEVICE@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?UmdManagesResidency@DXGDEVICE@@QEBAEXZ @ 0x1C000E5CC (-UmdManagesResidency@DXGDEVICE@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGDEVICE::Evict(
@@ -15,47 +14,42 @@ __int64 __fastcall DXGDEVICE::Evict(
         struct D3DDDI_EVICT_FLAGS a4,
         unsigned __int64 *a5)
 {
-  unsigned int v7; // r8d
-  char v8; // r9
-  int v9; // esi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  unsigned int v9; // r8d
+  char v10; // r9
+  int v11; // esi
   struct DXGALLOCATIONREFERENCE *i; // rbp
-  __int64 v12; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v14; // rax
+  _QWORD v15[3]; // [rsp+40h] [rbp-18h] BYREF
 
   if ( DXGDEVICE::UmdManagesResidency(this) )
   {
-    v9 = v8 & 1 | 2;
-    if ( (v8 & 2) != 0 )
-      v9 = v8 & 1;
-    for ( i = (struct DXGALLOCATIONREFERENCE *)((char *)a2 + 8 * v7);
+    v11 = v10 & 1 | 2;
+    if ( (v10 & 2) != 0 )
+      v11 = v10 & 1;
+    for ( i = (struct DXGALLOCATIONREFERENCE *)((char *)a2 + 8 * v9);
           a2 != i;
           a2 = (struct DXGALLOCATIONREFERENCE *)((char *)a2 + 8) )
     {
-      v12 = *(_QWORD *)(*(_QWORD *)a2 + 24LL);
-      if ( v12 )
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64 *, __int64, int, unsigned __int64 *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL)
-                                                                                            + 776LL))(
-          *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-          *((_QWORD *)this + 99),
-          &v12,
+      v15[0] = *(_QWORD *)(*(_QWORD *)a2 + 24LL);
+      if ( v15[0] )
+        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD *, __int64, int, unsigned __int64 *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL)
+                                                                                           + 784LL))(
+          *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+          *((_QWORD *)this + 95),
+          v15,
           1LL,
-          v9,
+          v11,
           a5);
     }
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Calling Evict on a device that was not created with the UMD residency flag. Device=0x%p",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v14 + 24) = this;
+    WdLogEvent5_WdError(v14);
     return 3221225659LL;
   }
 }

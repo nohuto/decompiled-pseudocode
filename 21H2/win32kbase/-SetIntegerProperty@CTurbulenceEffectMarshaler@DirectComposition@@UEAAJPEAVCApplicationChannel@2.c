@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0217440
+ * XREFs of ?SetIntegerProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E1280
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0215D90 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DFF40 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
  */
 
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetIntegerProperty(
@@ -18,13 +18,13 @@ __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetIntegerProp
   switch ( a3 )
   {
     case 3:
-      *((_DWORD *)this + 36) = a4;
+      *((_DWORD *)this + 34) = a4;
       goto LABEL_10;
     case 4:
-      *((_DWORD *)this + 37) = a4;
+      *((_DWORD *)this + 35) = a4;
       goto LABEL_10;
     case 5:
-      *((_DWORD *)this + 38) = a4;
+      *((_DWORD *)this + 36) = a4;
 LABEL_10:
       v5 = a5;
       goto LABEL_11;
@@ -32,7 +32,7 @@ LABEL_10:
   v5 = a5;
   if ( a3 != 6 )
     return DirectComposition::CFilterEffectMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
-  *((_DWORD *)this + 39) = a4;
+  *((_DWORD *)this + 37) = a4;
 LABEL_11:
   *v5 = 1;
   return 0LL;

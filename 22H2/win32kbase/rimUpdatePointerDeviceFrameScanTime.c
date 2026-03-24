@@ -1,31 +1,32 @@
 /*
- * XREFs of rimUpdatePointerDeviceFrameScanTime @ 0x1C00E3422
+ * XREFs of rimUpdatePointerDeviceFrameScanTime @ 0x1C017CF28
  * Callers:
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C01A8348 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01795E8 (rimDoProcessAnyPointerDeviceInput.c)
  * Callees:
- *     rimSimulatedPointerDeviceScanTime @ 0x1C00E3334 (rimSimulatedPointerDeviceScanTime.c)
- *     rimExtractScantime @ 0x1C01A9EA8 (rimExtractScantime.c)
+ *     rimExtractScantime @ 0x1C017AE8C (rimExtractScantime.c)
+ *     rimSimulatedPointerDeviceScanTime @ 0x1C017CE3C (rimSimulatedPointerDeviceScanTime.c)
  */
 
-void __fastcall rimUpdatePointerDeviceFrameScanTime(__int64 a1, int a2, int a3)
+void __fastcall rimUpdatePointerDeviceFrameScanTime(__int64 a1, __int64 a2, char *a3, unsigned int a4)
 {
-  __int64 v3; // rbx
-  int v7; // eax
-  int v8; // [rsp+50h] [rbp+8h] BYREF
-  LARGE_INTEGER PerformanceCounter; // [rsp+68h] [rbp+20h] BYREF
+  _DWORD *v4; // rbx
+  int v9; // eax
+  __int64 v10[2]; // [rsp+40h] [rbp-28h] BYREF
+  int v11; // [rsp+78h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 472);
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v7 = *(_DWORD *)(v3 + 360);
-  v8 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  if ( (v7 & 0x80u) == 0 )
-    rimSimulatedPointerDeviceScanTime(v3, (__int64 *)&PerformanceCounter, &v8);
+  v4 = *(_DWORD **)(a2 + 480);
+  v10[0] = KeQueryPerformanceCounter(0LL).QuadPart;
+  v9 = v4[78];
+  v11 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  if ( (v9 & 0x80u) == 0 )
+    rimSimulatedPointerDeviceScanTime(a1, (__int64)v4, v10, &v11);
   else
     rimExtractScantime(
-      v3,
-      *(_QWORD *)(*(_QWORD *)(a1 + 456) + 16LL),
-      a2,
+      a1,
+      v4,
+      *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)(a2 + 464) + 16LL),
       a3,
-      (__int64)&PerformanceCounter,
-      (__int64)&v8);
+      a4,
+      (unsigned __int64 *)v10,
+      (unsigned int *)&v11);
 }

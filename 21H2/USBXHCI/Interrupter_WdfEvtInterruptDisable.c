@@ -1,12 +1,12 @@
 /*
- * XREFs of Interrupter_WdfEvtInterruptDisable @ 0x1C000CBF0
+ * XREFs of Interrupter_WdfEvtInterruptDisable @ 0x1C000A840
  * Callers:
  *     <none>
  * Callees:
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     Interrupter_InterruptDisable @ 0x1C000CC70 (Interrupter_InterruptDisable.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     Interrupter_InterruptDisable @ 0x1C000A8B8 (Interrupter_InterruptDisable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Interrupter_WdfEvtInterruptDisable(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall Interrupter_WdfEvtInterruptDisable(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061310);
+         off_1C0060310);
   if ( KeGetCurrentIrql() < 2u )
     v1 = Controller_RaiseAndTrackIrql(*(_QWORD *)(v2 + 8));
   Interrupter_InterruptDisable(v2);

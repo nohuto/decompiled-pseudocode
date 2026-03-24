@@ -1,37 +1,34 @@
 /*
- * XREFs of HalpTimerClockIpiRoutine @ 0x1402C4560
+ * XREFs of HalpTimerClockIpiRoutine @ 0x140221520
  * Callers:
  *     <none>
  * Callees:
- *     KeClockInterruptNotify @ 0x1402C4670 (KeClockInterruptNotify.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpScanForProfilingCorruption @ 0x14045B264 (HalpScanForProfilingCorruption.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050B890 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C26A0 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerClockIpiRoutine(__int64 a1)
 {
-  __int64 v1; // rdi
-  _QWORD *v3; // rbx
+  __int64 CurrentPrcb; // rax
+  _QWORD *v2; // rbx
 
-  KeClockInterruptNotify(*(_QWORD *)(a1 + 136), *(unsigned __int8 *)(*(_QWORD *)(a1 + 136) + 41LL), 2LL);
-  if ( KeGetCurrentPrcb()->ClockOwner && HalpWatchdogTimer )
+  KeClockInterruptNotify(*(_QWORD *)(a1 + 136), *(unsigned __int8 *)(*(_QWORD *)(a1 + 136) + 41LL));
+  CurrentPrcb = (__int64)KeGetCurrentPrcb();
+  if ( *(_BYTE *)(CurrentPrcb + 33) && HalpWatchdogTimer )
   {
+    CurrentPrcb = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
     if ( MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset > (unsigned __int64)HalpTimerWatchdogResetCount )
-      off_140C01CD0[0]();
+      CurrentPrcb = off_140C008C0[0]();
     if ( HalpTimerWatchdogResetCount == -1 )
-      HalpTimerWatchdogTriggerSystemReset(0LL);
+      CurrentPrcb = HalpTimerWatchdogTriggerSystemReset(0LL);
   }
-  if ( SLODWORD(KeGetCurrentPrcb()->HalReserved[2]) <= 0 || (KeGetCurrentPrcb()->HalReserved[2] & 1) != 0 )
-    return 1;
-  LODWORD(v1) = KeGetPcr()->Prcb.Number;
-  v3 = (_QWORD *)(HalpCounterSetInfo + 24 * v1);
-  if ( MEMORY[0xFFFFF78000000008] - v3[2] >= 0x4C4B40uLL )
+  LODWORD(CurrentPrcb) = KeGetPcr()->Prcb.Number;
+  v2 = (_QWORD *)(HalpCounterSetInfo + 24 * CurrentPrcb);
+  if ( (_QWORD *)*v2 != v2 && MEMORY[0xFFFFF78000000008] - v2[2] >= 0x4C4B40uLL )
   {
-    if ( (_QWORD *)*v3 != v3 )
-      ((void (__fastcall *)(_QWORD, _QWORD))off_140C01BE8[0])(0LL, 0LL);
-    HalpScanForProfilingCorruption((unsigned int)v1);
-    v3[2] = MEMORY[0xFFFFF78000000008];
+    ((void (__fastcall *)(_QWORD, _QWORD))off_140C007D8[0])(0LL, 0LL);
+    v2[2] = MEMORY[0xFFFFF78000000008];
   }
   return 1;
 }

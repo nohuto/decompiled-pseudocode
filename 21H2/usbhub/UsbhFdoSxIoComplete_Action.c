@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhFdoSxIoComplete_Action @ 0x1C00066A0
+ * XREFs of UsbhFdoSxIoComplete_Action @ 0x1C000DFA0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubPowerEvent @ 0x1C000C730 (UsbhEtwLogHubPowerEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
- *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003BE4C (UsbhPoStartNextPowerIrp_Fdo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubPowerEvent @ 0x1C0012210 (UsbhEtwLogHubPowerEvent.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003D17C (UsbhPoStartNextPowerIrp_Fdo.c)
  */
 
 __int64 __fastcall UsbhFdoSxIoComplete_Action(PDEVICE_OBJECT DeviceObject, PIRP Irp, _QWORD *Context)
@@ -17,8 +17,8 @@ __int64 __fastcall UsbhFdoSxIoComplete_Action(PDEVICE_OBJECT DeviceObject, PIRP 
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   __int64 v7; // rax
   int LowPart; // ebp
-  __int64 v9; // r13
-  __int64 v10; // r12
+  __int64 v9; // r12
+  __int64 v10; // r13
   __int64 v11; // rbx
   KIRQL v12; // al
   int v13; // ecx
@@ -109,7 +109,7 @@ __int64 __fastcall UsbhFdoSxIoComplete_Action(PDEVICE_OBJECT DeviceObject, PIRP 
     return 3221225494LL;
   Log((_DWORD)DeviceObject, 16, 1937261906, v20, (__int64)Irp);
   Irp->IoStatus.Status = v21;
-  UsbhAcquireFdoPwrLock((__int64)DeviceObject, v10, 117, 846754665);
+  UsbhAcquireFdoPwrLock(DeviceObject, v10, 117LL, 846754665LL);
   *(_DWORD *)(FdoExt(DeviceObject) + 4212) = v23;
   UsbhFdoPower_PowerFailureEntry((_DWORD)DeviceObject);
   UsbhPoStartNextPowerIrp_Fdo(DeviceObject, Irp, 2519LL);

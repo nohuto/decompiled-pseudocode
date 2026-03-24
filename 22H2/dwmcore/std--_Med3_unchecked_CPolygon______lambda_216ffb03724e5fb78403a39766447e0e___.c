@@ -1,7 +1,7 @@
 /*
- * XREFs of std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1802592A8
+ * XREFs of std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801F9EB0
  * Callers:
- *     std::_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180259148 (std--_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801F9F0C (std--_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e_.c)
  * Callees:
  *     <none>
  */
@@ -11,27 +11,30 @@ __int64 __fastcall std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb7840
         __int64 *a2,
         __int64 *a3)
 {
-  __int64 v4; // r10
-  __int64 v5; // r8
+  __int64 v3; // r9
+  __int64 v5; // rcx
+  __int64 v6; // rcx
   __int64 result; // rax
 
-  v4 = *a2;
-  if ( *(_DWORD *)(*a2 + 264) < *(_DWORD *)(*a1 + 264) )
+  v3 = *a2;
+  v5 = *a1;
+  if ( *(_DWORD *)(*a2 + 264) < *(_DWORD *)(v5 + 264) )
   {
-    *a2 = *a1;
-    *a1 = v4;
-  }
-  v5 = *a3;
-  result = *(unsigned int *)(*a2 + 264);
-  if ( *(_DWORD *)(v5 + 264) < (unsigned int)result )
-  {
-    *a3 = *a2;
     *a2 = v5;
+    *a1 = v3;
+    v3 = *a2;
+  }
+  v6 = *a3;
+  result = *(unsigned int *)(v3 + 264);
+  if ( *(_DWORD *)(*a3 + 264) < (unsigned int)result )
+  {
+    *a3 = v3;
+    *a2 = v6;
     result = *(unsigned int *)(*a1 + 264);
-    if ( *(_DWORD *)(v5 + 264) < (unsigned int)result )
+    if ( *(_DWORD *)(v6 + 264) < (unsigned int)result )
     {
       *a2 = *a1;
-      *a1 = v5;
+      *a1 = v6;
     }
   }
   return result;

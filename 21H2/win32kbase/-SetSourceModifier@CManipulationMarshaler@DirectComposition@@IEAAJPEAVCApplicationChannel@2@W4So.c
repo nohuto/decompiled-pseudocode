@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetSourceModifier@CManipulationMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@W4SourceModifierIndex@@PEAVCConditionalExpressionMarshaler@2@PEA_N@Z @ 0x1C021AD38
+ * XREFs of ?SetSourceModifier@CManipulationMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@W4SourceModifierIndex@@PEAVCConditionalExpressionMarshaler@2@PEA_N@Z @ 0x1C01E4888
  * Callers:
- *     ?SetBufferProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021A9E0 (-SetBufferProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     ?SetBufferProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E4550 (-SetBufferProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C009BA0C (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C005FF10 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C01D4D04 (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
  */
 
 __int64 __fastcall DirectComposition::CManipulationMarshaler::SetSourceModifier(
@@ -28,7 +28,7 @@ __int64 __fastcall DirectComposition::CManipulationMarshaler::SetSourceModifier(
     return 3221225485LL;
   _mm_lfence();
   v10 = a3;
-  v11 = *(_QWORD *)(a1 + 8LL * a3 + 72);
+  v11 = *(_QWORD *)(a1 + 8LL * a3 + 64);
   if ( v11 )
     v12 = *(struct DirectComposition::CResourceMarshaler **)(v11 + 16);
   else
@@ -39,8 +39,8 @@ __int64 __fastcall DirectComposition::CManipulationMarshaler::SetSourceModifier(
     {
       DirectComposition::CApplicationChannel::ReleaseWeakReference(
         a2,
-        *(struct DirectComposition::CWeakReferenceBase **)(a1 + 8LL * a3 + 72));
-      *(_QWORD *)(a1 + 8 * v10 + 72) = 0LL;
+        *(struct DirectComposition::CWeakReferenceBase **)(a1 + 8LL * a3 + 64));
+      *(_QWORD *)(a1 + 8 * v10 + 64) = 0LL;
     }
     return (unsigned int)WeakReferenceBase;
   }
@@ -57,7 +57,7 @@ LABEL_10:
       DirectComposition::CApplicationChannel::ReleaseWeakReference(
         a2,
         (struct DirectComposition::CWeakReferenceBase *)v11);
-    *(_QWORD *)(a1 + 8 * v10 + 72) = v13;
+    *(_QWORD *)(a1 + 8 * v10 + 64) = v13;
     *(_DWORD *)(a1 + 16) |= 0x80u;
     *(_BYTE *)v5 = 1;
   }

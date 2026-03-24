@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DpiOpmLogSetLevel@@YAXJII@Z @ 0x1C0064D40
+ * XREFs of ?DpiOpmLogSetLevel@@YAXJII@Z @ 0x1C00581C0
  * Callers:
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0020F80 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CC94 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@D@@@Z @ 0x1C00649C0 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U-$_tlgWrapSz@D@@@-$_tlgWrit.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0057E1C (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U-$_tlgWrapSz@D@@@-$_tlgWrit.c)
  */
 
 void __fastcall DpiOpmLogSetLevel(int a1, int a2, int a3)
@@ -20,9 +20,9 @@ void __fastcall DpiOpmLogSetLevel(int a1, int a2, int a3)
   __int64 v14; // [rsp+68h] [rbp-8h] BYREF
   int v15; // [rsp+98h] [rbp+28h] BYREF
 
-  if ( (unsigned int)dword_1C012F8A8 > 5 )
+  if ( (unsigned int)dword_1C00B19E8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C012F8A8, 0x400000100000LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B19E8, 0x400000100000LL) )
     {
       CurrentProcess = PsGetCurrentProcess();
       ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName(CurrentProcess);
@@ -34,7 +34,7 @@ void __fastcall DpiOpmLogSetLevel(int a1, int a2, int a3)
       v14 = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
         v8,
-        byte_1C0099E62,
+        byte_1C0080BB6,
         v9,
         (__int64)&v14,
         (__int64)&v13,

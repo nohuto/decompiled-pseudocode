@@ -1,14 +1,14 @@
 /*
- * XREFs of GreTextInitialized @ 0x1C00C4278
+ * XREFs of GreTextInitialized @ 0x1C00E3548
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
- *     GetCharDimensions @ 0x1C00C40F8 (GetCharDimensions.c)
- *     CreateBitmapStrip @ 0x1C00C6030 (CreateBitmapStrip.c)
- *     xxxInitWindowStation @ 0x1C00D42E4 (xxxInitWindowStation.c)
- *     ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01E489C (-EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z.c)
- *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C021CC64 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     xxxInitWindowStation @ 0x1C000C0B8 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
+ *     CreateBitmapStrip @ 0x1C00E29D0 (CreateBitmapStrip.c)
+ *     GetCharDimensions @ 0x1C00E33C8 (GetCharDimensions.c)
+ *     ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01EA10C (-EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0223290 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
  * Callees:
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00C5360 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E411C (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
  */
 
 _BOOL8 GreTextInitialized()

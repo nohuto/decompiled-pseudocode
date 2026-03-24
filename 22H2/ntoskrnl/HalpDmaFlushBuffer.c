@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpDmaFlushBuffer @ 0x140510CD0
+ * XREFs of HalpDmaFlushBuffer @ 0x1404C749C
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x1403CC780 (HalBuildScatterGatherListV2.c)
- *     IoMapTransferInternal @ 0x14045AE5E (IoMapTransferInternal.c)
- *     IoFlushAdapterBuffersV2 @ 0x14045CF00 (IoFlushAdapterBuffersV2.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x14045D916 (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x14045DA2C (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x14045DB88 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x14045DCC8 (HalpDmaMapScatterTransferV2.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1404FFB34 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404FFC84 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x1405000CC (HalpDmaMapContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x1405001F0 (HalpDmaMapScatterTransferV3.c)
- *     HalMapTransferEx @ 0x140514730 (HalMapTransferEx.c)
+ *     HalBuildScatterGatherListV2 @ 0x1402E4240 (HalBuildScatterGatherListV2.c)
+ *     IoMapTransferInternal @ 0x1403885EC (IoMapTransferInternal.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389760 (IoFlushAdapterBuffersV2.c)
+ *     HalMapTransferEx @ 0x14039EFE0 (HalMapTransferEx.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404B753C (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404B768C (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404B7A1C (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404B7B40 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x1404CD76C (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x1404CD888 (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1404CD9EC (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x1404CDB44 (HalpDmaMapScatterTransferV2.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     IoBuildPartialMdl @ 0x140324960 (IoBuildPartialMdl.c)
- *     KeFlushIoBuffers @ 0x140346DC0 (KeFlushIoBuffers.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140510F08 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     IoBuildPartialMdl @ 0x1402EE630 (IoBuildPartialMdl.c)
+ *     KeFlushIoBuffers @ 0x1403007D0 (KeFlushIoBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C76D0 (HalpDmaFlushBufferWithEmergencyResources.c)
  */
 
 void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsigned int a4, char a5, char a6)
@@ -27,11 +27,11 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
   __int64 v6; // r12
   unsigned __int8 CurrentIrql; // bp
   PVOID v10; // rax
-  unsigned __int64 v11; // r8
+  unsigned __int64 v11; // r10
   unsigned __int8 v12; // di
-  _DWORD *SchedulerAssist; // r10
-  int v14; // eax
-  struct _MDL *v15; // r15
+  _DWORD *SchedulerAssist; // r9
+  struct _MDL *v14; // r15
+  __int64 v15; // r8
   __int64 v16; // r9
   unsigned __int8 v17; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -58,37 +58,40 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
         if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          v14 = 4;
-          if ( v12 != 2 )
-            v14 = (-1LL << (v12 + 1)) & 4;
-          SchedulerAssist[5] |= v14;
+          SchedulerAssist[5] |= (-1 << (v12 + 1)) & 4;
         }
       }
     }
-    v15 = *(struct _MDL **)(qword_140C70C90 + 8LL * KeGetPcr()->Prcb.Number);
-    v15->Next = 0LL;
-    v15->Size = 8 * (v11 + 6);
-    v15->MdlFlags = 0;
-    v15->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
-    v15->ByteOffset = a3 & 0xFFF;
-    v15->ByteCount = v6;
-    IoBuildPartialMdl((PMDL)a2, v15, (PVOID)a3, v6);
+    v14 = *(struct _MDL **)(qword_140C53F20 + 8LL * KeGetPcr()->Prcb.Number);
+    v14->Next = 0LL;
+    v14->MdlFlags = 0;
+    v14->Size = 8 * (v11 + 6);
+    v14->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
+    v14->ByteOffset = a3 & 0xFFF;
+    v14->ByteCount = v6;
+    IoBuildPartialMdl((PMDL)a2, v14, (PVOID)a3, v6);
     if ( !a6 )
-      KeFlushIoBuffers((ULONG_PTR)v15, a5 == 0, 1, v16);
+    {
+      LOBYTE(v15) = 1;
+      KeFlushIoBuffers((ULONG_PTR)v14, a5 == 0, v15, v16);
+    }
     if ( CurrentIrql < 2u )
     {
       if ( KiIrqlFlags )
       {
-        v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v19 = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << (v12 + 1));
-          v21 = (v20 & v19[5]) == 0;
-          v19[5] &= v20;
-          if ( v21 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v17 = KeGetCurrentIrql();
+          if ( v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v19 = CurrentPrcb->SchedulerAssist;
+            v20 = ~(unsigned __int16)(-1LL << (v12 + 1));
+            v21 = (v20 & v19[5]) == 0;
+            v19[5] &= v20;
+            if ( v21 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v12);

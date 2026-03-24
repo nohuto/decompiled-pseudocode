@@ -1,8 +1,8 @@
 /*
- * XREFs of ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01CF910
+ * XREFs of ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01D3F74
  * Callers:
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C00A1E2C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
- *     NtUserLinkDpiCursor @ 0x1C01F8CB0 (NtUserLinkDpiCursor.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024C7C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     NtUserLinkDpiCursor @ 0x1C01FE4C0 (NtUserLinkDpiCursor.c)
  * Callees:
  *     <none>
  */

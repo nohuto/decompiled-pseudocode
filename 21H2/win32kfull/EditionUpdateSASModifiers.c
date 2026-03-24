@@ -1,23 +1,35 @@
 /*
- * XREFs of EditionUpdateSASModifiers @ 0x1C010A490
+ * XREFs of EditionUpdateSASModifiers @ 0x1C011F370
  * Callers:
  *     <none>
  * Callees:
- *     ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0207BBC (-VKTOMODIFIERS@@YAIE@Z.c)
+ *     ?VKTOMODIFIERS@@YAIE@Z @ 0x1C020756C (-VKTOMODIFIERS@@YAIE@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-void __fastcall EditionUpdateSASModifiers(int a1, unsigned __int8 a2, __int16 a3)
+unsigned int __fastcall EditionUpdateSASModifiers(int a1, unsigned __int8 a2, __int16 a3)
 {
-  unsigned int v3; // r8d
-  int v4; // r9d
+  unsigned int result; // eax
+  unsigned int v4; // r8d
+  int v5; // r9d
 
-  if ( (!a1 || gProtocolType && gptiCurrent == gptiRit) && (a3 & 0x200) == 0 )
+  if ( !a1 || (result = gProtocolType, gProtocolType) && (result = gptiCurrent, gptiCurrent == gptiRit) )
   {
-    v3 = VKTOMODIFIERS(a2);
-    if ( v4 )
-      gfsSASModifiersDown &= ~v3;
-    else
-      gfsSASModifiersDown |= v3;
+    result = 512;
+    if ( (a3 & 0x200) == 0 )
+    {
+      result = VKTOMODIFIERS(a2);
+      v4 = result;
+      if ( v5 )
+      {
+        gfsSASModifiersDown &= ~result;
+      }
+      else
+      {
+        result = gfsSASModifiersDown;
+        gfsSASModifiersDown |= v4;
+      }
+    }
   }
+  return result;
 }

@@ -1,32 +1,31 @@
 /*
- * XREFs of rimObsReleaseAllTrackedHandles @ 0x1C01AF294
+ * XREFs of rimObsReleaseAllTrackedHandles @ 0x1C017EE70
  * Callers:
- *     RawInputManagerObjectDelete @ 0x1C007267C (RawInputManagerObjectDelete.c)
+ *     RawInputManagerObjectDelete @ 0x1C005287C (RawInputManagerObjectDelete.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall rimObsReleaseAllTrackedHandles(__int64 a1)
 {
-  char *v1; // rsi
-  char *v3; // rbx
-  char *v4; // rdi
+  _QWORD *v1; // rsi
+  _QWORD *v3; // rdi
+  __int64 v4; // rbx
   __int64 v5; // rcx
-  char **v6; // rax
+  _QWORD *v6; // rax
 
-  v1 = (char *)(a1 + 128);
-  v3 = *(char **)(a1 + 128);
+  v1 = (_QWORD *)(a1 + 128);
+  v3 = *(_QWORD **)(a1 + 128);
   while ( v3 != v1 )
   {
-    v4 = v3;
-    v3 = *(char **)v3;
-    ObCloseHandle(*((HANDLE *)v4 + 2), *(_BYTE *)(a1 + 72));
+    v4 = (__int64)v3;
+    v3 = (_QWORD *)*v3;
+    ObCloseHandle(*(HANDLE *)(v4 + 16), *(_BYTE *)(a1 + 72));
     v5 = *(_QWORD *)v4;
-    v6 = (char **)*((_QWORD *)v4 + 1);
-    if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || *v6 != v4 )
+    if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 || (v6 = *(_QWORD **)(v4 + 8), *v6 != v4) )
       __fastfail(3u);
-    *v6 = (char *)v5;
+    *v6 = v5;
     *(_QWORD *)(v5 + 8) = v6;
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+    Win32FreePool(v4);
   }
 }

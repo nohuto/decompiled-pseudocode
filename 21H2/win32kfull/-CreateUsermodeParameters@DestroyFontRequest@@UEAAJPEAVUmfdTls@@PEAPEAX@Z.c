@@ -1,13 +1,16 @@
 /*
- * XREFs of ?CreateUsermodeParameters@DestroyFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C01409E0
+ * XREFs of ?CreateUsermodeParameters@DestroyFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A60C0
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C000CB7C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C000CC80 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A66DC (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00A67E4 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
  */
 
-__int64 __fastcall DestroyFontRequest::CreateUsermodeParameters(DestroyFontRequest *this, UmfdUMBuffer **a2, void **a3)
+__int64 __fastcall DestroyFontRequest::CreateUsermodeParameters(
+        DestroyFontRequest *this,
+        struct UmfdTls *a2,
+        void **a3)
 {
   char *v6; // rax
   _QWORD *v7; // r10
@@ -16,10 +19,7 @@ __int64 __fastcall DestroyFontRequest::CreateUsermodeParameters(DestroyFontReque
   if ( !v6 )
     return 3221225495LL;
   *((_QWORD *)this + 6) = v6 + 8;
-  FontDriverDdiRequest::PrepareUsermodeFontObj(
-    (struct UmfdTls *)a2,
-    *((struct _FONTOBJ **)this + 5),
-    (struct _FONTOBJ *)(v6 + 8));
+  FontDriverDdiRequest::PrepareUsermodeFontObj(a2, *((struct _FONTOBJ **)this + 5), (struct _FONTOBJ *)(v6 + 8));
   *v7 = *((_QWORD *)this + 6);
   *a3 = v7;
   return 0LL;

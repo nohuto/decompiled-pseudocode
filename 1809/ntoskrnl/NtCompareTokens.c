@@ -8,12 +8,12 @@
  *     SepReleaseOrderedReadLocks @ 0x1400135BC (SepReleaseOrderedReadLocks.c)
  *     SepAcquireOrderedReadLocks @ 0x1400135F0 (SepAcquireOrderedReadLocks.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1405BC0FC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  *     SepCompareClaimAttributes @ 0x1405BC2A4 (SepCompareClaimAttributes.c)
  *     SepCompareSidAndAttributeArrays @ 0x1405BC2FC (SepCompareSidAndAttributeArrays.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
  */
 
 NTSTATUS __stdcall NtCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)

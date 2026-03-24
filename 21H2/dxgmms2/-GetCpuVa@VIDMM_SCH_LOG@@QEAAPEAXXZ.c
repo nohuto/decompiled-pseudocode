@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ @ 0x1C0047868
+ * XREFs of ?GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ @ 0x1C003EA0C
  * Callers:
- *     VidSchiSerializeSchedulingLog @ 0x1C00F61F8 (VidSchiSerializeSchedulingLog.c)
+ *     VidSchiSerializeSchedulingLog @ 0x1C00D39A0 (VidSchiSerializeSchedulingLog.c)
  * Callees:
  *     <none>
  */
 
 void *__fastcall VIDMM_SCH_LOG::GetCpuVa(VIDMM_SCH_LOG *this)
 {
-  return (void *)*((_QWORD *)this + 6);
+  return (void *)*((_QWORD *)this + 4);
 }

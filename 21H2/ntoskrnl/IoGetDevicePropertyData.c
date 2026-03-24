@@ -1,20 +1,19 @@
 /*
- * XREFs of IoGetDevicePropertyData @ 0x140749610
+ * XREFs of IoGetDevicePropertyData @ 0x14063A080
  * Callers:
- *     PopFxQueryBiosDeviceName @ 0x1402D2388 (PopFxQueryBiosDeviceName.c)
- *     HalpAreDriversDmarCompatible @ 0x1403CCFD4 (HalpAreDriversDmarCompatible.c)
- *     HalpIommuDeviceGetDomainTypes @ 0x140510C60 (HalpIommuDeviceGetDomainTypes.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1405CB06C (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDevicePotentialDripsConstraint @ 0x1405CC6C4 (PopFxIsDevicePotentialDripsConstraint.c)
- *     IopGetSessionIdFromPDO @ 0x140749588 (IopGetSessionIdFromPDO.c)
- *     IopGetInterruptConnectionData @ 0x140817A24 (IopGetInterruptConnectionData.c)
- *     PnprIsMemoryDevice @ 0x140952680 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x140952738 (PnprIsProcessorDevice.c)
- *     VfGetDmaAdapter @ 0x140A85B10 (VfGetDmaAdapter.c)
+ *     PopFxQueryBiosDeviceName @ 0x14036F4A4 (PopFxQueryBiosDeviceName.c)
+ *     HalpAreDriversDmarCompatible @ 0x140379674 (HalpAreDriversDmarCompatible.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14056AFC0 (PopFxIsDevicePotentialDripsConstraint.c)
+ *     IopGetSessionIdFromPDO @ 0x14073E25C (IopGetSessionIdFromPDO.c)
+ *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
+ *     PnprIsMemoryDevice @ 0x1408ADC20 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1408ADCD8 (PnprIsProcessorDevice.c)
+ *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PnpGetDevicePropertyData @ 0x1407496A8 (PnpGetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PnpGetDevicePropertyData @ 0x14063A118 (PnpGetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoGetDevicePropertyData(

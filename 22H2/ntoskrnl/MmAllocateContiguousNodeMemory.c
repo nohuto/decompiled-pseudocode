@@ -1,45 +1,54 @@
 /*
- * XREFs of MmAllocateContiguousNodeMemory @ 0x1403B95C0
+ * XREFs of MmAllocateContiguousNodeMemory @ 0x1402E7FF0
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A89F0 (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpAllocateCR3Root @ 0x1403A8A78 (HalpAllocateCR3Root.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x1403AA228 (MiAllocateZeroCalibrationBuffer.c)
- *     HalAllocateCommonBufferExV2 @ 0x1403B0C00 (HalAllocateCommonBufferExV2.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1405104D0 (HalpDmaAllocateContiguousMemory.c)
- *     HalpDmaControllerInitializeController @ 0x140516860 (HalpDmaControllerInitializeController.c)
- *     HvlpAllocateOverlayPages @ 0x14054987C (HvlpAllocateOverlayPages.c)
- *     IopInitializeInMemoryDumpData @ 0x140553410 (IopInitializeInMemoryDumpData.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E200 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     ViAllocateContiguousMemory @ 0x140AC8A6C (ViAllocateContiguousMemory.c)
- *     IommupHvInitializeLibrary @ 0x140B93694 (IommupHvInitializeLibrary.c)
+ *     HalAllocateCommonBufferExV2 @ 0x140380C90 (HalAllocateCommonBufferExV2.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A0AF4 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateCR3Root @ 0x1403CB3C8 (HalpAllocateCR3Root.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF0A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404C6738 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaControllerInitializeController @ 0x1404CE6E8 (HalpDmaControllerInitializeController.c)
+ *     HvlpAllocateOverlayPages @ 0x1404FA8CC (HvlpAllocateOverlayPages.c)
+ *     IopInitializeInMemoryDumpData @ 0x140503F50 (IopInitializeInMemoryDumpData.c)
+ *     ViAllocateContiguousMemory @ 0x1409CD3BC (ViAllocateContiguousMemory.c)
+ *     IommupHvInitializeLibrary @ 0x140A8D764 (IommupHvInitializeLibrary.c)
  * Callees:
- *     MiAllocateContiguousMemory @ 0x1403B9674 (MiAllocateContiguousMemory.c)
- *     MiConvertContiguousMemoryParameters @ 0x1403B9DD8 (MiConvertContiguousMemoryParameters.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     MiAllocateContiguousMemory @ 0x1402E808C (MiAllocateContiguousMemory.c)
  */
 
-__int64 __fastcall MmAllocateContiguousNodeMemory(__int64 a1, int a2, int a3, int a4, int a5, int a6)
+__int64 __fastcall MmAllocateContiguousNodeMemory(int a1, __int64 a2, __int64 a3, __int16 a4, unsigned int a5, int a6)
 {
-  int v6; // ebx
-  __int128 v8; // [rsp+50h] [rbp-38h] BYREF
-  __int128 v9; // [rsp+60h] [rbp-28h]
-  __int64 v10; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int ProtectionMask; // eax
+  unsigned __int64 v8; // r8
+  unsigned __int64 v9; // r9
+  unsigned __int64 v10; // r11
+  unsigned int v11; // r10d
+  unsigned __int64 v12; // r8
+  unsigned __int64 v13; // r9
+  unsigned int v15; // eax
 
-  v10 = a1;
-  v6 = a6;
-  v8 = 0LL;
-  v9 = 0LL;
-  if ( (int)MiConvertContiguousMemoryParameters(a1, a2, a3, a4, a5, a6, (__int64)&v8) < 0 )
+  if ( (a4 & 0xFFF) != 0 )
+    return 0LL;
+  ProtectionMask = MiMakeProtectionMask(a5);
+  v11 = ProtectionMask;
+  if ( (a5 & 0x100) != 0 )
+    return 0LL;
+  if ( ProtectionMask == -1 )
+    return 0LL;
+  if ( (ProtectionMask & 5) != 4 )
+    return 0LL;
+  if ( (ProtectionMask & 2) != 0 )
+  {
+    v15 = ProtectionMask >> 3;
+    if ( v15 == 1 || v15 == 3 && (v11 & 7) != 0 )
+      return 0LL;
+  }
+  v12 = v8 >> 12;
+  v13 = v9 >> 12;
+  if ( v12 > 0xFFFFFFFFFLL )
+    v12 = 0xFFFFFFFFFLL;
+  if ( v10 > v12 )
     return 0LL;
   else
-    return MiAllocateContiguousMemory(
-             (unsigned int)&v10,
-             v8,
-             DWORD2(v8),
-             v9,
-             DWORD2(v9),
-             v6,
-             (__int64)&MiSystemPartition,
-             1416523587,
-             0);
+    return MiAllocateContiguousMemory(a1, v10, v12, v13, v11, a6);
 }

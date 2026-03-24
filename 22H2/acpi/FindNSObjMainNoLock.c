@@ -1,22 +1,22 @@
 /*
- * XREFs of FindNSObjMainNoLock @ 0x1C004B314
+ * XREFs of FindNSObjMainNoLock @ 0x1C0014080
  * Callers:
- *     AMLIFindNameSpaceObject @ 0x1C0048130 (AMLIFindNameSpaceObject.c)
+ *     AMLIFindNameSpaceObject @ 0x1C0013F48 (AMLIFindNameSpaceObject.c)
  * Callees:
- *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     FindNSObj @ 0x1C004B0BC (FindNSObj.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     FindNSObj @ 0x1C0014150 (FindNSObj.c)
+ *     _strupr_0 @ 0x1C0031D3B (_strupr_0.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4)
 {
   __int64 v8; // rbx
-  unsigned int v9; // ebx
-  __int64 v10; // r9
-  __int64 v11; // r8
+  int v9; // r9d
+  __int64 v10; // r8
   unsigned int NSObj; // eax
-  __int64 v13; // rcx
+  unsigned int v12; // ebx
+  __int64 v14; // rcx
   int v15; // [rsp+50h] [rbp+8h] BYREF
 
   if ( Src )
@@ -26,22 +26,26 @@ __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4
       ++v8;
     while ( Src[v8] );
     strupr_0(Src);
-    if ( (unsigned int)v8 <= 4 )
+    if ( (unsigned int)v8 > 4 )
+    {
+      return (unsigned int)-1073741773;
+    }
+    else
     {
       v15 = 1600085855;
       memmove(&v15, Src, (unsigned int)v8);
       if ( (a4 & 1) != 0 )
       {
-        v10 = a2;
-        v11 = a2;
+        v9 = a2;
+        LODWORD(v10) = a2;
       }
       else
       {
-        v11 = *(_QWORD *)(a2 + 16);
-        v10 = 0LL;
+        v10 = *(_QWORD *)(a2 + 16);
+        v9 = 0;
       }
-      NSObj = FindNSObj(v15, a2, v11, v10, a3, a4);
-      v9 = NSObj;
+      NSObj = FindNSObj(v15, a2, v10, v9, a3, a4);
+      v12 = NSObj;
       if ( NSObj == -1073741772 )
       {
         if ( *(_DWORD *)(a3 + 24) )
@@ -49,29 +53,25 @@ __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4
       }
       else if ( NSObj == -1073741675 || NSObj == -1073741670 )
       {
-        v13 = *(_QWORD *)(a3 + 8);
-        if ( *(_QWORD *)(v13 + 16) )
+        v14 = *(_QWORD *)(a3 + 8);
+        if ( *(_QWORD *)(v14 + 16) )
         {
-          HeapFree(*(_QWORD *)(v13 + 32));
+          HeapFree(*(_QWORD **)(v14 + 32));
           *(_QWORD *)(*(_QWORD *)(a3 + 8) + 16LL) = 0LL;
           *(_DWORD *)(*(_QWORD *)(a3 + 8) + 24LL) = 0;
         }
         if ( *(_QWORD *)(a3 + 16) )
         {
-          HeapFree(*(_QWORD *)(a3 + 32));
+          HeapFree(*(_QWORD **)(a3 + 32));
           *(_QWORD *)(a3 + 16) = 0LL;
           *(_DWORD *)(a3 + 24) = 0;
         }
       }
-    }
-    else
-    {
-      return (unsigned int)-1073741773;
     }
   }
   else
   {
     return (unsigned int)-1072431095;
   }
-  return v9;
+  return v12;
 }

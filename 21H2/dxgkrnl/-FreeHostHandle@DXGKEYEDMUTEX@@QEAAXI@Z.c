@@ -1,42 +1,43 @@
 /*
- * XREFs of ?FreeHostHandle@DXGKEYEDMUTEX@@QEAAXI@Z @ 0x1C033FA3C
+ * XREFs of ?FreeHostHandle@DXGKEYEDMUTEX@@QEAAXI@Z @ 0x1C0290AF0
  * Callers:
- *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C033F5C8 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
+ *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C0290700 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
  */
 
 void __fastcall DXGKEYEDMUTEX::FreeHostHandle(DXGKEYEDMUTEX *this, int a2)
 {
   struct _KTHREAD **v2; // rdi
-  void **v5; // rbx
-  _DWORD *v6; // rcx
-  void **v7; // rax
-  void **v8; // rdx
+  __int64 v5; // rdx
+  void **v6; // rbx
+  _DWORD *v7; // rcx
+  void **v8; // rax
+  void **v9; // rdx
 
   v2 = (struct _KTHREAD **)((char *)this + 112);
   DXGFASTMUTEX::Acquire((DXGKEYEDMUTEX *)((char *)this + 112));
-  v5 = (void **)((char *)this + 40);
-  v6 = *v5;
-  if ( *v5 != v5 )
+  v6 = (void **)((char *)this + 40);
+  v7 = *v6;
+  if ( *v6 != v6 )
   {
     while ( 1 )
     {
-      v7 = *(void ***)v6;
-      if ( v6[4] == a2 )
+      v8 = *(void ***)v7;
+      if ( v7[4] == a2 )
         break;
-      v6 = *(_DWORD **)v6;
-      if ( v7 == v5 )
+      v7 = *(_DWORD **)v7;
+      if ( v8 == v6 )
         goto LABEL_4;
     }
-    if ( v7[1] != v6 || (v8 = (void **)*((_QWORD *)v6 + 1), *v8 != v6) )
+    if ( v8[1] != v7 || (v9 = (void **)*((_QWORD *)v7 + 1), *v9 != v7) )
       __fastfail(3u);
-    *v8 = v7;
-    v7[1] = v8;
-    operator delete(v6);
+    *v9 = v8;
+    v8[1] = v9;
+    operator delete(v7);
   }
 LABEL_4:
-  DXGFASTMUTEX::Release(v2);
+  DXGFASTMUTEX::Release(v2, v5);
 }

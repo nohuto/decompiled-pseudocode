@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmClassSubkeyCallback @ 0x1407509E0
+ * XREFs of _CmClassSubkeyCallback @ 0x1407509C0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     _CmValidateInstallerClassName @ 0x140596DE4 (_CmValidateInstallerClassName.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  */

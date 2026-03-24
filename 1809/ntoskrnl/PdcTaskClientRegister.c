@@ -1,13 +1,13 @@
 /*
- * XREFs of PdcTaskClientRegister @ 0x1407452F0
+ * XREFs of PdcTaskClientRegister @ 0x1407452D0
  * Callers:
  *     PopDiagInitialize @ 0x1409D0B90 (PopDiagInitialize.c)
  *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PdcPortOpen @ 0x1407453A0 (PdcPortOpen.c)
+ *     PdcPortOpen @ 0x140745380 (PdcPortOpen.c)
  */
 
 __int64 __fastcall PdcTaskClientRegister(int a1, _QWORD *a2)

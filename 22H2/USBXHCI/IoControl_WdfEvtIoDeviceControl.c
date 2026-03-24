@@ -1,18 +1,17 @@
 /*
- * XREFs of IoControl_WdfEvtIoDeviceControl @ 0x1C003E3C0
+ * XREFs of IoControl_WdfEvtIoDeviceControl @ 0x1C003C170
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_qD @ 0x1C00183AC (WPP_RECORDER_SF_qD.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_Dddd @ 0x1C003E890 (WPP_RECORDER_SF_Dddd.c)
- *     WPP_RECORDER_SF_PP @ 0x1C003E9AC (WPP_RECORDER_SF_PP.c)
- *     WPP_RECORDER_SF_Pd @ 0x1C003EA7C (WPP_RECORDER_SF_Pd.c)
- *     WPP_RECORDER_SF_dL @ 0x1C003EB54 (WPP_RECORDER_SF_dL.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C0013E50 (WPP_RECORDER_SF_qD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_Dddd @ 0x1C003C63C (WPP_RECORDER_SF_Dddd.c)
+ *     WPP_RECORDER_SF_PP @ 0x1C003C758 (WPP_RECORDER_SF_PP.c)
+ *     WPP_RECORDER_SF_Pd @ 0x1C003C828 (WPP_RECORDER_SF_Pd.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C003C904 (WPP_RECORDER_SF_dL.c)
  */
 
 PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -47,7 +46,7 @@ PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063130);
+         off_1C0060130);
   v13 = v9;
   if ( a5 == 2229304 )
   {
@@ -87,18 +86,18 @@ PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2
                                        v22);
             }
           }
-          v33[3] = 20;
+          v33[3] = 4;
           v23 = v33;
           if ( v33[3] <= v33[2] )
           {
             if ( *v33 == -2147483647 )
             {
-              v24 = _InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(v13 + 8) + 856LL), 0, 0);
+              v24 = _InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(v13 + 8) + 800LL), 0, 0);
               v23[4] = v24;
               if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
               {
                 LOBYTE(v23) = 4;
-                WPP_RECORDER_SF_D(
+                WPP_RECORDER_SF_d(
                   *(_QWORD *)(*(_QWORD *)(v13 + 8) + 72LL),
                   (_DWORD)v23,
                   5,
@@ -117,8 +116,8 @@ PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2
               v26 = *(_QWORD *)(v13 + 8);
               if ( v25 == -1 )
               {
-                _InterlockedExchange((volatile __int32 *)(v26 + 860), 1);
-                Controller_ReportFatalErrorEx(*(_QWORD *)(v13 + 8), 2u, 4159, 0LL, 0LL, 0LL, 0LL, 0LL);
+                _InterlockedExchange((volatile __int32 *)(v26 + 804), 1);
+                Controller_ReportFatalError(*(_QWORD *)(v13 + 8), 2, 4159, 0LL, 0LL, 0LL, 0LL);
                 if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
                 {
                   LOBYTE(v27) = 4;
@@ -132,12 +131,12 @@ PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2
               }
               else
               {
-                _InterlockedExchange((volatile __int32 *)(v26 + 856), v25);
+                _InterlockedExchange((volatile __int32 *)(v26 + 800), v25);
                 if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
                 {
                   v31 = v23[4];
                   LOBYTE(v23) = 4;
-                  WPP_RECORDER_SF_D(
+                  WPP_RECORDER_SF_d(
                     *(_QWORD *)(*(_QWORD *)(v13 + 8) + 72LL),
                     (_DWORD)v23,
                     5,
@@ -215,7 +214,7 @@ LABEL_5:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v29) = 2;
-        WPP_RECORDER_SF_D(
+        WPP_RECORDER_SF_d(
           *(_QWORD *)(*(_QWORD *)(v13 + 8) + 72LL),
           v29,
           5,
@@ -251,7 +250,7 @@ LABEL_5:
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
       LOBYTE(v16) = 5;
-      return (PDEVICE_OBJECT)WPP_RECORDER_SF_D(
+      return (PDEVICE_OBJECT)WPP_RECORDER_SF_d(
                                *(_QWORD *)(*(_QWORD *)(v13 + 8) + 72LL),
                                v16,
                                5,

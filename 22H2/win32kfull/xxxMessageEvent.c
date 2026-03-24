@@ -1,16 +1,16 @@
 /*
- * XREFs of xxxMessageEvent @ 0x1C022B658
+ * XREFs of xxxMessageEvent @ 0x1C0246A78
  * Callers:
- *     xxxDDETrackPostHook @ 0x1C01FB334 (xxxDDETrackPostHook.c)
- *     xxxDDETrackSendHook @ 0x1C01FB5C4 (xxxDDETrackSendHook.c)
+ *     xxxDDETrackPostHook @ 0x1C021CACC (xxxDDETrackPostHook.c)
+ *     xxxDDETrackSendHook @ 0x1C021CDFC (xxxDDETrackSendHook.c)
  * Callees:
- *     xxxCsEvent @ 0x1C000EA00 (xxxCsEvent.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     xxxCsEvent @ 0x1C02467E8 (xxxCsEvent.c)
  */
 
-_DWORD *__fastcall xxxMessageEvent(__int64 *a1, int a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+_DWORD *__fastcall xxxMessageEvent(__int64 *a1, int a2, unsigned __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   _DWORD *result; // rax
   __int64 v11; // rbx
@@ -23,7 +23,7 @@ _DWORD *__fastcall xxxMessageEvent(__int64 *a1, int a2, __int64 a3, __int64 a4, 
 
   v16 = 0LL;
   v17 = 0LL;
-  result = (_DWORD *)Win32AllocPoolWithQuotaZInit(120LL, 946107221LL);
+  result = (_DWORD *)Win32AllocPoolWithQuota(120LL, 946107221LL);
   v11 = (__int64)result;
   if ( result )
   {

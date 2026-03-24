@@ -1,144 +1,136 @@
 /*
- * XREFs of DxgNotifyDpcCB @ 0x1C000BA80
+ * XREFs of DxgNotifyDpcCB @ 0x1C000E1C0
  * Callers:
  *     <none>
  * Callees:
- *     DpSynchronizeExecution @ 0x1C000BBD0 (DpSynchronizeExecution.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C005FA60 (-AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z.c)
- *     ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005FE28 (-RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ.c)
- *     DpiMiracastStopMiracastSessionAsync @ 0x1C0060C60 (DpiMiracastStopMiracastSessionAsync.c)
- *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006DF1C (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     DpSynchronizeExecution @ 0x1C000E330 (DpSynchronizeExecution.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C0052F70 (-AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z.c)
+ *     ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005334C (-RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ.c)
+ *     DpiMiracastStopMiracastSessionAsync @ 0x1C00541A0 (DpiMiracastStopMiracastSessionAsync.c)
+ *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C005EEF8 (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
  */
 
-void __fastcall DxgNotifyDpcCB(__int64 a1)
+void __fastcall DxgNotifyDpcCB(__int64 a1, struct DXGADAPTER *a2)
 {
-  __int64 v2; // rax
-  struct DXGADAPTER *v3; // rdx
+  volatile signed __int32 *v3; // rcx
   __int64 v4; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rsi
-  int v7; // edx
-  int v8; // ecx
-  int v9; // r8d
-  DXGDODPRESENT *v10; // rcx
-  int v11; // r9d
-  struct MIRACAST_CHUNK *v12; // rax
-  struct _KEVENT *v13; // rcx
-  _QWORD v14[2]; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v15; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v16; // [rsp+80h] [rbp+7h]
-  _QWORD v17[2]; // [rsp+88h] [rbp+Fh] BYREF
-  int v18; // [rsp+98h] [rbp+1Fh]
-  int v19; // [rsp+9Ch] [rbp+23h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+A0h] [rbp+27h] BYREF
-  char v21; // [rsp+E0h] [rbp+67h] BYREF
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  __int64 v7; // rsi
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v15; // r9d
+  __int64 v16; // rax
+  struct MIRACAST_CHUNK *v17; // rax
+  struct _KEVENT *v18; // rcx
+  _QWORD v19[2]; // [rsp+30h] [rbp-19h] BYREF
+  __int128 v20; // [rsp+40h] [rbp-9h] BYREF
+  __int64 v21; // [rsp+50h] [rbp+7h]
+  _QWORD v22[2]; // [rsp+58h] [rbp+Fh] BYREF
+  int v23; // [rsp+68h] [rbp+1Fh]
+  int v24; // [rsp+6Ch] [rbp+23h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp+27h] BYREF
+  char v26; // [rsp+B0h] [rbp+67h] BYREF
 
   if ( KeGetCurrentIrql() != 2 )
   {
-    WdLogSingleEntry1(1LL, 81LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v8,
-          v7,
-          v9,
-          0,
-          2,
-          -1,
-          (__int64)L"KeGetCurrentIrql() == DISPATCH_LEVEL",
-          81LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v10 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v10 + 24) = 81LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(*(_QWORD *)(a1 + 64) + 3936LL), 0, 0) & 1) != 0 )
+  v3 = *(volatile signed __int32 **)(a1 + 64);
+  if ( (_InterlockedCompareExchange(v3 + 979, 0, 0) & 1) != 0 )
   {
-    v2 = *(_QWORD *)(a1 + 64);
-    if ( v2 && *(_DWORD *)(v2 + 16) == 1953656900 && *(_DWORD *)(v2 + 20) == 2 )
+    v4 = *(_QWORD *)(a1 + 64);
+    if ( v4 && *(_DWORD *)(v4 + 16) == 1953656900 && *(_DWORD *)(v4 + 20) == 2 )
     {
-      v3 = *(struct DXGADAPTER **)(v2 + 3912);
-      if ( v3 )
+      a2 = *(struct DXGADAPTER **)(v4 + 3896);
+      if ( a2 )
       {
-        v4 = *((_QWORD *)v3 + 366);
-        if ( v4 )
+        v5 = *((_QWORD *)a2 + 338);
+        if ( v5 )
         {
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)(*(_QWORD *)(v4 + 736) + 8LL) + 16LL))(a1);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)(*(_QWORD *)(v5 + 616) + 8LL) + 16LL))(a1);
         }
         else
         {
-          v10 = *(DXGDODPRESENT **)(*((_QWORD *)v3 + 365) + 448LL);
-          if ( v10 )
-            DXGDODPRESENT::NotifyDpc(v10, v3);
+          v3 = *(volatile signed __int32 **)(*((_QWORD *)a2 + 337) + 384LL);
+          if ( v3 )
+            DXGDODPRESENT::NotifyDpc((DXGDODPRESENT *)v3, a2);
         }
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, a1);
+      v9 = WdLogNewEntry5_WdError(v3, a2);
+      *(_QWORD *)(v9 + 24) = a1;
+      WdLogEvent5_WdError(v9);
     }
   }
-  v5 = *(_QWORD *)(a1 + 64);
-  v16 = 0LL;
-  v15 = 0LL;
-  if ( v5 && *(_DWORD *)(v5 + 16) == 1953656900 && *(_DWORD *)(v5 + 20) == 2 )
+  v6 = *(_QWORD *)(a1 + 64);
+  v21 = 0LL;
+  v20 = 0LL;
+  if ( v6 && *(_DWORD *)(v6 + 16) == 1953656900 && *(_DWORD *)(v6 + 20) == 2 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-    v6 = *(_QWORD *)(v5 + 3248);
-    if ( v6 )
+    v7 = *(_QWORD *)(v6 + 3232);
+    if ( v7 )
     {
-      *(_QWORD *)&v15 = v5;
-      *((_QWORD *)&v15 + 1) = *(_QWORD *)(v6 + 488);
+      *(_QWORD *)&v20 = v6;
+      *((_QWORD *)&v20 + 1) = *(_QWORD *)(v7 + 488);
       DpSynchronizeExecution(
         a1,
         (unsigned int)MiracastProcessPendingDPCChunks,
-        (unsigned int)&v15,
-        *(_DWORD *)(v5 + 3924),
-        (__int64)&v21);
-      if ( BYTE1(v16) )
+        (unsigned int)&v20,
+        *(_DWORD *)(v6 + 3908),
+        (__int64)&v26);
+      if ( BYTE1(v21) )
       {
-        DpiMiracastStopMiracastSessionAsync((PVOID)v6);
+        DpiMiracastStopMiracastSessionAsync((PVOID)v7);
       }
       else
       {
-        if ( (_BYTE)v16 )
-          *(_BYTE *)(v6 + 588) = 1;
-        if ( HIDWORD(v16) < 0x14 && *(_DWORD *)(v5 + 3268) + 5 < 40 )
+        if ( (_BYTE)v21 )
+          *(_BYTE *)(v7 + 588) = 1;
+        if ( HIDWORD(v21) < 0x14 && *(_DWORD *)(v6 + 3252) + 5 < 40 )
         {
-          v19 = *(_DWORD *)(v5 + 3232);
-          v18 = 0;
-          v17[1] = v17;
-          v17[0] = v17;
-          if ( MIRACAST_CHUNK_LIST::AllocateNewChunks((MIRACAST_CHUNK_LIST *)v17, 5u) )
+          v24 = *(_DWORD *)(v6 + 3216);
+          v23 = 0;
+          v22[1] = v22;
+          v22[0] = v22;
+          if ( MIRACAST_CHUNK_LIST::AllocateNewChunks((MIRACAST_CHUNK_LIST *)v22, 5u) )
           {
-            v11 = *(_DWORD *)(v5 + 3924);
-            v14[0] = v17;
-            v14[1] = *(_QWORD *)(v5 + 3272);
-            DpSynchronizeExecution(a1, (unsigned int)DpiMiracastMoveChunkList, (unsigned int)v14, v11, (__int64)&v21);
-            *(_DWORD *)(v5 + 3268) += 5;
+            v15 = *(_DWORD *)(v6 + 3908);
+            v19[0] = v22;
+            v19[1] = *(_QWORD *)(v6 + 3256);
+            DpSynchronizeExecution(a1, (unsigned int)DpiMiracastMoveChunkList, (unsigned int)v19, v15, (__int64)&v26);
+            *(_DWORD *)(v6 + 3252) += 5;
           }
           else
           {
-            WdLogSingleEntry1(6LL, -1073741801LL);
+            v16 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+            *(_QWORD *)(v16 + 24) = -1073741801LL;
+            WdLogEvent5_WdLowResource(v16);
           }
           while ( 1 )
           {
-            v12 = MIRACAST_CHUNK_LIST::RemoveHead((MIRACAST_CHUNK_LIST *)v17);
-            if ( !v12 )
+            v17 = MIRACAST_CHUNK_LIST::RemoveHead((MIRACAST_CHUNK_LIST *)v22);
+            if ( !v17 )
               break;
-            ExFreePoolWithTag(v12, 0);
+            ExFreePoolWithTag(v17, 0);
           }
         }
-        if ( BYTE2(v16) || (_BYTE)v16 )
+        if ( BYTE2(v21) || (_BYTE)v21 )
         {
-          v13 = *(struct _KEVENT **)(v6 + 496);
-          if ( v13 )
-            KeSetEvent(v13, 1, 0);
+          v18 = *(struct _KEVENT **)(v7 + 496);
+          if ( v18 )
+            KeSetEvent(v18, 1, 0);
         }
       }
     }
@@ -146,6 +138,9 @@ void __fastcall DxgNotifyDpcCB(__int64 a1)
   }
   else
   {
-    WdLogSingleEntry2(2LL, v5, -1073741585LL);
+    v8 = WdLogNewEntry5_WdError(v3, a2);
+    *(_QWORD *)(v8 + 24) = v6;
+    *(_QWORD *)(v8 + 32) = -1073741585LL;
+    WdLogEvent5_WdError(v8);
   }
 }

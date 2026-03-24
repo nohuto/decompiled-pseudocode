@@ -1,68 +1,55 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x14029AD30
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x140276694
  * Callers:
- *     CcLazyWriteScanVolume @ 0x14029A4E0 (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x14053601C (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140275F14 (CcLazyWriteScan.c)
  * Callees:
- *     CcCanIWriteStreamEx @ 0x14020FCA0 (CcCanIWriteStreamEx.c)
- *     CcIsCacheMapACursorInPrivateVCM @ 0x14029AE74 (CcIsCacheMapACursorInPrivateVCM.c)
+ *     CcCanIWriteStreamEx @ 0x140293B50 (CcCanIWriteStreamEx.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
  */
 
-char __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v6; // r10
-  char IsCacheMapACursorInPrivateVCM; // al
-  int v8; // ecx
-  int v9; // edx
-  unsigned int v10; // r8d
-  int v11; // eax
-  __int64 v12; // r9
+  int v6; // ecx
+  int v8; // r8d
+  unsigned int v9; // edx
+  int v10; // eax
+  __int64 v11; // r9
+  int Partition; // eax
 
-  v6 = a1;
-  if ( a3 )
-    IsCacheMapACursorInPrivateVCM = CcIsCacheMapACursorInPrivateVCM(a3, a1);
-  else
-    IsCacheMapACursorInPrivateVCM = a1 == a2 + 520 || a1 == a2 + 544;
-  if ( IsCacheMapACursorInPrivateVCM )
+  v6 = *(_DWORD *)(a1 + 152);
+  if ( (v6 & 0x400820) != 0 )
     return 0;
-  v8 = *(_DWORD *)(v6 + 152);
-  if ( (v8 & 0x400020) != 0 )
+  if ( (v6 & 0x10000) != 0 )
+    return 1;
+  if ( *(_DWORD *)(a1 + 516) )
     return 0;
-  if ( (v8 & 0x10000) == 0 )
+  v8 = *(_DWORD *)(a1 + 4);
+  if ( !v8 && (!*(_DWORD *)(a1 + 112) || !*(_QWORD *)(a1 + 8)) || (v6 & 0x40000000) != 0 )
+    return 1;
+  v9 = *(_DWORD *)(a1 + 112);
+  if ( !v9 || !a2 )
+    return 0;
+  v10 = *(_DWORD *)(a1 + 268) + 1;
+  *(_DWORD *)(a1 + 268) = v10;
+  if ( (v6 & 0x1000000) != 0 )
   {
-    if ( *(_DWORD *)(v6 + 524) )
-      return 0;
-    v9 = *(_DWORD *)(v6 + 4);
-    if ( (v9 || *(_DWORD *)(v6 + 112) && *(_QWORD *)(v6 + 8)) && (v8 & 0x40000000) == 0 )
-    {
-      v10 = *(_DWORD *)(v6 + 112);
-      if ( !v10 || !a4 )
-        return 0;
-      v11 = *(_DWORD *)(v6 + 276) + 1;
-      *(_DWORD *)(v6 + 276) = v11;
-      if ( (v8 & 0x1000000) != 0 )
-      {
-        v12 = *(_QWORD *)(v6 + 248);
-        if ( !*(_DWORD *)(v12 + 104)
-          && MEMORY[0xFFFFF78000000320] <= (__int64)(*(_QWORD *)(v12 + 136)
-                                                   + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
-          && *(_DWORD *)(v6 + 112) < 0x40u )
-        {
-          return 0;
-        }
-      }
-      else if ( (v8 & 0x200) != 0 )
-      {
-        if ( (v11 & 0xF) != 0 && v10 < 0x40 && a6 != 16 )
-          return 0;
-      }
-      else if ( (*(_DWORD *)(a5 + 80) & 0x8000) != 0
-             && v9
-             && CcCanIWriteStreamEx(*(_QWORD *)(v6 + 536), *(_QWORD *)(v6 + 600), a5, 0x1000000LL, 0, 8, 0LL) )
-      {
-        return 0;
-      }
-    }
+    v11 = *(_QWORD *)(a1 + 240);
+    return *(_DWORD *)(v11 + 104)
+        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v11 + 136)
+                                                + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+        || *(_DWORD *)(a1 + 112) >= 0x40u;
   }
-  return 1;
+  if ( (v6 & 0x200) != 0 )
+  {
+    if ( (v10 & 0xF) == 0 || v9 >= 0x40 )
+      return 1;
+    return a4 == 16;
+  }
+  else
+  {
+    if ( (*(_DWORD *)(a3 + 80) & 0x8000) == 0 || !v8 )
+      return 1;
+    Partition = CcGetPartition(a1);
+    return (unsigned __int8)CcCanIWriteStreamEx(Partition, a3, 0x1000000, 0, 8, 0LL) == 0;
+  }
 }

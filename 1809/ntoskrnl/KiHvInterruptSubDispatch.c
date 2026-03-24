@@ -1,17 +1,17 @@
 /*
- * XREFs of KiHvInterruptSubDispatch @ 0x1401C27C0
+ * XREFs of KiHvInterruptSubDispatch @ 0x1401C27E0
  * Callers:
- *     KiHvInterruptDispatch @ 0x1401C1FF0 (KiHvInterruptDispatch.c)
+ *     KiHvInterruptDispatch @ 0x1401C2010 (KiHvInterruptDispatch.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x1400D2010 (KiEndThreadAccountingPeriod.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     KiEntropyQueueDpc @ 0x14012F480 (KiEntropyQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlDummyInterruptCallback @ 0x140270B00 (HvlDummyInterruptCallback.c)
- *     HvlSharedIsr @ 0x1402710A0 (HvlSharedIsr.c)
- *     KzSetIrqlUnsafe @ 0x14028D960 (KzSetIrqlUnsafe.c)
- *     KiEpfCompletionIsr @ 0x14029BD10 (KiEpfCompletionIsr.c)
- *     PerfInfoLogInterruptHv @ 0x1403121A0 (PerfInfoLogInterruptHv.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D2030 (KiEndThreadAccountingPeriod.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     KiEntropyQueueDpc @ 0x14012F4A0 (KiEntropyQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlDummyInterruptCallback @ 0x140270C00 (HvlDummyInterruptCallback.c)
+ *     HvlSharedIsr @ 0x1402711A0 (HvlSharedIsr.c)
+ *     KzSetIrqlUnsafe @ 0x14028DA60 (KzSetIrqlUnsafe.c)
+ *     KiEpfCompletionIsr @ 0x14029BE10 (KiEpfCompletionIsr.c)
+ *     PerfInfoLogInterruptHv @ 0x1403122A0 (PerfInfoLogInterruptHv.c)
  */
 
 __int64 __fastcall KiHvInterruptSubDispatch()

@@ -1,22 +1,21 @@
 /*
- * XREFs of ACPIProcessorBuildHiddenApicIds @ 0x1C008C470
+ * XREFs of ACPIProcessorBuildHiddenApicIds @ 0x1C00912B4
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C003A1E0 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ACPIProcessorBuildHiddenApicIds()
 {
   __int64 (__fastcall *v0)(__int64); // rax
   unsigned int v1; // eax
-  int v2; // edx
   __int64 result; // rax
-  __int64 v4; // rbx
-  int v5; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v3; // rbx
+  int v4; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = 0;
+  v4 = 0;
   v0 = (__int64 (__fastcall *)(__int64))HalPrivateDispatchTable[145];
   if ( !v0 )
     return 0LL;
@@ -28,33 +27,33 @@ __int64 ACPIProcessorBuildHiddenApicIds()
   AcpiHiddenProcessorCount = v1;
   if ( !v1 )
     return 0LL;
-  AcpiHiddenProcessorApicIds = ExAllocatePool2(64LL, 4LL * v1, 1299211073LL);
-  if ( !AcpiHiddenProcessorApicIds )
+  AcpiHiddenProcessorApicIds = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 4LL * v1, 0x4D706341u);
+  if ( AcpiHiddenProcessorApicIds )
+  {
+    v3 = 0LL;
+    if ( !AcpiHiddenProcessorCount )
+      return 0LL;
+    while ( 1 )
+    {
+      result = ((__int64 (__fastcall *)(_QWORD, int *))HalPrivateDispatchTable[146])((unsigned int)v3, &v4);
+      if ( (int)result < 0 )
+        break;
+      *(_DWORD *)(AcpiHiddenProcessorApicIds + 4 * v3) = v4;
+      v3 = (unsigned int)(v3 + 1);
+      if ( (unsigned int)v3 >= AcpiHiddenProcessorCount )
+        return 0LL;
+    }
+  }
+  else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v2) = 2;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v2,
-        21,
-        11,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x15u,
+        0xBu,
         (__int64)&WPP_dae7fe894c7e323433b1d18b69ca790c_Traceguids);
-    }
     return 3221225626LL;
-  }
-  v4 = 0LL;
-  if ( !AcpiHiddenProcessorCount )
-    return 0LL;
-  while ( 1 )
-  {
-    result = HalPrivateDispatchTable[146]((unsigned int)v4, (__int64)&v5);
-    if ( (int)result < 0 )
-      break;
-    *(_DWORD *)(AcpiHiddenProcessorApicIds + 4 * v4) = v5;
-    v4 = (unsigned int)(v4 + 1);
-    if ( (unsigned int)v4 >= AcpiHiddenProcessorCount )
-      return 0LL;
   }
   return result;
 }

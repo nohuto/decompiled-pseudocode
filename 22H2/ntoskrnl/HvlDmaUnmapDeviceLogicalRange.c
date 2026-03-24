@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlDmaUnmapDeviceLogicalRange @ 0x140543A50
+ * XREFs of HvlDmaUnmapDeviceLogicalRange @ 0x1404F4920
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14045EEB6 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FA974 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaUnmapDeviceLogicalRange(int *a1, __int64 a2, unsigned __int64 *a3)
@@ -44,12 +44,12 @@ __int64 __fastcall HvlDmaUnmapDeviceLogicalRange(int *a1, __int64 a2, unsigned _
         v9 = *(_DWORD *)a3;
       v10 ^= (v9 ^ v10) & 0xFFF;
       HIDWORD(v13) = v10;
-      v11 = HvcallFastExtended(v13, (__int64)v14, 0x20u, 0LL, 0);
+      v11 = HvcallFastExtended(v13, (__int64)v14, 32LL, 0LL, 0);
       v12 = HIDWORD(v11) & 0xFFF;
       v8 += v12;
       a2 += (unsigned __int16)(WORD2(v11) & 0xFFF) << 12;
       *a3 -= v12;
-      v7 = HvlpHvToNtStatus(v11);
+      v7 = HvlpHvToNtStatus((unsigned __int16)v11);
     }
     while ( v7 >= 0 && v6 );
   }

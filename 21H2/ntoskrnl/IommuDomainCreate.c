@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuDomainCreate @ 0x14090AAC0
+ * XREFs of IommuDomainCreate @ 0x1408667B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuAllocateDmaDomain @ 0x1403BB820 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403AC688 (HalpIommuAllocateDmaDomain.c)
  */
 
-__int64 __fastcall IommuDomainCreate(char a1, __int64 a2)
+__int64 __fastcall IommuDomainCreate(char a1, __int64 *a2)
 {
-  return HalpIommuAllocateDmaDomain(a1 == 0 ? 2 : 0, 0LL, 0LL, 0LL, a2);
+  return HalpIommuAllocateDmaDomain(2LL, a1, a2);
 }

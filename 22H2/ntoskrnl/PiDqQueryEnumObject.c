@@ -1,79 +1,69 @@
 /*
- * XREFs of PiDqQueryEnumObject @ 0x140788744
+ * XREFs of PiDqQueryEnumObject @ 0x1406AC914
  * Callers:
- *     PiDqEnumQueryObjectsCallback @ 0x140788720 (PiDqEnumQueryObjectsCallback.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqEnumQueryObjectsCallback @ 0x1406AC8F0 (PiDqEnumQueryObjectsCallback.c)
  * Callees:
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741948 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x140788864 (PiDqQueryEvaluateFilter.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1407E0934 (PiDqQueryAddObjectToResultSet.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x1407FA968 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x1407FA9F8 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x14069FF88 (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x1406A8988 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x1406A8A14 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryEvaluateFilter @ 0x1406AC504 (PiDqQueryEvaluateFilter.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406AD0D8 (PiPnpRtlApplyMandatoryFilters.c)
  */
 
-__int64 __fastcall PiDqQueryEnumObject(struct _SECURITY_SUBJECT_CONTEXT *a1, __int64 a2)
+__int64 __fastcall PiDqQueryEnumObject(__int64 a1, __int64 a2)
 {
-  _DWORD *ProcessAuditId; // rcx
-  int v5; // eax
-  unsigned int AddObjectToResultSet; // ebx
-  char v7; // al
-  int v8; // eax
-  char v9; // al
-  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
+  int AddObjectToResultSet; // ebx
+  char v4; // cl
+  __int64 v6; // rax
+  int v7; // eax
+  char v8; // al
+  char v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 *v11; // [rsp+50h] [rbp+18h] BYREF
 
-  v12 = 0LL;
-  ProcessAuditId = a1->ProcessAuditId;
-  LOBYTE(v11) = 1;
-  if ( !ProcessAuditId[5] && (ProcessAuditId[4] == 1 || (unsigned int)(ProcessAuditId[4] - 2) < 2) )
+  AddObjectToResultSet = 0;
+  v11 = 0LL;
+  v4 = 1;
+  v10 = 1;
+  v6 = *(_QWORD *)(a1 + 24);
+  if ( *(_DWORD *)(v6 + 20) )
+    goto LABEL_12;
+  if ( (unsigned int)(*(_DWORD *)(v6 + 16) - 1) <= 2 )
   {
-    v5 = PiPnpRtlApplyMandatoryFilters(
-           *(__int64 *)&PiPnpRtlCtx,
+    v7 = PiPnpRtlApplyMandatoryFilters(
+           PiPnpRtlCtx,
            *(_QWORD *)(a2 + 16),
            *(_DWORD *)(a2 + 28),
-           0LL,
-           a1 + 1,
-           &v11);
-    AddObjectToResultSet = v5;
-    if ( v5 == -1073741772 || v5 == -1073741275 )
-    {
-      v7 = 0;
-      LOBYTE(v11) = 0;
-      AddObjectToResultSet = 0;
-    }
-    else
-    {
-      if ( v5 < 0 )
-        return AddObjectToResultSet;
-      v7 = v11;
-    }
-    if ( !v7 )
-      return AddObjectToResultSet;
+           0,
+           (int)a1 + 32,
+           (__int64)&v10);
+    v4 = v10;
+    AddObjectToResultSet = v7;
   }
-  if ( *((_QWORD *)a1->ProcessAuditId + 11) )
+  if ( AddObjectToResultSet == -1073741772 || AddObjectToResultSet == -1073741275 )
   {
-    v8 = PiDqQueryEvaluateFilter(a1, *(_QWORD *)(a2 + 16), &v11);
-    AddObjectToResultSet = v8;
-    if ( v8 == -1073741772 )
-    {
-      v9 = 0;
-      AddObjectToResultSet = 0;
-    }
-    else
-    {
-      if ( v8 < 0 )
-        return AddObjectToResultSet;
-      v9 = v11;
-    }
-    if ( !v9 )
-      return AddObjectToResultSet;
+    v4 = 0;
+    v10 = 0;
+    AddObjectToResultSet = 0;
   }
-  if ( (*((_DWORD *)a1->ProcessAuditId + 10) & 1) == 0
-    || (AddObjectToResultSet = PiDqQueryAddObjectToResultSet(a1, a2), (AddObjectToResultSet & 0x80000000) == 0) )
+  if ( AddObjectToResultSet >= 0 && v4 )
   {
-    AddObjectToResultSet = PiDqQueryActionQueueEntryCreate(1LL, a2, 0LL, &v12);
-    if ( (AddObjectToResultSet & 0x80000000) == 0 )
-      PiDqQueryAppendActionEntry(a1, v12);
+LABEL_12:
+    if ( !*(_QWORD *)(*(_QWORD *)(a1 + 24) + 88LL)
+      || ((AddObjectToResultSet = PiDqQueryEvaluateFilter(a1, *(_QWORD *)(a2 + 16), (bool *)&v10),
+           AddObjectToResultSet == -1073741772)
+        ? (v8 = 0, AddObjectToResultSet = 0)
+        : (v8 = v10),
+          AddObjectToResultSet >= 0 && v8) )
+    {
+      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 24) + 40LL) & 1) == 0
+        || (AddObjectToResultSet = PiDqQueryAddObjectToResultSet(a1, a2), AddObjectToResultSet >= 0) )
+      {
+        AddObjectToResultSet = PiDqQueryActionQueueEntryCreate(1, a2, 0LL, &v11);
+        if ( AddObjectToResultSet >= 0 )
+          PiDqQueryAppendActionEntry(a1, v11);
+      }
+    }
   }
-  return AddObjectToResultSet;
+  return (unsigned int)AddObjectToResultSet;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCoolingExtensionPnpNotification @ 0x140982EA0
+ * XREFs of PopCoolingExtensionPnpNotification @ 0x1408E2B60
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPropogateCoolingChange @ 0x140586D90 (PopPropogateCoolingChange.c)
- *     PopAcquireCoolingInterface @ 0x14084F044 (PopAcquireCoolingInterface.c)
- *     PopDiagTraceCoolingExtension @ 0x1408616BC (PopDiagTraceCoolingExtension.c)
- *     PopDisableCoolingExtension @ 0x140983158 (PopDisableCoolingExtension.c)
- *     PopOrphanCoolingExtension @ 0x140983228 (PopOrphanCoolingExtension.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPropogateCoolingChange @ 0x1403C95B4 (PopPropogateCoolingChange.c)
+ *     PopDiagTraceCoolingExtension @ 0x1406A4BE0 (PopDiagTraceCoolingExtension.c)
+ *     PopAcquireCoolingInterface @ 0x14079AE50 (PopAcquireCoolingInterface.c)
+ *     PopDisableCoolingExtension @ 0x1408E2E18 (PopDisableCoolingExtension.c)
+ *     PopOrphanCoolingExtension @ 0x1408E2EE8 (PopOrphanCoolingExtension.c)
  */
 
-__int64 __fastcall PopCoolingExtensionPnpNotification(char *NotificationStructure, char *Context)
+__int64 __fastcall PopCoolingExtensionPnpNotification(char *NotificationStructure, _BYTE *Context)
 {
   __int64 v3; // rax
   __int64 v4; // rax
@@ -46,9 +46,9 @@ LABEL_9:
     PopAcquireRwLockExclusive((ULONG_PTR)(Context + 32));
     Context[64] = 1;
     PopDiagTraceCoolingExtension((__int64)Context, (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_COOLING_EXTENSION_ADD);
-    if ( *((char **)Context + 2) != Context + 16 )
+    if ( *((_BYTE **)Context + 2) != Context + 16 )
       PopPropogateCoolingChange((__int64)Context);
-    PopReleaseRwLock((__int64 *)Context + 4);
+    PopReleaseRwLock((ULONG_PTR)(Context + 32));
   }
   return 0LL;
 }

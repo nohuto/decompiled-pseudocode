@@ -6,11 +6,11 @@
  *     VerifierExDeletePagedLookasideList @ 0x14093EBD0 (VerifierExDeletePagedLookasideList.c)
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14016C2F0 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlDeleteTreeNode @ 0x14016C358 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14016C310 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14016C378 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

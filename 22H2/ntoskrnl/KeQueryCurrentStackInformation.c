@@ -1,22 +1,23 @@
 /*
- * XREFs of KeQueryCurrentStackInformation @ 0x14034E3B0
+ * XREFs of KeQueryCurrentStackInformation @ 0x140340240
  * Callers:
- *     RtlDispatchException @ 0x1402A3CA0 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
- *     RtlpIsFrameInBoundsEx @ 0x1402A6490 (RtlpIsFrameInBoundsEx.c)
- *     EtwpTraceStackWalk @ 0x14046896C (EtwpTraceStackWalk.c)
- *     EtwpTraceLastBranchRecord @ 0x140469446 (EtwpTraceLastBranchRecord.c)
- *     PnprGetStackLimits @ 0x140563084 (PnprGetStackLimits.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140603428 (EtwpCovSampCaptureKernelStack.c)
- *     VfUtilCaptureViolationKernelStack @ 0x140AC3490 (VfUtilCaptureViolationKernelStack.c)
- *     ViDeadlockAnalyze @ 0x140AD9740 (ViDeadlockAnalyze.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlDispatchException @ 0x14033E580 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x14033EA40 (RtlUnwindEx.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140340838 (RtlpIsFrameInBoundsEx.c)
+ *     PnprGetStackLimits @ 0x14050F4B8 (PnprGetStackLimits.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     EtwpTraceStackWalk @ 0x1405A7074 (EtwpTraceStackWalk.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x1405AECB8 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpTraceLastBranchRecord @ 0x1405B01F4 (EtwpTraceLastBranchRecord.c)
+ *     VfUtilCaptureViolationKernelStack @ 0x1409C6400 (VfUtilCaptureViolationKernelStack.c)
+ *     ViDeadlockAnalyze @ 0x1409DEBA4 (ViDeadlockAnalyze.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9D0 (KeQueryCurrentStackInformationEx.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402D0C30 (KeQueryCurrentStackInformationEx.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
  */
 
-bool __fastcall KeQueryCurrentStackInformation(_DWORD *a1, char **a2, unsigned __int64 *a3)
+bool __fastcall KeQueryCurrentStackInformation(char *a1, struct _KPRCB **a2, unsigned __int64 *a3)
 {
   unsigned __int64 CurrentStackPointer; // rax
 

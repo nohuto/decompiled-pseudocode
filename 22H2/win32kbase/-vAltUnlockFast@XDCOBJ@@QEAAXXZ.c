@@ -1,15 +1,15 @@
 /*
- * XREFs of ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C0041CB0
+ * XREFs of ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C002E6D8
  * Callers:
- *     ?vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C000B774 (-vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C000B7FC (-vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C004B77C (--1DCOBJA@@QEAA@XZ.c)
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
- *     GreMarkDCUnreadable @ 0x1C00C2748 (GreMarkDCUnreadable.c)
- *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C00D2B90 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0038DB0 (--1DCOBJA@@QEAA@XZ.c)
+ *     ?vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0099E10 (-vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0099EA0 (-vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreMarkDCUnreadable @ 0x1C00B7148 (GreMarkDCUnreadable.c)
+ *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C00CAE90 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z.c)
  * Callees:
- *     GrepDeleteDC @ 0x1C003B5E0 (GrepDeleteDC.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C00421F0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002F680 (HmgDecrementShareReferenceCountEx.c)
+ *     bDeleteDCInternalEx @ 0x1C003C730 (bDeleteDCInternalEx.c)
  */
 
 void __fastcall XDCOBJ::vAltUnlockFast(HDC **this)
@@ -23,5 +23,5 @@ void __fastcall XDCOBJ::vAltUnlockFast(HDC **this)
   v2 = *v1;
   HmgDecrementShareReferenceCountEx(v1, &v3);
   if ( v3 )
-    GrepDeleteDC(v2, 0x2000000u);
+    bDeleteDCInternalEx(v2);
 }

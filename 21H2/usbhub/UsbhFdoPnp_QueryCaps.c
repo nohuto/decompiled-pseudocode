@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhFdoPnp_QueryCaps @ 0x1C0042470
+ * XREFs of UsbhFdoPnp_QueryCaps @ 0x1C0043720
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPnp_QueryCaps(struct _DEVICE_OBJECT *Context, PIRP Irp)

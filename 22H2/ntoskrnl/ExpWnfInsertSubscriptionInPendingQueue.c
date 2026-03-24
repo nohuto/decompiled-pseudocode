@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x140714660
+ * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x140610E60
  * Callers:
- *     ExpWnfNotifySubscription @ 0x140711148 (ExpWnfNotifySubscription.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407144D8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140610CEC (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfNotifySubscription @ 0x14068E4D4 (ExpWnfNotifySubscription.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
@@ -17,11 +17,12 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
   __int64 v6; // r15
   volatile signed __int64 *v7; // rbx
   __int64 v8; // rax
-  __int64 v9; // r14
-  int v10; // ebp
+  __int64 v9; // rbp
+  int v10; // r14d
   int v12; // eax
   _QWORD *v13; // rdx
   _QWORD *v14; // rax
+  int v15; // edx
 
   v2 = *(_QWORD *)(a1 + 40);
   v3 = 0;
@@ -29,12 +30,12 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
     return 0LL;
   v6 = *(_QWORD *)(v2 + 2152);
   v7 = (volatile signed __int64 *)(v6 + 104);
-  v8 = KeAbPreAcquire(v6 + 104, 0LL);
+  v8 = KeAbPreAcquire(v6 + 104, 0LL, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 104), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 104), v8, v6 + 104);
   if ( v9 )
-    *(_BYTE *)(v9 + 18) = 1;
+    *(_BYTE *)(v9 + 26) |= 1u;
   v10 = *(_DWORD *)(a1 + 100) & a2;
   if ( !v10 )
   {
@@ -63,9 +64,13 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
   v3 = 1;
   *(_DWORD *)(a1 + 120) = 1;
 LABEL_15:
-  if ( ((*(_BYTE *)(a1 + 124) | *(_BYTE *)(a1 + 128)) & 1) == 0 && (v10 & 1) != 0 )
+  v15 = *(_DWORD *)(a1 + 124);
+  if ( (((unsigned __int8)v15 | *(_BYTE *)(a1 + 128)) & 1) == 0 && (v10 & 1) != 0 )
+  {
     _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(a1 + 48) + 164LL), 1u);
-  *(_DWORD *)(a1 + 124) = *(_DWORD *)(a1 + 100) & (*(_DWORD *)(a1 + 124) | v10);
+    v15 = *(_DWORD *)(a1 + 124);
+  }
+  *(_DWORD *)(a1 + 124) = *(_DWORD *)(a1 + 100) & (v10 | v15);
   if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 104));
   KeAbPostRelease(v6 + 104);

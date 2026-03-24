@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005E34
+ * XREFs of HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005BB0
  * Callers:
- *     HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C0008410 (HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer.c)
+ *     HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C0008100 (HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
@@ -32,8 +32,8 @@ __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
       *(_QWORD *)(a1 + 2520),
       4u,
       3u,
-      0x70u,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      0x6Fu,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       v6);
   }
   result = HUBMISC_ControlTransfer(
@@ -55,8 +55,8 @@ __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
         *(_QWORD *)(a1 + 2520),
         2u,
         3u,
-        0x71u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        0x70u,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v7);
     }
     return HUBSM_AddEvent(a1 + 1264, 2004LL);

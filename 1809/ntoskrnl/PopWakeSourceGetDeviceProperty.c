@@ -1,7 +1,7 @@
 /*
- * XREFs of PopWakeSourceGetDeviceProperty @ 0x14086BA2C
+ * XREFs of PopWakeSourceGetDeviceProperty @ 0x14086BA0C
  * Callers:
- *     PopProcessWakeSourceWork @ 0x14086B864 (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x14086B844 (PopProcessWakeSourceWork.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

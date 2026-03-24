@@ -1,28 +1,28 @@
 /*
- * XREFs of IopValidateAndGetWriteParameters @ 0x1404186A0
+ * XREFs of IopValidateAndGetWriteParameters @ 0x1403F2018
  * Callers:
- *     IopPopulateCopyWriteWorkerData @ 0x1404182FC (IopPopulateCopyWriteWorkerData.c)
- *     IopWriteFile @ 0x140658DCC (IopWriteFile.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x1403F1BE4 (IopPopulateCopyWriteWorkerData.c)
+ *     IopWriteFile @ 0x1405CEB78 (IopWriteFile.c)
  * Callees:
- *     IopExceptionFilter @ 0x14025E7A8 (IopExceptionFilter.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x1402AAB50 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IopReleaseFileObjectLock @ 0x1402AD350 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x140351EA0 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     IopExceptionFilter @ 0x140500A60 (IopExceptionFilter.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD *a3, _DWORD *a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _FILE_OBJECT *v10; // r8
-  int v11; // eax
-  char v12; // cl
+  int v11; // ecx
+  char v12; // al
   KPROCESSOR_MODE v13; // r11
   unsigned __int64 v14; // rdx
   __int64 v15; // rsi
@@ -43,7 +43,7 @@ __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD
   int v30; // eax
   _QWORD *v31; // rdx
   int v32; // eax
-  void *v33; // rcx
+  struct _DMA_ADAPTER *v33; // rcx
   char v35; // [rsp+30h] [rbp-38h] BYREF
   int v36; // [rsp+34h] [rbp-34h]
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
@@ -53,15 +53,9 @@ __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD
   *(_QWORD *)a1 = CurrentThread;
   *(_BYTE *)(a1 + 8) = CurrentThread->PreviousMode;
   v10 = *(struct _FILE_OBJECT **)(a1 + 16);
-  if ( (v10->Flags & 2) != 0 && (v11 = *(_DWORD *)(a1 + 92), v11 >= 0) )
-  {
-    v12 = 1;
-  }
-  else
-  {
-    v11 = *(_DWORD *)(a1 + 92);
+  v11 = *(_DWORD *)(a1 + 92);
+  if ( (v10->Flags & 2) == 0 || (v12 = 1, v11 < 0) )
     v12 = 0;
-  }
   *(_BYTE *)(a1 + 9) = v12;
   *(_BYTE *)(a1 + 10) = (v11 & 0x40000000) == 0;
   *(_QWORD *)(a1 + 24) = IoGetRelatedDeviceObject(v10);
@@ -87,7 +81,7 @@ __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD
     if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 176LL) && (*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     {
       v36 = -1073741811;
-      goto LABEL_69;
+      goto LABEL_68;
     }
     if ( a3 )
     {
@@ -126,10 +120,10 @@ __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD
       v23 = v21;
       if ( ((v20 - 1) & *(_DWORD *)(a1 + 72)) != 0 )
       {
-LABEL_35:
+LABEL_34:
         if ( (_WORD)v20 && *(_DWORD *)(a1 + 72) % v23 || (*(unsigned int *)(v19 + 152) & *(_QWORD *)(a1 + 64)) != 0LL )
-          goto LABEL_76;
-LABEL_38:
+          goto LABEL_75;
+LABEL_37:
         if ( a3 )
         {
           v24 = *(_DWORD *)(a1 + 80);
@@ -138,10 +132,10 @@ LABEL_38:
             && (_WORD)v20
             && ((v21 - 1) & v24) != 0 )
           {
-            goto LABEL_76;
+            goto LABEL_75;
           }
         }
-        goto LABEL_46;
+        goto LABEL_45;
       }
     }
     else
@@ -151,10 +145,10 @@ LABEL_38:
     }
     v23 = v22;
     if ( (*(unsigned int *)(v19 + 152) & *(_QWORD *)(a1 + 64)) == 0LL )
-      goto LABEL_38;
-    goto LABEL_35;
+      goto LABEL_37;
+    goto LABEL_34;
   }
-LABEL_46:
+LABEL_45:
   if ( (a5 & 6) == 4 )
   {
     *(_DWORD *)(a1 + 80) = -1;
@@ -168,7 +162,7 @@ LABEL_46:
     *(_QWORD *)(a1 + 32) = Object;
     v36 = v25;
     if ( v25 < 0 )
-      goto LABEL_69;
+      goto LABEL_68;
     KeResetEvent(v26);
   }
   if ( *(_BYTE *)(a1 + 9) )
@@ -176,7 +170,7 @@ LABEL_46:
     v27 = *(volatile __int32 **)(a1 + 16);
     v28 = KeGetCurrentThread();
     --v28->KernelApcDisable;
-    v29 = KeAbPreAcquire((__int64)(v27 + 32), 0LL);
+    v29 = KeAbPreAcquire((ULONG_PTR)(v27 + 32), 0LL, 0);
     v35 = 0;
     if ( _InterlockedExchange(v27 + 29, 1) )
     {
@@ -185,43 +179,43 @@ LABEL_46:
     else
     {
       if ( v29 )
-        *(_BYTE *)(v29 + 18) = 1;
+        *(_BYTE *)(v29 + 26) |= 1u;
       ObfReferenceObject((PVOID)v27);
       v30 = 0;
     }
     v36 = v30;
     if ( v35 )
     {
-LABEL_69:
+LABEL_68:
       if ( v36 >= 0 )
         return (unsigned int)v36;
-      goto LABEL_70;
+      goto LABEL_69;
     }
     v31 = (_QWORD *)(a1 + 80);
     if ( !a3 && !*(_DWORD *)v31 || *(_DWORD *)v31 == -2 && *(_DWORD *)(a1 + 84) == -1 )
       *v31 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 104LL);
-LABEL_63:
+LABEL_62:
     v32 = *(_DWORD *)(a1 + 84);
     if ( v32 < 0 && (v32 != -1 || *(_DWORD *)(a1 + 80) != -1) )
     {
       if ( *(_BYTE *)(a1 + 9) )
-        IopReleaseFileObjectLock(*(volatile __int32 **)(a1 + 16));
+        IopReleaseFileObjectLock(*(PADAPTER_OBJECT *)(a1 + 16));
       v36 = -1073741811;
     }
-    goto LABEL_69;
+    goto LABEL_68;
   }
   if ( a3 || (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 80LL) & 0x280) != 0 )
-    goto LABEL_63;
-LABEL_76:
+    goto LABEL_62;
+LABEL_75:
   v36 = -1073741811;
-LABEL_70:
-  v33 = *(void **)(a1 + 32);
+LABEL_69:
+  v33 = *(struct _DMA_ADAPTER **)(a1 + 32);
   if ( v33 )
   {
-    ObfDereferenceObject(v33);
+    HalPutDmaAdapter(v33);
     *(_QWORD *)(a1 + 32) = 0LL;
   }
-  ObfDereferenceObject(*(PVOID *)(a1 + 16));
+  HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 16));
   *(_QWORD *)(a1 + 16) = 0LL;
   return (unsigned int)v36;
 }

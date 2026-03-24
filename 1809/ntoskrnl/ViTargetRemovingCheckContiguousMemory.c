@@ -1,9 +1,9 @@
 /*
  * XREFs of ViTargetRemovingCheckContiguousMemory @ 0x1409350E8
  * Callers:
- *     VfTargetDriversRemove @ 0x14016C1C0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
  * Callees:
- *     VfUtilFreePoolDispatchLevel @ 0x1403099A0 (VfUtilFreePoolDispatchLevel.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x140309AA0 (VfUtilFreePoolDispatchLevel.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

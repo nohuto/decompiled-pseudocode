@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuAcquireNewDomain @ 0x140517C90
+ * XREFs of HalpIommuAcquireNewDomain @ 0x1404CBB44
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x14051B094 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C95F4 (HalpIommuGetHardwareDomain.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2)
@@ -25,17 +25,17 @@ __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2)
 
   if ( HalpHvIommu )
     return 3221225659LL;
-  v5 = (KSPIN_LOCK *)(a1 + 448);
+  v5 = (KSPIN_LOCK *)(a1 + 432);
   v6 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 448));
-  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(a1 + 456), 1u, 0);
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 432));
+  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(a1 + 440), 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {
     v6 = -1073741670;
   }
   else
   {
-    *(_DWORD *)(a2 + 48) = ClearBitsAndSet;
+    *(_DWORD *)(a2 + 24) = ClearBitsAndSet;
     v9 = *(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(a1 + 72);
     if ( v9 )
       v6 = v9(*(_QWORD *)(a1 + 16), a2, 0LL, 0LL);

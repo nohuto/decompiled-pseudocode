@@ -1,31 +1,28 @@
 /*
- * XREFs of ExpWnfFindStateName @ 0x14071330C
+ * XREFs of ExpWnfFindStateName @ 0x14060F8E0
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x1407118A4 (ExpWnfCreateNameInstance.c)
- *     ExpWnfLookupNameInstance @ 0x140713240 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DE94 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfLookupNameInstance @ 0x14060F814 (ExpWnfLookupNameInstance.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall ExpWnfFindStateName(__int64 a1, unsigned __int64 a2)
 {
-  _QWORD *result; // rax
+  _QWORD *i; // rax
 
-  result = *(_QWORD **)(a1 + 56);
-  while ( result )
+  for ( i = *(_QWORD **)(a1 + 56); ; i = (_QWORD *)i[1] )
   {
-    if ( a2 < result[3] )
+    while ( 1 )
     {
-      result = (_QWORD *)*result;
-    }
-    else
-    {
-      if ( a2 <= result[3] )
+      if ( !i )
+        return 0LL;
+      if ( a2 >= i[3] )
         break;
-      result = (_QWORD *)result[1];
+      i = (_QWORD *)*i;
     }
+    if ( a2 <= i[3] )
+      break;
   }
-  if ( result )
-    result -= 2;
-  return result;
+  return i - 2;
 }

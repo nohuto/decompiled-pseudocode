@@ -1,18 +1,19 @@
 /*
- * XREFs of ??_ECAnimationTriggerMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00C3090
+ * XREFs of ??_ECAnimationTriggerMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D3F90
  * Callers:
  *     <none>
  * Callees:
- *     ??1CResourceMarshalerArrayBase@DirectComposition@@QEAA@XZ @ 0x1C00303FC (--1CResourceMarshalerArrayBase@DirectComposition@@QEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??1CResourceMarshalerArray@DirectComposition@@QEAA@XZ @ 0x1C0025F24 (--1CResourceMarshalerArray@DirectComposition@@QEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 DirectComposition::CAnimationTriggerMarshaler *__fastcall DirectComposition::CAnimationTriggerMarshaler::`vector deleting destructor'(
-        DirectComposition::CAnimationTriggerMarshaler *this,
-        char a2)
+        DirectComposition::CAnimationTriggerMarshaler *this)
 {
-  DirectComposition::CResourceMarshalerArrayBase::~CResourceMarshalerArrayBase((DirectComposition::CAnimationTriggerMarshaler *)((char *)this + 80));
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)this);
+  char v2; // r9
+
+  DirectComposition::CResourceMarshalerArray::~CResourceMarshalerArray((DirectComposition::CAnimationTriggerMarshaler *)((char *)this + 80));
+  if ( (v2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of InitDwmInputProcessing @ 0x1C0120480
+ * XREFs of InitDwmInputProcessing @ 0x1C0134C80
  * Callers:
  *     <none>
  * Callees:
@@ -12,20 +12,20 @@ __int64 InitDwmInputProcessing()
   unsigned int v0; // ebx
 
   v0 = -1073741801;
-  gpkeDITTouchInjectionResponseEvent = (PRKEVENT)CreateKernelEvent(1LL, 0LL);
-  ghMITEvent = hCreateKernelEvent(1LL, 0LL);
+  gpkeDITTouchInjectionResponseEvent = (PRKEVENT)CreateKernelEvent(1LL);
+  ghDITEvent = (HANDLE)hCreateKernelEvent(1LL, 0LL);
   ghDITRITEvent = (HANDLE)hCreateKernelEvent(1LL, 0LL);
-  gpkeDITMouseInjectionResponseEvent = (PRKEVENT)CreateKernelEvent(1LL, 0LL);
-  gpkeDITCompositionInputSinkQueryResponseEvent = (PVOID)CreateKernelEvent(1LL, 0LL);
-  gpkeComputeInputSinkInfo = (PRKEVENT)CreateKernelEvent(1LL, 0LL);
+  gpkeDITMouseInjectionResponseEvent = (PRKEVENT)CreateKernelEvent(1LL);
+  gpkeDITCompositionInputSinkQueryResponseEvent = (PVOID)CreateKernelEvent(1LL);
+  WPP_MAIN_CB.DeviceQueue.Lock = CreateKernelEvent(1LL);
   gcDITMouseInjectionWaiters = 0;
   gpsemDITMouseInjectionWaiters = CreateKernelSemaphore(0LL, 0x7FFFFFFFLL);
   if ( gpkeDITTouchInjectionResponseEvent
-    && ghMITEvent
+    && ghDITEvent
     && ghDITRITEvent
     && gpkeDITMouseInjectionResponseEvent
     && gpkeDITCompositionInputSinkQueryResponseEvent
-    && gpkeComputeInputSinkInfo
+    && WPP_MAIN_CB.DeviceQueue.Lock
     && gpsemDITMouseInjectionWaiters )
   {
     return (unsigned int)CInputManager::CreateSessionGlobal();

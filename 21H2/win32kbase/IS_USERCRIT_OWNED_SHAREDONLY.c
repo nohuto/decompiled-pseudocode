@@ -1,13 +1,11 @@
 /*
- * XREFs of IS_USERCRIT_OWNED_SHAREDONLY @ 0x1C0030CCC
+ * XREFs of IS_USERCRIT_OWNED_SHAREDONLY @ 0x1C00456E0
  * Callers:
- *     ThreadUnlock1 @ 0x1C0030C00 (ThreadUnlock1.c)
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00337E0 (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     HMUnlockObjectInternal @ 0x1C0039070 (HMUnlockObjectInternal.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@$$V@?$DomainShared@VDLT_HANDLEMANAGER@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C006EAC4 (--0-$ObjectLock@$$V@-$DomainExclusive@$$V@-$DomainShared@VDLT_HANDLEMANAGER@@@SharedUserCritOnly.c)
- *     ThreadUnlockWorker1 @ 0x1C008DB70 (ThreadUnlockWorker1.c)
- *     LockIntoSharedUserCritDeferredUnlockList @ 0x1C0141650 (LockIntoSharedUserCritDeferredUnlockList.c)
+ *     ThreadUnlock1 @ 0x1C002E4A0 (ThreadUnlock1.c)
+ *     HMUnlockObjectInternal @ 0x1C0045640 (HMUnlockObjectInternal.c)
+ *     HMUnlockObjectWorker @ 0x1C0045770 (HMUnlockObjectWorker.c)
+ *     ThreadUnlockWorker1 @ 0x1C007DE70 (ThreadUnlockWorker1.c)
+ *     AddToDeferredUserCritThreadUnlockList @ 0x1C0113B88 (AddToDeferredUserCritThreadUnlockList.c)
  * Callees:
  *     <none>
  */

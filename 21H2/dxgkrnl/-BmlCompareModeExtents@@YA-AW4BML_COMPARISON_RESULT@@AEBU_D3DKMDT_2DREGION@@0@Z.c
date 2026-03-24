@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01B26AC
+ * XREFs of ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01397C4
  * Callers:
- *     BmlGetModeCategoryForRegion @ 0x1C01B2204 (BmlGetModeCategoryForRegion.c)
- *     BmlCompareSourceModesWithContentRes @ 0x1C01B225C (BmlCompareSourceModesWithContentRes.c)
- *     BmlGetNextBestSourceMode @ 0x1C01B2338 (BmlGetNextBestSourceMode.c)
- *     BmlDoesSourceModeObeyConstraint @ 0x1C01B28C0 (BmlDoesSourceModeObeyConstraint.c)
- *     BmlDoesTargetModeObeyConstraint @ 0x1C01B5890 (BmlDoesTargetModeObeyConstraint.c)
- *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C01D0A50 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
- *     BmlFillPreferredMonitorMode @ 0x1C01D0BD0 (BmlFillPreferredMonitorMode.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C01392C4 (BmlGetModeCategoryForRegion.c)
+ *     BmlGetNextBestSourceMode @ 0x1C01393E0 (BmlGetNextBestSourceMode.c)
+ *     BmlDoesSourceModeObeyConstraint @ 0x1C0139668 (BmlDoesSourceModeObeyConstraint.c)
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C013B368 (BmlDoesTargetModeObeyConstraint.c)
+ *     BmlFillPreferredMonitorMode @ 0x1C013BEB8 (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C013C09C (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ *     BmlCompareSourceModesWithContentRes @ 0x1C02EBA4C (BmlCompareSourceModesWithContentRes.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsReadyToDraw@CClipBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1802217D0
+ * XREFs of ?IsReadyToDraw@CClipBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1801B7ED0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CClipBrush::IsReadyToDraw(CClipBrush *this, struct CDrawingContext *a2, bool *a3)
@@ -14,13 +14,13 @@ bool __fastcall CClipBrush::IsReadyToDraw(CClipBrush *this, struct CDrawingConte
   bool v7; // zf
   bool v9; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = *((_QWORD *)this + 11);
+  v3 = *((_QWORD *)this + 10);
   v4 = 0;
   v9 = 0;
   v6 = 0;
   if ( v3 )
   {
-    v7 = (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, bool *))(*(_QWORD *)v3 + 288LL))(
+    v7 = (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, bool *))(*(_QWORD *)v3 + 296LL))(
            v3,
            a2,
            &v9) == 0;

@@ -11,10 +11,10 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
  *     MiIsProcessCfgExportSuppressionEnabled @ 0x140089560 (MiIsProcessCfgExportSuppressionEnabled.c)
- *     CfgAddressToBitState @ 0x1401223D0 (CfgAddressToBitState.c)
+ *     CfgAddressToBitState @ 0x1401223F0 (CfgAddressToBitState.c)
  *     MiSelectCfgBitMap @ 0x1405F482C (MiSelectCfgBitMap.c)
  *     MiPopulateCfgBitMap @ 0x1405F6560 (MiPopulateCfgBitMap.c)
- *     MiValidateUserCallTarget @ 0x1406A7668 (MiValidateUserCallTarget.c)
+ *     MiValidateUserCallTarget @ 0x1406A7648 (MiValidateUserCallTarget.c)
  */
 
 __int64 __fastcall MiCfgMarkValidEntries(

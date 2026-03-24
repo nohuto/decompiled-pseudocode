@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DrawBitmap@CRenderDataBounds@@UEAAJPEAVCResource@@@Z @ 0x1800EBD60
+ * XREFs of ?DrawBitmap@CRenderDataBounds@@UEAAJPEAVCResource@@@Z @ 0x1800CE540
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C4040 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?AddBounds@CRenderDataBounds@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EBE58 (-AddBounds@CRenderDataBounds@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7F30 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?AddBounds@CRenderDataBounds@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CE618 (-AddBounds@CRenderDataBounds@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderDataBounds::DrawBitmap(CRenderDataBounds *this, struct CResource *a2)
@@ -22,12 +22,12 @@ __int64 __fastcall CRenderDataBounds::DrawBitmap(CRenderDataBounds *this, struct
   __int128 v12; // [rsp+80h] [rbp+27h] BYREF
   __int128 v13; // [rsp+90h] [rbp+37h] BYREF
 
-  if ( (*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 85LL) )
+  if ( (*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 83LL) )
   {
-    v4 = (__int64 *)((char *)a2 + *(int *)(*((_QWORD *)a2 + 8) + 8LL) + 64);
+    v4 = (__int64 *)((char *)a2 + *(int *)(*((_QWORD *)a2 + 7) + 8LL) + 56);
     v5 = *v4;
     v9[0] = 0LL;
-    if ( (*(int (__fastcall **)(__int64 *, _QWORD *))(v5 + 64))(v4, v9) >= 0 )
+    if ( (*(int (__fastcall **)(__int64 *, _QWORD *))(v5 + 48))(v4, v9) >= 0 )
     {
       v11 = 0;
       v12 = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall CRenderDataBounds::DrawBitmap(CRenderDataBounds *this, struct
       if ( v6 )
       {
         v13 = 0LL;
-        CMILMatrix::Transform2DBoundsHelper<1>((CMILMatrix *)v10, (struct MilRectF *)&v12, (float *)&v13);
+        CMILMatrix::Transform2DBoundsHelper<1>((__int64)v10, (float *)&v12, (float *)&v13);
         v7 = &v13;
       }
       CRenderDataBounds::AddBounds(this, v7);

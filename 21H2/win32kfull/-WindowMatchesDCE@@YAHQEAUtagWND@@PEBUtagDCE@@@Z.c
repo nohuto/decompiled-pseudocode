@@ -1,13 +1,13 @@
 /*
- * XREFs of ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C0020580
+ * XREFs of ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C004C5B0
  * Callers:
- *     ChangeRedirectionParentInDCEs @ 0x1C001FCCC (ChangeRedirectionParentInDCEs.c)
- *     UnredirectDCEs @ 0x1C0020208 (UnredirectDCEs.c)
- *     RedirectDCEs @ 0x1C00204E0 (RedirectDCEs.c)
- *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01E21E0 (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
+ *     UnredirectDCEs @ 0x1C004C23C (UnredirectDCEs.c)
+ *     RedirectDCEs @ 0x1C004C510 (RedirectDCEs.c)
+ *     ChangeRedirectionParentInDCEs @ 0x1C004C6DC (ChangeRedirectionParentInDCEs.c)
+ *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01E7A4C (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
  * Callees:
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     _IsDescendant @ 0x1C00205E8 (_IsDescendant.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     _IsDescendant @ 0x1C004C618 (_IsDescendant.c)
  */
 
 __int64 __fastcall WindowMatchesDCE(struct tagWND *const a1, const struct tagDCE *a2)

@@ -3,10 +3,10 @@
  * Callers:
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x1401262B0 (DbgPrint.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1401C5070 (tcpxsum.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1401C5090 (tcpxsum.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
  */
 
@@ -34,7 +34,7 @@ __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3
   }
   v8 = __rdtsc();
   qword_140417BB0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
-  dword_140417D74 = ((unsigned int)dword_140417A40 >> 4) - 1;
+  dword_140417D74 = ((unsigned int)dword_140417840 >> 4) - 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v10 = 0;
   for ( qword_140417BE0 = PerformanceCounter.QuadPart;
@@ -52,7 +52,7 @@ __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3
   v12 = qword_140417D38;
   dword_140417D70 += qword_140417D58;
   *(_QWORD *)(a2 + 88) = qword_140417D38;
-  if ( byte_140417A61 )
+  if ( byte_140417861 )
     *(_QWORD *)(a2 + 88) = qword_140417D40 + v12;
   v13 = 3LL;
   v14 = a2 + 136;

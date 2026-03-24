@@ -1,64 +1,48 @@
 /*
- * XREFs of DestroyKL @ 0x1C00BFE78
+ * XREFs of DestroyKL @ 0x1C0008728
  * Callers:
- *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C00B2974 (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
- *     ?DestroyKLIfSupported@@YAXPEAUtagKL@@@Z @ 0x1C00BFE60 (-DestroyKLIfSupported@@YAXPEAUtagKL@@@Z.c)
+ *     ?DestroyKLIfSupported@@YAXPEAUtagKL@@@Z @ 0x1C0008710 (-DestroyKLIfSupported@@YAXPEAUtagKL@@@Z.c)
+ *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C007DB68 (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
  * Callees:
- *     HMFreeObject @ 0x1C004F310 (HMFreeObject.c)
- *     HMAssignmentUnlockWorker @ 0x1C0056D3C (HMAssignmentUnlockWorker.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C0064C78 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     DestroyKF @ 0x1C00BFF3C (DestroyKF.c)
+ *     DestroyKF @ 0x1C00087B8 (DestroyKF.c)
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     HMAssignmentUnlock @ 0x1C0031AA0 (HMAssignmentUnlock.c)
  */
 
 __int64 __fastcall DestroyKL(_QWORD *a1)
 {
-  __int64 *v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  void *v5; // rax
-  char *v6; // rdx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 result; // rax
+  void *v2; // rax
+  __int64 v3; // rcx
   __int64 i; // rdi
-  void *v13; // rax
-  char *v14; // rdx
-  char v15; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v6; // rcx
+  void *v7; // rax
 
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v15, a1);
   *(_QWORD *)(a1[3] + 16LL) = a1[2];
   *(_QWORD *)(a1[2] + 24LL) = a1[3];
-  if ( HMAssignmentUnlockWorker(a1 + 6) )
+  if ( HMAssignmentUnlock(a1 + 6) )
   {
-    v5 = (void *)HMAssignmentUnlockWorker(a1 + 7);
-    if ( v5 )
-      DestroyKF(v5);
+    v2 = (void *)HMAssignmentUnlock(a1 + 7);
+    if ( v2 )
+      DestroyKF(v2);
   }
   if ( a1[12] )
   {
     for ( i = 0LL; (unsigned int)i < *((_DWORD *)a1 + 22); i = (unsigned int)(i + 1) )
     {
-      v2 = (__int64 *)(a1[12] + 8 * i);
-      if ( !*v2 )
+      v6 = (_QWORD *)(a1[12] + 8 * i);
+      if ( !*v6 )
         break;
-      v13 = (void *)HMAssignmentUnlockWorker(v2);
-      if ( v13 )
-        DestroyKF(v13);
+      v7 = (void *)HMAssignmentUnlock(v6);
+      if ( v7 )
+        DestroyKF(v7);
     }
-    v14 = (char *)a1[12];
-    if ( v14 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v14);
+    Win32FreePool(a1[12]);
   }
-  v6 = (char *)a1[10];
-  if ( v6 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v6);
-  if ( a1 == *(_QWORD **)(SGDGetUserSessionState(v2, v6, v3, v4) + 13896) )
-    *(_QWORD *)(SGDGetUserSessionState(v8, v7, v9, v10) + 13896) = 0LL;
-  result = HMFreeObject((unsigned int *)a1, v7, v9, v10);
-  if ( v15 )
-    gphePrimaryDestroyTarget = 0LL;
-  return result;
+  v3 = a1[10];
+  if ( v3 )
+    Win32FreePool(v3);
+  if ( a1 == (_QWORD *)gpKL )
+    gpKL = 0LL;
+  return HMFreeObject(a1);
 }

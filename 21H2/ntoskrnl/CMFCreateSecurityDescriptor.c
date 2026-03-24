@@ -1,22 +1,22 @@
 /*
- * XREFs of CMFCreateSecurityDescriptor @ 0x140A04204
+ * XREFs of CMFCreateSecurityDescriptor @ 0x1409584C4
  * Callers:
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
- *     CMFSystemThreadRoutine @ 0x140A05110 (CMFSystemThreadRoutine.c)
+ *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
+ *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     RtlValidAcl @ 0x1407B4A50 (RtlValidAcl.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)

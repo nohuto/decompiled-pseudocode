@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01E5944
+ * XREFs of ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01EACE0
  * Callers:
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
  * Callees:
- *     IsIAMThread @ 0x1C00A9A2C (IsIAMThread.c)
- *     ?RequestModernAppClose@@YAHXZ @ 0x1C01E59BC (-RequestModernAppClose@@YAHXZ.c)
+ *     IsIAMThread @ 0x1C003CEF8 (IsIAMThread.c)
+ *     ?RequestModernAppClose@@YAHXZ @ 0x1C01EAD58 (-RequestModernAppClose@@YAHXZ.c)
  */
 
 __int64 __fastcall HandleIAMHotKey(const struct tagHOTKEY *const a1)
@@ -20,8 +20,8 @@ __int64 __fastcall HandleIAMHotKey(const struct tagHOTKEY *const a1)
   LOBYTE(v2) = IsIAMThread(v1);
   v4 = 0;
   if ( !v2
-    || !*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 320LL)
-    || *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 16) + 24LL) + 320LL) != *(_QWORD *)(v3 + 16) )
+    || !*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 328LL)
+    || *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 16) + 24LL) + 328LL) != *(_QWORD *)(v3 + 16) )
   {
     return 0LL;
   }

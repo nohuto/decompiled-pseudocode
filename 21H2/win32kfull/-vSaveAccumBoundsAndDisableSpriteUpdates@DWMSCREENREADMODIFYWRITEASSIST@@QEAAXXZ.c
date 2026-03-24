@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029DDB0
+ * XREFs of ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029F4AC
  * Callers:
- *     GrePolyPolyline @ 0x1C01363F0 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C0136B50 (NtGdiRectangle.c)
- *     GrePolyPolygon @ 0x1C0137950 (GrePolyPolygon.c)
- *     NtGdiLineTo @ 0x1C0137EE0 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C0138CF0 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C029ED10 (GrePolyBezier.c)
+ *     GrePolyPolyline @ 0x1C0142AB0 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143FC0 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144E20 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C01453C0 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0149310 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02A0430 (GrePolyBezier.c)
  * Callees:
  *     <none>
  */
@@ -52,7 +52,7 @@ void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vSaveAccumBoundsAndDisableSprite
     *((_DWORD *)this + 16) = v8 == 0;
     v9 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 152LL) & 0x200;
     *((_DWORD *)this + 17) = v9 == 0;
-    if ( (v8 & 0x100) == 0 )
+    if ( !v8 )
       *((_QWORD *)this + 6) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 216LL);
     if ( !v9 )
       *((_QWORD *)this + 7) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 8LL);

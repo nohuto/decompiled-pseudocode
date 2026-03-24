@@ -1,36 +1,40 @@
 /*
- * XREFs of IopCancelWaitCompletionPacket @ 0x1402F09D8
+ * XREFs of IopCancelWaitCompletionPacket @ 0x140202CF0
  * Callers:
- *     NtCancelWaitCompletionPacket @ 0x14023EF40 (NtCancelWaitCompletionPacket.c)
- *     IopCloseWaitCompletionPacket @ 0x1402EE2D0 (IopCloseWaitCompletionPacket.c)
+ *     NtCancelWaitCompletionPacket @ 0x140202A60 (NtCancelWaitCompletionPacket.c)
+ *     IopCloseWaitCompletionPacket @ 0x140359B90 (IopCloseWaitCompletionPacket.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiDeregisterObjectWaitBlock @ 0x140232968 (KiDeregisterObjectWaitBlock.c)
- *     KeRemoveQueueEntry @ 0x14024C7D4 (KeRemoveQueueEntry.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObGetAssociatedWaitObject @ 0x1402F1004 (ObGetAssociatedWaitObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDeregisterObjectNotification @ 0x140202E60 (KeDeregisterObjectNotification.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeRemoveQueueEntry @ 0x1402C3E10 (KeRemoveQueueEntry.c)
+ *     ObpGetWaitObject @ 0x1403456F0 (ObpGetWaitObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall IopCancelWaitCompletionPacket(_QWORD *Object, char a2, unsigned __int8 a3)
 {
-  void *v3; // r14
+  char *v3; // r14
   unsigned __int64 v5; // rdi
-  volatile signed __int32 *AssociatedWaitObject; // rax
-  char v8; // al
-  void *v9; // rbp
+  __int16 *WaitObject; // rax
+  __int16 *v8; // rcx
+  char v9; // al
+  void *v10; // rbp
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  bool v15; // zf
+  int v15; // eax
+  bool v16; // zf
 
-  v3 = (void *)Object[10];
+  v3 = (char *)Object[10];
   v5 = a3;
-  AssociatedWaitObject = (volatile signed __int32 *)ObGetAssociatedWaitObject(v3);
-  v8 = KiDeregisterObjectWaitBlock(AssociatedWaitObject, Object);
-  v9 = (void *)Object[11];
-  if ( !v8 && (!a2 || !KeRemoveQueueEntry(Object[11], Object)) )
+  WaitObject = (__int16 *)ObpGetWaitObject(v3 - 48);
+  v8 = 0LL;
+  if ( WaitObject != &ObpDefaultObject )
+    v8 = WaitObject;
+  v9 = KeDeregisterObjectNotification(v8, Object);
+  v10 = (void *)Object[11];
+  if ( !v9 && (!a2 || !(unsigned __int8)KeRemoveQueueEntry(Object[11], Object)) )
     return 0;
   Object[11] = 0LL;
   *((_BYTE *)Object + 104) = 0;
@@ -44,17 +48,17 @@ char __fastcall IopCancelWaitCompletionPacket(_QWORD *Object, char a2, unsigned 
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(v5);
   ObfDereferenceObjectWithTag(v3, 0x746C6644u);
-  ObfDereferenceObjectWithTag(v9, 0x746C6644u);
+  ObfDereferenceObjectWithTag(v10, 0x746C6644u);
   ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   return 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x14022F340
+ * XREFs of SeComputeCreatorDeniedRights @ 0x1402D0420
  * Callers:
- *     ObpAdjustCreatorAccessState @ 0x1406C2BB0 (ObpAdjustCreatorAccessState.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     ObpAdjustCreatorAccessState @ 0x1406DBB88 (ObpAdjustCreatorAccessState.c)
  * Callees:
- *     SepTokenIsOwner @ 0x140229520 (SepTokenIsOwner.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     RtlpOwnerAcesPresent @ 0x140337480 (RtlpOwnerAcesPresent.c)
- *     SepGetScopedPolicySid @ 0x1405B7C84 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x1405B9948 (SepRmReferenceFindCap.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     RtlpOwnerAcesPresent @ 0x1402F43F0 (RtlpOwnerAcesPresent.c)
+ *     SepTokenIsOwner @ 0x1403475A0 (SepTokenIsOwner.c)
+ *     SepGetScopedPolicySid @ 0x140596008 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x140597D94 (SepRmReferenceFindCap.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(
@@ -17,9 +17,8 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
         int a3,
         __int64 a4)
 {
-  unsigned int v6; // esi
-  __int64 v8; // rbp
-  __int16 v9; // r15
+  unsigned int v7; // ebp
+  __int64 v9; // rax
   __int16 v10; // r14
   __int64 v11; // rax
   __int64 v12; // rdx
@@ -31,38 +30,35 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v20; // rdx
-  ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-30h]
-  NTSTATUS AccessStatus; // [rsp+A0h] [rbp+18h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-20h]
+  NTSTATUS AccessStatus; // [rsp+90h] [rbp+18h] BYREF
 
   AccessStatus = 0;
   GrantedAccess = 0;
-  v6 = 0;
+  v7 = 0;
   if ( (a3 & 0xC0000) == 0 )
     return 0LL;
-  v8 = *(_QWORD *)(*(_QWORD *)(a2 + 72) + 48LL);
-  if ( !v8 )
+  v9 = *(_QWORD *)(a2 + 72);
+  if ( *(_QWORD *)(v9 + 48) )
+    a4 = *(_QWORD *)(v9 + 48);
+  if ( !a4 )
   {
-    v8 = a4;
+    a4 = *(_QWORD *)(a2 + 64);
     if ( !a4 )
-    {
-      v8 = *(_QWORD *)(a2 + 64);
-      if ( !v8 )
-        return 0LL;
-    }
+      return 0LL;
   }
-  v9 = *(_WORD *)(v8 + 2);
-  v10 = v9 & 0x8000;
-  if ( (v9 & 4) != 0 )
+  v10 = *(_WORD *)(a4 + 2);
+  if ( (v10 & 4) != 0 )
   {
-    if ( v10 )
+    if ( v10 >= 0 )
     {
-      v11 = *(unsigned int *)(v8 + 16);
-      v12 = (_DWORD)v11 ? v11 + v8 : 0LL;
+      v12 = *(_QWORD *)(a4 + 32);
     }
     else
     {
-      v12 = *(_QWORD *)(v8 + 32);
+      v11 = *(unsigned int *)(a4 + 16);
+      v12 = (_DWORD)v11 ? a4 + v11 : 0LL;
     }
   }
   else
@@ -71,16 +67,16 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   }
   if ( !(unsigned __int8)RtlpOwnerAcesPresent(0LL, v12) )
   {
-    if ( (v9 & 0x10) != 0 )
+    if ( (v10 & 0x10) != 0 )
     {
-      if ( v10 )
+      if ( v10 >= 0 )
       {
-        v15 = *(unsigned int *)(v8 + 12);
-        v16 = (_DWORD)v15 ? v15 + v8 : 0LL;
+        v16 = *(_QWORD *)(a4 + 24);
       }
       else
       {
-        v16 = *(_QWORD *)(v8 + 24);
+        v15 = *(unsigned int *)(a4 + 12);
+        v16 = (_DWORD)v15 ? a4 + v15 : 0LL;
       }
     }
     else
@@ -105,11 +101,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   ClientToken = SubjectSecurityContext->ClientToken;
   if ( !SubjectSecurityContext->ClientToken )
     ClientToken = SubjectSecurityContext->PrimaryToken;
-  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken, v8) )
+  if ( !(unsigned __int8)SepTokenIsOwner(ClientToken, a4, v14, 0LL) )
     return 0LL;
   if ( (a3 & 0x40000) != 0
     && !SeAccessCheck(
-          (PSECURITY_DESCRIPTOR)v8,
+          (PSECURITY_DESCRIPTOR)a4,
           SubjectSecurityContext,
           1u,
           0x40000u,
@@ -120,11 +116,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
           &GrantedAccess,
           &AccessStatus) )
   {
-    v6 = 0x40000;
+    v7 = 0x40000;
   }
   if ( (a3 & 0x80000) != 0
     && !SeAccessCheck(
-          (PSECURITY_DESCRIPTOR)v8,
+          (PSECURITY_DESCRIPTOR)a4,
           SubjectSecurityContext,
           1u,
           0x80000u,
@@ -135,7 +131,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
           &GrantedAccess,
           &AccessStatus) )
   {
-    v6 |= 0x80000u;
+    v7 |= 0x80000u;
   }
-  return v6;
+  return v7;
 }

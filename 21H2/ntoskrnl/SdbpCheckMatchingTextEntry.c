@@ -1,25 +1,25 @@
 /*
- * XREFs of SdbpCheckMatchingTextEntry @ 0x140A11614
+ * XREFs of SdbpCheckMatchingTextEntry @ 0x140964C94
  * Callers:
- *     SdbpCheckMatchingText @ 0x140A114F0 (SdbpCheckMatchingText.c)
+ *     SdbpCheckMatchingText @ 0x140964B70 (SdbpCheckMatchingText.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14075E448 (AslFileMappingDelete.c)
- *     AslFileNotFound @ 0x1408415E4 (AslFileNotFound.c)
- *     SdbpInitializeSearchDBContext @ 0x140A129F4 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140A12DA0 (SdbpResolveMatchingFile.c)
- *     AslStringSearchA @ 0x140A14AA8 (AslStringSearchA.c)
- *     AslStringSearchW @ 0x140A14B40 (AslStringSearchW.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A15078 (AslFileMappingEnsureMappedAs.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SdbpInitializeSearchDBContext @ 0x140753808 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x1407539DC (SdbpResolveMatchingFile.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileNotFound @ 0x14075633C (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslStringSearchA @ 0x1409679A4 (AslStringSearchA.c)
+ *     AslStringSearchW @ 0x140967A3C (AslStringSearchW.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140967F84 (AslFileMappingEnsureMappedAs.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingTextEntry(
         __int64 a1,
-        int *a2,
+        __int64 a2,
         unsigned __int16 *a3,
         __int64 a4,
         unsigned int a5,
@@ -54,16 +54,16 @@ __int64 __fastcall SdbpCheckMatchingTextEntry(
   int v35; // ecx
   int v36; // [rsp+30h] [rbp-58h]
   PVOID P; // [rsp+38h] [rbp-50h] BYREF
-  PVOID v38; // [rsp+40h] [rbp-48h] BYREF
+  PVOID v38[9]; // [rsp+40h] [rbp-48h] BYREF
   unsigned __int16 *v39; // [rsp+A0h] [rbp+18h]
 
   v39 = a3;
   v10 = a9;
   v11 = 0;
   P = 0LL;
-  v38 = 0LL;
+  v38[0] = 0LL;
   v13 = 0;
-  v14 = *a2;
+  v14 = *(_DWORD *)a2;
   v15 = 0LL;
   v36 = 0;
   v16 = 0LL;
@@ -80,7 +80,7 @@ __int64 __fastcall SdbpCheckMatchingTextEntry(
     }
     a3 = v39;
   }
-  v18 = (int *)*((_QWORD *)a2 + 9);
+  v18 = *(int **)(a2 + 72);
   v19 = 0;
   if ( *v18 <= 0 )
     goto LABEL_15;
@@ -90,23 +90,23 @@ __int64 __fastcall SdbpCheckMatchingTextEntry(
     do
       ++v20;
     while ( a3[v20] );
-    if ( !(unsigned int)SdbpResolveMatchingFile(a1, a2, a3, v20, &v18[12 * v19 + 2], &P) )
+    if ( !(unsigned int)SdbpResolveMatchingFile(a1, a2, a3, v20, (__int64)&v18[12 * v19 + 2], &P) )
     {
       AslLogCallPrintf(1LL);
       v15 = P;
       goto LABEL_52;
     }
     v15 = P;
-    v21 = AslFileMappingCreate((wchar_t ***)&v38, (const WCHAR *)P, 0LL, 0LL, 0LL);
-    v16 = (PVOID *)v38;
+    v21 = AslFileMappingCreate((__int64 *)v38, (const WCHAR *)P, 0LL, 0LL, 0LL);
+    v16 = (PVOID *)v38[0];
     v22 = v21;
     if ( v21 >= 0 )
-      v22 = AslFileMappingEnsureMappedAs(v38, 0LL);
+      v22 = AslFileMappingEnsureMappedAs(v38[0], 0LL);
     if ( !AslFileNotFound(v22) )
       break;
     AslFileMappingDelete(v16);
     v11 = 0;
-    v38 = 0LL;
+    v38[0] = 0LL;
     v16 = 0LL;
     if ( v15 )
     {
@@ -156,7 +156,7 @@ LABEL_49:
       if ( v28 - v27 > 0x1000 )
         v31 = 4096;
       v32 = AslAlloc(4096LL, v31 + 2LL);
-      v38 = v32;
+      v38[0] = v32;
       if ( !v32 )
         break;
       v33 = (char *)P + v27;
@@ -167,7 +167,7 @@ LABEL_49:
         break;
       if ( a6 <= 2 )
       {
-        v34 = AslStringSearchA(v38, v31, a4, a5);
+        v34 = AslStringSearchA(v38[0], v31, a4, a5);
         v35 = v36;
         if ( v34 )
           v35 = 1;
@@ -177,11 +177,11 @@ LABEL_49:
       {
         if ( a6 != 3 )
           break;
-        if ( AslStringSearchW(v38, v31 >> 1, a4, a5 >> 1) )
+        if ( AslStringSearchW(v38[0], v31 >> 1, a4, a5 >> 1) )
           v36 = 1;
       }
       v27 += v31;
-      ExFreePoolWithTag(v38, 0x74705041u);
+      ExFreePoolWithTag(v38[0], 0x74705041u);
       if ( v27 >= v28 )
         goto LABEL_49;
     }

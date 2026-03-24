@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPerfBoostPowerRequest @ 0x140719B50
+ * XREFs of PopPerfBoostPowerRequest @ 0x140719B30
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PoLatencySensitivityHint @ 0x14013F310 (PoLatencySensitivityHint.c)
- *     PpmPerfClearBootOverrides @ 0x140174608 (PpmPerfClearBootOverrides.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140719BAC (PpmPerfUpdateDomainPolicy.c)
+ *     PoLatencySensitivityHint @ 0x14013F330 (PoLatencySensitivityHint.c)
+ *     PpmPerfClearBootOverrides @ 0x140174628 (PpmPerfClearBootOverrides.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
  */
 
 __int64 __fastcall PopPerfBoostPowerRequest(__int64 a1, __int64 a2, char a3)

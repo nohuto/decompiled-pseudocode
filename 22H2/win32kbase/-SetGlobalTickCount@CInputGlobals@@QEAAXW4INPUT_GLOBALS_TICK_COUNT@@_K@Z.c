@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetGlobalTickCount@CInputGlobals@@QEAAXW4INPUT_GLOBALS_TICK_COUNT@@_K@Z @ 0x1C01DC990
+ * XREFs of ?SetGlobalTickCount@CInputGlobals@@QEAAXW4INPUT_GLOBALS_TICK_COUNT@@_K@Z @ 0x1C01A3780
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
 void __fastcall CInputGlobals::SetGlobalTickCount(__int64 a1, int a2, __int64 a3)

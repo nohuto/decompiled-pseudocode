@@ -1,7 +1,7 @@
 /*
  * XREFs of MiDeleteWorkingSetList @ 0x14009182C
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x1401542A0 (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionAddressSpace @ 0x1401542C0 (MiDeleteSessionAddressSpace.c)
  *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

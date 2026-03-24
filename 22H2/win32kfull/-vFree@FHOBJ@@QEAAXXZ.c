@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vFree@FHOBJ@@QEAAXXZ @ 0x1C008AC80
+ * XREFs of ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00E64E4
  * Callers:
- *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C008AC3C (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
- *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0115DB0 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C00B9EB4 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00E6498 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ void __fastcall FHOBJ::vFree(FHOBJ *this)
 {
   _DWORD *v2; // rcx
   __int64 i; // rbp
-  _QWORD *v4; // rdi
+  _QWORD *v4; // rsi
   _QWORD *v5; // rax
   _QWORD *v6; // rcx
   _QWORD *v7; // r14
@@ -43,8 +43,8 @@ void __fastcall FHOBJ::vFree(FHOBJ *this)
           v4 = v7;
         }
         while ( v7 );
+        v2 = (_DWORD *)*((_QWORD *)this + 1);
       }
-      v2 = (_DWORD *)*((_QWORD *)this + 1);
     }
     Win32FreePool(v2);
   }

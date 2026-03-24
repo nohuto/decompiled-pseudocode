@@ -1,68 +1,57 @@
 /*
- * XREFs of CmpLightWeightCommitDeleteValueKeyUoW @ 0x14065D320
+ * XREFs of CmpLightWeightCommitDeleteValueKeyUoW @ 0x14073293C
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14065D5C8 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x14065DDC4 (CmpLightWeightCleanupSetValueKeyUoW.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x14071EE7C (CmpCleanUpKcbCachedSymlink.c)
- *     CmpFreeValue @ 0x14079B22C (CmpFreeValue.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1405EE830 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1406A4210 (CmpLightWeightCleanupSetValueKeyUoW.c)
  */
 
-__int64 __fastcall CmpLightWeightCommitDeleteValueKeyUoW(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall CmpLightWeightCommitDeleteValueKeyUoW(__int64 a1, _QWORD *a2)
 {
-  __int64 v3; // rbp
-  __int64 v5; // rax
-  ULONG_PTR v8; // rbx
-  __int64 CellFlat; // rax
-  __int64 v10; // rsi
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  int v14; // r8d
-  int v15; // [rsp+50h] [rbp+8h] BYREF
-  int v16; // [rsp+54h] [rbp+Ch]
+  __int64 v2; // r14
+  __int64 v4; // rax
+  ULONG_PTR v6; // rbp
+  __int64 v7; // rdi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  int v11; // r8d
+  int v12; // [rsp+50h] [rbp+8h] BYREF
+  int v13; // [rsp+54h] [rbp+Ch]
 
-  v15 = -1;
-  v3 = *(_QWORD *)(a1 + 104);
-  v16 = 0;
-  v5 = *(_QWORD *)(a1 + 48);
-  v8 = *(_QWORD *)(v5 + 32);
-  if ( (*(_BYTE *)(v8 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(v8, *(unsigned int *)(v5 + 40));
-  else
-    CellFlat = HvpGetCellPaged(v8);
-  v10 = CellFlat;
-  CmpFreeValue(v8, *(unsigned int *)(*(_QWORD *)(a1 + 112) + 4LL));
+  v12 = -1;
+  v2 = *(_QWORD *)(a1 + 104);
+  v13 = 0;
+  v4 = *(_QWORD *)(a1 + 48);
+  v6 = *(_QWORD *)(v4 + 32);
+  v7 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(v6 + 8))(v6, *(unsigned int *)(v4 + 40), &v12);
+  CmpFreeValue(v6, *(unsigned int *)(*(_QWORD *)(a1 + 112) + 4LL));
   CmpFreeTransientPoolWithTag(*(void **)(a1 + 112), 0x77554D43u);
   *(_QWORD *)(a1 + 112) = 0LL;
-  *(_QWORD *)(v10 + 4) = *a2;
+  *(_QWORD *)(v7 + 4) = *a2;
   *(_QWORD *)(*(_QWORD *)(a1 + 48) + 168LL) = *a2;
   ++*(_QWORD *)(*(_QWORD *)(a1 + 48) + 304LL);
-  if ( *(_DWORD *)v3 == 1 )
+  if ( *(_DWORD *)v2 == 1 )
   {
-    v12 = *(_QWORD *)(v10 + 36);
-    *(_QWORD *)(v10 + 36) = *(_QWORD *)(v3 + 4);
-    *(_QWORD *)(v3 + 4) = v12;
-    CmpCleanUpKcbCachedSymlink(*(_QWORD *)(a1 + 48), a3);
-    v13 = *(_QWORD *)(a1 + 48);
-    v14 = *(_DWORD *)(v10 + 40);
-    *(_DWORD *)(v13 + 96) = *(_DWORD *)(v10 + 36);
-    *(_DWORD *)(v13 + 100) = v14;
-    if ( !*(_DWORD *)(v10 + 36) )
+    v9 = *(_QWORD *)(v7 + 36);
+    *(_QWORD *)(v7 + 36) = *(_QWORD *)(v2 + 4);
+    *(_QWORD *)(v2 + 4) = v9;
+    CmpCleanUpKcbCachedSymlink(*(_QWORD *)(a1 + 48));
+    v10 = *(_QWORD *)(a1 + 48);
+    v11 = *(_DWORD *)(v7 + 40);
+    *(_DWORD *)(v10 + 96) = *(_DWORD *)(v7 + 36);
+    *(_DWORD *)(v10 + 100) = v11;
+    if ( !*(_DWORD *)(v7 + 36) )
     {
-      *(_QWORD *)(v10 + 60) = 0LL;
+      *(_QWORD *)(v7 + 60) = 0LL;
       *(_WORD *)(*(_QWORD *)(a1 + 48) + 178LL) = 0;
       *(_DWORD *)(*(_QWORD *)(a1 + 48) + 180LL) = 0;
     }
   }
-  CmpLightWeightCleanupSetValueKeyUoW(v8, v3);
+  CmpLightWeightCleanupSetValueKeyUoW(v6, (unsigned int *)v2);
   *(_QWORD *)(a1 + 104) = 0LL;
-  if ( (*(_BYTE *)(v8 + 140) & 1) != 0 )
-    return HvpReleaseCellFlat(v8, &v15);
-  else
-    return HvpReleaseCellPaged(v8, &v15);
+  return (*(__int64 (__fastcall **)(ULONG_PTR, int *))(v6 + 16))(v6, &v12);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EmitUpdateCommands@CColorBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A10A0
+ * XREFs of ?EmitUpdateCommands@CColorBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064EA0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056fe___ @ 0x1C00A10DC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056f.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056fe___ @ 0x1C0064E24 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056f.c)
  */
 
 char __fastcall DirectComposition::CColorBrushMarshaler::EmitUpdateCommands(
         DirectComposition::CColorBrushMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   int v2; // eax
   char updated; // al
@@ -20,9 +20,9 @@ char __fastcall DirectComposition::CColorBrushMarshaler::EmitUpdateCommands(
   if ( (v2 & 0x20) == 0 )
     return 1;
   updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056fe___(
-              this,
+              (__int64)this,
               a2,
-              &v7);
+              (__int64)&v7);
   v5 = 0;
   if ( updated )
   {

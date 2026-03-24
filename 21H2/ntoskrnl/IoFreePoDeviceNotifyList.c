@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreePoDeviceNotifyList @ 0x140A51484
+ * XREFs of IoFreePoDeviceNotifyList @ 0x1409979FC
  * Callers:
- *     PoClearBroadcast @ 0x1408025E8 (PoClearBroadcast.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PoClearBroadcast @ 0x1407781E0 (PoClearBroadcast.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PnpUnlockDeviceActionQueue @ 0x140253DD4 (PnpUnlockDeviceActionQueue.c)
- *     IopFreePoDeviceNotifyListHead @ 0x140A514F0 (IopFreePoDeviceNotifyListHead.c)
+ *     PnpUnlockDeviceActionQueue @ 0x1402C6F4C (PnpUnlockDeviceActionQueue.c)
+ *     IopFreePoDeviceNotifyListHead @ 0x140997A68 (IopFreePoDeviceNotifyListHead.c)
  */
 
 __int64 __fastcall IoFreePoDeviceNotifyList(_BYTE *a1)

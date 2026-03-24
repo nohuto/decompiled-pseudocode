@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpCoverageRecord @ 0x1407DDB00
+ * XREFs of EtwpCoverageRecord @ 0x140698CA4
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x140364BF0 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FF820 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
- *     EtwSetProcessTelemetryCoverage @ 0x140874338 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x140321950 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6740 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771878 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     TelemetryCoverageTableLocateInternal @ 0x140364CC8 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x140364D1C (EtwpCoverageValidateCP.c)
- *     EtwpCoverageAddToStringBuffer @ 0x1403C2D8C (EtwpCoverageAddToStringBuffer.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpCoverageFlushPending @ 0x1407E8E14 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x140857DE8 (EtwpCoverageEnsureStringBuffer.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x140321A2C (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x140321A80 (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x140321B88 (EtwpCoverageAddToStringBuffer.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpCoverageFlushPending @ 0x1406A4A30 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x1407CA34C (EtwpCoverageEnsureStringBuffer.c)
  */
 
 void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
@@ -33,9 +33,9 @@ void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
   unsigned int *v11; // r14
   unsigned int *Internal; // r13
   int v13; // r11d
-  char v14; // di
-  __int64 v15; // rdx
-  __int64 v16; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  char v16; // di
   int *v17; // rcx
   const CHAR *v18; // rdx
   int *v19; // rcx
@@ -129,31 +129,31 @@ LABEL_6:
           ++a1[2][8];
           if ( *((_DWORD *)a1 + 16) == 1 )
           {
-            v15 = -10000LL * *((unsigned int *)a1 + 7);
-            v16 = (__int64)(*a1 + 60);
+            v14 = -10000LL * *((unsigned int *)a1 + 7);
+            v15 = (__int64)(*a1 + 60);
             v35[0] = 0LL;
             v35[1] = -1LL;
-            KeSetTimer2(v16, v15, 0LL, (__int64)v35);
+            KeSetTimer2(v15, v14, 0LL, (__int64)v35);
           }
-          goto LABEL_8;
+          goto LABEL_9;
         }
         *(_DWORD *)(a2 + 12) = v8;
         _InterlockedIncrement(*a1 + 1);
       }
     }
-LABEL_8:
+LABEL_9:
     LODWORD(v6) = v23;
   }
   if ( (struct _KTHREAD *)EtwpCoverageLockOwner == KeGetCurrentThread() )
   {
     EtwpCoverageLockOwner = 0LL;
-    v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
+    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v16 & 2) != 0 && (v16 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
     KeLeaveCriticalRegion();
   }
-  if ( !v4 && v5 && (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 2LL) )
+  if ( !v4 && v5 && (unsigned int)dword_140C02C28 > 5 && tlgKeywordOn((__int64)&dword_140C02C28, 2LL) )
   {
     v17 = *a1;
     v18 = *(const CHAR **)a2;
@@ -170,11 +170,11 @@ LABEL_8:
     v57 = &v28;
     v58 = 4LL;
     tlgCreate1Sz_char((__int64)v59, v18);
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04320, (unsigned __int8 *)byte_14003546D, 0LL, 0LL, 7u, &v50);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02C28, (unsigned __int8 *)byte_14002C611, 0LL, 0LL, 7u, &v50);
   }
-  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C04320 > 5 )
+  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C02C28 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C04320, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02C28, 1LL) )
     {
       v19 = *a1;
       v20 = *(const CHAR **)a2;
@@ -199,8 +199,8 @@ LABEL_8:
       v48 = 4LL;
       tlgCreate1Sz_char((__int64)v49, v20);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C04320,
-        (unsigned __int8 *)&dword_14003552C,
+        (__int64)&dword_140C02C28,
+        (unsigned __int8 *)word_14002C672,
         0LL,
         0LL,
         9u,

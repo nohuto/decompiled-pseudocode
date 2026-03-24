@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x1405F1AA4
+ * XREFs of RtlpHeapExceptionFilter @ 0x140593454
  * Callers:
- *     RtlpHpAllocWithExceptionProtection @ 0x1405E511C (RtlpHpAllocWithExceptionProtection.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x1405E5190 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpProbeUserBufferSafe @ 0x1405EADE8 (RtlpProbeUserBufferSafe.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F1C10 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHpHeapHandleError @ 0x1405F1F7C (RtlpHpHeapHandleError.c)
- *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
- *     RtlZeroHeap @ 0x1409BAF80 (RtlZeroHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x14058664C (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x1405866C0 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpProbeUserBufferSafe @ 0x14058B7B8 (RtlpProbeUserBufferSafe.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpHeapHandleError @ 0x14059392C (RtlpHpHeapHandleError.c)
+ *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
+ *     RtlZeroHeap @ 0x140915930 (RtlZeroHeap.c)
  * Callees:
  *     <none>
  */
@@ -25,17 +25,17 @@ __int64 __fastcall RtlpHeapExceptionFilter(int a1, __int64 a2)
   if ( a1 == -1073741571 || a1 == -1073741420 || a1 == -1073741801 )
     return 0LL;
   v2 = *(_OWORD **)a2;
-  unk_140C0C000 = *(_OWORD *)*(_QWORD *)a2;
-  *((_OWORD *)&unk_140C0C000 + 1) = v2[1];
-  *((_OWORD *)&unk_140C0C000 + 2) = v2[2];
-  *((_OWORD *)&unk_140C0C000 + 3) = v2[3];
-  *((_OWORD *)&unk_140C0C000 + 4) = v2[4];
-  *((_OWORD *)&unk_140C0C000 + 5) = v2[5];
-  *((_OWORD *)&unk_140C0C000 + 6) = v2[6];
-  *((_OWORD *)&unk_140C0C000 + 7) = v2[7];
-  *((_OWORD *)&unk_140C0C000 + 8) = v2[8];
-  *((_QWORD *)&unk_140C0C000 + 18) = *((_QWORD *)v2 + 18);
-  v3 = &unk_140C0C0A0;
+  unk_140C11A90 = *(_OWORD *)*(_QWORD *)a2;
+  *((_OWORD *)&unk_140C11A90 + 1) = v2[1];
+  *((_OWORD *)&unk_140C11A90 + 2) = v2[2];
+  *((_OWORD *)&unk_140C11A90 + 3) = v2[3];
+  *((_OWORD *)&unk_140C11A90 + 4) = v2[4];
+  *((_OWORD *)&unk_140C11A90 + 5) = v2[5];
+  *((_OWORD *)&unk_140C11A90 + 6) = v2[6];
+  *((_OWORD *)&unk_140C11A90 + 7) = v2[7];
+  *((_OWORD *)&unk_140C11A90 + 8) = v2[8];
+  *((_QWORD *)&unk_140C11A90 + 18) = *((_QWORD *)v2 + 18);
+  v3 = &unk_140C11B30;
   v4 = *(_OWORD **)(a2 + 8);
   v5 = 9LL;
   do

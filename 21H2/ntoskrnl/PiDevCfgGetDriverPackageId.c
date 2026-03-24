@@ -1,18 +1,19 @@
 /*
- * XREFs of PiDevCfgGetDriverPackageId @ 0x140745620
+ * XREFs of PiDevCfgGetDriverPackageId @ 0x14073C1E8
  * Callers:
- *     PiDevCfgQueryDriverNode @ 0x140746270 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14094AA64 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14094CFE8 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x14073C7F4 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7648 (PiDevCfgQueryIncludedDriverNode.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiDevCfgQueryObjectProperties @ 0x140746CCC (PiDevCfgQueryObjectProperties.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14073CE44 (PiDevCfgQueryObjectProperties.c)
  */
 
-__int64 __fastcall PiDevCfgGetDriverPackageId(int a1, __int64 a2)
+__int64 __fastcall PiDevCfgGetDriverPackageId(__int64 a1, __int64 a2)
 {
+  int v3; // edi
   int v4; // ecx
   int ObjectProperties; // ebx
   __int64 *v7; // [rsp+40h] [rbp-30h] BYREF
@@ -25,7 +26,8 @@ __int64 __fastcall PiDevCfgGetDriverPackageId(int a1, __int64 a2)
   HANDLE Handle; // [rsp+90h] [rbp+20h] BYREF
 
   Handle = 0LL;
-  ObjectProperties = PnpOpenObjectRegKey(PiPnpRtlCtx, a1, 9, 131097, 0, (__int64)&Handle);
+  v3 = a1;
+  ObjectProperties = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 9u, 131097, 0, (__int64)&Handle);
   if ( ObjectProperties >= 0 )
   {
     v9 = 0;
@@ -35,7 +37,7 @@ __int64 __fastcall PiDevCfgGetDriverPackageId(int a1, __int64 a2)
     v8 = 18;
     v10 = a2;
     v12 = 6;
-    ObjectProperties = PiDevCfgQueryObjectProperties(v4, a1, 9, (_DWORD)Handle, (__int64)&v7, 1);
+    ObjectProperties = PiDevCfgQueryObjectProperties(v4, v3, 9, (_DWORD)Handle, (__int64)&v7, 1);
     if ( ObjectProperties >= 0 && (int)v13 < 0 )
       ObjectProperties = v13;
   }

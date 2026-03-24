@@ -1,9 +1,9 @@
 /*
- * XREFs of Controller_AddDeviceToControllerDeviceList @ 0x1C0015320
+ * XREFs of Controller_AddDeviceToControllerDeviceList @ 0x1C0017AA0
  * Callers:
- *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006FFE0 (UsbDevice_UcxEvtDeviceAdd.c)
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006F110 (UsbDevice_UcxEvtDeviceAdd.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Controller_AddDeviceToControllerDeviceList(__int64 a1, __int64 a2, _QWORD *a3)
@@ -15,13 +15,13 @@ void __fastcall Controller_AddDeviceToControllerDeviceList(__int64 a1, __int64 a
     WdfDriverGlobals,
     *(_QWORD *)(a1 + 8),
     Controller_AddDeviceToControllerDeviceList,
-    7546LL,
+    7526LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64 (__fastcall *)(), __int64, const char *))(WdfFunctions_01023 + 1640))(
     WdfDriverGlobals,
     a2,
     Controller_AddDeviceToControllerDeviceList,
-    7554LL,
+    7534LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
   v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 40));
   v7 = *(_QWORD **)(a1 + 56);

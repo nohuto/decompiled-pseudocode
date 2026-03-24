@@ -1,13 +1,13 @@
 /*
  * XREFs of IovpLogStackTrace @ 0x140924998
  * Callers:
- *     IoReuseIrp @ 0x1400DF770 (IoReuseIrp.c)
+ *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
  *     IovAllocateIrp @ 0x140923810 (IovAllocateIrp.c)
  *     IovCancelIrp @ 0x140923F90 (IovCancelIrp.c)
  *     IovCompleteRequest @ 0x140923FD4 (IovCompleteRequest.c)
  * Callees:
- *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC50 (RtlEnoughStackSpaceForStackCapture.c)
- *     KeExpandKernelStackAndCallout @ 0x14013B080 (KeExpandKernelStackAndCallout.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC70 (RtlEnoughStackSpaceForStackCapture.c)
+ *     KeExpandKernelStackAndCallout @ 0x14013B0A0 (KeExpandKernelStackAndCallout.c)
  *     ViPoolLogStackCallout @ 0x140924960 (ViPoolLogStackCallout.c)
  */
 

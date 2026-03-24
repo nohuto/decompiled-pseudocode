@@ -1,10 +1,10 @@
 /*
- * XREFs of PspNotificationPacketCallback @ 0x1406C27E0
+ * XREFs of PspNotificationPacketCallback @ 0x1406C27C0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IoSetIoCompletionEx @ 0x1400C6310 (IoSetIoCompletionEx.c)
+ *     IoSetIoCompletionEx @ 0x1400C6330 (IoSetIoCompletionEx.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x14084FB0C
+ * XREFs of MiCreateUserPhysicalView @ 0x14084FAEC
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  * Callees:
@@ -7,9 +7,9 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiCheckPurgeAndUpMapCount @ 0x140077DD0 (MiCheckPurgeAndUpMapCount.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     MiReferenceAweHandle @ 0x1402B1A6C (MiReferenceAweHandle.c)
+ *     MiReferenceAweHandle @ 0x1402B1B6C (MiReferenceAweHandle.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiCreateProcessDefaultAweInfo @ 0x14084FA2C (MiCreateProcessDefaultAweInfo.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x14084FA0C (MiCreateProcessDefaultAweInfo.c)
  */
 
 int __fastcall MiCreateUserPhysicalView(__int64 a1, _QWORD *a2, _QWORD *a3)

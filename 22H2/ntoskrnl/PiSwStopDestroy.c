@@ -1,68 +1,56 @@
 /*
- * XREFs of PiSwStopDestroy @ 0x14086A198
+ * XREFs of PiSwStopDestroy @ 0x14074BAC8
  * Callers:
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563D00 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563E28 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PiSwFindChildren @ 0x14079884C (PiSwFindChildren.c)
- *     PnpConcatPWSTR @ 0x1407FB058 (PnpConcatPWSTR.c)
- *     PiSwFindPdoAssociation @ 0x1408497E0 (PiSwFindPdoAssociation.c)
- *     PiSwCloseDevice @ 0x140967170 (PiSwCloseDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PnpConcatPWSTR @ 0x14068CC14 (PnpConcatPWSTR.c)
+ *     PiSwCloseDevice @ 0x140734D40 (PiSwCloseDevice.c)
+ *     PiSwFindChildren @ 0x1407434FC (PiSwFindChildren.c)
+ *     PiSwFindPdoAssociation @ 0x140770808 (PiSwFindPdoAssociation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  char v6; // r12
-  __int64 v7; // rcx
-  __int64 v8; // r8
   _QWORD **Children; // r14
-  int v10; // ebx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  _QWORD *v14; // rdi
-  __int64 v15; // rsi
-  const wchar_t *v16; // rcx
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  wchar_t *Str2; // [rsp+98h] [rbp+20h] BYREF
+  int v7; // esi
+  _QWORD *v8; // rbx
+  _DWORD *v9; // rdi
+  const wchar_t *v10; // rcx
+  __int64 v11; // r8
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  wchar_t *Str2; // [rsp+78h] [rbp+20h] BYREF
 
   Str2 = 0LL;
   DestinationString = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v6 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
   RtlInitUnicodeString(&DestinationString, a2);
   Children = (_QWORD **)PiSwFindChildren();
   if ( Children )
   {
-    if ( (byte_140C0E20C & 8) != 0 )
-      McTemplateK0zzz_EtwWriteTransfer(
-        v7,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelClose_Start,
-        v8,
-        a2,
-        L"DRIVERENUM",
-        0LL);
-    v6 = 1;
-    v10 = PnpConcatPWSTR(0xC8uLL, 0x57706E50u, (PVOID *)&Str2, 2uLL);
-    if ( v10 >= 0 )
+    v7 = PnpConcatPWSTR(0xC8uLL, 0x57706E50u, (PVOID *)&Str2, 2uLL);
+    if ( v7 >= 0 )
     {
-      v14 = *Children;
-      while ( v14 != Children )
+      v8 = *Children;
+      while ( v8 != Children )
       {
-        v15 = (__int64)(v14 - 12);
-        v16 = (const wchar_t *)*(v14 - 11);
-        v14 = (_QWORD *)*v14;
-        if ( !wcsicmp(v16, Str2) && (*(_DWORD *)(v15 + 4) & 1) == 0 && PiSwFindPdoAssociation(v15, a3, 1) )
-          PiSwCloseDevice(v15);
+        v9 = v8 - 12;
+        v10 = (const wchar_t *)*(v8 - 11);
+        v8 = (_QWORD *)*v8;
+        if ( !wcsicmp(v10, Str2) && (v9[1] & 1) == 0 )
+        {
+          LOBYTE(v11) = 1;
+          if ( PiSwFindPdoAssociation(v9, a3, v11) )
+            PiSwCloseDevice(v9);
+        }
       }
     }
     if ( Str2 )
@@ -70,18 +58,9 @@ __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
   }
   else
   {
-    v10 = -1073741772;
+    v7 = -1073741772;
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
-  if ( v6 && (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzzd_EtwWriteTransfer(
-      v11,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelClose_Stop,
-      v12,
-      a2,
-      L"DRIVERENUM",
-      0LL,
-      v10);
-  return (unsigned int)v10;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v7;
 }

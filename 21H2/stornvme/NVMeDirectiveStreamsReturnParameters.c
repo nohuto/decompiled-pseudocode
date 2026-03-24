@@ -1,18 +1,18 @@
 /*
- * XREFs of NVMeDirectiveStreamsReturnParameters @ 0x1C0022948
+ * XREFs of NVMeDirectiveStreamsReturnParameters @ 0x1C0018C68
  * Callers:
- *     NVMeInitStreams @ 0x1C00198AC (NVMeInitStreams.c)
- *     IoctlStorageStreamsGetOpenStreams @ 0x1C001C02C (IoctlStorageStreamsGetOpenStreams.c)
- *     IoctlStorageStreamsGetParameters @ 0x1C001C1E4 (IoctlStorageStreamsGetParameters.c)
+ *     NVMeInitStreams @ 0x1C000EE88 (NVMeInitStreams.c)
+ *     IoctlStorageStreamsGetOpenStreams @ 0x1C00137A4 (IoctlStorageStreamsGetOpenStreams.c)
+ *     IoctlStorageStreamsGetParameters @ 0x1C0013958 (IoctlStorageStreamsGetParameters.c)
  * Callees:
- *     ProcessCommand @ 0x1C00039C8 (ProcessCommand.c)
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     NVMeFreeDmaBuffer @ 0x1C00053FC (NVMeFreeDmaBuffer.c)
- *     SetPrpFromBuffer @ 0x1C000556C (SetPrpFromBuffer.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C000A1DC (WaitForCommandCompleteWithCustomTimeout.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     SetPrpFromBuffer @ 0x1C0002BA8 (SetPrpFromBuffer.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
 __int64 __fastcall NVMeDirectiveStreamsReturnParameters(__int64 a1)

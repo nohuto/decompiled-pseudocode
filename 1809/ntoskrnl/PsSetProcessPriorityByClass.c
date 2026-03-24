@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetProcessPriorityByClass @ 0x14064BB50
+ * XREFs of PsSetProcessPriorityByClass @ 0x14064BB30
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
- *     PspSetProcessPriorityByClass @ 0x1400D79BC (PspSetProcessPriorityByClass.c)
- *     PspSetProcessForegroundBackgroundRequest @ 0x14064BA2C (PspSetProcessForegroundBackgroundRequest.c)
+ *     PspSetProcessPriorityByClass @ 0x1400D79DC (PspSetProcessPriorityByClass.c)
+ *     PspSetProcessForegroundBackgroundRequest @ 0x14064BA0C (PspSetProcessForegroundBackgroundRequest.c)
  */
 
 _QWORD *__fastcall PsSetProcessPriorityByClass(__int64 a1, int a2)

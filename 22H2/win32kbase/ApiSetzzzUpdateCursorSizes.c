@@ -1,26 +1,43 @@
 /*
- * XREFs of ApiSetzzzUpdateCursorSizes @ 0x1C00640F8
+ * XREFs of ApiSetzzzUpdateCursorSizes @ 0x1C00CDD90
  * Callers:
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     DestroyMonitor @ 0x1C00A04C0 (DestroyMonitor.c)
+ *     DestroyMonitor @ 0x1C0008F50 (DestroyMonitor.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*ApiSetzzzUpdateCursorSizes())(void)
+__int64 ApiSetzzzUpdateCursorSizes()
 {
-  __int64 (*result)(void); // rax
+  __int64 result; // rax
 
-  result = qword_1C0295B28;
-  if ( qword_1C0295B28 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      264,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  if ( qword_1C0256718 )
+    result = qword_1C0256718();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
   {
-    result = (__int64 (*)(void))qword_1C0295B28();
-    if ( (int)result >= 0 )
-    {
-      result = qword_1C0295B30;
-      if ( qword_1C0295B30 )
-        return (__int64 (*)(void))qword_1C0295B30();
-    }
+    result = (__int64)qword_1C0256720;
+    if ( qword_1C0256720 )
+      result = qword_1C0256720();
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               5,
+               10,
+               265,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return result;
 }

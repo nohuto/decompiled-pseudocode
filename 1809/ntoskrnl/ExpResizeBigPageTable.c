@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x14015C450
+ * XREFs of ExpResizeBigPageTable @ 0x14015C470
  * Callers:
- *     ExpAddTagForBigPages @ 0x1400E70F0 (ExpAddTagForBigPages.c)
- *     ExpResizeBigPageTable @ 0x14015C450 (ExpResizeBigPageTable.c)
+ *     ExpAddTagForBigPages @ 0x1400E7110 (ExpAddTagForBigPages.c)
+ *     ExpResizeBigPageTable @ 0x14015C470 (ExpResizeBigPageTable.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140104290 (ExpInsertPoolTrackerExpansion.c)
- *     ExFreeHeapPages @ 0x14015B254 (ExFreeHeapPages.c)
- *     ExpResizeBigPageTable @ 0x14015C450 (ExpResizeBigPageTable.c)
- *     ExAllocateHeapPages @ 0x14015C870 (ExAllocateHeapPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71C8 (EtwTracePool.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
+ *     ExpResizeBigPageTable @ 0x14015C470 (ExpResizeBigPageTable.c)
+ *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)

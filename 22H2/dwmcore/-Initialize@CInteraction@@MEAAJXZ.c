@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Initialize@CInteraction@@MEAAJXZ @ 0x180039A90
+ * XREFs of ?Initialize@CInteraction@@MEAAJXZ @ 0x1800B5E30
  * Callers:
  *     <none>
  * Callees:
- *     ??2CInteractionContextWrapper@@SAPEAX_K@Z @ 0x180039B84 (--2CInteractionContextWrapper@@SAPEAX_K@Z.c)
- *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039BA8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z @ 0x1800ECB90 (-Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z.c)
- *     ??$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z @ 0x18020B7CC (--$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x1800B5F28 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ??2CInteractionContextWrapper@@SAPEAX_K@Z @ 0x1800B6200 (--2CInteractionContextWrapper@@SAPEAX_K@Z.c)
+ *     ?Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z @ 0x1800B6224 (-Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z.c)
+ *     ??$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z @ 0x1801C5968 (--$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z.c)
  */
 
 __int64 __fastcall CInteraction::Initialize(CInteraction *this)
@@ -16,68 +16,81 @@ __int64 __fastcall CInteraction::Initialize(CInteraction *this)
   unsigned __int64 v3; // rcx
   struct IInteractionContextWrapper *v4; // rbx
   CInteractionContextWrapper *v5; // rax
-  struct IInteractionContextWrapper *v6; // rdi
-  CInteractionContextWrapper *v7; // rax
-  struct IInteractionContextWrapper *v8; // rsi
-  CInteractionContextWrapper *v9; // rax
-  struct IInteractionContextWrapper *v10; // rax
-  int v11; // eax
-  unsigned int v12; // ecx
-  unsigned int v13; // ebx
-  unsigned int v15; // [rsp+20h] [rbp-20h]
-  struct IInteractionContextWrapper *v16; // [rsp+30h] [rbp-10h] BYREF
-  CInteractionContextWrapper *v17; // [rsp+78h] [rbp+38h] BYREF
-  CInteractionContextWrapper *v18; // [rsp+80h] [rbp+40h] BYREF
-  CInteractionContextWrapper *v19; // [rsp+88h] [rbp+48h] BYREF
+  unsigned __int64 v6; // rcx
+  struct IInteractionContextWrapper *v7; // rdi
+  CInteractionContextWrapper *v8; // rax
+  unsigned __int64 v9; // rcx
+  struct IInteractionContextWrapper *v10; // rsi
+  CInteractionContextWrapper *v11; // rax
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  unsigned int v15; // ebx
+  struct IInteractionContextWrapper *v17; // [rsp+30h] [rbp-28h] BYREF
+  struct IInteractionContextWrapper *v18; // [rsp+68h] [rbp+10h] BYREF
+  struct IInteractionContextWrapper *v19; // [rsp+70h] [rbp+18h] BYREF
+  CInteractionContextWrapper *v20; // [rsp+78h] [rbp+20h] BYREF
 
   v18 = 0LL;
   v19 = 0LL;
-  v16 = 0LL;
+  v20 = 0LL;
   v2 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new((unsigned __int64)this);
-  if ( !v2 )
+  if ( v2 )
+    v4 = CInteractionContextWrapper::CInteractionContextWrapper(v2);
+  else
+    v4 = 0LL;
+  v17 = v4;
+  if ( !v4 )
   {
-    v17 = 0LL;
-    goto LABEL_16;
-  }
-  v17 = CInteractionContextWrapper::CInteractionContextWrapper(v2);
-  v4 = v17;
-  if ( !v17 )
-  {
-LABEL_16:
-    v15 = 104;
-    goto LABEL_17;
-  }
-  v5 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v3);
-  if ( !v5 || (v18 = CInteractionContextWrapper::CInteractionContextWrapper(v5), (v6 = v18) == 0LL) )
-  {
-    v15 = 107;
-    goto LABEL_17;
-  }
-  v7 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v3);
-  if ( !v7 || (v19 = CInteractionContextWrapper::CInteractionContextWrapper(v7), (v8 = v19) == 0LL) )
-  {
-    v15 = 110;
-    goto LABEL_17;
-  }
-  v9 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v3);
-  if ( !v9 || (v10 = CInteractionContextWrapper::CInteractionContextWrapper(v9), (v16 = v10) == 0LL) )
-  {
-    v15 = 113;
-LABEL_17:
-    v13 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024882, v15, 0LL);
-    goto LABEL_18;
-  }
-  v11 = CInteractionProcessor::Initialize((CInteraction *)((char *)this + 352), v4, v6, v8, v10, 0);
-  v13 = v11;
-  if ( v11 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x73u, 0LL);
-LABEL_18:
+    v15 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024882, 0x7Eu, 0LL);
+LABEL_24:
     SAFE_DELETE<IInteractionContextWrapper>(&v17);
     SAFE_DELETE<IInteractionContextWrapper>(&v18);
     SAFE_DELETE<IInteractionContextWrapper>(&v19);
-    SAFE_DELETE<IInteractionContextWrapper>(&v16);
+    SAFE_DELETE<IInteractionContextWrapper>(&v20);
+    return v15;
   }
-  return v13;
+  v5 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v3);
+  if ( v5 )
+    v7 = CInteractionContextWrapper::CInteractionContextWrapper(v5);
+  else
+    v7 = 0LL;
+  v18 = v7;
+  if ( !v7 )
+  {
+    v15 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0x81u, 0LL);
+    goto LABEL_24;
+  }
+  v8 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v6);
+  if ( v8 )
+    v10 = CInteractionContextWrapper::CInteractionContextWrapper(v8);
+  else
+    v10 = 0LL;
+  v19 = v10;
+  if ( !v10 )
+  {
+    v15 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x84u, 0LL);
+    goto LABEL_24;
+  }
+  v11 = (CInteractionContextWrapper *)CInteractionContextWrapper::operator new(v9);
+  if ( v11 )
+    v11 = CInteractionContextWrapper::CInteractionContextWrapper(v11);
+  v20 = v11;
+  if ( !v11 )
+  {
+    v15 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x87u, 0LL);
+    goto LABEL_24;
+  }
+  v13 = CInteractionProcessor::Initialize((CInteraction *)((char *)this + 336), v4, v7, v10, v11, 0);
+  v15 = v13;
+  if ( v13 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x89u, 0LL);
+    goto LABEL_24;
+  }
+  return v15;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of VslIumEfiRuntimeService @ 0x14027B540
+ * XREFs of VslIumEfiRuntimeService @ 0x14027B640
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  */
 
 unsigned __int64 __fastcall VslIumEfiRuntimeService(unsigned int a1, __int64 a2, int a3, __int128 *a4)

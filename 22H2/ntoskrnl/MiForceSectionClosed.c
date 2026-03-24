@@ -1,58 +1,84 @@
 /*
- * XREFs of MiForceSectionClosed @ 0x14035F070
+ * XREFs of MiForceSectionClosed @ 0x140310910
  * Callers:
- *     MmForceSectionClosed @ 0x14035F030 (MmForceSectionClosed.c)
- *     MmForceSectionClosedEx @ 0x1406263F0 (MmForceSectionClosedEx.c)
- *     MiCreateImageOrDataSection @ 0x1407233C0 (MiCreateImageOrDataSection.c)
+ *     MmForceSectionClosed @ 0x1403108D0 (MmForceSectionClosed.c)
+ *     MmForceSectionClosedEx @ 0x14052AFB0 (MmForceSectionClosedEx.c)
+ *     MiCreateImageOrDataSection @ 0x1406545A0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAttemptSectionDelete @ 0x14035F0D0 (MiAttemptSectionDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttemptSectionDelete @ 0x1403109B4 (MiAttemptSectionDelete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2, char a3)
+__int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  KIRQL v8; // bl
+  int v3; // r14d
+  unsigned __int64 v5; // rbx
+  __int64 v6; // rdi
+  __int64 v7; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
   bool v13; // zf
-  KIRQL v14; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r9
+  int v16; // eax
+  _DWORD *v17; // r8
 
-  v14 = 0;
-  v5 = MiLockSectionControlArea(a1, a2 & 1, &v14);
-  if ( v5 )
+  v3 = a2 & 1;
+  while ( 1 )
   {
-    if ( (a3 & 1) == 0 || (*(_BYTE *)(v5 + 62) & 0xC) != 0 )
+    v5 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    v6 = v3 ? *a1 : a1[2];
+    if ( !v6 )
+      break;
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v6 + 72)) )
     {
-      LOBYTE(v6) = v14;
-      return 2 - (unsigned int)((unsigned __int8)MiAttemptSectionDelete(v5, v6, a2 & 4) != 0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+      LOBYTE(v7) = v5;
+      return 2 - (unsigned int)((unsigned __int8)MiAttemptSectionDelete(v6, v7, a2 & 4) != 0);
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    if ( KiIrqlFlags )
     {
-      v8 = v14;
-      if ( v14 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v8 = v14;
-        v12 = ~(unsigned __int16)(-1LL << (v14 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    else
-    {
-      v8 = v14;
-    }
-    __writecr8(v8);
+    __writecr8(v5);
   }
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v14 >= 2u )
+      {
+        v15 = KeGetCurrentPrcb();
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v17 = v15->SchedulerAssist;
+        v13 = (v16 & v17[5]) == 0;
+        v17[5] &= v16;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick(v15);
+      }
+    }
+  }
+  __writecr8(v5);
   return 0LL;
 }

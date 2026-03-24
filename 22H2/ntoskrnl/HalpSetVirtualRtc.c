@@ -1,47 +1,47 @@
 /*
- * XREFs of HalpSetVirtualRtc @ 0x14033B3F0
+ * XREFs of HalpSetVirtualRtc @ 0x14030D8CC
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
- *     HalSetRealTimeClock @ 0x1404FED20 (HalSetRealTimeClock.c)
- *     HalpSetResumeTime @ 0x14051C788 (HalpSetResumeTime.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     HalpSetResumeTime @ 0x140386040 (HalpSetResumeTime.c)
+ *     HalSetRealTimeClock @ 0x1404B6A90 (HalSetRealTimeClock.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E30 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     RtlpTimeToTimeFields @ 0x14033B4C8 (RtlpTimeToTimeFields.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlpTimeToTimeFields @ 0x14030D368 (RtlpTimeToTimeFields.c)
+ *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
  */
 
-char __fastcall HalpSetVirtualRtc(__int64 *a1)
+char __fastcall HalpSetVirtualRtc(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 SystemTimePrecise; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = 0LL;
+  v8 = 0LL;
   if ( SystemPowerPhase == 2 )
     return 0;
   if ( a1 )
   {
     SystemTimePrecise = *a1;
-    v6 = *a1;
+    v9 = *a1;
   }
   else
   {
     if ( SystemPowerPhase )
       return 0;
-    SystemTimePrecise = RtlGetSystemTimePrecise();
-    v6 = SystemTimePrecise;
+    SystemTimePrecise = RtlGetSystemTimePrecise(0LL, a2, a3, a4);
+    v9 = SystemTimePrecise;
   }
-  RtlpTimeToTimeFields(&v6, &v5);
-  if ( (__int16)v5 <= 1601 )
+  RtlpTimeToTimeFields(&v9, &v8, a3);
+  if ( (__int16)v8 <= 1601 )
     return 0;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  dword_140C62820 = PerformanceCounter.HighPart;
-  qword_140C62818 = PerformanceCounter.QuadPart;
-  dword_140C62814 = HIDWORD(v6);
-  qword_140C6280C = SystemTimePrecise;
-  dword_140C62808 = PerformanceCounter.HighPart;
+  dword_140C4A640 = PerformanceCounter.HighPart;
+  qword_140C4A638 = PerformanceCounter.QuadPart;
+  dword_140C4A634 = HIDWORD(v9);
+  qword_140C4A62C = SystemTimePrecise;
+  dword_140C4A628 = PerformanceCounter.HighPart;
   VrtcTime = PerformanceCounter.QuadPart;
   if ( a1 )
     HalpVrtcTimeStale = 0;

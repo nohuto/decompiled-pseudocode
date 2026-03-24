@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeProtoPrivate @ 0x14064D344
+ * XREFs of MiMakeProtoPrivate @ 0x140547924
  * Callers:
- *     MiProtectPrivateMemory @ 0x1402A2760 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x14028E080 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x14026FC80 (MiCopyOnWrite.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLocateCloneAddress @ 0x140294478 (MiLocateCloneAddress.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiCopyOnWriteCheckConditions @ 0x140666E90 (MiCopyOnWriteCheckConditions.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLocateCloneAddress @ 0x14023E878 (MiLocateCloneAddress.c)
+ *     MiCopyOnWrite @ 0x14023EC70 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055BE38 (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiMakeProtoPrivate(__int64 a1, unsigned __int8 a2, unsigned __int64 a3)
@@ -24,16 +24,15 @@ __int64 __fastcall MiMakeProtoPrivate(__int64 a1, unsigned __int8 a2, unsigned _
   v4 = 0;
   v5 = 0LL;
   v13 = MI_READ_PTE_LOCK_FREE(a3);
-  v8 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13) >> 12) & 0xFFFFFFFFFFLL)
-     - 0x220000000000LL;
-  if ( _bittest64((const signed __int64 *)(v8 + 40), 0x28u) || *(__int64 *)(v8 + 8) <= 0 )
+  v8 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13) >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+  if ( (*(_QWORD *)(v8 + 40) & 0x1000000000LL) != 0 || *(__int64 *)(v8 + 8) <= 0 )
   {
     CloneAddress = (unsigned __int64)MiLocateCloneAddress(
                                        (__int64)KeGetCurrentThread()->ApcState.Process,
                                        *(_QWORD *)(v8 + 8) | 0x8000000000000000uLL);
-    v5 = CloneAddress & -(__int64)(*(_QWORD *)(CloneAddress + 96) < *(_QWORD *)(*(_QWORD *)(v10 + 1680) + 344LL));
+    v5 = CloneAddress & -(__int64)(*(_QWORD *)(CloneAddress + 96) < *(_QWORD *)(*(_QWORD *)(v10 + 1680) + 360LL));
   }
-  v11 = MiCopyOnWrite((__int64)(a3 << 25) >> 16, a3, 0xFFFFFFFFFFFFFFFFuLL, 0);
+  v11 = MiCopyOnWrite((__int64)(a3 << 25) >> 16, (ULONG_PTR *)a3, -1LL, 0);
   if ( v11 >= 0 )
   {
     LOBYTE(v4) = v5 != 0;

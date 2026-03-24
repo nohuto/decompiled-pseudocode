@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C8C
+ * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C6C
  * Callers:
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A5C (CmpReferenceKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
  */
 
 char __fastcall CmpReferenceKeyControlBlockLockNotHeld(volatile signed __int32 *BugCheckParameter2)

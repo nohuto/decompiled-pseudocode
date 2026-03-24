@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxKeyEvent @ 0x1C01EA500
+ * XREFs of xxxKeyEvent @ 0x1C01B11D0
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
  */
 
 void __fastcall xxxKeyEvent(

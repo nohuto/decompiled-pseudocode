@@ -1,36 +1,35 @@
 /*
- * XREFs of ??1?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ @ 0x180254E24
+ * XREFs of ??1?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ @ 0x1801F0E5C
  * Callers:
- *     ??_ECTextVisual@@MEAAPEAXI@Z @ 0x180254F10 (--_ECTextVisual@@MEAAPEAXI@Z.c)
+ *     ??_ECTextVisual@@MEAAPEAXI@Z @ 0x1801F0F40 (--_ECTextVisual@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??$UnRegisterNotifiers@VCKeyframeAnimation@@@CResource@@QEAAXPEAV?$vector@PEAVCKeyframeAnimation@@V?$allocator@PEAVCKeyframeAnimation@@@std@@@std@@@Z @ 0x180023550 (--$UnRegisterNotifiers@VCKeyframeAnimation@@@CResource@@QEAAXPEAV-$vector@PEAVCKeyframeAnimation.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV?$vector@PEAVCSceneComponent@@V?$allocator@PEAVCSceneComponent@@@std@@@std@@@Z @ 0x180168A54 (--$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV-$vector@PEAVCSceneComponent@@V-$a.c)
  */
 
-void __fastcall CTextVisualGeneratedT<CTextVisual,CVisual>::~CTextVisualGeneratedT<CTextVisual,CVisual>(
-        struct CResource ***this)
+void __fastcall CTextVisualGeneratedT<CTextVisual,CVisual>::~CTextVisualGeneratedT<CTextVisual,CVisual>(void **this)
 {
   char *v1; // rbx
   void **v3; // rdi
 
-  v1 = (char *)(this + 88);
-  CResource::UnRegisterNotifiers<CKeyframeAnimation>((CResource *)this, this + 88);
-  v3 = (void **)(this + 91);
-  CResource::UnRegisterNotifiers<CKeyframeAnimation>((CResource *)this, this + 91);
-  CResource::UnRegisterNotifiers<CKeyframeAnimation>((CResource *)this, this + 94);
-  if ( this[94] )
+  v1 = (char *)(this + 77);
+  CResource::UnRegisterNotifiers<CSceneComponent>((CResource *)this, (__int64)(this + 77));
+  v3 = this + 80;
+  CResource::UnRegisterNotifiers<CSceneComponent>((CResource *)this, (__int64)(this + 80));
+  CResource::UnRegisterNotifiers<CSceneComponent>((CResource *)this, (__int64)(this + 83));
+  if ( this[83] )
   {
-    std::_Deallocate<16,0>(this[94], ((char *)this[96] - (char *)this[94]) & 0xFFFFFFFFFFFFFFF8uLL);
-    this[94] = 0LL;
-    this[95] = 0LL;
-    this[96] = 0LL;
+    std::_Deallocate<16,0>(this[83], ((_BYTE *)this[85] - (_BYTE *)this[83]) & 0xFFFFFFFFFFFFFFF8uLL);
+    this[83] = 0LL;
+    this[84] = 0LL;
+    this[85] = 0LL;
   }
   if ( *v3 )
   {
-    std::_Deallocate<16,0>(*v3, ((char *)this[93] - (_BYTE *)*v3) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(*v3, ((_BYTE *)this[82] - (_BYTE *)*v3) & 0xFFFFFFFFFFFFFFF8uLL);
     *v3 = 0LL;
-    this[92] = 0LL;
-    this[93] = 0LL;
+    this[81] = 0LL;
+    this[82] = 0LL;
   }
   if ( *(_QWORD *)v1 )
   {

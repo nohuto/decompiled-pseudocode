@@ -1,17 +1,13 @@
 /*
- * XREFs of MiLockVadCore @ 0x1403106E0
+ * XREFs of MiLockVadCore @ 0x1402AF9B8
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x1402358D4 (MiCaptureWriteWatchDirtyBit.c)
- *     MiRemoveSecureEntry @ 0x140281480 (MiRemoveSecureEntry.c)
- *     MiMoveDirtyBitsToPfns @ 0x14028E8E0 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402CF630 (NtGetWriteWatch.c)
- *     MiSetVadFlags @ 0x14030B950 (MiSetVadFlags.c)
- *     MiSetVadDeleted @ 0x14030FC20 (MiSetVadDeleted.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
+ *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
  */
 
-__int64 __fastcall MiLockVadCore(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+unsigned __int8 __fastcall MiLockVadCore(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // di
   signed __int32 v6; // eax

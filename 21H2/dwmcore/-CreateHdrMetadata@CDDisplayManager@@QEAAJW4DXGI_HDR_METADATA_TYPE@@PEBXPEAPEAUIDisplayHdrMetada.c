@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateHdrMetadata@CDDisplayManager@@QEAAJW4DXGI_HDR_METADATA_TYPE@@PEBXPEAPEAUIDisplayHdrMetadata@Core@Display@Devices@Windows@@@Z @ 0x180284370
+ * XREFs of ?CreateHdrMetadata@CDDisplayManager@@QEAAJW4DXGI_HDR_METADATA_TYPE@@PEBXPEAPEAUIDisplayHdrMetadata@Core@Display@Devices@Windows@@@Z @ 0x180243C18
  * Callers:
- *     ?ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z @ 0x18027A42C (-ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z.c)
+ *     ?ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z @ 0x18023963C (-ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDDisplayManager::CreateHdrMetadata(
@@ -18,49 +18,47 @@ __int64 __fastcall CDDisplayManager::CreateHdrMetadata(
   unsigned int v5; // ebx
   int v7; // edx
   __int64 v8; // xmm1_8
-  __int64 v9; // rax
-  __int64 (__fastcall *v10)(__int64, __int128 *, struct Windows::Devices::Display::Core::IDisplayHdrMetadata **); // r9
-  int v11; // eax
-  __int64 v12; // rcx
-  __int128 v14; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-18h]
-  int v16; // [rsp+48h] [rbp-10h]
-  struct Windows::Devices::Display::Core::IDisplayHdrMetadata *v17; // [rsp+60h] [rbp+8h] BYREF
+  __int64 (__fastcall *v9)(__int64, __int128 *, struct Windows::Devices::Display::Core::IDisplayHdrMetadata **); // r9
+  int v10; // eax
+  __int64 v11; // rcx
+  __int128 v13; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+40h] [rbp-18h]
+  int v15; // [rsp+48h] [rbp-10h]
+  struct Windows::Devices::Display::Core::IDisplayHdrMetadata *v16; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = 0LL;
   v5 = 0;
-  v17 = 0LL;
+  v16 = 0LL;
   if ( a2 == DXGI_HDR_METADATA_TYPE_NONE )
     goto LABEL_9;
   v7 = a2 - 1;
   if ( !v7 )
   {
     v8 = a3[2];
-    v9 = *(_QWORD *)qword_1803D39D8;
-    v14 = *(_OWORD *)a3;
-    v15 = v8;
-    v10 = *(__int64 (__fastcall **)(__int64, __int128 *, struct Windows::Devices::Display::Core::IDisplayHdrMetadata **))(v9 + 56);
-    v16 = *((_DWORD *)a3 + 6);
-    v11 = v10(qword_1803D39D8, &v14, &v17);
-    v5 = v11;
-    if ( v11 < 0 )
+    v13 = *(_OWORD *)a3;
+    v14 = v8;
+    v9 = *(__int64 (__fastcall **)(__int64, __int128 *, struct Windows::Devices::Display::Core::IDisplayHdrMetadata **))(*(_QWORD *)qword_18034B678 + 56LL);
+    v15 = *((_DWORD *)a3 + 6);
+    v10 = v9(qword_18034B678, &v13, &v16);
+    v5 = v10;
+    if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x1A0u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x127u, 0LL);
       goto LABEL_10;
     }
-    v4 = v17;
+    v4 = v16;
     goto LABEL_9;
   }
   if ( v7 == 1 )
   {
 LABEL_9:
-    v17 = 0LL;
+    v16 = 0LL;
     *a4 = v4;
     goto LABEL_10;
   }
   v5 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, -2147024809, 0x1A7u);
+  MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024809, 0x12Eu, 0LL);
 LABEL_10:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v17);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v16);
   return v5;
 }

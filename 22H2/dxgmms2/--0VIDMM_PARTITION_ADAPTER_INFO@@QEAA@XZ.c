@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0VIDMM_PARTITION_ADAPTER_INFO@@QEAA@XZ @ 0x1C00197F0
+ * XREFs of ??0VIDMM_PARTITION_ADAPTER_INFO@@QEAA@XZ @ 0x1C0017780
  * Callers:
  *     <none>
  * Callees:
@@ -13,6 +13,6 @@ VIDMM_PARTITION_ADAPTER_INFO *__fastcall VIDMM_PARTITION_ADAPTER_INFO::VIDMM_PAR
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
   *((_QWORD *)this + 3) = 0LL;
-  *((_DWORD *)this + 94) = 0;
+  *((_DWORD *)this + 92) = 0;
   return this;
 }

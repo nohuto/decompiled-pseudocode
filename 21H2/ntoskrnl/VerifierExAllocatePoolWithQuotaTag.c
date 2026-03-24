@@ -1,41 +1,55 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x140A90450
+ * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x1409D4E70
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x140A82F58 (VfCheckPoolType.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
  */
 
-PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(int PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(__int32 PoolType, ULONG_PTR BugCheckParameter3, ULONG Tag)
 {
-  POOL_TYPE v3; // ebx
-  __int32 v5; // edi
   PVOID result; // rax
-  __int64 retaddr; // [rsp+58h] [rbp+0h]
+  unsigned __int32 v7; // r10d
+  POOL_TYPE v8; // r10d
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = PoolType & 0xFFFFFFF7;
-  v5 = PoolType & 8;
-  if ( (PoolType & 8) == 0 )
-    v3 = PoolType;
-  if ( (MmVerifierData & 0x2000000) != 0 )
-    VfCheckPoolType(PoolType, retaddr, 0);
-  if ( VfExAllocPoolInternal == pXdvExAllocatePoolWithQuotaTag || !pXdvExAllocatePoolWithQuotaTag )
-    result = ExAllocatePoolWithQuotaTag(v3, NumberOfBytes, Tag);
+  if ( (MmVerifierData & 0x400000) == 0 || (VfRuleClasses & 0x800000000LL) != 0 || (MmVerifierData & 1) != 0 )
+  {
+    VfCheckPoolType(PoolType, retaddr, Tag);
+    if ( (MmVerifierData & 8) != 0 )
+    {
+      if ( KeGetCurrentThread()->ApcState.Process == PsIdleProcess )
+        VerifierBugCheckIfAppropriate(0xC4u, 0x10AuLL, 0LL, 0LL, 0LL);
+      if ( (KeGetPcr()->Prcb.DpcRequestSummary & 1) != 0 )
+        VerifierBugCheckIfAppropriate(0xC4u, 0x10BuLL, 0LL, 0LL, 0LL);
+    }
+    v7 = PoolType & 0xFFFFFFF7;
+    if ( (PoolType & 8) == 0 )
+      v7 = PoolType;
+    v8 = v7 | 0x80;
+    if ( XdvEnabled )
+      result = (PVOID)pXdvExAllocatePoolWithQuotaTag(
+                        v8,
+                        BugCheckParameter3,
+                        Tag,
+                        32,
+                        retaddr,
+                        (__int64)VeAllocatePoolWithTagPriority);
+    else
+      result = VeAllocatePoolWithTagPriority(v8, BugCheckParameter3, Tag, HighPoolPriority, retaddr);
+    if ( !result && (PoolType & 8) == 0 )
+      RtlRaiseStatus(0xC000009A);
+  }
   else
-    result = (PVOID)pXdvExAllocatePoolWithQuotaTag(
-                      v3 | 0x80u,
-                      0LL,
-                      NumberOfBytes,
-                      Tag,
-                      32,
-                      0LL,
-                      0,
-                      retaddr,
-                      (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))VfHandlePoolAlloc);
-  if ( !result && !v5 )
-    RtlRaiseStatus(-1073741670);
+  {
+    if ( (MmVerifierData & 0x2000000) != 0 )
+      VfCheckPoolType(PoolType, retaddr, 0);
+    return ExAllocatePoolWithQuotaTag((POOL_TYPE)PoolType, BugCheckParameter3, Tag);
+  }
   return result;
 }

@@ -1,88 +1,69 @@
 /*
- * XREFs of _anonymous_namespace_::State::State @ 0x1800D6B1C
+ * XREFs of _anonymous_namespace_::State::State @ 0x1800282DC
  * Callers:
- *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D667C (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800267EC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800D6DB8 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
- *     _anonymous_namespace_::FramesReport::FramesReport @ 0x1800D6E60 (_anonymous_namespace_--FramesReport--FramesReport.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??R?$default_delete@VCProcessAttributionObserver@@@std@@QEBAXPEAVCProcessAttributionObserver@@@Z @ 0x1801CDBFC (--R-$default_delete@VCProcessAttributionObserver@@@std@@QEBAXPEAVCProcessAttributionObserver@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     _anonymous_namespace_::FramesReport::FramesReport @ 0x180029110 (_anonymous_namespace_--FramesReport--FramesReport.c)
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x180029330 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-struct CProcessAttributionObserver **__fastcall anonymous_namespace_::State::State(
-        struct CProcessAttributionObserver **a1)
+__int64 __fastcall anonymous_namespace_::State::State(__int64 a1)
 {
-  __int64 *v1; // rdi
-  _QWORD *v2; // rsi
-  void *v4; // rax
-  void *v5; // rbp
-  __int64 v6; // rax
-  CProcessAttributionManager *v7; // rcx
-  struct CProcessAttributionObserver *Observer; // rax
-  struct CProcessAttributionObserver *v9; // rdx
+  _BYTE *v2; // rbx
+  void *v3; // rax
+  void *v4; // rsi
   PTP_WORK ThreadpoolWork; // rax
-  int v11; // eax
-  __int64 v12; // rcx
-  int v14; // eax
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  int v6; // eax
+  unsigned int v7; // ecx
+  int v9; // eax
+  void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v1 = (__int64 *)(a1 + 2);
-  *a1 = 0LL;
-  v2 = a1 + 4;
-  a1[1] = 0LL;
-  *((_BYTE *)a1 + 16) = 0;
-  a1[3] = 0LL;
-  a1[4] = 0LL;
-  v4 = operator new(0xC0uLL);
-  v5 = v4;
-  if ( v4 )
+  *(_QWORD *)a1 = CProcessAttributionManager::CreateObserver(lpMem);
+  v2 = (_BYTE *)(a1 + 16);
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_QWORD *)(a1 + 24) = 0LL;
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_BYTE *)(a1 + 16) = 0;
+  v3 = operator new(0xC0uLL);
+  v4 = v3;
+  if ( v3 )
   {
-    memset_0(v4, 0, 0xC0uLL);
-    v6 = anonymous_namespace_::FramesReport::FramesReport(v5);
+    memset_0(v3, 0, 0xC0uLL);
+    v3 = (void *)anonymous_namespace_::FramesReport::FramesReport(v4);
   }
-  else
-  {
-    v6 = 0LL;
-  }
-  v7 = qword_1803E5C98;
-  a1[5] = (struct CProcessAttributionObserver *)v6;
-  Observer = CProcessAttributionManager::CreateObserver(v7);
-  v9 = *a1;
-  *a1 = Observer;
-  if ( v9 )
-    std::default_delete<CProcessAttributionObserver>::operator()();
-  InitializeSListHead((PSLIST_HEADER)a1 + 3);
+  *(_QWORD *)(a1 + 40) = v3;
+  InitializeSListHead((PSLIST_HEADER)(a1 + 48));
   ThreadpoolWork = CreateThreadpoolWork(anonymous_namespace_::SendFramesReports, 0LL, 0LL);
-  a1[1] = ThreadpoolWork;
+  *(_QWORD *)(a1 + 8) = ThreadpoolWork;
   if ( !ThreadpoolWork )
     RaiseFailFastException(0LL, 0LL, 0);
-  v1[1] = (__int64)anonymous_namespace_::OnScreenOnStudySessionStateChange;
-  *(_BYTE *)v1 = 1;
-  v11 = RtlSubscribeWnfStateChangeNotification(
-          v2,
-          WNF_SRUM_SCREENONSTUDY_SESSION,
-          0LL,
-          anonymous_namespace_::ScreenOnStudySessionStateTracker::WnfCallback,
-          v1,
-          0LL,
-          0,
-          0) | 0x10000000;
-  if ( v11 < 0 )
+  *(_QWORD *)(a1 + 24) = anonymous_namespace_::OnScreenOnStudySessionStateChange;
+  *v2 = 1;
+  v6 = RtlSubscribeWnfStateChangeNotification(
+         a1 + 32,
+         WNF_SRUM_SCREENONSTUDY_SESSION,
+         0LL,
+         anonymous_namespace_::ScreenOnStudySessionStateTracker::WnfCallback,
+         a1 + 16,
+         0LL,
+         0,
+         0) | 0x10000000;
+  if ( v6 < 0 )
   {
-    *v2 = 0LL;
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x13Au, 0LL);
-    if ( *(_BYTE *)v1 )
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x126u, 0LL);
+    if ( *v2 )
     {
-      *(_BYTE *)v1 = 0;
-      if ( *v2 )
+      *v2 = 0;
+      if ( *(_QWORD *)(a1 + 32) )
       {
-        v14 = RtlUnsubscribeWnfStateChangeNotification() | 0x10000000;
-        if ( v14 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v14, retaddr);
-        *v2 = 0LL;
+        v9 = RtlUnsubscribeWnfStateChangeNotification() | 0x10000000;
+        if ( v9 < 0 )
+          ModuleFailFastForHRESULT((unsigned int)v9, retaddr);
+        *(_QWORD *)(a1 + 32) = 0LL;
       }
     }
   }

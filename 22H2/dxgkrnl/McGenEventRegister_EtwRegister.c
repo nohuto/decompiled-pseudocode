@@ -1,9 +1,8 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1C00200E8
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1C0024828
  * Callers:
- *     ?SysMmInitializeGlobal@@YAXXZ @ 0x1C02183DC (-SysMmInitializeGlobal@@YAXXZ.c)
- *     ?SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ @ 0x1C02E6824 (-SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ.c)
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     ?SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ @ 0x1C02BFC98 (-SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
  *     <none>
  */

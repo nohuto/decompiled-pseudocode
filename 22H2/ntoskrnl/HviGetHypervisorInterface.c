@@ -1,23 +1,21 @@
 /*
- * XREFs of HviGetHypervisorInterface @ 0x140382E68
+ * XREFs of HviGetHypervisorInterface @ 0x1403A90B0
  * Callers:
- *     HviIsHypervisorMicrosoftCompatible @ 0x140382E1C (HviIsHypervisorMicrosoftCompatible.c)
- *     HvlpHvIdentityInfoCallback @ 0x14053FF40 (HvlpHvIdentityInfoCallback.c)
- *     HvlQueryDetailInfo @ 0x140940F08 (HvlQueryDetailInfo.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403A9060 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HvlpHvIdentityInfoCallback @ 0x1404F1D10 (HvlpHvIdentityInfoCallback.c)
+ *     HvlQueryDetailInfo @ 0x14088E378 (HvlQueryDetailInfo.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
  */
 
-__int64 __fastcall HviGetHypervisorInterface(_DWORD *a1)
+char __fastcall HviGetHypervisorInterface(_DWORD *a1)
 {
-  __int64 result; // rax
-
-  result = HviIsAnyHypervisorPresent();
-  if ( (_BYTE)result )
+  LOBYTE(_RAX) = HviIsAnyHypervisorPresent();
+  if ( (_BYTE)_RAX )
   {
     _RAX = 1073741825LL;
     __asm { cpuid }
-    *a1 = result;
+    *a1 = _RAX;
     a1[1] = _RBX;
     a1[2] = _RCX;
     a1[3] = _RDX;
@@ -27,5 +25,5 @@ __int64 __fastcall HviGetHypervisorInterface(_DWORD *a1)
     *(_QWORD *)a1 = 0LL;
     *((_QWORD *)a1 + 1) = 0LL;
   }
-  return result;
+  return _RAX;
 }

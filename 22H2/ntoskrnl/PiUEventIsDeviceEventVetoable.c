@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventIsDeviceEventVetoable @ 0x140783CC8
+ * XREFs of PiUEventIsDeviceEventVetoable @ 0x14071B1A8
  * Callers:
- *     PiUEventNotifyUserMode @ 0x140783EFC (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x14071A80C (PiUEventNotifyUserMode.c)
  * Callees:
  *     <none>
  */
@@ -19,5 +19,5 @@ bool __fastcall PiUEventIsDeviceEventVetoable(__int64 a1)
   v2 = *(_QWORD *)(a1 + 112) - *(_QWORD *)&GUID_DEVICE_KERNEL_INITIATED_EJECT.Data1;
   if ( !v2 )
     v2 = *(_QWORD *)(a1 + 120) - *(_QWORD *)GUID_DEVICE_KERNEL_INITIATED_EJECT.Data4;
-  return v2 == 0;
+  return !v2;
 }

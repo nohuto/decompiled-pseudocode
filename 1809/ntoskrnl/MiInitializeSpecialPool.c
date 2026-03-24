@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeSpecialPool @ 0x1407155E8
+ * XREFs of MiInitializeSpecialPool @ 0x1407155C8
  * Callers:
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiQuerySystemBase @ 0x14013BA9C (MiQuerySystemBase.c)
- *     InitializeListHeadPte @ 0x14017004C (InitializeListHeadPte.c)
+ *     MiQuerySystemBase @ 0x14013BABC (MiQuerySystemBase.c)
+ *     InitializeListHeadPte @ 0x14017006C (InitializeListHeadPte.c)
  *     MiInitializeDynamicRegion @ 0x1409B6DDC (MiInitializeDynamicRegion.c)
  */
 

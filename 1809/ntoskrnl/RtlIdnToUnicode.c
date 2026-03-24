@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIdnToUnicode @ 0x140896CC0
+ * XREFs of RtlIdnToUnicode @ 0x140896CA0
  * Callers:
  *     <none>
  * Callees:
- *     IdnaMemAlloc @ 0x1402F4344 (IdnaMemAlloc.c)
- *     RtlpIdnToUnicodeWorker @ 0x1402F43B8 (RtlpIdnToUnicodeWorker.c)
+ *     IdnaMemAlloc @ 0x1402F4444 (IdnaMemAlloc.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1402F44B8 (RtlpIdnToUnicodeWorker.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

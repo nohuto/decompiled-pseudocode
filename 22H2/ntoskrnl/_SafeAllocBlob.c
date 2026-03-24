@@ -1,14 +1,15 @@
 /*
- * XREFs of _SafeAllocBlob @ 0x1403A13D4
+ * XREFs of _SafeAllocBlob @ 0x1403A8204
  * Callers:
- *     RtlpMuiRegCreateLanguages @ 0x14084723C (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x1408473E4 (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpMuiRegCreateStringPool @ 0x14084744C (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegCreateLanguages @ 0x14078FE00 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x14078FE60 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14078FEC8 (RtlpMuiRegCreateStringPool.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SafeAllocBlob(
+PVOID __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -19,8 +20,10 @@ __int64 __fastcall SafeAllocBlob(
   unsigned __int64 v6; // r10
   unsigned int v7; // edx
   unsigned __int64 v8; // rcx
-  unsigned int v9; // ecx
-  __int64 result; // rax
+  unsigned int v9; // eax
+  unsigned int v10; // edi
+  PVOID PoolWithTag; // rax
+  PVOID v12; // rbx
 
   v6 = a3 * (unsigned __int64)a2;
   if ( v6 > 0xFFFFFFFF )
@@ -32,12 +35,16 @@ __int64 __fastcall SafeAllocBlob(
   if ( v8 > 0xFFFFFFFF )
     return 0LL;
   v9 = v7 + v8;
-  if ( v9 < v7 )
+  if ( v7 + (unsigned int)v8 < v7 )
     return 0LL;
-  result = 0LL;
   if ( a6 )
     *a6 = v9;
-  if ( v9 )
-    return ExAllocatePool2(256LL, v9, 1920232557LL);
-  return result;
+  if ( !v9 )
+    return 0LL;
+  v10 = v7 + v8;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x72746C6Du);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, v10);
+  return v12;
 }

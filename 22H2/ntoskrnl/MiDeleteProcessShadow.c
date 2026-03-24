@@ -1,141 +1,160 @@
 /*
- * XREFs of MiDeleteProcessShadow @ 0x14029160C
+ * XREFs of MiDeleteProcessShadow @ 0x140285DE8
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140291494 (MiDeleteFinalPageTables.c)
- *     MmCreateProcessAddressSpace @ 0x140705F00 (MmCreateProcessAddressSpace.c)
- *     PspDisablePrimaryTokenExchange @ 0x14076FDF0 (PspDisablePrimaryTokenExchange.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
+ *     MiDeleteFinalPageTables @ 0x1402EA0BC (MiDeleteFinalPageTables.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1406C068C (PspDisablePrimaryTokenExchange.c)
+ *     MmCreateProcessAddressSpace @ 0x1406FDDB4 (MmCreateProcessAddressSpace.c)
+ *     MmSynchronizeAddressPolicy @ 0x14079925C (MmSynchronizeAddressPolicy.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     KeMakeUserDirectoryTableBase @ 0x140291918 (KeMakeUserDirectoryTableBase.c)
- *     MiDeleteTopLevelPage @ 0x1402929A4 (MiDeleteTopLevelPage.c)
- *     KeFlushProcessTb @ 0x140292B40 (KeFlushProcessTb.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiDeleteTopLevelPage @ 0x1402EA238 (MiDeleteTopLevelPage.c)
+ *     KeFlushProcessTb @ 0x1402EA3D4 (KeFlushProcessTb.c)
+ *     KeMakeUserDirectoryTableBase @ 0x140355C04 (KeMakeUserDirectoryTableBase.c)
  */
 
-void __fastcall MiDeleteProcessShadow(__int64 a1, int a2)
+void __fastcall MiDeleteProcessShadow(__int64 a1, int a2, __int64 a3)
 {
-  __int64 v3; // r14
-  unsigned __int64 v4; // rdi
-  __int64 v5; // rbp
-  volatile LONG *SharedVm; // rbx
-  KIRQL v7; // al
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v4; // r13
+  unsigned __int64 v5; // rdi
+  __int64 v6; // r14
+  LONG *SharedVm; // rbx
+  KIRQL v8; // al
+  __int64 Flink; // rdx
   unsigned __int8 v10; // r12
   unsigned __int64 v11; // rsi
-  __int64 v12; // r13
-  __int64 v13; // rbx
-  unsigned __int64 v14; // rbx
-  unsigned __int64 v15; // rax
-  __int64 v16; // rsi
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rcx
+  __int64 v12; // r15
+  signed __int64 v13; // rbx
+  _QWORD *v14; // r15
+  unsigned __int64 v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rbx
+  __int64 v18; // rcx
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v22; // zf
-  signed __int32 v23; // eax
-  signed __int64 v24; // rax
-  signed __int64 v25; // rtt
-  struct _LIST_ENTRY *Flink; // rdx
-  __int64 v27; // rax
-  __int64 v28; // rdx
+  bool v21; // zf
+  signed __int32 v22; // eax
+  signed __int64 v23; // rax
+  __int64 v24; // rax
+  struct _LIST_ENTRY *v25; // r8
+  __int64 v26; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v30; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v28; // [rsp+98h] [rbp+20h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (MiFlags & 0x600000) != 0 && *(_QWORD *)(a1 + 1928) )
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  if ( (MiFlags & 0xC00000) == 0 || !*(_QWORD *)(a1 + 1928) )
+    return;
+  v4 = a1 + 1664;
+  v5 = 1LL;
+  v6 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 1838));
+  if ( a2 )
   {
-    v3 = a1 + 1664;
-    v4 = 1LL;
-    v5 = *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(a1 + 1838));
-    if ( a2 )
+    SharedVm = MiGetSharedVm(v4);
+    v8 = ExAcquireSpinLockExclusive(SharedVm);
+    SharedVm[1] = 0;
+    v10 = v8;
+    if ( *(_QWORD *)(a1 + 1928) )
     {
-      SharedVm = (volatile LONG *)MiGetSharedVm(v3);
-      v7 = ExAcquireSpinLockExclusive(SharedVm);
-      *((_DWORD *)SharedVm + 1) = 0;
-      v10 = v7;
-      if ( !*(_QWORD *)(a1 + 1928) )
-      {
-        MiUnlockWorkingSetExclusive(v3, v7, v8, v9);
-        return;
-      }
       v11 = 0xFFFFF6FB7DBED000uLL;
       v12 = 256LL;
-      do
+      while ( 1 )
       {
         v13 = *(_QWORD *)v11;
-        if ( MiPteInShadowRange(v11)
-          && (MiFlags & 0x600000) != 0
-          && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-          && (v13 & 1) != 0
-          && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
+        if ( !(unsigned int)MiPteInShadowRange(v11, Flink)
+          || (MiFlags & 0xC00000) == 0
+          || KeGetCurrentThread()->ApcState.Process->AddressPolicy == 1 )
         {
-          Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-          if ( Flink )
-          {
-            v27 = *((_QWORD *)&Flink->Flink + ((v11 >> 3) & 0x1FF));
-            v28 = v13 | 0x20;
-            if ( (v27 & 0x20) == 0 )
-              v28 = v13;
-            v13 = v28;
-            if ( (v27 & 0x42) != 0 )
-              v13 = v28 | 0x42;
-          }
+          goto LABEL_9;
         }
-        v30 = v13;
         if ( (v13 & 1) != 0 )
-        {
-          v24 = v13;
-          do
-          {
-            if ( v13 >= 0 )
-              break;
-            v30 = v24 & 0x7FFFFFFFFFFFFFFFLL;
-            if ( (MiFlags & 0x2000000) != 0 )
-              _mm_lfence();
-            v25 = v24;
-            v24 = _InterlockedCompareExchange64((volatile signed __int64 *)v11, v24 & 0x7FFFFFFFFFFFFFFFLL, v24);
-            v13 = v24;
-            if ( v25 == v24 )
-              break;
-            v30 = v24;
-          }
-          while ( (v24 & 1) != 0 );
-        }
+          break;
+LABEL_10:
         v11 += 8LL;
-        --v12;
+        if ( !--v12 )
+          goto LABEL_11;
       }
-      while ( v12 );
+      if ( (v13 & 0x20) == 0 || (v13 & 0x42) == 0 )
+      {
+        Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v24 = *(_QWORD *)(Flink + 8 * ((v11 >> 3) & 0x1FF));
+          Flink = v13 | 0x20;
+          if ( (v24 & 0x20) == 0 )
+            Flink = v13;
+          v13 = Flink;
+          if ( (v24 & 0x42) != 0 )
+            v13 = Flink | 0x42;
+        }
+      }
+LABEL_9:
+      if ( (v13 & 1) != 0 )
+      {
+        do
+        {
+          if ( v13 >= 0 )
+            break;
+          v23 = _InterlockedCompareExchange64((volatile signed __int64 *)v11, v13 & 0x7FFFFFFFFFFFFFFFLL, v13);
+          v21 = v13 == v23;
+          v13 = v23;
+          if ( v21 )
+            break;
+        }
+        while ( (v23 & 1) != 0 );
+      }
+      goto LABEL_10;
     }
-    else
+    MiUnlockWorkingSetExclusive(v4, v8);
+  }
+  else
+  {
+    v10 = 17;
+LABEL_11:
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = &SpinLock;
+    KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, a3);
+    v14 = (_QWORD *)(((*(_QWORD *)(a1 + 1928) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+    v28 = MI_READ_PTE_LOCK_FREE(v14);
+    v15 = v28;
+    if ( (unsigned int)MiPteInShadowRange(&v28, v16)
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v15 & 1) != 0
+      && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
     {
-      v10 = 17;
+      v25 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v25 )
+      {
+        v26 = *((_QWORD *)&v25->Flink + (((unsigned __int64)&v28 >> 3) & 0x1FF));
+        if ( (v26 & 0x20) != 0 )
+          v15 |= 0x20uLL;
+        if ( (v26 & 0x42) != 0 )
+          v15 |= 0x42uLL;
+      }
+      else
+      {
+        v15 = v28;
+      }
     }
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140C698C0, &LockHandle);
-    v14 = ((*(_QWORD *)(a1 + 1928) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v30 = MI_READ_PTE_LOCK_FREE(v14);
-    v15 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v30);
     *(_QWORD *)(a1 + 1928) = 0LL;
-    v16 = (v15 >> 12) & 0xFFFFFFFFFFLL;
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    v17 = (v15 >> 12) & 0xFFFFFFFFFLL;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     *(_QWORD *)(a1 + 904) = KeMakeUserDirectoryTableBase(0LL);
     if ( v10 != 17 )
-      MiUnlockWorkingSetExclusive(v3, v10, v17, v18);
-    MiReleasePtes(&qword_140C69A40, v14, 1LL);
-    KeFlushProcessTb(v16 << 12);
-    if ( (unsigned int)MiDeleteTopLevelPage(v19, v16) != 3 )
+      MiUnlockWorkingSetExclusive(v4, v10);
+    MiReleasePtes((__int64)&qword_140C4EF40, v14, 1u);
+    KeFlushProcessTb(v17 << 12);
+    if ( (unsigned int)MiDeleteTopLevelPage(v18, v17) != 3 )
     {
-      MiReturnCommit(v5, 1LL);
-      if ( (_UNKNOWN *)v5 == &MiSystemPartition )
+      MiReturnCommit(v6, 1LL);
+      if ( (ULONG_PTR *)v6 == &MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -145,16 +164,16 @@ void __fastcall MiDeleteProcessShadow(__int64 a1, int a2)
           {
             do
             {
-              v23 = _InterlockedCompareExchange(
+              v22 = _InterlockedCompareExchange(
                       (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                       CachedResidentAvailable + 1,
                       CachedResidentAvailable);
-              v22 = (_DWORD)CachedResidentAvailable == v23;
-              LODWORD(CachedResidentAvailable) = v23;
-              if ( v22 )
+              v21 = (_DWORD)CachedResidentAvailable == v22;
+              LODWORD(CachedResidentAvailable) = v22;
+              if ( v21 )
                 return;
             }
-            while ( v23 != -1 && (unsigned __int64)(v23 + 1LL) <= 0x100 );
+            while ( v22 != -1 && (unsigned __int64)(v22 + 1LL) <= 0x100 );
           }
           if ( (int)CachedResidentAvailable > 192
             && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -162,13 +181,13 @@ void __fastcall MiDeleteProcessShadow(__int64 a1, int a2)
                                                     192,
                                                     CachedResidentAvailable) )
           {
-            v4 = (int)CachedResidentAvailable - 192 + 1LL;
+            v5 = (int)CachedResidentAvailable - 192 + 1LL;
           }
-          if ( !v4 )
+          if ( !v5 )
             return;
         }
       }
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 17280), v4);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 7168), v5);
     }
   }
 }

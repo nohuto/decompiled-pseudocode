@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02347B0
+ * XREFs of ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4048
  * Callers:
- *     ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02348F0 (-EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4190 (-EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitSurfaces(
@@ -22,7 +22,7 @@ bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitSurfaces(
   int v12; // eax
   void *v14; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 19) < *((_DWORD *)this + 18) )
+  if ( *((_DWORD *)this + 17) < *((_DWORD *)this + 16) )
   {
     do
     {
@@ -31,10 +31,10 @@ bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitSurfaces(
       if ( (unsigned __int64)v4 < 0x24 )
       {
         if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v14) )
-          return *((_DWORD *)this + 19) == *((_DWORD *)this + 18);
+          return *((_DWORD *)this + 17) == *((_DWORD *)this + 16);
         v4 = v14;
       }
-      v5 = (unsigned int)(*((_DWORD *)this + 18) - *((_DWORD *)this + 19));
+      v5 = (unsigned int)(*((_DWORD *)this + 16) - *((_DWORD *)this + 17));
       if ( v5 >= ((unsigned __int64)v4 - 16) / 0x14 )
         LODWORD(v5) = ((unsigned __int64)v4 - 16) / 0x14;
       v14 = 0LL;
@@ -45,32 +45,32 @@ bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitSurfaces(
       *(_QWORD *)(v6 + 4) = 0LL;
       *((_DWORD *)v6 + 3) = 0;
       *((_DWORD *)v6 + 1) = 77;
-      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v6 + 3) = v5;
-      v8 = *((_DWORD *)this + 19);
+      v8 = *((_DWORD *)this + 17);
       if ( (_DWORD)v5 )
       {
         v9 = (unsigned int)v5;
         do
         {
           v10 = 3LL * v8;
-          v11 = *(_QWORD *)(*((_QWORD *)this + 8) + 24LL * v8);
+          v11 = *(_QWORD *)(*((_QWORD *)this + 7) + 24LL * v8);
           if ( v11 )
-            v12 = *(_DWORD *)(v11 + 32);
+            v12 = *(_DWORD *)(v11 + 24);
           else
             v12 = 0;
           *(_DWORD *)v7 = v12;
           ++v8;
-          *(_OWORD *)(v7 + 4) = *(_OWORD *)(*((_QWORD *)this + 8) + 8 * v10 + 8);
+          *(_OWORD *)(v7 + 4) = *(_OWORD *)(*((_QWORD *)this + 7) + 8 * v10 + 8);
           v7 += 20;
           --v9;
         }
         while ( v9 );
-        v8 = *((_DWORD *)this + 19);
+        v8 = *((_DWORD *)this + 17);
       }
-      *((_DWORD *)this + 19) = v5 + v8;
+      *((_DWORD *)this + 17) = v5 + v8;
     }
-    while ( (unsigned int)v5 + v8 < *((_DWORD *)this + 18) );
+    while ( (unsigned int)v5 + v8 < *((_DWORD *)this + 16) );
   }
-  return *((_DWORD *)this + 19) == *((_DWORD *)this + 18);
+  return *((_DWORD *)this + 17) == *((_DWORD *)this + 16);
 }

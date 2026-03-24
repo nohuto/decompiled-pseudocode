@@ -1,7 +1,7 @@
 /*
  * XREFs of MmCreateCacheManagerSection @ 0x1405DD6DC
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400AC030 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
  * Callees:
  *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
  */

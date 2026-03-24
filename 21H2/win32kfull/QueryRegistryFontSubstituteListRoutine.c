@@ -1,12 +1,12 @@
 /*
- * XREFs of QueryRegistryFontSubstituteListRoutine @ 0x1C03914B0
+ * XREFs of QueryRegistryFontSubstituteListRoutine @ 0x1C0394610
  * Callers:
  *     <none>
  * Callees:
- *     vProcessEntry @ 0x1C0105DF8 (vProcessEntry.c)
- *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C0105F6C (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     vProcessEntry @ 0x1C01193D8 (vProcessEntry.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C011954C (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall QueryRegistryFontSubstituteListRoutine(

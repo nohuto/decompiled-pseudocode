@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile @ 0x1C001F8F0
+ * XREFs of HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile @ 0x1C001CEE0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_NotifyDeviceDisconnected @ 0x1C001730C (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC (HUBPDO_NotifyDeviceDisconnected.c)
  */
 
 __int64 __fastcall HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile(__int64 a1)

@@ -1,56 +1,44 @@
 /*
- * XREFs of NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C01CDD00
+ * XREFs of NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0004BF0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     RequestInputSinkInfoFromPoint @ 0x1C01E68AC (RequestInputSinkInfoFromPoint.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1C0004CF4 (RequestInputSinkInfoFromPoint.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall NtUserCompositionInputSinkViewInstanceIdFromPoint(__int64 *a1, _DWORD *a2)
+__int64 __fastcall NtUserCompositionInputSinkViewInstanceIdFromPoint(_QWORD *a1, _DWORD *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
   __int64 CurrentProcess; // rax
-  int v8; // ebx
-  ULONG64 v9; // rdx
-  ULONG64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  int v14; // [rsp+50h] [rbp-78h] BYREF
-  __int64 v15; // [rsp+54h] [rbp-74h]
-  int v16; // [rsp+5Ch] [rbp-6Ch]
-  int v17; // [rsp+B8h] [rbp-10h]
+  int v5; // ebx
+  _DWORD v7[30]; // [rsp+50h] [rbp-78h] BYREF
 
   ExEnterCriticalRegionAndAcquireResourceExclusive(gpresDitCompositionInputSinkQuery);
-  EnterCrit(0LL, 0LL);
-  memset_0(&v14, 0, 0x70uLL);
-  CurrentProcess = PsGetCurrentProcess(v5, v4, v6);
+  EnterCrit(0LL, 1LL);
+  memset(v7, 0, 0x70uLL);
+  CurrentProcess = PsGetCurrentProcess();
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    v8 = 0;
-    UserSetLastError(5);
+    v5 = 0;
+    UserSetLastError(5LL);
   }
   else
   {
     if ( a1 + 1 < a1 || (unsigned __int64)(a1 + 1) > MmUserProbeAddress )
-      a1 = (__int64 *)MmUserProbeAddress;
-    v15 = *a1;
-    v14 = 8;
-    v16 = 0;
-    v8 = RequestInputSinkInfoFromPoint(&v14);
-    if ( v8 )
+      a1 = (_QWORD *)MmUserProbeAddress;
+    *(_QWORD *)&v7[1] = *a1;
+    v7[0] = 8;
+    v7[3] = 0;
+    v5 = RequestInputSinkInfoFromPoint(v7);
+    if ( v5 )
     {
-      v10 = MmUserProbeAddress;
-      v9 = MmUserProbeAddress;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
         a2 = (_DWORD *)MmUserProbeAddress;
-      *a2 = v17;
+      *a2 = v7[26];
     }
   }
-  UserSessionSwitchLeaveCrit(v10, v9, v11, v12);
+  UserSessionSwitchLeaveCrit();
   ExReleaseResourceAndLeaveCriticalRegion(gpresDitCompositionInputSinkQuery);
-  return v8;
+  return v5;
 }

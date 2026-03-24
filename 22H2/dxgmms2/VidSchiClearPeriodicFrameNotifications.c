@@ -1,43 +1,38 @@
 /*
- * XREFs of VidSchiClearPeriodicFrameNotifications @ 0x1C00188E8
+ * XREFs of VidSchiClearPeriodicFrameNotifications @ 0x1C002F1C8
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C0006310 (VidSchiSetFlipDevice.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011C0C (VidSchiSetFlipDevice.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
  * Callees:
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EE20 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034000 (VidSchDestroyPeriodicFrameNotification.c)
  */
 
 void __fastcall VidSchiClearPeriodicFrameNotifications(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rsi
-  void *v7; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rsi
+  void *v6; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 8LL * a2 + 3200);
-  v4 = *(_QWORD *)(v3 + 78800);
-  if ( v4 )
+  v3 = *(_QWORD *)(a1 + 8LL * a2 + 3104);
+  if ( *(_QWORD *)(v3 + 66448) )
   {
-    v5 = 0LL;
-    v6 = 8LL;
+    v4 = 0LL;
+    v5 = 8LL;
     do
     {
-      v7 = *(void **)(v5 + v4);
-      if ( v7 )
-      {
-        VidSchDestroyPeriodicFrameNotification(v7);
-        v4 = *(_QWORD *)(v3 + 78800);
-      }
-      v5 += 8LL;
-      --v6;
+      v6 = *(void **)(v4 + *(_QWORD *)(v3 + 66448));
+      if ( v6 )
+        VidSchDestroyPeriodicFrameNotification(v6);
+      v4 += 8LL;
+      --v5;
     }
-    while ( v6 );
+    while ( v5 );
     memset(&LockHandle, 0, sizeof(LockHandle));
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-    ExFreePoolWithTag(*(PVOID *)(v3 + 78800), 0x62616956u);
-    *(_QWORD *)(v3 + 78800) = 0LL;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
+    ExFreePoolWithTag(*(PVOID *)(v3 + 66448), 0x62616956u);
+    *(_QWORD *)(v3 + 66448) = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
 }

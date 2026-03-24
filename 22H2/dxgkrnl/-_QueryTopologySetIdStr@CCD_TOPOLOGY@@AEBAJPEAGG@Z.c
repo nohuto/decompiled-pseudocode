@@ -1,60 +1,61 @@
 /*
- * XREFs of ?_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z @ 0x1C018539C
+ * XREFs of ?_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z @ 0x1C0149C08
  * Callers:
- *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C018433C (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
+ *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C013F638 (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
  * Callees:
- *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C0003D0C (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
- *     ?_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z @ 0x1C0183104 (-_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z.c)
- *     ?DxgkIsTargetNonStandard@@YA_NAEBU_LUID@@I@Z @ 0x1C0185C7C (-DxgkIsTargetNonStandard@@YA_NAEBU_LUID@@I@Z.c)
- *     ?IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z @ 0x1C03BB644 (-IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000A258 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C000CA54 (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
+ *     ?_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z @ 0x1C0149D50 (-_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z.c)
+ *     ?DxgkIsTargetNonStandard@@YA_NAEBU_LUID@@I@Z @ 0x1C014A618 (-DxgkIsTargetNonStandard@@YA_NAEBU_LUID@@I@Z.c)
+ *     ?IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z @ 0x1C02EB388 (-IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::_QueryTopologySetIdStr(CCD_TOPOLOGY *this, char *a2, unsigned __int16 a3)
+__int64 __fastcall CCD_TOPOLOGY::_QueryTopologySetIdStr(CCD_TOPOLOGY *this, unsigned __int16 *a2, unsigned __int16 a3)
 {
   __int64 v4; // rdx
-  unsigned int v6; // ebx
-  unsigned __int16 v7; // bp
+  __int64 v6; // rbp
+  unsigned __int16 v7; // di
   unsigned int v8; // r13d
   __int64 v9; // r14
   __int64 v10; // rax
   int v11; // eax
-  __int64 v12; // r9
-  unsigned int v13; // r12d
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  unsigned int v14; // r12d
   __int64 result; // rax
-  __int64 v15; // rcx
-  char *v16; // rdx
-  __int16 v17; // ax
-  char *v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // rsi
-  __int64 v21; // rcx
-  char *v22; // rdx
-  __int16 v23; // ax
-  char *v24; // rax
-  unsigned __int16 v25; // bp
-  unsigned __int16 *v26; // rdi
-  int v27; // eax
-  __int64 v28; // rcx
-  unsigned __int16 v29; // [rsp+70h] [rbp+8h]
-  unsigned __int16 v30; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r15
+  __int64 v19; // rax
+  unsigned __int16 v20; // di
+  unsigned __int16 *v21; // rsi
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  _QWORD *v25; // rax
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  unsigned __int16 v28; // [rsp+70h] [rbp+8h]
+  unsigned __int16 v29; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v30; // [rsp+88h] [rbp+20h]
 
-  v30 = a3;
+  v29 = a3;
   v4 = *((_QWORD *)this + 8);
   if ( !*(_WORD *)(v4 + 20) )
   {
-    *(_WORD *)a2 = 0;
+    *a2 = 0;
     return 0LL;
   }
-  v6 = -1073741823;
-  v29 = 0;
+  LODWORD(v6) = -1073741823;
+  v28 = 0;
   v7 = 16385;
   v8 = 0;
   while ( 1 )
   {
-    v9 = 296LL * v8;
-    if ( DxgkIsTargetNonStandard((const struct _LUID *)(v9 + v4 + 72), *(_DWORD *)(v9 + v4 + 84)) )
+    v9 = 272LL * v8;
+    if ( DxgkIsTargetNonStandard((const struct _LUID *)(v9 + v4 + 64), *(_DWORD *)(v9 + v4 + 76)) )
     {
-      *(_DWORD *)(*((_QWORD *)this + 8) + v9 + 320) = 0;
+      *(_DWORD *)(v9 + *((_QWORD *)this + 8) + 288) = 0;
       goto LABEL_8;
     }
     if ( CCD_TOPOLOGY::IsPrimaryClonePathByModality(this, v8) )
@@ -62,131 +63,96 @@ __int64 __fastcall CCD_TOPOLOGY::_QueryTopologySetIdStr(CCD_TOPOLOGY *this, char
 LABEL_8:
     v4 = *((_QWORD *)this + 8);
     if ( ++v8 >= *(unsigned __int16 *)(v4 + 20) )
-      return v6;
+      return (unsigned int)v6;
   }
   if ( v8 )
   {
-    if ( !v7 )
-      return 3221225485LL;
-    v15 = v7;
-    v16 = a2;
-    do
-    {
-      if ( !(2147483646LL - v7 + v15) )
-        break;
-      v17 = *(_WORD *)&v16[(char *)L"+" - a2];
-      if ( !v17 )
-        break;
-      *(_WORD *)v16 = v17;
-      v16 += 2;
-      --v15;
-    }
-    while ( v15 );
-    v18 = v16 - 2;
-    if ( v15 )
-      v18 = v16;
-    *(_WORD *)v18 = 0;
-    result = v15 == 0 ? 0x80000005 : 0;
+    if ( v7 )
+      result = RtlStringCchCopyW(a2, v7, L"+");
+    else
+      result = 3221225485LL;
     if ( (_DWORD)result == -2147483643 )
-      return 3221225507LL;
-    if ( !v15 )
+      result = 3221225507LL;
+    if ( (int)result < 0 )
       return result;
     --v7;
-    a2 += 2;
+    ++a2;
   }
   v10 = *((_QWORD *)this + 8);
-  v30 = 0;
+  v29 = 0;
   v11 = CCD_TOPOLOGY::_QueryMonitorIdStr(
-          (const struct _LUID *)(v9 + v10 + 72),
-          *(_DWORD *)(v10 + v9 + 84),
-          (unsigned __int16 *)a2,
+          (const struct _LUID *)(v9 + v10 + 64),
+          *(_DWORD *)(v9 + v10 + 76),
+          a2,
           v7,
-          &v30);
-  v12 = *((_QWORD *)this + 8);
+          &v29);
   v6 = v11;
   if ( v11 >= 0 )
   {
-    v7 -= v30;
-    *(_DWORD *)(v12 + v9 + 320) = v29;
-    v13 = v8 + 1;
-    ++v29;
-    a2 += 2 * v30;
+    v14 = v8 + 1;
+    v7 -= v29;
+    *(_DWORD *)(v9 + *((_QWORD *)this + 8) + 288) = v28++;
+    a2 += v29;
     if ( v8 + 1 < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) )
     {
       while ( 1 )
       {
-        if ( CCD_TOPOLOGY::IsSameCloneGroup(this, v8, v13, 0) )
+        if ( CCD_TOPOLOGY::IsSameCloneGroup(this, v8, v14, 0) )
         {
-          v19 = *((_QWORD *)this + 8);
-          v20 = 296LL * v13;
-          if ( *(_DWORD *)(v20 + v19 + 72) == *(_DWORD *)(v19 + v9 + 72)
-            && *(_DWORD *)(v20 + v19 + 76) == *(_DWORD *)(v19 + v9 + 76)
-            && *(_DWORD *)(v20 + v19 + 84) == *(_DWORD *)(v19 + v9 + 84) )
+          v17 = *((_QWORD *)this + 8);
+          v18 = 272LL * v14;
+          v30 = v14;
+          if ( *(_DWORD *)(v18 + v17 + 64) == *(_DWORD *)(v9 + v17 + 64)
+            && *(_DWORD *)(v18 + v17 + 68) == *(_DWORD *)(v9 + v17 + 68)
+            && *(_DWORD *)(v18 + v17 + 76) == *(_DWORD *)(v9 + v17 + 76) )
           {
-            WdLogSingleEntry0(1LL);
+            v19 = WdLogNewEntry5_WdAssertion(v17, v16);
+            WdLogEvent5_WdAssertion(v19);
           }
-          if ( !v7 )
-            return 3221225485LL;
-          v21 = v7;
-          v22 = a2;
-          do
-          {
-            if ( !(2147483646LL - v7 + v21) )
-              break;
-            v23 = *(_WORD *)&v22[(char *)L"*" - a2];
-            if ( !v23 )
-              break;
-            *(_WORD *)v22 = v23;
-            v22 += 2;
-            --v21;
-          }
-          while ( v21 );
-          v24 = v22 - 2;
-          if ( v21 )
-            v24 = v22;
-          *(_WORD *)v24 = 0;
-          result = v21 == 0 ? 0x80000005 : 0;
+          if ( v7 )
+            result = RtlStringCchCopyW(a2, v7, L"*");
+          else
+            result = 3221225485LL;
           if ( (_DWORD)result == -2147483643 )
-            return 3221225507LL;
-          if ( !v21 )
+            result = 3221225507LL;
+          if ( (int)result < 0 )
             return result;
-          v25 = v7 - 1;
-          v26 = (unsigned __int16 *)(a2 + 2);
-          v27 = CCD_TOPOLOGY::_QueryMonitorIdStr(
-                  (const struct _LUID *)(v20 + *((_QWORD *)this + 8) + 72LL),
-                  *(_DWORD *)(*((_QWORD *)this + 8) + v20 + 84),
-                  v26,
-                  v25,
-                  &v30);
-          v28 = *((_QWORD *)this + 8);
-          v6 = v27;
-          if ( v27 < 0 )
+          v20 = v7 - 1;
+          v21 = a2 + 1;
+          v22 = CCD_TOPOLOGY::_QueryMonitorIdStr(
+                  (const struct _LUID *)(v18 + *((_QWORD *)this + 8) + 64LL),
+                  *(_DWORD *)(v18 + *((_QWORD *)this + 8) + 76),
+                  v21,
+                  v20,
+                  &v29);
+          v6 = v22;
+          if ( v22 < 0 )
           {
-            WdLogSingleEntry5(
-              2LL,
-              v27,
-              *(unsigned int *)(v28 + v20 + 84),
-              v28,
-              *(int *)(v28 + v20 + 76),
-              *(unsigned int *)(v28 + v20 + 72));
-            return v6;
+            v25 = (_QWORD *)WdLogNewEntry5_WdError(v24, v23);
+            v26 = 272 * v30;
+            v25[3] = v6;
+            v27 = *(unsigned int *)(v18 + *((_QWORD *)this + 8) + 76);
+            goto LABEL_38;
           }
-          v7 = v25 - v30;
-          *(_DWORD *)(v28 + v20 + 320) = v29++;
-          a2 = (char *)&v26[v30];
+          v7 = v20 - v29;
+          *(_DWORD *)(v18 + *((_QWORD *)this + 8) + 288) = v28++;
+          a2 = &v21[v29];
         }
-        if ( ++v13 >= *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) )
+        if ( ++v14 >= *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) )
           goto LABEL_8;
       }
     }
     goto LABEL_8;
   }
-  WdLogSingleEntry5(
-    2LL,
-    v11,
-    *(unsigned int *)(v12 + v9 + 84),
-    v12,
-    *(int *)(v12 + v9 + 76),
-    *(unsigned int *)(v12 + v9 + 72));
-  return v6;
+  v25 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+  v26 = 272LL * v8;
+  v25[3] = v6;
+  v27 = *(unsigned int *)(v9 + *((_QWORD *)this + 8) + 76);
+LABEL_38:
+  v25[4] = v27;
+  v25[5] = *((_QWORD *)this + 8);
+  v25[6] = *(int *)(v26 + *((_QWORD *)this + 8) + 68);
+  v25[7] = *(unsigned int *)(v26 + *((_QWORD *)this + 8) + 64);
+  WdLogEvent5_WdError(v25);
+  return (unsigned int)v6;
 }

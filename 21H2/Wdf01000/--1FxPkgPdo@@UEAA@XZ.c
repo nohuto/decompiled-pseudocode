@@ -1,24 +1,24 @@
 /*
- * XREFs of ??1FxPkgPdo@@UEAA@XZ @ 0x1C001FC38
+ * XREFs of ??1FxPkgPdo@@UEAA@XZ @ 0x1C0078C78
  * Callers:
- *     ??_EFxPkgPdo@@UEAAPEAXI@Z @ 0x1C001F420 (--_EFxPkgPdo@@UEAAPEAXI@Z.c)
+ *     ??_EFxPkgPdo@@UEAAPEAXI@Z @ 0x1C0078D10 (--_EFxPkgPdo@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C001FA30 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0020990 (--1FxPkgPnp@@MEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0083258 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C004FFB8 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0078D50 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
  */
 
-void __fastcall FxPkgPdo::~FxPkgPdo(FxPkgPdo *this, unsigned int a2)
+void __fastcall FxPkgPdo::~FxPkgPdo(FxPkgPdo *this)
 {
-  unsigned int v3; // edx
+  unsigned int v2; // edx
   wchar_t *m_IDsAllocation; // rcx
   FxChildList *m_OwningChildList; // rcx
   FxRelatedDeviceList *m_EjectionDeviceList; // rcx
 
   this->__vftable = (FxPkgPdo_vtbl *)FxPkgPdo::`vftable';
-  FxDeviceText::_CleanupList(&this->m_DeviceTextHead, a2);
+  FxDeviceText::_CleanupList(&this->m_DeviceTextHead);
   m_IDsAllocation = this->m_IDsAllocation;
   if ( m_IDsAllocation )
   {
@@ -35,7 +35,7 @@ void __fastcall FxPkgPdo::~FxPkgPdo(FxPkgPdo *this, unsigned int a2)
   m_EjectionDeviceList = this->m_EjectionDeviceList;
   if ( m_EjectionDeviceList )
   {
-    FxRelatedDeviceList::`scalar deleting destructor'(m_EjectionDeviceList, v3);
+    FxRelatedDeviceList::`scalar deleting destructor'(m_EjectionDeviceList, v2);
     this->m_EjectionDeviceList = 0LL;
   }
   FxPkgPnp::~FxPkgPnp(this);

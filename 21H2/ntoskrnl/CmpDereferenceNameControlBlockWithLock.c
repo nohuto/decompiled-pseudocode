@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1406E7088
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1405EFEA0
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x140914D00 (CmpCloneToUnbackedKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EADC (CmpCloneToUnbackedKcb.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     CmpLockNameHashEntryExclusive @ 0x1406E713C (CmpLockNameHashEntryExclusive.c)
- *     CmpUnlockNameHashEntry @ 0x1406E717C (CmpUnlockNameHashEntry.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-__int64 __fastcall CmpDereferenceNameControlBlockWithLock(unsigned int *a1)
+char __fastcall CmpDereferenceNameControlBlockWithLock(unsigned int *a1)
 {
   _DWORD *v1; // rsi
-  unsigned int v3; // ebx
-  unsigned int v4; // eax
+  unsigned int v3; // eax
+  __int64 v4; // rbx
+  unsigned int v5; // eax
   __int64 *v6; // rcx
   __int64 v7; // rax
 
   v1 = a1 + 2;
-  v3 = a1[2];
-  CmpLockNameHashEntryExclusive(v3);
-  v4 = *a1 & 1 | (2 * (*a1 >> 1) - 2);
-  *a1 = v4;
-  if ( v4 < 2 )
+  v3 = 101027 * (a1[2] ^ (a1[2] >> 9));
+  v4 = 16LL * (((unsigned __int16)v3 ^ (unsigned __int16)((unsigned __int64)v3 >> 9)) & 0x7FF);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)CmpNameCacheTable + v4, 0LL);
+  v5 = *a1 & 1 | (2 * (*a1 >> 1) - 2);
+  *a1 = v5;
+  if ( v5 < 2 )
   {
-    v6 = (__int64 *)((char *)CmpNameCacheTable
-                   + 16
-                   * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF)
-                   + 8);
+    v6 = (__int64 *)((char *)CmpNameCacheTable + v4 + 8);
     if ( v6 )
     {
       do
@@ -47,5 +47,5 @@ __int64 __fastcall CmpDereferenceNameControlBlockWithLock(unsigned int *a1)
     }
     CmpFreeTransientPoolWithTag(a1, 0x624E4D43u);
   }
-  return CmpUnlockNameHashEntry(v3);
+  return ExReleasePushLockEx((ULONG_PTR)CmpNameCacheTable + v4, 0LL);
 }

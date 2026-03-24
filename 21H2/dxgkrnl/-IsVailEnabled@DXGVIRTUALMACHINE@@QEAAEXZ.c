@@ -1,9 +1,10 @@
 /*
- * XREFs of ?IsVailEnabled@DXGVIRTUALMACHINE@@QEAAEXZ @ 0x1C0336B80
+ * XREFs of ?IsVailEnabled@DXGVIRTUALMACHINE@@QEAAEXZ @ 0x1C028597C
  * Callers:
- *     ?VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E290 (-VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetInternalAdapterInfoCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D9660 (-VmBusGetInternalAdapterInfoCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241C30 (-VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 bool __fastcall DXGVIRTUALMACHINE::IsVailEnabled(DXGVIRTUALMACHINE *this)
@@ -13,9 +14,9 @@ bool __fastcall DXGVIRTUALMACHINE::IsVailEnabled(DXGVIRTUALMACHINE *this)
 
   v2 = 0;
   DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 64));
-  v3 = *((_QWORD *)this + 41);
+  v3 = *((_QWORD *)this + 36);
   if ( v3 )
-    v2 = *(_QWORD *)(v3 + 96) != 0LL;
+    v2 = *(_QWORD *)(v3 + 88) != 0LL;
   *((_QWORD *)this + 9) = 0LL;
   ExReleasePushLockExclusiveEx((char *)this + 64, 0LL);
   KeLeaveCriticalRegion();

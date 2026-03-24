@@ -1,16 +1,13 @@
 /*
- * XREFs of ??1SensorDispatcherObject@CRIMBase@@QEAA@XZ @ 0x1C00C03A0
+ * XREFs of ??1SensorDispatcherObject@CRIMBase@@QEAA@XZ @ 0x1C00AFE40
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall CRIMBase::SensorDispatcherObject::~SensorDispatcherObject(
-        CRIMBase::SensorDispatcherObject *this,
-        __int64 a2,
-        __int64 a3)
+void __fastcall CRIMBase::SensorDispatcherObject::~SensorDispatcherObject(CRIMBase::SensorDispatcherObject *this)
 {
   if ( *((_QWORD *)this + 1) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 27LL);
 }

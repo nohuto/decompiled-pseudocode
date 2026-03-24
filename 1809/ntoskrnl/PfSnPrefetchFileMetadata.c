@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchFileMetadata @ 0x14065CB04
+ * XREFs of PfSnPrefetchFileMetadata @ 0x14065CAE4
  * Callers:
- *     PfSnPrefetchMetadata @ 0x14065ECFC (PfSnPrefetchMetadata.c)
- *     PfSnGetSectionObject @ 0x14065FCB8 (PfSnGetSectionObject.c)
+ *     PfSnPrefetchMetadata @ 0x14065ECDC (PfSnPrefetchMetadata.c)
+ *     PfSnGetSectionObject @ 0x14065FC98 (PfSnGetSectionObject.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
  *     NtWaitForSingleObject @ 0x1405E9AA0 (NtWaitForSingleObject.c)
- *     NtResetEvent @ 0x14065CA60 (NtResetEvent.c)
+ *     NtResetEvent @ 0x14065CA40 (NtResetEvent.c)
  */
 
 __int64 __fastcall PfSnPrefetchFileMetadata(

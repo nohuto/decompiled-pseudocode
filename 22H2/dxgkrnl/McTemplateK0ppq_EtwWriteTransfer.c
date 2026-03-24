@@ -1,13 +1,12 @@
 /*
- * XREFs of McTemplateK0ppq_EtwWriteTransfer @ 0x1C005B24C
+ * XREFs of McTemplateK0ppq_EtwWriteTransfer @ 0x1C0052530
  * Callers:
- *     DpiDxgkDdiAddDevice @ 0x1C01FFA7C (DpiDxgkDdiAddDevice.c)
- *     DpiAddDevice @ 0x1C0202170 (DpiAddDevice.c)
- *     ?ReportState@DXGK_VIRTUAL_GPU@@QEAAXXZ @ 0x1C03692C8 (-ReportState@DXGK_VIRTUAL_GPU@@QEAAXXZ.c)
- *     DpiDxgkDdiProtectedCallback @ 0x1C03A90FC (DpiDxgkDdiProtectedCallback.c)
+ *     DpiAddDevice @ 0x1C018BAE0 (DpiAddDevice.c)
+ *     DpiDxgkDdiAddDevice @ 0x1C019CE9C (DpiDxgkDdiAddDevice.c)
+ *     DpiDxgkDdiProtectedCallback @ 0x1C02D8F50 (DpiDxgkDdiProtectedCallback.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

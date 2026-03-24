@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealization@CMatrixTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800FB5C0
+ * XREFs of ?GetRealization@CMatrixTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800E28F0
  * Callers:
  *     <none>
  * Callees:
@@ -15,10 +15,10 @@ void __fastcall CMatrixTransform3D::GetRealization(
   __int128 v4; // xmm2
   __int128 v5; // xmm3
 
-  v3 = *((_OWORD *)this + 11);
-  v4 = *((_OWORD *)this + 12);
-  v5 = *((_OWORD *)this + 13);
-  *(_OWORD *)a3 = *((_OWORD *)this + 10);
+  v3 = *(_OWORD *)((char *)this + 168);
+  v4 = *(_OWORD *)((char *)this + 184);
+  v5 = *(_OWORD *)((char *)this + 200);
+  *(_OWORD *)a3 = *(_OWORD *)((char *)this + 152);
   *((_OWORD *)a3 + 1) = v3;
   *((_OWORD *)a3 + 2) = v4;
   *((_OWORD *)a3 + 3) = v5;

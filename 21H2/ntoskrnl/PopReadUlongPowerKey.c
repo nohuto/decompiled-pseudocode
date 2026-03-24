@@ -1,40 +1,33 @@
 /*
- * XREFs of PopReadUlongPowerKey @ 0x1403C0CB0
+ * XREFs of PopReadUlongPowerKey @ 0x1403CB944
  * Callers:
- *     PopQueryHiberPersistedRegValue @ 0x14082910C (PopQueryHiberPersistedRegValue.c)
- *     PopBatteryInitPhaseTwo @ 0x140B01A8C (PopBatteryInitPhaseTwo.c)
+ *     PopBatteryInitPhaseTwo @ 0x140A6F604 (PopBatteryInitPhaseTwo.c)
  * Callees:
- *     PopReadRegKeyValue @ 0x1403C0D08 (PopReadRegKeyValue.c)
+ *     PopReadRegKeyValue @ 0x1403CB988 (PopReadRegKeyValue.c)
  */
 
-__int64 __fastcall PopReadUlongPowerKey(
-        PCWSTR a1,
-        unsigned int *a2,
-        unsigned int a3,
-        unsigned int a4,
-        unsigned int a5,
-        int a6)
+__int64 __fastcall PopReadUlongPowerKey(PCWSTR a1, _DWORD *a2)
 {
   __int64 result; // rax
-  unsigned int v10; // ecx
+  unsigned int v4; // ecx
 
-  result = PopReadRegKeyValue(L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER", a1, 4uLL, a2);
+  result = PopReadRegKeyValue(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Power", a1, 4uLL, a2);
   if ( (int)result < 0 )
   {
-    *a2 = a3;
+    *a2 = 1;
     return result;
   }
-  v10 = *a2;
-  if ( *a2 != a6 )
+  v4 = *a2;
+  if ( *a2 != 100 )
   {
-    if ( v10 < a4 )
+    if ( !v4 )
     {
-      *a2 = a4;
+      *a2 = 1;
       return 3221226034LL;
     }
-    if ( v10 > a5 )
+    if ( v4 > 0xA )
     {
-      *a2 = a5;
+      *a2 = 10;
       return 3221226034LL;
     }
   }

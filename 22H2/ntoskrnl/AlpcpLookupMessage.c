@@ -1,73 +1,77 @@
 /*
- * XREFs of AlpcpLookupMessage @ 0x140738DC0
+ * XREFs of AlpcpLookupMessage @ 0x1405E6870
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
- *     NtAlpcOpenSenderProcess @ 0x1407182C0 (NtAlpcOpenSenderProcess.c)
- *     NtAlpcQueryInformationMessage @ 0x14071AA80 (NtAlpcQueryInformationMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B668 (AlpcpReplyLegacySynchronousRequest.c)
- *     NtAlpcImpersonateClientOfPort @ 0x14071CC10 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
- *     NtAlpcCancelMessage @ 0x140779580 (NtAlpcCancelMessage.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407BB524 (AlpcpReceiveDirectMessagePort.c)
- *     NtAlpcOpenSenderThread @ 0x1407BBB20 (NtAlpcOpenSenderThread.c)
- *     LpcpCopyRequestData @ 0x1409782DC (LpcpCopyRequestData.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x140978B50 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcOpenSenderProcess @ 0x1405DFFA0 (NtAlpcOpenSenderProcess.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcQueryInformationMessage @ 0x140664160 (NtAlpcQueryInformationMessage.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140677FB0 (AlpcpReceiveDirectMessagePort.c)
+ *     NtAlpcOpenSenderThread @ 0x14068F9F0 (NtAlpcOpenSenderThread.c)
+ *     NtAlpcCancelMessage @ 0x1406A4060 (NtAlpcCancelMessage.c)
+ *     LpcpCopyRequestData @ 0x1408C1C9C (LpcpCopyRequestData.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2580 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExHandleLogBadReference @ 0x140606A98 (ExHandleLogBadReference.c)
- *     ExpLookupHandleTableEntry @ 0x1406E69E0 (ExpLookupHandleTableEntry.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DC68 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407BAC40 (ExpBlockOnLockedHandleEntry.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     ExpLookupHandleTableEntry @ 0x14063E910 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140665448 (ExpBlockOnLockedHandleEntry.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
  */
 
-__int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, ULONG_PTR *a5)
+__int64 __fastcall AlpcpLookupMessage(__int64 a1, __int64 a2, int a3, __int64 a4, ULONG_PTR *a5)
 {
+  int v5; // esi
   ULONG_PTR v8; // r14
   ULONG_PTR v9; // rbx
   char PreviousMode; // r12
   signed __int64 *v11; // rdi
   signed __int64 v12; // r8
-  ULONG_PTR HandlePointer; // rax
-  ULONG_PTR v14; // rbx
-  signed __int64 BugCheckParameter4; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  ULONG_PTR v19; // rax
-  ULONG_PTR v20; // rdi
-  signed __int32 v21; // eax
-  signed __int32 v22[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG_PTR v13; // rbx
+  __int64 BugCheckParameter4; // rax
+  bool v15; // zf
+  __int64 v16; // rdx
+  signed __int64 v17; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  ULONG_PTR v22; // rdi
+  signed __int32 v23; // eax
+  signed __int32 v24[8]; // [rsp+0h] [rbp-48h] BYREF
 
-  if ( a2 < 0 )
+  v5 = a2;
+  if ( (int)a2 < 0 )
   {
     if ( a1 )
     {
-      v18 = *(_QWORD *)(a1 + 16);
-      if ( !v18 )
+      v20 = *(_QWORD *)(a1 + 16);
+      if ( !v20 )
         return 3221226224LL;
-      v19 = AlpcReferenceBlobByHandle((_QWORD *)(v18 + 40), a2 & 0x7FFFFFFF, AlpcReserveType);
-      v20 = v19;
-      if ( !v19 )
+      a2 = (unsigned int)a2;
+      LODWORD(a2) = a2 & 0x7FFFFFFF;
+      v21 = AlpcReferenceBlobByHandle(v20 + 40, a2, AlpcReserveType);
+      v22 = v21;
+      if ( !v21 )
         return 3221226224LL;
-      v14 = *(_QWORD *)(v19 + 24);
-      AlpcpLockForCachedReferenceBlob(v14);
-      if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v20 + 40), 1, 0) )
+      v13 = *(_QWORD *)(v21 + 24);
+      AlpcpLockForCachedReferenceBlob(v13);
+      if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v22 + 40), 1, 0) )
       {
-        *(_DWORD *)(v14 + 264) &= ~0x80000000;
+        *(_DWORD *)(v13 + 264) &= ~0x80000000;
         do
-          v21 = _InterlockedIncrement(&AlpcpNextCallbackId);
-        while ( !v21 );
-        *(_DWORD *)(v14 + 272) = v21;
-        goto LABEL_23;
+          v23 = _InterlockedIncrement(&AlpcpNextCallbackId);
+        while ( !v23 );
+        *(_DWORD *)(v13 + 272) = v23;
+        goto LABEL_25;
       }
-      AlpcpUnlockMessage(v14);
-      AlpcpDereferenceBlobEx(v20, 1);
+      AlpcpUnlockMessage(v13);
+      AlpcpDereferenceBlobEx(v22);
       return 3221227272LL;
     }
     return 3221227266LL;
@@ -86,10 +90,9 @@ __int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, UL
     return 3221227266LL;
   v9 = a2 & 0x3FFFFFF;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0x3FC) == 0
-    || (v11 = (signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v8, (unsigned int)v9)) == 0LL )
+  if ( (a2 & 0x3FC) == 0 || (v11 = (signed __int64 *)ExpLookupHandleTableEntry(v8, (unsigned int)v9)) == 0LL )
   {
-LABEL_29:
+LABEL_31:
     ExHandleLogBadReference(v8, v9, PreviousMode);
     return 3221227266LL;
   }
@@ -102,55 +105,78 @@ LABEL_29:
       if ( (*v11 & 1) != 0 )
         break;
       if ( !v12 )
-        goto LABEL_29;
-      ExpBlockOnLockedHandleEntry(v8, v11, v12);
+        goto LABEL_31;
+      ExpBlockOnLockedHandleEntry(v8, v11);
     }
   }
   while ( v12 != _InterlockedCompareExchange64(v11, v12 - 1, v12) );
-  HandlePointer = ExGetHandlePointer(v11);
-  v14 = HandlePointer;
-  if ( *(_DWORD *)(HandlePointer + 264) != a2
-    || a3 && *(_DWORD *)(HandlePointer + 272) != a3
-    || !AlpcpReferenceBlob(HandlePointer) )
+  v13 = (*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
+  if ( *(_DWORD *)(v13 + 0x108) != v5 || a3 && *(_DWORD *)(((*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x110) != a3 )
+    goto LABEL_40;
+  _m_prefetchw((const void *)(v13 - 24));
+  BugCheckParameter4 = *(_QWORD *)(v13 - 24);
+  v15 = BugCheckParameter4 == 0;
+  if ( BugCheckParameter4 <= 0 )
   {
+LABEL_50:
+    if ( !v15 )
+      KeBugCheckEx(0x18u, 0LL, v13, 0x20uLL, BugCheckParameter4);
+LABEL_40:
     _InterlockedExchangeAdd64(v11, 1uLL);
-    _InterlockedOr(v22, 0);
+    _InterlockedOr(v24, 0);
     if ( *(_QWORD *)(v8 + 48) )
       ExfUnblockPushLock((volatile __int64 *)(v8 + 48), 0LL);
     return 3221227266LL;
   }
-  ExAcquirePushLockExclusiveEx(v14 - 16, 0LL);
-  *(_BYTE *)(v14 - 32) |= 1u;
-  BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 - 24), 0x10000uLL) + 0x10000;
-  if ( BugCheckParameter4 <= 0 )
-    KeBugCheckEx(0x18u, 0LL, v14, 0x26uLL, BugCheckParameter4);
-  --*(_WORD *)(v14 - 30);
+  while ( 1 )
+  {
+    v16 = BugCheckParameter4;
+    BugCheckParameter4 = _InterlockedCompareExchange64(
+                           (volatile signed __int64 *)(v13 - 24),
+                           BugCheckParameter4 + 1,
+                           BugCheckParameter4);
+    if ( BugCheckParameter4 == v16 )
+      break;
+    if ( BugCheckParameter4 <= 0 )
+    {
+      v15 = BugCheckParameter4 == 0;
+      goto LABEL_50;
+    }
+  }
+  if ( BugCheckParameter4 == -1 )
+    goto LABEL_40;
+  ExAcquirePushLockExclusiveEx(v13 - 16, 0LL);
+  *(_BYTE *)(v13 - 32) |= 1u;
+  v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 - 24), 0x10000uLL) + 0x10000;
+  if ( v17 <= 0 )
+    KeBugCheckEx(0x18u, 0LL, v13, 0x26uLL, v17);
+  --*(_WORD *)(v13 - 30);
   _InterlockedExchangeAdd64(v11, 1uLL);
-  _InterlockedOr(v22, 0);
+  _InterlockedOr(v24, 0);
   if ( *(_QWORD *)(v8 + 48) )
     ExfUnblockPushLock((volatile __int64 *)(v8 + 48), 0LL);
-  if ( *(_DWORD *)(v14 + 264) != a2
-    || a3 && *(_DWORD *)(v14 + 272) != a3
-    || !*(_QWORD *)(v14 + 24) && !*(_QWORD *)(v14 + 16) )
+  if ( *(_DWORD *)(v13 + 264) != v5
+    || a3 && *(_DWORD *)(v13 + 272) != a3
+    || !*(_QWORD *)(v13 + 24) && !*(_QWORD *)(v13 + 16) )
   {
-    AlpcpUnlockMessage(v14);
+    AlpcpUnlockMessage(v13);
     return 3221227266LL;
   }
   if ( a1 )
   {
-    if ( *(_QWORD *)(v14 + 184) == *(_QWORD *)(a1 + 16) || *(_QWORD *)(v14 + 192) == a1 )
+    if ( *(_QWORD *)(v13 + 184) == *(_QWORD *)(a1 + 16) || *(_QWORD *)(v13 + 192) == a1 )
     {
-LABEL_23:
-      *a5 = v14;
+LABEL_25:
+      *a5 = v13;
       return 0LL;
     }
   }
   else
   {
-    v17 = *(_QWORD *)(v14 + 16);
-    if ( v17 && *(_KPROCESS **)(v17 + 24) == KeGetCurrentThread()->ApcState.Process )
-      goto LABEL_23;
+    v19 = *(_QWORD *)(v13 + 16);
+    if ( v19 && *(_KPROCESS **)(v19 + 24) == KeGetCurrentThread()->ApcState.Process )
+      goto LABEL_25;
   }
-  AlpcpUnlockMessage(v14);
+  AlpcpUnlockMessage(v13);
   return 3221225506LL;
 }

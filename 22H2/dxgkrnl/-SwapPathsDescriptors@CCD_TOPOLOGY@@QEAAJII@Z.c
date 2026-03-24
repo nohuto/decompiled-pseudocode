@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C03BC170
+ * XREFs of ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C02EBD50
  * Callers:
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03BB214 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
- *     ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C03BBB78 (-RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z.c)
- *     ?RemovePath@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C03BBC6C (-RemovePath@CCD_TOPOLOGY@@QEAAJI@Z.c)
- *     ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C1A00 (-_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
- *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C03C1AE0 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EAEDC (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C02EB8D4 (-RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z.c)
+ *     ?RemovePath@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C02EB9D0 (-RemovePath@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EF42C (-_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
+ *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C02EF524 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
  * Callees:
- *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C017FC64 (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
+ *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C013CEE0 (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::SwapPathsDescriptors(void **this, unsigned int a2, unsigned int a3)
@@ -29,24 +29,20 @@ __int64 __fastcall CCD_TOPOLOGY::SwapPathsDescriptors(void **this, unsigned int 
   __int128 v19; // xmm0
   __int128 v20; // xmm1
   __int128 v21; // xmm0
-  __int128 v22; // xmm1
-  __int64 v23; // rax
-  __int64 v24; // rcx
-  _OWORD *v25; // rax
-  __int128 v26; // xmm1
+  char *v22; // rax
+  __int64 v23; // r9
+  char *v24; // rax
+  __int128 v25; // xmm1
+  _OWORD *v26; // rcx
   _OWORD *v27; // rax
-  _OWORD *v28; // rcx
-  __int128 v29; // xmm1
-  __int128 v30; // xmm0
-  __int128 v31; // xmm1
-  __int128 v32; // xmm0
-  __int128 v33; // xmm1
-  __int128 v34; // xmm0
-  __int128 v35; // xmm1
-  __int128 v36; // xmm0
-  __int128 v37; // xmm1
-  __int64 v38; // rax
-  _BYTE v39[304]; // [rsp+20h] [rbp-138h] BYREF
+  __int128 v28; // xmm1
+  __int128 v29; // xmm0
+  __int128 v30; // xmm1
+  __int128 v31; // xmm0
+  __int128 v32; // xmm1
+  __int128 v33; // xmm0
+  __int128 v34; // xmm1
+  _BYTE v35[272]; // [rsp+20h] [rbp-118h] BYREF
 
   v3 = a3;
   v5 = a2;
@@ -60,9 +56,9 @@ __int64 __fastcall CCD_TOPOLOGY::SwapPathsDescriptors(void **this, unsigned int 
   if ( (_DWORD)v5 != (_DWORD)v3 )
   {
     v9 = 2LL;
-    v10 = v39;
+    v10 = v35;
     v11 = 2LL;
-    v12 = &v6[148 * v5 + 28];
+    v12 = &v6[136 * v5 + 24];
     v13 = v12;
     do
     {
@@ -87,62 +83,52 @@ __int64 __fastcall CCD_TOPOLOGY::SwapPathsDescriptors(void **this, unsigned int 
     }
     while ( v11 );
     v21 = *v13;
-    v22 = v13[1];
-    v23 = *((_QWORD *)v13 + 4);
+    v22 = (char *)(v6 + 24);
+    v23 = 2LL;
     *v10 = v21;
-    v10[1] = v22;
-    *((_QWORD *)v10 + 4) = v23;
-    v24 = 2LL;
-    v25 = &v6[148 * v3 + 28];
+    v24 = &v22[272 * v3];
     do
     {
-      *v12 = *v25;
-      v12[1] = v25[1];
-      v12[2] = v25[2];
-      v12[3] = v25[3];
-      v12[4] = v25[4];
-      v12[5] = v25[5];
-      v12[6] = v25[6];
+      *v12 = *(_OWORD *)v24;
+      v12[1] = *((_OWORD *)v24 + 1);
+      v12[2] = *((_OWORD *)v24 + 2);
+      v12[3] = *((_OWORD *)v24 + 3);
+      v12[4] = *((_OWORD *)v24 + 4);
+      v12[5] = *((_OWORD *)v24 + 5);
+      v12[6] = *((_OWORD *)v24 + 6);
       v12 += 8;
-      v26 = v25[7];
-      v25 += 8;
-      *(v12 - 1) = v26;
-      --v24;
+      v25 = *((_OWORD *)v24 + 7);
+      v24 += 128;
+      *(v12 - 1) = v25;
+      --v23;
     }
-    while ( v24 );
-    *v12 = *v25;
-    v12[1] = v25[1];
-    *((_QWORD *)v12 + 4) = *((_QWORD *)v25 + 4);
-    v27 = v39;
-    v28 = (char *)this[8] + 296 * v3 + 56;
+    while ( v23 );
+    *v12 = *(_OWORD *)v24;
+    v26 = (char *)this[8] + 272 * v3 + 48;
+    v27 = v35;
     do
     {
-      v29 = v27[1];
-      *v28 = *v27;
-      v30 = v27[2];
-      v28[1] = v29;
-      v31 = v27[3];
-      v28[2] = v30;
-      v32 = v27[4];
-      v28[3] = v31;
-      v33 = v27[5];
-      v28[4] = v32;
-      v34 = v27[6];
-      v28[5] = v33;
-      v35 = v27[7];
+      v28 = v27[1];
+      *v26 = *v27;
+      v29 = v27[2];
+      v26[1] = v28;
+      v30 = v27[3];
+      v26[2] = v29;
+      v31 = v27[4];
+      v26[3] = v30;
+      v32 = v27[5];
+      v26[4] = v31;
+      v33 = v27[6];
+      v26[5] = v32;
+      v34 = v27[7];
       v27 += 8;
-      v28[6] = v34;
-      v28 += 8;
-      *(v28 - 1) = v35;
+      v26[6] = v33;
+      v26 += 8;
+      *(v26 - 1) = v34;
       --v9;
     }
     while ( v9 );
-    v36 = *v27;
-    v37 = v27[1];
-    v38 = *((_QWORD *)v27 + 4);
-    *v28 = v36;
-    v28[1] = v37;
-    *((_QWORD *)v28 + 4) = v38;
+    *v26 = *v27;
   }
   return 0LL;
 }

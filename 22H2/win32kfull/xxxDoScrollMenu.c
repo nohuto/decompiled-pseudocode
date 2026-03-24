@@ -1,94 +1,112 @@
 /*
- * XREFs of xxxDoScrollMenu @ 0x1C0229F4C
+ * XREFs of xxxDoScrollMenu @ 0x1C024510C
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     GetAppCompatFlags @ 0x1C00A4B80 (GetAppCompatFlags.c)
- *     GetWndSBDisableFlags @ 0x1C00C7848 (GetWndSBDisableFlags.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     safe_cast_fnid_to_PSBWND @ 0x1C01BB0C0 (safe_cast_fnid_to_PSBWND.c)
- *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02293C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
- *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0229648 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
- *     SBCtlSetup @ 0x1C0229F04 (SBCtlSetup.c)
- *     xxxSBTrackInit @ 0x1C022A46C (xxxSBTrackInit.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     GetAppCompatFlags @ 0x1C0110BC0 (GetAppCompatFlags.c)
+ *     GetWndSBDisableFlags @ 0x1C0157EDC (GetWndSBDisableFlags.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01D4208 (safe_cast_fnid_to_PSBWND.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02444C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0244778 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
+ *     SBCtlSetup @ 0x1C024503C (SBCtlSetup.c)
+ *     xxxSBTrackInit @ 0x1C0245640 (xxxSBTrackInit.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  */
 
-_QWORD *__fastcall xxxDoScrollMenu(struct tagWND *a1, struct tagWND *a2, unsigned int a3, int a4)
+_QWORD *__fastcall xxxDoScrollMenu(struct tagWND *a1, struct tagWND *a2, unsigned int a3, unsigned __int64 a4)
 {
   __int64 v8; // r13
-  int v9; // r8d
-  unsigned int v10; // r13d
+  __int64 v9; // rcx
+  int v10; // r8d
+  unsigned int v11; // r13d
+  int v12; // r12d
+  __int64 v13; // r8
+  char WndSBDisableFlags; // al
+  __int64 v15; // rdx
   struct tagMENU *ScrollMenu; // rax
-  __int64 v12; // rcx
-  int v13; // r12d
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  _QWORD v18[2]; // [rsp+38h] [rbp-71h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-61h]
-  __int128 v20; // [rsp+50h] [rbp-59h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-49h]
-  _BYTE v22[64]; // [rsp+70h] [rbp-39h] BYREF
+  __int64 v17; // r12
+  __int64 ThreadWin32Thread; // rax
+  int v19; // r12d
+  __int64 v20; // rcx
+  int v22; // [rsp+30h] [rbp-79h]
+  unsigned __int16 v23; // [rsp+34h] [rbp-75h]
+  _QWORD v24[2]; // [rsp+38h] [rbp-71h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-61h]
+  __int128 v26; // [rsp+50h] [rbp-59h] BYREF
+  __int64 v27; // [rsp+60h] [rbp-49h]
+  int v28[16]; // [rsp+70h] [rbp-39h] BYREF
 
-  SmartObjStackRefBase<tagMENU>::Init(v18, 0LL);
-  v19 = 0LL;
-  memset_0(v22, 0, sizeof(v22));
-  v21 = 0LL;
-  v20 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v24, 0LL);
+  v27 = 0LL;
+  v25 = 0LL;
+  v26 = 0LL;
   v8 = safe_cast_fnid_to_PSBWND((__int64)a2);
   if ( (int)GetAppCompatFlags(0LL) >= 0 )
   {
     if ( a2 )
     {
       if ( !v8 )
-        return SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v18);
+        return SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v24);
       SBCtlSetup(v8);
-      v9 = *(_DWORD *)(v8 + 12);
-      v10 = (__int16)a4;
+      v9 = *((_QWORD *)a2 + 5);
+      v10 = *(_DWORD *)(v8 + 12);
+      v11 = (__int16)a4;
+      v12 = SWORD1(a4) - *(_DWORD *)(v9 + 92);
+      v22 = (__int16)a4 - *(_DWORD *)(v9 + 88);
     }
     else
     {
-      CalcSBStuff((__int64)a1, (__int64)v22, a3);
-      LOBYTE(v9) = GetWndSBDisableFlags((__int64)a1, a3);
-      v10 = (__int16)a4;
+      CalcSBStuff((__int64)a1, v28, a3);
+      WndSBDisableFlags = GetWndSBDisableFlags((__int64)a1, a3, v13);
+      v15 = *((_QWORD *)a1 + 5);
+      LOBYTE(v10) = WndSBDisableFlags;
+      v11 = (__int16)a4;
+      v12 = SWORD1(a4) - *(_DWORD *)(v15 + 92);
+      v22 = (__int16)a4 - *(_DWORD *)(v15 + 88);
     }
-    if ( (v9 & 3) != 3 )
+    v23 = v12;
+    if ( (v10 & 3) != 3 )
     {
       ScrollMenu = xxxGetScrollMenu(a1, a3);
-      v19 = 0LL;
-      SmartObjStackRefBase<tagMENU>::operator=(v18, (__int64)ScrollMenu);
-      if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v18) )
+      SmartObjStackRefBase<tagMENU>::operator=(v24, (__int64)ScrollMenu);
+      if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v24) )
       {
-        v12 = v19;
-        if ( !v19 )
-          v12 = *(_QWORD *)v18[0];
-        ThreadLockAlways(v12, &v20);
-        v13 = xxxTrackPopupMenuEx(v18, 386LL, v10, (unsigned int)SHIWORD(a4), a1, 0LL);
-        ThreadUnlock1(v15, v14, v16);
-        if ( v13 )
+        v17 = v25;
+        if ( !v25 )
+          v17 = *(_QWORD *)v24[0];
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        *(_QWORD *)&v26 = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = &v26;
+        *((_QWORD *)&v26 + 1) = v17;
+        HMLockObject(v17);
+        v19 = xxxTrackPopupMenuEx(v24, 386LL, v11, (unsigned int)SWORD1(a4), a1, 0LL);
+        ThreadUnlock1(v20);
+        if ( v19 )
         {
-          if ( (unsigned __int8)v13 == 4 )
+          if ( (unsigned __int8)v19 == 4 )
           {
-            if ( !a2 )
+            if ( a2 )
+              a4 = (unsigned __int16)v22 | (unsigned __int64)(v23 << 16);
+            else
               a2 = a1;
-            xxxSBTrackInit(a2);
+            xxxSBTrackInit(a2, a4);
           }
           else
           {
-            xxxDoScroll(a2, a1, (unsigned __int8)v13, 0LL, a3);
-            xxxDoScroll(a2, a1, 8LL, 0LL, a3);
+            xxxDoScroll((struct _LARGE_STRING **)a2, a1, (unsigned __int8)v19, 0, a3);
+            xxxDoScroll((struct _LARGE_STRING **)a2, a1, 8u, 0, a3);
           }
         }
       }
     }
   }
-  return SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v18);
+  return SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v24);
 }

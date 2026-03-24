@@ -1,31 +1,31 @@
 /*
- * XREFs of MiFreeForkMaps @ 0x1405BAF60
+ * XREFs of MiFreeForkMaps @ 0x14055A934
  * Callers:
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
  * Callees:
- *     MiUnmapSinglePage @ 0x14026C0E4 (MiUnmapSinglePage.c)
- *     MiFinishLastForkPageTable @ 0x1405BACCC (MiFinishLastForkPageTable.c)
+ *     MiUnmapSinglePage @ 0x14036B0C4 (MiUnmapSinglePage.c)
+ *     MiFinishLastForkPageTable @ 0x14055A6A0 (MiFinishLastForkPageTable.c)
  */
 
-__int64 __fastcall MiFreeForkMaps(__int64 a1)
+unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v2; // rcx
-  __int64 result; // rax
-  __int64 *v4; // rbx
-  __int64 v5; // rdi
+  unsigned __int64 v5; // rcx
+  unsigned __int64 result; // rax
+  __int64 *v7; // rbx
+  __int64 v8; // rdi
 
-  v2 = *(_QWORD *)(a1 + 56);
-  if ( v2 )
-    result = MiUnmapSinglePage(v2);
-  v4 = (__int64 *)(a1 + 8);
-  v5 = 3LL;
+  v5 = *(_QWORD *)(a1 + 56);
+  if ( v5 )
+    result = MiUnmapSinglePage(v5);
+  v7 = (__int64 *)(a1 + 8);
+  v8 = 3LL;
   do
   {
-    if ( *v4 != -1 )
-      result = MiFinishLastForkPageTable(v2, *v4);
-    ++v4;
-    --v5;
+    if ( *v7 != -1 )
+      result = MiFinishLastForkPageTable(v5, *v7, a3, a4);
+    ++v7;
+    --v8;
   }
-  while ( v5 );
+  while ( v8 );
   return result;
 }

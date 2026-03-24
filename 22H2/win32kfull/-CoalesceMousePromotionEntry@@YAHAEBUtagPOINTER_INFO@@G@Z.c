@@ -1,36 +1,36 @@
 /*
- * XREFs of ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C0155FBE
+ * XREFs of ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C02180C8
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8A18 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219068 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CoalesceMousePromotionEntry(const struct tagPOINTER_INFO *a1, char a2)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  int v6; // eax
+  struct tagMOUSE_PROMOTION_ENTRY *v2; // r8
+  unsigned int v4; // edx
+  int v5; // eax
 
-  v5 = *(_QWORD *)(SGDGetUserSessionState(a1) + 16080);
-  if ( !v5
-    || *(_DWORD *)(v5 + 20) != *((_DWORD *)a1 + 3)
-    || *((_DWORD *)a1 + 2) <= *(_DWORD *)(v5 + 36)
-    || *(_QWORD *)(SGDGetUserSessionState(v4) + 16304) != *((_QWORD *)a1 + 3) )
-  {
+  v2 = qword_1C0339AE8;
+  if ( !qword_1C0339AE8 )
     return 0LL;
-  }
-  *(_QWORD *)(v5 + 8) = *((_QWORD *)a1 + 6);
-  *(_DWORD *)(v5 + 36) = *((_DWORD *)a1 + 2);
-  v6 = *(_DWORD *)(v5 + 44);
-  *(_QWORD *)(v5 + 24) = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-                        * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-  if ( (v6 & 8) == 0 && (a2 & 4) != 0 )
+  if ( *((_DWORD *)qword_1C0339AE8 + 5) != *((_DWORD *)a1 + 3) )
+    return 0LL;
+  v4 = *((_DWORD *)a1 + 2);
+  if ( v4 <= *((_DWORD *)qword_1C0339AE8 + 9) || qword_1C0339BC8 != *((_QWORD *)a1 + 3) )
+    return 0LL;
+  *((_QWORD *)qword_1C0339AE8 + 1) = *((_QWORD *)a1 + 6);
+  *((_DWORD *)v2 + 9) = v4;
+  v5 = *((_DWORD *)v2 + 11);
+  *((_QWORD *)v2 + 3) = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+                       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
+  if ( (v5 & 8) == 0 && (a2 & 4) != 0 )
   {
-    v6 |= 8u;
-    *(_DWORD *)(v5 + 44) = v6;
+    v5 |= 8u;
+    *((_DWORD *)v2 + 11) = v5;
   }
-  if ( (v6 & 0x10) == 0 && (a2 & 8) != 0 )
-    *(_DWORD *)(v5 + 44) = v6 | 0x10;
+  if ( (v5 & 0x10) == 0 && (a2 & 8) != 0 )
+    *((_DWORD *)v2 + 11) = v5 | 0x10;
   return 1LL;
 }

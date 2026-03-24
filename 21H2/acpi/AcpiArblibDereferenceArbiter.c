@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiArblibDereferenceArbiter @ 0x1C0001E70
+ * XREFs of AcpiArblibDereferenceArbiter @ 0x1C000C9F0
  * Callers:
  *     <none>
  * Callees:

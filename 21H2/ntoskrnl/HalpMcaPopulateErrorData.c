@@ -1,20 +1,21 @@
 /*
- * XREFs of HalpMcaPopulateErrorData @ 0x140507040
+ * XREFs of HalpMcaPopulateErrorData @ 0x1404BA67C
  * Callers:
- *     HalpMcaReadError @ 0x1405071C4 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpMcaInitializeErrorSection @ 0x140506F6C (HalpMcaInitializeErrorSection.c)
- *     HalpReadExtendedMcaRegistersAMD @ 0x140509F40 (HalpReadExtendedMcaRegistersAMD.c)
- *     HalpReadExtendedMcaRegistersIntel @ 0x14050A0C4 (HalpReadExtendedMcaRegistersIntel.c)
- *     HalpHvGetMachineCheckContext @ 0x14050EE34 (HalpHvGetMachineCheckContext.c)
- *     HalpWheaReadMsrAddress @ 0x14051BC28 (HalpWheaReadMsrAddress.c)
- *     HalpWheaReadMsrMisc @ 0x14051BC80 (HalpWheaReadMsrMisc.c)
+ *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpMcaInitializeErrorSection @ 0x1404BA5E0 (HalpMcaInitializeErrorSection.c)
+ *     HalpReadExtendedMcaRegistersAMD @ 0x1404BD50C (HalpReadExtendedMcaRegistersAMD.c)
+ *     HalpReadExtendedMcaRegistersIntel @ 0x1404BD688 (HalpReadExtendedMcaRegistersIntel.c)
+ *     HalpHvGetMachineCheckContext @ 0x1404C2A14 (HalpHvGetMachineCheckContext.c)
+ *     HalpWheaReadMsrAddress @ 0x1404CF7C0 (HalpWheaReadMsrAddress.c)
+ *     HalpWheaReadMsrMisc @ 0x1404CF818 (HalpWheaReadMsrMisc.c)
  */
 
 char __fastcall HalpMcaPopulateErrorData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
 {
+  __int64 v9; // rsi
   __int64 v10; // r14
   __int64 v11; // rax
   __int64 v12; // rdx
@@ -22,10 +23,9 @@ char __fastcall HalpMcaPopulateErrorData(__int64 a1, unsigned int a2, __int64 a3
   char v14; // di
   bool v15; // zf
   _OWORD v17[3]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+80h] [rbp+28h]
 
   HalpMcaInitializeErrorSection(a5, a1);
-  v18 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))HalpWheaReadMsr)(a1, 378LL, 0LL);
+  v9 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))HalpWheaReadMsr)(a1, 378LL, 0LL);
   *(_DWORD *)(a5 + 36) = a2;
   *(_QWORD *)(a5 + 40) = a3;
   if ( (a3 & 0x400000000000000LL) != 0 )
@@ -43,16 +43,16 @@ char __fastcall HalpMcaPopulateErrorData(__int64 a1, unsigned int a2, __int64 a3
   {
     LOBYTE(v11) = HalpReadExtendedMcaRegistersAMD(v13, a2, a1, a5);
   }
-  v14 = v18;
-  if ( (v18 & 4) != 0 )
+  v14 = v9;
+  if ( (v9 & 4) != 0 )
   {
     v15 = HalpHvWheaEnlightenedCpuManager == 0;
-    *(_QWORD *)(a5 + 20) = v18;
+    *(_QWORD *)(a5 + 20) = v9;
     if ( !v15 )
     {
       v17[0] = 0LL;
       if ( (int)HalpHvGetMachineCheckContext((unsigned int)a1, v17) >= 0 && LODWORD(v17[0]) != 2 )
-        v14 = v18 & 0xFD;
+        v14 = v9 & 0xFD;
     }
     if ( a4 && (v14 & 2) != 0 )
       *(_QWORD *)(a5 + 28) = *(_QWORD *)(a4 + 360);

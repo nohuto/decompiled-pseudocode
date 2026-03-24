@@ -1,22 +1,24 @@
 /*
- * XREFs of NtGdiGetAppClipBox @ 0x1C00D6000
+ * XREFs of NtGdiGetAppClipBox @ 0x1C00B6AD0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetAppClipBox @ 0x1C00D9B30 (GreGetAppClipBox.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     GreGetAppClipBox @ 0x1C00B670C (GreGetAppClipBox.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiGetAppClipBox(HDC a1, _OWORD *a2)
 {
   __int64 result; // rax
+  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
 
-  result = GreGetAppClipBox(a1);
+  v4 = 0LL;
+  result = GreGetAppClipBox(a1, (LONG *)&v4);
   if ( (_DWORD)result )
   {
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
       a2 = (_OWORD *)MmUserProbeAddress;
-    *a2 = 0LL;
+    *a2 = v4;
   }
   return result;
 }

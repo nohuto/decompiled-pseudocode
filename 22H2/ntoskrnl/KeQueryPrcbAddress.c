@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryPrcbAddress @ 0x14056C820
+ * XREFs of KeQueryPrcbAddress @ 0x140514400
  * Callers:
  *     <none>
  * Callees:

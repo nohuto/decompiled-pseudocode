@@ -1,7 +1,8 @@
 /*
- * XREFs of NeedsWindowEdge @ 0x1C00A9FC4
+ * XREFs of NeedsWindowEdge @ 0x1C004E890
  * Callers:
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E6DC (_AdjustWindowRectExForDpi.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
  * Callees:
  *     <none>
  */

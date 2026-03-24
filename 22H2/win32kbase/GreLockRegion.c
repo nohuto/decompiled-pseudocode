@@ -1,13 +1,12 @@
 /*
- * XREFs of GreLockRegion @ 0x1C000CC60
+ * XREFs of GreLockRegion @ 0x1C00CBA80
  * Callers:
  *     <none>
  * Callees:
- *     HmgLockEx @ 0x1C0043B50 (HmgLockEx.c)
+ *     HmgLock @ 0x1C002EE50 (HmgLock.c)
  */
 
-_BOOL8 __fastcall GreLockRegion(__int64 a1, __int64 a2)
+_BOOL8 __fastcall GreLockRegion(unsigned int a1)
 {
-  LOBYTE(a2) = 4;
-  return HmgLockEx(a1, a2, 0LL) != 0;
+  return HmgLock(a1, 4) != 0;
 }

@@ -4,11 +4,11 @@
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     ExAllocateHeapPages @ 0x14015C870 (ExAllocateHeapPages.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MmGetNumberOfPhysicalPages @ 0x1406259BC (MmGetNumberOfPhysicalPages.c)
- *     ExInitializePoolDescriptor @ 0x140715A6C (ExInitializePoolDescriptor.c)
+ *     ExInitializePoolDescriptor @ 0x140715A4C (ExInitializePoolDescriptor.c)
  *     ExpSeedHotTags @ 0x1409B6FEC (ExpSeedHotTags.c)
  *     InitializePagedPool @ 0x1409B7280 (InitializePagedPool.c)
  */

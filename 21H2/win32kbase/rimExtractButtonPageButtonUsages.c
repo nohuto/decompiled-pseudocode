@@ -1,11 +1,11 @@
 /*
- * XREFs of rimExtractButtonPageButtonUsages @ 0x1C01AF578
+ * XREFs of rimExtractButtonPageButtonUsages @ 0x1C0179F34
  * Callers:
- *     rimProcessPointerDeviceButtonContact @ 0x1C01B1EB4 (rimProcessPointerDeviceButtonContact.c)
+ *     rimProcessPointerDeviceButtonContact @ 0x1C017C5EC (rimProcessPointerDeviceButtonContact.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     rimHidP_GetUsages @ 0x1C018E8EC (rimHidP_GetUsages.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     rimHidP_GetUsages @ 0x1C0163744 (rimHidP_GetUsages.c)
  */
 
 int __fastcall rimExtractButtonPageButtonUsages(
@@ -16,24 +16,24 @@ int __fastcall rimExtractButtonPageButtonUsages(
         _DWORD *a5)
 {
   _WORD *v5; // rdi
-  unsigned int v7; // eax
+  unsigned int v6; // eax
   _DWORD *v10; // rbx
   __int64 v11; // rcx
   int result; // eax
   __int64 v13; // r8
-  unsigned int v14; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v14; // [rsp+80h] [rbp+8h] BYREF
 
-  v5 = *(_WORD **)(a1 + 816);
-  v7 = *(_DWORD *)(a1 + 1040);
-  v14 = v7;
+  v5 = *(_WORD **)(a1 + 768);
+  v6 = *(_DWORD *)(a1 + 984);
+  v14 = v6;
   if ( !v5 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-    v7 = v14;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2897);
+    v6 = v14;
   }
   v10 = a5;
   *a5 = 0;
-  memset(v5, 0, 2LL * v7);
+  memset(v5, 0, 2LL * v6);
   result = rimHidP_GetUsages(v11, 9u, 0, v5, &v14, a2, a3, a4);
   if ( result >= 0 && v14 )
   {

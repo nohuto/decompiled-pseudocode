@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14075B6EC
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14075B6CC
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -89,13 +89,13 @@ LABEL_7:
   v9[4] = v9 + 3;
   v9[3] = v9 + 3;
   ObfReferenceObject((PVOID)v9[2]);
-  v12 = (_QWORD *)qword_140409D38;
-  if ( *(__int64 **)qword_140409D38 != &ExpFirmwareTableProviderListHead )
+  v12 = (_QWORD *)qword_140409CE8;
+  if ( *(__int64 **)qword_140409CE8 != &ExpFirmwareTableProviderListHead )
     goto LABEL_20;
   *v11 = &ExpFirmwareTableProviderListHead;
   v11[1] = v12;
   *v12 = v11;
-  qword_140409D38 = (__int64)v11;
+  qword_140409CE8 = (__int64)v11;
 LABEL_11:
   ExReleaseResourceLite(&ExpFirmwareTableResource);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());

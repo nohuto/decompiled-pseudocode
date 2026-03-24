@@ -1,203 +1,238 @@
 /*
- * XREFs of ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C02B3E3C
+ * XREFs of ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7408
  * Callers:
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C02B5CA8 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7118 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C015C470 (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
- *     ?bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z @ 0x1C015C570 (-bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z.c)
- *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C015C5E0 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
- *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C02B4CC4 (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
- *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C02B4D3C (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
- *     ?bIsSystemTTGlyph@RFONTOBJ@@QEBAHG@Z @ 0x1C02B6AA8 (-bIsSystemTTGlyph@RFONTOBJ@@QEBAHG@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z @ 0x1C00E77DC (-bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z.c)
+ *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C00E7808 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C00E90CC (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137700 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C01527DC (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
+ *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C01586A0 (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?bIsPerFontEUDC@PFFOBJ@@QEBAHXZ @ 0x1C016CAF4 (-bIsPerFontEUDC@PFFOBJ@@QEBAHXZ.c)
  */
 
 struct _GLYPHDATA *__fastcall RFONTOBJ::FindLinkedGlyphDataPlus(
         RFONTOBJ *this,
         struct XDCOBJ *a2,
         struct ESTROBJ *a3,
-        __int64 a4,
+        unsigned __int16 a4,
         unsigned int a5,
         unsigned int a6,
         int *a7,
         int a8,
         int a9)
 {
-  unsigned __int16 v9; // di
-  __int64 v12; // r12
+  unsigned int v9; // r13d
+  int v10; // edi
+  struct ESTROBJ *v11; // rbx
+  __int64 v13; // r12
+  __int64 v14; // r9
   struct _GLYPHDATA *EudcMetrics; // rax
-  struct _GLYPHDATA *v15; // rdi
-  __int64 v16; // rax
-  unsigned int v17; // r13d
-  __int64 v18; // rdx
-  __int64 v19; // r15
-  __int64 v20; // rax
-  struct _GLYPHDATA *v21; // rax
-  struct _GLYPHDATA *v22; // r14
+  struct _GLYPHDATA *v17; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // r14
+  __int64 v21; // rax
+  unsigned int v22; // edx
+  struct RFONTOBJ *v23; // r8
+  struct _GLYPHDATA *v24; // rax
+  struct _GLYPHDATA *v25; // r15
   struct _GLYPHDATA *EudcMetricsPlus; // rax
-  unsigned int v24; // r15d
-  RFONTOBJ *v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  struct RFONTOBJ *v28; // r8
-  __int64 v29; // r9
-  struct _GLYPHDATA *v30; // rax
-  struct _GLYPHDATA *v31; // rax
-  __int64 v32; // [rsp+68h] [rbp+48h] BYREF
-  __int64 v33; // [rsp+70h] [rbp+50h]
+  RFONTOBJ *v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // r9
+  struct RFONTOBJ *v31; // r8
+  struct _GLYPHDATA *v32; // rax
+  struct _GLYPHDATA *v33; // rax
+  int *v34; // rax
+  __int64 v35; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v36; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v37; // [rsp+80h] [rbp+50h]
 
-  v9 = a4;
+  v9 = 0;
+  v10 = a4;
+  v11 = a3;
   if ( a3 )
-    v12 = *((_QWORD *)a3 + 26);
+    v13 = *((_QWORD *)a3 + 26);
   else
-    v12 = 0LL;
-  if ( !*(_DWORD *)(*(_QWORD *)a2 + 304LL) && a8 && (unsigned int)RFONTOBJ::bIsSystemTTGlyph(this, a4) )
+    v13 = 0LL;
+  if ( !*(_DWORD *)(*(_QWORD *)a2 + 304LL) )
   {
-    if ( !*(_QWORD *)(*(_QWORD *)this + 720LL) )
-      return RFONTOBJ::pgdDefault(this);
-    if ( a3 && (*((_DWORD *)a3 + 58) & 0x1000) == 0 )
-      ESTROBJ::bPartitionInit(a3, a6, 0, 0);
-    v32 = *(_QWORD *)(*(_QWORD *)this + 720LL);
-    if ( !v32
-      || (!a9
-        ? (EudcMetrics = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v32, v9, a3))
-        : (EudcMetrics = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v32, (struct RFONTOBJ *)v9, a3, a4)),
-          (v15 = EudcMetrics) == 0LL) )
+    if ( a8 )
     {
-      v15 = RFONTOBJ::pgdDefault(this);
-      goto LABEL_21;
-    }
-    if ( !a3 )
-    {
-LABEL_21:
-      v32 = 0LL;
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
-      return v15;
-    }
-    v16 = a5;
-    ++*((_DWORD *)a3 + 62);
-    *(_DWORD *)(v12 + 4 * v16) = 1;
-LABEL_19:
-    *a7 = 0;
-    goto LABEL_21;
-  }
-  v17 = *(_DWORD *)(*(_QWORD *)this + 840LL);
-  if ( v17 )
-  {
-    v18 = v17 - 1;
-    v19 = v18;
-    v20 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 744LL) + 8 * v18);
-    v32 = v20;
-    if ( v20 && (*(_DWORD *)(*(_QWORD *)(v20 + 128) + 52LL) & 0xA) == 8 )
-    {
-      v17 = v18;
-      v21 = a9
-          ? RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v32, (struct RFONTOBJ *)v9, a3, a4)
-          : RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v32, v9, a3);
-      v22 = v21;
-      if ( v21 )
+      v14 = *(_QWORD *)this;
+      if ( *(_DWORD *)(*(_QWORD *)this + 708LL) )
       {
-        if ( v21->fxD )
+        if ( (unsigned __int16)v10 >= gqlTTSystem && (unsigned __int16)v10 <= (unsigned __int16)word_1C033C56A )
         {
-          if ( !a3 )
+          a3 = (struct ESTROBJ *)(0x80000000 >> ((v10 - gqlTTSystem) % 32));
+          if ( ((unsigned int)a3 & *(_DWORD *)(qword_1C033C570 + 4LL * ((v10 - gqlTTSystem) / 32))) != 0 )
           {
-LABEL_33:
-            v32 = 0LL;
-            RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
-            return v22;
+            if ( !*(_QWORD *)(v14 + 720) )
+              return RFONTOBJ::pgdDefault(this);
+            if ( v11 && (*((_DWORD *)v11 + 58) & 0x1000) == 0 )
+            {
+              ESTROBJ::bPartitionInit(v11, a6, 0, 0);
+              v14 = *(_QWORD *)this;
+            }
+            v36 = *(_QWORD *)(v14 + 720);
+            if ( v36
+              && (!a9
+                ? (EudcMetrics = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v36, v10, a3))
+                : (EudcMetrics = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v36, v10, a3)),
+                  (v17 = EudcMetrics) != 0LL) )
+            {
+              if ( v11 )
+              {
+                v18 = a5;
+                ++*((_DWORD *)v11 + 62);
+                *(_DWORD *)(v13 + 4 * v18) = 1;
+                *a7 = 0;
+              }
+            }
+            else
+            {
+              v17 = RFONTOBJ::pgdDefault(this);
+            }
+            v36 = 0LL;
+            goto LABEL_24;
           }
-          *(_DWORD *)(v12 + 4LL * a5) = v17 + 4;
-          ++*(_DWORD *)(*((_QWORD *)a3 + 33) + 4 * v19);
-LABEL_32:
-          *a7 = 0;
-          goto LABEL_33;
         }
       }
     }
-    v32 = 0LL;
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
   }
-  if ( *(_QWORD *)(*(_QWORD *)this + 728LL) )
+  v19 = *(_QWORD *)this;
+  LODWORD(v20) = *(_DWORD *)(*(_QWORD *)this + 840LL);
+  if ( (_DWORD)v20 )
   {
-    v32 = *(_QWORD *)(*(_QWORD *)this + 728LL);
+    v21 = *(_QWORD *)(*(_QWORD *)(v19 + 744) + 8LL * (unsigned int)(v20 - 1));
+    v36 = v21;
+    if ( v21 )
+    {
+      v35 = *(_QWORD *)(v21 + 128);
+      if ( (unsigned int)PFFOBJ::bIsPerFontEUDC((PFFOBJ *)&v35) )
+      {
+        v20 = v22;
+        v24 = a9
+            ? RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v36, v10, v23)
+            : RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v36, v10, v23);
+        v25 = v24;
+        if ( v24 )
+        {
+          if ( v24->fxD )
+          {
+            if ( !v11 )
+            {
+LABEL_36:
+              v36 = 0LL;
+LABEL_37:
+              RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
+              return v25;
+            }
+            *(_DWORD *)(v13 + 4LL * a5) = v20 + 4;
+            ++*(_DWORD *)(*((_QWORD *)v11 + 33) + 4 * v20);
+LABEL_35:
+            *a7 = 0;
+            goto LABEL_36;
+          }
+        }
+      }
+    }
+    v36 = 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
+    v19 = *(_QWORD *)this;
+  }
+  if ( *(_QWORD *)(v19 + 728) )
+  {
+    v36 = *(_QWORD *)(v19 + 728);
     if ( a9 )
-      EudcMetricsPlus = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v32, (struct RFONTOBJ *)v9, a3, a4);
+      EudcMetricsPlus = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v36, v10, a3);
     else
-      EudcMetricsPlus = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v32, v9, a3);
-    v22 = EudcMetricsPlus;
+      EudcMetricsPlus = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v36, v10, a3);
+    v25 = EudcMetricsPlus;
     if ( EudcMetricsPlus && EudcMetricsPlus->fxD )
     {
-      if ( !a3 )
-        goto LABEL_33;
-      *(_DWORD *)(v12 + 4LL * a5) = 2;
-      ++*((_DWORD *)a3 + 63);
-      goto LABEL_32;
+      if ( !v11 )
+        goto LABEL_36;
+      *(_DWORD *)(v13 + 4LL * a5) = 2;
+      ++*((_DWORD *)v11 + 63);
+      goto LABEL_35;
     }
-    v32 = 0LL;
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
+    v36 = 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
   }
-  v24 = 0;
-  if ( v17 )
+  if ( (_DWORD)v20 )
   {
-    v25 = 0LL;
-    v33 = 0LL;
+    v37 = 0LL;
     while ( 1 )
     {
-      v26 = *(_QWORD *)this;
-      v27 = *(_QWORD *)((char *)v25 + *(_QWORD *)(*(_QWORD *)this + 744LL));
-      v32 = v27;
-      if ( v27 )
+      Prediction::CFixPred::CFixPred((Prediction::CFixPred *)&v36);
+      v28 = *(_QWORD *)this;
+      v30 = *(_QWORD *)(v29 + *(_QWORD *)(*(_QWORD *)this + 744LL));
+      v36 = v30;
+      if ( v30 )
       {
         if ( !(unsigned int)RFONTOBJ::bSkipCHSFontSegUISymFallback(
-                              v25,
-                              v9,
-                              *(struct PFF **)(v26 + 128),
-                              *(struct PFF **)(v27 + 128)) )
+                              v27,
+                              v10,
+                              *(struct PFF **)(v28 + 128),
+                              *(struct PFF **)(v30 + 128)) )
         {
-          v30 = a9
-              ? RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v32, (struct RFONTOBJ *)v9, v28, v29)
-              : RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v32, v9, v28);
-          v22 = v30;
-          if ( v30 )
+          v32 = a9
+              ? RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v36, v10, v31)
+              : RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v36, v10, v31);
+          v25 = v32;
+          if ( v32 )
           {
-            if ( v30->fxD )
+            if ( v32->fxD )
               break;
           }
         }
       }
-      v32 = 0LL;
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
-      ++v24;
-      v25 = (RFONTOBJ *)(v33 + 8);
-      v33 += 8LL;
-      if ( v24 >= v17 )
-        goto LABEL_54;
+      v36 = 0LL;
+      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
+      ++v9;
+      v37 += 8LL;
+      if ( v9 >= (unsigned int)v20 )
+        goto LABEL_58;
     }
-    if ( !a3 )
-      goto LABEL_33;
-    *(_DWORD *)(v12 + 4LL * a5) = v24 + 4;
-    ++*(_DWORD *)(*((_QWORD *)a3 + 33) + 4LL * v24);
-    goto LABEL_32;
+    if ( v11 )
+    {
+      *(_DWORD *)(v13 + 4LL * a5) = v9 + 4;
+      ++*(_DWORD *)(*((_QWORD *)v11 + 33) + 4LL * v9);
+      *a7 = 0;
+    }
+    v36 = 0LL;
+    goto LABEL_37;
   }
-LABEL_54:
+LABEL_58:
   if ( *(_QWORD *)(*(_QWORD *)this + 736LL) )
   {
-    v32 = *(_QWORD *)(*(_QWORD *)this + 736LL);
+    v36 = *(_QWORD *)(*(_QWORD *)this + 736LL);
     if ( a9 )
-      v31 = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v32, (struct RFONTOBJ *)v9, a3, a4);
+      v33 = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v36, v10, a3);
     else
-      v31 = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v32, v9, a3);
-    v15 = v31;
-    if ( v31 && v31->fxD )
+      v33 = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v36, v10, a3);
+    v17 = v33;
+    if ( v33 && v33->fxD )
     {
-      if ( !a3 )
-        goto LABEL_21;
-      *(_DWORD *)(v12 + 4LL * a5) = 3;
-      ++*((_DWORD *)a3 + 64);
-      goto LABEL_19;
+      if ( v11 )
+      {
+        *(_DWORD *)(v13 + 4LL * a5) = 3;
+        v34 = a7;
+        ++*((_DWORD *)v11 + 64);
+        *v34 = 0;
+      }
+      v36 = 0LL;
+LABEL_24:
+      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
+      return v17;
     }
-    v32 = 0LL;
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
+    v36 = 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v36);
   }
   return 0LL;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopVerifyDiskSignature @ 0x140864DC0
+ * XREFs of IopVerifyDiskSignature @ 0x1407D4658
  * Callers:
- *     IopCreateArcName @ 0x14086FCF8 (IopCreateArcName.c)
- *     IopGetBootDiskInformation @ 0x140B94A0C (IopGetBootDiskInformation.c)
+ *     IopCreateArcName @ 0x140780218 (IopCreateArcName.c)
+ *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall IopVerifyDiskSignature(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  __int64 v4; // rdx
-  int v6; // eax
+  int v4; // eax
+  __int64 v6; // rdx
 
   if ( *(_BYTE *)(a2 + 36) )
   {
@@ -18,10 +18,10 @@ char __fastcall IopVerifyDiskSignature(__int64 a1, __int64 a2, _DWORD *a3)
     {
       if ( *(_DWORD *)a1 == 1 && *(_BYTE *)(a2 + 38) )
       {
-        v4 = *(_QWORD *)(a2 + 40) - *(_QWORD *)(a1 + 8);
-        if ( !v4 )
-          v4 = *(_QWORD *)(a2 + 48) - *(_QWORD *)(a1 + 16);
-        if ( !v4 )
+        v6 = *(_QWORD *)(a2 + 40) - *(_QWORD *)(a1 + 8);
+        if ( !v6 )
+          v6 = *(_QWORD *)(a2 + 48) - *(_QWORD *)(a1 + 16);
+        if ( !v6 )
         {
           if ( a3 )
             *a3 = 0;
@@ -31,11 +31,11 @@ char __fastcall IopVerifyDiskSignature(__int64 a1, __int64 a2, _DWORD *a3)
     }
     else
     {
-      v6 = *(_DWORD *)(a1 + 8);
-      if ( *(_DWORD *)(a2 + 16) == v6 )
+      v4 = *(_DWORD *)(a1 + 8);
+      if ( *(_DWORD *)(a2 + 16) == v4 )
       {
         if ( a3 )
-          *a3 = v6;
+          *a3 = v4;
         return 1;
       }
     }

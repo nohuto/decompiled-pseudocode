@@ -1,66 +1,81 @@
 /*
- * XREFs of WPP_RECORDER_SF_S @ 0x1C0011F14
+ * XREFs of WPP_RECORDER_SF_s @ 0x1C0012CD4
  * Callers:
- *     Controller_PopulateDeviceFlagsFromKse @ 0x1C000D094 (Controller_PopulateDeviceFlagsFromKse.c)
- *     Controller_CreateWdfDevice @ 0x1C00587E0 (Controller_CreateWdfDevice.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C000C5B4 (Controller_HwVerifierBreakIfEnabled.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1C0006C60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall WPP_RECORDER_SF_S(
-        __int64 a1,
-        unsigned __int8 a2,
-        __int64 a3,
-        unsigned __int16 a4,
-        int a5,
-        const wchar_t *a6)
-{
-  const wchar_t *v6; // rbx
-  __int64 v7; // rdi
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  const wchar_t *v13; // rcx
-  bool v14; // zf
-  int v16; // [rsp+20h] [rbp-48h]
-
-  v6 = a6;
-  v7 = -1LL;
-  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= a2 )
-  {
-    if ( a6 )
-    {
-      v11 = -1LL;
-      do
-        ++v11;
-      while ( a6[v11] );
-      v12 = 2 * v11 + 2;
-    }
-    else
-    {
-      v12 = 10LL;
-    }
-    v13 = a6;
-    if ( !a6 )
-      v13 = L"NULL";
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, char *, _QWORD, const wchar_t *, __int64, _QWORD))pfnWppTraceMessage)(
-      WPP_GLOBAL_Control->AttachedDevice,
-      43LL,
-      (char *)&Context.Logger + 4,
-      a4,
-      v13,
-      v12,
-      0LL);
-  }
-  v14 = a6 == 0LL;
-  if ( a6 )
-  {
-    do
-      ++v7;
-    while ( a6[v7] );
-    v14 = a6 == 0LL;
-  }
-  if ( v14 )
-    v6 = L"NULL";
-  LOWORD(v16) = a4;
-  return WppAutoLogTrace(a1, a2, 4LL, (char *)&Context.Logger + 4, v16, v6);
-}
+/*
+ * Hex-Rays decompilation failed for WPP_RECORDER_SF_s @ 0x1C0012CD4
+ * Reason: Hex-Rays returned no pseudocode for 0x1C0012CD4
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000001C0012CD4: mov     rax, rsp
+ * 00000001C0012CD7: mov     [rax+8], rbx
+ * 00000001C0012CDB: mov     [rax+10h], rsi
+ * 00000001C0012CDF: mov     [rax+18h], rdi
+ * 00000001C0012CE3: mov     [rax+20h], r12
+ * 00000001C0012CE7: push    r15
+ * 00000001C0012CE9: sub     rsp, 40h
+ * 00000001C0012CED: mov     rdx, cs:WPP_GLOBAL_Control
+ * 00000001C0012CF4: lea     r15, Context
+ * 00000001C0012CFB: mov     rdi, [rsp+48h+arg_28]
+ * 00000001C0012D00: or      rbx, 0FFFFFFFFFFFFFFFFh
+ * 00000001C0012D04: mov     rsi, rcx
+ * 00000001C0012D07: mov     r12d, 0E1h
+ * 00000001C0012D0D: mov     eax, [rdx+2Ch]
+ * 00000001C0012D10: test    al, 8
+ * 00000001C0012D12: jz      short loc_1C0012D77
+ * 00000001C0012D14: cmp     byte ptr [rdx+29h], 2
+ * 00000001C0012D18: jb      short loc_1C0012D77
+ * 00000001C0012D1A: test    rdi, rdi
+ * 00000001C0012D1D: jz      short loc_1C0012D30
+ * 00000001C0012D1F: mov     rdx, rbx
+ * 00000001C0012D22: inc     rdx
+ * 00000001C0012D25: cmp     byte ptr [rdi+rdx], 0
+ * 00000001C0012D29: jnz     short loc_1C0012D22
+ * 00000001C0012D2B: inc     rdx
+ * 00000001C0012D2E: jmp     short loc_1C0012D35
+ * 00000001C0012D30: mov     edx, 5
+ * 00000001C0012D35: mov     rax, cs:pfnWppTraceMessage
+ * 00000001C0012D3C: lea     r8, Context.Logger+4
+ * 00000001C0012D43: test    rdi, rdi
+ * 00000001C0012D46: movzx   r9d, r12w
+ * 00000001C0012D4A: mov     rcx, rdi
+ * 00000001C0012D4D: cmovz   rcx, r15
+ * 00000001C0012D51: and     [rsp+48h+var_18], 0
+ * 00000001C0012D57: mov     [rsp+48h+var_20], rdx
+ * 00000001C0012D5C: mov     edx, 2Bh ; '+'
+ * 00000001C0012D61: mov     [rsp+48h+var_28], rcx
+ * 00000001C0012D66: mov     rcx, cs:WPP_GLOBAL_Control
+ * 00000001C0012D6D: mov     rcx, [rcx+18h]
+ * 00000001C0012D71: call    cs:__guard_dispatch_icall_fptr
+ * 00000001C0012D77: test    rdi, rdi
+ * 00000001C0012D7A: jz      short loc_1C0012D8A
+ * 00000001C0012D7C: inc     rbx
+ * 00000001C0012D7F: cmp     byte ptr [rdi+rbx], 0
+ * 00000001C0012D83: jnz     short loc_1C0012D7C
+ * 00000001C0012D85: inc     rbx
+ * 00000001C0012D88: jmp     short loc_1C0012D8F
+ * 00000001C0012D8A: mov     ebx, 5
+ * 00000001C0012D8F: test    rdi, rdi
+ * 00000001C0012D92: lea     r9, Context.Logger+4
+ * 00000001C0012D99: mov     edx, 2
+ * 00000001C0012D9E: mov     rcx, rsi
+ * 00000001C0012DA1: cmovz   rdi, r15
+ * 00000001C0012DA5: and     [rsp+48h+var_10], 0
+ * 00000001C0012DAB: mov     [rsp+48h+var_18], rbx
+ * 00000001C0012DB0: mov     [rsp+48h+var_20], rdi
+ * 00000001C0012DB5: lea     r8d, [rdx+2]
+ * 00000001C0012DB9: mov     word ptr [rsp+48h+var_28], r12w
+ * 00000001C0012DBF: call    cs:__imp_WppAutoLogTrace
+ * 00000001C0012DC6: nop     dword ptr [rax+rax+00h]
+ * 00000001C0012DCB: mov     rbx, [rsp+48h+arg_0]
+ * 00000001C0012DD0: mov     rsi, [rsp+48h+arg_8]
+ * 00000001C0012DD5: mov     rdi, [rsp+48h+arg_10]
+ * 00000001C0012DDA: mov     r12, [rsp+48h+arg_18]
+ * 00000001C0012DDF: add     rsp, 40h
+ * 00000001C0012DE3: pop     r15
+ * 00000001C0012DE5: retn
+ */

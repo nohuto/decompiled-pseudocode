@@ -1,19 +1,19 @@
 /*
- * XREFs of ?HasPendingMouseMove@QHelper@@YA_NAEBVCInputDest@@@Z @ 0x1C01F813C
+ * XREFs of ?HasPendingMouseMove@QHelper@@YA_NAEBVCInputDest@@@Z @ 0x1C004CCDC
  * Callers:
- *     ?PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z @ 0x1C01F8FD0 (-PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z.c)
+ *     ?PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z @ 0x1C004CC3C (-PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z.c)
  * Callees:
- *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C00572B4 (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
+ *     QHelper::_anonymous_namespace_::GetQ @ 0x1C00458F4 (QHelper--_anonymous_namespace_--GetQ.c)
  */
 
 char __fastcall QHelper::HasPendingMouseMove(QHelper *this, const struct CInputDest *a2)
 {
-  __int64 Queue; // rax
+  __int64 v2; // rax
   char v3; // cl
 
-  Queue = CInputDest::GetQueue((__int64)this, 2);
+  v2 = QHelper::_anonymous_namespace_::GetQ((__int64)this);
   v3 = 0;
-  if ( Queue )
-    return (*(_DWORD *)(Queue + 396) & 0x20) != 0;
+  if ( v2 )
+    return (*(_DWORD *)(v2 + 388) & 0x20) != 0;
   return v3;
 }

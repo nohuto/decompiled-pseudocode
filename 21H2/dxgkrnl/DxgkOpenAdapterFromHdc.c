@@ -1,30 +1,41 @@
 /*
- * XREFs of DxgkOpenAdapterFromHdc @ 0x1C0183C40
+ * XREFs of DxgkOpenAdapterFromHdc @ 0x1C015C290
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkOpenAdapterFromHdc(__int64 a1)
+__int64 __fastcall DxgkOpenAdapterFromHdc(__int64 a1, __int64 a2)
 {
-  struct DXGPROCESS *Current; // rax
+  __int64 CurrentProcess; // rax
+  __int64 ProcessDxgProcess; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  struct DXGTHREAD *Current; // rax
+  __int64 v11; // rax
 
-  Current = DXGPROCESS::GetCurrent();
-  if ( Current )
-    return (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)Current + 11) + 456LL))(a1);
-  WdLogSingleEntry1(2LL, -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Invalid process context, returning 0x%I64x",
-    -1073741811LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
+  ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
+  v7 = ProcessDxgProcess;
+  if ( !ProcessDxgProcess || (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) != 0 )
+  {
+    Current = DXGTHREAD::GetCurrent(v6, v5);
+    if ( Current )
+    {
+      v8 = *((_QWORD *)Current + 1);
+      if ( v8 )
+        return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v8 + 88) + 456LL))(a1);
+    }
+  }
+  v8 = v7;
+  if ( v7 )
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v8 + 88) + 456LL))(a1);
+  v11 = WdLogNewEntry5_WdError(v6, v5);
+  *(_QWORD *)(v11 + 24) = -1073741811LL;
+  WdLogEvent5_WdError(v11);
   return 3221225485LL;
 }

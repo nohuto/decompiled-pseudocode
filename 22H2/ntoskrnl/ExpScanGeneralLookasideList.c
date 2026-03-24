@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpScanGeneralLookasideList @ 0x14032F9D0
+ * XREFs of ExpScanGeneralLookasideList @ 0x1402EE740
  * Callers:
- *     KeBalanceSetManager @ 0x140392980 (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x1403B8A80 (KeBalanceSetManager.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)
@@ -15,16 +15,15 @@ __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)
   unsigned __int64 v6; // rsi
   int v7; // edx
   unsigned int v8; // ecx
-  int v9; // r10d
-  int v10; // r9d
-  int v11; // r9d
+  int v9; // r9d
+  int v10; // r10d
+  int v11; // r10d
   __int64 result; // rax
   unsigned int v13; // eax
   unsigned int v14; // edx
-  unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v18; // zf
+  bool v17; // zf
 
   v4 = KeAcquireSpinLockRaiseToDpc(a2);
   v5 = (_QWORD *)*a1;
@@ -72,20 +71,23 @@ LABEL_7:
     goto LABEL_8;
   }
 LABEL_9:
-  KxReleaseSpinLock((volatile signed __int64 *)a2);
+  KxReleaseSpinLock(a2);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v18 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v17 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);

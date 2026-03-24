@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnRemoveProcessTrace @ 0x1402F52FC
+ * XREFs of PfSnRemoveProcessTrace @ 0x14026D79C
  * Callers:
- *     PfSnDeactivateTrace @ 0x1402F521C (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x14026D61C (PfSnDeactivateTrace.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall PfSnRemoveProcessTrace(__int64 a1)
@@ -55,20 +55,23 @@ LABEL_7:
       }
     }
   }
-  v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C6A710);
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A710);
+  v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
+  KxReleaseSpinLock(&qword_140C50450);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v5 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v5 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v5 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v5 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmSetSimulatedIdle @ 0x140585CFC
+ * XREFs of PpmSetSimulatedIdle @ 0x1405676E4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140344E90 (KeGetProcessorIndexFromNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
@@ -17,15 +17,14 @@ __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
   struct _KPRCB *CurrentPrcb; // r10
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  int v8; // eax
   _PPM_IDLE_STATES *IdleStates; // rax
-  unsigned int v10; // ebx
-  unsigned int v11; // ecx
-  unsigned __int8 v12; // al
-  struct _KPRCB *v13; // r10
-  _DWORD *v14; // r9
-  int v15; // edx
-  bool v16; // zf
+  unsigned int v9; // ebx
+  unsigned int v10; // ecx
+  unsigned __int8 v11; // al
+  struct _KPRCB *v12; // r10
+  _DWORD *v13; // r9
+  int v14; // edx
+  bool v15; // zf
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
@@ -46,45 +45,45 @@ __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v8 = 4;
-    if ( CurrentIrql != 2 )
-      v8 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   IdleStates = CurrentPrcb->PowerState.IdleStates;
   if ( IdleStates )
   {
-    v11 = *(_DWORD *)a1;
+    v10 = *(_DWORD *)a1;
     if ( *(_DWORD *)a1 < IdleStates->ProcessorIdleCount )
     {
       IdleStates->IdleOverride = 1;
-      v10 = 0;
-      IdleStates->OverrideIndex = v11;
+      v9 = 0;
+      IdleStates->OverrideIndex = v10;
     }
     else
     {
-      v10 = -1073741811;
+      v9 = -1073741811;
     }
   }
   else
   {
-    v10 = -1073741637;
+    v9 = -1073741637;
   }
   if ( KiIrqlFlags )
   {
-    v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v13 = KeGetCurrentPrcb();
-      v14 = v13->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v16 = (v15 & v14[5]) == 0;
-      v14[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick((__int64)v13);
+      v11 = KeGetCurrentIrql();
+      if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      {
+        v12 = KeGetCurrentPrcb();
+        v13 = v12->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v15 = (v14 & v13[5]) == 0;
+        v13[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)v12);
+      }
     }
   }
   __writecr8(CurrentIrql);
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-  return v10;
+  return v9;
 }

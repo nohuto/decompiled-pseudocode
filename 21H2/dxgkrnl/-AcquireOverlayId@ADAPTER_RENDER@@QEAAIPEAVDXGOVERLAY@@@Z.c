@@ -1,32 +1,34 @@
 /*
- * XREFs of ?AcquireOverlayId@ADAPTER_RENDER@@QEAAIPEAVDXGOVERLAY@@@Z @ 0x1C02C30A4
+ * XREFs of ?AcquireOverlayId@ADAPTER_RENDER@@QEAAIPEAVDXGOVERLAY@@@Z @ 0x1C021539C
  * Callers:
- *     ?Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C03296A0 (-Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
+ *     ?Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C027A490 (-Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall ADAPTER_RENDER::AcquireOverlayId(ADAPTER_RENDER *this, struct DXGOVERLAY *a2)
 {
-  __int64 v4; // rcx
-  unsigned int v5; // edx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  unsigned int v6; // ecx
   _QWORD *i; // rax
 
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 3046LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pOverlayOwner != NULL", 3046LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v4 + 24) = 3002LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v4 = 0LL;
-  v5 = *(_DWORD *)(*((_QWORD *)this + 2) + 2132LL);
-  if ( !v5 )
+  v5 = 0LL;
+  v6 = *(_DWORD *)(*((_QWORD *)this + 2) + 2036LL);
+  if ( !v6 )
     return 0xFFFFFFFFLL;
-  for ( i = (_QWORD *)((char *)this + 712); *i; ++i )
+  for ( i = (_QWORD *)((char *)this + 696); *i; ++i )
   {
-    v4 = (unsigned int)(v4 + 1);
-    if ( (unsigned int)v4 >= v5 )
+    v5 = (unsigned int)(v5 + 1);
+    if ( (unsigned int)v5 >= v6 )
       return 0xFFFFFFFFLL;
   }
-  *((_QWORD *)this + v4 + 89) = a2;
-  return (unsigned int)v4;
+  *((_QWORD *)this + v5 + 87) = a2;
+  return (unsigned int)v5;
 }

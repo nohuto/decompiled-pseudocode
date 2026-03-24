@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryValidationRunlevel @ 0x1405EDAC0
+ * XREFs of RtlQueryValidationRunlevel @ 0x14058E500
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
  */
 
 __int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)

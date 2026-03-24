@@ -1,30 +1,35 @@
 /*
- * XREFs of PpmTryAcquireLock @ 0x140224624
+ * XREFs of PpmTryAcquireLock @ 0x14037DDF8
  * Callers:
- *     PoLatencySensitivityHint @ 0x1402244A0 (PoLatencySensitivityHint.c)
+ *     PoLatencySensitivityHint @ 0x14037DC60 (PoLatencySensitivityHint.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-char PpmTryAcquireLock()
+char __fastcall PpmTryAcquireLock(LARGE_INTEGER a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  char v1; // bl
-  LARGE_INTEGER Timeout; // [rsp+48h] [rbp+10h] BYREF
+  char v2; // bl
+  NTSTATUS v3; // eax
+  struct _KTHREAD *v4; // rcx
+  LARGE_INTEGER v6; // [rsp+40h] [rbp+8h] BYREF
 
+  v6 = a1;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  v1 = 0;
-  Timeout.QuadPart = 0LL;
-  if ( KeWaitForSingleObject(&word_140C22FE8, Executive, 0, 0, &Timeout) )
+  --CurrentThread->SpecialApcDisable;
+  v2 = 0;
+  v6.QuadPart = 0LL;
+  v3 = KeWaitForSingleObject(&word_140C23C68, Executive, 0, 0, &v6);
+  v4 = KeGetCurrentThread();
+  if ( v3 )
   {
-    KeLeaveCriticalRegion();
+    KiLeaveGuardedRegionUnsafe((__int64)v4);
   }
   else
   {
-    v1 = 1;
-    PpmPerfPolicyLock = (__int64)KeGetCurrentThread();
+    v2 = 1;
+    PpmPerfPolicyLock = (__int64)v4;
   }
-  return v1;
+  return v2;
 }

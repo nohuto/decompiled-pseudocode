@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetTimer @ 0x14041B2E0
+ * XREFs of ZwSetTimer @ 0x1403FA660
  * Callers:
- *     DifZwSetTimerWrapper @ 0x1405F7AF0 (DifZwSetTimerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

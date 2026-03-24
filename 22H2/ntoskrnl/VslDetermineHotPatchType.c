@@ -1,20 +1,20 @@
 /*
- * XREFs of VslDetermineHotPatchType @ 0x140942128
+ * XREFs of VslDetermineHotPatchType @ 0x14088F628
  * Callers:
- *     MiLoadHotPatch @ 0x140A37FD0 (MiLoadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140B74A30 (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x1408CAC20 (MiLoadHotPatch.c)
+ *     MmRegisterHotPatch @ 0x140A9232C (MmRegisterHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, _DWORD *a3)
+NTSTATUS __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, int *a3)
 {
   __int64 v3; // rdi
   __int64 v5; // rbx
-  __int64 result; // rax
-  char v7; // cl
+  NTSTATUS result; // eax
+  int v7; // ecx
   _QWORD v8[14]; // [rsp+20h] [rbp-88h] BYREF
 
   v3 = a2;
@@ -22,15 +22,18 @@ __int64 __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, _D
   memset(v8, 0, 0x68uLL);
   v8[1] = v5;
   v8[2] = v3;
-  result = VslpEnterIumSecureMode(2u, 69, 0, (__int64)v8);
-  if ( (int)result >= 0 )
+  result = VslpEnterIumSecureMode(2u, 67, 0, (__int64)v8);
+  if ( result >= 0 )
   {
-    v7 = v8[2];
+    LOBYTE(v7) = v8[2];
     *a3 = v8[2];
     if ( (v7 & 1) != 0 )
-      _InterlockedIncrement(&dword_140C5F324);
-    if ( (*a3 & 2) != 0 )
-      _InterlockedIncrement(&dword_140C5F328);
+    {
+      _InterlockedIncrement(&dword_140C474A4);
+      v7 = *a3;
+    }
+    if ( (v7 & 2) != 0 )
+      _InterlockedIncrement(&dword_140C474A8);
   }
   return result;
 }

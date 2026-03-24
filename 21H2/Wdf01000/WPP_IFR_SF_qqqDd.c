@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqqdD @ 0x1C0077D8C
+ * XREFs of WPP_IFR_SF_qqqdD @ 0x1C006A930
  * Callers:
- *     imp_WdfUsbTargetDeviceFormatRequestForString @ 0x1C0078400 (imp_WdfUsbTargetDeviceFormatRequestForString.c)
+ *     imp_WdfUsbTargetDeviceFormatRequestForString @ 0x1C006AFB0 (imp_WdfUsbTargetDeviceFormatRequestForString.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqqdD(

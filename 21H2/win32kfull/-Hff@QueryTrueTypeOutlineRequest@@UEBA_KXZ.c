@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Hff@QueryTrueTypeOutlineRequest@@UEBA_KXZ @ 0x1C0124200
+ * XREFs of ?Hff@QueryTrueTypeOutlineRequest@@UEBA_KXZ @ 0x1C01380A0
  * Callers:
  *     <none>
  * Callees:

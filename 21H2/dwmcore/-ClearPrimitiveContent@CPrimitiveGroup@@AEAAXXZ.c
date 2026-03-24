@@ -1,24 +1,24 @@
 /*
- * XREFs of ?ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ @ 0x1801042C4
+ * XREFs of ?ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ @ 0x1800F03C4
  * Callers:
- *     ?GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000B810 (-GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@.c)
- *     ?ResolveSharedMemoryBufferNew@CPrimitiveGroup@@AEAAXXZ @ 0x18010453C (-ResolveSharedMemoryBufferNew@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ResolveSharedMemoryBuffer@CPrimitiveGroup@@AEAAXXZ @ 0x180059F14 (-ResolveSharedMemoryBuffer@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800B9480 (-GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CPrimitiveGroup::ClearPrimitiveContent(CPrimitiveGroup *this)
 {
-  *((_DWORD *)this + 135) = -1;
-  *((_QWORD *)this + 50) = 0LL;
-  *((_QWORD *)this + 59) = 0LL;
-  *((_QWORD *)this + 60) = 0LL;
-  *((_QWORD *)this + 61) = 0LL;
-  *((_QWORD *)this + 62) = 0LL;
-  *((_QWORD *)this + 63) = 0LL;
+  *((_DWORD *)this + 145) = -1;
+  *((_QWORD *)this + 55) = 0LL;
   *((_QWORD *)this + 64) = 0LL;
   *((_QWORD *)this + 65) = 0LL;
-  *((_BYTE *)this + 544) = 0;
-  *(_QWORD *)((char *)this + 532) = 0LL;
-  *((_DWORD *)this + 132) = 0;
+  *((_QWORD *)this + 66) = 0LL;
+  *((_QWORD *)this + 67) = 0LL;
+  *((_QWORD *)this + 68) = 0LL;
+  *((_QWORD *)this + 69) = 0LL;
+  *((_QWORD *)this + 70) = 0LL;
+  *((_BYTE *)this + 584) = 0;
+  *(_QWORD *)((char *)this + 572) = 0LL;
+  *((_DWORD *)this + 142) = 0;
 }

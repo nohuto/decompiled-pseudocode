@@ -1,9 +1,9 @@
 /*
- * XREFs of HalUnmapIoSpace @ 0x140522980
+ * XREFs of HalUnmapIoSpace @ 0x1404D5650
  * Callers:
  *     <none>
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x1403BF310 (HalpUnmapVirtualAddress.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
  */
 
 void __stdcall HalUnmapIoSpace(PVOID VirtualAddress, SIZE_T NumberOfBytes)

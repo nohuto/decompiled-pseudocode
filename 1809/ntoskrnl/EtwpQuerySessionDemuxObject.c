@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpQuerySessionDemuxObject @ 0x1408C0044
+ * XREFs of EtwpQuerySessionDemuxObject @ 0x1408C0024
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:

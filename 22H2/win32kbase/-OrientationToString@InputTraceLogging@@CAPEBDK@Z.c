@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OrientationToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01E4094
+ * XREFs of ?OrientationToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01B34AC
  * Callers:
- *     ?TraceCurrentConfig@InputConfig@@SAXXZ @ 0x1C006317C (-TraceCurrentConfig@InputConfig@@SAXXZ.c)
- *     ?DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C00C5014 (-DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
- *     SetContentOrientation @ 0x1C01E8DB8 (SetContentOrientation.c)
+ *     ?TraceCurrentConfig@InputConfig@@SAXXZ @ 0x1C006F2A4 (-TraceCurrentConfig@InputConfig@@SAXXZ.c)
+ *     ?DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C00721E4 (-DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
+ *     SetContentOrientation @ 0x1C01AEF30 (SetContentOrientation.c)
  * Callees:
  *     <none>
  */

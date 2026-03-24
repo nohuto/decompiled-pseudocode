@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EB00
+ * XREFs of ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C0017FC0
  * Callers:
- *     ACPISystemPowerUpdateWakeCapabilities @ 0x1C00955B4 (ACPISystemPowerUpdateWakeCapabilities.c)
+ *     ACPISystemPowerUpdateWakeCapabilities @ 0x1C009DC14 (ACPISystemPowerUpdateWakeCapabilities.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C003DE30 (ACPISystemPowerDetermineSupportedDeviceWakeState.c)
- *     AcpiGetIdleWakeInfo @ 0x1C0082BE0 (AcpiGetIdleWakeInfo.c)
- *     ACPISystemPowerGetDeviceWake @ 0x1C0094F18 (ACPISystemPowerGetDeviceWake.c)
+ *     ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C00163F4 (ACPISystemPowerDetermineSupportedDeviceWakeState.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPISystemPowerGetDeviceWake @ 0x1C009C01C (ACPISystemPowerGetDeviceWake.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C009CB40 (AcpiGetIdleWakeInfo.c)
  */
 
 __int64 __fastcall ACPISystemPowerUpdateWakeCapabilitiesForPDOs(
@@ -15,124 +15,121 @@ __int64 __fastcall ACPISystemPowerUpdateWakeCapabilitiesForPDOs(
         __int64 a3,
         __int64 a4,
         int *a5,
-        __int64 a6,
-        int *a7,
+        unsigned __int64 a6,
+        unsigned __int64 a7,
         int *a8)
 {
-  int v8; // esi
-  int v9; // ebx
+  int v8; // r14d
+  char v9; // r12
   int *v10; // r15
-  unsigned int v11; // edi
-  int v13; // eax
-  int v14; // r15d
-  KIRQL v15; // r9
-  __int64 v16; // rax
-  int v17; // eax
-  int v18; // ebp
-  _DWORD *v19; // rax
-  char v21; // cl
+  int v11; // ebx
+  unsigned int v12; // edi
+  int v14; // eax
+  int v15; // esi
+  unsigned int *v16; // rax
+  int v18; // r15d
+  KIRQL v19; // r9
+  int v20; // eax
   int IdleWakeInfo; // eax
-  int v23; // edx
-  char v24; // [rsp+20h] [rbp-68h]
-  unsigned int v25; // [rsp+24h] [rbp-64h] BYREF
-  int *v26; // [rsp+28h] [rbp-60h]
-  __int64 v27; // [rsp+30h] [rbp-58h]
-  __int64 v28; // [rsp+38h] [rbp-50h]
-  __m128i si128; // [rsp+40h] [rbp-48h]
-  int v30; // [rsp+50h] [rbp-38h]
-  int v31; // [rsp+54h] [rbp-34h]
+  __int64 v22; // rax
+  char v23; // cl
+  unsigned int v24; // [rsp+20h] [rbp-78h] BYREF
+  int *v25; // [rsp+28h] [rbp-70h]
+  __int64 v26; // [rsp+30h] [rbp-68h]
+  unsigned __int128 v27; // [rsp+38h] [rbp-60h]
+  __m128i si128; // [rsp+48h] [rbp-50h]
+  int v29; // [rsp+58h] [rbp-40h]
+  int v30; // [rsp+5Ch] [rbp-3Ch]
 
   v8 = 0;
-  v25 = 0;
+  v24 = 0;
   v9 = 0;
   v10 = a5;
   v11 = 0;
-  v28 = a6;
-  v13 = *(_DWORD *)(a1 + 8);
-  v27 = a4;
-  v26 = a5;
-  v24 = 0;
-  if ( (*(_QWORD *)&v13 & 0x10000LL) == 0 )
-    goto LABEL_10;
+  v12 = 0;
+  v27 = __PAIR128__(a7, a6);
+  v14 = *(_DWORD *)(a1 + 8);
+  v26 = a4;
+  v25 = a5;
+  if ( (*(_QWORD *)&v14 & 0x10000LL) == 0 )
+    goto LABEL_2;
   KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-  v11 = *(_DWORD *)(a1 + 536);
-  v14 = ACPISystemPowerDetermineSupportedDeviceWakeState(a1);
-  KeReleaseSpinLock(&AcpiPowerLock, v15);
-  if ( !v11 )
+  v12 = *(_DWORD *)(a1 + 496);
+  v18 = ACPISystemPowerDetermineSupportedDeviceWakeState(a1);
+  KeReleaseSpinLock(&AcpiPowerLock, v19);
+  if ( !v12 )
   {
-    v16 = *(_QWORD *)(a1 + 1008);
-    if ( (v16 & 0x400000000LL) != 0 )
+    v22 = *(_QWORD *)(a1 + 960);
+    if ( (v22 & 0x400000000LL) != 0 )
     {
       if ( (AcpiSupportedSystemStates & 0x20) != 0 )
-        v11 = 5;
+        v12 = 5;
       else
-        v11 = (AcpiSupportedSystemStates & 0x10) != 0 ? 4 : 1;
+        v12 = (AcpiSupportedSystemStates & 0x10) != 0 ? 4 : 1;
     }
     else
     {
-      v11 = (v16 & 0x100000000LL) != 0;
+      v12 = (v22 & 0x100000000LL) != 0;
     }
   }
-  v17 = AcpiSupportedSystemStates;
-  if ( !_bittest(&v17, v11) )
+  v20 = AcpiSupportedSystemStates;
+  if ( !_bittest(&v20, v12) )
   {
-    v10 = v26;
-    v11 = 0;
-LABEL_10:
-    v18 = 0;
-    goto LABEL_11;
+    v10 = v25;
+    v12 = 0;
+    goto LABEL_2;
   }
-  if ( v14 )
+  if ( v18 )
   {
-    v21 = v14;
-    v24 = 1;
-    v9 = v14;
-    v10 = v26;
-    *v26 = 1 << v21;
+    v23 = v18;
+    v11 = v18;
+    v10 = v25;
+    v9 = 1;
+    *v25 = 1 << v23;
   }
   else
   {
-    v10 = v26;
+    v10 = v25;
   }
-  v8 = v9;
-  IdleWakeInfo = AcpiGetIdleWakeInfo(a1, v11, &v25);
+  IdleWakeInfo = AcpiGetIdleWakeInfo(a1, v12, &v24);
   if ( IdleWakeInfo == -1073741275 )
-    IdleWakeInfo = ACPISystemPowerGetDeviceWake(a1, &v25);
-  if ( IdleWakeInfo < 0 )
-  {
-    v23 = v9;
-    if ( !v24 )
-    {
-      v9 = *(_DWORD *)(v27 + 4LL * (int)v11);
-      if ( !v9 )
-        v9 = 4;
-      goto LABEL_29;
-    }
-  }
-  else
+    IdleWakeInfo = ACPISystemPowerGetDeviceWake(a1, &v24);
+  if ( IdleWakeInfo >= 0 )
   {
     si128 = _mm_load_si128((const __m128i *)&_xmm);
+    v29 = 4;
     v30 = 4;
-    v31 = 4;
-    if ( v25 > 5 )
-      v9 = 0;
+    if ( v24 > 5 )
+      v11 = 0;
     else
-      v9 = si128.m128i_i32[v25];
-    v8 = v9;
-    v23 = v9;
+      v11 = si128.m128i_i32[v24];
+    v9 = 1;
   }
-  if ( !v9 )
-    goto LABEL_10;
-LABEL_29:
-  v8 = v23;
-  v18 = 1 << v9;
-LABEL_11:
-  v19 = (_DWORD *)v28;
-  *v10 = v18;
-  if ( v19 )
-    *v19 = v11;
-  if ( a7 )
-    *a7 = v9;
+  v8 = v11;
+  if ( v9 )
+  {
+LABEL_32:
+    if ( v11 )
+      goto LABEL_19;
+LABEL_2:
+    v15 = 0;
+    goto LABEL_3;
+  }
+  v11 = *(_DWORD *)(v26 + 4LL * (int)v12);
+  if ( !v11 )
+  {
+    v11 = 4;
+    goto LABEL_32;
+  }
+LABEL_19:
+  v15 = 1 << v11;
+LABEL_3:
+  v16 = (unsigned int *)v27;
+  *v10 = v15;
+  if ( v16 )
+    *v16 = v12;
+  if ( *((_QWORD *)&v27 + 1) )
+    **((_DWORD **)&v27 + 1) = v11;
   if ( a8 )
     *a8 = v8;
   return 0LL;

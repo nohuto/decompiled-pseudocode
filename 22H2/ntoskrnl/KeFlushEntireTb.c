@@ -1,39 +1,40 @@
 /*
- * XREFs of KeFlushEntireTb @ 0x1403B23B0
+ * XREFs of KeFlushEntireTb @ 0x1403B6A90
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x140B47664 (MiRebaseDynamicRelocationRegions.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140A4F400 (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     KxFlushEntireTb @ 0x1403B241C (KxFlushEntireTb.c)
- *     KiFlushAddressSpaceTb @ 0x1403CB9F0 (KiFlushAddressSpaceTb.c)
- *     KiIsFlushEntire @ 0x14045FF3C (KiIsFlushEntire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFlushTb @ 0x14060D088 (ExFlushTb.c)
+ *     KxFlushEntireTb @ 0x14022F2F0 (KxFlushEntireTb.c)
+ *     KiPreprocessFlushTb @ 0x140231050 (KiPreprocessFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x14038FAAC (KiFlushAddressSpaceTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFlushTb @ 0x1405B7158 (ExFlushTb.c)
  */
 
-__int64 __fastcall KeFlushEntireTb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 KeFlushEntireTb()
 {
+  __int64 v0; // r8
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r9
-  __int64 v7; // rdx
-  unsigned __int8 v8; // al
+  _DWORD *SchedulerAssist; // r10
+  unsigned __int8 v4; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v10; // r8
-  int v11; // eax
-  bool v12; // zf
+  _DWORD *v6; // r8
+  int v7; // eax
+  bool v8; // zf
+  char v9; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int8 v10; // [rsp+58h] [rbp+20h] BYREF
 
-  if ( (HvlEnlightenments & 4) != 0
-    && ((HvlEnlightenments & 2) != 0
-     || (HvlEnlightenments & 0x800000) != 0 && (unsigned __int8)KiIsFlushEntire(3LL)
-     || (_DWORD)KeNumberProcessors_0 != 1) )
+  v9 = 0;
+  v10 = 0;
+  KiPreprocessFlushTb(1, 3u, 2, &v9, &v10);
+  if ( v9 )
   {
-    LOBYTE(a4) = 1;
-    LOBYTE(a3) = 1;
-    result = KiFlushAddressSpaceTb(0LL, 0LL, a3, a4);
+    LOBYTE(v0) = 1;
+    result = KiFlushAddressSpaceTb(0LL, 0LL, v0, 1);
   }
   else
   {
-    result = KxFlushEntireTb(2LL);
+    result = KxFlushEntireTb(2);
   }
   if ( ExTbFlushActive )
   {
@@ -42,25 +43,24 @@ __int64 __fastcall KeFlushEntireTb(__int64 a1, __int64 a2, __int64 a3, __int64 a
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 15 )
-        LODWORD(v7) = 0x8000;
-      else
-        v7 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-      SchedulerAssist[5] |= v7;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
     ExFlushTb(0LL, 0LL, 3LL);
     if ( KiIrqlFlags )
     {
-      v8 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v10 = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v12 = (v11 & v10[5]) == 0;
-        v10[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v4 = KeGetCurrentIrql();
+        if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v6 = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v8 = (v7 & v6[5]) == 0;
+          v6[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     result = CurrentIrql;

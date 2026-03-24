@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDispatchIrpDepRemoveDevice @ 0x1C0017A90
+ * XREFs of ACPIDispatchIrpDepRemoveDevice @ 0x1C004DF70
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitResetDeviceExtension @ 0x1C002D7D0 (ACPIInitResetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002CF60 (ACPIInitResetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIDispatchIrpDepRemoveDevice(ULONG_PTR a1, IRP *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x14073EBF0
+ * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x14073EBD0
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x14073E2D4 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x14090774C (_RtlpMuiRegAddBaseLanguage.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14073E2B4 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x14090772C (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x14073ECBC (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpMuiRegGetOrAddString @ 0x14073ECE4 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x14073EF20 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x14073EC9C (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14073ECC4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x14073EF00 (RtlCultureNameToLCID.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR *a3, __int16 a4)

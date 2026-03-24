@@ -1,27 +1,29 @@
 /*
- * XREFs of ?EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0009860
+ * XREFs of ?EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0066750
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00098D8 (-EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetScaleYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0009900 (-EmitSetScaleYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetScaleXCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0009970 (-EmitSetScaleXCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitSetScaleXCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00666E0 (-EmitSetScaleXCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00667C8 (-EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetScaleYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00667F0 (-EmitSetScaleYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CScaleTransformMarshaler::EmitUpdateCommands(
         DirectComposition::CScaleTransformMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   char v4; // bl
   char *v6; // rcx
   void *v7; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(this, a2)
+  if ( DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(
+         this,
+         (struct DirectComposition::CBatch **)a2)
     && DirectComposition::CScaleTransformMarshaler::EmitSetScaleXCommand(this, a2)
-    && DirectComposition::CScaleTransformMarshaler::EmitSetScaleYCommand(this, a2) )
+    && DirectComposition::CScaleTransformMarshaler::EmitSetScaleYCommand(this, (struct DirectComposition::CBatch **)a2) )
   {
     if ( (*((_DWORD *)this + 4) & 0x200) != 0 )
     {
@@ -32,13 +34,17 @@ char __fastcall DirectComposition::CScaleTransformMarshaler::EmitUpdateCommands(
       *(_DWORD *)v7 = 16;
       *(_QWORD *)(v6 + 4) = 0LL;
       *((_DWORD *)v6 + 3) = 0;
-      *((_DWORD *)v6 + 1) = 623;
-      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v6 + 1) = 599;
+      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v6 + 3) = *((_DWORD *)this + 20);
       *((_DWORD *)this + 4) &= ~0x200u;
     }
-    if ( DirectComposition::CScaleTransformMarshaler::EmitSetCenterYCommand(this, a2) )
+    if ( DirectComposition::CScaleTransformMarshaler::EmitSetCenterYCommand(
+           this,
+           (struct DirectComposition::CBatch **)a2) )
+    {
       return 1;
+    }
   }
   return v4;
 }

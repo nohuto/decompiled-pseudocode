@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAddMcaToMemoryErrorSection @ 0x140501F5C
+ * XREFs of HalpAddMcaToMemoryErrorSection @ 0x1404B91E0
  * Callers:
- *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140501EE4 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
- *     HalpCreateMcaMemoryErrorRecord @ 0x140502978 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404B9174 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9BA8 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpAddMcaToMemoryErrorSection(__int64 a1, _QWORD *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall HalpAddMcaToMemoryErrorSection(__int64 a1, _QWORD *a2)
       v5 = *(_QWORD *)(a1 + 56);
       if ( (v5 & 0x1C0) == 0x80 )
       {
-        v6 = HalpMcaPhysicalAddressMask & *(_QWORD *)(a1 + 48) & (-1 << (v5 & 0x3F));
+        v6 = *(_QWORD *)(a1 + 48) & (-1 << (v5 & 0x3F));
         *a2 = 2LL;
 LABEL_7:
         a2[2] = v6;

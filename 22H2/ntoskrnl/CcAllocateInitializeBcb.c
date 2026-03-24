@@ -1,50 +1,52 @@
 /*
- * XREFs of CcAllocateInitializeBcb @ 0x140207370
+ * XREFs of CcAllocateInitializeBcb @ 0x14029D410
  * Callers:
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     CcAdjustVacbLevelLockCount @ 0x1402075C0 (CcAdjustVacbLevelLockCount.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExDisableResourceBoostLite @ 0x1403C2A50 (ExDisableResourceBoostLite.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     CcAdjustVacbLevelLockCount @ 0x140275D34 (CcAdjustVacbLevelLockCount.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExDisableResourceBoostLite @ 0x14031DCF0 (ExDisableResourceBoostLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+char *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
-  _QWORD *result; // rax
-  _QWORD *v9; // rbx
+  char *result; // rax
+  char *v9; // rdi
   __int64 v10; // rax
   _QWORD *v11; // rdx
   _QWORD *v12; // rax
 
-  result = ExAllocatePoolWithTag((POOL_TYPE)1536, 0xC0uLL, 0x63426343u);
+  result = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xC0uLL, 0x63426343u);
   v9 = result;
   if ( result )
   {
-    *(_WORD *)result = 765;
-    result[1] = *a3;
-    *((_DWORD *)result + 1) = *a4;
+    memset(result + 2, 0, 0xBEuLL);
+    *(_WORD *)v9 = 765;
+    *((_QWORD *)v9 + 1) = *a3;
+    *((_DWORD *)v9 + 1) = *a4;
     v10 = *(_QWORD *)a4 + *a3;
     ++*((_DWORD *)v9 + 16);
-    v9[4] = v10;
-    v9[22] = a1;
-    ExInitializeResourceLite((PERESOURCE)(v9 + 9));
+    *((_QWORD *)v9 + 4) = v10;
+    *((_QWORD *)v9 + 22) = a1;
+    ExInitializeResourceLite((PERESOURCE)(v9 + 72));
     ExAcquirePushLockExclusiveEx(a1 + 104, 0LL);
     v11 = *(_QWORD **)(a2 + 24);
-    v12 = v9 + 2;
+    v12 = v9 + 16;
     if ( *v11 != a2 + 16 )
       __fastfail(3u);
     *v12 = a2 + 16;
-    v9[3] = v11;
+    *((_QWORD *)v9 + 3) = v11;
     *v11 = v12;
     *(_QWORD *)(a2 + 24) = v12;
     if ( *(__int64 *)(a1 + 32) > 0x2000000 && (*(_DWORD *)(a1 + 152) & 0x200) != 0 )
-      CcAdjustVacbLevelLockCount(a1, *a3, 1LL);
+      CcAdjustVacbLevelLockCount(a1, *a3, 1);
     ExReleasePushLockEx(a1 + 104, 0LL);
     if ( (*(_DWORD *)(a1 + 152) & 2) != 0 )
-      ExDisableResourceBoostLite((PERESOURCE)(v9 + 9));
+      ExDisableResourceBoostLite((PERESOURCE)(v9 + 72));
     return v9;
   }
   return result;

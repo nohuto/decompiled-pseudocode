@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSecureBootManifestCompareElements @ 0x1408A3540
+ * XREFs of SepSecureBootManifestCompareElements @ 0x1408A3520
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  */
 
 int __fastcall SepSecureBootManifestCompareElements(void *a1, const void *a2, const void *a3)

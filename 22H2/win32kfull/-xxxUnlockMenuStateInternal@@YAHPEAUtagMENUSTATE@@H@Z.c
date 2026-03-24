@@ -1,17 +1,19 @@
 /*
- * XREFs of ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C01FF08C
+ * XREFs of ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C0221234
  * Callers:
- *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0011604 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
- *     xxxSysCommand @ 0x1C00A7BFC (xxxSysCommand.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ??1MenuStateOwnerLockxxxUnlock@@QEAA@XZ @ 0x1C0139F12 (--1MenuStateOwnerLockxxxUnlock@@QEAA@XZ.c)
- *     xxxUnlockMenuState @ 0x1C013C950 (xxxUnlockMenuState.c)
- *     NtUserMNDragLeave @ 0x1C01D66B0 (NtUserMNDragLeave.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxMNDragOver @ 0x1C0231868 (xxxMNDragOver.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0046828 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxSysCommand @ 0x1C0130364 (xxxSysCommand.c)
+ *     ??1MenuStateOwnerLockxxxUnlock@@QEAA@XZ @ 0x1C01DF9D8 (--1MenuStateOwnerLockxxxUnlock@@QEAA@XZ.c)
+ *     NtUserMNDragLeave @ 0x1C01FE1C0 (NtUserMNDragLeave.c)
+ *     xxxMNStartMenuState @ 0x1C02224D0 (xxxMNStartMenuState.c)
+ *     xxxUnlockMenuState @ 0x1C02229A0 (xxxUnlockMenuState.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxMNDragOver @ 0x1C024961C (xxxMNDragOver.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     xxxMNEndMenuState @ 0x1C01FF9F0 (xxxMNEndMenuState.c)
+ *     xxxMNEndMenuState @ 0x1C0221C40 (xxxMNEndMenuState.c)
  */
 
 __int64 __fastcall xxxUnlockMenuStateInternal(struct tagMENUSTATE *a1, int a2)

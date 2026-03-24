@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpHandleIommuFaultMessage @ 0x14054B3A4
+ * XREFs of HvlpHandleIommuFaultMessage @ 0x1404F95F4
  * Callers:
- *     HvlSharedIsr @ 0x140459B00 (HvlSharedIsr.c)
+ *     HvlSharedIsr @ 0x1404F1F00 (HvlSharedIsr.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpHandleIommuFaultMessage(__int64 a1)
@@ -33,5 +33,5 @@ __int64 __fastcall HvlpHandleIommuFaultMessage(__int64 a1)
   DWORD2(v9) = *(unsigned __int16 *)(a1 + 26);
   *(_QWORD *)&v9 = *(_QWORD *)(a1 + 40);
   HIDWORD(v8) = 6 - v5;
-  return ((__int64 (__fastcall *)(_QWORD, __int128 *))qword_140C02080)(*(unsigned __int16 *)(a1 + 24), &v7);
+  return ((__int64 (__fastcall *)(_QWORD, __int128 *))qword_140C00A30)(*(unsigned __int16 *)(a1 + 24), &v7);
 }

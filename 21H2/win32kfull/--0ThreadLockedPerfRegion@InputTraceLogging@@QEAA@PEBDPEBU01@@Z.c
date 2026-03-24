@@ -1,21 +1,22 @@
 /*
- * XREFs of ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C007F7CC
+ * XREFs of ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00C14D0
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     NtUserSendInput @ 0x1C007EAF0 (NtUserSendInput.c)
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C009B280 (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
- *     NtUserSetCursorPos @ 0x1C009BCC0 (NtUserSetCursorPos.c)
- *     EditionLLMouseButtonHook @ 0x1C00EA420 (EditionLLMouseButtonHook.c)
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C00FDC20 (-OnPointerCursorOperation@@YAXXZ.c)
- *     ProcessHidRawInput @ 0x1C01D11E0 (ProcessHidRawInput.c)
- *     EditionLLMouseWheelHook @ 0x1C01D41E0 (EditionLLMouseWheelHook.c)
- *     NtUserInjectTouchInput @ 0x1C01F8300 (NtUserInjectTouchInput.c)
+ *     NtUserSetCursorPos @ 0x1C00131C0 (NtUserSetCursorPos.c)
+ *     EditionLLMouseButtonHook @ 0x1C00234F0 (EditionLLMouseButtonHook.c)
+ *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C0028340 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C003145C (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     NtUserSendInput @ 0x1C00C0450 (NtUserSendInput.c)
+ *     EditionHandleMitSignal @ 0x1C00C1400 (EditionHandleMitSignal.c)
+ *     ProcessHidRawInput @ 0x1C01D5720 (ProcessHidRawInput.c)
+ *     EditionLLMouseWheelHook @ 0x1C01D9A20 (EditionLLMouseWheelHook.c)
+ *     NtUserInjectTouchInput @ 0x1C01FDDA0 (NtUserInjectTouchInput.c)
+ *     OnPTPMouseOperation @ 0x1C0213C10 (OnPTPMouseOperation.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C0064908 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D08A8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C00C1518 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D4BD8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
  */
 
 __int64 **__fastcall InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
@@ -23,21 +24,20 @@ __int64 **__fastcall InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerf
         const char *a2,
         const struct InputTraceLogging::ThreadLockedPerfRegion *a3)
 {
-  __int64 v7; // rdx
-  __int64 *v8; // rax
+  __int64 *v7; // rax
   __int64 CurrentThreadWin32Thread; // rax
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
   *this = 0LL;
-  if ( InputTraceLogging::Enabled(1) )
+  if ( (unsigned __int8)InputTraceLogging::Enabled(1LL) )
   {
     if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
     {
-      v8 = (__int64 *)Win32AllocateFromPagedLookasideList(InputTraceLogging::ThreadLockedPerfRegion::s_pLookaside, v7);
-      *this = v8;
-      if ( v8 )
+      v7 = (__int64 *)Win32AllocateFromPagedLookasideList(InputTraceLogging::ThreadLockedPerfRegion::s_pLookaside);
+      *this = v7;
+      if ( v7 )
       {
-        *v8 = (__int64)a2;
+        *v7 = (__int64)a2;
         (*this)[5] = 0LL;
         CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
         if ( CurrentThreadWin32Thread )
@@ -48,12 +48,12 @@ __int64 **__fastcall InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerf
           (*this)[5] = (__int64)(*this + 3);
         }
         EtwActivityIdControl(3u, (LPGUID)(*this + 1));
-        if ( (unsigned int)dword_1C032BE20 > 6 && (unsigned __int8)tlgKeywordOn(&dword_1C032BE20, 1LL) )
+        if ( (unsigned int)dword_1C0330B20 > 6 && (qword_1C0330B30 & 1) != 0 && (qword_1C0330B38 & 1) == qword_1C0330B38 )
         {
-          v10 = **this;
+          v9 = **this;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-            (int)&dword_1C032BE20,
-            (__int64)&v10);
+            (int)&dword_1C0330B20,
+            (__int64)&v9);
         }
         PushW32ThreadLock(
           (__int64)this,

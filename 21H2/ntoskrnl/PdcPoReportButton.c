@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoReportButton @ 0x140862D20
+ * XREFs of PdcPoReportButton @ 0x140791EE0
  * Callers:
  *     <none>
  * Callees:
- *     PopResetCurrentPolicies @ 0x1408193F4 (PopResetCurrentPolicies.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopResetCurrentPolicies @ 0x1407928E8 (PopResetCurrentPolicies.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoReportButton(int a1, char a2)

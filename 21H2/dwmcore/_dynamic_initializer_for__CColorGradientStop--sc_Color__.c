@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CColorGradientStop::sc_Color__ @ 0x180001690
+ * XREFs of _dynamic_initializer_for__CColorGradientStop::sc_Color__ @ 0x180001550
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CColorGradientStop::sc_Color__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1780 = (unsigned __int64)CColorGradientStop::SetAnimatedProperty;
-  qword_1803D1790 = v1;
+  xmmword_180345CD0 = (unsigned __int64)CColorGradientStop::SetAnimatedProperty;
+  qword_180345CE0 = v1;
   return result;
 }

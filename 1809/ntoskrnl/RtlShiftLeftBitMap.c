@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlShiftLeftBitMap @ 0x1402EF490
+ * XREFs of RtlShiftLeftBitMap @ 0x1402EF590
  * Callers:
  *     <none>
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlExtractBitMap @ 0x1402EDFF0 (RtlExtractBitMap.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlExtractBitMap @ 0x1402EE0F0 (RtlExtractBitMap.c)
  */
 
 void __fastcall RtlShiftLeftBitMap(PRTL_BITMAP BitMapHeader, ULONG NumberToClear)

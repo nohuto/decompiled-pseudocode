@@ -1,357 +1,398 @@
 /*
- * XREFs of xxxEndDeferWindowPosEx @ 0x1C004720C
+ * XREFs of xxxEndDeferWindowPosEx @ 0x1C006EDBC
  * Callers:
- *     xxxSetWindowPosAndBand @ 0x1C0048AFC (xxxSetWindowPosAndBand.c)
- *     xxxProcessSetWindowPosEvent @ 0x1C009AE90 (xxxProcessSetWindowPosEvent.c)
- *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009DA04 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxSetWindowRgn @ 0x1C00F914C (xxxSetWindowRgn.c)
- *     NtUserEndDeferWindowPosEx @ 0x1C00FB8A0 (NtUserEndDeferWindowPosEx.c)
- *     xxxArrangeIconicWindows @ 0x1C014E0E4 (xxxArrangeIconicWindows.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0033494 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
+ *     ?xxxProcessDesktopRecalc@@YAXPEAUtagASYNCDTOPRECALC@@@Z @ 0x1C0040A20 (-xxxProcessDesktopRecalc@@YAXPEAUtagASYNCDTOPRECALC@@@Z.c)
+ *     xxxSetWindowPosAndBand @ 0x1C006BDD0 (xxxSetWindowPosAndBand.c)
+ *     xxxSetWindowRgn @ 0x1C010E240 (xxxSetWindowRgn.c)
+ *     NtUserEndDeferWindowPosEx @ 0x1C010F990 (NtUserEndDeferWindowPosEx.c)
+ *     xxxProcessSetWindowPosEvent @ 0x1C0124A40 (xxxProcessSetWindowPosEvent.c)
+ *     xxxArrangeIconicWindows @ 0x1C015E5A0 (xxxArrangeIconicWindows.c)
+ *     xxxRestoreMonitorsAndWindowsRects @ 0x1C01D80BC (xxxRestoreMonitorsAndWindowsRects.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0043774 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     DestroySMWP @ 0x1C0047920 (DestroySMWP.c)
- *     ?ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z @ 0x1C0047AA4 (-ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z.c)
- *     ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C0047B50 (-ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z.c)
- *     ?FindValidWindowPos@@YAPEAUtagWINDOWPOS@@PEAUtagSMWP@@@Z @ 0x1C0047D8C (-FindValidWindowPos@@YAPEAUtagWINDOWPOS@@PEAUtagSMWP@@@Z.c)
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     GreClientRgnUpdatedStable @ 0x1C0049624 (GreClientRgnUpdatedStable.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C004DAF8 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     SetWindowGroupBand @ 0x1C00810A4 (SetWindowGroupBand.c)
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0081210 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
- *     PostIAMShellHookMessage @ 0x1C00A5150 (PostIAMShellHookMessage.c)
- *     xxxSetTrayWindow @ 0x1C00A5F60 (xxxSetTrayWindow.c)
- *     PostShellHookMessages @ 0x1C00A6110 (PostShellHookMessages.c)
- *     xxxDoSyncPaint @ 0x1C00C9754 (xxxDoSyncPaint.c)
- *     ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C00FDA38 (-AsyncWindowPos@@YAXPEAUtagSMWP@@@Z.c)
- *     ?xxxSwpActivate@@YAHPEAUtagWND@@@Z @ 0x1C00FE1F4 (-xxxSwpActivate@@YAHPEAUtagWND@@@Z.c)
+ *     PostIAMShellHookMessageEx @ 0x1C002DB50 (PostIAMShellHookMessageEx.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0036098 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     SetWindowGroupBand @ 0x1C00366E8 (SetWindowGroupBand.c)
+ *     xxxSetTrayWindow @ 0x1C003CF18 (xxxSetTrayWindow.c)
+ *     PostShellHookMessages @ 0x1C00435E0 (PostShellHookMessages.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B900 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E958 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     DestroySMWP @ 0x1C006F4F0 (DestroySMWP.c)
+ *     ?FindValidWindowPos@@YAPEAUtagWINDOWPOS@@PEAUtagSMWP@@@Z @ 0x1C006F61C (-FindValidWindowPos@@YAPEAUtagWINDOWPOS@@PEAUtagSMWP@@@Z.c)
+ *     ?ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z @ 0x1C006F664 (-ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z.c)
+ *     ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C006F710 (-ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     GreClientRgnUpdatedStable @ 0x1C00715C4 (GreClientRgnUpdatedStable.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     xxxDoSyncPaint @ 0x1C00F5324 (xxxDoSyncPaint.c)
+ *     ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C01116AC (-AsyncWindowPos@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSwpActivate@@YAHPEAUtagWND@@@Z @ 0x1C0111BD0 (-xxxSwpActivate@@YAHPEAUtagWND@@@Z.c)
+ *     Feature_3645952312__private_IsEnabledDeviceUsage @ 0x1C0166494 (Feature_3645952312__private_IsEnabledDeviceUsage.c)
  */
 
 __int64 __fastcall xxxEndDeferWindowPosEx(struct tagSMWP *a1, int a2)
 {
-  int v2; // r15d
-  struct tagSMWP *v4; // rbx
+  struct tagSMWP *v3; // rdi
   struct tagWINDOWPOS *ValidWindowPos; // rax
-  __int64 v6; // r13
-  int v7; // r14d
-  __int64 v8; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rax
-  __int64 v13; // rsi
+  __int64 v5; // r13
+  int v6; // r15d
+  __int64 v7; // r14
+  __int64 v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  struct tagWND *v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  struct tagSMWP *v15; // rax
+  __int64 v16; // rcx
+  struct tagCVR *v18; // rbx
+  int v19; // r14d
+  __int64 v20; // rcx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v22; // r14
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v28; // rcx
+  __int64 CurrentThreadProcess; // rax
   __int64 *ThreadWin32Thread; // rax
-  struct tagWND *v15; // r12
-  int v16; // esi
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  struct tagWND *v33; // r14
+  int v34; // ebx
   char valid; // al
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  PDEVICE_OBJECT v20; // rcx
-  int v21; // r14d
-  int v22; // esi
-  __int64 v24; // rdi
-  __int64 *v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rcx
-  __int64 result; // rax
-  struct tagCVR *v31; // rsi
-  int v32; // r14d
-  __int64 v33; // rax
-  __int64 v34; // r14
-  __int64 v35; // rsi
-  __int64 v36; // rax
-  __int64 v37; // r15
-  __int64 v38; // rcx
-  __int64 v39; // r8
-  __int64 v40; // rcx
-  __int64 v41; // rdx
-  __int64 v42; // rdx
-  __int64 v43; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  int v38; // r15d
+  __int64 v39; // r15
+  __int64 v40; // rbx
+  __int64 v41; // rax
+  __int64 v42; // r12
+  __int64 v43; // rcx
   __int64 v44; // rcx
-  int v45; // eax
-  __int64 v46; // rcx
-  __int64 v47; // rax
-  __int64 v48; // rdx
-  __int64 v49; // rdx
-  struct tagWND *v50; // rax
-  HWND v51; // [rsp+50h] [rbp-49h] BYREF
-  __int128 v52; // [rsp+58h] [rbp-41h] BYREF
-  __int64 (__fastcall *v53)(_QWORD); // [rsp+68h] [rbp-31h]
-  __int64 v54; // [rsp+70h] [rbp-29h]
-  __int128 v55; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v56; // [rsp+88h] [rbp-11h]
-  __int128 v57; // [rsp+90h] [rbp-9h] BYREF
-  __int64 v58; // [rsp+A0h] [rbp+7h]
-  _QWORD v59[9]; // [rsp+A8h] [rbp+Fh] BYREF
-  int v60; // [rsp+100h] [rbp+67h]
-  int v61; // [rsp+110h] [rbp+77h] BYREF
-  int v62; // [rsp+118h] [rbp+7Fh]
+  __int64 v45; // r8
+  int v46; // eax
+  unsigned int v47; // edx
+  int v48; // edx
+  int v49; // ebx
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  __int64 v52; // rdx
+  struct _KTHREAD *v54; // r14
+  __int64 v55; // rsi
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  __int64 v58; // r8
+  __int64 v59; // rax
+  int v60; // ebx
+  __int64 v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // rcx
+  __int64 *v64; // rax
+  __int64 v65; // rax
+  __int64 v66; // rcx
+  HWND v67; // [rsp+30h] [rbp-49h] BYREF
+  __int128 v68; // [rsp+38h] [rbp-41h] BYREF
+  __int64 v69; // [rsp+48h] [rbp-31h]
+  __int128 v70; // [rsp+50h] [rbp-29h] BYREF
+  __int64 (__fastcall *v71)(_QWORD); // [rsp+60h] [rbp-19h]
+  __int64 v72; // [rsp+68h] [rbp-11h]
+  __int128 v73; // [rsp+70h] [rbp-9h] BYREF
+  __int64 v74; // [rsp+80h] [rbp+7h]
+  _QWORD v75[9]; // [rsp+88h] [rbp+Fh] BYREF
+  int v76; // [rsp+E0h] [rbp+67h] BYREF
+  int v77; // [rsp+F0h] [rbp+77h]
+  int v78; // [rsp+F8h] [rbp+7Fh]
 
-  v2 = 0;
-  v51 = 0LL;
-  v61 = 0;
-  v60 = 0;
-  v4 = a1;
-  v57 = 0LL;
-  v58 = 0LL;
-  v55 = 0LL;
-  v56 = 0LL;
-  v52 = 0LL;
-  v53 = 0LL;
+  v67 = 0LL;
+  v76 = 0;
+  v3 = a1;
+  v77 = 0;
+  v73 = 0LL;
+  v74 = 0LL;
+  v68 = 0LL;
+  v69 = 0LL;
+  v70 = 0LL;
+  v71 = 0LL;
   if ( !*((_DWORD *)a1 + 7) )
-    goto LABEL_39;
-  if ( !(unsigned int)ValidateSmwp(a1, &v61) )
-    goto LABEL_39;
-  ValidWindowPos = FindValidWindowPos(v4);
+    goto LABEL_98;
+  if ( !(unsigned int)ValidateSmwp(a1, &v76) )
+    goto LABEL_98;
+  ValidWindowPos = FindValidWindowPos(v3);
   if ( !ValidWindowPos )
-    goto LABEL_39;
-  v6 = *(_QWORD *)(_HMObjectFromHandle(*(_QWORD *)ValidWindowPos) + 104);
-  if ( !v6 || !*(_QWORD *)(v6 + 24) )
-    goto LABEL_39;
-  v7 = 0;
-  if ( *((int *)v4 + 7) > 0 )
+    goto LABEL_98;
+  v5 = *(_QWORD *)(_HMObjectFromHandle(*(_QWORD *)ValidWindowPos) + 104);
+  if ( !v5 || !*(_QWORD *)(v5 + 24) )
+    goto LABEL_98;
+  if ( (unsigned int)Feature_3645952312__private_IsEnabledDeviceUsage() )
   {
-    v8 = 0LL;
+    *(_QWORD *)&v68 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v68;
+    *((_QWORD *)&v68 + 1) = v5;
+    HMLockObject(v5);
+  }
+  v6 = 0;
+  if ( *((int *)v3 + 7) > 0 )
+  {
+    v7 = 0LL;
     do
     {
-      v9 = *((_QWORD *)v4 + 5);
-      v10 = *(_QWORD *)(v8 + v9);
-      if ( v10 && *(_DWORD *)(v8 + v9 + 152) )
+      v8 = *((_QWORD *)v3 + 5);
+      v9 = *(_QWORD *)(v7 + v8);
+      if ( v9 && *(_DWORD *)(v7 + v8 + 152) )
       {
-        v43 = _HMObjectFromHandle(v10);
-        v44 = *((_QWORD *)v4 + 5);
-        if ( *(_DWORD *)(*(_QWORD *)(v43 + 40) + 236LL) != *(_DWORD *)(v44 + v8 + 152) )
+        if ( *(_DWORD *)(*(_QWORD *)(_HMObjectFromHandle(v9) + 40) + 236LL) != *(_DWORD *)(v7 + v8 + 152) )
         {
-          v50 = (struct tagWND *)_HMObjectFromHandle(*(_QWORD *)(v44 + v8));
-          SetWindowGroupBand(v50);
-          v44 = *((_QWORD *)v4 + 5);
+          v10 = *((_QWORD *)v3 + 5);
+          v11 = (struct tagWND *)_HMObjectFromHandle(*(_QWORD *)(v7 + v10));
+          SetWindowGroupBand(v11, *(_DWORD *)(v7 + v10 + 152), 0);
         }
-        *(_DWORD *)(v8 + v44 + 152) = 0;
+        *(_DWORD *)(v7 + *((_QWORD *)v3 + 5) + 152) = 0;
       }
-      ++v7;
-      v8 += 168LL;
+      ++v6;
+      v7 += 168LL;
     }
-    while ( v7 < *((_DWORD *)v4 + 7) );
-    v2 = 0;
+    while ( v6 < *((_DWORD *)v3 + 7) );
   }
   if ( a2 )
-    AsyncWindowPos(v4);
-  v11 = *(_QWORD *)(v6 + 24);
-  if ( !v11 || (v12 = *(_QWORD *)(v11 + 8)) == 0 || v6 != *(_QWORD *)(v12 + 24) )
+    AsyncWindowPos(v3);
+  v12 = *(_QWORD *)(v5 + 24);
+  v13 = 0LL;
+  if ( v12 )
   {
-LABEL_17:
-    *(_QWORD *)&v55 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v55;
-    *((_QWORD *)&v55 + 1) = v6;
-    HMLockObject(v6);
-    if ( (*((_DWORD *)v4 + 6) & 2) != 0 )
+    v14 = *(_QWORD *)(v12 + 8);
+    if ( v14 )
+      v13 = *(_QWORD *)(v14 + 24);
+  }
+  if ( v5 != v13 )
+  {
+LABEL_34:
+    if ( !(unsigned int)Feature_3645952312__private_IsEnabledDeviceUsage() )
     {
-      HMLockObject(v4);
-      PushW32ThreadLock(v4, &v52, UnrefAndDestroySMWP);
-      v2 = 1;
-      v60 = 1;
+      *(_QWORD *)&v68 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v68;
+      *((_QWORD *)&v68 + 1) = v5;
+      HMLockObject(v5);
+    }
+    if ( (*((_DWORD *)v3 + 6) & 2) != 0 )
+    {
+      HMLockObject(v3);
+      PushW32ThreadLock(v3, &v70, UnrefAndDestroySMWP);
+      v77 = 1;
     }
     else
     {
-      v13 = 0LL;
-      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( ThreadWin32Thread )
-        v13 = *ThreadWin32Thread;
-      *(_QWORD *)&v52 = *(_QWORD *)(v13 + 16);
-      *(_QWORD *)(v13 + 16) = &v52;
-      v53 = DestroySMWP;
-      *((_QWORD *)&v52 + 1) = v4;
+      CurrentThread = KeGetCurrentThread();
+      v22 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess(v20)
+        || (CurrentProcess = PsGetCurrentProcess(v24, v23, v25),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v28),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+      {
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+          v22 = *ThreadWin32Thread;
+      }
+      *(_QWORD *)&v70 = *(_QWORD *)(v22 + 16);
+      *(_QWORD *)(v22 + 16) = &v70;
+      v71 = DestroySMWP;
+      *((_QWORD *)&v70 + 1) = v3;
     }
-    ++*(_DWORD *)(gptiCurrent + 1232LL);
-    *((_DWORD *)v4 + 6) |= 4u;
-    if ( (unsigned int)xxxCalcValidRects(v4, &v51) )
+    ++*(_DWORD *)(gptiCurrent + 1208LL);
+    *((_DWORD *)v3 + 6) |= 4u;
+    if ( (unsigned int)xxxCalcValidRects(v3, &v67) )
     {
-      v15 = (struct tagWND *)HMValidateHandleNoSecure((int)v51, 1);
-      *(_QWORD *)&v57 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v57;
-      *((_QWORD *)&v57 + 1) = v15;
-      if ( v15 )
-        HMLockObject(v15);
-      v16 = *(_DWORD *)(gptiCurrent + 900LL);
-      v62 = v16;
-      v54 = gptiForeground;
-      valid = zzzBltValidBits(v4);
-      LOBYTE(v20) = -(valid & 1);
-      v21 = (valid & 1) != 0 ? v61 : 0;
-      v61 = v21;
+      LOBYTE(v31) = 1;
+      v33 = (struct tagWND *)HMValidateHandleNoSecure(v67, v31);
+      *(_QWORD *)&v73 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v73;
+      *((_QWORD *)&v73 + 1) = v33;
+      if ( v33 )
+        HMLockObject(v33);
+      v34 = *(_DWORD *)(gptiCurrent + 900LL);
+      v78 = v34;
+      v72 = gptiForeground;
+      valid = zzzBltValidBits((__int64)v3);
+      LOBYTE(v37) = -(valid & 1);
+      v38 = (valid & 1) != 0 ? v76 : 0;
+      v76 = v38;
       if ( (valid & 2) != 0 )
         GenerateMouseMove(0LL);
-      if ( (*((_DWORD *)v4 + 6) & 1) != 0 )
+      if ( (*((_DWORD *)v3 + 6) & 1) != 0 )
       {
-        v34 = *((int *)v4 + 7);
-        if ( *((_DWORD *)v4 + 7) )
+        v39 = *((int *)v3 + 7);
+        if ( *((_DWORD *)v3 + 7) )
         {
-          v35 = 168 * v34;
+          v40 = 168 * v39;
           do
           {
-            v36 = *((_QWORD *)v4 + 5);
-            v35 -= 168LL;
-            --v34;
-            v20 = *(PDEVICE_OBJECT *)(v35 + v36);
-            if ( v20 )
+            v41 = *((_QWORD *)v3 + 5);
+            v40 -= 168LL;
+            --v39;
+            v37 = *(_QWORD *)(v40 + v41);
+            if ( v37 )
             {
-              if ( (*(_DWORD *)(v35 + v36 + 32) & 0xF0000000) != 0 )
+              if ( (*(_DWORD *)(v40 + v41 + 32) & 0xF0000000) != 0 )
               {
-                v37 = HMValidateHandleNoSecure((int)v20, 1);
-                if ( v37 )
+                LOBYTE(v36) = 1;
+                v42 = HMValidateHandleNoSecure(v37, v36);
+                if ( v42 )
                 {
-                  v38 = *(_QWORD *)(gptiCurrent + 416LL);
-                  v59[2] = 0LL;
-                  v59[0] = v38;
-                  *(_QWORD *)(gptiCurrent + 416LL) = v59;
-                  v59[1] = v37;
-                  HMLockObject(v37);
-                  v40 = *((_QWORD *)v4 + 5);
-                  if ( (*(_DWORD *)(v35 + v40 + 32) & 0x10000000) != 0 )
+                  v43 = *(_QWORD *)(gptiCurrent + 416LL);
+                  v75[2] = 0LL;
+                  v75[0] = v43;
+                  *(_QWORD *)(gptiCurrent + 416LL) = v75;
+                  v75[1] = v42;
+                  HMLockObject(v42);
+                  v44 = *((_QWORD *)v3 + 5);
+                  if ( (*(_DWORD *)(v40 + v44 + 32) & 0x10000000) != 0 )
                   {
-                    v41 = *(_QWORD *)(v35 + v40);
-                    if ( (*(_DWORD *)(v35 + v40 + 156) & 8) != 0 )
+                    if ( (*(_DWORD *)(v40 + v44 + 156) & 8) != 0 )
                     {
-                      PostIAMShellHookMessage(21LL, v41);
+                      PostIAMShellHookMessageEx(*(_QWORD *)(gptiCurrent + 456LL), 0x15u, *(_QWORD *)(v40 + v44));
                     }
                     else
                     {
-                      PostShellHookMessages(1LL, v41);
-                      xxxCallHook(1, *(_QWORD *)(v35 + *((_QWORD *)v4 + 5)), 0LL, 10);
+                      PostShellHookMessages(1uLL, *(_QWORD *)(v40 + v44));
+                      xxxCallHook(1, *(_QWORD *)(v40 + *((_QWORD *)v3 + 5)), 0LL, 10);
                     }
                   }
-                  v42 = *((_QWORD *)v4 + 5);
-                  if ( (*(_DWORD *)(v42 + v35 + 32) & 0x20000000) != 0 )
+                  v45 = *((_QWORD *)v3 + 5);
+                  if ( (*(_DWORD *)(v40 + v45 + 32) & 0x20000000) != 0 )
                   {
-                    PostShellHookMessages(2LL, *(_QWORD *)(v42 + v35));
-                    xxxCallHook(2, *(_QWORD *)(v35 + *((_QWORD *)v4 + 5)), 0LL, 10);
-                    v42 = *((_QWORD *)v4 + 5);
+                    PostShellHookMessages(2uLL, *(_QWORD *)(v40 + v45));
+                    xxxCallHook(2, *(_QWORD *)(v40 + *((_QWORD *)v3 + 5)), 0LL, 10);
+                    v45 = *((_QWORD *)v3 + 5);
                   }
-                  if ( (*(_DWORD *)(v35 + v42 + 32) & 0x40000000) != 0 )
+                  if ( (*(_DWORD *)(v40 + v45 + 32) & 0x40000000) != 0 )
                   {
-                    v45 = *(_DWORD *)(v35 + v42 + 156);
-                    if ( (v45 & 8) != 0 )
+                    v46 = *(_DWORD *)(v40 + v45 + 156);
+                    if ( (v46 & 8) != 0 )
                     {
-                      v46 = 23LL;
+                      v47 = 23;
                     }
                     else
                     {
-                      if ( (v45 & 0x10) == 0 )
+                      if ( (v46 & 0x10) == 0 )
                       {
-                        xxxSetTrayWindow(*(_QWORD *)(v37 + 24), v37);
-                        v42 = *((_QWORD *)v4 + 5);
+                        xxxSetTrayWindow(*(_QWORD *)(v42 + 24), (unsigned __int64 *)v42);
+                        v45 = *((_QWORD *)v3 + 5);
                       }
-                      v46 = 19LL;
+                      v47 = 19;
                     }
-                    PostIAMShellHookMessage(v46, *(_QWORD *)(v35 + v42));
+                    PostIAMShellHookMessageEx(*(_QWORD *)(gptiCurrent + 456LL), v47, *(_QWORD *)(v40 + v45));
                   }
-                  if ( *(int *)(v35 + *((_QWORD *)v4 + 5) + 32) < 0 )
-                    xxxSetTrayWindow(*(_QWORD *)(gptiCurrent + 456LL), 1LL);
-                  ThreadUnlock1(v40, v42, v39);
+                  if ( *(int *)(v40 + *((_QWORD *)v3 + 5) + 32) < 0 )
+                    xxxSetTrayWindow(*(_QWORD *)(gptiCurrent + 456LL), (unsigned __int64 *)1);
+                  ThreadUnlock1(v44);
                 }
               }
             }
           }
-          while ( v34 );
-          v16 = v62;
-          v2 = v60;
+          while ( v39 );
+          v34 = v78;
         }
-        v21 = v61;
+        v38 = v76;
       }
-      if ( gptiCurrent == v54
-        && v16
-        && !*(_DWORD *)(gptiCurrent + 900LL)
-        && !(unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(gptiCurrent + 424LL)) )
+      if ( gptiCurrent == v72 )
       {
-        *(_DWORD *)(gptiCurrent + 488LL) |= 0x20u;
-        v20 = WPP_GLOBAL_Control;
-        LOBYTE(v18) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v19) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v18 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_q(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v18,
-            v19,
-            15,
-            4,
-            2,
-            15,
-            (__int64)&WPP_b070418cf9b83e0c1c6b283a126581e8_Traceguids,
-            gptiCurrent);
-      }
-      v22 = 0;
-      if ( v15 )
-        v22 = xxxSwpActivate(v15);
-      if ( v21 )
-        xxxDoSyncPaint(v6, 4LL);
-      ThreadUnlock1(v20, v18, v19);
-      if ( v22 )
-      {
-        v47 = *(_QWORD *)(gptiCurrent + 432LL);
-        v48 = *(_QWORD *)(v47 + 120);
-        if ( v48 )
+        if ( v34 )
         {
-          SetOrClrWF(0LL, v48, 257LL, 1LL);
-          v47 = *(_QWORD *)(gptiCurrent + 432LL);
+          if ( !*(_DWORD *)(gptiCurrent + 900LL)
+            && !(unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(gptiCurrent + 424LL)) )
+          {
+            *(_DWORD *)(gptiCurrent + 488LL) |= 0x20u;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v48) = 4;
+              WPP_RECORDER_SF_q(v37, v48, 2, 10, (__int64)&WPP_188f69cf96d039d288360eb464022a63_Traceguids, gptiCurrent);
+            }
+          }
         }
-        v49 = *(_QWORD *)(v47 + 128);
-        if ( v49 )
-          SetOrClrWF(0LL, v49, 257LL, 1LL);
       }
-      xxxSendChangedMsgs(v4);
+      v49 = 0;
+      if ( v33 )
+        v49 = xxxSwpActivate(v33);
+      if ( v38 )
+        xxxDoSyncPaint(v5, 4LL);
+      ThreadUnlock1(v37);
+      if ( v49 )
+      {
+        v51 = *(_QWORD *)(gptiCurrent + 432LL);
+        v52 = *(_QWORD *)(v51 + 120);
+        if ( v52 )
+        {
+          SetOrClrWF(0, v52, 0x101u, 1);
+          v51 = *(_QWORD *)(gptiCurrent + 432LL);
+        }
+        v50 = *(_QWORD *)(v51 + 128);
+        if ( v50 )
+          SetOrClrWF(0, v50, 0x101u, 1);
+      }
+      xxxSendChangedMsgs(v3, v50);
     }
-    if ( (*(_DWORD *)(gptiCurrent + 1232LL))-- == 1 )
+    if ( (*(_DWORD *)(gptiCurrent + 1208LL))-- == 1 )
     {
       GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
       GreClientRgnUpdatedStable();
       GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     }
-    v24 = 0LL;
-    v25 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v25 )
-      v24 = *v25;
-    *(_QWORD *)(v24 + 16) = v52;
-    ThreadUnlock1(v27, v26, v28);
-    if ( v2 )
+    v54 = KeGetCurrentThread();
+    v55 = 0LL;
+    if ( !(unsigned __int8)KeIsAttachedProcess(v32)
+      || (v59 = PsGetCurrentProcess(v57, v56, v58),
+          v60 = PsGetProcessSessionIdEx(v59),
+          v62 = PsGetCurrentThreadProcess(v61),
+          v60 == (unsigned int)PsGetProcessSessionIdEx(v62)) )
     {
-      v33 = HMUnlockObject(v4);
-      if ( !v33 )
+      v64 = (__int64 *)PsGetThreadWin32Thread(v54);
+      if ( v64 )
+        v55 = *v64;
+    }
+    *(_QWORD *)(v55 + 16) = v70;
+    ThreadUnlock1(v63);
+    if ( v77 )
+    {
+      v65 = HMUnlockObject(v3);
+      if ( !v65 )
         return 1LL;
-      v29 = v33;
-LABEL_40:
-      DestroySMWP(v29);
+      v66 = v65;
+LABEL_99:
+      DestroySMWP(v66);
       return 1LL;
     }
-LABEL_39:
-    v29 = (__int64)v4;
-    goto LABEL_40;
+LABEL_98:
+    v66 = (__int64)v3;
+    goto LABEL_99;
   }
-  result = (__int64)ZOrderByOwner(v4);
-  v4 = (struct tagSMWP *)result;
-  if ( result )
+  v15 = ZOrderByOwner(v3);
+  v3 = v15;
+  if ( v15 )
   {
     if ( a2 )
     {
-      v31 = *(struct tagCVR **)(result + 40);
-      v32 = *(_DWORD *)(result + 28);
-      while ( --v32 >= 0 )
+      v18 = (struct tagCVR *)*((_QWORD *)v15 + 5);
+      v19 = *((_DWORD *)v15 + 7);
+      while ( --v19 >= 0 )
       {
-        if ( *(_QWORD *)v31 && !(unsigned int)ValidateWindowPos(v31, 0LL) )
-          *(_QWORD *)v31 = 0LL;
-        v31 = (struct tagCVR *)((char *)v31 + 168);
+        if ( *(_QWORD *)v18 && !(unsigned int)ValidateWindowPos(v18, 0LL) )
+          *(_QWORD *)v18 = 0LL;
+        v18 = (struct tagCVR *)((char *)v18 + 168);
       }
-      AsyncWindowPos(v4);
+      AsyncWindowPos(v3);
     }
-    goto LABEL_17;
+    goto LABEL_34;
   }
-  return result;
+  if ( (unsigned int)Feature_3645952312__private_IsEnabledDeviceUsage() )
+    ThreadUnlock1(v16);
+  return 0LL;
 }

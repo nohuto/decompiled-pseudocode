@@ -1,298 +1,315 @@
 /*
- * XREFs of ExProcessorCounterSetCallback @ 0x1406D0CB0
+ * XREFs of ExProcessorCounterSetCallback @ 0x14064DC60
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinityEx @ 0x140263260 (KeQueryNodeActiveAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swscanf_s @ 0x1403E75B0 (swscanf_s.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExpQueryProcessorInformationCounters @ 0x1406D14BC (ExpQueryProcessorInformationCounters.c)
- *     PcwAddInstance @ 0x1407E18E0 (PcwAddInstance.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swscanf_s @ 0x1403D8170 (swscanf_s.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpQueryProcessorInformationCounters @ 0x14064E480 (ExpQueryProcessorInformationCounters.c)
+ *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
  */
 
 int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
 {
-  bool v4; // r14
-  bool v5; // r13
-  char v6; // r15
-  int v7; // edi
-  __int64 v8; // rax
-  void *v9; // r12
-  int v10; // r8d
-  int v11; // r9d
-  unsigned int v12; // esi
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r9
-  unsigned int v15; // edi
-  int v16; // edx
-  int v17; // r8d
-  int v18; // r9d
+  bool v4; // si
+  int v5; // r8d
+  int v6; // r9d
+  bool v7; // r12
+  bool v8; // r14
+  bool v9; // cl
+  int v10; // edi
+  __int64 v11; // rax
+  struct _PCW_BUFFER *v12; // r15
+  ULONG ActiveProcessorCount; // eax
+  unsigned int v14; // ecx
+  unsigned __int64 v15; // rbx
+  unsigned int v16; // r8d
+  unsigned __int64 v17; // r9
+  unsigned __int64 Mask; // r12
+  unsigned int v19; // r8d
+  unsigned __int64 v20; // r9
+  unsigned __int64 v21; // r10
+  __int64 FirstSetRightGroupAffinity; // rbx
+  int v23; // r9d
+  int v24; // r8d
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  unsigned __int64 v27; // r12
   int result; // eax
-  ULONG v20; // edi
-  _QWORD *v21; // rdx
-  const UNICODE_STRING *v22; // rdx
+  __int64 v29; // rdi
+  _QWORD *v30; // rdx
+  const UNICODE_STRING *v31; // rdx
   PPCW_DATA Data; // [rsp+28h] [rbp-E0h]
-  __int16 v24; // [rsp+38h] [rbp-D0h]
-  bool v25; // [rsp+3Ah] [rbp-CEh]
-  int v26; // [rsp+3Ch] [rbp-CCh] BYREF
-  unsigned int v27; // [rsp+40h] [rbp-C8h] BYREF
-  int v28; // [rsp+44h] [rbp-C4h] BYREF
-  ULONG Id[2]; // [rsp+48h] [rbp-C0h] BYREF
-  struct _PCW_DATA v30; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v31; // [rsp+60h] [rbp-A8h]
-  unsigned __int64 v32; // [rsp+68h] [rbp-A0h]
-  unsigned __int64 v33; // [rsp+70h] [rbp-98h]
-  unsigned __int64 v34; // [rsp+78h] [rbp-90h]
-  unsigned __int64 v35; // [rsp+80h] [rbp-88h]
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v37; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v38; // [rsp+A8h] [rbp-60h]
-  struct _PCW_DATA v39; // [rsp+B0h] [rbp-58h] BYREF
-  struct _PCW_DATA v40; // [rsp+C0h] [rbp-48h] BYREF
-  _QWORD v41[26]; // [rsp+D8h] [rbp-30h] BYREF
-  _QWORD v42[26]; // [rsp+1A8h] [rbp+A0h] BYREF
-  _QWORD v43[26]; // [rsp+278h] [rbp+170h] BYREF
-  _QWORD v44[34]; // [rsp+348h] [rbp+240h] BYREF
-  wchar_t pszDest[16]; // [rsp+458h] [rbp+350h] BYREF
+  bool v33; // [rsp+38h] [rbp-D0h]
+  bool v34; // [rsp+39h] [rbp-CFh]
+  USHORT Count[2]; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v36; // [rsp+40h] [rbp-C8h]
+  unsigned int v37; // [rsp+44h] [rbp-C4h] BYREF
+  int v38; // [rsp+48h] [rbp-C0h] BYREF
+  ULONG v39; // [rsp+4Ch] [rbp-BCh]
+  unsigned __int64 v40; // [rsp+50h] [rbp-B8h]
+  unsigned __int64 v41; // [rsp+58h] [rbp-B0h]
+  PPCW_BUFFER Buffer; // [rsp+60h] [rbp-A8h]
+  struct _PCW_DATA v43; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING Name; // [rsp+78h] [rbp-90h] BYREF
+  struct _PCW_DATA v45; // [rsp+88h] [rbp-80h] BYREF
+  struct _GROUP_AFFINITY Affinity; // [rsp+98h] [rbp-70h] BYREF
+  struct _PCW_DATA v47; // [rsp+A8h] [rbp-60h] BYREF
+  struct _PCW_DATA v48; // [rsp+B8h] [rbp-50h] BYREF
+  _QWORD v49[26]; // [rsp+C8h] [rbp-40h] BYREF
+  _QWORD v50[26]; // [rsp+198h] [rbp+90h] BYREF
+  _QWORD v51[26]; // [rsp+268h] [rbp+160h] BYREF
+  wchar_t pszDest[16]; // [rsp+338h] [rbp+230h] BYREF
 
   v4 = 0;
-  memset(v41, 0, 0xC8uLL);
-  memset(v42, 0, 0xC8uLL);
-  v28 = 0;
-  v27 = 0;
-  LOWORD(v26) = 0;
-  DestinationString = 0LL;
-  memset(v43, 0, 0xC8uLL);
-  Id[0] = 0;
-  memset(v44, 0, 0x108uLL);
-  v25 = 0;
-  v38 = 0LL;
-  v24 = 0;
-  v5 = 0;
-  v6 = 0;
-  v37 = 0LL;
-  v7 = a1 - 2;
-  if ( !v7 )
+  Affinity = 0LL;
+  memset(v49, 0, 0xC8uLL);
+  memset(v50, 0, 0xC8uLL);
+  Count[0] = 0;
+  Name = 0LL;
+  memset(v51, 0, 0xC8uLL);
+  LOBYTE(v36) = 0;
+  v7 = 0;
+  v34 = 0;
+  v33 = 0;
+  v8 = 0;
+  v38 = 0;
+  v9 = 0;
+  v37 = 0;
+  v10 = a1 - 2;
+  if ( v10 )
   {
-    v9 = (void *)a2[3];
-    v30.Data = v9;
-LABEL_4:
-    LODWORD(v31) = KeQueryActiveProcessorCountEx(0xFFFFu);
-    v12 = v31;
-    v13 = 0LL;
-    v34 = 0LL;
-    v14 = 0LL;
-    v35 = 0LL;
-    v27 = 0;
-    LOWORD(v15) = 0;
-    if ( KeNumberNodes )
+    if ( v10 != 1 )
+      return 0;
+    v11 = *a2;
+    v12 = (struct _PCW_BUFFER *)a2[3];
+    Buffer = v12;
+    v7 = (v11 & 0x100E0FF05LL) != 0;
+    LOBYTE(v36) = v7;
+    v4 = (v11 & 0xC00F0000) != 0;
+    v8 = (v11 & 0x63F000000LL) != 0;
+    v34 = v4;
+    v33 = v8;
+    v9 = swscanf_s(*(const wchar_t **)(a2[1] + 8), L"%u,%u", &v37, &v38) == 2;
+  }
+  else
+  {
+    v12 = (struct _PCW_BUFFER *)a2[3];
+    Buffer = v12;
+  }
+  if ( !v9 )
+  {
+    ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+    LOWORD(v14) = 0;
+    v15 = 0LL;
+    v37 = 0;
+    v16 = ActiveProcessorCount;
+    v39 = ActiveProcessorCount;
+    v45.Data = 0LL;
+    v17 = 0LL;
+    v43.Data = 0LL;
+    if ( !KeNumberNodes )
     {
-      while ( 1 )
+LABEL_20:
+      if ( v16 > 1 )
       {
-        LODWORD(v44[0]) = 2097153;
-        memset((char *)v44 + 4, 0, 0x104uLL);
-        KeQueryNodeActiveAffinityEx(v15, (unsigned __int16 *)v44, &v26);
-        if ( (_WORD)v26 )
-        {
-          memset(v41, 0, 0xC8uLL);
-          *((_QWORD *)&v37 + 1) = v44[1];
-          *(_QWORD *)&v37 = v44;
-          v33 = 0LL;
-          v32 = 0LL;
-          v28 = 0;
-          LOWORD(v38) = 0;
-          while ( !(unsigned int)KeEnumerateNextProcessor(Id, (unsigned __int16 **)&v37) )
-          {
-            LOBYTE(v18) = v6;
-            LOBYTE(v17) = v4;
-            LOBYTE(v16) = v5;
-            ExpQueryProcessorInformationCounters(KiProcessorBlock[Id[0]], v16, v17, v18, (__int64)v43);
-            LODWORD(Data) = v28;
-            RtlStringCbPrintfW(pszDest, 0x1AuLL, L"%u,%u", v27, Data);
-            ++v28;
-            RtlInitUnicodeString(&DestinationString, pszDest);
-            v39.Data = v43;
-            v39.Size = 200;
-            result = PcwAddInstance((PPCW_BUFFER)v9, &DestinationString, Id[0], 1u, &v39);
-            if ( result < 0 )
-              return result;
-            v41[0] += v43[0];
-            v41[1] += v43[1];
-            v41[2] += v43[2];
-            v41[3] += v43[3];
-            v41[11] += v43[11];
-            v42[0] += v43[0];
-            LODWORD(v41[4]) += LODWORD(v43[4]);
-            v41[6] += v43[6];
-            HIDWORD(v41[7]) += HIDWORD(v43[7]);
-            v42[1] += v43[1];
-            v42[2] += v43[2];
-            v42[3] += v43[3];
-            LODWORD(v41[8]) += LODWORD(v43[8]);
-            v41[5] += v43[5];
-            LODWORD(v42[4]) += LODWORD(v43[4]);
-            v42[6] += v43[6];
-            HIDWORD(v42[7]) += HIDWORD(v43[7]);
-            LODWORD(v41[7]) += LODWORD(v43[7]);
-            v41[9] += v43[9];
-            v41[12] += v43[12];
-            LODWORD(v42[8]) += LODWORD(v43[8]);
-            v42[5] += v43[5];
-            v41[10] += v43[10];
-            LODWORD(v42[7]) += LODWORD(v43[7]);
-            v42[9] += v43[9];
-            v41[13] += v43[13];
-            HIDWORD(v41[23]) |= HIDWORD(v43[23]);
-            v41[14] += v43[14];
-            v41[21] += v43[21];
-            v41[22] += v43[22];
-            v41[15] += v43[15];
-            HIDWORD(v41[16]) += HIDWORD(v43[16]);
-            LODWORD(v41[17]) += LODWORD(v43[17]);
-            v32 += LODWORD(v43[18]);
-            v33 += HIDWORD(v43[18]);
-            v41[19] += v43[19];
-            v41[20] += v43[20];
-            v41[24] += v43[24];
-            LODWORD(v41[23]) += LODWORD(v43[23]);
-            v42[12] += v43[12];
-            v42[10] += v43[10];
-            v42[13] += v43[13];
-            v42[11] += v43[11];
-            v42[14] += v43[14];
-            v42[21] += v43[21];
-            v42[22] += v43[22];
-            v42[15] += v43[15];
-            LODWORD(v42[17]) += LODWORD(v43[17]);
-            HIDWORD(v42[16]) += HIDWORD(v43[16]);
-            v35 += LODWORD(v43[18]);
-            v34 += HIDWORD(v43[18]);
-            v42[19] += v43[19];
-            v42[20] += v43[20];
-            v42[24] += v43[24];
-            LODWORD(v42[23]) += LODWORD(v43[23]);
-            HIDWORD(v42[23]) |= HIDWORD(v43[23]);
-            v6 = HIBYTE(v24);
-            v4 = v24;
-            v9 = (void *)v30.Data;
-            v5 = v25;
-          }
-          if ( (unsigned __int16)v26 > 1u )
-          {
-            v41[0] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[1] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[2] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[3] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[6] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[5] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[9] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[10] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[11] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[15] /= (unsigned __int64)(unsigned __int16)v26;
-            HIDWORD(v41[16]) /= (unsigned __int16)v26;
-            LODWORD(v41[17]) /= (unsigned __int16)v26;
-          }
-          if ( v6 )
-          {
-            LODWORD(v41[18]) = v32 / (unsigned __int16)v26;
-            HIDWORD(v41[18]) = v33 / (unsigned __int16)v26;
-            v41[19] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[20] /= (unsigned __int64)(unsigned __int16)v26;
-            v41[24] /= (unsigned __int64)(unsigned __int16)v26;
-          }
-          if ( v4 )
-            LODWORD(v41[23]) /= (unsigned __int16)v26;
-          RtlStringCbPrintfW(pszDest, 0x1AuLL, L"%u,_Total", v27);
-          RtlInitUnicodeString(&DestinationString, pszDest);
-          v40.Data = v41;
-          v40.Size = 200;
-          result = PcwAddInstance((PPCW_BUFFER)v9, &DestinationString, v27 + KeMaximumProcessors, 1u, &v40);
-          if ( result < 0 )
-            break;
-        }
-        v15 = v27 + 1;
-        v27 = v15;
-        if ( v15 >= (unsigned __int16)KeNumberNodes )
-        {
-          v12 = v31;
-          v13 = v34;
-          v14 = v35;
-          goto LABEL_19;
-        }
+        v50[0] /= (unsigned __int64)v16;
+        v50[1] /= (unsigned __int64)v16;
+        v50[2] /= (unsigned __int64)v16;
+        v50[3] /= (unsigned __int64)v16;
+        v50[6] /= (unsigned __int64)v16;
+        v50[5] /= (unsigned __int64)v16;
+        v50[9] /= (unsigned __int64)v16;
+        v50[10] /= (unsigned __int64)v16;
+        v50[11] /= (unsigned __int64)v16;
+        v50[15] /= (unsigned __int64)v16;
+        HIDWORD(v50[16]) /= v16;
+        LODWORD(v50[17]) /= v16;
       }
-    }
-    else
-    {
-LABEL_19:
-      if ( v12 > 1 )
+      if ( v8 )
       {
-        v42[0] /= (unsigned __int64)v12;
-        v42[1] /= (unsigned __int64)v12;
-        v42[2] /= (unsigned __int64)v12;
-        v42[3] /= (unsigned __int64)v12;
-        v42[6] /= (unsigned __int64)v12;
-        v42[5] /= (unsigned __int64)v12;
-        v42[9] /= (unsigned __int64)v12;
-        v42[10] /= (unsigned __int64)v12;
-        v42[11] /= (unsigned __int64)v12;
-        v42[15] /= (unsigned __int64)v12;
-        HIDWORD(v42[16]) /= v12;
-        LODWORD(v42[17]) /= v12;
-      }
-      if ( v6 )
-      {
-        LODWORD(v42[18]) = v14 / v12;
-        HIDWORD(v42[18]) = v13 / v12;
-        v42[19] /= (unsigned __int64)v12;
-        v42[20] /= (unsigned __int64)v12;
-        v42[24] /= (unsigned __int64)v12;
+        LODWORD(v50[18]) = v17 / v16;
+        HIDWORD(v50[18]) = v15 / v16;
+        v50[19] /= (unsigned __int64)v16;
+        v50[20] /= (unsigned __int64)v16;
+        v50[24] /= (unsigned __int64)v16;
       }
       if ( v4 )
-        LODWORD(v42[23]) /= v12;
-      RtlStringCbPrintfW(pszDest, 0x1AuLL, L"_Total", v14);
-      RtlInitUnicodeString(&DestinationString, pszDest);
-      v30.Data = v42;
-      v30.Size = 200;
-      return PcwAddInstance(
-               (PPCW_BUFFER)v9,
-               &DestinationString,
-               KeMaximumProcessors + (unsigned __int16)KeNumberNodes,
-               1u,
-               &v30);
+        LODWORD(v50[23]) /= v16;
+      RtlStringCbPrintfW(pszDest, 0x1AuLL, L"_Total", v17);
+      RtlInitUnicodeString(&Name, pszDest);
+      v43.Data = v50;
+      v43.Size = 200;
+      return PcwAddInstance(v12, &Name, KeMaximumProcessors + (unsigned __int16)KeNumberNodes, 1u, &v43);
     }
-    return result;
+    while ( 1 )
+    {
+      KeQueryNodeActiveAffinity(v14, &Affinity, Count);
+      Mask = Affinity.Mask;
+      if ( Affinity.Mask )
+      {
+        memset(v49, 0, 0xC8uLL);
+        v19 = Count[0];
+        v20 = 0LL;
+        v38 = 0;
+        v21 = 0LL;
+        v40 = 0LL;
+        v41 = 0LL;
+        if ( Count[0] )
+        {
+          while ( 1 )
+          {
+            FirstSetRightGroupAffinity = (unsigned int)KeFindFirstSetRightGroupAffinity((__int64)&Affinity);
+            LOBYTE(v23) = v8;
+            LOBYTE(v24) = v4;
+            v25 = KiProcessorBlock[FirstSetRightGroupAffinity];
+            v26 = ~*(_QWORD *)(v25 + 200);
+            v27 = v26 & Mask;
+            LOBYTE(v26) = v36;
+            Affinity.Mask = v27;
+            ExpQueryProcessorInformationCounters(v25, v26, v24, v23, (__int64)v51);
+            LODWORD(Data) = v38;
+            RtlStringCbPrintfW(pszDest, 0x1AuLL, L"%u,%u", v37, Data);
+            RtlInitUnicodeString(&Name, pszDest);
+            v47.Size = 200;
+            v47.Data = v51;
+            result = PcwAddInstance(v12, &Name, FirstSetRightGroupAffinity, 1u, &v47);
+            if ( result < 0 )
+              return result;
+            v49[11] += v51[11];
+            v50[0] += v51[0];
+            v50[1] += v51[1];
+            v50[2] += v51[2];
+            v50[3] += v51[3];
+            LODWORD(v50[4]) += LODWORD(v51[4]);
+            v50[6] += v51[6];
+            HIDWORD(v50[7]) += HIDWORD(v51[7]);
+            v49[14] += v51[14];
+            v49[21] += v51[21];
+            v49[22] += v51[22];
+            v49[15] += v51[15];
+            HIDWORD(v49[16]) += HIDWORD(v51[16]);
+            LODWORD(v49[17]) += LODWORD(v51[17]);
+            v41 += LODWORD(v51[18]);
+            v40 += HIDWORD(v51[18]);
+            v49[19] += v51[19];
+            v49[20] += v51[20];
+            v49[24] += v51[24];
+            LODWORD(v49[23]) += LODWORD(v51[23]);
+            v49[0] += v51[0];
+            v49[1] += v51[1];
+            v49[2] += v51[2];
+            v49[3] += v51[3];
+            LODWORD(v49[4]) += LODWORD(v51[4]);
+            v49[6] += v51[6];
+            HIDWORD(v49[7]) += HIDWORD(v51[7]);
+            LODWORD(v49[8]) += LODWORD(v51[8]);
+            v49[5] += v51[5];
+            LODWORD(v49[7]) += LODWORD(v51[7]);
+            v49[9] += v51[9];
+            v49[12] += v51[12];
+            v49[10] += v51[10];
+            v49[13] += v51[13];
+            HIDWORD(v49[23]) |= HIDWORD(v51[23]);
+            LODWORD(v50[8]) += LODWORD(v51[8]);
+            v50[5] += v51[5];
+            LODWORD(v50[17]) += LODWORD(v51[17]);
+            HIDWORD(v50[23]) |= HIDWORD(v51[23]);
+            LODWORD(v50[7]) += LODWORD(v51[7]);
+            v50[9] += v51[9];
+            v50[12] += v51[12];
+            v50[10] += v51[10];
+            v50[13] += v51[13];
+            HIDWORD(v50[16]) += HIDWORD(v51[16]);
+            v15 = (unsigned __int64)v45.Data + HIDWORD(v51[18]);
+            v50[20] += v51[20];
+            v50[11] += v51[11];
+            v50[14] += v51[14];
+            v50[21] += v51[21];
+            v50[22] += v51[22];
+            v50[15] += v51[15];
+            v43.Data = (char *)v43.Data + LODWORD(v51[18]);
+            v50[19] += v51[19];
+            v50[24] += v51[24];
+            LODWORD(v50[23]) += LODWORD(v51[23]);
+            v19 = Count[0];
+            v4 = v34;
+            v8 = v33;
+            v12 = Buffer;
+            Mask = Affinity.Mask;
+            v45.Data = (const void *)v15;
+            if ( ++v38 >= (unsigned int)Count[0] )
+            {
+              v20 = v40;
+              v21 = v41;
+              break;
+            }
+          }
+        }
+        if ( Count[0] > 1u )
+        {
+          v49[0] /= (unsigned __int64)Count[0];
+          v49[1] /= (unsigned __int64)Count[0];
+          v49[2] /= (unsigned __int64)Count[0];
+          v49[3] /= (unsigned __int64)Count[0];
+          v49[6] /= (unsigned __int64)Count[0];
+          v49[5] /= (unsigned __int64)Count[0];
+          v49[9] /= (unsigned __int64)Count[0];
+          v49[10] /= (unsigned __int64)Count[0];
+          v49[11] /= (unsigned __int64)Count[0];
+          v49[15] /= (unsigned __int64)Count[0];
+          HIDWORD(v49[16]) /= v19;
+          LODWORD(v49[17]) /= v19;
+        }
+        v8 = v33;
+        if ( v33 )
+        {
+          LODWORD(v49[18]) = v21 / Count[0];
+          HIDWORD(v49[18]) = v20 / Count[0];
+          v49[19] /= (unsigned __int64)Count[0];
+          v49[20] /= (unsigned __int64)Count[0];
+          v49[24] /= (unsigned __int64)Count[0];
+        }
+        v4 = v34;
+        if ( v34 )
+          LODWORD(v49[23]) /= v19;
+        RtlStringCbPrintfW(pszDest, 0x1AuLL, L"%u,_Total", v37);
+        RtlInitUnicodeString(&Name, pszDest);
+        v12 = Buffer;
+        v48.Data = v49;
+        v48.Size = 200;
+        result = PcwAddInstance(Buffer, &Name, v37 + KeMaximumProcessors, 1u, &v48);
+        if ( result < 0 )
+          return result;
+      }
+      v14 = v37 + 1;
+      v37 = v14;
+      if ( v14 >= (unsigned __int16)KeNumberNodes )
+      {
+        v16 = v39;
+        v17 = (unsigned __int64)v43.Data;
+        goto LABEL_20;
+      }
+    }
   }
-  if ( v7 != 1 )
-    return 0;
-  v8 = *a2;
-  v9 = (void *)a2[3];
-  v30.Data = v9;
-  v5 = (v8 & 0x100E0FF05LL) != 0;
-  v25 = v5;
-  v4 = (v8 & 0xC00F0000) != 0;
-  v6 = (v8 & 0x63F000000LL) != 0;
-  LOBYTE(v24) = v4;
-  HIBYTE(v24) = v6;
-  if ( swscanf_s(*(const wchar_t **)(a2[1] + 8), L"%u,%u", &v27, &v28) != 2 )
-    goto LABEL_4;
-  Id[0] = *((_DWORD *)a2 + 4);
-  v20 = Id[0];
-  if ( Id[0] >= (unsigned int)KeNumberProcessors_0 )
+  v29 = *((unsigned int *)a2 + 4);
+  if ( (unsigned int)v29 >= (unsigned int)KeNumberProcessors_0 )
     return -1073741275;
-  v21 = v43;
-  LOBYTE(v11) = v6;
-  LOBYTE(v21) = v5;
-  LOBYTE(v10) = v4;
-  ExpQueryProcessorInformationCounters(KiProcessorBlock[Id[0]], (_DWORD)v21, v10, v11, (__int64)v43);
-  v22 = (const UNICODE_STRING *)a2[1];
-  v30.Data = v43;
-  v30.Size = 200;
-  result = PcwAddInstance((PPCW_BUFFER)v9, v22, v20, 1u, &v30);
+  v30 = v51;
+  LOBYTE(v6) = v8;
+  LOBYTE(v30) = v7;
+  LOBYTE(v5) = v4;
+  ExpQueryProcessorInformationCounters(KiProcessorBlock[v29], (_DWORD)v30, v5, v6, (__int64)v51);
+  v31 = (const UNICODE_STRING *)a2[1];
+  v45.Data = v51;
+  v45.Size = 200;
+  result = PcwAddInstance(v12, v31, v29, 1u, &v45);
   if ( result >= 0 )
     return 0;
   return result;

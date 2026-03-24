@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpFindLocalDatabaseByPDB @ 0x140856804
+ * XREFs of SdbpFindLocalDatabaseByPDB @ 0x1407CD4D8
  * Callers:
- *     SdbTagIDToTagRef @ 0x1408567B0 (SdbTagIDToTagRef.c)
+ *     SdbTagIDToTagRef @ 0x1407CD480 (SdbTagIDToTagRef.c)
  * Callees:
  *     <none>
  */
@@ -9,14 +9,14 @@
 __int64 __fastcall SdbpFindLocalDatabaseByPDB(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   int v4; // r11d
-  unsigned int v5; // r8d
-  unsigned int v6; // r10d
+  unsigned int v5; // r10d
+  unsigned int v6; // r8d
   __int64 i; // rcx
 
-  v4 = *(_DWORD *)(a1 + 36);
+  v4 = *(_DWORD *)(a1 + 28);
   v5 = 0;
   v6 = 0;
-  for ( i = a1 + 56; !_bittest(&v4, v6) || (*(_DWORD *)(i + 8) & 2) == 0 || a2 != *(_QWORD *)i; i += 32LL )
+  for ( i = a1 + 48; !_bittest(&v4, v6) || (*(_DWORD *)(i + 8) & 2) == 0 || a2 != *(_QWORD *)i; i += 32LL )
   {
     if ( ++v6 >= 0x10 )
       return v5;

@@ -1,48 +1,67 @@
 /*
- * XREFs of MonitorSetLastWireformatAndColorspace @ 0x1C01DCC38
+ * XREFs of MonitorSetLastWireformatAndColorspace @ 0x1C00EC238
  * Callers:
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0193D3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00EBB74 (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
  * Callees:
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ?reset@?$auto_rc@UDXGK_GAMMA_RAMP@@@@QEAAXPEAUDXGK_GAMMA_RAMP@@@Z @ 0x1C0005E08 (-reset@-$auto_rc@UDXGK_GAMMA_RAMP@@@@QEAAXPEAUDXGK_GAMMA_RAMP@@@Z.c)
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0014DEC (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ?OnOutputColorspaceUpdated@MonitorColorState@DxgMonitor@@QEAAXXZ @ 0x1C01DD9D0 (-OnOutputColorspaceUpdated@MonitorColorState@DxgMonitor@@QEAAXXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_ClearColorSpaceTransform@DXGMONITOR@@AEAAXXZ @ 0x1C016A790 (-_ClearColorSpaceTransform@DXGMONITOR@@AEAAXXZ.c)
  */
 
-__int64 __fastcall MonitorSetLastWireformatAndColorspace(__int64 a1, unsigned int a2, int a3, int a4)
+__int64 __fastcall MonitorSetLastWireformatAndColorspace(__int64 a1, __int64 a2, int a3, int a4)
 {
-  DXGFASTMUTEX *v6; // rbx
-  DxgMonitor::MonitorColorState *v7; // rcx
-  __int64 v8; // rdi
-  unsigned int v9; // edi
-  DxgMonitor::MonitorColorState **v11; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v6; // esi
+  __int64 v8; // rax
+  MONITOR_MGR *v9; // rcx
+  __int64 result; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  struct DXGMONITOR *v13; // rsi
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  struct DXGMONITOR *v20; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( !a1 || a2 == -1 )
+  v6 = a2;
+  if ( !a1 || (_DWORD)a2 == -1 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorExclusive(&v11, a1, a2, 0);
-  v6 = (DXGFASTMUTEX *)v11;
-  if ( v11 )
+  v8 = *(_QWORD *)(a1 + 2696);
+  if ( !v8 )
   {
-    v7 = v11[28];
-    *((_DWORD *)v11 + 115) = a3;
-    *((_DWORD *)v6 + 114) = a4;
-    DxgMonitor::MonitorColorState::OnOutputColorspaceUpdated(v7);
-    v8 = *((_QWORD *)v6 + 31);
-    MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v11, (struct DXGFASTMUTEX *)(v8 + 80));
-    auto_rc<DXGK_GAMMA_RAMP>::reset((ReferenceCounted **)(v8 + 128), 0LL);
-    MUTEX_LOCK::~MUTEX_LOCK((DXGFASTMUTEX **)&v11);
-    v9 = 0;
+    v14 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v14);
+    v8 = *(_QWORD *)(a1 + 2696);
   }
-  else
+  v9 = *(MONITOR_MGR **)(v8 + 96);
+  if ( !v9 )
   {
-    v9 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
+    v15 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v15 + 24) = a1;
+    WdLogEvent5_WdError(v15);
+    return 3221225485LL;
   }
-  if ( v6 )
+  v20 = 0LL;
+  result = MONITOR_MGR::_GetMonitorInstance(v9, v6, 0, &v20);
+  if ( (int)result >= 0 )
   {
-    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 24));
+    v13 = v20;
+    if ( !v20 )
+    {
+      v16 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v16);
+      v19 = WdLogNewEntry5_WdAssertion(v18, v17);
+      WdLogEvent5_WdAssertion(v19);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v13 + 296), 1u);
+    *((_DWORD *)v13 + 188) = a3;
+    *((_DWORD *)v13 + 187) = a4;
+    DXGMONITOR::_ClearColorSpaceTransform(v13);
+    ExReleaseResourceLite((PERESOURCE)((char *)v13 + 296));
     KeLeaveCriticalRegion();
+    return 0LL;
   }
-  return v9;
+  return result;
 }

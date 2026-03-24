@@ -1,17 +1,17 @@
 /*
- * XREFs of ??$AcquireDdiEnumeratorCachedPathInfo@V?$binder2nd@V?$const_mem_fun1_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTOPOLOGY@@QEAAJV?$binder2nd@V?$const_mem_fun1_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@H@Z @ 0x1C0189510
+ * XREFs of ??$AcquireDdiEnumeratorCachedPathInfo@V?$binder2nd@V?$const_mem_fun1_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTOPOLOGY@@QEAAJV?$binder2nd@V?$const_mem_fun1_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@H@Z @ 0x1C010FFA0
  * Callers:
- *     ?AcquirePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01896D0 (-AcquirePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAP.c)
- *     ?AcquireNextPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEBU3@@Z @ 0x1C01EC640 (-AcquireNextPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU.c)
- *     ?AcquirePathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C03A6400 (-AcquirePathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEB.c)
+ *     ?AcquirePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C010D4A0 (-AcquirePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAP.c)
+ *     ?AcquireNextPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEBU3@@Z @ 0x1C010FDE0 (-AcquireNextPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU.c)
+ *     ?AcquirePathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C02E78A0 (-AcquirePathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIPEAPEB.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ @ 0x1C006A608 (-GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ.c)
- *     ?GetContentRotationHw@DMMVIDPNPRESENTPATH@@QEBA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@XZ @ 0x1C01BD054 (-GetContentRotationHw@DMMVIDPNPRESENTPATH@@QEBA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ @ 0x1C005D3DC (-GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ.c)
+ *     ?GetContentRotationHw@DMMVIDPNPRESENTPATH@@QEBA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@XZ @ 0x1C013F114 (-GetContentRotationHw@DMMVIDPNPRESENTPATH@@QEBA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@XZ.c)
  */
 
 __int64 __fastcall DMMVIDPNTOPOLOGY::AcquireDdiEnumeratorCachedPathInfo<KM_STL::binder2nd<KM_STL::const_mem_fun1_t<DMMVIDPNPRESENTPATH *,DMMVIDPNTOPOLOGY,DMMVIDPNPRESENTPATH const *>>>(
@@ -24,105 +24,139 @@ __int64 __fastcall DMMVIDPNTOPOLOGY::AcquireDdiEnumeratorCachedPathInfo<KM_STL::
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // rbp
-  __int64 v12; // r9
-  __int64 v14; // rax
-  __int64 v15; // rbx
-  __int64 v16; // r9
-  _DWORD *v17; // rsi
+  __int64 v12; // r8
+  __int64 v13; // r9
+  char *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  char *v20; // rbx
+  __int64 v21; // rdx
+  _DWORD *v22; // rsi
   enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION ContentRotationHw; // eax
-  int v19; // ecx
+  __int64 v24; // rcx
   int MacroVisionTriggerBits; // eax
-  __int64 v21; // rax
-  __int128 v22; // xmm0
-  __int64 v23; // xmm1_8
-  unsigned __int64 v24; // rbp
-  void *v25; // rax
-  void *v26; // r14
+  __int64 v26; // rax
+  __int128 v27; // xmm0
+  __int64 v28; // xmm1_8
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  SIZE_T v34; // rbp
+  PVOID v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // r9
+  PVOID v40; // r14
 
   v4 = 0;
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v29 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v29);
+  }
   *a3 = 0LL;
   if ( *(_BYTE *)(a1 + 192) )
   {
     v11 = (*(__int64 (__fastcall **)(__int64, _QWORD))a2)(a1 + *(int *)(a2 + 8), *(_QWORD *)(a2 + 16));
     if ( !v11 )
     {
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v10, v9) + 24) = a2;
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v10, v9, v12, v13) + 24) = a2;
       return 3223192359LL;
     }
-    v14 = operator new[](0x178uLL, 0x4E506456u, 256LL, v12);
-    v15 = v14;
-    if ( v14 )
+    v15 = (char *)operator new[](0x178uLL, 0x4E506456u, PagedPool);
+    v20 = v15;
+    if ( v15 )
     {
-      *(_DWORD *)v14 = 305419896;
-      *(_QWORD *)(v14 + 8) = v11;
-      memset((void *)(v14 + 16), 0, 0x168uLL);
+      *(_DWORD *)v15 = 305419896;
+      *((_QWORD *)v15 + 1) = v11;
+      memset(v15 + 16, 0, 0x168uLL);
+    }
+    else
+    {
+      v20 = 0LL;
+    }
+    if ( v20 )
+    {
       operator delete(0LL);
-      v17 = (_DWORD *)(v15 + 16);
-      *(_DWORD *)(v15 + 28) = *(_DWORD *)(v11 + 112);
+      v22 = v20 + 16;
+      *((_DWORD *)v20 + 7) = *(_DWORD *)(v11 + 112);
       if ( a4 )
         ContentRotationHw = DMMVIDPNPRESENTPATH::GetContentRotationHw((DMMVIDPNPRESENTPATH *)v11);
       else
         ContentRotationHw = *(_DWORD *)(v11 + 116);
-      *(_DWORD *)(v15 + 36) = ContentRotationHw;
-      *(_DWORD *)(v15 + 24) = *(_DWORD *)(v11 + 104);
-      *v17 = *(_DWORD *)(*(_QWORD *)(v11 + 88) + 24LL);
-      *(_DWORD *)(v15 + 20) = *(_DWORD *)(*(_QWORD *)(v11 + 96) + 24LL);
-      *(_DWORD *)(v15 + 80) = *(_DWORD *)(v11 + 164);
-      v19 = *(_DWORD *)(v11 + 172);
-      *(_DWORD *)(v15 + 84) = v19;
-      *(_DWORD *)(v15 + 348) = *(_DWORD *)(v11 + 168);
-      if ( v19 == 2 )
-        MacroVisionTriggerBits = DMMVIDPNPRESENTPATH::GetMacroVisionTriggerBits((DMMVIDPNPRESENTPATH *)v11);
+      *((_DWORD *)v20 + 9) = ContentRotationHw;
+      *((_DWORD *)v20 + 6) = *(_DWORD *)(v11 + 104);
+      *v22 = *(_DWORD *)(*(_QWORD *)(v11 + 88) + 24LL);
+      *((_DWORD *)v20 + 5) = *(_DWORD *)(*(_QWORD *)(v11 + 96) + 24LL);
+      *((_DWORD *)v20 + 20) = *(_DWORD *)(v11 + 164);
+      v24 = *(unsigned int *)(v11 + 172);
+      *((_DWORD *)v20 + 21) = v24;
+      *((_DWORD *)v20 + 87) = *(_DWORD *)(v11 + 168);
+      if ( (_DWORD)v24 == 2 )
+        MacroVisionTriggerBits = DMMVIDPNPRESENTPATH::GetMacroVisionTriggerBits((DMMVIDPNPRESENTPATH *)v11, v21);
       else
         MacroVisionTriggerBits = 0;
-      *(_DWORD *)(v15 + 88) = MacroVisionTriggerBits;
-      if ( v15 == -32 )
-        WdLogSingleEntry0(1LL);
-      *(_DWORD *)(v15 + 32) = *(_DWORD *)(v11 + 120);
-      if ( v15 == -40 )
-        WdLogSingleEntry0(1LL);
-      *(_DWORD *)(v15 + 40) = *(_DWORD *)(v11 + 124);
-      v21 = *(_QWORD *)(v11 + 184);
-      if ( v21 )
+      *((_DWORD *)v20 + 22) = MacroVisionTriggerBits;
+      if ( v20 == (char *)-32LL )
       {
-        v22 = *(_OWORD *)(v21 + 16);
-        v23 = *(_QWORD *)(v21 + 32);
+        v32 = WdLogNewEntry5_WdAssertion(v24, v21);
+        WdLogEvent5_WdAssertion(v32);
+      }
+      *((_DWORD *)v20 + 8) = *(_DWORD *)(v11 + 120);
+      if ( v20 == (char *)-40LL )
+      {
+        v33 = WdLogNewEntry5_WdAssertion(v24, v21);
+        WdLogEvent5_WdAssertion(v33);
+      }
+      *((_DWORD *)v20 + 10) = *(_DWORD *)(v11 + 124);
+      v26 = *(_QWORD *)(v11 + 184);
+      if ( v26 )
+      {
+        v27 = *(_OWORD *)(v26 + 16);
+        v28 = *(_QWORD *)(v26 + 32);
       }
       else
       {
-        v22 = *(_OWORD *)&g_DefaultGammaRamp.Type;
-        v23 = 0LL;
+        v27 = *(_OWORD *)&g_DefaultGammaRamp.Type;
+        v28 = 0LL;
       }
-      *(_OWORD *)(v15 + 352) = v22;
-      *(_QWORD *)(v15 + 368) = v23;
-      if ( !*(_QWORD *)(v15 + 368) )
-        goto LABEL_18;
-      v24 = *(_QWORD *)(v15 + 360);
-      v25 = (void *)operator new[](v24, 0x4E506456u, 256LL, v16);
-      v26 = v25;
-      if ( v25 )
+      *((_OWORD *)v20 + 22) = v27;
+      *((_QWORD *)v20 + 46) = v28;
+      if ( !*((_QWORD *)v20 + 46) )
+        goto LABEL_20;
+      v34 = *((_QWORD *)v20 + 45);
+      v35 = operator new[](v34, 0x4E506456u, PagedPool);
+      v40 = v35;
+      if ( v35 )
       {
-        memmove(v25, *(const void **)(v15 + 368), v24);
-        *(_QWORD *)(v15 + 368) = v26;
-LABEL_18:
-        *a3 = v17;
-        v15 = 0LL;
-LABEL_19:
-        operator delete((void *)v15);
+        memmove(v35, *((const void **)v20 + 46), v34);
+        *((_QWORD *)v20 + 46) = v40;
+LABEL_20:
+        *a3 = v22;
+        v20 = 0LL;
+LABEL_21:
+        operator delete(v20);
         return v4;
       }
-      WdLogSingleEntry1(6LL, v24);
+      v31 = WdLogNewEntry5_WdLowResource(v37, v36, v38, v39);
+      *(_QWORD *)(v31 + 24) = v34;
     }
     else
     {
-      v15 = 0LL;
-      WdLogSingleEntry1(6LL, a1);
+      v31 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v31 + 24) = a1;
     }
+    WdLogEvent5_WdLowResource(v31);
     v4 = -1073741801;
-    goto LABEL_19;
+    goto LABEL_21;
   }
-  WdLogSingleEntry1(2LL, a1);
+  v30 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v30 + 24) = a1;
+  WdLogEvent5_WdError(v30);
   return 3223192375LL;
 }

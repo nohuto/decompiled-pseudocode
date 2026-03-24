@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CInteraction::s_DefaultStateLockedInteractions__ @ 0x180001470
+ * XREFs of _dynamic_initializer_for__CInteraction::s_DefaultStateLockedInteractions__ @ 0x1800021F0
  * Callers:
  *     <none>
  * Callees:

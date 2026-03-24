@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlNtStatusToDosError @ 0x1407AA930
+ * XREFs of RtlNtStatusToDosError @ 0x14066C040
  * Callers:
- *     LocalConvertStringSDToSD_Rev1 @ 0x14069BA60 (LocalConvertStringSDToSD_Rev1.c)
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     LocalGetStringForSid @ 0x14069D410 (LocalGetStringForSid.c)
- *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
- *     LocalGetSidForString @ 0x14069E1D0 (LocalGetSidForString.c)
- *     EtwpEnumerateKeyProviders @ 0x14080B5F4 (EtwpEnumerateKeyProviders.c)
- *     EtwpEnableAutoLoggerProvider @ 0x14080B754 (EtwpEnableAutoLoggerProvider.c)
- *     EtwpEnumerateAutologgerPath @ 0x14083DAD8 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x14083DD38 (EtwStartAutoLogger.c)
+ *     LocalConvertAclToString @ 0x1406EC584 (LocalConvertAclToString.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406EFC20 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1407874B4 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x140787D40 (LocalGetSidForString.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407961B4 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x140796424 (EtwStartAutoLogger.c)
+ *     EtwpEnumerateKeyProviders @ 0x140797DFC (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140797F58 (EtwpEnableAutoLoggerProvider.c)
+ *     LocalGetStringForSid @ 0x140926130 (LocalGetStringForSid.c)
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x140333FF0 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x1402FAA50 (RtlNtStatusToDosErrorNoTeb.c)
  */
 
 ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)

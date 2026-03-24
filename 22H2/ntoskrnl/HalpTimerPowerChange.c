@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerPowerChange @ 0x1405092A0
+ * XREFs of HalpTimerPowerChange @ 0x1404C0214
  * Callers:
- *     HalpTimerPowerCriticalTransitionCallback @ 0x140509360 (HalpTimerPowerCriticalTransitionCallback.c)
+ *     HalpTimerPowerCriticalTransitionCallback @ 0x1404C02E0 (HalpTimerPowerCriticalTransitionCallback.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpTimerClockPowerChange @ 0x1405084F4 (HalpTimerClockPowerChange.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140508CB0 (HalpTimerPerformanceCounterPowerChange.c)
- *     HalpTimerStallCounterPowerChange @ 0x1405094E8 (HalpTimerStallCounterPowerChange.c)
- *     HalpTimerProfilePowerChange @ 0x14050A568 (HalpTimerProfilePowerChange.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpTimerClockPowerChange @ 0x1404BF450 (HalpTimerClockPowerChange.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFBE0 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerStallCounterPowerChange @ 0x1404C0400 (HalpTimerStallCounterPowerChange.c)
+ *     HalpTimerProfilePowerChange @ 0x1404C1788 (HalpTimerProfilePowerChange.c)
  */
 
 __int64 __fastcall HalpTimerPowerChange(ULONG_PTR BugCheckParameter3, __int64 a2)

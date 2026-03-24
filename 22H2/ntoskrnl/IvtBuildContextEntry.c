@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtBuildContextEntry @ 0x1403B54DC
+ * XREFs of IvtBuildContextEntry @ 0x1404DF760
  * Callers:
- *     IvtInitializeIommu @ 0x140A8A670 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409A9A90 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall IvtBuildContextEntry(__int64 a1, char a2, unsigned __int16 a3
 
   *a5 = 0LL;
   result = *(_DWORD *)a5 & 0xFF2;
-  a5[1] = ((unsigned __int64)a3 << 8) | *(_DWORD *)(a1 + 248) & 7;
+  a5[1] = ((unsigned __int64)a3 << 8) | *(_DWORD *)(a1 + 208) & 7;
   *a5 = result | (4 * ((a4 << 10) | a2 & 3)) | 1;
   return result;
 }

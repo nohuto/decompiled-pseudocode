@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpSubtreeEnumeratorCleanup @ 0x14065C63C
+ * XREFs of CmpSubtreeEnumeratorCleanup @ 0x140729850
  * Callers:
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x14065B560 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x14065B6A0 (CmpPromoteSubtree.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmpPromoteSubtree @ 0x1407291E8 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140729760 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpKeyEnumStackCleanup @ 0x14069F024 (CmpKeyEnumStackCleanup.c)
- *     CmpCleanupKeyNodeStack @ 0x14069F150 (CmpCleanupKeyNodeStack.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpKeyEnumStackCleanup @ 0x140699B20 (CmpKeyEnumStackCleanup.c)
+ *     CmpCleanupKeyNodeStack @ 0x140699C28 (CmpCleanupKeyNodeStack.c)
  */
 
-__int64 __fastcall CmpSubtreeEnumeratorCleanup(__int64 a1)
+void __fastcall CmpSubtreeEnumeratorCleanup(__int64 a1)
 {
   __int64 v2; // rdi
   __int64 v3; // rsi
@@ -34,5 +34,5 @@ __int64 __fastcall CmpSubtreeEnumeratorCleanup(__int64 a1)
     while ( v3 );
     CmSiFreeMemory(*(PPRIVILEGE_SET *)(a1 + 96));
   }
-  return CmpCleanupKeyNodeStack(a1 + 16);
+  CmpCleanupKeyNodeStack(a1 + 16);
 }

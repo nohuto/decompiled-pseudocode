@@ -1,14 +1,14 @@
 /*
- * XREFs of ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x180282144
+ * XREFs of ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x1802423C0
  * Callers:
- *     ??0?$RuntimeClass@U?$IIterator@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@Collections@Foundation@Windows@@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180281A00 (--0-$RuntimeClass@U-$IIterator@PEAU-$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Founda.c)
- *     ??0?$RuntimeClass@U?$IMap@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U?$IIterable@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@234@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180281A80 (--0-$RuntimeClass@U-$IMap@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U-$IIterabl.c)
- *     ??0?$RuntimeClass@U?$IMapView@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U?$IIterable@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@234@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180281B10 (--0-$RuntimeClass@U-$IMapView@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U-$IIte.c)
- *     ??0?$SimpleKeyValuePair@U_GUID@@PEAUIInspectable@@U?$DefaultLifetimeTraits@U_GUID@@@Internal@Collections@Foundation@Windows@@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@$00@Internal@Collections@Foundation@Windows@@QEAA@Upermission@01234@@Z @ 0x180281BA0 (--0-$SimpleKeyValuePair@U_GUID@@PEAUIInspectable@@U-$DefaultLifetimeTraits@U_GUID@@@Internal@Col.c)
- *     ??0?$ValueReference@I@@QEAA@XZ @ 0x180281C54 (--0-$ValueReference@I@@QEAA@XZ.c)
+ *     ??0?$RuntimeClass@U?$IIterator@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@Collections@Foundation@Windows@@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180241D40 (--0-$RuntimeClass@U-$IIterator@PEAU-$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Founda.c)
+ *     ??0?$RuntimeClass@U?$IMap@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U?$IIterable@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@234@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180241DB8 (--0-$RuntimeClass@U-$IMap@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U-$IIterabl.c)
+ *     ??0?$RuntimeClass@U?$IMapView@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U?$IIterable@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@@234@VFtmBase@WRL@Microsoft@@@WRL@Microsoft@@QEAA@XZ @ 0x180241E3C (--0-$RuntimeClass@U-$IMapView@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@U-$IIte.c)
+ *     ??0?$SimpleKeyValuePair@U_GUID@@PEAUIInspectable@@U?$DefaultLifetimeTraits@U_GUID@@@Internal@Collections@Foundation@Windows@@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@$00@Internal@Collections@Foundation@Windows@@QEAA@Upermission@01234@@Z @ 0x180241EC0 (--0-$SimpleKeyValuePair@U_GUID@@PEAUIInspectable@@U-$DefaultLifetimeTraits@U_GUID@@@Internal@Col.c)
+ *     ??0?$ValueReference@I@@QEAA@XZ @ 0x180241F68 (--0-$ValueReference@I@@QEAA@XZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 Microsoft::WRL::FtmBase *__fastcall Microsoft::WRL::FtmBase::FtmBase(Microsoft::WRL::FtmBase *this)

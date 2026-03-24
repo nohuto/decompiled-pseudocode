@@ -1,9 +1,9 @@
 /*
- * XREFs of XdvIoAllocateMdl @ 0x14030AAD0
+ * XREFs of XdvIoAllocateMdl @ 0x14030ABD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall XdvIoAllocateMdl(

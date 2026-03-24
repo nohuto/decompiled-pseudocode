@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkParkingAvailable @ 0x14082E76C
+ * XREFs of PpmParkParkingAvailable @ 0x1407BB1D0
  * Callers:
- *     PpmParkRegisterParking @ 0x14038FD40 (PpmParkRegisterParking.c)
- *     PpmCheckReInit @ 0x14082E63C (PpmCheckReInit.c)
- *     PpmParkApplyForcedMask @ 0x140999F04 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x14099A004 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x1403C10C0 (PpmParkRegisterParking.c)
+ *     PpmCheckReInit @ 0x1407BAFA4 (PpmCheckReInit.c)
+ *     PpmParkApplyForcedMask @ 0x1408F92F4 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1408F93F4 (PpmParkClearForcedMask.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
  */
 
 unsigned __int8 PpmParkParkingAvailable()
@@ -15,46 +15,51 @@ unsigned __int8 PpmParkParkingAvailable()
   unsigned int v1; // esi
   __int64 v2; // rdi
   unsigned int v3; // ecx
-  __int64 v4; // rdx
-  unsigned __int8 v5; // al
+  _QWORD *v4; // rdx
+  __int64 v5; // rax
+  unsigned __int8 v6; // r8
+  unsigned __int8 v7; // r9
   unsigned __int8 result; // al
 
-  if ( PpmParkNumNodes != 1 || KeGetCurrentPrcb()->LogicalProcessorsPerCore != *(unsigned __int8 *)(PpmParkNodes + 10) )
+  if ( PpmParkNumNodes != 1 || KeGetCurrentPrcb()->LogicalProcessorsPerCore != *(unsigned __int8 *)(PpmParkNodes + 6) )
   {
     v0 = 0;
     v1 = 0;
     if ( !PpmParkNumNodes )
       goto LABEL_17;
-    v2 = PpmParkNodes + 114;
+    v2 = PpmParkNodes + 132;
     while ( 1 )
     {
-      if ( *(_BYTE *)(v2 - 2)
-        || *(_BYTE *)v2
-        || *(_QWORD *)(v2 - 90)
+      if ( *(_BYTE *)(v2 + 2)
+        || *(_BYTE *)(v2 + 4)
+        || *(_QWORD *)(v2 - 100)
         || !(unsigned int)KeIsEmptyAffinityEx(PpmPerfCoreParkingMask) )
       {
         v0 = 1;
         goto LABEL_17;
       }
       v3 = 0;
-      if ( !*(_BYTE *)(v2 - 103) )
-        goto LABEL_16;
+      v4 = (_QWORD *)(v2 - 76);
+      v5 = 0LL;
       while ( 1 )
       {
-        v4 = *(_QWORD *)(v2 + 70) + 104LL * v3;
-        if ( *(_BYTE *)v4 )
+        v6 = *(_BYTE *)(v2 + v5 - 4);
+        if ( v6 )
           break;
 LABEL_15:
-        if ( ++v3 >= *(unsigned __int8 *)(v2 - 103) )
+        ++v3;
+        ++v5;
+        ++v4;
+        if ( v3 >= 2 )
           goto LABEL_16;
       }
-      v5 = *(_BYTE *)(v4 + 2);
-      if ( *(_BYTE *)(v4 + 1) >= v5 && v5 >= *(_BYTE *)v4 )
+      v7 = *(_BYTE *)(v2 + v5);
+      if ( *(_BYTE *)(v2 + v5 - 2) >= v7 && v7 >= v6 )
         break;
       v0 = 1;
 LABEL_16:
       ++v1;
-      v2 += 192LL;
+      v2 += 272LL;
       if ( v1 >= PpmParkNumNodes )
       {
 LABEL_17:
@@ -63,7 +68,7 @@ LABEL_17:
         return result;
       }
     }
-    if ( *(_QWORD *)(v4 + 24) )
+    if ( *v4 )
       v0 = 1;
     goto LABEL_15;
   }

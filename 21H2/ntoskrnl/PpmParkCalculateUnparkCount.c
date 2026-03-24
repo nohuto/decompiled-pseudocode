@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkCalculateUnparkCount @ 0x14023C670
+ * XREFs of PpmParkCalculateUnparkCount @ 0x1402B6320
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x1405D7BF0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140577C10 (PpmCheckComputeHeteroResponse.c)
  * Callees:
  *     <none>
  */
@@ -9,39 +9,39 @@
 char PpmParkCalculateUnparkCount()
 {
   __int64 v1; // rcx
-  unsigned __int8 v2; // r10
-  unsigned int v3; // r12d
-  unsigned int v4; // r15d
-  unsigned __int16 v5; // si
-  __int64 v6; // r9
-  unsigned __int8 v7; // di
-  unsigned int v8; // r13d
-  unsigned int v9; // ebx
-  char v10; // bp
-  unsigned __int8 v11; // r11
-  unsigned __int8 v12; // r8
-  unsigned __int8 v13; // al
-  unsigned int v14; // r10d
-  int v15; // ecx
-  unsigned int v16; // r8d
-  int v17; // edx
-  unsigned __int8 v18; // cl
-  bool v19; // zf
-  unsigned __int8 v20; // al
-  unsigned __int8 v21; // [rsp+48h] [rbp+8h]
+  unsigned __int8 v2; // r9
+  unsigned int v3; // r13d
+  unsigned int v4; // r12d
+  unsigned __int16 v5; // di
+  __int64 v6; // r10
+  unsigned __int8 v7; // r14
+  unsigned int v8; // edi
+  __int64 v9; // rsi
+  unsigned int v10; // ebx
+  char v11; // r15
+  int v12; // ebp
+  unsigned __int8 v13; // r8
+  unsigned __int8 v14; // r11
+  unsigned int v15; // r9d
+  bool v16; // cc
+  int v17; // ecx
+  unsigned int v18; // r8d
+  int v19; // edx
+  char v20; // cl
+  char v21; // [rsp+48h] [rbp+8h]
   char v22; // [rsp+50h] [rbp+10h]
-  char v23; // [rsp+58h] [rbp+18h]
+  unsigned __int8 v23; // [rsp+58h] [rbp+18h]
   __int16 v24; // [rsp+60h] [rbp+20h]
 
   if ( !PpmIsParkingEnabled )
     return 1;
-  v1 = 534LL * dword_140C232CC;
+  v1 = 342LL * dword_140C23E8C;
   v2 = BYTE6(PpmCurrentProfile[v1 + 20]);
   v3 = PpmCurrentProfile[v1 + 22];
   v4 = HIDWORD(PpmCurrentProfile[v1 + 21]);
-  v23 = BYTE1(PpmCurrentProfile[v1 + 21]);
+  v21 = BYTE1(PpmCurrentProfile[v1 + 21]);
   v22 = PpmCurrentProfile[v1 + 21];
-  v21 = v2;
+  v23 = v2;
   if ( PpmCheckCurrentPipelineId == 5 )
   {
     v4 = 0;
@@ -53,115 +53,100 @@ char PpmParkCalculateUnparkCount()
     return 1;
   do
   {
-    v6 = PpmParkNodes + 336LL * v5;
+    v6 = PpmParkNodes + 272LL * v5;
     if ( (*(_BYTE *)(v6 + 146) & 1) != 0 )
-      goto LABEL_58;
+      goto LABEL_50;
     ++*(_DWORD *)v6;
     v7 = 0;
     v8 = *(_DWORD *)v6;
+    v9 = 0LL;
     do
     {
-      v9 = *(unsigned __int8 *)(v7 + v6 + 128);
-      if ( !(_BYTE)v9 || ((unsigned __int8)(1 << (v7 + 1)) & *(_BYTE *)(v6 + 146)) != 0 )
-        goto LABEL_56;
-      v10 = PpmParkUnparkCores;
-      v11 = PpmParkGranularity;
-      if ( PpmParkUnparkCores )
-        v11 = 1;
-      if ( v7 || *(_BYTE *)(v6 + 6) == *(_BYTE *)(v6 + 128) || *(_BYTE *)(v6 + 139) < *(_BYTE *)(v6 + 144) )
+      v10 = *(unsigned __int8 *)(v9 + v6 + 128);
+      if ( !(_BYTE)v10 || ((unsigned __int8)(1 << (v7 + 1)) & *(_BYTE *)(v6 + 146)) != 0 )
+        goto LABEL_48;
+      v11 = PpmParkUnparkCores;
+      v12 = (unsigned __int8)PpmParkGranularity;
+      v13 = *(_BYTE *)(v6 + 140);
+      v14 = PpmParkGranularity;
+      if ( !PpmParkUnparkCores || (v14 = 1, PpmParkGranularity == 1) )
       {
-        v12 = *(_BYTE *)(v6 + 140);
-        v13 = *(_BYTE *)(v6 + 141);
+        if ( v13 < (unsigned __int8)v10 && *(_BYTE *)(v6 + 141) > v2 )
+          ++v13;
       }
-      else
-      {
-        v12 = *(_BYTE *)(v6 + 266);
-        v13 = *(_BYTE *)(v6 + 268);
-      }
-      if ( (!PpmParkUnparkCores || PpmParkGranularity == 1) && v12 < (unsigned __int8)v9 && v13 > v2 )
-        ++v12;
-      v14 = *(unsigned __int8 *)(v7 + v6 + 138);
+      v15 = *(unsigned __int8 *)(v9 + v6 + 138);
       if ( PpmParkUnparkCores )
-        v14 /= (unsigned __int8)PpmParkGranularity;
-      if ( (unsigned __int8)v14 < v12 )
+        v15 /= (unsigned __int8)PpmParkGranularity;
+      v16 = (unsigned __int8)v15 <= v13;
+      if ( (unsigned __int8)v15 < v13 )
       {
-        if ( (unsigned __int8)v14 >= (unsigned __int8)v9 || v8 < v3 )
-          goto LABEL_48;
-        *(_DWORD *)v6 = 0;
-        if ( v23 )
+        if ( (unsigned __int8)v15 < (unsigned __int8)v10 && v8 >= v3 )
         {
-          switch ( v23 )
+          *(_DWORD *)v6 = 0;
+          if ( v21 )
           {
-            case 1:
-              LOBYTE(v14) = v11 + v14;
-              break;
-            case 2:
-              LOBYTE(v14) = v9;
-              break;
-            case 3:
-              v15 = *(unsigned __int8 *)(v6 + 145);
-              v16 = v15 + (unsigned __int8)v14;
-              LOBYTE(v14) = v14 + v15;
-              if ( v16 >= v9 )
-                LOBYTE(v14) = v9;
-              break;
+            switch ( v21 )
+            {
+              case 1:
+                LOBYTE(v15) = v14 + v15;
+                break;
+              case 2:
+                LOBYTE(v15) = v10;
+                break;
+              case 3:
+                v17 = *(unsigned __int8 *)(v6 + 145);
+                v18 = v17 + (unsigned __int8)v15;
+                LOBYTE(v15) = v15 + v17;
+                if ( v18 >= v10 )
+                  LOBYTE(v15) = v10;
+                break;
+            }
+            goto LABEL_43;
           }
-          goto LABEL_48;
+          goto LABEL_42;
         }
-LABEL_47:
-        LOBYTE(v14) = v12;
-        goto LABEL_48;
+        v16 = (unsigned __int8)v15 <= v13;
       }
-      if ( (unsigned __int8)v14 <= v12 || (unsigned __int8)v14 <= v11 || v8 < v4 )
-        goto LABEL_48;
+      if ( v16 || (unsigned __int8)v15 <= v14 || v8 < v4 )
+        goto LABEL_43;
       *(_DWORD *)v6 = 0;
-      switch ( v22 )
+      if ( v22 )
       {
-        case 0:
-          goto LABEL_47;
-        case 1:
-          LOBYTE(v14) = v14 - v11;
-          break;
-        case 2:
-          LOBYTE(v14) = v11;
-          break;
-        case 3:
-          v17 = *(unsigned __int8 *)(v6 + 145);
-          v12 = PpmParkGranularity;
-          if ( (unsigned __int8)v14 <= v17 + (unsigned int)(unsigned __int8)PpmParkGranularity )
-            goto LABEL_47;
-          LOBYTE(v14) = v14 - v17;
-          break;
+        switch ( v22 )
+        {
+          case 1:
+            LOBYTE(v15) = v15 - v14;
+            break;
+          case 2:
+            LOBYTE(v15) = v14;
+            break;
+          case 3:
+            v19 = *(unsigned __int8 *)(v6 + 145);
+            if ( (unsigned __int8)v15 <= (unsigned int)(v19 + v12) )
+              LOBYTE(v15) = v12;
+            else
+              LOBYTE(v15) = v15 - v19;
+            break;
+        }
+        goto LABEL_43;
       }
+LABEL_42:
+      LOBYTE(v15) = v13;
+LABEL_43:
+      v20 = v15;
+      if ( (unsigned __int8)v15 >= (unsigned __int8)v10 )
+        v20 = v10;
+      if ( v11 )
+        v20 *= (_BYTE)v12;
+      v2 = v23;
+      *(_BYTE *)(v9 + v6 + 138) = v20;
 LABEL_48:
-      v18 = v14;
-      if ( (unsigned __int8)v14 >= (unsigned __int8)v9 )
-        v18 = v9;
-      if ( v10 )
-        v18 *= PpmParkGranularity;
-      v19 = PpmHeteroHgsParkingEnabled == 0;
-      v2 = v21;
-      *(_BYTE *)(v7 + v6 + 138) = v18;
-      if ( !v19 )
-      {
-        v20 = *(_BYTE *)(v6 + 296);
-        *(_BYTE *)(v6 + 298) = v18;
-        if ( v18 >= v20 )
-        {
-          *(_BYTE *)(v6 + 297) = v18 - v20;
-        }
-        else
-        {
-          *(_BYTE *)(v6 + 298) = v20;
-          *(_BYTE *)(v6 + 297) = 0;
-        }
-      }
-LABEL_56:
       ++v7;
+      ++v9;
     }
     while ( v7 < 2u );
     v5 = v24;
-LABEL_58:
+LABEL_50:
     v24 = ++v5;
   }
   while ( v5 < (unsigned int)PpmParkNumNodes );

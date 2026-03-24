@@ -1,14 +1,13 @@
 /*
- * XREFs of ??0CLegacySwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@U_LUID@@IIIAEBUDXGI_RATIONAL@@_K6IW4Enum@FrontBufferRender@@@Z @ 0x18001EEB4
+ * XREFs of ??0CLegacySwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@IIUDXGI_RATIONAL@@W4Enum@FrontBufferRender@@@Z @ 0x18002591C
  * Callers:
- *     ?Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@FrontBufferRender@@PEAPEAVILegacySwapChain@@@Z @ 0x18001ED08 (-Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@A.c)
- *     ??0CLegacyStereoSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@U_LUID@@IIIUDXGI_RATIONAL@@@Z @ 0x180290460 (--0CLegacyStereoSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEB.c)
- *     ??0CConversionSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@U_LUID@@IIIUDXGI_RATIONAL@@@Z @ 0x1802910CC (--0CConversionSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVR.c)
+ *     ?Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@IW4Enum@FrontBufferRender@@PEAPEAVILegacySwapChain@@@Z @ 0x1800257E4 (-Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRe.c)
+ *     ??0CLegacyStereoSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@IIUDXGI_RATIONAL@@@Z @ 0x18024D760 (--0CLegacyStereoSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEB.c)
+ *     ??0CConversionSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@IIUDXGI_RATIONAL@@@Z @ 0x18024E094 (--0CConversionSwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVR.c)
  * Callees:
- *     ?CalcVBlankDuration@CLegacySwapChain@@IEAA_NAEBUDXGI_RATIONAL@@_K1I@Z @ 0x18001F16C (-CalcVBlankDuration@CLegacySwapChain@@IEAA_NAEBUDXGI_RATIONAL@@_K1I@Z.c)
- *     ??0?$com_ptr_t@UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAUIDXGISwapChainDWM1@@@Z @ 0x18001F1FC (--0-$com_ptr_t@UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAUIDXGISwapChainDWM.c)
- *     ??0?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z @ 0x18001F238 (--0-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z.c)
- *     ??0ILegacySwapChain@@QEAA@XZ @ 0x18001F264 (--0ILegacySwapChain@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025B70 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ??0?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z @ 0x180025BA4 (--0-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z.c)
+ *     ??0ILegacySwapChain@@QEAA@XZ @ 0x180025BD0 (--0ILegacySwapChain@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CLegacySwapChain::CLegacySwapChain(
@@ -17,33 +16,30 @@ __int64 __fastcall CLegacySwapChain::CLegacySwapChain(
         __int64 a3,
         __int64 a4,
         __int64 a5,
-        __int64 a6,
+        int a6,
         int a7,
-        int a8,
+        __int64 a8,
         int a9,
-        struct DXGI_RATIONAL *a10,
-        unsigned __int64 a11,
-        unsigned __int64 a12,
-        unsigned int a13,
-        int a14,
-        int a15)
+        int a10)
 {
-  __int64 v17; // r11
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // xmm1_8
+  __int64 v12; // r11
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // xmm1_8
+  __int64 result; // rax
 
-  v17 = a2;
-  if ( a15 )
+  v12 = a2;
+  if ( a10 )
   {
     *(_QWORD *)(a1 + 24) = &CLegacySwapChain::`vbtable'{for `CDeviceResource'};
-    *(_QWORD *)(a1 + 360) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-    *(_QWORD *)(a1 + 384) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
-    *(_QWORD *)(a1 + 408) = &CLegacySwapChain::`vbtable'{for `ISwapChain'};
-    ILegacySwapChain::ILegacySwapChain((ILegacySwapChain *)(a1 + 400));
+    *(_QWORD *)(a1 + 312) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+    *(_QWORD *)(a1 + 336) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
+    *(_QWORD *)(a1 + 360) = &CLegacySwapChain::`vbtable'{for `ISwapChain'};
+    ILegacySwapChain::ILegacySwapChain((ILegacySwapChain *)(a1 + 352));
   }
   *(_DWORD *)(a1 + 8) = 0;
+  *(_QWORD *)a1 = &CMILCOMBase::`vftable';
   *(_QWORD *)(a1 + 16) = &CDeviceResource::`vftable';
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 4LL) + a1 + 24) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 8LL) + a1 + 24) = &CDeviceResource::`vftable'{for `IDeviceResource'};
@@ -51,22 +47,22 @@ __int64 __fastcall CLegacySwapChain::CLegacySwapChain(
   *(_QWORD *)(a1 + 32) = 0LL;
   *(_QWORD *)(a1 + 40) = 0LL;
   *(_QWORD *)(a1 + 48) = 0LL;
-  *(_QWORD *)a1 = &CLegacySwapChain::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)a1 = &CLegacySwapChain::`vftable'{for `CMILCOMBase'};
   *(_QWORD *)(a1 + 16) = &CLegacySwapChain::`vftable'{for `CDeviceResource'};
   *(_QWORD *)(a1 + 56) = &CLegacySwapChain::`vftable'{for `IDeviceResourceNotify'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 4LL) + a1 + 24) = &CLegacySwapChain::`vftable'{for `IUnknown'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 8LL) + a1 + 24) = &CLegacySwapChain::`vftable'{for `IDeviceResource'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 12LL) + a1 + 24) = &CLegacySwapChain::`vftable'{for `IPixelFormat'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 16LL) + a1 + 24) = &CLegacySwapChain::`vftable'{for `ILegacySwapChain'};
-  v19 = *(int *)(*(_QWORD *)(a1 + 24) + 4LL);
-  *(_DWORD *)(v19 + a1 + 20) = v19 - 312;
-  v20 = *(int *)(*(_QWORD *)(a1 + 24) + 8LL);
-  *(_DWORD *)(v20 + a1 + 20) = v20 - 328;
-  v21 = *(int *)(*(_QWORD *)(a1 + 24) + 12LL);
-  *(_DWORD *)(v21 + a1 + 20) = v21 - 352;
-  *(_DWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 16LL) + a1 + 20) = *(_DWORD *)(*(_QWORD *)(a1 + 24) + 16LL) - 376;
-  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::com_ptr_t<CD3DDevice,wil::err_returncode_policy>(a1 + 64, v17);
-  wil::com_ptr_t<IDXGISwapChainDWM1,wil::err_returncode_policy>::com_ptr_t<IDXGISwapChainDWM1,wil::err_returncode_policy>(
+  v14 = *(int *)(*(_QWORD *)(a1 + 24) + 4LL);
+  *(_DWORD *)(v14 + a1 + 20) = v14 - 264;
+  v15 = *(int *)(*(_QWORD *)(a1 + 24) + 8LL);
+  *(_DWORD *)(v15 + a1 + 20) = v15 - 280;
+  v16 = *(int *)(*(_QWORD *)(a1 + 24) + 12LL);
+  *(_DWORD *)(v16 + a1 + 20) = v16 - 304;
+  *(_DWORD *)(*(int *)(*(_QWORD *)(a1 + 24) + 16LL) + a1 + 20) = *(_DWORD *)(*(_QWORD *)(a1 + 24) + 16LL) - 328;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::com_ptr_t<CD3DDevice,wil::err_returncode_policy>(a1 + 64, v12);
+  wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
     a1 + 72,
     a3);
   *(_QWORD *)(a1 + 80) = 0LL;
@@ -79,25 +75,18 @@ __int64 __fastcall CLegacySwapChain::CLegacySwapChain(
   *(_QWORD *)(a1 + 132) = *(_QWORD *)a4;
   *(_DWORD *)(a1 + 140) = *(_DWORD *)(a4 + 8);
   *(_OWORD *)(a1 + 144) = *(_OWORD *)a5;
-  v22 = *(_QWORD *)(a5 + 16);
-  *(_QWORD *)(a1 + 168) = a6;
-  *(_QWORD *)(a1 + 160) = v22;
-  *(_QWORD *)(a1 + 176) = 0LL;
-  *(_DWORD *)(a1 + 204) = a7;
-  *(_DWORD *)(a1 + 208) = a8;
-  *(_DWORD *)(a1 + 212) = a9;
-  *(_DWORD *)(a1 + 216) = a14;
-  *(_DWORD *)(a1 + 200) = 1;
-  *(_QWORD *)(a1 + 232) = 1LL;
-  *(_QWORD *)(a1 + 184) = 0LL;
-  *(_QWORD *)(a1 + 192) = 0LL;
-  *(_QWORD *)(a1 + 224) = 0LL;
-  *(_QWORD *)(a1 + 240) = a1 + 248;
-  *(_DWORD *)(a1 + 248) = 0;
-  *(_DWORD *)(a1 + 312) = 0;
-  *(_WORD *)(a1 + 316) = 0;
-  *(_BYTE *)(a1 + 318) = 0;
-  *(_QWORD *)(a1 + 320) = 0LL;
-  CLegacySwapChain::CalcVBlankDuration((CLegacySwapChain *)a1, a10, a11, a12, a13);
-  return a1;
+  v17 = *(_QWORD *)(a5 + 16);
+  *(_QWORD *)(a1 + 168) = a8;
+  *(_QWORD *)(a1 + 160) = v17;
+  *(_DWORD *)(a1 + 176) = a6;
+  *(_DWORD *)(a1 + 180) = a7;
+  *(_DWORD *)(a1 + 184) = a9;
+  *(_DWORD *)(a1 + 188) = 0;
+  *(_QWORD *)(a1 + 192) = a1 + 200;
+  *(_DWORD *)(a1 + 200) = 0;
+  result = a1;
+  *(_DWORD *)(a1 + 264) = 0;
+  *(_WORD *)(a1 + 268) = 0;
+  *(_QWORD *)(a1 + 272) = 0LL;
+  return result;
 }

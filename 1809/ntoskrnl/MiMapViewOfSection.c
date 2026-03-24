@@ -2,22 +2,22 @@
  * XREFs of MiMapViewOfSection @ 0x1405EFB10
  * Callers:
  *     MmMapSecureViewOfSection @ 0x140618574 (MmMapSecureViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C30 (MiMapViewOfSectionExCommon.c)
- *     NtMapViewOfSection @ 0x140676FD0 (NtMapViewOfSection.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140676FB0 (NtMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     MiArbitraryCodeBlocked @ 0x140676760 (MiArbitraryCodeBlocked.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
+ *     MiArbitraryCodeBlocked @ 0x140676740 (MiArbitraryCodeBlocked.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(__int64 a1, __int64 a2, void **a3, void *a4, _WORD *a5, int a6, int a7)

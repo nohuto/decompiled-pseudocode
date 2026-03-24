@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindNextForwardRunSet @ 0x140294CA4
+ * XREFs of RtlFindNextForwardRunSet @ 0x14033326C
  * Callers:
- *     HvpResetPageProtection @ 0x140708588 (HvpResetPageProtection.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x140810588 (CmFcpManagerDrainUsageNotifications.c)
+ *     HvpResetPageProtection @ 0x1406BF1E4 (HvpResetPageProtection.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAB10 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
  *     <none>
  */
@@ -10,67 +10,66 @@
 __int64 __fastcall RtlFindNextForwardRunSet(__int64 a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r11d
-  unsigned int v4; // r10d
   unsigned int v5; // r9d
-  __int64 v7; // rdi
-  unsigned int *v8; // rdx
-  unsigned __int64 v9; // rbx
-  unsigned int v10; // r8d
-  _DWORD *v11; // rax
-  __int64 v12; // rcx
-  int v13; // r8d
-  unsigned int v14; // r8d
-  __int64 v15; // rax
-  unsigned int v16; // r10d
+  __int64 v7; // rdx
+  _DWORD *v8; // rbx
+  _DWORD *v9; // r8
+  unsigned int v10; // edx
+  int v11; // r11d
+  unsigned int v12; // ecx
+  unsigned int i; // eax
+  _DWORD *v15; // r8
 
   v3 = *(_DWORD *)a1;
-  v4 = 0;
   v5 = a2;
-  if ( *(_DWORD *)a1 > a2 )
+  if ( *(_DWORD *)a1 <= a2 )
   {
-    v7 = *(_QWORD *)(a1 + 8);
-    v8 = (unsigned int *)(v7 + 4 * ((unsigned __int64)a2 >> 5));
-    v9 = v7 + 4 * ((unsigned __int64)(v3 - 1) >> 5);
-    v10 = (-1 << (v5 & 0x1F)) & *v8;
-    v11 = v8 + 1;
-    while ( !v10 )
+    *a3 = a2;
+    return 0;
+  }
+  v7 = *(_QWORD *)(a1 + 8);
+  v8 = (_DWORD *)(v7 + 4 * ((unsigned __int64)(v3 - 1) >> 5));
+  v9 = (_DWORD *)(v7 + 4 * ((unsigned __int64)v5 >> 5));
+  v10 = 0;
+  if ( v9 != v8 && (~*((_DWORD *)qword_1400127A0 + (v5 & 0x1F)) & *v9) == 0 )
+  {
+    v5 = v5 - (v5 & 0x1F) + 32;
+    for ( ++v9; v9 < v8 && !*v9; ++v9 )
+      v5 += 32;
+  }
+  for ( ; v5 < v3; ++v5 )
+  {
+    if ( _bittest(*(const signed __int32 **)(a1 + 8), v5) )
+      break;
+  }
+  if ( v9 == v8 )
+    goto LABEL_9;
+  v11 = v5 & 0x1F;
+  if ( (*v9 | *((_DWORD *)qword_1400127A0 + (v5 & 0x1F))) != -1 )
+    goto LABEL_9;
+  v10 = 32 - v11;
+  if ( v11 != 33 )
+  {
+    v15 = v9 + 1;
+    while ( v15 < v8 && *v15 == -1 )
     {
-      if ( (unsigned __int64)v11 > v9 )
-        goto LABEL_17;
-      ++v8;
-      ++v11;
-      v10 = *v8;
+      ++v15;
+      v10 += 32;
+      if ( v10 == -1 )
+        goto LABEL_13;
     }
-    _BitScanForward64((unsigned __int64 *)&v12, v10);
-    v5 = v12 + 32 * (((__int64)v8 - v7) >> 2);
-    if ( v5 > v3 )
+LABEL_9:
+    v12 = *(_DWORD *)a1;
+    for ( i = v10 + v5; i < v12; ++v10 )
     {
-LABEL_17:
-      v5 = v3;
-      goto LABEL_13;
-    }
-    v13 = ((1 << v12) - 1) | v10;
-    while ( 1 )
-    {
-      v14 = ~v13;
-      if ( v14 )
-      {
-        _BitScanForward64((unsigned __int64 *)&v15, v14);
-        goto LABEL_10;
-      }
-      if ( (unsigned __int64)(v8 + 1) > v9 )
+      if ( !_bittest(*(const signed __int32 **)(a1 + 8), i) )
         break;
-      v13 = v8[1];
-      ++v8;
+      if ( v10 == -1 )
+        break;
+      ++i;
     }
-    LODWORD(v15) = 32;
-LABEL_10:
-    v16 = v3;
-    if ( 32 * (unsigned int)(((__int64)v8 - v7) >> 2) + (unsigned int)v15 <= v3 )
-      v16 = 32 * (((__int64)v8 - v7) >> 2) + v15;
-    v4 = v16 - v5;
   }
 LABEL_13:
   *a3 = v5;
-  return v4;
+  return v10;
 }

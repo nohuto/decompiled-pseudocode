@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptRegisterLine @ 0x1403BD66C
+ * XREFs of HalpInterruptRegisterLine @ 0x1403AB1E0
  * Callers:
- *     HalpApicDescribeLines @ 0x1403BD2A4 (HalpApicDescribeLines.c)
- *     HalpApicDescribeLocalLines @ 0x1403BD330 (HalpApicDescribeLocalLines.c)
- *     HalpPicDiscover @ 0x1403BD3FC (HalpPicDiscover.c)
+ *     HalpApicDescribeLines @ 0x1403AAE18 (HalpApicDescribeLines.c)
+ *     HalpApicDescribeLocalLines @ 0x1403AAEA4 (HalpApicDescribeLocalLines.c)
+ *     HalpPicDiscover @ 0x1403AAF70 (HalpPicDiscover.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x140252134 (HalpInterruptLookupController.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x1402523CC (HalpInterruptFindLinesForGsiRange.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
@@ -58,12 +58,12 @@ __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
       {
         if ( v5 != 6 )
         {
-          v9 = *((_DWORD *)v7 + 70);
-          v10 = *((_DWORD *)v7 + 71);
+          v9 = *((_DWORD *)v7 + 68);
+          v10 = *((_DWORD *)v7 + 69);
           if ( v9 != v10 && v4 > v9 && v3 < v10 )
           {
-            v27 = (ULONG_PTR *)v8[31];
-            while ( v27 != v8 + 31 )
+            v27 = (ULONG_PTR *)v8[30];
+            while ( v27 != v8 + 30 )
             {
               v28 = v27;
               v27 = (ULONG_PTR *)*v27;
@@ -76,7 +76,7 @@ __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
         if ( v11 == -1 || !HalpInterruptFindLinesForGsiRange(v11, v4 + v11 - v3) )
         {
           v12 = v4 - v3;
-          if ( *((_DWORD *)v8 + 56) == 2 && v11 != -1 )
+          if ( *((_DWORD *)v8 + 54) == 2 && v11 != -1 )
           {
             v26 = 0;
             if ( HalpInterruptIoApicCount )
@@ -124,29 +124,29 @@ LABEL_12:
             *((_QWORD *)v15 + 6) = &v20[56 * v12];
             if ( v17 == 6 )
             {
-              v23 = v8 + 33;
+              v23 = v8 + 32;
               v15[4] = *(_DWORD *)(a1 + 20);
             }
             else
             {
-              v15[4] = *((_DWORD *)v8 + 60);
-              v21 = *((_DWORD *)v8 + 70);
-              v22 = *((_DWORD *)v8 + 71);
+              v15[4] = *((_DWORD *)v8 + 58);
+              v21 = *((_DWORD *)v8 + 68);
+              v22 = *((_DWORD *)v8 + 69);
               if ( v21 == v22 )
               {
-                *((_DWORD *)v8 + 70) = v16;
-                *((_DWORD *)v8 + 71) = v15[6];
+                *((_DWORD *)v8 + 68) = v16;
+                *((_DWORD *)v8 + 69) = v15[6];
               }
               else if ( v16 >= v21 )
               {
                 if ( v19 > v22 )
-                  *((_DWORD *)v8 + 71) = v19;
+                  *((_DWORD *)v8 + 69) = v19;
               }
               else
               {
-                *((_DWORD *)v8 + 70) = v16;
+                *((_DWORD *)v8 + 68) = v16;
               }
-              v23 = v8 + 31;
+              v23 = v8 + 30;
             }
             v24 = (ULONG_PTR **)v23[1];
             if ( *v24 != v23 )

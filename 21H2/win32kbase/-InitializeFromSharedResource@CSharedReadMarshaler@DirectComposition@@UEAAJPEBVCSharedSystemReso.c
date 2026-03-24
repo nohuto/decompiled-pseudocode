@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeFromSharedResource@CSharedReadMarshaler@DirectComposition@@UEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00AF820
+ * XREFs of ?InitializeFromSharedResource@CSharedReadMarshaler@DirectComposition@@UEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C009B3D0
  * Callers:
- *     ?InitializeFromSharedResource@CSharedReadCompositionLightMarshaler@DirectComposition@@MEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00AF800 (-InitializeFromSharedResource@CSharedReadCompositionLightMarshaler@DirectComposition@@MEAAJPEBVC.c)
+ *     ?InitializeFromSharedResource@CSharedReadCompositionLightMarshaler@DirectComposition@@MEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C009B3B0 (-InitializeFromSharedResource@CSharedReadCompositionLightMarshaler@DirectComposition@@MEAAJPEBVC.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ NTSTATUS __fastcall DirectComposition::CSharedReadMarshaler::InitializeFromShare
   result = ObReferenceObjectByPointer((char *)a2 - 24, 3u, ExCompositionObjectType, 0);
   if ( result >= 0 )
   {
-    *((_QWORD *)this + 8) = a2;
-    *((_DWORD *)this + 18) = *((_DWORD *)a2 + 3);
+    *((_QWORD *)this + 7) = a2;
+    *((_DWORD *)this + 16) = *((_DWORD *)a2 + 3);
   }
   return result;
 }

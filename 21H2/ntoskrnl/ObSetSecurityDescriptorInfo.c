@@ -1,18 +1,18 @@
 /*
- * XREFs of ObSetSecurityDescriptorInfo @ 0x1407255D0
+ * XREFs of ObSetSecurityDescriptorInfo @ 0x14065F2B0
  * Callers:
- *     WmipSecurityMethod @ 0x1406BB860 (WmipSecurityMethod.c)
- *     SeDefaultObjectMethod @ 0x140725080 (SeDefaultObjectMethod.c)
+ *     SeDefaultObjectMethod @ 0x14065FC50 (SeDefaultObjectMethod.c)
+ *     WmipSecurityMethod @ 0x14069D030 (WmipSecurityMethod.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObLogSecurityDescriptor @ 0x140724E60 (ObLogSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x140725730 (ObDereferenceSecurityDescriptor.c)
- *     ObAdjustSecurityQuota @ 0x140725858 (ObAdjustSecurityQuota.c)
- *     SeSetSecurityDescriptorInfo @ 0x1407258E0 (SeSetSecurityDescriptorInfo.c)
- *     SeComputeQuotaInformationSize @ 0x140725930 (SeComputeQuotaInformationSize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     SeSetSecurityDescriptorInfo @ 0x14065F260 (SeSetSecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ObAdjustSecurityQuota @ 0x14065FB48 (ObAdjustSecurityQuota.c)
+ *     SeComputeQuotaInformationSize @ 0x14065FBD0 (SeComputeQuotaInformationSize.c)
+ *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObSetSecurityDescriptorInfo(
@@ -25,17 +25,18 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v7; // esi
-  void *v11; // r14
-  int v12; // ebx
-  char v13; // al
-  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-8h] BYREF
-  unsigned int v17; // [rsp+70h] [rbp+30h] BYREF
+  void *v11; // rbp
+  NTSTATUS v12; // ebx
+  __int64 v13; // rax
+  char v14; // al
+  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-20h]
+  unsigned int v18; // [rsp+60h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v7 = 0;
-  v17 = 0;
-  v16 = 0LL;
+  v18 = 0;
+  v17 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object - 4), 0LL);
   v11 = (void *)(*(Object - 1) & 0xFFFFFFFFFFFFFFF0uLL);
@@ -53,27 +54,30 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
   }
   else
   {
-    v12 = ObLogSecurityDescriptor((char *)ObjectsSecurityDescriptor, &v16, 0x10u);
+    v12 = ObLogSecurityDescriptor(ObjectsSecurityDescriptor);
     if ( v12 >= 0 )
     {
-      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v17);
+      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v18);
       if ( v12 >= 0 )
       {
-        v12 = ObAdjustSecurityQuota(Object, v17);
+        v12 = ObAdjustSecurityQuota(Object, v18);
         if ( v12 >= 0 )
         {
-          v13 = _InterlockedExchange64(Object - 1, (v16 | 0xF) & -(__int64)(v16 != 0));
-          v16 = 0LL;
+          v13 = 0LL;
+          if ( v17 )
+            v13 = v17 | 0xF;
+          v14 = _InterlockedExchange64(Object - 1, v13);
+          v17 = 0LL;
           if ( v11 )
-            v7 = (v13 & 0xF) + 1;
+            v7 = (v14 & 0xF) + 1;
         }
       }
     }
   }
   ExReleasePushLockEx((ULONG_PTR)(Object - 4), 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  if ( v16 )
-    ObDereferenceSecurityDescriptor(v16, 16LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v17 )
+    ObDereferenceSecurityDescriptor(v17, 16LL);
   if ( v11 && v7 )
     ObDereferenceSecurityDescriptor(v11, v7);
   if ( ObjectsSecurityDescriptor )

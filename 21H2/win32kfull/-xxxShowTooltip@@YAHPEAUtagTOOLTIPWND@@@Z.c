@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C023E738
+ * XREFs of ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0242C3C
  * Callers:
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     xxxSetWindowPosAndBand @ 0x1C0048AFC (xxxSetWindowPosAndBand.c)
- *     wcsncpycch @ 0x1C00D50E0 (wcsncpycch.c)
- *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C023E868 (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
+ *     wcsncpycch @ 0x1C002467C (wcsncpycch.c)
+ *     xxxSetWindowPosAndBand @ 0x1C006BDD0 (xxxSetWindowPosAndBand.c)
+ *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C0242D6C (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
  */
 
 __int64 __fastcall xxxShowTooltip(struct tagTOOLTIPWND *a1)
@@ -35,7 +35,7 @@ __int64 __fastcall xxxShowTooltip(struct tagTOOLTIPWND *a1)
     if ( (*(_BYTE *)(v5 + 23) & 8) == 0 || !*(_DWORD *)(v5 + 184) )
       return 0LL;
     wcsncpycch(gszCAPTIONTOOLTIP, *(_QWORD *)(v4 + 184), 99);
-    word_1C0338156 = 0;
+    word_1C033DDF6 = 0;
   }
   if ( !(unsigned int)xxxTooltipGetSizeAndPosition(a1, &v9, &v10) )
     return 0LL;

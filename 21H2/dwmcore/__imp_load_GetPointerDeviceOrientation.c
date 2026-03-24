@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_GetPointerDeviceOrientation @ 0x1801026F7
+ * XREFs of __imp_load_GetPointerDeviceOrientation @ 0x1800E8B7F
  * Callers:
  *     <none>
  * Callees:

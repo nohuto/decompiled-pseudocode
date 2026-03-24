@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_Tidy@?$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V?$allocator@UItemIdParameterIndex@BamoImpl@Microsoft@@@std@@@std@@AEAAXXZ @ 0x1801BC0EC
+ * XREFs of ?_Tidy@?$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V?$allocator@UItemIdParameterIndex@BamoImpl@Microsoft@@@std@@@std@@AEAAXXZ @ 0x180167758
  * Callers:
- *     ??1BufferingMessageCallHost@BamoImpl@Microsoft@@UEAA@XZ @ 0x1801B8D98 (--1BufferingMessageCallHost@BamoImpl@Microsoft@@UEAA@XZ.c)
- *     ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801BB4F0 (-SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
+ *     ??_GBufferingMessageCallHost@BamoImpl@Microsoft@@UEAAPEAXI@Z @ 0x180165950 (--_GBufferingMessageCallHost@BamoImpl@Microsoft@@UEAAPEAXI@Z.c)
+ *     ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x180166FF0 (-SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 void __fastcall std::vector<Microsoft::BamoImpl::ItemIdParameterIndex>::_Tidy(__int64 a1)
@@ -14,7 +14,7 @@ void __fastcall std::vector<Microsoft::BamoImpl::ItemIdParameterIndex>::_Tidy(__
   v2 = *(void **)a1;
   if ( v2 )
   {
-    std::_Deallocate<16,0>(v2, 4 * ((__int64)(*(_QWORD *)(a1 + 16) - (_QWORD)v2) >> 2));
+    std::_Deallocate<16,0>(v2, 12 * ((*(_QWORD *)(a1 + 16) - (_QWORD)v2) / 12LL));
     *(_QWORD *)a1 = 0LL;
     *(_QWORD *)(a1 + 8) = 0LL;
     *(_QWORD *)(a1 + 16) = 0LL;

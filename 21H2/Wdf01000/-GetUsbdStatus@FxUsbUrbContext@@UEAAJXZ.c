@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUsbdStatus@FxUsbUrbContext@@UEAAJXZ @ 0x1C0039150
+ * XREFs of ?GetUsbdStatus@FxUsbUrbContext@@UEAAJXZ @ 0x1C006D3B0
  * Callers:
  *     <none>
  * Callees:

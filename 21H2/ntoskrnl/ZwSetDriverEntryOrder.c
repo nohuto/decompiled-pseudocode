@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetDriverEntryOrder @ 0x14041EAA0
+ * XREFs of ZwSetDriverEntryOrder @ 0x1403FD5E0
  * Callers:
- *     DifZwSetDriverEntryOrderWrapper @ 0x140626CA0 (DifZwSetDriverEntryOrderWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

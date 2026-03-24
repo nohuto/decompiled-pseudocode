@@ -1,40 +1,40 @@
 /*
- * XREFs of ?vConstructor@DEVLOCKOBJ_WNDOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C027A034
+ * XREFs of ?vConstructor@DEVLOCKOBJ_WNDOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C027C4C4
  * Callers:
- *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027916C (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027B5C0 (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     UserGetHwnd @ 0x1C01E3288 (UserGetHwnd.c)
+ *     UserGetHwnd @ 0x1C01E8BDC (UserGetHwnd.c)
  */
 
-void __fastcall DEVLOCKOBJ_WNDOBJ::vConstructor(DEVLOCKOBJ_WNDOBJ *this, struct XDCOBJ *a2)
+void __fastcall DEVLOCKOBJ_WNDOBJ::vConstructor(DEVLOCKOBJ_WNDOBJ *this, struct XDCOBJ *a2, __int64 a3)
 {
-  int v2; // ebp
-  __int64 *v3; // rsi
-  __int64 v6; // rcx
-  __int64 *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // ebp
+  __int64 *v4; // rsi
+  __int64 v7; // rcx
+  __int64 *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *((_DWORD *)this + 30);
-  v3 = (__int64 *)((char *)this + 112);
+  v3 = *((_DWORD *)this + 30);
+  v4 = (__int64 *)((char *)this + 112);
   *((_QWORD *)this + 14) = 0LL;
-  UserEnterUserCritSec();
+  UserEnterUserCritSec(this, a2, a3);
   DEVLOCKOBJ::bLock(this, a2, 0);
-  v6 = *(_QWORD *)a2;
-  if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 1) == 0 || *(_DWORD *)(v6 + 32) )
+  v7 = *(_QWORD *)a2;
+  if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 1) == 0 || *(_DWORD *)(v7 + 32) )
   {
-    v8 = *(_QWORD *)(v6 + 496);
-    if ( v8 )
-      v8 = *(_QWORD *)(v8 + 136);
-    *v3 = v8;
+    v9 = *(_QWORD *)(v7 + 496);
+    if ( v9 )
+      v9 = *(_QWORD *)(v9 + 136);
+    *v4 = v9;
   }
   else
   {
-    v7 = *(__int64 **)v6;
-    v9 = 0LL;
-    if ( !(unsigned int)UserGetHwnd(v7, &v9, v3) )
+    v8 = *(__int64 **)v7;
+    v10 = 0LL;
+    if ( !(unsigned int)UserGetHwnd(v8, &v10, v4) )
       EngSetLastError(6u);
   }
-  if ( !v2 )
+  if ( !v3 )
     UserLeaveUserCritSec();
 }

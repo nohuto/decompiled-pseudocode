@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpChannelInitializeStaticConfiguration @ 0x140AFA5EC
+ * XREFs of HalpChannelInitializeStaticConfiguration @ 0x140A64240
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140AFA320 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140A63F94 (HalpInitializeConfigurationFromMadt.c)
  * Callees:
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     HalpValidateMpns @ 0x14090AFC8 (HalpValidateMpns.c)
- *     HalpSelectFeasibleLowPowerState @ 0x140B4D5C8 (HalpSelectFeasibleLowPowerState.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     HalpValidateMpns @ 0x140866CC0 (HalpValidateMpns.c)
+ *     HalpSelectFeasibleLowPowerState @ 0x140A8DA78 (HalpSelectFeasibleLowPowerState.c)
  */
 
 void HalpChannelInitializeStaticConfiguration()

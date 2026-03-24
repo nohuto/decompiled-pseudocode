@@ -1,563 +1,492 @@
 /*
- * XREFs of InitMessageTables @ 0x1C03B3E60
+ * XREFs of InitMessageTables @ 0x1C0392D70
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
  */
 
-__int64 InitMessageTables()
+__int64 __fastcall InitMessageTables(int a1)
 {
-  char v0; // dl
-  unsigned __int16 v1; // di
-  __int64 v2; // r8
+  __int64 v1; // rdx
+  unsigned __int16 v2; // di
   unsigned __int16 v3; // ax
-  unsigned int v4; // edx
-  unsigned int v5; // ecx
-  __int64 v6; // rax
-  __int64 v7; // r9
-  unsigned __int16 v8; // di
-  __int64 v9; // r8
-  unsigned __int16 v10; // ax
-  unsigned int v11; // edx
-  unsigned int v12; // ecx
-  __int64 v13; // rax
-  __int64 v14; // r9
-  unsigned __int16 v15; // di
-  __int64 v16; // r8
-  unsigned __int16 v17; // ax
-  unsigned int v18; // edx
-  unsigned int v19; // ecx
-  __int64 v20; // rax
-  __int64 v21; // r9
-  __int64 v22; // r8
-  unsigned __int16 v23; // ax
-  unsigned int v24; // edx
-  unsigned int v25; // ecx
-  __int64 v26; // rax
-  __int64 v27; // r9
-  unsigned __int16 v28; // ax
-  unsigned __int16 v29; // di
-  __int64 v30; // r8
-  unsigned __int16 v31; // ax
-  unsigned int v32; // edx
-  unsigned int v33; // ecx
-  __int64 v34; // rax
-  __int64 v35; // r9
-  unsigned __int16 v36; // di
-  __int64 v37; // r8
-  unsigned __int16 v38; // ax
-  unsigned int v39; // edx
+  unsigned int v4; // ecx
+  __int64 v5; // rax
+  __int64 v6; // r9
+  unsigned __int16 v7; // di
+  __int64 v8; // rdx
+  unsigned __int16 v9; // ax
+  unsigned int v10; // ecx
+  __int64 v11; // rax
+  __int64 v12; // r9
+  unsigned __int16 v13; // di
+  __int64 v14; // rdx
+  unsigned __int16 v15; // ax
+  unsigned int v16; // ecx
+  __int64 v17; // rax
+  __int64 v18; // r9
+  __int64 v19; // rdx
+  unsigned __int16 v20; // ax
+  unsigned int v21; // ecx
+  __int64 v22; // rax
+  __int64 v23; // r9
+  unsigned __int16 v24; // ax
+  unsigned __int16 v25; // di
+  __int64 v26; // rdx
+  unsigned __int16 v27; // ax
+  unsigned int v28; // ecx
+  __int64 v29; // rax
+  __int64 v30; // r9
+  unsigned __int16 v31; // di
+  __int64 v32; // rdx
+  unsigned __int16 v33; // ax
+  unsigned int v34; // ecx
+  __int64 v35; // rax
+  __int64 v36; // r9
+  unsigned __int16 v37; // di
+  __int64 v38; // rdx
+  unsigned __int16 v39; // ax
   unsigned int v40; // ecx
   __int64 v41; // rax
   __int64 v42; // r9
   unsigned __int16 v43; // di
-  __int64 v44; // r8
+  __int64 v44; // rdx
   unsigned __int16 v45; // ax
-  unsigned int v46; // edx
-  unsigned int v47; // ecx
-  __int64 v48; // rax
-  __int64 v49; // r9
-  unsigned __int16 v50; // di
-  __int64 v51; // r8
-  unsigned __int16 v52; // ax
-  unsigned int v53; // edx
-  unsigned int v54; // ecx
-  __int64 v55; // rax
-  __int64 v56; // r9
-  unsigned __int16 v57; // di
-  __int64 v58; // r8
-  unsigned __int16 v59; // ax
-  unsigned int v60; // edx
-  unsigned int v61; // ecx
-  __int64 v62; // rax
-  __int64 v63; // r9
-  unsigned __int16 v64; // ax
-  unsigned __int16 v65; // si
-  __int64 v66; // r8
-  unsigned __int16 v67; // ax
-  unsigned int v68; // edx
-  unsigned int v69; // ecx
-  __int64 v70; // rax
-  __int64 v71; // r9
-  __int64 v72; // r8
-  unsigned __int16 v73; // ax
-  unsigned int v74; // edx
-  unsigned int v75; // ecx
-  __int64 v76; // rax
-  __int64 v77; // r9
-  unsigned __int16 v78; // di
-  __int64 v79; // r8
-  unsigned __int16 v80; // ax
-  unsigned int v81; // edx
+  unsigned int v46; // ecx
+  __int64 v47; // rax
+  __int64 v48; // r9
+  unsigned __int16 v49; // di
+  __int64 v50; // rdx
+  unsigned __int16 v51; // ax
+  unsigned int v52; // ecx
+  __int64 v53; // rax
+  __int64 v54; // r9
+  unsigned __int16 v55; // ax
+  unsigned __int16 v56; // si
+  __int64 v57; // rdx
+  unsigned __int16 v58; // ax
+  unsigned int v59; // ecx
+  __int64 v60; // rax
+  __int64 v61; // r9
+  __int64 v62; // rdx
+  unsigned __int16 v63; // ax
+  unsigned int v64; // ecx
+  __int64 v65; // rax
+  __int64 v66; // r9
+  unsigned __int16 v67; // di
+  __int64 v68; // rdx
+  unsigned __int16 v69; // ax
+  unsigned int v70; // ecx
+  __int64 v71; // rax
+  __int64 v72; // r9
+  unsigned __int16 v73; // di
+  __int64 v74; // rdx
+  unsigned __int16 v75; // ax
+  unsigned int v76; // ecx
+  __int64 v77; // rax
+  __int64 v78; // r9
+  unsigned __int16 v79; // di
+  __int64 v80; // rdx
+  unsigned __int16 v81; // ax
   unsigned int v82; // ecx
-  __int64 v83; // rax
-  __int64 v84; // r9
-  unsigned __int16 v85; // di
-  __int64 v86; // r8
-  unsigned __int16 v87; // ax
-  unsigned int v88; // edx
-  unsigned int v89; // ecx
-  __int64 v90; // rax
-  __int64 v91; // r9
-  unsigned __int16 v92; // di
-  __int64 v93; // r8
-  unsigned __int16 v94; // ax
-  unsigned int v95; // edx
-  unsigned int v96; // ecx
   __int64 result; // rax
-  __int64 v98; // r9
+  __int64 v84; // r9
 
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) == 0
-    || (v0 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v0 = 0;
-  }
-  if ( v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      12,
-      4,
-      3,
-      12,
-      (__int64)&WPP_1c171ce113663c9ff9c000b7a1ac03c0_Traceguids);
-  v1 = 51;
-  LODWORD(v2) = 0;
-  v3 = 51;
-  v4 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(a1, 4, 3, 12, (__int64)&WPP_5beb818f3182338190d7890059714f79_Traceguids);
+  LODWORD(v1) = 0;
   LODWORD(gSharedInfo[67]) = 0;
+  v2 = 51;
+  v3 = 51;
   do
   {
-    v5 = v4;
-    if ( v3 > v4 )
-    {
+    v4 = v3;
+    if ( (unsigned int)v3 > LODWORD(gSharedInfo[67]) )
       LODWORD(gSharedInfo[67]) = v3;
-      v5 = v3;
-    }
-    v2 = (unsigned int)(v2 + 1);
-    v4 = v5;
-    v3 = word_1C0312960[v2];
+    else
+      v4 = gSharedInfo[67];
+    v1 = (unsigned int)(v1 + 1);
+    v3 = word_1C02E7730[v1];
   }
   while ( v3 );
-  v6 = SharedAlloc((v5 >> 3) + 1, v5);
-  gSharedInfo[68] = v6;
-  if ( v6 )
+  v5 = SharedAlloc((v4 >> 3) + 1);
+  gSharedInfo[68] = v5;
+  if ( v5 )
   {
-    LODWORD(v7) = 0;
+    LODWORD(v6) = 0;
     do
     {
-      v7 = (unsigned int)(v7 + 1);
-      *(_BYTE *)(((unsigned __int64)v1 >> 3) + gSharedInfo[68]) |= 1 << (v1 & 7);
-      v1 = word_1C0312960[v7];
+      v6 = (unsigned int)(v6 + 1);
+      *(_BYTE *)(((unsigned __int64)v2 >> 3) + gSharedInfo[68]) |= 1 << (v2 & 7);
+      v2 = word_1C02E7730[v6];
     }
-    while ( v1 );
+    while ( v2 );
   }
-  v8 = 6;
-  LODWORD(v9) = 0;
-  v10 = 6;
-  v11 = 0;
+  v7 = 6;
+  LODWORD(v8) = 0;
+  v9 = 6;
   LODWORD(gSharedInfo[69]) = 0;
   do
   {
-    v12 = v11;
-    if ( v10 > v11 )
-    {
-      LODWORD(gSharedInfo[69]) = v10;
-      v12 = v10;
-    }
-    v9 = (unsigned int)(v9 + 1);
-    v11 = v12;
-    v10 = word_1C03129C0[v9];
+    v10 = v9;
+    if ( (unsigned int)v9 > LODWORD(gSharedInfo[69]) )
+      LODWORD(gSharedInfo[69]) = v9;
+    else
+      v10 = gSharedInfo[69];
+    v8 = (unsigned int)(v8 + 1);
+    v9 = word_1C02E7690[v8];
   }
-  while ( v10 );
-  v13 = SharedAlloc((v12 >> 3) + 1, v12);
-  gSharedInfo[70] = v13;
-  if ( v13 )
+  while ( v9 );
+  v11 = SharedAlloc((v10 >> 3) + 1);
+  gSharedInfo[70] = v11;
+  if ( v11 )
   {
-    LODWORD(v14) = 0;
+    LODWORD(v12) = 0;
     do
     {
-      v14 = (unsigned int)(v14 + 1);
-      *(_BYTE *)(((unsigned __int64)v8 >> 3) + gSharedInfo[70]) |= 1 << (v8 & 7);
-      v8 = word_1C03129C0[v14];
+      v12 = (unsigned int)(v12 + 1);
+      *(_BYTE *)(((unsigned __int64)v7 >> 3) + gSharedInfo[70]) |= 1 << (v7 & 7);
+      v7 = word_1C02E7690[v12];
     }
-    while ( v8 );
+    while ( v7 );
   }
+  v13 = 57;
+  LODWORD(v14) = 0;
   v15 = 57;
-  LODWORD(v16) = 0;
-  v17 = 57;
-  v18 = 0;
   LODWORD(gSharedInfo[25]) = 0;
   do
   {
-    v19 = v18;
-    if ( v17 > v18 )
-    {
-      LODWORD(gSharedInfo[25]) = v17;
-      v19 = v17;
-    }
-    v16 = (unsigned int)(v16 + 1);
-    v18 = v19;
-    v17 = word_1C0312DD0[v16];
+    v16 = v15;
+    if ( (unsigned int)v15 > LODWORD(gSharedInfo[25]) )
+      LODWORD(gSharedInfo[25]) = v15;
+    else
+      v16 = gSharedInfo[25];
+    v14 = (unsigned int)(v14 + 1);
+    v15 = word_1C02E7B00[v14];
   }
-  while ( v17 );
-  v20 = SharedAlloc((v19 >> 3) + 1, v19);
-  gSharedInfo[26] = v20;
-  if ( v20 )
+  while ( v15 );
+  v17 = SharedAlloc((v16 >> 3) + 1);
+  gSharedInfo[26] = v17;
+  if ( v17 )
   {
-    LODWORD(v21) = 0;
+    LODWORD(v18) = 0;
     do
     {
-      v21 = (unsigned int)(v21 + 1);
-      *(_BYTE *)(((unsigned __int64)v15 >> 3) + gSharedInfo[26]) |= 1 << (v15 & 7);
-      v15 = word_1C0312DD0[v21];
+      v18 = (unsigned int)(v18 + 1);
+      *(_BYTE *)(((unsigned __int64)v13 >> 3) + gSharedInfo[26]) |= 1 << (v13 & 7);
+      v13 = word_1C02E7B00[v18];
     }
-    while ( v15 );
+    while ( v13 );
   }
-  LODWORD(v22) = 0;
-  v23 = 1;
-  v24 = 0;
+  LODWORD(v19) = 0;
+  v20 = 1;
   LODWORD(gSharedInfo[5]) = 0;
   do
   {
-    v25 = v24;
-    if ( v23 > v24 )
-    {
-      LODWORD(gSharedInfo[5]) = v23;
-      v25 = v23;
-    }
-    v22 = (unsigned int)(v22 + 1);
-    v24 = v25;
-    v23 = word_1C0312D08[v22];
+    v21 = v20;
+    if ( (unsigned int)v20 > LODWORD(gSharedInfo[5]) )
+      LODWORD(gSharedInfo[5]) = v20;
+    else
+      v21 = gSharedInfo[5];
+    v19 = (unsigned int)(v19 + 1);
+    v20 = word_1C02E7A70[v19];
   }
-  while ( v23 );
-  v26 = SharedAlloc((v25 >> 3) + 1, v25);
-  gSharedInfo[6] = v26;
-  if ( v26 )
+  while ( v20 );
+  v22 = SharedAlloc((v21 >> 3) + 1);
+  gSharedInfo[6] = v22;
+  if ( v22 )
   {
-    LODWORD(v27) = 0;
-    v28 = 1;
+    LODWORD(v23) = 0;
+    v24 = 1;
     do
     {
-      v27 = (unsigned int)(v27 + 1);
-      *(_BYTE *)(((unsigned __int64)v28 >> 3) + gSharedInfo[6]) |= 1 << (v28 & 7);
-      v28 = word_1C0312D08[v27];
+      v23 = (unsigned int)(v23 + 1);
+      *(_BYTE *)(((unsigned __int64)v24 >> 3) + gSharedInfo[6]) |= 1 << (v24 & 7);
+      v24 = word_1C02E7A70[v23];
     }
-    while ( v28 );
+    while ( v24 );
   }
-  v29 = 129;
-  LODWORD(v30) = 0;
-  v31 = 129;
-  v32 = 0;
+  v25 = 129;
+  LODWORD(v26) = 0;
+  v27 = 129;
   LODWORD(gSharedInfo[9]) = 0;
   do
   {
-    v33 = v32;
-    if ( v31 > v32 )
-    {
-      LODWORD(gSharedInfo[9]) = v31;
-      v33 = v31;
-    }
-    v30 = (unsigned int)(v30 + 1);
-    v32 = v33;
-    v31 = word_1C0312D70[v30];
+    v28 = v27;
+    if ( (unsigned int)v27 > LODWORD(gSharedInfo[9]) )
+      LODWORD(gSharedInfo[9]) = v27;
+    else
+      v28 = gSharedInfo[9];
+    v26 = (unsigned int)(v26 + 1);
+    v27 = word_1C02E7AB0[v26];
   }
-  while ( v31 );
-  v34 = SharedAlloc((v33 >> 3) + 1, v33);
-  gSharedInfo[10] = v34;
-  if ( v34 )
+  while ( v27 );
+  v29 = SharedAlloc((v28 >> 3) + 1);
+  gSharedInfo[10] = v29;
+  if ( v29 )
   {
-    LODWORD(v35) = 0;
+    LODWORD(v30) = 0;
     do
     {
-      v35 = (unsigned int)(v35 + 1);
-      *(_BYTE *)(((unsigned __int64)v29 >> 3) + gSharedInfo[10]) |= 1 << (v29 & 7);
-      v29 = word_1C0312D70[v35];
+      v30 = (unsigned int)(v30 + 1);
+      *(_BYTE *)(((unsigned __int64)v25 >> 3) + gSharedInfo[10]) |= 1 << (v25 & 7);
+      v25 = word_1C02E7AB0[v30];
     }
-    while ( v29 );
+    while ( v25 );
   }
-  v36 = 15;
-  LODWORD(v37) = 0;
-  v38 = 15;
-  v39 = 0;
+  v31 = 15;
+  LODWORD(v32) = 0;
+  v33 = 15;
   LODWORD(gSharedInfo[11]) = 0;
   do
   {
-    v40 = v39;
-    if ( v38 > v39 )
-    {
-      LODWORD(gSharedInfo[11]) = v38;
-      v40 = v38;
-    }
-    v37 = (unsigned int)(v37 + 1);
-    v39 = v40;
-    v38 = word_1C0312DC0[v37];
+    v34 = v33;
+    if ( (unsigned int)v33 > LODWORD(gSharedInfo[11]) )
+      LODWORD(gSharedInfo[11]) = v33;
+    else
+      v34 = gSharedInfo[11];
+    v32 = (unsigned int)(v32 + 1);
+    v33 = word_1C02E7AA0[v32];
   }
-  while ( v38 );
-  v41 = SharedAlloc((v40 >> 3) + 1, v40);
-  gSharedInfo[12] = v41;
+  while ( v33 );
+  v35 = SharedAlloc((v34 >> 3) + 1);
+  gSharedInfo[12] = v35;
+  if ( v35 )
+  {
+    LODWORD(v36) = 0;
+    do
+    {
+      v36 = (unsigned int)(v36 + 1);
+      *(_BYTE *)(((unsigned __int64)v31 >> 3) + gSharedInfo[12]) |= 1 << (v31 & 7);
+      v31 = word_1C02E7AA0[v36];
+    }
+    while ( v31 );
+  }
+  v37 = 369;
+  LODWORD(v38) = 0;
+  v39 = 369;
+  LODWORD(gSharedInfo[33]) = 0;
+  do
+  {
+    v40 = v39;
+    if ( (unsigned int)v39 > LODWORD(gSharedInfo[33]) )
+      LODWORD(gSharedInfo[33]) = v39;
+    else
+      v40 = gSharedInfo[33];
+    v38 = (unsigned int)(v38 + 1);
+    v39 = word_1C02E7A38[v38];
+  }
+  while ( v39 );
+  v41 = SharedAlloc((v40 >> 3) + 1);
+  gSharedInfo[34] = v41;
   if ( v41 )
   {
     LODWORD(v42) = 0;
     do
     {
       v42 = (unsigned int)(v42 + 1);
-      *(_BYTE *)(((unsigned __int64)v36 >> 3) + gSharedInfo[12]) |= 1 << (v36 & 7);
-      v36 = word_1C0312DC0[v42];
+      *(_BYTE *)(((unsigned __int64)v37 >> 3) + gSharedInfo[34]) |= 1 << (v37 & 7);
+      v37 = word_1C02E7A38[v42];
     }
-    while ( v36 );
+    while ( v37 );
   }
-  v43 = 369;
+  v43 = 132;
   LODWORD(v44) = 0;
-  v45 = 369;
-  v46 = 0;
-  LODWORD(gSharedInfo[33]) = 0;
-  do
-  {
-    v47 = v46;
-    if ( v45 > v46 )
-    {
-      LODWORD(gSharedInfo[33]) = v45;
-      v47 = v45;
-    }
-    v44 = (unsigned int)(v44 + 1);
-    v46 = v47;
-    v45 = word_1C0312D38[v44];
-  }
-  while ( v45 );
-  v48 = SharedAlloc((v47 >> 3) + 1, v47);
-  gSharedInfo[34] = v48;
-  if ( v48 )
-  {
-    LODWORD(v49) = 0;
-    do
-    {
-      v49 = (unsigned int)(v49 + 1);
-      *(_BYTE *)(((unsigned __int64)v43 >> 3) + gSharedInfo[34]) |= 1 << (v43 & 7);
-      v43 = word_1C0312D38[v49];
-    }
-    while ( v43 );
-  }
-  v50 = 132;
-  LODWORD(v51) = 0;
-  v52 = 132;
-  v53 = 0;
+  v45 = 132;
   LODWORD(gSharedInfo[19]) = 0;
   do
   {
-    v54 = v53;
-    if ( v52 > v53 )
-    {
-      LODWORD(gSharedInfo[19]) = v52;
-      v54 = v52;
-    }
-    v51 = (unsigned int)(v51 + 1);
-    v53 = v54;
-    v52 = word_1C0312C00[v51];
+    v46 = v45;
+    if ( (unsigned int)v45 > LODWORD(gSharedInfo[19]) )
+      LODWORD(gSharedInfo[19]) = v45;
+    else
+      v46 = gSharedInfo[19];
+    v44 = (unsigned int)(v44 + 1);
+    v45 = word_1C02E79F0[v44];
   }
-  while ( v52 );
-  v55 = SharedAlloc((v54 >> 3) + 1, v54);
-  gSharedInfo[20] = v55;
-  if ( v55 )
+  while ( v45 );
+  v47 = SharedAlloc((v46 >> 3) + 1);
+  gSharedInfo[20] = v47;
+  if ( v47 )
   {
-    LODWORD(v56) = 0;
+    LODWORD(v48) = 0;
     do
     {
-      v56 = (unsigned int)(v56 + 1);
-      *(_BYTE *)(((unsigned __int64)v50 >> 3) + gSharedInfo[20]) |= 1 << (v50 & 7);
-      v50 = word_1C0312C00[v56];
+      v48 = (unsigned int)(v48 + 1);
+      *(_BYTE *)(((unsigned __int64)v43 >> 3) + gSharedInfo[20]) |= 1 << (v43 & 7);
+      v43 = word_1C02E79F0[v48];
     }
-    while ( v50 );
+    while ( v43 );
   }
-  v57 = 398;
-  LODWORD(v58) = 0;
-  v59 = 398;
-  v60 = 0;
+  v49 = 398;
+  LODWORD(v50) = 0;
+  v51 = 398;
   LODWORD(gSharedInfo[29]) = 0;
   do
   {
-    v61 = v60;
-    if ( v59 > v60 )
-    {
-      LODWORD(gSharedInfo[29]) = v59;
-      v61 = v59;
-    }
-    v58 = (unsigned int)(v58 + 1);
-    v60 = v61;
-    v59 = word_1C0312C50[v58];
+    v52 = v51;
+    if ( (unsigned int)v51 > LODWORD(gSharedInfo[29]) )
+      LODWORD(gSharedInfo[29]) = v51;
+    else
+      v52 = gSharedInfo[29];
+    v50 = (unsigned int)(v50 + 1);
+    v51 = word_1C02E7930[v50];
   }
-  while ( v59 );
-  v62 = SharedAlloc((v61 >> 3) + 1, v61);
-  gSharedInfo[30] = v62;
-  if ( v62 )
+  while ( v51 );
+  v53 = SharedAlloc((v52 >> 3) + 1);
+  gSharedInfo[30] = v53;
+  if ( v53 )
   {
-    LODWORD(v63) = 0;
-    v64 = 398;
+    LODWORD(v54) = 0;
+    v55 = 398;
     do
     {
-      v63 = (unsigned int)(v63 + 1);
-      *(_BYTE *)(((unsigned __int64)v64 >> 3) + gSharedInfo[30]) |= 1 << (v64 & 7);
-      v64 = word_1C0312C50[v63];
+      v54 = (unsigned int)(v54 + 1);
+      *(_BYTE *)(((unsigned __int64)v55 >> 3) + gSharedInfo[30]) |= 1 << (v55 & 7);
+      v55 = word_1C02E7930[v54];
     }
-    while ( v64 );
+    while ( v55 );
   }
-  v65 = 359;
-  LODWORD(v66) = 0;
-  v67 = 359;
-  v68 = 0;
+  v56 = 359;
+  LODWORD(v57) = 0;
+  v58 = 359;
   LODWORD(gSharedInfo[21]) = 0;
   do
   {
-    v69 = v68;
-    if ( v67 > v68 )
-    {
-      LODWORD(gSharedInfo[21]) = v67;
-      v69 = v67;
-    }
-    v66 = (unsigned int)(v66 + 1);
-    v68 = v69;
-    v67 = word_1C0312A90[v66];
+    v59 = v58;
+    if ( (unsigned int)v58 > LODWORD(gSharedInfo[21]) )
+      LODWORD(gSharedInfo[21]) = v58;
+    else
+      v59 = gSharedInfo[21];
+    v57 = (unsigned int)(v57 + 1);
+    v58 = word_1C02E7880[v57];
   }
-  while ( v67 );
-  v70 = SharedAlloc((v69 >> 3) + 1, v69);
-  gSharedInfo[22] = v70;
-  if ( v70 )
+  while ( v58 );
+  v60 = SharedAlloc((v59 >> 3) + 1);
+  gSharedInfo[22] = v60;
+  if ( v60 )
   {
-    LODWORD(v71) = 0;
+    LODWORD(v61) = 0;
     do
     {
-      v71 = (unsigned int)(v71 + 1);
-      *(_BYTE *)(((unsigned __int64)v65 >> 3) + gSharedInfo[22]) |= 1 << (v65 & 7);
-      v65 = word_1C0312A90[v71];
+      v61 = (unsigned int)(v61 + 1);
+      *(_BYTE *)(((unsigned __int64)v56 >> 3) + gSharedInfo[22]) |= 1 << (v56 & 7);
+      v56 = word_1C02E7880[v61];
     }
-    while ( v65 );
+    while ( v56 );
   }
-  LODWORD(v72) = 0;
-  v73 = 398;
-  v74 = 0;
+  LODWORD(v62) = 0;
+  v63 = 398;
   LODWORD(gSharedInfo[23]) = 0;
   do
   {
-    v75 = v74;
-    if ( v73 > v74 )
-    {
-      LODWORD(gSharedInfo[23]) = v73;
-      v75 = v73;
-    }
-    v72 = (unsigned int)(v72 + 1);
-    v74 = v75;
-    v73 = word_1C0312C50[v72];
+    v64 = v63;
+    if ( (unsigned int)v63 > LODWORD(gSharedInfo[23]) )
+      LODWORD(gSharedInfo[23]) = v63;
+    else
+      v64 = gSharedInfo[23];
+    v62 = (unsigned int)(v62 + 1);
+    v63 = word_1C02E7930[v62];
   }
-  while ( v73 );
-  v76 = SharedAlloc((v75 >> 3) + 1, v75);
-  gSharedInfo[24] = v76;
-  if ( v76 )
+  while ( v63 );
+  v65 = SharedAlloc((v64 >> 3) + 1);
+  gSharedInfo[24] = v65;
+  if ( v65 )
   {
-    LODWORD(v77) = 0;
+    LODWORD(v66) = 0;
     do
     {
-      v77 = (unsigned int)(v77 + 1);
-      *(_BYTE *)(((unsigned __int64)v57 >> 3) + gSharedInfo[24]) |= 1 << (v57 & 7);
-      v57 = word_1C0312C50[v77];
+      v66 = (unsigned int)(v66 + 1);
+      *(_BYTE *)(((unsigned __int64)v49 >> 3) + gSharedInfo[24]) |= 1 << (v49 & 7);
+      v49 = word_1C02E7930[v66];
     }
-    while ( v57 );
+    while ( v49 );
   }
-  v78 = 198;
-  LODWORD(v79) = 0;
-  v80 = 198;
-  v81 = 0;
+  v67 = 198;
+  LODWORD(v68) = 0;
+  v69 = 198;
   LODWORD(gSharedInfo[27]) = 0;
   do
   {
-    v82 = v81;
-    if ( v80 > v81 )
-    {
-      LODWORD(gSharedInfo[27]) = v80;
-      v82 = v80;
-    }
-    v79 = (unsigned int)(v79 + 1);
-    v81 = v82;
-    v80 = word_1C0312B40[v79];
+    v70 = v69;
+    if ( (unsigned int)v69 > LODWORD(gSharedInfo[27]) )
+      LODWORD(gSharedInfo[27]) = v69;
+    else
+      v70 = gSharedInfo[27];
+    v68 = (unsigned int)(v68 + 1);
+    v69 = word_1C02E77C0[v68];
   }
-  while ( v80 );
-  v83 = SharedAlloc((v82 >> 3) + 1, v82);
-  gSharedInfo[28] = v83;
-  if ( v83 )
+  while ( v69 );
+  v71 = SharedAlloc((v70 >> 3) + 1);
+  gSharedInfo[28] = v71;
+  if ( v71 )
+  {
+    LODWORD(v72) = 0;
+    do
+    {
+      v72 = (unsigned int)(v72 + 1);
+      *(_BYTE *)(((unsigned __int64)v67 >> 3) + gSharedInfo[28]) |= 1 << (v67 & 7);
+      v67 = word_1C02E77C0[v72];
+    }
+    while ( v67 );
+  }
+  v73 = 20;
+  LODWORD(v74) = 0;
+  v75 = 20;
+  LODWORD(gSharedInfo[35]) = 0;
+  do
+  {
+    v76 = v75;
+    if ( (unsigned int)v75 > LODWORD(gSharedInfo[35]) )
+      LODWORD(gSharedInfo[35]) = v75;
+    else
+      v76 = gSharedInfo[35];
+    v74 = (unsigned int)(v74 + 1);
+    v75 = word_1C02E7798[v74];
+  }
+  while ( v75 );
+  v77 = SharedAlloc((v76 >> 3) + 1);
+  gSharedInfo[36] = v77;
+  if ( v77 )
+  {
+    LODWORD(v78) = 0;
+    do
+    {
+      v78 = (unsigned int)(v78 + 1);
+      *(_BYTE *)(((unsigned __int64)v73 >> 3) + gSharedInfo[36]) |= 1 << (v73 & 7);
+      v73 = word_1C02E7798[v78];
+    }
+    while ( v73 );
+  }
+  v79 = 2;
+  LODWORD(v80) = 0;
+  v81 = 2;
+  LODWORD(gSharedInfo[37]) = 0;
+  do
+  {
+    v82 = v81;
+    if ( (unsigned int)v81 > LODWORD(gSharedInfo[37]) )
+      LODWORD(gSharedInfo[37]) = v81;
+    else
+      v82 = gSharedInfo[37];
+    v80 = (unsigned int)(v80 + 1);
+    v81 = word_1C02E7788[v80];
+  }
+  while ( v81 );
+  result = SharedAlloc((v82 >> 3) + 1);
+  gSharedInfo[38] = result;
+  if ( result )
   {
     LODWORD(v84) = 0;
     do
     {
       v84 = (unsigned int)(v84 + 1);
-      *(_BYTE *)(((unsigned __int64)v78 >> 3) + gSharedInfo[28]) |= 1 << (v78 & 7);
-      v78 = word_1C0312B40[v84];
+      result = v79 & 7;
+      *(_BYTE *)(((unsigned __int64)v79 >> 3) + gSharedInfo[38]) |= 1 << result;
+      v79 = word_1C02E7788[v84];
     }
-    while ( v78 );
-  }
-  v85 = 20;
-  LODWORD(v86) = 0;
-  v87 = 20;
-  v88 = 0;
-  LODWORD(gSharedInfo[35]) = 0;
-  do
-  {
-    v89 = v88;
-    if ( v87 > v88 )
-    {
-      LODWORD(gSharedInfo[35]) = v87;
-      v89 = v87;
-    }
-    v86 = (unsigned int)(v86 + 1);
-    v88 = v89;
-    v87 = word_1C0312A58[v86];
-  }
-  while ( v87 );
-  v90 = SharedAlloc((v89 >> 3) + 1, v89);
-  gSharedInfo[36] = v90;
-  if ( v90 )
-  {
-    LODWORD(v91) = 0;
-    do
-    {
-      v91 = (unsigned int)(v91 + 1);
-      *(_BYTE *)(((unsigned __int64)v85 >> 3) + gSharedInfo[36]) |= 1 << (v85 & 7);
-      v85 = word_1C0312A58[v91];
-    }
-    while ( v85 );
-  }
-  v92 = 2;
-  LODWORD(v93) = 0;
-  v94 = 2;
-  v95 = 0;
-  LODWORD(gSharedInfo[37]) = 0;
-  do
-  {
-    v96 = v95;
-    if ( v94 > v95 )
-    {
-      LODWORD(gSharedInfo[37]) = v94;
-      v96 = v94;
-    }
-    v93 = (unsigned int)(v93 + 1);
-    v95 = v96;
-    v94 = word_1C0312A80[v93];
-  }
-  while ( v94 );
-  result = SharedAlloc((v96 >> 3) + 1, v96);
-  gSharedInfo[38] = result;
-  if ( result )
-  {
-    LODWORD(v98) = 0;
-    do
-    {
-      v98 = (unsigned int)(v98 + 1);
-      result = v92 & 7;
-      *(_BYTE *)(((unsigned __int64)v92 >> 3) + gSharedInfo[38]) |= 1 << result;
-      v92 = word_1C0312A80[v98];
-    }
-    while ( v92 );
+    while ( v79 );
   }
   return result;
 }

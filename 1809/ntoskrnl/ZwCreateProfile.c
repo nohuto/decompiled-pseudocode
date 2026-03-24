@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateProfile @ 0x1401B9810
+ * XREFs of ZwCreateProfile @ 0x1401B9830
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpSetDisplayRequestEnded @ 0x1409A5C10
+ * XREFs of TtmpSetDisplayRequestEnded @ 0x1409002B0
  * Callers:
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A5DFC (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409004A0 (TtmpUpdateDisplayRequiredPowerRequest.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x1409A4B54 (TtmiScheduleSessionWorker.c)
- *     TtmpFindPowerRequestEntryById @ 0x1409A5348 (TtmpFindPowerRequestEntryById.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiGetTerminalById @ 0x1409AB110 (TtmiGetTerminalById.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     TtmiGetTerminalById @ 0x1408FD82C (TtmiGetTerminalById.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF190 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1408FF9BC (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmpSetDisplayRequestEnded(__int64 a1, int a2)
@@ -40,7 +40,7 @@ void __fastcall TtmpSetDisplayRequestEnded(__int64 a1, int a2)
     *v4 = v6;
     v7 = v5 - 1;
     v6[1] = v4;
-    TerminalById = TtmiGetTerminalById(&v13, a1);
+    TerminalById = TtmiGetTerminalById(&v13, a1, *((_DWORD *)v5 - 2));
     if ( TerminalById < 0 )
     {
       TtmiLogError("TtmpSetDisplayRequestEnded", 736LL, (unsigned int)TerminalById, 0xFFFFFFFFLL);
@@ -56,8 +56,8 @@ void __fastcall TtmpSetDisplayRequestEnded(__int64 a1, int a2)
       *(_DWORD *)(v13 + 32) = v11;
       if ( !v11 )
       {
-        v3 = 1;
         *(_DWORD *)(v9 + 36) |= 0x24u;
+        v3 = 1;
       }
 LABEL_13:
       ExFreePoolWithTag(v7, 0x52507454u);

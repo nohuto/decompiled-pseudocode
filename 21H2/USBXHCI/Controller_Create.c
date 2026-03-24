@@ -1,28 +1,28 @@
 /*
- * XREFs of Controller_Create @ 0x1C00702D4
+ * XREFs of Controller_Create @ 0x1C006B314
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C000597C (RtlStringCchPrintfA.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     Device_IsSecureDevice @ 0x1C0015008 (Device_IsSecureDevice.c)
- *     DynamicLock_Create @ 0x1C0016778 (DynamicLock_Create.c)
- *     RtlStringCopyWorkerA @ 0x1C0018A60 (RtlStringCopyWorkerA.c)
- *     Controller_AllocateIrqlTrackingArray @ 0x1C0018D38 (Controller_AllocateIrqlTrackingArray.c)
- *     Controller_QuerySupportedDSMs @ 0x1C0018DC8 (Controller_QuerySupportedDSMs.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     RtlStringCchCopyA @ 0x1C002F1D4 (RtlStringCchCopyA.c)
- *     Controller_ReferenceTrustletProcess @ 0x1C00328D8 (Controller_ReferenceTrustletProcess.c)
- *     Controller_PopulateDeviceFlags @ 0x1C006DA94 (Controller_PopulateDeviceFlags.c)
- *     Controller_RetrievePciData @ 0x1C007215C (Controller_RetrievePciData.c)
- *     Controller_GetDeviceEnumerator @ 0x1C00728B8 (Controller_GetDeviceEnumerator.c)
- *     Controller_SetLogIdentifier @ 0x1C0072AA4 (Controller_SetLogIdentifier.c)
- *     Controller_CreateSecureObject @ 0x1C0075C90 (Controller_CreateSecureObject.c)
- *     Controller_RetrieveAcpiData @ 0x1C0076294 (Controller_RetrieveAcpiData.c)
- *     Controller_RetrieveUrsData @ 0x1C00764E8 (Controller_RetrieveUrsData.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCopyWorkerA @ 0x1C0015314 (RtlStringCopyWorkerA.c)
+ *     Controller_AllocateIrqlTrackingArray @ 0x1C001536C (Controller_AllocateIrqlTrackingArray.c)
+ *     Controller_QuerySupportedDSMs @ 0x1C00157D0 (Controller_QuerySupportedDSMs.c)
+ *     Device_IsSecureDevice @ 0x1C0015934 (Device_IsSecureDevice.c)
+ *     DynamicLock_Create @ 0x1C0016A48 (DynamicLock_Create.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     RtlStringCchCopyA @ 0x1C002F024 (RtlStringCchCopyA.c)
+ *     Controller_ReferenceTrustletProcess @ 0x1C0032858 (Controller_ReferenceTrustletProcess.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C006BE84 (Controller_PopulateDeviceFlags.c)
+ *     Controller_SetLogIdentifier @ 0x1C006C868 (Controller_SetLogIdentifier.c)
+ *     Controller_RetrievePciData @ 0x1C006C900 (Controller_RetrievePciData.c)
+ *     Controller_GetDeviceEnumerator @ 0x1C006CC14 (Controller_GetDeviceEnumerator.c)
+ *     Controller_CreateSecureObject @ 0x1C007471C (Controller_CreateSecureObject.c)
+ *     Controller_RetrieveAcpiData @ 0x1C0074D40 (Controller_RetrieveAcpiData.c)
+ *     Controller_RetrieveUrsData @ 0x1C0074FA0 (Controller_RetrieveUrsData.c)
  */
 
 __int64 __fastcall Controller_Create(__int64 a1, __int64 a2, int a3, __int64 *a4)
@@ -37,143 +37,132 @@ __int64 __fastcall Controller_Create(__int64 a1, __int64 a2, int a3, __int64 *a4
   STRSAFE_PCNZCH v14; // r9
   int DeviceEnumerator; // eax
   int AcpiData; // ebx
-  int v17; // eax
+  int v17; // r9d
   int v18; // edx
-  __int64 v19; // rdi
-  __int128 v20; // xmm1
-  __int128 v21; // xmm0
-  __int64 v22; // rbx
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  int v25; // edx
-  int v26; // eax
-  int v27; // r8d
-  int v28; // r9d
-  int v30; // r9d
-  unsigned int v31; // r10d
-  unsigned int v32; // r10d
-  size_t v33; // [rsp+20h] [rbp-E0h]
-  __int64 v34; // [rsp+30h] [rbp-D0h] BYREF
-  _BYTE v35[24]; // [rsp+38h] [rbp-C8h] BYREF
-  int v36; // [rsp+50h] [rbp-B0h]
-  int v37; // [rsp+54h] [rbp-ACh]
-  __int128 v38; // [rsp+58h] [rbp-A8h]
-  void *v39; // [rsp+68h] [rbp-98h]
-  __int64 v40; // [rsp+70h] [rbp-90h] BYREF
-  void *v41; // [rsp+78h] [rbp-88h]
-  __int64 v42; // [rsp+80h] [rbp-80h]
-  int v43; // [rsp+88h] [rbp-78h] BYREF
-  int v44; // [rsp+8Ch] [rbp-74h]
-  __int64 v45; // [rsp+90h] [rbp-70h] BYREF
-  int v46; // [rsp+98h] [rbp-68h] BYREF
-  int v47; // [rsp+9Ch] [rbp-64h]
-  KIRQL (__fastcall *v48)(__int64); // [rsp+A0h] [rbp-60h]
-  __int128 v49; // [rsp+A8h] [rbp-58h]
-  __int64 v50; // [rsp+B8h] [rbp-48h]
-  __int128 v51; // [rsp+C0h] [rbp-40h] BYREF
-  __int128 v52; // [rsp+D0h] [rbp-30h]
-  __int128 v53; // [rsp+E0h] [rbp-20h]
-  __int64 v54; // [rsp+F0h] [rbp-10h]
-  __int64 *v55; // [rsp+F8h] [rbp-8h]
-  _QWORD v56[32]; // [rsp+100h] [rbp+0h] BYREF
+  int v19; // eax
+  __int64 v20; // rdi
+  __int128 v21; // xmm1
+  __int128 v22; // xmm0
+  __int64 v23; // rbx
+  int v24; // edx
+  int v25; // eax
+  int v26; // r8d
+  int v27; // r9d
+  size_t v29; // [rsp+20h] [rbp-E0h]
+  __int64 v30; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v31[24]; // [rsp+38h] [rbp-C8h] BYREF
+  int v32; // [rsp+50h] [rbp-B0h]
+  int v33; // [rsp+54h] [rbp-ACh]
+  __int128 v34; // [rsp+58h] [rbp-A8h]
+  void *v35; // [rsp+68h] [rbp-98h]
+  __int64 v36; // [rsp+70h] [rbp-90h] BYREF
+  void *v37; // [rsp+78h] [rbp-88h]
+  __int64 v38; // [rsp+80h] [rbp-80h]
+  int v39; // [rsp+88h] [rbp-78h] BYREF
+  int v40; // [rsp+8Ch] [rbp-74h]
+  __int64 v41; // [rsp+90h] [rbp-70h] BYREF
+  _DWORD v42[2]; // [rsp+98h] [rbp-68h] BYREF
+  __int64 (__fastcall *v43)(__int64); // [rsp+A0h] [rbp-60h]
+  __int128 v44; // [rsp+A8h] [rbp-58h]
+  __int64 v45; // [rsp+B8h] [rbp-48h]
+  __int128 v46; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v47; // [rsp+D0h] [rbp-30h]
+  __int128 v48; // [rsp+E0h] [rbp-20h]
+  __int64 v49; // [rsp+F0h] [rbp-10h]
+  __int64 *v50; // [rsp+F8h] [rbp-8h]
+  _QWORD v51[32]; // [rsp+100h] [rbp+0h] BYREF
   char pszSrc[8]; // [rsp+200h] [rbp+100h] BYREF
-  char v58[4]; // [rsp+208h] [rbp+108h] BYREF
-  __int16 v59; // [rsp+20Ch] [rbp+10Ch]
-  char v60; // [rsp+20Eh] [rbp+10Eh]
-  __int128 v61; // [rsp+210h] [rbp+110h]
-  __int128 v62; // [rsp+220h] [rbp+120h]
+  char v53[4]; // [rsp+208h] [rbp+108h] BYREF
+  __int16 v54; // [rsp+20Ch] [rbp+10Ch]
+  char v55; // [rsp+20Eh] [rbp+10Eh]
+  __int128 v56; // [rsp+210h] [rbp+110h]
+  __int128 v57; // [rsp+220h] [rbp+120h]
   char pszDest[16]; // [rsp+230h] [rbp+130h] BYREF
 
-  v45 = -1LL;
-  v47 = 0;
-  HIDWORD(v40) = 0;
-  *(_DWORD *)&v35[4] = 0;
-  *(_QWORD *)&v35[16] = 0LL;
-  v38 = 0LL;
+  v41 = -1LL;
+  *(_DWORD *)&v31[4] = 0;
+  *(_QWORD *)&v31[16] = 0LL;
   v34 = 0LL;
-  v61 = 0LL;
-  v55 = a4;
-  v62 = 0LL;
-  v44 = a3;
+  v30 = 0LL;
+  v56 = 0LL;
+  v50 = a4;
+  v57 = 0LL;
+  v40 = a3;
   *(_OWORD *)pszDest = 0LL;
   v7 = *(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616);
-  v43 = 0;
-  v8 = v7(WdfDriverGlobals, a1, off_1C00613D8);
+  v39 = 0;
+  v8 = v7(WdfDriverGlobals, a1, off_1C00603D8);
   IsSecureDevice = Device_IsSecureDevice(v8);
-  *(_QWORD *)&v61 = 48LL;
+  *(_QWORD *)&v56 = 48LL;
   v10 = IsSecureDevice;
   pszDest[0] = 0;
-  *(_QWORD *)&v62 = 0LL;
+  *(_QWORD *)&v57 = 0LL;
   *(_QWORD *)pszSrc = 0LL;
-  *(_DWORD *)v58 = 0;
-  v59 = 0;
-  v60 = 0;
-  v54 = 0LL;
-  HIDWORD(v62) = 16;
-  v51 = 0LL;
-  BYTE8(v62) = 0;
-  v52 = 0LL;
-  *((_QWORD *)&v61 + 1) = 512LL;
-  v53 = 0LL;
+  *(_DWORD *)v53 = 0;
+  v54 = 0;
+  v55 = 0;
+  v49 = 0LL;
+  HIDWORD(v57) = 16;
+  v46 = 0LL;
+  BYTE8(v57) = 0;
+  v47 = 0LL;
+  *((_QWORD *)&v56 + 1) = 512LL;
+  v48 = 0LL;
   RtlStringCchPrintfA(pszDest, 0x10uLL, "%02d RUNDOWN", a3);
   v11 = 1;
-  v39 = off_1C0061428;
-  *(_QWORD *)v35 = 56LL;
-  *(_QWORD *)&v35[8] = Controller_WdfEvtCleanupCallback;
-  *(_QWORD *)&v35[16] = 0LL;
-  v36 = 1;
-  v37 = 1;
-  v38 = 0LL;
-  memset(v56, 0, 0xF8uLL);
-  v56[0] = -4294967048LL;
-  *(_QWORD *)((char *)&v56[9] + 4) = 0x7FFFFFFF7FFFFFFFLL;
-  LODWORD(v56[9]) = 0;
-  BYTE4(v56[12]) = 0;
-  BYTE1(v56[13]) = 0;
-  BYTE6(v56[13]) = 0;
-  WORD2(v56[10]) = 0;
-  v56[11] = 0LL;
-  LODWORD(v56[12]) = 0;
-  RtlStringCopyWorkerA((NTSTRSAFE_PSTR)&v56[14] + 3, v12, v13, v14, v33);
-  v56[4] = UsbDevice_UcxEvtDeviceAdd;
-  v56[3] = Controller_UcxEvtGetCurrentFrameNumber;
-  v56[5] = Controller_UcxEvtReset;
-  v56[1] = Controller_UcxEvtQueryUsbCapability;
-  v56[28] = Controller_UcxEvtStartTrackingForTimeSync;
-  v56[29] = Controller_UcxEvtStopTrackingForTimeSync;
-  v56[30] = Controller_UcxEvtGetFrameNumberAndQpcForTimeSync;
+  v35 = off_1C0060428;
+  *(_QWORD *)v31 = 56LL;
+  *(_QWORD *)&v31[8] = Controller_WdfEvtCleanupCallback;
+  *(_QWORD *)&v31[16] = 0LL;
+  v32 = 1;
+  v33 = 1;
+  v34 = 0LL;
+  memset(v51, 0, 0xF8uLL);
+  v51[0] = -4294967048LL;
+  *(_QWORD *)((char *)&v51[9] + 4) = 0x7FFFFFFF7FFFFFFFLL;
+  LODWORD(v51[9]) = 0;
+  BYTE4(v51[12]) = 0;
+  BYTE1(v51[13]) = 0;
+  BYTE6(v51[13]) = 0;
+  WORD2(v51[10]) = 0;
+  v51[11] = 0LL;
+  LODWORD(v51[12]) = 0;
+  RtlStringCopyWorkerA((NTSTRSAFE_PSTR)&v51[14] + 3, v12, v13, v14, v29);
+  v51[3] = Controller_UcxEvtGetCurrentFrameNumber;
+  v51[4] = UsbDevice_UcxEvtDeviceAdd;
+  v51[5] = Controller_UcxEvtReset;
+  v51[1] = Controller_UcxEvtQueryUsbCapability;
+  v51[28] = Controller_UcxEvtStartTrackingForTimeSync;
+  v51[29] = Controller_UcxEvtStopTrackingForTimeSync;
+  v51[30] = Controller_UcxEvtGetFrameNumberAndQpcForTimeSync;
   if ( v10 )
   {
-    memset(&v56[6], 0, 24);
+    memset(&v51[6], 0, 24);
   }
   else
   {
-    v56[7] = Crashdump_UcxEvtGetDumpData;
-    v56[8] = Crashdump_UcxEvtFreeDumpData;
-    v56[6] = Controller_UcxEvtEnableForwardProgress;
+    v51[7] = Crashdump_UcxEvtGetDumpData;
+    v51[8] = Crashdump_UcxEvtFreeDumpData;
+    v51[6] = Controller_UcxEvtEnableForwardProgress;
   }
   DeviceEnumerator = Controller_GetDeviceEnumerator(a1, a2);
   if ( !DeviceEnumerator )
   {
-    AcpiData = Controller_RetrievePciData(a1, a2, &v51, &v45);
-    if ( AcpiData >= 0 )
+    AcpiData = Controller_RetrievePciData(a1, a2, &v46, &v41);
+    if ( AcpiData < 0 )
     {
-LABEL_5:
-      *(_QWORD *)((char *)&v56[9] + 4) = v51;
-      WORD2(v56[10]) = WORD4(v51);
-      v56[11] = __PAIR64__(v52, HIDWORD(v51));
-      LODWORD(v56[12]) = DWORD1(v52);
-      LODWORD(v56[9]) = 1;
-      goto LABEL_6;
-    }
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v17 = 95;
+LABEL_8:
+        v18 = 2;
+LABEL_9:
+        WPP_RECORDER_SF_d(a2, v18, 4, v17, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, AcpiData);
+        return (unsigned int)AcpiData;
+      }
       return (unsigned int)AcpiData;
-    v30 = 95;
-LABEL_29:
-    v18 = 2;
-LABEL_31:
-    WPP_RECORDER_SF_d(a2, v18, 4, v30, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, AcpiData);
-    return (unsigned int)AcpiData;
+    }
+    goto LABEL_19;
   }
   if ( DeviceEnumerator == 1 )
   {
@@ -183,8 +172,8 @@ LABEL_31:
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return (unsigned int)AcpiData;
-      v30 = 96;
-      goto LABEL_30;
+      v17 = 96;
+      goto LABEL_14;
     }
   }
   else
@@ -192,294 +181,300 @@ LABEL_31:
     AcpiData = Controller_RetrieveUrsData(
                  a1,
                  a2,
-                 (unsigned int)&v43,
+                 (unsigned int)&v39,
                  (unsigned int)pszSrc,
-                 (__int64)&v51,
-                 (__int64)&v45);
+                 (__int64)&v46,
+                 (__int64)&v41);
     if ( AcpiData < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return (unsigned int)AcpiData;
-      v30 = 97;
-      goto LABEL_29;
+      v17 = 97;
+      goto LABEL_8;
     }
-    v11 = v43;
-    if ( v43 != 2 )
-      goto LABEL_5;
+    v11 = v39;
+    if ( v39 != 2 )
+    {
+LABEL_19:
+      *(_QWORD *)((char *)&v51[9] + 4) = v46;
+      WORD2(v51[10]) = WORD4(v46);
+      v51[11] = __PAIR64__(v47, HIDWORD(v46));
+      LODWORD(v51[12]) = DWORD1(v47);
+      LODWORD(v51[9]) = 1;
+      goto LABEL_21;
+    }
   }
-  LODWORD(v56[9]) = 2;
-  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v56[12] + 4, 5uLL, pszSrc);
-  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v56[13] + 1, v31, &pszSrc[5]);
-  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v56[13] + 6, v32, &v58[2]);
-LABEL_6:
-  v17 = v36;
+  LODWORD(v51[9]) = 2;
+  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v51[12] + 4, 5uLL, pszSrc);
+  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v51[13] + 1, 5uLL, &pszSrc[5]);
+  RtlStringCchCopyA((NTSTRSAFE_PSTR)&v51[13] + 6, 5uLL, &v53[2]);
+LABEL_21:
+  v19 = v32;
   if ( v10 )
-    v17 = 2;
-  v36 = v17;
-  AcpiData = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, _BYTE *, __int64 *))qword_1C00627A8)(
+    v19 = 2;
+  v32 = v19;
+  AcpiData = ((__int64 (__fastcall *)(__int64, __int64, _QWORD *, _BYTE *, __int64 *))qword_1C0061788)(
                UcxDriverGlobals,
                a1,
-               v56,
-               v35,
-               &v34);
+               v51,
+               v31,
+               &v30);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 98;
-    goto LABEL_30;
+    v17 = 98;
+    goto LABEL_14;
   }
-  v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+  v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
-          v34,
-          off_1C0061428);
-  *(_QWORD *)v19 = a1;
-  *(_QWORD *)(v19 + 32) = v19 + 24;
-  *(_QWORD *)(v19 + 24) = v19 + 24;
-  *(_QWORD *)(v19 + 8) = v34;
-  *(_QWORD *)(v19 + 328) = v45;
-  *(_QWORD *)(v19 + 72) = a2;
-  *(_DWORD *)(v19 + 176) = v44;
-  *(_DWORD *)(v19 + 244) = v11;
-  *(_BYTE *)(v19 + 553) = v10;
-  *(_QWORD *)(v19 + 112) = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+          v30,
+          off_1C0060428);
+  *(_QWORD *)v20 = a1;
+  *(_QWORD *)(v20 + 32) = v20 + 24;
+  *(_QWORD *)(v20 + 24) = v20 + 24;
+  *(_QWORD *)(v20 + 8) = v30;
+  *(_QWORD *)(v20 + 328) = v41;
+  *(_QWORD *)(v20 + 72) = a2;
+  *(_DWORD *)(v20 + 176) = v40;
+  *(_DWORD *)(v20 + 244) = v11;
+  *(_BYTE *)(v20 + 553) = v10;
+  *(_QWORD *)(v20 + 112) = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                                          WdfDriverGlobals,
                                          a1,
-                                         off_1C00613D8)
+                                         off_1C00603D8)
                                      + 96);
-  if ( *(_DWORD *)(v19 + 244) == 1 )
+  if ( *(_DWORD *)(v20 + 244) == 1 )
   {
-    v20 = v52;
-    *(_OWORD *)(v19 + 248) = v51;
-    v21 = v53;
-    *(_OWORD *)(v19 + 264) = v20;
-    *(_QWORD *)&v20 = v54;
-    *(_OWORD *)(v19 + 280) = v21;
-    *(_QWORD *)(v19 + 296) = v20;
-    *(_BYTE *)(v19 + 304) = 0;
-    *(_BYTE *)(v19 + 309) = 0;
-    *(_BYTE *)(v19 + 314) = 0;
+    v21 = v47;
+    *(_OWORD *)(v20 + 248) = v46;
+    v22 = v48;
+    *(_OWORD *)(v20 + 264) = v21;
+    *(_QWORD *)&v21 = v49;
+    *(_OWORD *)(v20 + 280) = v22;
+    *(_QWORD *)(v20 + 296) = v21;
+    *(_BYTE *)(v20 + 304) = 0;
+    *(_BYTE *)(v20 + 309) = 0;
+    *(_BYTE *)(v20 + 314) = 0;
   }
   else
   {
-    *(_QWORD *)(v19 + 304) = *(_QWORD *)pszSrc;
-    *(_DWORD *)(v19 + 312) = *(_DWORD *)v58;
-    *(_WORD *)(v19 + 316) = v59;
-    *(_BYTE *)(v19 + 318) = v60;
-    *(_DWORD *)(v19 + 248) = 0x7FFFFFFF;
-    *(_DWORD *)(v19 + 252) = 0x7FFFFFFF;
-    *(_WORD *)(v19 + 256) = 0;
-    *(_QWORD *)(v19 + 260) = 0LL;
-    *(_DWORD *)(v19 + 268) = 0;
+    *(_QWORD *)(v20 + 304) = *(_QWORD *)pszSrc;
+    *(_DWORD *)(v20 + 312) = *(_DWORD *)v53;
+    *(_WORD *)(v20 + 316) = v54;
+    *(_BYTE *)(v20 + 318) = v55;
+    *(_DWORD *)(v20 + 248) = 0x7FFFFFFF;
+    *(_DWORD *)(v20 + 252) = 0x7FFFFFFF;
+    *(_WORD *)(v20 + 256) = 0;
+    *(_QWORD *)(v20 + 260) = 0LL;
+    *(_DWORD *)(v20 + 268) = 0;
   }
-  Controller_SetLogIdentifier(v19);
-  v47 = 0;
-  *(_DWORD *)&v35[20] = 0;
-  v49 = 0LL;
-  *v55 = v19;
-  v39 = off_1C0061068;
-  v50 = 0LL;
-  v48 = Controller_WdfEvtWatchdogTimerFunc;
-  *((_QWORD *)&v38 + 1) = 0LL;
-  *(_DWORD *)v35 = 56;
-  v36 = 1;
-  v37 = 1;
-  v46 = 40;
-  BYTE4(v49) = 1;
-  *(_OWORD *)&v35[4] = 0LL;
+  Controller_SetLogIdentifier(v20);
+  v42[1] = 0;
+  *(_DWORD *)&v31[20] = 0;
+  v44 = 0LL;
+  *v50 = v20;
+  v35 = off_1C0060068;
+  v45 = 0LL;
+  v43 = Controller_WdfEvtWatchdogTimerFunc;
+  *((_QWORD *)&v34 + 1) = 0LL;
+  *(_DWORD *)v31 = 56;
+  v32 = 1;
+  v33 = 1;
+  v42[0] = 40;
+  BYTE4(v44) = 1;
+  *(_OWORD *)&v31[4] = 0LL;
   if ( v10 )
   {
-    LODWORD(v49) = 0;
-    v36 = 2;
+    LODWORD(v44) = 0;
+    v32 = 2;
   }
   else
   {
-    LODWORD(v49) = 5000;
+    LODWORD(v44) = 5000;
   }
-  *(_QWORD *)&v38 = v34;
-  DWORD2(v49) = 1000;
-  AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, int *, _BYTE *, __int64))(WdfFunctions_01023 + 2544))(
+  *(_QWORD *)&v34 = v30;
+  DWORD2(v44) = 1000;
+  AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _DWORD *, _BYTE *, __int64))(WdfFunctions_01023 + 2544))(
                WdfDriverGlobals,
-               &v46,
-               v35,
-               v19 + 360);
+               v42,
+               v31,
+               v20 + 360);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 99;
-    goto LABEL_30;
+    v17 = 99;
+    goto LABEL_14;
   }
   *(_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                WdfDriverGlobals,
-               *(_QWORD *)(v19 + 360),
-               off_1C0061068) = MEMORY[0xFFFFF78000000014];
-  v39 = 0LL;
-  v40 = 24LL;
-  v36 = 1;
-  v38 = (unsigned __int64)v34;
-  v42 = 1LL;
-  v41 = Controller_IdleTimeoutUpdateWorker;
-  memset(v35, 0, sizeof(v35));
-  *(_DWORD *)v35 = 56;
-  v37 = 1;
+               *(_QWORD *)(v20 + 360),
+               off_1C0060068) = MEMORY[0xFFFFF78000000014];
+  v35 = 0LL;
+  v36 = 24LL;
+  v32 = 1;
+  v34 = (unsigned __int64)v30;
+  v38 = 1LL;
+  v37 = Controller_IdleTimeoutUpdateWorker;
+  memset(v31, 0, sizeof(v31));
+  *(_DWORD *)v31 = 56;
+  v33 = 1;
   AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *, _BYTE *, __int64))(WdfFunctions_01023 + 3032))(
                WdfDriverGlobals,
-               &v40,
-               v35,
-               v19 + 520);
+               &v36,
+               v31,
+               v20 + 520);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 100;
-    goto LABEL_30;
+    v17 = 100;
+    goto LABEL_14;
   }
-  v39 = 0LL;
-  v40 = 24LL;
-  v36 = 1;
-  v38 = (unsigned __int64)v34;
-  v41 = Controller_AudioOffloadWnfStateUpdateWorker;
-  memset(v35, 0, sizeof(v35));
-  *(_DWORD *)v35 = 56;
-  v37 = 1;
-  v42 = 1LL;
+  v35 = 0LL;
+  v36 = 24LL;
+  v32 = 1;
+  v34 = (unsigned __int64)v30;
+  v37 = Controller_AudioOffloadWnfStateUpdateWorker;
+  memset(v31, 0, sizeof(v31));
+  *(_DWORD *)v31 = 56;
+  v33 = 1;
+  v38 = 1LL;
   AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *, _BYTE *, __int64))(WdfFunctions_01023 + 3032))(
                WdfDriverGlobals,
-               &v40,
-               v35,
-               v19 + 776);
+               &v36,
+               v31,
+               v20 + 776);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 101;
-    goto LABEL_30;
+    v17 = 101;
+    goto LABEL_14;
   }
-  v39 = off_1C00610E0;
-  v38 = (unsigned __int64)v34;
-  v41 = Controller_TelemetryReportWorker;
-  v36 = 1;
-  v37 = 1;
-  v42 = 1LL;
-  memset(&v35[4], 0, 20);
-  *(_DWORD *)v35 = 56;
-  v40 = 24LL;
+  v35 = off_1C00600E0;
+  v34 = (unsigned __int64)v30;
+  v37 = Controller_TelemetryReportWorker;
+  v32 = 1;
+  v33 = 1;
+  v38 = 1LL;
+  memset(&v31[4], 0, 20);
+  *(_DWORD *)v31 = 56;
+  v36 = 24LL;
   AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *, _BYTE *, __int64))(WdfFunctions_01023 + 3032))(
                WdfDriverGlobals,
-               &v40,
-               v35,
-               v19 + 368);
+               &v36,
+               v31,
+               v20 + 368);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 102;
-    goto LABEL_30;
+    v17 = 102;
+    goto LABEL_14;
   }
-  v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
+  v23 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
-          *(_QWORD *)(v19 + 368),
-          off_1C00610E0);
-  KeInitializeMutex((PRKMUTEX)(v22 + 24), 0);
-  *(_QWORD *)(v22 + 8) = v22;
-  *(_QWORD *)v22 = v22;
-  KeInitializeSpinLock((PKSPIN_LOCK)(v22 + 16));
-  AcpiData = DynamicLock_Create(v34, a2, v10, (__int64 *)(v19 + 616));
+          *(_QWORD *)(v20 + 368),
+          off_1C00600E0);
+  KeInitializeMutex((PRKMUTEX)(v23 + 24), 0);
+  *(_QWORD *)(v23 + 8) = v23;
+  *(_QWORD *)v23 = v23;
+  KeInitializeSpinLock((PKSPIN_LOCK)(v23 + 16));
+  AcpiData = DynamicLock_Create(v30, a2, v10, (__int64 *)(v20 + 616));
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 103;
-    goto LABEL_30;
+    v17 = 103;
+    goto LABEL_14;
   }
-  v39 = 0LL;
-  v38 = (unsigned __int64)v34;
-  memset(v35, 0, sizeof(v35));
-  *(_DWORD *)v35 = 56;
-  v36 = 1;
-  v37 = 1;
+  v35 = 0LL;
+  v34 = (unsigned __int64)v30;
+  memset(v31, 0, sizeof(v31));
+  *(_DWORD *)v31 = 56;
+  v32 = 1;
+  v33 = 1;
   AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _BYTE *, __int64))(WdfFunctions_01023 + 104))(
                WdfDriverGlobals,
-               v35,
-               v19 + 632);
+               v31,
+               v20 + 632);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 104;
-    goto LABEL_30;
+    v17 = 104;
+    goto LABEL_14;
   }
-  v39 = off_1C00610E0;
-  v38 = (unsigned __int64)v34;
-  v41 = Controller_TimeSyncStartTrackingWorker;
-  memset(&v35[4], 0, 20);
-  *(_DWORD *)v35 = 56;
-  v36 = 1;
-  v37 = 1;
-  v40 = 24LL;
-  v42 = 1LL;
+  v35 = off_1C00600E0;
+  v34 = (unsigned __int64)v30;
+  v37 = Controller_TimeSyncStartTrackingWorker;
+  memset(&v31[4], 0, 20);
+  *(_DWORD *)v31 = 56;
+  v32 = 1;
+  v33 = 1;
+  v36 = 24LL;
+  v38 = 1LL;
   AcpiData = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *, _BYTE *, __int64))(WdfFunctions_01023 + 3032))(
                WdfDriverGlobals,
-               &v40,
-               v35,
-               v19 + 656);
+               &v36,
+               v31,
+               v20 + 656);
   if ( AcpiData < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)AcpiData;
-    v30 = 105;
-LABEL_30:
-    LOBYTE(v18) = 2;
-    goto LABEL_31;
+    v17 = 105;
+    goto LABEL_14;
   }
-  *(_BYTE *)(v19 + 664) = 0;
-  *(_QWORD *)(v19 + 648) = v19 + 640;
-  *(_QWORD *)(v19 + 640) = v19 + 640;
-  *(_BYTE *)(v19 + 608) = 0;
-  KeQueryPerformanceCounter((PLARGE_INTEGER)(v19 + 728));
-  *(_QWORD *)(v19 + 736) = 0LL;
-  *(_QWORD *)(v19 + 744) = 0LL;
-  *(_DWORD *)(v19 + 752) = 0;
-  *(_DWORD *)(v19 + 624) = 0;
-  Controller_QuerySupportedDSMs(v19);
-  *(_OWORD *)(v19 + 336) = 0LL;
-  Controller_PopulateDeviceFlags(v19, v23, v24);
-  if ( (*(_BYTE *)(v19 + 336) & 0x10) != 0 )
+  *(_BYTE *)(v20 + 664) = 0;
+  *(_QWORD *)(v20 + 648) = v20 + 640;
+  *(_QWORD *)(v20 + 640) = v20 + 640;
+  *(_BYTE *)(v20 + 608) = 0;
+  KeQueryPerformanceCounter((PLARGE_INTEGER)(v20 + 728));
+  *(_QWORD *)(v20 + 736) = 0LL;
+  *(_QWORD *)(v20 + 744) = 0LL;
+  *(_DWORD *)(v20 + 752) = 0;
+  *(_DWORD *)(v20 + 624) = 0;
+  Controller_QuerySupportedDSMs(v20);
+  *(_OWORD *)(v20 + 336) = 0LL;
+  Controller_PopulateDeviceFlags(v20);
+  if ( (*(_BYTE *)(v20 + 336) & 0x10) != 0 )
   {
     AcpiData = -1073741637;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v25) = 2;
-      WPP_RECORDER_SF_(a2, v25, 4, 106, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+      LOBYTE(v24) = 2;
+      WPP_RECORDER_SF_(a2, v24, 4, 106, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
+    return (unsigned int)AcpiData;
+  }
+  if ( v10 )
+  {
+    AcpiData = Controller_ReferenceTrustletProcess((_QWORD *)v20);
+    if ( AcpiData < 0 )
+      return (unsigned int)AcpiData;
+    AcpiData = Controller_CreateSecureObject(v20);
+    if ( AcpiData < 0 )
+      return (unsigned int)AcpiData;
+    v25 = (*(_DWORD *)(v20 + 560) != 1) + 1;
   }
   else
   {
-    if ( !v10 )
-    {
-      v26 = 0;
-LABEL_23:
-      *(_DWORD *)(v19 + 556) = v26;
-      *(_QWORD *)(v19 + 588) = 0LL;
-      AcpiData = DynamicLock_Create(v34, a2, 0, (__int64 *)(v19 + 600));
-      if ( AcpiData >= 0 )
-        return (unsigned int)Controller_AllocateIrqlTrackingArray(v19, v18, v27, v28);
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return (unsigned int)AcpiData;
-      v30 = 107;
-      goto LABEL_30;
-    }
-    AcpiData = Controller_ReferenceTrustletProcess((_QWORD *)v19);
-    if ( AcpiData >= 0 )
-    {
-      AcpiData = Controller_CreateSecureObject(v19);
-      if ( AcpiData >= 0 )
-      {
-        v26 = (*(_DWORD *)(v19 + 560) != 1) + 1;
-        goto LABEL_23;
-      }
-    }
+    v25 = 0;
+  }
+  *(_DWORD *)(v20 + 556) = v25;
+  *(_QWORD *)(v20 + 588) = 0LL;
+  AcpiData = DynamicLock_Create(v30, a2, 0, (__int64 *)(v20 + 600));
+  if ( AcpiData >= 0 )
+    return (unsigned int)Controller_AllocateIrqlTrackingArray(v20, v18, v26, v27);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v17 = 107;
+LABEL_14:
+    LOBYTE(v18) = 2;
+    goto LABEL_9;
   }
   return (unsigned int)AcpiData;
 }

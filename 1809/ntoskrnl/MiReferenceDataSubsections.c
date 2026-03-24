@@ -6,9 +6,9 @@
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
  *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
  *     MiLocateSubsectionNode @ 0x140077B40 (MiLocateSubsectionNode.c)
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     MiDecrementLargeSubsections @ 0x1402B5714 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1402B605C (MiIncrementLargeSubsections.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     MiDecrementLargeSubsections @ 0x1402B5814 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1402B615C (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiReferenceDataSubsections(__int64 a1, __int64 *a2, unsigned __int64 a3, int a4, unsigned int *a5)

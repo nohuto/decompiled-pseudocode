@@ -1,50 +1,48 @@
 /*
- * XREFs of RtlpHpSegMgrAllocate @ 0x140362540
+ * XREFs of RtlpHpSegMgrAllocate @ 0x1402A4D14
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1403633A0 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x1402A3D3C (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     RtlpHpSegMgrVaCtxInsert @ 0x1402491D0 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpSegMgrCommit @ 0x140351880 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrReserve @ 0x1403625F8 (RtlpHpSegMgrReserve.c)
- *     RtlpHpSegMgrRelease @ 0x14036843C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrReserve @ 0x1402A4DCC (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x1402A52C4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
 {
-  int v6; // r9d
-  __int64 v7; // rbx
-  __int64 v8; // rdi
-  int v10; // [rsp+20h] [rbp-38h]
-  unsigned int v11; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v13; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v6; // rbx
+  __int64 v7; // rdi
+  int v9; // [rsp+20h] [rbp-38h]
+  unsigned int v10; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v11; // [rsp+48h] [rbp-10h] BYREF
+  unsigned int v12; // [rsp+78h] [rbp+20h] BYREF
 
-  v11 = 0;
-  v13 = 0;
-  v12 = 0LL;
-  if ( (int)RtlpHpSegMgrReserve(a1, a3, (unsigned int)&v12, (unsigned int)&v11, (__int64)&v13) < 0 )
+  v10 = 0;
+  v12 = 0;
+  v11 = 0LL;
+  if ( (int)RtlpHpSegMgrReserve(a1, a3, (unsigned int)&v11, (unsigned int)&v10, (__int64)&v12) < 0 )
   {
-    v7 = v12;
-    v8 = 0LL;
+    v6 = v11;
+    v7 = 0LL;
   }
   else
   {
-    v6 = a2;
-    v10 = a2;
-    v7 = v12;
-    if ( (int)RtlpHpSegMgrCommit(a1, v12, 0, v6, v10, 1073745920, a3) < 0 )
+    v9 = a2;
+    v6 = v11;
+    if ( (int)RtlpHpSegMgrCommit(a1, v9, 1073745920, a3) < 0 )
     {
-      v8 = 0LL;
+      v7 = 0LL;
     }
     else
     {
-      if ( v11 < v13 )
-        RtlpHpSegMgrVaCtxInsert(a1, v7);
-      v8 = v7;
-      v7 = 0LL;
+      if ( v10 < v12 )
+        RtlpHpSegMgrVaCtxInsert(a1, v6);
+      v7 = v6;
+      v6 = 0LL;
     }
   }
-  if ( v7 )
+  if ( v6 )
     RtlpHpSegMgrRelease(a1);
-  return v8;
+  return v7;
 }

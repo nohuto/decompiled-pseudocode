@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcGpioServiceRoutine @ 0x1C0024F00
+ * XREFs of ACPIEcGpioServiceRoutine @ 0x1C00534F0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIEcMaskInterrupt @ 0x1C0002CB0 (ACPIEcMaskInterrupt.c)
+ *     ACPIEcMaskInterrupt @ 0x1C00537B8 (ACPIEcMaskInterrupt.c)
  */
 
 char __fastcall ACPIEcGpioServiceRoutine(__int64 a1, __int64 a2)

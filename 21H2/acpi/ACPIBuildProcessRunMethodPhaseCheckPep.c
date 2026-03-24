@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIBuildProcessRunMethodPhaseCheckPep @ 0x1C000F6D0
+ * XREFs of ACPIBuildProcessRunMethodPhaseCheckPep @ 0x1C001FD20
  * Callers:
  *     <none>
  * Callees:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0002434 (AcpiNotifyPlExtDiscoverDeviceAsync.c)
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
  */
 
 __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
   void *v13; // rcx
 
   v1 = *(_QWORD *)(a1 + 40);
-  v2 = &unk_1C006FB8B;
+  v2 = &unk_1C00701BA;
   v4 = 0;
   if ( (*(_QWORD *)(v1 + 8) & 0x8000000000000LL) != 0 )
   {
@@ -32,20 +32,20 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
   else
   {
     *(_DWORD *)(a1 + 32) = 4;
-    if ( (*(_DWORD *)(v1 + 1000) & 0x2000000) == 0 )
+    if ( (*(_DWORD *)(v1 + 960) & 0x2000000) == 0 )
     {
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1000), 0x2000000uLL);
-      v4 = AcpiNotifyPlExtDiscoverDeviceAsync(*(_QWORD *)(v1 + 760), (__int64)ACPIBuildDiscoverDeviceCompletion, a1);
+      _InterlockedOr64((volatile signed __int64 *)(v1 + 960), 0x2000000uLL);
+      v4 = AcpiNotifyPlExtDiscoverDeviceAsync(*(_QWORD *)(v1 + 720), ACPIBuildDiscoverDeviceCompletion, a1);
       if ( v4 < 0 )
       {
         v11 = *(_QWORD *)(v1 + 8);
-        v12 = &unk_1C006FB8B;
-        v13 = &unk_1C006FB8B;
+        v12 = &unk_1C00701BA;
+        v13 = &unk_1C00701BA;
         if ( (v11 & 0x200000000000LL) != 0 )
         {
-          v12 = *(void **)(v1 + 608);
+          v12 = *(void **)(v1 + 568);
           if ( (v11 & 0x400000000000LL) != 0 )
-            v13 = *(void **)(v1 + 616);
+            v13 = *(void **)(v1 + 576);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_Lqss(
@@ -53,7 +53,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
             2,
             6,
             59,
-            (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             v4,
             v1,
             (__int64)v12,
@@ -62,12 +62,12 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
     }
   }
   v5 = *(_QWORD *)(v1 + 8);
-  v6 = &unk_1C006FB8B;
+  v6 = &unk_1C00701BA;
   if ( (v5 & 0x200000000000LL) != 0 )
   {
-    v2 = *(void **)(v1 + 608);
+    v2 = *(void **)(v1 + 568);
     if ( (v5 & 0x400000000000LL) != 0 )
-      v6 = *(void **)(v1 + 616);
+      v6 = *(void **)(v1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_Lqss(
@@ -75,7 +75,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
       4,
       6,
       60,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v4,
       v1,
       (__int64)v2,

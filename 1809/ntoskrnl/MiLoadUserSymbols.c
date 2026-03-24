@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLoadUserSymbols @ 0x140760AD8
+ * XREFs of MiLoadUserSymbols @ 0x140760AB8
  * Callers:
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
- *     DbgUnicodeStringToAnsiString @ 0x1400F4A5C (DbgUnicodeStringToAnsiString.c)
- *     DbgLoadUserImageSymbols @ 0x1401921D0 (DbgLoadUserImageSymbols.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1400F4A7C (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadUserImageSymbols @ 0x1401921F0 (DbgLoadUserImageSymbols.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */
 

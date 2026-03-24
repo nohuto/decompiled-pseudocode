@@ -1,9 +1,9 @@
 /*
- * XREFs of PfPrefetchRequestPrepareForVerify @ 0x1406A22E0
+ * XREFs of PfPrefetchRequestPrepareForVerify @ 0x1406A22C0
  * Callers:
- *     PfPrefetchRequestVerify @ 0x1406A1FD4 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerify @ 0x1406A1FB4 (PfPrefetchRequestVerify.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PfPrefetchRequestPrepareForVerify(unsigned int *a1, unsigned int a2, unsigned int *a3)

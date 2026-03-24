@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSwitchToTransition @ 0x1402AF540
+ * XREFs of MiSwitchToTransition @ 0x1402AF640
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B930 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
  * Callees:
  *     MiPageAttributeBatchChangeNeeded @ 0x1400118DC (MiPageAttributeBatchChangeNeeded.c)
  *     MiGetEffectivePagePriorityThread @ 0x14001AEA8 (MiGetEffectivePagePriorityThread.c)
@@ -21,19 +21,19 @@
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiIsProbeActive @ 0x140122E5C (MiIsProbeActive.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiAddMdlTracker @ 0x1402A7EDC (MiAddMdlTracker.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
- *     MiGetReadyInPageBlock @ 0x14084F30C (MiGetReadyInPageBlock.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiIsProbeActive @ 0x140122E7C (MiIsProbeActive.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiAddMdlTracker @ 0x1402A7FDC (MiAddMdlTracker.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
  */
 
 __int64 __fastcall MiSwitchToTransition(ULONG_PTR a1, __int64 a2, int a3)

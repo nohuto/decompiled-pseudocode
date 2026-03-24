@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlIsSystemPagingFile @ 0x14013F0A0
+ * XREFs of FsRtlIsSystemPagingFile @ 0x14013F0C0
  * Callers:
  *     <none>
  * Callees:
- *     MmIsFileObjectAPagingFile @ 0x1400DE968 (MmIsFileObjectAPagingFile.c)
+ *     MmIsFileObjectAPagingFile @ 0x1400DE988 (MmIsFileObjectAPagingFile.c)
  */
 
 __int64 __fastcall FsRtlIsSystemPagingFile(unsigned __int64 a1)

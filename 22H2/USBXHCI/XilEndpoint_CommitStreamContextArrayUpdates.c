@@ -1,12 +1,12 @@
 /*
- * XREFs of XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038D24
+ * XREFs of XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037290
  * Callers:
- *     Endpoint_Enable @ 0x1C000BDF0 (Endpoint_Enable.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B090 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003CD40 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D000 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
  * Callees:
- *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0039574 (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
+ *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0037ABC (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
  */
 
 __int64 __fastcall XilEndpoint_CommitStreamContextArrayUpdates(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall XilEndpoint_CommitStreamContextArrayUpdates(__int64 a1)
   if ( !*(_BYTE *)(*(_QWORD *)(*(_QWORD *)a1 + 16LL) + 658LL) )
   {
     v2 = XilEndpoint_SendRequestToSetSecureStreamContextArray(
-           (unsigned int)*(_QWORD *)a1 + 1320,
+           (unsigned int)*(_QWORD *)a1 + 1312,
            *(_QWORD *)(a1 + 40),
            a1,
            1 << (*(_DWORD *)(a1 + 12) + 1),

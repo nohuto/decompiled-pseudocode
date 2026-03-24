@@ -1,16 +1,16 @@
 /*
- * XREFs of PopCadHpmiPnpNotification @ 0x14099CBF0
+ * XREFs of PopCadHpmiPnpNotification @ 0x1408F57E0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     PopCadTriggerDriverLoad @ 0x1408F5848 (PopCadTriggerDriverLoad.c)
  */
 
 __int64 __fastcall PopCadHpmiPnpNotification(char *NotificationStructure, PVOID Context)
 {
   unsigned int v2; // ebx
   __int64 v3; // rax
-  __int64 v4; // rax
+  __int64 v5; // rcx
 
   v2 = 0;
   v3 = *(_QWORD *)(NotificationStructure + 20) - *(_QWORD *)&GUID_DEVINTERFACE_HPMI.Data1;
@@ -22,15 +22,11 @@ __int64 __fastcall PopCadHpmiPnpNotification(char *NotificationStructure, PVOID 
   }
   else
   {
-    v4 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_DEVICE_INTERFACE_ARRIVAL.Data1;
-    if ( !v4 )
-      v4 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_DEVICE_INTERFACE_ARRIVAL.Data4;
-    if ( !v4 )
-    {
-      _m_prefetchw(&PopCadLoadReason);
-      if ( !_InterlockedOr(&PopCadLoadReason, 2u) )
-        ExQueueWorkItem(&PopCadTriggerDriverLoadWorkItem, DelayedWorkQueue);
-    }
+    v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_DEVICE_INTERFACE_ARRIVAL.Data1;
+    if ( !v5 )
+      v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_DEVICE_INTERFACE_ARRIVAL.Data4;
+    if ( !v5 )
+      PopCadTriggerDriverLoad(2LL);
   }
   return v2;
 }

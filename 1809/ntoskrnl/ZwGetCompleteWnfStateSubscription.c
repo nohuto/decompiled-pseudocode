@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetCompleteWnfStateSubscription @ 0x1401B9ED0
+ * XREFs of ZwGetCompleteWnfStateSubscription @ 0x1401B9EF0
  * Callers:
  *     <none>
  * Callees:

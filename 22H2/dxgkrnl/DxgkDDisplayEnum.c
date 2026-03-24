@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkDDisplayEnum @ 0x1C017EB30
+ * XREFs of DxgkDDisplayEnum @ 0x1C01394C0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkDDisplayEnumInternal @ 0x1C017EB50 (DxgkDDisplayEnumInternal.c)
+ *     DxgkDDisplayEnumInternal @ 0x1C013A870 (DxgkDDisplayEnumInternal.c)
  */
 
 __int64 __fastcall DxgkDDisplayEnum(__int64 a1, __int64 a2)

@@ -1,39 +1,39 @@
 /*
- * XREFs of MiMirrorBlackPhase @ 0x14038A168
+ * XREFs of MiMirrorBlackPhase @ 0x1403F4064
  * Callers:
- *     MmDuplicateMemory @ 0x140A487C0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
  * Callees:
- *     MiIterateOverPartitions @ 0x14038A2A8 (MiIterateOverPartitions.c)
- *     MiMirrorReduceBlackWrites @ 0x14038F620 (MiMirrorReduceBlackWrites.c)
- *     MiMirrorPerformBlackWrites @ 0x140399738 (MiMirrorPerformBlackWrites.c)
- *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x14058CCB0 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140A6A8C0 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorPerformBlackWrites @ 0x1403825C0 (MiMirrorPerformBlackWrites.c)
+ *     MiIterateOverPartitions @ 0x1403841F0 (MiIterateOverPartitions.c)
+ *     MiMirrorReduceBlackWrites @ 0x140385C70 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140534AD4 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x1409B0CD8 (MiRemoveEnclavePagesFromMirror.c)
  */
 
-__int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
+__int64 __fastcall MiMirrorBlackPhase(__int64 a1)
 {
   __int64 v2; // rdi
   int v3; // eax
   _QWORD *v4; // rax
   unsigned __int64 i; // rcx
+  _QWORD **v6; // rax
+  unsigned __int64 v7; // rdx
+  _QWORD *v8; // rdx
   _QWORD *j; // rax
-  _QWORD **v8; // rax
-  unsigned __int64 v9; // rdx
-  _QWORD *v10; // rdx
-  _QWORD **v11; // rax
-  unsigned __int64 v12; // rdx
-  _QWORD *v13; // rdx
+  _QWORD **v10; // rax
+  unsigned __int64 v11; // rdx
+  _QWORD *v12; // rdx
 
-  v2 = *a1;
-  if ( MemoryDescriptorList )
-    MiRemoveEnclavePagesFromMirror(*a1);
-  v3 = *((_DWORD *)a1 + 2);
+  v2 = *(_QWORD *)a1;
+  if ( qword_140C4EE80 )
+    MiRemoveEnclavePagesFromMirror(*(_QWORD *)a1);
+  v3 = *(_DWORD *)(a1 + 8);
   if ( (v3 & 0x40D) != 0 )
   {
     if ( (v3 & 0x100) != 0 )
     {
-      MiIterateOverPartitions(MiMirrorRemoveBlackChildPartitionPages, a1);
-      v3 = *((_DWORD *)a1 + 2);
+      MiIterateOverPartitions((void (__fastcall *)(__int64, __int64))MiMirrorRemoveBlackChildPartitionPages, a1);
+      v3 = *(_DWORD *)(a1 + 8);
     }
     if ( (v3 & 0xC0) != 0 )
     {
@@ -41,13 +41,13 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
     }
     else if ( (v3 & 0x100) != 0 )
     {
-      MiMirrorReduceBlackWrites(&MiSystemPartition, a1);
+      MiMirrorReduceBlackWrites((__int64)&MiSystemPartition, a1);
     }
     else
     {
-      MiIterateOverPartitions(MiMirrorReduceBlackWrites, a1);
+      MiIterateOverPartitions((void (__fastcall *)(__int64, __int64))MiMirrorReduceBlackWrites, a1);
     }
-    v4 = (_QWORD *)qword_140C51DF8;
+    v4 = (_QWORD *)qword_140C4E578;
     i = 0LL;
     while ( v4 )
     {
@@ -56,47 +56,47 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
     }
     while ( i )
     {
-      v8 = *(_QWORD ***)(i + 8);
-      v9 = i;
-      *(_BYTE *)(i + 71) = 1;
-      if ( v8 )
+      v6 = *(_QWORD ***)(i + 8);
+      v7 = i;
+      *(_BYTE *)(i + 70) = 1;
+      if ( v6 )
       {
-        v10 = *v8;
-        for ( i = (unsigned __int64)v8; v10; v10 = (_QWORD *)*v10 )
-          i = (unsigned __int64)v10;
+        v8 = *v6;
+        for ( i = (unsigned __int64)v6; v8; v8 = (_QWORD *)*v8 )
+          i = (unsigned __int64)v8;
       }
       else
       {
         while ( 1 )
         {
           i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !i || *(_QWORD *)i == v9 )
+          if ( !i || *(_QWORD *)i == v7 )
             break;
-          v9 = i;
+          v7 = i;
         }
       }
     }
-    for ( j = (_QWORD *)qword_140C51DE8; j; j = (_QWORD *)*j )
+    for ( j = (_QWORD *)qword_140C4E568; j; j = (_QWORD *)*j )
       i = (unsigned __int64)j;
     while ( i )
     {
-      v11 = *(_QWORD ***)(i + 8);
-      v12 = i;
-      *(_BYTE *)(i + 71) = 1;
-      if ( v11 )
+      v10 = *(_QWORD ***)(i + 8);
+      v11 = i;
+      *(_BYTE *)(i + 70) = 1;
+      if ( v10 )
       {
-        v13 = *v11;
-        for ( i = (unsigned __int64)v11; v13; v13 = (_QWORD *)*v13 )
-          i = (unsigned __int64)v13;
+        v12 = *v10;
+        for ( i = (unsigned __int64)v10; v12; v12 = (_QWORD *)*v12 )
+          i = (unsigned __int64)v12;
       }
       else
       {
         while ( 1 )
         {
           i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !i || *(_QWORD *)i == v12 )
+          if ( !i || *(_QWORD *)i == v11 )
             break;
-          v12 = i;
+          v11 = i;
         }
       }
     }

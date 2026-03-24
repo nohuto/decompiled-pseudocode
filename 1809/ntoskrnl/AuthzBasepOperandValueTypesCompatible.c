@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepOperandValueTypesCompatible @ 0x1400A4AD0
+ * XREFs of AuthzBasepOperandValueTypesCompatible @ 0x1400A4AF0
  * Callers:
- *     AuthzBasepValueInSet @ 0x1400A4788 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x1400A4A20 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepComputeExpression @ 0x1403255EC (AuthzBasepComputeExpression.c)
+ *     AuthzBasepValueInSet @ 0x1400A47A8 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x1400A4A40 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepComputeExpression @ 0x1403256EC (AuthzBasepComputeExpression.c)
  * Callees:
  *     <none>
  */

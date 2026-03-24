@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x14076185C
+ * XREFs of MiCreateSectionForDriver @ 0x14075DC48
  * Callers:
- *     MiObtainSectionForDriver @ 0x1407603D4 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x14075C358 (MiObtainSectionForDriver.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     MiCreateSystemSection @ 0x1402D9E3C (MiCreateSystemSection.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x14096C4AC (MiLogFailedDriverLoad.c)
- *     KdPullRemoteFile @ 0x140A6F300 (KdPullRemoteFile.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
+ *     KdPullRemoteFile @ 0x1409B6724 (KdPullRemoteFile.c)
  */
 
 NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int a3, _QWORD *a4)
@@ -26,7 +26,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int
   HANDLE FileHandle; // [rsp+E8h] [rbp+6Fh] BYREF
   __int64 v17; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  byte_140C4F4A8 = 1;
+  byte_140C4CCE8 = 1;
   v17 = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -35,7 +35,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
   if ( a2 )
-    goto LABEL_8;
+    goto LABEL_5;
   if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent && (int)KdPullRemoteFile() >= 0 )
     DbgPrintEx(0x66u, 2u, "MmLoadSystemImage: Pulled %wZ from kd\n", a1);
   ObjectAttributes.Length = 48;
@@ -47,7 +47,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int
   if ( result >= 0 )
   {
     v6 = (__int64)FileHandle;
-LABEL_8:
+LABEL_5:
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;

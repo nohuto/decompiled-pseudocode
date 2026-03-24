@@ -1,24 +1,24 @@
 /*
- * XREFs of ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18002AE94
+ * XREFs of ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18004E454
  * Callers:
- *     ?s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z @ 0x18002AC70 (-s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z.c)
+ *     ?s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z @ 0x18004E250 (-s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z.c)
  * Callees:
- *     ?GetInputLuid@CVisual@@QEBA?AU_LUID@@XZ @ 0x180017C10 (-GetInputLuid@CVisual@@QEBA-AU_LUID@@XZ.c)
- *     ?GetInputLuid@CInteraction@@QEBA?AU_LUID@@XZ @ 0x180017C48 (-GetInputLuid@CInteraction@@QEBA-AU_LUID@@XZ.c)
- *     ?GetInputQueueType@CVisual@@QEBA?AW4CompositionInputQueueType@@W4InputType@@@Z @ 0x180017DD8 (-GetInputQueueType@CVisual@@QEBA-AW4CompositionInputQueueType@@W4InputType@@@Z.c)
- *     DuplicateCompositionInputSinkHelper @ 0x180018104 (DuplicateCompositionInputSinkHelper.c)
- *     ?HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBVCInteraction@@@Z @ 0x18002B2F0 (-HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBV.c)
- *     ?HitTestTreeWalk@CHitTestContext@@QEAAJPEAVCVisualTree@@MMW4TreeWalkFlags@@@Z @ 0x18002B4DC (-HitTestTreeWalk@CHitTestContext@@QEAAJPEAVCVisualTree@@MMW4TreeWalkFlags@@@Z.c)
- *     ?EvaluateHitTestAttributesAndInputType@CHitTestContext@@AEAAXW4DIT_HITTESTATTRIBUTES@@K@Z @ 0x18002B578 (-EvaluateHitTestAttributesAndInputType@CHitTestContext@@AEAAXW4DIT_HITTESTATTRIBUTES@@K@Z.c)
- *     ?HasInputSink@CInteraction@@QEBA_NXZ @ 0x18002B744 (-HasInputSink@CInteraction@@QEBA_NXZ.c)
- *     ?InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z @ 0x18002B764 (-InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z.c)
- *     ?AdjustInputTypeForInteraction@CHitTestContext@@AEBA?AW4InputType@@W42@PEBVCInteraction@@@Z @ 0x18002B7BC (-AdjustInputTypeForInteraction@CHitTestContext@@AEBA-AW4InputType@@W42@PEBVCInteraction@@@Z.c)
- *     ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x18004933C (-GetInputHandle@CVisual@@QEBAPEAXXZ.c)
- *     ?GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x18004AFB8 (-GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qqp_EventWriteTransfer @ 0x180111AAC (McTemplateU0qqp_EventWriteTransfer.c)
- *     ?GetInputType@CInputSinkStruct@@SA?AW4CompositionInputType@@W4InputType@@@Z @ 0x18019016C (-GetInputType@CInputSinkStruct@@SA-AW4CompositionInputType@@W4InputType@@@Z.c)
+ *     ?GetInputLuid@CVisual@@QEBA?AU_LUID@@XZ @ 0x180017D8C (-GetInputLuid@CVisual@@QEBA-AU_LUID@@XZ.c)
+ *     ?GetInputQueueType@CVisual@@QEBA?AW4CompositionInputQueueType@@W4InputType@@@Z @ 0x180018828 (-GetInputQueueType@CVisual@@QEBA-AW4CompositionInputQueueType@@W4InputType@@@Z.c)
+ *     ?GetInputType@CInputSinkStruct@@SA?AW4CompositionInputType@@W4InputType@@@Z @ 0x18001D978 (-GetInputType@CInputSinkStruct@@SA-AW4CompositionInputType@@W4InputType@@@Z.c)
+ *     ?HasInputSink@CInteraction@@QEBA_NXZ @ 0x18004E890 (-HasInputSink@CInteraction@@QEBA_NXZ.c)
+ *     ?InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z @ 0x18004E8B0 (-InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z.c)
+ *     ?AdjustInputTypeForInteraction@CHitTestContext@@AEBA?AW4InputType@@W42@PEBVCInteraction@@@Z @ 0x18004E8F8 (-AdjustInputTypeForInteraction@CHitTestContext@@AEBA-AW4InputType@@W42@PEBVCInteraction@@@Z.c)
+ *     ?HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBVCInteraction@@@Z @ 0x18004E91C (-HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBV.c)
+ *     ?HitTestTreeWalk@CHitTestContext@@QEAAJPEAVCVisualTree@@MMW4TreeWalkFlags@@@Z @ 0x18004EB18 (-HitTestTreeWalk@CHitTestContext@@QEAAJPEAVCVisualTree@@MMW4TreeWalkFlags@@@Z.c)
+ *     ?EvaluateHitTestAttributesAndInputType@CHitTestContext@@AEAAXW4DIT_HITTESTATTRIBUTES@@K@Z @ 0x18004EB94 (-EvaluateHitTestAttributesAndInputType@CHitTestContext@@AEAAXW4DIT_HITTESTATTRIBUTES@@K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x18009EE18 (-GetInputHandle@CVisual@@QEBAPEAXXZ.c)
+ *     ?GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x1800B7380 (-GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EvaluateHitTestCandidate@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z @ 0x180228D28 (-EvaluateHitTestCandidate@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z.c)
+ *     ?ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ @ 0x180228EAC (-ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ.c)
+ *     McTemplateU0qqp_EventWriteTransfer @ 0x180228F2C (McTemplateU0qqp_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CHitTestContext::HitTestPoint(
@@ -26,307 +26,321 @@ __int64 __fastcall CHitTestContext::HitTestPoint(
         const struct CHitTestContext::HitTestPointRequest *a2,
         struct CHitTestContext::HitTestPointResult *a3)
 {
-  unsigned int v3; // ebx
-  __int64 v4; // r15
-  struct CHitTestContext::HitTestPointResult *v5; // r14
-  const struct CHitTestContext::HitTestPointRequest *v6; // rsi
-  _DWORD *v8; // rdx
-  _DWORD *v9; // r8
-  int v10; // ecx
-  __int64 v11; // rbx
-  __int64 v12; // rdi
-  CVisual *v13; // r14
+  void *v3; // rdi
+  CInteraction *v4; // r15
+  struct CHitTestContext::HitTestPointResult *v5; // r13
+  CVisual **v8; // rdi
+  CVisual *v9; // r12
+  CVisual *v10; // r8
+  int v11; // ecx
+  int v12; // r12d
+  __int64 v13; // rbx
   __int64 v14; // rax
-  unsigned __int64 v15; // r11
-  unsigned __int64 v16; // r12
-  __int64 v18; // rcx
-  unsigned int v19; // eax
-  __int64 *v20; // r12
-  __int64 v21; // r12
-  char v22; // al
-  bool v23; // dl
-  HANDLE v24; // rcx
-  int v25; // eax
-  unsigned int v26; // ecx
-  int v27; // eax
-  __int128 v28; // xmm1
-  __int128 v29; // xmm0
-  int v30; // eax
-  __int128 v31; // xmm1
-  bool v32; // al
+  __int64 v15; // rax
+  _DWORD *v16; // r8
+  unsigned int v17; // ebx
+  __int64 v19; // rdx
+  _BYTE *v20; // rcx
+  unsigned int i; // eax
+  CInteraction **v22; // rdi
+  CInteraction *v23; // rdi
+  char v24; // al
+  char v25; // r12
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  char v29; // al
+  __int64 v30; // rdx
   int InputType; // ecx
-  _DWORD *v34; // rax
-  int v35; // [rsp+20h] [rbp-A9h]
-  char v36; // [rsp+30h] [rbp-99h]
-  HANDLE hSourceHandle; // [rsp+38h] [rbp-91h]
-  __int64 v38; // [rsp+48h] [rbp-81h]
-  unsigned int v39; // [rsp+50h] [rbp-79h]
-  __int64 v40; // [rsp+58h] [rbp-71h]
-  int v41; // [rsp+60h] [rbp-69h]
-  CVisual *v42; // [rsp+68h] [rbp-61h] BYREF
-  CVisual *v43; // [rsp+70h] [rbp-59h]
-  __int128 v44; // [rsp+80h] [rbp-49h] BYREF
-  __int128 v45; // [rsp+90h] [rbp-39h]
-  __int128 v46; // [rsp+A0h] [rbp-29h]
-  __int128 v47; // [rsp+B0h] [rbp-19h]
-  int v48; // [rsp+C0h] [rbp-9h]
-  __int64 v49[10]; // [rsp+D0h] [rbp+7h] BYREF
-  bool v50; // [rsp+130h] [rbp+67h]
-  __int64 v53; // [rsp+148h] [rbp+7Fh] BYREF
+  __int64 v32; // rax
+  int v33; // eax
+  unsigned int v34; // ecx
+  int v35; // eax
+  __int128 v36; // xmm1
+  __int128 v37; // xmm0
+  int v38; // eax
+  __int128 v39; // xmm1
+  bool v40; // al
+  int v41; // eax
+  const struct CInteraction *v42; // rbx
+  unsigned int v43; // r13d
+  int v44; // [rsp+20h] [rbp-89h]
+  __int64 v45; // [rsp+30h] [rbp-79h]
+  unsigned int v46; // [rsp+38h] [rbp-71h]
+  unsigned int v47; // [rsp+3Ch] [rbp-6Dh]
+  void *InputHandle; // [rsp+40h] [rbp-69h]
+  CVisual *v49; // [rsp+48h] [rbp-61h]
+  int v50; // [rsp+50h] [rbp-59h]
+  CVisual *v51; // [rsp+58h] [rbp-51h]
+  __int128 v52; // [rsp+60h] [rbp-49h] BYREF
+  __int128 v53; // [rsp+70h] [rbp-39h]
+  __int128 v54; // [rsp+80h] [rbp-29h]
+  __int128 v55; // [rsp+90h] [rbp-19h]
+  int v56; // [rsp+A0h] [rbp-9h]
+  _QWORD v57[10]; // [rsp+B0h] [rbp+7h] BYREF
+  bool v58; // [rsp+110h] [rbp+67h]
+  char v59; // [rsp+118h] [rbp+6Fh]
+  char v61; // [rsp+128h] [rbp+7Fh]
 
-  v3 = 0;
+  v3 = 0LL;
+  InputHandle = 0LL;
   v4 = 0LL;
-  hSourceHandle = 0LL;
+  v61 = 0;
   v5 = a3;
-  v6 = a2;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x8000) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
     McTemplateU0qqp_EventWriteTransfer(
       (_DWORD)this,
       (unsigned int)&EVTDESC_HIT_TEST_TREE_WALK_Start,
       *((_DWORD *)a2 + 2),
       *((_DWORD *)a2 + 3),
-      *(_QWORD *)(*(_QWORD *)a2 + 64LL));
-  CHitTestContext::EvaluateHitTestAttributesAndInputType(this, *((unsigned int *)v6 + 5), *((unsigned int *)v6 + 4));
-  v35 = *((_DWORD *)this + 60);
-  CHitTestContext::HitTestTreeWalk(this, *(_QWORD *)v6);
-  v42 = this[14];
-  if ( !v42 )
-    goto LABEL_15;
-  v40 = 0LL;
-  v10 = *((_DWORD *)this + 24);
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = v42;
-  v43 = *(CVisual **)(*(_QWORD *)v6 + 64LL);
-  v44 = _xmm;
-  BYTE1(v48) = BYTE1(v48) & 0xC0 | 0x17;
-  v14 = 0LL;
-  v45 = _xmm;
-  v50 = v10 == 0;
-  v46 = _xmm;
-  v47 = _xmm;
-  LOBYTE(v48) = 85;
-  v38 = 0LL;
-  v41 = v10;
-  LOBYTE(v53) = 0;
+      *(_QWORD *)(*(_QWORD *)a2 + 56LL));
+  CHitTestContext::EvaluateHitTestAttributesAndInputType(this, *((unsigned int *)a2 + 5), *((unsigned int *)a2 + 4));
+  v44 = *((_DWORD *)this + 52);
+  CHitTestContext::HitTestTreeWalk(this, *(_QWORD *)a2);
+  if ( (unsigned int)(*((_DWORD *)this + 24) - 2) <= 4 )
+  {
+    v8 = (CVisual **)this[15];
+    v9 = this[16];
+    if ( v8 != (CVisual **)v9 )
+    {
+      while ( 1 )
+      {
+        v42 = v8[1];
+        v43 = CHitTestContext::AdjustInputTypeForInteraction(this, *((unsigned int *)this + 24), v42);
+        if ( (*((_BYTE *)v42 + 184) & 3) != 0 )
+        {
+          InputTraceLogging::GestureTargeting::ForcePalmRejection();
+          v61 = 1;
+        }
+        if ( (*(unsigned int (__fastcall **)(const struct CInteraction *, _QWORD, _QWORD))(*(_QWORD *)v42 + 80LL))(
+               v42,
+               v43,
+               0LL)
+          && (unsigned __int8)CHitTestContext::InteractionMatchesHitTest(this, v43, v42) )
+        {
+          break;
+        }
+        InputTraceLogging::DWM::EvaluateHitTestCandidate(v42, 0);
+        v8 += 2;
+        if ( v8 == (CVisual **)v9 )
+          goto LABEL_71;
+      }
+      InputTraceLogging::DWM::EvaluateHitTestCandidate(v42, 1);
+      this[14] = *v8;
+LABEL_71:
+      v5 = a3;
+    }
+    v3 = 0LL;
+  }
+  v10 = this[14];
+  v49 = v10;
+  if ( !v10 )
+    goto LABEL_14;
+  v11 = *((_DWORD *)this + 24);
+  v12 = 0;
+  v13 = 0LL;
+  v14 = *(_QWORD *)a2;
+  v52 = _xmm;
+  v53 = _xmm;
+  v51 = *(CVisual **)(v14 + 56);
+  v15 = 0LL;
+  v50 = v11;
+  v47 = 0;
+  v58 = v11 == 0;
+  v54 = _xmm;
+  v55 = _xmm;
+  v59 = 0;
+  LOWORD(v56) = 32085;
+  v45 = 0LL;
   do
   {
-    if ( !v14 )
+    if ( !v15 )
     {
-      v14 = (*(__int64 (__fastcall **)(CVisual *, _DWORD *, _DWORD *, __int64, int))(*(_QWORD *)v13 + 280LL))(
-              v13,
-              v8,
-              v9,
-              1LL,
-              v35);
-      v38 = v14;
+      v15 = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)v10 + 304LL))(v10);
+      v10 = v49;
+      v45 = v15;
     }
-    v9 = (_DWORD *)*((_QWORD *)v13 + 29);
-    if ( (*v9 & 0x800000) == 0 )
-      goto LABEL_8;
-    v18 = (unsigned int)v9[1];
-    v8 = v9 + 2;
-    v19 = 0;
-    if ( (_DWORD)v18 )
+    v16 = (_DWORD *)*((_QWORD *)v10 + 28);
+    if ( (*v16 & 0x800000) == 0 )
+      goto LABEL_11;
+    v19 = (unsigned int)v16[1];
+    v20 = v16 + 2;
+    for ( i = 0; i < (unsigned int)v19; ++v20 )
     {
-      while ( *(_BYTE *)v8 != 9 )
-      {
-        ++v19;
-        v8 = (_DWORD *)((char *)v8 + 1);
-        if ( v19 >= (unsigned int)v18 )
-          goto LABEL_32;
-      }
-LABEL_21:
-      v8 = (_DWORD *)(v18 + 15);
-      v20 = (__int64 *)((char *)v9 + 8LL * v19 - (((_BYTE)v18 + 15) & 7) + v18 + 15);
-      goto LABEL_22;
+      if ( *v20 == 9 )
+        break;
+      ++i;
     }
-LABEL_32:
-    if ( v19 < (unsigned int)v18 )
-      goto LABEL_21;
-    v20 = 0LL;
-LABEL_22:
-    v21 = *v20;
-    if ( !v21 )
+    if ( i >= (unsigned int)v19 )
+      v22 = 0LL;
+    else
+      v22 = (CInteraction **)((char *)v16 + 8LL * i - (((_BYTE)v19 + 15) & 7) + v19 + 15);
+    v23 = *v22;
+    if ( !v23 )
       goto LABEL_30;
-    v39 = CHitTestContext::AdjustInputTypeForInteraction(this, *((unsigned int *)this + 24), v21, 1LL);
-    v22 = CHitTestContext::InteractionMatchesHitTest(this, v39, v21);
-    v36 = v22;
+    v46 = CHitTestContext::AdjustInputTypeForInteraction(this, *((unsigned int *)this + 24), v23);
+    v24 = CHitTestContext::InteractionMatchesHitTest(this, v46, v23);
+    v25 = v24;
     if ( *((_DWORD *)this + 24) != 6 )
       goto LABEL_24;
-    if ( (_BYTE)v53 )
+    if ( !v59 )
     {
-      if ( !v22 )
-        goto LABEL_24;
       if ( v4 )
+        goto LABEL_26;
+      if ( v24 )
       {
-        if ( (*(_BYTE *)(v4 + 192) & 0x10) == 0 || (*(_BYTE *)(v21 + 192) & 0x10) != 0 )
-        {
+LABEL_31:
+        v4 = v23;
+        goto LABEL_26;
+      }
+      if ( ((*(unsigned int (__fastcall **)(CInteraction *, __int64, __int64, _QWORD, int))(*(_QWORD *)v23 + 88LL))(
+              v23,
+              5LL,
+              32831LL,
+              0LL,
+              v44)
+         || (*(unsigned int (__fastcall **)(CInteraction *, __int64, __int64, _QWORD))(*(_QWORD *)v23 + 88LL))(
+              v23,
+              6LL,
+              32831LL,
+              0LL))
+        && (*((_BYTE *)v23 + 184) & 8) == 0 )
+      {
+        v59 = 1;
+        goto LABEL_26;
+      }
+      v59 = 0;
 LABEL_24:
-          v23 = v50;
-          v24 = hSourceHandle;
-        }
-        else
-        {
-          v23 = 0;
-          v4 = 0LL;
-          v24 = 0LL;
-          v50 = 0;
-          hSourceHandle = 0LL;
-        }
-        if ( v4 )
-          goto LABEL_27;
-        hSourceHandle = v24;
-        v50 = v23;
-        if ( !v22 )
-          goto LABEL_27;
-      }
-    }
-    else
-    {
       if ( v4 )
-        goto LABEL_27;
-      if ( !v22 )
-      {
-        LOBYTE(v53) = ((*(unsigned int (__fastcall **)(__int64, __int64, __int64, _QWORD))(*(_QWORD *)(v21 + 64) + 88LL))(
-                         v21 + 64,
-                         5LL,
-                         32831LL,
-                         0LL)
-                    || (*(unsigned int (__fastcall **)(__int64, __int64, __int64, _QWORD))(*(_QWORD *)(v21 + 64) + 88LL))(
-                         v21 + 64,
-                         6LL,
-                         32831LL,
-                         0LL))
-                   && (*(_BYTE *)(v21 + 192) & 0x10) == 0;
-        goto LABEL_27;
-      }
+        goto LABEL_26;
+      goto LABEL_25;
     }
-    v4 = v21;
-LABEL_27:
-    if ( !v50 )
-      v50 = (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(v21 + 64) + 80LL))(v21 + 64, v39, 0LL) != 0;
-    if ( !CInteraction::HasInputSink((CInteraction *)v21) )
+    if ( !v24 )
+      goto LABEL_24;
+    if ( v4 )
     {
+      if ( (*((_BYTE *)v4 + 184) & 8) != 0 && (*((_BYTE *)v23 + 184) & 8) == 0 )
+      {
+        v4 = 0LL;
+        InputHandle = 0LL;
+        v58 = 0;
+      }
+      goto LABEL_24;
+    }
+LABEL_25:
+    if ( v25 )
+      goto LABEL_31;
+LABEL_26:
+    if ( !v58 )
+      v58 = (*(unsigned int (__fastcall **)(CInteraction *, _QWORD, _QWORD))(*(_QWORD *)v23 + 80LL))(v23, v46, 0LL) != 0;
+    if ( !CInteraction::HasInputSink(v23) )
+    {
+      v12 = v47;
 LABEL_30:
-      v14 = v38;
-      goto LABEL_8;
+      v15 = v45;
+      goto LABEL_11;
     }
-    if ( !hSourceHandle && v36 && (!v41 || (unsigned int)CVisual::GetInputQueueType(v13)) )
+    if ( !InputHandle && v25 && (!v50 || (unsigned int)CVisual::GetInputQueueType(v49)) )
     {
-      hSourceHandle = CVisual::GetInputHandle(v13);
-      v12 = **(_QWORD **)&CVisual::GetInputLuid(v13, &v42);
-      CVisual::GetWorldTransform(v13, *(_QWORD *)v6, 4LL, &v44, 0LL, 0LL);
+      InputHandle = CVisual::GetInputHandle(v49);
+      v13 = **(_QWORD **)&CVisual::GetInputLuid(v49, v57);
+      CVisual::GetWorldTransform(v49, *(_QWORD *)a2, 4LL, &v52, 0LL, 0LL);
     }
-    if ( v40 == g_luidZero )
+    if ( v47 < *(_DWORD *)v5 )
     {
-      v11 = **(_QWORD **)&CInteraction::GetInputLuid((CInteraction *)v21, v49);
-      v40 = v11;
+      v26 = *((_QWORD *)v23 + 12);
+      v27 = 0LL;
+      if ( v26 )
+        v27 = *(_QWORD *)(v26 + 64);
+      *(_QWORD *)(*((_QWORD *)v5 + 1) + 8LL * v47) = v27;
     }
-    v14 = v38;
-    if ( !v38 )
+    v15 = v45;
+    v12 = ++v47;
+    if ( !v45 )
     {
-      v8 = *(_DWORD **)(v21 + 104);
-      if ( v8 )
+      v28 = *((_QWORD *)v23 + 12);
+      if ( v28 )
+        v29 = *(_BYTE *)(v28 + 104);
+      else
+        v29 = 0;
+      if ( !v29 )
+        goto LABEL_30;
+      InputType = CInputSinkStruct::GetInputType(v46);
+      if ( !v30 )
+        goto LABEL_64;
+      v32 = v30 + 64;
+      while ( v30 != v32 )
       {
-        if ( *((_BYTE *)v8 + 104) )
-        {
-          InputType = CInputSinkStruct::GetInputType(v39);
-          v34 = v8 + 16;
-          while ( 1 )
-          {
-            if ( v8 == v34 )
-              goto LABEL_69;
-            if ( InputType == *v8 )
-              break;
-            v8 += 4;
-          }
-          if ( !v8 )
-          {
-LABEL_69:
-            v14 = 0LL;
-            goto LABEL_70;
-          }
-          v14 = *((_QWORD *)v8 + 1);
-LABEL_70:
-          v38 = v14;
-        }
+        if ( InputType == *(_DWORD *)v30 )
+          goto LABEL_49;
+        v30 += 16LL;
       }
+      v30 = 0LL;
+LABEL_49:
+      if ( v30 )
+        v15 = *(_QWORD *)(v30 + 8);
+      else
+LABEL_64:
+        v15 = 0LL;
+      v45 = v15;
     }
-LABEL_8:
-    if ( v13 == v43 )
+LABEL_11:
+    if ( v49 == v51 )
       break;
-    v13 = (CVisual *)*((_QWORD *)v13 + 11);
+    v10 = (CVisual *)*((_QWORD *)v49 + 10);
+    v49 = v10;
   }
-  while ( v13 );
-  v5 = a3;
-  v15 = (this[18] - this[17]) >> 3;
-  *((_DWORD *)a3 + 4) = v15 + 1;
-  if ( (unsigned int)(v15 + 1) <= *(_DWORD *)a3 )
+  while ( v10 );
+  v3 = InputHandle;
+  *((_QWORD *)v5 + 3) = v15;
+  if ( !InputHandle || !v4 || !v58 )
+    goto LABEL_14;
+  v33 = NtDuplicateCompositionInputSink(InputHandle, (char *)v5 + 32);
+  if ( v33 < 0 )
   {
-    v16 = 0LL;
-    if ( v15 )
-    {
-      do
-      {
-        *(_QWORD *)(*((_QWORD *)a3 + 1) + 8 * v16) = **(_QWORD **)&CVisual::GetInputLuid(
-                                                                     *((CVisual **)this[17] + v16),
-                                                                     &v53);
-        ++v16;
-      }
-      while ( v16 < v15 );
-      v6 = a2;
-    }
-    *(_QWORD *)(*((_QWORD *)a3 + 1) + 8 * v15) = v11;
+    v17 = v33 | 0x10000000;
+    MilInstrumentationCheckHR_MaybeFailFast(v34, &dword_1802DD020, 2u, v33 | 0x10000000, 0x29Eu, 0LL);
   }
-  *((_QWORD *)a3 + 3) = v38;
-  if ( !hSourceHandle || !v4 || !v50 )
+  else
   {
+    v35 = *((_DWORD *)v4 + 424);
+    v36 = v53;
+    *((_OWORD *)v5 + 3) = v52;
+    *((_DWORD *)v5 + 29) = v35;
+    v37 = v54;
+    v38 = v56;
+    *((_OWORD *)v5 + 4) = v36;
+    *((_QWORD *)v5 + 5) = v13;
+    v39 = v55;
+    *((_OWORD *)v5 + 5) = v37;
+    *((_DWORD *)v5 + 4) = v12;
+    *((_OWORD *)v5 + 6) = v39;
+    *((_DWORD *)v5 + 28) = v38;
+    v40 = *((_DWORD *)a2 + 4) != 4
+       || *((_DWORD *)this + 24) == 6
+       && (*(unsigned int (__fastcall **)(CInteraction *, __int64))(*(_QWORD *)v4 + 80LL))(v4, 6LL);
+    *((_BYTE *)v5 + 120) = v40;
+    v41 = *((_DWORD *)a2 + 6);
+    *((_BYTE *)v4 + 184) &= ~2u;
+    *((_DWORD *)v4 + 428) = v41;
+    *((_BYTE *)v4 + 184) |= 2 * (v61 & 1);
 LABEL_14:
-    v3 = 0;
-LABEL_15:
     InputTraceLogging::DWM::HitTestTreeWalkResult(
-      *((unsigned int *)v6 + 4),
-      *((unsigned int *)v6 + 5),
+      *((unsigned int *)a2 + 4),
+      *((unsigned int *)a2 + 5),
       *((_QWORD *)v5 + 4),
       *((_QWORD *)v5 + 3),
-      hSourceHandle,
+      v3,
       v4);
-    goto LABEL_16;
+    v17 = 0;
   }
-  v25 = DuplicateCompositionInputSinkHelper(hSourceHandle, (LPHANDLE)a3 + 4);
-  if ( v25 >= 0 )
-  {
-    v27 = *(_DWORD *)(v4 + 1704);
-    v28 = v45;
-    *((_OWORD *)a3 + 3) = v44;
-    *((_DWORD *)a3 + 29) = v27;
-    v29 = v46;
-    v30 = v48;
-    *((_OWORD *)a3 + 4) = v28;
-    *((_QWORD *)a3 + 5) = v12;
-    v31 = v47;
-    *((_OWORD *)a3 + 5) = v29;
-    *((_OWORD *)a3 + 6) = v31;
-    *((_DWORD *)a3 + 28) = v30;
-    v32 = *((_DWORD *)v6 + 4) != 4
-       || *((_DWORD *)this + 24) == 6
-       && (*(unsigned int (__fastcall **)(__int64, __int64))(*(_QWORD *)(v4 + 64) + 80LL))(v4 + 64, 6LL);
-    *((_BYTE *)a3 + 120) = v32;
-    *(_DWORD *)(v4 + 1720) = *((_DWORD *)v6 + 6);
-    *(_BYTE *)(v4 + 192) ^= (*(_BYTE *)(v4 + 192) ^ (2 * *((_BYTE *)this + 128))) & 2;
-    goto LABEL_14;
-  }
-  v3 = v25 | 0x10000000;
-  MilInstrumentationCheckHR_MaybeFailFast(v26, &dword_180345778, 2u, v25 | 0x10000000, 0x30Au, 0LL);
-LABEL_16:
-  *((_DWORD *)this + 44) = 0;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x8000) != 0 )
+  *((_DWORD *)this + 36) = 0;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
     McTemplateU0qqp_EventWriteTransfer(
       (unsigned int)this[14],
       (unsigned int)&EVTDESC_HIT_TEST_TREE_WALK_Stop,
-      *((_DWORD *)v6 + 2),
-      *((_DWORD *)v6 + 3),
+      *((_DWORD *)a2 + 2),
+      *((_DWORD *)a2 + 3),
       (char)this[14]);
-  return v3;
+  return v17;
 }

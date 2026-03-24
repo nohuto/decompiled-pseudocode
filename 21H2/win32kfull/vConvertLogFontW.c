@@ -1,7 +1,7 @@
 /*
- * XREFs of vConvertLogFontW @ 0x1C0015270
+ * XREFs of vConvertLogFontW @ 0x1C00BA130
  * Callers:
- *     GreCreateFontIndirectW @ 0x1C00131E4 (GreCreateFontIndirectW.c)
+ *     GreCreateFontIndirectW @ 0x1C00BA190 (GreCreateFontIndirectW.c)
  * Callees:
  *     <none>
  */

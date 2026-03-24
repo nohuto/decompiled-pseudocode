@@ -1,302 +1,313 @@
 /*
- * XREFs of MiZeroPageCalibrateIsr @ 0x1403CA510
+ * XREFs of MiZeroPageCalibrateIsr @ 0x1403BC430
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     MiComputeOptimalWriteProcessors @ 0x1403CAA10 (MiComputeOptimalWriteProcessors.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeZeroPages @ 0x140424F50 (KeZeroPages.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiComputeOptimalWriteProcessors @ 0x1403BC914 (MiComputeOptimalWriteProcessors.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeZeroPages @ 0x140402DB0 (KeZeroPages.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-ULONG_PTR __fastcall MiZeroPageCalibrateIsr(ULONG_PTR Argument, __int64 i, __int64 a3, __int64 Group)
+ULONG_PTR __fastcall MiZeroPageCalibrateIsr(ULONG_PTR Argument, __int64 a2, __int64 a3)
 {
-  struct _KPRCB *CurrentPrcb; // r13
-  __int64 v5; // r8
-  __int64 v7; // rbp
+  struct _KPRCB *CurrentPrcb; // r11
+  __int64 v4; // r9
+  unsigned __int64 i; // rdx
+  __int64 v7; // r10
   unsigned int v8; // eax
-  __int64 v9; // rcx
-  __int64 v10; // r14
-  __int64 CurrentIrql; // r12
-  _DWORD *MmInternal; // r12
-  __int64 v13; // rsi
-  signed __int32 v14; // eax
-  unsigned int v15; // edi
+  int v9; // ebp
+  __int64 v10; // rcx
+  __int64 v11; // r15
+  __int64 CurrentIrql; // r13
+  __int64 v13; // r13
+  _DWORD *MmInternal; // r14
+  __int64 v15; // rsi
   signed __int32 v16; // eax
   unsigned int v17; // edi
-  unsigned int v18; // r9d
-  bool v19; // cf
-  unsigned int *v20; // r8
-  unsigned __int64 v21; // rax
-  unsigned int v22; // eax
-  signed __int32 v23; // eax
-  signed __int32 v24; // eax
-  int v25; // ebp
-  __int64 v26; // rax
-  bool v27; // zf
-  unsigned __int8 v28; // r12
+  signed __int32 v18; // eax
+  unsigned int v19; // edi
+  unsigned __int64 v20; // rax
+  unsigned int v21; // eax
+  unsigned __int64 v22; // rax
+  unsigned int v23; // edi
+  int v24; // ecx
+  unsigned __int8 v25; // r13
   ULONG_PTR result; // rax
-  unsigned __int32 v30; // ecx
-  size_t v31; // r8
-  void *v32; // rcx
-  LARGE_INTEGER PerformanceCounter; // rax
-  LARGE_INTEGER v34; // rax
-  __int64 v35; // rdx
-  _DWORD *v36; // rcx
+  unsigned __int32 v27; // ecx
+  size_t v28; // r8
+  void *v29; // rcx
+  __int64 v30; // rdx
+  _DWORD *v31; // rcx
+  __int64 v32; // rax
+  signed __int32 v33; // ecx
+  unsigned int v34; // edx
+  _DWORD *v35; // rcx
+  __int64 v36; // r14
   __int128 v37; // xmm0
-  _QWORD *v38; // rdi
-  __int64 v39; // rsi
-  __int64 v40; // rdx
-  unsigned int v41; // r10d
-  __int64 v42; // rdx
-  _DWORD *v43; // rdx
-  __int64 v44; // rax
-  unsigned __int8 v45; // al
-  struct _KPRCB *v46; // r9
-  _DWORD *SchedulerAssist; // r8
-  int v48; // eax
-  signed __int32 v49[8]; // [rsp+0h] [rbp-88h] BYREF
-  __int64 v50; // [rsp+20h] [rbp-68h]
-  __int64 v51; // [rsp+28h] [rbp-60h]
-  __int64 v52; // [rsp+30h] [rbp-58h]
-  __int64 v53; // [rsp+38h] [rbp-50h]
-  int v54; // [rsp+90h] [rbp+8h] BYREF
-  int v55; // [rsp+98h] [rbp+10h] BYREF
-  int v56; // [rsp+A0h] [rbp+18h] BYREF
-  int j; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v38; // rdi
+  __int64 v39; // rdi
+  __int64 v40; // rsi
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v42; // al
+  struct _KPRCB *v43; // r9
+  _DWORD *v44; // r8
+  int v45; // eax
+  bool v46; // zf
+  signed __int32 v47[8]; // [rsp+0h] [rbp-88h] BYREF
+  __int64 v48; // [rsp+20h] [rbp-68h]
+  struct _KPRCB *v49; // [rsp+28h] [rbp-60h]
+  __int64 v50; // [rsp+30h] [rbp-58h]
+  __int64 v51; // [rsp+38h] [rbp-50h]
+  int v52; // [rsp+90h] [rbp+8h] BYREF
+  int v53; // [rsp+98h] [rbp+10h] BYREF
+  int v54; // [rsp+A0h] [rbp+18h] BYREF
+  int v55; // [rsp+A8h] [rbp+20h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v5 = (unsigned __int16)KeNumberNodes;
+  v4 = 0LL;
+  i = (unsigned __int16)KeNumberNodes;
   v7 = *(_QWORD *)(Argument + 72);
   v8 = 0;
-  v50 = v7;
+  v48 = v7;
+  v49 = CurrentPrcb;
+  v9 = 1;
   if ( KeNumberNodes )
   {
-    Group = CurrentPrcb->Group;
-    while ( 1 )
+    a3 = *(_QWORD *)(v7 + 16);
+    do
     {
-      i = 120LL * v8;
-      v9 = *(_QWORD *)(i + qword_140C506E0 + 112);
-      if ( (_WORD)Group == *(_WORD *)(v9 + 8) && (*(_QWORD *)v9 & CurrentPrcb->GroupSetMember) != 0 )
+      v10 = 4544LL * v8;
+      if ( CurrentPrcb->Group == *(_WORD *)(v10 + a3 + 4480)
+        && (*(_QWORD *)(v10 + a3 + 4472) & CurrentPrcb->GroupSetMember) != 0 )
+      {
         break;
-      if ( ++v8 >= (unsigned __int16)KeNumberNodes )
-        goto LABEL_55;
+      }
+      ++v8;
     }
+    while ( v8 < (unsigned __int16)KeNumberNodes );
+    v4 = 0LL;
   }
-  else
-  {
-LABEL_55:
-    if ( v8 == (unsigned __int16)KeNumberNodes )
-      v8 = CurrentPrcb->SchedulerSubNode->Affinity.Reserved[0];
-  }
-  v10 = *(_QWORD *)(v7 + 16) + 24512LL * v8;
-  v52 = *(_QWORD *)(qword_140C506E0 + 120LL * v8 + 112);
-  v51 = *(_QWORD *)(v10 + 22944);
-  *(_DWORD *)(v10 + 22952) = *(_DWORD *)(v51 + 128);
+  v11 = *(_QWORD *)(v7 + 16) + 4544LL * v8;
+  v50 = *(_QWORD *)(v11 + 4432);
+  *(_DWORD *)(v11 + 4440) = *(_DWORD *)(v50 + 128);
   CurrentIrql = KeGetCurrentIrql();
-  v53 = CurrentIrql;
+  v51 = CurrentIrql;
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
-    Group = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     i = (-1LL << ((unsigned __int8)CurrentIrql + 1)) & 0xFFFC;
-    v5 = (unsigned int)i | *(_DWORD *)(Group + 20);
-    *(_DWORD *)(Group + 20) = v5;
+    a3 = (unsigned int)i | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
+    v4 = 0LL;
   }
-  do
+  v13 = v50;
+  while ( 1 )
   {
     MmInternal = CurrentPrcb->MmInternal;
-    v13 = *(_QWORD *)(Argument + 32) + 16LL * (unsigned int)(*(_DWORD *)(Argument + 40) - 1);
-    v55 = 0;
+    v15 = *(_QWORD *)(Argument + 32) + 16LL * (unsigned int)(*(_DWORD *)(Argument + 40) - 1);
+    v53 = 0;
     MmInternal[3121] = 0;
-    v14 = _InterlockedDecrement((volatile signed __int32 *)Argument);
-    v15 = ~v14 & 0x80000000;
-    if ( (v14 & 0x7FFFFFFF) != 0 )
+    v16 = _InterlockedDecrement((volatile signed __int32 *)Argument);
+    v17 = ~v16 & 0x80000000;
+    if ( (v16 & 0x7FFFFFFF) != 0 )
     {
-      while ( (*(_DWORD *)Argument & 0x80000000) != v15 )
-        KeYieldProcessorEx(&v55, i, v5, Group);
-      v56 = 0;
-      v16 = _InterlockedDecrement((volatile signed __int32 *)Argument);
-      v17 = ~v16 & 0x80000000;
-      if ( (v16 & 0x7FFFFFFF) != 0 )
-      {
-        while ( (*(_DWORD *)Argument & 0x80000000) != v17 )
-          KeYieldProcessorEx(&v56, i, v5, Group);
-        goto LABEL_21;
-      }
-    }
-    else
-    {
-      v18 = 0;
-      v19 = KeNumberNodes != 0;
-      *(_DWORD *)Argument = v15 | *(_DWORD *)(Argument + 4);
-      if ( v19 )
-      {
-        v20 = (unsigned int *)(*(_QWORD *)(v7 + 16) + 22952LL);
-        do
-        {
-          if ( *v20 )
-            v21 = (*((_QWORD *)v20 - 3) / (unsigned __int64)*v20) & 0xFFFFFFFFFFFFF000uLL;
-          else
-            v21 = 0LL;
-          *((_QWORD *)v20 - 2) = v21;
-          ++v18;
-          v22 = (unsigned __int16)KeNumberNodes;
-          v20[1] = 0;
-          v20 += 6128;
-        }
-        while ( v18 < v22 );
-      }
-      *(_DWORD *)(Argument + 44) = 0;
-      *(LARGE_INTEGER *)(Argument + 56) = KeQueryPerformanceCounter(0LL);
-      _InterlockedOr(v49, 0);
+      while ( (*(_DWORD *)Argument & 0x80000000) != v17 )
+        KeYieldProcessorEx(&v53, i, a3, v4);
+      v4 = 0LL;
       v54 = 0;
-      v23 = _InterlockedDecrement((volatile signed __int32 *)Argument);
-      v17 = ~v23 & 0x80000000;
-      if ( (v23 & 0x7FFFFFFF) != 0 )
+      v18 = _InterlockedDecrement((volatile signed __int32 *)Argument);
+      v19 = ~v18 & 0x80000000;
+      if ( (v18 & 0x7FFFFFFF) == 0 )
       {
-        while ( (*(_DWORD *)Argument & 0x80000000) != v17 )
-          KeYieldProcessorEx(&v54, i, v5, Group);
-        goto LABEL_21;
+        *(_DWORD *)Argument = v19 | *(_DWORD *)(Argument + 4);
+        goto LABEL_24;
       }
+      while ( (*(_DWORD *)Argument & 0x80000000) != v19 )
+        KeYieldProcessorEx(&v54, i, a3, v4);
+LABEL_23:
+      v4 = 0LL;
+LABEL_24:
+      v7 = v48;
+      CurrentPrcb = v49;
+      goto LABEL_25;
     }
-    *(_DWORD *)Argument = v17 | *(_DWORD *)(Argument + 4);
-LABEL_21:
-    if ( CurrentPrcb->Group == *(_WORD *)(v51 + 120) && (CurrentPrcb->GroupSetMember & *(_QWORD *)(v51 + 112)) != 0 )
+    *(_DWORD *)Argument = *(_DWORD *)(Argument + 4) | v17;
+    a3 = *(_QWORD *)(v7 + 16);
+    if ( KeNumberNodes )
     {
-      v30 = _InterlockedIncrement((volatile signed __int32 *)(v10 + 22956));
-      if ( v30 <= *(_DWORD *)(v10 + 22952) )
+      a3 += 4440LL;
+      do
       {
-        v31 = *(_QWORD *)(v10 + 22936);
-        v32 = (void *)(*(_QWORD *)(v10 + 22920) + v31 * (v30 - 1));
-        if ( *(_DWORD *)(Argument + 48) == 1 )
-          KeZeroPages(v32, *(_QWORD *)(v10 + 22936));
+        if ( *(_DWORD *)a3 )
+          v20 = (*(_QWORD *)(a3 - 24) / (unsigned __int64)*(unsigned int *)a3) & 0xFFFFFFFFFFFFF000uLL;
         else
-          memset(v32, 0, v31);
-        if ( _InterlockedIncrement((volatile signed __int32 *)(v10 + 22960)) == *(_DWORD *)(v10 + 22952) )
+          v20 = 0LL;
+        *(_QWORD *)(a3 - 16) = v20;
+        LODWORD(v4) = v4 + 1;
+        v21 = (unsigned __int16)KeNumberNodes;
+        *(_DWORD *)(a3 + 4) = 0;
+        a3 += 4544LL;
+      }
+      while ( (unsigned int)v4 < v21 );
+    }
+    v4 = 0LL;
+    *(_DWORD *)(Argument + 44) = 0;
+    v22 = __rdtsc();
+    i = (unsigned __int64)HIDWORD(v22) << 32;
+    *(_QWORD *)(Argument + 56) = i | (unsigned int)v22;
+    _InterlockedOr(v47, 0);
+    v52 = 0;
+    LODWORD(v22) = _InterlockedDecrement((volatile signed __int32 *)Argument);
+    v23 = ~(_DWORD)v22 & 0x80000000;
+    if ( (v22 & 0x7FFFFFFF) != 0 )
+    {
+      while ( (*(_DWORD *)Argument & 0x80000000) != v23 )
+        KeYieldProcessorEx(&v52, i, a3, v4);
+      goto LABEL_23;
+    }
+    *(_DWORD *)Argument = *(_DWORD *)(Argument + 4) | v23;
+LABEL_25:
+    if ( CurrentPrcb->Group == *(_WORD *)(v13 + 120) && (CurrentPrcb->GroupSetMember & *(_QWORD *)(v13 + 112)) != 0 )
+    {
+      v27 = _InterlockedIncrement((volatile signed __int32 *)(v11 + 4444));
+      if ( v27 <= *(_DWORD *)(v11 + 4440) )
+      {
+        v28 = *(_QWORD *)(v11 + 4424);
+        v29 = (void *)(*(_QWORD *)(v11 + 4408) + v28 * (v27 - 1));
+        if ( *(_DWORD *)(Argument + 48) == 1 )
+          KeZeroPages(v29, *(_QWORD *)(v11 + 4424), v28);
+        else
+          memset(v29, 0, v28);
+        v33 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 4448), 1u);
+        v7 = v48;
+        v4 = 0LL;
+        if ( v33 + 1 == *(_DWORD *)(v11 + 4440) )
         {
-          _InterlockedOr(v49, 0);
-          PerformanceCounter = KeQueryPerformanceCounter(0LL);
-          i = 16LL * (unsigned int)(*(_DWORD *)(v10 + 22952) - 1);
-          v5 = i + *(_QWORD *)(v52 + 72);
-          *(_QWORD *)(v5 + 8LL * *(int *)(Argument + 48)) = PerformanceCounter.QuadPart - *(_QWORD *)(Argument + 56);
-          *(_DWORD *)(v10 + 22960) = 0;
+          _InterlockedOr(v47, 0);
+          i = 16LL * (unsigned int)(*(_DWORD *)(v11 + 4440) - 1);
+          a3 = i + *(_QWORD *)(v11 + 4384);
+          *(_QWORD *)(a3 + 8LL * *(int *)(Argument + 48)) = __rdtsc() - *(_QWORD *)(Argument + 56);
+          *(_DWORD *)(v11 + 4448) = 0;
         }
       }
     }
-    v24 = _InterlockedIncrement((volatile signed __int32 *)(Argument + 44));
-    if ( v24 == (_DWORD)KeNumberProcessors_0 )
+    v24 = KeNumberProcessors_0;
+    if ( _InterlockedIncrement((volatile signed __int32 *)(Argument + 44)) == v24 )
     {
-      _InterlockedOr(v49, 0);
-      v34 = KeQueryPerformanceCounter(0LL);
-      v35 = 0LL;
-      *(_QWORD *)(v13 + 8LL * *(int *)(Argument + 48)) = v34.QuadPart - *(_QWORD *)(Argument + 56);
+      _InterlockedOr(v47, 0);
+      a3 = 0LL;
+      *(_QWORD *)(v15 + 8LL * *(int *)(Argument + 48)) = __rdtsc() - *(_QWORD *)(Argument + 56);
+      v30 = (unsigned __int16)KeNumberNodes;
       if ( KeNumberNodes )
       {
-        v36 = (_DWORD *)(*(_QWORD *)(v7 + 16) + 22952LL);
+        v31 = (_DWORD *)(*(_QWORD *)(v7 + 16) + 4440LL);
         do
         {
-          if ( *v36 )
+          if ( *v31 )
           {
-            --*v36;
+            --*v31;
             --*(_DWORD *)(Argument + 40);
           }
-          v36 += 6128;
-          v35 = (unsigned int)(v35 + 1);
+          v30 = (unsigned __int16)KeNumberNodes;
+          v31 += 1136;
+          a3 = (unsigned int)(a3 + 1);
         }
-        while ( (unsigned int)v35 < (unsigned __int16)KeNumberNodes );
+        while ( (unsigned int)a3 < (unsigned __int16)KeNumberNodes );
       }
-      v25 = 1;
       if ( !*(_DWORD *)(Argument + 40) )
       {
         if ( *(_DWORD *)(Argument + 48) )
         {
+          v36 = v7 + 6368;
           v37 = *(_OWORD *)(Argument + 8);
-          v25 = 2;
-          *(_QWORD *)(Argument + 64) = qword_140C53398;
-          xmmword_140C53380 = v37;
-          unk_140C53390 = *(_OWORD *)(Argument + 24);
-          if ( KeNumberNodes )
+          *(_QWORD *)(Argument + 64) = *(_QWORD *)(v7 + 6392);
+          v9 = 2;
+          v38 = *(_QWORD *)(v7 + 16);
+          *(_OWORD *)(v7 + 6368) = v37;
+          *(_OWORD *)(v7 + 6384) = *(_OWORD *)(Argument + 24);
+          if ( (_WORD)v30 )
           {
-            v38 = (_QWORD *)(qword_140C506E0 + 112);
-            v39 = (unsigned __int16)KeNumberNodes;
+            v39 = v38 + 4360;
+            v40 = (unsigned __int16)v30;
             do
             {
-              MiComputeOptimalWriteProcessors(*v38 + 48LL, v35);
-              v38 += 15;
-              --v39;
+              MiComputeOptimalWriteProcessors(v39, v30, a3, v4);
+              v39 += 4544LL;
+              --v40;
             }
-            while ( v39 );
+            while ( v40 );
           }
-          MiComputeOptimalWriteProcessors(&xmmword_140C53380, v35);
+          MiComputeOptimalWriteProcessors(v36, v30, a3, v4);
+          v7 = v48;
+          v4 = 0LL;
         }
         else
         {
-          v40 = v50;
-          Group = 0LL;
-          v5 = qword_140C506E0;
           *(_DWORD *)(Argument + 48) = 1;
-          v41 = (unsigned __int16)KeNumberNodes;
-          *(_DWORD *)(Argument + 40) = *(_DWORD *)(v40 + 16180);
-          v42 = *(_QWORD *)(v40 + 16);
-          if ( (_WORD)v41 )
+          v34 = 0;
+          a3 = (unsigned __int16)KeNumberNodes;
+          *(_DWORD *)(Argument + 40) = *(_DWORD *)(v7 + 6404);
+          if ( (_WORD)a3 )
           {
-            v43 = (_DWORD *)(v42 + 22952);
-            v5 += 112LL;
+            v35 = (_DWORD *)(*(_QWORD *)(v7 + 16) + 4440LL);
             do
             {
-              v44 = *(_QWORD *)v5;
-              Group = (unsigned int)(Group + 1);
-              v5 += 120LL;
-              *v43 = *(_DWORD *)(v44 + 48);
-              v43 += 6128;
+              ++v34;
+              *v35 = *(v35 - 20);
+              v35 += 1136;
             }
-            while ( (unsigned int)Group < v41 );
+            while ( v34 < (unsigned int)a3 );
           }
         }
       }
       for ( i = 0LL;
             (unsigned int)i < (unsigned int)KeNumberProcessors_0;
-            *(_DWORD *)(*(_QWORD *)(KiProcessorBlock[v26] + 33592) + 12484LL) = v25 )
+            *(_DWORD *)(*(_QWORD *)(KiProcessorBlock[v32] + 32760) + 12484LL) = v9 )
       {
-        v26 = (unsigned int)i;
+        v32 = (unsigned int)i;
         i = (unsigned int)(i + 1);
       }
     }
     else
     {
-      for ( j = 0; ; KeYieldProcessorEx(&j, i, v5, Group) )
+      v55 = 0;
+      while ( 1 )
       {
-        v25 = MmInternal[3121];
-        if ( v25 )
+        v9 = MmInternal[3121];
+        if ( v9 )
           break;
+        KeYieldProcessorEx(&v55, i, a3, 0LL);
+        v4 = 0LL;
       }
+      v7 = v48;
     }
-    v27 = v25 == 1;
-    v7 = v50;
+    CurrentPrcb = v49;
+    if ( v9 != 1 )
+      break;
+    v9 = 1;
   }
-  while ( v27 );
-  v28 = v53;
+  v25 = v51;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v45 = KeGetCurrentIrql();
-      if ( v45 <= 0xFu && (unsigned __int8)v53 <= 0xFu && v45 >= 2u )
+      v42 = KeGetCurrentIrql();
+      if ( v42 <= 0xFu && (unsigned __int8)v51 <= 0xFu && v42 >= 2u )
       {
-        v46 = KeGetCurrentPrcb();
-        SchedulerAssist = v46->SchedulerAssist;
-        v48 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v53 + 1));
-        v27 = (v48 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v48;
-        if ( v27 )
-          KiRemoveSystemWorkPriorityKick(v46);
+        v43 = KeGetCurrentPrcb();
+        v44 = v43->SchedulerAssist;
+        v45 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v51 + 1));
+        v46 = (v45 & v44[5]) == 0;
+        v44[5] &= v45;
+        if ( v46 )
+          KiRemoveSystemWorkPriorityKick(v43);
       }
     }
   }
-  result = v28;
-  __writecr8(v28);
+  result = v25;
+  __writecr8(v25);
   return result;
 }

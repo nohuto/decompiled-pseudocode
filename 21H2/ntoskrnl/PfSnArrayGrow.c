@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnArrayGrow @ 0x1406A06A8
+ * XREFs of PfSnArrayGrow @ 0x140695500
  * Callers:
- *     PfSnVolumeKeyQuery @ 0x1406A05E4 (PfSnVolumeKeyQuery.c)
+ *     PfSnVolumeKeyQuery @ 0x14069543C (PfSnVolumeKeyQuery.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnArrayGrow(unsigned int a1, __int64 a2, __int64 a3, unsigned int *a4, const void **a5)
@@ -13,7 +13,7 @@ __int64 __fastcall PfSnArrayGrow(unsigned int a1, __int64 a2, __int64 a3, unsign
   unsigned int v6; // edi
   unsigned __int64 v7; // rax
   unsigned int v8; // ebx
-  void *Pool2; // rbp
+  PVOID PoolWithTag; // rbp
   unsigned int v10; // eax
 
   if ( a1 < *a4 )
@@ -31,15 +31,15 @@ __int64 __fastcall PfSnArrayGrow(unsigned int a1, __int64 a2, __int64 a3, unsign
   if ( v7 > 0xFFFFFFFF )
     return 0;
   v8 = 0;
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v7, 1448108867LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v7, 0x56506343u);
+  if ( PoolWithTag )
   {
     v10 = 8 * *a4;
     if ( v10 )
-      memmove(Pool2, *a5, v10);
+      memmove(PoolWithTag, *a5, v10);
     if ( *a5 )
       ExFreePoolWithTag((PVOID)*a5, 0);
-    *a5 = Pool2;
+    *a5 = PoolWithTag;
     *a4 = v6;
     return 1;
   }

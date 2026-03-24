@@ -1,26 +1,26 @@
 /*
- * XREFs of WinSqmEndSession @ 0x1C00B73BC
+ * XREFs of WinSqmEndSession @ 0x1C00786AC
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     WinSqmEventWrite @ 0x1C005B8DC (WinSqmEventWrite.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?UnregisterWinSqmProvider@@YAKXZ @ 0x1C00B7458 (-UnregisterWinSqmProvider@@YAKXZ.c)
- *     WinSqmEventEnabled @ 0x1C00B75B4 (WinSqmEventEnabled.c)
- *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C00B760C (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?UnregisterWinSqmProvider@@YAKXZ @ 0x1C0078750 (-UnregisterWinSqmProvider@@YAKXZ.c)
+ *     WinSqmEventEnabled @ 0x1C0078A58 (WinSqmEventEnabled.c)
+ *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C0078AB0 (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
+ *     WinSqmEventWrite @ 0x1C00B1428 (WinSqmEventWrite.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-NTSTATUS WinSqmEndSession()
+int WinSqmEndSession()
 {
-  char *v0; // rbx
+  struct _GUID *v0; // rbx
   int v1; // esi
-  NTSTATUS result; // eax
-  char *v3; // rdi
+  int result; // eax
+  void *Data4; // rdi
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-38h] BYREF
   __int128 v5; // [rsp+30h] [rbp-28h]
 
-  v0 = (char *)gSqmSession;
+  v0 = gSqmSession;
   v1 = 0;
   UserData = 0LL;
   result = (_DWORD)gSqmSession - 1;
@@ -29,28 +29,26 @@ NTSTATUS WinSqmEndSession()
   {
     if ( (unsigned int)IsExtendedWinSqmHandle(gSqmSession) )
     {
-      v3 = v0 + 24;
+      Data4 = v0[1].Data4;
       v1 = 1;
     }
     else
     {
-      v3 = v0;
+      Data4 = v0;
     }
-    result = WinSqmEventEnabled(&SQM_END_SESSION, v3);
+    result = WinSqmEventEnabled(&SQM_END_SESSION, Data4);
     if ( result )
     {
       UserData.Reserved = 0;
-      *(_QWORD *)&v5 = &unk_1C029A528;
-      UserData.Ptr = (ULONGLONG)v3;
+      *(_QWORD *)&v5 = &unk_1C0255868;
+      UserData.Ptr = (ULONGLONG)Data4;
       UserData.Size = 16;
       *((_QWORD *)&v5 + 1) = 4LL;
       result = WinSqmEventWrite(&SQM_END_SESSION, 2u, &UserData);
     }
     if ( v1 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v0);
+      Win32FreePool((__int64)v0);
       return UnregisterWinSqmProvider();
     }
   }

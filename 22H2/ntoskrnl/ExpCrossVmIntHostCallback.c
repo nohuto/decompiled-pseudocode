@@ -1,22 +1,20 @@
 /*
- * XREFs of ExpCrossVmIntHostCallback @ 0x140A05C60
+ * XREFs of ExpCrossVmIntHostCallback @ 0x14095C5E0
  * Callers:
  *     <none>
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
 {
-  struct _EX_RUNDOWN_REF *v2; // rdi
+  struct _EX_RUNDOWN_REF *v2; // rbx
   int (__fastcall **ExtensionTable)(_QWORD, _QWORD, _QWORD); // rax
-  int (__fastcall **v4)(_QWORD, _QWORD, _QWORD); // rbx
+  int (__fastcall **v4)(_QWORD, _QWORD, _QWORD); // rdi
   void (__fastcall *v5)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), _QWORD); // rax
   void (__fastcall *v6)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), __int64); // rax
-  __int64 v7; // [rsp+60h] [rbp+18h] BYREF
 
   if ( a1 == 1 )
   {
@@ -41,12 +39,7 @@ void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
         {
           v6 = (void (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), __int64))v4[16];
           if ( v6 )
-          {
             v6(ExWnfCrossVmCallback, 1LL);
-            v7 = qword_140C14038;
-            if ( (int)ZwUpdateWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, (__int64)&v7) >= 0 )
-              byte_140C14173 = 1;
-          }
         }
       }
       ExReleaseExtensionTable(v2);

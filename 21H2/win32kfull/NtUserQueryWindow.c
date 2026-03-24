@@ -1,151 +1,133 @@
 /*
- * XREFs of NtUserQueryWindow @ 0x1C00E1170
+ * XREFs of NtUserQueryWindow @ 0x1C00415B0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     IsHungWindow @ 0x1C0076670 (IsHungWindow.c)
- *     ?ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00E1344 (-ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?ProcessHungWindow@@YAHPEAUtagWND@@@Z @ 0x1C0144840 (-ProcessHungWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ProcessHungWindow @ 0x1C00037AC (ProcessHungWindow.c)
+ *     IsHungWindow @ 0x1C00418B0 (IsHungWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ShouldProcessHungWindow @ 0x1C0127764 (ShouldProcessHungWindow.c)
  */
 
-__int64 __fastcall NtUserQueryWindow(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserQueryWindow(__int64 a1, int a2)
 {
-  int v3; // edi
-  struct tagWND *v5; // rax
-  __int64 v6; // rcx
-  struct tagWND *v7; // rbx
+  _QWORD *v4; // rax
+  unsigned __int64 v5; // rcx
+  _QWORD *v6; // rbx
+  __int64 v7; // r8
   __int64 v8; // rdx
-  int v9; // edi
-  int v10; // edi
-  __int64 v11; // r8
-  HANDLE ThreadProcessId; // rax
-  __int64 v13; // rdi
-  __int64 v15; // r8
-  int v16; // edi
-  int v17; // edi
-  int v18; // edi
-  int v19; // edi
-  int v20; // edi
-  __int64 *v21; // rdi
-  int v22; // eax
-  struct tagWND *v23; // rax
-  __int64 v24; // rbx
-  struct tagWND *v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
+  HANDLE ThreadId; // rax
+  __int64 v10; // rdi
+  __int64 v12; // rdx
+  int v13; // eax
+  __int64 *v14; // rax
+  __int64 v15; // rbx
+  __int64 v16; // rcx
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = (struct tagWND *)ValidateHwnd(a1);
-  v7 = v5;
-  if ( !v5 )
-    goto LABEL_29;
-  v8 = *((_QWORD *)v5 + 2);
-  if ( !v3 )
+  EnterSharedCrit(0LL, 1LL);
+  v4 = (_QWORD *)ValidateHwnd(a1);
+  v6 = v4;
+  if ( !v4 )
   {
-    v15 = *((_QWORD *)v5 + 5);
-    if ( (*(_DWORD *)(v15 + 232) & 0x10) != 0 && *(char *)(v15 + 19) >= 0 )
+LABEL_24:
+    v10 = 0LL;
+    goto LABEL_6;
+  }
+  v7 = v4[2];
+  if ( a2 == 2 )
+  {
+    v8 = v4[5];
+    if ( (*(_DWORD *)(v8 + 232) & 0x800) != 0 && *(char *)(v8 + 19) >= 0 )
     {
-      v6 = *(_QWORD *)(*((_QWORD *)v5 + 3) + 128LL);
-      v13 = *(int *)(v6 + *(_QWORD *)(v15 + 296));
-      goto LABEL_8;
+      v5 = *(_QWORD *)(v4[3] + 128LL);
+      v10 = *(int *)(v5 + *(_QWORD *)(v8 + 296) + 4);
+      goto LABEL_6;
     }
-    goto LABEL_10;
+    ThreadId = PsGetThreadId(*(PETHREAD *)v7);
+    goto LABEL_5;
   }
-  v9 = v3 - 1;
-  if ( !v9 )
+  if ( !a2 )
   {
-LABEL_10:
-    ThreadProcessId = PsGetThreadProcessId(*(PETHREAD *)v8);
-LABEL_7:
-    v13 = (__int64)ThreadProcessId;
-    goto LABEL_8;
-  }
-  v10 = v9 - 1;
-  if ( !v10 )
-  {
-    v11 = *((_QWORD *)v5 + 5);
-    if ( (*(_DWORD *)(v11 + 232) & 0x10) != 0 && *(char *)(v11 + 19) >= 0 )
+    v12 = v4[5];
+    if ( (*(_DWORD *)(v12 + 232) & 0x800) != 0 && *(char *)(v12 + 19) >= 0 )
     {
-      v6 = *(_QWORD *)(*((_QWORD *)v5 + 3) + 128LL);
-      v13 = *(int *)(v6 + *(_QWORD *)(v11 + 296) + 4);
-      goto LABEL_8;
+      v5 = *(_QWORD *)(v4[3] + 128LL);
+      v10 = *(int *)(v5 + *(_QWORD *)(v12 + 296));
+      goto LABEL_6;
     }
-    ThreadProcessId = PsGetThreadId(*(PETHREAD *)v8);
-    goto LABEL_7;
+LABEL_9:
+    ThreadId = PsGetThreadProcessId(*(PETHREAD *)v7);
+LABEL_5:
+    v10 = (__int64)ThreadId;
+    goto LABEL_6;
   }
-  v16 = v10 - 1;
-  if ( !v16 )
+  v5 = 0x1C0000000uLL;
+  switch ( a2 )
   {
-    v21 = *(__int64 **)(*(_QWORD *)(v8 + 432) + 120LL);
-    goto LABEL_17;
-  }
-  v17 = v16 - 1;
-  if ( !v17 )
-  {
-    v21 = *(__int64 **)(*(_QWORD *)(v8 + 432) + 112LL);
-    goto LABEL_17;
-  }
-  v18 = v17 - 1;
-  if ( v18 )
-  {
-    v19 = v18 - 2;
-    if ( !v19 )
-    {
-      v6 = gpqForeground;
-      v13 = *(_QWORD *)(v8 + 432) == gpqForeground;
-      goto LABEL_8;
-    }
-    v20 = v19 - 1;
-    if ( v20 )
-    {
-      if ( v20 != 1 )
-        goto LABEL_29;
-      v21 = *(__int64 **)(v8 + 792);
-    }
-    else
-    {
-      v21 = *(__int64 **)(v8 + 784);
-    }
-LABEL_17:
-    if ( v21 )
-    {
-      v13 = *v21;
-      goto LABEL_8;
-    }
-LABEL_29:
-    v13 = 0LL;
-    goto LABEL_8;
-  }
-  v6 = *(_WORD *)(*((_QWORD *)v5 + 5) + 42LL) & 0x2FFF;
-  if ( (_DWORD)v6 == 682 )
-  {
-    v13 = 1LL;
-  }
-  else
-  {
-    v22 = IsHungWindow(v5);
-    v13 = v22;
-    if ( v22 )
-    {
-      v23 = ShouldProcessHungWindow(v7);
-      if ( v23 )
+    case 1:
+      goto LABEL_9;
+    case 3:
+      v10 = *(_QWORD *)(*(_QWORD *)(v7 + 432) + 120LL);
+      if ( !v10 )
+        goto LABEL_24;
+      goto LABEL_16;
+    case 4:
+      v10 = *(_QWORD *)(*(_QWORD *)(v7 + 432) + 112LL);
+      if ( !v10 )
+        break;
+      goto LABEL_16;
+    case 5:
+      v5 = *(_WORD *)(v4[5] + 42LL) & 0x2FFF;
+      if ( (_DWORD)v5 == 682 )
       {
-        v24 = *(_QWORD *)v23;
-        UserSessionSwitchLeaveCrit(v6);
-        EnterCrit(1LL, 0LL);
-        v25 = (struct tagWND *)HMValidateHandleNoSecure(v24, 1);
-        if ( v25 )
-          ProcessHungWindow(v25);
-        UserSessionSwitchLeaveCrit(v26);
-        EnterSharedCrit(v28, v27, v29);
+        v10 = 1LL;
       }
-    }
+      else
+      {
+        v13 = IsHungWindow(v4);
+        v10 = v13;
+        if ( v13 )
+        {
+          v14 = (__int64 *)ShouldProcessHungWindow(v6);
+          if ( v14 )
+          {
+            v15 = *v14;
+            if ( gdwInAtomicOperation )
+            {
+              v5 = gdwExtraInstrumentations;
+              if ( (gdwExtraInstrumentations & 1) != 0 )
+                KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+            }
+            UserSessionSwitchLeaveCrit(v5);
+            EnterCrit(0LL, 1LL);
+            if ( HMValidateHandleNoSecure(v15, 1LL) )
+              ProcessHungWindow();
+            UserSessionSwitchLeaveCrit(v16);
+            EnterSharedCrit(0LL, 1LL);
+          }
+        }
+      }
+      break;
+    case 7:
+      v5 = gpqForeground;
+      v10 = *(_QWORD *)(v7 + 432) == gpqForeground;
+      break;
+    case 8:
+      v10 = *(_QWORD *)(v7 + 784);
+      if ( !v10 )
+        goto LABEL_24;
+      goto LABEL_16;
+    case 9:
+      v10 = *(_QWORD *)(v7 + 792);
+      if ( !v10 )
+        goto LABEL_24;
+LABEL_16:
+      v10 = *(_QWORD *)v10;
+      break;
+    default:
+      goto LABEL_24;
   }
-LABEL_8:
-  UserSessionSwitchLeaveCrit(v6);
-  return v13;
+LABEL_6:
+  UserSessionSwitchLeaveCrit(v5);
+  return v10;
 }

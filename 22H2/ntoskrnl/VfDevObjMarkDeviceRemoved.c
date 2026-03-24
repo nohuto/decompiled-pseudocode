@@ -1,26 +1,29 @@
 /*
- * XREFs of VfDevObjMarkDeviceRemoved @ 0x140AD3118
+ * XREFs of VfDevObjMarkDeviceRemoved @ 0x1409D6058
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
  */
 
-void VfDevObjMarkDeviceRemoved()
+char VfDevObjMarkDeviceRemoved()
 {
-  unsigned __int64 v0; // r8
-  volatile signed __int32 *v1; // rax
-  __int128 v2; // [rsp+20h] [rbp-18h] BYREF
+  char result; // al
+  unsigned __int64 v1; // r8
+  volatile signed __int32 *v2; // rax
+  __int128 v3; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = 0LL;
+  result = MmVerifierData;
+  v3 = 0LL;
   if ( (MmVerifierData & 0x10) != 0 )
   {
-    VfAvlInitializeLockContext((__int64)&v2, 1);
-    v1 = (volatile signed __int32 *)VfAvlLookupTreeNode(ViDevObjAvl, (__int64)&v2, v0, 0LL);
-    if ( v1 )
-      _InterlockedOr(v1 + 4, 2u);
-    VfAvlCleanupLockContext((__int64)&v2);
+    VfAvlInitializeLockContext((__int64)&v3, 1);
+    v2 = (volatile signed __int32 *)VfAvlLookupTreeNode(ViDevObjAvl, (__int64)&v3, v1, 0LL);
+    if ( v2 )
+      _InterlockedOr(v2 + 4, 2u);
+    return VfAvlCleanupLockContext((__int64)&v3);
   }
+  return result;
 }

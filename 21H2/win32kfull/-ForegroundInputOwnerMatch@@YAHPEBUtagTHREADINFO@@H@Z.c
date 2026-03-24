@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0110580
+ * XREFs of ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C01266DC
  * Callers:
- *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C00A8DE0 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     NtUserOpenClipboard @ 0x1C00CCB80 (NtUserOpenClipboard.c)
- *     NtUserSetClipboardData @ 0x1C0145ED0 (NtUserSetClipboardData.c)
+ *     NtUserSetClipboardData @ 0x1C002ED50 (NtUserSetClipboardData.c)
+ *     NtUserOpenClipboard @ 0x1C002FA90 (NtUserOpenClipboard.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DC5C (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ _BOOL8 __fastcall ForegroundInputOwnerMatch(const struct tagTHREADINFO *a1, int 
     v6 = *(_DWORD *)(v5 + 884);
     if ( !a2 || !v6 )
       return 0;
-    if ( *(_DWORD *)(gpqForeground + 428LL) != v6
+    if ( *(_DWORD *)(gpqForeground + 432LL) != v6
       && (!v3 || *(_DWORD *)(v3 + 884) != v6)
       && (!v4 || *(_DWORD *)(v4 + 884) != v6) )
     {

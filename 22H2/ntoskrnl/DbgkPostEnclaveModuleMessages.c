@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkPostEnclaveModuleMessages @ 0x14053BA50
+ * XREFs of DbgkPostEnclaveModuleMessages @ 0x1404EDE30
  * Callers:
- *     DbgkpPostModuleMessages @ 0x140937C58 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x1408852F0 (DbgkpPostModuleMessages.c)
  * Callees:
- *     DbgkPostModuleMessage @ 0x14053BACC (DbgkPostModuleMessage.c)
+ *     DbgkPostModuleMessage @ 0x1404EDEAC (DbgkPostModuleMessage.c)
  */
 
-__int64 __fastcall DbgkPostEnclaveModuleMessages(void *a1, void *a2, struct _KEVENT *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall DbgkPostEnclaveModuleMessages(PVOID Object, PVOID a2, PRKEVENT a3, __int64 a4, unsigned int a5)
 {
   __int64 result; // rax
   __int64 v9; // rbx
@@ -19,7 +19,7 @@ __int64 __fastcall DbgkPostEnclaveModuleMessages(void *a1, void *a2, struct _KEV
     v10 = a5;
     do
     {
-      result = DbgkPostModuleMessage(a1, a2, *(_DWORD *)(v9 + 4), a3);
+      result = DbgkPostModuleMessage(Object, a2, *(_DWORD *)(v9 + 4), a3);
       v9 += 24LL;
       --v10;
     }

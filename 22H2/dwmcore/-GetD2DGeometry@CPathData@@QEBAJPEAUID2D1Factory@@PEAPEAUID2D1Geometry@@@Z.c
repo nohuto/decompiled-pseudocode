@@ -1,102 +1,108 @@
 /*
- * XREFs of ?GetD2DGeometry@CPathData@@QEBAJPEAUID2D1Factory@@PEAPEAUID2D1Geometry@@@Z @ 0x180280314
+ * XREFs of ?GetD2DGeometry@CPathData@@QEBAJPEAUID2D1Factory@@PEAPEAUID2D1Geometry@@@Z @ 0x180220B28
  * Callers:
- *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180280558 (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180220F7C (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?GetD2DGeometry@CPathSegmentsShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x18025F4F0 (-GetD2DGeometry@CPathSegmentsShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z @ 0x1800D458C (-PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1PathGeometry@@@Z @ 0x18027FE80 (--4-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1PathGeometry@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_Atomic_compare_exchange_strong_8@std@@YAHPEC_KPEA_K_KW4memory_order@1@3@Z @ 0x1801A6804 (-_Atomic_compare_exchange_strong_8@std@@YAHPEC_KPEA_K_KW4memory_order@1@3@Z.c)
+ *     ??4?$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionTrackerPositionAnimation@@@Z @ 0x1801C7780 (--4-$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionT.c)
+ *     ?PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z @ 0x180220DB0 (-PushIntoSink@CPathData@@AEBAJPEAUID2D1GeometrySink@@@Z.c)
  */
 
 __int64 __fastcall CPathData::GetD2DGeometry(CPathData *this, struct ID2D1Factory *a2, struct ID2D1Geometry **a3)
 {
-  __int64 v3; // rax
-  unsigned int v4; // ebx
-  __int64 *v6; // r14
-  __int64 v8; // rax
-  __int64 (__fastcall *v9)(__int64 *, struct ID2D1Geometry **); // rbx
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 v12; // rbx
-  __int64 (__fastcall *v13)(__int64, struct ID2D1GeometrySink **); // rdi
-  int v14; // eax
-  __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
-  struct ID2D1Geometry *v20; // rax
-  struct ID2D1Geometry *v22; // [rsp+60h] [rbp+30h] BYREF
-  struct ID2D1GeometrySink *v23; // [rsp+68h] [rbp+38h] BYREF
+  __int64 *v3; // r15
+  __int64 *v4; // r14
+  __int64 v5; // rax
+  unsigned int v6; // ebx
+  __int64 v9; // rax
+  __int64 (__fastcall *v10)(__int64 *, struct ID2D1Geometry **); // rbx
+  int v11; // eax
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  __int64 (__fastcall *v14)(__int64, struct ID2D1GeometrySink **); // rdi
+  int v15; // eax
+  __int64 v16; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  __int64 v21; // r9
+  struct ID2D1Geometry *v22; // rax
+  struct ID2D1Geometry *v24; // [rsp+70h] [rbp+40h] BYREF
+  struct ID2D1GeometrySink *v25; // [rsp+78h] [rbp+48h] BYREF
+  signed __int64 v26; // [rsp+88h] [rbp+58h] BYREF
 
-  v23 = a2;
-  v3 = *((_QWORD *)this + 8);
-  v4 = 0;
-  v22 = 0LL;
-  v6 = (__int64 *)*((_QWORD *)this + 5);
-  if ( !v3 )
+  v25 = a2;
+  v3 = (__int64 *)*((_QWORD *)this + 6);
+  v4 = (__int64 *)((char *)this + 72);
+  v5 = *((_QWORD *)this + 9);
+  v6 = 0;
+  v24 = 0LL;
+  if ( !v5 || v3 != *((__int64 **)this + 6) )
   {
-    v8 = *v6;
-    v23 = 0LL;
-    v9 = *(__int64 (__fastcall **)(__int64 *, struct ID2D1Geometry **))(v8 + 80);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)&v22);
-    v10 = v9(v6, &v22);
-    v4 = v10;
-    if ( v10 < 0 )
+    v9 = *v3;
+    v25 = 0LL;
+    v10 = *(__int64 (__fastcall **)(__int64 *, struct ID2D1Geometry **))(v9 + 80);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v24);
+    v11 = v10(v3, &v24);
+    v6 = v11;
+    if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x67u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x67u, 0LL);
     }
     else
     {
-      v12 = (__int64)v22;
-      v13 = *(__int64 (__fastcall **)(__int64, struct ID2D1GeometrySink **))(*(_QWORD *)v22 + 136LL);
-      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v23);
-      v14 = v13(v12, &v23);
-      v4 = v14;
-      if ( v14 < 0 )
+      v13 = (__int64)v24;
+      v14 = *(__int64 (__fastcall **)(__int64, struct ID2D1GeometrySink **))(*(_QWORD *)v24 + 136LL);
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v25);
+      v15 = v14(v13, &v25);
+      v6 = v15;
+      if ( v15 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x68u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x68u, 0LL);
       }
       else
       {
-        v16 = CPathData::PushIntoSink(this, v23);
-        v4 = v16;
-        if ( v16 < 0 )
+        v17 = CPathData::PushIntoSink(this, v25);
+        v6 = v17;
+        if ( v17 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x6Au, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x6Au, 0LL);
         }
         else
         {
-          v18 = (*(__int64 (__fastcall **)(struct ID2D1GeometrySink *))(*(_QWORD *)v23 + 72LL))(v23);
-          v4 = v18;
-          if ( v18 >= 0 )
+          v19 = (*(__int64 (__fastcall **)(struct ID2D1GeometrySink *))(*(_QWORD *)v25 + 72LL))(v25);
+          v6 = v19;
+          if ( v19 >= 0 )
           {
-            if ( v6 == *((__int64 **)this + 5) )
+            if ( v3 == *((__int64 **)this + 6) )
             {
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)this + 8, (signed __int64)v22, 0LL) )
-                Microsoft::WRL::ComPtr<ID2D1PathGeometry>::operator=((__int64 *)&v22, *((_QWORD *)this + 8));
+              v26 = 0LL;
+              if ( (unsigned int)std::_Atomic_compare_exchange_strong_8(v4, &v26, (signed __int64)v24, v21, 5) )
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)*v4 + 8LL))(*v4);
               else
-                (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 8) + 8LL))(*((_QWORD *)this + 8));
+                Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)&v24, *v4);
             }
-            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v23);
-            goto LABEL_12;
+            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v25);
+            goto LABEL_13;
           }
-          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x6Cu, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x6Cu, 0LL);
         }
       }
     }
-    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v23);
-    goto LABEL_18;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v25);
+    goto LABEL_19;
   }
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::operator=((__int64 *)&v22, *((_QWORD *)this + 8));
-LABEL_12:
-  v20 = v22;
-  v22 = 0LL;
-  *a3 = v20;
-LABEL_18:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)&v22);
-  return v4;
+  Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)&v24, *v4);
+LABEL_13:
+  v22 = v24;
+  v24 = 0LL;
+  *a3 = v22;
+LABEL_19:
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v24);
+  return v6;
 }

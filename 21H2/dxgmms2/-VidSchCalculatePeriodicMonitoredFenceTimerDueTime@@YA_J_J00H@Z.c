@@ -1,8 +1,8 @@
 /*
- * XREFs of ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C003B70C
+ * XREFs of ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C0032C30
  * Callers:
- *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003B7B0 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     VidSchCreatePeriodicFrameNotification @ 0x1C003C910 (VidSchCreatePeriodicFrameNotification.c)
+ *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0032CD0 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C0033C10 (VidSchCreatePeriodicFrameNotification.c)
  * Callees:
  *     <none>
  */

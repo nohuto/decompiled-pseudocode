@@ -1,7 +1,7 @@
 /*
- * XREFs of SeAuditingFileEventsWithContextEx @ 0x1402FFA90
+ * XREFs of SeAuditingFileEventsWithContextEx @ 0x1402FFB90
  * Callers:
- *     SeAuditingFileEventsWithContext @ 0x14089FA90 (SeAuditingFileEventsWithContext.c)
+ *     SeAuditingFileEventsWithContext @ 0x14089FA70 (SeAuditingFileEventsWithContext.c)
  * Callees:
  *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
  *     SepAdtAuditThisEventByCategoryWithContext @ 0x1405BBAC0 (SepAdtAuditThisEventByCategoryWithContext.c)

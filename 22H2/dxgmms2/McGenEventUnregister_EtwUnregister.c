@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C002E398
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C0023E98
  * Callers:
- *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00E0FB0 (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
+ *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00AD26C (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,29 @@
 /*
- * XREFs of ESM_NotifyingTransferRingsEndpointHalted @ 0x1C004F560
+ * XREFs of ESM_NotifyingTransferRingsEndpointHalted @ 0x1C0019E10
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_SM_NotifyTransferRingsEndpointHalted @ 0x1C0039C4C (Endpoint_SM_NotifyTransferRingsEndpointHalted.c)
+ *     TR_EndpointHalted @ 0x1C0019F00 (TR_EndpointHalted.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  */
 
 __int64 __fastcall ESM_NotifyingTransferRingsEndpointHalted(__int64 a1)
 {
-  Endpoint_SM_NotifyTransferRingsEndpointHalted(*(_QWORD *)(a1 + 960));
+  __int64 v1; // rbx
+  __int64 v3; // rdi
+  unsigned int v4; // esi
+
+  v1 = *(_QWORD *)(a1 + 960);
+  if ( *(_BYTE *)(v1 + 37) && (XilEndpoint_FetchStreamContextArray(*(_QWORD *)(v1 + 136)), *(_BYTE *)(v1 + 37)) )
+  {
+    v3 = *(_QWORD *)(v1 + 136);
+    v4 = 1;
+    for ( *(_DWORD *)(v3 + 20) = 0; v4 <= *(_DWORD *)(v3 + 8); ++v4 )
+      TR_EndpointHalted(*(_QWORD *)(104LL * (v4 - 1) + *(_QWORD *)(v1 + 136) + 48));
+  }
+  else
+  {
+    TR_EndpointHalted(*(_QWORD *)(v1 + 88));
+  }
   return 29LL;
 }

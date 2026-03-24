@@ -1,108 +1,140 @@
 /*
- * XREFs of ?xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01F9F4C
+ * XREFs of ?xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021AF18
  * Callers:
- *     ?xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAB50 (-xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAF30 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021BF70 (-xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C400 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  * Callees:
- *     ?AddPublicObject@@YAHIPEAXK@Z @ 0x1C01F976C (-AddPublicObject@@YAHIPEAXK@Z.c)
- *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F9828 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
- *     ?Createpxs@@YAPEAUtagXSTATE@@P6AKPEAKPEA_JPEAUtagDDECONV@@@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F98DC (-Createpxs@@YAPEAUtagXSTATE@@P6AKPEAKPEA_JPEAUtagDDECONV@@@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
- *     ?GiveObject@@YAHIPEAXK@Z @ 0x1C01F9A1C (-GiveObject@@YAHIPEAXK@Z.c)
- *     ?IsObjectPublic@@YAPEAUtagPUBOBJ@@PEAX@Z @ 0x1C01F9A70 (-IsObjectPublic@@YAPEAUtagPUBOBJ@@PEAX@Z.c)
- *     ?xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FA48C (-xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z.c)
- *     xxxClientFreeDDEHandle @ 0x1C0212740 (xxxClientFreeDDEHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C01D95D0 (WPP_RECORDER_SF_D.c)
+ *     ?AddPublicObject@@YAHIPEAXK@Z @ 0x1C021A48C (-AddPublicObject@@YAHIPEAXK@Z.c)
+ *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C021A548 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
+ *     ?Createpxs@@YAPEAUtagXSTATE@@P6AKPEAKPEA_JPEAUtagDDECONV@@@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C021A5F8 (-Createpxs@@YAPEAUtagXSTATE@@P6AKPEAKPEA_JPEAUtagDDECONV@@@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
+ *     ?GiveObject@@YAHIPEAXK@Z @ 0x1C021A78C (-GiveObject@@YAHIPEAXK@Z.c)
+ *     ?IsObjectPublic@@YAPEAUtagPUBOBJ@@PEAX@Z @ 0x1C021A7E0 (-IsObjectPublic@@YAPEAUtagPUBOBJ@@PEAX@Z.c)
+ *     ?xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z @ 0x1C021B69C (-xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C021BB28 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
  */
 
 __int64 __fastcall xxxAdviseData(unsigned int *a1, void **a2, struct tagDDECONV *a3)
 {
+  void **v4; // r12
   void *v6; // rcx
-  unsigned int v7; // edi
-  struct tagINTDDEINFO *v8; // rsi
-  __int16 v9; // ax
-  void *v10; // rdx
-  int v12; // eax
-  unsigned int v13; // ebx
-  unsigned int v14; // ebx
+  unsigned int v7; // esi
+  __int64 v8; // rax
+  int v9; // edx
+  struct tagINTDDEINFO *v10; // rdi
+  int v11; // ecx
+  __int16 v12; // cx
+  void *v13; // rdx
   int v15; // eax
-  void *v16; // rax
-  struct tagXSTATE *v17; // rax
-  struct tagINTDDEINFO *v18; // [rsp+30h] [rbp-10h] BYREF
-  void *v19; // [rsp+38h] [rbp-8h] BYREF
-  unsigned int v20; // [rsp+88h] [rbp+48h] BYREF
+  int v16; // edx
+  struct tagDDECONV *v17; // rcx
+  unsigned int v18; // ebx
+  unsigned int v19; // ebx
+  int v20; // eax
+  void *v21; // rax
+  struct tagXSTATE *v22; // rax
+  void *v23; // [rsp+30h] [rbp-10h] BYREF
+  struct tagINTDDEINFO *v24; // [rsp+38h] [rbp-8h] BYREF
+  unsigned int v25; // [rsp+88h] [rbp+48h] BYREF
 
-  v20 = 131;
-  v6 = *a2;
-  v18 = 0LL;
-  v19 = 0LL;
-  v7 = xxxCopyDdeIn(v6, &v20, &v19, &v18);
-  if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
+  v24 = 0LL;
+  v4 = a2;
+  v23 = 0LL;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 29, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+  }
+  v6 = *v4;
+  v25 = 131;
+  v7 = xxxCopyDdeIn(v6, &v25, &v23, &v24);
+  v8 = _HMPheFromObject(a3);
+  v10 = v24;
+  LOBYTE(v11) = *(_BYTE *)(v8 + 25);
+  if ( (v11 & 1) != 0 )
   {
     v7 = 3;
-    if ( v18 )
-      Win32FreePool(v18);
-    return v7;
+    if ( !v24 )
+      return v7;
+    Win32FreePool(v24);
   }
   if ( v7 == 2 )
   {
-    v8 = v18;
-    v9 = *((_WORD *)v18 + 36);
-    if ( (v9 & 0xA000) == 0 )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v9 |= 0x2000u;
-      *((_WORD *)v18 + 36) = v9;
+      LOBYTE(v9) = 4;
+      WPP_RECORDER_SF_D(
+        v11,
+        v9,
+        14,
+        30,
+        (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+        *((_WORD *)v10 + 36));
     }
-    if ( (v9 & 0x2000) != 0 )
+    v12 = *((_WORD *)v10 + 36);
+    if ( (v12 & 0xA000) == 0 )
     {
-      if ( IsObjectPublic(*((void **)v8 + 6)) )
+      v12 |= 0x2000u;
+      *((_WORD *)v10 + 36) = v12;
+    }
+    if ( (v12 & 0x2000) != 0 )
+    {
+      if ( IsObjectPublic(*((void **)v10 + 6)) )
       {
-        Win32FreePool(v8);
+        Win32FreePool(v10);
         return 3LL;
       }
-      v12 = GiveObject(
-              *((unsigned __int16 *)v8 + 37),
-              v10,
+      v15 = GiveObject(
+              *((unsigned __int16 *)v10 + 37),
+              v13,
               *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3 + 6) + 16LL) + 424LL) + 56LL));
-      v13 = v20;
-      if ( v12 )
-        v13 = v20 | 0x4000;
-      v14 = v13 | 0x400;
+      v18 = v25;
+      if ( v15 )
+        v18 = v25 | 0x4000;
+      v19 = v18 | 0x400;
     }
     else
     {
-      v15 = AddPublicObject(
-              *((unsigned __int16 *)v8 + 37),
-              *((void **)v8 + 6),
+      v20 = AddPublicObject(
+              *((unsigned __int16 *)v10 + 37),
+              *((void **)v10 + 6),
               *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3 + 5) + 16LL) + 424LL) + 56LL));
-      v14 = v20;
-      if ( v15 )
-        v14 = v20 | 0x2000;
+      v19 = v25;
+      if ( v20 )
+        v19 = v25 | 0x2000;
     }
     *a1 |= 0x80000000;
-    if ( *((__int16 *)v8 + 36) >= 0 )
+    if ( *((__int16 *)v10 + 36) >= 0 )
     {
-      xxxClientFreeDDEHandle(v19, v14 & 0xFFFFFFFE);
-      if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        *a2 = 0LL;
-        return 3;
+        LOBYTE(v16) = 4;
+        WPP_RECORDER_SF_((_DWORD)v17, v16, 14, 31, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
       }
-      v17 = Createpxs(0LL, 0LL, 0LL, v8, v14 | 0x200);
-      if ( v17 )
+      xxxFreeDDEHandle(v17, v23, v19 & 0xFFFFFFFE);
+      if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 || (v22 = Createpxs(0LL, 0LL, 0LL, v10, v19 | 0x200)) == 0LL )
       {
-        *((_QWORD *)v17 + 2) = *(_QWORD *)(*((_QWORD *)a3 + 6) + 16LL);
-        v16 = *(void **)v17;
+        v21 = 0LL;
       }
       else
       {
-        v16 = 0LL;
+        *((_QWORD *)v22 + 2) = *(_QWORD *)(*((_QWORD *)a3 + 6) + 16LL);
+        v21 = *(void **)v22;
       }
     }
     else
     {
-      v16 = AnticipatePost(*((struct tagDDECONV **)a3 + 4), xxxAdviseDataAck, 0LL, v19, v8, v14);
+      v21 = AnticipatePost(
+              *((struct tagDDECONV **)a3 + 4),
+              (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxAdviseDataAck,
+              0LL,
+              v23,
+              v10,
+              v19);
     }
-    *a2 = v16;
-    if ( !v16 )
+    *v4 = v21;
+    if ( !v21 )
       return 3;
   }
   return v7;

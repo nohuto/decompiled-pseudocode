@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C00820A0
+ * XREFs of ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C00793C0
  * Callers:
- *     bMigrateSurfaceForConversion @ 0x1C0061D70 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00B9E00 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C0082504 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
+ *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C00797E4 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
  */
 
 __int64 __fastcall SURFREFVIEW::bUnMapImmediate(SURFACE **this, void *a2, struct DC *a3)

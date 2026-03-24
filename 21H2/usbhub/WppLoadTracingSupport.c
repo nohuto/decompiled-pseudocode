@@ -1,40 +1,44 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C0072198
+ * XREFs of WppLoadTracingSupport @ 0x1C0075638
  * Callers:
- *     DriverEntry @ 0x1C00410A8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00422D8 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
-PVOID WppLoadTracingSupport()
+void *WppLoadTracingSupport()
 {
-  PVOID result; // rax
+  void *result; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   unsigned int v2; // [rsp+50h] [rbp+10h] BYREF
 
   v2 = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"PsGetVersion");
-  pfnWppGetVersion = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
+  WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink = (_LIST_ENTRY *)MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");
-  pfnWppTraceMessage = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
+  WPP_MAIN_CB.SecurityDescriptor = MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");
-  pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);
-  result = pfnWppGetVersion;
-  WPPTraceSuite = 2;
-  if ( pfnWppGetVersion )
-    result = (PVOID)pfnWppGetVersion(&v2, 0LL, 0LL, 0LL);
+  WPP_MAIN_CB.DeviceObjectExtension = (_DEVOBJ_EXTENSION *)MmGetSystemRoutineAddress(&DestinationString);
+  result = WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink;
+  LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink) = 2;
+  if ( WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink )
+    result = (void *)((__int64 (__fastcall *)(unsigned int *, _QWORD, _QWORD, _QWORD))WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink)(
+                       &v2,
+                       0LL,
+                       0LL,
+                       0LL);
   if ( v2 >= 6 )
   {
     RtlInitUnicodeString(&DestinationString, L"EtwRegisterClassicProvider");
     result = MmGetSystemRoutineAddress(&DestinationString);
-    pfnEtwRegisterClassicProvider = (__int64)result;
+    *(_QWORD *)&WPP_MAIN_CB.ActiveThreadCount = result;
     if ( result )
     {
       RtlInitUnicodeString(&DestinationString, L"EtwUnregister");
       result = MmGetSystemRoutineAddress(&DestinationString);
-      pfnEtwUnregister = (__int64)result;
-      WPPTraceSuite = 4;
+      *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = result;
+      LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink) = 4;
     }
   }
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CGaussianBlurEffect@@MEBAAEBU_GUID@@XZ @ 0x1800F9D80
+ * XREFs of ?GetEffectGuid@CGaussianBlurEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1FD0
  * Callers:
  *     <none>
  * Callees:

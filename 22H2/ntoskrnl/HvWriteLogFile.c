@@ -1,80 +1,81 @@
 /*
- * XREFs of HvWriteLogFile @ 0x1407512A4
+ * XREFs of HvWriteLogFile @ 0x14071CE2C
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
- *     CmpTraceHiveFlushWroteLogFile @ 0x140751064 (CmpTraceHiveFlushWroteLogFile.c)
- *     CmpFileFlushAndPurge @ 0x1407510D4 (CmpFileFlushAndPurge.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407516B0 (HvpLogTypeToLogArrayIndex.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpTraceHiveFlushWroteLogFile @ 0x14071CF98 (CmpTraceHiveFlushWroteLogFile.c)
+ *     CmpFileFlushAndPurge @ 0x14071D008 (CmpFileFlushAndPurge.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140723A2C (HvpLogTypeToLogArrayIndex.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
  */
 
 __int64 __fastcall HvWriteLogFile(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v6; // r10
+  __int64 v6; // rdx
   __int64 v7; // r12
   unsigned int v8; // ebp
   __int64 v9; // rsi
-  signed __int64 *v10; // rdx
-  signed __int64 v11; // r8
-  __int64 v12; // rdi
+  _QWORD *v10; // r8
+  __int64 v11; // rdi
+  int v12; // edx
   _DWORD *v13; // r14
   __int64 result; // rax
   unsigned int v15; // eax
 
   if ( (*(_DWORD *)(a1 + 160) & 0x8001) != 0 )
     return 0LL;
-  v6 = *(unsigned int *)(a1 + 168);
-  if ( !(_DWORD)v6 || !*(_QWORD *)(a1 + 8 * v6 + 1544) )
+  v6 = *(unsigned int *)(a1 + 164);
+  if ( !(_DWORD)v6 || !*(_QWORD *)(a1 + 8 * v6 + 1536) )
     return 3221225485LL;
-  v7 = *(_QWORD *)(a1 + 1712);
-  v8 = *(_DWORD *)(a1 + 1720);
-  v9 = *(unsigned int *)(a1 + 1724);
+  v7 = *(_QWORD *)(a1 + 1704);
+  v8 = *(_DWORD *)(a1 + 1712);
+  v9 = *(unsigned int *)(a1 + 1716);
   if ( (_DWORD)v6 == 1 || (_DWORD)v6 == 4 )
   {
-    v10 = (signed __int64 *)(a1 + 1808);
+    v10 = (_QWORD *)(a1 + 1800);
   }
   else if ( (_DWORD)v6 == 5 )
   {
-    v10 = (signed __int64 *)(a1 + 1816);
+    v10 = (_QWORD *)(a1 + 1808);
   }
   else
   {
     v10 = 0LL;
   }
-  v11 = v9 + *(unsigned int *)(a1 + 180);
-  if ( v11 > *v10 )
-    CmpDoFileSetSizeEx(a1, v6, v11, 1);
-  v12 = 0LL;
+  if ( v9 + *(unsigned int *)(a1 + 176) > *v10 )
+    CmpDoFileSetSizeEx(a1, v6, v9 + *(unsigned int *)(a1 + 176), 1LL);
+  v11 = 0LL;
   if ( !v8 )
   {
-LABEL_12:
-    result = CmpFileFlushAndPurge(a1, *(_DWORD *)(a1 + 168));
+LABEL_13:
+    result = CmpFileFlushAndPurge(a1, *(unsigned int *)(a1 + 164));
     if ( (int)result < 0 )
       return result;
-    ++*(_DWORD *)(a1 + 172);
-    v15 = HvpLogTypeToLogArrayIndex(*(unsigned int *)(a1 + 168));
-    *(_BYTE *)(v15 + a1 + 192) = 1;
-    CmpTraceHiveFlushWroteLogFile(v15, v9);
+    ++*(_DWORD *)(a1 + 168);
+    v15 = HvpLogTypeToLogArrayIndex(*(unsigned int *)(a1 + 164));
+    *(_BYTE *)(v15 + a1 + 188) = 1;
+    CmpTraceHiveFlushWroteLogFile(v15, (unsigned int)v9);
     *a4 = v9;
     return 0LL;
   }
+  v12 = *(_DWORD *)(a1 + 176);
   while ( 1 )
   {
-    v13 = (_DWORD *)(v7 + 24 * v12);
-    *v13 = *(_DWORD *)(a1 + 180);
+    v13 = (_DWORD *)(v7 + 24 * v11);
+    *v13 = v12;
     result = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *, __int64, _DWORD))(a1 + 40))(
                a1,
-               *(unsigned int *)(a1 + 168),
+               *(unsigned int *)(a1 + 164),
                v13,
                1LL,
                0);
     if ( (int)result < 0 )
       return result;
-    v12 = (unsigned int)(v12 + 1);
-    *(_DWORD *)(a1 + 180) += v13[4];
-    if ( (unsigned int)v12 >= v8 )
-      goto LABEL_12;
+    v11 = (unsigned int)(v11 + 1);
+    *(_DWORD *)(a1 + 176) += v13[4];
+    v12 = *(_DWORD *)(a1 + 176);
+    if ( (unsigned int)v11 >= v8 )
+      goto LABEL_13;
   }
 }

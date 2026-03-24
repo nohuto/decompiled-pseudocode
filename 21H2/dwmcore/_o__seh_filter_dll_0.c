@@ -1,7 +1,7 @@
 /*
- * XREFs of _o__seh_filter_dll_0 @ 0x180101868
+ * XREFs of _o__seh_filter_dll_0 @ 0x1800E8168
  * Callers:
- *     __scrt_dllmain_exception_filter @ 0x1801008F4 (__scrt_dllmain_exception_filter.c)
+ *     __scrt_dllmain_exception_filter @ 0x1800E70C4 (__scrt_dllmain_exception_filter.c)
  * Callees:
  *     <none>
  */

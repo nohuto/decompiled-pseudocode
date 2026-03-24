@@ -1,274 +1,310 @@
 /*
- * XREFs of PnpCmResourcesToBiosResources @ 0x1C0092830
+ * XREFs of PnpCmResourcesToBiosResources @ 0x1C0090950
  * Callers:
- *     ACPIInitStartDevice @ 0x1C002DA4C (ACPIInitStartDevice.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
- *     PnpiCmResourceToBiosAddress @ 0x1C0092F1C (PnpiCmResourceToBiosAddress.c)
- *     PnpiCmResourceToBiosAddressDouble @ 0x1C0093008 (PnpiCmResourceToBiosAddressDouble.c)
- *     PnpiCmResourceToBiosAddressQuad @ 0x1C00930D8 (PnpiCmResourceToBiosAddressQuad.c)
- *     PnpiCmResourceToBiosDma @ 0x1C0093188 (PnpiCmResourceToBiosDma.c)
- *     PnpiCmResourceToBiosExtendedIrq @ 0x1C0093204 (PnpiCmResourceToBiosExtendedIrq.c)
- *     PnpiCmResourceToBiosGpioInterruptIoDescriptor @ 0x1C00932E0 (PnpiCmResourceToBiosGpioInterruptIoDescriptor.c)
- *     PnpiCmResourceToBiosIoFixedPort @ 0x1C009333C (PnpiCmResourceToBiosIoFixedPort.c)
- *     PnpiCmResourceToBiosIoPort @ 0x1C0093394 (PnpiCmResourceToBiosIoPort.c)
- *     PnpiCmResourceToBiosIrq @ 0x1C0093404 (PnpiCmResourceToBiosIrq.c)
- *     PnpiCmResourceToBiosMemory @ 0x1C00934AC (PnpiCmResourceToBiosMemory.c)
- *     PnpiCmResourceToBiosMemory32Fixed @ 0x1C0093528 (PnpiCmResourceToBiosMemory32Fixed.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C00170AC (WPP_RECORDER_SF_LL.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     PnpiCmResourceToBiosIrq @ 0x1C0090B74 (PnpiCmResourceToBiosIrq.c)
+ *     PnpiCmResourceToBiosIoPort @ 0x1C0090BD4 (PnpiCmResourceToBiosIoPort.c)
+ *     PnpiCmResourceToBiosAddress @ 0x1C00B4A48 (PnpiCmResourceToBiosAddress.c)
+ *     PnpiCmResourceToBiosAddressDouble @ 0x1C00B4B34 (PnpiCmResourceToBiosAddressDouble.c)
+ *     PnpiCmResourceToBiosAddressQuad @ 0x1C00B4C18 (PnpiCmResourceToBiosAddressQuad.c)
+ *     PnpiCmResourceToBiosExtendedIrq @ 0x1C00B4CE0 (PnpiCmResourceToBiosExtendedIrq.c)
+ *     PnpiCmResourceToBiosGpioInterruptIoDescriptor @ 0x1C00B4DD0 (PnpiCmResourceToBiosGpioInterruptIoDescriptor.c)
+ *     PnpiCmResourceToBiosIoFixedPort @ 0x1C00B4E2C (PnpiCmResourceToBiosIoFixedPort.c)
+ *     PnpiCmResourceToBiosMemory @ 0x1C00B4E7C (PnpiCmResourceToBiosMemory.c)
+ *     PnpiCmResourceToBiosMemory32Fixed @ 0x1C00B4EE8 (PnpiCmResourceToBiosMemory32Fixed.c)
  */
 
 __int64 __fastcall PnpCmResourcesToBiosResources(__int64 a1, __int64 a2, unsigned __int8 *a3, unsigned int a4)
 {
-  unsigned __int8 v4; // r14
-  unsigned int v5; // ebp
-  __int64 v6; // rsi
-  __int64 v8; // r13
-  __int64 v9; // r10
-  signed int v10; // ebx
+  unsigned __int8 v4; // bp
+  unsigned int v5; // esi
+  signed int v6; // ebx
+  __int64 v7; // r14
+  __int64 v10; // r10
   unsigned __int64 v11; // rdi
-  unsigned __int8 *v12; // rax
-  unsigned __int16 v13; // r12
-  int v14; // r9d
-  signed int v15; // eax
-  unsigned int v16; // eax
-  unsigned int v17; // ecx
-  __int64 v18; // r8
-  int v19; // eax
-  unsigned int v20; // r8d
-  char v21; // cl
-  _BYTE *v22; // rax
-  unsigned int v24; // eax
-  unsigned int v25; // ecx
-  _BYTE *v26; // rdx
-  __int64 v27; // [rsp+28h] [rbp-50h]
-  unsigned __int64 v29; // [rsp+90h] [rbp+18h]
+  unsigned __int16 v12; // r12
+  unsigned __int16 v13; // r9
+  signed int v14; // eax
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  __int64 v17; // rdx
+  unsigned int v18; // ecx
+  unsigned int v19; // eax
+  _BYTE *v20; // rdx
+  char v22; // al
+  __int16 v23; // cx
+  char v24; // al
+  unsigned int v25; // eax
+  unsigned int v26; // edx
+  __int64 v27; // rcx
+  int v28; // eax
+  unsigned int v29; // r8d
+  char v30; // cl
+  unsigned int v31; // edx
+  _BYTE *v32; // rax
+  __int64 v33; // [rsp+28h] [rbp-40h]
+  __int64 v34; // [rsp+30h] [rbp-38h]
 
   v4 = *a3;
   v5 = 0;
-  v6 = a4;
-  v8 = a2;
-  v9 = a1;
-  v10 = 0;
+  v6 = 0;
+  v7 = a4;
+  v10 = a1;
   v11 = (unsigned __int64)a3;
-  v12 = &a3[a4];
   while ( 1 )
   {
-    v29 = (unsigned __int64)v12;
     if ( (v4 & 0x80u) == 0 )
     {
-      v13 = (v4 & 7) + 1;
+      v12 = (v4 & 7) + 1;
       v4 &= 0x78u;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_9;
-      v14 = 10;
-      goto LABEL_8;
+        goto LABEL_6;
+      v13 = 10;
+      goto LABEL_5;
     }
-    if ( v11 >= (unsigned __int64)(v12 - 2) )
-      goto LABEL_79;
-    v13 = *(_WORD *)(v11 + 1) + 3;
+    if ( v11 >= (unsigned __int64)&a3[v7 - 2] )
+      goto LABEL_30;
+    v12 = *(_WORD *)(v11 + 1) + 3;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v14 = 11;
-LABEL_8:
-      LOBYTE(a2) = 4;
-      WPP_RECORDER_SF_DD(
-        WPP_GLOBAL_Control->DeviceExtension,
-        a2,
-        14,
-        v14,
+      v13 = 11;
+LABEL_5:
+      LODWORD(v34) = v12;
+      LODWORD(v33) = v4;
+      WPP_RECORDER_SF_LL(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        0xEu,
+        v13,
         (__int64)&WPP_52f1d9ae2bb33d21e69d5020d30b72bd_Traceguids,
-        v4,
-        v13);
-      v9 = a1;
+        v33,
+        v34);
+      v10 = a1;
     }
-LABEL_9:
+LABEL_6:
     if ( v4 == 120 )
       break;
-    LODWORD(a2) = v4;
     if ( v4 > 0x85u )
     {
       switch ( v4 )
       {
         case 0x86u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0xC )
+          if ( (unsigned __int64)&a3[v7 - v11] < 0xC )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosMemory32Fixed(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosMemory32Fixed(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
         case 0x87u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0x1A )
+          if ( (unsigned __int64)&a3[v7 - v11] < 0x1A )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosAddressDouble(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosAddressDouble(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
         case 0x88u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0x10 )
+          if ( (unsigned __int64)&a3[v7 - v11] < 0x10 )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosAddress(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosAddress(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
         case 0x89u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 9 )
+          if ( (unsigned __int64)&a3[v7 - v11] < 9 )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosExtendedIrq(v9, v11, v8, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosExtendedIrq(v10, v11, a2, 1LL);
+          goto LABEL_16;
         case 0x8Au:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0x2E )
+          if ( (unsigned __int64)&a3[v7 - v11] < 0x2E )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosAddressQuad(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosAddressQuad(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
         case 0x8Cu:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0x17 )
+          if ( (unsigned __int64)&a3[v7 - v11] < 0x17 )
             return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosGpioInterruptIoDescriptor(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+          v14 = PnpiCmResourceToBiosGpioInterruptIoDescriptor(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
         case 0x8Du:
-          return (unsigned int)((unsigned __int64)&a3[v6 - v11] < 0x12 ? -1072431089 : -1073741822);
-      }
-      if ( v4 != 142 )
-        goto LABEL_48;
-      if ( (unsigned __int64)&a3[v6 - v11] < 0xC )
-        return (unsigned int)-1072431089;
-      v20 = *(_DWORD *)(v8 + 16);
-      v21 = 0;
-      LODWORD(a2) = 0;
-      if ( v20 )
-      {
-        v22 = (_BYTE *)(v8 + 20);
-        while ( *v22 != 0x84 )
-        {
-          LODWORD(a2) = a2 + 1;
-          v22 += 20;
-          if ( (unsigned int)a2 >= v20 )
-            goto LABEL_57;
-        }
-        v21 = 1;
-        *v22 = 0;
-      }
-LABEL_57:
-      v10 = v21 == 0 ? 0xC0000001 : 0;
-    }
-    else
-    {
-      switch ( v4 )
-      {
-        case 0x85u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 0x14 )
+          return (unsigned int)((unsigned __int64)&a3[v7 - v11] < 0x12 ? -1072431089 : -1073741822);
+        case 0x8Eu:
+          if ( (unsigned __int64)&a3[v7 - v11] < 0xC )
             return (unsigned int)-1072431089;
-          *(_BYTE *)(v11 + 3) = 0;
-          v16 = 0;
-          *(_QWORD *)(v11 + 4) = 0LL;
-          *(_QWORD *)(v11 + 12) = 0LL;
-          v17 = *(_DWORD *)(v8 + 16);
-          if ( v17 )
+          v29 = *(_DWORD *)(a2 + 16);
+          v30 = 0;
+          v31 = 0;
+          if ( v29 )
           {
-            v18 = v8 + 20;
-            while ( *(_BYTE *)v18 != 3 )
+            v32 = (_BYTE *)(a2 + 20);
+            while ( *v32 != 0x84 )
             {
-              ++v16;
-              v18 += 20LL;
-              if ( v16 >= v17 )
-                goto LABEL_39;
+              ++v31;
+              v32 += 20;
+              if ( v31 >= v29 )
+                goto LABEL_81;
             }
-            LODWORD(a2) = *(unsigned __int8 *)(v11 + 3);
-            *(_DWORD *)(v11 + 16) = *(_DWORD *)(v18 + 12);
-            v19 = *(_DWORD *)(v18 + 4);
-            *(_DWORD *)(v11 + 8) = v19;
-            *(_DWORD *)(v11 + 4) = v19;
-            if ( (*(_BYTE *)(v18 + 2) & 1) == 0 )
-              LODWORD(a2) = (unsigned __int8)a2 | 1;
-            *(_BYTE *)(v11 + 3) = a2;
-            *(_BYTE *)v18 = 0;
+            v30 = 1;
+            *v32 = 0;
           }
-LABEL_39:
-          v10 = 0;
-          goto LABEL_72;
-        case 0x20u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 4 )
-            return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosIrq(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
-        case 0x28u:
-          if ( (unsigned __int64)&a3[v6 - v11] < 3 )
-            return (unsigned int)-1072431089;
-          v15 = PnpiCmResourceToBiosDma(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-          goto LABEL_70;
+LABEL_81:
+          v6 = v30 == 0 ? 0xC0000001 : 0;
+          goto LABEL_17;
       }
-      if ( v4 != 48 && v4 != 56 )
+LABEL_78:
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        switch ( v4 )
+        LODWORD(v33) = v4;
+        WPP_RECORDER_SF_L(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0xEu,
+          0xDu,
+          (__int64)&WPP_52f1d9ae2bb33d21e69d5020d30b72bd_Traceguids,
+          v33);
+      }
+      goto LABEL_17;
+    }
+    switch ( v4 )
+    {
+      case 0x85u:
+        if ( (unsigned __int64)&a3[v7 - v11] < 0x14 )
+          return (unsigned int)-1072431089;
+        *(_BYTE *)(v11 + 3) = 0;
+        v25 = 0;
+        *(_QWORD *)(v11 + 4) = 0LL;
+        *(_QWORD *)(v11 + 12) = 0LL;
+        v26 = *(_DWORD *)(a2 + 16);
+        if ( v26 )
         {
-          case 0x40u:
-            if ( (unsigned __int64)&a3[v6 - v11] < 8 )
-              return (unsigned int)-1072431089;
-            v15 = PnpiCmResourceToBiosIoPort(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-            goto LABEL_70;
-          case 0x48u:
-            if ( (unsigned __int64)&a3[v6 - v11] < 4 )
-              return (unsigned int)-1072431089;
-            v15 = PnpiCmResourceToBiosIoFixedPort(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-            goto LABEL_70;
-          case 0x70u:
-            goto LABEL_71;
-          case 0x81u:
-            if ( (unsigned __int64)&a3[v6 - v11] < 0xC )
-              return (unsigned int)-1072431089;
-            v15 = PnpiCmResourceToBiosMemory(v11, v8, &WPP_RECORDER_INITIALIZED, 1LL);
-LABEL_70:
-            v10 = v15;
-            goto LABEL_71;
+          v27 = a2 + 20;
+          while ( *(_BYTE *)v27 != 3 )
+          {
+            ++v25;
+            v27 += 20LL;
+            if ( v25 >= v26 )
+              goto LABEL_25;
+          }
+          *(_DWORD *)(v11 + 16) = *(_DWORD *)(v27 + 12);
+          v28 = *(_DWORD *)(v27 + 4);
+          *(_DWORD *)(v11 + 8) = v28;
+          *(_DWORD *)(v11 + 4) = v28;
+          *(_BYTE *)(v11 + 3) = (*(_BYTE *)(v27 + 2) & 1) == 0;
+          *(_BYTE *)v27 = 0;
         }
-LABEL_48:
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_25;
+      case 0x20u:
+        if ( (unsigned __int64)&a3[v7 - v11] < 4 )
+          return (unsigned int)-1072431089;
+        v14 = PnpiCmResourceToBiosIrq(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+        goto LABEL_16;
+      case 0x28u:
+        if ( (unsigned __int64)&a3[v7 - v11] < 3 )
+          return (unsigned int)-1072431089;
+        *(_BYTE *)(v11 + 1) = 0;
+        v15 = 0;
+        v16 = *(_DWORD *)(a2 + 16);
+        if ( v16 )
         {
-          LODWORD(v27) = v4;
-          LOBYTE(a2) = 2;
-          WPP_RECORDER_SF_d(
-            WPP_GLOBAL_Control->DeviceExtension,
-            a2,
-            14,
-            13,
-            (__int64)&WPP_52f1d9ae2bb33d21e69d5020d30b72bd_Traceguids,
-            v27);
+          v17 = a2 + 20;
+          while ( *(_BYTE *)v17 != 4 )
+          {
+            ++v15;
+            v17 += 20LL;
+            if ( v15 >= v16 )
+              goto LABEL_25;
+          }
+          v22 = 0;
+          *(_BYTE *)(v11 + 1) = 1 << *(_DWORD *)(v17 + 4);
+          *(_BYTE *)(v11 + 2) = 0;
+          v23 = *(_WORD *)(v17 + 2);
+          if ( (v23 & 8) != 0 )
+          {
+            *(_BYTE *)(v11 + 2) = 4;
+            v22 = 4;
+            v23 = *(_WORD *)(v17 + 2);
+          }
+          if ( (v23 & 0x10) != 0 )
+          {
+            v24 = v22 | 0x20;
+            goto LABEL_55;
+          }
+          if ( (v23 & 0x20) != 0 )
+          {
+            v24 = v22 | 0x40;
+            goto LABEL_55;
+          }
+          if ( (v23 & 0x40) != 0 )
+          {
+            v24 = v22 | 0x60;
+LABEL_55:
+            *(_BYTE *)(v11 + 2) = v24;
+          }
+          *(_BYTE *)v17 = 0;
         }
+LABEL_25:
+        v6 = 0;
+        goto LABEL_18;
+    }
+    if ( v4 != 48 && v4 != 56 )
+    {
+      if ( v4 == 64 )
+      {
+        if ( (unsigned __int64)&a3[v7 - v11] < 8 )
+          return (unsigned int)-1072431089;
+        v14 = PnpiCmResourceToBiosIoPort(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+LABEL_16:
+        v6 = v14;
+        goto LABEL_17;
+      }
+      if ( v4 == 72 )
+      {
+        if ( (unsigned __int64)&a3[v7 - v11] < 4 )
+          return (unsigned int)-1072431089;
+        v14 = PnpiCmResourceToBiosIoFixedPort(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+        goto LABEL_16;
+      }
+      if ( v4 != 112 )
+      {
+        if ( v4 == 129 )
+        {
+          if ( (unsigned __int64)&a3[v7 - v11] < 0xC )
+            return (unsigned int)-1072431089;
+          v14 = PnpiCmResourceToBiosMemory(v11, a2, &WPP_RECORDER_INITIALIZED, 1LL);
+          goto LABEL_16;
+        }
+        goto LABEL_78;
       }
     }
-LABEL_71:
-    if ( v10 < 0 )
-      return (unsigned int)v10;
-LABEL_72:
-    v11 += v13;
-    v12 = (unsigned __int8 *)v29;
-    if ( v11 >= v29 )
-      goto LABEL_79;
+LABEL_17:
+    if ( v6 < 0 )
+      return (unsigned int)v6;
+LABEL_18:
+    v11 += v12;
+    if ( v11 >= (unsigned __int64)&a3[v7] )
+      goto LABEL_30;
     v4 = *(_BYTE *)v11;
-    v9 = a1;
+    v10 = a1;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a2) = 4;
     WPP_RECORDER_SF_(
-      WPP_GLOBAL_Control->DeviceExtension,
-      a2,
-      14,
-      12,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xEu,
+      0xCu,
       (__int64)&WPP_52f1d9ae2bb33d21e69d5020d30b72bd_Traceguids);
-  }
-LABEL_79:
-  v24 = *(_DWORD *)(v8 + 16);
-  v25 = 0;
-  if ( v24 )
+LABEL_30:
+  v18 = *(_DWORD *)(a2 + 16);
+  v19 = 0;
+  if ( v18 )
   {
-    v26 = (_BYTE *)(v8 + 20);
+    v20 = (_BYTE *)(a2 + 20);
     do
     {
-      if ( !*v26 )
+      if ( !*v20 )
         break;
-      ++v25;
-      v26 += 20;
+      ++v19;
+      v20 += 20;
     }
-    while ( v25 < v24 );
+    while ( v19 < v18 );
   }
-  if ( v25 == v24 )
+  if ( v19 == v18 )
     return (unsigned int)-1073741823;
   return v5;
 }

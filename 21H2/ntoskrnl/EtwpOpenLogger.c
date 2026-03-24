@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpOpenLogger @ 0x14022AFF8
+ * XREFs of EtwpOpenLogger @ 0x14025DB98
  * Callers:
- *     EtwpTraceMessageVa @ 0x14022A8D0 (EtwpTraceMessageVa.c)
- *     NtTraceEvent @ 0x1402FE320 (NtTraceEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AB658 (EtwpLogSystemEventUnsafe.c)
- *     EtwpCCSwapFlush @ 0x1403AC3AC (EtwpCCSwapFlush.c)
- *     EtwTraceEvent @ 0x140460192 (EtwTraceEvent.c)
- *     EtwSendTraceBuffer @ 0x140630940 (EtwSendTraceBuffer.c)
- *     EtwTraceRaw @ 0x140630ACC (EtwTraceRaw.c)
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
+ *     EtwpTraceMessageVa @ 0x14025D560 (EtwpTraceMessageVa.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpCCSwapFlush @ 0x1403AF2C8 (EtwpCCSwapFlush.c)
+ *     EtwSendTraceBuffer @ 0x1405A5F30 (EtwSendTraceBuffer.c)
+ *     EtwTraceEvent @ 0x1405A60A0 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405A6548 (EtwTraceRaw.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1402F69F0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpCloseLogger @ 0x1403860B0 (EtwpCloseLogger.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
  */
 
 __int64 __fastcall EtwpOpenLogger(unsigned int a1, __int64 a2, char a3, _BYTE *a4)

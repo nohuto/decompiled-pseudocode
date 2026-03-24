@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeSystemLeavesNonZero @ 0x1403BF168
+ * XREFs of MiMakeSystemLeavesNonZero @ 0x140378D1C
  * Callers:
- *     MiComputePxeWalkAction @ 0x14025CC20 (MiComputePxeWalkAction.c)
- *     MiCreateSystemPageTable @ 0x1402E4410 (MiCreateSystemPageTable.c)
+ *     MiComputePxeWalkAction @ 0x14020CA10 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x140356770 (MiCreateSystemPageTable.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
 char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
@@ -59,7 +59,7 @@ char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
       if ( (_DWORD)CurrentThread )
       {
         v14 = 1;
-        if ( !HIBYTE(word_140C66DFC) )
+        if ( !HIBYTE(word_140C4E008) )
         {
           v16 = (v11 & 1) == 0;
           goto LABEL_19;

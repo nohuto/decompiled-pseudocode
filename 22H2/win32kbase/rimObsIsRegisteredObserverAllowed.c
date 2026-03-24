@@ -1,22 +1,24 @@
 /*
- * XREFs of rimObsIsRegisteredObserverAllowed @ 0x1C01AC91C
+ * XREFs of rimObsIsRegisteredObserverAllowed @ 0x1C017D2FC
  * Callers:
- *     rimObsDeliverToExclusiveObservers @ 0x1C00053E4 (rimObsDeliverToExclusiveObservers.c)
- *     rimObsDeliverToNonExclusiveObservers @ 0x1C0005B48 (rimObsDeliverToNonExclusiveObservers.c)
+ *     rimObsRouteInputAndCheckForExclusiveObservers @ 0x1C017EEF8 (rimObsRouteInputAndCheckForExclusiveObservers.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMIsTestSigningOn @ 0x1C01A35C4 (RIMIsTestSigningOn.c)
- *     ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C01AC51C (-rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C017D070 (-rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     RIMIsTestSigningOn @ 0x1C018137C (RIMIsTestSigningOn.c)
  */
 
 __int64 __fastcall rimObsIsRegisteredObserverAllowed(__int64 a1)
 {
   unsigned int v1; // ebx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
 
   v1 = 1;
-  if ( !(unsigned int)rimIsProcessLocalSystem(*(struct _EPROCESS **)(a1 + 32)) && !(unsigned int)RIMIsTestSigningOn() )
+  if ( !(unsigned int)rimIsProcessLocalSystem(*(struct _EPROCESS **)(a1 + 32))
+    && !(unsigned int)RIMIsTestSigningOn(v3, v2) )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 94);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 94);
     return 0;
   }
   return v1;

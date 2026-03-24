@@ -1,28 +1,28 @@
 /*
- * XREFs of KsepLogInfo @ 0x140374700
+ * XREFs of KsepLogInfo @ 0x140371F88
  * Callers:
- *     KsepGetShimCallbacksForDriver @ 0x140693B60 (KsepGetShimCallbacksForDriver.c)
- *     KseShimDriverIoCallbacks @ 0x140693D74 (KseShimDriverIoCallbacks.c)
- *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
- *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
- *     KseDriverUnloadImage @ 0x140697128 (KseDriverUnloadImage.c)
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
- *     KseRegisterShimEx @ 0x14080ACB0 (KseRegisterShimEx.c)
- *     KsepResolveApplicableShimsForDriver @ 0x14085BCB0 (KsepResolveApplicableShimsForDriver.c)
- *     KsepApplyShimsToDriver @ 0x14085E728 (KsepApplyShimsToDriver.c)
- *     KseUnregisterShim @ 0x140977150 (KseUnregisterShim.c)
- *     KseInitialize @ 0x140B4CCCC (KseInitialize.c)
- *     KsepEngineReadFlags @ 0x140B64DDC (KsepEngineReadFlags.c)
- *     KsepMatchInitBiosInfo @ 0x140B6519C (KsepMatchInitBiosInfo.c)
- *     KseDriverScopeInitialize @ 0x140B761B8 (KseDriverScopeInitialize.c)
+ *     KseShimDriverIoCallbacks @ 0x140757D14 (KseShimDriverIoCallbacks.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140757E40 (KsepGetShimCallbacksForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140758368 (KsepGetShimsForDriver.c)
+ *     KseDriverLoadImage @ 0x14075AD50 (KseDriverLoadImage.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
+ *     KseDriverUnloadImage @ 0x140772BB4 (KseDriverUnloadImage.c)
+ *     KseRegisterShimEx @ 0x1407BDC00 (KseRegisterShimEx.c)
+ *     KseUnregisterShim @ 0x1408BFE70 (KseUnregisterShim.c)
+ *     KsepApplyShimsToDriver @ 0x1408C0200 (KsepApplyShimsToDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408C0684 (KsepResolveApplicableShimsForDriver.c)
+ *     KseInitialize @ 0x140A3BCCC (KseInitialize.c)
+ *     KseDriverScopeInitialize @ 0x140A686E8 (KseDriverScopeInitialize.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
  * Callees:
- *     KsepLogEtwMessage @ 0x14020A5FC (KsepLogEtwMessage.c)
+ *     KsepLogEtwMessage @ 0x140371FB8 (KsepLogEtwMessage.c)
  */
 
-void KsepLogInfo(int a1, const char *a2, ...)
+__int64 KsepLogInfo(__int64 a1, __int64 a2, ...)
 {
   va_list va; // [rsp+50h] [rbp+18h] BYREF
 
   va_start(va, a2);
-  KsepLogEtwMessage(a1, 2, a2, va);
+  return KsepLogEtwMessage(a1, 2LL, a2, (__int64 *)va);
 }

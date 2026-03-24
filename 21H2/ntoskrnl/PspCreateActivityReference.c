@@ -1,34 +1,52 @@
 /*
- * XREFs of PspCreateActivityReference @ 0x1406E1214
+ * XREFs of PspCreateActivityReference @ 0x140731498
  * Callers:
- *     NtAcquireProcessActivityReference @ 0x1406E1100 (NtAcquireProcessActivityReference.c)
+ *     NtAcquireProcessActivityReference @ 0x140731390 (NtAcquireProcessActivityReference.c)
  * Callees:
- *     PsChargeProcessWakeCounter @ 0x1406E1310 (PsChargeProcessWakeCounter.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
+ *     PsChargeProcessWakeCounter @ 0x1406BF030 (PsChargeProcessWakeCounter.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall PspCreateActivityReference(__int64 a1, __int64 a2)
+__int64 __fastcall PspCreateActivityReference(__int64 Object, unsigned __int64 *a2)
 {
   char PreviousMode; // r9
   __int64 result; // rax
-  _QWORD v6[3]; // [rsp+50h] [rbp-30h] BYREF
-  int v7; // [rsp+68h] [rbp-18h]
-  int v8; // [rsp+6Ch] [rbp-14h]
-  __int128 v9; // [rsp+70h] [rbp-10h]
+  char *v6; // rbx
+  char *v7; // [rsp+20h] [rbp-68h]
+  _DWORD v8[2]; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+58h] [rbp-30h]
+  __int64 v10; // [rsp+60h] [rbp-28h]
+  int v11; // [rsp+68h] [rbp-20h]
+  int v12; // [rsp+6Ch] [rbp-1Ch]
+  __int128 v13; // [rsp+70h] [rbp-18h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+A0h] [rbp+18h] BYREF
 
-  v8 = 0;
+  v8[1] = 0;
+  v12 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v6[1] = 0LL;
-  v6[2] = 0LL;
-  v6[0] = 48LL;
-  v7 = 32;
+  DmaAdapter = 0LL;
+  v8[0] = 48;
   v9 = 0LL;
-  result = ObCreateObjectEx(0, PspActivityReferenceObjectType, (unsigned int)v6, PreviousMode);
+  v11 = 32;
+  v10 = 0LL;
+  v13 = 0LL;
+  result = ObCreateObjectEx(
+             0,
+             (_DWORD *)PspActivityReferenceObjectType,
+             (__int64)v8,
+             PreviousMode,
+             v7,
+             8,
+             0,
+             8,
+             &DmaAdapter,
+             0LL);
   if ( (int)result >= 0 )
   {
-    MEMORY[0] = PsChargeProcessWakeCounter(a1);
-    return ObInsertObjectEx(0LL, 0LL, 0, 0LL, a2);
+    v6 = (char *)DmaAdapter;
+    *(_QWORD *)v6 = PsChargeProcessWakeCounter(Object, 0, 5u, (__int64)DmaAdapter);
+    return ObInsertObjectEx(v6, 0LL, 0xF0000u, 0, 0, 0LL, a2);
   }
   return result;
 }

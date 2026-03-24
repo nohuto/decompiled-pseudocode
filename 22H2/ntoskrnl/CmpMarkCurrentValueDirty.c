@@ -1,52 +1,41 @@
 /*
- * XREFs of CmpMarkCurrentValueDirty @ 0x140828F04
+ * XREFs of CmpMarkCurrentValueDirty @ 0x14079F0B0
  * Callers:
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
  * Callees:
- *     CmpFindValueByName @ 0x1406D0128 (CmpFindValueByName.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408264D0 (CmpFindSubKeyByNameWithStatus.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
+ *     CmpFindValueByName @ 0x1406E242C (CmpFindValueByName.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACD38 (CmpFindSubKeyByNameWithStatus.c)
  */
 
-__int64 __fastcall CmpMarkCurrentValueDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
+char __fastcall CmpMarkCurrentValueDirty(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  __int64 result; // rax
+  __int64 v3; // rax
   unsigned int ValueByName; // edi
-  ULONG_PTR BugCheckParameter4; // [rsp+30h] [rbp+10h] BYREF
-  __int64 v6; // [rsp+40h] [rbp+20h] BYREF
+  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v7; // [rsp+40h] [rbp+18h] BYREF
+  int v8; // [rsp+44h] [rbp+1Ch]
 
-  v6 = 0xFFFFFFFFLL;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    result = HvpGetCellFlat(BugCheckParameter3, a2, &v6);
-  else
-    result = HvpGetCellPaged(BugCheckParameter3, a2, (unsigned int *)&v6);
-  if ( result )
+  v7 = -1;
+  v8 = 0;
+  v3 = (*(__int64 (__fastcall **)(ULONG_PTR, __int64, int *))(BugCheckParameter2 + 8))(BugCheckParameter2, a2, &v7);
+  if ( v3 )
   {
-    LODWORD(BugCheckParameter4) = 0;
-    CmpFindSubKeyByNameWithStatus(BugCheckParameter3, result, (__int64)&CmpSelectString, &BugCheckParameter4);
-    result = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0
-           ? HvpReleaseCellFlat(BugCheckParameter3, &v6)
-           : HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v6);
-    if ( (_DWORD)BugCheckParameter4 != -1 )
+    v6 = 0;
+    CmpFindSubKeyByNameWithStatus(BugCheckParameter2, v3, &CmpSelectString, &v6);
+    LOBYTE(v3) = (*(__int64 (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v7);
+    if ( v6 != -1 )
     {
-      result = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0
-             ? HvpGetCellFlat(BugCheckParameter3, (unsigned int)BugCheckParameter4, &v6)
-             : HvpGetCellPaged(BugCheckParameter3, BugCheckParameter4, (unsigned int *)&v6);
-      if ( result )
+      v3 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(BugCheckParameter2 + 8))(BugCheckParameter2, v6, &v7);
+      if ( v3 )
       {
-        ValueByName = CmpFindValueByName(BugCheckParameter3, result, (int)&CmpCurrentString);
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          result = HvpReleaseCellFlat(BugCheckParameter3, &v6);
-        else
-          result = HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v6);
+        ValueByName = CmpFindValueByName(BugCheckParameter2, v3, (__int64)&CmpCurrentString);
+        LOBYTE(v3) = (*(__int64 (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v7);
         if ( ValueByName != -1 )
-          return HvpMarkCellDirty(BugCheckParameter3, ValueByName, 0);
+          LOBYTE(v3) = HvpMarkCellDirty(BugCheckParameter2, ValueByName, 0);
       }
     }
   }
-  return result;
+  return v3;
 }

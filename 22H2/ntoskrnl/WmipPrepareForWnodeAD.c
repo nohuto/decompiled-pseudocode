@@ -1,27 +1,27 @@
 /*
- * XREFs of WmipPrepareForWnodeAD @ 0x1406C7F60
+ * XREFs of WmipPrepareForWnodeAD @ 0x1406B6E50
  * Callers:
- *     WmipQueryAllData @ 0x1406C7B2C (WmipQueryAllData.c)
+ *     WmipQueryAllData @ 0x1406B1EB4 (WmipQueryAllData.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipAddProviderIdToPIList @ 0x1406C6840 (WmipAddProviderIdToPIList.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipAddProviderIdToPIList @ 0x1406B6F68 (WmipAddProviderIdToPIList.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
  */
 
-__int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, int *a3, void **a4, _BYTE *a5)
+__int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, int *a3, __int64 *a4, _BYTE *a5)
 {
   __int64 v5; // rdi
   int v8; // ebx
   bool v9; // zf
   _BYTE *v10; // rax
-  void *v11; // rbp
+  __int64 v11; // rbp
   int v12; // esi
   int v13; // eax
   __int64 v14; // r12
   ULONG_PTR v15; // rdi
   int v17; // [rsp+30h] [rbp-38h] BYREF
-  void *v18; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v18; // [rsp+38h] [rbp-30h] BYREF
   int v19; // [rsp+70h] [rbp+8h] BYREF
 
   v5 = *(_QWORD *)(a1 + 56);
@@ -55,7 +55,7 @@ __int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, int *a3, void *
       if ( (*(_DWORD *)(v15 + 16) & 0x89000) == 0 )
       {
         WmipReferenceEntry(v15);
-        v8 = WmipAddProviderIdToPIList((const void **)&v18, &v19, &v17, v11, v15);
+        v8 = WmipAddProviderIdToPIList((unsigned int)&v18, (unsigned int)&v19, (unsigned int)&v17, v11, v15);
       }
       v15 = *(_QWORD *)v15;
     }

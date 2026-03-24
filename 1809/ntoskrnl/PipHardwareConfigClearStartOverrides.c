@@ -1,14 +1,14 @@
 /*
- * XREFs of PipHardwareConfigClearStartOverrides @ 0x140822DC4
+ * XREFs of PipHardwareConfigClearStartOverrides @ 0x140822DA4
  * Callers:
  *     PipHardwareConfigInit @ 0x1409C63FC (PipHardwareConfigInit.c)
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B304 (_PnpCtxRegEnumKeyWithCallback.c)
- *     PiOpenDriverRedirectedStateRootKey @ 0x140825948 (PiOpenDriverRedirectedStateRootKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     PiOpenDriverRedirectedStateRootKey @ 0x140825928 (PiOpenDriverRedirectedStateRootKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigClearStartOverrides(__int64 a1)

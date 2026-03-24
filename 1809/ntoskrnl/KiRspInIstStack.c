@@ -1,8 +1,8 @@
 /*
- * XREFs of KiRspInIstStack @ 0x14029301C
+ * XREFs of KiRspInIstStack @ 0x14029311C
  * Callers:
- *     KeQueryCurrentStackInformation @ 0x1400CAB30 (KeQueryCurrentStackInformation.c)
- *     KiMcheckFastForward @ 0x14029DC90 (KiMcheckFastForward.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
+ *     KiMcheckFastForward @ 0x14029DD90 (KiMcheckFastForward.c)
  * Callees:
  *     <none>
  */

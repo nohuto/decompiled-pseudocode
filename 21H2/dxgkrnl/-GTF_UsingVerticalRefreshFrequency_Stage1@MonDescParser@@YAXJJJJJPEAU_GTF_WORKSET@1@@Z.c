@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C00229E8
+ * XREFs of ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C001F75C
  * Callers:
- *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C002288C (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
+ *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001F600 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C0022C68 (-GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z.c)
+ *     ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C001F9DC (-GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z.c)
  */
 
 void __fastcall MonDescParser::GTF_UsingVerticalRefreshFrequency_Stage1(

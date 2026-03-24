@@ -1,22 +1,17 @@
 /*
- * XREFs of KeRundownPriQueue @ 0x14057B42C
+ * XREFs of KeRundownPriQueue @ 0x14052446C
  * Callers:
- *     ExpWorkQueueDestroy @ 0x140A02158 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueDestroy @ 0x140956058 (ExpWorkQueueDestroy.c)
  * Callees:
- *     KeRundownQueueCommon @ 0x140234888 (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x140234D1C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1402AA214 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
  */
 
-char __fastcall KeRundownPriQueue(
-        volatile signed __int32 *SystemArgument1,
-        __int64 a2,
-        __int64 a3,
-        _DWORD *SchedulerAssist)
+char __fastcall KeRundownPriQueue(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // di
-  int v7; // [rsp+20h] [rbp-18h]
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -27,10 +22,9 @@ char __fastcall KeRundownPriQueue(
     a3 = (unsigned int)a2 | SchedulerAssist[5];
     SchedulerAssist[5] = a3;
   }
-  KiAcquireKobjectLockSafe(SystemArgument1, a2, a3, (__int64)SchedulerAssist);
-  LOBYTE(v7) = 1;
-  KeRundownQueueCommon(SystemArgument1, (_QWORD **)SystemArgument1 + 84, (_DWORD *)SystemArgument1 + 134, 0x20u, v7);
-  _InterlockedAnd(SystemArgument1, 0xFFFFFF7F);
-  KiAcquireReleaseObjectRundownLockExclusive((unsigned __int64)SystemArgument1);
-  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, 1, 0, CurrentIrql);
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, a2, a3, (__int64)SchedulerAssist);
+  KeRundownQueueCommon(a1, (__int64 **)(a1 + 672), a1 + 536, (_DWORD *)0x20, 1);
+  _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
+  KiAcquireReleaseObjectRundownLockExclusive(a1);
+  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0LL, 1LL, 0LL, CurrentIrql);
 }

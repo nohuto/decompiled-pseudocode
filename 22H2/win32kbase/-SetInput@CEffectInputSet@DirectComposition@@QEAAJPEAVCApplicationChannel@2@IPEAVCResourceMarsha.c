@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@@Z @ 0x1C020EF58
+ * XREFs of ?SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@@Z @ 0x1C01E0204
  * Callers:
- *     ?SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C020EC20 (-SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01DFEE0 (-SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CEffectInputSet::SetInput(
@@ -13,20 +13,25 @@ __int64 __fastcall DirectComposition::CEffectInputSet::SetInput(
         unsigned int a3,
         struct DirectComposition::CResourceMarshaler *a4)
 {
-  __int64 v7; // rdi
-  struct DirectComposition::CResourceMarshaler *v8; // rdx
-  DirectComposition::CResourceMarshaler *v9; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdi
+  struct DirectComposition::CResourceMarshaler *v9; // rdx
+  DirectComposition::CResourceMarshaler *v10; // rcx
 
   if ( a3 >= *(_DWORD *)this )
     return 3221225485LL;
-  v7 = a3;
-  v8 = *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 1) + 8LL * a3);
-  if ( v8 )
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v8);
-  *(_QWORD *)(*((_QWORD *)this + 1) + 8 * v7) = a4;
-  v9 = *(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 1) + 8 * v7);
+  v7 = *((_QWORD *)this + 1);
+  v8 = a3;
+  v9 = *(struct DirectComposition::CResourceMarshaler **)(v7 + 8LL * a3);
   if ( v9 )
-    DirectComposition::CResourceMarshaler::AddRef(v9);
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v9);
+    v7 = *((_QWORD *)this + 1);
+  }
+  *(_QWORD *)(v7 + 8 * v8) = a4;
+  v10 = *(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 1) + 8 * v8);
+  if ( v10 )
+    DirectComposition::CResourceMarshaler::AddRef(v10);
   *((_DWORD *)this + 8) = 0;
   return 0LL;
 }

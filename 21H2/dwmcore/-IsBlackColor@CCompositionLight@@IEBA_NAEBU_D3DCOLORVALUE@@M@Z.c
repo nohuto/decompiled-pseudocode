@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z @ 0x1800EA3BC
+ * XREFs of ?IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z @ 0x1800C253C
  * Callers:
- *     ?IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ @ 0x180018A90 (-IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ.c)
- *     ?IsBlackLight@CCompositionDistantLight@@UEBA_NXZ @ 0x1800EA350 (-IsBlackLight@CCompositionDistantLight@@UEBA_NXZ.c)
- *     ?IsBlackLight@CCompositionSpotLight@@UEBA_NXZ @ 0x1800EA370 (-IsBlackLight@CCompositionSpotLight@@UEBA_NXZ.c)
- *     ?IsBlackLight@CCompositionPointLight@@UEBA_NXZ @ 0x18020DE20 (-IsBlackLight@CCompositionPointLight@@UEBA_NXZ.c)
+ *     ?IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ @ 0x180018050 (-IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ.c)
+ *     ?IsBlackLight@CCompositionSpotLight@@UEBA_NXZ @ 0x1800C2490 (-IsBlackLight@CCompositionSpotLight@@UEBA_NXZ.c)
+ *     ?IsBlackLight@CCompositionDistantLight@@UEBA_NXZ @ 0x1800C2520 (-IsBlackLight@CCompositionDistantLight@@UEBA_NXZ.c)
+ *     ?IsBlackLight@CCompositionPointLight@@UEBA_NXZ @ 0x1801BB280 (-IsBlackLight@CCompositionPointLight@@UEBA_NXZ.c)
  * Callees:
  *     <none>
  */

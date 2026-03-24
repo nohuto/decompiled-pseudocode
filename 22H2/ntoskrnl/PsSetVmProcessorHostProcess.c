@@ -1,20 +1,20 @@
 /*
- * XREFs of PsSetVmProcessorHostProcess @ 0x1409B0B68
+ * XREFs of PsSetVmProcessorHostProcess @ 0x140909DF8
  * Callers:
- *     VmSetVpHostProcess @ 0x1409DCB70 (VmSetVpHostProcess.c)
+ *     VmSetVpHostProcess @ 0x14092F220 (VmSetVpHostProcess.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExBlockOnAddressPushLock @ 0x1403481B0 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ExBlockOnAddressPushLock @ 0x1402F4BA0 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
  */
 
-void __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
+NTSTATUS __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
 {
   volatile signed __int32 *v1; // rbx
-  signed __int32 v2; // eax
-  signed __int32 v3; // ett
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ett
   signed __int64 v4; // rax
   signed __int32 v5[8]; // [rsp+0h] [rbp-70h] BYREF
   struct _KEVENT Event; // [rsp+30h] [rbp-40h] BYREF
@@ -25,25 +25,26 @@ void __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
   memset(&Event, 0, sizeof(Event));
   memset(&WorkItem, 0, sizeof(WorkItem));
   _m_prefetchw((char *)a1 + 2172);
-  v2 = *((_DWORD *)a1 + 543);
-  for ( LODWORD(v8) = v2; ; LODWORD(v8) = v2 )
+  result = *((_DWORD *)a1 + 543);
+  for ( LODWORD(v8) = result; ; LODWORD(v8) = result )
   {
-    if ( (v2 & 0x800000) != 0 )
+    if ( (result & 0x800000) != 0 )
     {
-      if ( (v2 & 0x1000000) != 0 )
+      if ( (result & 0x1000000) != 0 )
       {
         do
         {
-          ExBlockOnAddressPushLock(&PsVmProcessorHostTransitionEvent, v1, &v8, 4uLL, 0LL);
+          ExBlockOnAddressPushLock((__int64)&PsVmProcessorHostTransitionEvent, v1, &v8, 4uLL, 0LL);
           LODWORD(v8) = *v1;
+          result = v8;
         }
         while ( (v8 & 0x1000000) != 0 );
       }
-      return;
+      return result;
     }
-    v3 = v2;
-    v2 = _InterlockedCompareExchange(v1, v2 | 0x1800000, v2);
-    if ( v3 == v2 )
+    v3 = result;
+    result = _InterlockedCompareExchange(v1, result | 0x1800000, result);
+    if ( v3 == result )
       break;
   }
   if ( !a1[316] )
@@ -58,9 +59,10 @@ void __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
   WorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspSetVmProcessorHostProcessWorkerRoutine;
   WorkItem.Parameter = &Event;
   ExQueueWorkItem(&WorkItem, CriticalWorkQueue);
-  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+  result = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   _InterlockedAnd(v1, 0xFEFFFFFF);
   _InterlockedOr(v5, 0);
   if ( PsVmProcessorHostTransitionEvent )
-    ExfUnblockPushLock(&PsVmProcessorHostTransitionEvent, 0LL);
+    return ExfUnblockPushLock(&PsVmProcessorHostTransitionEvent, 0LL);
+  return result;
 }

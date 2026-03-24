@@ -1,13 +1,13 @@
 /*
- * XREFs of NtImpersonateThread @ 0x14069AE10
+ * XREFs of NtImpersonateThread @ 0x14069ADF0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SeCreateClientSecurity @ 0x1406491F0 (SeCreateClientSecurity.c)
- *     SeImpersonateClientEx @ 0x14069AF40 (SeImpersonateClientEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
+ *     SeImpersonateClientEx @ 0x14069AF20 (SeImpersonateClientEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtImpersonateThread(

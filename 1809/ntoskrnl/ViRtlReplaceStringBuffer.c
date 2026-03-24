@@ -15,7 +15,7 @@
  *     VerifierRtlUpcaseUnicodeStringToCountedOemString @ 0x140943B80 (VerifierRtlUpcaseUnicodeStringToCountedOemString.c)
  *     VerifierRtlUpcaseUnicodeStringToOemString @ 0x140943BD0 (VerifierRtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
  */

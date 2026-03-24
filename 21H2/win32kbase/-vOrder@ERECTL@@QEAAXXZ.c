@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vOrder@ERECTL@@QEAAXXZ @ 0x1C008E64C
+ * XREFs of ?vOrder@ERECTL@@QEAAXXZ @ 0x1C007FCD4
  * Callers:
- *     ?GrepValidateVisRgn@@YAXPEAVDC@@PEAVREGION@@@Z @ 0x1C001EEA0 (-GrepValidateVisRgn@@YAXPEAVDC@@PEAVREGION@@@Z.c)
- *     GreCreateRectRgn @ 0x1C008E350 (GreCreateRectRgn.c)
- *     NtGdiCreateRectRgn @ 0x1C008E4C0 (NtGdiCreateRectRgn.c)
- *     GreIntersectClipRect @ 0x1C00CA500 (GreIntersectClipRect.c)
- *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00DB63C (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
+ *     GreIntersectClipRect @ 0x1C0071A70 (GreIntersectClipRect.c)
+ *     NtGdiCreateRectRgn @ 0x1C007FA80 (NtGdiCreateRectRgn.c)
+ *     GreSetRectRgn @ 0x1C007FC00 (GreSetRectRgn.c)
+ *     GreCreateRectRgn @ 0x1C009FA20 (GreCreateRectRgn.c)
+ *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00CB718 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetTextureUpdatesPaused@CHolographicClient@@UEAAX_N@Z @ 0x1800FC8B0
+ * XREFs of ?SetTextureUpdatesPaused@CHolographicClient@@UEAAX_N@Z @ 0x1800E3950
  * Callers:
  *     <none>
  * Callees:

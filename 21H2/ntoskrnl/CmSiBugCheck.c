@@ -1,12 +1,12 @@
 /*
- * XREFs of CmSiBugCheck @ 0x14053FFEC
+ * XREFs of CmSiBugCheck @ 0x1404EDEB4
  * Callers:
- *     CmpInitializeValueNameString @ 0x14065DBC8 (CmpInitializeValueNameString.c)
- *     HvpAllExceptionsFatalFilter @ 0x140919F98 (HvpAllExceptionsFatalFilter.c)
- *     HvpInpageErrorFilter @ 0x140919FB8 (HvpInpageErrorFilter.c)
- *     CmpInitializeKeyNameString @ 0x14091F960 (CmpInitializeKeyNameString.c)
+ *     CmpInitializeValueNameString @ 0x1406A45C8 (CmpInitializeValueNameString.c)
+ *     HvpAllExceptionsFatalFilter @ 0x1408735C0 (HvpAllExceptionsFatalFilter.c)
+ *     HvpInpageErrorFilter @ 0x1408735E0 (HvpInpageErrorFilter.c)
+ *     CmpInitializeKeyNameString @ 0x140879188 (CmpInitializeKeyNameString.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn CmSiBugCheck(

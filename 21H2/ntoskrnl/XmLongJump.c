@@ -1,10 +1,10 @@
 /*
- * XREFs of XmLongJump @ 0x1403A34A0
+ * XREFs of XmLongJump @ 0x140397400
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmGetWordImmediate @ 0x1403A34E0 (XmGetWordImmediate.c)
- *     XmGetLongImmediate @ 0x1403D20CC (XmGetLongImmediate.c)
+ *     XmGetWordImmediate @ 0x140397440 (XmGetWordImmediate.c)
+ *     XmGetLongImmediate @ 0x1403C4ED4 (XmGetLongImmediate.c)
  */
 
 __int64 __fastcall XmLongJump(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepArmIdleTimer @ 0x140354EF4
+ * XREFs of PopPepArmIdleTimer @ 0x140573F14
  * Callers:
- *     PopPepGetComponentPreferedIdleState @ 0x140310838 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepIdleTimeoutRoutine @ 0x140354CF0 (PopPepIdleTimeoutRoutine.c)
- *     PopPepIdleTimeoutDpcRoutine @ 0x140369070 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x140261DF8 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140574900 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140574930 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopPepArmIdleTimer(char a1)
@@ -38,16 +38,19 @@ void __fastcall PopPepArmIdleTimer(char a1)
     ExReleaseSpinLockExclusiveFromDpcLevel(&PopPepIdleTimerLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v7 = (v6 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v6;
-        if ( v7 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+          v7 = (v6 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v6;
+          if ( v7 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v2);

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiChargeSystemImageCommitment @ 0x14068321C
+ * XREFs of MiChargeSystemImageCommitment @ 0x1406831FC
  * Callers:
- *     MiMapSystemImage @ 0x140682104 (MiMapSystemImage.c)
- *     MiUseLargeDriverPage @ 0x140683280 (MiUseLargeDriverPage.c)
+ *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)

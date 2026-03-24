@@ -3,7 +3,7 @@
  * Callers:
  *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiLookupInDDBCache @ 0x14067F1E8 (PiLookupInDDBCache.c)
+ *     PiLookupInDDBCache @ 0x14067F1C8 (PiLookupInDDBCache.c)
  * Callees:
  *     <none>
  */

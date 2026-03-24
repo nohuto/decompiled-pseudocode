@@ -6,9 +6,9 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiComputeHash64 @ 0x140101DD0 (MiComputeHash64.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiComputeHash64 @ 0x140101DF0 (MiComputeHash64.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 ULONG_PTR MiMapDummyPages()

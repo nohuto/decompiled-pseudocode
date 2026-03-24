@@ -1,30 +1,30 @@
 /*
- * XREFs of SmKmStoreFileWriteHeader @ 0x1409D7390
+ * XREFs of SmKmStoreFileWriteHeader @ 0x14092CE74
  * Callers:
- *     SmKmStoreFileCreate @ 0x1409D64F8 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x14092BFDC (SmKmStoreFileCreate.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     MmMdlPageContentsState @ 0x1402344C0 (MmMdlPageContentsState.c)
- *     MmCreateMdl @ 0x1402411C0 (MmCreateMdl.c)
- *     IoSynchronousPageWrite @ 0x140248520 (IoSynchronousPageWrite.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RtlComputeCrc32 @ 0x140369820 (RtlComputeCrc32.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
+ *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
+ *     MmMdlPageContentsState @ 0x1402AE5D0 (MmMdlPageContentsState.c)
+ *     IoSynchronousPageWrite @ 0x1402C2630 (IoSynchronousPageWrite.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     MmCreateMdl @ 0x1402FD210 (MmCreateMdl.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
 {
   struct _MDL *v4; // rdi
   BOOLEAN v5; // r15
-  struct _PRIVILEGE_SET *v6; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
   struct _PRIVILEGE_SET *Buffer; // rsi
   NTSTATUS Status; // ebx
   struct _MDL *Mdl; // rax
@@ -38,22 +38,21 @@ __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
   __int64 v18; // [rsp+90h] [rbp+27h]
 
   StartingOffset.QuadPart = 0LL;
-  memset(&Event, 0, sizeof(Event));
   v18 = 0LL;
   IoStatusBlock = 0LL;
   v4 = 0LL;
   FileInformation = 0LL;
   v5 = IoSetThreadHardErrorMode(0);
-  v6 = (struct _PRIVILEGE_SET *)SmAlloc(0x10000uLL, 0x68466D73u);
-  Buffer = v6;
-  if ( !v6 )
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x10000uLL, 0x68466D73u);
+  Buffer = NonPaged;
+  if ( !NonPaged )
   {
     Status = -1073741670;
     goto LABEL_19;
   }
   if ( !a2 )
   {
-    Mdl = MmCreateMdl(0LL, v6, 0x10000uLL);
+    Mdl = MmCreateMdl(0LL, NonPaged, 0x10000uLL);
     v4 = Mdl;
     if ( !Mdl )
     {

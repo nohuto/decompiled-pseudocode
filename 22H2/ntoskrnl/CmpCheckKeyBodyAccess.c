@@ -1,31 +1,31 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x140A1B198
+ * XREFs of CmpCheckKeyBodyAccess @ 0x1405D961C
  * Callers:
- *     CmpVEPerformOpenAccessCheck @ 0x1407BA948 (CmpVEPerformOpenAccessCheck.c)
- *     CmpDoAccessCheckOnKCB @ 0x140A18FDC (CmpDoAccessCheckOnKCB.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1405D94F8 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14086FE5C (CmpDoAccessCheckOnKCB.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x1406C0520 (SeOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeUnlockSubjectContext @ 0x1406C31E0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5730 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     SeAppendPrivileges @ 0x1407B6990 (SeAppendPrivileges.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406435B0 (SeUnlockSubjectContext.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
  */
 
 BOOLEAN __fastcall CmpCheckKeyBodyAccess(
         _QWORD *Object,
-        __int64 a2,
-        struct _ACCESS_STATE *a3,
-        KPROCESSOR_MODE a4,
+        __int64 ObjectCreated,
+        PACCESS_STATE AccessState,
+        KPROCESSOR_MODE AccessMode,
         NTSTATUS *a5)
 {
   NTSTATUS v9; // ecx
-  BOOLEAN v10; // si
-  void *v11; // r12
+  void *v10; // r12
+  BOOLEAN v11; // si
   ACCESS_MASK v12; // eax
   UNICODE_STRING *v13; // rcx
   NTSTATUS AccessStatus; // [rsp+50h] [rbp-30h] BYREF
@@ -39,67 +39,69 @@ BOOLEAN __fastcall CmpCheckKeyBodyAccess(
   v18 = 0LL;
   WORD1(v18) = -1;
   *(_OWORD *)v19 = 0LL;
-  if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(Object, a2) )
+  if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(Object, ObjectCreated) )
   {
     v9 = -1073741444;
     AccessStatus = -1073741444;
-LABEL_3:
-    v10 = 0;
     goto LABEL_13;
   }
-  AccessStatus = CmpStartKcbStackForTopLayerKcb((__int64)&v18, Object[1]);
+  AccessStatus = CmpStartKcbStackForTopLayerKcb(&v18, Object[1]);
   v9 = AccessStatus;
   if ( AccessStatus < 0 )
-    goto LABEL_3;
-  v11 = (void *)(CmpGetSecurityCacheEntryForKcbStack((__int64)&v18, a2, 0LL) + 32);
-  SeLockSubjectContext(&a3->SubjectSecurityContext);
-  v10 = SeAccessCheck(
-          v11,
-          &a3->SubjectSecurityContext,
+  {
+LABEL_13:
+    v11 = 0;
+    goto LABEL_10;
+  }
+  v10 = (void *)(CmpGetSecurityCacheEntryForKcbStack(&v18, ObjectCreated, 0LL) + 32);
+  SeLockSubjectContext(&AccessState->SubjectSecurityContext);
+  v11 = SeAccessCheck(
+          v10,
+          &AccessState->SubjectSecurityContext,
           1u,
-          a3->RemainingDesiredAccess,
-          a3->PreviouslyGrantedAccess,
+          AccessState->RemainingDesiredAccess,
+          AccessState->PreviouslyGrantedAccess,
           &Privileges,
           (PGENERIC_MAPPING)((char *)CmKeyObjectType + 76),
-          a4,
+          AccessMode,
           &GrantedAccess,
           &AccessStatus);
   if ( Privileges )
   {
-    SeAppendPrivileges(a3, Privileges);
+    SeAppendPrivileges(AccessState, Privileges);
     CmSiFreeMemory(Privileges);
   }
-  if ( v10 )
+  if ( v11 )
   {
     v12 = GrantedAccess;
-    a3->PreviouslyGrantedAccess |= GrantedAccess;
-    a3->RemainingDesiredAccess &= ~(v12 | 0x2000000);
+    AccessState->PreviouslyGrantedAccess |= GrantedAccess;
+    AccessState->RemainingDesiredAccess &= ~(v12 | 0x2000000);
   }
   *((_WORD *)Object + 24) |= 2u;
   v13 = (UNICODE_STRING *)(CmKeyObjectType + 2);
-  if ( a2 )
+  if ( ObjectCreated )
     SeOpenObjectAuditAlarmWithTransaction(
       v13,
       Object,
       0LL,
-      v11,
-      a3,
-      0,
       v10,
-      a4,
-      (GUID *)(a2 + 88),
-      &a3->GenerateOnClose);
+      AccessState,
+      0,
+      v11,
+      AccessMode,
+      (GUID *)(ObjectCreated + 88),
+      &AccessState->GenerateOnClose);
   else
-    SeOpenObjectAuditAlarm(v13, Object, 0LL, v11, a3, 0, v10, a4, &a3->GenerateOnClose);
+    SeOpenObjectAuditAlarm(v13, Object, 0LL, v10, AccessState, 0, v11, AccessMode, &AccessState->GenerateOnClose);
   *((_WORD *)Object + 24) &= ~2u;
-  SeUnlockSubjectContext(&a3->SubjectSecurityContext);
+  SeUnlockSubjectContext(&AccessState->SubjectSecurityContext);
   v9 = AccessStatus;
-LABEL_13:
+LABEL_10:
   if ( v19[1] )
   {
     CmSiFreeMemory(v19[1]);
     v9 = AccessStatus;
   }
   *a5 = v9;
-  return v10;
+  return v11;
 }

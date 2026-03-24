@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01459BC
+ * XREFs of ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01238C8
  * Callers:
- *     xxxDW_SendDestroyMessages @ 0x1C0062F9C (xxxDW_SendDestroyMessages.c)
- *     xxxSetProcessWindowStation @ 0x1C00EC4A0 (xxxSetProcessWindowStation.c)
+ *     xxxDW_SendDestroyMessages @ 0x1C007E71C (xxxDW_SendDestroyMessages.c)
+ *     xxxSetProcessWindowStation @ 0x1C0100560 (xxxSetProcessWindowStation.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00CD268 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0145B10 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
- *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C0145C84 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C014664C (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D4B0 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002F788 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00304E8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0123E14 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
  */
 
 void __fastcall xxxDisownClipboard(struct tagWND *a1)
@@ -62,12 +62,13 @@ void __fastcall xxxDisownClipboard(struct tagWND *a1)
     }
     if ( a1 == *((struct tagWND **)v3 + 14) )
       HMAssignmentUnlock((char *)v3 + 112);
+    v11 = *((_DWORD *)v3 + 16);
     if ( v8 != *((_DWORD *)v3 + 34) )
     {
-      *((_DWORD *)v3 + 16) |= 0x40u;
+      v11 |= 0x40u;
       ++*((_DWORD *)v3 + 36);
+      *((_DWORD *)v3 + 16) = v11;
     }
-    v11 = *((_DWORD *)v3 + 16);
     *((_DWORD *)v3 + 34) = v8;
     if ( (v11 & 0x40) != 0 )
     {

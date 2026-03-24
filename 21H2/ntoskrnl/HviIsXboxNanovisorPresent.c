@@ -1,18 +1,18 @@
 /*
- * XREFs of HviIsXboxNanovisorPresent @ 0x1403DD7D4
+ * XREFs of HviIsXboxNanovisorPresent @ 0x1403CE794
  * Callers:
- *     HalpTscSynchronization @ 0x1403DD730 (HalpTscSynchronization.c)
- *     KiIntSteerDetermineSteeringEnabled @ 0x140B02040 (KiIntSteerDetermineSteeringEnabled.c)
+ *     HalpTscSynchronization @ 0x1403CE6F0 (HalpTscSynchronization.c)
+ *     KiIntSteerInit @ 0x140A4D1CC (KiIntSteerInit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char HviIsXboxNanovisorPresent()
 {
   char v0; // r8
 
-  v0 = byte_140C0B230;
-  if ( byte_140C0B230 == -1 )
+  v0 = byte_140C10E68;
+  if ( byte_140C10E68 == -1 )
   {
     _RAX = 1LL;
     v0 = 0;
@@ -23,7 +23,7 @@ char HviIsXboxNanovisorPresent()
       __asm { cpuid }
       v0 = (_DWORD)_RAX == 1986945624;
     }
-    byte_140C0B230 = v0;
+    byte_140C10E68 = v0;
   }
   return v0;
 }

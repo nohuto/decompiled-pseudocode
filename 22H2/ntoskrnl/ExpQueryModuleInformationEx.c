@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformationEx @ 0x1407CE204
+ * XREFs of ExpQueryModuleInformationEx @ 0x1407B1ACC
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExpConvertLdrEntryToModuleInfo @ 0x1407CE314 (ExpConvertLdrEntryToModuleInfo.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x1407B1BDC (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformationEx(__int64 a1, _WORD *a2, unsigned int a3, int a4, unsigned int *a5)

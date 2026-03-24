@@ -1,13 +1,13 @@
 /*
- * XREFs of ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00E7390
+ * XREFs of ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00FD288
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     DefSetText @ 0x1C00689C0 (DefSetText.c)
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     NtUserInternalGetWindowText @ 0x1C00E7260 (NtUserInternalGetWindowText.c)
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C015A5CC (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     _GetAltTabInfo @ 0x1C01EE528 (_GetAltTabInfo.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     DefSetText @ 0x1C004B02C (DefSetText.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     NtUserInternalGetWindowText @ 0x1C00FD150 (NtUserInternalGetWindowText.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0169284 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     _GetAltTabInfo @ 0x1C01F3D44 (_GetAltTabInfo.c)
  * Callees:
  *     <none>
  */

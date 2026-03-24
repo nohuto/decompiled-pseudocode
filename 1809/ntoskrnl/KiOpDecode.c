@@ -6,9 +6,9 @@
  *     KiOpFetchNextByte @ 0x1400A37A8 (KiOpFetchNextByte.c)
  *     KiOpIsPrefix @ 0x1400A37CC (KiOpIsPrefix.c)
  *     KiOpLocateDecodeEntry @ 0x1400A3870 (KiOpLocateDecodeEntry.c)
- *     KiOpDecodeModRM @ 0x140193290 (KiOpDecodeModRM.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiOpFetchBytes @ 0x14029C4A0 (KiOpFetchBytes.c)
+ *     KiOpDecodeModRM @ 0x1401932B0 (KiOpDecodeModRM.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiOpFetchBytes @ 0x14029C5A0 (KiOpFetchBytes.c)
  */
 
 __int64 __fastcall KiOpDecode(__int64 a1, __int64 a2, char a3, int a4, _DWORD *a5)

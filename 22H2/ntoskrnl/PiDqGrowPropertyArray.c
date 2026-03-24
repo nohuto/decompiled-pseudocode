@@ -1,31 +1,31 @@
 /*
- * XREFs of PiDqGrowPropertyArray @ 0x14083C158
+ * XREFs of PiDqGrowPropertyArray @ 0x140771134
  * Callers:
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14083B7B8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083BF38 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BF40 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140770E34 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x1408A42A0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4530 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqGrowPropertyArray(const void **a1, unsigned int a2, unsigned int a3)
 {
   __int64 v4; // rbp
   unsigned int v5; // ebx
-  void *Pool2; // rax
-  const void *v7; // rsi
+  PVOID PoolWithTag; // rax
+  PVOID v7; // rsi
 
   v4 = a2;
   v5 = 0;
-  Pool2 = (void *)ExAllocatePool2(256LL, 48LL * a3, 1483763280LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 48LL * a3, 0x58706E50u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
     if ( *a1 )
     {
-      memmove(Pool2, *a1, 48 * v4);
+      memmove(PoolWithTag, *a1, 48 * v4);
       ExFreePoolWithTag((PVOID)*a1, 0x58706E50u);
     }
     *a1 = v7;

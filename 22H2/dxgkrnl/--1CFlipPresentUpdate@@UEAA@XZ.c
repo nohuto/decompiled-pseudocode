@@ -1,40 +1,35 @@
 /*
- * XREFs of ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C00889F8
+ * XREFs of ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C006E9BC
  * Callers:
- *     ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C00826B0 (--_GCFlipPresentUpdate@@UEAAPEAXI@Z.c)
+ *     ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C006A9F0 (--_GCFlipPresentUpdate@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0080304 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C00855D8 (--1CFlipTokenOperation@@MEAA@XZ.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A90 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C006BEEC (--1CFlipTokenOperation@@MEAA@XZ.c)
  */
 
 void __fastcall CFlipPresentUpdate::~CFlipPresentUpdate(CFlipPresentUpdate *this)
 {
-  __int64 v2; // rdi
-  void *v3; // rcx
-  CFlipPropertySetBase *v4; // rcx
-  unsigned __int64 v5; // rax
-  __int64 v6; // rdi
-  __int64 v7; // rcx
-  __int64 v8; // rdx
-  _QWORD *v9; // rax
+  void *v2; // rcx
+  CFlipPropertySetBase *v3; // rcx
+  CFlipPresentUpdate **v4; // rdx
+  CFlipPresentUpdate **v5; // rcx
 
   *(_QWORD *)this = &CFlipPresentUpdate::`vftable'{for `CFlipTokenOperation'};
-  v2 = (__int64)this + 16;
-  v3 = (void *)*((_QWORD *)this + 6);
-  *(_QWORD *)v2 = &CFlipPresentUpdate::`vftable'{for `CFlipQueuedObject'};
+  *((_QWORD *)this + 2) = &CFlipPresentUpdate::`vftable'{for `CFlipQueuedObject'};
+  v2 = (void *)*((_QWORD *)this + 6);
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+  v3 = (CFlipPropertySetBase *)*((_QWORD *)this + 7);
   if ( v3 )
-    ExFreePoolWithTag(v3, 0);
-  v4 = (CFlipPropertySetBase *)*((_QWORD *)this + 7);
-  if ( v4 )
-    CFlipPropertySetBase::Release(v4);
-  *(_QWORD *)v2 = &CFlipPresentCancel::`vftable';
-  v5 = v2 + 8;
-  v6 = -v2;
-  v7 = v5 & -(__int64)(v6 != 0);
-  v8 = *(_QWORD *)v7;
-  if ( *(_QWORD *)(*(_QWORD *)v7 + 8LL) != v7 || (v9 = *(_QWORD **)((v5 & -(__int64)(v6 != 0)) + 8), *v9 != v7) )
+    CFlipPropertySetBase::Release(v3);
+  *((_QWORD *)this + 2) = &CFlipPresentCancel::`vftable';
+  v4 = (CFlipPresentUpdate **)*((_QWORD *)this + 3);
+  if ( v4[1] != (CFlipPresentUpdate *)((char *)this + 24)
+    || (v5 = (CFlipPresentUpdate **)*((_QWORD *)this + 4), *v5 != (CFlipPresentUpdate *)((char *)this + 24)) )
+  {
     __fastfail(3u);
-  *v9 = v8;
-  *(_QWORD *)(v8 + 8) = v9;
+  }
+  *v5 = (CFlipPresentUpdate *)v4;
+  v4[1] = (CFlipPresentUpdate *)v5;
   CFlipTokenOperation::~CFlipTokenOperation(this);
 }

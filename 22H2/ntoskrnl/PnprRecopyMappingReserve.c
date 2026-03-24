@@ -1,18 +1,18 @@
 /*
- * XREFs of PnprRecopyMappingReserve @ 0x140563328
+ * XREFs of PnprRecopyMappingReserve @ 0x14050F758
  * Callers:
- *     PnprRecopyMirrorPages @ 0x1405633FC (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x14050F82C (PnprRecopyMirrorPages.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     PnprRecopyAddress @ 0x1405632D0 (PnprRecopyAddress.c)
- *     PnprMarkOrMirrorPages @ 0x140A9D088 (PnprMarkOrMirrorPages.c)
+ *     MiGetContainingPageTable @ 0x14023DDC0 (MiGetContainingPageTable.c)
+ *     PnprRecopyAddress @ 0x14050F700 (PnprRecopyAddress.c)
+ *     PnprMarkOrMirrorPages @ 0x1409AE008 (PnprMarkOrMirrorPages.c)
  */
 
 __int64 __fastcall PnprRecopyMappingReserve(__int64 *a1)
 {
-  unsigned __int64 v1; // rsi
+  __int64 v1; // rsi
   int v3; // ebx
-  unsigned __int64 ContainingPageTable; // rax
+  __int64 ContainingPageTable; // rax
   __int64 v5; // r8
   int v6; // edx
   __int64 v8; // rcx
@@ -41,13 +41,13 @@ __int64 __fastcall PnprRecopyMappingReserve(__int64 *a1)
     }
   }
   v8 = PnprContext;
-  v9 = *(_DWORD *)(PnprContext + 33272);
+  v9 = *(_DWORD *)(PnprContext + 20984);
   if ( !v9 )
-    v9 = 5727;
-  *(_DWORD *)(PnprContext + 33272) = v9;
-  v10 = *(_DWORD *)(v8 + 33276);
+    v9 = 5721;
+  *(_DWORD *)(PnprContext + 20984) = v9;
+  v10 = *(_DWORD *)(v8 + 20988);
   if ( !v10 )
     v10 = 1;
-  *(_DWORD *)(v8 + 33276) = v10;
+  *(_DWORD *)(v8 + 20988) = v10;
   return (unsigned int)v6;
 }

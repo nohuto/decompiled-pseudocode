@@ -1,85 +1,78 @@
 /*
- * XREFs of ?ValidatePlaneHelper@MOCKDRIVERSTATE@@AEAAXPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@@Z @ 0x1C0053DA8
+ * XREFs of ?ValidatePlaneHelper@MOCKDRIVERSTATE@@AEAAXPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@@Z @ 0x1C004E5A8
  * Callers:
- *     ?ValidateMockDriverState@MOCKDRIVERSTATE@@QEAAXW4_MOCKDRIVERSTATE_VIOLATION@@PEAX@Z @ 0x1C0053D74 (-ValidateMockDriverState@MOCKDRIVERSTATE@@QEAAXW4_MOCKDRIVERSTATE_VIOLATION@@PEAX@Z.c)
+ *     ?ValidateMockDriverState@MOCKDRIVERSTATE@@QEAAXW4MOCKDRIVERSTATE_VALIDATE_TYPE@@PEAX@Z @ 0x1C000A0E0 (-ValidateMockDriverState@MOCKDRIVERSTATE@@QEAAXW4MOCKDRIVERSTATE_VALIDATE_TYPE@@PEAX@Z.c)
+ *     ?DXGADAPTER_ValidateMockDriverState@@YAXPEAVDXGADAPTER@@W4MOCKDRIVERSTATE_VALIDATE_TYPE@@PEAX@Z @ 0x1C00425A0 (-DXGADAPTER_ValidateMockDriverState@@YAXPEAVDXGADAPTER@@W4MOCKDRIVERSTATE_VALIDATE_TYPE@@PEAX@Z.c)
  * Callees:
- *     ?IsLegacyDisplayStateSynchronization@DXGADAPTER@@QEBAEXZ @ 0x1C00052BC (-IsLegacyDisplayStateSynchronization@DXGADAPTER@@QEBAEXZ.c)
- *     ?QueuePlaneViolationWorkItem@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOCKDRIVERSTATE_PLANE@@@Z @ 0x1C0053940 (-QueuePlaneViolationWorkItem@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOC.c)
- *     ?CreatePlaneLiveDumpAtPassive@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOCKDRIVERSTATE_PLANE@@@Z @ 0x1C0322C60 (-CreatePlaneLiveDumpAtPassive@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MO.c)
+ *     ?QueuePlaneViolationWorkItem@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOCKDRIVERSTATE_PLANE@@@Z @ 0x1C004E470 (-QueuePlaneViolationWorkItem@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOC.c)
  */
 
-void __fastcall MOCKDRIVERSTATE::ValidatePlaneHelper(DXGADAPTER **this, struct _MOCKDRIVERSTATE_VALIDATE_PLANE *a2)
+void __fastcall MOCKDRIVERSTATE::ValidatePlaneHelper(MOCKDRIVERSTATE *this, struct _MOCKDRIVERSTATE_VALIDATE_PLANE *a2)
 {
-  __int64 v2; // r8
-  __int64 v3; // r10
-  struct _MOCKDRIVERSTATE_PLANE **v4; // r11
-  struct _MOCKDRIVERSTATE_PLANE *v5; // r9
-  unsigned int v6; // r14d
-  unsigned int v7; // r15d
-  __int64 v8; // r10
-  __int64 v9; // rcx
-  unsigned int v10; // edx
+  struct DXGADAPTER *v2; // r10
+  int v5; // eax
+  unsigned int v6; // r15d
+  unsigned int v7; // r12d
+  __int64 v8; // rdi
+  __int64 v9; // r11
+  __int64 v10; // rbx
   __int64 v11; // rcx
-  struct DXGADAPTER *v12; // r9
-  __int64 v13; // rdi
-  struct _MOCKDRIVERSTATE_PLANE *v14; // [rsp+20h] [rbp-28h]
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  unsigned int v15; // r11d
+  _QWORD *v16; // rcx
 
-  if ( DXGADAPTER::IsLegacyDisplayStateSynchronization(this[3]) )
+  v2 = (struct DXGADAPTER *)*((_QWORD *)this + 340);
+  v5 = *((_DWORD *)v2 + 649);
+  if ( v5 < 2200 )
     return;
-  v5 = *v4;
-  if ( *((_BYTE *)*v4 + 8) )
+  if ( *((_BYTE *)this + 2568) )
     return;
-  v6 = *(_DWORD *)(v3 + 1672);
-  v7 = *(_DWORD *)(v3 + 2760);
+  v6 = *((_DWORD *)v2 + 362);
+  v7 = *((_DWORD *)v2 + 634);
   v8 = 0LL;
-  if ( !*(_DWORD *)v2 )
+  if ( !*(_DWORD *)a2 )
     return;
-  while ( *(_BYTE *)(v2 + 16) )
+  while ( *((_BYTE *)a2 + 16) )
   {
-    v9 = *((_QWORD *)v5
-         + 20 * *(unsigned int *)(*(_QWORD *)(v2 + 24) + 4 * v8)
-         + 2 * *(unsigned int *)(*(_QWORD *)(v2 + 32) + 4 * v8)
-         + 7);
-    if ( v9 && *(_QWORD *)(*(_QWORD *)(v2 + 8) + 8 * v8) == v9 )
+    v9 = *(unsigned int *)(*((_QWORD *)a2 + 3) + 4 * v8);
+    v10 = *(unsigned int *)(*((_QWORD *)a2 + 4) + 4 * v8);
+    v11 = *((_QWORD *)this + 20 * v9 + 2 * v10);
+    if ( v11 && *(_QWORD *)(*((_QWORD *)a2 + 1) + 8 * v8) == v11 )
     {
-      v10 = *(_DWORD *)(*(_QWORD *)(v2 + 32) + 4 * v8);
-      LODWORD(v11) = *(_DWORD *)(*(_QWORD *)(v2 + 24) + 4 * v8);
-      goto LABEL_8;
+      v12 = (unsigned int)v10;
+      v13 = (unsigned int)v9;
+      goto LABEL_18;
     }
-LABEL_16:
+LABEL_15:
     v8 = (unsigned int)(v8 + 1);
-    if ( (unsigned int)v8 >= *(_DWORD *)v2 )
+    if ( (unsigned int)v8 >= *(_DWORD *)a2 )
       return;
   }
-  v11 = 0LL;
+  v14 = 0LL;
   if ( !v6 )
-    goto LABEL_16;
+    goto LABEL_15;
   while ( 1 )
   {
-    v10 = 0;
-    if ( v7 )
+    v15 = v5 == 2200;
+    if ( v15 < v7 )
       break;
-LABEL_15:
-    v11 = (unsigned int)(v11 + 1);
-    if ( (unsigned int)v11 >= v6 )
-      goto LABEL_16;
-  }
-  while ( 1 )
-  {
-    v13 = *((_QWORD *)v5 + 20 * v11 + 2 * v10 + 7);
-    if ( v13 )
-    {
-      if ( *(_QWORD *)(*(_QWORD *)(v2 + 8) + 8 * v8) == v13 )
-        break;
-    }
-    if ( ++v10 >= v7 )
+LABEL_14:
+    v14 = (unsigned int)(v14 + 1);
+    if ( (unsigned int)v14 >= v6 )
       goto LABEL_15;
   }
-LABEL_8:
-  v14 = *v4;
-  v12 = v4[3];
-  if ( *(_BYTE *)(v2 + 56) )
-    CreatePlaneLiveDumpAtPassive(v11, v10, (struct _MOCKDRIVERSTATE_VALIDATE_PLANE *)v2, v12, v14);
-  else
-    QueuePlaneViolationWorkItem(v11, v10, (struct _MOCKDRIVERSTATE_VALIDATE_PLANE *)v2, v12, v14);
+  v16 = (_QWORD *)((char *)this + 160 * v14 + 16 * (v5 == 2200));
+  while ( !*v16 || *(_QWORD *)(*((_QWORD *)a2 + 1) + 8 * v8) != *v16 )
+  {
+    ++v15;
+    v16 += 2;
+    if ( v15 >= v7 )
+      goto LABEL_14;
+  }
+  v12 = v15;
+  v13 = (unsigned int)v14;
+LABEL_18:
+  QueuePlaneViolationWorkItem(v13, v12, a2, v2, this);
 }

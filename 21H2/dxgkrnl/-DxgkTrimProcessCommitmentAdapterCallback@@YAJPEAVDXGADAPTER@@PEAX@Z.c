@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DxgkTrimProcessCommitmentAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0335900
+ * XREFs of ?DxgkTrimProcessCommitmentAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0284A80
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkTrimProcessCommitmentAdapterCallback(struct DXGADAPTER *a1, _QWORD *a2)
@@ -18,92 +18,99 @@ __int64 __fastcall DxgkTrimProcessCommitmentAdapterCallback(struct DXGADAPTER *a
   __int64 v5; // rax
   __int64 **v6; // rcx
   __int64 v7; // rcx
-  __int64 v8; // rbx
+  __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 *v10; // rax
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v14; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 *v16; // [rsp+58h] [rbp-A8h]
-  __int64 v17; // [rsp+60h] [rbp-A0h]
-  char v18[8]; // [rsp+68h] [rbp-98h] BYREF
-  struct DXGADAPTER *v19; // [rsp+70h] [rbp-90h]
-  char v20; // [rsp+78h] [rbp-88h]
-  _BYTE v21[144]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v10; // r8
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rbx
+  __int64 v14; // rcx
+  __int64 *v15; // rax
+  __int64 v16; // rcx
+  __int64 v18; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 *v21; // [rsp+58h] [rbp-A8h]
+  __int64 v22; // [rsp+60h] [rbp-A0h]
+  char v23[8]; // [rsp+68h] [rbp-98h] BYREF
+  struct DXGADAPTER *v24; // [rsp+70h] [rbp-90h]
+  char v25; // [rsp+78h] [rbp-88h]
+  _BYTE v26[144]; // [rsp+80h] [rbp-80h] BYREF
 
   if ( a2[3] < a2[2] )
   {
-    v19 = a1;
-    v20 = 0;
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v18);
+    v24 = a1;
+    v25 = 0;
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
     if ( *((_DWORD *)a1 + 50) == 1 && !*((_BYTE *)a1 + 209) )
     {
       v4 = *a2;
-      v14 = 0LL;
-      v4 += 464LL;
-      v17 = 0LL;
+      v19 = 0LL;
+      v4 += 384LL;
+      v22 = 0LL;
       KeEnterCriticalRegion();
       ExAcquirePushLockExclusiveEx(v4, 0LL);
       *(_QWORD *)(v4 + 8) = KeGetCurrentThread();
-      v5 = *a2 + 488LL;
-      v6 = *(__int64 ***)(*a2 + 496LL);
+      v5 = *a2 + 408LL;
+      v6 = *(__int64 ***)(*a2 + 416LL);
       if ( *v6 != (__int64 *)v5 )
         goto LABEL_17;
-      v16 = *(__int64 **)(*a2 + 496LL);
-      v15 = v5;
-      *v6 = &v15;
-      *(_QWORD *)(v5 + 8) = &v15;
-      v7 = *a2 + 464LL;
+      v21 = *(__int64 **)(*a2 + 416LL);
+      v20 = v5;
+      *v6 = &v20;
+      *(_QWORD *)(v5 + 8) = &v20;
+      v7 = *a2 + 384LL;
       *(_QWORD *)(v7 + 8) = 0LL;
       ExReleasePushLockExclusiveEx(v7, 0LL);
       KeLeaveCriticalRegion();
-      if ( (*(unsigned int (__fastcall **)(_QWORD, _QWORD, __int64 *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 350) + 648LL)
+      if ( (*(unsigned int (__fastcall **)(_QWORD, _QWORD, __int64 *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 338) + 640LL)
                                                                                          + 8LL)
-                                                                             + 1144LL))(
-             *(_QWORD *)(*((_QWORD *)a1 + 350) + 656LL),
+                                                                             + 1136LL))(
+             *(_QWORD *)(*((_QWORD *)a1 + 338) + 648LL),
              *a2,
-             &v14,
+             &v19,
              *((unsigned int *)a2 + 2)) == -1071775484 )
       {
-        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v21, a1, 0LL);
-        if ( (a2[1] & 2) != 0 || (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v21, 0LL) >= 0 )
+        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v26, a1, 0LL);
+        if ( (a2[1] & 2) != 0 || (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v26, 0LL) >= 0 )
         {
-          v13 = 0LL;
-          (*(void (__fastcall **)(_QWORD, _QWORD, __int64 *, _QWORD, _QWORD, __int64 *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 350) + 648LL) + 8LL)
-                                                                                       + 1136LL))(
-            *(_QWORD *)(*((_QWORD *)a1 + 350) + 656LL),
+          v18 = 0LL;
+          (*(void (__fastcall **)(_QWORD, _QWORD, __int64 *, _QWORD, _QWORD, __int64 *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 338) + 640LL) + 8LL)
+                                                                                       + 1128LL))(
+            *(_QWORD *)(*((_QWORD *)a1 + 338) + 648LL),
             *a2,
-            &v14,
+            &v19,
             *((unsigned int *)a2 + 2),
             a2[2] - a2[3],
-            &v13);
-          a2[3] += v13;
+            &v18);
+          a2[3] += v18;
         }
         else
         {
-          WdLogSingleEntry1(3LL, a1);
+          v11 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+          *(_QWORD *)(v11 + 24) = a1;
+          WdLogEvent5_WdWarning(v11);
         }
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v21);
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v26, v12);
       }
-      v8 = *a2 + 464LL;
+      v13 = *a2 + 384LL;
       KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v8, 0LL);
-      *(_QWORD *)(v8 + 8) = KeGetCurrentThread();
-      v9 = v15;
-      v10 = v16;
-      if ( *(__int64 **)(v15 + 8) != &v15 || (__int64 *)*v16 != &v15 )
+      ExAcquirePushLockExclusiveEx(v13, 0LL);
+      *(_QWORD *)(v13 + 8) = KeGetCurrentThread();
+      v14 = v20;
+      v15 = v21;
+      if ( *(__int64 **)(v20 + 8) != &v20 || (__int64 *)*v21 != &v20 )
 LABEL_17:
         __fastfail(3u);
-      *v16 = v15;
-      *(_QWORD *)(v9 + 8) = v10;
-      v11 = *a2 + 464LL;
-      *(_QWORD *)(v11 + 8) = 0LL;
-      ExReleasePushLockExclusiveEx(v11, 0LL);
+      *v21 = v20;
+      *(_QWORD *)(v14 + 8) = v15;
+      v16 = *a2 + 384LL;
+      *(_QWORD *)(v16 + 8) = 0LL;
+      ExReleasePushLockExclusiveEx(v16, 0LL);
       KeLeaveCriticalRegion();
     }
-    if ( v20 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v18);
+    if ( v25 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveTarget@CCompositionSpotLight@@UEAAXPEAVCVisual@@@Z @ 0x18020FDA0
+ * XREFs of ?RemoveTarget@CCompositionSpotLight@@UEAAXPEAVCVisual@@@Z @ 0x1800C7520
  * Callers:
  *     <none>
  * Callees:
- *     ?Remove@?$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z @ 0x1800F5590 (-Remove@-$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z.c)
- *     ?RemoveTarget@CCompositionLight@@UEAAXPEAVCVisual@@@Z @ 0x180200BE0 (-RemoveTarget@CCompositionLight@@UEAAXPEAVCVisual@@@Z.c)
+ *     ?RemoveTarget@CCompositionLight@@UEAAXPEAVCVisual@@@Z @ 0x1800C7550 (-RemoveTarget@CCompositionLight@@UEAAXPEAVCVisual@@@Z.c)
+ *     ?Remove@?$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z @ 0x1800C7588 (-Remove@-$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z.c)
  */
 
 void __fastcall CCompositionSpotLight::RemoveTarget(CCompositionSpotLight *this, struct CVisual *a2)
@@ -13,5 +13,5 @@ void __fastcall CCompositionSpotLight::RemoveTarget(CCompositionSpotLight *this,
 
   v3 = a2;
   CCompositionLight::RemoveTarget(this, a2);
-  DynArray<CVisual *,0>::Remove((__int64 *)this + 33, &v3);
+  DynArray<CVisual *,0>::Remove((char *)this + 256, &v3);
 }

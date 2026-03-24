@@ -1,330 +1,310 @@
 /*
- * XREFs of SepReadAndPopulateCapes @ 0x14085D7FC
+ * XREFs of SepReadAndPopulateCapes @ 0x1407CDE5C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403DA7FC (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SepRmCapPoolExpand @ 0x1405F5CE4 (SepRmCapPoolExpand.c)
- *     SepRegOpenKey @ 0x1406959BC (SepRegOpenKey.c)
- *     SeValidSecurityDescriptor @ 0x1406ACC40 (SeValidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepRmCapPoolExpand @ 0x140597E20 (SepRmCapPoolExpand.c)
+ *     SeValidSecurityDescriptor @ 0x140692A40 (SeValidSecurityDescriptor.c)
+ *     SepRegOpenKey @ 0x140717184 (SepRegOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepReadAndPopulateCapes(HANDLE KeyHandle, int a2, _DWORD *a3, char **a4)
+__int64 __fastcall SepReadAndPopulateCapes(HANDLE KeyHandle, int a2, unsigned int *a3, char **a4)
 {
-  ULONG v5; // r15d
-  unsigned int *v7; // r14
-  ULONG *Pool2; // rdi
-  NTSTATUS v9; // eax
-  NTSTATUS v10; // ebx
-  __int64 v11; // r12
-  char *v12; // rax
+  char *v4; // r12
+  _DWORD *PoolWithTag; // r14
+  ULONG *v6; // rdi
+  ULONG v8; // r15d
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // ebx
+  unsigned int v12; // eax
   char v13; // r15
-  char *v15; // rsi
-  ULONG v16; // r13d
-  unsigned int v17; // esi
-  unsigned int v18; // eax
-  size_t v19; // r15
-  char *v20; // rax
-  NTSTATUS v21; // eax
-  unsigned int v22; // ebx
-  unsigned int v23; // esi
-  ULONG v24; // esi
-  unsigned int v25; // esi
-  char *v26; // rsi
-  unsigned int v27; // ecx
-  char *v28; // r15
-  char *v29; // rsi
-  __int16 v30; // ax
-  char *v31; // rsi
-  __int64 v32; // rcx
+  ULONG v15; // r13d
+  unsigned int v16; // esi
+  unsigned int v17; // eax
+  char *v18; // rax
+  unsigned int v19; // ecx
+  unsigned int v20; // eax
+  char *v21; // rsi
+  char *v22; // r15
+  char *v23; // rsi
+  __int16 v24; // ax
+  char *v25; // rsi
+  __int64 v26; // rcx
+  NTSTATUS v27; // eax
+  unsigned int v28; // ebx
+  unsigned int v29; // esi
+  ULONG v30; // esi
+  unsigned int v31; // esi
+  char *v32; // rsi
   char *v33; // rsi
-  char *v34; // rsi
-  void *v35; // rdx
-  __int64 v36; // rcx
-  char *v37; // rsi
+  void *v34; // rdx
+  __int64 v35; // rcx
+  char *v36; // rsi
   PULONG ResultLength; // [rsp+20h] [rbp-E0h]
-  char v39; // [rsp+30h] [rbp-D0h]
+  char v38; // [rsp+30h] [rbp-D0h]
   ULONG Length; // [rsp+34h] [rbp-CCh] BYREF
-  HANDLE KeyHandlea; // [rsp+38h] [rbp-C8h] BYREF
-  char *v42; // [rsp+40h] [rbp-C0h]
-  unsigned int v43; // [rsp+48h] [rbp-B8h]
-  char *v44; // [rsp+50h] [rbp-B0h]
-  ULONG v45; // [rsp+58h] [rbp-A8h]
-  char **v46; // [rsp+60h] [rbp-A0h]
-  _DWORD *v47; // [rsp+68h] [rbp-98h]
-  char *v48; // [rsp+70h] [rbp-90h]
-  wchar_t pszDest[344]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE KeyInformation[560]; // [rsp+330h] [rbp+230h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned int i; // [rsp+40h] [rbp-C0h]
+  unsigned int v42; // [rsp+44h] [rbp-BCh]
+  char *v43; // [rsp+48h] [rbp-B8h]
+  ULONG v44; // [rsp+50h] [rbp-B0h]
+  char **v45; // [rsp+58h] [rbp-A8h]
+  unsigned int *v46; // [rsp+60h] [rbp-A0h]
+  wchar_t pszDest[344]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE KeyInformation[560]; // [rsp+320h] [rbp+220h] BYREF
 
-  v46 = a4;
-  v47 = a3;
+  v45 = a4;
+  v4 = 0LL;
   Length = 0;
-  v5 = 560;
-  v39 = 0;
-  KeyHandlea = 0LL;
-  v42 = 0LL;
-  v7 = (unsigned int *)KeyInformation;
-  Pool2 = 0LL;
-  v9 = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x230u, &Length);
-  v10 = v9;
-  if ( v9 >= 0 )
+  v38 = 0;
+  PoolWithTag = KeyInformation;
+  v6 = 0LL;
+  Handle = 0LL;
+  v46 = a3;
+  v8 = 560;
+  v10 = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x230u, &Length);
+  v11 = v10;
+  if ( v10 >= 0 )
+    goto LABEL_2;
+  if ( v10 != -2147483643 && v10 != -1073741789 )
+    goto LABEL_4;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x70536553u);
+  if ( !PoolWithTag )
+  {
+    v11 = -1073741670;
+    v13 = 0;
+    goto LABEL_15;
+  }
+  v8 = Length;
+  v38 = 1;
+  v11 = ZwQueryKey(KeyHandle, KeyFullInformation, PoolWithTag, Length, &Length);
+  if ( v11 >= 0 )
   {
 LABEL_2:
-    v11 = v7[5];
-    if ( (_DWORD)v11 )
+    v12 = PoolWithTag[5];
+    v42 = v12;
+    if ( !v12 )
     {
-      v16 = a2 + 18;
-      v17 = 56 * v11;
-      Pool2 = (ULONG *)ExAllocatePool2(256LL, v16, 1884513619LL);
-      if ( Pool2 )
+      *v45 = 0LL;
+      *v46 = 0;
+      goto LABEL_4;
+    }
+    v15 = a2 + 18;
+    v16 = 56 * v12;
+    v6 = (ULONG *)ExAllocatePoolWithTag(PagedPool, v15, 0x70536553u);
+    if ( v6 )
+    {
+      v17 = 0;
+      for ( i = 0; v17 < v42; i = v17 )
       {
-        v18 = 0;
-        v43 = 0;
-        while ( 1 )
+        LODWORD(ResultLength) = v17;
+        v11 = RtlStringCbPrintfW(
+                pszDest,
+                0x157uLL,
+                L"%s\\%d",
+                L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPEs",
+                ResultLength);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v11 = SepRegOpenKey(pszDest, 0x201u, &Handle);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v27 = ZwQueryKey(Handle, KeyFullInformation, PoolWithTag, v8, &Length);
+        v11 = v27;
+        if ( v27 < 0 )
         {
-          LODWORD(ResultLength) = v18;
-          v10 = RtlStringCbPrintfW(
-                  pszDest,
-                  0x157uLL,
-                  L"%s\\%d",
-                  L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPEs",
-                  ResultLength);
-          if ( v10 < 0 )
-            break;
-          v10 = SepRegOpenKey(pszDest, 0x201u, &KeyHandlea);
-          if ( v10 < 0 )
-            break;
-          v21 = ZwQueryKey(KeyHandlea, KeyFullInformation, v7, v5, &Length);
-          v10 = v21;
-          if ( v21 < 0 )
+          if ( v27 != -2147483643 && v27 != -1073741789 )
+            goto LABEL_4;
+          v13 = v38;
+          if ( v38 )
+            ExFreePoolWithTag(PoolWithTag, 0x70536553u);
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x70536553u);
+          if ( !PoolWithTag )
           {
-            if ( v21 != -2147483643 && v21 != -1073741789 )
-              goto LABEL_10;
-            v13 = v39;
-            if ( v39 )
-              ExFreePoolWithTag(v7, 0x70536553u);
-            v7 = (unsigned int *)ExAllocatePool2(256LL, Length, 1884513619LL);
-            if ( !v7 )
-            {
-              v10 = -1073741670;
-              goto LABEL_41;
-            }
-            v5 = Length;
-            v39 = 1;
-            v10 = ZwQueryKey(KeyHandlea, KeyFullInformation, v7, Length, &Length);
-            if ( v10 < 0 )
-              goto LABEL_10;
+            v11 = -1073741670;
+            goto LABEL_15;
           }
-          v22 = v7[10] + 18;
-          if ( v22 > v16 )
-          {
-            Pool2 = (ULONG *)SepRmCapPoolExpand(Pool2, v22);
-            if ( !Pool2 )
-              goto LABEL_21;
-            v16 = v22;
-          }
-          v10 = ZwQueryValueKey(KeyHandlea, &CapeName, KeyValuePartialInformation, Pool2, v16, &Length);
-          if ( v10 < 0 )
+          v8 = Length;
+          v38 = 1;
+          v11 = ZwQueryKey(Handle, KeyFullInformation, PoolWithTag, Length, &Length);
+          if ( v11 < 0 )
             goto LABEL_10;
-          v23 = Pool2[2] + ((v17 + 1) & 0xFFFFFFFE);
-          v10 = ZwQueryValueKey(KeyHandlea, &CapePredicate, KeyValuePartialInformation, Pool2, v16, &Length);
-          if ( v10 < 0 )
-            goto LABEL_10;
-          v24 = Pool2[2] + v23;
-          v10 = ZwQueryValueKey(KeyHandlea, &CapeSD, KeyValuePartialInformation, Pool2, v16, &Length);
-          if ( v10 < 0 )
-            goto LABEL_10;
-          v25 = Pool2[2] + ((v24 + 7) & 0xFFFFFFF8);
-          v10 = ZwQueryValueKey(KeyHandlea, &CapeStagedSD, KeyValuePartialInformation, Pool2, v16, &Length);
-          if ( v10 < 0 )
-            goto LABEL_10;
-          v17 = Pool2[2] + ((v25 + 7) & 0xFFFFFFF8);
-          ZwClose(KeyHandlea);
-          KeyHandlea = 0LL;
-          v18 = v43 + 1;
-          v43 = v18;
-          if ( v18 >= (unsigned int)v11 )
-          {
-            v19 = v17;
-            v20 = (char *)ExAllocatePool2(256LL, v17, 1884513619LL);
-            v42 = v20;
-            v15 = v20;
-            v48 = v20;
-            if ( !v20 )
-            {
-              v13 = v39;
-              v10 = -1073741670;
-              goto LABEL_42;
-            }
-            memset(v20, 0, v19);
-            v44 = &v42[v19];
-            v26 = &v42[56 * v11];
-            v27 = 0;
-            v43 = 0;
-            v28 = v42 + 8;
-            while ( 1 )
-            {
-              LODWORD(ResultLength) = v27;
-              v10 = RtlStringCbPrintfW(
-                      pszDest,
-                      0x157uLL,
-                      L"%s\\%d",
-                      L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPEs",
-                      ResultLength);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v10 = SepRegOpenKey(pszDest, 0x201u, &KeyHandlea);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v10 = ZwQueryValueKey(KeyHandlea, &CapeFlags, KeyValuePartialInformation, Pool2, v16, &Length);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              if ( Pool2[2] != 4 )
-              {
-                v10 = -1073741811;
-                goto LABEL_10;
-              }
-              *(_DWORD *)&v42[56 * v43 + 48] = Pool2[3];
-              v10 = ZwQueryValueKey(KeyHandlea, &CapeName, KeyValuePartialInformation, Pool2, v16, &Length);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v29 = (char *)((unsigned __int64)(v26 + 1) & 0xFFFFFFFFFFFFFFFEuLL);
-              if ( &v29[Pool2[2]] > v44 )
-                goto LABEL_69;
-              v30 = *((_WORD *)Pool2 + 4);
-              *((_WORD *)v28 - 3) = v30;
-              *((_WORD *)v28 - 4) = v30;
-              *(_QWORD *)v28 = v29;
-              memmove(v29, Pool2 + 3, Pool2[2]);
-              v31 = &v29[Pool2[2]];
-              v10 = ZwQueryValueKey(KeyHandlea, &CapePredicate, KeyValuePartialInformation, Pool2, v16, &Length);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v32 = Pool2[2];
-              if ( &v31[v32] > v44 )
-                goto LABEL_69;
-              *((_DWORD *)v28 + 2) = v32;
-              if ( Pool2[2] )
-              {
-                *((_QWORD *)v28 + 2) = v31;
-                memmove(v31, Pool2 + 3, Pool2[2]);
-              }
-              else
-              {
-                *((_QWORD *)v28 + 2) = 0LL;
-              }
-              v33 = &v31[Pool2[2]];
-              v10 = ZwQueryValueKey(KeyHandlea, &CapeSD, KeyValuePartialInformation, Pool2, v16, &Length);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v34 = (char *)((unsigned __int64)(v33 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-              if ( &v34[Pool2[2]] > v44 )
-                goto LABEL_69;
-              *((_QWORD *)v28 + 3) = v34;
-              memmove(v34, Pool2 + 3, Pool2[2]);
-              v35 = (void *)*((_QWORD *)v28 + 3);
-              v45 = Pool2[2];
-              if ( !SeValidSecurityDescriptor(v45, v35) )
-                goto LABEL_65;
-              v10 = ZwQueryValueKey(KeyHandlea, &CapeStagedSD, KeyValuePartialInformation, Pool2, v16, &Length);
-              if ( v10 < 0 )
-                goto LABEL_10;
-              v36 = Pool2[2];
-              v37 = (char *)((unsigned __int64)&v34[v45 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
-              if ( &v37[v36] > v44 )
-              {
-LABEL_69:
-                v10 = -1073741789;
-                goto LABEL_10;
-              }
-              if ( (_DWORD)v36 )
-              {
-                *((_QWORD *)v28 + 4) = v37;
-                memmove(v37, Pool2 + 3, Pool2[2]);
-                if ( !SeValidSecurityDescriptor(Pool2[2], *((PSECURITY_DESCRIPTOR *)v28 + 4)) )
-                {
-LABEL_65:
-                  v10 = -1073741703;
-                  goto LABEL_10;
-                }
-              }
-              else
-              {
-                *((_QWORD *)v28 + 4) = 0LL;
-              }
-              v26 = &v37[Pool2[2]];
-              ZwClose(KeyHandlea);
-              v28 += 56;
-              KeyHandlea = 0LL;
-              v27 = v43 + 1;
-              v43 = v27;
-              if ( v27 >= (unsigned int)v11 )
-              {
-                v12 = v48;
-                goto LABEL_4;
-              }
-            }
-          }
         }
+        v28 = PoolWithTag[10] + 18;
+        if ( v28 > v15 )
+        {
+          v6 = (ULONG *)SepRmCapPoolExpand(v6, v28);
+          if ( !v6 )
+            goto LABEL_36;
+          v15 = v28;
+        }
+        v11 = ZwQueryValueKey(Handle, &CapeName, KeyValuePartialInformation, v6, v15, &Length);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v29 = v6[2] + ((v16 + 1) & 0xFFFFFFFE);
+        v11 = ZwQueryValueKey(Handle, &CapePredicate, KeyValuePartialInformation, v6, v15, &Length);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v30 = v6[2] + v29;
+        v11 = ZwQueryValueKey(Handle, &CapeSD, KeyValuePartialInformation, v6, v15, &Length);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v31 = v6[2] + ((v30 + 7) & 0xFFFFFFF8);
+        v11 = ZwQueryValueKey(Handle, &CapeStagedSD, KeyValuePartialInformation, v6, v15, &Length);
+        if ( v11 < 0 )
+          goto LABEL_10;
+        v16 = v6[2] + ((v31 + 7) & 0xFFFFFFF8);
+        ZwClose(Handle);
+        Handle = 0LL;
+        v17 = i + 1;
       }
-      else
+      v18 = (char *)ExAllocatePoolWithTag(PagedPool, v16, 0x70536553u);
+      v4 = v18;
+      if ( v18 )
       {
-LABEL_21:
-        v10 = -1073741670;
-      }
-    }
-    else
-    {
-      v12 = 0LL;
+        memset(v18, 0, v16);
+        v19 = v42;
+        v43 = &v4[v16];
+        v20 = 0;
+        v21 = &v4[56 * v42];
+        i = 0;
+        if ( v42 )
+        {
+          v22 = v4 + 8;
+          do
+          {
+            LODWORD(ResultLength) = v20;
+            v11 = RtlStringCbPrintfW(
+                    pszDest,
+                    0x157uLL,
+                    L"%s\\%d",
+                    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPEs",
+                    ResultLength);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v11 = SepRegOpenKey(pszDest, 0x201u, &Handle);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v11 = ZwQueryValueKey(Handle, &CapeFlags, KeyValuePartialInformation, v6, v15, &Length);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            if ( v6[2] != 4 )
+            {
+              v11 = -1073741811;
+              goto LABEL_10;
+            }
+            *(_DWORD *)&v4[56 * i + 48] = v6[3];
+            v11 = ZwQueryValueKey(Handle, &CapeName, KeyValuePartialInformation, v6, v15, &Length);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v23 = (char *)((unsigned __int64)(v21 + 1) & 0xFFFFFFFFFFFFFFFEuLL);
+            if ( &v23[v6[2]] > v43 )
+              goto LABEL_68;
+            v24 = *((_WORD *)v6 + 4);
+            *((_WORD *)v22 - 3) = v24;
+            *((_WORD *)v22 - 4) = v24;
+            *(_QWORD *)v22 = v23;
+            memmove(v23, v6 + 3, v6[2]);
+            v25 = &v23[v6[2]];
+            v11 = ZwQueryValueKey(Handle, &CapePredicate, KeyValuePartialInformation, v6, v15, &Length);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v26 = v6[2];
+            if ( &v25[v26] > v43 )
+              goto LABEL_68;
+            *((_DWORD *)v22 + 2) = v26;
+            if ( v6[2] )
+            {
+              *((_QWORD *)v22 + 2) = v25;
+              memmove(v25, v6 + 3, v6[2]);
+            }
+            else
+            {
+              *((_QWORD *)v22 + 2) = 0LL;
+            }
+            v32 = &v25[v6[2]];
+            v11 = ZwQueryValueKey(Handle, &CapeSD, KeyValuePartialInformation, v6, v15, &Length);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v33 = (char *)((unsigned __int64)(v32 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+            if ( &v33[v6[2]] > v43 )
+              goto LABEL_68;
+            *((_QWORD *)v22 + 3) = v33;
+            memmove(v33, v6 + 3, v6[2]);
+            v34 = (void *)*((_QWORD *)v22 + 3);
+            v44 = v6[2];
+            if ( !SeValidSecurityDescriptor(v44, v34) )
+              goto LABEL_64;
+            v11 = ZwQueryValueKey(Handle, &CapeStagedSD, KeyValuePartialInformation, v6, v15, &Length);
+            if ( v11 < 0 )
+              goto LABEL_10;
+            v35 = v6[2];
+            v36 = (char *)((unsigned __int64)&v33[v44 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
+            if ( &v36[v35] > v43 )
+            {
+LABEL_68:
+              v11 = -1073741789;
+              goto LABEL_10;
+            }
+            if ( (_DWORD)v35 )
+            {
+              *((_QWORD *)v22 + 4) = v36;
+              memmove(v36, v6 + 3, v6[2]);
+              if ( !SeValidSecurityDescriptor(v6[2], *((PSECURITY_DESCRIPTOR *)v22 + 4)) )
+              {
+LABEL_64:
+                v11 = -1073741703;
+                goto LABEL_10;
+              }
+            }
+            else
+            {
+              *((_QWORD *)v22 + 4) = 0LL;
+            }
+            v21 = &v36[v6[2]];
+            ZwClose(Handle);
+            v22 += 56;
+            Handle = 0LL;
+            v20 = i + 1;
+            v19 = v42;
+            i = v20;
+          }
+          while ( v20 < v42 );
+        }
+        *v45 = v4;
+        *v46 = v19;
 LABEL_4:
-      *v46 = v12;
-      *v47 = v11;
-      if ( v10 >= 0 )
-      {
-        v13 = v39;
-        goto LABEL_6;
+        if ( v11 >= 0 )
+        {
+          v13 = v38;
+          goto LABEL_6;
+        }
+        goto LABEL_10;
       }
     }
-    goto LABEL_10;
+LABEL_36:
+    v11 = -1073741670;
   }
-  if ( v9 != -2147483643 && v9 != -1073741789 )
-  {
 LABEL_10:
-    v13 = v39;
-LABEL_41:
-    v15 = v42;
-    goto LABEL_42;
-  }
-  v7 = (unsigned int *)ExAllocatePool2(256LL, Length, 1884513619LL);
-  if ( v7 )
-  {
-    v5 = Length;
-    v39 = 1;
-    v10 = ZwQueryKey(KeyHandle, KeyFullInformation, v7, Length, &Length);
-    if ( v10 >= 0 )
-      goto LABEL_2;
-    goto LABEL_10;
-  }
-  v15 = 0LL;
-  v10 = -1073741670;
-  v13 = 0;
-LABEL_42:
-  if ( KeyHandlea )
-    ZwClose(KeyHandlea);
-  if ( v15 )
-    ExFreePoolWithTag(v15, 0x70536553u);
+  v13 = v38;
+LABEL_15:
+  if ( Handle )
+    ZwClose(Handle);
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0x70536553u);
 LABEL_6:
-  if ( v13 && v7 )
-    ExFreePoolWithTag(v7, 0x70536553u);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x70536553u);
-  return (unsigned int)v10;
+  if ( v13 && PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x70536553u);
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0x70536553u);
+  return (unsigned int)v11;
 }

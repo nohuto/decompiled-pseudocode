@@ -1,8 +1,8 @@
 /*
- * XREFs of SmKmVirtualLockCtxMemoryUnlocked @ 0x140307DDC
+ * XREFs of SmKmVirtualLockCtxMemoryUnlocked @ 0x140307EDC
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x14014B784 (SmKmStoreHelperCommandProcess.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x140307CBC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14014B7A4 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140307DBC (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,9 +12,9 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmQueryWorkingSetInformation @ 0x1400F10C8 (MmQueryWorkingSetInformation.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C044 (MmAdjustWorkingSetSizeEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MmQueryWorkingSetInformation @ 0x1400F10E8 (MmQueryWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, __int64 a2)

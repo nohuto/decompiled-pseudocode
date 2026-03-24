@@ -1,25 +1,24 @@
 /*
- * XREFs of BiAddStoreFromFile @ 0x14081210C
+ * XREFs of BiAddStoreFromFile @ 0x140781DD8
  * Callers:
- *     BiLoadSystemStore @ 0x140811FE0 (BiLoadSystemStore.c)
- *     BcdOpenStore @ 0x1408125C4 (BcdOpenStore.c)
+ *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     BiCreateKey @ 0x1408036C8 (BiCreateKey.c)
- *     BiUnloadHiveByName @ 0x1408073EC (BiUnloadHiveByName.c)
- *     BiSetRegistryValue @ 0x1408123B4 (BiSetRegistryValue.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiLoadHive @ 0x140813960 (BiLoadHive.c)
- *     BiDoesHiveKeyExist @ 0x140A1D75C (BiDoesHiveKeyExist.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     BiUnloadHiveByName @ 0x140779404 (BiUnloadHiveByName.c)
+ *     BiCreateKey @ 0x140783C10 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiLoadHive @ 0x140785A48 (BiLoadHive.c)
+ *     BiDoesHiveKeyExist @ 0x14096F7FC (BiDoesHiveKeyExist.c)
  */
 
 __int64 __fastcall BiAddStoreFromFile(__int64 a1, char a2, _QWORD *a3)
 {
-  int v6; // r14d
-  unsigned int v7; // esi
+  unsigned int v4; // r14d
+  unsigned int v5; // esi
   unsigned int Hive; // ebx
   int v9; // eax
   __int64 v10; // rsi
@@ -36,25 +35,19 @@ __int64 __fastcall BiAddStoreFromFile(__int64 a1, char a2, _QWORD *a3)
   wchar_t Dst[12]; // [rsp+48h] [rbp-28h] BYREF
 
   v21 = 0LL;
+  v4 = 0;
+  v5 = 0;
   v20 = 0LL;
-  v6 = 0;
-  if ( (a2 & 0x20) != 0 )
-  {
-LABEL_19:
-    BiLogMessage(4LL, L"Failed to find a key to load store %s. Last attempted key: %ws", a1 + 12, Dst);
-    return (unsigned int)-1073741823;
-  }
-  v7 = 0;
   while ( 1 )
   {
-    swprintf_s(Dst, 0xCuLL, L"BCD%08d", v7);
+    swprintf_s(Dst, 0xCuLL, L"BCD%08d", v5);
     Hive = BiLoadHive(Dst);
     if ( (Hive & 0x80000000) == 0 )
     {
-      BiLogMessage(2LL, L"Loaded hive at BCD%08d", v7);
+      BiLogMessage(2LL, L"Loaded hive at BCD%08d", v5);
       if ( (a2 & 1) == 0 )
       {
-LABEL_5:
+LABEL_4:
         v9 = BiOpenKey(0LL, L"Description", 131103LL, &v21);
         v10 = v21;
         Hive = v9;
@@ -99,18 +92,18 @@ LABEL_5:
         }
         if ( v10 )
           BiCloseKey(v10);
-        goto LABEL_10;
+        goto LABEL_9;
       }
-      v14 = BiCreateKey(0LL, L"Objects", 0x20019u, 0, &v20, 0LL);
+      v14 = BiCreateKey(0LL, L"Objects", 131097LL, 0LL, &v20, 0LL);
       Hive = v14;
       if ( v14 >= 0 )
       {
         BiCloseKey(v20);
         v20 = 0LL;
-        v14 = BiCreateKey(0LL, L"Description", 0x20019u, 0, &v20, 0LL);
+        v14 = BiCreateKey(0LL, L"Description", 131097LL, 0LL, &v20, 0LL);
         Hive = v14;
         if ( v14 >= 0 )
-          goto LABEL_5;
+          goto LABEL_4;
         v15 = L"Failed to initialize description key for store. Store: %s StoreKey: %ws Status: %x";
       }
       else
@@ -119,7 +112,7 @@ LABEL_5:
       }
       LODWORD(v17) = v14;
       BiLogMessage(4LL, v15, a1 + 12, Dst, v17);
-LABEL_10:
+LABEL_9:
       if ( v20 )
         BiCloseKey(v20);
       return Hive;
@@ -127,16 +120,19 @@ LABEL_10:
     if ( Hive != -1073741790 )
       break;
     if ( (unsigned __int8)BiDoesHiveKeyExist(Dst) )
-    {
-      v6 = 0;
-    }
-    else if ( (unsigned int)++v6 >= 0xA )
+      v4 = 0;
+    else
+      ++v4;
+    if ( v4 >= 0xA )
     {
       BiLogMessage(4LL, L"Too many unexplained failures. File: %s Last status: %x", a1 + 12, 3221225506LL);
       return Hive;
     }
-    if ( ++v7 > 0x5F5E0FF )
-      goto LABEL_19;
+    if ( ++v5 > 0x5F5E0FF )
+    {
+      BiLogMessage(4LL, L"Failed to find a key to load store %s. Last attempted key: %ws", a1 + 12, Dst);
+      return (unsigned int)-1073741823;
+    }
   }
   v13 = 4LL;
   if ( Hive == -1073741809 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z @ 0x1C0203A40
+ * XREFs of ?SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z @ 0x1C01C8184
  * Callers:
- *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01FF470 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
+ *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01C3CC4 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C00E70A2 (-FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z.c)
- *     ?SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEnginePointerNode@@@Z @ 0x1C00E71E2 (-SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEngin.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C01C5F64 (-FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z.c)
+ *     ?SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEnginePointerNode@@@Z @ 0x1C01C80B4 (-SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEngin.c)
  */
 
 __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
@@ -14,7 +14,7 @@ __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
         struct CContactState *a3,
         int a4)
 {
-  unsigned int v4; // esi
+  unsigned int v4; // edi
   char *v8; // rcx
   __int64 v9; // rax
   __int128 v10; // xmm1
@@ -94,7 +94,7 @@ __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
     v27 = &v38;
     do
     {
-      v28 = (CPTPEngine *)((char *)this + 400 * (*((_DWORD *)v27 - 2) % v26) + 1208);
+      v28 = (CPTPEngine *)((char *)this + 392 * (*((_DWORD *)v27 - 2) % v26) + 1160);
       if ( (*(_DWORD *)v28 & 1) == 0 || (*(_DWORD *)v28 & 0x400) != 0 )
       {
         *(_DWORD *)v27 = 0;
@@ -106,14 +106,14 @@ __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
           v4 = 1;
         else
           *(_DWORD *)v27 = *(_DWORD *)v27 & 0xFFFCFFFF | 0x10000;
-        v29 = *((_QWORD *)v28 + 6);
-        *((_DWORD *)v27 + 13) = *((_DWORD *)v28 + 34);
-        *(_QWORD *)(v27 + 68) = *((_QWORD *)v28 + 16);
+        v29 = *((_QWORD *)v28 + 5);
+        *((_DWORD *)v27 + 13) = *((_DWORD *)v28 + 32);
+        *(_QWORD *)(v27 + 68) = *((_QWORD *)v28 + 15);
         *(_QWORD *)(v27 + 28) = v29;
         if ( v28 == a3 )
         {
-          *((_QWORD *)this + 456) = v35;
-          *((_QWORD *)this + 457) = v29;
+          *((_QWORD *)this + 444) = v35;
+          *((_QWORD *)this + 445) = v29;
         }
       }
       v25 = v36;
@@ -125,7 +125,7 @@ __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
   v30 = 0;
   for ( i = v37; v30 < v25; i += 96 )
   {
-    v32 = (CPTPEngine *)((char *)this + 400 * (unsigned int)(*((_DWORD *)i + 1) % *((_DWORD *)this + 4)) + 1208);
+    v32 = (CPTPEngine *)((char *)this + 392 * (unsigned int)(*((_DWORD *)i + 1) % *((_DWORD *)this + 4)) + 1160);
     if ( (*(_DWORD *)v32 & 1) != 0 && (*(_DWORD *)v32 & 0x400) == 0 )
     {
       CPTPEngine::FixupGestureContact(this, (struct PTPEnginePointerNode *)i, v32 == a3);
@@ -133,6 +133,7 @@ __int64 __fastcall CPTPEngine::SendInitialGestureFrame(
     }
     ++v30;
   }
-  CBasePTPEngine::SendGestureOutput((__int64)this, 2, a4, v25, v37);
+  CBasePTPEngine::SendGestureOutput((__int64)this, 0, a4, v25, v37);
+  CBasePTPEngine::SendGestureOutput((__int64)this, 2, a4, 0, 0LL);
   return v4;
 }

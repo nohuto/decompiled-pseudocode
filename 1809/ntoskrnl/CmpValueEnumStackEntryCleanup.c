@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpValueEnumStackEntryCleanup @ 0x14026CA18
+ * XREFs of CmpValueEnumStackEntryCleanup @ 0x14026CB18
  * Callers:
- *     CmpValueEnumStackCleanup @ 0x140800D38 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackCleanup @ 0x140800D18 (CmpValueEnumStackCleanup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpValueEnumStackEntryCleanup(_QWORD *a1)

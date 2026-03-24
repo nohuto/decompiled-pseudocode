@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoWriteErrorLogEntry @ 0x140A8A750
+ * XREFs of VerifierIoWriteErrorLogEntry @ 0x1409C9810
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoWriteErrorLogEntry()

@@ -1,203 +1,185 @@
 /*
- * XREFs of ?VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0394760
+ * XREFs of ?VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0250B60
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGPROCESSDDILOCK@@QEAA@XZ @ 0x1C0023F50 (--1DXGPROCESSDDILOCK@@QEAA@XZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?AllocateRefCountedBuffer@CRefCountedBuffer@@SAPEAV1@IIW4DXGK_POOL_FLAGS@@@Z @ 0x1C002A942 (-AllocateRefCountedBuffer@CRefCountedBuffer@@SAPEAV1@IIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?RefCountedBufferRelease@CRefCountedBuffer@@QEAAXXZ @ 0x1C0047E24 (-RefCountedBufferRelease@CRefCountedBuffer@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@@@YAPEAUDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005BAA4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@@@YAPEAUDXGKVMB_COMMAND_VAILPRES.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C007A420 (-DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?IsIFlipSupported@CIFlipPresentHistoryToken@@SA_NPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C01EEB6C (-IsIFlipSupported@CIFlipPresentHistoryToken@@SA_NPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ?IsIFlipFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C0362064 (-IsIFlipFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
- *     ?QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAK@Z @ 0x1C03761A4 (-QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEA.c)
- *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C03765C8 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?RefCountedBufferRelease@CRefCountedBuffer@@QEAAXXZ @ 0x1C001DF24 (-RefCountedBufferRelease@CRefCountedBuffer@@QEAAXXZ.c)
+ *     Feature_Vail_iFLIP__private_ReportDeviceUsage @ 0x1C00280F0 (Feature_Vail_iFLIP__private_ReportDeviceUsage.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@@@YAPEAUDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040864 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN@@@@YAPEAUDXGKVMB_COMMAND_VAILPRES.c)
+ *     ?AllocateRefCountedBuffer@CRefCountedBuffer@@SAPEAV1@IIW4_POOL_TYPE@@@Z @ 0x1C0040C9C (-AllocateRefCountedBuffer@CRefCountedBuffer@@SAPEAV1@IIW4_POOL_TYPE@@@Z.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00650C4 (-DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAK@Z @ 0x1C023B34C (-QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEA.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C023B6F4 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusSubmitVailPresentHistoryToken(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
-  __int64 v4; // rdi
-  const wchar_t *v5; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
   __int64 v6; // rax
-  __int64 v7; // rdi
-  unsigned __int64 v8; // rcx
-  int v9; // edx
+  __int64 v7; // rax
+  __int64 v8; // r9
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  unsigned __int64 v11; // rdx
+  __int64 v12; // rdx
   struct DXGPROCESS *Current; // rsi
-  __int64 v11; // rdx
-  int v12; // ecx
-  __int64 v13; // rax
-  unsigned int v14; // r13d
-  void *v15; // rsi
-  struct _KTHREAD **v16; // r12
-  unsigned int v17; // ecx
-  __int64 RefCountedBuffer; // rax
-  int v19; // eax
-  int v20; // eax
-  _BYTE v22[8]; // [rsp+60h] [rbp-20h] BYREF
-  DXGPUSHLOCK *v23; // [rsp+68h] [rbp-18h]
-  int v24; // [rsp+70h] [rbp-10h]
-  int v25; // [rsp+C0h] [rbp+40h] BYREF
-  unsigned int v26; // [rsp+C8h] [rbp+48h] BYREF
+  __int64 v14; // r8
+  bool v15; // cc
+  __int64 v16; // rax
+  volatile signed __int32 *v17; // rsi
+  unsigned int v18; // r13d
+  struct _KTHREAD **v19; // r12
+  __int64 v20; // rcx
+  struct CRefCountedBuffer *RefCountedBuffer; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  _BYTE v30[8]; // [rsp+60h] [rbp-20h] BYREF
+  DXGPUSHLOCK *v31; // [rsp+68h] [rbp-18h]
+  int v32; // [rsp+70h] [rbp-10h]
+  int v33; // [rsp+C0h] [rbp+40h] BYREF
+  unsigned int v34; // [rsp+C8h] [rbp+48h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v22, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v23);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v24 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v30, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v31);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v32 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v25 = -1073741637;
-    if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) < 0x18u )
-      goto LABEL_32;
-    v6 = CastToVmBusCommand<DXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN>((__int64)a1);
-    v7 = v6;
-    if ( !v6 )
-      goto LABEL_33;
-    v8 = *(unsigned int *)(v6 + 1152);
-    v9 = v25;
-    if ( (unsigned __int64)*((unsigned int *)a1 + 36) - 1160 < v8 )
-      v9 = -1073741811;
-    v25 = v9;
-    if ( *(_DWORD *)(v6 + 72) == 9 )
+    v33 = -1073741637;
+    if ( *((_DWORD *)DXGGLOBAL::GetGlobal(v3, v2) + 408) < 0x18u )
+      goto LABEL_30;
+    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_VAILPRESENTHISTORYTOKEN>((__int64)a1);
+    v9 = v7;
+    if ( !v7 )
+      goto LABEL_31;
+    v10 = (unsigned int)v33;
+    v11 = *((unsigned int *)a1 + 22) - 1160LL;
+    if ( v11 < *(unsigned int *)(v7 + 1152) )
+      v10 = 3221225485LL;
+    v33 = v10;
+    Current = DXGPROCESS::GetCurrent(v10, v11, 3221225485LL, v8);
+    if ( v33 != -1073741637 )
     {
-      v4 = 6171LL;
-      WdLogSingleEntry1(2LL, 6171LL);
-      v5 = L"Token of type D3DKMT_PM_FLIPMANAGER is unsupported for VAIL";
-      goto LABEL_3;
+LABEL_30:
+      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &v33, 4u);
+      v5 = 1;
+      goto LABEL_31;
     }
-    Current = DXGPROCESS::GetCurrent(v8);
-    if ( v25 != -1073741637 )
+    v15 = g_IsVailIFlipEnabled <= 0;
+    if ( g_IsVailIFlipEnabled < 0 )
     {
-LABEL_32:
-      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &v25, 4u);
-      v3 = 1;
-      goto LABEL_33;
+      Feature_Vail_iFLIP__private_ReportDeviceUsage();
+      _InterlockedCompareExchange(&g_IsVailIFlipEnabled, 0, -1);
+      v15 = g_IsVailIFlipEnabled <= 0;
     }
-    if ( !DXGVAILOBJECT::IsIFlipFeatureEnabled() )
-      goto LABEL_29;
-    if ( !CIFlipPresentHistoryToken::IsIFlipSupported((const struct _D3DKMT_PRESENTHISTORYTOKEN *)(v7 + 72)) )
-      goto LABEL_29;
-    v12 = *((_DWORD *)Current + 106);
-    if ( (v12 & 0x100) == 0 || (v12 & 4) == 0 || !*(_DWORD *)(v7 + 68) || !*(_QWORD *)(v7 + 96) )
-      goto LABEL_29;
-    v13 = *((_QWORD *)a1 + 12);
-    v14 = *(_DWORD *)(v7 + 96);
-    v15 = 0LL;
-    v26 = 0;
-    v16 = *(struct _KTHREAD ***)(v13 + 608);
-    *(_DWORD *)(v7 + 132) &= ~0x2000000u;
-    *(_QWORD *)(v7 + 96) = 0LL;
-    *(_QWORD *)(v7 + 136) = 0LL;
-    *(_QWORD *)(v7 + 120) = 0LL;
-    *(_QWORD *)(v7 + 144) = 0LL;
-    *(_DWORD *)(v7 + 892) = 0;
-    *(_OWORD *)(v7 + 172) = 0LL;
-    v17 = *(_DWORD *)(v7 + 1152);
-    if ( v17 )
+    if ( v15
+      || *(_DWORD *)(v9 + 72) != 2
+      || (*((_BYTE *)Current + 347) & 0x20) == 0
+      || !*((_BYTE *)Current + 346)
+      || !*(_DWORD *)(v9 + 68)
+      || !*(_QWORD *)(v9 + 96) )
     {
-      RefCountedBuffer = CRefCountedBuffer::AllocateRefCountedBuffer(v17, v11, 64LL);
-      v15 = (void *)RefCountedBuffer;
+      goto LABEL_28;
+    }
+    v16 = *((_QWORD *)a1 + 7);
+    v17 = 0LL;
+    v18 = *(_DWORD *)(v9 + 96);
+    v34 = 0;
+    v19 = *(struct _KTHREAD ***)(v16 + 496);
+    *(_DWORD *)(v9 + 132) &= ~0x2000000u;
+    *(_QWORD *)(v9 + 96) = 0LL;
+    *(_QWORD *)(v9 + 136) = 0LL;
+    *(_QWORD *)(v9 + 120) = 0LL;
+    *(_QWORD *)(v9 + 144) = 0LL;
+    v20 = *(unsigned int *)(v9 + 1152);
+    if ( (_DWORD)v20 )
+    {
+      RefCountedBuffer = CRefCountedBuffer::AllocateRefCountedBuffer(v20, v12, v14);
+      v17 = (volatile signed __int32 *)RefCountedBuffer;
       if ( RefCountedBuffer )
       {
-        *(_DWORD *)(RefCountedBuffer + 8) = *(_DWORD *)(v7 + 1152);
+        *((_DWORD *)RefCountedBuffer + 2) = *(_DWORD *)(v9 + 1152);
         *(_QWORD *)RefCountedBuffer = 0LL;
-        *(_DWORD *)(RefCountedBuffer + 12) = 1;
-        memmove((void *)(RefCountedBuffer + 16), (const void *)(v7 + 1160), *(unsigned int *)(v7 + 1152));
+        *((_DWORD *)RefCountedBuffer + 3) = 1;
+        memmove((char *)RefCountedBuffer + 16, (const void *)(v9 + 1160), *(unsigned int *)(v9 + 1152));
       }
     }
-    if ( *(_DWORD *)(v7 + 1152) && !v15 )
-      goto LABEL_29;
-    v19 = DXGVIRTUALMACHINE::QuerySwapChainBindingStatusFromVm(
-            v16,
-            v14,
-            (struct _D3DKMT_PRESENTHISTORYTOKEN *)(v7 + 72),
-            &v26);
-    v25 = v19;
-    if ( v19 >= 0 )
+    if ( *(_DWORD *)(v9 + 1152) && !v17 )
     {
-      v20 = DXGADAPTER::SubmitPresentHistoryTokenFromVm(
-              *(_QWORD *)(*((_QWORD *)a1 + 10) + 16LL),
-              *(_DWORD *)(v7 + 24),
-              *(_QWORD *)(v7 + 56),
-              *(_QWORD *)(v7 + 32),
-              *(_QWORD *)(v7 + 40),
-              (struct _D3DKMT_PRESENTHISTORYTOKEN *)(v7 + 72),
-              *(_QWORD *)(v7 + 48),
-              *(_DWORD *)(v7 + 64),
-              *(_DWORD *)(v7 + 68),
-              v15,
-              v26);
-      v25 = v20;
-      if ( v20 >= 0 )
-      {
-LABEL_27:
-        if ( !v15 )
-          goto LABEL_30;
-        CRefCountedBuffer::RefCountedBufferRelease(v15);
-LABEL_29:
-        v20 = v25;
-LABEL_30:
-        if ( v20 == -1073741637 )
-          v25 = DXGADAPTER::SubmitPresentHistoryTokenFromVm(
-                  *(_QWORD *)(*((_QWORD *)a1 + 10) + 16LL),
-                  *(_DWORD *)(v7 + 24),
-                  *(_QWORD *)(v7 + 56),
-                  *(_QWORD *)(v7 + 32),
-                  *(_QWORD *)(v7 + 40),
-                  0LL,
-                  *(_QWORD *)(v7 + 48),
-                  *(_DWORD *)(v7 + 64),
-                  0,
-                  0LL,
-                  0xFFFFFFFF);
-        goto LABEL_32;
-      }
-      WdLogSingleEntry1(2LL, v20);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"SubmitPresentHistoryTokenFromVm failed",
-        v25,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      DxgkCancelSwapChainBinding((struct _D3DKMT_PRESENTHISTORYTOKEN *)(v7 + 72));
+LABEL_28:
+      if ( v33 == -1073741637 )
+        v33 = DXGADAPTER::SubmitPresentHistoryTokenFromVm(
+                *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL),
+                *(_DWORD *)(v9 + 24),
+                *(_QWORD *)(v9 + 56),
+                *(_QWORD *)(v9 + 32),
+                *(_QWORD *)(v9 + 40),
+                0LL,
+                *(_QWORD *)(v9 + 48),
+                *(_DWORD *)(v9 + 64),
+                0,
+                0LL,
+                0xFFFFFFFF);
+      goto LABEL_30;
+    }
+    v33 = DXGVIRTUALMACHINE::QuerySwapChainBindingStatusFromVm(
+            v19,
+            v18,
+            (struct _D3DKMT_PRESENTHISTORYTOKEN *)(v9 + 72),
+            &v34);
+    if ( v33 >= 0 )
+    {
+      v33 = DXGADAPTER::SubmitPresentHistoryTokenFromVm(
+              *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL),
+              *(_DWORD *)(v9 + 24),
+              *(_QWORD *)(v9 + 56),
+              *(_QWORD *)(v9 + 32),
+              *(_QWORD *)(v9 + 40),
+              (void *)(v9 + 72),
+              *(_QWORD *)(v9 + 48),
+              *(_DWORD *)(v9 + 64),
+              *(_DWORD *)(v9 + 68),
+              v17,
+              v34);
+      if ( v33 >= 0 )
+        goto LABEL_26;
+      v27 = WdLogNewEntry5_WdError(v26, v25);
+      *(_QWORD *)(v27 + 24) = v33;
+      WdLogEvent5_WdError(v27);
+      DxgkCancelSwapChainBinding((struct _D3DKMT_PRESENTHISTORYTOKEN *)(v9 + 72), v28);
     }
     else
     {
-      WdLogSingleEntry2(2LL, *(_QWORD *)(v7 + 80), v19);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"QuerySwapChainBindingStatusFromVm failed. BindId = 0x%I64x, Status = 0x%I64x",
-        *(_QWORD *)(v7 + 80),
-        v25,
-        0LL,
-        0LL,
-        0LL);
+      v24 = WdLogNewEntry5_WdError(v23, v22);
+      *(_QWORD *)(v24 + 24) = v33;
+      WdLogEvent5_WdError(v24);
     }
-    v20 = -1073741637;
-    v25 = -1073741637;
-    goto LABEL_27;
+    v33 = -1073741637;
+LABEL_26:
+    if ( v17 )
+      CRefCountedBuffer::RefCountedBufferRelease((PSLIST_ENTRY)v17);
+    goto LABEL_28;
   }
-  v4 = 6156LL;
-  WdLogSingleEntry1(2LL, 6156LL);
-  v5 = L"The adapter is already closed by the guest";
-LABEL_3:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v5, v4, 0LL, 0LL, 0LL, 0LL);
-LABEL_33:
-  DXGPROCESSDDILOCK::~DXGPROCESSDDILOCK((DXGPROCESSDDILOCK *)v22);
-  return v3;
+  v6 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v6 + 24) = 5435LL;
+  WdLogEvent5_WdError(v6);
+LABEL_31:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v30);
+  return v5;
 }

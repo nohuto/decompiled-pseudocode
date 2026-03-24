@@ -1,91 +1,88 @@
 /*
- * XREFs of ArbArbiterHandler @ 0x1C00A0EF0
+ * XREFs of ArbArbiterHandler @ 0x1C00A1550
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
 {
-  unsigned int v6; // edi
-  int v7; // eax
-  struct _KEVENT *v8; // rcx
+  int v6; // eax
+  unsigned int v7; // edi
   struct _KEVENT *v9; // rcx
+  struct _KEVENT *v10; // rcx
 
   KeEnterCriticalRegion();
   KeWaitForSingleObject(*(PVOID *)(a1 + 8), Executive, 0, 0, 0LL);
   if ( a2 > 5 )
   {
-    switch ( a2 )
+    if ( a2 == 6 )
     {
-      case 6:
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 200))(a1, a3);
-        break;
-      case 7:
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 192))(a1, a3);
-        break;
-      case 8:
-        goto LABEL_8;
-      case 9:
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 184))(a1, a3);
-        break;
-      default:
-        goto LABEL_18;
+      v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 200))(a1, a3);
+      goto LABEL_10;
     }
-  }
-  else
-  {
-    if ( a2 == 5 )
+    if ( a2 == 7 )
     {
-LABEL_8:
-      v6 = -1073741822;
-      goto LABEL_27;
+      v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 192))(a1, a3);
+      goto LABEL_10;
     }
-    if ( a2 )
+    if ( a2 != 8 )
     {
-      switch ( a2 )
+      if ( a2 == 9 )
       {
-        case 1:
-          v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 160))(a1, a3);
-          break;
-        case 2:
-          v7 = (*(__int64 (__fastcall **)(__int64))(a1 + 168))(a1);
-          break;
-        case 3:
-          v7 = (*(__int64 (__fastcall **)(__int64))(a1 + 176))(a1);
-          break;
-        case 4:
-          goto LABEL_8;
-        default:
-LABEL_18:
-          v6 = -1073741811;
-          goto LABEL_27;
+        v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 184))(a1, a3);
+        goto LABEL_10;
       }
+      goto LABEL_22;
     }
-    else
-    {
-      v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 152))(a1, a3);
-    }
+LABEL_23:
+    v7 = -1073741822;
+    goto LABEL_14;
   }
-  v6 = v7;
-  if ( v7 >= 0 )
+  if ( a2 >= 4 )
+    goto LABEL_23;
+  if ( !a2 )
+  {
+    v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 152))(a1, a3);
+    goto LABEL_10;
+  }
+  if ( a2 != 1 )
+  {
+    if ( a2 == 2 )
+    {
+      v6 = (*(__int64 (__fastcall **)(__int64))(a1 + 168))(a1);
+      goto LABEL_10;
+    }
+    if ( a2 == 3 )
+    {
+      v6 = (*(__int64 (__fastcall **)(__int64))(a1 + 176))(a1);
+      goto LABEL_10;
+    }
+LABEL_22:
+    v7 = -1073741811;
+    goto LABEL_14;
+  }
+  v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 160))(a1, a3);
+LABEL_10:
+  v7 = v6;
+  if ( v6 >= 0 )
   {
     if ( (unsigned int)a2 <= 1 )
     {
-      v9 = *(struct _KEVENT **)(a1 + 304);
+      v10 = *(struct _KEVENT **)(a1 + 304);
       *(_BYTE *)(a1 + 296) = 1;
-      KeClearEvent(v9);
+      KeClearEvent(v10);
     }
     else if ( (unsigned int)(a2 - 2) <= 1 )
     {
-      v8 = *(struct _KEVENT **)(a1 + 304);
+      v9 = *(struct _KEVENT **)(a1 + 304);
       *(_BYTE *)(a1 + 296) = 0;
-      KeSetEvent(v8, 0, 0);
+      KeSetEvent(v9, 0, 0);
     }
   }
-LABEL_27:
+LABEL_14:
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
   KeLeaveCriticalRegion();
-  return v6;
+  return v7;
 }

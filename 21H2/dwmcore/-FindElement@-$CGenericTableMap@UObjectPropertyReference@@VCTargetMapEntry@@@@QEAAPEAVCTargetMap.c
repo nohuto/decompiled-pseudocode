@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FindElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMapEntry@@UObjectPropertyReference@@@Z @ 0x18004A4A4
+ * XREFs of ?FindElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMapEntry@@UObjectPropertyReference@@@Z @ 0x180064D80
  * Callers:
- *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x1800496D8 (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
- *     ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x18004A3E0 (-InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression.c)
- *     ?LookupExpressionsForTarget@CExpressionManager@@QEAAPEAUExpressionListEntry@@PEAV?$CWeakReference@VCResource@@@@I@Z @ 0x1801FDD14 (-LookupExpressionsForTarget@CExpressionManager@@QEAAPEAUExpressionListEntry@@PEAV-$CWeakReferenc.c)
+ *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x18006452C (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
+ *     ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x180064B98 (-InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression.c)
+ *     ?LookupExpressionsForTarget@CExpressionManager@@QEAAPEAUExpressionListEntry@@PEAV?$CWeakReference@VCResource@@@@I@Z @ 0x180064D40 (-LookupExpressionsForTarget@CExpressionManager@@QEAAPEAUExpressionListEntry@@PEAV-$CWeakReferenc.c)
  * Callees:
- *     ??1CTargetMapEntry@@QEAA@XZ @ 0x18004A4F8 (--1CTargetMapEntry@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 PVOID __fastcall CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::FindElement(
@@ -13,17 +13,27 @@ PVOID __fastcall CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::Find
         __int64 *a2)
 {
   __int64 v2; // rax
-  PVOID v3; // rbx
-  __int128 v5; // [rsp+20h] [rbp-38h]
-  __int128 Buffer; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-18h]
+  PVOID v3; // rax
+  void *v4; // rbx
+  PVOID v5; // rdi
+  void *v7; // rcx
+  __int128 v8; // [rsp+20h] [rbp-38h]
+  __int128 v9; // [rsp+30h] [rbp-28h] BYREF
+  void *v10; // [rsp+40h] [rbp-18h]
 
   v2 = *a2;
-  v7 = 0LL;
-  *(_QWORD *)&v5 = v2;
-  DWORD2(v5) = *((_DWORD *)a2 + 2);
-  Buffer = v5;
-  v3 = RtlLookupElementGenericTable(a1, &Buffer);
-  CTargetMapEntry::~CTargetMapEntry((CTargetMapEntry *)&Buffer);
-  return v3;
+  v10 = 0LL;
+  *(_QWORD *)&v8 = v2;
+  DWORD2(v8) = *((_DWORD *)a2 + 2);
+  v9 = v8;
+  v3 = RtlLookupElementGenericTable(a1, &v9);
+  v4 = v10;
+  v5 = v3;
+  while ( v4 )
+  {
+    v7 = v4;
+    v4 = (void *)*((_QWORD *)v4 + 2);
+    operator delete(v7);
+  }
+  return v5;
 }

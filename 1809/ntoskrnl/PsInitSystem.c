@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
  *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
  *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)

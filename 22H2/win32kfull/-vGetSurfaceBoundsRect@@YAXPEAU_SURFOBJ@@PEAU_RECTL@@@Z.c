@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vGetSurfaceBoundsRect@@YAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02DE464
+ * XREFs of ?vGetSurfaceBoundsRect@@YAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C00B1288
  * Callers:
- *     ?bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z @ 0x1C02DE344 (-bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ void __fastcall vGetSurfaceBoundsRect(struct _SURFOBJ *a1, struct _RECTL *a2)
   LONG v3; // r9d
   HDEV hdev; // rax
 
-  v2 = 0;
   *(_QWORD *)&a2->left = 0LL;
+  v2 = 0;
   v3 = 0;
   if ( SLODWORD(a1[1].hsurf) < 0 )
   {
@@ -22,13 +22,13 @@ void __fastcall vGetSurfaceBoundsRect(struct _SURFOBJ *a1, struct _RECTL *a2)
     {
       if ( ((_DWORD)hdev[10] & 0x20000) != 0 )
       {
-        v3 = *((_DWORD *)hdev + 640);
-        a2->left = v3;
-        v2 = *((_DWORD *)hdev + 641);
-        a2->top = v2;
+        v2 = *((_DWORD *)hdev + 646);
+        a2->left = v2;
+        v3 = *((_DWORD *)hdev + 647);
+        a2->top = v3;
       }
     }
   }
-  a2->right = v3 + a1->sizlBitmap.cx;
-  a2->bottom = v2 + a1->sizlBitmap.cy;
+  a2->right = v2 + a1->sizlBitmap.cx;
+  a2->bottom = v3 + a1->sizlBitmap.cy;
 }

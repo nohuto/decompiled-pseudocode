@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleInitAoAcDozeS4Timer @ 0x140748738
+ * XREFs of PopIdleInitAoAcDozeS4Timer @ 0x140748718
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     KeInitializeIRTimer @ 0x14013AF00 (KeInitializeIRTimer.c)
+ *     KeInitializeIRTimer @ 0x14013AF20 (KeInitializeIRTimer.c)
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
  */
 

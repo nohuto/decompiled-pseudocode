@@ -4,14 +4,14 @@
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
- *     NtOpenSymbolicLinkObject @ 0x140691BD0 (NtOpenSymbolicLinkObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1406B6F20 (NtCreateSymbolicLinkObject.c)
- *     NtMakeTemporaryObject @ 0x1406C7370 (NtMakeTemporaryObject.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
+ *     NtOpenSymbolicLinkObject @ 0x140691BB0 (NtOpenSymbolicLinkObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406B6F00 (NtCreateSymbolicLinkObject.c)
+ *     NtMakeTemporaryObject @ 0x1406C7350 (NtMakeTemporaryObject.c)
  */
 
 char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)

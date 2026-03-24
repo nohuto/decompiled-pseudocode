@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGenericPolledWorkerRoutine @ 0x1403352C0
+ * XREFs of HalpGenericPolledWorkerRoutine @ 0x1404CF9A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCheckAndReportGhes @ 0x14033532C (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x1404CF888 (HalpCheckAndReportGhes.c)
  */
 
 __int64 __fastcall HalpGenericPolledWorkerRoutine(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HalpGenericPolledWorkerRoutine(__int64 a1)
   if ( !(_DWORD)result )
   {
     for ( i = (__int64 *)HalpGenericPolledErrorSourceListHead; i != &HalpGenericPolledErrorSourceListHead; i = (__int64 *)*i )
-      HalpCheckAndReportGhes(i);
+      HalpCheckAndReportGhes((__int64)i);
     result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 240), 0);
     _InterlockedExchange((volatile __int32 *)(a1 + 244), 0);
   }

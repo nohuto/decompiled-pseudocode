@@ -1,15 +1,16 @@
 /*
- * XREFs of IsPrivileged @ 0x1C00C2690
+ * XREFs of IsPrivileged @ 0x1C00B1DC0
  * Callers:
- *     _RegisterLogonProcess @ 0x1C00BE030 (_RegisterLogonProcess.c)
+ *     _RegisterLogonProcess @ 0x1C00B1D00 (_RegisterLogonProcess.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall IsPrivileged(PPRIVILEGE_SET RequiredPrivileges)
 {
   BOOLEAN v2; // al
   unsigned int v3; // edi
+  __int64 v4; // rdx
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-28h] BYREF
 
   memset(&SubjectContext, 0, sizeof(SubjectContext));
@@ -21,6 +22,6 @@ __int64 __fastcall IsPrivileged(PPRIVILEGE_SET RequiredPrivileges)
   SeUnlockSubjectContext(&SubjectContext);
   SeReleaseSubjectContext(&SubjectContext);
   if ( !(_BYTE)v3 )
-    UserSetLastError(1314);
+    UserSetLastError(1314LL, v4);
   return v3;
 }

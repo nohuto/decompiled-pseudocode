@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_WaitingForControllerResetCompletion @ 0x1C0051D60
+ * XREFs of ESM_WaitingForControllerResetCompletion @ 0x1C004F0F0
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C003B904 (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
+ *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C00399CC (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
  */
 
 __int64 __fastcall ESM_WaitingForControllerResetCompletion(__int64 a1, __int64 a2, int a3)

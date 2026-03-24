@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpFindExactNamespaceNode @ 0x1406924F0
+ * XREFs of VrpFindExactNamespaceNode @ 0x1405D371C
  * Callers:
- *     VrpAddNamespaceNodeToList @ 0x140691BB0 (VrpAddNamespaceNodeToList.c)
- *     VrpPostEnumerateKey @ 0x140691CD8 (VrpPostEnumerateKey.c)
- *     VrpDestroyNamespaceNode @ 0x1407F6410 (VrpDestroyNamespaceNode.c)
- *     VrpPreUnloadKey @ 0x140927048 (VrpPreUnloadKey.c)
+ *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
+ *     VrpAddNamespaceNodeToList @ 0x1405D33DC (VrpAddNamespaceNodeToList.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpPreUnloadKey @ 0x140884160 (VrpPreUnloadKey.c)
  * Callees:
- *     VrpFindNamespaceNode @ 0x14077EA04 (VrpFindNamespaceNode.c)
+ *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  */
 
 __int64 __fastcall VrpFindExactNamespaceNode(int a1, int a2, int a3)

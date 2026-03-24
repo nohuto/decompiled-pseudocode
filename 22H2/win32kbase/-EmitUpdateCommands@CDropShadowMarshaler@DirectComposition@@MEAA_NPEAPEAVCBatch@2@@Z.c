@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EmitUpdateCommands@CDropShadowMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000A840
+ * XREFs of ?EmitUpdateCommands@CDropShadowMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A37C0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e3___ @ 0x1C000A944 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ed7920f4a40b0df6f785514a67d58840___ @ 0x1C000A9B8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ed7920f4a40b0df6f785514a67d5884.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e1217759f9287144a6f85d771fd13d15___ @ 0x1C000AA2C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e1217759f9287144a6f85d771fd13d1.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_83f238ede26de4eb77976c06b83c797f___ @ 0x1C000AAA4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_83f238ede26de4eb77976c06b83c797.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_776a7ee29f7d89c28c468aa6576cc161___ @ 0x1C022A7D4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_776a7ee29f7d89c28c468aa6576cc16.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_962f5f364e9edce011b8f57dda910571___ @ 0x1C022A848 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_962f5f364e9edce011b8f57dda91057.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e3___ @ 0x1C00059B4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ed7920f4a40b0df6f785514a67d58840___ @ 0x1C00A38DC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ed7920f4a40b0df6f785514a67d5884.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e1217759f9287144a6f85d771fd13d15___ @ 0x1C00A3950 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e1217759f9287144a6f85d771fd13d1.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_83f238ede26de4eb77976c06b83c797f___ @ 0x1C00A39C8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_83f238ede26de4eb77976c06b83c797.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_776a7ee29f7d89c28c468aa6576cc161___ @ 0x1C00A3A50 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_776a7ee29f7d89c28c468aa6576cc16.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_cb68fdd1b26679b92225326e2391a1c7___ @ 0x1C01F1998 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_cb68fdd1b26679b92225326e2391a1c.c)
  */
 
 char __fastcall DirectComposition::CDropShadowMarshaler::EmitUpdateCommands(
@@ -49,7 +49,7 @@ char __fastcall DirectComposition::CDropShadowMarshaler::EmitUpdateCommands(
     v7 = this;
     if ( (v5 & 0x200) != 0 )
     {
-      if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_962f5f364e9edce011b8f57dda910571___(
+      if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_cb68fdd1b26679b92225326e2391a1c7___(
                                this,
                                a2,
                                &v7) )
@@ -80,16 +80,16 @@ char __fastcall DirectComposition::CDropShadowMarshaler::EmitUpdateCommands(
       v5 = *((_DWORD *)this + 4);
     }
     v7 = this;
-    if ( (v5 & 0x1000) == 0 )
-      return 1;
-    if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e3___(
-                            this,
-                            a2,
-                            &v7) )
+    if ( (v5 & 0x1000) != 0 )
     {
+      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_434c84ae9a7352fc4a510698a96592e3___(
+              (__int64)this,
+              a2,
+              (__int64)&v7) )
+        return v4;
       *((_DWORD *)this + 4) &= ~0x1000u;
-      return 1;
     }
+    return 1;
   }
   return v4;
 }

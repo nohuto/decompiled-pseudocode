@@ -1,5 +1,5 @@
 /*
- * XREFs of ?iXlateBGRTo555@@YAKPEAU_XLATEOBJ@@K@Z @ 0x1C0131900
+ * XREFs of ?iXlateBGRTo555@@YAKPEAU_XLATEOBJ@@K@Z @ 0x1C0137B10
  * Callers:
  *     <none>
  * Callees:

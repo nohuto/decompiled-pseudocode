@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetConstructionStatus@?$Vector@TModifyingActionConstraints@ProtectableFromChange@@@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C0019FF0
+ * XREFs of ?SetConstructionStatus@?$Vector@TModifyingActionConstraints@ProtectableFromChange@@@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C001B7E0
  * Callers:
  *     <none>
  * Callees:

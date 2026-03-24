@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF1BC
+ * XREFs of SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF1DC
  * Callers:
- *     SymCryptFatal @ 0x14028F68C (SymCryptFatal.c)
+ *     SymCryptFatal @ 0x14028F78C (SymCryptFatal.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn SymCryptFatalEnvWindowsKernelmodeWin8_1nLater(ULONG_PTR BugCheckParameter1)

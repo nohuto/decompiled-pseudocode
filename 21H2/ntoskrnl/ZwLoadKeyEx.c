@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwLoadKeyEx @ 0x14041D960
+ * XREFs of ZwLoadKeyEx @ 0x1403FC4E0
  * Callers:
- *     PiDrvDbLoadHive @ 0x1407F3F88 (PiDrvDbLoadHive.c)
+ *     PiDrvDbLoadHive @ 0x140726094 (PiDrvDbLoadHive.c)
  * Callees:
  *     <none>
  */

@@ -1,115 +1,96 @@
 /*
- * XREFs of MxGetNextPage @ 0x140AF65CC
+ * XREFs of MxGetNextPage @ 0x140A44EE4
  * Callers:
- *     MxMapVa @ 0x140AF61F4 (MxMapVa.c)
+ *     MxMapVa @ 0x140A44B6C (MxMapVa.c)
  * Callees:
- *     MxBootDescriptorDepleted @ 0x140AF6728 (MxBootDescriptorDepleted.c)
- *     MxSwitchDescriptors @ 0x140B51D98 (MxSwitchDescriptors.c)
+ *     MxBootDescriptorDepleted @ 0x140A4502C (MxBootDescriptorDepleted.c)
+ *     MxSwitchDescriptors @ 0x140A9304C (MxSwitchDescriptors.c)
  */
 
-__int64 __fastcall MxGetNextPage(unsigned int a1, int a2)
+__int64 __fastcall MxGetNextPage(int a1, int a2)
 {
-  __int64 v3; // rsi
-  __int64 *v5; // rdi
-  __int64 v6; // r8
-  __int64 v8; // r8
-  unsigned int i; // r9d
-  unsigned int v10; // ecx
-  unsigned int v11; // eax
-  unsigned int v12; // edx
+  unsigned int v2; // r11d
+  __int64 v4; // rbx
+  unsigned int v5; // r8d
+  int v6; // eax
+  __int64 *v7; // r10
+  __int64 v9; // r8
+  __int64 v11; // r8
+  int v12; // edx
   __int64 v13; // rdx
   __int64 v14; // rcx
 
-  v3 = -1LL;
-  v5 = &MxBootFreeDescriptor[5 * a1];
-  if ( !v5[1] )
-    goto LABEL_18;
-  if ( !a2 )
+  v2 = 0;
+  v4 = -1LL;
+  do
   {
-    if ( v5[2] != -1 )
-      goto LABEL_4;
-LABEL_18:
-    if ( MxSwitchDescriptors(a1) )
-      goto LABEL_5;
-    for ( i = 0; i < 2; ++i )
+    v5 = 0;
+    v6 = a1;
+    do
     {
-      v10 = 0;
-      v11 = a1;
-      while ( 1 )
+      v7 = (__int64 *)MxFreeDescriptor[v6];
+      if ( v7 && v7[1] && !(a2 == 1 ? v7[3] == -1 : v7[2] == -1) )
+        break;
+      v12 = v6 + 1;
+      v6 = 0;
+      v7 = 0LL;
+      ++v5;
+      if ( v12 != (unsigned __int16)KeNumberNodes )
+        v6 = v12;
+    }
+    while ( v5 < (unsigned __int16)KeNumberNodes );
+    if ( v7 )
+      break;
+    ++v2;
+  }
+  while ( v2 < 2 );
+  if ( v5 != (unsigned __int16)KeNumberNodes )
+  {
+LABEL_10:
+    if ( a2 == 1 )
+    {
+      v9 = v7[3];
+      if ( (unsigned __int64)(v9 - *v7) >= 0x200 )
       {
-        v5 = &MxBootFreeDescriptor[5 * v11];
-        if ( v5 && v5[1] )
-        {
-          if ( a2 )
-          {
-            if ( v5[3] != -1 )
-              goto LABEL_6;
-          }
-          else if ( v5[2] != -1 )
-          {
-            goto LABEL_12;
-          }
-        }
-        v12 = v11 + 1;
-        if ( v11 + 1 != (unsigned __int16)KeNumberNodes )
-          ++v10;
-        if ( v10 >= (unsigned __int16)KeNumberNodes )
-          break;
-        v11 = 0;
-        if ( v12 != (unsigned __int16)KeNumberNodes )
-          v11 = v12;
+        v7[3] = v9 - 512;
+        return v9;
       }
     }
-LABEL_34:
-    byte_140C52B32 = 16;
-    return -1LL;
+    else
+    {
+      v11 = v7[2];
+      if ( v11 != (v11 & 0xFFFFFFFFFFFFFE00uLL) && v11 != *v7 )
+      {
+        v7[2] = v11 - 1;
+LABEL_18:
+        MxBootDescriptorDepleted(v7);
+        return v9;
+      }
+      v13 = v7[3];
+      v14 = *v7;
+      if ( v13 == -1 )
+      {
+        if ( v11 != v14 && v14 != (v14 & 0xFFFFFFFFFFFFFE00uLL) )
+          v4 = v14 | 0x1FF;
+        v7[2] = v4;
+        goto LABEL_18;
+      }
+      v7[2] = v13 + 511;
+      if ( (unsigned __int64)(v13 - v14) >= 0x200 )
+      {
+        v7[3] = v13 - 512;
+        goto LABEL_18;
+      }
+    }
+    v7[3] = -1LL;
+    goto LABEL_18;
   }
-  if ( v5[3] == -1 )
-    return -1LL;
-LABEL_4:
-  if ( !&MxBootFreeDescriptor[5 * a1] )
-    goto LABEL_34;
-LABEL_5:
-  if ( !a2 )
+  if ( a2 != 1 )
   {
-LABEL_12:
-    v8 = v5[2];
-    if ( v8 != (v8 & 0xFFFFFFFFFFFFFE00uLL) && v8 != *v5 )
-    {
-      v5[2] = v8 - 1;
-LABEL_15:
-      MxBootDescriptorDepleted(v5);
-      return v6;
-    }
-    v13 = v5[3];
-    v14 = *v5;
-    if ( v13 == -1 )
-    {
-      if ( v8 != v14 && v14 != (v14 & 0xFFFFFFFFFFFFFE00uLL) )
-        v3 = v14 | 0x1FF;
-      v5[2] = v3;
-      goto LABEL_15;
-    }
-    v5[2] = v13 + 511;
-    if ( (unsigned __int64)(v13 - v14) >= 0x200 )
-    {
-      v5[3] = v13 - 512;
-      goto LABEL_15;
-    }
-LABEL_17:
-    v5[3] = -1LL;
-    goto LABEL_15;
-  }
-LABEL_6:
-  v6 = v5[3];
-  if ( v6 != -1 )
-  {
-    if ( (unsigned __int64)(v6 - *v5) >= 0x200 )
-    {
-      v5[3] = v6 - 512;
-      return v6;
-    }
-    goto LABEL_17;
+    v7 = (__int64 *)MxSwitchDescriptors();
+    if ( v7 )
+      goto LABEL_10;
+    byte_140C4E7FA = 16;
   }
   return -1LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1FxRequestBase@@MEAA@XZ @ 0x1C00070E0
+ * XREFs of ??1FxRequestBase@@MEAA@XZ @ 0x1C00058E4
  * Callers:
- *     ??_EFxRequestFromLookaside@@UEAAPEAXI@Z @ 0x1C0005F60 (--_EFxRequestFromLookaside@@UEAAPEAXI@Z.c)
- *     ??1FxSyncRequest@@UEAA@XZ @ 0x1C001A228 (--1FxSyncRequest@@UEAA@XZ.c)
+ *     ??_EFxRequestFromLookaside@@UEAAPEAXI@Z @ 0x1C0005690 (--_EFxRequestFromLookaside@@UEAAPEAXI@Z.c)
+ *     ??1FxSyncRequest@@UEAA@XZ @ 0x1C0017C64 (--1FxSyncRequest@@UEAA@XZ.c)
  * Callees:
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C00387A2 (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
- *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00551B0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
- *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C006EECC (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00317F0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
+ *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C005355C (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
+ *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C005BF4C (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
  */
 
 void __fastcall FxRequestBase::~FxRequestBase(FxRequestBase *this, unsigned int a2)
@@ -30,23 +30,18 @@ void __fastcall FxRequestBase::~FxRequestBase(FxRequestBase *this, unsigned int 
   }
   m_RequestContext = this->m_RequestContext;
   m_Irp = this->m_Irp.m_Irp;
-  if ( !m_RequestContext )
+  if ( m_RequestContext )
   {
-LABEL_3:
-    if ( !m_Irp )
-      goto LABEL_6;
-    goto LABEL_4;
+    if ( m_Irp )
+    {
+      m_RequestContext->ReleaseAndRestore(m_RequestContext, this);
+      m_RequestContext = this->m_RequestContext;
+    }
+    if ( m_RequestContext )
+      ((void (__fastcall *)(FxRequestContext *, __int64))m_RequestContext->~FxRequestContext)(m_RequestContext, 1LL);
   }
-  if ( !m_Irp
-    || (m_RequestContext->ReleaseAndRestore(m_RequestContext, this), (m_RequestContext = this->m_RequestContext) != 0LL) )
-  {
-    ((void (__fastcall *)(FxRequestContext *, __int64))m_RequestContext->~FxRequestContext)(m_RequestContext, 1LL);
-    goto LABEL_3;
-  }
-LABEL_4:
-  if ( this->m_IrpAllocation == 1 )
+  if ( m_Irp && this->m_IrpAllocation == 1 )
     IoFreeIrp(this->m_Irp.m_Irp);
-LABEL_6:
   m_Timer = this->m_Timer;
   if ( m_Timer )
     FxRequestTimer::`scalar deleting destructor'(m_Timer, a2);

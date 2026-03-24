@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  *     PiUEventHandleIoctl @ 0x14059FE4C (PiUEventHandleIoctl.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406C80B8 (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406C8098 (PiUEventFreeClientRegistrationContext.c)
  */
 
 __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)

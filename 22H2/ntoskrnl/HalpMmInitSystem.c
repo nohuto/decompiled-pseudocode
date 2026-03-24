@@ -1,12 +1,13 @@
 /*
- * XREFs of HalpMmInitSystem @ 0x140A90A90
+ * XREFs of HalpMmInitSystem @ 0x1409A0240
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmReservePageTablePages @ 0x14037EBBC (HalpMmReservePageTablePages.c)
- *     HalpMmAllocCtxInit @ 0x1403A37EC (HalpMmAllocCtxInit.c)
- *     HalpInitMemoryCachingRequirementsTable @ 0x140A90B78 (HalpInitMemoryCachingRequirementsTable.c)
- *     HalpConsumeLowMemory @ 0x140B66390 (HalpConsumeLowMemory.c)
+ *     HalpMmAllocCtxInit @ 0x1403BAB30 (HalpMmAllocCtxInit.c)
+ *     HalpMmReservePageTablePages @ 0x1403BABAC (HalpMmReservePageTablePages.c)
+ *     HalpPteReserveResources @ 0x1403BB580 (HalpPteReserveResources.c)
+ *     HalpInitMemoryCachingRequirementsTable @ 0x1409A071C (HalpInitMemoryCachingRequirementsTable.c)
+ *     HalpConsumeLowMemory @ 0x140A64484 (HalpConsumeLowMemory.c)
  */
 
 __int64 __fastcall HalpMmInitSystem(int a1, __int64 a2, __int64 a3)
@@ -31,7 +32,10 @@ __int64 __fastcall HalpMmInitSystem(int a1, __int64 a2, __int64 a3)
         {
           inited = HalpInitMemoryCachingRequirementsTable(a3);
           if ( inited >= 0 )
-            HalpMoveMemory[0] = (__int64 (__fastcall *)())RtlCopyMemoryNonTemporal;
+          {
+            HalpPteReserveResources();
+            HalpMoveMemory = (__int64 (__fastcall *)())RtlCopyMemoryNonTemporal;
+          }
         }
       }
       else
@@ -53,13 +57,13 @@ __int64 __fastcall HalpMmInitSystem(int a1, __int64 a2, __int64 a3)
     HalpMmLeftoverMemory = 0LL;
     HalpMmLeftoverMemorySize = 0;
     HalpMmLoaderBlock = a3;
-    v8 = *(_QWORD *)(v7 + 2960);
-    v9 = *(_QWORD *)(v7 + 2968);
+    v8 = *(_QWORD *)(v7 + 2928);
+    v9 = *(_QWORD *)(v7 + 2936);
     HalpHeapStart = v8;
     HalpHeapEnd = v8 + v9;
     HalpOriginalHeapEnd = v8 + v9 - 1;
-    qword_140C01B28 = (__int64)HalpAllocateEarlyPages;
-    qword_140C01B30 = (__int64)HalpMapEarlyPages;
+    qword_140C00718 = (__int64)HalpAllocateEarlyPages;
+    qword_140C00720 = (__int64)HalpMapEarlyPages;
     HalpOriginalHeapStart = v8;
     HalpMmAllocCtxInit();
   }

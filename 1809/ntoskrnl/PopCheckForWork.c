@@ -3,18 +3,18 @@
  * Callers:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     PopCheckForIdleness @ 0x140010410 (PopCheckForIdleness.c)
- *     PoRegisterDeviceForIdleDetection @ 0x1400DAC50 (PoRegisterDeviceForIdleDetection.c)
- *     PoNotifySystemTimeSet @ 0x14017832C (PoNotifySystemTimeSet.c)
- *     PopCoalescingCheck @ 0x1402DB72C (PopCoalescingCheck.c)
- *     PopCoalesingTimerDpcCallback @ 0x1402DB890 (PopCoalesingTimerDpcCallback.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x1400DAC70 (PoRegisterDeviceForIdleDetection.c)
+ *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
+ *     PopCoalescingCheck @ 0x1402DB82C (PopCoalescingCheck.c)
+ *     PopCoalesingTimerDpcCallback @ 0x1402DB990 (PopCoalesingTimerDpcCallback.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _KTHREAD *PopCheckForWork()

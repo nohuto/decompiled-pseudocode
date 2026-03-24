@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeLightWeightTransaction @ 0x1407F6568
+ * XREFs of CmpInitializeLightWeightTransaction @ 0x1407F6548
  * Callers:
- *     CmpTransMgrCommit @ 0x1406FCFD0 (CmpTransMgrCommit.c)
+ *     CmpTransMgrCommit @ 0x1406FCFB0 (CmpTransMgrCommit.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall CmpInitializeLightWeightTransaction(_QWORD *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EAF0
+ * XREFs of McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002462C
  * Callers:
- *     VidSchDestroySyncObject @ 0x1C008CB20 (VidSchDestroySyncObject.c)
- *     VidSchCreateSyncObject @ 0x1C008CCC0 (VidSchCreateSyncObject.c)
- *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6F64 (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00EC240 (-ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ *     VidSchDestroySyncObject @ 0x1C0081B70 (VidSchDestroySyncObject.c)
+ *     VidSchCreateSyncObject @ 0x1C0081D80 (VidSchCreateSyncObject.c)
+ *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1C0C (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00B700C (-ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppqqpx_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

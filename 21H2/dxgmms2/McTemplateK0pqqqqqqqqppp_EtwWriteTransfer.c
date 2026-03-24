@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003C1BC
+ * XREFs of McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C00336A8
  * Callers:
- *     VidSchiCreateContextInternal @ 0x1C001270C (VidSchiCreateContextInternal.c)
- *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C003F7CC (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
- *     VidSchTerminateHwContext @ 0x1C00428B0 (VidSchTerminateHwContext.c)
- *     VidSchTerminateContext @ 0x1C0098F20 (VidSchTerminateContext.c)
- *     VidSchReportAdapter @ 0x1C00F4A80 (VidSchReportAdapter.c)
- *     VidSchReportDevice @ 0x1C00F5050 (VidSchReportDevice.c)
+ *     VidSchiCreateContextInternal @ 0x1C00107A8 (VidSchiCreateContextInternal.c)
+ *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0036FE8 (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
+ *     VidSchTerminateHwContext @ 0x1C003AB00 (VidSchTerminateHwContext.c)
+ *     VidSchTerminateContext @ 0x1C0081C30 (VidSchTerminateContext.c)
+ *     VidSchReportAdapter @ 0x1C00D1EC0 (VidSchReportAdapter.c)
+ *     VidSchReportDevice @ 0x1C00D2460 (VidSchReportDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(

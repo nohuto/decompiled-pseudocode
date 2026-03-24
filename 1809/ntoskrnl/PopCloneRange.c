@@ -1,10 +1,10 @@
 /*
  * XREFs of PopCloneRange @ 0x14056BA60
  * Callers:
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

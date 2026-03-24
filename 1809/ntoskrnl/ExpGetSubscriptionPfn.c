@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpGetSubscriptionPfn @ 0x1408CF0A4
+ * XREFs of ExpGetSubscriptionPfn @ 0x1408CF084
  * Callers:
  *     ExQueryLicenseValueInternal @ 0x1405A0260 (ExQueryLicenseValueInternal.c)
- *     ExActivateVMWithSubscription @ 0x1408CE6A8 (ExActivateVMWithSubscription.c)
+ *     ExActivateVMWithSubscription @ 0x1408CE688 (ExActivateVMWithSubscription.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpOsProductCacheProviderHelper @ 0x1406A79E0 (ExpOsProductCacheProviderHelper.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1406A79C0 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
   LODWORD(NumberOfBytes) = 0;
   if ( !ExpSubscriptionPfnInitialized )
   {
-    v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909168, 0LL, 0LL, 0, &NumberOfBytes, &v7);
+    v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909138, 0LL, 0LL, 0, &NumberOfBytes, &v7);
     if ( v2 == -1073741789 )
     {
       v4 = NumberOfBytes;
@@ -39,7 +39,7 @@ __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
         v2 = -1073741595;
         goto LABEL_18;
       }
-      v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909168, 0LL, PoolWithTag, v4, &NumberOfBytes, &v7);
+      v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909138, 0LL, PoolWithTag, v4, &NumberOfBytes, &v7);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;

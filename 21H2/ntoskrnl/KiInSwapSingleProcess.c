@@ -1,30 +1,37 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x14021158C
+ * XREFs of KiInSwapSingleProcess @ 0x14029BAA0
  * Callers:
- *     KeReadyThread @ 0x140293184 (KeReadyThread.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x140346E50 (KiAttachProcess.c)
+ *     KiAttachProcess @ 0x140207340 (KiAttachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeReadyThread @ 0x140277A14 (KeReadyThread.c)
  * Callees:
- *     KiRequestProcessInSwap @ 0x14021162C (KiRequestProcessInSwap.c)
- *     KiSwapThread @ 0x1402B3140 (KiSwapThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRequestProcessInSwap @ 0x14029BB70 (KiRequestProcessInSwap.c)
+ *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KiInSwapSingleProcess(_KTHREAD *a1, __int64 a2, unsigned __int8 a3)
+__int64 __fastcall KiInSwapSingleProcess(_KTHREAD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v4; // rsi
-  char v6; // bp
+  unsigned __int64 v5; // rsi
+  unsigned __int8 v7; // bp
   struct _KPRCB *CurrentPrcb; // rdx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v10; // r10
+  struct _KPRCB *v11; // rax
   _DWORD *SchedulerAssist; // r9
-  int v12; // edx
-  bool v13; // zf
+  int v13; // edx
+  bool v14; // zf
+  int v15; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a3;
-  v6 = 1;
-  KiAcquireKobjectLockSafe(a2);
+  v15 = 0;
+  v5 = (unsigned __int8)a3;
+  v7 = 1;
+  while ( _interlockedbittestandset((volatile signed __int32 *)a2, 7u) )
+  {
+    do
+      KeYieldProcessorEx(&v15, a2, a3, a4);
+    while ( (*(_DWORD *)a2 & 0x80u) != 0 );
+  }
   if ( (*(_DWORD *)(a2 + 840) & 7) != 0 )
   {
     KiRequestProcessInSwap(a1, a2);
@@ -32,33 +39,33 @@ char __fastcall KiInSwapSingleProcess(_KTHREAD *a1, __int64 a2, unsigned __int8 
     if ( a1 == CurrentPrcb->CurrentThread )
     {
       a1->WaitReason = 23;
-      a1->WaitIrql = v4;
+      a1->WaitIrql = v5;
       KiSwapThread(a1, CurrentPrcb, 0LL);
-      return v6;
+      return v7;
     }
   }
   else
   {
     _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
-    v6 = 0;
+    v7 = 0;
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
       {
-        v10 = KeGetCurrentPrcb();
-        SchedulerAssist = v10->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(v10);
+        v11 = KeGetCurrentPrcb();
+        SchedulerAssist = v11->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(v11);
       }
     }
   }
-  __writecr8(v4);
-  return v6;
+  __writecr8(v5);
+  return v7;
 }

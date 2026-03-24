@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEpfComplete @ 0x14057AFDC
+ * XREFs of KiEpfComplete @ 0x14052404C
  * Callers:
- *     KiEpfDrainCompletionQueue @ 0x14057B0EC (KiEpfDrainCompletionQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405241A8 (KiEpfDrainCompletionQueue.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
  */
 
 void __fastcall KiEpfComplete(unsigned __int64 a1)
@@ -14,8 +14,10 @@ void __fastcall KiEpfComplete(unsigned __int64 a1)
   _QWORD *v3; // rcx
   _QWORD *v4; // rbx
   _QWORD *v5; // rax
-  __int64 v6; // rax
-  _QWORD *v7; // rcx
+  _QWORD *v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // r8
+  _DWORD *v9; // r9
 
   v2 = KiEpfHashTable + 32LL * (((unsigned int)a1 + (unsigned int)(a1 >> 12)) % 0x25);
   KxAcquireSpinLock((PKSPIN_LOCK)(v2 + 16));
@@ -23,47 +25,47 @@ void __fastcall KiEpfComplete(unsigned __int64 a1)
   v4 = *(_QWORD **)v2;
   if ( *(_QWORD *)v2 == v2 )
   {
+LABEL_5:
     ++*(_DWORD *)(v2 + 24);
     v4 = 0LL;
+    goto LABEL_12;
   }
-  else
+  do
   {
-    while ( 1 )
+    v5 = (_QWORD *)*v4;
+    if ( v4[2] == a1 )
     {
-      v5 = (_QWORD *)*v4;
-      if ( v4[2] == a1 )
-        break;
-      v4 = (_QWORD *)*v4;
-      if ( v5 == (_QWORD *)v2 )
+      if ( (_QWORD *)v5[1] == v4 )
       {
-        v4 = *(_QWORD **)v2;
-        if ( v3[1] == v2 )
+        v6 = (_QWORD *)v4[1];
+        if ( (_QWORD *)*v6 == v4 )
         {
-          v6 = *v3;
-          if ( *(_QWORD **)(*v3 + 8LL) == v3 )
-          {
-            *(_QWORD *)v2 = v6;
-            *(_QWORD *)(v6 + 8) = v2;
-            goto LABEL_12;
-          }
+          *v6 = v5;
+          v5[1] = v6;
+          goto LABEL_12;
         }
-LABEL_10:
-        __fastfail(3u);
       }
+LABEL_15:
+      __fastfail(3u);
     }
-    if ( (_QWORD *)v5[1] != v4 )
-      goto LABEL_10;
-    v7 = (_QWORD *)v4[1];
-    if ( (_QWORD *)*v7 != v4 )
-      goto LABEL_10;
-    *v7 = v5;
-    v5[1] = v7;
+    v4 = (_QWORD *)*v4;
   }
+  while ( v5 != (_QWORD *)v2 );
+  if ( v3 == (_QWORD *)v2 )
+    goto LABEL_5;
+  v4 = *(_QWORD **)v2;
+  if ( v3[1] != v2 )
+    goto LABEL_15;
+  v7 = *v3;
+  if ( *(_QWORD **)(*v3 + 8LL) != v3 )
+    goto LABEL_15;
+  *(_QWORD *)v2 = v7;
+  *(_QWORD *)(v7 + 8) = v2;
 LABEL_12:
   KxReleaseSpinLock((PKSPIN_LOCK)(v2 + 16));
   if ( v4 )
   {
-    _InterlockedIncrement(&dword_140C2A8A4);
-    KeSignalGate((_DWORD *)v4 + 6, 0);
+    _InterlockedIncrement(&dword_140C2B084);
+    KeSignalGate((__int64)(v4 + 3), 0LL, v8, v9);
   }
 }

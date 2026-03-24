@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInternEntryHash @ 0x1407B353C
+ * XREFs of RtlpInternEntryHash @ 0x14067CB80
  * Callers:
- *     RtlInternTableIntern @ 0x1407B1B4C (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x14067C6E0 (RtlInternTableIntern.c)
  * Callees:
  *     <none>
  */
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpInternEntryHash(__int64 *a1, __int64 *a2)
     {
       v6 = *(_QWORD *)(v5 + 16);
       v7 = *(unsigned __int8 **)v5;
-      v3 = v6 + *(_QWORD *)(v5 + 24) - ((*(_QWORD *)(v5 + 24) - 1LL) & (*(_QWORD *)(v5 + 24) + v3 - 1)) + v3 - 1;
+      v3 = *(_QWORD *)(v5 + 24) + v6 - ((*(_QWORD *)(v5 + 24) - 1LL) & (*(_QWORD *)(v5 + 24) + v3 - 1)) + v3 - 1;
       if ( v6 >= 8 )
       {
         v8 = (unsigned __int64)v6 >> 3;

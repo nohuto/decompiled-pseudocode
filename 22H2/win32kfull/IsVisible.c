@@ -1,19 +1,19 @@
 /*
- * XREFs of IsVisible @ 0x1C00C719C
+ * XREFs of IsVisible @ 0x1C00680C4
  * Callers:
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00065F8 (-UT_InvertCaret@@YAXXZ.c)
- *     SpbCheckRect @ 0x1C000BF1C (SpbCheckRect.c)
- *     ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C000C07C (-FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0065F18 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C009E2A0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
- *     xxxSetScrollBar @ 0x1C00C6C68 (xxxSetScrollBar.c)
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     RestoreSpb @ 0x1C01F938C (RestoreSpb.c)
- *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0229580 (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
- *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C024EDC0 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039E68 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0044F6C (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     xxxSetScrollBar @ 0x1C00F5D08 (xxxSetScrollBar.c)
+ *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F63F0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
+ *     ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C02198B4 (-FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z.c)
+ *     RestoreSpb @ 0x1C0219F30 (RestoreSpb.c)
+ *     SpbCheckRect @ 0x1C021A284 (SpbCheckRect.c)
+ *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C024469C (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
+ *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C0260130 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
  * Callees:
  *     <none>
  */

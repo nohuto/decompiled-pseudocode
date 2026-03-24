@@ -3,7 +3,7 @@
  * Callers:
  *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
  * Callees:
- *     strcpy_s @ 0x14019B7A0 (strcpy_s.c)
+ *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

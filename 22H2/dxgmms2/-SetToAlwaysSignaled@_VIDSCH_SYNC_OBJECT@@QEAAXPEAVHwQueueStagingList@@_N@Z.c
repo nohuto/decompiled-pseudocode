@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0001980
+ * XREFs of ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015F54
  * Callers:
- *     VidSchiSignalRegisteredSyncObjects @ 0x1C00018B8 (VidSchiSignalRegisteredSyncObjects.c)
- *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C003AAE0 (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EE20 (VidSchDestroyPeriodicFrameNotification.c)
- *     VidSchTimeoutSyncObject @ 0x1C0040A30 (VidSchTimeoutSyncObject.c)
+ *     VidSchiSignalRegisteredSyncObjects @ 0x1C0015E8C (VidSchiSignalRegisteredSyncObjects.c)
+ *     VidSchTimeoutSyncObject @ 0x1C0016D1C (VidSchTimeoutSyncObject.c)
+ *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FCFC (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034000 (VidSchDestroyPeriodicFrameNotification.c)
  * Callees:
- *     VidSchiUnwaitMonitoredFences @ 0x1C00073A0 (VidSchiUnwaitMonitoredFences.c)
- *     VidSchiPropagateCrossAdapterSignal @ 0x1C003B2F4 (VidSchiPropagateCrossAdapterSignal.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CCD0 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiPropagateCrossAdapterSignal @ 0x1C00306BC (VidSchiPropagateCrossAdapterSignal.c)
  */
 
 void __fastcall _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled(
@@ -36,7 +36,6 @@ void __fastcall _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled(
       if ( a3 )
       {
         v6 = *((_QWORD *)this + 26);
-        memset(&LockHandle, 0, sizeof(LockHandle));
         KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v6 + 8), &LockHandle);
         *(_BYTE *)(v6 + 48) = 1;
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

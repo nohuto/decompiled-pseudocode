@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsW @ 0x1C02659B0
+ * XREFs of RtlStringExHandleOtherFlagsW @ 0x1C026D47C
  * Callers:
- *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C00B1FA0 (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
+ *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C000E0FC (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(
@@ -15,7 +15,7 @@ NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(
         ULONG dwFlags)
 {
   size_t v7; // rdi
-  wchar_t *v10; // rax
+  wchar_t *v9; // rax
 
   v7 = cbDest >> 1;
   if ( cbDest >> 1 && (dwFlags & 0x1000) != 0 )
@@ -24,28 +24,25 @@ NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(
     *pcchRemaining = v7;
     *pszDest = 0;
   }
-  if ( (dwFlags & 0x400) == 0 )
+  if ( (dwFlags & 0x400) != 0 )
   {
-LABEL_7:
-    if ( !v7 )
-      return 0;
-    goto LABEL_8;
+    memset(pszDest, (unsigned __int8)dwFlags, cbDest);
+    if ( (_BYTE)dwFlags )
+    {
+      if ( !v7 )
+        return 0;
+      *pcchRemaining = 1LL;
+      v9 = &pszDest[v7 - 1];
+      *ppszDestEnd = v9;
+      *v9 = 0;
+    }
+    else
+    {
+      *ppszDestEnd = pszDest;
+      *pcchRemaining = v7;
+    }
   }
-  memset_0(pszDest, (unsigned __int8)dwFlags, cbDest);
-  if ( !(_BYTE)dwFlags )
-  {
-    *ppszDestEnd = pszDest;
-    *pcchRemaining = v7;
-    goto LABEL_7;
-  }
-  if ( !v7 )
-    return 0;
-  *pcchRemaining = 1LL;
-  v10 = &pszDest[v7 - 1];
-  *ppszDestEnd = v10;
-  *v10 = 0;
-LABEL_8:
-  if ( (dwFlags & 0x800) != 0 )
+  if ( v7 && (dwFlags & 0x800) != 0 )
   {
     *ppszDestEnd = pszDest;
     *pcchRemaining = v7;

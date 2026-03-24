@@ -1,10 +1,10 @@
 /*
- * XREFs of SeCodeIntegritySetInformationProcess @ 0x14089B5F0
+ * XREFs of SeCodeIntegritySetInformationProcess @ 0x14089B5D0
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -17,14 +17,14 @@ __int64 __fastcall SeCodeIntegritySetInformationProcess(__int64 a1, unsigned int
   unsigned int v11; // edi
 
   v4 = a4;
-  if ( !qword_14040DE30 )
+  if ( !qword_14040DE10 )
     return 3221225659LL;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4, 0x20206553u);
   v10 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225495LL;
   memmove(PoolWithTag, a3, v4);
-  v11 = ((__int64 (__fastcall *)(__int64, _QWORD, void *, _QWORD))qword_14040DE30)(a1, a2, v10, (unsigned int)v4);
+  v11 = ((__int64 (__fastcall *)(__int64, _QWORD, void *, _QWORD))qword_14040DE10)(a1, a2, v10, (unsigned int)v4);
   ExFreePoolWithTag(v10, 0);
   return v11;
 }

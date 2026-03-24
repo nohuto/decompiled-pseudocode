@@ -1,7 +1,7 @@
 /*
- * XREFs of KseDriverUnloadImage @ 0x14070F05C
+ * XREFs of KseDriverUnloadImage @ 0x14070F03C
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -9,13 +9,13 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
- *     KsepDbFreeDriverShims @ 0x14067DA9C (KsepDbFreeDriverShims.c)
- *     KsepIsModuleShimmed @ 0x14067E248 (KsepIsModuleShimmed.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepDbFreeDriverShims @ 0x14067DA7C (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x14067E228 (KsepIsModuleShimmed.c)
  */
 
 __int64 __fastcall KseDriverUnloadImage(__int64 a1)

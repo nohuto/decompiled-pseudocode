@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14064AE08
+ * XREFs of AuthzBasepCompareUnicodeStringCaseSensitive @ 0x1405C1D30
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140218F84 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14024F520 (AuthzBasepCompareUnicodeStringOperands.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,12 @@
 /*
- * XREFs of ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800E7C84
+ * XREFs of ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800C074C
  * Callers:
- *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DB9C (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x18000DC60 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
- *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008E0E0 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E890 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18008F3C0 (-AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@.c)
- *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x18020A5F0 (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
+ *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x180090104 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C058C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x1800C0688 (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x1801AA480 (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 *__fastcall wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(

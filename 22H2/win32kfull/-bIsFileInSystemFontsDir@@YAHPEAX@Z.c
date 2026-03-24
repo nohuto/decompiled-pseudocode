@@ -1,42 +1,35 @@
 /*
- * XREFs of ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C0079284
+ * XREFs of ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C00A899C
  * Callers:
- *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C0078E78 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A85CC (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
  * Callees:
- *     ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C007933C (-QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C00A8A44 (-QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z.c)
  */
 
-__int64 __fastcall bIsFileInSystemFontsDir(void *a1)
+__int64 __fastcall bIsFileInSystemFontsDir(void *a1, __int64 a2, unsigned int a3, char a4)
 {
-  unsigned int v1; // esi
-  int v3; // r14d
-  __int64 v4; // rdi
-  unsigned int v5; // r8d
-  char v6; // r9
-  STRING *v7; // rbx
-  const STRING *v8; // rcx
+  unsigned int v4; // edi
+  int v6; // ebp
+  struct _OBJECT_NAME_INFORMATION *v7; // rbx
 
-  v1 = 0;
-  v3 = 1;
+  v4 = 0;
+  v6 = 1;
   if ( !a1 )
     return 0LL;
-  v4 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v7 = (STRING *)_InterlockedExchange64((volatile __int64 *)(v4 + 19920), 0LL);
-  if ( v7 || (v3 = 0, (v7 = (STRING *)Win32AllocPoolZInit(400LL, 1986422343LL)) != 0LL) )
+  v7 = (struct _OBJECT_NAME_INFORMATION *)_InterlockedExchange64(&gpniScratch, 0LL);
+  if ( v7 || (v6 = 0, (v7 = (struct _OBJECT_NAME_INFORMATION *)PALLOCMEM2(0x190uLL, 1986422343LL, 1)) != 0LL) )
   {
-    if ( QueryNameStringFromHandle(a1, (struct _OBJECT_NAME_INFORMATION *)v7, v5, v6) >= 0 )
+    if ( QueryNameStringFromHandle(a1, v7, a3, a4) >= 0
+      && gpniFontsDirectory
+      && RtlPrefixString(gpniFontsDirectory, (const STRING *)v7, 1u) )
     {
-      v8 = *(const STRING **)(v4 + 19912);
-      if ( v8 )
-      {
-        if ( RtlPrefixString(v8, v7, 1u) )
-          v1 = 1;
-      }
+      v4 = 1;
     }
-    if ( v3 )
-      _InterlockedExchange64((volatile __int64 *)(v4 + 19920), (__int64)v7);
+    if ( v6 )
+      _InterlockedExchange64(&gpniScratch, (__int64)v7);
     else
       Win32FreePool(v7);
   }
-  return v1;
+  return v4;
 }

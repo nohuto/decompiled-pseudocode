@@ -1,58 +1,64 @@
 /*
- * XREFs of EtwpCapturePreviousRegistryData @ 0x1409E5A54
+ * XREFs of EtwpCapturePreviousRegistryData @ 0x14093B184
  * Callers:
- *     EtwpRegTraceCallback @ 0x1409E5BF0 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x14093B320 (EtwpRegTraceCallback.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpCapturePreviousRegistryData(__int64 a1)
 {
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rbx
   void *v3; // rcx
   ULONG Length; // eax
   NTSTATUS v5; // eax
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-18h] BYREF
-  ULONG ResultLength; // [rsp+60h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp+10h] BYREF
 
   KeyHandle = 0LL;
-  ResultLength = 0;
-  Pool2 = 0LL;
+  LODWORD(NumberOfBytes) = 0;
+  PoolWithTag = 0LL;
   v3 = *(void **)a1;
   ValueName = *(UNICODE_STRING *)*(_QWORD *)(a1 + 8);
   if ( ObOpenObjectByPointer(v3, 0x200u, 0LL, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, &KeyHandle) >= 0 )
   {
     do
     {
-      Length = ResultLength;
-      if ( ResultLength )
+      Length = NumberOfBytes;
+      if ( (_DWORD)NumberOfBytes )
       {
-        if ( Pool2 )
+        if ( PoolWithTag )
         {
-          ExFreePoolWithTag(Pool2, 0);
-          Length = ResultLength;
+          ExFreePoolWithTag(PoolWithTag, 0);
+          Length = NumberOfBytes;
         }
-        Pool2 = (void *)ExAllocatePool2(256LL, Length, 829912133LL);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x31777445u);
+        if ( !PoolWithTag )
           goto LABEL_13;
-        Length = ResultLength;
+        Length = NumberOfBytes;
       }
-      v5 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Pool2, Length, &ResultLength);
+      v5 = ZwQueryValueKey(
+             KeyHandle,
+             &ValueName,
+             KeyValuePartialInformation,
+             PoolWithTag,
+             Length,
+             (PULONG)&NumberOfBytes);
     }
     while ( v5 == -2147483643 || v5 == -1073741789 );
     if ( v5 < 0 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {
-      *(_QWORD *)(a1 + 40) = Pool2;
+      *(_QWORD *)(a1 + 40) = PoolWithTag;
     }
   }
 LABEL_13:

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z @ 0x1801BA5A0
+ * XREFs of ?OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z @ 0x180166480
  * Callers:
  *     <none>
  * Callees:
- *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800AD14C (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800AD180 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
- *     ?OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z @ 0x1801BA4BC (-OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z.c)
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800D71B0 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800D71E4 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z @ 0x18016636C (-OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z.c)
  */
 
 __int64 __fastcall Microsoft::BamoImpl::ConnectionIndirector::OnPeerDisconnected(
@@ -15,18 +15,20 @@ __int64 __fastcall Microsoft::BamoImpl::ConnectionIndirector::OnPeerDisconnected
         char a4)
 {
   Microsoft::BamoImpl::ConnectionIndirector *v4; // rbx
-  __int64 v7; // rdx
-  Microsoft::BamoImpl::BamoImplObject *v9; // [rsp+30h] [rbp+8h] BYREF
+  const char *v7; // r9
+  __int64 v8; // rdx
+  Microsoft::BamoImpl::BamoImplObject *v10; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = this;
   Microsoft::BamoImpl::InternalLock::InternalLock(
-    (Microsoft::BamoImpl::InternalLock *)&v9,
+    (Microsoft::BamoImpl::InternalLock *)&v10,
     (Microsoft::BamoImpl::ConnectionIndirector *)((char *)this - 16));
+  LOBYTE(v7) = a4;
   LODWORD(v4) = Microsoft::BamoImpl::BaseBamoConnectionImpl::OnPeerDisconnected(
                   *((Microsoft::BamoImpl::BaseBamoPeerImpl ***)v4 + 2),
-                  v7,
+                  v8,
                   a3,
-                  a4);
-  Microsoft::BamoImpl::InternalLock::~InternalLock(&v9);
+                  v7);
+  Microsoft::BamoImpl::InternalLock::~InternalLock(&v10);
   return (unsigned int)v4;
 }

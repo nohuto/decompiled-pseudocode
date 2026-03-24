@@ -1,46 +1,42 @@
 /*
- * XREFs of ?dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00C1E8C
+ * XREFs of ?dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C007476C
  * Callers:
- *     RIMUnInitialize @ 0x1C00C1D30 (RIMUnInitialize.c)
+ *     RIMUnInitialize @ 0x1C0074670 (RIMUnInitialize.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00E09A2 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_s @ 0x1C01525FC (WPP_RECORDER_SF_s.c)
  */
 
 __int64 __fastcall dumpLeaks(struct _LIST_ENTRY *a1, char *a2)
 {
   struct _LIST_ENTRY *Flink; // rbx
-  bool v5; // dl
-  bool v6; // dl
 
   Flink = a1->Flink;
   if ( a1->Flink == a1 )
     return 0LL;
-  v5 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_s(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog);
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    goto LABEL_7;
+  WPP_RECORDER_SF_s(
+    (_DWORD)gRimLog,
+    (_DWORD)a2,
+    1,
+    10,
+    (__int64)&WPP_d20cf136c9a4320ea9528c837bf5ce2a_Traceguids,
+    (__int64)a2);
   do
   {
-    v6 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v6,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_q(
         (_DWORD)gRimLog,
-        4,
+        (_DWORD)a2,
         1,
         11,
-        (__int64)&WPP_ac32a586e8cb36254fb1fb045aefff6a_Traceguids,
+        (__int64)&WPP_d20cf136c9a4320ea9528c837bf5ce2a_Traceguids,
         (_BYTE)Flink - 16);
+    }
+LABEL_7:
     Flink = Flink->Flink;
   }
   while ( Flink != a1 );

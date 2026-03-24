@@ -1,9 +1,9 @@
 /*
- * XREFs of WindowsQueryLicenseDWORD @ 0x1C001D6AC
+ * XREFs of WindowsQueryLicenseDWORD @ 0x1C0023590
  * Callers:
- *     DpiFdoHandleStartDevice @ 0x1C0205110 (DpiFdoHandleStartDevice.c)
+ *     DpiFdoHandleStartDevice @ 0x1C01984F0 (DpiFdoHandleStartDevice.c)
  * Callees:
- *     InternalRtlGetLicenseData @ 0x1C001D7EC (InternalRtlGetLicenseData.c)
+ *     InternalRtlGetLicenseData @ 0x1C0023608 (InternalRtlGetLicenseData.c)
  */
 
 __int64 __fastcall WindowsQueryLicenseDWORD(__int64 a1, _DWORD *a2)
@@ -37,6 +37,6 @@ __int64 __fastcall WindowsQueryLicenseDWORD(__int64 a1, _DWORD *a2)
     v5 = -1073741811;
   }
   if ( v2 )
-    ExFreePoolWithTag(v2, 0);
+    ExFreePoolWithTag(v2, 0x2043524Bu);
   return v5;
 }

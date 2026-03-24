@@ -1,8 +1,8 @@
 /*
- * XREFs of ProcessorIdtEntryToGsiv @ 0x1C009AD88
+ * XREFs of ProcessorIdtEntryToGsiv @ 0x1C00A237C
  * Callers:
- *     IrqLibpGetVectorInput @ 0x1C005CD70 (IrqLibpGetVectorInput.c)
- *     IrqLibFreeMessageTarget @ 0x1C0099260 (IrqLibFreeMessageTarget.c)
+ *     IrqLibpGetVectorInput @ 0x1C002DD90 (IrqLibpGetVectorInput.c)
+ *     IrqLibFreeMessageTarget @ 0x1C00B6730 (IrqLibFreeMessageTarget.c)
  * Callees:
  *     <none>
  */
@@ -34,22 +34,22 @@ __int64 __fastcall ProcessorIdtEntryToGsiv(int a1, __int64 a2, __int64 a3, _DWOR
       v16.Number = v6;
       ProcNumber = v16;
       ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
-      if ( ProcessorIndexFromNumber != -1 && ProcessorIndexFromNumber < ProcessorInstanceCount )
-      {
+      if ( ProcessorIndexFromNumber == -1 || ProcessorIndexFromNumber >= ProcessorInstanceCount )
+        v11 = 0LL;
+      else
         v11 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + ProcessorIndexFromNumber);
-        if ( v11 )
+      if ( v11 )
+      {
+        RtlGetFirstRange(v11, &Iterator, &Range);
+        while ( Range )
         {
-          RtlGetFirstRange(v11, &Iterator, &Range);
-          while ( Range )
+          if ( LODWORD(Range->Start) == a1 )
           {
-            if ( LODWORD(Range->Start) == a1 )
-            {
-              result = 0LL;
-              *a4 = *((_DWORD *)Range->UserData + 4);
-              return result;
-            }
-            RtlGetNextRange(&Iterator, &Range, 1u);
+            result = 0LL;
+            *a4 = *((_DWORD *)Range->UserData + 4);
+            return result;
           }
+          RtlGetNextRange(&Iterator, &Range, 1u);
         }
       }
     }

@@ -1,85 +1,49 @@
 /*
- * XREFs of RtlWCSMessageWParamCharToMB @ 0x1C024BEC8
+ * XREFs of RtlWCSMessageWParamCharToMB @ 0x1C012D660
  * Callers:
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
- *     fnHkINLPMSG @ 0x1C0124E30 (fnHkINLPMSG.c)
- *     SfnINWPARAMCHAR @ 0x1C020D500 (SfnINWPARAMCHAR.c)
- *     SfnINWPARAMDBCSCHAR @ 0x1C020D810 (SfnINWPARAMDBCSCHAR.c)
+ *     fnHkINLPMSG @ 0x1C005D060 (fnHkINLPMSG.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     SfnINWPARAMDBCSCHAR @ 0x1C015F890 (SfnINWPARAMDBCSCHAR.c)
+ *     SfnINWPARAMCHAR @ 0x1C022E280 (SfnINWPARAMCHAR.c)
  * Callees:
- *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C0098480 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
- *     ?THREAD_CODEPAGE@@YAGXZ @ 0x1C02053CC (-THREAD_CODEPAGE@@YAGXZ.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A49A4 (ConvertToAndFromWideChar.c)
+ *     THREAD_CODEPAGE @ 0x1C0230810 (THREAD_CODEPAGE.c)
  */
 
-__int64 __fastcall RtlWCSMessageWParamCharToMB(int a1, unsigned __int16 *a2)
+__int64 __fastcall RtlWCSMessageWParamCharToMB(unsigned int a1, WCHAR *a2)
 {
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  unsigned __int16 v11; // ax
+  unsigned __int16 v4; // ax
   ULONG BytesInUnicodeString; // edx
-  unsigned __int64 v13; // rcx
+  unsigned __int64 v6; // rcx
   unsigned int MultiByteString; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = a1 - 47;
-  if ( v3 )
+  if ( a1 != 47
+    && a1 != 204
+    && (a1 <= 0x101 || a1 > 0x103 && (a1 <= 0x105 || a1 > 0x107 && a1 != 271 && a1 != 288 && a1 != 646)) )
   {
-    v4 = v3 - 157;
-    if ( v4 )
-    {
-      v5 = v4 - 54;
-      if ( v5 )
-      {
-        v6 = v5 - 1;
-        if ( v6 )
-        {
-          v7 = v6 - 3;
-          if ( v7 )
-          {
-            v8 = v7 - 1;
-            if ( v8 )
-            {
-              v9 = v8 - 8;
-              if ( v9 )
-              {
-                v10 = v9 - 17;
-                if ( v10 )
-                {
-                  if ( v10 != 358 )
-                    return 1LL;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    return 1LL;
   }
-  v11 = THREAD_CODEPAGE();
+  v4 = THREAD_CODEPAGE();
   MultiByteString = 0;
   BytesInUnicodeString = (*gpsi & 2) != 0 ? 2 : 4;
-  if ( v11 != NlsAnsiCodePage && v11 )
+  if ( v4 != NlsAnsiCodePage && v4 )
   {
-    if ( (unsigned int)ConvertToAndFromWideChar(v11, a2, BytesInUnicodeString, (char *)&MultiByteString, 4u, 0) )
-      goto LABEL_13;
-LABEL_17:
+    if ( (unsigned int)ConvertToAndFromWideChar(v4, a2, BytesInUnicodeString, (CHAR *)&MultiByteString, 4u, 0) )
+      goto LABEL_14;
+LABEL_18:
     *(_QWORD *)a2 = 0LL;
     return 1LL;
   }
   if ( RtlUnicodeToMultiByteN((PCHAR)&MultiByteString, 4u, 0LL, a2, BytesInUnicodeString) < 0 )
-    goto LABEL_17;
-LABEL_13:
+    goto LABEL_18;
+LABEL_14:
   if ( (*gpsi & 2) != 0 )
   {
     if ( (MultiByteString & 0xFF00) != 0 )
-      v13 = ((unsigned __int64)(unsigned __int16)MultiByteString >> 8) | (((unsigned __int8)MultiByteString | ((unsigned __int64)a2[1] << 8)) << 8);
+      v6 = ((unsigned __int64)(unsigned __int16)MultiByteString >> 8) | (((unsigned __int8)MultiByteString | ((unsigned __int64)a2[1] << 8)) << 8);
     else
-      v13 = (unsigned __int8)MultiByteString;
-    *(_QWORD *)a2 = v13;
+      v6 = (unsigned __int8)MultiByteString;
+    *(_QWORD *)a2 = v6;
   }
   else
   {

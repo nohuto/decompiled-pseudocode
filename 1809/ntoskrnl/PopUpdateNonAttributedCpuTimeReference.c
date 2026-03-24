@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x1402DE40C
+ * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x1402DE50C
  * Callers:
- *     PpmUpdateIdleVeto @ 0x1402D6180 (PpmUpdateIdleVeto.c)
- *     PopFxPlatformStateAvailable @ 0x1402D8C04 (PopFxPlatformStateAvailable.c)
- *     PopPdcIdleResiliencyCallback @ 0x14086F288 (PopPdcIdleResiliencyCallback.c)
+ *     PpmUpdateIdleVeto @ 0x1402D6280 (PpmUpdateIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x1402D8D04 (PopFxPlatformStateAvailable.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14086F268 (PopPdcIdleResiliencyCallback.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x1402DE3A4 (PopAccumulateNonActivatedCpuTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1402DE4A4 (PopAccumulateNonActivatedCpuTime.c)
  */
 
 __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)

@@ -1,68 +1,53 @@
 /*
- * XREFs of VfSuspectDriversUnloadCallback @ 0x140ADBAB4
+ * XREFs of VfSuspectDriversUnloadCallback @ 0x1409D9FCC
  * Callers:
- *     VfDriverUnloadImage @ 0x140ABDED4 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x1409C2484 (VfDriverUnloadImage.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VfUtilPrintCheckinString @ 0x140AC3804 (VfUtilPrintCheckinString.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     ViSuspectDriversLookupEntry @ 0x140ADBCE0 (ViSuspectDriversLookupEntry.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfNotifyVerifierExtensions @ 0x1409C8A98 (VfNotifyVerifierExtensions.c)
  */
 
 LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)
 {
-  UNICODE_STRING *v2; // rbx
-  _QWORD *v3; // rax
-  __int64 v4; // rdx
-  _QWORD *v5; // rcx
+  __int64 i; // rbx
 
   VfDriverLock();
-  v2 = (UNICODE_STRING *)(a1 + 88);
-  if ( RtlEqualUnicodeString(&VfTcpIpName, v2, 1u) == 1 )
+  if ( RtlEqualUnicodeString(&VfTcpIpName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfTcpIpDllBase = 0LL;
   }
-  else if ( RtlEqualUnicodeString(&VfTdxName, v2, 1u) == 1 )
+  else if ( RtlEqualUnicodeString(&VfTdxName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfTdxDllBase = 0LL;
   }
-  else if ( RtlEqualUnicodeString(&VfMrxsmbName, v2, 1u) == 1 )
+  else if ( RtlEqualUnicodeString(&VfMrxsmbName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfMrxsmbDllBase = 0LL;
   }
-  else if ( RtlEqualUnicodeString(&VfTmName, v2, 1u) == 1 )
+  else if ( RtlEqualUnicodeString(&VfTmName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfTmDllBase = 0LL;
   }
-  else if ( RtlEqualUnicodeString(&VfWin32kName, v2, 1u) == 1 )
+  else if ( RtlEqualUnicodeString(&VfWin32kName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfWin32kDllBase = 0LL;
   }
-  else if ( RtlEqualUnicodeString(&VfKsName, v2, 1u) == 1 )
+  else if ( RtlEqualUnicodeString(&VfKsName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
   {
     VfKsDllBase = 0LL;
   }
-  v3 = (_QWORD *)ViSuspectDriversLookupEntry(v2);
-  if ( v3 )
+  for ( i = VfSuspectDriversList; (__int64 *)i != &VfSuspectDriversList; i = *(_QWORD *)i )
   {
-    ++dword_140C13998;
-    if ( VfDifRunningWithoutReboot )
+    if ( RtlEqualUnicodeString((PCUNICODE_STRING)(i + 24), (PCUNICODE_STRING)(a1 + 88), 1u) )
     {
-      v4 = *v3;
-      if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
-        __fastfail(3u);
-      *v5 = v4;
-      *(_QWORD *)(v4 + 8) = v5;
-      ExFreePoolWithTag(v3, 0x44536656u);
-    }
-    else
-    {
-      ++*((_DWORD *)v3 + 5);
-      VfUtilPrintCheckinString(&v2->Length, 1);
+      ++dword_140C2A914;
+      ++*(_DWORD *)(i + 20);
+      VfNotifyVerifierExtensions(2, a1);
+      break;
     }
   }
   ViDriversLoadLockOwner = 0LL;
-  return KeReleaseMutex(&ViDriversLoadLock, 0);
+  return KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipFirmwareTableHandler @ 0x1405FBDC0
+ * XREFs of WmipFirmwareTableHandler @ 0x1403CA8D0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)
@@ -13,74 +13,77 @@ __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)
   unsigned int v1; // edi
   unsigned int v3; // r10d
   int v4; // eax
-  unsigned int v5; // eax
-  _DWORD *v6; // rbx
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  int v10; // r11d
-  unsigned int v11; // ecx
-  unsigned int v12; // edx
-  unsigned int v13; // r8d
+  int v5; // r11d
+  unsigned int v6; // ecx
+  unsigned int v7; // edx
+  unsigned int v8; // r8d
+  unsigned int v9; // eax
+  unsigned int v10; // esi
+  void *v11; // rax
+  void *v12; // rbp
   unsigned int v14; // eax
-  size_t v15; // rsi
-  void *v16; // rax
-  void *v17; // rbp
+  _DWORD *v15; // rbx
+  __int64 v16; // rcx
+  __int64 v17; // rax
 
   v1 = 0;
   v3 = 0;
   if ( !a1 )
     return 3221225711LL;
   v4 = a1[1];
-  if ( !v4 )
+  if ( v4 )
   {
-    v5 = a1[3];
-    a1[3] = 8;
-    if ( v5 >= 8 )
+    if ( v4 == 1 )
     {
-      v6 = a1 + 4;
-      v7 = 2LL;
-      do
+      v5 = a1[2];
+      v6 = 2;
+      v7 = 0;
+      v8 = 0;
+      while ( LODWORD(WmipFirmwareTableArray[v7]) != v5 )
       {
-        v8 = v1;
-        v1 += 2;
-        *v6++ = *((_DWORD *)WmipFirmwareTableArray + v8);
-        --v7;
+        ++v8;
+        ++v7;
+        if ( v8 >= 2 )
+          goto LABEL_8;
       }
-      while ( v7 );
-      return 0LL;
+      v3 = HIDWORD(WmipFirmwareTableArray[v7]);
+      v9 = a1[3];
+      a1[3] = v3;
+      if ( v9 < v3 )
+        return 3221225507LL;
+      v6 = v7 * 2;
+LABEL_8:
+      if ( v8 != 2 )
+      {
+        v10 = v3;
+        v11 = (void *)MmMapIoSpaceEx(*((unsigned int *)WmipFirmwareTableArray + v6), v3, 0x204u);
+        v12 = v11;
+        if ( v11 )
+        {
+          memmove(a1 + 4, v11, v10);
+          MmUnmapIoSpace(v12, v10);
+          return 0LL;
+        }
+        return 3221226021LL;
+      }
     }
-    return 3221225507LL;
-  }
-  if ( v4 != 1 )
     return 3221225711LL;
-  v10 = a1[2];
-  v11 = 2;
-  v12 = 0;
-  v13 = 0;
-  while ( LODWORD(WmipFirmwareTableArray[v12]) != v10 )
-  {
-    ++v13;
-    ++v12;
-    if ( v13 >= 2 )
-      goto LABEL_15;
   }
-  v3 = HIDWORD(WmipFirmwareTableArray[v12]);
   v14 = a1[3];
-  a1[3] = v3;
-  if ( v14 < v3 )
-    return 3221225507LL;
-  v11 = v12 * 2;
-LABEL_15:
-  if ( v13 == 2 )
-    return 3221225711LL;
-  v15 = v3;
-  v16 = (void *)MmMapIoSpaceEx(*((unsigned int *)WmipFirmwareTableArray + v11), v3, 0x204u);
-  v17 = v16;
-  if ( v16 )
+  a1[3] = 8;
+  if ( v14 >= 8 )
   {
-    memmove(a1 + 4, v16, v15);
-    MmUnmapIoSpace(v17, v15);
+    v15 = a1 + 4;
+    v16 = 2LL;
+    do
+    {
+      v17 = v1;
+      v1 += 2;
+      *v15++ = *((_DWORD *)WmipFirmwareTableArray + v17);
+      --v16;
+    }
+    while ( v16 );
     return 0LL;
   }
-  return 3221226021LL;
+  return 3221225507LL;
 }

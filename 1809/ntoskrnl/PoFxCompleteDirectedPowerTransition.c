@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxCompleteDirectedPowerTransition @ 0x1402D7010
+ * XREFs of PoFxCompleteDirectedPowerTransition @ 0x1402D7110
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1402D7BB4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1402D7CB4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
  */
 
 __int64 __fastcall PoFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C01353A8
+ * XREFs of ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0148110
  * Callers:
- *     ?bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z @ 0x1C01352A0 (-bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z.c)
- *     ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CE6D8 (-bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
- *     ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CE844 (-bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z @ 0x1C0147FFC (-bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z.c)
+ *     ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02D01C4 (-bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02D0340 (-bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     ?bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0135558 (-bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
- *     ?bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z @ 0x1C0135C88 (-bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C01482C0 (-bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z @ 0x1C0148B88 (-bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall bEngFastFillEnum(
@@ -40,44 +40,44 @@ __int64 __fastcall bEngFastFillEnum(
     *(_QWORD *)(*((_QWORD *)a1 + 1) + 72LL) = *(_QWORD *)(*((_QWORD *)a1 + 1) + 32LL);
     if ( EPATHOBJ::bEnum(a1, (struct _PATHDATA *)Src) )
     {
-      if ( ((__int64)Src[0] & 2) == 0 && *((_DWORD *)a1 + 1) <= 0x28u )
+      if ( ((__int64)Src[0] & 2) != 0 )
+        return (unsigned int)bFill(a1, a2, v17, a4, a6);
+      if ( *((_DWORD *)a1 + 1) > 0x28u )
+        return (unsigned int)bFill(a1, a2, v17, a4, a6);
+      v13 = HIDWORD(Src[0]);
+      if ( HIDWORD(Src[0]) > 0x28 )
+        return (unsigned int)bFill(a1, a2, v17, a4, a6);
+      memmove(v19, Src[1], 8LL * HIDWORD(Src[0]));
+      while ( 1 )
       {
-        v13 = HIDWORD(Src[0]);
-        if ( HIDWORD(Src[0]) <= 0x28 )
-        {
-          memmove(v19, Src[1], 8LL * HIDWORD(Src[0]));
-          while ( 1 )
-          {
-            v16 = EPATHOBJ::bEnum(a1, (struct _PATHDATA *)Src);
-            if ( ((__int64)Src[0] & 1) != 0 )
-              break;
-            v14 = v13 + HIDWORD(Src[0]);
-            if ( (unsigned int)(v13 + HIDWORD(Src[0])) > 0x28 )
-              break;
-            memmove(&v19[v13], Src[1], 8LL * HIDWORD(Src[0]));
-            v13 = v14;
-            if ( !v16 )
-            {
-              if ( !v14 )
-                return (unsigned int)bFill(a1, a2, v17, a4, a6);
-              v11 = bFastFill(v14, v19, a2, a4, v18, a6);
-              goto LABEL_5;
-            }
-          }
-        }
+        v16 = EPATHOBJ::bEnum(a1, (struct _PATHDATA *)Src);
+        if ( ((__int64)Src[0] & 1) != 0 )
+          break;
+        v14 = v13 + HIDWORD(Src[0]);
+        if ( (unsigned int)(v13 + HIDWORD(Src[0])) > 0x28 )
+          break;
+        memmove(&v19[v13], Src[1], 8LL * HIDWORD(Src[0]));
+        v13 = v14;
+        if ( !v16 )
+          goto LABEL_16;
       }
+      v13 = 0;
+LABEL_16:
+      if ( !v13 )
+        return (unsigned int)bFill(a1, a2, v17, a4, a6);
+      v11 = bFastFill(v13, v19, a2, a4, v18, a6);
     }
     else
     {
       v10 = 1;
       if ( HIDWORD(Src[0]) <= 1 )
-        return v10;
+        goto LABEL_6;
       v11 = bFastFill(SHIDWORD(Src[0]), (struct _POINTFIX *)Src[1], a2, a4, a5, a6);
-LABEL_5:
-      v10 = v11;
-      if ( v11 )
-        return v10;
     }
+    v10 = v11;
+LABEL_6:
+    if ( v10 )
+      return v10;
     return (unsigned int)bFill(a1, a2, v17, a4, a6);
   }
   return 1LL;

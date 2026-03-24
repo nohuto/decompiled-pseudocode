@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022C9A0
+ * XREFs of ?SetBufferProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01ECC20
  * Callers:
  *     <none>
  * Callees:
@@ -20,7 +20,7 @@ __int64 __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::SetBuffer
   *a6 = 0;
   if ( a3 != 1 || a5 != 16 )
     return 3221225485LL;
-  *((_OWORD *)this + 5) = *a4;
+  *(_OWORD *)((char *)this + 72) = *a4;
   *((_DWORD *)this + 4) |= 0x80u;
   *a6 = 1;
   return result;

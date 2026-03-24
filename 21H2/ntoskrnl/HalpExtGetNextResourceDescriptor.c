@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpExtGetNextResourceDescriptor @ 0x140510780
+ * XREFs of HalpExtGetNextResourceDescriptor @ 0x1404C4280
  * Callers:
  *     <none>
  * Callees:

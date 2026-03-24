@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpCallAddPagesCallbacks @ 0x1402810DC
+ * XREFs of IopDumpCallAddPagesCallbacks @ 0x1402811DC
  * Callers:
- *     IoWriteCrashDump @ 0x1402804AC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402803BC (IoUpdateBugCheckProgressEnvVariable.c)
- *     IopAddPageDumpRange @ 0x140280B90 (IopAddPageDumpRange.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140292180 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopAddPageDumpRange @ 0x140280C90 (IopAddPageDumpRange.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140292280 (KeValidateBugCheckCallbackRecord.c)
  */
 
 unsigned __int8 __fastcall IopDumpCallAddPagesCallbacks(int a1)

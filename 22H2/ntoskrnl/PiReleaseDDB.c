@@ -1,30 +1,30 @@
 /*
- * XREFs of PiReleaseDDB @ 0x14069576C
+ * XREFs of PiReleaseDDB @ 0x14077EA38
  * Callers:
- *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14077E0FC (PiLookupInDDB.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     SdbReleaseDatabase @ 0x1407557B8 (SdbReleaseDatabase.c)
  */
 
-__int64 __fastcall PiReleaseDDB(__int64 a1)
+__int64 __fastcall PiReleaseDDB(__int64 *a1)
 {
-  _QWORD *v2; // rcx
+  __int64 v2; // rcx
   void *v3; // rdx
   void *v4; // rcx
   void *v5; // rcx
 
-  v2 = *(_QWORD **)a1;
+  v2 = *a1;
   if ( v2 )
     SdbReleaseDatabase(v2);
-  v3 = *(void **)(a1 + 8);
+  v3 = (void *)a1[1];
   if ( v3 )
     ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3);
-  v4 = *(void **)(a1 + 16);
+  v4 = (void *)a1[2];
   if ( v4 )
     ZwClose(v4);
-  v5 = *(void **)(a1 + 24);
+  v5 = (void *)a1[3];
   if ( v5 )
     ZwClose(v5);
   return 0LL;

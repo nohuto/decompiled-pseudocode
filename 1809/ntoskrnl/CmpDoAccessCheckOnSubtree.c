@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDoAccessCheckOnSubtree @ 0x1407F4F8C
+ * XREFs of CmpDoAccessCheckOnSubtree @ 0x1407F4F6C
  * Callers:
- *     CmDumpKey @ 0x1408011B8 (CmDumpKey.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
+ *     CmDumpKey @ 0x140801198 (CmDumpKey.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2CA8 (CmpFindSubKeyByNumber.c)
- *     CmpCheckKeyAccess @ 0x1407F4844 (CmpCheckKeyAccess.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
+ *     CmpCheckKeyAccess @ 0x1407F4824 (CmpCheckKeyAccess.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnSubtree(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, unsigned int a5)

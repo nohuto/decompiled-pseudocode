@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSweepHandleTable @ 0x140697AB0
+ * XREFs of ExSweepHandleTable @ 0x140697A90
  * Callers:
  *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
  *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
- *     ObKillProcess @ 0x14066C4DC (ObKillProcess.c)
+ *     ObKillProcess @ 0x14066C4BC (ObKillProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -11,10 +11,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697884 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
  */
 
 _QWORD *__fastcall ExSweepHandleTable(_KPROCESS *a1, __int64 a2, unsigned __int8 a3)

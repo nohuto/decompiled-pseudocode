@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C008A134
+ * XREFs of ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C006FF04
  * Callers:
- *     ?ConsumerDwmProcessUpdateTokens@CFlipManager@@QEAAJPEAVCFlipPresentUpdate@@PEAVCFlipManagerToken@@PEAU_LIST_ENTRY@@@Z @ 0x1C008339C (-ConsumerDwmProcessUpdateTokens@CFlipManager@@QEAAJPEAVCFlipPresentUpdate@@PEAVCFlipManagerToken.c)
- *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C0089E80 (--1CFlipContentToken@@UEAA@XZ.c)
- *     ?Discard@CFlipContentToken@@UEAAXXZ @ 0x1C008A020 (-Discard@CFlipContentToken@@UEAAXXZ.c)
+ *     ?FlipManagerApplyDwmConsumerUpdates@@YAJ_KAEBUtagCompositionRate@@PEAUFlipManagerTokenObject@@AEAU_LIST_ENTRY@@PEAW4FlipPresentProcessResult@@@Z @ 0x1C006A3A4 (-FlipManagerApplyDwmConsumerUpdates@@YAJ_KAEBUtagCompositionRate@@PEAUFlipManagerTokenObject@@AE.c)
+ *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C006FCA0 (--1CFlipContentToken@@UEAA@XZ.c)
+ *     ?Discard@CFlipContentToken@@UEAAXXZ @ 0x1C006FDD0 (-Discard@CFlipContentToken@@UEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,12 @@
 /*
- * XREFs of CmpHashCompressedComponent @ 0x140769984
+ * XREFs of CmpHashCompressedComponent @ 0x140765D24
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1407697F0 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140A26450 (CmpPartialPromoteSubkeys.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140765B90 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880110 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpHashCompressedComponent(unsigned __int8 *a1, int a2)
@@ -15,9 +14,7 @@ __int64 __fastcall CmpHashCompressedComponent(unsigned __int8 *a1, int a2)
   unsigned int v2; // r9d
   int v3; // r11d
   unsigned __int8 *i; // r10
-  unsigned __int16 v5; // r8
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v8; // r8
+  unsigned __int16 v5; // ax
 
   v2 = 0;
   v3 = a2;
@@ -27,14 +24,9 @@ __int64 __fastcall CmpHashCompressedComponent(unsigned __int8 *a1, int a2)
     if ( (unsigned __int8)v5 >= 0x61u )
     {
       if ( (unsigned __int8)v5 <= 0x7Au )
-      {
         v5 -= 32;
-      }
       else
-      {
-        CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-        v5 = NLS_UPCASE(CurrentServerSiloGlobals[154], v8);
-      }
+        v5 = NLS_UPCASE(*i);
     }
     ++i;
     v2 = v5 + 37 * v2;

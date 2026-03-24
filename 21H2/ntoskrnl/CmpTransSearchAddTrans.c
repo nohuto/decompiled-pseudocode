@@ -1,47 +1,47 @@
 /*
- * XREFs of CmpTransSearchAddTrans @ 0x14067F520
+ * XREFs of CmpTransSearchAddTrans @ 0x140766E2C
  * Callers:
- *     CmpTransSearchAddTransFromRm @ 0x14067F2D4 (CmpTransSearchAddTransFromRm.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x14067F480 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140766DB4 (CmpTransSearchAddTransFromRm.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExBlockOnAddressPushLock @ 0x140369460 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     CmpSearchForTrans @ 0x14067F714 (CmpSearchForTrans.c)
- *     CmpTransDereferenceTransaction @ 0x14067F788 (CmpTransDereferenceTransaction.c)
- *     CmpTransReferenceTransaction @ 0x14067F7A4 (CmpTransReferenceTransaction.c)
- *     CmpBindHiveToTrans @ 0x14067F804 (CmpBindHiveToTrans.c)
- *     CmpTransAllocateTrans @ 0x1406E4D24 (CmpTransAllocateTrans.c)
- *     CmpTransInitializeTransaction @ 0x140741B7C (CmpTransInitializeTransaction.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExBlockOnAddressPushLock @ 0x14029CC60 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     CmpTransReferenceTransaction @ 0x1406A3280 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x1406A32FC (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x1406A33EC (CmpBindHiveToTrans.c)
+ *     CmpSearchForTrans @ 0x14076704C (CmpSearchForTrans.c)
+ *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTrans(
         __int64 a1,
-        __int64 a2,
+        __int128 *a2,
         __int64 a3,
         struct _EX_RUNDOWN_REF *a4,
         int a5,
-        _QWORD *a6)
+        char **a6)
 {
-  _QWORD *Trans; // rdi
-  int v7; // r15d
-  int v12; // esi
-  int v13; // esi
-  int v14; // ebp
+  char *Trans; // rsi
+  int v7; // r13d
+  int v12; // edi
+  int v13; // edi
+  int v14; // r14d
   struct _KTHREAD *CurrentThread; // rax
   __int64 v16; // rax
-  _QWORD *v17; // rdx
-  _QWORD *v19; // rcx
+  char *v17; // rdx
+  char **v19; // rcx
   struct _KTHREAD *v20; // rax
   BOOLEAN v21; // al
   struct _KTHREAD *v22; // rax
   __int64 v23; // rdx
-  _QWORD *v24; // rax
+  char **v24; // rax
   signed __int32 v25[8]; // [rsp+0h] [rbp-58h] BYREF
   __int64 v26; // [rsp+60h] [rbp+8h] BYREF
 
@@ -49,7 +49,7 @@ __int64 __fastcall CmpTransSearchAddTrans(
   v7 = 0;
   if ( a1 )
   {
-    v12 = CmpTransReferenceTransaction();
+    v12 = CmpTransReferenceTransaction(a1);
     if ( v12 < 0 )
       return (unsigned int)v12;
   }
@@ -63,115 +63,115 @@ __int64 __fastcall CmpTransSearchAddTrans(
       --CurrentThread->KernelApcDisable;
       ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
       v16 = CmpSearchForTrans(a3, a1, a2);
-      if ( v16 )
+      if ( !v16 )
+      {
+        if ( !v13 )
+          goto LABEL_20;
+        break;
+      }
+      if ( a1 && (*(_DWORD *)(v16 + 48) & 7) != 0 )
+      {
+LABEL_20:
+        v12 = -1072103422;
+        goto LABEL_21;
+      }
+      if ( (*(_DWORD *)(v16 + 48) & 8) == 0 )
         break;
       if ( !v13 )
         goto LABEL_20;
-LABEL_8:
-      if ( Trans )
+      LODWORD(v26) = CmpTransactionInitializingCount;
+      ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      ExBlockOnAddressPushLock(
+        (__int64)&CmpTransactionInitializingEvent,
+        &CmpTransactionInitializingCount,
+        &v26,
+        4uLL,
+        0LL);
+    }
+    if ( Trans )
+      break;
+    if ( v16 )
+    {
+      CmpBindHiveToTrans((__int64)a4, v16);
+      goto LABEL_11;
+    }
+    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    Trans = CmpTransAllocateTrans(a1, a2, a3, (__int64)a4);
+    if ( !Trans )
+    {
+      v12 = -1073741670;
+      goto LABEL_16;
+    }
+  }
+  if ( *(_QWORD *)(a3 + 80) )
+  {
+    v20 = KeGetCurrentThread();
+    --v20->KernelApcDisable;
+    v21 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(a3 + 80) + 1632LL));
+    v7 = v21;
+    if ( !v21 )
+    {
+      v12 = -1073741431;
+      goto LABEL_21;
+    }
+  }
+  v19 = *(char ***)(a3 + 24);
+  if ( *v19 != (char *)(a3 + 16) )
+    goto LABEL_37;
+  *((_QWORD *)Trans + 1) = v19;
+  *(_QWORD *)Trans = a3 + 16;
+  *v19 = Trans;
+  *(_QWORD *)(a3 + 24) = Trans;
+  ++CmpTransactionInitializingCount;
+  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v14 = 0;
+  v12 = CmpTransInitializeTransaction(Trans);
+  if ( v12 < 0 )
+  {
+    v22 = KeGetCurrentThread();
+    --v22->KernelApcDisable;
+    ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
+    v23 = *(_QWORD *)Trans;
+    if ( *(char **)(*(_QWORD *)Trans + 8LL) == Trans )
+    {
+      v24 = (char **)*((_QWORD *)Trans + 1);
+      if ( *v24 == Trans )
       {
-        if ( *(_QWORD *)(a3 + 80) )
-        {
-          v20 = KeGetCurrentThread();
-          --v20->KernelApcDisable;
-          v21 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a3 + 80) + 1640LL));
-          v7 = v21;
-          if ( !v21 )
-          {
-            v12 = -1073741431;
-            goto LABEL_36;
-          }
-        }
-        v19 = *(_QWORD **)(a3 + 24);
-        if ( *v19 == a3 + 16 )
-        {
-          Trans[1] = v19;
-          *Trans = a3 + 16;
-          *v19 = Trans;
-          *(_QWORD *)(a3 + 24) = Trans;
-          ++CmpTransactionInitializingCount;
-          ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-          KeLeaveCriticalRegion();
-          v14 = 0;
-          v12 = CmpTransInitializeTransaction(Trans);
-          if ( v12 >= 0 )
-          {
-            v17 = Trans;
-            goto LABEL_11;
-          }
-          v22 = KeGetCurrentThread();
-          --v22->KernelApcDisable;
-          ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-          v23 = *Trans;
-          if ( *(_QWORD **)(*Trans + 8LL) == Trans )
-          {
-            v24 = (_QWORD *)Trans[1];
-            if ( (_QWORD *)*v24 == Trans )
-            {
-              *v24 = v23;
-              *(_QWORD *)(v23 + 8) = v24;
-              --CmpTransactionInitializingCount;
-              ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-              KeLeaveCriticalRegion();
-              _InterlockedOr(v25, 0);
-              if ( CmpTransactionInitializingEvent )
-                ExfUnblockPushLock(&CmpTransactionInitializingEvent, 0LL);
-LABEL_36:
-              ExFreePoolWithTag(Trans, 0x72544D43u);
-LABEL_12:
-              if ( v7 )
-              {
-                ExReleaseRundownProtection(a4 + 205);
-                KeLeaveCriticalRegion();
-              }
-              if ( v14 )
-                goto LABEL_15;
-              goto LABEL_16;
-            }
-          }
-        }
-        __fastfail(3u);
-      }
-      if ( v16 )
-      {
-        CmpBindHiveToTrans(a4, v16);
-LABEL_11:
-        v12 = 0;
-        *a6 = v17;
+        *v24 = (char *)v23;
+        *(_QWORD *)(v23 + 8) = v24;
+        --CmpTransactionInitializingCount;
+        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        _InterlockedOr(v25, 0);
+        if ( CmpTransactionInitializingEvent )
+          ExfUnblockPushLock(&CmpTransactionInitializingEvent, 0LL);
+LABEL_21:
+        if ( Trans )
+          ExFreePoolWithTag(Trans, 0x72544D43u);
         goto LABEL_12;
       }
-      ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-      KeLeaveCriticalRegion();
-      Trans = (_QWORD *)CmpTransAllocateTrans(a1, a2, a3, a4);
-      if ( !Trans )
-      {
-        v12 = -1073741670;
-        goto LABEL_16;
-      }
     }
-    if ( a1 && (*(_DWORD *)(v16 + 48) & 7) != 0 )
-      break;
-    if ( (*(_DWORD *)(v16 + 48) & 8) == 0 )
-      goto LABEL_8;
-    if ( !v13 )
-      break;
-    LODWORD(v26) = CmpTransactionInitializingCount;
-    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
-    ExBlockOnAddressPushLock(
-      (__int64)&CmpTransactionInitializingEvent,
-      &CmpTransactionInitializingCount,
-      &v26,
-      4uLL,
-      0LL);
+LABEL_37:
+    __fastfail(3u);
   }
-LABEL_20:
-  v12 = -1072103422;
-  if ( Trans )
-    goto LABEL_36;
-LABEL_15:
-  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  v17 = Trans;
+LABEL_11:
+  v12 = 0;
+  *a6 = v17;
+LABEL_12:
+  if ( v7 )
+  {
+    ExReleaseRundownProtection_0(a4 + 204);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  if ( v14 )
+  {
+    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
 LABEL_16:
   if ( a1 )
     CmpTransDereferenceTransaction(a1);

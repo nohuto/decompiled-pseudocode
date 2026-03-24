@@ -1,22 +1,22 @@
 /*
- * XREFs of VmpPrefetchForVirtualFault @ 0x1409DA3EC
+ * XREFs of VmpPrefetchForVirtualFault @ 0x14092F94C
  * Callers:
- *     VmAccessFault @ 0x1409D8E00 (VmAccessFault.c)
+ *     VmAccessFault @ 0x14092E960 (VmAccessFault.c)
  * Callees:
- *     MmPrefetchVirtualAddresses @ 0x1406EBFB0 (MmPrefetchVirtualAddresses.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     MmPrefetchVirtualAddresses @ 0x140710860 (MmPrefetchVirtualAddresses.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, __int64 a3)
 {
   _DWORD *PoolWithTag; // rax
-  _DWORD *v7; // rbx
-  unsigned int v8; // edi
+  _DWORD *v7; // rdi
+  unsigned int v8; // ebx
   _QWORD *v9; // rdx
-  __int64 v10; // r14
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rcx
+  unsigned __int64 v10; // rbx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rbx
   __int64 v13; // rax
   __int64 v14; // rax
 
@@ -29,13 +29,13 @@ __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, 
     v9 = (_QWORD *)(((unsigned __int64)PoolWithTag + 39) & 0xFFFFFFFFFFFFFFF8uLL);
     *((_QWORD *)PoolWithTag + 1) = -1LL;
     *((_QWORD *)PoolWithTag + 2) = a3;
-    v10 = 16 * a3;
+    v10 = a1 + 16 * a3;
     *PoolWithTag = 1;
     *((_QWORD *)PoolWithTag + 3) = v9;
-    if ( a1 < v10 + a1 )
+    if ( a1 < v10 )
     {
       v11 = a1 - (_QWORD)v9;
-      v12 = ((unsigned __int64)(v10 - 1) >> 4) + 1;
+      v12 = ((v10 - a1 - 1) >> 4) + 1;
       do
       {
         v13 = *a2++;

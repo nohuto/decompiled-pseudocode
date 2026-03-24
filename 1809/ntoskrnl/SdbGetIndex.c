@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbGetIndex @ 0x14067D724
+ * XREFs of SdbGetIndex @ 0x14067D704
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7E8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14067CC2C (SdbFindFirstStringIndexedTag.c)
- *     SdbpSearchDB @ 0x14067D58C (SdbpSearchDB.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14067CC0C (SdbFindFirstStringIndexedTag.c)
+ *     SdbpSearchDB @ 0x14067D56C (SdbpSearchDB.c)
  * Callees:
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbGetIndex(union _RTL_RUN_ONCE *Parameter, __int16 a2, __int16 a3, _DWORD *a4)

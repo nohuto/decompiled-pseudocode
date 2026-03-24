@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ConvertHalfToFloat@@YAMG@Z @ 0x1C0073214
+ * XREFs of ?ConvertHalfToFloat@@YAMG@Z @ 0x1C0060F74
  * Callers:
- *     ?DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z @ 0x1C007349C (-DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z.c)
+ *     ?DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z @ 0x1C00611FC (-DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z.c)
  * Callees:
  *     <none>
  */

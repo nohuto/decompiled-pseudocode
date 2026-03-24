@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSymlinkGetECP @ 0x1402FD8B0
+ * XREFs of IopSymlinkGetECP @ 0x1403142F0
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IopSymlinkProcessReparse @ 0x1407DFF9C (IopSymlinkProcessReparse.c)
- *     IopSymlinkRememberJunction @ 0x14087F8E8 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F9E8 (IopGraftName.c)
- *     IopSymlinkUpdateECP @ 0x140880C2C (IopSymlinkUpdateECP.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     IopSymlinkUpdateECP @ 0x140682B0C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkRememberJunction @ 0x140682C94 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkProcessReparse @ 0x140683108 (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x140683164 (IopGraftName.c)
  * Callees:
- *     FsRtlFindExtraCreateParameter @ 0x140765860 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140651070 (FsRtlFindExtraCreateParameter.c)
  */
 
 NTSTATUS __fastcall IopSymlinkGetECP(struct _ECP_LIST *a1, PVOID *a2)

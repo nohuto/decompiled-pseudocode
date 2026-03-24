@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSecureThread @ 0x14056F050
+ * XREFs of KeSecureThread @ 0x14051321C
  * Callers:
- *     PspCreateSecureThread @ 0x1409B1010 (PspCreateSecureThread.c)
+ *     PspCreateSecureThread @ 0x140909FEC (PspCreateSecureThread.c)
  * Callees:
- *     VslCreateSecureThread @ 0x140941DC0 (VslCreateSecureThread.c)
+ *     VslCreateSecureThread @ 0x14088F2C0 (VslCreateSecureThread.c)
  */
 
 __int64 __fastcall KeSecureThread(__int64 a1, int a2, int a3, __int64 a4, __int64 a5)

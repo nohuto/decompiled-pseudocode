@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z @ 0x1C0106C94
+ * XREFs of ?ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z @ 0x1C0119A00
  * Callers:
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
+ *     InternalRegisterClassEx @ 0x1C0079DD0 (InternalRegisterClassEx.c)
  * Callees:
- *     ?IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z @ 0x1C00606D0 (-IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z.c)
- *     ?IsClassAtomPinned@@YA_NG@Z @ 0x1C0060AD8 (-IsClassAtomPinned@@YA_NG@Z.c)
+ *     ?IsClassAtomPinned@@YA_NG@Z @ 0x1C0079288 (-IsClassAtomPinned@@YA_NG@Z.c)
+ *     ?IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z @ 0x1C0079A00 (-IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z.c)
  */
 
 __int64 __fastcall ValidateClassAtomForRegisterClass(struct tagPROCESSINFO *a1, unsigned __int16 a2)

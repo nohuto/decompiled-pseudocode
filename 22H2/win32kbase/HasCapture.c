@@ -1,21 +1,21 @@
 /*
- * XREFs of HasCapture @ 0x1C01E81C0
+ * XREFs of HasCapture @ 0x1C01AE950
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
-char __fastcall HasCapture(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char HasCapture()
 {
   __int64 MouseProcessor; // rax
-  char v5; // cl
+  char v1; // cl
 
-  MouseProcessor = anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   if ( !MouseProcessor )
     return 0;
-  v5 = 1;
-  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(MouseProcessor + 3696), 1, 1) )
+  v1 = 1;
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(MouseProcessor + 3688), 1, 1) )
     return 0;
-  return v5;
+  return v1;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18021D520
+ * XREFs of ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801CC550
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D048 (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x18021D158 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
- *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D1FC (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetMinScale@CInteractionTracker@@AEAAXM@Z @ 0x18021D30C (-SetMinScale@CInteractionTracker@@AEAAXM@Z.c)
- *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x18021D3B0 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
- *     ?SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D460 (-SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x18021D8EC (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
- *     ?SetScaleInertiaDecayRate@CInteractionTracker@@AEAAXM@Z @ 0x18021DA68 (-SetScaleInertiaDecayRate@CInteractionTracker@@AEAAXM@Z.c)
- *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x180220030 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC06C (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x1801CC174 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC22C (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetMinScale@CInteractionTracker@@AEAAXM@Z @ 0x1801CC334 (-SetMinScale@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801CC3EC (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ *     ?SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC490 (-SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801CC90C (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
+ *     ?SetScaleInertiaDecayRate@CInteractionTracker@@AEAAXM@Z @ 0x1801CCA88 (-SetScaleInertiaDecayRate@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CECD8 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
  */
 
 __int64 __fastcall CInteractionTracker::SetProperty(__int64 a1, int a2, int a3, const struct D2DVector3 *a4)
@@ -37,9 +37,9 @@ __int64 __fastcall CInteractionTracker::SetProperty(__int64 a1, int a2, int a3, 
 
   v4 = 0;
   v5 = 0;
-  v6 = *(float *)(a1 + 136);
+  v6 = *(float *)(a1 + 128);
   v7 = 0;
-  v22 = *(_QWORD *)(a1 + 80);
+  v22 = *(_QWORD *)(a1 + 72);
   if ( a3 != 18 )
   {
     if ( a3 != 52 )
@@ -73,9 +73,9 @@ LABEL_28:
     {
       CInteractionTracker::SetMinPosition((CInteractionTracker *)a1, a4);
     }
-    if ( *(float *)&v22 != *(float *)(a1 + 80) )
+    if ( *(float *)&v22 != *(float *)(a1 + 72) )
       v5 = 1;
-    if ( *((float *)&v22 + 1) != *(float *)(a1 + 84) )
+    if ( *((float *)&v22 + 1) != *(float *)(a1 + 76) )
       v7 = 1;
     goto LABEL_28;
   }
@@ -104,13 +104,13 @@ LABEL_28:
   {
     CInteractionTracker::SetMinScale((CInteractionTracker *)a1, *(float *)a4);
   }
-  v15 = v6 != *(float *)(a1 + 136);
-  if ( *(float *)&v22 != *(float *)(a1 + 80) )
+  v15 = v6 != *(float *)(a1 + 128);
+  if ( *(float *)&v22 != *(float *)(a1 + 72) )
     v5 = 1;
-  if ( *((float *)&v22 + 1) != *(float *)(a1 + 84) )
+  if ( *((float *)&v22 + 1) != *(float *)(a1 + 76) )
     v7 = 1;
 LABEL_29:
-  v16 = *(_QWORD *)(a1 + 640);
+  v16 = *(_QWORD *)(a1 + 632);
   if ( v16 )
   {
     v17 = 4 * v15;
@@ -125,7 +125,7 @@ LABEL_29:
   if ( v4 )
   {
     v20 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, -2147024809, 0x58Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024809, 0x58Bu, 0LL);
   }
   else
   {

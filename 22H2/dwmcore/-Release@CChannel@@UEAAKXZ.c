@@ -1,10 +1,11 @@
 /*
- * XREFs of ?Release@CChannel@@UEAAKXZ @ 0x1801D0620
+ * XREFs of ?Release@CChannel@@UEAAKXZ @ 0x180027820
  * Callers:
- *     ??1?$com_ptr_t@VCChannel@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801B57C8 (--1-$com_ptr_t@VCChannel@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z @ 0x1800277F0 (--$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z.c)
+ *     ?Destroy@CChannel@@UEAAJXZ @ 0x18014F9B0 (-Destroy@CChannel@@UEAAJXZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1CChannel@@AEAA@XZ @ 0x1801CE4F4 (--1CChannel@@AEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??1CChannel@@AEAA@XZ @ 0x18014F13C (--1CChannel@@AEAA@XZ.c)
  */
 
 __int64 __fastcall CChannel::Release(CChannel *this)

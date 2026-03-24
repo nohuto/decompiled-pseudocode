@@ -1,54 +1,65 @@
 /*
- * XREFs of RtlpApplyAclToObject @ 0x14071179C
+ * XREFs of RtlpApplyAclToObject @ 0x1406D7C00
  * Callers:
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14071170C (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140611138 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpApplyAclToObject(__int64 a1, _DWORD *a2)
+void __fastcall RtlpApplyAclToObject(__int64 a1, _DWORD *a2)
 {
-  unsigned __int8 *v3; // r8
-  unsigned int v4; // r11d
-  unsigned int v5; // r10d
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // eax
-  __int64 result; // rax
+  unsigned int v4; // r8d
+  unsigned __int8 *v5; // rax
+  int v6; // r11d
+  int v7; // edx
+  int v8; // edx
+  unsigned int v9; // ecx
+  int v10; // ecx
 
   if ( a1 )
   {
-    v3 = (unsigned __int8 *)(a1 + 8);
     v4 = 0;
+    v5 = (unsigned __int8 *)(a1 + 8);
     if ( *(_WORD *)(a1 + 4) )
     {
+      v6 = 1651;
       do
       {
-        v5 = *v3;
-        if ( ((unsigned __int8)v5 < 0xBu || (unsigned __int8)(v5 - 13) <= 1u) && (v3[1] & 8) == 0 )
+        if ( (*v5 < 0xBu || (unsigned __int8)(*v5 - 13) <= 1u) && (v5[1] & 8) == 0 )
         {
-          v6 = *((_DWORD *)v3 + 1);
-          if ( v6 < 0 )
-            v6 |= *a2;
-          if ( (v6 & 0x40000000) != 0 )
-            v6 |= a2[1];
-          if ( (v6 & 0x20000000) != 0 )
-            v6 |= a2[2];
-          if ( (v6 & 0x10000000) != 0 )
-            v6 |= a2[3];
-          v7 = v6 & 0xFFFFFFF;
-          *((_DWORD *)v3 + 1) = v7;
-          if ( (unsigned __int8)v5 <= 0xAu && (v8 = 1651, _bittest(&v8, v5)) )
-            *((_DWORD *)v3 + 1) = a2[3] & v7;
+          v7 = *((_DWORD *)v5 + 1);
+          if ( v7 < 0 )
+          {
+            v7 |= *a2;
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x40000000) != 0 )
+          {
+            v7 |= a2[1];
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x20000000) != 0 )
+          {
+            v7 |= a2[2];
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x10000000) != 0 )
+            v7 |= a2[3];
+          v8 = v7 & 0xFFFFFFF;
+          *((_DWORD *)v5 + 1) = v8;
+          v9 = *v5;
+          if ( (unsigned __int8)v9 <= 0xAu && _bittest(&v6, v9) )
+            v10 = a2[3];
           else
-            *((_DWORD *)v3 + 1) = v7 & (a2[3] | 0x1000000);
+            v10 = a2[3] | 0x1000000;
+          *((_DWORD *)v5 + 1) = v8 & v10;
         }
         ++v4;
-        v3 += *((unsigned __int16 *)v3 + 1);
-        result = *(unsigned __int16 *)(a1 + 4);
+        v5 += *((unsigned __int16 *)v5 + 1);
       }
-      while ( v4 < (unsigned int)result );
+      while ( v4 < *(unsigned __int16 *)(a1 + 4) );
     }
   }
-  return result;
 }

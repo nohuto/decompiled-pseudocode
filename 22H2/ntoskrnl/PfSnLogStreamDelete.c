@@ -1,20 +1,19 @@
 /*
- * XREFs of PfSnLogStreamDelete @ 0x1407C3814
+ * XREFs of PfSnLogStreamDelete @ 0x14067D04C
  * Callers:
- *     PfSnNameRemoveAll @ 0x1407C37C4 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x14067CFFC (PfSnNameRemoveAll.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x1403147FC (PfSnTraceGetLogEntry.c)
- *     PfSnGetNLLogEntry @ 0x140773F8C (PfSnGetNLLogEntry.c)
- *     PfSnFailProcessTrace @ 0x14097F8B4 (PfSnFailProcessTrace.c)
+ *     PfSnTraceGetLogEntry @ 0x14029AF20 (PfSnTraceGetLogEntry.c)
+ *     PfSnFailProcessTrace @ 0x140735010 (PfSnFailProcessTrace.c)
  */
 
 __int64 __fastcall PfSnLogStreamDelete(__int64 a1, __int64 a2)
 {
   int LogEntry; // ebx
-  __int64 v5; // rax
-  _QWORD *v6; // rcx
-  _DWORD *NLLogEntry; // rax
-  _OWORD *v9; // [rsp+50h] [rbp+18h] BYREF
+  _QWORD *v5; // rcx
+  unsigned __int64 v6; // rcx
+  int v7; // eax
+  _OWORD *v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0LL;
   LogEntry = PfSnTraceGetLogEntry(a2, 4u, &v9);
@@ -24,15 +23,19 @@ __int64 __fastcall PfSnLogStreamDelete(__int64 a1, __int64 a2)
   }
   else
   {
-    v5 = *(_QWORD *)(a1 + 16);
-    v6 = v9;
+    v5 = v9;
     *v9 = 0LL;
-    *v6 = 29LL;
-    v6[1] = v5;
-    NLLogEntry = PfSnGetNLLogEntry((__int64)v6, 3, 0x28u, *(_DWORD *)(a1 + 40), *(_DWORD *)(a1 + 44));
-    NLLogEntry[4] &= 0xFFFFFFFC;
+    *v5 = 29LL;
+    v5[1] = *(_QWORD *)(a1 + 16);
+    v6 = ((unsigned __int64)v5 + 23) & 0xFFFFFFFFFFFFFFF8uLL;
+    *(_QWORD *)v6 = 0LL;
+    *(_DWORD *)v6 = 451;
+    *(_DWORD *)(v6 + 4) = *(_DWORD *)(a1 + 40);
+    v7 = *(_DWORD *)(a1 + 44);
+    *(_DWORD *)(v6 + 16) &= 0xFFFFFFFC;
+    *(_DWORD *)(v6 + 8) = v7;
     LogEntry = 0;
-    *((_QWORD *)NLLogEntry + 3) = *(_QWORD *)(a1 + 16);
+    *(_QWORD *)(v6 + 24) = *(_QWORD *)(a1 + 16);
   }
   return (unsigned int)LogEntry;
 }

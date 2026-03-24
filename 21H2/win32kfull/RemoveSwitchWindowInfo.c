@@ -1,15 +1,15 @@
 /*
- * XREFs of RemoveSwitchWindowInfo @ 0x1C01EE4E0
+ * XREFs of RemoveSwitchWindowInfo @ 0x1C01F3CE0
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     xxxNextWindow @ 0x1C01EE910 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01EF0A8 (xxxOldNextWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxNextWindow @ 0x1C01F412C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F4970 (xxxOldNextWindow.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01ED880 (-SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01F301C (-SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z.c)
  */
 
-void __fastcall RemoveSwitchWindowInfo(struct tagSwitchWndInfo **a1)
+void __fastcall RemoveSwitchWindowInfo(struct tagBWL ***a1)
 {
   struct tagSwitchWndInfo *v1; // rdx
   struct tagSwitchWndInfo **v2; // r8
@@ -22,7 +22,7 @@ void __fastcall RemoveSwitchWindowInfo(struct tagSwitchWndInfo **a1)
     while ( 1 )
     {
       v3 = *(struct tagSwitchWndInfo **)v1;
-      if ( v1 == *a1 )
+      if ( v1 == (struct tagSwitchWndInfo *)*a1 )
         break;
       v2 = (struct tagSwitchWndInfo **)v1;
       v1 = *(struct tagSwitchWndInfo **)v1;
@@ -35,6 +35,6 @@ void __fastcall RemoveSwitchWindowInfo(struct tagSwitchWndInfo **a1)
   else
   {
 LABEL_4:
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1205);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z @ 0x1C010806C
+ * XREFs of ?HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z @ 0x1C0119BBC
  * Callers:
- *     NtUserGetRequiredCursorSizes @ 0x1C0107FC0 (NtUserGetRequiredCursorSizes.c)
+ *     NtUserGetRequiredCursorSizes @ 0x1C0119B10 (NtUserGetRequiredCursorSizes.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00F4E24 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0104BEC (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0103D60 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C010B1D8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
  */
 
 void __fastcall CCursorSizes::HandleRequestCursorSizesRequest(CCursorSizes *this, struct tagCURSORSIZEINFO *a2)

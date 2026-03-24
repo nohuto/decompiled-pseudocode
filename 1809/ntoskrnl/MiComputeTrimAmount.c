@@ -1,5 +1,5 @@
 /*
- * XREFs of MiComputeTrimAmount @ 0x1402B2C8C
+ * XREFs of MiComputeTrimAmount @ 0x1402B2D8C
  * Callers:
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
  * Callees:

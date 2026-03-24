@@ -1,7 +1,7 @@
 /*
- * XREFs of ClientI_WMsgkSendPSPMessage @ 0x1C00CA5A4
+ * XREFs of ClientI_WMsgkSendPSPMessage @ 0x1C00C2A14
  * Callers:
- *     WmsgpSendPSPMessage @ 0x1C02BFE24 (WmsgpSendPSPMessage.c)
+ *     WmsgpSendPSPMessage @ 0x1C027EBF4 (WmsgpSendPSPMessage.c)
  * Callees:
  *     <none>
  */
@@ -13,5 +13,5 @@ CLIENT_CALL_RETURN __fastcall ClientI_WMsgkSendPSPMessage(__int64 a1, __int64 a2
 
   v6 = 0;
   v7 = *a4;
-  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&stru_1C023CD90, 1u, 0LL, a1, a2, a3, &v7, v6);
+  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&pProxyInfo, 1u, 0LL, a1, a2, a3, &v7, v6);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpWriteRegisterValue @ 0x140AF58B4
+ * XREFs of KiTpWriteRegisterValue @ 0x140A1370C
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x140AF443C (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateInstruction @ 0x140AF4944 (KiTpEmulateInstruction.c)
- *     KiTpEmulateMovRegImm @ 0x140AF50CC (KiTpEmulateMovRegImm.c)
+ *     KiTpEmulateGroup0Instruction @ 0x140A123B4 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovRegImm @ 0x140A12F3C (KiTpEmulateMovRegImm.c)
  * Callees:
- *     KiTpGetRegisterAddressByIndex @ 0x140AF53F8 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x140A13254 (KiTpGetRegisterAddressByIndex.c)
  */
 
 char __fastcall KiTpWriteRegisterValue(__int64 a1, __int64 a2, unsigned int a3, char a4, __int64 a5)

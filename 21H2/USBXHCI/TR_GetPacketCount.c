@@ -1,8 +1,7 @@
 /*
- * XREFs of TR_GetPacketCount @ 0x1C0009BEC
+ * XREFs of TR_GetPacketCount @ 0x1C000D954
  * Callers:
- *     Control_Transfer_MapIntoRing @ 0x1C00065C0 (Control_Transfer_MapIntoRing.c)
- *     Bulk_Stage_MapIntoRing @ 0x1C000F180 (Bulk_Stage_MapIntoRing.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C000D560 (Bulk_Stage_MapIntoRing.c)
  * Callees:
  *     <none>
  */

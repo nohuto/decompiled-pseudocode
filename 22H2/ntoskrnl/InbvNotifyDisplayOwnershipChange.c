@@ -1,16 +1,16 @@
 /*
- * XREFs of InbvNotifyDisplayOwnershipChange @ 0x1403B61E0
+ * XREFs of InbvNotifyDisplayOwnershipChange @ 0x1403A7430
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvNotifyDisplayOwnershipChange()
 {
   __int64 (*v0)(void); // rax
 
-  if ( qword_140C6AC58 && (v0 = *(__int64 (**)(void))(qword_140C6AC58 + 16)) != 0LL )
+  if ( qword_140C50B78 && (v0 = *(__int64 (**)(void))(qword_140C50B78 + 16)) != 0LL )
     return v0();
   else
     return 3221225474LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402269B0
+ * XREFs of SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252060
  * Callers:
- *     SepConvertTokenPrivileges @ 0x14022698C (SepConvertTokenPrivileges.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     SepCopyTokenAccessInformation @ 0x1407F4034 (SepCopyTokenAccessInformation.c)
+ *     SepConvertTokenPrivileges @ 0x140252034 (SepConvertTokenPrivileges.c)
+ *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */
@@ -12,19 +12,25 @@
 __int64 __fastcall SepConvertTokenPrivilegesToLuidAndAttributes(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rbx
-  unsigned int i; // r10d
-  __int64 v4; // r9
+  unsigned int v3; // r10d
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   v2 = 0LL;
-  for ( i = 0; i <= 0x24; ++i )
+  v3 = 0;
+  v4 = 1LL;
+  do
   {
-    if ( ((1LL << i) & a1[8]) != 0 )
+    if ( (v4 & a1[8]) != 0 )
     {
-      v4 = 3 * v2;
-      *(_QWORD *)(a2 + 4 * v4) = (int)i;
-      *(_DWORD *)(a2 + 4 * v4 + 8) = (((1LL << i) & a1[9]) != 0 ? 2 : 0) | (((1LL << i) & a1[10]) != 0);
+      v5 = a2 + 12 * v2;
+      *(_QWORD *)v5 = (int)v3;
+      *(_DWORD *)(v5 + 8) = ((v4 & a1[9]) != 0 ? 2 : 0) | ((v4 & a1[10]) != 0);
       v2 = (unsigned int)(v2 + 1);
     }
+    ++v3;
+    v4 = __ROL8__(v4, 1);
   }
+  while ( v3 <= 0x24 );
   return (unsigned int)v2;
 }

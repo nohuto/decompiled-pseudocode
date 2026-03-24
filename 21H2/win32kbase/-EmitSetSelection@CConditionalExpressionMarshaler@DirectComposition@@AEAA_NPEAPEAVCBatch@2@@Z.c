@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetSelection@CConditionalExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022B370
+ * XREFs of ?EmitSetSelection@CConditionalExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EB420
  * Callers:
- *     ?EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022B400 (-EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EB4B0 (-EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetSelection(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetSelec
   void *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x1000) == 0 )
+  if ( (*((_DWORD *)this + 4) & 0x800) == 0 )
   {
     v6 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v6) )
@@ -25,9 +25,9 @@ char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetSelec
       *(_QWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 3) = 0;
       *((_DWORD *)v4 + 1) = 121;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 40);
-      *((_DWORD *)this + 4) |= 0x1000u;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 38);
+      *((_DWORD *)this + 4) |= 0x800u;
     }
     else
     {

@@ -1,99 +1,97 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0214440
+ * XREFs of ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E54C0
  * Callers:
- *     ?SetRemarshalingFlags@CHostVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C020D700 (-SetRemarshalingFlags@CHostVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CSpriteVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0214950 (-SetRemarshalingFlags@CSpriteVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CLayerVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0214A20 (-SetRemarshalingFlags@CLayerVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CShapeVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0214BA0 (-SetRemarshalingFlags@CShapeVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CCursorVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F6C0 (-SetRemarshalingFlags@CCursorVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021FB20 (-SetRemarshalingFlags@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CSuperWetInkVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0220290 (-SetRemarshalingFlags@CSuperWetInkVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CTextVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0220450 (-SetRemarshalingFlags@CTextVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022C500 (-SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF090 (-SetRemarshalingFlags@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CSuperWetInkVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF860 (-SetRemarshalingFlags@CSuperWetInkVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CTextVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF9C0 (-SetRemarshalingFlags@CTextVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CSpriteVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E5910 (-SetRemarshalingFlags@CSpriteVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CLayerVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E59F0 (-SetRemarshalingFlags@CLayerVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CShapeVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E5FC0 (-SetRemarshalingFlags@CShapeVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CCursorVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01ED170 (-SetRemarshalingFlags@CCursorVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F35B0 (-SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CHostVisualMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01F8160 (-SetRemarshalingFlags@CHostVisualMarshaler@DirectComposition@@UEAA_NXZ.c)
  * Callees:
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C020EFCC (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFAE4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CVisualMarshaler::SetRemarshalingFlags(DirectComposition::CVisualMarshaler *this)
 {
-  char v1; // si
-  _DWORD *v2; // rdi
-  char v4; // cl
+  char v1; // di
+  char v3; // cl
 
   v1 = 0;
-  v2 = (_DWORD *)((char *)this + 16);
   if ( *((_QWORD *)this + 22) )
-    *v2 |= 0x4000u;
+    *((_DWORD *)this + 4) |= 0x4000u;
   if ( *((float *)this + 18) != 0.0 || *((float *)this + 19) != 0.0 || *((float *)this + 20) != 0.0 )
-    *v2 |= 0x80u;
+    *((_DWORD *)this + 4) |= 0x80u;
   if ( *((_QWORD *)this + 17) )
-    *v2 |= 0x100u;
+    *((_DWORD *)this + 4) |= 0x100u;
   if ( *((_QWORD *)this + 18) )
-    *v2 |= 0x200u;
+    *((_DWORD *)this + 4) |= 0x200u;
   if ( *((_QWORD *)this + 19) )
-    *v2 |= 0x400u;
+    *((_DWORD *)this + 4) |= 0x400u;
   if ( *((_QWORD *)this + 28) )
-    *v2 |= 0x4000000u;
-  if ( *((_QWORD *)this + 29) )
-    *((_DWORD *)this + 92) |= 4u;
-  if ( *((_DWORD *)this + 60) || *((_DWORD *)this + 62) || *((_DWORD *)this + 61) || *((_DWORD *)this + 63) )
-    *((_DWORD *)this + 92) |= 8u;
-  *((_QWORD *)this + 40) = 0LL;
-  if ( *((_QWORD *)this + 42) )
-    *((_DWORD *)this + 92) |= 1u;
-  *((_QWORD *)this + 43) = 0LL;
-  if ( *((_QWORD *)this + 45) )
-    *((_DWORD *)this + 92) |= 2u;
-  if ( *((_QWORD *)this + 21) )
-    *v2 |= 0x800u;
-  if ( *((_QWORD *)this + 20) )
-    *v2 |= 0x1000u;
-  v4 = *((_BYTE *)this + 312);
-  if ( (v4 & 0x40) == 0 )
-    *v2 |= 0x800000u;
-  if ( *((_DWORD *)this + 64) != -1
-    || *((_DWORD *)this + 65) != -1
-    || *((_DWORD *)this + 66) != -1
-    || *((_DWORD *)this + 67) != -1
-    || *((_DWORD *)this + 68) != -1
-    || *((_DWORD *)this + 69) != -1 )
+    *((_DWORD *)this + 4) |= 0x4000000u;
+  if ( *((_QWORD *)this + 38) )
   {
-    *v2 |= 0x8000u;
+    *((_DWORD *)this + 90) |= 1u;
+    *((_QWORD *)this + 43) = 0LL;
   }
-  if ( (v4 & 0x18) != 0 || (*((_BYTE *)this + 313) & 3) != 0 )
-    *v2 |= 0x10000u;
-  if ( (v4 & 0x20) != 0 )
-    *v2 |= 0x20000u;
-  if ( *((_DWORD *)this + 76) )
-    *v2 |= 0x40000u;
-  if ( (v4 & 2) != 0 )
-    *v2 |= 0x80000u;
-  if ( *((_QWORD *)this + 27) )
-    *v2 |= 0x100000u;
-  if ( *((float *)this + 21) != 0.0 || *((float *)this + 22) != 0.0 )
-    *v2 |= 0x200000u;
-  if ( *((float *)this + 28) != 1.0 )
-    *v2 |= 0x400000u;
-  if ( *((float *)this + 23) != 0.0 || *((float *)this + 24) != 0.0 || *((float *)this + 25) != 0.0 )
-    *v2 |= 0x1000000u;
-  if ( *((float *)this + 26) != 0.0 || *((float *)this + 27) != 0.0 )
-    *v2 |= 0x2000000u;
-  if ( (v4 & 1) != 0 )
-    *v2 |= 0x10000000u;
+  if ( *((_QWORD *)this + 41) )
+  {
+    *((_DWORD *)this + 90) |= 2u;
+    *((_QWORD *)this + 44) = 0LL;
+  }
+  if ( *((_QWORD *)this + 21) )
+    *((_DWORD *)this + 4) |= 0x800u;
+  if ( *((_QWORD *)this + 20) )
+    *((_DWORD *)this + 4) |= 0x1000u;
+  v3 = *((_BYTE *)this + 288);
+  if ( v3 >= 0 )
+    *((_DWORD *)this + 4) |= 0x800000u;
+  if ( *((_DWORD *)this + 58) != -1
+    || *((_DWORD *)this + 59) != -1
+    || *((_DWORD *)this + 60) != -1
+    || *((_DWORD *)this + 61) != -1
+    || *((_DWORD *)this + 62) != -1
+    || *((_DWORD *)this + 63) != -1 )
+  {
+    *((_DWORD *)this + 4) |= 0x8000u;
+  }
+  if ( (v3 & 0x58) != 0 || (*((_BYTE *)this + 289) & 2) != 0 )
+    *((_DWORD *)this + 4) |= 0x10000u;
+  if ( (v3 & 0x20) != 0 )
+    *((_DWORD *)this + 4) |= 0x20000u;
   if ( *((_DWORD *)this + 70) )
-    *v2 |= 0x8000000u;
-  if ( *((_DWORD *)this + 71) )
-    *v2 |= 0x20000000u;
+    *((_DWORD *)this + 4) |= 0x40000u;
+  if ( (v3 & 2) != 0 )
+    *((_DWORD *)this + 4) |= 0x80000u;
+  if ( *((_QWORD *)this + 27) )
+    *((_DWORD *)this + 4) |= 0x100000u;
+  if ( *((float *)this + 21) != 0.0 || *((float *)this + 22) != 0.0 )
+    *((_DWORD *)this + 4) |= 0x200000u;
+  if ( *((float *)this + 28) != 1.0 )
+    *((_DWORD *)this + 4) |= 0x400000u;
+  if ( *((float *)this + 23) != 0.0 || *((float *)this + 24) != 0.0 || *((float *)this + 25) != 0.0 )
+    *((_DWORD *)this + 4) |= 0x1000000u;
+  if ( *((float *)this + 26) != 0.0 || *((float *)this + 27) != 0.0 )
+    *((_DWORD *)this + 4) |= 0x2000000u;
+  if ( (v3 & 1) != 0 )
+    *((_DWORD *)this + 4) |= 0x10000000u;
+  if ( *((_DWORD *)this + 64) )
+    *((_DWORD *)this + 4) |= 0x8000000u;
+  if ( *((_DWORD *)this + 65) )
+    *((_DWORD *)this + 4) |= 0x20000000u;
   if ( *((float *)this + 29) != 0.0
     || *((float *)this + 30) != 0.0
     || *((float *)this + 31) != 0.0
     || *((float *)this + 32) != 0.0 )
   {
-    *v2 |= 0x40000000u;
+    *((_DWORD *)this + 4) |= 0x40000000u;
   }
   if ( DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this)
-    || (*v2 & 0x7F7FDF80) != 0
-    || (*((_DWORD *)this + 92) & 0xF) != 0 )
+    || (*((_DWORD *)this + 4) & 0x7F7FDF80) != 0
+    || (*((_DWORD *)this + 90) & 3) != 0 )
   {
     return 1;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PcisuppAcquirePciInterfaces @ 0x1C00A115C
+ * XREFs of PcisuppAcquirePciInterfaces @ 0x1C00906FC
  * Callers:
- *     ACPIBusIrpStartDevice @ 0x1C0090AA0 (ACPIBusIrpStartDevice.c)
+ *     ACPIBusIrpStartDevice @ 0x1C0090F10 (ACPIBusIrpStartDevice.c)
  * Callees:
- *     ACPIInternalSetFlags @ 0x1C0001778 (ACPIInternalSetFlags.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIWakeInitializePmeRouting @ 0x1C002D3EC (ACPIWakeInitializePmeRouting.c)
- *     PcisuppInitializePciRouting @ 0x1C00A1210 (PcisuppInitializePciRouting.c)
- *     PcisuppReleasePciRouting @ 0x1C00B629C (PcisuppReleasePciRouting.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIWakeInitializePmeRouting @ 0x1C000CB58 (ACPIWakeInitializePmeRouting.c)
+ *     PcisuppInitializePciRouting @ 0x1C00907B0 (PcisuppInitializePciRouting.c)
+ *     PcisuppReleasePciRouting @ 0x1C00B6C48 (PcisuppReleasePciRouting.c)
  */
 
 __int64 __fastcall PcisuppAcquirePciInterfaces(PDEVICE_OBJECT DeviceObject)
@@ -24,13 +24,13 @@ __int64 __fastcall PcisuppAcquirePciInterfaces(PDEVICE_OBJECT DeviceObject)
     v3 = ACPIWakeInitializePmeRouting(DeviceObject);
     if ( v3 >= 0 )
     {
-      if ( (*(_BYTE *)(DeviceExtension + 1000) & 2) != 0 )
+      if ( (*(_BYTE *)(DeviceExtension + 960) & 2) != 0 )
       {
         PcisuppReleasePciRouting();
       }
       else
       {
-        ACPIInternalSetFlags((void *)(DeviceExtension + 1000), 2uLL);
+        ACPIInternalSetFlags((void *)(DeviceExtension + 960), 2uLL);
         _InterlockedIncrement(&PciRoutingInterfaceCount);
       }
     }

@@ -1,15 +1,13 @@
 /*
- * XREFs of CcPerfLogFlushSection @ 0x140392784
+ * XREFs of CcPerfLogFlushSection @ 0x1403BCB3C
  * Callers:
- *     CcFlushCachePreProcess @ 0x14029DD60 (CcFlushCachePreProcess.c)
- *     CcFlushCacheOneRange @ 0x14029E530 (CcFlushCacheOneRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x14029E8D0 (CcFlushCachePostProcessOneRange.c)
- *     CcUnpinRepinnedBcb @ 0x140392610 (CcUnpinRepinnedBcb.c)
+ *     CcFlushCachePriv @ 0x14022C510 (CcFlushCachePriv.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA6A0 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A13B0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x140275E04 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140275E50 (CcReferenceSharedCacheMapFileObject.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a4, int a5)
@@ -27,7 +25,7 @@ void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a
   {
     v9 = CcReferenceSharedCacheMapFileObject(a2);
     v13[1] = *(_QWORD *)(v9 + 24);
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(a2 + 96), v9, 0x63536343u);
+    CcDereferenceSharedCacheMapFileObject(a2, v9);
     if ( a3 )
       v14 = *a3;
     else
@@ -38,6 +36,6 @@ void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a
     v10 = v13;
     v15 = a4;
     v11 = 32;
-    EtwTraceKernelEvent((int)&v10, 1, 0x80020000, 5642, 4200706);
+    EtwTraceKernelEvent((__int64)&v10, 1u, 0x80020000, 0x160Au, 0x401902u);
   }
 }

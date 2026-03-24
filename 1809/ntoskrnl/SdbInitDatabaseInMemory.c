@@ -2,16 +2,16 @@
  * XREFs of SdbInitDatabaseInMemory @ 0x1405A21DC
  * Callers:
  *     KsepShimDbMapToMemory @ 0x1405A2050 (KsepShimDbMapToMemory.c)
- *     PiLookupInDDB @ 0x14067EE2C (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14067EE0C (PiLookupInDDB.c)
  *     KseShimDatabaseBootInitialize @ 0x1409AEFF4 (KseShimDatabaseBootInitialize.c)
  *     PpInitializeBootDDB @ 0x1409C842C (PpInitializeBootDDB.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SdbpInitializeMatchers @ 0x1405A2260 (SdbpInitializeMatchers.c)
  *     SdbpOpenDatabaseInMemory @ 0x1405A22C0 (SdbpOpenDatabaseInMemory.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     SdbCloseDatabaseRead @ 0x140680AB4 (SdbCloseDatabaseRead.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     SdbCloseDatabaseRead @ 0x140680A94 (SdbCloseDatabaseRead.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)

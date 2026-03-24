@@ -1,45 +1,43 @@
 /*
- * XREFs of GreMaskBlt @ 0x1C001C9BC
+ * XREFs of GreMaskBlt @ 0x1C010941C
  * Callers:
- *     NtGdiMaskBlt @ 0x1C001C940 (NtGdiMaskBlt.c)
- *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C002C4E0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0106B60 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EF50 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B30B0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     NtGdiMaskBlt @ 0x1C01093A0 (NtGdiMaskBlt.c)
  * Callees:
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0002200 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C001D278 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C001D2A8 (--0DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C001D35C (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?Trg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C001D390 (-Trg@BLTRECORD@@QEAAHHHHH@Z.c)
- *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C001DF10 (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C001E590 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?Src@BLTRECORD@@QEAAHHHHH@Z @ 0x1C001EE80 (-Src@BLTRECORD@@QEAAHHHHH@Z.c)
- *     ?bEqualExtents@BLTRECORD@@QEBAHXZ @ 0x1C001EECC (-bEqualExtents@BLTRECORD@@QEBAHXZ.c)
- *     ??1BLTRECORD@@QEAA@XZ @ 0x1C001EF1C (--1BLTRECORD@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00DC33C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     ?pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ @ 0x1C00E0B4C (-pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00E0C40 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00F8B40 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C00FE090 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0101D80 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C01026C0 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C011CD7C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C013E430 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C02704B0 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028EBA0 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     ?TrgPlg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C029334C (-TrgPlg@BLTRECORD@@QEAAHHHHH@Z.c)
- *     ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C029A530 (-Msk@BLTRECORD@@QEAAHHHHH@Z.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C02C0950 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087CC8 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C800 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ @ 0x1C00AB8BC (-pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACA04 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C00B493C (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B496C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B55C4 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ??1BLTRECORD@@QEAA@XZ @ 0x1C00B55F4 (--1BLTRECORD@@QEAA@XZ.c)
+ *     ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00B56A0 (--0DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?bEqualExtents@BLTRECORD@@QEBAHXZ @ 0x1C00B5E30 (-bEqualExtents@BLTRECORD@@QEBAHXZ.c)
+ *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C00B6B38 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C00B76C4 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00B7948 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00B853C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?Trg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0109CBC (-Trg@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     ?Src@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0109D04 (-Src@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C0109D50 (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C0145B34 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C0169DAC (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B248 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?TrgPlg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C028F780 (-TrgPlg@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0293704 (-Msk@BLTRECORD@@QEAAHHHHH@Z.c)
  */
 
 __int64 __fastcall GreMaskBlt(
@@ -49,312 +47,321 @@ __int64 __fastcall GreMaskBlt(
         int a4,
         int a5,
         HDC a6,
-        int a7,
-        int a8,
+        LONG a7,
+        LONG a8,
         HSURF a9,
         int a10,
         int a11,
         unsigned int a12,
         int a13)
 {
-  unsigned int v14; // ebx
+  unsigned int v13; // ebx
+  HDC v14; // r12
   int v16; // ecx
-  unsigned int v17; // esi
-  unsigned int v18; // eax
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // r8
-  __int64 v22; // r9
-  struct SURFACE *v23; // rax
-  HDC v24; // rdx
+  int v17; // edi
+  int v18; // esi
+  __int64 v19; // rdx
+  unsigned int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  DC *v24; // r8
   ULONG v25; // ecx
-  int v26; // edx
-  __int64 v27; // rdx
-  int v28; // ecx
-  unsigned int v29; // edi
-  _QWORD v33[2]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v34[32]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v35[2]; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v36[32]; // [rsp+B0h] [rbp-50h] BYREF
-  HDC v37[2]; // [rsp+D0h] [rbp-30h] BYREF
-  _BYTE v38[32]; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v39; // [rsp+100h] [rbp+0h]
-  _BYTE v40[288]; // [rsp+110h] [rbp+10h] BYREF
-  HDC v41; // [rsp+230h] [rbp+130h] BYREF
-  int v42; // [rsp+238h] [rbp+138h]
-  int v43; // [rsp+23Ch] [rbp+13Ch]
-  _QWORD v44[2]; // [rsp+240h] [rbp+140h] BYREF
-  _QWORD v45[2]; // [rsp+250h] [rbp+150h] BYREF
-  __int64 v46; // [rsp+260h] [rbp+160h]
-  __int64 v47; // [rsp+268h] [rbp+168h]
-  __int64 v48; // [rsp+270h] [rbp+170h]
-  __int64 v49; // [rsp+278h] [rbp+178h]
-  __int64 v50; // [rsp+280h] [rbp+180h]
-  struct SURFACE *v51; // [rsp+288h] [rbp+188h]
-  __int64 v52; // [rsp+290h] [rbp+190h]
-  _BYTE v53[8]; // [rsp+298h] [rbp+198h] BYREF
-  __int64 v54; // [rsp+2A0h] [rbp+1A0h]
-  int v55; // [rsp+2E8h] [rbp+1E8h]
-  int v56; // [rsp+2ECh] [rbp+1ECh]
-  int v57; // [rsp+2F0h] [rbp+1F0h]
-  int v58; // [rsp+2F4h] [rbp+1F4h]
-  int v59; // [rsp+2F8h] [rbp+1F8h]
-  int v60; // [rsp+2FCh] [rbp+1FCh]
-  int v61; // [rsp+300h] [rbp+200h]
-  int v62; // [rsp+304h] [rbp+204h]
-  __int64 v63; // [rsp+308h] [rbp+208h]
-  unsigned int v64; // [rsp+310h] [rbp+210h]
-  int v65; // [rsp+314h] [rbp+214h]
+  __int64 v26; // r9
+  struct SURFACE *v27; // rax
+  __int64 v28; // r9
+  struct SURFACE *v29; // rax
+  ULONG v30; // ecx
+  int v31; // r14d
+  int v32; // edx
+  int v33; // ecx
+  __int64 v34; // rdx
+  DC *v38[2]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v39[32]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v40[2]; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v41[32]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v42[16]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v43[32]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v44; // [rsp+100h] [rbp+0h]
+  _BYTE v45[288]; // [rsp+110h] [rbp+10h] BYREF
+  HDC v46; // [rsp+230h] [rbp+130h] BYREF
+  int v47; // [rsp+238h] [rbp+138h]
+  int v48; // [rsp+23Ch] [rbp+13Ch]
+  _QWORD v49[2]; // [rsp+240h] [rbp+140h] BYREF
+  _QWORD v50[2]; // [rsp+250h] [rbp+150h] BYREF
+  __int64 v51; // [rsp+260h] [rbp+160h]
+  __int64 v52; // [rsp+268h] [rbp+168h]
+  __int64 v53; // [rsp+270h] [rbp+170h]
+  __int64 v54; // [rsp+278h] [rbp+178h]
+  __int64 v55; // [rsp+280h] [rbp+180h]
+  struct SURFACE *v56; // [rsp+288h] [rbp+188h]
+  __int64 v57; // [rsp+290h] [rbp+190h]
+  __int64 v58; // [rsp+298h] [rbp+198h] BYREF
+  char *v59; // [rsp+2A0h] [rbp+1A0h]
+  int v60; // [rsp+2F0h] [rbp+1F0h]
+  int v61; // [rsp+2F4h] [rbp+1F4h]
+  int v62; // [rsp+2F8h] [rbp+1F8h]
+  int v63; // [rsp+2FCh] [rbp+1FCh]
+  int v64; // [rsp+300h] [rbp+200h]
+  int v65; // [rsp+304h] [rbp+204h]
+  int v66; // [rsp+308h] [rbp+208h]
+  int v67; // [rsp+30Ch] [rbp+20Ch]
+  __int64 v68; // [rsp+310h] [rbp+210h]
+  unsigned int v69; // [rsp+318h] [rbp+218h]
+  int v70; // [rsp+31Ch] [rbp+21Ch]
 
-  v14 = 0;
-  v41 = a1;
-  v37[0] = a6;
-  v52 = 0LL;
-  v65 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v35, a1);
-  if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v35) )
+  v13 = 0;
+  v14 = a6;
+  v46 = a1;
+  v57 = 0LL;
+  v70 = 0;
+  DCOBJ::DCOBJ((DCOBJ *)v38, a1);
+  if ( (unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v38) )
   {
-    if ( v35[0] )
+    if ( (*((_DWORD *)v38[0] + 9) & 0x10000) != 0 )
     {
-      v16 = *(_DWORD *)(v35[0] + 36LL);
-      if ( (v16 & 0x10000) == 0 )
-      {
-        if ( (v16 & 0xE0) != 0 )
-        {
-          EXFORMOBJ::vQuickInit((EXFORMOBJ *)v37, (struct XDCOBJ *)v35, 0x204u);
-          v42 = a2 + a4;
-          v41 = (HDC)__PAIR64__(a3, a2);
-          v43 = a3 + a5;
-          if ( !(unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v37, (struct ERECTL *)&v41) )
-          {
-LABEL_76:
-            DCOBJ::~DCOBJ((DCOBJ *)v35);
-            goto LABEL_82;
-          }
-          ERECTL::vOrder((ERECTL *)&v41);
-          XDCOBJ::vAccumulate((XDCOBJ *)v35, (struct ERECTL *)&v41);
-        }
-        v14 = 1;
-        goto LABEL_76;
-      }
-    }
 LABEL_9:
-    EngSetLastError(0x57u);
-    goto LABEL_76;
-  }
-  if ( (*(_DWORD *)(v35[0] + 36LL) & 0x10000) != 0 )
-    goto LABEL_9;
-  if ( !a9 || BYTE2(a12) == HIBYTE(a12) )
-  {
-    v17 = gajRop3[BYTE2(a12)];
-    v64 = BYTE2(a12) | (BYTE2(a12) << 8);
-  }
-  else
-  {
-    SURFREF::SURFREF((SURFREF *)v38, a9);
-    if ( !v39 )
-    {
-      EngSetLastError(6u);
-      SURFREF::~SURFREF((SURFREF *)v38);
-      goto LABEL_76;
+      EngSetLastError(0x57u);
+      goto LABEL_81;
     }
-    v52 = v39;
-    if ( *(_WORD *)(v39 + 100) || *(_DWORD *)(v39 + 96) != 1 )
+    v17 = 1;
+    if ( !a9 || BYTE2(a12) == HIBYTE(a12) )
     {
-      EngSetLastError(6u);
-      if ( v39 )
-        DEC_SHARE_REF_CNT(v39);
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v38);
-      goto LABEL_76;
+      v18 = (unsigned __int8)gajRop3[BYTE2(a12)];
+      v69 = BYTE2(a12) | (BYTE2(a12) << 8);
     }
-    INC_SHARE_REF_CNT(v39);
-    v65 |= 0x30000u;
-    v64 = HIWORD(a12);
-    v17 = gajRop3[BYTE2(a12)] | gajRop3[(unsigned __int64)HIWORD(a12) >> 8] | 0x10000;
-    if ( v39 )
-      DEC_SHARE_REF_CNT(v39);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v38);
-  }
-  v33[1] = 0LL;
-  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v34);
-  v33[0] = 0LL;
-  DEVLOCKBLTOBJ::DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v40);
-  if ( (v17 & 0xD4) != 0 && (XDCOBJ::vLock((XDCOBJ *)v33, v37[0]), v33[0]) )
-  {
-    bSpDwmValidateSurface((struct XDCOBJ *)v33, a7, a8, a4, a5);
-    DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v40, (struct XDCOBJ *)v35, (struct XDCOBJ *)v33, 0);
-  }
-  else
-  {
-    DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v40, (struct XDCOBJ *)v35);
-  }
-  if ( (v40[112] & 1) == 0 )
-  {
-    v18 = XDCOBJ::bFullScreen((XDCOBJ *)v35);
-LABEL_74:
-    v14 = v18;
-    goto LABEL_75;
-  }
-  v50 = *(_QWORD *)(v35[0] + 496LL);
-  EXFORMOBJ::vInit((EXFORMOBJ *)v44, (struct XDCOBJ *)v35, 0x204u, 0);
-  v19 = v35[0];
-  v46 = *(_QWORD *)(v50 + 128);
-  v47 = *(_QWORD *)(v35[0] + 88LL);
-  if ( (v17 & 0xD4) != 0 )
-  {
-    if ( !v33[0] )
-      goto LABEL_70;
-    if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v33)
-      || _bittest((const signed __int32 *)(*(_QWORD *)(v20 + 496) + 112LL), 0x1Cu) )
+    else
     {
-      if ( _bittest((const signed __int32 *)XDCOBJ::pSurfaceEff((XDCOBJ *)v33) + 28, 0x1Cu)
-        && *(_DWORD *)(v21 + 32) == 2
-        && (*(_DWORD *)(v21 + 36) & 0xE0) != 0 )
+      SURFREF::SURFREF((SURFREF *)v43, a9);
+      if ( !v44 || (v57 = v44, *(_WORD *)(v44 + 100)) || *(_DWORD *)(v44 + 96) != 1 )
       {
-        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v37, (struct XDCOBJ *)v35, 0x204u);
-        v41 = (HDC)__PAIR64__(a3, a2);
-        v42 = a2 + a4;
-        v43 = a3 + a5;
-        if ( (unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v37, (struct ERECTL *)&v41) )
-        {
-          ERECTL::vOrder((ERECTL *)&v41);
-          XDCOBJ::vAccumulate((XDCOBJ *)v35, (struct ERECTL *)&v41);
-          XDCOBJ::vAccumulateTight((XDCOBJ *)v35, (struct ERECTL *)&v41);
-        }
-        DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v40);
-        DCOBJ::~DCOBJ((DCOBJ *)v33);
-        v14 = 1;
-        goto LABEL_76;
+        EngSetLastError(6u);
+        if ( v44 )
+          DEC_SHARE_REF_CNT(v44, v19);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v43);
+        goto LABEL_81;
       }
-      if ( (*(_DWORD *)(v22 + 36) & 1) == 0 )
-        goto LABEL_75;
+      INC_SHARE_REF_CNT(v44);
+      v70 |= 0x30000u;
+      v69 = HIWORD(a12);
+      v18 = (unsigned __int8)gajRop3[BYTE2(a12)] | (unsigned __int8)gajRop3[(unsigned __int64)HIWORD(a12) >> 8] | 0x10000;
+      if ( v44 )
+        DEC_SHARE_REF_CNT(v44, gajRop3);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v43);
     }
-    v23 = XDCOBJ::pSurfaceEff((XDCOBJ *)v33);
-    if ( !(unsigned int)SrcSurfaceAccessCheck(v23) )
-      goto LABEL_65;
-    v51 = XDCOBJ::pSurfaceEff((XDCOBJ *)v33);
-    v48 = *((_QWORD *)v51 + 16);
-    v49 = *(_QWORD *)(v33[0] + 88LL);
-    EXFORMOBJ::vInit((EXFORMOBJ *)v45, (struct XDCOBJ *)v33, 0x204u, 0);
-    if ( (*(_DWORD *)(v45[0] + 32LL) & 1) == 0 || !(unsigned int)BLTRECORD::Src((BLTRECORD *)v44, a7, a8, a4, a5) )
-      goto LABEL_70;
-    if ( (v17 & 0x10000) != 0 )
+    v40[0] = 0LL;
+    v40[1] = 0LL;
+    UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v41);
+    v40[0] = 0LL;
+    DEVLOCKBLTOBJ::DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v45);
+    if ( (v18 & 0xD4) != 0 && (XDCOBJ::vLock((XDCOBJ *)v40, a6), v40[0]) )
     {
-      v59 = a10;
-      v61 = a10 + v57 - v55;
-      v60 = a11;
-      v62 = a11 + v58 - v56;
+      bSpDwmValidateSurface((struct XDCOBJ *)v40, a7, a8, a4, a5);
+      DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v45, (struct XDCOBJ *)v38, (struct XDCOBJ *)v40);
     }
-    if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
-                          v53,
-                          0LL,
-                          *(unsigned int *)(v35[0] + 120LL),
-                          v48,
-                          v46,
-                          v49,
-                          v47,
-                          *(_DWORD *)(*(_QWORD *)(v35[0] + 976LL) + 184LL),
-                          *(_DWORD *)(*(_QWORD *)(v35[0] + 976LL) + 176LL),
-                          a13,
-                          0) )
-      goto LABEL_75;
-    v65 |= 2u;
-  }
-  else
-  {
-    v51 = 0LL;
-    if ( (v17 & 0x10000) == 0 )
-      goto LABEL_56;
-    v24 = v41;
-    if ( v37[0] )
-      v24 = v37[0];
-    XDCOBJ::vLock((XDCOBJ *)v33, v24);
-    if ( !v33[0] )
+    else
     {
-      v25 = 6;
-LABEL_52:
-      EngSetLastError(v25);
-LABEL_75:
-      DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v40);
-      DCOBJ::~DCOBJ((DCOBJ *)v33);
-      goto LABEL_76;
+      DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v45, v38);
     }
-    EXFORMOBJ::vInit((EXFORMOBJ *)v45, (struct XDCOBJ *)v33, 0x204u, 0);
-    if ( (*(_DWORD *)(v45[0] + 32LL) & 1) == 0 || !(unsigned int)BLTRECORD::Msk((BLTRECORD *)v44, a10, a11, a4, a5) )
-      goto LABEL_70;
-  }
-  v19 = v35[0];
-LABEL_56:
-  if ( (v17 & 0xE8) != 0 )
-  {
-    v26 = *(_DWORD *)(*(_QWORD *)(v19 + 976) + 152LL);
-    v54 = v19 + 1200;
-    if ( (v26 & 0x1000) != 0 )
+    if ( (v45[112] & 1) == 0 )
     {
-      GreDCSelectBrush(v19, *(_QWORD *)(*(_QWORD *)(v19 + 976) + 160LL));
-      v19 = v35[0];
+      v20 = XDCOBJ::bFullScreen((XDCOBJ *)v38);
+LABEL_79:
+      v13 = v20;
+      goto LABEL_80;
     }
-    v27 = *(_QWORD *)(v19 + 976);
-    v28 = *(_DWORD *)(v27 + 152);
-    if ( (v28 & 1) != 0 || (*(_DWORD *)(v19 + 316) & 1) != 0 )
+    v55 = *((_QWORD *)v38[0] + 62);
+    EXFORMOBJ::vInit((EXFORMOBJ *)v49, (struct XDCOBJ *)v38, 0x204u, 0);
+    v24 = v38[0];
+    v51 = *(_QWORD *)(v55 + 128);
+    v52 = *((_QWORD *)v38[0] + 11);
+    if ( (v18 & 0xD4) != 0 )
     {
-      *(_DWORD *)(v27 + 152) = v28 & 0xFFFFFFFE;
-      *(_DWORD *)(v35[0] + 316LL) &= ~1u;
-      EBRUSHOBJ::vInitBrush(v54, v35[0], *(_QWORD *)(v35[0] + 136LL), v47, v46, v50, 1);
-      v19 = v35[0];
+      if ( !v40[0] )
+        goto LABEL_30;
+      if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v40)
+        || (*(_DWORD *)(*(_QWORD *)(v26 + 496) + 112LL) & 0x10000000) != 0 )
+      {
+        v27 = XDCOBJ::pSurfaceEff((XDCOBJ *)v40);
+        if ( ((unsigned int)v21 & *((_DWORD *)v27 + 28)) != 0
+          && *(_DWORD *)(v22 + 32) == 2
+          && (*(_DWORD *)(v22 + 36) & 0xE0) != 0 )
+        {
+          EXFORMOBJ::vQuickInit((EXFORMOBJ *)v42, (struct XDCOBJ *)v38, 516);
+          v46 = (HDC)__PAIR64__(a3, a2);
+          v47 = a4 + a2;
+          v48 = a3 + a5;
+          if ( (unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v42, (struct _POINTL *)&v46) )
+          {
+            ERECTL::vOrder((ERECTL *)&v46);
+            XDCOBJ::vAccumulate((XDCOBJ *)v38, (struct ERECTL *)&v46);
+            XDCOBJ::vAccumulateTight((XDCOBJ *)v38, (struct ERECTL *)&v46);
+          }
+          goto LABEL_59;
+        }
+        if ( (*(_DWORD *)(v28 + 36) & 1) == 0 )
+        {
+LABEL_58:
+          v17 = 0;
+LABEL_59:
+          v13 = v17;
+          goto LABEL_80;
+        }
+      }
+      v29 = XDCOBJ::pSurfaceEff((XDCOBJ *)v40);
+      if ( !(unsigned int)SrcSurfaceAccessCheck(v29) )
+      {
+        v30 = 5;
+LABEL_57:
+        EngSetLastError(v30);
+        goto LABEL_58;
+      }
+      v56 = XDCOBJ::pSurfaceEff((XDCOBJ *)v40);
+      v53 = *((_QWORD *)v56 + 16);
+      v54 = *(_QWORD *)(v40[0] + 88LL);
+      EXFORMOBJ::vInit((EXFORMOBJ *)v50, (struct XDCOBJ *)v40, 0x204u, 0);
+      if ( (*(_DWORD *)(v50[0] + 32LL) & 1) == 0 || !(unsigned int)BLTRECORD::Src((BLTRECORD *)v49, a7, a8, a4, a5) )
+      {
+        v30 = 87;
+        goto LABEL_57;
+      }
+      if ( (v18 & 0x10000) != 0 )
+      {
+        v64 = a10;
+        v66 = a10 + v62 - v60;
+        v65 = a11;
+        v67 = a11 + v63 - v61;
+      }
+      if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
+                            &v58,
+                            0LL,
+                            *((_DWORD *)v38[0] + 30),
+                            v53,
+                            v51,
+                            v54,
+                            v52,
+                            *(_DWORD *)(*((_QWORD *)v38[0] + 122) + 184LL),
+                            *(_DWORD *)(*((_QWORD *)v38[0] + 122) + 176LL),
+                            a13,
+                            0) )
+        goto LABEL_80;
+      v70 |= 2u;
+      v24 = v38[0];
     }
-    v63 = *(_QWORD *)(v19 + 1192);
-  }
-  else
-  {
-    v54 = 0LL;
-  }
-  if ( !(unsigned int)DestSurfaceAccessCheck(*(struct SURFACE **)(v19 + 496)) )
-  {
-LABEL_65:
-    v25 = 5;
-    goto LABEL_52;
-  }
-  if ( (*(_DWORD *)(v44[0] + 32LL) & 1) == 0 )
-  {
-    if ( (unsigned int)BLTRECORD::TrgPlg((BLTRECORD *)v44, a2, a3, a4, a5) )
+    else
     {
-      v18 = BLTRECORD::bRotate(
-              (BLTRECORD *)v44,
-              (struct DCOBJ *)v35,
-              (struct DCOBJ *)v33,
-              v17,
-              *(_BYTE *)(*(_QWORD *)(v35[0] + 976LL) + 215LL));
-      goto LABEL_74;
+      v56 = 0LL;
+      if ( (v18 & 0x10000) != 0 )
+      {
+        if ( !a6 )
+          v14 = v46;
+        XDCOBJ::vLock((XDCOBJ *)v40, v14);
+        if ( !v40[0] )
+        {
+          v25 = 6;
+          goto LABEL_31;
+        }
+        EXFORMOBJ::vInit((EXFORMOBJ *)v50, (struct XDCOBJ *)v40, 0x204u, 0);
+        if ( (*(_DWORD *)(v50[0] + 32LL) & 1) == 0
+          || (v31 = a5, !(unsigned int)BLTRECORD::Msk((BLTRECORD *)v49, a10, a11, a4, a5)) )
+        {
+LABEL_30:
+          v25 = 87;
+LABEL_31:
+          EngSetLastError(v25);
+LABEL_80:
+          DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v45, v21, (SURFACE **)v22);
+          MDCOBJ::~MDCOBJ((MDCOBJ *)v40);
+          UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v41);
+          goto LABEL_81;
+        }
+        v24 = v38[0];
+LABEL_49:
+        if ( (v18 & 0xE8) != 0 )
+        {
+          v32 = *(_DWORD *)(*((_QWORD *)v24 + 122) + 152LL);
+          v59 = (char *)v24 + 1208;
+          if ( (v32 & 0x1000) != 0 )
+          {
+            GreDCSelectBrush(v24, *(_QWORD *)(*((_QWORD *)v24 + 122) + 160LL));
+            v24 = v38[0];
+          }
+          v21 = *((_QWORD *)v24 + 122);
+          v33 = *(_DWORD *)(v21 + 152);
+          if ( (v33 & 1) != 0 || (*((_DWORD *)v24 + 79) & 1) != 0 )
+          {
+            *(_DWORD *)(v21 + 152) = v33 & 0xFFFFFFFE;
+            *((_DWORD *)v38[0] + 79) &= ~1u;
+            EBRUSHOBJ::vInitBrush(v59, v38[0], *((_QWORD *)v38[0] + 17), v52, v51, v55, 1);
+            v24 = v38[0];
+          }
+          v68 = *((_QWORD *)v24 + 150);
+        }
+        else
+        {
+          v59 = 0LL;
+        }
+        if ( !(unsigned int)DestSurfaceAccessCheck(*((struct SURFACE **)v24 + 62), v21, (__int64)v24, v23) )
+        {
+          v25 = 5;
+          goto LABEL_31;
+        }
+        if ( (*(_DWORD *)(v49[0] + 32LL) & 1) != 0 )
+        {
+          if ( (unsigned int)BLTRECORD::Trg((BLTRECORD *)v49, a2, a3, a4, v31) )
+          {
+            if ( (v18 & 0xD4) == 0 || BLTRECORD::bEqualExtents((BLTRECORD *)v49) )
+              v20 = BLTRECORD::bBitBlt((BLTRECORD *)v49, v38, (struct DCOBJ *)v40, v18);
+            else
+              v20 = BLTRECORD::bStretch(
+                      (BLTRECORD *)v49,
+                      v38,
+                      (struct DCOBJ *)v40,
+                      v18,
+                      *(_BYTE *)(*((_QWORD *)v38[0] + 122) + 215LL));
+            goto LABEL_79;
+          }
+        }
+        else if ( (unsigned int)BLTRECORD::TrgPlg((BLTRECORD *)v49, a2, a3, a4, v31) )
+        {
+          v20 = BLTRECORD::bRotate(
+                  (BLTRECORD *)v49,
+                  (struct DCOBJ *)v38,
+                  (struct DCOBJ *)v40,
+                  v18,
+                  *(_BYTE *)(*((_QWORD *)v38[0] + 122) + 215LL));
+          goto LABEL_79;
+        }
+        goto LABEL_30;
+      }
     }
-    goto LABEL_70;
+    v31 = a5;
+    goto LABEL_49;
   }
-  if ( !(unsigned int)BLTRECORD::Trg((BLTRECORD *)v44, a2, a3, a4, a5) )
+  if ( !v38[0] )
+    goto LABEL_9;
+  v16 = *((_DWORD *)v38[0] + 9);
+  if ( (v16 & 0x10000) != 0 )
+    goto LABEL_9;
+  if ( (v16 & 0xE0) == 0 )
   {
-LABEL_70:
-    v25 = 87;
-    goto LABEL_52;
+LABEL_7:
+    v13 = 1;
+    goto LABEL_81;
   }
-  if ( (v17 & 0xD4) != 0 && !(unsigned int)BLTRECORD::bEqualExtents((BLTRECORD *)v44) )
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v42, (struct XDCOBJ *)v38, 516);
+  v46 = (HDC)__PAIR64__(a3, a2);
+  v47 = a4 + a2;
+  v48 = a3 + a5;
+  if ( (unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v42, (struct _POINTL *)&v46) )
   {
-    v18 = BLTRECORD::bStretch(
-            (BLTRECORD *)v44,
-            (struct DCOBJ *)v35,
-            (struct DCOBJ *)v33,
-            v17,
-            *(_BYTE *)(*(_QWORD *)(v35[0] + 976LL) + 215LL));
-    goto LABEL_74;
+    ERECTL::vOrder((ERECTL *)&v46);
+    XDCOBJ::vAccumulate((XDCOBJ *)v38, (struct ERECTL *)&v46);
+    goto LABEL_7;
   }
-  v29 = BLTRECORD::bBitBlt((BLTRECORD *)v44, (struct DCOBJ *)v35, (struct DCOBJ *)v33, v17);
-  DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v40);
-  if ( v33[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v33);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v34);
-  if ( v35[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v35);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v36);
-  v14 = v29;
-LABEL_82:
-  BLTRECORD::~BLTRECORD((BLTRECORD *)v44);
-  return v14;
+LABEL_81:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v38);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v39);
+  BLTRECORD::~BLTRECORD((BLTRECORD *)v49, v34);
+  return v13;
 }

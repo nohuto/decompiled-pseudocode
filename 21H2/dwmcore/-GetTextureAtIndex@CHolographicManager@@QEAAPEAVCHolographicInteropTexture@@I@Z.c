@@ -1,7 +1,8 @@
 /*
- * XREFs of ?GetTextureAtIndex@CHolographicManager@@QEAAPEAVCHolographicInteropTexture@@I@Z @ 0x180296028
+ * XREFs of ?GetTextureAtIndex@CHolographicManager@@QEAAPEAVCHolographicInteropTexture@@I@Z @ 0x180253BA0
  * Callers:
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180299F98 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2900 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?CleanTree@CHolographicInteropTarget@@AEAAJXZ @ 0x180257AE8 (-CleanTree@CHolographicInteropTarget@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

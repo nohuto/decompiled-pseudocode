@@ -1,12 +1,12 @@
 /*
- * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x140630360
+ * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x140538620
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CC08 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14050B9F0 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
-__int64 __fastcall MmAddUnloadedDriverInformationToCrashDump(__int64 a1)
+__int64 __fastcall MmAddUnloadedDriverInformationToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64))
 {
   __int64 result; // rax
   int v3; // ecx

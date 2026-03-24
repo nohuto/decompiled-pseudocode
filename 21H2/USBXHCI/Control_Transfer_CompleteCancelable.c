@@ -1,15 +1,15 @@
 /*
- * XREFs of Control_Transfer_CompleteCancelable @ 0x1C0006218
+ * XREFs of Control_Transfer_CompleteCancelable @ 0x1C00041A4
  * Callers:
- *     Control_WdfEvtIoDefault @ 0x1C0005E30 (Control_WdfEvtIoDefault.c)
- *     Control_MapTransfer @ 0x1C000605C (Control_MapTransfer.c)
- *     Control_ProcessTransferEventWithED1 @ 0x1C0006B04 (Control_ProcessTransferEventWithED1.c)
- *     Control_ProcessTransferCompletion @ 0x1C0040838 (Control_ProcessTransferCompletion.c)
+ *     Control_WdfEvtIoDefault @ 0x1C0003DB0 (Control_WdfEvtIoDefault.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0004BB0 (Control_ProcessTransferEventWithED1.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0019B38 (Control_ProcessTransferCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     Control_Transfer_Complete @ 0x1C00062CC (Control_Transfer_Complete.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Control_Transfer_Complete @ 0x1C0004260 (Control_Transfer_Complete.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Control_Transfer_CompleteCancelable(_QWORD *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall Control_Transfer_CompleteCancelable(_QWORD *a1)
         v5 = a1[6];
         v6 = *(_BYTE *)(v5 + 135);
         LOBYTE(v5) = 4;
-        WPP_RECORDER_SF_ddd(
+        WPP_RECORDER_SF_ddL(
           *(_QWORD *)(a1[7] + 80LL),
           v5,
           14,
@@ -69,7 +69,7 @@ LABEL_7:
   {
     v7 = *(unsigned __int8 *)(a1[6] + 135LL);
     LOBYTE(v7) = 4;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(a1[7] + 80LL),
       v7,
       14,

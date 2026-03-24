@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCreateMirror @ 0x140A2F1B0
+ * XREFs of MmCreateMirror @ 0x1408C7360
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     MmDuplicateMemory @ 0x140AAC90C (MmDuplicateMemory.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     MmDuplicateMemory @ 0x1409907AC (MmDuplicateMemory.c)
  */
 
 NTSTATUS MmCreateMirror(void)

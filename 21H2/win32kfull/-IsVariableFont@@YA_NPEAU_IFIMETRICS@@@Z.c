@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C000F010
+ * XREFs of ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00623E8
  * Callers:
- *     ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C000E248 (-dpNtmi@PFEOBJ@@QEAAKXZ.c)
- *     cjCopyFontDataW @ 0x1C000E5E8 (cjCopyFontDataW.c)
- *     ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0037300 (-GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z.c)
- *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00C86F8 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     cjCopyFontDataW @ 0x1C005F020 (cjCopyFontDataW.c)
+ *     ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0094DC8 (-GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z.c)
+ *     ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C00A3878 (-dpNtmi@PFEOBJ@@QEAAKXZ.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00E4D28 (vIFIMetricsToEnumLogFontExDvW.c)
  * Callees:
  *     <none>
  */

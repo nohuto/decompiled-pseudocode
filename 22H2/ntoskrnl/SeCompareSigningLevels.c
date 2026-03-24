@@ -1,10 +1,10 @@
 /*
- * XREFs of SeCompareSigningLevels @ 0x1407E9DF0
+ * XREFs of SeCompareSigningLevels @ 0x14077F140
  * Callers:
- *     MiCreateSystemSection @ 0x14035F150 (MiCreateSystemSection.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     MiCreateSystemSection @ 0x1403728BC (MiCreateSystemSection.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 SeCompareSigningLevels()
@@ -12,7 +12,7 @@ __int64 SeCompareSigningLevels()
   __int64 result; // rax
 
   result = 0LL;
-  if ( qword_140C37A00 )
-    return ((__int64 (*)(void))qword_140C37A00)();
+  if ( qword_140C1DB20 )
+    return ((__int64 (*)(void))qword_140C1DB20)();
   return result;
 }

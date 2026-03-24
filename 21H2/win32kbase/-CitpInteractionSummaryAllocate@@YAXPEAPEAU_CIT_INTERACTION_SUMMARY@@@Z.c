@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CitpInteractionSummaryAllocate@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C00B437C
+ * XREFs of ?CitpInteractionSummaryAllocate@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C00A1F70
  * Callers:
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
  * Callees:
- *     ?CitAllocZero@@YAPEAX_K@Z @ 0x1C00B43FC (-CitAllocZero@@YAPEAX_K@Z.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C023FD24 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     ?CitAllocZero@@YAPEAX_K@Z @ 0x1C00A1FF0 (-CitAllocZero@@YAPEAX_K@Z.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FE090 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
 void __fastcall CitpInteractionSummaryAllocate(struct _CIT_INTERACTION_SUMMARY **a1)
@@ -14,9 +14,9 @@ void __fastcall CitpInteractionSummaryAllocate(struct _CIT_INTERACTION_SUMMARY *
   _QWORD *v4; // rax
   __int16 v5; // bx
 
-  v1 = dword_1C029A22C;
-  v3 = (unsigned __int16)dword_1C029A22C;
-  v4 = CitAllocZero((unsigned __int16)dword_1C029A22C);
+  v1 = dword_1C025555C;
+  v3 = (unsigned __int16)dword_1C025555C;
+  v4 = CitAllocZero((unsigned __int16)dword_1C025555C);
   if ( v4 )
   {
     v4[1] = v4;
@@ -29,6 +29,6 @@ void __fastcall CitpInteractionSummaryAllocate(struct _CIT_INTERACTION_SUMMARY *
   }
   else
   {
-    CitpLogFailureWorker(-1073741670, 0LL, 0xD0Eu);
+    CitpLogFailureWorker(-1073741670, 0LL, 0xD25u);
   }
 }

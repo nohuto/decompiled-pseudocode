@@ -3,16 +3,16 @@
  * Callers:
  *     IopLiveDumpEstimateMemoryPages @ 0x140578B0C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IoFreeDumpRange @ 0x14027FD30 (IoFreeDumpRange.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140285A78 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x140286010 (IopLiveDumpTraceRemovePagesCallbackFailure.c)
- *     RtlStringCbLengthA @ 0x140286194 (RtlStringCbLengthA.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140292180 (KeValidateBugCheckCallbackRecord.c)
- *     MmIsAddressValid @ 0x1402AB8B0 (MmIsAddressValid.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IoFreeDumpRange @ 0x14027FE30 (IoFreeDumpRange.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140285B78 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x140286110 (IopLiveDumpTraceRemovePagesCallbackFailure.c)
+ *     RtlStringCbLengthA @ 0x140286294 (RtlStringCbLengthA.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140292280 (KeValidateBugCheckCallbackRecord.c)
+ *     MmIsAddressValid @ 0x1402AB9B0 (MmIsAddressValid.c)
  */
 
 char __fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)

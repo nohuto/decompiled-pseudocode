@@ -1,19 +1,19 @@
 /*
- * XREFs of PnprIdentifyUnits @ 0x14096610C
+ * XREFs of PnprIdentifyUnits @ 0x1408AD98C
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
  */
 
-__int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall PnprIdentifyUnits(PDEVICE_OBJECT DeviceObject, PDEVICE_OBJECT a2, _QWORD *a3, __int64 a4)
 {
   int Interface; // ebx
   __int64 v8; // rdx
   __int64 v9; // r8
   int v10; // ecx
-  int v11; // eax
+  int v11; // ecx
   __int64 v12; // rcx
   int v13; // eax
   int v14; // eax
@@ -42,18 +42,18 @@ __int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __i
   {
     v8 = PnprContext;
     v9 = 3LL;
-    v10 = *(_DWORD *)(PnprContext + 33272);
+    v10 = *(_DWORD *)(PnprContext + 20984);
     if ( !v10 )
-      v10 = 1293;
-    v11 = *(_DWORD *)(PnprContext + 33276);
-    *(_DWORD *)(PnprContext + 33272) = v10;
+      v10 = 1300;
+    *(_DWORD *)(PnprContext + 20984) = v10;
+    v11 = *(_DWORD *)(v8 + 20988);
     if ( !v11 )
       v11 = 3;
-    *(_DWORD *)(v8 + 33276) = v11;
+    *(_DWORD *)(v8 + 20988) = v11;
     goto LABEL_28;
   }
   Interface = PnpQueryInterface(
-                Object,
+                DeviceObject,
                 (ULONG_PTR)&GUID_PARTITION_UNIT_INTERFACE_STANDARD,
                 1u,
                 0x38u,
@@ -66,13 +66,13 @@ __int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __i
       Interface = ((__int64 (__fastcall *)(_QWORD, _QWORD *))v25)(*((_QWORD *)&v23 + 1), a3);
       if ( Interface < 0 )
       {
-        v8 = 1325LL;
+        v8 = 1332LL;
         goto LABEL_9;
       }
       Interface = ((__int64 (__fastcall *)(_QWORD, __int64))v21)(*((_QWORD *)&v19 + 1), a4);
       if ( Interface < 0 )
       {
-        v8 = 1333LL;
+        v8 = 1340LL;
         goto LABEL_9;
       }
       if ( v22(*((_QWORD *)&v19 + 1), *a3) )
@@ -81,31 +81,31 @@ __int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __i
         goto LABEL_28;
       }
       v15 = PnprContext;
-      v16 = *(_DWORD *)(PnprContext + 33272);
+      v16 = *(_DWORD *)(PnprContext + 20984);
       if ( !v16 )
-        v16 = 1346;
+        v16 = 1353;
       v8 = 4LL;
-      *(_DWORD *)(PnprContext + 33272) = v16;
-      v17 = *(_DWORD *)(v15 + 33276);
+      *(_DWORD *)(PnprContext + 20984) = v16;
+      v17 = *(_DWORD *)(v15 + 20988);
       if ( !v17 )
         v17 = 4;
-      *(_DWORD *)(v15 + 33276) = v17;
+      *(_DWORD *)(v15 + 20988) = v17;
     }
     Interface = -1073741811;
     goto LABEL_28;
   }
-  v8 = 1305LL;
+  v8 = 1312LL;
 LABEL_9:
   v12 = PnprContext;
   v9 = 3LL;
-  v13 = *(_DWORD *)(PnprContext + 33272);
+  v13 = *(_DWORD *)(PnprContext + 20984);
   if ( !v13 )
     v13 = v8;
-  *(_DWORD *)(PnprContext + 33272) = v13;
-  v14 = *(_DWORD *)(v12 + 33276);
+  *(_DWORD *)(PnprContext + 20984) = v13;
+  v14 = *(_DWORD *)(v12 + 20988);
   if ( !v14 )
     v14 = 3;
-  *(_DWORD *)(v12 + 33276) = v14;
+  *(_DWORD *)(v12 + 20988) = v14;
 LABEL_28:
   if ( *((_QWORD *)&v19 + 1) )
     (*((void (__fastcall **)(_QWORD, __int64, __int64))&v20 + 1))(*((_QWORD *)&v19 + 1), v8, v9);

@@ -1,27 +1,21 @@
 /*
- * XREFs of HvIsCurrentLogSwappable @ 0x1407E66B0
+ * XREFs of HvIsCurrentLogSwappable @ 0x1407248C4
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpGenerateFlushControlData @ 0x140753D7C (CmpGenerateFlushControlData.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpGenerateFlushControlData @ 0x140723504 (CmpGenerateFlushControlData.c)
  * Callees:
- *     <none>
+ *     HvpLogTypeToLogArrayIndex @ 0x140723A2C (HvpLogTypeToLogArrayIndex.c)
  */
 
 bool __fastcall HvIsCurrentLogSwappable(__int64 a1)
 {
-  int v1; // eax
-  __int64 v2; // rax
+  int v1; // edx
+  unsigned int v2; // eax
+  __int64 v3; // r8
 
-  v1 = *(_DWORD *)(a1 + 168);
-  if ( v1 == 4 )
-  {
-    v2 = 193LL;
-    return *(_BYTE *)(v2 + a1) == 0;
-  }
-  if ( v1 == 5 )
-  {
-    v2 = 192LL;
-    return *(_BYTE *)(v2 + a1) == 0;
-  }
-  return 0;
+  v1 = *(_DWORD *)(a1 + 164);
+  if ( (unsigned int)(v1 - 4) > 1 )
+    return 0;
+  v2 = HvpLogTypeToLogArrayIndex(5 - (unsigned int)(v1 != 4));
+  return *(_BYTE *)(v2 + v3 + 188) == 0;
 }

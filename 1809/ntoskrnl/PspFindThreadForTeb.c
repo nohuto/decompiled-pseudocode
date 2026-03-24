@@ -1,11 +1,11 @@
 /*
- * XREFs of PspFindThreadForTeb @ 0x14088AC98
+ * XREFs of PspFindThreadForTeb @ 0x14088AC78
  * Callers:
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDF0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsLookupThreadByThreadId @ 0x1406487C0 (PsLookupThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
  */
 
 PETHREAD __fastcall PspFindThreadForTeb(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIFilterIrpQueryInterface @ 0x1C0086170
+ * XREFs of ACPIFilterIrpQueryInterface @ 0x1C0099170
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
- *     ACPIFilterIrpQueryIommuInterface @ 0x1C0086404 (ACPIFilterIrpQueryIommuInterface.c)
- *     ACPIFilterIrpQueryPnpLocationInterface @ 0x1C008654C (ACPIFilterIrpQueryPnpLocationInterface.c)
- *     AcpiSdevIdentifierInterface @ 0x1C0094D80 (AcpiSdevIdentifierInterface.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIFilterIrpQueryPnpLocationInterface @ 0x1C0098E4C (ACPIFilterIrpQueryPnpLocationInterface.c)
+ *     ACPIFilterIrpQueryIommuInterface @ 0x1C00994CC (ACPIFilterIrpQueryIommuInterface.c)
+ *     AcpiSdevIdentifierInterface @ 0x1C00B5608 (AcpiSdevIdentifierInterface.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryInterface(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -19,11 +19,11 @@ __int64 __fastcall ACPIFilterIrpQueryInterface(PDEVICE_OBJECT DeviceObject, PIRP
   __int64 v6; // r14
   GUID *SecurityContext; // rbx
   __int64 v8; // r9
-  int v10; // ebx
-  unsigned int v11; // ebx
-  _QWORD *v12; // rbp
-  unsigned int v13; // ebx
-  _QWORD *v14; // rbp
+  unsigned int v10; // ebx
+  _QWORD *v11; // rbp
+  unsigned int v12; // ebx
+  _QWORD *v13; // rbp
+  int v14; // ebx
   unsigned int Size; // ebx
   _QWORD *QuadPart; // rbp
 
@@ -41,39 +41,46 @@ __int64 __fastcall ACPIFilterIrpQueryInterface(PDEVICE_OBJECT DeviceObject, PIRP
     memmove(QuadPart, &ACPIInterfaceTable, Size);
     if ( Size > 0x10 )
       QuadPart[1] = DeviceObject;
-    goto LABEL_33;
+    goto LABEL_27;
   }
   if ( SecurityContext == &GUID_ACPI_INTERFACE_STANDARD2
     || RtlCompareMemory(SecurityContext, &GUID_ACPI_INTERFACE_STANDARD2, 0x10uLL) == 16 )
   {
-    v13 = 88;
+    v12 = 88;
     if ( CurrentStackLocation->Parameters.QueryInterface.Size <= 0x58u )
-      v13 = CurrentStackLocation->Parameters.QueryInterface.Size;
-    v14 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
-    memmove(v14, &ACPIInterfaceTable2, v13);
-    if ( v13 > 0x10 )
-      v14[1] = v6;
-LABEL_33:
-    v10 = 0;
-    goto LABEL_34;
+      v12 = CurrentStackLocation->Parameters.QueryInterface.Size;
+    v13 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
+    memmove(v13, &ACPIInterfaceTable2, v12);
+    if ( v12 > 0x10 )
+      v13[1] = v6;
+LABEL_27:
+    v14 = 0;
+LABEL_28:
+    Irp->IoStatus.Status = v14;
+    if ( v14 < 0 )
+    {
+      IofCompleteRequest(Irp, 0);
+      return (unsigned int)v14;
+    }
+    return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
   }
   if ( SecurityContext == &GUID_D3COLD_SUPPORT_INTERFACE
     || RtlCompareMemory(SecurityContext, &GUID_D3COLD_SUPPORT_INTERFACE, 0x10uLL) == 16 )
   {
-    v11 = 72;
+    v10 = 72;
     if ( CurrentStackLocation->Parameters.QueryInterface.Size <= 0x48u )
-      v11 = CurrentStackLocation->Parameters.QueryInterface.Size;
-    v12 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
-    memmove(v12, &D3Interface, v11);
-    if ( v11 > 0x10 )
-      v12[1] = v6;
+      v10 = CurrentStackLocation->Parameters.QueryInterface.Size;
+    v11 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
+    memmove(v11, &D3Interface, v10);
+    if ( v10 > 0x10 )
+      v11[1] = v6;
     Irp->IoStatus.Status = 0;
     return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
   }
   if ( SecurityContext == &GUID_PNP_LOCATION_INTERFACE
     || RtlCompareMemory(SecurityContext, &GUID_PNP_LOCATION_INTERFACE, 0x10uLL) == 16 )
   {
-    return ACPIFilterIrpQueryPnpLocationInterface(DeviceObject, Irp);
+    return ACPIFilterIrpQueryPnpLocationInterface((ULONG_PTR)DeviceObject, Irp);
   }
   if ( SecurityContext == &GUID_DEVICE_RESET_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_DEVICE_RESET_INTERFACE_STANDARD, 0x10uLL) == 16 )
@@ -87,23 +94,18 @@ LABEL_33:
              1,
              1);
   }
-  if ( SecurityContext != &GUID_SDEV_IDENTIFIER_INTERFACE
-    && RtlCompareMemory(SecurityContext, &GUID_SDEV_IDENTIFIER_INTERFACE, 0x10uLL) != 16 )
+  if ( SecurityContext == &GUID_SDEV_IDENTIFIER_INTERFACE
+    || RtlCompareMemory(SecurityContext, &GUID_SDEV_IDENTIFIER_INTERFACE, 0x10uLL) == 16 )
   {
-    if ( SecurityContext == &GUID_IOMMU_BUS_INTERFACE
-      || RtlCompareMemory(SecurityContext, &GUID_IOMMU_BUS_INTERFACE, 0x10uLL) == 16 )
-    {
-      return ACPIFilterIrpQueryIommuInterface(DeviceObject, Irp);
-    }
+    v14 = AcpiSdevIdentifierInterface(DeviceObject, CurrentStackLocation);
+    if ( v14 == -1073741637 )
+      return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
+    goto LABEL_28;
+  }
+  if ( SecurityContext != &GUID_IOMMU_BUS_INTERFACE
+    && RtlCompareMemory(SecurityContext, &GUID_IOMMU_BUS_INTERFACE, 0x10uLL) != 16 )
+  {
     return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
   }
-  v10 = AcpiSdevIdentifierInterface(DeviceObject, CurrentStackLocation);
-  if ( v10 == -1073741637 )
-    return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
-LABEL_34:
-  Irp->IoStatus.Status = v10;
-  if ( v10 >= 0 )
-    return ACPIDispatchForwardIrp((ULONG_PTR)DeviceObject, Irp);
-  IofCompleteRequest(Irp, 0);
-  return (unsigned int)v10;
+  return ACPIFilterIrpQueryIommuInterface(DeviceObject, Irp);
 }

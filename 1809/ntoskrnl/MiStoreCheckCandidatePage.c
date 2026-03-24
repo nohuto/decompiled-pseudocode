@@ -1,7 +1,7 @@
 /*
- * XREFs of MiStoreCheckCandidatePage @ 0x14014D374
+ * XREFs of MiStoreCheckCandidatePage @ 0x14014D394
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)

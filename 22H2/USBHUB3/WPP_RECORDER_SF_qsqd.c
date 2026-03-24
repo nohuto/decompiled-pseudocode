@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsqd @ 0x1C002E26C
+ * XREFs of WPP_RECORDER_SF_qsqd @ 0x1C002B1B4
  * Callers:
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qsqd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -17,12 +17,17 @@ __int64 WPP_RECORDER_SF_qsqd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
   __int64 v13; // [rsp+A8h] [rbp+30h] BYREF
   va_list va; // [rsp+A8h] [rbp+30h]
   const char *v15; // [rsp+B0h] [rbp+38h]
-  va_list va1; // [rsp+B8h] [rbp+40h] BYREF
+  __int64 v16; // [rsp+B8h] [rbp+40h] BYREF
+  va_list va1; // [rsp+B8h] [rbp+40h]
+  va_list va2; // [rsp+C0h] [rbp+48h] BYREF
 
+  va_start(va2, a5);
   va_start(va1, a5);
   va_start(va, a5);
   v13 = va_arg(va1, _QWORD);
   v15 = va_arg(va1, const char *);
+  va_copy(va2, va1);
+  v16 = va_arg(va2, _QWORD);
   v5 = (__int64)v15;
   v6 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
@@ -45,13 +50,17 @@ __int64 WPP_RECORDER_SF_qsqd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+      &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       84LL,
       (__int64 *)va,
       8LL,
       v10,
       v9,
-      va1);
+      (__int64 *)va1,
+      8LL,
+      va2,
+      4LL,
+      0LL);
   }
   if ( v5 )
   {
@@ -60,5 +69,5 @@ __int64 WPP_RECORDER_SF_qsqd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
     while ( *(_BYTE *)(v5 + v6) );
   }
   LOWORD(v12) = 84;
-  return WppAutoLogTrace(a1, 2LL, 2LL, &WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, v12, (__int64 *)va);
+  return WppAutoLogTrace(a1, 2LL, 2LL, &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v12, (__int64 *)va);
 }

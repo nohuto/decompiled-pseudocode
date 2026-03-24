@@ -1,50 +1,39 @@
 /*
- * XREFs of ?RemoveDeviceSyncObjectFromList@DXGDEVICE@@QEAAXPEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C0186074
+ * XREFs of ?RemoveDeviceSyncObjectFromList@DXGDEVICE@@QEAAXPEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C0117B98
  * Callers:
- *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C018692C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
+ *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C011631C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 void __fastcall DXGDEVICE::RemoveDeviceSyncObjectFromList(DXGDEVICE *this, struct DXGDEVICESYNCOBJECT ***a2)
 {
-  struct DXGDEVICESYNCOBJECT **v4; // rax
-  struct DXGDEVICESYNCOBJECT **v5; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGDEVICESYNCOBJECT **v8; // rax
+  struct DXGDEVICESYNCOBJECT **v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  if ( !*((_BYTE *)this + 72)
+  if ( !*((_DWORD *)this + 18)
     && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17))
     && !*((_BYTE *)this + 1905) )
   {
-    WdLogSingleEntry1(1LL, 8151LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"IsDeviceLockExclusiveOwner() || IgnoreDeviceLock()",
-      8151LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v10 + 24) = 8156LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 8152LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      8152LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v11 + 24) = 8157LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v4 = *a2;
-  if ( (*a2)[1] != (struct DXGDEVICESYNCOBJECT *)a2 || (v5 = a2[1], *v5 != (struct DXGDEVICESYNCOBJECT *)a2) )
+  v8 = *a2;
+  if ( (*a2)[1] != (struct DXGDEVICESYNCOBJECT *)a2 || (v9 = a2[1], *v9 != (struct DXGDEVICESYNCOBJECT *)a2) )
     __fastfail(3u);
-  *v5 = (struct DXGDEVICESYNCOBJECT *)v4;
-  v4[1] = (struct DXGDEVICESYNCOBJECT *)v5;
+  *v9 = (struct DXGDEVICESYNCOBJECT *)v8;
+  v8[1] = (struct DXGDEVICESYNCOBJECT *)v9;
 }

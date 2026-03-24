@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRemoveShareAccess @ 0x140AD02B0
+ * XREFs of VerifierIoRemoveShareAccess @ 0x1409D2EC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoRemoveShareAccess()

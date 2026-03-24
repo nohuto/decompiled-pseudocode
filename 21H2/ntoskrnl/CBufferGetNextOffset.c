@@ -1,7 +1,7 @@
 /*
- * XREFs of CBufferGetNextOffset @ 0x140241C0C
+ * XREFs of CBufferGetNextOffset @ 0x140376730
  * Callers:
- *     CreateNewEventEntry @ 0x1402419DC (CreateNewEventEntry.c)
+ *     CreateNewEventEntry @ 0x1403764F8 (CreateNewEventEntry.c)
  * Callees:
  *     <none>
  */

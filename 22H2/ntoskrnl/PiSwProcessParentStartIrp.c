@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwProcessParentStartIrp @ 0x1407E13C8
+ * XREFs of PiSwProcessParentStartIrp @ 0x14076D458
  * Callers:
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1407955BC (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140742F90 (PnpDeviceCompletionProcessCompletedRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IoInvalidateDeviceRelations @ 0x140358990 (IoInvalidateDeviceRelations.c)
- *     PiSwFindChildren @ 0x14079884C (PiSwFindChildren.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IoInvalidateDeviceRelations @ 0x14036F560 (IoInvalidateDeviceRelations.c)
+ *     PiSwFindChildren @ 0x1407434FC (PiSwFindChildren.c)
  */
 
 void __fastcall PiSwProcessParentStartIrp(PDEVICE_OBJECT DeviceObject)
@@ -21,7 +21,7 @@ void __fastcall PiSwProcessParentStartIrp(PDEVICE_OBJECT DeviceObject)
   ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
   Children = PiSwFindChildren();
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( Children )
     IoInvalidateDeviceRelations(DeviceObject, SingleBusRelations);
 }

@@ -1,52 +1,55 @@
 /*
- * XREFs of PfFbBufferListAllocate @ 0x1405C6550
+ * XREFs of PfFbBufferListAllocate @ 0x1403C5024
  * Callers:
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x14035FAE8 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfFbBufferListAllocate(_SLIST_ENTRY *RunRef, signed int a2, unsigned int a3)
 {
   __int64 v3; // rbx
+  __int64 v6; // rbp
+  struct _SLIST_ENTRY *PoolWithTag; // rax
+  struct _SLIST_ENTRY *v8; // rsi
+  char *v9; // r15
+  struct _SLIST_ENTRY *v10; // rbx
   __int64 result; // rax
-  __int64 v7; // rbp
-  __int64 Pool2; // rax
-  struct _SLIST_ENTRY *v9; // rsi
-  unsigned __int64 v10; // r15
-  struct _SLIST_ENTRY *v11; // rbx
 
   v3 = a2;
-  if ( a2 + _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[7], a2) > *((_DWORD *)&RunRef[5].Next + 2) )
+  if ( a2 + _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, a2) > SHIDWORD(RunRef[5].Next) )
   {
     result = 3221225773LL;
-LABEL_5:
-    _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[7], -(int)v3);
+LABEL_9:
+    _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, -(int)v3);
     return result;
   }
-  v7 = ((a2 - 32) / a3) & 0xFFFFFFF0;
-  Pool2 = ExAllocatePool2(*((_QWORD *)&RunRef[4].Next + 1), a2, HIDWORD(RunRef[4].Next));
-  v9 = (struct _SLIST_ENTRY *)Pool2;
-  if ( !Pool2 )
+  v6 = ((a2 - 32) / a3) & 0xFFFFFFF0;
+  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(
+                                         (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
+                                         a2,
+                                         HIDWORD(RunRef[4].Next));
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     result = 3221225626LL;
-    goto LABEL_5;
+    goto LABEL_9;
   }
-  *(_QWORD *)Pool2 = 0LL;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_DWORD *)(Pool2 + 28) = 0;
-  *(_DWORD *)(Pool2 + 16) = a3;
-  v10 = Pool2 + v3;
-  *(_DWORD *)(Pool2 + 24) = v3;
-  v11 = (struct _SLIST_ENTRY *)(Pool2 + 32);
-  *(_DWORD *)(Pool2 + 20) = v7;
-  while ( (unsigned __int64)v11 + v7 <= v10 )
+  PoolWithTag->Next = 0LL;
+  *((_QWORD *)&PoolWithTag->Next + 1) = 0LL;
+  *((_DWORD *)&PoolWithTag[1].Next + 3) = 0;
+  LODWORD(PoolWithTag[1].Next) = a3;
+  v9 = (char *)PoolWithTag + v3;
+  *((_DWORD *)&PoolWithTag[1].Next + 2) = v3;
+  v10 = PoolWithTag + 2;
+  HIDWORD(PoolWithTag[1].Next) = v6;
+  while ( (char *)v10 + v6 <= v9 )
   {
-    PfFbBufferListInsertInFree(RunRef, v11, v7, 0, 0);
-    v11 = (struct _SLIST_ENTRY *)((char *)v11 + (unsigned int)v7);
+    PfFbBufferListInsertInFree(RunRef, v10, v6, 0, 0);
+    v10 = (struct _SLIST_ENTRY *)((char *)v10 + (unsigned int)v6);
   }
-  RtlpInterlockedPushEntrySList((PSLIST_HEADER)&RunRef[3], v9);
+  RtlpInterlockedPushEntrySList((PSLIST_HEADER)&RunRef[3], v8);
   return 0LL;
 }

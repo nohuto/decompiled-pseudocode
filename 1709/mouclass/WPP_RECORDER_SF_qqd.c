@@ -1,1 +1,47 @@
-/*\n * XREFs of WPP_RECORDER_SF_qqd @ 0x1C00055FC\n * Callers:\n *     MouseClassWaitWakeComplete @ 0x1C0003D20 (MouseClassWaitWakeComplete.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)\n */\n\n__int64 WPP_RECORDER_SF_qqd(__int64 a1, unsigned __int8 a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)\n{\n  int v9; // [rsp+20h] [rbp-48h]\n  __int64 v10; // [rsp+98h] [rbp+30h] BYREF\n  va_list va; // [rsp+98h] [rbp+30h]\n  __int64 v12; // [rsp+A0h] [rbp+38h] BYREF\n  va_list va1; // [rsp+A0h] [rbp+38h]\n  va_list va2; // [rsp+A8h] [rbp+40h] BYREF\n\n  va_start(va2, a5);\n  va_start(va1, a5);\n  va_start(va, a5);\n  v10 = va_arg(va1, _QWORD);\n  va_copy(va2, va1);\n  v12 = va_arg(va2, _QWORD);\n  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= a2 )\n    ((void (__fastcall *)(struct _DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(\n      WPP_GLOBAL_Control->AttachedDevice,\n      43LL,\n      &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n      a4,\n      (__int64 *)va,\n      8LL,\n      (__int64 *)va1,\n      8LL,\n      va2,\n      4LL,\n      0LL);\n  LOWORD(v9) = a4;\n  return WppAutoLogTrace(\n           a1,\n           a2,\n           5LL,\n           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n           v9,\n           (__int64 *)va,\n           8LL,\n           (__int64 *)va1);\n}\n
+/*
+ * XREFs of WPP_RECORDER_SF_qqd @ 0x1C00055FC
+ * Callers:
+ *     MouseClassWaitWakeComplete @ 0x1C0003D20 (MouseClassWaitWakeComplete.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 WPP_RECORDER_SF_qqd(__int64 a1, unsigned __int8 a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)
+{
+  int v9; // [rsp+20h] [rbp-48h]
+  __int64 v10; // [rsp+98h] [rbp+30h] BYREF
+  va_list va; // [rsp+98h] [rbp+30h]
+  __int64 v12; // [rsp+A0h] [rbp+38h] BYREF
+  va_list va1; // [rsp+A0h] [rbp+38h]
+  va_list va2; // [rsp+A8h] [rbp+40h] BYREF
+
+  va_start(va2, a5);
+  va_start(va1, a5);
+  va_start(va, a5);
+  v10 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v12 = va_arg(va2, _QWORD);
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= a2 )
+    ((void (__fastcall *)(struct _DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+      a4,
+      (__int64 *)va,
+      8LL,
+      (__int64 *)va1,
+      8LL,
+      va2,
+      4LL,
+      0LL);
+  LOWORD(v9) = a4;
+  return WppAutoLogTrace(
+           a1,
+           a2,
+           5LL,
+           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+           v9,
+           (__int64 *)va,
+           8LL,
+           (__int64 *)va1);
+}

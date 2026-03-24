@@ -1,5 +1,5 @@
 /*
- * XREFs of UserIsConsoleConnection @ 0x1C001F2D0
+ * XREFs of UserIsConsoleConnection @ 0x1C001DC00
  * Callers:
  *     <none>
  * Callees:

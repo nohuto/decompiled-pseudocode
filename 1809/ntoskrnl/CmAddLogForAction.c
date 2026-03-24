@@ -1,26 +1,26 @@
 /*
- * XREFs of CmAddLogForAction @ 0x1406BCEFC
+ * XREFs of CmAddLogForAction @ 0x1406BCEDC
  * Callers:
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF43C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8CC (CmSetLastWriteTimeKey.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
  * Callees:
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
  *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
- *     CmpTransWriteLog @ 0x1406F7EB8 (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x1406F8184 (HvBufferCheckSum.c)
+ *     CmpTransWriteLog @ 0x1406F7E98 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x1406F8164 (HvBufferCheckSum.c)
  */
 
 __int64 __fastcall CmAddLogForAction(__int64 a1, ULONG a2)

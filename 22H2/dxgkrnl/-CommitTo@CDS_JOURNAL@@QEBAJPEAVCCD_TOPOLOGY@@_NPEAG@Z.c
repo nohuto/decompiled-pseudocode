@@ -1,36 +1,44 @@
 /*
- * XREFs of ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C0184568
+ * XREFs of ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C0150174
  * Callers:
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01827B0 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C013F8EC (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
  * Callees:
- *     ?_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z @ 0x1C006B9D8 (-_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z.c)
- *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z @ 0x1C01846DC (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z.c)
- *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C03BF648 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z @ 0x1C000DB0C (-_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z.c)
+ *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z @ 0x1C0148BA4 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z.c)
+ *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C0150028 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
  */
 
 __int64 __fastcall CDS_JOURNAL::CommitTo(CDS_JOURNAL *this, struct CCD_TOPOLOGY *a2, __int64 a3, unsigned __int16 *a4)
 {
   const struct CDS_JOURNAL::_ENTRY **v4; // r14
-  __int64 v9; // rdi
-  const struct CDS_JOURNAL::_ENTRY *i; // r15
-  __int64 v11; // rbx
-  const struct CDS_JOURNAL::_ENTRY *v12; // rcx
-  bool v13; // r8
-  int v14; // eax
+  __int64 v9; // rbp
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  const struct CDS_JOURNAL::_ENTRY *v13; // rdi
+  unsigned __int16 v14; // si
   const struct CDS_JOURNAL::_ENTRY *v15; // rcx
-  bool v16; // r8
-  int v17; // eax
-  __int64 v18; // rax
-  __int16 v19; // r9
-  const struct CDS_JOURNAL::_ENTRY *v20; // r11
-  __int16 v21; // r10
+  const struct CDS_JOURNAL::_ENTRY *i; // rdi
+  const struct CDS_JOURNAL::_ENTRY *v17; // rcx
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  _QWORD *v22; // rax
+  int v23; // eax
+  _QWORD *v24; // rax
+  __int64 v25; // rax
+  __int16 v26; // di
+  const struct CDS_JOURNAL::_ENTRY *v27; // r10
+  __int16 v28; // r9
   bool IsUnextend; // al
-  __int16 v23; // r10
-  const struct CDS_JOURNAL::_ENTRY **v24; // r11
-  __int16 v25; // cx
-  unsigned __int16 v26; // r9
-  __int64 v27; // r8
-  unsigned __int16 v28; // ax
+  int v30; // r9d
+  const struct CDS_JOURNAL::_ENTRY **v31; // r10
+  unsigned __int16 v32; // di
+  _QWORD *v33; // rdx
+  __int64 v34; // rax
+  unsigned __int16 v35; // ax
+  __int64 v36; // rax
 
   v4 = (const struct CDS_JOURNAL::_ENTRY **)((char *)this + 24);
   if ( *v4 == (const struct CDS_JOURNAL::_ENTRY *)v4 )
@@ -38,72 +46,89 @@ __int64 __fastcall CDS_JOURNAL::CommitTo(CDS_JOURNAL *this, struct CCD_TOPOLOGY 
   LODWORD(v9) = -1073741823;
   if ( *(_DWORD *)this == 1 )
   {
-    LODWORD(v9) = CCD_TOPOLOGY::VerifyConnectivityHash(a2, this);
+    LODWORD(v9) = CCD_TOPOLOGY::VerifyConnectivityHash(a2, this, a3);
     if ( (_DWORD)v9 == -1073741266 )
     {
-      WdLogSingleEntry3(3LL, this, a2, *((_QWORD *)a2 + 8));
+      v22 = (_QWORD *)WdLogNewEntry5_WdWarning(v11, v10, v12);
+      v22[3] = this;
+      v22[4] = a2;
+      v22[5] = *((_QWORD *)a2 + 8);
+      WdLogEvent5_WdWarning(v22);
       return 0LL;
     }
   }
-  i = *v4;
-  v11 = 0LL;
-  while ( i != (const struct CDS_JOURNAL::_ENTRY *)v4 )
+  v13 = *v4;
+  v14 = 0;
+  if ( *v4 != (const struct CDS_JOURNAL::_ENTRY *)v4 )
   {
-    if ( CDS_JOURNAL::_IsUnextend(i) )
+    do
     {
-      v14 = CDS_JOURNAL::_CommitEntry(v12, a2, v13);
-      v9 = v14;
-      if ( v14 < 0 )
+      if ( CDS_JOURNAL::_IsUnextend(v13) )
       {
-LABEL_12:
-        WdLogSingleEntry4(2LL, v9, i, a2, *((_QWORD *)a2 + 8));
-        return (unsigned int)v9;
+        v23 = CDS_JOURNAL::_CommitEntry(v15, a2);
+        v9 = v23;
+        if ( v23 < 0 )
+        {
+LABEL_17:
+          v24 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+          v24[3] = v9;
+          v24[4] = v24;
+          v24[5] = a2;
+          v24[6] = *((_QWORD *)a2 + 8);
+          WdLogEvent5_WdError(v24);
+          return (unsigned int)v9;
+        }
       }
+      v13 = *(const struct CDS_JOURNAL::_ENTRY **)v13;
     }
-    i = *(const struct CDS_JOURNAL::_ENTRY **)i;
-  }
-  for ( i = *v4; i != (const struct CDS_JOURNAL::_ENTRY *)v4; i = *(const struct CDS_JOURNAL::_ENTRY **)i )
-  {
-    if ( !CDS_JOURNAL::_IsUnextend(i) )
+    while ( v13 != (const struct CDS_JOURNAL::_ENTRY *)v4 );
+    for ( i = *v4; i != (const struct CDS_JOURNAL::_ENTRY *)v4; i = *(const struct CDS_JOURNAL::_ENTRY **)i )
     {
-      v17 = CDS_JOURNAL::_CommitEntry(v15, a2, v16);
-      v9 = v17;
-      if ( v17 == -1073741789 )
+      if ( !CDS_JOURNAL::_IsUnextend(i) )
       {
-        v18 = *((_QWORD *)a2 + 8);
-        if ( v18 )
-          v19 = *(_WORD *)(v18 + 20);
-        else
-          v19 = 0;
-        v20 = *v4;
-        v21 = 0;
-        while ( v20 != (const struct CDS_JOURNAL::_ENTRY *)v4 )
+        v18 = CDS_JOURNAL::_CommitEntry(v17, a2);
+        v9 = v18;
+        if ( v18 == -1073741789 )
         {
-          IsUnextend = CDS_JOURNAL::_IsUnextend(v20);
-          v20 = *v24;
-          v25 = v23 + 1;
-          if ( IsUnextend )
-            v25 = v23;
-          v21 = v25;
-        }
-        v26 = v21 + v19;
-        if ( a4 )
-          *a4 = v26;
-        v27 = *((_QWORD *)a2 + 8);
-        if ( v27 )
-        {
-          v11 = *(unsigned __int16 *)(v27 + 22);
-          v28 = *(_WORD *)(v27 + 20);
-        }
-        else
-        {
+          v25 = *((_QWORD *)a2 + 8);
+          if ( v25 )
+            v26 = *(_WORD *)(v25 + 20);
+          else
+            v26 = 0;
+          v27 = *v4;
           v28 = 0;
+          while ( v27 != (const struct CDS_JOURNAL::_ENTRY *)v4 )
+          {
+            IsUnextend = CDS_JOURNAL::_IsUnextend(v27);
+            v27 = *v31;
+            v20 = (unsigned int)(v30 + 1);
+            if ( IsUnextend )
+              LOWORD(v20) = v30;
+            v28 = v20;
+          }
+          v32 = v28 + v26;
+          if ( a4 )
+            *a4 = v32;
+          v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v20, v19, v21);
+          v33[3] = a2;
+          v33[4] = *((_QWORD *)a2 + 8);
+          v34 = *((_QWORD *)a2 + 8);
+          if ( v34 )
+            v35 = *(_WORD *)(v34 + 20);
+          else
+            v35 = 0;
+          v33[5] = v35;
+          v36 = *((_QWORD *)a2 + 8);
+          if ( v36 )
+            v14 = *(_WORD *)(v36 + 22);
+          v33[6] = v14;
+          v33[7] = v32;
+          WdLogEvent5_WdWarning(v33);
+          return 3221225507LL;
         }
-        WdLogSingleEntry5(3LL, a2, v27, v28, v11, v26);
-        return 3221225507LL;
+        if ( v18 < 0 )
+          goto LABEL_17;
       }
-      if ( v17 < 0 )
-        goto LABEL_12;
     }
   }
   return (unsigned int)v9;

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C00E2A92
+ * XREFs of ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C0177D3C
  * Callers:
- *     rimSimulatedPointerDeviceScanTime @ 0x1C00E3334 (rimSimulatedPointerDeviceScanTime.c)
- *     rimExtractScantime @ 0x1C01A9EA8 (rimExtractScantime.c)
+ *     rimExtractScantime @ 0x1C017AE8C (rimExtractScantime.c)
+ *     rimSimulatedPointerDeviceScanTime @ 0x1C017CE3C (rimSimulatedPointerDeviceScanTime.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$07@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3333333333AEBU?$_tlgWrapperByVal@$07@@4@Z @ 0x1C01A50B8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U-$_tlgWrapperByVal@$07@@U2@@-$_.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$07@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3333333333AEBU?$_tlgWrapperByVal@$07@@4@Z @ 0x1C0176334 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U-$_tlgWrapperByVal@$07@@U2@@-$_.c)
  */
 
 void __fastcall InputTraceLogging::RIM::UpdateScantime(const struct tagHPD_FRAME_SCAN_TIME *a1)
 {
-  int v1; // r8d
-  int *v2; // r9
+  __int64 v1; // r8
+  __int64 v2; // r9
   int v3; // r10d
   char v4; // cf
   int v5; // [rsp+90h] [rbp+17h] BYREF
@@ -28,27 +28,27 @@ void __fastcall InputTraceLogging::RIM::UpdateScantime(const struct tagHPD_FRAME
   __int64 v16; // [rsp+C0h] [rbp+47h] BYREF
   int v17; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  if ( (unsigned int)dword_1C0289810 > 5 && tlgKeywordOn((__int64)&dword_1C0289810, 256LL) )
+  if ( (unsigned int)dword_1C024AA90 > 5 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
   {
-    v15 = *((_QWORD *)v2 + 5);
-    v16 = *((_QWORD *)v2 + 4);
-    v17 = v2[7];
-    v5 = v2[6];
-    v6 = v2[5];
-    v7 = v2[4];
-    v8 = v2[3];
-    v9 = v2[2];
-    v10 = v2[1];
-    v11 = *v2;
-    v4 = v2[12] & 1;
+    v15 = *(_QWORD *)(v2 + 40);
+    v16 = *(_QWORD *)(v2 + 32);
+    v17 = *(_DWORD *)(v2 + 28);
+    v5 = *(_DWORD *)(v2 + 24);
+    v6 = *(_DWORD *)(v2 + 20);
+    v7 = *(_DWORD *)(v2 + 16);
+    v8 = *(_DWORD *)(v2 + 12);
+    v9 = *(_DWORD *)(v2 + 8);
+    v10 = *(_DWORD *)(v2 + 4);
+    v11 = *(_DWORD *)v2;
+    v4 = *(_DWORD *)(v2 + 48) & 1;
     v13 = v1;
     v14 = v3;
     v12 = -v4;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-      (unsigned int)&dword_1C0289810,
-      (unsigned int)&unk_1C025A279,
+      (__int64)&dword_1C024AA90,
+      byte_1C021C18A,
       v1,
-      (_DWORD)v2,
+      v2,
       (__int64)&v14,
       (__int64)&v13,
       (__int64)&v12,

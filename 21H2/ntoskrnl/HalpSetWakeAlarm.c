@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSetWakeAlarm @ 0x140396AF4
+ * XREFs of HalpSetWakeAlarm @ 0x1404C1D04
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051F6C4 (HalpCheckWakeupTimeAndAdjust.c)
- *     HaliSetWakeAlarm @ 0x140A523B0 (HaliSetWakeAlarm.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1404D2888 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HaliSetWakeAlarm @ 0x1409987D0 (HaliSetWakeAlarm.c)
  * Callees:
- *     HalpAcquireCmosSpinLockAndWait @ 0x14022D9C0 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x1402B60FC (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)
@@ -13,8 +13,8 @@ __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)
   unsigned int v4; // ecx
   unsigned int v5; // ecx
   unsigned int v6; // ecx
-  unsigned __int8 v7; // al
-  unsigned int v9; // ecx
+  unsigned int v7; // ecx
+  unsigned __int8 v8; // al
 
   HalpAcquireCmosSpinLockAndWait();
   v3 = a2[10];
@@ -26,22 +26,22 @@ __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)
   v5 = a2[6];
   __outbyte(0x70u, 5u);
   __outbyte(0x71u, v5 % 0xA + 16 * (v5 / 0xA));
-  if ( (unsigned __int8)byte_140C4C08A > 9u )
+  if ( (unsigned __int8)byte_140C4A04A > 9u )
   {
     v6 = a2[4];
-    __outbyte(0x70u, byte_140C4C08A);
+    __outbyte(0x70u, byte_140C4A04A);
     __outbyte(0x71u, v6 % 0xA + 16 * (v6 / 0xA));
-    if ( (unsigned __int8)byte_140C4C08B > 9u )
+    if ( (unsigned __int8)byte_140C4A04B > 9u )
     {
-      v9 = a2[2];
-      __outbyte(0x70u, byte_140C4C08B);
-      __outbyte(0x71u, v9 % 0xA + 16 * (v9 / 0xA));
+      v7 = a2[2];
+      __outbyte(0x70u, byte_140C4A04B);
+      __outbyte(0x71u, v7 % 0xA + 16 * (v7 / 0xA));
     }
   }
   __outbyte(0x70u, 0xBu);
-  v7 = __inbyte(0x71u);
+  v8 = __inbyte(0x71u);
   __outbyte(0x70u, 0xBu);
-  __outbyte(0x71u, v7 & 0x41 | 0x22);
+  __outbyte(0x71u, v8 & 0x41 | 0x22);
   __outbyte(0x70u, 0xCu);
   __inbyte(0x71u);
   __outbyte(0x70u, 0xDu);

@@ -2,21 +2,21 @@
  * XREFs of MiFreeVadRange @ 0x140025674
  * Callers:
  *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0BB0 (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x1406E0D38 (MmStoreFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x1406E0D18 (MmStoreFreeVirtualMemory.c)
  * Callees:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiCanDeleteEnclave @ 0x1402BCD14 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1402BCE14 (MiCanDeleteEnclave.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiPrepareVadDelete @ 0x1405DF2B8 (MiPrepareVadDelete.c)
- *     MiAllocateVad @ 0x14067A2E4 (MiAllocateVad.c)
- *     MiLockNestedVad @ 0x14085EA00 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x14085EA1C (MiUnlockNestedVad.c)
- *     PerfInfoLogVirtualFree @ 0x1408B91B0 (PerfInfoLogVirtualFree.c)
+ *     MiAllocateVad @ 0x14067A2C4 (MiAllocateVad.c)
+ *     MiLockNestedVad @ 0x14085E9E0 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x14085E9FC (MiUnlockNestedVad.c)
+ *     PerfInfoLogVirtualFree @ 0x1408B9190 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MiFreeVadRange(ULONG_PTR BugCheckParameter3, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)

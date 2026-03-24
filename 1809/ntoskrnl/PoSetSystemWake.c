@@ -1,5 +1,5 @@
 /*
- * XREFs of PoSetSystemWake @ 0x1402D3690
+ * XREFs of PoSetSystemWake @ 0x1402D3790
  * Callers:
  *     <none>
  * Callees:

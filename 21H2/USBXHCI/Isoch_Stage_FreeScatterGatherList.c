@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_Stage_FreeScatterGatherList @ 0x1C0042EC8
+ * XREFs of Isoch_Stage_FreeScatterGatherList @ 0x1C00424A8
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_Stage_MapIntoRing @ 0x1C00090A0 (Isoch_Stage_MapIntoRing.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0041D04 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_CompleteTransfers @ 0x1C0041F9C (Isoch_CompleteTransfers.c)
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     TR_SendCompleteStageRequest @ 0x1C003FE60 (TR_SendCompleteStageRequest.c)
- *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004FF90 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_SendCompleteStageRequest @ 0x1C003F64C (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004F3D0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
  */
 
 void __fastcall Isoch_Stage_FreeScatterGatherList(__int64 a1, __int64 a2)

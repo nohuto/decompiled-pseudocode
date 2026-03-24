@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpGetOwnerHeap @ 0x140366CB0
+ * XREFs of RtlpHpGetOwnerHeap @ 0x1402FACE4
  * Callers:
- *     ExGetHeapFromVA @ 0x140366C48 (ExGetHeapFromVA.c)
+ *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14022FB20 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpQueryVA @ 0x140362864 (RtlpHpQueryVA.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
  */
 
-unsigned __int64 __fastcall RtlpHpGetOwnerHeap(__int64 a1, __int128 *a2)
+__int64 __fastcall RtlpHpGetOwnerHeap(__int64 a1, __int128 *a2)
 {
   int v4; // eax
-  _QWORD *HeapManager; // rax
-  __int64 v6; // rax
+  __int64 HeapManager; // rax
+  __int64 v7; // rax
   __int128 v8; // xmm0
   __int128 v9; // [rsp+20h] [rbp-18h] BYREF
   int v10; // [rsp+40h] [rbp+8h] BYREF
@@ -22,23 +22,28 @@ unsigned __int64 __fastcall RtlpHpGetOwnerHeap(__int64 a1, __int128 *a2)
   if ( (_WORD)a1 )
   {
     v4 = 0;
-LABEL_5:
+  }
+  else
+  {
+    v9 = *a2;
+    HeapManager = RtlpHpEnvGetHeapManager(&v9, a2);
+    v7 = RtlCSparseBitmapBitmaskRead(
+           HeapManager + 16,
+           2 * ((unsigned __int64)(a1 - *(_QWORD *)(HeapManager + 8)) >> 20));
+    if ( !v7 )
+      goto LABEL_7;
+    v4 = v7 - 1;
+  }
+  if ( v4 != 2 )
+  {
     v10 = 0x100000;
     v11 = 0x1000000;
     return (a1 & -(__int64)(unsigned int)*(&v10 + v4) ^ RtlpHpHeapGlobals ^ *(_QWORD *)((a1 & -(__int64)(unsigned int)*(&v10 + v4))
                                                                                       + 0x10) ^ 0xA2E64EADA2E64EADuLL)
          - 192LL * v4
-         - 320;
+         - 256;
   }
-  v9 = *a2;
-  HeapManager = RtlpHpEnvGetHeapManager(&v9);
-  v6 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((unsigned __int64)(a1 - HeapManager[1]) >> 20));
-  if ( v6 )
-  {
-    v4 = v6 - 1;
-    if ( v4 != 2 )
-      goto LABEL_5;
-  }
+LABEL_7:
   v8 = *a2;
   v12 = 0LL;
   v9 = v8;

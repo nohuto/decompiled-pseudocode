@@ -1,19 +1,19 @@
 /*
- * XREFs of KGetUnlockSetting @ 0x1407E24A4
+ * XREFs of KGetUnlockSetting @ 0x14069AD58
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1407E237C (KIsUnlockSettingEnabled.c)
- *     KIsSideloadingEnabled @ 0x140A0A4A0 (KIsSideloadingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x14069AC48 (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x14095EFF4 (KIsSideloadingEnabled.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 __int64 __fastcall KGetUnlockSetting(UNICODE_STRING *a1, UNICODE_STRING *a2, _DWORD *a3)
 {
   NTSTATUS v5; // ebx
-  bool v7; // cl
+  bool v6; // cl
   ULONG ResultLength; // [rsp+30h] [rbp-19h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-9h] BYREF
@@ -36,10 +36,10 @@ __int64 __fastcall KGetUnlockSetting(UNICODE_STRING *a1, UNICODE_STRING *a2, _DW
     v5 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, KeyValueInformation, 0x18u, &ResultLength);
     if ( v5 >= 0 )
     {
-      v7 = 1;
+      v6 = 1;
       if ( (unsigned int)v14 > 1 )
-        v7 = (_DWORD)v14 == 0xFFFF;
-      if ( v12 == 4 && v13 >= 4 && v7 )
+        v6 = (_DWORD)v14 == 0xFFFF;
+      if ( v12 == 4 && v13 >= 4 && v6 )
         *a3 = v14;
       else
         *a3 = 0xFFFF;

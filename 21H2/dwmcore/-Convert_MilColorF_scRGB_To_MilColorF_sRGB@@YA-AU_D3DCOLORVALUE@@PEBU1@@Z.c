@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA?AU_D3DCOLORVALUE@@PEBU1@@Z @ 0x18005BCC8
+ * XREFs of ?Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA?AU_D3DCOLORVALUE@@PEBU1@@Z @ 0x1800CC204
  * Callers:
- *     ?DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x18005BB20 (-DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUM.c)
- *     ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x1802A8950 (-InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z.c)
+ *     ?DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800CC040 (-DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEB.c)
+ *     ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x180267EA4 (-InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z.c)
  * Callees:
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800E1DE8 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1948 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
  */
 
 struct _D3DCOLORVALUE *__fastcall Convert_MilColorF_scRGB_To_MilColorF_sRGB(

@@ -1,79 +1,60 @@
 /*
- * XREFs of DxgkWriteUserModeDiagEntry @ 0x1C02D662C
+ * XREFs of DxgkWriteUserModeDiagEntry @ 0x1C022770C
  * Callers:
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
  * Callees:
- *     ?WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0003000 (-WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000BBB4 (-WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
  */
 
-__int64 __fastcall DxgkWriteUserModeDiagEntry(struct _DXGK_DIAG_HEADER *a1)
+__int64 __fastcall DxgkWriteUserModeDiagEntry(struct _DXGK_DIAG_HEADER *a1, __int64 a2)
 {
-  unsigned int v1; // eax
-  __int64 v4; // rcx
-  struct DXGGLOBAL *Global; // rbp
+  __int64 v3; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct DXGGLOBAL *Global; // rdi
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
   __int64 CurrentProcess; // rax
-  __int128 v7; // xmm0
-  __int64 v8; // rcx
-  __int64 v9; // rbx
-  DXGDIAGNOSTICS *v10; // rcx
+  __int128 v12; // xmm0
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  DXGFASTMUTEX **v16; // rcx
+  __int64 v17; // [rsp+30h] [rbp+8h]
 
-  v1 = *((_DWORD *)a1 + 1);
-  if ( v1 >= 0x400 )
+  if ( *((_DWORD *)a1 + 1) >= 0x400u )
   {
-    WdLogSingleEntry2(2LL, v1, 1024LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"User mode packet size of 0x%I64x is bigger than max allowed (0x%I64x)",
-      *((unsigned int *)a1 + 1),
-      1024LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v3 + 24) = *((unsigned int *)a1 + 1);
+    *(_QWORD *)(v3 + 32) = 1024LL;
+    WdLogEvent5_WdError(v3);
     return 3221225485LL;
   }
-  Global = DXGGLOBAL::GetGlobal();
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
   if ( !Global )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Unable to obtain DXGGLOBAL singleton; pKmHeader = 0x%I64x",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v6, v5);
+LABEL_5:
+    *(_QWORD *)(v10 + 24) = a1;
+    WdLogEvent5_WdError(v10);
     return 3221225860LL;
   }
-  CurrentProcess = PsGetCurrentProcess(v4);
-  v7 = *(_OWORD *)PsGetProcessImageFileName(CurrentProcess);
+  CurrentProcess = PsGetCurrentProcess(v6, v5, v8, v9);
+  v12 = *(_OWORD *)PsGetProcessImageFileName(CurrentProcess);
   *((_DWORD *)a1 + 9) &= ~0x80000000;
-  *((_OWORD *)a1 + 1) = v7;
-  *((_DWORD *)a1 + 9) ^= (*((_DWORD *)a1 + 9) ^ PsGetCurrentProcessSessionId(v8)) & 0x7FFFFFFF;
+  *((_OWORD *)a1 + 1) = v12;
+  *((_DWORD *)a1 + 9) ^= (PsGetCurrentProcessSessionId(v14, v13) ^ *((_DWORD *)a1 + 9)) & 0x7FFFFFFF;
   *((_DWORD *)a1 + 8) = (unsigned int)PsGetCurrentThreadId();
-  v9 = MEMORY[0xFFFFF78000000320];
-  *((_QWORD *)a1 + 1) = v9 * KeQueryTimeIncrement();
-  v10 = (DXGDIAGNOSTICS *)*((_QWORD *)Global + 117);
-  if ( !v10 )
+  v17 = MEMORY[0xFFFFF78000000320];
+  *((_QWORD *)a1 + 1) = v17 * KeQueryTimeIncrement();
+  v16 = (DXGFASTMUTEX **)*((_QWORD *)Global + 101);
+  if ( !v16 )
   {
-    WdLogSingleEntry2(2LL, a1, Global);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Unable to obtain DXGGLOBAL Diagnosibility buffer; i_pHeader = 0x%I64x, DXGGLOBAL::m_pDxgGlobal = 0x%I64x",
-      (__int64)a1,
-      (__int64)Global,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225860LL;
+    v10 = WdLogNewEntry5_WdError(0LL, v15);
+    *(_QWORD *)(v10 + 32) = Global;
+    goto LABEL_5;
   }
-  return DXGDIAGNOSTICS::WriteDiagnosticEntry(v10, a1);
+  return DXGDIAGNOSTICS::WriteDiagnosticEntry(v16, a1);
 }

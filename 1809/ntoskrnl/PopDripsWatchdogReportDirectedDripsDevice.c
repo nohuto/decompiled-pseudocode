@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDripsWatchdogReportDirectedDripsDevice @ 0x14087975C
+ * XREFs of PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C
  * Callers:
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6A10 (PopDoesFxDeviceSupportDirectedTransition.c)
- *     PopReportDirectedDripsCandidateDevice @ 0x140868950 (PopReportDirectedDripsCandidateDevice.c)
- *     PopReportDirectedDripsCandidateChildren @ 0x14087CEA4 (PopReportDirectedDripsCandidateChildren.c)
+ *     PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6B10 (PopDoesFxDeviceSupportDirectedTransition.c)
+ *     PopReportDirectedDripsCandidateDevice @ 0x140868930 (PopReportDirectedDripsCandidateDevice.c)
+ *     PopReportDirectedDripsCandidateChildren @ 0x14087CE84 (PopReportDirectedDripsCandidateChildren.c)
  */
 
 void __fastcall PopDripsWatchdogReportDirectedDripsDevice(__int64 a1, __int16 a2, unsigned int a3)

@@ -1,16 +1,17 @@
 /*
- * XREFs of ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00AB228
+ * XREFs of ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E0F70
  * Callers:
- *     GetWindowFrameMetricForDpi @ 0x1C00AB1E4 (GetWindowFrameMetricForDpi.c)
+ *     GetWindowFrameMetricForDpi @ 0x1C00E0B68 (GetWindowFrameMetricForDpi.c)
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00E0E94 (GetWindowBordersForDpiWithCompatFlags2.c)
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00EDB50 (GetDpiCacheSlot.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01BF620 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiCacheSlot @ 0x1C006148C (GetDpiCacheSlot.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA020 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
-__int64 __fastcall GetWindowFrameMetricForDpiWithCompatFlags2(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall GetWindowFrameMetricForDpiWithCompatFlags2(__int64 a1, int a2, int a3)
 {
-  unsigned int v4; // r10d
+  unsigned int v4; // r11d
 
   if ( (a3 & 0x10000000) != 0 || (a3 & 0x20000000) != 0 )
     return 0LL;

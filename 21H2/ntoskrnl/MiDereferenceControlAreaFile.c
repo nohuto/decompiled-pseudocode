@@ -1,30 +1,39 @@
 /*
- * XREFs of MiDereferenceControlAreaFile @ 0x140280D08
+ * XREFs of MiDereferenceControlAreaFile @ 0x1403571E4
  * Callers:
- *     MmCreateSpecialImageSection @ 0x14066D4BC (MmCreateSpecialImageSection.c)
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
- *     MiMapImageInSystemSpace @ 0x1406F3884 (MiMapImageInSystemSpace.c)
- *     MiAllowImageMap @ 0x1406F884C (MiAllowImageMap.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MiUnmapVad @ 0x1406F9060 (MiUnmapVad.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
- *     MiParseImageLoadConfig @ 0x140706ABC (MiParseImageLoadConfig.c)
- *     MiLogRelocationFaults @ 0x140707460 (MiLogRelocationFaults.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
- *     MiParseComAndCetHeaders @ 0x1407E4D40 (MiParseComAndCetHeaders.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
- *     NtAreMappedFilesTheSame @ 0x1407FAEE0 (NtAreMappedFilesTheSame.c)
- *     MmSectionToSectionObjectPointers @ 0x140881BB6 (MmSectionToSectionObjectPointers.c)
- *     MmGetFileNameForSection @ 0x14096B158 (MmGetFileNameForSection.c)
- *     MiFillMapFileInfo @ 0x14096CB14 (MiFillMapFileInfo.c)
- *     MiLoadUserSymbols @ 0x14096CCF8 (MiLoadUserSymbols.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
- *     MmIsFileMapped @ 0x1409780D4 (MmIsFileMapped.c)
- *     MiMapImageForEnclaveUse @ 0x14097A9C4 (MiMapImageForEnclaveUse.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
+ *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
+ *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCachePteValid @ 0x14035E91C (MiMakeSystemCachePteValid.c)
+ *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
+ *     MiDeprioritizeVad @ 0x140381E94 (MiDeprioritizeVad.c)
+ *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
+ *     MiSetPagesModified @ 0x1405350B0 (MiSetPagesModified.c)
+ *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
+ *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     MiUnmapVad @ 0x14061E420 (MiUnmapVad.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     NtAreMappedFilesTheSame @ 0x1406BD520 (NtAreMappedFilesTheSame.c)
+ *     MiParseComAndCetHeaders @ 0x1406D27F4 (MiParseComAndCetHeaders.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiLogRelocationFaults @ 0x14071384C (MiLogRelocationFaults.c)
+ *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
+ *     MiLoadUserSymbols @ 0x1407D0E0C (MiLoadUserSymbols.c)
+ *     MmGetFileNameForSection @ 0x1408C415C (MmGetFileNameForSection.c)
+ *     MiFillMapFileInfo @ 0x1408C456C (MiFillMapFileInfo.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MmIsFileMapped @ 0x1408D1020 (MmIsFileMapped.c)
+ *     MmSectionToSectionObjectPointers @ 0x1408D11B0 (MmSectionToSectionObjectPointers.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
  * Callees:
- *     ObpTraceObjectDereferenceIfActive @ 0x140347B50 (ObpTraceObjectDereferenceIfActive.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
  */
 
 void __fastcall MiDereferenceControlAreaFile(__int64 a1, unsigned __int64 a2)
@@ -37,7 +46,7 @@ void __fastcall MiDereferenceControlAreaFile(__int64 a1, unsigned __int64 a2)
   if ( (a2 ^ v2) >= 0xF )
   {
 LABEL_4:
-    ObDereferenceObjectDeferDeleteWithTag((PVOID)a2, 0x63536D4Du);
+    ObDereferenceObjectDeferDelete((PVOID)a2);
   }
   else
   {
@@ -50,6 +59,5 @@ LABEL_4:
       if ( (a2 ^ v2) >= 0xF )
         goto LABEL_4;
     }
-    ObpTraceObjectDereferenceIfActive(a2 - 48, 1LL);
   }
 }

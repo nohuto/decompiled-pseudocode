@@ -1,9 +1,9 @@
 /*
- * XREFs of SepIsSidEqual @ 0x1409D1308
+ * XREFs of SepIsSidEqual @ 0x140924DA4
  * Callers:
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC7B0 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x14067BC20 (SeSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
  */
 
 char __fastcall SepIsSidEqual(void *a1, void *a2)

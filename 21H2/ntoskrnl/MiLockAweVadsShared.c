@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockAweVadsShared @ 0x1405AB9F0
+ * XREFs of MiLockAweVadsShared @ 0x14054D038
  * Callers:
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     NtMapUserPhysicalPages @ 0x14097DFA0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14097E270 (NtMapUserPhysicalPagesScatter.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6CE0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D6FA0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockShared @ 0x14029EDB0 (ExAcquireAutoExpandPushLockShared.c)
- *     MiUnlockAweVadsShared @ 0x1405AC910 (MiUnlockAweVadsShared.c)
- *     MiCopyOnWriteCheckConditions @ 0x1405BCAF8 (MiCopyOnWriteCheckConditions.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x14028F230 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiUnlockAweVadsShared @ 0x14054DFCC (MiUnlockAweVadsShared.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
  */
 
 ULONG_PTR __fastcall MiLockAweVadsShared(__int64 a1)
@@ -21,7 +21,7 @@ ULONG_PTR __fastcall MiLockAweVadsShared(__int64 a1)
   while ( 1 )
   {
     --*(_WORD *)(a1 + 486);
-    result = ExAcquireAutoExpandPushLockShared(v3 + 392, 0LL);
+    result = ExAcquireAutoExpandPushLockShared(v3 + 408, 0LL);
     if ( !*(_QWORD *)(v1 + 1248) )
       break;
     MiUnlockAweVadsShared(a1, result);

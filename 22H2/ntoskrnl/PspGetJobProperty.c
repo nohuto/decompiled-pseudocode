@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetJobProperty @ 0x1403325E4
+ * XREFs of PspGetJobProperty @ 0x1402F0084
  * Callers:
- *     PsGetJobProperty @ 0x140332580 (PsGetJobProperty.c)
+ *     PsGetJobProperty @ 0x1402F0020 (PsGetJobProperty.c)
  * Callees:
- *     PspGetProperty @ 0x14033264C (PspGetProperty.c)
+ *     PspGetProperty @ 0x1402F00EC (PspGetProperty.c)
  */
 
 __int64 __fastcall PspGetJobProperty(__int64 a1, __int64 a2, _QWORD *a3)
@@ -19,10 +19,10 @@ __int64 __fastcall PspGetJobProperty(__int64 a1, __int64 a2, _QWORD *a3)
   {
     while ( 1 )
     {
-      Property = PspGetProperty(a1 + 1496, a2, &v8);
+      Property = PspGetProperty(a1 + 1280, a2, &v8);
       if ( Property >= 0 )
         break;
-      a1 = *(_QWORD *)(a1 + 1288);
+      a1 = *(_QWORD *)(a1 + 1072);
       if ( !a1 )
         return (unsigned int)Property;
       a2 = v7;

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPepTryPowerDownComponent @ 0x140310798
+ * XREFs of PopPepTryPowerDownComponent @ 0x140261D58
  * Callers:
- *     PopPepCompleteComponentActiveActivity @ 0x1403106E0 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x14035D810 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x140261CE0 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0020 (PopPepCompleteComponentIdleStateChangeActivity.c)
  * Callees:
  *     <none>
  */

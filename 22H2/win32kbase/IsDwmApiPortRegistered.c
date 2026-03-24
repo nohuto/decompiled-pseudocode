@@ -1,5 +1,5 @@
 /*
- * XREFs of IsDwmApiPortRegistered @ 0x1C00C5000
+ * XREFs of IsDwmApiPortRegistered @ 0x1C00B8320
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 IsDwmApiPortRegistered()
 {
-  return WPP_MAIN_CB.Queue.Wcb.DeviceContext != 0LL;
+  return g_pDwmApiPort != 0LL;
 }

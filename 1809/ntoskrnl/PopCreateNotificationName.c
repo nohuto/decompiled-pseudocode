@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCreateNotificationName @ 0x1406CE5C0
+ * XREFs of PopCreateNotificationName @ 0x1406CE5A0
  * Callers:
  *     PopGetSettingNotificationName @ 0x14058E66C (PopGetSettingNotificationName.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE00 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1401B9A30 (ZwCreateWnfStateName.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1401B9A50 (ZwCreateWnfStateName.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
  */
 
 NTSTATUS __fastcall PopCreateNotificationName(__int64 a1)

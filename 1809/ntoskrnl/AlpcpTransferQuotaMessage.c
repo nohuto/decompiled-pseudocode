@@ -5,7 +5,7 @@
  *     AlpcpCancelMessagesByRequestor @ 0x140619A3C (AlpcpCancelMessagesByRequestor.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsTransferProcessQuotaToSharedQuota @ 0x140159950 (PsTransferProcessQuotaToSharedQuota.c)
+ *     PsTransferProcessQuotaToSharedQuota @ 0x140159970 (PsTransferProcessQuotaToSharedQuota.c)
  */
 
 void __fastcall AlpcpTransferQuotaMessage(__int64 a1)

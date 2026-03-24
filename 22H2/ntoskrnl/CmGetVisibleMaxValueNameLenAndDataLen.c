@@ -1,13 +1,10 @@
 /*
- * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x1406D52DC
+ * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x1406E37C8
  * Callers:
- *     CmpQueryKeyDataFromCache @ 0x1406D5060 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1406DAB00 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x1406E354C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406E3910 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(
@@ -19,31 +16,24 @@ __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(
 {
   unsigned int *v5; // rdi
   __int64 v9; // rax
-  ULONG_PTR v10; // rcx
-  __int64 CellFlat; // rax
-  __int64 v12; // r15
-  __int64 v13; // r14
-  ULONG_PTR v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r8
-  unsigned __int16 v17; // cx
-  unsigned int v18; // eax
-  unsigned int v19; // ecx
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  int v23; // [rsp+58h] [rbp+38h] BYREF
-  int v24; // [rsp+5Ch] [rbp+3Ch]
-  int v25; // [rsp+68h] [rbp+48h] BYREF
-  int v26; // [rsp+6Ch] [rbp+4Ch]
+  __int64 v10; // r14
+  __int64 v11; // rbp
+  __int64 v12; // rax
+  unsigned __int16 v13; // dx
+  unsigned int v14; // eax
+  unsigned int v15; // ecx
+  int v16; // [rsp+48h] [rbp+10h] BYREF
+  int v17; // [rsp+4Ch] [rbp+14h]
+  int v18; // [rsp+58h] [rbp+20h] BYREF
+  int v19; // [rsp+5Ch] [rbp+24h]
 
   v5 = a5;
   *a4 = 0;
-  v24 = 0;
-  v23 = -1;
+  v17 = 0;
+  v16 = -1;
   *v5 = 0;
-  v25 = -1;
-  v26 = 0;
+  v18 = -1;
+  v19 = 0;
   if ( a2 )
   {
     *a4 = *(_DWORD *)(a2 + 60);
@@ -64,59 +54,44 @@ __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(
   *v5 = 0;
   if ( !*(_DWORD *)(a1 + 280) )
     return 0LL;
-  v10 = *(_QWORD *)(a1 + 32);
-  if ( (*(_BYTE *)(v10 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(v10, *(unsigned int *)(a1 + 284));
-  else
-    CellFlat = HvpGetCellPaged(v10);
-  v12 = CellFlat;
-  if ( CellFlat )
+  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *))(*(_QWORD *)(a1 + 32) + 8LL))(
+          *(_QWORD *)(a1 + 32),
+          *(unsigned int *)(a1 + 284),
+          &v16);
+  if ( v10 )
   {
-    v13 = 0LL;
+    v11 = 0LL;
     if ( *(_DWORD *)(a1 + 280) )
     {
       while ( 1 )
       {
-        v14 = *(_QWORD *)(a1 + 32);
-        v15 = (*(_BYTE *)(v14 + 140) & 1) != 0
-            ? HvpGetCellFlat(v14, *(unsigned int *)(v12 + 4 * v13))
-            : HvpGetCellPaged(v14);
-        v16 = v15;
-        if ( !v15 )
+        v12 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *))(*(_QWORD *)(a1 + 32) + 8LL))(
+                *(_QWORD *)(a1 + 32),
+                *(unsigned int *)(v10 + 4 * v11),
+                &v18);
+        if ( !v12 )
           break;
-        v17 = 2 * *(_WORD *)(v15 + 2);
-        if ( (*(_BYTE *)(v15 + 16) & 1) == 0 )
-          v17 = *(_WORD *)(v15 + 2);
-        if ( *a4 < (unsigned int)v17 )
-          *a4 = v17;
-        v18 = *(_DWORD *)(v15 + 4);
-        v19 = v18 + 0x80000000;
-        if ( v18 < 0x80000000 )
-          v19 = *(_DWORD *)(v16 + 4);
-        if ( *v5 < v19 )
-          *v5 = v19;
-        v20 = *(_QWORD *)(a1 + 32);
-        if ( (*(_BYTE *)(v20 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(v20, &v25);
-        else
-          HvpReleaseCellPaged(v20, &v25);
-        v13 = (unsigned int)(v13 + 1);
-        if ( (unsigned int)v13 >= *(_DWORD *)(a1 + 280) )
-          goto LABEL_30;
+        v13 = 2 * *(_WORD *)(v12 + 2);
+        if ( (*(_BYTE *)(v12 + 16) & 1) == 0 )
+          v13 = *(_WORD *)(v12 + 2);
+        if ( *a4 < (unsigned int)v13 )
+          *a4 = v13;
+        v14 = *(_DWORD *)(v12 + 4);
+        v15 = v14 + 0x80000000;
+        if ( v14 < 0x80000000 )
+          v15 = v14;
+        if ( *v5 < v15 )
+          *v5 = v15;
+        (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v18);
+        v11 = (unsigned int)(v11 + 1);
+        if ( (unsigned int)v11 >= *(_DWORD *)(a1 + 280) )
+          goto LABEL_21;
       }
-      v22 = *(_QWORD *)(a1 + 32);
-      if ( (*(_BYTE *)(v22 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v22, &v23);
-      else
-        HvpReleaseCellPaged(v22, &v23);
+      (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v16);
       return 3221225626LL;
     }
-LABEL_30:
-    v21 = *(_QWORD *)(a1 + 32);
-    if ( (*(_BYTE *)(v21 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v21, &v23);
-    else
-      HvpReleaseCellPaged(v21, &v23);
+LABEL_21:
+    (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v16);
     return 0LL;
   }
   return 3221225626LL;

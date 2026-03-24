@@ -1,15 +1,12 @@
 /*
- * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00AB110
+ * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FEE5C
  * Callers:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     GreExtSelectClipRgnInternal @ 0x1C011A2F0 (GreExtSelectClipRgnInternal.c)
- *     ?bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ @ 0x1C011C664 (-bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ.c)
- *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C011C6B0 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C008E810 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C008E85C (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00AB168 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A3300 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A66FC (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00FEEB4 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029AC8C (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029D638 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKOBJ::bUnMapTrgSurfaceView(DEVLOCKOBJ *this)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddRefOverride@FxObject@@UEAAKGPEAXJPEBD@Z @ 0x1C00551E0
+ * XREFs of ?AddRefOverride@FxObject@@UEAAKGPEAXJPEBD@Z @ 0x1C0031860
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
  */
 
 __int64 __fastcall FxObject::AddRefOverride(FxObject *this, unsigned __int16 Offset, void *Tag, int Line, char *File)

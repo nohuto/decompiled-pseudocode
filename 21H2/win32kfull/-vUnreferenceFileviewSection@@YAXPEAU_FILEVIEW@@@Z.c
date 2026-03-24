@@ -1,20 +1,20 @@
 /*
- * XREFs of ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C000D7F0
+ * XREFs of ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8CFC
  * Callers:
- *     FreeFileView @ 0x1C000D068 (FreeFileView.c)
- *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C000D860 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
- *     EngMapFontFileFDInternal @ 0x1C000FAC4 (EngMapFontFileFDInternal.c)
- *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0011304 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00134A0 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E2C80 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
- *     vUnmapFile @ 0x1C00EF3E8 (vUnmapFile.c)
- *     EngUnmapFile @ 0x1C02871F0 (EngUnmapFile.c)
- *     bMapFile @ 0x1C02875C0 (bMapFile.c)
- *     GreMakeFontDir @ 0x1C02B99A8 (GreMakeFontDir.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4F5C (EngMapFontFileFDInternal.c)
+ *     FreeFileView @ 0x1C00A5C80 (FreeFileView.c)
+ *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A8070 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C00A8CB4 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAFC4 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E6104 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     vUnmapFile @ 0x1C00E667C (vUnmapFile.c)
+ *     EngUnmapFile @ 0x1C028A330 (EngUnmapFile.c)
+ *     bMapFile @ 0x1C028A75C (bMapFile.c)
+ *     GreMakeFontDir @ 0x1C02BB588 (GreMakeFontDir.c)
  * Callees:
- *     ZwWin32CreateSection @ 0x1C000D6D8 (ZwWin32CreateSection.c)
- *     ?bCopySection@@YAHPEAX0_K@Z @ 0x1C0286984 (-bCopySection@@YAHPEAX0_K@Z.c)
- *     ?bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z @ 0x1C0286F38 (-bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z.c)
+ *     ?bCopySection@@YAHPEAX0_K@Z @ 0x1C0289AFC (-bCopySection@@YAHPEAX0_K@Z.c)
+ *     ?bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z @ 0x1C028A080 (-bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z.c)
+ *     ZwWin32CreateSection @ 0x1C028A700 (ZwWin32CreateSection.c)
  */
 
 void __fastcall vUnreferenceFileviewSection(struct _FILEVIEW *a1)
@@ -23,7 +23,7 @@ void __fastcall vUnreferenceFileviewSection(struct _FILEVIEW *a1)
   void *v3; // rcx
   void *v4; // rcx
   int v5; // edx
-  void *v6; // rcx
+  __int64 v6; // rcx
   __int64 v7; // rax
   int v8; // [rsp+28h] [rbp-58h]
   void *v9; // [rsp+38h] [rbp-48h]
@@ -43,7 +43,7 @@ void __fastcall vUnreferenceFileviewSection(struct _FILEVIEW *a1)
     {
       if ( bUnreferenceNetworkedFontFileNode(v4) )
       {
-        v6 = (void *)*((_QWORD *)a1 + 6);
+        v6 = *((_QWORD *)a1 + 6);
         if ( v6 )
         {
           if ( (*((_DWORD *)a1 + 10) & 4) != 0 )

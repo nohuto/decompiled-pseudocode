@@ -1,55 +1,59 @@
 /*
- * XREFs of ?vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z @ 0x1C0159DF4
+ * XREFs of ?vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z @ 0x1C013FAA4
  * Callers:
- *     pProcessDfbSurfacesInternal @ 0x1C015AC60 (pProcessDfbSurfacesInternal.c)
- *     ?DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z @ 0x1C0160B38 (-DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE880 (pProcessDfbSurfacesInternal.c)
+ *     ?DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z @ 0x1C0143C80 (-DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C004BD9C (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C005E508 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C00A68A0 (-GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     IsvSpDwmMigrateLSurfShapeReferenceSupported @ 0x1C02327F4 (IsvSpDwmMigrateLSurfShapeReferenceSupported.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001DA78 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C009C0E0 (-GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ.c)
+ *     IsvSpDwmMigrateLSurfShapeReferenceSupported @ 0x1C00B8008 (IsvSpDwmMigrateLSurfShapeReferenceSupported.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C920C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vCleanupRedirectionSurface(HSURF *this, char a2)
 {
-  char v4; // si
-  __int64 v5; // rdi
+  int v4; // eax
+  char v5; // si
+  __int64 v6; // rdi
   struct SFMLOGICALSURFACE *FirstLSurf; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rcx
+  HSURF v8; // [rsp+20h] [rbp-68h]
   _BYTE v9[32]; // [rsp+50h] [rbp-38h] BYREF
   __int64 v10; // [rsp+70h] [rbp-18h]
 
-  if ( (int)IsvSpDwmMigrateLSurfShapeReferenceSupported() >= 0 && qword_1C02946D0 && (int)qword_1C02946D0() >= 0 )
+  if ( (int)IsvSpDwmMigrateLSurfShapeReferenceSupported() >= 0 )
   {
-    SURFREF::SURFREF((SURFREF *)v9, this[4]);
-    if ( v10 )
+    v4 = qword_1C02552C0 ? qword_1C02552C0() : -1073741637;
+    if ( v4 >= 0 )
     {
-      v4 = 0;
-      v5 = 0LL;
-      while ( 1 )
+      SURFREF::SURFREF((SURFREF *)v9, this[4]);
+      if ( v10 )
       {
-        FirstLSurf = SURFACE::GetFirstLSurf((SURFACE *)this);
-        if ( !FirstLSurf )
-          break;
-        if ( !v5 )
-          v5 = *((_QWORD *)FirstLSurf + 33);
-        v4 = 1;
-        if ( qword_1C02946B8 )
-          ((void (__fastcall *)(HSURF, struct SFMLOGICALSURFACE *, _QWORD))qword_1C02946B8)(this[6], FirstLSurf, 0LL);
+        v5 = 0;
+        v6 = 0LL;
+        while ( 1 )
+        {
+          FirstLSurf = SURFACE::GetFirstLSurf((SURFACE *)this);
+          if ( !FirstLSurf )
+            break;
+          if ( !v6 )
+            v6 = *((_QWORD *)FirstLSurf + 33);
+          v5 = 1;
+          if ( qword_1C02552A8 )
+            ((void (__fastcall *)(HSURF, struct SFMLOGICALSURFACE *, _QWORD))qword_1C02552A8)(this[6], FirstLSurf, 0LL);
+        }
+        if ( qword_1C02552C8 )
+          qword_1C02552C8(v6);
+        SURFREF::bDeleteSurface((__int64)v9, 0);
+        if ( a2 && !v5 && !byte_1C02584D4 )
+        {
+          v8 = this[6];
+          byte_1C02584D4 = 1;
+          DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 400LL, 20LL, this, v8, 0LL, 0LL, 0LL, 0);
+        }
       }
-      if ( qword_1C02946D8 )
-        qword_1C02946D8(v5);
-      SURFREF::bDeleteSurface((SURFREF *)v9);
-      v8 = *(_QWORD *)(SGDGetSessionState(v7) + 24);
-      if ( a2 && !v4 && !*(_BYTE *)(v8 + 6488) )
-      {
-        *(_BYTE *)(v8 + 6488) = 1;
-        DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 400LL, 20LL, this, this[6], 0LL, 0LL, 0LL, 0);
-      }
+      SURFREF::~SURFREF((SURFREF *)v9);
     }
-    SURFREF::~SURFREF((SURFREF *)v9);
   }
 }

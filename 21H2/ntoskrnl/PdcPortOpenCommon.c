@@ -1,70 +1,78 @@
 /*
- * XREFs of PdcPortOpenCommon @ 0x14085F954
+ * XREFs of PdcPortOpenCommon @ 0x1407CF938
  * Callers:
- *     PdcTaskClientRegister @ 0x1408454C0 (PdcTaskClientRegister.c)
+ *     PdcTaskClientRegister @ 0x1407989A8 (PdcTaskClientRegister.c)
  * Callees:
- *     ZwPowerInformation @ 0x14041C340 (ZwPowerInformation.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PdcpPortReleaseResources @ 0x1409C5678 (PdcpPortReleaseResources.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PdcpPortReleaseResources @ 0x14091B928 (PdcpPortReleaseResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PdcPortOpenCommon(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        _QWORD *a4,
+        __int64 *a4,
         __int64 a5,
         __int64 a6,
         __int64 a7,
         __int64 a8,
         _QWORD *a9)
 {
-  __int64 Pool2; // rax
-  void *v12; // rsi
-  _DWORD *v13; // rax
-  void *v14; // rdi
-  NTSTATUS v15; // ebx
-  _QWORD v17[100]; // [rsp+30h] [rbp-328h] BYREF
+  void *v11; // rsi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v13; // rdi
+  __int64 v14; // rax
+  _DWORD *v15; // rax
+  NTSTATUS v16; // ebx
+  _QWORD v18[100]; // [rsp+30h] [rbp-328h] BYREF
 
+  memset(v18, 0, sizeof(v18));
+  v11 = 0LL;
   *a9 = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 1768LL, 1348691024LL);
-  v12 = (void *)Pool2;
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_QWORD *)(Pool2 + 1744) = a3;
-  *(_DWORD *)Pool2 = 1348691024;
-  *(_DWORD *)(Pool2 + 20) = 4;
-  *(_DWORD *)(Pool2 + 16) = 68;
-  *(_QWORD *)(Pool2 + 1752) = *a4;
-  memset(v17, 0, sizeof(v17));
-  v17[1] = 0LL;
-  v17[2] = 0LL;
-  HIDWORD(v17[5]) = 5;
-  v17[7] = 0x400000044LL;
-  v17[0] = 52429560LL;
-  v13 = (_DWORD *)ExAllocatePool2(256LL, 216LL, 1348691024LL);
-  v14 = v13;
-  if ( !v13 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x6E8uLL, 0x50636450u);
+  v13 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_9;
+  memset(PoolWithTag, 0, 0x6E8uLL);
+  v13[1] = 0LL;
+  v14 = *a4;
+  *((_DWORD *)v13 + 4) = 68;
+  *((_DWORD *)v13 + 5) = 4;
+  *(_DWORD *)v13 = 1348691024;
+  v13[218] = a3;
+  v13[219] = v14;
+  v18[1] = 0LL;
+  v18[2] = 0LL;
+  v18[7] = 0x400000044LL;
+  HIDWORD(v18[5]) = 5;
+  v18[0] = 52429560LL;
+  v15 = ExAllocatePoolWithTag(PagedPool, 0xB8uLL, 0x50636450u);
+  v11 = v15;
+  if ( !v15 )
   {
-    v15 = -1073741801;
-LABEL_7:
-    PdcpPortReleaseResources(v12);
-    if ( !v14 )
-      return (unsigned int)v15;
-    goto LABEL_5;
+LABEL_9:
+    v16 = -1073741801;
+LABEL_10:
+    if ( v13 )
+      PdcpPortReleaseResources(v13);
+    goto LABEL_6;
   }
-  *v13 = 1;
-  *((_QWORD *)v13 + 2) = v12;
-  *((_QWORD *)v13 + 1) = v17;
-  v15 = ZwPowerInformation(PdcInvocation, v13, 0xD8u, 0LL, 0);
-  if ( v15 < 0 )
-    goto LABEL_7;
-  *a9 = v12;
-  v15 = 0;
-LABEL_5:
-  ExFreePoolWithTag(v14, 0);
-  return (unsigned int)v15;
+  *v15 = 1;
+  *((_QWORD *)v15 + 2) = v13;
+  *((_QWORD *)v15 + 1) = v18;
+  v16 = ZwPowerInformation(PdcInvocation, v15, 0xB8u, 0LL, 0);
+  if ( v16 >= 0 )
+  {
+    *a9 = v13;
+    v16 = 0;
+  }
+  if ( v16 < 0 )
+    goto LABEL_10;
+LABEL_6:
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+  return (unsigned int)v16;
 }

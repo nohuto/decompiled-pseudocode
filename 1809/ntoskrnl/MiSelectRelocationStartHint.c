@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSelectRelocationStartHint @ 0x14064FBE4
+ * XREFs of MiSelectRelocationStartHint @ 0x14064FBC4
  * Callers:
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
- *     MiObtainRelocationBits @ 0x14064FAFC (MiObtainRelocationBits.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
+ *     MiObtainRelocationBits @ 0x14064FADC (MiObtainRelocationBits.c)
  * Callees:
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  *     RtlMergeBitMaps @ 0x14000FA94 (RtlMergeBitMaps.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C016CF00
+ * XREFs of ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C013FFC8
  * Callers:
- *     DrvCreatePhysicalMonitorObjects @ 0x1C00CF400 (DrvCreatePhysicalMonitorObjects.c)
- *     NtGdiDestroyOPMProtectedOutput @ 0x1C016D1C0 (NtGdiDestroyOPMProtectedOutput.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00BFAC0 (DrvCreatePhysicalMonitorObjects.c)
+ *     NtGdiDestroyOPMProtectedOutput @ 0x1C0140290 (NtGdiDestroyOPMProtectedOutput.c)
  * Callees:
- *     ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C016CC10 (-DestroyProtectedOutput@COPM@@QEAAJPEAX@Z.c)
+ *     ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C013FD00 (-DestroyProtectedOutput@COPM@@QEAAJPEAX@Z.c)
  */
 
 __int64 __fastcall OPMDestroyProtectedOutput(COPM *a1)

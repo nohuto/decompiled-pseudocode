@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbGetEntryFlags @ 0x14084388C
+ * XREFs of SdbGetEntryFlags @ 0x1407C1C48
  * Callers:
- *     SdbReadEntryInformation @ 0x140842F74 (SdbReadEntryInformation.c)
- *     SdbpGetExeEntryFlags @ 0x1408437A4 (SdbpGetExeEntryFlags.c)
+ *     SdbReadEntryInformation @ 0x1407C1A3C (SdbReadEntryInformation.c)
+ *     SdbpGetExeEntryFlags @ 0x1407C1B60 (SdbpGetExeEntryFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpQueryAppCompatFlagsByExeID @ 0x140843940 (SdbpQueryAppCompatFlagsByExeID.c)
- *     AslGuidToString @ 0x140843C1C (AslGuidToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x1407C1CFC (SdbpQueryAppCompatFlagsByExeID.c)
+ *     AslGuidToString @ 0x1407C1FD8 (AslGuidToString.c)
  */
 
 __int64 __fastcall SdbGetEntryFlags(__int64 a1, int *a2)

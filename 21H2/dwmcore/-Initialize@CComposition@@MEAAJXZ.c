@@ -1,369 +1,289 @@
 /*
- * XREFs of ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810
+ * XREFs of ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0
  * Callers:
- *     ?Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@PEAPEAVCComposition@@@Z @ 0x1800F21F8 (-Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCD.c)
+ *     ?Initialize@CGlobalComposition@@EEAAJXZ @ 0x1800DE480 (-Initialize@CGlobalComposition@@EEAAJXZ.c)
  * Callees:
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@URoundedRectangleCacheEntry@2@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@URoundedRectangleCacheEntry@2@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@URoundedRectangleCacheEntry@2@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManager@@URoundedRectangleCacheEntry@2@@std@@PEAX@1@@Z @ 0x1800167B4 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CBURoundedRectangleCacheKey@CMeshCacheManage.c)
- *     ??1CPreComputeContext@@QEAA@XZ @ 0x180019C48 (--1CPreComputeContext@@QEAA@XZ.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800279B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
- *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x18002BCB4 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
- *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x18002C6B8 (-Initialize@CManipulationManager@@IEAAJXZ.c)
- *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x18002D868 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
- *     ?Initialize@CGlobalInputManager@@UEAAJXZ @ 0x18002E080 (-Initialize@CGlobalInputManager@@UEAAJXZ.c)
- *     ??0CInputManager@@IEAA@PEAVCComposition@@@Z @ 0x18002E190 (--0CInputManager@@IEAA@PEAVCComposition@@@Z.c)
- *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x18002ECD0 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
- *     ??0CColorBrush@@QEAA@PEAVCComposition@@AEBU_D3DCOLORVALUE@@@Z @ 0x18002ED20 (--0CColorBrush@@QEAA@PEAVCComposition@@AEBU_D3DCOLORVALUE@@@Z.c)
- *     ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18002EDE8 (-Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
- *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002EF3C (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
- *     ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002F0AC (-Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
- *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002F3E4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
- *     ?Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18002FB58 (-Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
- *     ?Create@CEffectCompilationService@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800305E4 (-Create@CEffectCompilationService@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
- *     ??0CPreComputeContext@@QEAA@XZ @ 0x1800308A0 (--0CPreComputeContext@@QEAA@XZ.c)
- *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x180030C98 (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??0CRenderTargetManager@@IEAA@PEAVCComposition@@@Z @ 0x1800F70F4 (--0CRenderTargetManager@@IEAA@PEAVCComposition@@@Z.c)
- *     ?InitializeObjectCaches@CThreadContext@@SAJXZ @ 0x1800F7D98 (-InitializeObjectCaches@CThreadContext@@SAJXZ.c)
- *     ?Initialize@CDisplayManager@@IEAAJXZ @ 0x1800F8888 (-Initialize@CDisplayManager@@IEAAJXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x180177F9C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
- *     ??1CSuperWetInkManager@@QEAA@XZ @ 0x180192A5C (--1CSuperWetInkManager@@QEAA@XZ.c)
- *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180193738 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
- *     ??1CSceneResourceManager@@QEAA@XZ @ 0x1801993B4 (--1CSceneResourceManager@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x180009424 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
+ *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18002EE70 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3AC4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B44C8 (-Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B46E4 (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ??0CColorBrush@@QEAA@PEAVCComposition@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800B4C44 (--0CColorBrush@@QEAA@PEAVCComposition@@AEBU_D3DCOLORVALUE@@@Z.c)
+ *     ??0CInputManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B4F84 (--0CInputManager@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CInputManager@@QEAAJXZ @ 0x1800B5058 (-Initialize@CInputManager@@QEAAJXZ.c)
+ *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800B5344 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800B5A48 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B5D58 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
+ *     ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B681C (-Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B6980 (-Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CEffectCompilationService@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B69F0 (-Create@CEffectCompilationService@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x1800B6BA0 (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?Create@CRenderTargetManager@@KAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800DEF9C (-Create@CRenderTargetManager@@KAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?InitializeObjectCaches@CThreadContext@@SAJXZ @ 0x1800DFF98 (-InitializeObjectCaches@CThreadContext@@SAJXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??_GCSuperWetInkManager@@QEAAPEAXI@Z @ 0x1801555CC (--_GCSuperWetInkManager@@QEAAPEAXI@Z.c)
+ *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180155EA0 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
+ *     ??1CSceneResourceManager@@QEAA@XZ @ 0x180168460 (--1CSceneResourceManager@@QEAA@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CComposition::Initialize(CComposition *this)
 {
-  wil::details *v2; // rcx
-  wil::details *Event; // rbx
-  CDisplayManager *v4; // rcx
-  int LastErrorFailHr; // eax
+  int updated; // eax
+  __int64 v3; // rcx
+  int v4; // eax
+  __int64 v5; // rcx
   int v6; // edi
-  CRenderTargetManager *v7; // rax
-  CRenderTargetManager *v8; // rax
-  CInputManager *v9; // rax
-  CInputManager *v10; // rbx
-  int v11; // eax
-  unsigned int v12; // ecx
-  CGlobalManipulationManager *v13; // rax
-  CGlobalManipulationManager *v14; // rax
-  unsigned int v15; // ecx
-  CManipulationManager *v16; // rbx
-  int v17; // eax
-  unsigned int v18; // ecx
-  CPreComputeContext *v19; // rax
-  CPreComputeContext *v20; // rbx
-  CPreComputeContext *v21; // rax
-  void **v22; // rbx
-  struct IMessageSession *v23; // r14
-  __int64 v24; // rcx
-  Microsoft::Bamo::BaseBamoConnection *v25; // rcx
-  _QWORD *v26; // rax
-  CSuperWetInkManager *v27; // rbx
-  __int64 *v28; // rax
-  __int64 *v29; // rbx
-  __int64 v30; // rax
-  _QWORD *v31; // rdi
-  CSceneResourceManager *v32; // rbx
-  CColorBrush *v33; // rax
-  CColorBrush *v34; // rax
-  CColorBrush *v35; // rax
-  CColorBrush *v36; // rax
-  int v38; // r9d
-  unsigned int v39; // [rsp+20h] [rbp-40h]
-  void *v40; // [rsp+30h] [rbp-30h] BYREF
-  struct _D3DCOLORVALUE v41; // [rsp+38h] [rbp-28h] BYREF
-  char v42; // [rsp+48h] [rbp-18h]
+  CInputManager *v7; // rax
+  CMILCOMBase *v8; // rbx
+  int v9; // eax
+  CGlobalManipulationManager *v10; // rax
+  CMILCOMBase *v11; // rax
+  __int64 v12; // rcx
+  CManipulationManager *v13; // rbx
+  int v14; // eax
+  struct IMessageSession *v15; // r14
+  CRenderTargetBitmap *v16; // rcx
+  Microsoft::Bamo::BaseBamoConnection *v17; // rcx
+  _QWORD *v18; // rax
+  unsigned int v19; // edx
+  CSuperWetInkManager *v20; // rcx
+  CSceneResourceManager *v21; // rbx
+  CColorBrush *v22; // rax
+  CColorBrush *v23; // rax
+  CColorBrush *v24; // rax
+  CColorBrush *v25; // rax
+  int v27; // r9d
+  unsigned int v28; // [rsp+20h] [rbp-40h]
+  void *v29; // [rsp+30h] [rbp-30h] BYREF
+  struct _D3DCOLORVALUE v30; // [rsp+38h] [rbp-28h] BYREF
+  char v31; // [rsp+48h] [rbp-18h]
   void *retaddr; // [rsp+78h] [rbp+18h]
 
-  *(_QWORD *)&v41.r = 0LL;
-  v40 = 0LL;
-  Event = (wil::details *)CreateEventExW(0LL, 0LL, 1u, 0x1F0003u);
-  if ( Event )
+  *(_QWORD *)&v30.r = 0LL;
+  v29 = 0LL;
+  updated = CDisplayManager::UpdateDXGIFactory(this);
+  if ( updated < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, updated, 0x1Cu, 0LL);
+  v4 = CThreadContext::InitializeObjectCaches();
+  v6 = v4;
+  if ( v4 < 0 )
   {
-    GetLastError();
-    _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
-      (wil::details **)this + 158,
-      Event);
+    v28 = 214;
+    goto LABEL_65;
   }
-  else
+  v4 = CRenderTargetManager::Create(this, (struct CRenderTargetManager **)this + 11);
+  v6 = v4;
+  if ( v4 < 0 )
   {
-    LastErrorFailHr = wil::details::GetLastErrorFailHr(v2);
-    v6 = LastErrorFailHr;
-    if ( LastErrorFailHr < 0 )
-    {
-      v39 = 252;
-LABEL_73:
-      v38 = LastErrorFailHr;
-      goto LABEL_74;
-    }
+    v28 = 217;
+    goto LABEL_65;
   }
-  CDisplayManager::Initialize(v4);
-  LastErrorFailHr = CThreadContext::InitializeObjectCaches();
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
+  v4 = CGlobalSurfaceManager::Create((void **)&v30, &v29, (struct CSurfaceManager **)this + 12);
+  v6 = v4;
+  if ( v4 < 0 )
   {
-    v39 = 259;
-    goto LABEL_73;
+    v28 = 222;
+    goto LABEL_65;
   }
-  v7 = (CRenderTargetManager *)operator new(0x248uLL);
-  if ( v7 )
-    v8 = CRenderTargetManager::CRenderTargetManager(v7, this);
-  else
-    v8 = 0LL;
-  *((_QWORD *)this + 27) = v8;
-  LastErrorFailHr = CGlobalSurfaceManager::Create((void **)&v41, &v40, (struct CSurfaceManager **)this + 28);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
+  (*(void (__fastcall **)(_QWORD, _QWORD, void *))(**((_QWORD **)this + 63) + 80LL))(
+    *((_QWORD *)this + 63),
+    *(_QWORD *)&v30.r,
+    v29);
+  v4 = CExpressionManager::Create((struct CExpressionManager **)this + 34);
+  v6 = v4;
+  if ( v4 < 0 )
   {
-    v39 = 267;
-    goto LABEL_73;
+    v28 = 228;
+    goto LABEL_65;
   }
-  (*(void (__fastcall **)(_QWORD, _QWORD, void *))(**((_QWORD **)this + 82) + 104LL))(
-    *((_QWORD *)this + 82),
-    *(_QWORD *)&v41.r,
-    v40);
-  LastErrorFailHr = CExpressionManager::Create((struct CExpressionManager **)this + 53);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
-  {
-    v39 = 273;
-    goto LABEL_73;
-  }
-  v9 = (CInputManager *)DefaultHeap::AllocClear(0x150uLL);
-  v10 = v9;
-  if ( !v9 )
+  v7 = (CInputManager *)DefaultHeap::AllocClear(0x128uLL);
+  v8 = v7;
+  if ( !v7 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  CInputManager::CInputManager(v9, this);
-  *((_QWORD *)v10 + 41) = 0LL;
-  *(_QWORD *)v10 = &CGlobalInputManager::`vftable';
-  CMILRefCountImpl::AddReference((CInputManager *)((char *)v10 + 8));
-  v11 = CGlobalInputManager::Initialize((struct CComposition **)v10);
-  v6 = v11;
-  if ( v11 < 0 )
+  CInputManager::CInputManager(v7, this);
+  *(_QWORD *)v8 = &CGlobalInputManager::`vftable';
+  CMILCOMBase::InternalAddRef(v8);
+  v9 = CInputManager::Initialize(v8);
+  v6 = v9;
+  if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x21u, 0LL);
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v10);
-    v39 = 276;
-    goto LABEL_60;
-  }
-  *((_QWORD *)this + 29) = v10;
-  v13 = (CGlobalManipulationManager *)DefaultHeap::AllocClear(0x1A8uLL);
-  if ( !v13 )
-    ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  v14 = CGlobalManipulationManager::CGlobalManipulationManager(v13, this);
-  v16 = v14;
-  if ( !v14 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024882, 0x20u, 0LL);
-    v6 = -2147024882;
-LABEL_69:
-    v39 = 279;
-    goto LABEL_60;
-  }
-  CMILRefCountImpl::AddReference((CGlobalManipulationManager *)((char *)v14 + 8));
-  v17 = CManipulationManager::Initialize(v16);
-  v6 = v17;
-  if ( v17 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x23u, 0LL);
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v16);
-    goto LABEL_69;
-  }
-  *((_QWORD *)this + 30) = v16;
-  v19 = (CPreComputeContext *)operator new(0x798uLL);
-  v20 = v19;
-  if ( v19 )
-  {
-    memset_0(v19, 0, 0x798uLL);
-    v21 = CPreComputeContext::CPreComputeContext(v20);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v9, 0x20u, 0LL);
+    CRenderTargetBitmap::Release(v8);
   }
   else
   {
-    v21 = 0LL;
-  }
-  v22 = (void **)*((_QWORD *)this + 26);
-  *((_QWORD *)this + 26) = v21;
-  if ( v22 )
-  {
-    CPreComputeContext::~CPreComputeContext(v22);
-    operator delete(v22, 0x798uLL);
-  }
-  *(_QWORD *)&v41.r = 0LL;
-  v6 = CHolographicManager::Create(this, (struct CHolographicManager **)&v41);
-  *((_QWORD *)this + 33) = *(_QWORD *)&v41.r;
-  if ( v6 < 0 )
-  {
-    v39 = 285;
-    goto LABEL_60;
-  }
-  v23 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 82) + 112LL))(*((_QWORD *)this + 82));
-  LastErrorFailHr = CMessageConversationHost::Create(v23, (struct CMessageConversationHost **)this + 155);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
-  {
-    v39 = 289;
-    goto LABEL_73;
-  }
-  v24 = *((_QWORD *)this + 157);
-  if ( v24 )
-  {
-    *((_QWORD *)this + 157) = 0LL;
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v24);
-  }
-  LastErrorFailHr = DataProviderManager::Create(v23, (struct DataProviderManager **)this + 157);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
-  {
-    v39 = 291;
-    goto LABEL_73;
-  }
-  v25 = (Microsoft::Bamo::BaseBamoConnection *)*((_QWORD *)this + 156);
-  if ( v25 )
-  {
-    *((_QWORD *)this + 156) = 0LL;
-    Microsoft::Bamo::BaseBamoConnection::Release(v25);
-  }
-  LastErrorFailHr = DiagnosticCallbacksManager::Create(v23, (struct DiagnosticCallbacksManager **)this + 156);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
-  {
-    v39 = 293;
-    goto LABEL_73;
-  }
-  LastErrorFailHr = CEffectCompilationService::Create(v23, (struct CEffectCompilationService **)this + 31);
-  v6 = LastErrorFailHr;
-  if ( LastErrorFailHr < 0 )
-  {
-    v39 = 296;
-    goto LABEL_73;
-  }
-  v26 = operator new(0x60uLL);
-  if ( v26 )
-  {
-    *v26 = this;
-    v26[1] = 0LL;
-    v26[2] = 0LL;
-    v26[3] = 0LL;
-    v26[4] = 0LL;
-    v26[5] = 0LL;
-    v26[6] = 0LL;
-    v26[7] = 0LL;
-    v26[8] = 0LL;
-    v26[9] = 0LL;
-    v26[10] = 0LL;
-    v26[11] = 0LL;
-  }
-  else
-  {
-    v26 = 0LL;
-  }
-  v27 = (CSuperWetInkManager *)*((_QWORD *)this + 32);
-  *((_QWORD *)this + 32) = v26;
-  if ( v27 )
-  {
-    CSuperWetInkManager::~CSuperWetInkManager(v27);
-    operator delete(v27, 0x60uLL);
-  }
-  v28 = (__int64 *)operator new(0x10uLL);
-  v29 = v28;
-  if ( v28 )
-  {
-    *v28 = 0LL;
-    v28[1] = 0LL;
-    v30 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x38uLL);
-    *(_QWORD *)v30 = v30;
-    *(_QWORD *)(v30 + 8) = v30;
-    *(_QWORD *)(v30 + 16) = v30;
-    *(_WORD *)(v30 + 24) = 257;
-    *v29 = v30;
-  }
-  else
-  {
-    v29 = 0LL;
-  }
-  v31 = (_QWORD *)*((_QWORD *)this + 35);
-  *((_QWORD *)this + 35) = v29;
-  if ( v31 )
-  {
-    std::_Tree_val<std::_Tree_simple_types<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,CMeshCacheManager::RoundedRectangleCacheEntry>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<CMeshCacheManager::RoundedRectangleCacheKey const,CMeshCacheManager::RoundedRectangleCacheEntry>,void *>>>(
-      (__int64)v31,
-      (__int64)v31,
-      *(__int64 **)(*v31 + 8LL));
-    std::_Deallocate<16,0>(*v31, 56LL);
-    operator delete(v31, 0x10uLL);
-  }
-  *(_QWORD *)&v41.b = 0LL;
-  *(_QWORD *)&v41.r = (char *)this + 288;
-  v42 = 1;
-  v6 = CSceneResourceManager::Create(this, (struct CSceneResourceManager **)&v41.b);
-  if ( v42 )
-  {
-    v32 = **(CSceneResourceManager ***)&v41.r;
-    **(_QWORD **)&v41.r = *(_QWORD *)&v41.b;
-    if ( v32 )
-    {
-      CSceneResourceManager::~CSceneResourceManager(v32);
-      DefaultHeap::Free(v32);
-    }
+    *((_QWORD *)this + 13) = v8;
   }
   if ( v6 < 0 )
   {
-    v39 = 304;
-    goto LABEL_60;
+    v28 = 231;
+    goto LABEL_53;
   }
-  v33 = (CColorBrush *)DefaultHeap::AllocClear(0x90uLL);
-  if ( v33 )
+  v10 = (CGlobalManipulationManager *)DefaultHeap::AllocClear(0x1A8uLL);
+  if ( !v10 )
+    ModuleFailFastForHRESULT(2147942414LL, retaddr);
+  v11 = CGlobalManipulationManager::CGlobalManipulationManager(v10, this);
+  v13 = v11;
+  if ( !v11 )
   {
-    *(struct _D3DCOLORVALUE *)&v41.r = (struct _D3DCOLORVALUE)_xmm;
-    v34 = CColorBrush::CColorBrush(v33, this, &v41);
-  }
-  else
-  {
-    v34 = 0LL;
-  }
-  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((char *)this + 320, v34);
-  if ( !*((_QWORD *)this + 40) )
-  {
-    v39 = 309;
-LABEL_58:
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x20u, 0LL);
     v6 = -2147024882;
-LABEL_60:
-    v38 = v6;
-LABEL_74:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v4, 0LL, 0, v38, v39, 0LL);
+LABEL_45:
+    v28 = 234;
+LABEL_53:
+    v27 = v6;
+LABEL_66:
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v27, v28, 0LL);
     return (unsigned int)v6;
   }
-  v35 = (CColorBrush *)DefaultHeap::AllocClear(0x90uLL);
-  if ( v35 )
+  CMILCOMBase::InternalAddRef(v11);
+  v14 = CManipulationManager::Initialize(v13);
+  v6 = v14;
+  if ( v14 < 0 )
   {
-    *(struct _D3DCOLORVALUE *)&v41.r = (struct _D3DCOLORVALUE)_mm_load_si128((const __m128i *)&_xmm);
-    v36 = CColorBrush::CColorBrush(v35, this, &v41);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v14, 0x23u, 0LL);
+    CRenderTargetBitmap::Release(v13);
   }
   else
   {
-    v36 = 0LL;
+    *((_QWORD *)this + 14) = v13;
   }
-  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((char *)this + 328, v36);
-  if ( !*((_QWORD *)this + 41) )
+  if ( v6 < 0 )
+    goto LABEL_45;
+  *(_QWORD *)&v30.r = 0LL;
+  v6 = CHolographicManager::Create(this, (struct CHolographicManager **)&v30);
+  *((_QWORD *)this + 17) = *(_QWORD *)&v30.r;
+  if ( v6 < 0 )
   {
-    v39 = 312;
-    goto LABEL_58;
+    v28 = 238;
+    goto LABEL_53;
   }
-  *(_OWORD *)((char *)this + 1144) = _xmm;
-  *(_OWORD *)((char *)this + 1160) = _xmm;
-  *(_OWORD *)((char *)this + 1176) = _xmm;
-  *(_OWORD *)((char *)this + 1192) = _xmm;
+  v15 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 63) + 88LL))(*((_QWORD *)this + 63));
+  v4 = CMessageConversationHost::Create(v15, (struct CMessageConversationHost **)this + 135);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v28 = 242;
+    goto LABEL_65;
+  }
+  v16 = (CRenderTargetBitmap *)*((_QWORD *)this + 137);
+  if ( v16 )
+  {
+    *((_QWORD *)this + 137) = 0LL;
+    CRenderTargetBitmap::Release(v16);
+  }
+  v4 = DataProviderManager::Create(v15, (struct DataProviderManager **)this + 137);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v28 = 244;
+    goto LABEL_65;
+  }
+  v17 = (Microsoft::Bamo::BaseBamoConnection *)*((_QWORD *)this + 136);
+  if ( v17 )
+  {
+    *((_QWORD *)this + 136) = 0LL;
+    Microsoft::Bamo::BaseBamoConnection::Release(v17);
+  }
+  v4 = DiagnosticCallbacksManager::Create(v15, (struct DiagnosticCallbacksManager **)this + 136);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v28 = 246;
+    goto LABEL_65;
+  }
+  v4 = CEffectCompilationService::Create(v15, (struct CEffectCompilationService **)this + 15);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v28 = 249;
+LABEL_65:
+    v27 = v4;
+    goto LABEL_66;
+  }
+  v18 = operator new(0x40uLL);
+  if ( v18 )
+  {
+    *v18 = this;
+    v18[1] = 0LL;
+    v18[2] = 0LL;
+    v18[3] = 0LL;
+    v18[4] = 0LL;
+    v18[5] = 0LL;
+    v18[6] = 0LL;
+  }
+  else
+  {
+    v18 = 0LL;
+  }
+  v20 = (CSuperWetInkManager *)*((_QWORD *)this + 16);
+  *((_QWORD *)this + 16) = v18;
+  if ( v20 )
+    CSuperWetInkManager::`scalar deleting destructor'(v20, v19);
+  *(_QWORD *)&v30.b = 0LL;
+  *(_QWORD *)&v30.r = (char *)this + 152;
+  v31 = 1;
+  v6 = CSceneResourceManager::Create(this, (struct CSceneResourceManager **)&v30.b);
+  if ( v31 )
+  {
+    v21 = **(CSceneResourceManager ***)&v30.r;
+    **(_QWORD **)&v30.r = *(_QWORD *)&v30.b;
+    if ( v21 )
+    {
+      CSceneResourceManager::~CSceneResourceManager(v21);
+      operator delete(v21);
+    }
+  }
+  if ( v6 < 0 )
+  {
+    v28 = 255;
+    goto LABEL_53;
+  }
+  v22 = (CColorBrush *)DefaultHeap::AllocClear(0x88uLL);
+  if ( v22 )
+  {
+    *(struct _D3DCOLORVALUE *)&v30.r = (struct _D3DCOLORVALUE)_xmm;
+    v23 = CColorBrush::CColorBrush(v22, this, &v30);
+  }
+  else
+  {
+    v23 = 0LL;
+  }
+  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((__int64 *)this + 21, (__int64)v23);
+  if ( !*((_QWORD *)this + 21) )
+  {
+    v28 = 260;
+LABEL_51:
+    v6 = -2147024882;
+    goto LABEL_53;
+  }
+  v24 = (CColorBrush *)DefaultHeap::AllocClear(0x88uLL);
+  if ( v24 )
+  {
+    *(struct _D3DCOLORVALUE *)&v30.r = (struct _D3DCOLORVALUE)_mm_load_si128((const __m128i *)&_xmm);
+    v25 = CColorBrush::CColorBrush(v24, this, &v30);
+  }
+  else
+  {
+    v25 = 0LL;
+  }
+  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((__int64 *)this + 22, (__int64)v25);
+  if ( !*((_QWORD *)this + 22) )
+  {
+    v28 = 263;
+    goto LABEL_51;
+  }
+  *((_OWORD *)this + 62) = _xmm;
+  *((_OWORD *)this + 63) = _xmm;
+  *((_OWORD *)this + 64) = _xmm;
+  *((_OWORD *)this + 65) = _xmm;
   return (unsigned int)v6;
 }

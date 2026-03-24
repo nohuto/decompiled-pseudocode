@@ -1,67 +1,73 @@
 /*
- * XREFs of Package @ 0x1C0058010
+ * XREFs of Package @ 0x1C0021320
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     PushFrame @ 0x1C0053C54 (PushFrame.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall Package(__int64 a1, _QWORD *a2)
+__int64 __fastcall Package(struct _SLIST_ENTRY *a1, _QWORD *a2)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rax
-  _DWORD *v6; // r14
-  int v7; // ecx
-  const void *v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  __int64 result; // rax
+  unsigned __int64 v5; // rdx
+  _DWORD *v6; // rax
+  _DWORD *v7; // rsi
+  __int64 v8; // rax
 
-  v4 = ValidateArgTypes(a1, a2[10], 0, "I");
-  if ( !v4 )
+  result = ValidateArgTypes((__int64)a1, a2[10], 0, "I");
+  if ( !(_DWORD)result )
   {
-    v5 = a2[10];
-    if ( *(_QWORD *)(v5 + 16) > 0xFFuLL )
+    v5 = *(_QWORD *)(a2[10] + 16LL);
+    if ( v5 > 0xFF )
     {
-      v4 = -1072431100;
-      LogError(-1072431100);
-      AcpiDiagTraceAmlError(a1, -1072431100);
-      v7 = 118;
-      v8 = *(const void **)(a2[10] + 16LL);
-      goto LABEL_8;
+      LogError(3222536196LL);
+      AcpiDiagTraceAmlError(a1, 3222536196LL);
+      PrintDebugMessage(118, *(_QWORD *)(a2[10] + 16LL), 0, 0, 0LL);
+      return 3222536196LL;
     }
-    *(_DWORD *)(a2[11] + 24LL) = 40 * *(_DWORD *)(v5 + 16) + 8;
-    v6 = (_DWORD *)HeapAlloc(gpheapGlobal, 1196118088, *(_DWORD *)(a2[11] + 24LL));
-    if ( !v6 )
+    else
     {
-      v4 = -1073741670;
-      LogError(-1073741670);
-      AcpiDiagTraceAmlError(a1, -1073741670);
-      v7 = 117;
-      v8 = (const void *)*(unsigned int *)(a2[11] + 24LL);
-LABEL_8:
-      PrintDebugMessage(v7, v8, 0LL, 0LL, 0LL);
-      return v4;
-    }
-    v9 = a2[11];
-    v12 = 0LL;
-    *(_WORD *)(v9 + 2) = 4;
-    memset(v6, 0, *(unsigned int *)(a2[11] + 24LL));
-    *(_QWORD *)(a2[11] + 32LL) = v6;
-    *v6 = *(unsigned __int8 *)(a2[10] + 16LL);
-    v4 = PushFrame(a1, 1179077456, 0x38u, (__int64)ParsePackage, &v12);
-    if ( !v4 )
-    {
-      v10 = v12;
-      *(_QWORD *)(v12 + 32) = v6;
-      *(_QWORD *)(v10 + 48) = a2[5];
+      *(_DWORD *)(a2[11] + 24LL) = 40 * v5 + 8;
+      v6 = (_DWORD *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1196118088, *(_DWORD *)(a2[11] + 24LL));
+      v7 = v6;
+      if ( v6 )
+      {
+        *(_WORD *)(a2[11] + 2LL) = 4;
+        memset(v6, 0, *(unsigned int *)(a2[11] + 24LL));
+        *(_QWORD *)(a2[11] + 32LL) = v7;
+        *v7 = *(unsigned __int8 *)(a2[10] + 16LL);
+        v8 = HeapAlloc(a1 + 30, 1297237576, 0x38u);
+        if ( v8 )
+        {
+          *(_QWORD *)(v8 + 8) = a1[26].Next;
+          a1[26].Next = (_SLIST_ENTRY *)v8;
+          *(_QWORD *)(v8 + 24) = ParsePackage;
+          *(_DWORD *)v8 = 1179077456;
+          *(_QWORD *)(v8 + 32) = v7;
+          *(_QWORD *)(v8 + 48) = a2[5];
+          return 0LL;
+        }
+        else
+        {
+          LogError(3222536194LL);
+          AcpiDiagTraceAmlError(a1, 3222536194LL);
+          PrintDebugMessage(153, 0, 0, 0, 0LL);
+          return 3222536194LL;
+        }
+      }
+      else
+      {
+        LogError(3221225626LL);
+        AcpiDiagTraceAmlError(a1, 3221225626LL);
+        PrintDebugMessage(117, *(_DWORD *)(a2[11] + 24LL), 0, 0, 0LL);
+        return 3221225626LL;
+      }
     }
   }
-  return v4;
+  return result;
 }

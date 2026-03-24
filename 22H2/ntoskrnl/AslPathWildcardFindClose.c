@@ -1,9 +1,9 @@
 /*
- * XREFs of AslPathWildcardFindClose @ 0x140A55580
+ * XREFs of AslPathWildcardFindClose @ 0x140968B00
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x140A503B0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1409650D0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     AslpPathWildcardFreeFindContext @ 0x140A5687C (AslpPathWildcardFreeFindContext.c)
+ *     AslpPathWildcardFreeFindContext @ 0x140969ED4 (AslpPathWildcardFreeFindContext.c)
  */
 
 void __fastcall AslPathWildcardFindClose(__int64 *a1)

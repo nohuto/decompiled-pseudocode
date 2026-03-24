@@ -1,132 +1,143 @@
 /*
- * XREFs of ?CreateSharedKeyedMutexNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z @ 0x1C0326308
+ * XREFs of ?CreateSharedKeyedMutexNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z @ 0x1C02773BC
  * Callers:
- *     DxgkCreateBundleObjectInternal @ 0x1C0327010 (DxgkCreateBundleObjectInternal.c)
+ *     DxgkCreateBundleObjectInternal @ 0x1C0278054 (DxgkCreateBundleObjectInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C00540B0 (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0054234 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040C14 (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040F30 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall CreateSharedKeyedMutexNtObject(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
         _QWORD *a7)
 {
-  __int64 v7; // rbx
-  char v8; // bp
-  struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v10; // rsi
-  unsigned int v11; // eax
-  __int64 v12; // r8
-  int v13; // edx
+  char v7; // bp
+  __int64 v8; // rbx
+  struct _KTHREAD **Current; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct _KTHREAD **v12; // rsi
+  __int64 v13; // rax
   __int64 v14; // rdx
-  PVOID v15; // rcx
-  DXGKEYEDMUTEX *v17; // rdi
-  __int64 v18; // r9
-  __int64 v19; // rcx
-  int v20; // eax
-  _BYTE v21[32]; // [rsp+50h] [rbp-38h] BYREF
-  PVOID Object; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v15; // rcx
+  struct _KTHREAD *v16; // r8
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  PVOID v20; // rcx
+  DXGKEYEDMUTEX *v22; // rdi
+  __int64 v23; // rax
+  __int64 v24; // r9
+  __int64 v25; // rcx
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  _BYTE v33[32]; // [rsp+50h] [rbp-28h] BYREF
+  PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
-  v7 = a3;
   Object = 0LL;
-  v8 = a1;
-  Current = DXGPROCESS::GetCurrent(a1);
-  v10 = Current;
+  v7 = a1;
+  v8 = (unsigned int)a3;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v12 = Current;
   if ( !Current )
   {
-    LODWORD(v7) = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdError(v11, v10);
+    LODWORD(v8) = -1073741811;
+    *(_QWORD *)(v13 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v13);
     goto LABEL_11;
   }
-  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v21, Current);
-  v11 = ((unsigned int)v7 >> 6) & 0xFFFFFF;
-  if ( v11 >= *((_DWORD *)v10 + 74) )
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v33, Current);
+  v17 = ((unsigned int)v8 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v17 >= *((_DWORD *)v12 + 64) )
     goto LABEL_9;
-  v12 = *((_QWORD *)v10 + 35);
-  if ( (((unsigned int)v7 >> 25) & 0x60) != (*(_BYTE *)(v12 + 16LL * v11 + 8) & 0x60) )
-    goto LABEL_9;
-  if ( (*(_DWORD *)(v12 + 16LL * v11 + 8) & 0x2000) != 0 )
-    goto LABEL_9;
-  v13 = *(_DWORD *)(v12 + 16LL * v11 + 8) & 0x1F;
-  if ( !v13 )
-    goto LABEL_9;
-  if ( v13 != 9 )
+  v16 = v12[30];
+  v15 = ((unsigned int)v8 >> 25) & 0x60;
+  v14 = *((unsigned int *)v16 + 4 * v17 + 2);
+  if ( (((unsigned int)v8 >> 25) & 0x60) != (*((_BYTE *)v16 + 16 * v17 + 8) & 0x60)
+    || (v14 & 0x2000) != 0
+    || (v14 & 0x1F) == 0 )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+    goto LABEL_9;
+  }
+  v14 &= 0x1Fu;
+  if ( (_BYTE)v14 != 9 )
+  {
+    v18 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v18 + 24) = 316LL;
+    WdLogEvent5_WdError(v18);
 LABEL_9:
-    v14 = v7;
-    LODWORD(v7) = -1073741811;
-    WdLogSingleEntry2(3LL, v14, -1073741811LL);
+    v19 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    *(_QWORD *)(v19 + 24) = v8;
+    LODWORD(v8) = -1073741811;
+    *(_QWORD *)(v19 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v19);
 LABEL_10:
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
     goto LABEL_11;
   }
-  v17 = *(DXGKEYEDMUTEX **)(v12 + 16LL * v11);
-  if ( !v17 )
+  v22 = (DXGKEYEDMUTEX *)*((_QWORD *)v16 + 2 * (unsigned int)v17);
+  if ( !v22 )
     goto LABEL_9;
-  if ( (*((_DWORD *)v17 + 43) & 1) == 0 )
+  if ( (*((_DWORD *)v22 + 41) & 1) == 0 )
   {
-    LODWORD(v7) = -1073741811;
-    WdLogSingleEntry2(2LL, v17, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot share object: Keyed mutex 0x%I64x does not use NT security sharing. Returning 0x%I64x.",
-      (__int64)v17,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v23 = WdLogNewEntry5_WdError(v15, v14);
+    LODWORD(v8) = -1073741811;
+    *(_QWORD *)(v23 + 24) = v22;
+    *(_QWORD *)(v23 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v23);
     goto LABEL_10;
   }
-  DXGKEYEDMUTEX::AcquireReference(v17);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
-  LOBYTE(v18) = 1;
-  LOBYTE(v19) = v8;
-  v20 = ObCreateObject(v19, g_pDxgkSharedKeyedMutexObjectType, a5, v18, 0LL, 8, 0, 0, &Object);
-  v7 = v20;
-  if ( v20 >= 0 )
+  DXGKEYEDMUTEX::AcquireReference(v22, v14);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
+  LOBYTE(v24) = 1;
+  LOBYTE(v25) = v7;
+  v26 = ObCreateObject(v25, g_pDxgkSharedKeyedMutexObjectType, a5, v24, 0LL, 8, 0, 0, &Object);
+  v8 = v26;
+  if ( v26 >= 0 )
   {
-    *(_QWORD *)Object = v17;
-    v15 = Object;
+    *(_QWORD *)Object = v22;
+  }
+  else
+  {
+    if ( Object )
+    {
+      v30 = WdLogNewEntry5_WdAssertion(v28, v27);
+      *(_QWORD *)(v30 + 24) = 271LL;
+      WdLogEvent5_WdAssertion(v30);
+    }
+    v31 = WdLogNewEntry5_WdWarning(v28, v27, v29);
+    *(_QWORD *)(v31 + 24) = v12;
+    *(_QWORD *)(v31 + 32) = v8;
+    WdLogEvent5_WdWarning(v31);
+    DXGKEYEDMUTEX::ReleaseReference(v22, v32);
+  }
+  if ( (int)v8 >= 0 )
+  {
+    v20 = Object;
     goto LABEL_13;
   }
-  if ( Object )
-  {
-    WdLogSingleEntry1(1LL, 298LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pObject == NULL", 298LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  WdLogSingleEntry2(3LL, v10, v7);
-  DXGKEYEDMUTEX::ReleaseReference(v17);
 LABEL_11:
-  v15 = Object;
+  v20 = Object;
   if ( Object )
   {
     ObfDereferenceObject(Object);
-    v15 = 0LL;
+    v20 = 0LL;
   }
 LABEL_13:
-  *a7 = v15;
-  return (unsigned int)v7;
+  *a7 = v20;
+  return (unsigned int)v8;
 }

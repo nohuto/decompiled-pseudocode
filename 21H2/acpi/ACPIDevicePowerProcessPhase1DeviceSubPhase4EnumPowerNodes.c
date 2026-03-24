@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes @ 0x1C002C430
+ * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes @ 0x1C002F8E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_dqs @ 0x1C0051710 (WPP_RECORDER_SF_dqs.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_dqs @ 0x1C0052220 (WPP_RECORDER_SF_dqs.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes(__int64 a1, int a2, __int64 a3, BOOL a4)
@@ -14,7 +14,7 @@ __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes(__i
 
   if ( a2
     || *(_DWORD *)(a1 + 64)
-    || (a4 = *(_DWORD *)(*(_QWORD *)(a3 + 40) + 552LL) != 0, a4 != (*(_DWORD *)(a1 + 24) != 0)) )
+    || (a4 = *(_DWORD *)(*(_QWORD *)(a3 + 40) + 512LL) != 0, a4 != (*(_DWORD *)(a1 + 24) != 0)) )
   {
     v7 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 64), 3, 0);
     if ( v7 == 4 )

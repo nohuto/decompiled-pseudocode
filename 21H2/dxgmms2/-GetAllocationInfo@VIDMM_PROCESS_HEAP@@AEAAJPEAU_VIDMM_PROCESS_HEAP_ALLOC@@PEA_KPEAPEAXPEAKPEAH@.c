@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@Z @ 0x1C00F1B00
+ * XREFs of ?GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@Z @ 0x1C00CD030
  * Callers:
- *     ?Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z @ 0x1C00F2240 (-Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z.c)
- *     ?ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z @ 0x1C00F2420 (-ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z.c)
+ *     ?Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z @ 0x1C00CD770 (-Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z.c)
+ *     ?ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z @ 0x1C00CD970 (-ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall VIDMM_PROCESS_HEAP::GetAllocationInfo(
@@ -20,10 +20,10 @@ __int64 __fastcall VIDMM_PROCESS_HEAP::GetAllocationInfo(
   void *v8; // rsi
   unsigned int v9; // ebx
   unsigned int v10; // ebp
-  unsigned __int64 *v12; // r12
   VIDMM_PROCESS_HEAP *v13; // r10
   int v14; // eax
-  _QWORD *v15; // rax
+  int v15; // r8d
+  _QWORD *v16; // rax
   __int64 result; // rax
 
   v6 = 0;
@@ -31,7 +31,6 @@ __int64 __fastcall VIDMM_PROCESS_HEAP::GetAllocationInfo(
   v8 = 0LL;
   v9 = 0;
   v10 = 0;
-  v12 = a3;
   v13 = this;
   if ( (*(_DWORD *)a2 & 4) != 0 )
   {
@@ -53,10 +52,10 @@ LABEL_10:
     goto LABEL_5;
   }
   this = (VIDMM_PROCESS_HEAP *)*((_QWORD *)a2 + 1);
-  a3 = (unsigned __int64 *)*((unsigned int *)this + 20);
-  if ( (unsigned int)((_DWORD)a3 - 3) <= 3 )
+  v15 = *((_DWORD *)this + 20);
+  if ( (unsigned int)(v15 - 3) <= 3 )
   {
-    v14 = (_DWORD)a3 - 4;
+    v14 = v15 - 4;
 LABEL_5:
     v9 = (v14 & 0xFFFFFFFD) != 0 ? 1028 : 4;
     v8 = (void *)(*(__int64 (__fastcall **)(VIDMM_PROCESS_HEAP *, struct _VIDMM_PROCESS_HEAP_ALLOC *, _QWORD, unsigned __int64, int))(*(_QWORD *)v13 + 56LL))(
@@ -77,15 +76,15 @@ LABEL_5:
 LABEL_12:
   if ( g_IsInternalReleaseOrDbg )
   {
-    v15 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-    v15[5] = v9;
-    v15[6] = v10;
-    v15[7] = v6;
-    v15[3] = v8;
-    v15[4] = v7;
+    v16 = (_QWORD *)WdLogNewEntry5_WdTrace(this);
+    v16[5] = v9;
+    v16[6] = v10;
+    v16[7] = v6;
+    v16[3] = v8;
+    v16[4] = v7;
   }
   result = (unsigned int)v6;
-  *v12 = v7;
+  *a3 = v7;
   *a4 = v8;
   *a5 = v9;
   *a6 = v10;

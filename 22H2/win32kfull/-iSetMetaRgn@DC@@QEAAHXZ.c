@@ -1,68 +1,67 @@
 /*
- * XREFs of ?iSetMetaRgn@DC@@QEAAHXZ @ 0x1C000A0A8
+ * XREFs of ?iSetMetaRgn@DC@@QEAAHXZ @ 0x1C0100B24
  * Callers:
- *     NtGdiSetMetaRgn @ 0x1C000A030 (NtGdiSetMetaRgn.c)
+ *     NtGdiSetMetaRgn @ 0x1C0100AA0 (NtGdiSetMetaRgn.c)
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
  */
 
 __int64 __fastcall DC::iSetMetaRgn(DC *this)
 {
-  __int64 v2; // r9
+  unsigned int v1; // ebx
+  __int64 v2; // r8
   __int64 result; // rax
-  __int64 v4; // r9
-  unsigned int v5; // edi
-  __int64 v6; // rax
-  __int64 v7; // [rsp+40h] [rbp+20h] BYREF
-  __int64 v8; // [rsp+48h] [rbp+28h] BYREF
-  __int64 v9; // [rsp+50h] [rbp+30h] BYREF
+  __int64 v5; // r8
+  unsigned int v6; // esi
+  __int64 v7; // rax
+  __int64 v8; // [rsp+20h] [rbp-10h] BYREF
+  int v9; // [rsp+28h] [rbp-8h]
+  __int64 v10; // [rsp+50h] [rbp+20h] BYREF
+  __int64 v11; // [rsp+58h] [rbp+28h] BYREF
 
+  v1 = 0;
   v2 = *((_QWORD *)this + 20);
   if ( *((_QWORD *)this + 21) )
   {
-    v7 = *((_QWORD *)this + 21);
-    if ( v2 )
+    v10 = *((_QWORD *)this + 21);
+    if ( !v2 )
+      return (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v10);
+    v11 = v2;
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v8);
+    if ( !v8 )
     {
-      v9 = v2;
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v8);
-      if ( v8 )
-      {
-        v5 = RGNOBJ::iCombine((RGNOBJ *)&v8, (struct RGNOBJ *)&v7, (struct RGNOBJ *)&v9, 1);
-        if ( v5 )
-        {
-          ++*(_DWORD *)(v8 + 76);
-          *((_QWORD *)this + 21) = v8;
-          if ( !--*(_DWORD *)(v7 + 76) )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v7);
-          v6 = v9;
-          *((_QWORD *)this + 20) = 0LL;
-          --*(_DWORD *)(v6 + 76);
-          if ( !*(_DWORD *)(v9 + 76) )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v9);
-          DC::vReleaseRao(this);
-        }
-        else
-        {
-          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
-        }
-        return v5;
-      }
-      else
-      {
-        return 0LL;
-      }
+      if ( v9 == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
+      return v1;
+    }
+    v6 = RGNOBJ::iCombine((RGNOBJ *)&v8, (struct RGNOBJ *)&v10, (struct RGNOBJ *)&v11, 1);
+    if ( v6 )
+    {
+      ++*(_DWORD *)(v8 + 32);
+      *((_QWORD *)this + 21) = v8;
+      if ( !--*(_DWORD *)(v10 + 32) )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v10);
+      v7 = v11;
+      *((_QWORD *)this + 20) = 0LL;
+      --*(_DWORD *)(v7 + 32);
+      if ( !*(_DWORD *)(v11 + 32) )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v11);
+      DC::vReleaseRao(this);
     }
     else
     {
-      return RGNOBJ::iComplexity((RGNOBJ *)&v7);
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
     }
+    if ( v9 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
+    return v6;
   }
   else if ( v2 )
   {
-    v7 = *((_QWORD *)this + 20);
-    result = RGNOBJ::iComplexity((RGNOBJ *)&v7);
+    v10 = *((_QWORD *)this + 20);
+    result = RGNOBJ::iComplexity((RGNOBJ *)&v10);
+    *((_QWORD *)this + 21) = v5;
     *((_QWORD *)this + 20) = 0LL;
-    *((_QWORD *)this + 21) = v4;
   }
   else
   {

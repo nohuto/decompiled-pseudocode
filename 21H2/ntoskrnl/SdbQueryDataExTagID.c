@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbQueryDataExTagID @ 0x1408411FC
+ * XREFs of SdbQueryDataExTagID @ 0x1407C1768
  * Callers:
- *     PiIsDriverBlocked @ 0x14075E568 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x1402D88AC (RtlStringCchCopyNW.c)
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     SdbpGetMappedTagData @ 0x14075B988 (SdbpGetMappedTagData.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetTagDataSize @ 0x14079422C (SdbGetTagDataSize.c)
- *     SdbReadDWORDTag @ 0x1407ECF5C (SdbReadDWORDTag.c)
- *     SdbFindFirstNamedTag @ 0x140841428 (SdbFindFirstNamedTag.c)
- *     SdbReadQWORDTag @ 0x140842904 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
+ *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
+ *     SdbpGetMappedTagData @ 0x140759E04 (SdbpGetMappedTagData.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x14075A340 (SdbGetTagDataSize.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
+ *     SdbFindFirstNamedTag @ 0x1407C198C (SdbFindFirstNamedTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbQueryDataExTagID(
@@ -28,38 +28,35 @@ __int64 __fastcall SdbQueryDataExTagID(
         unsigned int *a6,
         unsigned int *a7)
 {
-  __int64 *StringTagPtr; // r12
+  int DWORDTag; // r12d
   const wchar_t *v8; // rbx
   __int64 v11; // rax
-  size_t v12; // r14
+  size_t v12; // r15
   wchar_t *v13; // rax
-  wchar_t *Str1; // r15
+  wchar_t *Str1; // r14
   wchar_t *v15; // rax
+  wchar_t *v16; // rbp
   unsigned int FirstNamedTag; // eax
-  int v17; // r15d
   unsigned int FirstTag; // eax
-  int DWORDTag; // eax
-  int v20; // r14d
+  __int64 v19; // r9
   unsigned int TagDataSize; // ebp
-  int v22; // eax
-  int v23; // eax
-  int v24; // eax
-  __int16 v25; // ax
+  __int64 *StringTagPtr; // r15
+  __int16 v22; // ax
+  __int64 v23; // r8
+  __int64 v24; // r9
+  unsigned int v25; // r14d
   unsigned int v26; // ebx
-  unsigned int *v27; // rax
-  unsigned int v28; // ebx
-  size_t v30; // rbp
-  __int64 v31; // r11
-  __int64 v32; // rax
+  size_t v28; // r14
+  __int64 v29; // rax
   wchar_t *P; // [rsp+30h] [rbp-48h]
   __int64 QWORDTag; // [rsp+38h] [rbp-40h] BYREF
   int Src; // [rsp+90h] [rbp+18h] BYREF
-  int v36; // [rsp+94h] [rbp+1Ch]
-  _DWORD *v37; // [rsp+98h] [rbp+20h]
+  int v33; // [rsp+94h] [rbp+1Ch]
+  _DWORD *v34; // [rsp+98h] [rbp+20h]
 
-  v37 = a4;
-  v36 = HIDWORD(a3);
-  StringTagPtr = 0LL;
+  v34 = a4;
+  v33 = HIDWORD(a3);
+  DWORDTag = 0;
   v8 = L"Policy";
   Src = 0;
   QWORDTag = 0LL;
@@ -84,23 +81,24 @@ __int64 __fastcall SdbQueryDataExTagID(
   while ( 1 )
   {
     v15 = wcschr(v8, 0x5Cu);
+    v16 = v15;
     if ( v15 )
     {
-      v30 = v15 - v8;
-      if ( RtlStringCchCopyNW(P, v12, v8, v30) < 0 )
+      v28 = v15 - v8;
+      if ( RtlStringCchCopyNW(P, v12, v8, v28) < 0 )
       {
-LABEL_63:
-        v28 = 122;
-        goto LABEL_31;
+LABEL_62:
+        v26 = 122;
+        goto LABEL_33;
       }
+      P[v28] = 0;
+      v8 = v16 + 1;
       Str1 = P;
-      P[v30] = 0;
-      v8 = (const wchar_t *)(v31 + 2);
     }
     else
     {
       if ( RtlStringCchCopyW(Str1, v12, v8) < 0 )
-        goto LABEL_63;
+        goto LABEL_62;
       v8 = 0LL;
     }
     FirstNamedTag = SdbFindFirstNamedTag(a1, a2, 28687, 24577, Str1);
@@ -113,118 +111,95 @@ LABEL_63:
   if ( !FirstNamedTag )
   {
 LABEL_45:
-    v28 = 1168;
-    goto LABEL_31;
-  }
-  v17 = 0;
-  FirstTag = SdbFindFirstTag(a1, FirstNamedTag, 16408);
-  if ( !FirstTag )
-  {
-    AslLogCallPrintf(1LL);
-    TagDataSize = 0;
-    v28 = 0;
+    v26 = 1168;
     goto LABEL_33;
   }
-  DWORDTag = SdbReadDWORDTag(a1, FirstTag, 0);
-  v20 = DWORDTag;
-  TagDataSize = 0;
-  v17 = DWORDTag;
-  if ( !DWORDTag )
-    goto LABEL_61;
-  v22 = DWORDTag - 1;
-  if ( v22 )
-  {
-    v23 = v22 - 2;
-    if ( v23 )
-    {
-      v24 = v23 - 1;
-      if ( !v24 )
-      {
-        v25 = 16409;
-        goto LABEL_17;
-      }
-      if ( v24 != 7 )
-      {
-        AslLogCallPrintf(1LL);
-        v28 = 1358;
-        goto LABEL_31;
-      }
-      v25 = 20487;
-    }
-    else
-    {
-      v25 = -28667;
-    }
-  }
+  FirstTag = SdbFindFirstTag(a1, FirstNamedTag, 16408);
+  if ( FirstTag )
+    DWORDTag = SdbReadDWORDTag(a1, FirstTag, 0LL, v19);
   else
+    AslLogCallPrintf(1LL);
+  TagDataSize = 0;
+  StringTagPtr = 0LL;
+  switch ( DWORDTag )
   {
-    v25 = 24606;
+    case 0:
+      goto LABEL_54;
+    case 1:
+      v22 = 24606;
+      break;
+    case 3:
+      v22 = -28667;
+      break;
+    case 4:
+      v22 = 16409;
+      break;
+    case 11:
+      v22 = 20487;
+      break;
+    default:
+      AslLogCallPrintf(1LL);
+      v26 = 1358;
+      goto LABEL_33;
   }
-LABEL_17:
-  v26 = SdbFindFirstTag(a1, a2, v25);
-  if ( !v26 )
-    goto LABEL_44;
-  if ( v20 == 1 )
+  v25 = SdbFindFirstTag(a1, a2, v22);
+  if ( !v25 )
   {
-    StringTagPtr = (__int64 *)SdbGetStringTagPtr(a1, v26);
-    if ( StringTagPtr )
-    {
-      v32 = -1LL;
-      do
-        ++v32;
-      while ( *((_WORD *)StringTagPtr + v32) );
-      TagDataSize = 2 * v32 + 2;
-      goto LABEL_61;
-    }
 LABEL_44:
     AslLogCallPrintf(1LL);
     goto LABEL_45;
   }
-  if ( v20 == 3 )
+  switch ( DWORDTag )
   {
-    TagDataSize = SdbGetTagDataSize(a1, v26);
-    StringTagPtr = (__int64 *)SdbpGetMappedTagData(a1, v26);
-    if ( !StringTagPtr )
+    case 1:
+      StringTagPtr = (__int64 *)SdbGetStringTagPtr(a1, v25, v23, v24);
+      if ( StringTagPtr )
+      {
+        v29 = -1LL;
+        do
+          ++v29;
+        while ( *((_WORD *)StringTagPtr + v29) );
+        TagDataSize = 2 * v29 + 2;
+        goto LABEL_54;
+      }
       goto LABEL_44;
-LABEL_61:
-    v28 = 0;
-    if ( TagDataSize )
-      goto LABEL_22;
-    goto LABEL_33;
+    case 3:
+      TagDataSize = SdbGetTagDataSize(a1, v25, v23, v24);
+      StringTagPtr = (__int64 *)SdbpGetMappedTagData(a1, v25);
+      if ( StringTagPtr )
+        goto LABEL_54;
+      goto LABEL_44;
+    case 4:
+      Src = SdbReadDWORDTag(a1, v25, 0LL, v24);
+      StringTagPtr = (__int64 *)&Src;
+      TagDataSize = 4;
+      goto LABEL_23;
   }
-  if ( v20 != 4 )
+  QWORDTag = SdbReadQWORDTag(a1, v25, 0LL);
+  StringTagPtr = &QWORDTag;
+  TagDataSize = 8;
+LABEL_54:
+  v26 = 0;
+  if ( TagDataSize )
   {
-    if ( v20 == 11 )
+LABEL_23:
+    if ( a5 && a6 && *a6 >= TagDataSize )
     {
-      QWORDTag = SdbReadQWORDTag(a1, v26, 0LL);
-      StringTagPtr = &QWORDTag;
-      TagDataSize = 8;
-      goto LABEL_22;
+      memmove(a5, StringTagPtr, *a6);
+      v26 = 0;
     }
-    goto LABEL_61;
+    else
+    {
+      v26 = 122;
+    }
   }
-  Src = SdbReadDWORDTag(a1, v26, 0);
-  StringTagPtr = (__int64 *)&Src;
-  TagDataSize = 4;
-LABEL_22:
-  if ( a5 && a6 && *a6 >= TagDataSize )
-  {
-    memmove(a5, StringTagPtr, *a6);
-    v27 = a6;
-    v28 = 0;
-    goto LABEL_26;
-  }
-  v28 = 122;
-LABEL_33:
-  v27 = a6;
   if ( a6 )
-LABEL_26:
-    *v27 = TagDataSize;
-  if ( v37 )
-    *v37 = v17;
+    *a6 = TagDataSize;
+  if ( v34 )
+    *v34 = DWORDTag;
   if ( a7 )
     *a7 = a2;
-LABEL_31:
+LABEL_33:
   ExFreePoolWithTag(P, 0x74705041u);
-  return v28;
+  return v26;
 }

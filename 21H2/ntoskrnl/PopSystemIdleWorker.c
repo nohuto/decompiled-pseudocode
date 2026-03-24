@@ -1,58 +1,44 @@
 /*
- * XREFs of PopSystemIdleWorker @ 0x140752F30
+ * XREFs of PopSystemIdleWorker @ 0x1408F1100
  * Callers:
- *     PopPolicyWorkerThread @ 0x140250220 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopScanIdleList @ 0x1402D6330 (PopScanIdleList.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     PopPulseSystemIdleEvent @ 0x1406E8E9C (PopPulseSystemIdleEvent.c)
- *     PopUpdateLastUserInputTime @ 0x140752B6C (PopUpdateLastUserInputTime.c)
- *     PopIsSystemIdle @ 0x140752BB4 (PopIsSystemIdle.c)
- *     PopExecuteSystemIdleAction @ 0x140752DA8 (PopExecuteSystemIdleAction.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PopUpdateLastUserInputTime @ 0x1407815C0 (PopUpdateLastUserInputTime.c)
+ *     PopPulseSystemIdleEvent @ 0x14078E950 (PopPulseSystemIdleEvent.c)
+ *     PopIdleDetection @ 0x1408E4250 (PopIdleDetection.c)
+ *     PopExecuteSystemIdleAction @ 0x1408F0DF4 (PopExecuteSystemIdleAction.c)
+ *     PopIsSystemIdle @ 0x1408F0F04 (PopIsSystemIdle.c)
  */
 
 __int64 PopSystemIdleWorker()
 {
-  bool v0; // si
-  int v2; // ecx
-  int v3; // ebx
-  unsigned __int8 IsSystemIdle; // di
-  int v6; // [rsp+30h] [rbp-18h]
-  unsigned __int64 v7; // [rsp+58h] [rbp+10h] BYREF
+  int v1; // ecx
+  int v2; // edi
+  unsigned __int8 IsSystemIdle; // bl
+  unsigned __int64 v5; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
+  v5 = 0LL;
   if ( !PopPlatformAoAc )
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_PowerEventProcessorSystemIdle__private_reporting,
-      0x16F54A4u,
-      0,
-      0,
-      (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-      1u,
-      v6);
-  v0 = PopIdleLoopExecuted.Header.SignalState == 0;
+    KeBugCheckEx(0xA0u, 0xAuLL, 0x100uLL, 0LL, 0LL);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);
-  while ( _BitScanForward((unsigned int *)&v2, PopPendingSystemIdleResetMask) )
+  while ( _BitScanForward((unsigned int *)&v1, PopPendingSystemIdleResetMask) )
   {
-    _InterlockedAnd(&PopPendingSystemIdleResetMask, ~(1 << v2));
-    if ( v2 == 2 )
+    _InterlockedAnd(&PopPendingSystemIdleResetMask, ~(1 << v1));
+    if ( v1 == 2 )
       PopPulseSystemIdleEvent(2u);
   }
   PopUpdateLastUserInputTime();
-  v3 = dword_140C095F4;
-  IsSystemIdle = PopIsSystemIdle((__int64)&unk_140C09608, dword_140C095F4, &v7, (__int64)&unk_140C09708);
-  dword_140C096E8 = PopSystemIdleContext;
+  v2 = dword_140C0F214;
+  IsSystemIdle = PopIsSystemIdle((__int64)&unk_140C0F228, dword_140C0F214, &v5, (__int64)&unk_140C0F328);
+  dword_140C0F308 = PopSystemIdleContext;
   PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
-  if ( PsWin32CalloutsEstablished )
-    PopScanIdleList(v3, v7 / (unsigned int)PopIdleScanInterval);
-  PopExecuteSystemIdleAction(dword_140C096E8, IsSystemIdle, (__int64)&unk_140C096F0);
+  PopIdleDetection(v2, v5 / (unsigned int)PopIdleScanInterval);
+  PopExecuteSystemIdleAction((unsigned int)dword_140C0F308, IsSystemIdle, (__int64)&unk_140C0F310);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);
-  dword_140C096E8 = 0;
+  dword_140C0F308 = 0;
   PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
-  if ( v0 )
-    KeSetEvent(&PopIdleLoopExecuted, 0, 0);
   return 0LL;
 }

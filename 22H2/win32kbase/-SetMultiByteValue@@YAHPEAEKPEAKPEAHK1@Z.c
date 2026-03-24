@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C0198CAC
+ * XREFs of ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C016B314
  * Callers:
- *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C0197E54 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
+ *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C016A9B4 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
  * Callees:
  *     <none>
  */
@@ -59,7 +59,7 @@ LABEL_9:
   if ( v12 + (_DWORD)v8 + 1 < a2 )
   {
     v14 = v12;
-    a1[v8] = byte_1C0264F90[a5] + v13;
+    a1[v8] = v13 + g_HIDCodes[a5];
     v15 = (unsigned int)(v8 + 1);
     do
     {

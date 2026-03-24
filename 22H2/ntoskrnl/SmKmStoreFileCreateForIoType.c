@@ -1,19 +1,19 @@
 /*
- * XREFs of SmKmStoreFileCreateForIoType @ 0x1409D9C28
+ * XREFs of SmKmStoreFileCreateForIoType @ 0x14092C4DC
  * Callers:
- *     SmKmStoreFileCreate @ 0x1409D9774 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x14092C02C (SmKmStoreFileCreate.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwSetSecurityObject @ 0x14041DD60 (ZwSetSecurityObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     IoCreateFile @ 0x1407D0C00 (IoCreateFile.c)
- *     SmKmFileInfoCleanup @ 0x1409D8A30 (SmKmFileInfoCleanup.c)
- *     SmKmIsVolumeIoPossible @ 0x1409D8DAC (SmKmIsVolumeIoPossible.c)
- *     SmKmStoreFileDelete @ 0x1409D9ED8 (SmKmStoreFileDelete.c)
- *     SmKmStoreFileMakeSecurityDescriptor @ 0x1409DA1FC (SmKmStoreFileMakeSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwSetSecurityObject @ 0x1403FCF40 (ZwSetSecurityObject.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoCreateFile @ 0x14060B630 (IoCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SmKmFileInfoCleanup @ 0x14092B2C8 (SmKmFileInfoCleanup.c)
+ *     SmKmIsVolumeIoPossible @ 0x14092B644 (SmKmIsVolumeIoPossible.c)
+ *     SmKmStoreFileDelete @ 0x14092C78C (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileMakeSecurityDescriptor @ 0x14092CAB0 (SmKmStoreFileMakeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileCreateForIoType(_OWORD *a1, const WCHAR *a2, int *a3, __int64 a4, int a5)
@@ -117,12 +117,10 @@ LABEL_23:
       }
       *a3 = 1;
       if ( v8 )
-      {
         SmKmStoreFileDelete(FileHandle);
-        v8 = 0;
-      }
       SmKmFileInfoCleanup((__int64)FileHandle);
       memset(FileHandle, 0, sizeof(FileHandle));
+      v8 = 0;
     }
     if ( v8 )
       SmKmStoreFileDelete(FileHandle);

@@ -1,29 +1,35 @@
 /*
- * XREFs of ??1QDC_CACHE@@QEAA@XZ @ 0x1C02F992C
+ * XREFs of ??1QDC_CACHE@@QEAA@XZ @ 0x1C0295BD4
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C000B66C (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall QDC_CACHE::~QDC_CACHE(QDC_CACHE *this)
+void __fastcall QDC_CACHE::~QDC_CACHE(QDC_CACHE *this, __int64 a2)
 {
-  void **v2; // rbx
-  __int64 v3; // rsi
+  DXGFASTMUTEX *v3; // rcx
+  void **v4; // rbx
+  __int64 v5; // rdi
 
-  v2 = (void **)((char *)this + 72);
-  v3 = 18LL;
+  v3 = (DXGFASTMUTEX *)*((_QWORD *)this + 1);
+  if ( v3 )
+  {
+    DXGFASTMUTEX::`scalar deleting destructor'(v3, a2);
+    *((_QWORD *)this + 1) = 0LL;
+  }
+  v4 = (void **)((char *)this + 32);
+  v5 = 18LL;
   do
   {
-    if ( *v2 )
+    if ( *v4 )
     {
-      operator delete(*v2);
-      *v2 = 0LL;
+      operator delete[](*v4);
+      *v4 = 0LL;
     }
-    v2 += 4;
-    --v3;
+    v4 += 4;
+    --v5;
   }
-  while ( v3 );
-  DXGFASTMUTEX::~DXGFASTMUTEX((QDC_CACHE *)((char *)this + 8));
+  while ( v5 );
 }

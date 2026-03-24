@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800E322C
+ * XREFs of ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800C84B8
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x1801C155C (--0CViewBox@@QEAA@PEAVCComposition@@@Z.c)
- *     ?AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z @ 0x180248EDC (-AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z.c)
- *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x180249148 (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
+ *     ?AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z @ 0x1800091E8 (-AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x18016B27C (--0CViewBox@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x1801E392C (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,14 +20,14 @@ CComponentTransform2D *__fastcall CComponentTransform2D::CComponentTransform2D(
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
-  *((_DWORD *)this + 36) = 0;
+  *((_DWORD *)this + 34) = 0;
   *((_DWORD *)this + 8) |= 1u;
   *(_QWORD *)this = &CComponentTransform2D::`vftable';
   result = this;
-  *((_DWORD *)this + 46) = (_DWORD)FLOAT_1_0;
-  *((_DWORD *)this + 47) = (_DWORD)FLOAT_1_0;
-  *((_BYTE *)this + 156) = 0;
-  *(_OWORD *)((char *)this + 196) = CComponentTransform2D::sc_defaultTransformMatrix;
-  *(_QWORD *)((char *)this + 212) = qword_1803E4E80;
+  *((_DWORD *)this + 44) = (_DWORD)FLOAT_1_0;
+  *((_DWORD *)this + 45) = (_DWORD)FLOAT_1_0;
+  *((_BYTE *)this + 148) = 0;
+  *(_OWORD *)((char *)this + 188) = CComponentTransform2D::sc_defaultTransformMatrix;
+  *(_QWORD *)((char *)this + 204) = qword_1803466A8;
   return result;
 }

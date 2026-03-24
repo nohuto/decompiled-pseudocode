@@ -1,15 +1,15 @@
 /*
- * XREFs of ??0VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00B2A38
+ * XREFs of ??0VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00985F8
  * Callers:
- *     ?VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@I@Z @ 0x1C00B1018 (-VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@I@Z.c)
+ *     ?VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z @ 0x1C009706C (-VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ??0VIDMM_PURGE_TELEMETRY@@QEAA@PEAVVIDMM_GLOBAL@@@Z @ 0x1C00B3024 (--0VIDMM_PURGE_TELEMETRY@@QEAA@PEAVVIDMM_GLOBAL@@@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ??0VIDMM_PURGE_TELEMETRY@@QEAA@PEAVVIDMM_GLOBAL@@@Z @ 0x1C0098BD0 (--0VIDMM_PURGE_TELEMETRY@@QEAA@PEAVVIDMM_GLOBAL@@@Z.c)
  */
 
 VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
 {
-  __int64 v2; // rdi
+  __int64 v2; // rcx
   _QWORD *v3; // rax
   VIDMM_GLOBAL *result; // rax
 
@@ -17,51 +17,50 @@ VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
   *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 2) = 0LL;
   *((_DWORD *)this + 8) = 0;
-  v2 = 4LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 464) = 0LL;
-  *((_QWORD *)this + 479) = 0LL;
-  *((_QWORD *)this + 480) = 0LL;
-  *((_DWORD *)this + 963) = 4;
-  *((_DWORD *)this + 962) = 0;
-  *((_QWORD *)this + 578) = 0LL;
-  *((_QWORD *)this + 579) = 0LL;
-  *((_BYTE *)this + 4640) = 0;
-  memset((char *)this + 4641, 0, 0x40uLL);
-  memset((char *)this + 6504, 0, 0x200uLL);
-  *((_DWORD *)this + 1755) = 0;
+  *((_QWORD *)this + 477) = 0LL;
+  *((_QWORD *)this + 478) = 0LL;
+  *((_DWORD *)this + 959) = 1;
+  *((_DWORD *)this + 958) = 0;
+  *((_QWORD *)this + 576) = 0LL;
+  *((_QWORD *)this + 577) = 0LL;
+  *((_BYTE *)this + 4624) = 0;
+  memset((char *)this + 4625, 0, 0x40uLL);
+  memset((char *)this + 6488, 0, 0x200uLL);
+  *((_DWORD *)this + 1751) = 0;
+  *((_QWORD *)this + 876) = 0LL;
+  *((_QWORD *)this + 877) = 0LL;
   *((_QWORD *)this + 878) = 0LL;
   *((_QWORD *)this + 879) = 0LL;
-  *((_QWORD *)this + 880) = 0LL;
-  *((_WORD *)this + 3544) = 0;
-  *((_QWORD *)this + 987) = 0LL;
-  *((_DWORD *)this + 1976) = 0;
+  *((_WORD *)this + 3540) = 0;
+  *((_QWORD *)this + 986) = 0LL;
+  *((_DWORD *)this + 1974) = 0;
+  *((_QWORD *)this + 4990) = 0LL;
   *((_QWORD *)this + 4991) = 0LL;
-  *((_QWORD *)this + 4992) = 0LL;
-  *((_DWORD *)this + 9986) = 0;
-  *((_DWORD *)this + 9987) = 64;
-  *((_DWORD *)this + 9988) = 71;
+  *((_DWORD *)this + 9984) = 0;
+  *((_DWORD *)this + 9985) = 53;
+  *((_DWORD *)this + 9986) = 71;
+  *((_QWORD *)this + 4996) = 0LL;
   *((_QWORD *)this + 4997) = 0LL;
-  *((_QWORD *)this + 4998) = 0LL;
-  *((_DWORD *)this + 9998) = 0;
-  *((_DWORD *)this + 9999) = 64;
-  *((_DWORD *)this + 10000) = 46;
-  *((_DWORD *)this + 10020) = -1;
+  *((_DWORD *)this + 9996) = 0;
+  *((_DWORD *)this + 9997) = 53;
+  *((_DWORD *)this + 9998) = 46;
+  *((_DWORD *)this + 10018) = -1;
+  *((_QWORD *)this + 5006) = 0LL;
   *((_QWORD *)this + 5007) = 0LL;
-  *((_QWORD *)this + 5008) = 0LL;
-  *((_DWORD *)this + 10018) = 0;
-  *((_DWORD *)this + 10019) = 1;
-  *((_DWORD *)this + 10046) = -1;
-  *((_DWORD *)this + 10042) = 0;
-  *(_DWORD *)((char *)this + 40177) = 257;
-  *((_BYTE *)this + 40181) = 0;
+  *((_DWORD *)this + 10016) = 0;
+  *((_DWORD *)this + 10017) = 1;
+  *((_DWORD *)this + 10040) = 0;
+  *(_DWORD *)((char *)this + 40169) = 257;
+  *((_DWORD *)this + 10044) = -1;
+  *((_QWORD *)this + 5023) = 0LL;
   *((_QWORD *)this + 5024) = 0LL;
   *((_QWORD *)this + 5025) = 0LL;
   *((_QWORD *)this + 5026) = 0LL;
-  *((_QWORD *)this + 5027) = 0LL;
   memset((char *)this + 40384, 0, 0x220uLL);
   *((_BYTE *)this + 40936) &= 0x41u;
-  *((_BYTE *)this + 40937) &= 0xCEu;
+  *((_BYTE *)this + 40937) &= 0xEEu;
   *((_DWORD *)this + 10232) = 0;
   *((_BYTE *)this + 40939) = 0;
   *((_QWORD *)this + 5123) = 0LL;
@@ -75,7 +74,7 @@ VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
   *((_QWORD *)this + 5130) = 0LL;
   *((_QWORD *)this + 5131) = 0LL;
   *((_DWORD *)this + 10264) = 0;
-  *((_DWORD *)this + 10265) = 10;
+  *((_DWORD *)this + 10265) = 5;
   *((_DWORD *)this + 10266) = 66;
   *((_QWORD *)this + 5135) = 0LL;
   KeInitializeSpinLock((PKSPIN_LOCK)this + 5134);
@@ -87,40 +86,38 @@ VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
   *((_QWORD *)this + 5141) = (char *)this + 41128;
   *((_QWORD *)this + 5149) = DXG_DEFERRED_WORK_QUEUE::DeferredWorkQueueCallback;
   *((_DWORD *)this + 10286) = 0;
-  *((_DWORD *)this + 10302) = 1;
   *((_QWORD *)this + 5150) = (char *)this + 41104;
   *((_QWORD *)this + 5147) = 0LL;
   KeInitializeEvent((PRKEVENT)((char *)this + 41152), NotificationEvent, 1u);
-  VIDMM_PURGE_TELEMETRY::VIDMM_PURGE_TELEMETRY((VIDMM_GLOBAL *)((char *)this + 41216), this);
-  *((_QWORD *)this + 5544) = 0LL;
+  VIDMM_PURGE_TELEMETRY::VIDMM_PURGE_TELEMETRY((VIDMM_GLOBAL *)((char *)this + 41208), this);
+  *((_QWORD *)this + 5543) = 0LL;
+  *((_QWORD *)this + 5547) = 0LL;
   *((_QWORD *)this + 5548) = 0LL;
-  *((_QWORD *)this + 5549) = 0LL;
-  *((_DWORD *)this + 11100) = 0;
-  *((_DWORD *)this + 11101) = 1;
-  *((_DWORD *)this + 11108) = 0;
-  KeInitializeEvent((PRKEVENT)((char *)this + 44408), NotificationEvent, 1u);
+  *((_DWORD *)this + 11098) = 0;
+  *((_DWORD *)this + 11099) = 1;
+  *((_DWORD *)this + 11106) = 0;
+  KeInitializeEvent((PRKEVENT)this + 1850, NotificationEvent, 1u);
+  *((_QWORD *)this + 5554) = 0LL;
   *((_QWORD *)this + 5555) = 0LL;
   *((_QWORD *)this + 5556) = 0LL;
   *((_QWORD *)this + 5557) = 0LL;
   *((_QWORD *)this + 5558) = 0LL;
   *((_QWORD *)this + 5559) = 0LL;
   *((_QWORD *)this + 5560) = 0LL;
-  *((_QWORD *)this + 5561) = 0LL;
-  *((_DWORD *)this + 11124) = 0;
-  *((_DWORD *)this + 11125) = 64;
-  *((_DWORD *)this + 11126) = 60;
+  *((_DWORD *)this + 11122) = 0;
+  *((_DWORD *)this + 11123) = 53;
+  *((_DWORD *)this + 11124) = 60;
+  *((_QWORD *)this + 5573) = 0LL;
   *((_QWORD *)this + 5574) = 0LL;
   *((_QWORD *)this + 5575) = 0LL;
   *((_QWORD *)this + 5576) = 0LL;
   *((_QWORD *)this + 5577) = 0LL;
-  *((_QWORD *)this + 5578) = 0LL;
-  *((_BYTE *)this + 44632) = 0;
-  *((_DWORD *)this + 11166) = -1;
+  *((_BYTE *)this + 44624) = 0;
+  *((_DWORD *)this + 11164) = -1;
+  *((_QWORD *)this + 5579) = 0LL;
   *((_QWORD *)this + 5580) = 0LL;
-  *((_QWORD *)this + 5581) = 0LL;
-  *((_DWORD *)this + 11164) = 0;
-  *((_DWORD *)this + 11165) = 64;
-  *((_DWORD *)this + 11169) = -1;
+  *((_DWORD *)this + 11162) = 0;
+  *((_DWORD *)this + 11163) = 53;
   *((_QWORD *)this + 466) = (char *)this + 3720;
   *((_QWORD *)this + 465) = (char *)this + 3720;
   *((_QWORD *)this + 468) = (char *)this + 3736;
@@ -131,33 +128,31 @@ VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
   *((_QWORD *)this + 471) = (char *)this + 3768;
   *((_QWORD *)this + 474) = (char *)this + 3784;
   *((_QWORD *)this + 473) = (char *)this + 3784;
-  *((_QWORD *)this + 5547) = (char *)this + 44368;
-  *((_QWORD *)this + 5546) = (char *)this + 44368;
+  *((_QWORD *)this + 5546) = (char *)this + 44360;
+  *((_QWORD *)this + 5545) = (char *)this + 44360;
   *((_QWORD *)this + 5137) = (char *)this + 41088;
   *((_QWORD *)this + 5136) = (char *)this + 41088;
-  *((_BYTE *)this + 44672) = 0;
-  *((_BYTE *)this + 44696) = 0;
-  *((_QWORD *)this + 5588) = 0LL;
-  *((_QWORD *)this + 5589) = 0LL;
-  *((_QWORD *)this + 5591) = 0LL;
-  *((_DWORD *)this + 11204) = 0;
   *((_QWORD *)this + 476) = (char *)this + 3800;
   *((_QWORD *)this + 475) = (char *)this + 3800;
-  *((_QWORD *)this + 478) = (char *)this + 3816;
-  *((_QWORD *)this + 477) = (char *)this + 3816;
-  *((_QWORD *)this + 5006) = (char *)this + 40040;
-  *((_QWORD *)this + 5005) = (char *)this + 40040;
-  *((_QWORD *)this + 5002) = (char *)this + 40008;
-  *((_QWORD *)this + 5001) = (char *)this + 40008;
-  *((_QWORD *)this + 4996) = (char *)this + 39960;
-  *((_QWORD *)this + 4995) = (char *)this + 39960;
-  *((_QWORD *)this + 5004) = (char *)this + 40024;
-  *((_QWORD *)this + 5003) = (char *)this + 40024;
-  *((_QWORD *)this + 5573) = (char *)this + 44576;
-  *((_QWORD *)this + 5572) = (char *)this + 44576;
-  *((_QWORD *)this + 5586) = (char *)this + 44680;
-  *((_QWORD *)this + 5585) = (char *)this + 44680;
-  v3 = (_QWORD *)((char *)this + 44512);
+  *((_QWORD *)this + 5005) = (char *)this + 40032;
+  *((_BYTE *)this + 44664) = 0;
+  *((_DWORD *)this + 11167) = -1;
+  *((_BYTE *)this + 44688) = 0;
+  *((_QWORD *)this + 5587) = 0LL;
+  *((_QWORD *)this + 5588) = 0LL;
+  *((_QWORD *)this + 5004) = (char *)this + 40032;
+  v2 = 4LL;
+  *((_QWORD *)this + 5001) = (char *)this + 40000;
+  *((_QWORD *)this + 5000) = (char *)this + 40000;
+  *((_QWORD *)this + 4995) = (char *)this + 39952;
+  *((_QWORD *)this + 4994) = (char *)this + 39952;
+  *((_QWORD *)this + 5003) = (char *)this + 40016;
+  *((_QWORD *)this + 5002) = (char *)this + 40016;
+  *((_QWORD *)this + 5572) = (char *)this + 44568;
+  *((_QWORD *)this + 5571) = (char *)this + 44568;
+  *((_QWORD *)this + 5585) = (char *)this + 44672;
+  *((_QWORD *)this + 5584) = (char *)this + 44672;
+  v3 = (_QWORD *)((char *)this + 44504);
   do
   {
     v3[1] = v3;
@@ -166,27 +161,27 @@ VIDMM_GLOBAL *__fastcall VIDMM_GLOBAL::VIDMM_GLOBAL(VIDMM_GLOBAL *this)
     --v2;
   }
   while ( v2 );
-  memset((char *)this + 7104, 0, 0x50uLL);
-  *((_QWORD *)this + 887) = 0LL;
-  KeInitializeSpinLock((PKSPIN_LOCK)this + 5545);
-  *((_OWORD *)this + 492) = 0LL;
-  *((_QWORD *)this + 986) = 0LL;
+  memset((char *)this + 7096, 0, 0x50uLL);
+  *((_QWORD *)this + 886) = 0LL;
+  KeInitializeSpinLock((PKSPIN_LOCK)this + 5544);
+  *(_OWORD *)((char *)this + 7864) = 0LL;
+  *((_QWORD *)this + 985) = 0LL;
   memset((char *)this + 632, 0, 0x200uLL);
   memset((char *)this + 1144, 0, 0x200uLL);
-  memset((char *)this + 3856, 0, 0x100uLL);
+  memset((char *)this + 3840, 0, 0x100uLL);
   memset((char *)this + 1656, 0, 0x800uLL);
-  memset((char *)this + 4112, 0, 0x100uLL);
-  memset((char *)this + 4368, 0, 0x100uLL);
-  memset((char *)this + 4708, 0, 0x100uLL);
-  memset((char *)this + 4968, 0, 0x200uLL);
-  memset((char *)this + 5992, 0, 0x200uLL);
-  memset((char *)this + 5480, 0, 0x200uLL);
-  *((_OWORD *)this + 441) = 0LL;
-  *((_OWORD *)this + 442) = 0LL;
-  *((_DWORD *)this + 1754) = 1;
-  memset((char *)this + 7184, 0, 0x2B0uLL);
-  ExInitializePagedLookasideList((PPAGED_LOOKASIDE_LIST)((char *)this + 40256), 0LL, 0LL, 0, 0x20uLL, 0x61356956u, 0);
+  memset((char *)this + 4096, 0, 0x100uLL);
+  memset((char *)this + 4352, 0, 0x100uLL);
+  memset((char *)this + 4692, 0, 0x100uLL);
+  memset((char *)this + 4952, 0, 0x200uLL);
+  memset((char *)this + 5976, 0, 0x200uLL);
+  memset((char *)this + 5464, 0, 0x200uLL);
+  *(_OWORD *)((char *)this + 7048) = 0LL;
+  *(_OWORD *)((char *)this + 7064) = 0LL;
+  *((_DWORD *)this + 1750) = 1;
+  memset((char *)this + 7176, 0, 0x2B0uLL);
+  ExInitializePagedLookasideList((PPAGED_LOOKASIDE_LIST)((char *)this + 40256), 0LL, 0LL, 0, 0x18uLL, 0x61356956u, 0);
   result = this;
-  *((_QWORD *)this + 5592) = 0LL;
+  *((_QWORD *)this + 5589) = 0LL;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of EmpInfParseGetGuidFromName @ 0x140B0CCAC
+ * XREFs of EmpInfParseGetGuidFromName @ 0x140A469DC
  * Callers:
- *     EmpParseCallbacks @ 0x140B0C004 (EmpParseCallbacks.c)
- *     EmpParseRuleTerm @ 0x140B0C230 (EmpParseRuleTerm.c)
- *     EmpParseRules @ 0x140B0C87C (EmpParseRules.c)
- *     EmpParseTargetRules @ 0x140B0CDAC (EmpParseTargetRules.c)
+ *     EmpParseCallbacks @ 0x140A45CF4 (EmpParseCallbacks.c)
+ *     EmpParseRuleTerm @ 0x140A45F28 (EmpParseRuleTerm.c)
+ *     EmpParseRules @ 0x140A46580 (EmpParseRules.c)
+ *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140B0D360 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140A4706C (EmpInfParseGetValueFromSectionAndKeyName.c)
  */
 
 int __fastcall EmpInfParseGetGuidFromName(__int64 a1, __int64 a2, __int64 a3, GUID *a4)

@@ -1,17 +1,16 @@
 /*
- * XREFs of ?ResetOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x1802741D0
+ * XREFs of ?ResetOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180231470
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x180025194 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x18002C098 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x1800B61F8 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152D40 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 void __fastcall CInteractionContextWrapper::ResetOutput(CInteractionContextWrapper *this)
 {
-  __int64 v1; // rcx
+  int v1; // edx
   __int64 v2; // r9
   __int64 v3; // [rsp+30h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+38h] [rbp-40h] BYREF
@@ -20,15 +19,18 @@ void __fastcall CInteractionContextWrapper::ResetOutput(CInteractionContextWrapp
   int v7; // [rsp+64h] [rbp-14h]
 
   CInteractionContextWrapper::ResetCachedInteractionOutput(this, 0LL);
-  if ( (unsigned int)dword_1803D0EF0 > 4 )
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
-    {
-      v7 = 0;
-      v5 = &v3;
-      v3 = v2;
-      v6 = 8;
-      tlgWriteTransfer_EventWriteTransfer(v1, (unsigned __int8 *)dword_180372CEB, 0LL, 0LL, 3u, &v4);
-    }
+    v7 &= v1;
+    v5 = &v3;
+    v3 = v2;
+    v6 = 8;
+    tlgWriteTransfer_EventWriteTransfer(
+      (__int64)&dword_180344EF0,
+      (unsigned __int8 *)dword_1802EC909,
+      0LL,
+      0LL,
+      3u,
+      &v4);
   }
 }

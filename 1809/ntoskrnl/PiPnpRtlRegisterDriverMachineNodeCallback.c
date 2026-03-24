@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlRegisterDriverMachineNodeCallback @ 0x140763820
+ * XREFs of PiPnpRtlRegisterDriverMachineNodeCallback @ 0x140763800
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegisterMachineNode @ 0x1408F5F3C (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408F5F1C (_PnpCtxRegisterMachineNode.c)
  */
 
 bool __fastcall PiPnpRtlRegisterDriverMachineNodeCallback(const wchar_t *a1, int *a2)

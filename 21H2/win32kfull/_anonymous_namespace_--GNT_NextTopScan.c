@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::GNT_NextTopScan @ 0x1C00CDF40
+ * XREFs of _anonymous_namespace_::GNT_NextTopScan @ 0x1C0028110
  * Callers:
- *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C00CDD98 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
- *     _anonymous_namespace_::NTW_GetNextTop @ 0x1C00CDEEC (_anonymous_namespace_--NTW_GetNextTop.c)
+ *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C0027F68 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
+ *     _anonymous_namespace_::NTW_GetNextTop @ 0x1C00280BC (_anonymous_namespace_--NTW_GetNextTop.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall anonymous_namespace_::GNT_NextTopScan(__int64 a1, __int64 a2, __int64 a3)
@@ -21,12 +21,10 @@ __int64 __fastcall anonymous_namespace_::GNT_NextTopScan(__int64 a1, __int64 a2,
     v5 = *(_QWORD *)(a1 + 456);
     if ( !v5 || (*(_DWORD *)(v5 + 48) & 2) != 0 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 27LL);
       v5 = *(_QWORD *)(a1 + 456);
-      if ( !v5 )
-        return 0LL;
     }
-    if ( (*(_DWORD *)(v5 + 48) & 2) != 0 )
+    if ( !v5 || (*(_DWORD *)(v5 + 48) & 2) != 0 )
       return 0LL;
     result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 8) + 24LL) + 112LL);
   }

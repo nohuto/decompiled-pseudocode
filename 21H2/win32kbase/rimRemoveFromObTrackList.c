@@ -1,10 +1,10 @@
 /*
- * XREFs of rimRemoveFromObTrackList @ 0x1C00442DC
+ * XREFs of rimRemoveFromObTrackList @ 0x1C0051CC0
  * Callers:
- *     RIMUnregisterForInput @ 0x1C0047ED0 (RIMUnregisterForInput.c)
- *     RawInputManagerObjectDelete @ 0x1C004926C (RawInputManagerObjectDelete.c)
+ *     RawInputManagerObjectDelete @ 0x1C005187C (RawInputManagerObjectDelete.c)
+ *     RIMUnregisterForInput @ 0x1C0053610 (RIMUnregisterForInput.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
  */
 
 void __fastcall rimRemoveFromObTrackList(__int64 a1)
@@ -22,7 +22,7 @@ void __fastcall rimRemoveFromObTrackList(__int64 a1)
   *(_QWORD *)(v3 + 8) = v4;
   v2[1] = v2;
   *v2 = v2;
-  qword_1C029A118 = 0LL;
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

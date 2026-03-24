@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerUp@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000ED90
+ * XREFs of ?PowerUp@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C00188A0
  * Callers:
  *     <none>
  * Callees:
- *     ?SendD0Notification@FxPowerIdleMachine@@IEAAXXZ @ 0x1C0011F68 (-SendD0Notification@FxPowerIdleMachine@@IEAAXXZ.c)
+ *     ?SendD0Notification@FxPowerIdleMachine@@IEAAXXZ @ 0x1C00188C4 (-SendD0Notification@FxPowerIdleMachine@@IEAAXXZ.c)
  */
 
 __int64 __fastcall FxPowerIdleMachine::PowerUp(FxPowerIdleMachine *This)

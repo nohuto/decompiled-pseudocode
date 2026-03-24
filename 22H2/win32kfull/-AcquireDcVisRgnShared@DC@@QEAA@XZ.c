@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C013EB98
+ * XREFs of ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C016A654
  * Callers:
- *     ?bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z @ 0x1C001AE84 (-bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z.c)
- *     GreGetRandomRgn @ 0x1C0131360 (GreGetRandomRgn.c)
+ *     GreGetRandomRgn @ 0x1C0042B10 (GreGetRandomRgn.c)
+ *     ?bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z @ 0x1C012FAA0 (-bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z.c)
  * Callees:
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00A90A4 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0103A10 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
  */
 
 __int64 __fastcall DC::AcquireDcVisRgnShared(DC *this, __int64 a2)

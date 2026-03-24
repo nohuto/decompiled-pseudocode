@@ -7,9 +7,9 @@
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1400FC0B8 (ExpSetTimerObject2.c)
+ *     ExpSetTimerObject2 @ 0x1400FC0D8 (ExpSetTimerObject2.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtSetTimerEx(HANDLE Handle, int a2, _OWORD *a3, unsigned int a4)

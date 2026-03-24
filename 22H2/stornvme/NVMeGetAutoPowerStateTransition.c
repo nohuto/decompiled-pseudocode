@@ -1,45 +1,32 @@
 /*
- * XREFs of NVMeGetAutoPowerStateTransition @ 0x1C001D4C4
+ * XREFs of NVMeGetAutoPowerStateTransition @ 0x1C0018DE8
  * Callers:
- *     NVMePowerInitialize @ 0x1C000FD34 (NVMePowerInitialize.c)
+ *     NVMePowerInitialize @ 0x1C000FEB4 (NVMePowerInitialize.c)
  * Callees:
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
 __int64 __fastcall NVMeGetAutoPowerStateTransition(__int64 a1)
 {
+  __int64 v2; // rax
   __int64 result; // rax
-  __int64 v3; // rax
-  void *v4; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = 0LL;
-  if ( !*(_BYTE *)(a1 + 20) )
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    LocalCommandReuse(a1, a1 + 944);
-    *(_BYTE *)(*(_QWORD *)(a1 + 1040) + 4253LL) |= 1u;
-    *(_BYTE *)(*(_QWORD *)(a1 + 1040) + 4253LL) &= ~2u;
-    *(_WORD *)(*(_QWORD *)(a1 + 1040) + 4244LL) = 0;
-    result = NVMeAllocateDmaBuffer(a1, 0x100u);
-    if ( v4 )
-    {
-      NVMeZeroMemory(v4, 0x100u);
-      *(_QWORD *)(*(_QWORD *)(a1 + 1040) + 4200LL) = v4;
-      *(_QWORD *)(*(_QWORD *)(a1 + 1040) + 4208LL) = 0LL;
-      *(_DWORD *)(*(_QWORD *)(a1 + 1040) + 4240LL) = 256;
-      v3 = *(_QWORD *)(a1 + 1040);
-      *(_QWORD *)(v3 + 4120) = 0LL;
-      *(_BYTE *)(v3 + 4096) = 10;
-      *(_BYTE *)(v3 + 4136) = 12;
-      *(_QWORD *)(*(_QWORD *)(a1 + 1040) + 4224LL) = NVMeGetAutoPowerStateTransitionCompletion;
-      ProcessCommand(a1, a1 + 952);
-      WaitForCommandCompleteWithCustomTimeout(a1);
-      return NVMeFreeDmaBuffer(a1, 256LL, (__int64 *)&v4, 0LL);
-    }
+    *(_BYTE *)(a1 + 851) = 0;
+    memset(*(void **)(a1 + 936), 0, 0x10A0uLL);
+    *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+    v2 = *(_QWORD *)(a1 + 936);
+    *(_QWORD *)(a1 + 904) = v2;
+    *(_DWORD *)(a1 + 840) = 1;
+    *(_BYTE *)(v2 + 4253) |= 1u;
+    *(_BYTE *)(*(_QWORD *)(a1 + 936) + 4253LL) &= ~2u;
+    *(_WORD *)(*(_QWORD *)(a1 + 936) + 4244LL) = 0;
+    return NVMeAllocateDmaBuffer(a1, 0x100u);
   }
   return result;
 }

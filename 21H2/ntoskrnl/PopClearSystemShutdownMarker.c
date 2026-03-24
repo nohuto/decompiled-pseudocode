@@ -1,11 +1,11 @@
 /*
- * XREFs of PopClearSystemShutdownMarker @ 0x1408002F8
+ * XREFs of PopClearSystemShutdownMarker @ 0x140777220
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140A4E3A0 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140994FE0 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1403697C8 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F8020 (PopBsdHandleRequest.c)
  */
 
 void PopClearSystemShutdownMarker()

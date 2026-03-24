@@ -1,20 +1,20 @@
 /*
- * XREFs of Control_WdfEvtRequestCancel @ 0x1C0043020
+ * XREFs of Control_WdfEvtRequestCancel @ 0x1C0040300
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 void __fastcall Control_WdfEvtRequestCancel(__int64 a1)
 {
-  char v1; // bp
-  char v2; // si
-  char v3; // r14
-  __int64 v4; // r15
+  char v1; // si
+  char v2; // di
+  char v3; // bp
+  __int64 v4; // r14
   __int64 v5; // rbx
   __int64 v6; // rcx
   int v7; // edx
@@ -27,7 +27,7 @@ void __fastcall Control_WdfEvtRequestCancel(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063090);
+         off_1C0060090);
   v5 = *(_QWORD *)(v4 + 56);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -39,7 +39,7 @@ void __fastcall Control_WdfEvtRequestCancel(__int64 a1)
       v7,
       *(unsigned __int8 *)(*(_QWORD *)(v5 + 48) + 135LL),
       41,
-      (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+      (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v5 + 48) + 135LL),
       *(_DWORD *)(v6 + 144),
       v1);
@@ -59,7 +59,7 @@ void __fastcall Control_WdfEvtRequestCancel(__int64 a1)
     v9 = *(_QWORD *)(v5 + 56);
     _m_prefetchw((const void *)(v9 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v9 + 32), 1u) & 1) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v9 + 296), 130);
+      ESM_AddEvent((KSPIN_LOCK *)(v9 + 288), 130);
   }
   *(_BYTE *)(v5 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 96));
   if ( *(_DWORD *)(v4 + 112) == 2 && (!v3 || (*(_DWORD *)(v5 + 352) & 0xA) != 0) )

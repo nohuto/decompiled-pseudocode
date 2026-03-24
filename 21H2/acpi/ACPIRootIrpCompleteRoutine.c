@@ -1,54 +1,53 @@
 /*
- * XREFs of ACPIRootIrpCompleteRoutine @ 0x1C0001800
+ * XREFs of ACPIRootIrpCompleteRoutine @ 0x1C00031F0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
-__int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR a1, __int64 a2, struct _KEVENT *a3)
+__int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR BugCheckParameter3, __int64 a2, struct _KEVENT *a3)
 {
-  __int64 DeviceExtension; // rax
-  __int64 v6; // r10
-  __int64 v7; // rax
-  void *v8; // r11
-  void *v9; // rbx
-  unsigned int v10; // ecx
-  unsigned int v11; // edx
+  KIRQL v6; // al
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  const char *v9; // r8
+  const char *v10; // r10
+  unsigned int v11; // ecx
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v6 = DeviceExtension;
-  if ( DeviceExtension )
+  v6 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v7 = *(_QWORD *)(BugCheckParameter3 + 64);
+  if ( v7 && *(_DWORD *)(v7 + 16) != 1599293264 )
+    KeBugCheckEx(0xA3u, 2uLL, 0x901A5uLL, BugCheckParameter3, *(_QWORD *)(BugCheckParameter3 + 64));
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v6);
+  if ( v7 )
   {
-    v7 = *(_QWORD *)(DeviceExtension + 8);
-    v8 = &unk_1C006FB8B;
-    v9 = &unk_1C006FB8B;
-    if ( (v7 & 0x200000000000LL) != 0 )
+    v8 = *(_QWORD *)(v7 + 8);
+    v9 = (const char *)&unk_1C00701BA;
+    v10 = (const char *)&unk_1C00701BA;
+    if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v8 = *(void **)(v6 + 608);
-      if ( (v7 & 0x400000000000LL) != 0 )
-        v9 = *(void **)(v6 + 616);
+      v9 = *(const char **)(v7 + 568);
+      if ( (v8 & 0x400000000000LL) != 0 )
+        v10 = *(const char **)(v7 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v10 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 184) + 1LL);
-      if ( v10 >= 0x1A )
-        v10 = 26;
-      v11 = v10;
-      LOBYTE(v11) = 4;
+      v11 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 184) + 1LL);
+      if ( v11 >= 0x1A )
+        v11 = 26;
       WPP_RECORDER_SF_qsLqss(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v11,
-        5,
-        11,
-        (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        5u,
+        0xBu,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
         a2,
-        (__int64)ACPIDispatchPnpTableNames[v10],
+        ACPIDispatchPnpTableNames[v11],
         *(_DWORD *)(a2 + 48),
-        v6,
-        (__int64)v8,
-        (__int64)v9);
+        v7,
+        v9,
+        v10);
     }
   }
   KeSetEvent(a3, 0, 0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTracePpmProfileStatusRundown @ 0x14099AD7C
+ * XREFs of PpmEventTracePpmProfileStatusRundown @ 0x1408F3500
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void PpmEventTracePpmProfileStatusRundown()

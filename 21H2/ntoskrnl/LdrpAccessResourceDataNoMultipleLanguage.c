@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x140757C9C
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x14068DA98
  * Callers:
- *     LdrpGetRcConfig @ 0x1402D75FC (LdrpGetRcConfig.c)
- *     LdrpFindMessageInAlternateModule @ 0x1402D7C70 (LdrpFindMessageInAlternateModule.c)
- *     LdrpAccessResourceData @ 0x14075883C (LdrpAccessResourceData.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1402A8B08 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpGetRcConfig @ 0x1402A92B4 (LdrpGetRcConfig.c)
+ *     LdrpAccessResourceData @ 0x14068D9BC (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     LdrpGetImageSize @ 0x1402D6C18 (LdrpGetImageSize.c)
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     RtlAddressInSectionTable @ 0x1402D6EE8 (RtlAddressInSectionTable.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402D6F40 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetImageSize @ 0x1402A8E30 (LdrpGetImageSize.c)
+ *     RtlAddressInSectionTable @ 0x1402A8EBC (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402A8F10 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
@@ -100,7 +100,7 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
       v25 = v19;
       if ( !v19 )
         return 3221225609LL;
-      v20 = RtlAddressInSectionTable(v12, v6, *(_DWORD *)(v19 + 12));
+      v20 = RtlAddressInSectionTable(v12, v6, *(unsigned int *)(v19 + 12));
       v15 += v24 + *(unsigned int *)(v25 + 12) - (unsigned __int64)(unsigned int)v22 - v20;
     }
     v4 = a4;

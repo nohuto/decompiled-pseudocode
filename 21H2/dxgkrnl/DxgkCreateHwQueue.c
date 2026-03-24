@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkCreateHwQueue @ 0x1C0223D10
+ * XREFs of DxgkCreateHwQueue @ 0x1C0271230
  * Callers:
  *     <none>
  * Callees:
- *     DxgkCreateHwQueueInternal @ 0x1C0312760 (DxgkCreateHwQueueInternal.c)
+ *     DxgkCreateHwQueueInternal @ 0x1C0271248 (DxgkCreateHwQueueInternal.c)
  */
 
 __int64 __fastcall DxgkCreateHwQueue(__int64 a1, __int64 a2)

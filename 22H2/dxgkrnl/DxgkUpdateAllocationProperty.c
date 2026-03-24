@@ -1,337 +1,311 @@
 /*
- * XREFs of DxgkUpdateAllocationProperty @ 0x1C03379B0
+ * XREFs of DxgkUpdateAllocationProperty @ 0x1C027D090
  * Callers:
- *     ?VmBusUpdateAllocationProperty@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0394C60 (-VmBusUpdateAllocationProperty@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusUpdateAllocationProperty@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0250F80 (-VmBusUpdateAllocationProperty@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@XZ @ 0x1C0007C60 (--1DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@XZ.c)
- *     ??0DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0007E34 (--0DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?Open@DXGPAGINGQUEUEBYHANDLE@@QEAAXIPEAVDXGPROCESS@@PEAPEAVDXGPAGINGQUEUE@@_N@Z @ 0x1C0015400 (-Open@DXGPAGINGQUEUEBYHANDLE@@QEAAXIPEAVDXGPROCESS@@PEAPEAVDXGPAGINGQUEUE@@_N@Z.c)
- *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C001B784 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0024B68 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ @ 0x1C00252CC (-ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?DdiValidateUpdateAllocationProperty@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_VALIDATEUPDATEALLOCPROPERTY@@@Z @ 0x1C02CD570 (-DdiValidateUpdateAllocationProperty@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_VALIDATEUPDATEALLOCPROPER.c)
- *     ?VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGINGQUEUE@@PEBVDXGALLOCATION@@PEAUD3DDDI_UPDATEALLOCPROPERTY@@@Z @ 0x1C03903AC (-VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGIN.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004E20 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ??1DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@XZ @ 0x1C0005358 (--1DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@XZ.c)
+ *     ??0DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00055A8 (--0DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0015390 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     ?Open@DXGPAGINGQUEUEBYHANDLE@@QEAAXIPEAVDXGPROCESS@@PEAPEAVDXGPAGINGQUEUE@@_N@Z @ 0x1C001E090 (-Open@DXGPAGINGQUEUEBYHANDLE@@QEAAXIPEAVDXGPROCESS@@PEAPEAVDXGPAGINGQUEUE@@_N@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ @ 0x1C0026010 (-ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DdiValidateUpdateAllocationProperty@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_VALIDATEUPDATEALLOCPROPERTY@@@Z @ 0x1C0220DF4 (-DdiValidateUpdateAllocationProperty@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_VALIDATEUPDATEALLOCPROPER.c)
+ *     ?VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGINGQUEUE@@PEBVDXGALLOCATION@@PEAUD3DDDI_UPDATEALLOCPROPERTY@@@Z @ 0x1C024DFF0 (-VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGIN.c)
  */
 
 __int64 __fastcall DxgkUpdateAllocationProperty(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rcx
-  struct DXGPROCESS *Current; // r14
-  const wchar_t *v6; // r9
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rdx
+  ULONG64 v9; // rcx
+  struct _KTHREAD **Current; // r14
+  __int64 v11; // rax
+  __int64 v12; // rdx
   char CurrentThreadPreviousMode; // al
-  D3DDDI_UPDATEALLOCPROPERTY *v8; // rbx
-  D3DDDI_UPDATEALLOCPROPERTY *v9; // rax
+  D3DDDI_UPDATEALLOCPROPERTY *v14; // rdi
+  D3DDDI_UPDATEALLOCPROPERTY *v15; // rax
   unsigned int PropertyMaskValue; // eax
-  struct DXGPAGINGQUEUE *v11; // r13
-  DXGPAGINGQUEUE *v12; // rcx
-  __int64 v13; // rsi
-  __int64 v14; // r9
-  int v15; // r12d
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v19; // r8
-  ADAPTER_RENDER *v20; // r9
-  _QWORD *v21; // r8
-  __int64 v22; // rbx
-  __int64 v23; // rsi
-  const wchar_t *v24; // r9
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  bool v27; // sf
-  int updated; // eax
-  __int64 v29; // r12
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  struct DXGPAGINGQUEUE *v19; // r13
+  __int64 v20; // rax
+  DXGPAGINGQUEUE *v21; // rcx
+  __int64 v22; // rsi
+  __int64 v23; // r9
+  int v24; // r12d
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v29; // rdx
   __int64 v30; // rcx
-  __int64 v31; // r8
-  int v32; // eax
-  __int64 v33; // r14
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  _QWORD *v36; // r8
-  bool v37; // [rsp+50h] [rbp-168h]
-  int v38; // [rsp+58h] [rbp-160h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-158h]
-  char v40; // [rsp+68h] [rbp-150h]
-  struct DXGALLOCATION *v41; // [rsp+70h] [rbp-148h] BYREF
-  DXGPAGINGQUEUE *v42; // [rsp+78h] [rbp-140h] BYREF
-  _BYTE v43[16]; // [rsp+80h] [rbp-138h] BYREF
-  struct DXGPAGINGQUEUE *v44[2]; // [rsp+90h] [rbp-128h] BYREF
-  _DXGKARG_VALIDATEUPDATEALLOCPROPERTY v45; // [rsp+A0h] [rbp-118h] BYREF
-  _DWORD v46[4]; // [rsp+B8h] [rbp-100h] BYREF
-  D3DDDI_UPDATEALLOCPROPERTY v47; // [rsp+C8h] [rbp-F0h] BYREF
-  _BYTE v48[160]; // [rsp+F0h] [rbp-C8h] BYREF
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  ADAPTER_RENDER *v33; // r9
+  __int64 v34; // r8
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  __int64 v38; // rdi
+  __int64 v39; // rdx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // r8
+  int updated; // eax
+  ULONG64 v44; // rdx
+  __int64 v45; // r12
+  __int64 v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  int v50; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r14
+  __int64 v54; // rax
+  __int64 v55; // rdx
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  __int64 v58; // r8
+  unsigned int v59; // esi
+  _QWORD *v60; // r8
+  __int64 v61; // rdx
+  __int64 v62; // rcx
+  __int64 v63; // r8
+  bool v64; // [rsp+30h] [rbp-168h]
+  int v65; // [rsp+38h] [rbp-160h] BYREF
+  __int64 v66; // [rsp+40h] [rbp-158h]
+  char v67; // [rsp+48h] [rbp-150h]
+  struct DXGALLOCATION *v68; // [rsp+50h] [rbp-148h] BYREF
+  DXGPAGINGQUEUE *v69; // [rsp+58h] [rbp-140h] BYREF
+  _BYTE v70[16]; // [rsp+60h] [rbp-138h] BYREF
+  struct DXGPAGINGQUEUE *v71[2]; // [rsp+70h] [rbp-128h] BYREF
+  _DXGKARG_VALIDATEUPDATEALLOCPROPERTY v72; // [rsp+80h] [rbp-118h] BYREF
+  _DWORD v73[4]; // [rsp+98h] [rbp-100h] BYREF
+  D3DDDI_UPDATEALLOCPROPERTY v74; // [rsp+A8h] [rbp-F0h] BYREF
+  _BYTE v75[160]; // [rsp+D0h] [rbp-C8h] BYREF
 
-  v38 = -1;
-  v39 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v65 = -1;
+  v66 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v40 = 1;
-    v38 = 2132;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v67 = 1;
+    v65 = 2132;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2132);
   }
   else
   {
-    v40 = 0;
+    v67 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v38, 2132);
-  Current = DXGPROCESS::GetCurrent(v4);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v65, 2132LL);
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v5, v4, v6, v7);
   if ( !Current )
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    v6 = L"Invalid process context, returning 0x%I64x";
-LABEL_7:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v6, -1073741811LL, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_47;
-  }
+    goto LABEL_6;
   CurrentThreadPreviousMode = PsGetCurrentThreadPreviousMode();
-  v37 = CurrentThreadPreviousMode == 1;
-  memset(&v47, 0, sizeof(v47));
-  v8 = &v47;
+  v64 = CurrentThreadPreviousMode == 1;
+  v9 = 0LL;
+  memset(&v74, 0, sizeof(v74));
+  v14 = &v74;
   if ( CurrentThreadPreviousMode == 1 )
   {
-    v9 = (D3DDDI_UPDATEALLOCPROPERTY *)a1;
+    v9 = MmUserProbeAddress;
+    v15 = (D3DDDI_UPDATEALLOCPROPERTY *)a1;
     if ( a1 >= MmUserProbeAddress )
-      v9 = (D3DDDI_UPDATEALLOCPROPERTY *)MmUserProbeAddress;
-    v47 = *v9;
+      v15 = (D3DDDI_UPDATEALLOCPROPERTY *)MmUserProbeAddress;
+    v74 = *v15;
   }
   else
   {
-    v8 = (D3DDDI_UPDATEALLOCPROPERTY *)a1;
+    v14 = (D3DDDI_UPDATEALLOCPROPERTY *)a1;
   }
-  PropertyMaskValue = v8->PropertyMaskValue;
-  if ( PropertyMaskValue >= 0x10 )
+  PropertyMaskValue = v14->PropertyMaskValue;
+  if ( PropertyMaskValue >= 0x10 || !PropertyMaskValue )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    v6 = L"Invalid use of reserve, returning 0x%I64x";
-    goto LABEL_7;
-  }
-  if ( !PropertyMaskValue )
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    v6 = L"Invalid use of property mask. Must set at least one property, returning 0x%I64x";
-    goto LABEL_7;
-  }
-  v44[0] = 0LL;
-  DXGPAGINGQUEUEBYHANDLE::Open((DXGPAGINGQUEUEBYHANDLE *)&v42, v8->hPagingQueue, Current, v44, 1);
-  v11 = v44[0];
-  if ( !v44[0] )
-  {
-    WdLogSingleEntry2(2LL, v8->hPagingQueue, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid hPagingQueue (0x%I64x) specified, returning 0x%I64x",
-      v8->hPagingQueue,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_20;
-  }
-  v13 = *((_QWORD *)v44[0] + 2);
-  v44[1] = (struct DXGPAGINGQUEUE *)v13;
-  DXGDEVICELOCKONAPPROPRIATETHREADMODEL::DXGDEVICELOCKONAPPROPRIATETHREADMODEL(
-    (DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43,
-    (struct DXGDEVICE *)v13);
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v48, v13, 0, v14, 0);
-  v15 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v48, 0LL);
-  if ( v15 < 0 )
-  {
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-    if ( v42 )
-      DXGPAGINGQUEUE::ReleaseReference(v42);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-    if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v38);
-    return (unsigned int)v15;
-  }
-  DXGPROCESS::GetAllocationSafe((__int64)Current, (DXGALLOCATIONREFERENCE *)&v41, v8->hAllocation);
-  if ( !v41 )
-  {
-    WdLogSingleEntry1(2LL, v8->hAllocation);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid hAllocation 0x%x",
-      v8->hAllocation,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_31:
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v41);
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-LABEL_20:
-    v12 = v42;
-    if ( !v42 )
-      goto LABEL_47;
+LABEL_6:
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v11);
     goto LABEL_46;
   }
-  v19 = *((_QWORD *)v41 + 1);
-  if ( v19 != v13 )
+  v71[0] = 0LL;
+  DXGPAGINGQUEUEBYHANDLE::Open((DXGPAGINGQUEUEBYHANDLE *)&v69, v14->hPagingQueue, Current, v71, 1);
+  v19 = v71[0];
+  if ( !v71[0] )
   {
-    WdLogSingleEntry2(2LL, v13, v19);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Mismatch between paging queue device 0x%p and allocation device 0x%p",
-      v13,
-      *((_QWORD *)v41 + 1),
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_31;
+    v20 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v20 + 24) = v14->hPagingQueue;
+    *(_QWORD *)(v20 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v20);
+    goto LABEL_17;
   }
-  v20 = *(ADAPTER_RENDER **)(v13 + 16);
-  v21 = (_QWORD *)*((_QWORD *)v20 + 2);
-  if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v21[27] + 64LL) + 40LL) + 28LL) < 0x6002u )
+  v22 = *((_QWORD *)v71[0] + 2);
+  v71[1] = (struct DXGPAGINGQUEUE *)v22;
+  DXGDEVICELOCKONAPPROPRIATETHREADMODEL::DXGDEVICELOCKONAPPROPRIATETHREADMODEL(
+    (DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70,
+    (struct DXGDEVICE *)v22);
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v75, v22, 0, v23, 0);
+  v24 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v75, 0LL);
+  if ( v24 < 0 )
   {
-    v22 = 1108LL;
-    v23 = -1073741637LL;
-    WdLogSingleEntry2(2LL, -1073741637LL, 1108LL);
-    v24 = L"Driver version is less then WDDM 2.1 RS1.3, on 0x%I64x";
-LABEL_36:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v24, v23, v22, 0LL, 0LL, 0LL);
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v41);
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-    if ( v42 )
-      DXGPAGINGQUEUE::ReleaseReference(v42);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-    if ( !v40 )
-      return (unsigned int)v23;
-    LOBYTE(v25) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v27 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_68:
-    if ( v27 )
-      McTemplateK0q_EtwWriteTransfer(v25, &EventProfilerExit, v26, v38);
-    return (unsigned int)v23;
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+    if ( v69 )
+      DXGPAGINGQUEUE::ReleaseReference(v69, v25);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v25);
+    if ( v67 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v26, &EventProfilerExit, v27, v65);
+    return (unsigned int)v24;
   }
-  if ( (*(_BYTE *)(v13 + 1901) & 1) != 0 )
+  DXGPROCESS::GetAllocationSafe((__int64)Current, (DXGALLOCATIONREFERENCE *)&v68, v14->hAllocation);
+  if ( !v68 )
+  {
+    v31 = WdLogNewEntry5_WdError(v30, v29);
+    *(_QWORD *)(v31 + 24) = v14->hAllocation;
+LABEL_28:
+    WdLogEvent5_WdError(v31);
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v68, v32);
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+LABEL_17:
+    v21 = v69;
+    if ( !v69 )
+      goto LABEL_46;
+    goto LABEL_45;
+  }
+  if ( *((_QWORD *)v68 + 1) != v22 )
+  {
+    v31 = WdLogNewEntry5_WdError(v30, v29);
+    *(_QWORD *)(v31 + 24) = v22;
+    *(_QWORD *)(v31 + 32) = *((_QWORD *)v68 + 1);
+    goto LABEL_28;
+  }
+  v33 = *(ADAPTER_RENDER **)(v22 + 16);
+  v34 = *((_QWORD *)v33 + 2);
+  v35 = *(_QWORD *)(*(_QWORD *)(v34 + 216) + 64LL);
+  v36 = *(_QWORD *)(v35 + 40);
+  if ( *(_DWORD *)(v36 + 28) < 0x6002u )
+  {
+    v37 = WdLogNewEntry5_WdError(v36, v35);
+    v38 = -1073741637LL;
+    *(_QWORD *)(v37 + 32) = 1106LL;
+LABEL_33:
+    *(_QWORD *)(v37 + 24) = v38;
+    WdLogEvent5_WdError(v37);
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v68, v39);
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+    if ( v69 )
+      DXGPAGINGQUEUE::ReleaseReference(v69, v40);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v40);
+    if ( v67 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v41, &EventProfilerExit, v42, v65);
+    return (unsigned int)v38;
+  }
+  if ( (*(_BYTE *)(v22 + 1869) & 1) != 0 )
   {
     updated = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendUpdateAllocationProperty(
-                (DXG_GUEST_VIRTUALGPU_VMBUS *)(v21 + 559),
-                Current,
-                v11,
-                v41,
-                v8);
-    goto LABEL_59;
+                (struct _KTHREAD **)(v34 + 4240),
+                (const struct DXGPROCESS *)Current,
+                v19,
+                v68,
+                v14);
+    goto LABEL_58;
   }
-  if ( !v21[136] )
+  if ( !*(_QWORD *)(v34 + 1000) )
   {
-    v22 = 1120LL;
-    v23 = -1073741822LL;
-    WdLogSingleEntry2(2LL, -1073741822LL, 1120LL);
-    v24 = L"KMD has not exposed ValidateUpdateAllocationProperty, it is null, returning 0x%I64x";
-    goto LABEL_36;
+    v37 = WdLogNewEntry5_WdError(v36, v35);
+    v38 = -1073741822LL;
+    *(_QWORD *)(v37 + 32) = 1118LL;
+    goto LABEL_33;
   }
-  v29 = *((_QWORD *)v41 + 3);
-  if ( !v29 )
+  v45 = *((_QWORD *)v68 + 3);
+  if ( !v45 )
   {
-    WdLogSingleEntry1(2LL, v41);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DXGALLOCATION 0x%I64x has NULL VIDMM_ALLOC assigned to it",
-      (__int64)v41,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v41);
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-    v12 = v42;
-    if ( !v42 )
+    v46 = WdLogNewEntry5_WdError(v36, v35);
+    *(_QWORD *)(v46 + 24) = v68;
+    WdLogEvent5_WdError(v46);
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v68, v47);
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+    v21 = v69;
+    if ( !v69 )
     {
-LABEL_47:
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-      if ( v40 )
+LABEL_46:
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v12);
+      if ( v67 )
       {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v30, &EventProfilerExit, v31, v38);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v48, &EventProfilerExit, v49, v65);
       }
       return 3221225485LL;
     }
-LABEL_46:
-    DXGPAGINGQUEUE::ReleaseReference(v12);
-    goto LABEL_47;
+LABEL_45:
+    DXGPAGINGQUEUE::ReleaseReference(v21, v12);
+    goto LABEL_46;
   }
-  v45.hAllocation = (HANDLE)*((_QWORD *)v41 + 4);
-  v45.Flags.Value = v8->Flags.Value;
-  v45.PreferredSegment.Value = v8->PreferredSegment.Value;
-  v45.SupportedSegmentSet = v8->SupportedSegmentSet;
-  v45.PropertyMaskValue = v8->PropertyMaskValue;
-  v32 = ADAPTER_RENDER::DdiValidateUpdateAllocationProperty(v20, &v45, (__int64)v21);
-  v33 = v32;
-  if ( v32 >= 0 )
+  v72.hAllocation = (HANDLE)*((_QWORD *)v68 + 4);
+  v72.Flags.Value = v14->Flags.Value;
+  v72.PreferredSegment.Value = v14->PreferredSegment.Value;
+  v72.SupportedSegmentSet = v14->SupportedSegmentSet;
+  v72.PropertyMaskValue = v14->PropertyMaskValue;
+  v50 = ADAPTER_RENDER::DdiValidateUpdateAllocationProperty(v33, &v72, v34);
+  v53 = v50;
+  if ( v50 >= 0 )
   {
-    v46[2] = v8->Flags.0;
-    v46[1] = v8->PreferredSegment.0;
-    v46[0] = v8->SupportedSegmentSet;
-    v46[3] = v8->0;
-    updated = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _DWORD *, UINT64 *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v13 + 16) + 760LL)
+    v73[2] = v14->Flags.0;
+    v73[1] = v14->PreferredSegment.0;
+    v73[0] = v14->SupportedSegmentSet;
+    v73[3] = v14->0;
+    updated = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _DWORD *, UINT64 *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v22 + 16) + 640LL)
                                                                                                  + 8LL)
-                                                                                     + 200LL))(
-                *(_QWORD *)(*(_QWORD *)(v13 + 16) + 768LL),
-                *((_QWORD *)v11 + 4),
-                v29,
-                v46,
-                &v8->PagingFenceValue);
-LABEL_59:
-    LODWORD(v23) = updated;
-    if ( updated >= 0 && v37 )
+                                                                                     + 216LL))(
+                *(_QWORD *)(*(_QWORD *)(v22 + 16) + 648LL),
+                *((_QWORD *)v19 + 4),
+                v45,
+                v73,
+                &v14->PagingFenceValue);
+LABEL_58:
+    v59 = updated;
+    if ( updated >= 0 && v64 )
     {
-      v36 = (_QWORD *)(a1 + 24);
+      v60 = (_QWORD *)(a1 + 24);
+      v44 = MmUserProbeAddress;
       if ( a1 + 24 >= MmUserProbeAddress )
-        v36 = (_QWORD *)MmUserProbeAddress;
-      *v36 = v8->PagingFenceValue;
+        v60 = (_QWORD *)MmUserProbeAddress;
+      *v60 = v14->PagingFenceValue;
     }
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v41);
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-    if ( v42 )
-      DXGPAGINGQUEUE::ReleaseReference(v42);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-    if ( !v40 )
-      return (unsigned int)v23;
-    v27 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_68;
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v68, v44);
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+    DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+    if ( v69 )
+      DXGPAGINGQUEUE::ReleaseReference(v69, v61);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v61);
+    if ( v67 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v62, &EventProfilerExit, v63, v65);
+    return v59;
   }
-  WdLogSingleEntry1(2LL, v32);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"KMD DDI ValidateUpdateAllocationProperty failed with status, 0x%I64x",
-    v33,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v41);
-  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v48);
-  DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v43);
-  if ( v42 )
-    DXGPAGINGQUEUE::ReleaseReference(v42);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-  if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v38);
-  return (unsigned int)v33;
+  v54 = WdLogNewEntry5_WdError(v52, v51);
+  *(_QWORD *)(v54 + 24) = v53;
+  WdLogEvent5_WdError(v54);
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v68, v55);
+  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v75);
+  DXGDEVICELOCKONAPPROPRIATETHREADMODEL::~DXGDEVICELOCKONAPPROPRIATETHREADMODEL((DXGDEVICELOCKONAPPROPRIATETHREADMODEL *)v70);
+  if ( v69 )
+    DXGPAGINGQUEUE::ReleaseReference(v69, v56);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v65, v56);
+  if ( v67 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v57, &EventProfilerExit, v58, v65);
+  return (unsigned int)v53;
 }

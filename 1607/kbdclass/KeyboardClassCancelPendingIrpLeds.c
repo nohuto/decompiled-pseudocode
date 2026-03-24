@@ -1,1 +1,28 @@
-/*\n * XREFs of KeyboardClassCancelPendingIrpLeds @ 0x1C0004600\n * Callers:\n *     KeyboardPnP @ 0x1C0001A70 (KeyboardPnP.c)\n * Callees:\n *     WPP_RECORDER_SF_qq @ 0x1C0001870 (WPP_RECORDER_SF_qq.c)\n */\n\nchar __fastcall KeyboardClassCancelPendingIrpLeds(__int64 a1)\n{\n  char v1; // di\n  IRP *v3; // rbx\n\n  v1 = 0;\n  v3 = (IRP *)_InterlockedExchange64((volatile __int64 *)(a1 + 368), 0LL);\n  if ( v3 )\n  {\n    WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 87);\n    IoCancelIrp(v3);\n    v1 = 1;\n    if ( _InterlockedExchange((volatile __int32 *)(a1 + 376), 2) == 3 )\n    {\n      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 88);\n      IoFreeIrp(v3);\n    }\n  }\n  return v1;\n}\n
+/*
+ * XREFs of KeyboardClassCancelPendingIrpLeds @ 0x1C0004600
+ * Callers:
+ *     KeyboardPnP @ 0x1C0001A70 (KeyboardPnP.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C0001870 (WPP_RECORDER_SF_qq.c)
+ */
+
+char __fastcall KeyboardClassCancelPendingIrpLeds(__int64 a1)
+{
+  char v1; // di
+  IRP *v3; // rbx
+
+  v1 = 0;
+  v3 = (IRP *)_InterlockedExchange64((volatile __int64 *)(a1 + 368), 0LL);
+  if ( v3 )
+  {
+    WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 87);
+    IoCancelIrp(v3);
+    v1 = 1;
+    if ( _InterlockedExchange((volatile __int32 *)(a1 + 376), 2) == 3 )
+    {
+      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 88);
+      IoFreeIrp(v3);
+    }
+  }
+  return v1;
+}

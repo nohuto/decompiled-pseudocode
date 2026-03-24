@@ -1,14 +1,14 @@
 /*
- * XREFs of KiReadGuestSchedulerAssistPriority @ 0x1401B49B0
+ * XREFs of KiReadGuestSchedulerAssistPriority @ 0x1401B49D0
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5210 (KiDirectSwitchThread.c)
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1400D0E20 (KiUpdateVPBackingThreadPriority.c)
- *     KeSetThreadSchedulerAssist @ 0x140297C44 (KeSetThreadSchedulerAssist.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1400D0E40 (KiUpdateVPBackingThreadPriority.c)
+ *     KeSetThreadSchedulerAssist @ 0x140297D44 (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     KiComputePriorityFloor @ 0x14011F8B0 (KiComputePriorityFloor.c)
+ *     KiComputePriorityFloor @ 0x14011F8D0 (KiComputePriorityFloor.c)
  */
 
 __int64 __fastcall KiReadGuestSchedulerAssistPriority(__int64 a1)

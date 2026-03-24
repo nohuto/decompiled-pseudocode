@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CDDisplaySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18011ECC0
+ * XREFs of ?IsValid@CDDisplaySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F6990
  * Callers:
  *     <none>
  * Callees:

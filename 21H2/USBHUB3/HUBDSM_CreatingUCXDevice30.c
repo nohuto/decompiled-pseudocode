@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CreatingUCXDevice30 @ 0x1C001E700
+ * XREFs of HUBDSM_CreatingUCXDevice30 @ 0x1C001E1C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_CreateDeviceInUCX @ 0x1C0024A94 (HUBUCX_CreateDeviceInUCX.c)
+ *     HUBUCX_CreateDeviceInUCX @ 0x1C0024654 (HUBUCX_CreateDeviceInUCX.c)
  */
 
 __int64 __fastcall HUBDSM_CreatingUCXDevice30(__int64 a1)

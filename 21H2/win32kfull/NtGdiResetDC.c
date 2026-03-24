@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiResetDC @ 0x1C014B9B0
+ * XREFs of NtGdiResetDC @ 0x1C015B060
  * Callers:
  *     <none>
  * Callees:
- *     GreResetDCInternal @ 0x1C014BAFC (GreResetDCInternal.c)
+ *     GreResetDCInternal @ 0x1C015B1AC (GreResetDCInternal.c)
  */
 
 __int64 __fastcall NtGdiResetDC(HDC a1, struct _devicemodeW *a2, _DWORD *a3, struct _DRIVER_INFO_2W *a4, __int64 a5)
@@ -31,13 +31,14 @@ __int64 __fastcall NtGdiResetDC(HDC a1, struct _devicemodeW *a2, _DWORD *a3, str
     v11 = GreResetDCInternal(a1, a5);
     if ( v11 )
     {
+      a2 = (struct _devicemodeW *)MmUserProbeAddress;
       if ( (unsigned __int64)a3 >= MmUserProbeAddress )
         a3 = (_DWORD *)MmUserProbeAddress;
       *a3 = 0;
     }
   }
   if ( v8 )
-    FreeThreadBufferWithTag(v8);
+    FreeThreadBufferWithTag(v8, a2);
   vFreeDriverInfo2(v9);
   return v11;
 }

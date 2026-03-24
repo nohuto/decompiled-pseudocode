@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C007D260
+ * XREFs of ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C007754C
  * Callers:
- *     QueuePowerRequest @ 0x1C007C340 (QueuePowerRequest.c)
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C007C7B0 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
- *     PowerOnMonitor @ 0x1C007D2B0 (PowerOnMonitor.c)
+ *     QueuePowerRequest @ 0x1C0076700 (QueuePowerRequest.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0076B30 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     PowerOnMonitor @ 0x1C00775A0 (PowerOnMonitor.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$Write@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0146904 (--$Write@U-$_tlgWrapperByVal@$00@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWrite.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C015051C (McTemplateK0pq_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0117F54 (--$Write@U-$_tlgWrapperByVal@$00@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWrite.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0125EE0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 void __fastcall ArmPowerWatchdog(__int64 a1, int a2)
@@ -69,14 +69,14 @@ LABEL_7:
     ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
     if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
       McTemplateK0pq_EtwWriteTransfer(v7, &StartPowerWatchdog, v8, a1, v2);
-    if ( (unsigned int)dword_1C0288378 > 5 && tlgKeywordOn((__int64)&dword_1C0288378, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C0246378 > 5 && tlgKeywordOn((__int64)&dword_1C0246378, 0x400000000000LL) )
     {
       v14 = v2;
       v15 = a1;
       v13 = 1;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<1>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
         v9,
-        (unsigned int)&unk_1C025B186,
+        (unsigned int)&unk_1C02194CB,
         v10,
         v11,
         (__int64)&v13,

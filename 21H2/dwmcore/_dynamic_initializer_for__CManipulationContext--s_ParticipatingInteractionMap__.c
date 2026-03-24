@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CManipulationContext::s_ParticipatingInteractionMap__ @ 0x180001250
+ * XREFs of _dynamic_initializer_for__CManipulationContext::s_ParticipatingInteractionMap__ @ 0x1800035C0
  * Callers:
  *     <none>
  * Callees:

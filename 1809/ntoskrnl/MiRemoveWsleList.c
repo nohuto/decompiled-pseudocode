@@ -2,17 +2,17 @@
  * XREFs of MiRemoveWsleList @ 0x14007AF50
  * Callers:
  *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC680 (ExpAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MiWriteWsle @ 0x1400DB178 (MiWriteWsle.c)
- *     MiLogRemoveWsleEvent @ 0x1402A7CEC (MiLogRemoveWsleEvent.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
+ *     MiLogRemoveWsleEvent @ 0x1402A7DEC (MiLogRemoveWsleEvent.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned __int64 a4)

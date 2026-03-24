@@ -1,24 +1,34 @@
 /*
- * XREFs of BmlGetMonitorModeVSyncPreference @ 0x1C01D0F38
+ * XREFs of BmlGetMonitorModeVSyncPreference @ 0x1C013C3E8
  * Callers:
- *     BmlGetMonitorModePreference @ 0x1C01D0EB0 (BmlGetMonitorModePreference.c)
+ *     BmlGetMonitorModePreference @ 0x1C013C34C (BmlGetMonitorModePreference.c)
  * Callees:
- *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C0013758 (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
+ *     <none>
  */
 
-__int64 __fastcall BmlGetMonitorModeVSyncPreference(__int64 a1)
+__int64 __fastcall BmlGetMonitorModeVSyncPreference(_DWORD *a1)
 {
-  int v1; // eax
-  __int64 v2; // r9
+  int v1; // r8d
 
-  v1 = DMMVIDEOSIGNALMODE::DivideAndRound(*(unsigned int *)(a1 + 28), *(unsigned int *)(a1 + 32));
+  if ( a1[8] )
+  {
+    v1 = a1[7] / a1[8] + 1;
+    if ( (unsigned int)a1[7] % (unsigned __int64)(unsigned int)a1[8] < (unsigned int)a1[8]
+                                                                     - (unsigned int)a1[7]
+                                                                     % (unsigned __int64)(unsigned int)a1[8] )
+      v1 = a1[7] / a1[8];
+  }
+  else
+  {
+    v1 = -1;
+  }
   if ( (unsigned int)(v1 - 24) > 0x33 )
     return 0LL;
   if ( (unsigned int)(v1 - 50) > 0x14 )
     return 1LL;
   if ( v1 != 60 )
     return 2LL;
-  if ( *(_DWORD *)(v2 + 20) == 1024 && *(_DWORD *)(v2 + 24) == 768 )
+  if ( a1[5] == 1024 && a1[6] == 768 )
     return 4LL;
   return 3LL;
 }

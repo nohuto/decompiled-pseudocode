@@ -1,13 +1,14 @@
 /*
- * XREFs of WheapReportBootError @ 0x1406433D0
+ * XREFs of WheapReportBootError @ 0x1405BAEC4
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403DAA2C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BAB88 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x1403C0934 (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     WheapAllocErrorRecord @ 0x140643B40 (WheapAllocErrorRecord.c)
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapWorkQueueAddItem @ 0x140646270 (WheapWorkQueueAddItem.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BAF90 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     WheapAllocErrorRecord @ 0x1405BB64C (WheapAllocErrorRecord.c)
+ *     WheapCompressErrorRecord @ 0x1405BB8F0 (WheapCompressErrorRecord.c)
+ *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
+ *     WheapWorkQueueAddItem @ 0x1405BD7A8 (WheapWorkQueueAddItem.c)
  */
 
 char __fastcall WheapReportBootError(__int64 a1)
@@ -17,7 +18,7 @@ char __fastcall WheapReportBootError(__int64 a1)
   __int64 v4; // rbx
   __int64 v5; // rsi
   void (__fastcall *ErrorSourceFunction)(__int64, __int64, __int64, _QWORD, _QWORD); // rax
-  int v8; // [rsp+48h] [rbp+10h] BYREF
+  int v8; // [rsp+58h] [rbp+10h] BYREF
 
   WheaInfo = KeGetPcr()->Prcb.WheaInfo;
   if ( !WheaInfo )
@@ -38,6 +39,7 @@ char __fastcall WheapReportBootError(__int64 a1)
   if ( ErrorSourceFunction )
     ErrorSourceFunction(v4 + 96, a1, v5 + 40, (unsigned int)(v8 - 40), *(_QWORD *)(v4 + 56));
   _InterlockedDecrement((volatile signed __int32 *)(v4 + 92));
+  WheapCompressErrorRecord(3LL, v5 + 40);
   WheapWorkQueueAddItem(WheaInfo[2], v5);
   return 1;
 }

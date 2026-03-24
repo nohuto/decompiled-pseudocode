@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgInitDeviceContext @ 0x1407448BC
+ * XREFs of PiDevCfgInitDeviceContext @ 0x14073BA30
  * Callers:
- *     PpDevCfgProcessDeviceOperations @ 0x14074761C (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
- *     PiDevCfgProcessDeviceCallback @ 0x14084F060 (PiDevCfgProcessDeviceCallback.c)
- *     PiDevCfgInitDeviceCallback @ 0x14094C2D0 (PiDevCfgInitDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x14094E998 (PpDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceClass @ 0x14094EA0C (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x14094F4CC (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072FE5C (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1407301CC (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x14073A2B8 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BDD10 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgInitDeviceCallback @ 0x1408A6940 (PiDevCfgInitDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x1408AA878 (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDevCfgQueryObjectProperties @ 0x140746CCC (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407476FC (PiDevCfgFreeDeviceContext.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073A394 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14073CE44 (PiDevCfgQueryObjectProperties.c)
  */
 
 __int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
@@ -38,11 +38,11 @@ __int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
   }
   else
   {
-    ObjectProperties = CmOpenDeviceRegKey(PiPnpRtlCtx, a1, 16, 0, 983103, 0, (__int64)(a3 + 2), 0LL);
+    ObjectProperties = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 16, 0, 983103, 0, (__int64)(a3 + 2), 0LL);
     if ( ObjectProperties < 0 )
     {
 LABEL_13:
-      PiDevCfgFreeDeviceContext(a3);
+      PiDevCfgFreeDeviceContext((__int64)a3);
       return (unsigned int)ObjectProperties;
     }
     *(_DWORD *)a3 |= 0x80000000;
@@ -50,7 +50,7 @@ LABEL_13:
   memset(v15, 0, 0x78uLL);
   v6 = &v15[8];
   v7 = 3LL;
-  v8 = &off_140D3B738;
+  v8 = off_140D2D758;
   v9 = a3 + 3;
   do
   {

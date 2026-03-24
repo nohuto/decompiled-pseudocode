@@ -1,13 +1,11 @@
 /*
- * XREFs of AsyncCallBack @ 0x1C00543F8
+ * XREFs of AsyncCallBack @ 0x1C00682D8
  * Callers:
- *     InsertReadyQueue @ 0x1C00057E4 (InsertReadyQueue.c)
- *     RunContext @ 0x1C0053F54 (RunContext.c)
- *     ParseNestedContext @ 0x1C005BB70 (ParseNestedContext.c)
+ *     ParseNestedContext @ 0x1C006BCF0 (ParseNestedContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     LogSchedEvent @ 0x1C004E3CC (LogSchedEvent.c)
- *     RestartContext @ 0x1C0051308 (RestartContext.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
+ *     LogSchedEvent @ 0x1C002A1C0 (LogSchedEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall AsyncCallBack(_QWORD *a1, unsigned int a2)

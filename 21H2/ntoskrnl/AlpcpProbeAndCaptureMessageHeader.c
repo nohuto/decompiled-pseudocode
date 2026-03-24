@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpProbeAndCaptureMessageHeader @ 0x140666BAC
+ * XREFs of AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284
  * Callers:
- *     NtAlpcOpenSenderThread @ 0x140663910 (NtAlpcOpenSenderThread.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1406652DC (AlpcpReplyLegacySynchronousRequest.c)
- *     NtAlpcOpenSenderProcess @ 0x1406657C0 (NtAlpcOpenSenderProcess.c)
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1406666B4 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpProcessConnectionRequest @ 0x140667A4C (AlpcpProcessConnectionRequest.c)
- *     LpcpCopyRequestData @ 0x140965C1C (LpcpCopyRequestData.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     NtAlpcOpenSenderProcess @ 0x1405DFFA0 (NtAlpcOpenSenderProcess.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     NtAlpcOpenSenderThread @ 0x1406ACA40 (NtAlpcOpenSenderThread.c)
+ *     LpcpCopyRequestData @ 0x1408C1C4C (LpcpCopyRequestData.c)
  * Callees:
  *     <none>
  */

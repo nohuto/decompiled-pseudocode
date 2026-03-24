@@ -1,69 +1,109 @@
 /*
- * XREFs of MiAdjustCachedStacks @ 0x14021E8DC
+ * XREFs of MiAdjustCachedStacks @ 0x14033B548
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x14033BC70 (MiWorkingSetManager.c)
  * Callees:
- *     MiAdjustCachedStackList @ 0x14021EA10 (MiAdjustCachedStackList.c)
- *     MiDeleteCachedKernelStack @ 0x14021EB84 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     MiDeleteCachedKernelShadowStack @ 0x1406443C4 (MiDeleteCachedKernelShadowStack.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     MiDeleteCachedKernelStack @ 0x14033B6EC (MiDeleteCachedKernelStack.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
  */
 
-__int64 __fastcall MiAdjustCachedStacks(__int64 a1)
+__int64 MiAdjustCachedStacks()
 {
+  unsigned int i; // ebx
+  __int64 Prcb; // rax
+  unsigned int v2; // edi
+  unsigned int v3; // ebx
+  __int64 v4; // r14
+  __int64 v5; // r15
+  union _SLIST_HEADER *v6; // rbp
   __int64 result; // rax
-  unsigned int i; // edi
-  __int64 v4; // rbx
-  unsigned int j; // edi
-  unsigned int v6; // ebp
-  __int64 v7; // r14
-  unsigned __int64 v8; // rbx
-  unsigned __int64 v9; // r15
-  unsigned __int64 v10; // rbx
-  unsigned __int64 v11; // rbp
-  __int128 v12; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-28h]
+  int Alignment; // ecx
+  unsigned int v9; // eax
+  int v10; // edx
+  int v11; // ecx
+  int v12; // esi
+  int v13; // edx
+  int v14; // esi
+  int v15; // r9d
+  PSLIST_ENTRY v16; // rax
 
-  result = (__int64)&MiSystemPartition;
-  if ( (_UNKNOWN *)a1 == &MiSystemPartition )
+  for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
   {
-    for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
+    Prcb = KeGetPrcb(i);
+    if ( *(_QWORD *)(Prcb + 32520) && _InterlockedExchange64((volatile __int64 *)(Prcb + 32520), 0LL) )
+      ((void (*)(void))MiDeleteCachedKernelStack)();
+  }
+  v2 = (unsigned __int16)KeNumberNodes;
+  v3 = 0;
+  do
+  {
+    v4 = 0LL;
+    v5 = 11LL * v3;
+    do
     {
-      result = KeGetPrcb(i);
-      v4 = result;
-      if ( *(_QWORD *)(result + 33352) && _InterlockedExchange64((volatile __int64 *)(result + 33352), 0LL) )
-        result = MiDeleteCachedKernelStack();
-      if ( *(_QWORD *)(v4 + 37944) )
+      v6 = &SListHead[v5];
+      result = (unsigned int)(*((_DWORD *)&SListHead[v5 + 1].HeaderX64 + 1)
+                            - *((_DWORD *)&SListHead[v5 + 1].HeaderX64 + 2));
+      if ( (_DWORD)result )
       {
-        v13 = 0LL;
-        v12 = 0LL;
-        result = _InterlockedExchange64((volatile __int64 *)(v4 + 37944), 0LL);
-        *(_QWORD *)&v13 = result;
-        if ( result )
-          result = MiDeleteCachedKernelShadowStack(a1, &v12, 0LL);
+        Alignment = v6[1].Alignment;
+        if ( Alignment < 16 || (unsigned int)result >= 0x10 )
+        {
+          v15 = 4;
+          v9 = v6[1].Alignment;
+          v10 = Alignment >> 31;
+        }
+        else
+        {
+          v9 = v6[1].Alignment;
+          v10 = Alignment >> 31;
+          if ( Alignment >= 64 )
+          {
+            result = (unsigned int)(Alignment / 16);
+LABEL_11:
+            *((_DWORD *)&v6[1].HeaderX64 + 2) = *((_DWORD *)&SListHead[v5 + 1].HeaderX64 + 1);
+            if ( !(_DWORD)result )
+              result = 1LL;
+            v11 = result + Alignment;
+            if ( v11 > 256 )
+              v11 = 256;
+            LODWORD(v6[1].Alignment) = v11;
+            goto LABEL_16;
+          }
+          v15 = 8;
+        }
+        result = (unsigned int)(__SPAIR64__(v10, v9) / v15);
+        goto LABEL_11;
       }
+      if ( !*((_DWORD *)&v6[1].HeaderX64 + 3) )
+      {
+        v12 = v6[1].Alignment;
+        v13 = v12 / 20;
+        if ( !(v12 / 20) )
+          v13 = v12 != 0;
+        v14 = v12 - v13;
+        if ( v4 != 1 && v14 < 5 )
+          v14 = 5;
+        LODWORD(v6[1].Alignment) = v14;
+        while ( 1 )
+        {
+          result = LOWORD(v6->Alignment);
+          if ( (int)result <= v14 )
+            break;
+          v16 = RtlpInterlockedPopEntrySList(v6);
+          if ( v16 )
+            MiDeleteCachedKernelStack(v16);
+        }
+      }
+LABEL_16:
+      *((_DWORD *)&v6[1].HeaderX64 + 3) = 0;
+      ++v4;
+      v5 += 2LL;
     }
+    while ( v4 <= 1 );
+    ++v3;
   }
-  for ( j = 0; j < (unsigned __int16)KeNumberNodes; ++j )
-  {
-    v6 = 0;
-    v7 = 25408LL * j;
-    v8 = v7 + *(_QWORD *)(a1 + 16) + 23200LL;
-    v9 = v8 + 96;
-    while ( v8 < v9 )
-    {
-      MiAdjustCachedStackList(a1, v8, v6, 0LL);
-      v8 += 32LL;
-      ++v6;
-    }
-    v10 = v7 + *(_QWORD *)(a1 + 16) + 23296LL;
-    v11 = v10 + 96;
-    while ( v10 < v11 )
-    {
-      MiAdjustCachedStackList(a1, v10, 0LL, 1LL);
-      v10 += 32LL;
-    }
-    result = (unsigned __int16)KeNumberNodes;
-  }
+  while ( v3 < v2 );
   return result;
 }

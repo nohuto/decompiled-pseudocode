@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x1406CB874
+ * XREFs of EtwpStopLoggerInstance @ 0x1406CB854
  * Callers:
  *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x140658FB0 (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     ExCancelTimer @ 0x1400FA2B0 (ExCancelTimer.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpStackRundown @ 0x1403158D4 (EtwpStackRundown.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     ExCancelTimer @ 0x1400FA2D0 (ExCancelTimer.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpStackRundown @ 0x1403159D4 (EtwpStackRundown.c)
  *     EtwpDisableTraceProviders @ 0x1405C2530 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x140658D88 (EtwpSendSessionNotification.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140725DBC (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpLogPmcCounterRundown @ 0x1408BEA54 (EtwpLogPmcCounterRundown.c)
+ *     EtwpSendSessionNotification @ 0x140658D68 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140725D9C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpLogPmcCounterRundown @ 0x1408BEA34 (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)

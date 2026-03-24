@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAllocateContiguousMemory @ 0x1400E64FC
+ * XREFs of MiAllocateContiguousMemory @ 0x1400E651C
  * Callers:
- *     MmAllocateContiguousNodeMemory @ 0x1400E6460 (MmAllocateContiguousNodeMemory.c)
- *     MmAllocateContiguousMemory @ 0x1402A92E0 (MmAllocateContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1400E6480 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x1402A93E0 (MmAllocateContiguousMemory.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiMapContiguousMemory @ 0x1400E5D84 (MiMapContiguousMemory.c)
- *     ExInsertPoolTag @ 0x1400E6994 (ExInsertPoolTag.c)
- *     ExAllocateContiguousHeapPool @ 0x1400E73F8 (ExAllocateContiguousHeapPool.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     MiFreePoolPages @ 0x1401610E0 (MiFreePoolPages.c)
- *     MiFindContiguousMemoryInPool @ 0x1401625B4 (MiFindContiguousMemoryInPool.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogGetDurationSince @ 0x1402A91AC (MiLogGetDurationSince.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9218 (MiLogPerfMemoryRangeEvent.c)
+ *     MiMapContiguousMemory @ 0x1400E5DA4 (MiMapContiguousMemory.c)
+ *     ExInsertPoolTag @ 0x1400E69B4 (ExInsertPoolTag.c)
+ *     ExAllocateContiguousHeapPool @ 0x1400E7418 (ExAllocateContiguousHeapPool.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogGetDurationSince @ 0x1402A92AC (MiLogGetDurationSince.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
  */
 
 unsigned __int64 __fastcall MiAllocateContiguousMemory(
@@ -302,7 +302,7 @@ LABEL_38:
           v76 = 1LL;
           v78 = 4LL;
           v80 = 8LL;
-          TlgWriteEx(v39, &unk_14036DABB, v38, (ULONG)v39, pActivityId, pRelatedActivityId, 0xAu, &pData);
+          TlgWriteEx(v39, &unk_14036DBCB, v38, (ULONG)v39, pActivityId, pRelatedActivityId, 0xAu, &pData);
         }
       }
     }

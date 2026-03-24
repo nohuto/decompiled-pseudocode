@@ -1,21 +1,21 @@
 /*
- * XREFs of ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x1801F1F3C
+ * XREFs of ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x180161C3C
  * Callers:
- *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801E7C3C (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180184BC8 (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?PopRenderOptionsInternal@CDrawingContext@@IEAAX_N@Z @ 0x18001ACC0 (-PopRenderOptionsInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800484D0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090E80 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z @ 0x1800C3D80 (-PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800E3560 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV3@@Z @ 0x1801F2214 (-DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV-$TMilRect_@MUMilRectF@@.c)
- *     ?Rotate90@CMILMatrix@@QEAAXXZ @ 0x18027074C (-Rotate90@CMILMatrix@@QEAAXXZ.c)
+ *     ?PopRenderOptionsInternal@CDrawingContext@@IEAAX_N@Z @ 0x18003EEB4 (-PopRenderOptionsInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z @ 0x18003F080 (-PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040940 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800415F0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041E0C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x1800803D0 (-ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV3@@Z @ 0x180161F48 (-DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV-$TMilRect_@MUMilRectF@@.c)
+ *     ?Rotate90@CMILMatrix@@QEAAXXZ @ 0x180211248 (-Rotate90@CMILMatrix@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CDisplayDebugFrameCounter::Display(
@@ -25,16 +25,16 @@ __int64 __fastcall CDisplayDebugFrameCounter::Display(
         CDrawingContext *a4,
         __int64 a5,
         __int128 *a6,
-        void *a7,
+        int a7,
         _OWORD *a8)
 {
-  CMILMatrix *v11; // rsi
+  CMILMatrix *v11; // r14
   __int128 v12; // xmm1
   __int128 v13; // xmm0
   __int128 v14; // xmm1
   int v15; // eax
   __int128 v16; // xmm0
-  struct MilRectF *v17; // r9
+  __int64 v17; // rdx
   int v18; // eax
   __int64 v19; // rcx
   unsigned int v20; // ebx
@@ -42,48 +42,54 @@ __int64 __fastcall CDisplayDebugFrameCounter::Display(
   __int64 v22; // rcx
   int v23; // eax
   __int64 v24; // rcx
-  int v27; // [rsp+48h] [rbp-B8h] BYREF
-  __int128 v28; // [rsp+4Ch] [rbp-B4h]
-  __int128 v29; // [rsp+5Ch] [rbp-A4h]
-  int v30; // [rsp+6Ch] [rbp-94h]
-  _OWORD v31[4]; // [rsp+70h] [rbp-90h] BYREF
-  int v32; // [rsp+B0h] [rbp-50h]
-  _BYTE v33[64]; // [rsp+C0h] [rbp-40h] BYREF
-  int v34; // [rsp+100h] [rbp+0h]
-  __int64 v35[2]; // [rsp+110h] [rbp+10h] BYREF
-  __int64 v36[2]; // [rsp+120h] [rbp+20h] BYREF
+  int v25; // eax
+  __int64 v26; // rcx
+  _OWORD v29[4]; // [rsp+50h] [rbp-B0h] BYREF
+  int v30; // [rsp+90h] [rbp-70h]
+  int v31; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v32; // [rsp+A4h] [rbp-5Ch]
+  __int128 v33; // [rsp+B4h] [rbp-4Ch]
+  int v34; // [rsp+C4h] [rbp-3Ch]
+  _OWORD v35[4]; // [rsp+D0h] [rbp-30h] BYREF
+  int v36; // [rsp+110h] [rbp+10h]
+  __int64 v37[2]; // [rsp+120h] [rbp+20h] BYREF
+  __int64 v38[2]; // [rsp+130h] [rbp+30h] BYREF
 
-  v34 = 0;
+  v30 = 0;
   v11 = 0LL;
   v12 = *(_OWORD *)(a5 + 16);
-  v31[0] = *(_OWORD *)a5;
+  v35[0] = *(_OWORD *)a5;
   v13 = *(_OWORD *)(a5 + 32);
-  v31[1] = v12;
+  v35[1] = v12;
   v14 = *(_OWORD *)(a5 + 48);
   v15 = *(_DWORD *)(a5 + 64);
-  v31[2] = v13;
+  v35[2] = v13;
   v16 = *a6;
-  v32 = v15;
-  v31[3] = v14;
-  *(_OWORD *)v36 = v16;
-  if ( !CMILMatrix::IsIdentity<0>((__int64)v31) )
-    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v31, v17, (float *)v36);
-  if ( (_DWORD)a7 == 1 )
+  v36 = v15;
+  v35[3] = v14;
+  *(_OWORD *)v38 = v16;
+  if ( !CMILMatrix::IsIdentity<0>((__int64)v35) )
+    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v35, v17, (float *)v38);
+  if ( a7 == 1 )
   {
-    CMILMatrix::SetToIdentity((CMILMatrix *)v33);
-    CMILMatrix::Rotate90((CMILMatrix *)v33);
-    CMILMatrix::Translate((CMILMatrix *)v33, *(float *)&v36[1], 0.0);
-    CMILMatrix::Multiply((CMILMatrix *)v31, (const struct CMILMatrix *)v33);
-    v11 = (CMILMatrix *)v33;
+    v29[0] = _xmm;
+    v29[1] = _xmm;
+    v29[2] = _xmm;
+    v29[3] = _xmm;
+    LOWORD(v30) = 32085;
+    CMILMatrix::Rotate90((CMILMatrix *)v29);
+    CMILMatrix::Translate((CMILMatrix *)v29, *(float *)&v38[1], 0.0);
+    CMILMatrix::Multiply((CMILMatrix *)v35, (const struct CMILMatrix *)v29);
+    v11 = (CMILMatrix *)v29;
   }
-  v35[1] = 0LL;
-  v35[0] = 0LL;
-  v28 = 0LL;
-  LODWORD(v28) = 0;
-  v30 = 0;
-  v29 = 0LL;
-  v27 = 2;
-  v18 = CDrawingContext::PushRenderOptionsInternal((__int64)a4, 0LL, (const struct MilRenderOptions *)&v27, 1);
+  v37[1] = 0LL;
+  v37[0] = 0LL;
+  v32 = 0LL;
+  LODWORD(v32) = 0;
+  v34 = 0;
+  v33 = 0LL;
+  v31 = 2;
+  v18 = CDrawingContext::PushRenderOptionsInternal(a4, 0LL, (const struct MilRenderOptions *)&v31, 1);
   v20 = v18;
   if ( v18 < 0 )
   {
@@ -91,7 +97,7 @@ __int64 __fastcall CDisplayDebugFrameCounter::Display(
   }
   else
   {
-    v21 = CDrawingContext::PushTransformInternal(a4, 0LL, (const struct CMILMatrix *)v31, 0, 1);
+    v21 = CDrawingContext::PushTransformInternal(a4, 0LL, (const struct CMILMatrix *)v35, 0, 1);
     v20 = v21;
     if ( v21 < 0 )
     {
@@ -99,22 +105,31 @@ __int64 __fastcall CDisplayDebugFrameCounter::Display(
     }
     else
     {
-      v23 = CDisplayDebugFrameCounter::DisplayText(this, a2, a3, a4, (__int64)v36, (int)a7, (__int64)v35);
+      v23 = CDrawingContext::ApplyRenderStateInternal(a4, 0);
       v20 = v23;
       if ( v23 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x44u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x45u, 0LL);
       }
-      else if ( v11 )
+      else
       {
-        *(_OWORD *)v36 = *(_OWORD *)v35;
-        CMILMatrix::Transform2DBoundsHelper<0>(v11, (struct MilRectF *)v36, (float *)v35);
+        v25 = CDisplayDebugFrameCounter::DisplayText(this, a2, a3, a4, (__int64)v38, a7, (__int64)v37);
+        v20 = v25;
+        if ( v25 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x47u, 0LL);
+        }
+        else if ( v11 )
+        {
+          *(_OWORD *)v38 = *(_OWORD *)v37;
+          CMILMatrix::Transform2DBoundsHelper<0>(v11, (__int64)v38, (float *)v37);
+        }
       }
       CDrawingContext::PopTransformInternal(a4, 1);
     }
     CDrawingContext::PopRenderOptionsInternal(a4, 1);
   }
   if ( a8 )
-    *a8 = *(_OWORD *)v35;
+    *a8 = *(_OWORD *)v37;
   return v20;
 }

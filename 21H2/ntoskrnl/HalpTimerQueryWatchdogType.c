@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerQueryWatchdogType @ 0x140503390
+ * XREFs of HalpTimerQueryWatchdogType @ 0x1404B6AB0
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A47990 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

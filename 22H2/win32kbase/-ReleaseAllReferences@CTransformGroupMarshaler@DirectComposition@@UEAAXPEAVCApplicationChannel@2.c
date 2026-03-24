@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ReleaseAllReferences@CTransformGroupMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000F530
+ * XREFs of ?ReleaseAllReferences@CTransformGroupMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC790
  * Callers:
  *     <none>
  * Callees:
- *     ?Clear@CResourceMarshalerArrayBase@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C002C3A8 (-Clear@CResourceMarshalerArrayBase@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?Clear@CResourceMarshalerArray@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C005E5E8 (-Clear@CResourceMarshalerArray@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CTransformGroupMarshaler::ReleaseAllReferences(
         DirectComposition::CTransformGroupMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  DirectComposition::CResourceMarshalerArrayBase::Clear(
+  DirectComposition::CResourceMarshalerArray::Clear(
     (DirectComposition::CTransformGroupMarshaler *)((char *)this + 72),
     a2);
 }

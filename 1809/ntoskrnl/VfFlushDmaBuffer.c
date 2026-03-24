@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFlushDmaBuffer @ 0x140309FD0
+ * XREFs of VfFlushDmaBuffer @ 0x14030A0D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
  */
 

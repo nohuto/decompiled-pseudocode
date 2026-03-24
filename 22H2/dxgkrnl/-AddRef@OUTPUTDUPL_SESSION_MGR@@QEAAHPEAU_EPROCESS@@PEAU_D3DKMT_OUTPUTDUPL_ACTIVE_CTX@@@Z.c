@@ -1,165 +1,142 @@
 /*
- * XREFs of ?AddRef@OUTPUTDUPL_SESSION_MGR@@QEAAHPEAU_EPROCESS@@PEAU_D3DKMT_OUTPUTDUPL_ACTIVE_CTX@@@Z @ 0x1C032A46C
+ * XREFs of ?AddRef@OUTPUTDUPL_SESSION_MGR@@QEAAHPEAU_EPROCESS@@PEAU_D3DKMT_OUTPUTDUPL_ACTIVE_CTX@@@Z @ 0x1C0298E10
  * Callers:
- *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C03322C4 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
+ *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C02A16B0 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ @ 0x1C032FAD4 (-TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ @ 0x1C029D4A4 (-TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_SESSION_MGR::AddRef(
-        OUTPUTDUPL_SESSION_MGR *this,
+        struct DXGFASTMUTEX **this,
         struct _EPROCESS *a2,
         struct _D3DKMT_OUTPUTDUPL_ACTIVE_CTX *a3)
 {
-  unsigned int v6; // edi
-  unsigned int v7; // ebp
-  unsigned int v8; // r13d
-  unsigned int v9; // edx
-  unsigned int v10; // r8d
-  char *Buffer; // rsi
-  unsigned int v12; // eax
-  __int64 v13; // rcx
-  struct _EPROCESS *v14; // r9
-  int v15; // r10d
-  const void **v16; // rcx
-  unsigned int v17; // edx
-  __int64 v18; // rax
-  __int64 v19; // r14
-  struct _EPROCESS *v20; // rax
-  __int64 v21; // rcx
-  _BYTE v23[72]; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  unsigned int v8; // edi
+  unsigned int v9; // r14d
+  unsigned int v10; // r15d
+  unsigned int v11; // r8d
+  char *Buffer; // rbp
+  struct _EPROCESS *v13; // rdx
+  int v14; // eax
+  AUTOEXPANDALLOCATION *v15; // rcx
+  int v16; // edx
+  __int64 v17; // rax
+  __int64 v18; // rsi
+  struct _EPROCESS *v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  _BYTE v24[56]; // [rsp+20h] [rbp-38h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (OUTPUTDUPL_SESSION_MGR *)((char *)this + 8), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
-  v6 = 0;
-  v7 = -1;
-  if ( !a3 || *((_DWORD *)this + 32) < 0x10u )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v24, this[1], 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v24);
+  v8 = 0;
+  v9 = -1;
+  if ( !a3 || *((_DWORD *)this + 12) < 0x10u )
   {
-    v8 = 0;
-    v9 = *((_DWORD *)this + 1);
     v10 = 0;
-    Buffer = (char *)**((_QWORD **)this + 7);
-    if ( v9 )
+    v6 = *((unsigned int *)this + 1);
+    v11 = 0;
+    Buffer = *(char **)this[2];
+    while ( v11 < (unsigned int)v6 )
     {
-      v12 = *((_DWORD *)this + 1);
-      while ( 1 )
+      if ( v8 )
+        break;
+      v7 = 32LL * v11;
+      v13 = *(struct _EPROCESS **)&Buffer[v7 + 8];
+      if ( a2 == v13 )
       {
-        v9 = v12;
-        if ( v6 )
-          goto LABEL_13;
-        v13 = 32LL * v10;
-        v14 = *(struct _EPROCESS **)&Buffer[v13 + 8];
-        if ( a2 == v14 )
-          break;
-        if ( v7 != -1 )
-          goto LABEL_9;
+        v14 = *(_DWORD *)&Buffer[v7];
+        v9 = v11;
         if ( v14 )
         {
-LABEL_10:
-          if ( *(_DWORD *)&Buffer[v13] )
-            ++v8;
-          goto LABEL_12;
+          v8 = 1;
+          *(_DWORD *)&Buffer[v7] = v14 + 1;
         }
-        v7 = v10;
+      }
+      else if ( v9 == -1 )
+      {
+        if ( v13 )
+          goto LABEL_12;
+        v9 = v11;
+      }
+      if ( v13 )
+      {
 LABEL_12:
-        ++v10;
-        v12 = v9;
-        if ( v10 >= v9 )
-          goto LABEL_13;
+        if ( *(_DWORD *)&Buffer[v7] )
+          ++v10;
       }
-      v15 = *(_DWORD *)&Buffer[v13];
-      v7 = v10;
-      if ( v15 )
-      {
-        v6 = 1;
-        *(_DWORD *)&Buffer[v13] = v15 + 1;
-        v9 = *((_DWORD *)this + 1);
-      }
-LABEL_9:
-      if ( v14 )
-        goto LABEL_10;
-      goto LABEL_12;
+      v6 = *((unsigned int *)this + 1);
+      ++v11;
     }
-LABEL_13:
-    if ( v8 < *(_DWORD *)this || v6 )
+    if ( v10 < *(_DWORD *)this || v8 )
     {
-      if ( v7 == -1 )
+      if ( v9 == -1 )
       {
-        v16 = (const void **)*((_QWORD *)this + 7);
-        v17 = v9 + 1;
-        *((_DWORD *)this + 1) = v17;
-        Buffer = (char *)AUTOEXPANDALLOCATION::GetBuffer(v16, 32 * v17, 1);
+        v15 = this[2];
+        v16 = v6 + 1;
+        *((_DWORD *)this + 1) = v16;
+        Buffer = (char *)AUTOEXPANDALLOCATION::GetBuffer(v15, 32 * v16, 1);
         if ( !Buffer )
         {
-          v6 = 0;
-          goto LABEL_34;
+          v8 = 0;
+          goto LABEL_33;
         }
-        v7 = *((_DWORD *)this + 1) - 1;
-        v18 = 32LL * v7;
-        *(_OWORD *)&Buffer[v18] = 0LL;
-        *(_OWORD *)&Buffer[v18 + 16] = 0LL;
+        v9 = *((_DWORD *)this + 1) - 1;
+        v17 = 32LL * v9;
+        *(_OWORD *)&Buffer[v17] = 0LL;
+        *(_OWORD *)&Buffer[v17 + 16] = 0LL;
       }
-      v19 = 32LL * v7;
-      v20 = *(struct _EPROCESS **)&Buffer[v19 + 8];
-      if ( v20 && v20 != a2 )
+      v18 = 32LL * v9;
+      v19 = *(struct _EPROCESS **)&Buffer[v18 + 8];
+      if ( v19 && v19 != a2 )
       {
-        WdLogSingleEntry1(1LL, 4217LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"(pProcesses[IndexFound].pProcess == NULL) || (pProcesses[IndexFound].pProcess == pProcess)",
-          4217LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v20 = WdLogNewEntry5_WdAssertion(v7, v6);
+        *(_QWORD *)(v20 + 24) = 4249LL;
+        WdLogEvent5_WdAssertion(v20);
       }
-      if ( v7 == -1 )
+      if ( v9 != -1 )
       {
-        if ( !v6 )
-          goto LABEL_34;
-      }
-      else if ( !v6 )
-      {
-        if ( *(_DWORD *)&Buffer[v19] )
+        if ( v8 )
+          goto LABEL_31;
+        if ( *(_DWORD *)&Buffer[v18] )
         {
-          WdLogSingleEntry1(1LL, 4222LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"pProcesses[IndexFound].RefCount == 0",
-            4222LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v21 = WdLogNewEntry5_WdAssertion(v7, v6);
+          *(_QWORD *)(v21 + 24) = 4254LL;
+          WdLogEvent5_WdAssertion(v21);
         }
-        *(_QWORD *)&Buffer[v19 + 8] = a2;
-        *(_DWORD *)&Buffer[v19] = 1;
-        *(LARGE_INTEGER *)&Buffer[v19 + 16] = KeQueryPerformanceCounter(0LL);
-        v6 = 1;
-        if ( v8 >= *((_DWORD *)this + 16) )
-          *((_DWORD *)this + 16) = v8 + 1;
+        *(_QWORD *)&Buffer[v18 + 8] = a2;
+        *(_DWORD *)&Buffer[v18] = 1;
+        *(LARGE_INTEGER *)&Buffer[v18 + 16] = KeQueryPerformanceCounter(0LL);
+        v8 = 1;
+        if ( v10 < *((_DWORD *)this + 6) )
+        {
+LABEL_31:
+          if ( a3 )
+          {
+            v22 = 3LL * *((unsigned int *)this + 12);
+            *(_OWORD *)&this[v22 + 7] = *(_OWORD *)a3;
+            this[v22 + 9] = (struct DXGFASTMUTEX *)*((_QWORD *)a3 + 2);
+            ++*((_DWORD *)this + 12);
+            OUTPUTDUPL_SESSION_MGR::TriggerLowBoxActiveContextWNF((OUTPUTDUPL_SESSION_MGR *)this);
+          }
+          goto LABEL_33;
+        }
+        *((_DWORD *)this + 6) = v10 + 1;
       }
-      if ( a3 )
-      {
-        v21 = 3LL * *((unsigned int *)this + 32);
-        *(_OWORD *)((char *)this + 8 * v21 + 136) = *(_OWORD *)a3;
-        *((_QWORD *)this + v21 + 19) = *((_QWORD *)a3 + 2);
-        ++*((_DWORD *)this + 32);
-        OUTPUTDUPL_SESSION_MGR::TriggerLowBoxActiveContextWNF(this);
-      }
+      if ( !v8 )
+        goto LABEL_33;
+      goto LABEL_31;
     }
   }
-LABEL_34:
-  if ( v23[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
-  return v6;
+LABEL_33:
+  if ( v24[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v24, v6);
+  return v8;
 }

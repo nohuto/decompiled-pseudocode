@@ -1,26 +1,23 @@
 /*
- * XREFs of PsSetCurrentThreadPrefetching @ 0x1407DF730
+ * XREFs of PsSetCurrentThreadPrefetching @ 0x1406C8E60
  * Callers:
- *     PfpPrefetchSharedCleanup @ 0x1406AE49C (PfpPrefetchSharedCleanup.c)
- *     PfpPrefetchSharedStart @ 0x1406AF0D4 (PfpPrefetchSharedStart.c)
- *     PfSnSectionInfoCleanupWorkItem @ 0x1407DF140 (PfSnSectionInfoCleanupWorkItem.c)
- *     PfSnPopulateReadList @ 0x1407DF200 (PfSnPopulateReadList.c)
+ *     PfpPrefetchSharedStart @ 0x1406C6F58 (PfpPrefetchSharedStart.c)
+ *     PfpPrefetchSharedCleanup @ 0x1406C70A4 (PfpPrefetchSharedCleanup.c)
+ *     PfSnSectionInfoCleanupWorkItem @ 0x1406C88B0 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 BOOLEAN __stdcall PsSetCurrentThreadPrefetching(BOOLEAN Prefetching)
 {
-  struct _KTHREAD *CurrentThread; // r8
-  BOOLEAN v2; // bl
-  bool v3; // zf
+  struct _KTHREAD *CurrentThread; // rcx
+  char Queue; // bl
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v2 = ((__int64)CurrentThread[1].Queue & 0x40) != 0;
-  LOBYTE(CurrentThread[1].Queue) ^= (LOBYTE(CurrentThread[1].Queue) ^ (Prefetching << 6)) & 0x40;
-  v3 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v3 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  return v2;
+  Queue = (char)CurrentThread[1].Queue;
+  LOBYTE(CurrentThread[1].Queue) = Queue ^ (Queue ^ (Prefetching << 6)) & 0x40;
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  return (Queue & 0x40) != 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5710
+ * XREFs of ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C6F30
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C6DBC (-vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C85CC (-vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z.c)
  */
 
 void __fastcall vPatCpyRect1_8x8(struct _PATBLTFRAME *a1, int a2)
@@ -15,11 +15,11 @@ void __fastcall vPatCpyRect1_8x8(struct _PATBLTFRAME *a1, int a2)
   unsigned int v5; // ebp
   unsigned int v6; // r10d
   int v7; // r9d
-  unsigned int *v8; // rbx
+  unsigned __int64 v8; // rbx
   unsigned int *v9; // r14
   char v10; // si
-  unsigned int *v11; // r15
-  unsigned int v12; // r8d
+  unsigned __int64 v11; // r15
+  int v12; // r8d
   int v13; // r8d
   int v15; // [rsp+78h] [rbp-70h]
   int v17; // [rsp+88h] [rbp-60h]
@@ -70,16 +70,17 @@ LABEL_16:
       v7 = 5 - (v4 != 0);
     }
 LABEL_17:
-    v8 = (unsigned int *)*((_QWORD *)v2 + 1);
+    v8 = *((_QWORD *)v2 + 1);
     v9 = v19;
     v10 = *((_BYTE *)v2 + 32);
-    v11 = v8 + 8;
-    if ( v8 < v8 + 8 )
+    v11 = v8 + 32;
+    if ( v8 < v8 + 32 )
     {
       do
       {
-        v12 = *v8++;
-        v13 = (((HIBYTE(v12) << 8) | HIBYTE(v12)) << 16) | (HIBYTE(v12) << 8) | HIBYTE(v12);
+        v12 = *(unsigned __int8 *)(v8 + 3);
+        v8 += 4LL;
+        v13 = (((v12 << 8) | v12) << 16) | (v12 << 8) | v12;
         if ( v10 )
           v13 = __ROR4__(v13, v10);
         *v9++ = v13;

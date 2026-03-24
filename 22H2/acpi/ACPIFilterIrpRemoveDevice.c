@@ -1,89 +1,78 @@
 /*
- * XREFs of ACPIFilterIrpRemoveDevice @ 0x1C0028860
+ * XREFs of ACPIFilterIrpRemoveDevice @ 0x1C002CC90
  * Callers:
- *     ACPIDispatchIrpDepFilterRemoveDevice @ 0x1C0028500 (ACPIDispatchIrpDepFilterRemoveDevice.c)
+ *     ACPIDispatchIrpDepFilterRemoveDevice @ 0x1C0055770 (ACPIDispatchIrpDepFilterRemoveDevice.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIInitDeleteChildDeviceList @ 0x1C002CCA8 (ACPIInitDeleteChildDeviceList.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0E0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
- *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450DC (ACPIWakeDisconnectWakeInterrupts.c)
- *     ACPIInitStopDevice @ 0x1C0087AF4 (ACPIInitStopDevice.c)
- *     AcpiDeletePciBusInterface @ 0x1C008A2B4 (AcpiDeletePciBusInterface.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
- *     IsPciBusExtension @ 0x1C008A778 (IsPciBusExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002D204 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     AcpiDeletePciBusInterface @ 0x1C00A21D8 (AcpiDeletePciBusInterface.c)
+ *     IsPciBusExtension @ 0x1C00B0D78 (IsPciBusExtension.c)
  */
 
 __int64 __fastcall ACPIFilterIrpRemoveDevice(ULONG_PTR a1, IRP *a2)
 {
-  unsigned __int8 MinorFunction; // r14
+  unsigned __int8 MinorFunction; // r15
   __int64 DeviceExtension; // rbx
-  char v5; // r12
-  char v6; // r15
-  volatile signed __int64 *v7; // rdi
+  int v5; // eax
+  bool v6; // bp
+  char v7; // r12
   volatile signed __int64 *v8; // rsi
-  __int64 v9; // r14
-  bool v10; // r13
-  __int64 v11; // r8
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  _IO_STACK_LOCATION *v13; // rax
+  _IO_STACK_LOCATION *v10; // rax
   NTSTATUS Status; // edi
-  const char *v15; // rcx
-  const char *v16; // rdx
-  __int64 v17; // rax
-  void *v18; // rcx
-  unsigned int v19; // ebx
+  __int64 v12; // rax
+  const char *v13; // rcx
+  const char *v14; // rdx
+  __int64 v15; // rax
+  void *v16; // rcx
+  unsigned int v17; // ebx
+  __int64 v19; // r15
+  bool v20; // r13
+  __int64 v21; // r8
   struct _KEVENT Event; // [rsp+60h] [rbp-48h] BYREF
-  unsigned __int8 v22; // [rsp+B8h] [rbp+10h]
+  unsigned __int8 v23; // [rsp+B8h] [rbp+10h]
 
   memset(&Event, 0, sizeof(Event));
   MinorFunction = a2->Tail.Overlay.CurrentStackLocation->MinorFunction;
-  v22 = MinorFunction;
+  v23 = MinorFunction;
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   ACPIInitDeleteChildDeviceList(DeviceExtension);
-  v5 = 0;
-  if ( *(_QWORD *)(DeviceExtension + 368) )
+  v5 = *(_DWORD *)(DeviceExtension + 328);
+  v6 = 0;
+  if ( !v5 )
+    v6 = *(_DWORD *)(DeviceExtension + 332) == 0;
+  v7 = 0;
+  if ( v5 == 5 || *(char *)(DeviceExtension + 8) < 0 )
   {
-    v6 = 0;
-    if ( *(_DWORD *)(DeviceExtension + 368) == 5 )
-    {
-      v7 = (volatile signed __int64 *)(DeviceExtension + 8);
-      goto LABEL_30;
-    }
+    v7 = 1;
+    v8 = (volatile signed __int64 *)(DeviceExtension + 8);
   }
   else
   {
-    v5 = 1;
-    v6 = 0;
-  }
-  v7 = (volatile signed __int64 *)(DeviceExtension + 8);
-  if ( *(char *)(DeviceExtension + 8) < 0 )
-  {
-LABEL_30:
-    v6 = 1;
-    v8 = v7;
-    goto LABEL_10;
-  }
-  v8 = (volatile signed __int64 *)(DeviceExtension + 8);
-  if ( !v5 )
-  {
-    v9 = *(_QWORD *)(DeviceExtension + 1008) & 0x8000LL;
-    v10 = (*(_QWORD *)(DeviceExtension + 1008) & 0x8000) != 0;
-    if ( (unsigned __int8)IsPciBusExtension(DeviceExtension) || v9 )
+    v8 = (volatile signed __int64 *)(DeviceExtension + 8);
+    if ( !v6 )
     {
-      LOBYTE(v11) = v10;
-      EnableDisableRegions(*(_QWORD *)(DeviceExtension + 760), 0LL, v11);
-      v8 = (volatile signed __int64 *)(DeviceExtension + 8);
+      v19 = *(_QWORD *)(DeviceExtension + 960) & 0x8000LL;
+      v20 = (*(_QWORD *)(DeviceExtension + 960) & 0x8000) != 0;
+      if ( (unsigned __int8)IsPciBusExtension(DeviceExtension) || v19 )
+      {
+        LOBYTE(v21) = v20;
+        EnableDisableRegions(*(_QWORD *)(DeviceExtension + 720), 0LL, v21);
+        v8 = (volatile signed __int64 *)(DeviceExtension + 8);
+      }
+      MinorFunction = v23;
     }
-    MinorFunction = v22;
   }
-LABEL_10:
   AcpiDeletePciBusInterface(DeviceExtension);
   ACPIInitReferenceDeviceExtension(DeviceExtension);
-  if ( *(_DWORD *)(DeviceExtension + 368) != 5 )
+  if ( *(_DWORD *)(DeviceExtension + 328) != 5 )
     _InterlockedOr64(v8, 0x800uLL);
-  *(_DWORD *)(DeviceExtension + 368) = 0;
+  *(_DWORD *)(DeviceExtension + 328) = 0;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
@@ -92,59 +81,59 @@ LABEL_10:
                                                                              + 6);
   CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
   CurrentStackLocation[-1].Control = 0;
-  v13 = a2->Tail.Overlay.CurrentStackLocation;
-  v13[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
-  v13[-1].Context = &Event;
-  v13[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+  v10 = a2->Tail.Overlay.CurrentStackLocation;
+  v10[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
+  v10[-1].Context = &Event;
+  v10[-1].Control = -32;
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     Status = a2->IoStatus.Status;
   }
-  v15 = (const char *)&unk_1C00622D0;
-  v16 = (const char *)&unk_1C00622D0;
-  if ( (*v8 & 0x200000000000LL) != 0 )
+  v12 = *(_QWORD *)(DeviceExtension + 8);
+  v13 = (const char *)&unk_1C00701BA;
+  v14 = (const char *)&unk_1C00701BA;
+  if ( (v12 & 0x200000000000LL) != 0 )
   {
-    v15 = *(const char **)(DeviceExtension + 608);
-    if ( (*v8 & 0x400000000000LL) != 0 )
-      v16 = *(const char **)(DeviceExtension + 616);
+    v13 = *(const char **)(DeviceExtension + 568);
+    if ( (v12 & 0x400000000000LL) != 0 )
+      v14 = *(const char **)(DeviceExtension + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v17 = MinorFunction;
+    v15 = MinorFunction;
     if ( MinorFunction >= 0x1Au )
-      v17 = 26LL;
+      v15 = 26LL;
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       0xCu,
       0x17u,
-      (__int64)&WPP_da1e537e7f723164eef71e38dd98447a_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       (char)a2,
-      (__int64)(&ACPIDispatchPnpTableNames)[v17],
+      ACPIDispatchPnpTableNames[v15],
       Status,
       DeviceExtension,
-      v15,
-      v16);
+      v13,
+      v14);
   }
   if ( Status >= 0 )
   {
-    if ( !v6 && !v5 )
+    if ( !v7 && !v6 )
     {
-      LOBYTE(v16) = 1;
-      ACPIInitStopDevice(DeviceExtension, v16);
+      LOBYTE(v14) = 1;
+      ACPIInitStopDevice(DeviceExtension, v14);
     }
-    ACPIWakeDisconnectWakeInterrupts(DeviceExtension);
-    v18 = *(void **)(DeviceExtension + 112);
-    if ( v18 )
+    v16 = *(void **)(DeviceExtension + 112);
+    if ( v16 )
     {
-      ExFreePoolWithTag(v18, 0);
+      ExFreePoolWithTag(v16, 0);
       *(_QWORD *)(DeviceExtension + 112) = 0LL;
     }
     ACPIInitDereferenceDeviceExtensionUnlocked(DeviceExtension);
   }
-  v19 = a2->IoStatus.Status;
+  v17 = a2->IoStatus.Status;
   IofCompleteRequest(a2, 0);
-  return v19;
+  return v17;
 }

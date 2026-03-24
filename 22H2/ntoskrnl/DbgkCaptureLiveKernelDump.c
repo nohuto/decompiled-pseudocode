@@ -1,28 +1,28 @@
 /*
- * XREFs of DbgkCaptureLiveKernelDump @ 0x14053C1B8
+ * XREFs of DbgkCaptureLiveKernelDump @ 0x1404EE598
  * Callers:
- *     NtSystemDebugControl @ 0x1407E1650 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407CFB20 (NtSystemDebugControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1407336A0 (ObReferenceObjectByHandleWithTag.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x140883BDC (DbgkpWerIsFullLiveDumpDisabled.c)
- *     DbgkpWerAllocatePool @ 0x14093B6E4 (DbgkpWerAllocatePool.c)
- *     DbgkpWerFreePool @ 0x14093BBA4 (DbgkpWerFreePool.c)
- *     IoCaptureLiveDump @ 0x14094BA98 (IoCaptureLiveDump.c)
- *     ObOpenObjectByPointerWithTag @ 0x14097C190 (ObOpenObjectByPointerWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     DbgkpWerAllocatePool @ 0x140888DAC (DbgkpWerAllocatePool.c)
+ *     DbgkpWerFreePool @ 0x1408893D8 (DbgkpWerFreePool.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x140889618 (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     IoCaptureLiveDump @ 0x1408962E8 (IoCaptureLiveDump.c)
+ *     ObOpenObjectByPointerWithTag @ 0x1408DCAE0 (ObOpenObjectByPointerWithTag.c)
  */
 
 __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
 {
   KPROCESSOR_MODE PreviousMode; // r12
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int Status; // ebx
-  _DWORD *Pool; // rax
-  __int64 v7; // r14
+  unsigned int Status; // edi
+  __int64 Pool; // rax
+  __int64 v7; // rsi
   void *v8; // rcx
   NTSTATUS v9; // eax
   PVOID v10; // r9
@@ -31,12 +31,13 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
   PVOID v13; // r12
   NTSTATUS v14; // eax
   int v15; // eax
+  int v16; // eax
   ULONG Tag[2]; // [rsp+20h] [rbp-30h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-10h] BYREF
   int FileInformation; // [rsp+90h] [rbp+40h] BYREF
   HANDLE FileHandle; // [rsp+98h] [rbp+48h] BYREF
   PVOID Object; // [rsp+A0h] [rbp+50h] BYREF
-  PVOID v21; // [rsp+A8h] [rbp+58h] BYREF
+  PVOID v22; // [rsp+A8h] [rbp+58h] BYREF
 
   FileInformation = 0;
   IoStatusBlock = 0LL;
@@ -48,19 +49,24 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
     DbgPrintEx(5u, 1u, "DBGK: Full Live Kernel Dumps are disabled. Failing request.\n");
     return 3221227524LL;
   }
+  if ( PreviousMode == 1 && (*(_DWORD *)(a1 + 56) & 4) != 0 && KdPitchDebugger && !KdLocalDebugEnabled )
+    return 3221226324LL;
   FileHandle = 0LL;
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
-  v21 = 0LL;
+  v22 = 0LL;
   --CurrentThread->KernelApcDisable;
   if ( _InterlockedExchange(&DbgkpBusy, 1) != 1 )
   {
-    Pool = (_DWORD *)DbgkpWerAllocatePool(56LL);
-    v7 = (__int64)Pool;
+    Pool = DbgkpWerAllocatePool(0x30uLL);
+    v7 = Pool;
     if ( Pool )
     {
-      *Pool = 2;
-      Pool[1] = 56;
+      *(_OWORD *)Pool = 0LL;
+      *(_OWORD *)(Pool + 16) = 0LL;
+      *(_OWORD *)(Pool + 32) = 0LL;
+      *(_DWORD *)Pool = 1;
+      *(_DWORD *)(Pool + 4) = 48;
       v8 = *(void **)(a1 + 48);
       if ( v8
         && (v9 = ObReferenceObjectByHandleWithTag(
@@ -79,23 +85,11 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
       }
       else
       {
-        if ( (*(_DWORD *)(a1 + 56) & 0x10) != 0 && (!*(_QWORD *)(a1 + 64) || *(_DWORD *)a1 < 2u || *(_DWORD *)(a1 + 60)) )
-        {
-          Status = -1073741811;
-          DbgPrintEx(
-            5u,
-            1u,
-            "DBGK: Requested selective dump with invalid parameters: Version %d, Flags: 0x%X, Control Structure: %p\n",
-            *(_DWORD *)a1,
-            *(_DWORD *)(a1 + 60),
-            *(const void **)(a1 + 64));
-          goto LABEL_43;
-        }
         v12 = *(void **)(a1 + 40);
         if ( !v12 )
         {
           Status = -1073741811;
-          goto LABEL_43;
+          goto LABEL_39;
         }
         v9 = ObReferenceObjectByHandleWithTag(
                v12,
@@ -103,14 +97,14 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                (POBJECT_TYPE)IoFileObjectType,
                PreviousMode,
                0x57676244u,
-               &v21,
+               &v22,
                0LL);
         Status = v9;
         if ( v9 >= 0 )
         {
-          v13 = v21;
+          v13 = v22;
           v9 = ObOpenObjectByPointerWithTag(
-                 v21,
+                 v22,
                  0x200u,
                  0LL,
                  2u,
@@ -132,21 +126,18 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                 {
                   *(_QWORD *)(v7 + 8) = FileHandle;
                   *(_QWORD *)(v7 + 16) = Object;
-                  if ( (*(_DWORD *)(a1 + 56) & 4) != 0 )
-                    *(_DWORD *)(v7 + 24) |= 4u;
-                  if ( (*(_DWORD *)(a1 + 56) & 8) != 0 )
-                    *(_DWORD *)(v7 + 24) |= 0x10u;
-                  if ( (*(_DWORD *)(a1 + 56) & 0x10) != 0 )
+                  v15 = *(_DWORD *)(a1 + 56);
+                  if ( (v15 & 4) != 0 )
                   {
-                    *(_DWORD *)(v7 + 24) |= 0x20u;
-                    *(_QWORD *)(v7 + 48) = *(_QWORD *)(a1 + 64);
+                    *(_DWORD *)(v7 + 24) |= 4u;
+                    v15 = *(_DWORD *)(a1 + 56);
                   }
+                  if ( (v15 & 8) != 0 )
+                    *(_DWORD *)(v7 + 24) |= 0x10u;
                   if ( (*(_DWORD *)(a1 + 60) & 1) != 0 )
                     *(_DWORD *)(v7 + 28) |= 1u;
-                  if ( (*(_DWORD *)(a1 + 60) & 2) != 0 )
-                    *(_DWORD *)(v7 + 28) |= 2u;
                   DbgPrintEx(5u, 3u, "DBGK: Calling IoCaptureLiveDump\n");
-                  v15 = IoCaptureLiveDump(
+                  v16 = IoCaptureLiveDump(
                           *(_DWORD *)(a1 + 4),
                           *(_QWORD *)(a1 + 8),
                           *(_QWORD *)(a1 + 16),
@@ -154,9 +145,9 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                           *(_QWORD *)(a1 + 32),
                           v7,
                           0LL);
-                  Status = v15;
-                  if ( v15 < 0 )
-                    DbgPrintEx(5u, 0, "DBGK: IoCaptureLiveDump failed, status 0x%X\n", v15);
+                  Status = v16;
+                  if ( v16 < 0 )
+                    DbgPrintEx(5u, 0, "DBGK: IoCaptureLiveDump failed, status 0x%X\n", v16);
                 }
                 else
                 {
@@ -177,7 +168,7 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
             {
               DbgPrintEx(5u, 1u, "DBGK: ZwQueryInformationFile failed for dump file, status 0x%X\n", (unsigned int)v14);
             }
-            goto LABEL_43;
+            goto LABEL_39;
           }
           v10 = v13;
           v11 = "DBGK: ObOpenObjectByPointerWithTag failed for file %p, status 0x%X\n";
@@ -196,20 +187,20 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
       DbgPrintEx(5u, 0, "DBGK: Could not allocate IoLivedumpControl\n");
       Status = -1073741801;
     }
-LABEL_43:
+LABEL_39:
     if ( FileHandle )
       ZwClose(FileHandle);
     if ( Object )
       ObfDereferenceObjectWithTag(Object, 0x57676244u);
-    if ( v21 )
-      ObfDereferenceObjectWithTag(v21, 0x57676244u);
+    if ( v22 )
+      ObfDereferenceObjectWithTag(v22, 0x57676244u);
     if ( v7 )
       DbgkpWerFreePool(v7);
     _InterlockedExchange(&DbgkpBusy, 0);
-    goto LABEL_52;
+    goto LABEL_48;
   }
   Status = -1073741267;
-LABEL_52:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+LABEL_48:
+  KeLeaveCriticalRegion();
   return Status;
 }

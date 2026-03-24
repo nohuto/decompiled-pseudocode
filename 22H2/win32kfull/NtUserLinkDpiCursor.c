@@ -1,51 +1,49 @@
 /*
- * XREFs of NtUserLinkDpiCursor @ 0x1C01D5FD0
+ * XREFs of NtUserLinkDpiCursor @ 0x1C01FDF00
  * Callers:
  *     <none>
  * Callees:
- *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0027440 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01A8930 (-LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024CA8 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01D39B4 (-LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z.c)
  */
 
-__int64 __fastcall NtUserLinkDpiCursor(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall NtUserLinkDpiCursor(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rdi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  struct tagCURSOR *v13; // rcx
-  struct tagCURSOR *v14; // r9
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int64 v11; // rax
+  struct tagCURSOR *v12; // rcx
+  struct tagCURSOR *v13; // r9
 
-  EnterCrit(0LL, 0LL);
-  v6 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v8 = 0LL;
   if ( !a3 )
     goto LABEL_9;
-  v9 = HMValidateHandle(a1, 3u);
-  if ( v9 )
+  v10 = HMValidateHandle(a1, 3u);
+  if ( v10 )
   {
-    v12 = HMValidateHandle(a2, 3u);
-    v11 = v12;
-    if ( v12 )
+    v11 = HMValidateHandle(a2, 3u);
+    if ( v11 )
     {
-      if ( (*(_DWORD *)(v12 + 80) & 0x1000) != 0
-        && (*(_DWORD *)(v9 + 80) & 0x1800) == 0
-        && *(_QWORD *)(v12 + 48) == v12
-        && !FindDPICursor((struct tagCURSOR *)v9, a3) )
+      if ( (*(_DWORD *)(v11 + 80) & 0x1000) != 0
+        && (*(_DWORD *)(v10 + 80) & 0x1800) == 0
+        && *(_QWORD *)(v11 + 48) == v11
+        && !FindDPICursor((struct tagCURSOR *)v10, a3) )
       {
-        LinkDpiCursor(v13, v14, a3);
-        v6 = 1LL;
+        LinkDpiCursor(v12, v13, a3);
+        v8 = 1LL;
         goto LABEL_10;
       }
 LABEL_9:
-      UserSetLastError(87);
+      UserSetLastError(87LL, v6, v7);
     }
   }
 LABEL_10:
-  UserSessionSwitchLeaveCrit(v8, v7, v10, v11);
-  return v6;
+  UserSessionSwitchLeaveCrit(v9);
+  return v8;
 }

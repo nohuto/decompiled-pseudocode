@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSystemRoutineAddress @ 0x14067B8B0
+ * XREFs of MmGetSystemRoutineAddress @ 0x14067B890
  * Callers:
  *     <none>
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiMarkKernelCfgTarget @ 0x1400F38C8 (MiMarkKernelCfgTarget.c)
+ *     MiMarkKernelCfgTarget @ 0x1400F38E8 (MiMarkKernelCfgTarget.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlFindExportedRoutineByName @ 0x140678EE0 (RtlFindExportedRoutineByName.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
  */
 
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)

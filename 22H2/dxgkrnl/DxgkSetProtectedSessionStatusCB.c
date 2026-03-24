@@ -1,53 +1,56 @@
 /*
- * XREFs of DxgkSetProtectedSessionStatusCB @ 0x1C034B0D0
+ * XREFs of DxgkSetProtectedSessionStatusCB @ 0x1C028A8C0
  * Callers:
  *     <none>
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z @ 0x1C0056E74 (-SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z @ 0x1C0048E50 (-SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z.c)
  */
 
-__int64 __fastcall DxgkSetProtectedSessionStatusCB(__int64 a1)
+__int64 __fastcall DxgkSetProtectedSessionStatusCB(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  unsigned int v4; // ebx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v8; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-20h]
-  char v10; // [rsp+40h] [rbp-18h]
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  int v10; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-20h]
+  char v12; // [rsp+30h] [rbp-18h]
 
   if ( KeGetCurrentIrql() >= 2u )
-    WdLogSingleEntry5(0LL, 275LL, 20LL, DxgkSetProtectedSessionStatusCB, 0LL, 0LL);
-  v8 = -1;
-  v9 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
   {
-    v10 = 1;
-    v8 = 15000;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v2, &EventProfilerEnter, v3, 15000);
+    v4 = WdLogNewEntry5_WdCriticalError(a1, a2);
+    *(_QWORD *)(v4 + 40) = DxgkSetProtectedSessionStatusCB;
+    *(_QWORD *)(v4 + 24) = 275LL;
+    *(_QWORD *)(v4 + 32) = 20LL;
+    *(_OWORD *)(v4 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v4);
+  }
+  v10 = -1;
+  v11 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
+  {
+    v12 = 1;
+    v10 = 15000;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 15000);
   }
   else
   {
-    v10 = 0;
+    v12 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v8, 15000);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v10, 15000LL);
   if ( *(_QWORD *)a1 )
-    v4 = DXGPROTECTEDSESSION::SetSessionStatus(
+    v6 = DXGPROTECTEDSESSION::SetSessionStatus(
            *(DXGPROTECTEDSESSION **)a1,
            (enum _DXGK_PROTECTED_SESSION_STATUS)*(_DWORD *)(a1 + 8));
   else
-    v4 = -1073741811;
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v8);
-  if ( v10 )
-  {
-    LOBYTE(v5) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v5, &EventProfilerExit, v6, v8);
-  }
-  return v4;
+    v6 = -1073741811;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v10, v5);
+  if ( v12 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v7, &EventProfilerExit, v8, v10);
+  return v6;
 }

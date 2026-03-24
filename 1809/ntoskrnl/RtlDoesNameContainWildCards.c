@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDoesNameContainWildCards @ 0x1400A4480
+ * XREFs of RtlDoesNameContainWildCards @ 0x1400A44A0
  * Callers:
  *     RtlpIsNameInExpressionPrivate @ 0x1400A3EE0 (RtlpIsNameInExpressionPrivate.c)
  * Callees:
@@ -20,7 +20,7 @@ BOOLEAN __stdcall RtlDoesNameContainWildCards(PUNICODE_STRING Name)
       v3 = *i;
       if ( *i == 92 )
         break;
-      if ( v3 < 0x40u && (byte_14035C600[v3] & 8) != 0 )
+      if ( v3 < 0x40u && (byte_14035C710[v3] & 8) != 0 )
         return 1;
     }
   }

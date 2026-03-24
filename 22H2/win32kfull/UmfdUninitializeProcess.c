@@ -1,9 +1,9 @@
 /*
- * XREFs of UmfdUninitializeProcess @ 0x1C00A5070
+ * XREFs of UmfdUninitializeProcess @ 0x1C00F3380
  * Callers:
  *     <none>
  * Callees:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
  */
 
 void UmfdUninitializeProcess()

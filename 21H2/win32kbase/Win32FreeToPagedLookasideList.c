@@ -1,47 +1,32 @@
 /*
- * XREFs of Win32FreeToPagedLookasideList @ 0x1C00240E0
+ * XREFs of Win32FreeToPagedLookasideList @ 0x1C002BAA0
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C007B65C (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     UnlockQueue @ 0x1C00C7430 (UnlockQueue.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ @ 0x1C011C384 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ.c)
+ *     NullifyLookasideRef @ 0x1C011C744 (NullifyLookasideRef.c)
+ *     UserDeleteW32Thread @ 0x1C011C830 (UserDeleteW32Thread.c)
+ *     zzzDestroyQueue @ 0x1C011D460 (zzzDestroyQueue.c)
+ *     ?Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ @ 0x1C0128414 (-Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C017B0D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
- *     ?Remove@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C017BA3C (-Remove@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-unsigned __int8 __fastcall Win32FreeToPagedLookasideList(__int64 a1, struct _SLIST_ENTRY *a2)
+__int64 (*__fastcall Win32FreeToPagedLookasideList(__int64 a1, __int64 a2))(void)
 {
-  struct _SLIST_ENTRY *v2; // rdi
-  NSInstrumentation::CPrioritizedWriterLock **v3; // rsi
-  union _SLIST_HEADER *v5; // rcx
-  unsigned __int8 result; // al
-  __int64 (__fastcall *v7)(struct _SLIST_ENTRY *); // rax
-  NSInstrumentation::CPointerHashTable *v8; // rcx
-  struct NSInstrumentation::CBackTraceStorageUnit *v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 (*result)(void); // rax
 
-  v2 = a2;
-  v3 = (NSInstrumentation::CPrioritizedWriterLock **)gpLeakTrackingAllocator;
-  if ( *(_BYTE *)a1 )
+  result = qword_1C0257D60;
+  if ( qword_1C0257D60 )
   {
-    v8 = (NSInstrumentation::CPointerHashTable *)*((_QWORD *)gpLeakTrackingAllocator + 6);
-    v9 = 0LL;
-    v2 = a2 - 1;
-    result = NSInstrumentation::CPointerHashTable::Remove(v8, &a2[-1], (void **)&v9);
-    if ( !result )
-      return result;
-    NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Remove(
-      v3[8],
-      v9);
-    ++*(_DWORD *)(a1 + 44);
-    v5 = (union _SLIST_HEADER *)(a1 + 16);
+    result = (__int64 (*)(void))qword_1C0257D60();
+    if ( (int)result >= 0 )
+    {
+      result = (__int64 (*)(void))qword_1C0257D68;
+      if ( qword_1C0257D68 )
+        return (__int64 (*)(void))qword_1C0257D68(a1, a2);
+    }
   }
-  else
-  {
-    ++*(_DWORD *)(a1 + 44);
-    v5 = (union _SLIST_HEADER *)(a1 + 16);
-  }
-  if ( ExQueryDepthSList(v5) < *(_WORD *)(a1 + 32) )
-    return (unsigned __int8)ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 16), v2);
-  v7 = *(__int64 (__fastcall **)(struct _SLIST_ENTRY *))(a1 + 72);
-  ++*(_DWORD *)(a1 + 48);
-  return v7(v2);
+  return result;
 }

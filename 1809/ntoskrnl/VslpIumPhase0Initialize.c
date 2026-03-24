@@ -1,21 +1,21 @@
 /*
- * XREFs of VslpIumPhase0Initialize @ 0x1409F45F8
+ * XREFs of VslpIumPhase0Initialize @ 0x1409F4600
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939D4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
  *     VslInitSystem @ 0x1409DE5F0 (VslInitSystem.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x140101FA0 (MmBuildMdlForNonPagedPool.c)
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140129FF4 (HvlQueryVsmConnection.c)
- *     MmSetPageProtection @ 0x140133560 (MmSetPageProtection.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeIsTsxDisabled @ 0x1401B42F4 (KeIsTsxDisabled.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KeQueryKvaShadowInformation @ 0x140844808 (KeQueryKvaShadowInformation.c)
- *     VslpIumPhase0InitializeNtKd @ 0x1409F4920 (VslpIumPhase0InitializeNtKd.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
+ *     MmSetPageProtection @ 0x140133580 (MmSetPageProtection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeIsTsxDisabled @ 0x1401B4314 (KeIsTsxDisabled.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KeQueryKvaShadowInformation @ 0x1408447E8 (KeQueryKvaShadowInformation.c)
+ *     VslpIumPhase0InitializeNtKd @ 0x1409F4928 (VslpIumPhase0InitializeNtKd.c)
  */
 
 __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)

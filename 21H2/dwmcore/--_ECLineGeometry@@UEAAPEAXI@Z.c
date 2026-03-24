@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECLineGeometry@@UEAAPEAXI@Z @ 0x18019F010
+ * XREFs of ??_ECLineGeometry@@UEAAPEAXI@Z @ 0x18016D100
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??1CGeometry@@MEAA@XZ @ 0x1800CF7BC (--1CGeometry@@MEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CGeometry@@MEAA@XZ @ 0x1800CF2DC (--1CGeometry@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 struct CResource **__fastcall CLineGeometry::`vector deleting destructor'(struct CResource **this, char a2)
@@ -14,9 +14,9 @@ struct CResource **__fastcall CLineGeometry::`vector deleting destructor'(struct
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers((CDrawListPolygonBuilder *)this, (const struct D2D1_BEZIER_SEGMENT *)0x98);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

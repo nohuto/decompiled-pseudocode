@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C015E430
+ * XREFs of ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013EFAC
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C015E238 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
- *     ?vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z @ 0x1C015E2D8 (-vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z.c)
- *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E7A4 (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E7EA (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F359C (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0140B60 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141028 (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z @ 0x1C02CEAEC (-vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z.c)
+ *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CF0A4 (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CF18C (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
  */
 
 void __fastcall WIDENER::vAddStartCap(WIDENER *this)
@@ -19,8 +19,8 @@ void __fastcall WIDENER::vAddStartCap(WIDENER *this)
   struct EVECTORFX *v6; // r8
   WIDEPATHOBJ *v7; // rdi
   struct _POINTFIX *v8; // rbx
-  struct LINEDATA *v9; // rdx
-  __int64 v10; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rax
   int v11; // edi
   int v12; // ebx
   _DWORD *v13; // rax
@@ -47,10 +47,13 @@ void __fastcall WIDENER::vAddStartCap(WIDENER *this)
     }
     else
     {
-      v9 = (struct LINEDATA *)*((_QWORD *)this + 89);
+      v9 = *((_QWORD *)this + 89);
       if ( (*(_DWORD *)v9 & 2) == 0 )
-        WIDENER::vVecSquareCompute(this, v9);
-      v10 = *(_QWORD *)(*((_QWORD *)this + 89) + 56LL);
+      {
+        WIDENER::vVecSquareCompute(this, *((struct LINEDATA **)this + 89));
+        v9 = *((_QWORD *)this + 89);
+      }
+      v10 = *(_QWORD *)(v9 + 56);
       v11 = -(int)v10;
       LODWORD(v18) = -(int)v10;
       HIDWORD(v18) = -HIDWORD(v10);

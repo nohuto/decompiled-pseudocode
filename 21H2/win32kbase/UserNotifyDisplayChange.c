@@ -1,12 +1,12 @@
 /*
- * XREFs of UserNotifyDisplayChange @ 0x1C0078BB0
+ * XREFs of UserNotifyDisplayChange @ 0x1C00150E0
  * Callers:
- *     DrvEnableMDEV @ 0x1C00783A4 (DrvEnableMDEV.c)
- *     DxgkEngNotifyDisplayChange @ 0x1C007F550 (DxgkEngNotifyDisplayChange.c)
+ *     DrvEnableMDEV @ 0x1C0014C28 (DrvEnableMDEV.c)
+ *     DxgkEngNotifyDisplayChange @ 0x1C014A8B0 (DxgkEngNotifyDisplayChange.c)
  * Callees:
- *     DwmAsyncNotifyDisplayModeChange @ 0x1C0078C18 (DwmAsyncNotifyDisplayModeChange.c)
- *     ReferenceDwmApiPort @ 0x1C0078C50 (ReferenceDwmApiPort.c)
- *     IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0078CB4 (IsDwmAsyncNotifyDisplayModeChangeSupported.c)
+ *     DwmAsyncNotifyDisplayModeChange @ 0x1C0015148 (DwmAsyncNotifyDisplayModeChange.c)
+ *     ReferenceDwmApiPort @ 0x1C0015180 (ReferenceDwmApiPort.c)
+ *     IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0015228 (IsDwmAsyncNotifyDisplayModeChangeSupported.c)
  */
 
 __int64 UserNotifyDisplayChange()
@@ -20,5 +20,5 @@ __int64 UserNotifyDisplayChange()
     DwmAsyncNotifyDisplayModeChange(v0);
   }
   CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-  return ZwUpdateWnfStateData(&WNF_DX_DISPLAY_CONFIG_CHANGE_NOTIFICATION, 0LL, 0LL, 0LL, &CurrentProcessSessionId);
+  return ZwUpdateWnfStateData(&WNF_DX_DISPLAY_CONFIG_CHANGE_NOTIFICATION, 0LL, 0LL, 0LL, &CurrentProcessSessionId, 0, 0);
 }

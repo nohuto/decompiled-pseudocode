@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpRemoveHandleTable @ 0x1406AD520
+ * XREFs of ExpRemoveHandleTable @ 0x1406AD500
  * Callers:
  *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
- *     ObKillProcess @ 0x14066C4DC (ObKillProcess.c)
- *     RtlDestroyAtomTable @ 0x1406AD360 (RtlDestroyAtomTable.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x14084A7B0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObKillProcess @ 0x14066C4BC (ObKillProcess.c)
+ *     RtlDestroyAtomTable @ 0x1406AD340 (RtlDestroyAtomTable.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14084A790 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

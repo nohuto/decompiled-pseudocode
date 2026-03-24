@@ -1,17 +1,18 @@
 /*
- * XREFs of ExHandleLogBadReference @ 0x14025032C
+ * XREFs of ExHandleLogBadReference @ 0x1402011C8
  * Callers:
- *     ExMapHandleToPointerEx @ 0x1406BB808 (ExMapHandleToPointerEx.c)
- *     ObReferenceFileObjectForWrite @ 0x14071E230 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
- *     ObWaitForMultipleObjects @ 0x1407A1400 (ObWaitForMultipleObjects.c)
- *     AlpcpLookupMessage @ 0x1407ABD80 (AlpcpLookupMessage.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
+ *     ExMapHandleToPointerEx @ 0x140616680 (ExMapHandleToPointerEx.c)
+ *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
+ *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KeRaiseUserException @ 0x14056E010 (KeRaiseUserException.c)
- *     ExpUpdateDebugInfo @ 0x1409F92FC (ExpUpdateDebugInfo.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x140515F20 (KeRaiseUserException.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE04 (ExpUpdateDebugInfo.c)
  */
 
 struct _KTHREAD *__fastcall ExHandleLogBadReference(
@@ -31,7 +32,7 @@ struct _KTHREAD *__fastcall ExHandleLogBadReference(
       if ( result->ApcStateIndex != 1 )
       {
         result = KeGetCurrentThread();
-        if ( BugCheckParameter2 == result->ApcState.Process[1].Affinity.StaticBitmap[28] )
+        if ( BugCheckParameter2 == result->ApcState.Process[1].AffinityPadding[8] )
         {
           if ( (NtGlobalFlag & 0x100) != 0 )
             DbgPrintEx(

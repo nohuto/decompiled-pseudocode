@@ -1,133 +1,140 @@
 /*
- * XREFs of HalpSetTimer @ 0x140354420
+ * XREFs of HalpSetTimer @ 0x14024E37C
  * Callers:
- *     HalpTimerClockArm @ 0x140354380 (HalpTimerClockArm.c)
- *     HalpTimerWatchdogResetCountdown @ 0x14039FE90 (HalpTimerWatchdogResetCountdown.c)
- *     HalpTimerInitializeClock @ 0x1403BAF00 (HalpTimerInitializeClock.c)
- *     HalpSetTimerAnyMode @ 0x14050C47C (HalpSetTimerAnyMode.c)
- *     HalpTimerRestartProfileInterrupt @ 0x14050DE34 (HalpTimerRestartProfileInterrupt.c)
- *     HalpTimerSetTimerBackedProfileInterval @ 0x14050DF10 (HalpTimerSetTimerBackedProfileInterval.c)
- *     HalpTimerStartProfileInterrupt @ 0x14050DFA4 (HalpTimerStartProfileInterrupt.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050E088 (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerWatchdogStart @ 0x14050EA90 (HalpTimerWatchdogStart.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050EB80 (HalpTimerWatchdogTriggerSystemReset.c)
- *     HalpWatchdogDelayExpiration @ 0x14050ED80 (HalpWatchdogDelayExpiration.c)
+ *     HalpTimerClockArm @ 0x14024DBE0 (HalpTimerClockArm.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x140393A60 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
+ *     HalpSetTimerAnyMode @ 0x1404BF9BC (HalpSetTimerAnyMode.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x1404C18B8 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x1404C19B4 (HalpTimerSetTimerBackedProfileInterval.c)
+ *     HalpTimerStartProfileInterrupt @ 0x1404C1A48 (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerWatchdogStart @ 0x1404C2670 (HalpTimerWatchdogStart.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpWatchdogDelayExpiration @ 0x1404C2960 (HalpWatchdogDelayExpiration.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4, unsigned __int64 *a5)
+__int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, ULONGLONG a3, char a4, unsigned __int64 *a5)
 {
-  unsigned int v6; // esi
-  unsigned __int64 v8; // rbx
-  int v9; // r14d
-  unsigned __int64 v10; // r9
-  unsigned __int64 v11; // rcx
-  unsigned __int128 v12; // rax
-  unsigned int v13; // ecx
-  unsigned __int64 v14; // r11
-  unsigned __int64 v15; // rax
+  unsigned __int64 v5; // rsi
+  unsigned int v8; // edi
+  NTSTATUS v9; // ecx
+  ULONGLONG v10; // rdx
+  unsigned int v11; // ecx
+  ULONGLONG v12; // rbp
+  __int64 v13; // r10
+  ULONGLONG v14; // rax
   __int64 InternalData; // rax
-  __int64 v17; // r11
-  int v18; // eax
-  unsigned int v19; // ecx
+  ULONGLONG pullResult; // [rsp+20h] [rbp-28h] BYREF
+  ULONGLONG v18[4]; // [rsp+28h] [rbp-20h] BYREF
 
-  v6 = a2;
-  v8 = 0LL;
+  v18[0] = 0LL;
+  v5 = 0LL;
+  pullResult = 0LL;
+  v8 = a2;
   switch ( a2 )
   {
     case 1u:
-      v9 = *(_DWORD *)(a1 + 224);
-      if ( (v9 & 0x10) == 0 )
+      if ( (*(_DWORD *)(a1 + 224) & 0x10) == 0 )
       {
+        *(_DWORD *)(a1 + 256) = 0;
         HalpTimerLastProblem = 17;
+        v9 = -1073741637;
+        *(_DWORD *)(a1 + 252) = 17;
         *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
-        v19 = -1073741637;
-        *(_QWORD *)(a1 + 252) = 17LL;
         *(_DWORD *)(a1 + 272) = 692;
-        goto LABEL_17;
+        goto LABEL_18;
       }
       break;
     case 2u:
-      v9 = *(_DWORD *)(a1 + 224);
-      if ( (v9 & 0x50) == 0 )
+      if ( (*(_DWORD *)(a1 + 224) & 0x50) == 0 )
       {
+        *(_DWORD *)(a1 + 256) = 0;
         HalpTimerLastProblem = 17;
+        v9 = -1073741637;
+        *(_DWORD *)(a1 + 252) = 17;
         *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
-        v19 = -1073741637;
-        *(_QWORD *)(a1 + 252) = 17LL;
         *(_DWORD *)(a1 + 272) = 683;
-        goto LABEL_17;
+        goto LABEL_18;
       }
       break;
     case 3u:
-      v9 = *(_DWORD *)(a1 + 224);
-      if ( (v9 & 0x20) == 0 )
+      if ( (*(_DWORD *)(a1 + 224) & 0x20) == 0 )
       {
-        *(_QWORD *)(a1 + 252) = 17LL;
+        *(_DWORD *)(a1 + 256) = 0;
+        HalpTimerLastProblem = 17;
+        v9 = -1073741637;
+        *(_DWORD *)(a1 + 252) = 17;
         *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
         *(_DWORD *)(a1 + 272) = 671;
-        v19 = -1073741637;
-        HalpTimerLastProblem = 17;
-        goto LABEL_17;
+        goto LABEL_18;
       }
       break;
     default:
-LABEL_24:
-      v19 = -1073741811;
-      goto LABEL_17;
+      goto LABEL_27;
   }
-  v10 = *(_QWORD *)(a1 + 192);
-  v11 = v10 * a3;
-  if ( !is_mul_ok(v10, a3) )
-    goto LABEL_28;
-  if ( a2 == 3 )
+  v9 = RtlULongLongMult(*(_QWORD *)(a1 + 192), a3, &pullResult);
+  if ( v9 < 0 )
+    goto LABEL_18;
+  if ( v8 == 3 )
   {
-    if ( v10 * a3 + 9999999 >= v11 )
+    v10 = pullResult + 9999999;
+    if ( pullResult + 9999999 < pullResult )
     {
-      v11 = v10 * a3 + 9999999;
-      goto LABEL_9;
+      v9 = -1073741675;
+      v10 = -1LL;
     }
-LABEL_28:
-    v19 = -1073741675;
-    goto LABEL_17;
+    else
+    {
+      v9 = 0;
+    }
+    if ( v9 < 0 )
+      goto LABEL_18;
   }
-LABEL_9:
-  v12 = v11 * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
-  v13 = *(_DWORD *)(a1 + 220);
-  v14 = *((_QWORD *)&v12 + 1) >> 23;
-  if ( v13 < 0x40 && v14 >= 1LL << v13 )
-    goto LABEL_24;
-  if ( is_mul_ok(v14, 0x2540BE400uLL) )
-    v15 = v14 * (unsigned __int128)0x2540BE400uLL / v10;
   else
-    v15 = HalpTimerScaleCounter(v14, v10, 10000000000LL);
-  *(_QWORD *)(a1 + 16) = v14;
+  {
+    v10 = pullResult;
+  }
+  v11 = *(_DWORD *)(a1 + 220);
+  v12 = v10 / 0x989680;
+  if ( v11 < 0x40 && v12 >= 1LL << v11 )
+  {
+LABEL_27:
+    v9 = -1073741811;
+    goto LABEL_18;
+  }
+  if ( RtlULongLongMult(v12, 0x2540BE400uLL, v18) < 0 )
+    v14 = HalpTimerScaleCounter(v12, *(_QWORD *)(a1 + 192), v13);
+  else
+    v14 = v18[0] / *(_QWORD *)(a1 + 192);
+  *(_QWORD *)(a1 + 16) = v12;
   *(_DWORD *)(a1 + 52) = 1;
-  v8 = v15 / 0x3E8;
-  if ( v6 == 2 && (v9 & 0x40) == 0 )
-    v6 = 1;
+  v5 = v14 / 0x3E8;
+  if ( v8 == 2 && (*(_BYTE *)(a1 + 224) & 0x40) == 0 )
+    v8 = 1;
   if ( a4 )
   {
     InternalData = HalpTimerGetInternalData(a1);
-    v18 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 128))(InternalData, v6, v17);
-    v19 = v18;
-    if ( v18 < 0 )
+    v9 = (*(__int64 (__fastcall **)(__int64, _QWORD, ULONGLONG))(a1 + 128))(InternalData, v8, v12);
+    if ( v9 < 0 )
     {
-      *(_DWORD *)(a1 + 256) = v18;
-      *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
+      *(_DWORD *)(a1 + 256) = v9;
       HalpTimerLastProblem = 18;
       *(_DWORD *)(a1 + 252) = 18;
+      *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timersup.c";
       *(_DWORD *)(a1 + 272) = 782;
     }
   }
   else
   {
-    v19 = 0;
+    v9 = 0;
   }
-LABEL_17:
-  *a5 = v8;
-  return v19;
+LABEL_18:
+  *a5 = v5;
+  return (unsigned int)v9;
 }

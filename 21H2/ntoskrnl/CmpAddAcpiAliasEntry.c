@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddAcpiAliasEntry @ 0x14091D950
+ * XREFs of CmpAddAcpiAliasEntry @ 0x140876F0C
  * Callers:
- *     CmSetAcpiHwProfile @ 0x140837F88 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5908 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddAcpiAliasEntry(
@@ -18,12 +18,11 @@ __int64 __fastcall CmpAddAcpiAliasEntry(
         wchar_t *a4,
         ULONG Disposition,
         HANDLE KeyHandle,
-        __int64 a7,
+        int a7,
         int Data)
 {
   unsigned int v10; // edi
   NTSTATUS v13; // ebx
-  NTSTATUS v14; // eax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp+30h] BYREF
@@ -33,9 +32,10 @@ __int64 __fastcall CmpAddAcpiAliasEntry(
   Handle = 0LL;
   Data = 0;
   Disposition = 0;
-  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  a7 = 0;
   DestinationString = 0LL;
   v10 = 0;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   RtlInitUnicodeString(&DestinationString, L"AcpiAlias");
   ObjectAttributes.RootDirectory = a1;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -54,20 +54,22 @@ __int64 __fastcall CmpAddAcpiAliasEntry(
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v14 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
-      v13 = v14;
-      if ( v14 < 0 )
+      v13 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
+      if ( v13 < 0 )
         break;
       ZwClose(Handle);
       Handle = 0LL;
       if ( v10 >= 0xC8 )
-        goto LABEL_9;
+        goto LABEL_10;
     }
-    if ( v14 != -1073741772 )
-      goto LABEL_11;
-LABEL_9:
-    v13 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-    if ( v13 >= 0 )
+    if ( v13 == -1073741772 )
+      v13 = 0;
+LABEL_10:
+    if ( v13 < 0 || (v13 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition), v13 < 0) )
+    {
+      Handle = 0LL;
+    }
+    else
     {
       Data = *a2;
       RtlInitUnicodeString(&DestinationString, L"DockingState");
@@ -77,11 +79,7 @@ LABEL_9:
       Data = a3;
       RtlInitUnicodeString(&DestinationString, L"ProfileNumber");
       v13 = ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
-      goto LABEL_12;
     }
-LABEL_11:
-    Handle = 0LL;
-LABEL_12:
     if ( KeyHandle )
       ZwClose(KeyHandle);
   }

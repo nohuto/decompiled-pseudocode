@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhPdoRegisterWmi @ 0x1C0049314
+ * XREFs of UsbhPdoRegisterWmi @ 0x1C004A6C0
  * Callers:
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 NTSTATUS __fastcall UsbhPdoRegisterWmi(PDEVICE_OBJECT DeviceObject)

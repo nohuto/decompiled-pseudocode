@@ -1,13 +1,14 @@
 /*
- * XREFs of NtGdiSetLinkedUFIs @ 0x1C027AF30
+ * XREFs of NtGdiSetLinkedUFIs @ 0x1C027D3D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z @ 0x1C02ABC38 (-bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z @ 0x1C02AD4D0 (-bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z.c)
  */
 
 __int64 __fastcall NtGdiSetLinkedUFIs(HDC a1, char *Src, unsigned int a3)
@@ -30,8 +31,8 @@ __int64 __fastcall NtGdiSetLinkedUFIs(HDC a1, char *Src, unsigned int a3)
   }
   else
   {
-    if ( a3 <= 0x4E2000 && 8 * a3 )
-      v6 = (_BYTE *)Win32AllocPool(8 * a3, 1684629063LL);
+    if ( a3 <= 0x4E2000 )
+      v6 = PALLOCMEM2(8 * a3, 1684629063LL, 0);
     if ( !v6 )
       return 0LL;
   }

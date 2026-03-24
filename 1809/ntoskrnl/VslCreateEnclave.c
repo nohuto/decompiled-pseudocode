@@ -1,14 +1,14 @@
 /*
- * XREFs of VslCreateEnclave @ 0x140817F6C
+ * XREFs of VslCreateEnclave @ 0x140817F4C
  * Callers:
- *     PsCreateVsmEnclave @ 0x14088DBBC (PsCreateVsmEnclave.c)
+ *     PsCreateVsmEnclave @ 0x14088DB9C (PsCreateVsmEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
- *     VslCloseSecureHandle @ 0x14027C640 (VslCloseSecureHandle.c)
- *     VslCreateSecureProcess @ 0x1408180A0 (VslCreateSecureProcess.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
+ *     VslCloseSecureHandle @ 0x14027C740 (VslCloseSecureHandle.c)
+ *     VslCreateSecureProcess @ 0x140818080 (VslCreateSecureProcess.c)
  */
 
 __int64 __fastcall VslCreateEnclave(

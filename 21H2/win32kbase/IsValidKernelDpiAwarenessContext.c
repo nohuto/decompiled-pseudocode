@@ -1,20 +1,25 @@
 /*
- * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C0088048
+ * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C00941A4
  * Callers:
- *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C002EB00 (CaptureAndValidateUserModeDpiAwarenessContext.c)
- *     NtUserSetProcessDpiAwarenessContext @ 0x1C0087C20 (NtUserSetProcessDpiAwarenessContext.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C002AC0C (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     NtUserSetProcessDpiAwarenessContext @ 0x1C0093E60 (NtUserSetProcessDpiAwarenessContext.c)
  * Callees:
- *     <none>
+ *     DrvIsUniformSpaceMapping @ 0x1C000FCA0 (DrvIsUniformSpaceMapping.c)
  */
 
 _BOOL8 __fastcall IsValidKernelDpiAwarenessContext(int a1)
 {
-  unsigned int v1; // ecx
+  int v1; // ecx
+  int v2; // ecx
+  _BOOL8 result; // rax
 
-  v1 = a1 & 0x7FFFFFFF;
-  return v1 == 18
-      || v1 == 34
-      || v1 == 1073766416
-      || v1 == 24592
-      || (((v1 & 0xFFFE00FF) - 17) & 0xFFFFFFFD) == 0 && ((v1 >> 8) & 0x1FF) != 0;
+  v1 = a1 & 0x5FFFFFFF;
+  result = 1;
+  if ( v1 != 18 && v1 != 34 && v1 != 1073766416 && v1 != 24592 )
+  {
+    v2 = v1 & 0x7FFE00FF;
+    if ( v2 != 17 && (v2 != 19 || !(unsigned int)DrvIsUniformSpaceMapping(*(_QWORD *)(gpDispInfo + 16))) )
+      return 0;
+  }
+  return result;
 }

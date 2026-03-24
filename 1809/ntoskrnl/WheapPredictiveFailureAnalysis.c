@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapPredictiveFailureAnalysis @ 0x1408DCF64
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x1408DCF44
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x1403203D0 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1403204D0 (WheapProcessWorkQueueItem.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1408DBA20 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x1408DCAD8 (WheapPfaMemoryCheck.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1408DBA00 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
  */
 
 void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)

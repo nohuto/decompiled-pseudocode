@@ -1,24 +1,24 @@
 /*
- * XREFs of NtAlpcSetInformation @ 0x1407D5A10
+ * XREFs of NtAlpcSetInformation @ 0x1406D1BB0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1407D5884 (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x1407F5914 (AlpcpInitializeCompletionList.c)
- *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1407F7428 (AlpcpAdjustCompletionListConcurrencyCount.c)
- *     AlpcpFreeCompletionList @ 0x1407F7C68 (AlpcpFreeCompletionList.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1406930B0 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpFreeCompletionList @ 0x1406C38D4 (AlpcpFreeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406D1FC4 (AlpcpAssociateIoCompletionPort.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, unsigned int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
   NTSTATUS v9; // edi
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v11; // r13
-  unsigned int *v12; // r12
+  unsigned __int32 *v12; // r12
   int v13; // esi
   int v14; // esi
   int v15; // esi
@@ -47,7 +47,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
   signed __int64 *v27; // rbx
   _QWORD *v28; // rsi
   volatile signed __int64 *v29; // rdi
-  __int64 v30; // rdx
+  char *v30; // rdx
   __m128i v31; // xmm0
   NTSTATUS v32; // eax
   KPROCESSOR_MODE v34; // [rsp+30h] [rbp-C8h]
@@ -69,7 +69,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     v34 = PreviousMode;
     v11 = v36;
-    v12 = (unsigned int *)v36;
+    v12 = (unsigned __int32 *)v36;
     v38 = (_QWORD *)v36;
     if ( (_DWORD)v4 && PreviousMode )
     {
@@ -82,7 +82,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
         v11 = 0x7FFFFFFF0000LL;
       v36 = v11;
       memmove(v39, (const void *)v11, v4);
-      v12 = (unsigned int *)v39;
+      v12 = (unsigned __int32 *)v39;
       v38 = v39;
     }
     Object = 0LL;
@@ -117,7 +117,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
                 ExAcquirePushLockSharedEx((ULONG_PTR)Object + 352, 0LL);
                 if ( v26[45] )
                 {
-                  AlpcpAdjustCompletionListConcurrencyCount(v26, *v12);
+                  AlpcpAdjustCompletionListConcurrencyCount((__int64)v26, *v12);
                   v9 = 0;
                 }
                 else
@@ -156,7 +156,7 @@ LABEL_52:
 LABEL_29:
                 KeAbPostRelease(v22);
 LABEL_64:
-                ObfDereferenceObject(Object);
+                HalPutDmaAdapter((PADAPTER_OBJECT)Object);
                 goto LABEL_65;
               }
               goto LABEL_52;
@@ -181,7 +181,7 @@ LABEL_64:
             v29 = (volatile signed __int64 *)((char *)Object + 352);
             ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 352, 0LL);
             if ( v28[45] )
-              AlpcpFreeCompletionList(v28);
+              AlpcpFreeCompletionList((__int64)v28);
             if ( (_InterlockedExchangeAdd64(v29, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
               ExfTryToWakePushLock(v29);
             v25 = (ULONG_PTR)v29;
@@ -195,8 +195,8 @@ LABEL_64:
         if ( (_DWORD)v4 == 16 )
         {
           v31 = *(__m128i *)v12;
-          v12 = (unsigned int *)v39;
-          v30 = v31.m128i_u32[0];
+          v12 = (unsigned __int32 *)v39;
+          v30 = (char *)v31.m128i_u32[0];
           v39[0] = v31.m128i_u32[0];
           LODWORD(v39[1]) = v31.m128i_i32[1];
           *(_QWORD *)((char *)&v39[1] + 4) = _mm_srli_si128(v31, 8).m128i_u64[0];
@@ -206,16 +206,16 @@ LABEL_64:
         {
           if ( (_DWORD)v4 != 24 )
             goto LABEL_52;
-          v30 = *(_QWORD *)v12;
+          v30 = *(char **)v12;
         }
-        v32 = AlpcpInitializeCompletionList(Object, v30, v12[2], v12[3], v12[4], v8);
+        v32 = AlpcpInitializeCompletionList((__int64)Object, v30, v12[2], v12[3], v12[4], v8);
 LABEL_59:
         v9 = v32;
         goto LABEL_64;
       }
       if ( (_DWORD)v4 == 16 )
       {
-        v32 = AlpcpAssociateIoCompletionPort((__int64)Object, *((void **)v12 + 1), *(_QWORD *)v12);
+        v32 = AlpcpAssociateIoCompletionPort(Object, *((_QWORD *)v12 + 1), *(_QWORD *)v12);
         goto LABEL_59;
       }
     }
@@ -223,7 +223,7 @@ LABEL_59:
     {
       if ( (*v12 & 0xFC00FFFF) == 0 )
       {
-        *((_DWORD *)Object + 64) ^= (*v12 ^ *((_DWORD *)Object + 64)) & 0x20000;
+        *((_DWORD *)Object + 64) ^= (*((_DWORD *)Object + 64) ^ *v12) & 0x20000;
         goto LABEL_64;
       }
       goto LABEL_52;
@@ -233,6 +233,6 @@ LABEL_59:
   }
   v9 = -1073741811;
 LABEL_65:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v9;
 }

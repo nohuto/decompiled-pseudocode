@@ -1,7 +1,7 @@
 /*
- * XREFs of ArbFreeOrderingList @ 0x140739AFC
+ * XREFs of ArbFreeOrderingList @ 0x140739ADC
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x140739458 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x140739438 (ArbBuildAssignmentOrdering.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

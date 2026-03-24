@@ -6,10 +6,10 @@
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmSetKeyFlags @ 0x1407EF43C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8CC (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)

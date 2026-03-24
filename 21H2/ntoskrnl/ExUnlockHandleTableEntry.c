@@ -1,9 +1,10 @@
 /*
- * XREFs of ExUnlockHandleTableEntry @ 0x14080AB10
+ * XREFs of ExUnlockHandleTableEntry @ 0x1405D6CB0
  * Callers:
- *     EtwpObjectHandleEnumCallback @ 0x1409EA760 (EtwpObjectHandleEnumCallback.c)
+ *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
+ *     EtwpObjectHandleEnumCallback @ 0x14093DEF0 (EtwpObjectHandleEnumCallback.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
  */
 
 int __fastcall ExUnlockHandleTableEntry(__int64 a1, volatile signed __int64 *a2)

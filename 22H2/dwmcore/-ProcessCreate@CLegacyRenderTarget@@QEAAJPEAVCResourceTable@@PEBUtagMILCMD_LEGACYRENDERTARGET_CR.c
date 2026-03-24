@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessCreate@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_CREATE@@@Z @ 0x1801034C4
+ * XREFs of ?ProcessCreate@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_CREATE@@@Z @ 0x1800DF590
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z @ 0x180103530 (-SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z @ 0x1800DF60C (-SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::ProcessCreate(
@@ -11,16 +11,21 @@ __int64 __fastcall CLegacyRenderTarget::ProcessCreate(
         struct CResourceTable *a2,
         const struct tagMILCMD_LEGACYRENDERTARGET_CREATE *a3)
 {
-  int v5; // eax
+  unsigned int v5; // ecx
+  int v6; // eax
 
-  *(_QWORD *)((char *)this + 18460) = *((_QWORD *)a3 + 1);
-  *((_DWORD *)this + 4606) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 28) = *((_DWORD *)a3 + 5);
-  *((_DWORD *)this + 30) = *((_DWORD *)a3 + 6);
+  *(_QWORD *)((char *)this + 228) = *((_QWORD *)a3 + 1);
+  *((_DWORD *)this + 55) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 59) = *((_DWORD *)a3 + 6);
+  *((_DWORD *)this + 22) = *((_DWORD *)a3 + 8);
+  *((_DWORD *)this + 24) = *((_DWORD *)a3 + 9);
   CLegacyRenderTarget::SetSDRBoost(this, 1.0);
   v5 = 3;
-  if ( *((_DWORD *)a3 + 7) < 3u )
-    v5 = 2;
-  *((_DWORD *)this + 4607) = v5;
+  v6 = 2;
+  if ( *((_DWORD *)a3 + 10) < 3u )
+    v5 = *((_DWORD *)a3 + 10);
+  if ( v5 > 2 )
+    v6 = v5;
+  *((_DWORD *)this + 56) = v6;
   return 0LL;
 }

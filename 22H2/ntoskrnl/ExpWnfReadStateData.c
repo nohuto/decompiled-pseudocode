@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpWnfReadStateData @ 0x140713988
+ * XREFs of ExpWnfReadStateData @ 0x14060FFA4
  * Callers:
- *     ExpWnfDeliverThreadNotifications @ 0x140711D60 (ExpWnfDeliverThreadNotifications.c)
- *     NtQueryWnfStateData @ 0x140712D00 (NtQueryWnfStateData.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x14060E474 (ExpWnfDeliverThreadNotifications.c)
+ *     NtQueryWnfStateData @ 0x14060F2E0 (NtQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
 {
-  signed __int64 *v9; // rbx
-  unsigned __int64 v10; // rdi
+  unsigned __int64 *v9; // rbx
+  __int64 v10; // rdi
   _DWORD *v11; // rdx
   unsigned int v12; // eax
   unsigned int v14; // [rsp+20h] [rbp-48h]
 
   v14 = 0;
-  v9 = (signed __int64 *)(a1 + 80);
-  v10 = KeAbPreAcquire(a1 + 80, 0LL);
-  if ( _InterlockedCompareExchange64(v9, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v9, 0LL, v10, (__int64)v9);
+  v9 = (unsigned __int64 *)(a1 + 80);
+  v10 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(v9, v10, (ULONG_PTR)v9);
   if ( v10 )
-    *(_BYTE *)(v10 + 18) = 1;
+    *(_BYTE *)(v10 + 26) |= 1u;
   v11 = *(_DWORD **)(a1 + 88);
   if ( !v11 )
   {
@@ -53,8 +53,8 @@ LABEL_11:
     v14 = 0;
   }
 LABEL_13:
-  if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v9);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)v9);
   KeAbPostRelease((ULONG_PTR)v9);
   return v14;
 }

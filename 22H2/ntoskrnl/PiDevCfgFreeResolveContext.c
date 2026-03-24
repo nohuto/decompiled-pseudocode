@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgFreeResolveContext @ 0x14087D72C
+ * XREFs of PiDevCfgFreeResolveContext @ 0x140766D9C
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x1408792EC (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgInitResolveContext @ 0x14087D384 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x14076732C (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14077C228 (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
   void **v4; // rcx
   void *v5; // rbx
   void **v6; // rax
-  void *v7; // rcx
+  char *v7; // rcx
   int v8; // edx
   __int64 v9; // r8
   __int64 v10; // r8
@@ -37,8 +37,8 @@ void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
           __fastfail(3u);
         *v4 = v6;
         v6[1] = v4;
-        RtlFreeUnicodeString((PUNICODE_STRING)v5 + 1);
-        v7 = (void *)*((_QWORD *)v5 + 5);
+        RtlFreeAnsiString((PUNICODE_STRING)v5 + 1);
+        v7 = (char *)*((_QWORD *)v5 + 5);
         if ( v7 )
         {
           v8 = *((_DWORD *)v5 + 8);

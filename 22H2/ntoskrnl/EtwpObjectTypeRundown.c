@@ -1,79 +1,75 @@
 /*
- * XREFs of EtwpObjectTypeRundown @ 0x1409EF4A0
+ * XREFs of EtwpObjectTypeRundown @ 0x14093E1F4
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryObject @ 0x14041A8A0 (ZwQueryObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryObject @ 0x1403F9C20 (ZwQueryObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpObjectTypeRundown(__int64 a1, char a2)
 {
-  unsigned __int16 *Pool2; // rbx
-  NTSTATUS v5; // eax
+  unsigned __int16 *PoolWithTag; // rbx
+  NTSTATUS Object; // eax
   __int16 v6; // r14
   unsigned __int16 *v7; // rdi
   unsigned __int16 v8; // r14
   unsigned int i; // esi
-  unsigned int v10; // r8d
-  __int64 v11; // rdx
-  __int64 v12; // rax
-  int v13; // ecx
-  ULONG ObjectInformationLength; // [rsp+30h] [rbp-40h] BYREF
-  int v15; // [rsp+34h] [rbp-3Ch] BYREF
-  __int16 v16; // [rsp+38h] [rbp-38h]
-  int *v17; // [rsp+40h] [rbp-30h] BYREF
-  int v18; // [rsp+48h] [rbp-28h]
-  int v19; // [rsp+4Ch] [rbp-24h]
-  __int64 v20; // [rsp+50h] [rbp-20h]
-  int v21; // [rsp+58h] [rbp-18h]
-  int v22; // [rsp+5Ch] [rbp-14h]
+  __int16 v10; // ax
+  unsigned int v11; // r8d
+  __int64 v12; // rdx
+  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-40h] BYREF
+  __int16 v14; // [rsp+38h] [rbp-38h]
+  char *v15; // [rsp+40h] [rbp-30h] BYREF
+  int v16; // [rsp+48h] [rbp-28h]
+  int v17; // [rsp+4Ch] [rbp-24h]
+  __int64 v18; // [rsp+50h] [rbp-20h]
+  int v19; // [rsp+58h] [rbp-18h]
+  int v20; // [rsp+5Ch] [rbp-14h]
 
-  ObjectInformationLength = 1024;
-  v15 = 0;
-  Pool2 = 0LL;
-  v16 = 0;
+  NumberOfBytes = 1024LL;
+  PoolWithTag = 0LL;
+  v14 = 0;
   while ( 1 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, ObjectInformationLength, 1953985605LL);
-    if ( !Pool2 )
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x74777445u);
+    if ( !PoolWithTag )
       break;
-    v5 = ZwQueryObject(0LL, ObjectTypesInformation, Pool2, ObjectInformationLength, &ObjectInformationLength);
-    if ( v5 != -1073741820 )
+    Object = ZwQueryObject(0LL, ObjectTypesInformation, PoolWithTag, NumberOfBytes, (PULONG)&NumberOfBytes);
+    if ( Object != -1073741820 )
     {
-      if ( v5 >= 0 )
+      if ( Object >= 0 )
       {
-        v18 = 4;
+        v16 = 4;
         v6 = -(a2 != 0);
-        v17 = &v15;
-        v19 = 0;
-        v7 = Pool2 + 4;
+        v15 = (char *)&NumberOfBytes + 4;
+        v17 = 0;
+        v7 = PoolWithTag + 4;
         v8 = v6 + 4389;
         for ( i = 0;
-              i < *(_DWORD *)Pool2;
+              i < *(_DWORD *)PoolWithTag;
               v7 = (unsigned __int16 *)((char *)v7 + ((v7[1] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL) + 104) )
         {
           if ( i )
           {
-            v10 = *(_DWORD *)a1;
-            v11 = *(_QWORD *)(a1 + 1096);
-            LOWORD(v15) = *((unsigned __int8 *)v7 + 90);
-            v12 = *((_QWORD *)v7 + 1);
-            v13 = *v7 + 2;
-            v22 = 0;
-            v21 = v13;
-            v20 = v12;
-            EtwpLogKernelEvent((__int64)&v17, v11, v10, 2u, v8, 0x401802u);
+            v10 = *((unsigned __int8 *)v7 + 90);
+            v20 = 0;
+            v11 = *(_DWORD *)a1;
+            v12 = *(_QWORD *)(a1 + 1080);
+            WORD2(NumberOfBytes) = v10;
+            v18 = *((_QWORD *)v7 + 1);
+            v19 = *v7 + 2;
+            EtwpLogKernelEvent((__int64)&v15, v12, v11, 2u, v8, 0x401802u);
           }
           ++i;
         }
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
       return;
     }
   }

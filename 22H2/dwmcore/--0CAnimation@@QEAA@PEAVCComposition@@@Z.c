@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800C63D4
+ * XREFs of ??0CAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800BBB68
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
  *     <none>
  */
@@ -10,25 +10,25 @@ CAnimation *__fastcall CAnimation::CAnimation(CAnimation *this, struct CComposit
 {
   __int64 v2; // rax
 
-  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 2) = a2;
+  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
+  *((_QWORD *)this + 8) = 0LL;
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 10) = 0LL;
-  *((_QWORD *)this + 11) = 0LL;
-  *((_DWORD *)this + 24) = 0;
+  *((_DWORD *)this + 22) = 0;
   *(_QWORD *)this = &CAnimation::`vftable'{for `CResource'};
-  *((_QWORD *)this + 8) = &CAnimation::`vftable'{for `IAnimationResource'};
-  *((_QWORD *)this + 14) = &CAnimation::`vftable';
+  *((_QWORD *)this + 7) = &CAnimation::`vftable'{for `IAnimationResource'};
+  *((_QWORD *)this + 13) = &CAnimation::`vftable';
   *((_QWORD *)this + 19) = 0LL;
   *((_QWORD *)this + 20) = 0LL;
   *((_QWORD *)this + 21) = 0LL;
   *((_DWORD *)this + 44) = 0;
   *((_DWORD *)this + 68) = -1;
-  *((_QWORD *)this + 33) = ((unsigned __int64)this + 112) & -(__int64)(this != 0LL);
-  v2 = *((_QWORD *)a2 + 76);
+  *((_QWORD *)this + 33) = (char *)this + 104;
+  v2 = *((_QWORD *)a2 + 57);
   *((_QWORD *)this + 17) = v2;
   *((_QWORD *)this + 24) = v2;
   *((_QWORD *)this + 26) = v2;

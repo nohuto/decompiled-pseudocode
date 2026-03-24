@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIRootIrpQueryPower @ 0x1C005FAC0
+ * XREFs of ACPIRootIrpQueryPower @ 0x1C005ECB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     AMLIGetParent @ 0x1C000A040 (AMLIGetParent.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     ACPIDispatchForwardPowerIrp @ 0x1C0030B70 (ACPIDispatchForwardPowerIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C000CE50 (ACPIDispatchForwardPowerIrp.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
  */
 
 __int64 __fastcall ACPIRootIrpQueryPower(ULONG_PTR a1, IRP *a2)
@@ -62,7 +62,7 @@ LABEL_3:
         }
         goto LABEL_3;
     }
-    v10 = (__int64 *)AMLIGetParent(DeviceExtension[95]);
+    v10 = (__int64 *)AMLIGetParent(DeviceExtension[90]);
     if ( AMLIIsNamedChildPresent(v10, v9) )
     {
       Status = 0;
@@ -72,22 +72,22 @@ LABEL_3:
       v5 = 0;
       Status = -1073741808;
     }
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v10);
+    AMLIDereferenceHandleEx((__int64)v10);
   }
 LABEL_18:
   v11 = 0;
   a2->IoStatus.Status = Status;
-  v12 = (const char *)&unk_1C006FB8B;
-  v13 = (const char *)&unk_1C006FB8B;
+  v12 = (const char *)&unk_1C00701BA;
+  v13 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v14 = DeviceExtension[1];
     v11 = (char)DeviceExtension;
     if ( (v14 & 0x200000000000LL) != 0 )
     {
-      v12 = (const char *)DeviceExtension[76];
+      v12 = (const char *)DeviceExtension[71];
       if ( (v14 & 0x400000000000LL) != 0 )
-        v13 = (const char *)DeviceExtension[77];
+        v13 = (const char *)DeviceExtension[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -96,7 +96,7 @@ LABEL_18:
       4u,
       5u,
       0x15u,
-      (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
       Status,
       v11,

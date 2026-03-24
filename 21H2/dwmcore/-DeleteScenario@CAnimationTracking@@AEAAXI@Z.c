@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x180074C18
+ * XREFs of ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x1800B0C84
  * Callers:
- *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800745D0 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
- *     ?TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z @ 0x1800F3160 (-TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z.c)
- *     ??1CAnimationTracking@@QEAA@XZ @ 0x1801AD93C (--1CAnimationTracking@@QEAA@XZ.c)
+ *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800B0708 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
+ *     ?TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z @ 0x1800DAF20 (-TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z.c)
+ *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x180153AB4 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z @ 0x180074C7C (--_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z @ 0x1800B0CE8 (--_GAnimationScenarioRunningStatistics@CAnimationTracking@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CAnimationTracking::DeleteScenario(CAnimationTracking *this, unsigned int a2)
@@ -23,7 +23,7 @@ void __fastcall CAnimationTracking::DeleteScenario(CAnimationTracking *this, uns
   v5 = *((_DWORD *)this + 6);
   if ( (unsigned int)v3 >= v5 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v4, 0LL, 0LL, -2147024809, 0x21Fu);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v4, 0LL, 0, -2147024809, 0x21Fu, 0LL);
   }
   else
   {

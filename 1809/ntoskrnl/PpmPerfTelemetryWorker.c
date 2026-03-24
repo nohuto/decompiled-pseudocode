@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmPerfTelemetryWorker @ 0x140706360
+ * XREFs of PpmPerfTelemetryWorker @ 0x140706340
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PopOkayToQueueNextWorkItem @ 0x14013BA20 (PopOkayToQueueNextWorkItem.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14016C804 (PpmPerfUpdateQosDisableReasons.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14016C824 (PpmPerfUpdateQosDisableReasons.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 PpmPerfTelemetryWorker()
@@ -62,7 +62,7 @@ __int64 PpmPerfTelemetryWorker()
     v12 = 4LL;
     v14 = 4LL;
     v16 = 36LL;
-    TlgWrite(&pCallbackContext, &unk_14036E851, 0LL, 0LL, 5u, &pData);
+    TlgWrite(&pCallbackContext, &unk_14036E961, 0LL, 0LL, 5u, &pData);
   }
-  return PopOkayToQueueNextWorkItem((__int64)&unk_1404188C8);
+  return PopOkayToQueueNextWorkItem((__int64)&unk_140418908);
 }

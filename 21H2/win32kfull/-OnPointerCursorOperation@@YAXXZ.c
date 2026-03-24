@@ -1,20 +1,23 @@
 /*
- * XREFs of ?OnPointerCursorOperation@@YAXXZ @ 0x1C00FDC20
+ * XREFs of ?OnPointerCursorOperation@@YAXXZ @ 0x1C0028340
  * Callers:
  *     <none>
  * Callees:
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C007EDA8 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C007F7CC (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C00FDC68 (-HandlePointerCursorSideOp@@YAXXZ.c)
- *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C016A9CA (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C0028388 (-HandlePointerCursorSideOp@@YAXXZ.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00C14A4 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00C14D0 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DAC78 (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
  */
 
 void OnPointerCursorOperation(void)
 {
   const struct tagPOINTERCURSORDATA *v0; // rbx
-  __int64 *v1; // [rsp+30h] [rbp+8h] BYREF
+  char v1; // [rsp+30h] [rbp+8h] BYREF
 
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v1, "PointerCursorOperation", 0LL);
+  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
+    (InputTraceLogging::ThreadLockedPerfRegion *)&v1,
+    "PointerCursorOperation",
+    0LL);
   HandlePointerCursorSideOp();
   v0 = (const struct tagPOINTERCURSORDATA *)_InterlockedExchange64((volatile __int64 *)&Feedback::gppcdLatest, 0LL);
   if ( v0 )

@@ -1,15 +1,16 @@
 /*
- * XREFs of ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02A6490
+ * XREFs of ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02A8048
  * Callers:
- *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A6D40 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A85AC (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall bAddPrintKView(__int64 a1, void *a2, int a3, __int64 a4, struct _FONTFILE_PRINTKVIEW *a5)
 {
   unsigned int v9; // ebx
-  __int64 v10; // rax
+  _QWORD *v10; // rax
   __int64 v12[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v12[0] = ghsemPrintKView;
@@ -21,16 +22,16 @@ __int64 __fastcall bAddPrintKView(__int64 a1, void *a2, int a3, __int64 a4, stru
   }
   else
   {
-    v10 = Win32AllocPoolZInit(40LL, 1886221383LL);
+    v10 = PALLOCMEM2(0x28uLL, 1886221383LL, 1);
     if ( v10 )
     {
-      *(_QWORD *)(v10 + 32) = gpPrintKViewList;
-      *(_QWORD *)v10 = a1;
-      *(_QWORD *)(v10 + 16) = a2;
-      *(_DWORD *)(v10 + 8) = a3;
-      *(_DWORD *)(v10 + 12) = 1;
-      *(_QWORD *)(v10 + 24) = a4;
-      gpPrintKViewList = v10;
+      v10[4] = gpPrintKViewList;
+      *v10 = a1;
+      v10[2] = a2;
+      *((_DWORD *)v10 + 2) = a3;
+      *((_DWORD *)v10 + 3) = 1;
+      v10[3] = a4;
+      gpPrintKViewList = (__int64)v10;
     }
     else
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetImageHotPatchTableAddress @ 0x140973488
+ * XREFs of MiGetImageHotPatchTableAddress @ 0x1408CA1C8
  * Callers:
- *     MiSetProtectionOnSection @ 0x14032D1C0 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
  * Callees:
  *     <none>
  */

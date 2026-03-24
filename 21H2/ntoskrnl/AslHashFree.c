@@ -1,13 +1,13 @@
 /*
- * XREFs of AslHashFree @ 0x140A1556C
+ * XREFs of AslHashFree @ 0x140968478
  * Callers:
- *     SdbCloseDatabaseRead @ 0x1406E0BB8 (SdbCloseDatabaseRead.c)
- *     SdbpReleaseSearchDBContext @ 0x14075E4A8 (SdbpReleaseSearchDBContext.c)
+ *     SdbpReleaseSearchDBContext @ 0x140754BFC (SdbpReleaseSearchDBContext.c)
+ *     SdbCloseDatabaseRead @ 0x14075620C (SdbCloseDatabaseRead.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall AslHashFree(int *P)
+void __fastcall AslHashFree(_QWORD *P)
 {
   char *v2; // rcx
   int v3; // ebp
@@ -18,36 +18,36 @@ void __fastcall AslHashFree(int *P)
 
   if ( P )
   {
-    v2 = (char *)*((_QWORD *)P + 1);
+    v2 = (char *)P[1];
     if ( v2 )
     {
       v3 = 0;
-      if ( *P <= 0 )
-        goto LABEL_10;
-      v4 = 0LL;
-      do
+      if ( *(int *)P > 0 )
       {
-        v5 = *(_QWORD **)&v2[v4];
-        v6 = v2;
-        if ( v5 )
+        v4 = 0LL;
+        do
         {
-          do
-          {
-            v7 = (_QWORD *)v5[2];
-            ExFreePoolWithTag(v5, 0x74705041u);
-            v5 = v7;
-          }
-          while ( v7 );
-          v2 = (char *)*((_QWORD *)P + 1);
+          v5 = *(_QWORD **)&v2[v4];
           v6 = v2;
+          if ( v5 )
+          {
+            do
+            {
+              v7 = (_QWORD *)v5[2];
+              ExFreePoolWithTag(v5, 0x74705041u);
+              v5 = v7;
+            }
+            while ( v7 );
+            v2 = (char *)P[1];
+            v6 = v2;
+          }
+          ++v3;
+          v4 += 8LL;
         }
-        ++v3;
-        v4 += 8LL;
+        while ( v3 < *(_DWORD *)P );
+        v2 = v6;
       }
-      while ( v3 < *P );
-      v2 = v6;
-      if ( v6 )
-LABEL_10:
+      if ( v2 )
         ExFreePoolWithTag(v2, 0x74705041u);
     }
     ExFreePoolWithTag(P, 0x74705041u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetContext @ 0x1407242B0
+ * XREFs of PspSetContext @ 0x1406C3150
  * Callers:
- *     PspGetSetContextInternal @ 0x140724A70 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1406C2670 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlXRestoreS @ 0x14033FAB8 (RtlXRestoreS.c)
- *     KiCopyXStateArea @ 0x140572780 (KiCopyXStateArea.c)
+ *     RtlXRestoreS @ 0x140381658 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x140519ED0 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -12,22 +12,23 @@ __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
   int v4; // ebp
   int v9; // eax
   int v10; // eax
-  __int64 v11; // rcx
+  __int64 v11; // rdx
   __int16 v12; // ax
+  bool v13; // zf
   __int64 result; // rax
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // r8
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rax
+  __int64 v23; // rcx
+  __int64 v24; // r8
   _QWORD *SparePtr; // rcx
-  _QWORD *v25; // rdx
   __int64 v26; // rcx
+  _QWORD *v27; // rdx
 
   v4 = *(_DWORD *)(a3 + 48);
   if ( (v4 & 0x100001) == 0x100001 )
@@ -45,21 +46,19 @@ __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
     {
       *(_WORD *)(a1 + 392) = 43;
       v12 = 35;
+      v13 = *(_WORD *)(a3 + 56) == 51;
       if ( *(_WORD *)(a3 + 56) == 51 )
         v12 = 51;
+      *(_WORD *)(a1 + 368) = v12;
+      if ( v13 )
+        v11 = v11 << 16 >> 16;
+      else
+        v11 = (unsigned int)v11;
     }
     else
     {
       *(_WORD *)(a1 + 392) = 0;
-      v12 = 16;
-    }
-    *(_WORD *)(a1 + 368) = v12;
-    if ( a4 == 1 )
-    {
-      if ( v12 == 35 )
-        v11 = (unsigned int)v11;
-      else
-        v11 = v11 << 16 >> 16;
+      *(_WORD *)(a1 + 368) = 16;
     }
     *(_QWORD *)(a1 + 360) = v11;
   }
@@ -83,25 +82,29 @@ __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
   }
   if ( (v4 & 0x100040) == 0x100040 && a4 == 1 )
   {
-    v23 = *(int *)(a3 + 1248) + a3 + 720;
+    v24 = *(int *)(a3 + 1248) + a3 + 720;
     SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
-    if ( !SparePtr )
-      goto LABEL_46;
-    v25 = (_QWORD *)*SparePtr;
-    if ( *SparePtr )
+    if ( SparePtr )
     {
-      do
+      v27 = (_QWORD *)*SparePtr;
+      if ( *SparePtr )
       {
-        SparePtr = v25;
-        v25 = (_QWORD *)*v25;
+        do
+        {
+          SparePtr = v27;
+          v27 = (_QWORD *)*v27;
+        }
+        while ( v27 );
       }
-      while ( v25 );
+      v26 = SparePtr[5];
     }
-    v26 = SparePtr[5];
-    if ( v26 )
-      KiCopyXStateArea(v26, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL, v23);
     else
-LABEL_46:
+    {
+      v26 = 0LL;
+    }
+    if ( v26 )
+      KiCopyXStateArea(v26, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL, v24);
+    else
       RtlXRestoreS(
         *(int *)(a3 + 1248) + a3 + 720,
         (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
@@ -131,50 +134,50 @@ LABEL_46:
   result = 1048592LL;
   if ( (v4 & 0x100010) == 0x100010 )
   {
-    v14 = *(_QWORD *)(a3 + 72);
+    v15 = *(_QWORD *)(a3 + 72);
     if ( a4 )
     {
-      v15 = 0LL;
-      if ( v14 <= 0x7FFFFFFEFFFFLL )
-        v15 = *(_QWORD *)(a3 + 72);
-      v14 = v15;
+      v16 = 0LL;
+      if ( v15 <= 0x7FFFFFFEFFFFLL )
+        v16 = *(_QWORD *)(a3 + 72);
+      v15 = v16;
     }
-    *(_QWORD *)(a1 + 216) = v14;
-    v16 = *(_QWORD *)(a3 + 80);
+    *(_QWORD *)(a1 + 216) = v15;
+    v17 = *(_QWORD *)(a3 + 80);
     if ( a4 )
     {
-      v17 = 0LL;
-      if ( v16 <= 0x7FFFFFFEFFFFLL )
-        v17 = *(_QWORD *)(a3 + 80);
-      v16 = v17;
+      v18 = 0LL;
+      if ( v17 <= 0x7FFFFFFEFFFFLL )
+        v18 = *(_QWORD *)(a3 + 80);
+      v17 = v18;
     }
-    *(_QWORD *)(a1 + 224) = v16;
-    v18 = *(_QWORD *)(a3 + 88);
+    *(_QWORD *)(a1 + 224) = v17;
+    v19 = *(_QWORD *)(a3 + 88);
     if ( a4 )
     {
-      v19 = 0LL;
-      if ( v18 <= 0x7FFFFFFEFFFFLL )
-        v19 = *(_QWORD *)(a3 + 88);
-      v18 = v19;
+      v20 = 0LL;
+      if ( v19 <= 0x7FFFFFFEFFFFLL )
+        v20 = *(_QWORD *)(a3 + 88);
+      v19 = v20;
     }
-    *(_QWORD *)(a1 + 232) = v18;
-    v20 = *(_QWORD *)(a3 + 96);
+    *(_QWORD *)(a1 + 232) = v19;
+    v21 = *(_QWORD *)(a3 + 96);
     if ( a4 )
     {
-      v21 = 0LL;
-      if ( v20 <= 0x7FFFFFFEFFFFLL )
-        v21 = *(_QWORD *)(a3 + 96);
-      v20 = v21;
+      v22 = 0LL;
+      if ( v21 <= 0x7FFFFFFEFFFFLL )
+        v22 = *(_QWORD *)(a3 + 96);
+      v21 = v22;
     }
-    *(_QWORD *)(a1 + 240) = v20;
+    *(_QWORD *)(a1 + 240) = v21;
     result = 4294902613LL;
     *(_QWORD *)(a1 + 248) = 0LL;
-    v22 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
-    *(_QWORD *)(a1 + 256) = v22;
+    v23 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
+    *(_QWORD *)(a1 + 256) = v23;
     if ( a4 )
     {
       result = (__int64)KeGetCurrentThread();
-      if ( (v22 & 0x355) != 0 )
+      if ( (v23 & 0x355) != 0 )
         _interlockedbittestandset((volatile signed __int32 *)result, 0x18u);
       else
         _interlockedbittestandreset((volatile signed __int32 *)result, 0x18u);

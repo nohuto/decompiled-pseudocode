@@ -1,123 +1,93 @@
 /*
- * XREFs of ?MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z @ 0x1C0375EE0
+ * XREFs of ?MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z @ 0x1C023B0F4
  * Callers:
- *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01A6890 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
- *     ?CreatePagingQueue@DXGDEVICE@@QEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@PEAPEAVDXGPAGINGQUEUE@@@Z @ 0x1C01EDE58 (-CreatePagingQueue@DXGDEVICE@@QEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@PEAPEAVDXGPAGINGQUEUE@@@Z.c)
- *     ?InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C031AA10 (-InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
- *     ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C038C0EC (-VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYN.c)
+ *     ?CreatePagingQueue@DXGDEVICE@@QEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@PEAPEAVDXGPAGINGQUEUE@@@Z @ 0x1C00F135C (-CreatePagingQueue@DXGDEVICE@@QEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@PEAPEAVDXGPAGINGQUEUE@@@Z.c)
+ *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C0119EC8 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
+ *     ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C024AE28 (-VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYN.c)
+ *     ?InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C026E5FC (-InitializeOnHost@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0004D30 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 __int64 __fastcall MapGuestFenceCpuVaToHost(unsigned __int64 a1, void **a2, unsigned __int64 *a3, unsigned int *a4)
 {
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v9; // eax
-  __int64 v10; // rdi
-  struct _MDL *Mdl; // rsi
-  unsigned int v12; // r8d
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rdx
-  NTSTATUS v15; // eax
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *v16; // rax
-  ULONG_PTR Length; // [rsp+98h] [rbp+48h] BYREF
-  PVOID VirtualAddress; // [rsp+A0h] [rbp+50h] BYREF
+  NTSTATUS v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct _MDL *Mdl; // rdi
+  __int64 v16; // rax
+  unsigned int v17; // r8d
+  unsigned __int64 v18; // rcx
+  __int64 v19; // rdx
+  NTSTATUS v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  ULONG_PTR RegionSize; // [rsp+68h] [rbp+38h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+40h] BYREF
 
-  Length = 4096LL;
   *a2 = 0LL;
   *a3 = 0LL;
   *a4 = 0;
-  VirtualAddress = 0LL;
-  VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-  v9 = (*(__int64 (__fastcall **)(__int64, PVOID *, _QWORD, ULONG_PTR *, int, int))VirtualMemoryInterface)(
-         -1LL,
-         &VirtualAddress,
-         0LL,
-         &Length,
-         8392704,
-         4);
-  v10 = v9;
-  if ( v9 < 0 )
+  BaseAddress = 0LL;
+  RegionSize = 4096LL;
+  v8 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x801000u, 4u);
+  v11 = v8;
+  if ( v8 < 0 )
   {
-    WdLogSingleEntry1(2LL, v9);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to allocate virtual memory, returning 0x%I64x",
-      v10,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v10;
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
+    return (unsigned int)v11;
   }
-  Mdl = IoAllocateMdl(0LL, Length, 0, 0, 0LL);
+  Mdl = IoAllocateMdl(0LL, RegionSize, 0, 0, 0LL);
   if ( !Mdl )
   {
-    LODWORD(v10) = -1073741801;
-    WdLogSingleEntry2(2LL, -1073741801LL, 15422LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to allocate memory for CPU visible buffer, returning 0x%I64x",
-      -1073741801LL,
-      15422LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdError(v14, v13);
+    LODWORD(v11) = -1073741801;
+    *(_QWORD *)(v16 + 24) = -1073741801LL;
+    *(_QWORD *)(v16 + 32) = 13136LL;
+    WdLogEvent5_WdError(v16);
 LABEL_12:
-    if ( VirtualAddress )
-    {
-      v16 = DxgkGetVirtualMemoryInterface();
-      (*((void (__fastcall **)(__int64, PVOID *, ULONG_PTR *, __int64))v16 + 2))(
-        -1LL,
-        &VirtualAddress,
-        &Length,
-        0x8000LL);
-    }
-    return (unsigned int)v10;
+    if ( BaseAddress )
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    return (unsigned int)v11;
   }
-  v12 = 0;
-  v13 = a1 >> 12;
-  if ( (Length & 0xFFFFFFFFFFFFF000uLL) != 0 )
+  v17 = 0;
+  v18 = a1 >> 12;
+  if ( (RegionSize & 0xFFFFFFFFFFFFF000uLL) != 0 )
   {
-    v14 = 0LL;
+    v19 = 0LL;
     do
     {
-      ++v12;
-      *((_QWORD *)&Mdl[1].Next + v14) = v13++;
-      v14 = v12;
+      *((_QWORD *)&Mdl[1].Next + v19) = v18;
+      ++v17;
+      ++v18;
+      v19 = v17;
     }
-    while ( v12 < Length >> 12 );
+    while ( v17 < RegionSize >> 12 );
   }
-  v15 = MmRotatePhysicalView(VirtualAddress, &Length, Mdl, MmToFrameBufferNoCopy, 0LL, 0LL);
-  v10 = v15;
-  if ( v15 >= 0 )
+  v20 = MmRotatePhysicalView(BaseAddress, &RegionSize, Mdl, MmToFrameBufferNoCopy, 0LL, 0LL);
+  v11 = v20;
+  if ( v20 >= 0 )
   {
-    *a2 = VirtualAddress;
+    *a2 = BaseAddress;
     *a3 = a1;
     *a4 = 0;
   }
   else
   {
-    WdLogSingleEntry2(2LL, v15, 15437LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"MmRotatePhysicalView failed 0x%I64x",
-      v10,
-      15437LL,
-      0LL,
-      0LL,
-      0LL);
+    v23 = WdLogNewEntry5_WdError(v22, v21);
+    *(_QWORD *)(v23 + 24) = v11;
+    *(_QWORD *)(v23 + 32) = 13151LL;
+    WdLogEvent5_WdError(v23);
   }
   IoFreeMdl(Mdl);
-  if ( (int)v10 < 0 )
+  if ( (int)v11 < 0 )
     goto LABEL_12;
-  return (unsigned int)v10;
+  return (unsigned int)v11;
 }

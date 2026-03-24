@@ -1,10 +1,10 @@
 /*
- * XREFs of GetProcessImageFileName @ 0x1C0002F1C
+ * XREFs of GetProcessImageFileName @ 0x1C0001218
  * Callers:
- *     GetProcessImageFilename @ 0x1C0002E6C (GetProcessImageFilename.c)
- *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C02704FC (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
+ *     GetProcessImageFilename @ 0x1C0001168 (GetProcessImageFilename.c)
+ *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C0272868 (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void *__fastcall GetProcessImageFileName(HANDLE ProcessHandle)

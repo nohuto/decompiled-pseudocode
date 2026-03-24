@@ -1,9 +1,9 @@
 /*
- * XREFs of Device_WdfEvtCleanupCallback @ 0x1C0035140
+ * XREFs of Device_WdfEvtCleanupCallback @ 0x1C0034EA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Device_WdfEvtCleanupCallback(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall Device_WdfEvtCleanupCallback(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00613D8);
+         off_1C00603D8);
   v2 = v1;
   if ( *(_QWORD *)(v1 + 96) )
     *(_QWORD *)(v1 + 96) = 0LL;
@@ -29,7 +29,7 @@ __int64 __fastcall Device_WdfEvtCleanupCallback(__int64 a1)
                WdfDriverGlobals,
                *(_QWORD *)(v4 + 8),
                Controller_WdfEvtDeviceAdd,
-               2976LL,
+               2998LL,
                "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
     *(_QWORD *)(v2 + 8) = 0LL;
   }

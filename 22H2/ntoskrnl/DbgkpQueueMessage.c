@@ -1,28 +1,28 @@
 /*
- * XREFs of DbgkpQueueMessage @ 0x140937EFC
+ * XREFs of DbgkpQueueMessage @ 0x140885568
  * Callers:
- *     DbgkPostModuleMessage @ 0x14053BACC (DbgkPostModuleMessage.c)
- *     DbgkSendSystemDllMessages @ 0x140936E84 (DbgkSendSystemDllMessages.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937834 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpSendApiMessage @ 0x14093A100 (DbgkpSendApiMessage.c)
+ *     DbgkPostModuleMessage @ 0x1404EDEAC (DbgkPostModuleMessage.c)
+ *     DbgkSendSystemDllMessages @ 0x14088452C (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884EE4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpSendApiMessage @ 0x1408871A4 (DbgkpSendApiMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4, PRKEVENT a5)
+__int64 __fastcall DbgkpQueueMessage(_QWORD *Object, char *a2, __int64 a3, int a4, PRKEVENT a5)
 {
   __int64 v10; // r12
-  __int64 Pool2; // rax
+  _OWORD *PoolWithQuotaTag; // rax
   _OWORD *v12; // r14
   int v14; // ecx
   _OWORD *v15; // rbx
@@ -30,7 +30,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   _OWORD *v17; // rcx
   __int64 v18; // rdx
   __int128 v19; // xmm1
-  int v20; // edi
+  int v20; // esi
   struct _FAST_MUTEX *v21; // r12
   struct _LIST_ENTRY *Blink; // rcx
   __int128 v23; // xmm1
@@ -40,37 +40,38 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   memset(v25, 0, 0x168uLL);
   v10 = 2LL;
   v24 = a4 & 2;
-  if ( (a4 & 2) != 0 )
-  {
-    Pool2 = ExAllocatePool2(65LL, 360LL, 1164403268LL);
-    v12 = (_OWORD *)Pool2;
-    if ( !Pool2 )
-      return 3221225626LL;
-    *(_DWORD *)(Pool2 + 76) = a4 | 4;
-    ObfReferenceObjectWithTag(Object, 0x4F676244u);
-    ObfReferenceObjectWithTag(a2, 0x4F676244u);
-    *((_QWORD *)v12 + 10) = KeGetCurrentThread();
-  }
-  else
+  if ( (a4 & 2) == 0 )
   {
     HIDWORD(v25[4]) = a4;
     v12 = v25;
     ExAcquireFastMutex(&DbgkpProcessDebugPortMutex);
     v14 = *(_DWORD *)(a3 + 40);
-    a5 = (PRKEVENT)*((_QWORD *)Object + 175);
-    if ( (unsigned int)(v14 - 1) <= 1 && (a2[1376] & 0x40) != 0 )
+    a5 = (PRKEVENT)Object[175];
+    if ( (unsigned int)(v14 - 1) <= 1 && (a2[1296] & 0x40) != 0 )
       a5 = 0LL;
     if ( v14 == 5 )
     {
-      if ( ((unsigned __int8)a4 & (unsigned __int8)a2[1376] & 0x40) != 0 )
-        a5 = 0LL;
-    }
-    else if ( (v14 == 3 || v14 == 4) && a2[1376] < 0 )
-    {
+      if ( ((unsigned __int8)a4 & (unsigned __int8)a2[1296] & 0x40) == 0 )
+      {
+LABEL_14:
+        KeInitializeEvent((PRKEVENT)&v25[1], SynchronizationEvent, 0);
+        goto LABEL_15;
+      }
       a5 = 0LL;
     }
-    KeInitializeEvent((PRKEVENT)&v25[1], SynchronizationEvent, 0);
+    if ( (unsigned int)(v14 - 3) <= 1 && a2[1296] < 0 )
+      a5 = 0LL;
+    goto LABEL_14;
   }
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x168uLL, 0x45676244u);
+  v12 = PoolWithQuotaTag;
+  if ( !PoolWithQuotaTag )
+    return 3221225626LL;
+  *((_DWORD *)PoolWithQuotaTag + 19) = a4 | 4;
+  ObfReferenceObjectWithTag(Object, 0x4F676244u);
+  ObfReferenceObjectWithTag(a2, 0x4F676244u);
+  *((_QWORD *)v12 + 10) = KeGetCurrentThread();
+LABEL_15:
   v15 = (_OWORD *)((char *)v12 + 88);
   *((_QWORD *)v12 + 7) = Object;
   v16 = (_OWORD *)((char *)v12 + 88);
@@ -94,7 +95,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   }
   while ( v18 );
   *v16 = *v17;
-  *(_OWORD *)((char *)v12 + 40) = *(_OWORD *)(a2 + 1224);
+  *(_OWORD *)((char *)v12 + 40) = *(_OWORD *)(a2 + 1144);
   if ( a5 )
   {
     v21 = (struct _FAST_MUTEX *)&a5[1];
@@ -116,7 +117,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
         KeSetEvent(a5, 0, 0);
       v20 = 0;
     }
-    ExReleaseFastMutex(v21);
+    KeReleaseGuardedMutex(v21);
     v10 = 2LL;
   }
   else
@@ -134,7 +135,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   }
   else
   {
-    ExReleaseFastMutex(&DbgkpProcessDebugPortMutex);
+    KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
     if ( v20 >= 0 )
     {
       KeWaitForSingleObject(v12 + 1, Executive, 0, 0, 0LL);

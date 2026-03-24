@@ -1,17 +1,17 @@
 /*
- * XREFs of xxxCloseClipboard @ 0x1C0011320
+ * XREFs of xxxCloseClipboard @ 0x1C002FDB0
  * Callers:
- *     NtUserCloseClipboard @ 0x1C0010F10 (NtUserCloseClipboard.c)
- *     FreeWindowStation @ 0x1C00B91B0 (FreeWindowStation.c)
- *     xxxSnapWindow @ 0x1C02281E8 (xxxSnapWindow.c)
+ *     NtUserCloseClipboard @ 0x1C002FCF0 (NtUserCloseClipboard.c)
+ *     FreeWindowStation @ 0x1C01236E0 (FreeWindowStation.c)
+ *     xxxSnapWindow @ 0x1C016040C (xxxSnapWindow.c)
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C00B942C (-CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FC35C (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002F6E8 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01238B8 (-CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z.c)
  */
 
 __int64 __fastcall xxxCloseClipboard(struct tagWINDOWSTATION *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall xxxCloseClipboard(struct tagWINDOWSTATION *a1)
   __int64 v9; // [rsp+30h] [rbp-18h]
   unsigned __int8 EffectiveOnly; // [rsp+50h] [rbp+8h] BYREF
   unsigned __int8 CopyOnOpen; // [rsp+58h] [rbp+10h] BYREF
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+60h] [rbp+18h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+60h] [rbp+18h] BYREF
 
   v9 = 0LL;
   v1 = a1;

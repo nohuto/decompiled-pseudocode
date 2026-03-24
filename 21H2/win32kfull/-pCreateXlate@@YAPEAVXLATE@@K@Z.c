@@ -1,32 +1,32 @@
 /*
- * XREFs of ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BE8FC
+ * XREFs of ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BFF5C
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0009E08 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02BE2D4 (--0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CFD3C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02BF96C (--0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z.c)
  * Callees:
  *     <none>
  */
 
-struct XLATE *__fastcall pCreateXlate(int a1)
+struct XLATE *__fastcall pCreateXlate(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct XLATE *result; // rax
-  int v3; // edx
-  char *v4; // rcx
+  int v6; // edx
+  char *v7; // rcx
 
-  result = (struct XLATE *)AllocThreadBufferWithTag((unsigned int)(4 * a1 + 88), 1953265735LL, 0LL);
+  result = (struct XLATE *)AllocThreadBufferWithTag((unsigned int)(4 * a1 + 88), 1953265735LL, 0LL, a4);
   if ( result )
   {
-    v3 = 0;
+    v6 = 0;
     *(_DWORD *)result = _InterlockedIncrement(*(volatile signed __int32 **)&ulXlatePalUnique);
-    v4 = (char *)result + 84;
+    v7 = (char *)result + 84;
     if ( !a1 )
     {
-      v3 = 512;
-      v4 = 0LL;
+      v6 = 512;
+      v7 = 0LL;
     }
     *((_DWORD *)result + 1) = a1 != 0 ? 2 : 0;
-    *((_QWORD *)result + 2) = v4;
-    *((_DWORD *)result + 19) = v3;
+    *((_QWORD *)result + 2) = v7;
+    *((_DWORD *)result + 19) = v6;
     *((_DWORD *)result + 9) = -1;
     *((_DWORD *)result + 2) = 0;
     *((_DWORD *)result + 3) = a1;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsManipulationCaptured@CManipulation@@UEAA_NXZ @ 0x180131DE0
+ * XREFs of ?IsManipulationCaptured@CManipulation@@UEAA_NXZ @ 0x1801D41C0
  * Callers:
  *     <none>
  * Callees:

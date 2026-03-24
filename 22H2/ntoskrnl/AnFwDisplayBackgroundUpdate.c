@@ -1,18 +1,18 @@
 /*
- * XREFs of AnFwDisplayBackgroundUpdate @ 0x140AED07C
+ * XREFs of AnFwDisplayBackgroundUpdate @ 0x1409F4784
  * Callers:
- *     BgDisplayBackgroundUpdate @ 0x140AED040 (BgDisplayBackgroundUpdate.c)
+ *     BgDisplayBackgroundUpdate @ 0x1409F4748 (BgDisplayBackgroundUpdate.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     BgpClearScreen @ 0x140671B60 (BgpClearScreen.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140AF06E8 (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140AF3720 (BgpGxDrawBitmapImage.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x1405C41B4 (BgpClearScreen.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x1409F7704 (BgpGxDrawBitmapImage.c)
  */
 
 NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
@@ -26,43 +26,47 @@ NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
 
   pullResult = 0LL;
   v6 = 0LL;
-  if ( (dword_140C0E4B0 & 0x4000000) == 0 )
+  if ( (dword_140C134F0 & 0x4000000) == 0 )
     return 0;
   if ( !a1 )
   {
     AnFwDisableBackgroundUpdateTimer();
     return 0;
   }
-  if ( byte_140D18108 )
+  if ( byte_140CF5330 )
     return -1073741823;
-  v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C01C00)(&v6);
+  v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C007F0)(&v6);
   result = RtlULongLongMult(v2, 0x3E8uLL, &pullResult);
-  if ( result < 0 )
-    return result;
-  v3 = pullResult / v6;
-  if ( qword_140C0E550 + v3 < v3 )
-    return -1073741675;
-  v4 = v3 + qword_140C0E550;
-  DbgPrintEx(0x65u, 0, "BGFX Display Ready Time (ms): %d\n", v3);
-  DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time GOAL (ms): %d\n", v4);
-  if ( (unsigned __int64)qword_140C0E550 >= 0x64 )
+  if ( result >= 0 )
   {
-    qword_140C0E550 = v4;
-    KeInitializeTimerEx(&stru_140D1B1A0, NotificationTimer);
-    KeInitializeDpc(&stru_140D1B1E0, AnFwpBackgroundUpdateTimer, 0LL);
-    if ( KeSetCoalescableTimer(&stru_140D1B1A0, 0LL, 0x64u, 0, &stru_140D1B1E0) )
+    v3 = pullResult / v6;
+    if ( qword_140C13590 + v3 < v3 )
+      return -1073741675;
+    v4 = v3 + qword_140C13590;
+    DbgPrintEx(0x65u, 0, "BGFX Display Ready Time (ms): %d\n", v3);
+    DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time GOAL (ms): %d\n", v4);
+    if ( (unsigned __int64)qword_140C13590 >= 0x64 )
     {
-      KeCancelTimer(&stru_140D1B1A0);
-      byte_140D18108 = 0;
-      return BgpClearScreen(HIDWORD(qword_140C0E630));
+      qword_140C13590 = v4;
+      KeInitializeTimerEx(&stru_140CF99E0, NotificationTimer);
+      KeInitializeDpc(&stru_140CF9A20, AnFwpBackgroundUpdateTimer, 0LL);
+      if ( KeSetCoalescableTimer(&stru_140CF99E0, 0LL, 0x64u, 0, &stru_140CF9A20) )
+      {
+        KeCancelTimer(&stru_140CF99E0);
+        byte_140CF5330 = 0;
+        return BgpClearScreen(HIDWORD(qword_140C13670));
+      }
+      byte_140CF5330 = 1;
+      result = 0;
     }
-    byte_140D18108 = 1;
-    return 0;
+    else
+    {
+      BgpClearScreen(HIDWORD(qword_140C13670));
+      DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time (ms): %d\n", v3);
+      result = BgpGxDrawBitmapImage(qword_140C13538, &qword_140C1354C);
+    }
+    if ( result < 0 )
+      return BgpClearScreen(HIDWORD(qword_140C13670));
   }
-  BgpClearScreen(HIDWORD(qword_140C0E630));
-  DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time (ms): %d\n", v3);
-  result = BgpGxDrawBitmapImage(qword_140C0E4F8, &qword_140C0E50C);
-  if ( result < 0 )
-    return BgpClearScreen(HIDWORD(qword_140C0E630));
   return result;
 }

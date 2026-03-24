@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnVadQuota @ 0x1407BC8F0
+ * XREFs of MiReturnVadQuota @ 0x1406EE790
  * Callers:
- *     MiFinishVadDeletion @ 0x14030FEC0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402331E0 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiVadPureReserve @ 0x140319990 (MiVadPureReserve.c)
+ *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
  */
 
 unsigned __int64 __fastcall MiReturnVadQuota(__int64 a1, struct _KPROCESS *a2, int a3)
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall MiReturnVadQuota(__int64 a1, struct _KPROCESS *a2, i
   else
   {
     result = PsReturnProcessNonPagedPoolQuota(a2, 136LL);
-    if ( a3 )
+    if ( a3 == 1 )
     {
       result = MiVadPureReserve(a1);
       if ( !(_DWORD)result )

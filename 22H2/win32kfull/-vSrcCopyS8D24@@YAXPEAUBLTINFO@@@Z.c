@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS8D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED610
+ * XREFs of ?vSrcCopyS8D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02CB350
  * Callers:
  *     <none>
  * Callees:
@@ -56,7 +56,7 @@ void __fastcall vSrcCopyS8D24(struct BLTINFO *a1)
     for ( j = v11; j; --j )
     {
       v16 = *(_DWORD *)(v7 + 4LL * v3[1]) >> 8;
-      *(_DWORD *)v6 = *(_DWORD *)(v7 + 4LL * *v3) | (*(_DWORD *)(v7 + 4LL * v3[1]) << 24);
+      *(_DWORD *)v6 = (*(_DWORD *)(v7 + 4LL * v3[1]) << 24) | *(_DWORD *)(v7 + 4LL * *v3);
       v17 = HIWORD(*(_DWORD *)(v7 + 4LL * v3[2]));
       *(_DWORD *)(v6 + 4) = (*(_DWORD *)(v7 + 4LL * v3[2]) << 16) | v16;
       v18 = v3[3];

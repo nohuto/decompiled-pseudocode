@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRestoreKey @ 0x1401BAFD0
+ * XREFs of ZwRestoreKey @ 0x1401BAFF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMultiplaneOverlayCaps@CConversionSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1802A23B0
+ * XREFs of ?GetMultiplaneOverlayCaps@CConversionSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x18024F554
  * Callers:
- *     ?GetMultiplaneOverlayCaps@CConversionSwapChain@@$4PPPPPPPM@DFI@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x180121000 (-GetMultiplaneOverlayCaps@CConversionSwapChain@@$4PPPPPPPM@DFI@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_C.c)
+ *     ?GetMultiplaneOverlayCaps@CConversionSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800F75A0 (-GetMultiplaneOverlayCaps@CConversionSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAP.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetMultiplaneOverlayCaps@CLegacySwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x180101370 (-GetMultiplaneOverlayCaps@CLegacySwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetMultiplaneOverlayCaps@CLegacySwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800DD4D0 (-GetMultiplaneOverlayCaps@CLegacySwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z.c)
  */
 
 __int64 __fastcall CConversionSwapChain::GetMultiplaneOverlayCaps(
@@ -16,11 +16,11 @@ __int64 __fastcall CConversionSwapChain::GetMultiplaneOverlayCaps(
   unsigned int v5; // edi
   int v6; // r8d
 
-  MultiplaneOverlayCaps = CLegacySwapChain::GetMultiplaneOverlayCaps(this, a2);
+  MultiplaneOverlayCaps = CLegacySwapChain::GetMultiplaneOverlayCaps((CConversionSwapChain *)((char *)this - 424), a2);
   v5 = MultiplaneOverlayCaps;
   if ( MultiplaneOverlayCaps < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, MultiplaneOverlayCaps, 0xAAu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, MultiplaneOverlayCaps, 0xA9u, 0LL);
   }
   else
   {

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddDynamicEHContinuationTarget @ 0x1409BFCA0
+ * XREFs of RtlAddDynamicEHContinuationTarget @ 0x14091A8E8
  * Callers:
- *     PspProcessDynamicEHContinuationTargets @ 0x1409ADDA4 (PspProcessDynamicEHContinuationTargets.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140907D04 (PspProcessDynamicEHContinuationTargets.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     PspFindVsmEnclaveThread @ 0x1408826B4 (PspFindVsmEnclaveThread.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA638 (MiHotPatchImageTreeCompare.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlAddDynamicEHContinuationTarget(unsigned __int64 *a1, unsigned __int64 a2)
 {
   _QWORD *v2; // rbx
   bool v3; // di
-  int VsmEnclaveThread; // eax
+  int v6; // eax
   _QWORD *v7; // rax
   _QWORD *Pool2; // rax
 
@@ -22,10 +22,10 @@ __int64 __fastcall RtlAddDynamicEHContinuationTarget(unsigned __int64 *a1, unsig
   {
     while ( 1 )
     {
-      VsmEnclaveThread = PspFindVsmEnclaveThread(a2, (__int64)v2);
-      if ( VsmEnclaveThread <= 0 )
+      v6 = MiHotPatchImageTreeCompare(a2, (__int64)v2);
+      if ( v6 <= 0 )
       {
-        if ( VsmEnclaveThread >= 0 )
+        if ( v6 >= 0 )
           return 3221225496LL;
         v7 = (_QWORD *)*v2;
         if ( !*v2 )

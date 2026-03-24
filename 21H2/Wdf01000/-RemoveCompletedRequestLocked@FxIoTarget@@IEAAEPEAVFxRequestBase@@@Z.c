@@ -1,16 +1,16 @@
 /*
- * XREFs of ?RemoveCompletedRequestLocked@FxIoTarget@@IEAAEPEAVFxRequestBase@@@Z @ 0x1C0005090
+ * XREFs of ?RemoveCompletedRequestLocked@FxIoTarget@@IEAAEPEAVFxRequestBase@@@Z @ 0x1C000C9D0
  * Callers:
- *     ?_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0004E70 (-_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z.c)
- *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C000EAFC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
- *     ?HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0073F28 (-HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
- *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C00742EC (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
- *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0074894 (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C000C770 (-_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z.c)
+ *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C00192EC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0065508 (-HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C00659EC (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0065FEC (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall FxIoTarget::RemoveCompletedRequestLocked(
@@ -20,7 +20,7 @@ unsigned __int8 __fastcall FxIoTarget::RemoveCompletedRequestLocked(
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx
   _LIST_ENTRY *Flink; // rcx
-  $2E9503FEA5AD2275F0EE453185AD8E99 *v7; // rax
+  $55631384234A24007A0779E5E472941C *v7; // rax
   _IRP *Irp; // rdx
   unsigned __int8 m_TargetFlags; // cl
   unsigned __int8 v10; // si
@@ -49,8 +49,8 @@ unsigned __int8 __fastcall FxIoTarget::RemoveCompletedRequestLocked(
   }
   Flink = Request->m_ListEntry.Flink;
   v7 = &Request->120;
-  if ( ($2E9503FEA5AD2275F0EE453185AD8E99 *)Flink->Blink != &Request->120
-    || (Irp = Request->m_CsqContext.Irp, *($2E9503FEA5AD2275F0EE453185AD8E99 **)&Irp->Type != v7) )
+  if ( ($55631384234A24007A0779E5E472941C *)Flink->Blink != &Request->120
+    || (Irp = Request->m_CsqContext.Irp, *($55631384234A24007A0779E5E472941C **)&Irp->Type != v7) )
   {
     __fastfail(3u);
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpGetVMActivationStatus @ 0x140704088
+ * XREFs of ExpGetVMActivationStatus @ 0x140704068
  * Callers:
- *     ExpGenuinePolicyPostProcess @ 0x1406A77C0 (ExpGenuinePolicyPostProcess.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1406A77A0 (ExpGenuinePolicyPostProcess.c)
  * Callees:
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     sub_1407045E8 @ 0x1407045E8 (sub_1407045E8.c)
- *     ExActivateVMWithSubscription @ 0x1408CE6A8 (ExActivateVMWithSubscription.c)
- *     ExGetVMType @ 0x1408CEAEC (ExGetVMType.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
+ *     ExActivateVMWithSubscription @ 0x1408CE688 (ExActivateVMWithSubscription.c)
+ *     ExGetVMType @ 0x1408CEACC (ExGetVMType.c)
  */
 
 __int64 __fastcall ExpGetVMActivationStatus(int a1, int a2, int a3, int a4, _BYTE *a5)
@@ -42,7 +42,7 @@ __int64 __fastcall ExpGetVMActivationStatus(int a1, int a2, int a3, int a4, _BYT
           result = ((__int64 (__fastcall *)(int *))qword_14096D420)(&v13);
           if ( (int)result >= 0 )
           {
-            result = sub_1407045E8(a1, a2, a3, a4, v13);
+            result = sub_1407045C8(a1, a2, a3, a4, v13);
             *v5 = 1;
           }
           if ( (_DWORD)result == -1073741198 )
@@ -59,7 +59,7 @@ LABEL_16:
                          8LL);
               if ( (int)result >= 0 && v15[0] == 0x20000 )
               {
-                result = sub_1407045E8(a1, a2, a3, a4, v15[1]);
+                result = sub_1407045C8(a1, a2, a3, a4, v15[1]);
                 *v5 = 1;
                 if ( qword_14096D418 )
                   return ((__int64 (__fastcall *)(_QWORD))qword_14096D418)(v11);

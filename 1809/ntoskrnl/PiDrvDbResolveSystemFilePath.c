@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDrvDbResolveSystemFilePath @ 0x14083EE88
+ * XREFs of PiDrvDbResolveSystemFilePath @ 0x14083EE68
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5DC (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5BC (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     PiDrvDbGetFilePathVolume @ 0x14028B318 (PiDrvDbGetFilePathVolume.c)
- *     RtlUnicodeStringCchCopyN @ 0x14028B354 (RtlUnicodeStringCchCopyN.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     PiDrvDbGetFilePathVolume @ 0x14028B418 (PiDrvDbGetFilePathVolume.c)
+ *     RtlUnicodeStringCchCopyN @ 0x14028B454 (RtlUnicodeStringCchCopyN.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 int __fastcall PiDrvDbResolveSystemFilePath(

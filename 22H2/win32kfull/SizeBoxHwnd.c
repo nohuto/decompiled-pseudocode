@@ -1,11 +1,11 @@
 /*
- * XREFs of SizeBoxHwnd @ 0x1C024B7D0
+ * XREFs of SizeBoxHwnd @ 0x1C025CF4C
  * Callers:
- *     ?xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z @ 0x1C004174C (-xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z.c)
- *     FindNCHit @ 0x1C00AD74C (FindNCHit.c)
- *     ?xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0121240 (-xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_.c)
- *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C01E5494 (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
- *     DrawSize @ 0x1C0229DC8 (DrawSize.c)
+ *     xxxWindowHitTest2 @ 0x1C00D70C4 (xxxWindowHitTest2.c)
+ *     FindNCHit @ 0x1C0122188 (FindNCHit.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167424 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
+ *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C0215B28 (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
+ *     DrawSize @ 0x1C0244F00 (DrawSize.c)
  * Callees:
  *     <none>
  */
@@ -46,15 +46,15 @@ __int64 __fastcall SizeBoxHwnd(__int64 a1)
     v8 = *(_DWORD *)(v1 + 104);
   else
     v8 = *(_DWORD *)(v1 + 112);
-  if ( !v4 )
+  if ( v4 )
   {
-    if ( v5 + 2 >= v8 )
-      goto LABEL_19;
+    if ( v5 - 2 <= v8 )
+      goto LABEL_17;
     return 0LL;
   }
-  if ( v5 - 2 > v8 )
+  if ( v5 + 2 < v8 )
     return 0LL;
-LABEL_19:
+LABEL_17:
   if ( v3 + 2 < *(_DWORD *)(v1 + 116) )
     return 0LL;
   return v2;

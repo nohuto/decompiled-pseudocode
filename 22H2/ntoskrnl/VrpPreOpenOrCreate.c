@@ -1,231 +1,255 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x14068CFD8
+ * XREFs of VrpPreOpenOrCreate @ 0x1405D4868
  * Callers:
- *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpGetNextToken @ 0x14068DA8C (VrpGetNextToken.c)
- *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
- *     CmpFindExtraParameterInBlock @ 0x14068E720 (CmpFindExtraParameterInBlock.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     CmAllocateExtraParameter @ 0x1407E6860 (CmAllocateExtraParameter.c)
- *     CmpFreeExtraParameter @ 0x1407E72A0 (CmpFreeExtraParameter.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     EtwActivityIdControl @ 0x140308D90 (EtwActivityIdControl.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmAllocateExtraParameter @ 0x1405D3740 (CmAllocateExtraParameter.c)
+ *     VrpTranslatePath @ 0x1405D4E34 (VrpTranslatePath.c)
+ *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
+ *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
+ *     CmpFindExtraParameterInBlock @ 0x1405D57C4 (CmpFindExtraParameterInBlock.c)
+ *     CmpFreeExtraParameter @ 0x1405D848C (CmpFreeExtraParameter.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(__int64 a1, void *a2)
 {
   PCUNICODE_STRING *v2; // rdi
-  __int64 ExtraParameter; // r14
+  _QWORD *ExtraParameter; // rsi
   _OWORD *v6; // rax
   PCUNICODE_STRING v7; // rbx
-  __int64 v8; // rsi
+  UNICODE_STRING *v8; // r14
   _OWORD *v9; // r15
-  const UNICODE_STRING *v10; // rcx
-  int v11; // ebx
-  PCUNICODE_STRING v12; // rdx
+  int v10; // ebx
+  PCUNICODE_STRING v11; // rdx
   int Length; // ecx
-  wchar_t *v14; // rax
-  unsigned __int8 *v15; // rdx
-  PCUNICODE_STRING v16; // rdx
-  int v18; // eax
-  int v19; // r15d
-  __int128 v20; // xmm0
+  wchar_t *v13; // rax
+  char *v14; // rdx
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  struct _LOOKASIDE_LIST_EX *v20; // r9
+  int v21; // r15d
+  __int128 v22; // xmm0
   int ExtraParameterInBlock; // eax
-  __int64 v22; // rcx
-  _QWORD *v23; // r11
-  _QWORD *v24; // rax
+  __int64 v24; // rcx
+  _QWORD *v25; // r11
+  _QWORD *v26; // rax
+  UNICODE_STRING *v27; // rax
   wchar_t *Buffer; // rcx
-  __int64 Pool2; // rax
-  __int128 v27; // xmm1
-  __int128 v28; // xmm0
-  int v29; // eax
+  UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING v30; // xmm1
-  const UNICODE_STRING *v31; // rax
-  UNICODE_STRING v32; // xmm0
-  __int64 v33; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v34; // [rsp+58h] [rbp-A8h] BYREF
-  PVOID Object; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v36[2]; // [rsp+68h] [rbp-98h] BYREF
-  _OWORD *v37; // [rsp+78h] [rbp-88h] BYREF
+  UNICODE_STRING v31; // xmm0
+  int v32; // eax
+  UNICODE_STRING v33; // xmm1
+  PADAPTER_OBJECT v34; // rax
+  UNICODE_STRING v35; // xmm0
+  PCUNICODE_STRING v36; // rdx
+  __int64 v37; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v38; // [rsp+58h] [rbp-A8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID v40[2]; // [rsp+68h] [rbp-98h] BYREF
+  _OWORD *v41; // [rsp+78h] [rbp-88h] BYREF
   PVOID P[2]; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING String1; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v40[2]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v44[2]; // [rsp+A0h] [rbp-60h] BYREF
   GUID ActivityId; // [rsp+B0h] [rbp-50h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+C0h] [rbp-40h] BYREF
-  _DWORD *v43; // [rsp+E0h] [rbp-20h]
-  __int64 v44; // [rsp+E8h] [rbp-18h]
-  wchar_t *v45; // [rsp+F0h] [rbp-10h]
-  _DWORD v46[2]; // [rsp+F8h] [rbp-8h] BYREF
-  __int64 *v47; // [rsp+100h] [rbp+0h]
-  __int64 v48; // [rsp+108h] [rbp+8h]
+  struct _EVENT_DATA_DESCRIPTOR v46; // [rsp+C0h] [rbp-40h] BYREF
+  _DWORD *v47; // [rsp+E0h] [rbp-20h]
+  __int64 v48; // [rsp+E8h] [rbp-18h]
+  wchar_t *v49; // [rsp+F0h] [rbp-10h]
+  _DWORD v50[2]; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 *v51; // [rsp+100h] [rbp+0h]
+  __int64 v52; // [rsp+108h] [rbp+8h]
 
   v2 = *(PCUNICODE_STRING **)a1;
   ExtraParameter = 0LL;
-  LODWORD(v34) = 0;
+  LODWORD(v38) = 0;
   v6 = v2[1];
   v7 = *v2;
   v8 = 0LL;
   v9 = v2[11];
-  Object = 0LL;
-  *(_OWORD *)v36 = 0LL;
-  v37 = v6;
-  *(_OWORD *)P = 0LL;
+  DmaAdapter = 0LL;
   *(_OWORD *)v40 = 0LL;
+  v41 = v6;
+  *(_OWORD *)P = 0LL;
+  *(_OWORD *)v44 = 0LL;
   ActivityId = 0LL;
   EtwActivityIdControl(3u, &ActivityId);
-  v10 = 0LL;
-  if ( !v7->Length || *v7->Buffer != 92 )
+  if ( v7->Length && *v7->Buffer == 92 )
   {
-    if ( !v9 )
-      return 0;
-    v10 = (const UNICODE_STRING *)((unsigned __int64)(v9 + 1) & -(__int64)(v9 != 0LL));
-  }
-  v11 = VrpBuildKeyPath(v10, *v2, (PUNICODE_STRING)v36);
-  if ( v11 >= 0 )
-  {
-    v33 = 0LL;
+    v10 = VrpBuildKeyPath(0LL, *v2, (PUNICODE_STRING)v40);
+    if ( v10 < 0 )
+    {
+LABEL_45:
+      if ( v10 >= 0 )
+        return (unsigned int)v10;
+      goto LABEL_46;
+    }
+LABEL_8:
+    v37 = 0LL;
     String1 = 0LL;
-    VrpGetNextToken(v36, &v33, &String1);
+    VrpGetNextToken(v40, &v37, &String1);
     if ( RtlEqualUnicodeString(&String1, &VrpRegistryString, 1u) )
     {
-      VrpGetNextToken(v36, &v33, &String1);
+      VrpGetNextToken(v40, &v37, &String1);
       if ( RtlEqualUnicodeString(&String1, &VrpWcString, 1u) )
       {
-        v11 = -1073741790;
-        goto LABEL_15;
+        v10 = -1073741790;
+        goto LABEL_11;
       }
     }
-    LODWORD(v33) = 0;
-    v18 = VrpTranslatePath(a2, (__int64)P, (__int64)&Object, (__int64)v40, (__int64)&v34, (__int64)&v33);
-    v11 = v18;
-    if ( v18 == -1073741772 )
+    LODWORD(v37) = 0;
+    v16 = VrpTranslatePath(a2, (__int64)P, (__int64)&DmaAdapter, (__int64)v44, (__int64)&v38, (__int64)&v37);
+    v10 = v16;
+    if ( v16 == -1073741772 )
       return 0;
-    if ( v18 >= 0 )
+    if ( v16 < 0 )
+      goto LABEL_46;
+    v21 = v38;
+    if ( (v38 & 4) != 0 )
     {
-      v19 = v34;
-      if ( (v34 & 4) == 0 )
+      ExtraParameter = CmAllocateExtraParameter(v18, v17, v19, v20);
+      if ( ExtraParameter )
       {
-        *((_WORD *)Object + 25) = *((_WORD *)v37 + 25);
-        Pool2 = ExAllocatePool2(256LL, 72LL, 1734693462LL);
-        v8 = Pool2;
-        if ( Pool2 )
+        ObfReferenceObjectWithTag(a2, 0x67655256u);
+        v22 = *(_OWORD *)v40;
+        *ExtraParameter = a2;
+        *((_DWORD *)ExtraParameter + 2) = v21 & 0xFFFFFFFB;
+        *((_OWORD *)ExtraParameter + 1) = v22;
+        RtlInitUnicodeString((PUNICODE_STRING)v40, 0LL);
+        ExtraParameterInBlock = CmpFindExtraParameterInBlock(*(_QWORD *)(a1 + 16), ExtraParameter - 4, &v41);
+        v10 = ExtraParameterInBlock;
+        if ( ExtraParameterInBlock < 0 )
         {
-          v27 = *(_OWORD *)v36;
-          v2[10] = (PCUNICODE_STRING)Pool2;
-          *(_QWORD *)Pool2 = v2[1];
-          *(UNICODE_STRING *)(Pool2 + 16) = **v2;
-          v28 = (__int128)*v2[14];
-          v29 = v33;
-          *(_OWORD *)(v8 + 48) = v27;
-          *(_DWORD *)(v8 + 64) = v19;
-          v30 = *(UNICODE_STRING *)v40;
-          *(_OWORD *)(v8 + 32) = v28;
-          *(_DWORD *)(a1 + 8) = v29;
-          v31 = (const UNICODE_STRING *)Object;
-          v32 = *(UNICODE_STRING *)P;
-          *(_QWORD *)(v8 + 8) = a2;
-          v2[1] = v31;
-          **v2 = v32;
-          *v2[14] = v30;
-          return (unsigned int)v11;
+          if ( ExtraParameterInBlock == -1073741772 )
+          {
+            v26 = *(_QWORD **)(v24 + 8);
+            if ( *v26 != v24 )
+              __fastfail(3u);
+            *v25 = v24;
+            v10 = 0;
+            v25[1] = v26;
+            *v26 = v25;
+            *(_QWORD *)(v24 + 8) = v25;
+          }
+          if ( v10 >= 0 )
+          {
+            v27 = (UNICODE_STRING *)*v2;
+            ExtraParameter = 0LL;
+            Buffer = (*v2)->Buffer;
+            if ( Buffer )
+            {
+              ExFreePoolWithTag(Buffer, 0x67655256u);
+              v27 = (UNICODE_STRING *)*v2;
+            }
+            *v27 = *(UNICODE_STRING *)P;
+            RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
+            *(_DWORD *)(a1 + 12) = 872;
+            v10 = -1073740541;
+            goto LABEL_47;
+          }
         }
-        goto LABEL_36;
-      }
-      ExtraParameter = CmAllocateExtraParameter();
-      if ( !ExtraParameter )
-      {
-LABEL_36:
-        v11 = -1073741670;
-        goto LABEL_15;
-      }
-      ObfReferenceObjectWithTag(a2, 0x67655256u);
-      v20 = *(_OWORD *)v36;
-      *(_QWORD *)ExtraParameter = a2;
-      *(_DWORD *)(ExtraParameter + 8) = v19 & 0xFFFFFFFB;
-      *(_OWORD *)(ExtraParameter + 16) = v20;
-      RtlInitUnicodeString((PUNICODE_STRING)v36, 0LL);
-      ExtraParameterInBlock = CmpFindExtraParameterInBlock(*(_QWORD *)(a1 + 16), ExtraParameter - 48 + 16, &v37);
-      v11 = ExtraParameterInBlock;
-      if ( ExtraParameterInBlock >= 0 )
-      {
-        v11 = -1073741771;
-        goto LABEL_15;
-      }
-      if ( ExtraParameterInBlock == -1073741772 )
-      {
-        v24 = *(_QWORD **)(v22 + 8);
-        if ( *v24 != v22 )
-          __fastfail(3u);
-        *v23 = v22;
-        ExtraParameter = 0LL;
-        v23[1] = v24;
-        *v24 = v23;
-        *(_QWORD *)(v22 + 8) = v23;
-        Buffer = (*v2)->Buffer;
-        if ( Buffer )
-          ExFreePoolWithTag(Buffer, 0x67655256u);
-        **v2 = *(PCUNICODE_STRING)P;
-        RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
-        *(_DWORD *)(a1 + 12) = 872;
-        v11 = -1073740541;
-LABEL_5:
-        if ( (unsigned int)dword_140C04420 > 5 )
+        else
         {
-          v12 = (PCUNICODE_STRING)&EmptyUnicodeString;
-          if ( (*v2)->Buffer )
-            v12 = *v2;
-          Length = v12->Length;
-          v14 = v12->Buffer;
-          v43 = v46;
-          v15 = (unsigned __int8 *)byte_14003A509;
-          LODWORD(v33) = -1073740541;
-LABEL_19:
-          v45 = v14;
-          v46[0] = Length;
-          v47 = &v33;
-          v44 = 2LL;
-          v46[1] = 0;
-          v48 = 4LL;
-          tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04420, v15, &ActivityId, 0LL, 5u, &v42);
-          goto LABEL_20;
+          v10 = -1073741771;
         }
-        goto LABEL_20;
+        goto LABEL_46;
       }
     }
+    else
+    {
+      DmaAdapter[3].Size = *((_WORD *)v41 + 25);
+      PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x67655256u);
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
+      {
+        v30 = *(UNICODE_STRING *)v40;
+        v2[10] = PoolWithTag;
+        *(_QWORD *)&PoolWithTag->Length = v2[1];
+        PoolWithTag[1] = **v2;
+        v31 = *v2[14];
+        v32 = v37;
+        v8[3] = v30;
+        *(_DWORD *)&v8[4].Length = v21;
+        v33 = *(UNICODE_STRING *)v44;
+        v8[2] = v31;
+        *(_DWORD *)(a1 + 8) = v32;
+        v34 = DmaAdapter;
+        v35 = *(UNICODE_STRING *)P;
+        v8->Buffer = (wchar_t *)a2;
+        v2[1] = (PCUNICODE_STRING)v34;
+        **v2 = v35;
+        *v2[14] = v33;
+        goto LABEL_45;
+      }
+    }
+    v10 = -1073741670;
+    goto LABEL_11;
   }
-  if ( v11 == -1073740541 )
-    goto LABEL_5;
-LABEL_15:
-  if ( (unsigned int)dword_140C04420 > 2 )
+  if ( !v9 )
+    return 0;
+  v10 = VrpBuildKeyPath(
+          (PCUNICODE_STRING)((unsigned __int64)(v9 + 1) & -(__int64)(v9 != 0LL)),
+          *v2,
+          (PUNICODE_STRING)v40);
+  if ( v10 >= 0 )
+    goto LABEL_8;
+LABEL_46:
+  if ( v10 == -1073740541 )
   {
-    v16 = (PCUNICODE_STRING)&EmptyUnicodeString;
+LABEL_47:
+    if ( (unsigned int)dword_140C02168 <= 5 )
+      goto LABEL_16;
+    v36 = (PCUNICODE_STRING)&EmptyUnicodeString;
     if ( (*v2)->Buffer )
-      v16 = *v2;
-    Length = v16->Length;
-    v14 = v16->Buffer;
-    v43 = v46;
-    v15 = (unsigned __int8 *)&word_14003A61E;
-    LODWORD(v33) = v11;
-    goto LABEL_19;
+      v36 = *v2;
+    Length = v36->Length;
+    v13 = v36->Buffer;
+    v47 = v50;
+    v14 = byte_140024260;
+    LODWORD(v37) = -1073740541;
+    goto LABEL_15;
   }
-LABEL_20:
+LABEL_11:
+  if ( (unsigned int)dword_140C02168 > 2 )
+  {
+    v11 = (PCUNICODE_STRING)&EmptyUnicodeString;
+    if ( (*v2)->Buffer )
+      v11 = *v2;
+    Length = v11->Length;
+    v13 = v11->Buffer;
+    v47 = v50;
+    v14 = byte_140024335;
+    LODWORD(v37) = v10;
+LABEL_15:
+    v49 = v13;
+    v50[0] = Length;
+    v51 = &v37;
+    v48 = 2LL;
+    v50[1] = 0;
+    v52 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02168, (unsigned __int8 *)v14, &ActivityId, 0LL, 5u, &v46);
+  }
+LABEL_16:
   if ( v8 )
-    ExFreePoolWithTag((PVOID)v8, 0x67655256u);
+    ExFreePoolWithTag(v8, 0x67655256u);
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0x67655256u);
-  if ( Object )
-    ObfDereferenceObject(Object);
-  if ( v36[1] )
-    ExFreePoolWithTag(v36[1], 0x67655256u);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  if ( v40[1] )
+    ExFreePoolWithTag(v40[1], 0x67655256u);
   if ( ExtraParameter )
-    CmpFreeExtraParameter(ExtraParameter - 48);
-  return (unsigned int)v11;
+    CmpFreeExtraParameter(ExtraParameter - 6);
+  return (unsigned int)v10;
 }

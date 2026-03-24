@@ -1,280 +1,236 @@
 /*
- * XREFs of NtDxgkGetProcessList @ 0x1C02D6800
+ * XREFs of NtDxgkGetProcessList @ 0x1C0227840
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00074A8 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEBU_LUID@@@Z @ 0x1C00088CC (-AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEBU_LUID@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z @ 0x1C02C17F8 (-QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@I@Z @ 0x1C02CDD3C (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z @ 0x1C000A33C (-AssignByLuid@DXGADAPTER_REFERENCE@@QEAA_NAEAU_LUID@@@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019574 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z @ 0x1C0216FC8 (-QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@I@Z @ 0x1C02214EC (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3.c)
  */
 
 __int64 __fastcall NtDxgkGetProcessList(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  ULONG64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 LowPart; // rbx
+  __int64 v4; // rdx
+  ULONG64 v5; // rax
+  void *v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
-  bool v11; // sf
-  DXGADAPTER *v12; // rbx
-  __int64 v13; // rbx
-  __int64 HighPart; // rdi
-  __int64 v15; // rbx
-  __int64 v16; // rdi
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  signed int ProcessAdapterInfo; // eax
-  unsigned int v20; // ebx
-  HANDLE *v21; // rdi
-  __int64 v22; // r14
+  _QWORD *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  DXGADAPTER *v16; // rdi
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  _QWORD *v20; // rax
+  __int64 v21; // rdi
+  __int64 v22; // rdx
   __int64 v23; // rcx
   __int64 v24; // r8
-  bool v25; // sf
-  _DWORD *v26; // rcx
-  unsigned int v27; // eax
-  size_t v28; // r8
-  void *v29; // rcx
-  int v30; // [rsp+50h] [rbp-298h] BYREF
-  __int64 v31; // [rsp+58h] [rbp-290h]
-  char v32; // [rsp+60h] [rbp-288h]
-  struct _LUID v33[2]; // [rsp+68h] [rbp-280h] BYREF
-  void *Src; // [rsp+78h] [rbp-270h]
-  DXGADAPTER *v35[2]; // [rsp+80h] [rbp-268h] BYREF
-  signed int v36; // [rsp+90h] [rbp-258h]
-  char v37[8]; // [rsp+98h] [rbp-250h] BYREF
-  DXGADAPTER *v38; // [rsp+A0h] [rbp-248h]
-  char v39; // [rsp+A8h] [rbp-240h]
-  void *v40; // [rsp+B0h] [rbp-238h]
-  PVOID P; // [rsp+C0h] [rbp-228h] BYREF
-  _BYTE v42[512]; // [rsp+C8h] [rbp-220h] BYREF
-  int v43; // [rsp+2C8h] [rbp-20h]
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  _QWORD *v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  int ProcessAdapterInfo; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rax
+  HANDLE *v36; // rsi
+  __int64 v37; // r14
+  _DWORD *v38; // rcx
+  unsigned int HighPart; // eax
+  size_t v40; // r8
+  void *v41; // rcx
+  int v42; // [rsp+20h] [rbp-2A8h] BYREF
+  __int64 v43; // [rsp+28h] [rbp-2A0h]
+  char v44; // [rsp+30h] [rbp-298h]
+  struct _LUID v45[2]; // [rsp+38h] [rbp-290h] BYREF
+  void *Src; // [rsp+48h] [rbp-280h]
+  DXGADAPTER *v47[2]; // [rsp+50h] [rbp-278h] BYREF
+  int v48; // [rsp+60h] [rbp-268h]
+  _BYTE v49[8]; // [rsp+68h] [rbp-260h] BYREF
+  DXGADAPTER *v50; // [rsp+70h] [rbp-258h]
+  char v51; // [rsp+78h] [rbp-250h]
+  void *v52; // [rsp+80h] [rbp-248h]
+  PVOID P; // [rsp+90h] [rbp-238h] BYREF
+  _BYTE v54[512]; // [rsp+98h] [rbp-230h] BYREF
+  int v55; // [rsp+298h] [rbp-30h]
 
-  v30 = -1;
-  v31 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v42 = -1;
+  v43 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v32 = 1;
-    v30 = 2203;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v44 = 1;
+    v42 = 2203;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2203);
   }
   else
   {
-    v32 = 0;
+    v44 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v30, 2203);
-  v40 = 0LL;
-  v35[0] = 0LL;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v42, 2203LL);
+  v52 = 0LL;
+  v47[0] = 0LL;
   P = 0LL;
-  v43 = 0;
-  v4 = a1;
+  v55 = 0;
+  v5 = a1;
   if ( a1 >= MmUserProbeAddress )
-    v4 = MmUserProbeAddress;
-  *(_OWORD *)&v33[0].LowPart = *(_OWORD *)v4;
-  Src = *(void **)(v4 + 16);
+    v5 = MmUserProbeAddress;
+  *(_OWORD *)&v45[0].LowPart = *(_OWORD *)v5;
+  Src = *(void **)(v5 + 16);
+  v6 = Src;
   if ( Src )
   {
-    if ( v33[1].HighPart )
+    if ( v45[1].HighPart )
     {
-      v40 = Src;
-      Src = (void *)PagedPoolZeroedArray<_D3DKMT_GETPROCESSLIST_PER_PROCESS,64>::AllocateElements(
-                      (__int64 *)&P,
-                      v33[1].HighPart);
+      v52 = Src;
+      Src = PagedPoolZeroedArray<_D3DKMT_GETPROCESSLIST_PER_PROCESS,64>::AllocateElements(&P, v45[1].HighPart);
       if ( !Src )
       {
-        WdLogSingleEntry1(2LL, -1073741801LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Out of memory allocating D3DKMT_GETPROCESSLIST_PER_PROCESS, returning 0x%I64x",
-          -1073741801LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        if ( P != v42 && P )
+        v7 = WdLogNewEntry5_WdError(v6, v4);
+        *(_QWORD *)(v7 + 24) = -1073741801LL;
+        WdLogEvent5_WdError(v7);
+        if ( P != v54 && P )
           ExFreePoolWithTag(P, 0);
         P = 0LL;
-        v43 = 0;
-        DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-        if ( v32 )
+        v55 = 0;
+        DXGADAPTER_REFERENCE::Assign(v47, 0LL);
+        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42, v8);
+        if ( v44 )
         {
-          LOBYTE(v5) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v5, &EventProfilerExit, v6, v30);
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+            McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v42);
         }
         return 3221225495LL;
       }
     }
   }
-  if ( v33[1].LowPart != 1024 )
+  if ( v45[1].LowPart != 1024 )
   {
-    LowPart = v33[1].LowPart;
-    WdLogSingleEntry2(2LL, v33[1].LowPart, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid DesiredAccess:0x%I64x specified, returning 0x%I64x",
-      LowPart,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-    if ( P != v42 && P )
+    v12 = (_QWORD *)WdLogNewEntry5_WdError(v6, v4);
+    v12[3] = v45[1].LowPart;
+    v12[4] = -1073741811LL;
+    goto LABEL_21;
+  }
+  DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v47, v45);
+  v16 = v47[0];
+  if ( !v47[0] )
+  {
+    v12 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+    v12[3] = v45[0].HighPart;
+    v12[4] = v45[0].LowPart;
+    v12[5] = -1073741811LL;
+LABEL_21:
+    WdLogEvent5_WdError(v12);
+    if ( P != v54 && P )
       ExFreePoolWithTag(P, 0);
     P = 0LL;
-    v43 = 0;
-    DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-    if ( !v32 )
-      return 3221225485LL;
-    v11 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_29:
-    if ( v11 )
-      McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v30);
+    v55 = 0;
+    DXGADAPTER_REFERENCE::Assign(v47, 0LL);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42, v17);
+    if ( v44 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v42);
     return 3221225485LL;
   }
-  DXGADAPTER_REFERENCE::AssignByLuid((DXGADAPTER_REFERENCE *)v35, v33);
-  v12 = v35[0];
-  if ( !v35[0] )
+  if ( !*((_QWORD *)v47[0] + 338) )
   {
-    v13 = v33[0].LowPart;
-    HighPart = v33[0].HighPart;
-    WdLogSingleEntry3(2LL, v33[0].HighPart, v33[0].LowPart, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid Adapter (0x%I64x-0x%I64x) specified, returning 0x%I64x",
-      HighPart,
-      v13,
-      -1073741811LL,
-      0LL,
-      0LL);
-    if ( P != v42 && P )
+    v20 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v15);
+    v20[3] = v45[0].HighPart;
+    v20[4] = v45[0].LowPart;
+    LODWORD(v21) = -1073741637;
+    v20[5] = -1073741637LL;
+    WdLogEvent5_WdWarning(v20);
+LABEL_30:
+    if ( P != v54 && P )
       ExFreePoolWithTag(P, 0);
     P = 0LL;
-    v43 = 0;
-    DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-    if ( !v32 )
-      return 3221225485LL;
-    LOBYTE(v9) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v11 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_29;
+    v55 = 0;
+    DXGADAPTER_REFERENCE::Assign(v47, 0LL);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42, v22);
+    if ( v44 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v42);
+    return (unsigned int)v21;
   }
-  if ( !*((_QWORD *)v35[0] + 366) )
-  {
-    v20 = -1073741637;
-    WdLogSingleEntry3(3LL, v33[0].HighPart, v33[0].LowPart, -1073741637LL);
-    if ( P != v42 && P )
-      ExFreePoolWithTag(P, 0);
-    P = 0LL;
-    v43 = 0;
-    DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-    if ( !v32 )
-      return v20;
-    LOBYTE(v23) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v25 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_71;
-  }
-  v38 = v35[0];
-  v39 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v37);
-  if ( *((_DWORD *)v12 + 50) == 1 )
+  v50 = v47[0];
+  v51 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v49);
+  if ( *((_DWORD *)v16 + 50) == 1 )
   {
     ProcessAdapterInfo = ADAPTER_RENDER::QueryProcessAdapterInfo(
-                           *((ADAPTER_RENDER **)v35[0] + 366),
+                           *((ADAPTER_RENDER **)v16 + 338),
                            (void **)Src,
-                           (unsigned int *)&v33[1].HighPart,
+                           (unsigned int *)&v45[1].HighPart,
                            0x400u);
-    v20 = ProcessAdapterInfo;
-    v36 = ProcessAdapterInfo;
+    v21 = ProcessAdapterInfo;
+    v48 = ProcessAdapterInfo;
     if ( !ProcessAdapterInfo || ProcessAdapterInfo == -1073741789 )
     {
-      v26 = (_DWORD *)(a1 + 12);
+      v38 = (_DWORD *)(a1 + 12);
       if ( a1 + 12 >= MmUserProbeAddress )
-        v26 = (_DWORD *)MmUserProbeAddress;
-      v27 = v33[1].HighPart;
-      *v26 = v33[1].HighPart;
-      if ( (v20 & 0x80000000) == 0 && v27 )
+        v38 = (_DWORD *)MmUserProbeAddress;
+      HighPart = v45[1].HighPart;
+      *v38 = v45[1].HighPart;
+      if ( (int)v21 >= 0 && HighPart )
       {
-        v28 = 8LL * v27;
-        v29 = v40;
-        if ( (unsigned __int64)v40 + v28 > MmUserProbeAddress || (char *)v40 + v28 <= v40 )
+        v40 = 8LL * HighPart;
+        v41 = v52;
+        if ( (unsigned __int64)v52 + v40 > MmUserProbeAddress || (char *)v52 + v40 <= v52 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v29, Src, v28);
+        memmove(v41, Src, v40);
       }
     }
     else
     {
-      WdLogSingleEntry1(3LL, ProcessAdapterInfo);
-      if ( v33[1].HighPart )
+      v35 = WdLogNewEntry5_WdWarning(v33, v32, v34);
+      *(_QWORD *)(v35 + 24) = v21;
+      WdLogEvent5_WdWarning(v35);
+      if ( v45[1].HighPart )
       {
-        v21 = (HANDLE *)Src;
-        v22 = (unsigned int)v33[1].HighPart;
+        v36 = (HANDLE *)Src;
+        v37 = (unsigned int)v45[1].HighPart;
         do
         {
-          if ( *v21 )
-            ZwClose(*v21);
-          ++v21;
-          --v22;
+          if ( *v36 )
+            ZwClose(*v36);
+          ++v36;
+          --v37;
         }
-        while ( v22 );
+        while ( v37 );
       }
     }
-    if ( v39 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v37);
-    if ( P != v42 && P )
-      ExFreePoolWithTag(P, 0);
-    P = 0LL;
-    v43 = 0;
-    DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-    if ( !v32 )
-      return v20;
-    v25 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_71:
-    if ( v25 )
-      McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v30);
-    return v20;
+    if ( v51 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v49);
+    goto LABEL_30;
   }
-  v15 = v33[0].LowPart;
-  v16 = v33[0].HighPart;
-  WdLogSingleEntry3(2LL, v33[0].HighPart, v33[0].LowPart, -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Adapter (0x%I64x-0x%I64x) is not active, returning 0x%I64x",
-    v16,
-    v15,
-    -1073741811LL,
-    0LL,
-    0LL);
-  if ( v39 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v37);
-  if ( P != v42 && P )
+  v27 = (_QWORD *)WdLogNewEntry5_WdError(v26, v25);
+  v27[3] = v45[0].HighPart;
+  v27[4] = v45[0].LowPart;
+  v27[5] = -1073741811LL;
+  WdLogEvent5_WdError(v27);
+  if ( v51 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v49);
+  if ( P != v54 && P )
     ExFreePoolWithTag(P, 0);
   P = 0LL;
-  v43 = 0;
-  DXGADAPTER_REFERENCE::Assign(v35, 0LL);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30);
-  if ( v32 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v30);
+  v55 = 0;
+  DXGADAPTER_REFERENCE::Assign(v47, 0LL);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42, v28);
+  if ( v44 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v42);
   return 3221226166LL;
 }

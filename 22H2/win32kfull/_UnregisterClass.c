@@ -1,139 +1,181 @@
 /*
- * XREFs of _UnregisterClass @ 0x1C00F01B0
+ * XREFs of _UnregisterClass @ 0x1C0069788
  * Callers:
- *     NtUserUnregisterClass @ 0x1C00F0040 (NtUserUnregisterClass.c)
+ *     NtUserUnregisterClass @ 0x1C0069630 (NtUserUnregisterClass.c)
  * Callees:
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     DestroyClass @ 0x1C0078FA0 (DestroyClass.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall UnregisterClass(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
 {
-  unsigned __int64 v5; // rbx
-  int v6; // r14d
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  PERESOURCE *v11; // rax
-  __int64 v12; // rdx
+  unsigned __int16 *v5; // rdi
+  int v6; // r12d
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  unsigned __int16 *v9; // rax
+  int v10; // r10d
+  __int64 v11; // r10
+  _QWORD *v12; // rdx
   __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  _WORD *v20; // rax
-  int v21; // r10d
-  __int64 v22; // rax
-  __int64 v23; // r10
-  struct _CALLPROCDATA ***v24; // r9
-  struct _CALLPROCDATA **v25; // r8
-  struct _CALLPROCDATA *v26; // rdx
-  struct _CALLPROCDATA **v27; // rcx
-  bool i; // zf
-  struct _CALLPROCDATA *v29; // rax
-  __int64 v30; // rcx
+  _QWORD *v15; // r8
+  __int64 v16; // r9
+  _QWORD *v17; // rcx
+  __int64 v18; // rax
+  unsigned __int64 v19; // rsi
+  unsigned int v20; // edx
+  int v21; // [rsp+B8h] [rbp+20h]
 
-  v5 = (unsigned __int64)a1;
+  v5 = a1;
   v6 = 0;
-  if ( !*(_QWORD *)(SGDGetUserSessionState(a1) + 8)
-    || (v11 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v8, v7, v9, v10),
-        !ExIsResourceAcquiredSharedLite(*v11)) )
+  if ( gpresUser )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 226LL);
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x164u, 0x2AuLL, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 42LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
-  CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread(v13, v12, v14);
-  ++*(_DWORD *)(CurrentThreadWin32Thread + 48);
-  if ( (v5 & 0xFFFFFFFFFFFF0000uLL) != 0 )
-  {
-    v16 = 2147483646LL;
-    v17 = 256LL;
-    v20 = &gawchAtomScratch;
-    v21 = 0;
-    v18 = 0LL;
-    while ( v17 )
+    if ( (unsigned int)((__int64 (*)(void))UserIsUserCritSecInExclusive)() )
     {
-      if ( !v16 )
-        goto LABEL_14;
-      v19 = *(unsigned __int16 *)v5;
-      if ( !(_WORD)v19 )
-        goto LABEL_14;
-      v5 += 2LL;
-      *v20++ = v19;
-      --v17;
-      --v16;
-      ++v18;
-    }
-    --v20;
-    --v18;
-    v21 = -2147483643;
-LABEL_14:
-    *v20 = 0;
-    if ( v21 < 0 )
-      LOWORD(v5) = 0;
-    else
-      LOWORD(v5) = UserFindAtom(&gawchAtomScratch, v16, v18, v19);
-  }
-  v22 = PsGetCurrentThreadWin32Thread(v17, v16, v18);
-  --*(_DWORD *)(v22 + 48);
-  v23 = *(_QWORD *)(gptiCurrent + 424LL);
-  v24 = (struct _CALLPROCDATA ***)(v23 + 344);
-  if ( !(_WORD)v5 || (v25 = *v24) == 0LL )
-  {
-LABEL_24:
-    v24 = (struct _CALLPROCDATA ***)(v23 + 352);
-    if ( (_WORD)v5 )
-    {
-      v27 = *v24;
-      for ( i = *v24 == 0LL; !i; i = v27 == 0LL )
+      ++gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
       {
-        v29 = v27[1];
-        if ( *(_WORD *)v29 == (_WORD)v5 && (*((_BYTE *)v29 + 6) & 4) == 0 )
+        v21 = ++gdwAtomicCheckSerial;
+        a1 = 0LL;
+        if ( gdwAtomicCheckLogSize )
         {
-          v6 = 1;
-          goto LABEL_31;
+          while ( *(_DWORD *)(((unsigned __int64)(unsigned int)a1 << 6) + gpAtomickCheckStacks) )
+          {
+            a1 = (unsigned __int16 *)(unsigned int)((_DWORD)a1 + 1);
+            if ( (unsigned int)a1 >= gdwAtomicCheckLogSize )
+              goto LABEL_4;
+          }
+          v19 = (unsigned __int64)(unsigned int)a1 << 6;
+          *(_DWORD *)(v19 + gpAtomickCheckStacks) = gdwAtomicCheckSerial;
+          *(_DWORD *)(v19 + gpAtomickCheckStacks + 4) = (unsigned int)PsGetCurrentThreadId();
+          *(_DWORD *)(v19 + gpAtomickCheckStacks + 8) = (MEMORY[0xFFFFF78000000320]
+                                                       * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          RtlWalkFrameChain((PVOID *)(v19 + gpAtomickCheckStacks + 16LL), 6u, 0x200u);
         }
-        v24 = (struct _CALLPROCDATA ***)v27;
-        v27 = (struct _CALLPROCDATA **)*v27;
       }
     }
-    v30 = 1411LL;
-    goto LABEL_37;
   }
-  while ( 1 )
+LABEL_4:
+  if ( ((unsigned __int64)v5 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    v26 = v25[1];
-    if ( *(_WORD *)v26 == (_WORD)v5
-      && (!a2 || HIWORD(*((_DWORD *)v26 + 16)) == WORD1(a2))
-      && (*((_BYTE *)v26 + 6) & 4) == 0 )
+    v7 = 2147483646LL;
+    v8 = 256LL;
+    v9 = gawchAtomScratch;
+    v10 = 0;
+    a1 = 0LL;
+    while ( v8 )
     {
-      break;
+      if ( !v7 || !*v5 )
+        goto LABEL_10;
+      *v9++ = *v5++;
+      --v8;
+      --v7;
+      a1 = (unsigned __int16 *)((char *)a1 + 1);
     }
-    v24 = (struct _CALLPROCDATA ***)v25;
-    v25 = (struct _CALLPROCDATA **)*v25;
-    if ( !v25 )
-      goto LABEL_24;
+    --v9;
+    a1 = (unsigned __int16 *)((char *)a1 - 1);
+    v10 = -2147483643;
+LABEL_10:
+    *v9 = 0;
+    if ( v10 < 0 )
+      LOWORD(v5) = 0;
+    else
+      LOWORD(v5) = UserFindAtom(gawchAtomScratch);
   }
-LABEL_31:
-  if ( *((_DWORD *)*v24 + 18) )
+  if ( gpresUser )
   {
-    v30 = 1412LL;
-LABEL_37:
-    UserSetLastError(v30);
-    return 0LL;
+    if ( (unsigned int)UserIsUserCritSecInExclusive(a1) )
+    {
+      --gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
+      {
+        v20 = 0;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( *(_DWORD *)(((unsigned __int64)v20 << 6) + gpAtomickCheckStacks) != v21 )
+          {
+            if ( ++v20 >= gdwAtomicCheckLogSize )
+              goto LABEL_18;
+          }
+          *(_DWORD *)(((unsigned __int64)v20 << 6) + gpAtomickCheckStacks) = 0;
+        }
+      }
+    }
   }
-  *a3 = *((_QWORD *)(*v24)[1] + 2);
-  a3[1] = *((_QWORD *)(*v24)[1] + 3);
+LABEL_18:
+  v11 = *(_QWORD *)(gptiCurrent + 424LL);
+  v12 = (_QWORD *)(v11 + 344);
+  if ( !(_WORD)v5 )
+    goto LABEL_19;
+  v15 = (_QWORD *)*v12;
+  if ( *v12 )
+  {
+    while ( 1 )
+    {
+      v16 = v15[1];
+      if ( *(_WORD *)v16 == (_WORD)v5
+        && (!a2 || HIWORD(*(_DWORD *)(v16 + 64)) == WORD1(a2))
+        && (*(_BYTE *)(v16 + 6) & 4) == 0 )
+      {
+        break;
+      }
+      v12 = v15;
+      v15 = (_QWORD *)*v15;
+      if ( !v15 )
+        goto LABEL_25;
+    }
+  }
+  else
+  {
+LABEL_25:
+    v12 = 0LL;
+  }
+  if ( !v12 )
+  {
+LABEL_19:
+    v12 = (_QWORD *)(v11 + 352);
+    if ( !(_WORD)v5 )
+      goto LABEL_20;
+    v17 = (_QWORD *)*v12;
+    if ( *v12 )
+    {
+      while ( 1 )
+      {
+        v18 = v17[1];
+        if ( *(_WORD *)v18 == (_WORD)v5 && (*(_BYTE *)(v18 + 6) & 4) == 0 )
+          break;
+        v12 = v17;
+        v17 = (_QWORD *)*v17;
+        if ( !v17 )
+          goto LABEL_37;
+      }
+    }
+    else
+    {
+LABEL_37:
+      v12 = 0LL;
+    }
+    if ( !v12 )
+    {
+LABEL_20:
+      v13 = 1411LL;
+LABEL_21:
+      UserSetLastError(v13);
+      return 0LL;
+    }
+    v6 = 1;
+  }
+  if ( *(_DWORD *)(*v12 + 72LL) )
+  {
+    v13 = 1412LL;
+    goto LABEL_21;
+  }
+  *a3 = *(_QWORD *)(*(_QWORD *)(*v12 + 8LL) + 16LL);
+  a3[1] = *(_QWORD *)(*(_QWORD *)(*v12 + 8LL) + 24LL);
   a3[2] = 0LL;
   if ( v6 )
     *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) &= ~0x2000u;
-  DestroyClass(*(struct tagPROCESSINFO **)(gptiCurrent + 424LL), v24);
+  DestroyClass(*(struct tagPROCESSINFO **)(gptiCurrent + 424LL));
   return 1LL;
 }

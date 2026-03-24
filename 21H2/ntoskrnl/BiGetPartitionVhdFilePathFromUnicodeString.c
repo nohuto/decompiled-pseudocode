@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x140803D90
+ * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x1407854D4
  * Callers:
- *     BiGetPartitionVhdFilePath @ 0x140803D60 (BiGetPartitionVhdFilePath.c)
+ *     BiGetPartitionVhdFilePath @ 0x1407854A4 (BiGetPartitionVhdFilePath.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041B840 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     BiTranslateSymbolicLinkFile @ 0x140A1DF34 (BiTranslateSymbolicLinkFile.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     BiTranslateSymbolicLinkFile @ 0x14096FFCC (BiTranslateSymbolicLinkFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
@@ -24,15 +24,16 @@ ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
   HANDLE FileHandle; // [rsp+B8h] [rbp+6Fh] BYREF
   ULONG *v11; // [rsp+C0h] [rbp+77h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   InputBuffer = 0;
   v11 = 0LL;
-  FileHandle = 0LL;
   v1 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
+  FileHandle = 0LL;
   ObjectAttributes.ObjectName = a1;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   IoStatusBlock = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenFile(&FileHandle, 0xC0100000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u) >= 0 )
   {
@@ -56,27 +57,31 @@ ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
              OutputBuffer,
              OutputBufferLength);
       if ( v5 != -1073741789 )
-      {
-        if ( v5 < 0 )
-        {
-LABEL_6:
-          ExFreePoolWithTag(v1, 0x4B444342u);
-          v1 = 0LL;
-          break;
-        }
-        if ( (int)BiTranslateSymbolicLinkFile((PCWSTR)v1) >= 0 )
-        {
-          ExFreePoolWithTag(v1, 0x4B444342u);
-          v1 = v11;
-        }
-        break;
-      }
+        goto LABEL_5;
       if ( i != 1 )
         goto LABEL_6;
       OutputBufferLength = *v1;
       ExFreePoolWithTag(v1, 0x4B444342u);
     }
+    v5 = -1073741801;
+LABEL_5:
+    if ( v5 < 0 )
+    {
+LABEL_6:
+      if ( v1 )
+      {
+        ExFreePoolWithTag(v1, 0x4B444342u);
+        v1 = 0LL;
+      }
+      goto LABEL_8;
+    }
+    if ( (int)BiTranslateSymbolicLinkFile((PCWSTR)v1) >= 0 )
+    {
+      ExFreePoolWithTag(v1, 0x4B444342u);
+      v1 = v11;
+    }
   }
+LABEL_8:
   if ( FileHandle )
     ZwClose(FileHandle);
   return v1;

@@ -1,46 +1,39 @@
 /*
- * XREFs of GreGetSprite @ 0x1C0013DE0
+ * XREFs of GreGetSprite @ 0x1C00075B4
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
  * Callees:
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00C89F8 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE028 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall GreGetSprite(Gre::Base *a1, HWND a2)
+__int64 __fastcall GreGetSprite(__int64 a1, struct PDEVOBJ *a2)
 {
-  __int64 v3; // rdi
-  struct Gre::Base::SESSION_GLOBALS *v4; // rbx
-  struct PDEVOBJ *v5; // rdx
-  _BYTE v7[32]; // [rsp+20h] [rbp-38h] BYREF
-  volatile signed __int32 *v8; // [rsp+40h] [rbp-18h]
-  Gre::Base *v9; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v2; // rbx
+  _BYTE v5[32]; // [rsp+20h] [rbp-38h] BYREF
+  volatile signed __int32 *v6; // [rsp+40h] [rbp-18h]
+  __int64 v7; // [rsp+60h] [rbp+8h] BYREF
 
-  v9 = a1;
-  v3 = 0LL;
-  v4 = Gre::Base::Globals(a1);
-  if ( (unsigned int)IsDwmActive() )
+  v7 = a1;
+  v2 = 0LL;
+  if ( g_pDwmState )
   {
-    DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v9, v5, 0, 0);
-    GreAcquireSemaphore(*((_QWORD *)v4 + 9));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v4 + 9), 7LL);
-    if ( (unsigned int)IsDwmActive() )
+    DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v7, a2, 0, 0);
+    GreAcquireSemaphore(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v5, (HWND)a2);
+    if ( v6 )
     {
-      DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v7, a2);
-      if ( v8 )
-      {
-        v3 = *(_QWORD *)v8;
-        _InterlockedDecrement(v8 + 3);
-      }
-      v8 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v7);
+      v2 = *(_QWORD *)v6;
+      _InterlockedDecrement(v6 + 3);
     }
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v4 + 9));
-    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v9);
+    v6 = 0LL;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v5);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    GreReleaseSemaphoreInternal(ghsemDwmState);
+    DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v7);
   }
-  return v3;
+  return v2;
 }

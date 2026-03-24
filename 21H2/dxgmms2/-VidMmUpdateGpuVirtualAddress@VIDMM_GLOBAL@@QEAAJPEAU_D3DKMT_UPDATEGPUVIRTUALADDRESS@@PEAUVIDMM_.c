@@ -1,23 +1,23 @@
 /*
- * XREFs of ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00DC7D4
+ * XREFs of ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00B6CC8
  * Callers:
- *     VidMmUpdateGpuVirtualAddress @ 0x1C002D670 (VidMmUpdateGpuVirtualAddress.c)
+ *     VidMmUpdateGpuVirtualAddress @ 0x1C0023250 (VidMmUpdateGpuVirtualAddress.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ @ 0x1C0002588 (-ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ.c)
- *     ??0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@111@Z @ 0x1C0002C40 (--0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUA.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     VidSchWaitForSingleSyncObject @ 0x1C0004DF0 (VidSchWaitForSingleSyncObject.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ??_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z @ 0x1C002D778 (--_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z.c)
- *     VidSchSubmitGlobalCommand @ 0x1C00A6478 (VidSchSubmitGlobalCommand.c)
- *     ?IsRangeValid@@YAE_K00@Z @ 0x1C00D7C1C (-IsRangeValid@@YAE_K00@Z.c)
- *     ?RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00E3ADC (-RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IP.c)
- *     ?RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@PEAUVIDMM_ALLOC@@PEAU_D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION@@@Z @ 0x1C00E3C64 (-RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@P.c)
- *     ?ReferenceReservedZeroVad@CVirtualAddressAllocator@@QEAAPEAUVIDMM_VAD@@_K0@Z @ 0x1C00E437C (-ReferenceReservedZeroVad@CVirtualAddressAllocator@@QEAAPEAUVIDMM_VAD@@_K0@Z.c)
+ *     ?ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ @ 0x1C0001338 (-ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     VidSchWaitForSingleSyncObject @ 0x1C0006500 (VidSchWaitForSingleSyncObject.c)
+ *     ??0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@111K@Z @ 0x1C001794C (--0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUA.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ??_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z @ 0x1C00233FC (--_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z.c)
+ *     ??2VIDMM_MAPPED_VA_RANGE@@SAPEAX_K@Z @ 0x1C005F060 (--2VIDMM_MAPPED_VA_RANGE@@SAPEAX_K@Z.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C008DD04 (VidSchSubmitGlobalCommand.c)
+ *     ?IsRangeValid@@YAE_K00@Z @ 0x1C00B0D9C (-IsRangeValid@@YAE_K00@Z.c)
+ *     ?RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00BE8F0 (-RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IP.c)
+ *     ?RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@PEAUVIDMM_ALLOC@@PEAU_D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION@@@Z @ 0x1C00BEA74 (-RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@P.c)
+ *     ?ReferenceReservedZeroVad@CVirtualAddressAllocator@@QEAAPEAUVIDMM_VAD@@_K0@Z @ 0x1C00BF19C (-ReferenceReservedZeroVad@CVirtualAddressAllocator@@QEAAPEAUVIDMM_VAD@@_K0@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::VidMmUpdateGpuVirtualAddress(
@@ -30,87 +30,94 @@ __int64 __fastcall VIDMM_GLOBAL::VidMmUpdateGpuVirtualAddress(
         struct _KSEMAPHORE **a7)
 {
   struct VIDMM_COMPANION_CONTEXT *v7; // rbx
-  struct _D3DKMT_UPDATEGPUVIRTUALADDRESS *v8; // r13
-  __int64 v10; // r12
-  __int64 v11; // r11
-  __int64 v12; // r9
-  unsigned __int64 v13; // r14
-  VIDMM_GLOBAL *v14; // r10
-  char *v15; // rsi
-  unsigned __int64 v16; // rcx
-  __int64 v17; // rax
-  UINT v18; // r15d
-  struct _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION *v19; // r14
+  struct _D3DKMT_UPDATEGPUVIRTUALADDRESS *v8; // r12
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v13; // rsi
+  __int64 v14; // r11
+  __int64 v15; // r9
+  unsigned __int64 BaseAddress; // r15
+  VIDMM_GLOBAL *v17; // r10
+  _QWORD *v18; // rdi
+  unsigned __int64 v19; // r13
+  unsigned __int64 DriverProtection; // rcx
+  __int64 v21; // rax
+  UINT v22; // r14d
+  struct _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION *v23; // rsi
   D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE OperationType; // eax
-  unsigned __int64 BaseAddress; // r12
-  unsigned __int64 v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // rax
-  _QWORD *v25; // rcx
-  _QWORD *v26; // rax
-  unsigned __int64 v27; // rax
-  unsigned __int8 v28; // al
-  unsigned __int64 v29; // rcx
-  unsigned __int64 v30; // rdx
-  struct VIDMM_ALLOC *v31; // r9
-  D3DGPU_SIZE_T AllocationSizeInBytes; // r8
-  unsigned __int64 AllocationOffsetInBytes; // r11
-  D3DGPU_SIZE_T SizeInBytes; // r13
-  unsigned __int64 v35; // rax
-  __int64 v36; // r8
-  unsigned __int64 v37; // rcx
+  PSLIST_ENTRY v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  _QWORD *v29; // rax
+  unsigned __int8 v30; // al
+  unsigned __int8 v31; // al
+  __int64 v32; // rdx
+  D3DGPU_SIZE_T AllocationSizeInBytes; // r12
+  D3DGPU_SIZE_T AllocationOffsetInBytes; // r9
+  D3DGPU_SIZE_T SizeInBytes; // r8
+  D3DGPU_SIZE_T v36; // rdx
+  unsigned __int64 v37; // rax
   __int64 Value; // rbx
-  __int64 v39; // rax
-  __int64 v40; // rcx
-  __int64 v41; // rax
-  __int64 v42; // r9
-  _QWORD *v43; // rcx
-  _QWORD *v44; // rax
-  unsigned __int64 v45; // rdx
-  __int64 v46; // rcx
-  char *v47; // rax
-  struct VIDMM_VAD *v48; // r14
-  struct VIDMM_VAD *v49; // r8
-  char *v50; // rcx
-  struct VIDMM_VAD *v51; // rax
-  struct VIDMM_VAD **v52; // rdx
-  char **v53; // rdx
-  __int128 *v54; // rcx
-  char *v55; // rbx
-  bool v56; // zf
-  __int64 v57; // rdx
-  unsigned int *v58; // r9
-  _QWORD *v59; // rsi
-  unsigned int i; // r8d
-  __int64 v61; // rax
-  volatile signed __int32 *v62; // rax
-  __int64 v63; // rcx
-  char v64; // [rsp+60h] [rbp-A0h]
-  __int128 v65; // [rsp+68h] [rbp-98h] BYREF
-  int v66; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v67; // [rsp+80h] [rbp-80h]
-  int v68; // [rsp+88h] [rbp-78h]
-  int v69; // [rsp+8Ch] [rbp-74h]
-  unsigned __int64 v70; // [rsp+90h] [rbp-70h]
-  __int64 v71; // [rsp+98h] [rbp-68h]
-  unsigned __int64 v72; // [rsp+A0h] [rbp-60h]
-  unsigned __int64 v73; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v74; // [rsp+B0h] [rbp-50h]
-  unsigned __int64 v75; // [rsp+B8h] [rbp-48h]
-  UINT64 DriverProtection; // [rsp+C0h] [rbp-40h]
-  struct VIDMM_ALLOC *v77; // [rsp+C8h] [rbp-38h]
-  __int64 v78; // [rsp+D0h] [rbp-30h]
-  __int64 v79; // [rsp+D8h] [rbp-28h]
-  unsigned __int64 v80; // [rsp+E0h] [rbp-20h]
-  union _LARGE_INTEGER Timeout; // [rsp+E8h] [rbp-18h] BYREF
-  __int64 v82; // [rsp+F0h] [rbp-10h]
-  struct VIDMM_VAD *v83; // [rsp+F8h] [rbp-8h]
-  PRKSEMAPHORE Semaphore; // [rsp+100h] [rbp+0h]
-  char v85[8]; // [rsp+108h] [rbp+8h] BYREF
-  DXGPUSHLOCK *v86; // [rsp+110h] [rbp+10h]
-  int v87; // [rsp+118h] [rbp+18h]
-  _QWORD v88[18]; // [rsp+120h] [rbp+20h] BYREF
-  bool v93; // [rsp+1F0h] [rbp+F0h]
+  PSLIST_ENTRY v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // r9
+  _QWORD *v45; // rcx
+  _QWORD *v46; // rax
+  _QWORD *v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // r8
+  __int64 v51; // rax
+  _QWORD *v52; // rax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  struct VIDMM_VAD *v57; // rbx
+  struct VIDMM_VAD *v58; // r8
+  __int64 v59; // rax
+  _QWORD *v60; // rax
+  __int64 v61; // rcx
+  char *v62; // rcx
+  struct VIDMM_VAD *v63; // rax
+  struct VIDMM_VAD **v64; // rdx
+  char **v65; // rdx
+  __int128 *i; // rcx
+  bool v67; // zf
+  __int64 v68; // rdx
+  char *v69; // rcx
+  unsigned int j; // r8d
+  __int64 v71; // rax
+  char v72; // [rsp+78h] [rbp-90h]
+  __int128 v73; // [rsp+80h] [rbp-88h] BYREF
+  int v74; // [rsp+90h] [rbp-78h]
+  int v75; // [rsp+94h] [rbp-74h]
+  int v76; // [rsp+98h] [rbp-70h]
+  unsigned __int64 v77; // [rsp+A0h] [rbp-68h]
+  __int64 v78; // [rsp+A8h] [rbp-60h]
+  unsigned __int64 v79; // [rsp+B0h] [rbp-58h]
+  unsigned __int64 v80; // [rsp+B8h] [rbp-50h]
+  unsigned __int64 v81; // [rsp+C0h] [rbp-48h]
+  unsigned __int64 v82; // [rsp+C8h] [rbp-40h]
+  unsigned __int64 v83; // [rsp+D0h] [rbp-38h]
+  unsigned __int64 v84; // [rsp+D8h] [rbp-30h]
+  __int64 v85; // [rsp+E0h] [rbp-28h]
+  __int64 v86; // [rsp+E8h] [rbp-20h]
+  __int64 v87; // [rsp+F0h] [rbp-18h]
+  union _LARGE_INTEGER Timeout; // [rsp+F8h] [rbp-10h] BYREF
+  D3DGPU_SIZE_T v89; // [rsp+100h] [rbp-8h]
+  PRKSEMAPHORE Semaphore; // [rsp+108h] [rbp+0h]
+  struct VIDMM_VAD *v91; // [rsp+110h] [rbp+8h]
+  char v92[8]; // [rsp+118h] [rbp+10h] BYREF
+  DXGPUSHLOCK *v93; // [rsp+120h] [rbp+18h]
+  int v94; // [rsp+128h] [rbp+20h]
+  _QWORD v95[26]; // [rsp+138h] [rbp+30h] BYREF
+  bool v100; // [rsp+248h] [rbp+140h]
 
   Timeout.QuadPart = 0LL;
   v7 = a3;
@@ -119,455 +126,483 @@ __int64 __fastcall VIDMM_GLOBAL::VidMmUpdateGpuVirtualAddress(
   *a7 = (struct _KSEMAPHORE *)((char *)a3 + 24);
   if ( KeWaitForSingleObject((char *)a3 + 24, Executive, 0, 0, &Timeout) == 258 )
   {
-    WdLogSingleEntry0(3LL);
+    v11 = WdLogNewEntry5_WdWarning(v10, v9);
+    WdLogEvent5_WdWarning(v11);
     return 3223191810LL;
   }
-  v10 = *(_QWORD *)v7;
-  v11 = 0LL;
-  v12 = *((_QWORD *)v7 + 1);
-  v13 = -1LL;
-  v14 = this;
-  v15 = 0LL;
-  v71 = v10;
-  v16 = *(_QWORD *)(v10 + 16);
-  v17 = *(_QWORD *)(v12 + 96);
-  v70 = v16;
-  v69 = -1073741811;
-  v83 = 0LL;
-  v66 = *(unsigned __int16 *)(v17 + 6);
-  *((_QWORD *)&v65 + 1) = &v65;
-  *(_QWORD *)&v65 = &v65;
-  v80 = -1LL;
-  v72 = 0LL;
-  v74 = -1LL;
-  v73 = 0LL;
-  v64 = 0;
+  v13 = *(_QWORD *)v7;
+  v14 = 0LL;
+  v15 = *((_QWORD *)v7 + 1);
+  BaseAddress = -1LL;
+  v17 = this;
+  v18 = 0LL;
+  v78 = v13;
+  v19 = 0LL;
+  DriverProtection = *(_QWORD *)(v13 + 16);
+  v21 = *(_QWORD *)(v15 + 96);
+  v77 = DriverProtection;
+  v76 = -1073741811;
+  v91 = 0LL;
+  v74 = *(unsigned __int16 *)(v21 + 6);
+  *((_QWORD *)&v73 + 1) = &v73;
+  *(_QWORD *)&v73 = &v73;
+  v79 = -1LL;
+  v80 = 0LL;
+  v83 = -1LL;
+  v82 = 0LL;
+  v72 = 0;
   if ( *((_QWORD *)this + 5123) )
   {
     VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVa(
       this,
       1u,
-      *(struct VIDMM_PROCESS **)(v10 + 96),
-      (struct _VIDSCH_CONTEXT *)v12,
+      *(struct VIDMM_PROCESS **)(v13 + 96),
+      (struct _VIDSCH_CONTEXT *)v15,
       v8->NumOperations,
       a6,
       v8->FenceValue);
-    v14 = this;
-    v11 = 0LL;
-    v16 = v70;
+    v17 = this;
+    v14 = 0LL;
+    DriverProtection = v77;
   }
-  v18 = 0;
+  v22 = 0;
   if ( !v8->NumOperations )
   {
-LABEL_80:
+LABEL_79:
     if ( (v8->Flags.Value & 1) == 0 )
     {
-      *((_BYTE *)a6 + 25) = v11;
-      v69 = VidSchWaitForSingleSyncObject(*((_QWORD *)v7 + 1), (__int64)a6, v8->FenceValue);
-      if ( v69 < 0 )
+      *((_BYTE *)a6 + 25) = v14;
+      v76 = VidSchWaitForSingleSyncObject(*((_QWORD *)v7 + 1), (__int64)a6, v8->FenceValue);
+      if ( v76 < 0 )
       {
-        WdLogSingleEntry1(1LL, 26163LL);
-        DxgkLogInternalTriageEvent(v46, 0x40000LL);
-        goto LABEL_107;
+        v51 = WdLogNewEntry5_WdAssertion(v49, v48, v50);
+        *(_QWORD *)(v51 + 24) = 26002LL;
+        WdLogEvent5_WdAssertion(v51);
+        goto LABEL_100;
       }
     }
-    v47 = (char *)operator new(184LL, 0x39346956u, 256LL);
-    v15 = v47;
-    if ( !v47 )
+    v52 = operator new[](0xB8uLL, 0x39346956u, PagedPool);
+    v18 = v52;
+    if ( v52 )
     {
-      WdLogSingleEntry0(3LL);
-      v15 = 0LL;
-      goto LABEL_107;
-    }
-    memset(v47, 0, 0xB8uLL);
-    *((_QWORD *)v15 + 13) = v15 + 96;
-    *((_QWORD *)v15 + 12) = v15 + 96;
-    *((_QWORD *)v15 + 7) = v15 + 48;
-    *((_QWORD *)v15 + 6) = v15 + 48;
-    *((_QWORD *)v15 + 1) = this;
-    *((_DWORD *)v15 + 5) = v8->NumOperations;
-    *((_QWORD *)v15 + 10) = v8->FenceValue + 1;
-    *((_DWORD *)v15 + 4) = v66;
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v85, (struct _KTHREAD **)(v10 + 56), 0);
-    DXGPUSHLOCK::AcquireExclusive(v86);
-    v87 = 2;
-    v48 = CVirtualAddressAllocator::ReferenceReservedZeroVad((CVirtualAddressAllocator *)v10, v13, v72);
-    if ( !v48 )
-    {
-LABEL_85:
-      WdLogSingleEntry0(3LL);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v85);
-      goto LABEL_107;
-    }
-    if ( v64 )
-    {
-      v49 = CVirtualAddressAllocator::ReferenceReservedZeroVad((CVirtualAddressAllocator *)v10, v74, v73);
-      if ( !v49 )
-        goto LABEL_85;
+      memset(v52, 0, 0xB8uLL);
+      v18[13] = v18 + 12;
+      v18[12] = v18 + 12;
+      v18[7] = v18 + 6;
+      v18[6] = v18 + 6;
     }
     else
     {
-      v49 = v83;
+      v18 = 0LL;
     }
-    *((_QWORD *)v15 + 14) = v48;
-    *((_QWORD *)v15 + 18) = v15 + 112;
-    v50 = (char *)v48 + 80;
-    *((_QWORD *)v15 + 15) = v49;
-    *((_QWORD *)v15 + 21) = v15 + 120;
-    v51 = (struct VIDMM_VAD *)(v15 + 128);
-    v52 = (struct VIDMM_VAD **)*((_QWORD *)v48 + 11);
-    if ( *v52 != (struct VIDMM_VAD *)((char *)v48 + 80) )
-      goto LABEL_113;
-    *(_QWORD *)v51 = v50;
-    *((_QWORD *)v15 + 17) = v52;
-    *v52 = v51;
-    *((_QWORD *)v48 + 11) = v51;
-    if ( v49 )
+    if ( !v18 )
     {
-      v53 = (char **)(v15 + 152);
-      if ( *(char **)v51 != v50 )
-        goto LABEL_113;
-      *v53 = v50;
-      *((_QWORD *)v15 + 20) = v51;
-      *(_QWORD *)v51 = v53;
-      *((_QWORD *)v48 + 11) = v53;
-      v15[176] = 1;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v54, v53);
+      goto LABEL_90;
     }
-    v54 = (__int128 *)v65;
-    v55 = v15;
-    while ( v54 != &v65 )
+    v18[1] = this;
+    *((_DWORD *)v18 + 5) = v8->NumOperations;
+    v18[10] = v8->FenceValue + 1;
+    *((_DWORD *)v18 + 4) = v74;
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v92, (struct _KTHREAD **)(v13 + 56), 0);
+    DXGPUSHLOCK::AcquireExclusive(v93);
+    v94 = 2;
+    v57 = CVirtualAddressAllocator::ReferenceReservedZeroVad((CVirtualAddressAllocator *)v13, BaseAddress, v19);
+    if ( !v57 )
+      goto LABEL_99;
+    if ( v72 )
     {
-      v56 = *((_QWORD *)v54 + 9) == 0LL;
-      *((_QWORD *)v54 - 1) = v48;
-      if ( v56 )
+      v58 = CVirtualAddressAllocator::ReferenceReservedZeroVad((CVirtualAddressAllocator *)v13, v83, v82);
+      if ( !v58 )
       {
-        v57 = *((_QWORD *)v48 + 12);
-        if ( (struct VIDMM_VAD *)v57 != (struct VIDMM_VAD *)((char *)v48 + 96) )
-          *((_QWORD *)v54 + 9) = *(_QWORD *)(v57 + 72);
+LABEL_99:
+        v59 = WdLogNewEntry5_WdWarning(v56, v55);
+        WdLogEvent5_WdWarning(v59);
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v92);
+        goto LABEL_100;
       }
-      v54 = *(__int128 **)v54;
     }
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v85);
-    v58 = (unsigned int *)(v15 + 32);
-    *((_QWORD *)v15 + 8) = a5;
-    v59 = v15 + 96;
-    *((_DWORD *)v55 + 8) = a4;
-    *((_QWORD *)v55 + 3) = v8->Operations;
+    else
+    {
+      v58 = v91;
+    }
+    v18[14] = v57;
+    v18[18] = v18 + 14;
+    v62 = (char *)v57 + 80;
+    v18[15] = v58;
+    v18[21] = v18 + 15;
+    v63 = (struct VIDMM_VAD *)(v18 + 16);
+    v64 = (struct VIDMM_VAD **)*((_QWORD *)v57 + 11);
+    if ( *v64 != (struct VIDMM_VAD *)((char *)v57 + 80) )
+      goto LABEL_124;
+    *(_QWORD *)v63 = v62;
+    v18[17] = v64;
+    *v64 = v63;
+    *((_QWORD *)v57 + 11) = v63;
+    if ( v58 )
+    {
+      v65 = (char **)(v18 + 19);
+      if ( *(char **)v63 != v62 )
+        goto LABEL_124;
+      *v65 = v62;
+      v18[20] = v63;
+      *(_QWORD *)v63 = v65;
+      *((_QWORD *)v57 + 11) = v65;
+      *((_BYTE *)v18 + 176) = 1;
+    }
+    for ( i = (__int128 *)v73; i != &v73; i = *(__int128 **)i )
+    {
+      v67 = *((_QWORD *)i + 9) == 0LL;
+      *((_QWORD *)i - 1) = v57;
+      if ( v67 )
+      {
+        v68 = *((_QWORD *)v57 + 12);
+        if ( (struct VIDMM_VAD *)v68 != (struct VIDMM_VAD *)((char *)v57 + 96) )
+          *((_QWORD *)i + 9) = *(_QWORD *)(v68 + 72);
+      }
+    }
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v92);
+    v69 = (char *)(v18 + 12);
+    v18[8] = a5;
+    *((_DWORD *)v18 + 8) = a4;
+    v18[3] = v8->Operations;
     v8->Operations = 0LL;
-    *((_QWORD *)v55 + 9) = a6;
-    *((_QWORD *)v55 + 11) = a3;
-    *(_QWORD *)v55 = *((_QWORD *)a3 + 1);
-    if ( (__int128 *)v65 == &v65 )
+    v18[9] = a6;
+    v18[11] = a3;
+    *v18 = *((_QWORD *)a3 + 1);
+    if ( (__int128 *)v73 == &v73 )
     {
-      v59[1] = v59;
-      *v59 = v59;
+      v18[13] = v18 + 12;
+      *(_QWORD *)v69 = v69;
     }
     else
     {
-      *(_OWORD *)v59 = v65;
-      *(_QWORD *)(*v59 + 8LL) = v59;
-      **((_QWORD **)v55 + 13) = v59;
+      *(_OWORD *)v69 = v73;
+      *(_QWORD *)(*(_QWORD *)v69 + 8LL) = v69;
+      *(_QWORD *)v18[13] = v69;
     }
-    *((_QWORD *)&v65 + 1) = &v65;
-    *(_QWORD *)&v65 = &v65;
-    _InterlockedIncrement((volatile signed __int32 *)a6 + 9);
-    for ( i = 0; i < *v58; ++i )
-      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*((_QWORD *)v55 + 8) + 8LL * i) + 160LL));
-    memset(v88, 0, 0x50uLL);
-    v88[6] = v55;
-    LODWORD(v88[5]) = 2;
-    LODWORD(v88[0]) = 2;
-    v88[3] = VIDMM_GLOBAL::VidMmiUpdateGpuVirtualAddress;
-    v61 = *((_QWORD *)a3 + 1);
-    v88[4] = 0LL;
-    VidSchSubmitGlobalCommand(*(_QWORD *)(*(_QWORD *)(v61 + 104) + 32LL), (__int64)v88);
+    *((_QWORD *)&v73 + 1) = &v73;
+    *(_QWORD *)&v73 = &v73;
+    _InterlockedIncrement((volatile signed __int32 *)a6 + 8);
+    for ( j = 0; j < *((_DWORD *)v18 + 8); ++j )
+      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v18[8] + 8LL * j) + 176LL));
+    memset(v95, 0, 0x88uLL);
+    v95[6] = v18;
+    LODWORD(v95[5]) = 2;
+    LODWORD(v95[0]) = 2;
+    v95[3] = VIDMM_GLOBAL::VidMmiUpdateGpuVirtualAddress;
+    v71 = *((_QWORD *)a3 + 1);
+    v95[4] = 0LL;
+    VidSchSubmitGlobalCommand(*(_QWORD *)(*(_QWORD *)(v71 + 104) + 32LL), (__int64)v95);
     return 0LL;
   }
   while ( 1 )
   {
-    v19 = &v8->Operations[(unsigned __int64)v18];
-    OperationType = v19->OperationType;
-    if ( v19->OperationType == D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP
+    v23 = &v8->Operations[(unsigned __int64)v22];
+    OperationType = v23->OperationType;
+    if ( v23->OperationType == D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP
       || OperationType == D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT )
     {
       break;
     }
     if ( OperationType == D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP )
     {
-      BaseAddress = v19->Map.BaseAddress;
-      v22 = BaseAddress + v19->Map.SizeInBytes;
-      v67 = v22;
-      if ( *((_QWORD *)v14 + 5123) != v11 )
-      {
+      BaseAddress = v23->Map.BaseAddress;
+      v19 = BaseAddress + v23->Map.SizeInBytes;
+      if ( *((_QWORD *)v17 + 5123) != v14 )
         VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
-          v14,
-          *(struct VIDMM_PROCESS **)(v71 + 96),
+          v17,
+          *(struct VIDMM_PROCESS **)(v78 + 96),
           *((struct _VIDSCH_CONTEXT **)v7 + 1),
           0LL,
-          v19);
-        v22 = v67;
-      }
-      if ( !IsRangeValid(BaseAddress, v22, v70) )
-        goto LABEL_107;
-      v23 = operator new(136LL, 0x39346956u, 256LL);
-      if ( !v23
-        || (v24 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
-                    v23,
-                    0LL,
-                    BaseAddress,
-                    v67,
-                    v66,
-                    0LL,
-                    0LL,
-                    (v19->Unmap.Protection.Value & 8) == 0 ? 6 : 0,
-                    v19->Unmap.Protection.Value,
-                    0LL,
-                    0LL,
-                    0LL)) == 0 )
+          &v8->Operations[(unsigned __int64)v22]);
+      if ( !IsRangeValid(BaseAddress, v19, v77) )
+        goto LABEL_100;
+      v25 = VIDMM_MAPPED_VA_RANGE::operator new();
+      v14 = 0LL;
+      if ( v25 )
+        v28 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
+                (__int64)v25,
+                0LL,
+                BaseAddress,
+                v19,
+                v74,
+                0LL,
+                0LL,
+                (v23->Copy.DestAddress & 8) == 0 ? 6 : 0,
+                v23->Unmap.Protection.Value,
+                0LL,
+                0LL,
+                0LL,
+                0);
+      else
+        v28 = 0LL;
+      if ( !v28 )
       {
-        WdLogSingleEntry1(3LL, 26079LL);
-        goto LABEL_107;
+        v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v27, v26);
+        v47[3] = 25918LL;
+        goto LABEL_90;
       }
-      v25 = (_QWORD *)*((_QWORD *)&v65 + 1);
-      v26 = (_QWORD *)(v24 + 8);
-      if ( **((__int128 ***)&v65 + 1) == &v65 )
+      DriverProtection = *((_QWORD *)&v73 + 1);
+      v29 = (_QWORD *)(v28 + 8);
+      if ( **((__int128 ***)&v73 + 1) == &v73 )
       {
-        v26[1] = *((_QWORD *)&v65 + 1);
-        *v26 = &v65;
-        *v25 = v26;
-        *((_QWORD *)&v65 + 1) = v26;
-        goto LABEL_57;
+        v29[1] = *((_QWORD *)&v73 + 1);
+        v9 = (unsigned __int64)&v73;
+        *v29 = &v73;
+        *(_QWORD *)DriverProtection = v29;
+        *((_QWORD *)&v73 + 1) = v29;
+        goto LABEL_63;
       }
-LABEL_113:
+LABEL_124:
       __fastfail(3u);
     }
     if ( OperationType != D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY )
-      goto LABEL_73;
-    BaseAddress = v19->Unmap.Protection.Value;
-    v27 = BaseAddress + v19->Map.SizeInBytes;
-    v67 = v27;
-    if ( *((_QWORD *)v14 + 5123) != v11 )
-    {
+      goto LABEL_83;
+    BaseAddress = v23->Unmap.Protection.Value;
+    v19 = BaseAddress + v23->Map.SizeInBytes;
+    if ( *((_QWORD *)v17 + 5123) != v14 )
       VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
-        v14,
-        *(struct VIDMM_PROCESS **)(v71 + 96),
+        v17,
+        *(struct VIDMM_PROCESS **)(v78 + 96),
         *((struct _VIDSCH_CONTEXT **)v7 + 1),
         0LL,
-        v19);
-      v27 = v67;
-    }
-    v28 = IsRangeValid(BaseAddress, v27, v70);
-    v11 = 0LL;
-    if ( !v28 )
-      goto LABEL_107;
-    v29 = v19->Map.BaseAddress;
-    v30 = v29 + v19->Map.SizeInBytes;
-    if ( v30 <= v29 )
+        &v8->Operations[(unsigned __int64)v22]);
+    v30 = IsRangeValid(BaseAddress, v19, v77);
+    v14 = 0LL;
+    if ( !v30 )
+      goto LABEL_100;
+    DriverProtection = v23->Map.BaseAddress;
+    v9 = DriverProtection + v23->Map.SizeInBytes;
+    if ( v9 <= DriverProtection )
     {
-      v36 = 26104LL;
-      goto LABEL_78;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+      v47[4] = 25943LL;
+      goto LABEL_89;
     }
-    if ( (v29 & 0xFFF) != 0 || (v30 & 0xFFF) != 0 )
+    if ( (DriverProtection & 0xFFF) != 0 || (v9 & 0xFFF) != 0 )
     {
-      v36 = 26109LL;
-      goto LABEL_78;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+      v47[4] = 25948LL;
+      goto LABEL_89;
     }
-    if ( BaseAddress < v30 && v67 > v29 )
+    if ( BaseAddress < v9 && v19 > DriverProtection )
     {
-      v36 = 26115LL;
-      goto LABEL_78;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+      v47[4] = 25954LL;
+      goto LABEL_89;
     }
-    v64 = 1;
-    if ( v74 <= v29 )
-      v29 = v74;
-    v74 = v29;
-    if ( v73 >= v30 )
-      v30 = v73;
-    v73 = v30;
-LABEL_57:
-    v14 = this;
-LABEL_58:
-    if ( v67 <= BaseAddress )
+    v72 = 1;
+    if ( v83 <= DriverProtection )
+      DriverProtection = v83;
+    v83 = DriverProtection;
+    if ( v82 >= v9 )
+      v9 = v82;
+    v82 = v9;
+LABEL_63:
+    v17 = this;
+LABEL_64:
+    if ( v19 <= BaseAddress )
     {
-LABEL_73:
-      v36 = 26135LL;
-      goto LABEL_78;
+LABEL_83:
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+      v47[4] = 25974LL;
+      goto LABEL_89;
     }
-    if ( ((BaseAddress | v67) & 0xFFF) != 0 )
+    if ( ((BaseAddress | v19) & 0xFFF) != 0 )
     {
-      v36 = 26140LL;
-      goto LABEL_78;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+      v47[4] = 25979LL;
+      goto LABEL_89;
     }
-    v13 = v80;
-    v45 = v72;
-    if ( v80 > BaseAddress )
-      v13 = BaseAddress;
-    v80 = v13;
-    if ( v72 < v67 )
-      v45 = v67;
-    ++v18;
-    v72 = v45;
-    if ( v18 >= v8->NumOperations )
+    if ( v79 <= BaseAddress )
+      BaseAddress = v79;
+    v79 = BaseAddress;
+    if ( v80 >= v19 )
+      v19 = v80;
+    ++v22;
+    v80 = v19;
+    if ( v22 >= v8->NumOperations )
     {
-      v10 = v71;
-      goto LABEL_80;
+      v13 = v78;
+      goto LABEL_79;
     }
-    v16 = v70;
+    DriverProtection = v77;
   }
-  BaseAddress = v19->Map.BaseAddress;
-  v67 = BaseAddress + v19->Map.SizeInBytes;
-  if ( !IsRangeValid(BaseAddress, v67, v16) )
-    goto LABEL_107;
-  v14 = this;
-  v31 = a5[v19->Map.hAllocation];
-  v77 = v31;
+  BaseAddress = v23->Map.BaseAddress;
+  v19 = BaseAddress + v23->Map.SizeInBytes;
+  v31 = IsRangeValid(BaseAddress, v19, DriverProtection);
+  v14 = 0LL;
+  if ( !v31 )
+    goto LABEL_100;
+  v17 = this;
+  DriverProtection = (unsigned __int64)a5[v23->Map.hAllocation];
+  v81 = DriverProtection;
   if ( *((_QWORD *)this + 5123) )
   {
     VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
       this,
-      *(struct VIDMM_PROCESS **)(v71 + 96),
+      *(struct VIDMM_PROCESS **)(v78 + 96),
       *((struct _VIDSCH_CONTEXT **)v7 + 1),
-      v31,
-      v19);
-    v14 = this;
-    v31 = v77;
+      (struct VIDMM_ALLOC *)DriverProtection,
+      v23);
+    v17 = this;
+    v14 = 0LL;
+    DriverProtection = v81;
   }
-  AllocationSizeInBytes = v19->Map.AllocationSizeInBytes;
-  if ( (AllocationSizeInBytes & 0xFFF) == 0 )
+  AllocationSizeInBytes = v23->Map.AllocationSizeInBytes;
+  if ( (AllocationSizeInBytes & 0xFFF) != 0
+    || (AllocationOffsetInBytes = v23->Map.AllocationOffsetInBytes, (AllocationOffsetInBytes & 0xFFF) != 0) )
   {
-    AllocationOffsetInBytes = v19->Map.AllocationOffsetInBytes;
-    v75 = AllocationOffsetInBytes;
-    if ( (AllocationOffsetInBytes & 0xFFF) == 0 )
-    {
-      SizeInBytes = v19->Map.SizeInBytes;
-      if ( AllocationSizeInBytes )
-      {
-        if ( AllocationSizeInBytes > SizeInBytes )
-        {
-          WdLogSingleEntry1(3LL, v18);
-          goto LABEL_107;
-        }
-        if ( SizeInBytes % AllocationSizeInBytes )
-        {
-          v36 = 25976LL;
-          goto LABEL_78;
-        }
-      }
-      else
-      {
-        v19->Map.AllocationSizeInBytes = SizeInBytes;
-        AllocationSizeInBytes = SizeInBytes;
-      }
-      if ( AllocationSizeInBytes + AllocationOffsetInBytes < AllocationOffsetInBytes
-        || AllocationSizeInBytes + AllocationOffsetInBytes > *(_QWORD *)(**(_QWORD **)v31 + 16LL) )
-      {
-        WdLogSingleEntry3(3LL, *(_QWORD *)(**(_QWORD **)v31 + 16LL), v18, 25987LL);
-        goto LABEL_107;
-      }
-      if ( (*((_BYTE *)v14 + 40937) & 4) != 0 )
-      {
-        LODWORD(v35) = 1;
-        v79 = 1LL;
-        v93 = SizeInBytes != AllocationSizeInBytes;
-        v11 = 0LL;
-      }
-      else
-      {
-        v35 = SizeInBytes / AllocationSizeInBytes;
-        v11 = 0LL;
-        v79 = v35;
-        SizeInBytes = AllocationSizeInBytes;
-        v93 = 0;
-        v75 = 0LL;
-        if ( v35 >= 0xFFFFFFFF )
-        {
-          v36 = 26010LL;
-          goto LABEL_78;
-        }
-      }
-      v37 = BaseAddress;
-      DriverProtection = 0LL;
-      v78 = BaseAddress;
-      if ( v19->OperationType )
-      {
-        Value = v19->MapProtect.Protection.Value;
-        DriverProtection = v19->MapProtect.DriverProtection;
-      }
-      else
-      {
-        Value = 1LL;
-      }
-      v68 = 0;
-      if ( (_DWORD)v35 )
-      {
-        while ( 1 )
-        {
-          v82 = v37 + SizeInBytes;
-          v39 = operator new(136LL, 0x39346956u, 256LL);
-          if ( !v39 )
-            break;
-          v40 = v93 ? v19->Map.AllocationSizeInBytes >> 12 : 0LL;
-          v41 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
-                  v39,
-                  0LL,
-                  v78,
-                  v82,
-                  v66,
-                  (__int64)v77,
-                  v19->Map.AllocationOffsetInBytes,
-                  1,
-                  Value,
-                  DriverProtection,
-                  v40,
-                  v75);
-          if ( !v41 )
-            break;
-          v43 = (_QWORD *)*((_QWORD *)&v65 + 1);
-          v44 = (_QWORD *)(v41 + 8);
-          if ( **((__int128 ***)&v65 + 1) != &v65 )
-            goto LABEL_113;
-          v44[1] = *((_QWORD *)&v65 + 1);
-          *v44 = &v65;
-          *v43 = v44;
-          v37 = v42;
-          *((_QWORD *)&v65 + 1) = v44;
-          v78 = v42;
-          if ( ++v68 >= (unsigned int)v79 )
-          {
-            v8 = a2;
-            v7 = a3;
-            goto LABEL_57;
-          }
-        }
-        WdLogSingleEntry1(3LL, 26043LL);
-        goto LABEL_107;
-      }
-      v8 = a2;
-      v7 = a3;
-      goto LABEL_58;
-    }
+    v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v32);
+    v47[4] = 25792LL;
+    goto LABEL_89;
   }
-  v36 = 25953LL;
-LABEL_78:
-  WdLogSingleEntry2(3LL, v18, v36);
-LABEL_107:
-  KeReleaseSemaphore(Semaphore, 0, 1, 0);
-  if ( v15 )
-    VIDMM_DEVICE_COMMAND_UPDATEGPUVA::`scalar deleting destructor'((VIDMM_DEVICE_COMMAND_UPDATEGPUVA *)v15);
+  SizeInBytes = v23->Map.SizeInBytes;
+  if ( AllocationSizeInBytes )
+  {
+    if ( AllocationSizeInBytes > SizeInBytes )
+    {
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v32);
+    }
+    else
+    {
+      if ( !(SizeInBytes % AllocationSizeInBytes) )
+        goto LABEL_41;
+      v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, SizeInBytes % AllocationSizeInBytes);
+      v47[4] = 25815LL;
+    }
+LABEL_89:
+    v47[3] = v22;
+    goto LABEL_90;
+  }
+  v23->Map.AllocationSizeInBytes = SizeInBytes;
+  AllocationSizeInBytes = SizeInBytes;
+LABEL_41:
+  v36 = AllocationSizeInBytes + AllocationOffsetInBytes;
+  if ( AllocationSizeInBytes + AllocationOffsetInBytes < AllocationOffsetInBytes
+    || (DriverProtection = **(_QWORD **)DriverProtection, v36 > *(_QWORD *)(DriverProtection + 16)) )
+  {
+    v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v36);
+    v47[3] = *(_QWORD *)(**(_QWORD **)v81 + 16LL);
+    v47[4] = v22;
+    v47[5] = 25826LL;
+    goto LABEL_90;
+  }
+  LOBYTE(DriverProtection) = *((_BYTE *)v17 + 40937) & 4;
+  if ( (_BYTE)DriverProtection )
+  {
+    v9 = 1LL;
+    v87 = 1LL;
+    v100 = SizeInBytes != AllocationSizeInBytes;
+  }
+  else
+  {
+    v100 = 0;
+    v9 = SizeInBytes / AllocationSizeInBytes;
+    v87 = SizeInBytes / AllocationSizeInBytes;
+  }
+  v89 = AllocationOffsetInBytes & -(__int64)((_BYTE)DriverProtection != 0);
+  if ( (_BYTE)DriverProtection )
+    AllocationSizeInBytes = SizeInBytes;
+  if ( v9 >= 0xFFFFFFFF )
+  {
+    v47 = (_QWORD *)WdLogNewEntry5_WdWarning(DriverProtection, v9);
+    v47[4] = 25849LL;
+    goto LABEL_89;
+  }
+  v37 = BaseAddress;
+  v84 = 0LL;
+  v86 = BaseAddress;
+  if ( v23->OperationType )
+  {
+    DriverProtection = v23->MapProtect.DriverProtection;
+    Value = v23->MapProtect.Protection.Value;
+    v84 = DriverProtection;
+  }
+  else
+  {
+    Value = 1LL;
+  }
+  v75 = 0;
+  if ( !(_DWORD)v9 )
+  {
+    v8 = a2;
+    v7 = a3;
+    goto LABEL_64;
+  }
   while ( 1 )
   {
-    v62 = (volatile signed __int32 *)v65;
-    if ( (__int128 *)v65 == &v65 )
-      return (unsigned int)v69;
-    if ( *(__int128 **)(v65 + 8) != &v65 )
-      goto LABEL_113;
-    v63 = *(_QWORD *)v65;
-    if ( *(_QWORD *)(*(_QWORD *)v65 + 8LL) != (_QWORD)v65 )
-      goto LABEL_113;
-    *(_QWORD *)&v65 = *(_QWORD *)v65;
-    *(_QWORD *)(v63 + 8) = &v65;
-    *((_QWORD *)v62 + 1) = 0LL;
-    *(_QWORD *)v62 = 0LL;
-    VIDMM_MAPPED_VA_RANGE::ReleaseVaRangeReference(v62 - 2);
+    v85 = AllocationSizeInBytes + v37;
+    v39 = VIDMM_MAPPED_VA_RANGE::operator new();
+    v14 = 0LL;
+    if ( v39 )
+    {
+      v42 = v100 ? v23->Map.AllocationSizeInBytes >> 12 : 0LL;
+      v43 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
+              (__int64)v39,
+              0LL,
+              v86,
+              v85,
+              v74,
+              v81,
+              v23->Map.AllocationOffsetInBytes,
+              1,
+              Value,
+              v84,
+              v42,
+              v89,
+              0);
+    }
+    else
+    {
+      v44 = v85;
+      v43 = 0LL;
+    }
+    if ( !v43 )
+      break;
+    v45 = (_QWORD *)*((_QWORD *)&v73 + 1);
+    v46 = (_QWORD *)(v43 + 8);
+    if ( **((__int128 ***)&v73 + 1) != &v73 )
+      goto LABEL_124;
+    v46[1] = *((_QWORD *)&v73 + 1);
+    v9 = (unsigned __int64)&v73;
+    *v46 = &v73;
+    *v45 = v46;
+    DriverProtection = (unsigned int)(v75 + 1);
+    *((_QWORD *)&v73 + 1) = v46;
+    v37 = v44;
+    v75 = DriverProtection;
+    v86 = v44;
+    if ( (unsigned int)DriverProtection >= (unsigned int)v87 )
+    {
+      v8 = a2;
+      v7 = a3;
+      goto LABEL_63;
+    }
+  }
+  v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v41, v40);
+  v47[3] = 25882LL;
+LABEL_90:
+  WdLogEvent5_WdWarning(v47);
+LABEL_100:
+  KeReleaseSemaphore(Semaphore, 0, 1, 0);
+  if ( v18 )
+    VIDMM_DEVICE_COMMAND_UPDATEGPUVA::`scalar deleting destructor'((VIDMM_DEVICE_COMMAND_UPDATEGPUVA *)v18);
+  while ( 1 )
+  {
+    v60 = (_QWORD *)v73;
+    if ( (__int128 *)v73 == &v73 )
+      return (unsigned int)v76;
+    if ( *(__int128 **)(v73 + 8) != &v73 )
+      goto LABEL_124;
+    v61 = *(_QWORD *)v73;
+    if ( *(_QWORD *)(*(_QWORD *)v73 + 8LL) != (_QWORD)v73 )
+      goto LABEL_124;
+    *(_QWORD *)&v73 = *(_QWORD *)v73;
+    *(_QWORD *)(v61 + 8) = &v73;
+    v60[1] = 0LL;
+    *v60 = 0LL;
+    VIDMM_MAPPED_VA_RANGE::ReleaseVaRangeReference((VIDMM_MAPPED_VA_RANGE *)(v60 - 1), (unsigned int)&v73);
   }
 }

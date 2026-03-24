@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCombineAllPhysicalMemory @ 0x1406D41D0
+ * XREFs of MiCombineAllPhysicalMemory @ 0x1406D41B0
  * Callers:
- *     MiCombineIdenticalPages @ 0x1406D1598 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x1406D1578 (MiCombineIdenticalPages.c)
  * Callees:
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     MiPerformCombineScan @ 0x140101D40 (MiPerformCombineScan.c)
- *     MiMapArbitraryPage @ 0x14010E9F0 (MiMapArbitraryPage.c)
- *     MiReleaseArbitraryPage @ 0x140111C60 (MiReleaseArbitraryPage.c)
- *     MiReferencePageRuns @ 0x14012B6B0 (MiReferencePageRuns.c)
- *     KeQueryAffinityThread @ 0x14013B0C0 (KeQueryAffinityThread.c)
- *     MiDereferencePageRuns @ 0x140141AB0 (MiDereferencePageRuns.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiHashIsCommon @ 0x1402CBEB8 (MiHashIsCommon.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     MiPerformCombineScan @ 0x140101D60 (MiPerformCombineScan.c)
+ *     MiMapArbitraryPage @ 0x14010EA10 (MiMapArbitraryPage.c)
+ *     MiReleaseArbitraryPage @ 0x140111C80 (MiReleaseArbitraryPage.c)
+ *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
+ *     KeQueryAffinityThread @ 0x14013B0E0 (KeQueryAffinityThread.c)
+ *     MiDereferencePageRuns @ 0x140141AD0 (MiDereferencePageRuns.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiHashIsCommon @ 0x1402CBFB8 (MiHashIsCommon.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
- *     MiAllocateCrcList @ 0x1406D4688 (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x1406D4668 (MiAllocateCrcList.c)
  */
 
 __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1)

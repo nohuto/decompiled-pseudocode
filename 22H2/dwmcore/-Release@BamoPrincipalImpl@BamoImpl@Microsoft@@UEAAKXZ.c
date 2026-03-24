@@ -1,34 +1,29 @@
 /*
- * XREFs of ?Release@BamoPrincipalImpl@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800AD990
+ * XREFs of ?Release@BamoPrincipalImpl@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800D6B40
  * Callers:
  *     <none>
  * Callees:
- *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800AD14C (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800AD180 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
- *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800ADBF0 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?TryDisposeAndNotifyRemoteProxies@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAA_NXZ @ 0x1801BBD40 (-TryDisposeAndNotifyRemoteProxies@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAA_NXZ.c)
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800D71B0 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800D71E4 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800D7310 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
  */
 
-__int64 __fastcall Microsoft::BamoImpl::BamoPrincipalImpl::Release(
-        struct Microsoft::BamoImpl::ConnectionIndirector **this)
+__int64 __fastcall Microsoft::BamoImpl::BamoPrincipalImpl::Release(Microsoft::BamoImpl::BamoPrincipalImpl *this)
 {
-  bool v2; // di
-  unsigned int v3; // esi
-  __int64 v5; // rax
-  Microsoft::BamoImpl::BamoImplObject *v6; // [rsp+30h] [rbp+8h] BYREF
+  struct Microsoft::BamoImpl::ConnectionIndirector *v1; // rdx
+  unsigned int v3; // ebx
+  char v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  Microsoft::BamoImpl::InternalLock::InternalLock((Microsoft::BamoImpl::InternalLock *)&v6, this[2]);
-  v3 = Microsoft::BamoImpl::BamoImplObject::Release((Microsoft::BamoImpl::BamoImplObject *)this);
-  if ( !v3 )
-    v2 = Microsoft::BamoImpl::BamoPrincipalImpl::TryDisposeAndNotifyRemoteProxies((Microsoft::BamoImpl::BamoPrincipalImpl *)this);
-  Microsoft::BamoImpl::InternalLock::~InternalLock(&v6);
-  if ( v2 )
+  v1 = (struct Microsoft::BamoImpl::ConnectionIndirector *)*((_QWORD *)this + 2);
+  if ( *(int *)(*((_QWORD *)v1 + 4) + 8LL) <= 0 )
   {
-    v5 = (*((__int64 (__fastcall **)(struct Microsoft::BamoImpl::ConnectionIndirector **))*this + 7))(this);
-    if ( v5 )
-      (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 24LL))(v5, 1LL);
+    return Microsoft::BamoImpl::BamoImplObject::Release(this);
+  }
+  else
+  {
+    Microsoft::BamoImpl::InternalLock::InternalLock((Microsoft::BamoImpl::InternalLock *)&v5, v1);
+    v3 = Microsoft::BamoImpl::BamoImplObject::Release(this);
+    Microsoft::BamoImpl::InternalLock::~InternalLock((Microsoft::BamoImpl::InternalLock *)&v5);
   }
   return v3;
 }

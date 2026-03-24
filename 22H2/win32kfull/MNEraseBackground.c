@@ -1,17 +1,17 @@
 /*
- * XREFs of MNEraseBackground @ 0x1C0234904
+ * XREFs of MNEraseBackground @ 0x1C024C33C
  * Callers:
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
  * Callees:
- *     GreSetBrushOrg @ 0x1C0007894 (GreSetBrushOrg.c)
- *     GetDPIMetrics @ 0x1C0041140 (GetDPIMetrics.c)
- *     MNGetpItemFromIndex @ 0x1C00652C8 (MNGetpItemFromIndex.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     GreGetBrushOrg @ 0x1C02A7E0C (GreGetBrushOrg.c)
+ *     GreSetBrushOrg @ 0x1C004558C (GreSetBrushOrg.c)
+ *     MNGetpItemFromIndex @ 0x1C00480C4 (MNGetpItemFromIndex.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     GetDPIMetrics @ 0x1C00E0A9C (GetDPIMetrics.c)
+ *     GreGetBrushOrg @ 0x1C015E7E0 (GreGetBrushOrg.c)
  */
 
-__int64 __fastcall MNEraseBackground(HDC a1, __int64 a2, int a3, int a4, int a5, int a6)
+__int64 __fastcall MNEraseBackground(HDC a1, __int64 a2, LONG a3, LONG a4, int a5, int a6)
 {
   int v10; // r14d
   int v11; // edi
@@ -25,13 +25,13 @@ __int64 __fastcall MNEraseBackground(HDC a1, __int64 a2, int a3, int a4, int a5,
 
   v19 = 0LL;
   v10 = 1;
-  GreGetBrushOrg(a1);
+  GreGetBrushOrg(a1, &v19);
   v11 = 3;
-  v12 = *(_DWORD *)(*(_QWORD *)(a2 + 40) + 40LL);
+  v12 = *(_DWORD *)(*(_QWORD *)(a2 + 40) + 40LL) & 8;
   if ( (*(_DWORD *)(a2 + 124) & 3) != 0 )
   {
     v13 = *(_DWORD *)(a2 + 116);
-    if ( (v12 & 8) != 0 )
+    if ( v12 )
     {
       v11 = 0;
       LODWORD(v19) = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall MNEraseBackground(HDC a1, __int64 a2, int a3, int a4, int a5,
     HIDWORD(v19) = v14;
     goto LABEL_8;
   }
-  if ( (v12 & 8) != 0 )
+  if ( v12 )
   {
     v19 = 0x300000003LL;
     v14 = 3;

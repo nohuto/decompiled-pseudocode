@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RecordVaPagingHistoryCommit@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@_K1I1PEAU_MDL@@PEAXW4VIDMM_VAD_OWNER_TYPE@@@Z @ 0x1C00E301C
+ * XREFs of ?RecordVaPagingHistoryCommit@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@_K1I1PEAU_MDL@@PEAXW4VIDMM_VAD_OWNER_TYPE@@@Z @ 0x1C00BDCCC
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008AF00 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00705F0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryCommit(
@@ -19,7 +19,7 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryCommit(
         int a9)
 {
   __int64 v13; // rdi
-  __int64 v14; // rsi
+  _DWORD *v14; // rsi
   __int64 v15; // rcx
   void *v16; // rcx
 
@@ -29,11 +29,11 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryCommit(
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(v13, 0LL);
     *(_QWORD *)(v13 + 8) = KeGetCurrentThread();
-    v14 = operator new(64LL, 0x32356956u, 256LL);
+    v14 = operator new[](0x40uLL, 0x32356956u, PagedPool);
     if ( v14 )
     {
       v15 = *(unsigned int *)(a1 + 40992);
-      if ( (_DWORD)v15 == dword_1C006E41C )
+      if ( (_DWORD)v15 == dword_1C00503AC )
       {
         *(_DWORD *)(a1 + 40992) = 0;
         v15 = 0LL;
@@ -41,15 +41,15 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryCommit(
       v16 = *(void **)(*(_QWORD *)(a1 + 40984) + 24 * v15 + 16);
       if ( v16 )
         operator delete(v16);
-      *(_DWORD *)(v14 + 60) = a9;
-      *(_QWORD *)(v14 + 40) = a7;
-      *(_QWORD *)(v14 + 48) = a8;
-      *(_QWORD *)(v14 + 8) = a2[4];
+      v14[15] = a9;
+      *((_QWORD *)v14 + 5) = a7;
+      *((_QWORD *)v14 + 6) = a8;
+      *((_QWORD *)v14 + 1) = a2[4];
       *(_QWORD *)v14 = *a2;
-      *(_DWORD *)(v14 + 56) = a5;
-      *(_QWORD *)(v14 + 32) = a6;
-      *(_QWORD *)(v14 + 16) = a3;
-      *(_QWORD *)(v14 + 24) = a4;
+      v14[14] = a5;
+      *((_QWORD *)v14 + 4) = a6;
+      *((_QWORD *)v14 + 2) = a3;
+      *((_QWORD *)v14 + 3) = a4;
       *(_QWORD *)(*(_QWORD *)(a1 + 40984) + 24LL * *(unsigned int *)(a1 + 40992)) = MEMORY[0xFFFFF78000000014];
       *(_QWORD *)(*(_QWORD *)(a1 + 40984) + 24LL * *(unsigned int *)(a1 + 40992) + 16) = v14;
       *(_DWORD *)(*(_QWORD *)(a1 + 40984) + 24LL * (unsigned int)(*(_DWORD *)(a1 + 40992))++ + 8) = 1;

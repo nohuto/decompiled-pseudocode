@@ -1,8 +1,8 @@
 /*
- * XREFs of PpvUtilFailDriver @ 0x14028B13C
+ * XREFs of PpvUtilFailDriver @ 0x14028B23C
  * Callers:
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
  *     VfErrorReport7 @ 0x140935FB8 (VfErrorReport7.c)
  *     VfErrorReport8 @ 0x140936050 (VfErrorReport8.c)

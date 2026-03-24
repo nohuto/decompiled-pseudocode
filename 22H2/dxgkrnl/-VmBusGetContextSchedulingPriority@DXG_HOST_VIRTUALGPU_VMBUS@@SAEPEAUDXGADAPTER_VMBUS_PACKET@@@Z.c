@@ -1,70 +1,64 @@
 /*
- * XREFs of ?VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037F0C0
+ * XREFs of ?VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02421F0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B834 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkGetContextInProcessSchedulingPriority @ 0x1C02F16C0 (DxgkGetContextInProcessSchedulingPriority.c)
- *     DxgkGetContextSchedulingPriority @ 0x1C02F1B50 (DxgkGetContextSchedulingPriority.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C004065C (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkGetContextSchedulingPriority @ 0x1C00DF730 (DxgkGetContextSchedulingPriority.c)
+ *     DxgkGetContextInProcessSchedulingPriority @ 0x1C0259C40 (DxgkGetContextInProcessSchedulingPriority.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusGetContextSchedulingPriority(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
   int ContextInProcessSchedulingPriority; // eax
-  struct VMBPACKETCOMPLETION__ *v8; // rcx
-  _BYTE v10[8]; // [rsp+50h] [rbp-20h] BYREF
-  DXGPUSHLOCK *v11; // [rsp+58h] [rbp-18h]
-  int v12; // [rsp+60h] [rbp-10h]
-  int v13; // [rsp+80h] [rbp+10h] BYREF
-  int v14; // [rsp+84h] [rbp+14h]
-  __int64 v15; // [rsp+88h] [rbp+18h] BYREF
+  struct VMBPACKETCOMPLETION__ *v11; // rcx
+  _BYTE v13[8]; // [rsp+20h] [rbp-20h] BYREF
+  DXGPUSHLOCK *v14; // [rsp+28h] [rbp-18h]
+  int v15; // [rsp+30h] [rbp-10h]
+  int v16; // [rsp+50h] [rbp+10h] BYREF
+  int v17; // [rsp+54h] [rbp+14h]
+  __int64 v18; // [rsp+58h] [rbp+18h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v10, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v11);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v12 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v14);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v15 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
-    if ( v4 )
+    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
+    if ( v7 )
     {
-      v15 = *(unsigned int *)(v4 + 24);
-      if ( *(_BYTE *)(v4 + 28) )
-        ContextInProcessSchedulingPriority = DxgkGetContextInProcessSchedulingPriority((__int64)&v15, v5, v6);
+      v18 = *(unsigned int *)(v7 + 24);
+      if ( *(_BYTE *)(v7 + 28) )
+        ContextInProcessSchedulingPriority = DxgkGetContextInProcessSchedulingPriority(&v18);
       else
-        ContextInProcessSchedulingPriority = DxgkGetContextSchedulingPriority((__int64)&v15, v5, v6);
-      v8 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-      v13 = ContextInProcessSchedulingPriority;
-      v14 = HIDWORD(v15);
-      VmBusCompletePacket(v8, &v13, 8u);
-      v3 = 1;
+        ContextInProcessSchedulingPriority = DxgkGetContextSchedulingPriority((__int64)&v18, v8, v9);
+      v11 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+      v16 = ContextInProcessSchedulingPriority;
+      v17 = HIDWORD(v18);
+      VmBusCompletePacket(v11, &v16, 8u);
+      v5 = 1;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 3240LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      3240LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 2799LL;
+    WdLogEvent5_WdError(v6);
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v10);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
+  return v5;
 }

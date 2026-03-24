@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockAddThread @ 0x140A98D0C
+ * XREFs of ViDeadlockAddThread @ 0x1409DEA78
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
- *     VfDeadlockBeforeCallDriver @ 0x140A98064 (VfDeadlockBeforeCallDriver.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD24 (VfDeadlockBeforeCallDriver.c)
  * Callees:
- *     VfUtilAddressRangeAdd @ 0x140A81A04 (VfUtilAddressRangeAdd.c)
+ *     VfUtilAddressRangeAdd @ 0x1409C62CC (VfUtilAddressRangeAdd.c)
  */
 
 __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)
     *(_QWORD *)(a2 + 32) = v9;
     *(_QWORD *)(v10 + 8) = v7;
     *(_QWORD *)v9 = v7;
-    VfUtilAddressRangeAdd(&v5[2 * v8 + 2052], a1, 2288LL);
+    VfUtilAddressRangeAdd(&v5[2 * v8 + 2052], a1, 2200LL);
     ++*(_QWORD *)(v11 + 16408);
     return v12;
   }

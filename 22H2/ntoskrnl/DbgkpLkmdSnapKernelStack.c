@@ -1,70 +1,58 @@
 /*
- * XREFs of DbgkpLkmdSnapKernelStack @ 0x14053BDEC
+ * XREFs of DbgkpLkmdSnapKernelStack @ 0x1404EE1C8
  * Callers:
- *     DbgkpLkmdSnapThreadInContext @ 0x14093B21C (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x14088869C (DbgkpLkmdSnapThreadInContext.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140222B90 (KeEnumerateKernelStackSegments.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeEnumerateKernelStackSegments @ 0x140355FEC (KeEnumerateKernelStackSegments.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapKernelStack(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5, __int64 a6)
 {
-  __int64 *v6; // rsi
-  __int64 v10; // rdi
-  _QWORD *v11; // rbx
-  _QWORD v14[2]; // [rsp+48h] [rbp-B8h] BYREF
-  char v15; // [rsp+58h] [rbp-A8h]
-  int v16; // [rsp+59h] [rbp-A7h]
-  __int16 v17; // [rsp+5Dh] [rbp-A3h]
-  char v18; // [rsp+5Fh] [rbp-A1h]
-  __int64 v19; // [rsp+60h] [rbp-A0h]
-  _QWORD v20[8]; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v21[154]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v10; // rbx
+  _QWORD *v11; // rcx
+  _QWORD v13[2]; // [rsp+40h] [rbp-C0h] BYREF
+  char v14; // [rsp+50h] [rbp-B0h]
+  int v15; // [rsp+51h] [rbp-AFh]
+  __int16 v16; // [rsp+55h] [rbp-ABh]
+  char v17; // [rsp+57h] [rbp-A9h]
+  __int64 v18; // [rsp+58h] [rbp-A8h]
+  _QWORD v19[8]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v20[154]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v6 = (__int64 *)(a3 + 88);
+  v15 = 0;
   v16 = 0;
   v17 = 0;
-  v18 = 0;
+  memset(v19, 0, sizeof(v19));
   if ( a5 )
-  {
     v10 = a5[19];
-  }
   else
+    v10 = *(_QWORD *)(a3 + 88);
+  if ( !a5 && a4 )
   {
-    v10 = *v6;
-    if ( a4 )
-    {
-      memset(v21, 0, sizeof(v21));
-      v21[19] = v10;
-      v21[20] = v10;
-    }
+    memset(v20, 0, sizeof(v20));
+    v20[19] = v10;
+    v20[20] = v10;
   }
-  v14[0] = a1;
-  v14[1] = v10;
-  v15 = a4;
-  v19 = a6;
+  v13[0] = a1;
+  v13[1] = v10;
+  v14 = a4;
+  v18 = a6;
   KeEnumerateKernelStackSegments(
     a2,
     (__int64 (__fastcall *)(__int64, _OWORD *, __int64))DbgkpLkmdSnapKernelStackSegmentCallback,
-    (__int64)v14);
+    (__int64)v13);
   if ( a4 )
   {
-    v11 = v21;
+    v11 = v20;
     if ( a5 )
       v11 = a5;
-    memset(v20, 0, sizeof(v20));
-    v20[7] = v11[31];
-    v20[6] = v11[20];
-    (*(void (__fastcall **)(__int64, _QWORD *, __int64, __int64, __int64, _QWORD))(a1 + 16448))(
-      a1 + 0x4000,
-      v20,
-      64LL,
-      5LL,
-      v10 - 64,
-      0LL);
-    *v6 = v10 - 64;
+    v19[7] = v11[31];
+    v19[6] = v11[20];
+    (*(void (__fastcall **)(__int64, _QWORD *, __int64))(a1 + 10304))(a1 + 10240, v19, 64LL);
+    *(_QWORD *)(a3 + 88) = v10 - 64;
     *(_BYTE *)(a3 + 388) = -1;
   }
   return 0LL;

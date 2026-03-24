@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_ReclaimTransfers @ 0x1C000F220
+ * XREFs of Bulk_EP_ReclaimTransfers @ 0x1C000E8C0
  * Callers:
  *     <none>
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
  */
 
 __int64 __fastcall Bulk_EP_ReclaimTransfers(__int64 a1)

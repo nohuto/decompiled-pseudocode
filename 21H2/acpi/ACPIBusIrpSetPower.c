@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBusIrpSetPower @ 0x1C0030A30
+ * XREFs of ACPIBusIrpSetPower @ 0x1C002D8F0
  * Callers:
- *     ACPICMButtonSetPower @ 0x1C004D750 (ACPICMButtonSetPower.c)
+ *     ACPICMButtonSetPower @ 0x1C004EA80 (ACPICMButtonSetPower.c)
  * Callees:
- *     ACPIDockIrpSetDevicePower @ 0x1C0049450 (ACPIDockIrpSetDevicePower.c)
- *     ACPIBusIrpSetSystemPower @ 0x1C004C714 (ACPIBusIrpSetSystemPower.c)
+ *     ACPIDockIrpSetDevicePower @ 0x1C002D924 (ACPIDockIrpSetDevicePower.c)
+ *     ACPIBusIrpSetSystemPower @ 0x1C004D9C4 (ACPIBusIrpSetSystemPower.c)
  */
 
 __int64 __fastcall ACPIBusIrpSetPower(struct _DEVICE_OBJECT *a1, __int64 a2)

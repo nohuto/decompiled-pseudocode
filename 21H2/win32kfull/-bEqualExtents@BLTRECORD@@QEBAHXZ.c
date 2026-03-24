@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bEqualExtents@BLTRECORD@@QEBAHXZ @ 0x1C002CF1C
+ * XREFs of ?bEqualExtents@BLTRECORD@@QEBAHXZ @ 0x1C00B6190
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
- *     GrePlgBlt @ 0x1C028B85C (GrePlgBlt.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
+ *     GrePlgBlt @ 0x1C028DBB0 (GrePlgBlt.c)
  * Callees:
  *     <none>
  */

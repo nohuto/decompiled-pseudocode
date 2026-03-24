@@ -1,10 +1,10 @@
 /*
- * XREFs of IsForegroundLocked @ 0x1C00A6740
+ * XREFs of IsForegroundLocked @ 0x1C003D264
  * Callers:
- *     _anonymous_namespace_::CheckCanonicalForegroundAccess @ 0x1C00A66BC (_anonymous_namespace_--CheckCanonicalForegroundAccess.c)
- *     _anonymous_namespace_::CanSetForegroundWindow @ 0x1C00A94FC (_anonymous_namespace_--CanSetForegroundWindow.c)
- *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C00FFB08 (_anonymous_namespace_--FAllowForegroundActivate.c)
- *     xxxActiveWindowTracking @ 0x1C01DD47C (xxxActiveWindowTracking.c)
+ *     _anonymous_namespace_::CanSetForegroundWindow @ 0x1C003CB30 (_anonymous_namespace_--CanSetForegroundWindow.c)
+ *     ?CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z @ 0x1C003D1D4 (-CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z.c)
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C003DAA8 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     xxxActiveWindowTracking @ 0x1C01E2A2C (xxxActiveWindowTracking.c)
  * Callees:
  *     <none>
  */

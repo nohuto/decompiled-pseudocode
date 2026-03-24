@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerSetDestination @ 0x140131AA8
+ * XREFs of KiIntSteerSetDestination @ 0x140131AC8
  * Callers:
  *     KiIntSteerDistributeInterrupts @ 0x1400631A0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerConnect @ 0x14016DE84 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
  * Callees:
- *     KiIntSteerVerifyDestination @ 0x140131B24 (KiIntSteerVerifyDestination.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiIntSteerVerifyDestination @ 0x140131B44 (KiIntSteerVerifyDestination.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIntSteerSetDestination(ULONG_PTR BugCheckParameter3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulStartDxInterop@@YAHPEAU_SURFOBJ@@HPEAX@Z @ 0x1C02A2100
+ * XREFs of ?MulStartDxInterop@@YAHPEAU_SURFOBJ@@HPEAX@Z @ 0x1C02A4360
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulStartDxInterop(struct _SURFOBJ *a1, __int64 a2, void *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall MulStartDxInterop(struct _SURFOBJ *a1, __int64 a2, void *a3)
 
   v3 = 0;
   v4 = *(_QWORD *)(*((_QWORD *)a1->dhsurf + 1) + 8LL * *((unsigned int *)a1->dhsurf + 4));
-  v5 = *(unsigned int (__fastcall **)(__int64, __int64, void *, _QWORD))(*(_QWORD *)(v4 + 24) + 3456LL);
+  v5 = *(unsigned int (__fastcall **)(__int64, __int64, void *, _QWORD))(*(_QWORD *)(v4 + 24) + 3480LL);
   if ( v5 )
     return v5(v4, a2, a3, 0LL);
   return v3;

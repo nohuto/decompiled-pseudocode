@@ -1,174 +1,223 @@
 /*
- * XREFs of BmlFunctionalizePath @ 0x1C016F340
+ * XREFs of BmlFunctionalizePath @ 0x1C0142E64
  * Callers:
- *     ?BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z @ 0x1C016EF6C (-BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z.c)
+ *     ?BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z @ 0x1C0142C78 (-BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     BmlPinNextBestTargetMode @ 0x1C016F54C (BmlPinNextBestTargetMode.c)
- *     BmlIsSecondaryHardwareClonePath @ 0x1C017A300 (BmlIsSecondaryHardwareClonePath.c)
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
- *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C019A86C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
- *     BmlUnPinSourceMode @ 0x1C03BDBD0 (BmlUnPinSourceMode.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C012E69C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
+ *     BmlPinNextBestTargetMode @ 0x1C0143070 (BmlPinNextBestTargetMode.c)
+ *     BmlIsSecondaryClonePath @ 0x1C0146F70 (BmlIsSecondaryClonePath.c)
+ *     BmlGetNextBestSourceMode @ 0x1C0147254 (BmlGetNextBestSourceMode.c)
+ *     BmlUnPinSourceMode @ 0x1C02EC960 (BmlUnPinSourceMode.c)
  */
 
-__int64 __fastcall BmlFunctionalizePath(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall BmlFunctionalizePath(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4)
 {
   __int64 v5; // r13
   __int64 v8; // rax
-  __int64 v9; // rbp
-  __int64 v10; // r14
-  struct DMMVIDPNTARGETMODESET *v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  struct DMMVIDPNTARGETMODESET *v16; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  __int64 v12; // r12
+  __int64 v13; // r14
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  struct DMMVIDPNSOURCEMODESET *v16; // r14
   __int64 v17; // r12
-  __int64 v18; // rdi
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 BestTargetMode; // rbp
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbx
+  int v24; // ebp
   int NextBestSourceMode; // eax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rax
-  int v25; // ebx
-  __int64 BestTargetMode; // r14
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  VIDPN_MGR *v40; // [rsp+80h] [rbp+8h]
-  struct DMMVIDPNTARGETMODESET *v41; // [rsp+88h] [rbp+10h] BYREF
-  unsigned int v42; // [rsp+90h] [rbp+18h] BYREF
-  __int64 v43; // [rsp+98h] [rbp+20h]
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  VIDPN_MGR *v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 v45; // rax
+  _QWORD *v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  _QWORD *v50; // rax
+  struct DMMVIDPNSOURCEMODESET *v51; // [rsp+80h] [rbp+8h] BYREF
+  VIDPN_MGR *v52; // [rsp+88h] [rbp+10h]
+  unsigned int v53; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v54; // [rsp+98h] [rbp+20h]
 
-  v43 = a4;
-  v5 = (unsigned __int16)a3;
-  v8 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-  v9 = 120 * v5;
+  v54 = a4;
+  v5 = a3;
+  v8 = WdLogNewEntry5_WdTrace(a1, a2);
+  v11 = 104 * v5;
   *(_QWORD *)(v8 + 24) = v5;
   *(_QWORD *)(v8 + 32) = a2;
-  v10 = (unsigned int)v5;
-  v40 = *(VIDPN_MGR **)(a2 + 48);
-  if ( !v40 )
-    WdLogSingleEntry0(1LL);
-  v11 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*(DMMVIDPNTARGET **)(a4 + 88));
-  v41 = v11;
-  v16 = v11;
-  if ( !v11 )
+  v12 = (unsigned int)v5;
+  v52 = *(VIDPN_MGR **)(a2 + 48);
+  if ( !v52 )
   {
-    LODWORD(v18) = -1071774968;
-    goto LABEL_39;
+    v37 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v37);
   }
-  if ( *((struct DMMVIDPNTARGETMODESET **)v11 + 6) == (struct DMMVIDPNTARGETMODESET *)((char *)v11 + 48) )
+  v13 = *(_QWORD *)(a4 + 88);
+  v14 = *(_QWORD *)(v13 + 104);
+  if ( !v14 )
   {
-    LODWORD(v18) = -1071774970;
-    goto LABEL_39;
+    v51 = 0LL;
+    goto LABEL_28;
+  }
+  v15 = 1LL;
+  _InterlockedAdd((volatile signed __int32 *)(v14 + 96), 1u);
+  v16 = *(struct DMMVIDPNSOURCEMODESET **)(v13 + 104);
+  v51 = v16;
+  if ( !v16 )
+  {
+LABEL_28:
+    LODWORD(v23) = -1071774968;
+    goto LABEL_42;
+  }
+  if ( *((struct DMMVIDPNSOURCEMODESET **)v16 + 6) == (struct DMMVIDPNSOURCEMODESET *)((char *)v16 + 48) )
+  {
+    LODWORD(v23) = -1071774970;
+    goto LABEL_42;
   }
   LODWORD(v17) = -1;
-  v42 = -1;
-  if ( *(_WORD *)(a1 + v9 + 64) )
+  v53 = -1;
+  if ( *(_WORD *)(v11 + a1 + 64) )
   {
-    if ( !*((_QWORD *)v11 + 18) )
-      WdLogSingleEntry0((unsigned int)v12);
+    if ( !*((_QWORD *)v16 + 18) )
+    {
+      v40 = WdLogNewEntry5_WdAssertion(1LL, v9);
+      WdLogEvent5_WdAssertion(v40);
+    }
     BestTargetMode = (int)BmlPinNextBestTargetMode(a1, a2, (unsigned __int16)v5, a4);
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v33, v32, v34, v35) + 24) = BestTargetMode;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v42, v41) + 24) = BestTargetMode;
     if ( (int)BestTargetMode < 0 )
     {
-      if ( *(_WORD *)(a1 + v9 + 66) && !(unsigned __int8)BmlIsSecondaryHardwareClonePath(a1, (unsigned int)v5, 0LL) )
+      if ( *(_WORD *)(v11 + a1 + 66) && !(unsigned __int8)BmlIsSecondaryClonePath(a1, (unsigned int)v5, 0LL) )
       {
         LODWORD(v17) = *(_DWORD *)(*((_QWORD *)v16 + 18) + 24LL);
-        v42 = v17;
-        goto LABEL_10;
+        v53 = v17;
+        goto LABEL_19;
       }
-      WdLogNewEntry5_WdTrace(v37, v36, v38, v39);
-      *(_WORD *)(a1 + v9 + 64) = 0;
+      WdLogNewEntry5_WdTrace(v44, v43);
+      *(_WORD *)(v11 + a1 + 64) = 0;
       LODWORD(BestTargetMode) = -1071774970;
     }
-LABEL_24:
-    LODWORD(v18) = BestTargetMode;
-LABEL_17:
-    v25 = v18;
-LABEL_18:
-    LODWORD(v18) = v25;
-    goto LABEL_19;
+LABEL_12:
+    LODWORD(v23) = BestTargetMode;
+LABEL_13:
+    v24 = v23;
+LABEL_14:
+    LODWORD(v23) = v24;
+    goto LABEL_15;
   }
-  if ( !*(_WORD *)(a1 + v9 + 66) || (unsigned __int8)BmlIsSecondaryHardwareClonePath(a1, (unsigned int)v5, 0LL) )
+  if ( !*(_WORD *)(v11 + a1 + 66) || (unsigned __int8)BmlIsSecondaryClonePath(a1, (unsigned int)v5, 0LL) )
   {
-    WdLogNewEntry5_WdTrace(v13, v12, v14, v15);
+    WdLogNewEntry5_WdTrace(v15, v9);
     if ( !*((_QWORD *)v16 + 18) )
-      WdLogSingleEntry0(1LL);
+    {
+      v39 = WdLogNewEntry5_WdAssertion(v19, v18);
+      WdLogEvent5_WdAssertion(v39);
+    }
     BestTargetMode = (int)BmlPinNextBestTargetMode(a1, a2, (unsigned __int16)v5, a4);
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v29, v28, v30, v31) + 24) = BestTargetMode;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v22, v21) + 24) = BestTargetMode;
     if ( (int)BestTargetMode >= 0 )
-      ++*(_WORD *)(a1 + v9 + 64);
-    goto LABEL_24;
+      ++*(_WORD *)(v11 + a1 + 64);
+    goto LABEL_12;
   }
   if ( *((_QWORD *)v16 + 18) )
-    WdLogSingleEntry0(1LL);
-LABEL_10:
-  LODWORD(v18) = -1071774970;
-  while ( 1 )
   {
-    if ( *(_WORD *)(a1 + v9 + 64) >= *(_WORD *)(a1 + v9 + 66) )
-    {
-      v10 = v5;
-      goto LABEL_39;
-    }
-    NextBestSourceMode = BmlGetNextBestSourceMode(a1, a2, (unsigned __int16)v5, (_DWORD)v16, v17, (__int64)&v42);
-    LODWORD(v18) = NextBestSourceMode;
-    if ( NextBestSourceMode < 0 )
-      break;
-    v17 = v42;
-    if ( v42 == -1 )
-      WdLogSingleEntry0(1LL);
-    ++*(_WORD *)(a1 + v9 + 64);
-    v18 = VIDPN_MGR::PinVidPnSourceMode(v40, v16, v17, 1);
-    v24 = WdLogNewEntry5_WdTrace(v21, v20, v22, v23);
-    *(_QWORD *)(v24 + 24) = v17;
-    *(_QWORD *)(v24 + 32) = v18;
-    if ( (int)v18 >= 0 )
-    {
-      LODWORD(v18) = BmlPinNextBestTargetMode(a1, a2, (unsigned __int16)v5, v43);
-      if ( (int)v18 >= 0 )
-        goto LABEL_17;
-    }
-    *(_DWORD *)(a1 + v9 + 88) = v18;
-    ++*(_DWORD *)(a1 + v9 + 72);
-    if ( (_DWORD)v18 != -1071774970 )
-    {
-      v10 = v5;
-      WdLogSingleEntry4(3LL, (int)v18, a1, a2, v5);
-      goto LABEL_39;
-    }
-  }
-  v10 = v5;
-  if ( NextBestSourceMode != -1071774970 )
-    WdLogSingleEntry4(3LL, NextBestSourceMode, a1, v5, a2);
-LABEL_39:
-  if ( *(_WORD *)(a1 + v9 + 66)
-    && !(unsigned __int8)BmlIsSecondaryHardwareClonePath(a1, (unsigned int)v5, 0LL)
-    && *(_WORD *)(a1 + v9 + 64) )
-  {
-    v25 = BmlUnPinSourceMode(a1, a2, (unsigned __int16)v5);
-    if ( v25 >= 0 )
-    {
-      *(_WORD *)(a1 + v9 + 64) = 0;
-      goto LABEL_19;
-    }
-    WdLogSingleEntry3(3LL, a1, a2, v10);
-    goto LABEL_18;
+    v38 = WdLogNewEntry5_WdAssertion(v15, v9);
+    WdLogEvent5_WdAssertion(v38);
   }
 LABEL_19:
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v41, 0LL);
-  return (unsigned int)v18;
+  LODWORD(v23) = -1071774970;
+  while ( 1 )
+  {
+    if ( *(_WORD *)(v11 + a1 + 64) >= *(_WORD *)(v11 + a1 + 66) )
+      goto LABEL_41;
+    NextBestSourceMode = BmlGetNextBestSourceMode(a1, a2, (unsigned __int16)v5, (_DWORD)v16, v17, (__int64)&v53);
+    v23 = NextBestSourceMode;
+    if ( NextBestSourceMode < 0 )
+      break;
+    v17 = v53;
+    if ( v53 == -1 )
+    {
+      v45 = WdLogNewEntry5_WdAssertion(v28, v27);
+      WdLogEvent5_WdAssertion(v45);
+    }
+    v30 = v52;
+    ++*(_WORD *)(v11 + a1 + 64);
+    v23 = (int)VIDPN_MGR::PinVidPnSourceMode(v30, v16, v17, 1);
+    v33 = WdLogNewEntry5_WdTrace(v32, v31);
+    *(_QWORD *)(v33 + 24) = v17;
+    *(_QWORD *)(v33 + 32) = v23;
+    if ( (int)v23 >= 0 )
+    {
+      LODWORD(v23) = BmlPinNextBestTargetMode(a1, a2, (unsigned __int16)v5, v54);
+      if ( (int)v23 >= 0 )
+        goto LABEL_13;
+    }
+    *(_DWORD *)(v11 + a1 + 88) = v23;
+    ++*(_DWORD *)(v11 + a1 + 72);
+    if ( (_DWORD)v23 != -1071774970 )
+    {
+      v46 = (_QWORD *)WdLogNewEntry5_WdWarning(v35, v34, v36);
+      v46[3] = (int)v23;
+      v46[5] = a2;
+      v46[6] = v5;
+LABEL_39:
+      v46[4] = a1;
+      v12 = v5;
+      WdLogEvent5_WdWarning(v46);
+      goto LABEL_42;
+    }
+  }
+  if ( NextBestSourceMode != -1071774970 )
+  {
+    v46 = (_QWORD *)WdLogNewEntry5_WdWarning(v28, v27, v29);
+    v46[3] = v23;
+    v46[5] = v5;
+    v46[6] = a2;
+    goto LABEL_39;
+  }
+LABEL_41:
+  v12 = v5;
+LABEL_42:
+  if ( *(_WORD *)(v11 + a1 + 66)
+    && !(unsigned __int8)BmlIsSecondaryClonePath(a1, (unsigned int)v5, 0LL)
+    && *(_WORD *)(v11 + a1 + 64) )
+  {
+    v24 = BmlUnPinSourceMode(a1, a2, (unsigned __int16)v5);
+    if ( v24 >= 0 )
+    {
+      *(_WORD *)(v11 + a1 + 64) = 0;
+      goto LABEL_15;
+    }
+    v50 = (_QWORD *)WdLogNewEntry5_WdWarning(v48, v47, v49);
+    v50[3] = a1;
+    v50[4] = a2;
+    v50[5] = v12;
+    WdLogEvent5_WdWarning(v50);
+    goto LABEL_14;
+  }
+LABEL_15:
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v51, 0LL);
+  return (unsigned int)v23;
 }

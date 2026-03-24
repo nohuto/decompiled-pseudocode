@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIssueTrEERequest @ 0x14055BA00
+ * XREFs of IopIssueTrEERequest @ 0x14050AB80
  * Callers:
- *     IopEnumerateEnvironmentVariablesTrEE @ 0x140950900 (IopEnumerateEnvironmentVariablesTrEE.c)
- *     IopGetEnvironmentVariableTrEE @ 0x140950EF0 (IopGetEnvironmentVariableTrEE.c)
- *     IopQueryEnvironmentVariableInfoTrEE @ 0x140951300 (IopQueryEnvironmentVariableInfoTrEE.c)
- *     IopSetEnvironmentVariableTrEE @ 0x140951520 (IopSetEnvironmentVariableTrEE.c)
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14089A1F0 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14089A7C0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopQueryEnvironmentVariableInfoTrEE @ 0x14089AD10 (IopQueryEnvironmentVariableInfoTrEE.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14089AF20 (IopSetEnvironmentVariableTrEE.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopIssueSystemEnvironmentRequest @ 0x1409510B8 (IopIssueSystemEnvironmentRequest.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14089A978 (IopIssueSystemEnvironmentRequest.c)
  */
 
 __int64 __fastcall IopIssueTrEERequest(
@@ -32,30 +32,28 @@ __int64 __fastcall IopIssueTrEERequest(
   __int64 v18; // [rsp+78h] [rbp-1h]
   __int64 v19; // [rsp+80h] [rbp+7h]
   __int64 v20; // [rsp+88h] [rbp+Fh]
-  __int64 v21; // [rsp+90h] [rbp+17h] BYREF
-  unsigned __int64 v22; // [rsp+98h] [rbp+1Fh]
+  __int128 v21; // [rsp+90h] [rbp+17h] BYREF
 
   v13 = 0;
   InputBuffer = 0LL;
   v15 = 0;
-  v21 = 0LL;
-  LODWORD(v22) = 0;
   v18 = a5;
   v20 = a7;
   v19 = a6;
   v16 = a1;
   v17 = a4;
+  v21 = 0LL;
   v9 = IopIssueSystemEnvironmentRequest(0x568004u, &InputBuffer, 0x30u, &v21, 0x10u, (__int64)&v13);
   if ( v9 >= 0 )
   {
     if ( v13 < 0x10 )
       return (unsigned int)-1073741434;
-    v10 = v22;
+    v10 = *((_QWORD *)&v21 + 1);
     if ( a9 )
     {
       v11 = -1;
-      if ( v22 <= 0xFFFFFFFF )
-        v11 = v22;
+      if ( *((_QWORD *)&v21 + 1) <= 0xFFFFFFFFuLL )
+        v11 = DWORD2(v21);
       *a9 = v11;
       v9 = v10 > 0xFFFFFFFF ? 0xC0000095 : 0;
     }

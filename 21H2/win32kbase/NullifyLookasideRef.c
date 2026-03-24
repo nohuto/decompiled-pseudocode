@@ -1,21 +1,20 @@
 /*
- * XREFs of NullifyLookasideRef @ 0x1C0141C84
+ * XREFs of NullifyLookasideRef @ 0x1C011C744
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C008AF34 (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002BAA0 (Win32FreeToPagedLookasideList.c)
  */
 
-void __fastcall NullifyLookasideRef(_DWORD *a1)
+__int64 (*__fastcall NullifyLookasideRef(__int64 a1))(void)
 {
   bool v1; // zf
+  __int64 (*result)(void); // rax
 
   *(_QWORD *)a1 = 0LL;
-  v1 = a1[2] == 0;
-  *((_BYTE *)a1 + 12) = 1;
+  v1 = *(_DWORD *)(a1 + 8) == 0;
+  *(_BYTE *)(a1 + 12) = 1;
   if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(
-      (NSInstrumentation::CLeakTrackingAllocator *)a1,
-      (char *)gpStackRefLookAside,
-      (struct _SLIST_ENTRY *)a1);
+    return Win32FreeToPagedLookasideList((__int64)gpStackRefLookAside, a1);
+  return result;
 }

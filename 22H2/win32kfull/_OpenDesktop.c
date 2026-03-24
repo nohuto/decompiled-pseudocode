@@ -1,119 +1,114 @@
 /*
- * XREFs of _OpenDesktop @ 0x1C006737C
+ * XREFs of _OpenDesktop @ 0x1C000F208
  * Callers:
- *     xxxResolveDesktop @ 0x1C0067670 (xxxResolveDesktop.c)
- *     NtUserOpenDesktop @ 0x1C006B290 (NtUserOpenDesktop.c)
- *     xxxResolveDesktopForWOW @ 0x1C01BEC58 (xxxResolveDesktopForWOW.c)
+ *     NtUserOpenDesktop @ 0x1C000F170 (NtUserOpenDesktop.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E96A4 (xxxResolveDesktopForWOW.c)
  * Callees:
- *     OpenDesktopCompletion @ 0x1C0069634 (OpenDesktopCompletion.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@AEAU_SECURITY_QUALITY_OF_SERVICE@@AEAPEAXAEAU_UNICODE_STRING@@AEAPEAG@Z @ 0x1C013B3F8 (-ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@A.c)
+ *     OpenDesktopCompletion @ 0x1C0011364 (OpenDesktopCompletion.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@AEAU_SECURITY_QUALITY_OF_SERVICE@@AEAPEAXAEAU_UNICODE_STRING@@AEAPEAG@Z @ 0x1C01686D4 (-ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@A.c)
  */
 
 __int64 __fastcall OpenDesktop(struct _OBJECT_ATTRIBUTES *a1, __int64 a2, __int64 a3, int a4, HANDLE *a5)
 {
   unsigned int v5; // r15d
-  KPROCESSOR_MODE v6; // di
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  NTSTATUS v10; // ebx
-  __int64 v11; // r8
+  KPROCESSOR_MODE v6; // si
+  NTSTATUS v8; // ebx
   __int64 CurrentProcess; // rax
-  __int64 v13; // rdx
-  ULONG v14; // eax
-  int v15; // eax
-  __int64 v16; // rcx
-  ULONG v17; // eax
-  _DWORD *v18; // rax
-  PVOID v19; // rsi
-  ULONG v20; // eax
+  __int64 v10; // rdx
+  ULONG v11; // eax
+  int v12; // eax
+  ULONG v13; // eax
+  PVOID v14; // rdi
+  ULONG v15; // eax
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   PVOID Object; // [rsp+48h] [rbp-B8h] BYREF
-  void *v24; // [rsp+50h] [rbp-B0h] BYREF
-  struct _UNICODE_STRING v25; // [rsp+58h] [rbp-A8h] BYREF
-  struct _OBJECT_ATTRIBUTES v26; // [rsp+68h] [rbp-98h] BYREF
-  struct _SECURITY_QUALITY_OF_SERVICE v27; // [rsp+98h] [rbp-68h] BYREF
-  unsigned __int16 v28[256]; // [rsp+B0h] [rbp-50h] BYREF
+  void *v19; // [rsp+50h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING v20; // [rsp+58h] [rbp-A8h] BYREF
+  struct _OBJECT_ATTRIBUTES v21; // [rsp+68h] [rbp-98h] BYREF
+  struct _SECURITY_QUALITY_OF_SERVICE v22; // [rsp+98h] [rbp-68h] BYREF
+  unsigned __int16 v23[256]; // [rsp+B0h] [rbp-50h] BYREF
 
   Handle = 0LL;
   v5 = a3;
   v6 = 1;
   LOBYTE(a3) = 1;
-  v10 = ObOpenObjectByName(a1, ExDesktopObjectType, a3, 0LL, a4 | 0x81u, 0LL, &Handle);
-  if ( v10 < 0 )
+  v8 = ObOpenObjectByName(a1, ExDesktopObjectType, a3, 0LL, a4 | 0x81u, 0LL, &Handle);
+  if ( v8 < 0 )
   {
-    CurrentProcess = PsGetCurrentProcess(v9, v8, v11);
-    if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
-      goto LABEL_7;
-    v24 = 0LL;
-    Object = 0LL;
-    *(_QWORD *)&v27.Length = 0LL;
-    *(_DWORD *)&v27.ContextTrackingMode = 0;
-    memset(&v26, 0, sizeof(v26));
-    v25 = 0LL;
-    v10 = ProbeAndDeepCaptureWinStaDesktopObjectAttributes(
-            0,
-            a1,
-            (unsigned __int16 (*)[256])v28,
-            &v26,
-            &v27,
-            &v24,
-            &v25,
-            (unsigned __int16 **)&Object);
-    if ( v10 < 0 )
-      goto LABEL_7;
-    v10 = ObOpenObjectByName(&v26, ExDesktopObjectType, 0LL, 0LL, 193, 0LL, &Handle);
-    if ( v24 )
+    CurrentProcess = PsGetCurrentProcess();
+    if ( (unsigned int)IsProcessDwm(CurrentProcess) )
     {
-      LOBYTE(v13) = 1;
-      SeReleaseSecurityDescriptor(v24, v13, 0LL);
-      v24 = 0LL;
+      v19 = 0LL;
+      Object = 0LL;
+      *(_QWORD *)&v22.Length = 0LL;
+      *(_DWORD *)&v22.ContextTrackingMode = 0;
+      memset(&v21, 0, sizeof(v21));
+      v20 = 0LL;
+      v8 = ProbeAndDeepCaptureWinStaDesktopObjectAttributes(
+             0,
+             a1,
+             (unsigned __int16 (*)[256])v23,
+             &v21,
+             &v22,
+             &v19,
+             &v20,
+             (unsigned __int16 **)&Object);
+      if ( v8 < 0 )
+      {
+LABEL_8:
+        v11 = RtlNtStatusToDosError(v8);
+        UserSetLastError(v11);
+        return (unsigned int)v8;
+      }
+      v6 = 0;
+      v8 = ObOpenObjectByName(&v21, ExDesktopObjectType, 0LL, 0LL, 193, 0LL, &Handle);
+      if ( v19 )
+      {
+        LOBYTE(v10) = 1;
+        SeReleaseSecurityDescriptor(v19, v10, 0LL);
+        v19 = 0LL;
+      }
+      Win32FreePool(Object);
     }
-    Win32FreePool(Object);
-    v6 = 0;
-    if ( v10 < 0 )
-    {
-LABEL_7:
-      v14 = RtlNtStatusToDosError(v10);
-      UserSetLastError(v14);
-      return (unsigned int)v10;
-    }
+    if ( v8 < 0 )
+      goto LABEL_8;
   }
   Object = 0LL;
-  v15 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, v6, &Object, 0LL);
-  v10 = v15;
-  if ( v15 < 0 )
+  v12 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, v6, &Object, 0LL);
+  v8 = v12;
+  if ( v12 < 0 )
   {
-    v17 = RtlNtStatusToDosError(v15);
-    UserSetLastError(v17);
-LABEL_12:
+    v13 = RtlNtStatusToDosError(v12);
+    UserSetLastError(v13);
+LABEL_13:
     CloseProtectedHandle(Handle);
-    return (unsigned int)v10;
+    return (unsigned int)v8;
   }
-  v18 = (_DWORD *)SGDGetUserSessionState(v16);
-  v19 = Object;
-  if ( *(_DWORD *)Object != *v18 )
+  v14 = Object;
+  if ( *(_DWORD *)Object != gSessionId )
   {
-    v10 = -1073741816;
-    v20 = RtlNtStatusToDosError(-1073741816);
-    UserSetLastError(v20);
-    ObfDereferenceObject(v19);
-    goto LABEL_12;
+    v8 = -1073741816;
+    v15 = RtlNtStatusToDosError(-1073741816);
+    UserSetLastError(v15);
+    ObfDereferenceObject(v14);
+    goto LABEL_13;
   }
-  v10 = OpenDesktopCompletion(Object, Handle, v5);
-  if ( v10 < 0 )
+  v8 = OpenDesktopCompletion(Object, Handle, v5);
+  if ( v8 < 0 )
   {
     CloseProtectedHandle(Handle);
     Handle = 0LL;
   }
-  ObfDereferenceObject(v19);
-  if ( v10 >= 0 )
+  ObfDereferenceObject(v14);
+  if ( v8 >= 0 )
   {
     if ( (unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
     {
-      v10 = 0;
+      v8 = 0;
       *a5 = Handle;
     }
     else
@@ -122,5 +117,5 @@ LABEL_12:
       return (unsigned int)-1073741801;
     }
   }
-  return (unsigned int)v10;
+  return (unsigned int)v8;
 }

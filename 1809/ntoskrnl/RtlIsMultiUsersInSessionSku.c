@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsMultiUsersInSessionSku @ 0x140893EE0
+ * XREFs of RtlIsMultiUsersInSessionSku @ 0x140893EC0
  * Callers:
  *     <none>
  * Callees:

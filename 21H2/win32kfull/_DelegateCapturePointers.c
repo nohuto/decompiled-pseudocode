@@ -1,130 +1,88 @@
 /*
- * XREFs of _DelegateCapturePointers @ 0x1C01EAC24
+ * XREFs of _DelegateCapturePointers @ 0x1C01F0284
  * Callers:
- *     EditionDelegateCapturePointers @ 0x1C01EA290 (EditionDelegateCapturePointers.c)
- *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01F0678 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
+ *     EditionDelegateCapturePointers @ 0x1C01EFA00 (EditionDelegateCapturePointers.c)
+ *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01F5FA4 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     SetWakeBit @ 0x1C00ABE30 (SetWakeBit.c)
- *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01E9DA0 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_LHL @ 0x1C01EA91C (WPP_RECORDER_AND_TRACE_SF_LHL.c)
- *     ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01EB898 (-DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     SetWakeBit @ 0x1C0051920 (SetWakeBit.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C1800 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01EF694 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ *     WPP_RECORDER_SF_LHL @ 0x1C01EFF78 (WPP_RECORDER_SF_LHL.c)
+ *     ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01F0D88 (-DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z.c)
  */
 
-__int64 __fastcall DelegateCapturePointers(unsigned int a1, __int64 a2)
+__int64 __fastcall DelegateCapturePointers(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // edi
-  __int64 v5; // rbx
-  char v6; // dl
-  char v7; // dl
-  struct tagWND *v8; // r9
-  __int64 v9; // rsi
-  int v10; // edx
-  int v11; // ebp
-  int v12; // r8d
-  int v13; // r9d
-  int v15; // [rsp+20h] [rbp-58h]
-  int v16; // [rsp+28h] [rbp-50h]
-  int v17; // [rsp+38h] [rbp-40h]
+  unsigned int v3; // edi
+  unsigned int v5; // esi
+  __int64 v6; // rbx
+  __int64 v7; // r9
+  __int64 v8; // rbp
+  int v9; // edx
+  int v10; // ecx
+  int v11; // r15d
+  int v12; // r9d
+  int v14; // [rsp+20h] [rbp-58h]
+  _BYTE v15[32]; // [rsp+40h] [rbp-38h] BYREF
 
-  v2 = 0;
-  if ( a1 )
+  v3 = 0;
+  v5 = a1;
+  if ( (_DWORD)a1 )
   {
-    v5 = a2 + 4;
+    v6 = a2 + 4;
     do
     {
-      if ( *(_DWORD *)(v5 + 116) )
+      if ( *(_DWORD *)(v6 + 116) )
       {
-        v7 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0x12u)
-          && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        if ( v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_LHL(
-            (__int64)WPP_GLOBAL_Control->AttachedDevice,
-            v7,
-            WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-            19LL,
-            v15,
-            v16,
-            0x13u,
-            v17);
-        v8 = *(struct tagWND **)(v5 + 84);
-        v9 = *((_QWORD *)v8 + 2);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_LHL(a1, a2, a3, 0x13u, v14);
+        v7 = *(_QWORD *)(v6 + 84);
+        v8 = *(_QWORD *)(v7 + 16);
         v11 = DeferNotifyDelegateCapture(
-                (struct tagTHREADINPUTPOINTERLIST *)(v9 + 1112),
-                *(_WORD *)(v5 - 4),
-                *(_DWORD *)v5,
-                v8);
+                (struct tagTHREADINPUTPOINTERLIST *)(v8 + 1088),
+                *(_WORD *)(v6 - 4),
+                *(_DWORD *)v6,
+                (struct tagWND *)v7);
         if ( v11 )
         {
-          LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0x12u)
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v10,
-              v12,
-              (unsigned int)&WPP_94b4deb4f8103cc2d3486d23bf68d8c9_Traceguids,
-              4,
-              19,
-              20,
-              (__int64)&WPP_94b4deb4f8103cc2d3486d23bf68d8c9_Traceguids);
+            LOBYTE(v9) = 4;
+            WPP_RECORDER_SF_(v10, v9, 19, 20, (__int64)&WPP_b43beeb5a22232e36856aa8311da4939_Traceguids);
           }
-          SetWakeBit(v9, 0x1000u);
+          SetWakeBit(v8, 0x1000u);
         }
         else
         {
-          LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0x12u)
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v10,
-              v12,
-              (unsigned int)&WPP_94b4deb4f8103cc2d3486d23bf68d8c9_Traceguids,
-              4,
-              19,
-              21,
-              (__int64)&WPP_94b4deb4f8103cc2d3486d23bf68d8c9_Traceguids);
+            LOBYTE(v9) = 4;
+            WPP_RECORDER_SF_(v10, v9, 19, 21, (__int64)&WPP_b43beeb5a22232e36856aa8311da4939_Traceguids);
           }
           CTouchProcessor::SetPointerInfoNodeFlagFromEdition(
             gpTouchProcessor,
-            *(_DWORD *)v5,
-            *(_WORD *)(v5 - 4),
+            *(_DWORD *)v6,
+            *(_WORD *)(v6 - 4),
             0x200000u);
         }
+        CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>(
+          (__int64)v15,
+          *(_QWORD *)(v8 + 432));
         DelegateDiscardMessages(
-          *(struct tagQ **)(v9 + 432),
+          *(struct tagQ **)(v8 + 432),
           v11,
-          (struct tagDELEGATEPOINTERMAP *)(a2 + ((unsigned __int64)v2 << 7)),
-          v13);
+          (struct tagDELEGATEPOINTERMAP *)(a2 + ((unsigned __int64)v3 << 7)),
+          v12);
       }
-      else
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v6 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0x12u)
-          && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        if ( v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_LHL(
-            (__int64)WPP_GLOBAL_Control->AttachedDevice,
-            v6,
-            WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-            18LL,
-            v15,
-            v16,
-            0x12u,
-            v17);
+        WPP_RECORDER_SF_LHL(a1, a2, a3, 0x12u, v14);
       }
-      ++v2;
-      v5 += 128LL;
+      ++v3;
+      v6 += 128LL;
     }
-    while ( v2 < a1 );
+    while ( v3 < v5 );
   }
   return 1LL;
 }

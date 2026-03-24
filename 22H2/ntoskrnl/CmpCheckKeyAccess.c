@@ -1,35 +1,28 @@
 /*
- * XREFs of CmpCheckKeyAccess @ 0x140A1B0E0
+ * XREFs of CmpCheckKeyAccess @ 0x140871774
  * Callers:
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140AF6B2C (CmpDoAccessCheckOnSubtree.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140871B14 (CmpDoAccessCheckOnSubtree.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     CmpCheckSecurityCellAccess @ 0x14069A11C (CmpCheckSecurityCellAccess.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpCheckSecurityCellAccess @ 0x140688710 (CmpCheckSecurityCellAccess.c)
  */
 
-__int64 __fastcall CmpCheckKeyAccess(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
+__int64 __fastcall CmpCheckKeyAccess(__int64 a1, __int64 a2)
 {
-  __int64 CellFlat; // rax
-  unsigned int v5; // edi
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v3; // rax
+  unsigned int v5; // ebx
+  int v6; // [rsp+40h] [rbp+8h] BYREF
+  int v7; // [rsp+44h] [rbp+Ch]
 
-  v6 = 0xFFFFFFFFLL;
-  if ( !BugCheckParameter3 || (unsigned int)(a2 - 1) > 0xFFFFFFFD )
+  v6 = -1;
+  v7 = 0;
+  if ( !a1 || (unsigned int)(a2 - 1) > 0xFFFFFFFD )
     return 3221225852LL;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, a2, &v6);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, a2, (unsigned int *)&v6);
-  if ( !CellFlat )
+  v3 = (*(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8))(a1, a2, &v6);
+  if ( !v3 )
     return 3221225626LL;
-  v5 = *(_DWORD *)(CellFlat + 44);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v6);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v6);
-  return CmpCheckSecurityCellAccess(BugCheckParameter3, v5);
+  v5 = *(_DWORD *)(v3 + 44);
+  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v6);
+  return CmpCheckSecurityCellAccess(a1, v5);
 }

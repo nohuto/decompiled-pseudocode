@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetBootImagePageProtection @ 0x140B4A488
+ * XREFs of MiGetBootImagePageProtection @ 0x140A4FD90
  * Callers:
- *     MiHandleBootImage @ 0x140B4A1A8 (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
  * Callees:
- *     MiComputeDriverProtection @ 0x14081F558 (MiComputeDriverProtection.c)
+ *     MiComputeDriverProtection @ 0x1407A1DC0 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiGetBootImagePageProtection(unsigned int a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -11,7 +11,7 @@ __int64 __fastcall MiGetBootImagePageProtection(unsigned int a1, __int64 a2, __i
   __int64 v5; // r11
   _DWORD *v6; // rdx
   unsigned int v10; // ecx
-  unsigned int v11; // r9d
+  unsigned int v11; // r8d
   unsigned int v12; // ecx
   __int64 result; // rax
   unsigned __int64 v14; // r10
@@ -52,7 +52,7 @@ LABEL_9:
     v12 = (*(_DWORD *)(a3 + 16) >> 5) & 0x1F;
   }
 LABEL_7:
-  if ( (MiFlags & 0x8000) != 0 && (v12 & 6) == 6 )
+  if ( (MiFlags & 0x10000) != 0 && (v12 & 6) == 6 )
     v12 = 3;
   result = v12;
   *a4 = v5;

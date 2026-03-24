@@ -1,23 +1,25 @@
 /*
- * XREFs of SshpWriteBlocker @ 0x1405A2E50
+ * XREFs of SshpWriteBlocker @ 0x14058010C
  * Callers:
- *     SshpSendSessionData @ 0x1408786FC (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FACF8 (SshpSendSessionData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     SshpStopBlockerAccounting @ 0x14032D678 (SshpStopBlockerAccounting.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SshpStopBlockerAccounting @ 0x14058005C (SshpStopBlockerAccounting.c)
  */
 
-int __fastcall SshpWriteBlocker(PKSPIN_LOCK SpinLock, PVOID *a2, unsigned int *a3)
+char __fastcall SshpWriteBlocker(__int64 SpinLock, unsigned __int64 a2)
 {
-  KSPIN_LOCK v6; // rdi
-  unsigned __int64 v7; // r15
+  KSPIN_LOCK v2; // rsi
+  unsigned __int64 v5; // r14
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
   __int128 v8; // xmm1
   __int128 v9; // xmm0
   __int128 v10; // xmm1
@@ -31,309 +33,240 @@ int __fastcall SshpWriteBlocker(PKSPIN_LOCK SpinLock, PVOID *a2, unsigned int *a
   __int128 v18; // xmm1
   __int128 v19; // xmm0
   __int128 v20; // xmm1
-  __int128 v21; // xmm0
-  __int128 v22; // xmm1
-  int v23; // r13d
-  unsigned int v24; // r11d
+  int v21; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v28; // eax
-  bool v29; // zf
-  unsigned __int64 Paged; // rax
-  unsigned int *v31; // rax
-  unsigned int v32; // ebx
-  struct _EVENT_DATA_DESCRIPTOR *UserData; // rbx
-  const EVENT_DESCRIPTOR *v34; // r15
-  int v35; // ecx
-  __int64 *v36; // rdx
-  unsigned int v37; // ecx
-  unsigned int *v38; // r9
-  ULONG UserDataCount; // r10d
-  __int64 v40; // rax
-  _DWORD *v41; // rcx
-  __int64 v42; // rdx
-  unsigned __int64 v43; // rax
-  char *v44; // rdx
-  int v45; // eax
-  __int64 v46; // rax
-  char *v47; // r14
-  __int64 v48; // rax
-  __int64 v49; // rcx
-  unsigned int *v50; // r8
-  __int64 v51; // rcx
-  unsigned int v52; // edx
-  _DWORD *v53; // rdx
-  const wchar_t *v54; // r8
-  const wchar_t *v55; // r9
-  int v56; // eax
-  const wchar_t *v57; // rcx
-  int v58; // eax
-  int v59; // eax
-  char v61; // [rsp+40h] [rbp-C0h] BYREF
-  int v62; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned int v63; // [rsp+48h] [rbp-B8h] BYREF
-  int v64; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v65; // [rsp+50h] [rbp-B0h] BYREF
-  _OWORD v66[8]; // [rsp+60h] [rbp-A0h] BYREF
-  _OWORD v67[8]; // [rsp+E0h] [rbp-20h] BYREF
+  int v25; // eax
+  bool v26; // zf
+  unsigned __int64 v27; // rax
+  int v28; // ecx
+  unsigned __int64 v29; // rcx
+  __int64 v30; // r9
+  char v32; // [rsp+40h] [rbp-C0h] BYREF
+  int v33; // [rsp+44h] [rbp-BCh] BYREF
+  int v34; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v35; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v36; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v37; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v38; // [rsp+68h] [rbp-98h] BYREF
+  _OWORD v39[3]; // [rsp+70h] [rbp-90h] BYREF
+  _OWORD v40[2]; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v41; // [rsp+C0h] [rbp-40h] BYREF
+  _OWORD v42[2]; // [rsp+D0h] [rbp-30h] BYREF
+  _OWORD v43[3]; // [rsp+F0h] [rbp-10h] BYREF
+  _OWORD v44[2]; // [rsp+120h] [rbp+20h] BYREF
+  __int128 v45; // [rsp+140h] [rbp+40h] BYREF
+  _OWORD v46[2]; // [rsp+150h] [rbp+50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+170h] [rbp+70h] BYREF
+  KSPIN_LOCK v48; // [rsp+180h] [rbp+80h]
+  __int64 v49; // [rsp+188h] [rbp+88h]
+  int *v50; // [rsp+190h] [rbp+90h]
+  __int64 v51; // [rsp+198h] [rbp+98h]
+  __int64 v52; // [rsp+1A0h] [rbp+A0h]
+  int v53; // [rsp+1A8h] [rbp+A8h]
+  int v54; // [rsp+1ACh] [rbp+ACh]
+  KSPIN_LOCK v55; // [rsp+1B0h] [rbp+B0h]
+  __int64 v56; // [rsp+1B8h] [rbp+B8h]
+  _OWORD *v57; // [rsp+1C0h] [rbp+C0h]
+  __int64 v58; // [rsp+1C8h] [rbp+C8h]
+  __int64 *v59; // [rsp+1D0h] [rbp+D0h]
+  __int64 v60; // [rsp+1D8h] [rbp+D8h]
+  struct _EVENT_DATA_DESCRIPTOR v61; // [rsp+1E0h] [rbp+E0h] BYREF
+  __int64 *v62; // [rsp+200h] [rbp+100h]
+  __int64 v63; // [rsp+208h] [rbp+108h]
+  KSPIN_LOCK v64; // [rsp+210h] [rbp+110h]
+  __int64 v65; // [rsp+218h] [rbp+118h]
+  KSPIN_LOCK v66; // [rsp+220h] [rbp+120h]
+  __int64 v67; // [rsp+228h] [rbp+128h]
+  _DWORD *v68; // [rsp+230h] [rbp+130h]
+  __int64 v69; // [rsp+238h] [rbp+138h]
+  __int64 v70; // [rsp+240h] [rbp+140h]
+  _DWORD v71[2]; // [rsp+248h] [rbp+148h] BYREF
+  int *v72; // [rsp+250h] [rbp+150h]
+  __int64 v73; // [rsp+258h] [rbp+158h]
+  __int64 *v74; // [rsp+260h] [rbp+160h]
+  __int64 v75; // [rsp+268h] [rbp+168h]
+  char *v76; // [rsp+270h] [rbp+170h]
+  __int64 v77; // [rsp+278h] [rbp+178h]
+  char *v78; // [rsp+280h] [rbp+180h]
+  __int64 v79; // [rsp+288h] [rbp+188h]
+  char *v80; // [rsp+290h] [rbp+190h]
+  __int64 v81; // [rsp+298h] [rbp+198h]
+  _OWORD *v82; // [rsp+2A0h] [rbp+1A0h]
+  __int64 v83; // [rsp+2A8h] [rbp+1A8h]
+  __int64 *v84; // [rsp+2B0h] [rbp+1B0h]
+  __int64 v85; // [rsp+2B8h] [rbp+1B8h]
+  char *v86; // [rsp+2C0h] [rbp+1C0h]
+  __int64 v87; // [rsp+2C8h] [rbp+1C8h]
+  char *v88; // [rsp+2D0h] [rbp+1D0h]
+  __int64 v89; // [rsp+2D8h] [rbp+1D8h]
+  char *v90; // [rsp+2E0h] [rbp+1E0h]
+  __int64 v91; // [rsp+2E8h] [rbp+1E8h]
+  _OWORD *v92; // [rsp+2F0h] [rbp+1F0h]
+  __int64 v93; // [rsp+2F8h] [rbp+1F8h]
+  __int64 *v94; // [rsp+300h] [rbp+200h]
+  __int64 v95; // [rsp+308h] [rbp+208h]
 
-  memset(v66, 0, sizeof(v66));
-  v64 = 0;
-  memset(v67, 0, sizeof(v67));
-  v6 = SpinLock[37];
-  v61 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc(SpinLock);
-  if ( (SpinLock[1] & 2) != 0 )
-    SshpStopBlockerAccounting((__int64)SpinLock, MEMORY[0xFFFFF78000000008], 2);
-  v8 = *((_OWORD *)SpinLock + 3);
-  v66[0] = *((_OWORD *)SpinLock + 2);
-  v9 = *((_OWORD *)SpinLock + 4);
-  v66[1] = v8;
-  v10 = *((_OWORD *)SpinLock + 5);
-  v66[2] = v9;
-  v11 = *((_OWORD *)SpinLock + 6);
-  v66[3] = v10;
-  v12 = *((_OWORD *)SpinLock + 7);
-  v66[4] = v11;
-  v13 = *((_OWORD *)SpinLock + 8);
-  v66[5] = v12;
-  v14 = *((_OWORD *)SpinLock + 9);
-  v66[6] = v13;
-  v15 = *((_OWORD *)SpinLock + 10);
-  v66[7] = v14;
-  v16 = *((_OWORD *)SpinLock + 11);
-  v67[0] = v15;
-  v17 = *((_OWORD *)SpinLock + 12);
-  v67[1] = v16;
-  v18 = *((_OWORD *)SpinLock + 13);
-  v67[2] = v17;
-  v19 = *((_OWORD *)SpinLock + 14);
-  v67[3] = v18;
-  v20 = *((_OWORD *)SpinLock + 15);
-  v67[4] = v19;
-  v21 = *((_OWORD *)SpinLock + 16);
-  v67[5] = v20;
-  v22 = *((_OWORD *)SpinLock + 17);
-  v67[6] = v21;
-  v67[7] = v22;
-  memset(SpinLock + 4, 0, 0x80uLL);
-  memset(SpinLock + 20, 0, 0x80uLL);
-  v23 = SpinLock[1] & 4;
-  KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
-  v24 = 0;
+  v2 = *(_QWORD *)(SpinLock + 288);
+  v33 = 0;
+  v32 = 0;
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)SpinLock);
+  if ( (*(_DWORD *)(SpinLock + 8) & 2) != 0 )
+    SshpStopBlockerAccounting(SpinLock, MEMORY[0xFFFFF78000000008], 2);
+  v6 = *(_OWORD *)(SpinLock + 40);
+  v39[0] = *(_OWORD *)(SpinLock + 24);
+  v7 = *(_OWORD *)(SpinLock + 56);
+  v39[1] = v6;
+  v8 = *(_OWORD *)(SpinLock + 72);
+  v39[2] = v7;
+  v9 = *(_OWORD *)(SpinLock + 88);
+  v40[0] = v8;
+  v10 = *(_OWORD *)(SpinLock + 104);
+  v40[1] = v9;
+  v11 = *(_OWORD *)(SpinLock + 120);
+  v41 = v10;
+  v12 = *(_OWORD *)(SpinLock + 136);
+  v42[0] = v11;
+  v13 = *(_OWORD *)(SpinLock + 152);
+  v42[1] = v12;
+  v14 = *(_OWORD *)(SpinLock + 168);
+  v43[0] = v13;
+  v15 = *(_OWORD *)(SpinLock + 184);
+  v43[1] = v14;
+  v16 = *(_OWORD *)(SpinLock + 200);
+  v43[2] = v15;
+  v17 = *(_OWORD *)(SpinLock + 216);
+  v44[0] = v16;
+  v18 = *(_OWORD *)(SpinLock + 232);
+  v44[1] = v17;
+  v19 = *(_OWORD *)(SpinLock + 248);
+  v45 = v18;
+  v20 = *(_OWORD *)(SpinLock + 264);
+  v46[0] = v19;
+  v46[1] = v20;
+  memset((void *)(SpinLock + 24), 0, 0x80uLL);
+  memset((void *)(SpinLock + 152), 0, 0x80uLL);
+  v21 = *(_DWORD *)(SpinLock + 8) & 4;
+  KxReleaseSpinLock((PKSPIN_LOCK)SpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v29 = (v28 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v28;
-      if ( v29 )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
       {
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        v24 = 0;
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v26 = (v25 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v25;
+        if ( v26 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
-  __writecr8(v7);
-  Paged = SshpSessionGuid - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
+  __writecr8(v5);
+  v27 = SshpSessionGuid - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
   if ( (_QWORD)SshpSessionGuid == *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1 )
-    Paged = *((_QWORD *)&SshpSessionGuid + 1) - *(_QWORD *)GUID_SPM_LOW_POWER_CS.Data4;
-  if ( !Paged && SshpTraceHandleRegistered )
+    v27 = *((_QWORD *)&SshpSessionGuid + 1) - *(_QWORD *)GUID_SPM_LOW_POWER_CS.Data4;
+  if ( !v27 )
   {
-    if ( !v23 )
-      goto LABEL_19;
-    v31 = *(unsigned int **)(v6 + 96);
-    if ( !v31 )
-      goto LABEL_19;
-    Paged = 2LL * *v31;
-    if ( Paged > 0xFFFFFFFF )
-      return Paged;
-    v32 = Paged + 10;
-    if ( (int)Paged + 10 < (unsigned int)Paged )
-      return Paged;
-    if ( v32 <= 0x14 )
-LABEL_19:
-      v32 = 20;
-    if ( v32 <= *a3 )
-      goto LABEL_26;
-    if ( *a2 )
+    if ( SshpTraceHandleRegistered && v21 )
     {
-      ExFreePoolWithTag(*a2, 0x70687373u);
-      *a2 = 0LL;
-      *a3 = 0;
+      v33 = *(unsigned __int16 *)(v2 + 80) >> 1;
+      v32 = SshpSessionId;
+      UserData.Ptr = (ULONGLONG)&v32;
+      v48 = v2 + 48;
+      v50 = &v33;
+      *(_QWORD *)&UserData.Size = 1LL;
+      v49 = 16LL;
+      v51 = 4LL;
+      v28 = *(unsigned __int16 *)(v2 + 80);
+      v52 = *(_QWORD *)(v2 + 88);
+      v55 = v2 + 64;
+      v57 = v39;
+      v59 = &SshpSessionId;
+      v53 = v28;
+      v54 = 0;
+      v56 = 16LL;
+      v58 = 8LL;
+      v60 = 8LL;
+      LOBYTE(v27) = EtwWriteEx(SshpTraceHandle, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER, 0LL, 0, 0LL, 0LL, 7u, &UserData);
     }
-    Paged = 16LL * v32;
-    if ( Paged <= 0xFFFFFFFF )
+    if ( a2 )
     {
-      Paged = SSHSupportAllocatePaged((unsigned int)Paged, 1885893491LL);
-      v24 = 0;
-      *a2 = (PVOID)Paged;
-      if ( Paged )
+      v27 = 100LL * *(_QWORD *)&v39[0] / a2;
+      v29 = v27;
+    }
+    else
+    {
+      v29 = 0LL;
+    }
+    if ( a2 >= SshpSessionThresholdHns )
+    {
+      LOBYTE(v27) = SshpActiveThresholdPercent;
+      if ( v29 >= (unsigned int)SshpActiveThresholdPercent )
       {
-        *a3 = v32;
-LABEL_26:
-        UserData = (struct _EVENT_DATA_DESCRIPTOR *)*a2;
-        if ( v23 )
+        if ( SshpTelemetryHandleRegistered )
         {
-          if ( *(_QWORD *)(v6 + 96) )
+          if ( (unsigned int)dword_140C04720 > 5 )
           {
-            v34 = (const EVENT_DESCRIPTOR *)SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DETAILED;
-            v35 = 8;
-            v36 = &SshpSessionId;
-          }
-          else
-          {
-            v34 = &SLEEPSTUDY_EVT_SCENARIO_BLOCKER;
-            v61 = SshpSessionId;
-            v35 = 1;
-            v36 = (__int64 *)&v61;
-          }
-          UserData->Ptr = (ULONGLONG)v36;
-          UserData->Size = v35;
-          UserData->Reserved = 0;
-          UserData[1].Ptr = v6 + 48;
-          *(_QWORD *)&UserData[1].Size = 16LL;
-          v64 = *(unsigned __int16 *)(v6 + 80) >> 1;
-          UserData[2].Ptr = (ULONGLONG)&v64;
-          *(_QWORD *)&UserData[2].Size = 4LL;
-          v37 = *(unsigned __int16 *)(v6 + 80);
-          UserData[3].Ptr = *(_QWORD *)(v6 + 88);
-          UserData[4].Ptr = v6 + 64;
-          UserData[5].Ptr = (ULONGLONG)v66;
-          *(_QWORD *)&UserData[3].Size = v37;
-          *(_QWORD *)&UserData[4].Size = 16LL;
-          *(_QWORD *)&UserData[5].Size = 8LL;
-          v38 = *(unsigned int **)(v6 + 96);
-          if ( v38 )
-          {
-            v40 = *v38;
-            v41 = v38 + 2;
-            *(_QWORD *)&UserData[6].Size = 2LL;
-            v42 = 16LL;
-            UserData[7].Ptr = (ULONGLONG)(v38 + 2);
-            UserDataCount = 10;
-            *(_QWORD *)&UserData[7].Size = 4LL;
-            v43 = 4 * v40 + 12;
-            if ( v43 > 0x10 )
-              v42 = v43;
-            UserData[6].Ptr = (ULONGLONG)(v38 + 1);
-            v44 = (char *)v38 + v42;
-            v45 = 2 * *v41;
-            UserData[8].Ptr = (ULONGLONG)v44;
-            UserData[8].Size = v45;
-            UserData[8].Reserved = 0;
-            v46 = (unsigned int)*v41;
-            UserData[9].Ptr = (ULONGLONG)v38;
-            *(_QWORD *)&UserData[9].Size = 4LL;
-            v47 = &v44[2 * v46];
-            if ( *v38 )
+            LOBYTE(v27) = tlgKeywordOn((__int64)&dword_140C04720, 0x400000000000LL);
+            if ( (_BYTE)v27 )
             {
-              do
-              {
-                v48 = v24++;
-                v49 = UserDataCount;
-                v50 = &v38[v48 + 3];
-                UserData[v49].Ptr = (ULONGLONG)v50;
-                *(_QWORD *)&UserData[v49].Size = 4LL;
-                v51 = UserDataCount + 1;
-                v52 = 2 * *v50;
-                UserDataCount += 2;
-                UserData[v51].Ptr = (ULONGLONG)v47;
-                *(_QWORD *)&UserData[v51].Size = v52;
-                v47 += 2 * *v50;
-              }
-              while ( v24 < *v38 );
+              v35 = SshpSessionId;
+              v36 = v30;
+              v62 = &v35;
+              v63 = 8LL;
+              v64 = v2 + 48;
+              v65 = 16LL;
+              v66 = v2 + 64;
+              v68 = v71;
+              v70 = *(_QWORD *)(v2 + 88);
+              v71[0] = *(unsigned __int16 *)(v2 + 80);
+              v34 = *(_DWORD *)(v2 + 40);
+              v72 = &v34;
+              v74 = &v36;
+              v76 = (char *)&v41 + 8;
+              v78 = (char *)v39 + 8;
+              v80 = (char *)v42 + 12;
+              v82 = v40;
+              v37 = *(_QWORD *)&v43[0];
+              v84 = &v37;
+              v86 = (char *)&v45 + 8;
+              v88 = (char *)v43 + 8;
+              v90 = (char *)v46 + 12;
+              v92 = v44;
+              v94 = &v38;
+              v67 = 16LL;
+              v69 = 2LL;
+              v71[1] = 0;
+              v73 = 4LL;
+              v75 = 8LL;
+              v77 = 20LL;
+              v79 = 40LL;
+              v81 = 20LL;
+              v83 = 40LL;
+              v85 = 8LL;
+              v87 = 20LL;
+              v89 = 40LL;
+              v91 = 20LL;
+              v93 = 40LL;
+              v38 = 0x1000000LL;
+              v95 = 8LL;
+              LOBYTE(v27) = tlgWriteTransfer_EtwWriteTransfer(
+                              (__int64)&dword_140C04720,
+                              (unsigned __int8 *)&word_14002A94E,
+                              0LL,
+                              0LL,
+                              0x13u,
+                              &v61);
             }
           }
-          else
-          {
-            *(_QWORD *)&UserData[6].Size = 8LL;
-            UserDataCount = 7;
-            UserData[6].Ptr = (ULONGLONG)&SshpSessionId;
-          }
-          EtwWriteEx(SshpTraceHandle, v34, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
         }
-        v53 = *(_DWORD **)(v6 + 104);
-        if ( v53 )
-        {
-          v54 = (const wchar_t *)(v53 + 3);
-          v63 = *v53;
-          v62 = v53[1];
-          v55 = (const wchar_t *)v53 + v63 + 6;
-          v56 = v53[2];
-          v57 = &v55[v62];
-        }
-        else
-        {
-          v54 = &word_14001EFE4;
-          v63 = 0;
-          v55 = &word_14001EFE4;
-          v62 = 0;
-          v57 = &word_14001EFE4;
-          v56 = 0;
-        }
-        v65 = v56;
-        UserData->Ptr = (ULONGLONG)&SshpSessionId;
-        *(_QWORD *)&UserData->Size = 8LL;
-        UserData[1].Ptr = v6 + 64;
-        UserData[2].Ptr = v6 + 48;
-        UserData[3].Ptr = (ULONGLONG)v66;
-        UserData[4].Ptr = (ULONGLONG)&v66[5] + 8;
-        UserData[5].Ptr = (ULONGLONG)v66 + 8;
-        UserData[6].Ptr = (ULONGLONG)&v66[6] + 12;
-        UserData[7].Ptr = (ULONGLONG)&v66[3];
-        UserData[8].Ptr = (ULONGLONG)v67;
-        UserData[9].Ptr = (ULONGLONG)&v67[5] + 8;
-        UserData[10].Ptr = (ULONGLONG)v67 + 8;
-        UserData[11].Ptr = (ULONGLONG)&v67[6] + 12;
-        UserData[12].Ptr = (ULONGLONG)&v67[3];
-        UserData[13].Ptr = v6 + 40;
-        UserData[14].Ptr = (ULONGLONG)&v62;
-        *(_QWORD *)&UserData[1].Size = 16LL;
-        *(_QWORD *)&UserData[2].Size = 16LL;
-        *(_QWORD *)&UserData[3].Size = 8LL;
-        *(_QWORD *)&UserData[4].Size = 20LL;
-        *(_QWORD *)&UserData[5].Size = 40LL;
-        *(_QWORD *)&UserData[6].Size = 20LL;
-        *(_QWORD *)&UserData[7].Size = 40LL;
-        *(_QWORD *)&UserData[8].Size = 8LL;
-        *(_QWORD *)&UserData[9].Size = 20LL;
-        *(_QWORD *)&UserData[10].Size = 40LL;
-        *(_QWORD *)&UserData[11].Size = 20LL;
-        *(_QWORD *)&UserData[12].Size = 40LL;
-        *(_QWORD *)&UserData[13].Size = 4LL;
-        *(_QWORD *)&UserData[14].Size = 4LL;
-        v58 = 2 * v62;
-        UserData[15].Ptr = (ULONGLONG)v55;
-        UserData[15].Size = v58;
-        UserData[15].Reserved = 0;
-        UserData[16].Ptr = (ULONGLONG)&v63;
-        *(_QWORD *)&UserData[16].Size = 4LL;
-        v59 = 2 * v63;
-        UserData[17].Ptr = (ULONGLONG)v54;
-        UserData[17].Size = v59;
-        UserData[17].Reserved = 0;
-        UserData[18].Ptr = (ULONGLONG)&v65;
-        *(_QWORD *)&UserData[18].Size = 4LL;
-        UserData[19].Size = 2 * v65;
-        UserData[19].Ptr = (ULONGLONG)v57;
-        UserData[19].Reserved = 0;
-        LODWORD(Paged) = EtwWriteEx(
-                           SshpTraceHandle,
-                           &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_VERBOSE_ACCOUNTING,
-                           0LL,
-                           0,
-                           0LL,
-                           0LL,
-                           0x14u,
-                           UserData);
       }
     }
   }
-  return Paged;
+  return v27;
 }

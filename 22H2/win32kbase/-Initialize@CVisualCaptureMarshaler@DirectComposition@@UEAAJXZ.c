@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CVisualCaptureMarshaler@DirectComposition@@UEAAJXZ @ 0x1C022C200
+ * XREFs of ?Initialize@CVisualCaptureMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01F31F0
  * Callers:
  *     <none>
  * Callees:

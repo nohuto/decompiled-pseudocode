@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupAllocateMemory @ 0x140167B08
+ * XREFs of ExpSaPageGroupAllocateMemory @ 0x140167B28
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x1401677E8 (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorAllocate @ 0x140167808 (ExpSaAllocatorAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -12,7 +12,7 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)

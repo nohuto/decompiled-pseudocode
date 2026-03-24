@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ResolveHandle@SynchronizationObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C020AF14
+ * XREFs of ?ResolveHandle@SynchronizationObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C01D3994
  * Callers:
- *     NtDCompositionCommitChannel @ 0x1C00271A0 (NtDCompositionCommitChannel.c)
- *     NtDCompositionSubmitDWMBatch @ 0x1C0028310 (NtDCompositionSubmitDWMBatch.c)
- *     DCompositionCreateSynchronizationObject @ 0x1C0209030 (DCompositionCreateSynchronizationObject.c)
- *     NtDCompositionCommitSynchronizationObject @ 0x1C0209410 (NtDCompositionCommitSynchronizationObject.c)
+ *     NtDCompositionCommitChannel @ 0x1C005EB90 (NtDCompositionCommitChannel.c)
+ *     NtDCompositionSubmitDWMBatch @ 0x1C005F450 (NtDCompositionSubmitDWMBatch.c)
+ *     DCompositionCreateSynchronizationObject @ 0x1C01D1DF0 (DCompositionCreateSynchronizationObject.c)
+ *     NtDCompositionCommitSynchronizationObject @ 0x1C01D20B0 (NtDCompositionCommitSynchronizationObject.c)
  * Callees:
- *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0099788 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0083AC4 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::SynchronizationObject::ResolveHandle(

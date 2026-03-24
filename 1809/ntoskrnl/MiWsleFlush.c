@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWsleFlush @ 0x1400B32F0
+ * XREFs of MiWsleFlush @ 0x1400B3310
  * Callers:
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -19,12 +19,12 @@
  *     MiLockVadCore @ 0x140087AD0 (MiLockVadCore.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiGetWsleProtection @ 0x1400B5C00 (MiGetWsleProtection.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiUnlockVadCore @ 0x140125748 (MiUnlockVadCore.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiGetWsleProtection @ 0x1400B5C20 (MiGetWsleProtection.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
  */
 
 unsigned __int64 __fastcall MiWsleFlush(char *a1, unsigned __int64 a2, __int64 a3, int *a4)

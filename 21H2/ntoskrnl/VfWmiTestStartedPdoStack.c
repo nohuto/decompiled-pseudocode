@@ -1,25 +1,24 @@
 /*
- * XREFs of VfWmiTestStartedPdoStack @ 0x140AA6BB0
+ * XREFs of VfWmiTestStartedPdoStack @ 0x1409E3530
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     VfIrpSendSynchronousIrp @ 0x140A8D17C (VfIrpSendSynchronousIrp.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VfIrpSendSynchronousIrp @ 0x1409D1510 (VfIrpSendSynchronousIrp.c)
  */
 
 __int64 __fastcall VfWmiTestStartedPdoStack(struct _DEVICE_OBJECT *a1)
 {
-  __int64 v2; // r9
   __int64 result; // rax
-  _QWORD v4[11]; // [rsp+40h] [rbp-58h] BYREF
+  _QWORD v3[11]; // [rsp+40h] [rbp-58h] BYREF
 
-  memset(v4, 0, 0x48uLL);
+  memset(v3, 0, 0x48uLL);
   result = (unsigned int)MmVerifierData;
   if ( (MmVerifierData & 0x10) != 0 )
   {
-    LOWORD(v4[0]) = -233;
-    v4[1] = a1;
-    return VfIrpSendSynchronousIrp(a1, (__int64)v4, 1, v2, 0LL, 0LL, 0LL);
+    LOWORD(v3[0]) = -233;
+    v3[1] = a1;
+    return VfIrpSendSynchronousIrp(a1, (__int64)v3, 1, -1073741637, 0LL, 0LL, 0LL);
   }
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProcessTransitionHeatBatch @ 0x1402CEE74
+ * XREFs of MiProcessTransitionHeatBatch @ 0x1402CEF74
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C30 (ExfTryAcquirePushLockShared.c)
- *     MiNotifyPageHeat @ 0x1402CEE40 (MiNotifyPageHeat.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiProcessTransitionHeatBatch(unsigned int *a1)

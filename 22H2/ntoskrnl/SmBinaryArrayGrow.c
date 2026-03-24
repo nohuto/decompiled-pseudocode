@@ -1,10 +1,10 @@
 /*
- * XREFs of SmBinaryArrayGrow @ 0x1405CA03C
+ * XREFs of SmBinaryArrayGrow @ 0x14031B6D0
  * Callers:
- *     SmHpBufferAlloc @ 0x1405CA1A4 (SmHpBufferAlloc.c)
+ *     SmHpBufferAlloc @ 0x14031B5A4 (SmHpBufferAlloc.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
@@ -15,8 +15,8 @@ char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
   unsigned int v5; // r15d
   char *v6; // rdi
   __int64 v7; // rsi
-  __int64 v8; // rbp
-  char *Pool2; // rax
+  SIZE_T v9; // rbp
+  char *PoolWithTag; // rax
 
   v2 = 0LL;
   v3 = a1;
@@ -26,17 +26,17 @@ char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
   {
     v6 = *(char **)(v3 + 8 * a1);
     v7 = (unsigned int)a1;
-    if ( v6 )
-      return &v6[16 * v5];
-    v8 = (unsigned int)(16 * (1 << a1));
-    Pool2 = (char *)ExAllocatePool2(64LL, v8, 1094872435LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    if ( !v6 )
     {
-      memset(Pool2, 0, (unsigned int)v8);
+      v9 = (unsigned int)(16 * (1 << a1));
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x41426D73u);
+      v6 = PoolWithTag;
+      if ( !PoolWithTag )
+        return (char *)v2;
+      memset(PoolWithTag, 0, (unsigned int)v9);
       *(_QWORD *)(v3 + 8 * v7) = v6;
-      return &v6[16 * v5];
     }
+    return &v6[16 * v5];
   }
   return (char *)v2;
 }

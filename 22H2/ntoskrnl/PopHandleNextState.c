@@ -1,276 +1,198 @@
 /*
- * XREFs of PopHandleNextState @ 0x140AA81DC
+ * XREFs of PopHandleNextState @ 0x1409938B0
  * Callers:
- *     PopInvokeStateHandlerTargetProcessor @ 0x140AA85E0 (PopInvokeStateHandlerTargetProcessor.c)
- *     PopIssueNextState @ 0x140AA8F1C (PopIssueNextState.c)
+ *     PopIssueNextState @ 0x1409937F0 (PopIssueNextState.c)
+ *     PopInvokeStateHandlerTargetProcessor @ 0x140993830 (PopInvokeStateHandlerTargetProcessor.c)
  * Callees:
- *     KeSaveExtendedAndSupervisorState @ 0x14020DDFC (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x14020E048 (KeRestoreExtendedAndSupervisorState.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KeForceAttachProcess @ 0x140352F38 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x140354F9C (KeForceDetachProcess.c)
- *     HvlEnlightenProcessor @ 0x140382F20 (HvlEnlightenProcessor.c)
- *     KeFlushCurrentTbImmediately @ 0x14039AAE0 (KeFlushCurrentTbImmediately.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KdPowerTransition @ 0x140567A50 (KdPowerTransition.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BFE4 (KeRestoreProcessorSpecificFeatures.c)
- *     KeSaveProcessorSpecificFeatures @ 0x14056C06C (KeSaveProcessorSpecificFeatures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeResumeClockTimer @ 0x14056FA0C (KeResumeClockTimer.c)
- *     KeSuspendClockTimer @ 0x14056FB0C (KeSuspendClockTimer.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1405726FC (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572738 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     PopFxNotifySystemStateTransition @ 0x14058B054 (PopFxNotifySystemStateTransition.c)
- *     PpmResetPerfEngineForProcessor @ 0x14058D6A8 (PpmResetPerfEngineForProcessor.c)
- *     PopRestoreHiberContext @ 0x140AA45CC (PopRestoreHiberContext.c)
- *     PopSstDiagInitializeResumeTimer @ 0x140AAA724 (PopSstDiagInitializeResumeTimer.c)
+ *     KeForceAttachProcess @ 0x14025BAD8 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x140311DD8 (KeForceDetachProcess.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14031A61C (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14031C008 (KeRestoreExtendedAndSupervisorState.c)
+ *     PopFxNotifySystemStateTransition @ 0x140383538 (PopFxNotifySystemStateTransition.c)
+ *     KeResumeClockTimer @ 0x140383558 (KeResumeClockTimer.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140383644 (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140383D38 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeSuspendClockTimer @ 0x140383D58 (KeSuspendClockTimer.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383DBC (KeRestoreProcessorSpecificFeatures.c)
+ *     HvlNotifyLongSpinWait @ 0x14038FA40 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390820 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0380 (KeFlushCurrentTbImmediately.c)
+ *     HvlEnlightenProcessor @ 0x1403A7298 (HvlEnlightenProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmResetPerfEngineForProcessorEx @ 0x1403F7884 (PpmResetPerfEngineForProcessorEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KdPowerTransition @ 0x140510EE0 (KdPowerTransition.c)
+ *     PopRestoreHiberContext @ 0x140993CC8 (PopRestoreHiberContext.c)
  */
 
-void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PopHandleNextState(__int64 a1, __int64 a2)
 {
-  struct _KPRCB *CurrentPrcb; // rsi
-  unsigned int v6; // eax
-  unsigned int v7; // eax
-  unsigned int v8; // eax
-  unsigned int v9; // eax
-  unsigned int v10; // eax
-  unsigned int v11; // eax
-  unsigned int v12; // eax
-  int v13; // ebp
-  unsigned __int8 CurrentIrql; // dl
-  _DWORD *SchedulerAssist; // r10
-  __int64 v16; // r9
-  volatile signed __int32 *v17; // rdx
-  char v18; // dl
-  unsigned int v19; // eax
-  unsigned int v20; // eax
-  unsigned int v21; // eax
-  unsigned int v22; // eax
-  unsigned int v23; // eax
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // r8
-  __int64 v28; // r9
-  struct _KPRCB *v29; // rcx
-  signed __int32 *v30; // r8
-  signed __int32 v31; // eax
-  signed __int32 v32; // ett
-  unsigned __int64 v33; // rbx
-  unsigned __int8 v34; // al
-  struct _KPRCB *v35; // r10
-  _DWORD *v36; // r8
-  int v37; // eax
-  bool v38; // zf
-  __int64 v39; // rdx
-  __int16 v40; // [rsp+50h] [rbp-8h]
-  int v41; // [rsp+60h] [rbp+8h] BYREF
+  struct _KPRCB *CurrentPrcb; // rbp
+  unsigned int v5; // edi
+  int v6; // eax
+  unsigned __int8 CurrentIrql; // r10
+  _DWORD *SchedulerAssist; // r8
+  int v9; // eax
+  __int64 v10; // rdx
+  unsigned int Number; // ecx
+  int v12; // r14d
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rbx
+  unsigned __int8 v15; // al
+  struct _KPRCB *v16; // r10
+  _DWORD *v17; // r9
+  int v18; // eax
+  bool v19; // zf
+  __int64 v20; // rdx
+  __int16 v21; // [rsp+40h] [rbp-8h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v41 = 0;
+  v5 = 0;
   while ( *(_DWORD *)(a1 + 56) == *(_DWORD *)a2 )
-    KeYieldProcessorEx(&v41);
-  v6 = *(_DWORD *)(a1 + 56);
-  *(_DWORD *)a2 = v6;
-  if ( v6 <= 9 )
   {
-    if ( v6 == 9 )
+    if ( (++v5 & HvlLongSpinCountMask) == 0
+      && (HvlEnlightenments & 0x40) != 0
+      && KiCheckVpBackingLongSpinWaitHypercall() )
     {
-      PopRestoreHiberContext(*(_QWORD *)(a1 + 24));
-      goto LABEL_76;
-    }
-    v7 = v6 - 2;
-    if ( v7 )
-    {
-      v8 = v7 - 1;
-      if ( v8 )
-      {
-        v9 = v8 - 1;
-        if ( v9 )
-        {
-          v10 = v9 - 1;
-          if ( v10 )
-          {
-            v11 = v10 - 1;
-            if ( v11 )
-            {
-              v12 = v11 - 1;
-              if ( v12 )
-              {
-                if ( v12 == 1 )
-                  KeRestoreProcessorSpecificFeatures(a2 + 112);
-              }
-              else
-              {
-                HvlEnlightenProcessor(1);
-              }
-            }
-            else
-            {
-              if ( (PopSimulate & 0x800000) != 0 && *(_QWORD *)(a1 + 8) )
-              {
-                v13 = 0;
-                PoResumeFromHibernate = 1;
-              }
-              else
-              {
-                if ( !CurrentPrcb->Number && !*(_QWORD *)(a1 + 8) )
-                  KdPowerTransition(4);
-                v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)a1 + 8LL))(
-                        *(_QWORD *)(*(_QWORD *)a1 + 16LL),
-                        *(_QWORD *)(a1 + 8),
-                        *(_QWORD *)(a1 + 16),
-                        *(unsigned int *)(a1 + 48),
-                        a1 + 60);
-                if ( !CurrentPrcb->Number )
-                {
-                  if ( !PoResumeFromHibernate )
-                    KdPowerTransition(1);
-                  if ( !CurrentPrcb->Number )
-                  {
-                    PopSstDiagInitializeResumeTimer();
-                    if ( !CurrentPrcb->Number )
-                      qword_140C3D480 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C39450;
-                  }
-                }
-              }
-              *(_DWORD *)(a2 + 120) = v13;
-            }
-          }
-          else if ( KeGetCurrentThread()->ApcState.Process != PsInitialSystemProcess )
-          {
-            *(_BYTE *)(a2 + 6) = 1;
-            KeForceAttachProcess(PsInitialSystemProcess, (_OWORD *)(a2 + 64), 1);
-          }
-        }
-        else
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          __writecr8(0xFuLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-          {
-            SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-            if ( CurrentIrql == 15 )
-              LODWORD(v16) = 0x8000;
-            else
-              v16 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-            SchedulerAssist[5] |= v16;
-          }
-          *(_BYTE *)(a2 + 7) = CurrentIrql;
-          _disable();
-          v17 = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-          if ( v17 )
-            _InterlockedOr(v17, 0x200000u);
-          *(_BYTE *)(a2 + 4) = (v40 & 0x200) != 0;
-          KeSuspendClockTimer();
-        }
-      }
-      else
-      {
-        KeSaveIptStateBeforeProcessorGoesOffline();
-        *(_BYTE *)(a2 + 5) = 0;
-        if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
-          *(_BYTE *)(a2 + 5) = (int)KeSaveExtendedAndSupervisorState(
-                                      (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL,
-                                      (PVOID *)(a2 + 8)) >= 0;
-        KeSaveProcessorSpecificFeatures();
-        *(_QWORD *)(a2 + 128) = KeGetPcr();
-      }
-      goto LABEL_76;
-    }
-    v18 = 1;
-LABEL_44:
-    PopFxNotifySystemStateTransition((__int64)CurrentPrcb, v18, dword_140C3CE40);
-    goto LABEL_76;
-  }
-  v19 = v6 - 10;
-  if ( !v19 )
-  {
-    KeFlushCurrentTbImmediately();
-    __wbinvd();
-    goto LABEL_76;
-  }
-  v20 = v19 - 1;
-  if ( v20 )
-  {
-    v21 = v20 - 1;
-    if ( v21 )
-    {
-      v22 = v21 - 1;
-      if ( v22 )
-      {
-        v23 = v22 - 1;
-        if ( !v23 )
-        {
-          v18 = 0;
-          goto LABEL_44;
-        }
-        if ( v23 == 1 )
-        {
-          if ( *(_BYTE *)(a2 + 5) )
-            KeRestoreExtendedAndSupervisorState(a2 + 8);
-          KeRestoreIptStateAfterProcessorComesOnline(a1, a2, a3);
-          LOBYTE(v24) = 1;
-          PpmResetPerfEngineForProcessor((__int64)CurrentPrcb, v24, v25, v26);
-        }
-      }
-      else
-      {
-        KeResumeClockTimer();
-        PpmResetPerfEngineForProcessor((__int64)CurrentPrcb, 0LL, v27, v28);
-        if ( *(_BYTE *)(a2 + 4) )
-        {
-          v29 = KeGetCurrentPrcb();
-          v30 = (signed __int32 *)v29->SchedulerAssist;
-          if ( v30 )
-          {
-            _m_prefetchw(v30);
-            v31 = *v30;
-            do
-            {
-              v32 = v31;
-              v31 = _InterlockedCompareExchange(v30, v31 & 0xFFDFFFFF, v31);
-            }
-            while ( v32 != v31 );
-            if ( (v31 & 0x200000) != 0 )
-              KiRemoveSystemWorkPriorityKick((__int64)v29);
-          }
-          _enable();
-        }
-        v33 = *(unsigned __int8 *)(a2 + 7);
-        if ( KiIrqlFlags )
-        {
-          v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
-          {
-            v35 = KeGetCurrentPrcb();
-            v36 = v35->SchedulerAssist;
-            v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v33 + 1));
-            v38 = (v37 & v36[5]) == 0;
-            v36[5] &= v37;
-            if ( v38 )
-              KiRemoveSystemWorkPriorityKick((__int64)v35);
-          }
-        }
-        __writecr8(v33);
-      }
+      HvlNotifyLongSpinWait(v5);
     }
     else
     {
-      v39 = *(_QWORD *)(a1 + 32);
-      if ( *(_QWORD *)v39 )
-      {
-        LOBYTE(a3) = *(_BYTE *)(a1 + 44);
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64))v39)(*(unsigned int *)(a1 + 40), *(_QWORD *)(v39 + 8), a3);
-      }
+      _mm_pause();
     }
   }
-  else if ( *(_BYTE *)(a2 + 6) )
+  v6 = *(_DWORD *)(a1 + 56);
+  *(_DWORD *)a2 = v6;
+  switch ( v6 )
   {
-    KeForceDetachProcess(($115DCDF994C6370D29323EAB0E0C9502 *)(a2 + 64));
-    *(_BYTE *)(a2 + 6) = 0;
+    case 2:
+      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 1, dword_140C23A60);
+      break;
+    case 3:
+      KeSaveIptStateBeforeProcessorGoesOffline();
+      *(_BYTE *)(a2 + 5) = 0;
+      if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+        *(_BYTE *)(a2 + 5) = (int)KeSaveExtendedAndSupervisorState(
+                                    (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL,
+                                    (PVOID *)(a2 + 8)) >= 0;
+      *(_QWORD *)(a2 + 120) = KeGetPcr();
+      break;
+    case 4:
+      CurrentIrql = KeGetCurrentIrql();
+      __writecr8(0xFuLL);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      {
+        SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+        SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (CurrentIrql + 1)) - 1) & 0xFFFC;
+      }
+      *(_BYTE *)(a2 + 7) = CurrentIrql;
+      _disable();
+      *(_BYTE *)(a2 + 4) = (v21 & 0x200) != 0;
+      KeSuspendClockTimer();
+      break;
+    case 5:
+      if ( KeGetCurrentThread()->ApcState.Process != PsInitialSystemProcess )
+      {
+        *(_BYTE *)(a2 + 6) = 1;
+        KeForceAttachProcess((ULONG_PTR)PsInitialSystemProcess, a2 + 64);
+      }
+      break;
+    case 6:
+      if ( (PopSimulate & 0x800000) != 0 && *(_QWORD *)(a1 + 8) )
+      {
+        PoResumeFromHibernate = 1;
+        *(_DWORD *)(a2 + 112) = 0;
+      }
+      else
+      {
+        if ( !CurrentPrcb->Number && !*(_QWORD *)(a1 + 8) )
+          KdPowerTransition(4LL, a2);
+        v9 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)a1 + 8LL))(
+               *(_QWORD *)(*(_QWORD *)a1 + 16LL),
+               *(_QWORD *)(a1 + 8),
+               *(_QWORD *)(a1 + 16),
+               *(unsigned int *)(a1 + 48),
+               a1 + 60);
+        Number = CurrentPrcb->Number;
+        v12 = v9;
+        if ( !Number )
+        {
+          if ( !PoResumeFromHibernate )
+          {
+            KdPowerTransition(1LL, v10);
+            Number = CurrentPrcb->Number;
+          }
+          if ( !Number )
+            qword_140C24080 = __rdtsc();
+        }
+        *(_DWORD *)(a2 + 112) = v12;
+      }
+      break;
+    case 7:
+      HvlEnlightenProcessor(1);
+      break;
+    case 8:
+      KeRestoreProcessorSpecificFeatures();
+      break;
+    case 9:
+      PopRestoreHiberContext(*(_QWORD *)(a1 + 24));
+      break;
+    case 10:
+      KeFlushCurrentTbImmediately();
+      __wbinvd();
+      break;
+    case 11:
+      if ( *(_BYTE *)(a2 + 6) )
+      {
+        KeForceDetachProcess((_OWORD *)(a2 + 64), 1);
+        *(_BYTE *)(a2 + 6) = 0;
+      }
+      break;
+    case 12:
+      v13 = *(_QWORD *)(a1 + 32);
+      if ( *(_QWORD *)v13 )
+        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))v13)(
+          *(unsigned int *)(a1 + 40),
+          *(_QWORD *)(v13 + 8),
+          *(unsigned __int8 *)(a1 + 44));
+      break;
+    case 13:
+      KeResumeClockTimer();
+      PpmResetPerfEngineForProcessorEx((__int64)CurrentPrcb, 0LL);
+      if ( *(_BYTE *)(a2 + 4) )
+        _enable();
+      v14 = *(unsigned __int8 *)(a2 + 7);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v15 = KeGetCurrentIrql();
+          if ( v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
+          {
+            v16 = KeGetCurrentPrcb();
+            v17 = v16->SchedulerAssist;
+            v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+            v19 = (v18 & v17[5]) == 0;
+            v17[5] &= v18;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)v16);
+          }
+        }
+      }
+      __writecr8(v14);
+      break;
+    case 14:
+      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 0, dword_140C23A60);
+      break;
+    case 15:
+      if ( *(_BYTE *)(a2 + 5) )
+        KeRestoreExtendedAndSupervisorState(a2 + 8);
+      KeRestoreIptStateAfterProcessorComesOnline();
+      LOBYTE(v20) = 1;
+      PpmResetPerfEngineForProcessorEx((__int64)CurrentPrcb, v20);
+      break;
+    default:
+      break;
   }
-LABEL_76:
-  _InterlockedAdd((volatile signed __int32 *)(a1 + 52), 1u);
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 52));
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of __security_init_cookie @ 0x18010FEAC
+ * XREFs of __security_init_cookie @ 0x1800E7BAC
  * Callers:
- *     _DllMainCRTStartup @ 0x18010F834 (_DllMainCRTStartup.c)
+ *     _DllMainCRTStartup @ 0x1800E747C (_DllMainCRTStartup.c)
  * Callees:
  *     <none>
  */

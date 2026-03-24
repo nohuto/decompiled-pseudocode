@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PnpEventCheckForDevicePresenceOverload@FxPkgPdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C0083550
+ * XREFs of ?PnpEventCheckForDevicePresenceOverload@FxPkgPdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C00793F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsDeviceRemoved@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C005C14C (-IsDeviceRemoved@FxDeviceDescriptionEntry@@QEAAEXZ.c)
+ *     ?IsDeviceRemoved@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C003BA24 (-IsDeviceRemoved@FxDeviceDescriptionEntry@@QEAAEXZ.c)
  */
 
 __int64 __fastcall FxPkgPdo::PnpEventCheckForDevicePresenceOverload(FxPkgPdo *this)

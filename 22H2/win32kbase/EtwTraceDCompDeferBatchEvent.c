@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDCompDeferBatchEvent @ 0x1C00224E0
+ * XREFs of EtwTraceDCompDeferBatchEvent @ 0x1C005A4C0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qpqxxq_EtwWriteTransfer @ 0x1C013D48C (McTemplateK0qpqxxq_EtwWriteTransfer.c)
+ *     McTemplateK0qpqxxq_EtwWriteTransfer @ 0x1C0126700 (McTemplateK0qpqxxq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDCompDeferBatchEvent(int a1, int a2, int a3, char a4, __int64 a5, char a6)

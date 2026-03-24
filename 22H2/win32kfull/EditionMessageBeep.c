@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionMessageBeep @ 0x1C01F6D70
+ * XREFs of EditionMessageBeep @ 0x1C0213B50
  * Callers:
  *     <none>
  * Callees:
- *     xxxMessageBeep @ 0x1C01F6D88 (xxxMessageBeep.c)
+ *     xxxMessageBeep @ 0x1C015D220 (xxxMessageBeep.c)
  */
 
 __int64 __fastcall EditionMessageBeep(__int64 a1)

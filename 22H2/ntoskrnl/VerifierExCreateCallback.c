@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExCreateCallback @ 0x140ACF030
+ * XREFs of VerifierExCreateCallback @ 0x1409D1B50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExCreateCallback()

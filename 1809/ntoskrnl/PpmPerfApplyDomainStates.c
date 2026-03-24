@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC6E0 (KeAndAffinityEx.c)
- *     PpmPerfApplyDomainState @ 0x140112900 (PpmPerfApplyDomainState.c)
- *     KeIsEqualAffinityEx @ 0x14018A2D0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
+ *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
+ *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char PpmPerfApplyDomainStates()

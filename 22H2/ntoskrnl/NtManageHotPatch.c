@@ -1,386 +1,287 @@
 /*
- * XREFs of NtManageHotPatch @ 0x1407D4470
+ * XREFs of NtManageHotPatch @ 0x1408CED90
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiLoadHotPatch @ 0x140A37FD0 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140A38368 (MiLoadHotPatchForUserSid.c)
- *     MiLogHotPatchManagement @ 0x140A38728 (MiLogHotPatchManagement.c)
- *     MiQueryLoadedPatches @ 0x140A3B330 (MiQueryLoadedPatches.c)
- *     MiQueryProcessActivePatches @ 0x140A3B60C (MiQueryProcessActivePatches.c)
- *     MiQuerySingleLoadedPatch @ 0x140A3BBCC (MiQuerySingleLoadedPatch.c)
- *     MiUnloadHotPatch @ 0x140A3BFA4 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x140A3C0F0 (MiUnloadHotPatchForUserSid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MiLoadHotPatch @ 0x1408CAC20 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x1408CAF80 (MiLoadHotPatchForUserSid.c)
+ *     MiLogHotPatchManagement @ 0x1408CB310 (MiLogHotPatchManagement.c)
+ *     MiQueryLoadedPatches @ 0x1408CDCA8 (MiQueryLoadedPatches.c)
+ *     MiQueryProcessActivePatches @ 0x1408CDF38 (MiQueryProcessActivePatches.c)
+ *     MiUnloadHotPatch @ 0x1408CE818 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408CE964 (MiUnloadHotPatchForUserSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtManageHotPatch(int a1, char *a2, unsigned int a3, unsigned __int64 a4)
 {
-  _DWORD *v4; // r15
-  SIZE_T v5; // r12
-  KPROCESSOR_MODE AccessMode; // bl
-  NTSTATUS LoadedPatches; // ebx
-  __int64 v10; // rsi
-  KPROCESSOR_MODE v11; // r14
-  __int64 CurrentServerSilo; // rbx
-  int v14; // edx
-  unsigned int v15; // r15d
-  ULONG v16; // r8d
-  __int64 v17; // rcx
-  unsigned int v18; // eax
-  __int64 v19; // r9
-  _QWORD *v20; // rdx
-  unsigned __int64 v21; // rdx
-  unsigned int v22; // eax
-  char *v23; // rcx
-  KPROCESSOR_MODE v24; // [rsp+40h] [rbp-118h]
-  int v25; // [rsp+44h] [rbp-114h]
-  unsigned int Size; // [rsp+58h] [rbp-100h] BYREF
-  int Size_4; // [rsp+5Ch] [rbp-FCh]
-  unsigned __int64 v29; // [rsp+60h] [rbp-F8h]
-  PVOID P; // [rsp+68h] [rbp-F0h]
-  PVOID Src; // [rsp+70h] [rbp-E8h]
-  PVOID v32; // [rsp+78h] [rbp-E0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-D8h] BYREF
-  unsigned __int64 v34; // [rsp+90h] [rbp-C8h]
-  _QWORD SourceSid[14]; // [rsp+A0h] [rbp-B8h] BYREF
+  SIZE_T v4; // r14
+  size_t v7; // rsi
+  KPROCESSOR_MODE AccessMode; // r12
+  int active; // ebx
+  int v10; // edx
+  ULONG v11; // r8d
+  __int64 v12; // rcx
+  const void *v13; // rdx
+  char *v14; // rcx
+  int v15; // eax
+  unsigned __int64 v16; // rdx
+  int HotPatchForUserSid; // eax
+  _DWORD *v18; // rdx
+  __int64 v19; // rcx
+  int v21; // [rsp+30h] [rbp-108h]
+  unsigned int v23; // [rsp+40h] [rbp-F8h] BYREF
+  int v24; // [rsp+44h] [rbp-F4h]
+  size_t Size; // [rsp+48h] [rbp-F0h]
+  unsigned __int64 v26; // [rsp+50h] [rbp-E8h]
+  PVOID P; // [rsp+58h] [rbp-E0h] BYREF
+  PVOID v28; // [rsp+60h] [rbp-D8h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-D0h] BYREF
+  _QWORD Src[14]; // [rsp+80h] [rbp-B8h] BYREF
 
-  v4 = (_DWORD *)a4;
-  v5 = a3;
-  v34 = a4;
-  v29 = a4;
+  v4 = a3;
+  v26 = a4;
   DestinationString = 0LL;
-  memset(SourceSid, 0, 0x64uLL);
+  LODWORD(v7) = 104;
+  Size = 104LL;
+  memset(Src, 0, 0x68uLL);
   P = 0LL;
-  Src = 0LL;
-  v32 = 0LL;
+  v28 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  Size = 0;
+  v23 = 0;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v24 = AccessMode;
-  if ( (qword_140C69980 & 1) == 0 )
+  if ( !dword_140C4CCB0 )
   {
-    LoadedPatches = -1073741637;
+    active = -1073741637;
 LABEL_3:
-    v25 = LoadedPatches;
-    v10 = 0x7FFFFFFF0000LL;
-LABEL_4:
-    v11 = v24;
-    goto LABEL_5;
+    v21 = active;
+    goto LABEL_78;
   }
-  if ( !byte_140C69978 )
+  if ( !SeSinglePrivilegeCheck(SeLoadDriverPrivilege, AccessMode) )
   {
-    LoadedPatches = -1073741661;
+    active = -1073741727;
     goto LABEL_3;
   }
-  if ( a1 != 7 && (unsigned int)(a1 - 8) >= 2 )
-  {
-    if ( !SeSinglePrivilegeCheck(SeLoadDriverPrivilege, AccessMode) )
-    {
-      LoadedPatches = -1073741727;
-      goto LABEL_3;
-    }
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( CurrentServerSilo != PdcCreateWatchdogAroundClientCall() )
-    {
-      LoadedPatches = -1073741790;
-      goto LABEL_3;
-    }
-    AccessMode = v24;
-  }
-  v14 = 0;
-  Size_4 = 0;
-  if ( a1 <= 5 )
-  {
-    if ( a1 != 5 )
-    {
-      if ( !a1 )
-      {
-LABEL_35:
-        v15 = 104;
-        goto LABEL_45;
-      }
-      if ( a1 == 1 )
-      {
-LABEL_32:
-        v15 = 80;
-LABEL_34:
-        v14 = 1;
-        v16 = 4;
-        Size_4 = 1;
-        goto LABEL_46;
-      }
-      if ( a1 != 2 )
-      {
-        if ( a1 != 3 )
-        {
-          if ( a1 == 4 )
-            goto LABEL_32;
-LABEL_41:
-          LoadedPatches = -1073741821;
-          goto LABEL_3;
-        }
-        goto LABEL_35;
-      }
-    }
-    v15 = 96;
-    goto LABEL_45;
-  }
+  v10 = 0;
+  v24 = 0;
   switch ( a1 )
   {
-    case 6:
-      v15 = 40;
-      break;
-    case 7:
-      v14 = 1;
-      v15 = 32;
-      Size_4 = 1;
-      break;
-    case 8:
-      v15 = 48;
-      break;
-    case 9:
-      v15 = 8;
-      goto LABEL_34;
-    default:
-      goto LABEL_41;
+    case 0:
+      goto LABEL_16;
+    case 1:
+      goto LABEL_20;
+    case 2:
+      goto LABEL_19;
   }
-LABEL_45:
-  v16 = 8;
-LABEL_46:
-  if ( (unsigned int)v5 < v15 )
+  if ( a1 != 3 )
   {
-    LoadedPatches = -1073741820;
-    v25 = -1073741820;
-    v10 = 0x7FFFFFFF0000LL;
-LABEL_48:
-    v4 = (_DWORD *)a4;
-    goto LABEL_4;
+    if ( a1 != 4 )
+    {
+      if ( a1 != 5 )
+      {
+        if ( a1 != 6 )
+        {
+          active = -1073741821;
+          goto LABEL_3;
+        }
+        v7 = 40LL;
+        goto LABEL_15;
+      }
+LABEL_19:
+      v7 = 96LL;
+LABEL_15:
+      Size = v7;
+      goto LABEL_16;
+    }
+LABEL_20:
+    LODWORD(v7) = 80;
+    Size = 80LL;
+    v10 = 1;
+    v11 = 4;
+    v24 = 1;
+    goto LABEL_17;
+  }
+LABEL_16:
+  v11 = 8;
+LABEL_17:
+  if ( (unsigned int)v4 < (unsigned int)v7 )
+  {
+    active = -1073741820;
+    goto LABEL_3;
   }
   if ( AccessMode )
   {
-    v10 = 0x7FFFFFFF0000LL;
-    v17 = 0x7FFFFFFF0000LL;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v17 = a4;
-    *(_DWORD *)v17 = *(_DWORD *)v17;
-    if ( v14 )
+    v12 = a4;
+    if ( a4 >= 0x7FFFFFFF0000LL )
+      v12 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v12 = *(_DWORD *)v12;
+    if ( v10 )
     {
-      if ( (_DWORD)v5 )
+      if ( (_DWORD)v4 )
       {
-        if ( ((v16 - 1) & (unsigned int)a2) != 0 )
+        if ( ((v11 - 1) & (unsigned int)a2) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&a2[v5] > 0x7FFFFFFF0000LL || &a2[v5] < a2 )
+        if ( (unsigned __int64)&a2[v4] > 0x7FFFFFFF0000LL || &a2[v4] < a2 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
     }
     else
     {
-      ProbeForWrite(a2, v5, v16);
+      ProbeForWrite(a2, v4, v11);
     }
-    memmove(SourceSid, a2, v15);
+    memmove(Src, a2, (unsigned int)Size);
   }
   else
   {
-    memmove(SourceSid, a2, v15);
-    v10 = 0x7FFFFFFF0000LL;
-  }
-  if ( a1 <= 5 )
-  {
-    if ( a1 != 5 )
-    {
-      if ( !a1 )
-        goto LABEL_81;
-      if ( a1 == 1 )
-        goto LABEL_68;
-      if ( a1 != 2 )
-      {
-        if ( a1 != 3 )
-        {
-LABEL_68:
-          if ( LODWORD(SourceSid[0]) == 1 )
-          {
-            if ( a1 != 4 )
-            {
-              v18 = MiUnloadHotPatch(HIDWORD(SourceSid[0]), LODWORD(SourceSid[1]));
-              goto LABEL_77;
-            }
-            if ( RtlValidSid((char *)&SourceSid[1] + 4) )
-            {
-              v18 = MiUnloadHotPatchForUserSid((char *)&SourceSid[1] + 4, (char *)SourceSid + 4);
-LABEL_77:
-              LoadedPatches = v18;
-              v19 = v18;
-LABEL_79:
-              v25 = v18;
-              MiLogHotPatchManagement((unsigned int)a1, SourceSid, 0LL, v19);
-LABEL_80:
-              v20 = 0LL;
-              goto LABEL_119;
-            }
-            goto LABEL_75;
-          }
-          goto LABEL_72;
-        }
-LABEL_81:
-        if ( LODWORD(SourceSid[0]) == 2 && LOWORD(SourceSid[1]) )
-        {
-          if ( AccessMode )
-          {
-            if ( (SourceSid[2] & 1) != 0 )
-              ExRaiseDatatypeMisalignment();
-            v21 = SourceSid[2] + LOWORD(SourceSid[1]);
-            if ( v21 > 0x7FFFFFFF0000LL || v21 < SourceSid[2] )
-              MEMORY[0x7FFFFFFF0000] = 0;
-          }
-          LoadedPatches = RtlDuplicateUnicodeString(0, (PCUNICODE_STRING)&SourceSid[1], &DestinationString);
-          v25 = LoadedPatches;
-          if ( LoadedPatches < 0 )
-            goto LABEL_48;
-          if ( a1 != 3 )
-          {
-            v22 = MiLoadHotPatch(&DestinationString, 1LL, (char *)&SourceSid[11] + 4, &SourceSid[12]);
-            goto LABEL_94;
-          }
-          if ( RtlValidSid(&SourceSid[3]) )
-          {
-            v22 = MiLoadHotPatchForUserSid(&DestinationString, &SourceSid[3], (char *)&SourceSid[11] + 4);
-LABEL_94:
-            v25 = v22;
-            LoadedPatches = v22;
-            MiLogHotPatchManagement((unsigned int)a1, SourceSid, &DestinationString, v22);
-            v20 = SourceSid;
-            Size = v15;
-            goto LABEL_119;
-          }
-LABEL_75:
-          LoadedPatches = -1073741704;
-          goto LABEL_74;
-        }
-        goto LABEL_72;
-      }
-    }
-    if ( LODWORD(SourceSid[0]) != 2 )
-      goto LABEL_72;
-    v23 = 0LL;
-    if ( a1 == 5 )
-    {
-      if ( !RtlValidSid((char *)SourceSid + 4) )
-        goto LABEL_75;
-      v23 = (char *)SourceSid + 4;
-    }
-    LoadedPatches = MiQueryLoadedPatches(v23, v5);
-    v25 = LoadedPatches;
-    if ( LoadedPatches < 0 )
-      goto LABEL_48;
-    if ( Size <= (unsigned int)v5 )
-    {
-      v20 = P;
-      goto LABEL_119;
-    }
-LABEL_73:
-    LoadedPatches = -1073741789;
-    goto LABEL_74;
+    memmove(Src, a2, (unsigned int)v7);
   }
   switch ( a1 )
   {
-    case 6:
-      if ( LODWORD(SourceSid[0]) != 3 && (LODWORD(SourceSid[0]) < 2 || LODWORD(SourceSid[0]) > 3) )
-        goto LABEL_72;
-      LoadedPatches = MiQueryProcessActivePatches((HANDLE)SourceSid[1], v5, AccessMode, SourceSid[0]);
-      v25 = LoadedPatches;
-      if ( LoadedPatches < 0 )
-        goto LABEL_48;
-      if ( Size > (unsigned int)v5 )
-        goto LABEL_73;
-      v20 = Src;
-      break;
-    case 7:
-      v18 = MiApplyImageHotPatchRequest(SourceSid);
-      LoadedPatches = v18;
-      v19 = v18;
-      goto LABEL_79;
-    case 8:
-      if ( LODWORD(SourceSid[0]) != 1 || SourceSid[1] != -1LL || LODWORD(SourceSid[3]) )
+    case 0:
+      goto LABEL_61;
+    case 1:
+      goto LABEL_54;
+    case 2:
+      goto LABEL_45;
+    case 3:
+LABEL_61:
+      if ( LODWORD(Src[0]) != 2 || !LOWORD(Src[1]) )
+        goto LABEL_46;
+      if ( AccessMode )
       {
-LABEL_72:
-        LoadedPatches = -1073741811;
-LABEL_74:
-        v25 = LoadedPatches;
-        goto LABEL_48;
+        if ( (Src[2] & 1) != 0 )
+          ExRaiseDatatypeMisalignment();
+        v16 = Src[2] + LOWORD(Src[1]);
+        if ( v16 > 0x7FFFFFFF0000LL || v16 < Src[2] )
+          MEMORY[0x7FFFFFFF0000] = 0;
       }
-      LoadedPatches = MiQuerySingleLoadedPatch(
-                        (unsigned int)&v32,
-                        (unsigned int)&Size,
-                        (unsigned int)&SourceSid[2],
-                        0,
-                        (__int64)a2,
-                        v5);
-      v25 = LoadedPatches;
-      if ( LoadedPatches < 0 )
+      active = RtlDuplicateUnicodeString(0, (PCUNICODE_STRING)&Src[1], &DestinationString);
+      v21 = active;
+      if ( active < 0 )
+        goto LABEL_78;
+      if ( a1 == 3 )
       {
-        v11 = v24;
-        goto LABEL_124;
+        if ( !RtlValidSid(&Src[3]) )
+          goto LABEL_49;
+        HotPatchForUserSid = MiLoadHotPatchForUserSid((const void **)&DestinationString, &Src[3], (int *)&Src[11] + 1);
       }
-      if ( Size > (unsigned int)v5 )
-        goto LABEL_73;
-      v20 = v32;
-      break;
-    default:
-      if ( SourceSid[0] == 1LL )
+      else
       {
-        LoadedPatches = 0;
-        v25 = 0;
-        goto LABEL_80;
+        HotPatchForUserSid = MiLoadHotPatch(
+                               (const void **)&DestinationString,
+                               1,
+                               (int *)&Src[11] + 1,
+                               (unsigned int *)&Src[12]);
       }
-      goto LABEL_72;
+      v21 = HotPatchForUserSid;
+      active = HotPatchForUserSid;
+      MiLogHotPatchManagement(a1, (__int64)Src, &DestinationString.Length, HotPatchForUserSid);
+      v13 = Src;
+      v23 = Size;
+      goto LABEL_74;
+    case 4:
+LABEL_54:
+      if ( LODWORD(Src[0]) != 1 )
+        goto LABEL_46;
+      if ( a1 == 4 )
+      {
+        if ( !RtlValidSid((char *)&Src[1] + 4) )
+          goto LABEL_49;
+        v15 = MiUnloadHotPatchForUserSid((char *)&Src[1] + 4, (int *)Src + 1);
+      }
+      else
+      {
+        v15 = MiUnloadHotPatch(HIDWORD(Src[0]), Src[1]);
+      }
+      v21 = v15;
+      active = v15;
+      MiLogHotPatchManagement(a1, (__int64)Src, 0LL, v15);
+      v13 = 0LL;
+      goto LABEL_74;
   }
-LABEL_119:
-  v11 = v24;
-  if ( !Size_4 )
+  if ( a1 != 5 )
   {
-    if ( v24 )
+    active = MiQueryProcessActivePatches((HANDLE)Src[1], (__int64 *)&v28, &v23, (__int64)a2, v4, AccessMode);
+    v21 = active;
+    if ( active < 0 )
+      goto LABEL_78;
+    if ( v23 > (unsigned int)v4 )
+      goto LABEL_42;
+    v13 = v28;
+    goto LABEL_74;
+  }
+LABEL_45:
+  if ( LODWORD(Src[0]) != 2 )
+  {
+LABEL_46:
+    active = -1073741811;
+    goto LABEL_43;
+  }
+  v14 = 0LL;
+  if ( a1 == 5 )
+  {
+    if ( !RtlValidSid((char *)Src + 4) )
     {
-      memmove(a2, v20, Size);
-      v4 = (_DWORD *)a4;
-      goto LABEL_5;
+LABEL_49:
+      active = -1073741704;
+      goto LABEL_43;
     }
-    memmove(a2, v20, Size);
+    v14 = (char *)Src + 4;
   }
-LABEL_124:
-  v4 = (_DWORD *)a4;
-LABEL_5:
-  if ( v11 )
+  active = MiQueryLoadedPatches(v14, &P, &v23, (__int64)a2, v4);
+  v21 = active;
+  if ( active < 0 )
+    goto LABEL_78;
+  if ( v23 > (unsigned int)v4 )
   {
-    if ( (unsigned __int64)v4 < 0x7FFFFFFF0000LL )
-      v10 = v34;
-    *(_DWORD *)v10 = *(_DWORD *)v10;
-    *v4 = Size;
-    LoadedPatches = v25;
+LABEL_42:
+    active = -1073741789;
+LABEL_43:
+    v21 = active;
+    goto LABEL_78;
+  }
+  v13 = P;
+LABEL_74:
+  if ( !v24 )
+  {
+    if ( AccessMode )
+    {
+      memmove(a2, v13, v23);
+      v18 = (_DWORD *)a4;
+      goto LABEL_79;
+    }
+    memmove(a2, v13, v23);
+  }
+LABEL_78:
+  v18 = (_DWORD *)a4;
+LABEL_79:
+  if ( AccessMode )
+  {
+    v19 = (__int64)v18;
+    if ( (unsigned __int64)v18 >= 0x7FFFFFFF0000LL )
+      v19 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v19 = *(_DWORD *)v19;
+    *v18 = v23;
+    active = v21;
   }
   else
   {
-    *v4 = Size;
+    *v18 = v23;
   }
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( Src )
-    ExFreePoolWithTag(Src, 0);
-  if ( v32 )
-    ExFreePoolWithTag(v32, 0);
-  return (unsigned int)LoadedPatches;
+  if ( v28 )
+    ExFreePoolWithTag(v28, 0);
+  return (unsigned int)active;
 }

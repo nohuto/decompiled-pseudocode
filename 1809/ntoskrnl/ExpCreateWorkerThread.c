@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateWorkerThread @ 0x14066A8A4
+ * XREFs of ExpCreateWorkerThread @ 0x14066A884
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x140740AC0 (ExpWorkQueueManagerThread.c)
- *     ExpPartitionCreatePoolInternal @ 0x140754C84 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerThread @ 0x140740AA0 (ExpWorkQueueManagerThread.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140754C64 (ExpPartitionCreatePoolInternal.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeBoostPriorityThread @ 0x1400E3360 (KeBoostPriorityThread.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     KeBoostPriorityThread @ 0x1400E3380 (KeBoostPriorityThread.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExpPartitionCreateSystemThread @ 0x14066A974 (ExpPartitionCreateSystemThread.c)
+ *     ExpPartitionCreateSystemThread @ 0x14066A954 (ExpPartitionCreateSystemThread.c)
  */
 
 __int64 __fastcall ExpCreateWorkerThread(_QWORD *a1, __int64 a2, __int64 a3, int a4)

@@ -1,311 +1,217 @@
 /*
- * XREFs of ?EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01B50A0
+ * XREFs of ?EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C012C200
  * Callers:
  *     <none>
  * Callees:
- *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0001560 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ?VidSchIsGpuAccessBlocked@VIDSCH_EXPORT@@QEAA_NPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@@Z @ 0x1C0004A18 (-VidSchIsGpuAccessBlocked@VIDSCH_EXPORT@@QEAA_NPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x1C0007620 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGSYNCOBJECTMUTEX@@QEAA@XZ @ 0x1C0015690 (--1DXGSYNCOBJECTMUTEX@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U?$_tlgWrapSz@D@@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapSz@D@@555@Z @ 0x1C0046274 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U3@.c)
- *     ?GetDisplayOnlyDriverPrecisePresentRegionPreference@ADAPTER_DISPLAY@@QEBAHXZ @ 0x1C0046994 (-GetDisplayOnlyDriverPrecisePresentRegionPreference@ADAPTER_DISPLAY@@QEBAHXZ.c)
- *     ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C018F1D8 (-CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z.c)
- *     ?DxgIsSessionUsingWddmMonitors@@YAHXZ @ 0x1C019D04C (-DxgIsSessionUsingWddmMonitors@@YAHXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C01B6388 (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C00028F0 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?IsComputeOnlyAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0009188 (-IsComputeOnlyAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DxgIsSessionUsingWddmMonitors@@YAHXZ @ 0x1C011746C (-DxgIsSessionUsingWddmMonitors@@YAHXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C012C424 (-CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z.c)
+ *     ?IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z @ 0x1C012C6B8 (-IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C012E0D0 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C013C5B4 (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
  */
 
 __int64 __fastcall EnumAdaptersCallback(struct DXGADAPTER *this, _QWORD *a2)
 {
-  unsigned int v4; // edi
+  __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // rbx
-  __int64 CurrentProcessSessionId; // r14
-  _DWORD *v8; // r13
-  __int64 v9; // rcx
-  int v10; // eax
-  __int64 v11; // rbx
-  struct DXGPROCESS *v12; // rax
-  __int64 v13; // rcx
-  struct DXGPROCESS *Current; // r8
-  struct DXGADAPTER *v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r12
-  __int64 v19; // rcx
-  int v20; // r14d
+  DXGSESSIONMGR *v6; // rsi
+  unsigned int CurrentProcessSessionId; // eax
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // r14
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  ADAPTER_RENDER *v13; // rsi
+  struct DXGPROCESS *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  int v17; // r12d
+  struct DXGPROCESS *Current; // rax
+  int v19; // eax
+  __int64 v20; // rdx
   __int64 v21; // rcx
-  int v22; // eax
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  const CHAR *v26; // rax
-  __int64 v27; // rcx
-  unsigned int v28; // eax
-  struct DXGPROCESS *v29; // rax
-  int v30; // eax
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  __int64 v33; // r12
-  __int64 v34; // rbx
-  __int64 v35; // rcx
-  _QWORD **v36; // r13
-  _QWORD *v37; // rcx
-  _QWORD *v38; // rdx
-  int v39; // eax
-  struct DXGPROCESS *v40; // rax
-  unsigned int v41; // eax
-  __int64 v42; // rcx
-  unsigned int v43; // eax
-  DXGFASTMUTEX *v44; // [rsp+80h] [rbp-49h] BYREF
-  char v45; // [rsp+88h] [rbp-41h]
-  int v46; // [rsp+90h] [rbp-39h] BYREF
-  int v47; // [rsp+94h] [rbp-35h] BYREF
-  int v48; // [rsp+98h] [rbp-31h] BYREF
-  int v49; // [rsp+9Ch] [rbp-2Dh] BYREF
-  int v50; // [rsp+A0h] [rbp-29h] BYREF
-  int v51; // [rsp+A4h] [rbp-25h] BYREF
-  int v52; // [rsp+A8h] [rbp-21h] BYREF
-  int v53; // [rsp+ACh] [rbp-1Dh] BYREF
-  const CHAR *v54; // [rsp+B0h] [rbp-19h] BYREF
-  void *v55; // [rsp+B8h] [rbp-11h] BYREF
-  __int64 v56; // [rsp+C0h] [rbp-9h] BYREF
-  _DWORD v57[2]; // [rsp+C8h] [rbp-1h] BYREF
-  int *v58; // [rsp+D0h] [rbp+7h]
-  _QWORD v59[2]; // [rsp+D8h] [rbp+Fh] BYREF
-  char v60; // [rsp+E8h] [rbp+1Fh]
-  __int16 v61; // [rsp+138h] [rbp+6Fh] BYREF
-  unsigned int v62; // [rsp+140h] [rbp+77h] BYREF
-  int v63; // [rsp+148h] [rbp+7Fh] BYREF
+  __int64 v22; // rsi
+  __int64 v23; // rax
+  __int64 v24; // r15
+  __int64 v25; // rsi
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  __int64 v30; // r9
+  struct SESSION_ADAPTER *SessionAdapterFromLuid; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  struct DXGPROCESS *v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // rbx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // rbx
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 v45; // r8
+  __int64 v46; // r9
+  __int64 v47; // rax
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int64 v50; // rbx
+  __int64 v51; // rax
+  __int64 v52; // rax
+  _DWORD v53[2]; // [rsp+20h] [rbp-30h] BYREF
+  int *v54; // [rsp+28h] [rbp-28h]
+  _BYTE v55[8]; // [rsp+30h] [rbp-20h] BYREF
+  struct DXGADAPTER *v56; // [rsp+38h] [rbp-18h]
+  char v57; // [rsp+40h] [rbp-10h]
+  unsigned int v58; // [rsp+88h] [rbp+38h] BYREF
+  int v59; // [rsp+90h] [rbp+40h] BYREF
 
-  v4 = 0;
-  v6 = *((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
+  v6 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2) + 102);
   if ( v6 )
   {
-    v45 = 0;
-    CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId(v5);
-    v44 = (DXGFASTMUTEX *)(v6 + 88);
-    if ( v6 == -88 )
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v5, v4);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v6, CurrentProcessSessionId);
+  }
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( !SessionDataForSpecifiedSession )
+  {
+    v39 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v39 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v41, v40);
+    *(_QWORD *)(v39 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v39);
+    return 3221225485LL;
+  }
+  v56 = this;
+  v57 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v55);
+  if ( *((_DWORD *)this + 50) == 1 && !*((_BYTE *)this + 2609) && (*((_DWORD *)this + 642) & 4) == 0 )
+  {
+    v13 = (ADAPTER_RENDER *)*((_QWORD *)this + 338);
+    if ( v13 && (v14 = DXGPROCESS::GetCurrent(v10, v9, v11, v12), ADAPTER_RENDER::IsProcessGpuAccessBlocked(v13, v14)) )
     {
-      WdLogSingleEntry1(1LL, 592LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pMutex != NULL", 592LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    if ( *((struct _KTHREAD **)v44 + 3) == KeGetCurrentThread() )
-    {
-      WdLogSingleEntry1(1LL, 599LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_pMutex->IsOwner()", 599LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    DXGFASTMUTEX::Acquire(v44);
-    v45 = 1;
-    if ( (unsigned int)CurrentProcessSessionId < *(_DWORD *)(v6 + 80) )
-    {
-      _mm_lfence();
-      v8 = *(_DWORD **)(*(_QWORD *)(v6 + 48) + 8 * CurrentProcessSessionId);
-      v45 = 0;
-      DXGFASTMUTEX::Release((struct _KTHREAD **)v44);
+      v42 = WdLogNewEntry5_WdEvent(v10, v15);
+      *(_QWORD *)(v42 + 24) = this;
+      *(_QWORD *)(v42 + 32) = DXGPROCESS::GetCurrent(v44, v43, v45, v46);
+      WdLogEvent5_WdEvent(v42);
     }
     else
     {
-      DXGSYNCOBJECTMUTEX::~DXGSYNCOBJECTMUTEX((DXGSYNCOBJECTMUTEX *)&v44);
-      v8 = 0LL;
-    }
-    if ( v8 )
-    {
-      v59[1] = this;
-      _InterlockedAdd64((volatile signed __int64 *)this + 3, 1uLL);
-      v59[0] = -1LL;
-      KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx((char *)this + 136, 0LL);
-      _InterlockedAdd((volatile signed __int32 *)this + 38, 1u);
-      v10 = *((_DWORD *)this + 50);
-      v60 = 1;
-      if ( v10 != 1 || *((_BYTE *)this + 2833) || (*((_DWORD *)this + 698) & 4) != 0 )
-        goto LABEL_18;
-      v11 = *((_QWORD *)this + 366);
-      if ( v11
-        && (v12 = DXGPROCESS::GetCurrent(v9), !*(_BYTE *)(*(_QWORD *)(v11 + 16) + 209LL))
-        && (unsigned __int8)VIDSCH_EXPORT::VidSchIsGpuAccessBlocked(
-                              *(VIDSCH_EXPORT **)(v11 + 736),
-                              *(struct _VIDSCH_GLOBAL **)(v11 + 744),
-                              v12) )
+      v16 = a2[3];
+      if ( (v16 & 1) != 0 || !DXGADAPTER::IsComputeOnlyAdapter(this) )
       {
-        Current = DXGPROCESS::GetCurrent(v13);
-        v15 = this;
-        v16 = 4LL;
-      }
-      else
-      {
-        v19 = a2[3];
-        if ( (v19 & 1) == 0 && (*((_DWORD *)this + 698) & 8) != 0 )
-          goto LABEL_18;
-        v20 = 2;
-        if ( (v19 & 2) == 0 && !*((_QWORD *)this + 366) )
-          goto LABEL_18;
-        if ( (*((_BYTE *)this + 2891) & 2) != 0 && (*((_DWORD *)DXGPROCESS::GetCurrent(v19) + 106) & 8) != 0 )
+        v17 = 2;
+        if ( (v16 & 2) != 0 || *((_QWORD *)this + 338) )
         {
-          if ( (unsigned int)dword_1C013F918 > 5 && tlgKeywordOn((__int64)&dword_1C013F918, 0x400000000000LL) )
+          ++*((_DWORD *)a2 + 2);
+          if ( *(_DWORD *)a2 >= *((_DWORD *)a2 + 1) )
           {
-            v22 = (*((_DWORD *)a2 + 6) >> 1) & 1;
-            v46 = 0;
-            v47 = v22;
-            v48 = a2[3] & 1;
-            v23 = *((_QWORD *)DXGPROCESS::GetCurrent(v21) + 8);
-            if ( v23 )
-              v26 = *(const CHAR **)(v23 + 96);
-            else
-              v26 = 0LL;
-            v54 = v26;
-            v55 = (void *)*((_QWORD *)this + 227);
-            v49 = *((_DWORD *)this + 107);
-            v50 = *((_DWORD *)this + 106);
-            v51 = *((_DWORD *)this + 105);
-            v52 = *((_DWORD *)this + 104);
-            v53 = *((_DWORD *)this + 103);
-            v61 = 1;
-            v56 = 0x2000000LL;
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-              v23,
-              byte_1C00A731E,
-              v24,
-              v25,
-              (__int64)&v56,
-              (__int64)&v61,
-              (__int64)&v53,
-              (__int64)&v52,
-              (__int64)&v51,
-              (__int64)&v50,
-              (__int64)&v49,
-              &v55,
-              &v54,
-              (__int64)&v48,
-              (__int64)&v47,
-              (__int64)&v46);
-          }
-          goto LABEL_18;
-        }
-        v27 = *((unsigned int *)a2 + 1);
-        v28 = *((_DWORD *)a2 + 2) + 1;
-        *((_DWORD *)a2 + 2) = v28;
-        if ( *(_DWORD *)a2 < (unsigned int)v27 )
-        {
-          v62 = 0;
-          v29 = DXGPROCESS::GetCurrent(v27);
-          v30 = DXGADAPTER::CreateHandle(this, v29, &v62);
-          v17 = v30;
-          if ( v30 >= 0 )
-          {
-            v32 = *(unsigned int *)a2;
-            v33 = a2[2];
-            v34 = 5 * v32;
-            *(_DWORD *)a2 = v32 + 1;
-            *(_DWORD *)(v33 + 4 * v34) = v62;
-            *(_QWORD *)(v33 + 4 * v34 + 4) = *(_QWORD *)((char *)this + 404);
-            *(_DWORD *)(v33 + 4 * v34 + 16) = 0;
-            if ( (unsigned int)DxgIsSessionUsingWddmMonitors(v31) )
+            if ( a2[2] )
             {
-              v36 = (_QWORD **)(v8 + 4644);
-              v37 = *v36;
-              if ( *v36 == v36 )
-                goto LABEL_43;
-              while ( 1 )
+              v47 = WdLogNewEntry5_WdWarning(v10, v16, v11);
+              *(_QWORD *)(v47 + 24) = *((unsigned int *)a2 + 2);
+              *(_QWORD *)(v47 + 32) = *((unsigned int *)a2 + 1);
+              WdLogEvent5_WdWarning(v47);
+            }
+          }
+          else
+          {
+            v58 = 0;
+            Current = DXGPROCESS::GetCurrent(v10, v16, v11, v12);
+            v19 = DXGADAPTER::CreateHandle(this, Current, &v58);
+            v22 = v19;
+            if ( v19 < 0 )
+            {
+              v48 = WdLogNewEntry5_WdError(v21, v20);
+              *(_QWORD *)(v48 + 24) = this;
+              *(_QWORD *)(v48 + 32) = v22;
+              WdLogEvent5_WdError(v48);
+              goto LABEL_21;
+            }
+            v23 = *(unsigned int *)a2;
+            v24 = a2[2];
+            v25 = 5 * v23;
+            *(_DWORD *)a2 = v23 + 1;
+            *(_DWORD *)(v24 + 4 * v25) = v58;
+            v26 = *(_QWORD *)((char *)this + 316);
+            *(_DWORD *)(v24 + 4 * v25 + 16) = 0;
+            *(_QWORD *)(v24 + 4 * v25 + 4) = v26;
+            if ( (unsigned int)DxgIsSessionUsingWddmMonitors() )
+            {
+              SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid(
+                                         SessionDataForSpecifiedSession,
+                                         (const struct _LUID *)((char *)this + 316));
+              if ( SessionAdapterFromLuid )
+                LODWORD(SessionAdapterFromLuid) = *((_DWORD *)SessionAdapterFromLuid + 27);
+              *(_DWORD *)(v24 + 4 * v25 + 12) = (_DWORD)SessionAdapterFromLuid;
+              if ( (_DWORD)SessionAdapterFromLuid
+                && (unsigned int)DxgIsRemoteSessionUsingWddmMonitors()
+                && DXGADAPTER::IsFullWDDMAdapter(this) )
               {
-                v38 = v37 - 4;
-                if ( *((_DWORD *)v37 - 6) == *((_DWORD *)this + 101) && *((_DWORD *)v38 + 3) == *((_DWORD *)this + 102) )
-                  break;
-                v37 = (_QWORD *)*v37;
-                if ( v37 == v36 )
-                  goto LABEL_43;
+                v49 = WdLogNewEntry5_WdAssertion(v33, v32);
+                *(_QWORD *)(v49 + 24) = 901LL;
+                WdLogEvent5_WdAssertion(v49);
               }
-              if ( v37 == (_QWORD *)32 )
-LABEL_43:
-                v39 = 0;
-              else
-                v39 = *((_DWORD *)v38 + 27);
-              *(_DWORD *)(v33 + 4 * v34 + 12) = v39;
-              if ( v39 && (unsigned int)DxgIsRemoteSessionUsingWddmMonitors() && DXGADAPTER::IsFullWDDMAdapter(this) )
+              if ( !*((_QWORD *)this + 338) )
               {
-                WdLogSingleEntry1(1LL, 925LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"(pAdapterInfo->NumOfSources == 0) || !DxgIsRemoteSessionUsingWddmMonitors() || !pAdapter->IsF"
-                            "ullWDDMAdapter()",
-                  925LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
+                v50 = *((_QWORD *)this + 337);
+                if ( *(_QWORD *)(*(_QWORD *)(v50 + 16) + 2704LL) )
+                {
+                  v51 = WdLogNewEntry5_WdAssertion(v33, v32);
+                  *(_QWORD *)(v51 + 24) = 6626LL;
+                  WdLogEvent5_WdAssertion(v51);
+                }
+                *(_DWORD *)(v24 + 4 * v25 + 16) = *(_DWORD *)(v50 + 364);
               }
-              if ( !*((_QWORD *)this + 366) )
-                *(_DWORD *)(v33 + 4 * v34 + 16) = ADAPTER_DISPLAY::GetDisplayOnlyDriverPrecisePresentRegionPreference(*((ADAPTER_DISPLAY **)this + 365));
             }
             else
             {
-              v63 = 0;
-              v58 = &v63;
-              v57[0] = 2;
-              v57[1] = 4;
-              v40 = DXGPROCESS::GetCurrent(v35);
-              if ( (*(int (__fastcall **)(_DWORD *))(*((_QWORD *)v40 + 11) + 352LL))(v57) >= 0 )
-                v20 = v63;
+              v59 = 0;
+              v54 = &v59;
+              v53[0] = 2;
+              v53[1] = 4;
+              v35 = DXGPROCESS::GetCurrent(v28, v27, v29, v30);
+              if ( (*(int (__fastcall **)(_DWORD *))(*((_QWORD *)v35 + 11) + 352LL))(v53) < 0 )
+              {
+                v52 = WdLogNewEntry5_WdWarning(v37, v36, v38);
+                *(_QWORD *)(v52 + 24) = 929LL;
+                WdLogEvent5_WdWarning(v52);
+              }
               else
-                WdLogSingleEntry1(3LL, 953LL);
-              if ( v20 != 0xFFFF && v8[4627] == *((_DWORD *)this + 101) && v8[4628] == *((_DWORD *)this + 102) )
-                *(_DWORD *)(v33 + 4 * v34 + 12) = v8[4629];
+              {
+                v17 = v59;
+              }
+              if ( v17 != 0xFFFF
+                && *((_DWORD *)SessionDataForSpecifiedSession + 4625) == *((_DWORD *)this + 79)
+                && *((_DWORD *)SessionDataForSpecifiedSession + 4626) == *((_DWORD *)this + 80) )
+              {
+                *(_DWORD *)(v24 + 4 * v25 + 12) = *((_DWORD *)SessionDataForSpecifiedSession + 4627);
+              }
               else
-                *(_DWORD *)(v33 + 4 * v34 + 12) = 0;
+              {
+                *(_DWORD *)(v24 + 4 * v25 + 12) = 0;
+              }
             }
-            goto LABEL_20;
           }
-          WdLogSingleEntry2(2LL, this, v30);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to open a handle on adapter 0x%I64x (ntStatus = 0x%I64x).",
-            (__int64)this,
-            v17,
-            0LL,
-            0LL,
-            0LL);
-LABEL_19:
-          v4 = v17;
-LABEL_20:
-          DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v59);
-          return v4;
         }
-        if ( !a2[2] )
-        {
-LABEL_18:
-          LODWORD(v17) = 0;
-          goto LABEL_19;
-        }
-        Current = (struct DXGPROCESS *)(unsigned int)v27;
-        v15 = (struct DXGADAPTER *)v28;
-        v16 = 3LL;
       }
-      WdLogSingleEntry2(v16, v15, Current);
-      goto LABEL_18;
     }
   }
-  v41 = PsGetCurrentProcessSessionId(v5);
-  WdLogSingleEntry2(2LL, v41, -1073741811LL);
-  v43 = PsGetCurrentProcessSessionId(v42);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Current session does not have session data in session 0x%I64x, returning 0x%I64x.",
-    v43,
-    -1073741811LL,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225485LL;
+  LODWORD(v22) = 0;
+LABEL_21:
+  if ( v57 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v55);
+  return (unsigned int)v22;
 }

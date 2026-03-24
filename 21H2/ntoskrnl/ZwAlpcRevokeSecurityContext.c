@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcRevokeSecurityContext @ 0x14041C8C0
+ * XREFs of ZwAlpcRevokeSecurityContext @ 0x1403FB500
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIProcessorContainerStartDeviceWorker @ 0x1C003AD10
+ * XREFs of ACPIProcessorContainerStartDeviceWorker @ 0x1C005D860
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 _UNKNOWN **__fastcall ACPIProcessorContainerStartDeviceWorker(__int64 a1)
@@ -15,10 +15,10 @@ _UNKNOWN **__fastcall ACPIProcessorContainerStartDeviceWorker(__int64 a1)
   __int64 v5; // rbx
   unsigned int MinorFunction; // ebp
   KIRQL v7; // r8
-  __int64 v8; // rdx
+  __int64 i; // rdx
   _QWORD *v9; // rax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rdx
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rcx
   char v12; // r8
   const char *v13; // rcx
   const char *v14; // rdx
@@ -34,67 +34,60 @@ _UNKNOWN **__fastcall ACPIProcessorContainerStartDeviceWorker(__int64 a1)
   v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   if ( !AcpiProcessorContainerHierarchyLocked )
   {
-    v8 = v4[99];
-    if ( v8 )
+    for ( i = v4[94]; i; i = *(_QWORD *)(i + 752) )
     {
-      while ( !_bittest64((const signed __int64 *)(v8 + 1008), 0x27u) )
+      if ( (*(_QWORD *)(i + 960) & 0x8000000000LL) != 0 )
       {
-        v8 = *(_QWORD *)(v8 + 792);
-        if ( !v8 )
-        {
-          v9 = v4 + 23;
-          goto LABEL_6;
-        }
+        v5 = i;
+        break;
       }
-      v5 = v8;
     }
     v9 = v4 + 23;
     if ( v5 )
     {
-      v11 = *(_QWORD **)(v5 + 208);
-      if ( *v11 == v5 + 200 )
+      v10 = *(_QWORD **)(v5 + 208);
+      if ( *v10 == v5 + 200 )
       {
         *v9 = v5 + 200;
-        v4[24] = v11;
-        *v11 = v9;
+        v4[24] = v10;
+        *v10 = v9;
         *(_QWORD *)(v5 + 208) = v9;
-LABEL_13:
+LABEL_14:
         ++AcpiProcessorContainerCount;
-        goto LABEL_14;
+        goto LABEL_15;
       }
     }
     else
     {
-LABEL_6:
-      v10 = (_QWORD *)qword_1C006EBB8;
-      if ( *(__int64 **)qword_1C006EBB8 == &AcpiProcessorContainerRootList )
+      v11 = (_QWORD *)qword_1C0081B08;
+      if ( *(__int64 **)qword_1C0081B08 == &AcpiProcessorContainerRootList )
       {
         *v9 = &AcpiProcessorContainerRootList;
-        v9[1] = v10;
-        *v10 = v9;
-        qword_1C006EBB8 = (__int64)v9;
-        goto LABEL_13;
+        v4[24] = v11;
+        *v11 = v9;
+        qword_1C0081B08 = (__int64)(v4 + 23);
+        goto LABEL_14;
       }
     }
     __fastfail(3u);
   }
-LABEL_14:
+LABEL_15:
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
   v3->IoStatus.Status = 0;
   v3->IoStatus.Information = 0LL;
   IofCompleteRequest(v3, 0);
   v12 = 0;
-  v13 = (const char *)&unk_1C00622D0;
-  v14 = (const char *)&unk_1C00622D0;
+  v13 = (const char *)&unk_1C00701BA;
+  v14 = (const char *)&unk_1C00701BA;
   if ( v4 )
   {
     v15 = v4[1];
     v12 = (char)v4;
     if ( (v15 & 0x200000000000LL) != 0 )
     {
-      v13 = (const char *)v4[76];
+      v13 = (const char *)v4[71];
       if ( (v15 & 0x400000000000LL) != 0 )
-        v14 = (const char *)v4[77];
+        v14 = (const char *)v4[72];
     }
   }
   result = &WPP_RECORDER_INITIALIZED;
@@ -110,7 +103,7 @@ LABEL_14:
                           0xBu,
                           (__int64)&WPP_66d879e7691833cab0aaa4978b270939_Traceguids,
                           (char)v3,
-                          (__int64)(&ACPIDispatchPnpTableNames)[v17],
+                          ACPIDispatchPnpTableNames[v17],
                           0,
                           v12,
                           v13,

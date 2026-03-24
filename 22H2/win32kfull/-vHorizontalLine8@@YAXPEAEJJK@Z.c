@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vHorizontalLine8@@YAXPEAEJJK@Z @ 0x1C02FC520
+ * XREFs of ?vHorizontalLine8@@YAXPEAEJJK@Z @ 0x1C02D44B0
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall vHorizontalLine8(unsigned __int8 *a1, int a2, int a3, unsigned int a4)
 {
   size_t v4; // r8
   unsigned __int8 *v5; // r10
-  void *v6; // rsi
+  void *v6; // rbx
   unsigned __int64 v7; // r11
   unsigned __int8 *v8; // r10
   int v9; // r8d
@@ -23,7 +23,7 @@ void __fastcall vHorizontalLine8(unsigned __int8 *a1, int a2, int a3, unsigned i
     if ( (_DWORD)v4 )
     {
       LOBYTE(a2) = a4;
-      memset_0(v5, a2, v4);
+      memset(v5, a2, v4);
     }
     return;
   }

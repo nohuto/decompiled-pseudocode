@@ -4,7 +4,7 @@
  *     BgpConsoleInitialize @ 0x140951730 (BgpConsoleInitialize.c)
  *     BgpConsoleClearScreen @ 0x140953540 (BgpConsoleClearScreen.c)
  * Callees:
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
  */
 
 __int64 BgpConsoleClearScreenEx()

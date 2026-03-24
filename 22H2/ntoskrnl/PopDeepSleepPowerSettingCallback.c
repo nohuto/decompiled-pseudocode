@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeepSleepPowerSettingCallback @ 0x140863AA0
+ * XREFs of PopDeepSleepPowerSettingCallback @ 0x1407D3480
  * Callers:
  *     <none>
  * Callees:
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -14,7 +14,6 @@ __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int 
   __int64 v5; // r9
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
 
   v4 = -1073741811;
   v5 = *(_QWORD *)&GUID_DEEP_SLEEP_ENABLED.Data1 - *a1;
@@ -25,7 +24,7 @@ __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int 
     PopAcquirePolicyLock((_DWORD)a1);
     PopDeepSleepIsEnabled = *a2 != 0;
     PopCheckResiliencyScenarios();
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock(v7, v6);
     return 0;
   }
   return v4;

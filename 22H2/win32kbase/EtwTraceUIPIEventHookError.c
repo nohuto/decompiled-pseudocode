@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceUIPIEventHookError @ 0x1C013B9E0
+ * XREFs of EtwTraceUIPIEventHookError @ 0x1C0124610
  * Callers:
  *     <none>
  * Callees:
- *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0074858 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     McTemplateK0nqxqqddq_EtwWriteTransfer @ 0x1C013C934 (McTemplateK0nqxqqddq_EtwWriteTransfer.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqDqq @ 0x1C013EEE0 (WPP_RECORDER_AND_TRACE_SF_qqDqq.c)
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0008070 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     McTemplateK0nqxqqddq_EtwWriteTransfer @ 0x1C0125A78 (McTemplateK0nqxqqddq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_qqDqq @ 0x1C0127934 (WPP_RECORDER_SF_qqDqq.c)
  */
 
 _UNKNOWN **__fastcall EtwTraceUIPIEventHookError(__int64 a1, PETHREAD *a2, PETHREAD *a3)
@@ -18,19 +18,16 @@ _UNKNOWN **__fastcall EtwTraceUIPIEventHookError(__int64 a1, PETHREAD *a2, PETHR
   int v8; // r8d
   int v9; // r9d
   _UNKNOWN **result; // rax
-  int v11; // [rsp+20h] [rbp-98h]
-  int v12; // [rsp+28h] [rbp-90h]
-  int v13; // [rsp+30h] [rbp-88h]
-  int v14; // [rsp+38h] [rbp-80h]
-  _OWORD v15[2]; // [rsp+70h] [rbp-48h] BYREF
-  int v16; // [rsp+90h] [rbp-28h]
+  int v11; // [rsp+20h] [rbp-88h]
+  _OWORD v12[2]; // [rsp+60h] [rbp-48h] BYREF
+  int v13; // [rsp+80h] [rbp-28h]
 
   v3 = (char)a3;
-  memset(v15, 0, sizeof(v15));
   v4 = (char)a2;
-  v16 = 0;
+  memset(v12, 0, sizeof(v12));
+  v13 = 0;
   EtwpSetTraceHeader(
-    (struct _W32KUIPI_Msg_Template::_tagW32KUIPI_Msg_Template_UIPI_Trace_Header *)v15,
+    (struct _W32KUIPI_Msg_Template::_tagW32KUIPI_Msg_Template_UIPI_Trace_Header *)v12,
     3,
     a2,
     0LL,
@@ -42,7 +39,7 @@ _UNKNOWN **__fastcall EtwTraceUIPIEventHookError(__int64 a1, PETHREAD *a2, PETHR
       v6,
       v8,
       v9,
-      (__int64)v15,
+      (__int64)v12,
       *(_DWORD *)(a1 + 28),
       *(_QWORD *)(a1 + 32),
       *(_DWORD *)(a1 + 40),
@@ -50,27 +47,18 @@ _UNKNOWN **__fastcall EtwTraceUIPIEventHookError(__int64 a1, PETHREAD *a2, PETHR
       *(_DWORD *)(a1 + 48),
       *(_DWORD *)(a1 + 52),
       *(_DWORD *)(a1 + 56));
-  LOBYTE(v6) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v8) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_qqDqq(
-                          WPP_GLOBAL_Control->AttachedDevice,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    return (_UNKNOWN **)WPP_RECORDER_SF_qqDqq(
+                          v7,
                           v6,
                           v8,
                           v9,
                           v11,
-                          v12,
-                          v13,
-                          v14,
                           a1,
                           *(_QWORD *)(a1 + 16),
                           *(_DWORD *)(a1 + 56),
                           v4,
                           v3);
-  }
   return result;
 }

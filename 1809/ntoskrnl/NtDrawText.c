@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDrawText @ 0x1403198F0
+ * XREFs of NtDrawText @ 0x1403199F0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)

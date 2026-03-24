@@ -1,8 +1,8 @@
 /*
- * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140889740
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140889720
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsProcessCallback @ 0x14088A350 (PspSetJobLimitsProcessCallback.c)
+ *     PspSetJobLimitsProcessCallback @ 0x14088A330 (PspSetJobLimitsProcessCallback.c)
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)

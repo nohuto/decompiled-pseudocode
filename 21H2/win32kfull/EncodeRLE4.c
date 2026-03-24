@@ -1,10 +1,10 @@
 /*
- * XREFs of EncodeRLE4 @ 0x1C02CD808
+ * XREFs of EncodeRLE4 @ 0x1C02CEFD4
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C0028378 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F448 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
  * Callees:
- *     ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02CAB6C (-WriteEncoded8@@YAHEPEAEIPEBE@Z.c)
- *     ?WriteAbsolute4@@YAHPEBEPEAEH0@Z @ 0x1C02CBDD0 (-WriteAbsolute4@@YAHPEBEPEAEH0@Z.c)
+ *     ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02CC46C (-WriteEncoded8@@YAHEPEAEIPEBE@Z.c)
+ *     ?WriteAbsolute4@@YAHPEBEPEAEH0@Z @ 0x1C02CD6B0 (-WriteAbsolute4@@YAHPEBEPEAEH0@Z.c)
  */
 
 __int64 __fastcall EncodeRLE4(__int64 a1, unsigned __int8 *a2, int a3, unsigned int a4, int a5)
@@ -29,26 +29,27 @@ __int64 __fastcall EncodeRLE4(__int64 a1, unsigned __int8 *a2, int a3, unsigned 
   int v22; // r8d
   int v23; // r8d
   int v24; // eax
-  unsigned int v26; // [rsp+20h] [rbp-48h]
-  unsigned __int8 *v27; // [rsp+28h] [rbp-40h]
-  __int64 v28; // [rsp+70h] [rbp+8h]
-  int v29; // [rsp+80h] [rbp+18h]
-  unsigned int v31; // [rsp+90h] [rbp+28h]
+  int v25; // eax
+  unsigned int v27; // [rsp+20h] [rbp-48h]
+  unsigned __int8 *v28; // [rsp+28h] [rbp-40h]
+  __int64 v29; // [rsp+70h] [rbp+8h]
+  int v30; // [rsp+80h] [rbp+18h]
+  unsigned int v32; // [rsp+90h] [rbp+28h]
 
-  v29 = a3;
-  v28 = a1;
+  v30 = a3;
+  v29 = a1;
   v5 = a4;
   v6 = a2;
   v7 = 0;
   v8 = 0;
   v9 = &a2[a5];
-  v27 = v9;
+  v28 = v9;
   v10 = ((unsigned int)(a3 + 7) >> 1) & 0x7FFFFFFC;
-  v26 = v10;
+  v27 = v10;
   v11 = 0;
   while ( 1 )
   {
-    v31 = v11;
+    v32 = v11;
     if ( v11 >= v5 )
       break;
     v12 = (const unsigned __int8 *)(a1 + v11 * v10);
@@ -116,8 +117,8 @@ LABEL_32:
       }
 LABEL_33:
       v16 += 2;
-      v9 = v27;
-      a3 = v29;
+      v9 = v28;
+      a3 = v30;
     }
     if ( v16 > 3 )
     {
@@ -141,21 +142,22 @@ LABEL_33:
       }
 LABEL_43:
       v8 += v24;
-      v9 = v27;
-      a3 = v29;
+      v9 = v28;
+      a3 = v30;
     }
-    v8 += 2;
+    v25 = v8 + 2;
+    if ( v6 > v9 )
+      v25 = v8;
+    v8 = v25;
     if ( v6 )
     {
-      if ( v6 + 2 > v9 )
-        return 0LL;
       *(_WORD *)v6 = 0;
       v6 += 2;
     }
-    v11 = v31 + 1;
-    v10 = v26;
+    v11 = v32 + 1;
+    v10 = v27;
     v5 = a4;
-    a1 = v28;
+    a1 = v29;
   }
   if ( v6 )
   {

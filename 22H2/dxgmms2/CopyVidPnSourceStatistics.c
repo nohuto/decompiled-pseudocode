@@ -1,7 +1,7 @@
 /*
- * XREFs of CopyVidPnSourceStatistics @ 0x1C0107034
+ * XREFs of CopyVidPnSourceStatistics @ 0x1C00CF8F8
  * Callers:
- *     VidSchQueryVidPnSourceStatistics @ 0x1C0040600 (VidSchQueryVidPnSourceStatistics.c)
+ *     VidSchQueryVidPnSourceStatistics @ 0x1C0035230 (VidSchQueryVidPnSourceStatistics.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x1407D79B4
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x1406DC5EC
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x1407D7634 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x1406DC36C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x1407DD6F0 (PfSnPrefetchCacheEntryGet.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406C9FB4 (PfSnPrefetchCacheEntryGet.c)
  */
 
-char __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
+_QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
 {
-  const void *v1; // rdi
+  _OWORD *v1; // rdi
   unsigned __int8 *v3; // r9
   __int64 v4; // rbp
   __int64 v5; // r10
@@ -20,7 +20,7 @@ char __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // rbx
 
-  v1 = (const void *)(a1 + 4);
+  v1 = (_OWORD *)(a1 + 4);
   v3 = (unsigned __int8 *)(a1 + 4);
   v4 = 314159LL;
   v5 = 8LL;
@@ -38,13 +38,13 @@ char __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
   while ( v5 );
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&stru_140C54720, 1u);
-  v8 = qword_140C54710 - 16;
-  if ( !memcmp((const void *)(qword_140C54710 - 16 + 32), v1, 0x40uLL)
-    || (v8 = PfSnPrefetchCacheEntryGet(&unk_140C546F8, v1, v4, 0LL)) != 0 )
+  ExAcquireResourceExclusiveLite(&stru_140C504E0, 1u);
+  v8 = qword_140C504D0 - 16;
+  if ( !memcmp((const void *)(qword_140C504D0 - 16 + 32), v1, 0x40uLL)
+    || (v8 = PfSnPrefetchCacheEntryGet((__int64)&unk_140C504B8, v1, v4, 0LL)) != 0 )
   {
-    *(_DWORD *)(v8 + 116) = *(_DWORD *)(a1 + 68);
+    *(_DWORD *)(v8 + 112) = *(_DWORD *)(a1 + 68);
   }
-  ExReleaseResourceLite(&stru_140C54720);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleaseResourceLite(&stru_140C504E0);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

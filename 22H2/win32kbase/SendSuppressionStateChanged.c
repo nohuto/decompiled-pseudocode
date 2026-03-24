@@ -1,19 +1,12 @@
 /*
- * XREFs of SendSuppressionStateChanged @ 0x1C01E8D70
+ * XREFs of SendSuppressionStateChanged @ 0x1C01AEEF0
  * Callers:
  *     <none>
  * Callees:
- *     SendMessageTo @ 0x1C006A100 (SendMessageTo.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004DFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
  */
 
-__int64 __fastcall SendSuppressionStateChanged(unsigned __int8 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall SendSuppressionStateChanged(__int64 a1)
 {
-  _OWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-18h]
-
-  v6 = 0LL;
-  memset(v5, 0, sizeof(v5));
-  DWORD2(v5[0]) = a1;
-  LODWORD(v5[0]) = 4;
-  return SendMessageTo(0LL, (__int64)v5, 40LL, a4);
+  return InputExtensibilityCallout::CoreMsgSendMessage(a1, 1);
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of TelemetryData_CreateReport @ 0x1C0050E50
+ * XREFs of TelemetryData_CreateReport @ 0x1C005024C
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0033110 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1C00157F8 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C00156DC (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
-__int64 *__fastcall TelemetryData_CreateReport(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+_QWORD *__fastcall TelemetryData_CreateReport(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 *Pool2; // rax
-  __int64 *v8; // rbx
-  __int64 v9; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v8; // rbx
+  PVOID v9; // rax
   int v10; // eax
   CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
 
   memset(&ContextRecord, 0, sizeof(ContextRecord));
-  Pool2 = (__int64 *)ExAllocatePool2(64LL, 1256LL, 1952531540LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x4E8uLL, 0x74614454u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x4E8uLL);
-    v9 = ExAllocatePool2(64LL, 0x40000LL, 1952531540LL);
+    memset(PoolWithTag, 0, 0x4E8uLL);
+    v9 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40000uLL, 0x74614454u);
     *v8 = v9;
     if ( v9
       && RtlStringCbPrintfW((NTSTRSAFE_PWSTR)v8 + 312, 0x20uLL, L"%ws", L"USBXHCI") >= 0

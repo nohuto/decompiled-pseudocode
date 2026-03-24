@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfPortIsPoweredOnStart @ 0x1C0013A00
+ * XREFs of HUBPSM30_CheckingIfPortIsPoweredOnStart @ 0x1C00124E0
  * Callers:
  *     <none>
  * Callees:

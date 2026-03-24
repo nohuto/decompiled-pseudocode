@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxRemoveShadow @ 0x1C0060F54
+ * XREFs of xxxRemoveShadow @ 0x1C007CAF0
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0043774 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E958 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
  */
 
 __int64 __fastcall xxxRemoveShadow(__int64 a1)

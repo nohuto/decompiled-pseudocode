@@ -1,23 +1,23 @@
 /*
- * XREFs of VslEnableOnDemandDebugWithResponse @ 0x140931FBC
+ * XREFs of VslEnableOnDemandDebugWithResponse @ 0x14088F76C
  * Callers:
- *     PsIumEnableOnDemandDebugWithResponse @ 0x1409B30B4 (PsIumEnableOnDemandDebugWithResponse.c)
+ *     PsIumEnableOnDemandDebugWithResponse @ 0x14090C984 (PsIumEnableOnDemandDebugWithResponse.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslEnableOnDemandDebugWithResponse(__int64 a1, const void *a2, unsigned int a3)
+NTSTATUS __fastcall VslEnableOnDemandDebugWithResponse(__int64 a1, const void *a2, unsigned int a3)
 {
   __int64 v3; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 
   v3 = a3;
   memset(v7, 0, 0x68uLL);
-  result = 3221225506LL;
+  result = -1073741790;
   if ( (unsigned int)v3 <= 0x50 )
   {
     v7[1] = *(_QWORD *)(a1 + 992);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkpCopyMonitorLinkInfoToFlags@@YAJPEAXPEAU_DISPLAYCONFIG_GET_DISPLAY_INFO@@@Z @ 0x1C019B7CC
+ * XREFs of ?DxgkpCopyMonitorLinkInfoToFlags@@YAJPEAXPEAU_DISPLAYCONFIG_GET_DISPLAY_INFO@@@Z @ 0x1C01330D0
  * Callers:
- *     DxgkGetAdapterDeviceDesc @ 0x1C019BA70 (DxgkGetAdapterDeviceDesc.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
  * Callees:
- *     MonitorGetLinkInfoFromTarget @ 0x1C019D978 (MonitorGetLinkInfoFromTarget.c)
+ *     MonitorGetLinkInfoFromTarget @ 0x1C0133134 (MonitorGetLinkInfoFromTarget.c)
  */
 
 __int64 __fastcall DxgkpCopyMonitorLinkInfoToFlags(_BYTE *a1, struct _DISPLAYCONFIG_GET_DISPLAY_INFO *a2)
@@ -11,9 +11,9 @@ __int64 __fastcall DxgkpCopyMonitorLinkInfoToFlags(_BYTE *a1, struct _DISPLAYCON
   __int64 v3; // rdx
   __int64 result; // rax
   int v6; // r8d
-  __int16 v7; // r10
-  unsigned int v8; // edx
-  int v9; // edx
+  unsigned int v7; // edx
+  __int16 v8; // r10
+  unsigned int v9; // edx
   __int64 v10; // [rsp+20h] [rbp-18h] BYREF
   int v11; // [rsp+28h] [rbp-10h]
 
@@ -22,22 +22,22 @@ __int64 __fastcall DxgkpCopyMonitorLinkInfoToFlags(_BYTE *a1, struct _DISPLAYCON
   v11 = 0;
   LODWORD(result) = MonitorGetLinkInfoFromTarget(a1, v3, &v10);
   v6 = *((_DWORD *)a2 + 513);
-  if ( (int)result < 0 )
+  if ( (int)result >= 0 )
   {
-    *((_DWORD *)a2 + 513) = v6 & 0xFFFFB61F;
+    v8 = WORD2(v10);
+    v9 = v6 & 0xFFFFF63F | (4
+                          * (WORD2(v10) & 0x200 | (8
+                                                 * (BYTE4(v10) & 4 | (2 * (BYTE4(v10) & 1 | (2 * (BYTE4(v10) & 2)))) | 1))));
+    *((_DWORD *)a2 + 513) = v9;
+    if ( a1[2664] )
+      v7 = v9 | 0x4000;
+    else
+      v7 = ((unsigned __int16)v9 ^ (unsigned __int16)(8 * v8)) & 0x4000 ^ v9;
   }
   else
   {
-    v7 = WORD2(v10);
-    v8 = v6 & 0xFFFFF63F | (4
-                          * (WORD2(v10) & 0x200 | (8
-                                                 * (BYTE4(v10) & 4 | (2 * (BYTE4(v10) & 1 | (2 * (BYTE4(v10) & 2)))) | 1))));
-    *((_DWORD *)a2 + 513) = v8;
-    if ( a1[2888] )
-      v9 = v8 | 0x4000;
-    else
-      v9 = ((unsigned __int16)v8 ^ (unsigned __int16)(8 * v7)) & 0x4000 ^ v8;
-    *((_DWORD *)a2 + 513) = v9;
+    v7 = v6 & 0xFFFFB61F;
   }
+  *((_DWORD *)a2 + 513) = v7;
   return (unsigned int)result;
 }

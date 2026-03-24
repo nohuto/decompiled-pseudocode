@@ -1,27 +1,22 @@
 /*
- * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x140571870
+ * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x140516750
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
  */
 
 KIRQL __stdcall KeAcquireSpinLockRaiseToSynch(PKSPIN_LOCK SpinLock)
 {
   KIRQL CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r8
-  __int64 v3; // rax
+  _DWORD *SchedulerAssist; // r9
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v3) = 4096;
-    else
-      v3 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v3;
+    SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (CurrentIrql + 1)) - 1) & 0x1FFC;
   }
   KxAcquireSpinLock(SpinLock);
   return CurrentIrql;

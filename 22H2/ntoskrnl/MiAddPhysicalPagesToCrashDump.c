@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPhysicalPagesToCrashDump @ 0x14062F78C
+ * XREFs of MiAddPhysicalPagesToCrashDump @ 0x140537BD8
  * Callers:
- *     MmGetDumpRange @ 0x1406303F0 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1405386B0 (MmGetDumpRange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MiGetPagesRemainingInResidentPage @ 0x14064F2B4 (MiGetPagesRemainingInResidentPage.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x1403F6038 (MiGetPagesRemainingInResidentPage.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 _DWORD *__fastcall MiAddPhysicalPagesToCrashDump(void (__fastcall **a1)(_QWORD, __int64, __int64, __int64))
@@ -19,7 +19,7 @@ _DWORD *__fastcall MiAddPhysicalPagesToCrashDump(void (__fastcall **a1)(_QWORD, 
   bool v9; // zf
   char v10; // cl
   int v11; // [rsp+68h] [rbp+10h] BYREF
-  int v12; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v12; // [rsp+70h] [rbp+18h] BYREF
 
   result = MmPhysicalMemoryBlock;
   v2 = 0;
@@ -37,10 +37,10 @@ LABEL_17:
     }
     while ( 1 )
     {
-      v6 = 48 * v5 - 0x220000000000LL;
+      v6 = 48 * v5 - 0x58000000000LL;
       PagesRemainingInResidentPage = 1LL;
       v8 = *(_QWORD *)(v6 + 40);
-      if ( (v8 & 0x10000000000LL) != 0 )
+      if ( (v8 & 0x1000000000LL) != 0 )
         break;
       if ( (*(_BYTE *)(v6 + 34) & 0xC0) == 0x40 )
       {
@@ -48,7 +48,7 @@ LABEL_17:
         if ( v10 == 6 )
         {
           if ( ((v8 >> 60) & 7) == 1
-            || (*(_QWORD *)(v6 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0 && (v8 & 0xFFFFFFFFFFLL) == 0x3FFFFFFFFELL )
+            || (*(_QWORD *)(v6 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0 && (v8 & 0xFFFFFFFFFLL) == 0xFFFFFFFFDLL )
           {
             goto LABEL_16;
           }
@@ -73,7 +73,7 @@ LABEL_16:
     }
     v11 = 0;
     v12 = 0;
-    PagesRemainingInResidentPage = MiGetPagesRemainingInResidentPage(48 * v5 - 0x220000000000LL, &v11, &v12);
+    PagesRemainingInResidentPage = MiGetPagesRemainingInResidentPage(48 * v5 - 0x58000000000LL, &v11, &v12);
     if ( v11 != 6 )
       goto LABEL_16;
     v9 = v12 == 1;

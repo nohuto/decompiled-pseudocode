@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDripsWatchdogCheckHwDivergence @ 0x14086E214
+ * XREFs of PopDripsWatchdogCheckHwDivergence @ 0x14086E1F4
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14086E440 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14086E420 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopDripsWatchdogCheckHwDivergence(unsigned __int64 a1, unsigned __int64 a2)

@@ -1,87 +1,84 @@
 /*
- * XREFs of ?ReleaseVidPnSourceOwners@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01897FC
+ * XREFs of ?ReleaseVidPnSourceOwners@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01683F0
  * Callers:
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8AD0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
- *     DxgkReleaseProcessVidPnSourceOwners @ 0x1C0346D90 (DxgkReleaseProcessVidPnSourceOwners.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     DxgkReleaseProcessVidPnSourceOwners @ 0x1C0287390 (DxgkReleaseProcessVidPnSourceOwners.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z @ 0x1C0004224 (-IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z @ 0x1C000501C (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0007F58 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000A924 (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C02EA660 (-DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
+ *     ?IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z @ 0x1C0002E48 (-IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z.c)
+ *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z @ 0x1C0002F00 (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@@Z.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0008E04 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000DA1C (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0255090 (-DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
  */
 
-void __fastcall DXGPROCESS::ReleaseVidPnSourceOwners(struct _KTHREAD **this, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
+void __fastcall DXGPROCESS::ReleaseVidPnSourceOwners(DXGPROCESS *this, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
 {
-  char *v4; // r14
-  struct _KTHREAD *v5; // rsi
+  __int64 v4; // rax
+  char *v5; // r14
+  _QWORD *v6; // rdi
   struct DXGDEVICE *Current; // rax
-  struct DXGDEVICE *v7; // rbx
-  ADAPTER_DISPLAY **v8; // rdi
-  _QWORD v9[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v10[2]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v11[144]; // [rsp+70h] [rbp-90h] BYREF
+  struct DXGDEVICE *v8; // rbx
+  ADAPTER_DISPLAY **v9; // rsi
+  __int64 v10; // rdx
+  ADAPTER_DISPLAY *v11; // rcx
+  __int64 v12; // rax
+  _QWORD v13[2]; // [rsp+20h] [rbp-89h] BYREF
+  _QWORD v14[2]; // [rsp+30h] [rbp-79h] BYREF
+  _BYTE v15[144]; // [rsp+40h] [rbp-69h] BYREF
 
-  if ( this[16] != KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 13) + 16LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3423LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsMutexOwner()", 3423LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 3275LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v4 = (char *)(this + 27);
+  v5 = (char *)this + 176;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(this + 27, 0LL);
-  this[28] = KeGetCurrentThread();
-  v5 = this[40];
-  v10[0] = this + 40;
+  ExAcquirePushLockExclusiveEx((char *)this + 176, 0LL);
+  *((_QWORD *)this + 23) = KeGetCurrentThread();
+  v6 = (_QWORD *)*((_QWORD *)this + 35);
+  v14[0] = (char *)this + 280;
   while ( 1 )
   {
-    v10[1] = v5;
-    Current = (struct DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v10);
-    v7 = Current;
+    v14[1] = v6;
+    Current = (struct DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v14);
+    v8 = Current;
     if ( !Current )
       break;
-    v8 = (ADAPTER_DISPLAY **)*((_QWORD *)Current + 235);
-    if ( v8 )
+    v9 = (ADAPTER_DISPLAY **)*((_QWORD *)Current + 231);
+    if ( v9 )
     {
-      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v9, Current);
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v11, (struct DXGADAPTER *const)v8, 0LL);
-      if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v11, 0LL) >= 0 )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v13, Current);
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v15, (struct DXGADAPTER *const)v9, 0LL);
+      if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v15, 0LL) >= 0 )
       {
-        if ( !v8[365] )
+        v11 = v9[337];
+        if ( !v11 )
         {
-          WdLogSingleEntry1(1LL, 3459LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"pDisplayAdapter->IsDisplayAdapter()",
-            3459LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v12 = WdLogNewEntry5_WdAssertion(0LL, v10);
+          *(_QWORD *)(v12 + 24) = 3311LL;
+          WdLogEvent5_WdAssertion(v12);
+          v11 = v9[337];
         }
-        if ( ADAPTER_DISPLAY::IsVidPnSourceOwner(v8[365], v7)
-          || ADAPTER_DISPLAY::IsEmulatedVidPnSourceOwner(v8[365], v7) )
+        if ( ADAPTER_DISPLAY::IsVidPnSourceOwner(v11, v8) || ADAPTER_DISPLAY::IsEmulatedVidPnSourceOwner(v9[337], v8) )
         {
-          COREADAPTERACCESS::Release((COREADAPTERACCESS *)v11);
-          DxgkReleaseVidPnSourceOwnerAndRestartCdds(v7, a2, 0);
+          COREADAPTERACCESS::Release((COREADAPTERACCESS *)v15);
+          DxgkReleaseVidPnSourceOwnerAndRestartCdds(v8, a2, 0);
         }
       }
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v11);
-      if ( v9[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v9);
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v15, v10);
+      if ( v13[0] )
+        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v13);
     }
-    v5 = *(struct _KTHREAD **)v5;
+    v6 = (_QWORD *)*v6;
   }
-  *((_QWORD *)v4 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v4, 0LL);
+  *((_QWORD *)v5 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v5, 0LL);
   KeLeaveCriticalRegion();
 }

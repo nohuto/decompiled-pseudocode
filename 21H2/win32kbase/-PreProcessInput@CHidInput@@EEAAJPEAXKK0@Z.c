@@ -1,37 +1,48 @@
 /*
- * XREFs of ?PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E28C0
+ * XREFs of ?PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01AA2E0
  * Callers:
  *     <none>
  * Callees:
- *     HMAssignmentUnlockWorker @ 0x1C0038F7C (HMAssignmentUnlockWorker.c)
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0083180 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C00E8E0E (-FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     HMAssignmentUnlock @ 0x1C0030630 (HMAssignmentUnlock.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006C098 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01ACBAC (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
  */
 
-__int64 __fastcall CHidInput::PreProcessInput(CHidInput *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CHidInput::PreProcessInput(CHidInput *this, void *a2, char a3)
 {
-  __int64 v5; // rax
-  DelayZonePalmRejection *Instance; // rax
+  __int64 v4; // rax
+  int v5; // edx
+  struct DelayZonePalmRejection *Instance; // rbx
 
   if ( (a3 & 0x1C) != 0 )
   {
-    v5 = *((_QWORD *)this + 2);
-    if ( v5 )
+    v4 = *((_QWORD *)this + 2);
+    if ( v4 )
     {
-      if ( *(_QWORD *)(v5 + 48) )
+      if ( *(_QWORD *)(v4 + 48) )
       {
-        HMAssignmentUnlockWorker((__int64 *)(v5 + 48), a2, a3, a4);
+        HMAssignmentUnlock((__int64 *)(v4 + 48));
         *(_QWORD *)(*((_QWORD *)this + 2) + 48LL) = 0LL;
-        v5 = *((_QWORD *)this + 2);
+        v4 = *((_QWORD *)this + 2);
       }
-      if ( *(_QWORD *)(v5 + 56) )
+      if ( *(_QWORD *)(v4 + 56) )
       {
-        HMAssignmentUnlockWorker((__int64 *)(v5 + 56), a2, a3, a4);
+        HMAssignmentUnlock((__int64 *)(v4 + 56));
         *(_QWORD *)(*((_QWORD *)this + 2) + 56LL) = 0LL;
       }
     }
   }
   Instance = DelayZonePalmRejection::GetInstance();
-  DelayZonePalmRejection::FlushDelayZonePalmRejectInputTimerProc(Instance);
+  if ( *((_BYTE *)Instance + 9) )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v5) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v5, 8, 11, (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids);
+    }
+    *((_BYTE *)Instance + 9) = 0;
+    DelayZonePalmRejection::DispatchBufferedInputFrames(Instance);
+  }
   return 0LL;
 }

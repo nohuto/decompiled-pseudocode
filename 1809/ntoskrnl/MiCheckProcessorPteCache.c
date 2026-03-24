@@ -4,10 +4,10 @@
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiEmptyPteBins @ 0x1400EFBF0 (MiEmptyPteBins.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -350,12 +350,12 @@ LABEL_10:
     v18 = (char *)v10 + (v8 >> 3);
     if ( v17 + a1 <= 8 )
     {
-      v19 = byte_140362048[a1] << v17;
+      v19 = byte_140362158[a1] << v17;
       goto LABEL_13;
     }
     if ( (v8 & 7) != 0 )
     {
-      *v18++ |= byte_140360C28[v17];
+      *v18++ |= byte_140360D38[v17];
       a1 -= (unsigned int)(8 - v17);
     }
     if ( a1 > 8 )
@@ -366,7 +366,7 @@ LABEL_10:
     }
     if ( a1 )
     {
-      v19 = byte_140362048[a1];
+      v19 = byte_140362158[a1];
 LABEL_13:
       *v18 |= v19;
     }

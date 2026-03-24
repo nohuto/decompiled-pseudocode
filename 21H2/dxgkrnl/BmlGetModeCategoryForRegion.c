@@ -1,11 +1,11 @@
 /*
- * XREFs of BmlGetModeCategoryForRegion @ 0x1C01B2204
+ * XREFs of BmlGetModeCategoryForRegion @ 0x1C01392C4
  * Callers:
- *     BmlCompareSourceModesWithMonitors @ 0x1C01B2074 (BmlCompareSourceModesWithMonitors.c)
- *     BmlGetRecommendedContentSizeForPath @ 0x1C03AB2AC (BmlGetRecommendedContentSizeForPath.c)
- *     _BmlGetPathModeListForPath @ 0x1C03ABDDC (_BmlGetPathModeListForPath.c)
+ *     BmlCompareSourceModesWithMonitors @ 0x1C0139114 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x1C02EBD88 (BmlGetRecommendedContentSizeForPath.c)
+ *     _BmlGetPathModeListForPath @ 0x1C02EC830 (_BmlGetPathModeListForPath.c)
  * Callees:
- *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01B26AC (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
+ *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01397C4 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
  */
 
 __int64 BmlGetModeCategoryForRegion()

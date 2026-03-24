@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoReportLidState @ 0x140997B20
+ * XREFs of PdcPoReportLidState @ 0x1408EFA40
  * Callers:
  *     <none>
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x1409938F4 (PopPowerAggregatorForceSessionSwitch.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1408EE264 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoReportLidState(int a1)
@@ -16,8 +16,7 @@ __int64 __fastcall PdcPoReportLidState(int a1)
   bool v3; // zf
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  int v8; // [rsp+30h] [rbp+8h] BYREF
+  int v7; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = a1;
   PopAcquirePolicyLock(a1);
@@ -38,7 +37,7 @@ LABEL_6:
   }
 LABEL_7:
   LOBYTE(v2) = !v3;
-  v8 = v2;
-  PopSetPowerSettingValueAcDc(&GUID_LIDSWITCH_STATE_CHANGE, 4u, &v8);
-  return PopReleasePolicyLock(v5, v4, v6);
+  v7 = v2;
+  PopSetPowerSettingValueAcDc(&GUID_LIDSWITCH_STATE_CHANGE, 4LL, &v7);
+  return PopReleasePolicyLock(v5, v4);
 }

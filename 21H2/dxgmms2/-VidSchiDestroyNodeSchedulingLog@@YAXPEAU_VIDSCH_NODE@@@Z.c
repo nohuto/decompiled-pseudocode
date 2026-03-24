@@ -1,10 +1,10 @@
 /*
- * XREFs of ?VidSchiDestroyNodeSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003FFFC
+ * XREFs of ?VidSchiDestroyNodeSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0037810
  * Callers:
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00D4CC4 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AD91C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ??_GVIDMM_SCH_LOG@@AEAAPEAXI@Z @ 0x1C004729C (--_GVIDMM_SCH_LOG@@AEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ??_GVIDMM_SCH_LOG@@AEAAPEAXI@Z @ 0x1C003E660 (--_GVIDMM_SCH_LOG@@AEAAPEAXI@Z.c)
  */
 
 void __fastcall VidSchiDestroyNodeSchedulingLog(struct _VIDSCH_NODE *a1)
@@ -23,17 +23,17 @@ void __fastcall VidSchiDestroyNodeSchedulingLog(struct _VIDSCH_NODE *a1)
   __int128 v13; // [rsp+48h] [rbp-20h]
 
   v1 = *((_QWORD *)a1 + 3);
-  for ( i = *((_DWORD *)a1 + 2802); i; i = *((_DWORD *)a1 + 2802) )
-    KeWaitForSingleObject((char *)a1 + 11216, Executive, 0, 0, 0LL);
-  if ( *((_QWORD *)a1 + 1392) )
+  for ( i = *((_DWORD *)a1 + 2798); i; i = *((_DWORD *)a1 + 2798) )
+    KeWaitForSingleObject((char *)a1 + 11200, Executive, 0, 0, 0LL);
+  if ( *((_QWORD *)a1 + 1390) )
   {
     v4 = *((unsigned __int16 *)a1 + 2);
-    v5 = *(_QWORD *)(v1 + 632);
+    v5 = *(_QWORD *)(v1 + 624);
     v12 = 0LL;
     v13 = 0LL;
     v6 = v5 + 8 * v4;
-    v7 = (unsigned int)v4 < *(_DWORD *)(v1 + 704);
-    if ( (unsigned int)v4 >= *(_DWORD *)(v1 + 704) )
+    v7 = (unsigned int)v4 < *(_DWORD *)(v1 + 696);
+    if ( (unsigned int)v4 >= *(_DWORD *)(v1 + 696) )
       v6 = v5;
     v11[1] = *(unsigned __int16 *)(*(_QWORD *)v6 + 6LL);
     if ( v7 )
@@ -41,9 +41,9 @@ void __fastcall VidSchiDestroyNodeSchedulingLog(struct _VIDSCH_NODE *a1)
     v8 = *(_QWORD *)(v1 + 8);
     v11[0] = *(unsigned __int16 *)(*(_QWORD *)v5 + 8LL);
     ((void (__fastcall *)(__int64, _DWORD *))DxgCoreInterface[20])(v8, v11);
-    v10 = (void *)*((_QWORD *)a1 + 1392);
+    v10 = (void *)*((_QWORD *)a1 + 1390);
     if ( v10 )
       VIDMM_SCH_LOG::`scalar deleting destructor'(v10, v9);
-    *((_QWORD *)a1 + 1392) = 0LL;
+    *((_QWORD *)a1 + 1390) = 0LL;
   }
 }

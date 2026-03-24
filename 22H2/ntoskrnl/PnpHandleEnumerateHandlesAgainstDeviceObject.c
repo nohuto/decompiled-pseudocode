@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140958128
+ * XREFs of PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1408A139C
  * Callers:
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560FA8 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x14050CE60 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObReferenceProcessHandleTable @ 0x140742B50 (ObReferenceProcessHandleTable.c)
- *     PsGetNextProcess @ 0x1407446C0 (PsGetNextProcess.c)
- *     ExEnumHandleTable @ 0x1407AE520 (ExEnumHandleTable.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
+ *     ExEnumHandleTable @ 0x140665730 (ExEnumHandleTable.c)
  */
 
 __int64 __fastcall PnpHandleEnumerateHandlesAgainstDeviceObject(__int64 a1, __int64 a2, __int64 a3)
@@ -39,10 +39,10 @@ __int64 __fastcall PnpHandleEnumerateHandlesAgainstDeviceObject(__int64 a1, __in
       *((_QWORD *)&v13 + 1) = a3;
       v3 = (unsigned __int8)ExEnumHandleTable(
                               v8,
-                              (__int64 (__fastcall *)(unsigned int *, signed __int64 *, _QWORD, __int64))PnpHandleProcessWalkWorker,
+                              (__int64 (__fastcall *)(unsigned int *, __int64 *, _QWORD, __int64))PnpHandleProcessWalkWorker,
                               (__int64)&v12,
                               0LL);
-      ExReleaseRundownProtection_0(v10 + 139);
+      ExReleaseRundownProtection(v10 + 139);
       if ( v3 )
       {
         ObfDereferenceObjectWithTag(v10, 0x6E457350u);

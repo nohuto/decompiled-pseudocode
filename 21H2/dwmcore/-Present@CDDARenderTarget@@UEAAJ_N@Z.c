@@ -1,58 +1,39 @@
 /*
- * XREFs of ?Present@CDDARenderTarget@@UEAAJ_N@Z @ 0x1801E1250
+ * XREFs of ?Present@CDDARenderTarget@@UEAAJ_N@Z @ 0x1801993DC
  * Callers:
- *     ?Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180107170 (-Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F5E10 (-Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800B8414 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800DCDE8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800D8C44 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDDARenderTarget::Present(CDDARenderTarget *this)
 {
-  unsigned int v1; // ebx
-  char v3; // bl
+  unsigned int v2; // edi
+  __int64 v3; // rcx
   int v4; // eax
   __int64 v5; // rcx
-  void *v6; // rcx
-  __int128 v8; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-18h]
 
-  v1 = 0;
-  if ( *((_QWORD *)this - 247) && *(int *)(*((_QWORD *)this - 265) + 1104LL) < 6 && *((_BYTE *)this - 56) )
+  v2 = 0;
+  v3 = *((_QWORD *)this - 224);
+  if ( v3 && *(int *)(*((_QWORD *)this - 241) + 952LL) < 6 && *((_BYTE *)this - 56) )
   {
-    v3 = *((_BYTE *)this - 55);
-    v8 = 0LL;
-    v9 = 0LL;
-    CRegion::GetRectangles((CDDARenderTarget *)((char *)this - 128), &v8);
-    v4 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, __int128 *))(**((_QWORD **)this - 247) + 48LL))(
-           *((_QWORD *)this - 247),
+    v4 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v3 + 48LL))(
+           v3,
            1LL,
-           v3 != 0 ? 0x80 : 0,
-           &v8);
-    v1 = v4;
+           *((_BYTE *)this - 55) != 0 ? 0x80 : 0);
+    v2 = v4;
     if ( v4 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x118u);
-      if ( (_QWORD)v8 )
-        std::_Deallocate<16,0>((void *)v8, (v9 - v8) & 0xFFFFFFFFFFFFFFF0uLL);
-    }
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x12Eu, 0LL);
     else
-    {
-      v6 = (void *)v8;
       *((_BYTE *)this - 56) = 0;
-      if ( v6 )
-        std::_Deallocate<16,0>(v6, (v9 - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF0uLL);
-      if ( v1 == 142213130 )
-      {
-        ScheduleCompositionPass(0, 0x2000u);
-        **((_DWORD **)this - 16) = 0;
-        v1 = 0;
-        *((_BYTE *)this - 56) = 1;
-      }
+    if ( v2 == 142213130 )
+    {
+      ScheduleCompositionPass(0, 0x2000u);
+      v2 = 0;
+      *((_BYTE *)this - 56) = 1;
     }
   }
-  return v1;
+  return v2;
 }

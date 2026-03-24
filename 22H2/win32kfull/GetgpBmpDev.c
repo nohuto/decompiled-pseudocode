@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgpBmpDev @ 0x1C00BEAB0
+ * XREFs of GetgpBmpDev @ 0x1C01374F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgpBmpDev(__int64 a1)
+void **GetgpBmpDev()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 8608LL;
+  return &gpBmpDev;
 }

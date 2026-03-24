@@ -1,24 +1,21 @@
 /*
- * XREFs of AlpcpCompleteDeferSignalRequest @ 0x1407A7658
+ * XREFs of AlpcpCompleteDeferSignalRequest @ 0x1405EABDC
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x1407A76C0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     AlpcpSignal @ 0x14035AA74 (AlpcpSignal.c)
+ *     AlpcpSignal @ 0x140205730 (AlpcpSignal.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-unsigned __int8 __fastcall AlpcpCompleteDeferSignalRequest(__int64 a1)
+void __fastcall AlpcpCompleteDeferSignalRequest(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int8 result; // al
-  void *v3; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
 
-  result = _bittestandreset((signed __int32 *)(a1 + 48), 2u);
-  if ( result )
+  if ( _bittestandreset((signed __int32 *)(a1 + 48), 2u) )
   {
-    result = AlpcpSignal(a1, 0LL, 0LL);
-    v3 = *(void **)(a1 + 32);
-    if ( v3 )
-      return ObfDereferenceObject(v3);
+    AlpcpSignal(a1, 0LL, 0LL, a4);
+    v5 = *(struct _DMA_ADAPTER **)(a1 + 32);
+    if ( v5 )
+      HalPutDmaAdapter(v5);
   }
-  return result;
 }

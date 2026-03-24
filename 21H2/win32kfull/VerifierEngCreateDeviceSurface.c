@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierEngCreateDeviceSurface @ 0x1C029CD10
+ * XREFs of VerifierEngCreateDeviceSurface @ 0x1C029E430
  * Callers:
  *     <none>
  * Callees:
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029C964 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029E070 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 HSURF __fastcall VerifierEngCreateDeviceSurface(DHSURF dhsurf, SIZEL sizl, ULONG iFormatCompat)

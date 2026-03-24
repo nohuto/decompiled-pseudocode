@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseCommitSignal @ 0x1405B3180
+ * XREFs of MiPulseCommitSignal @ 0x140550554
  * Callers:
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
  * Callees:
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPulseCommitSignal(__int64 a1)
@@ -20,11 +20,11 @@ __int64 __fastcall MiPulseCommitSignal(__int64 a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 16040), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 6248), &LockHandle);
   v2 = *(struct _KEVENT **)(a1 + 304);
   if ( !v2->Header.SignalState )
     KePulseEvent(v2, 0, 0);
-  if ( !*(_DWORD *)(*(_QWORD *)(a1 + 312) + 4LL) && *(_QWORD *)(a1 + 17496) == *(_QWORD *)(a1 + 16008) )
+  if ( !*(_DWORD *)(*(_QWORD *)(a1 + 312) + 4LL) && *(_QWORD *)(a1 + 7592) == *(_QWORD *)(a1 + 6216) )
     KePulseEvent(*(PRKEVENT *)(a1 + 312), 0, 0);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;

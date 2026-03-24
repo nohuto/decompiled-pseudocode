@@ -1,23 +1,23 @@
 /*
- * XREFs of ??1CSurfaceBrush@@MEAA@XZ @ 0x1800B9264
+ * XREFs of ??1CSurfaceBrush@@MEAA@XZ @ 0x180062084
  * Callers:
- *     ??_GCSurfaceBrush@@MEAAPEAXI@Z @ 0x1800B9220 (--_GCSurfaceBrush@@MEAAPEAXI@Z.c)
+ *     ??_GCSurfaceBrush@@MEAAPEAXI@Z @ 0x180062040 (--_GCSurfaceBrush@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CSurfaceBrush::~CSurfaceBrush(CSurfaceBrush *this)
 {
-  __int64 v2; // rcx
+  __int64 v2; // rdx
 
   *(_QWORD *)this = &CSurfaceBrush::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CEffectBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CSurfaceBrush::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 120;
-  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 60) = *(_DWORD *)(*((_QWORD *)this + 8) + 8LL)
-                                                                         - 136;
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CEffectBrush::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CSurfaceBrush::`vftable'{for `IContent'};
+  v2 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 52) = v2 - 112;
+  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 52) = *(_DWORD *)(*((_QWORD *)this + 7) + 8LL)
+                                                                         - 128;
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 12));
   CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 13));
-  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 15));
   CBrush::~CBrush(this);
 }

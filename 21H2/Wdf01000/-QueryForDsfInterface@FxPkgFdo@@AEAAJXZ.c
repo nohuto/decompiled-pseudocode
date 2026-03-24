@@ -1,14 +1,14 @@
 /*
- * XREFs of ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008E8C4
+ * XREFs of ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008C288
  * Callers:
- *     ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0026B98 (-PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ.c)
+ *     ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0084638 (-PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ.c)
  * Callees:
- *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C0019CCC (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C004F890 (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 __int64 __fastcall FxPkgFdo::QueryForDsfInterface(FxPkgFdo *this)

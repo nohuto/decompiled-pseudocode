@@ -1,9 +1,9 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C008EDE0
+ * XREFs of WppLoadTracingSupport @ 0x1C00904A0
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 PVOID WppLoadTracingSupport()

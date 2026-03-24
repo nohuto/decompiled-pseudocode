@@ -1,9 +1,9 @@
 /*
- * XREFs of NormBuffer__Append @ 0x1405ED07C
+ * XREFs of NormBuffer__Append @ 0x14058DA1C
  * Callers:
- *     NormBuffer__AppendEx @ 0x1405ED158 (NormBuffer__AppendEx.c)
- *     Normalization__Normalize @ 0x1409BDA38 (Normalization__Normalize.c)
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__AppendEx @ 0x14058DAF8 (NormBuffer__AppendEx.c)
+ *     Normalization__Normalize @ 0x1409183D4 (Normalization__Normalize.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     <none>
  */

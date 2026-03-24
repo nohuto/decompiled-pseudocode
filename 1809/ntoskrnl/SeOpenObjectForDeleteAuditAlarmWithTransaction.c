@@ -1,20 +1,20 @@
 /*
- * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0AA0
+ * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarm @ 0x1408A0A40 (SeOpenObjectForDeleteAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarm @ 0x1408A0A20 (SeOpenObjectForDeleteAuditAlarm.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepAdtAuditObjectAccessWithContext @ 0x1405BB7A8 (SepAdtAuditObjectAccessWithContext.c)
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14089EFAC (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepQueryTypeString @ 0x14089F998 (SepQueryTypeString.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A390C (SeExamineGlobalSacl.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14089EF8C (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(

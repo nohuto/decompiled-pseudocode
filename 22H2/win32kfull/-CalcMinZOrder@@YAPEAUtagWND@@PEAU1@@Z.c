@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalcMinZOrder@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00C3E78
+ * XREFs of ?CalcMinZOrder@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C002C080
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
  * Callees:
  *     <none>
  */

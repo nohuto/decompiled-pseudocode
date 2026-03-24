@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z @ 0x1C027EAFC
+ * XREFs of ?bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z @ 0x1C0280EE4
  * Callers:
- *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027A9F8 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027E8B0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
  * Callees:
- *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C001C4C0 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
- *     EngCopyBits @ 0x1C0030980 (EngCopyBits.c)
- *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0136414 (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     EngCopyBits @ 0x1C007EAA0 (EngCopyBits.c)
+ *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C00ED7D0 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
+ *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0164D78 (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bSpUpdateCursor(
@@ -16,99 +16,92 @@ __int64 __fastcall bSpUpdateCursor(
         struct _XLATEOBJ *a4,
         struct _RECTL *a5)
 {
-  _QWORD *v5; // rax
+  __int64 *v5; // r12
   unsigned int v6; // edi
-  struct _RECTL v8; // xmm0
-  __int64 v11; // rbx
-  struct Gre::Base::SESSION_GLOBALS *v12; // rax
-  SURFOBJ *v13; // r14
+  struct _RECTL v9; // xmm0
+  __int64 v10; // rbx
+  SURFOBJ *v11; // r14
   LONG cy; // eax
-  __int64 v15; // r8
-  _QWORD *v16; // rdx
-  __int64 v18; // [rsp+60h] [rbp-51h] BYREF
-  char v19; // [rsp+68h] [rbp-49h]
-  int v20; // [rsp+6Ch] [rbp-45h]
-  struct _POINTL v21; // [rsp+78h] [rbp-39h] BYREF
-  struct _SURFOBJ *v22; // [rsp+80h] [rbp-31h]
-  struct _XLATEOBJ *v23; // [rsp+88h] [rbp-29h]
-  _QWORD *v24; // [rsp+90h] [rbp-21h]
-  __int128 v25; // [rsp+98h] [rbp-19h] BYREF
-  __int128 v26; // [rsp+A8h] [rbp-9h]
-  RECTL prclDest; // [rsp+B8h] [rbp+7h] BYREF
+  __int64 v13; // r8
+  __int64 v15; // [rsp+60h] [rbp-41h] BYREF
+  char v16; // [rsp+68h] [rbp-39h]
+  int v17; // [rsp+6Ch] [rbp-35h]
+  struct _RECTL *v18; // [rsp+70h] [rbp-31h]
+  struct _SURFOBJ *v19; // [rsp+78h] [rbp-29h]
+  struct _XLATEOBJ *v20; // [rsp+80h] [rbp-21h]
+  __int128 v21; // [rsp+88h] [rbp-19h] BYREF
+  __int128 v22; // [rsp+98h] [rbp-9h]
+  RECTL prclDest; // [rsp+A8h] [rbp+7h] BYREF
 
-  v5 = (_QWORD *)*((_QWORD *)a1 + 2);
-  prclDest = 0LL;
+  v5 = (__int64 *)*((_QWORD *)a1 + 2);
   v6 = 0;
-  v23 = a4;
-  v25 = 0LL;
-  v18 = 0LL;
-  v8 = *a5;
-  v19 = 0;
-  v26 = 0LL;
-  v20 = 0;
-  v11 = *v5;
-  *((struct _RECTL *)a1 + 6) = v8;
-  v22 = a3;
-  v24 = v5;
-  v12 = Gre::Base::Globals(a1);
+  v15 = 0LL;
+  v16 = 0;
+  v17 = 0;
+  v20 = a4;
+  v19 = a3;
+  v18 = a5;
+  prclDest = 0LL;
+  v9 = *a5;
   v21 = 0LL;
-  if ( !psoSrc )
+  v22 = 0LL;
+  v10 = *v5;
+  *((struct _RECTL *)a1 + 6) = v9;
+  if ( psoSrc )
   {
-    *((_DWORD *)a1 + 1) = 2;
-    *((_DWORD *)a1 + 50) = 33488896;
-    bSpCreateShape(a1, &v21, a3, 0LL, a5, *((struct PALETTE **)v12 + 751), 6u, 1u, 0LL);
-    LOBYTE(v6) = *((_QWORD *)a1 + 16) != 0LL;
-    goto LABEL_16;
-  }
-  v13 = (SURFOBJ *)*((_QWORD *)a1 + 15);
-  if ( !v13 )
-  {
-LABEL_8:
-    DWORD1(v25) = psoSrc->sizlBitmap.cx;
-    cy = psoSrc->sizlBitmap.cy;
-    LODWORD(v25) = 1;
-    DWORD2(v25) = cy;
-    DWORD2(v26) = 1;
-    *(_QWORD *)&v26 = 0LL;
-    if ( SURFMEM::bCreateDIB((SURFMEM *)&v18, (struct _DEVBITMAPINFO *)&v25, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+    v11 = (SURFOBJ *)*((_QWORD *)a1 + 15);
+    if ( !v11 )
+      goto LABEL_8;
+    if ( v11->sizlBitmap.cx != psoSrc->sizlBitmap.cx || v11->sizlBitmap.cy != psoSrc->sizlBitmap.cy )
     {
-      LOBYTE(v15) = 5;
-      v19 |= 1u;
-      v13 = (SURFOBJ *)((v18 + 24) & -(__int64)(v18 != 0));
-      HmgSetOwner(*(_QWORD *)(v18 + 32), 0LL, v15);
+      bDeleteSurface(v11->hsurf);
+      v11 = 0LL;
     }
-    *((_QWORD *)a1 + 15) = v13;
-    if ( !v13 )
-      goto LABEL_12;
-    goto LABEL_11;
-  }
-  if ( v13->sizlBitmap.cx != psoSrc->sizlBitmap.cx || v13->sizlBitmap.cy != psoSrc->sizlBitmap.cy )
-  {
-    bDeleteSurface(v13->hsurf);
-    v13 = 0LL;
-    goto LABEL_8;
-  }
-  *((_QWORD *)a1 + 15) = v13;
-LABEL_11:
-  prclDest = *a5;
-  prclDest.bottom = (v13->sizlBitmap.cy >> 1) + _mm_srli_si128(*(__m128i *)&prclDest, 8).m128i_i32[1];
-  EngCopyBits(v13, psoSrc, 0LL, 0LL, &prclDest, (POINTL *)&prclDest);
-LABEL_12:
-  if ( v22 )
-  {
-    bSpCreateShape(a1, &v21, v22, v23, a5, *(struct PALETTE **)(v11 + 1776), 0, 0, 0LL);
-    LOBYTE(v6) = *((_QWORD *)a1 + 16) != 0LL;
+    if ( !v11 )
+    {
+LABEL_8:
+      DWORD1(v21) = psoSrc->sizlBitmap.cx;
+      cy = psoSrc->sizlBitmap.cy;
+      LODWORD(v21) = 1;
+      DWORD2(v21) = cy;
+      DWORD2(v22) = 1;
+      *(_QWORD *)&v22 = 0LL;
+      if ( SURFMEM::bCreateDIB((SURFMEM *)&v15, (struct _DEVBITMAPINFO *)&v21, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+      {
+        LOBYTE(v13) = 5;
+        v16 |= 1u;
+        v11 = (SURFOBJ *)((v15 + 24) & -(__int64)(v15 != 0));
+        HmgSetOwner(*(_QWORD *)(v15 + 32), 0LL, v13);
+      }
+    }
+    *((_QWORD *)a1 + 15) = v11;
+    if ( v11 )
+    {
+      prclDest = *v18;
+      prclDest.bottom = (v11->sizlBitmap.cy >> 1) + _mm_srli_si128(*(__m128i *)&prclDest, 8).m128i_i32[1];
+      EngCopyBits(v11, psoSrc, 0LL, 0LL, &prclDest, (POINTL *)&prclDest);
+    }
+    if ( v19 )
+    {
+      bSpCreateShape(a1, &gptlZero, v19, v20, v18, *(struct PALETTE **)(v10 + 1808), 0, 0, 0LL);
+      LOBYTE(v6) = *((_QWORD *)a1 + 16) != 0LL;
+    }
+    else
+    {
+      vSpDeleteShape(a1);
+      v6 = 1;
+    }
+    *((_DWORD *)a1 + 1) = 0x1000000;
+    *((_DWORD *)a1 + 39) = *((_DWORD *)v5 + 28);
+    *((_DWORD *)a1 + 38) = *((_DWORD *)v5 + 27);
   }
   else
   {
-    vSpDeleteShape(a1);
-    v6 = 1;
+    *((_DWORD *)a1 + 1) = 2;
+    *((_DWORD *)a1 + 50) = 33488896;
+    bSpCreateShape(a1, &gptlZero, a3, 0LL, a5, gppalRGB, 6u, 1u, 0LL);
+    LOBYTE(v6) = *((_QWORD *)a1 + 16) != 0LL;
   }
-  v16 = v24;
-  *((_DWORD *)a1 + 1) = 0x1000000;
-  *((_DWORD *)a1 + 39) = *((_DWORD *)v16 + 28);
-  *((_DWORD *)a1 + 38) = *((_DWORD *)v16 + 27);
-LABEL_16:
-  SURFMEM::~SURFMEM((SURFMEM *)&v18);
+  SURFMEM::~SURFMEM((SURFMEM *)&v15);
   return v6;
 }

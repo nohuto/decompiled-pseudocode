@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiGetEudcTimeStampEx @ 0x1C0297860
+ * XREFs of NtGdiGetEudcTimeStampEx @ 0x1C0298FE0
  * Callers:
  *     <none>
  * Callees:
- *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00150C4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C01593E0 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00A11D4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C0165DB0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetEudcTimeStampEx(char *Src, unsigned int a2, int a3)
@@ -15,9 +15,9 @@ __int64 __fastcall NtGdiGetEudcTimeStampEx(char *Src, unsigned int a2, int a3)
   wchar_t Str1[40]; // [rsp+30h] [rbp-68h] BYREF
 
   if ( a3 )
-    return (unsigned int)dword_1C0336378;
+    return (unsigned int)dword_1C033B0B8;
   if ( !Src || !a2 )
-    return (unsigned int)dword_1C033637C;
+    return (unsigned int)dword_1C033B0B4;
   if ( a2 > 0x20 )
   {
     EngSetLastError(0x57u);

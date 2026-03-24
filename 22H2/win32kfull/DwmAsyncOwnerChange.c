@@ -1,40 +1,40 @@
 /*
- * XREFs of DwmAsyncOwnerChange @ 0x1C00CCF70
+ * XREFs of DwmAsyncOwnerChange @ 0x1C0035C74
  * Callers:
- *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000B40C (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
- *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0025464 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0059F80 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
- *     ?zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z @ 0x1C00654C8 (-zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C0065CE8 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     xxxDW_DestroyOwnedWindows @ 0x1C00EB35C (xxxDW_DestroyOwnedWindows.c)
+ *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000E488 (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
+ *     zzzImeCanDestroyDefIME @ 0x1C0033A18 (zzzImeCanDestroyDefIME.c)
+ *     zzzImeSetFutureOwner @ 0x1C0033FA4 (zzzImeSetFutureOwner.c)
+ *     zzzImeSetOwnerWindow @ 0x1C0035B24 (zzzImeSetOwnerWindow.c)
+ *     xxxDW_DestroyOwnedWindows @ 0x1C003DF80 (xxxDW_DestroyOwnedWindows.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9948 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall DwmAsyncOwnerChange(PVOID Object, __int64 a2, __int64 a3)
+__int64 __fastcall DwmAsyncOwnerChange(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // ebx
-  _OWORD v8[2]; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-20h]
-  int v10; // [rsp+48h] [rbp-18h]
-  _QWORD v11[2]; // [rsp+4Ch] [rbp-14h]
+  unsigned int v5; // ebx
+  _OWORD v7[2]; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-20h]
+  int v9; // [rsp+48h] [rbp-18h]
+  _QWORD v10[2]; // [rsp+4Ch] [rbp-14h]
 
-  v6 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  v5 = -1073741823;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v8, 0, sizeof(v8));
-    v9 = 0LL;
-    WORD2(v8[0]) = 0x8000;
-    LODWORD(v8[0]) = 3932180;
-    v10 = 1073741878;
-    v11[0] = a2;
-    v11[1] = a3;
-    EtwUpdateEvent(a2, 1073741878LL);
-    v6 = LpcRequestPort(Object, v8);
+    memset(v7, 0, sizeof(v7));
+    LODWORD(v7[0]) = 3932180;
+    v8 = 0LL;
+    WORD2(v7[0]) = 0x8000;
+    v9 = 1073741877;
+    v10[0] = a2;
+    v10[1] = a3;
+    EtwUpdateEvent(a2, 1073741877LL, a3, a4);
+    v5 = LpcRequestPort(Object, v7);
     ObfDereferenceObject(Object);
   }
-  return v6;
+  return v5;
 }

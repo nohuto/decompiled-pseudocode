@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHeapAddListEntry @ 0x1405B5584
+ * XREFs of RtlpHeapAddListEntry @ 0x140593CF8
  * Callers:
- *     RtlpCreateSplitBlock @ 0x1405AC058 (RtlpCreateSplitBlock.c)
- *     RtlpFreeHeap @ 0x1405AD338 (RtlpFreeHeap.c)
- *     RtlpInsertFreeBlock @ 0x1405ADC3C (RtlpInsertFreeBlock.c)
- *     RtlpPopulateListIndex @ 0x1405B5944 (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x1409BDF10 (RtlZeroHeap.c)
+ *     RtlpCreateSplitBlock @ 0x1405897C0 (RtlpCreateSplitBlock.c)
+ *     RtlpFreeHeap @ 0x14058AAD4 (RtlpFreeHeap.c)
+ *     RtlpInsertFreeBlock @ 0x14058B2EC (RtlpInsertFreeBlock.c)
+ *     RtlpPopulateListIndex @ 0x1405940BC (RtlpPopulateListIndex.c)
+ *     RtlZeroHeap @ 0x140915980 (RtlZeroHeap.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x1405B57D4 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x140593F4C (RtlpHeapListCompare.c)
  */
 
 __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
@@ -35,11 +35,11 @@ __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, __int64 a3, __in
   {
     result = *(_QWORD *)(a2 + 48);
     *(_QWORD *)(result + 8 * v11) = v7;
-    if ( !v12 )
-    {
-      result = *(_QWORD *)(a2 + 40);
-      *(_DWORD *)(result + 4 * ((unsigned __int64)v9 >> 5)) |= 1 << (v9 & 0x1F);
-    }
+  }
+  if ( !v12 )
+  {
+    result = *(_QWORD *)(a2 + 40);
+    *(_DWORD *)(result + 4 * ((unsigned __int64)v9 >> 5)) |= 1 << (v9 & 0x1F);
   }
   return result;
 }

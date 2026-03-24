@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierKeInitializeSemaphore @ 0x140A95E90
+ * XREFs of VerifierKeInitializeSemaphore @ 0x1409DACA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B0C (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
-__int64 VerifierKeInitializeSemaphore()
+__int64 __fastcall VerifierKeInitializeSemaphore(void *a1, unsigned int a2, unsigned int a3)
 {
-  return ((__int64 (*)(void))pXdvKeInitializeSemaphore)();
+  VfUtilSynchronizationObjectSanityChecks(a1, 0x20uLL);
+  return ((__int64 (__fastcall *)(void *, _QWORD, _QWORD))pXdvKeInitializeSemaphore)(a1, a2, a3);
 }

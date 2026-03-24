@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021DCC0
+ * XREFs of ?SetBufferProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E7590
  * Callers:
  *     <none>
  * Callees:
@@ -26,7 +26,7 @@ __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetBufferProperty(
     {
       v7 = *a4;
       *((_DWORD *)this + 4) |= 0x40u;
-      *((_QWORD *)this + 9) = v7;
+      *((_QWORD *)this + 8) = v7;
 LABEL_9:
       *a6 = 1;
       return result;
@@ -36,7 +36,7 @@ LABEL_9:
   {
     v8 = *a4;
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_QWORD *)this + 8) = v8;
+    *((_QWORD *)this + 7) = v8;
     goto LABEL_9;
   }
   return 3221225485LL;

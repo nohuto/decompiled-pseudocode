@@ -1,20 +1,16 @@
 /*
- * XREFs of NtRIMSetTestModeStatus @ 0x1C0175650
+ * XREFs of NtRIMSetTestModeStatus @ 0x1C0154160
  * Callers:
  *     <none>
  * Callees:
- *     RIMSetTestModeStatus @ 0x1C0173DA0 (RIMSetTestModeStatus.c)
- *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0206B8C (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0056718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     RIMSetTestModeStatus @ 0x1C01521A0 (RIMSetTestModeStatus.c)
  */
 
-__int64 __fastcall NtRIMSetTestModeStatus(unsigned int a1)
+__int64 __fastcall NtRIMSetTestModeStatus(int a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-
   if ( (unsigned int)ApiSetEditionIsUsermodeRIMAccessAllowed() )
-    return RIMSetTestModeStatus(a1, v2, v3, v4);
+    return RIMSetTestModeStatus(a1);
   else
     return 3221225506LL;
 }

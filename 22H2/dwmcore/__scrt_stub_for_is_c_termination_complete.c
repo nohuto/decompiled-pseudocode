@@ -1,7 +1,7 @@
 /*
- * XREFs of __scrt_stub_for_is_c_termination_complete @ 0x1801113C8
+ * XREFs of __scrt_stub_for_is_c_termination_complete @ 0x1800E9198
  * Callers:
- *     __scrt_dllmain_uninitialize_c @ 0x18010F224 (__scrt_dllmain_uninitialize_c.c)
+ *     __scrt_dllmain_uninitialize_c @ 0x1800E6E6C (__scrt_dllmain_uninitialize_c.c)
  * Callees:
  *     <none>
  */

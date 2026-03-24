@@ -1,35 +1,34 @@
 /*
- * XREFs of HalpInterruptEnablePerformanceEvents @ 0x14037C3A8
+ * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1403A32A0
  * Callers:
- *     EmonPreOverflowHandler @ 0x14051E060 (EmonPreOverflowHandler.c)
- *     HalpInterruptInitSystem @ 0x140A8A2E0 (HalpInterruptInitSystem.c)
- *     HalpPostSleepMP @ 0x140A97068 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A976B4 (HalpDpPostReplaceInitialization.c)
+ *     EmonPreOverflowHandler @ 0x1404D4020 (EmonPreOverflowHandler.c)
+ *     HalpPostSleepMP @ 0x140995854 (HalpPostSleepMP.c)
+ *     HalpInterruptInitSystem @ 0x14099EA00 (HalpInterruptInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A8618 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptGetPriority @ 0x14037CCA0 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineState @ 0x14037CD5C (HalpInterruptSetLineState.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     HalpGetProcessorStateByNtIndex @ 0x140383D38 (HalpGetProcessorStateByNtIndex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A33F8 (HalpInterruptSetLineState.c)
+ *     HalpInterruptGetPriority @ 0x1403A397C (HalpInterruptGetPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
 {
-  ULONG_PTR v1; // rbx
+  __int64 v1; // rbx
   unsigned __int8 v2; // di
-  bool v3; // zf
-  int v5; // eax
+  bool v4; // zf
+  int v5; // ecx
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
-  unsigned int Number; // ebx
-  __int64 v12; // rdi
+  unsigned int Number; // edi
+  ULONG_PTR v12; // rbx
   __int64 v13; // rcx
   char v14; // bl
   unsigned __int64 v15; // rdi
@@ -38,100 +37,101 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
   _DWORD *v18; // r8
   __int128 v19; // [rsp+40h] [rbp-19h] BYREF
   __int64 v20; // [rsp+50h] [rbp-9h]
-  __int128 v21; // [rsp+58h] [rbp-1h]
-  _OWORD v22[2]; // [rsp+68h] [rbp+Fh] BYREF
-  __int64 v23; // [rsp+88h] [rbp+2Fh]
-  __int64 v24; // [rsp+C0h] [rbp+67h] BYREF
-  int v25; // [rsp+C8h] [rbp+6Fh] BYREF
-  int v26; // [rsp+CCh] [rbp+73h]
+  _OWORD v21[3]; // [rsp+58h] [rbp-1h] BYREF
+  __int64 v22; // [rsp+88h] [rbp+2Fh]
+  __int64 v23; // [rsp+C0h] [rbp+67h] BYREF
+  int v24; // [rsp+C8h] [rbp+6Fh] BYREF
+  int v25; // [rsp+CCh] [rbp+73h]
 
   v1 = HalpInterruptController;
-  v24 = 0LL;
-  v2 = 0;
-  DWORD1(v19) = 0;
   v23 = 0LL;
-  v3 = *(_DWORD *)(HalpInterruptController + 240) == 2;
-  v21 = 0LL;
-  memset(v22, 0, sizeof(v22));
-  if ( v3 )
+  v2 = 0;
+  v22 = 0LL;
+  v4 = *(_DWORD *)(HalpInterruptController + 216) == 2;
+  memset(v21, 0, sizeof(v21));
+  if ( v4 )
   {
-    LODWORD(v24) = *(_DWORD *)(HalpInterruptController + 256);
-    HIDWORD(v24) = -3;
+    LODWORD(v23) = *(_DWORD *)(HalpInterruptController + 232);
+    HIDWORD(v23) = -3;
     if ( !HalpInterruptPerfLinesFound )
     {
-      result = (__int64)HalpInterruptFindLines((unsigned int *)&v24);
+      result = (__int64)HalpInterruptFindLines((unsigned int *)&v23);
       if ( !result )
         return result;
       HalpInterruptPerfLinesFound = 1;
     }
-    *(_QWORD *)&v22[0] = 0x1FFFFFFFFLL;
-    memset((char *)v22 + 12, 0, 20);
-    *(_QWORD *)&v21 = 1LL;
-    *((_QWORD *)&v21 + 1) = 0x1000000001LL;
-    DWORD2(v22[0]) = 3;
-    LODWORD(v23) = 254;
-    HIDWORD(v23) = HalpInterruptGetPriority(v1);
+    *(_QWORD *)&v21[1] = 0x1FFFFFFFFLL;
+    memset((char *)&v21[1] + 12, 0, 20);
+    *(_QWORD *)&v21[0] = 1LL;
+    *((_QWORD *)&v21[0] + 1) = 0x1000000001LL;
+    DWORD2(v21[1]) = 3;
+    LODWORD(v22) = 254;
+    HIDWORD(v22) = HalpInterruptGetPriority(v1, 254LL);
     if ( !a1 )
       v2 = HalpAcquireHighLevelLock(&HalpInterruptLock);
-    HalpInterruptSetLineStateInternal(v1, &v24);
+    HalpInterruptSetLineStateInternal(v1, (__int64)&v23, (__int64)v21);
     if ( !a1 )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+      KxReleaseSpinLock(&HalpInterruptLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << (v2 + 1));
-          v3 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v3 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << (v2 + 1));
+            v4 = (v10 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v10;
+            if ( v4 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v2);
     }
   }
-  v5 = *(_DWORD *)(v1 + 240);
-  if ( v5 == 3 || (result = (unsigned int)(v5 - 4), (result & 0xFFFFFFFD) == 0) )
+  v5 = *(_DWORD *)(v1 + 216);
+  result = (unsigned int)(v5 - 3);
+  if ( (result & 0xFFFFFFFC) == 0 && v5 != 5 )
   {
     Number = KeGetPcr()->Prcb.Number;
-    result = HalpGetProcessorStateByNtIndex(Number);
-    v12 = result;
-    v13 = *(unsigned int *)(result + 40);
+    v12 = HalpInterruptProcessorState + ((unsigned __int64)Number << 6);
+    v13 = *(unsigned int *)(v12 + 40);
     if ( (_DWORD)v13 )
     {
-      result = HalpInterruptGsiToLine(v13, &v24);
+      result = HalpInterruptGsiToLine(v13, &v23);
       if ( (int)result >= 0 )
       {
-        v25 = -1;
-        v26 = 1;
-        v19 = 0LL;
-        DWORD2(v19) = Number;
+        v24 = -1;
         v14 = *(_BYTE *)(v12 + 14);
-        v20 = 0LL;
+        v19 = 0LL;
         LODWORD(v19) = 6;
-        v15 = (unsigned __int8)HalpAcquireHighLevelLock(&HalpInterruptLock);
+        DWORD2(v19) = Number;
+        v20 = 0LL;
+        v25 = 1;
+        v15 = HalpAcquireHighLevelLock(&HalpInterruptLock);
         LOBYTE(v16) = 15;
-        HalpInterruptSetLineState(&v24, 254LL, v16, v14 != 0, 1, &v19, &v25);
-        result = KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+        HalpInterruptSetLineState(&v23, 254LL, v16, v14 != 0, 1, &v19, &v24);
+        KxReleaseSpinLock(&HalpInterruptLock);
+        result = (unsigned int)KiIrqlFlags;
         if ( KiIrqlFlags )
         {
-          result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)result <= 0xFu
-            && (unsigned __int8)v15 <= 0xFu
-            && (unsigned __int8)result >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v17 = KeGetCurrentPrcb();
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-            v18 = v17->SchedulerAssist;
-            v3 = ((unsigned int)result & v18[5]) == 0;
-            v18[5] &= result;
-            if ( v3 )
-              result = KiRemoveSystemWorkPriorityKick(v17);
+            result = KeGetCurrentIrql();
+            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v15 <= 0xFu && (unsigned __int8)result >= 2u )
+            {
+              v17 = KeGetCurrentPrcb();
+              result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+              v18 = v17->SchedulerAssist;
+              v4 = ((unsigned int)result & v18[5]) == 0;
+              v18[5] &= result;
+              if ( v4 )
+                result = KiRemoveSystemWorkPriorityKick(v17);
+            }
           }
         }
         __writecr8(v15);

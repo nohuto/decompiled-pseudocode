@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1401951A0 (_local_unwind.c)
+ *     _local_unwind @ 0x1401951C0 (_local_unwind.c)
  *     KiVerifyXcptFilter @ 0x1409CFF7C (KiVerifyXcptFilter.c)
  */
 

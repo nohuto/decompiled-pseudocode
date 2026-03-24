@@ -1,19 +1,12 @@
 /*
- * XREFs of ?IsReadyForEvaluation@CBaseExpression@@MEBA_NXZ @ 0x1800E9550
+ * XREFs of ?IsReadyForEvaluation@CBaseExpression@@MEBA_NXZ @ 0x1800CB540
  * Callers:
- *     ?IsReadyForEvaluation@CExpression@@MEBA_NXZ @ 0x1800E9520 (-IsReadyForEvaluation@CExpression@@MEBA_NXZ.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
 bool __fastcall CBaseExpression::IsReadyForEvaluation(CBaseExpression *this)
 {
-  bool result; // al
-
-  if ( (*((_BYTE *)this + 216) & 2) == 0 )
-    return 0;
-  result = 1;
-  if ( (*((_BYTE *)this + 232) & 1) != 0 )
-    return 0;
-  return result;
+  return (*((_BYTE *)this + 208) & 0x12) == 2;
 }

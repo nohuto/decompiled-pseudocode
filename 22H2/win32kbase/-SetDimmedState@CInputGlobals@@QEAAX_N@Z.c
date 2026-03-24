@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetDimmedState@CInputGlobals@@QEAAX_N@Z @ 0x1C01DC8F0
+ * XREFs of ?SetDimmedState@CInputGlobals@@QEAAX_N@Z @ 0x1C01A36E0
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
 void __fastcall CInputGlobals::SetDimmedState(CInputGlobals *this, char a2)

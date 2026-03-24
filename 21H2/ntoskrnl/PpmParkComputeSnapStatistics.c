@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkComputeSnapStatistics @ 0x14021C1E0
+ * XREFs of PpmParkComputeSnapStatistics @ 0x140289810
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14021C050 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x1402896A0 (PpmParkRecordNodeStatistics.c)
  * Callees:
  *     <none>
  */
@@ -25,10 +25,9 @@ char __fastcall PpmParkComputeSnapStatistics(
   int v14; // edx
   unsigned __int64 j; // rcx
   int k; // ecx
-  unsigned __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned __int64 v19; // rdx
-  __int64 v20; // rcx
+  int v17; // r8d
+  unsigned __int64 v18; // rdx
+  __int64 v19; // rcx
 
   v7 = *(_QWORD *)(a4 + 24) - *(_QWORD *)(a4 + 32);
   v8 = a3;
@@ -53,35 +52,40 @@ char __fastcall PpmParkComputeSnapStatistics(
       break;
   }
   *a7 = v14;
-  for ( k = *(_DWORD *)(a4 + 40) - 1; k >= 0; --k )
+  if ( __PAIR128__((unsigned __int64)a6, (unsigned __int64)a5) != 0 )
   {
-    v11 += *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8LL * k);
-    if ( v11 >= v7 - v7 * v9 / 0x64 )
-      break;
+    for ( k = *(_DWORD *)(a4 + 40) - 1; k >= 0; --k )
+    {
+      v11 += *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8LL * k);
+      if ( v11 >= v7 - v7 * v9 / 0x64 )
+        break;
+    }
+    if ( a5 )
+      *a5 = k;
+    if ( a6 )
+    {
+      if ( k > 0 )
+        *a6 = 100LL * *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8LL * k) / v7;
+      else
+        *a6 = 0;
+    }
   }
-  *a5 = k;
-  if ( k > 0 )
-    v17 = 100LL * *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8LL * k) / v7;
-  else
-    LOBYTE(v17) = 0;
-  *a6 = v17;
   *(_QWORD *)(a4 + 32) += v7;
-  v18 = (unsigned int)(*(_DWORD *)(a4 + 40) - 1);
-  if ( (int)v18 >= 0 )
+  v17 = *(_DWORD *)(a4 + 40) - 1;
+  if ( v17 >= 0 )
   {
     while ( 1 )
     {
-      v19 = *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8 * v18);
-      v20 = *(_QWORD *)(a4 + 8);
-      if ( v19 > v7 )
+      v18 = *(_QWORD *)(*(_QWORD *)(a4 + 16) + 8LL * v17);
+      v19 = *(_QWORD *)(a4 + 8);
+      if ( v18 > v7 )
         break;
-      *(_QWORD *)(v20 + 8 * v18) += v19;
-      v7 -= v19;
-      v18 = (unsigned int)(v18 - 1);
-      if ( (int)v18 < 0 )
+      *(_QWORD *)(v19 + 8LL * v17) += v18;
+      v7 -= v18;
+      if ( --v17 < 0 )
         return 1;
     }
-    *(_QWORD *)(v20 + 8 * v18) += v7;
+    *(_QWORD *)(v19 + 8LL * v17) += v7;
   }
   return 1;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtIsUILanguageComitted @ 0x1407E9E20
+ * XREFs of NtIsUILanguageComitted @ 0x140771FF0
  * Callers:
  *     <none>
  * Callees:

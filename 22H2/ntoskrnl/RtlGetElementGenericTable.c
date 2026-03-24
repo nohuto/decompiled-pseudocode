@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetElementGenericTable @ 0x14035A0E0
+ * XREFs of RtlGetElementGenericTable @ 0x140315BC0
  * Callers:
  *     <none>
  * Callees:
@@ -30,7 +30,12 @@ PVOID __stdcall RtlGetElementGenericTable(PRTL_GENERIC_TABLE Table, ULONG I)
   {
     if ( v3 < WhichOrderedElement )
     {
-      if ( v3 <= WhichOrderedElement >> 1 )
+      if ( v3 > WhichOrderedElement >> 1 )
+      {
+        for ( i = WhichOrderedElement - v3; i; --i )
+          OrderedPointer = OrderedPointer->Blink;
+      }
+      else
       {
         OrderedPointer = &Table->InsertOrderList;
         do
@@ -39,11 +44,6 @@ PVOID __stdcall RtlGetElementGenericTable(PRTL_GENERIC_TABLE Table, ULONG I)
           --v5;
         }
         while ( v5 );
-      }
-      else
-      {
-        for ( i = WhichOrderedElement - v3; i; --i )
-          OrderedPointer = OrderedPointer->Blink;
       }
     }
     else

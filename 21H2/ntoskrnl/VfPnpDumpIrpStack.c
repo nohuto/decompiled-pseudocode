@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPnpDumpIrpStack @ 0x140AA5E40
+ * XREFs of VfPnpDumpIrpStack @ 0x1409E2740
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x1405FDF9C (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
  */
 
 unsigned __int8 __fastcall VfPnpDumpIrpStack(__int64 a1)

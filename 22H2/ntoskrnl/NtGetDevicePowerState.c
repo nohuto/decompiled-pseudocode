@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGetDevicePowerState @ 0x14098B330
+ * XREFs of NtGetDevicePowerState @ 0x1408F03C0
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x1406853AC (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x14070B318 (PfpVolumeOpenAndVerify.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PopLockGetDoDevicePowerState @ 0x14058F2B0 (PopLockGetDoDevicePowerState.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     IoGetRelatedTargetDevice @ 0x140794AAC (IoGetRelatedTargetDevice.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PopLockGetDoDevicePowerState @ 0x14056F42C (PopLockGetDoDevicePowerState.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     IoGetRelatedTargetDevice @ 0x14071B8AC (IoGetRelatedTargetDevice.c)
  */
 
 NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
@@ -15,11 +15,11 @@ NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
   int RelatedTargetDevice; // ebx
-  PVOID v7; // rdi
+  struct _DMA_ADAPTER *v7; // rdi
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
-  PVOID v9; // [rsp+58h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
-  v9 = 0LL;
+  DmaAdapter = 0LL;
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v3 = 0x7FFFFFFF0000LL;
@@ -32,13 +32,13 @@ NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
   result = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    RelatedTargetDevice = IoGetRelatedTargetDevice((struct _FILE_OBJECT *)Object, &v9);
-    ObfDereferenceObject(Object);
+    RelatedTargetDevice = IoGetRelatedTargetDevice((struct _FILE_OBJECT *)Object, &DmaAdapter);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( RelatedTargetDevice >= 0 )
     {
-      v7 = v9;
-      *a2 = PopLockGetDoDevicePowerState(*((_QWORD *)v9 + 39));
-      ObfDereferenceObject(v7);
+      v7 = DmaAdapter;
+      *a2 = PopLockGetDoDevicePowerState((__int64)DmaAdapter[19].DmaOperations);
+      HalPutDmaAdapter(v7);
     }
     return RelatedTargetDevice;
   }

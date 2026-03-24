@@ -1,12 +1,11 @@
 /*
- * XREFs of ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00FFF4C
+ * XREFs of ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00C8574
  * Callers:
- *     ?UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C00E804C (-UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z.c)
+ *     ?UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C00B2E20 (-UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
- *     ?ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z @ 0x1C0100278 (-ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z @ 0x1C00C887C (-ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_SEGMENT::UnblockMemoryRanges(
@@ -16,33 +15,38 @@ __int64 __fastcall VIDMM_SEGMENT::UnblockMemoryRanges(
         struct _DXGK_MEMORYRANGE *a4)
 {
   int v7; // eax
-  unsigned int v8; // edi
+  __int64 v8; // rdx
   __int64 v9; // rcx
-  struct _DXGK_MEMORYRANGE v11; // xmm0
-  VIDMM_GLOBAL *v12; // rcx
-  unsigned __int64 v13; // [rsp+50h] [rbp-78h] BYREF
-  _QWORD v14[12]; // [rsp+60h] [rbp-68h] BYREF
+  __int64 v10; // r8
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  struct _DXGK_MEMORYRANGE v14; // xmm0
+  VIDMM_GLOBAL *v15; // rcx
+  unsigned __int64 v16; // [rsp+20h] [rbp-78h] BYREF
+  _QWORD v17[12]; // [rsp+30h] [rbp-68h] BYREF
 
-  v13 = 0LL;
-  v7 = VIDMM_SEGMENT::ValidateMemoryRanges(a1, a3, a4, &v13);
-  v8 = v7;
+  v16 = 0LL;
+  v7 = VIDMM_SEGMENT::ValidateMemoryRanges(a1, a3, a4, &v16);
+  v11 = v7;
   if ( v7 >= 0 )
   {
-    memset(v14, 0, 0x58uLL);
-    v11 = *a4;
-    v12 = (VIDMM_GLOBAL *)*((_QWORD *)a1 + 1);
-    LODWORD(v14[0]) = 216;
-    *(struct _DXGK_MEMORYRANGE *)&v14[7] = v11;
-    v14[5] = a1;
-    LOBYTE(v14[6]) = 7;
-    HIDWORD(v14[6]) = a3;
-    VIDMM_GLOBAL::QueueSystemCommandAndWait(v12, (struct _VIDMM_SYSTEM_COMMAND *)v14, 0);
+    memset(v17, 0, 0x58uLL);
+    v14 = *a4;
+    v15 = (VIDMM_GLOBAL *)*((_QWORD *)a1 + 1);
+    LODWORD(v17[0]) = 216;
+    *(struct _DXGK_MEMORYRANGE *)&v17[7] = v14;
+    v17[5] = a1;
+    LOBYTE(v17[6]) = 7;
+    HIDWORD(v17[6]) = a3;
+    VIDMM_GLOBAL::QueueSystemCommandAndWait(v15, (struct _VIDMM_SYSTEM_COMMAND *)v17, 0);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry2(1LL, v7, 697LL);
-    DxgkLogInternalTriageEvent(v9, 0x40000LL);
-    return v8;
+    v12 = WdLogNewEntry5_WdAssertion(v9, v8, v10);
+    *(_QWORD *)(v12 + 24) = v11;
+    *(_QWORD *)(v12 + 32) = 579LL;
+    WdLogEvent5_WdAssertion(v12);
+    return (unsigned int)v11;
   }
 }

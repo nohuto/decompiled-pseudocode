@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDCompositionCreateDwmChannel @ 0x1C000A980
+ * XREFs of NtDCompositionCreateDwmChannel @ 0x1C00AFC60
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CDwmChannel@DirectComposition@@SAJPEAI@Z @ 0x1C000AA1C (-Create@CDwmChannel@DirectComposition@@SAJPEAI@Z.c)
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00B0B08 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00594F8 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?Create@CDwmChannel@DirectComposition@@SAJPEAI@Z @ 0x1C00AFCFC (-Create@CDwmChannel@DirectComposition@@SAJPEAI@Z.c)
  */
 
 __int64 __fastcall NtDCompositionCreateDwmChannel(unsigned int *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall NtDCompositionCreateDwmChannel(unsigned int *a1)
       v2 = (_DWORD *)MmUserProbeAddress;
     *v2 = *v2;
     v3 = 0;
-    if ( !(unsigned int)UserIsCurrentProcessDwm(MmUserProbeAddress) )
+    if ( !UserIsCurrentProcessDwm(MmUserProbeAddress, (__int64)v2) )
       v3 = -1073741790;
     if ( v3 >= 0 )
     {

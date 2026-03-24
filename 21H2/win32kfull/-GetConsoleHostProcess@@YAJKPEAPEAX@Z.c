@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E3D64
+ * XREFs of ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E96C8
  * Callers:
- *     GetConsoleDesktop @ 0x1C01E4070 (GetConsoleDesktop.c)
+ *     GetConsoleDesktop @ 0x1C01E987C (GetConsoleDesktop.c)
  * Callees:
- *     LockThreadByClientId @ 0x1C007B82C (LockThreadByClientId.c)
+ *     LockThreadByClientId @ 0x1C003B7F0 (LockThreadByClientId.c)
  */
 
 int __fastcall GetConsoleHostProcess(int a1, void **a2)

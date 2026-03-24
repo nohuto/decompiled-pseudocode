@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceInRangeMessageStop @ 0x1C014E2E0
+ * XREFs of EtwTracePointerDeviceInRangeMessageStop @ 0x1C01236C0
  * Callers:
- *     ApiSetPostPointerDeviceInRangeMessage @ 0x1C020EB64 (ApiSetPostPointerDeviceInRangeMessage.c)
+ *     ApiSetPostPointerDeviceInRangeMessage @ 0x1C01CFFD8 (ApiSetPostPointerDeviceInRangeMessage.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceInRangeMessageStop(__int64 a1)

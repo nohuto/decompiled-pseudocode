@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsQualcommRotationWorkaroundNeeded@COverlayContext@@AEAA_NPEBVCMILMatrix@@@Z @ 0x1801B8270
+ * XREFs of ?IsQualcommRotationWorkaroundNeeded@COverlayContext@@AEAA_NPEBVCMILMatrix@@@Z @ 0x18017CC08
  * Callers:
- *     ?DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@@PEAIPEA_N@Z @ 0x180007D58 (-DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@.c)
+ *     ?DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@@PEAIPEA_N@Z @ 0x18017BC00 (-DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ bool __fastcall COverlayContext::IsQualcommRotationWorkaroundNeeded(COverlayCont
   float v8; // xmm0_4
 
   result = 0;
-  if ( *((_BYTE *)this + 11300) )
+  if ( *((_BYTE *)this + 11420) )
   {
     v3 = *(float *)a2;
     v4 = *(float *)a2 <= 1.0 ? 1.0 - v3 : v3 - 1.0;

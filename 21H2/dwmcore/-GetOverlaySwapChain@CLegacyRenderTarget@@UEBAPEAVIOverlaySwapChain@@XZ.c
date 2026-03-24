@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOverlaySwapChain@CLegacyRenderTarget@@UEBAPEAVIOverlaySwapChain@@XZ @ 0x1800F9EC0
+ * XREFs of ?GetOverlaySwapChain@CLegacyRenderTarget@@UEBAPEAVIOverlaySwapChain@@XZ @ 0x1800E2090
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct IOverlaySwapChain *__fastcall CLegacyRenderTarget::GetOverlaySwapChain(CLegacyRenderTarget *this)
 {
-  return (struct IOverlaySwapChain *)*((_QWORD *)this + 4);
+  return (struct IOverlaySwapChain *)*((_QWORD *)this + 3);
 }

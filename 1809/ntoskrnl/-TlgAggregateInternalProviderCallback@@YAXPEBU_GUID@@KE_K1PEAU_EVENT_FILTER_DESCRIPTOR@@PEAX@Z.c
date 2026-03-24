@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406D0CD0
+ * XREFs of ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406D0CB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     LookUpTableFlushComplete @ 0x1406AEFB8 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushComplete @ 0x1406AEF98 (LookUpTableFlushComplete.c)
  */
 
 void __fastcall TlgAggregateInternalProviderCallback(

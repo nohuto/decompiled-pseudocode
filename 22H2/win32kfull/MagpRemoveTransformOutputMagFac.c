@@ -1,10 +1,10 @@
 /*
- * XREFs of MagpRemoveTransformOutputMagFac @ 0x1C00A7A08
+ * XREFs of MagpRemoveTransformOutputMagFac @ 0x1C0110188
  * Callers:
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007A4C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
- *     RemoveMagnificationOutputTransform @ 0x1C00A79F0 (RemoveMagnificationOutputTransform.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C010FF40 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     RemoveMagnificationOutputTransform @ 0x1C0110170 (RemoveMagnificationOutputTransform.c)
  * Callees:
- *     memcmp @ 0x1C01384A0 (memcmp.c)
+ *     memcmp @ 0x1C0165600 (memcmp.c)
  */
 
 int __fastcall MagpRemoveTransformOutputMagFac(float *a1)
@@ -19,7 +19,7 @@ int __fastcall MagpRemoveTransformOutputMagFac(float *a1)
   float v9; // xmm1_4
 
   result = grpdeskRitInput;
-  v3 = *(_QWORD *)(grpdeskRitInput + 232LL);
+  v3 = *(_QWORD *)(grpdeskRitInput + 224LL);
   if ( v3 )
   {
     result = *(_DWORD *)(v3 + 16);

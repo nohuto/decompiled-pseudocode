@@ -1,18 +1,14 @@
 /*
- * XREFs of CmpIsShutdownRundownActive @ 0x140AF6080
+ * XREFs of CmpIsShutdownRundownActive @ 0x140875BF8
  * Callers:
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
  * Callees:
  *     <none>
  */
 
 char CmpIsShutdownRundownActive()
 {
-  return CmpShutdownRundown.Count & 1;
+  return CmpShutdownRundown & 1;
 }

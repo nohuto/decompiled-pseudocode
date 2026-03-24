@@ -2,17 +2,17 @@
  * XREFs of NtReplyWaitReceivePortEx @ 0x140613CE0
  * Callers:
  *     NtReplyWaitReceivePort @ 0x140613CC0 (NtReplyWaitReceivePort.c)
- *     NtListenPort @ 0x140763460 (NtListenPort.c)
+ *     NtListenPort @ 0x140763440 (NtListenPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpReceiveLegacyMessage @ 0x140613E70 (AlpcpReceiveLegacyMessage.c)
  *     AlpcpCompleteDeferSignalRequest @ 0x140614128 (AlpcpCompleteDeferSignalRequest.c)
  *     AlpcpReplyLegacySynchronousRequest @ 0x140615538 (AlpcpReplyLegacySynchronousRequest.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtReplyWaitReceivePortEx(

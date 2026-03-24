@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIoCallbackSnapState @ 0x140A8AAA4
+ * XREFs of ViIoCallbackSnapState @ 0x1409C9B84
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140A80D10 (IovpLocalCompletionRoutine.c)
- *     VfFastIoSnapState @ 0x140A8A9AC (VfFastIoSnapState.c)
+ *     IovpLocalCompletionRoutine @ 0x1409C56C0 (IovpLocalCompletionRoutine.c)
+ *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
  */
 
 _DWORD *ViIoCallbackSnapState()

@@ -5,19 +5,19 @@
  *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140888A44 (PspAdjustKeepAliveCountProcess.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140888A24 (PspAdjustKeepAliveCountProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PspChargeJobWakeCounter @ 0x1405FD81C (PspChargeJobWakeCounter.c)
- *     PspCheckConditionalWakeCharge @ 0x1406B22E4 (PspCheckConditionalWakeCharge.c)
- *     EtwTraceWakeCounter @ 0x1408B7EA4 (EtwTraceWakeCounter.c)
- *     EtwTraceWakeEvent @ 0x1408B7F60 (EtwTraceWakeEvent.c)
+ *     PspCheckConditionalWakeCharge @ 0x1406B22C4 (PspCheckConditionalWakeCharge.c)
+ *     EtwTraceWakeCounter @ 0x1408B7E84 (EtwTraceWakeCounter.c)
+ *     EtwTraceWakeEvent @ 0x1408B7F40 (EtwTraceWakeEvent.c)
  */
 
 unsigned __int64 __fastcall PspChargeProcessWakeCounter(

@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipFreeTraceDeviceList @ 0x14084A218
+ * XREFs of WmipFreeTraceDeviceList @ 0x1407C1DA0
  * Callers:
- *     WmipBuildTraceDeviceList @ 0x1403A3190 (WmipBuildTraceDeviceList.c)
- *     WmiTraceRundownNotify @ 0x14084A048 (WmiTraceRundownNotify.c)
- *     WmiSetNetworkNotify @ 0x1409E18EC (WmiSetNetworkNotify.c)
+ *     WmipBuildTraceDeviceList @ 0x1403C5840 (WmipBuildTraceDeviceList.c)
+ *     WmiTraceRundownNotify @ 0x1407C1D04 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x140933598 (WmiSetNetworkNotify.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAD4 (WmipUnreferenceRegEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     WmipUnreferenceRegEntry @ 0x14032E244 (WmipUnreferenceRegEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipFreeTraceDeviceList(__int64 *P, unsigned int a2)

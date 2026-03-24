@@ -2,7 +2,7 @@
  * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x14060751C
  * Callers:
  *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
- *     MiSessionObjectDelete @ 0x1408520D0 (MiSessionObjectDelete.c)
+ *     MiSessionObjectDelete @ 0x1408520B0 (MiSessionObjectDelete.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -12,11 +12,11 @@
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     MiPartitionIdToPointer @ 0x140134CC8 (MiPartitionIdToPointer.c)
- *     MiReturnPfnReferenceCount @ 0x14013B790 (MiReturnPfnReferenceCount.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiUnlinkSessionList @ 0x1402B5254 (MiUnlinkSessionList.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiUnlinkSessionList @ 0x1402B5354 (MiUnlinkSessionList.c)
  */
 
 __int64 __fastcall MiReleaseProcessReferenceToSessionDataPage(unsigned __int64 a1)

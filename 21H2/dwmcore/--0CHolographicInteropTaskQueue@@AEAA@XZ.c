@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CHolographicInteropTaskQueue@@AEAA@XZ @ 0x18029CCC8
+ * XREFs of ??0CHolographicInteropTaskQueue@@AEAA@XZ @ 0x18025A6AC
  * Callers:
- *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x18029CE34 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x18025A808 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */

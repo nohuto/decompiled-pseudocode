@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180254738
+ * XREFs of ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180203EA0
  * Callers:
- *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180254B6C (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
- *     ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180255FD0 (-CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStac.c)
- *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18025EB80 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
- *     ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18025EDB8 (-AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z.c)
- *     ?StartInContact@CMotion@@IEAAX_N@Z @ 0x18025F234 (-StartInContact@CMotion@@IEAAX_N@Z.c)
- *     ?StartInertia@CMotion@@IEAAXMM_N0@Z @ 0x18025F2B4 (-StartInertia@CMotion@@IEAAXMM_N0@Z.c)
+ *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x1802042CC (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
+ *     ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x1802057B0 (-CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStac.c)
+ *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18020E320 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
+ *     ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18020E540 (-AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z.c)
+ *     ?StartInContact@CMotion@@IEAAX_N@Z @ 0x18020E974 (-StartInContact@CMotion@@IEAAX_N@Z.c)
+ *     ?StartInertia@CMotion@@IEAAXMM_N0@Z @ 0x18020EA00 (-StartInertia@CMotion@@IEAAXMM_N0@Z.c)
  * Callees:
  *     <none>
  */

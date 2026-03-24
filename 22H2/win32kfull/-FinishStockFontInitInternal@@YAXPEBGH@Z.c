@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00858A4
+ * XREFs of ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E4680
  * Callers:
- *     FinishStockFontInit @ 0x1C00863A0 (FinishStockFontInit.c)
+ *     FinishStockFontInit @ 0x1C00E44C0 (FinishStockFontInit.c)
  * Callees:
- *     ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C0085B24 (-bGetRegString@@YA_NPEAXPEBGPEAGK@Z.c)
- *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0085BD4 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C0085CA4 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
- *     bDeleteFont @ 0x1C0086050 (bDeleteFont.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     bInitOneStockFontInternal @ 0x1C03B35E0 (bInitOneStockFontInternal.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00A0B08 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00E48F0 (-bGetRegString@@YA_NPEAXPEBGPEAGK@Z.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00E4BE0 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     bDeleteFont @ 0x1C00E4CD0 (bDeleteFont.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     bInitOneStockFontInternal @ 0x1C0392720 (bInitOneStockFontInternal.c)
  */
 
 void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
@@ -16,25 +16,25 @@ void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
   unsigned int v3; // edi
   __int64 v4; // rbx
   unsigned __int16 *v5; // rsi
-  unsigned __int16 *v6; // rdi
-  Gre::Base *v7; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v8; // rax
-  unsigned __int64 v9; // rdx
-  char *v10; // r8
-  unsigned int v11; // r9d
-  __int64 v12; // rbx
-  int *v13; // r14
-  unsigned int i; // r12d
-  unsigned int v15; // r13d
-  HANDLE *v16; // r15
-  unsigned __int16 *v17; // rcx
-  unsigned __int16 v18; // ax
-  unsigned __int16 *v19; // rax
+  __int64 v6; // rax
+  unsigned int v7; // r9d
+  void **v8; // rdx
+  int *v9; // r14
+  unsigned __int16 *v10; // rdi
+  unsigned int v11; // r13d
+  _QWORD *v12; // rbx
+  unsigned int v13; // r12d
+  HANDLE *v14; // r15
+  __int64 v15; // rdx
+  unsigned __int16 *v16; // rcx
+  unsigned __int16 v17; // ax
+  unsigned __int16 *v18; // rax
+  __int64 v19; // rdx
   __int64 v20; // rbx
   __int64 v21; // rbp
   unsigned int v22; // edi
   HANDLE *v23; // rbx
-  __int64 v24; // [rsp+28h] [rbp-70h]
+  _QWORD *v24; // [rsp+28h] [rbp-70h]
   __int128 v25; // [rsp+30h] [rbp-68h] BYREF
   __int64 v26; // [rsp+40h] [rbp-58h]
   PCWSTR SourceString[3]; // [rsp+48h] [rbp-50h]
@@ -55,68 +55,66 @@ void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
   }
   while ( v3 < 3 );
   v5 = (unsigned __int16 *)AllocFreeTmpBuffer(260LL);
-  v6 = (unsigned __int16 *)AllocFreeTmpBuffer(260LL);
-  v8 = Gre::Base::Globals(v7);
-  if ( a2 )
-    v12 = *((_QWORD *)v8 + 397);
-  else
-    v12 = *((_QWORD *)v8 + 396);
-  v24 = v12;
-  v13 = (int *)&unk_1C030927C;
-  for ( i = 0; i < 3; ++i )
+  v6 = AllocFreeTmpBuffer(260LL);
+  v8 = gahStockObjects96;
+  v9 = (int *)&unk_1C02E0DCC;
+  v10 = (unsigned __int16 *)v6;
+  v11 = 0;
+  if ( !a2 )
+    v8 = gahStockObjects;
+  v12 = *v8;
+  v24 = *v8;
+  do
   {
-    v15 = 0;
-    v16 = (HANDLE *)&v25;
+    v13 = 0;
+    v14 = (HANDLE *)&v25;
     while ( 1 )
     {
-      if ( *v16 && v5 && v6 && bGetRegString(*v16, *(const unsigned __int16 **)(v13 - 3), v5, v11) )
+      if ( !*v14 || !v5 || !v10 || !bGetRegString(*v14, *(const unsigned __int16 **)(v9 - 3), v5, v7) )
+        goto LABEL_34;
+      v15 = 260LL;
+      v16 = v10;
+      do
       {
-        v9 = 260LL;
-        v10 = (char *)((char *)L"\\SystemRoot\\Fonts\\" - (char *)v6);
-        v17 = v6;
-        do
-        {
-          if ( v9 == -2147483386LL )
-            break;
-          v18 = *(unsigned __int16 *)((char *)v17 + (_QWORD)v10);
-          if ( !v18 )
-            break;
-          *v17++ = v18;
-          --v9;
-        }
-        while ( v9 );
-        v19 = v17 - 1;
-        if ( v9 )
-          v19 = v17;
-        *v19 = 0;
-        if ( v9 )
-        {
-          if ( StringCchCatW(v6, v9, v5) >= 0 )
-          {
-            LOBYTE(v9) = 10;
-            v20 = *(_QWORD *)(v12 + 8LL * *v13);
-            v21 = v20 & -(__int64)((unsigned int)HmgValidHandle(v20, v9) != 0);
-            if ( (unsigned int)bInitOneStockFontInternal(v6) )
-              break;
-          }
-        }
+        if ( v15 == -2147483386 )
+          break;
+        v17 = *(unsigned __int16 *)((char *)v16 + (char *)L"\\SystemRoot\\Fonts\\" - (char *)v10);
+        if ( !v17 )
+          break;
+        *v16++ = v17;
+        --v15;
       }
-      ++v15;
-      ++v16;
-      if ( v15 >= 3 )
-        goto LABEL_24;
+      while ( v15 );
+      v18 = v16 - 1;
+      if ( v15 )
+        v18 = v16;
+      *v18 = 0;
+      if ( !v15 || (int)StringCchCatW(v10, v15, (char *)v5) < 0 )
+        goto LABEL_34;
+      LOBYTE(v19) = 10;
+      v20 = v12[*v9];
+      v21 = v20 & -(__int64)((unsigned int)HmgValidHandle(v20, v19) != 0);
+      if ( (unsigned int)bInitOneStockFontInternal(v10) )
+        break;
       v12 = v24;
+LABEL_34:
+      ++v13;
+      ++v14;
+      if ( v13 >= 3 )
+        goto LABEL_24;
     }
     if ( v21 )
       bDeleteFont(v21, 1LL);
 LABEL_24:
     v12 = v24;
-    v13 += 4;
+    ++v11;
+    v9 += 4;
   }
+  while ( v11 < 3 );
   if ( v5 )
-    FreeTmpBuffer(v5, v9, v10);
-  if ( v6 )
-    FreeTmpBuffer(v6, v9, v10);
+    FreeTmpBuffer(v5);
+  if ( v10 )
+    FreeTmpBuffer(v10);
   v22 = 0;
   v23 = (HANDLE *)&v25;
   do

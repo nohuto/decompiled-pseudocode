@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiExternalInterfaceUnload @ 0x1C00ADD70
+ * XREFs of AcpiExternalInterfaceUnload @ 0x1C00AF120
  * Callers:
  *     <none>
  * Callees:
- *     DeleteExternalTranslatorInterface @ 0x1C00AE23C (DeleteExternalTranslatorInterface.c)
+ *     DeleteExternalTranslatorInterface @ 0x1C00AF5EC (DeleteExternalTranslatorInterface.c)
  */
 
 __int64 AcpiExternalInterfaceUnload()

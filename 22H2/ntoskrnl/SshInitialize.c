@@ -1,82 +1,60 @@
 /*
- * XREFs of SshInitialize @ 0x140B51AA0
+ * XREFs of SshInitialize @ 0x140A3F9B4
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x1407E1610 (ExUnsubscribeWnfStateChange.c)
- *     CmSiRWLockInitialize @ 0x1408106D0 (CmSiRWLockInitialize.c)
- *     SSHSupportEtwRegister @ 0x140822BBC (SSHSupportEtwRegister.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1F40 (SleepstudyHelperDestroyLibrary.c)
- *     SSHSupportEtwUnregister @ 0x1409A2528 (SSHSupportEtwUnregister.c)
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1409A2544 (SSHSupportUnregisterPowerSettingCallback.c)
- *     SshpSubscribeCallbacks @ 0x140B5A6E8 (SshpSubscribeCallbacks.c)
- *     SshpAlpcInitialize @ 0x140B680A4 (SshpAlpcInitialize.c)
- *     SshpSessionManagerInitialize @ 0x140B76400 (SshpSessionManagerInitialize.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CmSiRWLockInitialize @ 0x1407905A0 (CmSiRWLockInitialize.c)
+ *     SshpQueryRegistryValues @ 0x140791780 (SshpQueryRegistryValues.c)
+ *     SSHSupportEtwRegister @ 0x140791A70 (SSHSupportEtwRegister.c)
+ *     SshpSubscribeCallbacks @ 0x140A40044 (SshpSubscribeCallbacks.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  */
 
 __int64 __fastcall SshInitialize(int a1)
 {
-  NTSTATUS v1; // ebx
+  union _RTL_RUN_ONCE *v1; // rax
   union _RTL_RUN_ONCE *v2; // rax
-  union _RTL_RUN_ONCE *v3; // rax
-  __int64 v4; // rdx
+  __int64 v3; // rdx
+  int v4; // ebx
 
-  switch ( a1 )
+  if ( !a1 )
   {
-    case 0:
-      CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
-      qword_140C38B98 = (__int64)&SshpLibraryList;
-      v2 = (union _RTL_RUN_ONCE *)&unk_140C38BD0;
-      SshpLibraryList = (__int64)&SshpLibraryList;
-      do
-      {
-        CmSiRWLockInitialize(v2 - 2);
-        v3[1].Value = (unsigned __int64)v3;
-        v3->Value = (unsigned __int64)v3;
-        v2 = v3 + 4;
-      }
-      while ( v4 != 1 );
-      SshpSessionId = 0LL;
-      SshpSessionGuid = 0LL;
-      SshpInitialized = 1;
-      return 0;
-    case 1:
-      v1 = SshpAlpcInitialize();
-      if ( v1 >= 0 )
-      {
-        SshpSessionManagerInitialize();
-        return (unsigned int)v1;
-      }
-      goto LABEL_15;
-    case 3:
-      v1 = SSHSupportEtwRegister();
-      if ( v1 < 0 )
-        goto LABEL_15;
-      SshpTraceHandleRegistered = 1;
-      v1 = SshpSubscribeCallbacks();
-      if ( v1 < 0 )
-        goto LABEL_15;
-      return 0;
+    CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
+    qword_140C1E338 = (__int64)&SshpLibraryList;
+    SshpLibraryList = (__int64)&SshpLibraryList;
+    v1 = (union _RTL_RUN_ONCE *)&unk_140C1E370;
+    do
+    {
+      CmSiRWLockInitialize(v1 - 2);
+      v2[1].Value = (unsigned __int64)v2;
+      v2->Value = (unsigned __int64)v2;
+      v1 = v2 + 4;
+    }
+    while ( v3 != 1 );
+    SshpSessionId = 0LL;
+    SshpSessionGuid = 0LL;
+    SshpInitialized = 1;
+    return 0;
   }
-  v1 = -1073741811;
-LABEL_15:
-  if ( SshpPowerSettingHandleInitialized )
+  if ( a1 != 3 )
   {
-    SSHSupportUnregisterPowerSettingCallback();
-    SshpPowerSettingHandleInitialized = 0;
+    v4 = -1073741811;
+LABEL_12:
+    SshpUninitialize();
+    return (unsigned int)v4;
   }
-  if ( SshpWnfSubscriptionInitialized )
-  {
-    ExUnsubscribeWnfStateChange((struct _EX_RUNDOWN_REF *)SshpWnfSubscription);
-    SshpWnfSubscriptionInitialized = 0;
-  }
-  if ( SshpTraceHandleRegistered )
-  {
-    SSHSupportEtwUnregister();
-    SshpTraceHandleRegistered = 0;
-  }
-  while ( (__int64 *)SshpLibraryList != &SshpLibraryList )
-    SleepstudyHelperDestroyLibrary((ULONG *)SshpLibraryList);
-  SshpInitialized = 0;
-  return (unsigned int)v1;
+  v4 = SSHSupportEtwRegister();
+  if ( v4 < 0 )
+    goto LABEL_12;
+  SshpTraceHandleRegistered = 1;
+  v4 = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C04720, 0LL, 0LL);
+  if ( v4 < 0 )
+    goto LABEL_12;
+  SshpTelemetryHandleRegistered = 1;
+  v4 = SshpSubscribeCallbacks();
+  if ( v4 < 0 )
+    goto LABEL_12;
+  SshpQueryRegistryValues();
+  return 0;
 }

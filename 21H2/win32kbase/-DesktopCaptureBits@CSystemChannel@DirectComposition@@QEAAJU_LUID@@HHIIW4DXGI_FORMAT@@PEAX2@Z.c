@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C0215428
+ * XREFs of ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D59E8
  * Callers:
- *     ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C0212AA4 (-DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
+ *     ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D3030 (-DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
  * Callees:
- *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C000E7E0 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C001229C (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
- *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0012424 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C005B9A0 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005D8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C005DAF4 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSystemChannel::DesktopCaptureBits(
@@ -36,7 +36,7 @@ __int64 __fastcall DirectComposition::CSystemChannel::DesktopCaptureBits(
   *((_DWORD *)v13 + 8) = a7;
   *(_QWORD *)(v13 + 44) = a8;
   *(_QWORD *)(v13 + 52) = a9;
-  *((_DWORD *)v13 + 1) = 271;
+  *((_DWORD *)v13 + 1) = 278;
   *((_QWORD *)v13 + 1) = a2;
   *((_DWORD *)v13 + 4) = a3;
   *((_DWORD *)v13 + 5) = a4;

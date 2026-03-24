@@ -1,200 +1,260 @@
 /*
- * XREFs of ?Serialize@DMMVIDPN@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z @ 0x1C03B8F40
+ * XREFs of ?Serialize@DMMVIDPN@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z @ 0x1C02E9188
  * Callers:
- *     ?Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZATION@@@DMM@@@Z @ 0x1C00699D4 (-Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZ.c)
- *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C03AAAC8 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
- *     ?AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C03AB4EC (-AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
- *     ?SerializeVidPns@DMMVIDPN@@SAJAEBV?$Queue@VDMMVIDPN@@@@PEAV?$AutoBuffer@U_DMM_VIDPNSET_SERIALIZATION@@@DMM@@@Z @ 0x1C03B93BC (-SerializeVidPns@DMMVIDPN@@SAJAEBV-$Queue@VDMMVIDPN@@@@PEAV-$AutoBuffer@U_DMM_VIDPNSET_SERIALIZA.c)
+ *     ?Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZATION@@@DMM@@@Z @ 0x1C005C904 (-Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZ.c)
+ *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C02DAB84 (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
+ *     ?AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C02DB6A4 (-AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
+ *     ?SerializeVidPns@DMMVIDPN@@SAJAEBV?$Queue@VDMMVIDPN@@@@PEAV?$AutoBuffer@U_DMM_VIDPNSET_SERIALIZATION@@@DMM@@@Z @ 0x1C02E9530 (-SerializeVidPns@DMMVIDPN@@SAJAEBV-$Queue@VDMMVIDPN@@@@PEAV-$AutoBuffer@U_DMM_VIDPNSET_SERIALIZA.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0007078 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?Initialize@?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x1C006965C (-Initialize@-$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_P.c)
- *     ?Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C0069AD0 (-Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z.c)
- *     ?GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z @ 0x1C006A510 (-GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z.c)
- *     ?GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z @ 0x1C017249C (-GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C019A618 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
- *     ?Serialize@DMMVIDPNPRESENTPATH@@QEBAXQEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C03B9B54 (-Serialize@DMMVIDPNPRESENTPATH@@QEBAXQEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0009724 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C000DCCC (-Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z.c)
+ *     ?Initialize@?$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z @ 0x1C005C3E4 (-Initialize@-$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z.c)
+ *     ?GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z @ 0x1C005CBC0 (-GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z.c)
+ *     ?GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z @ 0x1C00EBAA8 (-GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C012F520 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?Serialize@DMMVIDPNPRESENTPATH@@QEBAXQEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01442D8 (-Serialize@DMMVIDPNPRESENTPATH@@QEBAXQEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z.c)
  */
 
 __int64 __fastcall DMMVIDPN::Serialize(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r15
-  unsigned __int8 v5; // bl
-  __int64 v6; // rsi
-  _QWORD *v7; // rax
-  _QWORD *v8; // r12
-  _QWORD *v9; // r14
-  struct DMMVIDPNTARGET *NextTarget; // r14
-  DMMVIDPNTARGETSET *v11; // r12
-  unsigned int v12; // edx
+  __int64 v2; // r13
+  __int64 v4; // rax
+  __int64 v6; // rax
+  _QWORD *v7; // r12
+  unsigned __int8 v8; // bl
+  __int64 v9; // r14
+  _QWORD *v10; // r15
+  _QWORD *v11; // rdi
+  unsigned int *NextTarget; // rdi
+  __int64 v13; // rdx
   int NumPathsFromSource; // eax
-  __int64 v14; // rax
-  unsigned __int8 v15; // di
-  unsigned __int64 v16; // rsi
-  int v17; // eax
-  unsigned int v18; // edi
-  unsigned __int8 v19; // r13
-  unsigned __int8 v20; // cl
-  _QWORD *v21; // rdi
-  __int64 v22; // rbx
-  struct DMMVIDPNTARGET *v23; // rdi
-  DMMVIDPNTOPOLOGY *v24; // r14
-  unsigned int v25; // r12d
-  int v26; // eax
-  unsigned __int64 v27; // rax
-  __int64 v28; // rbx
-  DMMVIDPNSOURCEMODE *v29; // rcx
-  unsigned __int64 v30; // rsi
-  _DWORD *v31; // rbx
-  DMMVIDPNTARGET **Path; // r14
-  __int64 v33; // rcx
-  DMMVIDPNTOPOLOGY *v34; // [rsp+20h] [rbp-20h]
-  DMMVIDPNTARGETSET *v35; // [rsp+28h] [rbp-18h]
-  __int64 v36; // [rsp+30h] [rbp-10h]
-  struct DMMVIDPNTARGETMODESET *v38; // [rsp+90h] [rbp+50h] BYREF
-  unsigned __int64 v39; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  unsigned __int64 v18; // rax
+  unsigned __int8 v19; // al
+  SIZE_T v20; // r14
+  int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // rdi
+  _QWORD *v25; // rax
+  unsigned __int8 v26; // r12
+  unsigned __int8 v27; // cl
+  _QWORD *v28; // rdi
+  __int64 v29; // rbx
+  struct DMMVIDPNTARGET *v30; // rdi
+  DMMVIDPNTOPOLOGY *v31; // r14
+  unsigned int v32; // r15d
+  int v33; // eax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  unsigned __int64 v37; // rax
+  unsigned __int64 v38; // rbx
+  __int64 v39; // rax
+  __int64 v40; // rbx
+  __int64 v41; // rax
+  DMMVIDPNSOURCEMODE *v42; // rcx
+  unsigned __int64 v43; // rsi
+  char **v44; // r13
+  _DWORD *v45; // rbx
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  __int64 v48; // rax
+  __int64 v49; // rdx
+  __int64 v50; // rcx
+  struct DMMVIDPNPRESENTPATH *Path; // r14
+  __int64 v52; // rax
+  __int64 v53; // rcx
+  __int64 v54; // rax
+  __int64 v55; // rcx
+  __int64 v56; // rcx
+  unsigned __int64 v57; // [rsp+20h] [rbp-30h] BYREF
+  DMMVIDPNTOPOLOGY *v58; // [rsp+28h] [rbp-28h]
+  __int64 v59; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v60; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v61; // [rsp+40h] [rbp-10h]
+  DMMVIDPNTARGETSET *v62; // [rsp+48h] [rbp-8h]
+  unsigned int v64; // [rsp+A0h] [rbp+50h] BYREF
+  unsigned __int64 v65; // [rsp+A8h] [rbp+58h] BYREF
 
   v2 = a2;
   if ( a2 )
   {
     if ( *(_QWORD *)(a2 + 32) )
-      WdLogSingleEntry0(1LL);
-    v5 = 0;
-    v34 = (DMMVIDPNTOPOLOGY *)(a1 + 96);
-    v6 = 12LL;
+    {
+      v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+      WdLogEvent5_WdAssertion(v6);
+    }
     v7 = *(_QWORD **)(a1 + 304);
-    v35 = (DMMVIDPNTARGETSET *)v7;
-    v8 = v7 + 3;
-    v9 = (_QWORD *)v7[3];
-    v39 = (unsigned __int64)(v7 + 3);
-    if ( v9 == v7 + 3 )
-      goto LABEL_16;
-    NextTarget = (struct DMMVIDPNTARGET *)(v9 - 1);
+    v8 = 0;
+    v58 = (DMMVIDPNTOPOLOGY *)(a1 + 96);
+    v62 = (DMMVIDPNTARGETSET *)v7;
+    v9 = 12LL;
+    v10 = v7 + 3;
+    v11 = (_QWORD *)v7[3];
+    if ( v11 == v7 + 3 )
+      goto LABEL_15;
+    NextTarget = (unsigned int *)(v11 - 1);
     if ( !NextTarget )
-      goto LABEL_16;
-    v11 = (DMMVIDPNTARGETSET *)v7;
+      goto LABEL_15;
     do
     {
-      v12 = *((_DWORD *)NextTarget + 6);
-      v38 = 0LL;
-      NumPathsFromSource = DMMVIDPNTOPOLOGY::GetNumPathsFromSource(
-                             (DMMVIDPNTOPOLOGY *)(a1 + 96),
-                             v12,
-                             (unsigned __int64 *)&v38);
+      v13 = NextTarget[6];
+      v57 = 0LL;
+      NumPathsFromSource = DMMVIDPNTOPOLOGY::GetNumPathsFromSource((DMMVIDPNTOPOLOGY *)(a1 + 96), v13, &v57);
       if ( NumPathsFromSource != -1071774919 )
       {
         if ( NumPathsFromSource < 0 )
-          WdLogSingleEntry0(1LL);
-        ++v5;
-        v14 = 1LL;
-        if ( (unsigned __int64)v38 > 1 )
-          v14 = (__int64)v38;
-        v6 += 440 * v14 + 48;
+        {
+          v17 = WdLogNewEntry5_WdAssertion(v16, v15);
+          WdLogEvent5_WdAssertion(v17);
+        }
+        ++v8;
+        v18 = 1LL;
+        if ( v57 > 1 )
+          v18 = v57;
+        v9 += 432 * v18 + 48;
       }
-      v15 = v5;
-      NextTarget = DMMVIDPNTARGETSET::GetNextTarget(v11, NextTarget);
+      NextTarget = (unsigned int *)DMMVIDPNTARGETSET::GetNextTarget(
+                                     (DMMVIDPNTARGETSET *)v7,
+                                     (const struct DMMVIDPNTARGET *const)NextTarget);
     }
     while ( NextTarget );
     v2 = a2;
-    v8 = (_QWORD *)v39;
-    if ( v5 <= 1u )
-LABEL_16:
-      v15 = 1;
-    v16 = v6 + 4LL * v15 - 4;
-    v17 = DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::Initialize((_QWORD *)v2, v16);
-    v18 = v17;
-    if ( v17 >= 0 )
+    v19 = v8;
+    if ( v8 <= 1u )
+LABEL_15:
+      v19 = 1;
+    v20 = v9 + 4LL * v19 - 4;
+    v21 = DMM::AutoBuffer<_KEY_VALUE_PARTIAL_INFORMATION>::Initialize(v2, v20);
+    v24 = v21;
+    if ( v21 >= 0 )
     {
-      v19 = 0;
-      v20 = 1;
-      **(_DWORD **)(v2 + 32) = v16;
-      *(_BYTE *)(*(_QWORD *)(v2 + 32) + 4LL) = v5;
-      v21 = (_QWORD *)*v8;
-      if ( v5 > 1u )
-        v20 = v5;
-      v22 = 4LL * v20 + 8;
-      if ( v21 != v8 )
+      v26 = 0;
+      v27 = 1;
+      **(_DWORD **)(v2 + 32) = v20;
+      *(_BYTE *)(*(_QWORD *)(v2 + 32) + 4LL) = v8;
+      v28 = (_QWORD *)*v10;
+      if ( v8 > 1u )
+        v27 = v8;
+      v29 = 4LL * v27 + 8;
+      if ( v28 != v10 )
       {
-        v23 = (struct DMMVIDPNTARGET *)(v21 - 1);
-        if ( v23 )
+        v30 = (struct DMMVIDPNTARGET *)(v28 - 1);
+        if ( v30 )
         {
-          v24 = v34;
+          v31 = v58;
           do
           {
-            v25 = *((_DWORD *)v23 + 6);
-            v39 = 0LL;
-            v26 = DMMVIDPNTOPOLOGY::GetNumPathsFromSource(v24, v25, &v39);
-            if ( v26 != -1071774919 )
+            v32 = *((_DWORD *)v30 + 6);
+            v65 = 0LL;
+            v33 = DMMVIDPNTOPOLOGY::GetNumPathsFromSource(v31, v32, &v65);
+            if ( v33 != -1071774919 )
             {
-              if ( v26 < 0 )
-                WdLogSingleEntry0(1LL);
-              *(_DWORD *)(*(_QWORD *)(v2 + 32) + 4LL * v19 + 8) = v22;
-              v27 = 1LL;
-              if ( v39 > 1 )
-                v27 = v39;
-              v36 = 440 * v27 + 48 + v22;
-              v28 = *(_QWORD *)(v2 + 32) + *(unsigned int *)(*(_QWORD *)(v2 + 32) + 4LL * v19 + 8);
-              v38 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(v23);
-              v29 = (DMMVIDPNSOURCEMODE *)*((_QWORD *)v38 + 18);
-              if ( v29 )
-                DMMVIDPNSOURCEMODE::Serialize(v29, (struct _D3DKMDT_VIDPN_SOURCE_MODE *const)v28);
-              auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v38, 0LL);
-              v30 = 0LL;
-              *(_BYTE *)(v28 + 40) = v39;
-              if ( v39 )
+              if ( v33 < 0 )
               {
-                v31 = (_DWORD *)(v28 + 472);
+                v36 = WdLogNewEntry5_WdAssertion(v35, v34);
+                WdLogEvent5_WdAssertion(v36);
+              }
+              *(_DWORD *)(*(_QWORD *)(v2 + 32) + 4LL * v26 + 8) = v29;
+              v37 = 1LL;
+              if ( v65 > 1 )
+                v37 = v65;
+              v38 = 432 * v37 + 48 + v29;
+              v39 = *(_QWORD *)(v2 + 32);
+              v61 = v38;
+              v40 = v39 + *(unsigned int *)(v39 + 4LL * v26 + 8);
+              v41 = *((_QWORD *)v30 + 13);
+              if ( v41 )
+              {
+                _InterlockedIncrement((volatile signed __int32 *)(v41 + 96));
+                v41 = *((_QWORD *)v30 + 13);
+              }
+              v42 = *(DMMVIDPNSOURCEMODE **)(v41 + 144);
+              v59 = v41;
+              if ( v42 )
+                DMMVIDPNSOURCEMODE::Serialize(v42, (struct _D3DKMDT_VIDPN_SOURCE_MODE *const)v40);
+              auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v59, 0LL);
+              v43 = 0LL;
+              *(_BYTE *)(v40 + 40) = v65;
+              if ( v65 )
+              {
+                v44 = (char **)v58;
+                v45 = (_DWORD *)(v40 + 472);
                 do
                 {
-                  LODWORD(v38) = -1;
-                  if ( (int)DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v34, (char *)v25, v30, (unsigned int *)&v38) < 0 )
-                    WdLogSingleEntry0(1LL);
-                  Path = (DMMVIDPNTARGET **)DMMVIDPNTOPOLOGY::FindPath(v34, v25, (int)v38);
-                  if ( !Path )
-                    WdLogSingleEntry0(1LL);
-                  DMMVIDPNPRESENTPATH::Serialize(
-                    (DMMVIDPNPRESENTPATH *)Path,
-                    (struct _D3DKMDT_VIDPN_PRESENT_PATH *const)(v31 - 106));
-                  v38 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(Path[12]);
-                  v33 = *((_QWORD *)v38 + 18);
-                  if ( v33 )
+                  v64 = -1;
+                  if ( (int)DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v44, v32, v43, &v64) < 0 )
                   {
-                    *(v31 - 16) = *(_DWORD *)(v33 + 24);
-                    *(_OWORD *)(v31 - 14) = *(_OWORD *)(v33 + 72);
-                    *(_OWORD *)(v31 - 10) = *(_OWORD *)(v33 + 88);
-                    *(_OWORD *)(v31 - 6) = *(_OWORD *)(v33 + 104);
-                    *((_QWORD *)v31 - 1) = *(_QWORD *)(v33 + 120);
-                    *v31 = *(_DWORD *)(v33 + 128);
+                    v48 = WdLogNewEntry5_WdAssertion(v47, v46);
+                    WdLogEvent5_WdAssertion(v48);
                   }
-                  auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v38, 0LL);
-                  ++v30;
-                  v31 += 110;
+                  Path = DMMVIDPNTOPOLOGY::FindPath((DMMVIDPNTOPOLOGY *)v44, v32, v64);
+                  if ( !Path )
+                  {
+                    v52 = WdLogNewEntry5_WdAssertion(v50, v49);
+                    WdLogEvent5_WdAssertion(v52);
+                  }
+                  DMMVIDPNPRESENTPATH::Serialize(Path, (struct _D3DKMDT_VIDPN_PRESENT_PATH *const)(v45 - 106));
+                  v53 = *((_QWORD *)Path + 12);
+                  v54 = *(_QWORD *)(v53 + 104);
+                  if ( v54 )
+                  {
+                    _InterlockedIncrement((volatile signed __int32 *)(v54 + 96));
+                    v55 = *(_QWORD *)(v53 + 104);
+                  }
+                  else
+                  {
+                    v55 = 0LL;
+                  }
+                  v60 = v55;
+                  v56 = *(_QWORD *)(v55 + 144);
+                  if ( v56 )
+                  {
+                    *(v45 - 16) = *(_DWORD *)(v56 + 24);
+                    *(_OWORD *)(v45 - 14) = *(_OWORD *)(v56 + 72);
+                    *(_OWORD *)(v45 - 10) = *(_OWORD *)(v56 + 88);
+                    *(_OWORD *)(v45 - 6) = *(_OWORD *)(v56 + 104);
+                    *((_QWORD *)v45 - 1) = *(_QWORD *)(v56 + 120);
+                    *v45 = *(_DWORD *)(v56 + 128);
+                  }
+                  auto_rc<DMMVIDPNTARGETMODESET>::reset(&v60, 0LL);
+                  ++v43;
+                  v45 += 108;
                 }
-                while ( v30 < v39 );
+                while ( v43 < v65 );
                 v2 = a2;
-                v24 = v34;
+                v31 = v58;
               }
-              v22 = v36;
-              ++v19;
+              v29 = v61;
+              ++v26;
             }
-            v23 = DMMVIDPNTARGETSET::GetNextTarget(v35, v23);
+            v30 = DMMVIDPNTARGETSET::GetNextTarget(v62, v30);
           }
-          while ( v23 );
+          while ( v30 );
         }
       }
       return 0LL;
     }
     else
     {
-      WdLogSingleEntry3(2LL, v16, a1, v17);
-      return v18;
+      v25 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+      v25[3] = v20;
+      v25[4] = a1;
+      v25[5] = v24;
+      WdLogEvent5_WdError(v25);
+      return (unsigned int)v24;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v4 = WdLogNewEntry5_WdError(a1, 0LL);
+    *(_QWORD *)(v4 + 24) = 0LL;
+    WdLogEvent5_WdError(v4);
     return 3221225485LL;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbUnloadNodeDpcRoutine @ 0x14025B770
+ * XREFs of PiDrvDbUnloadNodeDpcRoutine @ 0x1402D26D0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void __fastcall PiDrvDbUnloadNodeDpcRoutine(

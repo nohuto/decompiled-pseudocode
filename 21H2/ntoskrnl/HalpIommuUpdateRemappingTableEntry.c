@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuUpdateRemappingTableEntry @ 0x140510F68
+ * XREFs of HalpIommuUpdateRemappingTableEntry @ 0x1404C5634
  * Callers:
- *     HalpInterruptEnableNmi @ 0x1403B043C (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemapFixedLines @ 0x1403B9214 (HalpInterruptRemapFixedLines.c)
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     HalpInterruptSetRemappedDestination @ 0x140508270 (HalpInterruptSetRemappedDestination.c)
- *     HalpSetIrtEntry @ 0x14051DB28 (HalpSetIrtEntry.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptEnableNmi @ 0x1403A376C (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403CDB6C (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptSetRemappedDestination @ 0x1404BB7C8 (HalpInterruptSetRemappedDestination.c)
+ *     HalpSetIrtEntry @ 0x1404D1578 (HalpSetIrtEntry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpIommuUpdateRemappingTableEntry(char a1, __int64 a2, __int64 a3)
@@ -26,9 +26,9 @@ void __fastcall HalpIommuUpdateRemappingTableEntry(char a1, __int64 a2, __int64 
   {
     v9 = v3;
     v3 = (__int64 *)*v3;
-    if ( (v9[59] & 0x40) != 0 )
+    if ( (v9[57] & 0x40) != 0 )
     {
-      if ( !v4 || IommuRemappingPolicy == 2 || *((_DWORD *)v9 + 119) == 6 )
+      if ( !v4 || IommuRemappingPolicy == 2 || *((_DWORD *)v9 + 115) == 6 )
       {
         LOBYTE(a2) = a1;
         v6 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64))v9[21])(v9[2], a2, v7, a3);

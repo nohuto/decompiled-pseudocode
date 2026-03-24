@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetColorSpace@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18010A1B0
+ * XREFs of ?SetColorSpace@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800F7B50
  * Callers:
  *     <none>
  * Callees:

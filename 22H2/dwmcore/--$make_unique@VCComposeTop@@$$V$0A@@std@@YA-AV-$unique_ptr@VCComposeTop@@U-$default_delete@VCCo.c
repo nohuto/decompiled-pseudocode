@@ -1,18 +1,14 @@
 /*
- * XREFs of ??$make_unique@VCComposeTop@@$$V$0A@@std@@YA?AV?$unique_ptr@VCComposeTop@@U?$default_delete@VCComposeTop@@@std@@@0@XZ @ 0x18001D6A0
+ * XREFs of ??$make_unique@VCComposeTop@@$$V$0A@@std@@YA?AV?$unique_ptr@VCComposeTop@@U?$default_delete@VCComposeTop@@@std@@@0@XZ @ 0x1801B1C54
  * Callers:
- *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x18001D5F8 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
+ *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x1801B1E44 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 _QWORD *__fastcall std::make_unique<CComposeTop,,0>(_QWORD *a1)
 {
   _QWORD *v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rdx
-  __int64 v5; // r8
 
   v2 = operator new(0xA8uLL);
   if ( v2 )
@@ -20,14 +16,34 @@ _QWORD *__fastcall std::make_unique<CComposeTop,,0>(_QWORD *a1)
     *v2 = 0LL;
     v2[1] = 0LL;
     v2[2] = 0LL;
-    CMILMatrix::SetToIdentity((CMILMatrix *)(v2 + 3));
-    CMILMatrix::SetToIdentity((CMILMatrix *)(v3 + 92));
-    *(_QWORD *)(v4 + 160) = v5;
+    v2[3] = 1065353216LL;
+    v2[4] = 0LL;
+    *((_DWORD *)v2 + 10) = 0;
+    *(_QWORD *)((char *)v2 + 44) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 52) = 0LL;
+    *((_DWORD *)v2 + 15) = 0;
+    v2[8] = 1065353216LL;
+    v2[9] = 0LL;
+    *((_DWORD *)v2 + 20) = 0;
+    *((_DWORD *)v2 + 21) = 1065353216;
+    *((_WORD *)v2 + 44) = 32085;
+    *(_QWORD *)((char *)v2 + 92) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 100) = 0LL;
+    *((_DWORD *)v2 + 27) = 0;
+    v2[14] = 1065353216LL;
+    v2[15] = 0LL;
+    *((_DWORD *)v2 + 32) = 0;
+    *(_QWORD *)((char *)v2 + 132) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 140) = 0LL;
+    *((_DWORD *)v2 + 37) = 0;
+    *((_DWORD *)v2 + 38) = 1065353216;
+    *((_WORD *)v2 + 78) = 32085;
+    v2[20] = 0LL;
   }
   else
   {
-    v4 = 0LL;
+    v2 = 0LL;
   }
-  *a1 = v4;
+  *a1 = v2;
   return a1;
 }

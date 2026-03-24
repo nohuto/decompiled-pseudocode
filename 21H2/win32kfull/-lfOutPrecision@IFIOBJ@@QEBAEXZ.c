@@ -1,8 +1,8 @@
 /*
- * XREFs of ?lfOutPrecision@IFIOBJ@@QEBAEXZ @ 0x1C001F114
+ * XREFs of ?lfOutPrecision@IFIOBJ@@QEBAEXZ @ 0x1C011B040
  * Callers:
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C001D8F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     vIFIMetricsToLogFontW @ 0x1C02A50C8 (vIFIMetricsToLogFontW.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C00600F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     vIFIMetricsToLogFontW @ 0x1C02A76AC (vIFIMetricsToLogFontW.c)
  * Callees:
  *     <none>
  */

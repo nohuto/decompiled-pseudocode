@@ -1,102 +1,101 @@
 /*
- * XREFs of RtlpHpSegLargeRangeAllocate @ 0x1403A5774
+ * XREFs of RtlpHpSegLargeRangeAllocate @ 0x14037E1BC
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
  * Callees:
- *     RtlpHpSegFreeRangeInsert @ 0x140353A00 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegFreeRangeRemove @ 0x14036E090 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpSegPageRangeSplit @ 0x1405F31D8 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x140308294 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14030A960 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegPageRangeSplit @ 0x140594FA4 (RtlpHpSegPageRangeSplit.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegLargeRangeAllocate(__int64 a1, unsigned __int64 i, int a3, int a4)
+unsigned __int64 __fastcall RtlpHpSegLargeRangeAllocate(__int64 a1, unsigned __int64 i, int a3, __int64 a4)
 {
-  char v4; // r11
+  unsigned int v4; // ebp
   unsigned int v6; // r10d
-  __int64 v9; // r8
-  unsigned __int8 v10; // al
-  unsigned int v11; // ebx
+  int v7; // r11d
   unsigned __int64 j; // rcx
-  __int64 v14; // r9
-  unsigned __int64 v15; // r8
-  int v16; // ebx
-  __int16 *v17; // rdx
-  unsigned __int64 v18; // rax
-  _QWORD **v19; // rax
-  unsigned __int64 v20; // rcx
-  _QWORD *v21; // rcx
-  __int64 v22; // rbx
+  unsigned __int64 v10; // r8
+  unsigned __int8 v11; // al
+  unsigned int v12; // ebx
+  int v14; // ebx
+  __int16 *v15; // rdx
+  unsigned __int64 v16; // rax
+  _QWORD **v17; // rax
+  unsigned __int64 v18; // rcx
+  _QWORD *v19; // rcx
+  __int64 v20; // rbx
 
-  v4 = *(_BYTE *)(a1 + 8);
-  v6 = a3 << v4;
+  v4 = *(unsigned __int8 *)(a1 + 8);
+  v6 = a3 << *(_BYTE *)(a1 + 8);
+  v7 = a4;
   while ( 1 )
   {
-    v9 = *(unsigned __int8 *)(i + 31) << v4;
-    if ( !a4 )
-      goto LABEL_14;
-    v10 = *(_BYTE *)(i + 30);
-    if ( v10 <= 2u )
+    j = v4;
+    v10 = *(unsigned __int8 *)(i + 31) << v4;
+    if ( !v7 )
       break;
-LABEL_21:
-    v19 = *(_QWORD ***)(i + 8);
-    v20 = i;
-    if ( v19 )
+    v11 = *(_BYTE *)(i + 30);
+    if ( v11 <= 2u )
     {
-      v21 = *v19;
-      for ( i = *(_QWORD *)(i + 8); v21; v21 = (_QWORD *)*v21 )
-        i = (unsigned __int64)v21;
+      if ( !v11 && (v6 <= (v10 & 0x1FFFFF) || (v10 & 0x1FFFFF) == 0) )
+      {
+        v12 = 0;
+        goto LABEL_7;
+      }
+      break;
+    }
+LABEL_22:
+    v17 = *(_QWORD ***)(i + 8);
+    v18 = i;
+    if ( v17 )
+    {
+      v19 = *v17;
+      for ( i = *(_QWORD *)(i + 8); v19; v19 = (_QWORD *)*v19 )
+        i = (unsigned __int64)v19;
     }
     else
     {
       while ( 1 )
       {
         i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !i || *(_QWORD *)i == v20 )
+        if ( !i || *(_QWORD *)i == v18 )
           break;
-        v20 = i;
+        v18 = i;
       }
     }
     if ( !i )
       return 0LL;
   }
-  if ( !v10 && (v6 <= ((unsigned int)v9 & 0x1FFFFF) || (v9 & 0x1FFFFF) == 0) )
+  a4 = (i & *(_QWORD *)a1) + ((__int64)(i - (i & *(_QWORD *)a1)) >> 5 << v4);
+  v10 += a4;
+  v14 = a4;
+  v15 = (__int16 *)(*(_QWORD *)((a4 & *(_QWORD *)a1) + 0x18) + 2 * ((a4 - ((unsigned __int64)a4 & *(_QWORD *)a1)) >> 21));
+  for ( j = (a4 + 0x200000) & 0xFFFFFFFFFFE00000uLL; ; j += 0x200000LL )
   {
-    v11 = 0;
-LABEL_7:
-    RtlpHpSegFreeRangeRemove(a1, i);
-    goto LABEL_8;
-  }
-LABEL_14:
-  v14 = (i & *(_QWORD *)a1) + ((__int64)(i - (i & *(_QWORD *)a1)) >> 5 << v4);
-  v15 = v14 + v9;
-  v16 = v14;
-  v17 = (__int16 *)(*(_QWORD *)((v14 & *(_QWORD *)a1) + 0x18)
-                  + 2 * ((v14 - ((unsigned __int64)v14 & *(_QWORD *)a1)) >> 21));
-  for ( j = (v14 + 0x200000) & 0xFFFFFFFFFFE00000uLL; ; j += 0x200000LL )
-  {
-    if ( *v17 < 0 )
+    if ( *v15 < 0 )
     {
-      v18 = v15;
-      if ( j < v15 )
-        v18 = j;
-      j = v18;
-      if ( (int)v18 - v16 >= v6 )
+      v16 = v10;
+      if ( j < v10 )
+        v16 = j;
+      j = v16;
+      if ( (int)v16 - v14 >= v6 )
         break;
     }
-    if ( j >= v15 )
-      goto LABEL_21;
-    v16 = j;
-    ++v17;
+    if ( j >= v10 )
+      goto LABEL_22;
+    v14 = j;
+    ++v15;
   }
-  v11 = v16 - v14;
-  if ( a4 )
-    goto LABEL_7;
-LABEL_8:
-  if ( v11 )
+  v12 = v14 - a4;
+LABEL_7:
+  if ( v7 )
+    RtlpHpSegFreeRangeRemove(a1, i, v10, a4);
+  if ( v12 )
   {
     LOBYTE(j) = *(_BYTE *)(a1 + 8);
-    v22 = RtlpHpSegPageRangeSplit(j, i, v11 >> j);
+    v20 = RtlpHpSegPageRangeSplit(j, i, v12 >> j);
     RtlpHpSegFreeRangeInsert(a1, i, 0);
-    return v22;
+    return v20;
   }
   return i;
 }

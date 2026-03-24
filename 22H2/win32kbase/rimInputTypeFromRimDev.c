@@ -1,9 +1,9 @@
 /*
- * XREFs of rimInputTypeFromRimDev @ 0x1C0174280
+ * XREFs of rimInputTypeFromRimDev @ 0x1C015291C
  * Callers:
- *     RIMIDEIsCompatibleDevice @ 0x1C0197018 (RIMIDEIsCompatibleDevice.c)
+ *     RIMIDEIsCompatibleDevice @ 0x1C0169AC8 (RIMIDEIsCompatibleDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimInputTypeFromRimDev(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall rimInputTypeFromRimDev(__int64 a1)
     case 2:
       if ( (*(_DWORD *)(a1 + 200) & 0x80u) == 0 )
         return 32LL;
-      v3 = *(_DWORD *)(*(_QWORD *)(a1 + 472) + 24LL);
+      v3 = *(_DWORD *)(*(_QWORD *)(a1 + 480) + 24LL);
       if ( (unsigned int)(v3 - 5) <= 1 )
         return 4LL;
       if ( v3 == 7 )
@@ -30,6 +30,6 @@ __int64 __fastcall rimInputTypeFromRimDev(__int64 a1)
         return 16LL;
       break;
   }
-  MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 659);
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 588);
   return 0LL;
 }

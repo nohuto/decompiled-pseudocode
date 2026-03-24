@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetStatsUpdateCounter @ 0x1405499F8
+ * XREFs of HvlGetStatsUpdateCounter @ 0x1404F7D90
  * Callers:
- *     PpmHvSnapPerformanceAccumulation @ 0x1405DC4F8 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14057C4E0 (PpmHvSnapPerformanceAccumulation.c)
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x14039E528 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
  */
 
 char __fastcall HvlGetStatsUpdateCounter(unsigned int a1)
@@ -18,9 +18,9 @@ char __fastcall HvlGetStatsUpdateCounter(unsigned int a1)
   if ( LpcbByLpIndex )
   {
     v4 = *((_QWORD *)LpcbByLpIndex + 4);
-    LpcbByLpIndex = *(int **)(v4 + 8LL * (unsigned int)dword_140CF70B8);
-    v5 = (unsigned int)dword_140CF70BC;
-    *v2 = *(_QWORD *)(v4 + 8LL * DWORD2(xmmword_140CF7090)) & 1;
+    LpcbByLpIndex = *(int **)(v4 + 8LL * (unsigned int)dword_140CED578);
+    v5 = (unsigned int)dword_140CED57C;
+    *v2 = *(_QWORD *)(v4 + 8LL * DWORD2(xmmword_140CED550)) & 1;
     LOBYTE(LpcbByLpIndex) = (unsigned __int8)LpcbByLpIndex & 1;
     *v3 = *(_QWORD *)(v4 + 8 * v5);
   }

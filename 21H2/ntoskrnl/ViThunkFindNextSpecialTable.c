@@ -1,8 +1,8 @@
 /*
- * XREFs of ViThunkFindNextSpecialTable @ 0x140A93E2C
+ * XREFs of ViThunkFindNextSpecialTable @ 0x1409D913C
  * Callers:
- *     VfThunkAddSpecialDriverThunks @ 0x140A93398 (VfThunkAddSpecialDriverThunks.c)
- *     ViThunkFindAllSpecialTables @ 0x140A93C34 (ViThunkFindAllSpecialTables.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x1409D88B4 (VfThunkAddSpecialDriverThunks.c)
+ *     ViThunkFindAllSpecialTables @ 0x1409D908C (ViThunkFindAllSpecialTables.c)
  * Callees:
  *     <none>
  */

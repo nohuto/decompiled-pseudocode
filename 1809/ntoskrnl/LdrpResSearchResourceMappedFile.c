@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpResSearchResourceMappedFile @ 0x1400FD9EC
+ * XREFs of LdrpResSearchResourceMappedFile @ 0x1400FDA0C
  * Callers:
- *     LdrResSearchResource @ 0x14068AD50 (LdrResSearchResource.c)
- *     LdrResGetRCConfig @ 0x14071B1A4 (LdrResGetRCConfig.c)
+ *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
  * Callees:
- *     LdrIsResItemExist @ 0x1400F3C98 (LdrIsResItemExist.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F404C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpFindMessageInAlternateModule @ 0x1400F4614 (LdrpFindMessageInAlternateModule.c)
- *     DownLevelLangIDToLanguageName @ 0x140161010 (DownLevelLangIDToLanguageName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1406894CC (LdrpResSearchResourceInsideDirectory.c)
- *     LdrpResGetResourceDirectory @ 0x14068A9BC (LdrpResGetResourceDirectory.c)
- *     LdrpResGetMappingSize @ 0x14068B08C (LdrpResGetMappingSize.c)
- *     LdrResFallbackLangList @ 0x14068B300 (LdrResFallbackLangList.c)
- *     LdrResGetRCConfig @ 0x14071B1A4 (LdrResGetRCConfig.c)
+ *     LdrIsResItemExist @ 0x1400F3CB8 (LdrIsResItemExist.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1400F4634 (LdrpFindMessageInAlternateModule.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1406894AC (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResGetResourceDirectory @ 0x14068A99C (LdrpResGetResourceDirectory.c)
+ *     LdrpResGetMappingSize @ 0x14068B06C (LdrpResGetMappingSize.c)
+ *     LdrResFallbackLangList @ 0x14068B2E0 (LdrResFallbackLangList.c)
+ *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
  */
 
 __int64 __fastcall LdrpResSearchResourceMappedFile(

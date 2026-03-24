@@ -1,29 +1,29 @@
 /*
- * XREFs of HalpTscCompatibilitySynchronization @ 0x14050A204
+ * XREFs of HalpTscCompatibilitySynchronization @ 0x1404C141C
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x14038B020 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x14039C4B0 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     <none>
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
  */
 
 char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)
 {
-  __int16 v1; // r11
-  int v2; // r11d
-  int v3; // eax
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // r10
+  __int16 v1; // si
+  int v3; // esi
+  int v4; // eax
+  unsigned __int64 v5; // r8
   unsigned __int64 v6; // rax
-  signed __int32 v8; // [rsp+0h] [rbp-8h] BYREF
+  signed __int32 v8[8]; // [rsp+0h] [rbp-28h] BYREF
+  int v9; // [rsp+20h] [rbp-8h]
 
-  v1 = v8;
+  v1 = v9;
   _disable();
-  v2 = v1 & 0x200;
+  v3 = v1 & 0x200;
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
   {
-    v3 = *(_DWORD *)(a1 + 40);
+    v4 = *(_DWORD *)(a1 + 40);
     *(_DWORD *)(a1 + 4) = 0;
-    *(_DWORD *)(a1 + 8) = v3;
+    *(_DWORD *)(a1 + 8) = v4;
     *(_QWORD *)(a1 + 24) = 0LL;
     *(_QWORD *)(a1 + 16) = -1LL;
     _InterlockedDecrement((volatile signed __int32 *)a1);
@@ -33,10 +33,9 @@ char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)
     do
       _mm_pause();
     while ( *(_DWORD *)a1 != -1 );
-    _InterlockedOr(&v8, 0);
+    _InterlockedOr(v8, 0);
   }
-  v4 = __readcr2();
-  __writecr2(v4);
+  HalpProcessorFence();
   v5 = __rdtsc();
   while ( *(_DWORD *)(a1 + 4) != KeGetCurrentPrcb()->Number )
     _mm_pause();
@@ -58,7 +57,7 @@ char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)
     do
       _mm_pause();
     while ( *(_DWORD *)(a1 + 8) != -1 );
-    _InterlockedOr(&v8, 0);
+    _InterlockedOr(v8, 0);
   }
   LOBYTE(v6) = *(_BYTE *)(a1 + 32);
   if ( (_BYTE)v6 )
@@ -66,7 +65,7 @@ char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)
     v6 = *(_QWORD *)(a1 + 24);
     __writemsr(0x10u, v6);
   }
-  if ( v2 )
+  if ( v3 )
     _enable();
   return v6;
 }

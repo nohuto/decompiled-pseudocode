@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiPdoHandleQueryDeviceText @ 0x1C021B740
+ * XREFs of DpiPdoHandleQueryDeviceText @ 0x1C019F660
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall DpiPdoHandleQueryDeviceText(__int64 a1, __int64 a2)

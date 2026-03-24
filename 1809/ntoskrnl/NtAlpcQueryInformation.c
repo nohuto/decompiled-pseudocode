@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAlpcQueryInformation @ 0x14068E890
+ * XREFs of NtAlpcQueryInformation @ 0x14068E870
  * Callers:
  *     <none>
  * Callees:
@@ -7,12 +7,12 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     AlpcpPortQueryServerSessionInfo @ 0x140582088 (AlpcpPortQueryServerSessionInfo.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpPortQueryBasicInfo @ 0x14068EAC0 (AlpcpPortQueryBasicInfo.c)
- *     AlpcpWaitForPortReferences @ 0x14068EB1C (AlpcpWaitForPortReferences.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x14068EBAC (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpPortQueryServerInfo @ 0x14084ACE8 (AlpcpPortQueryServerInfo.c)
- *     ExRaiseAccessViolation @ 0x1408D65C0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpPortQueryBasicInfo @ 0x14068EAA0 (AlpcpPortQueryBasicInfo.c)
+ *     AlpcpWaitForPortReferences @ 0x14068EAFC (AlpcpWaitForPortReferences.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x14068EB8C (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x14084ACC8 (AlpcpPortQueryServerInfo.c)
+ *     ExRaiseAccessViolation @ 0x1408D65A0 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAlpcQueryInformation(

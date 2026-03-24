@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpFreeUnicodeStringList @ 0x14018B260
+ * XREFs of PnpFreeUnicodeStringList @ 0x14018B280
  * Callers:
- *     PiInitReleaseCachedGroupInformation @ 0x14075051C (PiInitReleaseCachedGroupInformation.c)
+ *     PiInitReleaseCachedGroupInformation @ 0x1407504FC (PiInitReleaseCachedGroupInformation.c)
  *     PnpRegMultiSzToUnicodeStrings @ 0x1409CA4C8 (PnpRegMultiSzToUnicodeStrings.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

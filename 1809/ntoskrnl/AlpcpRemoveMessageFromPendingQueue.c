@@ -4,7 +4,7 @@
  *     AlpcpReplyLegacySynchronousRequest @ 0x140615538 (AlpcpReplyLegacySynchronousRequest.c)
  *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
  *     AlpcpDispatchReplyToPort @ 0x140615EDC (AlpcpDispatchReplyToPort.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B62AC (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B628C (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

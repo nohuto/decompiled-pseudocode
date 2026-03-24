@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpIsLegacyDriver @ 0x1407096C0
+ * XREFs of PnpIsLegacyDriver @ 0x1407096A0
  * Callers:
- *     IopUnloadDriver @ 0x1407089E8 (IopUnloadDriver.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140709174 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopUnloadDriver @ 0x1407089C8 (IopUnloadDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140709154 (PipCallDriverAddDeviceQueryRoutine.c)
  *     IovpBuildDriverObjectList @ 0x14092442C (IovpBuildDriverObjectList.c)
  * Callees:
  *     <none>

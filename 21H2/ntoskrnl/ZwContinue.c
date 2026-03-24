@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwContinue @ 0x14041BFC0
+ * XREFs of ZwContinue @ 0x1403FAC00
  * Callers:
- *     RtlRestoreContext @ 0x140429CA0 (RtlRestoreContext.c)
+ *     RtlRestoreContext @ 0x140407D00 (RtlRestoreContext.c)
  * Callees:
  *     <none>
  */

@@ -1,98 +1,115 @@
 /*
- * XREFs of ?CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ @ 0x1C036144C
+ * XREFs of ?CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ @ 0x1C02B5208
  * Callers:
- *     ?Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ @ 0x1C0361E5C (-Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ.c)
+ *     ?Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ @ 0x1C02B5BC0 (-Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C0366F90 (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C02B401C (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
  */
 
 __int64 __fastcall DXGVAILGUESTOBJECT::CreateVmBusGuestSubscribers(DXGVAILGUESTOBJECT *this)
 {
-  __int64 v2; // rax
-  DXGVMBUSCHANNEL *v3; // rcx
-  int v4; // eax
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  DXGVMBUSCHANNEL *v8; // rcx
+  __int64 v2; // rdx
+  PVOID v3; // rax
+  __int64 v4; // rdx
+  void **v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // rdi
+  __int64 v8; // rax
   int v9; // eax
   __int64 v10; // rcx
-  __int64 v11; // rcx
-  _BYTE v13[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v11; // r8
+  _QWORD *v12; // rax
+  void **v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
+  int v16; // eax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  _BYTE v20[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (DXGVAILGUESTOBJECT *)((char *)this + 16), 1);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-  if ( *((_OWORD *)this + 5) != 0LL )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v20, (DXGVAILGUESTOBJECT *)((char *)this + 16), 1);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v20);
+  if ( *(_OWORD *)((char *)this + 72) != 0LL )
   {
-    LODWORD(v5) = -1073740528;
-    goto LABEL_16;
+    LODWORD(v7) = -1073740528;
+    goto LABEL_20;
   }
-  v2 = operator new[](0x18uLL, 0x4B677844u, 256LL);
-  if ( !v2 )
+  v3 = operator new(0x18uLL, 0x4B677844u, 1, PagedPool);
+  if ( v3 )
   {
-    *((_QWORD *)this + 10) = 0LL;
-    goto LABEL_10;
+    *((_QWORD *)v3 + 1) = 0LL;
+    v5 = &DXG_GUEST_REMOTEOBJECTCHANNEL::`vftable';
+    *((_WORD *)v3 + 8) = 0;
+    *(_QWORD *)v3 = &DXG_GUEST_REMOTEOBJECTCHANNEL::`vftable';
   }
-  *(_QWORD *)(v2 + 8) = 0LL;
-  *(_QWORD *)v2 = &DXG_GUEST_REMOTEOBJECTCHANNEL::`vftable';
-  *(_WORD *)(v2 + 16) = 0;
-  v3 = (DXGVMBUSCHANNEL *)*((_QWORD *)this + 9);
-  *((_QWORD *)this + 10) = v2;
-  v4 = DXGVMBUSCHANNEL::RegisterSubscriber(
-         v3,
-         0x6F746D72u,
-         (struct IDXGCHANNELSUBSCRIBER *)v2,
-         (struct IDXGCHANNEL **)(v2 + 8));
-  v5 = v4;
-  if ( v4 >= 0 )
+  *((_QWORD *)this + 9) = v3;
+  if ( v3 )
   {
-    v7 = operator new[](0x18uLL, 0x4B677844u, 256LL);
-    if ( v7 )
+    v9 = DXGVMBUSCHANNEL::RegisterSubscriber(
+           *((DXGVMBUSCHANNEL **)this + 8),
+           0x6F746D72u,
+           (struct IDXGCHANNELSUBSCRIBER *)v3,
+           (struct IDXGCHANNEL **)v3 + 1);
+    v7 = v9;
+    if ( v9 >= 0 )
     {
-      *(_QWORD *)(v7 + 8) = 0LL;
-      *(_QWORD *)v7 = &DXG_GUEST_COMPOSITIONOBJECTCHANNEL::`vftable';
-      *(_WORD *)(v7 + 16) = 0;
-      v8 = (DXGVMBUSCHANNEL *)*((_QWORD *)this + 9);
-      *((_QWORD *)this + 11) = v7;
-      v9 = DXGVMBUSCHANNEL::RegisterSubscriber(
-             v8,
-             0x706D6F63u,
-             (struct IDXGCHANNELSUBSCRIBER *)v7,
-             (struct IDXGCHANNEL **)(v7 + 8));
-      v5 = v9;
-      if ( v9 >= 0 )
-        goto LABEL_16;
-      goto LABEL_4;
+      v12 = operator new(0x18uLL, 0x4B677844u, 1, PagedPool);
+      if ( v12 )
+      {
+        v12[1] = 0LL;
+        v13 = &DXG_GUEST_COMPOSITIONOBJECTCHANNEL::`vftable';
+        *((_WORD *)v12 + 8) = 0;
+        *v12 = &DXG_GUEST_COMPOSITIONOBJECTCHANNEL::`vftable';
+      }
+      *((_QWORD *)this + 10) = v12;
+      if ( !v12 )
+      {
+        LODWORD(v7) = -1073741801;
+        v15 = WdLogNewEntry5_WdWarning(v13, v2, v14);
+        *(_QWORD *)(v15 + 24) = -1073741801LL;
+        WdLogEvent5_WdWarning(v15);
+      }
+      if ( (int)v7 < 0 )
+        goto LABEL_15;
+      v16 = DXGVMBUSCHANNEL::RegisterSubscriber(
+              *((DXGVMBUSCHANNEL **)this + 8),
+              0x706D6F63u,
+              *((struct IDXGCHANNELSUBSCRIBER **)this + 10),
+              (struct IDXGCHANNEL **)(*((_QWORD *)this + 10) + 8LL));
+      v7 = v16;
+      if ( v16 >= 0 )
+        goto LABEL_20;
     }
-    *((_QWORD *)this + 11) = 0LL;
-LABEL_10:
-    v6 = -1073741801LL;
-    LODWORD(v5) = -1073741801;
-    goto LABEL_11;
+    v8 = WdLogNewEntry5_WdWarning(v10, v2, v11);
+    *(_QWORD *)(v8 + 24) = v7;
   }
-LABEL_4:
-  v6 = v5;
-LABEL_11:
-  WdLogSingleEntry1(3LL, v6);
-  v10 = *((_QWORD *)this + 10);
-  if ( v10 )
+  else
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 56LL))(v10);
+    LODWORD(v7) = -1073741801;
+    v8 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+    *(_QWORD *)(v8 + 24) = -1073741801LL;
+  }
+  WdLogEvent5_WdWarning(v8);
+LABEL_15:
+  v17 = *((_QWORD *)this + 9);
+  if ( v17 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 56LL))(v17);
+    *((_QWORD *)this + 9) = 0LL;
+  }
+  v18 = *((_QWORD *)this + 10);
+  if ( v18 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 56LL))(v18);
     *((_QWORD *)this + 10) = 0LL;
   }
-  v11 = *((_QWORD *)this + 11);
-  if ( v11 )
-  {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 56LL))(v11);
-    *((_QWORD *)this + 11) = 0LL;
-  }
-LABEL_16:
-  if ( v13[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
-  return (unsigned int)v5;
+LABEL_20:
+  if ( v20[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v20, v2);
+  return (unsigned int)v7;
 }

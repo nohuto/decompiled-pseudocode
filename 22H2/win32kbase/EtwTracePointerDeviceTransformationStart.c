@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceTransformationStart @ 0x1C013AE90
+ * XREFs of EtwTracePointerDeviceTransformationStart @ 0x1C0123A80
  * Callers:
- *     rimTransformGeometry @ 0x1C00E339E (rimTransformGeometry.c)
+ *     rimTransformGeometry @ 0x1C017CEA4 (rimTransformGeometry.c)
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C013C2EC (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125340 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceTransformationStart(__int64 a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlpOplockBreakToII @ 0x140130710
+ * XREFs of FsRtlpOplockBreakToII @ 0x140130730
  * Callers:
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
  *     FsRtlCheckUpperOplock @ 0x1405854A0 (FsRtlCheckUpperOplock.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     FsRtlpOplockKeysEqual @ 0x1400199A0 (FsRtlpOplockKeysEqual.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107D80 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x140134CE0 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14026FFD0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpWaitOnIrp @ 0x140270070 (FsRtlpWaitOnIrp.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140134D00 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakToII(

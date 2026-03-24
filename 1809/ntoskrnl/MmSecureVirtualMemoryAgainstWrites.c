@@ -10,11 +10,11 @@
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
  *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
  *     MiIsRangeFullyCommitted @ 0x140618858 (MiIsRangeFullyCommitted.c)
  *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADF14 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADEF4 (MiUnsecureVirtualMemoryAgainstWrites.c)
  */
 
 unsigned __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(__int64 a1, __int64 a2, __int64 a3)

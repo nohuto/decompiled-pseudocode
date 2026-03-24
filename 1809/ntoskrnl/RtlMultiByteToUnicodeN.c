@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlMultiByteToUnicodeN @ 0x1405AAE90
  * Callers:
- *     mbstowcs @ 0x140196070 (mbstowcs.c)
+ *     mbstowcs @ 0x140196090 (mbstowcs.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406BD890 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeN(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoLoadCrashDumpDriver @ 0x140280090
+ * XREFs of IoLoadCrashDumpDriver @ 0x140280190
  * Callers:
  *     <none>
  * Callees:
- *     MmLoadSystemImage @ 0x14084EEC0 (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x14084EEA0 (MmLoadSystemImage.c)
  */
 
 __int64 __fastcall IoLoadCrashDumpDriver(int a1, __int64 a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetTimeZoneInformation @ 0x1409BD860
+ * XREFs of RtlSetTimeZoneInformation @ 0x140915140
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BD87C (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14091515C (RtlpSetTimeZoneInformationWorker.c)
  */
 
 __int64 __fastcall RtlSetTimeZoneInformation(void *a1)

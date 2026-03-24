@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFaultsIsSystemSufficientlyBooted @ 0x140A96C48
+ * XREFs of VfFaultsIsSystemSufficientlyBooted @ 0x1409DC968
  * Callers:
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
- *     VerifierMmMapLockedPages @ 0x140AA0000 (VerifierMmMapLockedPages.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AA00D0 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VerifierMmMapLockedPages @ 0x1409E6B10 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x1409E6BF0 (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 VfFaultsIsSystemSufficientlyBooted()
   if ( ViSystemSufficientlyBooted )
     return 1LL;
   if ( (MEMORY[0xFFFFF78000000014] - KeBootTime.QuadPart) / 0x2710uLL <= ViRequiredTimeSinceBootInMsecs )
-    ++dword_140D57824;
+    ++dword_140D4A3EC;
   else
     ViSystemSufficientlyBooted = 1;
   return (unsigned int)ViSystemSufficientlyBooted;

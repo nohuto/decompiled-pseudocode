@@ -1,9 +1,11 @@
 /*
- * XREFs of ?SetBufferProperty@CParticleBaseBehaviorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0226240
+ * XREFs of ?SetBufferProperty@CParticleBaseBehaviorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DC950
  * Callers:
  *     <none>
  * Callees:
- *     ?Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z @ 0x1C021B4A4 (-Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     memcpy_s @ 0x1C00C6D54 (memcpy_s.c)
  */
 
 __int64 __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::SetBufferProperty(
@@ -11,24 +13,34 @@ __int64 __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::SetBufferP
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         const void *a4,
-        size_t a5,
+        rsize_t MaxCount,
         bool *a6)
 {
-  __int64 result; // rax
+  unsigned int v6; // ebx
+  unsigned __int64 v9; // rbp
+  __int64 v10; // r14
+  __int64 v11; // rcx
 
+  v6 = 0;
   *a6 = 0;
-  if ( a3 || !a4 && a5 )
-    return 3221225485LL;
-  result = DirectComposition::CMarshaledArrayBase::Copy(
-             (DirectComposition::CParticleBaseBehaviorMarshaler *)((char *)this + 64),
-             a4,
-             a5,
-             0x18uLL,
-             0x61714344u);
-  if ( (int)result >= 0 )
+  if ( !a3 && (a4 || !MaxCount) )
   {
+    v9 = MaxCount / 0x18;
+    if ( (unsigned int)(MaxCount / 0x18) > *((_DWORD *)this + 16) )
+    {
+      v10 = Win32AllocPoolWithQuota(MaxCount, 0x61714344u);
+      if ( !v10 )
+        return (unsigned int)-1073741801;
+      v11 = *((_QWORD *)this + 7);
+      if ( v11 )
+        Win32FreePool(v11);
+      *((_QWORD *)this + 7) = v10;
+    }
+    *((_QWORD *)this + 8) = (unsigned int)v9;
+    memcpy_s(*((void **)this + 7), 24LL * (unsigned int)v9, a4, MaxCount);
     *a6 = 1;
     *((_DWORD *)this + 4) |= 0x20u;
+    return v6;
   }
-  return result;
+  return (unsigned int)-1073741811;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C009CCB0
+ * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00205E0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C009CCF8 (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
+ *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C002217C (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
  */
 
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty(
@@ -32,33 +32,33 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty
       v10 = v9 - 1;
       if ( v10 )
       {
-        if ( v10 != 1 || a5 != 8 || !*((_BYTE *)this + 153) )
+        if ( v10 != 1 || a5 != 8 || !*((_BYTE *)this + 145) )
           return (unsigned int)-1073741811;
         v11 = *(_QWORD *)a4;
         *((_DWORD *)this + 4) &= ~0x800u;
-        *((_QWORD *)this + 15) = v11;
+        *((_QWORD *)this + 14) = v11;
       }
       else
       {
-        if ( a5 != 8 || !*((_BYTE *)this + 153) )
+        if ( a5 != 8 || !*((_BYTE *)this + 145) )
           return (unsigned int)-1073741811;
         v13 = *(_QWORD *)a4;
         *((_DWORD *)this + 4) &= ~0x4000u;
-        *((_QWORD *)this + 14) = v13;
+        *((_QWORD *)this + 13) = v13;
       }
     }
     else
     {
-      if ( a5 != 8 || !*((_BYTE *)this + 153) )
+      if ( a5 != 8 || !*((_BYTE *)this + 145) )
         return (unsigned int)-1073741811;
       v12 = *(_QWORD *)a4;
       *((_DWORD *)this + 4) &= ~0x1000u;
-      *((_QWORD *)this + 13) = v12;
+      *((_QWORD *)this + 12) = v12;
     }
     *a6 = 1;
     return v6;
   }
-  if ( a5 != 16 || *((_BYTE *)this + 153) )
+  if ( a5 != 16 || *((_BYTE *)this + 145) )
     return (unsigned int)-1073741811;
   DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(this, a2, a4, a6);
   return v6;

@@ -1,8 +1,8 @@
 /*
- * XREFs of GetLbaFromCdb @ 0x1C001AE7C
+ * XREFs of GetLbaFromCdb @ 0x1C0012620
  * Callers:
- *     MdlToPrp @ 0x1C0004D00 (MdlToPrp.c)
- *     BuildReadWriteCommand @ 0x1C001A150 (BuildReadWriteCommand.c)
+ *     MdlToPrp @ 0x1C0005410 (MdlToPrp.c)
+ *     BuildReadWriteCommand @ 0x1C0011108 (BuildReadWriteCommand.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@
 __int64 __fastcall GetLbaFromCdb(_BYTE *a1, int a2)
 {
   char v2; // al
-  __int64 v4; // [rsp+18h] [rbp+18h]
+  __int64 v4; // [rsp+20h] [rbp+20h]
 
   if ( a2 == 16 )
   {

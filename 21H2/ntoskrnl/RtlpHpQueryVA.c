@@ -1,18 +1,17 @@
 /*
- * XREFs of RtlpHpQueryVA @ 0x140362864
+ * XREFs of RtlpHpQueryVA @ 0x1402A5CA4
  * Callers:
- *     RtlpHpSegSegmentInitialize @ 0x140242028 (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x1402491D0 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x14024EFA8 (RtlpHpSegMgrVaCtxInitialize.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     RtlpHpGetOwnerHeap @ 0x140366CB0 (RtlpHpGetOwnerHeap.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x140367E68 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrRelease @ 0x14036843C (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegContextInitialize @ 0x14036F8F8 (RtlpHpSegContextInitialize.c)
- *     RtlpHpLargeAlloc @ 0x140370C40 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x1402A52C4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x1402A53B4 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegSegmentInitialize @ 0x1402A5420 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpGetOwnerHeap @ 0x1402FACE4 (RtlpHpGetOwnerHeap.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x140594C30 (RtlpHpSegMgrVaCtxFree.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x1403628D8 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14030944C (RtlpHpVaMgrCtxQuery.c)
  */
 
 __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int128 *a2, _QWORD *a3, _DWORD *a4)
@@ -26,7 +25,7 @@ __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int128 *a2, _QWORD *a3, _DWORD *a
   v10 = 0LL;
   v11 = 0LL;
   v9 = *a2;
-  HeapManager = RtlpHpEnvGetHeapManager(&v9);
+  HeapManager = RtlpHpEnvGetHeapManager(&v9, a2);
   RtlpHpVaMgrCtxQuery(HeapManager + 88, v7, &v10);
   if ( a3 )
     *a3 = v11;

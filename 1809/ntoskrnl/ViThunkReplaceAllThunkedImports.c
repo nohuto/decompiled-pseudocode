@@ -3,7 +3,7 @@
  * Callers:
  *     ViThunkApplyThunksCurrentSession @ 0x140936D74 (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1402AB0CC (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViThunkFindAllSpecialTables @ 0x140936EBC (ViThunkFindAllSpecialTables.c)
  *     ViThunkReplaceImportEntry @ 0x1409372DC (ViThunkReplaceImportEntry.c)

@@ -5,13 +5,13 @@
  *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
  *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
  *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x1407F2EEC (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7F8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1407F2ECC (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7D8 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CmpArmDelayDerefKCBWorker @ 0x14068A148 (CmpArmDelayDerefKCBWorker.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CmpArmDelayDerefKCBWorker @ 0x14068A128 (CmpArmDelayDerefKCBWorker.c)
  */
 
 void __fastcall CmpDelayDerefKeyControlBlock(ULONG_PTR BugCheckParameter2)

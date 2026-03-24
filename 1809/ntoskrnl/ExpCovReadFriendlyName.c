@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCovReadFriendlyName @ 0x1408D7FF8
+ * XREFs of ExpCovReadFriendlyName @ 0x1408D7FD8
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x14070F424 (ExCovReadjustUnloadedModuleEntry.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x1408D7280 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovIsModulePresent @ 0x1408D7614 (ExpCovIsModulePresent.c)
- *     ExpCovQueryLoadedModule @ 0x1408D7E84 (ExpCovQueryLoadedModule.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x14070F404 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1408D7260 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovIsModulePresent @ 0x1408D75F4 (ExpCovIsModulePresent.c)
+ *     ExpCovQueryLoadedModule @ 0x1408D7E64 (ExpCovQueryLoadedModule.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     RtlInitAnsiStringEx @ 0x140180EE0 (RtlInitAnsiStringEx.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     RtlInitAnsiStringEx @ 0x140180F00 (RtlInitAnsiStringEx.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1406D3C20 (RtlDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1406D3C00 (RtlDuplicateUnicodeString.c)
  */
 
 int __fastcall ExpCovReadFriendlyName(__int64 a1, const UNICODE_STRING *a2, UNICODE_STRING *a3)

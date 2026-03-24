@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CGdiSpriteBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x18021DD40
+ * XREFs of ?GetPixelFormatInfo@CGdiSpriteBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x1801C1E08
  * Callers:
- *     <none>
+ *     ?GetPixelFormatInfo@CGdiSpriteBitmap@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F5EE0 (-GetPixelFormatInfo@CGdiSpriteBitmap@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGdiSpriteBitmap::GetPixelFormatInfo(__int64 a1, __int64 a2)
@@ -11,7 +11,7 @@ __int64 __fastcall CGdiSpriteBitmap::GetPixelFormatInfo(__int64 a1, __int64 a2)
   __int64 v3; // rdx
   void (__fastcall ***v4)(_QWORD, __int64); // rcx
 
-  v3 = *(_QWORD *)(a1 + 344);
+  v3 = *(_QWORD *)(a1 - 56);
   if ( v3 )
   {
     v4 = (void (__fastcall ***)(_QWORD, __int64))(v3 + 8 + *(int *)(*(_QWORD *)(v3 + 8) + 8LL));
@@ -19,8 +19,8 @@ __int64 __fastcall CGdiSpriteBitmap::GetPixelFormatInfo(__int64 a1, __int64 a2)
   }
   else
   {
-    *(_QWORD *)a2 = *(_QWORD *)(a1 + 32);
-    *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 + 40);
+    *(_QWORD *)a2 = *(_QWORD *)(a1 - 440);
+    *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 - 432);
   }
   return a2;
 }

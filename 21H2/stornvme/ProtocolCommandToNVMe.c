@@ -1,16 +1,16 @@
 /*
- * XREFs of ProtocolCommandToNVMe @ 0x1C001FAF4
+ * XREFs of ProtocolCommandToNVMe @ 0x1C0016084
  * Callers:
- *     NVMeHwBuildIo @ 0x1C0004360 (NVMeHwBuildIo.c)
+ *     NVMeHwBuildIo @ 0x1C0004930 (NVMeHwBuildIo.c)
  * Callees:
- *     SetPrpFromSrb @ 0x1C0002DA8 (SetPrpFromSrb.c)
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     GetControllerMaxTransferSize @ 0x1C000569C (GetControllerMaxTransferSize.c)
- *     FillClippedSGL @ 0x1C001A758 (FillClippedSGL.c)
- *     NVMeValidateProtocolCommandRequest @ 0x1C001F1E0 (NVMeValidateProtocolCommandRequest.c)
+ *     SetPrpFromSrb @ 0x1C0002628 (SetPrpFromSrb.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     GetControllerMaxTransferSize @ 0x1C0005CE0 (GetControllerMaxTransferSize.c)
+ *     FillClippedSGL @ 0x1C00116F0 (FillClippedSGL.c)
+ *     NVMeValidateProtocolCommandRequest @ 0x1C0015770 (NVMeValidateProtocolCommandRequest.c)
  */
 
 __int64 __fastcall ProtocolCommandToNVMe(_DWORD *a1, __int64 a2)
@@ -47,7 +47,7 @@ LABEL_9:
     v6 = v7 + v9;
     if ( v6 )
     {
-      if ( (a1[16] & 8) == 0 )
+      if ( (a1[14] & 8) == 0 )
       {
         v10 = (((unsigned int)GetControllerMaxTransferSize(a1) - 1) >> 12) + 2;
         StorPortExtendedFunction(0LL, a1, 24 * v10 + 16, 1701672526LL);

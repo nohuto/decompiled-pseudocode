@@ -1,92 +1,103 @@
 /*
- * XREFs of VfDeadlockInitialize @ 0x140A98170
+ * XREFs of VfDeadlockInitialize @ 0x1409DDEE0
  * Callers:
- *     VfInitVerifierComponents @ 0x140A82480 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140250C50 (ExInitializeNPagedLookasideListInternal.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ViDeadlockDetectionApplySettings @ 0x140A99478 (ViDeadlockDetectionApplySettings.c)
- *     ViDeadlockPopulateLookasideCache @ 0x140A999D0 (ViDeadlockPopulateLookasideCache.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViDeadlockDetectionApplySettings @ 0x1409DF25C (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockPopulateLookasideCache @ 0x1409DF7B0 (ViDeadlockPopulateLookasideCache.c)
  */
 
 void __fastcall VfDeadlockInitialize(int a1, int a2)
 {
-  __int64 Pool2; // rax
-  _QWORD *v5; // r9
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _QWORD *v9; // rcx
+  PVOID PoolWithTag; // rax
+  PVOID v5; // rax
+  _QWORD *v6; // r9
+  PVOID v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
   _QWORD *v10; // rcx
-  int v11; // ecx
-  _DWORD *v12; // rdx
-  int v13; // ecx
-  void *v14; // rcx
+  _QWORD *v11; // rcx
+  int v12; // ecx
+  _DWORD *v13; // rdx
+  int v14; // ecx
   void *v15; // rcx
+  void *v16; // rcx
+  int v17; // [rsp+30h] [rbp-38h]
+  int v18; // [rsp+30h] [rbp-38h]
 
-  ViDeadlockGlobals = (PVOID)ExAllocatePool2(64LL, 0x8180uLL, 0x6B636C44u);
-  if ( ViDeadlockGlobals )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x8180uLL, 0x6B636C44u);
+  ViDeadlockGlobals = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2 = ExAllocatePool2(64LL, 0x3FF0uLL, 0x6B636C44u);
-    v5 = ViDeadlockGlobals;
-    *((_QWORD *)ViDeadlockGlobals + 2) = Pool2;
-    if ( Pool2
-      && (v6 = ExAllocatePool2(64LL, 0x3FF0uLL, 0x6B636C44u),
-          v5 = ViDeadlockGlobals,
-          (*((_QWORD *)ViDeadlockGlobals + 2050) = v6) != 0LL) )
+    memset(PoolWithTag, 0, 0x8180uLL);
+    v5 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3FF0uLL, 0x6B636C44u);
+    v6 = ViDeadlockGlobals;
+    *((_QWORD *)ViDeadlockGlobals + 2) = v5;
+    if ( v5
+      && (v7 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3FF0uLL, 0x6B636C44u),
+          v6 = ViDeadlockGlobals,
+          (*((_QWORD *)ViDeadlockGlobals + 2050) = v7) != 0LL) )
     {
       ViDeadlockDatabaseLock = 0;
-      v7 = 0LL;
-      v8 = 1023LL;
+      v8 = 0LL;
+      v9 = 1023LL;
       do
       {
-        v9 = (_QWORD *)(v7 + v5[2]);
-        v9[1] = v9;
-        *v9 = v9;
-        v10 = (_QWORD *)(v7 + v5[2050]);
-        v7 += 16LL;
+        v10 = (_QWORD *)(v8 + v6[2]);
         v10[1] = v10;
         *v10 = v10;
-        --v8;
+        v11 = (_QWORD *)(v8 + v6[2050]);
+        v8 += 16LL;
+        v11[1] = v11;
+        *v11 = v11;
+        --v9;
       }
-      while ( v8 );
-      v11 = 4;
-      v12 = ViDeadlockGlobals;
+      while ( v9 );
+      v12 = 4;
+      v13 = ViDeadlockGlobals;
       if ( ViRecursionDepthLimitFromRegistry )
-        v11 = ViRecursionDepthLimitFromRegistry;
-      *((_DWORD *)ViDeadlockGlobals + 8202) = v11;
-      v13 = 1000;
+        v12 = ViRecursionDepthLimitFromRegistry;
+      *((_DWORD *)ViDeadlockGlobals + 8202) = v12;
+      v14 = 1000;
       if ( ViSearchedNodesLimitFromRegistry )
-        v13 = ViSearchedNodesLimitFromRegistry;
-      v12[8203] = v13;
-      ExInitializeNPagedLookasideListInternal(
-        (__int64)&ViDeadlockThreadLookaside,
-        (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))((unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0)),
-        (void (__stdcall *)(PVOID, ULONG))VfUtilFreePoolCheckIRQL,
+        v14 = ViSearchedNodesLimitFromRegistry;
+      v13[8203] = v14;
+      pXdvExInitializeNPagedLookasideList(
+        (int)&ViDeadlockThreadLookaside,
+        (unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0),
+        (int)VfUtilFreePoolCheckIRQL,
         512,
-        56,
+        56LL,
         1919439958,
         a2 != 0 ? 512 : 32,
-        VfInitializedWithoutReboot);
-      ExInitializeNPagedLookasideListInternal(
-        (__int64)&ViDeadlockResourceLookaside,
-        (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))((unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0)),
-        (void (__stdcall *)(PVOID, ULONG))VfUtilFreePoolCheckIRQL,
+        VfInitializedWithoutReboot,
+        (__int64)ExInitializeNPagedLookasideListInternal);
+      LOWORD(v17) = a2 != 0 ? 0x2000 : 64;
+      pXdvExInitializeNPagedLookasideList(
+        (int)&ViDeadlockResourceLookaside,
+        (unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0),
+        (int)VfUtilFreePoolCheckIRQL,
         512,
-        248,
+        248LL,
         1936020054,
-        a2 != 0 ? 0x2000 : 64,
-        VfInitializedWithoutReboot);
-      ExInitializeNPagedLookasideListInternal(
-        (__int64)&ViDeadlockNodeLookaside,
-        (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))((unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0)),
-        (void (__stdcall *)(PVOID, ULONG))VfUtilFreePoolCheckIRQL,
+        v17,
+        VfInitializedWithoutReboot,
+        (__int64)ExInitializeNPagedLookasideListInternal);
+      LOWORD(v18) = a2 != 0 ? 0x4000 : 64;
+      pXdvExInitializeNPagedLookasideList(
+        (int)&ViDeadlockNodeLookaside,
+        (unsigned __int64)ViDeadlockKernelVerifierLookasideAllocate & -(__int64)(a2 != 0),
+        (int)VfUtilFreePoolCheckIRQL,
         512,
-        208,
+        208LL,
         1685016150,
-        a2 != 0 ? 0x4000 : 64,
-        VfInitializedWithoutReboot);
+        v18,
+        VfInitializedWithoutReboot,
+        (__int64)ExInitializeNPagedLookasideListInternal);
       if ( a2 )
       {
         ViDeadlockPopulateLookasideCache(&ViDeadlockThreadLookaside);
@@ -96,16 +107,16 @@ void __fastcall VfDeadlockInitialize(int a1, int a2)
       }
       if ( a1 )
         ViDeadlockState |= 4u;
-      ViDeadlockDetectionApplySettings(((unsigned int)MmVerifierData >> 5) & 1);
+      ViDeadlockDetectionApplySettings();
     }
     else
     {
-      v14 = (void *)v5[2];
-      if ( v14 )
-        ExFreePoolWithTag(v14, 0);
-      v15 = (void *)*((_QWORD *)ViDeadlockGlobals + 2050);
+      v15 = (void *)v6[2];
       if ( v15 )
         ExFreePoolWithTag(v15, 0);
+      v16 = (void *)*((_QWORD *)ViDeadlockGlobals + 2050);
+      if ( v16 )
+        ExFreePoolWithTag(v16, 0);
       ExFreePoolWithTag(ViDeadlockGlobals, 0);
       ViDeadlockGlobals = 0LL;
     }

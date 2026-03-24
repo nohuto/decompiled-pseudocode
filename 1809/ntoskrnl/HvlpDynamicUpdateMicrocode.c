@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpDynamicUpdateMicrocode @ 0x140817B10
+ * XREFs of HvlpDynamicUpdateMicrocode @ 0x140817AF0
  * Callers:
- *     HvlUpdateMicrocodeDatabase @ 0x140817A80 (HvlUpdateMicrocodeDatabase.c)
+ *     HvlUpdateMicrocodeDatabase @ 0x140817A60 (HvlUpdateMicrocodeDatabase.c)
  * Callees:
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     MmBuildMdlForNonPagedPool @ 0x140101FA0 (MmBuildMdlForNonPagedPool.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpHandleInsufficientMemory @ 0x1401B3A9C (HvlpHandleInsufficientMemory.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3EB4 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x140279480 (HvlpHvToNtStatus.c)
- *     HvcallFastExtended @ 0x140322400 (HvcallFastExtended.c)
- *     HvcallInitInputControl @ 0x140322434 (HvcallInitInputControl.c)
- *     HvlpLogMicrocodeUpdateStatus @ 0x1408177C4 (HvlpLogMicrocodeUpdateStatus.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1401B3ABC (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3ED4 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140322500 (HvcallFastExtended.c)
+ *     HvcallInitInputControl @ 0x140322534 (HvcallInitInputControl.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x1408177A4 (HvlpLogMicrocodeUpdateStatus.c)
  */
 
 __int64 __fastcall HvlpDynamicUpdateMicrocode(void *a1, ULONG a2)

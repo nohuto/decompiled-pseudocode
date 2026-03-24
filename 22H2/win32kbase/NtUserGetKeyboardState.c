@@ -1,97 +1,73 @@
 /*
- * XREFs of NtUserGetKeyboardState @ 0x1C00708C0
+ * XREFs of NtUserGetKeyboardState @ 0x1C0006BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     ApiSetEditionIsGetKeyStateBlocked @ 0x1C004FE20 (ApiSetEditionIsGetKeyStateBlocked.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ApiSetEditionIsGpqForegroundAccessibleCurrent @ 0x1C0070C58 (ApiSetEditionIsGpqForegroundAccessibleCurrent.c)
- *     EtwTraceUIPIInputError @ 0x1C0074560 (EtwTraceUIPIInputError.c)
+ *     IsKeyStateCached @ 0x1C0007390 (IsKeyStateCached.c)
+ *     ApiSetEditionIsGetKeyStateBlocked @ 0x1C0007430 (ApiSetEditionIsGetKeyStateBlocked.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleCurrent @ 0x1C0007504 (ApiSetEditionIsGpqForegroundAccessibleCurrent.c)
+ *     EtwTraceUIPIInputError @ 0x1C0007E30 (EtwTraceUIPIInputError.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetKeyboardState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserGetKeyboardState(ULONG64 a1)
 {
-  _BYTE *v4; // rbx
-  char v5; // r14
-  struct tagTHREADINFO *v6; // rdi
-  __int64 v7; // rdx
-  __int64 v8; // rbx
-  __int64 v9; // r9
-  __int64 v10; // r8
-  int v11; // eax
-  __int64 v12; // rcx
-  _BYTE *v13; // r11
-  unsigned __int64 v14; // r10
-  int i; // eax
+  struct tagTHREADINFO *ThreadWin32Thread; // rdi
+  bool v2; // r14
+  _BYTE *v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r12
+  unsigned __int8 v6; // si
+  int v7; // r15d
+  _BYTE *v8; // rdi
+  int v9; // r11d
+  unsigned __int64 v10; // r9
+  unsigned __int8 v11; // r10
+  char v12; // r8
 
-  v4 = (_BYTE *)a1;
-  v5 = 1;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(a1, a2, a3, a4);
-  v6 = PtiCurrentShared();
-  if ( (unsigned int)ApiSetEditionIsGetKeyStateBlocked() )
-    goto LABEL_24;
-  if ( !(unsigned int)ApiSetEditionIsGpqForegroundAccessibleCurrent(1LL) )
+  EnterSharedCrit(0LL, 1LL);
+  ThreadWin32Thread = (struct tagTHREADINFO *)W32GetThreadWin32Thread(KeGetCurrentThread());
+  v2 = (unsigned int)ApiSetEditionIsGetKeyStateBlocked() == 0;
+  if ( v2 && !(unsigned int)ApiSetEditionIsGpqForegroundAccessibleCurrent(1LL) )
   {
-    EtwTraceUIPIInputError(v6, 0LL, 3);
-LABEL_24:
-    v5 = 0;
+    EtwTraceUIPIInputError(ThreadWin32Thread, 0LL, 3);
+    v2 = 0;
   }
-  if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-    v4 = (_BYTE *)MmUserProbeAddress;
-  *v4 = *v4;
-  v4[255] = v4[255];
-  v8 = *((_QWORD *)PtiCurrentShared() + 54);
-  v10 = 0LL;
-  v11 = 0;
-  LOBYTE(v12) = 0;
-  v13 = (_BYTE *)a1;
-  while ( v11 < 256 )
+  v3 = (_BYTE *)a1;
+  if ( a1 >= MmUserProbeAddress )
+    v3 = (_BYTE *)MmUserProbeAddress;
+  *v3 = *v3;
+  v3[255] = v3[255];
+  v5 = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 432);
+  v6 = 0;
+  v7 = 0;
+  v8 = (_BYTE *)a1;
+  while ( v7 < 256 )
   {
-    *v13 = 0;
-    if ( v5 || (unsigned __int8)v12 < 0x20u )
+    *v8 = 0;
+    if ( v2 || (LOBYTE(v4) = v6, (unsigned __int8)IsKeyStateCached(v4)) )
     {
-LABEL_8:
-      v9 = v10 & 3;
-      v14 = (unsigned __int64)(unsigned __int8)v10 >> 2;
-      if ( ((unsigned __int8)(1 << (2 * v9)) & *(_BYTE *)(v14 + v8 + 236)) != 0 )
-        *v13 |= 0x80u;
-      v7 = (unsigned int)(1 << (2 * v9 + 1));
-      if ( ((unsigned __int8)v7 & *(_BYTE *)(v14 + v8 + 236)) != 0 )
-        *v13 |= 1u;
-    }
-    else
-    {
-      for ( i = 0; (unsigned __int64)i < 0xE; ++i )
+      v9 = v6 & 3;
+      v10 = (unsigned __int64)v6 >> 2;
+      v11 = *(_BYTE *)(v10 + v5 + 228);
+      v12 = 0;
+      if ( ((unsigned __int8)(1 << (2 * v9)) & v11) != 0 )
       {
-        if ( byte_1C024CCA0[i] == (_BYTE)v10 )
-          goto LABEL_8;
+        *v8 = 0x80;
+        v12 = 0x80;
+        v11 = *(_BYTE *)(v10 + v5 + 228);
       }
-      if ( (unsigned __int8)v10 <= 0xA5u && ((unsigned __int8)v10 < 0x5Du || (unsigned __int8)v10 >= 0xA0u) )
-      {
-        switch ( (char)v10 )
-        {
-          case 91:
-          case 92:
-          case -96:
-          case -95:
-          case -94:
-          case -93:
-          case -92:
-          case -91:
-            goto LABEL_8;
-          default:
-            break;
-        }
-      }
+      v4 = (unsigned int)(2 * v9 + 1);
+      if ( ((unsigned __int8)(1 << (2 * v9 + 1)) & v11) != 0 )
+        *v8 = v12 | 1;
     }
-    v10 = (unsigned int)(v10 + 1);
-    v11 = v10;
-    ++v13;
-    v12 = (unsigned __int8)v10;
+    v6 = v7 + 1;
+    ++v8;
+    ++v7;
   }
-  UserSessionSwitchLeaveCrit(v12, v7, v10, v9);
+  UserSessionSwitchLeaveCrit(v4);
   return 1LL;
 }

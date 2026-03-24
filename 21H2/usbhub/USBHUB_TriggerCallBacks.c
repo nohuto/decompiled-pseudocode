@@ -1,16 +1,16 @@
 /*
- * XREFs of USBHUB_TriggerCallBacks @ 0x1C00413B4
+ * XREFs of USBHUB_TriggerCallBacks @ 0x1C0042660
  * Callers:
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhFdoReturnPortStatus @ 0x1C00186F0 (UsbhFdoReturnPortStatus.c)
- *     UsbhPdoTrapFatal_Dbg @ 0x1C002CD28 (UsbhPdoTrapFatal_Dbg.c)
- *     UsbhTrapBadIrp @ 0x1C002D620 (UsbhTrapBadIrp.c)
- *     UsbhTrapFatalTimeout_x9f @ 0x1C002D664 (UsbhTrapFatalTimeout_x9f.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C00099C0 (UsbhFdoReturnPortStatus.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhTrapBadIrp @ 0x1C002EA30 (UsbhTrapBadIrp.c)
+ *     UsbhTrapFatalTimeout_x9f @ 0x1C002EA74 (UsbhTrapFatalTimeout_x9f.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall USBHUB_TriggerCallBacks(__int64 a1))(_QWORD)

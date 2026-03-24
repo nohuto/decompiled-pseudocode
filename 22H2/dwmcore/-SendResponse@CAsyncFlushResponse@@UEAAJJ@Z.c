@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SendResponse@CAsyncFlushResponse@@UEAAJJ@Z @ 0x1800EC0F0
+ * XREFs of ?SendResponse@CAsyncFlushResponse@@UEAAJJ@Z @ 0x1800CF540
  * Callers:
- *     ?OnPresentComplete@CAsyncFlushResponse@@UEAAJXZ @ 0x1800EC0E0 (-OnPresentComplete@CAsyncFlushResponse@@UEAAJXZ.c)
+ *     ?OnPresentComplete@CAsyncFlushResponse@@UEAAJXZ @ 0x1800CF530 (-OnPresentComplete@CAsyncFlushResponse@@UEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SendResponseWorker@CAsyncFlushResponse@@CAJPEAVCChannelContext@@IJ@Z @ 0x1800EC12C (-SendResponseWorker@CAsyncFlushResponse@@CAJPEAVCChannelContext@@IJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SendResponseWorker@CAsyncFlushResponse@@CAJPEAVCChannelContext@@IJ@Z @ 0x1800CF57C (-SendResponseWorker@CAsyncFlushResponse@@CAJPEAVCChannelContext@@IJ@Z.c)
  */
 
 __int64 __fastcall CAsyncFlushResponse::SendResponse(CAsyncFlushResponse *this, int a2)

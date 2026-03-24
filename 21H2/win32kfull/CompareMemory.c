@@ -1,7 +1,7 @@
 /*
- * XREFs of CompareMemory @ 0x1C0113BF4
+ * XREFs of CompareMemory @ 0x1C0127E9C
  * Callers:
- *     pDCIAdjClr @ 0x1C0094724 (pDCIAdjClr.c)
+ *     pDCIAdjClr @ 0x1C001C210 (pDCIAdjClr.c)
  * Callees:
  *     <none>
  */

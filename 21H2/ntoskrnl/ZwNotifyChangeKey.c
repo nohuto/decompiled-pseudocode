@@ -1,19 +1,18 @@
 /*
- * XREFs of ZwNotifyChangeKey @ 0x14041DB60
+ * XREFs of ZwNotifyChangeKey @ 0x1403FC6E0
  * Callers:
- *     CcRegistryChangeCallback @ 0x1403A73E0 (CcRegistryChangeCallback.c)
- *     CcSetupWatchForRegistryChanges @ 0x1403DC824 (CcSetupWatchForRegistryChanges.c)
- *     PspReadDfssConfigurationValues @ 0x1405DFE94 (PspReadDfssConfigurationValues.c)
- *     DifZwNotifyChangeKeyWrapper @ 0x1406214C0 (DifZwNotifyChangeKeyWrapper.c)
- *     PipUpdateAsyncOptionsCallback @ 0x140811B60 (PipUpdateAsyncOptionsCallback.c)
- *     PopPowerButtonBugcheckConfigure @ 0x14081BE48 (PopPowerButtonBugcheckConfigure.c)
- *     IopRegistryInitializeCallbacks @ 0x14084C25C (IopRegistryInitializeCallbacks.c)
- *     IopRegistryCallback @ 0x14084C370 (IopRegistryCallback.c)
- *     ExpReadLeapSecondData @ 0x140857F38 (ExpReadLeapSecondData.c)
- *     PopUpdateUpgradeInProgress @ 0x1408620D0 (PopUpdateUpgradeInProgress.c)
- *     PipUpdateSetupInProgressNotify @ 0x140940408 (PipUpdateSetupInProgressNotify.c)
- *     PfpParametersWatcher @ 0x140989150 (PfpParametersWatcher.c)
- *     PfInitializeSuperfetch @ 0x140B23A48 (PfInitializeSuperfetch.c)
+ *     CcRegistryChangeCallback @ 0x14039ACD0 (CcRegistryChangeCallback.c)
+ *     KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B5070 (KiRegisterForDisableFgBoostDecayRegistryNotification.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1403CCE68 (CcSetupWatchForRegistryChanges.c)
+ *     PspReadDfssConfigurationValues @ 0x140580DB8 (PspReadDfssConfigurationValues.c)
+ *     PopUpdateUpgradeInProgress @ 0x1405CF3D0 (PopUpdateUpgradeInProgress.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140796C08 (PopPowerButtonBugcheckConfigure.c)
+ *     ExpReadLeapSecondData @ 0x1407A91B8 (ExpReadLeapSecondData.c)
+ *     IopRegistryInitializeCallbacks @ 0x1407B3B90 (IopRegistryInitializeCallbacks.c)
+ *     IopRegistryCallback @ 0x1407B3CB0 (IopRegistryCallback.c)
+ *     PipUpdateSetupInProgressNotify @ 0x14089B858 (PipUpdateSetupInProgressNotify.c)
+ *     PfpParametersWatcher @ 0x1408E0C00 (PfpParametersWatcher.c)
+ *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
  */

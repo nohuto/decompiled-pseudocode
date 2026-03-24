@@ -1,11 +1,11 @@
 /*
- * XREFs of NtRemoveIoCompletion @ 0x140729460
+ * XREFs of NtRemoveIoCompletion @ 0x1405E3F70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoRemoveIoCompletion @ 0x1402A9C40 (IoRemoveIoCompletion.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     IoRemoveIoCompletion @ 0x140204390 (IoRemoveIoCompletion.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, _OWORD *a4, unsigned __int64 a5)
@@ -15,20 +15,22 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   __int64 v11; // rcx
   __int64 v12; // rcx
   __int64 v13; // rax
-  LARGE_INTEGER *Timeout; // rbx
+  LARGE_INTEGER *v14; // rbx
   NTSTATUS result; // eax
   int v16; // edi
-  ULONG v17[3]; // [rsp+44h] [rbp-64h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-58h] BYREF
+  ULONG v17; // [rsp+44h] [rbp-64h] BYREF
+  LARGE_INTEGER *v18; // [rsp+48h] [rbp-60h]
+  __int64 v19; // [rsp+50h] [rbp-58h] BYREF
   PVOID Object; // [rsp+58h] [rbp-50h] BYREF
-  __int128 v20; // [rsp+60h] [rbp-48h] BYREF
-  __int128 v21; // [rsp+70h] [rbp-38h]
-  PLIST_ENTRY v22; // [rsp+88h] [rbp-20h] BYREF
+  __int128 v21; // [rsp+60h] [rbp-48h] BYREF
+  __int128 v22; // [rsp+70h] [rbp-38h]
+  PLIST_ENTRY v23; // [rsp+88h] [rbp-20h] BYREF
 
-  v22 = 0LL;
-  v20 = 0LL;
+  v23 = 0LL;
   v21 = 0LL;
-  memset(v17, 0, sizeof(v17));
+  v22 = 0LL;
+  v17 = 0;
+  v19 = 0LL;
   v18 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
@@ -48,30 +50,30 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
     v13 = a5;
     if ( a5 )
     {
-      *(_QWORD *)&v17[1] = &v18;
+      v18 = (LARGE_INTEGER *)&v19;
       if ( a5 >= 0x7FFFFFFF0000LL )
         v13 = 0x7FFFFFFF0000LL;
-      v18 = *(_QWORD *)v13;
+      v19 = *(_QWORD *)v13;
     }
-    Timeout = *(LARGE_INTEGER **)&v17[1];
+    v14 = v18;
   }
   else
   {
-    Timeout = *(LARGE_INTEGER **)&v17[1];
+    v14 = v18;
     if ( a5 )
-      Timeout = (LARGE_INTEGER *)a5;
+      v14 = (LARGE_INTEGER *)a5;
   }
   Object = 0LL;
   result = ObReferenceObjectByHandle(Handle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    v16 = IoRemoveIoCompletion((struct _KQUEUE *)Object, (__int64)&v20, &v22, 1u, v17, PreviousMode, Timeout, 0);
-    ObfDereferenceObject(Object);
+    v16 = IoRemoveIoCompletion((struct _KQUEUE *)Object, (__int64)&v21, &v23, 1u, &v17, PreviousMode, v14, 0);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( !v16 )
     {
-      *a2 = v20;
-      *a3 = *((_QWORD *)&v20 + 1);
-      *a4 = v21;
+      *a2 = v21;
+      *a3 = *((_QWORD *)&v21 + 1);
+      *a4 = v22;
     }
     return v16;
   }

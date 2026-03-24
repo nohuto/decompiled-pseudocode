@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionCommitMousePosAndMove @ 0x1C02329AC
+ * XREFs of EditionCommitMousePosAndMove @ 0x1C009D9A0
  * Callers:
- *     ApiSetEditionCommitMousePosAndMove @ 0x1C0205CA0 (ApiSetEditionCommitMousePosAndMove.c)
+ *     ApiSetEditionCommitMousePosAndMove @ 0x1C009D884 (ApiSetEditionCommitMousePosAndMove.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EditionCommitMousePosAndMove(
@@ -19,8 +19,8 @@ __int64 __fastcall EditionCommitMousePosAndMove(
         int a10,
         __int64 a11)
 {
-  if ( qword_1C0296BC8 )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, __int64, int, int, int, int, __int64))qword_1C0296BC8)(
+  if ( qword_1C0257900 )
+    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, __int64, int, int, int, int, __int64))qword_1C0257900)(
              a1,
              a2,
              a3,

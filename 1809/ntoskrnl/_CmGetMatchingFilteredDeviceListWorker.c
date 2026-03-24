@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x1408FA8E0
+ * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x1408FA8C0
  * Callers:
- *     _CmGetMatchingFilteredDeviceList @ 0x1406BB8CC (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1406BB8AC (_CmGetMatchingFilteredDeviceList.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _CmGetMatchingDeviceListForSubkey @ 0x140749E10 (_CmGetMatchingDeviceListForSubkey.c)
- *     _CmGetDeviceRelationsList @ 0x1408FA83C (_CmGetDeviceRelationsList.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x140749DF0 (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetDeviceRelationsList @ 0x1408FA81C (_CmGetDeviceRelationsList.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(

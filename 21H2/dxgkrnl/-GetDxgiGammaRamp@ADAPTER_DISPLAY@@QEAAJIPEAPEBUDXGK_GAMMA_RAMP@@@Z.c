@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01E15EC
+ * XREFs of ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C0137C5C
  * Callers:
- *     ?GetDxgiGammaRamp@DXGMONITOR@@UEBAJPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01E15C0 (-GetDxgiGammaRamp@DXGMONITOR@@UEBAJPEAPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?_CombineDXGIGammaRamp@DXGMONITOR@@AEAAJPEAUDXGK_GAMMA_RAMP@@PEAPEAU2@@Z @ 0x1C0137D5C (-_CombineDXGIGammaRamp@DXGMONITOR@@AEAAJPEAUDXGK_GAMMA_RAMP@@PEAPEAU2@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z @ 0x1C0012C4C (-Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z.c)
- *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074330 (ColorSpaceTransformInitIdentityTransform.c)
- *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C01A7544 (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
- *     ?AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02BF124 (-AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUS.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z @ 0x1C000B39C (-Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C00623A0 (ColorSpaceTransformInitIdentityTransform.c)
+ *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C01369BC (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
+ *     ?AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C0210748 (-AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUS.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::GetDxgiGammaRamp(
@@ -19,150 +18,138 @@ __int64 __fastcall ADAPTER_DISPLAY::GetDxgiGammaRamp(
         const struct DXGK_GAMMA_RAMP **a3)
 {
   __int64 v4; // rbp
-  __int64 v6; // rbx
-  DXGADAPTER *v7; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  DXGADAPTER *v8; // rcx
+  PVOID v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   int SourceConnectedToTargetInClientVidPn; // edi
-  __int64 v9; // r9
-  DXGADAPTER *v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rbp
-  __int64 v13; // rax
-  struct DXGK_GAMMA_ADJUSTMENT *v14; // r14
-  __int64 v16; // rsi
-  __int64 v17; // rax
+  __int64 v13; // rdx
+  DXGADAPTER *v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rbp
+  struct DXGK_GAMMA_ADJUSTMENT *v17; // r15
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rsi
+  _WORD *v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 v29; // rax
   int inited; // eax
-  ADAPTER_DISPLAY *v19; // rcx
-  unsigned int v20; // [rsp+80h] [rbp+8h] BYREF
+  ADAPTER_DISPLAY *v31; // rcx
+  unsigned int v32; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = a2;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 7674LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 7674LL, 0LL, 0LL, 0LL, 0LL);
+    v19 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v19 + 24) = 7510LL;
+    WdLogEvent5_WdAssertion(v19);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 7675LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NULL != ppDxgiGammaRamp", 7675LL, 0LL, 0LL, 0LL, 0LL);
+    v20 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v20 + 24) = 7511LL;
+    WdLogEvent5_WdAssertion(v20);
   }
+  v8 = this[2];
+  v9 = 0LL;
   *a3 = 0LL;
-  v6 = 0LL;
-  v7 = this[2];
-  if ( *((_DWORD *)v7 + 534) )
+  if ( *((_DWORD *)v8 + 510) )
   {
-    v20 = 0;
-    SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(v7, v4, &v20);
+    v32 = 0;
+    SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(v8, (unsigned int)v4, &v32);
     if ( SourceConnectedToTargetInClientVidPn < 0 )
     {
-      WdLogSingleEntry2(2LL, v4, this[2]);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Could not find SourceID for TargetId 0x%I64x on adapter 0x%I64x!",
-        v4,
-        (__int64)this[2],
-        0LL,
-        0LL,
-        0LL);
-      return (unsigned int)SourceConnectedToTargetInClientVidPn;
-    }
-    if ( v20 == -1 )
-    {
-      WdLogSingleEntry1(1LL, 7697LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"VidPnSourceId != D3DDDI_ID_UNINITIALIZED",
-        7697LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    v10 = this[16];
-    v11 = 4000LL * v20;
-    if ( *(_DWORD *)((char *)v10 + v11 + 736) == 1 && (v12 = *(_QWORD *)((char *)v10 + v11 + 744)) != 0 )
-    {
-      v13 = *(_QWORD *)((char *)v10 + v11 + 744);
+      v21 = WdLogNewEntry5_WdError(v11, v10);
+      *(_QWORD *)(v21 + 24) = v4;
+      *(_QWORD *)(v21 + 32) = this[2];
+      WdLogEvent5_WdError(v21);
     }
     else
     {
-      v12 = *(_QWORD *)((char *)v10 + v11 + 728);
-      v13 = v12;
-      if ( !v12 )
+      if ( v32 == -1 )
       {
-LABEL_15:
-        *a3 = (const struct DXGK_GAMMA_RAMP *)v6;
-        return (unsigned int)SourceConnectedToTargetInClientVidPn;
+        v22 = WdLogNewEntry5_WdAssertion(v11, v10);
+        *(_QWORD *)(v22 + 24) = 7533LL;
+        WdLogEvent5_WdAssertion(v22);
       }
+      v13 = v32;
+      v14 = this[14];
+      v15 = 3968LL * v32;
+      if ( *(_DWORD *)((char *)v14 + v15 + 696) == 1 && (v16 = *(_QWORD *)((char *)v14 + v15 + 704)) != 0
+        || (v16 = *(_QWORD *)((char *)v14 + v15 + 688)) != 0 )
+      {
+        v17 = *(struct DXGK_GAMMA_ADJUSTMENT **)(v16 + 8LL * v32 + 1656);
+        v9 = *(PVOID *)(v16 + 8LL * v32 + 1528);
+        if ( v17 )
+        {
+          v23 = *(_QWORD *)(v16 + 8LL * v32 + 1528);
+          if ( v9 && *((_DWORD *)v9 + 4) == 1 )
+            v23 = 0LL;
+          v24 = operator new[](0x30uLL, 0x4B677844u, PagedPool);
+          v9 = v24;
+          if ( v24 )
+          {
+            v24[20] = 0;
+            *(_QWORD *)v24 = &ReferenceCounted::`vftable';
+            *(_QWORD *)v24 = &DXGK_GAMMA_RAMP::`vftable';
+            *((_DWORD *)v24 + 2) = 1;
+            *((_DWORD *)v24 + 4) = 1;
+            *((_QWORD *)v24 + 3) = 0LL;
+            *((_QWORD *)v24 + 4) = 0LL;
+          }
+          else
+          {
+            v9 = 0LL;
+          }
+          if ( !v9 )
+          {
+            v29 = WdLogNewEntry5_WdLowResource(v26, v25, v27, v28);
+            *(_QWORD *)(v29 + 24) = v16;
+            WdLogEvent5_WdLowResource(v29);
+            return (unsigned int)-1073741801;
+          }
+          if ( v23 )
+          {
+            inited = DXGK_GAMMA_RAMP::Initialize((size_t *)v9, *(unsigned int *)(v23 + 16), *(const void **)(v23 + 32));
+          }
+          else
+          {
+            SourceConnectedToTargetInClientVidPn = DXGK_GAMMA_RAMP::Initialize((size_t *)v9, 2LL, 0LL);
+            if ( SourceConnectedToTargetInClientVidPn < 0 )
+              goto LABEL_34;
+            inited = ColorSpaceTransformInitIdentityTransform((__int64)v9 + 16);
+          }
+          SourceConnectedToTargetInClientVidPn = inited;
+          if ( inited < 0 )
+            goto LABEL_34;
+          SourceConnectedToTargetInClientVidPn = ADAPTER_DISPLAY::AdjustFullscreenGammaRamp(
+                                                   v31,
+                                                   (const struct DXGK_GAMMA_RAMP *)v23,
+                                                   (struct DXGK_GAMMA_RAMP *)v9,
+                                                   v17);
+          if ( SourceConnectedToTargetInClientVidPn < 0 )
+            goto LABEL_34;
+        }
+        else if ( v9 )
+        {
+          _InterlockedIncrement((volatile signed __int32 *)v9 + 2);
+        }
+      }
+      *a3 = (const struct DXGK_GAMMA_RAMP *)v9;
     }
-    v14 = *(struct DXGK_GAMMA_ADJUSTMENT **)(v12 + 8LL * v20 + 1656);
-    v6 = *(_QWORD *)(v13 + 8LL * v20 + 1528);
-    if ( !v14 )
-    {
-      if ( v6 )
-        _InterlockedAdd((volatile signed __int32 *)(v6 + 8), 1u);
-      goto LABEL_15;
-    }
-    v16 = *(_QWORD *)(v13 + 8LL * v20 + 1528);
-    if ( v6 && *(_DWORD *)(v6 + 16) == 1 )
-      v16 = 0LL;
-    v17 = operator new[](0x30uLL, 0x4B677844u, 256LL, v9);
-    v6 = v17;
-    if ( !v17 )
-    {
-      WdLogSingleEntry1(6LL, v12);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Device 0x%I64x: Unable to allocate gamma ramp.",
-        v12,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return (unsigned int)-1073741801;
-    }
-    *(_WORD *)(v17 + 40) = 0;
-    *(_QWORD *)v17 = &ReferenceCounted::`vftable';
-    *(_QWORD *)v17 = &DXGK_GAMMA_RAMP::`vftable';
-    *(_DWORD *)(v17 + 8) = 1;
-    *(_DWORD *)(v17 + 16) = 1;
-    *(_QWORD *)(v17 + 24) = 0LL;
-    *(_QWORD *)(v17 + 32) = 0LL;
-    if ( v16 )
-    {
-      inited = DXGK_GAMMA_RAMP::Initialize(
-                 (DXGK_GAMMA_RAMP *)v17,
-                 (enum _D3DDDI_GAMMARAMP_TYPE)*(_DWORD *)(v16 + 16),
-                 *(const void **)(v16 + 32));
-    }
-    else
-    {
-      SourceConnectedToTargetInClientVidPn = DXGK_GAMMA_RAMP::Initialize(
-                                               (DXGK_GAMMA_RAMP *)v17,
-                                               D3DDDI_GAMMARAMP_RGB256x3x16,
-                                               0LL);
-      if ( SourceConnectedToTargetInClientVidPn < 0 )
-        goto LABEL_32;
-      inited = ColorSpaceTransformInitIdentityTransform(v6 + 16);
-    }
-    SourceConnectedToTargetInClientVidPn = inited;
-    if ( inited >= 0 )
-    {
-      SourceConnectedToTargetInClientVidPn = ADAPTER_DISPLAY::AdjustFullscreenGammaRamp(
-                                               v19,
-                                               (const struct DXGK_GAMMA_RAMP *)v16,
-                                               (struct DXGK_GAMMA_RAMP *)v6,
-                                               v14);
-      if ( SourceConnectedToTargetInClientVidPn >= 0 )
-        goto LABEL_15;
-    }
-LABEL_32:
-    ReferenceCounted::Release((ReferenceCounted *)v6);
+    if ( SourceConnectedToTargetInClientVidPn >= 0 )
+      return (unsigned int)SourceConnectedToTargetInClientVidPn;
+LABEL_34:
+    if ( v9 )
+      ReferenceCounted::Release((ReferenceCounted *)v9, v13);
     return (unsigned int)SourceConnectedToTargetInClientVidPn;
   }
   return 0LL;

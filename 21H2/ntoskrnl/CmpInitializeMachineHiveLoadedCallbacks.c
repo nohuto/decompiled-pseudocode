@@ -1,18 +1,20 @@
 /*
- * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x14085D190
+ * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1407CB5B8
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void CmpInitializeMachineHiveLoadedCallbacks()
+_QWORD *CmpInitializeMachineHiveLoadedCallbacks()
 {
   _QWORD *v0; // rbx
   __int64 v1; // rdi
+  _QWORD *result; // rax
 
   KeInitializeEvent(&CmpMachineHiveCallbackEvent, NotificationEvent, 0);
-  v0 = &unk_140C025C8;
+  v0 = &unk_140C00F98;
   v1 = 7LL;
   do
   {
@@ -21,8 +23,15 @@ void CmpInitializeMachineHiveLoadedCallbacks()
     v0[1] = v0;
     *v0 = v0;
     KeInitializeEvent((PRKEVENT)(v0 - 5), NotificationEvent, 0);
-    v0 += 23;
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x32394D43u);
+    v0[2] = result;
+    *result = 0LL;
+    result[2] = CmpMachineHiveLoadedWorkItem;
+    result[3] = v0 - 19;
+    *((_DWORD *)v0 + 6) = 0;
+    v0 += 25;
     --v1;
   }
   while ( v1 );
+  return result;
 }

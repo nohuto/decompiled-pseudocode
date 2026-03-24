@@ -1,24 +1,23 @@
 /*
- * XREFs of NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C00228A8
+ * XREFs of NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000778C
  * Callers:
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021D10 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
  * Callees:
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     memmove @ 0x1C0004880 (memmove.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     BuildGetLogPageCommand @ 0x1C0010E84 (BuildGetLogPageCommand.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall NVMeReenumerateReissueGetLogNamespaceChangeList(__int64 a1, const void *a2)
 {
   __int64 result; // rax
-  void *v5; // rcx
-  unsigned int v6; // r8d
-  int i; // edx
+  __int64 v5; // r9
+  void *v6; // rcx
+  int v7; // edx
   void *v8; // [rsp+A8h] [rbp+38h] BYREF
   void *v9; // [rsp+B0h] [rbp+40h]
   __int64 v10; // [rsp+B8h] [rbp+48h]
@@ -28,46 +27,46 @@ __int64 __fastcall NVMeReenumerateReissueGetLogNamespaceChangeList(__int64 a1, c
   v10 = 0LL;
   if ( a2 )
   {
-    result = StorPortExtendedFunction(0LL, a1, 4096LL);
-    v5 = v9;
+    StorPortExtendedFunction(0LL, a1, 4096LL, 1701672526LL);
     if ( !v9 )
     {
-      ++*(_DWORD *)(a1 + 4484);
+      ++*(_DWORD *)(a1 + 4028);
       goto LABEL_7;
     }
     memset(v9, 0, 0x1000uLL);
     memmove(v9, a2, 0x1000uLL);
   }
-  result = NVMeAllocateDmaBuffer(a1, 0x1000u);
+  NVMeAllocateDmaBuffer(a1, 0x1000u);
   if ( v8 )
   {
     NVMeZeroMemory(v8, 0x1000u);
-    LocalCommandReuse(a1, a1 + 1712);
-    for ( i = 0; i < 2; *(_BYTE *)(*(_QWORD *)(a1 + 1808) + 4253LL) |= i )
-      ++i;
-    LOBYTE(v6) = 4;
-    *(_WORD *)(*(_QWORD *)(a1 + 1808) + 4244LL) = 0;
-    BuildGetLogPageCommand(a1, *(_QWORD *)(a1 + 1808), v6, 0x1000u, v10, 0, 0LL, 0);
-    *(_QWORD *)(*(_QWORD *)(a1 + 1808) + 4200LL) = v8;
-    *(_QWORD *)(*(_QWORD *)(a1 + 1808) + 4208LL) = v10;
-    *(_DWORD *)(*(_QWORD *)(a1 + 1808) + 4240LL) = 4096;
-    *(_BYTE *)(*(_QWORD *)(a1 + 1808) + 4253LL) |= 4u;
-    *(_QWORD *)(*(_QWORD *)(a1 + 1808) + 4224LL) = NVMeReenumerateReissueGetLogNamespaceChangeListCompletion;
-    *(_QWORD *)(*(_QWORD *)(a1 + 1808) + 4232LL) = v9;
-    return ProcessCommand(a1, a1 + 1720);
+    v6 = *(void **)(a1 + 1608);
+    *(_BYTE *)(a1 + 1523) = 0;
+    memset(v6, 0, 0x10A0uLL);
+    v7 = 0;
+    *(_QWORD *)(*(_QWORD *)(a1 + 1608) + 4232LL) = 0LL;
+    *(_QWORD *)(a1 + 1576) = *(_QWORD *)(a1 + 1608);
+    *(_DWORD *)(a1 + 1512) = 1;
+    do
+      *(_BYTE *)(*(_QWORD *)(a1 + 1608) + 4253LL) |= ++v7;
+    while ( v7 < 2 );
+    *(_WORD *)(*(_QWORD *)(a1 + 1608) + 4244LL) = 0;
+    BuildGetLogPageCommand(a1, *(_QWORD *)(a1 + 1608), 4u, 0x1000u, v10, 0, 0LL, 0);
+    *(_QWORD *)(*(_QWORD *)(a1 + 1608) + 4200LL) = v8;
+    *(_QWORD *)(*(_QWORD *)(a1 + 1608) + 4208LL) = v10;
+    *(_DWORD *)(*(_QWORD *)(a1 + 1608) + 4240LL) = 4096;
+    *(_BYTE *)(*(_QWORD *)(a1 + 1608) + 4253LL) |= 4u;
+    *(_QWORD *)(*(_QWORD *)(a1 + 1608) + 4224LL) = NVMeReenumerateReissueGetLogNamespaceChangeListCompletion;
+    *(_QWORD *)(*(_QWORD *)(a1 + 1608) + 4232LL) = v9;
+    return ProcessCommand(a1, a1 + 1520);
   }
-  ++*(_DWORD *)(a1 + 4480);
-  v5 = v9;
+  ++*(_DWORD *)(a1 + 4024);
 LABEL_7:
-  if ( *(_BYTE *)(a1 + 22) )
-  {
-    result = StorPortExtendedFunction(85LL, a1, 0LL);
-    v5 = v9;
-  }
-  if ( v5 )
-    result = StorPortExtendedFunction(1LL, a1, v5);
+  result = StorPortExtendedFunction(85LL, a1, 0LL, 1LL);
+  if ( v9 )
+    result = StorPortExtendedFunction(1LL, a1, v9, v5);
   if ( v8 )
     result = NVMeFreeDmaBuffer(a1, 4096LL, (__int64 *)&v8, v10);
-  _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4028), 1u);
+  _interlockedbittestandreset((volatile signed __int32 *)(a1 + 3812), 1u);
   return result;
 }

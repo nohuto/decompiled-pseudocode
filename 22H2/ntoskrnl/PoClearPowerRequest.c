@@ -1,17 +1,36 @@
 /*
- * XREFs of PoClearPowerRequest @ 0x14032A4A0
+ * XREFs of PoClearPowerRequest @ 0x14034B770
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14032ECAC (PopApplyLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14034D258 (PopApplyLegacyPowerRequestFlags.c)
  * Callees:
- *     PopPowerRequestReferenceRelease @ 0x14032B248 (PopPowerRequestReferenceRelease.c)
+ *     PoClearPowerRequestInternal @ 0x14034AFAC (PoClearPowerRequestInternal.c)
  */
 
 NTSTATUS __stdcall PoClearPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)
 {
-  __int32 v2; // edx
+  unsigned int v2; // eax
+  __int32 v3; // edx
+  __int32 v5; // edx
 
-  if ( Type && (v2 = Type - 1) != 0 && (unsigned int)(v2 - 1) >= 2 )
-    return -1073741637;
-  else
-    return PopPowerRequestReferenceRelease(PowerRequest);
+  v2 = 0;
+  if ( Type == PowerRequestDisplayRequired )
+    return PoClearPowerRequestInternal((__int64)PowerRequest, v2);
+  v3 = Type - 1;
+  if ( !v3 )
+  {
+    v2 = 1;
+    return PoClearPowerRequestInternal((__int64)PowerRequest, v2);
+  }
+  v5 = v3 - 1;
+  if ( !v5 )
+  {
+    v2 = 2;
+    return PoClearPowerRequestInternal((__int64)PowerRequest, v2);
+  }
+  if ( v5 == 1 )
+  {
+    v2 = 3;
+    return PoClearPowerRequestInternal((__int64)PowerRequest, v2);
+  }
+  return -1073741637;
 }

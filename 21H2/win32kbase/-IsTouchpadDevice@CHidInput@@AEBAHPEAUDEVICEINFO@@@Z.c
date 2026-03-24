@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsTouchpadDevice@CHidInput@@AEBAHPEAUDEVICEINFO@@@Z @ 0x1C01E1D24
+ * XREFs of ?IsTouchpadDevice@CHidInput@@AEBAHPEAUDEVICEINFO@@@Z @ 0x1C01A96A8
  * Callers:
- *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E1DE0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?OnPTPTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E2220 (-OnPTPTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E2930 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A97B0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnPTPTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A9D60 (-OnPTPTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01AA390 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ _BOOL8 __fastcall CHidInput::IsTouchpadDevice(CHidInput *this, struct DEVICEINFO
   result = 0;
   if ( a2 )
   {
-    v2 = *((_QWORD *)a2 + 59);
+    v2 = *((_QWORD *)a2 + 60);
     if ( v2 )
     {
       if ( *(_DWORD *)(v2 + 24) == 7 )

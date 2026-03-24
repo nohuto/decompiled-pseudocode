@@ -1,8 +1,9 @@
 /*
- * XREFs of KiKernelSysretExit @ 0x140AB6DC0
+ * XREFs of KiKernelSysretExit @ 0x140A15DC0
  * Callers:
- *     KiCallUserMode @ 0x140423B80 (KiCallUserMode.c)
- *     KiSystemCall64 @ 0x140434000 (KiSystemCall64.c)
+ *     KiCallUserMode @ 0x1404022D0 (KiCallUserMode.c)
+ *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
+ *     KiUmsFastReturnToUser @ 0x140413100 (KiUmsFastReturnToUser.c)
  * Callees:
  *     <none>
  */
@@ -21,14 +22,14 @@ void KiKernelSysretExit()
     if ( (UserDirectoryTableBase & 1) != 0 )
     {
       if ( (v2 & 1) != 0 )
-        __writegsdword(0xA018u, KeGetPcr()->Prcb.ShadowFlags & 0xFFFFFFFE);
+        __writegsdword(0x9018u, KeGetPcr()->Prcb.ShadowFlags & 0xFFFFFFFE);
       else
         UserDirectoryTableBase |= 0x8000000000000000uLL;
     }
     __writecr3(UserDirectoryTableBase);
   }
   if ( (v3 & 2) == 0 )
-    __asm { verw    word ptr gs:0A02Ah }
+    __asm { verw    word ptr gs:902Ah }
   __asm
   {
     swapgs

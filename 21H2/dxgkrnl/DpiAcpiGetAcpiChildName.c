@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiAcpiGetAcpiChildName @ 0x1C020EA98
+ * XREFs of DpiAcpiGetAcpiChildName @ 0x1C01976B4
  * Callers:
- *     DpEvalAcpiMethod @ 0x1C01E2B10 (DpEvalAcpiMethod.c)
- *     DpiFdoCreateChildDescriptor @ 0x1C020E8E8 (DpiFdoCreateChildDescriptor.c)
+ *     DpEvalAcpiMethod @ 0x1C0167EE0 (DpEvalAcpiMethod.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C0197504 (DpiFdoCreateChildDescriptor.c)
  * Callees:
- *     DpiAcpiPrepareAcpiChildNameList @ 0x1C020EAFC (DpiAcpiPrepareAcpiChildNameList.c)
+ *     DpiAcpiPrepareAcpiChildNameList @ 0x1C0197718 (DpiAcpiPrepareAcpiChildNameList.c)
  */
 
 __int64 __fastcall DpiAcpiGetAcpiChildName(__int64 a1, int a2)

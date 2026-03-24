@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDeleteOwnersRanges @ 0x140839700
+ * XREFs of RtlDeleteOwnersRanges @ 0x1407614B0
  * Callers:
- *     ArbDeleteOwnerRanges @ 0x1408394A0 (ArbDeleteOwnerRanges.c)
- *     ArbQueryConflict @ 0x14090B4C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x14090B860 (ArbRetestAllocation.c)
+ *     ArbDeleteOwnerRanges @ 0x1407613E0 (ArbDeleteOwnerRanges.c)
+ *     ArbQueryConflict @ 0x1408671C0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140867550 (ArbRetestAllocation.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x1408394BC (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x1408398AC (RtlpFreeRangeListEntry.c)
+ *     RtlpFreeRangeListEntry @ 0x140761668 (RtlpFreeRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x1407C5424 (RtlpDeleteFromMergedRange.c)
  */
 
 __int64 __fastcall RtlDeleteOwnersRanges(__int64 **a1, __int64 a2)
@@ -20,6 +20,9 @@ __int64 __fastcall RtlDeleteOwnersRanges(__int64 **a1, __int64 a2)
   _QWORD *v10; // rax
   _QWORD *v11; // rax
   _QWORD *v12; // r9
+  __int64 v13; // rcx
+  __int64 i; // rax
+  __int64 v15; // rax
 
   v4 = 0;
 LABEL_2:
@@ -35,19 +38,21 @@ LABEL_2:
     {
       v11 = *(_QWORD **)(v6 + 16);
       v12 = v11 - 5;
-      while ( (_QWORD *)(v6 + 16) != v11 )
+      v13 = *v11 - 40LL;
+      for ( i = (__int64)(v11 - 2); v6 != i; i = v15 + 24 )
       {
         if ( v12[3] == a2 )
         {
-          v4 = RtlpDeleteFromMergedRange(v12, (_QWORD *)v6);
+          v4 = RtlpDeleteFromMergedRange(v12, (PVOID)v6);
           if ( v4 < 0 )
             return (unsigned int)v4;
           --*((_DWORD *)a1 + 5);
           ++*((_DWORD *)a1 + 6);
           goto LABEL_2;
         }
-        v12 = (_QWORD *)(*v11 - 40LL);
-        v11 = (_QWORD *)*v11;
+        v15 = v13;
+        v12 = (_QWORD *)v13;
+        v13 = *(_QWORD *)(v13 + 40) - 40LL;
       }
     }
     else if ( *(_QWORD *)(v6 + 24) == a2 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18028C6C8
+ * XREFs of ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18024ABC0
  * Callers:
- *     ?CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1@@Z @ 0x18028C458 (-CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1.c)
+ *     ?CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1@@Z @ 0x18024A9A8 (-CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1.c)
  * Callees:
- *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180060C2C (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?CreateRenderTargetView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_RENDER_TARGET_VIEW_DESC@@PEAPEAUID3D11RenderTargetView@@@Z @ 0x18006B6B8 (-CreateRenderTargetView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_RENDER_TARGET_VIEW_DESC@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DESC@@PEAPEAUID3D11ShaderResourceView@@@Z @ 0x1800CCC80 (-CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DE.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180277788 (-AddHwProtectedResource@CD2DContext@@IEAAXXZ.c)
- *     ?GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z @ 0x18028C52C (-GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z.c)
- *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18028C5D0 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033A80 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?CreateRenderTargetView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_RENDER_TARGET_VIEW_DESC@@PEAPEAUID3D11RenderTargetView@@@Z @ 0x18003CC6C (-CreateRenderTargetView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_RENDER_TARGET_VIEW_DESC@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DESC@@PEAPEAUID3D11ShaderResourceView@@@Z @ 0x1800C2F60 (-CreateShaderResourceView@CD3DDevice@@QEAAJPEAUID3D11Resource@@PEBUD3D11_SHADER_RESOURCE_VIEW_DE.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AddHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023B18C (-AddHwProtectedResource@CD2DContext@@IEAAXXZ.c)
+ *     ?GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z @ 0x18024AA78 (-GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z.c)
+ *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18024AB10 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CD3DSurface::Init(
@@ -19,145 +19,144 @@ __int64 __fastcall CD3DSurface::Init(
         struct IDXGIResource *a3,
         int a4)
 {
-  __int64 v5; // rcx
+  __int64 v6; // rcx
   __int64 v7; // rcx
   unsigned int v8; // edi
   int v9; // ecx
-  int v10; // ecx
   int PixelFormatColorSpace; // eax
-  __int64 v12; // rcx
-  int v13; // eax
-  struct CD3DResourceManager *v14; // rax
-  struct CD3DResourceManager **v15; // r8
-  unsigned int v16; // eax
-  bool v17; // cc
-  const struct D3D11_RENDER_TARGET_VIEW_DESC *v18; // r8
-  bool v19; // cc
-  const struct D3D11_SHADER_RESOURCE_VIEW_DESC *v20; // r8
-  unsigned int v22; // [rsp+20h] [rbp-30h]
-  int v23; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v24; // [rsp+34h] [rbp-1Ch]
-  int v25; // [rsp+3Ch] [rbp-14h]
-  int v26; // [rsp+40h] [rbp-10h]
-  int v27; // [rsp+44h] [rbp-Ch]
-  struct IDXGIResource *v28; // [rsp+80h] [rbp+30h] BYREF
-  int v29; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v11; // rcx
+  int v12; // eax
+  struct CD3DResourceManager *v13; // rax
+  struct CD3DResourceManager **v14; // r8
+  unsigned int v15; // eax
+  bool v16; // cc
+  const struct D3D11_RENDER_TARGET_VIEW_DESC *v17; // r8
+  bool v18; // cc
+  const struct D3D11_SHADER_RESOURCE_VIEW_DESC *v19; // r8
+  unsigned int v21; // [rsp+20h] [rbp-30h]
+  int v22; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v23; // [rsp+34h] [rbp-1Ch]
+  int v24; // [rsp+3Ch] [rbp-14h]
+  int v25; // [rsp+40h] [rbp-10h]
+  int v26; // [rsp+44h] [rbp-Ch]
+  struct IDXGIResource *v27; // [rsp+80h] [rbp+30h] BYREF
+  int v28; // [rsp+88h] [rbp+38h] BYREF
 
-  v29 = a4;
-  v28 = a3;
-  v5 = *((_QWORD *)this + 14);
-  v28 = 0LL;
-  (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v5 + 80LL))(v5, (char *)this + 124);
-  if ( !*((_DWORD *)this + 34) )
+  v28 = a4;
+  v27 = a3;
+  v6 = *((_QWORD *)this + 16);
+  v27 = 0LL;
+  (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v6 + 80LL))(v6, (char *)this + 140);
+  if ( !*((_DWORD *)this + 38) )
   {
     v8 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024809, 0x9Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024809, 0x9Du, 0LL);
     goto LABEL_34;
   }
-  v9 = *((_DWORD *)this + 35);
-  *((_DWORD *)this + 30) = 0;
-  *((_DWORD *)this + 42) = HasAlphaChannel(v9) ? 1 : 3;
-  PixelFormatColorSpace = GetPixelFormatColorSpace(v10, (enum DXGI_COLOR_SPACE_TYPE *)this + 43);
+  v9 = *((_DWORD *)this + 39);
+  *((_DWORD *)this + 34) = 0;
+  *((_DWORD *)this + 46) = HasAlphaChannel(v9) ? 1 : 3;
+  PixelFormatColorSpace = GetPixelFormatColorSpace(*((_DWORD *)this + 39), (enum DXGI_COLOR_SPACE_TYPE *)this + 47);
   v8 = PixelFormatColorSpace;
   if ( PixelFormatColorSpace < 0 )
   {
-    v22 = 176;
+    v21 = 176;
     goto LABEL_33;
   }
-  v13 = (*(__int64 (__fastcall **)(CD3DSurface *))(*(_QWORD *)this + 88LL))(this);
-  *((_BYTE *)this + 70) = 1;
-  *((_DWORD *)this + 16) = v13;
-  v14 = (CD3DSurface *)((char *)this + 32);
-  *((_QWORD *)this + 3) = a2;
-  v15 = (struct CD3DResourceManager **)*((_QWORD *)a2 + 5);
-  if ( *v15 != (struct CD3DResourceManager *)((char *)a2 + 32) )
+  v12 = (*(__int64 (__fastcall **)(CD3DSurface *))(*(_QWORD *)this + 32LL))(this);
+  *((_BYTE *)this + 86) = 1;
+  *((_DWORD *)this + 20) = v12;
+  v13 = (CD3DSurface *)((char *)this + 40);
+  *((_QWORD *)this + 2) = a2;
+  v14 = (struct CD3DResourceManager **)*((_QWORD *)a2 + 5);
+  if ( *v14 != (struct CD3DResourceManager *)((char *)a2 + 32) )
     __fastfail(3u);
-  *(_QWORD *)v14 = (char *)a2 + 32;
-  *((_QWORD *)this + 5) = v15;
-  *v15 = v14;
-  *((_QWORD *)a2 + 5) = v14;
-  if ( (*(unsigned __int8 (__fastcall **)(CD3DSurface *))(*(_QWORD *)this + 24LL))(this) )
-    *((_BYTE *)this + 69) = 1;
-  if ( *((_BYTE *)this + 68) )
+  *(_QWORD *)v13 = (char *)a2 + 32;
+  *((_QWORD *)this + 6) = v14;
+  *v14 = v13;
+  *((_QWORD *)a2 + 5) = v13;
+  if ( (*(unsigned __int8 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 24LL))((char *)this + 24) )
+    *((_BYTE *)this + 85) = 1;
+  if ( *((_BYTE *)this + 84) )
   {
-    *((_BYTE *)this + 68) = 1;
+    *((_BYTE *)this + 84) = 1;
     ++*((_DWORD *)a2 + 18);
-    if ( *((_BYTE *)this + 69) )
+    if ( *((_BYTE *)this + 85) )
       CD2DContext::AddHwProtectedResource((CD2DContext *)(*((_QWORD *)a2 + 10) + 16LL));
   }
-  *((_DWORD *)a2 + 12) += *((_DWORD *)this + 16);
-  v16 = *((_DWORD *)a2 + 12);
-  if ( *((_DWORD *)a2 + 13) < v16 )
-    *((_DWORD *)a2 + 13) = v16;
-  PixelFormatColorSpace = CD3DSurface::GetDXGIResource(this, &v28);
+  *((_DWORD *)a2 + 12) += *((_DWORD *)this + 20);
+  v15 = *((_DWORD *)a2 + 12);
+  if ( *((_DWORD *)a2 + 13) < v15 )
+    *((_DWORD *)a2 + 13) = v15;
+  PixelFormatColorSpace = CD3DSurface::GetDXGIResource(this, &v27);
   v8 = PixelFormatColorSpace;
   if ( PixelFormatColorSpace < 0 )
   {
-    v22 = 190;
+    v21 = 190;
     goto LABEL_33;
   }
-  PixelFormatColorSpace = ((__int64 (__fastcall *)(struct IDXGIResource *, int *))v28->lpVtbl->GetUsage)(v28, &v29);
+  PixelFormatColorSpace = ((__int64 (__fastcall *)(struct IDXGIResource *, int *))v27->lpVtbl->GetUsage)(v27, &v28);
   v8 = PixelFormatColorSpace;
   if ( PixelFormatColorSpace < 0 )
   {
-    v22 = 192;
+    v21 = 192;
 LABEL_33:
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, PixelFormatColorSpace, v22);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, PixelFormatColorSpace, v21, 0LL);
     goto LABEL_34;
   }
-  if ( (*((_BYTE *)this + 156) & 0x20) != 0 && (v29 & 0x100) == 0 )
+  if ( (*((_BYTE *)this + 172) & 0x20) != 0 && (v28 & 0x100) == 0 )
   {
-    v17 = *((_DWORD *)this + 34) <= 1u;
-    if ( *((_DWORD *)this + 34) > 1u )
+    v16 = *((_DWORD *)this + 38) <= 1u;
+    if ( *((_DWORD *)this + 38) > 1u )
     {
-      v23 = *((_DWORD *)this + 35);
-      v25 = *((_DWORD *)this + 30);
-      v24 = 5LL;
-      v26 = 1;
+      v22 = *((_DWORD *)this + 39);
+      v24 = *((_DWORD *)this + 34);
+      v23 = 5LL;
+      v25 = 1;
     }
-    v18 = (const struct D3D11_RENDER_TARGET_VIEW_DESC *)&v23;
-    if ( v17 )
-      v18 = 0LL;
+    v17 = (const struct D3D11_RENDER_TARGET_VIEW_DESC *)&v22;
+    if ( v16 )
+      v17 = 0LL;
     PixelFormatColorSpace = CD3DDevice::CreateRenderTargetView(
-                              *(CD3DDevice **)(*((_QWORD *)this + 3) + 80LL),
-                              *((struct ID3D11Resource **)this + 14),
-                              v18,
-                              (struct ID3D11RenderTargetView **)this + 22);
+                              *(CD3DDevice **)(*((_QWORD *)this + 2) + 80LL),
+                              *((struct ID3D11Resource **)this + 16),
+                              v17,
+                              (struct ID3D11RenderTargetView **)this + 24);
     v8 = PixelFormatColorSpace;
     if ( PixelFormatColorSpace < 0 )
     {
-      v22 = 216;
+      v21 = 216;
       goto LABEL_33;
     }
   }
-  if ( (*((_BYTE *)this + 156) & 8) != 0 )
+  if ( (*((_BYTE *)this + 172) & 8) != 0 )
   {
-    v19 = *((_DWORD *)this + 34) <= 1u;
-    if ( *((_DWORD *)this + 34) > 1u )
+    v18 = *((_DWORD *)this + 38) <= 1u;
+    if ( *((_DWORD *)this + 38) > 1u )
     {
-      v23 = *((_DWORD *)this + 35);
-      v25 = *((_DWORD *)this + 33);
-      v26 = *((_DWORD *)this + 30);
-      v24 = 5LL;
-      v27 = 1;
+      v22 = *((_DWORD *)this + 39);
+      v24 = *((_DWORD *)this + 37);
+      v25 = *((_DWORD *)this + 34);
+      v23 = 5LL;
+      v26 = 1;
     }
-    v20 = (const struct D3D11_SHADER_RESOURCE_VIEW_DESC *)&v23;
-    if ( v19 )
-      v20 = 0LL;
+    v19 = (const struct D3D11_SHADER_RESOURCE_VIEW_DESC *)&v22;
+    if ( v18 )
+      v19 = 0LL;
     PixelFormatColorSpace = CD3DDevice::CreateShaderResourceView(
-                              *(CD3DDevice **)(*((_QWORD *)this + 3) + 80LL),
-                              *((struct ID3D11Resource **)this + 14),
-                              v20,
-                              (struct ID3D11ShaderResourceView **)this + 23);
+                              *(CD3DDevice **)(*((_QWORD *)this + 2) + 80LL),
+                              *((struct ID3D11Resource **)this + 16),
+                              v19,
+                              (struct ID3D11ShaderResourceView **)this + 25);
     v8 = PixelFormatColorSpace;
     if ( PixelFormatColorSpace < 0 )
     {
-      v22 = 238;
+      v21 = 238;
       goto LABEL_33;
     }
   }
 LABEL_34:
-  if ( v28 )
-    ((void (__fastcall *)(struct IDXGIResource *))v28->lpVtbl->Release)(v28);
+  if ( v27 )
+    ((void (__fastcall *)(struct IDXGIResource *))v27->lpVtbl->Release)(v27);
   return v8;
 }

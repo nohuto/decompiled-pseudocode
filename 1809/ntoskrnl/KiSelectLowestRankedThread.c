@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSelectLowestRankedThread @ 0x1400D71E0
+ * XREFs of KiSelectLowestRankedThread @ 0x1400D7200
  * Callers:
  *     KiSelectReadyThreadEx @ 0x14005ADA0 (KiSelectReadyThreadEx.c)
- *     KiSelectNextThread @ 0x1400D7148 (KiSelectNextThread.c)
+ *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
  * Callees:
- *     KiSelectThreadFromSchedulingGroup @ 0x140116DC8 (KiSelectThreadFromSchedulingGroup.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140116DE8 (KiSelectThreadFromSchedulingGroup.c)
  */
 
 __int64 __fastcall KiSelectLowestRankedThread(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6A0
+ * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6C0
  * Callers:
  *     KiIntSteerDistributeInterrupts @ 0x1400631A0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerDisable @ 0x14016D400 (KiIntSteerDisable.c)
- *     KiIntSteerConnect @ 0x14016DE84 (KiIntSteerConnect.c)
+ *     KiIntSteerDisable @ 0x14016D420 (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 __int64 __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2, __int64 a3)

@@ -1,17 +1,16 @@
 /*
- * XREFs of MiEndDpcGang @ 0x140389330
+ * XREFs of MiEndDpcGang @ 0x1405603D8
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x140388FF4 (MiAllocateFastLargePagesForMdl.c)
- *     MiInitializeDynamicPfns @ 0x14061AF68 (MiInitializeDynamicPfns.c)
+ *     MiHugePageOperation @ 0x140532EB8 (MiHugePageOperation.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533C24 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEndDpcGang(__int64 a1)
 {
   PVOID *v1; // rdi
   PVOID *v3; // rcx
-  void *v4; // rcx
 
   v1 = (PVOID *)(a1 + 16);
   if ( (*(_DWORD *)(a1 + 184) & 1) != 0 )
@@ -30,11 +29,5 @@ void __fastcall MiEndDpcGang(__int64 a1)
       ExFreePoolWithTag(v3, 0);
       *(_QWORD *)(a1 + 8) = 0LL;
     }
-  }
-  v4 = *(void **)(a1 + 216);
-  if ( v4 )
-  {
-    if ( v4 != (void *)(a1 + 232) )
-      ExFreePoolWithTag(v4, 0);
   }
 }

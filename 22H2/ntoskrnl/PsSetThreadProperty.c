@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSetThreadProperty @ 0x1403C4530
+ * XREFs of PsSetThreadProperty @ 0x1402EFC70
  * Callers:
  *     <none>
  * Callees:
- *     PspValidateThread @ 0x1403C4570 (PspValidateThread.c)
- *     PspRemoveProperty @ 0x1403C45F8 (PspRemoveProperty.c)
- *     PspInsertProperty @ 0x1403C46C4 (PspInsertProperty.c)
+ *     PspRemoveProperty @ 0x1402EFB98 (PspRemoveProperty.c)
+ *     PspValidateThread @ 0x1402EFCB0 (PspValidateThread.c)
+ *     PspInsertProperty @ 0x1402EFD30 (PspInsertProperty.c)
  */
 
 __int64 __fastcall PsSetThreadProperty(__int64 a1, __int64 a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall PsSetThreadProperty(__int64 a1, __int64 a2, __int64 a3)
   result = PspValidateThread(a1, a2, a3, a3);
   if ( (int)result >= 0 )
   {
-    v7 = v4 + 1560;
+    v7 = v4 + 1480;
     if ( v5 )
       return PspInsertProperty(v7, v6, v5);
     else

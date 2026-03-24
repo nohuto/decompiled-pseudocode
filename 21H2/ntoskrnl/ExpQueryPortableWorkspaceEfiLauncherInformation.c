@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1409F7390
+ * XREFs of ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B010
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     ZwEnumerateBootEntries @ 0x14041D3E0 (ZwEnumerateBootEntries.c)
- *     ZwQueryBootEntryOrder @ 0x14041E020 (ZwQueryBootEntryOrder.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     ZwEnumerateBootEntries @ 0x1403FBF80 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x1403FCBA0 (ZwQueryBootEntryOrder.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int a2, _DWORD *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int
   v19 = 0LL;
   v6 = 0LL;
   v20 = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
   {
     v7 = -1073741821;
     goto LABEL_3;

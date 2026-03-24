@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetInstallerClassRegProp @ 0x1406F1254
+ * XREFs of _CmGetInstallerClassRegProp @ 0x1406F1234
  * Callers:
  *     PiCMGetRegistryProperty @ 0x140594FA0 (PiCMGetRegistryProperty.c)
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  *     _CmGetDeviceRegPropWorker @ 0x1405C6B1C (_CmGetDeviceRegPropWorker.c)
- *     PnpCallDriverQueryServiceHelper @ 0x1406E7A98 (PnpCallDriverQueryServiceHelper.c)
- *     PpForEachDeviceInstanceDriver @ 0x1406EE51C (PpForEachDeviceInstanceDriver.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1406F0344 (PipGetRegistrySecurityWithFallback.c)
- *     PipGetRegistryDwordWithFallback @ 0x1406F08EC (PipGetRegistryDwordWithFallback.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F110C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmServiceFilterCallback @ 0x1408FAA80 (_CmServiceFilterCallback.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x1406E7A78 (PnpCallDriverQueryServiceHelper.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1406EE4FC (PpForEachDeviceInstanceDriver.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x1406F0324 (PipGetRegistrySecurityWithFallback.c)
+ *     PipGetRegistryDwordWithFallback @ 0x1406F08CC (PipGetRegistryDwordWithFallback.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F10EC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmServiceFilterCallback @ 0x1408FAA60 (_CmServiceFilterCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x1406F13C8 (_CmGetInstallerClassRegPropWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x1406F13A8 (_CmGetInstallerClassRegPropWorker.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegProp(

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpViewMapCreateViewsForRegion @ 0x14068D778
+ * XREFs of HvpViewMapCreateViewsForRegion @ 0x140723598
  * Callers:
- *     HvpViewMapStart @ 0x14068D6C4 (HvpViewMapStart.c)
- *     HvpViewMapExtendStorage @ 0x14068F044 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapStart @ 0x1407234E4 (HvpViewMapStart.c)
+ *     HvpViewMapExtendStorage @ 0x140724E8C (HvpViewMapExtendStorage.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmSiGetMemoryAllocationGranularity @ 0x14020B6B8 (CmSiGetMemoryAllocationGranularity.c)
- *     CmSiUnmapViewOfSection @ 0x140254F78 (CmSiUnmapViewOfSection.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     HvpViewMapCreateView @ 0x14068DA14 (HvpViewMapCreateView.c)
- *     HvpViewMapMakeViewRangeValid @ 0x14068DB00 (HvpViewMapMakeViewRangeValid.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     CmSiGetMemoryAllocationGranularity @ 0x140362A1C (CmSiGetMemoryAllocationGranularity.c)
+ *     CmSiUnmapViewOfSection @ 0x140363DD4 (CmSiUnmapViewOfSection.c)
+ *     HvpViewMapCreateView @ 0x140723834 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140723924 (HvpViewMapMakeViewRangeValid.c)
  */
 
 __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -138,9 +138,9 @@ LABEL_57:
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)&v9[2].PrivilegeCount >= *(_QWORD *)(v27 + 40) )
+          if ( *(_QWORD *)&v9[2].PrivilegeCount < *(_QWORD *)(v27 + 40) )
           {
-            v29 = *(_QWORD *)(v27 + 8);
+            v29 = *(_QWORD *)v27;
             if ( (*(_BYTE *)(a1 + 48) & 1) != 0 )
             {
               if ( !v29 )
@@ -150,13 +150,13 @@ LABEL_57:
             if ( !v29 )
             {
 LABEL_36:
-              v28 = 1;
+              v28 = 0;
               break;
             }
           }
           else
           {
-            v29 = *(_QWORD *)v27;
+            v29 = *(_QWORD *)(v27 + 8);
             if ( (*(_BYTE *)(a1 + 48) & 1) != 0 )
             {
               if ( !v29 )
@@ -166,7 +166,7 @@ LABEL_36:
             if ( !v29 )
             {
 LABEL_37:
-              v28 = 0;
+              v28 = 1;
               break;
             }
           }

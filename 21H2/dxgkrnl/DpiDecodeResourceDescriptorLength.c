@@ -1,29 +1,38 @@
 /*
- * XREFs of DpiDecodeResourceDescriptorLength @ 0x1C01F43C4
+ * XREFs of DpiDecodeResourceDescriptorLength @ 0x1C017B418
  * Callers:
- *     DpiFdoDetectPostDevice @ 0x1C01F4164 (DpiFdoDetectPostDevice.c)
- *     DpiVerifyResources @ 0x1C02144DC (DpiVerifyResources.c)
+ *     DpiFdoDetectPostDevice @ 0x1C017B1B0 (DpiFdoDetectPostDevice.c)
+ *     DpiVerifyResources @ 0x1C0198654 (DpiVerifyResources.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall DpiDecodeResourceDescriptorLength(unsigned __int8 *a1)
+unsigned __int64 __fastcall DpiDecodeResourceDescriptorLength(unsigned __int8 *a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rax
+  __int16 v5; // ax
+  __int64 v6; // rax
+  __int64 v7; // rcx
 
-  v1 = *a1;
-  if ( (_BYTE)v1 == 3 )
+  if ( *a1 == 3 )
     return *((unsigned int *)a1 + 3);
-  if ( (_BYTE)v1 != 7 )
-    goto LABEL_10;
-  v1 = *((unsigned __int16 *)a1 + 1);
-  if ( (v1 & 0x200) != 0 )
-    return (unsigned __int64)*((unsigned int *)a1 + 3) << 8;
-  if ( (v1 & 0x400) != 0 )
-    return (unsigned __int64)*((unsigned int *)a1 + 3) << 16;
-  if ( (v1 & 0x800) != 0 )
-    return (unsigned __int64)*((unsigned int *)a1 + 3) << 32;
-LABEL_10:
-  WdLogSingleEntry1(3LL, v1);
+  if ( *a1 == 7 )
+  {
+    v5 = *((_WORD *)a1 + 1);
+    if ( (v5 & 0x200) != 0 )
+      return (unsigned __int64)*((unsigned int *)a1 + 3) << 8;
+    if ( (v5 & 0x400) != 0 )
+      return (unsigned __int64)*((unsigned int *)a1 + 3) << 16;
+    if ( (v5 & 0x800) != 0 )
+      return (unsigned __int64)*((unsigned int *)a1 + 3) << 32;
+    v6 = WdLogNewEntry5_WdWarning(2048LL, a2, a3);
+    v7 = *((unsigned __int16 *)a1 + 1);
+  }
+  else
+  {
+    v6 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+    v7 = *a1;
+  }
+  *(_QWORD *)(v6 + 24) = v7;
+  WdLogEvent5_WdWarning(v6);
   return 0LL;
 }

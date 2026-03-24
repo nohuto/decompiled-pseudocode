@@ -1,16 +1,16 @@
 /*
- * XREFs of KeInitializeTimerTable @ 0x14082A0D8
+ * XREFs of KeInitializeTimerTable @ 0x14079FB34
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KiInitializeTimer2Data @ 0x1403DC498 (KiInitializeTimer2Data.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiInitializeForceIdle @ 0x14082A224 (KiInitializeForceIdle.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x1403B6490 (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiInitializeForceIdle @ 0x14079FC80 (KiInitializeForceIdle.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeInitializeTimerTable(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1)
     }
     else
     {
-      KiSerializeTimerExpiration = (unsigned __int8)off_140C01EB0[0]() != 0;
+      KiSerializeTimerExpiration = (unsigned __int8)off_140C00860[0]() != 0;
     }
     KiInitializeTimer2Data();
   }
@@ -67,11 +67,11 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1)
     KiPendingTimerBitmaps[v9] = 8 * v7;
     KiPendingTimerBitmaps[v9 + 1] = (__int64)v8;
   }
-  *(_DWORD *)(a1 + 13248) = MEMORY[0xFFFFF78000000320];
-  KeInitializeDpc((PRKDPC)(a1 + 32496), (PKDEFERRED_ROUTINE)KiTimerExpirationDpc, 0LL);
-  if ( !*(_QWORD *)(a1 + 32552) )
-    *(_WORD *)(a1 + 32498) = *(_DWORD *)(a1 + 36) + 2048;
-  v3 = a1 + 15880;
+  *(_DWORD *)(a1 + 12596) = MEMORY[0xFFFFF78000000320];
+  KeInitializeDpc((PRKDPC)(a1 + 31792), (PKDEFERRED_ROUTINE)KiTimerExpirationDpc, 0LL);
+  if ( !*(_QWORD *)(a1 + 31848) )
+    *(_WORD *)(a1 + 31794) = *(_DWORD *)(a1 + 36) + 1280;
+  v3 = a1 + 15176;
   v4 = 2LL;
   do
   {

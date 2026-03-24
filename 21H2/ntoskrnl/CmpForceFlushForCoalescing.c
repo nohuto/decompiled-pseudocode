@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpForceFlushForCoalescing @ 0x140881450
+ * XREFs of CmpForceFlushForCoalescing @ 0x140876C60
  * Callers:
- *     CmpCoalescingCallback @ 0x14053F590 (CmpCoalescingCallback.c)
- *     HvpMarkDirty @ 0x14071F430 (HvpMarkDirty.c)
+ *     CmpCoalescingCallback @ 0x1404ECE30 (CmpCoalescingCallback.c)
+ *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void CmpForceFlushForCoalescing()
 {
   int v0; // eax
 
-  if ( !BYTE1(NlsMbOemCodePageTag) )
+  if ( !BYTE1(NlsMbCodePageTag) )
   {
     if ( CmpWorkerDataInitialized )
     {

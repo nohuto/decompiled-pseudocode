@@ -1,25 +1,25 @@
 /*
- * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1408543E8
+ * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1408543C8
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x140854344 (MiApplyHotPatchToDriver.c)
+ *     MiApplyHotPatchToDriver @ 0x140854324 (MiApplyHotPatchToDriver.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiCheckPurgeAndUpMapCount @ 0x140077DD0 (MiCheckPurgeAndUpMapCount.c)
  *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3134 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiHandleDriverNonPagedSections @ 0x1406557AC (MiHandleDriverNonPagedSections.c)
- *     MiObtainSectionForDriver @ 0x140681910 (MiObtainSectionForDriver.c)
- *     MiGenerateSystemImageNames @ 0x140681A8C (MiGenerateSystemImageNames.c)
- *     MiDriverLoadSucceeded @ 0x140681C04 (MiDriverLoadSucceeded.c)
- *     MiMapSystemImage @ 0x140682104 (MiMapSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140682490 (MiConstructLoaderEntry.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
- *     MiBackSingleImageWithPagefile @ 0x14070D480 (MiBackSingleImageWithPagefile.c)
- *     MiApplyDriverHotPatch @ 0x1408540A0 (MiApplyDriverHotPatch.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiHandleDriverNonPagedSections @ 0x14065578C (MiHandleDriverNonPagedSections.c)
+ *     MiObtainSectionForDriver @ 0x1406818F0 (MiObtainSectionForDriver.c)
+ *     MiGenerateSystemImageNames @ 0x140681A6C (MiGenerateSystemImageNames.c)
+ *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
+ *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
+ *     MiBackSingleImageWithPagefile @ 0x14070D460 (MiBackSingleImageWithPagefile.c)
+ *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
  */
 
 NTSTATUS __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, UNICODE_STRING *a2, __int64 a3)

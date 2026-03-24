@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIommuGetDeviceId @ 0x1C009FE60
+ * XREFs of ACPIIommuGetDeviceId @ 0x1C00A1C30
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIIommuGetDeviceId(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall ACPIIommuGetDeviceId(__int64 a1, unsigned __int64 a2, __int64
   __int64 result; // rax
 
   v6 = -1LL;
-  v8 = *(_BYTE **)(a1 + 104);
+  v8 = *(_BYTE **)(a1 + 96);
   v9 = -1LL;
   do
     ++v9;
@@ -27,8 +27,8 @@ __int64 __fastcall ACPIIommuGetDeviceId(__int64 a1, unsigned __int64 a2, __int64
   }
   else
   {
-    *(_OWORD *)a3 = *(_OWORD *)(a1 + 96);
-    *(_QWORD *)(a3 + 16) = *(_QWORD *)(a1 + 112);
+    *(_OWORD *)a3 = *(_OWORD *)(a1 + 88);
+    *(_QWORD *)(a3 + 16) = *(_QWORD *)(a1 + 104);
     *(_QWORD *)(a3 + 8) = a3 + 24;
     do
       ++v6;

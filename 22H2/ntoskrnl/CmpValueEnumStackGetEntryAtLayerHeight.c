@@ -1,22 +1,19 @@
 /*
- * XREFs of CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A253D0
+ * XREFs of CmpValueEnumStackGetEntryAtLayerHeight @ 0x14072AE50
  * Callers:
- *     CmpValueEnumStackGetCurrentValueHive @ 0x14046B1F4 (CmpValueEnumStackGetCurrentValueHive.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140616830 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpSortedValueEnumStackAdvanceInternal @ 0x140A25084 (CmpSortedValueEnumStackAdvanceInternal.c)
- *     CmpSortedValueEnumStackCleanup @ 0x140A25190 (CmpSortedValueEnumStackCleanup.c)
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A25438 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
- *     CmpValueEnumStackAdvance @ 0x140A25604 (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x140A25788 (CmpValueEnumStackCleanup.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25834 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036B6A8 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackGetCurrentValueHive @ 0x1404ECF9C (CmpValueEnumStackGetCurrentValueHive.c)
+ *     CmpValueEnumStackAdvance @ 0x14072AB14 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x14072ADF0 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BB24 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CmpValueEnumStackGetEntryAtLayerHeight(__int64 a1, __int16 a2)
 {
-  if ( a2 < 2 )
-    return a1 + 32LL * a2 + 16;
+  if ( a2 >= 2 )
+    return *(_QWORD *)(a1 + 80) + 32LL * (__int16)(a2 - 2);
   else
-    return *(_QWORD *)(a1 + 80) + 32 * (a2 - 2LL);
+    return a1 + 32LL * a2 + 16;
 }

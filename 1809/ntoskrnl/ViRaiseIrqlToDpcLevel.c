@@ -1,8 +1,8 @@
 /*
- * XREFs of ViRaiseIrqlToDpcLevel @ 0x14030B468
+ * XREFs of ViRaiseIrqlToDpcLevel @ 0x14030B568
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B17C (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B2DC (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B27C (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B3DC (ViDeadlockRemoveMemoryRangeThreads.c)
  *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
  *     VfDeadlockAfterCallDriver @ 0x14093BBEC (VfDeadlockAfterCallDriver.c)
  *     VfDeadlockBeforeCallDriver @ 0x14093BC58 (VfDeadlockBeforeCallDriver.c)

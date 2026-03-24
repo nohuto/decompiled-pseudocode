@@ -1,42 +1,55 @@
 /*
- * XREFs of KiConfigureAllSchedulingInformation @ 0x140B4FEDC
+ * XREFs of KiConfigureAllSchedulingInformation @ 0x140A4EA60
  * Callers:
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BCC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KiConfigureNodeSchedulingInformation @ 0x1403B11C4 (KiConfigureNodeSchedulingInformation.c)
- *     KiConfigureSchedulingInformation @ 0x140A8E7A4 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1403B61A0 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x14099F9F0 (KiConfigureSchedulingInformation.c)
  */
 
-__int64 KiConfigureAllSchedulingInformation()
+void KiConfigureAllSchedulingInformation()
 {
-  unsigned int v0; // ebx
-  __int64 result; // rax
-  unsigned __int16 i; // bx
-  __int64 v3; // [rsp+20h] [rbp-18h] BYREF
-  int v4; // [rsp+28h] [rbp-10h]
-  int v5; // [rsp+2Ch] [rbp-Ch]
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int16 v0; // si
+  __int64 *v1; // rdi
+  __int64 v2; // rcx
+  unsigned __int64 v3; // rbp
+  int v4; // r14d
+  unsigned __int64 v5; // rbx
+  __int64 v6; // rbx
 
-  v6 = 0LL;
   v0 = 0;
-  for ( result = (unsigned int)KeNumberProcessors_0; v0 < (unsigned int)KeNumberProcessors_0; ++v0 )
+  if ( KeNumberNodes )
   {
-    KiConfigureSchedulingInformation(KiProcessorBlock[v0], 0);
-    result = (unsigned int)KeNumberProcessors_0;
-  }
-  for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
-  {
-    v5 = 0;
-    v3 = KeNodeBlock[i];
-    v4 = *(_DWORD *)(v3 + 16);
-    while ( 1 )
+    v1 = KeNodeBlock;
+    do
     {
-      result = KeEnumerateNextSchedulerSubNodeInNode((__int64)&v3, &v6);
-      if ( (_DWORD)result )
-        break;
-      KiConfigureNodeSchedulingInformation(v6);
+      v2 = KeNodeBlock[v0];
+      v3 = *(_QWORD *)(v2 + 136);
+      if ( v3 )
+      {
+        v4 = *(unsigned __int16 *)(v2 + 144) << 6;
+        do
+        {
+          _BitScanForward64(&v5, v3);
+          KiConfigureSchedulingInformation(
+            KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)(v4 + v5)]],
+            0);
+          v3 &= ~(1LL << v5);
+        }
+        while ( v3 );
+      }
+      ++v0;
+    }
+    while ( v0 < (unsigned __int16)KeNumberNodes );
+    if ( KeNumberNodes )
+    {
+      v6 = (unsigned __int16)KeNumberNodes;
+      do
+      {
+        KiConfigureNodeSchedulingInformation(*v1++);
+        --v6;
+      }
+      while ( v6 );
     }
   }
-  return result;
 }

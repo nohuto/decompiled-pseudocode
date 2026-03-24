@@ -1,21 +1,21 @@
 /*
- * XREFs of WheaPersistOfflinedPage @ 0x1403204A4
+ * XREFs of WheaPersistOfflinedPage @ 0x1403205A4
  * Callers:
- *     EmpRemoveBadS3PageWorker @ 0x140813E00 (EmpRemoveBadS3PageWorker.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408DBD6C (WheapAttemptPhysicalPageOffline.c)
+ *     EmpRemoveBadS3PageWorker @ 0x140813DE0 (EmpRemoveBadS3PageWorker.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1408DBD4C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140712288 (BcdOpenStore.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     WheapCountBadPageExtents @ 0x1408DC008 (WheapCountBadPageExtents.c)
- *     WheapIsPageInList @ 0x1408DC050 (WheapIsPageInList.c)
- *     WheapSortBadPages @ 0x1408DC074 (WheapSortBadPages.c)
- *     BcdCreateObject @ 0x1408F0808 (BcdCreateObject.c)
- *     BcdGetElementData @ 0x1408F1004 (BcdGetElementData.c)
- *     BcdSetElementData @ 0x1408F1020 (BcdSetElementData.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140712268 (BcdOpenStore.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     WheapCountBadPageExtents @ 0x1408DBFE8 (WheapCountBadPageExtents.c)
+ *     WheapIsPageInList @ 0x1408DC030 (WheapIsPageInList.c)
+ *     WheapSortBadPages @ 0x1408DC054 (WheapSortBadPages.c)
+ *     BcdCreateObject @ 0x1408F07E8 (BcdCreateObject.c)
+ *     BcdGetElementData @ 0x1408F0FE4 (BcdGetElementData.c)
+ *     BcdSetElementData @ 0x1408F1000 (BcdSetElementData.c)
  */
 
 __int64 __fastcall WheaPersistOfflinedPage(__int64 a1)

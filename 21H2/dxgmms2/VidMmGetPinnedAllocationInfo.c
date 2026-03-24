@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmGetPinnedAllocationInfo @ 0x1C001A7D0
+ * XREFs of VidMmGetPinnedAllocationInfo @ 0x1C0022DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00A9564 (-GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGE.c)
+ *     ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00B0208 (-GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGE.c)
  */
 
 void __fastcall VidMmGetPinnedAllocationInfo(

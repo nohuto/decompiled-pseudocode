@@ -1,64 +1,57 @@
 /*
- * XREFs of fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0210CBC
+ * XREFs of fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0230878
  * Callers:
- *     xxxHkCallHook @ 0x1C0120850 (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CA10 (xxxHkCallHook.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?CopyDebugHookLParam@@YAH_KPEAT_DEBUGLPARAM@@PEAUtagDEBUGHOOKINFO@@@Z @ 0x1C02051A8 (-CopyDebugHookLParam@@YAH_KPEAT_DEBUGLPARAM@@PEAUtagDEBUGHOOKINFO@@@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?CopyDebugHookLParam@@YAH_KPEAT_DEBUGLPARAM@@PEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01693F8 (-CopyDebugHookLParam@@YAH_KPEAT_DEBUGLPARAM@@PEAUtagDEBUGHOOKINFO@@@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall fnHkINLPDEBUGHOOKSTRUCT(int a1, unsigned __int64 a2, __int128 *a3, __int64 a4, __int64 a5)
+__int64 __fastcall fnHkINLPDEBUGHOOKSTRUCT(int a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // ebx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 *v15; // rcx
+  int v9; // ebx
+  __int64 *v10; // rcx
   __int64 result; // rax
-  _BYTE v17[4]; // [rsp+30h] [rbp-B8h] BYREF
-  int v18; // [rsp+34h] [rbp-B4h] BYREF
-  _QWORD v19[3]; // [rsp+38h] [rbp-B0h] BYREF
-  int v20; // [rsp+50h] [rbp-98h] BYREF
-  unsigned __int64 v21; // [rsp+58h] [rbp-90h]
-  __int128 v22; // [rsp+60h] [rbp-88h]
-  __int128 v23; // [rsp+70h] [rbp-78h]
-  _BYTE v24[48]; // [rsp+80h] [rbp-68h] BYREF
-  int v25; // [rsp+B0h] [rbp-38h]
-  __int64 v26; // [rsp+B8h] [rbp-30h]
-  __int64 v27; // [rsp+C0h] [rbp-28h]
+  char v12; // [rsp+30h] [rbp-B8h] BYREF
+  _BYTE v13[3]; // [rsp+31h] [rbp-B7h] BYREF
+  int v14; // [rsp+34h] [rbp-B4h] BYREF
+  _QWORD v15[3]; // [rsp+38h] [rbp-B0h] BYREF
+  _OWORD v16[8]; // [rsp+50h] [rbp-98h] BYREF
 
-  v19[0] = 0LL;
-  v18 = 0;
-  memset_0(&v20, 0, 0x78uLL);
-  v20 = a1;
-  v21 = a2;
-  *((_DWORD *)a3 + 7) = 0;
-  v22 = *a3;
-  v23 = a3[1];
-  v26 = a4;
-  v27 = a5;
-  if ( a2 == 13 )
+  v15[0] = 0LL;
+  v14 = 0;
+  memset(v16, 0, 0x78uLL);
+  LODWORD(v16[0]) = a1;
+  *((_QWORD *)&v16[0] + 1) = a2;
+  *(_DWORD *)(a3 + 28) = 0;
+  v16[1] = *(_OWORD *)a3;
+  v16[2] = *(_OWORD *)(a3 + 16);
+  *((_QWORD *)&v16[6] + 1) = a4;
+  *(_QWORD *)&v16[7] = a5;
+  if ( a2 - 13 <= 1 )
     return 0LL;
-  if ( a2 == 14 )
-    return 0LL;
-  v25 = CopyDebugHookLParam(a2, (union _DEBUGLPARAM *)v24, (struct tagDEBUGHOOKINFO *)a3);
-  *((_QWORD *)&v22 + 1) = 0LL;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v17, v9, v10, v11);
+  LODWORD(v16[6]) = CopyDebugHookLParam(a2, (union _DEBUGLPARAM *)&v16[3], (struct tagDEBUGHOOKINFO *)a3);
+  *((_QWORD *)&v16[1] + 1) = 0LL;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v13);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
   EtwTraceBeginCallback(43LL);
-  v12 = KeUserModeCallback(43LL, &v20, 120LL, v19, &v18);
+  v9 = KeUserModeCallback(43LL, v16, 120LL, v15, &v14);
   EtwTraceEndCallback(43LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v17, v13, v14);
-  if ( v12 < 0 || v18 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v13);
+  if ( v9 < 0 || v14 != 24 )
     return 0LL;
-  v15 = (__int64 *)v19[0];
-  if ( (unsigned __int64)(v19[0] + 8LL) < v19[0] || v19[0] + 8LL > MmUserProbeAddress )
-    v15 = (__int64 *)MmUserProbeAddress;
-  result = *v15;
-  v19[1] = *v15;
+  v10 = (__int64 *)v15[0];
+  if ( (unsigned __int64)(v15[0] + 8LL) < v15[0] || v15[0] + 8LL > MmUserProbeAddress )
+    v10 = (__int64 *)MmUserProbeAddress;
+  result = *v10;
+  v15[1] = *v10;
   return result;
 }

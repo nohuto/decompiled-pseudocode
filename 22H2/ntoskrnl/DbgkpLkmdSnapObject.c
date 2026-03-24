@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdSnapObject @ 0x14053BFB0
+ * XREFs of DbgkpLkmdSnapObject @ 0x1404EE390
  * Callers:
- *     DbgkpLkmdSnapPendingIrps @ 0x14093B068 (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x1408884E8 (DbgkpLkmdSnapPendingIrps.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapObject(__int64 a1, _WORD *a2, int a3)
@@ -45,8 +45,8 @@ __int64 __fastcall DbgkpLkmdSnapObject(__int64 a1, _WORD *a2, int a3)
     v7 = 336LL;
   }
 LABEL_11:
-  result = (*(__int64 (__fastcall **)(__int64, _WORD *, __int64, _QWORD, _QWORD, _QWORD))(a1 + 16448))(
-             a1 + 0x4000,
+  result = (*(__int64 (__fastcall **)(__int64, _WORD *, __int64, _QWORD, _QWORD, _QWORD))(a1 + 10304))(
+             a1 + 10240,
              a2,
              v7,
              0LL,
@@ -67,8 +67,8 @@ LABEL_11:
     v10 = (unsigned __int16)v5[29];
     v11 = *((_QWORD *)v5 + 8);
   }
-  return (*(__int64 (__fastcall **)(__int64, __int64, __int64, _QWORD, _QWORD, _QWORD))(a1 + 16448))(
-           a1 + 0x4000,
+  return (*(__int64 (__fastcall **)(__int64, __int64, __int64, _QWORD, _QWORD, _QWORD))(a1 + 10304))(
+           a1 + 10240,
            v11,
            v10,
            0LL,

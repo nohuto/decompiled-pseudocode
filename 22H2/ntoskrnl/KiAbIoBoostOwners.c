@@ -1,52 +1,51 @@
 /*
- * XREFs of KiAbIoBoostOwners @ 0x140318A44
+ * XREFs of KiAbIoBoostOwners @ 0x1402713E0
  * Callers:
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249510 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC320 (KiAbProcessThreadLocks.c)
- *     KiAbForceProcessLockEntry @ 0x1403CC428 (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x140271744 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1402C82E0 (KiAbProcessContextSwitch.c)
+ *     KiAbForceProcessLockEntry @ 0x14038F384 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140272404 (KiAbSetMinimumThreadPriority.c)
  */
 
 __int64 __fastcall KiAbIoBoostOwners(__int64 a1, char a2, int a3, int a4, __int64 a5)
 {
-  char v7; // al
-  __int64 v8; // r14
-  _QWORD *v9; // rbx
+  char v6; // al
+  __int64 v7; // r14
+  _QWORD *v10; // rbx
   __int64 result; // rax
   _QWORD *v12; // rcx
   __int64 *v13; // rcx
-  int v14; // [rsp+50h] [rbp+8h] BYREF
-  int v15; // [rsp+58h] [rbp+10h] BYREF
+  int v14; // [rsp+60h] [rbp+8h] BYREF
+  int v15; // [rsp+68h] [rbp+10h] BYREF
 
   v15 = 0;
   v14 = 0;
-  v7 = 0;
-  v8 = a5;
-  v9 = *(_QWORD **)(a1 + 56);
+  v6 = 0;
+  v7 = a5;
+  v10 = *(_QWORD **)(a1 + 56);
   if ( (a2 & 1) != 0 )
-    v7 = 2;
-  BYTE1(v15) = v7;
+    v6 = 2;
+  BYTE1(v15) = v6;
   result = BYTE2(v15);
   if ( (a2 & 2) != 0 )
     result = 1LL;
   BYTE2(v15) = result;
-  while ( v9 )
+  while ( v10 )
   {
-    KiAbSetMinimumThreadPriority((_DWORD)v9 - 24, (unsigned int)&v15, a3, a4, v8, (__int64)&v14);
-    result = v9[1];
-    v12 = v9;
+    KiAbSetMinimumThreadPriority((_DWORD)v10, (unsigned int)&v15, a3, a4, v7, (__int64)&v14);
+    result = v10[1];
+    v12 = v10;
     if ( result )
     {
       v13 = *(__int64 **)result;
-      v9 = (_QWORD *)v9[1];
+      v10 = (_QWORD *)v10[1];
       if ( *(_QWORD *)result )
       {
         do
         {
           result = *v13;
-          v9 = v13;
+          v10 = v13;
           v13 = (__int64 *)result;
         }
         while ( result );
@@ -56,14 +55,14 @@ __int64 __fastcall KiAbIoBoostOwners(__int64 a1, char a2, int a3, int a4, __int6
     {
       while ( 1 )
       {
-        v9 = (_QWORD *)(v9[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v9 || (_QWORD *)*v9 == v12 )
+        v10 = (_QWORD *)(v10[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v10 || (_QWORD *)*v10 == v12 )
           break;
-        v12 = v9;
+        v12 = v10;
       }
     }
   }
-  if ( !*(_BYTE *)(a1 + 17) )
-    return KiAbSetMinimumThreadPriority(a1, (unsigned int)&v15, a3, a4, v8, (__int64)&v14);
+  if ( (*(_BYTE *)(a1 + 25) & 1) == 0 )
+    return KiAbSetMinimumThreadPriority(a1, (unsigned int)&v15, a3, a4, v7, (__int64)&v14);
   return result;
 }

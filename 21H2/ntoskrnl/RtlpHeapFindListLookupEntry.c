@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHeapFindListLookupEntry @ 0x1405F24B0
+ * XREFs of RtlpHeapFindListLookupEntry @ 0x140593E68
  * Callers:
- *     RtlpFindEntry @ 0x1405F22DC (RtlpFindEntry.c)
- *     RtlpFindUCREntry @ 0x1405F2358 (RtlpFindUCREntry.c)
+ *     RtlpFindEntry @ 0x140593C94 (RtlpFindEntry.c)
+ *     RtlpFindUCREntry @ 0x140593D10 (RtlpFindUCREntry.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x1405F2650 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x14059400C (RtlpHeapListCompare.c)
  */
 
 _QWORD *__fastcall RtlpHeapFindListLookupEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
@@ -44,8 +44,19 @@ _QWORD *__fastcall RtlpHeapFindListLookupEntry(__int64 a1, __int64 a2, char a3, 
     v18 = (unsigned int *)(*(_QWORD *)(a2 + 40) + 4 * v17);
     v19 = *v18 & (-1 << (v6 & 0x1F));
     if ( v19 )
+      goto LABEL_20;
+    do
     {
-LABEL_19:
+      if ( (unsigned int)v17 > ((unsigned int)(*(_DWORD *)(a2 + 8) - *(_DWORD *)(a2 + 24)) >> 5) - 1 )
+        break;
+      ++v18;
+      LODWORD(v17) = v17 + 1;
+      v19 = *v18;
+    }
+    while ( !*v18 );
+    if ( v19 )
+    {
+LABEL_20:
       if ( (_WORD)v19 )
       {
         if ( (_BYTE)v19 )
@@ -66,17 +77,6 @@ LABEL_19:
       if ( !*(_DWORD *)(a2 + 12) )
         v22 = v21;
       return *(_QWORD **)(*(_QWORD *)(a2 + 48) + 8 * v22);
-    }
-    else
-    {
-      while ( (unsigned int)v17 <= ((unsigned int)(*(_DWORD *)(a2 + 8) - *(_DWORD *)(a2 + 24)) >> 5) - 1 )
-      {
-        ++v18;
-        LODWORD(v17) = v17 + 1;
-        v19 = *v18;
-        if ( *v18 )
-          goto LABEL_19;
-      }
     }
   }
   else

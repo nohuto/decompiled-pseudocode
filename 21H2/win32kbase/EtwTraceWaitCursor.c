@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceWaitCursor @ 0x1C00B0AB0
+ * XREFs of EtwTraceWaitCursor @ 0x1C009EDB0
  * Callers:
  *     <none>
  * Callees:
- *     ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C014C358 (-EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z.c)
- *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0150EF0 (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C0121330 (-EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C01268E8 (McTemplateK0qqqqq_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
@@ -13,13 +13,13 @@ void __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
   unsigned int WaitCursorType; // eax
   int v4; // r8d
   unsigned int v5; // ebx
-  __int64 v6; // rax
+  __int64 v6; // rbx
   __int64 v7; // rbx
 
   if ( (W32kEtwEnabledKeyword & 0x8000000000040000uLL) != 0
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x8000000000040000uLL) != 0
-    && (qword_1C028DB28 & 0x8000000000040000uLL) == qword_1C028DB28 )
+    && (unsigned __int8)(byte_1C024A738 - 1) > 2u
+    && (qword_1C024A720 & 0x8000000000040000uLL) != 0
+    && (qword_1C024A728 & 0x8000000000040000uLL) == qword_1C024A728 )
   {
     EtwpGetWaitCursorType(a2);
     WaitCursorType = EtwpGetWaitCursorType(v2);
@@ -44,9 +44,13 @@ void __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
     W32kEtwWaitCursorActiveType = v5;
     if ( v5 )
       W32kEtwWaitCursorStartMs = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-    if ( gpqCursor
-      && ((v6 = *((_QWORD *)gpqCursor + 13)) == 0 ? (v7 = *((_QWORD *)gpqCursor + 11)) : (v7 = *(_QWORD *)(v6 + 16)), v7) )
+    if ( gpqCursor )
     {
+      v6 = *((_QWORD *)gpqCursor + 13);
+      if ( v6 )
+        v7 = *(_QWORD *)(v6 + 16);
+      else
+        v7 = *((_QWORD *)gpqCursor + 11);
       W32kEtwWaitCursorThreadId = (unsigned int)PsGetThreadId(*(PETHREAD *)v7);
       W32kEtwWaitCursorProcessId = *(_DWORD *)(*(_QWORD *)(v7 + 424) + 56LL);
     }

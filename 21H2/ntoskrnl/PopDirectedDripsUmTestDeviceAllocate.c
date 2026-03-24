@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsUmTestDeviceAllocate @ 0x14099F2F0
+ * XREFs of PopDirectedDripsUmTestDeviceAllocate @ 0x1408F8A10
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopDirectedDripsUmTestDeviceAllocate(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall PopDirectedDripsUmTestDeviceAllocate(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1297433668LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x4D554444u);
 }

@@ -1,7 +1,7 @@
 /*
  * XREFs of CcGetVacbMiss @ 0x1400216E0
  * Callers:
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
@@ -13,17 +13,17 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     CcSetVacbInFreeList @ 0x140079BD0 (CcSetVacbInFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CEB4 (CcReleaseBcbLockAndVacbLock.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F230 (FsRtlIsNtstatusExpected.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
  *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
  */
 

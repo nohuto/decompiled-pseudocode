@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_EventRing_AsyncPoll @ 0x1C004E090
+ * XREFs of Crashdump_EventRing_AsyncPoll @ 0x1C004B5C0
  * Callers:
- *     Crashdump_PollForCompletion @ 0x1C004CB90 (Crashdump_PollForCompletion.c)
+ *     Crashdump_PollForCompletion @ 0x1C004A0C0 (Crashdump_PollForCompletion.c)
  * Callees:
- *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E8FC (Crashdump_EventRing_UpdateDequeuePointer.c)
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004BE28 (Crashdump_EventRing_UpdateDequeuePointer.c)
  */
 
 __int64 __fastcall Crashdump_EventRing_AsyncPoll(__int64 a1, __int64 *a2)
@@ -21,9 +21,8 @@ __int64 __fastcall Crashdump_EventRing_AsyncPoll(__int64 a1, __int64 *a2)
   int v14; // r9d
   int v15; // ecx
   int v16; // ecx
-  int v17; // eax
-  __int64 v18; // r8
-  BOOL v19; // eax
+  __int64 v17; // r8
+  BOOL v18; // eax
 
   v4 = 259;
   DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_EventRing_Poll: begin\n");
@@ -133,22 +132,21 @@ LABEL_27:
 LABEL_31:
   if ( ++*(_DWORD *)(a1 + 92) == *(_DWORD *)(a1 + 84) )
   {
+    ++*(_DWORD *)(a1 + 96);
     *(_DWORD *)(a1 + 92) = 0;
-    v17 = *(_DWORD *)(a1 + 96) + 1;
-    *(_DWORD *)(a1 + 96) = v17;
-    if ( v17 == *(_DWORD *)(a1 + 80) )
+    if ( *(_DWORD *)(a1 + 96) == *(_DWORD *)(a1 + 80) )
     {
-      v18 = *(_QWORD *)(a1 + 112);
-      v19 = *(_DWORD *)(a1 + 88) == 0;
+      v17 = *(_QWORD *)(a1 + 112);
+      v18 = *(_DWORD *)(a1 + 88) == 0;
       *(_DWORD *)(a1 + 96) = 0;
-      *(_DWORD *)(a1 + 88) = v19;
+      *(_DWORD *)(a1 + 88) = v18;
     }
     else
     {
-      v18 = **(_QWORD **)(a1 + 104);
+      v17 = **(_QWORD **)(a1 + 104);
     }
-    *(_QWORD *)(a1 + 104) = v18;
-    *(_QWORD *)(a1 + 72) = *(_QWORD *)(v18 + 16);
+    *(_QWORD *)(a1 + 104) = v17;
+    *(_QWORD *)(a1 + 72) = *(_QWORD *)(v17 + 16);
   }
   Crashdump_EventRing_UpdateDequeuePointer(a1);
 LABEL_37:

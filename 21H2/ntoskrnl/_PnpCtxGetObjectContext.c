@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpCtxGetObjectContext @ 0x1407882D4
+ * XREFs of _PnpCtxGetObjectContext @ 0x14063C148
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1407880F0 (DrvDbDispatchDeviceId.c)
- *     DrvDbDispatchDriverPackage @ 0x1407881D0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDriverDatabase @ 0x140788A80 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbDispatchDriverInfFile @ 0x140789110 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDriverFile @ 0x140A30A20 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x14063B730 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverPackage @ 0x14063BFD0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDeviceId @ 0x1406C4020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverFile @ 0x14097ED80 (DrvDbDispatchDriverFile.c)
  * Callees:
  *     <none>
  */

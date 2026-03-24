@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBREG_DeleteUxdPortKey @ 0x1C0082158
+ * XREFs of HUBREG_DeleteUxdPortKey @ 0x1C0080BEC
  * Callers:
- *     HUBREG_DeleteUxdSettings @ 0x1C00823BC (HUBREG_DeleteUxdSettings.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_DeleteUxdPortKey(__int64 a1, unsigned int a2)
@@ -65,7 +65,7 @@ LABEL_4:
         2u,
         3u,
         v5,
-        (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v7);
     }
   }

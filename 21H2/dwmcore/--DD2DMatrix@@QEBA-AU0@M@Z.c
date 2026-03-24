@@ -1,9 +1,9 @@
 /*
- * XREFs of ??DD2DMatrix@@QEBA?AU0@M@Z @ 0x18026C4D4
+ * XREFs of ??DD2DMatrix@@QEBA?AU0@M@Z @ 0x18021C0D8
  * Callers:
- *     ?Scale@CExpressionValueStack@@QEAAJXZ @ 0x1800178CC (-Scale@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Scale@CExpressionValueStack@@QEAAJXZ @ 0x180200E58 (-Scale@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x18026C3E0 (--0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z.c)
+ *     ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x18021BFE4 (--0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z.c)
  */
 
 D2DMatrix *__fastcall D2DMatrix::operator*(float *a1, D2DMatrix *a2, float a3)

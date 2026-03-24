@@ -1,9 +1,11 @@
 /*
- * XREFs of ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x1800D9B58
+ * XREFs of ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x18001A758
  * Callers:
- *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1800D992C (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBVMatrix3x2F@D2D1@@@Z @ 0x180096030 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1801ECE28 (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
+ *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1801ECF04 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CShapePtr::IsEmpty(CShapePtr *this)

@@ -1,20 +1,20 @@
 /*
- * XREFs of IrqTransGetInterruptVector @ 0x1C009A420
+ * XREFs of IrqTransGetInterruptVector @ 0x1C00B6C80
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibAcquireArbiterLock @ 0x1C005CCA8 (IrqLibAcquireArbiterLock.c)
- *     IrqLibReleaseArbiterLock @ 0x1C005CD48 (IrqLibReleaseArbiterLock.c)
- *     IrqTranslatepQueryDeviceIrql @ 0x1C009A6CC (IrqTranslatepQueryDeviceIrql.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009AC04 (ProcessorGetDeviceIdtAssignment.c)
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C00924E4 (IrqTranslatepQueryDeviceIrql.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
-__int64 __fastcall IrqTransGetInterruptVector(__int64 a1, __int64 a2, unsigned int a3, int a4, _BYTE *a5, _QWORD *a6)
+__int64 __fastcall IrqTransGetInterruptVector(__int64 a1, __int64 a2, unsigned int a3, int a4, char *a5, _QWORD *a6)
 {
-  __int64 v6; // rbx
+  unsigned __int64 v6; // rbx
   unsigned int v7; // edi
-  __int64 v9; // rsi
+  unsigned int v9; // esi
   int DeviceIdtAssignment; // ebx
   __int128 v11; // [rsp+20h] [rbp-28h] BYREF
   __int128 v12; // [rsp+30h] [rbp-18h]
@@ -26,13 +26,13 @@ __int64 __fastcall IrqTransGetInterruptVector(__int64 a1, __int64 a2, unsigned i
   if ( a3 != a4 )
     return 0LL;
   IrqLibAcquireArbiterLock(0);
-  v9 = (unsigned int)IrqArbGsivFromIrq(v6);
-  DeviceIdtAssignment = ProcessorGetDeviceIdtAssignment(0LL, v9, 0LL, &v11);
+  v9 = IrqArbGsivFromIrq(v6);
+  DeviceIdtAssignment = ProcessorGetDeviceIdtAssignment(0LL, v9, 0, &v11);
   IrqLibReleaseArbiterLock();
   if ( DeviceIdtAssignment >= 0 )
   {
     v7 = DWORD1(v12);
-    *a5 = IrqTranslatepQueryDeviceIrql((unsigned int)v9, DWORD1(v12));
+    *a5 = IrqTranslatepQueryDeviceIrql(v9, SDWORD1(v12));
     *a6 = v11;
   }
   return v7;

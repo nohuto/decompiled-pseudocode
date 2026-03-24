@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C0008B50
+ * XREFs of ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C001D800
  * Callers:
  *     <none>
  * Callees:
- *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C00089D4 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
- *     ?DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z @ 0x1C0008C84 (-DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z.c)
- *     ?UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C007902C (-UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
+ *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C001D898 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
+ *     ?DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z @ 0x1C001D9C4 (-DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z.c)
+ *     ?UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C006712C (-UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
  */
 
 int __fastcall CFlipExBuffer::SetIndependentFlip(
@@ -19,40 +19,44 @@ int __fastcall CFlipExBuffer::SetIndependentFlip(
 {
   int result; // eax
   int v10; // ecx
-  char v11; // si
+  char v11; // di
 
   result = 0;
   *a7 = 0;
-  v10 = *((_DWORD *)this + 96);
+  v10 = *((_DWORD *)this + 88);
   if ( a2 )
   {
-    v11 = *((_BYTE *)this + 625);
+    v11 = *((_BYTE *)this + 569);
     if ( !v10 )
     {
+      v11 = 1;
       if ( *((_BYTE *)this + 40) )
+      {
         result = CFlipExBuffer::EnableDxgkrnlIndependentFlipMode(this, a4, a5, a6, a7);
-      else
-        result = -1073741823;
-      *((_BYTE *)this + 625) = a3;
-LABEL_8:
-      if ( !a3 )
-        *((_BYTE *)this + 626) = 1;
-      return result;
+        goto LABEL_5;
+      }
+      goto LABEL_9;
     }
-    if ( *((_DWORD *)this + 155) != a4 )
+    if ( *((_DWORD *)this + 141) != a4 )
     {
-      if ( v10 >= 1 && *((_BYTE *)this + 40) )
-        result = CFlipExBuffer::UpdateDxgkrnlIndependentFlipDuration(this, a4, a5, a6, a7);
-      else
+      if ( v10 < 1 || !*((_BYTE *)this + 40) )
+      {
+LABEL_9:
         result = -1073741823;
+        goto LABEL_5;
+      }
+      result = CFlipExBuffer::UpdateDxgkrnlIndependentFlipDuration(this, a4, a5, a6, a7);
     }
-    *((_BYTE *)this + 625) = a3;
+LABEL_5:
+    *((_BYTE *)this + 569) = a3;
     if ( v11 )
-      goto LABEL_8;
+    {
+      if ( !a3 )
+        *((_BYTE *)this + 570) = 1;
+    }
+    return result;
   }
-  else if ( v10 )
-  {
+  if ( v10 )
     return CFlipExBuffer::DisableDxgkrnlIndependentFlipMode(this, a7);
-  }
   return result;
 }

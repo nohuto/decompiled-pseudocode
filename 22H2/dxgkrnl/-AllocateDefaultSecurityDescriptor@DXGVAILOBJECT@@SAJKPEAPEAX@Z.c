@@ -1,76 +1,88 @@
 /*
- * XREFs of ?AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z @ 0x1C0360B14
+ * XREFs of ?AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z @ 0x1C02B487C
  * Callers:
- *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C03612B0 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
- *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C03615BC (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C02B5058 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B53C0 (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DXGVAILOBJECT::AllocateDefaultSecurityDescriptor(ACCESS_MASK AccessMask, struct _ACL **a2)
 {
-  NTSTATUS v4; // eax
-  __int64 v5; // rbx
-  ULONG v6; // r15d
-  struct _ACL *v7; // rax
-  struct _ACL *v8; // rdi
+  struct _ACL *v4; // rdi
+  ULONG v5; // r14d
+  NTSTATUS v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  ULONG v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rax
   NTSTATUS SecurityDescriptor; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
   NTSTATUS Acl; // eax
-  NTSTATUS v11; // eax
-  NTSTATUS v12; // eax
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp-20h] BYREF
-  _BYTE Sid[16]; // [rsp+58h] [rbp-18h] BYREF
+  NTSTATUS v23; // eax
+  NTSTATUS v24; // eax
+  __int64 v25; // rax
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-20h] BYREF
+  _BYTE Sid[16]; // [rsp+28h] [rbp-18h] BYREF
 
-  *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  v4 = RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
-  LODWORD(v5) = v4;
-  if ( v4 >= 0 )
+  v4 = 0LL;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  v5 = 0;
+  v6 = RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+  v10 = v6;
+  if ( v6 >= 0 )
   {
     *RtlSubAuthoritySid(Sid, 0) = 83;
     *RtlSubAuthoritySid(Sid, 1u) = 0;
-    v6 = RtlLengthSid(Sid);
-    v7 = (struct _ACL *)operator new[](v6 + 60, 0x4B677844u, 256LL);
-    v8 = v7;
-    if ( v7 )
+    v12 = RtlLengthSid(Sid);
+    v5 = v12 + 20;
+    v4 = (struct _ACL *)operator new(v12 + 60, 0x4B677844u, 1, PagedPool);
+    if ( !v4 )
     {
-      SecurityDescriptor = RtlCreateSecurityDescriptor(v7, 1u);
-      v5 = SecurityDescriptor;
-      if ( SecurityDescriptor >= 0
-        && (Acl = RtlCreateAcl(v8 + 5, v6 + 20, 4u), v5 = Acl, Acl >= 0)
-        && (v11 = RtlAddAccessAllowedAce(v8 + 5, 4u, AccessMask, Sid), v5 = v11, v11 >= 0)
-        && (v12 = RtlSetDaclSecurityDescriptor(v8, 1u, v8 + 5, 0), v5 = v12, v12 >= 0) )
-      {
-        *a2 = v8;
-      }
-      else
-      {
-        WdLogSingleEntry1(3LL, v5);
-        operator delete(v8);
-      }
-    }
-    else
-    {
-      LODWORD(v5) = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"new failed. Returning 0x%I64x",
-        -1073741801LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      LODWORD(v10) = -1073741801;
+      v17 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+      *(_QWORD *)(v17 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v17);
     }
   }
   else
   {
-    WdLogSingleEntry1(3LL, v4);
+    v11 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    *(_QWORD *)(v11 + 24) = v10;
+    WdLogEvent5_WdWarning(v11);
   }
-  return (unsigned int)v5;
+  if ( (int)v10 >= 0 )
+  {
+    SecurityDescriptor = RtlCreateSecurityDescriptor(v4, 1u);
+    v10 = SecurityDescriptor;
+    if ( SecurityDescriptor >= 0
+      && (Acl = RtlCreateAcl(v4 + 5, v5, 4u), v10 = Acl, Acl >= 0)
+      && (v23 = RtlAddAccessAllowedAce(v4 + 5, 4u, AccessMask, Sid), v10 = v23, v23 >= 0)
+      && (v24 = RtlSetDaclSecurityDescriptor(v4, 1u, v4 + 5, 0), v10 = v24, v24 >= 0) )
+    {
+      *a2 = v4;
+      v4 = 0LL;
+    }
+    else
+    {
+      v25 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+      *(_QWORD *)(v25 + 24) = v10;
+      WdLogEvent5_WdWarning(v25);
+    }
+  }
+  if ( v4 )
+    operator delete[](v4);
+  return (unsigned int)v10;
 }

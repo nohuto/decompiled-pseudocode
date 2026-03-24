@@ -1,9 +1,9 @@
 /*
- * XREFs of VslAllocatePool @ 0x14027AB10
+ * XREFs of VslAllocatePool @ 0x14027AC10
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  * Callees:
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

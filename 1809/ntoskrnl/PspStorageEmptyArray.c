@@ -1,5 +1,5 @@
 /*
- * XREFs of PspStorageEmptyArray @ 0x14088F434
+ * XREFs of PspStorageEmptyArray @ 0x14088F414
  * Callers:
  *     PspJobDeleteStorageArrays @ 0x1406067C8 (PspJobDeleteStorageArrays.c)
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicSetLineState @ 0x1403A32E0
+ * XREFs of HalpApicSetLineState @ 0x14037CD20
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicConvertToRte @ 0x1403A33D4 (HalpApicConvertToRte.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpApicConvertToRte @ 0x14037CDE8 (HalpApicConvertToRte.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicSetLineState(__int64 a1, _DWORD *a2, __int64 a3)
@@ -38,35 +38,35 @@ __int64 __fastcall HalpApicSetLineState(__int64 a1, _DWORD *a2, __int64 a3)
     }
     switch ( v6 )
     {
+      case -5:
+        v8 = 864LL;
+        goto LABEL_13;
       case -7:
         v8 = *(unsigned int *)(a1 + 32);
         break;
-      case -5:
-        v8 = 864LL;
-        goto LABEL_16;
       case -3:
         v8 = 832LL;
-        goto LABEL_16;
+LABEL_13:
+        ((void (__fastcall *)(__int64, _QWORD))HalpApicWrite)(v8, v9);
+        return 0LL;
       case -8:
         v8 = *(unsigned int *)(a1 + 36);
         break;
       case -6:
         v8 = 880LL;
-        goto LABEL_16;
+        goto LABEL_13;
       case -4:
         v8 = 848LL;
-        goto LABEL_16;
+        goto LABEL_13;
       case -2:
         v8 = 816LL;
-LABEL_16:
-        ((void (__fastcall *)(__int64, _QWORD))HalpApicWrite)(v8, v9);
-        return 0LL;
+        goto LABEL_13;
       default:
         return 3221225485LL;
     }
     if ( !(_DWORD)v8 )
       return 0LL;
-    goto LABEL_16;
+    goto LABEL_13;
   }
   return result;
 }

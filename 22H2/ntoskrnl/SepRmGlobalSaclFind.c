@@ -1,25 +1,26 @@
 /*
- * XREFs of SepRmGlobalSaclFind @ 0x1408A6A92
+ * XREFs of SepRmGlobalSaclFind @ 0x140924C40
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1405B8F4C (SepExamineGlobalSaclEx.c)
- *     NtSetSecurityObject @ 0x1407BC2C0 (NtSetSecurityObject.c)
- *     SepRmGlobalSaclSetWrkr @ 0x14084E6D0 (SepRmGlobalSaclSetWrkr.c)
- *     SeExamineGlobalSacl @ 0x1408A6BEA (SeExamineGlobalSacl.c)
- *     SeAuditingFileOrGlobalEvents @ 0x1409CD5C0 (SeAuditingFileOrGlobalEvents.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D24D4 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepExamineGlobalSaclEx @ 0x140596E68 (SepExamineGlobalSaclEx.c)
+ *     NtSetSecurityObject @ 0x14067B860 (NtSetSecurityObject.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407C5470 (SepRmGlobalSaclSetWrkr.c)
+ *     SeAuditingFileOrGlobalEvents @ 0x140920870 (SeAuditingFileOrGlobalEvents.c)
+ *     SeExamineGlobalSacl @ 0x140924A68 (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B88 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
-__int64 __fastcall SepRmGlobalSaclFind(__int64 **a1, __int64 **a2, const UNICODE_STRING *a3, char a4)
+__int64 __fastcall SepRmGlobalSaclFind(__int64 *a1, __int64 **a2, const UNICODE_STRING *a3, char a4)
 {
   char v4; // bp
   unsigned int v8; // esi
   struct _KTHREAD *CurrentThread; // rax
   __int64 v10; // rax
+  __int64 *v11; // rax
 
   v4 = 0;
   v8 = -1073741772;
@@ -28,12 +29,12 @@ __int64 __fastcall SepRmGlobalSaclFind(__int64 **a1, __int64 **a2, const UNICODE
     if ( a4 )
     {
       CurrentThread = KeGetCurrentThread();
-      v4 = 1;
       --CurrentThread->KernelApcDisable;
+      v4 = 1;
       ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
     }
     v10 = SepRmGlobalSaclHead;
-    *a1 = (__int64 *)SepRmGlobalSaclHead;
+    *a1 = SepRmGlobalSaclHead;
     if ( a2 )
       *a2 = 0LL;
     while ( v10 )
@@ -43,10 +44,11 @@ __int64 __fastcall SepRmGlobalSaclFind(__int64 **a1, __int64 **a2, const UNICODE
         v8 = 0;
         goto LABEL_13;
       }
+      v11 = (__int64 *)*a1;
       if ( a2 )
-        *a2 = *a1;
-      v10 = **a1;
-      *a1 = (__int64 *)v10;
+        *a2 = v11;
+      v10 = *v11;
+      *a1 = v10;
     }
     if ( a2 )
       *a2 = 0LL;

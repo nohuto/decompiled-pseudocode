@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z @ 0x1800E3B94
+ * XREFs of ?OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z @ 0x1800CA4D8
  * Callers:
- *     ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800F9644 (-Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ.c)
- *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801E63B4 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
+ *     ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800DA8C0 (-Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ.c)
+ *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x180182B28 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?RemoveAt@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z @ 0x1800EB4E8 (-RemoveAt@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?RemoveAt@?$DynArray@PEAVCEffectCompilationTask@@$0A@@@QEAAJI@Z @ 0x1800A979C (-RemoveAt@-$DynArray@PEAVCEffectCompilationTask@@$0A@@@QEAAJI@Z.c)
  */
 
 void __fastcall CEffectCompilationService::OnTaskCompleted_AnyThread(
@@ -15,13 +15,12 @@ void __fastcall CEffectCompilationService::OnTaskCompleted_AnyThread(
 {
   unsigned int v6; // ecx
   __int64 v7; // rdx
-  __int64 v8; // r9
-  __int64 v9; // r10
+  __int64 v8; // r10
+  __int64 v9; // r9
   __int64 v10; // r8
-  __int64 v11; // rdx
-  struct _RTL_CRITICAL_SECTION *v12; // [rsp+30h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
+  v11 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
   if ( !*((_BYTE *)this + 72) )
   {
@@ -29,9 +28,10 @@ void __fastcall CEffectCompilationService::OnTaskCompleted_AnyThread(
     v7 = 0LL;
     if ( v6 )
     {
+      v8 = *((_QWORD *)this + 10);
       do
       {
-        if ( *(struct CEffectCompilationTask **)(*((_QWORD *)this + 10) + 8 * v7) == a2 )
+        if ( *(struct CEffectCompilationTask **)(v8 + 8 * v7) == a2 )
           break;
         v7 = (unsigned int)(v7 + 1);
       }
@@ -40,22 +40,21 @@ void __fastcall CEffectCompilationService::OnTaskCompleted_AnyThread(
       {
         if ( (unsigned int)v7 >= *((_DWORD *)this + 19) )
         {
-          v8 = *((unsigned int *)this + 19);
-          v9 = *((_QWORD *)this + 10);
+          v9 = *((unsigned int *)this + 19);
           v10 = (unsigned int)v7;
-          v11 = *(_QWORD *)(v9 + 8 * v7);
-          *(_QWORD *)(v9 + 8 * v10) = *(_QWORD *)(v9 + 8 * v8);
-          *(_QWORD *)(v9 + 8 * v8) = v11;
-          v7 = (unsigned int)++*((_DWORD *)this + 19);
+          v7 = *(_QWORD *)(v8 + 8 * v7);
+          *(_QWORD *)(v8 + 8 * v10) = *(_QWORD *)(v8 + 8 * v9);
+          *(_QWORD *)(v8 + 8 * v9) = v7;
+          LODWORD(v7) = ++*((_DWORD *)this + 19);
         }
         if ( a3 )
         {
-          DynArray<CScratchRenderTargetBitmap *,0>::RemoveAt((char *)this + 80, v7);
+          DynArray<CEffectCompilationTask *,0>::RemoveAt((__int64)this + 80, v7);
           --*((_DWORD *)this + 19);
         }
         SetEvent(*((HANDLE *)this + 3));
       }
     }
   }
-  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v12);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v11);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00AD4B0
+ * XREFs of ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00AB52C
  * Callers:
- *     EngQueryW32kCddInterface @ 0x1C00AD2B0 (EngQueryW32kCddInterface.c)
- *     ?W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z @ 0x1C00AD440 (-W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z.c)
+ *     ?W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z @ 0x1C00AB340 (-W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z.c)
+ *     EngQueryW32kCddInterface @ 0x1C00AB3A0 (EngQueryW32kCddInterface.c)
  * Callees:
  *     <none>
  */
 
-struct tagGRAPHICS_DEVICE *__fastcall GetGraphicsDeviceFromDevObjHandle(void *const a1)
+wchar_t *__fastcall GetGraphicsDeviceFromDevObjHandle(void *const a1)
 {
-  struct tagGRAPHICS_DEVICE *result; // rax
+  wchar_t *result; // rax
 
-  for ( result = *(struct tagGRAPHICS_DEVICE **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 1264LL);
+  for ( result = gpGraphicsDeviceList;
         result && *((void *const *)result + 17) != a1;
-        result = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)result + 16) )
+        result = (wchar_t *)*((_QWORD *)result + 16) )
   {
     ;
   }

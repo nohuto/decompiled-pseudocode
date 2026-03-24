@@ -1,24 +1,23 @@
 /*
- * XREFs of ObInsertObject @ 0x14066BA50
+ * XREFs of ObInsertObject @ 0x1406D41C0
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
- *     FsRtlCreateSectionForDataScan @ 0x1402031E0 (FsRtlCreateSectionForDataScan.c)
- *     PopPowerRequestCreateUserModeRequest @ 0x140369ECC (PopPowerRequestCreateUserModeRequest.c)
- *     EtwpCreateUmReplyObject @ 0x1406B8E18 (EtwpCreateUmReplyObject.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     IoCreateStreamFileObjectEx2 @ 0x14074CD70 (IoCreateStreamFileObjectEx2.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     PopEtEnergyTrackerCreate @ 0x140857300 (PopEtEnergyTrackerCreate.c)
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
- *     TtmiCreateTerminal @ 0x1409A2F78 (TtmiCreateTerminal.c)
- *     TtmpDispatchCreateEventQueue @ 0x1409A6714 (TtmpDispatchCreateEventQueue.c)
- *     MiSectionInitialization @ 0x140B09078 (MiSectionInitialization.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
- *     CmpCreateRegistryRoot @ 0x140B15C50 (CmpCreateRegistryRoot.c)
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     FsRtlCreateSectionForDataScan @ 0x1402E9010 (FsRtlCreateSectionForDataScan.c)
+ *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
+ *     NtCreateWorkerFactory @ 0x1406D3E40 (NtCreateWorkerFactory.c)
+ *     NtCreateJobObject @ 0x14071EF90 (NtCreateJobObject.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     SepInitializationPhase1 @ 0x14079D378 (SepInitializationPhase1.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140900B3C (TtmpDispatchCreateEventQueue.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
+ *     ExpProfileCreate @ 0x14095A55C (ExpProfileCreate.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
+ *     MiSectionInitialization @ 0x140A55074 (MiSectionInitialization.c)
+ *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall ObInsertObject(
@@ -29,5 +28,5 @@ NTSTATUS __stdcall ObInsertObject(
         PVOID *NewObject,
         PHANDLE Handle)
 {
-  return ObInsertObjectEx(Object, PassedAccessState, 0, (__int64)NewObject, (__int64)Handle);
+  return ObInsertObjectEx((PADAPTER_OBJECT)Object, PassedAccessState, 0, (__int64)NewObject, (__int64)Handle);
 }

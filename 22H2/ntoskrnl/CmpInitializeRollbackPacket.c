@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitializeRollbackPacket @ 0x140693518
+ * XREFs of CmpInitializeRollbackPacket @ 0x14071B924
  * Callers:
- *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
+ *     CmpTryToRundownHive @ 0x140360C44 (CmpTryToRundownHive.c)
  * Callees:
  *     <none>
  */

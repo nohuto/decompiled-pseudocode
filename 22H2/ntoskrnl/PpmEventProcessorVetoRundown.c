@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventProcessorVetoRundown @ 0x14059B4C0
+ * XREFs of PpmEventProcessorVetoRundown @ 0x14057A31C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1408650B0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5310 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmEventTracePreVetoAccounting @ 0x14059BF30 (PpmEventTracePreVetoAccounting.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmEventTracePreVetoAccounting @ 0x14057AAA8 (PpmEventTracePreVetoAccounting.c)
  */
 
 char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
@@ -21,10 +21,10 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
   __int16 v6; // ax
   KIRQL v7; // al
   unsigned int v8; // edx
-  unsigned __int64 v9; // rsi
+  unsigned __int64 v9; // rdi
   __int64 v10; // rax
   _QWORD **v11; // r14
-  _QWORD *v12; // rdi
+  _QWORD *v12; // rsi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v15; // zf
@@ -45,13 +45,13 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
   int v31; // [rsp+98h] [rbp+2Fh]
   int v32; // [rsp+9Ch] [rbp+33h]
 
-  v1 = *(_QWORD *)(a1 + 33600);
+  v1 = *(_QWORD *)(a1 + 0x8000);
   LOBYTE(v2) = 0;
   memset(v19, 0, 7);
   if ( v1 )
   {
     v4 = 1;
-    for ( i = 1; v4 < *(_DWORD *)(v1 + 40); i = v4 )
+    for ( i = 1; v4 < *(_DWORD *)(v1 + 32); i = v4 )
     {
       v5 = *(unsigned __int8 *)(a1 + 208);
       UserData.Reserved = 0;
@@ -80,7 +80,7 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
         v8 = 0;
         v9 = v7;
         i = 0;
-        if ( *(_DWORD *)(v1 + 40) )
+        if ( *(_DWORD *)(v1 + 32) )
         {
           v10 = 0LL;
           do
@@ -88,7 +88,7 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
             v26 = 0;
             p_i = &i;
             v25 = 4;
-            v11 = (_QWORD **)(344 * v10 + v1 + 1416);
+            v11 = (_QWORD **)(248 * v10 + v1 + 1024);
             v12 = *v11;
             if ( *v11 != v11 )
             {
@@ -109,24 +109,25 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
             i = ++v8;
             v10 = v8;
           }
-          while ( v8 < *(_DWORD *)(v1 + 40) );
+          while ( v8 < *(_DWORD *)(v1 + 32) );
         }
-        LOBYTE(v2) = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+        KxReleaseSpinLock(&PpmIdleVetoLock);
+        LOBYTE(v2) = KiIrqlFlags;
         if ( KiIrqlFlags )
         {
-          LOBYTE(v2) = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)v2 <= 0xFu
-            && (unsigned __int8)v9 <= 0xFu
-            && (unsigned __int8)v2 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v2 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            v15 = (v2 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v2;
-            if ( v15 )
-              LOBYTE(v2) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            LOBYTE(v2) = KeGetCurrentIrql();
+            if ( (unsigned __int8)v2 <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)v2 >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v2 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+              v15 = (v2 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v2;
+              if ( v15 )
+                LOBYTE(v2) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(v9);

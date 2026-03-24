@@ -1,24 +1,24 @@
 /*
- * XREFs of MiGetCrossPartitionCloneCharges @ 0x1405BAFB0
+ * XREFs of MiGetCrossPartitionCloneCharges @ 0x14055A984
  * Callers:
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1405BB090 (MiHandleForkTransitionPte.c)
- *     MiReferenceCloneProto @ 0x1405BBB54 (MiReferenceCloneProto.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x14055AA64 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x14055B598 (MiReferenceCloneProto.c)
  * Callees:
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x1405BE6F4 (MiGetCrossPartitionCharges.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x140562428 (MiGetCrossPartitionCharges.c)
  */
 
-__int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1)
+__int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 v5; // rbx
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v5; // zf
-  signed __int32 v6; // eax
+  bool v8; // zf
+  signed __int32 v9; // eax
 
-  v2 = 1LL;
-  if ( !(unsigned int)MiChargeResident((ULONG_PTR *)a1, 1uLL, 0LL) )
+  v5 = 1LL;
+  if ( !(unsigned int)MiChargeResident((ULONG_PTR *)a1, 1uLL, 0LL, a4) )
     return 0LL;
   if ( (int)MiGetCrossPartitionCharges(a1, 6LL, 0LL, 1LL) < 0 )
   {
@@ -32,16 +32,16 @@ __int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1)
     {
       do
       {
-        v6 = _InterlockedCompareExchange(
+        v9 = _InterlockedCompareExchange(
                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                CachedResidentAvailable + 1,
                CachedResidentAvailable);
-        v5 = (_DWORD)CachedResidentAvailable == v6;
-        LODWORD(CachedResidentAvailable) = v6;
-        if ( v5 )
+        v8 = (_DWORD)CachedResidentAvailable == v9;
+        LODWORD(CachedResidentAvailable) = v9;
+        if ( v8 )
           return 0LL;
       }
-      while ( v6 != -1 && (unsigned __int64)(v6 + 1LL) <= 0x100 );
+      while ( v9 != -1 && (unsigned __int64)(v9 + 1LL) <= 0x100 );
     }
     if ( (int)CachedResidentAvailable > 192
       && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -49,11 +49,11 @@ __int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1)
                                               192,
                                               CachedResidentAvailable) )
     {
-      v2 = (int)CachedResidentAvailable - 192 + 1LL;
+      v5 = (int)CachedResidentAvailable - 192 + 1LL;
     }
-    if ( v2 )
+    if ( v5 )
 LABEL_13:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v2);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v5);
     return 0LL;
   }
   return 1LL;

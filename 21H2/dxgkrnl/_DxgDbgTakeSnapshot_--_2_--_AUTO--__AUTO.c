@@ -1,7 +1,7 @@
 /*
- * XREFs of _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C02EB5E0
+ * XREFs of _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C025A744
  * Callers:
- *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C02EB624 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
+ *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C025A788 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
  * Callees:
  *     <none>
  */

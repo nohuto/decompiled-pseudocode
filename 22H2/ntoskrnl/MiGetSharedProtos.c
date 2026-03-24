@@ -1,23 +1,24 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x14036973C
+ * XREFs of MiGetSharedProtos @ 0x1403A5B08
  * Callers:
- *     MiIdentifyPfn @ 0x14023E4A0 (MiIdentifyPfn.c)
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiComputeImagePteIndex @ 0x1402A2524 (MiComputeImagePteIndex.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiGetImageProtoProtection @ 0x1403562BC (MiGetImageProtoProtection.c)
- *     MiFaultGetFileExtents @ 0x140645EF4 (MiFaultGetFileExtents.c)
- *     MiMakePerSessionProtoPte @ 0x140665324 (MiMakePerSessionProtoPte.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiPfPrepareSequentialReadList @ 0x140744BF0 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x1407465B0 (MiPfAllocateMdls.c)
+ *     MiCompleteProtoPteFault @ 0x140213D50 (MiCompleteProtoPteFault.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiEmptyPageAccessLog @ 0x14025B4D0 (MiEmptyPageAccessLog.c)
+ *     MiComputeImagePteIndex @ 0x14027D3C0 (MiComputeImagePteIndex.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiStartingOffset @ 0x14029EAA0 (MiStartingOffset.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MiIdentifyPfn @ 0x1402C9940 (MiIdentifyPfn.c)
+ *     MiGetImageProtoProtection @ 0x1403141CC (MiGetImageProtoProtection.c)
+ *     MiFaultGetFileExtents @ 0x140548330 (MiFaultGetFileExtents.c)
+ *     MiMakePerSessionProtoPte @ 0x14055B3E0 (MiMakePerSessionProtoPte.c)
+ *     MiPfAllocateMdls @ 0x1406363C0 (MiPfAllocateMdls.c)
+ *     MiAddMappedPtes @ 0x140636970 (MiAddMappedPtes.c)
+ *     MiPfPrepareSequentialReadList @ 0x14063B4F0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiGetSharedProtosAtDpcLevel @ 0x1403697CC (MiGetSharedProtosAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A5B8C (MiGetSharedProtosAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
@@ -25,36 +26,35 @@ __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
   unsigned __int8 CurrentIrql; // bl
   __int64 SharedProtosAtDpcLevel; // rsi
   _DWORD *SchedulerAssist; // r9
-  __int64 v7; // rax
-  unsigned __int8 v8; // cl
+  unsigned __int8 v7; // cl
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v10; // r8
-  int v11; // eax
-  bool v12; // zf
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v7) = 4;
-    if ( CurrentIrql != 2 )
-      v7 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v7;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   SharedProtosAtDpcLevel = MiGetSharedProtosAtDpcLevel(a1, a2, a3);
   if ( KiIrqlFlags )
   {
-    v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v10 = CurrentPrcb->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v12 = (v11 & v10[5]) == 0;
-      v10[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v7 = KeGetCurrentIrql();
+      if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v9 = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v10 & v9[5]) == 0;
+        v9[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

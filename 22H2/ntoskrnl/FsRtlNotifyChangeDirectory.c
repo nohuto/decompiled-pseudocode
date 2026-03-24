@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNotifyChangeDirectory @ 0x14093FFF0
+ * XREFs of FsRtlNotifyChangeDirectory @ 0x14088D530
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterChangeDirectory @ 0x140852B70 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140675020 (FsRtlNotifyFilterChangeDirectory.c)
  */
 
 void __fastcall FsRtlNotifyChangeDirectory(

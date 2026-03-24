@@ -1,74 +1,71 @@
 /*
- * XREFs of ?DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C0357B34
+ * XREFs of ?DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C02AAF60
  * Callers:
- *     ??1DXGSWAPCHAIN@@QEAA@XZ @ 0x1C0356E4C (--1DXGSWAPCHAIN@@QEAA@XZ.c)
+ *     ??1DXGSWAPCHAIN@@QEAA@XZ @ 0x1C02AA0EC (--1DXGSWAPCHAIN@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??1DXGFIXEDQUEUE@@QEAA@XZ @ 0x1C0058D5C (--1DXGFIXEDQUEUE@@QEAA@XZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C0357920 (-DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02AAD78 (-DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z.c)
  */
 
-void __fastcall DXGSWAPCHAIN::DestroySwapchainGlobal(DXGSWAPCHAIN *this)
+void __fastcall DXGSWAPCHAIN::DestroySwapchainGlobal(DXGSWAPCHAIN *this, __int64 a2)
 {
-  unsigned int i; // edi
-  void *v3; // rcx
-  void *v4; // rdi
-  void *v5; // rcx
-  struct DXGPROCESS *Current; // rax
+  __int64 v3; // rax
+  __int64 v4; // rax
+  unsigned int i; // ebx
+  void *v6; // rcx
+  _QWORD *v7; // rbx
+  void *v8; // rcx
+  void *v9; // rcx
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
-  if ( *((_QWORD *)this + 20) )
+  if ( *((_QWORD *)this + 19) )
   {
-    WdLogSingleEntry1(1LL, 1779LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_ProducerInfo.pNtProcess == nullptr",
-      1779LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 1713LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  if ( *((_QWORD *)this + 14) )
+  if ( *((_QWORD *)this + 13) )
   {
-    WdLogSingleEntry1(1LL, 1780LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_ConsumerInfo.pNtProcess == nullptr",
-      1780LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 1714LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  for ( i = 0; i < *((_DWORD *)this + 14); ++i )
+  for ( i = 0; i < *((_DWORD *)this + 12); ++i )
     DXGSWAPCHAIN::DestroySurfacesResourcesGlobal(
       this,
-      (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(*((_QWORD *)this + 8) + 112LL * i));
-  v3 = (void *)*((_QWORD *)this + 8);
-  if ( v3 )
+      (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(*((_QWORD *)this + 7) + 112LL * i));
+  v6 = (void *)*((_QWORD *)this + 7);
+  if ( v6 )
   {
-    operator delete(v3);
-    *((_QWORD *)this + 8) = 0LL;
+    operator delete[](v6);
+    *((_QWORD *)this + 7) = 0LL;
   }
-  v4 = (void *)*((_QWORD *)this + 27);
-  if ( v4 )
+  v7 = (_QWORD *)*((_QWORD *)this + 26);
+  if ( v7 )
   {
-    DXGFIXEDQUEUE::~DXGFIXEDQUEUE(*((DXGFIXEDQUEUE **)this + 27));
-    operator delete(v4);
+    v8 = (void *)v7[2];
+    if ( v8 )
+    {
+      operator delete[](v8);
+      v7[2] = 0LL;
+    }
+    operator delete(v7);
+    *((_QWORD *)this + 26) = 0LL;
+  }
+  v9 = (void *)*((_QWORD *)this + 27);
+  if ( v9 )
+  {
+    operator delete(v9);
     *((_QWORD *)this + 27) = 0LL;
   }
-  v5 = (void *)*((_QWORD *)this + 28);
-  if ( v5 )
-  {
-    operator delete(v5);
-    *((_QWORD *)this + 28) = 0LL;
-  }
-  Current = DXGPROCESS::GetCurrent((__int64)v5);
-  WdLogSingleEntry2(4LL, this, Current);
+  v10 = WdLogNewEntry5_WdEvent(v9, a2);
+  *(_QWORD *)(v10 + 24) = this;
+  *(_QWORD *)(v10 + 32) = DXGPROCESS::GetCurrent(v12, v11, v13, v14);
+  WdLogEvent5_WdEvent(v10);
 }

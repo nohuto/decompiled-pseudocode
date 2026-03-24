@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Initialize@SfmState@@QEAAHXZ @ 0x1C00B3048
+ * XREFs of ?Initialize@SfmState@@QEAAHXZ @ 0x1C009F864
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
  *     <none>
  */

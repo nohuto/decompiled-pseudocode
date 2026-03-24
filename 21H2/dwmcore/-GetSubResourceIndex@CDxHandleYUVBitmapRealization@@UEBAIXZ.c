@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSubResourceIndex@CDxHandleYUVBitmapRealization@@UEBAIXZ @ 0x1800FCC30
+ * XREFs of ?GetSubResourceIndex@CDxHandleYUVBitmapRealization@@UEBAIXZ @ 0x1800E3BA0
  * Callers:
  *     <none>
  * Callees:

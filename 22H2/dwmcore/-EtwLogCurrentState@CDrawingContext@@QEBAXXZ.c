@@ -1,46 +1,47 @@
 /*
- * XREFs of ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x18000D5F0
+ * XREFs of ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800BA594
  * Callers:
- *     ?Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CB9C (-Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CD60 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
- *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A550 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013674 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7E60 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800BA484 (-Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x18012F0B8 (McTemplateU0ppffffubr6q_EventWriteTransfer.c)
+ *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006BD48 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x18008D110 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA600 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x1801788D8 (McTemplateU0ppffffubr6q_EventWriteTransfer.c)
  */
 
 void __fastcall CDrawingContext::EtwLogCurrentState(CDrawingContext *this)
 {
   __int64 v2; // rax
   __int64 v3; // rcx
-  __int64 v4; // rax
-  int v5; // eax
+  struct CVisual *CurrentVisual; // rax
+  unsigned int v5; // eax
   int v6; // edx
   int v7; // ecx
   _BYTE v8[64]; // [rsp+60h] [rbp-78h] BYREF
   int v9; // [rsp+A0h] [rbp-38h]
-  __int128 v10; // [rsp+B0h] [rbp-28h] BYREF
+  __int128 v10; // [rsp+B0h] [rbp-28h]
 
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400) != 0 )
   {
     v9 = 0;
-    v2 = *((_QWORD *)this + 100);
-    v3 = (unsigned int)(*((_DWORD *)this + 206) - 1);
+    v2 = *((_QWORD *)this + 105);
+    v3 = (unsigned int)(*((_DWORD *)this + 216) - 1);
     v10 = 0LL;
     if ( ((*(_DWORD *)(*(_QWORD *)(v2 + 8 * v3) + 128LL) + 1) & 0xFFFFFFFE) == 0
-      && (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 32LL))((char *)this + 24) )
+      && CDrawingContext::GetCurrentVisual((CDrawingContext *)((char *)this + 24)) )
     {
-      v4 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 32LL))((char *)this + 24);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 144LL))(v4);
+      CurrentVisual = CDrawingContext::GetCurrentVisual((CDrawingContext *)((char *)this + 24));
+      (*(void (__fastcall **)(struct CVisual *))(*(_QWORD *)CurrentVisual + 152LL))(CurrentVisual);
     }
-    CDrawingContext::GetClipBoundsWorld(this, &v10);
-    CMatrixStack::Top((CDrawingContext *)((char *)this + 400), (struct CMILMatrix *)v8);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000) != 0 )
+    CDrawingContext::GetClipBoundsWorld((__int64)this);
+    CMatrixStack::Top((CDrawingContext *)((char *)this + 408), (struct CMILMatrix *)v8);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400) != 0 )
     {
-      v5 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 32LL))((char *)this + 24);
+      v5 = (unsigned int)CDrawingContext::GetCurrentVisual((CDrawingContext *)((char *)this + 24));
       McTemplateU0ppffffubr6q_EventWriteTransfer(v7, v6, (_DWORD)this, v5, v10, SBYTE4(v10), SBYTE8(v10), SBYTE12(v10));
     }
   }

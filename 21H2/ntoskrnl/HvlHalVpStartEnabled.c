@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlHalVpStartEnabled @ 0x140547010
+ * XREFs of HvlHalVpStartEnabled @ 0x1404F54A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,23 +1,20 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0220430
+ * XREFs of ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF9A0
  * Callers:
- *     ?SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F610 (-SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ.c)
- *     ?SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F650 (-SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEE60 (-SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEEA0 (-SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall DirectComposition::CTextObjectMarshaler::SetRemarshalingFlags(
+char __fastcall DirectComposition::CTextObjectMarshaler::SetRemarshalingFlags(
         DirectComposition::CTextObjectMarshaler *this)
 {
-  _DWORD *v1; // rdx
-  bool result; // al
+  int v1; // eax
 
-  v1 = (_DWORD *)((char *)this + 16);
+  v1 = *((_DWORD *)this + 4);
   if ( *((_QWORD *)this + 7) )
-    *v1 |= 0x20u;
-  *v1 |= 0x40u;
-  result = 1;
-  *v1 |= 0x80u;
-  return result;
+    v1 |= 0x20u;
+  *((_DWORD *)this + 4) = v1 | 0xC0;
+  return 1;
 }

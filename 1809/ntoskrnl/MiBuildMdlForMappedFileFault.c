@@ -11,12 +11,12 @@
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiReduceMappedFileReadAhead @ 0x140127518 (MiReduceMappedFileReadAhead.c)
- *     MiReduceMappedFileReadBehind @ 0x140132598 (MiReduceMappedFileReadBehind.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiReduceMappedFileReadAhead @ 0x140127538 (MiReduceMappedFileReadAhead.c)
+ *     MiReduceMappedFileReadBehind @ 0x1401325B8 (MiReduceMappedFileReadBehind.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiBuildMdlForMappedFileFault(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindBestOutswapPagefile @ 0x1400E4D8C
+ * XREFs of MiFindBestOutswapPagefile @ 0x1400E4DAC
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x1402CB990 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapVirtualAddresses @ 0x1402CBA90 (MmOutSwapVirtualAddresses.c)
  * Callees:
- *     MiWsSwapPageFileNumber @ 0x1400E4E28 (MiWsSwapPageFileNumber.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124818 (MiPageFileLargestBitmapsRun.c)
+ *     MiWsSwapPageFileNumber @ 0x1400E4E48 (MiWsSwapPageFileNumber.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
  */
 
 __int64 __fastcall MiFindBestOutswapPagefile(__int64 a1, unsigned int *a2)

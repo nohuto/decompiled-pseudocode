@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetHandleProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C00235A0
+ * XREFs of ?SetHandleProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C005B240
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C00235FC (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
+ *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C005B29C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::SetHandleProperty(

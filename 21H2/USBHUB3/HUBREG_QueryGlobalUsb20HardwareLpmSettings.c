@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBREG_QueryGlobalUsb20HardwareLpmSettings @ 0x1C0081780
+ * XREFs of HUBREG_QueryGlobalUsb20HardwareLpmSettings @ 0x1C0080214
  * Callers:
- *     DriverEntry @ 0x1C008C008 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryGlobalUsb20HardwareLpmSettings(__int64 a1)

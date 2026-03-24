@@ -1,12 +1,12 @@
 /*
- * XREFs of KiResetClockInterval @ 0x140190BCC
+ * XREFs of KiResetClockInterval @ 0x140190BEC
  * Callers:
  *     KiCheckForTimerExpiration @ 0x1400605D0 (KiCheckForTimerExpiration.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140299568 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140299668 (KiSetVirtualHeteroClockIntervalRequest.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1400FCC30 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCCF0 (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1400FCC50 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
  */
 
 __int64 __fastcall KiResetClockInterval(unsigned __int64 a1)

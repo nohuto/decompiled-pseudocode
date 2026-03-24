@@ -1,31 +1,29 @@
 /*
- * XREFs of ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00F99D0
+ * XREFs of ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C010F540
  * Callers:
- *     xxxBeginPaint @ 0x1C005E22C (xxxBeginPaint.c)
- *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C005F954 (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
- *     xxxSimpleDoSyncPaint @ 0x1C00720D0 (xxxSimpleDoSyncPaint.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D840 (xxxSimpleDoSyncPaint.c)
+ *     xxxBeginPaint @ 0x1C007D8F4 (xxxBeginPaint.c)
+ *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C007DB7C (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
  */
 
-void __fastcall xxxSendNCPaint(struct tagWND *a1, __int64 a2)
+void __fastcall xxxSendNCPaint(struct tagWND *a1, unsigned __int64 a2)
 {
-  SetOrClrWF(0, a1, 0x108u, 1);
+  SetOrClrWF(0, (__int64)a1, 0x108u, 1);
   if ( a1 == *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 120LL)
     && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 16LL) & 0x40) == 0 )
   {
-    SetOrClrWF(1, a1, 0x40u, 1);
+    SetOrClrWF(1, (__int64)a1, 0x40u, 1);
     a2 = 1LL;
-    SetOrClrWF(0, a1, 0x101u, 1);
+    SetOrClrWF(0, (__int64)a1, 0x101u, 1);
   }
   if ( *(char *)(*((_QWORD *)a1 + 5) + 22LL) < 0 )
   {
-    SetOrClrWF(0, a1, 0x680u, 1);
+    SetOrClrWF(0, (__int64)a1, 0x680u, 1);
+    a2 = 1LL;
   }
-  else if ( !a2 )
-  {
-    return;
-  }
-  xxxSendMessage((ULONG_PTR)a1);
+  if ( a2 )
+    xxxSendMessage((unsigned __int64)a1, 0x85u, a2, 0LL);
 }

@@ -1,23 +1,22 @@
 /*
- * XREFs of EngUnmapFile @ 0x1C028B690
+ * XREFs of EngUnmapFile @ 0x1C0289D00
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
  */
 
 BOOL __stdcall EngUnmapFile(ULONG_PTR iFile)
 {
-  BOOL v2; // esi
+  BOOL v1; // esi
   NTSTATUS v3; // ebx
 
-  Gre::Base::Globals((Gre::Base *)iFile);
-  v2 = 0;
+  v1 = 0;
   if ( !iFile )
     return 0;
   v3 = MmUnmapViewInSessionSpace(*(PVOID *)(iFile + 8));
   vUnreferenceFileviewSection((struct _FILEVIEW *)iFile);
   Win32FreePool((void *)iFile);
-  LOBYTE(v2) = v3 >= 0;
-  return v2;
+  LOBYTE(v1) = v3 >= 0;
+  return v1;
 }

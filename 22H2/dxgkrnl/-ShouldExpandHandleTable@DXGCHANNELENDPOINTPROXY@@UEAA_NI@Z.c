@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ShouldExpandHandleTable@DXGCHANNELENDPOINTPROXY@@UEAA_NI@Z @ 0x1C03671C0
+ * XREFs of ?ShouldExpandHandleTable@DXGCHANNELENDPOINTPROXY@@UEAA_NI@Z @ 0x1C02B4260
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DXGCHANNELENDPOINTPROXY::ShouldExpandHandleTable(DXGCHANNELENDPOINTPROXY *this, unsigned int a2)
 {
-  return a2 <= *((_DWORD *)this + 28);
+  return a2 <= *((_DWORD *)this + 26);
 }

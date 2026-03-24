@@ -1,10 +1,10 @@
 /*
- * XREFs of MiApplyImageHotPatchDpc @ 0x140A6A480
+ * XREFs of MiApplyImageHotPatchDpc @ 0x1409B08F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalCallDpcSynchronize @ 0x14056F9F0 (KeSignalCallDpcSynchronize.c)
- *     RtlApplyHotPatch @ 0x140A6BF28 (RtlApplyHotPatch.c)
+ *     KeSignalCallDpcSynchronize @ 0x140519DE0 (KeSignalCallDpcSynchronize.c)
+ *     RtlApplyHotPatch @ 0x1409B2744 (RtlApplyHotPatch.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatchDpc(__int64 a1, _QWORD *a2, volatile signed __int32 *a3, __int64 a4)
@@ -14,13 +14,11 @@ __int64 __fastcall MiApplyImageHotPatchDpc(__int64 a1, _QWORD *a2, volatile sign
   __int64 v9; // r9
   __int64 v10; // rdx
   __int64 result; // rax
-  char v12; // [rsp+28h] [rbp-B0h]
-  int v13; // [rsp+38h] [rbp-A0h]
-  int v14; // [rsp+68h] [rbp-70h]
-  int v15; // [rsp+A8h] [rbp-30h]
-  __int64 v16; // [rsp+B0h] [rbp-28h]
-  __int64 v17; // [rsp+B8h] [rbp-20h]
-  int v18; // [rsp+C0h] [rbp-18h]
+  char v12; // [rsp+28h] [rbp-90h]
+  int v13; // [rsp+30h] [rbp-88h]
+  int v14; // [rsp+90h] [rbp-28h]
+  int v15; // [rsp+98h] [rbp-20h]
+  __int64 v16; // [rsp+A0h] [rbp-18h]
 
   v7 = KeSignalCallDpcSynchronize(a4, (__int64)a2, (__int64)a3, a4);
   v10 = 0LL;
@@ -32,25 +30,21 @@ __int64 __fastcall MiApplyImageHotPatchDpc(__int64 a1, _QWORD *a2, volatile sign
                              *(_DWORD *)(*a2 + 36LL),
                              (__int64)(a2 + 5),
                              v12,
-                             0LL,
                              v13,
                              *(_QWORD *)(a2[1] + 72LL),
                              *(_QWORD *)(a2[1] + 8LL),
                              0LL,
                              0,
                              0LL,
-                             v14,
                              a2[2],
                              a2[3],
                              1,
-                             *(_WORD *)(*a2 + 136LL),
                              *(PRTL_BITMAP *)(*a2 + 40LL),
                              a2[4],
                              0LL,
+                             v14,
                              v15,
-                             v16,
-                             v17,
-                             v18);
+                             v16);
   result = KeSignalCallDpcSynchronize(a4, v10, v8, v9);
   _InterlockedDecrement(a3);
   return result;

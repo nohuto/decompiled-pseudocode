@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLbrConfigurationWorker @ 0x14090B0BC
+ * XREFs of HalpLbrConfigurationWorker @ 0x140866DBC
  * Callers:
- *     HalpLbrConfigureRecording @ 0x14090B130 (HalpLbrConfigureRecording.c)
- *     HalpLbrStartRecording @ 0x14090B170 (HalpLbrStartRecording.c)
- *     HalpLbrStopRecording @ 0x14090B220 (HalpLbrStopRecording.c)
+ *     HalpLbrConfigureRecording @ 0x140866E30 (HalpLbrConfigureRecording.c)
+ *     HalpLbrStartRecording @ 0x140866E70 (HalpLbrStartRecording.c)
+ *     HalpLbrStopRecording @ 0x140866F20 (HalpLbrStopRecording.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1403B4600 (KeIpiGenericCall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
  */
 
 __int64 __fastcall HalpLbrConfigurationWorker(int a1, unsigned __int8 a2)

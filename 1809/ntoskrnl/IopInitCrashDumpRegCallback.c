@@ -8,7 +8,7 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     IoCreateFile @ 0x14060A8B0 (IoCreateFile.c)
- *     IopInitializeCrashDump @ 0x14074D054 (IopInitializeCrashDump.c)
+ *     IopInitializeCrashDump @ 0x14074D034 (IopInitializeCrashDump.c)
  */
 
 __int64 __fastcall IopInitCrashDumpRegCallback(

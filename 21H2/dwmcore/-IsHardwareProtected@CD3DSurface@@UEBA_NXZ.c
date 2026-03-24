@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CD3DSurface@@UEBA_NXZ @ 0x18028C9A0
+ * XREFs of ?IsHardwareProtected@CD3DSurface@@UEBA_NXZ @ 0x18024AE80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CD3DSurface::IsHardwareProtected(CD3DSurface *this)
 {
-  return (*((_DWORD *)this + 41) & 0x80000) != 0;
+  return (*((_DWORD *)this + 39) & 0x80000) != 0;
 }

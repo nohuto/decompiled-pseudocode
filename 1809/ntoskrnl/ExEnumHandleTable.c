@@ -1,20 +1,20 @@
 /*
- * XREFs of ExEnumHandleTable @ 0x14068FAF0
+ * XREFs of ExEnumHandleTable @ 0x14068FAD0
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1402845C0 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x1402846C0 (IoRevokeHandlesForProcess.c)
  *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     ObFindHandleForObject @ 0x14068FA40 (ObFindHandleForObject.c)
- *     IopQueryProcessIdsUsingFile @ 0x14081E728 (IopQueryProcessIdsUsingFile.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x14082729C (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
- *     ObShutdownSystem @ 0x140860D2C (ObShutdownSystem.c)
- *     EtwpObjectHandleRundown @ 0x1408BEE84 (EtwpObjectHandleRundown.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     ObFindHandleForObject @ 0x14068FA20 (ObFindHandleForObject.c)
+ *     IopQueryProcessIdsUsingFile @ 0x14081E708 (IopQueryProcessIdsUsingFile.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x14082727C (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObShutdownSystem @ 0x140860D0C (ObShutdownSystem.c)
+ *     EtwpObjectHandleRundown @ 0x1408BEE64 (EtwpObjectHandleRundown.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpGetNextHandleTableEntry @ 0x14068FC00 (ExpGetNextHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697884 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpGetNextHandleTableEntry @ 0x14068FBE0 (ExpGetNextHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExEnumHandleTable(

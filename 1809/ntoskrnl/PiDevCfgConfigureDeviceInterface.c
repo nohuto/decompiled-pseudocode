@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterface @ 0x14082C034
+ * XREFs of PiDevCfgConfigureDeviceInterface @ 0x14082C014
  * Callers:
- *     PiDevCfgConfigureDeviceInterfaceCallback @ 0x140288F90 (PiDevCfgConfigureDeviceInterfaceCallback.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FC4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaceCallback @ 0x140289090 (PiDevCfgConfigureDeviceInterfaceCallback.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4 (PiDevCfgConfigureDeviceInterfaces.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
- *     PiDevCfgCopyDeviceKeys @ 0x1406F2C08 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CF4 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgCopyObjectProperties @ 0x1406FA464 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x1406F2BE8 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1406FA444 (PiDevCfgCopyObjectProperties.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceInterface(__int64 a1, void *a2, __int64 a3)

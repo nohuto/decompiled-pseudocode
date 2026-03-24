@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhInstallMsOs20RegistryProperties @ 0x1C0032D88
+ * XREFs of UsbhInstallMsOs20RegistryProperties @ 0x1C00340C8
  * Callers:
- *     UsbhPdoPnp_QueryResourceRequirements @ 0x1C0055970 (UsbhPdoPnp_QueryResourceRequirements.c)
+ *     UsbhPdoPnp_QueryResourceRequirements @ 0x1C0057010 (UsbhPdoPnp_QueryResourceRequirements.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhAcquireFdoPnpLock @ 0x1C0031220 (UsbhAcquireFdoPnpLock.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     UsbhExtPropDescSemaphorePresent @ 0x1C0031FBC (UsbhExtPropDescSemaphorePresent.c)
- *     UsbhParseAndInstallRegistryValueDescriptors @ 0x1C003305C (UsbhParseAndInstallRegistryValueDescriptors.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0032554 (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhExtPropDescSemaphorePresent @ 0x1C00332AC (UsbhExtPropDescSemaphorePresent.c)
+ *     UsbhParseAndInstallRegistryValueDescriptors @ 0x1C00343C0 (UsbhParseAndInstallRegistryValueDescriptors.c)
  */
 
 LONG __fastcall UsbhInstallMsOs20RegistryProperties(__int64 a1, struct _DEVICE_OBJECT *a2)

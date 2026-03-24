@@ -1,15 +1,16 @@
 /*
- * XREFs of ExpWin32OpenProcedure @ 0x1407CB4D0
+ * XREFs of ExpWin32OpenProcedure @ 0x140685F90
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD *a4, int *a5, int a6)
 {
+  int v6; // eax
   unsigned int v7; // r11d
-  unsigned __int64 v8; // r9
+  unsigned __int64 v8; // r10
   POBJECT_TYPE *v9; // rdx
   int v10; // ecx
   int v11; // ecx
@@ -20,11 +21,12 @@ __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD 
   int v17; // [rsp+3Ch] [rbp-4h]
   int v18; // [rsp+50h] [rbp+10h] BYREF
 
-  v18 = *a4;
-  v13[0] = a1;
+  v6 = *a4;
   v13[1] = 0;
   v7 = -1073741823;
+  v18 = v6;
   v8 = *((unsigned __int8 *)a4 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)a4 - 48) >> 8);
+  v13[0] = a1;
   v14 = a3;
   v15 = a4;
   v9 = (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v8];

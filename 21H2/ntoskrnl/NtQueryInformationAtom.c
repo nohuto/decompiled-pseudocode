@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryInformationAtom @ 0x1406C43F0
+ * XREFs of NtQueryInformationAtom @ 0x14069F590
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     RtlQueryAtomInAtomTable @ 0x1407A0A30 (RtlQueryAtomInAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x1409B8DC8 (RtlQueryAtomsInAtomTable.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     RtlQueryAtomInAtomTable @ 0x14061B790 (RtlQueryAtomInAtomTable.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     RtlQueryAtomsInAtomTable @ 0x1409131B8 (RtlQueryAtomsInAtomTable.c)
  */
 
 __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3, unsigned int a4, int *a5)
@@ -19,15 +19,15 @@ __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3
   unsigned int v15; // [rsp+38h] [rbp-30h] BYREF
   int v16; // [rsp+3Ch] [rbp-2Ch]
   int v17; // [rsp+40h] [rbp-28h] BYREF
-  int v18[2]; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-20h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-18h]
 
   v17 = 0;
-  *(_QWORD *)v18 = 0LL;
+  v18 = 0LL;
   v15 = 0;
   v14 = 0;
-  PsInvokeWin32Callout(2LL, v18, 0LL, 0LL);
-  if ( !*(_QWORD *)v18 )
+  PsInvokeWin32Callout(2, (__int64)&v18, 0, 0LL);
+  if ( !v18 )
     return 3221225506LL;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->PreviousMode )
@@ -49,7 +49,7 @@ __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3
       v10 = 4;
       if ( a4 < 4 )
         return 3221225476LL;
-      AtomsInAtomTable = RtlQueryAtomsInAtomTable(*(_QWORD *)v18, (a4 - 4) >> 1, a3, a3 + 2);
+      AtomsInAtomTable = RtlQueryAtomsInAtomTable(v18, (a4 - 4) >> 1, a3, a3 + 2);
       v16 = AtomsInAtomTable;
       if ( AtomsInAtomTable >= 0 )
         v10 = 2 * *(_DWORD *)a3 + 4;
@@ -67,7 +67,7 @@ __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3
       return 3221225476LL;
     v14 = 0;
     v15 = a4 - 6;
-    AtomsInAtomTable = RtlQueryAtomInAtomTable(v18[0], a1, (int)&v14, (int)&v17, a3 + 3, (__int64)&v15);
+    AtomsInAtomTable = RtlQueryAtomInAtomTable(v18, a1, &v14, &v17, a3 + 3, &v15);
     v16 = AtomsInAtomTable;
     if ( AtomsInAtomTable >= 0 )
     {

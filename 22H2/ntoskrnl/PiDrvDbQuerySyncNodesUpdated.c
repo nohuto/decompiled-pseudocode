@@ -1,51 +1,50 @@
 /*
- * XREFs of PiDrvDbQuerySyncNodesUpdated @ 0x140970D90
+ * XREFs of PiDrvDbQuerySyncNodesUpdated @ 0x1408B6B44
  * Callers:
- *     PpDevCfgInit @ 0x140B43330 (PpDevCfgInit.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     RtlGetPersistedStateLocation @ 0x1406C5480 (RtlGetPersistedStateLocation.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpCtxRegCreateTree @ 0x140797E74 (_PnpCtxRegCreateTree.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpCtxRegCreateTree @ 0x1406B7058 (_PnpCtxRegCreateTree.c)
+ *     RtlGetPersistedStateLocation @ 0x1406B87A0 (RtlGetPersistedStateLocation.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
 {
-  char v3; // r12
-  __int64 v5; // rsi
-  int PersistedStateLocation; // eax
-  int Tree; // ebx
-  void *Pool2; // rdi
+  char v3; // r15
+  SIZE_T v5; // rsi
+  int PersistedStateLocation; // ebx
+  PVOID PoolWithTag; // rdi
   __int64 i; // rsi
-  const WCHAR *v11; // rdx
-  int v12; // [rsp+60h] [rbp-20h] BYREF
-  int v13; // [rsp+64h] [rbp-1Ch] BYREF
+  const WCHAR *v10; // rdx
+  int v11; // [rsp+60h] [rbp-20h] BYREF
+  int v12; // [rsp+64h] [rbp-1Ch] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-18h]
   __int64 Source2; // [rsp+70h] [rbp-10h] BYREF
   __int64 Source1; // [rsp+78h] [rbp-8h] BYREF
-  __int64 v17; // [rsp+D0h] [rbp+50h] BYREF
-  int v18; // [rsp+D8h] [rbp+58h] BYREF
+  __int64 v16; // [rsp+D0h] [rbp+50h] BYREF
+  int v17; // [rsp+D8h] [rbp+58h] BYREF
 
   v3 = 0;
   Handle = 0LL;
   Source1 = 0LL;
   Source2 = 0LL;
   v5 = 520LL;
-  v18 = 0;
+  v17 = 0;
+  v11 = 0;
   v12 = 0;
-  v13 = 0;
-  LODWORD(v17) = 0;
+  LODWORD(v16) = 0;
   while ( 1 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v5, 1650749520LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x62647050u);
+    if ( !PoolWithTag )
     {
-      Tree = -1073741670;
+      PersistedStateLocation = -1073741670;
       goto LABEL_7;
     }
     PersistedStateLocation = RtlGetPersistedStateLocation(
@@ -53,25 +52,24 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
                                0LL,
                                L"\\Registry\\Machine\\System\\DriverDatabase\\Updates",
                                0,
-                               Pool2,
+                               PoolWithTag,
                                v5,
-                               (unsigned int *)&v17);
-    Tree = PersistedStateLocation;
+                               (unsigned int *)&v16);
     if ( PersistedStateLocation != -2147483643 )
       break;
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = 0LL;
-    if ( (unsigned int)v17 <= (unsigned int)v5 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = 0LL;
+    if ( (unsigned int)v16 <= (unsigned int)v5 )
     {
-      Tree = -1073741595;
-      goto LABEL_7;
+      PersistedStateLocation = -1073741595;
+      break;
     }
-    v5 = (unsigned int)v17;
+    v5 = (unsigned int)v16;
   }
   if ( PersistedStateLocation >= 0 )
   {
-    Tree = PnpCtxRegCreateTree(0LL, 0LL, (__int64)Pool2, 0LL, 131103, 0LL);
-    if ( Tree >= 0 )
+    PersistedStateLocation = PnpCtxRegCreateTree(0LL);
+    if ( PersistedStateLocation >= 0 )
     {
       for ( i = PiDrvDbNodeList; (__int64 *)i != &PiDrvDbNodeList; i = *(_QWORD *)i )
       {
@@ -84,20 +82,20 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
                       *(_QWORD *)(i + 72),
                       0LL,
                       (__int64)DEVPKEY_DriverDatabase_LastUpdateDate,
-                      (__int64)&v18,
+                      (__int64)&v17,
                       (__int64)&Source1,
                       8,
-                      (__int64)&v12,
+                      (__int64)&v11,
                       0) >= 0
-            && v18 == 16
-            && v12 == 8 )
+            && v17 == 16
+            && v11 == 8 )
           {
-            v11 = *(const WCHAR **)(i + 24);
-            LODWORD(v17) = 8;
-            Tree = RegRtlQueryValue(Handle, v11, &v13, &Source2, (unsigned int *)&v17);
-            if ( Tree < 0 || v13 != 3 || (_DWORD)v17 != 8 )
+            v10 = *(const WCHAR **)(i + 24);
+            LODWORD(v16) = 8;
+            PersistedStateLocation = RegRtlQueryValue(Handle, v10, &v12, &Source2, (unsigned int *)&v16);
+            if ( PersistedStateLocation < 0 || v12 != 3 || (_DWORD)v16 != 8 )
             {
-              Tree = 0;
+              PersistedStateLocation = 0;
               Source2 = 0LL;
             }
             if ( RtlCompareMemory(&Source1, &Source2, 8uLL) != 8 )
@@ -105,14 +103,14 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
               v3 = 1;
               if ( !a1 )
                 break;
-              Tree = RegRtlSetValue(Handle, *(const WCHAR **)(i + 24), 3u, &Source1, 8u);
-              if ( Tree < 0 )
+              PersistedStateLocation = RegRtlSetValue(Handle, *(const WCHAR **)(i + 24), 3u, &Source1, 8u);
+              if ( PersistedStateLocation < 0 )
                 goto LABEL_7;
             }
           }
           else
           {
-            Tree = 0;
+            PersistedStateLocation = 0;
           }
         }
       }
@@ -123,7 +121,7 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
 LABEL_7:
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)Tree;
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return (unsigned int)PersistedStateLocation;
 }

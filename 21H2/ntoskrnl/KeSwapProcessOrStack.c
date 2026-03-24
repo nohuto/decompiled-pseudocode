@@ -1,39 +1,40 @@
 /*
- * XREFs of KeSwapProcessOrStack @ 0x1403C6D20
+ * XREFs of KeSwapProcessOrStack @ 0x1403B4090
  * Callers:
  *     <none>
  * Callees:
- *     KiOutSwapProcesses @ 0x140210EA0 (KiOutSwapProcesses.c)
- *     KiInSwapProcesses @ 0x14021119C (KiInSwapProcesses.c)
- *     KiOutSwapKernelStacks @ 0x140299FBC (KiOutSwapKernelStacks.c)
- *     KiInSwapKernelStacks @ 0x14029A6E0 (KiInSwapKernelStacks.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetPriorityThread @ 0x140344340 (KeSetPriorityThread.c)
+ *     KiOutSwapProcesses @ 0x14024A2B0 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14024A538 (KiInSwapProcesses.c)
+ *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
+ *     KiInSwapKernelStacks @ 0x1402E46BC (KiInSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 void __noreturn KeSwapProcessOrStack()
 {
   _QWORD *v0; // rdx
-  int v1; // r8d
-  _DWORD *v2; // r9
-  _QWORD *v3; // rcx
+  __int64 v1; // rcx
+  __int64 v2; // r8
+  _DWORD *v3; // r9
   _QWORD *v4; // rcx
   _QWORD *v5; // rcx
+  _QWORD *v6; // rcx
 
   KeSetPriorityThread(KeGetCurrentThread(), 23);
   while ( 1 )
   {
     KeWaitForSingleObject(&KiSwapEvent, Executive, 0, 0, 0LL);
     if ( _InterlockedCompareExchange(&KiStackOutSwapRequest, 0, 1) == 1 )
-      KiOutSwapKernelStacks();
-    v3 = (_QWORD *)_InterlockedExchange64(&KiProcessOutSwapListHead, 0LL);
-    if ( v3 )
-      KiOutSwapProcesses(v3);
-    v4 = (_QWORD *)_InterlockedExchange64(&KiProcessInSwapListHead, 0LL);
+      KiOutSwapKernelStacks(v1, (__int64)v0, v2, v3);
+    v4 = (_QWORD *)_InterlockedExchange64(&KiProcessOutSwapListHead, 0LL);
     if ( v4 )
-      KiInSwapProcesses(v4, v0, v1, v2);
-    v5 = (_QWORD *)_InterlockedExchange64(&KiStackInSwapListHead, 0LL);
+      KiOutSwapProcesses(v4);
+    v5 = (_QWORD *)_InterlockedExchange64(&KiProcessInSwapListHead, 0LL);
     if ( v5 )
-      KiInSwapKernelStacks(v5);
+      KiInSwapProcesses(v5, v0, v2, v3);
+    v6 = (_QWORD *)_InterlockedExchange64(&KiStackInSwapListHead, 0LL);
+    if ( v6 )
+      KiInSwapKernelStacks(v6, (__int64)v0, v2, v3);
   }
 }

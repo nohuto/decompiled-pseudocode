@@ -1,46 +1,33 @@
 /*
- * XREFs of RemoveInputDevices @ 0x1C0130F10
+ * XREFs of RemoveInputDevices @ 0x1C0128830
  * Callers:
- *     xxxRemoteDisconnect @ 0x1C0130984 (xxxRemoteDisconnect.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxRemoteDisconnect @ 0x1C01280E0 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RemoveInputDevices(__int64 a1)
+__int64 RemoveInputDevices()
 {
-  int v1; // ebx
-  _QWORD *v2; // rax
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rax
+  unsigned int i; // ebx
+  _QWORD *v1; // rcx
 
-  v1 = 0;
-  while ( 1 )
+  for ( i = 0; i <= 2; ++i )
   {
-    while ( 1 )
+    if ( i )
     {
-      v2 = (_QWORD *)SGDGetUserSessionState(a1);
-      if ( v1 )
-        break;
-      CBaseInput::HandleTSRequest(v2[409], 3LL);
-      v1 = 1;
+      v1 = (_QWORD *)gpHidInput;
+      if ( i != 2 )
+        v1 = (_QWORD *)gpKeyboardSensor;
     }
-    if ( v1 == 2 )
-      break;
-    CBaseInput::HandleTSRequest(v2[1584], 3LL);
-    if ( (unsigned int)++v1 > 2 )
-      goto LABEL_5;
+    else
+    {
+      v1 = (_QWORD *)gpMouseSensor;
+    }
+    CBaseInput::HandleTSRequest(*v1, 3LL);
   }
-  CBaseInput::HandleTSRequest(v2[2105], 3LL);
-LABEL_5:
-  v3 = SGDGetUserSessionState(a1);
-  CBaseInput::HandleTSRequest(*(_QWORD *)(v3 + 3272), 1LL);
-  v5 = SGDGetUserSessionState(v4);
-  CBaseInput::HandleTSRequest(*(_QWORD *)(v5 + 12672), 1LL);
-  v7 = SGDGetUserSessionState(v6);
-  CBaseInput::HandleTSRequest(*(_QWORD *)(v7 + 16840), 1LL);
+  CBaseInput::HandleTSRequest(gpMouseSensor, 1LL);
+  CBaseInput::HandleTSRequest(gpKeyboardSensor, 1LL);
+  CBaseInput::HandleTSRequest(gpHidInput, 1LL);
   return ForceUpdatePointerDeviceSystemMetrics();
 }

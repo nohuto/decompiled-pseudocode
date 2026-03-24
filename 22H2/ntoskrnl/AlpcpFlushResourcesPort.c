@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpFlushResourcesPort @ 0x140719580
+ * XREFs of AlpcpFlushResourcesPort @ 0x1405E220C
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
- *     AlpcpDoPortCleanup @ 0x140718D90 (AlpcpDoPortCleanup.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpDoPortCleanup @ 0x1405E20E8 (AlpcpDoPortCleanup.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     AlpcpDeleteBlob @ 0x14071C18C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
  */
 
-signed __int32 __fastcall AlpcpFlushResourcesPort(__int64 a1)
+char __fastcall AlpcpFlushResourcesPort(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi
   _QWORD **v2; // rsi

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800EF6C0
+ * XREFs of ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800D8F20
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800894E4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8BD4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawTileImage(
@@ -21,11 +21,11 @@ __int64 __fastcall CRenderDataBuilder::DrawTileImage(
   __int64 v12; // rcx
   __int128 v13; // xmm0
 
-  v8 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 40, 0, 0LL);
+  v8 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 40, 0, 0LL);
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0xD3u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xD3u, 0LL);
   }
   else
   {
@@ -36,7 +36,7 @@ __int64 __fastcall CRenderDataBuilder::DrawTileImage(
     *(_QWORD *)(v11 + v12 + 16) = 0LL;
     *(_QWORD *)(v11 + v12 + 24) = 0LL;
     *(_QWORD *)(v11 + v12 + 32) = 0LL;
-    *(_DWORD *)(v11 + v12 + 4) = 462;
+    *(_DWORD *)(v11 + v12 + 4) = 467;
     *(_DWORD *)(v11 + v12 + 8) = a2;
     v13 = *(_OWORD *)a3;
     *(float *)(v11 + v12 + 28) = a4;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExDisableResourceBoostLite @ 0x1403863A0
+ * XREFs of ExDisableResourceBoostLite @ 0x1402C4980
  * Callers:
- *     CcAllocateInitializeBcb @ 0x14028D948 (CcAllocateInitializeBcb.c)
+ *     CcAllocateInitializeBcb @ 0x14031CD80 (CcAllocateInitializeBcb.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __stdcall ExDisableResourceBoostLite(PERESOURCE Resource)

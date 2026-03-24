@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x1406ABE78
+ * XREFs of IopSymlinkRememberJunction @ 0x1406ABE58
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1406AC230 (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x1406AC28C (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x1406AC210 (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x14012583C (IopSymlinkGetMostRecentlyUsedName.c)
- *     IopSymlinkGetECP @ 0x140125858 (IopSymlinkGetECP.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x14012585C (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x140125878 (IopSymlinkGetECP.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCD0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE34 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1406AC080 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x1406AC8E0 (IopSymlinkGetRelatedMountPoint.c)
- *     IopGetRelatedFileName @ 0x140819C2C (IopGetRelatedFileName.c)
+ *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE14 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1406AC060 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1406AC8C0 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopGetRelatedFileName @ 0x140819C0C (IopGetRelatedFileName.c)
  */
 
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)

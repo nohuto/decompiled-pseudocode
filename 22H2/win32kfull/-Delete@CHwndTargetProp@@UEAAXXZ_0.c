@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Delete@CHwndTargetProp@@UEAAXXZ_0 @ 0x1C0138790
+ * XREFs of ?Delete@CHwndTargetProp@@UEAAXXZ_0 @ 0x1C01658C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,197 +1,208 @@
 /*
- * XREFs of BapdpMarshallBootDataToRegistry @ 0x1403CCE24
+ * XREFs of BapdpMarshallBootDataToRegistry @ 0x1403AF654
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B1C0FC (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     RtlIntegerToUnicodeString @ 0x14075AC60 (RtlIntegerToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlIntegerToUnicodeString @ 0x14062C070 (RtlIntegerToUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void BapdpMarshallBootDataToRegistry()
 {
   __int64 *v0; // rbx
-  __int64 *v1; // rcx
-  unsigned int v2; // edi
-  __int64 v3; // rdx
-  __int64 v4; // rax
-  unsigned int v5; // r14d
+  UNICODE_STRING *Class; // r12
+  __int64 *v2; // rcx
+  unsigned int v3; // edi
+  __int64 v4; // rdx
+  __int64 v5; // rax
+  unsigned int v6; // r14d
   _QWORD *PoolWithTag; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // rax
+  __int64 v8; // rdx
   __int64 v9; // rax
-  unsigned int v10; // ebx
-  UNICODE_STRING **v11; // r15
-  UNICODE_STRING *v12; // rax
-  UNICODE_STRING v13; // xmm0
-  ULONG v14; // r13d
-  __int64 v15; // r12
+  __int64 v10; // rax
+  unsigned int v11; // ebx
+  UNICODE_STRING **v12; // r15
+  UNICODE_STRING *v13; // rax
+  UNICODE_STRING v14; // xmm0
+  ULONG v15; // r13d
   char *v16; // r14
   _QWORD *v17; // rcx
   unsigned __int64 v18; // rax
   ULONG v19; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE v21; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v22[2]; // [rsp+58h] [rbp-B0h] BYREF
-  UNICODE_STRING String; // [rsp+68h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v25; // [rsp+80h] [rbp-88h]
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-70h] BYREF
-  char v28; // [rsp+C8h] [rbp-40h] BYREF
+  HANDLE ObjectAttributes[7]; // [rsp+50h] [rbp-B8h] BYREF
+  _QWORD v22[2]; // [rsp+88h] [rbp-80h] BYREF
+  UNICODE_STRING String; // [rsp+98h] [rbp-70h] BYREF
+  HANDLE Handle; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v25; // [rsp+B0h] [rbp-58h]
+  UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-50h] BYREF
+  char v27; // [rsp+C8h] [rbp-40h] BYREF
+  char v28; // [rsp+E8h] [rbp-20h] BYREF
 
-  v0 = (__int64 *)qword_140D00130;
+  v0 = (__int64 *)qword_140CF29F0;
+  Class = 0LL;
   Handle = (HANDLE)0x43F585FA729AF26ELL;
-  v1 = (__int64 *)qword_140D00130;
-  v2 = 0;
+  v2 = (__int64 *)qword_140CF29F0;
+  v3 = 0;
   v25 = 0x55C1EB7445F20CB8LL;
   KeyHandle = 0LL;
-  v21 = 0LL;
-  if ( qword_140D00130 )
+  ObjectAttributes[0] = 0LL;
+  if ( qword_140CF29F0 )
   {
     do
     {
-      if ( v1 == &qword_140D00130 )
+      if ( v2 == &qword_140CF29F0 )
         break;
-      v3 = v1[2];
-      v1 = (__int64 *)*v1;
-      if ( (unsigned int)(*(_DWORD *)(v3 + 32) - 1) <= 1 )
+      v4 = v2[2];
+      v2 = (__int64 *)*v2;
+      if ( (unsigned int)(*(_DWORD *)(v4 + 32) - 1) <= 1 )
       {
-        v4 = *(_QWORD *)(v3 + 16) - (_QWORD)Handle;
-        if ( !v4 )
-          v4 = *(_QWORD *)(v3 + 24) - v25;
-        if ( !v4 )
-          ++v2;
+        v5 = *(_QWORD *)(v4 + 16) - (_QWORD)Handle;
+        if ( !v5 )
+          v5 = *(_QWORD *)(v4 + 24) - v25;
+        if ( !v5 )
+          ++v3;
       }
     }
-    while ( v1 );
-    if ( v2 )
+    while ( v2 );
+    if ( v3 )
     {
-      v5 = 0;
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v2, 0x64506142u);
+      v6 = 0;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v3, 0x64506142u);
       if ( PoolWithTag )
       {
-        while ( v0 != &qword_140D00130 )
+        while ( v0 != &qword_140CF29F0 )
         {
-          v7 = v0[2];
+          v8 = v0[2];
           v0 = (__int64 *)*v0;
-          if ( (unsigned int)(*(_DWORD *)(v7 + 32) - 1) <= 1 )
+          if ( (unsigned int)(*(_DWORD *)(v8 + 32) - 1) <= 1 )
           {
-            v8 = *(_QWORD *)(v7 + 16) - (_QWORD)Handle;
-            if ( !v8 )
-              v8 = *(_QWORD *)(v7 + 24) - v25;
-            if ( !v8 )
+            v9 = *(_QWORD *)(v8 + 16) - (_QWORD)Handle;
+            if ( !v9 )
+              v9 = *(_QWORD *)(v8 + 24) - v25;
+            if ( !v9 )
             {
-              v9 = v5++;
-              PoolWithTag[v9] = v7;
+              v10 = v6++;
+              PoolWithTag[v10] = v8;
             }
           }
         }
-        *(_QWORD *)&ObjectAttributes.Length = 48LL;
-        *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+        ObjectAttributes[1] = (HANDLE)48;
+        ObjectAttributes[4] = (HANDLE)576;
         DestinationString = 0LL;
         RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
-        ObjectAttributes.RootDirectory = 0LL;
-        ObjectAttributes.ObjectName = &DestinationString;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
+        ObjectAttributes[2] = 0LL;
+        ObjectAttributes[3] = &DestinationString;
+        *(_OWORD *)&ObjectAttributes[5] = 0LL;
+        if ( ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&ObjectAttributes[1]) < 0 )
         {
           KeyHandle = 0LL;
-LABEL_39:
-          if ( v21 )
-            ZwClose(v21);
+LABEL_40:
+          if ( ObjectAttributes[0] )
+            ZwClose(ObjectAttributes[0]);
           if ( PoolWithTag )
             ExFreePoolWithTag(PoolWithTag, 0x64506142u);
           return;
         }
-        *(_QWORD *)&ObjectAttributes.Length = 48LL;
-        *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+        ObjectAttributes[1] = (HANDLE)48;
+        ObjectAttributes[4] = (HANDLE)576;
         DestinationString = 0LL;
         RtlInitUnicodeString(&DestinationString, L"BootApplicationPersistentData");
-        ObjectAttributes.RootDirectory = KeyHandle;
-        ObjectAttributes.ObjectName = &DestinationString;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        if ( ZwCreateKey(&v21, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL) >= 0 )
+        ObjectAttributes[2] = KeyHandle;
+        ObjectAttributes[3] = &DestinationString;
+        *(_OWORD *)&ObjectAttributes[5] = 0LL;
+        if ( ZwCreateKey(ObjectAttributes, 0x6001Fu, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], 0, 0LL, 1u, 0LL) >= 0 )
         {
-          v10 = 0;
-          v11 = (UNICODE_STRING **)PoolWithTag;
+          v11 = 0;
+          v12 = (UNICODE_STRING **)PoolWithTag;
           do
           {
-            v12 = *v11;
-            Handle = 0LL;
-            if ( v12 )
+            v13 = *v12;
+            Handle = Class;
+            if ( v13 )
             {
-              v13 = *v12;
+              v14 = *v13;
               v22[0] = 5111808LL;
-              DestinationString = v13;
               v22[1] = &v28;
-              memset(&ObjectAttributes, 0, 44);
+              DestinationString = v14;
+              memset(&ObjectAttributes[1], 0, 48);
               if ( (int)RtlStringFromGUIDEx(&DestinationString, v22, 0LL) >= 0 )
               {
-                ObjectAttributes.RootDirectory = v21;
-                ObjectAttributes.ObjectName = (PUNICODE_STRING)v22;
-                ObjectAttributes.Length = 48;
-                ObjectAttributes.Attributes = 576;
-                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-                if ( ZwCreateKey(&Handle, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL) >= 0 )
+                ObjectAttributes[2] = ObjectAttributes[0];
+                ObjectAttributes[3] = v22;
+                LODWORD(ObjectAttributes[1]) = 48;
+                LODWORD(ObjectAttributes[4]) = 576;
+                *(_OWORD *)&ObjectAttributes[5] = 0LL;
+                if ( ZwCreateKey(
+                       &Handle,
+                       0x6001Fu,
+                       (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
+                       0,
+                       Class,
+                       1u,
+                       (PULONG)&Class->Length) >= 0 )
                 {
-                  v14 = 0;
-                  v15 = v2 - v10;
-                  v16 = (char *)&PoolWithTag[v10];
-                  do
+                  v15 = (unsigned int)Class;
+                  if ( v11 < v3 )
                   {
-                    v17 = *(_QWORD **)v16;
-                    *(_QWORD *)&String.Length = 1572864LL;
-                    String.Buffer = (wchar_t *)&ObjectAttributes;
-                    if ( v17 )
+                    Class = (UNICODE_STRING *)(v3 - v11);
+                    v16 = (char *)&PoolWithTag[v11];
+                    do
                     {
-                      v18 = *v17 - *(_QWORD *)&DestinationString.Length;
-                      if ( *v17 == *(_QWORD *)&DestinationString.Length )
-                        v18 = v17[1] - (unsigned __int64)DestinationString.Buffer;
-                      if ( !v18 )
+                      v17 = *(_QWORD **)v16;
+                      *(_QWORD *)&String.Length = 1572864LL;
+                      String.Buffer = (wchar_t *)&v27;
+                      if ( v17 )
                       {
-                        v19 = v14++;
-                        if ( RtlIntegerToUnicodeString(v19, 0xAu, &String) >= 0 )
+                        v18 = *v17 - *(_QWORD *)&DestinationString.Length;
+                        if ( *v17 == *(_QWORD *)&DestinationString.Length )
+                          v18 = v17[1] - (unsigned __int64)DestinationString.Buffer;
+                        if ( !v18 )
                         {
-                          ZwSetValueKey(
-                            Handle,
-                            &String,
-                            0,
-                            3u,
-                            (PVOID)(*(_QWORD *)v16 + *(unsigned int *)(*(_QWORD *)v16 + 40LL)),
-                            *(_DWORD *)(*(_QWORD *)v16 + 36LL));
-                          *(_QWORD *)v16 = 0LL;
+                          v19 = v15++;
+                          if ( RtlIntegerToUnicodeString(v19, 0xAu, &String) >= 0 )
+                          {
+                            ZwSetValueKey(
+                              Handle,
+                              &String,
+                              0,
+                              3u,
+                              (PVOID)(*(_QWORD *)v16 + *(unsigned int *)(*(_QWORD *)v16 + 40LL)),
+                              *(_DWORD *)(*(_QWORD *)v16 + 36LL));
+                            *(_QWORD *)v16 = 0LL;
+                          }
                         }
                       }
+                      v16 += 8;
+                      Class = (UNICODE_STRING *)((char *)Class - 1);
                     }
-                    v16 += 8;
-                    --v15;
+                    while ( Class );
                   }
-                  while ( v15 );
                   ZwClose(Handle);
                 }
               }
             }
-            ++v10;
             ++v11;
+            ++v12;
           }
-          while ( v10 < v2 );
+          while ( v11 < v3 );
         }
         else
         {
-          v21 = 0LL;
+          ObjectAttributes[0] = 0LL;
         }
       }
       if ( KeyHandle )
         ZwClose(KeyHandle);
-      goto LABEL_39;
+      goto LABEL_40;
     }
   }
 }

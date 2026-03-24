@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0155B34
+ * XREFs of ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0206FAC
  * Callers:
- *     EditionUpdateSASModifiers @ 0x1C00424E0 (EditionUpdateSASModifiers.c)
+ *     EditionUpdateSASModifiers @ 0x1C011EFF0 (EditionUpdateSASModifiers.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall VKTOMODIFIERS(char a1)
   if ( (unsigned __int8)(a1 - 16) <= 2u )
     return 4 >> (a1 - 16);
   result = 8LL;
-  if ( a1 != 91 && a1 != 92 )
+  if ( (unsigned __int8)(a1 - 91) > 1u )
     return 0LL;
   return result;
 }

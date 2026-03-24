@@ -1,15 +1,15 @@
 /*
- * XREFs of AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C00B09D0
+ * XREFs of AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C00B1730
  * Callers:
- *     AcpiTranslatePepDeviceControlResources @ 0x1C00B0990 (AcpiTranslatePepDeviceControlResources.c)
+ *     AcpiTranslatePepDeviceControlResources @ 0x1C00B16F0 (AcpiTranslatePepDeviceControlResources.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     WPP_RECORDER_SF_qqD @ 0x1C005D0E0 (WPP_RECORDER_SF_qqD.c)
- *     WPP_RECORDER_SF_sqqD @ 0x1C005D238 (WPP_RECORDER_SF_sqqD.c)
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
- *     PnpIoResourceListToCmResourceList @ 0x1C0098DB4 (PnpIoResourceListToCmResourceList.c)
- *     AcpiValidatePepDeviceControlResources @ 0x1C00B0BB4 (AcpiValidatePepDeviceControlResources.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C005C244 (WPP_RECORDER_SF_qqD.c)
+ *     WPP_RECORDER_SF_sqqD @ 0x1C005C39C (WPP_RECORDER_SF_sqqD.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C009BAE0 (PnpIoResourceListToCmResourceList.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
+ *     AcpiValidatePepDeviceControlResources @ 0x1C00B1914 (AcpiValidatePepDeviceControlResources.c)
  */
 
 __int64 __fastcall AcpiTranslatePepDeviceControlResourcesInternal(
@@ -40,7 +40,7 @@ __int64 __fastcall AcpiTranslatePepDeviceControlResourcesInternal(
     v8 = -1073741808;
     goto LABEL_23;
   }
-  v8 = PnpBiosResourcesToNtResources(a1, a2, 4LL, (__int64 *)&P);
+  v8 = PnpBiosResourcesToNtResources(a1, a2, 4LL, (unsigned int **)&P);
   if ( v8 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -51,7 +51,7 @@ __int64 __fastcall AcpiTranslatePepDeviceControlResourcesInternal(
         2u,
         0x15u,
         0x1Eu,
-        (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+        (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
         a2,
         v16);
     }

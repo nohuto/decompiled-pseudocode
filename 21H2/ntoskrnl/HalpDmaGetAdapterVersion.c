@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpDmaGetAdapterVersion @ 0x14023A8D0
+ * XREFs of HalpDmaGetAdapterVersion @ 0x1402B62B0
  * Callers:
- *     HalGetScatterGatherList @ 0x14023A860 (HalGetScatterGatherList.c)
- *     IoMapTransferInternal @ 0x140390C08 (IoMapTransferInternal.c)
- *     IoFlushAdapterBuffers @ 0x140393E00 (IoFlushAdapterBuffers.c)
- *     HalJoinDmaDomain @ 0x1403CD4E0 (HalJoinDmaDomain.c)
- *     HalAllocateAdapterChannel @ 0x140456840 (HalAllocateAdapterChannel.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x140456892 (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045699C (HalpDmaNextContiguousPiece.c)
- *     IoFreeAdapterChannel @ 0x140456A00 (IoFreeAdapterChannel.c)
- *     IoFreeMapRegisters @ 0x140456A30 (IoFreeMapRegisters.c)
- *     HalAllocateCommonBuffer @ 0x1405054E0 (HalAllocateCommonBuffer.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x140505534 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1405055B8 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140512C04 (HalpDmaAllocateMapRegistersAtHighLevel.c)
- *     HalGetAdapterV2 @ 0x140845A60 (HalGetAdapterV2.c)
- *     HalGetAdapterV3 @ 0x140845F30 (HalGetAdapterV3.c)
+ *     HalGetScatterGatherList @ 0x1402B6240 (HalGetScatterGatherList.c)
+ *     HalAllocateCommonBuffer @ 0x1403816B0 (HalAllocateCommonBuffer.c)
+ *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
+ *     IoFlushAdapterBuffers @ 0x140389E20 (IoFlushAdapterBuffers.c)
+ *     IoFreeMapRegisters @ 0x1403A2CA0 (IoFreeMapRegisters.c)
+ *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1404B8AF4 (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404B8B48 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1404B8C24 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
+ *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6CEC (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalGetAdapterV2 @ 0x140764810 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x1407C33B0 (HalGetAdapterV3.c)
  * Callees:
  *     <none>
  */

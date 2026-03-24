@@ -9,11 +9,11 @@
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
  *     IoGetSilo @ 0x14008D860 (IoGetSilo.c)
  *     PsIsServerSilo @ 0x14008FD60 (PsIsServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     IopCheckStackForTransactionSupport @ 0x140169C20 (IopCheckStackForTransactionSupport.c)
- *     PsAcquireSiloHardReference @ 0x1402E9460 (PsAcquireSiloHardReference.c)
- *     PsReleaseSiloHardReference @ 0x1402E9520 (PsReleaseSiloHardReference.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     IopCheckStackForTransactionSupport @ 0x140169C40 (IopCheckStackForTransactionSupport.c)
+ *     PsAcquireSiloHardReference @ 0x1402E9560 (PsAcquireSiloHardReference.c)
+ *     PsReleaseSiloHardReference @ 0x1402E9620 (PsReleaseSiloHardReference.c)
  */
 
 int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

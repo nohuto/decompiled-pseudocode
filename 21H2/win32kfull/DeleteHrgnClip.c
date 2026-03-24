@@ -1,9 +1,9 @@
 /*
- * XREFs of DeleteHrgnClip @ 0x1C00DC270
+ * XREFs of DeleteHrgnClip @ 0x1C00D5220
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     RevalidateDCE @ 0x1C00DC650 (RevalidateDCE.c)
+ *     RevalidateDCE @ 0x1C00D5600 (RevalidateDCE.c)
  */
 
 __int64 __fastcall DeleteHrgnClip(__int64 a1)

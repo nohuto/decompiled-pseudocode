@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800181E0
+ * XREFs of ?SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800164B0
  * Callers:
  *     <none>
  * Callees:
- *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800DB67C (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x180066ECC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD3DBatchExecutionContext::SetLights(
@@ -13,57 +13,53 @@ void __fastcall CD3DBatchExecutionContext::SetLights(
         struct CHwLightCollectionBuffer *a2)
 {
   __int64 v4; // r14
-  _OWORD *v5; // rbx
-  __int64 v6; // r14
-  _QWORD *v7; // rbx
-  __int64 v8; // rax
-  _OWORD *v9; // rcx
-  __int64 v10; // rax
-  __int128 v11; // xmm1
+  _OWORD *v5; // rdi
+  __int64 v6; // rdi
+  __int64 v7; // rax
+  _OWORD *v8; // rcx
+  __int64 v9; // rax
+  __int128 v10; // xmm1
 
   if ( !a2 )
-  {
-    v7 = (_QWORD *)((char *)this + 48);
-LABEL_6:
-    CD3DBatchExecutionContext::Flush(this, 2147483649LL);
-    goto LABEL_7;
-  }
+    goto LABEL_5;
   v4 = *((_QWORD *)this + 4);
   v5 = (_OWORD *)((char *)a2 + 20);
   if ( memcmp_0((const void *)(v4 + 432), (char *)a2 + 20, 0x104uLL) )
   {
     CD3DBatchExecutionContext::Flush(this, 128LL);
-    v9 = (_OWORD *)(v4 + 432);
+    v8 = (_OWORD *)(v4 + 432);
     *(_BYTE *)(v4 + 424) = 1;
-    v10 = 2LL;
+    v9 = 2LL;
     do
     {
-      *v9 = *v5;
-      v9[1] = v5[1];
-      v9[2] = v5[2];
-      v9[3] = v5[3];
-      v9[4] = v5[4];
-      v9[5] = v5[5];
-      v9[6] = v5[6];
-      v9 += 8;
-      v11 = v5[7];
+      *v8 = *v5;
+      v8[1] = v5[1];
+      v8[2] = v5[2];
+      v8[3] = v5[3];
+      v8[4] = v5[4];
+      v8[5] = v5[5];
+      v8[6] = v5[6];
+      v8 += 8;
+      v10 = v5[7];
       v5 += 8;
-      *(v9 - 1) = v11;
-      --v10;
+      *(v8 - 1) = v10;
+      --v9;
     }
-    while ( v10 );
-    *(_DWORD *)v9 = *(_DWORD *)v5;
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64, _DWORD, _DWORD))(**(_QWORD **)(*((_QWORD *)this + 1)
-                                                                                                  + 560LL)
-                                                                                    + 384LL))(
-      *(_QWORD *)(*((_QWORD *)this + 1) + 560LL),
-      *(_QWORD *)(v4 + 416),
-      0LL,
-      0LL,
-      v4 + 432,
-      0,
-      0);
-    *(_BYTE *)(v4 + 424) = 0;
+    while ( v9 );
+    *(_DWORD *)v8 = *(_DWORD *)v5;
+    if ( *(_BYTE *)(v4 + 424) )
+    {
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64, _DWORD, _DWORD))(**(_QWORD **)(*((_QWORD *)this + 1) + 600LL)
+                                                                                      + 384LL))(
+        *(_QWORD *)(*((_QWORD *)this + 1) + 600LL),
+        *(_QWORD *)(v4 + 416),
+        0LL,
+        0LL,
+        v4 + 432,
+        0,
+        0);
+      *(_BYTE *)(v4 + 424) = 0;
+    }
   }
   v6 = *((_QWORD *)this + 4);
   if ( memcmp_0((const void *)(v6 + 720), (char *)a2 + 280, 0xF0uLL) )
@@ -85,22 +81,23 @@ LABEL_6:
     *(_OWORD *)(v6 + 912) = *(_OWORD *)((char *)a2 + 472);
     *(_OWORD *)(v6 + 928) = *(_OWORD *)((char *)a2 + 488);
     *(_OWORD *)(v6 + 944) = *(_OWORD *)((char *)a2 + 504);
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64, _DWORD, _DWORD))(**(_QWORD **)(*((_QWORD *)this + 1)
-                                                                                                  + 560LL)
-                                                                                    + 384LL))(
-      *(_QWORD *)(*((_QWORD *)this + 1) + 560LL),
-      *(_QWORD *)(v6 + 704),
-      0LL,
-      0LL,
-      v6 + 720,
-      0,
-      0);
-    *(_BYTE *)(v6 + 712) = 0;
+    if ( *(_BYTE *)(v6 + 712) )
+    {
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64, _DWORD, _DWORD))(**(_QWORD **)(*((_QWORD *)this + 1) + 600LL)
+                                                                                      + 384LL))(
+        *(_QWORD *)(*((_QWORD *)this + 1) + 600LL),
+        *(_QWORD *)(v6 + 704),
+        0LL,
+        0LL,
+        v6 + 720,
+        0,
+        0);
+      *(_BYTE *)(v6 + 712) = 0;
+    }
   }
-  v7 = (_QWORD *)((char *)this + 48);
-  v8 = *((_QWORD *)this + 6);
-  if ( !v8 || *((_DWORD *)a2 + 4) != *(_DWORD *)(v8 + 16) )
-    goto LABEL_6;
-LABEL_7:
-  *v7 = a2;
+  v7 = *((_QWORD *)this + 6);
+  if ( !v7 || *((_DWORD *)a2 + 4) != *(_DWORD *)(v7 + 16) )
+LABEL_5:
+    CD3DBatchExecutionContext::Flush(this, 2147483649LL);
+  *((_QWORD *)this + 6) = a2;
 }

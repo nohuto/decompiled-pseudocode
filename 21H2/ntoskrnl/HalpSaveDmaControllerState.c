@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpSaveDmaControllerState @ 0x140A508C0
+ * XREFs of HalpSaveDmaControllerState @ 0x140996090
  * Callers:
- *     HalpAcpiPreSleep @ 0x140A5072C (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
  * Callees:
  *     <none>
  */

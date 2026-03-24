@@ -1,12 +1,12 @@
 /*
- * XREFs of InbvInstallDisplayStringFilter @ 0x1403DF710
+ * XREFs of InbvInstallDisplayStringFilter @ 0x1403D0400
  * Callers:
- *     <none>
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall InbvInstallDisplayStringFilter(__int64 (__fastcall *a1)(_QWORD))
 {
-  qword_140C54D18 = a1;
+  qword_140C50B78 = a1;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpFreeHandleForAtom @ 0x14069ED40
+ * XREFs of RtlpFreeHandleForAtom @ 0x14068631C
  * Callers:
- *     RtlpFreeAllAtom @ 0x14020BDA8 (RtlpFreeAllAtom.c)
- *     RtlEmptyAtomTable @ 0x1409BBDC0 (RtlEmptyAtomTable.c)
+ *     RtlpFreeAllAtom @ 0x140315918 (RtlpFreeAllAtom.c)
+ *     RtlEmptyAtomTable @ 0x140913100 (RtlEmptyAtomTable.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExDestroyHandle @ 0x14073FFAC (ExDestroyHandle.c)
- *     ExMapHandleToPointer @ 0x140740120 (ExMapHandleToPointer.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExDestroyHandle @ 0x14061A1D8 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14061BF20 (ExMapHandleToPointer.c)
  */
 
 void __fastcall RtlpFreeHandleForAtom(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v4; // rax
+  signed __int64 *v4; // rax
   __int64 v5; // [rsp+30h] [rbp+8h]
 
   v5 = 4 * (unsigned int)*(unsigned __int16 *)(a2 + 8);

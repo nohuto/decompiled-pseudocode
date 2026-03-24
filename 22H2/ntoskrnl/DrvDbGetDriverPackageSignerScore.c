@@ -1,29 +1,31 @@
 /*
- * XREFs of DrvDbGetDriverPackageSignerScore @ 0x140A6C288
+ * XREFs of DrvDbGetDriverPackageSignerScore @ 0x14072841C
  * Callers:
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408769B8 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140A6BF4C (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D224 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140727E7C (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x14097DB80 (DrvDbGetDriverPackageMappedPropertyKeys.c)
  * Callees:
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408769B8 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
  */
 
-__int64 __fastcall DrvDbGetDriverPackageSignerScore(__int64 *a1, const wchar_t *a2, void *a3, wchar_t *a4)
+__int64 __fastcall DrvDbGetDriverPackageSignerScore(_QWORD *a1, _WORD *a2, void *a3, wchar_t *a4)
 {
   __int64 result; // rax
-  __int64 (*v5[3])[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v5; // [rsp+40h] [rbp-18h] BYREF
+  __int64 (*v6)[3]; // [rsp+44h] [rbp-14h] BYREF
 
-  v5[0] = 0LL;
+  v5 = 0;
+  LODWORD(v6) = 0;
   result = DrvDbGetDriverPackageMappedProperty(
              a1,
              a2,
              a3,
              (__int64)&DEVPKEY_DriverPackage_SignerScore,
-             v5,
+             &v5,
              a4,
              4u,
-             (unsigned int *)v5 + 1);
-  if ( (int)result >= 0 && v5[0] != (__int64 (*)[3])0x400000007LL )
+             &v6);
+  if ( (int)result >= 0 && (v5 != 7 || (_DWORD)v6 != 4) )
     return 3221225473LL;
   return result;
 }

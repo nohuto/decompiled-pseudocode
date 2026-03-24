@@ -1,12 +1,13 @@
 /*
- * XREFs of IoAllocateDriverObjectExtension @ 0x1403A54A0
+ * XREFs of IoAllocateDriverObjectExtension @ 0x14037F170
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoAllocateDriverObjectExtension(
@@ -16,49 +17,55 @@ NTSTATUS __stdcall IoAllocateDriverObjectExtension(
         PVOID *DriverObjectExtension)
 {
   char v4; // si
-  __int64 Pool2; // rax
-  struct _DRIVER_OBJECT *v9; // rbx
-  KIRQL v10; // r9
-  struct _DRIVER_OBJECT *v11; // r8
-  struct _DRIVER_OBJECT *v12; // rdx
+  __int64 v8; // r15
+  struct _DRIVER_OBJECT *PoolWithTag; // rax
+  struct _DRIVER_OBJECT *v10; // rbx
+  KIRQL v11; // r9
+  struct _DRIVER_OBJECT *v12; // r8
+  struct _DRIVER_OBJECT *v13; // rdx
 
   *DriverObjectExtension = 0LL;
   v4 = 0;
   if ( DriverObjectExtensionSize > 0xFFFFFFEF )
     return -1073741670;
-  Pool2 = ExAllocatePool2(64LL, DriverObjectExtensionSize + 16LL, 1986622020LL);
-  v9 = (struct _DRIVER_OBJECT *)Pool2;
-  if ( !Pool2 )
+  v8 = DriverObjectExtensionSize;
+  PoolWithTag = (struct _DRIVER_OBJECT *)ExAllocatePoolWithTag(
+                                           NonPagedPoolNx,
+                                           DriverObjectExtensionSize + 16LL,
+                                           0x76697244u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  *(_QWORD *)(Pool2 + 8) = ClientIdentificationAddress;
-  v10 = KeAcquireQueuedSpinLock(0xAuLL);
-  v11 = DriverObject->DriverExtension[1].DriverObject;
-  v12 = v11;
-  if ( v11 )
+  memset(PoolWithTag, 0, v8 + 16);
+  v10->DeviceObject = (PDEVICE_OBJECT)ClientIdentificationAddress;
+  v11 = KeAcquireQueuedSpinLock(0xAuLL);
+  v12 = DriverObject->DriverExtension[1].DriverObject;
+  v13 = v12;
+  if ( !v12 )
+    goto LABEL_4;
+  do
   {
-    while ( v12->DeviceObject != ClientIdentificationAddress )
-    {
-      v12 = *(struct _DRIVER_OBJECT **)&v12->Type;
-      if ( !v12 )
-        goto LABEL_4;
-    }
+    if ( v13->DeviceObject == ClientIdentificationAddress )
+      break;
+    v13 = *(struct _DRIVER_OBJECT **)&v13->Type;
   }
-  else
+  while ( v13 );
+  if ( !v13 )
   {
 LABEL_4:
-    *(_QWORD *)&v9->Type = v11;
+    *(_QWORD *)&v10->Type = v12;
     v4 = 1;
-    DriverObject->DriverExtension[1].DriverObject = v9;
+    DriverObject->DriverExtension[1].DriverObject = v10;
   }
-  KeReleaseQueuedSpinLock(0xAuLL, v10);
+  KeReleaseQueuedSpinLock(0xAuLL, v11);
   if ( v4 )
   {
-    *DriverObjectExtension = &v9->Flags;
+    *DriverObjectExtension = &v10->Flags;
     return 0;
   }
   else
   {
-    ExFreePoolWithTag(v9, 0);
+    ExFreePoolWithTag(v10, 0);
     return -1073741771;
   }
 }

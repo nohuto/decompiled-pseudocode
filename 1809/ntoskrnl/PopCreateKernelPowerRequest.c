@@ -1,8 +1,8 @@
 /*
- * XREFs of PopCreateKernelPowerRequest @ 0x140701234
+ * XREFs of PopCreateKernelPowerRequest @ 0x140701214
  * Callers:
- *     PoRegisterSystemState @ 0x1402DBAC0 (PoRegisterSystemState.c)
- *     PoCreatePowerRequest @ 0x1407011B0 (PoCreatePowerRequest.c)
+ *     PoRegisterSystemState @ 0x1402DBBC0 (PoRegisterSystemState.c)
+ *     PoCreatePowerRequest @ 0x140701190 (PoCreatePowerRequest.c)
  *     PopInitializeHighPerfPowerRequest @ 0x1409DCC6C (PopInitializeHighPerfPowerRequest.c)
  * Callees:
  *     PopUmpoSendPowerRequestOverrideQuery @ 0x140002AE4 (PopUmpoSendPowerRequestOverrideQuery.c)

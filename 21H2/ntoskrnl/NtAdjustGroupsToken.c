@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAdjustGroupsToken @ 0x140662780
+ * XREFs of NtAdjustGroupsToken @ 0x1405DA5F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepAdjustGroups @ 0x140662AC8 (SepAdjustGroups.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406651C8 (SeReleaseLuidAndAttributesArray.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     SeCaptureSidAndAttributesArray @ 0x140799DB0 (SeCaptureSidAndAttributesArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepAdjustGroups @ 0x1405DA938 (SepAdjustGroups.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAdjustGroupsToken(
@@ -169,8 +169,8 @@ LABEL_20:
 LABEL_24:
         _InterlockedOr(v26, 0);
         ExReleaseResourceLite(*(PERESOURCE *)(v17 + 48));
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        ObfDereferenceObject(*(PVOID *)&Object[1]);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        HalPutDmaAdapter(*(PADAPTER_OBJECT *)&Object[1]);
         if ( v34 )
         {
           LOBYTE(v24) = PreviousMode;
@@ -185,8 +185,8 @@ LABEL_24:
       }
       _InterlockedOr(v26, 0);
       ExReleaseResourceLite(*(PERESOURCE *)(v17 + 48));
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(*(PVOID *)&Object[1]);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)&Object[1]);
       if ( v34 )
       {
         LOBYTE(v25) = PreviousMode;

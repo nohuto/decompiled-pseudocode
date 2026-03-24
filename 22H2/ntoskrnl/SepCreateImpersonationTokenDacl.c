@@ -1,21 +1,21 @@
 /*
- * XREFs of SepCreateImpersonationTokenDacl @ 0x140733820
+ * XREFs of SepCreateImpersonationTokenDacl @ 0x1406D4690
  * Callers:
- *     NtOpenThreadTokenEx @ 0x14071DF70 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140653590 (NtOpenThreadTokenEx.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL **a3)
 {
-  unsigned __int8 *v4; // r13
+  unsigned __int8 *v4; // r12
   unsigned __int8 *v5; // rbp
-  unsigned __int8 *v8; // r15
-  ULONG v9; // r12d
-  ACL *Pool2; // rax
+  unsigned __int8 *v8; // r13
+  ULONG v9; // r14d
+  ACL *PoolWithTag; // rax
   ACL *v11; // rbx
   void *Src; // [rsp+60h] [rbp+8h]
 
@@ -43,11 +43,11 @@ __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL *
     else
       v9 += 4 * v5[1] + 16;
   }
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v9, 538994003LL);
-  v11 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x20206553u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    RtlCreateAcl(Pool2, v9, 2u);
+    RtlCreateAcl(PoolWithTag, v9, 2u);
     RtlpAddKnownAce((int)v11, 2, 0, 983551, Src, 0);
     RtlpAddKnownAce((int)v11, 2, 0, 983551, v8, 0);
     RtlpAddKnownAce((int)v11, 2, 0, 983551, SeAliasAdminsSid, 0);

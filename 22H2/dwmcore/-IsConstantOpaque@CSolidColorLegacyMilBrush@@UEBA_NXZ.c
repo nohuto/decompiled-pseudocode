@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsConstantOpaque@CSolidColorLegacyMilBrush@@UEBA_NXZ @ 0x1800EFBA0
+ * XREFs of ?IsConstantOpaque@CSolidColorLegacyMilBrush@@UEBA_NXZ @ 0x1800D0890
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSolidColorLegacyMilBrush::IsConstantOpaque(CSolidColorLegacyMilBrush *this)
 {
-  return !*((_QWORD *)this + 9) && *((float *)this + 16) == 1.0 && *((float *)this + 27) == 1.0;
+  return !*((_QWORD *)this + 8) && *((float *)this + 14) == 1.0 && *((float *)this + 25) == 1.0;
 }

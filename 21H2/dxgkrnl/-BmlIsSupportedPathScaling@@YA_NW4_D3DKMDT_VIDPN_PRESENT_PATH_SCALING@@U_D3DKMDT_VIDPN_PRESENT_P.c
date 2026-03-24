@@ -1,35 +1,38 @@
 /*
- * XREFs of ?BmlIsSupportedPathScaling@@YA_NW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@U_D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT@@@Z @ 0x1C0188630
+ * XREFs of ?BmlIsSupportedPathScaling@@YA_NW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@U_D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT@@@Z @ 0x1C013EBD8
  * Callers:
- *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01875D0 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
- *     BmlInternalTryPinningScaling @ 0x1C01BDED8 (BmlInternalTryPinningScaling.c)
+ *     BmlInternalTryPinningScaling @ 0x1C013EB28 (BmlInternalTryPinningScaling.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall BmlIsSupportedPathScaling(
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a1,
-        struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT a2)
+char __fastcall BmlIsSupportedPathScaling(__int64 a1, __int64 a2)
 {
-  switch ( a1 )
+  __int64 v2; // rbx
+  __int64 v4; // rax
+
+  v2 = (int)a1;
+  switch ( (_DWORD)a1 )
   {
-    case D3DKMDT_VPPS_IDENTITY:
-      return *(_BYTE *)&a2 & 1;
-    case D3DKMDT_VPPS_CENTERED:
-      a2 = (struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT)(*(unsigned int *)&a2 >> 1);
-      return *(_BYTE *)&a2 & 1;
-    case D3DKMDT_VPPS_STRETCHED:
-      a2 = (struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT)(*(unsigned int *)&a2 >> 2);
-      return *(_BYTE *)&a2 & 1;
-    case D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX:
-      a2 = (struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT)(*(unsigned int *)&a2 >> 3);
-      return *(_BYTE *)&a2 & 1;
-    case D3DKMDT_VPPS_CUSTOM:
-      a2 = (struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT)(*(unsigned int *)&a2 >> 4);
-      return *(_BYTE *)&a2 & 1;
-    case D3DKMDT_VPPS_NOTSPECIFIED:
+    case 1:
+      return a2 & 1;
+    case 2:
+      LODWORD(a2) = (unsigned int)a2 >> 1;
+      return a2 & 1;
+    case 3:
+      LODWORD(a2) = (unsigned int)a2 >> 2;
+      return a2 & 1;
+    case 4:
+      LODWORD(a2) = (unsigned int)a2 >> 3;
+      return a2 & 1;
+    case 5:
+      LODWORD(a2) = (unsigned int)a2 >> 4;
+      return a2 & 1;
+    case 0xFF:
       return 1;
   }
-  WdLogSingleEntry1(1LL, a1);
+  v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+  *(_QWORD *)(v4 + 24) = v2;
+  WdLogEvent5_WdAssertion(v4);
   return 0;
 }

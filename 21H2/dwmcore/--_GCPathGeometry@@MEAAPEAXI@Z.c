@@ -1,24 +1,31 @@
 /*
- * XREFs of ??_GCPathGeometry@@MEAAPEAXI@Z @ 0x1800CF690
+ * XREFs of ??_GCPathGeometry@@MEAAPEAXI@Z @ 0x18016DA50
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??1CGeometry@@MEAA@XZ @ 0x1800CF7BC (--1CGeometry@@MEAA@XZ.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CGeometry@@MEAA@XZ @ 0x1800CF2DC (--1CGeometry@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 CPathGeometry *__fastcall CPathGeometry::`scalar deleting destructor'(CPathGeometry *this, char a2)
 {
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((char *)this + 144);
-  CGeometry::~CGeometry(this);
+  __int64 v4; // rcx
+
+  v4 = *((_QWORD *)this + 17);
+  if ( v4 )
+  {
+    *((_QWORD *)this + 17) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  CGeometry::~CGeometry((struct CResource **)this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x98uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x90);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Zombied@QueryGlyphMetricsPlusBitsRequest@@UEBA_NXZ @ 0x1C0124280
+ * XREFs of ?Zombied@QueryGlyphMetricsPlusBitsRequest@@UEBA_NXZ @ 0x1C0138130
  * Callers:
  *     <none>
  * Callees:

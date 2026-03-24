@@ -1,55 +1,63 @@
 /*
- * XREFs of Crashdump_UcxEvtFreeDumpData @ 0x1C004CFA0
+ * XREFs of Crashdump_UcxEvtFreeDumpData @ 0x1C004A4D0
  * Callers:
  *     <none>
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Crashdump_FreeDeviceContext @ 0x1C004C200 (Crashdump_FreeDeviceContext.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_FreeDeviceContext @ 0x1C00496F4 (Crashdump_FreeDeviceContext.c)
  */
 
 ULONG __fastcall Crashdump_UcxEvtFreeDumpData(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax
   __int64 v5; // rbx
-  unsigned int i; // edi
-  void *v7; // rcx
-  _QWORD **v8; // rdi
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rax
+  void *v6; // rcx
+  unsigned int v7; // edi
+  void *v8; // rcx
+  _QWORD **v9; // rdi
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rax
 
   DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_UcxEvtFreeDumpData: Begin\n");
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063428);
+         off_1C0060428);
   v5 = *(_QWORD *)(a2 + 8);
   *(_QWORD *)(a2 + 8) = 0LL;
   if ( *(_QWORD *)(v4 + 424) == v5 )
     *(_QWORD *)(v4 + 424) = 0LL;
-  if ( *(_QWORD *)(v5 + 568) )
+  v6 = *(void **)(v5 + 568);
+  if ( v6 )
   {
-    for ( i = 0; i < *(_DWORD *)(v5 + 536); ++i )
-      Crashdump_FreeDeviceContext(*(_QWORD *)(v5 + 568) + 376LL * i);
-    ExFreePoolWithTag(*(PVOID *)(v5 + 568), 0x43434858u);
+    v7 = 0;
+    if ( *(_DWORD *)(v5 + 536) )
+    {
+      do
+        Crashdump_FreeDeviceContext(*(_QWORD *)(v5 + 568) + 376LL * v7++);
+      while ( v7 < *(_DWORD *)(v5 + 536) );
+      v6 = *(void **)(v5 + 568);
+    }
+    ExFreePoolWithTag(v6, 0x43434858u);
   }
-  v7 = *(void **)(v5 + 176);
-  if ( v7 )
+  v8 = *(void **)(v5 + 176);
+  if ( v8 )
   {
-    ExFreePoolWithTag(v7, 0);
+    ExFreePoolWithTag(v8, 0);
     *(_QWORD *)(v5 + 176) = 0LL;
   }
-  v8 = (_QWORD **)(v5 + 496);
+  v9 = (_QWORD **)(v5 + 496);
   while ( 1 )
   {
-    v9 = *v8;
-    if ( *v8 == v8 )
+    v10 = *v9;
+    if ( *v9 == v9 )
       break;
-    if ( (_QWORD **)v9[1] != v8 || (v10 = (_QWORD *)*v9, *(_QWORD **)(*v9 + 8LL) != v9) )
+    if ( (_QWORD **)v10[1] != v9 || (v11 = (_QWORD *)*v10, *(_QWORD **)(*v10 + 8LL) != v10) )
       __fastfail(3u);
-    *v8 = v10;
-    v10[1] = v8;
-    CommonBuffer_ReleaseBuffer(*(_QWORD *)(v5 + 488), (__int64)v9);
+    *v9 = v11;
+    v11[1] = v9;
+    CommonBuffer_ReleaseBuffer(*(_QWORD *)(v5 + 488), (__int64)v10);
   }
   ExFreePoolWithTag((PVOID)v5, 0x43434858u);
   return DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_UcxEvtFreeDumpData: End\n");

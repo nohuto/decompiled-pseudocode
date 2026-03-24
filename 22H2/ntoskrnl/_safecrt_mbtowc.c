@@ -1,10 +1,10 @@
 /*
- * XREFs of _safecrt_mbtowc @ 0x1403D9C50
+ * XREFs of _safecrt_mbtowc @ 0x1403D2250
  * Callers:
- *     _woutput_l @ 0x1403DBD20 (_woutput_l.c)
- *     _woutput_s @ 0x1403E064C (_woutput_s.c)
+ *     _woutput_l @ 0x1403D42A8 (_woutput_l.c)
+ *     _woutput_s @ 0x1403D8AD4 (_woutput_s.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x1406DA4B0 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1405EE4B0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl safecrt_mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)

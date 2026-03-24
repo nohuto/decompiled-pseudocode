@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeValidateProtocolCommandRequest @ 0x1C001F1E0
+ * XREFs of NVMeValidateProtocolCommandRequest @ 0x1C0015770
  * Callers:
- *     ProtocolCommandToNVMe @ 0x1C001FAF4 (ProtocolCommandToNVMe.c)
+ *     ProtocolCommandToNVMe @ 0x1C0016084 (ProtocolCommandToNVMe.c)
  * Callees:
- *     NVMeIsAllowedWithinThrottleLimit @ 0x1C001DEC8 (NVMeIsAllowedWithinThrottleLimit.c)
+ *     NVMeIsAllowedWithinThrottleLimit @ 0x1C0001008 (NVMeIsAllowedWithinThrottleLimit.c)
  */
 
 __int64 __fastcall NVMeValidateProtocolCommandRequest(__int64 a1, __int64 a2)
@@ -121,7 +121,7 @@ LABEL_43:
   if ( v5[9] )
     goto LABEL_19;
 LABEL_51:
-  if ( v5[14] == 2 && !_bittest64((const signed __int64 *)(a1 + 192), 0x25u) )
+  if ( v5[14] == 2 && (*(_QWORD *)(a1 + 176) & 0x2000000000LL) == 0 )
     goto LABEL_19;
   return v2;
 }

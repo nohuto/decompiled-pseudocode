@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpHvIdentityInfoCallback @ 0x140543910
+ * XREFs of HvlpHvIdentityInfoCallback @ 0x1404F2090
  * Callers:
  *     <none>
  * Callees:
- *     HviGetHypervisorInterface @ 0x1403C0360 (HviGetHypervisorInterface.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140647B74 (HviGetHypervisorVendorAndMaxFunction.c)
- *     HviGetHypervisorVersion @ 0x140647BBC (HviGetHypervisorVersion.c)
+ *     HviGetHypervisorInterface @ 0x1403AE290 (HviGetHypervisorInterface.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x1405BEFF0 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHypervisorVersion @ 0x1405BF040 (HviGetHypervisorVersion.c)
  */
 
 void __fastcall HvlpHvIdentityInfoCallback(
@@ -17,8 +17,7 @@ void __fastcall HvlpHvIdentityInfoCallback(
   __int64 v4; // rax
   _DWORD *v6; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rax
+  __int64 v8; // rax
 
   v4 = ReasonSpecificData[4];
   *((_OWORD *)ReasonSpecificData + 1) = HvlpSecondaryDumpDataGuid;
@@ -26,9 +25,9 @@ void __fastcall HvlpHvIdentityInfoCallback(
   {
     if ( *((_DWORD *)ReasonSpecificData + 2) < 0x44u )
     {
-      v9 = *ReasonSpecificData;
+      v8 = *ReasonSpecificData;
       *((_DWORD *)ReasonSpecificData + 10) = 0;
-      ReasonSpecificData[4] = v9;
+      ReasonSpecificData[4] = v8;
     }
     else
     {
@@ -37,7 +36,7 @@ void __fastcall HvlpHvIdentityInfoCallback(
       *v6 = 1213614404;
       v6[1] = 68;
       HviGetHypervisorVendorAndMaxFunction(v7, Record, ReasonSpecificData, ReasonSpecificDataLength);
-      HviGetHypervisorInterface(v6 + 6, v8);
+      HviGetHypervisorInterface(v6 + 6);
       HviGetHypervisorVersion(v6 + 10);
       v6[14] = HvlpFlags;
       v6[15] = HvlpRootFlags;

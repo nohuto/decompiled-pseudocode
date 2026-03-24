@@ -1,10 +1,9 @@
 /*
- * XREFs of ExpOwnerEntryToThread @ 0x1402A8A68
+ * XREFs of ExpOwnerEntryToThread @ 0x140278108
  * Callers:
- *     ExpApplyPriorityBoost @ 0x1402A8420 (ExpApplyPriorityBoost.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     ExReinitializeResourceLite @ 0x1403187C0 (ExReinitializeResourceLite.c)
- *     ExQuerySystemLockInformation @ 0x140AAAE28 (ExQuerySystemLockInformation.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x140277FA0 (ExReinitializeResourceLite.c)
+ *     ExQuerySystemLockInformation @ 0x1409B2DA4 (ExQuerySystemLockInformation.c)
  * Callees:
  *     <none>
  */

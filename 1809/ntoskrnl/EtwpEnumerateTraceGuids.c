@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpEnumerateTraceGuids @ 0x1406D4AB0
+ * XREFs of EtwpEnumerateTraceGuids @ 0x1406D4A90
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:

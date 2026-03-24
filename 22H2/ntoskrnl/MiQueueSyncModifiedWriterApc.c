@@ -1,18 +1,17 @@
 /*
- * XREFs of MiQueueSyncModifiedWriterApc @ 0x14063B498
+ * XREFs of MiQueueSyncModifiedWriterApc @ 0x14032D01C
  * Callers:
- *     MiAttemptPageFileReduction @ 0x140637C1C (MiAttemptPageFileReduction.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14063B760 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiStoreDeletePartition @ 0x14065C0A8 (MiStoreDeletePartition.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403306A0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiAttemptPageFileReduction @ 0x140542848 (MiAttemptPageFileReduction.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
  */
 
 NTSTATUS __fastcall MiQueueSyncModifiedWriterApc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PVOID Object)
 {
-  KeInitializeApc(a2, *(_QWORD *)(a1 + 984), 0, (__int64)xHalTimerWatchdogStop, 0LL, a3, 0, a4);
+  KeInitializeApc(a2, *(_QWORD *)(a1 + 944), 0, (unsigned int)xHalTimerWatchdogStop, 0LL, a3, 0, a4);
   KeInsertQueueApc(a2, 0LL, 0LL, 0);
   return KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
 }

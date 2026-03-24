@@ -1,13 +1,13 @@
 /*
  * XREFs of BgConsoleDestroyInterface @ 0x140950E9C
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
  *     BgkDestroy @ 0x140951A04 (BgkDestroy.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBEBC (BcpDisplayEarlyBugCheckScreen.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBECC (BcpDisplayEarlyBugCheckScreen.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     BgpDisplayCharacterDestroyContext @ 0x140950EF8 (BgpDisplayCharacterDestroyContext.c)
  */
 

@@ -1,40 +1,40 @@
 /*
- * XREFs of ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00D33D8
+ * XREFs of ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CB468
  * Callers:
- *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C0034CE8 (-GrepCloseCurrentProcess@@YAHXZ.c)
- *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00D2F40 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
- *     NtGdiDeleteColorSpace @ 0x1C016D380 (NtGdiDeleteColorSpace.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0073B1C (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBC44 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     NtGdiDeleteColorSpace @ 0x1C0148D00 (NtGdiDeleteColorSpace.c)
  * Callees:
- *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0044F10 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
- *     HmgRemoveObject @ 0x1C0047F80 (HmgRemoveObject.c)
- *     FreeObject @ 0x1C0088C60 (FreeObject.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
+ *     FreeObject @ 0x1C002BC40 (FreeObject.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002D7C0 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     HmgRemoveObject @ 0x1C0032640 (HmgRemoveObject.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
  */
 
 __int64 __fastcall bDeleteColorSpace(struct HOBJ__ *a1, int a2)
 {
-  unsigned int v4; // ebx
-  void *v5; // rax
+  unsigned int v2; // ebx
+  __int64 v3; // rax
 
-  v4 = 0;
-  if ( a1 == *(struct HOBJ__ **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 2400LL) )
-    return a2 != 1;
+  v2 = 0;
+  if ( a1 == (struct HOBJ__ *)ghStockColorSpace )
+    return a2 != 3;
   if ( a2 )
   {
-    if ( a2 != 1 )
+    if ( a2 != 3 )
     {
 LABEL_8:
       EngSetLastError(0x57u);
-      return v4;
+      return v2;
     }
-    v5 = (void *)HmgRemoveObjectImpl(a1, 0, 1, 2, 9, 0LL);
+    v3 = HmgRemoveObjectImpl(a1, 0, 1, 2, 9, 0LL);
   }
   else
   {
-    v5 = (void *)HmgRemoveObject((__int64)a1, 0, 0, 1, 9, 0LL);
+    v3 = HmgRemoveObject((__int64)a1, 0, 0, 1, 9, 0LL);
   }
-  if ( !v5 )
+  if ( !v3 )
     goto LABEL_8;
-  FreeObject(v5, 9u);
+  FreeObject(v3, 9);
   return 1;
 }

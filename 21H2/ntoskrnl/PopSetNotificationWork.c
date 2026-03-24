@@ -1,17 +1,18 @@
 /*
- * XREFs of PopSetNotificationWork @ 0x1402D6220
+ * XREFs of PopSetNotificationWork @ 0x140281E90
  * Callers:
- *     PopInitilizeAcDcSettings @ 0x1403C0FF4 (PopInitilizeAcDcSettings.c)
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
- *     PopBatteryApplyCompositeState @ 0x1407EE90C (PopBatteryApplyCompositeState.c)
- *     PopUserPresentSetWorker @ 0x1407F32E0 (PopUserPresentSetWorker.c)
- *     PopExecutePowerAction @ 0x1407FEC6C (PopExecutePowerAction.c)
- *     PopApplyPolicy @ 0x1408194D8 (PopApplyPolicy.c)
+ *     PopUserPresentSet @ 0x1403A5F04 (PopUserPresentSet.c)
+ *     PopInitilizeAcDcSettings @ 0x1403AE404 (PopInitilizeAcDcSettings.c)
+ *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
+ *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopUserPresentSetWorker @ 0x14078EB40 (PopUserPresentSetWorker.c)
+ *     PopApplyPolicy @ 0x1407929CC (PopApplyPolicy.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x1402D6254 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x1402D62A8 (PopCheckForWork.c)
+ *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
  */
 
 __int64 __fastcall PopSetNotificationWork(unsigned int a1)
@@ -22,7 +23,7 @@ __int64 __fastcall PopSetNotificationWork(unsigned int a1)
   if ( (_DWORD)result != a1 )
   {
     _InterlockedOr(&PopNotifyEvents, a1);
-    PopGetPolicyWorker(4LL);
+    PopGetPolicyWorker(4);
     return PopCheckForWork();
   }
   return result;

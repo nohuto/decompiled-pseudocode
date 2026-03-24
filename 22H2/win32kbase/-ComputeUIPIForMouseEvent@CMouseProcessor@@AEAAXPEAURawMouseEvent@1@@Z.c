@@ -1,45 +1,52 @@
 /*
- * XREFs of ?ComputeUIPIForMouseEvent@CMouseProcessor@@AEAAXPEAURawMouseEvent@1@@Z @ 0x1C0057D9C
+ * XREFs of ?ComputeUIPIForMouseEvent@CMouseProcessor@@AEAAXPEAURawMouseEvent@1@@Z @ 0x1C00433E8
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
  */
 
 void __fastcall CMouseProcessor::ComputeUIPIForMouseEvent(
         CMouseProcessor *this,
         struct CMouseProcessor::RawMouseEvent *a2)
 {
-  int v2; // ebx
-  char v4; // r8
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  __int128 v7; // [rsp+20h] [rbp-18h]
+  int v2; // esi
+  CInputThread *v3; // rdi
+  bool v5; // bl
+  char v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int128 v9; // [rsp+20h] [rbp-18h]
 
   v2 = 0;
-  if ( CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc)
-    && *((_BYTE *)a2 + 128) )
+  v3 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v3, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v3);
+  ExReleasePushLockSharedEx(v3, 0LL);
+  KeLeaveCriticalRegion();
+  if ( v5 && *((_BYTE *)a2 + 128) )
   {
-    v4 = 1;
-    v6 = *(_QWORD *)((char *)a2 + 116);
+    v6 = 1;
+    v8 = *(_QWORD *)((char *)a2 + 116);
     LOBYTE(v2) = *((_DWORD *)a2 + 31) != 0;
   }
   else
   {
-    v4 = 0;
+    v6 = 0;
     if ( gptiCurrent )
     {
-      v5 = *((_QWORD *)gptiCurrent + 53);
-      v6 = *(_QWORD *)(v5 + 888);
-      v2 = *(_DWORD *)(v5 + 12) >> 31;
+      v7 = *((_QWORD *)gptiCurrent + 53);
+      v8 = *(_QWORD *)(v7 + 880);
+      v2 = *(_DWORD *)(v7 + 12) >> 31;
     }
     else
     {
-      v6 = 0xFFFFFFFFLL;
+      v8 = 0xFFFFFFFFLL;
     }
   }
-  DWORD2(v7) = v2;
-  *(_QWORD *)&v7 = v6;
-  BYTE12(v7) = v4;
-  *(_OWORD *)((char *)a2 + 132) = v7;
+  DWORD2(v9) = v2;
+  *(_QWORD *)&v9 = v8;
+  BYTE12(v9) = v6;
+  *(_OWORD *)((char *)a2 + 132) = v9;
 }

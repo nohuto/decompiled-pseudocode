@@ -1,10 +1,9 @@
 /*
- * XREFs of ?NotifyOnChanged@CProjectedShadowReceiver@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18001FA60
+ * XREFs of ?NotifyOnChanged@CProjectedShadowReceiver@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18001F9C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEffectiveMaskBrush@CProjectedShadowReceiver@@QEBAPEAVCBrush@@XZ @ 0x1800055AC (-GetEffectiveMaskBrush@CProjectedShadowReceiver@@QEBAPEAVCBrush@@XZ.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  */
 
 void __fastcall CProjectedShadowReceiver::NotifyOnChanged(
@@ -12,26 +11,16 @@ void __fastcall CProjectedShadowReceiver::NotifyOnChanged(
         __int64 a2,
         CProjectedShadowReceiver *a3)
 {
-  CProjectedShadowReceiver *v3; // rdx
-  struct CBrush *EffectiveMaskBrush; // rax
-  CProjectedShadowReceiver *v5; // rcx
-  struct CBrush *v6; // rdx
-
   if ( !CCommonRegistryData::DisableProjectedShadows && a3 )
   {
     if ( a3 == a1 )
     {
       CResource::NotifyOnChanged(a1, a2, a3);
     }
-    else
+    else if ( *((_QWORD *)a1 + 12) )
     {
-      v3 = (CProjectedShadowReceiver *)*((_QWORD *)a1 + 13);
-      if ( v3 && a3 == v3 )
-      {
-        EffectiveMaskBrush = CProjectedShadowReceiver::GetEffectiveMaskBrush(a1);
-        if ( v6 == EffectiveMaskBrush )
-          CProjectedShadowReceiver::InvalidateMaskContent(v5);
-      }
+      if ( a3 == *((CProjectedShadowReceiver **)a1 + 12) )
+        CProjectedShadowReceiver::InvalidateMaskContent(a1);
     }
   }
 }

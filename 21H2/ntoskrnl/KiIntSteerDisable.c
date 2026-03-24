@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIntSteerDisable @ 0x1403AEC40
+ * XREFs of KiIntSteerDisable @ 0x140376E1C
  * Callers:
- *     KeDisconnectInterrupt @ 0x1403AEB58 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140376D34 (KeDisconnectInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x140248E38 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerLogState @ 0x1403AFE08 (KiIntSteerLogState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x1402C0E20 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerLogState @ 0x140377FB4 (KiIntSteerLogState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntSteerDisable(__int64 *a1, unsigned int a2)

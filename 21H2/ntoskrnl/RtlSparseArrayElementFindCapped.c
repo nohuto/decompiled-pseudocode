@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSparseArrayElementFindCapped @ 0x1405F34F0
+ * XREFs of RtlSparseArrayElementFindCapped @ 0x1405952BC
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x14023D6AC (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
  * Callees:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x1403629E0 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x140309548 (RtlCSparseBitmapFindBitSetCapped.c)
  */
 
 unsigned __int64 __fastcall RtlSparseArrayElementFindCapped(__int64 a1, __int64 a2, __int64 a3)

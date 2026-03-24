@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserHideCaret @ 0x1C0072630
+ * XREFs of NtUserHideCaret @ 0x1C0069C20
  * Callers:
  *     <none>
  * Callees:
- *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C00726A8 (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
- *     zzzInternalHideCaret @ 0x1C00C33BC (zzzInternalHideCaret.c)
+ *     zzzInternalHideCaret @ 0x1C0067540 (zzzInternalHideCaret.c)
+ *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C0069C9C (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall NtUserHideCaret(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall NtUserHideCaret(__int64 a1)
   struct tagWND *v3; // rax
   __int64 v4; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = 0LL;
   if ( a1 )
   {

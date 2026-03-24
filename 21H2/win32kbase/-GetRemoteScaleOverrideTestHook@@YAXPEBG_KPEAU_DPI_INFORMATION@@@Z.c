@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00D2A8C
+ * XREFs of ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00C2810
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
  * Callees:
- *     ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0046F30 (-RtlStringCchCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C00D2B40 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C00C28C4 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
+ *     ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00C2A84 (-RtlStringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall GetRemoteScaleOverrideTestHook(const unsigned __int16 *a1, __int64 a2, struct _DPI_INFORMATION *a3)
@@ -31,7 +31,7 @@ void __fastcall GetRemoteScaleOverrideTestHook(const unsigned __int16 *a1, __int
     v9 = 0LL;
     v13 = 0;
     v10 = 0LL;
-    if ( RtlStringCchCatW(v6, 47LL, a1) >= 0 )
+    if ( RtlStringCchCatW(v6, 0x2FuLL, a1) >= 0 )
     {
       *(_DWORD *)v5 = 0;
       DpiInternal::ScaleOverrideTestHookCore((DpiInternal *)v6, v5, v4);

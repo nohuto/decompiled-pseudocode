@@ -1,115 +1,109 @@
 /*
- * XREFs of ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C02226A4
+ * XREFs of ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C0185D90
  * Callers:
- *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01FEF00 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
- *     ?CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z @ 0x1C032B224 (-CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C018850C (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z @ 0x1C02998D4 (-CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z @ 0x1C00542D4 (--0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z.c)
- *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C005438C (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
- *     ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C02227E4 (-Initialize@OUTPUTDUPL_MGR@@QEAAJXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z @ 0x1C004A650 (--0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z.c)
+ *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C004A6F0 (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
+ *     ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C0185E64 (-Initialize@OUTPUTDUPL_MGR@@QEAAJXZ.c)
  */
 
 __int64 __fastcall CreateOutputDuplManager(
-        unsigned int a1,
+        __int64 a1,
         struct ADAPTER_DISPLAY *a2,
         struct _LUID *a3,
         struct _LUID *a4,
         struct OUTPUTDUPL_MGR **a5)
 {
-  __int64 v9; // rax
-  OUTPUTDUPL_MGR *v10; // rbx
-  _QWORD *v11; // rax
+  unsigned int v8; // ebp
+  char *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int128 v13; // rcx
+  _QWORD *v14; // rax
   __int64 result; // rax
-  unsigned int v13; // edi
-  OUTPUTDUPL_MGR_INDIRECT *v14; // rax
-  OUTPUTDUPL_MGR_INDIRECT *v15; // rcx
+  __int64 v16; // rdx
+  unsigned int v17; // edi
+  __int64 v18; // rax
+  OUTPUTDUPL_MGR_INDIRECT *v19; // rax
+  OUTPUTDUPL_MGR_INDIRECT *v20; // rcx
+  unsigned __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
 
-  if ( !a5 )
+  v8 = a1;
+  if ( a5 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid parameter ppOutputDuplMgr = 0x%I64x.",
-      0LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
-  }
-  *a5 = 0LL;
-  if ( a4 && a3 )
-  {
-    v14 = (OUTPUTDUPL_MGR_INDIRECT *)operator new[](0x88uLL, 0x674D444Fu, 256LL);
-    if ( v14 )
-      v15 = OUTPUTDUPL_MGR_INDIRECT::OUTPUTDUPL_MGR_INDIRECT(v14, *a4, *a3, a1);
-    else
-      v15 = 0LL;
-    v10 = (OUTPUTDUPL_MGR *)(((unsigned __int64)v15 + 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v15 >> 64));
-    if ( !v10 )
-      goto LABEL_15;
-  }
-  else
-  {
-    v9 = operator new[](0x60uLL, 0x674D444Fu, 256LL);
-    v10 = (OUTPUTDUPL_MGR *)v9;
-    if ( !v9 )
+    *a5 = 0LL;
+    if ( a4 && a3 )
     {
-LABEL_15:
-      WdLogSingleEntry1(6LL, a2);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate memory for output duplication manager on ADAPTER_DISPLAY 0x%I64x.",
-        (__int64)a2,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v19 = (OUTPUTDUPL_MGR_INDIRECT *)operator new[](0x78uLL, 0x674D444Fu, PagedPool);
+      if ( v19 )
+        v20 = OUTPUTDUPL_MGR_INDIRECT::OUTPUTDUPL_MGR_INDIRECT(v19, *a4, *a3, v8);
+      else
+        v20 = 0LL;
+      v21 = (unsigned __int64)v20 + 24;
+      v13 = -(__int128)(unsigned __int64)v20;
+      *((_QWORD *)&v13 + 1) &= v21;
+    }
+    else
+    {
+      v9 = (char *)operator new[](0x50uLL, 0x674D444Fu, PagedPool);
+      *((_QWORD *)&v13 + 1) = v9;
+      if ( v9 )
+      {
+        *((_DWORD *)v9 + 2) = 0;
+        *((_QWORD *)v9 + 2) = 0LL;
+        *((_QWORD *)v9 + 3) = 0LL;
+        *((_QWORD *)v9 + 7) = 0LL;
+        *((_QWORD *)v9 + 8) = 0LL;
+        *(_QWORD *)v9 = a2;
+        *((_DWORD *)v9 + 12) = 1;
+        *((_DWORD *)v9 + 13) = v8;
+        v9[72] = 0;
+        v14 = v9 + 32;
+        v14[1] = v14;
+        *v14 = v14;
+      }
+      else
+      {
+        *((_QWORD *)&v13 + 1) = 0LL;
+      }
+    }
+    if ( *((_QWORD *)&v13 + 1) )
+    {
+      result = OUTPUTDUPL_MGR::Initialize(*((OUTPUTDUPL_MGR **)&v13 + 1));
+      v17 = result;
+      if ( (int)result < 0 )
+      {
+        v23 = WdLogNewEntry5_WdError(v13, v16);
+        *(_QWORD *)(v23 + 24) = a2;
+        WdLogEvent5_WdError(v23);
+        OUTPUTDUPL_MGR::`scalar deleting destructor'(*((OUTPUTDUPL_MGR **)&v13 + 1));
+        return v17;
+      }
+      else
+      {
+        *a5 = (struct OUTPUTDUPL_MGR *)*((_QWORD *)&v13 + 1);
+      }
+    }
+    else
+    {
+      v22 = WdLogNewEntry5_WdLowResource(v13, v10, v11, v12);
+      *(_QWORD *)(v22 + 24) = a2;
+      WdLogEvent5_WdLowResource(v22);
       return 3221225495LL;
     }
-    *(_QWORD *)v9 = a2;
-    *(_DWORD *)(v9 + 8) = 0;
-    *(_QWORD *)(v9 + 16) = 0LL;
-    *(_QWORD *)(v9 + 24) = 0LL;
-    *(_QWORD *)(v9 + 32) = 0LL;
-    *(_DWORD *)(v9 + 40) = 0;
-    *(_DWORD *)(v9 + 44) = 28;
-    *(_DWORD *)(v9 + 48) = 50;
-    *(_DWORD *)(v9 + 72) = 1;
-    *(_DWORD *)(v9 + 76) = a1;
-    *(_QWORD *)(v9 + 80) = 0LL;
-    *(_BYTE *)(v9 + 88) = 0;
-    v11 = (_QWORD *)(v9 + 56);
-    v11[1] = v11;
-    *v11 = v11;
-  }
-  result = OUTPUTDUPL_MGR::Initialize(v10);
-  v13 = result;
-  if ( (int)result < 0 )
-  {
-    WdLogSingleEntry1(2LL, a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to initialize output duplication manager on ADAPTER_DISPLAY 0x%I64x.",
-      (__int64)a2,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    OUTPUTDUPL_MGR::`scalar deleting destructor'(v10);
-    return v13;
   }
   else
   {
-    *a5 = v10;
+    v18 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v18 + 24) = 0LL;
+    WdLogEvent5_WdError(v18);
+    return 3221225485LL;
   }
   return result;
 }

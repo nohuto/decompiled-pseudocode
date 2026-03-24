@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDispatchAcDcCallback @ 0x1408763B0
+ * XREFs of PopDispatchAcDcCallback @ 0x140876390
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ struct _KTHREAD *PopDispatchAcDcCallback()
 {
   struct _KTHREAD *result; // rax
 
-  ExNotifyCallback(ExCbPowerState, (PVOID)1, (PVOID)(dword_14041810C == 0));
+  ExNotifyCallback(ExCbPowerState, (PVOID)1, (PVOID)(dword_1404180CC == 0));
   result = KeGetCurrentThread();
   if ( result->WaitBlock[3].SpareLong )
     __fastfail(0x20u);

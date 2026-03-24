@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MNInitDrawItemStruct@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagDRAWITEMSTRUCT@@@Z @ 0x1C00C1E10
+ * XREFs of ?MNInitDrawItemStruct@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagDRAWITEMSTRUCT@@@Z @ 0x1C0044958
  * Callers:
- *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C00BE738 (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
+ *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0044B0C (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0067394 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00C1F98 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0044AE0 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078B40 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
  */
 
 __int64 __fastcall MNInitDrawItemStruct(__int64 a1, int a2, __int64 ***a3, __int64 *a4, int a5, int a6, __int64 a7)
@@ -34,9 +34,8 @@ __int64 __fastcall MNInitDrawItemStruct(__int64 a1, int a2, __int64 ***a3, __int
   v12 = 2 * (*(_DWORD *)(*a4 + 4) & 1);
   v13 = *(_DWORD *)(*a4 + 4) & 8;
   v14 = MNDrawHilite(a3, a4);
-  *(_DWORD *)(a7 + 16) = v15 | v13 | v11 | (v14 != 0) | v12 | (*(_DWORD *)(*a4 + 4) >> 2) & 0x40 | (8
-                                                                                                  * (*(_DWORD *)((**a3)[5] + 40) & 0x10)) | ~((unsigned __int16)*(_DWORD *)((**a3)[5] + 40) << 6) & 0x100;
-  if ( SmartObjStackRef<tagMENU>::operator==((__int64)a3) )
+  *(_DWORD *)(a7 + 16) = v13 | v11 | (v14 != 0) | v12 | v15 | (8 * (*(_DWORD *)((**a3)[5] + 40) & 0x10)) | (*(_DWORD *)(*a4 + 4) >> 2) & 0x40 | ~((unsigned __int16)*(_DWORD *)((**a3)[5] + 40) << 6) & 0x100;
+  if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(a3) )
   {
     v17 = 0LL;
   }

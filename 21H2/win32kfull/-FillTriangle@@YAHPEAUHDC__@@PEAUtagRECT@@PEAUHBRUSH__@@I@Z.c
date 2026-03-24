@@ -1,15 +1,15 @@
 /*
- * XREFs of ?FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z @ 0x1C025AAE0
+ * XREFs of ?FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z @ 0x1C025DF0C
  * Callers:
- *     DrawEdge @ 0x1C00C17C0 (DrawEdge.c)
+ *     DrawEdge @ 0x1C00451E8 (DrawEdge.c)
  * Callees:
- *     ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C025A874 (-DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z.c)
+ *     ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C025DC98 (-DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z.c)
  */
 
 _BOOL8 __fastcall FillTriangle(HDC a1, struct tagRECT *a2, HBRUSH a3, unsigned int a4)
 {
   int v5; // eax
-  int v8; // edi
+  signed int v8; // edi
   __int64 v9; // rbx
   __int64 v10; // r9
 

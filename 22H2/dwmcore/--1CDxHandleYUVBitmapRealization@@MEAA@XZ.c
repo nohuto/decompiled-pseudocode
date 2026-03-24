@@ -1,13 +1,13 @@
 /*
- * XREFs of ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x1802B3A30
+ * XREFs of ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x180265344
  * Callers:
- *     ??_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z @ 0x1802B3C00 (--_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z.c)
+ *     ??_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z @ 0x180265500 (--_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1CDeviceResource@@MEAA@XZ @ 0x18003C484 (--1CDeviceResource@@MEAA@XZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ @ 0x1800F1A94 (-InternalRelease@-$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ @ 0x1802B4740 (-ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006194C (--1CDeviceResource@@MEAA@XZ.c)
+ *     ?Release@CMILPoolResource@@UEAAKXZ @ 0x1800D50D0 (-Release@CMILPoolResource@@UEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ @ 0x1802662AC (-ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ.c)
  */
 
 void __fastcall CDxHandleYUVBitmapRealization::~CDxHandleYUVBitmapRealization(CDxHandleYUVBitmapRealization *this)
@@ -22,13 +22,13 @@ void __fastcall CDxHandleYUVBitmapRealization::~CDxHandleYUVBitmapRealization(CD
   int v9; // eax
   void *v10; // rcx
   __int64 v11; // rcx
-  volatile signed __int32 *v12; // rcx
-  volatile signed __int32 *v13; // rcx
+  CMILPoolResource *v12; // rcx
+  CRenderTargetBitmap *v13; // rcx
 
-  v2 = (CDxHandleYUVBitmapRealization *)((char *)this + 320);
-  *(_QWORD *)this = &CDxHandleYUVBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
-  *((_QWORD *)this + 40) = &CDxHandleYUVBitmapRealization::`vftable'{for `CDeviceResource'};
-  *((_QWORD *)this + 45) = &CDxHandleYUVBitmapRealization::`vftable'{for `IYUVSwapChainRealization'};
+  v2 = (CDxHandleYUVBitmapRealization *)((char *)this + 288);
+  *(_QWORD *)this = &CDxHandleYUVBitmapRealization::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 36) = &CDxHandleYUVBitmapRealization::`vftable'{for `CDeviceResource'};
+  *((_QWORD *)this + 41) = &CDxHandleYUVBitmapRealization::`vftable'{for `IYUVSwapChainRealization'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CDxHandleYUVBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CDxHandleYUVBitmapRealization::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 12LL) + 16) = &CDxHandleYUVBitmapRealization::`vftable'{for `IPixelFormat'};
@@ -36,33 +36,33 @@ void __fastcall CDxHandleYUVBitmapRealization::~CDxHandleYUVBitmapRealization(CD
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 20LL) + 16) = &CDxHandleYUVBitmapRealization::`vftable'{for `IDeviceResource'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 24LL) + 16) = &CDxHandleYUVBitmapRealization::`vftable'{for `ISwapChainRealization'};
   v3 = *(int *)(*((_QWORD *)this + 2) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 12) = v3 - 384;
+  *(_DWORD *)((char *)this + v3 + 12) = v3 - 360;
   v4 = *(int *)(*((_QWORD *)this + 2) + 8LL);
-  *(_DWORD *)((char *)this + v4 + 12) = v4 - 400;
+  *(_DWORD *)((char *)this + v4 + 12) = v4 - 376;
   v5 = *(int *)(*((_QWORD *)this + 2) + 12LL);
-  *(_DWORD *)((char *)this + v5 + 12) = v5 - 416;
+  *(_DWORD *)((char *)this + v5 + 12) = v5 - 392;
   v6 = *(int *)(*((_QWORD *)this + 2) + 16LL);
-  *(_DWORD *)((char *)this + v6 + 12) = v6 - 440;
+  *(_DWORD *)((char *)this + v6 + 12) = v6 - 416;
   v7 = *(int *)(*((_QWORD *)this + 2) + 20LL);
-  *(_DWORD *)((char *)this + v7 + 12) = v7 - 464;
+  *(_DWORD *)((char *)this + v7 + 12) = v7 - 440;
   v8 = *(int *)(*((_QWORD *)this + 2) + 24LL);
-  *(_DWORD *)((char *)this + v8 + 12) = v8 - 488;
-  v9 = *((_DWORD *)this + 70);
+  *(_DWORD *)((char *)this + v8 + 12) = v8 - 464;
+  v9 = *((_DWORD *)this + 62);
   if ( v9 != DisplayId::None && v9 != DisplayId::All )
-    --*((_DWORD *)g_pComposition + 108);
-  v10 = (void *)*((_QWORD *)this + 31);
+    --*((_DWORD *)g_pComposition + 70);
+  v10 = (void *)*((_QWORD *)this + 28);
   if ( v10 )
     CloseHandle(v10);
   CDxHandleYUVBitmapRealization::ReleaseTexture(this);
-  v11 = *((_QWORD *)this + 48);
+  v11 = *((_QWORD *)this + 44);
   if ( v11 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
-  v12 = (volatile signed __int32 *)*((_QWORD *)this + 47);
+  v12 = (CMILPoolResource *)*((_QWORD *)this + 43);
   if ( v12 )
-    CMILRefCountBaseT<IDeviceResource>::InternalRelease(v12);
+    CMILPoolResource::Release(v12);
   CDeviceResource::~CDeviceResource(v2);
-  v13 = (volatile signed __int32 *)*((_QWORD *)this + 36);
+  v13 = (CRenderTargetBitmap *)*((_QWORD *)this + 32);
   if ( v13 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v13);
+    CRenderTargetBitmap::Release(v13);
   CD2DBitmapCache::~CD2DBitmapCache(this);
 }

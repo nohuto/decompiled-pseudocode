@@ -1,19 +1,42 @@
 /*
- * XREFs of MiUnlockVa @ 0x140350744
+ * XREFs of MiUnlockVa @ 0x140338B10
  * Callers:
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     NtUnlockVirtualMemory @ 0x140283040 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402A3000 (NtLockVirtualMemory.c)
- *     MiMakeVaRangeNoAccess @ 0x14035B5CC (MiMakeVaRangeNoAccess.c)
+ *     NtUnlockVirtualMemory @ 0x1402AE5C0 (NtUnlockVirtualMemory.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiMakeVaRangeNoAccess @ 0x140321CF4 (MiMakeVaRangeNoAccess.c)
+ *     NtLockVirtualMemory @ 0x140339070 (NtLockVirtualMemory.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockWsle @ 0x1402A25E0 (MiUnlockWsle.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiUnlockWsle @ 0x140338C2C (MiUnlockWsle.c)
  */
 
 __int64 __fastcall MiUnlockVa(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v4; // rax
+  unsigned __int64 v4; // rdi
+  unsigned __int64 v5; // rbx
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rax
 
-  v4 = MI_READ_PTE_LOCK_FREE(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  return MiUnlockWsle(a1, a2, 48 * ((v4 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL);
+  v4 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v5 = *(_QWORD *)v4;
+  if ( MiPteInShadowRange(v4)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v5 & 1) != 0
+    && ((v5 & 0x20) == 0 || (v5 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v7 = v5 | 0x20;
+      v8 = *((_QWORD *)&Flink->Flink + ((v4 >> 3) & 0x1FF));
+      if ( (v8 & 0x20) == 0 )
+        v7 = v5;
+      v5 = v7;
+      if ( (v8 & 0x42) != 0 )
+        v5 = v7 | 0x42;
+    }
+  }
+  return MiUnlockWsle(a1, a2, 48 * ((v5 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetBrushParameters@CEffectBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1802135D0
+ * XREFs of ?GetBrushParameters@CEffectBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1801BFE50
  * Callers:
  *     <none>
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CEffectBrush::GetBrushParameters(CEffectBrush *this, struct CBrushDrawListGenerator *a2, __int64 a3)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-28h] BYREF
 
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400000) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80000) != 0 )
     McGenEventWrite_EventWriteTransfer(
       Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_EFFECTBRUSH_DRAW_ERROR_INVALID_NESTING,

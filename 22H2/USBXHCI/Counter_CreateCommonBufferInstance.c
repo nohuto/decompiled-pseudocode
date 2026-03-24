@@ -1,10 +1,10 @@
 /*
- * XREFs of Counter_CreateCommonBufferInstance @ 0x1C0073804
+ * XREFs of Counter_CreateCommonBufferInstance @ 0x1C006E570
  * Callers:
- *     CommonBuffer_Create @ 0x1C0072F6C (CommonBuffer_Create.c)
+ *     CommonBuffer_Create @ 0x1C006E368 (CommonBuffer_Create.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1C000CF80 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
+ *     RtlStringCchPrintfW @ 0x1C0009784 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Counter_CreateCommonBufferInstance(PPCW_INSTANCE *a1)

@@ -1,11 +1,10 @@
 /*
- * XREFs of CmpArmDelayedCloseTimer @ 0x1402B953C
+ * XREFs of CmpArmDelayedCloseTimer @ 0x140305C58
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406DB3F0 (CmpDeleteKeyObject.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpAddToDelayedClose @ 0x14073EAD8 (CmpAddToDelayedClose.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140648D30 (CmpDereferenceKeyControlBlock.c)
+ *     CmpAddToDelayedClose @ 0x140677A44 (CmpAddToDelayedClose.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void CmpArmDelayedCloseTimer()

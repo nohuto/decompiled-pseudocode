@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAcpiGetTableDispatch @ 0x140336E30
+ * XREFs of HalAcpiGetTableDispatch @ 0x1402E77B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalAcpiGetTableDispatch(unsigned int a1, __int64 a2, __int64 a3)

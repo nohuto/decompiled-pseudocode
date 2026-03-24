@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVaMgrStart @ 0x140398204
+ * XREFs of RtlpHpVaMgrStart @ 0x1403A5004
  * Callers:
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140397ED4 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037B680 (RtlpHpVaMgrCtxAllocatorReference.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpHpVaMgrStart(__int64 a1, __int64 a2, __int64 a3, unsigned
   *(_WORD *)(a1 + 40) = a4 >> 20;
   v8 = *(_BYTE *)(a3 + 12) & 1;
   *(_QWORD *)(a1 + 24) = a2;
-  v9 = v5 & 0xE1 | *(_BYTE *)(a1 + 46) & 0xE0 | (2 * (v7 & 7 | (8 * v8)));
+  v9 = v5 & 0xF1 | *(_BYTE *)(a1 + 46) & 0xF0 | (2 * (v7 & 3 | (4 * v8)));
   result = 0LL;
   *(_BYTE *)(a1 + 46) = v9;
   return result;

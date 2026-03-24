@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpUpdateFileInfoDriverState @ 0x1407D5BF0
+ * XREFs of EtwpUpdateFileInfoDriverState @ 0x140793488
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407D5610 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1407D5984 (EtwpDisableKernelTrace.c)
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
+ *     EtwpEnableKernelTrace @ 0x140793068 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407932FC (EtwpDisableKernelTrace.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     WmiQueryTraceProviderCount @ 0x1403A5214 (WmiQueryTraceProviderCount.c)
- *     ZwLoadDriver @ 0x14041C820 (ZwLoadDriver.c)
- *     ZwUnloadDriver @ 0x14041E160 (ZwUnloadDriver.c)
- *     WmiTraceRundownNotify @ 0x14084A048 (WmiTraceRundownNotify.c)
- *     EtwpUpdateFileInfoDriverRegistration @ 0x14085BB8C (EtwpUpdateFileInfoDriverRegistration.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     WmiQueryTraceProviderCount @ 0x1403AA2A0 (WmiQueryTraceProviderCount.c)
+ *     ZwLoadDriver @ 0x1403FBAE0 (ZwLoadDriver.c)
+ *     ZwUnloadDriver @ 0x1403FD320 (ZwUnloadDriver.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x14079351C (EtwpUpdateFileInfoDriverRegistration.c)
+ *     WmiTraceRundownNotify @ 0x1407C1D04 (WmiTraceRundownNotify.c)
  */
 
 __int64 __fastcall EtwpUpdateFileInfoDriverState(_DWORD *a1, _DWORD *a2, int a3, _QWORD *a4, unsigned int a5)
@@ -26,36 +26,41 @@ __int64 __fastcall EtwpUpdateFileInfoDriverState(_DWORD *a1, _DWORD *a2, int a3,
   {
     if ( !a1 || (*a1 & 0x6000200) == 0 )
     {
-      if ( dword_140D17C20 )
-      {
+      if ( dword_140CF532C )
         WmiTraceRundownNotify(*a4, a5);
-        EtwpUpdateFileInfoDriverRegistration(0LL);
+      EtwpUpdateFileInfoDriverRegistration(0LL);
+      if ( dword_140CF532C )
+      {
         RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
         ZwUnloadDriver(&DestinationString);
-        dword_140D17C20 = 0;
+        dword_140CF532C = 0;
       }
     }
-    return 0;
+LABEL_8:
+    updated = 0;
+    v5 = 0;
+    goto LABEL_9;
   }
   if ( !a2 || (*a2 & 0x6000200) == 0 )
-    return 0;
+    goto LABEL_8;
   if ( !(unsigned int)WmiQueryTraceProviderCount() )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
     v8 = ZwLoadDriver(&DestinationString);
     if ( (int)(v8 + 0x80000000) >= 0 && v8 != -1073741554 )
       return (unsigned int)-1073741204;
-    dword_140D17C20 = 1;
+    dword_140CF532C = 1;
     v5 = 1;
   }
   updated = EtwpUpdateFileInfoDriverRegistration(1LL);
   if ( updated >= 0 )
-    return 0;
+    goto LABEL_8;
+LABEL_9:
   if ( v5 )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
     ZwUnloadDriver(&DestinationString);
-    dword_140D17C20 = 0;
+    dword_140CF532C = 0;
   }
   return (unsigned int)updated;
 }

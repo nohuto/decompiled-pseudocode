@@ -1,117 +1,158 @@
 /*
- * XREFs of ?reserve_region@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVCVIRenderList@@_K0@Z @ 0x1800C29F4
+ * XREFs of ?reserve_region@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVCVIRenderList@@_K0@Z @ 0x1800CE0CC
  * Callers:
- *     ?AddCVIToPreRenderList@CDesktopTree@@UEAAXAEAVCVIRenderList@@@Z @ 0x1800C29A0 (-AddCVIToPreRenderList@CDesktopTree@@UEAAXAEAVCVIRenderList@@@Z.c)
+ *     ?AddCVIToPreRenderList@CDesktopTree@@UEAAXAEAVCVIRenderList@@@Z @ 0x1800CE070 (-AddCVIToPreRenderList@CDesktopTree@@UEAAXAEAVCVIRenderList@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180044D50 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??$move_backward@V?$move_iterator@PEAVCVIRenderList@@@std@@V?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@V?$move_iterator@PEAVCVIRenderList@@@0@0V12@@Z @ 0x1801C0328 (--$move_backward@V-$move_iterator@PEAVCVIRenderList@@@std@@V-$checked_array_iterator@PEAVCVIRend.c)
- *     ??$uninitialized_move@V?$move_iterator@PEAVCVIRenderList@@@std@@V?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@V?$move_iterator@PEAVCVIRenderList@@@0@0V12@@Z @ 0x1801C03EC (--$uninitialized_move@V-$move_iterator@PEAVCVIRenderList@@@std@@V-$checked_array_iterator@PEAVCV.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180061AA4 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??$move_backward@V?$move_iterator@PEAVCVIRenderList@@@std@@V?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@V?$move_iterator@PEAVCVIRenderList@@@0@0V12@@Z @ 0x180169AE8 (--$move_backward@V-$move_iterator@PEAVCVIRenderList@@@std@@V-$checked_array_iterator@PEAVCVIRend.c)
+ *     ??$uninitialized_copy@V?$move_iterator@PEAVCVIRenderList@@@std@@V?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCVIRenderList@@@stdext@@V?$move_iterator@PEAVCVIRenderList@@@0@0V12@@Z @ 0x180169BB4 (--$uninitialized_copy@V-$move_iterator@PEAVCVIRenderList@@@std@@V-$checked_array_iterator@PEAVCV.c)
  */
 
 char *__fastcall detail::vector_facade<CVIRenderList,detail::buffer_impl<CVIRenderList,16,1,detail::liberal_expansion_policy>>::reserve_region(
-        detail::liberal_expansion_policy *a1,
+        void **a1,
         __int64 a2)
 {
-  __int64 v2; // rsi
-  __int64 v4; // rdx
-  char *v6; // rbx
-  signed __int64 v7; // rcx
-  unsigned __int64 v8; // rdx
+  _BYTE *v4; // rcx
+  __int64 v5; // r10
+  __int64 v6; // r9
+  char *v7; // rbx
+  __int64 v8; // rcx
   __int64 v9; // r8
-  __int64 v10; // rax
-  __int64 v11; // r9
-  __int64 v12; // rdi
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rdi
-  LPVOID v17; // rax
-  __int64 v18; // r8
-  char *v19; // rdx
-  LPVOID v20; // rbx
-  char *v21; // rcx
-  bool v22; // zf
-  char *v23; // rcx
-  __int64 v24; // rsi
-  LPVOID v25; // [rsp+20h] [rbp-68h] BYREF
-  unsigned __int64 v26; // [rsp+28h] [rbp-60h]
-  signed __int64 v27; // [rsp+30h] [rbp-58h]
-  _BYTE v28[32]; // [rsp+40h] [rbp-48h] BYREF
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // r10
+  unsigned __int64 v16; // rsi
+  unsigned __int64 v17; // r8
+  unsigned __int64 v18; // rdi
+  LPVOID v19; // rax
+  void *v20; // r8
+  void *v21; // rdx
+  LPVOID v22; // rbx
+  void *v23; // rcx
+  bool v24; // zf
+  char *v25; // rdx
+  __int64 v26; // rax
+  bool v27; // sf
+  __int128 v28; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v29; // [rsp+30h] [rbp-30h]
+  __int128 v30; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v31; // [rsp+50h] [rbp-10h]
 
-  v2 = *((_QWORD *)a1 + 1);
-  v4 = *((_QWORD *)a1 + 2);
-  if ( !(0xCCCCCCCCCCCCCCCDuLL * ((v4 - v2) >> 3)) )
+  v4 = a1[2];
+  v5 = 0x6666666666666667LL;
+  v6 = (__int64)a1[1];
+  if ( !((__int64)&v4[-v6] / 40) )
   {
-    v14 = 0xCCCCCCCCCCCCCCCDuLL * ((v2 - *(_QWORD *)a1) >> 3);
-    v15 = v14 + 1;
-    if ( v14 + 1 < v14 )
+    v16 = (v6 - (__int64)*a1) / 40;
+    v17 = v16 + 1;
+    if ( v16 + 1 < v16 )
     {
       std::_Xoverflow_error("overflow");
       __debugbreak();
     }
-    v16 = detail::liberal_expansion_policy::expand(a1, 0xCCCCCCCCCCCCCCCDuLL * ((v4 - *(_QWORD *)a1) >> 3), v15);
-    v17 = operator new(saturated_mul(v16, 0x28uLL));
-    v18 = *((_QWORD *)a1 + 1);
-    v19 = *(char **)a1;
-    v20 = v17;
-    v25 = v17;
-    v26 = v14;
-    v27 = 0LL;
-    ((void (__fastcall *)(_BYTE *, char *, __int64, LPVOID *))std::uninitialized_move<std::move_iterator<CVIRenderList *>,stdext::checked_array_iterator<CVIRenderList *>>)(
-      v28,
-      v19,
-      v18,
-      &v25);
-    v21 = *(char **)a1;
-    v22 = *(_QWORD *)a1 == (_QWORD)a1 + 24;
-    *(_QWORD *)a1 = v20;
-    if ( v22 )
-      v21 = 0LL;
-    operator delete(v21);
-    v23 = *(char **)a1;
-    v2 = *(_QWORD *)a1 + 40 * v14;
-    *((_QWORD *)a1 + 1) = v2;
-    *((_QWORD *)a1 + 2) = &v23[40 * v16];
+    v18 = detail::liberal_expansion_policy::expand(
+            (detail::liberal_expansion_policy *)(v4 - (_BYTE *)*a1),
+            ((unsigned __int64)((unsigned __int128)((v4 - (_BYTE *)*a1) * (__int128)v5) >> 64) >> 63)
+          + ((__int64)((unsigned __int128)((v4 - (_BYTE *)*a1) * (__int128)v5) >> 64) >> 4),
+            v17);
+    v19 = operator new(saturated_mul(v18, 0x28uLL));
+    v20 = a1[1];
+    v21 = *a1;
+    *(_QWORD *)&v28 = v19;
+    v22 = v19;
+    *((_QWORD *)&v28 + 1) = v16;
+    v29 = 0LL;
+    v30 = v28;
+    v31 = 0LL;
+    ((void (__fastcall *)(__int128 *, void *, void *, __int128 *))std::uninitialized_copy<std::move_iterator<CVIRenderList *>,stdext::checked_array_iterator<CVIRenderList *>>)(
+      &v28,
+      v21,
+      v20,
+      &v30);
+    v23 = *a1;
+    v24 = *a1 == a1 + 3;
+    *a1 = v22;
+    if ( v24 )
+      v23 = 0LL;
+    operator delete(v23);
+    v25 = (char *)*a1;
+    v6 = (__int64)*a1 + 40 * v16;
+    a1[1] = (void *)v6;
+    a1[2] = &v25[40 * v18];
   }
-  v6 = *(char **)a1;
-  v7 = 0xCCCCCCCCCCCCCCCDuLL * ((v2 - *(_QWORD *)a1) >> 3);
-  v8 = v7 - a2;
-  v9 = *(_QWORD *)a1 + 8 * ((v2 - *(_QWORD *)a1) >> 3);
-  if ( !v9 )
-    goto LABEL_15;
-  v10 = 0xCCCCCCCCCCCCCCCDuLL * ((v2 - *(_QWORD *)a1) >> 3) - a2;
-  if ( v8 > 1 )
-    v10 = 1LL;
-  v11 = v2 - 40 * v10;
-  if ( v2 != v11 )
+  v7 = (char *)*a1;
+  v8 = v6 - (_QWORD)*a1;
+  *((_QWORD *)&v28 + 1) = 1LL;
+  v29 = 0LL;
+  v31 = 0LL;
+  v9 = v8 / 40;
+  v10 = v8 / 40 - a2;
+  v11 = (unsigned __int64)&v7[40 * (v8 / 40)];
+  *(_QWORD *)&v28 = v11;
+  v30 = v28;
+  if ( !v11 )
+    goto LABEL_25;
+  v31 = 1LL;
+  v12 = 1LL;
+  if ( v10 <= 1 )
+    v12 = v10;
+  v29 = 1LL;
+  v13 = 40 * v12;
+  v14 = v6 - v13;
+  if ( v6 != v6 - v13 )
   {
-    v24 = v2 - 40;
-    *(_OWORD *)v9 = *(_OWORD *)v24;
-    *(_OWORD *)(v9 + 16) = *(_OWORD *)(v24 + 16);
-    *(_QWORD *)(v9 + 32) = *(_QWORD *)(v24 + 32);
-    if ( v24 != v11 )
-LABEL_15:
-      _invalid_parameter_noinfo_noreturn();
+    v11 = v29;
+    v26 = v30 + 40;
+    do
+    {
+      v6 -= 40LL;
+      if ( !(_QWORD)v28 )
+        goto LABEL_25;
+      if ( !v11 )
+        goto LABEL_25;
+      --v11;
+      v26 -= 40LL;
+      if ( v11 >= *((_QWORD *)&v28 + 1) )
+        goto LABEL_25;
+      *(_OWORD *)v26 = *(_OWORD *)v6;
+      *(_OWORD *)(v26 + 16) = *(_OWORD *)(v6 + 16);
+      *(_QWORD *)(v26 + 32) = *(_QWORD *)(v6 + 32);
+    }
+    while ( v6 != v14 );
   }
-  if ( v8 > 1 )
+  if ( v10 > 1 )
   {
-    if ( v7 && (!v6 || v7 < 0) )
-      goto LABEL_15;
-    v26 = v7;
-    v27 = v7;
-    v12 = 40 * a2;
-    v25 = v6;
-    ((void (__fastcall *)(_BYTE *, char *, char *, LPVOID *))std::move_backward<std::move_iterator<CVIRenderList *>,stdext::checked_array_iterator<CVIRenderList *>>)(
-      v28,
-      &v6[40 * a2],
-      &v6[40 * v7 - 40],
-      &v25);
+    *(_QWORD *)&v30 = v7;
+    *((_QWORD *)&v30 + 1) = v9;
+    v27 = v9 < 0;
+    if ( v9 )
+    {
+      if ( !v7 )
+        goto LABEL_25;
+      v27 = v9 < 0;
+    }
+    if ( !v27 || !v9 )
+    {
+      v31 = v9;
+      v28 = v30;
+      v29 = v9;
+      ((void (__fastcall *)(__int128 *, char *, char *, __int128 *))std::move_backward<std::move_iterator<CVIRenderList *>,stdext::checked_array_iterator<CVIRenderList *>>)(
+        &v30,
+        &v7[40 * a2],
+        &v7[40 * v9 - 40],
+        &v28);
+      goto LABEL_7;
+    }
+LABEL_25:
+    _o__invalid_parameter_noinfo_noreturn(v11, v10);
+    __debugbreak();
+    JUMPOUT(0x18014686FLL);
   }
-  else
-  {
-    v12 = 40 * a2;
-  }
-  *((_QWORD *)a1 + 1) += 40LL;
-  return &v6[v12];
+LABEL_7:
+  a1[1] = (char *)a1[1] + 40;
+  return &v7[40 * a2];
 }

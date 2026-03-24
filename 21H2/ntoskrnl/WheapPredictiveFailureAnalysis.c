@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapPredictiveFailureAnalysis @ 0x140A0A2E8
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x14095E740
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x140644030 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1405BBBD0 (WheapProcessWorkQueueItem.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A08CB0 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x140A09FB4 (WheapPfaMemoryCheck.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D350 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x14095E414 (WheapPfaMemoryCheck.c)
  */
 
-__int64 __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
+char __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 result; // rax
+  __int64 v3; // rax
   char v4; // r9
   unsigned int v5; // edx
   unsigned int *v6; // rcx
@@ -23,12 +23,14 @@ __int64 __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   __int64 v9; // rdi
   __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  signed __int8 v12; // cf
-  __int64 v13; // rbx
+  __int64 v12; // r8
+  _DWORD *v13; // r9
+  signed __int8 v14; // cf
+  __int64 v15; // rbx
 
   v1 = a1 + 40;
-  result = PshedDoPfa(a1 + 40);
-  if ( (_DWORD)result != 1
+  LODWORD(v3) = PshedDoPfa(a1 + 40);
+  if ( (_DWORD)v3 != 1
     && !WheapPolicyDisableOffline
     && WheapPfaInitialized
     && *(_WORD *)(v1 + 10)
@@ -53,33 +55,33 @@ LABEL_13:
     v8 = (unsigned int *)(v1 + 128);
     if ( v4 )
       v8 = v7;
-    result = *((_QWORD *)v8 + 2) - *(_QWORD *)&MEMORY_ERROR_SECTION_GUID.Data1;
-    if ( !result )
-      result = *((_QWORD *)v8 + 3) - *(_QWORD *)MEMORY_ERROR_SECTION_GUID.Data4;
-    if ( !result )
+    v3 = *((_QWORD *)v8 + 2) - *(_QWORD *)&MEMORY_ERROR_SECTION_GUID.Data1;
+    if ( !v3 )
+      v3 = *((_QWORD *)v8 + 3) - *(_QWORD *)MEMORY_ERROR_SECTION_GUID.Data4;
+    if ( !v3 )
     {
-      result = *(unsigned int *)(a1 + 24);
+      LODWORD(v3) = *(_DWORD *)(a1 + 24);
       v9 = v1 + *v8;
-      if ( (result & 4) != 0 )
+      if ( (v3 & 4) != 0 )
       {
-        if ( (result & 8) != 0 && (*(_BYTE *)v9 & 2) != 0 )
-          return WheaAttemptPhysicalPageOffline(*(_QWORD *)(v9 + 16) >> 12, 1, 0, 0);
+        if ( (v3 & 8) != 0 && (*(_BYTE *)v9 & 2) != 0 )
+          LOBYTE(v3) = WheaAttemptPhysicalPageOffline(*(_QWORD *)(v9 + 16) >> 12, 1, 0);
       }
       else
       {
-        v10 = KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
-        v12 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
-        v13 = v10;
-        if ( v12 )
-          ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v10, (__int64)&WheapPfaLock);
-        if ( v13 )
-          *(_BYTE *)(v13 + 18) = 1;
-        WheapPfaMemoryCheck(v11, v9);
+        v10 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
+        v14 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
+        v15 = v10;
+        if ( v14 )
+          ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v10, (ULONG_PTR)&WheapPfaLock);
+        if ( v15 )
+          *(_BYTE *)(v15 + 26) |= 1u;
+        WheapPfaMemoryCheck(v11, v9, v12, v13);
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(&WheapPfaLock);
-        return KeAbPostRelease((ULONG_PTR)&WheapPfaLock);
+        LOBYTE(v3) = KeAbPostRelease((ULONG_PTR)&WheapPfaLock);
       }
     }
   }
-  return result;
+  return v3;
 }

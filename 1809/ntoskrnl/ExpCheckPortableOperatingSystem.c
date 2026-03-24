@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpCheckPortableOperatingSystem @ 0x1406C75CC
+ * XREFs of ExpCheckPortableOperatingSystem @ 0x1406C75AC
  * Callers:
- *     ExIsWindowsToGo @ 0x1406C75A0 (ExIsWindowsToGo.c)
+ *     ExIsWindowsToGo @ 0x1406C7580 (ExIsWindowsToGo.c)
  *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlCheckPortableOperatingSystem @ 0x140135E10 (RtlCheckPortableOperatingSystem.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlCheckPortableOperatingSystem @ 0x140135E30 (RtlCheckPortableOperatingSystem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)

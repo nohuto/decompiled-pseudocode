@@ -1,13 +1,13 @@
 /*
- * XREFs of SeUnregisterImageVerificationCallback @ 0x1409C8D90
+ * XREFs of SeUnregisterImageVerificationCallback @ 0x14091BFD0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14036E050 (ExUnregisterCallback.c)
+ *     ExUnregisterCallback @ 0x1403812B0 (ExUnregisterCallback.c)
  */
 
 void __fastcall SeUnregisterImageVerificationCallback(void *a1)
 {
-  _InterlockedDecrement(&dword_140D0CB4C);
+  _InterlockedDecrement(&dword_140CEC9A4);
   ExUnregisterCallback(a1);
 }

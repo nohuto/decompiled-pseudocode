@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwRenameKey @ 0x14041E6E0
+ * XREFs of ZwRenameKey @ 0x1403FD220
  * Callers:
- *     DifZwRenameKeyWrapper @ 0x1406262F0 (DifZwRenameKeyWrapper.c)
- *     CmpDoReDoRenameKey @ 0x140925CC0 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoRenameKey @ 0x1408820A0 (CmpDoReDoRenameKey.c)
  * Callees:
  *     <none>
  */

@@ -1,34 +1,36 @@
 /*
- * XREFs of EtwpIsValidImageAddress @ 0x140758BF0
+ * XREFs of EtwpIsValidImageAddress @ 0x1405D193C
  * Callers:
- *     EtwpFindDebugId @ 0x1407589DC (EtwpFindDebugId.c)
+ *     EtwpFindDebugId @ 0x1406AB300 (EtwpFindDebugId.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x1402D6F40 (RtlSectionTableFromVirtualAddress.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
  */
 
-bool __fastcall EtwpIsValidImageAddress(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        __int64 a5)
+char __fastcall EtwpIsValidImageAddress(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
-  unsigned __int64 v5; // rbx
-  bool result; // al
-  _DWORD *v7; // rax
+  int v3; // edi
+  unsigned __int64 v5; // rbp
+  unsigned __int64 v6; // rsi
+  unsigned __int64 v7; // rbx
 
-  v5 = a4 - a2;
-  result = 0;
-  if ( a4 >= a2 && a4 + a5 >= a4 && a4 + a5 <= a2 + a3 )
+  v3 = 0;
+  v5 = ((unsigned __int64)(a1 & 0xFFF) + a2 + 4095) >> 12;
+  if ( !v5 )
+    return 1;
+  v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
+  while ( 1 )
   {
-    if ( a2 <= 0x7FFFFFFEFFFFLL )
+    v7 = v6 + (unsigned int)(v3 << 12);
+    if ( *a3 != v7 )
+      break;
+LABEL_6:
+    if ( (unsigned int)++v3 >= v5 )
       return 1;
-    v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(a1, a2, v5);
-    if ( v7 )
-    {
-      if ( v5 + a5 <= (unsigned int)(v7[3] + v7[4]) && (v7[9] & 0x2000000) == 0 )
-        return 1;
-    }
   }
-  return result;
+  if ( MmIsAddressValidEx(v6 + (unsigned int)(v3 << 12)) )
+  {
+    *a3 = v7;
+    goto LABEL_6;
+  }
+  return 0;
 }

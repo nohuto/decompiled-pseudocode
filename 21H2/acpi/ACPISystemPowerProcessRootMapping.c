@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPISystemPowerProcessRootMapping @ 0x1C00A13D0
+ * XREFs of ACPISystemPowerProcessRootMapping @ 0x1C00A188C
  * Callers:
- *     ACPISystemPowerInitializeRootMapping @ 0x1C00058F8 (ACPISystemPowerInitializeRootMapping.c)
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0 (ACPISystemPowerInitializeRootMapping.c)
  * Callees:
- *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C000BF30 (ACPISystemPowerDetermineSupportedDeviceStates.c)
- *     WPP_RECORDER_SF_DLqss @ 0x1C006039C (WPP_RECORDER_SF_DLqss.c)
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C001AAF0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     WPP_RECORDER_SF_DLqss @ 0x1C005F5AC (WPP_RECORDER_SF_DLqss.c)
  */
 
 __int64 __fastcall ACPISystemPowerProcessRootMapping(_QWORD *a1, __int64 a2)
@@ -33,17 +33,17 @@ __int64 __fastcall ACPISystemPowerProcessRootMapping(_QWORD *a1, __int64 a2)
       if ( v6 < 0 )
       {
         v11 = 0LL;
-        v12 = (const char *)&unk_1C006FB8B;
-        v13 = (const char *)&unk_1C006FB8B;
+        v12 = byte_1C00701BA;
+        v13 = byte_1C00701BA;
         if ( a1 )
         {
           v7 = a1[1];
           v11 = (__int64)a1;
           if ( (v7 & 0x200000000000LL) != 0 )
           {
-            v12 = (const char *)a1[76];
+            v12 = (const char *)a1[71];
             if ( (v7 & 0x400000000000LL) != 0 )
-              v13 = (const char *)a1[77];
+              v13 = (const char *)a1[72];
           }
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

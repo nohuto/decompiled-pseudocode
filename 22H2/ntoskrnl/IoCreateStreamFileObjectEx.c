@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateStreamFileObjectEx @ 0x140875970
+ * XREFs of IoCreateStreamFileObjectEx @ 0x140772F60
  * Callers:
  *     <none>
  * Callees:
- *     IoCreateStreamFileObjectEx2 @ 0x1407681F0 (IoCreateStreamFileObjectEx2.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x140719B60 (IoCreateStreamFileObjectEx2.c)
  */
 
 PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(
@@ -17,6 +17,11 @@ PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(
   v5 = 0LL;
   v4 = 0LL;
   LODWORD(v4) = 65552;
-  IoCreateStreamFileObjectEx2((__int64)&v4, (__int64)FileObject, (ULONG_PTR)DeviceObject, (PVOID *)&v5, FileHandle);
+  IoCreateStreamFileObjectEx2(
+    (__int64)&v4,
+    (__int64)FileObject,
+    (ULONG_PTR)DeviceObject,
+    (struct _DMA_ADAPTER **)&v5,
+    FileHandle);
   return v5;
 }

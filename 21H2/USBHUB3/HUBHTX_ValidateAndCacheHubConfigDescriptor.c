@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003234
+ * XREFs of HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003064
  * Callers:
- *     HUBHSM_ValidatingHubConfigurationDescriptor @ 0x1C0009730 (HUBHSM_ValidatingHubConfigurationDescriptor.c)
+ *     HUBHSM_ValidatingHubConfigurationDescriptor @ 0x1C0009430 (HUBHSM_ValidatingHubConfigurationDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C003649C (HUBDESC_ValidateConfigurationDescriptorSet.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0035C28 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBHTX_ValidateAndCacheHubConfigDescriptor(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HUBHTX_ValidateAndCacheHubConfigDescriptor(__int64 a1)
   __int16 v1; // ax
   unsigned __int16 *v3; // rsi
   unsigned __int16 *v4; // rcx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v6; // ebx
   void *v7; // rcx
   int v9; // [rsp+28h] [rbp-60h]
@@ -58,12 +58,12 @@ LABEL_7:
       {
         v10 = *(unsigned __int16 *)(a1 + 2604);
         v9 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1256) + 2LL);
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dD(
           *(_QWORD *)(a1 + 2520),
           2u,
           3u,
           0x16u,
-          (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+          (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
           v9,
           v10);
       }
@@ -73,16 +73,16 @@ LABEL_7:
     goto LABEL_14;
   }
   v3 = v4;
-  Pool2 = (void *)ExAllocatePool2(64LL, v4[1], 1748191317LL);
-  *(_QWORD *)(a1 + 1256) = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v4[1], 0x68334855u);
+  *(_QWORD *)(a1 + 1256) = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, v3, v3[1]);
+    memmove(PoolWithTag, v3, v3[1]);
     v4 = *(unsigned __int16 **)(a1 + 1256);
     goto LABEL_7;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x15u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x15u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
   v6 = -1073741670;
 LABEL_14:
   if ( v3 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of GreIsDisplayLocked @ 0x1C0177840
+ * XREFs of GreIsDisplayLocked @ 0x1C014B410
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 GreIsDisplayLocked()
 {
-  return ExIsResourceAcquiredExclusiveLite(ghsemGreLock) != 0;
+  return ExIsResourceAcquiredExclusiveLite((PERESOURCE)ghsemGreLock) != 0;
 }

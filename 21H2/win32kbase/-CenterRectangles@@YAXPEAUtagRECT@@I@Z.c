@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C02106E0
+ * XREFs of ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C01D18E8
  * Callers:
- *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C0210788 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
- *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C0210C18 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C01D1990 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C01D1D28 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
  * Callees:
- *     UnionRect @ 0x1C0210408 (UnionRect.c)
+ *     UnionRect @ 0x1C01D15FC (UnionRect.c)
  */
 
 void __fastcall CenterRectangles(struct tagRECT *a1, int a2)

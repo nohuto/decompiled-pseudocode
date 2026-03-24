@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkSnapNodeIdleTime @ 0x1405DD4C0
+ * XREFs of PpmParkSnapNodeIdleTime @ 0x14057DB78
  * Callers:
- *     PopAccumulateNonActivatedCpuTime @ 0x1405D6B94 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x14057648C (PopAccumulateNonActivatedCpuTime.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x1405C850C (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x140566E00 (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
 __int64 __fastcall PpmParkSnapNodeIdleTime(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -22,10 +22,10 @@ __int64 __fastcall PpmParkSnapNodeIdleTime(__int64 a1, _QWORD *a2, _QWORD *a3)
   *a2 = 0LL;
   *a3 = 0LL;
   v6 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);
-  v7 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 138LL);
+  v7 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 146LL);
   if ( (unsigned int)v7 < PpmParkNumNodes )
   {
-    v8 = *(KSPIN_LOCK **)(PpmParkNodes + 336 * v7 + 72);
+    v8 = *(KSPIN_LOCK **)(PpmParkNodes + 272 * v7 + 72);
     if ( v8 )
       PpmIdleSnapConcurrencyIdleTime(v8, a2, a3);
   }

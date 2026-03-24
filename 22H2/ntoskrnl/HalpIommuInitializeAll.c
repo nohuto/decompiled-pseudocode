@@ -1,183 +1,160 @@
 /*
- * XREFs of HalpIommuInitializeAll @ 0x140A90F0C
+ * XREFs of HalpIommuInitializeAll @ 0x14099B3C4
  * Callers:
- *     HalpIommuInitSystem @ 0x140A8A420 (HalpIommuInitSystem.c)
- *     HalpInterruptReinitialize @ 0x140A9550C (HalpInterruptReinitialize.c)
+ *     HalpInterruptReinitialize @ 0x140995D68 (HalpInterruptReinitialize.c)
+ *     HalpIommuInitSystem @ 0x14099EB40 (HalpIommuInitSystem.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     HalpInterruptIsRemappingRequired @ 0x14031FBEC (HalpInterruptIsRemappingRequired.c)
- *     HalpGetIrtEntryCount @ 0x14036EB6C (HalpGetIrtEntryCount.c)
- *     HalpMmAllocateMemory @ 0x14037DD30 (HalpMmAllocateMemory.c)
- *     HalpIommuPopulateExceptionList @ 0x1403A96AC (HalpIommuPopulateExceptionList.c)
- *     HalpIommuConfigureInterrupt @ 0x1403A9778 (HalpIommuConfigureInterrupt.c)
- *     HalpIommuUpdatePageWalkCapability @ 0x1403A98B4 (HalpIommuUpdatePageWalkCapability.c)
- *     HalpIommuUpdatePageTableLevel @ 0x1403A98F8 (HalpIommuUpdatePageTableLevel.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HviGetHardwareFeatures @ 0x140615410 (HviGetHardwareFeatures.c)
- *     HalpIommuConstructReservedPageTables @ 0x140A8AE7C (HalpIommuConstructReservedPageTables.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378AAC (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuUpdatePageTableLevel @ 0x1403A6BC4 (HalpIommuUpdatePageTableLevel.c)
+ *     HalpIommuUpdatePageWalkCapability @ 0x1403A6BF4 (HalpIommuUpdatePageWalkCapability.c)
+ *     HalpMmAllocateMemory @ 0x1403BAB90 (HalpMmAllocateMemory.c)
+ *     HalpIommuPopulateExceptionList @ 0x1403CF1B0 (HalpIommuPopulateExceptionList.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpIommuConfigureInterrupt @ 0x1404CBBC0 (HalpIommuConfigureInterrupt.c)
+ *     HalpGetIrtEntryCount @ 0x1404D14A8 (HalpGetIrtEntryCount.c)
+ *     HalpIommuConstructReservedPageTables @ 0x1409A7700 (HalpIommuConstructReservedPageTables.c)
  */
 
-__int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2, __int64 a3)
 {
-  unsigned int v6; // esi
-  __int64 v7; // rdx
-  ULONG_PTR *v8; // r14
-  _QWORD *v9; // rbx
+  __int64 v3; // r13
+  unsigned int i; // esi
+  __int64 *v6; // r14
   __int64 result; // rax
-  ULONG_PTR *v11; // rdi
-  __int64 v12; // r12
-  int v13; // eax
-  int v14; // ebx
-  char v15; // al
-  __int64 *v16; // rcx
-  __int64 v17; // r8
-  _DWORD *v18; // rdx
-  int v19; // r8d
-  int v20; // edx
-  unsigned int v21; // ebx
+  __int64 *v8; // rdi
+  __int64 v9; // r12
+  unsigned int v10; // eax
+  int v11; // ebx
+  unsigned int v12; // ebx
   __int64 Memory; // rax
-  __int128 v23; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v24; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-20h]
-  __int128 v26; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v14; // rdx
+  unsigned int v15; // r8d
+  int v16; // eax
+  int v17; // edx
+  __int128 v18; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-10h]
 
-  v25 = 0LL;
-  v26 = 0LL;
-  v23 = 0LL;
-  v24 = 0LL;
+  v20 = 0LL;
+  v3 = a2;
+  v18 = 0LL;
+  v19 = 0LL;
   if ( !a1 && (int)HalpIommuPopulateExceptionList() < 0 )
     return 3221225473LL;
-  if ( !HalpHvIommu )
+  if ( HalpHvIommu )
+    return 0LL;
+  if ( IommuRemappingPolicy && (__int64 *)HalpIommuList == &HalpIommuList )
+    return 3221225659LL;
+  for ( i = 0; i < 3; ++i )
   {
-    if ( (ULONG_PTR *)HalpIommuList == &HalpIommuList && IommuRemappingPolicy )
-      return 3221225659LL;
-    v6 = 0;
-    v7 = 0x10000LL;
-LABEL_6:
-    v8 = (ULONG_PTR *)HalpIommuList;
-    while ( 1 )
+    v6 = (__int64 *)HalpIommuList;
+    while ( v6 != &HalpIommuList )
     {
-      if ( v8 == &HalpIommuList )
-      {
-        if ( ++v6 >= 3 )
-        {
-          HalpIommuUpdatePageWalkCapability();
-          HalpIommuUpdatePageTableLevel();
-          if ( HalpIommuMaxPageTableDepth )
-          {
-            v15 = 12;
-            v16 = DmarCommonPageTableBits;
-            HalpIommuDomainMaxInputBitWidth = 12;
-            v17 = (unsigned int)HalpIommuMaxPageTableDepth;
-            do
-            {
-              v15 += *(_BYTE *)v16;
-              v16 = (__int64 *)((char *)v16 + 4);
-              --v17;
-            }
-            while ( v17 );
-            goto LABEL_23;
-          }
-          return 0LL;
-        }
-        goto LABEL_6;
-      }
-      v11 = v8;
-      v12 = (__int64)v8;
-      v8 = (ULONG_PTR *)*v8;
-      v13 = *((_DWORD *)v11 + 122);
-      if ( (v13 & 0x40) == 0 && IommuRemappingPolicy )
+      v8 = v6;
+      v9 = (__int64)v6;
+      v6 = (__int64 *)*v6;
+      v10 = *((_DWORD *)v8 + 114);
+      if ( (v10 & 0x40) == 0 && IommuRemappingPolicy )
         return 3221225659LL;
-      v14 = (v11[61] & 0x20) != 0;
-      if ( (v13 & 0x100) != 0 )
+      v11 = (v10 >> 5) & 1;
+      if ( (v10 & 0x100) == 0 )
+        goto LABEL_26;
+      if ( !i && !a1 )
       {
-        if ( !v6 && !a1 )
-        {
-          v21 = *((_DWORD *)v11 + 114);
-          if ( v21 > 0x10000 )
-            v21 = 0x10000;
-          Memory = HalpMmAllocateMemory(4 * ((v21 + 32) >> 5));
-          *((_DWORD *)v11 + 118) = v21;
-          v11[60] = Memory;
-          RtlClearAllBits((PRTL_BITMAP)(v11 + 59));
-          v11[58] = 0LL;
-        }
-        v14 = (HalpIommuPolicy == 3) + 1;
+        v12 = *((_DWORD *)v8 + 106);
+        if ( v12 > 0x10000 )
+          v12 = 0x10000;
+        Memory = HalpMmAllocateMemory(4 * ((v12 + 32) >> 5));
+        *((_DWORD *)v8 + 110) = v12;
+        v8[56] = Memory;
+        RtlClearAllBits((PRTL_BITMAP)(v8 + 55));
+        v8[54] = 0LL;
       }
-      else if ( (v13 & 0x20) == 0 && !IommuRemappingPolicy )
+      if ( HalpIommuPolicy == 3 )
       {
-        goto LABEL_10;
-      }
-      if ( !v6 )
-        break;
-      v9 = v11 + 2;
-      if ( v6 < 2 )
-        goto LABEL_9;
-      if ( v11[38] )
-      {
-        if ( a1 )
+        v11 = 2;
+LABEL_28:
+        if ( !i )
         {
-          if ( (v11[49] & 2) != 0 )
+          if ( !a1 )
           {
-            LOBYTE(v7) = 1;
-            result = ((__int64 (__fastcall *)(_QWORD, __int64, ULONG_PTR, _QWORD))v11[35])(
-                       *v9,
-                       v7,
-                       v11[64],
-                       *((unsigned int *)v11 + 130));
-            if ( (int)result < 0 )
-              return result;
+            v14 = v8[66];
+            if ( v14 && (v15 = *((_DWORD *)v8 + 114), (v15 & 0x100) != 0) )
+            {
+              if ( (int)HalpIommuConstructReservedPageTables(v3, v14, ((v15 >> 12) & 7) + 1) < 0 )
+                return 3221225473LL;
+              v16 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64))v8[42])(
+                      v8[2],
+                      *(unsigned int *)v8[66],
+                      v8[66] + 8);
+            }
+            else
+            {
+              v16 = 0;
+            }
+            if ( v16 < 0 )
+              return 3221225473LL;
           }
-          ((void (__fastcall *)(_QWORD, __int64))v11[36])(*v9, v7);
+          *(_QWORD *)&v19 = 0LL;
+          HIDWORD(v20) = 0;
+          *((_QWORD *)&v19 + 1) = __PAIR64__(IommuRemappingPolicy, v11);
+          LODWORD(v20) = HalpGetIrtEntryCount();
+          if ( ((int (__fastcall *)(__int64, __int128 *))v8[7])(v8[2], &v19) < 0 )
+            return 3221225473LL;
+        }
+        if ( i >= 2 )
+        {
+          if ( v8[36] )
+          {
+            if ( a1 )
+            {
+              if ( (v8[45] & 2) != 0 )
+              {
+                LOBYTE(a2) = 1;
+                result = ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD))v8[33])(
+                           v8[2],
+                           a2,
+                           v8[60],
+                           *((unsigned int *)v8 + 122));
+              }
+              else
+              {
+                result = 0LL;
+              }
+              if ( (int)result < 0 )
+                return result;
+              ((void (__fastcall *)(__int64))v8[34])(v8[2]);
+            }
+            else
+            {
+              *((_QWORD *)&v18 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
+              *(_QWORD *)&v18 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
+              if ( !HalpInterruptIsRemappingRequired() || (v17 = 6, (v8[57] & 0x10) != 0) )
+                v17 = 1073741822;
+              HalpIommuConfigureInterrupt(v9, v17, &v18);
+            }
+          }
         }
         else
         {
-          *((_QWORD *)&v23 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
-          *(_QWORD *)&v23 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
-          if ( !HalpInterruptIsRemappingRequired() || (v20 = 6, (v11[61] & 0x10) != 0) )
-            v20 = 1073741822;
-          HalpIommuConfigureInterrupt(v12, v20, &v23);
+          LOBYTE(a3) = a1;
+          result = ((__int64 (__fastcall *)(__int64, _QWORD, __int64))v8[8])(v8[2], i, a3);
+          if ( (int)result < 0 )
+            return result;
         }
       }
-LABEL_10:
-      v7 = 0x10000LL;
-    }
-    if ( !a1 )
-    {
-      v18 = (_DWORD *)v11[69];
-      if ( v18 )
+      else
       {
-        v19 = *((_DWORD *)v11 + 122);
-        if ( (v19 & 0x100) != 0
-          && ((int)HalpIommuConstructReservedPageTables(a2, v18, (unsigned int)((unsigned __int16)v19 >> 13) + 1) < 0
-           || ((int (__fastcall *)(ULONG_PTR, _QWORD, ULONG_PTR))v11[44])(v11[2], *(unsigned int *)v11[69], v11[69] + 8) < 0) )
-        {
-          return 3221225473LL;
-        }
+        v11 = 1;
+LABEL_26:
+        if ( v11 || IommuRemappingPolicy )
+          goto LABEL_28;
       }
     }
-    *(_QWORD *)&v24 = 0LL;
-    HIDWORD(v25) = 0;
-    *((_QWORD *)&v24 + 1) = __PAIR64__(IommuRemappingPolicy, v14);
-    LODWORD(v25) = HalpGetIrtEntryCount();
-    v9 = v11 + 2;
-    if ( ((int (__fastcall *)(ULONG_PTR, __int128 *))v11[7])(v11[2], &v24) < 0 )
-      return 3221225473LL;
-LABEL_9:
-    LOBYTE(a3) = a1;
-    result = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64))v11[8])(*v9, v6, a3);
-    if ( (int)result < 0 )
-      return result;
-    goto LABEL_10;
   }
-  if ( HalpHvCpuManager )
-  {
-    HviGetHardwareFeatures((__int64)&v26, a2, a3, a4);
-    v15 = BYTE4(v26);
-    if ( BYTE4(v26) )
-LABEL_23:
-      HalpIommuDomainMaxInputBitWidth = v15;
-  }
+  HalpIommuUpdatePageWalkCapability();
+  HalpIommuUpdatePageTableLevel();
   return 0LL;
 }

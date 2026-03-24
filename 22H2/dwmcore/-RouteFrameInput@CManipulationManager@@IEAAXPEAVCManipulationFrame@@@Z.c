@@ -1,180 +1,150 @@
 /*
- * XREFs of ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x1801A1064
+ * XREFs of ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226C44
  * Callers:
- *     ?RouteAllFrames@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x1801A0FCC (-RouteAllFrames@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?RouteAllFrames@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226BAC (-RouteAllFrames@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x18012D2E2 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x18019CCC4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ?CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z @ 0x18019DEC4 (-CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z.c)
- *     ?RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z @ 0x1801A143C (-RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z.c)
- *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x1801A198C (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x180223DDC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z @ 0x180224660 (-CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z.c)
+ *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x180224D00 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
+ *     ?RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z @ 0x180226F84 (-RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z.c)
+ *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18022746C (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  */
 
 void __fastcall CManipulationManager::RouteFrameInput(CManipulationManager *this, struct CManipulationFrame *a2)
 {
-  int v3; // r13d
-  char *v4; // rdi
+  CManipulationManager *v3; // r13
+  int v4; // r14d
   __int64 v5; // rax
-  char v6; // r14
-  CManipulationManager *v7; // r9
-  bool v8; // r14
-  unsigned int v9; // esi
-  __int64 v10; // r12
+  char v6; // si
+  bool v7; // si
+  unsigned int v8; // eax
+  unsigned int v9; // edi
+  bool v10; // cf
   __int64 v11; // r15
-  unsigned int v12; // edi
-  unsigned int *v13; // r13
-  void *v14; // rsi
-  unsigned __int64 *v15; // r14
-  __int64 v16; // r12
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // r12
+  void *v16; // r14
+  unsigned int v17; // r13d
+  int v18; // edi
+  __int64 v19; // r15
   char v20; // al
-  int v21; // [rsp+40h] [rbp-108h] BYREF
-  int v22; // [rsp+44h] [rbp-104h]
-  BOOL v23; // [rsp+48h] [rbp-100h]
-  int v24; // [rsp+4Ch] [rbp-FCh] BYREF
-  char *v25; // [rsp+50h] [rbp-F8h]
-  void *v26; // [rsp+58h] [rbp-F0h]
-  unsigned int *v27; // [rsp+60h] [rbp-E8h]
-  unsigned __int64 *v28; // [rsp+68h] [rbp-E0h]
-  _QWORD v29[2]; // [rsp+70h] [rbp-D8h] BYREF
-  __int128 v30; // [rsp+80h] [rbp-C8h]
-  __int128 v31; // [rsp+90h] [rbp-B8h]
-  __int128 v32; // [rsp+A0h] [rbp-A8h]
-  __int128 v33; // [rsp+B0h] [rbp-98h]
-  __int128 v34; // [rsp+C0h] [rbp-88h]
-  __int128 v35; // [rsp+D0h] [rbp-78h]
-  __int128 v36; // [rsp+E0h] [rbp-68h]
-  __int128 v37; // [rsp+F0h] [rbp-58h]
-  __int128 v38; // [rsp+100h] [rbp-48h]
-  bool v40; // [rsp+160h] [rbp+18h]
-  unsigned int v41; // [rsp+168h] [rbp+20h]
+  int v21; // [rsp+40h] [rbp-88h]
+  int v22; // [rsp+44h] [rbp-84h] BYREF
+  int v23; // [rsp+48h] [rbp-80h] BYREF
+  void *v24; // [rsp+50h] [rbp-78h] BYREF
+  void *v25; // [rsp+58h] [rbp-70h]
+  bool v27; // [rsp+E0h] [rbp+18h]
+  unsigned int v28; // [rsp+E8h] [rbp+20h]
 
-  v3 = 0;
-  v22 = 0;
-  v28 = (unsigned __int64 *)((char *)a2 + 448);
-  v4 = (char *)a2 + 176;
-  v25 = (char *)a2 + 176;
-  v5 = 256LL;
-  if ( *((_DWORD *)a2 + 92) != 5 )
-    v5 = 248LL;
-  if ( *(_QWORD *)((char *)this + v5) - *((_QWORD *)a2 + 56) <= *((_QWORD *)this + 34) )
+  v3 = this;
+  v4 = 0;
+  v21 = 0;
+  v5 = 280LL;
+  if ( *((_DWORD *)a2 + 40) != 5 )
+    v5 = 272LL;
+  if ( *(_QWORD *)((char *)this + v5) - *((_QWORD *)a2 + 30) > *((_QWORD *)this + 37) )
   {
-    v25 = (char *)a2 + 176;
-  }
-  else
-  {
-    *v4 |= 2u;
+    *((_BYTE *)a2 + 72) |= 2u;
     CManipulationManager::TargetFrameInput(this, a2);
   }
-  v29[1] = v4;
-  v6 = *v4;
-  if ( (*v4 & 1) != 0 && !CManipulationFrame::IsMousewheelFrame(a2) )
+  v6 = *((_BYTE *)a2 + 72);
+  if ( (v6 & 1) != 0 && !CManipulationFrame::IsMousewheelFrame(a2) )
   {
-    v8 = (v6 & 4) != 0;
-LABEL_9:
+    v7 = (v6 & 4) != 0;
+    v8 = *((_DWORD *)a2 + 4);
+LABEL_8:
     v9 = 0;
-    v41 = 0;
-    v40 = v8;
-    while ( 1 )
+    v28 = 0;
+    v27 = v7;
+LABEL_9:
+    v10 = v9 < v8;
+    while ( v10 )
     {
-      v27 = (unsigned int *)((char *)a2 + 16);
-      if ( v9 >= *((_DWORD *)a2 + 4) )
-        break;
-      v10 = 248LL * v9;
-      v23 = v8;
-      if ( (*((_BYTE *)a2 + v10 + 608) & 1) == v23
-        && *(_DWORD *)((char *)a2 + v10 + 376)
-        && !*(_DWORD *)((char *)a2 + v10 + 600) )
+      v11 = 248LL * v9;
+      v23 = v7;
+      if ( (*((_BYTE *)a2 + v11 + 400) & 1) == v23
+        && *(_DWORD *)((char *)a2 + v11 + 168)
+        && !*(_DWORD *)((char *)a2 + v11 + 392) )
       {
-        if ( *(_QWORD *)((char *)a2 + v10 + 392) == -1LL || CManipulationManager::CheckForBufferedDescendant(v7, a2, v9) )
+        if ( *(_QWORD *)((char *)a2 + v11 + 184) == -1LL || CManipulationManager::CheckForBufferedDescendant(v3, a2, v9) )
         {
-          v22 = ++v3;
+          v21 = ++v4;
         }
         else
         {
           AcquireSRWLockExclusive(&CManipulationManager::s_rwPointerBufferLock);
-          dword_1803E9F80 = GetCurrentThreadId();
-          v11 = 0LL;
-          v26 = *(void **)((char *)a2 + v10 + 392);
-          v12 = v9;
-          v13 = v27;
-          v14 = v26;
-          v15 = v28;
-          while ( v12 < *v13 )
+          dword_180347820 = GetCurrentThreadId();
+          v15 = 0LL;
+          v16 = *(void **)((char *)a2 + v11 + 184);
+          v25 = v16;
+          v17 = v9;
+          v18 = v23;
+          while ( v17 < *((_DWORD *)a2 + 4) )
           {
-            v16 = 248LL * v12;
-            if ( *(void **)((char *)a2 + v16 + 392) == v14
-              && (*((_BYTE *)a2 + v16 + 608) & 1) == v23
-              && *(_DWORD *)((char *)a2 + v16 + 376) )
+            v19 = 248LL * v17;
+            if ( *(void **)((char *)a2 + v19 + 184) == v16
+              && (*((_BYTE *)a2 + v19 + 400) & 1) == v18
+              && *(_DWORD *)((char *)a2 + v19 + 168) )
             {
-              CManipulationManager::s_rgPointerIds[v11] = *(_DWORD *)((char *)a2 + v16 + 372);
-              v11 = (unsigned int)(v11 + 1);
-              *(_DWORD *)((char *)a2 + v16 + 376) = 0;
-              if ( (unsigned int)dword_1803E3798 > 4 )
+              CManipulationManager::s_rgPointerIds[v15] = *(_DWORD *)((char *)a2 + v19 + 164);
+              v15 = (unsigned int)(v15 + 1);
+              *(_DWORD *)((char *)a2 + v19 + 168) = 0;
+              if ( (unsigned int)dword_180344E80 > 4
+                && (qword_180344E90 & 2) != 0
+                && (qword_180344E98 & 2) == qword_180344E98 )
               {
-                if ( tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-                {
-                  v29[0] = v14;
-                  v21 = *(_DWORD *)((char *)a2 + v16 + 372);
-                  v24 = *((_DWORD *)a2 + 6);
-                  _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-                    v17,
-                    byte_18037C920,
-                    v18,
-                    v19,
-                    (__int64)&v24,
-                    (__int64)&v21,
-                    (__int64)v29);
-                }
+                v24 = v16;
+                v23 = *(_DWORD *)((char *)a2 + v19 + 164);
+                v22 = *((_DWORD *)a2 + 6);
+                _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
+                  v12,
+                  byte_1802EA7AA,
+                  v13,
+                  v14,
+                  (__int64)&v22,
+                  (__int64)&v23,
+                  (__int64)&v24);
               }
-              v30 = *((_OWORD *)a2 + 2);
-              v31 = *((_OWORD *)a2 + 3);
-              v32 = *((_OWORD *)a2 + 4);
-              v33 = *((_OWORD *)a2 + 5);
-              v34 = *((_OWORD *)a2 + 6);
-              v35 = *((_OWORD *)a2 + 7);
-              v36 = *((_OWORD *)a2 + 8);
-              v37 = *((_OWORD *)a2 + 9);
-              v38 = *((_OWORD *)a2 + 10);
               InputTraceLogging::GestureTargeting::RoutePointer(
-                *v15,
-                v30,
+                *((_QWORD *)a2 + 30),
+                *((_QWORD *)a2 + 4),
                 *((_DWORD *)a2 + 6),
-                *(_DWORD *)((char *)a2 + v16 + 372),
-                v14);
+                *(_DWORD *)((char *)a2 + v19 + 164),
+                v16);
             }
-            ++v12;
+            ++v17;
           }
-          v21 = v11;
-          v4 = v25;
-          v9 = v41;
-          v8 = v40;
-          v3 = v22;
+          v22 = v15;
+          v9 = v28;
+          v7 = v27;
+          v4 = v21;
+          v3 = this;
           SetManipulationInputTarget(
             *((unsigned int *)a2 + 6),
-            v26,
-            (unsigned int)v11,
-            CManipulationManager::s_rgPointerIds,
-            (char *)a2 + 32);
-          *((_DWORD *)a2 + 5) += v11;
-          dword_1803E9F80 = 0;
+            v25,
+            (unsigned int)v15,
+            CManipulationManager::s_rgPointerIds);
+          *((_DWORD *)a2 + 5) += v15;
+          dword_180347820 = 0;
           ReleaseSRWLockExclusive(&CManipulationManager::s_rwPointerBufferLock);
         }
       }
-      v41 = ++v9;
-      v7 = this;
-      if ( v9 == *v27 && v8 )
+      v28 = ++v9;
+      v8 = *((_DWORD *)a2 + 4);
+      v10 = v9 < v8;
+      if ( v9 == v8 )
       {
-        v8 = 0;
-        goto LABEL_9;
+        if ( !v7 )
+          goto LABEL_9;
+        v7 = 0;
+        goto LABEL_8;
       }
     }
-    v20 = *v4 & 0xFE;
-    *v4 = v20;
-    if ( !v3 )
-      *v4 = v20 & 0xFB;
+    v20 = *((_BYTE *)a2 + 72) & 0xFE;
+    *((_BYTE *)a2 + 72) = v20;
+    if ( !v4 )
+      *((_BYTE *)a2 + 72) = v20 & 0xFB;
   }
 }

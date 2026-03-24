@@ -1,15 +1,16 @@
 /*
- * XREFs of GreGetCharacterPlacementW @ 0x1C02BAA8C
+ * XREFs of GreGetCharacterPlacementW @ 0x1C02BC4D0
  * Callers:
- *     NtGdiGetCharacterPlacementW @ 0x1C02ACDC0 (NtGdiGetCharacterPlacementW.c)
+ *     NtGdiGetCharacterPlacementW @ 0x1C02AE690 (NtGdiGetCharacterPlacementW.c)
  * Callees:
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     GreGetGlyphIndicesW @ 0x1C0100C28 (GreGetGlyphIndicesW.c)
- *     GreGetKerningPairs @ 0x1C01301E4 (GreGetKerningPairs.c)
- *     GreGetTextExtentExW @ 0x1C015FAA8 (GreGetTextExtentExW.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z @ 0x1C02BA904 (-nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     GreGetGlyphIndicesW @ 0x1C0114AC8 (GreGetGlyphIndicesW.c)
+ *     GreGetKerningPairs @ 0x1C013FFE4 (GreGetKerningPairs.c)
+ *     GreGetTextExtentExW @ 0x1C016DED4 (GreGetTextExtentExW.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z @ 0x1C02BC334 (-nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z.c)
  */
 
 __int64 __fastcall GreGetCharacterPlacementW(
@@ -20,19 +21,18 @@ __int64 __fastcall GreGetCharacterPlacementW(
         __int128 *a5,
         int a6)
 {
-  int v6; // r13d
-  unsigned int *v7; // rdi
-  unsigned int v8; // ebx
-  unsigned __int16 *v9; // r10
-  HDC v10; // r11
+  int v6; // r15d
+  unsigned int v7; // ebx
+  HDC v9; // r10
+  unsigned int *v10; // rdi
   __int128 v12; // xmm0
   __m128i v13; // xmm1
-  int *v14; // rsi
+  int *v14; // r13
   __int128 v15; // xmm0
   unsigned int v16; // r8d
-  int v17; // r14d
-  int v18; // eax
-  int *v19; // r12
+  int v17; // r12d
+  bool v18; // zf
+  int v19; // eax
   unsigned int *v20; // rcx
   __int64 v21; // rbx
   int *v22; // rdx
@@ -40,8 +40,8 @@ __int64 __fastcall GreGetCharacterPlacementW(
   int v24; // ecx
   unsigned int KerningPairs; // eax
   __int64 v26; // rsi
-  unsigned __int64 v27; // rax
-  unsigned __int64 v28; // r14
+  unsigned int *v27; // rax
+  unsigned int *v28; // r15
   unsigned __int64 v29; // r9
   unsigned int x; // esi
   _DWORD *v31; // rcx
@@ -49,11 +49,11 @@ __int64 __fastcall GreGetCharacterPlacementW(
   __int16 v33; // r11
   unsigned __int16 *i; // r8
   unsigned int v35; // r9d
-  __int64 v36; // rax
-  int *v37; // rdx
+  unsigned __int16 *v36; // r12
+  __int64 v37; // rax
+  int *v38; // rdx
   unsigned __int16 *j; // rax
-  __int64 v39; // rax
-  int v40; // r14d
+  int v40; // r15d
   int v41; // eax
   unsigned int v42; // ecx
   int *v43; // rax
@@ -73,95 +73,97 @@ __int64 __fastcall GreGetCharacterPlacementW(
   _DWORD *v57; // rax
   unsigned int k; // ecx
   LONG y; // esi
-  __int64 v60; // rax
-  struct _POINTL v61; // [rsp+48h] [rbp-59h] BYREF
-  unsigned int *v62; // [rsp+50h] [rbp-51h] BYREF
-  int v63; // [rsp+58h] [rbp-49h]
-  int v64; // [rsp+5Ch] [rbp-45h]
-  int v65; // [rsp+60h] [rbp-41h]
-  void *v66[2]; // [rsp+68h] [rbp-39h]
+  struct _POINTL v60; // [rsp+48h] [rbp-59h] BYREF
+  unsigned int *v61; // [rsp+50h] [rbp-51h] BYREF
+  unsigned int Size; // [rsp+58h] [rbp-49h] BYREF
+  int Size_4; // [rsp+5Ch] [rbp-45h]
+  int v64; // [rsp+60h] [rbp-41h]
+  void *v65[2]; // [rsp+68h] [rbp-39h]
   void *Src[2]; // [rsp+78h] [rbp-29h]
-  void *v68[2]; // [rsp+88h] [rbp-19h]
-  __m128i v69; // [rsp+98h] [rbp-9h]
-  size_t Size; // [rsp+108h] [rbp+67h] BYREF
-  unsigned int v73; // [rsp+110h] [rbp+6Fh]
+  void *v67[2]; // [rsp+88h] [rbp-19h]
+  __m128i v68; // [rsp+98h] [rbp-9h]
+  int v71; // [rsp+108h] [rbp+67h]
+  unsigned int v72; // [rsp+110h] [rbp+6Fh]
 
-  v73 = a4;
+  v72 = a4;
   v6 = 0;
-  v61.y = 0;
-  v7 = 0LL;
-  v61.x = 0;
-  v8 = a3;
-  v63 = 0;
-  v9 = a2;
-  v62 = 0LL;
-  v10 = a1;
+  v61 = 0LL;
+  v7 = a3;
+  v64 = 0;
+  v60 = 0LL;
+  v9 = a1;
+  v10 = 0LL;
   if ( !a5 )
   {
-    if ( (unsigned int)GreGetTextExtentW(a1, a2, a3, (struct tagSIZE *)&v61, 1u) )
-      return (unsigned int)LOWORD(v61.x) | (v61.y << 16);
+    if ( (unsigned int)GreGetTextExtentW(a1, a2, a3, (struct tagSIZE *)&v60, 1) )
+      return (unsigned int)LOWORD(v60.x) | (v60.y << 16);
     return 0LL;
   }
   v12 = *a5;
   *(_OWORD *)Src = a5[1];
   v13 = (__m128i)a5[3];
   v14 = (int *)Src[1];
-  *(_OWORD *)v66 = v12;
+  *(_OWORD *)v65 = v12;
   v15 = a5[2];
-  v69 = v13;
+  v68 = v13;
   v16 = _mm_cvtsi128_si32(_mm_srli_si128(v13, 8));
-  *(_OWORD *)v68 = v15;
-  if ( v8 > v16 )
-    v8 = v16;
+  *(_OWORD *)v67 = v15;
+  if ( v7 > v16 )
+    v7 = v16;
   v17 = a6 | 0x100000;
-  LODWORD(Size) = v8;
+  Size = v7;
   if ( (a6 & 0x10000) == 0 )
     v17 = a6;
-  v65 = v17;
   if ( (v17 & 0x200000) != 0 )
   {
+    v18 = Src[1] == 0LL;
     if ( !Src[1] )
       goto LABEL_13;
-    v18 = nCalcJustInArray(&v62, 1u, (char *)Src[1], 1, v16);
-    v9 = a2;
-    a4 = v73;
-    v10 = a1;
-    v7 = v62;
-    v63 = v18;
+    v19 = nCalcJustInArray(&v61, 1u, (char *)Src[1], 1, v16);
+    v10 = v61;
+    a4 = v72;
+    v9 = a1;
+    v64 = v19;
+    if ( !v19 )
+      v17 &= ~0x200000u;
   }
-  if ( v14 )
-    v6 = 1;
+  v18 = v14 == 0LL;
 LABEL_13:
-  if ( v68[0] )
+  if ( !v18 )
+    v6 = 1;
+  v71 = v6;
+  if ( v67[0] )
+  {
     v6 += 2;
-  v19 = v14;
+    v71 = v6;
+  }
   if ( v6 == 2 )
-    v19 = (int *)v68[0];
-  v64 = v17 & 0x100000;
+    v14 = (int *)v67[0];
+  Size_4 = v17 & 0x100000;
   if ( !(unsigned int)GreGetTextExtentExW(
-                        v10,
                         v9,
-                        v8,
+                        a2,
+                        v7,
                         a4,
                         (unsigned int *)((unsigned __int64)&Size & -(__int64)((v17 & 0x100000) != 0)),
-                        v19,
-                        (struct tagSIZE *)&v61,
+                        v14,
+                        (struct tagSIZE *)&v60,
                         0) )
   {
-    if ( !v7 )
+    if ( !v10 )
       return 0LL;
-    v20 = v7;
-LABEL_20:
+    v20 = v10;
+LABEL_22:
     Win32FreePool(v20);
     return 0LL;
   }
   LODWORD(v21) = Size;
-  if ( v19 )
+  if ( v14 )
   {
-    if ( (_DWORD)Size )
+    if ( Size )
     {
-      v22 = &v19[(unsigned int)(Size - 1)];
-      if ( v22 > v19 )
+      v22 = &v14[Size - 1];
+      if ( v22 > v14 )
       {
         v23 = *v22;
         do
@@ -170,35 +172,34 @@ LABEL_20:
           *v22-- = v23 - v24;
           v23 = v24;
         }
-        while ( v22 > v19 );
+        while ( v22 > v14 );
       }
     }
   }
-  if ( (v17 & 0x100000) != 0 && !(_DWORD)v21 )
+  if ( Size_4 && !(_DWORD)v21 )
   {
-    if ( v7 )
-      Win32FreePool(v7);
-    return (unsigned int)LOWORD(v61.x) | (v61.y << 16);
+    if ( v10 )
+      Win32FreePool(v10);
+    return (unsigned int)LOWORD(v60.x) | (v60.y << 16);
   }
   if ( (v17 & 8) != 0
     && v6
     && (unsigned int)v21 >= 2
     && (KerningPairs = GreGetKerningPairs(a1, 0, 0LL), (v26 = KerningPairs) != 0)
-    && 8 * KerningPairs
-    && (v27 = Win32AllocPoolZInit(8 * KerningPairs, 1954051143LL), (v28 = v27) != 0) )
+    && (v27 = (unsigned int *)PALLOCMEM2(8 * KerningPairs, 1954051143LL, 1), (v28 = v27) != 0LL) )
   {
-    if ( (unsigned int)GreGetKerningPairs(a1, v26, v27) != (_DWORD)v26 )
+    if ( (unsigned int)GreGetKerningPairs(a1, v26, (unsigned __int64)v27) != (_DWORD)v26 )
     {
-      if ( v7 )
-        Win32FreePool(v7);
-      v20 = (unsigned int *)v28;
-      goto LABEL_20;
+      if ( v10 )
+        Win32FreePool(v10);
+      v20 = v28;
+      goto LABEL_22;
     }
-    v29 = v28 + 8 * v26;
-    x = v61.x;
-    if ( v28 < v29 )
+    v29 = (unsigned __int64)&v28[2 * v26];
+    x = v60.x;
+    if ( (unsigned __int64)v28 < v29 )
     {
-      v31 = (_DWORD *)(v28 + 4);
+      v31 = v28 + 1;
       v32 = &a2[(unsigned int)(v21 - 1)];
       do
       {
@@ -207,131 +208,132 @@ LABEL_20:
         {
           if ( v33 == *i && i[1] == *((_WORD *)v31 - 1) )
           {
-            v19[i - a2] += *v31;
+            v14[i - a2] += *v31;
             x += *v31;
-            v61.x = x;
+            v60.x = x;
           }
         }
         v31 += 2;
       }
       while ( (unsigned __int64)(v31 - 1) < v29 );
-      v7 = v62;
+      v10 = v61;
     }
     Win32FreePool(v28);
-    v35 = v73;
-    if ( v64 )
+    v35 = v72;
+    if ( Size_4 )
     {
-      while ( x > v73 )
+      while ( x > v72 )
       {
         if ( !(_DWORD)v21 )
-          goto LABEL_66;
+          goto LABEL_67;
         v21 = (unsigned int)(v21 - 1);
-        x -= v19[v21];
-        v61.x = x;
+        x -= v14[v21];
+        v60.x = x;
       }
       if ( !(_DWORD)v21 )
       {
-LABEL_66:
-        if ( v7 )
-          Win32FreePool(v7);
-        v39 = (__int64)a5;
+LABEL_67:
+        if ( v10 )
+          Win32FreePool(v10);
         *((_DWORD *)a5 + 14) = 0;
-        *(_DWORD *)(v39 + 60) = 0;
+        *((_DWORD *)a5 + 15) = 0;
         return 0LL;
       }
     }
   }
   else
   {
-    x = v61.x;
-    v35 = v73;
+    x = v60.x;
+    v35 = v72;
   }
-  if ( (v65 & 0x10000) == 0 )
-    goto LABEL_89;
-  if ( v6 )
+  if ( (v17 & 0x10000) == 0 || !v71 )
   {
-    if ( !(_DWORD)v21 )
-      goto LABEL_89;
-    v36 = (unsigned int)(v21 - 1);
-    v37 = &v19[v36];
-    for ( j = &a2[v36]; j >= a2 && *j == 32; --j )
-    {
-      x -= *v37;
-      LODWORD(v21) = v21 - 1;
-      --v37;
-    }
-    if ( !(_DWORD)v21 )
-      goto LABEL_66;
-    v40 = v35 - x;
-    if ( (int)(v35 - x) >= 0 && (unsigned int)v21 >= 2 )
-    {
-      v41 = v63;
-      if ( !v63 )
-      {
-        v41 = nCalcJustInArray(&v62, 0x20u, (char *)a2, 0, v21);
-        if ( !v41 )
-        {
-          while ( v40 > 0 )
-          {
-            v42 = 0;
-            v43 = v19;
-            do
-            {
-              ++*v43;
-              if ( !--v40 )
-                break;
-              ++v42;
-              ++v43;
-            }
-            while ( v42 < (int)v21 - 1 );
-          }
-          v7 = v62;
-          goto LABEL_88;
-        }
-        v7 = v62;
-      }
-      v44 = v41 - 1;
-      v45 = v41 - 1;
-      if ( v44 >= 0 )
-      {
-        do
-        {
-          if ( (int)v21 - 1 >= v7[v45] )
-            break;
-          --v44;
-          --v45;
-        }
-        while ( v45 >= 0 );
-      }
-      v46 = v44 + 1;
-      v47 = v40 % (unsigned int)(v44 + 1);
-      v48 = v40 / (unsigned int)(v44 + 1);
-      if ( v44 != -1 )
-      {
-        v49 = v7;
-        v50 = v46;
-        do
-        {
-          v51 = v48;
-          if ( v47 > 0 )
-            v51 = v48 + 1;
-          v52 = *v49;
-          --v47;
-          ++v49;
-          v19[v52] += v51;
-          --v50;
-        }
-        while ( v50 );
-      }
-    }
-LABEL_88:
-    v61.x = v73;
-LABEL_89:
-    if ( v6 == 3 )
-      memmove(v68[0], Src[1], 4LL * (unsigned int)v21);
+    v36 = a2;
+    goto LABEL_91;
   }
-  v53 = (int *)v68[0];
-  if ( v68[0] )
+  v36 = a2;
+  if ( (_DWORD)v21 )
+  {
+    v37 = (unsigned int)(v21 - 1);
+    v38 = &v14[v37];
+    for ( j = &a2[v37]; j >= a2 && *j == 32; --j )
+    {
+      x -= *v38;
+      LODWORD(v21) = v21 - 1;
+      --v38;
+    }
+    if ( !(_DWORD)v21 )
+      goto LABEL_67;
+    v40 = v35 - x;
+    if ( (int)(v35 - x) < 0 || (unsigned int)v21 < 2 )
+      goto LABEL_89;
+    v41 = v64;
+    if ( !v64 )
+    {
+      v41 = nCalcJustInArray(&v61, 0x20u, (char *)a2, 0, v21);
+      if ( !v41 )
+      {
+        while ( v40 > 0 )
+        {
+          v42 = 0;
+          v43 = v14;
+          do
+          {
+            ++*v43;
+            if ( !--v40 )
+              break;
+            ++v42;
+            ++v43;
+          }
+          while ( v42 < (int)v21 - 1 );
+        }
+        v10 = v61;
+LABEL_89:
+        v60.x = v72;
+        goto LABEL_91;
+      }
+      v10 = v61;
+    }
+    v44 = v41 - 1;
+    v45 = v41 - 1;
+    if ( v44 >= 0 )
+    {
+      do
+      {
+        if ( (int)v21 - 1 >= v10[v45] )
+          break;
+        --v44;
+        --v45;
+      }
+      while ( v45 >= 0 );
+    }
+    v46 = v44 + 1;
+    v47 = v40 % (unsigned int)(v44 + 1);
+    v48 = v40 / (unsigned int)(v44 + 1);
+    if ( v44 != -1 )
+    {
+      v49 = v10;
+      v50 = v46;
+      do
+      {
+        v51 = v48;
+        if ( v47 > 0 )
+          v51 = v48 + 1;
+        v52 = *v49;
+        --v47;
+        ++v49;
+        v14[v52] += v51;
+        --v50;
+      }
+      while ( v50 );
+    }
+    goto LABEL_89;
+  }
+LABEL_91:
+  if ( v71 == 3 )
+    memmove(v67[0], Src[1], 4LL * (unsigned int)v21);
+  v53 = (int *)v67[0];
+  if ( v67[0] )
   {
     v54 = 0;
     if ( (_DWORD)v21 )
@@ -348,30 +350,29 @@ LABEL_89:
       while ( v55 );
     }
   }
-  if ( v66[1] )
-    memmove(v66[1], a2, 2LL * (unsigned int)v21);
-  if ( v68[1] )
-    memset(v68[1], 1, (unsigned int)v21);
+  if ( v65[1] )
+    memmove(v65[1], v36, 2LL * (unsigned int)v21);
+  if ( v67[1] )
+    memset(v67[1], 1, (unsigned int)v21);
   v57 = Src[0];
   if ( Src[0] )
   {
     for ( k = 0; k < (unsigned int)v21; ++v57 )
       *v57 = k++;
   }
-  if ( v69.m128i_i64[0] && (unsigned int)GreGetGlyphIndicesW(a1, a2, v21, v69.m128i_i64[0], 0, 0) == -1 )
+  if ( v68.m128i_i64[0] && (unsigned int)GreGetGlyphIndicesW(a1, v36, v21, v68.m128i_i64[0], 0, 0) == -1 )
   {
     LODWORD(v21) = 0;
     y = 0;
-    v61.x = 0;
+    v60.x = 0;
   }
   else
   {
-    y = v61.y;
+    y = v60.y;
   }
-  if ( v7 )
-    Win32FreePool(v7);
-  v60 = (__int64)a5;
+  if ( v10 )
+    Win32FreePool(v10);
   *((_DWORD *)a5 + 14) = v21;
-  *(_DWORD *)(v60 + 60) = v21;
-  return (y << 16) | (unsigned int)LOWORD(v61.x);
+  *((_DWORD *)a5 + 15) = v21;
+  return (y << 16) | (unsigned int)LOWORD(v60.x);
 }

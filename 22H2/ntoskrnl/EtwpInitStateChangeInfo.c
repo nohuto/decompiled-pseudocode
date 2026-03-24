@@ -1,39 +1,27 @@
 /*
- * XREFs of EtwpInitStateChangeInfo @ 0x1407542F4
+ * XREFs of EtwpInitStateChangeInfo @ 0x14061391C
  * Callers:
- *     EtwTraceAppStateChange @ 0x140751F08 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14075540C (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x14062B3BC (EtwTraceAppStateChange.c)
  * Callees:
- *     PsGetProcessSessionId @ 0x140297500 (PsGetProcessSessionId.c)
- *     PsGetProcessStartKey @ 0x1402F6CA0 (PsGetProcessStartKey.c)
- *     memset @ 0x140435400 (memset.c)
+ *     PsGetProcessSessionId @ 0x140252710 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x14025ED50 (PsGetProcessStartKey.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall EtwpInitStateChangeInfo(__int64 a1, __int64 a2)
 {
-  int v4; // ebx
-  __int16 ProcessSessionId; // ax
-  __int64 v6; // rcx
-  __int16 v7; // r8
-  __int16 v8; // ax
   __int64 result; // rax
-  __int128 v10; // [rsp+20h] [rbp-18h]
+  __int128 v5; // [rsp+20h] [rbp-18h]
 
   memset((void *)a2, 0, 0x62uLL);
-  v4 = *(_DWORD *)(a1 + 1088);
-  LODWORD(v10) = v4;
-  ProcessSessionId = PsGetProcessSessionId(a1);
-  v6 = *(_QWORD *)(a1 + 1128);
-  v7 = ProcessSessionId;
-  v8 = MEMORY[0xFFFFF780000002C4];
-  WORD3(v10) = MEMORY[0xFFFFF780000002C4];
-  WORD2(v10) = v7;
-  *(_DWORD *)(a2 + 21) = v4;
-  *(_WORD *)(a2 + 25) = v7;
-  *(_WORD *)(a2 + 27) = v8;
-  *(_QWORD *)(a2 + 29) = v6;
-  *((_QWORD *)&v10 + 1) = PsGetProcessStartKey(a1);
-  *(_OWORD *)(a2 + 2) = v10;
+  LODWORD(v5) = *(_DWORD *)(a1 + 1088);
+  WORD2(v5) = PsGetProcessSessionId(a1);
+  WORD3(v5) = MEMORY[0xFFFFF780000002C4];
+  *((_QWORD *)&v5 + 1) = *(_QWORD *)(a1 + 1128);
+  *(_OWORD *)(a2 + 21) = v5;
+  *((_QWORD *)&v5 + 1) = PsGetProcessStartKey(a1);
+  *(_OWORD *)(a2 + 2) = v5;
   *(_DWORD *)(a2 + 37) = *(_DWORD *)(a1 + 2296);
   *(_QWORD *)(a2 + 82) = _InterlockedIncrement64(&EtwpAppStateChangeSequenceNumber);
   result = *(_QWORD *)(a1 + 2296);

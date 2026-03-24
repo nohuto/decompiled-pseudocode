@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x1C000303C
+ * XREFs of ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x1C00042D0
  * Callers:
- *     NtUserReportInertia @ 0x1C0002E00 (NtUserReportInertia.c)
- *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01DD958 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01A55D0 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?RemoveInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E16AC (-RemoveInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ?RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00CD758 (-RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 char __fastcall CInertiaManager::InvalidateInertiaInfo(CInertiaManager *this, __int64 a2, __int64 a3)
@@ -49,7 +49,7 @@ char __fastcall CInertiaManager::InvalidateInertiaInfo(CInertiaManager *this, __
       v13 = v14[11];
       *((_OWORD *)v4 + 10) = v12;
       *((_OWORD *)v4 + 11) = v13;
-      InputTraceLogging::Win32k::RemoveInertiaInfo((const struct INERTIA_INFO_INTERNAL *)v4);
+      InputTraceLogging::Inertia::RemoveInertiaInfo((const struct INERTIA_INFO_INTERNAL *)v4);
     }
   }
   return 1;

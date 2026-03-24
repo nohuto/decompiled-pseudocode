@@ -1,71 +1,34 @@
 /*
- * XREFs of ?EffectGroupUpdate@CChannel@@UEAAJINII@Z @ 0x1800F1950
+ * XREFs of ?EffectGroupUpdate@CChannel@@UEAAJINII@Z @ 0x1800D0CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005EA34 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CChannel::EffectGroupUpdate(CChannel *this, unsigned int a2, double a3, int a4, float a5)
+__int64 __fastcall CChannel::EffectGroupUpdate(CChannel *this, unsigned int a2, double a3, int a4, unsigned int a5)
 {
-  float v8; // xmm0_4
-  int v9; // eax
+  unsigned int v8; // ebx
+  float v9; // xmm1_4
   unsigned int v10; // ebx
-  __int64 v12; // rdx
-  int v13; // [rsp+20h] [rbp-30h] BYREF
-  unsigned int v14; // [rsp+24h] [rbp-2Ch]
-  float v15; // [rsp+28h] [rbp-28h]
-  _BYTE v16[16]; // [rsp+30h] [rbp-20h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+18h]
+  _DWORD v12[8]; // [rsp+20h] [rbp-38h] BYREF
+  struct _RTL_CRITICAL_SECTION *v13; // [rsp+60h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v16, this);
-  CChannel::CheckHandle((__int64)this, a2, 58);
-  if ( a5 != 0.0 )
-    CChannel::CheckHandle((__int64)this, LODWORD(a5), 187);
-  v13 = 503;
-  v14 = a2;
-  v8 = a3;
-  v15 = v8;
-  v9 = CChannel::SendCommand(this, &v13, 0xCu);
-  v10 = v9;
-  if ( v9 < 0 )
-  {
-    v12 = 2336LL;
-LABEL_11:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v12,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v9,
-      v13);
-    goto LABEL_7;
-  }
-  v13 = 504;
-  v14 = a2;
-  v15 = *(float *)&a4;
-  v9 = CChannel::SendCommand(this, &v13, 0xCu);
-  v10 = v9;
-  if ( v9 < 0 )
-  {
-    v12 = 2343LL;
-    goto LABEL_11;
-  }
-  v13 = 505;
-  v14 = a2;
-  v15 = a5;
-  v9 = CChannel::SendCommand(this, &v13, 0xCu);
-  v10 = v9;
-  if ( v9 < 0 )
-  {
-    v12 = 2350LL;
-    goto LABEL_11;
-  }
-  v10 = 0;
-LABEL_7:
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v16);
+  v13 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 56);
+  v8 = a5;
+  CChannel::CheckOptionalHandle((__int64)this, a5, 186);
+  v12[0] = 481;
+  v9 = a3;
+  v12[1] = a2;
+  *(float *)&v12[2] = v9;
+  v12[3] = a4;
+  v12[4] = v8;
+  v10 = CChannel::SendCommand(this, v12, 0x14u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v13);
   return v10;
 }

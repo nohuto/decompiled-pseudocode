@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetStrokeStyle@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETSTROKESTYLE@@@Z @ 0x18001D484
+ * XREFs of ?ProcessSetStrokeStyle@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETSTROKESTYLE@@@Z @ 0x1801EDB04
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CSpriteVectorShape::ProcessSetStrokeStyle(
@@ -12,30 +12,17 @@ __int64 __fastcall CSpriteVectorShape::ProcessSetStrokeStyle(
         struct CResourceTable *a2,
         const struct tagMILCMD_SPRITEVECTORSHAPE_SETSTROKESTYLE *a3)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-
-  if ( *((_QWORD *)this + 23) != *((_QWORD *)a3 + 1)
-    || *((_DWORD *)this + 48) != *((_DWORD *)a3 + 4)
-    || *((_DWORD *)this + 49) != *((_DWORD *)a3 + 5) )
+  if ( *((_QWORD *)this + 22) != *((_QWORD *)a3 + 1)
+    || *((_DWORD *)this + 46) != *((_DWORD *)a3 + 4)
+    || *((_DWORD *)this + 47) != *((_DWORD *)a3 + 5) )
   {
-    *((_DWORD *)this + 46) = *((_DWORD *)a3 + 2);
-    *((_DWORD *)this + 47) = *((_DWORD *)a3 + 3);
-    *((_DWORD *)this + 48) = *((_DWORD *)a3 + 4);
-    *((_DWORD *)this + 49) = *((_DWORD *)a3 + 5);
-    v4 = *((_QWORD *)this + 16);
-    if ( v4 )
-    {
-      *((_QWORD *)this + 16) = 0LL;
-      (*(void (__fastcall **)(__int64, struct CResourceTable *))(*(_QWORD *)v4 + 16LL))(v4, a2);
-    }
-    v5 = *((_QWORD *)this + 17);
-    if ( v5 )
-    {
-      *((_QWORD *)this + 17) = 0LL;
-      (*(void (__fastcall **)(__int64, struct CResourceTable *))(*(_QWORD *)v5 + 16LL))(v5, a2);
-    }
-    CResource::NotifyOnChanged(this, 0LL, 0LL);
+    *((_DWORD *)this + 44) = *((_DWORD *)a3 + 2);
+    *((_DWORD *)this + 45) = *((_DWORD *)a3 + 3);
+    *((_DWORD *)this + 46) = *((_DWORD *)a3 + 4);
+    *((_DWORD *)this + 47) = *((_DWORD *)a3 + 5);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 15);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 16);
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
   }
   return 0LL;
 }

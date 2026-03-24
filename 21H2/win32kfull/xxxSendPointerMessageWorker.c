@@ -1,12 +1,12 @@
 /*
- * XREFs of xxxSendPointerMessageWorker @ 0x1C01EB7E4
+ * XREFs of xxxSendPointerMessageWorker @ 0x1C01F0CD8
  * Callers:
- *     xxxSendPointerMessage @ 0x1C01EB770 (xxxSendPointerMessage.c)
- *     ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01EC350 (-xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z.c)
- *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01EC438 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
- *     EditionPointerParentNotify @ 0x1C01ECA90 (EditionPointerParentNotify.c)
+ *     xxxSendPointerMessage @ 0x1C01F0C5C (xxxSendPointerMessage.c)
+ *     ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01F18E8 (-xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01F19F8 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     EditionPointerParentNotify @ 0x1C01F2220 (EditionPointerParentNotify.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall xxxSendPointerMessageWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)

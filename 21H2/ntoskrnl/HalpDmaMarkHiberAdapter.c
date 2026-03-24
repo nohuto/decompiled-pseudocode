@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaMarkHiberAdapter @ 0x14038D91C
+ * XREFs of HalpDmaMarkHiberAdapter @ 0x140388338
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A4EB20 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x14038DBE0 (PoSetHiberRange.c)
- *     HalpIommuDmarPageTableMarkHiberPhase @ 0x14052974C (HalpIommuDmarPageTableMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1404DBA8C (HalpIommuDmarPageTableMarkHiberPhase.c)
  */
 
 void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)
@@ -15,22 +15,22 @@ void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)
   _QWORD **v5; // r14
   _QWORD *v6; // r13
   unsigned int v7; // r12d
-  __int64 *m; // rbx
-  __int64 v9; // rax
-  __int64 *v10; // rbp
-  __int64 *v11; // r14
-  _QWORD *v12; // r13
-  unsigned int v13; // r15d
-  unsigned int *v14; // r8
-  __int64 n; // rbx
   unsigned int i; // ebx
-  _QWORD *v17; // rbp
-  __int64 v18; // r14
+  _QWORD *v9; // rbp
+  __int64 v10; // r14
   unsigned int k; // ebx
-  unsigned int v20; // ecx
-  _QWORD *v21; // r14
-  __int64 v22; // rbp
-  unsigned int *v23; // r8
+  unsigned int v12; // ecx
+  _QWORD *v13; // r14
+  __int64 v14; // rbp
+  unsigned int *v15; // r8
+  __int64 *m; // rbx
+  __int64 v17; // rax
+  __int64 *v18; // rbp
+  __int64 *v19; // r14
+  _QWORD *v20; // r13
+  unsigned int v21; // r15d
+  unsigned int *v22; // r8
+  __int64 n; // rbx
   unsigned int ii; // edi
   __int64 v25; // rax
   __int64 v26; // rcx
@@ -44,19 +44,19 @@ void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)
     {
       for ( i = 0; i < HalpDmaHibernateRegisterSetIndex; ++i )
       {
-        v17 = (_QWORD *)*((_QWORD *)&HalpDmaHibernateRegisterSets + 2 * i);
-        v18 = *((unsigned int *)&HalpDmaHibernateRegisterSets + 4 * i + 2);
+        v9 = (_QWORD *)*((_QWORD *)&HalpDmaHibernateRegisterSets + 2 * i);
+        v10 = *((unsigned int *)&HalpDmaHibernateRegisterSets + 4 * i + 2);
         if ( *((_DWORD *)HalpDmaHibernateAdapter + 128) && !HalpHvIommu )
           HalpIommuDmarPageTableMarkHiberPhase(MemoryMap);
-        if ( (_DWORD)v18 )
+        if ( (_DWORD)v10 )
         {
           do
           {
-            PoSetHiberRange(MemoryMap, 2u, v17, 0x48uLL, 0x746C6168u);
-            v17 = (_QWORD *)v17[1];
-            --v18;
+            PoSetHiberRange(MemoryMap, 2u, v9, 0x48uLL, 0x746C6168u);
+            v9 = (_QWORD *)v9[1];
+            --v10;
           }
-          while ( v18 );
+          while ( v10 );
         }
       }
     }
@@ -100,55 +100,55 @@ void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)
       PoSetHiberRange(0LL, 0x10000u, HalpDmaHibernateAdapter, 0x280uLL, 0);
       for ( k = 0; k < HalpDmaHibernateRegisterSetIndex; ++k )
       {
-        v20 = *((_DWORD *)&HalpDmaHibernateRegisterSets + 4 * k + 2);
-        v21 = (_QWORD *)*((_QWORD *)&HalpDmaHibernateRegisterSets + 2 * k);
-        if ( v20 )
+        v12 = *((_DWORD *)&HalpDmaHibernateRegisterSets + 4 * k + 2);
+        v13 = (_QWORD *)*((_QWORD *)&HalpDmaHibernateRegisterSets + 2 * k);
+        if ( v12 )
         {
-          v22 = v20;
+          v14 = v12;
           do
           {
-            PoSetHiberRange(0LL, 0x14000u, (PVOID)(*v21 >> 12), 1uLL, 0x746C6168u);
-            v21 = (_QWORD *)v21[1];
-            --v22;
+            PoSetHiberRange(0LL, 0x14000u, (PVOID)(*v13 >> 12), 1uLL, 0x746C6168u);
+            v13 = (_QWORD *)v13[1];
+            --v14;
           }
-          while ( v22 );
+          while ( v14 );
         }
       }
-      v23 = (unsigned int *)*((_QWORD *)HalpDmaHibernateAdapter + 37);
-      if ( v23 )
-        PoSetHiberRange(0LL, 0x10000u, v23, 8 * (((unsigned __int64)v23[10] + 4095) >> 12) + 48, 0x746C6168u);
+      v15 = (unsigned int *)*((_QWORD *)HalpDmaHibernateAdapter + 37);
+      if ( v15 )
+        PoSetHiberRange(0LL, 0x10000u, v15, 8 * (((unsigned __int64)v15[10] + 4095) >> 12) + 48, 0x746C6168u);
     }
     PoSetHiberRange(0LL, 0x10000u, &HalpDmaHibernateAdapters, 0x10uLL, 0);
     for ( m = (__int64 *)HalpDmaHibernateAdapters; m != &HalpDmaHibernateAdapters; m = (__int64 *)*m )
     {
       PoSetHiberRange(0LL, 0x10000u, m - 35, 0x280uLL, 0);
-      v9 = 2LL;
-      v10 = m - 2;
+      v17 = 2LL;
+      v18 = m - 2;
       v29 = 2LL;
-      v11 = m - 4;
+      v19 = m - 4;
       do
       {
-        v12 = (_QWORD *)*v11;
-        v13 = 0;
-        if ( *(_DWORD *)v10 )
+        v20 = (_QWORD *)*v19;
+        v21 = 0;
+        if ( *(_DWORD *)v18 )
         {
           do
           {
-            PoSetHiberRange(0LL, 0x14000u, (PVOID)(*v12 >> 12), 1uLL, 0x746C6168u);
-            v12 = (_QWORD *)v12[1];
-            ++v13;
+            PoSetHiberRange(0LL, 0x14000u, (PVOID)(*v20 >> 12), 1uLL, 0x746C6168u);
+            v20 = (_QWORD *)v20[1];
+            ++v21;
           }
-          while ( v13 < *(_DWORD *)v10 );
-          v9 = v29;
+          while ( v21 < *(_DWORD *)v18 );
+          v17 = v29;
         }
-        ++v11;
-        v10 = (__int64 *)((char *)v10 + 4);
-        v29 = --v9;
+        ++v19;
+        v18 = (__int64 *)((char *)v18 + 4);
+        v29 = --v17;
       }
-      while ( v9 );
-      v14 = (unsigned int *)m[2];
-      if ( v14 )
-        PoSetHiberRange(0LL, 0x10000u, v14, 8 * (((unsigned __int64)v14[10] + 4095) >> 12) + 48, 0x746C6168u);
+      while ( v17 );
+      v22 = (unsigned int *)m[2];
+      if ( v22 )
+        PoSetHiberRange(0LL, 0x10000u, v22, 8 * (((unsigned __int64)v22[10] + 4095) >> 12) + 48, 0x746C6168u);
     }
     for ( n = HalpDmaControllers; (__int64 *)n != &HalpDmaControllers; n = *(_QWORD *)n )
     {

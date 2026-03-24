@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x1800B8F04
+ * XREFs of ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x18016A278
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x1800B8604 (--0CShapeTree@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x1801EC41C (--0CShapeTree@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??0CVectorShape@@IEAA@PEAVCComposition@@@Z @ 0x1800B92EC (--0CVectorShape@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVectorShape@@IEAA@PEAVCComposition@@@Z @ 0x18016B250 (--0CVectorShape@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CContainerVectorShape *__fastcall CContainerVectorShape::CContainerVectorShape(
@@ -13,25 +13,30 @@ CContainerVectorShape *__fastcall CContainerVectorShape::CContainerVectorShape(
         int a3)
 {
   CContainerVectorShape *v3; // r10
-  __int64 v4; // r11
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rcx
   CContainerVectorShape *result; // rax
 
   if ( a3 )
   {
-    *((_QWORD *)this + 8) = &CContainerVectorShape::`vbtable'{for `CContent'};
-    *((_QWORD *)this + 20) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-    *((_QWORD *)this + 19) = &IContent::`vftable'{for `IContent'};
-    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 20) + 4LL) + 160) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+    *((_QWORD *)this + 7) = &CCompositionSkyBoxBrush::`vbtable'{for `CContent'};
+    *((_QWORD *)this + 19) = &CInk::`vbtable'{for `IContent'};
+    *((_QWORD *)this + 18) = &IContent::`vftable'{for `IContent'};
+    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 19) + 4LL) + 152) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   }
   CVectorShape::CVectorShape(this, a2);
+  v4 = *((_QWORD *)v3 + 7);
   *(_QWORD *)v3 = &CContainerVectorShape::`vftable';
-  *(_QWORD *)((char *)v3 + *(int *)(*(_QWORD *)v4 + 4LL) + 64) = &CContainerVectorShape::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)v3 + *(int *)(*(_QWORD *)v4 + 8LL) + 64) = &CContainerVectorShape::`vftable'{for `IContent'};
-  *(_DWORD *)((char *)v3 + *(int *)(*(_QWORD *)v4 + 4LL) + 60) = *(_DWORD *)(*(_QWORD *)v4 + 4LL) - 72;
+  *(_QWORD *)((char *)v3 + *(int *)(v4 + 4) + 56) = &CContainerVectorShape::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)v3 + *(int *)(*((_QWORD *)v3 + 7) + 8LL) + 56) = &CContainerVectorShape::`vftable'{for `IContent'};
+  v5 = *(int *)(*((_QWORD *)v3 + 7) + 4LL);
+  *(_DWORD *)((char *)v3 + v5 + 52) = v5 - 72;
+  v6 = *(int *)(*((_QWORD *)v3 + 7) + 8LL);
   result = v3;
-  *(_DWORD *)((char *)v3 + *(int *)(*(_QWORD *)v4 + 8LL) + 60) = *(_DWORD *)(*(_QWORD *)v4 + 8LL) - 88;
+  *(_DWORD *)((char *)v3 + v6 + 52) = v6 - 88;
+  *((_QWORD *)v3 + 12) = 0LL;
   *((_QWORD *)v3 + 13) = 0LL;
   *((_QWORD *)v3 + 14) = 0LL;
-  *((_QWORD *)v3 + 15) = 0LL;
   return result;
 }

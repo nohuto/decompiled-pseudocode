@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpFreeSecurityDescriptor @ 0x1405C5658 (EtwpFreeSecurityDescriptor.c)

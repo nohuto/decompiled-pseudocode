@@ -1,20 +1,19 @@
 /*
- * XREFs of IvtFlushDomainTb @ 0x14052E520
+ * XREFs of IvtFlushDomainTb @ 0x1404DFA50
  * Callers:
  *     <none>
  * Callees:
- *     IvtFlushTbInternal @ 0x14052E568 (IvtFlushTbInternal.c)
+ *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
  */
 
 __int64 __fastcall IvtFlushDomainTb(int a1, __int64 a2, __int64 a3, int a4)
 {
   int v4; // r8d
-  int v6; // [rsp+20h] [rbp-48h]
-  _QWORD v7[3]; // [rsp+50h] [rbp-18h] BYREF
+  _QWORD v6[3]; // [rsp+50h] [rbp-18h] BYREF
 
-  v4 = *(_DWORD *)(a2 + 48);
-  v7[1] = v7;
-  v7[0] = v7;
+  v4 = *(_DWORD *)(a2 + 24);
+  v6[1] = v6;
+  v6[0] = v6;
   LOBYTE(a4) = a4 == 0;
-  return IvtFlushTbInternal(a1, a2, v4, a4, v6);
+  return IvtFlushTbInternal(a1, a2, v4, a4, 1);
 }

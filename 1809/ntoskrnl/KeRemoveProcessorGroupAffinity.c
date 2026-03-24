@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRemoveProcessorGroupAffinity @ 0x1400FCC10
+ * XREFs of KeRemoveProcessorGroupAffinity @ 0x1400FCC30
  * Callers:
  *     <none>
  * Callees:

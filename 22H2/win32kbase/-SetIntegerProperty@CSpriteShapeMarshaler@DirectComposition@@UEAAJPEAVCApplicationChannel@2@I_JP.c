@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C000C920
+ * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E7E50
  * Callers:
  *     <none>
  * Callees:
@@ -13,24 +13,26 @@ __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
         __int64 a4,
         bool *a5)
 {
-  unsigned int v5; // r10d
+  unsigned int v5; // edx
   int v6; // r8d
   int v7; // r8d
   int v8; // r8d
   int v9; // r8d
-  int v11; // eax
+  int v10; // eax
 
   v5 = 0;
   *a5 = 0;
   v6 = a3 - 4;
   if ( !v6 )
   {
-    v11 = a4 != 0;
-    if ( *((_DWORD *)this + 33) == v11 )
+    v10 = a4 != 0;
+    if ( *((_DWORD *)this + 33) == v10 )
       return v5;
     *((_DWORD *)this + 4) |= 0x4000u;
-    *((_DWORD *)this + 33) = v11;
-    goto LABEL_8;
+    *((_DWORD *)this + 33) = v10;
+LABEL_18:
+    *a5 = 1;
+    return v5;
   }
   v7 = v6 - 1;
   if ( !v7 )
@@ -38,7 +40,9 @@ __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
     if ( *((_DWORD *)this + 29) == a4 )
       return v5;
     *((_DWORD *)this + 29) = a4;
-    goto LABEL_7;
+LABEL_9:
+    *((_DWORD *)this + 4) |= 0x200u;
+    goto LABEL_18;
   }
   v8 = v7 - 1;
   if ( !v8 )
@@ -46,26 +50,22 @@ __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
     if ( *((_DWORD *)this + 30) == a4 )
       return v5;
     *((_DWORD *)this + 30) = a4;
-    goto LABEL_7;
+    goto LABEL_9;
   }
   v9 = v8 - 1;
-  if ( v9 )
+  if ( !v9 )
   {
-    if ( v9 != 1 )
-      return (unsigned int)-1073741811;
-    if ( *((_DWORD *)this + 32) != a4 )
-    {
-      *((_DWORD *)this + 32) = a4;
-      goto LABEL_7;
-    }
-  }
-  else if ( *((_DWORD *)this + 31) != a4 )
-  {
+    if ( *((_DWORD *)this + 31) == a4 )
+      return v5;
     *((_DWORD *)this + 31) = a4;
-LABEL_7:
-    *((_DWORD *)this + 4) |= 0x200u;
-LABEL_8:
-    *a5 = 1;
+    goto LABEL_9;
   }
-  return v5;
+  if ( v9 == 1 )
+  {
+    if ( *((_DWORD *)this + 32) == a4 )
+      return v5;
+    *((_DWORD *)this + 32) = a4;
+    goto LABEL_9;
+  }
+  return (unsigned int)-1073741811;
 }

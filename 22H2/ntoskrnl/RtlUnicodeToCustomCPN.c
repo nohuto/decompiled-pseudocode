@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeToCustomCPN @ 0x1407D12E0
+ * XREFs of RtlUnicodeToCustomCPN @ 0x140910C10
  * Callers:
- *     RtlUnicodeToOemN @ 0x1407D1280 (RtlUnicodeToOemN.c)
+ *     <none>
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToCustomCPN(
@@ -17,97 +17,97 @@ NTSTATUS __stdcall RtlUnicodeToCustomCPN(
   NTSTATUS v6; // ebx
   ULONG v7; // r11d
   PCH v8; // r10
-  ULONG v9; // edx
-  ULONG v10; // eax
-  _BYTE *v11; // rdi
-  PWCH v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rax
+  ULONG *v9; // r8
+  NTSTATUS v10; // eax
+  ULONG v12; // edx
+  ULONG v13; // eax
+  _BYTE *v14; // rdi
+  PWCH v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rax
   _WORD *WideCharTable; // r14
-  int v17; // edi
-  PWCH v18; // r8
-  __int64 v19; // rax
-  __int16 v20; // si
-  unsigned int v21; // eax
-  ULONG *v22; // r8
-  NTSTATUS v23; // eax
+  int v19; // edi
+  PWCH v20; // r8
+  __int64 v21; // rax
+  __int16 v22; // si
+  unsigned int v23; // eax
   char v24; // [rsp+40h] [rbp+8h] BYREF
 
   v6 = 0;
   v7 = MaxBytesInCustomCPString;
   v8 = CustomCPString;
-  if ( !CustomCP || CustomCP->CodePage == 0xFDE9 )
+  if ( CustomCP->CodePage == 0xFDE9 )
   {
-    v22 = (ULONG *)&v24;
+    v9 = (ULONG *)&v24;
     if ( BytesInCustomCPString )
-      v22 = BytesInCustomCPString;
+      v9 = BytesInCustomCPString;
     if ( BytesInUnicodeString )
     {
-      v23 = RtlUnicodeToUTF8N(CustomCPString, v7, v22, UnicodeString, BytesInUnicodeString);
+      v10 = RtlUnicodeToUTF8N(CustomCPString, v7, v9, UnicodeString, BytesInUnicodeString);
     }
     else
     {
-      *v22 = 0;
-      v23 = 0;
+      *v9 = 0;
+      v10 = 0;
     }
-    if ( v23 == -1073741789 )
+    if ( v10 == -1073741789 )
       return -2147483643;
     return v6;
   }
   else
   {
-    v9 = BytesInUnicodeString >> 1;
+    v12 = BytesInUnicodeString >> 1;
     if ( CustomCP->DBCSCodePage )
     {
       WideCharTable = CustomCP->WideCharTable;
-      v17 = (int)v8;
-      if ( v9 )
+      v19 = (int)v8;
+      if ( v12 )
       {
-        v18 = UnicodeString;
+        v20 = UnicodeString;
         do
         {
           if ( !v7 )
             break;
-          v19 = *v18++;
-          v20 = WideCharTable[v19];
-          if ( HIBYTE(v20) )
+          v21 = *v20++;
+          v22 = WideCharTable[v21];
+          if ( HIBYTE(v22) )
           {
-            v21 = v7--;
-            if ( v21 < 2 )
+            v23 = v7--;
+            if ( v23 < 2 )
               break;
-            *v8++ = HIBYTE(v20);
+            *v8++ = HIBYTE(v22);
           }
-          *v8 = v20;
+          *v8 = v22;
           --v7;
           ++v8;
-          --v9;
+          --v12;
         }
-        while ( v9 );
+        while ( v12 );
       }
       if ( BytesInCustomCPString )
-        *BytesInCustomCPString = (_DWORD)v8 - v17;
+        *BytesInCustomCPString = (_DWORD)v8 - v19;
     }
     else
     {
-      v10 = MaxBytesInCustomCPString;
-      if ( v9 < MaxBytesInCustomCPString )
-        v10 = BytesInUnicodeString >> 1;
+      v13 = MaxBytesInCustomCPString;
+      if ( v12 < MaxBytesInCustomCPString )
+        v13 = BytesInUnicodeString >> 1;
       if ( BytesInCustomCPString )
-        *BytesInCustomCPString = v10;
-      v11 = CustomCP->WideCharTable;
-      if ( v10 )
+        *BytesInCustomCPString = v13;
+      v14 = CustomCP->WideCharTable;
+      if ( v13 )
       {
-        v12 = UnicodeString;
-        v13 = v10;
+        v15 = UnicodeString;
+        v16 = v13;
         do
         {
-          v14 = *v12++;
-          *v8++ = v11[v14];
-          --v13;
+          v17 = *v15++;
+          *v8++ = v14[v17];
+          --v16;
         }
-        while ( v13 );
+        while ( v16 );
       }
     }
-    return v7 < v9 ? 0x80000005 : 0;
+    return v7 < v12 ? 0x80000005 : 0;
   }
 }

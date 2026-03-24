@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NNDeleteAdjustIndex@@YAXPEAII@Z @ 0x1C02314B4
+ * XREFs of ?NNDeleteAdjustIndex@@YAXPEAII@Z @ 0x1C0249278
  * Callers:
- *     ?MNDeleteAdjustIndexes@@YAXPEAUtagMENUSTATE@@V?$SmartObjStackRef@UtagPOPUPMENU@@@@I@Z @ 0x1C023142C (-MNDeleteAdjustIndexes@@YAXPEAUtagMENUSTATE@@V-$SmartObjStackRef@UtagPOPUPMENU@@@@I@Z.c)
+ *     ?MNDeleteAdjustIndexes@@YAXPEAUtagMENUSTATE@@V?$SmartObjStackRef@UtagPOPUPMENU@@@@I@Z @ 0x1C0249118 (-MNDeleteAdjustIndexes@@YAXPEAUtagMENUSTATE@@V-$SmartObjStackRef@UtagPOPUPMENU@@@@I@Z.c)
  * Callees:
  *     <none>
  */

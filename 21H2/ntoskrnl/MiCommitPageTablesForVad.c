@@ -1,205 +1,193 @@
 /*
- * XREFs of MiCommitPageTablesForVad @ 0x1407BDB60
+ * XREFs of MiCommitPageTablesForVad @ 0x1405F91A0
  * Callers:
- *     MiSplitPrivatePage @ 0x14028E238 (MiSplitPrivatePage.c)
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x14032D1C0 (MiSetProtectionOnSection.c)
- *     MiCommitPageTableRangesForVad @ 0x1405A44FC (MiCommitPageTableRangesForVad.c)
- *     MiInsertVadCharges @ 0x1407B88C0 (MiInsertVadCharges.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
+ *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
+ *     MiCommitPageTableRangesForVad @ 0x14054528C (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
  * Callees:
- *     MiVadLeafPagesPrecharged @ 0x14022B4E0 (MiVadLeafPagesPrecharged.c)
- *     RtlAreBitsClearEx @ 0x14022C900 (RtlAreBitsClearEx.c)
- *     MmGetMinWsPagePriority @ 0x14024DA70 (MmGetMinWsPagePriority.c)
- *     MiVadPageTableChargeLevel @ 0x14030DA10 (MiVadPageTableChargeLevel.c)
- *     MiVadPureReserve @ 0x140319990 (MiVadPureReserve.c)
- *     MiMakeHyperRangeAccessible @ 0x1403199E0 (MiMakeHyperRangeAccessible.c)
- *     MiUpdateChargedWsles @ 0x1405B85A8 (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1407BE280 (MiChargeFullProcessCommitment.c)
+ *     MiMakeHyperRangeAccessible @ 0x14021B4E0 (MiMakeHyperRangeAccessible.c)
+ *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
+ *     MiVadLeafPagesPrecharged @ 0x14021B9E0 (MiVadLeafPagesPrecharged.c)
+ *     MiVadPageTableChargeLevel @ 0x14021BA20 (MiVadPageTableChargeLevel.c)
+ *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
+ *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
+ *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
  */
 
-__int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, _DWORD *a4)
 {
-  _KPROCESS *Process; // r12
-  unsigned int v5; // ebx
-  unsigned __int64 v6; // r13
+  _KPROCESS *Process; // r15
+  unsigned int v6; // ebx
   unsigned __int64 v7; // rsi
   unsigned __int64 v8; // rbp
   unsigned __int64 v9; // rdi
   __int64 v10; // r14
   __int64 v11; // r8
   __int64 result; // rax
-  BOOL v13; // eax
-  __int64 v14; // r10
-  int v15; // edx
-  __int64 v16; // r11
+  unsigned __int64 v13; // rbx
+  BOOL v14; // eax
+  int v15; // r10d
+  __int64 v16; // r9
   __int64 v17; // rax
-  unsigned __int64 v18; // rdi
-  __int64 v19; // r8
-  __int64 v20; // r12
-  __int64 v21; // rbp
-  unsigned __int64 v22; // rsi
-  __int64 v23; // r14
-  __int64 v24; // r15
-  __int64 v25; // r13
-  unsigned __int64 v26; // rbx
-  int v27; // r9d
-  __int64 v28; // rdx
-  __int64 v29; // rax
+  __int64 v18; // r8
+  unsigned __int64 v19; // rbp
+  __int64 v20; // r13
+  unsigned __int64 v21; // rsi
+  __int64 v22; // r15
+  __int64 v23; // rdi
+  __int64 v24; // r14
+  __int64 v25; // rdx
+  __int64 v26; // r12
+  unsigned __int64 v27; // rbx
+  int v28; // r11d
+  unsigned __int64 v29; // rdx
   __int64 v30; // rax
-  unsigned __int64 v31; // rcx
-  bool v32; // al
-  int v33; // [rsp+20h] [rbp-88h]
-  __int64 v34; // [rsp+28h] [rbp-80h]
-  BOOL v35; // [rsp+30h] [rbp-78h]
-  __int64 v36; // [rsp+38h] [rbp-70h]
-  _KPROCESS *v37; // [rsp+40h] [rbp-68h]
-  unsigned __int64 v38; // [rsp+48h] [rbp-60h]
-  unsigned __int64 v39; // [rsp+50h] [rbp-58h]
-  unsigned __int64 v40; // [rsp+58h] [rbp-50h]
-  __int64 i; // [rsp+60h] [rbp-48h]
-  __int64 v43; // [rsp+C8h] [rbp+20h] BYREF
+  __int64 v31; // rax
+  unsigned __int64 v32; // rcx
+  bool v33; // al
+  int v34; // [rsp+20h] [rbp-78h]
+  BOOL v35; // [rsp+24h] [rbp-74h]
+  __int64 v36; // [rsp+28h] [rbp-70h]
+  __int64 v37; // [rsp+30h] [rbp-68h]
+  __int64 v38; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v39; // [rsp+40h] [rbp-58h]
+  unsigned __int64 v40; // [rsp+48h] [rbp-50h]
+  unsigned __int64 v41; // [rsp+50h] [rbp-48h]
+  __int64 v42; // [rsp+58h] [rbp-40h]
+  __int64 v44; // [rsp+B8h] [rbp+20h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  v37 = Process;
-  if ( *(_QWORD *)(a1 + 16) == -2LL && (unsigned int)MiVadPureReserve(a1) )
+  v38 = (__int64)Process;
+  if ( *(_QWORD *)(a1 + 16) != -2LL || !(unsigned int)MiVadPureReserve(a1) )
   {
-    v29 = *(unsigned int *)(a1 + 52);
-    LODWORD(v29) = v29 & 0x7FFFFFFF;
-    if ( !(v29 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) )
-      return 0LL;
-    result = MiChargeFullProcessCommitment(Process, v29 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31));
-    if ( (int)result >= 0 )
-      return 0LL;
-  }
-  else
-  {
-    v5 = 0;
-    v38 = (unsigned int)(a3 >> 21);
-    v6 = (unsigned int)(a2 >> 21);
-    v43 = 0LL;
-    v40 = v6;
-    v7 = v6;
-    v8 = v38;
-    v9 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
-    while ( 1 )
+    v6 = 0;
+    v39 = (unsigned int)(a2 >> 21);
+    v40 = (unsigned int)(a3 >> 21);
+    v44 = 0LL;
+    v7 = v39;
+    v8 = v40;
+    v9 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8];
+    do
     {
-      v10 = 2 - v5;
-      v11 = *(_QWORD *)(v9 + 16 * (v10 + 30) + 48);
-      result = MiMakeHyperRangeAccessible(v11 + (v7 >> 3), v11 + (v8 >> 3), &v43);
+      v10 = 2 - v6;
+      v11 = *(_QWORD *)(v9 + 16 * (v10 + 31) + 48);
+      result = MiMakeHyperRangeAccessible(v11 + (v7 >> 3), v11 + (v8 >> 3), &v44, a4);
       if ( (int)result < 0 )
-        break;
-      ++v5;
-      *(_QWORD *)(v9 + 8 * v10 + 568) += v43;
+        return result;
+      ++v6;
+      *(_QWORD *)(v9 + 8 * v10 + 584) += v44;
       v7 >>= 9;
       v8 >>= 9;
-      if ( v5 >= 2 )
+    }
+    while ( v6 < 2 );
+    v13 = Process[1].ActiveProcessorsPadding[8];
+    v41 = v13;
+    MiVadPageTableChargeLevel(a1);
+    v14 = MiVadLeafPagesPrecharged(a1);
+    v15 = 0;
+    v35 = v14;
+    v37 = v16;
+    v17 = v13 + 568;
+    LODWORD(v44) = 0;
+    v42 = v13 + 568;
+    v18 = v16;
+    while ( 1 )
+    {
+      v34 = v15;
+      v19 = v39;
+      v20 = 0LL;
+      v21 = v40;
+      v22 = 0LL;
+      v23 = 0LL;
+      v24 = v17;
+      do
       {
-        v39 = Process[1].ActiveProcessors.StaticBitmap[28];
-        MiVadPageTableChargeLevel(a1);
-        v13 = MiVadLeafPagesPrecharged(a1);
-        v15 = 0;
-        v35 = v13;
-        v36 = v14;
-        v17 = v16 + 552;
-        LODWORD(v43) = 0;
-        for ( i = v16 + 552; ; v17 = i )
+        v25 = 0LL;
+        v26 = 0LL;
+        v36 = 0LL;
+        v27 = v19;
+        if ( v19 <= v21 )
         {
-          v33 = v15;
-          v18 = v38;
-          v19 = 0LL;
-          v20 = 0LL;
-          v34 = 0LL;
-          v21 = 0LL;
-          v22 = v6;
-          v23 = v17;
-          do
+          while ( 1 )
           {
-            v24 = 0LL;
-            v25 = 0LL;
-            v26 = v22;
-            if ( v22 > v18 )
+            if ( !_bittest64(*(const signed __int64 **)(v24 + 8), v27) )
             {
-              v27 = v43;
+              ++v26;
+              if ( v15 != 1 )
+              {
+                LODWORD(v44) = 1;
+                if ( !(unsigned int)MiCreateSystemWsles() && (v27 == v19 || (v27 & 7) == 0) )
+                {
+                  v33 = RtlAreBitsClearEx(v24, v27 & 0xFFFFFFFFFFFFFFF8uLL, 8uLL);
+                  v25 = v36;
+                  v15 = v34;
+                  v28 = v44;
+                  if ( v33 )
+                    v25 = ++v36;
+                }
+                goto LABEL_10;
+              }
+              _bittestandset64(*(signed __int64 **)(v24 + 8), v27);
             }
-            else
+            v28 = v44;
+LABEL_10:
+            if ( ++v27 > v21 )
             {
-              do
-              {
-                if ( _bittest64(*(const signed __int64 **)(v23 + 8), v26) )
-                {
-                  v27 = v43;
-                }
-                else
-                {
-                  ++v24;
-                  if ( v15 )
-                  {
-                    v27 = v43;
-                    if ( v21 >= v14 )
-                      _bittestandset64(*(signed __int64 **)(v23 + 8), v26);
-                  }
-                  else
-                  {
-                    LODWORD(v43) = 1;
-                    if ( !(unsigned int)MmGetMinWsPagePriority() && (v26 == v22 || (v26 & 7) == 0) )
-                    {
-                      v32 = RtlAreBitsClearEx(v23, v26 & 0xFFFFFFFFFFFFFFF8uLL, 8uLL);
-                      v15 = v33;
-                      v27 = v43;
-                      v14 = v36;
-                      if ( v32 )
-                        ++v25;
-                    }
-                  }
-                }
-                ++v26;
-              }
-              while ( v26 <= v18 );
-              v19 = v34;
-              if ( v24 && v21 >= v14 )
-              {
-                v19 = v24 + v34;
-                v34 += v24;
-              }
+              v18 = v37;
+              goto LABEL_12;
             }
-            v20 += v25;
-            v22 >>= 9;
-            v18 >>= 9;
-            ++v21;
-            v23 -= 16LL;
           }
-          while ( v21 < 3 );
-          if ( v15 )
-            break;
-          v28 = v20 + v19;
-          if ( !v35 && !(unsigned int)MiVadPureReserve(a1) )
-          {
-            v30 = *(unsigned int *)(a1 + 52);
-            LODWORD(v30) = v30 & 0x7FFFFFFF;
-            v31 = v30 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
-            if ( v31 != 0x7FFFFFFFELL )
-              v28 += v31;
-          }
-          if ( v28 )
-          {
-            result = MiChargeFullProcessCommitment(v37, v28);
-            if ( (int)result < 0 )
-              return result;
-            v19 = v34;
-            v27 = v43;
-            v14 = v36;
-          }
-          if ( !v27 )
-            return 0LL;
-          *(_QWORD *)(v39 + 288) += v19;
-          if ( v20 )
-            MiUpdateChargedWsles((__int64)&v37[1].ActiveProcessors.StaticBitmap[26]);
-          v6 = v40;
-          v15 = 1;
         }
-        return 0LL;
+        v28 = v44;
+LABEL_12:
+        if ( v23 >= v18 )
+          v20 += v26;
+        v22 += v25;
+        v19 >>= 9;
+        v21 >>= 9;
+        ++v23;
+        v24 -= 16LL;
       }
+      while ( v23 < 3 );
+      if ( v15 )
+        return 0LL;
+      v29 = v22 + v20;
+      if ( !v35 && !(unsigned int)MiVadPureReserve(a1) )
+      {
+        v31 = *(unsigned int *)(a1 + 52);
+        LODWORD(v31) = v31 & 0x7FFFFFFF;
+        v32 = v31 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
+        if ( v32 != 0x7FFFFFFFELL )
+          v29 += v32;
+      }
+      if ( v29 )
+      {
+        result = MiChargeFullProcessCommitment(v38, v29);
+        if ( (int)result < 0 )
+          return result;
+        v18 = v37;
+        v28 = v44;
+      }
+      if ( v28 != 1 )
+        return 0LL;
+      *(_QWORD *)(v41 + 288) += v20;
+      if ( v22 )
+        MiUpdateChargedWsles(v38 + 1664);
+      v17 = v42;
+      v15 = 1;
     }
   }
+  v30 = *(unsigned int *)(a1 + 52);
+  LODWORD(v30) = v30 & 0x7FFFFFFF;
+  if ( !(v30 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) )
+    return 0LL;
+  result = MiChargeFullProcessCommitment(
+             (__int64)Process,
+             v30 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31));
+  if ( (int)result >= 0 )
+    return 0LL;
   return result;
 }

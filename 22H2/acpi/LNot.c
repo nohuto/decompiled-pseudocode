@@ -1,10 +1,10 @@
 /*
- * XREFs of LNot @ 0x1C0056E10
+ * XREFs of LNot @ 0x1C0021440
  * Callers:
  *     <none>
  * Callees:
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
  */
 
 __int64 __fastcall LNot(__int64 a1, __int64 a2)

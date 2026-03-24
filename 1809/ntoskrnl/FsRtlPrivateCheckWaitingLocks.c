@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlPrivateCheckWaitingLocks @ 0x14012EF80
+ * XREFs of FsRtlPrivateCheckWaitingLocks @ 0x14012EFA0
  * Callers:
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlFastUnlockSingleExclusive @ 0x14008C4D0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14012EC44 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14012EC64 (FsRtlPrivateFastUnlockAll.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
@@ -12,13 +12,13 @@
  *     FsRtlPrivateInsertLock @ 0x14008D14C (FsRtlPrivateInsertLock.c)
  *     FsRtlPrivateCheckForSharedLockAccess @ 0x14008D444 (FsRtlPrivateCheckForSharedLockAccess.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IoGetRequestorProcess @ 0x14010DF60 (IoGetRequestorProcess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122414 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCompleteLockIrpReal @ 0x14013FA70 (FsRtlCompleteLockIrpReal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlPrivateRemoveLock @ 0x14026F514 (FsRtlPrivateRemoveLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IoGetRequestorProcess @ 0x14010DF80 (IoGetRequestorProcess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122434 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlCompleteLockIrpReal @ 0x14013FA90 (FsRtlCompleteLockIrpReal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlPrivateRemoveLock @ 0x14026F614 (FsRtlPrivateRemoveLock.c)
  */
 
 void __fastcall FsRtlPrivateCheckWaitingLocks(_QWORD *a1, KSPIN_LOCK *a2, KIRQL a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionHandleAltTabCancel @ 0x1C010BC10
+ * XREFs of EditionHandleAltTabCancel @ 0x1C0120A80
  * Callers:
  *     <none>
  * Callees:
- *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00F5CE8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
- *     xxxCancelCoolSwitch @ 0x1C01110F4 (xxxCancelCoolSwitch.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C01100C8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     xxxCancelCoolSwitch @ 0x1C0125DE4 (xxxCancelCoolSwitch.c)
  */
 
 _BOOL8 __fastcall EditionHandleAltTabCancel(

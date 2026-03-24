@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueryInterfaceRecurseUp @ 0x140755B10
+ * XREFs of IopQueryInterfaceRecurseUp @ 0x140755AF0
  * Callers:
- *     IoQueryInterface @ 0x140755AC0 (IoQueryInterface.c)
+ *     IoQueryInterface @ 0x140755AA0 (IoQueryInterface.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     PnpQueryInterface @ 0x1406F9198 (PnpQueryInterface.c)
+ *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall IopQueryInterfaceRecurseUp(

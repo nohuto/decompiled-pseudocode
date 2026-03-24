@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpTransSilentIgnore @ 0x1402314C0
+ * XREFs of CmpTransSilentIgnore @ 0x1402D1860
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

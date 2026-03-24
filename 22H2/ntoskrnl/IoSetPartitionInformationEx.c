@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetPartitionInformationEx @ 0x140940B80
+ * XREFs of IoSetPartitionInformationEx @ 0x14088DFF0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140675DA0 (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C711C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 NTSTATUS __stdcall IoSetPartitionInformationEx(
@@ -17,10 +17,10 @@ NTSTATUS __stdcall IoSetPartitionInformationEx(
 {
   struct _DEVICE_OBJECT *v5; // r9
   NTSTATUS v6; // ebx
-  _QWORD v8[50]; // [rsp+20h] [rbp-1A8h] BYREF
+  _QWORD v8[46]; // [rsp+20h] [rbp-188h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v8);
-  v8[49] = 0LL;
+  v8[44] = 0LL;
   v8[0] = &NT_DISK::`vftable';
   v6 = NT_DISK::Initialize((NT_DISK *)v8, v5);
   if ( v6 >= 0 )

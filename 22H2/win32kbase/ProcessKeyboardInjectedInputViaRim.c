@@ -1,21 +1,21 @@
 /*
- * XREFs of ProcessKeyboardInjectedInputViaRim @ 0x1C00024FC
+ * XREFs of ProcessKeyboardInjectedInputViaRim @ 0x1C01B07B0
  * Callers:
- *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C000242C (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
+ *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C01A2610 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
  * Callees:
- *     ProcessKeyboardInjectedInput @ 0x1C0002558 (ProcessKeyboardInjectedInput.c)
- *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C00C9988 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
- *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01B5B8C (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C004E8C4 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01A1E64 (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ProcessKeyboardInjectedInput @ 0x1C01B05E4 (ProcessKeyboardInjectedInput.c)
  */
 
-__int64 __fastcall ProcessKeyboardInjectedInputViaRim(__int64 a1, __int64 a2)
+void __fastcall ProcessKeyboardInjectedInputViaRim(__int64 a1, __int64 a2)
 {
   if ( (unsigned int)ApiSetEditionIsGpqForegroundAccessibleExplicit(
-                       1LL,
-                       gptiCurrent,
+                       1u,
+                       (__int64)gptiCurrent,
                        *(_QWORD *)(a2 + 392),
-                       *(unsigned int *)(a2 + 400)) )
-    return ProcessKeyboardInjectedInput(a1, a2, 0LL);
+                       *(_DWORD *)(a2 + 400)) )
+    ProcessKeyboardInjectedInput(a1, (_QWORD *)a2, 0LL);
   else
-    return InputTraceLogging::Keyboard::DropInput(0LL);
+    InputTraceLogging::Keyboard::DropInput();
 }

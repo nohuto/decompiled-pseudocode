@@ -1,11 +1,10 @@
 /*
- * XREFs of SeComputeQuotaInformationSize @ 0x140728BF0
+ * XREFs of SeComputeQuotaInformationSize @ 0x1406D8990
  * Callers:
- *     ObSetSecurityDescriptorInfo @ 0x14069E860 (ObSetSecurityDescriptorInfo.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7110 (ObpIncrementHandleCountEx.c)
- *     ObpCaptureObjectCreateInformation @ 0x1406EEFC0 (ObpCaptureObjectCreateInformation.c)
- *     SeDefaultObjectMethod @ 0x140729020 (SeDefaultObjectMethod.c)
- *     ObpChargeQuotaForObject @ 0x14075C554 (ObpChargeQuotaForObject.c)
+ *     ObpIncrementHandleCountEx @ 0x140643680 (ObpIncrementHandleCountEx.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406CF200 (ObpCaptureObjectCreateInformation.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406D8070 (ObSetSecurityDescriptorInfo.c)
+ *     ObpChargeQuotaForObject @ 0x1406D8FF8 (ObpChargeQuotaForObject.c)
  * Callees:
  *     <none>
  */
@@ -13,43 +12,43 @@
 __int64 __fastcall SeComputeQuotaInformationSize(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // rax
-  __int16 v3; // r9
-  __int64 v4; // r8
-  __int64 v5; // r8
+  __int16 v4; // dx
+  __int64 v5; // r9
   __int64 v6; // r9
+  __int64 v7; // rdx
 
   v2 = 0LL;
   *a2 = 0;
   if ( *(_BYTE *)a1 != 1 )
     return 3221225560LL;
-  v3 = *(_WORD *)(a1 + 2);
-  if ( v3 >= 0 )
+  v4 = *(_WORD *)(a1 + 2);
+  if ( v4 >= 0 )
   {
-    v5 = *(_QWORD *)(a1 + 16);
+    v6 = *(_QWORD *)(a1 + 16);
   }
   else
   {
-    v4 = *(unsigned int *)(a1 + 8);
-    if ( (_DWORD)v4 )
-      v5 = a1 + v4;
+    v5 = *(unsigned int *)(a1 + 8);
+    if ( (_DWORD)v5 )
+      v6 = a1 + v5;
     else
-      v5 = 0LL;
+      v6 = 0LL;
   }
-  if ( (v3 & 4) != 0 )
+  if ( (v4 & 4) != 0 )
   {
-    if ( v3 >= 0 )
+    if ( v4 >= 0 )
     {
       v2 = *(_QWORD *)(a1 + 32);
     }
     else
     {
-      v6 = *(unsigned int *)(a1 + 16);
-      if ( (_DWORD)v6 )
-        v2 = a1 + v6;
+      v7 = *(unsigned int *)(a1 + 16);
+      if ( (_DWORD)v7 )
+        v2 = a1 + v7;
     }
   }
-  if ( v5 )
-    *a2 = (4 * *(unsigned __int8 *)(v5 + 1) + 11) & 0xFFFFFFFC;
+  if ( v6 )
+    *a2 = (4 * *(unsigned __int8 *)(v6 + 1) + 11) & 0xFFFFFFFC;
   if ( v2 )
     *a2 += (*(unsigned __int16 *)(v2 + 2) + 3) & 0xFFFFFFFC;
   return 0LL;

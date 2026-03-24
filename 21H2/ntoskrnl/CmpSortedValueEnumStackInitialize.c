@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSortedValueEnumStackInitialize @ 0x14069F4C8
+ * XREFs of CmpSortedValueEnumStackInitialize @ 0x14087B8C4
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x1402260D0 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECE88 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall CmpSortedValueEnumStackInitialize(__int64 a1)

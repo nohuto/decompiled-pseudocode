@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeBackgroundActivityModeratorCallouts @ 0x140B1E364
+ * XREFs of PspInitializeBackgroundActivityModeratorCallouts @ 0x140A47BDC
  * Callers:
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x1408486C4 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeBackgroundActivityModeratorCallouts(__int64 a1, __int64 a2)
@@ -15,9 +15,9 @@ __int64 __fastcall PspInitializeBackgroundActivityModeratorCallouts(__int64 a1, 
   __int64 v6; // [rsp+38h] [rbp-20h]
   __int64 v7; // [rsp+40h] [rbp-18h]
 
-  v3[1] = 5;
+  v3[1] = 6;
   v4 = 512LL;
-  v3[0] = 917509;
+  v3[0] = 851973;
   v5 = PspBamHostInterface;
   v6 = 0LL;
   v7 = 0LL;

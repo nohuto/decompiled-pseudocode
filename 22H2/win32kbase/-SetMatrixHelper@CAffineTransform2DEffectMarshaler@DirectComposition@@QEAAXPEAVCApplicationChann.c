@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetMatrixHelper@CAffineTransform2DEffectMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEBUD2D_MATRIX_3X2_F@@PEA_N@Z @ 0x1C0212794
+ * XREFs of ?SetMatrixHelper@CAffineTransform2DEffectMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEBUD2D_MATRIX_3X2_F@@PEA_N@Z @ 0x1C01E3944
  * Callers:
- *     ?SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0212670 (-SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
+ *     ?SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E3820 (-SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00656B0 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0094868 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetMatrixHelper(
@@ -29,7 +29,7 @@ void __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetMatrixH
     *(_OWORD *)((char *)this + 120) = *(_OWORD *)a3;
     *((_QWORD *)this + 17) = *((_QWORD *)a3 + 2);
   }
-  if ( *((_QWORD *)this + 5) )
+  if ( *((_QWORD *)this + 4) )
   {
     DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
     v5 = 1;

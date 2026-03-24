@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CommitPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C009FF38
+ * XREFs of ?CommitPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0088760
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008AF00 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00705F0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C0014DA8 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C00873F0 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C00148E0 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C006ECA0 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
  */
 
 __int64 __fastcall VIDMM_PAGE_DIRECTORY::CommitPageDirectory(
@@ -22,7 +22,7 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::CommitPageDirectory(
   __int64 result; // rax
   __int64 **v12; // rdx
   unsigned __int64 v13; // rcx
-  char v14; // [rsp+60h] [rbp+18h] BYREF
+  bool v14; // [rsp+60h] [rbp+18h] BYREF
 
   *a3 = 0LL;
   if ( VIDMM_PAGE_TABLE_BASE::IsResident((VIDMM_PAGE_TABLE_BASE *)this) )
@@ -31,20 +31,20 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::CommitPageDirectory(
   if ( !v7 )
     return 0LL;
   v8 = *((_QWORD *)a2 + 11);
-  *(_BYTE *)(v7 + 82) = 0;
+  *(_BYTE *)(v7 + 89) = 0;
   v9 = this[3];
   v10 = (*((_DWORD *)a2 + 36) & 4) != 0;
   v14 = 0;
-  result = VIDMM_GLOBAL::PageInOneAllocation(v8, v9, v10 ? 0 : 7, 0LL, &v14, v6, 0, -1LL);
+  result = VIDMM_GLOBAL::PageInOneAllocation(v8, v9, v10 ? 0 : 7, 0, &v14, v6, 0, -1LL);
   if ( v14 )
-    return 3221226029LL;
+    result = 3221226029LL;
   if ( (int)result >= 0 )
   {
     v12 = this[2];
-    if ( (v12[15][10] & 0x1000) != 0 )
-      this[2][16] = (__int64 *)(*(__int64 (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(v12[11][1] + 24) + 104LL))(
-                                 *(_QWORD *)(v12[11][1] + 24),
-                                 v12[11][3]);
+    if ( (v12[16][10] & 0x1000) != 0 )
+      this[2][17] = (__int64 *)(*(__int64 (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(v12[12][1] + 24) + 104LL))(
+                                 *(_QWORD *)(v12[12][1] + 24),
+                                 v12[12][3]);
     v13 = *(unsigned int *)this;
     if ( (v13 & 0x10) != 0 )
       ++*(_QWORD *)(32 * ((v13 >> 7) & 0x1F) + *((_QWORD *)a2 + 15) + 8);

@@ -1,32 +1,32 @@
 /*
- * XREFs of ?HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z @ 0x1C00B4650
+ * XREFs of ?HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z @ 0x1C00A3F70
  * Callers:
  *     <none>
  * Callees:
- *     RIMDirectPnpRemoveUserModeRimDevices @ 0x1C00B4690 (RIMDirectPnpRemoveUserModeRimDevices.c)
- *     RIMDirectStopUserModeRimDeviceClassNotifications @ 0x1C00B4790 (RIMDirectStopUserModeRimDeviceClassNotifications.c)
- *     RIMDirectStartUserModeRimDeviceClassNotifications @ 0x1C00D3FB0 (RIMDirectStartUserModeRimDeviceClassNotifications.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMDirectStopUserModeRimDeviceClassNotifications @ 0x1C00A3FAC (RIMDirectStopUserModeRimDeviceClassNotifications.c)
+ *     RIMDirectPnpRemoveUserModeRimDevices @ 0x1C00A4034 (RIMDirectPnpRemoveUserModeRimDevices.c)
+ *     RIMDirectStartUserModeRimDeviceClassNotifications @ 0x1C00C4B90 (RIMDirectStartUserModeRimDeviceClassNotifications.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CHidInput::HandleTSRequestForUserModeRimDevices(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall CHidInput::HandleTSRequestForUserModeRimDevices(__int64 a1, int a2)
 {
+  int v2; // edx
   int v3; // edx
-  __int64 v4; // rdx
   __int64 result; // rax
 
   if ( a2 )
   {
-    v3 = a2 - 1;
-    if ( v3 )
+    v2 = a2 - 1;
+    if ( v2 )
     {
-      v4 = (unsigned int)(v3 - 1);
-      if ( (_DWORD)v4 )
+      v3 = v2 - 1;
+      if ( v3 )
       {
-        if ( (_DWORD)v4 == 1 )
+        if ( v3 == 1 )
           return RIMDirectStopUserModeRimDeviceClassNotifications();
         else
-          return MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v4, a3);
+          return MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 909LL);
       }
       else
       {

@@ -1,5 +1,5 @@
 /*
- * XREFs of DwmAsyncNotifySessionConnected @ 0x1C00BCFB0
+ * XREFs of DwmAsyncNotifySessionConnected @ 0x1C01356F0
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ __int64 __fastcall DwmAsyncNotifySessionConnected(PVOID Object)
   v2 = -1073741823;
   if ( Object )
   {
-    v6 = 1073741874;
+    v6 = 1073741873;
     v5 = 0LL;
     memset(v4, 0, sizeof(v4));
     LODWORD(v4[0]) = 2883588;

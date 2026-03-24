@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MarkLastInputAsJournalling@CInputGlobals@@QEAAXXZ @ 0x1C01DC8A0
+ * XREFs of ?MarkLastInputAsJournalling@CInputGlobals@@QEAAXXZ @ 0x1C01A3690
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
 void __fastcall CInputGlobals::MarkLastInputAsJournalling(CInputGlobals *this)

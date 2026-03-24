@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadBudgetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B5144
+ * XREFs of ?ReadBudgetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0094994
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
@@ -383,15 +383,15 @@ void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
   v193 = 0LL;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v58, 0LL, 0LL);
   v1 = v27;
-  qword_1C006E430 = v57;
-  dword_1C006E470 = v24;
+  qword_1C00503C0 = v57;
+  dword_1C0050400 = v24;
   v2 = 100;
   if ( v19 < 0x64 )
     v2 = v19;
-  dword_1C006E474 = v2;
+  dword_1C0050404 = v2;
   if ( v20 < v2 )
     v2 = v20;
-  dword_1C006E478 = v2;
+  dword_1C0050408 = v2;
   v3 = v25;
   if ( v26 > v25 )
     v3 = v26;
@@ -403,60 +403,60 @@ void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
     v1 = 1200000;
   v4 = 10000 * v28;
   v5 = 10000 * v26;
-  dword_1C006E488 = 10000 * v28;
-  dword_1C006E47C = 10000 * v3;
-  dword_1C006E484 = 10000 * v26;
-  dword_1C006E480 = 10000 * v1;
+  dword_1C0050418 = 10000 * v28;
+  dword_1C005040C = 10000 * v3;
+  dword_1C0050414 = 10000 * v26;
+  dword_1C0050410 = 10000 * v1;
   if ( 10000 * v26 <= 0xEA60 )
   {
     if ( v5 < 0x10 )
     {
       v5 = 16;
-      dword_1C006E484 = 16;
+      dword_1C0050414 = 16;
     }
   }
   else
   {
     v5 = 60000;
-    dword_1C006E484 = 60000;
+    dword_1C0050414 = 60000;
   }
   if ( v4 < 0x10 )
   {
-    dword_1C006E488 = 16;
+    dword_1C0050418 = 16;
   }
   else if ( v4 >= v5 )
   {
-    dword_1C006E488 = v5;
+    dword_1C0050418 = v5;
   }
   v6 = 50;
   if ( v21 < 0x32 )
     v6 = v21;
-  dword_1C006E48C = v6;
+  dword_1C005041C = v6;
   v7 = 50;
   if ( v22 < 0x32 )
     v7 = v22;
-  dword_1C006E490 = v7;
+  dword_1C0050420 = v7;
   if ( v23 < 0x32 )
     v0 = v23;
   v8 = (unsigned __int64)v29 << 20;
-  dword_1C006E494 = v0;
+  dword_1C0050424 = v0;
   if ( v8 < 0x2000000 )
     v8 = 0x2000000LL;
-  qword_1C006E498 = v8;
+  qword_1C0050428 = v8;
   v9 = (unsigned __int64)v30 << 20;
   if ( v9 < 0x2000000 )
     v9 = 0x2000000LL;
-  qword_1C006E4A0 = v9;
+  qword_1C0050430 = v9;
   if ( v31 <= 4 )
   {
-    dword_1C006E54C = 5;
+    dword_1C00504DC = 5;
   }
   else
   {
     v10 = v31;
     if ( v31 > 0x5A )
       v10 = 90;
-    dword_1C006E54C = v10;
+    dword_1C00504DC = v10;
   }
   v11 = v32;
   v12 = v32;
@@ -464,24 +464,24 @@ void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
     v12 = 95 - v31;
   if ( v12 < 5 )
   {
-    dword_1C006E548 = 5;
+    dword_1C00504D8 = 5;
   }
   else
   {
     if ( 95 - v31 < v32 )
       v11 = 95 - v31;
-    dword_1C006E548 = v11;
+    dword_1C00504D8 = v11;
   }
   if ( v33 <= 4 )
   {
-    dword_1C006E554 = 5;
+    dword_1C00504E4 = 5;
   }
   else
   {
     v13 = v33;
     if ( v33 > 0x5A )
       v13 = 90;
-    dword_1C006E554 = v13;
+    dword_1C00504E4 = v13;
   }
   v14 = v34;
   v15 = v34;
@@ -489,24 +489,24 @@ void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
     v15 = 95 - v33;
   if ( v15 < 5 )
   {
-    dword_1C006E550 = 5;
+    dword_1C00504E0 = 5;
   }
   else
   {
     if ( 95 - v33 < v34 )
       v14 = 95 - v33;
-    dword_1C006E550 = v14;
+    dword_1C00504E0 = v14;
   }
   if ( v35 <= 4 )
   {
-    dword_1C006E55C = 5;
+    dword_1C00504EC = 5;
   }
   else
   {
     v16 = v35;
     if ( v35 > 0x5A )
       v16 = 90;
-    dword_1C006E55C = v16;
+    dword_1C00504EC = v16;
   }
   v17 = v36;
   v18 = v36;
@@ -514,12 +514,12 @@ void VIDMM_GLOBAL::ReadBudgetConfiguration(void)
     v18 = 95 - v35;
   if ( v18 < 5 )
   {
-    dword_1C006E558 = 5;
+    dword_1C00504E8 = 5;
   }
   else
   {
     if ( 95 - v35 < v36 )
       v17 = 95 - v35;
-    dword_1C006E558 = v17;
+    dword_1C00504E8 = v17;
   }
 }

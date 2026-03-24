@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpRecoverDataReadRoutine @ 0x1407F81A0
+ * XREFs of HvpRecoverDataReadRoutine @ 0x1407F8180
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140806794 (HvpApplyIncrementalLogFile.c)
- *     HvpApplyLegacyLogFile @ 0x1408069B0 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140806774 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140806990 (HvpApplyLegacyLogFile.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvpRecoverDataReadRoutine(unsigned int *a1, unsigned int a2, unsigned int a3, _QWORD *a4)

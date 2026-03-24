@@ -1,65 +1,71 @@
 /*
- * XREFs of MiMarkMdlComplete @ 0x1406327F8
+ * XREFs of MiMarkMdlComplete @ 0x140539B00
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x140A31478 (MiReplaceRotateWithDemandZero.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiLocateLockedVadEvent @ 0x14030B2F4 (MiLocateLockedVadEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLocateLockedVadEvent @ 0x14027EA4C (MiLocateLockedVadEvent.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiMarkMdlComplete(__int64 a1, __int64 a2)
 {
-  unsigned __int64 LockedVadEvent; // rax
-  __int64 v3; // r8
-  _QWORD *v4; // r15
-  unsigned __int64 v5; // rsi
-  unsigned int v6; // ebp
-  __int64 i; // rdi
-  __int64 v8; // rbx
-  unsigned __int64 v9; // r14
+  __int64 **LockedVadEvent; // rax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  _DWORD *SchedulerAssist; // r9
+  _QWORD *v6; // r15
+  unsigned __int64 v7; // rsi
+  unsigned int v8; // ebp
+  __int64 *i; // rdi
+  __int64 v10; // rbx
+  unsigned __int64 v11; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
-  bool v15; // cc
+  int v14; // eax
+  bool v15; // zf
+  bool v16; // cc
 
   LockedVadEvent = MiLocateLockedVadEvent(a2, 8);
-  v4 = (_QWORD *)(v3 + 48);
-  v5 = (unsigned __int64)*(unsigned int *)(v3 + 40) >> 12;
-  v6 = 0;
-  for ( i = *(_QWORD *)(LockedVadEvent + 8); v6 < v5; LODWORD(LockedVadEvent) = v6 )
+  v6 = (_QWORD *)(v4 + 48);
+  v7 = (unsigned __int64)*(unsigned int *)(v4 + 40) >> 12;
+  v8 = 0;
+  for ( i = LockedVadEvent[1]; v8 < v7; LODWORD(LockedVadEvent) = v8 )
   {
-    v8 = 48LL * *v4 - 0x220000000000LL;
-    v9 = (unsigned __int8)MiLockPageInline(v8);
-    *(_BYTE *)(v8 + 34) |= 0x10u;
-    *(_BYTE *)(v8 + 34) &= ~0x20u;
-    *(_QWORD *)v8 = 0LL;
-    _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    v10 = 48LL * *v6 - 0x58000000000LL;
+    v11 = (unsigned __int8)MiLockPageInline(v10, v3, v4, SchedulerAssist);
+    *(_BYTE *)(v10 + 34) |= 0x10u;
+    *(_BYTE *)(v10 + 34) &= ~0x20u;
+    *(_QWORD *)v10 = 0LL;
+    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v14 = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v3 = -1LL << ((unsigned __int8)v11 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)v3;
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          v4 = (unsigned int)v14 & SchedulerAssist[5];
+          SchedulerAssist[5] = v4;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v9);
+    __writecr8(v11);
+    ++v8;
     ++v6;
-    ++v4;
   }
-  *(_QWORD *)(i + 88) = 0LL;
-  v15 = *(_DWORD *)(i + 176) <= 1;
-  *(_DWORD *)(i + 80) = -1073741670;
-  if ( !v15 )
-    LODWORD(LockedVadEvent) = KeSetEvent((PRKEVENT)(i + 56), 0, 0);
-  return LockedVadEvent;
+  i[11] = 0LL;
+  v16 = *((_DWORD *)i + 44) <= 1;
+  *((_DWORD *)i + 20) = -1073741670;
+  if ( !v16 )
+    LODWORD(LockedVadEvent) = KeSetEvent((PRKEVENT)(i + 7), 0, 0);
+  return (int)LockedVadEvent;
 }

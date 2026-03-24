@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CRotateTransform3DGeneratedT@VCRotateTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C49E0
+ * XREFs of ?GetProperty@?$CRotateTransform3DGeneratedT@VCRotateTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016E950
  * Callers:
  *     <none>
  * Callees:
@@ -39,36 +39,36 @@ __int64 __fastcall CRotateTransform3DGeneratedT<CRotateTransform3D,CTransform3D>
             {
               if ( v8 != 1 )
                 return 2147942487LL;
-              v9 = a1[46];
+              v9 = a1[44];
             }
             else
             {
-              v9 = a1[45];
+              v9 = a1[43];
             }
           }
           else
           {
-            v9 = a1[44];
+            v9 = a1[42];
           }
         }
         else
         {
-          v9 = a1[43];
+          v9 = a1[41];
         }
       }
       else
       {
-        v9 = a1[42];
+        v9 = a1[40];
       }
     }
     else
     {
-      v9 = a1[41];
+      v9 = a1[39];
     }
   }
   else
   {
-    v9 = a1[40];
+    v9 = a1[38];
   }
   *(_DWORD *)a3 = v9;
   *(_DWORD *)(a3 + 72) = 18;

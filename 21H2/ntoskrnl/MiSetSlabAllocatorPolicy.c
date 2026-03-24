@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetSlabAllocatorPolicy @ 0x1403C3F28
+ * XREFs of MiSetSlabAllocatorPolicy @ 0x1403B7458
  * Callers:
- *     MiMakePartitionActive @ 0x14036C978 (MiMakePartitionActive.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiMakePartitionActive @ 0x1402E5DA8 (MiMakePartitionActive.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetSlabAllocatorPolicy(__int64 a1)
@@ -20,11 +20,9 @@ __int64 __fastcall MiSetSlabAllocatorPolicy(__int64 a1)
 
   result = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( dword_140D05214 != 1
-    && (MiFlags & 0x4000) != 0
-    && (*(_QWORD *)(a1 + 16720) >= 0xED800uLL || dword_140D05214 == 2) )
+  if ( dword_140CFB1D4 != 1 && (MiFlags & 0x8000) != 0 && (*(_QWORD *)(a1 + 6928) >= 0xED800uLL || dword_140CFB1D4 == 2) )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140C51F00, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
     *(_DWORD *)(a1 + 4) |= 8u;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     result = (unsigned int)KiIrqlFlags;

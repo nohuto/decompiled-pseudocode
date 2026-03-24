@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCoverageResetCP @ 0x1408B6C28
+ * XREFs of EtwpCoverageResetCP @ 0x1408B6C08
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageTableLocateInternal @ 0x14012A638 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14012A68C (EtwpCoverageValidateCP.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A748 (TelemetryCoverageStringHashInternal.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x14012A658 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x14012A6AC (EtwpCoverageValidateCP.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCoverageFlushPending @ 0x140684830 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
  */
 
 __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
@@ -46,11 +46,11 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
   PoolWithTag = 0LL;
   v3 = 0;
   *(_DWORD *)(a2 + 12) = 0;
-  if ( (unsigned int)dword_140401CBC < MEMORY[0xFFFFF7800000037C] )
+  if ( (unsigned int)dword_140401CD4 < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140401CB8 )
-      dword_140401CB8 = TelemetryCoverageStringHashInternal(off_140401CB0, &v25);
-    EtwTelemetryCoverageReport(&off_140401CB0);
+    if ( !dword_140401CD0 )
+      dword_140401CD0 = TelemetryCoverageStringHashInternal(off_140401CC8, &v25);
+    EtwTelemetryCoverageReport(&off_140401CC8);
   }
   if ( (unsigned int)EtwpCoverageValidateCP((_QWORD *)a2, &v24) )
   {

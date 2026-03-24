@@ -1,68 +1,60 @@
 /*
- * XREFs of CmpIsKeyStackDeleted @ 0x1406D3F5C
+ * XREFs of CmpIsKeyStackDeleted @ 0x140648C60
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x140693570 (CmpDoWritethroughReparse.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpCreateKeyBody @ 0x14072F7D0 (CmpCreateKeyBody.c)
- *     CmpEnlistKeyBody @ 0x1407C07FC (CmpEnlistKeyBody.c)
- *     CmpIsKeyDeleted @ 0x1407CB78C (CmpIsKeyDeleted.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpPromoteKey @ 0x140A2665C (CmpPromoteKey.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     CmpDoWritethroughReparse @ 0x1406CDE40 (CmpDoWritethroughReparse.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpIsKeyDeleted @ 0x1406E9D20 (CmpIsKeyDeleted.c)
+ *     CmpPromoteKey @ 0x140880318 (CmpPromoteKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmEqualTrans @ 0x1407696D0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14071CD40 (CmEqualTrans.c)
  */
 
-bool __fastcall CmpIsKeyStackDeleted(__int64 a1)
+char __fastcall CmpIsKeyStackDeleted(__int64 a1, __int64 a2)
 {
-  __int16 v1; // dx
-  __int64 v2; // r8
-  __int64 KcbAtLayerHeight; // rax
-  __int16 v4; // dx
-  __int64 v5; // r9
-  __int64 v7; // r10
-  __int64 v8; // r8
-  int v9; // ecx
+  __int16 v2; // r8
+  __int64 v4; // rcx
   __int64 NextElement; // rax
-  __int64 v11; // r9
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // r9
+  __int64 v7; // r10
+  int v8; // ecx
+  __int64 i; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_WORD *)(a1 + 2);
-  v2 = a1;
-  v12 = 0LL;
-  if ( v1 >= 0 )
+  v2 = *(_WORD *)(a1 + 2);
+  for ( i = 0LL; v2 >= 0; --v2 )
   {
-    do
+    v4 = v2 < 2 ? *(_QWORD *)(a1 + 8LL * v2 + 8) : *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * v2 - 16);
+    if ( *(_WORD *)(v4 + 66) && *(_BYTE *)(v4 + 65) == 1 )
+      break;
+    if ( *(_DWORD *)(v4 + 40) != -1 )
     {
-      KcbAtLayerHeight = CmpGetKcbAtLayerHeight(v2);
-      if ( *(_WORD *)(KcbAtLayerHeight + 66) )
+      if ( !a2 )
+        goto LABEL_17;
+      NextElement = CmListGetNextElement(*(_QWORD *)(a1 + 8) + 208LL, &i, 32LL);
+      if ( !NextElement )
+        goto LABEL_17;
+      while ( 1 )
       {
-        if ( *(_BYTE *)(KcbAtLayerHeight + 65) == 1 )
+        v8 = *(_DWORD *)(NextElement + 68);
+        if ( v8 == 2 || v8 == 11 )
           break;
+        NextElement = CmListGetNextElement(v6 + 208, &i, 32LL);
+        if ( !NextElement )
+          return NextElement;
       }
-      if ( *(_DWORD *)(KcbAtLayerHeight + 40) != -1 )
+      if ( !(unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v7) )
       {
-        if ( v5 )
-        {
-          v7 = *(_QWORD *)(v2 + 8);
-          v8 = 32LL;
-          while ( 1 )
-          {
-            NextElement = CmListGetNextElement(v7 + 208, &v12, v8);
-            if ( !NextElement )
-              break;
-            v9 = *(_DWORD *)(NextElement + 68);
-            if ( v9 == 2 || v9 == 11 )
-              return (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v11) != 0;
-          }
-        }
-        return 0;
+LABEL_17:
+        LOBYTE(NextElement) = 0;
+        return NextElement;
       }
+      break;
     }
-    while ( (__int16)(v4 - 1) >= 0 );
   }
-  return 1;
+  LOBYTE(NextElement) = 1;
+  return NextElement;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxRestoreCsrssThreadDesktop @ 0x1C00A64D0
+ * XREFs of xxxRestoreCsrssThreadDesktop @ 0x1C00D91B0
  * Callers:
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
- *     xxxQueryInformationThread @ 0x1C00FC914 (xxxQueryInformationThread.c)
- *     xxxHardErrorControl @ 0x1C023CD7C (xxxHardErrorControl.c)
+ *     xxxQueryInformationThread @ 0x1C00D8398 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C0241E6C (xxxHardErrorControl.c)
  * Callees:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     CloseProtectedHandle @ 0x1C00A6598 (CloseProtectedHandle.c)
- *     xxxSetThreadDesktop @ 0x1C00A9A4C (xxxSetThreadDesktop.c)
- *     SendMsgCleanup @ 0x1C00F7EF0 (SendMsgCleanup.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     CloseProtectedHandle @ 0x1C00D93E8 (CloseProtectedHandle.c)
+ *     xxxSetThreadDesktop @ 0x1C00D95C0 (xxxSetThreadDesktop.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
+ *     SendMsgCleanup @ 0x1C00DA490 (SendMsgCleanup.c)
  */
 
 __int64 __fastcall xxxRestoreCsrssThreadDesktop(_QWORD *a1, char a2)
@@ -32,7 +32,7 @@ __int64 __fastcall xxxRestoreCsrssThreadDesktop(_QWORD *a1, char a2)
   {
     if ( v5 )
     {
-      while ( (unsigned int)xxxInternalGetMessage(v10, 0LL, 0, 0, 3, 0) )
+      while ( (unsigned int)xxxInternalGetMessage((unsigned int)v10, 0, 0, 0, 3, 0) )
         xxxDispatchMessage((__int64)v10);
       if ( (a2 & 1) != 0 )
         SendMsgCleanup(gptiCurrent);

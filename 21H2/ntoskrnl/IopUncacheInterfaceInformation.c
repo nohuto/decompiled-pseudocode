@@ -1,15 +1,15 @@
 /*
- * XREFs of IopUncacheInterfaceInformation @ 0x1407490C0
+ * XREFs of IopUncacheInterfaceInformation @ 0x14073E3F8
  * Callers:
- *     PipProcessStartPhase1 @ 0x1407491FC (PipProcessStartPhase1.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     IopDestroyDeviceNode @ 0x140774F24 (IopDestroyDeviceNode.c)
+ *     IopDestroyDeviceNode @ 0x1406B3034 (IopDestroyDeviceNode.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopUncacheInterfaceInformation(__int64 a1, int a2)
@@ -71,6 +71,6 @@ void __fastcall IopUncacheInterfaceInformation(__int64 a1, int a2)
   if ( a2 )
   {
     KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
 }

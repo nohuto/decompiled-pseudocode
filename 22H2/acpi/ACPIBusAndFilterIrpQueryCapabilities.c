@@ -1,282 +1,294 @@
 /*
- * XREFs of ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7B0
+ * XREFs of ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     ACPIGetD3Policy @ 0x1C0043A70 (ACPIGetD3Policy.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNSObjectType @ 0x1C00483C8 (AMLIGetNSObjectType.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     AMLIIsNamedChildPresent @ 0x1C00487DC (AMLIIsNamedChildPresent.c)
- *     AcpiCheckSecureDevice @ 0x1C0094C18 (AcpiCheckSecureDevice.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952FC (ACPISystemPowerQueryDeviceCapabilities.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098144 (ACPIProcessPhysicalDeviceLocation.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIGetD3Policy @ 0x1C0020DE8 (ACPIGetD3Policy.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     AcpiIsDeviceSecure @ 0x1C00A264C (AcpiIsDeviceSecure.c)
  */
 
 __int64 __fastcall ACPIBusAndFilterIrpQueryCapabilities(ULONG_PTR a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rdi
-  char v5; // bl
-  char v6; // r15
-  unsigned __int8 v8; // r12
+  char v5; // r14
+  char v6; // si
+  unsigned __int8 v8; // r15
   __int64 DeviceExtension; // rax
-  __int64 v10; // rcx
-  ULONG_PTR v11; // rsi
-  const char *v12; // rdi
-  int DeviceCapabilities; // r14d
-  _QWORD *v14; // r15
-  _DWORD *v15; // rdi
-  const signed __int64 *v16; // r12
-  __int64 *v17; // rax
-  volatile signed __int32 *v18; // r14
-  __int64 v19; // rdx
-  int v20; // eax
-  int v21; // eax
-  char v22; // r13
-  int v23; // ecx
-  unsigned int v24; // ecx
-  const char *v25; // rdx
-  const char *v26; // rcx
-  unsigned __int16 v27; // r9
-  int v28; // edx
-  signed __int64 v29; // rax
+  const char *v10; // r13
+  __int64 *v11; // rbx
+  __int64 *v12; // rsi
+  _DWORD *v13; // r15
+  __int64 *v14; // rax
+  __int64 v15; // rdi
+  int DeviceCapabilities; // edi
+  char v17; // r12
+  __int64 v18; // rax
   char *IrpText; // rax
-  const char *v31; // r8
-  __int64 v32; // r10
-  unsigned __int8 v35; // [rsp+61h] [rbp-48h]
-  bool v36; // [rsp+62h] [rbp-47h] BYREF
-  int v37; // [rsp+64h] [rbp-45h] BYREF
-  __int64 v38; // [rsp+68h] [rbp-41h]
-  __int64 v39; // [rsp+70h] [rbp-39h] BYREF
-  __int128 *v40; // [rsp+78h] [rbp-31h] BYREF
-  __int64 v41; // [rsp+80h] [rbp-29h] BYREF
-  __int64 v42; // [rsp+88h] [rbp-21h] BYREF
-  __int64 v43; // [rsp+90h] [rbp-19h] BYREF
-  __int128 v44; // [rsp+98h] [rbp-11h] BYREF
-  __int128 v45; // [rsp+A8h] [rbp-1h] BYREF
-  int v46; // [rsp+B8h] [rbp+Fh]
+  const char *v20; // r8
+  __int64 v21; // r10
+  int v23; // eax
+  bool v24; // zf
+  __int64 v25; // rax
+  int v26; // ecx
+  unsigned int v27; // ecx
+  int v28; // edx
+  int v29; // ecx
+  int v30; // eax
+  int v31; // eax
+  __int64 v32; // rax
+  char *v33; // rdx
+  char *v34; // rcx
+  unsigned __int16 v35; // r9
+  __int64 v36; // rax
+  unsigned __int8 v37; // [rsp+60h] [rbp-49h]
+  bool v39; // [rsp+62h] [rbp-47h] BYREF
+  __int64 v40; // [rsp+68h] [rbp-41h]
+  int v41; // [rsp+70h] [rbp-39h] BYREF
+  __int64 v42; // [rsp+78h] [rbp-31h] BYREF
+  __int128 *v43; // [rsp+80h] [rbp-29h] BYREF
+  __int64 v44; // [rsp+88h] [rbp-21h] BYREF
+  __int64 v45; // [rsp+90h] [rbp-19h] BYREF
+  __int64 v46; // [rsp+98h] [rbp-11h] BYREF
+  __int128 v47; // [rsp+A0h] [rbp-9h] BYREF
+  __int128 v48; // [rsp+B0h] [rbp+7h] BYREF
+  int v49; // [rsp+C0h] [rbp+17h]
 
   v4 = *(_QWORD *)(a2 + 184);
   v5 = 0;
-  v43 = 0LL;
-  v41 = 0LL;
-  v42 = 0LL;
-  v39 = 0LL;
-  v6 = a2;
-  v37 = 0;
+  v46 = 0LL;
   v44 = 0LL;
-  v40 = 0LL;
-  v8 = *(_BYTE *)(v4 + 1);
-  v35 = v8;
-  v38 = a2;
-  v36 = 0;
   v45 = 0LL;
-  v46 = 0;
+  v42 = 0LL;
+  v6 = a2;
+  v41 = 0;
+  v47 = 0LL;
+  v43 = 0LL;
+  v8 = *(_BYTE *)(v4 + 1);
+  v37 = v8;
+  v40 = a2;
+  v39 = 0;
+  v48 = 0LL;
+  v49 = 0;
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v11 = DeviceExtension;
+  v10 = byte_1C00701BA;
+  v11 = (__int64 *)DeviceExtension;
   if ( !DeviceExtension )
   {
-    v12 = byte_1C00622D0;
     DeviceCapabilities = -1073741823;
-    goto LABEL_81;
+    goto LABEL_33;
   }
-  v14 = *(_QWORD **)(DeviceExtension + 760);
-  if ( (*(_DWORD *)(DeviceExtension + 1008) & 0x800LL) != 0 && ACPIGetD3Policy(DeviceExtension, &v36) >= 0 && v36 )
-    *(_QWORD *)(v11 + 8) &= ~0x800uLL;
-  v15 = *(_DWORD **)(v4 + 8);
-  v16 = (const signed __int64 *)(v11 + 8);
-  if ( !_bittest64((const signed __int64 *)(v11 + 8), 0x27u) )
+  v12 = *(__int64 **)(DeviceExtension + 720);
+  if ( (*(_DWORD *)(DeviceExtension + 960) & 0x800LL) != 0 && ACPIGetD3Policy(DeviceExtension, &v39) >= 0 && v39 )
+    v11[1] &= ~0x800uLL;
+  v13 = *(_DWORD **)(v4 + 8);
+  if ( (v11[1] & 0x8000000000LL) == 0 )
   {
-    v17 = AMLIGetNamedChild(v14, 1447907935);
-    v18 = (volatile signed __int32 *)v17;
-    if ( v17 )
+    v14 = AMLIGetNamedChild(v12, 1447907935);
+    v15 = (__int64)v14;
+    if ( v14 )
     {
-      if ( (unsigned int)AMLIGetNSObjectType((__int64)v17) == 8 )
+      if ( (unsigned int)AMLIGetNSObjectType((__int64)v14) == 8 )
       {
-        if ( (int)ACPIGet(v11, 0x564D525Fu, 268713986, 0LL, 0, 0LL, 0LL, (__int64)&v39, 0LL) < 0 )
-          v15[1] |= 0x10u;
-        else
-          v15[1] = (v39 != 0 ? 0x10 : 0) | v15[1] & 0xFFFFFFEF;
-        AMLIDereferenceHandleEx(v18, v19);
-      }
-      else
-      {
-        v15[1] |= 0x10u;
-      }
-    }
-    if ( !ACPIDockIsDockDevice() )
-    {
-      if ( AMLIIsNamedChildPresent(v14, 810173791) )
-      {
-        v20 = v15[1];
-        if ( (v20 & 0x10) == 0 )
-          v20 |= 0x40000u;
-        v15[1] = v20 | 0x18;
-      }
-      if ( AMLIIsNamedChildPresent(v14, 826951007)
-        || AMLIIsNamedChildPresent(v14, 843728223)
-        || AMLIIsNamedChildPresent(v14, 860505439)
-        || AMLIIsNamedChildPresent(v14, 877282655) )
-      {
-        v21 = v15[1];
-        if ( (v21 & 0x10) == 0 )
+        if ( (int)ACPIGet(v11, 1447907935, 268713986, 0LL, 0, 0LL, 0LL, (__int64)&v42, 0LL) < 0 )
         {
-          v21 |= 0x40000u;
-          v15[1] = v21;
+          v13[1] |= 0x10u;
         }
-        v15[1] = v21 | 0x10010;
+        else
+        {
+          v29 = 0;
+          if ( v42 )
+            v29 = 16;
+          v13[1] = v29 | v13[1] & 0xFFFFFFEF;
+        }
+        AMLIDereferenceHandleEx(v15);
+      }
+      else
+      {
+        v13[1] |= 0x10u;
+      }
+    }
+    if ( !ACPIDockIsDockDevice(v12) )
+    {
+      if ( AMLIIsNamedChildPresent(v12, 810173791) )
+      {
+        v30 = v13[1];
+        if ( (v30 & 0x10) == 0 )
+          v30 |= 0x40000u;
+        v13[1] = v30 | 0x18;
+      }
+      if ( AMLIIsNamedChildPresent(v12, 826951007)
+        || AMLIIsNamedChildPresent(v12, 843728223)
+        || AMLIIsNamedChildPresent(v12, 860505439)
+        || AMLIIsNamedChildPresent(v12, 877282655) )
+      {
+        v31 = v13[1];
+        if ( (v31 & 0x10) == 0 )
+          v31 |= 0x40000u;
+        v13[1] = v31 | 0x10010;
       }
     }
   }
-  if ( AMLIIsNamedChildPresent(v14, 1129466207) )
+  if ( AMLIIsNamedChildPresent(v12, 1129466207) )
     *(_DWORD *)(a1 + 48) |= 0x4000u;
-  DeviceCapabilities = ACPIGet(v11, 0x4154535Fu, -1878783998, 0LL, 0, 0LL, 0LL, (__int64)&v41, 0LL);
-  v10 = 0x400000000000LL;
-  if ( DeviceCapabilities < 0 )
-    goto LABEL_77;
-  *(_QWORD *)&v44 = v11;
-  v40 = &v44;
-  DWORD2(v44) = 8;
-  if ( (int)EmClientRuleEvaluate(&GUID_EM_RULE_ACPI_DEVICE_IGNORE_STA_DISABLE, &v40, 1LL, &v37) >= 0 && v37 == 2 )
-  {
-    v15[1] &= ~0x4000u;
-LABEL_33:
-    v22 = a4;
-    goto LABEL_45;
-  }
-  if ( _bittest64(v16, 0x36u) )
-  {
-    v22 = a4;
-    if ( !a4 )
-    {
-      v23 = v15[1];
-      if ( (AcpiOverrideAttributes & 2) != 0 )
-        v24 = v23 | 0x4000;
-      else
-        v24 = v23 & 0xFFFFBFFF;
-      v15[1] = v24;
-    }
-  }
-  else
-  {
-    if ( AMLIIsNamedChildPresent(v14, 1397900127) && !AMLIIsNamedChildPresent(v14, 1397904223) )
-    {
-      v15[1] |= 0x4000u;
-      goto LABEL_33;
-    }
-    v22 = a4;
-    if ( a4 )
-      v15[1] &= ~0x4000u;
-  }
-LABEL_45:
-  if ( (v41 & 4) == 0 )
-    v15[1] |= 0x20000u;
-  if ( AMLIIsNamedChildPresent(v14, 1314214751)
-    && (int)ACPIGet(v11, 0x4E55535Fu, 268697602, 0LL, 0, 0LL, 0LL, (__int64)&v42, 0LL) >= 0 )
-  {
-    v15[3] = v42;
-  }
-  if ( !AMLIIsNamedChildPresent(v14, 1380204895) )
-    goto LABEL_60;
-  DeviceCapabilities = ACPIGet(v11, 0x5244415Fu, -1878785022, 0LL, 0, 0LL, 0LL, (__int64)&v43, 0LL);
+  DeviceCapabilities = ACPIGet(v11, 1096045407, -1878783998, 0LL, 0, 0LL, 0LL, (__int64)&v44, 0LL);
   if ( DeviceCapabilities >= 0 )
   {
-    v15[2] = v43;
-LABEL_60:
-    DeviceCapabilities = ACPISystemPowerQueryDeviceCapabilities(v11);
-    if ( DeviceCapabilities < 0 )
+    *(_QWORD *)&v47 = v11;
+    v43 = &v47;
+    DWORD2(v47) = 8;
+    if ( (int)EmClientRuleEvaluate(&GUID_EM_RULE_ACPI_DEVICE_IGNORE_STA_DISABLE, &v43, 1LL, &v41) >= 0 && v41 == 2 )
     {
-      v12 = byte_1C00622D0;
-      v25 = byte_1C00622D0;
-      v26 = byte_1C00622D0;
-      if ( (*v16 & 0x200000000000LL) != 0 )
+      v13[1] &= ~0x4000u;
+      v17 = a4;
+    }
+    else if ( (v11[1] & 0x40000000000000LL) != 0 )
+    {
+      v17 = a4;
+      if ( !a4 )
       {
-        v25 = *(const char **)(v11 + 608);
-        if ( (*v16 & 0x400000000000LL) != 0 )
-          v26 = *(const char **)(v11 + 616);
+        v26 = v13[1];
+        if ( (AcpiOverrideAttributes & 2) != 0 )
+          v27 = v26 | 0x4000;
+        else
+          v27 = v26 & 0xFFFFBFFF;
+        v13[1] = v27;
       }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
-      v27 = 14;
-      goto LABEL_57;
     }
-    if ( (unsigned __int8)AcpiCheckSecureDevice(v11) )
-      v15[1] |= 0x100000u;
-    if ( !v22 )
+    else if ( !AMLIIsNamedChildPresent(v12, 1397900127) || AMLIIsNamedChildPresent(v12, 1397904223) )
     {
-      v15[1] |= 0x80u;
-      v28 = v15[1] ^ ((unsigned __int16)v15[1] ^ (unsigned __int16)((unsigned __int64)*(unsigned int *)v16 >> 9)) & 0x100;
-      v15[1] = v28;
-      v15[1] = v28 & 0xFFFFFFBF | (*(_QWORD *)(v11 + 616) != 0LL ? 0x40 : 0);
+      v17 = a4;
+      if ( a4 )
+        v13[1] &= ~0x4000u;
     }
-    if ( (int)ACPIProcessPhysicalDeviceLocation(v11, &v45, 0LL) >= 0 && (v45 & 0x7F) != 0 )
+    else
     {
-      if ( (BYTE8(v45) & 1) == 0 )
-        v15[1] |= 0x40000u;
-      if ( SDWORD2(v45) < 0 )
-        v15[1] |= 0x40000u;
+      v13[1] |= 0x4000u;
+      v17 = a4;
     }
-    DeviceCapabilities = 0;
-    v10 = 0x400000000000LL;
-LABEL_77:
-    v12 = byte_1C00622D0;
-    goto LABEL_78;
+    if ( (v44 & 4) == 0 )
+      v13[1] |= 0x20000u;
+    if ( AMLIIsNamedChildPresent(v12, 1314214751)
+      && (int)ACPIGet(v11, 1314214751, 268697602, 0LL, 0, 0LL, 0LL, (__int64)&v45, 0LL) >= 0 )
+    {
+      v13[3] = v45;
+    }
+    if ( AMLIIsNamedChildPresent(v12, 1380204895) )
+    {
+      DeviceCapabilities = ACPIGet(v11, 1380204895, -1878785022, 0LL, 0, 0LL, 0LL, (__int64)&v46, 0LL);
+      if ( DeviceCapabilities < 0 )
+      {
+        v32 = v11[1];
+        v33 = byte_1C00701BA;
+        v34 = byte_1C00701BA;
+        if ( (v32 & 0x200000000000LL) != 0 )
+        {
+          v33 = (char *)v11[71];
+          if ( (v32 & 0x400000000000LL) != 0 )
+            v34 = (char *)v11[72];
+        }
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_32;
+        v35 = 13;
+LABEL_83:
+        WPP_RECORDER_SF_Lqss(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          5u,
+          v35,
+          (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
+          DeviceCapabilities,
+          (char)v11,
+          (__int64)v33,
+          (__int64)v34);
+        goto LABEL_32;
+      }
+      v13[2] = v46;
+    }
+    DeviceCapabilities = ACPISystemPowerQueryDeviceCapabilities((ULONG_PTR)v11);
+    if ( DeviceCapabilities >= 0 )
+    {
+      v18 = v11[120];
+      if ( (v18 & 0x80000000) == 0 )
+      {
+        v24 = (unsigned __int8)AcpiIsDeviceSecure(v11) == 0;
+        v25 = v11[120];
+        if ( !v24 )
+          v25 |= 0x2000000000uLL;
+        v18 = v25 | 0x80000000LL;
+        v11[120] = v18;
+      }
+      if ( (v18 & 0x2000000000LL) != 0 )
+        v13[1] |= 0x100000u;
+      if ( !v17 )
+      {
+        v13[1] |= 0x80u;
+        v28 = v13[1] ^ ((unsigned __int16)v13[1] ^ (unsigned __int16)((unsigned __int64)*((unsigned int *)v11 + 2) >> 9)) & 0x100;
+        v13[1] = v28;
+        v13[1] = v28 & 0xFFFFFFBF | (v11[72] != 0 ? 0x40 : 0);
+      }
+      if ( (int)ACPIProcessPhysicalDeviceLocation(v11, &v48, 0LL) >= 0 && (v48 & 0x7F) != 0 )
+      {
+        v23 = DWORD2(v48);
+        if ( (BYTE8(v48) & 1) == 0 )
+          v13[1] |= 0x40000u;
+        if ( v23 < 0 )
+          v13[1] |= 0x40000u;
+      }
+      DeviceCapabilities = 0;
+      goto LABEL_32;
+    }
+    v36 = v11[1];
+    v33 = byte_1C00701BA;
+    v34 = byte_1C00701BA;
+    if ( (v36 & 0x200000000000LL) != 0 )
+    {
+      v33 = (char *)v11[71];
+      if ( (v36 & 0x400000000000LL) != 0 )
+        v34 = (char *)v11[72];
+    }
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_32;
+    v35 = 14;
+    goto LABEL_83;
   }
-  v12 = byte_1C00622D0;
-  v25 = byte_1C00622D0;
-  v26 = byte_1C00622D0;
-  if ( (*v16 & 0x200000000000LL) != 0 )
+LABEL_32:
+  v8 = v37;
+  v6 = v40;
+LABEL_33:
+  if ( v11 )
   {
-    v25 = *(const char **)(v11 + 608);
-    if ( (*v16 & 0x400000000000LL) != 0 )
-      v26 = *(const char **)(v11 + 616);
+    v5 = (char)v11;
+    if ( (v11[1] & 0x200000000000LL) != 0 )
+      v10 = (const char *)v11[71];
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    goto LABEL_58;
-  v27 = 13;
-LABEL_57:
-  WPP_RECORDER_SF_dqss(
-    (__int64)WPP_GLOBAL_Control->DeviceExtension,
-    2u,
-    5u,
-    v27,
-    (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
-    DeviceCapabilities,
-    v11,
-    v25,
-    v26);
-LABEL_58:
-  v10 = 0x400000000000LL;
-LABEL_78:
-  v29 = *v16;
-  v8 = v35;
-  v6 = v38;
-  v5 = v11;
-  if ( (v29 & 0x200000000000LL) != 0 && (v29 & 0x400000000000LL) != 0 )
-    v12 = *(const char **)(v11 + 616);
-LABEL_81:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v10, v8);
+    IrpText = ACPIDebugGetIrpText((__int64)&WPP_RECORDER_INITIALIZED, v8);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       2u,
       5u,
       0xFu,
-      v32,
+      v21,
       v6,
-      (__int64)IrpText,
+      IrpText,
       DeviceCapabilities,
       v5,
-      v31,
-      v12);
+      v10,
+      v20);
   }
   return (unsigned int)DeviceCapabilities;
 }

@@ -4,9 +4,9 @@
  *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
  * Callees:
  *     RtlFindClearBits @ 0x140077ED0 (RtlFindClearBits.c)
- *     MiExpandVadBitMap @ 0x140679CEC (MiExpandVadBitMap.c)
- *     MiFindEmptyAddressRangeInTree @ 0x14069B39C (MiFindEmptyAddressRangeInTree.c)
- *     MiFindClearVadBitsAligned @ 0x1406A45FC (MiFindClearVadBitsAligned.c)
+ *     MiExpandVadBitMap @ 0x140679CCC (MiExpandVadBitMap.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x14069B37C (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindClearVadBitsAligned @ 0x1406A45DC (MiFindClearVadBitsAligned.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(

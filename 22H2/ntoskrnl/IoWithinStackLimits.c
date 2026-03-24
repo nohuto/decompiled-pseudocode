@@ -1,5 +1,5 @@
 /*
- * XREFs of IoWithinStackLimits @ 0x140324AA0
+ * XREFs of IoWithinStackLimits @ 0x1402E53B0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ LOGICAL __stdcall IoWithinStackLimits(ULONG_PTR RegionStart, SIZE_T RegionSize)
   ULONG_PTR StackLimit; // rcx
   _QWORD *InitialStack; // rdx
   char *v8; // rcx
-  __int128 v9; // [rsp+0h] [rbp-48h]
+  __int128 v9; // [rsp+0h] [rbp-28h]
 
   CurrentThread = KeGetCurrentThread();
   v3 = RegionStart + RegionSize;

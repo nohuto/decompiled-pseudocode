@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpAcpiPmRegisterReadRegister @ 0x14051F910
+ * XREFs of HalpAcpiPmRegisterReadRegister @ 0x1404D2AD0
  * Callers:
  *     <none>
  * Callees:

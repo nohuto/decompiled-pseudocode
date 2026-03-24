@@ -1,46 +1,66 @@
 /*
- * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x14094B7C0
+ * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x1408A5C70
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     <none>
  */
 
-bool __fastcall PiDevCfgConfigurePropertyMatchCallback(_QWORD *Buf2, __int64 a2)
+char __fastcall PiDevCfgConfigurePropertyMatchCallback(__int64 a1, __int64 a2)
 {
-  char v2; // bl
+  char v2; // r8
   __int64 v3; // rdx
   DEVPROPKEY **v4; // r9
-  unsigned int v5; // r8d
-  DEVPROPKEY *v6; // r10
+  unsigned int v5; // r10d
+  DEVPROPKEY *v6; // r11
   __int64 v7; // rdx
+  DEVPROPKEY **v8; // r9
+  int v9; // r10d
+  DEVPROPKEY *v10; // r11
+  __int64 v11; // rdx
 
   v2 = 1;
   if ( (*(_DWORD *)(a2 + 104) & 2) != 0 )
     goto LABEL_11;
-  v3 = *Buf2 - *(_QWORD *)off_140D3B790[0];
-  if ( *Buf2 == *(_QWORD *)off_140D3B790[0] )
-    v3 = Buf2[1] - *(_QWORD *)off_140D3B790[0]->fmtid.Data4;
+  v3 = *(_QWORD *)a1 - *(_QWORD *)off_140D2D770[0];
+  if ( *(_QWORD *)a1 == *(_QWORD *)off_140D2D770[0] )
+    v3 = *(_QWORD *)(a1 + 8) - *(_QWORD *)off_140D2D770[0]->fmtid.Data4;
   if ( v3 )
   {
 LABEL_11:
-    if ( *((_DWORD *)Buf1 + 4) == *((_DWORD *)Buf2 + 4) )
-      return memcmp(Buf1, Buf2, 0x10uLL) != 0;
+    v8 = &off_140D2D318;
+    v9 = 0;
+    while ( 1 )
+    {
+      v10 = *v8;
+      if ( (*v8)->pid == *(_DWORD *)(a1 + 16) )
+      {
+        v11 = *(_QWORD *)&v10->fmtid.Data1 - *(_QWORD *)a1;
+        if ( *(_QWORD *)&v10->fmtid.Data1 == *(_QWORD *)a1 )
+          v11 = *(_QWORD *)v10->fmtid.Data4 - *(_QWORD *)(a1 + 8);
+        if ( !v11 )
+          break;
+      }
+      ++v9;
+      ++v8;
+      if ( v9 )
+        return v2;
+    }
   }
   else
   {
-    v4 = off_140D3B790;
+    v4 = off_140D2D770;
     v5 = 0;
     while ( 1 )
     {
       v6 = *v4;
-      if ( (*v4)->pid == *((_DWORD *)Buf2 + 4) )
+      if ( (*v4)->pid == *(_DWORD *)(a1 + 16) )
       {
-        v7 = *(_QWORD *)&v6->fmtid.Data1 - *Buf2;
-        if ( *(_QWORD *)&v6->fmtid.Data1 == *Buf2 )
-          v7 = *(_QWORD *)v6->fmtid.Data4 - Buf2[1];
+        v7 = *(_QWORD *)&v6->fmtid.Data1 - *(_QWORD *)a1;
+        if ( *(_QWORD *)&v6->fmtid.Data1 == *(_QWORD *)a1 )
+          v7 = *(_QWORD *)v6->fmtid.Data4 - *(_QWORD *)(a1 + 8);
         if ( !v7 )
-          return 0;
+          break;
       }
       ++v5;
       ++v4;
@@ -48,5 +68,5 @@ LABEL_11:
         goto LABEL_11;
     }
   }
-  return v2;
+  return 0;
 }

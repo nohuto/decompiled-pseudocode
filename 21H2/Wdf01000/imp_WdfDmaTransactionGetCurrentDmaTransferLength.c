@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDmaTransactionGetCurrentDmaTransferLength @ 0x1C0037CF0
+ * XREFs of imp_WdfDmaTransactionGetCurrentDmaTransferLength @ 0x1C0030460
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 unsigned __int64 __fastcall imp_WdfDmaTransactionGetCurrentDmaTransferLength(
@@ -14,7 +14,7 @@ unsigned __int64 __fastcall imp_WdfDmaTransactionGetCurrentDmaTransferLength(
 
   pDmaTrans = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaTransaction,
     0x1401u,
     (void **)&pDmaTrans);

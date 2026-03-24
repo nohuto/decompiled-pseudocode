@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvDetermineFunction @ 0x14018E434
+ * XREFs of InbvDetermineFunction @ 0x14018E454
  * Callers:
  *     InbvDriverInitialize @ 0x1409D6F70 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x140194BB0 (_strupr.c)
- *     strstr @ 0x140194EA0 (strstr.c)
+ *     _strupr @ 0x140194BD0 (_strupr.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
  */
 
 __int64 __fastcall InbvDetermineFunction(__int64 a1)

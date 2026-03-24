@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_ReturningOperationSuccessInReadUsb4Drom @ 0x1C0009860
+ * XREFs of HUBHSM_ReturningOperationSuccessInReadUsb4Drom @ 0x1C0009560
  * Callers:
  *     <none>
  * Callees:

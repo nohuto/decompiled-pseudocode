@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionParseDesktop @ 0x1C0079050
+ * XREFs of EditionParseDesktop @ 0x1C004EA20
  * Callers:
  *     <none>
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00791A0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C011190C (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004F094 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C0122DF0 (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
  */
 
 __int64 __fastcall EditionParseDesktop(
@@ -24,7 +24,7 @@ __int64 __fastcall EditionParseDesktop(
   unsigned int DesktopEx2; // edi
   __int64 v16; // rcx
   _QWORD *i; // rbx
-  __int64 NameInfo; // rax
+  const UNICODE_STRING *v18; // rdx
   __int64 v20; // [rsp+68h] [rbp+10h] BYREF
 
   v20 = a2;
@@ -41,33 +41,27 @@ __int64 __fastcall EditionParseDesktop(
     {
       if ( v12 )
         DesktopEx2 = xxxCreateDesktopEx2(a1, a3, a4, String1, v12[1], v10);
-      goto LABEL_12;
+      goto LABEL_13;
     }
-    if ( ObQueryNameInfo(i) )
-    {
-      NameInfo = ObQueryNameInfo(i);
-      if ( NameInfo != -8 )
-      {
-        if ( RtlEqualUnicodeString(String1, (PCUNICODE_STRING)(NameInfo + 8), (a5 & 0x40) != 0) )
-          break;
-      }
-    }
+    v18 = ObQueryNameInfo(i) ? (const UNICODE_STRING *)(ObQueryNameInfo(i) + 8) : 0LL;
+    if ( v18 && RtlEqualUnicodeString(String1, v18, (a5 & 0x40) != 0) )
+      break;
   }
   if ( !v12 )
   {
     DesktopEx2 = 0;
-    goto LABEL_11;
+    goto LABEL_12;
   }
   if ( a5 < 0 )
   {
     DesktopEx2 = 0x40000000;
-LABEL_11:
+LABEL_12:
     ObfReferenceObject(i);
     *v10 = i;
-    goto LABEL_12;
+    goto LABEL_13;
   }
   DesktopEx2 = -1073741771;
-LABEL_12:
+LABEL_13:
   if ( !(_DWORD)v20 )
     UserSessionSwitchLeaveCrit(v16);
   return DesktopEx2;

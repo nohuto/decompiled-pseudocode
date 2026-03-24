@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x1402E7D6C
+ * XREFs of PpmParkComputeDiff @ 0x1402E7E6C
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x140122290 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1401222B0 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     KeXorAffinityEx @ 0x14028E368 (KeXorAffinityEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KeXorAffinityEx @ 0x14028E468 (KeXorAffinityEx.c)
  */
 
 __int64 PpmParkComputeDiff()

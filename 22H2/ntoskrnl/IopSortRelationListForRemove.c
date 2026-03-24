@@ -1,32 +1,36 @@
 /*
- * XREFs of IopSortRelationListForRemove @ 0x140868C88
+ * XREFs of IopSortRelationListForRemove @ 0x14074BF38
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140868084 (PnpBuildRemovalRelationList.c)
- *     PipRemoveDevicesInRelationList @ 0x140881CBC (PipRemoveDevicesInRelationList.c)
+ *     PnpBuildRemovalRelationList @ 0x14074C04C (PnpBuildRemovalRelationList.c)
+ *     PipRemoveDevicesInRelationList @ 0x14074CDB8 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PiGetProviderList @ 0x1406C9980 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PiEnumerateProviderListEntry @ 0x140839E98 (PiEnumerateProviderListEntry.c)
- *     PipSortDeviceObjectList @ 0x140868D9C (PipSortDeviceObjectList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x14086921C (PipIsDeviceInDeviceObjectList.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x14073DDF8 (PiGetProviderList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x14074995C (PipIsDeviceInDeviceObjectList.c)
+ *     PipSortDeviceObjectList @ 0x140749A5C (PipSortDeviceObjectList.c)
+ *     PiEnumerateProviderListEntry @ 0x14089D97C (PiEnumerateProviderListEntry.c)
  */
 
 __int64 __fastcall IopSortRelationListForRemove(__int64 a1)
 {
-  _DWORD *v2; // r11
+  unsigned int *v2; // r11
   int v3; // r14d
   __int64 v4; // rbp
   __int64 v5; // rsi
   __int64 v6; // rcx
   unsigned __int64 v7; // rdx
-  char IsDeviceInDeviceObjectList; // r12
-  __int64 v9; // r11
+  bool v8; // r12
+  char v9; // r13
+  __int64 v10; // r11
   __int64 *ProviderList; // r15
-  __int64 *i; // rsi
-  int v12; // ebx
+  __int64 *v12; // rsi
+  int v13; // ebx
+  char v15; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+68h] [rbp+10h] BYREF
 
+  v16 = 0LL;
   if ( *(_BYTE *)(a1 + 8) )
   {
     return 0;
@@ -34,11 +38,11 @@ __int64 __fastcall IopSortRelationListForRemove(__int64 a1)
   else
   {
     PnpAcquireDependencyRelationsLock(0);
-    v2 = *(_DWORD **)a1;
+    v2 = *(unsigned int **)a1;
     v3 = 0;
     v4 = 0LL;
     if ( !**(_DWORD **)a1 )
-      goto LABEL_18;
+      goto LABEL_19;
     do
     {
       v5 = *(_QWORD *)&v2[6 * v4 + 4];
@@ -47,39 +51,54 @@ __int64 __fastcall IopSortRelationListForRemove(__int64 a1)
       else
         v6 = 0LL;
       v7 = *(_QWORD *)(v6 + 16);
-      if ( v7 || (v7 = *(_QWORD *)(v6 + 648) & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
-        IsDeviceInDeviceObjectList = PipIsDeviceInDeviceObjectList(v2, *(_QWORD *)(v7 + 32), 0LL);
-      else
-        IsDeviceInDeviceObjectList = 0;
+      v8 = (v7 || (v7 = *(_QWORD *)(v6 + 648) & 0xFFFFFFFFFFFFFFFEuLL) != 0)
+        && PipIsDeviceInDeviceObjectList(v2, *(_QWORD *)(v7 + 32), 0LL);
+      v9 = 0;
       ProviderList = PiGetProviderList(v5);
-      for ( i = (__int64 *)*ProviderList; i != ProviderList; i = (__int64 *)*i )
-        PiEnumerateProviderListEntry((__int64)i);
-      if ( IsDeviceInDeviceObjectList )
+      v12 = (__int64 *)*ProviderList;
+      if ( (__int64 *)*ProviderList != ProviderList )
       {
-        *(_DWORD *)(v9 + 24 * v4 + 32) &= ~4u;
+        while ( 1 )
+        {
+          PiEnumerateProviderListEntry(v12, &v16, &v15);
+          if ( v16 )
+          {
+            if ( PipIsDeviceInDeviceObjectList(*(unsigned int **)a1, v16, 0LL) )
+              break;
+          }
+          v12 = (__int64 *)*v12;
+          if ( v12 == ProviderList )
+            goto LABEL_8;
+        }
+        v9 = 1;
+      }
+LABEL_8:
+      if ( v8 || v9 )
+      {
+        *(_DWORD *)(v10 + 24 * v4 + 32) &= ~4u;
       }
       else
       {
-        *(_DWORD *)(v9 + 24 * v4 + 32) |= 4u;
+        *(_DWORD *)(v10 + 24 * v4 + 32) |= 4u;
         ++v3;
       }
-      v2 = *(_DWORD **)a1;
+      v2 = *(unsigned int **)a1;
       v4 = (unsigned int)(v4 + 1);
     }
     while ( (unsigned int)v4 < **(_DWORD **)a1 );
     if ( v3 )
     {
-      v12 = PipSortDeviceObjectList(a1);
-      if ( v12 >= 0 )
+      v13 = PipSortDeviceObjectList((unsigned int **)a1);
+      if ( v13 >= 0 )
         *(_BYTE *)(a1 + 8) = 1;
     }
     else
     {
-LABEL_18:
-      v12 = -1073741823;
+LABEL_19:
+      v13 = -1073741823;
     }
     ExReleaseResourceLite(&PiDependencyRelationsLock);
     PpDevNodeUnlockTree(0);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

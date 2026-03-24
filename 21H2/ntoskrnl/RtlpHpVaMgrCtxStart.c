@@ -1,52 +1,60 @@
 /*
- * XREFs of RtlpHpVaMgrCtxStart @ 0x140371D3C
+ * XREFs of RtlpHpVaMgrCtxStart @ 0x14039D858
  * Callers:
- *     RtlHpHeapManagerStart @ 0x14036EDD4 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140371E18 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlCSparseBitmapStart @ 0x140372070 (RtlCSparseBitmapStart.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037BC10 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlCSparseBitmapStart @ 0x14039D950 (RtlCSparseBitmapStart.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxStart(__int64 a1, int a2, __int64 a3, __int64 a4, unsigned __int64 a5)
+int __fastcall RtlpHpVaMgrCtxStart(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
 {
-  unsigned int v8; // eax
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // kr00_8
-  unsigned __int64 v11; // rcx
-  __int64 result; // rax
-  int v13; // ebx
-  __int64 v14; // r8
-  _DWORD v15[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v16; // [rsp+28h] [rbp-20h]
+  unsigned int v7; // eax
+  ULONGLONG v8; // rcx
+  int result; // eax
+  unsigned int v10; // r11d
+  int v11; // ebx
+  unsigned int v12; // r8d
+  _DWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-20h]
+  ULONGLONG pullResult; // [rsp+50h] [rbp+8h] BYREF
 
-  _BitScanForward(&v8, 0x20u);
-  *(_DWORD *)(a1 + 24) = v8;
-  v9 = (a5 >> 20) + 1;
-  if ( (a5 & 0xFFFFF) == 0 )
-    v9 = a5 >> 20;
-  v10 = v9;
-  v11 = 8 * v9;
-  if ( !is_mul_ok(v10, 8uLL) || !is_mul_ok(v11, 0x20uLL) )
-    return 3221225621LL;
-  result = RtlCSparseBitmapStart(a1 + 32, 32 * v11, a3, (unsigned int)((v11 * (unsigned __int128)0x20u) >> 64) + 1);
-  if ( (int)result >= 0 )
+  pullResult = 0LL;
+  _BitScanForward(&v7, 0x20u);
+  *(_DWORD *)(a1 + 24) = v7;
+  v8 = (a4 >> 20) + 1;
+  if ( (a4 & 0xFFFFF) == 0 )
+    v8 = a4 >> 20;
+  result = RtlULongLongMult(v8, 8uLL, &pullResult);
+  if ( result >= 0 )
   {
-    v15[0] = -1;
-    *(_DWORD *)a1 = a2;
-    *(_QWORD *)(a1 + 8) = a4;
-    v13 = 0;
-    v16 = 0LL;
-    while ( 1 )
+    result = RtlULongLongMult(pullResult, v10, &pullResult);
+    if ( result >= 0 )
     {
-      v15[1] = v13;
-      v14 = 0x200000LL;
-      if ( (unsigned int)(v13 - 2) > 1 && v13 == 4 )
-        v14 = 0x40000000LL;
-      result = RtlpHpVaMgrCtxAllocatorReference(a1, v15, v14);
-      if ( (int)result < 0 )
-        break;
-      if ( ++v13 >= 5 )
-        return 0LL;
+      result = RtlCSparseBitmapStart(a1 + 32, pullResult, a2, 1LL);
+      if ( result >= 0 )
+        result = 0;
+      if ( result >= 0 )
+      {
+        v13[0] = -1;
+        *(_DWORD *)a1 = a2;
+        v11 = 0;
+        *(_QWORD *)(a1 + 8) = a3;
+        v14 = 0LL;
+        while ( 1 )
+        {
+          v13[1] = v11;
+          v12 = 0x200000;
+          if ( v11 == 3 )
+            v12 = 0x40000000;
+          result = RtlpHpVaMgrCtxAllocatorReference(a1, (__int64)v13, v12);
+          if ( result < 0 )
+            break;
+          if ( ++v11 >= 4 )
+            return 0;
+        }
+      }
     }
   }
   return result;

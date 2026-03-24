@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AffectsVisual@CCompositionLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1800FB150
+ * XREFs of ?AffectsVisual@CCompositionLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1800E29C0
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ bool __fastcall CCompositionLight::AffectsVisual(
         const struct CVisualTree *a2,
         struct CVisual *a3)
 {
-  return *((_BYTE *)this + 170);
+  return *((_BYTE *)this + 162);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_IFR_SF_qqcq @ 0x1C0011DD4
+ * XREFs of WPP_IFR_SF_qqcq @ 0x1C0040EE0
  * Callers:
- *     ?Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z @ 0x1C0003EF0 (-Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z.c)
- *     ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C000B380 (-Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z.c)
- *     ?Dispatch@FxWmiIrpHandler@@UEAAJPEAU_IRP@@@Z @ 0x1C001CDB0 (-Dispatch@FxWmiIrpHandler@@UEAAJPEAU_IRP@@@Z.c)
+ *     ?Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z @ 0x1C0006C90 (-Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z.c)
+ *     ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C000CBB0 (-Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z.c)
+ *     ?Dispatch@FxWmiIrpHandler@@UEAAJPEAU_IRP@@@Z @ 0x1C0018140 (-Dispatch@FxWmiIrpHandler@@UEAAJPEAU_IRP@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqcq(
@@ -30,7 +30,7 @@ void __fastcall WPP_IFR_SF_qqcq(
     if ( *((_BYTE *)&WPP_GLOBAL_WDF_Control.Flags + v14 + 1) >= level )
       FxWmiTraceMessage(
         *(unsigned __int64 *)((char *)&WPP_GLOBAL_WDF_Control.CurrentIrp + v14),
-        0x2Bu,
+        43LL,
         traceGuid,
         id,
         &_a1,

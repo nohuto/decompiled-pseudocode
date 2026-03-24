@@ -1,9 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerW @ 0x1C0048AE0
+ * XREFs of RtlStringCopyWorkerW @ 0x1C011D118
  * Callers:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0048AB8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     _RegisterDManipHook @ 0x1C00497B0 (_RegisterDManipHook.c)
- *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0049990 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     _RegisterDManipHook @ 0x1C011CF64 (_RegisterDManipHook.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C011D0AC (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18005A504
+ * XREFs of ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x180007318
  * Callers:
- *     ?GenerateDrawList@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000EF60 (-GenerateDrawList@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@MPEAPEAVCDrawListBrush@@@Z @ 0x18000F284 (-CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZ.c)
- *     ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18005BEF0 (-GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
- *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800DB970 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
- *     ?GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x180234894 (-GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z.c)
+ *     ?CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@MPEAPEAVCDrawListBrush@@@Z @ 0x1800065B8 (-CreateShadowOpacityBrush@ShadowIntermediates@CDropShadow@@QEBAJPEAVCDrawingContext@@AEBUD2D_SIZ.c)
+ *     ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x180006F20 (-GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
+ *     ?GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x180008BC4 (-GetCasterShadowInputBrush@CProjectedShadow@@AEBAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z.c)
+ *     ?CreateLayoutGeometryDrawListBrush@CDropShadow@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x18001A620 (-CreateLayoutGeometryDrawListBrush@CDropShadow@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEA.c)
+ *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x18001C4F0 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
  * Callees:
- *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x180059A5C (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
- *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x18005A5C0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z @ 0x18005A620 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z.c)
- *     ??0CNineGridDrawListBrush@@AEAA@$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_N@Z @ 0x18005A910 (--0CNineGridDrawListBrush@@AEAA@$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawList.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073D0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z @ 0x180007440 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCNineGridDrawListBrush@@@Z.c)
+ *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18000773C (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
+ *     ??0CNineGridDrawListBrush@@AEAA@$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_N@Z @ 0x18000810C (--0CNineGridDrawListBrush@@AEAA@$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawList.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CNineGridDrawListBrush::Create(
@@ -26,12 +26,11 @@ __int64 __fastcall CNineGridDrawListBrush::Create(
   struct CObjectCache *ObjectCache; // r10
   _QWORD *v10; // rax
   int v11; // ecx
-  CNineGridDrawListBrush *v12; // rax
-  unsigned int v13; // ecx
-  CNineGridDrawListBrush *v14; // rdi
-  int v15; // eax
-  unsigned int v16; // ecx
-  unsigned int v17; // ebx
+  unsigned int v12; // ecx
+  CNineGridDrawListBrush *v13; // rdi
+  int v14; // eax
+  unsigned int v15; // ecx
+  unsigned int v16; // ebx
 
   v8 = (int)a1;
   ObjectCache = CThreadContext::GetObjectCache(a1);
@@ -43,26 +42,28 @@ __int64 __fastcall CNineGridDrawListBrush::Create(
     *((_QWORD *)ObjectCache + 1) = *v10;
     *((_DWORD *)ObjectCache + 1) = v11 - 1;
   }
-  if ( (v10 || (v10 = DefaultHeap::Alloc(0x240uLL)) != 0LL)
-    && (v12 = (CNineGridDrawListBrush *)CNineGridDrawListBrush::CNineGridDrawListBrush((_DWORD)v10, v8, a2, a3, a4),
-        (v14 = v12) != 0LL) )
+  if ( v10 || (v10 = DefaultHeap::Alloc(0x240uLL)) != 0LL )
+    v13 = (CNineGridDrawListBrush *)CNineGridDrawListBrush::CNineGridDrawListBrush((_DWORD)v10, v8, a2, a3, a4);
+  else
+    v13 = 0LL;
+  if ( v13 )
   {
-    v15 = CNineGridDrawListBrush::Initialize(v12);
-    v17 = v15;
-    if ( v15 < 0 )
+    v14 = CNineGridDrawListBrush::Initialize(v13);
+    v16 = v14;
+    if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x29u, 0LL);
-      CNineGridDrawListBrush::`scalar deleting destructor'(v14, 1u);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x29u, 0LL);
+      CNineGridDrawListBrush::`scalar deleting destructor'(v13, 1u);
     }
     else
     {
-      *a5 = v14;
+      *a5 = v13;
     }
   }
   else
   {
-    v17 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x27u, 0LL);
+    v16 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x27u, 0LL);
   }
-  return v17;
+  return v16;
 }

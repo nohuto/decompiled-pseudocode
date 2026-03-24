@@ -1,260 +1,244 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x140781A70
+ * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063D95C
  * Callers:
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x1406E6244 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
- *     _PnpCtxRegCreateTree @ 0x140772AA0 (_PnpCtxRegCreateTree.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x140781814 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpCtxRegCreateTree @ 0x14063E278 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x140644CEC (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770860 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(
         __int64 a1,
-        const wchar_t *a2,
-        int a3,
+        __int64 a2,
+        unsigned int a3,
         int a4,
-        unsigned int a5,
+        int a5,
         char a6,
         _QWORD *a7,
         _DWORD *a8)
 {
-  int v8; // ebx
-  int v11; // r13d
-  wchar_t *Pool2; // rdi
-  PVOID v13; // r15
-  unsigned int v14; // r15d
-  wchar_t *v15; // rsi
-  int DeviceInterfaceRegKeyPath; // eax
-  int DeviceInterfaceRegKeySecurityDescriptor; // ebx
+  int v11; // ebx
+  wchar_t *PoolWithTag; // r14
+  unsigned int v13; // r12d
+  PVOID v14; // rsi
+  unsigned __int64 v15; // rsi
+  int DeviceInterfaceRegKeyPath; // ebx
   unsigned __int16 Length; // bx
-  __int64 v19; // r15
-  HANDLE v20; // rax
-  __int64 v21; // rcx
-  unsigned int v22; // r13d
+  int v18; // esi
+  int v19; // r13d
+  __int64 v20; // rcx
+  int v21; // r12d
   int Tree; // eax
-  int v25; // edi
-  HANDLE v26; // rax
-  unsigned __int64 v27; // rax
-  __int64 v28; // rcx
-  __int64 v29; // rcx
-  int v30; // eax
-  int v31; // [rsp+20h] [rbp-60h]
+  int v24; // r15d
+  HANDLE v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  int v28; // [rsp+20h] [rbp-60h]
   size_t cchDest; // [rsp+30h] [rbp-50h]
   PVOID P; // [rsp+40h] [rbp-40h] BYREF
-  HANDLE v34; // [rsp+48h] [rbp-38h]
-  HANDLE v35; // [rsp+50h] [rbp-30h] BYREF
-  HANDLE v36; // [rsp+58h] [rbp-28h] BYREF
+  HANDLE v31; // [rsp+48h] [rbp-38h] BYREF
+  HANDLE v32; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v33; // [rsp+58h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
-  __int64 v40; // [rsp+D0h] [rbp+50h] BYREF
-  int v41; // [rsp+D8h] [rbp+58h]
+  __int64 v37; // [rsp+D0h] [rbp+50h] BYREF
 
-  v41 = a4;
-  LODWORD(v40) = 0;
-  v8 = a4;
-  v36 = 0LL;
-  v35 = 0LL;
-  v34 = 0LL;
-  v11 = 4;
+  LODWORD(v37) = 0;
+  v33 = 0LL;
+  v11 = a2;
+  v32 = 0LL;
+  PoolWithTag = 0LL;
+  v31 = 0LL;
+  v13 = 4;
   Handle = 0LL;
-  Pool2 = 0LL;
+  v14 = 0LL;
   P = 0LL;
-  v13 = 0LL;
   DestinationString = 0LL;
   if ( a3 && (a3 & 0xFFFFFCCC) == 0 )
   {
-    v14 = (a3 & 0x200) != 0 ? 600 : 480;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v14, 1380994640LL);
-    if ( !Pool2 )
+    LODWORD(v15) = (a3 & 0x200) != 0 ? 600 : 480;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v15, 0x52504E50u);
+    if ( PoolWithTag )
     {
-LABEL_72:
-      DeviceInterfaceRegKeySecurityDescriptor = -1073741801;
-      goto LABEL_20;
-    }
-    while ( 1 )
-    {
-      LODWORD(cchDest) = v14 >> 1;
-      v15 = Pool2;
-      DeviceInterfaceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(v14 >> 1, a2, a3, v8, v31, Pool2, cchDest, &v40);
-      DeviceInterfaceRegKeySecurityDescriptor = DeviceInterfaceRegKeyPath;
-      if ( DeviceInterfaceRegKeyPath != -1073741789 )
-        break;
-      ExFreePoolWithTag(Pool2, 0);
-      v27 = 2LL * (unsigned int)v40;
-      Pool2 = 0LL;
-      if ( v27 > 0xFFFFFFFF )
+      while ( 1 )
       {
-        DeviceInterfaceRegKeySecurityDescriptor = -1073741675;
-        goto LABEL_20;
-      }
-      v14 = 2 * v40;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v27, 1380994640LL);
-      if ( !Pool2 )
-        goto LABEL_72;
-      v8 = v41;
-    }
-    if ( DeviceInterfaceRegKeyPath < 0 )
-      goto LABEL_20;
-    if ( (a3 & 0x100) != 0 )
-    {
-      v19 = (__int64)Pool2;
-      if ( a1 )
-        v28 = *(_QWORD *)(a1 + 224);
-      else
-        v28 = 0LL;
-      DeviceInterfaceRegKeySecurityDescriptor = SysCtxRegOpenCurrentUserKey(v28, 0LL, 0x2000000LL, &v35);
-      if ( DeviceInterfaceRegKeySecurityDescriptor >= 0 )
-      {
-        v20 = v35;
-LABEL_15:
-        v36 = v20;
-        v21 = 0LL;
-        if ( a1 )
-          v21 = *(_QWORD *)(a1 + 224);
-        v22 = a5;
-        Tree = SysCtxRegOpenKey(v21, (__int64)v20, v19, 0, a5, (__int64)a7);
-        if ( !Tree )
+        LODWORD(cchDest) = (unsigned int)v15 >> 1;
+        DeviceInterfaceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(
+                                      (unsigned int)v15 >> 1,
+                                      v11,
+                                      a3,
+                                      a4,
+                                      v28,
+                                      (__int64)PoolWithTag,
+                                      cchDest,
+                                      (__int64)&v37);
+        if ( DeviceInterfaceRegKeyPath != -1073741789 )
+          break;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = 0LL;
+        v15 = 2LL * (unsigned int)v37;
+        if ( v15 > 0xFFFFFFFF )
         {
-          *a8 = 2;
+          DeviceInterfaceRegKeyPath = -1073741675;
           goto LABEL_19;
         }
-        if ( Tree != -1073741444 )
-        {
-          if ( Tree != -1073741772 )
-            goto LABEL_62;
-          if ( !a6 )
-          {
-            if ( (unsigned __int8)a3 != 48 || (a3 & 0xF00) != 0 )
-              DeviceInterfaceRegKeySecurityDescriptor = -1073741772;
-            else
-              DeviceInterfaceRegKeySecurityDescriptor = -1073741127;
-            goto LABEL_19;
-          }
-          if ( (unsigned __int8)a3 != 48 || (a3 & 0xF00) != 0 )
-          {
-            DeviceInterfaceRegKeySecurityDescriptor = CmOpenDeviceInterfaceRegKey(
-                                                        a1,
-                                                        (_DWORD)a2,
-                                                        48,
-                                                        0,
-                                                        1,
-                                                        0,
-                                                        (__int64)&Handle,
-                                                        0LL);
-            if ( DeviceInterfaceRegKeySecurityDescriptor < 0 )
-            {
-LABEL_19:
-              Pool2 = v15;
-              goto LABEL_20;
-            }
-          }
-          DeviceInterfaceRegKeySecurityDescriptor = CmGetDeviceInterfaceRegKeySecurityDescriptor(a1, a3, &P);
-          if ( DeviceInterfaceRegKeySecurityDescriptor < 0 )
-            goto LABEL_20;
-          v25 = v22;
-          if ( P )
-            v25 = 917510;
-          Tree = PnpCtxRegCreateTree(a1);
-          if ( Tree != -1073741444 )
-          {
-            if ( Tree >= 0 )
-            {
-              if ( v25 == v22 )
-              {
-                v26 = v34;
-                v34 = 0LL;
-                *a7 = v26;
-                goto LABEL_19;
-              }
-              if ( a1 )
-                v29 = *(_QWORD *)(a1 + 224);
-              else
-                v29 = 0LL;
-              v30 = SysCtxRegOpenKey(v29, (__int64)v34, 0LL, 0, v22, (__int64)a7);
-              Pool2 = v15;
-              if ( v30 == -1073741444 )
-              {
-                DeviceInterfaceRegKeySecurityDescriptor = -1073741772;
-              }
-              else if ( v30 < 0 )
-              {
-                DeviceInterfaceRegKeySecurityDescriptor = v30;
-              }
-              goto LABEL_20;
-            }
-LABEL_62:
-            DeviceInterfaceRegKeySecurityDescriptor = Tree;
-            goto LABEL_19;
-          }
-        }
-        DeviceInterfaceRegKeySecurityDescriptor = -1073741595;
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v15, 0x52504E50u);
+        if ( !PoolWithTag )
+          goto LABEL_48;
+        v11 = a2;
+      }
+    }
+    else
+    {
+LABEL_48:
+      DeviceInterfaceRegKeyPath = -1073741801;
+    }
+    if ( DeviceInterfaceRegKeyPath < 0 )
+      goto LABEL_19;
+    if ( (a3 & 0x100) != 0 )
+    {
+      v18 = (int)PoolWithTag;
+      if ( a1 )
+        v26 = *(_QWORD *)(a1 + 224);
+      else
+        v26 = 0LL;
+      DeviceInterfaceRegKeyPath = SysCtxRegOpenCurrentUserKey(v26, 0LL, 0x2000000LL, &v32);
+      if ( DeviceInterfaceRegKeyPath < 0 )
+        goto LABEL_19;
+      v19 = (int)v32;
+LABEL_15:
+      if ( a1 )
+        v20 = *(_QWORD *)(a1 + 224);
+      else
+        LODWORD(v20) = 0;
+      v21 = a5;
+      Tree = SysCtxRegOpenKey(v20, v19, v18, 0, a5, (__int64)a7);
+      if ( !Tree )
+      {
+        *a8 = 2;
         goto LABEL_19;
       }
-LABEL_20:
-      v13 = P;
-      goto LABEL_21;
+      if ( Tree != -1073741444 )
+      {
+        if ( Tree != -1073741772 )
+          goto LABEL_47;
+        if ( !a6 )
+        {
+          if ( (unsigned __int8)a3 != 48 || (a3 & 0xF00) != 0 )
+            DeviceInterfaceRegKeyPath = -1073741772;
+          else
+            DeviceInterfaceRegKeyPath = -1073741127;
+          goto LABEL_19;
+        }
+        if ( (unsigned __int8)a3 != 48 || (a3 & 0xF00) != 0 )
+        {
+          DeviceInterfaceRegKeyPath = CmOpenDeviceInterfaceRegKey(a1, a2, 0x30u, 0LL, 1, 0, (__int64)&Handle, 0LL);
+          if ( DeviceInterfaceRegKeyPath < 0 )
+            goto LABEL_19;
+        }
+        DeviceInterfaceRegKeyPath = CmGetDeviceInterfaceRegKeySecurityDescriptor(a1, a3, &P);
+        if ( DeviceInterfaceRegKeyPath < 0 )
+          goto LABEL_19;
+        v24 = v21;
+        if ( P )
+          v24 = 917510;
+        Tree = PnpCtxRegCreateTree(a1, v19, v18, 0, v24, (__int64)P, (__int64)&v31, (__int64)a8);
+        if ( Tree != -1073741444 )
+        {
+          if ( Tree >= 0 )
+          {
+            if ( v24 == v21 )
+            {
+              v25 = v31;
+              v31 = 0LL;
+              *a7 = v25;
+              goto LABEL_19;
+            }
+            if ( a1 )
+              v27 = *(_QWORD *)(a1 + 224);
+            else
+              LODWORD(v27) = 0;
+            Tree = SysCtxRegOpenKey(v27, (_DWORD)v31, 0, 0, v21, (__int64)a7);
+            if ( Tree == -1073741444 )
+            {
+              DeviceInterfaceRegKeyPath = -1073741772;
+              goto LABEL_19;
+            }
+            if ( Tree >= 0 )
+              goto LABEL_19;
+          }
+LABEL_47:
+          DeviceInterfaceRegKeyPath = Tree;
+          goto LABEL_19;
+        }
+      }
+      DeviceInterfaceRegKeyPath = -1073741595;
+      goto LABEL_19;
     }
-    DeviceInterfaceRegKeySecurityDescriptor = RtlInitUnicodeStringEx(&DestinationString, Pool2);
-    if ( DeviceInterfaceRegKeySecurityDescriptor < 0 )
+    DeviceInterfaceRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, PoolWithTag);
+    if ( DeviceInterfaceRegKeyPath < 0 )
+    {
+LABEL_19:
+      v14 = P;
       goto LABEL_20;
+    }
     Length = DestinationString.Length;
-    if ( DestinationString.Length < v14
+    if ( DestinationString.Length < (unsigned int)v15
       && DestinationString.Length > 0x32u
       && RtlPrefixUnicodeString(
-           &`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::ObjectPathRootPrefix,
+           &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::ObjectPathRootPrefix,
            &DestinationString,
            1u) )
     {
-      v19 = (__int64)(Pool2 + 25);
+      v18 = (_DWORD)PoolWithTag + 50;
       DestinationString.MaximumLength -= 50;
-      DestinationString.Buffer = Pool2 + 25;
+      DestinationString.Buffer = PoolWithTag + 25;
       DestinationString.Length = Length - 50;
       if ( RtlPrefixUnicodeString(
-             &`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::DeviceClassesKeyPrefix,
+             &`_CmDeleteDeviceInterfaceRegKeyWorker'::`2'::DeviceClassesKeyPrefix,
              &DestinationString,
              1u) )
       {
-        v11 = 9;
-        v19 = (__int64)(Pool2 + 47);
+        v13 = 9;
+        v18 = (_DWORD)PoolWithTag + 94;
       }
       else if ( RtlPrefixUnicodeString(
-                  &`_CmDeleteDeviceInterfaceRegKeyWorker'::`2'::HardwareProfilesKeyPrefix,
+                  &`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::HardwareProfilesKeyPrefix,
                   &DestinationString,
                   1u) )
       {
-        v11 = 14;
-        v19 = (__int64)(Pool2 + 43);
+        v13 = 14;
+        v18 = (_DWORD)PoolWithTag + 86;
       }
-      DeviceInterfaceRegKeySecurityDescriptor = PnpCtxGetCachedContextBaseKey(a1, v11, (__int64)&v36);
-      if ( DeviceInterfaceRegKeySecurityDescriptor >= 0 )
-      {
-        v20 = v36;
-        goto LABEL_15;
-      }
-      goto LABEL_20;
+      DeviceInterfaceRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, v13, &v33);
+      if ( DeviceInterfaceRegKeyPath < 0 )
+        goto LABEL_19;
+      v19 = v33;
+      goto LABEL_15;
     }
-    v13 = P;
+    v14 = P;
   }
-  DeviceInterfaceRegKeySecurityDescriptor = -1073741811;
-LABEL_21:
+  DeviceInterfaceRegKeyPath = -1073741811;
+LABEL_20:
   if ( Handle )
     ZwClose(Handle);
-  if ( v35 )
-    ZwClose(v35);
-  if ( v34 )
-    ZwClose(v34);
-  if ( v13 )
-    ExFreePoolWithTag(v13, 0);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)DeviceInterfaceRegKeySecurityDescriptor;
+  if ( v32 )
+    ZwClose(v32);
+  if ( v31 )
+    ZwClose(v31);
+  if ( v14 )
+    ExFreePoolWithTag(v14, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return (unsigned int)DeviceInterfaceRegKeyPath;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C00B2B08
+ * XREFs of ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C0014AC0
  * Callers:
- *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00B2A18 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00149D4 (GreSfmRegisterLogicalSurfaceForSignaling.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,6 @@ __int64 __fastcall SFMLOGICALSURFACE::SignalOnDirty(SFMLOGICALSURFACE *this, int
   __int64 v2; // rbx
   int v4; // esi
   __int64 v5; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v7; // rax
 
   v2 = 0LL;
   v4 = 0;
@@ -20,8 +19,7 @@ __int64 __fastcall SFMLOGICALSURFACE::SignalOnDirty(SFMLOGICALSURFACE *this, int
   {
     if ( *((_DWORD *)this + 57) )
     {
-      v7 = Gre::Base::Globals(this);
-      v4 = SfmTokenArray::TransferTokens(*((SfmTokenArray **)v7 + 809), (SFMLOGICALSURFACE *)((char *)this + 216));
+      v4 = SfmTokenArray::TransferTokens(gpSfmState, (SFMLOGICALSURFACE *)((char *)this + 216));
       if ( v4 >= 0 )
         SfmSignalTokenEvent();
     }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDuplicateCloneLeaf @ 0x1402C98D8
+ * XREFs of MiDuplicateCloneLeaf @ 0x1402C99D8
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA018 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -14,14 +14,14 @@
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiUpdateTransitionPteFrame @ 0x140118984 (MiUpdateTransitionPteFrame.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDuplicateCloneLeaf(

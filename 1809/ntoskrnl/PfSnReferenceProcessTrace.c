@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1400D4A90
+ * XREFs of PfSnReferenceProcessTrace @ 0x1400D4AB0
  * Callers:
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     PfFileInfoNotify @ 0x1400D3DC0 (PfFileInfoNotify.c)
- *     PfSnLogPageFault @ 0x1400D7490 (PfSnLogPageFault.c)
+ *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
+ *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
  *     PfSnEndProcessTrace @ 0x140606950 (PfSnEndProcessTrace.c)
- *     PfSnLogHelper @ 0x14064B044 (PfSnLogHelper.c)
- *     PfSnAsyncContextInitialize @ 0x1406C0FC4 (PfSnAsyncContextInitialize.c)
+ *     PfSnLogHelper @ 0x14064B024 (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x1406C0FA4 (PfSnAsyncContextInitialize.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExAcquireRundownProtectionEx @ 0x1400D78A0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExAcquireRundownProtectionEx @ 0x1400D78C0 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)

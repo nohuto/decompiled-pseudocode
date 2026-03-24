@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlRegisterUncProvider @ 0x14093DC00
+ * XREFs of FsRtlRegisterUncProvider @ 0x14088B880
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpRegisterUncProvider @ 0x140852328 (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x1407C7838 (FsRtlpRegisterUncProvider.c)
  */
 
 NTSTATUS __stdcall FsRtlRegisterUncProvider(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareTableData@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1800C34C0
+ * XREFs of ?CompareTableData@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1800C2B70
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 __fastcall CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::Co
         _DWORD *FirstStruct,
         _DWORD *SecondStruct)
 {
-  unsigned int v3; // r9d
+  unsigned int v3; // eax
 
   v3 = SecondStruct[2];
   if ( *(_QWORD *)FirstStruct < *(_QWORD *)SecondStruct )

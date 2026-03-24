@@ -4,7 +4,7 @@
  *     CmpDelayCloseWorker @ 0x1405D1760 (CmpDelayCloseWorker.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
  */
 

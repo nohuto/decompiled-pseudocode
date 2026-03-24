@@ -1,34 +1,35 @@
 /*
- * XREFs of IopGetFileObjectExtension @ 0x1402A3A14
+ * XREFs of IopGetFileObjectExtension @ 0x1403567E0
  * Callers:
- *     IoGetInitiatorProcess @ 0x14025D5C0 (IoGetInitiatorProcess.c)
- *     IoSetOplockPrivateFoExt @ 0x1402A2EF0 (IoSetOplockPrivateFoExt.c)
- *     IopSetLockOperationProcess @ 0x1402A36D0 (IopSetLockOperationProcess.c)
- *     IoGetOplockKeyContextEx @ 0x1402A3840 (IoGetOplockKeyContextEx.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     IoChangeFileObjectFilterContext @ 0x1402A3984 (IoChangeFileObjectFilterContext.c)
- *     IoGetOplockFullFoExt @ 0x1402A39EC (IoGetOplockFullFoExt.c)
- *     CcInitializeCacheMapEx @ 0x140310F10 (CcInitializeCacheMapEx.c)
- *     IoSetOplockKeyContext @ 0x14039E588 (IoSetOplockKeyContext.c)
- *     IoFreeSfioStreamIdentifier @ 0x140557510 (IoFreeSfioStreamIdentifier.c)
- *     IoGetOplockKeyContext @ 0x140557630 (IoGetOplockKeyContext.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x140558AE0 (IopAdjustFileObjectKeepAliveCount.c)
- *     IopSymlinkCreateECP @ 0x1406B9CBC (IopSymlinkCreateECP.c)
- *     IopGraftName @ 0x1406B9FD4 (IopGraftName.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406C78D4 (IopOpenLinkOrRenameTarget.c)
- *     IopSymlinkSetFoExtension @ 0x1406DF940 (IopSymlinkSetFoExtension.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     IopSetFileObjectIosbRange @ 0x140935790 (IopSetFileObjectIosbRange.c)
- *     IoCopyDeviceObjectHint @ 0x1409361B0 (IoCopyDeviceObjectHint.c)
+ *     IoSetOplockPrivateFoExt @ 0x140206288 (IoSetOplockPrivateFoExt.c)
+ *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
+ *     IoGetInitiatorProcess @ 0x1402D3250 (IoGetInitiatorProcess.c)
+ *     IoGetFileMemoryPartitionInformation @ 0x14035679C (IoGetFileMemoryPartitionInformation.c)
+ *     IoGetOplockFullFoExt @ 0x1403567B8 (IoGetOplockFullFoExt.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     IoChangeFileObjectFilterContext @ 0x140356BBC (IoChangeFileObjectFilterContext.c)
+ *     IoGetOplockKeyContextEx @ 0x1403576E0 (IoGetOplockKeyContextEx.c)
+ *     IopSetLockOperationProcess @ 0x14035770C (IopSetLockOperationProcess.c)
+ *     IoSetOplockKeyContext @ 0x140390E44 (IoSetOplockKeyContext.c)
+ *     IoFreeSfioStreamIdentifier @ 0x140505AA0 (IoFreeSfioStreamIdentifier.c)
+ *     IoGetOplockKeyContext @ 0x140505BD0 (IoGetOplockKeyContext.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140507358 (IopAdjustFileObjectKeepAliveCount.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1406089A8 (IopOpenLinkOrRenameTarget.c)
+ *     IopSymlinkSetFoExtension @ 0x14069BA2C (IopSymlinkSetFoExtension.c)
+ *     IopSymlinkCreateECP @ 0x14069E570 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1407035D0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSetFileObjectIosbRange @ 0x140892814 (IopSetFileObjectIosbRange.c)
+ *     IoCopyDeviceObjectHint @ 0x140893870 (IoCopyDeviceObjectHint.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall IopGetFileObjectExtension(__int64 a1, int a2, _QWORD *a3)
 {
-  _QWORD *v3; // r9
+  _QWORD *v3; // rcx
   __int64 result; // rax
 
   v3 = *(_QWORD **)(a1 + 208);

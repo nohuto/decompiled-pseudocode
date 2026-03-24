@@ -1,29 +1,29 @@
 /*
- * XREFs of SeSetPrivateNameSpaceToken @ 0x1409C9658
+ * XREFs of SeSetPrivateNameSpaceToken @ 0x14091C8B8
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SeSetPrivateNameSpaceToken(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v5; // edi
+  unsigned int v3; // edi
   int v6; // eax
   unsigned int v7; // eax
   signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = 0;
+  v3 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 48), 1u);
   _InterlockedOr(v9, 0);
   if ( *(_BYTE *)(a1 + 204) )
   {
-    v5 = -1073741525;
+    v3 = -1073741525;
   }
   else
   {
@@ -38,5 +38,5 @@ __int64 __fastcall SeSetPrivateNameSpaceToken(__int64 a1, int a2)
   _InterlockedOr(v9, 0);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v5;
+  return v3;
 }

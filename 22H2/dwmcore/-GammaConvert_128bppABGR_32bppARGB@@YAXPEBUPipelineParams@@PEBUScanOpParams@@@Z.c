@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GammaConvert_128bppABGR_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BD7E0
+ * XREFs of ?GammaConvert_128bppABGR_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AA30
  * Callers:
  *     <none>
  * Callees:
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800F790C (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
- *     floorf_0 @ 0x18011B8D8 (floorf_0.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1798 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     floor @ 0x1800E7ED8 (floor.c)
  */
 
 void __fastcall GammaConvert_128bppABGR_32bppARGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)
@@ -25,7 +25,7 @@ void __fastcall GammaConvert_128bppABGR_32bppARGB(const struct PipelineParams *a
       *v3 = Convert_scRGB_Channel_To_sRGB_Byte(v2[2]);
       v3[1] = Convert_scRGB_Channel_To_sRGB_Byte(v2[1]);
       v3[2] = Convert_scRGB_Channel_To_sRGB_Byte(*v2);
-      v5 = (int)floorf_0((float)(v2[3] * 255.0) + 0.5);
+      v5 = (int)floor((float)(v2[3] * 255.0) + 0.5);
       if ( v5 <= 255 )
       {
         v6 = 0;

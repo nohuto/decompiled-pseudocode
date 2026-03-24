@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeSiloContextCallback @ 0x1407F6CC0
+ * XREFs of CmpFreeSiloContextCallback @ 0x1407F6CA0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpStopSiloKeyLockTracker @ 0x1407F6050 (CmpStopSiloKeyLockTracker.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpStopSiloKeyLockTracker @ 0x1407F6030 (CmpStopSiloKeyLockTracker.c)
  */
 
 PVOID __fastcall CmpFreeSiloContextCallback(ULONG_PTR BugCheckParameter2)

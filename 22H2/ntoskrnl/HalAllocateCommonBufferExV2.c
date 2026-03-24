@@ -1,10 +1,10 @@
 /*
- * XREFs of HalAllocateCommonBufferExV2 @ 0x1403B0C00
+ * XREFs of HalAllocateCommonBufferExV2 @ 0x140380C90
  * Callers:
- *     HalAllocateCommonBufferV2 @ 0x1403B0BD0 (HalAllocateCommonBufferV2.c)
+ *     HalAllocateCommonBuffer @ 0x140380FF0 (HalAllocateCommonBuffer.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B95C0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1402E7FF0 (MmAllocateContiguousNodeMemory.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
  */
 
 void *__fastcall HalAllocateCommonBufferExV2(__int64 a1, __int64 *a2, int a3, PHYSICAL_ADDRESS *a4, int a5, int a6)
@@ -16,14 +16,8 @@ void *__fastcall HalAllocateCommonBufferExV2(__int64 a1, __int64 *a2, int a3, PH
   if ( a2 )
     v8 = *a2;
   else
-    v8 = *(_QWORD *)(a1 + 144);
-  ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(
-                                   a3,
-                                   0,
-                                   v8,
-                                   *(_BYTE *)(a1 + 153) != 0 ? 0 : 0x10000,
-                                   *(_BYTE *)(a1 + 445) != 0 ? 4 : 516,
-                                   a6);
+    v8 = *(_QWORD *)(a1 + 136);
+  ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(a3, 0LL, v8, 0, *(_BYTE *)(a1 + 437) != 0 ? 4 : 516, a6);
   v10 = ContiguousNodeMemory;
   if ( ContiguousNodeMemory )
     *a4 = MmGetPhysicalAddress(ContiguousNodeMemory);

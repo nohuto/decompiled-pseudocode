@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OpenRenderFence@CD3DDevice@@QEBAPEAXXZ @ 0x1800CEA3C
+ * XREFs of ?OpenRenderFence@CD3DDevice@@QEBAPEAXXZ @ 0x180030E78
  * Callers:
- *     ??$_Emplace_reallocate@AEAU_LUID@@@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@QEAAPEAVAdapterInfo@CGlobalSurfaceManager@@QEAV23@AEAU_LUID@@@Z @ 0x1800CDF0C (--$_Emplace_reallocate@AEAU_LUID@@@-$vector@VAdapterInfo@CGlobalSurfaceManager@@V-$allocator@VAd.c)
- *     ?EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ @ 0x1800CE858 (-EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ??$_Emplace_reallocate@AEAU_LUID@@@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@QEAAPEAVAdapterInfo@CGlobalSurfaceManager@@QEAV23@AEAU_LUID@@@Z @ 0x18002E8E8 (--$_Emplace_reallocate@AEAU_LUID@@@-$vector@VAdapterInfo@CGlobalSurfaceManager@@V-$allocator@VAd.c)
+ *     ??$_Emplace_back_with_unused_capacity@AEAU_LUID@@@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@AEAAAEAVAdapterInfo@CGlobalSurfaceManager@@AEAU_LUID@@@Z @ 0x180030D70 (--$_Emplace_back_with_unused_capacity@AEAU_LUID@@@-$vector@VAdapterInfo@CGlobalSurfaceManager@@V.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 HANDLE __fastcall CD3DDevice::OpenRenderFence(CD3DDevice *this)
@@ -19,7 +19,7 @@ HANDLE __fastcall CD3DDevice::OpenRenderFence(CD3DDevice *this)
   TargetHandle = 0LL;
   SetLastError(0);
   CurrentProcess = GetCurrentProcess();
-  v3 = (void *)*((_QWORD *)this + 117);
+  v3 = (void *)*((_QWORD *)this + 122);
   v4 = CurrentProcess;
   v5 = GetCurrentProcess();
   if ( !DuplicateHandle(v5, v3, v4, &TargetHandle, 0, 0, 2u) )
@@ -29,7 +29,7 @@ HANDLE __fastcall CD3DDevice::OpenRenderFence(CD3DDevice *this)
       LastError = (unsigned __int16)LastError | 0x80070000;
     if ( LastError >= 0 )
       LastError = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(2291662851LL, 0LL, 0, LastError, 0x116u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(0x88980003, 0LL, 0, LastError, 0xF0u, 0LL);
   }
   return TargetHandle;
 }

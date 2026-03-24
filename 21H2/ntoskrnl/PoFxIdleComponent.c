@@ -1,15 +1,21 @@
 /*
- * XREFs of PoFxIdleComponent @ 0x1403557F0
+ * XREFs of PoFxIdleComponent @ 0x1402611A0
  * Callers:
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x1403B1020 (PopFxHandleReportDevicePoweredOn.c)
- *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
- *     DifPoFxIdleComponentWrapper @ 0x1406193F0 (DifPoFxIdleComponentWrapper.c)
+ *     PopFxIdleWorkerTail @ 0x140260EC0 (PopFxIdleWorkerTail.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BE830 (PoFxStartDevicePowerManagement.c)
  * Callees:
- *     PopFxIdleComponent @ 0x140355830 (PopFxIdleComponent.c)
+ *     PopFxIdleComponent @ 0x1402611F0 (PopFxIdleComponent.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall PoFxIdleComponent(ULONG_PTR a1, ULONG_PTR a2)
+__int64 __fastcall PoFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  return PopFxIdleComponent(a1, a2);
+  unsigned int v2; // edi
+  _BYTE v5[64]; // [rsp+20h] [rbp-48h] BYREF
+
+  v2 = BugCheckParameter3;
+  memset(v5, 0, sizeof(v5));
+  return PopFxIdleComponent(BugCheckParameter2, v2);
 }

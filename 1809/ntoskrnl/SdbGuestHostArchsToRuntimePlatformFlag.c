@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbGuestHostArchsToRuntimePlatformFlag @ 0x1408E803C
+ * XREFs of SdbGuestHostArchsToRuntimePlatformFlag @ 0x1408E801C
  * Callers:
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80E8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408E80C8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     AslEnvGetProcessWowInfo @ 0x140722344 (AslEnvGetProcessWowInfo.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x140722324 (AslEnvGetProcessWowInfo.c)
  */
 
 __int64 __fastcall SdbGuestHostArchsToRuntimePlatformFlag(__int16 a1, __int16 *a2)
@@ -27,10 +27,10 @@ __int64 __fastcall SdbGuestHostArchsToRuntimePlatformFlag(__int16 a1, __int16 *a
     }
     v4 = v7;
   }
-  for ( i = &unk_140380026; a1 != *(i - 1) || v4 != *i; i += 8 )
+  for ( i = &unk_140380146; a1 != *(i - 1) || v4 != *i; i += 8 )
   {
     if ( (unsigned __int64)++v3 >= 7 )
       return 0LL;
   }
-  return dword_140380028[4 * v3];
+  return dword_140380148[4 * v3];
 }

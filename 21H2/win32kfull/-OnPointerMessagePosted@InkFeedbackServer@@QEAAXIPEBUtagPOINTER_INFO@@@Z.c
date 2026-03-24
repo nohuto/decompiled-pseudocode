@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnPointerMessagePosted@InkFeedbackServer@@QEAAXIPEBUtagPOINTER_INFO@@@Z @ 0x1C0250CEC
+ * XREFs of ?OnPointerMessagePosted@InkFeedbackServer@@QEAAXIPEBUtagPOINTER_INFO@@@Z @ 0x1C0253DEC
  * Callers:
- *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024CDC0 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024F888 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void __fastcall InkFeedbackServer::OnPointerMessagePosted(
@@ -27,15 +27,15 @@ void __fastcall InkFeedbackServer::OnPointerMessagePosted(
       for ( i = *this; i != (InkFeedbackServer *)this; i = *(InkFeedbackServer **)i )
         (*(void (__fastcall **)(__int64, _QWORD))(*((_QWORD *)i - 1) + 16LL))((__int64)i - 8, *((unsigned int *)a3 + 1));
     }
-    else if ( (unsigned int)dword_1C0326250 > 2 )
+    else if ( (unsigned int)dword_1C032B288 > 2 )
     {
       v10 = 0;
       v8 = &v6;
       v6 = -1073741823;
       v9 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C0326250,
-        (unsigned __int8 *)dword_1C02EFE22,
+        (__int64)&dword_1C032B288,
+        (unsigned __int8 *)dword_1C02F2FAC,
         0LL,
         0LL,
         3u,

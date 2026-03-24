@@ -1,10 +1,10 @@
 /*
- * XREFs of NtCreateSection @ 0x140722710
+ * XREFs of NtCreateSection @ 0x140654E50
  * Callers:
- *     PfSnGetSectionObject @ 0x14075CEB0 (PfSnGetSectionObject.c)
- *     PfpFileBuildReadSupport @ 0x14075E6B4 (PfpFileBuildReadSupport.c)
+ *     PfpFileBuildReadSupport @ 0x14063290C (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1406331D8 (PfSnGetSectionObject.c)
  * Callees:
- *     MiCreateSectionCommon @ 0x140722780 (MiCreateSectionCommon.c)
+ *     MiCreateSectionCommon @ 0x140654AC0 (MiCreateSectionCommon.c)
  */
 
 NTSTATUS __stdcall NtCreateSection(
@@ -36,14 +36,13 @@ NTSTATUS __stdcall NtCreateSection(
   }
   LODWORD(ullMultiplicand) = v8;
   return MiCreateSectionCommon(
-           (int)SectionHandle,
+           (unsigned __int64)SectionHandle,
            DesiredAccess,
            (int)ObjectAttributes,
-           (int)MaximumSize,
+           (__int64 *)MaximumSize,
            SectionPageProtection,
            v7,
            (__int64)FileHandle,
            Address,
-           ullMultiplicand,
-           1);
+           ullMultiplicand);
 }

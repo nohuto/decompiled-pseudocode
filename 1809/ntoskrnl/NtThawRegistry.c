@@ -1,15 +1,15 @@
 /*
- * XREFs of NtThawRegistry @ 0x1407EABC0
+ * XREFs of NtThawRegistry @ 0x1407EABA0
  * Callers:
  *     <none>
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmThawRegistry @ 0x1407F5A94 (CmThawRegistry.c)
+ *     CmThawRegistry @ 0x1407F5A74 (CmThawRegistry.c)
  */
 
 __int64 NtThawRegistry()

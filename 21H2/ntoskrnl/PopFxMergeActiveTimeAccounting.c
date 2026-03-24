@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxMergeActiveTimeAccounting @ 0x1405CCE88
+ * XREFs of PopFxMergeActiveTimeAccounting @ 0x14056B720
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x140395BDC (PopFxStopDeviceAccounting.c)
- *     PopFxPauseDeviceAccounting @ 0x1405CCECC (PopFxPauseDeviceAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x14056B764 (PopFxPauseDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
  * Callees:
  *     <none>
  */

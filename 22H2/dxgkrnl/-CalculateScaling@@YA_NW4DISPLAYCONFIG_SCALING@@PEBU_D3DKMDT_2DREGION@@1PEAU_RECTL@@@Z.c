@@ -1,139 +1,103 @@
 /*
- * XREFs of ?CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z @ 0x1C006B3DC
+ * XREFs of ?CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z @ 0x1C001ACA0
  * Callers:
- *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C016D2D0 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C014A144 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-char __fastcall CalculateScaling(int a1, unsigned int *a2, unsigned int *a3, unsigned int *a4)
+char __fastcall CalculateScaling(__int64 a1, unsigned int *a2, unsigned int *a3, unsigned int *a4)
 {
-  unsigned int v4; // ebx
-  __int64 v7; // rdi
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
-  char result; // al
-  unsigned int v12; // eax
-  unsigned int v13; // edx
-  unsigned int v14; // ecx
-  unsigned int v15; // r9d
-  unsigned int v16; // eax
-  unsigned int v17; // ecx
+  __int64 v4; // rsi
+  unsigned int v7; // r11d
+  unsigned int v8; // r9d
+  unsigned int v9; // r10d
+  unsigned int v10; // r8d
+  unsigned int v11; // eax
+  unsigned int v12; // ecx
+  int v13; // eax
+  unsigned int v14; // r8d
+  unsigned int v15; // edx
+  __int64 v17; // rax
   unsigned int v18; // eax
-  unsigned int v19; // r9d
-  unsigned int v20; // r11d
-  unsigned int v21; // r10d
-  unsigned int v22; // r8d
-  unsigned int v23; // eax
-  unsigned int v24; // ecx
+  unsigned int v19; // edx
+  unsigned int v20; // ecx
+  unsigned int v21; // r9d
+  unsigned int v22; // eax
+  unsigned int v23; // ecx
+  unsigned int v24; // eax
   int v25; // eax
-  unsigned int v26; // edx
-  int v27; // eax
-  unsigned int v28; // ecx
-  int v29; // edx
-  int v30; // ecx
-  int v31; // r8d
+  unsigned int v26; // ecx
+  __int64 v27; // rax
 
-  v4 = 0;
-  switch ( a1 )
+  v4 = (int)a1;
+  switch ( (_DWORD)a1 )
   {
     case 1:
       if ( *a2 != *a3 || a2[1] != a3[1] )
       {
-        WdLogSingleEntry1(1LL, 85LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v30,
-              v29,
-              v31,
-              0LL,
-              2,
-              -1,
-              L"*pSurfaceSize == *pContentSize",
-              85LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
+        v27 = WdLogNewEntry5_WdAssertion(a1, a2);
+        *(_QWORD *)(v27 + 24) = 172LL;
+        WdLogEvent5_WdAssertion(v27);
       }
-      goto LABEL_22;
+      goto LABEL_19;
     case 2:
-      v12 = *a2;
-      v13 = *a3;
-      if ( v12 < *a3 || (v14 = a2[1], v15 = a3[1], v14 < v15) )
+      v18 = *a2;
+      v19 = *a3;
+      if ( v18 < *a3 || (v20 = a2[1], v21 = a3[1], v20 < v21) )
       {
-LABEL_13:
-        v20 = a3[1];
-        v19 = a2[1];
-        v21 = *a2;
-        v22 = *a3;
-        v23 = *a2 * v20;
-        v24 = v22 * v19;
-        if ( v22 * v19 < v23 )
+LABEL_5:
+        v7 = a3[1];
+        v8 = a2[1];
+        v9 = *a2;
+        v10 = *a3;
+        v11 = *a2 * v7;
+        v12 = v10 * v8;
+        if ( v10 * v8 < v11 )
         {
-          v27 = v24 / v20;
-          v26 = 0;
-          v28 = (v21 - v24 / v20) >> 1;
-          v21 = v27 + v28;
-          v4 = v28;
+          v25 = v12 / v7;
+          v26 = (v9 - v12 / v7) >> 1;
+          v9 = v25 + v26;
+          v14 = 0;
+          v15 = v26;
         }
         else
         {
-          v25 = v23 / v22;
-          v26 = (v19 - v25) >> 1;
-          v19 = v25 + v26;
+          v13 = v11 / v10;
+          v14 = (v8 - v13) >> 1;
+          v8 = v13 + v14;
+          v15 = 0;
         }
-        *a4 = v4;
-        a4[1] = v26;
-        a4[2] = v21;
-        goto LABEL_24;
+        *a4 = v15;
+        a4[1] = v14;
+        a4[2] = v9;
+        goto LABEL_8;
       }
-      v16 = (v12 - v13) >> 1;
-      v17 = (v14 - v15) >> 1;
-      *a4 = v16;
-      v18 = v13 + v16;
-      v19 = v17 + v15;
-      a4[1] = v17;
-LABEL_23:
-      a4[2] = v18;
-LABEL_24:
-      result = 1;
-      a4[3] = v19;
-      return result;
+      v22 = (v18 - v19) >> 1;
+      v23 = (v20 - v21) >> 1;
+      *a4 = v22;
+      v24 = v19 + v22;
+      v8 = v23 + v21;
+      a4[1] = v23;
+LABEL_20:
+      a4[2] = v24;
+LABEL_8:
+      a4[3] = v8;
+      return 1;
     case 3:
-LABEL_22:
-      v18 = *a2;
-      v19 = a2[1];
+LABEL_19:
+      v24 = *a2;
+      v8 = a2[1];
       *(_QWORD *)a4 = 0LL;
-      goto LABEL_23;
+      goto LABEL_20;
     case 4:
-      goto LABEL_13;
+      goto LABEL_5;
   }
-  if ( a1 != 5 )
+  if ( (_DWORD)a1 != 5 )
   {
-    v7 = a1;
-    WdLogSingleEntry1(1LL, a1);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v9,
-          v8,
-          v10,
-          0LL,
-          2,
-          -1,
-          L"Unknown scaling type 0x%lx",
-          v7,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v17 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v17 + 24) = v4;
+    WdLogEvent5_WdAssertion(v17);
   }
   return 0;
 }

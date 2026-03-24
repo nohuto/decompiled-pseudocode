@@ -1,38 +1,35 @@
 /*
- * XREFs of PipDmgInitPhaseZero @ 0x140B43070
+ * XREFs of PipDmgInitPhaseZero @ 0x140A53178
  * Callers:
- *     PiDmaGuardInitialize @ 0x140375428 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x1403B6CC8 (PiDmaGuardInitialize.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 PipDmgInitPhaseZero()
 {
-  char v1; // [rsp+40h] [rbp+8h] BYREF
-  int v2; // [rsp+48h] [rbp+10h] BYREF
+  char v0; // al
+  char v2; // [rsp+40h] [rbp+8h] BYREF
+  int v3; // [rsp+48h] [rbp+10h] BYREF
 
+  v3 = 0;
   v2 = 0;
-  v1 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140C020E8[0])(47LL, 1LL, &v1, &v2) >= 0 && v2 == 1 )
+  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140C00A68[0])(47LL, 1LL, &v2, &v3) >= 0 && v3 == 1 )
+    v0 = v2;
+  else
+    v0 = 0;
+  PipHalIommuSecurityEnabled = v0;
+  if ( v0 || PipDmaGuardTestMode )
   {
-    PipHalIommuSecurityEnabled = v1;
-    if ( v1 )
-    {
-LABEL_8:
-      PipDmaGuardPolicy = 3;
-      ExInitializeResourceLite(&PipDgqListLock);
-      qword_140C5AFD8 = (__int64)&PipDgqListHead;
-      PipDgqListHead = &PipDgqListHead;
-      return 0LL;
-    }
+    PipDmaGuardPolicy = 3;
+    ExInitializeResourceLite(&PipDgqListLock);
+    qword_140C430E8 = (__int64)&PipDgqListHead;
+    PipDgqListHead = &PipDgqListHead;
   }
   else
   {
-    PipHalIommuSecurityEnabled = 0;
+    PipDmaGuardPolicy = 0;
   }
-  if ( PipDmaGuardTestMode )
-    goto LABEL_8;
-  PipDmaGuardPolicy = 0;
   return 0LL;
 }

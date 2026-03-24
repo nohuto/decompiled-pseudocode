@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAdjustSiloTraceBuffers @ 0x140228540
+ * XREFs of EtwpAdjustSiloTraceBuffers @ 0x14032ED38
  * Callers:
- *     EtwpAdjustTraceBuffers @ 0x14020C9C0 (EtwpAdjustTraceBuffers.c)
+ *     EtwpAdjustTraceBuffers @ 0x14031BBB0 (EtwpAdjustTraceBuffers.c)
  * Callees:
- *     EtwpDequeueBuffer @ 0x140227F8C (EtwpDequeueBuffer.c)
- *     EtwpUnlockBufferList @ 0x14022809C (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1402280E8 (EtwpLockBufferList.c)
- *     EtwpQueryUsedProcessorCount @ 0x140228144 (EtwpQueryUsedProcessorCount.c)
- *     EtwpFreeTraceBuffer @ 0x14031EE68 (EtwpFreeTraceBuffer.c)
- *     EtwpRemoveBufferFromGlobalList @ 0x140411870 (EtwpRemoveBufferFromGlobalList.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpFreeTraceBuffer @ 0x140321364 (EtwpFreeTraceBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14032EE60 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpDequeueBuffer @ 0x14032F1FC (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14032F2D4 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14032F320 (EtwpLockBufferList.c)
+ *     EtwpRemoveBufferFromGlobalList @ 0x1403F897C (EtwpRemoveBufferFromGlobalList.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
@@ -22,10 +22,11 @@ void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
   __int64 v5; // rbx
   unsigned int v6; // ebp
   int UsedProcessorCount; // eax
-  _QWORD *v8; // rax
+  __int64 v8; // rax
   __int64 v9; // rcx
-  _QWORD *v10; // rbp
-  unsigned __int8 i; // [rsp+40h] [rbp+8h] BYREF
+  char *v10; // rbp
+  __int64 v11; // r8
+  char i; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
   for ( i = 0; v1 < *(_DWORD *)(a1 + 16); ++v1 )
@@ -37,24 +38,24 @@ void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
     {
       if ( (*(_DWORD *)(v4 + 12) & 0x400) == 0 )
       {
-        v6 = *(_DWORD *)(v4 + 228);
+        v6 = *(_DWORD *)(v4 + 244);
         UsedProcessorCount = EtwpQueryUsedProcessorCount(v4);
-        if ( v6 > *(_DWORD *)(v5 + 224) && v6 > 2 * UsedProcessorCount )
+        if ( v6 > *(_DWORD *)(v5 + 240) && v6 > 2 * UsedProcessorCount )
         {
           EtwpLockBufferList(v5, &i);
-          v8 = EtwpDequeueBuffer(v5, (_QWORD *)(v5 + 48));
-          v10 = v8;
+          v8 = EtwpDequeueBuffer(v5, v5 + 64);
+          v10 = (char *)v8;
           if ( v8 )
             v3 = (void *)EtwpRemoveBufferFromGlobalList(v9, v8);
           EtwpUnlockBufferList(v5, &i);
           if ( v10 )
           {
-            _InterlockedDecrement((volatile signed __int32 *)(v5 + 232));
-            _InterlockedDecrement((volatile signed __int32 *)(v5 + 228));
+            _InterlockedDecrement((volatile signed __int32 *)(v5 + 248));
+            _InterlockedDecrement((volatile signed __int32 *)(v5 + 244));
             _InterlockedExchangeAdd(
-              (volatile signed __int32 *)(*(_QWORD *)(v5 + 1096) + 4LL * (*(_DWORD *)(v5 + 300) & 1) + 4124),
+              (volatile signed __int32 *)(*(_QWORD *)(v5 + 1080) + 4LL * (*(_DWORD *)(v5 + 316) & 1) + 4116),
               -*(_DWORD *)(v5 + 4));
-            EtwpFreeTraceBuffer(v5, v10);
+            EtwpFreeTraceBuffer(v5, v10, v11);
             if ( v3 )
               ExFreePoolWithTag(v3, 0);
           }

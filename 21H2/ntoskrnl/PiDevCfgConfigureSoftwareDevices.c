@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x140697B34
+ * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x1407678F8
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
@@ -18,8 +18,8 @@ __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
   NTSTATUS v3; // eax
   NTSTATUS v4; // ebx
   int v6; // eax
-  HANDLE v7; // rsi
-  unsigned int *Pool2; // rdi
+  char *v7; // rsi
+  WCHAR *PoolWithTag; // rdi
   int v9; // r15d
   __int64 v10; // rax
   __int64 v11; // r8
@@ -52,15 +52,15 @@ __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
     *(_DWORD *)&v14.Length = 1048590;
     v14.Buffer = L"Devices";
     v6 = IopCreateRegistryKeyEx(&Handle, a1, &v14, 0xF003Fu, 0, 0LL);
-    v7 = Handle;
+    v7 = (char *)Handle;
     v4 = v6;
     if ( v6 >= 0 )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(256LL, 544LL, 1667526736LL);
-      if ( Pool2 )
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x220uLL, 0x63647050u);
+      if ( PoolWithTag )
       {
         v9 = 0;
-        v4 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, Pool2, 0x220u, &ResultLength);
+        v4 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, PoolWithTag, 0x220u, &ResultLength);
         if ( v4 < 0 )
         {
 LABEL_21:
@@ -77,25 +77,32 @@ LABEL_21:
         {
           while ( 1 )
           {
-            *((_WORD *)Pool2 + ((unsigned __int64)Pool2[3] >> 1) + 8) = 0;
+            PoolWithTag[((unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1) + 8] = 0;
             if ( *(_QWORD *)&PiPnpRtlCtx && (v10 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
               v11 = *(_QWORD *)(v10 + 8);
             else
               v11 = 0LL;
-            RegRtlDeleteTreeInternal(v7, Pool2 + 4, v11, 0LL);
+            RegRtlDeleteTreeInternal(v7, PoolWithTag + 8, v11, 0);
             if ( *(_QWORD *)&PiPnpRtlCtx && (v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
               v13 = *(_QWORD *)(v12 + 8);
             else
               v13 = 0LL;
-            v4 = RegRtlCopyTreeInternal((_DWORD)KeyHandle, (int)Pool2 + 16, (_DWORD)v7, (int)Pool2 + 16, 0, v13, 0);
+            v4 = RegRtlCopyTreeInternal(
+                   (_DWORD)KeyHandle,
+                   (int)PoolWithTag + 16,
+                   (_DWORD)v7,
+                   (int)PoolWithTag + 16,
+                   0,
+                   v13,
+                   0);
             if ( v4 < 0 )
               break;
-            v4 = ZwEnumerateKey(KeyHandle, ++v9, KeyBasicInformation, Pool2, 0x220u, &ResultLength);
+            v4 = ZwEnumerateKey(KeyHandle, ++v9, KeyBasicInformation, PoolWithTag, 0x220u, &ResultLength);
             if ( v4 < 0 )
               goto LABEL_21;
           }
         }
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {

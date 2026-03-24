@@ -1,17 +1,16 @@
 /*
- * XREFs of EtwpEnqueueAvailableBuffer @ 0x140227FC8
+ * XREFs of EtwpEnqueueAvailableBuffer @ 0x14032F238
  * Callers:
- *     EtwpPrepareDirtyBuffer @ 0x140227BA8 (EtwpPrepareDirtyBuffer.c)
- *     EtwpSwitchBuffer @ 0x140227BF8 (EtwpSwitchBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x140370D88 (EtwpAllocateFreeBuffers.c)
- *     EtwpRelinquishCompressionTarget @ 0x140602AD8 (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x140602B28 (EtwpRotateCompressionTarget.c)
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     EtwpCompleteBuffer @ 0x1407FE058 (EtwpCompleteBuffer.c)
+ *     EtwpSwitchBuffer @ 0x14032EE9C (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14032F3E4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x14035FD48 (EtwpAllocateFreeBuffers.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1405AD6B4 (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x1405AD704 (EtwpRotateCompressionTarget.c)
+ *     EtwpCompleteBuffer @ 0x1406BD8BC (EtwpCompleteBuffer.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x14022809C (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1402280E8 (EtwpLockBufferList.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     EtwpUnlockBufferList @ 0x14032F2D4 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14032F320 (EtwpLockBufferList.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsigned int a3)
@@ -20,11 +19,11 @@ __int64 __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsi
   ULONG_PTR v5; // rcx
   _QWORD *v8; // rcx
   __int64 result; // rax
-  _QWORD *v10; // rdx
+  _QWORD *v10; // r8
   __int64 v11; // rcx
-  _QWORD *v12; // rdi
-  _QWORD *v13; // r8
-  int v14; // eax
+  _QWORD *v12; // rdx
+  int v13; // eax
+  int v14; // r9d
   char v15; // [rsp+40h] [rbp+8h] BYREF
 
   BugCheckParameter4 = *a2;
@@ -33,68 +32,61 @@ __int64 __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsi
   if ( (_DWORD)v5 != (_DWORD)BugCheckParameter4 )
     KeBugCheckEx(0x11Du, 7uLL, (ULONG_PTR)a2, v5, BugCheckParameter4);
   a2[11] = a3;
-  *((_QWORD *)a2 + 3) = _InterlockedIncrement64((volatile signed __int64 *)(a1 + 808));
+  *((_QWORD *)a2 + 3) = _InterlockedIncrement64((volatile signed __int64 *)(a1 + 824));
   EtwpLockBufferList(a1, &v15);
   if ( (*(_DWORD *)(a1 + 12) & 0x4000000) == 0
-    || (v10 = (_QWORD *)(a1 + 56), (v11 = *(_QWORD *)(a1 + 56)) == 0)
+    || (v10 = (_QWORD *)(a1 + 72), (v11 = *(_QWORD *)(a1 + 72)) == 0)
     || a3 == 4 )
   {
     v8 = a2 + 8;
+    goto LABEL_4;
+  }
+  if ( a3 )
+  {
+    v12 = 0LL;
+    do
+    {
+      v13 = *(_DWORD *)(v11 + 12);
+      if ( (!v12 && (v14 = *(_DWORD *)(v11 + 12), v13) || (v14 = *(_DWORD *)(v11 + 12), v13 == 6))
+        && (v12 = v10, v14 == 6) )
+      {
+        *v10 = *(_QWORD *)v11;
+        if ( *(_QWORD *)v11 )
+          *(_QWORD *)v11 = 0LL;
+        else
+          *(_QWORD *)(a1 + 64) = v10;
+        *(_QWORD *)v11 = *(_QWORD *)(a1 + 1168);
+        *(_QWORD *)(a1 + 1168) = v11;
+      }
+      else
+      {
+        v10 = (_QWORD *)v11;
+      }
+      v11 = *v10;
+    }
+    while ( *v10 );
+    v8 = a2 + 8;
+    if ( v12 )
+    {
+      *v8 = *v12;
+      *v12 = v8;
+      if ( v12 != *(_QWORD **)(a1 + 64) )
+        goto LABEL_6;
+      goto LABEL_5;
+    }
 LABEL_4:
     *v8 = 0LL;
-    **(_QWORD **)(a1 + 48) = v8;
-    goto LABEL_5;
-  }
-  if ( !a3 )
-  {
-    v12 = a2 + 8;
-    *v12 = *(_QWORD *)(a1 + 56);
-    *(_QWORD *)(a1 + 56) = v12;
-    if ( a1 + 56 == *(_QWORD *)(a1 + 48) )
-      *(_QWORD *)(a1 + 48) = v12;
+    **(_QWORD **)(a1 + 64) = v8;
+LABEL_5:
+    *(_QWORD *)(a1 + 64) = v8;
     goto LABEL_6;
   }
-  v13 = 0LL;
-  do
-  {
-    v14 = *(_DWORD *)(v11 + 12);
-    if ( v13 )
-    {
-      if ( v14 != 6 )
-        goto LABEL_16;
-    }
-    else if ( !v14 )
-    {
-      goto LABEL_16;
-    }
-    v13 = v10;
-    if ( v14 != 6 )
-    {
-LABEL_16:
-      v10 = (_QWORD *)v11;
-      goto LABEL_17;
-    }
-    *v10 = *(_QWORD *)v11;
-    if ( *(_QWORD *)v11 )
-      *(_QWORD *)v11 = 0LL;
-    else
-      *(_QWORD *)(a1 + 48) = v10;
-    *(_QWORD *)v11 = *(_QWORD *)(a1 + 1184);
-    *(_QWORD *)(a1 + 1184) = v11;
-LABEL_17:
-    v11 = *v10;
-  }
-  while ( *v10 );
-  v8 = a2 + 8;
-  if ( !v13 )
-    goto LABEL_4;
-  *v8 = *v13;
-  *v13 = v8;
-  if ( v13 == *(_QWORD **)(a1 + 48) )
-LABEL_5:
-    *(_QWORD *)(a1 + 48) = v8;
+  *((_QWORD *)a2 + 4) = *(_QWORD *)(a1 + 72);
+  *(_QWORD *)(a1 + 72) = a2 + 8;
+  if ( a1 + 72 == *(_QWORD *)(a1 + 64) )
+    *(_QWORD *)(a1 + 64) = a2 + 8;
 LABEL_6:
   result = EtwpUnlockBufferList(a1, &v15);
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 228));
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 244));
   return result;
 }

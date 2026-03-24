@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDispatchPassiveInterrupts @ 0x140462310
+ * XREFs of KiDispatchPassiveInterrupts @ 0x1405212D0
  * Callers:
- *     KiScanInterruptObjectList @ 0x140420020 (KiScanInterruptObjectList.c)
+ *     KiScanInterruptObjectList @ 0x1403FF030 (KiScanInterruptObjectList.c)
  * Callees:
- *     IoProcessPassiveInterrupts @ 0x1403A2D64 (IoProcessPassiveInterrupts.c)
+ *     IoProcessPassiveInterrupts @ 0x14050CF94 (IoProcessPassiveInterrupts.c)
  */
 
 __int64 KiDispatchPassiveInterrupts()

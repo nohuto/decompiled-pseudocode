@@ -1,17 +1,17 @@
 /*
- * XREFs of IopFreeRelationList @ 0x1406EEA5C
+ * XREFs of IopFreeRelationList @ 0x1406EEA3C
  * Callers:
- *     PnpQueuePendingSurpriseRemoval @ 0x1406ED8CC (PnpQueuePendingSurpriseRemoval.c)
- *     PnpInvalidateRelationsInList @ 0x1406EDCD0 (PnpInvalidateRelationsInList.c)
- *     IopAllocateRelationList @ 0x1406EE99C (IopAllocateRelationList.c)
- *     PnpBuildRemovalRelationList @ 0x1406EF2F4 (PnpBuildRemovalRelationList.c)
- *     PipRemoveDevicesInRelationList @ 0x1406EF6A0 (PipRemoveDevicesInRelationList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
- *     PnpCancelRemoveOnHungDevices @ 0x14082800C (PnpCancelRemoveOnHungDevices.c)
- *     PnpProcessCompletedEject @ 0x1408282A0 (PnpProcessCompletedEject.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1406ED8AC (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpInvalidateRelationsInList @ 0x1406EDCB0 (PnpInvalidateRelationsInList.c)
+ *     IopAllocateRelationList @ 0x1406EE97C (IopAllocateRelationList.c)
+ *     PnpBuildRemovalRelationList @ 0x1406EF2D4 (PnpBuildRemovalRelationList.c)
+ *     PipRemoveDevicesInRelationList @ 0x1406EF680 (PipRemoveDevicesInRelationList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x140827FEC (PnpCancelRemoveOnHungDevices.c)
+ *     PnpProcessCompletedEject @ 0x140828280 (PnpProcessCompletedEject.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiClearDeviceObjectList @ 0x1406EEAAC (PiClearDeviceObjectList.c)
+ *     PiClearDeviceObjectList @ 0x1406EEA8C (PiClearDeviceObjectList.c)
  */
 
 void __fastcall IopFreeRelationList(_QWORD *P)

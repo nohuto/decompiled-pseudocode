@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1403B529C
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1403A58D8
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140761A2C (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiInitializePrivateFixupBitmap @ 0x1406F3738 (MiInitializePrivateFixupBitmap.c)
- *     MiCreateSessionDriverProtos @ 0x140981070 (MiCreateSessionDriverProtos.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1405FC490 (MiInitializePrivateFixupBitmap.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA7D8 (MiCreateSessionDriverProtos.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(_DWORD *a1, unsigned __int64 a2)
@@ -43,7 +43,7 @@ LABEL_7:
     ExFreePoolWithTag(v6, 0);
     return 0LL;
   }
-  MiInitializePrivateFixupBitmap(Pool, a1, 1LL);
+  MiInitializePrivateFixupBitmap(Pool, a1);
   v5[5] = Pool;
   v5[6] = a1;
   v5[2] = a2;
@@ -57,15 +57,15 @@ LABEL_7:
     v6 = Pool;
     goto LABEL_7;
   }
-  v7 = ExAcquireSpinLockExclusive(&dword_140C4F4A4);
-  v8 = (_QWORD *)qword_140C4F488;
-  if ( *(__int64 **)qword_140C4F488 != &qword_140C4F480 )
+  v7 = ExAcquireSpinLockExclusive(&dword_140C4CCE4);
+  v8 = (_QWORD *)qword_140C4CCC8;
+  if ( *(__int64 **)qword_140C4CCC8 != &qword_140C4CCC0 )
     __fastfail(3u);
-  *v5 = &qword_140C4F480;
+  *v5 = &qword_140C4CCC0;
   v5[1] = v8;
   *v8 = v5;
-  qword_140C4F488 = (__int64)v5;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4F4A4);
+  qword_140C4CCC8 = (__int64)v5;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CCE4);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

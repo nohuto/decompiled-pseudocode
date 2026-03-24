@@ -1,9 +1,9 @@
 /*
  * XREFs of EtwpUpdateEnableMask @ 0x1405C209C
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
  *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
  * Callees:
  *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)

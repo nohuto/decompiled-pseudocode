@@ -1,11 +1,11 @@
 /*
- * XREFs of TraceLoggingWriteMiracastSessionStart @ 0x1C006736C
+ * XREFs of TraceLoggingWriteMiracastSessionStart @ 0x1C005A6CC
  * Callers:
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
- *     DpiMiracastHandleStartSessionDone @ 0x1C038D50C (DpiMiracastHandleStartSessionDone.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C02CE44C (DpiMiracastHandleStartSessionDone.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U?$_tlgWrapSz@G@@U3@U3@U3@U3@U2@U2@U3@U3@U3@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$03@@444444AEBU?$_tlgWrapSz@G@@55554455544444444@Z @ 0x1C0066AB0 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U-$_tlgWrapSz@G@@.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U?$_tlgWrapSz@G@@U3@U3@U3@U3@U2@U2@U3@U3@U3@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$03@@444444AEBU?$_tlgWrapSz@G@@55554455544444444@Z @ 0x1C0059E10 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U-$_tlgWrapSz@G@@.c)
  */
 
 void TraceLoggingWriteMiracastSessionStart()
@@ -38,14 +38,14 @@ void TraceLoggingWriteMiracastSessionStart()
   int v25; // [rsp+190h] [rbp+20h] BYREF
   int v26; // [rsp+198h] [rbp+28h] BYREF
 
-  if ( (unsigned int)dword_1C012F918 > 5 )
+  if ( (unsigned int)dword_1C00B1A90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x800000000002LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x800000000002LL) )
     {
       v1 = *(_DWORD *)(v0 + 600);
-      v18 = &unk_1C008A884;
+      v18 = &unk_1C0083874;
       v24 = (v1 >> 2) & 1;
-      v22 = &unk_1C008A884;
+      v22 = &unk_1C0083874;
       v25 = (v1 >> 1) & 1;
       v23 = v0 + 112;
       v26 = v1 & 1;
@@ -69,8 +69,8 @@ void TraceLoggingWriteMiracastSessionStart()
       v13 = *(_DWORD *)(v0 + 652);
       v14 = *(_DWORD *)(v0 + 788);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        (__int64)&unk_1C008A884,
-        byte_1C009A27F,
+        (__int64)&unk_1C0083874,
+        byte_1C0081009,
         (const GUID *)(v0 + 112),
         v0,
         &v23,

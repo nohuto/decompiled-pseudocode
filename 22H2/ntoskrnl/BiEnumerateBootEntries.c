@@ -1,61 +1,61 @@
 /*
- * XREFs of BiEnumerateBootEntries @ 0x140809560
+ * XREFs of BiEnumerateBootEntries @ 0x1409719E8
  * Callers:
- *     BiBuildIdentifierList @ 0x140806BE8 (BiBuildIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x140970978 (BiBuildIdentifierList.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x14041C340 (ZwEnumerateBootEntries.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiAcquirePrivilege @ 0x140808628 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1408086B4 (BiReleasePrivilege.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwEnumerateBootEntries @ 0x1403FB600 (ZwEnumerateBootEntries.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785B38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785B90 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, unsigned int *a2)
+__int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
 {
   int v4; // ebx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v6; // rdi
   int v7; // eax
-  unsigned int v9; // [rsp+50h] [rbp+18h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+50h] [rbp+18h] BYREF
   __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
   v10 = 0LL;
   v4 = BiAcquirePrivilege(0x16u, (__int64)&v10);
   if ( v4 >= 0 )
   {
-    v9 = 0x2000;
-    Pool2 = ExAllocatePool2(258LL, 0x2000LL, 1262764866LL);
-    v6 = (void *)Pool2;
-    v9 &= -(Pool2 != 0);
+    LODWORD(NumberOfBytes) = 0x2000;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x2000uLL, 0x4B444342u);
+    v6 = PoolWithTag;
+    LODWORD(NumberOfBytes) = PoolWithTag != 0LL ? NumberOfBytes : 0;
     while ( 1 )
     {
-      v7 = ZwEnumerateBootEntries(Pool2, (__int64)&v9);
+      v7 = ZwEnumerateBootEntries((__int64)PoolWithTag, (__int64)&NumberOfBytes);
       v4 = v7;
       if ( v7 != -1073741789 )
         break;
       if ( v6 )
         ExFreePoolWithTag(v6, 0x4B444342u);
-      Pool2 = ExAllocatePool2(258LL, v9, 1262764866LL);
-      v6 = (void *)Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+      v6 = PoolWithTag;
+      if ( !PoolWithTag )
       {
         v4 = -1073741670;
-        goto LABEL_6;
+        goto LABEL_12;
       }
     }
-    if ( v7 < 0 )
+    if ( v7 >= 0 )
+    {
+      *a2 = NumberOfBytes;
+      *a1 = v6;
+    }
+    else
     {
       BiLogMessage(4LL, L"Failed to enumerate boot entries. Status: %x", (unsigned int)v7);
       if ( v6 )
         ExFreePoolWithTag(v6, 0x4B444342u);
     }
-    else
-    {
-      *a2 = v9;
-      *a1 = v6;
-    }
-LABEL_6:
+LABEL_12:
     BiReleasePrivilege((unsigned int *)&v10);
   }
   return (unsigned int)v4;

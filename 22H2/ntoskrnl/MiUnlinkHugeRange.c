@@ -1,97 +1,81 @@
 /*
- * XREFs of MiUnlinkHugeRange @ 0x140622B2C
+ * XREFs of MiUnlinkHugeRange @ 0x140533A9C
  * Callers:
- *     MiGetHugeRangeFromNode @ 0x1403C4A84 (MiGetHugeRangeFromNode.c)
- *     MiGetHugeBadRangeFromNode @ 0x14061FCB0 (MiGetHugeBadRangeFromNode.c)
- *     MiHugeRangeFreeToZero @ 0x140620CF4 (MiHugeRangeFreeToZero.c)
- *     MiMakeEntireHugePfnGood @ 0x140621584 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnBad @ 0x140621688 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621E64 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x140622128 (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiMakeEntireHugePfnGood @ 0x1403F2FCC (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnBad @ 0x1403F3074 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x1403F3428 (MiMarkHugePfnGood.c)
+ *     MiGetHugeRangeFromNode @ 0x140532994 (MiGetHugeRangeFromNode.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiPageListCollision @ 0x14036825C (MiPageListCollision.c)
- *     MiPageToChannel @ 0x140375EC0 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
  */
 
-unsigned __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
+__int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
 {
-  __int64 v2; // r13
-  unsigned __int64 v3; // rbp
-  unsigned __int64 v5; // rdi
-  char v6; // r12
-  unsigned int v7; // esi
-  __int64 v8; // rbx
-  unsigned __int64 *v9; // r14
-  unsigned __int64 v10; // rcx
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
-  _QWORD *v13; // r9
-  _QWORD *v14; // r8
-  __int64 v15; // rax
-  unsigned __int64 v16; // rax
+  __int64 v2; // r15
+  unsigned __int64 v4; // rdi
+  unsigned __int64 v5; // rbx
+  _QWORD *v6; // rax
+  __int64 v7; // r12
+  __int64 v8; // r8
+  unsigned __int64 v9; // rcx
+  int v10; // r11d
+  __int64 v11; // r14
+  __int64 v12; // rdx
+  int v13; // eax
+  __int64 *v14; // r10
+  unsigned __int64 *v15; // r9
+  __int64 result; // rax
   unsigned __int64 v17; // rcx
-  unsigned __int64 result; // rax
-  unsigned int v19; // [rsp+50h] [rbp+8h]
 
-  v2 = *(_QWORD *)(a1 + 16208);
-  v3 = (unsigned int)dword_140C65C80[0];
-  v5 = a2 & 0x3FFFFF;
-  v19 = MiPageToChannel(v5 << 18);
-  v6 = 0;
-  v7 = 1;
-  v8 = *((unsigned int *)MiSearchNumaNodeTable(v5 << 18) + 2);
-  v9 = (unsigned __int64 *)(qword_140C67EF0 + 8 * v5);
-  v10 = *v9;
-  v11 = *v9 & 7;
-  if ( v11 == 2 )
+  v2 = *(_QWORD *)(a1 + 6160);
+  v4 = (unsigned int)dword_140C4DF80[0];
+  v5 = *(_QWORD *)&a2 & 0x3FFFFLL;
+  v6 = MiSearchNumaNodeTable((*(_QWORD *)&a2 & 0x3FFFFLL) << 18);
+  v7 = qword_140C4E670;
+  v8 = *((unsigned int *)v6 + 2);
+  v9 = *(_QWORD *)(qword_140C4E670 + 8 * v5);
+  if ( (v9 & 0x1C0000) == 0x80000 )
   {
-    if ( (v10 & 0x800000000000000LL) != 0 )
-    {
-      MiPageListCollision(qword_140C67EF0 + 8 * v5, 1, 1u);
-      v10 = *v9;
-    }
-    v12 = v3 + (unsigned int)(2 * v3 * v8);
-  }
-  else if ( v11 == 1 )
-  {
-    if ( (v10 & 0x800000000000000LL) != 0 )
-    {
-      MiPageListCollision(qword_140C67EF0 + 8 * v5, 1, 1u);
-      v10 = *v9;
-      v6 = 1;
-    }
-    v7 = 0;
-    v12 = (unsigned int)(2 * v3 * v8);
+    v10 = 1;
+    v11 = 4200LL;
+    v12 = v4 + (unsigned int)(2 * v4 * v8);
   }
   else
   {
-    v7 = 5;
-    v12 = (unsigned int)v8 + 2 * (_DWORD)v3 * (unsigned __int16)KeNumberNodes;
+    if ( (v9 & 0x1C0000) == 0x40000 )
+    {
+      v10 = 0;
+      v13 = *((_DWORD *)v6 + 2);
+      v11 = 4192LL;
+    }
+    else
+    {
+      v13 = (unsigned __int16)KeNumberNodes;
+      v10 = 5;
+      v11 = 4232LL;
+    }
+    v12 = (unsigned int)(2 * v4 * v13);
   }
-  v13 = (_QWORD *)(v2 + 8 * v12);
-  if ( v7 != 5 )
-    v13 += v5 % v3;
-  if ( ((v10 >> 37) & 0x3FFFFF) != 0 )
-    v14 = (_QWORD *)(qword_140C67EF0 + 8 * ((v10 >> 37) & 0x3FFFFF));
+  v14 = (__int64 *)(v2 + 8 * v12);
+  if ( v10 != 5 )
+    v14 += v5 % v4;
+  v15 = (unsigned __int64 *)v14;
+  if ( ((v9 >> 21) & 0x3FFFF) != 0 )
+    v15 = (unsigned __int64 *)(qword_140C4E670 + 8 * ((v9 >> 21) & 0x3FFFF));
+  *v15 = v9 & 0x3FFFF | *v15 & 0xFFFFFFFFFFFC0000uLL;
+  if ( (v9 & 0x3FFFF) != 0 )
+    v14 = (__int64 *)(qword_140C4E670 + 8 * (v9 & 0x3FFFF));
+  result = *v14 ^ (v9 ^ *v14) & 0x7FFFE00000LL;
+  *v14 = result;
+  if ( *(_BYTE *)(a1 + 4829) == 1 || v10 )
+    v17 = v9 & 0xFFFFFFFFFFFC0000uLL | 1;
   else
-    v14 = v13;
-  v15 = (v10 >> 15) & 0x3FFFFF;
-  *v14 ^= (*v14 ^ v10) & 0x1FFFFF8000LL;
-  if ( v15 )
-    v13 = (_QWORD *)(qword_140C67EF0 + 8 * v15);
-  v16 = *v13 ^ v10;
-  v17 = v10 & 0x7FFF;
-  *v13 ^= v16 & 0x7FFFFE000000000LL;
-  if ( *(_BYTE *)(a1 + 15781) || v6 || v7 )
-    v17 |= 0x10000uLL;
-  result = 0xFFFFFF800003FFFBuLL;
-  *v9 = v17 & 0xFFFFFF800001FFF8uLL | 0x20003;
-  if ( v7 != 5 )
+    v17 = v9 & 0xFFFFFFFFFFFC0000uLL;
+  *(_QWORD *)(v7 + 8 * v5) = v17 & 0xFFFFFFFFFFE3FFFFuLL | 0xC0000;
+  if ( v10 != 5 )
   {
-    result = v19;
-    --*(_QWORD *)(*(_QWORD *)(a1 + 16) + 25408 * v8 + 8 * (v19 + 4LL * v7) + 22864);
-    _InterlockedDecrement64((volatile signed __int64 *)(a1 + 16216));
+    --*(_QWORD *)(v11 + *(_QWORD *)(a1 + 16) + 4544 * v8);
+    --*(_QWORD *)(a1 + 6168);
   }
   return result;
 }

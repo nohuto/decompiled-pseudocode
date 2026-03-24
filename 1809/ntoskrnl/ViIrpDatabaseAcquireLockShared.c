@@ -1,5 +1,5 @@
 /*
- * XREFs of ViIrpDatabaseAcquireLockShared @ 0x14030B50C
+ * XREFs of ViIrpDatabaseAcquireLockShared @ 0x14030B60C
  * Callers:
  *     VfIrpDatabaseCheckExFreePool @ 0x14093E18C (VfIrpDatabaseCheckExFreePool.c)
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x1405DFD40
+ * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x140580A50
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(PKSPIN_LOCK SpinLock)
@@ -23,7 +23,7 @@ __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(PKSPIN_LOCK SpinLoc
   {
     v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
     if ( (SpinLock[1] & 3) == 3 )
-      SpinLock[3] = MEMORY[0xFFFFF78000000008];
+      SpinLock[2] = MEMORY[0xFFFFF78000000008];
     KxReleaseSpinLock(SpinLock);
     if ( KiIrqlFlags )
     {

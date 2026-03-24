@@ -1,9 +1,9 @@
 /*
- * XREFs of CcChargeThreadForReadAhead @ 0x14029D2AC
+ * XREFs of CcChargeThreadForReadAhead @ 0x1402F98E8
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x14029CC2C (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall CcChargeThreadForReadAhead(__int64 a1, __int64 a2, __int64 a3, int a4, struct _KTHREAD *a5)
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall CcChargeThreadForReadAhead(__int64 a1, __int64 a2, _
   result = *(_QWORD *)(a1 + 40);
   v6 = *(_QWORD *)(a1 + 48);
   if ( !*(_DWORD *)(*(_QWORD *)(result + 8) + 4LL) )
-    KeBugCheckEx(0x34u, 0x614uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeBugCheckEx(0x34u, 0x5F8uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( a4 > 0 )
   {
     if ( a4 > 2 )

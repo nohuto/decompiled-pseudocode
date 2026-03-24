@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpCheckAllAttributes @ 0x140757C04
+ * XREFs of SdbpCheckAllAttributes @ 0x1407B243C
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140756E10 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A503B0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140753CB0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1409650D0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     AslFileAllocAndGetAttributes @ 0x1407592F8 (AslFileAllocAndGetAttributes.c)
- *     SdbpCheckAttribute @ 0x140759490 (SdbpCheckAttribute.c)
- *     SdbReadQWORDTag @ 0x14080B234 (SdbReadQWORDTag.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     SdbpCheckAttribute @ 0x1407B267C (SdbpCheckAttribute.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2904 (AslFileAllocAndGetAttributes.c)
+ *     SdbReadQWORDTag @ 0x1407B3E60 (SdbReadQWORDTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -26,22 +26,24 @@ __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsig
   char *v10; // rbp
   unsigned int v11; // r13d
   int *v12; // r12
-  unsigned __int16 v13; // bx
+  __int16 v13; // bx
   unsigned int FirstTag; // eax
   __int64 v15; // r8
+  __int64 v16; // r9
+  char *v17; // rdi
+  __int64 v18; // rsi
+  int v19; // eax
   __int64 *p_QWORDTag; // r14
-  int v17; // ecx
-  unsigned int v18; // r15d
+  int v22; // ecx
+  unsigned int v23; // r15d
   __int64 StringTagPtr; // rax
-  __int64 v20; // rcx
-  void (__fastcall *v21)(_QWORD, __int64 *, _QWORD, _QWORD); // rax
-  char *v22; // rdi
-  __int64 v23; // rsi
-  int v24; // eax
+  __int64 v25; // rcx
+  void (__fastcall *v26)(_QWORD, __int64 *, _QWORD, _QWORD); // rax
+  BOOL v27; // eax
   int DWORDTag; // [rsp+30h] [rbp-58h] BYREF
-  unsigned int v27; // [rsp+34h] [rbp-54h] BYREF
+  unsigned int v29; // [rsp+34h] [rbp-54h] BYREF
   __int64 QWORDTag; // [rsp+38h] [rbp-50h] BYREF
-  unsigned __int16 v33; // [rsp+B0h] [rbp+28h]
+  unsigned __int16 v35; // [rsp+B0h] [rbp+28h]
 
   Attributes = 0;
   DWORDTag = 0;
@@ -50,77 +52,80 @@ __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsig
   v8 = a3;
   *a1 = 0;
   v9 = 1;
-  v27 = 1;
+  v29 = 1;
   if ( !a5 )
     return Attributes;
   if ( *(_DWORD *)(a5 + 80) )
   {
-    if ( !*(_QWORD *)(a5 + 32) )
+    v27 = *(_QWORD *)(a5 + 32) != 0LL;
+    goto LABEL_34;
+  }
+  if ( !*(_QWORD *)(a5 + 8) )
+  {
+    v27 = 0;
+LABEL_34:
+    if ( !v27 )
       return Attributes;
   }
-  else if ( !*(_QWORD *)(a5 + 8) )
-  {
-    return Attributes;
-  }
-  v10 = (char *)AslAlloc(a1, 1088LL);
+  v10 = (char *)AslAlloc((__int64)a1, 0x460uLL);
   if ( !v10 )
     return (unsigned int)-1073741801;
   v11 = 0;
-  v12 = (int *)&unk_140C0CB84;
+  v12 = (int *)&unk_140C12364;
   while ( 1 )
   {
     v13 = *((_WORD *)v12 - 2);
-    v33 = v13;
+    v35 = v13;
     FirstTag = SdbFindFirstTag(v8, v7, v13);
     if ( !FirstTag )
       goto LABEL_7;
     p_QWORDTag = 0LL;
-    v17 = v13 & 0xF000;
-    v18 = 0;
-    switch ( v17 )
+    v22 = v13 & 0xF000;
+    v23 = 0;
+    switch ( v22 )
     {
       case 20480:
         QWORDTag = SdbReadQWORDTag(a3, FirstTag, 0LL);
         p_QWORDTag = &QWORDTag;
-        v18 = 8;
+        v23 = 8;
         break;
       case 16384:
-        DWORDTag = SdbReadDWORDTag(a3, FirstTag, 0LL);
+        DWORDTag = SdbReadDWORDTag(a3, FirstTag, 0LL, v16);
         p_QWORDTag = (__int64 *)&DWORDTag;
-        v18 = 4;
+        v23 = 4;
         break;
       case 24576:
-        StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v15);
-        v20 = -1LL;
+        StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v15, v16);
+        v25 = -1LL;
         p_QWORDTag = (__int64 *)StringTagPtr;
         do
-          ++v20;
-        while ( *(_WORD *)(StringTagPtr + 2 * v20) );
-        v18 = 2 * v20 + 2;
+          ++v25;
+        while ( *(_WORD *)(StringTagPtr + 2 * v25) );
+        v23 = 2 * v25 + 2;
         break;
     }
     Attributes = AslFileAllocAndGetAttributes(v10, a5, 1LL << *v12);
     if ( (Attributes & 0x80000000) != 0 )
       break;
     if ( (*(_DWORD *)&v10[32 * *v12 + 24] & 1) == 0 )
-      goto LABEL_22;
-    if ( !(unsigned int)SdbpCheckAttribute((unsigned int)&v27, v33, (_DWORD)p_QWORDTag, v18, (__int64)&v10[32 * *v12]) )
+      goto LABEL_9;
+    if ( !(unsigned int)SdbpCheckAttribute((unsigned int)&v29, v35, (_DWORD)p_QWORDTag, v23, (__int64)&v10[32 * *v12]) )
     {
       Attributes = -1073741595;
       AslLogCallPrintf(1LL);
-      goto LABEL_23;
+      goto LABEL_10;
     }
-    v9 = v27;
-    v21 = *(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD))(a2 + 1752);
-    if ( v21 )
-      v21(v33, p_QWORDTag, v18, v27);
+    v9 = v29;
+    v26 = *(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD))(a2 + 1744);
+    if ( v26 )
+      v26(v35, p_QWORDTag, v23, v29);
     if ( !v9 )
     {
-LABEL_21:
+LABEL_8:
       *a1 = v9;
-LABEL_22:
+LABEL_9:
       Attributes = 0;
-      goto LABEL_23;
+      goto LABEL_10;
     }
     v8 = a3;
     v7 = a4;
@@ -128,22 +133,22 @@ LABEL_7:
     ++v11;
     v12 += 2;
     if ( v11 >= 0x26 )
-      goto LABEL_21;
+      goto LABEL_8;
   }
   AslLogCallPrintf(1LL);
-LABEL_23:
-  v22 = v10 + 16;
-  v23 = 34LL;
+LABEL_10:
+  v17 = v10 + 16;
+  v18 = 35LL;
   do
   {
-    v24 = *((_DWORD *)v22 + 2);
-    if ( (v24 & 1) != 0 && *((_DWORD *)v22 - 4) == 4 && (v24 & 4) != 0 && *(_QWORD *)v22 )
-      ExFreePoolWithTag(*(PVOID *)v22, 0x74705041u);
-    v22 += 32;
-    --v23;
+    v19 = *((_DWORD *)v17 + 2);
+    if ( (v19 & 1) != 0 && *((_DWORD *)v17 - 4) == 4 && (v19 & 4) != 0 && *(_QWORD *)v17 )
+      ExFreePoolWithTag(*(PVOID *)v17, 0x74705041u);
+    v17 += 32;
+    --v18;
   }
-  while ( v23 );
-  memset(v10, 0, 0x440uLL);
+  while ( v18 );
+  memset(v10, 0, 0x460uLL);
   ExFreePoolWithTag(v10, 0x74705041u);
   return Attributes;
 }

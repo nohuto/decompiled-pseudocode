@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiMiracastSendSyncUserModeRequest @ 0x1C039FC34
+ * XREFs of DpiMiracastSendSyncUserModeRequest @ 0x1C02CF2E0
  * Callers:
- *     DpiMiracastInterfaceChange @ 0x1C0060160 (DpiMiracastInterfaceChange.c)
- *     DxgkMiracastStartMiracastSession @ 0x1C00621E4 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastInterfaceChange @ 0x1C0053650 (DpiMiracastInterfaceChange.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00557C0 (DxgkMiracastStartMiracastSession.c)
  * Callees:
- *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001D8D8 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
- *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C00410F4 (McTemplateK0pqtqq_EtwWriteTransfer.c)
- *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01F3B24 (DxgkIsAdapterCoreSyncAcquired.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001FD64 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C003A510 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C0217F3C (DxgkIsAdapterCoreSyncAcquired.c)
  */
 
 __int64 __fastcall DpiMiracastSendSyncUserModeRequest(
@@ -18,106 +18,134 @@ __int64 __fastcall DpiMiracastSendSyncUserModeRequest(
         ULONG a6,
         PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  __int64 v11; // rdi
-  struct _FILE_OBJECT *v12; // rsi
-  struct _DEVICE_OBJECT *v13; // r15
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  __int64 v13; // rdx
   __int64 v14; // rcx
-  __int64 v15; // r8
-  PIRP v17; // rax
-  __int64 v18; // rcx
-  NTSTATUS v19; // eax
+  __int64 v15; // rax
+  __int64 v16; // rdi
+  struct _FILE_OBJECT *v17; // rsi
+  struct _DEVICE_OBJECT *v18; // r15
+  __int64 v19; // rdx
   __int64 v20; // rcx
   __int64 v21; // r8
+  __int64 v22; // rax
+  PIRP v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rax
+  NTSTATUS v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rax
   PVOID OutputBuffer; // [rsp+20h] [rbp-68h]
   __int64 OutputBufferLength; // [rsp+28h] [rbp-60h]
   __int64 InternalDeviceIoControl; // [rsp+30h] [rbp-58h]
-  PKEVENT v25; // [rsp+38h] [rbp-50h]
+  PKEVENT v39; // [rsp+38h] [rbp-50h]
   struct _KEVENT Event; // [rsp+50h] [rbp-38h] BYREF
 
-  memset(&Event, 0, sizeof(Event));
   if ( IsMiniportListMutexOwnedByCurrentThread() || *(struct _KTHREAD **)(a1 + 88) == KeGetCurrentThread() )
   {
-    LODWORD(v11) = -1073741790;
-    WdLogSingleEntry1(2LL, -1073741790LL);
-    return (unsigned int)v11;
+    v35 = WdLogNewEntry5_WdError(v10, v9);
+    LODWORD(v16) = -1073741790;
+    *(_QWORD *)(v35 + 24) = -1073741790LL;
+    WdLogEvent5_WdError(v35);
   }
-  ExEnterCriticalRegionAndAcquireFastMutexUnsafe(a1 + 32);
-  *(_QWORD *)(a1 + 88) = KeGetCurrentThread();
-  v9 = *(_QWORD *)(a1 + 432);
-  if ( !v9
-    || (v10 = *(_QWORD *)(v9 + 64), !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v10 + 168)))
-    && !DxgkIsAdapterCoreSyncAcquired(*(DXGADAPTER **)(v10 + 3912), 1) )
+  else
   {
-    v12 = *(struct _FILE_OBJECT **)(a1 + 176);
-    v13 = *(struct _DEVICE_OBJECT **)(a1 + 184);
-    if ( v12 )
-      ObfReferenceObject(*(PVOID *)(a1 + 176));
-    *(_QWORD *)(a1 + 88) = 0LL;
-    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(a1 + 32);
-    if ( !v12 )
+    ExEnterCriticalRegionAndAcquireFastMutexUnsafe(a1 + 32);
+    *(_QWORD *)(a1 + 88) = KeGetCurrentThread();
+    v11 = *(_QWORD *)(a1 + 432);
+    if ( v11
+      && ((v12 = *(_QWORD *)(v11 + 64), ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v12 + 168)))
+       || DxgkIsAdapterCoreSyncAcquired(*(DXGADAPTER **)(v12 + 3896), 1LL)) )
     {
-      WdLogSingleEntry1(3LL, a1);
-      return 3221226166LL;
+      v15 = WdLogNewEntry5_WdError(v14, v13);
+      LODWORD(v16) = -1073741790;
+      *(_QWORD *)(v15 + 24) = -1073741790LL;
+      WdLogEvent5_WdError(v15);
+      *(_QWORD *)(a1 + 88) = 0LL;
+      ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(a1 + 32);
     }
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000000LL) != 0 )
-      McTemplateK0pqtqq_EtwWriteTransfer(
-        v14,
-        &EventEnterMiracastSendUserModeRequest,
-        v15,
-        *(_QWORD *)(a1 + 96),
-        1,
-        0,
-        a6,
-        0);
-    KeInitializeEvent(&Event, NotificationEvent, 0);
-    v17 = IoBuildDeviceIoControlRequest(a2, v13, 0LL, 0, a5, a6, 0, &Event, IoStatusBlock);
-    if ( !v17 )
+    else
     {
-      v11 = -1073741801LL;
-      v18 = 6LL;
-LABEL_15:
-      WdLogSingleEntry1(v18, v11);
-      goto LABEL_20;
-    }
-    v17->Tail.Overlay.CurrentStackLocation[-1].FileObject = v12;
-    v17->IoStatus.Status = -1073741637;
-    LODWORD(v11) = IofCallDriver(v13, v17);
-    if ( (_DWORD)v11 == 259 )
-    {
-      v19 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v11 = v19;
-      if ( v19 )
+      v17 = *(struct _FILE_OBJECT **)(a1 + 176);
+      v18 = *(struct _DEVICE_OBJECT **)(a1 + 184);
+      if ( v17 )
+        ObfReferenceObject(*(PVOID *)(a1 + 176));
+      *(_QWORD *)(a1 + 88) = 0LL;
+      ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(a1 + 32);
+      if ( !v17 )
       {
-        v18 = 2LL;
-        goto LABEL_15;
+        v22 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+        *(_QWORD *)(v22 + 24) = a1;
+        WdLogEvent5_WdWarning(v22);
+        return 3221226166LL;
       }
-      LODWORD(v11) = IoStatusBlock->Status;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
+        McTemplateK0pqtqq_EtwWriteTransfer(
+          v20,
+          &EventEnterMiracastSendUserModeRequest,
+          v21,
+          *(_QWORD *)(a1 + 96),
+          1,
+          0,
+          a6,
+          0);
+      KeInitializeEvent(&Event, NotificationEvent, 0);
+      v24 = IoBuildDeviceIoControlRequest(a2, v18, 0LL, 0, a5, a6, 0, &Event, IoStatusBlock);
+      if ( v24 )
+      {
+        v24->Tail.Overlay.CurrentStackLocation[-1].FileObject = v17;
+        v24->IoStatus.Status = -1073741637;
+        LODWORD(v16) = IofCallDriver(v18, v24);
+        if ( (_DWORD)v16 == 259 )
+        {
+          v29 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+          v16 = v29;
+          if ( v29 )
+          {
+            v32 = WdLogNewEntry5_WdError(v31, v30);
+            *(_QWORD *)(v32 + 24) = v16;
+            WdLogEvent5_WdError(v32);
+          }
+          else
+          {
+            LODWORD(v16) = IoStatusBlock->Status;
+          }
+        }
+      }
+      else
+      {
+        LODWORD(v16) = -1073741801;
+        v28 = WdLogNewEntry5_WdLowResource(v25, 0LL, v26, v27);
+        *(_QWORD *)(v28 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v28);
+      }
+      ObfDereferenceObject(v17);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
+      {
+        LODWORD(v39) = v16;
+        LODWORD(InternalDeviceIoControl) = IoStatusBlock->Information;
+        LODWORD(OutputBufferLength) = 0;
+        LODWORD(OutputBuffer) = 1;
+        McTemplateK0pqtqq_EtwWriteTransfer(
+          v33,
+          &EventLeaveMiracastSendUserModeRequest,
+          v34,
+          *(_QWORD *)(a1 + 96),
+          OutputBuffer,
+          OutputBufferLength,
+          InternalDeviceIoControl,
+          v39);
+      }
     }
-LABEL_20:
-    ObfDereferenceObject(v12);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000000LL) != 0 )
-    {
-      LODWORD(v25) = v11;
-      LODWORD(InternalDeviceIoControl) = IoStatusBlock->Information;
-      LODWORD(OutputBufferLength) = 0;
-      LODWORD(OutputBuffer) = 1;
-      McTemplateK0pqtqq_EtwWriteTransfer(
-        v20,
-        &EventLeaveMiracastSendUserModeRequest,
-        v21,
-        *(_QWORD *)(a1 + 96),
-        OutputBuffer,
-        OutputBufferLength,
-        InternalDeviceIoControl,
-        v25);
-    }
-    return (unsigned int)v11;
   }
-  LODWORD(v11) = -1073741790;
-  WdLogSingleEntry1(2LL, -1073741790LL);
-  *(_QWORD *)(a1 + 88) = 0LL;
-  ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(a1 + 32);
-  return (unsigned int)v11;
+  return (unsigned int)v16;
 }

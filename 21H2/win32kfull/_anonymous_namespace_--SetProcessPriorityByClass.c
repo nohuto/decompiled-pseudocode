@@ -1,0 +1,54 @@
+/*
+ * XREFs of _anonymous_namespace_::SetProcessPriorityByClass @ 0x1C00391B0
+ * Callers:
+ *     _anonymous_namespace_::SetForegroundPriorityProcess @ 0x1C0039090 (_anonymous_namespace_--SetForegroundPriorityProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall anonymous_namespace_::SetProcessPriorityByClass(__int64 *a1, int a2)
+{
+  int v4; // r8d
+  __int64 v5; // rsi
+  int v6; // edx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 result; // rax
+
+  v4 = (*((_DWORD *)a1 + 205) >> 17) & 3;
+  if ( a2 != v4 )
+  {
+    v5 = *a1;
+    if ( a2 )
+    {
+      v6 = a2 - 1;
+      if ( v6 )
+      {
+        if ( v6 != 1 )
+          goto LABEL_7;
+        v8 = *a1;
+        if ( v4 == 1 )
+        {
+          v7 = 2LL;
+          goto LABEL_6;
+        }
+        PsSetProcessPriorityByClass(v8, 1LL);
+        v7 = 2LL;
+      }
+      else
+      {
+        v7 = 1LL;
+      }
+    }
+    else
+    {
+      v7 = 0LL;
+    }
+    v8 = v5;
+LABEL_6:
+    result = PsSetProcessPriorityByClass(v8, v7);
+LABEL_7:
+    *((_DWORD *)a1 + 205) ^= (*((_DWORD *)a1 + 205) ^ (a2 << 17)) & 0x60000;
+  }
+  return result;
+}

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x140507CF0
+ * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x1404BB250
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051D5E4 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x1404D0FF0 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
@@ -50,9 +50,9 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
       v24 = v8;
       v10 = v8;
       v8 = (ULONG_PTR *)*v8;
-      v11 = v10 + 31;
-      v12 = (ULONG_PTR *)v10[31];
-      v25 = v10 + 31;
+      v11 = v10 + 30;
+      v12 = (ULONG_PTR *)v10[30];
+      v25 = v10 + 30;
       while ( v12 != v11 )
       {
         v13 = v12;
@@ -71,7 +71,7 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
                 a3[2] = 0;
                 *((_DWORD *)a3 + 2) = v15[2];
                 *((_DWORD *)a3 + 3) = *v15;
-                *((_QWORD *)a3 + 3) = v10[44];
+                *((_QWORD *)a3 + 3) = v10[43];
                 v6 = a1(a2, a3);
                 if ( !v6 )
                   goto LABEL_16;

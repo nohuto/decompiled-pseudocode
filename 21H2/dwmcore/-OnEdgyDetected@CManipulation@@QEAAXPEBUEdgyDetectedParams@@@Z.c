@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801F40A4
+ * XREFs of ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801D4628
  * Callers:
- *     ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x180181110 (-s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z.c)
+ *     ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x180222560 (-s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z.c)
  * Callees:
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180042824 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180065F4C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
  */
 
 void __fastcall CManipulation::OnEdgyDetected(CManipulation *this, const struct EdgyDetectedParams *a2)
@@ -26,9 +26,9 @@ void __fastcall CManipulation::OnEdgyDetected(CManipulation *this, const struct 
   if ( CNotificationResource::ShouldNotify(this) )
   {
     v5 = *(_QWORD *)(v2 + 48);
-    v6 = *(unsigned int *)(v2 + 64);
+    v6 = *(unsigned int *)(v2 + 56);
     if ( v5 )
-      v7 = *(_DWORD *)(v5 + 76);
+      v7 = *(_DWORD *)(v5 + 68);
     else
       v7 = 0;
     v8 = *v3;
@@ -41,6 +41,6 @@ void __fastcall CManipulation::OnEdgyDetected(CManipulation *this, const struct 
     v11[1] = v6;
     v14 = v10;
     v15 = v9;
-    CoreUICallSend(v4, v11, 2LL, 14LL, 0, &unk_18032C418);
+    CoreUICallSend(v4, v11, 2LL, 12LL, 0, &unk_1802CE792);
   }
 }

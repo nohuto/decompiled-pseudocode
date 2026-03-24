@@ -1,23 +1,24 @@
 /*
- * XREFs of UsbhGetDeviceInformationEx @ 0x1C003D708
+ * XREFs of UsbhGetDeviceInformationEx @ 0x1C003E8E8
  * Callers:
- *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003D878 (UsbhGetNodeConnectionInfoForPdo.c)
- *     UsbhGetDeviceNodeInfo @ 0x1C004882C (UsbhGetDeviceNodeInfo.c)
- *     UsbhGetHubNodeInfo @ 0x1C0048AC8 (UsbhGetHubNodeInfo.c)
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003EA6C (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C0049BBC (UsbhGetDeviceNodeInfo.c)
+ *     UsbhGetHubNodeInfo @ 0x1C0049E58 (UsbhGetHubNodeInfo.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     Usbh_HubQueryDeviceInformation @ 0x1C002D9EC (Usbh_HubQueryDeviceInformation.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     Usbh_HubQueryDeviceInformation @ 0x1C002EDC8 (Usbh_HubQueryDeviceInformation.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 _DWORD *__fastcall UsbhGetDeviceInformationEx(__int64 a1, _DWORD *a2, __int64 a3)
 {
   unsigned int v6; // ebp
-  _DWORD *Pool2; // rax
-  _DWORD *v8; // rdi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v8; // rbx
   int DeviceInformation; // eax
-  __int64 v10; // rbx
+  __int64 v10; // rdi
   int v12; // [rsp+78h] [rbp+20h] BYREF
 
   v12 = 0;
@@ -31,15 +32,16 @@ _DWORD *__fastcall UsbhGetDeviceInformationEx(__int64 a1, _DWORD *a2, __int64 a3
   v6 = 64;
   do
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, v6, 1112885333LL);
-    v8 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x42554855u);
+    v8 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       *a2 = -1073741670;
       return 0LL;
     }
-    *Pool2 = 0;
-    DeviceInformation = Usbh_HubQueryDeviceInformation(a1, a3, (__int64)Pool2, v6, (__int64)&v12);
+    memset(PoolWithTag, 0, v6);
+    *v8 = 0;
+    DeviceInformation = Usbh_HubQueryDeviceInformation(a1, a3, (__int64)v8, v6, (__int64)&v12);
     v10 = DeviceInformation;
     if ( (DeviceInformation & 0xC0000000) == 0xC0000000 )
     {

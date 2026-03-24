@@ -1,17 +1,16 @@
 /*
- * XREFs of CmpMigrateOOBELanguageToInstallationLanguage @ 0x140B3A140
+ * XREFs of CmpMigrateOOBELanguageToInstallationLanguage @ 0x140A59EEC
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
 __int64 CmpMigrateOOBELanguageToInstallationLanguage()
 {
-  __int64 result; // rax
   NTSTATUS v1; // ebx
   unsigned __int16 v2; // dx
   __int64 i; // r8
@@ -21,38 +20,35 @@ __int64 CmpMigrateOOBELanguageToInstallationLanguage()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-48h] BYREF
   __int64 Data; // [rsp+68h] [rbp-18h] BYREF
 
-  result = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   Data = 0LL;
-  if ( CmInstallUILanguageFallbackToOOBm )
+  if ( !CmInstallUILanguageFallbackToOOBm )
+    return 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&CmpCurrentControlSetControlNlsLanguagePathString;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v1 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+  if ( v1 >= 0 )
   {
-    ObjectAttributes.RootDirectory = 0LL;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&CmpCurrentControlSetControlNlsLanguagePathString;
-    ObjectAttributes.Attributes = 576;
-    ObjectAttributes.Length = 48;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v1 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-    if ( v1 >= 0 )
+    v2 = PsInstallUILanguageId;
+    for ( i = 3LL; i >= 0; --i )
     {
-      v2 = PsInstallUILanguageId;
-      for ( i = 3LL; i >= 0; --i )
-      {
-        v4 = 55;
-        v5 = v2 & 0xF;
-        if ( v5 <= 9u )
-          v4 = 48;
-        v2 >>= 4;
-        *((_WORD *)&Data + i) = v5 + v4;
-      }
-      v1 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpInstallLanguageString, 0, 1u, &Data, 8u);
-      if ( v1 >= 0 )
-        v1 = 0;
+      v4 = 55;
+      v5 = v2 & 0xF;
+      if ( v5 <= 9u )
+        v4 = 48;
+      v2 >>= 4;
+      *((_WORD *)&Data + i) = v5 + v4;
     }
-    if ( KeyHandle )
-      ZwClose(KeyHandle);
-    return (unsigned int)v1;
+    v1 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpInstallLanguageString, 0, 1u, &Data, 8u);
+    if ( v1 >= 0 )
+      v1 = 0;
   }
-  return result;
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
+  return (unsigned int)v1;
 }

@@ -1,42 +1,42 @@
 /*
- * XREFs of ?RegisterNotifiers@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x1800CE730
+ * XREFs of ?RegisterNotifiers@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x180036588
  * Callers:
- *     ?ProcessUpdate@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SOLIDCOLORLEGACYMILBRUSH@@@Z @ 0x1800CE69C (-ProcessUpdate@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SOLIDCOLORLEGAC.c)
+ *     ?ProcessUpdate@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SOLIDCOLORLEGACYMILBRUSH@@@Z @ 0x1800365E8 (-ProcessUpdate@CSolidColorLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SOLIDCOLORLEGAC.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
  */
 
 __int64 __fastcall CSolidColorLegacyMilBrush::RegisterNotifiers(struct CResource **this, struct CResourceTable *a2)
 {
   int v3; // eax
-  __int64 v4; // rcx
+  unsigned int v4; // ecx
   unsigned int v5; // ebx
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   int v8; // eax
-  __int64 v9; // rcx
+  unsigned int v9; // ecx
 
-  v3 = CResource::RegisterNotifier((CResource *)this, this[10]);
+  v3 = CResource::RegisterNotifier((CResource *)this, this[9]);
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x5F0u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x5F0u, 0LL);
   }
   else
   {
-    v6 = CResource::RegisterNotifier((CResource *)this, this[11]);
+    v6 = CResource::RegisterNotifier((CResource *)this, this[10]);
     v5 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x5F1u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x5F1u, 0LL);
     }
     else
     {
-      v8 = CResource::RegisterNotifier((CResource *)this, this[9]);
+      v8 = CResource::RegisterNotifier((CResource *)this, this[8]);
       v5 = v8;
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x5F2u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x5F2u, 0LL);
     }
   }
   return v5;

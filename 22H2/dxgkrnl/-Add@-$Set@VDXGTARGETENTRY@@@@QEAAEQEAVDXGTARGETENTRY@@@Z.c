@@ -1,24 +1,23 @@
 /*
- * XREFs of ?Add@?$Set@VDXGTARGETENTRY@@@@QEAAEQEAVDXGTARGETENTRY@@@Z @ 0x1C004C5A8
+ * XREFs of ?Add@?$Set@VDXGTARGETENTRY@@@@QEAAEQEAVDXGTARGETENTRY@@@Z @ 0x1C004D5E8
  * Callers:
- *     ?AcquireTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I_NW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02FD810 (-AcquireTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I_NW4_D3DKMT_DISPLAY_TARGET_USAGE@.c)
- *     ?TransferTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAV1@@Z @ 0x1C02FE4FC (-TransferTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAV1@@Z.c)
+ *     ?AcquireTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I_NW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02B15D0 (-AcquireTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I_NW4_D3DKMT_DISPLAY_TARGET_USAGE@.c)
+ *     ?TransferTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAV1@@Z @ 0x1C02B215C (-TransferTargetOwnership@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAV1@@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004C674 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
- *     ?FindByValue@?$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z @ 0x1C004C6C4 (-FindByValue@-$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004D670 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
+ *     ?FindByValue@?$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z @ 0x1C004D6DC (-FindByValue@-$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z.c)
  */
 
 char __fastcall Set<DXGTARGETENTRY>::Add(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   __int64 v4; // r11
-  __int64 v6; // r11
-  _QWORD *v7; // rdx
-  _QWORD *v8; // rax
-  int v9; // edx
-  int v10; // ecx
-  int v11; // r8d
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r11
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rax
+  __int64 v11; // rax
 
   if ( Set<DXGTARGETENTRY>::FindByValue() )
     return 0;
@@ -26,33 +25,21 @@ char __fastcall Set<DXGTARGETENTRY>::Add(__int64 a1, __int64 a2)
                           v4 + 8,
                           v3) )
   {
-    WdLogSingleEntry1(1LL, 108LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v10,
-        v9,
-        v11,
-        0LL,
-        2,
-        -1,
-        L"bInsertTailStatus == TRUE",
-        108LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v11 + 24) = 108LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   else
   {
-    v7 = *(_QWORD **)(v6 + 32);
-    v8 = (_QWORD *)(a2 + 8);
-    if ( *v7 != v6 + 24 )
+    v9 = *(_QWORD **)(v8 + 32);
+    v10 = (_QWORD *)(a2 + 8);
+    if ( *v9 != v8 + 24 )
       __fastfail(3u);
-    *v8 = v6 + 24;
-    *(_QWORD *)(a2 + 16) = v7;
-    *v7 = v8;
-    *(_QWORD *)(v6 + 32) = v8;
-    ++*(_QWORD *)(v6 + 40);
+    *v10 = v8 + 24;
+    *(_QWORD *)(a2 + 16) = v9;
+    *v9 = v10;
+    *(_QWORD *)(v8 + 32) = v10;
+    ++*(_QWORD *)(v8 + 40);
   }
   return 1;
 }

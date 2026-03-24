@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbTestAllocation @ 0x140839900
+ * XREFs of ArbTestAllocation @ 0x140760F20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     ArbpBuildAllocationStack @ 0x140839A64 (ArbpBuildAllocationStack.c)
- *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ArbpBuildAllocationStack @ 0x140761084 (ArbpBuildAllocationStack.c)
+ *     RtlCopyRangeList @ 0x140761200 (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ****a2)

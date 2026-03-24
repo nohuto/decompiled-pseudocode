@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIInternalCheckPowerReferences @ 0x1C002E4B4
+ * XREFs of ACPIInternalCheckPowerReferences @ 0x1C0056C40
  * Callers:
- *     ACPIFilterIrpSetPower @ 0x1C0028B30 (ACPIFilterIrpSetPower.c)
+ *     ACPIFilterIrpSetPower @ 0x1C002D790 (ACPIFilterIrpSetPower.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ char __fastcall ACPIInternalCheckPowerReferences(__int64 a1)
   KIRQL v3; // r8
   __int64 v4; // rax
 
-  v1 = *(_QWORD **)(a1 + 416);
+  v1 = *(_QWORD **)(a1 + 376);
   v2 = 1;
   v3 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   while ( v1 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDispatchIrpDepFilterRemoveDevice @ 0x1C0028500
+ * XREFs of ACPIDispatchIrpDepFilterRemoveDevice @ 0x1C0055770
  * Callers:
  *     <none>
  * Callees:
- *     ACPIFilterIrpRemoveDevice @ 0x1C0028860 (ACPIFilterIrpRemoveDevice.c)
+ *     ACPIFilterIrpRemoveDevice @ 0x1C002CC90 (ACPIFilterIrpRemoveDevice.c)
  */
 
-__int64 ACPIDispatchIrpDepFilterRemoveDevice()
+__int64 __fastcall ACPIDispatchIrpDepFilterRemoveDevice(ULONG_PTR a1, IRP *a2)
 {
-  return ACPIFilterIrpRemoveDevice();
+  return ACPIFilterIrpRemoveDevice(a1, a2);
 }

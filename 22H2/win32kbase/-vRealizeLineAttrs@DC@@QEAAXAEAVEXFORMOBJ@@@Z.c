@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0006908
+ * XREFs of ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0025364
  * Callers:
- *     GreDCSelectPen @ 0x1C00067B0 (GreDCSelectPen.c)
- *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C003AC00 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
+ *     GreDCSelectPen @ 0x1C0022200 (GreDCSelectPen.c)
+ *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C00245D0 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
  * Callees:
- *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00069CC (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00BDEDC (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
  */
 
 void __fastcall DC::vRealizeLineAttrs(DC *this, struct EXFORMOBJ *a2)
@@ -14,17 +14,16 @@ void __fastcall DC::vRealizeLineAttrs(DC *this, struct EXFORMOBJ *a2)
   int v5; // ecx
   __int64 v6; // rax
   int v7; // eax
-  int v8; // eax
-  int v9; // ebp
-  int v10; // eax
-  __int64 v11; // rax
+  int v8; // ebp
+  int v9; // eax
+  __int64 v10; // rax
+  int v11; // eax
 
   v2 = *((_QWORD *)this + 18);
   if ( (*(_DWORD *)(v2 + 40) & 0x800) != 0 )
   {
-    if ( (*(_BYTE *)(*(_QWORD *)a2 + 32LL) & 0x43) == 0x43 && *(int *)(v2 + 168) <= 1
-      || (v4 = *(_DWORD *)(v2 + 168)) == 0
-      || DC::bOldPenNominal(this, a2, v4) )
+    v4 = *(_DWORD *)(v2 + 168);
+    if ( (*(_DWORD *)(*(_QWORD *)a2 + 32LL) & 0x43) == 0x43 && v4 <= 1 || !v4 || DC::bOldPenNominal(this, a2, v4) )
     {
       *((_DWORD *)this + 55) = 1;
       if ( *(_QWORD *)(v2 + 152) )
@@ -45,37 +44,37 @@ void __fastcall DC::vRealizeLineAttrs(DC *this, struct EXFORMOBJ *a2)
     else
     {
       *((_DWORD *)this + 52) = 1;
-      v7 = *(_DWORD *)(v2 + 172);
+      v11 = *(_DWORD *)(v2 + 172);
       *((_DWORD *)this + 57) = 0;
       *((_QWORD *)this + 29) = 0LL;
-      *((_DWORD *)this + 55) = v7;
+      *((_DWORD *)this + 55) = v11;
     }
     *((_DWORD *)this + 60) = 0;
   }
   else
   {
-    v8 = *(_DWORD *)(v2 + 176);
-    if ( (v8 & 0xF0000) != 0 )
+    v7 = *(_DWORD *)(v2 + 176);
+    if ( (v7 & 0xF0000) != 0 )
     {
-      v9 = 1;
+      v8 = 1;
       *((_DWORD *)this + 52) = 1;
-      v10 = *(_DWORD *)(v2 + 172);
+      v9 = *(_DWORD *)(v2 + 172);
     }
     else
     {
-      v9 = 0;
-      if ( (v8 & 0xF) == 8 )
-        v9 = 2;
-      *((_DWORD *)this + 52) = v9;
-      v10 = *(_DWORD *)(v2 + 168);
+      v8 = 0;
+      if ( (v7 & 0xF) == 8 )
+        v8 = 2;
+      *((_DWORD *)this + 52) = v8;
+      v9 = *(_DWORD *)(v2 + 168);
     }
     *((_DWORD *)this + 60) = 0;
-    *((_DWORD *)this + 55) = v10;
+    *((_DWORD *)this + 55) = v9;
     *((_DWORD *)this + 57) = *(_DWORD *)(v2 + 180);
-    v11 = *(_QWORD *)(v2 + 152);
-    *((_QWORD *)this + 29) = v11;
-    if ( v11 )
-      *((_DWORD *)this + 52) = v9 | 8;
+    v10 = *(_QWORD *)(v2 + 152);
+    *((_QWORD *)this + 29) = v10;
+    if ( v10 )
+      *((_DWORD *)this + 52) = v8 | 8;
   }
   *((_DWORD *)this + 53) = *(unsigned __int8 *)(v2 + 184);
   *((_DWORD *)this + 54) = *(unsigned __int8 *)(v2 + 185);

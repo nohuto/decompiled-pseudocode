@@ -1,13 +1,16 @@
 /*
- * XREFs of DefaultDisableMonitoring @ 0x14050FC10
+ * XREFs of DefaultDisableMonitoring @ 0x1404BE6D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerStopProfileInterrupt @ 0x14050E038 (HalpTimerStopProfileInterrupt.c)
+ *     HalpTimerStopProfileInterrupt @ 0x1404C1ADC (HalpTimerStopProfileInterrupt.c)
  */
 
-void __fastcall DefaultDisableMonitoring(int a1)
+__int64 __fastcall DefaultDisableMonitoring(int a1)
 {
+  __int64 result; // rax
+
   if ( !a1 )
-    HalpTimerStopProfileInterrupt();
+    return HalpTimerStopProfileInterrupt();
+  return result;
 }

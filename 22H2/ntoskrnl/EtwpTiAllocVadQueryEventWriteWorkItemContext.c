@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140363B6C
+ * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x14031EFF0
  * Callers:
- *     EtwpTiAsyncVadQueryEventWrite @ 0x140363AFC (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x14031EF80 (EtwpTiAsyncVadQueryEventWrite.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
@@ -18,91 +18,90 @@ __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
         __int64 a7,
         _QWORD *a8)
 {
-  unsigned int v8; // edi
+  unsigned int v8; // esi
   __int64 v9; // r15
   unsigned int v10; // r11d
-  void *v11; // r12
-  _DWORD *v13; // r10
-  unsigned int v14; // ecx
-  unsigned __int64 v15; // rsi
-  unsigned int v16; // eax
-  unsigned int v17; // ecx
-  unsigned __int64 v18; // rbp
-  _QWORD *Pool2; // rax
-  _QWORD *v20; // rbx
-  char *v21; // r14
-  const void **v22; // rdi
-  __int64 v23; // r12
+  _DWORD *v12; // r10
+  unsigned int v13; // ecx
+  unsigned __int64 v14; // rdi
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  unsigned __int64 v17; // r14
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v19; // rbx
+  char *v20; // rbp
+  const void **v21; // rdi
+  __int64 v22; // rsi
+  __int64 v23; // r13
   int v24; // eax
-  __int64 v25; // rcx
+  char *v25; // rcx
   __int64 v26; // rax
   void *v27; // rcx
 
   v8 = 0;
   v9 = a3;
   v10 = 0;
-  v11 = a4;
   if ( a3 )
   {
-    v13 = (_DWORD *)(a1 + 8);
+    v12 = (_DWORD *)(a1 + 8);
     do
     {
-      v14 = v8 + *v13;
-      if ( v14 < v8 )
+      v13 = v8 + *v12;
+      if ( v13 < v8 )
         return 3221225621LL;
       ++v10;
-      v13 += 4;
-      v8 = v14;
+      v12 += 4;
+      v8 = v13;
     }
     while ( v10 < a3 );
   }
-  v15 = 16LL * a2;
-  if ( v15 > 0xFFFFFFFF )
+  v14 = 16LL * a2;
+  if ( v14 > 0xFFFFFFFF )
     return 3221225621LL;
-  v16 = v15 + 80;
-  if ( (unsigned int)v15 >= 0xFFFFFFB0 )
+  v15 = v14 + 80;
+  if ( (unsigned int)v14 >= 0xFFFFFFB0 )
     return 3221225621LL;
-  v17 = v16 + v8;
-  if ( v16 + v8 < v16 )
+  v16 = v15 + v8;
+  if ( v15 + v8 < v15 )
     return 3221225621LL;
-  v18 = 8LL * a6;
-  if ( v18 > 0xFFFFFFFF || v17 + (unsigned int)v18 < v17 )
+  v17 = 8LL * a6;
+  if ( v17 > 0xFFFFFFFF || v16 + (unsigned int)v17 < v16 )
     return 3221225621LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, v17 + (unsigned int)v18, 1853049172LL);
-  v20 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v16 + (unsigned int)v17, 0x6E734954u);
+  v19 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  Pool2[4] = Pool2 + 10;
-  v21 = (char *)Pool2 + (unsigned int)v15 + 80;
-  Pool2[5] = v21;
-  Pool2[9] = &v21[v8];
+  PoolWithTag[4] = PoolWithTag + 10;
+  v20 = (char *)PoolWithTag + (unsigned int)v14 + 80;
+  PoolWithTag[5] = v20;
+  PoolWithTag[9] = &v20[v8];
   if ( (_DWORD)v9 )
   {
-    v22 = (const void **)(a1 + 8);
+    v21 = (const void **)(a1 + 8);
+    v22 = -8 - a1;
     v23 = v9;
     do
     {
-      memmove(v21, *(v22 - 1), *(unsigned int *)v22);
-      v24 = *(_DWORD *)v22;
-      v25 = (__int64)v22 + v20[4] - a1 - 8;
-      *(_DWORD *)(v25 + 12) = 0;
-      *(_QWORD *)v25 = v21;
-      *(_DWORD *)(v25 + 8) = v24;
-      v26 = *(unsigned int *)v22;
-      v22 += 2;
-      v21 += v26;
+      memmove(v20, *(v21 - 1), *(unsigned int *)v21);
+      v24 = *(_DWORD *)v21;
+      v25 = (char *)v21 + v22 + v19[4];
+      *((_DWORD *)v25 + 3) = 0;
+      *(_QWORD *)v25 = v20;
+      *((_DWORD *)v25 + 2) = v24;
+      v26 = *(unsigned int *)v21;
+      v21 += 2;
+      v20 += v26;
       --v23;
     }
     while ( v23 );
-    v11 = a4;
   }
-  *((_DWORD *)v20 + 12) = v9;
-  ObfReferenceObjectWithTag(v11, 0x69547445u);
-  v27 = (void *)v20[9];
-  v20[8] = v11;
-  memmove(v27, Src, (unsigned int)v18);
-  *((_DWORD *)v20 + 13) = a6;
-  v20[7] = a7;
-  *a8 = v20;
+  *((_DWORD *)v19 + 12) = v9;
+  ObfReferenceObjectWithTag(a4, 0x69547445u);
+  v27 = (void *)v19[9];
+  v19[8] = a4;
+  memmove(v27, Src, (unsigned int)v17);
+  v19[7] = a7;
+  *((_DWORD *)v19 + 13) = a6;
+  *a8 = v19;
   return 0LL;
 }

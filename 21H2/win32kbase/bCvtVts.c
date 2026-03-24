@@ -1,65 +1,85 @@
 /*
- * XREFs of bCvtVts @ 0x1C009CA08
+ * XREFs of bCvtVts @ 0x1C020088C
  * Callers:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C009C980 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z @ 0x1C00CE010 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z @ 0x1C0169F40 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z @ 0x1C00C0480 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K_N@Z @ 0x1C00C8430 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K_N@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z @ 0x1C013CB00 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z.c)
  * Callees:
- *     bFToL @ 0x1C009B150 (bFToL.c)
+ *     bFToL @ 0x1C0081930 (bFToL.c)
  */
 
-__int64 __fastcall bCvtVts(__int64 a1, int *a2, int *a3, __int64 a4)
+__int64 __fastcall bCvtVts(__int64 a1, int *a2, int *a3, __int64 a4, char a5)
 {
-  __int64 v4; // rsi
-  int *v5; // rdi
-  int *v6; // rbp
-  signed __int64 v8; // rbp
-  unsigned int v9; // r8d
-  float v10; // xmm2_4
-  int v11; // ebx
-  unsigned int v12; // r8d
-  unsigned int v14; // r8d
-  float v15; // xmm3_4
-  float v16; // xmm2_4
-  float v17; // xmm5_4
-  float v18; // xmm4_4
-  unsigned int v19; // r8d
+  __int64 v5; // rdi
+  int *v6; // rbx
+  int *v7; // rsi
+  signed __int64 v9; // rsi
+  unsigned int v10; // r8d
+  float v11; // xmm0_4
+  float v12; // xmm1_4
+  unsigned int v13; // r8d
+  unsigned int v15; // r8d
+  unsigned int v16; // r8d
+  float v17; // xmm3_4
+  float v18; // xmm1_4
+  float v19; // xmm0_4
+  float v20; // xmm3_4
+  unsigned int v21; // r8d
+  unsigned int v22; // r8d
 
-  v4 = a4;
-  v5 = a3;
-  v6 = a2;
+  v5 = a4;
+  v6 = a3;
+  v7 = a2;
   if ( (*(_DWORD *)(a1 + 32) & 3) != 0 )
   {
     if ( (*(_DWORD *)(a1 + 32) & 3) == 1 && a4 )
     {
-      v8 = (char *)a2 - (char *)a3;
-      v9 = 6;
+      v9 = (char *)a2 - (char *)a3;
+      v10 = 6;
       do
       {
-        v10 = *(float *)(a1 + 12);
-        v11 = *(int *)((char *)v5 + v8 + 4);
-        bFToL((float)*(int *)((char *)v5 + v8) * *(float *)a1, v5, v9);
-        bFToL((float)v11 * v10, v5 + 1, v12);
-        v5 += 2;
-        --v4;
+        v11 = (float)*(int *)((char *)v6 + v9) * *(float *)a1;
+        v12 = (float)*(int *)((char *)v6 + v9 + 4) * *(float *)(a1 + 12);
+        if ( a5 )
+        {
+          if ( !(unsigned int)bFToL(v11, v6, v10) || !(unsigned int)bFToL(v12, v6 + 1, v13) )
+            return 0LL;
+        }
+        else
+        {
+          bFToL(v11, v6, v10);
+          bFToL(v12, v6 + 1, v15);
+        }
+        v6 += 2;
+        --v5;
       }
-      while ( v4 );
+      while ( v5 );
     }
   }
   else if ( a4 )
   {
-    v14 = 6;
+    v16 = 6;
     do
     {
-      v15 = (float)*v6;
-      v16 = (float)v6[1];
-      bFToL((float)(v16 * *(float *)(a1 + 8)) + (float)(v15 * *(float *)a1), v5, v14);
-      bFToL((float)(v17 * v16) + (float)(v18 * v15), v5 + 1, v19);
+      v17 = (float)v7[1];
+      v18 = (float)*v7;
+      v19 = (float)(v17 * *(float *)(a1 + 8)) + (float)(v18 * *(float *)a1);
+      v20 = (float)(v17 * *(float *)(a1 + 12)) + (float)(v18 * *(float *)(a1 + 4));
+      if ( a5 )
+      {
+        if ( !(unsigned int)bFToL(v19, v6, v16) || !(unsigned int)bFToL(v20, v6 + 1, v21) )
+          return 0LL;
+      }
+      else
+      {
+        bFToL(v19, v6, v16);
+        bFToL(v20, v6 + 1, v22);
+      }
+      v7 += 2;
       v6 += 2;
-      v5 += 2;
-      --v4;
+      --v5;
     }
-    while ( v4 );
+    while ( v5 );
   }
   return 1LL;
 }

@@ -1,73 +1,72 @@
 /*
- * XREFs of SdbpCheckFromStringVersion @ 0x140A53458
+ * XREFs of SdbpCheckFromStringVersion @ 0x1405D2014
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DE54 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbpCheckAttribute @ 0x140759490 (SdbpCheckAttribute.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F8D90 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckAttribute @ 0x1407B267C (SdbpCheckAttribute.c)
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x140419BFC (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     <none>
  */
 
-__int64 __fastcall SdbpCheckFromStringVersion(unsigned __int16 *a1, unsigned __int16 *a2)
+_BOOL8 __fastcall SdbpCheckFromStringVersion(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  unsigned int v4; // esi
-  unsigned __int16 v5; // dx
+  unsigned __int16 *v2; // r8
+  int v3; // r11d
+  BOOL v4; // r9d
+  unsigned __int16 v5; // r10
   unsigned __int16 v6; // ax
-  unsigned __int64 v7; // r9
-  unsigned __int64 v8; // r8
-  int v9; // r10d
-  unsigned __int16 v10; // ax
+  unsigned __int64 v7; // rdi
+  unsigned __int64 v8; // rbx
 
+  v2 = a1;
+  v3 = 0;
   v4 = 1;
-  if ( (unsigned int)Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage() && *a1 )
+  while ( *v2 )
   {
-    while ( 1 )
+    v5 = *a2;
+    if ( !*a2 )
+      break;
+    v6 = *v2;
+    v7 = 0LL;
+    v8 = 0LL;
+    v3 = 0;
+    if ( *v2 == 42 )
     {
-      v5 = *a2;
-      if ( !*a2 )
-        break;
-      v6 = *a1;
-      v7 = 0LL;
-      v8 = 0LL;
-      v9 = 0;
-      if ( *a1 == 42 )
+      v3 = 1;
+      ++v2;
+    }
+    else
+    {
+      while ( v6 >= 0x30u && v6 <= 0x39u )
       {
-        v9 = 1;
-        ++a1;
+        ++v2;
+        v7 = v6 + 2 * (5 * v7 - 24);
+        v6 = *v2;
       }
-      else
-      {
-        while ( v6 >= 0x30u && v6 <= 0x39u )
-        {
-          ++a1;
-          v7 = v6 + 2 * (5 * v7 - 24);
-          v6 = *a1;
-        }
-      }
-      while ( v5 >= 0x30u && v5 <= 0x39u )
-      {
-        if ( !v9 )
-          v8 = v5 + 2 * (5 * v8 - 24);
-        v5 = *++a2;
-      }
-      if ( !v9 && v7 != v8 )
-        return v7 < v8;
-      if ( *a1 )
-      {
-        if ( *a2 && *a1 != *a2 )
-          return 0;
-        ++a1;
-      }
-      if ( *a2 )
-        ++a2;
-      v10 = *a1;
-      if ( (*a1 || *a2) && (!v4 || v10 || !v9) )
+    }
+    while ( v5 >= 0x30u && v5 <= 0x39u )
+    {
+      if ( !v3 )
+        v8 = v5 + 2 * (5 * v8 - 24);
+      v5 = *++a2;
+    }
+    if ( !v3 && v7 != v8 )
+    {
+      v4 = v7 < v8;
+      break;
+    }
+    if ( *v2 )
+    {
+      if ( *a2 && *v2 != *a2 )
       {
         v4 = 0;
-        if ( v10 )
-          continue;
+        break;
       }
-      return v4;
+      ++v2;
     }
+    if ( *a2 )
+      ++a2;
   }
+  if ( (*v2 || *a2) && (!v4 || *v2 || !v3) )
+    return 0;
   return v4;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of xxxDwmStopRedirection @ 0x1C0098410
+ * XREFs of xxxDwmStopRedirection @ 0x1C00E9970
  * Callers:
- *     NtUserDwmKernelShutdown @ 0x1C01F2FD0 (NtUserDwmKernelShutdown.c)
+ *     NtUserDwmKernelShutdown @ 0x1C01F8620 (NtUserDwmKernelShutdown.c)
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     DwmAsyncDesktopFree @ 0x1C0098654 (DwmAsyncDesktopFree.c)
- *     DwmNotifyChildrenAddRemove @ 0x1C00986F4 (DwmNotifyChildrenAddRemove.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00B4214 (DeleteOrSetRedirectionBitmap.c)
- *     _GetProcessWindowStation @ 0x1C00CEC40 (_GetProcessWindowStation.c)
- *     bSetDevDragRect @ 0x1C010FE70 (bSetDevDragRect.c)
- *     GreDwmShutdown @ 0x1C011FFD8 (GreDwmShutdown.c)
- *     ChangeComposableCursor @ 0x1C01CFAF0 (ChangeComposableCursor.c)
- *     StopFade @ 0x1C01E26E0 (StopFade.c)
- *     GreDxDwmShutdown @ 0x1C0275600 (GreDxDwmShutdown.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     bSetDevDragRect @ 0x1C0029500 (bSetDevDragRect.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     DwmAsyncDesktopFree @ 0x1C00E9BB4 (DwmAsyncDesktopFree.c)
+ *     DwmNotifyChildrenAddRemove @ 0x1C00E9C54 (DwmNotifyChildrenAddRemove.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF958 (DeleteOrSetRedirectionBitmap.c)
+ *     GreDwmShutdown @ 0x1C0134404 (GreDwmShutdown.c)
+ *     ChangeComposableCursor @ 0x1C01D42BC (ChangeComposableCursor.c)
+ *     StopFade @ 0x1C01E8050 (StopFade.c)
+ *     GreDxDwmShutdown @ 0x1C0277E90 (GreDxDwmShutdown.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -24,28 +24,28 @@ __int64 xxxDwmStopRedirection()
 {
   __int64 ProcessWindowStation; // rbp
   unsigned int v1; // edi
+  __int64 v2; // r9
   __int64 i; // rsi
-  void *v3; // rax
   __int64 v4; // rdx
-  __int64 v5; // rcx
+  void *v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 j; // rbx
-  struct tagWND *v7; // rsi
-  int v8; // r8d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  _QWORD v13[7]; // [rsp+20h] [rbp-38h] BYREF
-  char v14; // [rsp+68h] [rbp+10h] BYREF
+  struct tagWND *v9; // rsi
+  int v10; // r8d
+  __int64 v11; // rcx
+  _QWORD v13[4]; // [rsp+30h] [rbp-38h] BYREF
+  char v14; // [rsp+78h] [rbp+10h] BYREF
 
   ProcessWindowStation = GetProcessWindowStation(0LL);
   v1 = 0;
   if ( (unsigned int)IsDwmApiPortRegistered() && (*(_DWORD *)(ProcessWindowStation + 64) & 0x204) == 0x200 )
   {
     ++gdwDeferWinEvent;
-    AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v14);
+    UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v14);
     if ( gfade[2] )
       StopFade();
-    bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL));
+    bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL), 0LL, 0LL, 0);
     if ( gbScreenCaptureSoftwareCursorEnabled )
     {
       ChangeComposableCursor(0LL);
@@ -59,23 +59,29 @@ __int64 xxxDwmStopRedirection()
         {
           zzzDecomposeDesktop((struct tagDESKTOP *)i);
           DwmNotifyChildrenAddRemove((struct tagDESKTOP *)i);
-          v3 = (void *)ReferenceDwmApiPort();
-          DwmAsyncDesktopFree(v3);
+          v5 = (void *)ReferenceDwmApiPort(**(_QWORD **)(i + 8), v4);
+          DwmAsyncDesktopFree(v5);
         }
       }
-      v4 = *(_QWORD *)(ProcessWindowStation + 120);
-      if ( v4 )
-        DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v4, 1LL);
+      v6 = *(_QWORD *)(ProcessWindowStation + 120);
+      if ( v6 )
+        DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v6, 1LL, v2);
     }
     GreDwmShutdown(*(_QWORD *)(gpDispInfo + 40LL));
     *(_DWORD *)(ProcessWindowStation + 64) &= ~0x200u;
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v14);
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v14);
     zzzEndDeferWinEventNotify();
     if ( (unsigned int)UserIsWddmConnectedSession() )
     {
-      UserSessionSwitchLeaveCrit(v5);
+      if ( gdwInAtomicOperation )
+      {
+        v7 = gdwExtraInstrumentations;
+        if ( (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      }
+      UserSessionSwitchLeaveCrit(v7);
       GreDxDwmShutdown();
-      EnterCrit(1LL, 0LL);
+      EnterCrit(0LL, 1LL);
     }
     if ( grpdeskRitInput )
     {
@@ -83,19 +89,19 @@ __int64 xxxDwmStopRedirection()
       {
         if ( (*(_DWORD *)(j + 48) & 8) == 0 )
         {
-          v7 = *(struct tagWND **)(*(_QWORD *)(j + 8) + 24LL);
-          if ( v7 )
+          v9 = *(struct tagWND **)(*(_QWORD *)(j + 8) + 24LL);
+          if ( v9 )
           {
             v13[2] = 0LL;
             v13[0] = *(_QWORD *)(gptiCurrent + 416LL);
             *(_QWORD *)(gptiCurrent + 416LL) = v13;
-            v13[1] = v7;
-            HMLockObject(v7);
-            v8 = 0;
+            v13[1] = v9;
+            HMLockObject(v9);
+            v10 = 0;
             if ( g_pDwmState )
-              v8 = gfDwmDeviceBitmapsEnabled;
-            xxxRedrawWindow(v7, 0LL, 0LL, v8 != 0 ? 645 : 66181);
-            ThreadUnlock1(v10, v9, v11);
+              v10 = gfDwmDeviceBitmapsEnabled;
+            xxxRedrawWindow(v9, 0LL, 0LL, v10 != 0 ? 645 : 66181);
+            ThreadUnlock1(v11);
           }
         }
       }

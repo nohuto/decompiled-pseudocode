@@ -1,105 +1,99 @@
 /*
- * XREFs of rimExtractGeometryPoints @ 0x1C01A8FB4
+ * XREFs of rimExtractGeometryPoints @ 0x1C017A2C8
  * Callers:
- *     rimExtractPointerDeviceUsages @ 0x1C01A97C8 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017A940 (rimExtractPointerDeviceUsages.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall rimExtractGeometryPoints(__int16 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+char __fastcall rimExtractGeometryPoints(__int16 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   unsigned int v5; // ebx
-  __int64 v7; // r11
-  unsigned int v9; // ebp
-  unsigned int v10; // edi
-  unsigned int v11; // r15d
-  unsigned __int8 v12; // si
-  int v13; // r14d
-  __int64 v14; // rax
-  char v15; // cl
-  __int64 v16; // rax
-  __int64 v17; // r10
-  unsigned int v18; // ebp
-  _BYTE *v19; // r10
-  __int64 v20; // rax
-  unsigned __int8 *v21; // r9
-  __int64 v22; // rdx
-  __int64 v23; // r11
-  unsigned __int8 v24; // al
+  unsigned int v8; // esi
+  unsigned int v9; // edi
+  unsigned int v10; // r14d
+  unsigned __int8 v11; // bp
+  int v12; // r15d
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // r9
+  unsigned int v16; // r11d
+  _BYTE *v17; // r9
+  int v18; // edx
+  __int64 v19; // r10
+  __int64 v20; // rdx
+  unsigned __int8 v21; // al
+  unsigned int v22; // ecx
 
   v5 = a5;
-  v7 = a4;
+  v8 = 0;
   v9 = 0;
-  v10 = 0;
-  v11 = a5;
-  v12 = 0;
-  v13 = a5 & 7;
+  v10 = a5;
+  v11 = 0;
+  v12 = a5 & 7;
   if ( (a5 & 7) != 0 )
-    v12 = (1 << v13) - 1;
+    v11 = (1 << v12) - 1;
+  LOBYTE(v13) = a1 - 48;
   if ( (unsigned __int16)(a1 - 48) > 1u )
+    LOBYTE(v13) = MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 3147);
+  if ( a5 > 0x20 )
+    LOBYTE(v13) = MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 3148);
+  if ( a5 >= 8 )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3201);
-    v7 = a4;
-  }
-  if ( a5 <= 0x20 )
-  {
-    if ( a5 < 8 )
+    do
     {
-LABEL_11:
-      if ( v11 && v9 < 4 )
-        *(_BYTE *)(v9 + a3) = v12 & *(_BYTE *)(v10 + v7);
-      goto LABEL_14;
+      if ( v8 >= 4 )
+        break;
+      v13 = v9;
+      v10 -= 8;
+      v14 = v8;
+      ++v9;
+      ++v8;
+      LOBYTE(v13) = *(_BYTE *)(v13 + a4);
+      *(_BYTE *)(v14 + a3) = v13;
     }
+    while ( v10 >= 8 );
   }
-  else
+  if ( v10 && v8 < 4 )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3202);
+    LOBYTE(v13) = v8;
+    *(_BYTE *)(v8 + a3) = v11 & *(_BYTE *)(v9 + a4);
   }
-  v7 = a4;
-  while ( v9 < 4 )
-  {
-    v14 = v10;
-    v11 -= 8;
-    ++v10;
-    v15 = *(_BYTE *)(v14 + a4);
-    v16 = v9++;
-    *(_BYTE *)(v16 + a3) = v15;
-    if ( v11 < 8 )
-      goto LABEL_11;
-  }
-LABEL_14:
-  v17 = 16LL;
+  v15 = 16LL;
   if ( a1 != 49 )
-    v17 = 12LL;
-  v18 = 0;
-  v19 = (_BYTE *)(a2 + v17);
-  if ( v11 )
+    v15 = 12LL;
+  v16 = 0;
+  v17 = (_BYTE *)(a2 + v15);
+  if ( v10 )
   {
-    v20 = v10++;
-    *v19 = (~v12 & *(unsigned __int8 *)(v20 + v7)) >> v13;
-    v5 = v13 + a5 - 8;
+    v13 = v9++;
+    v18 = *(unsigned __int8 *)(v13 + a4);
+    LODWORD(v13) = ~v11;
+    *v17 = (int)(v13 & v18) >> v12;
+    v5 = v12 + a5 - 8;
   }
-  for ( ; v5; v5 -= 8 )
+  for ( ; v5; ++v9 )
   {
-    if ( v18 >= 4 || v10 >= 8 )
+    if ( v16 >= 4 || v9 >= 8 )
       break;
-    v21 = (unsigned __int8 *)(v7 + v10);
-    v22 = v18;
-    v23 = ++v18;
-    v24 = *v21;
+    v19 = v16 + 1;
+    v20 = v16++;
+    v21 = *(_BYTE *)(v9 + a4);
     if ( (a5 & 7) != 0 )
     {
-      v19[v22] |= (v12 & v24) << (8 - v13);
-      if ( (unsigned int)v23 < 4 )
-        v19[v23] = (*v21 & ~v12) >> v13;
+      v17[v20] |= (v11 & v21) << (8 - v12);
+      if ( (unsigned int)v19 < 4 )
+        v17[v19] = (*(unsigned __int8 *)(v9 + a4) & ~v11) >> v12;
     }
     else
     {
-      v19[v22] = v24;
+      v17[v20] = v21;
     }
-    ++v10;
-    if ( v5 <= 8 )
-      break;
-    v7 = a4;
+    LODWORD(v13) = v5;
+    v22 = v5 - 8;
+    v5 = 0;
+    if ( (unsigned int)v13 > 8 )
+      v5 = v22;
   }
+  return v13;
 }

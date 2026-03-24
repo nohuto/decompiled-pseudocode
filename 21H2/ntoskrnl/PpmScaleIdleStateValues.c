@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmScaleIdleStateValues @ 0x14023BC48
+ * XREFs of PpmScaleIdleStateValues @ 0x140399014
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14023B798 (PpmPerfApplyProcessorState.c)
- *     PpmResetIdlePolicy @ 0x1403D1DE4 (PpmResetIdlePolicy.c)
+ *     PpmPerfApplyProcessorState @ 0x140398B3C (PpmPerfApplyProcessorState.c)
+ *     PpmResetIdlePolicy @ 0x1403C4798 (PpmResetIdlePolicy.c)
  * Callees:
- *     HvlGetLpIndexFromProcessorIndex @ 0x140459BC0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlRegisterLogicalProcessorFrequency @ 0x140549E34 (HvlRegisterLogicalProcessorFrequency.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1404F2190 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlRegisterLogicalProcessorFrequency @ 0x1404F81DC (HvlRegisterLogicalProcessorFrequency.c)
  */
 
 void __fastcall PpmScaleIdleStateValues(__int64 a1)
@@ -17,27 +17,27 @@ void __fastcall PpmScaleIdleStateValues(__int64 a1)
   int v6; // ecx
   unsigned int LpIndexFromProcessorIndex; // eax
 
-  if ( *(_BYTE *)(a1 + 68) )
+  if ( *(_BYTE *)(a1 + 60) )
   {
-    v2 = *(_QWORD *)(a1 + 376);
+    v2 = *(_QWORD *)(a1 + 368);
     if ( v2 )
     {
-      v3 = *(_QWORD *)(a1 + 368);
+      v3 = *(_QWORD *)(a1 + 360);
       if ( v3 )
       {
-        v4 = *(_DWORD *)(v3 + 512);
+        v4 = *(_DWORD *)(v3 + 368);
         if ( *(_DWORD *)(v2 + 72) < v4 )
           LOBYTE(v4) = *(_BYTE *)(v2 + 72);
         v5 = (unsigned __int8)v4;
-        v6 = *(unsigned __int8 *)(a1 + 67);
-        *(_BYTE *)(a1 + 64) = (unsigned __int8)v4
+        v6 = *(unsigned __int8 *)(a1 + 59);
+        *(_BYTE *)(a1 + 56) = (unsigned __int8)v4
                             * (unsigned __int8)v4
-                            * (unsigned int)*(unsigned __int8 *)(a1 + 66)
+                            * (unsigned int)*(unsigned __int8 *)(a1 + 58)
                             / 0x2710;
-        *(_BYTE *)(a1 + 65) = (unsigned __int8)v4 * (unsigned int)(unsigned __int8)v4 * v6 / 0x2710;
-        if ( *(_DWORD *)(a1 + 224) == 3 )
+        *(_BYTE *)(a1 + 57) = (unsigned __int8)v4 * (unsigned int)(unsigned __int8)v4 * v6 / 0x2710;
+        if ( *(_DWORD *)(a1 + 216) == 3 )
         {
-          LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(*(unsigned int *)(a1 - 33564));
+          LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(*(unsigned int *)(a1 - 32732));
           HvlRegisterLogicalProcessorFrequency(LpIndexFromProcessorIndex, v5);
         }
       }

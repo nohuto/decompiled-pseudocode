@@ -1,25 +1,25 @@
 /*
- * XREFs of IopQueryDeviceResources @ 0x1406FB514
+ * XREFs of IopQueryDeviceResources @ 0x1406FB4F4
  * Callers:
- *     IopReleaseDeviceResources @ 0x1406ED6A4 (IopReleaseDeviceResources.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x1406FB154 (PnpGetResourceRequirementsForAssignTable.c)
- *     PiQueryAndAllocateBootResources @ 0x1406FB30C (PiQueryAndAllocateBootResources.c)
+ *     IopReleaseDeviceResources @ 0x1406ED684 (IopReleaseDeviceResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406FB134 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PiQueryAndAllocateBootResources @ 0x1406FB2EC (PiQueryAndAllocateBootResources.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x1406FB8C0 (PnpGetDeviceResourcesFromRegistry.c)
- *     PnpDetermineResourceListSize @ 0x1406FBAAC (PnpDetermineResourceListSize.c)
- *     IopFilterResourceRequirementsCall @ 0x1406FBB10 (IopFilterResourceRequirementsCall.c)
- *     PpIrpQueryResourceRequirements @ 0x1406FBDFC (PpIrpQueryResourceRequirements.c)
- *     PnpCmResourcesToIoResources @ 0x14072FEF4 (PnpCmResourcesToIoResources.c)
- *     PnpFilterResourceRequirementsList @ 0x14073FB40 (PnpFilterResourceRequirementsList.c)
- *     PnpMergeFilteredResourceRequirementsList @ 0x140760204 (PnpMergeFilteredResourceRequirementsList.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1406FB8A0 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x1406FBA8C (PnpDetermineResourceListSize.c)
+ *     IopFilterResourceRequirementsCall @ 0x1406FBAF0 (IopFilterResourceRequirementsCall.c)
+ *     PpIrpQueryResourceRequirements @ 0x1406FBDDC (PpIrpQueryResourceRequirements.c)
+ *     PnpCmResourcesToIoResources @ 0x14072FED4 (PnpCmResourcesToIoResources.c)
+ *     PnpFilterResourceRequirementsList @ 0x14073FB20 (PnpFilterResourceRequirementsList.c)
+ *     PnpMergeFilteredResourceRequirementsList @ 0x1407601E4 (PnpMergeFilteredResourceRequirementsList.c)
  */
 
 __int64 __fastcall IopQueryDeviceResources(struct _DEVICE_OBJECT *a1, int a2, ULONG_PTR *a3, _DWORD *a4)

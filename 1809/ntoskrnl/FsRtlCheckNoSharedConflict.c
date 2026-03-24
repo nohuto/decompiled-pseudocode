@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlCheckNoSharedConflict @ 0x14026EEF8
+ * XREFs of FsRtlCheckNoSharedConflict @ 0x14026EFF8
  * Callers:
- *     FsRtlFastCheckLockForWrite @ 0x14010DCC0 (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForWrite @ 0x14010DCE0 (FsRtlFastCheckLockForWrite.c)
  * Callees:
  *     FsRtlFindFirstOverlappingSharedNode @ 0x14008D364 (FsRtlFindFirstOverlappingSharedNode.c)
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     FsRtlFindFirstOverlapInNode @ 0x14026EFA4 (FsRtlFindFirstOverlapInNode.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x14026F0A4 (FsRtlFindFirstOverlapInNode.c)
  */
 
 bool __fastcall FsRtlCheckNoSharedConflict(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)

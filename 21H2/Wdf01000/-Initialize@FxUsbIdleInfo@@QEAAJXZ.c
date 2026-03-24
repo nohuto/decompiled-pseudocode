@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Initialize@FxUsbIdleInfo@@QEAAJXZ @ 0x1C008EA80
+ * XREFs of ?Initialize@FxUsbIdleInfo@@QEAAJXZ @ 0x1C008C4E0
  * Callers:
- *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C008A8C4 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
+ *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C0086780 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

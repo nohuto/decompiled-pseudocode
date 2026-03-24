@@ -1,12 +1,12 @@
 /*
- * XREFs of KiEnableGroupScheduling @ 0x1401912B8
+ * XREFs of KiEnableGroupScheduling @ 0x1401912D8
  * Callers:
- *     KeInsertSchedulingGroup @ 0x1401159D0 (KeInsertSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x1401159F0 (KeInsertSchedulingGroup.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeUpdateGroupSchedulingConstants @ 0x140191398 (KeUpdateGroupSchedulingConstants.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1401913B8 (KeUpdateGroupSchedulingConstants.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiEnableGroupScheduling()

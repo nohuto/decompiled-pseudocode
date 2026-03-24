@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSaAllocatorOptimizeList @ 0x1403A0398
+ * XREFs of ExpSaAllocatorOptimizeList @ 0x1405BA3C4
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x14029FDC4 (ExpSaAllocatorAllocate.c)
- *     ExpSaAllocatorFree @ 0x140360FD4 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorAllocate @ 0x1403915CC (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorFree @ 0x140394354 (ExpSaAllocatorFree.c)
  * Callees:
- *     ExpSaPageGroupDescriptorFree @ 0x1403A0424 (ExpSaPageGroupDescriptorFree.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1405BA4DC (ExpSaPageGroupDescriptorFree.c)
  */
 
 void __fastcall ExpSaAllocatorOptimizeList(__int64 a1)
@@ -33,10 +33,10 @@ void __fastcall ExpSaAllocatorOptimizeList(__int64 a1)
         {
           v6 = *(_QWORD *)v4;
           if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
-            goto LABEL_10;
+            goto LABEL_15;
           v7 = *(ULONG_PTR **)(v4 + 8);
           if ( *v7 != v4 )
-            goto LABEL_10;
+            goto LABEL_15;
           *v7 = v6;
           *(_QWORD *)(v6 + 8) = v7;
           ExpSaPageGroupDescriptorFree(v4);
@@ -49,7 +49,7 @@ void __fastcall ExpSaAllocatorOptimizeList(__int64 a1)
             || (v9 = *(ULONG_PTR **)(v4 + 8), *v9 != v4)
             || (*v9 = v8, *(_QWORD *)(v8 + 8) = v9, v10 = *(ULONG_PTR **)(a1 + 32), *v10 != a1 + 24) )
           {
-LABEL_10:
+LABEL_15:
             __fastfail(3u);
           }
           *(_QWORD *)v4 = a1 + 24;

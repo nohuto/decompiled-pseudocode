@@ -1,7 +1,7 @@
 /*
- * XREFs of GetImageTuple @ 0x1C02412B4
+ * XREFs of GetImageTuple @ 0x1C02000DC
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C0241364 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C020015C (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */

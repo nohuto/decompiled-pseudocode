@@ -1,148 +1,149 @@
 /*
- * XREFs of ?AssignPowerFrameworkSettings@FxPkgPnp@@QEAAJPEAU_WDF_POWER_FRAMEWORK_SETTINGS@@@Z @ 0x1C001D84C
+ * XREFs of ?AssignPowerFrameworkSettings@FxPkgPnp@@QEAAJPEAU_WDF_POWER_FRAMEWORK_SETTINGS@@@Z @ 0x1C007F890
  * Callers:
- *     imp_WdfDeviceWdmAssignPowerFrameworkSettings @ 0x1C001D590 (imp_WdfDeviceWdmAssignPowerFrameworkSettings.c)
+ *     imp_WdfDeviceWdmAssignPowerFrameworkSettings @ 0x1C0049460 (imp_WdfDeviceWdmAssignPowerFrameworkSettings.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ?CommitPowerFrameworkSettings@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_POX_SETTINGS@@@Z @ 0x1C001DC5C (-CommitPowerFrameworkSettings@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_POX_SETTI.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?CommitPowerFrameworkSettings@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_POX_SETTINGS@@@Z @ 0x1C0086424 (-CommitPowerFrameworkSettings@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_POX_SETTI.c)
  */
 
 __int64 __fastcall FxPkgPnp::AssignPowerFrameworkSettings(
         FxPkgPnp *this,
         _WDF_POWER_FRAMEWORK_SETTINGS *PowerFrameworkSettings)
 {
-  unsigned int v2; // ebx
-  unsigned __int64 v5; // rbp
-  __int64 v6; // r14
-  _PO_FX_COMPONENT_V1 *Component; // rax
-  __int64 Pool2; // rax
-  _PO_FX_COMPONENT_IDLE_STATE *v9; // r15
-  _POX_SETTINGS *v10; // r14
-  FxPowerPolicyOwnerSettings *m_Owner; // rbp
-  int v12; // edi
-  _PO_FX_COMPONENT_V1 *v14; // rcx
-  _PO_FX_COMPONENT_V1 *v15; // rax
+  unsigned __int64 v4; // rbx
+  __int64 v5; // rsi
+  _PO_FX_COMPONENT_IDLE_STATE *v6; // r14
   const void *_a1; // rax
-  __int64 v17; // r8
-  const void *v18; // rax
-  __int64 v19; // r8
-  int v20; // r10d
-  unsigned __int16 v21; // r9
+  __int64 v8; // r8
+  _PO_FX_COMPONENT_V1 *Component; // rax
+  int v11; // ebx
   const void *ObjectHandleUnchecked; // rax
-  __int64 v23; // rdx
+  __int64 v13; // r8
+  int v14; // r10d
+  unsigned __int16 v15; // r9
+  SIZE_T v16; // rdx
+  _PO_FX_COMPONENT_IDLE_STATE *PoolWithTag; // rax
+  const void *v18; // rax
+  __int64 v19; // rdx
+  unsigned __int16 v20; // r9
+  _POX_SETTINGS *v21; // rsi
+  _PO_FX_COMPONENT_V1 *v22; // rcx
+  _PO_FX_COMPONENT_V1 *v23; // rax
   int v24; // r10d
   int _a3; // [rsp+38h] [rbp-20h]
 
-  v2 = 0;
-  LODWORD(v5) = 0;
+  LODWORD(v4) = 0;
+  v5 = 0LL;
   v6 = 0LL;
-  if ( FxLibraryGlobals.PoxRegisterDevice )
+  if ( !FxLibraryGlobals.PoxRegisterDevice )
   {
-    Component = PowerFrameworkSettings->Component;
-    if ( !Component )
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    WPP_IFR_SF_qq(
+      this->m_Globals,
+      4u,
+      0xCu,
+      0x53u,
+      (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
+      _a1,
+      *(const void **)(v8 + 144));
+    return 0LL;
+  }
+  Component = PowerFrameworkSettings->Component;
+  if ( Component )
+  {
+    v4 = 24LL * Component->IdleStateCount;
+    if ( v4 > 0xFFFFFFFF )
     {
-LABEL_3:
-      if ( (int)v6 + 64 < (unsigned int)v6 )
-      {
-        v2 = -1073741675;
-        ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-        WPP_IFR_SF_qqd(
-          this->m_Globals,
-          2u,
-          0xCu,
-          0x56u,
-          (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-          ObjectHandleUnchecked,
-          *(const void **)(v23 + 144),
-          v24);
-        return v2;
-      }
-      Pool2 = ExAllocatePool2(64LL, (unsigned int)(v6 + 64), this->m_Globals->Tag);
-      v9 = (_PO_FX_COMPONENT_IDLE_STATE *)Pool2;
-      if ( Pool2 )
-      {
-        v10 = (_POX_SETTINGS *)(Pool2 + v6);
-        v10->EvtDeviceWdmPostPoFxRegisterDevice = PowerFrameworkSettings->EvtDeviceWdmPostPoFxRegisterDevice;
-        v10->EvtDeviceWdmPrePoFxUnregisterDevice = PowerFrameworkSettings->EvtDeviceWdmPrePoFxUnregisterDevice;
-        v10->Component = PowerFrameworkSettings->Component;
-        v10->ComponentActiveConditionCallback = PowerFrameworkSettings->ComponentActiveConditionCallback;
-        v10->ComponentIdleConditionCallback = PowerFrameworkSettings->ComponentIdleConditionCallback;
-        v10->ComponentIdleStateCallback = PowerFrameworkSettings->ComponentIdleStateCallback;
-        v10->PowerControlCallback = PowerFrameworkSettings->PowerControlCallback;
-        v10->PoFxDeviceContext = PowerFrameworkSettings->PoFxDeviceContext;
-        if ( PowerFrameworkSettings->Component )
-        {
-          v14 = (_PO_FX_COMPONENT_V1 *)((unsigned int)v5 + Pool2);
-          v10->Component = v14;
-          v15 = PowerFrameworkSettings->Component;
-          v14->Id = v15->Id;
-          *(_OWORD *)&v14->IdleStateCount = *(_OWORD *)&v15->IdleStateCount;
-          v10->Component->IdleStates = v9;
-          memmove(v10->Component->IdleStates, PowerFrameworkSettings->Component->IdleStates, (unsigned int)v5);
-        }
-        m_Owner = this->m_PowerPolicyMachine.m_Owner;
-        v12 = IdleTimeoutManagement::CommitPowerFrameworkSettings(
-                &m_Owner->m_IdleSettings.m_TimeoutMgmt,
-                this->m_Globals,
-                v10);
-        if ( v12 < 0 )
-        {
-          ExFreePoolWithTag(v9, 0);
-          return (unsigned int)v12;
-        }
-        else
-        {
-          m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported = PowerFrameworkSettings->DirectedPoFxEnabled != WdfFalse;
-          m_Owner->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags = PowerFrameworkSettings->PoFxDeviceFlags;
-        }
-        return v2;
-      }
-      v2 = -1073741670;
-      v18 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-      v21 = 87;
-      _a3 = -1073741670;
-LABEL_17:
-      WPP_IFR_SF_qqd(
+      v11 = -1073741675;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+      v15 = 84;
+      goto LABEL_7;
+    }
+    v5 = (unsigned int)(v4 + 32);
+    if ( (unsigned int)v5 < (unsigned int)v4 )
+    {
+      v11 = -1073741675;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+      v15 = 85;
+LABEL_7:
+      WPP_IFR_SF_qid(
         this->m_Globals,
         2u,
         0xCu,
-        v21,
+        v15,
         (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-        v18,
-        *(const void **)(v19 + 144),
-        _a3);
-      return v2;
+        ObjectHandleUnchecked,
+        *(_QWORD *)(v13 + 144),
+        v14);
+      goto LABEL_20;
     }
-    v5 = 24LL * Component->IdleStateCount;
-    if ( v5 > 0xFFFFFFFF )
-    {
-      v2 = -1073741675;
-      v18 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-      v21 = 84;
-    }
-    else
-    {
-      v6 = (unsigned int)(v5 + 32);
-      if ( (unsigned int)v6 >= (unsigned int)v5 )
-        goto LABEL_3;
-      v2 = -1073741675;
-      v18 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-      v21 = 85;
-    }
-    _a3 = v20;
-    goto LABEL_17;
   }
-  _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-  WPP_IFR_SF_qq(
+  v16 = (unsigned int)(v5 + 64);
+  if ( (unsigned int)v16 < (unsigned int)v5 )
+  {
+    v11 = -1073741675;
+    v18 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    v20 = 86;
+    _a3 = v24;
+  }
+  else
+  {
+    PoolWithTag = (_PO_FX_COMPONENT_IDLE_STATE *)ExAllocatePoolWithTag(
+                                                   ExDefaultNonPagedPoolType,
+                                                   v16,
+                                                   this->m_Globals->Tag);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      v21 = (_POX_SETTINGS *)((char *)PoolWithTag + v5);
+      v21->EvtDeviceWdmPostPoFxRegisterDevice = PowerFrameworkSettings->EvtDeviceWdmPostPoFxRegisterDevice;
+      v21->EvtDeviceWdmPrePoFxUnregisterDevice = PowerFrameworkSettings->EvtDeviceWdmPrePoFxUnregisterDevice;
+      v21->Component = PowerFrameworkSettings->Component;
+      v21->ComponentActiveConditionCallback = PowerFrameworkSettings->ComponentActiveConditionCallback;
+      v21->ComponentIdleConditionCallback = PowerFrameworkSettings->ComponentIdleConditionCallback;
+      v21->ComponentIdleStateCallback = PowerFrameworkSettings->ComponentIdleStateCallback;
+      v21->PowerControlCallback = PowerFrameworkSettings->PowerControlCallback;
+      v21->PoFxDeviceContext = PowerFrameworkSettings->PoFxDeviceContext;
+      if ( PowerFrameworkSettings->Component )
+      {
+        v22 = (_PO_FX_COMPONENT_V1 *)((char *)PoolWithTag + (unsigned int)v4);
+        v21->Component = v22;
+        v23 = PowerFrameworkSettings->Component;
+        v22->Id = v23->Id;
+        *(_OWORD *)&v22->IdleStateCount = *(_OWORD *)&v23->IdleStateCount;
+        v21->Component->IdleStates = v6;
+        memmove(v21->Component->IdleStates, PowerFrameworkSettings->Component->IdleStates, (unsigned int)v4);
+      }
+      v11 = IdleTimeoutManagement::CommitPowerFrameworkSettings(
+              &this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt,
+              this->m_Globals,
+              v21);
+      if ( v11 >= 0 )
+        v11 = 0;
+      if ( v11 >= 0 )
+        return (unsigned int)v11;
+      goto LABEL_20;
+    }
+    v11 = -1073741670;
+    v18 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    v20 = 87;
+    _a3 = -1073741670;
+  }
+  WPP_IFR_SF_qid(
     this->m_Globals,
-    4u,
+    2u,
     0xCu,
-    0x53u,
+    v20,
     (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-    _a1,
-    *(const void **)(v17 + 144));
-  return 0LL;
+    v18,
+    *(_QWORD *)(v19 + 144),
+    _a3);
+LABEL_20:
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
+  return (unsigned int)v11;
 }

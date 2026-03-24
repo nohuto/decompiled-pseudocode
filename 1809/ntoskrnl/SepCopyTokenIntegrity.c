@@ -1,15 +1,15 @@
 /*
  * XREFs of SepCopyTokenIntegrity @ 0x140091E20
  * Callers:
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x140324C00 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x140324D00 (AuthzBasepQueryTokenAttributeAndValues.c)
  *     SepValidLabelSubjectContext @ 0x1406096D0 (SepValidLabelSubjectContext.c)
  *     SepAdjustPrivileges @ 0x140609D70 (SepAdjustPrivileges.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     SeIsTokenAssignableToProcess @ 0x1406B9118 (SeIsTokenAssignableToProcess.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     SepLocateTokenIntegrity @ 0x1400A902C (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenIntegrity @ 0x1400A904C (SepLocateTokenIntegrity.c)
  */
 
 __int64 SepCopyTokenIntegrity()

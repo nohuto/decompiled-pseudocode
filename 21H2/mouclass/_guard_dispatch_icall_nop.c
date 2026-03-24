@@ -1,1 +1,46 @@
-/*\n * XREFs of _guard_dispatch_icall_nop @ 0x1C0002F10\n * Callers:\n *     sub_1C0001730 @ 0x1C0001730 (sub_1C0001730.c)\n *     sub_1C0001D80 @ 0x1C0001D80 (sub_1C0001D80.c)\n *     sub_1C0001E40 @ 0x1C0001E40 (sub_1C0001E40.c)\n *     sub_1C00024D0 @ 0x1C00024D0 (sub_1C00024D0.c)\n *     sub_1C00025C0 @ 0x1C00025C0 (sub_1C00025C0.c)\n *     sub_1C00026A0 @ 0x1C00026A0 (sub_1C00026A0.c)\n *     sub_1C00027A0 @ 0x1C00027A0 (sub_1C00027A0.c)\n *     sub_1C0002990 @ 0x1C0002990 (sub_1C0002990.c)\n *     _guard_xfg_dispatch_icall_nop @ 0x1C0002F30 (_guard_xfg_dispatch_icall_nop.c)\n *     sub_1C00059CC @ 0x1C00059CC (sub_1C00059CC.c)\n *     sub_1C0005AA4 @ 0x1C0005AA4 (sub_1C0005AA4.c)\n *     sub_1C0005B50 @ 0x1C0005B50 (sub_1C0005B50.c)\n *     sub_1C0005BFC @ 0x1C0005BFC (sub_1C0005BFC.c)\n *     sub_1C0005CD0 @ 0x1C0005CD0 (sub_1C0005CD0.c)\n *     sub_1C0005DC8 @ 0x1C0005DC8 (sub_1C0005DC8.c)\n *     sub_1C0005EE0 @ 0x1C0005EE0 (sub_1C0005EE0.c)\n *     sub_1C0005FB4 @ 0x1C0005FB4 (sub_1C0005FB4.c)\n *     sub_1C00060F4 @ 0x1C00060F4 (sub_1C00060F4.c)\n *     sub_1C0006234 @ 0x1C0006234 (sub_1C0006234.c)\n *     sub_1C0006350 @ 0x1C0006350 (sub_1C0006350.c)\n *     sub_1C00064A8 @ 0x1C00064A8 (sub_1C00064A8.c)\n *     sub_1C00065D4 @ 0x1C00065D4 (sub_1C00065D4.c)\n *     sub_1C0006710 @ 0x1C0006710 (sub_1C0006710.c)\n *     sub_1C0006814 @ 0x1C0006814 (sub_1C0006814.c)\n *     sub_1C0006974 @ 0x1C0006974 (sub_1C0006974.c)\n *     sub_1C0006A90 @ 0x1C0006A90 (sub_1C0006A90.c)\n *     sub_1C0006B80 @ 0x1C0006B80 (sub_1C0006B80.c)\n *     sub_1C000C910 @ 0x1C000C910 (sub_1C000C910.c)\n *     sub_1C000D230 @ 0x1C000D230 (sub_1C000D230.c)\n *     sub_1C000D2F0 @ 0x1C000D2F0 (sub_1C000D2F0.c)\n *     EnableCallback @ 0x1C000D440 (EnableCallback.c)\n *     sub_1C000E5AC @ 0x1C000E5AC (sub_1C000E5AC.c)\n *     sub_1C000E660 @ 0x1C000E660 (sub_1C000E660.c)\n *     sub_1C000F080 @ 0x1C000F080 (sub_1C000F080.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall guard_dispatch_icall_nop()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n
+/*
+ * XREFs of _guard_dispatch_icall_nop @ 0x1C0002A40
+ * Callers:
+ *     WPP_RECORDER_SF_qqc @ 0x1C00017A0 (WPP_RECORDER_SF_qqc.c)
+ *     WPP_RECORDER_SF_qqdDdd @ 0x1C0001BF0 (WPP_RECORDER_SF_qqdDdd.c)
+ *     WPP_RECORDER_SF_qqL @ 0x1C0002040 (WPP_RECORDER_SF_qqL.c)
+ *     WPP_RECORDER_SF_qqsd @ 0x1C0002130 (WPP_RECORDER_SF_qqsd.c)
+ *     WPP_RECORDER_SF_S @ 0x1C0002310 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002410 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C0002610 (WPP_RECORDER_SF_Dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0005804 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00058B0 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C000595C (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0005A30 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qLqq @ 0x1C0005B28 (WPP_RECORDER_SF_qLqq.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0005C40 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qlqqd @ 0x1C0005D14 (WPP_RECORDER_SF_qlqqd.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0005E54 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qqDdd @ 0x1C0005F78 (WPP_RECORDER_SF_qqDdd.c)
+ *     WPP_RECORDER_SF_qqLL @ 0x1C00060B8 (WPP_RECORDER_SF_qqLL.c)
+ *     WPP_RECORDER_SF_qqLLqq @ 0x1C00061D4 (WPP_RECORDER_SF_qqLLqq.c)
+ *     WPP_RECORDER_SF_qqLd @ 0x1C000632C (WPP_RECORDER_SF_qqLd.c)
+ *     WPP_RECORDER_SF_qqLqq @ 0x1C0006458 (WPP_RECORDER_SF_qqLqq.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C0006594 (WPP_RECORDER_SF_qqd.c)
+ *     WPP_RECORDER_SF_qqdq @ 0x1C0006698 (WPP_RECORDER_SF_qqdq.c)
+ *     WPP_RECORDER_SF_qqiL @ 0x1C00067B4 (WPP_RECORDER_SF_qqiL.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00068D0 (WPP_RECORDER_SF_qqq.c)
+ *     WPP_RECORDER_SF_qqqql @ 0x1C00069C0 (WPP_RECORDER_SF_qqqql.c)
+ *     MouDeterminePortsServiced @ 0x1C000C830 (MouDeterminePortsServiced.c)
+ *     WppInitKm @ 0x1C000CEF0 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C000CFB0 (WppLoadTracingSupport.c)
+ *     _tlgEnableCallback @ 0x1C000D260 (_tlgEnableCallback.c)
+ *     WppCleanupKm @ 0x1C000E5B4 (WppCleanupKm.c)
+ *     WppTraceCallback @ 0x1C000E670 (WppTraceCallback.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall guard_dispatch_icall_nop()
+{
+  __int64 (*v0)(void); // rax
+
+  return v0();
+}

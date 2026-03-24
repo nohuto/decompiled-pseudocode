@@ -1,30 +1,36 @@
 /*
- * XREFs of WmipSendWmiIrp @ 0x1407839B4
+ * XREFs of WmipSendWmiIrp @ 0x14075751C
  * Callers:
- *     WmipSendEnableDisableRequest @ 0x1406D8994 (WmipSendEnableDisableRequest.c)
- *     WmipEnableCollectionForNewGuid @ 0x14075DA88 (WmipEnableCollectionForNewGuid.c)
- *     WmipRegisterOrUpdateDS @ 0x14075EE80 (WmipRegisterOrUpdateDS.c)
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
- *     WmipQueryAllData @ 0x14078CD70 (WmipQueryAllData.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x14080EEFC (WmipDisableCollectionForRemovedGuid.c)
- *     WmipDereferenceEvent @ 0x1409DCFD4 (WmipDereferenceEvent.c)
- *     WmipProcessLegacyEtwCallback @ 0x1409DE380 (WmipProcessLegacyEtwCallback.c)
+ *     WmipQueryAllData @ 0x1406390D4 (WmipQueryAllData.c)
+ *     WmipRegisterOrUpdateDS @ 0x14075678C (WmipRegisterOrUpdateDS.c)
+ *     WmipQuerySetExecuteSI @ 0x140757270 (WmipQuerySetExecuteSI.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140757ACC (WmipEnableCollectionForNewGuid.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140758114 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipSendEnableDisableRequest @ 0x14077E000 (WmipSendEnableDisableRequest.c)
+ *     WmipDereferenceEvent @ 0x1409323EC (WmipDereferenceEvent.c)
+ *     WmipProcessLegacyEtwCallback @ 0x140933730 (WmipProcessLegacyEtwCallback.c)
  * Callees:
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     WmipForwardWmiIrp @ 0x140783A9C (WmipForwardWmiIrp.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
  */
 
-__int64 __fastcall WmipSendWmiIrp(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, _OWORD *a6)
+__int64 __fastcall WmipSendWmiIrp(
+        unsigned __int8 a1,
+        unsigned int a2,
+        UNICODE_STRING *a3,
+        unsigned int a4,
+        __int64 a5,
+        _OWORD *a6)
 {
   PIRP Irp; // rax
-  PIRP v8; // rbx
-  unsigned int v9; // edi
+  PIRP v11; // rbx
+  unsigned int v12; // edi
 
   while ( 1 )
   {
     Irp = IoAllocateIrp(WmipServiceDeviceObject->StackSize + 1, 0);
-    v8 = Irp;
+    v11 = Irp;
     if ( !Irp )
       break;
     --Irp->Tail.Overlay.CurrentStackLocation;
@@ -32,11 +38,11 @@ __int64 __fastcall WmipSendWmiIrp(__int64 a1, __int64 a2, __int64 a3, int a4, __
     Irp->Tail.Overlay.CurrentStackLocation->DeviceObject = WmipServiceDeviceObject;
     Irp->Tail.Overlay.Thread = KeGetCurrentThread();
     Irp->AssociatedIrp.MasterIrp = (struct _IRP *)a5;
-    v9 = WmipForwardWmiIrp(Irp, a4, a5);
-    *a6 = *(_OWORD *)&v8->IoStatus.Status;
-    IoFreeIrp(v8);
-    if ( v9 != -1073741160 )
-      return v9;
+    v12 = WmipForwardWmiIrp(Irp, a1, a2, a3, a4, a5);
+    *a6 = *(_OWORD *)&v11->IoStatus.Status;
+    IoFreeIrp(v11);
+    if ( v12 != -1073741160 )
+      return v12;
   }
   return 3221225626LL;
 }

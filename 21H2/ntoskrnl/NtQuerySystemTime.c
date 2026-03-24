@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQuerySystemTime @ 0x1409F82D0
+ * XREFs of NtQuerySystemTime @ 0x14094BC90
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQuerySystemTime(unsigned __int64 a1)

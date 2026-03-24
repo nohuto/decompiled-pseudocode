@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C0016E98
+ * XREFs of HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C00169D0
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     RtlStringCbPrintfW @ 0x1C0012E78 (RtlStringCbPrintfW.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     RtlStringCbPrintfW @ 0x1C0012978 (RtlStringCbPrintfW.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess(__int64 a1, IRP *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess(__int64 a1, I
   _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   __int64 v6; // rsi
   unsigned int Length; // eax
-  wchar_t *Pool2; // rbx
+  wchar_t *PoolWithTag; // rbx
   unsigned __int16 v9; // r9
   __int16 Size; // r14
   unsigned __int8 *v11; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess(__int64 a1, I
   unsigned int v15; // edx
   unsigned __int64 v16; // rax
   void *v17; // rcx
-  struct _KEVENT *v18; // r13
+  struct _KEVENT *v18; // r12
   unsigned __int8 *v19; // rax
   unsigned __int16 v20; // bx
   _WORD *v21; // rax
@@ -39,14 +39,14 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess(__int64 a1, I
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   v6 = *(_QWORD *)(v4 + 24);
   Length = CurrentStackLocation->Parameters.Read.Length;
   if ( Length == 1 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(64LL, 42LL, 1681082453LL);
-    if ( !Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 0x2AuLL, 0x64334855u);
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
@@ -61,11 +61,11 @@ LABEL_5:
         2u,
         5u,
         v9,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
       goto LABEL_6;
     }
     v3 = RtlStringCbPrintfW(
-           Pool2,
+           PoolWithTag,
            0x2AuLL,
            L"Port_#%04d.Hub_#%04d",
            *(unsigned __int16 *)(*(_QWORD *)(v6 + 8) + 200LL),
@@ -78,12 +78,12 @@ LABEL_5:
           2u,
           5u,
           0x36u,
-          (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
           v3);
-      ExFreePoolWithTag(Pool2, 0x64334855u);
+      ExFreePoolWithTag(PoolWithTag, 0x64334855u);
       goto LABEL_36;
     }
-    a2->IoStatus.Information = (unsigned __int64)Pool2;
+    a2->IoStatus.Information = (unsigned __int64)PoolWithTag;
 LABEL_35:
     v3 = 0;
     goto LABEL_36;
@@ -148,7 +148,7 @@ LABEL_23:
           (v19 = *(unsigned __int8 **)(v6 + 2032)) != 0LL) )
     {
       v20 = (((unsigned __int64)*v19 - 2) >> 1) + 1;
-      v21 = (_WORD *)ExAllocatePool2(64LL, 2LL * v20, 1681082453LL);
+      v21 = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 2LL * v20, 0x64334855u);
       v22 = v21;
       if ( !v21 )
       {

@@ -1,12 +1,12 @@
 /*
- * XREFs of _TTHmToPixels @ 0x1C016E604
+ * XREFs of _TTHmToPixels @ 0x1C0260648
  * Callers:
- *     TouchTargetingDownrank @ 0x1C016E59C (TouchTargetingDownrank.c)
- *     ?xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@K@Z @ 0x1C02053A4 (-xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@.c)
- *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025BC74 (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
- *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025C03C (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
+ *     ?xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@K@Z @ 0x1C0215AD0 (-xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@.c)
+ *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025F04C (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
+ *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025F414 (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
+ *     TouchTargetingDownrank @ 0x1C025FAD8 (TouchTargetingDownrank.c)
  * Callees:
- *     LongLongToLong @ 0x1C010EC34 (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C0158BB0 (LongLongToLong.c)
  */
 
 __int64 __fastcall TTHmToPixels(int a1, int a2)

@@ -1,46 +1,46 @@
 /*
- * XREFs of PpmRegisterProfiles @ 0x14084AD78
+ * XREFs of PpmRegisterProfiles @ 0x1407C5F28
  * Callers:
- *     PdcPoPpmRegisterProfiles @ 0x14084AD60 (PdcPoPpmRegisterProfiles.c)
+ *     PdcPoPpmRegisterProfiles @ 0x1407C5F10 (PdcPoPpmRegisterProfiles.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PpmResetProfileSettings @ 0x1403A50E8 (PpmResetProfileSettings.c)
- *     PpmEventTraceProfiles @ 0x14084AF70 (PpmEventTraceProfiles.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     PpmResetProfileSettings @ 0x1403C83B4 (PpmResetProfileSettings.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmEventTraceProfiles @ 0x1407C6134 (PpmEventTraceProfiles.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
 {
-  __int64 v3; // rsi
+  __int64 v3; // rbp
   __int64 v4; // r15
   NTSTATUS v5; // r14d
   unsigned __int8 v6; // r11
   ULONGLONG v7; // rbx
-  ULONGLONG v8; // r10
-  __int64 v9; // r10
+  SIZE_T v8; // rdi
+  size_t v9; // r12
   char v10; // r11
-  __int64 Pool2; // rax
-  __int64 v12; // rbp
-  ULONGLONG v13; // rax
-  unsigned __int8 v14; // r15
-  __int64 v15; // r13
-  ULONGLONG v16; // rbp
-  __int64 v17; // r12
-  char v18; // al
-  size_t v19; // rbx
-  __int64 v21; // [rsp+20h] [rbp-48h]
+  PVOID PoolWithTag; // rax
+  __int64 v12; // rsi
+  unsigned __int8 v13; // r15
+  __int64 v14; // r12
+  ULONGLONG v15; // rsi
+  __int64 v16; // r13
+  char v17; // al
+  size_t v18; // rbx
+  __int64 v20; // [rsp+20h] [rbp-48h]
   size_t pcbLength; // [rsp+80h] [rbp+18h] BYREF
-  ULONGLONG v23; // [rsp+88h] [rbp+20h] BYREF
+  ULONGLONG v22; // [rsp+88h] [rbp+20h] BYREF
 
   pcbLength = 0LL;
-  v23 = 0LL;
+  v22 = 0LL;
   v3 = a1;
   if ( a1 > 0x1Fu )
   {
@@ -49,12 +49,13 @@ __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
   else
   {
     v4 = a1;
-    v5 = RtlULongLongMult(a1, 0x3C0uLL, &v23);
+    v5 = RtlULongLongMult(a1, 0x15B0uLL, &v22);
     if ( v5 >= 0 )
     {
       v6 = 0;
-      v7 = (v23 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
+      v7 = (v22 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
       v8 = v7;
+      v9 = v7;
       if ( (_BYTE)v3 )
       {
         while ( 1 )
@@ -63,7 +64,8 @@ __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
           if ( v5 < 0 )
             break;
           v6 = v10 + 1;
-          v8 = pcbLength + 2 + v9;
+          v8 += pcbLength + 2;
+          v9 = v8;
           if ( v6 >= (unsigned __int8)v3 )
             goto LABEL_6;
         }
@@ -71,37 +73,37 @@ __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
       else
       {
 LABEL_6:
-        Pool2 = ExAllocatePool2(64LL, v8, 1716342864LL);
-        v21 = Pool2;
-        v12 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x664D5050u);
+        v20 = (__int64)PoolWithTag;
+        v12 = (__int64)PoolWithTag;
+        if ( PoolWithTag )
         {
-          v13 = v7 + Pool2;
+          memset(PoolWithTag, 0, v9);
           if ( (_BYTE)v3 )
           {
-            v14 = 0;
-            v15 = v12 + 32;
-            v16 = v13;
-            v17 = a2 + 8;
+            v13 = 0;
+            v14 = v12 + 32;
+            v15 = v7 + v12;
+            v16 = a2 + 8;
             do
             {
-              ++v14;
-              *(_OWORD *)(v15 - 20) = *(_OWORD *)*(_QWORD *)(v17 - 8);
-              v18 = *(_BYTE *)(v17 + 8);
-              *(_QWORD *)(v15 + 912) = -1LL;
-              *(_BYTE *)v15 = v18;
-              *(_QWORD *)(v15 - 32) = v16;
-              *(_BYTE *)(v15 - 24) = v14;
-              RtlStringCchLengthW(*(STRSAFE_PCNZWCH *)v17, 0x7FFFFFFFuLL, &pcbLength);
-              v19 = pcbLength;
-              RtlStringCchCopyW(*(NTSTRSAFE_PWSTR *)(v15 - 32), pcbLength + 1, *(NTSTRSAFE_PCWSTR *)v17);
-              *(_QWORD *)(v17 + 16) = v15 - 32;
-              v16 += 2 * v19 + 2;
-              v15 += 960LL;
-              v17 += 32LL;
+              ++v13;
+              *(_OWORD *)(v14 - 20) = *(_OWORD *)*(_QWORD *)(v16 - 8);
+              v17 = *(_BYTE *)(v16 + 8);
+              *(_QWORD *)(v14 + 5504) = -1LL;
+              *(_BYTE *)v14 = v17;
+              *(_QWORD *)(v14 - 32) = v15;
+              *(_BYTE *)(v14 - 24) = v13;
+              RtlStringCchLengthW(*(STRSAFE_PCNZWCH *)v16, 0x7FFFFFFFuLL, &pcbLength);
+              v18 = pcbLength;
+              RtlStringCchCopyW(*(NTSTRSAFE_PWSTR *)(v14 - 32), pcbLength + 1, *(NTSTRSAFE_PCWSTR *)v16);
+              *(_QWORD *)(v16 + 16) = v14 - 32;
+              v15 += 2 * v18 + 2;
+              v14 += 5552LL;
+              v16 += 32LL;
             }
-            while ( v14 < (unsigned __int8)v3 );
-            v12 = v21;
+            while ( v13 < (unsigned __int8)v3 );
+            v12 = v20;
             v4 = v3;
           }
           PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
@@ -113,13 +115,13 @@ LABEL_6:
             do
             {
               PpmResetProfileSettings(v12);
-              v12 += 960LL;
+              v12 += 5552LL;
               --v4;
             }
             while ( v4 );
           }
           PpmEventTraceProfiles(0LL);
-          PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
+          PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
           PpmReleaseLock(&PpmPerfPolicyLock);
           PpmProfileStatus |= 1u;
         }

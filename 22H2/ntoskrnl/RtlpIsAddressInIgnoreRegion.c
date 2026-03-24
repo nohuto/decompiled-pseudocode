@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIsAddressInIgnoreRegion @ 0x14067ACEC
+ * XREFs of RtlpIsAddressInIgnoreRegion @ 0x14059046C
  * Callers:
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A69C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FDFC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
  *     <none>
  */

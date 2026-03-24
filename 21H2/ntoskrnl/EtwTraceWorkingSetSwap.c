@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceWorkingSetSwap @ 0x1406EC338
+ * XREFs of EtwTraceWorkingSetSwap @ 0x14071071C
  * Callers:
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x14097FF40 (MiInSwapSharedWorkingSetWorker.c)
- *     MmInSwapVirtualAddresses @ 0x140980040 (MmInSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
+ *     MmInSwapVirtualAddresses @ 0x140734690 (MmInSwapVirtualAddresses.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x1408D9B00 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3)

@@ -1,29 +1,31 @@
 /*
- * XREFs of HsaProcessDeviceExceptions @ 0x1405308E8
+ * XREFs of HsaProcessDeviceExceptions @ 0x1404E3EEC
  * Callers:
- *     HsaInitializeIommu @ 0x140A99320 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AA730 (HsaInitializeIommu.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HalpHsapInitializeReservedDomain @ 0x14052E378 (HalpHsapInitializeReservedDomain.c)
- *     HsaUpdateDeviceTableEntry @ 0x140530DD0 (HsaUpdateDeviceTableEntry.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpHsapInitializeReservedDomain @ 0x1404E1634 (HalpHsapInitializeReservedDomain.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E4338 (HsaUpdateDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaProcessDeviceExceptions(__int64 a1)
 {
   _DWORD *v2; // rdx
-  int v3; // edi
+  int v3; // esi
   int v4; // ebx
   __int64 i; // rbx
   unsigned int v6; // eax
   int v7; // r9d
-  _DWORD v9[28]; // [rsp+50h] [rbp-78h] BYREF
-  __int64 v10; // [rsp+D0h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-68h] BYREF
+  int v10; // [rsp+58h] [rbp-60h]
+  _DWORD v11[20]; // [rsp+60h] [rbp-58h] BYREF
 
-  memset(v9, 0, sizeof(v9));
+  memset(v11, 0, sizeof(v11));
   v2 = *(_DWORD **)(a1 + 216);
   v3 = 0;
-  v10 = 0LL;
+  v9 = 0LL;
   v4 = 0;
+  v10 = 0;
   if ( *v2 )
   {
     while ( 1 )
@@ -43,13 +45,14 @@ LABEL_4:
     {
       if ( *(_DWORD *)(i + 16) == *(_DWORD *)(a1 + 160) )
       {
-        memset(&v9[2], 0, 0x68uLL);
+        memset(v11, 0, sizeof(v11));
         v6 = *(_DWORD *)(i + 24);
         LOBYTE(v7) = 1;
-        v9[1] = 0;
-        v10 = v6;
-        v9[0] = 1;
-        HsaUpdateDeviceTableEntry(a1, (unsigned int)&v10, 0, v7, (__int64)v9, 1, 1);
+        v11[1] = 0;
+        v10 = 0;
+        v9 = v6 | 0x100000000LL;
+        v11[0] = 1;
+        HsaUpdateDeviceTableEntry(a1, (unsigned int)&v9, 0, v7, (__int64)v11, 1, 1);
       }
     }
   }

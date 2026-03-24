@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801061B0
+ * XREFs of ?IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F5180
  * Callers:
  *     <none>
  * Callees:

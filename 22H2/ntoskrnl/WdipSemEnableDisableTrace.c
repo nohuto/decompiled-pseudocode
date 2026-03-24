@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemEnableDisableTrace @ 0x1408337F0
+ * XREFs of WdipSemEnableDisableTrace @ 0x140789AC8
  * Callers:
- *     WdipSemCaptureState @ 0x140392DE8 (WdipSemCaptureState.c)
- *     WdipSemEnableSemProvider @ 0x140831D74 (WdipSemEnableSemProvider.c)
- *     WdipSemEnableContextProvider @ 0x140831EFC (WdipSemEnableContextProvider.c)
- *     WdipSemDisableContextProvider @ 0x140831FF4 (WdipSemDisableContextProvider.c)
- *     WdipSemEnableAllProviders @ 0x1408336FC (WdipSemEnableAllProviders.c)
- *     WdipSemDisableAllProviders @ 0x1409DE834 (WdipSemDisableAllProviders.c)
+ *     WdipSemCaptureState @ 0x14039E9DC (WdipSemCaptureState.c)
+ *     WdipSemDisableContextProvider @ 0x140789870 (WdipSemDisableContextProvider.c)
+ *     WdipSemEnableContextProvider @ 0x1407899C8 (WdipSemEnableContextProvider.c)
+ *     WdipSemEnableSemProvider @ 0x1407941C8 (WdipSemEnableSemProvider.c)
+ *     WdipSemEnableAllProviders @ 0x140795570 (WdipSemEnableAllProviders.c)
+ *     WdipSemDisableAllProviders @ 0x140930A18 (WdipSemDisableAllProviders.c)
  * Callees:
- *     EtwEnableTrace @ 0x140833850 (EtwEnableTrace.c)
+ *     EtwEnableTrace @ 0x140789B20 (EtwEnableTrace.c)
  */
 
 __int64 __fastcall WdipSemEnableDisableTrace(unsigned __int16 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)

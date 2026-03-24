@@ -1,13 +1,13 @@
 /*
- * XREFs of NtFlipObjectConsumerAcquirePresent @ 0x1C007A5D0
+ * XREFs of NtFlipObjectConsumerAcquirePresent @ 0x1C0068EA0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___ @ 0x1C00797C4 (CFlipPropertySetBase--WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___.c)
- *     ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C0079B8C (-ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007A178 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C007C0E8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___ @ 0x1C0068114 (CFlipPropertySetBase--WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___.c)
+ *     ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C00684DC (-ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A40 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A888 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectConsumerAcquirePresent(void *a1, unsigned int a2, unsigned int a3, char *a4, char *a5)

@@ -1,18 +1,17 @@
 /*
- * XREFs of SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8840
+ * XREFs of SleepstudyHelperDestroyBlockerBuilder @ 0x14069AB20
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A8594 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelperBuildBlocker @ 0x1407A8670 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140845A90 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140845B40 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x1408512B0 (SleepstudyHelper_RegisterComponentEx.c)
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1409A2070 (SleepstudyHelperCreateBlockerFromComponent.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A2360 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2420 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x140325750 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperBuildBlocker @ 0x14069A960 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x1408FAFB0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB0A0 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1408FB4B0 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1408FB580 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1408FB640 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x1408FB730 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     SshpDereferenceBlocker @ 0x1407A88CC (SshpDereferenceBlocker.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     SshpDereferenceBlocker @ 0x14069AB84 (SshpDereferenceBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyBlockerBuilder(_QWORD *a1)
@@ -21,8 +20,6 @@ __int64 __fastcall SleepstudyHelperDestroyBlockerBuilder(_QWORD *a1)
   __int64 v3; // rax
   void *v4; // rcx
   ULONG v5; // esi
-  void *v6; // rcx
-  void *v7; // rcx
 
   v1 = 0;
   if ( a1 )
@@ -36,13 +33,7 @@ __int64 __fastcall SleepstudyHelperDestroyBlockerBuilder(_QWORD *a1)
       CmpFreeTransientPoolWithTag(v4, v5);
       a1[7] = 0LL;
     }
-    v6 = (void *)a1[8];
-    if ( v6 )
-      CmpFreeTransientPoolWithTag(v6, v5);
-    v7 = (void *)a1[9];
-    if ( v7 )
-      CmpFreeTransientPoolWithTag(v7, v5);
-    if ( a1[10] )
+    if ( a1[8] )
       SshpDereferenceBlocker();
     CmpFreeTransientPoolWithTag(a1, v5);
   }

@@ -1,38 +1,46 @@
 /*
- * XREFs of HvlDmaGetDmaGuardEnabled @ 0x140543280
+ * XREFs of HvlDmaGetDmaGuardEnabled @ 0x1404F4370
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14045EEB6 (HvlpHvToNtStatus.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1404FA974 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaGetDmaGuardEnabled(_BYTE *a1)
 {
-  PHYSICAL_ADDRESS *v2; // rbx
-  PHYSICAL_ADDRESS *v3; // rsi
-  unsigned __int16 v4; // bx
-  __m256i v6; // [rsp+20h] [rbp-E8h] BYREF
-  __m256i v7; // [rsp+40h] [rbp-C8h] BYREF
-  int v8; // [rsp+60h] [rbp-A8h]
-  _BYTE v9[16]; // [rsp+68h] [rbp-A0h] BYREF
-  _BYTE v10[2064]; // [rsp+78h] [rbp-90h] BYREF
+  _QWORD *v2; // rbx
+  _QWORD *v3; // rax
+  __int64 v4; // r8
+  _BYTE *v5; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // r9
+  unsigned __int16 v8; // bx
+  __int128 v10; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v11; // [rsp+38h] [rbp-D0h]
+  __int128 v12; // [rsp+48h] [rbp-C0h] BYREF
+  __int128 v13; // [rsp+58h] [rbp-B0h]
+  _BYTE v14[16]; // [rsp+68h] [rbp-A0h] BYREF
+  _BYTE v15[2064]; // [rsp+78h] [rbp-90h] BYREF
 
-  v8 = 0;
-  v7.m256i_i32[0] = 0;
-  memset(&v7.m256i_u64[1], 0, 24);
-  memset(&v6.m256i_u64[1], 0, 24);
-  v2 = HvlpAcquireHypercallPage((__int64)&v7.m256i_i64[1], 1, (__int64)v9, 8LL);
-  v3 = HvlpAcquireHypercallPage((__int64)&v6.m256i_i64[1], 2, (__int64)v10, 1032LL);
-  v2->QuadPart = 0LL;
-  v2->LowPart = 20;
-  v4 = HvcallInitiateHypercall(123);
-  if ( !v4 )
-    *a1 = v3->LowPart;
-  HvlpReleaseHypercallPage((__int64)&v6.m256i_i64[1]);
-  HvlpReleaseHypercallPage((__int64)&v7.m256i_i64[1]);
-  return HvlpHvToNtStatus(v4);
+  v12 = 0LL;
+  v13 = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
+  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v12, 1, (__int64)v14, 8LL);
+  v3 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 2, (__int64)v15, 1032LL);
+  v4 = *((_QWORD *)&v11 + 1);
+  v5 = v3;
+  v6 = *((_QWORD *)&v13 + 1);
+  *v2 = 0LL;
+  *(_DWORD *)v2 = 20;
+  v8 = HvcallInitiateHypercall(123, v6, v4, v7);
+  if ( !v8 )
+    *a1 = *v5;
+  HvlpReleaseHypercallPage((__int64)&v10);
+  HvlpReleaseHypercallPage((__int64)&v12);
+  return HvlpHvToNtStatus(v8);
 }

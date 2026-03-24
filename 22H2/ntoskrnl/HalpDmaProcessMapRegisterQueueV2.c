@@ -1,58 +1,63 @@
 /*
- * XREFs of HalpDmaProcessMapRegisterQueueV2 @ 0x14045D18E
+ * XREFs of HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCC28
  * Callers:
- *     IoFreeMapRegistersV2 @ 0x14045D460 (IoFreeMapRegistersV2.c)
- *     HalpGrowMapBufferWorker @ 0x140501AA0 (HalpGrowMapBufferWorker.c)
+ *     HalpGrowMapBufferWorker @ 0x1404B8EB0 (HalpGrowMapBufferWorker.c)
+ *     IoFreeMapRegistersV2 @ 0x1404CCEE0 (IoFreeMapRegistersV2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaDequeueAdapter @ 0x14045BD30 (HalpDmaDequeueAdapter.c)
- *     HalpDmaFreeMapRegisters @ 0x14045BE96 (HalpDmaFreeMapRegisters.c)
- *     IoFreeAdapterChannelV2 @ 0x14045D270 (IoFreeAdapterChannelV2.c)
- *     HalpQueueMapBufferWorker @ 0x140505114 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x140511498 (HalpDmaQueueAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IoFreeAdapterChannel @ 0x1404B8C60 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC538 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaDequeueAdapter @ 0x1404C7338 (HalpDmaDequeueAdapter.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C79F8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7CD4 (HalpDmaQueueAdapter.c)
  */
 
-__int64 *__fastcall HalpDmaProcessMapRegisterQueueV2(__int64 a1, char a2)
+void __fastcall HalpDmaProcessMapRegisterQueueV2(__int64 a1, char a2)
 {
-  __int64 *result; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rdi
+  __int64 *v4; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rbx
+  __int64 v8; // rdi
   __int64 MapRegisters; // rax
-  int v8; // eax
-  unsigned int v9; // r8d
+  int v10; // eax
+  unsigned int v11; // r8d
 
   while ( 1 )
   {
-    result = HalpDmaDequeueAdapter(a1, a2);
-    v5 = (__int64)result;
-    if ( !result )
-      return result;
-    v6 = result[44];
-    MapRegisters = HalpDmaAllocateMapRegisters((__int64)result, *((_DWORD *)result + 62));
-    *(_QWORD *)(v5 + 240) = MapRegisters;
+    v4 = HalpDmaDequeueAdapter(a1, a2);
+    v7 = (__int64)v4;
+    if ( !v4 )
+      break;
+    v8 = v4[43];
+    MapRegisters = HalpDmaAllocateMapRegisters((__int64)v4, *((_DWORD *)v4 + 60), v5, v6);
+    *(_QWORD *)(v7 + 232) = MapRegisters;
     if ( !MapRegisters )
     {
-      HalpDmaQueueAdapter(v5);
-      return (__int64 *)HalpQueueMapBufferWorker(v5, *(unsigned int *)(v5 + 248));
+      HalpDmaQueueAdapter(v7);
+      HalpQueueMapBufferWorker(v7, *(_DWORD *)(v7 + 240));
+      return;
     }
-    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _QWORD))(v6 + 24))(
-           *(_QWORD *)(v6 + 48),
-           *(_QWORD *)(v6 + 56),
-           MapRegisters,
-           *(_QWORD *)(v6 + 32));
-    if ( v8 == 3 )
-      goto LABEL_7;
-    v9 = *(_DWORD *)(v5 + 248);
-    if ( v8 == 2 )
+    v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _QWORD))(v8 + 24))(
+            *(_QWORD *)(v8 + 48),
+            *(_QWORD *)(v8 + 56),
+            MapRegisters,
+            *(_QWORD *)(v8 + 32));
+    if ( v10 == 3 )
     {
-      if ( !v9 )
-        goto LABEL_8;
-      HalpDmaFreeMapRegisters(v5, *(_QWORD **)(v5 + 240), v9);
-LABEL_7:
-      *(_DWORD *)(v5 + 248) = 0;
-LABEL_8:
-      IoFreeAdapterChannelV2(v5);
+      *(_DWORD *)(v7 + 240) = 0;
+      v10 = 2;
+    }
+    if ( v10 == 2 )
+    {
+      v11 = *(_DWORD *)(v7 + 240);
+      if ( v11 )
+      {
+        HalpDmaFreeMapRegisters(v7, *(_QWORD **)(v7 + 232), v11);
+        *(_DWORD *)(v7 + 240) = 0;
+      }
+      IoFreeAdapterChannel((PDMA_ADAPTER)v7);
     }
   }
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PfGetCompletedTrace @ 0x1407DB830
+ * XREFs of PfGetCompletedTrace @ 0x1406CD47C
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PfFbBufferListFlushStandby @ 0x14035FB90 (PfFbBufferListFlushStandby.c)
- *     PfTFreeTraceDump @ 0x140360674 (PfTFreeTraceDump.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     PfTAccessTracingStart @ 0x140A484F0 (PfTAccessTracingStart.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     PfFbBufferListFlushStandby @ 0x1402D4738 (PfFbBufferListFlushStandby.c)
+ *     PfTFreeTraceDump @ 0x1402D5024 (PfTFreeTraceDump.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
  */
 
 __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, unsigned int *a4)
@@ -31,23 +31,23 @@ __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, uns
   v6 = 1;
   while ( 1 )
   {
-    ExAcquireFastMutex(&FastMutex);
-    if ( !dword_140C4EB88 )
+    ExAcquireFastMutex(&stru_140C4FDF0);
+    if ( !dword_140C4FDE8 )
       break;
-    dword_140C4EB88 = 0;
-    KeReleaseGuardedMutex(&FastMutex);
-    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4EA40);
+    dword_140C4FDE8 = 0;
+    KeReleaseGuardedMutex(&stru_140C4FDF0);
+    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4FCA0);
   }
-  v7 = dword_140C4EB78 < (unsigned int)dword_140C4EB7C;
+  v7 = dword_140C4FDD8 < (unsigned int)dword_140C4FDDC;
   v8 = 0;
   while ( 1 )
   {
-    v9 = &dword_140C4EB80;
+    v9 = &dword_140C4FDE0;
     if ( v8 )
-      v9 = &dword_140C4EB78;
-    v10 = &unk_140C4EB68;
+      v9 = &dword_140C4FDD8;
+    v10 = &unk_140C4FDC8;
     if ( v8 )
-      v10 = &unk_140C4EB58;
+      v10 = &unk_140C4FDB8;
     v11 = (_DWORD *)*v10;
     if ( (_QWORD *)*v10 != v10 )
       break;
@@ -69,12 +69,12 @@ __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, uns
   *(_QWORD *)(v12 + 8) = v10;
   --*v9;
 LABEL_15:
-  if ( !v7 && dword_140C4EB78 < (unsigned int)dword_140C4EB7C )
+  if ( !v7 && dword_140C4FDD8 < (unsigned int)dword_140C4FDDC )
   {
     PfTAccessTracingStart(&PfTGlobals, &PfKernelGlobals, 2LL);
     KeSetEvent(&Event, 0, 0);
   }
-  KeReleaseGuardedMutex(&FastMutex);
+  KeReleaseGuardedMutex(&stru_140C4FDF0);
   v6 = 0;
   if ( v4 )
   {
@@ -82,8 +82,8 @@ LABEL_15:
       ProbeForWrite(a1, a2, 8u);
     *(_OWORD *)a1 = 0LL;
     *(_DWORD *)a1 = 1048577;
-    a1[1] = ((MEMORY[0xFFFFF78000000004] * HIDWORD(qword_140C54628)) << 8)
-          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)qword_140C54628) >> 24);
+    a1[1] = ((MEMORY[0xFFFFF78000000004] * HIDWORD(qword_140C503E8)) << 8)
+          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)qword_140C503E8) >> 24);
     memmove(a1 + 2, v4 + 4, (unsigned int)v4[6]);
     *a4 = v5;
     PfTFreeTraceDump(v4);
@@ -95,6 +95,6 @@ LABEL_15:
   }
 LABEL_20:
   if ( v6 )
-    KeReleaseGuardedMutex(&FastMutex);
+    KeReleaseGuardedMutex(&stru_140C4FDF0);
   return v13;
 }

@@ -1,41 +1,39 @@
 /*
- * XREFs of NtUserGetSystemMenu @ 0x1C00BBFD0
+ * XREFs of NtUserGetSystemMenu @ 0x1C00DC7F0
  * Callers:
  *     <none>
  * Callees:
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserGetSystemMenu(__int64 a1)
 {
-  __int64 v2; // rax
+  __int64 v2; // rdi
   __int64 v3; // rcx
-  __int64 v4; // rbx
-  struct tagWND *v5; // rdi
+  struct tagWND *v4; // rbx
   __int64 *SystemMenu; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-18h]
+  __int64 v6; // rcx
+  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+30h] [rbp-18h]
 
-  v12 = 0LL;
-  v11 = 0LL;
+  v9 = 0LL;
+  v8 = 0LL;
   EnterCrit(0LL, 1LL);
-  v2 = ValidateHwnd(a1);
-  v4 = 0LL;
-  v5 = (struct tagWND *)v2;
-  if ( v2 )
+  v2 = 0LL;
+  gbValidateHandleForIL = 0;
+  v4 = (struct tagWND *)ValidateHwnd(a1);
+  if ( v4 )
   {
-    *(_QWORD *)&v11 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v11;
-    *((_QWORD *)&v11 + 1) = v2;
-    HMLockObject(v2);
-    SystemMenu = (__int64 *)xxxGetSystemMenu(v5);
+    *(_QWORD *)&v8 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v8;
+    *((_QWORD *)&v8 + 1) = v4;
+    HMLockObject(v4);
+    SystemMenu = (__int64 *)xxxGetSystemMenu(v4);
     if ( SystemMenu )
-      v4 = *SystemMenu;
-    ThreadUnlock1(v8, v7, v9);
+      v2 = *SystemMenu;
+    ThreadUnlock1(v6);
   }
   UserSessionSwitchLeaveCrit(v3);
-  return v4;
+  return v2;
 }

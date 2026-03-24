@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSetBootOptions @ 0x140A012E0
+ * XREFs of NtSetBootOptions @ 0x140954F20
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x14093E830 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899D5C (IoSetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtSetBootOptions(int *a1, char a2)
@@ -28,7 +28,7 @@ __int64 __fastcall NtSetBootOptions(int *a1, char a2)
 
   v13 = 0;
   v14[0] = 0;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -81,11 +81,11 @@ __int64 __fastcall NtSetBootOptions(int *a1, char a2)
         v12 = 65534;
       v13 = v12;
     }
-    v11 = IoSetEnvironmentVariableEx(L"Timeout", (__int64)&EfiBootVariablesGuid, (__int64)&v13, 2, 1);
+    v11 = IoSetEnvironmentVariableEx((const size_t *)L"Timeout", (__int64)&EfiBootVariablesGuid, (__int64)&v13, 2, 1);
   }
   if ( v11 >= 0 && (a2 & 2) != 0 )
-    v11 = IoSetEnvironmentVariableEx(L"BootNext", (__int64)&EfiBootVariablesGuid, (__int64)v14, 2, 1);
+    v11 = IoSetEnvironmentVariableEx((const size_t *)L"BootNext", (__int64)&EfiBootVariablesGuid, (__int64)v14, 2, 1);
   ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v11;
 }

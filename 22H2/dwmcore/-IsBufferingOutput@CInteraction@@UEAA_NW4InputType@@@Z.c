@@ -1,12 +1,12 @@
 /*
- * XREFs of ?IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z @ 0x18020C3F0
+ * XREFs of ?IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z @ 0x1801C63A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall CInteraction::IsBufferingOutput(__int64 a1, int a2)
+__int64 __fastcall CInteraction::IsBufferingOutput(__int64 a1)
 {
-  return CInteractionProcessor::IsBufferingOutput((CInteractionProcessor *)(a1 + 288), a2);
+  return CInteractionProcessor::IsBufferingOutput(a1 + 344);
 }

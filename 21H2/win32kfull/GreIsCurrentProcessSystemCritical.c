@@ -1,5 +1,5 @@
 /*
- * XREFs of GreIsCurrentProcessSystemCritical @ 0x1C00DD520
+ * XREFs of GreIsCurrentProcessSystemCritical @ 0x1C00D6600
  * Callers:
  *     <none>
  * Callees:
@@ -10,12 +10,13 @@ _BOOL8 GreIsCurrentProcessSystemCritical()
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
-  BOOL v2; // ebx
+  __int64 v2; // r8
+  BOOL v3; // ebx
 
   KeEnterCriticalRegion();
   GreAcquirePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
-  v2 = UmfdHostLifeTimeManager::s_UmfdHostProcess == (PRKPROCESS)PsGetCurrentProcess(v1, v0);
+  v3 = UmfdHostLifeTimeManager::s_UmfdHostProcess == (PVOID)PsGetCurrentProcess(v1, v0, v2);
   GreReleasePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
   KeLeaveCriticalRegion();
-  return v2;
+  return v3;
 }

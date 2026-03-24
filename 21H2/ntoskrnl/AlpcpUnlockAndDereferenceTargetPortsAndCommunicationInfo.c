@@ -1,19 +1,16 @@
 /*
- * XREFs of AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14074D458
+ * XREFs of AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406B5104
  * Callers:
- *     AlpcpDispatchCloseMessage @ 0x14074E85C (AlpcpDispatchCloseMessage.c)
- *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x14074EA08 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
- *     AlpcpDispatchNewMessage @ 0x1407AA950 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchCloseMessage @ 0x1405DF2D0 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1405DF47C (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpDispatchNewMessage @ 0x1405E5250 (AlpcpDispatchNewMessage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-LONG_PTR __fastcall AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(
-        __int64 a1,
-        signed __int64 *a2,
-        signed __int64 *a3)
+void __fastcall AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR v3; // rbx
 
@@ -21,15 +18,15 @@ LONG_PTR __fastcall AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 - 16), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(a1 - 16));
   KeAbPostRelease(v3);
-  if ( _InterlockedCompareExchange64(a2 + 44, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(a2 + 44);
-  KeAbPostRelease((ULONG_PTR)(a2 + 44));
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 352), 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(a2 + 352));
+  KeAbPostRelease(a2 + 352);
   if ( a3 != a2 )
   {
-    if ( _InterlockedCompareExchange64(a3 + 44, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(a3 + 44);
-    KeAbPostRelease((ULONG_PTR)(a3 + 44));
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 352), 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)(a3 + 352));
+    KeAbPostRelease(a3 + 352);
   }
-  ObfDereferenceObject(a2);
-  return ObfDereferenceObject(a3);
+  HalPutDmaAdapter((PADAPTER_OBJECT)a2);
+  HalPutDmaAdapter((PADAPTER_OBJECT)a3);
 }

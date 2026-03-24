@@ -1,23 +1,84 @@
 /*
- * XREFs of PopFxCompleteComponentActivation @ 0x140312D1C
+ * XREFs of PopFxCompleteComponentActivation @ 0x140260964
  * Callers:
- *     PopFxActivateComponentWorker @ 0x140312240 (PopFxActivateComponentWorker.c)
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PopFxIdleWorkerTail @ 0x140312AD8 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentWorker @ 0x14025FF40 (PopFxActivateComponentWorker.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PopFxIdleWorkerTail @ 0x140260720 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopFxIdleComponent @ 0x140312DE0 (PopFxIdleComponent.c)
- *     PopFxActivateComponentDependents @ 0x14031457C (PopFxActivateComponentDependents.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopFxIdleComponent @ 0x140260A50 (PopFxIdleComponent.c)
+ *     PopPluginComponentActive @ 0x1402611E0 (PopPluginComponentActive.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall PopFxCompleteComponentActivation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
 {
+  __int64 i; // rbp
   LONG result; // eax
+  __int64 v8; // rax
+  bool v9; // r14
+  __int64 v10; // rbx
+  __int64 v11; // r15
+  KIRQL v12; // al
+  __int64 v13; // rcx
+  unsigned __int64 v14; // r12
+  bool v15; // zf
+  __int64 v16; // r8
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v20; // eax
+  unsigned int v21; // [rsp+60h] [rbp+18h]
 
   _InterlockedOr((volatile signed __int32 *)(a2 + 88), 0x80000000);
   KeSetEvent((PRKEVENT)(a2 + 104), 0, 0);
   if ( a3 )
-    PopFxActivateComponentDependents(a2);
+  {
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a2 + 188); i = (unsigned int)(i + 1) )
+    {
+      v8 = *(_QWORD *)(a2 + 192);
+      v9 = 0;
+      v10 = *(unsigned int *)(v8 + 8 * i + 4);
+      v21 = *(_DWORD *)(v8 + 8 * i);
+      v11 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 832) + 8LL * v21);
+      v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v11 + 128));
+      v13 = *(_QWORD *)(v11 + 176);
+      v14 = v12;
+      if ( *(_BYTE *)(v13 + 8 * v10 + 4) == 1 )
+      {
+        *(_BYTE *)(v13 + 8 * v10 + 4) = 0;
+        v15 = (*(_DWORD *)(v11 + 184))-- == 1;
+        v9 = v15;
+      }
+      KxReleaseSpinLock((PKSPIN_LOCK)(v11 + 128));
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+            v15 = (v20 & SchedulerAssist[5]) == 0;
+            v16 = (unsigned int)v20 & SchedulerAssist[5];
+            SchedulerAssist[5] = v16;
+            if ( v15 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(v14);
+      if ( v9 )
+      {
+        LOBYTE(v16) = 1;
+        PopPluginComponentActive(BugCheckParameter2, v21, v16, 0LL);
+      }
+    }
+  }
   PopFxIdleComponent(BugCheckParameter2, *(unsigned int *)(a2 + 16));
   result = _InterlockedExchangeAdd((volatile signed __int32 *)(BugCheckParameter2 + 244), 0xFFFFFFFF);
   if ( result == 1 )

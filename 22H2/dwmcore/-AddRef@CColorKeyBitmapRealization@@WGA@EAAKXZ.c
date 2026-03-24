@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CColorKeyBitmapRealization@@WGA@EAAKXZ @ 0x180121F20
+ * XREFs of ?AddRef@CColorKeyBitmapRealization@@WGA@EAAKXZ @ 0x1800F80E0
  * Callers:
  *     <none>
  * Callees:

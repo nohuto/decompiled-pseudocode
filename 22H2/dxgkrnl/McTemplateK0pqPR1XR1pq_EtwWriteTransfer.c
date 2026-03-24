@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqPR1XR1pq_EtwWriteTransfer @ 0x1C0058940
+ * XREFs of McTemplateK0pqPR1XR1pq_EtwWriteTransfer @ 0x1C00495B0
  * Callers:
- *     ?WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAX@Z @ 0x1C01D5F80 (-WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDX.c)
+ *     ?WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAX@Z @ 0x1C01269D4 (-WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDX.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqPR1XR1pq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -45,20 +45,20 @@ NTSTATUS McTemplateK0pqPR1XR1pq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64
   v24 = va_arg(va2, _QWORD);
   va_copy(va3, va2);
   v25 = va_arg(va3, _QWORD);
-  v6 = 8LL;
-  v11 = 0;
   va_copy(v5, va);
-  v14 = 0;
+  v10 = 8 * v21;
   va_copy(v7, va1);
   v9 = v23;
-  v8 = 4LL;
-  v16 = 8LL;
-  v18 = 4LL;
   v12 = v24;
   va_copy(v15, va2);
   va_copy(v17, va3);
-  v10 = 8 * v21;
+  v11 = 0;
   v13 = 8 * v21;
+  v14 = 0;
+  v6 = 8LL;
+  v8 = 4LL;
+  v16 = 8LL;
+  v18 = 4LL;
   return McGenEventWrite_EtwWriteTransfer(
            (REGHANDLE *)&DxgkControlGuid_Context,
            &EventWaitForSynchronizationObjectFromCpu,

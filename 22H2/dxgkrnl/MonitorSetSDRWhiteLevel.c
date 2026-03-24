@@ -1,55 +1,63 @@
 /*
- * XREFs of MonitorSetSDRWhiteLevel @ 0x1C03C5128
+ * XREFs of MonitorSetSDRWhiteLevel @ 0x1C02F541C
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0014E7C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONIT.c)
- *     ?EdidSupportsHDR@MonitorColorState@DxgMonitor@@QEBA_NXZ @ 0x1C019DDDC (-EdidSupportsHDR@MonitorColorState@DxgMonitor@@QEBA_NXZ.c)
- *     ?SetSDRWhiteLevel@MonitorColorState@DxgMonitor@@QEAAJK@Z @ 0x1C03CE0D4 (-SetSDRWhiteLevel@MonitorColorState@DxgMonitor@@QEAAJK@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z @ 0x1C016C284 (-_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z.c)
+ *     ?EdidSupportsHDR@DXGMONITOR@@QEAAEXZ @ 0x1C01834E4 (-EdidSupportsHDR@DXGMONITOR@@QEAAEXZ.c)
+ *     ?SetLuminanceValuesWithBrightnessCompensation@DXGMONITOR@@QEAAJXZ @ 0x1C02F8FA4 (-SetLuminanceValuesWithBrightnessCompensation@DXGMONITOR@@QEAAJXZ.c)
+ *     ?SetSDRWhiteLevel@DXGMONITOR@@QEAAJK@Z @ 0x1C02F9140 (-SetSDRWhiteLevel@DXGMONITOR@@QEAAJK@Z.c)
  */
 
 __int64 __fastcall MonitorSetSDRWhiteLevel(struct HDXGMONITOR__ *a1, unsigned int a2)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  DxgMonitor::MonitorColorState *v6; // rcx
-  int v7; // eax
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rbx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  int v14; // edi
+  int v15; // eax
+  struct DXGMONITOR *v16; // [rsp+30h] [rbp+8h] BYREF
 
   if ( !a1 )
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
     return 3221225485LL;
-  }
-  MONITOR_MGR::AcquireMonitorExclusive(&v8, a1);
-  v4 = v8;
-  if ( v8 )
+  v16 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v16);
+  if ( (int)result >= 0 )
   {
-    if ( DxgMonitor::MonitorColorState::EdidSupportsHDR(*(DxgMonitor::MonitorColorState **)(v8 + 224)) )
+    v6 = v16;
+    if ( !v16 )
     {
-      v7 = DxgMonitor::MonitorColorState::SetSDRWhiteLevel(v6, a2);
-      v5 = v7;
-      if ( v7 >= 0 )
-      {
-        LODWORD(v5) = 0;
-        goto LABEL_10;
-      }
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
     }
-    else
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v6 + 296), 1u);
+    if ( !DXGMONITOR::EdidSupportsHDR(v6) )
     {
-      v5 = -1073741637LL;
+      v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v13);
     }
-  }
-  else
-  {
-    v5 = -1073741275LL;
-  }
-  WdLogSingleEntry1(2LL, v5);
-LABEL_10:
-  if ( v4 )
-  {
-    ExReleaseResourceLite((PERESOURCE)(v4 + 24));
+    v14 = DXGMONITOR::SetSDRWhiteLevel(v6, a2);
+    if ( v14 >= 0 )
+    {
+      DXGMONITOR::SetLuminanceValuesWithBrightnessCompensation(v6);
+      DXGMONITOR::_SendAdjustedHDRParamsToDriver(v6, 1);
+      v14 = v15;
+    }
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
     KeLeaveCriticalRegion();
+    return (unsigned int)v14;
   }
-  return (unsigned int)v5;
+  return result;
 }

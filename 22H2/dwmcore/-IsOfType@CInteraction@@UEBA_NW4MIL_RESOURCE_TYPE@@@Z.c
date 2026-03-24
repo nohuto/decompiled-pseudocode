@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CInteraction@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F6210
+ * XREFs of ?IsOfType@CInteraction@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D3E40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CInteraction::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 89;
+  return a2 == 87;
 }

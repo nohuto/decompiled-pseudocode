@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x140876380
+ * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x1406B3E3C
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x1408764F0 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1406B4510 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x1408764A8 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14087798C (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140A6C2E4 (DrvDbGetObjectDatabaseNodeName.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x1406B3DF4 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406B43BC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097DEB0 (DrvDbGetObjectDatabaseNodeName.c)
  */
 
 __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
@@ -27,10 +27,10 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
   __int64 v14; // rdx
   __int64 (**i)[3]; // r8
   __int64 *v16; // r11
-  int ObjectDatabaseNodeName; // ebx
+  __int64 v17; // rcx
   __int64 v18; // rcx
-  __int64 v19; // rcx
-  __int64 (**v20)[3]; // rsi
+  __int64 (**v19)[3]; // rsi
+  int RegValueMappedProperty; // ebx
   __int64 v22; // rax
   __int64 v23; // r9
   unsigned int v24; // [rsp+20h] [rbp-38h]
@@ -44,52 +44,54 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
   *a5 = 0;
   *v10 = 0;
   v13 = *(_DWORD *)(a4 + 16);
-  if ( v13 == 2 )
+  if ( v13 != 2 )
+    goto LABEL_2;
+  v22 = *(_QWORD *)a4 - DEVPKEY_NODE;
+  if ( *(_QWORD *)a4 == DEVPKEY_NODE )
+    v22 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
+  if ( v22 )
   {
-    v22 = *(_QWORD *)a4 - DEVPKEY_NODE;
-    if ( *(_QWORD *)a4 == DEVPKEY_NODE )
-      v22 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
-    if ( !v22 )
+LABEL_2:
+    v14 = 0LL;
+    for ( i = &off_1400043C0; ; i += 5 )
     {
-      v23 = a6;
-      v24 = a7 >> 1;
-      *v8 = 18;
-      ObjectDatabaseNodeName = DrvDbGetObjectDatabaseNodeName(a1, 3LL, a2, v23, v24, v10);
-      if ( (int)(ObjectDatabaseNodeName + 0x80000000) < 0 || ObjectDatabaseNodeName == -1073741789 )
-        *v10 *= 2;
-      goto LABEL_14;
+      v16 = (__int64 *)*i;
+      if ( LODWORD((**i)[2]) == v13 )
+      {
+        v17 = *v16 - *(_QWORD *)a4;
+        if ( *v16 == *(_QWORD *)a4 )
+          v17 = v16[1] - *(_QWORD *)(a4 + 8);
+        if ( !v17 )
+          break;
+      }
+      v14 = (unsigned int)(v14 + 1);
+      if ( (unsigned int)v14 >= 4 )
+        return (unsigned int)-1073741802;
     }
-  }
-  v14 = 0LL;
-  for ( i = &off_140005980; ; i += 5 )
-  {
-    v16 = (__int64 *)*i;
-    if ( LODWORD((**i)[2]) == v13 )
-    {
-      v18 = *v16 - *(_QWORD *)a4;
-      if ( *v16 == *(_QWORD *)a4 )
-        v18 = v16[1] - *(_QWORD *)(a4 + 8);
-      if ( !v18 )
-        break;
-    }
-    v14 = (unsigned int)(v14 + 1);
-    if ( (unsigned int)v14 >= 4 )
+    v18 = 5 * v14;
+    v19 = &off_1400043C0 + 5 * v14;
+    if ( !v19 )
       return (unsigned int)-1073741802;
+    if ( !a3 )
+    {
+      RegValueMappedProperty = DrvDbOpenDriverInfFileRegKey(v12, v11, 1, 0, (__int64)&Handle, 0LL);
+      if ( RegValueMappedProperty < 0 )
+        goto LABEL_12;
+      a3 = Handle;
+    }
+    RegValueMappedProperty = DrvDbGetRegValueMappedProperty(v18, a3, v19, v8, a6, a7, v10);
   }
-  v19 = 5 * v14;
-  v20 = &off_140005980 + 5 * v14;
-  if ( !v20 )
-    return (unsigned int)-1073741802;
-  if ( !a3 )
+  else
   {
-    ObjectDatabaseNodeName = DrvDbOpenDriverInfFileRegKey(v12, v11, 1, 0, (__int64)&Handle, 0LL);
-    if ( ObjectDatabaseNodeName < 0 )
-      goto LABEL_14;
-    a3 = Handle;
+    v23 = a6;
+    v24 = a7 >> 1;
+    *v8 = 18;
+    RegValueMappedProperty = DrvDbGetObjectDatabaseNodeName(a1, 3LL, a2, v23, v24, v10);
+    if ( (int)(RegValueMappedProperty + 0x80000000) < 0 || RegValueMappedProperty == -1073741789 )
+      *v10 *= 2;
   }
-  ObjectDatabaseNodeName = DrvDbGetRegValueMappedProperty(v19, a3, v20, v8, a6, a7, v10);
-LABEL_14:
+LABEL_12:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)ObjectDatabaseNodeName;
+  return (unsigned int)RegValueMappedProperty;
 }

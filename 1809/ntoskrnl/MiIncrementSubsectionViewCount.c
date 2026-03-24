@@ -6,15 +6,15 @@
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
  *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiRetainSubsection @ 0x140131E68 (MiRetainSubsection.c)
- *     MiSetSubsectionBase @ 0x140138FA0 (MiSetSubsectionBase.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiRetainSubsection @ 0x140131E88 (MiRetainSubsection.c)
+ *     MiSetSubsectionBase @ 0x140138FC0 (MiSetSubsectionBase.c)
  *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
  * Callees:
  *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140077CF0 (MiControlAreaExemptFromCrossPartitionCharges.c)
  *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1400938C4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4C20 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4D20 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, __int64 a2)

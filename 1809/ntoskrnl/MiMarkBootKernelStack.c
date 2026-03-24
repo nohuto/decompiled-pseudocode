@@ -10,10 +10,10 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiMarkKernelStack @ 0x14017E760 (MiMarkKernelStack.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiMarkKernelStack @ 0x14017E780 (MiMarkKernelStack.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiMarkBootKernelStack(unsigned __int64 a1, unsigned __int64 a2)

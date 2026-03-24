@@ -1,14 +1,14 @@
 /*
- * XREFs of Endpoint_SM_SendStopEndpointCommand @ 0x1C0010764
+ * XREFs of Endpoint_SM_SendStopEndpointCommand @ 0x1C00058D4
  * Callers:
- *     ESM_StoppingEndpoint @ 0x1C0011250 (ESM_StoppingEndpoint.c)
+ *     ESM_StoppingEndpoint @ 0x1C000F4A0 (ESM_StoppingEndpoint.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
-char __fastcall Endpoint_SM_SendStopEndpointCommand(__int64 a1)
+__int64 __fastcall Endpoint_SM_SendStopEndpointCommand(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 v3; // rsi
@@ -38,7 +38,7 @@ char __fastcall Endpoint_SM_SendStopEndpointCommand(__int64 a1)
       v5,
       13,
       116,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       v6,
       *(_BYTE *)(v1 + 38) & 0x1F);
   }

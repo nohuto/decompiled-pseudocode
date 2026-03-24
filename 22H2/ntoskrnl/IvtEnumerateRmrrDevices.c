@@ -1,28 +1,24 @@
 /*
- * XREFs of IvtEnumerateRmrrDevices @ 0x1403800B0
+ * XREFs of IvtEnumerateRmrrDevices @ 0x1404E7D70
  * Callers:
  *     <none>
  * Callees:
- *     HalpIvtCreateReservedDevice @ 0x140380150 (HalpIvtCreateReservedDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7C20 (HalpIvtCreateReservedDevice.c)
  */
 
-__int64 __fastcall IvtEnumerateRmrrDevices(__int64 ReservedDevice, _DWORD *a2, __int64 a3)
+__int64 __fastcall IvtEnumerateRmrrDevices(_QWORD *ReservedDevice, _DWORD *a2, __int64 a3)
 {
   _DWORD *v3; // rsi
-  __int64 v6; // r15
+  _QWORD *v6; // r15
   unsigned int v7; // ebx
   _QWORD **v8; // rsi
   unsigned int v9; // ebp
   _QWORD *v10; // rdi
   __int64 result; // rax
 
-  v3 = *(_DWORD **)(ReservedDevice + 344);
+  v3 = (_DWORD *)ReservedDevice[36];
   v6 = ReservedDevice;
-  if ( *a2 < *v3 )
-  {
-    v7 = -1073741789;
-  }
-  else
+  if ( *a2 >= *v3 )
   {
     v7 = 0;
     v8 = (_QWORD **)(v3 + 2);
@@ -30,7 +26,7 @@ __int64 __fastcall IvtEnumerateRmrrDevices(__int64 ReservedDevice, _DWORD *a2, _
     v10 = *v8;
     while ( v10 != v8 )
     {
-      ReservedDevice = HalpIvtCreateReservedDevice(ReservedDevice, v10);
+      ReservedDevice = HalpIvtCreateReservedDevice(ReservedDevice, (__int64)v10);
       *(_QWORD *)(a3 + 8LL * v9) = ReservedDevice;
       if ( !ReservedDevice )
       {
@@ -41,7 +37,11 @@ __int64 __fastcall IvtEnumerateRmrrDevices(__int64 ReservedDevice, _DWORD *a2, _
       ++v9;
     }
   }
+  else
+  {
+    v7 = -1073741789;
+  }
   result = v7;
-  *a2 = **(_DWORD **)(v6 + 344);
+  *a2 = *(_DWORD *)v6[36];
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFoldProcessStatisticsThread @ 0x14023379C
+ * XREFs of KeFoldProcessStatisticsThread @ 0x1402547AC
  * Callers:
- *     PspThreadDelete @ 0x1407A41E0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140619920 (PspThreadDelete.c)
  * Callees:
- *     RtlTimelineBitmapMerge @ 0x1402338D4 (RtlTimelineBitmapMerge.c)
+ *     RtlTimelineBitmapMerge @ 0x140254EE8 (RtlTimelineBitmapMerge.c)
  */
 
 signed __int64 __fastcall KeFoldProcessStatisticsThread(__int64 a1)
@@ -31,7 +31,7 @@ signed __int64 __fastcall KeFoldProcessStatisticsThread(__int64 a1)
   _InterlockedExchangeAdd64((volatile signed __int64 *)(v1 + 1576), *(_QWORD *)(a1 + 920));
   _InterlockedExchangeAdd64((volatile signed __int64 *)(v1 + 1584), *(_QWORD *)(a1 + 928));
   result = _InterlockedExchangeAdd64((volatile signed __int64 *)(v1 + 1592), *(_QWORD *)(a1 + 936));
-  v3 = *(_QWORD *)(a1 + 1608);
+  v3 = *(_QWORD *)(a1 + 1528);
   if ( v3 )
   {
     RtlTimelineBitmapMerge(*(_QWORD *)(v1 + 2280) + 272LL, v3 + 192);

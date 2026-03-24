@@ -1,16 +1,15 @@
 /*
- * XREFs of ?AllocateBlock@VIDMM_LINEAR_POOL@@IEAAPEAU_VIDMM_POOL_BLOCK@@XZ @ 0x1C009CA74
+ * XREFs of ?AllocateBlock@VIDMM_LINEAR_POOL@@IEAAPEAU_VIDMM_POOL_BLOCK@@XZ @ 0x1C0075CD8
  * Callers:
- *     ?SplitBlock@VIDMM_LINEAR_POOL@@IEAAJPEAU_VIDMM_POOL_BLOCK@@_K1PEAXPEAPEAU2@E@Z @ 0x1C009C43C (-SplitBlock@VIDMM_LINEAR_POOL@@IEAAJPEAU_VIDMM_POOL_BLOCK@@_K1PEAXPEAPEAU2@E@Z.c)
- *     ?Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z @ 0x1C00B0EA4 (-Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z.c)
- *     ?MarkBlockAsAllocatedScrubPending@VIDMM_LINEAR_POOL@@QEAAXPEAX_K1@Z @ 0x1C00EF788 (-MarkBlockAsAllocatedScrubPending@VIDMM_LINEAR_POOL@@QEAAXPEAX_K1@Z.c)
- *     ?PatchGapsWithFreeBlocks@VIDMM_LINEAR_POOL@@QEAAX_K0@Z @ 0x1C00EFD00 (-PatchGapsWithFreeBlocks@VIDMM_LINEAR_POOL@@QEAAX_K0@Z.c)
+ *     ?SplitBlock@VIDMM_LINEAR_POOL@@IEAAJPEAU_VIDMM_POOL_BLOCK@@_K1PEAXPEAPEAU2@E@Z @ 0x1C0074878 (-SplitBlock@VIDMM_LINEAR_POOL@@IEAAJPEAU_VIDMM_POOL_BLOCK@@_K1PEAXPEAPEAU2@E@Z.c)
+ *     ?Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z @ 0x1C009307C (-Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z.c)
+ *     ?MarkBlockAsAllocatedScrubPending@VIDMM_LINEAR_POOL@@QEAAXPEAX_K1@Z @ 0x1C00CEE74 (-MarkBlockAsAllocatedScrubPending@VIDMM_LINEAR_POOL@@QEAAXPEAX_K1@Z.c)
+ *     ?PatchGapsWithFreeBlocks@VIDMM_LINEAR_POOL@@QEAAX_K0@Z @ 0x1C00CF43C (-PatchGapsWithFreeBlocks@VIDMM_LINEAR_POOL@@QEAAX_K0@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00029AC (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C001430C (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ExAllocateFromPagedLookasideList @ 0x1C0030178 (ExAllocateFromPagedLookasideList.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00123B4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1C00260B8 (ExAllocateFromPagedLookasideList.c)
  */
 
 struct _VIDMM_POOL_BLOCK *__fastcall VIDMM_LINEAR_POOL::AllocateBlock(VIDMM_LINEAR_POOL *this)
@@ -20,8 +19,8 @@ struct _VIDMM_POOL_BLOCK *__fastcall VIDMM_LINEAR_POOL::AllocateBlock(VIDMM_LINE
   _QWORD *v4; // rax
   __int64 v5; // rcx
   VIDMM_LINEAR_POOL *v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // r14
+  char *v8; // rax
+  char *v9; // r14
   unsigned int v10; // r8d
   unsigned __int64 v11; // rcx
   _QWORD *v12; // rax
@@ -34,16 +33,16 @@ struct _VIDMM_POOL_BLOCK *__fastcall VIDMM_LINEAR_POOL::AllocateBlock(VIDMM_LINE
   v3 = (_QWORD *)((char *)this + 88);
   if ( (_QWORD *)*v3 == v3 )
   {
-    v7 = (VIDMM_LINEAR_POOL *)operator new(24LL, 0x39316956u, 256LL);
+    v7 = (VIDMM_LINEAR_POOL *)operator new[](0x18uLL, 0x39316956u, PagedPool);
     if ( v7 )
     {
-      v8 = operator new[](328LL, 0x38316956u, 256LL);
+      v8 = (char *)operator new[](0x148uLL, 0x38316956u, PagedPool);
       if ( v8 )
       {
         *(_QWORD *)v8 = 5LL;
         v9 = v8 + 8;
         `vector constructor iterator'(
-          (char *)(v8 + 8),
+          v8 + 8,
           64LL,
           5LL,
           (void (__fastcall *)(char *))_VIDMM_POOL_BLOCK::_VIDMM_POOL_BLOCK);

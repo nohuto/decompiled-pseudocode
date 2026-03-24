@@ -1,22 +1,22 @@
 /*
- * XREFs of PipEnumerateCompleted @ 0x1406E4E30
+ * XREFs of PipEnumerateCompleted @ 0x1406E4E10
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E657C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PipSetDevNodeState @ 0x140159DB8 (PipSetDevNodeState.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiSwGetChildPdo @ 0x1406D8EB8 (PiSwGetChildPdo.c)
- *     PipProcessEnumeratedChildDevice @ 0x1406E503C (PipProcessEnumeratedChildDevice.c)
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A90 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PipClearDevNodeFlags @ 0x1406E6500 (PipClearDevNodeFlags.c)
- *     PiSwFindChildren @ 0x1406E813C (PiSwFindChildren.c)
- *     PnpRequestDeviceRemoval @ 0x1406EF22C (PnpRequestDeviceRemoval.c)
+ *     PiSwGetChildPdo @ 0x1406D8E98 (PiSwGetChildPdo.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1406E501C (PipProcessEnumeratedChildDevice.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A70 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
+ *     PiSwFindChildren @ 0x1406E811C (PiSwFindChildren.c)
+ *     PnpRequestDeviceRemoval @ 0x1406EF20C (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PipEnumerateCompleted(_QWORD *a1)

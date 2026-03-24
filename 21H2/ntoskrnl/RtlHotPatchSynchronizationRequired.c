@@ -1,112 +1,102 @@
 /*
- * XREFs of RtlHotPatchSynchronizationRequired @ 0x1405EF908
+ * XREFs of RtlHotPatchSynchronizationRequired @ 0x14091B084
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140976880 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD638 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1405EFAB0 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x14058FD0C (RtlGetHotPatchSize.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B2B10 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
  */
 
 __int64 __fastcall RtlHotPatchSynchronizationRequired(
-        int a1,
+        __int64 a1,
         _DWORD *a2,
-        _DWORD *a3,
-        int a4,
-        int a5,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
         __int64 a6,
-        __int64 a7,
         PRTL_BITMAP BitMapHeader,
+        int a8,
         int a9,
-        int a10,
-        int a11,
-        int a12,
-        _BYTE *a13)
+        _BYTE *a10)
 {
-  _DWORD *v13; // r10
-  unsigned int v15; // r11d
-  int v16; // eax
-  _DWORD *v17; // r8
-  int v18; // edx
-  bool v19; // cl
-  int v20; // ebx
-  bool v21; // al
-  int v22; // edx
-  int v23; // edi
-  unsigned int v24; // eax
-  __int64 v25; // r10
-  ULONG v26; // edx
+  __int64 HotPatchSize; // rdi
+  _DWORD *v12; // r9
+  _DWORD *v13; // r11
+  int v14; // edx
+  char v15; // cl
+  __int64 v16; // r8
+  int v17; // r10d
+  _DWORD *v18; // rdx
+  __int64 v19; // rax
+  char v20; // cl
+  __int64 v21; // r9
+  int v22; // r10d
+  ULONG i; // r8d
+  int v25; // ecx
   ULONG ClearBitsAndSet; // eax
-  int v28; // eax
 
-  v13 = a3;
-  *a13 = 0;
+  *a10 = 0;
   if ( a3 )
   {
-    v15 = 2;
-    if ( *a2 >= 3u )
-      v15 = a2[6] + 2;
+    HotPatchSize = (unsigned int)RtlGetHotPatchSize(a2);
     do
     {
-      v16 = *v13;
-      v17 = v13;
-      if ( !*v13 )
+      v13 = v12;
+      if ( !*v12 )
         break;
-      v18 = *v13;
-      v19 = 0;
-      v20 = *v13++ & 0xFFF;
-      v21 = v16 >= 0;
-      if ( (v18 & 0xFC000) == 0x1C000 )
-        v19 = v21;
-      if ( v19 )
+      v14 = *v12;
+      v16 = *v12 >> 31;
+      v15 = 0;
+      LOBYTE(v16) = *v12 >= 0;
+      v17 = *v12++ & 0xFFF;
+      if ( (v14 & 0xFC000) == 0x1C000 )
+        v15 = v16;
+      if ( v15 )
       {
-        if ( v20 )
+        if ( v17 )
         {
           do
           {
-            v22 = 0;
-            v23 = a1 + *v13;
-            if ( v15 != 2 )
-              v22 = (_DWORD)v13 + 8;
-            v24 = RtlpCheckFunctionPatchAppliedInOriginalImage(a1 + *v13, v22, (_DWORD)v17, a4, a6);
-            if ( v24 == -1 )
+            v18 = 0LL;
+            if ( (_DWORD)HotPatchSize != 2 )
+              v18 = v12 + 2;
+            v19 = RtlpCheckFunctionPatchAppliedInOriginalImage(a1 + (unsigned int)*v12, v18, v16);
+            if ( v19 == -1 )
               return 3221225595LL;
-            if ( v24 == -2 )
+            if ( v19 )
             {
-              if ( (v23 & 7) == 7 )
-              {
-LABEL_25:
-                *a13 = 1;
-                return 0LL;
-              }
+              if ( a6 )
+                _bittestandset((signed __int32 *)BitMapHeader->Buffer, (v19 - a5) >> 3);
             }
-            else if ( a7 )
+            else if ( (v20 & 7) == 7 )
             {
-              _bittestandset((signed __int32 *)BitMapHeader->Buffer, v24);
+LABEL_14:
+              *a10 = 1;
+              return 0LL;
             }
-            v13 = (_DWORD *)(v25 + 4LL * v15);
+            v12 = (_DWORD *)(v21 + 4 * HotPatchSize);
           }
-          while ( --v20 );
+          while ( v22 != 1 );
         }
       }
       else
       {
-        v13 = &v17[v20 * v15 + 1];
+        v12 = &v13[(unsigned int)(v17 * HotPatchSize) + 1];
       }
     }
-    while ( v13 );
+    while ( v12 );
   }
-  if ( a7 )
+  if ( a6 )
   {
-    v26 = 0;
-    while ( 1 )
+    for ( i = 0; ; i = ClearBitsAndSet )
     {
-      ClearBitsAndSet = RtlFindClearBitsAndSet(BitMapHeader, 1u, v26);
-      v26 = ClearBitsAndSet;
+      ClearBitsAndSet = RtlFindClearBitsAndSet(BitMapHeader, 1u, i);
       if ( ClearBitsAndSet == -1 )
         break;
-      v28 = *(_DWORD *)(a7 + 6LL * ClearBitsAndSet);
-      if ( v28 && (((_BYTE)a1 + (_BYTE)v28) & 7) == 7 )
-        goto LABEL_25;
+      v25 = *(_DWORD *)(a6 + 6LL * ClearBitsAndSet);
+      if ( v25 && (((_BYTE)a1 + (_BYTE)v25) & 7) == 7 )
+        goto LABEL_14;
     }
   }
   return 0LL;

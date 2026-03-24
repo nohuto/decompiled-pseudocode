@@ -1,11 +1,11 @@
 /*
- * XREFs of CcFreeVirtualAddress @ 0x140262360
+ * XREFs of CcFreeVirtualAddress @ 0x1402A1080
  * Callers:
- *     CcMapAndCopyFromCache @ 0x1406F5CC0 (CcMapAndCopyFromCache.c)
- *     CcPinMappedData @ 0x1406F5F00 (CcPinMappedData.c)
- *     CcMdlRead @ 0x14073EEB0 (CcMdlRead.c)
+ *     CcPinMappedData @ 0x14063CAA0 (CcPinMappedData.c)
+ *     CcMapAndCopyFromCache @ 0x14063CC70 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140701480 (CcMdlRead.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 LONG __fastcall CcFreeVirtualAddress(__int64 a1)
@@ -18,10 +18,10 @@ LONG __fastcall CcFreeVirtualAddress(__int64 a1)
   result = _InterlockedDecrement((volatile signed __int32 *)(a1 + 16));
   if ( !(_WORD)result )
   {
-    v3 = *(struct _KEVENT **)(v1 + 192);
+    v3 = *(struct _KEVENT **)(v1 + 184);
     if ( v3 )
       result = KeSetEvent(v3, 0, 0);
-    _InterlockedDecrement((volatile signed __int32 *)(v1 + 552));
+    _InterlockedDecrement((volatile signed __int32 *)(v1 + 544));
   }
   return result;
 }

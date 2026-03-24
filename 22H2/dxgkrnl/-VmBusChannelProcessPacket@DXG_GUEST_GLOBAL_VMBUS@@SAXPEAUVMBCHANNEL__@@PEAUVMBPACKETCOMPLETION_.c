@@ -1,96 +1,76 @@
 /*
- * XREFs of ?VmBusChannelProcessPacket@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@PEAXII@Z @ 0x1C005C360
+ * XREFs of ?VmBusChannelProcessPacket@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@PEAXII@Z @ 0x1C0041290
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C00583B8 (McTemplateK0pxq_EtwWriteTransfer.c)
- *     ?VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESENTHISTORYTOKEN@@@Z @ 0x1C005CF88 (-VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESE.c)
- *     ?VmBusSetGuestData@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SETGUESTDATA@@@Z @ 0x1C005DA3C (-VmBusSetGuestData@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SETGUESTDATA@@@Z.c)
- *     ?VmBusSignalGuestEvent@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SIGNALGUESTEVENT@@@Z @ 0x1C005DA90 (-VmBusSignalGuestEvent@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SIGNALGUESTEVENT@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESENTHISTORYTOKEN@@@Z @ 0x1C00418E4 (-VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESE.c)
+ *     ?VmBusSetGuestData@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SETGUESTDATA@@@Z @ 0x1C0041DC4 (-VmBusSetGuestData@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SETGUESTDATA@@@Z.c)
+ *     ?VmBusSignalGuestEvent@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SIGNALGUESTEVENT@@@Z @ 0x1C0041E18 (-VmBusSignalGuestEvent@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_SIGNALGUESTEVENT@@@Z.c)
+ *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C00420A4 (McTemplateK0pxq_EtwWriteTransfer.c)
  */
 
 void __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusChannelProcessPacket(
-        struct VMBCHANNEL__ *a1,
+        struct _LIST_ENTRY *a1,
         struct _LIST_ENTRY *a2,
         struct DXGKVMB_COMMAND_SETGUESTDATA *a3,
         int a4,
         unsigned int a5)
 {
-  int v9; // ebp
-  __int64 v10; // r14
-  int v11; // ecx
-  int v12; // ecx
-  struct DXGGLOBAL *Global; // rax
-  struct _WORK_QUEUE_ITEM *v14; // rax
-  struct _WORK_QUEUE_ITEM *v15; // rdi
-  __int64 v16; // r8
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  __int64 v20; // [rsp+28h] [rbp-50h]
+  int v9; // ecx
+  int v10; // ecx
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  struct _WORK_QUEUE_ITEM *v16; // rdi
+  int v17; // r8d
+  __int64 v18; // rax
 
   _InterlockedIncrement(&g_VgpuNumIncomingPackets);
-  v9 = *((_DWORD *)a3 + 4);
-  v10 = *(_QWORD *)a3;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
     McTemplateK0pxq_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &EventVmBusProcessPacketHostToVmDpcBegin,
-      (__int64)a3,
-      a1,
-      v10,
+      (unsigned int)&DxgkControlGuid_Context,
+      (unsigned int)&EventVmBusProcessPacketHostToVmDpcBegin,
+      (_DWORD)a3,
+      (_DWORD)a1,
+      *(_QWORD *)a3,
       *((_DWORD *)a3 + 4));
-  v11 = *((_DWORD *)a3 + 4);
-  if ( v11 )
+  v9 = *((_DWORD *)a3 + 4);
+  if ( v9 )
   {
-    v12 = v11 - 1;
-    if ( v12 )
+    v10 = v9 - 1;
+    if ( v10 )
     {
-      if ( v12 == 1 )
+      if ( v10 == 1 )
       {
         DXG_GUEST_GLOBAL_VMBUS::VmBusSetGuestData(a3);
       }
       else
       {
-        Global = DXGGLOBAL::GetGlobal();
-        v14 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)((char *)Global + 160));
-        v15 = v14;
-        if ( v14 )
+        PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x60uLL, 0x4B677844u);
+        v16 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memset(v14, 0, 0xA0uLL);
-          v15->List.Flink = 0LL;
-          v15->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VmBusProcessPacket;
-          v15->Parameter = v15;
+          memset(PoolWithTag, 0, 0x60uLL);
+          v16->List.Flink = 0LL;
+          v16->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VmBusProcessPacket;
+          v16->Parameter = v16;
           _InterlockedIncrement(&g_VgpuNumWorkItemQueued);
-          HIDWORD(v15[4].WorkerRoutine) = a5;
-          v15[2].List.Blink = (struct _LIST_ENTRY *)a1;
-          LODWORD(v15[4].WorkerRoutine) = a4;
-          v15[4].List.Flink = a2;
-          v15[4].List.Blink = (struct _LIST_ENTRY *)a3;
-          v15[3].WorkerRoutine = (PWORKER_THREAD_ROUTINE)((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C0141F08)(a1);
-          LODWORD(v15[4].Parameter) = *((_DWORD *)DXGGLOBAL::GetGlobal() + 442);
-          ExQueueWorkItem(v15, CustomPriorityWorkQueue|MaximumWorkQueue|0x8);
-          goto LABEL_15;
+          HIDWORD(v16[2].Parameter) = a5;
+          v16[1].List.Flink = a1;
+          LODWORD(v16[2].Parameter) = a4;
+          v16[2].List.Blink = a2;
+          v16[2].WorkerRoutine = (PWORKER_THREAD_ROUTINE)a3;
+          v16[2].List.Flink = (struct _LIST_ENTRY *)((__int64 (__fastcall *)(struct _LIST_ENTRY *))qword_1C00B4348)(a1);
+          ExQueueWorkItem(v16, NormalWorkQueue);
+          goto LABEL_13;
         }
-        WdLogSingleEntry1(6LL, 14804LL);
-        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v18,
-            v17,
-            v19,
-            0LL,
-            1,
-            -1,
-            L"Failed to allocated a work item",
-            14804LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+        v18 = WdLogNewEntry5_WdLowResource(v13, v12, v14, v15);
+        *(_QWORD *)(v18 + 24) = 12611LL;
+        WdLogEvent5_WdLowResource(v18);
       }
     }
     else
@@ -103,17 +83,14 @@ void __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusChannelProcessPacket(
     DXG_GUEST_GLOBAL_VMBUS::VmBusSignalGuestEvent(a3);
   }
   _InterlockedIncrement(&g_VgpuNumCompletedPackets);
-  ((void (__fastcall *)(struct _LIST_ENTRY *, _QWORD, _QWORD))qword_1C0141F48)(a2, 0LL, 0LL);
-LABEL_15:
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) != 0 )
-  {
-    LODWORD(v20) = v9;
+  ((void (__fastcall *)(struct _LIST_ENTRY *, _QWORD, _QWORD))qword_1C00B4388)(a2, 0LL, 0LL);
+LABEL_13:
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
     McTemplateK0pxq_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &EventVmBusProcessPacketHostToVmDpcEnd,
-      v16,
-      a1,
-      v10,
-      v20);
-  }
+      (unsigned int)&DxgkControlGuid_Context,
+      (unsigned int)&EventVmBusProcessPacketHostToVmDpcEnd,
+      v17,
+      (_DWORD)a1,
+      *(_QWORD *)a3,
+      *((_DWORD *)a3 + 4));
 }

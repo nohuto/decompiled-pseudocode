@@ -1,16 +1,16 @@
 /*
- * XREFs of CreateFontFromUserProfile @ 0x1C00C58D0
+ * XREFs of CreateFontFromUserProfile @ 0x1C00E2B38
  * Callers:
- *     UserSetFont @ 0x1C00C5854 (UserSetFont.c)
- *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C0158F68 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ *     UserSetFont @ 0x1C00E2ABC (UserSetFont.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01D6B7C (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
  * Callees:
- *     GreCreateFontIndirectW @ 0x1C00131E4 (GreCreateFontIndirectW.c)
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C00C49DC (-GetLogFontFromUserProfile@@YA-AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z.c)
- *     GreSetLFONTOwner @ 0x1C00C59D8 (GreSetLFONTOwner.c)
- *     GreMarkDeletableFont @ 0x1C00C5A20 (GreMarkDeletableFont.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     GreCreateFontIndirectW @ 0x1C00BA190 (GreCreateFontIndirectW.c)
+ *     GreSetLFONTOwner @ 0x1C00E2C40 (GreSetLFONTOwner.c)
+ *     ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C00E3174 (-GetLogFontFromUserProfile@@YA-AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     GreMarkDeletableFont @ 0x1C00E43C4 (GreMarkDeletableFont.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 struct HLFONT__ *__fastcall CreateFontFromUserProfile(struct _UNICODE_STRING *a1, _DWORD *a2, unsigned int a3)
@@ -47,7 +47,7 @@ struct HLFONT__ *__fastcall CreateFontFromUserProfile(struct _UNICODE_STRING *a1
   if ( FontIndirectW )
   {
     memset(&v14, 0, sizeof(v14));
-    if ( (unsigned int)GreExtGetObjectW((HBRUSH)FontIndirectW, 92LL, (char *)&v14) && v14.lfHeight == *a2 )
+    if ( (unsigned int)GreExtGetObjectW((HSURF)FontIndirectW, 92LL, (char *)&v14) && v14.lfHeight == *a2 )
     {
       GreSetLFONTOwner(FontIndirectW, 0LL);
     }

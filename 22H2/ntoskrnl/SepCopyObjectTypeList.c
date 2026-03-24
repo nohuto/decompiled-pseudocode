@@ -1,17 +1,17 @@
 /*
- * XREFs of SepCopyObjectTypeList @ 0x1405B7BCC
+ * XREFs of SepCopyObjectTypeList @ 0x140595F50
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, __int64 *a3)
+__int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v6; // r14
-  __int64 Pool2; // rax
-  __int64 v9; // rcx
+  char *PoolWithTag; // rax
+  char *v9; // rcx
   __int64 v10; // rdi
   __int128 v11; // xmm0
 
@@ -19,30 +19,30 @@ __int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, __int64 *a
   if ( a2 )
   {
     v6 = a2;
-    Pool2 = ExAllocatePool2(256LL, 48LL * a2, 1951360339LL);
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 48LL * a2, 0x744F6553u);
+    if ( !PoolWithTag )
       return 3221225626LL;
     if ( a2 )
     {
-      v9 = Pool2 + 2;
-      v10 = a1 - Pool2;
+      v9 = PoolWithTag + 2;
+      v10 = a1 - (_QWORD)PoolWithTag;
       do
       {
-        *(_WORD *)(v9 - 2) = *(_WORD *)(v10 + v9 - 2);
-        *(_WORD *)v9 = *(_WORD *)(v10 + v9);
-        *(_DWORD *)(v9 + 18) = *(_DWORD *)(v10 + v9 + 18);
-        v11 = *(_OWORD *)(v10 + v9 + 2);
+        *((_WORD *)v9 - 1) = *(_WORD *)&v9[v10 - 2];
+        *(_WORD *)v9 = *(_WORD *)&v9[v10];
+        *(_DWORD *)(v9 + 18) = *(_DWORD *)&v9[v10 + 18];
+        v11 = *(_OWORD *)&v9[v10 + 2];
         *(_DWORD *)(v9 + 22) = 0;
         *(_DWORD *)(v9 + 26) = 0;
         *(_DWORD *)(v9 + 30) = 0;
         *(_QWORD *)(v9 + 38) = 0LL;
         *(_OWORD *)(v9 + 2) = v11;
-        v9 += 48LL;
+        v9 += 48;
         --v6;
       }
       while ( v6 );
     }
-    *a3 = Pool2;
+    *a3 = PoolWithTag;
   }
   return 0LL;
 }

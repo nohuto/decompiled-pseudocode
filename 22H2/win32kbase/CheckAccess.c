@@ -1,30 +1,32 @@
 /*
- * XREFs of CheckAccess @ 0x1C0091E30
+ * XREFs of CheckAccess @ 0x1C00443E0
  * Callers:
- *     NtUserSystemParametersInfo @ 0x1C014C300 (NtUserSystemParametersInfo.c)
+ *     NtUserSystemParametersInfo @ 0x1C0135470 (NtUserSystemParametersInfo.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019885C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall CheckAccess(unsigned int *a1, unsigned int *a2)
+bool __fastcall CheckAccess(unsigned int *a1, unsigned int *a2)
 {
-  char result; // al
-  unsigned int v5; // ecx
-  unsigned int v6; // edx
-  unsigned int v7; // ecx
+  unsigned int v3; // ecx
+  unsigned int v4; // ecx
+  unsigned int v5; // eax
+  bool result; // al
 
-  result = 0;
-  if ( !UIPrivelegeIsolation::fEnforce )
-    return 1;
-  v5 = *a1;
-  if ( v5 > *a2 )
-    return 1;
-  if ( v5 == *a2 )
+  result = 1;
+  if ( UIPrivelegeIsolation::fEnforce )
   {
-    v6 = a1[1];
-    v7 = a2[1];
-    if ( v6 == v7 || v7 == -1 || v6 == -1 )
-      return 1;
+    v3 = *a1;
+    if ( v3 <= *a2 )
+    {
+      if ( v3 != *a2 )
+        return 0;
+      v4 = a1[1];
+      v5 = a2[1];
+      if ( v4 != v5 && v5 != -1 && v4 != -1 )
+        return 0;
+    }
   }
   return result;
 }

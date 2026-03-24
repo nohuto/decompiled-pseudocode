@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsPartialPlaceholderFileInfo @ 0x1409BCB70
+ * XREFs of RtlIsPartialPlaceholderFileInfo @ 0x140917510
  * Callers:
  *     <none>
  * Callees:
@@ -28,7 +28,7 @@ LABEL_10:
     }
   }
   result = 3221225475LL;
-  if ( a2 < 77 )
+  if ( a2 < 76 )
     return 3221225659LL;
   return result;
 }

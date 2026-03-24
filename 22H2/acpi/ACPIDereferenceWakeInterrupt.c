@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIDereferenceWakeInterrupt @ 0x1C004487C
+ * XREFs of ACPIDereferenceWakeInterrupt @ 0x1C0061638
  * Callers:
- *     ACPIAssociateWakeInterrupt @ 0x1C004433C (ACPIAssociateWakeInterrupt.c)
- *     ACPIDisconnectWakeInterrupt @ 0x1C0044918 (ACPIDisconnectWakeInterrupt.c)
+ *     ACPIAssociateWakeInterrupt @ 0x1C00611B8 (ACPIAssociateWakeInterrupt.c)
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00616D4 (ACPIDisconnectWakeInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -13,11 +13,9 @@ void __fastcall ACPIDereferenceWakeInterrupt(__int64 *a1)
   __int64 v3; // rdi
   KIRQL v4; // si
   bool v5; // zf
-  __int64 v6; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v7; // [rsp+28h] [rbp-10h]
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 0LL;
-  LODWORD(v7) = 0;
   v2 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   v3 = *a1;
   v4 = v2;
@@ -26,7 +24,7 @@ void __fastcall ACPIDereferenceWakeInterrupt(__int64 *a1)
   if ( v5 && *(_DWORD *)(v3 + 56) == 3 )
   {
     LODWORD(v6) = 1;
-    v7 = *(_QWORD *)(v3 + 48);
+    *((_QWORD *)&v6 + 1) = *(_QWORD *)(v3 + 48);
     IoReportInterruptInactive(&v6);
     *(_DWORD *)(v3 + 56) = 4;
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaSetMessageInterruptRouting @ 0x140A99930
+ * XREFs of HsaSetMessageInterruptRouting @ 0x1409AAD20
  * Callers:
  *     <none>
  * Callees:

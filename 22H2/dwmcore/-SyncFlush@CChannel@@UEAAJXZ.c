@@ -1,33 +1,26 @@
 /*
- * XREFs of ?SyncFlush@CChannel@@UEAAJXZ @ 0x1800CD3C0
+ * XREFs of ?SyncFlush@CChannel@@UEAAJXZ @ 0x180027BA0
  * Callers:
- *     <none>
+ *     ?SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z @ 0x1800279B0 (-SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z.c)
+ *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x180150C54 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
  * Callees:
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SyncFlushInternal@CChannel@@AEAAJXZ @ 0x1800CDA08 (-SyncFlushInternal@CChannel@@AEAAJXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180027BE8 (-SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CChannel::SyncFlush(CChannel *this)
 {
-  int v2; // eax
-  unsigned int v3; // ebx
-  int v5[6]; // [rsp+20h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  unsigned int v1; // edx
+  int v3; // eax
+  unsigned int v4; // ecx
+  unsigned int v5; // edi
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v5, this);
-  v2 = CChannel::SyncFlushInternal(this);
-  v3 = v2;
-  if ( v2 < 0 )
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x281,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v2,
-      v5[0]);
-  else
-    v3 = 0;
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v5);
-  return v3;
+  v1 = *((_DWORD *)this + 14);
+  *((_BYTE *)this + 208) = 1;
+  v3 = CInternalMilCmdConnection::SynchronizeChannel(*((CInternalMilCmdConnection **)this + 6), v1);
+  v5 = v3;
+  if ( v3 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x252u, 0LL);
+  *((_BYTE *)this + 208) = 0;
+  return v5;
 }

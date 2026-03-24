@@ -1,37 +1,40 @@
 /*
- * XREFs of HalpIommuProcessReservationsInternal @ 0x14039E984
+ * XREFs of HalpIommuProcessReservationsInternal @ 0x1404C9AE0
  * Callers:
- *     HalpIommuProcessReservations @ 0x14039E928 (HalpIommuProcessReservations.c)
+ *     HalpIommuProcessReservations @ 0x1403B3738 (HalpIommuProcessReservations.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpIommuDetermineReservedPciRid @ 0x14039EA48 (HalpIommuDetermineReservedPciRid.c)
- *     HalpIommuProcessMemoryErrata @ 0x14039EB34 (HalpIommuProcessMemoryErrata.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpIommuDetermineReservedPciRid @ 0x1404C914C (HalpIommuDetermineReservedPciRid.c)
+ *     HalpIommuProcessMemoryErrata @ 0x1404C99F4 (HalpIommuProcessMemoryErrata.c)
  */
 
-__int64 __fastcall HalpIommuProcessReservationsInternal(_QWORD *a1, __int64 a2)
+__int64 __fastcall HalpIommuProcessReservationsInternal(__int64 a1, __int64 a2)
 {
   __int64 (__fastcall *v2)(_QWORD, unsigned int *, _QWORD); // rax
   __int64 result; // rax
   _DWORD *MemoryInternal; // rax
   unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = (__int64 (__fastcall *)(_QWORD, unsigned int *, _QWORD))a1[43];
+  v2 = *(__int64 (__fastcall **)(_QWORD, unsigned int *, _QWORD))(a1 + 328);
   v7 = 0;
-  result = v2(a1[2], &v7, 0LL);
+  result = v2(*(_QWORD *)(a1 + 16), &v7, 0LL);
   if ( (_DWORD)result == -1073741789 )
   {
     MemoryInternal = (_DWORD *)HalpMmAllocateMemoryInternal(8 * v7 + 8, 1u);
-    a1[69] = MemoryInternal;
+    *(_QWORD *)(a1 + 528) = MemoryInternal;
     if ( MemoryInternal )
     {
       *MemoryInternal = v7;
-      result = ((__int64 (__fastcall *)(_QWORD, unsigned int *, __int64))a1[43])(a1[2], &v7, a1[69] + 8LL);
+      result = (*(__int64 (__fastcall **)(_QWORD, unsigned int *, __int64))(a1 + 328))(
+                 *(_QWORD *)(a1 + 16),
+                 &v7,
+                 *(_QWORD *)(a1 + 528) + 8LL);
       if ( (int)result >= 0 )
       {
-        result = HalpIommuProcessMemoryErrata(v7, a1[69] + 8LL, a2);
+        result = HalpIommuProcessMemoryErrata(v7, *(_QWORD *)(a1 + 528) + 8LL, a2);
         if ( (int)result >= 0 )
-          return HalpIommuDetermineReservedPciRid(a1[69]);
+          return HalpIommuDetermineReservedPciRid(*(unsigned int **)(a1 + 528));
       }
     }
     else

@@ -1,108 +1,108 @@
 /*
- * XREFs of AslpPathWildcardMakeLeaves @ 0x140A172D4
+ * XREFs of AslpPathWildcardMakeLeaves @ 0x140969FA0
  * Callers:
- *     AslPathWildcardFindFirst @ 0x140A15ECC (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpPathWildcardMakeLeaves(WCHAR *SourceString)
 {
-  WCHAR *v1; // rbx
-  wchar_t *Buffer; // rdi
-  unsigned __int16 v3; // ax
-  int v4; // eax
-  bool v5; // zf
-  WCHAR v6; // dx
-  WCHAR *v7; // rcx
-  _WORD *v8; // rdx
-  WCHAR v9; // cx
-  __int64 result; // rax
-  UNICODE_STRING v11; // [rsp+30h] [rbp-18h] BYREF
+  WCHAR *v1; // rdi
+  wchar_t *Buffer; // rbp
+  unsigned __int16 v3; // si
+  int v4; // ebx
+  WCHAR v5; // cx
+  int v6; // ebx
+  WCHAR *v7; // rax
+  __int16 v8; // ax
+  WCHAR v9; // ax
+  _WORD *v10; // rdx
+  int v11; // ebx
+  UNICODE_STRING v13; // [rsp+30h] [rbp-28h] BYREF
 
   v1 = SourceString;
   if ( !SourceString || !*SourceString )
     return 0LL;
-  v11 = 0LL;
-  RtlInitUnicodeString(&v11, SourceString);
-  if ( v11.Length < 2u || (Buffer = v11.Buffer, !*v11.Buffer) )
+  v13 = 0LL;
+  RtlInitUnicodeString(&v13, SourceString);
+  if ( v13.Length < 2u || (Buffer = v13.Buffer, !*v13.Buffer) )
   {
     AslLogCallPrintf(1LL);
     return 0LL;
   }
-  v3 = v11.Length >> 1;
-  if ( (unsigned __int16)(v11.Length >> 1) < 8u )
+  v3 = v13.Length >> 1;
+  if ( (unsigned __int16)(v13.Length >> 1) < 8u || wcsnicmp(v13.Buffer, L"\\??\\UNC\\", 8uLL) )
   {
-    if ( v3 < 4u )
+    if ( v3 >= 4u )
     {
-      if ( v3 <= 2u )
-        goto LABEL_16;
-      goto LABEL_15;
+      if ( !wcsncmp(Buffer, L"\\??\\", 4uLL) )
+      {
+        v4 = 2;
+        goto LABEL_17;
+      }
+      if ( !wcsncmp(Buffer, L"\\\\?\\", 4uLL) || !wcsncmp(Buffer, L"\\\\.\\", 4uLL) )
+      {
+        v4 = 3;
+        goto LABEL_17;
+      }
     }
-LABEL_9:
-    if ( !wcsncmp(Buffer, L"\\??\\", 4uLL) )
-    {
-      v4 = -2;
-      goto LABEL_17;
-    }
-    if ( !wcsncmp(Buffer, L"\\\\?\\", 4uLL) || !wcsncmp(Buffer, L"\\\\.\\", 4uLL) )
-    {
-      v4 = -3;
-      goto LABEL_17;
-    }
-LABEL_15:
-    v5 = wcsncmp(Buffer, L"\\\\", 2uLL) == 0;
-    v4 = -3;
-    if ( v5 )
-      goto LABEL_17;
-LABEL_16:
-    v4 = 0;
-    goto LABEL_17;
+    if ( v3 <= 2u || (v4 = 3, wcsncmp(Buffer, L"\\\\", 2uLL)) )
+      v4 = 0;
   }
-  if ( wcsnicmp(v11.Buffer, L"\\??\\UNC\\", 8uLL) )
-    goto LABEL_9;
-  v4 = -4;
-LABEL_17:
-  v6 = *v1;
-  v7 = v1;
-  while ( v6 )
+  else
   {
-    if ( v6 == 92 )
+    v4 = 4;
+  }
+LABEL_17:
+  v5 = *v1;
+  v6 = -v4;
+  v7 = v1;
+  while ( v5 )
+  {
+    if ( v5 == 92 )
     {
-      if ( v4 >= 0 )
+      if ( v6 >= 0 )
         *v7 = 0;
-      ++v4;
+      ++v6;
     }
-    v6 = *++v7;
+    v5 = *++v7;
   }
   v7[1] = 0;
+  v8 = *v1;
   if ( *v1 )
   {
-    do
 LABEL_25:
-      ++v1;
-    while ( *v1 );
-    v8 = v1 + 1;
+    if ( v8 )
+    {
+      do
+        ++v1;
+      while ( *v1 );
+    }
     v9 = v1[1];
     if ( v9 )
     {
+      v10 = v1 + 1;
       while ( v9 != 42 && v9 != 63 )
       {
-        v9 = *++v8;
-        if ( !*v8 )
+        v9 = *++v10;
+        if ( !*v10 )
         {
+          --v6;
           *v1 = 92;
-          --v4;
-          goto LABEL_25;
+          v8 = 92;
+          if ( v1[1] )
+            goto LABEL_25;
+          break;
         }
       }
     }
   }
-  result = (unsigned int)(v4 + 1);
-  if ( (int)result < 0 )
-    return 0LL;
-  return result;
+  v11 = v6 + 1;
+  if ( v11 >= 0 )
+    return (unsigned int)v11;
+  return 0LL;
 }

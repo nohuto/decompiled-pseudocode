@@ -1,17 +1,18 @@
 /*
- * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipPresentUpdate@@@@QEAAPEAVCFlipPresentUpdate@@XZ @ 0x1C0083D14
+ * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipPresentUpdate@@@@QEAAPEAVCFlipPresentUpdate@@XZ @ 0x1C006B2A0
  * Callers:
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C0082B34 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
- *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C0083F9C (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006AD44 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4FlipPresentProcessResult@@@Z @ 0x1C006AEDC (-ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4Fli.c)
+ *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C006B4E8 (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CFlipObjectQueue<CFlipPresentUpdate>::Dequeue(_QWORD *a1)
 {
-  __int64 v1; // r9
+  __int64 v1; // r8
   _QWORD *v2; // rdx
-  __int64 v3; // r8
+  __int64 v3; // rax
   _QWORD *v4; // rcx
   __int64 result; // rax
 
@@ -19,15 +20,14 @@ __int64 __fastcall CFlipObjectQueue<CFlipPresentUpdate>::Dequeue(_QWORD *a1)
   v2 = (_QWORD *)((v1 + 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v1 >> 64));
   v3 = *v2;
   if ( *(_QWORD **)(*v2 + 8LL) != v2
-    || (v4 = *(_QWORD **)(((v1 + 24) & ((unsigned __int128)-(__int128)((*a1 - 24LL) & (unsigned __int64)-(__int64)(*a1 != 0LL)) >> 64))
-                        + 8),
+    || (v4 = *(_QWORD **)(((v1 + 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v1 >> 64)) + 8),
         (_QWORD *)*v4 != v2) )
   {
     __fastfail(3u);
   }
   *v4 = v3;
-  result = v1;
   *(_QWORD *)(v3 + 8) = v4;
+  result = v1;
   v2[1] = v2;
   *v2 = v2;
   return result;

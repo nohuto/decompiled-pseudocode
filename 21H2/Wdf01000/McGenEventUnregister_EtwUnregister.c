@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C00603FC
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C00423EC
  * Callers:
- *     FxLibraryCommonDecommission @ 0x1C005FF88 (FxLibraryCommonDecommission.c)
+ *     FxLibraryCommonDecommission @ 0x1C00419C0 (FxLibraryCommonDecommission.c)
  * Callees:
  *     <none>
  */

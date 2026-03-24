@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceAppPowerMessage @ 0x1406E0ED8
+ * XREFs of PopDiagTraceAppPowerMessage @ 0x1406E0EB8
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
  */
 
 void __fastcall PopDiagTraceAppPowerMessage(HANDLE *a1)

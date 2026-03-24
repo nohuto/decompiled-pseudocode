@@ -1,76 +1,52 @@
 /*
- * XREFs of ?InitializeForwardProgressMdl@VIDMM_SEGMENT@@IEAAJXZ @ 0x1C00B0DB0
+ * XREFs of ?InitializeForwardProgressMdl@VIDMM_SEGMENT@@IEAAJXZ @ 0x1C0092FB0
  * Callers:
- *     ?Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00B0BE0 (-Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
+ *     ?Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C0092DD0 (-Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?SysMmAllocateLogicalMemory@@YAJPEAUSYSMM_ADAPTER@@_KPEBXPEAPEAX@Z @ 0x1C0014A2C (-SysMmAllocateLogicalMemory@@YAJPEAUSYSMM_ADAPTER@@_KPEBXPEAPEAX@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall VIDMM_SEGMENT::InitializeForwardProgressMdl(VIDMM_SEGMENT *this)
+__int64 __fastcall VIDMM_SEGMENT::InitializeForwardProgressMdl(PHYSICAL_ADDRESS *this)
 {
-  __int64 v2; // rax
-  __int64 v3; // rsi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  __int64 v5; // rax
-  int LogicalMemory; // edi
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  unsigned int v2; // ebx
+  _QWORD *v3; // rax
+  __int64 v4; // rcx
+  struct _MDL *v5; // rcx
+  PVOID v6; // rax
+  __int64 v7; // rcx
+  __int64 v9; // rax
 
-  v2 = operator new(24LL, 0x35336956u, 256LL);
-  *((_QWORD *)this + 33) = v2;
-  if ( !v2 )
-  {
-    _InterlockedIncrement(&dword_1C006E804);
-    WdLogSingleEntry1(6LL, 681LL);
-LABEL_9:
-    DxgkLogInternalTriageEvent(v8, 262145LL);
-    return (unsigned int)-1073741801;
-  }
-  *(_QWORD *)(*((_QWORD *)this + 33) + 8LL) = MmAllocatePagesForMdl(
-                                                0LL,
-                                                *(PHYSICAL_ADDRESS *)((char *)this + 120),
-                                                0LL,
-                                                0x10000uLL);
-  v3 = *(_QWORD *)(*((_QWORD *)this + 33) + 8LL);
+  v2 = -1073741801;
+  v3 = operator new[](0x18uLL, 0x35336956u, PagedPool);
+  this[33].QuadPart = (LONGLONG)v3;
   if ( !v3 )
   {
-    _InterlockedIncrement(&dword_1C006E7D0);
-    WdLogSingleEntry1(6LL, 696LL);
+    _InterlockedIncrement(&dword_1C0050754);
+    v9 = WdLogNewEntry5_WdLowResource(v4);
+    *(_QWORD *)(v9 + 24) = 725LL;
     goto LABEL_9;
   }
-  VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-  v5 = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, _DWORD, int))VirtualMemoryInterface + 5))(
-         v3,
-         0LL,
-         2LL,
-         0LL,
-         0,
-         1073741856);
-  *((_QWORD *)this + 32) = v5;
+  *(_OWORD *)v3 = 0LL;
+  v3[2] = 0LL;
+  *(_QWORD *)(this[33].QuadPart + 8) = MmAllocatePagesForMdl(0LL, this[15], 0LL, 0x10000uLL);
+  v5 = *(struct _MDL **)(this[33].QuadPart + 8);
   if ( !v5 )
   {
-    _InterlockedIncrement(&dword_1C006E800);
-    WdLogSingleEntry1(6LL, 711LL);
+    _InterlockedIncrement(&dword_1C0050720);
+    v9 = WdLogNewEntry5_WdLowResource(0LL);
+    *(_QWORD *)(v9 + 24) = 719LL;
     goto LABEL_9;
   }
-  LogicalMemory = SysMmAllocateLogicalMemory(
-                    *(struct SYSMM_ADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 224LL),
-                    0x10000LL,
-                    *((const void **)this + 33),
-                    (void **)this + 61);
-  if ( LogicalMemory < 0 )
+  v6 = MmMapLockedPagesSpecifyCache(v5, 0, MmWriteCombined, 0LL, 0, 0x40000020u);
+  this[32].QuadPart = (LONGLONG)v6;
+  if ( !v6 )
   {
-    _InterlockedIncrement(&dword_1C006E800);
-    WdLogSingleEntry1(6LL, 723LL);
-    DxgkLogInternalTriageEvent(v9, 262145LL);
+    _InterlockedIncrement(&dword_1C0050750);
+    v9 = WdLogNewEntry5_WdLowResource(v7);
+    *(_QWORD *)(v9 + 24) = 713LL;
+LABEL_9:
+    WdLogEvent5_WdLowResource(v9);
+    return v2;
   }
-  else
-  {
-    return 0;
-  }
-  return (unsigned int)LogicalMemory;
+  return 0;
 }

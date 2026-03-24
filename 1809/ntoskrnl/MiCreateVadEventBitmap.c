@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateVadEventBitmap @ 0x1406961A8
+ * XREFs of MiCreateVadEventBitmap @ 0x140696188
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
  * Callees:
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
  *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     RtlClearAllBitsEx @ 0x1401102F0 (RtlClearAllBitsEx.c)
+ *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

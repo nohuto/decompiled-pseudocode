@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGenerateMdl @ 0x14058EB68
+ * XREFs of PopGenerateMdl @ 0x140387B68
  * Callers:
- *     PopAllocatePages @ 0x140AA1B08 (PopAllocatePages.c)
+ *     PopAllocatePages @ 0x140996B64 (PopAllocatePages.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePagesForMdlEx @ 0x1403547F0 (MmAllocatePagesForMdlEx.c)
  */
 
 PMDL __fastcall PopGenerateMdl(__int64 a1)
@@ -18,11 +18,11 @@ PMDL __fastcall PopGenerateMdl(__int64 a1)
   v4 = PagesForMdl;
   if ( PagesForMdl )
   {
-    PagesForMdl->Next = *(struct _MDL **)(qword_140C3CE60 + 128);
-    *(_QWORD *)(qword_140C3CE60 + 128) = PagesForMdl;
-    *(_QWORD *)(qword_140C3CE60 + 136) += a1;
+    PagesForMdl->Next = *(struct _MDL **)(qword_140C23A80 + 128);
+    *(_QWORD *)(qword_140C23A80 + 128) = PagesForMdl;
+    *(_QWORD *)(qword_140C23A80 + 136) += a1;
   }
   v5 = __rdtsc();
-  qword_140C3D3A8 += (((unsigned __int64)HIDWORD(v5) << 32) | (unsigned int)v5) - v2;
+  qword_140C23FA8 += (((unsigned __int64)HIDWORD(v5) << 32) | (unsigned int)v5) - v2;
   return v4;
 }

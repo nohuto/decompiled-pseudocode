@@ -1,11 +1,11 @@
 /*
- * XREFs of PiGetStateRootPath @ 0x14070E160
+ * XREFs of PiGetStateRootPath @ 0x14070E140
  * Callers:
- *     PiOpenDriverRedirectedStateKey @ 0x14070544C (PiOpenDriverRedirectedStateKey.c)
- *     PiCreateDriverRedirectedStateKey @ 0x140757218 (PiCreateDriverRedirectedStateKey.c)
- *     IoGetDeviceDirectory @ 0x140824A10 (IoGetDeviceDirectory.c)
- *     PiGetDriverMutableStateDirectory @ 0x140825674 (PiGetDriverMutableStateDirectory.c)
- *     PiOpenDriverRedirectedStateRootKey @ 0x140825948 (PiOpenDriverRedirectedStateRootKey.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x14070542C (PiOpenDriverRedirectedStateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407571F8 (PiCreateDriverRedirectedStateKey.c)
+ *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
+ *     PiGetDriverMutableStateDirectory @ 0x140825654 (PiGetDriverMutableStateDirectory.c)
+ *     PiOpenDriverRedirectedStateRootKey @ 0x140825928 (PiOpenDriverRedirectedStateRootKey.c)
  *     PiCreateDriverDataDirectoryRoot @ 0x1409D9820 (PiCreateDriverDataDirectoryRoot.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)

@@ -1,31 +1,23 @@
 /*
- * XREFs of DxgkCreateBundleObject @ 0x1C0326F80
+ * XREFs of DxgkCreateBundleObject @ 0x1C0277FF0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     DxgkCreateBundleObjectInternal @ 0x1C0327010 (DxgkCreateBundleObjectInternal.c)
+ *     DxgkCreateBundleObjectInternal @ 0x1C0278054 (DxgkCreateBundleObjectInternal.c)
  */
 
 __int64 __fastcall DxgkCreateBundleObject(__int64 a1)
 {
-  int v2; // edx
-  int v3; // ecx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   int v4; // r8d
+  __int64 v5; // rax
 
   if ( (unsigned __int8)PsGetCurrentThreadPreviousMode() != 1 )
   {
-    WdLogSingleEntry1(1LL, 2463LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"PsGetCurrentThreadPreviousMode() == UserMode",
-      2463LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v5 + 24) = 2228LL;
+    WdLogEvent5_WdAssertion(v5);
   }
   LOBYTE(v4) = 1;
   LOBYTE(v2) = 1;

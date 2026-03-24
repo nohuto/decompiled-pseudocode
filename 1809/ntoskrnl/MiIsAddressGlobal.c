@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsAddressGlobal @ 0x1400B22C0
+ * XREFs of MiIsAddressGlobal @ 0x1400B22E0
  * Callers:
  *     MiMakePageAvoidRead @ 0x1400348E0 (MiMakePageAvoidRead.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiRevertValidPte @ 0x1400B2340 (MiRevertValidPte.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
  * Callees:
  *     <none>
  */

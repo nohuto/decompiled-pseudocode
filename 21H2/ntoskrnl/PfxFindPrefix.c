@@ -1,56 +1,62 @@
 /*
- * XREFs of PfxFindPrefix @ 0x1409B7900
+ * XREFs of PfxFindPrefix @ 0x140911CE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     CompareNamesCaseSensitive @ 0x1409B7678 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x1409B7820 (ComputeNameLength.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
+ *     CompareNamesCaseSensitive @ 0x140911AD4 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x140911C54 (ComputeNameLength.c)
  */
 
 PPREFIX_TABLE_ENTRY __stdcall PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING FullName)
 {
-  CSHORT v4; // ax
-  PREFIX_TABLE *i; // rdi
-  RTL_SPLAY_LINKS *j; // rsi
+  PPREFIX_TABLE_ENTRY NextPrefixTree; // rdi
+  PPREFIX_TABLE v3; // rbp
+  CSHORT v5; // ax
+  RTL_SPLAY_LINKS *i; // rsi
   PREFIX_TABLE_ENTRY *p_LeftChild; // r14
   int v8; // eax
-  struct _PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
+  struct _PREFIX_TABLE_ENTRY *v10; // rbx
 
-  v4 = ComputeNameLength(&FullName->Length);
-  for ( i = (PREFIX_TABLE *)PrefixTable->NextPrefixTree; i->NameLength > v4; i = (PREFIX_TABLE *)i->NextPrefixTree )
-    PrefixTable = i;
+  NextPrefixTree = PrefixTable->NextPrefixTree;
+  v3 = PrefixTable;
+  v5 = ComputeNameLength(&FullName->Length);
+  while ( NextPrefixTree->NameLength > v5 )
+  {
+    v3 = (PPREFIX_TABLE)NextPrefixTree;
+    NextPrefixTree = NextPrefixTree->NextPrefixTree;
+  }
 LABEL_12:
-  if ( i->NameLength <= 0 )
+  if ( NextPrefixTree->NameLength <= 0 )
     return 0LL;
-  for ( j = (RTL_SPLAY_LINKS *)&i[1]; ; j = j->RightChild )
+  for ( i = &NextPrefixTree->Links; ; i = i->RightChild )
   {
     while ( 1 )
     {
-      if ( !j )
+      if ( !i )
       {
-        PrefixTable = i;
-        i = (PREFIX_TABLE *)i->NextPrefixTree;
+        v3 = (PPREFIX_TABLE)NextPrefixTree;
+        NextPrefixTree = NextPrefixTree->NextPrefixTree;
         goto LABEL_12;
       }
-      p_LeftChild = (PREFIX_TABLE_ENTRY *)&j[-1].LeftChild;
-      v8 = CompareNamesCaseSensitive((unsigned __int16 *)j[1].Parent, &FullName->Length);
+      p_LeftChild = (PREFIX_TABLE_ENTRY *)&i[-1].LeftChild;
+      v8 = CompareNamesCaseSensitive((unsigned __int16 *)i[1].Parent, &FullName->Length);
       if ( v8 != 3 )
         break;
-      j = j->LeftChild;
+      i = i->LeftChild;
     }
     if ( v8 )
       break;
   }
   if ( p_LeftChild->NodeTypeCode == 514 )
   {
-    NextPrefixTree = i->NextPrefixTree;
-    i->NextPrefixTree = 0LL;
-    i->NodeTypeCode = 514;
-    p_LeftChild = (PREFIX_TABLE_ENTRY *)&RtlSplay(j)[-1].LeftChild;
+    v10 = NextPrefixTree->NextPrefixTree;
+    NextPrefixTree->NextPrefixTree = 0LL;
+    NextPrefixTree->NodeTypeCode = 514;
+    p_LeftChild = (PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1].LeftChild;
     p_LeftChild->NodeTypeCode = 513;
-    PrefixTable->NextPrefixTree = p_LeftChild;
-    p_LeftChild->NextPrefixTree = NextPrefixTree;
+    v3->NextPrefixTree = p_LeftChild;
+    p_LeftChild->NextPrefixTree = v10;
   }
   return p_LeftChild;
 }

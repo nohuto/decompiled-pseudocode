@@ -1,57 +1,51 @@
 /*
- * XREFs of ?GetPreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C00E8234
+ * XREFs of ?GetPreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C0195970
  * Callers:
- *     ?GetPreviousFrameByDevice@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@PEBU2@@Z @ 0x1C01CD608 (-GetPreviousFrameByDevice@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@PEBU2@@Z.c)
- *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C01D39D4 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
+ *     ?GetPreviousFrameByDevice@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@PEBU2@@Z @ 0x1C019591C (-GetPreviousFrameByDevice@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@PEBU2@@Z.c)
+ *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C019B180 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
  * Callees:
- *     ?CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ @ 0x1C01BE95C (-CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ @ 0x1C018894C (-CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ.c)
  */
 
 struct CPointerInputFrame *__fastcall CTouchProcessor::GetPreviousFrameByDeviceInt(
-        CTouchProcessor *this,
+        struct _KTHREAD **this,
         const struct CPointerInputFrame *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  CTouchProcessor *v7; // rax
-  CTouchProcessor *v8; // rcx
-  __int64 v9; // rdx
-  char *v10; // rbx
-  unsigned int v12; // eax
-  __int64 v13; // rcx
-  bool v14; // zf
-  __int64 v15; // rcx
+  CTouchProcessor *v4; // rax
+  CTouchProcessor *v5; // rcx
+  char *v6; // rbx
+  unsigned int v7; // eax
+  unsigned int v8; // ecx
+  bool v9; // zf
 
   if ( !(unsigned int)CTouchProcessor::CTouchProcessorLocked(this) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, v4, v6);
-  v7 = (CTouchProcessor *)*((_QWORD *)a2 + 1);
-  v8 = (CTouchProcessor *)((char *)this + 48);
-  if ( v7 == (CTouchProcessor *)((char *)this + 48) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7850);
+  v4 = (CTouchProcessor *)*((_QWORD *)a2 + 1);
+  v5 = (CTouchProcessor *)(this + 7);
+  if ( v4 == (CTouchProcessor *)(this + 7) )
     return 0LL;
-  v9 = *((_QWORD *)a2 + 8);
-  while ( 1 )
+  do
   {
-    v10 = (char *)v7 - 8;
-    if ( *((_QWORD *)v7 + 7) == v9 )
+    v6 = (char *)v4 - 8;
+    if ( *((_QWORD *)v4 + 7) == *((_QWORD *)a2 + 8) )
       break;
-    v7 = *(CTouchProcessor **)v7;
-    if ( v7 == v8 )
-      return 0LL;
+    v4 = *(CTouchProcessor **)v4;
   }
-  v12 = *((_DWORD *)v10 + 13);
-  v13 = *((unsigned int *)v10 + 12);
-  v14 = v12 == (_DWORD)v13;
-  if ( v12 > (unsigned int)v13 )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, v6);
-    v14 = *((_DWORD *)v10 + 13) == *((_DWORD *)v10 + 12);
-  }
-  if ( v14 )
+  while ( v4 != v5 );
+  if ( v4 == v5 )
     return 0LL;
-  v15 = *((_QWORD *)a2 + 8);
-  if ( *((_QWORD *)v10 + 8) != v15 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v9, v6);
-  return (struct CPointerInputFrame *)v10;
+  v7 = *((_DWORD *)v6 + 13);
+  v8 = *((_DWORD *)v6 + 12);
+  v9 = v7 == v8;
+  if ( v7 > v8 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7872);
+    v9 = *((_DWORD *)v6 + 13) == *((_DWORD *)v6 + 12);
+  }
+  if ( v9 )
+    return 0LL;
+  if ( *((_QWORD *)v6 + 8) != *((_QWORD *)a2 + 8) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7880);
+  return (struct CPointerInputFrame *)v6;
 }

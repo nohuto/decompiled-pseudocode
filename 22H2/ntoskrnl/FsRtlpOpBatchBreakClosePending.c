@@ -1,23 +1,24 @@
 /*
- * XREFs of FsRtlpOpBatchBreakClosePending @ 0x14093E3FC
+ * XREFs of FsRtlpOpBatchBreakClosePending @ 0x14088BEAC
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140766820 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201C30 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     FsRtlpClearOwner @ 0x1402FD62C (FsRtlpClearOwner.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpModifyThreadPriorities @ 0x140358684 (FsRtlpModifyThreadPriorities.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     FsRtlpClearOwner @ 0x140375A58 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403798E4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F08CC (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 __int64 __fastcall FsRtlpOpBatchBreakClosePending(__int64 a1, __int64 a2, IRP *a3)
 {
   unsigned int v6; // edi
   int v8; // eax
-  _QWORD *v9; // rcx
-  unsigned int v10; // eax
+  int v9; // eax
+  _QWORD *v10; // rcx
+  unsigned int v11; // eax
 
   v6 = 0;
   if ( a1 )
@@ -30,23 +31,27 @@ __int64 __fastcall FsRtlpOpBatchBreakClosePending(__int64 a1, __int64 a2, IRP *a
         FsRtlpModifyThreadPriorities(a1, 0LL, 0);
         FsRtlpClearOwner(a1, 0LL);
         *(_BYTE *)(a1 + 32) = 0;
-        if ( (*(_DWORD *)(a1 + 144) & 2) != 0 )
-          ObfDereferenceObject(*(PVOID *)(a1 + 8));
-        *(_DWORD *)(a1 + 144) = *(_DWORD *)(a1 + 144) & 0x20 | 1;
+        v9 = *(_DWORD *)(a1 + 144);
+        if ( (v9 & 2) != 0 )
+        {
+          HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 8));
+          v9 = *(_DWORD *)(a1 + 144);
+        }
+        *(_DWORD *)(a1 + 144) = v9 & 0x20 | 1;
         *(_QWORD *)(a1 + 8) = 0LL;
         while ( 1 )
         {
-          v9 = *(_QWORD **)(a1 + 88);
-          if ( v9 == (_QWORD *)(a1 + 88) )
+          v10 = *(_QWORD **)(a1 + 88);
+          if ( v10 == (_QWORD *)(a1 + 88) )
             break;
-          FsRtlpRemoveAndCompleteWaitingIrp(v9);
+          FsRtlpRemoveAndCompleteWaitingIrp(v10);
         }
       }
       else
       {
-        v10 = v8 & 0xFE0FF0FF;
-        *(_DWORD *)(a1 + 144) = v10;
-        *(_DWORD *)(a1 + 144) = v10 | 0x800;
+        v11 = v8 & 0xFE0FF0FF;
+        *(_DWORD *)(a1 + 144) = v11;
+        *(_DWORD *)(a1 + 144) = v11 | 0x800;
       }
     }
     else

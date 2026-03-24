@@ -1,19 +1,19 @@
 /*
- * XREFs of ?SetStrength@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@QEAAJM@Z @ 0x1800F86E4
+ * XREFs of ?SetStrength@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@QEAAJM@Z @ 0x1800DE0EC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CParticleAttractorGeneratedT<CParticleAttractor,CResource>::SetStrength(float *a1, float a2)
 {
   __int64 v2; // rax
 
-  if ( a2 != a1[20] )
+  if ( a2 != a1[18] )
   {
     v2 = *(_QWORD *)a1;
-    a1[20] = a2;
+    a1[18] = a2;
     (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v2 + 72))(a1, 0LL, 0LL);
   }
   return 0LL;

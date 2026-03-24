@@ -1,82 +1,73 @@
 /*
- * XREFs of PsMapSystemDlls @ 0x1407A36D8
+ * XREFs of PsMapSystemDlls @ 0x1406FC94C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MiMapProcessExecutable @ 0x1407A35A0 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x1406FC5E0 (MiMapProcessExecutable.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PsWow64GetProcessNtdllType @ 0x1407A1C50 (PsWow64GetProcessNtdllType.c)
- *     PspMapSystemDll @ 0x1407A37F0 (PspMapSystemDll.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406120AC (PsWow64GetProcessNtdllType.c)
+ *     PspMapSystemDll @ 0x1406FCA38 (PspMapSystemDll.c)
  */
 
-__int64 __fastcall PsMapSystemDlls(__int64 a1, unsigned int a2)
+__int64 __fastcall PsMapSystemDlls(_KPROCESS *a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
-  int v2; // ebx
-  int v5; // r14d
-  int v6; // ebp
-  int v7; // r15d
-  __int64 v8; // rsi
-  _UNKNOWN **v9; // rdx
-  $115DCDF994C6370D29323EAB0E0C9502 v11; // [rsp+20h] [rbp-68h] BYREF
+  int v6; // ebx
+  int v7; // ebp
+  int v8; // edi
+  __int64 *v9; // r14
+  __int64 v10; // rdx
+  __int128 v12; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v13; // [rsp+30h] [rbp-58h]
+  __int128 v14; // [rsp+40h] [rbp-48h]
 
-  v2 = 0;
-  memset(&v11, 0, sizeof(v11));
-  if ( (_KPROCESS *)a1 == KeGetCurrentThread()->ApcState.Process )
+  v12 = 0LL;
+  v13 = 0LL;
+  v6 = 0;
+  v14 = 0LL;
+  if ( a1 == KeGetCurrentThread()->ApcState.Process )
   {
-    v5 = 0;
+    v7 = 0;
   }
   else
   {
-    v5 = 1;
-    KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v11);
+    v7 = 1;
+    KiStackAttachProcess(a1, 0LL, (__int64)&v12, a4);
   }
-  v6 = *(_QWORD *)(a1 + 1408) != 0LL;
-  if ( (*(_BYTE *)(a1 + 992) & 1) != 0 )
-    v6 = 2;
-  v7 = 0;
-  v8 = 0LL;
+  v8 = 0;
+  v9 = (__int64 *)&PspSystemDlls;
   while ( 1 )
   {
-    v9 = PspSystemDlls[v8];
-    if ( v9 )
+    v10 = *v9;
+    if ( *v9
+      && (v8 <= 0
+       || *(_WORD *)(v10 + 18)
+       && a1[1].AffinityPadding[10]
+       && v8 == (unsigned int)PsWow64GetProcessNtdllType((__int64)a1)) )
     {
-      if ( v8 )
-      {
-        if ( v6 == 1 )
-        {
-          if ( v7 != (unsigned int)PsWow64GetProcessNtdllType(a1) )
-            goto LABEL_7;
-        }
-        else if ( v6 != 2 || ((_DWORD)v9[1] & 0x40) == 0 )
-        {
-          goto LABEL_7;
-        }
-      }
-      v2 = PspMapSystemDll(
+      v6 = PspMapSystemDll(
              a1,
-             v9,
+             v10,
              a2,
              0LL,
-             v11.SavedApcState.ApcListHead[0].Flink,
-             v11.SavedApcState.ApcListHead[0].Blink,
-             v11.SavedApcState.ApcListHead[1].Flink,
-             v11.SavedApcState.ApcListHead[1].Blink,
-             v11.SavedApcState.Process,
-             *(_QWORD *)&v11.SavedApcStateFill[40]);
-      if ( v2 < 0 )
+             v12,
+             *((_QWORD *)&v12 + 1),
+             v13,
+             *((_QWORD *)&v13 + 1),
+             v14,
+             *((_QWORD *)&v14 + 1));
+      if ( v6 < 0 )
         break;
     }
-LABEL_7:
-    ++v7;
-    if ( ++v8 >= 7 )
-      goto LABEL_8;
+    ++v8;
+    ++v9;
+    if ( v8 >= 6 )
+      goto LABEL_9;
   }
-  if ( v6 == 1 )
-    v2 = -1073741405;
-LABEL_8:
-  if ( v5 )
-    KiUnstackDetachProcess(&v11);
-  return (unsigned int)v2;
+  if ( v8 > 0 )
+    v6 = -1073741405;
+LABEL_9:
+  if ( v7 )
+    KiUnstackDetachProcess((__int64)&v12, 0);
+  return (unsigned int)v6;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIWakeDisableAsync @ 0x1C00627FC
+ * XREFs of ACPIWakeDisableAsync @ 0x1C00619AC
  * Callers:
- *     OSNotifyDeviceWake @ 0x1C0059B80 (OSNotifyDeviceWake.c)
- *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0059E04 (OSNotifyDeviceWakeByGPEEvent.c)
- *     OSNotifyDeviceWakeByInterrupt @ 0x1C005A010 (OSNotifyDeviceWakeByInterrupt.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0058F78 (OSNotifyDeviceWakeByGPEEvent.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C0059198 (OSNotifyDeviceWakeByInterrupt.c)
  * Callees:
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1C001A120 (ExAllocateFromNPagedLookasideList.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     OSNotifyDeviceWakeCallBack @ 0x1C005A1F0 (OSNotifyDeviceWakeCallBack.c)
- *     ACPIWakeEnableDisableAsyncCallBack @ 0x1C00631D0 (ACPIWakeEnableDisableAsyncCallBack.c)
- *     ACPIWakeEnableDisablePciDevice @ 0x1C006352C (ACPIWakeEnableDisablePciDevice.c)
- *     WPP_RECORDER_SF_LLLqss @ 0x1C0063804 (WPP_RECORDER_SF_LLLqss.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIWakeEnableDisablePciDevice @ 0x1C002F754 (ACPIWakeEnableDisablePciDevice.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0059380 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeEnableDisableAsyncCallBack @ 0x1C0061EE0 (ACPIWakeEnableDisableAsyncCallBack.c)
+ *     WPP_RECORDER_SF_LLLqss @ 0x1C00624C4 (WPP_RECORDER_SF_LLLqss.c)
  */
 
 __int64 __fastcall ACPIWakeDisableAsync(__int64 a1, _QWORD **a2, __int64 a3, _QWORD **a4)
@@ -22,18 +22,18 @@ __int64 __fastcall ACPIWakeDisableAsync(__int64 a1, _QWORD **a2, __int64 a3, _QW
   _QWORD *v8; // rax
   int v9; // ebp
   void *v10; // rsi
-  void *v11; // r9
-  void *v12; // rdx
-  __int64 v13; // r8
+  __int64 v11; // r8
+  void *v12; // r9
+  void *v13; // rdx
   __int64 v14; // rcx
   int v15; // eax
   __int64 *v16; // r12
   __int64 v17; // rcx
   void *v18; // rax
-  _QWORD *v20; // rax
-  _QWORD *v21; // r14
+  __int64 *v20; // rax
+  __int64 *v21; // r14
   __int64 v22; // r15
-  _QWORD *v23; // rax
+  __int64 **v23; // rax
   __int64 v24; // r13
   __int64 v25; // rcx
   bool v26; // zf
@@ -59,46 +59,43 @@ __int64 __fastcall ACPIWakeDisableAsync(__int64 a1, _QWORD **a2, __int64 a3, _QW
     v8 = (_QWORD *)*v8;
     ++v9;
   }
-  v10 = &unk_1C006FB8B;
+  v10 = &unk_1C00701BA;
   NewIrql = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-  v11 = &unk_1C006FB8B;
-  v12 = &unk_1C006FB8B;
-  v13 = 0LL;
+  v11 = 0LL;
+  v12 = &unk_1C00701BA;
+  v13 = &unk_1C00701BA;
   if ( a1 )
   {
     v14 = *(_QWORD *)(a1 + 8);
-    v13 = a1;
+    v11 = a1;
     if ( (v14 & 0x200000000000LL) != 0 )
     {
-      v11 = *(void **)(a1 + 608);
+      v12 = *(void **)(a1 + 568);
       if ( (v14 & 0x400000000000LL) != 0 )
-        v12 = *(void **)(a1 + 616);
+        v13 = *(void **)(a1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v36 = v12;
-    v35 = v11;
-    v34 = v13;
-    v33 = *(_DWORD *)(a1 + 552) - v9;
+    v36 = v13;
+    v35 = v12;
+    v34 = v11;
+    v33 = *(_DWORD *)(a1 + 512) - v9;
     v32 = v9;
-    WPP_RECORDER_SF_LLLqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v12, v13, (_DWORD)v11);
+    WPP_RECORDER_SF_LLLqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v13, v11, (_DWORD)v12);
   }
-  v15 = *(_DWORD *)(a1 + 552) - v9;
-  *(_DWORD *)(a1 + 552) = v15;
-  v16 = *(__int64 **)(a1 + 456);
+  v15 = *(_DWORD *)(a1 + 512) - v9;
+  *(_DWORD *)(a1 + 512) = v15;
+  v16 = *(__int64 **)(a1 + 416);
   if ( !v16 )
     goto LABEL_14;
   if ( v15 )
   {
-    if ( _bittest64((const signed __int64 *)(a1 + 8), 0x3Bu) )
-    {
-      LOBYTE(v12) = 1;
-      ACPIWakeEnableDisablePciDevice(a1, v12);
-    }
+    if ( (*(_QWORD *)(a1 + 8) & 0x800000000000000LL) != 0 )
+      ACPIWakeEnableDisablePciDevice(a1, 1);
     goto LABEL_14;
   }
-  v20 = ExAllocateFromNPagedLookasideList(&XswContextLookAsideList);
+  v20 = (__int64 *)ExAllocateFromNPagedLookasideList(&XswContextLookAsideList);
   v21 = v20;
   if ( !v20 )
   {
@@ -106,12 +103,12 @@ __int64 __fastcall ACPIWakeDisableAsync(__int64 a1, _QWORD **a2, __int64 a3, _QW
 LABEL_14:
     KeReleaseSpinLock(&AcpiPowerLock, NewIrql);
     v17 = *(_QWORD *)(a1 + 8);
-    v18 = &unk_1C006FB8B;
+    v18 = &unk_1C00701BA;
     if ( (v17 & 0x200000000000LL) != 0 )
     {
-      v10 = *(void **)(a1 + 608);
+      v10 = *(void **)(a1 + 568);
       if ( (v17 & 0x400000000000LL) != 0 )
-        v18 = *(void **)(a1 + 616);
+        v18 = *(void **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_Lqss(
@@ -119,7 +116,7 @@ LABEL_14:
         4u,
         0x11u,
         0xEu,
-        (__int64)&WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+        (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
         v4,
         a1,
         (__int64)v10,
@@ -128,26 +125,26 @@ LABEL_14:
     return 259LL;
   }
   *((_BYTE *)v20 + 24) = 0;
-  v22 = a1 + 560;
-  v20[5] = a4;
-  v20[4] = OSNotifyDeviceWakeCallBack;
+  v22 = a1 + 520;
+  v20[5] = (__int64)a4;
+  v20[4] = (__int64)OSNotifyDeviceWakeCallBack;
   v20[2] = a1;
   *((_DWORD *)v20 + 7) = v9;
-  v23 = *(_QWORD **)(a1 + 568);
-  v24 = *(_QWORD *)(a1 + 560);
-  if ( *v23 != a1 + 560 )
+  v23 = *(__int64 ***)(a1 + 528);
+  v24 = *(_QWORD *)(a1 + 520);
+  if ( *v23 != (__int64 *)(a1 + 520) )
     __fastfail(3u);
   *v21 = v22;
-  v21[1] = v23;
+  v21[1] = (__int64)v23;
   *v23 = v21;
-  *(_QWORD *)(a1 + 568) = v21;
+  *(_QWORD *)(a1 + 528) = v21;
   KeReleaseSpinLock(&AcpiPowerLock, NewIrql);
   v25 = *(_QWORD *)(a1 + 8);
   if ( v24 == v22 )
   {
     if ( (v25 & 0x800000000000000LL) != 0 )
-      ACPIWakeEnableDisablePciDevice(a1, 0LL);
-    v26 = (*(_DWORD *)(a1 + 600) & 0x40) == 0;
+      ACPIWakeEnableDisablePciDevice(a1, 0);
+    v26 = (*(_DWORD *)(a1 + 560) & 0x40) == 0;
     v38[2] = 0LL;
     WORD1(v38[0]) = 1;
     if ( v26 )
@@ -164,12 +161,12 @@ LABEL_14:
     }
     v28 = *(_QWORD *)(a1 + 8);
     v29 = v27;
-    v30 = &unk_1C006FB8B;
+    v30 = &unk_1C00701BA;
     if ( (v28 & 0x200000000000LL) != 0 )
     {
-      v10 = *(void **)(a1 + 608);
+      v10 = *(void **)(a1 + 568);
       if ( (v28 & 0x400000000000LL) != 0 )
-        v30 = *(void **)(a1 + 616);
+        v30 = *(void **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_Lqss(
@@ -177,7 +174,7 @@ LABEL_14:
         4u,
         0x11u,
         0xCu,
-        (__int64)&WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+        (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
         v29,
         a1,
         (__int64)v10,
@@ -187,12 +184,12 @@ LABEL_14:
   }
   else
   {
-    v31 = &unk_1C006FB8B;
+    v31 = &unk_1C00701BA;
     if ( (v25 & 0x200000000000LL) != 0 )
     {
-      v10 = *(void **)(a1 + 608);
+      v10 = *(void **)(a1 + 568);
       if ( (v25 & 0x400000000000LL) != 0 )
-        v31 = *(void **)(a1 + 616);
+        v31 = *(void **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_Lqss(
@@ -200,7 +197,7 @@ LABEL_14:
         4u,
         0x11u,
         0xDu,
-        (__int64)&WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+        (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
         3,
         a1,
         (__int64)v10,

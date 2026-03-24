@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetActivationObjectFromLuid@CActivationObjectManager@@AEBAPEAVCActivationObject@@AEBU_LUID@@@Z @ 0x1C0091660
+ * XREFs of ?GetActivationObjectFromLuid@CActivationObjectManager@@AEBAPEAVCActivationObject@@AEBU_LUID@@@Z @ 0x1C009CE9C
  * Callers:
- *     ?ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@W4ACTIVATION_OBJECT_CONFIG_BEHAVIOR@@W4ACTIVATION_OBJECT_STATE@@3@Z @ 0x1C00913AC (-ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHAN.c)
- *     ?DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z @ 0x1C01427AC (-DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z.c)
- *     ?QueryActivationObjectData@CActivationObjectManager@@QEAAJAEBU_LUID@@PEAU_tagActivationObjectData@@@Z @ 0x1C0142ABC (-QueryActivationObjectData@CActivationObjectManager@@QEAAJAEBU_LUID@@PEAU_tagActivationObjectDat.c)
- *     ?SetForeground@CActivationObjectManager@@AEAAJPEAVCActivationObject@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@W4ACTIVATION_OBJECT_CONFIG_BEHAVIOR@@PEAVForegroundChangeTracker@1@@Z @ 0x1C0142BC0 (-SetForeground@CActivationObjectManager@@AEAAJPEAVCActivationObject@@W4ACTIVATIONOBJECTSTATECHAN.c)
- *     ?SetForegroundRedirectionLuid@CActivationObjectManager@@QEAAJAEBU_LUID@@0@Z @ 0x1C0142DB0 (-SetForegroundRedirectionLuid@CActivationObjectManager@@QEAAJAEBU_LUID@@0@Z.c)
+ *     NtUserDestroyActivationObject @ 0x1C0002FB0 (NtUserDestroyActivationObject.c)
+ *     ?QueryActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@AEAU_tagActivationObjectInformation@@@Z @ 0x1C009CDB4 (-QueryActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@AEAU_tagActivationObjectInforma.c)
+ *     ?ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@W4ACTIVATION_OBJECT_STATE@@2@Z @ 0x1C0127AC0 (-ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHAN.c)
+ *     ?GetForegroundWindowForGroup@CActivationObjectManager@@QEAAPEAUHWND__@@AEBUACTIVATION_GROUP_ID@@@Z @ 0x1C0127C80 (-GetForegroundWindowForGroup@CActivationObjectManager@@QEAAPEAUHWND__@@AEBUACTIVATION_GROUP_ID@@.c)
+ *     ?SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActivationObject@@@Z @ 0x1C0127D0C (-SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActiv.c)
  * Callees:
  *     <none>
  */
@@ -20,10 +20,10 @@ struct CActivationObject *__fastcall CActivationObjectManager::GetActivationObje
   __int64 v5; // rsi
   __int64 v6; // rdi
 
-  v2 = *((_DWORD *)this + 1);
+  v2 = *((_DWORD *)this + 5);
   v3 = 0LL;
   v4 = 0LL;
-  v5 = -1LL << (*((_BYTE *)this + 4) & 0x1F);
+  v5 = -1LL << (*((_BYTE *)this + 20) & 0x1F);
   v6 = v5 & (HIBYTE(a2->HighPart)
            + 37
            * (BYTE2(a2->HighPart)
@@ -34,12 +34,13 @@ struct CActivationObject *__fastcall CActivationObjectManager::GetActivationObje
               + 37
               * (HIBYTE(a2->LowPart)
                + 37 * (BYTE2(a2->LowPart) + 37 * (BYTE1(a2->LowPart) + 37 * (LOBYTE(a2->LowPart) + 11623883LL))))))));
-LABEL_2:
-  if ( v4 )
-    goto LABEL_5;
-  if ( v2 >> 5 )
+  while ( 1 )
   {
-    v4 = *((_QWORD *)this + 1)
+    if ( v4 )
+      goto LABEL_5;
+    if ( !(v2 >> 5) )
+      return (struct CActivationObject *)v3;
+    v4 = *((_QWORD *)this + 3)
        + 8LL
        * ((37
          * (BYTE6(v6)
@@ -55,14 +56,13 @@ LABEL_5:
       if ( (v4 & 1) != 0 )
         break;
       if ( v6 == (v5 & *(_QWORD *)(v4 + 8)) )
-      {
-        if ( !v4 )
-          return (struct CActivationObject *)v3;
-        if ( a2->LowPart == *(_DWORD *)(v4 + 32) && a2->HighPart == *(_DWORD *)(v4 + 36) )
-          return (struct CActivationObject *)(v4 - 8);
-        goto LABEL_2;
-      }
+        goto LABEL_7;
     }
+    v4 = 0LL;
+LABEL_7:
+    if ( !v4 )
+      return (struct CActivationObject *)v3;
+    if ( a2->LowPart == *(_DWORD *)(v4 + 56) && a2->HighPart == *(_DWORD *)(v4 + 60) )
+      return (struct CActivationObject *)(v4 - 8);
   }
-  return (struct CActivationObject *)v3;
 }

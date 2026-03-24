@@ -1,30 +1,22 @@
 /*
- * XREFs of ?LockKbdLayoutListHead@@YAPEAUtagKL@@PEAUtagWINDOWSTATION@@PEAU1@@Z @ 0x1C00C4464
+ * XREFs of ?LockKbdLayoutListHead@@YAPEAUtagKL@@PEAUtagWINDOWSTATION@@PEAU1@@Z @ 0x1C000BCE4
  * Callers:
- *     ?xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C0064AFC (-xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C00673D0 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
- *     ?ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z @ 0x1C01E4678 (-ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z.c)
+ *     ?xxxInternalUnloadKeyboardLayout@@YAHPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C00090AC (-xxxInternalUnloadKeyboardLayout@@YAHPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0009AD8 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z @ 0x1C01AABD4 (-ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z.c)
  * Callees:
- *     HMAssignmentLock @ 0x1C004FF50 (HMAssignmentLock.c)
+ *     HMAssignmentLock @ 0x1C0031780 (HMAssignmentLock.c)
  */
 
 struct tagKL *__fastcall LockKbdLayoutListHead(struct tagWINDOWSTATION *a1, struct tagKL *a2)
 {
   __int64 *v2; // rax
-  int v3; // edx
-  __int64 *v5[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v4[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v5[1] = (__int64 *)a2;
-  if ( a1 )
-  {
-    v2 = (__int64 *)((char *)a1 + 72);
-    v3 = 1;
-  }
-  else
-  {
+  v4[1] = a2;
+  v2 = (__int64 *)((char *)a1 + 72);
+  if ( !a1 )
     v2 = &gspklWinstaLessSessionLayouts;
-    v3 = 0;
-  }
-  v5[0] = v2;
-  return (struct tagKL *)HMAssignmentLock(v5, v3);
+  v4[0] = v2;
+  return (struct tagKL *)HMAssignmentLock(v4);
 }

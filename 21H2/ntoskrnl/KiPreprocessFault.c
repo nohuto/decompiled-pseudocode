@@ -1,200 +1,140 @@
 /*
- * XREFs of KiPreprocessFault @ 0x140299840
+ * XREFs of KiPreprocessFault @ 0x140273930
  * Callers:
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x140299A64 (KiOpDecode.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiOpPreprocessSecureFault @ 0x14056ABF0 (KiOpPreprocessSecureFault.c)
- *     KiEnableOptionalXStateFeatures @ 0x14056FE5C (KiEnableOptionalXStateFeatures.c)
- *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057B504 (KiOpCheckUnhandledSecurePciAccessViolation.c)
- *     KiEmulateAtlThunk @ 0x14057D2A8 (KiEmulateAtlThunk.c)
+ *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiOpPreprocessSecureFault @ 0x140514C00 (KiOpPreprocessSecureFault.c)
+ *     KiCheckForAtlThunk @ 0x140524544 (KiCheckForAtlThunk.c)
  */
 
 char __fastcall KiPreprocessFault(ULONG_PTR a1, ULONG_PTR a2, char a3)
 {
   int v6; // r8d
-  char v7; // r14
-  __int16 v8; // ax
+  __int16 v7; // ax
+  void *v8; // rcx
   void *v9; // rdx
-  void *v10; // rcx
-  bool v11; // cf
-  int v12; // edi
-  int v13; // eax
-  __int64 v14; // r14
-  char v15; // si
-  char v16; // cl
-  struct _KTHREAD *CurrentThread; // rdx
-  void *v19; // rax
+  bool v10; // cf
+  int v11; // esi
+  int v12; // eax
+  __int64 v13; // rbp
+  char v14; // di
+  unsigned __int16 v16; // ax
+  struct _KTHREAD *CurrentThread; // rcx
+  void *v18; // rax
   unsigned __int16 SListFaultCount; // ax
-  unsigned __int16 v21; // ax
-  int v22; // eax
-  _QWORD v23[14]; // [rsp+30h] [rbp-39h] BYREF
+  _QWORD v20[14]; // [rsp+30h] [rbp-78h] BYREF
 
-  memset(v23, 0, sizeof(v23));
-  v7 = 0;
+  memset(v20, 0, 0x68uLL);
   switch ( *(_DWORD *)a1 )
   {
     case 0x10000001:
-      v12 = 0x80000000;
-      goto LABEL_29;
+      v11 = 0x80000000;
+      break;
     case 0x10000002:
-      goto LABEL_41;
-    case 0x10000003:
-      v12 = 0x20000000;
-      *(_DWORD *)a1 = -1073741676;
-      goto LABEL_10;
-  }
-  if ( *(_DWORD *)a1 != 268435460 )
-  {
-    if ( *(_DWORD *)a1 == 268435462 )
-    {
-      v7 = 1;
-      if ( (unsigned __int8)KiOpPreprocessSecureFault(a1, a2) )
-        return 1;
-      goto LABEL_5;
-    }
-    if ( *(_DWORD *)a1 != 268435463 )
-    {
-      if ( *(_DWORD *)a1 != 268435472 )
-        return 0;
-      if ( (int)KiEnableOptionalXStateFeatures(KeGetCurrentThread(), *(_QWORD *)(a1 + 32)) >= 0 )
-        return 1;
-LABEL_41:
-      v12 = 0x40000000;
+      v11 = 0x40000000;
       *(_DWORD *)a1 = -1073741795;
       goto LABEL_10;
-    }
-    v12 = 0x4000000;
-LABEL_29:
-    *(_DWORD *)a1 = -1073741819;
-    goto LABEL_10;
-  }
+    case 0x10000003:
+      v11 = 0x20000000;
+      *(_DWORD *)a1 = -1073741676;
+      goto LABEL_10;
+    case 0x10000004:
 LABEL_5:
-  v8 = *(_WORD *)(a2 + 56);
-  if ( v8 == 16 )
-  {
-    v9 = &ExpInterlockedPopEntrySListFault;
-    v10 = &ExpInterlockedPopEntrySListResume;
-  }
-  else
-  {
-    if ( v8 != 51 )
-      goto LABEL_8;
-    v9 = (void *)qword_140D071B0;
-    v10 = (void *)qword_140D071B8;
-  }
-  if ( *(void **)(a2 + 248) != v9 )
-    goto LABEL_8;
-  if ( v8 == 16 )
-  {
-    *(_QWORD *)(a2 + 248) = v10;
-    if ( (_BYTE)KiKernelCetEnabled && (*(_DWORD *)(a2 + 48) & 0x100080) == 0x100080 )
-      *(_QWORD *)(*(int *)(a2 + 1256) + a2 + 1240) = v10;
-    return 1;
-  }
-  CurrentThread = KeGetCurrentThread();
-  v19 = *(void **)(a1 + 40);
-  if ( v19 == CurrentThread->SListFaultAddress )
-  {
-    SListFaultCount = CurrentThread->SListFaultCount;
-    v6 = 1024;
-    if ( SListFaultCount > 0x400u )
-    {
-      CurrentThread->SListFaultCount = 0;
-LABEL_8:
-      v11 = *(_DWORD *)(a1 + 24) < 2u;
-      v12 = 0x10000000;
-      *(_DWORD *)a1 = -1073741819;
-      if ( v11 || (*(_BYTE *)(a1 + 32) & 8) == 0 )
+      v7 = *(_WORD *)(a2 + 56);
+      if ( v7 == 16 )
       {
-LABEL_10:
-        LOBYTE(v6) = a3;
-        v13 = KiOpDecode(a1, a2, v6, v12, v23);
-        if ( v13 < 0 )
+        v8 = &ExpInterlockedPopEntrySListFault;
+        v9 = &ExpInterlockedPopEntrySListResume;
+      }
+      else
+      {
+        if ( v7 != 51 )
+          goto LABEL_8;
+        v8 = (void *)KeUserPopEntrySListFault;
+        v9 = (void *)KeUserPopEntrySListResume;
+      }
+      if ( *(void **)(a2 + 248) != v8 )
+      {
+LABEL_8:
+        v10 = *(_DWORD *)(a1 + 24) < 2u;
+        v11 = 0x10000000;
+        *(_DWORD *)a1 = -1073741819;
+        if ( v10 || (*(_BYTE *)(a1 + 32) & 8) == 0 )
+          goto LABEL_10;
+        if ( a3 )
         {
-          v15 = 0;
+          v11 = 0x8000000;
+          goto LABEL_10;
+        }
+        return 0;
+      }
+      if ( v7 != 16 )
+      {
+        CurrentThread = KeGetCurrentThread();
+        v18 = *(void **)(a1 + 40);
+        if ( v18 == CurrentThread->SListFaultAddress )
+        {
+          SListFaultCount = CurrentThread->SListFaultCount;
+          v6 = 1024;
+          if ( SListFaultCount > 0x400u )
+          {
+            CurrentThread->SListFaultCount = 0;
+            goto LABEL_8;
+          }
+          v16 = SListFaultCount + 1;
         }
         else
         {
-          if ( v7 )
-          {
-            HIDWORD(v23[7]) |= 0x2000000u;
-            v23[13] = -1LL;
-          }
-          v14 = v23[11];
-          if ( v23[11] )
-            v13 = (*(__int64 (__fastcall **)(_QWORD *))(v23[11] + 16LL))(v23);
-          v15 = 0;
-          if ( v13 >= 0 && v14 )
-          {
-            v16 = v23[12];
-            v15 = v23[12];
-            if ( LOBYTE(v23[12]) )
-              return v15;
-LABEL_17:
-            if ( v12 == 0x80000000 )
-            {
-              if ( *(_DWORD *)a1 == -1073741819 && !BYTE1(v23[12]) )
-              {
-                *(_DWORD *)(a1 + 24) = 2;
-                *(_QWORD *)(a1 + 40) = -1LL;
-                *(_QWORD *)(a1 + 32) = 0LL;
-              }
-            }
-            else if ( v12 == 0x8000000 )
-            {
-              if ( BYTE2(v23[7]) )
-              {
-                if ( (*(_BYTE *)(v23[4] + 32LL) & 8) != 0 && *(_QWORD *)(v23[4] + 40LL) == v23[0] )
-                {
-                  v22 = KiEmulateAtlThunk(
-                          LODWORD(v23[3]) + 248,
-                          LODWORD(v23[3]) + 152,
-                          LODWORD(v23[3]) + 120,
-                          LODWORD(v23[3]) + 128,
-                          v23[3] + 136LL);
-                  v16 = v23[12];
-                  if ( v22 )
-                    return 1;
-                }
-              }
-              return v16;
-            }
-            else if ( v12 == 0x10000000 && (v23[7] & 0x200000000000000LL) != 0 )
-            {
-              KiOpCheckUnhandledSecurePciAccessViolation(v23, a1);
-              if ( *(_DWORD *)a1 == 268435465 )
-                KeBugCheckEx(
-                  0x1EAu,
-                  *(_QWORD *)(a1 + 32),
-                  *(_QWORD *)(a1 + 40),
-                  *(_QWORD *)(a1 + 48),
-                  *(_QWORD *)(a1 + 56));
-            }
-            return v15;
-          }
+          CurrentThread->SListFaultAddress = v18;
+          v16 = 0;
         }
-        v16 = v23[12];
-        goto LABEL_17;
+        CurrentThread->SListFaultCount = v16;
       }
-      if ( a3 )
-      {
-        v12 = 0x8000000;
-        goto LABEL_10;
-      }
+      *(_QWORD *)(a2 + 248) = v9;
+      return 1;
+    case 0x10000006:
+      if ( (unsigned __int8)KiOpPreprocessSecureFault(a1, a2) )
+        return 1;
+      goto LABEL_5;
+    case 0x10000007:
+      v11 = 0x4000000;
+      break;
+    default:
       return 0;
-    }
-    v21 = SListFaultCount + 1;
+  }
+  *(_DWORD *)a1 = -1073741819;
+LABEL_10:
+  LOBYTE(v6) = a3;
+  v12 = KiOpDecode(a1, a2, v6, v11, v20);
+  if ( v12 < 0 )
+  {
+    v13 = 0LL;
   }
   else
   {
-    CurrentThread->SListFaultAddress = v19;
-    v21 = 0;
+    v13 = v20[11];
+    if ( v20[11] )
+      v12 = (*(__int64 (__fastcall **)(_QWORD *))(v20[11] + 16LL))(v20);
   }
-  CurrentThread->SListFaultCount = v21;
-  *(_QWORD *)(a2 + 248) = v10;
-  return 1;
+  v14 = 0;
+  if ( v12 < 0 || !v13 || (v14 = v20[12]) == 0 )
+  {
+    if ( v11 == 0x80000000 )
+    {
+      if ( *(_DWORD *)a1 == -1073741819 && !BYTE1(v20[12]) )
+      {
+        *(_QWORD *)(a1 + 40) = -1LL;
+        *(_DWORD *)(a1 + 24) = 2;
+        *(_QWORD *)(a1 + 32) = 0LL;
+      }
+    }
+    else if ( v11 == 0x8000000 && (int)KiCheckForAtlThunk(v20) >= 0 )
+    {
+      return v20[12];
+    }
+  }
+  return v14;
 }

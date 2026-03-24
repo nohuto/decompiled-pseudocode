@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlObjectActionCallback @ 0x14077AA70
+ * XREFs of PiPnpRtlObjectActionCallback @ 0x140636410
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     PiDmGetObjectList @ 0x1406DD014 (PiDmGetObjectList.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x14077AD94 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x14077AF18 (PiDmObjectGetCachedObjectProperty.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14077B6F4 (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x14077B908 (PiPnpRtlCacheObjectBaseKey.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     PiDrvDbMountNode @ 0x14095C12C (PiDrvDbMountNode.c)
- *     PiDrvDbUnmountNode @ 0x14095DFB0 (PiDrvDbUnmountNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x140636754 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406368E0 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14063704C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14063726C (PiPnpRtlCacheObjectBaseKey.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     PiDmGetObjectList @ 0x1406C0378 (PiDmGetObjectList.c)
+ *     PiDrvDbMountNode @ 0x1408B6074 (PiDrvDbMountNode.c)
+ *     PiDrvDbUnmountNode @ 0x1408B8278 (PiDrvDbUnmountNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int a3, int a4, int a5, __int64 a6)
@@ -27,14 +27,14 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int
   int ObjectList; // eax
   int v16; // r8d
   bool v17; // zf
-  int v19; // eax
-  void *Pool2; // r14
-  unsigned int v21; // eax
+  PVOID PoolWithTag; // r14
+  unsigned int v20; // eax
   int ObjectProperty; // edi
-  unsigned int v23; // edx
-  _WORD *v24; // r9
-  _DWORD *v25; // [rsp+28h] [rbp-70h]
-  void *Buf2; // [rsp+30h] [rbp-68h]
+  int v22; // eax
+  int v23; // edx
+  __int64 v24; // r9
+  __int64 v25; // [rsp+28h] [rbp-70h]
+  void *v26; // [rsp+30h] [rbp-68h]
   int v27; // [rsp+38h] [rbp-60h]
   size_t Size; // [rsp+60h] [rbp-38h] BYREF
   _QWORD v29[3]; // [rsp+68h] [rbp-30h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int
       *(_QWORD *)(v6 + 8) = 1LL;
       return v10;
     }
-LABEL_15:
+LABEL_21:
     *(_DWORD *)v6 = ObjectList;
     return (unsigned int)-1073741536;
   }
@@ -86,7 +86,7 @@ LABEL_15:
     v10 = ObjectList;
     if ( ObjectList >= 0 )
       return v10;
-    goto LABEL_15;
+    goto LABEL_21;
   }
   v13 = v12 - 1;
   if ( !v13 )
@@ -94,16 +94,16 @@ LABEL_15:
     if ( a5 != 1 || (*(_DWORD *)(a6 + 56) & 0x10000) != 0 )
       return v10;
     v23 = *(_DWORD *)(a6 + 40);
-    v24 = *(_WORD **)(a6 + 32);
+    v24 = *(_QWORD *)(a6 + 32);
     if ( a3 >= 7 )
       return 0;
-    v25 = *(_DWORD **)(a6 + 48);
+    v25 = *(_QWORD *)(a6 + 48);
     v29[0] = *(_QWORD *)(a6 + 16);
     v29[1] = *(_QWORD *)(a6 + 24);
-    ObjectList = PiDmGetObjectList((unsigned int)a3, (__int64)PiDmPnpObjectMatchCallback, (__int64)v29, v24, v23, v25);
+    ObjectList = PiDmGetObjectList(a3, (unsigned int)PiDmPnpObjectMatchCallback, (unsigned int)v29, v24, v23, v25);
     if ( ObjectList == -1073741802 )
       return 0;
-    goto LABEL_15;
+    goto LABEL_21;
   }
   v14 = v13 - 3;
   if ( !v14 )
@@ -143,7 +143,7 @@ LABEL_15:
           goto LABEL_13;
         }
       }
-      goto LABEL_15;
+      goto LABEL_21;
     }
     if ( (*(_DWORD *)(a6 + 72) & 0x10000) != 0 )
       return v10;
@@ -154,9 +154,9 @@ LABEL_15:
       return 0;
     }
     v27 = **(_DWORD **)(a6 + 64);
-    Buf2 = *(void **)(a6 + 48);
-    v19 = **(_DWORD **)(a6 + 40);
-    goto LABEL_23;
+    v26 = *(void **)(a6 + 48);
+    v22 = **(_DWORD **)(a6 + 40);
+    goto LABEL_33;
   }
   if ( v14 != 1 )
     return v10;
@@ -165,64 +165,56 @@ LABEL_15:
     if ( *(int *)a6 < 0 )
       return v10;
     v27 = *(_DWORD *)(a6 + 56);
-    Buf2 = *(void **)(a6 + 48);
-    v19 = *(_DWORD *)(a6 + 40);
-LABEL_23:
-    PiDmObjectUpdateCachedObjectProperty(a3, (int)a2, a3, *(_QWORD *)(a6 + 24), *(_QWORD *)(a6 + 32), v19, Buf2, v27);
+    v26 = *(void **)(a6 + 48);
+    v22 = *(_DWORD *)(a6 + 40);
+LABEL_33:
+    PiDmObjectUpdateCachedObjectProperty(a3, (int)a2, a3, *(_QWORD *)(a6 + 24), *(_QWORD *)(a6 + 32), v22, v26, v27);
     return 0;
   }
   v10 = 0;
   if ( (*(_DWORD *)(a6 + 60) & 0x20000) != 0 )
-  {
-LABEL_47:
-    v17 = *(_QWORD *)(v6 + 16) == 0LL;
-LABEL_13:
-    if ( v17 )
-      PiPnpRtlCacheObjectBaseKey(a1, a2, (unsigned int)a3);
-    return v10;
-  }
+    goto LABEL_45;
   v30 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   LODWORD(Size) = 0;
-  v21 = *(_DWORD *)(a6 + 56);
-  if ( v21 )
+  v20 = *(_DWORD *)(a6 + 56);
+  if ( !v20 || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, v20, 0x47706E50u)) != 0LL )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v21, 1198550608LL);
-    if ( !Pool2 )
-      return v10;
-  }
-  ObjectProperty = PnpGetObjectProperty(
-                     PiPnpRtlCtx,
-                     (_DWORD)a2,
-                     a3,
-                     *(_QWORD *)(v6 + 16),
-                     *(_QWORD *)(v6 + 24),
-                     *(_QWORD *)(v6 + 32),
-                     (__int64)&v30,
-                     (__int64)Pool2,
-                     *(_DWORD *)(v6 + 56),
-                     (__int64)&Size,
-                     0);
-  if ( ObjectProperty < 0 )
-    goto LABEL_69;
-  if ( v30 != *(_DWORD *)(v6 + 40) || (_DWORD)Size != *(_DWORD *)(v6 + 56) )
-    goto LABEL_33;
-  if ( memcmp(Pool2, *(const void **)(v6 + 48), (unsigned int)Size) )
-  {
-LABEL_69:
-    if ( ObjectProperty != -1073741275 || *(_DWORD *)(v6 + 40) || *(_DWORD *)(v6 + 56) )
+    if ( (ObjectProperty = PnpGetObjectProperty(
+                             PiPnpRtlCtx,
+                             (_DWORD)a2,
+                             a3,
+                             *(_QWORD *)(v6 + 16),
+                             *(_QWORD *)(v6 + 24),
+                             *(_QWORD *)(v6 + 32),
+                             (__int64)&v30,
+                             (__int64)PoolWithTag,
+                             *(_DWORD *)(v6 + 56),
+                             (__int64)&Size,
+                             0),
+          ObjectProperty >= 0)
+      && v30 == *(_DWORD *)(v6 + 40)
+      && (_DWORD)Size == *(_DWORD *)(v6 + 56)
+      && !memcmp(PoolWithTag, *(const void **)(v6 + 48), (unsigned int)Size)
+      || ObjectProperty == -1073741275 && !*(_DWORD *)(v6 + 40) && !*(_DWORD *)(v6 + 56) )
     {
-LABEL_33:
+      *(_DWORD *)v6 = ObjectProperty;
+      v10 = -1073741536;
+    }
+    else
+    {
       v10 = 0;
-      goto LABEL_44;
+    }
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x47706E50u);
+    if ( !v10 )
+    {
+LABEL_45:
+      v17 = *(_QWORD *)(v6 + 16) == 0LL;
+LABEL_13:
+      if ( v17 )
+        PiPnpRtlCacheObjectBaseKey(a1, a2, (unsigned int)a3);
     }
   }
-  *(_DWORD *)v6 = ObjectProperty;
-  v10 = -1073741536;
-LABEL_44:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x47706E50u);
-  if ( !v10 )
-    goto LABEL_47;
   return v10;
 }

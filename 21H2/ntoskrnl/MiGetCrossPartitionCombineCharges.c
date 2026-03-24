@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetCrossPartitionCombineCharges @ 0x1405B6108
+ * XREFs of MiGetCrossPartitionCombineCharges @ 0x14055CF3C
  * Callers:
- *     MiConvertStandbyToProto @ 0x140227490 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x140272A10 (MiConvertPrivateToProto.c)
- *     MiIncrementCombinedPte @ 0x1405B6210 (MiIncrementCombinedPte.c)
+ *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
+ *     MiIncrementCombinedPte @ 0x14055D044 (MiIncrementCombinedPte.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x14026A784 (MiAcquireNonPagedResources.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiGetCrossPartitionCharges @ 0x1405BE6F4 (MiGetCrossPartitionCharges.c)
+ *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiGetCrossPartitionCharges @ 0x140562428 (MiGetCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCombineCharges(__int64 a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall MiGetCrossPartitionCombineCharges(__int64 a1, int a2)
   signed __int32 v8; // eax
 
   v4 = 1LL;
-  if ( a2 && (int)MiAcquireNonPagedResources(a1, 1LL, 0LL, 0) < 0 )
+  if ( a2 && (int)MiAcquireNonPagedResources((ULONG_PTR *)a1, 1uLL, 0LL, 0) < 0 )
     return 0LL;
   if ( (int)MiGetCrossPartitionCharges(a1, 2LL, 1LL, 1LL) < 0 )
   {
@@ -57,7 +57,7 @@ __int64 __fastcall MiGetCrossPartitionCombineCharges(__int64 a1, int a2)
       }
       if ( v4 )
 LABEL_15:
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v4);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v4);
     }
     return 0LL;
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBFDO_IoctlGetNodeInformation @ 0x1C0076044
+ * XREFs of HUBFDO_IoctlGetNodeInformation @ 0x1C0074CA8
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C0078740 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBFDO_BuildUsb20HubDescriptor @ 0x1C000D474 (HUBFDO_BuildUsb20HubDescriptor.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0030B10 (HUBMISC_GetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     HUBFDO_IoctlValidateParameters @ 0x1C0075D84 (HUBFDO_IoctlValidateParameters.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBFDO_BuildUsb20HubDescriptor @ 0x1C000D098 (HUBFDO_BuildUsb20HubDescriptor.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00749E4 (HUBFDO_IoctlValidateParameters.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlGetNodeInformation(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -31,7 +31,7 @@ __int64 __fastcall HUBFDO_IoctlGetNodeInformation(__int64 a1, __int64 a2, unsign
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v7,
-         off_1C0067198);
+         off_1C0066170);
   v9 = HUBFDO_IoctlValidateParameters(v8, 0LL, a4, 0LL, 0x4CuLL, a3);
   if ( v9 >= 0 )
   {
@@ -56,8 +56,8 @@ __int64 __fastcall HUBFDO_IoctlGetNodeInformation(__int64 a1, __int64 a2, unsign
         *(_QWORD *)(v8 + 2520),
         2u,
         3u,
-        0x2Bu,
-        (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+        0x27u,
+        (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
         v15);
     }
   }

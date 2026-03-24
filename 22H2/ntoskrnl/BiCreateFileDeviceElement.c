@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateFileDeviceElement @ 0x140A5CEF4
+ * XREFs of BiCreateFileDeviceElement @ 0x14096FC30
  * Callers:
- *     BiCreatePartitionDevice @ 0x140808C60 (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x140784FC0 (BiCreatePartitionDevice.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, unsigned int *a3)
@@ -18,11 +18,11 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
   wchar_t *v5; // rax
   const wchar_t *v6; // r14
   __int64 v7; // rbx
-  char *Pool2; // rbp
+  char *PoolWithTag; // rbp
   size_t v9; // rbx
   __int64 v10; // rsi
   __int64 v11; // rax
-  int v12; // r12d
+  int v12; // r15d
   __int64 v13; // rax
   unsigned int v14; // r13d
   char *v15; // rax
@@ -40,13 +40,13 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
   else
   {
     v7 = v5 - Src;
-    Pool2 = (char *)ExAllocatePool2(258LL, 2LL * (unsigned int)(v7 + 1), 1262764866LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 2LL * (unsigned int)(v7 + 1), 0x4B444342u);
+    if ( PoolWithTag )
     {
       v9 = 2LL * (unsigned int)v7;
-      memmove(Pool2, Src, v9);
+      memmove(PoolWithTag, Src, v9);
       v10 = -1LL;
-      *(_WORD *)&Pool2[v9] = 0;
+      *(_WORD *)&PoolWithTag[v9] = 0;
       v11 = -1LL;
       do
         ++v11;
@@ -55,9 +55,9 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
       v13 = -1LL;
       do
         ++v13;
-      while ( *(_WORD *)&Pool2[2 * v13] );
+      while ( *(_WORD *)&PoolWithTag[2 * v13] );
       v14 = v12 + 2 * (v13 + 11);
-      v15 = (char *)ExAllocatePool2(258LL, v14, 1262764866LL);
+      v15 = (char *)ExAllocatePoolWithTag(PagedPool, v14, 0x4B444342u);
       v16 = v15;
       if ( v15 )
       {
@@ -72,8 +72,8 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
         *(_DWORD *)&v16[v12] = 2;
         do
           ++v10;
-        while ( *(_WORD *)&Pool2[2 * v10] );
-        wcscpy_s((wchar_t *)&v16[v12 + 20], v10 + 1, (const wchar_t *)Pool2);
+        while ( *(_WORD *)&PoolWithTag[2 * v10] );
+        wcscpy_s((wchar_t *)&v16[v12 + 20], v10 + 1, (const wchar_t *)PoolWithTag);
         *a2 = v16;
         *a3 = v14;
       }
@@ -81,7 +81,7 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
       {
         v4 = -1073741670;
       }
-      ExFreePoolWithTag(Pool2, 0x4B444342u);
+      ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
       if ( v4 < 0 && v16 )
         ExFreePoolWithTag(v16, 0x4B444342u);
     }

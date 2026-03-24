@@ -1,9 +1,9 @@
 /*
- * XREFs of MmCreateCacheManagerSection @ 0x1407BE59C
+ * XREFs of MmCreateCacheManagerSection @ 0x1406813E8
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E7B0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapEx @ 0x14022DF30 (CcInitializeCacheMapEx.c)
  * Callees:
- *     MiCreateSection @ 0x140722B70 (MiCreateSection.c)
+ *     MiCreateSection @ 0x140652DA0 (MiCreateSection.c)
  */
 
 __int64 __fastcall MmCreateCacheManagerSection(_QWORD *a1, int a2, char a3, __int64 a4)

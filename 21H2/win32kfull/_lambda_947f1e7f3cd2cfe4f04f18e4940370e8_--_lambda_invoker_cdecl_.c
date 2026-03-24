@@ -1,10 +1,10 @@
 /*
- * XREFs of _lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_ @ 0x1C0253690
+ * XREFs of _lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_ @ 0x1C0256900
  * Callers:
  *     <none>
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?OnTimerNotification@InteractiveControlDevice@@QEAAJXZ @ 0x1C0254554 (-OnTimerNotification@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?OnTimerNotification@InteractiveControlDevice@@QEAAJXZ @ 0x1C0257828 (-OnTimerNotification@InteractiveControlDevice@@QEAAJXZ.c)
  */
 
 __int64 __fastcall lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_(

@@ -9,9 +9,9 @@
  *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
  *     ExTimerRundown @ 0x14008AFD0 (ExTimerRundown.c)
  *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     IopDropIrp @ 0x1400E097C (IopDropIrp.c)
+ *     IopDropIrp @ 0x1400E099C (IopDropIrp.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ObpTraceObjectDereferenceIfActive(int a1)

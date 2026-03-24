@@ -1,8 +1,8 @@
 /*
- * XREFs of _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x1801AE148
+ * XREFs of _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x18022D110
  * Callers:
- *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x1801ADAC0 (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
- *     _anonymous_namespace_::ReverseAndLeftShift @ 0x1801B0004 (_anonymous_namespace_--ReverseAndLeftShift.c)
+ *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x18022CA8C (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
+ *     _anonymous_namespace_::ReverseAndLeftShift @ 0x18022EB88 (_anonymous_namespace_--ReverseAndLeftShift.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall anonymous_namespace_::ConvertVectorArrayToMatrix(__int64 a1, 
   int v2; // eax
 
   v2 = *a2;
-  *(__m512 *)a1 = zmmword_180377FC0;
+  *(__m512 *)a1 = zmmword_1802DF980;
   *(_DWORD *)a1 = v2;
   *(_DWORD *)(a1 + 16) = a2[1];
   *(_DWORD *)(a1 + 32) = a2[2];

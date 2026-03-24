@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhHubWorker @ 0x1C001C5E0
+ * XREFs of UsbhHubWorker @ 0x1C001A220
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 (__fastcall *__fastcall UsbhHubWorker(__int64 a1, __int64 a2))(__int64)
@@ -79,8 +79,6 @@ __int64 (__fastcall *__fastcall UsbhHubWorker(__int64 a1, __int64 a2))(__int64)
         *(_QWORD *)(v17 + 8) = 0LL;
         *(_QWORD *)(v17 + 16) = 0LL;
         *(_QWORD *)(v17 + 24) = a2;
-        ExFreePoolWithTag((PVOID)a2, 0);
-        goto LABEL_17;
       }
     }
   }
@@ -88,7 +86,6 @@ __int64 (__fastcall *__fastcall UsbhHubWorker(__int64 a1, __int64 a2))(__int64)
   if ( !a1 )
 LABEL_27:
     UsbhTrapFatal_Dbg(0LL, 0LL);
-LABEL_17:
   v18 = *(_QWORD *)(a1 + 64);
   if ( !v18 )
     UsbhTrapFatal_Dbg(a1, 0LL);

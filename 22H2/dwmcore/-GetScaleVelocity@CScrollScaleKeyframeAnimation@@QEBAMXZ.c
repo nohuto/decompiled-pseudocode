@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x1802667A4
+ * XREFs of ?GetScaleVelocity@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18020518C
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1802329A8 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C95D0 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
  * Callees:
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
  */
 
 float __fastcall CScrollScaleKeyframeAnimation::GetScaleVelocity(
@@ -15,17 +15,23 @@ float __fastcall CScrollScaleKeyframeAnimation::GetScaleVelocity(
 {
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !*((_BYTE *)this + 748) )
+  if ( !*((_BYTE *)this + 716) )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      214LL,
+      (void *)0xD6,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
       a4);
-  if ( *((_DWORD *)this + 186) != 18 )
+    __debugbreak();
+  }
+  if ( *((_DWORD *)this + 178) != 18 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      215LL,
+      (void *)0xD7,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
       a4);
-  return *((float *)this + 168);
+    __debugbreak();
+  }
+  return *((float *)this + 160);
 }

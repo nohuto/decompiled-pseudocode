@@ -1,79 +1,79 @@
 /*
- * XREFs of SmSetStoreInformation @ 0x1407E82F4
+ * XREFs of SmSetStoreInformation @ 0x1406A1334
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     SmProcessCreateRequest @ 0x1407B7C2C (SmProcessCreateRequest.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1407E83A4 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmProcessConfigRequest @ 0x14085C000 (SmProcessConfigRequest.c)
- *     SmProcessDeleteRequest @ 0x1409D6DDC (SmProcessDeleteRequest.c)
- *     SmProcessResizeRequest @ 0x1409D7310 (SmProcessResizeRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x1409D773C (SmProcessSystemStoreTrimRequest.c)
- *     SmcProcessCreateRequest @ 0x1409D7F4C (SmcProcessCreateRequest.c)
- *     SmcProcessDeleteRequest @ 0x1409D81CC (SmcProcessDeleteRequest.c)
- *     SmcProcessResizeRequest @ 0x1409D8254 (SmcProcessResizeRequest.c)
- *     SmcProcessStoreCreateRequest @ 0x1409D854C (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1409D86B8 (SmcProcessStoreDeleteRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1406A13E4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessCreateRequest @ 0x1406FD1F0 (SmProcessCreateRequest.c)
+ *     SmProcessConfigRequest @ 0x1407CE8CC (SmProcessConfigRequest.c)
+ *     SmProcessDeleteRequest @ 0x140929B68 (SmProcessDeleteRequest.c)
+ *     SmProcessResizeRequest @ 0x140929F8C (SmProcessResizeRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x14092A318 (SmProcessSystemStoreTrimRequest.c)
+ *     SmcProcessCreateRequest @ 0x14092A830 (SmcProcessCreateRequest.c)
+ *     SmcProcessDeleteRequest @ 0x14092AA90 (SmcProcessDeleteRequest.c)
+ *     SmcProcessResizeRequest @ 0x14092AB00 (SmcProcessResizeRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x14092ADCC (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x14092AF14 (SmcProcessStoreDeleteRequest.c)
  */
 
-__int64 __fastcall SmSetStoreInformation(__int64 a1, __int64 a2, int a3, KPROCESSOR_MODE a4)
+__int64 __fastcall SmSetStoreInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)
 {
   __int64 v5; // r8
-  __int64 ProcessPartition; // rax
-  void *Src[2]; // [rsp+20h] [rbp-28h]
-  size_t Size; // [rsp+30h] [rbp-18h]
+  __int64 v6; // r9
+  __int128 v8; // [rsp+20h] [rbp-28h]
+  __int64 v9; // [rsp+30h] [rbp-18h]
 
   if ( a3 != 24 )
     return 3221225476LL;
-  *(_OWORD *)Src = *(_OWORD *)a2;
-  Size = *(_QWORD *)(a2 + 16);
-  if ( (unsigned int)*(_OWORD *)a2 != 1 )
+  v8 = *a2;
+  v9 = *((_QWORD *)a2 + 2);
+  if ( (unsigned int)*a2 != 1 )
     return 3221225485LL;
   if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a4) )
     return 3221225506LL;
-  if ( SHIDWORD(Src[0]) <= 12 )
+  if ( SDWORD1(v8) <= 12 )
   {
-    switch ( HIDWORD(Src[0]) )
+    switch ( DWORD1(v8) )
     {
       case 0xC:
-        LOBYTE(v5) = a4;
-        return SmcProcessStoreDeleteRequest(Src[1], (unsigned int)Size, v5);
+        LOBYTE(v6) = a4;
+        return SmcProcessStoreDeleteRequest(&unk_140D241C0, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
       case 3:
-        ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-        return SmProcessCreateRequest(ProcessPartition, (unsigned __int64)Src[1], Size, a4);
+        LOBYTE(v6) = a4;
+        return SmProcessCreateRequest(&SmGlobals, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
       case 4:
-        LOBYTE(v5) = a4;
-        return SmProcessDeleteRequest(Src[1], (unsigned int)Size, v5);
+        LOBYTE(v6) = a4;
+        return SmProcessDeleteRequest(&SmGlobals, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
       case 9:
-        LOBYTE(v5) = a4;
-        return SmcProcessCreateRequest(Src[1], (unsigned int)Size, v5);
+        LOBYTE(v6) = a4;
+        return SmcProcessCreateRequest(&unk_140D241C0, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
       case 0xA:
-        LOBYTE(v5) = a4;
-        return SmcProcessDeleteRequest(Src[1], (unsigned int)Size, v5);
+        LOBYTE(v6) = a4;
+        return SmcProcessDeleteRequest(&unk_140D241C0, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
       case 0xB:
-        LOBYTE(v5) = a4;
-        return SmcProcessStoreCreateRequest(Src[1], (unsigned int)Size, v5);
+        LOBYTE(v6) = a4;
+        return SmcProcessStoreCreateRequest(&unk_140D241C0, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
     }
     return 3221225475LL;
   }
-  switch ( HIDWORD(Src[0]) )
+  switch ( DWORD1(v8) )
   {
     case 0x11:
-      LOBYTE(v5) = a4;
-      return SmProcessResizeRequest(Src[1], (unsigned int)Size, v5);
+      LOBYTE(v6) = a4;
+      return SmProcessResizeRequest(&SmGlobals, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
     case 0x12:
-      LOBYTE(v5) = a4;
-      return SmcProcessResizeRequest(Src[1], (unsigned int)Size, v5);
+      LOBYTE(v6) = a4;
+      return SmcProcessResizeRequest(&unk_140D241C0, *((_QWORD *)&v8 + 1), (unsigned int)v9, v6);
     case 0x13:
       LOBYTE(v5) = a4;
-      return SmProcessConfigRequest(Src[1], (unsigned int)Size, v5);
+      return SmProcessConfigRequest(*((_QWORD *)&v8 + 1), (unsigned int)v9, v5);
     case 0x14:
       LOBYTE(v5) = a4;
-      return SmProcessStoreMemoryPriorityRequest(Src[1], (unsigned int)Size, v5);
+      return SmProcessStoreMemoryPriorityRequest(*((_QWORD *)&v8 + 1), (unsigned int)v9, v5);
     case 0x15:
-      return SmProcessSystemStoreTrimRequest(Src[1], (unsigned int)Size);
+      LOBYTE(v5) = a4;
+      return SmProcessSystemStoreTrimRequest(*((_QWORD *)&v8 + 1), (unsigned int)v9, v5);
     default:
       return 3221225475LL;
   }

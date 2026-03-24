@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnregisterSources@CExpression@@IEAAXXZ @ 0x18006FC4C
+ * XREFs of ?UnregisterSources@CExpression@@IEAAXXZ @ 0x180065288
  * Callers:
- *     ??1CExpression@@UEAA@XZ @ 0x18006FB8C (--1CExpression@@UEAA@XZ.c)
- *     ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x180214DB0 (-SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z.c)
+ *     ??1CExpression@@UEAA@XZ @ 0x180062960 (--1CExpression@@UEAA@XZ.c)
+ *     ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x1801C17F0 (-SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z.c)
  * Callees:
- *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x18006FED8 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x180065328 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
  */
 
 void __fastcall CExpression::UnregisterSources(CExpression *this)
@@ -16,19 +16,19 @@ void __fastcall CExpression::UnregisterSources(CExpression *this)
   __int64 v6; // rcx
   CResource *v7; // rcx
 
-  v2 = *((_BYTE *)this + 456);
+  v2 = *((_BYTE *)this + 432);
   if ( (v2 & 2) != 0 )
   {
     v3 = this;
-    if ( *((_QWORD *)this + 56) )
-      v3 = (struct CBaseExpression *)*((_QWORD *)this + 56);
+    if ( *((_QWORD *)this + 53) )
+      v3 = (struct CBaseExpression *)*((_QWORD *)this + 53);
     v4 = 0LL;
-    if ( *((_DWORD *)this + 110) )
+    if ( *((_DWORD *)this + 104) )
     {
       do
       {
-        v5 = *((_QWORD *)this + 54);
-        v6 = *(_QWORD *)(*((_QWORD *)this + 52) + 8LL * *(unsigned int *)(v5 + 24 * v4 + 20));
+        v5 = *((_QWORD *)this + 51);
+        v6 = *(_QWORD *)(*((_QWORD *)this + 49) + 8LL * *(unsigned int *)(v5 + 24 * v4 + 20));
         if ( v6 )
         {
           v7 = *(CResource **)(v6 + 16);
@@ -37,9 +37,9 @@ void __fastcall CExpression::UnregisterSources(CExpression *this)
         }
         v4 = (unsigned int)(v4 + 1);
       }
-      while ( (unsigned int)v4 < *((_DWORD *)this + 110) );
-      v2 = *((_BYTE *)this + 456);
+      while ( (unsigned int)v4 < *((_DWORD *)this + 104) );
+      v2 = *((_BYTE *)this + 432);
     }
-    *((_BYTE *)this + 456) = v2 & 0xFD;
+    *((_BYTE *)this + 432) = v2 & 0xFD;
   }
 }

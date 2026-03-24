@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetStableSystemBootTime @ 0x140958AE4
+ * XREFs of PnpGetStableSystemBootTime @ 0x1408A1ED0
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     PipHardwareConfigGetLastUseTime @ 0x140952000 (PipHardwareConfigGetLastUseTime.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x14089B730 (PipHardwareConfigGetLastUseTime.c)
  */
 
 __int64 __fastcall PnpGetStableSystemBootTime(_QWORD *a1)

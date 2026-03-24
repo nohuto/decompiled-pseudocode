@@ -1,38 +1,36 @@
 /*
- * XREFs of ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C0774
+ * XREFs of ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C0167FD0
  * Callers:
- *     xxxTimersProc @ 0x1C003FF80 (xxxTimersProc.c)
- *     xxxTimersProc_Old @ 0x1C013AF08 (xxxTimersProc_Old.c)
+ *     xxxTimersProc @ 0x1C0168118 (xxxTimersProc.c)
  * Callees:
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C01C04AC (-ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z.c)
- *     ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C01C05E4 (-TimerStatistics@@YAXPEBUtagTIMER@@@Z.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C00FB180 (-ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z.c)
+ *     ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C010B4CC (-TimerStatistics@@YAXPEBUtagTIMER@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall xxxReadyTimer(struct tagTIMER *a1, int a2)
 {
-  __int64 v4; // rcx
-  int v5; // ecx
-  __int64 v6; // rax
-  __int64 *v7; // rax
-  __int64 v8; // rcx
-  __int64 **v9; // rdx
+  int v4; // ecx
+  __int64 v5; // rax
+  __int64 *v6; // rcx
+  __int64 v7; // rax
+  __int64 **v8; // rdx
 
   *((_DWORD *)a1 + 13) = *((_DWORD *)a1 + 10);
   ApplyTimerDelay(a1);
-  EtwTraceTimerProc(v4);
-  v5 = *((_DWORD *)a1 + 12);
-  if ( (v5 & 1) == 0 )
+  EtwTraceTimerProc();
+  v4 = *((_DWORD *)a1 + 12);
+  if ( (v4 & 1) == 0 )
   {
-    if ( (v5 & 0x10) != 0 )
+    if ( (v4 & 0x10) != 0 )
     {
-      v5 |= 0x20u;
-      *((_DWORD *)a1 + 12) = v5;
+      v4 |= 0x20u;
+      *((_DWORD *)a1 + 12) = v4;
     }
     if ( *((_DWORD *)a1 + 32) == *((_DWORD *)a1 + 33) )
       *((_DWORD *)a1 + 33) = a2;
-    if ( (v5 & 4) != 0 )
+    if ( (v4 & 4) != 0 )
     {
       TimerStatistics(a1);
       (*((void (__fastcall **)(_QWORD, __int64, _QWORD, struct tagTIMER *))a1 + 4))(
@@ -44,20 +42,20 @@ void __fastcall xxxReadyTimer(struct tagTIMER *a1, int a2)
     }
     else
     {
-      v6 = *((_QWORD *)a1 + 3);
-      *((_DWORD *)a1 + 12) = v5 | 1;
-      ++*(_DWORD *)(v6 + 604);
-      v7 = (__int64 *)((char *)a1 + 56);
-      v8 = *((_QWORD *)a1 + 3) + 1256LL;
-      v9 = *(__int64 ***)(*((_QWORD *)a1 + 3) + 1264LL);
-      if ( *v9 != (__int64 *)v8 )
+      v5 = *((_QWORD *)a1 + 3);
+      *((_DWORD *)a1 + 12) = v4 | 1;
+      v6 = (__int64 *)((char *)a1 + 56);
+      ++*(_DWORD *)(v5 + 604);
+      v7 = *((_QWORD *)a1 + 3) + 1216LL;
+      v8 = *(__int64 ***)(*((_QWORD *)a1 + 3) + 1224LL);
+      if ( *v8 != (__int64 *)v7 )
         __fastfail(3u);
-      *((_QWORD *)a1 + 8) = v9;
-      *v7 = v8;
-      *v9 = v7;
-      *(_QWORD *)(v8 + 8) = v7;
+      *((_QWORD *)a1 + 8) = v8;
+      *v6 = v7;
+      *v8 = v6;
+      *(_QWORD *)(v7 + 8) = v6;
       SetWakeBit(*((_QWORD *)a1 + 3), 0x10u);
-      ++*(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 3) + 424LL) + 1056LL);
+      ++*(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 3) + 424LL) + 1048LL);
     }
   }
 }

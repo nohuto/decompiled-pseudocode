@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventIsClientStuck @ 0x14078BE3C
+ * XREFs of PiUEventIsClientStuck @ 0x1406E6F38
  * Callers:
- *     PiUEventNotifyClient @ 0x14078BC74 (PiUEventNotifyClient.c)
+ *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
  * Callees:
  *     <none>
  */

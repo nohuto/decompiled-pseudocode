@@ -1,30 +1,31 @@
 /*
- * XREFs of PpmApplyIdlePolicy @ 0x14039F8A4
+ * XREFs of PpmApplyIdlePolicy @ 0x1403C4514
  * Callers:
- *     PpmResetIdlePolicy @ 0x14039F868 (PpmResetIdlePolicy.c)
+ *     PpmResetIdlePolicy @ 0x1403C43F8 (PpmResetIdlePolicy.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
  */
 
-unsigned __int64 __fastcall PpmApplyIdlePolicy(_BYTE *a1)
+ULONGLONG __fastcall PpmApplyIdlePolicy(__int64 *a1)
 {
   __int64 *v1; // r9
-  unsigned __int64 v2; // r8
-  char v3; // dl
-  char v4; // al
-  unsigned __int64 result; // rax
-  __int64 v6; // r11
+  __int64 v2; // rbx
+  unsigned __int64 v3; // r8
+  char v4; // dl
+  char v5; // al
+  ULONGLONG result; // rax
 
   v1 = PpmCurrentProfile;
-  v2 = 55LL * dword_140C3D90C;
-  a1[68] = BYTE4(PpmCurrentProfile[v2 + 23]);
-  v3 = BYTE4(v1[v2 + 24]);
-  a1[67] = v3;
-  v4 = BYTE5(v1[v2 + 24]);
-  a1[65] = v3;
-  a1[66] = v4;
-  a1[64] = v4;
-  result = PpmConvertTime(LODWORD(v1[v2 + 24]), 0xF4240uLL, PopQpcFrequency);
-  *(_DWORD *)(v6 + 732) = result;
+  v2 = *a1;
+  v3 = 342LL * dword_140C2334C;
+  *((_BYTE *)a1 + 60) = BYTE4(PpmCurrentProfile[v3 + 23]);
+  v4 = BYTE4(v1[v3 + 24]);
+  *((_BYTE *)a1 + 59) = v4;
+  v5 = BYTE5(v1[v3 + 24]);
+  *((_BYTE *)a1 + 57) = v4;
+  *((_BYTE *)a1 + 58) = v5;
+  *((_BYTE *)a1 + 56) = v5;
+  result = PpmConvertTime(LODWORD(v1[v3 + 24]), 1000000LL, PopQpcFrequency);
+  *(_DWORD *)(v2 + 532) = result;
   return result;
 }

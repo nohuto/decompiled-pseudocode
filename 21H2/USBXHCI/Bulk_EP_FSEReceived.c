@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_FSEReceived @ 0x1C000D130
+ * XREFs of Bulk_EP_FSEReceived @ 0x1C000F560
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00448B8 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00442A0 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
  */
 
 void __fastcall Bulk_EP_FSEReceived(__int64 a1)

@@ -1,78 +1,80 @@
 /*
- * XREFs of NtGdiStartPage @ 0x1C0278EF0
+ * XREFs of NtGdiStartPage @ 0x1C013A3C0
  * Callers:
  *     <none>
  * Callees:
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C001D278 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C011C0E4 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0276638 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
- *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C0276684 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
- *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C0277954 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
- *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C02779B4 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B55C4 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C013A550 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C013A590 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
+ *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C013A5B8 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C016ABE4 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0288330 (-bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
  */
 
 __int64 __fastcall NtGdiStartPage(HDC a1)
 {
   unsigned int v2; // edi
-  Gre::Base *v3; // rcx
-  __int64 v4; // r14
-  __int64 v5; // rbx
-  _QWORD v7[2]; // [rsp+20h] [rbp-30h] BYREF
-  _BYTE v8[32]; // [rsp+30h] [rbp-20h] BYREF
-  XDCOBJ *v9; // [rsp+78h] [rbp+28h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r14
+  __int64 v6; // rbx
+  struct _EPROCESS *CurrentProcess; // rax
+  _QWORD v9[2]; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v10[32]; // [rsp+30h] [rbp-20h] BYREF
+  XDCOBJ *v11; // [rsp+78h] [rbp+28h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v7, a1);
+  DCOBJ::DCOBJ((DCOBJ *)v9, a1);
   v2 = 0;
-  if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v7)
+  if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v9)
     || ((unsigned int)a1 & 0x7F0000) == 0x10000
     || ((unsigned int)a1 & 0x7F0000) == 0x660000 )
   {
     EngSetLastError(6u);
-LABEL_17:
-    v3 = (Gre::Base *)v7[0];
-    goto LABEL_18;
   }
-  v3 = (Gre::Base *)v7[0];
-  v4 = *(_QWORD *)(v7[0] + 496LL);
-  if ( v4 )
+  else
   {
-    v5 = *(_QWORD *)(v7[0] + 48LL);
-    if ( *(_QWORD *)(v5 + 2536) )
+    v5 = *(_QWORD *)(v9[0] + 496LL);
+    if ( v5 )
     {
-      if ( (*(_DWORD *)(v5 + 40) & 0x8000) != 0 )
+      v6 = *(_QWORD *)(v9[0] + 48LL);
+      if ( *(_QWORD *)(v6 + 2560) )
       {
-        v9 = (XDCOBJ *)v7;
-        if ( (*(_DWORD *)(v7[0] + 44LL) & 2) != 0 )
+        if ( (*(_DWORD *)(v6 + 40) & 0x8000) != 0 )
         {
-          XDCOBJ::RestoreAttributesHelper((XDCOBJ *)v7);
-          *(_DWORD *)(v7[0] + 44LL) &= ~2u;
+          v11 = (XDCOBJ *)v9;
+          if ( (*(_DWORD *)(v9[0] + 44LL) & 2) != 0 )
+          {
+            XDCOBJ::RestoreAttributesHelper((XDCOBJ *)v9);
+            *(_DWORD *)(v9[0] + 44LL) &= ~2u;
+          }
+          if ( (gUMPDSecurityLevel == 2
+             || gUMPDSecurityLevel
+             && (CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(gUMPDSecurityLevel, v3, v4),
+                 (unsigned int)bIsProcessLocalSystem(CurrentProcess))
+             || *(_QWORD *)(v6 + 2952))
+            && (v2 = (*(__int64 (__fastcall **)(__int64))(v6 + 2952))(v5 + 24)) != 0 )
+          {
+            RESTORESAVEDCATTRS::vDone((RESTORESAVEDCATTRS *)&v11);
+            *(_DWORD *)(v9[0] + 36LL) |= 0x100u;
+            *(_DWORD *)(v9[0] + 2112LL) = 0;
+            *(_DWORD *)(v9[0] + 2116LL) = 0;
+          }
+          else
+          {
+            RESTORESAVEDCATTRS::vDone((RESTORESAVEDCATTRS *)&v11);
+            bEndDocInternal(a1, 1u, 2u);
+          }
+          if ( v11 )
+            XDCOBJ::vSaveAttributesAlways(v11);
         }
-        if ( (!UmpdSecurityGateNoUmpdObj(v3) || *(_QWORD *)(v5 + 2928))
-          && (v2 = (*(__int64 (__fastcall **)(__int64))(v5 + 2928))(v4 + 24)) != 0 )
-        {
-          RESTORESAVEDCATTRS::vDone(&v9);
-          *(_DWORD *)(v7[0] + 36LL) |= 0x100u;
-          *(_DWORD *)(v7[0] + 2104LL) = 0;
-          *(_DWORD *)(v7[0] + 2108LL) = 0;
-        }
-        else
-        {
-          RESTORESAVEDCATTRS::vDone(&v9);
-          bEndDocInternal(a1, 1u, 2);
-        }
-        if ( v9 )
-          XDCOBJ::vSaveAttributesAlways(v9);
-        goto LABEL_17;
       }
     }
   }
-LABEL_18:
-  if ( v3 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v7);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v8);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v9);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
   return v2;
 }

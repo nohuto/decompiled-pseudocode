@@ -10,7 +10,7 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)

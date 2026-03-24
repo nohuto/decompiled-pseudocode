@@ -1,25 +1,25 @@
 /*
- * XREFs of ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C0088400
+ * XREFs of ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00C92F0
  * Callers:
- *     EngCreatePalette @ 0x1C0088260 (EngCreatePalette.c)
- *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C016F7F8 (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
- *     GreCreatePalette @ 0x1C0175750 (GreCreatePalette.c)
- *     ?CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z @ 0x1C0179378 (-CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z.c)
- *     bInitPALOBJ @ 0x1C02E572C (bInitPALOBJ.c)
+ *     EngCreatePalette @ 0x1C007A2E0 (EngCreatePalette.c)
+ *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C01427C0 (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
+ *     GreCreatePalette @ 0x1C0149420 (GreCreatePalette.c)
+ *     ?CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z @ 0x1C014D58C (-CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z.c)
+ *     bInitPALOBJ @ 0x1C029A9B8 (bInitPALOBJ.c)
  * Callees:
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0028D70 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
- *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0028F60 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
- *     PALLOCMEM @ 0x1C0086980 (PALLOCMEM.c)
- *     ?ParseBits@@YAXKPEAK00K@Z @ 0x1C00871A0 (-ParseBits@@YAXKPEAK00K@Z.c)
- *     ?vComputeCallTables@XEPALOBJ@@QEAAXXZ @ 0x1C0091350 (-vComputeCallTables@XEPALOBJ@@QEAAXXZ.c)
- *     ??$AllocateIsolatedType@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0094594 (--$AllocateIsolatedType@V-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0168DA4 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C016B444 (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0034A30 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0034C38 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?ParseBits@@YAXKPEAK00K@Z @ 0x1C007DB24 (-ParseBits@@YAXKPEAK00K@Z.c)
+ *     ?vComputeCallTables@XEPALOBJ@@QEAAXXZ @ 0x1C0080F70 (-vComputeCallTables@XEPALOBJ@@QEAAXXZ.c)
+ *     ??$AllocateIsolatedType@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0082D98 (--$AllocateIsolatedType@V-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
+ *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C00C926C (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C013B974 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
  */
 
 __int64 __fastcall PALMEMOBJ::bCreatePalette(
-        PALMEMOBJ *this,
+        struct _SLIST_ENTRY **this,
         int a2,
         unsigned int a3,
         const unsigned int *a4,
@@ -32,18 +32,18 @@ __int64 __fastcall PALMEMOBJ::bCreatePalette(
   unsigned int v9; // r15d
   unsigned int v12; // r12d
   unsigned int v13; // esi
-  __int64 v14; // rdi
-  __int64 v15; // rax
+  PSLIST_ENTRY v14; // rdi
+  struct _SLIST_ENTRY *v15; // rax
   int v16; // r14d
   int v17; // r14d
   int v18; // r14d
-  _DWORD *v19; // r9
+  struct _SLIST_ENTRY *Next; // r9
   const unsigned int *v20; // rdx
   unsigned int i; // ecx
   int v22; // eax
   int v23; // esi
-  _QWORD v25[2]; // [rsp+38h] [rbp-60h] BYREF
-  _BYTE v26[80]; // [rsp+48h] [rbp-50h] BYREF
+  _QWORD v25[2]; // [rsp+40h] [rbp-68h] BYREF
+  _BYTE v26[88]; // [rsp+50h] [rbp-58h] BYREF
 
   v9 = a3;
   v12 = 4;
@@ -85,90 +85,90 @@ LABEL_14:
   }
 LABEL_16:
   v14 = AllocateIsolatedType<NSInstrumentation::CLookAsideTypeIsolation<36864,144>>();
-  v25[0] = v14;
-  *(_QWORD *)this = v14;
+  *this = v14;
   if ( v14 )
   {
-    v15 = PALLOCMEM(v12, 1819304263);
-    *(_QWORD *)(v14 + 128) = v15;
+    v15 = (struct _SLIST_ENTRY *)PALLOCMEM2(v12, 1819304263LL, 1);
+    v14[8].Next = v15;
     if ( !v15 )
     {
 LABEL_46:
       XEPALOBJ::FreePaletteMemory(this);
       return 0LL;
     }
-    *(_DWORD *)(v14 + 24) = v13 | a2;
-    *(_DWORD *)(v14 + 28) = v9;
-    *(_DWORD *)(v14 + 32) = _InterlockedIncrement((volatile signed __int32 *)&ulXlatePalUnique);
-    *(_QWORD *)(v14 + 40) = 0LL;
-    *(_QWORD *)(v14 + 48) = 0LL;
-    *(_DWORD *)(v14 + 60) = 0;
-    *(_DWORD *)(v14 + 56) = 0;
-    *(_QWORD *)(v14 + 72) = 0LL;
-    *(_QWORD *)(v14 + 80) = 0LL;
-    *(_QWORD *)(v14 + 88) = 0LL;
-    *(_DWORD *)(v14 + 36) = 0;
-    *(_QWORD *)(v14 + 104) = 0LL;
-    *(_QWORD *)(v14 + 120) = v14;
-    *(_QWORD *)(v14 + 112) = *(_QWORD *)(v14 + 128);
+    *((_DWORD *)&v14[1].Next + 2) = v13 | a2;
+    *((_DWORD *)&v14[1].Next + 3) = v9;
+    LODWORD(v14[2].Next) = _InterlockedIncrement((volatile signed __int32 *)&ulXlatePalUnique);
+    *((_QWORD *)&v14[2].Next + 1) = 0LL;
+    v14[3].Next = 0LL;
+    *((_DWORD *)&v14[3].Next + 3) = 0;
+    *((_DWORD *)&v14[3].Next + 2) = 0;
+    *((_QWORD *)&v14[4].Next + 1) = 0LL;
+    v14[5].Next = 0LL;
+    *((_QWORD *)&v14[5].Next + 1) = 0LL;
+    HIDWORD(v14[2].Next) = 0;
+    *((_QWORD *)&v14[6].Next + 1) = 0LL;
+    *((_QWORD *)&v14[7].Next + 1) = v14;
+    v14[7].Next = v14[8].Next;
     v16 = a2 - 1;
     if ( v16 )
     {
       v17 = v16 - 1;
       if ( !v17 || (v18 = v17 - 2) == 0 || v18 == 4 )
       {
-        **(_DWORD **)(*(_QWORD *)this + 112LL) = a5;
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 4LL) = a6;
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 8LL) = a7;
+        LODWORD((*this)[7].Next->Next) = a5;
+        HIDWORD((*this)[7].Next->Next) = a6;
+        *((_DWORD *)&(*this)[7].Next->Next + 2) = a7;
         if ( a5 == 255 && a6 == 65280 && a7 == 16711680 )
         {
-          *(_DWORD *)(v14 + 24) |= 4u;
+          *((_DWORD *)&v14[1].Next + 2) |= 4u;
         }
         else if ( a5 == 63488 && a6 == 2016 && a7 == 31 )
         {
-          *(_DWORD *)(v14 + 24) |= 0x400000u;
+          *((_DWORD *)&v14[1].Next + 2) |= 0x400000u;
         }
         else if ( a5 == 31744 && a6 == 992 && a7 == 31 )
         {
-          *(_DWORD *)(v14 + 24) |= 0x200000u;
+          *((_DWORD *)&v14[1].Next + 2) |= 0x200000u;
         }
         ParseBits(
           a5,
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 24LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 12LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 36LL),
+          (unsigned int *)&(*this)[7].Next[1].Next + 2,
+          (unsigned int *)&(*this)[7].Next->Next + 3,
+          (unsigned int *)&(*this)[7].Next[2].Next + 1,
           0);
         ParseBits(
           a6,
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 28LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 16LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 40LL),
+          (unsigned int *)&(*this)[7].Next[1].Next + 3,
+          (unsigned int *)&(*this)[7].Next[1],
+          (unsigned int *)&(*this)[7].Next[2].Next + 2,
           8u);
         ParseBits(
           a7,
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 32LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 20LL),
-          (unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 44LL),
+          (unsigned int *)&(*this)[7].Next[2],
+          (unsigned int *)&(*this)[7].Next[1].Next + 1,
+          (unsigned int *)&(*this)[7].Next[2].Next + 3,
           0x10u);
       }
     }
     else
     {
-      v19 = *(_DWORD **)(*(_QWORD *)this + 112LL);
+      Next = (*this)[7].Next;
       v20 = a4;
       if ( a4 )
       {
         for ( i = 0; i < v9; ++i )
         {
           v22 = *v20++;
-          *v19++ = v22;
-          v25[1] = v19;
+          LODWORD(Next->Next) = v22;
+          Next = (struct _SLIST_ENTRY *)((char *)Next + 4);
+          v25[1] = Next;
         }
         v23 = a9;
         goto LABEL_43;
       }
       if ( v9 )
-        memset(*(void **)(*(_QWORD *)this + 112LL), 0, 4LL * v9);
+        memset((*this)[7].Next, 0, 4LL * v9);
     }
     v23 = a9;
 LABEL_43:

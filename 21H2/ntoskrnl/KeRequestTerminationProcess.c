@@ -1,31 +1,31 @@
 /*
- * XREFs of KeRequestTerminationProcess @ 0x140961390
+ * XREFs of KeRequestTerminationProcess @ 0x1408BAD30
  * Callers:
- *     MiForceCrashForInvalidAccess @ 0x140967E00 (MiForceCrashForInvalidAccess.c)
- *     MiCommitRequestFailed @ 0x14097F250 (MiCommitRequestFailed.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C42A4 (MiForceCrashForInvalidAccess.c)
+ *     MiCommitRequestFailed @ 0x1408D7384 (MiCommitRequestFailed.c)
  * Callees:
- *     KeRequestTerminationThread @ 0x1402ECD10 (KeRequestTerminationThread.c)
+ *     KeRequestTerminationThread @ 0x1402EA7C8 (KeRequestTerminationThread.c)
  */
 
 void __fastcall KeRequestTerminationProcess(__int64 a1, int a2)
 {
-  signed __int32 v2; // r8d
-  int v3; // edx
-  signed __int32 v4; // eax
+  __int64 v2; // r8
+  __int64 v3; // rdx
+  unsigned __int32 v4; // eax
 
-  v2 = *(_DWORD *)(a1 + 120);
-  v3 = a2 << 18;
+  v2 = *(unsigned int *)(a1 + 120);
+  v3 = (unsigned int)(a2 << 18);
   if ( (v2 & 0xC0000) == 0 )
   {
     while ( 1 )
     {
       v4 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 120), v3 | v2, v2);
-      if ( v2 == v4 )
+      if ( (_DWORD)v2 == v4 )
         break;
       v2 = v4;
       if ( (v4 & 0xC0000) != 0 )
         return;
     }
-    KeRequestTerminationThread(a1);
+    KeRequestTerminationThread(a1, v3, v2, (_DWORD *)a1);
   }
 }

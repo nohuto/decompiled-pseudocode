@@ -1,30 +1,32 @@
 /*
- * XREFs of HviGetHypervisorFeatures @ 0x140383390
+ * XREFs of HviGetHypervisorFeatures @ 0x1403A9020
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x14038294C (KiDetectHardwareSpecControlFeatures.c)
- *     HvlpTryConfigureInterface @ 0x14038C800 (HvlpTryConfigureInterface.c)
- *     HvlGetSystemPasidCapabilities @ 0x1405444F0 (HvlGetSystemPasidCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x140549004 (HvlpDetermineEnlightenments.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x140579318 (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1405B5DA0 (HvipApertureDetectParameters.c)
- *     HviGetIptFeatures @ 0x14061555C (HviGetIptFeatures.c)
- *     HvlQueryDetailInfo @ 0x140940F08 (HvlQueryDetailInfo.c)
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
- *     HalpLbrInitialize @ 0x140A9150C (HalpLbrInitialize.c)
- *     EtwpTraceSystemInitialization @ 0x140B381EC (EtwpTraceSystemInitialization.c)
- *     KiComputeDispatchInterruptCost @ 0x140B54AFC (KiComputeDispatchInterruptCost.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C (KiDetectHardwareSpecControlFeatures.c)
+ *     HvlpTryConfigureInterface @ 0x1403A9460 (HvlpTryConfigureInterface.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1403F2DE0 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1404F6CE0 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA044 (HvlpDetermineEnlightenments.c)
+ *     PopIsRunningInVm @ 0x140568C40 (PopIsRunningInVm.c)
+ *     HvipApertureDetectParameters @ 0x1405946C4 (HvipApertureDetectParameters.c)
+ *     HviGetIptFeatures @ 0x1405BF018 (HviGetIptFeatures.c)
+ *     HvlQueryDetailInfo @ 0x14088E378 (HvlQueryDetailInfo.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
+ *     HalpLbrInitialize @ 0x14099E874 (HalpLbrInitialize.c)
+ *     EtwpTraceSystemInitialization @ 0x140A41CF8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x140382E1C (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403A9060 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
-char __fastcall HviGetHypervisorFeatures(_DWORD *a1)
+__int64 __fastcall HviGetHypervisorFeatures(_DWORD *a1)
 {
-  LOBYTE(_RAX) = HviIsHypervisorMicrosoftCompatible();
-  if ( (_BYTE)_RAX )
+  __int64 result; // rax
+
+  result = HviIsHypervisorMicrosoftCompatible();
+  if ( (_BYTE)result )
   {
     _RAX = 1073741827LL;
     __asm { cpuid }
-    *a1 = _RAX;
+    *a1 = result;
     a1[1] = _RBX;
     a1[2] = _RCX;
     a1[3] = _RDX;
@@ -34,5 +36,5 @@ char __fastcall HviGetHypervisorFeatures(_DWORD *a1)
     *(_QWORD *)a1 = 0LL;
     *((_QWORD *)a1 + 1) = 0LL;
   }
-  return _RAX;
+  return result;
 }

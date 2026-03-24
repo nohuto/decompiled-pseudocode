@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptInitializePhysicalTimer @ 0x14050D564
+ * XREFs of HalpVpptInitializePhysicalTimer @ 0x1404C0AA4
  * Callers:
- *     HalpTimerInitializeVpptClockTimer @ 0x140391724 (HalpTimerInitializeVpptClockTimer.c)
+ *     HalpTimerInitializeVpptClockTimer @ 0x1403869FC (HalpTimerInitializeVpptClockTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExtEnvCriticalFailure @ 0x14052266C (ExtEnvCriticalFailure.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExtEnvCriticalFailure @ 0x1404D539C (ExtEnvCriticalFailure.c)
  */
 
 __int64 HalpVpptInitializePhysicalTimer()
@@ -25,15 +25,15 @@ __int64 HalpVpptInitializePhysicalTimer()
   int v9; // eax
   bool v10; // zf
 
-  byte_140C4C7D8 = HalpAcquireHighLevelLock(&qword_140C4C7D0);
+  byte_140C4A6F8 = HalpAcquireHighLevelLock(&qword_140C4A6F0);
   if ( *(int **)&HalpVpptQueue != &HalpVpptQueue )
     ExtEnvCriticalFailure(v0, 277, HalpVpptPhysicalTimer, (int)&HalpVpptQueue, 0LL);
   HalpVpptPhysicalTimerTarget = -1;
   InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
   v3 = (*(__int64 (__fastcall **)(__int64))(v2 + 104))(InternalData);
-  v4 = (unsigned __int8)byte_140C4C7D8;
+  v4 = (unsigned __int8)byte_140C4A6F8;
   v5 = v3;
-  KxReleaseSpinLock(&qword_140C4C7D0);
+  KxReleaseSpinLock(&qword_140C4A6F0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

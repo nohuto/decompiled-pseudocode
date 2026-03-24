@@ -1,48 +1,38 @@
 /*
- * XREFs of _GetQueueStatus @ 0x1C014B0C4
+ * XREFs of _GetQueueStatus @ 0x1C015C8FC
  * Callers:
- *     NtUserGetThreadState @ 0x1C00EB1F0 (NtUserGetThreadState.c)
+ *     NtUserGetThreadState @ 0x1C00F7240 (NtUserGetThreadState.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxDrainQueueCompletions @ 0x1C00A5010 (xxxDrainQueueCompletions.c)
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@VDLT_THREADINFO@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C014B1A4 (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@VDLT_THREADINFO@@@@QEAA@AEAUt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ??0?$CLockExclusiveUMCBAInUserCrit@VDLT_THREADINFO@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C0EFC (--0-$CLockExclusiveUMCBAInUserCrit@VDLT_THREADINFO@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     ??1?$CLockExclusiveUMCBAInUserCrit@VDLT_THREADINFO@@@@QEAA@XZ @ 0x1C00C1128 (--1-$CLockExclusiveUMCBAInUserCrit@VDLT_THREADINFO@@@@QEAA@XZ.c)
+ *     xxxDrainQueueCompletions @ 0x1C00D6154 (xxxDrainQueueCompletions.c)
  */
 
 __int64 __fastcall GetQueueStatus(__int16 a1)
 {
-  __int64 ThreadWin32Thread; // rdi
-  int v3; // ebx
-  __int64 v4; // rcx
-  int v5; // edx
-  unsigned int v6; // edi
-  tagDomLock *v8; // [rsp+20h] [rbp-48h] BYREF
-  char v9; // [rsp+28h] [rbp-40h]
-  tagObjLock *v10; // [rsp+40h] [rbp-28h]
-  char v11; // [rsp+50h] [rbp-18h]
+  _QWORD *ThreadWin32Thread; // rbx
+  __int64 v3; // rcx
+  int v4; // esi
+  int v5; // ebp
+  __int64 v6; // rax
+  unsigned int v7; // ebx
+  int v8; // edi
+  tagDomLock *v10[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  if ( *(_QWORD *)(ThreadWin32Thread + 1464) && (a1 & 8) != 0 )
-    xxxDrainQueueCompletions(1u);
-  v3 = a1 & 0x5DFF;
-  DomainShared<DLT_THREADINFO>::DomainExclusive<>::ObjectLock<tagObjLock>::ObjectLock<tagObjLock>(
-    &v8,
-    ThreadWin32Thread + 392);
-  v4 = *(_QWORD *)(ThreadWin32Thread + 448);
-  v5 = *(_DWORD *)(v4 + 4);
-  _InterlockedAnd((volatile signed __int32 *)(v4 + 4), ~v3);
-  v6 = (unsigned __int16)(v3 & v5) | ((unsigned __int16)(v3 & (*(_WORD *)(*(_QWORD *)(ThreadWin32Thread + 448) + 8LL) | *(_WORD *)(*(_QWORD *)(ThreadWin32Thread + 448) + 12LL))) << 16);
-  if ( v11 )
-  {
-    if ( v10 )
-      tagObjLock::UnLockExclusive(v10);
-    if ( v8 )
-    {
-      if ( v9 )
-        tagDomLock::UnLockExclusive(v8);
-      else
-        tagDomLock::UnLockShared(v8);
-    }
-  }
-  return v6;
+  ThreadWin32Thread = (_QWORD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  CLockExclusiveUMCBAInUserCrit<DLT_THREADINFO>::CLockExclusiveUMCBAInUserCrit<DLT_THREADINFO>(
+    v10,
+    (tagDomLock *)(ThreadWin32Thread + 49));
+  if ( ThreadWin32Thread[183] && (a1 & 8) != 0 )
+    xxxDrainQueueCompletions(1LL);
+  v3 = ThreadWin32Thread[56];
+  v4 = a1 & 0x5DFF;
+  v5 = *(unsigned __int16 *)(v3 + 4);
+  *(_WORD *)(v3 + 4) = v5 & ~(a1 & 0x5DFF);
+  v6 = ThreadWin32Thread[56];
+  v7 = *(unsigned __int16 *)(v6 + 8);
+  v8 = *(unsigned __int16 *)(v6 + 6);
+  CLockExclusiveUMCBAInUserCrit<DLT_THREADINFO>::~CLockExclusiveUMCBAInUserCrit<DLT_THREADINFO>(v10);
+  return v4 & v5 | ((v4 & (v8 | v7)) << 16);
 }

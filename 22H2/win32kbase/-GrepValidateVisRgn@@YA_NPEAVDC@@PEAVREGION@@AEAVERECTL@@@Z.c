@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00D2BB8
+ * XREFs of ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00CB878
  * Callers:
- *     GreValidateVisrgn @ 0x1C004B7A8 (GreValidateVisrgn.c)
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004B888 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
+ *     GreValidateVisrgn @ 0x1C0038E40 (GreValidateVisrgn.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003950C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
  * Callees:
- *     ?bEqual@ERECTL@@QEBAHAEBV1@@Z @ 0x1C0003980 (-bEqual@ERECTL@@QEBAHAEBV1@@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheck @ 0x1C0042BA0 (HmgShareLockCheck.c)
- *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C005C18C (-bWrapped@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C008AA5C (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C008F794 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C0098FE4 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C0159C40 (--0SURFREF@@QEAA@XZ.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0029548 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheck @ 0x1C002F050 (HmgShareLockCheck.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C0039944 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0080F64 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00814E4 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?bEqual@ERECTL@@QEBAHAEBV1@@Z @ 0x1C0082C14 (-bEqual@ERECTL@@QEBAHAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F580 (--0SURFREF@@QEAA@XZ.c)
  */
 
 char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct ERECTL *a3)
@@ -33,10 +33,10 @@ char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct EREC
   int v19; // r10d
   int v20; // r11d
   char v21; // bl
-  _BYTE v22[32]; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v23; // [rsp+78h] [rbp-1h]
-  __int128 v24; // [rsp+80h] [rbp+7h] BYREF
-  __m128i si128; // [rsp+90h] [rbp+17h] BYREF
+  _BYTE v22[32]; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v23; // [rsp+70h] [rbp+7h]
+  __int128 v24; // [rsp+78h] [rbp+Fh] BYREF
+  __m128i si128; // [rsp+88h] [rbp+1Fh] BYREF
 
   if ( (*((_DWORD *)a1 + 9) & 0x100000) == 0 )
     return 1;
@@ -46,7 +46,7 @@ char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct EREC
   SURFREF::SURFREF((SURFREF *)v22);
   if ( (*((_DWORD *)a1 + 9) & 0x40000) != 0 )
   {
-    v9 = *((_QWORD *)a1 + 265);
+    v9 = *((_QWORD *)a1 + 266);
     if ( v9 )
     {
       v8 = HmgShareLockCheck(v9, 5);
@@ -54,7 +54,7 @@ char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct EREC
     }
     else
     {
-      v8 = *(_QWORD *)(v7 + 2528);
+      v8 = *(_QWORD *)(v7 + 2552);
     }
   }
   else
@@ -63,11 +63,11 @@ char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct EREC
   }
   if ( !v8 || (*(_DWORD *)(v7 + 40) & 0x20000) != 0 && *(int *)(v8 + 112) < 0 )
     goto LABEL_22;
-  v10 = *((_DWORD *)a2 + 14);
+  v10 = *((_DWORD *)a2 + 24);
   v11 = *((_DWORD *)a1 + 9) & 0x5000;
-  v12 = *((_DWORD *)a2 + 16);
-  v13 = *((_DWORD *)a2 + 17);
-  *(_QWORD *)&v24 = __PAIR64__(*((_DWORD *)a2 + 15), v10);
+  v12 = *((_DWORD *)a2 + 26);
+  v13 = *((_DWORD *)a2 + 27);
+  *(_QWORD *)&v24 = __PAIR64__(*((_DWORD *)a2 + 25), v10);
   *((_QWORD *)&v24 + 1) = __PAIR64__(v13, v12);
   if ( v11 == 4096
     || ERECTL::bEmpty((ERECTL *)&v24)

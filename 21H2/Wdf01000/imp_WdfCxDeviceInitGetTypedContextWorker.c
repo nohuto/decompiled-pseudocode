@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfCxDeviceInitGetTypedContextWorker @ 0x1C0065700
+ * XREFs of imp_WdfCxDeviceInitGetTypedContextWorker @ 0x1C004B4A0
  * Callers:
  *     <none>
  * Callees:
- *     FxValiateCx @ 0x1C0065314 (FxValiateCx.c)
- *     ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C006B2F4 (-FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     FxValiateCx @ 0x1C004B104 (FxValiateCx.c)
+ *     ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C00567E8 (-FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void *__fastcall imp_WdfCxDeviceInitGetTypedContextWorker(
@@ -19,8 +19,8 @@ void *__fastcall imp_WdfCxDeviceInitGetTypedContextWorker(
 
   v3 = 0LL;
   if ( !DeviceInit )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
-  if ( (int)FxValiateCx(DeviceInit->DriverGlobals, (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8]) >= 0 )
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
+  if ( (int)FxValiateCx(DeviceInit->DriverGlobals, (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName) >= 0 )
   {
     CxContextObject = DeviceInit->CxContextObject;
     if ( CxContextObject )

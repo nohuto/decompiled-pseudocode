@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_ResetTelemetryData@PalmTelemetry@@AEAAXXZ @ 0x1C01B181C
+ * XREFs of ?_ResetTelemetryData@PalmTelemetry@@AEAAXXZ @ 0x1C0181000
  * Callers:
- *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C00E3672 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
- *     rimSetupPalmTelemetry @ 0x1C0185D88 (rimSetupPalmTelemetry.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
+ *     rimSetupPalmTelemetry @ 0x1C015B59C (rimSetupPalmTelemetry.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
+ *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C0180944 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 void __fastcall PalmTelemetry::_ResetTelemetryData(PalmTelemetry *this)

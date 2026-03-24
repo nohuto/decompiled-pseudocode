@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertSessionWorkingSet @ 0x1401B4EE4
+ * XREFs of MiInsertSessionWorkingSet @ 0x1401B4F04
  * Callers:
- *     MiAllowWorkingSetExpansion @ 0x1400F32F4 (MiAllowWorkingSetExpansion.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
  * Callees:
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  */

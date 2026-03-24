@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDrvDbLoadHive @ 0x1406837C8
+ * XREFs of PiDrvDbLoadHive @ 0x1406837A8
  * Callers:
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D80 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbSetupNodeHive @ 0x14083F118 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D60 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodeHive @ 0x14083F0F8 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwLoadKeyEx @ 0x1401BA1D0 (ZwLoadKeyEx.c)
- *     ZwUnloadKey2 @ 0x1401BB990 (ZwUnloadKey2.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwLoadKeyEx @ 0x1401BA1F0 (ZwLoadKeyEx.c)
+ *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
  */
 
 __int64 __fastcall PiDrvDbLoadHive(UNICODE_STRING *a1, __int64 a2, __int64 a3, HANDLE *a4)

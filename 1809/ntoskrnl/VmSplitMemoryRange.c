@@ -1,9 +1,9 @@
 /*
- * XREFs of VmSplitMemoryRange @ 0x1408B0520
+ * XREFs of VmSplitMemoryRange @ 0x1408B0500
  * Callers:
  *     <none>
  * Callees:
- *     VmpSplitMemoryRange @ 0x14030D7D4 (VmpSplitMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x14030D8D4 (VmpSplitMemoryRange.c)
  */
 
 __int64 __fastcall VmSplitMemoryRange(unsigned __int64 a1, __int64 a2)

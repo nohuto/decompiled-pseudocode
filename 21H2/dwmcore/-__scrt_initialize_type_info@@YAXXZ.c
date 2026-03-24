@@ -1,7 +1,7 @@
 /*
- * XREFs of ?__scrt_initialize_type_info@@YAXXZ @ 0x1801016A0
+ * XREFs of ?__scrt_initialize_type_info@@YAXXZ @ 0x1800E7F20
  * Callers:
- *     dllmain_crt_process_attach @ 0x180100C68 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7458 (dllmain_crt_process_attach.c)
  * Callees:
  *     <none>
  */

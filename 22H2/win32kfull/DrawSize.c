@@ -1,38 +1,37 @@
 /*
- * XREFs of DrawSize @ 0x1C0229DC8
+ * XREFs of DrawSize @ 0x1C0244F00
  * Callers:
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     BitBltSysBmp @ 0x1C009A400 (BitBltSysBmp.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     SizeBoxHwnd @ 0x1C024B7D0 (SizeBoxHwnd.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     BitBltSysBmp @ 0x1C0106EBC (BitBltSysBmp.c)
+ *     SizeBoxHwnd @ 0x1C025CF4C (SizeBoxHwnd.c)
  */
 
-__int64 __fastcall DrawSize(__int64 a1, HDC a2, unsigned int a3, int a4)
+__int64 __fastcall DrawSize(__int64 a1, HDC a2, LONG a3, int a4)
 {
   __int64 v6; // rcx
   int v9; // edi
   int v10; // ebx
-  int DpiForSystem; // eax
-  __int64 v12; // rax
+  unsigned int DpiForSystem; // eax
+  int DpiDependentMetric; // eax
   int v13; // edi
   int v14; // ebx
-  int v15; // eax
-  int DpiDependentMetric; // eax
+  unsigned int v15; // eax
+  int v16; // eax
   __int64 v17; // rcx
   int v18; // edi
   __int64 v19; // rbx
-  int v20; // edi
+  LONG v20; // edi
   bool v21; // zf
-  int v22; // eax
+  unsigned int v22; // eax
   __int64 v23; // rcx
-  int v24; // eax
-  int v26; // [rsp+20h] [rbp-48h]
-  _DWORD v27[4]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v28; // [rsp+40h] [rbp-28h]
+  unsigned int v24; // eax
+  _DWORD v26[4]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+40h] [rbp-28h]
 
   v6 = *(_QWORD *)(a1 + 40);
   if ( (*(_BYTE *)(v6 + 25) & 0x40) == 0 )
@@ -40,28 +39,29 @@ __int64 __fastcall DrawSize(__int64 a1, HDC a2, unsigned int a3, int a4)
     v9 = *(_DWORD *)(v6 + 96);
     v10 = *(_DWORD *)(v6 + 88);
     DpiForSystem = GetDpiForSystem(v6);
-    a3 = v9 - v10 - a3 - GetDpiDependentMetric(0, DpiForSystem);
+    DpiDependentMetric = GetDpiDependentMetric(0LL, DpiForSystem);
+    v6 = *(_QWORD *)(a1 + 40);
+    a3 = v9 - v10 - a3 - DpiDependentMetric;
   }
-  v12 = *(_QWORD *)(a1 + 40);
-  v13 = *(_DWORD *)(v12 + 100);
-  v14 = *(_DWORD *)(v12 + 92);
+  v13 = *(_DWORD *)(v6 + 100);
+  v14 = *(_DWORD *)(v6 + 92);
   v15 = GetDpiForSystem(v6);
-  DpiDependentMetric = GetDpiDependentMetric(1, v15);
+  v16 = GetDpiDependentMetric(1LL, v15);
   v18 = v13 - v14;
   v19 = *(_QWORD *)(a1 + 40);
-  v20 = v18 - a4 - DpiDependentMetric;
+  v20 = v18 - a4 - v16;
   if ( (*(_WORD *)(v19 + 42) & 0x2FFF) == 0x29A )
     v21 = (*(_BYTE *)(v19 + 28) & 0x10) == 0;
   else
     v21 = SizeBoxHwnd(a1) == 0;
   if ( !v21 )
-    return BitBltSysBmp(a2, a3, v20, (*(_BYTE *)(v19 + 25) & 0x40) != 0 ? 91 : 45, 1);
-  v27[0] = a3;
-  v27[1] = v20;
+    return BitBltSysBmp((__int64)a2, a3, v20, (*(_BYTE *)(v19 + 25) & 0x40) != 0 ? 91 : 45, 1);
+  v26[0] = a3;
+  v26[1] = v20;
   v22 = GetDpiForSystem(v17);
-  v27[2] = GetDpiDependentMetric(0, v22);
+  v26[2] = GetDpiDependentMetric(0LL, v22);
   v24 = GetDpiForSystem(v23);
-  v27[3] = GetDpiDependentMetric(1, v24);
-  v28 = *(_QWORD *)(gpsi + 4816LL);
-  return GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v27, 1u, v26);
+  v26[3] = GetDpiDependentMetric(1LL, v24);
+  v27 = *(_QWORD *)(gpsi + 4816LL);
+  return GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v26, 1u);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSerializeBoot @ 0x14041E960
+ * XREFs of ZwSerializeBoot @ 0x1403FD4A0
  * Callers:
  *     <none>
  * Callees:

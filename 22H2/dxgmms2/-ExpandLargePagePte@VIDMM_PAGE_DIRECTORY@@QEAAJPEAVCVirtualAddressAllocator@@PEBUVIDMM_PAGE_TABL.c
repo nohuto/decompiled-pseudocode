@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00F1E74
+ * XREFs of ?ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BB748
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00987B0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006FD20 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z @ 0x1C001BBC6 (-GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z.c)
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C009A6B0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
- *     ?SetPageTableInPde@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I@Z @ 0x1C009ACE0 (-SetPageTableInPde@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I@Z.c)
- *     ?CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C009AD98 (-CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z.c)
- *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C009B6CC (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z @ 0x1C0001FF4 (-GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ExFreeToPagedLookasideList @ 0x1C0026078 (ExFreeToPagedLookasideList.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0060B54 (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C0060D1C (-CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00723E8 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
+ *     ?SetPageTableInPde@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I@Z @ 0x1C0087F88 (-SetPageTableInPde@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I@Z.c)
  */
 
 __int64 __fastcall VIDMM_PAGE_DIRECTORY::ExpandLargePagePte(
@@ -17,13 +17,13 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::ExpandLargePagePte(
         struct CVirtualAddressAllocator *a2,
         struct VIDMM_GLOBAL **a3,
         char a4,
-        PVOID BaseAddress,
+        unsigned __int64 a5,
         unsigned int a6,
         struct VIDMM_ALLOC **a7)
 {
   __int64 v11; // rbx
   __int64 v12; // rdx
-  UINT64 v13; // rsi
+  unsigned __int64 v13; // rsi
   __int64 v14; // r11
   int v15; // r9d
   unsigned __int64 v16; // rcx
@@ -34,45 +34,49 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::ExpandLargePagePte(
   unsigned int v21; // r10d
   __int64 v22; // r11
   char v23; // r9
+  __int64 v24; // rcx
   struct VIDMM_ALLOC **PageTable; // rbx
-  __int64 v25; // rcx
-  int v27; // esi
-  _QWORD v28[10]; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v26; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  int v30; // esi
+  __int64 v31; // rax
+  _QWORD v32[10]; // [rsp+50h] [rbp-78h] BYREF
 
   v11 = *(_QWORD *)(*((_QWORD *)this + 6) + 8LL * a6);
-  memset(v28, 0, sizeof(v28));
+  memset(v32, 0, 0x48uLL);
   v12 = *(_QWORD *)v11;
   v13 = 0LL;
   v14 = *((_QWORD *)this + 5);
   v15 = *(_DWORD *)this >> 6;
-  LODWORD(v28[7]) = *(_DWORD *)(v11 + 8);
+  LODWORD(v32[6]) = *(_DWORD *)(v11 + 8);
   v16 = *(_QWORD *)(v14 + 16LL * a6);
-  v28[6] = v12;
-  v28[0] = v16 & 0xFFFFFFFFFFFFFBFFuLL;
+  v32[5] = v12;
+  v32[0] = v16 & 0xFFFFFFFFFFFFFBFFuLL;
   v17 = *(_QWORD *)(v11 + 16);
-  HIDWORD(v28[7]) = (v16 >> 5) & 0x1F;
+  HIDWORD(v32[6]) = (v16 >> 5) & 0x1F;
   v18 = v15 & 1;
-  LOBYTE(v28[8]) = v15 & 1;
-  v28[2] = v17;
-  BYTE1(v28[8]) = a4;
-  VidMmGlobalAllocFromOwner = GetVidMmGlobalAllocFromOwner(v28[7], v12);
+  LOBYTE(v32[7]) = v15 & 1;
+  v32[2] = v17;
+  BYTE1(v32[7]) = a4;
+  VidMmGlobalAllocFromOwner = GetVidMmGlobalAllocFromOwner(v32[6], v12);
   if ( VidMmGlobalAllocFromOwner )
-    v13 = (*(_QWORD *)(v22 + 16LL * a6 + 8) << 12) - *(_QWORD *)(VidMmGlobalAllocFromOwner + 128);
+    v13 = (*(_QWORD *)(v22 + 16LL * a6 + 8) << 12) - *(_QWORD *)(VidMmGlobalAllocFromOwner + 136);
   v23 = (v20 & 1) != 0 && !a4;
   PageTable = (struct VIDMM_ALLOC **)CreatePageTable(a2, (v21 >> 7) & 0x1F, v18, v23);
   if ( PageTable )
   {
-    v27 = VIDMM_PAGE_TABLE::CommitVirtualAddressRange(
+    v30 = VIDMM_PAGE_TABLE::CommitVirtualAddressRange(
             (VIDMM_PAGE_TABLE *)PageTable,
-            a2,
-            (const struct COMMIT_VA_STATE *)v28,
+            (struct VIDMM_GLOBAL **)a2,
+            (const struct COMMIT_VA_STATE *)v32,
             v13,
-            (unsigned __int64)BaseAddress,
+            a5,
             a3[5],
             *(_QWORD *)(*((_QWORD *)this + 5) + 16LL * a6 + 8) << 12,
             0,
             a7);
-    if ( v27 >= 0 )
+    if ( v30 >= 0 )
     {
       ExFreeToPagedLookasideList(
         (PPAGED_LOOKASIDE_LIST)(*((_QWORD *)a2 + 11) + 40256LL),
@@ -85,18 +89,20 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::ExpandLargePagePte(
     }
     else
     {
-      WdLogSingleEntry0(3LL);
+      v31 = WdLogNewEntry5_WdWarning(v29, v28);
+      WdLogEvent5_WdWarning(v31);
       if ( *a7 == PageTable[3] )
         *a7 = (struct VIDMM_ALLOC *)*((_QWORD *)this + 3);
-      VIDMM_PAGE_TABLE::DestroyPageTable(PageTable, a2);
-      return (unsigned int)v27;
+      VIDMM_PAGE_TABLE::DestroyPageTable(PageTable, a2, a5);
+      return (unsigned int)v30;
     }
   }
   else
   {
-    _InterlockedIncrement(&dword_1C00768AC);
-    WdLogSingleEntry1(6LL, 4993LL);
-    DxgkLogInternalTriageEvent(v25, 262145LL);
+    _InterlockedIncrement(&dword_1C005079C);
+    v26 = WdLogNewEntry5_WdLowResource(v24);
+    *(_QWORD *)(v26 + 24) = 4807LL;
+    WdLogEvent5_WdLowResource(v26);
     return 3221225495LL;
   }
 }

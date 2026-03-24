@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetImageWowSubsystemIndex @ 0x1407E1268
+ * XREFs of MiGetImageWowSubsystemIndex @ 0x14066B044
  * Callers:
- *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x1406AB494 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14066A9FC (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x14066AAC0 (MiSelectImageBase.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall MiGetImageWowSubsystemIndex(__int64 a1)
 {
   unsigned int v1; // edx
   __int16 v2; // cx
-  __int64 *v3; // rax
+  int *v3; // rax
 
   v1 = 0;
   v2 = *(_WORD *)(*(_QWORD *)(a1 + 56) + 48LL);
@@ -21,7 +21,7 @@ __int64 __fastcall MiGetImageWowSubsystemIndex(__int64 a1)
     if ( v2 == *(_WORD *)v3 )
       return v1;
     ++v1;
-    v3 = (__int64 *)((char *)v3 + 2);
+    v3 = (int *)((char *)v3 + 2);
   }
   while ( !v1 );
   return 0xFFFFFFFFLL;

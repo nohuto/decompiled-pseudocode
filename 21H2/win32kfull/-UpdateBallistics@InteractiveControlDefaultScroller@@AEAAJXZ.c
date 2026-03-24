@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdateBallistics@InteractiveControlDefaultScroller@@AEAAJXZ @ 0x1C02564B0
+ * XREFs of ?UpdateBallistics@InteractiveControlDefaultScroller@@AEAAJXZ @ 0x1C02596FC
  * Callers:
- *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0255BA4 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
+ *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0258E38 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?SetBallisticsLevel@InteractiveControlDefaultScroller@@AEAAXKH@Z @ 0x1C0256438 (-SetBallisticsLevel@InteractiveControlDefaultScroller@@AEAAXKH@Z.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?SetBallisticsLevel@InteractiveControlDefaultScroller@@AEAAXKH@Z @ 0x1C0259688 (-SetBallisticsLevel@InteractiveControlDefaultScroller@@AEAAXKH@Z.c)
  */
 
 __int64 __fastcall InteractiveControlDefaultScroller::UpdateBallistics(InteractiveControlDefaultScroller *this)
 {
-  struct InteractiveControlManager *v2; // rbx
+  int v2; // ebx
   unsigned int v3; // eax
   int v4; // ebx
   struct InteractiveControlDefaultScroller::BallisticsConfig near **v5; // rcx
@@ -22,9 +22,8 @@ __int64 __fastcall InteractiveControlDefaultScroller::UpdateBallistics(Interacti
   }
   else
   {
-    v2 = InteractiveControlManager::Instance();
-    v3 = (unsigned int)(*((_DWORD *)this + 8) * *((_DWORD *)v2 + 50))
-       / *((_DWORD *)InteractiveControlManager::Instance() + 49);
+    v2 = *((_DWORD *)InteractiveControlManager::Instance() + 50);
+    v3 = (unsigned int)(v2 * *((_DWORD *)this + 8)) / *((_DWORD *)InteractiveControlManager::Instance() + 49);
     v4 = 0;
     v5 = &InteractiveControlDefaultScroller::s_ballistics;
     v6 = 0;

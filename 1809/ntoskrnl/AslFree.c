@@ -1,7 +1,7 @@
 /*
- * XREFs of AslFree @ 0x1408E96D4
+ * XREFs of AslFree @ 0x1408E96B4
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14071F500 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x14071F4E0 (AslpFileMakeStringVersionAttributes.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

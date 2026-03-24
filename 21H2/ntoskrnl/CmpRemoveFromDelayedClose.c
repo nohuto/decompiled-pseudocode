@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRemoveFromDelayedClose @ 0x14069FB00
+ * XREFs of CmpRemoveFromDelayedClose @ 0x140719BF0
  * Callers:
- *     CmpCleanUpKCBCacheTable @ 0x14069F904 (CmpCleanUpKCBCacheTable.c)
- *     CmpReferenceKeyControlBlock @ 0x14071B250 (CmpReferenceKeyControlBlock.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140915544 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140719A14 (CmpCleanUpKCBCacheTable.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x14086F1D4 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 void __fastcall CmpRemoveFromDelayedClose(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall CmpRemoveFromDelayedClose(__int64 a1)
       --CmpDelayedCloseElements;
       *v6 = v5;
       *(_QWORD *)(v5 + 8) = v6;
-      --qword_140D3D2C8;
+      --qword_140D2EF88;
     }
     else
     {

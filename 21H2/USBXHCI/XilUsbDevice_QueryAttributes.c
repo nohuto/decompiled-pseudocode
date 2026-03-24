@@ -1,8 +1,8 @@
 /*
- * XREFs of XilUsbDevice_QueryAttributes @ 0x1C0045C08
+ * XREFs of XilUsbDevice_QueryAttributes @ 0x1C004574C
  * Callers:
- *     Etw_DeviceRundown @ 0x1C000D98C (Etw_DeviceRundown.c)
- *     Etw_DeviceUpdate @ 0x1C001850C (Etw_DeviceUpdate.c)
+ *     Etw_DeviceRundown @ 0x1C000B108 (Etw_DeviceRundown.c)
+ *     Etw_DeviceUpdate @ 0x1C0018E54 (Etw_DeviceUpdate.c)
  * Callees:
  *     <none>
  */

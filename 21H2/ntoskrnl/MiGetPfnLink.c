@@ -1,11 +1,13 @@
 /*
- * XREFs of MiGetPfnLink @ 0x140258680
+ * XREFs of MiGetPfnLink @ 0x1402D2F30
  * Callers:
- *     MiFreeReadListPages @ 0x1406FAD90 (MiFreeReadListPages.c)
- *     MiFreeReadListPageList @ 0x1406FAE2C (MiFreeReadListPageList.c)
- *     MmCreateShadowMapping @ 0x14082A644 (MmCreateShadowMapping.c)
- *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140833350 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
- *     MiReturnReservedEnclavePages @ 0x140A6A948 (MiReturnReservedEnclavePages.c)
+ *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
+ *     MiFreeReadListPages @ 0x1406E8BA4 (MiFreeReadListPages.c)
+ *     MiFreeReadListPageList @ 0x1406E8C2C (MiFreeReadListPageList.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiMakeShadowPageTableRange @ 0x1407A0274 (MiMakeShadowPageTableRange.c)
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x14087DB3C (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ *     MiReturnReservedEnclavePages @ 0x1409B0D60 (MiReturnReservedEnclavePages.c)
  * Callees:
  *     <none>
  */

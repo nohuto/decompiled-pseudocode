@@ -1,5 +1,5 @@
 /*
- * XREFs of imp_WdfDriverRegisterTraceInfo @ 0x1C000BB90
+ * XREFs of imp_WdfDriverRegisterTraceInfo @ 0x1C000DAD0
  * Callers:
  *     <none>
  * Callees:

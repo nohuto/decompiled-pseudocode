@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetCurrentState@CScalarForce@@UEBA?BUIntegrationState@@XZ @ 0x180265B90
+ * XREFs of ?GetCurrentState@CScalarForce@@UEBA?BUIntegrationState@@XZ @ 0x180214C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CScalarForce::GetCurrentState(__int64 a1, __int64 a2)
@@ -14,18 +14,18 @@ __int64 __fastcall CScalarForce::GetCurrentState(__int64 a1, __int64 a2)
 
   if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)a1 + 24LL))(a1) )
   {
-    v6 = *(_DWORD *)(a1 + 44);
-    *(_OWORD *)a2 = *(_OWORD *)(a1 + 28);
+    v6 = *(_DWORD *)(a1 + 52);
+    *(_OWORD *)a2 = *(_OWORD *)(a1 + 36);
     *(_DWORD *)(a2 + 16) = v6;
   }
   else
   {
-    v5 = *(_QWORD *)(a1 + 104);
+    v5 = *(_QWORD *)(a1 + 112);
     *(_DWORD *)a2 = 0;
     if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v5 + 40LL))(v5) )
-      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 104) + 24LL))(*(_QWORD *)(a1 + 104));
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 112) + 24LL))(*(_QWORD *)(a1 + 112));
     else
-      v2 = *(_DWORD *)(a1 + 32);
+      v2 = *(_DWORD *)(a1 + 40);
     *(_DWORD *)(a2 + 8) = 0;
     *(_DWORD *)(a2 + 4) = v2;
   }

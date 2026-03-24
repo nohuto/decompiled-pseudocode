@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreatePerfKeys @ 0x14085D770
+ * XREFs of CmpCreatePerfKeys @ 0x1407A7FF0
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     CmpCreatePredefined @ 0x14085D838 (CmpCreatePredefined.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     CmpCreatePredefined @ 0x1407A80B8 (CmpCreatePredefined.c)
  */
 
 int CmpCreatePerfKeys()
@@ -21,10 +21,11 @@ int CmpCreatePerfKeys()
   wchar_t pszDest[8]; // [rsp+68h] [rbp-18h] BYREF
 
   KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&CmpPerflibPathString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x20006u, &ObjectAttributes);
   if ( result >= 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x14033FD80
+ * XREFs of IoRetrievePriorityInfo @ 0x1402569D0
  * Callers:
  *     <none>
  * Callees:
- *     IoGetIoPriorityHint @ 0x140221E10 (IoGetIoPriorityHint.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     IoGetIoPriorityHint @ 0x140254F60 (IoGetIoPriorityHint.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(
@@ -17,7 +17,7 @@ NTSTATUS __stdcall IoRetrievePriorityInfo(
   int v4; // r14d
   int v5; // ebp
   _DWORD *FileObjectExtension; // rax
-  _IO_PRIORITY_HINT IoPriorityThread; // edx
+  _IO_PRIORITY_HINT IoPriorityHint; // edx
   unsigned int BasePriority; // eax
   unsigned int v11; // edx
   int v13; // edx
@@ -34,60 +34,51 @@ NTSTATUS __stdcall IoRetrievePriorityInfo(
   v4 = 0;
   v5 = 2;
   PriorityInfo->IoPriority = IoPriorityNormal;
-  if ( !Irp || (Irp->Flags & 0xE0000) == 0 )
+  if ( Irp && (Irp->Flags & 0xE0000) != 0 )
   {
-    if ( FileObject )
+    IoPriorityHint = IoGetIoPriorityHint(Irp);
+    goto LABEL_9;
+  }
+  if ( !FileObject )
+  {
+LABEL_17:
+    if ( !Thread )
+      goto LABEL_33;
+    IoPriorityHint = (unsigned int)PsGetIoPriorityThread((__int64)Thread);
+    goto LABEL_9;
+  }
+  FileObjectExtension = FileObject->FileObjectExtension;
+  if ( FileObjectExtension )
+  {
+    v13 = FileObjectExtension[20];
+    if ( v13 )
     {
-      FileObjectExtension = FileObject->FileObjectExtension;
-      if ( FileObjectExtension )
-      {
-        v13 = FileObjectExtension[20];
-        if ( v13 )
-        {
-          IoPriorityThread = v13 - 1;
-        }
-        else
-        {
-          if ( !Thread )
-            goto LABEL_42;
-          IoPriorityThread = (unsigned int)PsGetIoPriorityThread((__int64)Thread);
-        }
-        goto LABEL_7;
-      }
-      if ( Thread )
-      {
-        IoPriorityThread = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 9) & 7;
-        if ( (Thread->Process[1].DirectoryTableBase & 0x10000000000000LL) != 0 )
-        {
-          IoPriorityThread = IoPriorityVeryLow;
-        }
-        else if ( (unsigned int)IoPriorityThread >= IoPriorityNormal )
-        {
-LABEL_7:
-          PriorityInfo->IoPriority = IoPriorityThread;
-          goto LABEL_8;
-        }
-        if ( Thread == KeGetCurrentThread() && LODWORD(Thread[1].Timer.TimerListEntry.Flink) )
-          IoPriorityThread = IoPriorityNormal;
-        goto LABEL_7;
-      }
-    }
-    else if ( Thread )
-    {
-      PriorityInfo->IoPriority = PsGetIoPriorityThread((__int64)Thread);
+      IoPriorityHint = v13 - 1;
       goto LABEL_9;
     }
-LABEL_42:
+    goto LABEL_17;
+  }
+  if ( !Thread )
+  {
+LABEL_33:
     *(_QWORD *)&PriorityInfo->ThreadPriority = -1LL;
     return 0;
   }
-  PriorityInfo->IoPriority = IoGetIoPriorityHint(Irp);
-LABEL_8:
-  if ( !Thread )
-    goto LABEL_42;
+  IoPriorityHint = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 9) & 7;
+  if ( (Thread->Process[1].DirectoryTableBase & 0x10000000000000LL) != 0 )
+    IoPriorityHint = IoPriorityVeryLow;
+  if ( (unsigned int)IoPriorityHint < IoPriorityNormal
+    && Thread == KeGetCurrentThread()
+    && LODWORD(Thread[1].Timer.TimerListEntry.Flink) )
+  {
+    IoPriorityHint = IoPriorityNormal;
+  }
 LABEL_9:
+  PriorityInfo->IoPriority = IoPriorityHint;
+  if ( !Thread )
+    goto LABEL_33;
   if ( Thread->Priority >= 16 || !Thread->SchedulingGroup )
-    goto LABEL_11;
+    goto LABEL_12;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -126,7 +117,7 @@ LABEL_9:
   if ( v4 )
     BasePriority = 1;
   else
-LABEL_11:
+LABEL_12:
     BasePriority = Thread->BasePriority;
   PriorityInfo->ThreadPriority = BasePriority;
   v11 = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 12) & 7;

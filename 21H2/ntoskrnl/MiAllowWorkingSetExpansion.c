@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowWorkingSetExpansion @ 0x14036DA68
+ * XREFs of MiAllowWorkingSetExpansion @ 0x14035E67C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407F35F8 (MiInitializeSystemWorkingSetList.c)
- *     MmInitializeHandBuiltProcess @ 0x14085D8F8 (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407867BC (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeHandBuiltProcess @ 0x1407CF004 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x14036DAE4 (MiReturnWsToExpansionList.c)
- *     MiInsertSessionWorkingSet @ 0x14036DB5C (MiInsertSessionWorkingSet.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReturnWsToExpansionList @ 0x14035E6F8 (MiReturnWsToExpansionList.c)
+ *     MiInsertSessionWorkingSet @ 0x1403A6BD0 (MiInsertSessionWorkingSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiAllowWorkingSetExpansion(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiAllowWorkingSetExpansion(__int64 a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   if ( (*(_BYTE *)(a1 + 184) & 7) == 1 )
-    MiInsertSessionWorkingSet(a1 - 192);
+    MiInsertSessionWorkingSet(a1 - 256);
   MiReturnWsToExpansionList(a1, 0LL);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;

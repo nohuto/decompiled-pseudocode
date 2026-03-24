@@ -1,30 +1,24 @@
 /*
- * XREFs of ?ProcessGetAppSessionGuid@@YA?AU_GUID@@PEAUtagPROCESSINFO@@@Z @ 0x1C0247034
+ * XREFs of ?ProcessGetAppSessionGuid@@YA?AU_GUID@@PEAUtagPROCESSINFO@@@Z @ 0x1C025852C
  * Callers:
- *     ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0246C40 (-HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL.c)
+ *     ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0258214 (-HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL.c)
  * Callees:
  *     <none>
  */
 
 struct _GUID *__fastcall ProcessGetAppSessionGuid(struct _GUID *__return_ptr retstr, struct tagPROCESSINFO *a2)
 {
-  unsigned int v2; // eax
-  unsigned __int16 v5; // r8
-  unsigned __int16 v6; // ax
-  bool v7; // cc
-  struct _KPROCESS *v8; // rcx
+  unsigned int v3; // eax
+  struct _KPROCESS *v4; // rcx
 
-  v2 = *((_DWORD *)a2 + 14);
-  *retstr = 0LL;
-  retstr->Data1 = v2;
-  v5 = *(_WORD *)SGDGetUserSessionState(retstr);
-  v6 = MEMORY[0xFFFFF780000002C4];
-  v7 = MEMORY[0xFFFFF780000002C4] <= 0xFFFFu;
-  retstr->Data2 = v5;
-  if ( !v7 )
-    v6 = -1;
-  v8 = *(struct _KPROCESS **)a2;
-  retstr->Data3 = v6;
-  *(_QWORD *)retstr->Data4 = PsGetProcessCreateTimeQuadPart(v8);
+  *(_QWORD *)retstr->Data4 = 0LL;
+  retstr->Data1 = *((_DWORD *)a2 + 14);
+  v3 = MEMORY[0xFFFFF780000002C4];
+  retstr->Data2 = gSessionId;
+  if ( v3 > 0xFFFF )
+    LOWORD(v3) = -1;
+  v4 = *(struct _KPROCESS **)a2;
+  retstr->Data3 = v3;
+  *(_QWORD *)retstr->Data4 = PsGetProcessCreateTimeQuadPart(v4);
   return retstr;
 }

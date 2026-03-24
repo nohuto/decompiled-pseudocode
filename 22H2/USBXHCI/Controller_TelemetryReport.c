@@ -1,19 +1,19 @@
 /*
- * XREFs of Controller_TelemetryReport @ 0x1C0034A08
+ * XREFs of Controller_TelemetryReport @ 0x1C00330D0
  * Callers:
- *     Controller_TelemetryReportWorker @ 0x1C0034DB0 (Controller_TelemetryReportWorker.c)
+ *     Controller_TelemetryReportWorker @ 0x1C0033470 (Controller_TelemetryReportWorker.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     RtlStringCchPrintfA @ 0x1C000C2C4 (RtlStringCchPrintfA.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     TelemetryData_CloseHandle @ 0x1C0052F20 (TelemetryData_CloseHandle.c)
- *     TelemetryData_CreateReport @ 0x1C0052F6C (TelemetryData_CreateReport.c)
- *     TelemetryData_InsertTriageDataBlock @ 0x1C00530E8 (TelemetryData_InsertTriageDataBlock.c)
- *     Controller_TelemetryAddControllerData @ 0x1C0078B30 (Controller_TelemetryAddControllerData.c)
- *     Controller_TelemetryOkToGenerateReport @ 0x1C0078D14 (Controller_TelemetryOkToGenerateReport.c)
- *     Controller_TelemetryUpdateSubmitReportSuccess @ 0x1C0078FFC (Controller_TelemetryUpdateSubmitReportSuccess.c)
- *     TelemetryData_SubmitReport @ 0x1C007AF98 (TelemetryData_SubmitReport.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     TelemetryData_CloseHandle @ 0x1C0050200 (TelemetryData_CloseHandle.c)
+ *     TelemetryData_CreateReport @ 0x1C005024C (TelemetryData_CreateReport.c)
+ *     TelemetryData_InsertTriageDataBlock @ 0x1C00503BC (TelemetryData_InsertTriageDataBlock.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0075284 (Controller_TelemetryAddControllerData.c)
+ *     Controller_TelemetryOkToGenerateReport @ 0x1C0075468 (Controller_TelemetryOkToGenerateReport.c)
+ *     Controller_TelemetryUpdateSubmitReportSuccess @ 0x1C0075750 (Controller_TelemetryUpdateSubmitReportSuccess.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  */
 
 _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, unsigned int a5)
@@ -28,7 +28,7 @@ _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64
   int v15; // edx
   void *v16; // rbx
   unsigned int i; // r15d
-  __int64 v18; // r14
+  __int64 v18; // rsi
   int v19; // eax
   int v20; // edx
   unsigned int v21; // [rsp+30h] [rbp-61h] BYREF
@@ -53,13 +53,13 @@ _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64
   result = (_UNKNOWN **)Controller_TelemetryOkToGenerateReport(a1, a2, v6);
   if ( (_BYTE)result )
   {
-    v10 = *(_QWORD *)(a3 + 40);
+    v10 = *(_QWORD *)(a3 + 32);
     *(_QWORD *)pszDest = 0LL;
     *(_QWORD *)v26 = 0LL;
     v11 = *(_DWORD *)(a1 + 244) == 1;
     v29 = v10;
-    v30 = *(_QWORD *)(a3 + 48);
-    v31 = *(_QWORD *)(a3 + 56);
+    v30 = *(_QWORD *)(a3 + 40);
+    v31 = *(_QWORD *)(a3 + 48);
     v27 = 0LL;
     v28 = a1;
     if ( v11 )
@@ -75,13 +75,7 @@ _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64
       RtlStringCchPrintfA(&v26[2], 5uLL, "%s", (const char *)(a1 + 314));
     }
     RtlStringCchPrintfA(&v26[7], 0x11uLL, "%I64X", *(_QWORD *)(a1 + 328));
-    Report = TelemetryData_CreateReport(
-               v13,
-               v12,
-               *(_DWORD *)(a3 + 16),
-               (unsigned int)pszDest,
-               *(_QWORD *)(a3 + 24),
-               *(_QWORD *)(a3 + 32));
+    Report = TelemetryData_CreateReport(v13, v12, *(_DWORD *)(a3 + 16), (unsigned int)pszDest, *(_QWORD *)(a3 + 24));
     v16 = (void *)Report;
     if ( Report )
     {
@@ -125,8 +119,8 @@ _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64
               *(_QWORD *)(a1 + 72),
               v20,
               4,
-              226,
-              (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+              223,
+              (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
               v19);
           }
         }
@@ -143,8 +137,8 @@ _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64
                               *(_QWORD *)(a1 + 72),
                               v15,
                               4,
-                              225,
-                              (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+                              222,
+                              (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
       }
     }
   }

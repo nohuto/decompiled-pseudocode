@@ -1,166 +1,125 @@
 /*
- * XREFs of KiCalibrateTimeAdjustment @ 0x140A9F000
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140995370
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     KeInsertQueueDpc @ 0x140254650 (KeInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KeRemoveQueueDpc @ 0x14031EED0 (KeRemoveQueueDpc.c)
- *     KiSelectActiveTimerTable @ 0x14033BC80 (KiSelectActiveTimerTable.c)
- *     RtlWriteReleaseTickLock @ 0x140381B70 (RtlWriteReleaseTickLock.c)
- *     KiUpdateSystemTime @ 0x1403C0E98 (KiUpdateSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x1403C1080 (RtlWriteAcquireTickLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
- *     KeRebaselineInterruptTime @ 0x14056AF4C (KeRebaselineInterruptTime.c)
- *     RtlEnlargedUnsignedDivide @ 0x14056D204 (RtlEnlargedUnsignedDivide.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiPollFreezeExecution @ 0x140576D00 (KiPollFreezeExecution.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KiSelectActiveTimerTable @ 0x1402473D0 (KiSelectActiveTimerTable.c)
+ *     KeRemoveQueueDpc @ 0x140321480 (KeRemoveQueueDpc.c)
+ *     KiPollFreezeExecution @ 0x14032CBA8 (KiPollFreezeExecution.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     RtlWriteAcquireTickLock @ 0x14035F214 (RtlWriteAcquireTickLock.c)
+ *     KeRebaselineInterruptTime @ 0x140383FF8 (KeRebaselineInterruptTime.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     KiUpdateSystemTime @ 0x1403977A8 (KiUpdateSystemTime.c)
+ *     RtlWriteReleaseTickLock @ 0x1403A6CF4 (RtlWriteReleaseTickLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
+void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
 {
   struct _KPRCB *CurrentPrcb; // r14
-  __int64 v3; // r12
-  volatile signed __int32 *v4; // rcx
-  unsigned int v5; // ebp
-  volatile signed __int32 *SchedulerAssist; // rcx
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rbx
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // rcx
-  unsigned int v11; // edi
-  __int64 v12; // r11
-  int v13; // r9d
-  unsigned __int64 v14; // rdx
-  __int64 v15; // r9
-  int v16; // eax
-  __int64 v17; // r8
-  __int64 v18; // r11
-  char v19; // bp
-  __int64 v20; // rbx
-  ULONG_PTR result; // rax
-  __int64 v22; // rbx
+  unsigned int v3; // ebp
+  char v4; // bp
+  __int64 v5; // rbx
+  __int64 v6; // rdi
+  unsigned __int64 v7; // rbx
+  LARGE_INTEGER v8; // r9
+  unsigned __int64 v9; // kr00_8
+  __int64 v10; // rax
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 *v13; // rcx
+  unsigned __int64 v14; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
-  struct _KPRCB *v24; // rcx
-  _DWORD *v25; // r8
-  int v26; // ett
-  ULARGE_INTEGER Dividend; // [rsp+30h] [rbp-68h] BYREF
+  unsigned __int64 v16; // [rsp+30h] [rbp-68h]
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-60h] BYREF
-  unsigned __int64 v29; // [rsp+40h] [rbp-58h]
-  LARGE_INTEGER v30; // [rsp+48h] [rbp-50h] BYREF
-  unsigned __int64 v31; // [rsp+50h] [rbp-48h]
-  LARGE_INTEGER *v32; // [rsp+58h] [rbp-40h] BYREF
-  int v33; // [rsp+60h] [rbp-38h]
-  int v34; // [rsp+64h] [rbp-34h]
-  unsigned int v35; // [rsp+90h] [rbp-8h]
+  __int64 v18; // [rsp+40h] [rbp-58h]
+  LARGE_INTEGER v19; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-48h]
+  unsigned __int64 v21; // [rsp+58h] [rbp-40h]
+  LARGE_INTEGER *v22; // [rsp+60h] [rbp-38h] BYREF
+  int v23; // [rsp+68h] [rbp-30h]
+  int v24; // [rsp+6Ch] [rbp-2Ch]
+  unsigned int v25; // [rsp+90h] [rbp-8h]
 
-  v30.QuadPart = 0LL;
+  v19.QuadPart = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
-  Dividend.QuadPart = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
-  v3 = MmWriteableSharedUserData;
   if ( CurrentPrcb->Number == *(_DWORD *)(Argument + 4) )
   {
     _disable();
-    SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( SchedulerAssist )
-      _InterlockedOr(SchedulerAssist, 0x200000u);
-    v7 = *(_QWORD *)(Argument + 8);
-    v5 = v35 >> 9;
-    v29 = v7;
-    v8 = MEMORY[0xFFFFF78000000008] + v7;
-    v31 = MEMORY[0xFFFFF78000000008] + v7;
-    KeQueryPerformanceCounter(&PerformanceFrequency);
+    v6 = *(_QWORD *)(Argument + 8);
+    v3 = v25 >> 9;
+    v18 = v6;
+    v7 = MEMORY[0xFFFFF78000000008] + v6;
+    v20 = MEMORY[0xFFFFF78000000008] + v6;
+    v8 = KeQueryPerformanceCounter(&PerformanceFrequency);
     if ( *(_BYTE *)Argument )
     {
-      v9 = (unsigned int)v7 * (unsigned __int64)PerformanceFrequency.LowPart;
-      v10 = (unsigned int)v7 * (unsigned __int64)(unsigned int)PerformanceFrequency.HighPart;
-      v11 = v7 * PerformanceFrequency.LowPart;
-      v9 >>= 32;
-      Dividend.LowPart = v10 + v9 + PerformanceFrequency.LowPart * HIDWORD(v29);
-      Dividend.HighPart = PerformanceFrequency.HighPart * HIDWORD(v29)
-                        + ((v10 + v9 + PerformanceFrequency.LowPart * (unsigned __int64)HIDWORD(v29)) >> 32);
-      *(_DWORD *)(Argument + 20) = RtlEnlargedUnsignedDivide(Dividend, PerformanceFrequency.LowPart, &Dividend.HighPart);
-      Dividend.LowPart = v11;
-      *(_DWORD *)(Argument + 16) = Dividend.QuadPart / 0x989680;
-      *(_QWORD *)(Argument + 16) += v12;
+      LODWORD(v16) = (__PAIR64__(HIDWORD(v18), v6) * PerformanceFrequency.QuadPart) >> 32;
+      HIDWORD(v16) = PerformanceFrequency.HighPart * HIDWORD(v18)
+                   + (((((unsigned int)v6 * (unsigned __int64)PerformanceFrequency.LowPart) >> 32)
+                     + PerformanceFrequency.LowPart * (unsigned __int64)HIDWORD(v18)
+                     + (unsigned int)v6 * (unsigned __int64)(unsigned int)PerformanceFrequency.HighPart) >> 32);
+      v9 = v16;
+      LODWORD(v16) = v6 * PerformanceFrequency.LowPart;
+      *(_DWORD *)(Argument + 20) = v9 / 0x989680;
+      HIDWORD(v16) = v9 % 0x989680;
+      *(_DWORD *)(Argument + 16) = v16 / 0x989680;
+      *(_QWORD *)(Argument + 16) += v8.QuadPart;
     }
-    v13 = KeMaximumIncrement;
-    v29 = v8 / (unsigned int)KeMaximumIncrement;
-    v14 = v8 % (unsigned int)KeMaximumIncrement;
-    *(_QWORD *)(MmWriteableSharedUserData + 944) += *(_QWORD *)(Argument + 8);
-    KiTickOffset = v13 - v14;
+    v21 = v7 / (unsigned int)KeMaximumIncrement;
+    v10 = *(_QWORD *)(Argument + 8);
+    KiTickOffset = KeMaximumIncrement - v7 % (unsigned int)KeMaximumIncrement;
+    MEMORY[0xFFFFF780000003B0] += v10;
+    LODWORD(v18) = v7 % (unsigned int)KeMaximumIncrement;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);
-    RtlWriteAcquireTickLock((signed __int64 *)(v3 + 832));
-    v15 = MmWriteableSharedUserData;
-    *(_DWORD *)(MmWriteableSharedUserData + 16) = HIDWORD(v31);
-    v16 = HIDWORD(v29);
-    *(_QWORD *)(v15 + 8) = v8;
-    *(_DWORD *)(v15 + 808) = v16;
-    *(_QWORD *)(v15 + 800) = v17;
-    *(_QWORD *)(v15 + 848) = v18;
+    RtlWriteAcquireTickLock((signed __int64 *)0xFFFFF78000000340LL);
+    MEMORY[0xFFFFF78000000010] = HIDWORD(v20);
+    MEMORY[0xFFFFF78000000008] = v7;
+    MEMORY[0xFFFFF78000000328] = HIDWORD(v21);
+    MEMORY[0xFFFFF78000000320] = v11;
+    MEMORY[0xFFFFF78000000350] = v12;
     KiInterruptTimeErrorAccumulator = 0LL;
-    RtlWriteReleaseTickLock((__int64 *)(v3 + 832));
+    RtlWriteReleaseTickLock(v13);
     *(_DWORD *)(Argument + 28) = 0;
   }
   else
   {
     _disable();
-    v4 = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( v4 )
-      _InterlockedOr(v4, 0x200000u);
-    v5 = v35 >> 9;
+    v3 = v25 >> 9;
     do
       KiPollFreezeExecution();
     while ( *(_DWORD *)(Argument + 28) );
   }
-  v19 = v5 & 1;
+  v4 = v3 & 1;
   if ( KiSelectActiveTimerTable((__int64)CurrentPrcb, 1) )
   {
-    v20 = MEMORY[0xFFFFF78000000008] >> 18;
+    v14 = MEMORY[0xFFFFF78000000008];
     KeRemoveQueueDpc(&CurrentPrcb->TimerExpirationDpc);
-    KeInsertQueueDpc(&CurrentPrcb->TimerExpirationDpc, (PVOID)(unsigned int)(v20 - 256), 0LL);
+    KeInsertQueueDpc(&CurrentPrcb->TimerExpirationDpc, (PVOID)((unsigned int)(v14 >> 18) - 256), 0LL);
   }
-  result = MEMORY[0xFFFFF78000000320];
   CurrentPrcb->LastTick = MEMORY[0xFFFFF78000000320];
-  v22 = *(_QWORD *)(Argument + 8);
+  v5 = *(_QWORD *)(Argument + 8);
   if ( *(_BYTE *)Argument )
   {
     HalCalibratePerformanceCounter((volatile signed __int32 *)(Argument + 24), *(_QWORD *)(Argument + 16));
-    result = KeRebaselineInterruptTime().QuadPart;
-    if ( (xmmword_140D1EAD0 & 0x8000) != 0 )
+    KeRebaselineInterruptTime();
+    if ( (xmmword_140CFC490 & 0x8000) != 0 )
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v34 = 0;
-      v30 = PerformanceCounter;
-      v33 = 8;
-      v32 = &v30;
-      result = EtwTraceKernelEvent((int)&v32, 1, 0x80008000, 4658, 4200450);
+      v24 = 0;
+      v19 = PerformanceCounter;
+      v23 = 8;
+      v22 = &v19;
+      EtwTraceKernelEvent((__int64)&v22, 1u, 0x80008000, 0x1232u, 0x401802u);
     }
   }
   if ( CurrentPrcb->ClockOwner )
-    result = KiUpdateSystemTime(v22, 0LL, 3);
-  if ( v19 )
-  {
-    v24 = KeGetCurrentPrcb();
-    v25 = v24->SchedulerAssist;
-    if ( v25 )
-    {
-      _m_prefetchw(v25);
-      LODWORD(result) = *v25;
-      do
-      {
-        v26 = result;
-        result = (unsigned int)_InterlockedCompareExchange(v25, result & 0xFFDFFFFF, result);
-      }
-      while ( v26 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v24);
-    }
+    KiUpdateSystemTime(v5, 0LL, 3);
+  if ( v4 )
     _enable();
-  }
-  return result;
 }

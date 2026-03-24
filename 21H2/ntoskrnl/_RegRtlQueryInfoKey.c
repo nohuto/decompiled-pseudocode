@@ -1,14 +1,14 @@
 /*
- * XREFs of _RegRtlQueryInfoKey @ 0x1406CB590
+ * XREFs of _RegRtlQueryInfoKey @ 0x1406B69A8
  * Callers:
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlEnumKeyWithCallback @ 0x14083EB44 (_RegRtlEnumKeyWithCallback.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x140A2D760 (_RegRtlDeletePathInternal.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1407B14E0 (_RegRtlEnumKeyWithCallback.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x14097C99C (_RegRtlDeletePathInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
  */
 
 __int64 __fastcall RegRtlQueryInfoKey(void *a1, _DWORD *a2, unsigned int *a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)

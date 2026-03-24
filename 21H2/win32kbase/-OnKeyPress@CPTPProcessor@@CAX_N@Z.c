@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C00E8AB2
+ * XREFs of ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C01A671C
  * Callers:
- *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01DE9BC (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
+ *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01A665C (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
  * Callees:
- *     ApiSetTraceLoggingPTPAAPKeyPress @ 0x1C020FAC4 (ApiSetTraceLoggingPTPAAPKeyPress.c)
+ *     ApiSetTraceLoggingPTPAAPKeyPress @ 0x1C01D109C (ApiSetTraceLoggingPTPAAPKeyPress.c)
  */
 
 void __fastcall CPTPProcessor::OnKeyPress(unsigned __int8 a1)
@@ -14,12 +14,12 @@ void __fastcall CPTPProcessor::OnKeyPress(unsigned __int8 a1)
 
   ApiSetTraceLoggingPTPAAPKeyPress(a1);
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v3 = &qword_1C029AC80;
+  v3 = &qword_1C0255ED0;
   if ( !a1 )
-    v3 = &qword_1C029AC88;
-  v4 = &qword_1C029D9E0;
+    v3 = &qword_1C0255ED8;
+  v4 = &qword_1C0258E30;
   _InterlockedExchange64(v3, PerformanceCounter.QuadPart);
   if ( !a1 )
-    v4 = &qword_1C029D9E8;
+    v4 = &qword_1C0258E38;
   _InterlockedExchange64(v4, PerformanceCounter.QuadPart);
 }

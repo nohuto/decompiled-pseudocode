@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateU0xxxx_EventWriteTransfer @ 0x1802A9FD0
+ * XREFs of McTemplateU0xxxx_EventWriteTransfer @ 0x1802580F0
  * Callers:
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A97E8 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802ACB50 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2130 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18025AC5C (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
@@ -44,5 +44,5 @@ ULONG McTemplateU0xxxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2
   va_copy(v8, va2);
   va_copy(v10, va3);
   v11 = 8LL;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, v13, 5u, &v3);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, v13, 5u, &v3);
 }

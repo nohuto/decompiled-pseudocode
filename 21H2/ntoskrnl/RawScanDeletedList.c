@@ -1,13 +1,13 @@
 /*
- * XREFs of RawScanDeletedList @ 0x14074C258
+ * XREFs of RawScanDeletedList @ 0x14071B3D8
  * Callers:
- *     RawMountVolume @ 0x14074C2EC (RawMountVolume.c)
- *     RawShutdown @ 0x1409B4E80 (RawShutdown.c)
+ *     RawMountVolume @ 0x14071C1B0 (RawMountVolume.c)
+ *     RawShutdown @ 0x14090F280 (RawShutdown.c)
  * Callees:
- *     ExTryToAcquireFastMutex @ 0x140233370 (ExTryToAcquireFastMutex.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RawCheckForDeleteVolume @ 0x1403770A8 (RawCheckForDeleteVolume.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExTryToAcquireFastMutex @ 0x14028DD70 (ExTryToAcquireFastMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RawCheckForDeleteVolume @ 0x140395244 (RawCheckForDeleteVolume.c)
  */
 
 void RawScanDeletedList()
@@ -21,12 +21,12 @@ void RawScanDeletedList()
     v0 = (__int64 *)RawDismountedQueue;
     while ( v0 != &RawDismountedQueue )
     {
-      v1 = v0 - 21;
+      v1 = v0 - 20;
       v0 = (__int64 *)*v0;
-      if ( ExTryToAcquireFastMutex((PFAST_MUTEX)(v1 + 29)) )
+      if ( ExTryToAcquireFastMutex((PFAST_MUTEX)v1 + 4) )
       {
         if ( !RawCheckForDeleteVolume((PFSRTL_ADVANCED_FCB_HEADER)v1) )
-          KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v1 + 29));
+          KeReleaseGuardedMutex((PKGUARDED_MUTEX)v1 + 4);
       }
     }
     KeReleaseGuardedMutex(&RawGlobalLock);

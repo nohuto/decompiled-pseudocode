@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA@XZ @ 0x1800307C4
+ * XREFs of ??0?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA@XZ @ 0x1800B6B58
  * Callers:
- *     ??0CEffectCompilationService@@AEAA@PEAUIMessageSession@@@Z @ 0x1800306C0 (--0CEffectCompilationService@@AEAA@PEAUIMessageSession@@@Z.c)
- *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801F6D64 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
- *     ??0InteractionSourceManager@@QEAA@XZ @ 0x1802188C4 (--0InteractionSourceManager@@QEAA@XZ.c)
+ *     ??0CEffectCompilationService@@AEAA@PEAUIMessageSession@@@Z @ 0x1800B6AAC (--0CEffectCompilationService@@AEAA@PEAUIMessageSession@@@Z.c)
+ *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801AD254 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
+ *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x1801C76F8 (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
 _QWORD *__fastcall std::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>::deque<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>(

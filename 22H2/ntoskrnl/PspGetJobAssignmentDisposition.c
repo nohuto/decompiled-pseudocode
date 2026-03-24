@@ -1,14 +1,14 @@
 /*
- * XREFs of PspGetJobAssignmentDisposition @ 0x1406A05A0
+ * XREFs of PspGetJobAssignmentDisposition @ 0x14071FA48
  * Callers:
- *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
+ *     PsAssignProcessToJobObject @ 0x14071E780 (PsAssignProcessToJobObject.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PsIsJobParentImmutable @ 0x14069EDA4 (PsIsJobParentImmutable.c)
- *     PspIsProcessInJob @ 0x14069EECC (PspIsProcessInJob.c)
- *     PspIsJobMovable @ 0x1409B2614 (PspIsJobMovable.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     PspIsProcessInJob @ 0x14071C5F0 (PspIsProcessInJob.c)
+ *     PsIsJobParentImmutable @ 0x14071C620 (PsIsJobParentImmutable.c)
+ *     PspIsJobMovable @ 0x140908FD4 (PspIsJobMovable.c)
  */
 
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int6
   if ( a2 )
   {
     v8 = (struct _EX_RUNDOWN_REF *)(a2 + 1112);
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112)) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
     {
       if ( (*(_DWORD *)(a2 + 1124) & 8) != 0 )
       {
@@ -44,7 +44,7 @@ __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int6
           {
             while ( v10 != *(_QWORD *)(a2 + 1296) )
             {
-              v10 = *(_QWORD *)(v10 + 1288);
+              v10 = *(_QWORD *)(v10 + 1072);
               if ( !v10 )
                 goto LABEL_11;
             }
@@ -71,7 +71,7 @@ LABEL_11:
       {
         *a4 = 1;
       }
-      ExReleaseRundownProtection_0(v8);
+      ExReleaseRundownProtection(v8);
       return v4;
     }
     else
@@ -79,7 +79,7 @@ LABEL_11:
       return 3221225738LL;
     }
   }
-  else if ( PsIsJobParentImmutable(a1) || *(_DWORD *)(v12 + 212) || *(_QWORD *)(v12 + 1776) == -1LL )
+  else if ( PsIsJobParentImmutable(a1) || *(_DWORD *)(v12 + 212) || *(_QWORD *)(v12 + 1560) == -1LL )
   {
     return 3221225659LL;
   }

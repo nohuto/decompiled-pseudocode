@@ -1,100 +1,82 @@
 /*
- * XREFs of ?DmmStoreVidPnPathDataIntoDiagPacket@@YAJPEBVDMMVIDPNTOPOLOGY@@IPEAU_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2@@@Z @ 0x1C03AED9C
+ * XREFs of ?DmmStoreVidPnPathDataIntoDiagPacket@@YAJPEBVDMMVIDPNTOPOLOGY@@IPEAU_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2@@@Z @ 0x1C02DF584
  * Callers:
- *     ?DmmLogCommitVidPnFailedPacket@@YAXPEAU_DXGKARG_COMMITVIDPN@@JW4DXGK_DIAG_COMMIT_VIDPN_STAGE@@@Z @ 0x1C03AE1DC (-DmmLogCommitVidPnFailedPacket@@YAXPEAU_DXGKARG_COMMITVIDPN@@JW4DXGK_DIAG_COMMIT_VIDPN_STAGE@@@Z.c)
- *     ?DmmLogDriverRecommendVidPnPacket@@YAXPEBVDMMVIDPNTOPOLOGY@@W4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@@Z @ 0x1C03AE368 (-DmmLogDriverRecommendVidPnPacket@@YAXPEBVDMMVIDPNTOPOLOGY@@W4_DXGK_RECOMMENDFUNCTIONALVIDPN_REA.c)
+ *     ?DmmLogCommitVidPnFailedPacket@@YAXPEAU_DXGKARG_COMMITVIDPN@@JW4DXGK_DIAG_COMMIT_VIDPN_STAGE@@@Z @ 0x1C02DE7E0 (-DmmLogCommitVidPnFailedPacket@@YAXPEAU_DXGKARG_COMMITVIDPN@@JW4DXGK_DIAG_COMMIT_VIDPN_STAGE@@@Z.c)
+ *     ?DmmLogDriverRecommendVidPnPacket@@YAXPEBVDMMVIDPNTOPOLOGY@@W4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@@Z @ 0x1C02DE988 (-DmmLogDriverRecommendVidPnPacket@@YAXPEBVDMMVIDPNTOPOLOGY@@W4_DXGK_RECOMMENDFUNCTIONALVIDPN_REA.c)
  * Callees:
- *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0014680 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??$_BmlFillOnePathModalityFromVidPn@U_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR3@@@@YAXPEBVDMMVIDPNPRESENTPATH@@PEAU_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR3@@@Z @ 0x1C016DC88 (--$_BmlFillOnePathModalityFromVidPn@U_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR3@@@@YAXPEBVDMMVIDPNP.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0018EB8 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     ??$_BmlFillOnePathModalityFromVidPn@U_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2@@@@YAXPEBVDMMVIDPNPRESENTPATH@@PEAU_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2@@@Z @ 0x1C01494D8 (--$_BmlFillOnePathModalityFromVidPn@U_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2@@@@YAXPEBVDMMVIDPNP.c)
  */
 
 __int64 __fastcall DmmStoreVidPnPathDataIntoDiagPacket(
         const struct DMMVIDPNTOPOLOGY *a1,
-        unsigned int a2,
+        __int64 a2,
         struct _DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2 *a3)
 {
   char *v3; // rbp
   __int64 v4; // rdi
-  __int64 v7; // rsi
-  __int64 v8; // r15
-  unsigned int v9; // eax
-  __int64 v10; // rbx
-  unsigned int v11; // edi
-  __int64 Container; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rsi
+  __int64 v13; // r15
   _QWORD *v14; // rbx
-  unsigned int v15; // ebp
-  _QWORD *v16; // rsi
-  int v17; // ecx
-  __int64 v18; // rax
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  __int128 v25; // xmm1
-  _QWORD *v26; // rax
-  _OWORD v27[10]; // [rsp+20h] [rbp-B8h] BYREF
+  __int64 v15; // rdx
+  char *v17; // rsi
+  unsigned int v18; // ebp
+  char *v19; // rbx
+  char *i; // rbx
+  int v21; // ecx
+  char *v22; // rax
 
   v3 = (char *)a1 + 160;
-  v4 = a2;
-  v7 = *(_QWORD *)(ContainedBy<DMMVIDPN>::GetContainer((__int64)a1 + 160) + 48);
-  if ( !*(_QWORD *)(v7 + 8) )
-    WdLogSingleEntry0(1LL);
-  v8 = *(_QWORD *)(*(_QWORD *)(v7 + 8) + 16LL);
-  v9 = *((_DWORD *)a1 + 10);
-  if ( v9 <= (unsigned int)v4 )
+  v4 = (unsigned int)a2;
+  v9 = *(_QWORD *)(ContainedBy<DMMVIDPN>::GetContainer((__int64)a1 + 160, a2) + 48);
+  v10 = *(_QWORD *)(v9 + 8);
+  if ( !v10 )
   {
-    v14 = (_QWORD *)((char *)a1 + 24);
-    v15 = 0;
-    if ( (_QWORD *)*v14 != v14 )
+    v11 = WdLogNewEntry5_WdAssertion(v8, v7);
+    WdLogEvent5_WdAssertion(v11);
+    v10 = *(_QWORD *)(v9 + 8);
+  }
+  v12 = *((unsigned int *)a1 + 10);
+  v13 = *(_QWORD *)(v10 + 16);
+  if ( (unsigned int)v12 <= (unsigned int)v4 )
+  {
+    v17 = (char *)a1 + 24;
+    v18 = 0;
+    v19 = (char *)*((_QWORD *)a1 + 3);
+    if ( v19 != v17 )
     {
-      v16 = (_QWORD *)(*v14 - 8LL);
-      while ( v16 && v15 < (unsigned int)v4 )
+      for ( i = v19 - 8; i; ++v18 )
       {
-        *((_DWORD *)a3 + 6) = *(_DWORD *)(v16[11] + 24LL);
-        v17 = *(_DWORD *)(v16[12] + 24LL);
+        if ( v18 >= (unsigned int)v4 )
+          break;
+        *((_DWORD *)a3 + 6) = *(_DWORD *)(*((_QWORD *)i + 11) + 24LL);
+        v21 = *(_DWORD *)(*((_QWORD *)i + 12) + 24LL);
         *(_QWORD *)a3 |= 0x600000000000uLL;
-        *((_DWORD *)a3 + 7) = v17;
-        *((_QWORD *)a3 + 2) = *(_QWORD *)(v8 + 404);
+        *((_DWORD *)a3 + 7) = v21;
+        *((_QWORD *)a3 + 2) = *(_QWORD *)(v13 + 316);
         *(_QWORD *)a3 |= 0x100000000000uLL;
-        memset(v27, 0, sizeof(v27));
-        _BmlFillOnePathModalityFromVidPn<_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR3>((__int64)v16, (__int64)v27);
-        v18 = *(_QWORD *)&v27[8];
-        v19 = v27[1];
-        *(_OWORD *)a3 = v27[0];
-        v20 = v27[2];
-        *((_OWORD *)a3 + 1) = v19;
-        v21 = v27[3];
-        *((_OWORD *)a3 + 2) = v20;
-        v22 = v27[4];
-        *((_OWORD *)a3 + 3) = v21;
-        v23 = v27[5];
-        *((_OWORD *)a3 + 4) = v22;
-        v24 = v27[6];
-        *((_OWORD *)a3 + 5) = v23;
-        v25 = v27[7];
-        *((_OWORD *)a3 + 6) = v24;
-        *((_OWORD *)a3 + 7) = v25;
-        *((_QWORD *)a3 + 16) = v18;
-        *((_DWORD *)a3 + 34) = DWORD2(v27[8]);
-        v26 = (_QWORD *)v16[1];
-        v16 = v26 - 1;
-        if ( v26 == v14 )
-          v16 = 0LL;
+        _BmlFillOnePathModalityFromVidPn<_DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2>((__int64)i, (__int64)a3);
+        v22 = (char *)*((_QWORD *)i + 1);
+        i = v22 - 8;
+        if ( v22 == v17 )
+          i = 0LL;
         a3 = (struct _DXGK_DIAG_CCD_PATHMODALITY_DESCRIPTOR2 *)((char *)a3 + 144);
-        ++v15;
       }
     }
     return 0LL;
   }
   else
   {
-    v10 = v4;
-    v11 = v9;
-    Container = ContainedBy<DMMVIDPN>::GetContainer((__int64)v3);
-    WdLogSingleEntry3(2LL, Container, v11, v10);
+    v14 = (_QWORD *)WdLogNewEntry5_WdError(v8, v7);
+    v14[3] = ContainedBy<DMMVIDPN>::GetContainer((__int64)v3, v15);
+    v14[4] = v12;
+    v14[5] = v4;
+    WdLogEvent5_WdError(v14);
     return 3221225507LL;
   }
 }

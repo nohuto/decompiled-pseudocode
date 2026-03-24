@@ -1,8 +1,8 @@
 /*
- * XREFs of IsModalMenuStarted @ 0x1C01C6AB8
+ * XREFs of IsModalMenuStarted @ 0x1C01F1D68
  * Callers:
- *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01C645C (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
- *     xxxMNDismissIfOffMenu @ 0x1C0217814 (xxxMNDismissIfOffMenu.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01F1438 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     xxxMNDismissIfOffMenu @ 0x1C0237B24 (xxxMNDismissIfOffMenu.c)
  * Callees:
  *     <none>
  */

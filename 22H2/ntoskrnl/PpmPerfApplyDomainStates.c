@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyDomainStates @ 0x140352030
+ * XREFs of PpmPerfApplyDomainStates @ 0x1402F88D0
  * Callers:
  *     <none>
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     PpmPerfApplyDomainState @ 0x140352098 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x1402F8940 (PpmPerfApplyDomainState.c)
+ *     KeIsSubsetAffinityEx @ 0x140513580 (KeIsSubsetAffinityEx.c)
  */
 
 char PpmPerfApplyDomainStates()
@@ -17,12 +17,12 @@ char PpmPerfApplyDomainStates()
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      if ( *(_BYTE *)(i + 1061) && !(unsigned int)KeIsSubsetAffinityEx(i + 24, (__int64)&PpmPerfNewCoreParkingMask) )
+      if ( *(_BYTE *)(i + 765) && !(unsigned int)KeIsSubsetAffinityEx(i + 24, &PpmPerfNewCoreParkingMask) )
       {
         for ( j = PpmPerfDomainHead; (__int64 *)j != &PpmPerfDomainHead; j = *(_QWORD *)j )
         {
-          if ( !(unsigned int)KeIsSubsetAffinityEx(j + 24, (__int64)&PpmPerfNewCoreParkingMask) )
-            *(_BYTE *)(j + 1061) = 1;
+          if ( !(unsigned int)KeIsSubsetAffinityEx(j + 24, &PpmPerfNewCoreParkingMask) )
+            *(_BYTE *)(j + 765) = 1;
         }
         break;
       }
@@ -30,11 +30,11 @@ char PpmPerfApplyDomainStates()
   }
   for ( k = PpmPerfDomainHead; (__int64 *)k != &PpmPerfDomainHead; k = *(_QWORD *)k )
   {
-    if ( *(_BYTE *)(k + 1061) )
+    if ( *(_BYTE *)(k + 765) )
     {
       if ( (unsigned __int8)PpmPerfApplyDomainState(k) )
-        *(_BYTE *)(k + 1062) = 1;
-      *(_BYTE *)(k + 1061) = 0;
+        *(_BYTE *)(k + 766) = 1;
+      *(_BYTE *)(k + 765) = 0;
     }
   }
   return 1;

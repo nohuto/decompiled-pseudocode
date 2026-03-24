@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateAweInfoBitMap @ 0x14084F8E4
+ * XREFs of MiCreateAweInfoBitMap @ 0x14084F8C4
  * Callers:
- *     MiAllocateAweInfo @ 0x14084F4FC (MiAllocateAweInfo.c)
- *     MiResizeAweBitMap @ 0x140850214 (MiResizeAweBitMap.c)
+ *     MiAllocateAweInfo @ 0x14084F4DC (MiAllocateAweInfo.c)
+ *     MiResizeAweBitMap @ 0x1408501F4 (MiResizeAweBitMap.c)
  * Callees:
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     RtlClearAllBitsEx @ 0x1401102F0 (RtlClearAllBitsEx.c)
+ *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiGetAweInfoPartition @ 0x14084FEF0 (MiGetAweInfoPartition.c)
+ *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
  */
 
 __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1, __int64 a2, __int64 a3)

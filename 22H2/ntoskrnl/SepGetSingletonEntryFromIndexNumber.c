@@ -1,15 +1,15 @@
 /*
- * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x140226578
+ * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x140250DC4
  * Callers:
- *     SepInitSingletonEntry @ 0x140226514 (SepInitSingletonEntry.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C948 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x14036F3DC (SepCleanupMarkedForDeletionEntries.c)
- *     SepSetSingletonEntry @ 0x1403A17E4 (SepSetSingletonEntry.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1405B95BC (SepValidateAndCopyGlobalEntry.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E0D0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInitSingletonEntry @ 0x140250D60 (SepInitSingletonEntry.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402512F4 (SepCleanupMarkedForDeletionEntries.c)
+ *     SepSetSingletonEntry @ 0x1405977FC (SepSetSingletonEntry.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14059792C (SepValidateAndCopyGlobalEntry.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SepGetSingletonEntryFromIndexNumber(unsigned int a1)
@@ -33,16 +33,19 @@ __int64 __fastcall SepGetSingletonEntryFromIndexNumber(unsigned int a1)
   ExReleaseSpinLockSharedFromDpcLevel(SepSingletonGlobal);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

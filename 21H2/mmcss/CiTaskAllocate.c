@@ -1,16 +1,16 @@
 /*
- * XREFs of CiTaskAllocate @ 0x1C000DC50
+ * XREFs of CiTaskAllocate @ 0x1C000DCD0
  * Callers:
- *     CiConfigInitializeFromRegistry @ 0x1C000D8D0 (CiConfigInitializeFromRegistry.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000D960 (CiConfigInitializeFromRegistry.c)
  * Callees:
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
- *     CiTaskLocate @ 0x1C000B450 (CiTaskLocate.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
+ *     CiTaskLocate @ 0x1C000B0E0 (CiTaskLocate.c)
  */
 
-__int64 __fastcall CiTaskAllocate(wchar_t *P, _OWORD *a2, __int64 *a3)
+__int64 __fastcall CiTaskAllocate(wchar_t *P, _OWORD *a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
-  __int64 v7; // rdx
+  char *PoolWithTag; // rax
+  char *v7; // rdx
   __int128 v8; // xmm1
   __int128 v9; // xmm0
   struct _LIST_ENTRY *v10; // rax
@@ -26,17 +26,17 @@ __int64 __fastcall CiTaskAllocate(wchar_t *P, _OWORD *a2, __int64 *a3)
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 48LL, 1953658433LL);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x30uLL, 0x74727641u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
       v8 = a2[1];
-      *(_OWORD *)Pool2 = *a2;
+      *(_OWORD *)PoolWithTag = *a2;
       v9 = a2[2];
-      *(_OWORD *)(Pool2 + 16) = v8;
-      *(_OWORD *)(Pool2 + 32) = v9;
-      *(_QWORD *)(Pool2 + 24) = P;
-      v10 = (struct _LIST_ENTRY *)(Pool2 + 8);
+      *((_OWORD *)PoolWithTag + 1) = v8;
+      *((_OWORD *)PoolWithTag + 2) = v9;
+      *((_QWORD *)PoolWithTag + 3) = P;
+      v10 = (struct _LIST_ENTRY *)(PoolWithTag + 8);
       Blink = WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink;
       if ( WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink->Flink != &WPP_MAIN_CB.DeviceLock.Header.WaitListHead )
         __fastfail(3u);

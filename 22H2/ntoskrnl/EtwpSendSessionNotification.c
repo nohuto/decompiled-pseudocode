@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpSendSessionNotification @ 0x14077ED30
+ * XREFs of EtwpSendSessionNotification @ 0x140714D88
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpFlushBuffer @ 0x1406BD950 (EtwpFlushBuffer.c)
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x1407734E8 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpStopLoggerInstance @ 0x1407F69E4 (EtwpStopLoggerInstance.c)
- *     EtwpCreateLogFile @ 0x1407F6D40 (EtwpCreateLogFile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140696190 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpFlushBuffer @ 0x1406BD8DC (EtwpFlushBuffer.c)
+ *     EtwpStopLoggerInstance @ 0x140710AB0 (EtwpStopLoggerInstance.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwpCreateLogFile @ 0x14071334C (EtwpCreateLogFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
  */
 
 __int64 __fastcall EtwpSendSessionNotification(__int64 a1, unsigned int a2, unsigned int a3)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpSendSessionNotification(__int64 a1, unsigned int a2, unsi
   if ( !*(_WORD *)a1 )
     v3 = -1;
   memset(v10, 0, sizeof(v10));
-  v7 = *(_QWORD *)(a1 + 1096);
-  v8 = *(_OWORD *)(a1 + 276);
+  v7 = *(_QWORD *)(a1 + 1080);
+  v8 = *(_OWORD *)(a1 + 292);
   *(_OWORD *)&v10[5] = SessionNotificationGuid;
   *(_OWORD *)&v10[7] = v8;
   v10[0] = 0x6000000007LL;

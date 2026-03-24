@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetPteFromCopyList @ 0x14012D7E8
+ * XREFs of MiGetPteFromCopyList @ 0x14012D808
  * Callers:
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiSwapStackPage @ 0x14012D160 (MiSwapStackPage.c)
- *     MiAddPagesToEnclave @ 0x1402BC7E4 (MiAddPagesToEnclave.c)
- *     MiCopyDirectMapHeader @ 0x140852BC4 (MiCopyDirectMapHeader.c)
- *     MiCopyPagesIntoEnclave @ 0x1408594AC (MiCopyPagesIntoEnclave.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
+ *     MiAddPagesToEnclave @ 0x1402BC8E4 (MiAddPagesToEnclave.c)
+ *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 *__fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_PowerThreadInterfaceDereference@FxPkgPnp@@CAXPEAX@Z @ 0x1C0088EA0
+ * XREFs of ?_PowerThreadInterfaceDereference@FxPkgPnp@@CAXPEAX@Z @ 0x1C0083350
  * Callers:
  *     <none>
  * Callees:

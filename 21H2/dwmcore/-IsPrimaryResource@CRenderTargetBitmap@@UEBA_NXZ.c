@@ -1,12 +1,11 @@
 /*
- * XREFs of ?IsPrimaryResource@CRenderTargetBitmap@@UEBA_NXZ @ 0x1802A2EE4
+ * XREFs of ?IsPrimaryResource@CRenderTargetBitmap@@UEBA_NXZ @ 0x18019B824
  * Callers:
- *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010BDD0 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ.c)
- *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ @ 0x18010CA70 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ.c)
- *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ @ 0x18010CF70 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ.c)
- *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x18010D2B0 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F5F80 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ @ 0x1800F93E0 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x1800F9520 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CRenderTargetBitmap::IsPrimaryResource(CRenderTargetBitmap *this)

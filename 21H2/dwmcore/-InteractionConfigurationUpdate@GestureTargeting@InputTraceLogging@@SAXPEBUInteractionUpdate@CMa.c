@@ -1,22 +1,20 @@
 /*
- * XREFs of ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x18002B820
+ * XREFs of ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x18004DA64
  * Callers:
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18002AA00 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DCC0 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
  * Callees:
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x18002B404 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18002B43C (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555554335@Z @ 0x180179454 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03@@U2@U3@U3@U3.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U1@U1@U3@U3@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555554335533333333333333@Z @ 0x1801796A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_1801796A0.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U1@U1@U3@U3@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@455555433553333333333333355@Z @ 0x180179C08 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180179C08.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555554355@Z @ 0x18017A1A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_18017A1A0.c)
- *     ?InteractionConfigurationUpdateTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionConfigurationUpdateType@@@Z @ 0x18017C6D0 (-InteractionConfigurationUpdateTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionConfigura.c)
- *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18017C6FC (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18017C74C (-InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18017C784 (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionInputTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionInputType@@@Z @ 0x18017C7A0 (-InteractionInputTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionInputType@@@Z.c)
- *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18017C7F8 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x18017C948 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x18004EA2C (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18004EA64 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555335@Z @ 0x1802228A4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03@@U2@U3@U3@U3.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U1@U1@U3@U3@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555335533333333333333@Z @ 0x180222AC4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180222AC4.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U1@U1@U3@U3@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555533553333333333333355@Z @ 0x180222FF4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180222FF4.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555355@Z @ 0x180223554 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180223554.c)
+ *     ?InteractionConfigurationUpdateTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionConfigurationUpdateType@@@Z @ 0x180224E4C (-InteractionConfigurationUpdateTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionConfigura.c)
+ *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224E78 (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x180224EE4 (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
+ *     ?InteractionInputTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionInputType@@@Z @ 0x180224F00 (-InteractionInputTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionInputType@@@Z.c)
+ *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224F58 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x1802250A8 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
  */
 
 void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpdate(
@@ -26,32 +24,32 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   int v3; // ecx
   __int64 v4; // rcx
   __int64 v5; // rcx
-  __int64 v6; // rbx
+  int v6; // ebx
   __int64 v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rcx
-  __int64 *v12; // rax
-  __int64 v13; // rbx
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  const struct CInteraction *v16; // rdx
-  BOOL v17; // eax
-  const struct CInteraction *v18; // rdx
-  __int64 v19; // rdx
-  unsigned __int8 v20; // al
+  __int64 v12; // r9
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  const struct CInteraction *v15; // r8
+  int v16; // ebx
+  int v17; // eax
+  __int64 v18; // r8
+  unsigned __int8 v19; // al
+  int v20; // eax
   __int64 v21; // rax
-  const struct CInteraction *v22; // rdx
-  const char *v23; // rax
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  int v26; // r9d
-  __int64 v27; // r15
-  unsigned int v28; // r14d
-  __int64 *v29; // rax
-  int v30; // edx
-  __int64 v31; // rcx
+  __int64 v22; // rcx
+  const struct CInteraction *v23; // r8
+  __int64 v24; // r8
+  int v25; // r9d
+  __int64 v26; // r12
+  unsigned int v27; // r14d
+  __int64 v28; // r9
+  int v29; // edx
+  __int64 v30; // rcx
+  const char *v31; // rax
   const char *v32; // rax
   const char *v33; // rax
   const char *v34; // rax
@@ -65,40 +63,40 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   const char *v42; // rax
   const char *v43; // rax
   const char *v44; // rax
-  const char *v45; // rax
-  __int64 v46; // rax
-  __int64 v47; // rcx
-  __int64 v48; // rax
-  const struct CInteraction *v49; // rdx
-  BOOL v50; // eax
-  const struct CInteraction *v51; // rdx
-  __int64 v52; // rdx
-  unsigned __int8 v53; // al
-  __int64 v54; // rax
-  __int64 v55; // rcx
-  int v56; // eax
-  const struct CInteraction *v57; // rdx
-  const char *v58; // rax
-  __int64 v59; // rcx
-  __int64 v60; // rdx
-  int v61; // r9d
-  __int64 *v62; // rax
-  __int64 v63; // rcx
-  __int64 v64; // rax
-  __int64 v65; // rcx
-  __int64 v66; // rax
-  const struct CInteraction *v67; // rdx
-  BOOL v68; // eax
-  const struct CInteraction *v69; // rdx
-  __int64 v70; // rdx
-  unsigned __int8 v71; // al
-  __int64 v72; // rax
-  _DWORD *v73; // r15
-  unsigned int v74; // r14d
-  __int64 *v75; // rax
-  const char *v76; // rax
-  __int64 v77; // rcx
-  bool v78; // zf
+  __int64 v45; // rax
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  const struct CInteraction *v48; // r8
+  int v49; // eax
+  __int64 v50; // r8
+  unsigned __int8 v51; // al
+  int v52; // eax
+  __int64 v53; // rax
+  __int64 v54; // rcx
+  int v55; // eax
+  const struct CInteraction *v56; // r8
+  __int64 v57; // r8
+  int v58; // r9d
+  __int64 v59; // r9
+  __int64 v60; // rcx
+  __int64 v61; // rax
+  __int64 v62; // rcx
+  __int64 v63; // rax
+  const struct CInteraction *v64; // r8
+  int v65; // eax
+  __int64 v66; // r8
+  unsigned __int8 v67; // al
+  int v68; // eax
+  __int64 v69; // rax
+  __int64 v70; // rcx
+  _DWORD *v71; // r12
+  unsigned int v72; // r14d
+  __int64 v73; // r9
+  const char *v74; // rax
+  __int64 v75; // rcx
+  bool v76; // zf
+  const char *v77; // rax
+  const char *v78; // rax
   const char *v79; // rax
   const char *v80; // rax
   const char *v81; // rax
@@ -110,39 +108,39 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   const char *v87; // rax
   const char *v88; // rax
   const char *v89; // rax
-  const char *v90; // rax
-  const char *v91; // rax
+  __int64 v90; // rax
+  __int64 v91; // rcx
   __int64 v92; // rax
-  __int64 v93; // rcx
-  __int64 v94; // rax
-  const struct CInteraction *v95; // rdx
-  BOOL v96; // eax
-  const struct CInteraction *v97; // rdx
-  __int64 v98; // rdx
-  unsigned __int8 v99; // al
-  __int64 v100; // rax
-  __int64 v101; // rcx
-  int v102; // eax
-  const struct CInteraction *v103; // rdx
-  const char *v104; // rax
+  const struct CInteraction *v93; // r8
+  int v94; // eax
+  __int64 v95; // r8
+  unsigned __int8 v96; // al
+  int v97; // eax
+  __int64 v98; // rax
+  __int64 v99; // rcx
+  int v100; // eax
+  const struct CInteraction *v101; // r8
+  __int64 v102; // r8
+  int v103; // r9d
+  __int64 v104; // r9
   __int64 v105; // rcx
-  __int64 v106; // rdx
-  int v107; // r9d
-  __int64 *v108; // rax
-  __int64 v109; // rcx
-  __int64 v110; // rax
-  __int64 v111; // rcx
-  __int64 v112; // rax
-  const struct CInteraction *v113; // rdx
-  BOOL v114; // eax
-  const struct CInteraction *v115; // rdx
-  unsigned __int8 v116; // al
-  __int64 v117; // rax
-  __int64 v118; // r15
-  unsigned int v119; // r14d
-  __int64 *v120; // rax
-  int v121; // edx
-  __int64 v122; // rcx
+  __int64 v106; // rax
+  __int64 v107; // rcx
+  __int64 v108; // rax
+  const struct CInteraction *v109; // r8
+  int v110; // eax
+  unsigned __int8 v111; // al
+  int v112; // eax
+  __int64 v113; // rax
+  __int64 v114; // rcx
+  __int64 v115; // r12
+  unsigned int v116; // r14d
+  __int64 v117; // r9
+  int v118; // edx
+  __int64 v119; // rcx
+  const char *v120; // rax
+  const char *v121; // rax
+  const char *v122; // rax
   const char *v123; // rax
   const char *v124; // rax
   const char *v125; // rax
@@ -154,40 +152,40 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   const char *v131; // rax
   const char *v132; // rax
   const char *v133; // rax
-  const char *v134; // rax
-  const char *v135; // rax
-  const char *v136; // rax
-  __int64 v137; // rax
-  __int64 v138; // rcx
+  __int64 v134; // rax
+  __int64 v135; // rcx
   __int64 updated; // rax
-  const struct CInteraction *v140; // rdx
-  BOOL v141; // eax
-  const struct CInteraction *v142; // rdx
-  __int64 v143; // rdx
-  unsigned __int8 v144; // al
-  __int64 v145; // rax
-  __int64 v146; // rcx
-  int v147; // eax
-  const struct CInteraction *v148; // rdx
-  const char *v149; // rax
-  __int64 v150; // rcx
-  __int64 v151; // rdx
-  int v152; // r9d
-  __int64 *v153; // rax
-  __int64 v154; // rcx
-  __int64 v155; // rax
-  __int64 v156; // rcx
+  const struct CInteraction *v137; // r8
+  int v138; // eax
+  __int64 v139; // r8
+  unsigned __int8 v140; // al
+  int v141; // eax
+  __int64 v142; // rax
+  __int64 v143; // rcx
+  int v144; // eax
+  const struct CInteraction *v145; // r8
+  __int64 v146; // r8
+  int v147; // r9d
+  __int64 v148; // r9
+  __int64 v149; // rcx
+  __int64 v150; // rax
+  __int64 v151; // rcx
+  __int64 v152; // rax
+  const struct CInteraction *v153; // r8
+  int v154; // eax
+  unsigned __int8 v155; // al
+  int v156; // eax
   __int64 v157; // rax
-  const struct CInteraction *v158; // rdx
-  BOOL v159; // eax
-  const struct CInteraction *v160; // rdx
-  unsigned __int8 v161; // al
-  __int64 v162; // rax
-  __int64 v163; // r15
-  unsigned int v164; // r14d
-  __int64 *v165; // rax
-  int v166; // edx
-  __int64 v167; // rcx
+  __int64 v158; // rcx
+  __int64 v159; // r12
+  unsigned int v160; // r14d
+  __int64 v161; // r9
+  int v162; // edx
+  __int64 v163; // rcx
+  const char *v164; // rax
+  const char *v165; // rax
+  const char *v166; // rax
+  const char *v167; // rax
   const char *v168; // rax
   const char *v169; // rax
   const char *v170; // rax
@@ -198,41 +196,41 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   const char *v175; // rax
   const char *v176; // rax
   const char *v177; // rax
-  const char *v178; // rax
-  const char *v179; // rax
-  const char *v180; // rax
-  const char *v181; // rax
-  __int64 v182; // rax
-  __int64 v183; // rcx
-  __int64 v184; // rax
-  const struct CInteraction *v185; // rdx
-  BOOL v186; // eax
-  const struct CInteraction *v187; // rdx
-  __int64 v188; // rdx
-  unsigned __int8 v189; // al
-  __int64 v190; // rax
-  __int64 v191; // rcx
-  int v192; // eax
-  const struct CInteraction *v193; // rdx
-  const char *v194; // rax
+  __int64 v178; // rax
+  __int64 v179; // rcx
+  __int64 v180; // rax
+  const struct CInteraction *v181; // r8
+  int v182; // eax
+  __int64 v183; // r8
+  unsigned __int8 v184; // al
+  int v185; // eax
+  __int64 v186; // rax
+  __int64 v187; // rcx
+  int v188; // eax
+  const struct CInteraction *v189; // r8
+  __int64 v190; // r8
+  int v191; // r9d
+  __int64 v192; // r9
+  __int64 v193; // rcx
+  __int64 v194; // rax
   __int64 v195; // rcx
-  __int64 v196; // rdx
-  int v197; // r9d
-  __int64 *v198; // rax
-  __int64 v199; // rcx
-  __int64 v200; // rax
-  __int64 v201; // rcx
-  __int64 v202; // rax
-  const struct CInteraction *v203; // rdx
-  BOOL v204; // eax
-  const struct CInteraction *v205; // rdx
-  unsigned __int8 v206; // al
-  __int64 v207; // rax
-  __int64 v208; // r15
-  unsigned int v209; // r14d
-  __int64 *v210; // rax
-  int v211; // edx
-  __int64 v212; // rcx
+  __int64 v196; // rax
+  const struct CInteraction *v197; // r8
+  int v198; // eax
+  unsigned __int8 v199; // al
+  int v200; // eax
+  __int64 v201; // rax
+  __int64 v202; // rcx
+  __int64 v203; // r12
+  unsigned int v204; // r14d
+  __int64 v205; // r9
+  int v206; // edx
+  __int64 v207; // rcx
+  const char *v208; // rax
+  const char *v209; // rax
+  const char *v210; // rax
+  const char *v211; // rax
+  const char *v212; // rax
   const char *v213; // rax
   const char *v214; // rax
   const char *v215; // rax
@@ -242,75 +240,65 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
   const char *v219; // rax
   const char *v220; // rax
   const char *v221; // rax
-  const char *v222; // rax
-  const char *v223; // rax
-  const char *v224; // rax
-  const char *v225; // rax
-  const char *v226; // rax
-  __int64 v227; // rax
-  __int64 v228; // rcx
-  __int64 v229; // rax
-  const struct CInteraction *v230; // rdx
-  BOOL v231; // eax
-  const struct CInteraction *v232; // rdx
-  __int64 v233; // rdx
-  unsigned __int8 v234; // al
-  __int64 v235; // rax
-  __int64 v236; // rcx
-  int v237; // eax
-  const struct CInteraction *v238; // rdx
-  const char *v239; // rax
-  __int64 v240; // rcx
-  __int64 v241; // rdx
-  int v242; // r9d
-  __int64 *v243; // rax
-  __int64 v244; // rcx
+  __int64 v222; // rax
+  __int64 v223; // rcx
+  __int64 v224; // rax
+  const struct CInteraction *v225; // r8
+  int v226; // eax
+  __int64 v227; // r8
+  unsigned __int8 v228; // al
+  int v229; // eax
+  __int64 v230; // rax
+  __int64 v231; // rcx
+  int v232; // eax
+  const struct CInteraction *v233; // r8
+  __int64 v234; // r8
+  int v235; // r9d
+  __int64 v236; // r9
+  __int64 v237; // rcx
+  __int64 v238; // rax
+  __int64 v239; // rcx
+  __int64 v240; // rax
+  const struct CInteraction *v241; // r8
+  int v242; // eax
+  unsigned __int8 v243; // al
+  int v244; // eax
   __int64 v245; // rax
   __int64 v246; // rcx
-  __int64 v247; // rax
-  const struct CInteraction *v248; // rdx
-  BOOL v249; // eax
-  const struct CInteraction *v250; // rdx
-  unsigned __int8 v251; // al
-  __int64 v252; // rax
-  const struct CInteraction *v253; // rdx
-  const char *v254; // rax
-  __int64 v255; // rcx
-  __int64 v256; // rdx
-  int v257; // r9d
-  __int64 v258; // [rsp+130h] [rbp-80h] BYREF
-  __int64 v259; // [rsp+138h] [rbp-78h] BYREF
-  __int64 v260; // [rsp+140h] [rbp-70h] BYREF
-  __int64 v261; // [rsp+148h] [rbp-68h] BYREF
-  __int64 v262; // [rsp+150h] [rbp-60h] BYREF
-  __int64 v263; // [rsp+158h] [rbp-58h] BYREF
-  BOOL v264; // [rsp+160h] [rbp-50h] BYREF
-  int v265; // [rsp+164h] [rbp-4Ch] BYREF
-  __int64 v266; // [rsp+168h] [rbp-48h] BYREF
-  __int64 v267; // [rsp+170h] [rbp-40h] BYREF
-  __int64 v268; // [rsp+178h] [rbp-38h] BYREF
-  __int64 v269; // [rsp+180h] [rbp-30h] BYREF
-  __int64 v270; // [rsp+188h] [rbp-28h] BYREF
-  __int64 v271; // [rsp+190h] [rbp-20h] BYREF
-  __int64 v272; // [rsp+198h] [rbp-18h] BYREF
-  __int64 v273; // [rsp+1A0h] [rbp-10h] BYREF
-  __int64 v274; // [rsp+1A8h] [rbp-8h] BYREF
-  __int64 v275; // [rsp+1B0h] [rbp+0h] BYREF
-  __int64 v276; // [rsp+1B8h] [rbp+8h] BYREF
-  __int64 v277; // [rsp+1C0h] [rbp+10h] BYREF
-  __int64 v278; // [rsp+1C8h] [rbp+18h] BYREF
-  __int64 v279; // [rsp+1D0h] [rbp+20h] BYREF
-  __int64 v280; // [rsp+1D8h] [rbp+28h] BYREF
-  __int64 v281; // [rsp+1E0h] [rbp+30h] BYREF
-  __int64 v282; // [rsp+1E8h] [rbp+38h] BYREF
-  __int64 v283; // [rsp+1F0h] [rbp+40h] BYREF
-  __int64 v284; // [rsp+1F8h] [rbp+48h] BYREF
-  __int64 v285; // [rsp+200h] [rbp+50h] BYREF
-  __int64 v286[7]; // [rsp+208h] [rbp+58h] BYREF
-  __int64 v287; // [rsp+250h] [rbp+A0h] BYREF
-  __int64 v288; // [rsp+258h] [rbp+A8h] BYREF
-  __int64 v289; // [rsp+260h] [rbp+B0h] BYREF
-  __int64 v290; // [rsp+268h] [rbp+B8h] BYREF
+  const struct CInteraction *v247; // r8
+  __int64 v248; // r8
+  int v249; // r9d
+  __int64 v250; // [rsp+120h] [rbp-80h] BYREF
+  __int64 v251; // [rsp+128h] [rbp-78h] BYREF
+  __int64 v252; // [rsp+130h] [rbp-70h] BYREF
+  int v253; // [rsp+138h] [rbp-68h] BYREF
+  BOOL v254; // [rsp+13Ch] [rbp-64h] BYREF
+  __int64 v255; // [rsp+140h] [rbp-60h] BYREF
+  __int64 v256; // [rsp+148h] [rbp-58h] BYREF
+  __int64 v257; // [rsp+150h] [rbp-50h] BYREF
+  __int64 v258; // [rsp+158h] [rbp-48h] BYREF
+  __int64 v259; // [rsp+160h] [rbp-40h] BYREF
+  __int64 v260; // [rsp+168h] [rbp-38h] BYREF
+  __int64 v261; // [rsp+170h] [rbp-30h] BYREF
+  __int64 v262; // [rsp+178h] [rbp-28h] BYREF
+  __int64 v263; // [rsp+180h] [rbp-20h] BYREF
+  __int64 v264; // [rsp+188h] [rbp-18h] BYREF
+  __int64 v265; // [rsp+190h] [rbp-10h] BYREF
+  __int64 v266; // [rsp+198h] [rbp-8h] BYREF
+  __int64 v267; // [rsp+1A0h] [rbp+0h] BYREF
+  __int64 v268; // [rsp+1A8h] [rbp+8h] BYREF
+  __int64 v269; // [rsp+1B0h] [rbp+10h] BYREF
+  __int64 v270; // [rsp+1B8h] [rbp+18h] BYREF
+  __int64 v271; // [rsp+1C0h] [rbp+20h] BYREF
+  __int64 v272; // [rsp+1C8h] [rbp+28h] BYREF
+  __int64 v273; // [rsp+1D0h] [rbp+30h] BYREF
+  __int64 v274; // [rsp+1D8h] [rbp+38h] BYREF
+  __int64 v275; // [rsp+1E0h] [rbp+40h] BYREF
+  __int64 v276[7]; // [rsp+1E8h] [rbp+48h] BYREF
+  __int64 v277; // [rsp+230h] [rbp+90h] BYREF
+  __int64 v278; // [rsp+238h] [rbp+98h] BYREF
+  __int64 v279; // [rsp+240h] [rbp+A0h] BYREF
+  __int64 v280; // [rsp+248h] [rbp+A8h] BYREF
 
   v2 = *((_DWORD *)a1 + 11) - 1;
   if ( v2 )
@@ -321,245 +309,231 @@ void __fastcall InputTraceLogging::GestureTargeting::InteractionConfigurationUpd
       v4 = (unsigned int)(v3 - 1);
       if ( !(_DWORD)v4 )
       {
-        v6 = 0LL;
-        if ( !InputTraceLogging::Enabled(v4) )
+        v6 = 0;
+        if ( !(unsigned __int8)InputTraceLogging::Enabled(v4) )
           return;
-        v118 = *((_QWORD *)a1 + 7);
+        v115 = *((_QWORD *)a1 + 7);
         if ( *((_DWORD *)a1 + 12) )
         {
-          v119 = 0;
+          v116 = 0;
           do
           {
-            v120 = wil::details::static_lazy<InputTraceLogging>::get(
-                     v5,
-                     _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-            if ( *(_DWORD *)v120[1] > 4u && (unsigned __int8)tlgKeywordOn(v120[1], 2048LL) )
+            v117 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                                 v5,
+                                 _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                             + 8);
+            if ( *(_DWORD *)v117 > 4u
+              && (*(_DWORD *)(v117 + 16) & 0x800LL) != 0
+              && (*(_QWORD *)(v117 + 24) & 0x800LL) == *(_QWORD *)(v117 + 24) )
             {
-              LODWORD(v290) = v119;
-              v121 = *(_DWORD *)(v118 + 12LL * v119 + 8);
-              LODWORD(v288) = *(_DWORD *)(v118 + 12LL * v119 + 4);
-              v122 = *((unsigned int *)a1 + 11);
-              LODWORD(v289) = *(_DWORD *)(v118 + 12LL * v119);
-              v123 = "StopInertia";
-              if ( (v121 & 0x20000000) == 0 )
-                v123 = &byte_18032C47F;
-              v272 = (__int64)v123;
-              v124 = "DisableGestures";
-              if ( (v121 & 0x10000000) == 0 )
-                v124 = &byte_18032C47F;
-              v271 = (__int64)v124;
-              v125 = "Wheel";
-              if ( (v121 & 0x8000) == 0 )
-                v125 = &byte_18032C47F;
-              v270 = (__int64)v125;
-              v126 = "Hover";
-              if ( (v121 & 0x400) == 0 )
-                v126 = &byte_18032C47F;
-              v269 = (__int64)v126;
-              v127 = "Eraser";
-              if ( (v121 & 0x200) == 0 )
-                v127 = &byte_18032C47F;
-              v268 = (__int64)v127;
-              v128 = "Button";
-              if ( (v121 & 0x100) == 0 )
-                v128 = &byte_18032C47F;
-              v267 = (__int64)v128;
-              v129 = "Hold";
-              if ( (v121 & 0x80u) == 0 )
-                v129 = &byte_18032C47F;
-              v266 = (__int64)v129;
-              v130 = "Tap";
-              if ( (v121 & 0x40) == 0 )
-                v130 = &byte_18032C47F;
-              v286[0] = (__int64)v130;
-              v131 = "Zoom-";
-              if ( (v121 & 0x20) == 0 )
-                v131 = &byte_18032C47F;
-              v285 = (__int64)v131;
-              v132 = "Zoom+";
-              if ( (v121 & 0x10) == 0 )
-                v132 = &byte_18032C47F;
-              v284 = (__int64)v132;
-              v133 = "PanY-";
-              if ( (v121 & 8) == 0 )
-                v133 = &byte_18032C47F;
-              v283 = (__int64)v133;
-              v134 = "PanY+";
-              if ( (v121 & 4) == 0 )
-                v134 = &byte_18032C47F;
-              v282 = (__int64)v134;
-              v135 = "PanX-";
-              if ( (v121 & 2) == 0 )
-                v135 = &byte_18032C47F;
-              v281 = (__int64)v135;
-              v136 = "PanX+";
-              if ( (v121 & 1) == 0 )
-                v136 = &byte_18032C47F;
-              v280 = (__int64)v136;
-              LODWORD(v263) = *((_DWORD *)a1 + 12);
-              v137 = InputTraceLogging::InteractionInputTypeToString(v122);
-              v138 = *((unsigned int *)a1 + 10);
-              v279 = v137;
-              updated = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v138);
-              v140 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-              v278 = updated;
-              if ( v140 )
-              {
-                v260 = *((_QWORD *)v140 + 214);
-                v141 = *((_QWORD *)v140 + 35) != 0LL;
-              }
+              LODWORD(v279) = v116;
+              v118 = *(_DWORD *)(v115 + 12LL * v116 + 8);
+              LODWORD(v277) = *(_DWORD *)(v115 + 12LL * v116 + 4);
+              v119 = *((unsigned int *)a1 + 11);
+              LODWORD(v278) = *(_DWORD *)(v115 + 12LL * v116);
+              v120 = "StopInertia";
+              if ( (v118 & 0x20000000) == 0 )
+                v120 = (const char *)&word_1802CE406;
+              v262 = (__int64)v120;
+              v121 = "DisableGestures";
+              if ( (v118 & 0x10000000) == 0 )
+                v121 = (const char *)&word_1802CE406;
+              v261 = (__int64)v121;
+              v122 = "Wheel";
+              if ( (v118 & 0x8000) == 0 )
+                v122 = (const char *)&word_1802CE406;
+              v260 = (__int64)v122;
+              v123 = "Hover";
+              if ( (v118 & 0x400) == 0 )
+                v123 = (const char *)&word_1802CE406;
+              v259 = (__int64)v123;
+              v124 = "Eraser";
+              if ( (v118 & 0x200) == 0 )
+                v124 = (const char *)&word_1802CE406;
+              v258 = (__int64)v124;
+              v125 = "Button";
+              if ( (v118 & 0x100) == 0 )
+                v125 = (const char *)&word_1802CE406;
+              v257 = (__int64)v125;
+              v126 = "Hold";
+              if ( (v118 & 0x80u) == 0 )
+                v126 = (const char *)&word_1802CE406;
+              v256 = (__int64)v126;
+              v127 = "Tap";
+              if ( (v118 & 0x40) == 0 )
+                v127 = (const char *)&word_1802CE406;
+              v255 = (__int64)v127;
+              v128 = "Zoom-";
+              if ( (v118 & 0x20) == 0 )
+                v128 = (const char *)&word_1802CE406;
+              v276[0] = (__int64)v128;
+              v129 = "Zoom+";
+              if ( (v118 & 0x10) == 0 )
+                v129 = (const char *)&word_1802CE406;
+              v275 = (__int64)v129;
+              v130 = "PanY-";
+              if ( (v118 & 8) == 0 )
+                v130 = (const char *)&word_1802CE406;
+              v274 = (__int64)v130;
+              v131 = "PanY+";
+              if ( (v118 & 4) == 0 )
+                v131 = (const char *)&word_1802CE406;
+              v273 = (__int64)v131;
+              v132 = "PanX-";
+              if ( (v118 & 2) == 0 )
+                v132 = (const char *)&word_1802CE406;
+              v272 = (__int64)v132;
+              v133 = "PanX+";
+              if ( (v118 & 1) == 0 )
+                v133 = (const char *)&word_1802CE406;
+              v271 = (__int64)v133;
+              LODWORD(v280) = *((_DWORD *)a1 + 12);
+              v134 = InputTraceLogging::InteractionInputTypeToString(v119);
+              v135 = *((unsigned int *)a1 + 10);
+              v270 = v134;
+              updated = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v135);
+              v137 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+              v269 = updated;
+              v138 = 0;
+              if ( v137 )
+                LOBYTE(v138) = *((_QWORD *)v137 + 34) != 0LL;
+              LODWORD(v252) = v138;
+              LODWORD(v251) = InputTraceLogging::InteractionInputTransparency(v137);
+              if ( v139 )
+                v140 = *(_BYTE *)(v139 + 184) & 1;
               else
-              {
-                v260 = 0LL;
+                v140 = 0;
+              LODWORD(v250) = v140;
+              if ( v139 )
+                v141 = *(_DWORD *)(v139 + 180);
+              else
                 v141 = 0;
+              v254 = v141;
+              v142 = 0LL;
+              if ( v139 )
+              {
+                v143 = *(_QWORD *)(v139 + 96);
+                if ( v143 )
+                  v142 = *(_QWORD *)(v143 + 64);
               }
-              LODWORD(v262) = v141;
-              LODWORD(v258) = InputTraceLogging::InteractionInputTransparency(v140);
-              LODWORD(v261) = InputTraceLogging::InteractionFurtherProcessingForInput(v142);
-              if ( v143 )
-                v144 = *(_BYTE *)(v143 + 192) & 1;
+              v268 = v142;
+              if ( v139 )
+                v144 = *(_DWORD *)(v139 + 1696);
               else
                 v144 = 0;
-              v265 = v144;
-              if ( v143 )
-              {
-                LODWORD(v287) = *(_DWORD *)(v143 + 188);
-                v145 = 0LL;
-                v146 = *(_QWORD *)(v143 + 104);
-                if ( v146 )
-                  v145 = *(_QWORD *)(v146 + 64);
-                v259 = v145;
-                v147 = *(_DWORD *)(v143 + 1704);
-              }
-              else
-              {
-                LODWORD(v287) = 0;
-                v147 = 0;
-                v259 = 0LL;
-              }
-              v264 = v147;
-              v277 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v143);
-              v149 = InputTraceLogging::InteractionSourceTypeToString(v148);
-              v150 = *(unsigned int *)a1;
-              v276 = (__int64)v149;
-              v275 = v151;
-              v274 = v151;
-              v273 = InputTraceLogging::MidManipulationUpdateTypeToString(v150);
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                v152,
-                (int)&dword_18036882A,
+              v253 = v144;
+              v267 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v139);
+              v266 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v145);
+              v264 = v146;
+              v265 = (v146 + 8) & -(__int64)(v146 != 0);
+              v263 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+                v147,
+                (int)&dword_1802EA683,
+                (__int64)&v263,
+                (__int64)&v264,
+                (__int64)&v265,
+                (__int64)&v266,
+                (__int64)&v267,
+                (__int64)&v253,
+                (__int64)&v268,
+                (__int64)&v254,
+                (__int64)&v250,
+                (__int64)&v251,
+                (__int64)&v252,
+                (__int64)&v269,
+                (__int64)&v270,
+                (__int64)&v280,
+                (__int64)&v279,
+                (__int64)&v271,
+                (__int64)&v272,
                 (__int64)&v273,
                 (__int64)&v274,
                 (__int64)&v275,
-                (__int64)&v276,
-                (__int64)&v277,
-                (__int64)&v264,
-                (__int64)&v259,
-                (__int64)&v287,
-                (__int64)&v265,
-                (__int64)&v261,
+                (__int64)v276,
+                (__int64)&v255,
+                (__int64)&v256,
+                (__int64)&v257,
                 (__int64)&v258,
-                (__int64)&v262,
+                (__int64)&v259,
                 (__int64)&v260,
+                (__int64)&v261,
+                (__int64)&v262,
                 (__int64)&v278,
-                (__int64)&v279,
-                (__int64)&v263,
-                (__int64)&v290,
-                (__int64)&v280,
-                (__int64)&v281,
-                (__int64)&v282,
-                (__int64)&v283,
-                (__int64)&v284,
-                (__int64)&v285,
-                (__int64)v286,
-                (__int64)&v266,
-                (__int64)&v267,
-                (__int64)&v268,
-                (__int64)&v269,
-                (__int64)&v270,
-                (__int64)&v271,
-                (__int64)&v272,
-                (__int64)&v289,
-                (__int64)&v288);
+                (__int64)&v277);
             }
-            ++v119;
+            ++v116;
           }
-          while ( v119 < *((_DWORD *)a1 + 12) );
+          while ( v116 < *((_DWORD *)a1 + 12) );
           return;
         }
-        v153 = wil::details::static_lazy<InputTraceLogging>::get(
-                 v5,
-                 _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-        if ( *(_DWORD *)v153[1] <= 4u || !(unsigned __int8)tlgKeywordOn(v153[1], 2048LL) )
+        v148 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                             v5,
+                             _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                         + 8);
+        if ( *(_DWORD *)v148 <= 4u
+          || (*(_DWORD *)(v148 + 16) & 0x800LL) == 0
+          || (*(_QWORD *)(v148 + 24) & 0x800LL) != *(_QWORD *)(v148 + 24) )
+        {
           return;
-        v154 = *((unsigned int *)a1 + 11);
-        LODWORD(v288) = *((_DWORD *)a1 + 12);
-        v155 = InputTraceLogging::InteractionInputTypeToString(v154);
-        v156 = *((unsigned int *)a1 + 10);
-        v272 = v155;
-        v157 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v156);
-        v158 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-        v271 = v157;
-        if ( v158 )
-        {
-          v260 = *((_QWORD *)v158 + 214);
-          v159 = *((_QWORD *)v158 + 35) != 0LL;
         }
+        v149 = *((unsigned int *)a1 + 11);
+        LODWORD(v277) = *((_DWORD *)a1 + 12);
+        v150 = InputTraceLogging::InteractionInputTypeToString(v149);
+        v151 = *((unsigned int *)a1 + 10);
+        v262 = v150;
+        v152 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v151);
+        v153 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+        v261 = v152;
+        v154 = 0;
+        if ( v153 )
+          LOBYTE(v154) = *((_QWORD *)v153 + 34) != 0LL;
+        LODWORD(v278) = v154;
+        LODWORD(v279) = InputTraceLogging::InteractionInputTransparency(v153);
+        if ( v66 )
+          v155 = *(_BYTE *)(v66 + 184) & 1;
         else
-        {
-          v260 = 0LL;
-          v159 = 0;
-        }
-        LODWORD(v289) = v159;
-        LODWORD(v290) = InputTraceLogging::InteractionInputTransparency(v158);
-        LODWORD(v263) = InputTraceLogging::InteractionFurtherProcessingForInput(v160);
-        if ( v70 )
-          v161 = *(_BYTE *)(v70 + 192) & 1;
+          v155 = 0;
+        LODWORD(v280) = v155;
+        if ( v66 )
+          v156 = *(_DWORD *)(v66 + 180);
         else
-          v161 = 0;
-        LODWORD(v262) = v161;
-        if ( v70 )
+          v156 = 0;
+        LODWORD(v252) = v156;
+        v157 = 0LL;
+        if ( v66 )
         {
-          LODWORD(v287) = *(_DWORD *)(v70 + 188);
-          v162 = *(_QWORD *)(v70 + 104);
-          if ( v162 )
-            v6 = *(_QWORD *)(v162 + 64);
-          v259 = v6;
-          LODWORD(v6) = *(_DWORD *)(v70 + 1704);
+          v158 = *(_QWORD *)(v66 + 96);
+          if ( v158 )
+            v157 = *(_QWORD *)(v158 + 64);
         }
-        else
-        {
-          LODWORD(v287) = 0;
-          v259 = 0LL;
-        }
-LABEL_325:
-        LODWORD(v258) = v6;
-        v270 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v70);
-        v254 = InputTraceLogging::InteractionSourceTypeToString(v253);
-        v255 = *(unsigned int *)a1;
-        v269 = (__int64)v254;
-        v268 = v256;
-        v267 = v256;
-        v266 = InputTraceLogging::MidManipulationUpdateTypeToString(v255);
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          v257,
-          (int)&dword_180368709,
-          (__int64)&v266,
-          (__int64)&v267,
-          (__int64)&v268,
-          (__int64)&v269,
-          (__int64)&v270,
+        v260 = v157;
+        if ( v66 )
+          v6 = *(_DWORD *)(v66 + 1696);
+LABEL_367:
+        LODWORD(v251) = v6;
+        v259 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v66);
+        v258 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v247);
+        v256 = v248;
+        v257 = (v248 + 8) & -(__int64)(v248 != 0);
+        v255 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
+          v249,
+          (int)&dword_1802EA599,
+          (__int64)&v255,
+          (__int64)&v256,
+          (__int64)&v257,
           (__int64)&v258,
           (__int64)&v259,
-          (__int64)&v287,
-          (__int64)&v262,
-          (__int64)&v263,
-          (__int64)&v290,
-          (__int64)&v289,
+          (__int64)&v251,
           (__int64)&v260,
-          (__int64)&v271,
-          (__int64)&v272,
-          (__int64)&v288);
+          (__int64)&v252,
+          (__int64)&v280,
+          (__int64)&v279,
+          (__int64)&v278,
+          (__int64)&v261,
+          (__int64)&v262,
+          (__int64)&v277);
         return;
       }
       v9 = (unsigned int)(v4 - 1);
@@ -567,947 +541,896 @@ LABEL_325:
       {
         if ( (_DWORD)v9 == 1 )
         {
-          v6 = 0LL;
-          if ( !InputTraceLogging::Enabled(0LL) )
+          v6 = 0;
+          if ( !(unsigned __int8)InputTraceLogging::Enabled(0LL) )
             return;
-          v27 = *((_QWORD *)a1 + 7);
+          v26 = *((_QWORD *)a1 + 7);
           if ( !*((_DWORD *)a1 + 12) )
           {
-            v62 = wil::details::static_lazy<InputTraceLogging>::get(
-                    v11,
-                    _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-            if ( *(_DWORD *)v62[1] <= 4u || !(unsigned __int8)tlgKeywordOn(v62[1], 2048LL) )
+            v59 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                                v11,
+                                _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                            + 8);
+            if ( *(_DWORD *)v59 <= 4u
+              || (*(_DWORD *)(v59 + 16) & 0x800LL) == 0
+              || (*(_QWORD *)(v59 + 24) & 0x800LL) != *(_QWORD *)(v59 + 24) )
+            {
               return;
-            v63 = *((unsigned int *)a1 + 11);
-            LODWORD(v288) = *((_DWORD *)a1 + 12);
-            v64 = InputTraceLogging::InteractionInputTypeToString(v63);
-            v65 = *((unsigned int *)a1 + 10);
-            v272 = v64;
-            v66 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v65);
-            v67 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-            v271 = v66;
-            if ( v67 )
-            {
-              v260 = *((_QWORD *)v67 + 214);
-              v68 = *((_QWORD *)v67 + 35) != 0LL;
             }
+            v60 = *((unsigned int *)a1 + 11);
+            LODWORD(v277) = *((_DWORD *)a1 + 12);
+            v61 = InputTraceLogging::InteractionInputTypeToString(v60);
+            v62 = *((unsigned int *)a1 + 10);
+            v262 = v61;
+            v63 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v62);
+            v64 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+            v261 = v63;
+            v65 = 0;
+            if ( v64 )
+              LOBYTE(v65) = *((_QWORD *)v64 + 34) != 0LL;
+            LODWORD(v278) = v65;
+            LODWORD(v279) = InputTraceLogging::InteractionInputTransparency(v64);
+            if ( v66 )
+              v67 = *(_BYTE *)(v66 + 184) & 1;
             else
-            {
-              v260 = 0LL;
+              v67 = 0;
+            LODWORD(v280) = v67;
+            if ( v66 )
+              v68 = *(_DWORD *)(v66 + 180);
+            else
               v68 = 0;
-            }
-            LODWORD(v289) = v68;
-            LODWORD(v290) = InputTraceLogging::InteractionInputTransparency(v67);
-            LODWORD(v263) = InputTraceLogging::InteractionFurtherProcessingForInput(v69);
-            if ( v70 )
-              v71 = *(_BYTE *)(v70 + 192) & 1;
-            else
-              v71 = 0;
-            LODWORD(v262) = v71;
-            if ( v70 )
+            LODWORD(v252) = v68;
+            v69 = 0LL;
+            if ( v66 )
             {
-              LODWORD(v287) = *(_DWORD *)(v70 + 188);
-              v72 = *(_QWORD *)(v70 + 104);
-              if ( v72 )
-                v6 = *(_QWORD *)(v72 + 64);
-              v259 = v6;
-              LODWORD(v6) = *(_DWORD *)(v70 + 1704);
+              v70 = *(_QWORD *)(v66 + 96);
+              if ( v70 )
+                v69 = *(_QWORD *)(v70 + 64);
             }
-            else
-            {
-              LODWORD(v287) = 0;
-              v259 = 0LL;
-            }
-            goto LABEL_325;
+            v260 = v69;
+            if ( v66 )
+              v6 = *(_DWORD *)(v66 + 1696);
+            goto LABEL_367;
           }
-          v28 = 0;
+          v27 = 0;
           do
           {
-            v29 = wil::details::static_lazy<InputTraceLogging>::get(
-                    v11,
-                    _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-            if ( *(_DWORD *)v29[1] > 4u && (unsigned __int8)tlgKeywordOn(v29[1], 2048LL) )
+            v28 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                                v11,
+                                _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                            + 8);
+            if ( *(_DWORD *)v28 > 4u
+              && (*(_DWORD *)(v28 + 16) & 0x800LL) != 0
+              && (*(_QWORD *)(v28 + 24) & 0x800LL) == *(_QWORD *)(v28 + 24) )
             {
-              LODWORD(v290) = v28;
-              v30 = *(_DWORD *)(v27 + 12LL * v28 + 8);
-              LODWORD(v288) = *(_DWORD *)(v27 + 12LL * v28 + 4);
-              v31 = *((unsigned int *)a1 + 11);
-              LODWORD(v289) = *(_DWORD *)(v27 + 12LL * v28);
-              v32 = "StopInertia";
-              if ( (v30 & 0x20000000) == 0 )
-                v32 = &byte_18032C47F;
-              v276 = (__int64)v32;
-              v33 = "DisableGestures";
-              if ( (v30 & 0x10000000) == 0 )
-                v33 = &byte_18032C47F;
-              v275 = (__int64)v33;
-              v34 = "Wheel";
-              if ( (v30 & 0x8000) == 0 )
-                v34 = &byte_18032C47F;
-              v274 = (__int64)v34;
-              v35 = "Hover";
-              if ( (v30 & 0x400) == 0 )
-                v35 = &byte_18032C47F;
-              v273 = (__int64)v35;
-              v36 = "Eraser";
-              if ( (v30 & 0x200) == 0 )
-                v36 = &byte_18032C47F;
-              v277 = (__int64)v36;
-              v37 = "Button";
-              if ( (v30 & 0x100) == 0 )
-                v37 = &byte_18032C47F;
-              v278 = (__int64)v37;
-              v38 = "Hold";
-              if ( (v30 & 0x80u) == 0 )
-                v38 = &byte_18032C47F;
-              v279 = (__int64)v38;
-              v39 = "Tap";
-              if ( (v30 & 0x40) == 0 )
-                v39 = &byte_18032C47F;
-              v280 = (__int64)v39;
-              v40 = "Zoom-";
-              if ( (v30 & 0x20) == 0 )
-                v40 = &byte_18032C47F;
-              v281 = (__int64)v40;
-              v41 = "Zoom+";
-              if ( (v30 & 0x10) == 0 )
-                v41 = &byte_18032C47F;
-              v282 = (__int64)v41;
-              v42 = "PanY-";
-              if ( (v30 & 8) == 0 )
-                v42 = &byte_18032C47F;
-              v283 = (__int64)v42;
-              v43 = "PanY+";
-              if ( (v30 & 4) == 0 )
-                v43 = &byte_18032C47F;
-              v284 = (__int64)v43;
-              v44 = "PanX-";
-              if ( (v30 & 2) == 0 )
-                v44 = &byte_18032C47F;
-              v285 = (__int64)v44;
-              v45 = "PanX+";
-              if ( (v30 & 1) == 0 )
-                v45 = &byte_18032C47F;
-              v286[0] = (__int64)v45;
-              LODWORD(v258) = *((_DWORD *)a1 + 12);
-              v46 = InputTraceLogging::InteractionInputTypeToString(v31);
-              v47 = *((unsigned int *)a1 + 10);
-              v266 = v46;
-              v48 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v47);
-              v49 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-              v267 = v48;
-              if ( v49 )
-              {
-                v259 = *((_QWORD *)v49 + 214);
-                v50 = *((_QWORD *)v49 + 35) != 0LL;
-              }
+              LODWORD(v279) = v27;
+              v29 = *(_DWORD *)(v26 + 12LL * v27 + 8);
+              LODWORD(v277) = *(_DWORD *)(v26 + 12LL * v27 + 4);
+              v30 = *((unsigned int *)a1 + 11);
+              LODWORD(v278) = *(_DWORD *)(v26 + 12LL * v27);
+              v31 = "StopInertia";
+              if ( (v29 & 0x20000000) == 0 )
+                v31 = (const char *)&word_1802CE406;
+              v267 = (__int64)v31;
+              v32 = "DisableGestures";
+              if ( (v29 & 0x10000000) == 0 )
+                v32 = (const char *)&word_1802CE406;
+              v266 = (__int64)v32;
+              v33 = "Wheel";
+              if ( (v29 & 0x8000) == 0 )
+                v33 = (const char *)&word_1802CE406;
+              v265 = (__int64)v33;
+              v34 = "Hover";
+              if ( (v29 & 0x400) == 0 )
+                v34 = (const char *)&word_1802CE406;
+              v264 = (__int64)v34;
+              v35 = "Eraser";
+              if ( (v29 & 0x200) == 0 )
+                v35 = (const char *)&word_1802CE406;
+              v263 = (__int64)v35;
+              v36 = "Button";
+              if ( (v29 & 0x100) == 0 )
+                v36 = (const char *)&word_1802CE406;
+              v268 = (__int64)v36;
+              v37 = "Hold";
+              if ( (v29 & 0x80u) == 0 )
+                v37 = (const char *)&word_1802CE406;
+              v269 = (__int64)v37;
+              v38 = "Tap";
+              if ( (v29 & 0x40) == 0 )
+                v38 = (const char *)&word_1802CE406;
+              v270 = (__int64)v38;
+              v39 = "Zoom-";
+              if ( (v29 & 0x20) == 0 )
+                v39 = (const char *)&word_1802CE406;
+              v271 = (__int64)v39;
+              v40 = "Zoom+";
+              if ( (v29 & 0x10) == 0 )
+                v40 = (const char *)&word_1802CE406;
+              v272 = (__int64)v40;
+              v41 = "PanY-";
+              if ( (v29 & 8) == 0 )
+                v41 = (const char *)&word_1802CE406;
+              v273 = (__int64)v41;
+              v42 = "PanY+";
+              if ( (v29 & 4) == 0 )
+                v42 = (const char *)&word_1802CE406;
+              v274 = (__int64)v42;
+              v43 = "PanX-";
+              if ( (v29 & 2) == 0 )
+                v43 = (const char *)&word_1802CE406;
+              v275 = (__int64)v43;
+              v44 = "PanX+";
+              if ( (v29 & 1) == 0 )
+                v44 = (const char *)&word_1802CE406;
+              v276[0] = (__int64)v44;
+              LODWORD(v280) = *((_DWORD *)a1 + 12);
+              v45 = InputTraceLogging::InteractionInputTypeToString(v30);
+              v46 = *((unsigned int *)a1 + 10);
+              v255 = v45;
+              v47 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v46);
+              v48 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+              v256 = v47;
+              v49 = 0;
+              if ( v48 )
+                LOBYTE(v49) = *((_QWORD *)v48 + 34) != 0LL;
+              LODWORD(v250) = v49;
+              v254 = InputTraceLogging::InteractionInputTransparency(v48);
+              if ( v50 )
+                v51 = *(_BYTE *)(v50 + 184) & 1;
               else
-              {
-                v259 = 0LL;
-                v50 = 0;
-              }
-              LODWORD(v261) = v50;
-              v265 = InputTraceLogging::InteractionInputTransparency(v49);
-              v264 = InputTraceLogging::InteractionFurtherProcessingForInput(v51);
-              if ( v52 )
-                v53 = *(_BYTE *)(v52 + 192) & 1;
+                v51 = 0;
+              v253 = v51;
+              if ( v50 )
+                v52 = *(_DWORD *)(v50 + 180);
               else
-                v53 = 0;
-              LODWORD(v262) = v53;
-              if ( v52 )
+                v52 = 0;
+              LODWORD(v251) = v52;
+              v53 = 0LL;
+              if ( v50 )
               {
-                LODWORD(v287) = *(_DWORD *)(v52 + 188);
-                v54 = 0LL;
-                v55 = *(_QWORD *)(v52 + 104);
-                if ( v55 )
-                  v54 = *(_QWORD *)(v55 + 64);
-                v260 = v54;
-                v56 = *(_DWORD *)(v52 + 1704);
+                v54 = *(_QWORD *)(v50 + 96);
+                if ( v54 )
+                  v53 = *(_QWORD *)(v54 + 64);
               }
+              v257 = v53;
+              if ( v50 )
+                v55 = *(_DWORD *)(v50 + 1696);
               else
-              {
-                LODWORD(v287) = 0;
-                v56 = 0;
-                v260 = 0LL;
-              }
-              LODWORD(v263) = v56;
-              v268 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v52);
-              v58 = InputTraceLogging::InteractionSourceTypeToString(v57);
-              v59 = *(unsigned int *)a1;
-              v269 = (__int64)v58;
-              v270 = v60;
-              v271 = v60;
-              v272 = InputTraceLogging::MidManipulationUpdateTypeToString(v59);
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                v61,
-                (int)&dword_18036882A,
+                v55 = 0;
+              LODWORD(v252) = v55;
+              v258 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v50);
+              v259 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v56);
+              v261 = v57;
+              v260 = (v57 + 8) & -(__int64)(v57 != 0);
+              v262 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+                v58,
+                (int)&dword_1802EA683,
+                (__int64)&v262,
+                (__int64)&v261,
+                (__int64)&v260,
+                (__int64)&v259,
+                (__int64)&v258,
+                (__int64)&v252,
+                (__int64)&v257,
+                (__int64)&v251,
+                (__int64)&v253,
+                (__int64)&v254,
+                (__int64)&v250,
+                (__int64)&v256,
+                (__int64)&v255,
+                (__int64)&v280,
+                (__int64)&v279,
+                (__int64)v276,
+                (__int64)&v275,
+                (__int64)&v274,
+                (__int64)&v273,
                 (__int64)&v272,
                 (__int64)&v271,
                 (__int64)&v270,
                 (__int64)&v269,
                 (__int64)&v268,
                 (__int64)&v263,
-                (__int64)&v260,
-                (__int64)&v287,
-                (__int64)&v262,
                 (__int64)&v264,
                 (__int64)&v265,
-                (__int64)&v261,
-                (__int64)&v259,
-                (__int64)&v267,
                 (__int64)&v266,
-                (__int64)&v258,
-                (__int64)&v290,
-                (__int64)v286,
-                (__int64)&v285,
-                (__int64)&v284,
-                (__int64)&v283,
-                (__int64)&v282,
-                (__int64)&v281,
-                (__int64)&v280,
-                (__int64)&v279,
+                (__int64)&v267,
                 (__int64)&v278,
-                (__int64)&v277,
-                (__int64)&v273,
-                (__int64)&v274,
-                (__int64)&v275,
-                (__int64)&v276,
-                (__int64)&v289,
-                (__int64)&v288);
+                (__int64)&v277);
             }
-            ++v28;
+            ++v27;
           }
-          while ( v28 < *((_DWORD *)a1 + 12) );
+          while ( v27 < *((_DWORD *)a1 + 12) );
         }
         else
         {
-          v12 = wil::details::static_lazy<InputTraceLogging>::get(
-                  v9,
-                  _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-          if ( *(_DWORD *)v12[1] > 4u )
+          v12 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                              v9,
+                              _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                          + 8);
+          if ( *(_DWORD *)v12 > 4u
+            && (*(_DWORD *)(v12 + 16) & 0x800LL) != 0
+            && (*(_QWORD *)(v12 + 24) & 0x800LL) == *(_QWORD *)(v12 + 24) )
           {
-            v13 = 0LL;
-            if ( (unsigned __int8)tlgKeywordOn(v12[1], 2048LL) )
+            v13 = *((unsigned int *)a1 + 10);
+            LODWORD(v277) = *((_DWORD *)a1 + 12);
+            LODWORD(v278) = *((_DWORD *)a1 + 11);
+            v14 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v13);
+            v15 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+            v16 = 0;
+            v252 = v14;
+            v17 = 0;
+            if ( v15 )
+              LOBYTE(v17) = *((_QWORD *)v15 + 34) != 0LL;
+            LODWORD(v279) = v17;
+            LODWORD(v280) = InputTraceLogging::InteractionInputTransparency(v15);
+            if ( v18 )
+              v19 = *(_BYTE *)(v18 + 184) & 1;
+            else
+              v19 = 0;
+            v253 = v19;
+            if ( v18 )
+              v20 = *(_DWORD *)(v18 + 180);
+            else
+              v20 = 0;
+            v254 = v20;
+            v21 = 0LL;
+            if ( v18 )
             {
-              v14 = *((unsigned int *)a1 + 10);
-              LODWORD(v288) = *((_DWORD *)a1 + 12);
-              LODWORD(v289) = *((_DWORD *)a1 + 11);
-              v15 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v14);
-              v16 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-              v260 = v15;
-              if ( v16 )
-              {
-                v263 = *((_QWORD *)v16 + 214);
-                v17 = *((_QWORD *)v16 + 35) != 0LL;
-              }
-              else
-              {
-                v263 = 0LL;
-                v17 = 0;
-              }
-              LODWORD(v290) = v17;
-              v264 = InputTraceLogging::InteractionInputTransparency(v16);
-              v265 = InputTraceLogging::InteractionFurtherProcessingForInput(v18);
-              if ( v19 )
-                v20 = *(_BYTE *)(v19 + 192) & 1;
-              else
-                v20 = 0;
-              LODWORD(v261) = v20;
-              if ( v19 )
-              {
-                LODWORD(v287) = *(_DWORD *)(v19 + 188);
-                v21 = *(_QWORD *)(v19 + 104);
-                if ( v21 )
-                  v13 = *(_QWORD *)(v21 + 64);
-                v262 = v13;
-                LODWORD(v13) = *(_DWORD *)(v19 + 1704);
-              }
-              else
-              {
-                LODWORD(v287) = 0;
-                v262 = 0LL;
-              }
-              LODWORD(v258) = v13;
-              v259 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v19);
-              v23 = InputTraceLogging::InteractionSourceTypeToString(v22);
-              v24 = *(unsigned int *)a1;
-              v273 = (__int64)v23;
-              v274 = v25;
-              v275 = v25;
-              v276 = InputTraceLogging::MidManipulationUpdateTypeToString(v24);
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                v26,
-                (int)&dword_180369302,
-                (__int64)&v276,
-                (__int64)&v275,
-                (__int64)&v274,
-                (__int64)&v273,
-                (__int64)&v259,
-                (__int64)&v258,
-                (__int64)&v262,
-                (__int64)&v287,
-                (__int64)&v261,
-                (__int64)&v265,
-                (__int64)&v264,
-                (__int64)&v290,
-                (__int64)&v263,
-                (__int64)&v260,
-                (__int64)&v289,
-                (__int64)&v288);
+              v22 = *(_QWORD *)(v18 + 96);
+              if ( v22 )
+                v21 = *(_QWORD *)(v22 + 64);
             }
+            v251 = v21;
+            if ( v18 )
+              v16 = *(_DWORD *)(v18 + 1696);
+            LODWORD(v250) = v16;
+            v263 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v18);
+            v264 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v23);
+            v266 = v24;
+            v265 = (v24 + 8) & -(__int64)(v24 != 0);
+            v267 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+              v25,
+              (int)&dword_1802EA9CC,
+              (__int64)&v267,
+              (__int64)&v266,
+              (__int64)&v265,
+              (__int64)&v264,
+              (__int64)&v263,
+              (__int64)&v250,
+              (__int64)&v251,
+              (__int64)&v254,
+              (__int64)&v253,
+              (__int64)&v280,
+              (__int64)&v279,
+              (__int64)&v252,
+              (__int64)&v278,
+              (__int64)&v277);
           }
         }
       }
       else
       {
-        v6 = 0LL;
-        if ( !InputTraceLogging::Enabled(v9) )
+        v6 = 0;
+        if ( !(unsigned __int8)InputTraceLogging::Enabled(v9) )
           return;
-        v73 = (_DWORD *)*((_QWORD *)a1 + 7);
+        v71 = (_DWORD *)*((_QWORD *)a1 + 7);
         if ( !*((_DWORD *)a1 + 12) )
         {
-          v108 = wil::details::static_lazy<InputTraceLogging>::get(
-                   v10,
-                   _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-          if ( *(_DWORD *)v108[1] <= 4u || !(unsigned __int8)tlgKeywordOn(v108[1], 2048LL) )
+          v104 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                               v10,
+                               _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                           + 8);
+          if ( *(_DWORD *)v104 <= 4u
+            || (*(_DWORD *)(v104 + 16) & 0x800LL) == 0
+            || (*(_QWORD *)(v104 + 24) & 0x800LL) != *(_QWORD *)(v104 + 24) )
+          {
             return;
-          v109 = *((unsigned int *)a1 + 11);
-          LODWORD(v288) = *((_DWORD *)a1 + 12);
-          v110 = InputTraceLogging::InteractionInputTypeToString(v109);
-          v111 = *((unsigned int *)a1 + 10);
-          v272 = v110;
-          v112 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v111);
-          v113 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-          v271 = v112;
-          if ( v113 )
-          {
-            v260 = *((_QWORD *)v113 + 214);
-            v114 = *((_QWORD *)v113 + 35) != 0LL;
           }
+          v105 = *((unsigned int *)a1 + 11);
+          LODWORD(v277) = *((_DWORD *)a1 + 12);
+          v106 = InputTraceLogging::InteractionInputTypeToString(v105);
+          v107 = *((unsigned int *)a1 + 10);
+          v262 = v106;
+          v108 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v107);
+          v109 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+          v261 = v108;
+          v110 = 0;
+          if ( v109 )
+            LOBYTE(v110) = *((_QWORD *)v109 + 34) != 0LL;
+          LODWORD(v278) = v110;
+          LODWORD(v279) = InputTraceLogging::InteractionInputTransparency(v109);
+          if ( v66 )
+            v111 = *(_BYTE *)(v66 + 184) & 1;
           else
-          {
-            v260 = 0LL;
-            v114 = 0;
-          }
-          LODWORD(v289) = v114;
-          LODWORD(v290) = InputTraceLogging::InteractionInputTransparency(v113);
-          LODWORD(v263) = InputTraceLogging::InteractionFurtherProcessingForInput(v115);
-          if ( v70 )
-            v116 = *(_BYTE *)(v70 + 192) & 1;
+            v111 = 0;
+          LODWORD(v280) = v111;
+          if ( v66 )
+            v112 = *(_DWORD *)(v66 + 180);
           else
-            v116 = 0;
-          LODWORD(v262) = v116;
-          if ( v70 )
+            v112 = 0;
+          LODWORD(v252) = v112;
+          v113 = 0LL;
+          if ( v66 )
           {
-            LODWORD(v287) = *(_DWORD *)(v70 + 188);
-            v117 = *(_QWORD *)(v70 + 104);
-            if ( v117 )
-              v6 = *(_QWORD *)(v117 + 64);
-            v259 = v6;
-            LODWORD(v6) = *(_DWORD *)(v70 + 1704);
+            v114 = *(_QWORD *)(v66 + 96);
+            if ( v114 )
+              v113 = *(_QWORD *)(v114 + 64);
           }
-          else
-          {
-            LODWORD(v287) = 0;
-            v259 = 0LL;
-          }
-          goto LABEL_325;
+          v260 = v113;
+          if ( v66 )
+            v6 = *(_DWORD *)(v66 + 1696);
+          goto LABEL_367;
         }
-        v74 = 0;
+        v72 = 0;
         do
         {
-          v75 = wil::details::static_lazy<InputTraceLogging>::get(
-                  v10,
-                  _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-          if ( *(_DWORD *)v75[1] > 4u && (unsigned __int8)tlgKeywordOn(v75[1], 2048LL) )
+          v73 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                              v10,
+                              _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                          + 8);
+          if ( *(_DWORD *)v73 > 4u
+            && (*(_DWORD *)(v73 + 16) & 0x800LL) != 0
+            && (*(_QWORD *)(v73 + 24) & 0x800LL) == *(_QWORD *)(v73 + 24) )
           {
-            v76 = "StopInertia";
-            v77 = *((unsigned int *)a1 + 11);
-            if ( (*v73 & 0x20000000) == 0 )
-              v76 = &byte_18032C47F;
-            LODWORD(v288) = v74;
-            v78 = (*v73 & 0x10000000) == 0;
-            v272 = (__int64)v76;
-            v79 = "DisableGestures";
-            if ( v78 )
-              v79 = &byte_18032C47F;
-            v78 = (*v73 & 0x8000) == 0;
-            v271 = (__int64)v79;
-            v80 = "Wheel";
-            if ( v78 )
-              v80 = &byte_18032C47F;
-            v78 = (*v73 & 0x400) == 0;
-            v270 = (__int64)v80;
-            v81 = "Hover";
-            if ( v78 )
-              v81 = &byte_18032C47F;
-            v78 = (*v73 & 0x200) == 0;
-            v269 = (__int64)v81;
-            v82 = "Eraser";
-            if ( v78 )
-              v82 = &byte_18032C47F;
-            v78 = (*v73 & 0x100) == 0;
-            v268 = (__int64)v82;
-            v83 = "Button";
-            if ( v78 )
-              v83 = &byte_18032C47F;
-            v78 = *(_BYTE *)v73 >= 0;
-            v267 = (__int64)v83;
-            v84 = "Hold";
-            if ( v78 )
-              v84 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 0x40) == 0;
-            v266 = (__int64)v84;
-            v85 = "Tap";
-            if ( v78 )
-              v85 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 0x20) == 0;
-            v286[0] = (__int64)v85;
-            v86 = "Zoom-";
-            if ( v78 )
-              v86 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 0x10) == 0;
-            v285 = (__int64)v86;
-            v87 = "Zoom+";
-            if ( v78 )
-              v87 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 8) == 0;
-            v284 = (__int64)v87;
-            v88 = "PanY-";
-            if ( v78 )
-              v88 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 4) == 0;
-            v283 = (__int64)v88;
-            v89 = "PanY+";
-            if ( v78 )
-              v89 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 2) == 0;
-            v282 = (__int64)v89;
-            v90 = "PanX-";
-            if ( v78 )
-              v90 = &byte_18032C47F;
-            v78 = (*(_BYTE *)v73 & 1) == 0;
-            v281 = (__int64)v90;
-            v91 = "PanX+";
-            if ( v78 )
-              v91 = &byte_18032C47F;
-            v280 = (__int64)v91;
-            LODWORD(v289) = *((_DWORD *)a1 + 12);
-            v92 = InputTraceLogging::InteractionInputTypeToString(v77);
-            v93 = *((unsigned int *)a1 + 10);
-            v279 = v92;
-            v94 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v93);
-            v95 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-            v278 = v94;
+            v74 = "StopInertia";
+            v75 = *((unsigned int *)a1 + 11);
+            if ( (*v71 & 0x20000000) == 0 )
+              v74 = (const char *)&word_1802CE406;
+            LODWORD(v277) = v72;
+            v76 = (*v71 & 0x10000000) == 0;
+            v262 = (__int64)v74;
+            v77 = "DisableGestures";
+            if ( v76 )
+              v77 = (const char *)&word_1802CE406;
+            v76 = (*v71 & 0x8000) == 0;
+            v261 = (__int64)v77;
+            v78 = "Wheel";
+            if ( v76 )
+              v78 = (const char *)&word_1802CE406;
+            v76 = (*v71 & 0x400) == 0;
+            v260 = (__int64)v78;
+            v79 = "Hover";
+            if ( v76 )
+              v79 = (const char *)&word_1802CE406;
+            v76 = (*v71 & 0x200) == 0;
+            v259 = (__int64)v79;
+            v80 = "Eraser";
+            if ( v76 )
+              v80 = (const char *)&word_1802CE406;
+            v76 = (*v71 & 0x100) == 0;
+            v258 = (__int64)v80;
+            v81 = "Button";
+            if ( v76 )
+              v81 = (const char *)&word_1802CE406;
+            v76 = *(_BYTE *)v71 >= 0;
+            v257 = (__int64)v81;
+            v82 = "Hold";
+            if ( v76 )
+              v82 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 0x40) == 0;
+            v256 = (__int64)v82;
+            v83 = "Tap";
+            if ( v76 )
+              v83 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 0x20) == 0;
+            v255 = (__int64)v83;
+            v84 = "Zoom-";
+            if ( v76 )
+              v84 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 0x10) == 0;
+            v276[0] = (__int64)v84;
+            v85 = "Zoom+";
+            if ( v76 )
+              v85 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 8) == 0;
+            v275 = (__int64)v85;
+            v86 = "PanY-";
+            if ( v76 )
+              v86 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 4) == 0;
+            v274 = (__int64)v86;
+            v87 = "PanY+";
+            if ( v76 )
+              v87 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 2) == 0;
+            v273 = (__int64)v87;
+            v88 = "PanX-";
+            if ( v76 )
+              v88 = (const char *)&word_1802CE406;
+            v76 = (*(_BYTE *)v71 & 1) == 0;
+            v272 = (__int64)v88;
+            v89 = "PanX+";
+            if ( v76 )
+              v89 = (const char *)&word_1802CE406;
+            v271 = (__int64)v89;
+            LODWORD(v278) = *((_DWORD *)a1 + 12);
+            v90 = InputTraceLogging::InteractionInputTypeToString(v75);
+            v91 = *((unsigned int *)a1 + 10);
+            v270 = v90;
+            v92 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v91);
+            v93 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+            v269 = v92;
+            v94 = 0;
+            if ( v93 )
+              LOBYTE(v94) = *((_QWORD *)v93 + 34) != 0LL;
+            LODWORD(v279) = v94;
+            LODWORD(v280) = InputTraceLogging::InteractionInputTransparency(v93);
+            if ( v95 )
+              v96 = *(_BYTE *)(v95 + 184) & 1;
+            else
+              v96 = 0;
+            LODWORD(v252) = v96;
+            if ( v95 )
+              v97 = *(_DWORD *)(v95 + 180);
+            else
+              v97 = 0;
+            LODWORD(v251) = v97;
+            v98 = 0LL;
             if ( v95 )
             {
-              v260 = *((_QWORD *)v95 + 214);
-              v96 = *((_QWORD *)v95 + 35) != 0LL;
+              v99 = *(_QWORD *)(v95 + 96);
+              if ( v99 )
+                v98 = *(_QWORD *)(v99 + 64);
             }
+            v268 = v98;
+            if ( v95 )
+              v100 = *(_DWORD *)(v95 + 1696);
             else
-            {
-              v260 = 0LL;
-              v96 = 0;
-            }
-            LODWORD(v290) = v96;
-            LODWORD(v263) = InputTraceLogging::InteractionInputTransparency(v95);
-            LODWORD(v262) = InputTraceLogging::InteractionFurtherProcessingForInput(v97);
-            if ( v98 )
-              v99 = *(_BYTE *)(v98 + 192) & 1;
-            else
-              v99 = 0;
-            LODWORD(v258) = v99;
-            if ( v98 )
-            {
-              LODWORD(v287) = *(_DWORD *)(v98 + 188);
-              v100 = 0LL;
-              v101 = *(_QWORD *)(v98 + 104);
-              if ( v101 )
-                v100 = *(_QWORD *)(v101 + 64);
-              v259 = v100;
-              v102 = *(_DWORD *)(v98 + 1704);
-            }
-            else
-            {
-              LODWORD(v287) = 0;
-              v102 = 0;
-              v259 = 0LL;
-            }
-            LODWORD(v261) = v102;
-            v277 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v98);
-            v104 = InputTraceLogging::InteractionSourceTypeToString(v103);
-            v105 = *(unsigned int *)a1;
-            v276 = (__int64)v104;
-            v275 = v106;
-            v274 = v106;
-            v273 = InputTraceLogging::MidManipulationUpdateTypeToString(v105);
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>>(
-              v107,
-              (int)&dword_180369438,
+              v100 = 0;
+            LODWORD(v250) = v100;
+            v267 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v95);
+            v266 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v101);
+            v264 = v102;
+            v265 = (v102 + 8) & -(__int64)(v102 != 0);
+            v263 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>>(
+              v103,
+              (int)&dword_1802EAC19,
+              (__int64)&v263,
+              (__int64)&v264,
+              (__int64)&v265,
+              (__int64)&v266,
+              (__int64)&v267,
+              (__int64)&v250,
+              (__int64)&v268,
+              (__int64)&v251,
+              (__int64)&v252,
+              (__int64)&v280,
+              (__int64)&v279,
+              (__int64)&v269,
+              (__int64)&v270,
+              (__int64)&v278,
+              (__int64)&v277,
+              (__int64)&v271,
+              (__int64)&v272,
               (__int64)&v273,
               (__int64)&v274,
               (__int64)&v275,
-              (__int64)&v276,
-              (__int64)&v277,
-              (__int64)&v261,
-              (__int64)&v259,
-              (__int64)&v287,
+              (__int64)v276,
+              (__int64)&v255,
+              (__int64)&v256,
+              (__int64)&v257,
               (__int64)&v258,
-              (__int64)&v262,
-              (__int64)&v263,
-              (__int64)&v290,
+              (__int64)&v259,
               (__int64)&v260,
-              (__int64)&v278,
-              (__int64)&v279,
-              (__int64)&v289,
-              (__int64)&v288,
-              (__int64)&v280,
-              (__int64)&v281,
-              (__int64)&v282,
-              (__int64)&v283,
-              (__int64)&v284,
-              (__int64)&v285,
-              (__int64)v286,
-              (__int64)&v266,
-              (__int64)&v267,
-              (__int64)&v268,
-              (__int64)&v269,
-              (__int64)&v270,
-              (__int64)&v271,
-              (__int64)&v272);
+              (__int64)&v261,
+              (__int64)&v262);
           }
-          ++v74;
+          ++v72;
         }
-        while ( v74 < *((_DWORD *)a1 + 12) );
+        while ( v72 < *((_DWORD *)a1 + 12) );
       }
     }
     else
     {
-      v6 = 0LL;
-      if ( !InputTraceLogging::Enabled(0LL) )
+      v6 = 0;
+      if ( !(unsigned __int8)InputTraceLogging::Enabled(0LL) )
         return;
-      v163 = *((_QWORD *)a1 + 7);
+      v159 = *((_QWORD *)a1 + 7);
       if ( !*((_DWORD *)a1 + 12) )
       {
-        v198 = wil::details::static_lazy<InputTraceLogging>::get(
-                 v7,
-                 _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-        if ( *(_DWORD *)v198[1] <= 4u || !(unsigned __int8)tlgKeywordOn(v198[1], 2048LL) )
+        v192 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                             v7,
+                             _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                         + 8);
+        if ( *(_DWORD *)v192 <= 4u
+          || (*(_DWORD *)(v192 + 16) & 0x800LL) == 0
+          || (*(_QWORD *)(v192 + 24) & 0x800LL) != *(_QWORD *)(v192 + 24) )
+        {
           return;
-        v199 = *((unsigned int *)a1 + 11);
-        LODWORD(v288) = *((_DWORD *)a1 + 12);
-        v200 = InputTraceLogging::InteractionInputTypeToString(v199);
-        v201 = *((unsigned int *)a1 + 10);
-        v272 = v200;
-        v202 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v201);
-        v203 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-        v271 = v202;
-        if ( v203 )
-        {
-          v260 = *((_QWORD *)v203 + 214);
-          v204 = *((_QWORD *)v203 + 35) != 0LL;
         }
+        v193 = *((unsigned int *)a1 + 11);
+        LODWORD(v277) = *((_DWORD *)a1 + 12);
+        v194 = InputTraceLogging::InteractionInputTypeToString(v193);
+        v195 = *((unsigned int *)a1 + 10);
+        v262 = v194;
+        v196 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v195);
+        v197 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+        v261 = v196;
+        v198 = 0;
+        if ( v197 )
+          LOBYTE(v198) = *((_QWORD *)v197 + 34) != 0LL;
+        LODWORD(v278) = v198;
+        LODWORD(v279) = InputTraceLogging::InteractionInputTransparency(v197);
+        if ( v66 )
+          v199 = *(_BYTE *)(v66 + 184) & 1;
         else
-        {
-          v260 = 0LL;
-          v204 = 0;
-        }
-        LODWORD(v289) = v204;
-        LODWORD(v290) = InputTraceLogging::InteractionInputTransparency(v203);
-        LODWORD(v263) = InputTraceLogging::InteractionFurtherProcessingForInput(v205);
-        if ( v70 )
-          v206 = *(_BYTE *)(v70 + 192) & 1;
+          v199 = 0;
+        LODWORD(v280) = v199;
+        if ( v66 )
+          v200 = *(_DWORD *)(v66 + 180);
         else
-          v206 = 0;
-        LODWORD(v262) = v206;
-        if ( v70 )
+          v200 = 0;
+        LODWORD(v252) = v200;
+        v201 = 0LL;
+        if ( v66 )
         {
-          LODWORD(v287) = *(_DWORD *)(v70 + 188);
-          v207 = *(_QWORD *)(v70 + 104);
-          if ( v207 )
-            v6 = *(_QWORD *)(v207 + 64);
-          v259 = v6;
-          LODWORD(v6) = *(_DWORD *)(v70 + 1704);
+          v202 = *(_QWORD *)(v66 + 96);
+          if ( v202 )
+            v201 = *(_QWORD *)(v202 + 64);
         }
-        else
-        {
-          LODWORD(v287) = 0;
-          v259 = 0LL;
-        }
-        goto LABEL_325;
+        v260 = v201;
+        if ( v66 )
+          v6 = *(_DWORD *)(v66 + 1696);
+        goto LABEL_367;
       }
-      v164 = 0;
+      v160 = 0;
       do
       {
-        v165 = wil::details::static_lazy<InputTraceLogging>::get(
-                 v7,
-                 _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-        if ( *(_DWORD *)v165[1] > 4u && (unsigned __int8)tlgKeywordOn(v165[1], 2048LL) )
+        v161 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                             v7,
+                             _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                         + 8);
+        if ( *(_DWORD *)v161 > 4u
+          && (*(_DWORD *)(v161 + 16) & 0x800LL) != 0
+          && (*(_QWORD *)(v161 + 24) & 0x800LL) == *(_QWORD *)(v161 + 24) )
         {
-          LODWORD(v290) = v164;
-          v166 = *(_DWORD *)(v163 + 12LL * v164 + 8);
-          LODWORD(v288) = *(_DWORD *)(v163 + 12LL * v164 + 4);
-          v167 = *((unsigned int *)a1 + 11);
-          LODWORD(v289) = *(_DWORD *)(v163 + 12LL * v164);
-          v168 = "StopInertia";
-          if ( (v166 & 0x20000000) == 0 )
-            v168 = &byte_18032C47F;
-          v272 = (__int64)v168;
-          v169 = "DisableGestures";
-          if ( (v166 & 0x10000000) == 0 )
-            v169 = &byte_18032C47F;
-          v271 = (__int64)v169;
-          v170 = "Wheel";
-          if ( (v166 & 0x8000) == 0 )
-            v170 = &byte_18032C47F;
-          v270 = (__int64)v170;
-          v171 = "Hover";
-          if ( (v166 & 0x400) == 0 )
-            v171 = &byte_18032C47F;
-          v269 = (__int64)v171;
-          v172 = "Eraser";
-          if ( (v166 & 0x200) == 0 )
-            v172 = &byte_18032C47F;
-          v268 = (__int64)v172;
-          v173 = "Button";
-          if ( (v166 & 0x100) == 0 )
-            v173 = &byte_18032C47F;
-          v267 = (__int64)v173;
-          v174 = "Hold";
-          if ( (v166 & 0x80u) == 0 )
-            v174 = &byte_18032C47F;
-          v266 = (__int64)v174;
-          v175 = "Tap";
-          if ( (v166 & 0x40) == 0 )
-            v175 = &byte_18032C47F;
-          v286[0] = (__int64)v175;
-          v176 = "Zoom-";
-          if ( (v166 & 0x20) == 0 )
-            v176 = &byte_18032C47F;
-          v285 = (__int64)v176;
-          v177 = "Zoom+";
-          if ( (v166 & 0x10) == 0 )
-            v177 = &byte_18032C47F;
-          v284 = (__int64)v177;
-          v178 = "PanY-";
-          if ( (v166 & 8) == 0 )
-            v178 = &byte_18032C47F;
-          v283 = (__int64)v178;
-          v179 = "PanY+";
-          if ( (v166 & 4) == 0 )
-            v179 = &byte_18032C47F;
-          v282 = (__int64)v179;
-          v180 = "PanX-";
-          if ( (v166 & 2) == 0 )
-            v180 = &byte_18032C47F;
-          v281 = (__int64)v180;
-          v181 = "PanX+";
-          if ( (v166 & 1) == 0 )
-            v181 = &byte_18032C47F;
-          v280 = (__int64)v181;
-          LODWORD(v263) = *((_DWORD *)a1 + 12);
-          v182 = InputTraceLogging::InteractionInputTypeToString(v167);
-          v183 = *((unsigned int *)a1 + 10);
-          v279 = v182;
-          v184 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v183);
-          v185 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-          v278 = v184;
-          if ( v185 )
-          {
-            v260 = *((_QWORD *)v185 + 214);
-            v186 = *((_QWORD *)v185 + 35) != 0LL;
-          }
+          LODWORD(v279) = v160;
+          v162 = *(_DWORD *)(v159 + 12LL * v160 + 8);
+          LODWORD(v277) = *(_DWORD *)(v159 + 12LL * v160 + 4);
+          v163 = *((unsigned int *)a1 + 11);
+          LODWORD(v278) = *(_DWORD *)(v159 + 12LL * v160);
+          v164 = "StopInertia";
+          if ( (v162 & 0x20000000) == 0 )
+            v164 = (const char *)&word_1802CE406;
+          v262 = (__int64)v164;
+          v165 = "DisableGestures";
+          if ( (v162 & 0x10000000) == 0 )
+            v165 = (const char *)&word_1802CE406;
+          v261 = (__int64)v165;
+          v166 = "Wheel";
+          if ( (v162 & 0x8000) == 0 )
+            v166 = (const char *)&word_1802CE406;
+          v260 = (__int64)v166;
+          v167 = "Hover";
+          if ( (v162 & 0x400) == 0 )
+            v167 = (const char *)&word_1802CE406;
+          v259 = (__int64)v167;
+          v168 = "Eraser";
+          if ( (v162 & 0x200) == 0 )
+            v168 = (const char *)&word_1802CE406;
+          v258 = (__int64)v168;
+          v169 = "Button";
+          if ( (v162 & 0x100) == 0 )
+            v169 = (const char *)&word_1802CE406;
+          v257 = (__int64)v169;
+          v170 = "Hold";
+          if ( (v162 & 0x80u) == 0 )
+            v170 = (const char *)&word_1802CE406;
+          v256 = (__int64)v170;
+          v171 = "Tap";
+          if ( (v162 & 0x40) == 0 )
+            v171 = (const char *)&word_1802CE406;
+          v255 = (__int64)v171;
+          v172 = "Zoom-";
+          if ( (v162 & 0x20) == 0 )
+            v172 = (const char *)&word_1802CE406;
+          v276[0] = (__int64)v172;
+          v173 = "Zoom+";
+          if ( (v162 & 0x10) == 0 )
+            v173 = (const char *)&word_1802CE406;
+          v275 = (__int64)v173;
+          v174 = "PanY-";
+          if ( (v162 & 8) == 0 )
+            v174 = (const char *)&word_1802CE406;
+          v274 = (__int64)v174;
+          v175 = "PanY+";
+          if ( (v162 & 4) == 0 )
+            v175 = (const char *)&word_1802CE406;
+          v273 = (__int64)v175;
+          v176 = "PanX-";
+          if ( (v162 & 2) == 0 )
+            v176 = (const char *)&word_1802CE406;
+          v272 = (__int64)v176;
+          v177 = "PanX+";
+          if ( (v162 & 1) == 0 )
+            v177 = (const char *)&word_1802CE406;
+          v271 = (__int64)v177;
+          LODWORD(v280) = *((_DWORD *)a1 + 12);
+          v178 = InputTraceLogging::InteractionInputTypeToString(v163);
+          v179 = *((unsigned int *)a1 + 10);
+          v270 = v178;
+          v180 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v179);
+          v181 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+          v269 = v180;
+          v182 = 0;
+          if ( v181 )
+            LOBYTE(v182) = *((_QWORD *)v181 + 34) != 0LL;
+          LODWORD(v252) = v182;
+          LODWORD(v251) = InputTraceLogging::InteractionInputTransparency(v181);
+          if ( v183 )
+            v184 = *(_BYTE *)(v183 + 184) & 1;
           else
-          {
-            v260 = 0LL;
-            v186 = 0;
-          }
-          LODWORD(v262) = v186;
-          LODWORD(v258) = InputTraceLogging::InteractionInputTransparency(v185);
-          LODWORD(v261) = InputTraceLogging::InteractionFurtherProcessingForInput(v187);
-          if ( v188 )
-            v189 = *(_BYTE *)(v188 + 192) & 1;
+            v184 = 0;
+          LODWORD(v250) = v184;
+          if ( v183 )
+            v185 = *(_DWORD *)(v183 + 180);
           else
-            v189 = 0;
-          v265 = v189;
-          if ( v188 )
+            v185 = 0;
+          v254 = v185;
+          v186 = 0LL;
+          if ( v183 )
           {
-            LODWORD(v287) = *(_DWORD *)(v188 + 188);
-            v190 = 0LL;
-            v191 = *(_QWORD *)(v188 + 104);
-            if ( v191 )
-              v190 = *(_QWORD *)(v191 + 64);
-            v259 = v190;
-            v192 = *(_DWORD *)(v188 + 1704);
+            v187 = *(_QWORD *)(v183 + 96);
+            if ( v187 )
+              v186 = *(_QWORD *)(v187 + 64);
           }
+          v268 = v186;
+          if ( v183 )
+            v188 = *(_DWORD *)(v183 + 1696);
           else
-          {
-            LODWORD(v287) = 0;
-            v192 = 0;
-            v259 = 0LL;
-          }
-          v264 = v192;
-          v277 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v188);
-          v194 = InputTraceLogging::InteractionSourceTypeToString(v193);
-          v195 = *(unsigned int *)a1;
-          v276 = (__int64)v194;
-          v275 = v196;
-          v274 = v196;
-          v273 = InputTraceLogging::MidManipulationUpdateTypeToString(v195);
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            v197,
-            (int)&dword_18036882A,
+            v188 = 0;
+          v253 = v188;
+          v267 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v183);
+          v266 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v189);
+          v264 = v190;
+          v265 = (v190 + 8) & -(__int64)(v190 != 0);
+          v263 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+            v191,
+            (int)&dword_1802EA683,
+            (__int64)&v263,
+            (__int64)&v264,
+            (__int64)&v265,
+            (__int64)&v266,
+            (__int64)&v267,
+            (__int64)&v253,
+            (__int64)&v268,
+            (__int64)&v254,
+            (__int64)&v250,
+            (__int64)&v251,
+            (__int64)&v252,
+            (__int64)&v269,
+            (__int64)&v270,
+            (__int64)&v280,
+            (__int64)&v279,
+            (__int64)&v271,
+            (__int64)&v272,
             (__int64)&v273,
             (__int64)&v274,
             (__int64)&v275,
-            (__int64)&v276,
-            (__int64)&v277,
-            (__int64)&v264,
-            (__int64)&v259,
-            (__int64)&v287,
-            (__int64)&v265,
-            (__int64)&v261,
+            (__int64)v276,
+            (__int64)&v255,
+            (__int64)&v256,
+            (__int64)&v257,
             (__int64)&v258,
-            (__int64)&v262,
+            (__int64)&v259,
             (__int64)&v260,
+            (__int64)&v261,
+            (__int64)&v262,
             (__int64)&v278,
-            (__int64)&v279,
-            (__int64)&v263,
-            (__int64)&v290,
-            (__int64)&v280,
-            (__int64)&v281,
-            (__int64)&v282,
-            (__int64)&v283,
-            (__int64)&v284,
-            (__int64)&v285,
-            (__int64)v286,
-            (__int64)&v266,
-            (__int64)&v267,
-            (__int64)&v268,
-            (__int64)&v269,
-            (__int64)&v270,
-            (__int64)&v271,
-            (__int64)&v272,
-            (__int64)&v289,
-            (__int64)&v288);
+            (__int64)&v277);
         }
-        ++v164;
+        ++v160;
       }
-      while ( v164 < *((_DWORD *)a1 + 12) );
+      while ( v160 < *((_DWORD *)a1 + 12) );
     }
   }
   else
   {
-    v6 = 0LL;
-    if ( !InputTraceLogging::Enabled(0LL) )
+    v6 = 0;
+    if ( !(unsigned __int8)InputTraceLogging::Enabled(0LL) )
       return;
-    v208 = *((_QWORD *)a1 + 7);
+    v203 = *((_QWORD *)a1 + 7);
     if ( !*((_DWORD *)a1 + 12) )
     {
-      v243 = wil::details::static_lazy<InputTraceLogging>::get(
-               v8,
-               _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-      if ( *(_DWORD *)v243[1] <= 4u || !(unsigned __int8)tlgKeywordOn(v243[1], 2048LL) )
+      v236 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                           v8,
+                           _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                       + 8);
+      if ( *(_DWORD *)v236 <= 4u
+        || (*(_DWORD *)(v236 + 16) & 0x800LL) == 0
+        || (*(_QWORD *)(v236 + 24) & 0x800LL) != *(_QWORD *)(v236 + 24) )
+      {
         return;
-      v244 = *((unsigned int *)a1 + 11);
-      LODWORD(v288) = *((_DWORD *)a1 + 12);
-      v245 = InputTraceLogging::InteractionInputTypeToString(v244);
-      v246 = *((unsigned int *)a1 + 10);
-      v272 = v245;
-      v247 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v246);
-      v248 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-      v271 = v247;
-      if ( v248 )
-      {
-        v260 = *((_QWORD *)v248 + 214);
-        v249 = *((_QWORD *)v248 + 35) != 0LL;
       }
+      v237 = *((unsigned int *)a1 + 11);
+      LODWORD(v277) = *((_DWORD *)a1 + 12);
+      v238 = InputTraceLogging::InteractionInputTypeToString(v237);
+      v239 = *((unsigned int *)a1 + 10);
+      v262 = v238;
+      v240 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v239);
+      v241 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+      v261 = v240;
+      v242 = 0;
+      if ( v241 )
+        LOBYTE(v242) = *((_QWORD *)v241 + 34) != 0LL;
+      LODWORD(v278) = v242;
+      LODWORD(v279) = InputTraceLogging::InteractionInputTransparency(v241);
+      if ( v66 )
+        v243 = *(_BYTE *)(v66 + 184) & 1;
       else
-      {
-        v260 = 0LL;
-        v249 = 0;
-      }
-      LODWORD(v289) = v249;
-      LODWORD(v290) = InputTraceLogging::InteractionInputTransparency(v248);
-      LODWORD(v263) = InputTraceLogging::InteractionFurtherProcessingForInput(v250);
-      if ( v70 )
-        v251 = *(_BYTE *)(v70 + 192) & 1;
+        v243 = 0;
+      LODWORD(v280) = v243;
+      if ( v66 )
+        v244 = *(_DWORD *)(v66 + 180);
       else
-        v251 = 0;
-      LODWORD(v262) = v251;
-      if ( v70 )
+        v244 = 0;
+      LODWORD(v252) = v244;
+      v245 = 0LL;
+      if ( v66 )
       {
-        LODWORD(v287) = *(_DWORD *)(v70 + 188);
-        v252 = *(_QWORD *)(v70 + 104);
-        if ( v252 )
-          v6 = *(_QWORD *)(v252 + 64);
-        v259 = v6;
-        LODWORD(v6) = *(_DWORD *)(v70 + 1704);
+        v246 = *(_QWORD *)(v66 + 96);
+        if ( v246 )
+          v245 = *(_QWORD *)(v246 + 64);
       }
-      else
-      {
-        LODWORD(v287) = 0;
-        v259 = 0LL;
-      }
-      goto LABEL_325;
+      v260 = v245;
+      if ( v66 )
+        v6 = *(_DWORD *)(v66 + 1696);
+      goto LABEL_367;
     }
-    v209 = 0;
+    v204 = 0;
     do
     {
-      v210 = wil::details::static_lazy<InputTraceLogging>::get(
-               v8,
-               _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-      if ( *(_DWORD *)v210[1] > 4u && (unsigned __int8)tlgKeywordOn(v210[1], 2048LL) )
+      v205 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                           v8,
+                           _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                       + 8);
+      if ( *(_DWORD *)v205 > 4u
+        && (*(_DWORD *)(v205 + 16) & 0x800LL) != 0
+        && (*(_QWORD *)(v205 + 24) & 0x800LL) == *(_QWORD *)(v205 + 24) )
       {
-        LODWORD(v290) = v209;
-        v211 = *(_DWORD *)(v208 + 12LL * v209 + 8);
-        LODWORD(v288) = *(_DWORD *)(v208 + 12LL * v209 + 4);
-        v212 = *((unsigned int *)a1 + 11);
-        LODWORD(v289) = *(_DWORD *)(v208 + 12LL * v209);
-        v213 = "StopInertia";
-        if ( (v211 & 0x20000000) == 0 )
-          v213 = &byte_18032C47F;
-        v272 = (__int64)v213;
-        v214 = "DisableGestures";
-        if ( (v211 & 0x10000000) == 0 )
-          v214 = &byte_18032C47F;
-        v271 = (__int64)v214;
-        v215 = "Wheel";
-        if ( (v211 & 0x8000) == 0 )
-          v215 = &byte_18032C47F;
-        v270 = (__int64)v215;
-        v216 = "Hover";
-        if ( (v211 & 0x400) == 0 )
-          v216 = &byte_18032C47F;
-        v269 = (__int64)v216;
-        v217 = "Eraser";
-        if ( (v211 & 0x200) == 0 )
-          v217 = &byte_18032C47F;
-        v268 = (__int64)v217;
-        v218 = "Button";
-        if ( (v211 & 0x100) == 0 )
-          v218 = &byte_18032C47F;
-        v267 = (__int64)v218;
-        v219 = "Hold";
-        if ( (v211 & 0x80u) == 0 )
-          v219 = &byte_18032C47F;
-        v266 = (__int64)v219;
-        v220 = "Tap";
-        if ( (v211 & 0x40) == 0 )
-          v220 = &byte_18032C47F;
-        v286[0] = (__int64)v220;
-        v221 = "Zoom-";
-        if ( (v211 & 0x20) == 0 )
-          v221 = &byte_18032C47F;
-        v285 = (__int64)v221;
-        v222 = "Zoom+";
-        if ( (v211 & 0x10) == 0 )
-          v222 = &byte_18032C47F;
-        v284 = (__int64)v222;
-        v223 = "PanY-";
-        if ( (v211 & 8) == 0 )
-          v223 = &byte_18032C47F;
-        v283 = (__int64)v223;
-        v224 = "PanY+";
-        if ( (v211 & 4) == 0 )
-          v224 = &byte_18032C47F;
-        v282 = (__int64)v224;
-        v225 = "PanX-";
-        if ( (v211 & 2) == 0 )
-          v225 = &byte_18032C47F;
-        v281 = (__int64)v225;
-        v226 = "PanX+";
-        if ( (v211 & 1) == 0 )
-          v226 = &byte_18032C47F;
-        v280 = (__int64)v226;
-        LODWORD(v263) = *((_DWORD *)a1 + 12);
-        v227 = InputTraceLogging::InteractionInputTypeToString(v212);
-        v228 = *((unsigned int *)a1 + 10);
-        v279 = v227;
-        v229 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v228);
-        v230 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-        v278 = v229;
-        if ( v230 )
-        {
-          v260 = *((_QWORD *)v230 + 214);
-          v231 = *((_QWORD *)v230 + 35) != 0LL;
-        }
+        LODWORD(v279) = v204;
+        v206 = *(_DWORD *)(v203 + 12LL * v204 + 8);
+        LODWORD(v277) = *(_DWORD *)(v203 + 12LL * v204 + 4);
+        v207 = *((unsigned int *)a1 + 11);
+        LODWORD(v278) = *(_DWORD *)(v203 + 12LL * v204);
+        v208 = "StopInertia";
+        if ( (v206 & 0x20000000) == 0 )
+          v208 = (const char *)&word_1802CE406;
+        v262 = (__int64)v208;
+        v209 = "DisableGestures";
+        if ( (v206 & 0x10000000) == 0 )
+          v209 = (const char *)&word_1802CE406;
+        v261 = (__int64)v209;
+        v210 = "Wheel";
+        if ( (v206 & 0x8000) == 0 )
+          v210 = (const char *)&word_1802CE406;
+        v260 = (__int64)v210;
+        v211 = "Hover";
+        if ( (v206 & 0x400) == 0 )
+          v211 = (const char *)&word_1802CE406;
+        v259 = (__int64)v211;
+        v212 = "Eraser";
+        if ( (v206 & 0x200) == 0 )
+          v212 = (const char *)&word_1802CE406;
+        v258 = (__int64)v212;
+        v213 = "Button";
+        if ( (v206 & 0x100) == 0 )
+          v213 = (const char *)&word_1802CE406;
+        v257 = (__int64)v213;
+        v214 = "Hold";
+        if ( (v206 & 0x80u) == 0 )
+          v214 = (const char *)&word_1802CE406;
+        v256 = (__int64)v214;
+        v215 = "Tap";
+        if ( (v206 & 0x40) == 0 )
+          v215 = (const char *)&word_1802CE406;
+        v255 = (__int64)v215;
+        v216 = "Zoom-";
+        if ( (v206 & 0x20) == 0 )
+          v216 = (const char *)&word_1802CE406;
+        v276[0] = (__int64)v216;
+        v217 = "Zoom+";
+        if ( (v206 & 0x10) == 0 )
+          v217 = (const char *)&word_1802CE406;
+        v275 = (__int64)v217;
+        v218 = "PanY-";
+        if ( (v206 & 8) == 0 )
+          v218 = (const char *)&word_1802CE406;
+        v274 = (__int64)v218;
+        v219 = "PanY+";
+        if ( (v206 & 4) == 0 )
+          v219 = (const char *)&word_1802CE406;
+        v273 = (__int64)v219;
+        v220 = "PanX-";
+        if ( (v206 & 2) == 0 )
+          v220 = (const char *)&word_1802CE406;
+        v272 = (__int64)v220;
+        v221 = "PanX+";
+        if ( (v206 & 1) == 0 )
+          v221 = (const char *)&word_1802CE406;
+        v271 = (__int64)v221;
+        LODWORD(v280) = *((_DWORD *)a1 + 12);
+        v222 = InputTraceLogging::InteractionInputTypeToString(v207);
+        v223 = *((unsigned int *)a1 + 10);
+        v270 = v222;
+        v224 = InputTraceLogging::InteractionConfigurationUpdateTypeToString(v223);
+        v225 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
+        v269 = v224;
+        v226 = 0;
+        if ( v225 )
+          LOBYTE(v226) = *((_QWORD *)v225 + 34) != 0LL;
+        LODWORD(v252) = v226;
+        LODWORD(v251) = InputTraceLogging::InteractionInputTransparency(v225);
+        if ( v227 )
+          v228 = *(_BYTE *)(v227 + 184) & 1;
         else
-        {
-          v260 = 0LL;
-          v231 = 0;
-        }
-        LODWORD(v262) = v231;
-        LODWORD(v258) = InputTraceLogging::InteractionInputTransparency(v230);
-        LODWORD(v261) = InputTraceLogging::InteractionFurtherProcessingForInput(v232);
-        if ( v233 )
-          v234 = *(_BYTE *)(v233 + 192) & 1;
+          v228 = 0;
+        LODWORD(v250) = v228;
+        if ( v227 )
+          v229 = *(_DWORD *)(v227 + 180);
         else
-          v234 = 0;
-        v265 = v234;
-        if ( v233 )
+          v229 = 0;
+        v254 = v229;
+        v230 = 0LL;
+        if ( v227 )
         {
-          LODWORD(v287) = *(_DWORD *)(v233 + 188);
-          v235 = 0LL;
-          v236 = *(_QWORD *)(v233 + 104);
-          if ( v236 )
-            v235 = *(_QWORD *)(v236 + 64);
-          v259 = v235;
-          v237 = *(_DWORD *)(v233 + 1704);
+          v231 = *(_QWORD *)(v227 + 96);
+          if ( v231 )
+            v230 = *(_QWORD *)(v231 + 64);
         }
+        v268 = v230;
+        if ( v227 )
+          v232 = *(_DWORD *)(v227 + 1696);
         else
-        {
-          LODWORD(v287) = 0;
-          v237 = 0;
-          v259 = 0LL;
-        }
-        v264 = v237;
-        v277 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v233);
-        v239 = InputTraceLogging::InteractionSourceTypeToString(v238);
-        v240 = *(unsigned int *)a1;
-        v276 = (__int64)v239;
-        v275 = v241;
-        v274 = v241;
-        v273 = InputTraceLogging::MidManipulationUpdateTypeToString(v240);
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v242,
-          (int)&dword_18036882A,
+          v232 = 0;
+        v253 = v232;
+        v267 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v227);
+        v266 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v233);
+        v264 = v234;
+        v265 = (v234 + 8) & -(__int64)(v234 != 0);
+        v263 = InputTraceLogging::MidManipulationUpdateTypeToString(*(unsigned int *)a1);
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          v235,
+          (int)&dword_1802EA683,
+          (__int64)&v263,
+          (__int64)&v264,
+          (__int64)&v265,
+          (__int64)&v266,
+          (__int64)&v267,
+          (__int64)&v253,
+          (__int64)&v268,
+          (__int64)&v254,
+          (__int64)&v250,
+          (__int64)&v251,
+          (__int64)&v252,
+          (__int64)&v269,
+          (__int64)&v270,
+          (__int64)&v280,
+          (__int64)&v279,
+          (__int64)&v271,
+          (__int64)&v272,
           (__int64)&v273,
           (__int64)&v274,
           (__int64)&v275,
-          (__int64)&v276,
-          (__int64)&v277,
-          (__int64)&v264,
-          (__int64)&v259,
-          (__int64)&v287,
-          (__int64)&v265,
-          (__int64)&v261,
+          (__int64)v276,
+          (__int64)&v255,
+          (__int64)&v256,
+          (__int64)&v257,
           (__int64)&v258,
-          (__int64)&v262,
+          (__int64)&v259,
           (__int64)&v260,
+          (__int64)&v261,
+          (__int64)&v262,
           (__int64)&v278,
-          (__int64)&v279,
-          (__int64)&v263,
-          (__int64)&v290,
-          (__int64)&v280,
-          (__int64)&v281,
-          (__int64)&v282,
-          (__int64)&v283,
-          (__int64)&v284,
-          (__int64)&v285,
-          (__int64)v286,
-          (__int64)&v266,
-          (__int64)&v267,
-          (__int64)&v268,
-          (__int64)&v269,
-          (__int64)&v270,
-          (__int64)&v271,
-          (__int64)&v272,
-          (__int64)&v289,
-          (__int64)&v288);
+          (__int64)&v277);
       }
-      ++v209;
+      ++v204;
     }
-    while ( v209 < *((_DWORD *)a1 + 12) );
+    while ( v204 < *((_DWORD *)a1 + 12) );
   }
 }

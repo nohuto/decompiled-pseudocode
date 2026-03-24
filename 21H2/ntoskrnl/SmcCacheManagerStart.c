@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcCacheManagerStart @ 0x1409D7A90
+ * XREFs of SmcCacheManagerStart @ 0x14092D544
  * Callers:
- *     SmcCacheCreatePrepare @ 0x1409D4AF4 (SmcCacheCreatePrepare.c)
+ *     SmcCacheCreatePrepare @ 0x14092A714 (SmcCacheCreatePrepare.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     SmKmKeyGenStart @ 0x1409D618C (SmKmKeyGenStart.c)
- *     SmpUtilsGetControlDevice @ 0x1409D8B9C (SmpUtilsGetControlDevice.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     SmKmKeyGenStart @ 0x14092BC70 (SmKmKeyGenStart.c)
+ *     SmpUtilsGetControlDevice @ 0x14092E6CC (SmpUtilsGetControlDevice.c)
  */
 
 int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
@@ -15,17 +15,17 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
   unsigned int v5; // edi
   int v6; // eax
   int result; // eax
-  __int64 v8; // rdi
-  __int64 v9; // rcx
-  const wchar_t *v10; // rax
-  __int16 v11; // cx
-  const wchar_t *v12; // rax
-  __int16 v13; // di
+  __int64 v8; // r8
+  const wchar_t *v9; // rax
+  __int64 v10; // rdx
+  const wchar_t *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   struct _UNICODE_STRING v14; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+C0h] [rbp+40h] BYREF
 
-  v2 = (int *)&unk_140D32150;
+  v2 = (int *)&unk_140D24110;
   KeyHandle = 0LL;
   v5 = 0;
   v14 = 0LL;
@@ -49,19 +49,22 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
   }
   while ( v5 < 2 );
   v8 = 0x7FFFLL;
-  v9 = 0x7FFFLL;
-  v10 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
-  while ( *v10 )
+  v9 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
+  do
   {
-    ++v10;
-    if ( !--v9 )
-      goto LABEL_13;
+    if ( !*v9 )
+      break;
+    ++v9;
+    --v8;
   }
-  v11 = 2 * v9;
-  v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
-  v14.Length = -2 - v11;
-  v14.MaximumLength = -v11;
-LABEL_13:
+  while ( v8 );
+  v10 = (0x7FFF - v8) & ((unsigned __int128)-(__int128)(unsigned __int64)v8 >> 64);
+  if ( v8 )
+  {
+    v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
+    v14.Length = 2 * v10;
+    v14.MaximumLength = 2 * v10 + 2;
+  }
   ObjectAttributes.ObjectName = &v14;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -72,19 +75,24 @@ LABEL_13:
   {
     ZwClose(KeyHandle);
     v14 = 0LL;
-    v12 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters\\CacheInfo";
-    while ( *v12 )
+    v11 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters\\CacheInfo";
+    v12 = 0x7FFFLL;
+    do
     {
-      ++v12;
-      if ( !--v8 )
-        goto LABEL_19;
+      if ( !*v11 )
+        break;
+      ++v11;
+      --v12;
     }
-    v13 = 2 * v8;
-    v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParam"
-                  "eters\\CacheInfo";
-    v14.Length = -2 - v13;
-    v14.MaximumLength = -v13;
-LABEL_19:
+    while ( v12 );
+    v13 = (0x7FFF - v12) & -(__int64)(v12 != 0);
+    if ( v12 )
+    {
+      v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StorePar"
+                    "ameters\\CacheInfo";
+      v14.Length = 2 * v13;
+      v14.MaximumLength = 2 * v13 + 2;
+    }
     result = SmKmKeyGenStart(a1 + 512, &v14);
     if ( result >= 0 )
     {

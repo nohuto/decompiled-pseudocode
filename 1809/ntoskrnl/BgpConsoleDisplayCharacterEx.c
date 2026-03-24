@@ -3,7 +3,7 @@
  * Callers:
  *     BgpConsoleDisplayString @ 0x1409539C0 (BgpConsoleDisplayString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327774 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
  *     BgpConsoleScrollScreen @ 0x140953C10 (BgpConsoleScrollScreen.c)
  */
 

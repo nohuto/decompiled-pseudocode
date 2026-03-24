@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSolidXorRow1@@YAXPEAU_ROW@@KJPEAEKJK@Z @ 0x1C0303EC0
+ * XREFs of ?vSolidXorRow1@@YAXPEAU_ROW@@KJPEAEKJK@Z @ 0x1C02DAF90
  * Callers:
  *     <none>
  * Callees:
@@ -15,20 +15,19 @@ void __fastcall vSolidXorRow1(
         int a6,
         char a7)
 {
-  __int64 v8; // rsi
+  __int64 v8; // rbp
   unsigned __int8 *v9; // r9
-  char v10; // di
-  int v11; // r14d
-  int v12; // ebp
+  char v10; // si
+  int v11; // r11d
+  int v12; // r14d
   __int64 v13; // r8
-  __int64 v14; // r15
-  __int64 v15; // r14
-  int v16; // ecx
-  __int64 v17; // rbp
-  int v18; // r10d
-  int v19; // edx
-  int v20; // ecx
-  unsigned __int8 *v21; // rdx
+  __int64 v14; // r13
+  __int64 v15; // r11
+  __int64 v16; // r14
+  int v17; // r10d
+  int v18; // eax
+  int v19; // ecx
+  unsigned __int8 *v20; // rdx
 
   if ( a2 )
   {
@@ -42,40 +41,33 @@ void __fastcall vSolidXorRow1(
       v13 = (unsigned int)(*(int *)a1 >> v10);
       v14 = (*(_DWORD *)a1 << a7) & 0x1F;
       v15 = (unsigned int)(v11 >> v10);
-      v16 = aulMsk[v14];
-      v17 = ((unsigned __int8)(*(_DWORD *)a1 << a7) + (unsigned __int8)(v12 << a7)) & 0x1F;
-      v18 = ~aulMsk[v17];
-      if ( (_DWORD)v13 == (_DWORD)v15 )
+      v16 = ((unsigned __int8)(*(_DWORD *)a1 << a7) + (unsigned __int8)(v12 << a7)) & 0x1F;
+      v17 = ~aulMsk[v16];
+      if ( (_DWORD)v13 == (_DWORD)v15 || (_DWORD)v14 )
       {
-        v16 &= v18;
-        v19 = 1;
-      }
-      else
-      {
-        v19 = 0;
-        if ( !(_DWORD)v14 )
-          goto LABEL_8;
-      }
-      *(_DWORD *)&v9[4 * v13] ^= a5 & v16;
-      if ( !v19 )
-      {
+        v18 = v17 & aulMsk[v14];
+        if ( (_DWORD)v13 != (_DWORD)v15 )
+          v18 = aulMsk[v14];
+        *(_DWORD *)&v9[4 * v13] ^= a5 & v18;
+        if ( (_DWORD)v13 == (_DWORD)v15 )
+          goto LABEL_14;
         v13 = (unsigned int)(v13 + 1);
-LABEL_8:
-        v20 = v15 - v13;
-        if ( (_DWORD)v15 != (_DWORD)v13 )
-        {
-          v21 = &v9[4 * v13];
-          do
-          {
-            *(_DWORD *)v21 ^= a5;
-            v21 += 4;
-            --v20;
-          }
-          while ( v20 );
-        }
-        if ( (_DWORD)v17 )
-          *(_DWORD *)&v9[4 * v15] ^= a5 & v18;
       }
+      v19 = v15 - v13;
+      if ( (_DWORD)v15 != (_DWORD)v13 )
+      {
+        v20 = &v9[4 * v13];
+        do
+        {
+          *(_DWORD *)v20 ^= a5;
+          v20 += 4;
+          --v19;
+        }
+        while ( v19 );
+      }
+      if ( (_DWORD)v16 )
+        *(_DWORD *)&v9[4 * v15] ^= a5 & v17;
+LABEL_14:
       a1 = (struct _ROW *)((char *)a1 + 8);
       v9 += a6;
       --v8;

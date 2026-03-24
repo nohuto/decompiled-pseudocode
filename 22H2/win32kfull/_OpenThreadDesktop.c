@@ -1,32 +1,35 @@
 /*
- * XREFs of _OpenThreadDesktop @ 0x1C00B2854
+ * XREFs of _OpenThreadDesktop @ 0x1C01E9438
  * Callers:
- *     NtUserOpenThreadDesktop @ 0x1C00B27C0 (NtUserOpenThreadDesktop.c)
+ *     NtUserOpenThreadDesktop @ 0x1C01FF7F0 (NtUserOpenThreadDesktop.c)
  * Callees:
- *     OpenDesktopCompletion @ 0x1C0069634 (OpenDesktopCompletion.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     GetConsoleDesktop @ 0x1C01BEB28 (GetConsoleDesktop.c)
+ *     OpenDesktopCompletion @ 0x1C0011364 (OpenDesktopCompletion.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
+ *     GetConsoleDesktop @ 0x1C01E92BC (GetConsoleDesktop.c)
  */
 
 __int64 __fastcall OpenThreadDesktop(__int64 a1, char a2, int a3, int a4, HANDLE *Object)
 {
-  unsigned int v8; // ebx
+  int v8; // ebx
   __int64 v9; // rax
   HANDLE *v10; // r14
   ACCESS_MASK v11; // esi
   __int64 v12; // r10
-  HANDLE v13; // rax
-  PRKPROCESS *v14; // rcx
-  NTSTATUS v15; // eax
-  HANDLE *v16; // rdi
-  NTSTATUS v17; // ebx
-  __int64 v18; // rcx
-  NTSTATUS v19; // eax
   __int64 result; // rax
-  NTSTATUS v21; // ecx
-  ULONG v22; // eax
-  ULONG v23; // eax
+  PRKPROCESS *v14; // rcx
+  HANDLE v15; // rax
+  NTSTATUS v16; // eax
+  HANDLE *v17; // rdi
+  NTSTATUS v18; // ebx
+  ULONG v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  NTSTATUS v22; // ecx
+  NTSTATUS v23; // eax
+  ULONG v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // r8
   HANDLE Handle; // [rsp+40h] [rbp-10h] BYREF
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+48h] [rbp-8h] BYREF
 
@@ -40,74 +43,70 @@ __int64 __fastcall OpenThreadDesktop(__int64 a1, char a2, int a3, int a4, HANDLE
   *Object = 0LL;
   if ( v9 )
   {
-    v13 = *(HANDLE *)(v9 + 592);
-    Handle = v13;
+    v15 = *(HANDLE *)(v9 + 592);
+    Handle = v15;
     v14 = *(PRKPROCESS **)(v12 + 424);
-    goto LABEL_3;
   }
-  result = GetConsoleDesktop(v8, &Handle, 0LL, &HandleInformation);
-  if ( (int)result >= 0 )
+  else
   {
+    result = GetConsoleDesktop(v8, &Handle, 0LL, (__int64 *)&HandleInformation);
+    if ( (int)result < 0 )
+      return result;
     v14 = (PRKPROCESS *)HandleInformation;
-    v13 = Handle;
-LABEL_3:
-    if ( !v13 )
-      return 0;
-    HandleInformation = 0LL;
-    KeAttachProcess(*v14);
-    Object = 0LL;
-    v15 = ObReferenceObjectByHandle(
-            Handle,
-            0,
-            (POBJECT_TYPE)ExDesktopObjectType,
-            1,
-            (PVOID *)&Object,
-            &HandleInformation);
-    v16 = Object;
-    v17 = v15;
-    KeDetachProcess();
-    if ( v17 < 0 )
+    v15 = Handle;
+  }
+  if ( !v15 )
+    return 0;
+  HandleInformation = 0LL;
+  KeAttachProcess(*v14);
+  Object = 0LL;
+  v16 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, (PVOID *)&Object, &HandleInformation);
+  v17 = Object;
+  v18 = v16;
+  KeDetachProcess();
+  if ( v18 >= 0 )
+  {
+    if ( *(_DWORD *)v17 == gSessionId && ((_DWORD)v17[6] & 0xE) == 0 )
     {
-      v22 = RtlNtStatusToDosError(v17);
-      UserSetLastError(v22);
-      return (unsigned int)v17;
-    }
-    if ( *(_DWORD *)v16 != *(_DWORD *)SGDGetUserSessionState(v18) || ((_DWORD)v16[6] & 0xE) != 0 )
-    {
-      v21 = -1073741816;
-      v17 = -1073741816;
-    }
-    else
-    {
-      v19 = ObOpenObjectByPointer(v16, a3 != 0 ? 66 : 64, 0LL, v11, (POBJECT_TYPE)ExDesktopObjectType, 1, &Handle);
-      v17 = v19;
-      if ( v19 >= 0 )
+      v23 = ObOpenObjectByPointer(v17, a3 != 0 ? 66 : 64, 0LL, v11, (POBJECT_TYPE)ExDesktopObjectType, 1, &Handle);
+      v18 = v23;
+      if ( v23 >= 0 )
       {
-        v17 = OpenDesktopCompletion((__int64)v16, (__int64)Handle, a2);
-        if ( v17 < 0 )
+        v18 = OpenDesktopCompletion((__int64)v17, (__int64)Handle, a2);
+        if ( v18 >= 0 )
         {
-          CloseProtectedHandle(Handle, 1);
-          Handle = 0LL;
-        }
-        else if ( (unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
-        {
-          v17 = 0;
-          *v10 = Handle;
+          if ( (unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
+          {
+            v18 = 0;
+            *v10 = Handle;
+          }
+          else
+          {
+            CloseProtectedHandle(Handle, 1);
+            v18 = -1073741801;
+          }
         }
         else
         {
           CloseProtectedHandle(Handle, 1);
-          v17 = -1073741801;
+          Handle = 0LL;
         }
-        goto LABEL_11;
+        goto LABEL_19;
       }
-      v21 = v19;
+      v22 = v23;
     }
-    v23 = RtlNtStatusToDosError(v21);
-    UserSetLastError(v23);
-LABEL_11:
-    ObfDereferenceObject(v16);
-    return (unsigned int)v17;
+    else
+    {
+      v22 = -1073741816;
+      v18 = -1073741816;
+    }
+    v24 = RtlNtStatusToDosError(v22);
+    UserSetLastError(v24, v25, v26);
+LABEL_19:
+    ObfDereferenceObject(v17);
+    return (unsigned int)v18;
   }
-  return result;
+  v19 = RtlNtStatusToDosError(v18);
+  UserSetLastError(v19, v20, v21);
+  return (unsigned int)v18;
 }

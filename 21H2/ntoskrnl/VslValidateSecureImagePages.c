@@ -1,18 +1,18 @@
 /*
- * XREFs of VslValidateSecureImagePages @ 0x1403A0D60
+ * XREFs of VslValidateSecureImagePages @ 0x140393F20
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslValidateSecureImagePages(__int64 a1, int a2, unsigned __int64 a3, int a4, __int64 a5, int a6)
 {
-  int i; // edi
+  NTSTATUS i; // edi
   int v11; // r13d
   unsigned __int64 v12; // rbx
   int v13; // r13d

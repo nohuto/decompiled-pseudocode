@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetPointerCaptureInt@CTouchProcessor@@AEAAPEAVCInputDest@@PEAUCPointerCaptureInfo@@PEAH@Z @ 0x1C00E819E
+ * XREFs of ?GetPointerCaptureInt@CTouchProcessor@@AEAAPEAVCInputDest@@PEAUCPointerCaptureInfo@@PEAH@Z @ 0x1C0192080
  * Callers:
- *     ?GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z @ 0x1C00E8060 (-GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z.c)
- *     ?GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z @ 0x1C00E80F0 (-GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z.c)
+ *     ?GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z @ 0x1C0191F04 (-GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z.c)
+ *     ?GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z @ 0x1C0191FB0 (-GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z.c)
  * Callees:
- *     UserIsUserCritSecInExclusive @ 0x1C002A1D0 (UserIsUserCritSecInExclusive.c)
- *     ?TestWindowFlag@CInputDest@@QEBA_NK@Z @ 0x1C0042158 (-TestWindowFlag@CInputDest@@QEBA_NK@Z.c)
- *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C01D3AE4 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
+ *     ?TestWindowFlag@CInputDest@@QEBA_NK@Z @ 0x1C009C338 (-TestWindowFlag@CInputDest@@QEBA_NK@Z.c)
+ *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C019B2B8 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
  */
 
 struct CInputDest *__fastcall CTouchProcessor::GetPointerCaptureInt(
@@ -22,7 +21,7 @@ struct CInputDest *__fastcall CTouchProcessor::GetPointerCaptureInt(
   v5 = *((_DWORD *)a2 + 2);
   if ( v5 && (CInputDest::TestWindowFlag(v3, 1152) || CInputDest::TestWindowFlag(v8, 896)) )
   {
-    if ( UserIsUserCritSecInExclusive() )
+    if ( ExIsResourceAcquiredExclusiveLite(gpresUser) == 1 )
       CTouchProcessor::ReleasePointerCaptureInt(this, a2);
     if ( a3 )
       *a3 = 0;

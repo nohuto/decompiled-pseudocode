@@ -1,83 +1,87 @@
 /*
- * XREFs of ?EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C8F0
+ * XREFs of ?EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F39C0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002A2A0 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f819___ @ 0x1C022C5CC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f81.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6cac___ @ 0x1C022C660 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6ca.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36ef___ @ 0x1C022C6F4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36e.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a9___ @ 0x1C022C7B4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a.c)
- *     ?EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C9EC (-EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061380 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f819___ @ 0x1C01F367C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f81.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6cac___ @ 0x1C01F3710 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6ca.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36ef___ @ 0x1C01F37A4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36e.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a9___ @ 0x1C01F3820 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a.c)
+ *     ?EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F3AC8 (-EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@.c)
  */
 
 char __fastcall DirectComposition::CNaturalAnimationMarshaler::EmitUpdateCommands(
         DirectComposition::CNaturalAnimationMarshaler *this,
-        struct DirectComposition::CBatch ***a2)
+        struct DirectComposition::CBatch **a2)
 {
-  char v4; // di
-  int v5; // eax
-  unsigned int v6; // eax
-  DirectComposition::CNaturalAnimationMarshaler *v8; // [rsp+40h] [rbp+18h] BYREF
+  int v4; // eax
+  int v5; // ecx
+  char v6; // di
+  char updated; // al
+  int v8; // eax
+  DirectComposition::CNaturalAnimationMarshaler *v10; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = 0;
-  if ( DirectComposition::CBaseExpressionMarshaler::EmitUpdateCommands(this, (struct DirectComposition::CBatch **)a2) )
+  if ( !DirectComposition::CBaseExpressionMarshaler::EmitUpdateCommands(this, a2) )
+    return 0;
+  v4 = *((_DWORD *)this + 4);
+  v10 = this;
+  if ( (v4 & 0x2000) != 0 )
   {
-    v5 = *((_DWORD *)this + 4);
-    v8 = this;
-    if ( (v5 & 0x4000) != 0 )
-    {
-      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6cac___(
-              (__int64)this,
-              a2,
-              (__int64 *)&v8) )
-        return v4;
-      *((_DWORD *)this + 4) &= ~0x4000u;
-      v5 = *((_DWORD *)this + 4);
-    }
-    v8 = this;
-    if ( (v5 & 0x1000) != 0 )
-    {
-      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f819___(
-              (__int64)this,
-              a2,
-              (__int64 *)&v8) )
-        return v4;
-      *((_DWORD *)this + 4) &= ~0x1000u;
-      v5 = *((_DWORD *)this + 4);
-    }
-    v8 = this;
-    if ( (v5 & 0x8000) != 0 )
-    {
-      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a9___(
-              (__int64)this,
-              a2,
-              (__int64 *)&v8) )
-        return v4;
-      *((_DWORD *)this + 4) &= ~0x8000u;
-    }
-    if ( DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionParameters(
-           this,
-           (struct DirectComposition::CBatch **)a2) )
-    {
-      v6 = *((_DWORD *)this + 4);
-      v8 = this;
-      if ( (v6 & 0x20000) == 0 )
-      {
-LABEL_15:
-        v4 = 1;
-        *((_DWORD *)this + 4) = v6 | 0x40000;
-        return v4;
-      }
-      if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36ef___(
-             (__int64)this,
-             a2,
-             (__int64)&v8) )
-      {
-        v6 = *((_DWORD *)this + 4) & 0xFFFDFFFF;
-        goto LABEL_15;
-      }
-    }
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a6d7fc2ff29985745a9cf7d7d53a6cac___(
+            (__int64)this,
+            (struct DirectComposition::CBatch ***)a2,
+            (__int64 *)&v10) )
+      return 0;
+    *((_DWORD *)this + 4) &= ~0x2000u;
+    v4 = *((_DWORD *)this + 4);
   }
-  return v4;
+  v10 = this;
+  if ( (v4 & 0x800) != 0 )
+  {
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_96efd4528de628edf8e8c0149ff8f819___(
+            (__int64)this,
+            (struct DirectComposition::CBatch ***)a2,
+            (__int64 *)&v10) )
+      return 0;
+    *((_DWORD *)this + 4) &= ~0x800u;
+    v4 = *((_DWORD *)this + 4);
+  }
+  v10 = this;
+  if ( (v4 & 0x4000) == 0 )
+    goto LABEL_11;
+  if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_c3550f6b9f18b02d2e39c02f22e868a9___(
+          (__int64)this,
+          (struct DirectComposition::CBatch ***)a2,
+          (__int64 *)&v10) )
+    return 0;
+  *((_DWORD *)this + 4) &= ~0x4000u;
+LABEL_11:
+  if ( !DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionParameters(this, a2) )
+    return 0;
+  v5 = *((_DWORD *)this + 4);
+  v6 = 1;
+  v10 = this;
+  if ( (v5 & 0x10000) == 0 )
+  {
+LABEL_15:
+    v8 = 1;
+    goto LABEL_16;
+  }
+  updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ac1c59748b96fb69b3ab1183eeae36ef___(
+              (__int64)this,
+              (struct DirectComposition::CBatch ***)a2,
+              (__int64)&v10);
+  v5 = *((_DWORD *)this + 4);
+  if ( updated )
+  {
+    v5 &= ~0x10000u;
+    goto LABEL_15;
+  }
+  v8 = 0;
+LABEL_16:
+  *((_DWORD *)this + 4) = v5 | 0x20000;
+  if ( !v8 )
+    return 0;
+  return v6;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HSMMUX_InitializeHSMMuxContext @ 0x1C000ED84
+ * XREFs of HSMMUX_InitializeHSMMuxContext @ 0x1C000E95C
  * Callers:
- *     HUBFDO_EvtDeviceAdd @ 0x1C0074380 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C00732C0 (HUBFDO_EvtDeviceAdd.c)
  * Callees:
- *     memset @ 0x1C0043B00 (memset.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 void __fastcall HSMMUX_InitializeHSMMuxContext(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeBootStatDataCache @ 0x14018DC28
+ * XREFs of RtlInitializeBootStatDataCache @ 0x14018DC48
  * Callers:
- *     RtlLockBootStatusData @ 0x140718CA0 (RtlLockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
  * Callees:
- *     ZwReadFile @ 0x1401B8230 (ZwReadFile.c)
+ *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

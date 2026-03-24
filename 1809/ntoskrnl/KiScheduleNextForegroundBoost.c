@@ -1,9 +1,9 @@
 /*
- * XREFs of KiScheduleNextForegroundBoost @ 0x14012293C
+ * XREFs of KiScheduleNextForegroundBoost @ 0x14012295C
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5210 (KiDirectSwitchThread.c)
- *     KiTryScheduleNextForegroundBoost @ 0x1400D0CD4 (KiTryScheduleNextForegroundBoost.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
+ *     KiTryScheduleNextForegroundBoost @ 0x1400D0CF4 (KiTryScheduleNextForegroundBoost.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)

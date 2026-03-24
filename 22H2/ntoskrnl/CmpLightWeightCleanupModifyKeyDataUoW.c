@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27FB4
+ * XREFs of CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EB14
  * Callers:
- *     CmpCleanupLightWeightUoWData @ 0x140A1C3F4 (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A28074 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28218 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x140A28AA8 (CmpLightWeightCreateModificationData.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A28DA0 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29058 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29450 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpCleanupLightWeightUoWData @ 0x14066EA44 (CmpCleanupLightWeightUoWData.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14087EB9C (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ED24 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F25C (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F404 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F660 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F814 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpFreeIndexByCell @ 0x140A23514 (CmpFreeIndexByCell.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     CmpFreeIndexByCell @ 0x14087A624 (CmpFreeIndexByCell.c)
  */
 
 void __fastcall CmpLightWeightCleanupModifyKeyDataUoW(ULONG_PTR BugCheckParameter2, unsigned int *a2)

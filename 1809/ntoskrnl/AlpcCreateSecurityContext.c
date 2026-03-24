@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcCreateSecurityContext @ 0x140849DA0
+ * XREFs of AlpcCreateSecurityContext @ 0x140849D80
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)

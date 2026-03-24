@@ -14,14 +14,14 @@
  *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
  *     CmGetKCBCacheSecurity @ 0x1405D8A10 (CmGetKCBCacheSecurity.c)
- *     CmpIsKeyStackDeleted @ 0x140644670 (CmpIsKeyStackDeleted.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     CmRmIsKCBVisible @ 0x140699950 (CmRmIsKCBVisible.c)
- *     CmGetKeyLastWriteTime @ 0x1406B97A4 (CmGetKeyLastWriteTime.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD528 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmGetKeyFlags @ 0x140763E60 (CmGetKeyFlags.c)
+ *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmRmIsKCBVisible @ 0x140699930 (CmRmIsKCBVisible.c)
+ *     CmGetKeyLastWriteTime @ 0x1406B9784 (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD508 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmGetKeyFlags @ 0x140763E40 (CmGetKeyFlags.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x1407F6510 (CmpTransUowIsEqual.c)
+ *     CmpTransUowIsEqual @ 0x1407F64F0 (CmpTransUowIsEqual.c)
  */
 
 char __fastcall CmEqualTrans(__int64 a1, __int64 a2)

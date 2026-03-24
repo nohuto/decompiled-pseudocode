@@ -1,5 +1,5 @@
 /*
- * XREFs of MmFreeSpecialPool @ 0x1402AD078
+ * XREFs of MmFreeSpecialPool @ 0x1402AD178
  * Callers:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
@@ -14,18 +14,18 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiCheckSpecialPoolSlop @ 0x1402AC07C (MiCheckSpecialPoolSlop.c)
- *     MiRemoveSpecialPoolRange @ 0x1402AC7D0 (MiRemoveSpecialPoolRange.c)
- *     VerifierFreeTrackedPool @ 0x1402BA31C (VerifierFreeTrackedPool.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiCheckSpecialPoolSlop @ 0x1402AC17C (MiCheckSpecialPoolSlop.c)
+ *     MiRemoveSpecialPoolRange @ 0x1402AC8D0 (MiRemoveSpecialPoolRange.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
  */
 
 void __fastcall MmFreeSpecialPool(ULONG_PTR BugCheckParameter1)

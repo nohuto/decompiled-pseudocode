@@ -1,8 +1,8 @@
 /*
- * XREFs of VfStartBranchTracing @ 0x140AD49E0
+ * XREFs of VfStartBranchTracing @ 0x1409D853C
  * Callers:
- *     KiFreezeTargetExecution @ 0x14020E1F0 (KiFreezeTargetExecution.c)
- *     VfNotifyVerifierOfEvent @ 0x140AC3120 (VfNotifyVerifierOfEvent.c)
+ *     KiFreezeTargetExecution @ 0x14051DDA0 (KiFreezeTargetExecution.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C6060 (VfNotifyVerifierOfEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,64 +1,60 @@
 /*
- * XREFs of bDrvDisconnect @ 0x1C02DD250
+ * XREFs of bDrvDisconnect @ 0x1C02BFA2C
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C003B554 (-InitiateWin32kCleanup@@YAHXZ.c)
- *     xxxRemoteConsoleShadowStop @ 0x1C0203D54 (xxxRemoteConsoleShadowStop.c)
- *     xxxRemotePassthruEnable @ 0x1C0204098 (xxxRemotePassthruEnable.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRemoteConsoleShadowStop @ 0x1C0226970 (xxxRemoteConsoleShadowStop.c)
+ *     xxxRemotePassthruEnable @ 0x1C0226C60 (xxxRemotePassthruEnable.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0135194 (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0135270 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163324 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163400 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall bDrvDisconnect(Gre::Base *a1)
+__int64 bDrvDisconnect()
 {
-  PVOID v1; // rdi
-  HANDLE v2; // rsi
-  unsigned int v3; // ebx
-  HSEMAPHORE *v4; // rax
-  __int64 (__fastcall *v5)(HANDLE, PVOID); // rax
-  _BYTE v7[96]; // [rsp+98h] [rbp-9h] BYREF
-  __int64 v8; // [rsp+118h] [rbp+77h] BYREF
+  PVOID v0; // rdi
+  HANDLE v1; // rsi
+  unsigned int v2; // ebx
+  __int64 (__fastcall *v3)(HANDLE, PVOID); // rax
+  _BYTE v5[96]; // [rsp+90h] [rbp-68h] BYREF
+  _QWORD *v6; // [rsp+110h] [rbp+18h] BYREF
 
-  v1 = gConsoleShadowThinwireFileObject;
-  v2 = ghConsoleShadowThinwireChannel;
-  v8 = gConsoleShadowhDev;
-  if ( !gConsoleShadowhDev )
-    return 0LL;
-  v3 = 1;
-  if ( (*(_DWORD *)(gConsoleShadowhDev + 40) & 1) == 0 )
-    return 0LL;
-  v4 = (HSEMAPHORE *)Gre::Base::Globals(a1);
-  SEMOBJEX::SEMOBJEX(
-    (SEMOBJEX *)v7,
-    v4[10],
-    1,
-    v4[15],
-    2u,
-    v4[11],
-    3u,
-    *(HSEMAPHORE *)(v8 + 56),
-    4u,
-    v4[14],
-    5u,
-    v4[17],
-    6u);
-  GreAcquireSemaphore(*(_QWORD *)(v8 + 48));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", *(_QWORD *)(v8 + 48), 11LL);
-  PDEVOBJ::vSync(
-    (PDEVOBJ *)&v8,
-    (struct _SURFOBJ *)((*(_QWORD *)(v8 + 2528) + 24LL) & -(__int64)(*(_QWORD *)(v8 + 2528) != 0LL)),
-    0LL,
-    0);
-  v5 = *(__int64 (__fastcall **)(HANDLE, PVOID))(v8 + 3288);
-  if ( v5 )
+  v0 = gConsoleShadowThinwireFileObject;
+  v1 = ghConsoleShadowThinwireChannel;
+  v6 = (_QWORD *)gConsoleShadowhDev;
+  if ( gConsoleShadowhDev && (v2 = 1, (*(_DWORD *)(gConsoleShadowhDev + 40) & 1) != 0) )
   {
-    v3 = v5(v2, v1);
+    SEMOBJEX::SEMOBJEX(
+      (SEMOBJEX *)v5,
+      ghsemDynamicModeChange,
+      1,
+      ghsemGreLock,
+      2u,
+      ghsemDCVisRgn,
+      3u,
+      *(HSEMAPHORE *)(gConsoleShadowhDev + 64),
+      4u,
+      ghsemSprite,
+      5u,
+      ghsemHT,
+      6u);
+    GreAcquireSemaphore(v6[6]);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v6[6], 11LL);
+    PDEVOBJ::vSync((PDEVOBJ *)&v6, (struct _SURFOBJ *)((v6[319] + 24LL) & -(__int64)(v6[319] != 0LL)), 0LL, 0);
+    v3 = (__int64 (__fastcall *)(HANDLE, PVOID))v6[414];
     if ( v3 )
-      *(_DWORD *)(*(_QWORD *)(v8 + 1760) + 60LL) = 3;
+    {
+      v2 = v3(v1, v0);
+      if ( v2 )
+        *(_DWORD *)(v6[224] + 60LL) = 3;
+    }
+    EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", v6[6]);
+    GreReleaseSemaphoreInternal(v6[6]);
+    SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v5);
   }
-  EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()");
-  GreReleaseSemaphoreInternal(*(_QWORD *)(v8 + 48));
-  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v7);
-  return v3;
+  else
+  {
+    return 0;
+  }
+  return v2;
 }

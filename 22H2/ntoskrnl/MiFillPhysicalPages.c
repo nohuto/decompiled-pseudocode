@@ -1,179 +1,108 @@
 /*
- * XREFs of MiFillPhysicalPages @ 0x1403390F0
+ * XREFs of MiFillPhysicalPages @ 0x1403579D0
  * Callers:
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiZeroPhysicalPage @ 0x14033905C (MiZeroPhysicalPage.c)
- *     MxMapVa @ 0x140B468AC (MxMapVa.c)
- *     MiInitializeDummyPages @ 0x140B48350 (MiInitializeDummyPages.c)
+ *     MiGetPoolPages @ 0x14033DA1C (MiGetPoolPages.c)
+ *     MiInitializeSystemPageTable @ 0x1403569E4 (MiInitializeSystemPageTable.c)
+ *     MiZeroPhysicalPage @ 0x1403578E0 (MiZeroPhysicalPage.c)
+ *     MxMapVa @ 0x140A43F9C (MxMapVa.c)
+ *     MiInitializeDummyPages @ 0x140A55944 (MiInitializeDummyPages.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140423F80 (KeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MxGetPhase0Mapping @ 0x140B5BDAC (MxGetPhase0Mapping.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x1402B2140 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402C8FA0 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x140402430 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140A57438 (MxGetPhase0Mapping.c)
  */
 
-__int64 __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)
+char __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rbx
-  ULONG_PTR v4; // r14
-  unsigned __int8 CurrentIrql; // r15
-  __int64 v6; // r12
-  void *MmInternal; // r13
-  unsigned __int8 *v8; // rbp
-  int v9; // r8d
-  int v10; // eax
-  unsigned __int64 ValidPte; // rdi
-  unsigned __int64 *v12; // rbx
-  unsigned __int64 UltraMapping; // rsi
-  unsigned __int64 *v14; // rcx
-  __int64 result; // rax
-  _DWORD *SchedulerAssist; // r8
-  __int64 v17; // r9
+  unsigned __int64 *v4; // r12
+  __int64 v7; // rbx
+  void *HyperPte; // r14
+  void *v9; // rbp
+  __int64 v10; // r8
+  char result; // al
   unsigned __int64 Phase0Mapping; // rax
-  unsigned __int64 v19; // rdi
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  unsigned __int64 v23; // rdi
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  unsigned __int8 v27; // cl
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
-  bool v31; // zf
-  unsigned __int64 *v32; // [rsp+78h] [rbp+10h]
+  __int64 v13; // r9
+  unsigned __int64 ValidPte; // rdi
+  unsigned __int64 v15; // rdi
+  __int64 v16; // r8
+  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = a3;
-  v32 = 0LL;
-  v4 = BugCheckParameter2;
-  CurrentIrql = 17;
-  v6 = 0LL;
-  MmInternal = KeGetCurrentPrcb()->MmInternal;
-  v8 = (unsigned __int8 *)(48 * BugCheckParameter2 - 0x21FFFFFFFFDELL);
+  v17 = a2;
+  v4 = 0LL;
+  LOBYTE(v17) = 17;
+  v7 = 0LL;
+  HyperPte = KeGetCurrentPrcb()->HyperPte;
   do
   {
-    if ( MmInternal )
+    if ( HyperPte )
     {
-      v9 = 4;
-      v10 = *v8 >> 6;
-      if ( !v10 || v10 == 3 )
-      {
-        v9 = 12;
-      }
-      else if ( v10 == 2 )
-      {
-        v9 = 28;
-      }
-      ValidPte = MiMakeValidPte(0LL, v4, v9 | 0xA0000000);
-      CurrentIrql = KeGetCurrentIrql();
-      __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-      {
-        SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( CurrentIrql == 2 )
-          LODWORD(v17) = 4;
-        else
-          v17 = (-1LL << (CurrentIrql + 1)) & 4;
-        SchedulerAssist[5] |= v17;
-      }
-      v12 = (unsigned __int64 *)KeGetCurrentPrcb()->MmInternal;
-      UltraMapping = MiGetUltraMapping(v12 + 1556, 3u, 1LL, 0);
-      v14 = (unsigned __int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-      v12[1543] = (unsigned __int64)v14;
-      v3 = a3;
-      *v14 = ValidPte;
+      v9 = (void *)MiMapPageInHyperSpaceWorker(BugCheckParameter2, (unsigned __int8 *)&v17, 0x80000000, a4);
+      goto LABEL_4;
     }
+    Phase0Mapping = MxGetPhase0Mapping();
+    v9 = (void *)Phase0Mapping;
+    if ( !Phase0Mapping )
+      KeBugCheckEx(0x1Au, 0x3030305uLL, BugCheckParameter2, 0LL, 0LL);
+    v4 = (unsigned __int64 *)(((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+    ValidPte = MiMakeValidPte((unsigned __int64)v4, BugCheckParameter2, 2684354564LL, v13);
+    if ( !MiPteInShadowRange((unsigned __int64)v4) )
+      goto LABEL_13;
+    if ( !(unsigned int)MiPteHasShadow() )
+    {
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+        && (ValidPte & 1) != 0 )
+      {
+        ValidPte |= 0x8000000000000000uLL;
+      }
+LABEL_13:
+      *v4 = ValidPte;
+      goto LABEL_4;
+    }
+    if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
+      ValidPte |= 0x8000000000000000uLL;
+    *v4 = ValidPte;
+    MiWritePteShadow((__int64)v4, ValidPte, v10);
+LABEL_4:
+    if ( a3 )
+      memset64(v9, a3, 0x200uLL);
     else
+      KeZeroPages(v9, 4096LL, v10);
+    if ( HyperPte )
     {
-      Phase0Mapping = MxGetPhase0Mapping();
-      UltraMapping = Phase0Mapping;
-      if ( !Phase0Mapping )
-        KeBugCheckEx(0x1Au, 0x3030305uLL, v4, 0LL, 0LL);
-      v32 = (unsigned __int64 *)(((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-      v19 = MiMakeValidPte((unsigned __int64)v32, v4, 2684354564LL);
-      if ( !MiPteInShadowRange((unsigned __int64)v32) )
-        goto LABEL_25;
-      if ( !(unsigned int)MiPteHasShadow(v21, v20, v22) )
-      {
-        if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-          && (v19 & 1) != 0 )
-        {
-          v19 |= 0x8000000000000000uLL;
-        }
-LABEL_25:
-        *v32 = v19;
-        goto LABEL_9;
-      }
-      if ( !HIBYTE(word_140C66DFC) && (v19 & 1) != 0 )
-        v19 |= 0x8000000000000000uLL;
-      *v32 = v19;
-      MiWritePteShadow(v32, v19);
+      result = MiUnmapPageInHyperSpaceWorker((unsigned __int64)v9, (unsigned __int8)v17, 0x80000000LL);
+      goto LABEL_8;
     }
-LABEL_9:
-    if ( v3 )
-      memset64((void *)UltraMapping, v3, 0x200uLL);
-    else
-      KeZeroPages(UltraMapping, 4096LL);
-    if ( !MmInternal )
+    v15 = ZeroPte;
+    if ( MiPteInShadowRange((unsigned __int64)v4) )
     {
-      v23 = ZeroPte;
-      if ( MiPteInShadowRange((unsigned __int64)v32) )
+      if ( (unsigned int)MiPteHasShadow() )
       {
-        if ( (unsigned int)MiPteHasShadow(v25, v24, v26) )
-        {
-          if ( !HIBYTE(word_140C66DFC) && (ZeroPte & 1) != 0 )
-            v23 = ZeroPte | 0x8000000000000000uLL;
-          *v32 = v23;
-          MiWritePteShadow(v32, v23);
-          goto LABEL_28;
-        }
-        if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-          && (ZeroPte & 1) != 0 )
-        {
-          v23 = ZeroPte | 0x8000000000000000uLL;
-        }
+        if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+          v15 = ZeroPte | 0x8000000000000000uLL;
+        *v4 = v15;
+        MiWritePteShadow((__int64)v4, v15, v16);
+        goto LABEL_16;
       }
-      *v32 = v23;
-LABEL_28:
-      result = KeFlushSingleTb(UltraMapping, 0, 1u);
-      goto LABEL_15;
-    }
-    result = ZeroPte;
-    *((_QWORD *)KeGetCurrentPrcb()->MmInternal + 1543) = 0LL;
-    *(_QWORD *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = ZeroPte;
-    if ( CurrentIrql != 17 )
-    {
-      if ( KiIrqlFlags )
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+        && (ZeroPte & 1) != 0 )
       {
-        v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v29 = CurrentPrcb->SchedulerAssist;
-          v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v31 = (v30 & v29[5]) == 0;
-          v29[5] &= v30;
-          if ( v31 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
+        v15 = ZeroPte | 0x8000000000000000uLL;
       }
-      result = CurrentIrql;
-      __writecr8(CurrentIrql);
     }
-LABEL_15:
-    ++v6;
-    ++v4;
-    v8 += 48;
+    *v4 = v15;
+LABEL_16:
+    result = KeFlushSingleTb((unsigned __int64)v9, 0, 1u);
+LABEL_8:
+    ++v7;
+    ++BugCheckParameter2;
   }
-  while ( !v6 );
+  while ( !v7 );
   return result;
 }

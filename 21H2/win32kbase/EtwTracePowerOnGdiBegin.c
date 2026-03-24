@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePowerOnGdiBegin @ 0x1C00D46F0
+ * XREFs of EtwTracePowerOnGdiBegin @ 0x1C00C5000
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C014F9C8 (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125070 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePowerOnGdiBegin(__int64 a1, __int64 a2, __int64 a3)

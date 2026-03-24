@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RemoveExclusiveView@CHolographicManager@@QEAAXPEAVCHolographicExclusiveView@@@Z @ 0x180296690
+ * XREFs of ?RemoveExclusiveView@CHolographicManager@@QEAAXPEAVCHolographicExclusiveView@@@Z @ 0x1802541B8
  * Callers:
- *     ?DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180298FD0 (-DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180257090 (-DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Remove@?$DynArray@PEAVCHolographicExclusiveView@@$0A@@@QEAAHAEBQEAVCHolographicExclusiveView@@@Z @ 0x1802965A0 (-Remove@-$DynArray@PEAVCHolographicExclusiveView@@$0A@@@QEAAHAEBQEAVCHolographicExclusiveView@@@.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Remove@?$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z @ 0x1801AB3F0 (-Remove@-$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::RemoveExclusiveView(CHolographicManager *this, struct IUnknown *a2)
@@ -17,7 +17,7 @@ void __fastcall CHolographicManager::RemoveExclusiveView(CHolographicManager *th
 
   v7 = a2;
   AcquireSRWLockExclusive((PSRWLOCK)this + 13);
-  v4 = DynArray<CHolographicExclusiveView *,0>::Remove((__int64 *)this + 21, &v7);
+  v4 = DynArray<CBaseExpression *,1>::Remove((__int64 *)this + 21, &v7);
   v5 = 0LL;
   if ( v4 )
   {

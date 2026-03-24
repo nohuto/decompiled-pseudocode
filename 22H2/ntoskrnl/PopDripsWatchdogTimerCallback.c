@@ -1,17 +1,26 @@
 /*
- * XREFs of PopDripsWatchdogTimerCallback @ 0x14059E530
+ * XREFs of PopDripsWatchdogTimerCallback @ 0x1405762C0
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x14032CB04 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14032CC74 (PopQueueWorkItem.c)
  */
 
 char __fastcall PopDripsWatchdogTimerCallback(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rax
+  char result; // al
 
-  v3 = a2 + 112;
-  if ( a1 == a2 + 112 || (v3 = a2 + 376, a1 == a2 + 376) )
-    LOBYTE(a1) = PopQueueWorkItem(v3 + 136, DelayedWorkQueue);
-  return a1;
+  if ( a1 == a2 + 112 )
+  {
+    v2 = 248LL;
+  }
+  else
+  {
+    result = a2 + 120;
+    if ( a1 != a2 + 376 )
+      return result;
+    v2 = 512LL;
+  }
+  return PopQueueWorkItem(v2 + a2, DelayedWorkQueue);
 }

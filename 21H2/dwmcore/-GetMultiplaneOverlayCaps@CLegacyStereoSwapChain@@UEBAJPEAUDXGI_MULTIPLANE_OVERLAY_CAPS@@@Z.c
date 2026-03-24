@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800FC5B0
+ * XREFs of ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800E365C
  * Callers:
- *     ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x180109EB0 (-GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_C.c)
+ *     ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800F7A00 (-GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_C.c)
  * Callees:
  *     <none>
  */

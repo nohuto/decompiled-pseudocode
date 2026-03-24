@@ -1,23 +1,20 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x14077B278
+ * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C600 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14031C6B8 (PsIsThreadInSilo.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     VrpLoadDifferencingHive @ 0x14077BFAC (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14077C3DC (VrpUnloadDifferencingHive.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x14025C1E8 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
@@ -25,31 +22,26 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
         unsigned int a2,
         KPROCESSOR_MODE a3,
         __int64 a4,
-        unsigned __int64 a5,
-        PVOID Object)
+        PVOID Object,
+        unsigned __int64 a6)
 {
   unsigned __int64 v9; // rdx
   unsigned __int64 v10; // r8
   int v11; // r9d
-  unsigned int v12; // r10d
-  ULONG_PTR v13; // rcx
-  int JobSilo; // edi
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v16; // rsi
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rdi
-  unsigned __int64 v20; // r15
-  __int64 Pool2; // rdi
-  char v22; // bl
+  unsigned int v12; // ecx
+  unsigned int v13; // r10d
+  void *v14; // rcx
+  int JobSilo; // ebx
+  unsigned __int64 v16; // rdi
+  _WORD *PoolWithTag; // rbx
   void *Src[2]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v25; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v26; // [rsp+60h] [rbp-10h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-20h]
+  __int128 v21; // [rsp+60h] [rbp-10h]
 
   Object = 0LL;
-  a5 = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
+  a6 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   *(_OWORD *)Src = 0LL;
   if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, a3) || !SeSinglePrivilegeCheck(SeRestorePrivilege, a3) )
     return (unsigned int)-1073741727;
@@ -68,20 +60,26 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
     return (unsigned int)-1073741811;
   if ( !(_WORD)v10 )
     return (unsigned int)-1073741811;
-  v12 = v9 + 40 + v10;
-  if ( (int)v9 + 40 > v12 || v12 > v12 + v11 || a2 < v12 + v11 || (*(_DWORD *)(a1 + 12) & 1) != 0 && !(_WORD)v11 )
+  v12 = v9 + 40;
+  v13 = v12 + v10;
+  if ( v12 > v12 + (unsigned int)v10
+    || v13 > v13 + v11
+    || a2 < v13 + v11
+    || (*(_DWORD *)(a1 + 12) & 1) != 0 && !(_WORD)v11 )
+  {
     return (unsigned int)-1073741811;
+  }
   WORD1(Src[0]) = *(_WORD *)(a1 + 20);
   LOWORD(Src[0]) = v9;
   Src[1] = (void *)(a1 + 40);
-  WORD1(v26) = v10;
-  v13 = *(_QWORD *)a1;
-  *((_QWORD *)&v26 + 1) = a1 + 40 + 2 * (v9 >> 1);
-  LOWORD(v26) = v10;
-  WORD1(v25) = v11;
-  *((_QWORD *)&v25 + 1) = *((_QWORD *)&v26 + 1) + 2 * (v10 >> 1);
-  LOWORD(v25) = v11;
-  JobSilo = ObpReferenceObjectByHandleWithTag(v13, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+  WORD1(v21) = v10;
+  LOWORD(v21) = v10;
+  v14 = *(void **)a1;
+  *((_QWORD *)&v21 + 1) = a1 + 40 + 2 * (v9 >> 1);
+  WORD1(v20) = v11;
+  LOWORD(v20) = v11;
+  *((_QWORD *)&v20 + 1) = *((_QWORD *)&v21 + 1) + 2 * (v10 >> 1);
+  JobSilo = ObReferenceObjectByHandleWithTag(v14, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
   if ( JobSilo >= 0 )
   {
     JobSilo = PsGetJobSilo((__int64)Object);
@@ -93,65 +91,45 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
       }
       else
       {
-        JobSilo = PsGetPermanentSiloContext(0LL, VrpSiloContextSlot, &a5);
-        if ( JobSilo >= 0 )
+        JobSilo = PsGetPermanentSiloContext(0LL, VrpSiloContextSlot, &a6);
+        if ( JobSilo < 0 )
+          goto LABEL_22;
+        v16 = a6;
+        VrpLockJobContextExclusive(a6);
+        if ( *(_DWORD *)(v16 + 84) )
         {
-          CurrentThread = KeGetCurrentThread();
-          v16 = (unsigned __int64 *)(a5 + 16);
-          v17 = a5 + 16;
-          --CurrentThread->KernelApcDisable;
-          v18 = KeAbPreAcquire(v17, 0LL);
-          v19 = v18;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)v16, 0LL) )
-            ExfAcquirePushLockExclusiveEx(v16, v18, (__int64)v16);
-          if ( v19 )
-            *(_BYTE *)(v19 + 18) = 1;
-          v20 = a5;
-          if ( *(_DWORD *)(a5 + 84) )
-          {
-            JobSilo = -1073741738;
-          }
-          else
-          {
-            JobSilo = VrpLoadDifferencingHive(
-                        (unsigned int)Src,
-                        (unsigned int)&v26,
-                        (unsigned int)&v25,
-                        *(_DWORD *)(a1 + 16),
-                        *(_DWORD *)(a1 + 12) & 1,
-                        (*(_DWORD *)(a1 + 12) >> 1) & 1,
-                        (*(_DWORD *)(a1 + 12) >> 2) & 1,
-                        *(_QWORD *)(a1 + 32));
-            if ( JobSilo >= 0 )
-            {
-              Pool2 = ExAllocatePool2(256LL, (unsigned int)LOWORD(Src[0]) + 10, 1734693462LL);
-              if ( Pool2 )
-              {
-                *(_WORD *)(Pool2 + 8) = Src[0];
-                memmove((void *)(Pool2 + 10), Src[1], LOWORD(Src[0]));
-                *(_QWORD *)Pool2 = *(_QWORD *)(v20 + 24);
-                *(_QWORD *)(v20 + 24) = Pool2;
-                v22 = _InterlockedExchangeAdd64((volatile signed __int64 *)v16, 0xFFFFFFFFFFFFFFFFuLL);
-                if ( (v22 & 2) != 0 && (v22 & 4) == 0 )
-                  ExfTryToWakePushLock((volatile signed __int64 *)v16);
-                KeAbPostRelease((ULONG_PTR)v16);
-                KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-                JobSilo = 0;
-                goto LABEL_26;
-              }
-              JobSilo = -1073741670;
-              VrpUnloadDifferencingHive(Src);
-            }
-          }
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v16, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)v16);
-          KeAbPostRelease((ULONG_PTR)v16);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          JobSilo = -1073741738;
         }
+        else
+        {
+          JobSilo = VrpLoadDifferencingHive(
+                      (PCUNICODE_STRING)Src,
+                      *(_DWORD *)(a1 + 12) & 1,
+                      (*(_DWORD *)(a1 + 12) >> 1) & 1,
+                      (*(_DWORD *)(a1 + 12) >> 2) & 1,
+                      *(_QWORD *)(a1 + 32));
+          if ( JobSilo >= 0 )
+          {
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)LOWORD(Src[0]) + 10, 0x67655256u);
+            if ( PoolWithTag )
+            {
+              PoolWithTag[4] = Src[0];
+              memmove(PoolWithTag + 5, Src[1], LOWORD(Src[0]));
+              *(_QWORD *)PoolWithTag = *(_QWORD *)(v16 + 24);
+              *(_QWORD *)(v16 + 24) = PoolWithTag;
+              VrpUnlockJobContextExclusive(v16);
+              JobSilo = 0;
+              goto LABEL_22;
+            }
+            JobSilo = -1073741670;
+            VrpUnloadDifferencingHive((PCUNICODE_STRING)Src);
+          }
+        }
+        VrpUnlockJobContextExclusive(v16);
       }
     }
   }
-LABEL_26:
+LABEL_22:
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x52566D43u);
   return (unsigned int)JobSilo;

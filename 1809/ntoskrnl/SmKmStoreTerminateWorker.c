@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreTerminateWorker @ 0x140307650
+ * XREFs of SmKmStoreTerminateWorker @ 0x140307750
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1208 (SmKmStoreRefFromStoreIndex.c)
- *     SmEtwEnabled @ 0x1400E3E08 (SmEtwEnabled.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     ZwSetSystemInformation @ 0x1401BB5D0 (ZwSetSystemInformation.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SmKmEtwAppendObjectName @ 0x1403070BC (SmKmEtwAppendObjectName.c)
- *     SmKmEtwAppendProductName @ 0x140307238 (SmKmEtwAppendProductName.c)
- *     SmKmSqmAddToStream @ 0x140309534 (SmKmSqmAddToStream.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x1400E3E28 (SmEtwEnabled.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SmKmEtwAppendObjectName @ 0x1403071BC (SmKmEtwAppendObjectName.c)
+ *     SmKmEtwAppendProductName @ 0x140307338 (SmKmEtwAppendProductName.c)
+ *     SmKmSqmAddToStream @ 0x140309634 (SmKmSqmAddToStream.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

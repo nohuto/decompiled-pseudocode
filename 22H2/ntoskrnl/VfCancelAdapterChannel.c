@@ -1,32 +1,29 @@
 /*
- * XREFs of VfCancelAdapterChannel @ 0x140AC6BE0
+ * XREFs of VfCancelAdapterChannel @ 0x1409CB5A0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViRemoveChannelWcb @ 0x1405CEBEC (ViRemoveChannelWcb.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140AC5290 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC558C (SUBTRACT_MAP_REGISTERS.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViRemoveChannelWcb @ 0x1405A11F8 (ViRemoveChannelWcb.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x1409C9CE0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FDC (SUBTRACT_MAP_REGISTERS.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-char __fastcall VfCancelAdapterChannel(int a1, __int64 a2, __int64 a3)
+char __fastcall VfCancelAdapterChannel(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 RealDmaAdapter; // rdi
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, __int64); // rbx
   __int64 AdapterInformationInternal; // rbp
   char v8; // al
   char v9; // di
   __int64 v10; // rbx
 
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, __int64))ViGetRealDmaOperation(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
-  v8 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 176LL))(
-         RealDmaAdapter,
-         a2,
-         a3);
+  v8 = RealDmaOperation(a1, a2, a3);
   v9 = v8;
   if ( AdapterInformationInternal )
   {

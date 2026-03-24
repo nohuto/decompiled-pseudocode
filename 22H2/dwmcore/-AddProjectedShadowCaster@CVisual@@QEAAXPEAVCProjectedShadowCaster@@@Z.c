@@ -1,25 +1,26 @@
 /*
- * XREFs of ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180008E9C
+ * XREFs of ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18001017C
  * Callers:
- *     ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x180008F4C (-SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x18001010C (-SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z.c)
  * Callees:
- *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
- *     ?SetProjectedShadowCasters@CVisual@@QEAAXPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@@Z @ 0x18000A31C (-SetProjectedShadowCasters@CVisual@@QEAAXPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@P.c)
- *     ?AddProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x18000A364 (-AddProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAVCProjectedShadowCaster@@@?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@QEAAPEAPEAVCProjectedShadowCaster@@QEAPEAV2@AEBQEAV2@@Z @ 0x18001D1C4 (--$_Emplace_reallocate@AEBQEAVCProjectedShadowCaster@@@-$vector@PEAVCProjectedShadowCaster@@V-$a.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40 (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ *     ?AddProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x180011E54 (-AddProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?SetProjectedShadowCasters@CVisual@@QEAAXPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@@Z @ 0x180011EAC (-SetProjectedShadowCasters@CVisual@@QEAAXPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@P.c)
+ *     ??$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@?$vector@PEAUObserver@CProcessAttributionManager@@V?$allocator@PEAUObserver@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUObserver@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x18001A2F8 (--$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@-$vector@PEAUObserver@CProce.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 void __fastcall CVisual::AddProjectedShadowCaster(CComposition **this, struct CProjectedShadowCaster *a2)
 {
   _QWORD *v4; // rax
   __int64 ProjectedShadowCasters; // rax
-  _QWORD *v6; // rdi
+  _QWORD *v6; // rbx
   _QWORD *v7; // rdx
-  struct CProjectedShadowCaster *v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v8; // rcx
+  struct CProjectedShadowCaster *v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = a2;
-  if ( (*(_DWORD *)this[29] & 0x40000) == 0 )
+  v9 = a2;
+  if ( (*(_DWORD *)this[28] & 0x40000) == 0 )
   {
     v4 = operator new(0x18uLL);
     if ( v4 )
@@ -37,18 +38,20 @@ void __fastcall CVisual::AddProjectedShadowCaster(CComposition **this, struct CP
   ProjectedShadowCasters = CVisual::GetProjectedShadowCasters(this);
   v6 = (_QWORD *)ProjectedShadowCasters;
   v7 = *(_QWORD **)(ProjectedShadowCasters + 8);
-  if ( v7 == *(_QWORD **)(ProjectedShadowCasters + 16) )
+  if ( *(_QWORD **)(ProjectedShadowCasters + 16) == v7 )
   {
-    std::vector<CProjectedShadowCaster *>::_Emplace_reallocate<CProjectedShadowCaster * const &>(
+    std::vector<CProcessAttributionManager::Observer *>::_Emplace_reallocate<CProcessAttributionManager::Observer * const &>(
       ProjectedShadowCasters,
       v7,
-      &v8);
+      &v9);
+    v8 = v6[1];
   }
   else
   {
     *v7 = a2;
     *(_QWORD *)(ProjectedShadowCasters + 8) += 8LL;
+    v8 = *(_QWORD *)(ProjectedShadowCasters + 8);
   }
-  if ( ((v6[1] - *v6) & 0xFFFFFFFFFFFFFFF8uLL) == 8 )
+  if ( ((v8 - *v6) & 0xFFFFFFFFFFFFFFF8uLL) == 8 )
     CComposition::AddProjectedShadowCasterVisual(this[2], (struct CVisual *)this);
 }

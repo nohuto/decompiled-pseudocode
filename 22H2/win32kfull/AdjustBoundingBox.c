@@ -1,7 +1,7 @@
 /*
- * XREFs of AdjustBoundingBox @ 0x1C029E730
+ * XREFs of AdjustBoundingBox @ 0x1C0007054
  * Callers:
- *     ?vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C02A05BC (-vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ *     ?vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0006E4C (-vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
  * Callees:
  *     <none>
  */

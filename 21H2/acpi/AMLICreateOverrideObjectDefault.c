@@ -1,10 +1,10 @@
 /*
- * XREFs of AMLICreateOverrideObjectDefault @ 0x1C0065E94
+ * XREFs of AMLICreateOverrideObjectDefault @ 0x1C0064C10
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
  * Callees:
- *     NewObjData @ 0x1C0015D5C (NewObjData.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall AMLICreateOverrideObjectDefault(_BYTE *Src, size_t Size, __int64 a3)
@@ -13,12 +13,12 @@ __int64 __fastcall AMLICreateOverrideObjectDefault(_BYTE *Src, size_t Size, __in
   unsigned int v4; // ebx
   unsigned int v7; // ecx
   _BYTE *v8; // rdx
-  _SLIST_ENTRY *v9; // rax
+  void *v9; // rax
   __int128 v10; // xmm1
-  _SLIST_ENTRY *v11; // xmm0_8
+  void *v11; // xmm0_8
   __int128 v13; // [rsp+20h] [rbp-30h] BYREF
   __int128 v14; // [rsp+30h] [rbp-20h]
-  _SLIST_ENTRY *v15; // [rsp+40h] [rbp-10h]
+  void *v15; // [rsp+40h] [rbp-10h]
 
   v3 = (unsigned int)Size;
   v15 = 0LL;
@@ -54,7 +54,7 @@ LABEL_14:
     return (unsigned int)-1073741637;
   DWORD2(v14) = v3;
   WORD1(v13) = 2;
-  v9 = NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v13);
+  v9 = (void *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v13);
   v15 = v9;
   if ( v9 )
   {

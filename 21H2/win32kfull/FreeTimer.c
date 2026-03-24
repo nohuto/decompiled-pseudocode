@@ -1,81 +1,79 @@
 /*
- * XREFs of FreeTimer @ 0x1C0070D80
+ * XREFs of FreeTimer @ 0x1C000B6C0
  * Callers:
- *     DestroyWindowsTimers @ 0x1C0060DA4 (DestroyWindowsTimers.c)
- *     NtUserKillTimer @ 0x1C00712E0 (NtUserKillTimer.c)
- *     DestroyThreadsTimers @ 0x1C00E1B50 (DestroyThreadsTimers.c)
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     DestroyWindowsTimers @ 0x1C000B4B8 (DestroyWindowsTimers.c)
+ *     DestroyThreadsTimers @ 0x1C000B530 (DestroyThreadsTimers.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     ?Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z @ 0x1C0070ECC (-Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z.c)
- *     ?EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ @ 0x1C0071408 (-EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ.c)
- *     ?DecTimerCount@@YAXPEAUtagTIMER@@@Z @ 0x1C0103450 (-DecTimerCount@@YAXPEAUtagTIMER@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z @ 0x1C01686FC (-DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-struct _HANDLEENTRY *__fastcall FreeTimer(struct tagTIMER *a1)
+struct tagTIMER *__fastcall FreeTimer(struct tagTIMER *a1)
 {
-  struct _HANDLEENTRY *v2; // rax
-  struct _HANDLEENTRY *result; // rax
-  AtomicExecutionCheck *v4; // rcx
-  char v5; // bl
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  _DWORD *Data; // rax
-  __int64 v10; // rcx
-  struct tagTIMER **v11; // rdx
-  __int64 v12; // rdx
-  struct tagTIMER **v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  char v17; // [rsp+38h] [rbp+10h] BYREF
+  int v1; // eax
+  int v3; // eax
+  __int64 *v5; // rdi
+  struct tagTIMER *v6; // rsi
+  __int64 v7; // rax
+  __int64 **v8; // rcx
+  __int64 *v9; // rdi
+  __int64 v10; // rax
+  __int64 **v11; // rcx
+  char v12; // [rsp+48h] [rbp+10h] BYREF
 
-  v17 = 0;
-  v2 = (struct _HANDLEENTRY *)_HMPheFromObjectWorker(a1);
-  IdentifyPrimaryDestroyTarget::Identify((IdentifyPrimaryDestroyTarget *)&v17, v2);
-  result = (struct _HANDLEENTRY *)HMMarkObjectDestroy(a1);
-  if ( (_DWORD)result )
+  v1 = *((_DWORD *)a1 + 12);
+  if ( (v1 & 0x1000) != 0 )
   {
-    v5 = 0;
-    AtomicExecutionCheck::EnforceConsistency(v4);
-    Data = (_DWORD *)GetData(v7, v6, v8);
-    if ( Data )
-    {
-      ++*Data;
-      v5 = 1;
-    }
-    if ( (*((_DWORD *)a1 + 12) & 1) != 0 )
-      DecTimerCount(a1);
-    v10 = *((_QWORD *)a1 + 9);
-    if ( *(struct tagTIMER **)(v10 + 8) != (struct tagTIMER *)((char *)a1 + 72)
-      || (v11 = (struct tagTIMER **)*((_QWORD *)a1 + 10), *v11 != (struct tagTIMER *)((char *)a1 + 72))
-      || (*v11 = (struct tagTIMER *)v10,
-          *(_QWORD *)(v10 + 8) = v11,
-          v12 = *((_QWORD *)a1 + 14),
-          *(struct tagTIMER **)(v12 + 8) != (struct tagTIMER *)((char *)a1 + 112))
-      || (v13 = (struct tagTIMER **)*((_QWORD *)a1 + 15), *v13 != (struct tagTIMER *)((char *)a1 + 112)) )
-    {
-      __fastfail(3u);
-    }
-    *v13 = (struct tagTIMER *)v12;
-    *(_QWORD *)(v12 + 8) = v13;
-    if ( !*((_QWORD *)a1 + 11) )
-      _bittestandreset(gTimerId, *((_DWORD *)a1 + 24) - 256);
-    EtwTraceKillTimer(a1);
-    HMAssignmentUnlock((char *)a1 + 88);
-    result = (struct _HANDLEENTRY *)HMFreeObject(a1);
-    if ( v5 )
-    {
-      result = (struct _HANDLEENTRY *)GetData(v15, v14, v16);
-      --*(_DWORD *)result;
-    }
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 224LL);
+    v1 = *((_DWORD *)a1 + 12);
   }
-  if ( v17 )
+  v3 = v1 | 0x1000;
+  *((_DWORD *)a1 + 12) = v3;
+  if ( (v3 & 1) != 0 )
+    DecTimerCountAndClearReadyFlag(a1);
+  if ( !(unsigned int)HMMarkObjectDestroy(a1) )
+    return (struct tagTIMER *)*((_QWORD *)a1 + 9);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v12);
+  if ( !*((_QWORD *)a1 + 11) )
+    _bittestandreset(gTimerId, *((_DWORD *)a1 + 24) - 256);
+  EtwTraceKillTimer(a1);
+  HMAssignmentUnlock((char *)a1 + 88);
+  v5 = (__int64 *)((char *)a1 + 72);
+  v6 = (struct tagTIMER *)*((_QWORD *)a1 + 9);
+  if ( v6 == (struct tagTIMER *)((char *)a1 + 72) || (v7 = *((_QWORD *)a1 + 9), *((__int64 **)a1 + 10) == v5) )
   {
-    result = gphePrimaryDestroyTarget;
-    gphePrimaryDestroyTarget = 0LL;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5970LL);
+    v7 = *v5;
   }
-  return result;
+  if ( *(__int64 **)(v7 + 8) != v5 )
+    goto LABEL_20;
+  v8 = (__int64 **)*((_QWORD *)a1 + 10);
+  if ( *v8 != v5 )
+    goto LABEL_20;
+  *v8 = (__int64 *)v7;
+  *(_QWORD *)(v7 + 8) = v8;
+  *((_QWORD *)a1 + 10) = v5;
+  *v5 = (__int64)v5;
+  v9 = (__int64 *)((char *)a1 + 112);
+  v10 = *((_QWORD *)a1 + 14);
+  if ( (struct tagTIMER *)v10 == (struct tagTIMER *)((char *)a1 + 112) || *((__int64 **)a1 + 15) == v9 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5970LL);
+    v10 = *v9;
+  }
+  if ( *(__int64 **)(v10 + 8) != v9 || (v11 = (__int64 **)*((_QWORD *)a1 + 15), *v11 != v9) )
+LABEL_20:
+    __fastfail(3u);
+  *v11 = (__int64 *)v10;
+  *(_QWORD *)(v10 + 8) = v11;
+  *((_QWORD *)a1 + 15) = v9;
+  *v9 = (__int64)v9;
+  HMFreeObject(a1);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v12);
+  return v6;
 }

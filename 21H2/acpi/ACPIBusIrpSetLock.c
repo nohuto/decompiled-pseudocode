@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBusIrpSetLock @ 0x1C00ACBC0
+ * XREFs of ACPIBusIrpSetLock @ 0x1C00AE020
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpInvokeDispatchRoutine @ 0x1C009FC64 (ACPIIrpInvokeDispatchRoutine.c)
+ *     ACPIIrpInvokeDispatchRoutine @ 0x1C00A19F4 (ACPIIrpInvokeDispatchRoutine.c)
  */
 
 __int64 __fastcall ACPIBusIrpSetLock(ULONG_PTR a1, IRP *a2, __int64 a3)

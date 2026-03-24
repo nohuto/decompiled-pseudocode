@@ -1,10 +1,9 @@
 /*
- * XREFs of ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C000F1EC
+ * XREFs of ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C00E4E10
  * Callers:
- *     ?bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z @ 0x1C000F050 (-bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z.c)
- *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00C86F8 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00E4D28 (vIFIMetricsToEnumLogFontExDvW.c)
  * Callees:
- *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C000F320 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C00626B8 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
  */
 
 void __fastcall vIFIMetricsToEnumLogFontW(struct tagENUMLOGFONTW *a1, struct _IFIMETRICS *a2)

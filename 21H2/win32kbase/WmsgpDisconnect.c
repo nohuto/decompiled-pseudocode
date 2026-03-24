@@ -1,7 +1,7 @@
 /*
- * XREFs of WmsgpDisconnect @ 0x1C02C83F4
+ * XREFs of WmsgpDisconnect @ 0x1C027FBAC
  * Callers:
- *     CleanupLogonProcess @ 0x1C00B8E60 (CleanupLogonProcess.c)
+ *     CleanupLogonProcess @ 0x1C00B6D80 (CleanupLogonProcess.c)
  * Callees:
  *     <none>
  */

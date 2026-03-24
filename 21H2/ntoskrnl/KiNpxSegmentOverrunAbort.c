@@ -1,74 +1,61 @@
 /*
- * XREFs of KiNpxSegmentOverrunAbort @ 0x14042EF00
+ * XREFs of KiNpxSegmentOverrunAbort @ 0x14040CC80
  * Callers:
- *     KiNpxSegmentOverrunAbortShadow @ 0x140AB55C0 (KiNpxSegmentOverrunAbortShadow.c)
+ *     KiNpxSegmentOverrunAbortShadow @ 0x140A145C0 (KiNpxSegmentOverrunAbortShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x14041F920 (KiSaveDebugRegisterState.c)
- *     KiNpxSegmentOverrunAbort @ 0x14042EF00 (KiNpxSegmentOverrunAbort.c)
- *     KiBugCheckDispatch @ 0x140434DC0 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1404357C0 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
+ *     KiNpxSegmentOverrunAbort @ 0x14040CC80 (KiNpxSegmentOverrunAbort.c)
+ *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxSegmentOverrunAbort()
 {
   struct _KTHREAD *CurrentThread; // r10
-  unsigned __int64 v4; // rcx
+  unsigned __int64 v1; // rcx
   unsigned __int16 BpbKernelSpecCtrl; // ax
   unsigned __int16 BpbState; // dx
-  unsigned __int64 v7; // r9
-  unsigned __int64 v8; // r8
-  char v9; // [rsp+170h] [rbp+F0h]
-  __int16 v10; // [rsp+178h] [rbp+F8h]
+  unsigned __int64 v4; // r9
+  unsigned __int64 v5; // r8
+  char v6; // [rsp+170h] [rbp+F0h]
+  __int16 v7; // [rsp+178h] [rbp+F8h]
 
-  if ( (v9 & 1) != 0 )
+  if ( (v6 & 1) != 0 )
   {
     if ( (KiKvaShadow & 1) == 0 )
       __asm { swapgs }
     _mm_lfence();
-    if ( KeGetPcr()->Prcb.KernelShadowStackInitial )
-    {
-      __asm { rdsspq  rdx }
-      if ( _RDX == KeGetPcr()->Prcb.TransitionShadowStack + 8 )
-      {
-        __asm
-        {
-          rstorssp qword ptr [rcx]
-          saveprevssp
-        }
-      }
-    }
     CurrentThread = KeGetCurrentThread();
-    v4 = *(_QWORD *)&CurrentThread->Process[2].ActiveProcessors.Count;
-    __writegsqword(0x858u, v4);
+    v1 = *(_QWORD *)&CurrentThread->Process[2].ActiveProcessors.Count;
+    __writegsqword(0x858u, v1);
     __writegsword(0x852u, KeGetPcr()->Prcb.BpbRetpolineExitSpecCtrl);
-    LOWORD(v4) = KeGetPcr()->Prcb.BpbState;
-    __writegsword(0x854u, v4);
+    LOWORD(v1) = KeGetPcr()->Prcb.BpbState;
+    __writegsword(0x854u, v1);
     BpbKernelSpecCtrl = KeGetPcr()->Prcb.BpbKernelSpecCtrl;
     if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbKernelSpecCtrl )
     {
       __writegsword(0x864u, BpbKernelSpecCtrl);
-      v4 = 72LL;
+      v1 = 72LL;
       __writemsr(0x48u, BpbKernelSpecCtrl);
     }
     BpbState = KeGetPcr()->Prcb.BpbState;
     if ( (BpbState & 8) != 0 )
     {
-      v4 = 73LL;
+      v1 = 73LL;
       __writemsr(0x49u, 1uLL);
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14042F16DLL);
+      JUMPOUT(0x14040CEB5LL);
     if ( (BpbState & 0x200) != 0 )
-      KiFlushBhbDuringTrapEntryOrExit(v4);
+      KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();
     __writegsbyte(0x856u, 0);
     if ( (CurrentThread->Header.Reserved1 & 3) != 0 )
-      KiSaveDebugRegisterState(v4);
+      KiSaveDebugRegisterState(v1);
   }
   else
   {
-    __asm { rdsspq  rdx }
     _mm_lfence();
     if ( (KeGetPcr()->Prcb.BpbState & 1) != 0 )
       __writemsr(0x48u, KeGetPcr()->Prcb.BpbCurrentSpecCtrl);
@@ -77,11 +64,11 @@ void __noreturn KiNpxSegmentOverrunAbort()
   }
   _mm_getcsr();
   _mm_setcsr(KeGetPcr()->Prcb.MxCsr);
-  if ( (_BYTE)KeSmapEnabled && (v9 & 1) != 0 )
+  if ( (_BYTE)KeSmapEnabled && (v6 & 1) != 0 )
     __asm { stac }
-  if ( (v10 & 0x200) != 0 )
+  if ( (v7 & 0x200) != 0 )
     _enable();
-  v7 = __readcr4();
-  v8 = __readcr0();
-  KiBugCheckDispatch(127LL, 9LL, v8, v7);
+  v4 = __readcr4();
+  v5 = __readcr0();
+  KiBugCheckDispatch(127LL, 9LL, v5, v4);
 }

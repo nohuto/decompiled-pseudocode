@@ -1,10 +1,10 @@
 /*
- * XREFs of PiAuditDeviceStart @ 0x14095BD0C
+ * XREFs of PiAuditDeviceStart @ 0x1408B5C54
  * Callers:
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     PiAuditDeviceOperation @ 0x14095B69C (PiAuditDeviceOperation.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     PiAuditDeviceOperation @ 0x1408B5648 (PiAuditDeviceOperation.c)
  */
 
 __int64 __fastcall PiAuditDeviceStart(__int64 a1)

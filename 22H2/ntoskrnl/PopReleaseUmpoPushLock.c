@@ -1,14 +1,14 @@
 /*
- * XREFs of PopReleaseUmpoPushLock @ 0x1407A8208
+ * XREFs of PopReleaseUmpoPushLock @ 0x1406F55A4
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14032D004 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x14034BAC4 (PopUmpoSendPowerMessage.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
 void PopReleaseUmpoPushLock()
 {
-  ExReleasePushLockEx((__int64 *)&PopUmpoPushLock, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&PopUmpoPushLock, 0LL);
   KeLeaveCriticalRegion();
 }

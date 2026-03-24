@@ -1,17 +1,20 @@
 /*
- * XREFs of ?IsSignaled@CFlipToken@@UEBA_NXZ @ 0x1C007A010
+ * XREFs of ?IsSignaled@CFlipToken@@UEBA_NXZ @ 0x1C0019FE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall CFlipToken::IsSignaled(CFlipToken *this)
+char __fastcall CFlipToken::IsSignaled(CFlipToken *this)
 {
-  bool result; // al
+  char result; // al
 
   result = 0;
   if ( !*((_QWORD *)this + 12) )
-    return *((_BYTE *)this + 89) != 0;
+  {
+    if ( *((_BYTE *)this + 89) )
+      return 1;
+  }
   return result;
 }

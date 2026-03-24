@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFatalFilter @ 0x1407F0FD0
+ * XREFs of CmpFatalFilter @ 0x1407F0FB0
  * Callers:
  *     CmpQueryKeyName @ 0x1405D1AC0 (CmpQueryKeyName.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn CmpFatalFilter(int **a1)

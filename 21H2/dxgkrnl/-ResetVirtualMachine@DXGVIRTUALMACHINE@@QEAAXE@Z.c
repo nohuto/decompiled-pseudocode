@@ -1,74 +1,71 @@
 /*
- * XREFs of ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C0337008
+ * XREFs of ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C0285CD8
  * Callers:
- *     ?DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0335138 (-DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ.c)
- *     ?ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0336F70 (-ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0284608 (-DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0044948 (McTemplateK0p_EtwWriteTransfer.c)
- *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00465B8 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C018910C (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     ?PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0336CD0 (-PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ.c)
- *     ?SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0337780 (-SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
- *     ?DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ @ 0x1C0362480 (-DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ.c)
- *     UnmapGpadl @ 0x1C0384100 (UnmapGpadl.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C003BB58 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0117814 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ?DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ @ 0x1C02387D4 (-DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ.c)
+ *     UnmapGpadl @ 0x1C0251510 (UnmapGpadl.c)
+ *     ?PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0285ACC (-PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0286358 (-SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
  */
 
-void __fastcall DXGVIRTUALMACHINE::ResetVirtualMachine(DXGVIRTUALMACHINE *this, char a2, __int64 a3)
+void __fastcall DXGVIRTUALMACHINE::ResetVirtualMachine(DXGVIRTUALMACHINE *this, char a2)
 {
-  __int64 v5; // rcx
-  char *v6; // rsi
-  char *v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-50h]
+  __int64 v4; // rcx
+  char *v5; // rsi
+  char *v6; // rbx
+  __int64 v7; // rax
+  unsigned int v8; // edx
+  __int64 v9; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-50h]
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-48h] BYREF
 
-  if ( !*((_BYTE *)this + 337) )
+  if ( !*((_BYTE *)this + 297) )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0p_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventResetVirtualMachine, a3, this);
-    DXGVIRTUALMACHINE::PauseVmBusChannels(this);
-    v5 = *((_QWORD *)this + 7);
+    DXGVIRTUALMACHINE::PauseVmBusChannels((struct _KTHREAD **)this);
+    v4 = *((_QWORD *)this + 7);
     memset(&ApcState, 0, sizeof(ApcState));
-    KeStackAttachProcess(*(PRKPROCESS *)(v5 + 56), &ApcState);
+    KeStackAttachProcess(*(PRKPROCESS *)(v4 + 56), &ApcState);
     if ( a2 )
       DXGVIRTUALMACHINE::SetVailObject(this, 0LL);
-    v6 = (char *)this + 24;
+    v5 = (char *)this + 24;
     while ( 1 )
     {
-      DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 128));
-      v7 = *(char **)v6;
-      if ( *(char **)(*(_QWORD *)v6 + 8LL) != v6 || (v8 = *(_QWORD *)v7, *(char **)(*(_QWORD *)v7 + 8LL) != v7) )
+      DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 96));
+      v6 = *(char **)v5;
+      if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 || (v7 = *(_QWORD *)v6, *(char **)(*(_QWORD *)v6 + 8LL) != v6) )
         __fastfail(3u);
-      *(_QWORD *)v6 = v8;
-      *(_QWORD *)(v8 + 8) = v6;
-      *((_QWORD *)this + 17) = 0LL;
-      ExReleasePushLockExclusiveEx((char *)this + 128, 0LL);
+      *(_QWORD *)v5 = v7;
+      *(_QWORD *)(v7 + 8) = v5;
+      *((_QWORD *)this + 13) = 0LL;
+      ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
       KeLeaveCriticalRegion();
-      if ( v7 == v6 )
+      if ( v6 == v5 )
         break;
-      *((_QWORD *)v7 + 1) = 0LL;
-      *(_QWORD *)v7 = 0LL;
+      *((_QWORD *)v6 + 1) = 0LL;
+      *(_QWORD *)v6 = 0LL;
       CEnsureCurrentDxgProcess::CEnsureCurrentDxgProcess(
-        (CEnsureCurrentDxgProcess *)&v10,
-        (struct DXGPROCESS *)(v7 - 624));
-      DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)(v7 - 624));
-      if ( v11 )
-        *(_QWORD *)(v11 + 24) = v10;
+        (CEnsureCurrentDxgProcess *)&v9,
+        (struct DXGPROCESS *)(v6 - 512));
+      DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)(v6 - 512));
+      if ( v10 )
+        *(_QWORD *)(v10 + 8) = v9;
     }
     KeUnstackDetachProcess(&ApcState);
-    v9 = *((unsigned int *)this + 76);
-    if ( (_DWORD)v9 )
+    v8 = *((_DWORD *)this + 66);
+    if ( v8 )
     {
-      UnmapGpadl(*((_QWORD *)this + 7), v9, 2056LL);
-      *((_DWORD *)this + 76) = 0;
-      *((_QWORD *)this + 40) = 0LL;
-      *((_QWORD *)this + 39) = 0LL;
+      UnmapGpadl(*((_QWORD *)this + 7), v8, 4096LL);
+      *((_DWORD *)this + 66) = 0;
+      *((_QWORD *)this + 35) = 0LL;
+      *((_QWORD *)this + 34) = 0LL;
     }
-    DXG_GUEST_VIRTUALGPU_VMBUS::DestroyVmBusChannel((DXGVIRTUALMACHINE *)((char *)this + 160));
-    *(_WORD *)((char *)this + 337) = 257;
+    DXG_GUEST_VIRTUALGPU_VMBUS::DestroyVmBusChannel((DXGVIRTUALMACHINE *)((char *)this + 128));
+    *(_WORD *)((char *)this + 297) = 257;
   }
 }

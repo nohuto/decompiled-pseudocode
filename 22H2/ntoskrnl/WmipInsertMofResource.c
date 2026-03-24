@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipInsertMofResource @ 0x140811474
+ * XREFs of WmipInsertMofResource @ 0x1407BEC94
  * Callers:
- *     WmipAddMofResource @ 0x1408111EC (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x1407BEADC (WmipAddMofResource.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
@@ -15,14 +15,14 @@ __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
   unsigned int v2; // ebx
   __int64 v4; // rcx
   unsigned int v6; // eax
-  __int64 v7; // rdx
+  __int64 v7; // r8
   __int64 v8; // r9
-  unsigned int v10; // r12d
+  int v10; // r12d
   __int64 v11; // r14
   unsigned int v12; // r13d
   unsigned __int64 v13; // rax
   size_t v14; // r15
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v16; // rbp
   __int64 v17; // [rsp+50h] [rbp+8h]
 
@@ -57,15 +57,15 @@ LABEL_6:
       v12 = -1;
       if ( (unsigned __int64)(8 * v4) <= 0xFFFFFFFF )
         v12 = 8 * v4;
-      v13 = 8LL * v10;
+      v13 = 8LL * (unsigned int)(v4 + 4);
       if ( v13 > 0xFFFFFFFF )
         return (unsigned int)-1073741675;
       v14 = (unsigned int)v13;
-      Pool2 = (char *)ExAllocatePool2(256LL, (unsigned int)v13, 1885957463LL);
-      v16 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v13, 0x70696D57u);
+      v16 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      memset(Pool2, 0, v14);
+      memset(PoolWithTag, 0, v14);
       memmove(v16, *(const void **)(a1 + 72), v12);
       if ( v17 != a1 + 80 )
         ExFreePoolWithTag(*(PVOID *)(a1 + 72), 0);

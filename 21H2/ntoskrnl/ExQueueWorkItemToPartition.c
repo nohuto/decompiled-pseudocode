@@ -1,31 +1,30 @@
 /*
- * XREFs of ExQueueWorkItemToPartition @ 0x1402EF060
+ * XREFs of ExQueueWorkItemToPartition @ 0x1402F78AC
  * Callers:
- *     CcReEngageWorkerThreads @ 0x14025A794 (CcReEngageWorkerThreads.c)
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
- *     MiScanPagefiles @ 0x140268BEC (MiScanPagefiles.c)
- *     CcPostWorkQueueCachemapUninit @ 0x140274E94 (CcPostWorkQueueCachemapUninit.c)
- *     CcWriteBehind @ 0x140275FC0 (CcWriteBehind.c)
- *     CcPostWorkQueueRegular @ 0x1402EEC18 (CcPostWorkQueueRegular.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F5AEC (CcPostWorkQueueAsyncRead.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
- *     CcIncrementWriteBehindPriority @ 0x140376BFC (CcIncrementWriteBehindPriority.c)
- *     MiWakeLargePageRebuild @ 0x140397C78 (MiWakeLargePageRebuild.c)
- *     CcAsyncReadWorker @ 0x1403C4AE0 (CcAsyncReadWorker.c)
- *     CcPostWorkQueueSpecial @ 0x140539A1C (CcPostWorkQueueSpecial.c)
- *     MiInSwapStore @ 0x1406EBCCC (MiInSwapStore.c)
- *     MiContractWsSwapPageFile @ 0x1406EC1C4 (MiContractWsSwapPageFile.c)
- *     MmScrubMemory @ 0x140983C8C (MmScrubMemory.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14027318C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiScanPagefiles @ 0x1402732EC (MiScanPagefiles.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
+ *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
+ *     CcPostWorkQueueRegular @ 0x1402F7008 (CcPostWorkQueueRegular.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x1402F71C0 (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
+ *     MiCheckZeroFreeRebalance @ 0x140318D50 (MiCheckZeroFreeRebalance.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     CcReEngageWorkerThreads @ 0x140380480 (CcReEngageWorkerThreads.c)
+ *     MiWakeLargePageRebuild @ 0x14038D600 (MiWakeLargePageRebuild.c)
+ *     CcAsyncReadWorker @ 0x1403B7950 (CcAsyncReadWorker.c)
+ *     CcIncrementWriteBehindPriority @ 0x1404E9B2C (CcIncrementWriteBehindPriority.c)
+ *     MiInSwapStore @ 0x1407103DC (MiInSwapStore.c)
+ *     MiContractWsSwapPageFile @ 0x14071068C (MiContractWsSwapPageFile.c)
+ *     MmScrubMemory @ 0x1408DC11C (MmScrubMemory.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1402EF0CC (ExpQueueWorkItem.c)
- *     ExpTypeToPriority @ 0x1402EF304 (ExpTypeToPriority.c)
- *     ExpValidateWorkItem @ 0x140346210 (ExpValidateWorkItem.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExpValidateWorkItem @ 0x14023E6E8 (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x14023E730 (ExpTypeToPriority.c)
+ *     ExpQueueWorkItem @ 0x1402414A0 (ExpQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall ExQueueWorkItemToPartition(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall ExQueueWorkItemToPartition(_QWORD *BugCheckParameter2, int a2, unsigned int a3, __int64 a4)
 {
   ULONG_PTR v4; // rdi
   ULONG_PTR BugCheckParameter4; // rbp
@@ -34,10 +33,10 @@ __int64 __fastcall ExQueueWorkItemToPartition(ULONG_PTR BugCheckParameter2, int 
 
   v4 = a2;
   BugCheckParameter4 = a3;
-  ExpValidateWorkItem(BugCheckParameter2);
-  v8 = ExpTypeToPriority((unsigned int)v4);
+  ExpValidateWorkItem(BugCheckParameter2, a2);
+  v8 = ExpTypeToPriority(v4);
   result = ExpQueueWorkItem(*(_QWORD *)(a4 + 16), BugCheckParameter2, v8, BugCheckParameter4, 0);
   if ( !(_BYTE)result )
-    KeBugCheckEx(0xE4u, 5uLL, BugCheckParameter2, v4, BugCheckParameter4);
+    KeBugCheckEx(0xE4u, 5uLL, (ULONG_PTR)BugCheckParameter2, v4, BugCheckParameter4);
   return result;
 }

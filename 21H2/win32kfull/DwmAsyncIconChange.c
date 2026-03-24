@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncIconChange @ 0x1C00851B4
+ * XREFs of DwmAsyncIconChange @ 0x1C0038AA0
  * Callers:
- *     SendDwmIconChange @ 0x1C0085110 (SendDwmIconChange.c)
+ *     SendDwmIconChange @ 0x1C0038A00 (SendDwmIconChange.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncIconChange(PVOID Object, __int64 a2, __int64 a3, __int64 a4)

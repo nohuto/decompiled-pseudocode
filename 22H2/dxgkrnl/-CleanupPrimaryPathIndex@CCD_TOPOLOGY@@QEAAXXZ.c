@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01EA48C
+ * XREFs of ?CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C016A444
  * Callers:
- *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017DC5C (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013B690 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ void __fastcall CCD_TOPOLOGY::CleanupPrimaryPathIndex(CCD_TOPOLOGY *this)
     v4 = v3 ? *(_WORD *)(v3 + 20) : 0;
     if ( i >= v4 )
       break;
-    v5 = 296LL * i;
-    *(_DWORD *)(v5 + v3 + 324) = -27918336;
+    v5 = 272LL * i;
+    *(_DWORD *)(v5 + v3 + 292) = -27918336;
   }
 }

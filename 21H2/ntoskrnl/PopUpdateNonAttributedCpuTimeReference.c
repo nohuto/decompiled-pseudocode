@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x1405D6C08
+ * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x140576858
  * Callers:
- *     PpmUpdateIdleVeto @ 0x1405C92A0 (PpmUpdateIdleVeto.c)
- *     PopFxPlatformStateAvailable @ 0x1405CD1FC (PopFxPlatformStateAvailable.c)
- *     PopPdcIdleResiliencyCallback @ 0x1409971BC (PopPdcIdleResiliencyCallback.c)
+ *     PpmUpdateIdleVeto @ 0x140567FD0 (PpmUpdateIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x1405D6B94 (PopAccumulateNonActivatedCpuTime.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x14057648C (PopAccumulateNonActivatedCpuTime.c)
  */
 
 __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
@@ -20,22 +20,22 @@ __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
   _DWORD *SchedulerAssist; // r9
   bool v7; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C542C8);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C50088);
   if ( a1 )
   {
-    if ( ++dword_140C542C4 == 1 )
+    if ( ++dword_140C50084 == 1 )
     {
       v3 = 0;
 LABEL_6:
-      PopAccumulateNonActivatedCpuTime(v3, &qword_140C541B8, &qword_140C541C0);
+      PopAccumulateNonActivatedCpuTime(v3, &qword_140C4FF78, &qword_140C4FF80);
     }
   }
-  else if ( !--dword_140C542C4 )
+  else if ( !--dword_140C50084 )
   {
     v3 = 1;
     goto LABEL_6;
   }
-  KxReleaseSpinLock(&qword_140C542C8);
+  KxReleaseSpinLock(&qword_140C50088);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

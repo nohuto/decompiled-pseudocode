@@ -1,11 +1,12 @@
 /*
- * XREFs of ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x1800998E8
+ * XREFs of ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x1800650A8
  * Callers:
- *     ?RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z @ 0x1800997B0 (-RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z.c)
- *     ?RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV?$CWeakReference@VCResource@@@@I@Z @ 0x18023F86C (-RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV-$CWeakReference@VCResource@@@@I@Z.c)
+ *     ?RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z @ 0x180064F58 (-RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z.c)
+ *     ?RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV?$CWeakReference@VCResource@@@@I@Z @ 0x1801DA37C (-RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV-$CWeakReference@VCResource@@@@I@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMapEntry@@UObjectPropertyReference@@@Z @ 0x180065290 (-FindElement@-$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMap.c)
  */
 
 __int64 __fastcall CExpressionManager::InsertExpressionIntoTargetMap(
@@ -15,61 +16,44 @@ __int64 __fastcall CExpressionManager::InsertExpressionIntoTargetMap(
         struct SubchannelMaskInfo *a4)
 {
   struct _RTL_GENERIC_TABLE *v4; // rbp
-  unsigned int v5; // esi
-  int v6; // eax
-  _QWORD *v10; // rax
-  void *v11; // rdi
-  _QWORD *inserted; // rbx
-  unsigned int v13; // ecx
-  HANDLE ProcessHeap; // rax
-  _QWORD *v15; // rax
-  void *v17; // rcx
-  unsigned int v18; // [rsp+20h] [rbp-68h]
-  __int128 v19; // [rsp+30h] [rbp-58h]
-  __int128 v20; // [rsp+40h] [rbp-48h] BYREF
-  void *v21; // [rsp+50h] [rbp-38h]
-  unsigned __int8 NewElement; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int v8; // edi
+  _QWORD *Element; // rbx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  unsigned int v13; // [rsp+20h] [rbp-38h]
+  __int64 v14; // [rsp+30h] [rbp-28h] BYREF
+  int v15; // [rsp+38h] [rbp-20h]
+  unsigned __int8 NewElement; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = (struct _RTL_GENERIC_TABLE *)((char *)this + 328);
-  *(_QWORD *)&v19 = *(_QWORD *)a2;
-  v5 = 0;
-  v6 = *((_DWORD *)a2 + 2);
-  v21 = 0LL;
-  DWORD2(v19) = v6;
-  v20 = v19;
-  v10 = RtlLookupElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 328), &v20);
-  v11 = v21;
-  inserted = v10;
-  while ( v11 )
+  v14 = *(_QWORD *)a2;
+  v15 = *((_DWORD *)a2 + 2);
+  v8 = 0;
+  Element = (_QWORD *)CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::FindElement((char *)this + 328, &v14);
+  if ( !Element )
   {
-    v17 = v11;
-    v11 = (void *)*((_QWORD *)v11 + 2);
-    operator delete(v17, 0x18uLL);
-  }
-  if ( !inserted )
-  {
-    inserted = RtlInsertElementGenericTable(v4, a2, 0x18u, &NewElement);
-    if ( !inserted )
+    Element = RtlInsertElementGenericTable(v4, a2, 0x18u, &NewElement);
+    if ( !Element )
     {
-      v18 = 982;
-LABEL_11:
-      v5 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, v18, 0LL);
-      return v5;
+      v13 = 1047;
+LABEL_8:
+      v8 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, v13, 0LL);
+      return v8;
     }
   }
-  ProcessHeap = GetProcessHeap();
-  v15 = HeapAlloc(ProcessHeap, 0, 0x18uLL);
-  v13 = (unsigned int)v15;
-  if ( !v15 )
+  v11 = DefaultHeap::Alloc(0x18uLL);
+  if ( !v11 )
   {
-    v18 = 986;
-    goto LABEL_11;
+    v13 = 1051;
+    goto LABEL_8;
   }
-  v15[2] = 0LL;
-  *v15 = a4;
-  v15[1] = a3;
-  v15[2] = inserted[2];
-  inserted[2] = v15;
-  return v5;
+  *v11 = 0LL;
+  v11[1] = 0LL;
+  v11[2] = 0LL;
+  *v11 = a4;
+  v11[1] = a3;
+  v11[2] = Element[2];
+  Element[2] = v11;
+  return v8;
 }

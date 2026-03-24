@@ -4,12 +4,12 @@
  *     ExpHwidProcessInterface @ 0x140585E18 (ExpHwidProcessInterface.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x1401BA650 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x1401BAC50 (ZwQuerySymbolicLinkObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1401BA670 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1401BAC70 (ZwQuerySymbolicLinkObject.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     ObQueryNameStringMode @ 0x140660F70 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall sub_140586D3C(UNICODE_STRING *a1, _DWORD *a2, _QWORD *a3)

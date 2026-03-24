@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSrcCopyS1D24@@YAXPEAUBLTINFO@@@Z @ 0x1C012D5B0
+ * XREFs of ?vSrcCopyS1D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0139680
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
@@ -24,10 +24,10 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
   int v14; // r15d
   _BYTE *v15; // r10
   unsigned __int8 v16; // bp
-  __int64 v17; // rdx
+  int v17; // edx
   _BYTE *v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // r13
+  int v19; // ecx
+  __int64 v20; // r11
   _BYTE *v21; // rbp
   char v22; // dl
   unsigned __int8 v23; // r9
@@ -58,44 +58,44 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
   unsigned __int8 j; // r8
   unsigned __int64 v49; // rax
   char *v50; // rcx
-  _BYTE *v51; // rbp
-  unsigned int v52; // r9d
-  __int64 v53; // r8
-  char *v54; // rdx
+  __int64 v51; // rbp
+  __int64 v52; // r13
+  unsigned int v53; // r9d
+  __int64 v54; // r8
   char *v55; // rdx
   char *v56; // rdx
   char *v57; // rdx
   char *v58; // rdx
   char *v59; // rdx
-  _BYTE *v60; // rdx
-  int v61; // ebp
-  _BYTE *v62; // r8
-  _BYTE *v63; // rdx
-  __int64 v64; // rax
-  __int64 v65; // r11
-  _BYTE *v66; // r10
+  char *v60; // rdx
+  _BYTE *v61; // rdx
+  int v62; // ebp
+  _BYTE *v63; // r8
+  _BYTE *v64; // rdx
+  __int64 v65; // rax
+  __int64 v66; // r11
+  _BYTE *v67; // r10
   unsigned __int8 i; // r9
-  unsigned __int64 v68; // rax
-  char *v69; // rcx
-  _BYTE *v70; // r14
-  _BYTE *v71; // r10
-  unsigned __int8 v72; // r9
-  unsigned __int64 v73; // rax
-  char *v74; // rcx
-  _BYTE *v75; // rdi
-  unsigned __int8 v76; // r10
-  _BYTE *v77; // r9
-  unsigned __int64 v78; // rax
-  char *v79; // rcx
-  char v80; // [rsp+0h] [rbp-78h]
-  int v81; // [rsp+4h] [rbp-74h]
-  int v82; // [rsp+8h] [rbp-70h]
-  __int64 v83; // [rsp+10h] [rbp-68h]
-  __int64 v84; // [rsp+10h] [rbp-68h]
+  unsigned __int64 v69; // rax
+  char *v70; // rcx
+  _BYTE *v71; // r14
+  _BYTE *v72; // r10
+  unsigned __int8 v73; // r9
+  unsigned __int64 v74; // rax
+  char *v75; // rcx
+  _BYTE *v76; // rdi
+  unsigned __int8 v77; // r10
+  _BYTE *v78; // r9
+  unsigned __int64 v79; // rax
+  char *v80; // rcx
+  char v81; // [rsp+0h] [rbp-78h]
+  int v82; // [rsp+4h] [rbp-74h]
+  int v83; // [rsp+8h] [rbp-70h]
+  int v84; // [rsp+Ch] [rbp-6Ch]
   __int64 v85; // [rsp+10h] [rbp-68h]
-  int v86; // [rsp+18h] [rbp-60h]
-  __int64 v88; // [rsp+28h] [rbp-50h]
-  __int64 v89; // [rsp+30h] [rbp-48h]
+  __int64 v86; // [rsp+10h] [rbp-68h]
+  __int64 v87; // [rsp+10h] [rbp-68h]
+  __int64 v89; // [rsp+28h] [rbp-50h]
   _DWORD v90[2]; // [rsp+38h] [rbp-40h] BYREF
 
   v1 = a1;
@@ -107,19 +107,19 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
   v7 = *(_DWORD **)(*(_QWORD *)v1 + 16LL);
   v8 = (*((_BYTE *)v1 + 48) & 7) - v3;
   v9 = v5 + v2;
-  v86 = v5 + v2;
+  v83 = v5 + v2;
   v90[0] = *v7;
   v90[1] = v7[1];
   if ( v6 < v3 )
     v8 += 8;
   v10 = *((_DWORD *)v1 + 11);
-  v81 = *((_DWORD *)v1 + 10);
+  v82 = *((_DWORD *)v1 + 10);
   v11 = 8 - v8;
-  v82 = v10;
+  v84 = v10;
   if ( v9 >> 3 == v2 >> 3 )
   {
     v16 = 0;
-    v80 = 0;
+    v81 = 0;
     v12 = v5;
     v32 = (int)(v5 + v6) > 8;
   }
@@ -130,21 +130,18 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
     v14 = *((_DWORD *)v1 + 8);
     v15 = (_BYTE *)(*((_QWORD *)v1 + 1) + ((__int64)(v4 + ((8 - (unsigned __int8)v3) & 7)) >> 3));
     v16 = 1;
-    LODWORD(v17) = *((_DWORD *)v1 + 11) - 24 * v13;
+    v17 = *((_DWORD *)v1 + 11) - 24 * v13;
     v18 = (_BYTE *)(*((_QWORD *)v1 + 2) + (int)(3 * ((v2 + 7) & 0xFFFFFFF8)));
-    LODWORD(v19) = v81 - v13;
-    v80 = 1;
+    v19 = v82 - v13;
+    v81 = 1;
     if ( v14 )
     {
       v13 = (int)v13;
-      v17 = (int)v17;
-      v19 = (int)v19;
-      v83 = (int)v13;
-      v88 = (int)v17;
-      v89 = (int)v19;
+      v85 = (int)v13;
+      v89 = v17;
       if ( v8 )
       {
-        v20 = (int)v17;
+        v20 = v17;
         do
         {
           v21 = &v15[v13];
@@ -191,14 +188,12 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
               v22 = *v15 << v8;
             }
             while ( v15 != v21 );
-            v13 = v83;
+            v13 = v85;
           }
           v18 += v20;
-          v15 += (int)v19;
+          v15 += v19;
         }
         while ( v14 );
-        v1 = a1;
-        v9 = v86;
         v12 = 8 - v3;
       }
       else
@@ -206,156 +201,160 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
         do
         {
           --v14;
-          v51 = &v15[v13];
-          if ( v15 != &v15[v13] )
+          v51 = v13;
+          v52 = 0LL;
+          if ( v15 > &v15[v13] )
+            v51 = 0LL;
+          if ( v51 )
           {
             do
             {
-              v52 = (unsigned __int8)*v15;
-              v53 = *v15 & 4;
-              v54 = (char *)v90 + (((unsigned __int64)(unsigned __int8)*v15 >> 5) & 4);
-              *v18 = *v54;
-              v18[1] = v54[1];
-              v18[2] = v54[2];
-              v55 = (char *)v90 + ((v52 >> 4) & 4);
-              v18[3] = *v55;
-              v18[4] = v55[1];
-              v18[5] = v55[2];
-              v56 = (char *)v90 + ((v52 >> 3) & 4);
-              v18[6] = *v56;
-              v18[7] = v56[1];
-              v18[8] = v56[2];
-              v57 = (char *)v90 + ((v52 >> 2) & 4);
-              v18[9] = *v57;
-              v18[10] = v57[1];
-              v18[11] = v57[2];
-              v58 = (char *)v90 + ((v52 >> 1) & 4);
-              v18[12] = *v58;
-              v18[13] = v58[1];
-              v18[14] = v58[2];
-              v18[15] = *((_BYTE *)v90 + v53);
-              v18[16] = *((_BYTE *)v90 + v53 + 1);
-              v18[17] = *((_BYTE *)v90 + v53 + 2);
-              v59 = (char *)v90 + 2 * (v52 & 2);
-              v18[18] = *v59;
-              v18[19] = v59[1];
-              v18[20] = v59[2];
-              v60 = &v90[v52 & 1];
+              v53 = (unsigned __int8)*v15;
+              v54 = *v15 & 4;
+              v55 = (char *)v90 + (((unsigned __int64)(unsigned __int8)*v15 >> 5) & 4);
+              *v18 = *v55;
+              v18[1] = v55[1];
+              v18[2] = v55[2];
+              v56 = (char *)v90 + ((v53 >> 4) & 4);
+              v18[3] = *v56;
+              v18[4] = v56[1];
+              v18[5] = v56[2];
+              v57 = (char *)v90 + ((v53 >> 3) & 4);
+              v18[6] = *v57;
+              v18[7] = v57[1];
+              v18[8] = v57[2];
+              v58 = (char *)v90 + ((v53 >> 2) & 4);
+              v18[9] = *v58;
+              v18[10] = v58[1];
+              v18[11] = v58[2];
+              v59 = (char *)v90 + ((v53 >> 1) & 4);
+              v18[12] = *v59;
+              v18[13] = v59[1];
+              v18[14] = v59[2];
+              v18[15] = *((_BYTE *)v90 + v54);
+              v18[16] = *((_BYTE *)v90 + v54 + 1);
+              v18[17] = *((_BYTE *)v90 + v54 + 2);
+              v60 = (char *)v90 + 2 * (v53 & 2);
+              v18[18] = *v60;
+              v18[19] = v60[1];
+              v18[20] = v60[2];
+              v61 = &v90[v53 & 1];
               ++v15;
-              v18[21] = *v60;
-              v18[22] = v60[1];
-              v18[23] = v60[2];
+              v18[21] = *v61;
+              ++v52;
+              v18[22] = v61[1];
+              v18[23] = v61[2];
               v18 += 24;
             }
-            while ( v15 != v51 );
-            v17 = v88;
-            v19 = v89;
-            v13 = v83;
+            while ( v52 != v51 );
+            v13 = v85;
           }
-          v18 += v17;
+          v18 += v89;
           v15 += v19;
         }
         while ( v14 );
       }
+      v9 = v83;
       v16 = 1;
+      v1 = a1;
     }
-    v10 = v82;
+    v10 = v84;
     v32 = 1;
   }
   if ( v3 | v16 ^ 1 )
   {
-    v61 = *((_DWORD *)v1 + 8);
-    v62 = (_BYTE *)(*((_QWORD *)v1 + 1) + ((__int64)*((int *)v1 + 12) >> 3));
-    v63 = (_BYTE *)(*((_QWORD *)v1 + 2) + 3 * *((_DWORD *)v1 + 14));
-    if ( v61 )
+    v62 = *((_DWORD *)v1 + 8);
+    v63 = (_BYTE *)(*((_QWORD *)v1 + 1) + ((__int64)*((int *)v1 + 12) >> 3));
+    v64 = (_BYTE *)(*((_QWORD *)v1 + 2) + 3 * *((_DWORD *)v1 + 14));
+    if ( v62 )
     {
-      LODWORD(v64) = 3 * v12;
+      LODWORD(v65) = 3 * v12;
       if ( v6 <= v3 )
       {
-        v64 = (int)v64;
-        v85 = (int)v64;
+        v65 = (int)v65;
+        v87 = (int)v65;
         do
         {
-          v75 = &v63[v64];
-          --v61;
-          v76 = *v62 << v6;
-          v77 = v63;
-          if ( v63 != &v63[v64] )
+          v76 = &v64[v65];
+          --v62;
+          v77 = *v63 << v6;
+          v78 = v64;
+          if ( v64 != &v64[v65] )
           {
             do
             {
-              v78 = (unsigned __int64)v76 >> 5;
-              v76 *= 2;
-              v79 = (char *)v90 + (v78 & 4);
-              *v77 = *v79;
-              v77[1] = v79[1];
-              v77[2] = v79[2];
-              v77 += 3;
+              v79 = (unsigned __int64)v77 >> 5;
+              v77 *= 2;
+              v80 = (char *)v90 + (v79 & 4);
+              *v78 = *v80;
+              v78[1] = v80[1];
+              v78[2] = v80[2];
+              v78 += 3;
             }
-            while ( v77 != v75 );
-            v64 = v85;
+            while ( v78 != v76 );
+            v65 = v87;
           }
-          v63 += v10;
-          v62 += v81;
+          v64 += v10;
+          v63 += v82;
         }
-        while ( v61 );
+        while ( v62 );
       }
       else if ( v32 )
       {
-        v65 = (int)v64;
+        v66 = (int)v65;
         do
         {
-          --v61;
-          v66 = v63;
-          for ( i = ((unsigned __int8)(*v62 << v8) | (unsigned __int8)(v62[1] >> v11)) << v3; v66 != &v63[v65]; v66 += 3 )
+          --v62;
+          v67 = v64;
+          for ( i = ((unsigned __int8)(*v63 << v8) | (unsigned __int8)(v63[1] >> v11)) << v3; v67 != &v64[v66]; v67 += 3 )
           {
-            v68 = (unsigned __int64)i >> 5;
+            v69 = (unsigned __int64)i >> 5;
             i *= 2;
-            v69 = (char *)v90 + (v68 & 4);
-            *v66 = *v69;
-            v66[1] = v69[1];
-            v66[2] = v69[2];
+            v70 = (char *)v90 + (v69 & 4);
+            *v67 = *v70;
+            v67[1] = v70[1];
+            v67[2] = v70[2];
           }
-          v63 += v10;
-          v62 += v81;
+          v64 += v10;
+          v63 += v82;
         }
-        while ( v61 );
+        while ( v62 );
         v1 = a1;
-        v9 = v86;
+        v9 = v83;
       }
       else
       {
-        v64 = (int)v64;
-        v84 = (int)v64;
+        v65 = (int)v65;
+        v86 = (int)v65;
         do
         {
-          v70 = &v63[v64];
-          --v61;
-          v71 = v63;
-          v72 = *v62 << v8 << v3;
-          if ( v63 != &v63[v64] )
+          v71 = &v64[v65];
+          --v62;
+          v72 = v64;
+          v73 = *v63 << v8 << v3;
+          if ( v64 != &v64[v65] )
           {
             do
             {
-              v73 = (unsigned __int64)v72 >> 5;
-              v72 *= 2;
-              v74 = (char *)v90 + (v73 & 4);
-              *v71 = *v74;
-              v71[1] = v74[1];
-              v71[2] = v74[2];
-              v71 += 3;
+              v74 = (unsigned __int64)v73 >> 5;
+              v73 *= 2;
+              v75 = (char *)v90 + (v74 & 4);
+              *v72 = *v75;
+              v72[1] = v75[1];
+              v72[2] = v75[2];
+              v72 += 3;
             }
-            while ( v71 != v70 );
-            v64 = v84;
+            while ( v72 != v71 );
+            v65 = v86;
           }
-          v63 += v10;
-          v62 += v81;
+          v64 += v10;
+          v63 += v82;
         }
-        while ( v61 );
+        while ( v62 );
         v1 = a1;
       }
     }
-    v16 = v80;
+    v16 = v81;
   }
   if ( (v9 & 7) != 0 )
   {
@@ -387,8 +386,8 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
               v47[1] = v50[1];
               v47[2] = v50[2];
             }
-            v36 += v82;
-            v37 += v81;
+            v36 += v84;
+            v37 += v82;
           }
           while ( v33 );
         }
@@ -408,8 +407,8 @@ void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
               k[1] = v45[1];
               k[2] = v45[2];
             }
-            v36 += v82;
-            v37 += v81;
+            v36 += v84;
+            v37 += v82;
           }
           while ( v33 );
         }

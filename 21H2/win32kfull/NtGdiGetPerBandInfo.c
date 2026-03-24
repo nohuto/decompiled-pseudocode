@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetPerBandInfo @ 0x1C0142530
+ * XREFs of NtGdiGetPerBandInfo @ 0x1C01543E0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C01425D8 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0154488 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiGetPerBandInfo(HDC a1, ULONG64 a2)

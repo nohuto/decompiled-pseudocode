@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C0066DDC
+ * XREFs of ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C004CD08
  * Callers:
- *     imp_WdfDeviceMiniportCreate @ 0x1C0066F20 (imp_WdfDeviceMiniportCreate.c)
+ *     imp_WdfDeviceMiniportCreate @ 0x1C004CE50 (imp_WdfDeviceMiniportCreate.c)
  * Callees:
- *     ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C00248A8 (--0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z.c)
+ *     ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C004D330 (--0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z.c)
  */
 
 void __fastcall FxMpDevice::FxMpDevice(
@@ -18,7 +18,7 @@ void __fastcall FxMpDevice::FxMpDevice(
   this->m_DefaultTarget = 0LL;
   this->FxDeviceBase::FxNonPagedObject::FxObject::__vftable = (FxMpDevice_vtbl *)FxMpDevice::`vftable'{for `FxNonPagedObject'};
   this->m_DeviceObject.m_DeviceObject = DeviceObject;
-  this->FxDeviceBase::IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxMpDevice::`vftable'{for `IFxHasCallbacks'};
+  this->FxDeviceBase::IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxDevice::`vftable'{for `IFxHasCallbacks'};
   this->m_AttachedDevice.FxDeviceBase::m_DeviceObject = AttachedDevice;
   this->m_PhysicalDevice.FxDeviceBase::m_DeviceObject = PDO;
   ObfReferenceObject(DeviceObject);

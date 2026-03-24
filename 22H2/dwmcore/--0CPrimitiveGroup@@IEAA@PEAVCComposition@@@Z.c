@@ -1,52 +1,61 @@
 /*
- * XREFs of ??0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z @ 0x180023FA0
+ * XREFs of ??0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z @ 0x1800CC58C
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CPrimitiveGroupLayerClip@@IEAA@PEAVCComposition@@@Z @ 0x18016AC78 (--0CPrimitiveGroupLayerClip@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B9448 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x18009F484 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
  */
 
-CPrimitiveGroup *__fastcall CPrimitiveGroup::CPrimitiveGroup(CPrimitiveGroup *this, struct CComposition *a2)
+CPrimitiveGroup *__fastcall CPrimitiveGroup::CPrimitiveGroup(CPrimitiveGroup *this, struct CComposition *a2, int a3)
 {
-  __int64 v2; // r9
-  __int64 v3; // rcx
+  __int64 v3; // r9
   __int64 v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // r11
 
-  *((_QWORD *)this + 8) = &CPrimitiveGroup::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 86) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-  *((_QWORD *)this + 85) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 86) + 4LL) + 688) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  if ( a3 )
+  {
+    *((_QWORD *)this + 7) = &CPrimitiveGroup::`vbtable'{for `CContent'};
+    *((_QWORD *)this + 91) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 90) = &IContent::`vftable'{for `IContent'};
+    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 91) + 4LL) + 728) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  }
   CContent::CContent(this, a2);
-  *(_QWORD *)(v2 + 72) = &CPrimitiveGroup::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)v2 = &CPrimitiveGroup::`vftable'{for `CContent'};
-  *(_QWORD *)(v2 + 80) = &CPrimitiveGroup::`vftable'{for `IDirtyRectSource'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 64) + 4LL) + v2 + 64) = &CPrimitiveGroup::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 64) + 8LL) + v2 + 64) = &CPrimitiveGroup::`vftable'{for `IContent'};
-  v3 = *(int *)(*(_QWORD *)(v2 + 64) + 4LL);
-  *(_DWORD *)(v3 + v2 + 60) = v3 - 600;
-  v4 = *(int *)(*(_QWORD *)(v2 + 64) + 8LL);
-  *(_DWORD *)(v4 + v2 + 60) = v4 - 616;
-  *(_QWORD *)(v2 + 108) = 0LL;
-  *(_QWORD *)(v2 + 116) = 0LL;
-  *(_QWORD *)(v2 + 136) = v2 + 168;
-  *(_QWORD *)(v2 + 144) = v2 + 168;
-  *(_DWORD *)(v2 + 152) = 4;
-  *(_QWORD *)(v2 + 156) = 4LL;
-  *(_QWORD *)(v2 + 200) = v2 + 232;
-  *(_QWORD *)(v2 + 208) = v2 + 232;
-  *(_DWORD *)(v2 + 216) = 4;
-  *(_QWORD *)(v2 + 220) = 4LL;
-  *(_QWORD *)(v2 + 264) = v2 + 296;
-  *(_QWORD *)(v2 + 272) = v2 + 296;
-  *(_DWORD *)(v2 + 280) = 4;
-  *(_QWORD *)(v2 + 284) = 4LL;
-  *(_QWORD *)(v2 + 328) = v2 + 360;
-  *(_QWORD *)(v2 + 336) = v2 + 360;
-  *(_DWORD *)(v2 + 344) = 4;
-  *(_QWORD *)(v2 + 348) = 4LL;
-  *(_QWORD *)(v2 + 552) = v2 + 560;
-  *(_QWORD *)(v2 + 524) = 0LL;
-  *(_QWORD *)(v2 + 532) = 0LL;
-  *(_DWORD *)(v2 + 560) = 0;
-  return (CPrimitiveGroup *)v2;
+  *(_QWORD *)(v3 + 64) = &CPrimitiveGroup::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)v3 = &CPrimitiveGroup::`vftable'{for `CContent'};
+  *(_QWORD *)(v3 + 72) = &CPrimitiveGroup::`vftable'{for `IDirtyRectSource'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v3 + 56) + 4LL) + v3 + 56) = &CPrimitiveGroup::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v3 + 56) + 8LL) + v3 + 56) = &CPrimitiveGroup::`vftable'{for `IContent'};
+  v4 = *(int *)(*(_QWORD *)(v3 + 56) + 4LL);
+  *(_DWORD *)(v4 + v3 + 52) = v4 - 648;
+  v5 = *(int *)(*(_QWORD *)(v3 + 56) + 8LL);
+  *(_DWORD *)(v5 + v3 + 52) = v5 - 664;
+  *(_QWORD *)(v3 + 100) = v6;
+  *(_QWORD *)(v3 + 108) = v6;
+  *(_QWORD *)(v3 + 120) = v3 + 152;
+  *(_QWORD *)(v3 + 128) = v3 + 152;
+  *(_DWORD *)(v3 + 136) = 2;
+  *(_QWORD *)(v3 + 140) = 2LL;
+  *(_QWORD *)(v3 + 176) = v3 + 208;
+  *(_QWORD *)(v3 + 184) = v3 + 208;
+  *(_DWORD *)(v3 + 192) = 4;
+  *(_QWORD *)(v3 + 196) = 4LL;
+  *(_QWORD *)(v3 + 240) = v3 + 272;
+  *(_QWORD *)(v3 + 248) = v3 + 272;
+  *(_DWORD *)(v3 + 256) = 4;
+  *(_QWORD *)(v3 + 260) = 4LL;
+  *(_QWORD *)(v3 + 304) = v3 + 336;
+  *(_QWORD *)(v3 + 312) = v3 + 336;
+  *(_DWORD *)(v3 + 320) = 4;
+  *(_QWORD *)(v3 + 324) = 4LL;
+  *(_QWORD *)(v3 + 368) = v3 + 400;
+  *(_QWORD *)(v3 + 376) = v3 + 400;
+  *(_DWORD *)(v3 + 384) = 4;
+  *(_QWORD *)(v3 + 388) = 4LL;
+  *(_QWORD *)(v3 + 592) = v3 + 600;
+  *(_QWORD *)(v3 + 564) = v6;
+  *(_QWORD *)(v3 + 572) = v6;
+  *(_DWORD *)(v3 + 600) = v6;
+  return (CPrimitiveGroup *)v3;
 }

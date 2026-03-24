@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpParseInstructionPrefix @ 0x140AF547C
+ * XREFs of KiTpParseInstructionPrefix @ 0x140A132D8
  * Callers:
- *     KiTpParseInstruction @ 0x140AF5450 (KiTpParseInstruction.c)
+ *     KiTpParseInstruction @ 0x140A132AC (KiTpParseInstruction.c)
  * Callees:
- *     KiTpFetchInstructionBytes @ 0x140AF53B4 (KiTpFetchInstructionBytes.c)
+ *     KiTpFetchInstructionBytes @ 0x140A13210 (KiTpFetchInstructionBytes.c)
  */
 
 __int64 __fastcall KiTpParseInstructionPrefix(char *a1)
@@ -40,7 +40,7 @@ __int64 __fastcall KiTpParseInstructionPrefix(char *a1)
       {
         if ( v8 != 240 && (unsigned int)v8 - 242 > 1 )
         {
-LABEL_20:
+LABEL_19:
           if ( (_WORD)v9 )
             return 3221225659LL;
           v4 = 64;
@@ -74,8 +74,8 @@ LABEL_20:
     }
     else
     {
-      if ( v8 != 101 && v8 != 38 && v8 != 46 && v8 != 54 && v8 != 62 && v8 != 100 )
-        goto LABEL_20;
+      if ( v8 < 0x64u && v8 != 38 && v8 != 46 && v8 != 54 && v8 != 62 )
+        goto LABEL_19;
       v3 = (unsigned __int8 *)&v9 + 1;
     }
     if ( *v3 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_SettingSpeedFlagFor20Devices @ 0x1C0020C00
+ * XREFs of HUBDSM_SettingSpeedFlagFor20Devices @ 0x1C001E360
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
  */
 
 __int64 __fastcall HUBDSM_SettingSpeedFlagFor20Devices(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HUBDSM_SettingSpeedFlagFor20Devices(__int64 a1)
         2u,
         5u,
         0x26u,
-        (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
         v3,
         v5);
     if ( v3 == 256 )

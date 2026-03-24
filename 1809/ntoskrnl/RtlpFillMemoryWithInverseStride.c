@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFillMemoryWithInverseStride @ 0x1402F7F0C
+ * XREFs of RtlpFillMemoryWithInverseStride @ 0x1402F800C
  * Callers:
- *     RtlpGenericStrideWorker @ 0x1402F8754 (RtlpGenericStrideWorker.c)
+ *     RtlpGenericStrideWorker @ 0x1402F8854 (RtlpGenericStrideWorker.c)
  * Callees:
  *     <none>
  */

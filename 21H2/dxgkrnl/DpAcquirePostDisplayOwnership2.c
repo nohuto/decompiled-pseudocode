@@ -1,9 +1,9 @@
 /*
- * XREFs of DpAcquirePostDisplayOwnership2 @ 0x1C03867E0
+ * XREFs of DpAcquirePostDisplayOwnership2 @ 0x1C02C5AE0
  * Callers:
  *     <none>
  * Callees:
- *     DpiAcquirePostDisplayOwnership @ 0x1C0387E94 (DpiAcquirePostDisplayOwnership.c)
+ *     DpiAcquirePostDisplayOwnership @ 0x1C02C762C (DpiAcquirePostDisplayOwnership.c)
  */
 
 __int64 __fastcall DpAcquirePostDisplayOwnership2(__int64 a1, __int64 a2, __int64 a3)

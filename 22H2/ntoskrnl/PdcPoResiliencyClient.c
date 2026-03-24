@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoResiliencyClient @ 0x140997BA0
+ * XREFs of PdcPoResiliencyClient @ 0x1408EFAC0
  * Callers:
  *     <none>
  * Callees:
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PopPdcIdleResiliencyCallback @ 0x14099812C (PopPdcIdleResiliencyCallback.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F009C (PopPdcIdleResiliencyCallback.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoResiliencyClient(int a1, char a2, unsigned int a3)
@@ -15,7 +15,6 @@ __int64 __fastcall PdcPoResiliencyClient(int a1, char a2, unsigned int a3)
   int v5; // ecx
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
 
   v4 = a1 - 1;
   if ( !v4 )
@@ -31,7 +30,7 @@ LABEL_7:
       PopCheckResiliencyScenarios();
     }
 LABEL_8:
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock(v7, v6);
     return 0LL;
   }
   if ( v5 == 1 )

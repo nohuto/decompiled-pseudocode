@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpQueueNotification @ 0x1407816F4
+ * XREFs of EtwpQueueNotification @ 0x140717AEC
  * Callers:
- *     EtwpSendDataBlock @ 0x140781500 (EtwpSendDataBlock.c)
+ *     EtwpSendDataBlock @ 0x1407178F4 (EtwpSendDataBlock.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PsChargeProcessWakeCounter @ 0x14077F530 (PsChargeProcessWakeCounter.c)
- *     EtwpAddDataSource @ 0x14078188C (EtwpAddDataSource.c)
- *     EtwpReleaseQueueEntry @ 0x140781D20 (EtwpReleaseQueueEntry.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PsChargeProcessWakeCounter @ 0x1406A1C90 (PsChargeProcessWakeCounter.c)
+ *     EtwpAddDataSource @ 0x140717D5C (EtwpAddDataSource.c)
+ *     EtwpReleaseQueueEntry @ 0x1407181BC (EtwpReleaseQueueEntry.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueueNotification(__int64 Object, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // ebx
-  __int16 v4; // r15
+  int v3; // ebx
+  __int16 v5; // r12
   char v8; // r13
   __int64 v9; // r14
-  __int64 Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   _QWORD *v11; // rdi
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v13; // rdx
@@ -28,35 +28,41 @@ __int64 __fastcall EtwpQueueNotification(__int64 Object, __int64 a2, __int64 a3)
   _QWORD *v15; // rax
   struct _KEVENT *v16; // rcx
   void *v18; // rbx
-  unsigned int i; // r8d
+  unsigned int v19; // edx
 
   v3 = 0;
-  v4 = *(_WORD *)(a3 + 98) & 0x100;
+  v5 = *(_WORD *)(a3 + 98) & 0x100;
   v8 = 1;
-  v9 = EtwpAddDataSource(Object);
-  if ( v9 && (Pool2 = ExAllocatePool2(64LL, 56LL, 1920431173LL), (v11 = (_QWORD *)Pool2) != 0LL) )
+  v9 = EtwpAddDataSource();
+  if ( v9 && (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72777445u), (v11 = PoolWithTag) != 0LL) )
   {
-    *(_QWORD *)(Pool2 + 16) = a2;
-    *(_QWORD *)(Pool2 + 24) = a3;
-    *(_WORD *)(Pool2 + 48) = *(_WORD *)(a3 + 96);
-    *(_DWORD *)(Pool2 + 52) = 1;
-    if ( *(_BYTE *)(a2 + 12) )
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    *((_QWORD *)PoolWithTag + 6) = 0LL;
+    *((_QWORD *)PoolWithTag + 2) = a2;
+    *((_QWORD *)PoolWithTag + 3) = a3;
+    *((_WORD *)PoolWithTag + 24) = *(_WORD *)(a3 + 96);
+    *((_DWORD *)PoolWithTag + 13) = 1;
+    if ( !*(_BYTE *)(a2 + 12) )
+      goto LABEL_4;
+    v18 = *(void **)(a2 + 24);
+    *((_DWORD *)PoolWithTag + 13) |= 2u;
+    ObfReferenceObject(v18);
+    v11[4] = v18;
+    v11[5] = PsChargeProcessWakeCounter(Object, 1, 3u, a3);
+    v19 = 0;
+    v3 = -1073741823;
+    while ( _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * v19 + 48), (signed __int64)v11, 0LL) )
     {
-      v18 = *(void **)(a2 + 24);
-      *(_DWORD *)(Pool2 + 52) |= 2u;
-      ObfReferenceObject(v18);
-      v11[4] = v18;
-      v11[5] = PsChargeProcessWakeCounter(Object, 1, 3u, a3);
-      for ( i = 0; i < 4; ++i )
-      {
-        if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * i + 48), (signed __int64)v11, 0LL) )
-        {
-          *((_WORD *)v11 + 25) = i;
-          v3 = 0;
-          goto LABEL_4;
-        }
-      }
-      v3 = -1073741823;
+      if ( ++v19 >= 4 )
+        goto LABEL_18;
+    }
+    *((_WORD *)v11 + 25) = v19;
+    v3 = 0;
+LABEL_18:
+    if ( v3 < 0 )
+    {
       EtwpReleaseQueueEntry(v11);
     }
     else
@@ -70,7 +76,7 @@ LABEL_4:
       v14 = *(_QWORD **)(v9 + 24);
       if ( v14 != (_QWORD *)(v9 + 24) )
       {
-        while ( (v4 != 0) != (*(_BYTE *)(v14[3] + 99LL) & 1) )
+        while ( (v5 != 0) != (*(_BYTE *)(v14[3] + 99LL) & 1) )
         {
           v14 = (_QWORD *)*v14;
           if ( v14 == v13 )
@@ -88,20 +94,20 @@ LABEL_5:
       *(_QWORD *)(v9 + 32) = v11;
       if ( v8 )
       {
-        if ( v4 )
+        if ( v5 )
           v16 = *(struct _KEVENT **)(v9 + 8);
         else
           v16 = *(struct _KEVENT **)v9;
         if ( v16 )
           KeSetEvent(v16, 1, 0);
       }
-      ExReleasePushLockEx((__int64 *)(v9 + 16), 0LL);
-      KeLeaveCriticalRegion();
+      ExReleasePushLockEx(v9 + 16, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v3;
+  return (unsigned int)v3;
 }

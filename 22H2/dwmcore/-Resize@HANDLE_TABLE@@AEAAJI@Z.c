@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800275DC
+ * XREFs of ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x180046068
  * Callers:
- *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180027588 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
- *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5D28 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180046014 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x18005E384 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall HANDLE_TABLE::Resize(HANDLE_TABLE *this, unsigned int a2)

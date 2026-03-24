@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetNextPageTableTail @ 0x140357EB0
+ * XREFs of MiGetNextPageTableTail @ 0x140314400
  * Callers:
  *     <none>
  * Callees:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
  */
 
-__int64 __fastcall MiGetNextPageTableTail(__int64 a1)
+__int64 __fastcall MiGetNextPageTableTail(__int64 a1, _KPROCESS *a2)
 {
-  int *v1; // rcx
+  __int64 v2; // rcx
 
-  v1 = *(int **)(a1 + 16);
-  if ( v1 )
-    MiFlushTbList(v1);
+  v2 = *(_QWORD *)(a1 + 16);
+  if ( v2 )
+    MiFlushTbList(v2, a2);
   return 0LL;
 }

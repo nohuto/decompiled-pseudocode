@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkEngReleaseStableVisRgn @ 0x1C0275450
+ * XREFs of DxgkEngReleaseStableVisRgn @ 0x1C0277CE0
  * Callers:
  *     <none>
  * Callees:

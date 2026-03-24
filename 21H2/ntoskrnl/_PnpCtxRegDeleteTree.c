@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxRegDeleteTree @ 0x14082E95C
+ * XREFs of _PnpCtxRegDeleteTree @ 0x1407AC128
  * Callers:
- *     PipInitComputerIds @ 0x140B0F20C (PipInitComputerIds.c)
- *     PipMigrateCleanServiceCallback @ 0x140B4FA10 (PipMigrateCleanServiceCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x140B501D0 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140B503E0 (PipCommitPendingService.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     PipMigrateCleanServiceCallback @ 0x140A90380 (PipMigrateCleanServiceCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140A90B40 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140A90D50 (PipCommitPendingService.c)
  * Callees:
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
  */
 
-__int64 __fastcall PnpCtxRegDeleteTree(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PnpCtxRegDeleteTree(__int64 a1, char *a2, const WCHAR *a3)
 {
   __int64 v4; // r8
   __int64 v5; // rax

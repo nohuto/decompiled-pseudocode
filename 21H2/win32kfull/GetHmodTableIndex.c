@@ -1,78 +1,109 @@
 /*
- * XREFs of GetHmodTableIndex @ 0x1C0025248
+ * XREFs of GetHmodTableIndex @ 0x1C002048C
  * Callers:
- *     zzzSetWindowsHookEx @ 0x1C00249B8 (zzzSetWindowsHookEx.c)
- *     _RegisterDManipHook @ 0x1C00E5110 (_RegisterDManipHook.c)
- *     _RegisterUserApiHook @ 0x1C00E52F4 (_RegisterUserApiHook.c)
- *     _SetWinEventHook @ 0x1C00E5D30 (_SetWinEventHook.c)
+ *     zzzSetWindowsHookEx @ 0x1C001FCE8 (zzzSetWindowsHookEx.c)
+ *     _SetWinEventHook @ 0x1C0022664 (_SetWinEventHook.c)
+ *     _RegisterUserApiHook @ 0x1C011CFD8 (_RegisterUserApiHook.c)
+ *     _RegisterDManipHook @ 0x1C011D2E4 (_RegisterDManipHook.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HOOK@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C0159E2C (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HOOK@@@-$DomainShared@$$V@@QEAA@XZ.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_CLIENTLIB@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C015D164 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_CLIENTLIB@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ??0?$CLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ @ 0x1C0020968 (--0-$CLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall GetHmodTableIndex(__int64 a1)
+__int64 __fastcall GetHmodTableIndex(ULONG64 a1)
 {
-  unsigned __int16 v2; // ax
-  int v3; // ebx
-  unsigned __int16 near **v4; // rcx
-  unsigned __int16 near **v6; // rcx
-  _BYTE v7[48]; // [rsp+30h] [rbp-48h] BYREF
+  int v2; // ecx
+  ULONG64 v3; // rbx
+  ULONG64 v4; // rdx
+  _BYTE **v5; // rax
+  unsigned __int16 v6; // ax
+  int v8; // ebx
+  unsigned __int16 near **v9; // rcx
+  unsigned __int16 near **v10; // rcx
+  int v11; // [rsp+58h] [rbp+10h]
+  tagDomLock *v12; // [rsp+60h] [rbp+18h] BYREF
 
-  DomainShared<>::DomainExclusive<DLT_CLIENTLIB>::ObjectLock<>::ObjectLock<>(v7);
-  v2 = UserAddAtomToAtomTableEx(UserLibmgmtAtomTableHandle, a1, 0LL, 2LL);
-  if ( v2 )
+  CLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>::CLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>(&v12);
+  if ( a1 >= MmUserProbeAddress )
+    a1 = MmUserProbeAddress;
+  v2 = *(_DWORD *)a1;
+  v11 = *(_DWORD *)a1;
+  v3 = *(_QWORD *)(a1 + 8);
+  if ( (v3 & 1) != 0 )
+    ExRaiseDatatypeMisalignment();
+  v4 = (unsigned __int16)v2 + v3 + 2;
+  v5 = (_BYTE **)MmUserProbeAddress;
+  if ( v4 < MmUserProbeAddress && (unsigned __int16)v2 <= HIWORD(v11) )
   {
-    v3 = 0;
-    if ( catomSysTableEntries > 0 )
+    if ( (v2 & 1) != 0 )
     {
-      v4 = &aatomSysLoaded;
-      do
-      {
-        if ( *(_WORD *)v4 == v2 )
-          break;
-        ++v3;
-        v4 = (unsigned __int16 near **)((char *)v4 + 2);
-      }
-      while ( v3 < catomSysTableEntries );
+LABEL_10:
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 68LL);
+      v5 = (_BYTE **)MmUserProbeAddress;
+      goto LABEL_11;
     }
-    if ( v3 != catomSysTableEntries )
-    {
-      UserDeleteAtomFromAtomTable(UserLibmgmtAtomTableHandle, v2, &aatomSysLoaded, 0LL, v2);
-LABEL_8:
-      DomainShared<>::DomainExclusive<DLT_HOOK>::ObjectLock<>::~ObjectLock<>(v7);
-      return (unsigned int)v3;
-    }
-    v3 = 0;
-    if ( catomSysTableEntries > 0 )
-    {
-      v6 = &aatomSysLoaded;
-      do
-      {
-        if ( !*(_WORD *)v6 )
-          break;
-        ++v3;
-        v6 = (unsigned __int16 near **)((char *)v6 + 2);
-      }
-      while ( v3 < catomSysTableEntries );
-    }
-    if ( v3 != catomSysTableEntries )
-    {
-LABEL_14:
-      *((_WORD *)&aatomSysLoaded + v3) = v2;
-      *((_DWORD *)&acatomSysUse + v3) = 0;
-      *((_DWORD *)&acatomSysDepends + v3) = 0;
-      goto LABEL_8;
-    }
-    if ( v3 != 32 )
-    {
-      ++catomSysTableEntries;
-      goto LABEL_14;
-    }
-    UserDeleteAtomFromAtomTable(UserLibmgmtAtomTableHandle, v2, &aatomSysLoaded, 0LL, v2);
-    UserSetLastError(8LL);
+    if ( v4 > v3 )
+      goto LABEL_12;
   }
-  DomainShared<>::DomainExclusive<DLT_HOOK>::ObjectLock<>::~ObjectLock<>(v7);
-  return 0xFFFFFFFFLL;
+  if ( (v2 & 1) != 0 )
+    goto LABEL_10;
+LABEL_11:
+  **v5 = 0;
+LABEL_12:
+  v6 = UserAddAtomToAtomTableEx(UserLibmgmtAtomTableHandle, v3, 0LL, 2LL);
+  if ( !v6 )
+  {
+LABEL_13:
+    tagDomLock::UnLockExclusive(v12);
+    return 0xFFFFFFFFLL;
+  }
+  v8 = 0;
+  if ( catomSysTableEntries > 0 )
+  {
+    v9 = &aatomSysLoaded;
+    do
+    {
+      if ( *(_WORD *)v9 == v6 )
+        break;
+      ++v8;
+      v9 = (unsigned __int16 near **)((char *)v9 + 2);
+    }
+    while ( v8 < catomSysTableEntries );
+  }
+  if ( v8 == catomSysTableEntries )
+  {
+    v8 = 0;
+    if ( catomSysTableEntries > 0 )
+    {
+      v10 = &aatomSysLoaded;
+      do
+      {
+        if ( !*(_WORD *)v10 )
+          break;
+        ++v8;
+        v10 = (unsigned __int16 near **)((char *)v10 + 2);
+      }
+      while ( v8 < catomSysTableEntries );
+    }
+    if ( v8 == catomSysTableEntries )
+    {
+      if ( v8 == 32 )
+      {
+        UserDeleteAtomFromAtomTable(UserLibmgmtAtomTableHandle, v6, &aatomSysLoaded);
+        UserSetLastError(8LL);
+        goto LABEL_13;
+      }
+      ++catomSysTableEntries;
+    }
+    *((_WORD *)&aatomSysLoaded + v8) = v6;
+    *((_DWORD *)&acatomSysUse + v8) = 0;
+    *((_DWORD *)&acatomSysDepends + v8) = 0;
+  }
+  else
+  {
+    UserDeleteAtomFromAtomTable(UserLibmgmtAtomTableHandle, v6, &aatomSysLoaded);
+  }
+  tagDomLock::UnLockExclusive(v12);
+  return (unsigned int)v8;
 }

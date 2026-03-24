@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vMakeIso@DC@@QEAAXXZ @ 0x1C016F338
+ * XREFs of ?vMakeIso@DC@@QEAAXXZ @ 0x1C0142510
  * Callers:
- *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0031740 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
- *     GreGetDCPoint @ 0x1C00AB470 (GreGetDCPoint.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0023360 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     GreGetDCPoint @ 0x1C0071810 (GreGetDCPoint.c)
  * Callees:
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
- *     bFToL @ 0x1C009B150 (bFToL.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C016F2B0 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C016F2F4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     EngMulDiv @ 0x1C0070E10 (EngMulDiv.c)
+ *     bFToL @ 0x1C0081930 (bFToL.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0142498 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C01424D4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
  */
 
 void __fastcall DC::vMakeIso(DC *this)

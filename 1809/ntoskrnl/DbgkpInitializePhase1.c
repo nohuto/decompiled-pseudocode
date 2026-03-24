@@ -3,8 +3,8 @@
  * Callers:
  *     DbgkInitialize @ 0x1409AEA1C (DbgkInitialize.c)
  * Callees:
- *     DbgkpInitializePhase1SiloState @ 0x140727A9C (DbgkpInitializePhase1SiloState.c)
- *     DbgkpGetServerSiloState @ 0x140727D8C (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x140727A7C (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x140727D6C (DbgkpGetServerSiloState.c)
  */
 
 __int64 DbgkpInitializePhase1()

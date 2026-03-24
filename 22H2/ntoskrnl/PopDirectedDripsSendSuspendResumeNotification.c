@@ -1,79 +1,61 @@
 /*
- * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x140983DA0
+ * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x1408E39FC
  * Callers:
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140983AA4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3658 (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     MmGetNextSession @ 0x14035E6A0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopUmpoSendLegacyEvent @ 0x140997950 (PopUmpoSendLegacyEvent.c)
- *     PopSuspendResumeInvocation @ 0x140998380 (PopSuspendResumeInvocation.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x140263DE0 (MmGetNextSession.c)
+ *     PopUmpoSendLegacyEvent @ 0x1407758E8 (PopUmpoSendLegacyEvent.c)
+ *     PopSuspendResumeInvocation @ 0x14077957C (PopSuspendResumeInvocation.c)
  */
 
-__int64 __fastcall PopDirectedDripsSendSuspendResumeNotification(char a1, char a2)
+__int64 __fastcall PopDirectedDripsSendSuspendResumeNotification(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  char v4; // di
   __int64 result; // rax
-  void *i; // rcx
-  int SessionId; // eax
-  void *v6; // rbx
-  __int128 v7; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v8; // [rsp+30h] [rbp-20h] BYREF
-  int v9; // [rsp+40h] [rbp-10h]
+  struct _DMA_ADAPTER *i; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  struct _DMA_ADAPTER *v10; // rbx
+  __int128 v11; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+20h] BYREF
 
-  v9 = 0;
-  v8 = 0LL;
+  v4 = a2;
   if ( a1 )
   {
-    for ( i = 0LL; ; i = v6 )
+    for ( i = 0LL; ; i = v10 )
     {
       result = MmGetNextSession(i);
-      v6 = (void *)result;
+      v10 = (struct _DMA_ADAPTER *)result;
       if ( !result )
         break;
-      SessionId = MmGetSessionId(result);
-      if ( SessionId )
-      {
-        *(_QWORD *)&v8 = 0LL;
-        DWORD2(v8) = 0;
-        v9 = SessionId;
-        if ( a2 )
-        {
-          HIDWORD(v8) = 0;
-        }
-        else
-        {
-          HIDWORD(v8) = 1;
-          PopSuspendResumeInvocation(&v8);
-          HIDWORD(v8) = 2;
-        }
-        PopSuspendResumeInvocation(&v8);
-      }
+      v12 = 0LL;
+      LODWORD(v12) = MmGetSessionId(result);
+      BYTE4(v12) = v4;
+      *(_WORD *)((char *)&v12 + 5) = 1;
+      PopSuspendResumeInvocation(&v12, v7, v8, v9);
     }
   }
   else
   {
-    if ( !a2 )
+    v12 = 0LL;
+    BYTE4(v12) = a2;
+    PopSuspendResumeInvocation(&v12, a2, a3, a4);
+    v11 = 0LL;
+    if ( v4 )
     {
-      v9 = 0;
-      HIDWORD(v8) = 1;
-      PopSuspendResumeInvocation(&v8);
-      HIDWORD(v8) = 2;
-    }
-    PopSuspendResumeInvocation(&v8);
-    v7 = 0LL;
-    if ( a2 )
-    {
-      *(_QWORD *)&v7 = 0x400000000LL;
-      WORD6(v7) = 256;
+      *(_QWORD *)&v11 = 0x400000000LL;
+      WORD6(v11) = 256;
     }
     else
     {
-      *(_QWORD *)&v7 = 0x1200000003LL;
-      WORD6(v7) = 1;
-      PopUmpoSendLegacyEvent(&v7);
-      DWORD1(v7) = 7;
+      *(_QWORD *)&v11 = 0x1200000003LL;
+      WORD6(v11) = 1;
+      PopUmpoSendLegacyEvent(&v11);
+      DWORD1(v11) = 7;
     }
-    return PopUmpoSendLegacyEvent(&v7);
+    return PopUmpoSendLegacyEvent(&v11);
   }
   return result;
 }

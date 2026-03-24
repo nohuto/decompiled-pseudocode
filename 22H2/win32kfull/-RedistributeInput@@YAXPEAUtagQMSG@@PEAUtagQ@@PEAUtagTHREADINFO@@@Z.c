@@ -1,451 +1,392 @@
 /*
- * XREFs of ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C005CB08
+ * XREFs of ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C0012504
  * Callers:
- *     zzzReattachThreads @ 0x1C005C0B8 (zzzReattachThreads.c)
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C005C644 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
  * Callees:
- *     IsHiddenByInputService @ 0x1C000BD34 (IsHiddenByInputService.c)
- *     ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000BD5C (-DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
- *     ?FreeQEntry@@YAXPEAUtagQMSG@@@Z @ 0x1C00126B0 (-FreeQEntry@@YAXPEAUtagQMSG@@@Z.c)
- *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0012820 (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     IsProcessedByInputService @ 0x1C005CE80 (IsProcessedByInputService.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C009CDF0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C00E4DF4 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?IsMouseInputMessage@InputTraceLogging@@CA_NI@Z @ 0x1C0118084 (-IsMouseInputMessage@InputTraceLogging@@CA_NI@Z.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C012B280 (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C012B370 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C00057B8 (-DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000779C (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     IsProcessedByInputService @ 0x1C00128BC (IsProcessedByInputService.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F2B4 (WPP_RECORDER_SF_qq.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C00585D0 (WPP_RECORDER_SF_qiqdd.c)
+ *     FreeQEntry @ 0x1C0065CB8 (FreeQEntry.c)
+ *     IsHiddenByInputService @ 0x1C0066884 (IsHiddenByInputService.c)
+ *     ?IsMouseInputMessage@InputTraceLogging@@CA_NI@Z @ 0x1C006A26C (-IsMouseInputMessage@InputTraceLogging@@CA_NI@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00C1CCC (WPP_RECORDER_SF_qqq.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D500 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void __fastcall RedistributeInput(struct tagQMSG *a1, struct tagQ *a2, struct tagTHREADINFO *a3)
 {
-  __int64 v3; // r11
+  struct tagTHREADINFO *v3; // r10
   struct tagTHREADINFO *v4; // r9
   struct tagQMSG *v6; // rbx
-  __int64 v7; // r13
-  __int64 v8; // r14
-  struct tagQMSG *v9; // r15
-  __int64 v10; // rdx
+  struct tagTHREADINFO *v7; // r12
+  struct tagQMSG *v8; // r15
+  __int64 v9; // r14
+  __int64 v10; // r13
   __int64 v11; // rdx
-  struct _DEVICE_OBJECT *v12; // r10
+  _UNKNOWN **v12; // r11
   __int64 v13; // r8
-  int v14; // eax
-  int v15; // eax
-  __int64 v16; // rdi
-  _DWORD *v17; // r12
-  int v18; // eax
-  __int64 v19; // rdx
-  int v20; // r8d
-  struct _DEVICE_OBJECT *v21; // r10
-  __int64 v22; // r11
-  __int64 v23; // rcx
-  __int64 v24; // r14
-  struct tagQMSG *v25; // rcx
-  unsigned int v26; // r9d
-  struct tagQMSG *v27; // rcx
-  struct tagQMSG *v28; // rdi
-  int v29; // r9d
-  struct tagQMSG *v30; // r11
-  int v31; // r9d
-  __int64 v32; // rax
-  char v33; // al
-  void *v34; // rdx
-  struct tagQMSG *v35; // rdi
-  int v37; // r9d
-  int v38; // r10d
-  struct tagQ *v39; // r9
-  __int64 v40; // r9
-  __int64 v41; // rdx
-  ULONG v42; // [rsp+20h] [rbp-E0h]
-  int v43; // [rsp+28h] [rbp-D8h]
-  __int64 v44; // [rsp+70h] [rbp-90h]
-  int v46; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v47; // [rsp+84h] [rbp-7Ch] BYREF
-  unsigned int v48; // [rsp+88h] [rbp-78h] BYREF
-  unsigned int v49; // [rsp+8Ch] [rbp-74h] BYREF
-  int v50; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v51; // [rsp+98h] [rbp-68h]
-  __int64 v52; // [rsp+A0h] [rbp-60h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v53; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 *v54; // [rsp+D0h] [rbp-30h]
-  __int64 v55; // [rsp+D8h] [rbp-28h]
-  int *v56; // [rsp+E0h] [rbp-20h]
-  __int64 v57; // [rsp+E8h] [rbp-18h]
-  unsigned int *v58; // [rsp+F0h] [rbp-10h]
-  __int64 v59; // [rsp+F8h] [rbp-8h]
-  unsigned int *v60; // [rsp+100h] [rbp+0h]
-  __int64 v61; // [rsp+108h] [rbp+8h]
-  unsigned int *v62; // [rsp+110h] [rbp+10h]
-  __int64 v63; // [rsp+118h] [rbp+18h]
-  int *v64; // [rsp+120h] [rbp+20h]
-  __int64 v65; // [rsp+128h] [rbp+28h]
+  struct tagTHREADINFO *v14; // rdx
+  struct tagTHREADINFO *v15; // rsi
+  int v16; // eax
+  int v17; // edx
+  void *v18; // r11
+  __int64 v19; // r9
+  struct tagTHREADINFO *v20; // rcx
+  struct tagTHREADINFO *v21; // r14
+  __int64 v22; // rdx
+  struct tagQMSG *v23; // rcx
+  unsigned int v24; // edx
+  int v25; // r8d
+  struct tagQMSG *v26; // rcx
+  struct tagQMSG *v27; // rsi
+  int v28; // eax
+  struct tagQMSG *v29; // rdx
+  unsigned int v30; // eax
+  struct tagQMSG *v31; // rax
+  struct tagQMSG *v32; // rcx
+  struct tagQMSG *v33; // rsi
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // r9
+  int v39; // r9d
+  __int64 v40; // rax
+  __int64 v41; // r9
+  __int64 v42; // rdx
+  unsigned int v44; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v45; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned int v46; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v47; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned int v48; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v49; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v50; // [rsp+78h] [rbp-88h]
+  struct _EVENT_DATA_DESCRIPTOR v51; // [rsp+80h] [rbp-80h] BYREF
+  __int64 *v52; // [rsp+A0h] [rbp-60h]
+  __int64 v53; // [rsp+A8h] [rbp-58h]
+  unsigned int *v54; // [rsp+B0h] [rbp-50h]
+  __int64 v55; // [rsp+B8h] [rbp-48h]
+  unsigned int *v56; // [rsp+C0h] [rbp-40h]
+  __int64 v57; // [rsp+C8h] [rbp-38h]
+  unsigned int *v58; // [rsp+D0h] [rbp-30h]
+  __int64 v59; // [rsp+D8h] [rbp-28h]
+  unsigned int *v60; // [rsp+E0h] [rbp-20h]
+  __int64 v61; // [rsp+E8h] [rbp-18h]
+  unsigned int *v62; // [rsp+F0h] [rbp-10h]
+  __int64 v63; // [rsp+F8h] [rbp-8h]
 
   v3 = 0LL;
   v4 = a3;
-  v44 = 0LL;
   v6 = a1;
   v7 = 0LL;
-  v8 = gptiCurrent;
-  v9 = 0LL;
-  v51 = gptiCurrent;
+  v8 = 0LL;
+  v9 = gptiCurrent;
+  v10 = 0LL;
+  v50 = gptiCurrent;
   if ( a1 )
   {
-    while ( 1 )
+    v12 = &WPP_RECORDER_INITIALIZED;
+    do
     {
-      v11 = *((_QWORD *)v6 + 13);
-      v12 = (struct _DEVICE_OBJECT *)&WPP_GLOBAL_Control;
-      v13 = v11;
-      if ( v11 )
+      v13 = *((_QWORD *)v6 + 13);
+      v14 = (struct tagTHREADINFO *)v13;
+      if ( v13 )
       {
-        if ( (*(_DWORD *)(v11 + 1272) & 0x20000000) != 0 && IsHiddenByInputService((__int64)v6) )
+        if ( (*(_DWORD *)(v13 + 1232) & 0x20000000) != 0 && (unsigned int)IsHiddenByInputService(v6) )
         {
-          *(_DWORD *)(v11 + 1272) = v31 & 0xDFFFFFFF;
-          v13 = *((_QWORD *)v6 + 13);
+          *(_DWORD *)(v13 + 1232) = v39 & 0xDFFFFFFF;
+          v14 = (struct tagTHREADINFO *)*((_QWORD *)v6 + 13);
         }
         v4 = a3;
       }
-      if ( (*(_DWORD *)(v8 + 1272) & 0x40000) != 0 )
+      v15 = v14;
+      if ( (*(_DWORD *)(v9 + 1232) & 0x40000) != 0 )
       {
-        v14 = *((_DWORD *)v6 + 6);
-        if ( v13 == v8 )
+        v30 = *((_DWORD *)v6 + 6);
+        if ( v14 == (struct tagTHREADINFO *)v9 )
         {
-          v15 = v14 - 256;
-          if ( (!v15 || (unsigned int)(v15 - 1) < 2) && v4 )
-            *((_QWORD *)v6 + 13) = v4;
-        }
-        else if ( v14 == 513 || v14 == 516 )
-        {
-          LOBYTE(v11) = 1;
-          v32 = HMValidateHandleNoSecure(*((_QWORD *)v6 + 2), v11);
-          v3 = 0LL;
-          v12 = (struct _DEVICE_OBJECT *)&WPP_GLOBAL_Control;
-          if ( v32 )
+          if ( v30 >= 0x100 && v30 <= 0x102 && v4 )
           {
-            if ( *(_QWORD *)(v32 + 16) == v8 )
-              *((_QWORD *)v6 + 13) = v8;
+            *((_QWORD *)v6 + 13) = v4;
+            v15 = v4;
           }
         }
-      }
-      v16 = *((_QWORD *)v6 + 13);
-      if ( v6 == *((struct tagQMSG **)a2 + 11) )
-      {
-        v11 = *(_QWORD *)(v16 + 432);
-        if ( a2 != (struct tagQ *)v11 && *(_QWORD *)(v11 + 72) == v3 )
+        else
         {
-          v4 = (struct tagTHREADINFO *)*((_QWORD *)a2 + 9);
-          if ( v4 )
+          if ( v30 == 513 || v30 == 516 )
           {
-            if ( *((_QWORD *)v4 + 54) == v11 )
+            LOBYTE(v14) = 1;
+            v40 = HMValidateHandleNoSecure(*((_QWORD *)v6 + 2), v14);
+            v3 = 0LL;
+            v12 = &WPP_RECORDER_INITIALIZED;
+            if ( v40 )
             {
-              if ( WPP_GLOBAL_Control == v12
-                || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-                || (v33 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+              if ( *(_QWORD *)(v40 + 16) == v9 )
+                *((_QWORD *)v6 + 13) = v9;
+            }
+          }
+          v15 = (struct tagTHREADINFO *)*((_QWORD *)v6 + 13);
+        }
+      }
+      if ( v6 == *((struct tagQMSG **)a2 + 10) )
+      {
+        v34 = *((_QWORD *)v15 + 54);
+        if ( a2 != (struct tagQ *)v34 && *(struct tagTHREADINFO **)(v34 + 64) == v3 )
+        {
+          v35 = *((_QWORD *)a2 + 8);
+          if ( v35 )
+          {
+            if ( *(_QWORD *)(v35 + 432) == v34 )
+            {
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)v12 )
               {
-                v33 = v3;
-              }
-              if ( v33 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                v34 = &WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids;
-                LOBYTE(v34) = v33;
-                LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                WPP_RECORDER_AND_TRACE_SF_qqq(
-                  WPP_GLOBAL_Control->AttachedDevice,
-                  (_DWORD)v34,
-                  v13,
-                  (_DWORD)gFullLog,
-                  4,
+                LOBYTE(v14) = 4;
+                WPP_RECORDER_SF_qqq(
+                  v35,
+                  (_DWORD)v14,
                   18,
-                  38,
-                  (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-                  *(_QWORD *)(v16 + 432),
-                  v8,
-                  *((_QWORD *)a2 + 9));
+                  33,
+                  (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+                  v34,
+                  v9,
+                  *((_QWORD *)a2 + 8));
+                v34 = *((_QWORD *)v15 + 54);
+                v12 = &WPP_RECORDER_INITIALIZED;
+                v35 = *((_QWORD *)a2 + 8);
                 v3 = 0LL;
-                v12 = (struct _DEVICE_OBJECT *)&WPP_GLOBAL_Control;
               }
-              *(_QWORD *)(*(_QWORD *)(v16 + 432) + 72LL) = *((_QWORD *)a2 + 9);
-              if ( WPP_GLOBAL_Control == v12
-                || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-                || (LOBYTE(v11) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+              *(_QWORD *)(v34 + 64) = v35;
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)v12 )
               {
-                LOBYTE(v11) = v3;
-              }
-              LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-              if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                WPP_RECORDER_AND_TRACE_SF_qqq(
-                  WPP_GLOBAL_Control->AttachedDevice,
-                  v11,
-                  v13,
-                  (_DWORD)gFullLog,
-                  4,
+                LOBYTE(v14) = 4;
+                WPP_RECORDER_SF_qqq(
+                  v35,
+                  (_DWORD)v14,
                   18,
-                  39,
-                  (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
+                  34,
+                  (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
                   (char)a2,
-                  v8,
-                  *((_QWORD *)a2 + 9));
+                  v9,
+                  *((_QWORD *)a2 + 8));
                 v3 = 0LL;
               }
-              *((_QWORD *)a2 + 9) = v3;
+              *((_QWORD *)a2 + 8) = v3;
             }
           }
         }
       }
-      v17 = (_DWORD *)((char *)v6 + 96);
-      v18 = IsProcessedByInputService(v6, v11, v13, v4);
-      v23 = v22;
-      v24 = v22;
+      v16 = IsProcessedByInputService(v6, v14, v13, v4);
+      v19 = 4LL;
+      v20 = v3;
+      v21 = v3;
       if ( *((_DWORD *)v6 + 24) != 4 )
-        v23 = v16;
-      if ( !v18 )
-        v24 = v23;
-      if ( v24 )
+        v20 = v15;
+      if ( !v16 )
+        v21 = v20;
+      if ( v21 )
       {
-        if ( !v9 || v7 != v24 )
+        if ( !v8 || v7 != v21 )
         {
-          v19 = *(_QWORD *)(v24 + 432);
-          v9 = *(struct tagQMSG **)(v19 + 32);
-          if ( v9 && *((_DWORD *)v6 + 12) - *((_DWORD *)v9 + 12) >= 0 )
+          v22 = *((_QWORD *)v21 + 54);
+          v8 = *(struct tagQMSG **)(v22 + 32);
+          if ( v8 && *((_DWORD *)v6 + 12) - *((_DWORD *)v8 + 12) >= 0 )
           {
-            v19 += 24LL;
-            v44 = v19;
+            v10 = v22 + 24;
           }
           else
           {
-            v9 = (struct tagQMSG *)(v19 + 24);
-            v44 = v19 + 24;
+            v8 = (struct tagQMSG *)(v22 + 24);
+            v10 = v22 + 24;
           }
         }
-        v25 = *(struct tagQMSG **)v9;
-        if ( *(_QWORD *)v9 )
+        v23 = *(struct tagQMSG **)v8;
+        if ( *(_QWORD *)v8 )
         {
-          LODWORD(v19) = *((_DWORD *)v6 + 12);
           do
           {
-            if ( (int)v19 - *((_DWORD *)v25 + 12) < 0 )
+            if ( *((_DWORD *)v6 + 12) - *((_DWORD *)v23 + 12) < 0 )
               break;
-            v9 = v25;
-            v25 = *(struct tagQMSG **)v25;
+            v8 = v23;
+            v23 = *(struct tagQMSG **)v23;
           }
-          while ( v25 );
+          while ( v23 );
         }
-        *((_DWORD *)v6 + 25) &= 0xFFFE1FFF;
-        v26 = *((_DWORD *)v6 + 6);
-        if ( (v26 - 256 <= 9 || InputTraceLogging::IsMouseInputMessage(v26)) && (unsigned int)dword_1C0359080 > 4 )
+        *((_DWORD *)v6 + 25) &= 0xFFF0FFFF;
+        v24 = *((_DWORD *)v6 + 6);
+        v25 = *((_DWORD *)v6 + 25);
+        if ( (v24 - 256 <= 9 || InputTraceLogging::IsMouseInputMessage(v24))
+          && dword_1C032FB20 > (unsigned int)v19
+          && (qword_1C032FB30 & 0x10) != 0
+          && (qword_1C032FB38 & 0x10) == qword_1C032FB38 )
         {
-          if ( tlgKeywordOn((__int64)&dword_1C0359080, 16LL) )
-          {
-            v50 = v37;
-            v46 = (unsigned __int16)v38 >> 15;
-            v55 = (unsigned int)(v19 - 8);
-            v47 = (unsigned int)(v38 << 17) >> 31;
-            v48 = (unsigned int)(v38 << 18) >> 31;
-            v52 = *((_QWORD *)v6 + 17);
-            v64 = &v46;
-            v62 = &v47;
-            v60 = &v48;
-            v58 = &v49;
-            v56 = &v50;
-            v54 = &v52;
-            v49 = (unsigned int)(v38 << 15) >> 31;
-            v65 = 4LL;
-            v63 = 4LL;
-            v61 = 4LL;
-            v59 = 4LL;
-            v57 = 4LL;
-            tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_1C0359080,
-              (unsigned __int8 *)dword_1C031A3E1,
-              0LL,
-              0LL,
-              v55,
-              &v53);
-            LODWORD(v22) = 0;
-          }
-        }
-        v27 = v6;
-        v28 = v6;
-        v6 = *(struct tagQMSG **)v6;
-        *(_QWORD *)v27 = *(_QWORD *)v9;
-        if ( *(_QWORD *)v9 )
-        {
-          *((_QWORD *)v27 + 1) = *(_QWORD *)(*(_QWORD *)v9 + 8LL);
-          *(_QWORD *)(*(_QWORD *)v9 + 8LL) = v28;
-        }
-        else
-        {
-          *((_QWORD *)v27 + 1) = *(_QWORD *)(v44 + 8);
-          *(_QWORD *)(v44 + 8) = v27;
-        }
-        *(_QWORD *)v9 = v28;
-        v9 = v28;
-        v29 = *(_DWORD *)(v44 + 16) + 1;
-        *(_DWORD *)(v44 + 16) = v29;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-          || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-        {
-          LOBYTE(v19) = v22;
-        }
-        if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v20) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_qiqdd(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v19,
-            v20,
-            v29,
-            v42,
-            v43,
-            41,
-            (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-            (char)v28,
-            *((_QWORD *)v28 + 17),
-            v44,
-            *(_DWORD *)(v44 + 20),
-            v29);
-          LODWORD(v22) = 0;
-        }
-        if ( *v17 != (_DWORD)v22 && (*(_DWORD *)(*(_QWORD *)(v24 + 448) + 8LL) & 0x2000) == 0 )
-          SetWakeBit(v24, 8256LL);
-        v30 = (struct tagQMSG *)*((_QWORD *)a2 + 11);
-        if ( v28 != v30 || (v39 = *(struct tagQ **)(v24 + 432), a2 == v39) )
-        {
+          v48 = v24;
+          v44 = (unsigned int)(v25 << 13) >> 31;
+          v45 = (unsigned int)(v25 << 14) >> 31;
+          v46 = (unsigned int)(v25 << 15) >> 31;
+          v49 = *((_QWORD *)v6 + 17);
+          v62 = &v44;
+          v60 = &v45;
+          v58 = &v46;
+          v56 = &v47;
+          v54 = &v48;
+          v52 = &v49;
+          v47 = (unsigned int)(v25 << 12) >> 31;
+          v63 = v19;
+          v61 = v19;
+          v59 = v19;
+          v57 = v19;
+          v55 = v19;
+          v53 = 8LL;
+          tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032FB20, (int)&dword_1C02F07F3, 0, 0, 8u, &v51);
           v3 = 0LL;
         }
+        v26 = v6;
+        v27 = v6;
+        v6 = *(struct tagQMSG **)v6;
+        *(_QWORD *)v26 = *(_QWORD *)v8;
+        if ( *(_QWORD *)v8 )
+        {
+          *((_QWORD *)v26 + 1) = *(_QWORD *)(*(_QWORD *)v8 + 8LL);
+          *(_QWORD *)(*(_QWORD *)v8 + 8LL) = v27;
+        }
         else
         {
-          if ( !*((_QWORD *)v39 + 11) )
+          *((_QWORD *)v26 + 1) = *(_QWORD *)(v10 + 8);
+          *(_QWORD *)(v10 + 8) = v26;
+        }
+        *(_QWORD *)v8 = v27;
+        v8 = v27;
+        v28 = *(_DWORD *)(v10 + 16) + 1;
+        *(_DWORD *)(v10 + 16) = v28;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          WPP_RECORDER_SF_qiqdd(
+            (_DWORD)v26,
+            v24,
+            v25,
+            36,
+            (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+            (char)v27,
+            *((_QWORD *)v27 + 17),
+            v10,
+            *(_DWORD *)(v10 + 20),
+            v28);
+          v3 = 0LL;
+        }
+        if ( *((_DWORD *)v27 + 24) != (_DWORD)v3 && (*(_WORD *)(*((_QWORD *)v21 + 56) + 6LL) & 0x2000) == 0 )
+        {
+          SetWakeBit(v21, 8256LL);
+          v3 = 0LL;
+        }
+        v29 = (struct tagQMSG *)*((_QWORD *)a2 + 10);
+        if ( v27 == v29 )
+        {
+          v36 = *((_QWORD *)v21 + 54);
+          if ( a2 != (struct tagQ *)v36 )
           {
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-              || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+            if ( *(struct tagTHREADINFO **)(v36 + 80) == v3 )
             {
-              LOBYTE(v19) = 0;
+              v37 = *((_QWORD *)v21 + 54);
+              v38 = *((_QWORD *)a2 + 10);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+                && LOWORD(WPP_GLOBAL_Control->DeviceType) != (_WORD)v3 )
+              {
+                LOBYTE(v29) = 5;
+                WPP_RECORDER_SF_qqq(
+                  v36,
+                  (_DWORD)v29,
+                  18,
+                  37,
+                  (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+                  *((_QWORD *)a2 + 10),
+                  v36,
+                  (char)v3);
+                v37 = *((_QWORD *)v21 + 54);
+                v3 = 0LL;
+                v38 = *((_QWORD *)a2 + 10);
+              }
+              *(_QWORD *)(v37 + 80) = v38;
             }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-              || (LOBYTE(v20) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+              && LOWORD(WPP_GLOBAL_Control->DeviceType) != (_WORD)v3 )
             {
-              LOBYTE(v20) = 0;
-            }
-            if ( (_BYTE)v19 || (_BYTE)v20 )
-              WPP_RECORDER_AND_TRACE_SF_qqq(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v19,
-                v20,
-                (_DWORD)gFullLog,
-                5,
+              LOBYTE(v29) = 5;
+              WPP_RECORDER_SF_qq(
+                v36,
+                (_DWORD)v29,
                 18,
-                42,
-                (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-                (char)v30,
-                (char)v39,
-                *((_QWORD *)v39 + 11));
-            *(_QWORD *)(*(_QWORD *)(v24 + 432) + 88LL) = *((_QWORD *)a2 + 11);
+                38,
+                (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+                (char)a2,
+                *((_QWORD *)a2 + 10));
+              v3 = 0LL;
+            }
+            *((_QWORD *)a2 + 10) = v3;
           }
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 5u )
-          {
-            v3 = 0LL;
-            LOBYTE(v19) = 0;
-          }
-          else
-          {
-            LOBYTE(v19) = 1;
-            v3 = 0LL;
-          }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (LOBYTE(v20) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-          {
-            LOBYTE(v20) = 0;
-          }
-          if ( (_BYTE)v19 || (_BYTE)v20 )
-          {
-            WPP_RECORDER_AND_TRACE_SF_qq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v19,
-              v20,
-              (_DWORD)gFullLog,
-              5,
-              18,
-              43,
-              (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-              (char)a2,
-              *((_QWORD *)a2 + 11));
-            v3 = 0LL;
-          }
-          *((_QWORD *)a2 + 11) = 0LL;
         }
         if ( !v6 )
           break;
-        *((_QWORD *)v6 + 1) = 0LL;
-        v7 = v24;
+        *((_QWORD *)v6 + 1) = v3;
+        v7 = v21;
       }
       else
       {
+        v31 = *(struct tagQMSG **)v6;
         if ( *(_QWORD *)v6 )
-          *(_QWORD *)(*(_QWORD *)v6 + 8LL) = v22;
-        v35 = v6;
-        v6 = *(struct tagQMSG **)v6;
-        if ( v35 == *((struct tagQMSG **)a2 + 11) )
         {
-          if ( WPP_GLOBAL_Control == v21
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-            || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-          {
-            LOBYTE(v19) = v22;
-          }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (LOBYTE(v20) = 1, LOWORD(WPP_GLOBAL_Control->DeviceType) == (_WORD)v22) )
-          {
-            LOBYTE(v20) = v22;
-          }
-          if ( (_BYTE)v19 || (_BYTE)v20 )
-          {
-            WPP_RECORDER_AND_TRACE_SF_qq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v19,
-              v20,
-              (_DWORD)gFullLog,
-              5,
-              18,
-              40,
-              (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-              (char)a2,
-              *((_QWORD *)a2 + 11));
-            v22 = 0LL;
-          }
-          *((_QWORD *)a2 + 11) = v22;
+          *((_QWORD *)v31 + 1) = v3;
+          v31 = *(struct tagQMSG **)v6;
         }
-        CleanEventMessage(v35);
-        FreeQEntry(v35);
+        v32 = (struct tagQMSG *)*((_QWORD *)a2 + 10);
+        v33 = v6;
+        v6 = v31;
+        if ( v33 == v32 )
+        {
+          if ( WPP_RECORDER_INITIALIZED != v18 && LOWORD(WPP_GLOBAL_Control->DeviceType) != (_WORD)v3 )
+          {
+            LOBYTE(v17) = 5;
+            WPP_RECORDER_SF_qq(
+              (_DWORD)v32,
+              v17,
+              18,
+              35,
+              (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+              (char)a2,
+              (char)v32);
+            v3 = 0LL;
+          }
+          *((_QWORD *)a2 + 10) = v3;
+        }
+        CleanEventMessage(v33);
+        FreeQEntry(v33);
         v3 = 0LL;
-        if ( !v6 )
-          break;
       }
-      v8 = v51;
+      v9 = v50;
+      v12 = &WPP_RECORDER_INITIALIZED;
       v4 = a3;
     }
+    while ( v6 );
   }
-  v10 = *((_QWORD *)a2 + 6);
-  if ( v10 )
+  v11 = *((_QWORD *)a2 + 6);
+  if ( v11 )
   {
     do
     {
-      v40 = *(_QWORD *)(v10 + 8);
-      if ( *(struct tagQ **)(*(_QWORD *)(v10 + 104) + 432LL) != a2 )
+      v41 = *(_QWORD *)(v11 + 8);
+      if ( *(struct tagQ **)(*(_QWORD *)(v11 + 104) + 432LL) != a2 )
       {
-        RemoveQMsgFromDeferList((struct tagQ *)((char *)a2 + 24), (struct tagQMSG *)v10);
-        DeferMessage((struct tagMLIST *)(*(_QWORD *)(*(_QWORD *)(v41 + 104) + 432LL) + 24LL), (struct tagQMSG *)v41);
+        RemoveQMsgFromDeferList((struct tagQ *)((char *)a2 + 24), (struct tagQMSG *)v11);
+        DeferMessage((struct tagMLIST *)(*(_QWORD *)(*(_QWORD *)(v42 + 104) + 432LL) + 24LL), (struct tagQMSG *)v42);
       }
-      v10 = v40;
+      v11 = v41;
     }
-    while ( v40 );
+    while ( v41 );
   }
 }

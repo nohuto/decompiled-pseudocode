@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaSetDeviceSvmCapabilities @ 0x140530D00
+ * XREFs of HsaSetDeviceSvmCapabilities @ 0x1404E4280
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
 
 __int64 __fastcall HsaSetDeviceSvmCapabilities(__int64 a1, unsigned __int64 a2)
 {
-  if ( a2 >= 0x10000 )
+  if ( a2 >= 0x10000 || a2 >= *(_QWORD *)(a1 + 40) >> 5 )
     return 3221225485LL;
   else
-    return a2 >= *(_QWORD *)(a1 + 40) >> 5 ? 0xC000000D : 0;
+    return 0LL;
 }

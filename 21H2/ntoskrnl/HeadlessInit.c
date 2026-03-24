@@ -1,15 +1,15 @@
 /*
- * XREFs of HeadlessInit @ 0x140B315E8
+ * XREFs of HeadlessInit @ 0x140A74260
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmLockPagableDataSection @ 0x1406F5E50 (MmLockPagableDataSection.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     HdlspEnableTerminal @ 0x140AA9594 (HdlspEnableTerminal.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
  */
 
 void __fastcall HeadlessInit(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall HeadlessInit(__int64 a1)
   void *v17; // rcx
   void *v18; // rcx
   void *v19; // rcx
-  _DWORD v20[68]; // [rsp+20h] [rbp-128h] BYREF
+  _DWORD v20[64]; // [rsp+20h] [rbp-118h] BYREF
 
   v2 = *(char **)(*(_QWORD *)(a1 + 240) + 48LL);
   if ( v2 && (*((_DWORD *)v2 + 2) <= 4u || *v2) )
@@ -80,7 +80,7 @@ void __fastcall HeadlessInit(__int64 a1)
         *((_DWORD *)v4 + 12) = v8 | 0x1000;
         if ( (*((_DWORD *)v2 + 9) & 1) == 0 )
         {
-          memset(v20, 0, sizeof(v20));
+          memset(v20, 0, 0xF8uLL);
           v10 = *v2;
           v11 = v2[33];
           HIWORD(v20[3]) = -1;
@@ -92,7 +92,7 @@ void __fastcall HeadlessInit(__int64 a1)
           v12 = v2[32] & 0x1F | (32 * (v11 & 7));
           LOBYTE(v20[4]) = -1;
           v20[1] = v12;
-          ((void (__fastcall *)(__int64, _DWORD *))off_140C01C48[0])(a1, v20);
+          ((void (__fastcall *)(__int64, _DWORD *))off_140C005F8[0])(a1, v20);
         }
       }
       v13 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3800uLL, 0x736C6448u);

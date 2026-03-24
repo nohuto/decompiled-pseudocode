@@ -1,31 +1,27 @@
 /*
- * XREFs of ExIsFastResourceHeld @ 0x1403C9E30
+ * XREFs of ExIsFastResourceHeld @ 0x14038E900
  * Callers:
  *     <none>
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA294 (ExpFindFastOwnerEntryForThread.c)
- *     ExIsFastResourceHeld2 @ 0x1404133CC (ExIsFastResourceHeld2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x14038EFC0 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-char __fastcall ExIsFastResourceHeld(ULONG_PTR BugCheckParameter2)
+bool __fastcall ExIsFastResourceHeld(ULONG_PTR BugCheckParameter2)
 {
   char v1; // r10
   unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v4; // bl
+  unsigned __int8 v3; // bl
+  bool v4; // si
   _DWORD *SchedulerAssist; // r9
-  int v6; // eax
-  bool v7; // si
-  unsigned __int8 v8; // al
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v10; // r8
-  int v11; // eax
-  bool v12; // zf
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
 
   v1 = 0;
-  if ( FeatureFastResource2 )
-    return ExIsFastResourceHeld2(BugCheckParameter2);
   if ( (*(_BYTE *)(BugCheckParameter2 + 26) & 1) == 0 )
     KeBugCheckEx(0x1C6u, 3uLL, BugCheckParameter2, 0LL, 0LL);
   CurrentIrql = KeGetCurrentIrql();
@@ -33,33 +29,33 @@ char __fastcall ExIsFastResourceHeld(ULONG_PTR BugCheckParameter2)
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
   if ( *(_DWORD *)(BugCheckParameter2 + 64) )
   {
-    v4 = KeGetCurrentIrql();
+    v3 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v6 = 4;
-      if ( v4 != 2 )
-        v6 = (-1LL << (v4 + 1)) & 4;
-      SchedulerAssist[5] |= v6;
+      SchedulerAssist[5] |= (-1 << (v3 + 1)) & 4;
     }
-    v7 = ExpFindFastOwnerEntryForThread(KeGetCurrentThread(), BugCheckParameter2, 0LL, 0LL) != 0;
+    v4 = ExpFindFastOwnerEntryForThread(KeGetCurrentThread(), BugCheckParameter2, 0LL, 0LL) != 0;
     if ( KiIrqlFlags )
     {
-      v8 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v4 <= 0xFu && v8 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v10 = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << (v4 + 1));
-        v12 = (v11 & v10[5]) == 0;
-        v10[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v7 = KeGetCurrentIrql();
+        if ( v7 <= 0xFu && v3 <= 0xFu && v7 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v9 = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << (v3 + 1));
+          v11 = (v10 & v9[5]) == 0;
+          v9[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v4);
-    return v7;
+    __writecr8(v3);
+    return v4;
   }
   return v1;
 }

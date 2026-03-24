@@ -1,34 +1,36 @@
 /*
- * XREFs of MiObtainFaultCharges @ 0x140329630
+ * XREFs of MiObtainFaultCharges @ 0x14021BA90
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiPickClusterForMappedFileFault @ 0x140282D10 (MiPickClusterForMappedFileFault.c)
- *     MiGetPageForHeader @ 0x1402E57FC (MiGetPageForHeader.c)
- *     MiMigratePfn @ 0x140327C60 (MiMigratePfn.c)
- *     MiResolveMappedFileFault @ 0x140339520 (MiResolveMappedFileFault.c)
- *     MiPrefetchPagesViable @ 0x140387140 (MiPrefetchPagesViable.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1407BD420 (MiPfPrepareReadList.c)
+ *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
+ *     MiGetPageForHeader @ 0x14026E62C (MiGetPageForHeader.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiPickClusterForMappedFileFault @ 0x140319C70 (MiPickClusterForMappedFileFault.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
  * Callees:
- *     MiReturnFaultCharges @ 0x14024AA58 (MiReturnFaultCharges.c)
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiChargePartitionResidentAvailable @ 0x14028DC40 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MiReturnFaultCharges @ 0x14028E1E4 (MiReturnFaultCharges.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402B0CC8 (MiChargePartitionResidentAvailable.c)
  */
 
-unsigned __int64 __fastcall MiObtainFaultCharges(ULONG_PTR *a1, unsigned __int64 a2, char a3)
+__int64 __fastcall MiObtainFaultCharges(ULONG_PTR *a1, unsigned int a2, char a3)
 {
+  __int64 v6; // r9
   struct _KPRCB *CurrentPrcb; // r8
   unsigned __int64 CachedResidentAvailable; // rdx
-  bool v8; // zf
-  unsigned __int32 v9; // eax
-  unsigned __int64 v10; // rbx
-  __int64 v12; // r8
+  bool v9; // zf
+  unsigned __int32 v10; // eax
+  unsigned int v11; // ebx
+  __int64 v13; // r8
 
   while ( 1 )
   {
+    v6 = a2;
     if ( a1 == &MiSystemPartition )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -39,53 +41,53 @@ unsigned __int64 __fastcall MiObtainFaultCharges(ULONG_PTR *a1, unsigned __int64
         {
           if ( (_DWORD)CachedResidentAvailable == -1 )
             break;
-          v9 = _InterlockedCompareExchange(
-                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                 CachedResidentAvailable - a2,
-                 CachedResidentAvailable);
-          v8 = (_DWORD)CachedResidentAvailable == v9;
-          LODWORD(CachedResidentAvailable) = v9;
-          if ( v8 )
+          v10 = _InterlockedCompareExchange(
+                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                  CachedResidentAvailable - a2,
+                  CachedResidentAvailable);
+          v9 = (_DWORD)CachedResidentAvailable == v10;
+          LODWORD(CachedResidentAvailable) = v10;
+          if ( v9 )
             goto LABEL_5;
         }
-        while ( a2 <= v9 );
+        while ( a2 <= (unsigned __int64)v10 );
       }
     }
-    v12 = 1LL;
+    v13 = 1LL;
     if ( a2 != 1 )
-      v12 = 1024LL;
-    if ( (unsigned int)MiChargePartitionResidentAvailable((__int64)a1, a2, v12) )
+      v13 = 1024LL;
+    if ( (unsigned int)MiChargePartitionResidentAvailable(a1, a2, v13, a2) )
       break;
     a2 >>= 1;
     if ( !a2 )
-      goto LABEL_20;
+      goto LABEL_22;
   }
 LABEL_5:
   if ( a2 )
     goto LABEL_6;
-LABEL_20:
+LABEL_22:
   if ( (a3 & 2) == 0 )
     return 0LL;
-  a2 = 1LL;
-  MiChargeResident(a1, 1uLL, 0xFFFFFFFFLL);
+  a2 = 1;
+  MiChargeResident(a1, 1LL, 0xFFFFFFFFLL, v6);
 LABEL_6:
   if ( (a3 & 1) == 0 )
     return a2;
-  v10 = a2;
-  while ( !(unsigned int)MiChargeCommit(a1, v10, 1LL) )
+  v11 = a2;
+  while ( (unsigned int)MiChargeCommit((__int64)a1, v11, 1u) != 1 )
   {
-    v10 >>= 1;
-    if ( !v10 )
+    v11 >>= 1;
+    if ( !v11 )
     {
       if ( (a3 & 2) != 0 )
       {
-        v10 = 1LL;
-        MiChargeCommit(a1, 1LL, 4LL);
+        v11 = 1;
+        MiChargeCommit((__int64)a1, 1uLL, 4u);
       }
       break;
     }
   }
-  if ( v10 != a2 )
-    MiReturnFaultCharges((__int64)a1, a2 - v10, 0);
-  return v10;
+  if ( v11 != a2 )
+    MiReturnFaultCharges(a1, a2 - v11, 0LL);
+  return v11;
 }

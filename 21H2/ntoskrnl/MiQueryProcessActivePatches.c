@@ -1,370 +1,404 @@
 /*
- * XREFs of MiQueryProcessActivePatches @ 0x14097723C
+ * XREFs of MiQueryProcessActivePatches @ 0x1408CDEE8
  * Callers:
- *     NtManageHotPatch @ 0x1406C9390 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408CED40 (NtManageHotPatch.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     MiFillActivePatchesQueryBuffer @ 0x14097303C (MiFillActivePatchesQueryBuffer.c)
- *     MiGetProcessHotPatchContext @ 0x1409734B8 (MiGetProcessHotPatchContext.c)
- *     MiIsActiveSystemHotPatch @ 0x140973FF0 (MiIsActiveSystemHotPatch.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     MiFillActivePatchesQueryBuffer @ 0x1408C9C58 (MiFillActivePatchesQueryBuffer.c)
+ *     MiGetProcessHotPatchContext @ 0x1408CA1F8 (MiGetProcessHotPatchContext.c)
+ *     MiIsActiveSystemHotPatch @ 0x1408CABA0 (MiIsActiveSystemHotPatch.c)
  */
 
 __int64 __fastcall MiQueryProcessActivePatches(
         HANDLE Handle,
-        _QWORD *a2,
+        __int64 *a2,
         _DWORD *a3,
         __int64 a4,
         unsigned int a5,
-        KPROCESSOR_MODE AccessMode,
-        int a7)
+        KPROCESSOR_MODE AccessMode)
 {
-  __int64 v7; // r14
-  unsigned __int64 k; // rsi
-  unsigned int v9; // r15d
-  struct _KTHREAD *CurrentThread; // r13
-  unsigned int v11; // ebx
+  __int64 *v6; // rsi
+  _DWORD *v7; // r13
+  unsigned int v8; // ebx
+  unsigned __int64 j; // rdi
+  unsigned __int64 k; // r14
+  __int64 v11; // r15
+  unsigned int v12; // r12d
   struct _KTHREAD *Lock; // rax
-  _QWORD *v13; // rcx
+  _QWORD *v14; // rcx
+  __int64 v15; // r8
   unsigned __int64 i; // rcx
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // r8
-  __int64 v17; // rax
-  unsigned __int64 v18; // rax
-  unsigned __int64 v19; // r8
-  _QWORD **v20; // rax
-  _QWORD *v21; // r8
-  PVOID *v22; // rcx
-  PVOID *v23; // r8
-  __int64 v24; // rcx
-  NTSTATUS v25; // edi
-  void *v26; // rax
+  unsigned __int64 v17; // rdx
+  _QWORD **v18; // rax
+  _QWORD *v19; // rdx
+  PVOID *v20; // rcx
+  PVOID *v21; // rdx
+  __int64 v22; // rcx
+  NTSTATUS v23; // eax
+  void *v24; // r13
+  signed __int64 v25; // r10
+  unsigned int v26; // esi
   BOOLEAN v27; // al
   _DWORD *v28; // r9
   _QWORD *ProcessHotPatchContext; // rax
-  _QWORD *v30; // rcx
-  unsigned __int64 v31; // r8
-  __int64 v32; // rdx
-  __int64 v33; // rax
-  int v34; // r13d
+  unsigned __int64 v30; // r13
+  __int64 v31; // rcx
+  unsigned __int64 n; // rcx
+  _QWORD **v33; // rax
+  unsigned __int64 v34; // rdx
+  _QWORD *v35; // rdx
+  unsigned __int64 v36; // r15
+  int v37; // r13d
   _QWORD *Pool; // rax
-  _QWORD *v36; // rdi
-  HANDLE v37; // r9
-  __int64 v38; // rdx
-  __int64 v39; // r8
-  __int64 v40; // rax
-  __int64 v41; // rcx
-  __int64 v42; // r14
-  __int64 *v43; // r15
-  __int64 *j; // rsi
-  _QWORD **v45; // rax
-  unsigned __int64 v46; // rcx
-  _QWORD *v47; // rcx
-  PVOID *m; // rsi
-  __int64 v49; // rdx
-  __int64 v50; // r8
-  _DWORD *v51; // rcx
-  __int64 v52; // r14
-  _QWORD *v53; // rsi
-  bool v54; // zf
-  __int64 v56; // [rsp+60h] [rbp-91h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+68h] [rbp-89h]
-  __int64 v58; // [rsp+70h] [rbp-81h] BYREF
-  _QWORD *v59; // [rsp+78h] [rbp-79h]
-  __int64 v60; // [rsp+80h] [rbp-71h] BYREF
-  __int64 v61; // [rsp+88h] [rbp-69h] BYREF
-  __int64 v62; // [rsp+90h] [rbp-61h] BYREF
-  struct _KTHREAD *v63; // [rsp+98h] [rbp-59h]
-  PVOID Object; // [rsp+A0h] [rbp-51h] BYREF
-  _QWORD *v65; // [rsp+A8h] [rbp-49h]
-  _DWORD *v66; // [rsp+B0h] [rbp-41h]
-  __int64 v67; // [rsp+B8h] [rbp-39h]
-  HANDLE v68; // [rsp+C0h] [rbp-31h]
-  _OWORD v69[3]; // [rsp+C8h] [rbp-29h] BYREF
+  __int64 v39; // rsi
+  HANDLE v40; // r9
+  __int64 v41; // r8
+  __int64 v42; // r15
+  __int64 v43; // rdx
+  _QWORD **v44; // rax
+  unsigned __int64 v45; // rcx
+  _QWORD *v46; // rcx
+  PVOID *m; // rdi
+  __int64 v48; // rdx
+  __int64 v49; // r8
+  _DWORD *v50; // rcx
+  _QWORD **v51; // rax
+  unsigned __int64 v52; // rcx
+  _QWORD *v53; // rcx
+  struct _KTHREAD *v54; // r14
+  _QWORD *v55; // rdi
+  __int64 v57; // [rsp+50h] [rbp-89h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-81h]
+  __int64 *v59; // [rsp+60h] [rbp-79h]
+  _DWORD *v60; // [rsp+68h] [rbp-71h]
+  __int64 v61; // [rsp+70h] [rbp-69h] BYREF
+  __int64 v62; // [rsp+78h] [rbp-61h] BYREF
+  __int64 v63; // [rsp+80h] [rbp-59h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-51h]
+  PVOID Object; // [rsp+90h] [rbp-49h] BYREF
+  _QWORD *v66; // [rsp+98h] [rbp-41h]
+  __int64 v67; // [rsp+A0h] [rbp-39h]
+  HANDLE v68; // [rsp+A8h] [rbp-31h]
+  _OWORD v69[3]; // [rsp+B0h] [rbp-29h] BYREF
 
+  v59 = a2;
   v68 = Handle;
+  v6 = a2;
   v67 = a4;
-  v66 = a3;
-  v65 = a2;
-  v7 = 40LL;
-  v56 = 0LL;
-  v69[0] = 0LL;
-  if ( a7 != 2 )
-    v7 = 48LL;
-  BugCheckParameter1 = 0LL;
-  v59 = 0LL;
+  v60 = a3;
+  v57 = 0LL;
+  v7 = a3;
+  DmaAdapter = 0LL;
+  LOBYTE(v8) = 0;
+  v66 = 0LL;
+  j = 0LL;
   k = 0LL;
-  v9 = 0;
-  memset(&v69[1], 0, 32);
+  v11 = 0LL;
+  v12 = 0;
+  memset(v69, 0, sizeof(v69));
   CurrentThread = KeGetCurrentThread();
-  v63 = CurrentThread;
   if ( !Handle )
   {
-    v11 = 8;
+    v8 = 8;
     Lock = MmAcquireLoadLock();
-    v13 = (_QWORD *)qword_140C533B8;
-    v63 = Lock;
-    while ( v13 )
+    v14 = (_QWORD *)MiSecureImageActivePatches;
+    v15 = 0LL;
+    CurrentThread = Lock;
+    while ( v14 )
     {
-      k = (unsigned __int64)v13;
-      v13 = (_QWORD *)*v13;
+      k = (unsigned __int64)v14;
+      v14 = (_QWORD *)*v14;
     }
     i = k;
-    v15 = v7;
-    if ( k )
+    while ( i )
     {
-      v16 = v7;
-      do
+      ++v12;
+      v17 = i;
+      v11 += *(unsigned __int16 *)(i + 48) + 24LL;
+      v18 = *(_QWORD ***)(i + 8);
+      if ( v18 )
       {
-        ++v9;
-        v17 = 28LL;
-        if ( a7 == 2 )
-          v17 = 24LL;
-        v18 = v16 + v17;
-        v19 = i;
-        v15 = v18 + *(unsigned __int16 *)(i + 48);
-        v20 = *(_QWORD ***)(i + 8);
-        if ( v20 )
+        v19 = *v18;
+        for ( i = *(_QWORD *)(i + 8); v19; v19 = (_QWORD *)*v19 )
+          i = (unsigned __int64)v19;
+      }
+      else
+      {
+        while ( 1 )
         {
-          v21 = *v20;
-          for ( i = *(_QWORD *)(i + 8); v21; v21 = (_QWORD *)*v21 )
-            i = (unsigned __int64)v21;
+          i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( !i || *(_QWORD *)i == v17 )
+            break;
+          v17 = i;
+        }
+      }
+    }
+    v20 = (PVOID *)PsLoadedModuleList;
+    v21 = &PsLoadedModuleList;
+    while ( v20 != v21 )
+    {
+      if ( MiIsActiveSystemHotPatch((__int64)v20) )
+      {
+        ++v12;
+        v11 += *(unsigned __int16 *)(v22 + 72) + 24LL;
+      }
+      v20 = *(PVOID **)v22;
+    }
+LABEL_40:
+    v36 = v11 + 40;
+    if ( a5 >= v36 )
+    {
+      v37 = v36;
+      Pool = MiAllocatePool(256, (unsigned int)v36, 0x71486D4Du);
+      v25 = 0LL;
+      v39 = (__int64)Pool;
+      if ( Pool )
+      {
+        v40 = v68;
+        Pool[1] = v68;
+        *(_DWORD *)Pool = 2;
+        if ( v12 )
+        {
+          v41 = (__int64)(Pool + 5);
+          v42 = (__int64)Pool - v67;
+          v43 = (__int64)&Pool[2 * v12 + 5];
+          v62 = (__int64)(Pool + 5);
+          v63 = v43;
+          Pool[3] = Pool + 5;
+          Pool[4] = v43;
+          v61 = v43 + 8LL * v12;
+          if ( v40 )
+          {
+            while ( j )
+            {
+              if ( *(_DWORD *)(j + 88) )
+              {
+                MiFillActivePatchesQueryBuffer(
+                  v39,
+                  v43,
+                  v41,
+                  v42,
+                  (_QWORD **)&v63,
+                  (UNICODE_STRING **)&v62,
+                  (wchar_t **)&v61,
+                  (_QWORD *)(j + 48),
+                  (PCUNICODE_STRING)(j + 64));
+                v25 = 0LL;
+              }
+              v51 = *(_QWORD ***)(j + 8);
+              v52 = j;
+              if ( v51 )
+              {
+                v53 = *v51;
+                for ( j = *(_QWORD *)(j + 8); v53; v53 = (_QWORD *)*v53 )
+                  j = (unsigned __int64)v53;
+              }
+              else
+              {
+                while ( 1 )
+                {
+                  j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+                  if ( !j || *(_QWORD *)j == v52 )
+                    break;
+                  v52 = j;
+                }
+              }
+            }
+          }
+          else
+          {
+            while ( k )
+            {
+              v57 = *(_QWORD *)(k + 24);
+              MiFillActivePatchesQueryBuffer(
+                v39,
+                v43,
+                v41,
+                v42,
+                (_QWORD **)&v63,
+                (UNICODE_STRING **)&v62,
+                (wchar_t **)&v61,
+                &v57,
+                (PCUNICODE_STRING)(k + 48));
+              v44 = *(_QWORD ***)(k + 8);
+              v25 = 0LL;
+              v45 = k;
+              if ( v44 )
+              {
+                v46 = *v44;
+                for ( k = *(_QWORD *)(k + 8); v46; v46 = (_QWORD *)*v46 )
+                  k = (unsigned __int64)v46;
+              }
+              else
+              {
+                while ( 1 )
+                {
+                  k = *(_QWORD *)(k + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+                  if ( !k || *(_QWORD *)k == v45 )
+                    break;
+                  v45 = k;
+                }
+              }
+            }
+            for ( m = (PVOID *)PsLoadedModuleList; m != &PsLoadedModuleList; m = (PVOID *)*m )
+            {
+              if ( MiIsActiveSystemHotPatch((__int64)m) )
+              {
+                v50 = m[35];
+                LODWORD(v57) = v50[30];
+                HIDWORD(v57) = v50[39];
+                MiFillActivePatchesQueryBuffer(
+                  v39,
+                  v48,
+                  v49,
+                  v42,
+                  (_QWORD **)&v63,
+                  (UNICODE_STRING **)&v62,
+                  (wchar_t **)&v61,
+                  &v57,
+                  (PCUNICODE_STRING)(m + 9));
+                v25 = 0LL;
+              }
+            }
+          }
+          *(_QWORD *)(v39 + 32) -= v42;
+          *(_QWORD *)(v39 + 24) -= v42;
+        }
+        *v59 = v39;
+        v26 = v25;
+        *v60 = v37;
+      }
+      else
+      {
+        v26 = -1073741670;
+      }
+    }
+    else
+    {
+      v25 = 0LL;
+      if ( v36 <= 0xFFFFFFFF )
+      {
+        *v6 = v15;
+        v26 = v15;
+        *v7 = v36;
+      }
+      else
+      {
+        v26 = -1073741675;
+      }
+    }
+    goto LABEL_75;
+  }
+  Object = 0LL;
+  v23 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, AccessMode, &Object, 0LL);
+  v24 = Object;
+  v25 = 0LL;
+  DmaAdapter = (PADAPTER_OBJECT)Object;
+  v26 = v23;
+  if ( v23 < 0 )
+  {
+    v54 = CurrentThread;
+    goto LABEL_79;
+  }
+  v27 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)Object + 139);
+  v8 = 2 * (v27 & 1);
+  if ( (v27 & 1) != 0 )
+  {
+    KiStackAttachProcess((_KPROCESS *)v24, 0LL, (__int64)v69, v28);
+    v8 |= 4u;
+    ProcessHotPatchContext = MiGetProcessHotPatchContext((__int64)v24, 0);
+    v15 = 0LL;
+    v66 = ProcessHotPatchContext;
+    v30 = (unsigned __int64)ProcessHotPatchContext;
+    if ( ProcessHotPatchContext )
+    {
+      v8 |= 1u;
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)(ProcessHotPatchContext + 2), 0LL);
+      v31 = *(_QWORD *)(v30 + 8);
+      if ( (v31 & 1) != 0 )
+      {
+        if ( v31 != 1 )
+          j = v31 ^ (v30 | 1);
+      }
+      else
+      {
+        j = *(_QWORD *)(v30 + 8);
+      }
+      v15 = 0LL;
+      n = j;
+      while ( n )
+      {
+        if ( *(_DWORD *)(n + 88) )
+        {
+          ++v12;
+          v11 += *(unsigned __int16 *)(n + 64) + 24LL;
+        }
+        v33 = *(_QWORD ***)(n + 8);
+        v34 = n;
+        if ( v33 )
+        {
+          v35 = *v33;
+          for ( n = *(_QWORD *)(n + 8); v35; v35 = (_QWORD *)*v35 )
+            n = (unsigned __int64)v35;
         }
         else
         {
           while ( 1 )
           {
-            i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-            if ( !i || *(_QWORD *)i == v19 )
+            n = *(_QWORD *)(n + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+            if ( !n || *(_QWORD *)n == v34 )
               break;
-            v19 = i;
+            v34 = n;
           }
         }
-        v16 = v15;
       }
-      while ( i );
     }
-    v22 = (PVOID *)PsLoadedModuleList;
-    v23 = &PsLoadedModuleList;
-    while ( v22 != v23 )
-    {
-      if ( MiIsActiveSystemHotPatch((__int64)v22) )
-      {
-        v15 += *(unsigned __int16 *)(v24 + 72) + 24LL;
-        ++v9;
-        if ( a7 != 2 )
-          v15 += 4LL;
-      }
-      v22 = *(PVOID **)v24;
-    }
-    goto LABEL_35;
+    v6 = v59;
+    v7 = v60;
+    goto LABEL_40;
   }
-  Object = 0LL;
-  v25 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, AccessMode, &Object, 0LL);
-  v26 = Object;
-  BugCheckParameter1 = (ULONG_PTR)Object;
-  if ( v25 < 0 )
-    goto LABEL_82;
-  v27 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)Object + 139);
-  v11 = 2 * (v27 & 1);
-  if ( (v27 & 1) != 0 )
+  v26 = -1073741558;
+  v25 = 0LL;
+LABEL_75:
+  v54 = CurrentThread;
+  if ( v8 < 8 )
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v69, v28);
-    v11 |= 4u;
-    ProcessHotPatchContext = MiGetProcessHotPatchContext(BugCheckParameter1, 0);
-    v59 = ProcessHotPatchContext;
-    v15 = v7;
-    if ( ProcessHotPatchContext )
-    {
-      v11 |= 1u;
-      --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockSharedEx((ULONG_PTR)(ProcessHotPatchContext + 2), 0LL);
-      v15 = v7;
-      v30 = (_QWORD *)*v59;
-      if ( (_QWORD *)*v59 != v59 )
-      {
-        v31 = v7;
-        do
-        {
-          v32 = *((unsigned __int16 *)v30 + 20);
-          ++v9;
-          v30 = (_QWORD *)*v30;
-          v33 = 28LL;
-          if ( a7 == 2 )
-            v33 = 24LL;
-          v15 = v31 + v33 + v32;
-          v31 = v15;
-        }
-        while ( v30 != v59 );
-      }
-    }
-LABEL_35:
-    if ( a5 >= v15 )
-    {
-      v34 = v15;
-      Pool = MiAllocatePool(256, (unsigned int)v15, 0x71486D4Du);
-      v36 = Pool;
-      if ( !Pool )
-      {
-        v25 = -1073741670;
-        goto LABEL_69;
-      }
-      v37 = v68;
-      Pool[1] = v68;
-      *(_DWORD *)Pool = a7;
-      if ( v9 )
-      {
-        v38 = (__int64)&Pool[(unsigned __int64)v7 / 8];
-        v39 = (__int64)&Pool[2 * v9 + (unsigned __int64)v7 / 8];
-        v61 = (__int64)&Pool[(unsigned __int64)v7 / 8];
-        v62 = v39;
-        v40 = v39 + 8LL * v9;
-        if ( a7 == 2 )
-        {
-          v41 = v39 + 8LL * v9;
-          v40 = 0LL;
-        }
-        else
-        {
-          v41 = v40 + 4LL * v9;
-        }
-        v58 = v40;
-        v60 = v41;
-        v36[3] = v38;
-        v36[4] = v39;
-        if ( v40 )
-          v36[5] = v40;
-        v42 = (__int64)v36 - v67;
-        if ( v37 )
-        {
-          v43 = v59;
-          for ( j = (__int64 *)*v59; j != v43; j = (__int64 *)*j )
-            MiFillActivePatchesQueryBuffer(
-              (__int64)v36,
-              (__int64)(j + 4),
-              v39,
-              v42,
-              (_QWORD **)&v62,
-              (UNICODE_STRING **)&v61,
-              (wchar_t **)&v60,
-              (_DWORD **)&v58,
-              j + 4,
-              (PCUNICODE_STRING)(j + 5),
-              *((_DWORD *)j + 16));
-        }
-        else
-        {
-          while ( k )
-          {
-            v56 = *(_QWORD *)(k + 24);
-            MiFillActivePatchesQueryBuffer(
-              (__int64)v36,
-              v38,
-              v39,
-              v42,
-              (_QWORD **)&v62,
-              (UNICODE_STRING **)&v61,
-              (wchar_t **)&v60,
-              (_DWORD **)&v58,
-              &v56,
-              (PCUNICODE_STRING)(k + 48),
-              *(_DWORD *)(k + 40));
-            v45 = *(_QWORD ***)(k + 8);
-            v46 = k;
-            if ( v45 )
-            {
-              v47 = *v45;
-              for ( k = *(_QWORD *)(k + 8); v47; v47 = (_QWORD *)*v47 )
-                k = (unsigned __int64)v47;
-            }
-            else
-            {
-              while ( 1 )
-              {
-                k = *(_QWORD *)(k + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-                if ( !k || *(_QWORD *)k == v46 )
-                  break;
-                v46 = k;
-              }
-            }
-          }
-          for ( m = (PVOID *)PsLoadedModuleList; m != &PsLoadedModuleList; m = (PVOID *)*m )
-          {
-            if ( MiIsActiveSystemHotPatch((__int64)m) )
-            {
-              v51 = m[35];
-              LODWORD(v56) = v51[30];
-              HIDWORD(v56) = v51[39];
-              MiFillActivePatchesQueryBuffer(
-                (__int64)v36,
-                v49,
-                v50,
-                v42,
-                (_QWORD **)&v62,
-                (UNICODE_STRING **)&v61,
-                (wchar_t **)&v60,
-                (_DWORD **)&v58,
-                &v56,
-                (PCUNICODE_STRING)(m + 9),
-                *((_DWORD *)m + 78));
-            }
-          }
-        }
-        v36[4] -= v42;
-        v36[3] -= v42;
-        if ( v58 )
-          v36[5] -= v42;
-      }
-      *v65 = v36;
-      *v66 = v34;
-    }
-    else
-    {
-      if ( v15 > 0xFFFFFFFF )
-      {
-        v25 = -1073741675;
-        goto LABEL_69;
-      }
-      *v65 = 0LL;
-      *v66 = v15;
-    }
-    v25 = 0;
-    goto LABEL_69;
+    v24 = DmaAdapter;
   }
-  v25 = -1073741558;
-LABEL_69:
-  v52 = (__int64)v63;
-  if ( v11 >= 8 )
-    MmReleaseLoadLock((__int64)v63);
-  if ( (v11 & 1) != 0 )
+  else
   {
-    v53 = v59;
-    if ( _InterlockedCompareExchange64(v59 + 2, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v53 + 2);
-    KeAbPostRelease((ULONG_PTR)(v53 + 2));
-    v54 = (*(_WORD *)(v52 + 486))++ == 0xFFFF;
-    if ( v54 && *(_QWORD *)(v52 + 152) != v52 + 152 )
-      KiCheckForKernelApcDelivery();
+    MmReleaseLoadLock((__int64)CurrentThread);
+    v24 = DmaAdapter;
+    v25 = 0LL;
   }
-  if ( (v11 & 4) != 0 )
-    KiUnstackDetachProcess((__int64)v69, 0LL);
-  if ( (v11 & 2) != 0 )
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
-  v26 = (void *)BugCheckParameter1;
-LABEL_82:
-  if ( v26 )
-    ObfDereferenceObject(v26);
-  return (unsigned int)v25;
+LABEL_79:
+  if ( (v8 & 1) != 0 )
+  {
+    v55 = v66;
+    if ( _InterlockedCompareExchange64(v66 + 2, v25, 17LL) != 17 )
+      ExfReleasePushLockShared(v55 + 2);
+    KeAbPostRelease((ULONG_PTR)(v55 + 2));
+    KiLeaveGuardedRegionUnsafe((__int64)v54);
+  }
+  if ( (v8 & 4) != 0 )
+    KiUnstackDetachProcess((__int64)v69, 0);
+  if ( (v8 & 2) != 0 )
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v24 + 139);
+  if ( v24 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)v24);
+  return v26;
 }

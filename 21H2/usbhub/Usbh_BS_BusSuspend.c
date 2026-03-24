@@ -1,29 +1,29 @@
 /*
- * XREFs of Usbh_BS_BusSuspend @ 0x1C000FE40
+ * XREFs of Usbh_BS_BusSuspend @ 0x1C0002D20
  * Callers:
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReleaseBusStateLock @ 0x1C0010420 (UsbhReleaseBusStateLock.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhBusDisconnect_Action @ 0x1C0030A90 (UsbhBusDisconnect_Action.c)
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
+ *     UsbhReleaseBusStateLock @ 0x1C0003300 (UsbhReleaseBusStateLock.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhBusDisconnect_Action @ 0x1C0031E38 (UsbhBusDisconnect_Action.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
  */
 
 __int64 __fastcall Usbh_BS_BusSuspend(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v3; // rsi
+  __int64 v3; // rdi
   _DWORD *v6; // rdx
   unsigned int v7; // ebp
   __int64 v8; // rdx
   __int64 v9; // rcx
-  int v10; // esi
-  int v11; // esi
-  int v12; // esi
-  unsigned __int16 i; // si
+  int v10; // edi
+  int v11; // edi
+  int v12; // edi
+  unsigned __int16 i; // di
   __int64 v14; // rdx
   __int64 v15; // rdx
   __int64 v16; // rcx
@@ -81,7 +81,7 @@ __int64 __fastcall Usbh_BS_BusSuspend(__int64 a1, __int64 a2, int a3)
         if ( !v12 )
         {
           FdoExt(a1);
-          Log(a1, 2048, 1919251262, 0LL, 0LL);
+          Log(a1, 2048, 1919251262, 0, 0LL);
           for ( i = 1; ; ++i )
           {
             v14 = *(_QWORD *)(a1 + 64);

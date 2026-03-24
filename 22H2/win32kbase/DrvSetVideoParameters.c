@@ -1,139 +1,154 @@
 /*
- * XREFs of DrvSetVideoParameters @ 0x1C0167D98
+ * XREFs of DrvSetVideoParameters @ 0x1C0148060
  * Callers:
- *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0135D48 (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
+ *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00198CC (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
  * Callees:
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E270 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     DrvGetDeviceFromName @ 0x1C005B090 (DrvGetDeviceFromName.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E47C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     DrvGetDeviceFromName @ 0x1C0022870 (DrvGetDeviceFromName.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall DrvSetVideoParameters(PCUNICODE_STRING String1, __int64 a2, _OWORD *a3, int a4, int a5)
 {
   unsigned int v9; // esi
-  __int64 DeviceFromName; // r14
-  _DWORD *v12; // rdi
-  _OWORD *v13; // rcx
-  _OWORD *v14; // rax
-  __int64 v15; // r15
-  __int64 v16; // rdx
-  int v17; // ecx
-  int v18; // eax
-  _OWORD *v19; // rax
-  unsigned int v20; // [rsp+80h] [rbp+8h] BYREF
+  wchar_t *DeviceFromName; // r14
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  bool v14; // zf
+  __int64 v15; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  _DWORD *v19; // rbx
+  __int64 v20; // rax
+  _OWORD *v21; // rcx
+  _OWORD *v22; // rax
+  __int64 v23; // r15
+  __int64 v24; // rdx
+  int v25; // ecx
+  int v26; // eax
+  _OWORD *v27; // rax
+  unsigned int v28; // [rsp+80h] [rbp+8h] BYREF
+  _DWORD *v29; // [rsp+88h] [rbp+10h]
 
   v9 = -5;
   DeviceFromName = 0LL;
-  WdLogSingleEntry2(4LL, String1);
+  v11 = WdLogNewEntry5_WdEvent(String1);
+  *(_QWORD *)(v11 + 24) = String1;
+  *(_QWORD *)(v11 + 32) = a2;
+  WdLogEvent5_WdEvent(v11);
   if ( String1 )
   {
     DeviceFromName = DrvGetDeviceFromName(String1);
-    if ( !DeviceFromName )
-      goto LABEL_8;
+    v14 = DeviceFromName == 0LL;
   }
   else
   {
     if ( a2 )
-      DeviceFromName = *(_QWORD *)(a2 + 2552);
-    if ( !DeviceFromName )
-      goto LABEL_8;
+      DeviceFromName = *(wchar_t **)(a2 + 2576);
+    v14 = DeviceFromName == 0LL;
   }
-  if ( DeviceFromName == -4 )
+  if ( v14 || DeviceFromName == (wchar_t *)-4LL )
   {
-LABEL_8:
-    WdLogSingleEntry0(5LL);
+    v15 = WdLogNewEntry5_WdTrace(v13, v12);
+LABEL_33:
+    WdLogEvent5_WdTrace(v15);
     return v9;
+  }
+  if ( !DeviceFromName )
+  {
+LABEL_32:
+    v15 = WdLogNewEntry5_WdTrace(v13, v12);
+    *(_QWORD *)(v15 + 24) = (int)v9;
+    goto LABEL_33;
   }
   if ( a3 )
   {
-    if ( !a5 || (*(_DWORD *)(DeviceFromName + 160) & 0x800000) != 0 )
+    if ( a5 && (*((_DWORD *)DeviceFromName + 40) & 0x800000) == 0 )
+      return 0xFFFFFFFFLL;
+    v19 = PALLOCMEM2(0x2C8uLL, 1936876615LL, 0);
+    v29 = v19;
+    if ( !v19 )
     {
-      v12 = (_DWORD *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                        gpLeakTrackingAllocator,
-                        260LL,
-                        0x2C8uLL,
-                        0x73726447u);
-      if ( v12 )
+      v20 = WdLogNewEntry5_WdTrace(v18, v17);
+      WdLogEvent5_WdTrace(v20);
+      return 0xFFFFFFFFLL;
+    }
+    v21 = v19;
+    v22 = a3;
+    v23 = 2LL;
+    v24 = 2LL;
+    do
+    {
+      *v21 = *v22;
+      v21[1] = v22[1];
+      v21[2] = v22[2];
+      v21[3] = v22[3];
+      v21[4] = v22[4];
+      v21[5] = v22[5];
+      v21[6] = v22[6];
+      v21 += 8;
+      *(v21 - 1) = v22[7];
+      v22 += 8;
+      --v24;
+    }
+    while ( v24 );
+    *v21 = *v22;
+    v21[1] = v22[1];
+    v21[2] = v22[2];
+    v21[3] = v22[3];
+    v21[4] = v22[4];
+    v21[5] = v22[5];
+    *((_DWORD *)v21 + 24) = *((_DWORD *)v22 + 24);
+    if ( a4 )
+    {
+      v25 = v19[5];
+      if ( v25 != 1
+        && (v25 != 2 || ((v19[6] & 0x100) == 0 || v19[21] != 2) && ((v19[6] & 0x100) == 0 || v19[21] != 4 || v19[24])) )
       {
-        v13 = v12;
-        v14 = a3;
-        v15 = 2LL;
-        v16 = 2LL;
-        do
-        {
-          *v13 = *v14;
-          v13[1] = v14[1];
-          v13[2] = v14[2];
-          v13[3] = v14[3];
-          v13[4] = v14[4];
-          v13[5] = v14[5];
-          v13[6] = v14[6];
-          v13 += 8;
-          *(v13 - 1) = v14[7];
-          v14 += 8;
-          --v16;
-        }
-        while ( v16 );
-        *v13 = *v14;
-        v13[1] = v14[1];
-        v13[2] = v14[2];
-        v13[3] = v14[3];
-        v13[4] = v14[4];
-        v13[5] = v14[5];
-        *((_DWORD *)v13 + 24) = *((_DWORD *)v14 + 24);
-        if ( !a4
-          || (v17 = v12[5], v17 == 1)
-          || v17 == 2 && ((v12[6] & 0x100) != 0 && v12[21] == 2 || (v12[6] & 0x100) != 0 && v12[21] == 4 && !v12[24]) )
-        {
-          v18 = GreDeviceIoControlImpl(
-                  *(PDEVICE_OBJECT *)(DeviceFromName + 136),
-                  0x230020u,
-                  v12,
-                  0x164u,
-                  v12,
-                  0x164u,
-                  &v20,
-                  0,
-                  1);
-          if ( v18 )
-            v18 = -5;
-          v9 = v18;
-          v19 = v12;
-          do
-          {
-            *a3 = *v19;
-            a3[1] = v19[1];
-            a3[2] = v19[2];
-            a3[3] = v19[3];
-            a3[4] = v19[4];
-            a3[5] = v19[5];
-            a3[6] = v19[6];
-            a3 += 8;
-            *(a3 - 1) = v19[7];
-            v19 += 8;
-            --v15;
-          }
-          while ( v15 );
-          *a3 = *v19;
-          a3[1] = v19[1];
-          a3[2] = v19[2];
-          a3[3] = v19[3];
-          a3[4] = v19[4];
-          a3[5] = v19[5];
-          *((_DWORD *)a3 + 24) = *((_DWORD *)v19 + 24);
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v12);
-          WdLogSingleEntry1(5LL, (int)v9);
-        }
-        else
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v12);
-        }
+        Win32FreePool((__int64)v19);
         return v9;
       }
-      WdLogSingleEntry0(5LL);
     }
-    return 0xFFFFFFFFLL;
+    v26 = GreDeviceIoControlImpl(
+            *((PDEVICE_OBJECT *)DeviceFromName + 17),
+            0x230020u,
+            v19,
+            0x164u,
+            v19,
+            0x164u,
+            &v28,
+            0,
+            1);
+    if ( v26 )
+      v26 = -5;
+    v9 = v26;
+    v27 = v19;
+    do
+    {
+      *a3 = *v27;
+      a3[1] = v27[1];
+      a3[2] = v27[2];
+      a3[3] = v27[3];
+      a3[4] = v27[4];
+      a3[5] = v27[5];
+      a3[6] = v27[6];
+      a3 += 8;
+      *(a3 - 1) = v27[7];
+      v27 += 8;
+      --v23;
+    }
+    while ( v23 );
+    *a3 = *v27;
+    a3[1] = v27[1];
+    a3[2] = v27[2];
+    a3[3] = v27[3];
+    a3[4] = v27[4];
+    a3[5] = v27[5];
+    *((_DWORD *)a3 + 24) = *((_DWORD *)v27 + 24);
+    Win32FreePool((__int64)v19);
+    goto LABEL_32;
   }
   return v9;
 }

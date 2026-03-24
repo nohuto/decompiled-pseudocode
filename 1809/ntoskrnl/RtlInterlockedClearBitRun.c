@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedClearBitRun @ 0x1402EECD0
+ * XREFs of RtlInterlockedClearBitRun @ 0x1402EEDD0
  * Callers:
- *     EtwpFreeUserBufferSpace @ 0x1408C36D4 (EtwpFreeUserBufferSpace.c)
+ *     EtwpFreeUserBufferSpace @ 0x1408C36B4 (EtwpFreeUserBufferSpace.c)
  * Callees:
  *     <none>
  */

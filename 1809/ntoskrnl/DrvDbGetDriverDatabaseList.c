@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseList @ 0x1406D38F8
+ * XREFs of DrvDbGetDriverDatabaseList @ 0x1406D38D8
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D27A0 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseList(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDriverWhiteboxDiagData@DISPLAYSTATECHECKER@@AEAAJPEAU_DXGK_DIAG_BLACK_SCREEN_DRIVER_WHITEBOX_INFO@@I@Z @ 0x1C02EF03C
+ * XREFs of ?GetDriverWhiteboxDiagData@DISPLAYSTATECHECKER@@AEAAJPEAU_DXGK_DIAG_BLACK_SCREEN_DRIVER_WHITEBOX_INFO@@I@Z @ 0x1C02BB118
  * Callers:
- *     ?CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02EE650 (-CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z.c)
+ *     ?CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02BA818 (-CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z.c)
  * Callees:
- *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004D190 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
- *     ?GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ @ 0x1C004D224 (-GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ.c)
+ *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004DEF0 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
+ *     ?GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ @ 0x1C004DF3C (-GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ.c)
  */
 
 __int64 __fastcall DISPLAYSTATECHECKER::GetDriverWhiteboxDiagData(
@@ -33,8 +33,8 @@ __int64 __fastcall DISPLAYSTATECHECKER::GetDriverWhiteboxDiagData(
   if ( a3 < (unsigned int)DISPLAYSTATECHECKER::GetDriverWhiteboxDiagDataSize(this) )
     return 3221225507LL;
   v6 = 0;
-  *(_DWORD *)a2 = *((_DWORD *)this + 3522);
-  for ( *((_QWORD *)a2 + 1) = (char *)a2 + 16; v6 < *((_DWORD *)this + 3522); ++v6 )
+  *(_DWORD *)a2 = *((_DWORD *)this + 3514);
+  for ( *((_QWORD *)a2 + 1) = (char *)a2 + 16; v6 < *((_DWORD *)this + 3514); ++v6 )
   {
     DisplayAdapterDiagData = DISPLAYSTATECHECKER::GetDisplayAdapterDiagData(this, v6);
     v8 = *((_QWORD *)a2 + 1) + 32LL * v6;

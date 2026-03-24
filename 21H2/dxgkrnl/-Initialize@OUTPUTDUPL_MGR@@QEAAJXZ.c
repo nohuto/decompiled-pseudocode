@@ -1,64 +1,87 @@
 /*
- * XREFs of ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C0210998
+ * XREFs of ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C019BDB0
  * Callers:
- *     ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C02108A8 (-CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
+ *     ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C019BCDC (-CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C0210A20 (-CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C019BE7C (-CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ.c)
  */
 
-__int64 __fastcall OUTPUTDUPL_MGR::Initialize(OUTPUTDUPL_MGR *this)
+__int64 __fastcall OUTPUTDUPL_MGR::Initialize(OUTPUTDUPL_MGR *this, __int64 a2)
 {
-  __int64 v2; // rcx
-  DXGSESSIONMGR *v3; // rsi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  DXGSESSIONMGR *v5; // rdi
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  _DWORD *v6; // rax
+  _DWORD *v8; // rcx
+  _QWORD *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
   __int64 result; // rax
-  __int64 v8; // rdi
-  const wchar_t *v9; // r9
+  __int64 v15; // rax
+  __int64 v16; // rax
 
-  if ( *((_DWORD *)this + 19) > 0x10u )
+  if ( *((_DWORD *)this + 13) > 0x10u )
   {
-    WdLogSingleEntry1(2LL, 16LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Output duplication manager only support 0x%I64x sources\n",
-      16LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v15 + 24) = 16LL;
+LABEL_14:
+    WdLogEvent5_WdError(v15);
     return 3221225485LL;
   }
-  v3 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( !v3
-    || (CurrentProcessSessionId = PsGetCurrentProcessSessionId(v2),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v3, CurrentProcessSessionId)) == 0LL) )
+  v5 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+  if ( v5 )
   {
-    v8 = 900LL;
-    WdLogSingleEntry1(2LL, 900LL);
-    v9 = L"DXGSESSIONDATA is NULL";
-    goto LABEL_11;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v4, v3);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v5, CurrentProcessSessionId);
   }
-  v6 = (_DWORD *)*((_QWORD *)SessionDataForSpecifiedSession + 1);
-  if ( !v6 )
+  else
   {
-    v8 = 907LL;
-    WdLogSingleEntry1(2LL, 907LL);
-    v9 = L"OUTPUTDUPL_SESSION_MGR is NULL";
-LABEL_11:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, v8, 0LL, 0LL, 0LL, 0LL);
-    return 3221225485LL;
+    SessionDataForSpecifiedSession = 0LL;
   }
-  *((_DWORD *)this + 2) = *v6;
-  result = OUTPUTDUPL_MGR::CreateSourceContextLists(this);
-  if ( (int)result >= 0 )
-    return 0LL;
-  *((_DWORD *)this + 19) = 0;
+  if ( !SessionDataForSpecifiedSession )
+  {
+    v15 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v15 + 24) = 922LL;
+    goto LABEL_14;
+  }
+  v8 = (_DWORD *)*((_QWORD *)SessionDataForSpecifiedSession + 1);
+  if ( !v8 )
+  {
+    v15 = WdLogNewEntry5_WdError(0LL, v3);
+    *(_QWORD *)(v15 + 24) = 929LL;
+    goto LABEL_14;
+  }
+  *((_DWORD *)this + 2) = *v8;
+  v9 = operator new[](0x20uLL, 0x674D444Fu, (POOL_TYPE)512);
+  if ( v9 )
+  {
+    *v9 = 0LL;
+    v9[1] = 0LL;
+    *((_DWORD *)v9 + 4) = 0;
+    *((_DWORD *)v9 + 5) = 19;
+    *((_DWORD *)v9 + 6) = 50;
+  }
+  *((_QWORD *)this + 3) = v9;
+  if ( v9 )
+  {
+    result = OUTPUTDUPL_MGR::CreateSourceContextLists(this);
+    if ( (int)result < 0 )
+      *((_DWORD *)this + 13) = 0;
+    else
+      return 0LL;
+  }
+  else
+  {
+    v16 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+    *(_QWORD *)(v16 + 24) = 939LL;
+    WdLogEvent5_WdLowResource(v16);
+    return 3221225495LL;
+  }
   return result;
 }

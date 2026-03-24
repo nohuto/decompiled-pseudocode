@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhDeleteOrphanPdo @ 0x1C0053618
+ * XREFs of UsbhDeleteOrphanPdo @ 0x1C0054C78
  * Callers:
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     SET_PDO_HWPNPSTATE @ 0x1C0035D18 (SET_PDO_HWPNPSTATE.c)
- *     UsbhRemoveAndDeletePdo @ 0x1C0056D50 (UsbhRemoveAndDeletePdo.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036FD4 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhRemoveAndDeletePdo @ 0x1C0058428 (UsbhRemoveAndDeletePdo.c)
  */
 
 _DWORD *__fastcall UsbhDeleteOrphanPdo(struct _DEVICE_OBJECT *BugCheckParameter4)

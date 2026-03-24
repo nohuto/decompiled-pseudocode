@@ -1,1057 +1,932 @@
 /*
- * XREFs of HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018420
+ * XREFs of HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0pjq_EtwWriteTransfer @ 0x1C0014154 (McTemplateK0pjq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_q @ 0x1C00150D4 (WPP_RECORDER_SF_q.c)
- *     HUBPDO_GetHubName @ 0x1C0015FA8 (HUBPDO_GetHubName.c)
- *     HUBPDO_RecordFailure @ 0x1C001611C (HUBPDO_RecordFailure.c)
- *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C00162F0 (HUBPDO_ReturnDeviceConfigInfo.c)
- *     HUBPDO_ValidateURB @ 0x1C0017350 (HUBPDO_ValidateURB.c)
- *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001CFD0 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
- *     HUBUCX_GetControllerName @ 0x1C0028C2C (HUBUCX_GetControllerName.c)
- *     HUBUCX_GetDeviceBusInfo @ 0x1C0028D84 (HUBUCX_GetDeviceBusInfo.c)
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
- *     HUBMISC_GenerateControllerSuffix @ 0x1C0034188 (HUBMISC_GenerateControllerSuffix.c)
- *     HUBIDLE_AddEvent @ 0x1C003E9A4 (HUBIDLE_AddEvent.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     HUBPDO_RegisterPortPLDRCapability @ 0x1C007FB98 (HUBPDO_RegisterPortPLDRCapability.c)
- *     HUBPDO_UnregisterPortPLDRCapability @ 0x1C0080384 (HUBPDO_UnregisterPortPLDRCapability.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pjq_EtwWriteTransfer @ 0x1C0012C28 (McTemplateK0pjq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
+ *     HUBPDO_GetHubName @ 0x1C0014ADC (HUBPDO_GetHubName.c)
+ *     HUBPDO_RecordFailure @ 0x1C0014C50 (HUBPDO_RecordFailure.c)
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0014E10 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_ValidateURB @ 0x1C0015E30 (HUBPDO_ValidateURB.c)
+ *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001A758 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
+ *     HUBUCX_GetControllerName @ 0x1C0026018 (HUBUCX_GetControllerName.c)
+ *     HUBUCX_GetDeviceBusInfo @ 0x1C002616C (HUBUCX_GetDeviceBusInfo.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
+ *     HUBMISC_GenerateControllerSuffix @ 0x1C0031298 (HUBMISC_GenerateControllerSuffix.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpPreprocess(__int64 a1, IRP *a2)
 {
   unsigned int Status; // ebx
   __int64 v4; // rax
-  _IO_STACK_LOCATION *CurrentStackLocation; // r14
-  __int64 v6; // rdi
-  unsigned int LowPart; // eax
-  unsigned int v8; // eax
-  unsigned int v9; // eax
-  unsigned int v10; // eax
-  unsigned int v11; // eax
-  unsigned int v12; // eax
-  unsigned int v13; // eax
-  unsigned int v14; // eax
-  bool v15; // zf
+  __int64 v5; // rcx
+  _IO_STACK_LOCATION *CurrentStackLocation; // r13
+  __int64 v7; // rsi
+  __int64 v8; // r9
+  __int64 v9; // r8
+  unsigned int LowPart; // r12d
+  int v11; // edi
   _IRP *MasterIrp; // rdx
-  int v17; // r14d
-  char v18; // dl
-  unsigned int v19; // esi
-  _IO_SECURITY_CONTEXT *v20; // r14
-  unsigned int v21; // edx
-  bool v22; // zf
-  __int64 v23; // rcx
-  __int64 v24; // rcx
-  unsigned __int16 v25; // r9
-  unsigned __int8 v26; // dl
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  _IO_SECURITY_CONTEXT *SecurityContext; // r15
-  __int64 v30; // rax
-  _SECURITY_QUALITY_OF_SERVICE *v31; // rcx
-  PVOID v32; // r9
-  __int64 v35; // rcx
-  unsigned __int16 *v36; // rcx
-  unsigned int *v37; // rsi
-  unsigned int v38; // ebx
-  __int64 v39; // rdx
+  char v13; // dl
+  int v14; // edi
+  int v15; // edi
+  int v16; // edi
+  int v17; // edi
+  _IO_STACK_LOCATION *v18; // rax
+  __int64 v19; // rax
+  _IO_SECURITY_CONTEXT *SecurityContext; // rdi
+  unsigned __int16 v22; // cx
+  bool v23; // zf
+  int v24; // eax
+  __int64 v25; // rcx
+  unsigned __int16 v26; // r9
+  unsigned __int8 v27; // dl
+  __int64 v28; // rax
   _SECURITY_QUALITY_OF_SERVICE *SecurityQos; // rcx
-  PVOID v41; // r9
-  unsigned __int16 *v42; // rdx
-  unsigned int AccessState_high; // ecx
-  unsigned int v44; // ebx
-  _IO_STACK_LOCATION *v45; // rax
-  _IO_STACK_LOCATION *v46; // rax
-  __int64 v47; // rbx
-  __int64 v48; // rdx
-  __int64 v49; // rax
-  int v50; // eax
-  unsigned __int16 v51; // r9
-  unsigned __int8 v52; // dl
-  int v53; // eax
-  __int64 v54; // rcx
-  unsigned int v55; // eax
-  unsigned int v56; // eax
-  unsigned int v57; // eax
-  unsigned int v58; // eax
-  unsigned int v59; // eax
-  unsigned int v60; // eax
-  unsigned int DeviceBusInfo; // eax
-  unsigned __int16 v62; // r9
-  unsigned __int8 v63; // dl
-  __int64 v64; // rdx
-  _IO_SECURITY_CONTEXT *v65; // rax
-  _IO_STACK_LOCATION *v66; // rax
-  _IO_STACK_LOCATION *v67; // rax
-  __int64 v68; // rdx
+  __int64 v30; // rdx
+  unsigned __int16 *v31; // rdx
+  unsigned int AccessState_high; // ebx
+  size_t v33; // r8
+  _SECURITY_QUALITY_OF_SERVICE *v34; // rcx
+  unsigned int v35; // ecx
+  unsigned int ControllerSuffix; // eax
+  unsigned __int16 v37; // r9
+  __int64 v38; // rcx
+  unsigned __int16 v39; // r9
+  _IO_SECURITY_CONTEXT *v40; // rax
   _NAMED_PIPE_CREATE_PARAMETERS *Parameters; // rax
-  unsigned int v70; // eax
-  unsigned int v71; // eax
-  unsigned int v72; // eax
-  unsigned int v73; // eax
-  unsigned int v74; // eax
-  unsigned int v75; // eax
-  _IO_SECURITY_CONTEXT *v76; // rcx
-  __int64 v77; // rax
-  __int16 v78; // dx
-  __int64 v79; // r8
-  unsigned int v80; // eax
-  unsigned int v81; // eax
-  unsigned int v82; // eax
-  unsigned int v83; // eax
-  unsigned int v84; // eax
-  unsigned int v85; // eax
-  _IO_SECURITY_CONTEXT *v86; // rax
-  __int64 v87; // rcx
-  _IO_SECURITY_CONTEXT *v88; // r8
-  __int64 v89; // rax
-  __int64 v90; // r9
-  __int64 v91; // rcx
-  char v92; // cl
-  __int64 v93; // rcx
-  char v94; // cl
-  unsigned int v95; // eax
-  unsigned int v96; // eax
-  unsigned int v97; // eax
-  unsigned int v98; // eax
-  unsigned int v99; // eax
-  unsigned int v100; // eax
-  unsigned __int16 v101; // r9
-  _IO_SECURITY_CONTEXT *v102; // rax
-  int v103; // eax
-  int v104; // r14d
-  int v105; // r14d
-  int v106; // r14d
-  int v107; // r14d
-  _IO_STACK_LOCATION *v108; // rax
-  __int64 v109; // rdx
-  __int64 v110; // rax
-  int v111; // ecx
-  __int64 v112; // [rsp+20h] [rbp-60h]
-  __int64 v113; // [rsp+20h] [rbp-60h]
-  ULONG Priority[2]; // [rsp+28h] [rbp-58h]
-  unsigned int v115; // [rsp+30h] [rbp-50h]
-  _IO_STACK_LOCATION *v116; // [rsp+38h] [rbp-48h]
-  struct _KEVENT Event; // [rsp+40h] [rbp-40h] BYREF
-  GUID v118; // [rsp+58h] [rbp-28h] BYREF
-  __int128 Source1; // [rsp+68h] [rbp-18h] BYREF
+  _IO_SECURITY_CONTEXT *v42; // rax
+  __int64 v43; // rcx
+  _IO_SECURITY_CONTEXT *v44; // rcx
+  __int64 v45; // rax
+  __int16 v46; // dx
+  _IO_SECURITY_CONTEXT *v47; // rax
+  int v48; // eax
+  int v49; // ecx
+  _IO_SECURITY_CONTEXT *v50; // rdx
+  __int64 v51; // rax
+  __int64 v52; // rcx
+  char v53; // cl
+  __int64 v54; // rcx
+  char v55; // cl
+  int v56; // eax
+  _IO_STACK_LOCATION *v57; // rax
+  _IO_STACK_LOCATION *v58; // rax
+  int v59; // eax
+  unsigned __int16 v60; // r9
+  unsigned __int8 v61; // dl
+  _IO_STACK_LOCATION *v62; // rax
+  _IO_STACK_LOCATION *v63; // rax
+  __int64 v64; // rax
+  __int64 v65; // rdx
+  __int64 v66; // rcx
+  _IO_SECURITY_CONTEXT *v67; // rdi
+  __int64 v69; // [rsp+20h] [rbp-49h]
+  __int64 v70; // [rsp+20h] [rbp-49h]
+  ULONG Priority[2]; // [rsp+28h] [rbp-41h]
+  struct _KEVENT Event; // [rsp+38h] [rbp-31h] BYREF
+  __int128 Source1; // [rsp+50h] [rbp-19h] BYREF
+  GUID v75; // [rsp+60h] [rbp-9h] BYREF
+  GUID v76; // [rsp+70h] [rbp+7h] BYREF
 
-  *(_QWORD *)&v118.Data1 = a1;
   Status = 0;
   memset(&Event, 0, sizeof(Event));
   Source1 = 0LL;
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
-  v6 = v4;
-  v116 = CurrentStackLocation;
+  v7 = v4;
+  v8 = (__int64)&WPP_RECORDER_INITIALIZED;
+  v9 = 5LL;
   LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-  v115 = LowPart;
-  if ( CurrentStackLocation->MajorFunction != 14 )
+  if ( CurrentStackLocation->MajorFunction == 14 )
   {
-    v18 = 0;
-    switch ( LowPart )
+    if ( LowPart != 2229348 )
     {
-      case 0x220003u:
-        LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-        if ( (unsigned __int16)(*(_WORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 2) - 53) <= 1u )
-LABEL_20:
-          v18 = 1;
-        break;
-      case 0x490007u:
-      case 0x49104Bu:
-        v18 = 1;
-        break;
-      case 0x220FB3u:
-        LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-        if ( (*(_DWORD *)(v6 + 32) & 0x20) == 0 )
-          break;
-        goto LABEL_20;
-      case 0x220463u:
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_q(
-            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-            4u,
-            5u,
-            0x39u,
-            (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-            a2);
-        *(_DWORD *)(*(_QWORD *)(v6 + 24) + 1632LL) |= 0x80000u;
-        goto LABEL_53;
-    }
-    if ( *(_BYTE *)v6 && !v18 )
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_q(
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-          3u,
-          5u,
-          0x3Au,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-          a2);
-      v19 = v115;
-      Status = -1073741810;
-      if ( v115 == 2228227 )
-        *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 4) = -2147482880;
-LABEL_54:
-      if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
-                          WdfDriverGlobals,
-                          WdfDriverGlobals->Driver,
-                          off_1C00691E8)
-                      + 4) & 0x1000) != 0 )
+      if ( LowPart != 2229352 )
       {
-        v118 = 0LL;
-        if ( *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement )
-          (*(void (__fastcall **)(IRP *, GUID *))&WPP_MAIN_CB.AlignmentRequirement)(a2, &v118);
-        if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+        if ( LowPart == 2229356 || LowPart == 2229360 || LowPart == 2229364 || LowPart == 2229368 || LowPart == 2229372 )
+          goto LABEL_16;
+        if ( LowPart != 2229376 )
         {
-          LODWORD(v112) = v19;
-          McTemplateK0pq_EtwWriteTransfer(
-            v28,
-            &USBHUB3_ETW_EVENT_DEVICE_INTERNAL_IOCTL_START,
-            &v118,
-            *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-            v112);
-        }
-        if ( v19 != 2228227 )
-        {
-          if ( v19 == 4788299 )
-          {
-            if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) == 0 )
-              goto LABEL_278;
-            Priority[0] = Status;
-            McTemplateK0pjq_EtwWriteTransfer(
-              v28,
-              v27,
-              &v118,
-              *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-              &Source1,
-              *(_QWORD *)Priority);
-          }
-LABEL_276:
-          if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
-          {
-            Priority[0] = Status;
-            LODWORD(v112) = v19;
-            McTemplateK0pqq_EtwWriteTransfer(
-              v28,
-              &USBHUB3_ETW_EVENT_DEVICE_INTERNAL_IOCTL_COMPLETE,
-              &v118,
-              *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-              v112,
-              *(_QWORD *)Priority);
-          }
-          goto LABEL_278;
-        }
-        SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
-        if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
-        {
-          LODWORD(v112) = WORD1(SecurityContext->SecurityQos);
-          McTemplateK0pq_EtwWriteTransfer(
-            v28,
-            &USBHUB3_ETW_EVENT_DEVICE_URB_START,
-            &v118,
-            *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-            v112);
-          if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
-          {
-            Priority[0] = HIDWORD(SecurityContext->SecurityQos);
-            LODWORD(v113) = WORD1(SecurityContext->SecurityQos);
-            McTemplateK0pqq_EtwWriteTransfer(
-              WORD1(SecurityContext->SecurityQos),
-              &USBHUB3_ETW_EVENT_DEVICE_URB_COMPLETE,
-              &v118,
-              *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-              v113,
-              *(_QWORD *)Priority);
-            goto LABEL_276;
-          }
+LABEL_10:
+          v11 = 3;
+          goto LABEL_26;
         }
       }
-LABEL_278:
-      a2->IoStatus.Status = Status;
-      goto LABEL_279;
-    }
-    if ( LowPart == 2228227 )
-    {
-      v20 = CurrentStackLocation->Parameters.Create.SecurityContext;
-      v21 = WORD1(v20->SecurityQos);
-      if ( (unsigned __int16)(v21 - 9) <= 1u || (unsigned __int16)(v21 - 57) <= 1u )
-        goto LABEL_114;
-      if ( v21 > 0x2A )
+      MasterIrp = a2->AssociatedIrp.MasterIrp;
+      if ( !MasterIrp )
       {
-        if ( v21 != 48 && v21 != 49 )
+        Status = -1073741811;
+LABEL_14:
+        v11 = 2;
+        goto LABEL_26;
+      }
+      *(_QWORD *)(&MasterIrp->Size + 1) = *(_QWORD *)(*(_QWORD *)(v4 + 24) + 24LL);
+    }
+    goto LABEL_16;
+  }
+  v13 = 0;
+  switch ( LowPart )
+  {
+    case 0x220003u:
+      v5 = *(unsigned __int16 *)(CurrentStackLocation->Parameters.WMI.ProviderId + 2);
+      LOWORD(v5) = v5 - 53;
+      if ( (unsigned __int16)v5 <= 1u )
+LABEL_19:
+        v13 = 1;
+      break;
+    case 0x490007u:
+    case 0x49104Bu:
+      v13 = 1;
+      break;
+    case 0x220FB3u:
+      if ( (*(_DWORD *)(v4 + 32) & 0x20) == 0 )
+        break;
+      goto LABEL_19;
+    case 0x220463u:
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_q(
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 24) + 8LL) + 1432LL),
+          4u,
+          5u,
+          0x39u,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+          a2);
+      *(_DWORD *)(*(_QWORD *)(v7 + 24) + 1632LL) |= 0x80000u;
+      goto LABEL_42;
+  }
+  if ( *(_BYTE *)v4 && !v13 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_q(
+        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 24) + 8LL) + 1432LL),
+        3u,
+        5u,
+        0x3Au,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+        a2);
+    Status = -1073741810;
+    v11 = 2;
+    if ( LowPart == 2228227 )
+      *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 4) = -2147482880;
+    goto LABEL_26;
+  }
+  if ( LowPart == 2228227 )
+  {
+    SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
+    v22 = WORD1(SecurityContext->SecurityQos);
+    if ( (unsigned __int16)(v22 - 9) <= 1u || (unsigned __int16)(v22 - 57) <= 1u )
+      goto LABEL_105;
+    if ( v22 > 0x2Au )
+    {
+      if ( v22 < 0x30u )
+        goto LABEL_105;
+      if ( v22 <= 0x31u )
+      {
+LABEL_53:
+        v24 = HUBPDO_ValidateURB(v4, (unsigned __int16 *)CurrentStackLocation->Parameters.Create.SecurityContext, 5LL);
+        Status = v24;
+        if ( v24 >= 0 )
         {
-          if ( v21 == 53 || v21 == 54 )
+          if ( v24 != 128 )
           {
-            v20->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v6 + 24) + 24LL);
-            goto LABEL_117;
+            v11 = (*(_DWORD *)(*(_QWORD *)(v7 + 24) + 1632LL) & 2) != 0 ? 5 : 3;
+            goto LABEL_26;
           }
-          v22 = v21 == 59;
-LABEL_113:
-          if ( !v22 )
-            goto LABEL_114;
+          goto LABEL_86;
         }
+LABEL_42:
+        v11 = 2;
+        goto LABEL_26;
+      }
+      if ( v22 <= 0x34u )
+      {
+LABEL_105:
+        SecurityContext->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v4 + 24) + 24LL);
+        goto LABEL_16;
+      }
+      if ( v22 <= 0x36u )
+      {
+        SecurityContext->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v4 + 24) + 24LL);
+        goto LABEL_10;
+      }
+      v23 = v22 == 59;
+LABEL_52:
+      if ( v23 )
+        goto LABEL_53;
+      goto LABEL_105;
+    }
+    if ( v22 != 42 )
+    {
+      if ( v22 <= 1u )
+        goto LABEL_53;
+      v8 = 11LL;
+      if ( v22 != 11 )
+      {
+        if ( v22 != 19 )
+        {
+          v23 = v22 == 30;
+          goto LABEL_52;
+        }
+        v25 = *(_QWORD *)(v4 + 24);
+        if ( (*(_DWORD *)(v25 + 1632) & 0x80000) == 0 )
+          goto LABEL_105;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v26 = 60;
+          v27 = 4;
+LABEL_59:
+          WPP_RECORDER_SF_(
+            *(_QWORD *)(*(_QWORD *)(v25 + 8) + 1432LL),
+            v27,
+            5u,
+            v26,
+            (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+          goto LABEL_60;
+        }
+        goto LABEL_60;
+      }
+      v28 = *(_QWORD *)(v4 + 24);
+      if ( *(_WORD *)(v28 + 1990) <= 0x200u )
+      {
+        SecurityContext->AccessState = *(_ACCESS_STATE **)(v28 + 24);
+        goto LABEL_16;
+      }
+      Status = HUBPDO_ValidateURB(v7, (unsigned __int16 *)CurrentStackLocation->Parameters.Create.SecurityContext, 5LL);
+      if ( (Status & 0x80000000) != 0 )
+        goto LABEL_42;
+      SecurityQos = SecurityContext[2].SecurityQos;
+      if ( SecurityQos )
+      {
+        if ( (*(&SecurityQos->EffectiveOnly + 1) & 5) != 0 )
+          v8 = *(_QWORD *)&SecurityQos[2].Length;
+        else
+          v8 = (__int64)MmMapLockedPagesSpecifyCache(
+                          (PMDL)SecurityQos,
+                          0,
+                          MmCached,
+                          0LL,
+                          0,
+                          ExDefaultMdlProtection | 0x10u);
       }
       else
       {
-        if ( v21 == 42 )
+        v8 = *(_QWORD *)&SecurityContext[1].DesiredAccess;
+      }
+      if ( !v8 )
+      {
+        Status = -1073741811;
+        HIDWORD(SecurityContext->SecurityQos) = -2147482880;
+        goto LABEL_42;
+      }
+      if ( BYTE3(SecurityContext[5].AccessState) == 1 )
+      {
+        AccessState_high = HIDWORD(SecurityContext[1].AccessState);
+        v31 = (unsigned __int16 *)(*(_QWORD *)(v7 + 24) + 1988LL);
+        if ( AccessState_high > 0x12 )
+          AccessState_high = 18;
+      }
+      else
+      {
+        if ( BYTE3(SecurityContext[5].AccessState) != 2 )
         {
-          v39 = *(_QWORD *)(v6 + 24);
-          if ( WORD2(v20[5].AccessState) != 7 )
-          {
-            if ( (unsigned __int16)(*(_WORD *)(v39 + 1990) - 256) > 0xFFu && (*(_DWORD *)(v39 + 1632) & 0x80u) == 0
-              || (*(_DWORD *)(v39 + 1644) & 2) != 0 )
-            {
-              BYTE1(v20[5].AccessState) = *(_BYTE *)(v39 + 2052);
-              v20->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v6 + 24) + 24LL);
-              goto LABEL_107;
-            }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_51;
-            v24 = *(_QWORD *)(v39 + 8);
-            v25 = 59;
-            v26 = 3;
-            goto LABEL_50;
-          }
-          if ( (*(_DWORD *)(v39 + 2464) & 2) == 0 )
-            goto LABEL_51;
-          SecurityQos = v20[2].SecurityQos;
-          if ( SecurityQos )
-            v41 = (*(&SecurityQos->EffectiveOnly + 1) & 5) != 0
-                ? *(PVOID *)&SecurityQos[2].Length
-                : MmMapLockedPagesSpecifyCache(
-                    (PMDL)SecurityQos,
-                    0,
-                    MmCached,
-                    0LL,
-                    0,
-                    ExDefaultMdlProtection | 0x40000010u);
-          else
-            v41 = *(PVOID *)&v20[1].DesiredAccess;
-          if ( !v41 )
-            goto LABEL_51;
-          v42 = *(unsigned __int16 **)(*(_QWORD *)(v6 + 24) + 2488LL);
-          AccessState_high = v42[4];
-          if ( AccessState_high >= HIDWORD(v20[1].AccessState) )
-            AccessState_high = HIDWORD(v20[1].AccessState);
-          v44 = AccessState_high;
-          memmove(v41, v42, AccessState_high);
-          HIDWORD(v20[1].AccessState) = v44;
-LABEL_89:
+          SecurityContext->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v7 + 24) + 24LL);
+LABEL_74:
           Status = 0;
-          goto LABEL_52;
+          v11 = 1;
+          goto LABEL_26;
         }
-        if ( WORD1(v20->SecurityQos) && v21 != 1 )
+        v30 = *(_QWORD *)(v7 + 24);
+        if ( BYTE2(SecurityContext[5].AccessState) )
         {
-          if ( v21 != 11 )
-          {
-            if ( v21 != 19 )
-            {
-              v22 = v21 == 30;
-              goto LABEL_113;
-            }
-            v23 = *(_QWORD *)(v6 + 24);
-            if ( (*(_DWORD *)(v23 + 1632) & 0x80000) == 0 )
-            {
-LABEL_114:
-              v20->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v6 + 24) + 24LL);
-              goto LABEL_76;
-            }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_51;
-            v24 = *(_QWORD *)(v23 + 8);
-            v25 = 60;
-            v26 = 4;
-LABEL_50:
-            WPP_RECORDER_SF_(
-              *(_QWORD *)(v24 + 1432),
-              v26,
-              5u,
-              v25,
-              (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-LABEL_51:
-            Status = -1073741637;
-LABEL_52:
-            CurrentStackLocation = v116;
-            goto LABEL_53;
-          }
-          v30 = *(_QWORD *)(v6 + 24);
-          if ( *(_WORD *)(v30 + 1990) <= 0x200u )
-          {
-            v20->AccessState = *(_ACCESS_STATE **)(v30 + 24);
-            goto LABEL_76;
-          }
-          Status = HUBPDO_ValidateURB(v6, (unsigned __int16 *)v20, 4788299LL);
-          if ( (Status & 0x80000000) != 0 )
-            goto LABEL_52;
-          v31 = v20[2].SecurityQos;
-          if ( v31 )
-          {
-            if ( (*(&v31->EffectiveOnly + 1) & 5) != 0 )
-              v32 = *(PVOID *)&v31[2].Length;
-            else
-              v32 = MmMapLockedPagesSpecifyCache((PMDL)v31, 0, MmCached, 0LL, 0, ExDefaultMdlProtection | 0x40000010u);
-          }
-          else
-          {
-            v32 = *(PVOID *)&v20[1].DesiredAccess;
-          }
-          if ( !v32 )
-          {
-            Status = -1073741811;
-            HIDWORD(v20->SecurityQos) = -2147482880;
-            goto LABEL_52;
-          }
-          if ( BYTE3(v20[5].AccessState) == 1 )
-          {
-            v37 = (unsigned int *)&v20[1].AccessState + 1;
-            v36 = (unsigned __int16 *)(*(_QWORD *)(v6 + 24) + 1988LL);
-            v38 = 18;
-            if ( HIDWORD(v20[1].AccessState) <= 0x12 )
-              v38 = HIDWORD(v20[1].AccessState);
-          }
-          else
-          {
-            if ( BYTE3(v20[5].AccessState) != 2 )
-            {
-              v20->AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v6 + 24) + 24LL);
-              goto LABEL_76;
-            }
-            v35 = *(_QWORD *)(v6 + 24);
-            if ( BYTE2(v20[5].AccessState) )
-            {
-              v20->AccessState = *(_ACCESS_STATE **)(v35 + 24);
-              goto LABEL_76;
-            }
-            v36 = *(unsigned __int16 **)(v35 + 2016);
-            v37 = (unsigned int *)&v20[1].AccessState + 1;
-            v38 = v36[1];
-            if ( v38 >= HIDWORD(v20[1].AccessState) )
-              v38 = HIDWORD(v20[1].AccessState);
-          }
-          LODWORD(v20[1].AccessState) |= 1u;
-          if ( ((__int64)v20[1].AccessState & 8) != 0 )
-            WORD1(v20->SecurityQos) = 8;
-          memmove(v32, v36, v38);
-          *v37 = v38;
-          goto LABEL_89;
+          SecurityContext->AccessState = *(_ACCESS_STATE **)(v30 + 24);
+          goto LABEL_74;
         }
+        v31 = *(unsigned __int16 **)(v30 + 2016);
+        AccessState_high = v31[1];
+        if ( AccessState_high >= HIDWORD(SecurityContext[1].AccessState) )
+          AccessState_high = HIDWORD(SecurityContext[1].AccessState);
       }
-      v53 = HUBPDO_ValidateURB(v6, (unsigned __int16 *)v20, 4788299LL);
-      Status = v53;
-      if ( v53 < 0 )
-        goto LABEL_52;
-      if ( v53 != 128 )
-      {
-        v17 = (*(_DWORD *)(*(_QWORD *)(v6 + 24) + 1632LL) & 2) != 0 ? 5 : 3;
-        goto LABEL_256;
-      }
-      goto LABEL_89;
+      LODWORD(SecurityContext[1].AccessState) |= 1u;
+      if ( ((__int64)SecurityContext[1].AccessState & 8) != 0 )
+        WORD1(SecurityContext->SecurityQos) = 8;
+      v33 = AccessState_high;
+LABEL_85:
+      memmove((void *)v8, v31, v33);
+      HIDWORD(SecurityContext[1].AccessState) = AccessState_high;
+LABEL_86:
+      Status = 0;
+      goto LABEL_42;
     }
-    if ( LowPart <= 0x22043F )
+    v25 = *(_QWORD *)(v4 + 24);
+    if ( WORD2(SecurityContext[5].AccessState) != 7 )
     {
-      if ( LowPart == 2229311 )
+      if ( (unsigned __int16)(*(_WORD *)(v25 + 1990) - 256) > 0xFFu && (*(_DWORD *)(v25 + 1632) & 0x80u) == 0
+        || (*(_DWORD *)(v25 + 1644) & 2) != 0 )
       {
-        v76 = CurrentStackLocation->Parameters.Create.SecurityContext;
-        if ( v76 )
-        {
-          v77 = *(_QWORD *)(v6 + 16);
-          *(_OWORD *)&v76->SecurityQos = *(_OWORD *)(v77 + 304);
-          *(_OWORD *)&v76->DesiredAccess = *(_OWORD *)(v77 + 320);
-          v78 = *(_WORD *)(v6 + 48);
-          v79 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 16) + 240LL);
-          if ( (_BYTE)v79 )
-            *((_WORD *)&v76->DesiredAccess + v79) = v78;
-          else
-            LOWORD(v76->DesiredAccess) = v78;
-        }
-        else
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_(
-              *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-              3u,
-              5u,
-              0xBu,
-              (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-          Status = -1073741811;
-        }
-        goto LABEL_53;
+        BYTE1(SecurityContext[5].AccessState) = *(_BYTE *)(v25 + 2052);
+        goto LABEL_105;
       }
-      v54 = 2228263LL;
-      if ( LowPart > 0x220027 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v70 = LowPart - 2228267;
-        if ( !v70 )
-        {
-          DeviceBusInfo = HUBPDO_RecordFailure(v6, (__int64)a2);
-          goto LABEL_135;
-        }
-        v71 = v70 - 1013;
-        if ( !v71 )
-        {
-          DeviceBusInfo = HUBUCX_GetDeviceBusInfo(
-                            *(_QWORD *)(v6 + 16),
-                            *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL),
-                            CurrentStackLocation->Parameters.WMI.ProviderId);
-          goto LABEL_135;
-        }
-        v72 = v71 - 4;
-        if ( !v72 )
-        {
-          DeviceBusInfo = HUBUCX_GetControllerName(
-                            *(_QWORD *)(v6 + 16),
-                            CurrentStackLocation->Parameters.WMI.ProviderId,
-                            CurrentStackLocation->Parameters.Create.Options);
-          goto LABEL_135;
-        }
-        v73 = v72 - 8;
-        if ( v73 )
-        {
-          v74 = v73 - 7;
-          if ( !v74 )
-          {
-            Status = CurrentStackLocation->Parameters.WMI.ProviderId == 0 ? 0xC000000D : 0;
-            goto LABEL_53;
-          }
-          v75 = v74 - 4;
-          if ( v75 )
-          {
-            if ( v75 != 4 )
-            {
-LABEL_238:
-              Status = a2->IoStatus.Status;
-              goto LABEL_53;
-            }
-          }
-        }
-        goto LABEL_182;
+        v26 = 59;
+        v27 = 3;
+        goto LABEL_59;
       }
-      if ( LowPart != 2228263 )
-      {
-        v55 = LowPart - 2228231;
-        if ( !v55 )
-        {
-          if ( (*(_DWORD *)(v6 + 32) & 1) != 0 )
-          {
-            if ( !KeGetCurrentIrql() )
-              goto LABEL_117;
-            Status = -1073741811;
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_53;
-            v62 = 64;
-          }
-          else
-          {
-            Status = -1073741101;
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_53;
-            v62 = 63;
-          }
-          goto LABEL_139;
-        }
-        v56 = v55 - 8;
-        if ( v56 )
-        {
-          v57 = v56 - 4;
-          if ( !v57 )
-          {
-            if ( KeGetCurrentIrql() )
-            {
-              Status = -1073741811;
-              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                goto LABEL_53;
-              v62 = 61;
-            }
-            else
-            {
-              v65 = CurrentStackLocation->Parameters.Create.SecurityContext;
-              if ( v65 )
-              {
-                LODWORD(v65->SecurityQos) = 0;
-                CurrentStackLocation->Parameters.QueryDirectory.FileName = (_UNICODE_STRING *)v6;
-LABEL_155:
-                v66 = a2->Tail.Overlay.CurrentStackLocation;
-                *(_OWORD *)&v66[-1].MajorFunction = *(_OWORD *)&v66->MajorFunction;
-                *(_OWORD *)&v66[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v66->Parameters.NotifyDirectoryEx.CompletionFilter;
-                *(_OWORD *)(&v66[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v66->Parameters.SetQuota + 6);
-                v66[-1].FileObject = v66->FileObject;
-                v66[-1].Control = 0;
-                KeInitializeEvent(&Event, NotificationEvent, 0);
-                v67 = a2->Tail.Overlay.CurrentStackLocation;
-                v68 = *(_QWORD *)&v118.Data1;
-                v67[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))HUBPDO_SyncCompletionRoutine;
-                v67[-1].Context = &Event;
-                v67[-1].Control = -32;
-                v50 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, IRP *, _QWORD, int))(WdfFunctions_01015
-                                                                                                  + 3216))(
-                        WdfDriverGlobals,
-                        v68,
-                        a2,
-                        *(_QWORD *)(*(_QWORD *)(v6 + 16) + 2400LL),
-                        2);
-                if ( v50 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  goto LABEL_159;
-                v51 = 72;
-                v52 = 2;
-LABEL_158:
-                WPP_RECORDER_SF_d(
-                  *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-                  v52,
-                  5u,
-                  v51,
-                  (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-                  v50);
-LABEL_159:
-                HUBMISC_WaitForSignal(&Event);
-                Status = a2->IoStatus.Status;
-LABEL_279:
-                IofCompleteRequest(a2, 0);
-                return Status;
-              }
-              Status = -1073741811;
-              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                goto LABEL_53;
-              v62 = 62;
-            }
-            v63 = 2;
-            goto LABEL_140;
-          }
-          v58 = v57 - 4;
-          if ( !v58 )
-            goto LABEL_53;
-          v59 = v58 - 4;
-          if ( !v59 )
-            goto LABEL_53;
-          v60 = v59 - 4;
-          if ( v60 )
-          {
-            if ( v60 == 1 )
-            {
-              DeviceBusInfo = HUBPDO_GetHubName(v6, a2);
-LABEL_135:
-              Status = DeviceBusInfo;
-              goto LABEL_53;
-            }
-            goto LABEL_238;
-          }
-          if ( KeGetCurrentIrql() )
-          {
-            Status = -1073741811;
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_53;
-            v62 = 67;
-          }
-          else
-          {
-            if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v6 + 4), 1, 0) )
-            {
-              v64 = *(_QWORD *)(v6 + 24);
-              if ( (*(_DWORD *)(v64 + 2436) & 0x400) != 0 )
-                HUBMISC_VerifierDbgBreak("DeviceHwVerifierClientInitiatedCyclePort", v64 + 504);
-              EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper(*(_QWORD *)(v6 + 24), 2228255LL, 0LL);
-              HUBSM_AddEvent(*(_QWORD *)(v6 + 24) + 504LL, 4011);
-              goto LABEL_53;
-            }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-LABEL_53:
-              v19 = v115;
-              goto LABEL_54;
-            }
-            v62 = 68;
-          }
-LABEL_139:
-          v63 = 3;
-LABEL_140:
-          WPP_RECORDER_SF_(
-            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-            v63,
-            5u,
-            v62,
-            (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-          goto LABEL_53;
-        }
-LABEL_182:
-        Status = -1073741637;
-        goto LABEL_53;
-      }
-      Parameters = CurrentStackLocation->Parameters.CreatePipe.Parameters;
-      if ( Parameters && *(_QWORD *)&Parameters->NamedPipeType )
-      {
-        v118 = 0LL;
-        if ( *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement )
-          (*(void (__fastcall **)(IRP *, GUID *, __int64))&WPP_MAIN_CB.AlignmentRequirement)(a2, &v118, 4788299LL);
-        if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
-          McTemplateK0p_EtwWriteTransfer(
-            v54,
-            &USBHUB3_ETW_EVENT_DEVICE_SUBMIT_IDLE_NOTIFICATION_START,
-            &v118,
-            *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL));
-        return (unsigned int)HUBIDLE_AddEvent(v6 + 72, 6003LL, a2);
-      }
-      Status = -1073741224;
-      v17 = 2;
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_52;
-      WPP_RECORDER_SF_(
-        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-        3u,
-        5u,
-        0x45u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-LABEL_256:
-      v104 = v17 - 1;
-      if ( !v104 )
-        goto LABEL_76;
-      v105 = v104 - 1;
-      if ( v105 )
-      {
-        v106 = v105 - 1;
-        if ( v106 )
-        {
-          v107 = v106 - 1;
-          if ( v107 )
-          {
-            if ( v107 != 1 )
-              return Status;
-            goto LABEL_261;
-          }
-          goto LABEL_155;
-        }
-LABEL_117:
-        v45 = a2->Tail.Overlay.CurrentStackLocation;
-        *(_OWORD *)&v45[-1].MajorFunction = *(_OWORD *)&v45->MajorFunction;
-        *(_OWORD *)&v45[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v45->Parameters.NotifyDirectoryEx.CompletionFilter;
-        *(_OWORD *)(&v45[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v45->Parameters.SetQuota + 6);
-        v45[-1].FileObject = v45->FileObject;
-        v45[-1].Control = 0;
-        KeInitializeEvent(&Event, NotificationEvent, 0);
-        v46 = a2->Tail.Overlay.CurrentStackLocation;
-        v47 = *(_QWORD *)&v118.Data1;
-        v48 = *(_QWORD *)&v118.Data1;
-        v46[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))HUBPDO_SyncCompletionRoutine;
-        v46[-1].Context = &Event;
-        v46[-1].Control = -32;
-        v49 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 736))(
-                WdfDriverGlobals,
-                v48);
-        v50 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, IRP *, __int64, int))(WdfFunctions_01015 + 3216))(
-                WdfDriverGlobals,
-                v47,
-                a2,
-                v49,
-                2);
-        if ( v50 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_159;
-        v51 = 73;
-        v52 = 3;
-        goto LABEL_158;
-      }
-      goto LABEL_52;
+LABEL_60:
+      Status = -1073741637;
+      goto LABEL_42;
     }
-    if ( LowPart <= 0x491043 )
+    if ( (*(_DWORD *)(v25 + 2464) & 2) != 0 )
+    {
+      v34 = SecurityContext[2].SecurityQos;
+      if ( v34 )
+      {
+        if ( (*(&v34->EffectiveOnly + 1) & 5) != 0 )
+          v8 = *(_QWORD *)&v34[2].Length;
+        else
+          v8 = (__int64)MmMapLockedPagesSpecifyCache((PMDL)v34, 0, MmCached, 0LL, 0, ExDefaultMdlProtection | 0x10u);
+      }
+      else
+      {
+        v8 = *(_QWORD *)&SecurityContext[1].DesiredAccess;
+      }
+      if ( !v8 )
+        goto LABEL_60;
+      v31 = *(unsigned __int16 **)(*(_QWORD *)(v7 + 24) + 2488LL);
+      v35 = v31[4];
+      if ( v35 >= HIDWORD(SecurityContext[1].AccessState) )
+        v35 = HIDWORD(SecurityContext[1].AccessState);
+      AccessState_high = v35;
+      v33 = v35;
+      goto LABEL_85;
+    }
+LABEL_89:
+    Status = -1073741637;
+    goto LABEL_14;
+  }
+  if ( LowPart > 0x22043B )
+  {
+    if ( LowPart > 0x49000B )
     {
       if ( LowPart == 4788291 )
       {
-        v88 = CurrentStackLocation->Parameters.Create.SecurityContext;
-        v88->SecurityQos = *(_SECURITY_QUALITY_OF_SERVICE **)(*(_QWORD *)(v6 + 16) + 2448LL);
-        v89 = *(_QWORD *)(v6 + 24);
-        *(_OWORD *)&v88->AccessState = *(_OWORD *)(v89 + 1988);
-        LOWORD(v88[1].SecurityQos) = *(_WORD *)(v89 + 2004);
-        WORD1(v88[1].SecurityQos) = *(_WORD *)(*(_QWORD *)(v6 + 24) + 2192LL);
-        WORD2(v88[1].SecurityQos) = *(_WORD *)(*(_QWORD *)(v6 + 24) + 2194LL);
-        v88[2].AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v6 + 24) + 2568LL);
-        v88[2].DesiredAccess = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 2576LL);
-        BYTE2(v88[1].DesiredAccess) = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 202LL);
-        HIWORD(v88[1].AccessState) = *(_WORD *)(*(_QWORD *)(v6 + 24) + 2202LL);
-        LOWORD(v88[1].DesiredAccess) = *(_WORD *)(*(_QWORD *)(v6 + 24) + 2204LL);
-        v90 = *(_QWORD *)(v6 + 16);
-        LOWORD(v88[1].FullCreateOptions) = *(_WORD *)(v90 + 1188)
-                                         + *(_WORD *)(v90 + 2492)
-                                         + *(_WORD *)(*(_QWORD *)(v6 + 24) + 2582LL);
-        v91 = *(_QWORD *)(v6 + 24);
-        if ( (*(_DWORD *)(v91 + 2216) & 1) != 0 )
+        v50 = CurrentStackLocation->Parameters.Create.SecurityContext;
+        v50->SecurityQos = *(_SECURITY_QUALITY_OF_SERVICE **)(*(_QWORD *)(v4 + 16) + 2448LL);
+        v51 = *(_QWORD *)(v4 + 24);
+        *(_OWORD *)&v50->AccessState = *(_OWORD *)(v51 + 1988);
+        LOWORD(v50[1].SecurityQos) = *(_WORD *)(v51 + 2004);
+        WORD1(v50[1].SecurityQos) = *(_WORD *)(*(_QWORD *)(v7 + 24) + 2192LL);
+        WORD2(v50[1].SecurityQos) = *(_WORD *)(*(_QWORD *)(v7 + 24) + 2194LL);
+        v50[2].AccessState = *(_ACCESS_STATE **)(*(_QWORD *)(v7 + 24) + 2568LL);
+        v50[2].DesiredAccess = *(_DWORD *)(*(_QWORD *)(v7 + 24) + 2576LL);
+        BYTE2(v50[1].DesiredAccess) = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v7 + 24) + 8LL) + 202LL);
+        HIWORD(v50[1].AccessState) = *(_WORD *)(*(_QWORD *)(v7 + 24) + 2202LL);
+        LOWORD(v50[1].DesiredAccess) = *(_WORD *)(*(_QWORD *)(v7 + 24) + 2204LL);
+        v8 = *(_QWORD *)(v7 + 16);
+        LOWORD(v50[1].FullCreateOptions) = *(_WORD *)(*(_QWORD *)(v7 + 24) + 2582LL)
+                                         + *(_WORD *)(v8 + 1188)
+                                         + *(_WORD *)(v8 + 2492);
+        v52 = *(_QWORD *)(v7 + 24);
+        if ( (*(_DWORD *)(v52 + 2216) & 1) != 0 )
         {
-          HIWORD(v88[1].SecurityQos) = *(unsigned __int8 *)(v91 + 2197);
-          v92 = *(_BYTE *)(*(_QWORD *)(v6 + 16) + 240LL);
+          HIWORD(v50[1].SecurityQos) = *(unsigned __int8 *)(v52 + 2197);
+          v53 = *(_BYTE *)(*(_QWORD *)(v7 + 16) + 240LL);
         }
         else
         {
-          HIWORD(v88[1].SecurityQos) = *(_WORD *)(v90 + 2478);
-          v92 = *(_BYTE *)(v90 + 2480);
+          HIWORD(v50[1].SecurityQos) = *(_WORD *)(v8 + 2478);
+          v53 = *(_BYTE *)(v8 + 2480);
         }
-        LOBYTE(v88[1].AccessState) = v92;
-        v93 = *(_QWORD *)(v6 + 24);
-        if ( (*(_DWORD *)(v93 + 2216) & 2) != 0 )
+        LOBYTE(v50[1].AccessState) = v53;
+        v54 = *(_QWORD *)(v7 + 24);
+        if ( (*(_DWORD *)(v54 + 2216) & 2) != 0 )
         {
-          WORD1(v88[1].AccessState) = *(_WORD *)(v93 + 2200);
-          v94 = *(_BYTE *)(*(_QWORD *)(v6 + 16) + 240LL);
+          WORD1(v50[1].AccessState) = *(_WORD *)(v54 + 2200);
+          v55 = *(_BYTE *)(*(_QWORD *)(v7 + 16) + 240LL);
         }
         else
         {
-          WORD1(v88[1].AccessState) = *(_WORD *)(v90 + 2482);
-          v94 = *(_BYTE *)(v90 + 2484);
+          WORD1(v50[1].AccessState) = *(_WORD *)(v8 + 2482);
+          v55 = *(_BYTE *)(v8 + 2484);
         }
-        BYTE4(v88[1].AccessState) = v94;
-        if ( (*(_DWORD *)(v90 + 2496) & 1) != 0 )
-          LODWORD(v88[2].SecurityQos) |= 1u;
-        if ( (*(_DWORD *)(v90 + 2496) & 4) != 0 )
-          LODWORD(v88[2].SecurityQos) |= 4u;
-        if ( (*(_DWORD *)(*(_QWORD *)(v6 + 24) + 1632LL) & 0x2000) != 0 )
-          LODWORD(v88[2].SecurityQos) |= 2u;
-        if ( (*(_DWORD *)(*(_QWORD *)(v6 + 16) + 44LL) & 8) != 0 || (*(_DWORD *)(v90 + 2496) & 8) != 0 )
-          LODWORD(v88[2].SecurityQos) |= 8u;
-        goto LABEL_53;
-      }
-      v80 = LowPart - 2229315;
-      if ( !v80 )
-        goto LABEL_182;
-      v81 = v80 - 12;
-      if ( !v81 )
-      {
-        DeviceBusInfo = HUBPDO_ReturnDeviceConfigInfo(v6, (__int64)a2);
-        goto LABEL_135;
-      }
-      v82 = v81 - 2916;
-      if ( !v82 )
-      {
-        if ( (*(_DWORD *)(v6 + 32) & 1) != 0 )
+        BYTE4(v50[1].AccessState) = v55;
+        v56 = *(_DWORD *)(v8 + 2496);
+        if ( (v56 & 1) != 0 )
         {
+          LODWORD(v50[2].SecurityQos) |= 1u;
+          v56 = *(_DWORD *)(v8 + 2496);
+        }
+        if ( (v56 & 4) != 0 )
+          LODWORD(v50[2].SecurityQos) |= 4u;
+        if ( (*(_DWORD *)(*(_QWORD *)(v7 + 24) + 1632LL) & 0x2000) != 0 )
+          LODWORD(v50[2].SecurityQos) |= 2u;
+        v9 = 8LL;
+        if ( (*(_DWORD *)(*(_QWORD *)(v7 + 16) + 44LL) & 8) != 0 || (*(_DWORD *)(v8 + 2496) & 8) != 0 )
+          LODWORD(v50[2].SecurityQos) |= 8u;
+        goto LABEL_14;
+      }
+      if ( LowPart == 4788299 )
+      {
+        v47 = CurrentStackLocation->Parameters.Create.SecurityContext;
+        v11 = 1;
+        Source1 = *(_OWORD *)&v47->DesiredAccess;
+        HIDWORD(v47[1].AccessState) = 0;
+        if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_FUNCTION_SUSPEND, 0x10uLL) == 16 )
+        {
+          v48 = -((*(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0x10000) != 0);
+        }
+        else
+        {
+          if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_STATIC_STREAMS, 0x10uLL) == 16 )
+          {
+            Status = (*(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0x10000) != 0 ? 0xC00000BB : 0;
+            v11 = ((*(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0x10000) != 0) + 1;
+            goto LABEL_26;
+          }
+          if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_SUPER_SPEED_COMPATIBLE, 0x10uLL) == 16 )
+          {
+            v49 = *(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0x800;
+          }
+          else if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_HIGH_SPEED_COMPATIBLE, 0x10uLL) == 16 )
+          {
+            v49 = *(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0x900;
+          }
+          else
+          {
+            if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_FULL_SPEED_COMPATIBLE, 0x10uLL) != 16 )
+            {
+              if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_LOW_SPEED_COMPATIBLE, 0x10uLL) == 16 )
+              {
+                v11 = 2;
+              }
+              else if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_SSP_ISOCH_PIPE_FLAGS, 0x10uLL) == 16 )
+              {
+                v11 = 2;
+              }
+              goto LABEL_26;
+            }
+            v49 = *(_DWORD *)(*(_QWORD *)(v7 + 24) + 1456LL) & 0xB00;
+          }
+          v48 = -(v49 == 0);
+        }
+        v11 = 2;
+        Status = v48 & 0xC00000BB;
+        goto LABEL_26;
+      }
+      if ( LowPart != 4788303 )
+      {
+        switch ( LowPart )
+        {
+          case 0x491404u:
+            a2->AssociatedIrp.MasterIrp->AssociatedIrp.MasterIrp = *(_IRP **)(*(_QWORD *)(v4 + 24) + 24LL);
+            goto LABEL_16;
+          case 0x491408u:
+LABEL_16:
+            v11 = 1;
+            goto LABEL_26;
+          case 0x49140Fu:
+            *(_QWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 8) = *(_QWORD *)(*(_QWORD *)(v4 + 24) + 24LL);
+            goto LABEL_16;
+        }
+        goto LABEL_205;
+      }
+    }
+    else if ( LowPart != 4784139 )
+    {
+      switch ( LowPart )
+      {
+        case 0x22043Fu:
+          v44 = CurrentStackLocation->Parameters.Create.SecurityContext;
+          if ( v44 )
+          {
+            v45 = *(_QWORD *)(v4 + 16);
+            *(_OWORD *)&v44->SecurityQos = *(_OWORD *)(v45 + 304);
+            *(_OWORD *)&v44->DesiredAccess = *(_OWORD *)(v45 + 320);
+            v46 = *(_WORD *)(v7 + 48);
+            v9 = *(unsigned __int8 *)(*(_QWORD *)(v7 + 16) + 240LL);
+            if ( (_BYTE)v9 )
+              *((_WORD *)&v44->DesiredAccess + v9) = v46;
+            else
+              LOWORD(v44->DesiredAccess) = v46;
+          }
+          else
+          {
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              WPP_RECORDER_SF_(
+                *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 24) + 8LL) + 1432LL),
+                3u,
+                5u,
+                0xBu,
+                (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+            Status = -1073741811;
+          }
+          goto LABEL_42;
+        case 0x220443u:
+          goto LABEL_89;
+        case 0x22044Fu:
+          ControllerSuffix = HUBPDO_ReturnDeviceConfigInfo(v4, (__int64)a2);
+          goto LABEL_124;
+        case 0x220FB3u:
+          if ( (*(_DWORD *)(v4 + 32) & 1) == 0 )
+          {
+            Status = -1073741101;
+            v11 = 2;
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              goto LABEL_26;
+            v37 = 65;
+            goto LABEL_145;
+          }
           if ( KeGetCurrentIrql() <= 2u )
           {
-LABEL_261:
-            v108 = a2->Tail.Overlay.CurrentStackLocation;
-            v109 = *(_QWORD *)&v118.Data1;
-            *(_OWORD *)&v108[-1].MajorFunction = *(_OWORD *)&v108->MajorFunction;
-            *(_OWORD *)&v108[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v108->Parameters.NotifyDirectoryEx.CompletionFilter;
-            *(_OWORD *)(&v108[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v108->Parameters.SetQuota + 6);
-            v108[-1].FileObject = v108->FileObject;
-            v108[-1].Control = 0;
-            v110 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 736))(
-                     WdfDriverGlobals,
-                     v109);
-            return (unsigned int)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, IRP *, __int64, int))(WdfFunctions_01015 + 3216))(
-                                   WdfDriverGlobals,
-                                   *(_QWORD *)&v118.Data1,
-                                   a2,
-                                   v110,
-                                   2);
+            v11 = 5;
+            goto LABEL_26;
           }
           Status = -1073741811;
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_53;
-          v62 = 66;
-        }
-        else
-        {
-          Status = -1073741101;
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_53;
-          v62 = 65;
-        }
-        goto LABEL_139;
-      }
-      v83 = v82 - 8;
-      if ( !v83 )
-      {
-        v87 = *(_QWORD *)(v6 + 24);
-        if ( (*(_DWORD *)(v87 + 1644) & 0x1000000) == 0 )
-        {
-          Status = -1073741275;
-          goto LABEL_53;
-        }
-        DeviceBusInfo = HUBMISC_GenerateControllerSuffix(
-                          v87,
-                          CurrentStackLocation->Parameters.WMI.ProviderId,
-                          4788299LL);
-        goto LABEL_135;
-      }
-      v84 = v83 - 2551880;
-      if ( !v84 )
-      {
-        v86 = CurrentStackLocation->Parameters.Create.SecurityContext;
-        CurrentStackLocation->Parameters.QueryDirectory.FileName = *(_UNICODE_STRING **)(*(_QWORD *)(v6 + 24) + 24LL);
-        if ( (v86->DesiredAccess & 1) != 0 )
-          _InterlockedOr((volatile signed __int32 *)(v6 + 32), 0x10u);
-        goto LABEL_76;
-      }
-      v85 = v84 - 4;
-      if ( v85 && v85 != 4 )
-        goto LABEL_238;
-      goto LABEL_203;
-    }
-    v95 = LowPart - 4788299;
-    if ( !v95 )
-    {
-      v102 = CurrentStackLocation->Parameters.Create.SecurityContext;
-      Source1 = *(_OWORD *)&v102->DesiredAccess;
-      HIDWORD(v102[1].AccessState) = 0;
-      if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_FUNCTION_SUSPEND, 0x10uLL) == 16 )
-      {
-        v103 = -((*(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0x10000) != 0);
-      }
-      else
-      {
-        if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_STATIC_STREAMS, 0x10uLL) == 16 )
-        {
-          Status = (*(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0x10000) != 0 ? 0xC00000BB : 0;
-          v17 = ((*(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0x10000) != 0) + 1;
-          goto LABEL_256;
-        }
-        if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_SUPER_SPEED_COMPATIBLE, 0x10uLL) == 16 )
-        {
-          v111 = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0x800;
-        }
-        else if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_HIGH_SPEED_COMPATIBLE, 0x10uLL) == 16 )
-        {
-          v111 = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0x900;
-        }
-        else
-        {
-          if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_FULL_SPEED_COMPATIBLE, 0x10uLL) != 16 )
+          v11 = 2;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            if ( RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_DEVICE_CONNECTION_LOW_SPEED_COMPATIBLE, 0x10uLL) != 16
-              && RtlCompareMemory(&Source1, &GUID_USB_CAPABILITY_SSP_ISOCH_PIPE_FLAGS, 0x10uLL) != 16 )
-            {
-              goto LABEL_76;
-            }
-            Status = 0;
-            goto LABEL_53;
+            v37 = 66;
+            goto LABEL_145;
           }
-          v111 = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 1456LL) & 0xB00;
-        }
-        v103 = -(v111 == 0);
+          goto LABEL_26;
+        case 0x220FBBu:
+          v43 = *(_QWORD *)(v4 + 24);
+          if ( (*(_DWORD *)(v43 + 1644) & 0x1000000) == 0 )
+          {
+            Status = -1073741275;
+            goto LABEL_42;
+          }
+          ControllerSuffix = HUBMISC_GenerateControllerSuffix(
+                               v43,
+                               CurrentStackLocation->Parameters.WMI.ProviderId,
+                               5LL,
+                               &WPP_RECORDER_INITIALIZED);
+          goto LABEL_124;
+        case 0x490003u:
+          v42 = CurrentStackLocation->Parameters.Create.SecurityContext;
+          CurrentStackLocation->Parameters.QueryDirectory.FileName = *(_UNICODE_STRING **)(*(_QWORD *)(v7 + 24) + 24LL);
+          if ( (v42->DesiredAccess & 1) != 0 )
+            _InterlockedOr((volatile signed __int32 *)(v7 + 32), 0x10u);
+          goto LABEL_16;
       }
-      Status = v103 & 0xC00000BB;
-      goto LABEL_53;
+      if ( LowPart != 4784135 )
+        goto LABEL_205;
     }
-    v96 = v95 - 4;
-    if ( !v96 )
+    CurrentStackLocation->Parameters.QueryDirectory.FileName = *(_UNICODE_STRING **)(*(_QWORD *)(v4 + 24) + 24LL);
+    goto LABEL_16;
+  }
+  if ( LowPart == 2229307 )
+    goto LABEL_89;
+  if ( LowPart > 0x220027 )
+  {
+    switch ( LowPart )
     {
-LABEL_203:
-      CurrentStackLocation->Parameters.QueryDirectory.FileName = *(_UNICODE_STRING **)(*(_QWORD *)(v6 + 24) + 24LL);
-      goto LABEL_76;
+      case 0x22002Bu:
+        ControllerSuffix = HUBPDO_RecordFailure(v4, (__int64)a2);
+        goto LABEL_124;
+      case 0x220420u:
+        ControllerSuffix = HUBUCX_GetDeviceBusInfo(
+                             *(_QWORD *)(v4 + 16),
+                             *(_QWORD *)(*(_QWORD *)(v4 + 24) + 24LL),
+                             CurrentStackLocation->Parameters.WMI.ProviderId,
+                             &WPP_RECORDER_INITIALIZED);
+        goto LABEL_124;
+      case 0x220424u:
+        ControllerSuffix = HUBUCX_GetControllerName(
+                             *(_QWORD *)(v4 + 16),
+                             CurrentStackLocation->Parameters.WMI.ProviderId,
+                             CurrentStackLocation->Parameters.Create.Options,
+                             &WPP_RECORDER_INITIALIZED);
+        goto LABEL_124;
+      case 0x22042Cu:
+        goto LABEL_89;
+      case 0x220433u:
+        v11 = 2;
+        Status = CurrentStackLocation->Parameters.WMI.ProviderId == 0 ? 0xC000000D : 0;
+        goto LABEL_26;
+      case 0x220437u:
+        goto LABEL_89;
     }
-    v97 = v96 - 949;
-    if ( !v97 )
-    {
-      a2->AssociatedIrp.MasterIrp->AssociatedIrp.MasterIrp = *(_IRP **)(*(_QWORD *)(v6 + 24) + 24LL);
-      goto LABEL_76;
-    }
-    v98 = v97 - 4;
-    if ( !v98 )
-      goto LABEL_76;
-    v99 = v98 - 7;
-    if ( !v99 )
-    {
-      *(_QWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 8) = *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL);
-      goto LABEL_76;
-    }
-    v100 = v99 - 1016;
-    if ( v100 )
-    {
-      if ( v100 != 4 )
-        goto LABEL_238;
-      if ( !KeGetCurrentIrql() )
+LABEL_205:
+    Status = a2->IoStatus.Status;
+    goto LABEL_14;
+  }
+  switch ( LowPart )
+  {
+    case 0x220027u:
+      Parameters = CurrentStackLocation->Parameters.CreatePipe.Parameters;
+      if ( !Parameters || !*(_QWORD *)&Parameters->NamedPipeType )
       {
-        DeviceBusInfo = HUBPDO_UnregisterPortPLDRCapability(*(_QWORD *)(v6 + 24));
-        goto LABEL_135;
+        Status = -1073741224;
+        v11 = 2;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          break;
+        v37 = 69;
+        goto LABEL_145;
       }
+      v76 = 0LL;
+      if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters )
+        (*(void (__fastcall **)(IRP *, GUID *, __int64, _UNKNOWN **))&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters)(
+          a2,
+          &v76,
+          5LL,
+          &WPP_RECORDER_INITIALIZED);
+      if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
+        McTemplateK0p_EtwWriteTransfer(
+          v5,
+          &USBHUB3_ETW_EVENT_DEVICE_SUBMIT_IDLE_NOTIFICATION_START,
+          &v76,
+          *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL));
+      Status = HUBIDLE_AddEvent(v7 + 72, 6003LL, a2);
+      v11 = 6;
+      break;
+    case 0x220007u:
+      if ( (*(_DWORD *)(v4 + 32) & 1) == 0 )
+      {
+        Status = -1073741101;
+        v11 = 2;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          break;
+        v37 = 63;
+        goto LABEL_145;
+      }
+      if ( !KeGetCurrentIrql() )
+        goto LABEL_10;
+      Status = -1073741811;
+      v11 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v101 = 71;
-LABEL_242:
+        v37 = 64;
+        goto LABEL_145;
+      }
+      break;
+    case 0x22000Fu:
+      goto LABEL_89;
+    case 0x220013u:
+      if ( KeGetCurrentIrql() )
+      {
+        Status = -1073741811;
+        v11 = 2;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          break;
+        v39 = 61;
+LABEL_137:
         WPP_RECORDER_SF_(
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 24) + 8LL) + 1432LL),
-          3u,
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 24) + 8LL) + 1432LL),
+          2u,
           5u,
-          v101,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
+          v39,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+        break;
       }
-    }
-    else
-    {
-      if ( !KeGetCurrentIrql() )
+      v40 = CurrentStackLocation->Parameters.Create.SecurityContext;
+      if ( v40 )
       {
-        DeviceBusInfo = HUBPDO_RegisterPortPLDRCapability(*(_QWORD *)(v6 + 24));
-        goto LABEL_135;
+        LODWORD(v40->SecurityQos) = 0;
+        v11 = 4;
+        CurrentStackLocation->Parameters.QueryDirectory.FileName = (_UNICODE_STRING *)v7;
+        break;
       }
+      Status = -1073741811;
+      v11 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v101 = 70;
-        goto LABEL_242;
+        v39 = 62;
+        goto LABEL_137;
       }
-    }
-    Status = -1073741808;
-    goto LABEL_53;
-  }
-  v8 = LowPart - 2229348;
-  if ( !v8 )
-  {
-LABEL_107:
-    v17 = 1;
-    goto LABEL_256;
-  }
-  v9 = v8 - 4;
-  if ( v9 )
-  {
-    v10 = v9 - 4;
-    if ( v10 )
-    {
-      v11 = v10 - 4;
-      if ( v11 )
+      break;
+    case 0x220017u:
+    case 0x22001Bu:
+      goto LABEL_14;
+    case 0x22001Fu:
+      v11 = 2;
+      if ( KeGetCurrentIrql() )
       {
-        v12 = v11 - 4;
-        if ( !v12 )
-          goto LABEL_76;
-        v13 = v12 - 4;
-        if ( !v13 )
-          goto LABEL_76;
-        v14 = v13 - 4;
-        if ( !v14 )
-          goto LABEL_76;
-        if ( v14 != 4 )
-          goto LABEL_117;
-        if ( CurrentStackLocation->Parameters.Read.Length != 24 )
-          goto LABEL_17;
-        v15 = CurrentStackLocation->Parameters.Create.Options == 24;
-        goto LABEL_12;
+        Status = -1073741811;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          break;
+        v37 = 67;
+        goto LABEL_145;
+      }
+      if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v4 + 4), 1, 0) )
+      {
+        v38 = *(_QWORD *)(v4 + 24);
+        if ( (*(_DWORD *)(v38 + 2436) & 0x400) != 0 )
+        {
+          HUBMISC_VerifierDbgBreak("DeviceHwVerifierClientInitiatedCyclePort", v38 + 504);
+          v38 = *(_QWORD *)(v7 + 24);
+        }
+        EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper(v38, 2228255LL, 0LL);
+        HUBSM_AddEvent(*(_QWORD *)(v7 + 24) + 504LL, 4011);
+        break;
+      }
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        break;
+      v37 = 68;
+LABEL_145:
+      WPP_RECORDER_SF_(
+        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 24) + 8LL) + 1432LL),
+        3u,
+        5u,
+        v37,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+      break;
+    case 0x220020u:
+      ControllerSuffix = HUBPDO_GetHubName(v4, a2);
+LABEL_124:
+      Status = ControllerSuffix;
+      goto LABEL_42;
+    default:
+      goto LABEL_205;
+  }
+LABEL_26:
+  v14 = v11 - 1;
+  if ( !v14 )
+  {
+    ++a2->CurrentLocation;
+    ++a2->Tail.Overlay.CurrentStackLocation;
+    return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v7 + 8), a2);
+  }
+  v15 = v14 - 1;
+  if ( !v15 )
+  {
+    if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *, __int64))(WdfFunctions_01015 + 1616))(
+                        WdfDriverGlobals,
+                        WdfDriverGlobals->Driver,
+                        off_1C00661C0,
+                        v8)
+                    + 4) & 0x1000) != 0 )
+    {
+      v75 = 0LL;
+      if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters )
+        (*(void (__fastcall **)(IRP *, GUID *))&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters)(a2, &v75);
+      if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
+      {
+        LODWORD(v69) = LowPart;
+        McTemplateK0pq_EtwWriteTransfer(
+          v66,
+          &USBHUB3_ETW_EVENT_DEVICE_INTERNAL_IOCTL_START,
+          &v75,
+          *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL),
+          v69);
+      }
+      if ( LowPart == 2228227 )
+      {
+        v67 = CurrentStackLocation->Parameters.Create.SecurityContext;
+        if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) == 0 )
+          goto LABEL_263;
+        LODWORD(v69) = WORD1(v67->SecurityQos);
+        McTemplateK0pq_EtwWriteTransfer(
+          v66,
+          &USBHUB3_ETW_EVENT_DEVICE_URB_START,
+          &v75,
+          *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL),
+          v69);
+        if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) == 0 )
+          goto LABEL_263;
+        Priority[0] = HIDWORD(v67->SecurityQos);
+        LODWORD(v70) = WORD1(v67->SecurityQos);
+        McTemplateK0pqq_EtwWriteTransfer(
+          WORD1(v67->SecurityQos),
+          &USBHUB3_ETW_EVENT_DEVICE_URB_COMPLETE,
+          &v75,
+          *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL),
+          v70,
+          *(_QWORD *)Priority);
+      }
+      if ( LowPart != 4788299 )
+        goto LABEL_261;
+      if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
+      {
+        Priority[0] = Status;
+        McTemplateK0pjq_EtwWriteTransfer(
+          v66,
+          v65,
+          &v75,
+          *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL),
+          &Source1,
+          *(_QWORD *)Priority);
+LABEL_261:
+        if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
+        {
+          Priority[0] = Status;
+          LODWORD(v69) = LowPart;
+          McTemplateK0pqq_EtwWriteTransfer(
+            v66,
+            &USBHUB3_ETW_EVENT_DEVICE_INTERNAL_IOCTL_COMPLETE,
+            &v75,
+            *(_QWORD *)(*(_QWORD *)(v7 + 24) + 24LL),
+            v69,
+            *(_QWORD *)Priority);
+        }
       }
     }
-    goto LABEL_107;
+LABEL_263:
+    a2->IoStatus.Status = Status;
+    goto LABEL_264;
   }
-  if ( CurrentStackLocation->Parameters.Read.Length != 36 )
+  v16 = v15 - 1;
+  if ( !v16 )
   {
-LABEL_17:
-    Status = -1073741811;
-    v17 = 2;
-    goto LABEL_256;
+    v62 = a2->Tail.Overlay.CurrentStackLocation;
+    *(_OWORD *)&v62[-1].MajorFunction = *(_OWORD *)&v62->MajorFunction;
+    *(_OWORD *)&v62[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v62->Parameters.NotifyDirectoryEx.CompletionFilter;
+    *(_OWORD *)(&v62[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v62->Parameters.SetQuota + 6);
+    v62[-1].FileObject = v62->FileObject;
+    v62[-1].Control = 0;
+    KeInitializeEvent(&Event, NotificationEvent, 0);
+    v63 = a2->Tail.Overlay.CurrentStackLocation;
+    v63[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))HUBPDO_SyncCompletionRoutine;
+    v63[-1].Context = &Event;
+    v63[-1].Control = -32;
+    v64 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 736))(WdfDriverGlobals, a1);
+    v59 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, IRP *, __int64, int))(WdfFunctions_01015 + 3216))(
+            WdfDriverGlobals,
+            a1,
+            a2,
+            v64,
+            2);
+    if ( v59 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_245;
+    v60 = 71;
+    v61 = 3;
+    goto LABEL_244;
   }
-  v15 = CurrentStackLocation->Parameters.Create.Options == 36;
-LABEL_12:
-  if ( !v15 )
-    goto LABEL_17;
-  MasterIrp = a2->AssociatedIrp.MasterIrp;
-  if ( !MasterIrp )
-    goto LABEL_17;
-  *(_QWORD *)(&MasterIrp->Size + 1) = *(_QWORD *)(*(_QWORD *)(v6 + 24) + 24LL);
-LABEL_76:
-  ++a2->CurrentLocation;
-  ++a2->Tail.Overlay.CurrentStackLocation;
-  return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v6 + 8), a2);
+  v17 = v16 - 1;
+  if ( !v17 )
+  {
+    v57 = a2->Tail.Overlay.CurrentStackLocation;
+    *(_OWORD *)&v57[-1].MajorFunction = *(_OWORD *)&v57->MajorFunction;
+    *(_OWORD *)&v57[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v57->Parameters.NotifyDirectoryEx.CompletionFilter;
+    *(_OWORD *)(&v57[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v57->Parameters.SetQuota + 6);
+    v57[-1].FileObject = v57->FileObject;
+    v57[-1].Control = 0;
+    KeInitializeEvent(&Event, NotificationEvent, 0);
+    v58 = a2->Tail.Overlay.CurrentStackLocation;
+    v58[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))HUBPDO_SyncCompletionRoutine;
+    v58[-1].Context = &Event;
+    v58[-1].Control = -32;
+    v59 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, IRP *, _QWORD, int))(WdfFunctions_01015 + 3216))(
+            WdfDriverGlobals,
+            a1,
+            a2,
+            *(_QWORD *)(*(_QWORD *)(v7 + 16) + 2400LL),
+            2);
+    if ( v59 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_245;
+    v60 = 70;
+    v61 = 2;
+LABEL_244:
+    Priority[0] = v59;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 24) + 8LL) + 1432LL),
+      v61,
+      5u,
+      v60,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+      *(_QWORD *)Priority);
+LABEL_245:
+    HUBMISC_WaitForSignal(&Event);
+    Status = a2->IoStatus.Status;
+LABEL_264:
+    IofCompleteRequest(a2, 0);
+    return Status;
+  }
+  if ( v17 == 1 )
+  {
+    v18 = a2->Tail.Overlay.CurrentStackLocation;
+    *(_OWORD *)&v18[-1].MajorFunction = *(_OWORD *)&v18->MajorFunction;
+    *(_OWORD *)&v18[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v18->Parameters.NotifyDirectoryEx.CompletionFilter;
+    *(_OWORD *)(&v18[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v18->Parameters.SetQuota + 6);
+    v18[-1].FileObject = v18->FileObject;
+    v18[-1].Control = 0;
+    v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int64))(WdfFunctions_01015 + 736))(
+            WdfDriverGlobals,
+            a1,
+            v9,
+            v8);
+    return (unsigned int)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, IRP *, __int64, int))(WdfFunctions_01015 + 3216))(
+                           WdfDriverGlobals,
+                           a1,
+                           a2,
+                           v19,
+                           2);
+  }
+  return Status;
 }

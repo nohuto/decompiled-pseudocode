@@ -1,25 +1,29 @@
 /*
- * XREFs of VfGetHookAddressForOriginal @ 0x140ACB88C
+ * XREFs of VfGetHookAddressForOriginal @ 0x1409C8928
  * Callers:
- *     KsepPatchDriverImportsTable @ 0x14085E8A8 (KsepPatchDriverImportsTable.c)
+ *     KsepPatchDriverImportsTable @ 0x1408C04A8 (KsepPatchDriverImportsTable.c)
  * Callees:
- *     ViLookupThunkArray @ 0x140ACB9DC (ViLookupThunkArray.c)
+ *     ViLookupThunkArray @ 0x1409C8BAC (ViLookupThunkArray.c)
  */
 
-__int64 __fastcall VfGetHookAddressForOriginal(__int64 a1, __int64 a2)
+__int64 __fastcall VfGetHookAddressForOriginal(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r11
-  __int64 v5; // rdx
-  __int64 v6; // r11
 
-  result = ViLookupThunkArray(&VfDifThunks, a2, a1);
+  result = ViLookupThunkArray(&VfXdvThunks, 48LL, a1);
   if ( !result )
   {
-    result = ViLookupThunkArray(&VfPoolThunks, v3, v4);
+    result = ViLookupThunkArray(&VfPoolThunks, 48LL, a1);
     if ( !result )
-      return ViLookupThunkArray(&VfRegularThunks, v5, v6);
+    {
+      result = ViLookupThunkArray(&VfMandatoryThunks, 48LL, a1);
+      if ( !result )
+      {
+        result = ViLookupThunkArray(&VfRegularThunks, 48LL, a1);
+        if ( !result )
+          return ViLookupThunkArray(&VfOrderDependentThunks, 56LL, a1);
+      }
+    }
   }
   return result;
 }

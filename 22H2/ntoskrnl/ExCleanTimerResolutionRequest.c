@@ -1,24 +1,24 @@
 /*
- * XREFs of ExCleanTimerResolutionRequest @ 0x140201B70
+ * XREFs of ExCleanTimerResolutionRequest @ 0x14036C734
  * Callers:
- *     PspExitProcess @ 0x140751944 (PspExitProcess.c)
+ *     PspExitProcess @ 0x14062FC1C (PspExitProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwSetTimerResolution @ 0x14041DE80 (ZwSetTimerResolution.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PoDiagFreeUsermodeStack @ 0x1406831B8 (PoDiagFreeUsermodeStack.c)
- *     ExReleaseTimeRefreshLock @ 0x14075FE40 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x14075FE64 (ExAcquireTimeRefreshLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetTimerResolution @ 0x1403FD060 (ZwSetTimerResolution.c)
+ *     ExReleaseTimeRefreshLock @ 0x1407095C0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407095E4 (ExAcquireTimeRefreshLock.c)
+ *     PoDiagFreeUsermodeStack @ 0x140733784 (PoDiagFreeUsermodeStack.c)
  */
 
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
 {
   _KPROCESS *Process; // rbx
   unsigned __int64 v2; // rdi
-  unsigned __int64 KernelWaitTime; // r8
-  _KPROCESS **UserWaitTime; // rdx
-  unsigned __int64 LastRebalanceQpc; // rdi
+  unsigned __int64 KernelWaitTime; // rax
+  _KPROCESS **UserWaitTime; // r8
+  unsigned __int64 v5; // rdi
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -46,23 +46,26 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   KxReleaseSpinLock(&ExpKernelResolutionLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);
-  LastRebalanceQpc = Process[1].LastRebalanceQpc;
-  Process[1].LastRebalanceQpc = 0LL;
+  v5 = Process[1].EndPadding[0];
+  Process[1].EndPadding[0] = 0LL;
   result = ExReleaseTimeRefreshLock();
-  if ( LastRebalanceQpc )
-    return PoDiagFreeUsermodeStack(LastRebalanceQpc);
+  if ( v5 )
+    return PoDiagFreeUsermodeStack(v5);
   return result;
 }

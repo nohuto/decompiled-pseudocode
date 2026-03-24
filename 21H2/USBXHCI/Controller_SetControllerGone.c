@@ -1,19 +1,19 @@
 /*
- * XREFs of Controller_SetControllerGone @ 0x1C0032DC8
+ * XREFs of Controller_SetControllerGone @ 0x1C0032D48
  * Callers:
- *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C000A120 (Controller_WdfEvtWatchdogTimerFunc.c)
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0010230 (Controller_WdfEvtDeviceD0Entry.c)
- *     RootHub_UcxEvtClearPortFeature @ 0x1C0011FE0 (RootHub_UcxEvtClearPortFeature.c)
- *     RootHub_UcxEvtSetPortFeature @ 0x1C00125C0 (RootHub_UcxEvtSetPortFeature.c)
- *     RootHub_UcxEvtGetPortStatus @ 0x1C0012CD0 (RootHub_UcxEvtGetPortStatus.c)
- *     RootHub_UcxEvtInterruptTransfer @ 0x1C0013700 (RootHub_UcxEvtInterruptTransfer.c)
- *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E930 (Command_WdfEvtWatchdogTimerFunction.c)
- *     Controller_DisableController @ 0x1C003179C (Controller_DisableController.c)
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0009E10 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     RootHub_UcxEvtInterruptTransfer @ 0x1C0011710 (RootHub_UcxEvtInterruptTransfer.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1C00120A0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_UcxEvtGetPortStatus @ 0x1C00128A0 (RootHub_UcxEvtGetPortStatus.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x1C0013360 (RootHub_UcxEvtSetPortFeature.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E790 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Controller_DisableController @ 0x1C00314CC (Controller_DisableController.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  */
 
 void __fastcall Controller_SetControllerGone(_QWORD *a1, char a2)
@@ -27,7 +27,7 @@ void __fastcall Controller_SetControllerGone(_QWORD *a1, char a2)
   v6 = *(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      *a1,
-                     off_1C00613D8)
+                     off_1C00603D8)
                  + 28) & 0x10;
   if ( a2 && !*((_BYTE *)a1 + 397) )
   {
@@ -36,7 +36,7 @@ void __fastcall Controller_SetControllerGone(_QWORD *a1, char a2)
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v5) = 4;
-        WPP_RECORDER_SF_(a1[9], v5, 4, 206, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+        WPP_RECORDER_SF_(a1[9], v5, 4, 205, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
       }
     }
     else
@@ -44,7 +44,7 @@ void __fastcall Controller_SetControllerGone(_QWORD *a1, char a2)
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v5) = 2;
-        WPP_RECORDER_SF_(a1[9], v5, 4, 205, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+        WPP_RECORDER_SF_(a1[9], v5, 4, 204, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
       }
       Controller_HwVerifierBreakIfEnabled(
         a1,

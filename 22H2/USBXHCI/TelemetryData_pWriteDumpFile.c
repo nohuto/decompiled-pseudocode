@@ -1,9 +1,9 @@
 /*
- * XREFs of TelemetryData_pWriteDumpFile @ 0x1C007B6A0
+ * XREFs of TelemetryData_pWriteDumpFile @ 0x1C0077EC8
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C007AF98 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
- *     TelemetryData_pCreateDumpFile @ 0x1C007B024 (TelemetryData_pCreateDumpFile.c)
+ *     TelemetryData_pCreateDumpFile @ 0x1C0077854 (TelemetryData_pCreateDumpFile.c)
  */
 
 __int64 __fastcall TelemetryData_pWriteDumpFile(__int64 a1)

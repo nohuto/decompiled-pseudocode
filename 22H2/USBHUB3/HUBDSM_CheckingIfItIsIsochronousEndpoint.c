@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfItIsIsochronousEndpoint @ 0x1C001F170
+ * XREFs of HUBDSM_CheckingIfItIsIsochronousEndpoint @ 0x1C001C760
  * Callers:
  *     <none>
  * Callees:

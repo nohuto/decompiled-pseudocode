@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCompletePageWrite @ 0x14036D740
+ * XREFs of IopCompletePageWrite @ 0x14032A320
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IopCompletePageWrite(__int64 a1)

@@ -4,8 +4,8 @@
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
  * Callees:
  *     PsAddProcessEnergyValues @ 0x14008E740 (PsAddProcessEnergyValues.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF60 (PoEnergyEstimationEnabled.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PspUpdateJobPeakProcessMemory @ 0x140603910 (PspUpdateJobPeakProcessMemory.c)
  *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
  */

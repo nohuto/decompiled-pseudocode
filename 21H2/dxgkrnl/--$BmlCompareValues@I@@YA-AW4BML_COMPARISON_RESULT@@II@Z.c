@@ -1,11 +1,10 @@
 /*
- * XREFs of ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C01B2BD8
+ * XREFs of ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0139A28
  * Callers:
- *     BmlCompareSourceModesWithMonitors @ 0x1C01B2074 (BmlCompareSourceModesWithMonitors.c)
- *     BmlCompareModeRegions @ 0x1C01B2B94 (BmlCompareModeRegions.c)
- *     BmlCompareTargetModesWithConstraint @ 0x1C01B5B6C (BmlCompareTargetModesWithConstraint.c)
- *     BmlCompareTargetModeWithVirtualRefreshRate @ 0x1C01BC66C (BmlCompareTargetModeWithVirtualRefreshRate.c)
- *     BmlCompareMonitorRegions @ 0x1C03AAF7C (BmlCompareMonitorRegions.c)
+ *     BmlCompareSourceModesWithMonitors @ 0x1C0139114 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C013B62C (BmlCompareTargetModesWithConstraint.c)
+ *     BmlCompareModeRegions @ 0x1C016C1D0 (BmlCompareModeRegions.c)
+ *     BmlCompareMonitorRegions @ 0x1C02EB99C (BmlCompareMonitorRegions.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceBootError @ 0x1402E2230
+ * XREFs of PopTraceBootError @ 0x1402E2330
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void PopTraceBootError()
@@ -47,7 +47,7 @@ void PopTraceBootError()
       v12 = 4LL;
       v14 = 4LL;
       v16 = 8LL;
-      TlgWrite(&pCallbackContext, &unk_14036FF90, 0LL, 0LL, 7u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140370030, 0LL, 0LL, 7u, &pData);
     }
   }
 }

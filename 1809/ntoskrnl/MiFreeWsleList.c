@@ -1,5 +1,5 @@
 /*
- * XREFs of MiFreeWsleList @ 0x1400B2A90
+ * XREFs of MiFreeWsleList @ 0x1400B2AB0
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     MiAgePteWorker @ 0x14006B2C0 (MiAgePteWorker.c)
@@ -7,23 +7,23 @@
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiAgeWorkingSetTail @ 0x140075A50 (MiAgeWorkingSetTail.c)
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D70 (NtUnlockVirtualMemory.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB3EC (MiTrimSharedPageFromViews.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiConvertAndFlushWsleVas @ 0x1400EEBC0 (MiConvertAndFlushWsleVas.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C6F8 (MiTrimWorkingSetBuildup.c)
- *     MiEmptyWorkingSetHelper @ 0x14013FFC8 (MiEmptyWorkingSetHelper.c)
- *     MiEmptyWorkingSetTail @ 0x140141930 (MiEmptyWorkingSetTail.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB5BC (MiDeprioritizeVirtualAddresses.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x1402B4030 (MiUpdateOldWorkingSetPagesTail.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiConvertAndFlushWsleVas @ 0x1400EEBE0 (MiConvertAndFlushWsleVas.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
+ *     MiEmptyWorkingSetHelper @ 0x14013FFE8 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyWorkingSetTail @ 0x140141950 (MiEmptyWorkingSetTail.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x1402B4130 (MiUpdateOldWorkingSetPagesTail.c)
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
  *     MiRemoveWsleList @ 0x14007AF50 (MiRemoveWsleList.c)
- *     MiWsleFree @ 0x1400B2C50 (MiWsleFree.c)
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFreeWsleList(__int64 a1, __int64 a2, unsigned int a3)

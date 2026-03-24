@@ -1,45 +1,46 @@
 /*
- * XREFs of MiLocateAddress @ 0x1403126F0
+ * XREFs of MiLocateAddress @ 0x14025B810
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x1402358D4 (MiCaptureWriteWatchDirtyBit.c)
- *     MiUpdatePrefetchPriority @ 0x1402464E0 (MiUpdatePrefetchPriority.c)
- *     MiAdvanceToLastUntrimmableVa @ 0x140252ED0 (MiAdvanceToLastUntrimmableVa.c)
- *     MiImagePageOk @ 0x140271020 (MiImagePageOk.c)
- *     MiInitializeReadInProgressPfn @ 0x1402724C0 (MiInitializeReadInProgressPfn.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     MiObtainReferencedSecureVad @ 0x140281620 (MiObtainReferencedSecureVad.c)
- *     MiDeleteEmptyPageTables @ 0x14029F6FC (MiDeleteEmptyPageTables.c)
- *     NtUnlockVirtualMemory @ 0x1402CD9C0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402E5D90 (NtLockVirtualMemory.c)
- *     MiLockStealUserVm @ 0x1402EACBC (MiLockStealUserVm.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     MiUserFault @ 0x14031CD90 (MiUserFault.c)
- *     MiComputeMaximumFaultCluster @ 0x14031E900 (MiComputeMaximumFaultCluster.c)
- *     MiResolveProtoPteFault @ 0x14031EAA0 (MiResolveProtoPteFault.c)
- *     MiResolveDemandZeroFault @ 0x14031FD60 (MiResolveDemandZeroFault.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiCompletePrivateZeroFault @ 0x140321F70 (MiCompletePrivateZeroFault.c)
- *     MiHandleTransitionFault @ 0x1403265B0 (MiHandleTransitionFault.c)
- *     MiComputeFaultNode @ 0x140339370 (MiComputeFaultNode.c)
- *     MiResolveMappedFileFault @ 0x140339520 (MiResolveMappedFileFault.c)
- *     MiCrcStillIntact @ 0x140339D70 (MiCrcStillIntact.c)
- *     MiReservePageFileSpace @ 0x14033AC90 (MiReservePageFileSpace.c)
- *     MiSharedVaToPartition @ 0x14033D80C (MiSharedVaToPartition.c)
- *     MiCheckVirtualAddress @ 0x1403536F0 (MiCheckVirtualAddress.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MmStoreDecommitVirtualMemory @ 0x140395958 (MmStoreDecommitVirtualMemory.c)
- *     MiProcessCommitIntact @ 0x140580CE0 (MiProcessCommitIntact.c)
- *     MiCanGrantExecute @ 0x1405A6DAC (MiCanGrantExecute.c)
- *     MiFindPlaceholderVadToReplace @ 0x1405B2088 (MiFindPlaceholderVadToReplace.c)
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
- *     MiLockVadRange @ 0x1406F7D78 (MiLockVadRange.c)
- *     MiUnlockVadRange @ 0x1406F7F40 (MiUnlockVadRange.c)
- *     MiCoalescePlaceholderAllocations @ 0x14096D8A8 (MiCoalescePlaceholderAllocations.c)
- *     MmCheckForSafeExecution @ 0x140977FF8 (MmCheckForSafeExecution.c)
- *     MiMapChildLargePageVads @ 0x140980FA0 (MiMapChildLargePageVads.c)
+ *     MiProcessCommitIntact @ 0x140201780 (MiProcessCommitIntact.c)
+ *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MiUserFault @ 0x14020D770 (MiUserFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x14020F650 (MiComputeMaximumFaultCluster.c)
+ *     MiResolveDemandZeroFault @ 0x14020FB50 (MiResolveDemandZeroFault.c)
+ *     MiCompletePrivateZeroFault @ 0x140210850 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
+ *     MiHandleTransitionFault @ 0x140217450 (MiHandleTransitionFault.c)
+ *     MiReservePageFileSpace @ 0x14023D190 (MiReservePageFileSpace.c)
+ *     MiComputeFaultNode @ 0x14023F100 (MiComputeFaultNode.c)
+ *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
+ *     MiSharedVaToPartition @ 0x14024144C (MiSharedVaToPartition.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
+ *     MiObtainReferencedSecureVad @ 0x14025B6F0 (MiObtainReferencedSecureVad.c)
+ *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
+ *     MiUpdatePrefetchPriority @ 0x14026E760 (MiUpdatePrefetchPriority.c)
+ *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiCheckVirtualAddress @ 0x14028D510 (MiCheckVirtualAddress.c)
+ *     MiImagePageOk @ 0x14028DC10 (MiImagePageOk.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1402D24B4 (MmStoreDecommitVirtualMemory.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     MiInitializeReadInProgressPfn @ 0x1402FBF30 (MiInitializeReadInProgressPfn.c)
+ *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MiCrcStillIntact @ 0x140367B74 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
+ *     MiCanGrantExecute @ 0x1405480D8 (MiCanGrantExecute.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1405551F4 (MiFindPlaceholderVadToReplace.c)
+ *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
+ *     MiLockVadRange @ 0x14061DC20 (MiLockVadRange.c)
+ *     MiUnlockVadRange @ 0x140620130 (MiUnlockVadRange.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
+ *     MmCheckForSafeExecution @ 0x1408D0F40 (MmCheckForSafeExecution.c)
+ *     MiMapChildLargePageVads @ 0x1408D9960 (MiMapChildLargePageVads.c)
  * Callees:
  *     <none>
  */
@@ -49,6 +50,7 @@ __int64 **__fastcall MiLocateAddress(unsigned __int64 a1)
   _KPROCESS *Process; // r9
   __int64 **result; // rax
   unsigned __int64 v3; // r8
+  __int64 **v4; // rdx
 
   Process = KeGetCurrentThread()->ApcState.Process;
   result = *(__int64 ***)&Process[1].Spare2[23];
@@ -58,26 +60,26 @@ __int64 **__fastcall MiLocateAddress(unsigned __int64 a1)
   if ( a1 >> 12 < (*((unsigned int *)result + 6) | ((unsigned __int64)*((unsigned __int8 *)result + 32) << 32))
     || v3 > (*((unsigned int *)result + 7) | ((unsigned __int64)*((unsigned __int8 *)result + 33) << 32)) )
   {
-    result = *(__int64 ***)&Process[1].Spare2[15];
-    if ( result )
+    v4 = *(__int64 ***)&Process[1].Spare2[15];
+    if ( v4 )
     {
       while ( 1 )
       {
-        if ( v3 > (*((unsigned int *)result + 7) | ((unsigned __int64)*((unsigned __int8 *)result + 33) << 32)) )
+        if ( v3 > (*((unsigned int *)v4 + 7) | ((unsigned __int64)*((unsigned __int8 *)v4 + 33) << 32)) )
         {
-          result = (__int64 **)result[1];
+          v4 = (__int64 **)v4[1];
         }
         else
         {
-          if ( v3 >= (*((unsigned int *)result + 6) | ((unsigned __int64)*((unsigned __int8 *)result + 32) << 32)) )
+          if ( v3 >= (*((unsigned int *)v4 + 6) | ((unsigned __int64)*((unsigned __int8 *)v4 + 32) << 32)) )
           {
-            *(_QWORD *)&Process[1].Spare2[23] = result;
-            return result;
+            *(_QWORD *)&Process[1].Spare2[23] = v4;
+            return v4;
           }
-          result = (__int64 **)*result;
+          v4 = (__int64 **)*v4;
         }
-        if ( !result )
-          return result;
+        if ( !v4 )
+          return 0LL;
       }
     }
     return 0LL;

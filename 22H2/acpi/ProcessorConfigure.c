@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorConfigure @ 0x1C00ABEFC
+ * XREFs of ProcessorConfigure @ 0x1C00BD930
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA58 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
  *     <none>
  */

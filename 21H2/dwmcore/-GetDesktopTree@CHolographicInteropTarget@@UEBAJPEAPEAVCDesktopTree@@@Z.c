@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180299B90
+ * XREFs of ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180257C80
  * Callers:
  *     <none>
  * Callees:

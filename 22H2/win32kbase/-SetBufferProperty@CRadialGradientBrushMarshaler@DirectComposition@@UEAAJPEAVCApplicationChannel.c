@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CRadialGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215170
+ * XREFs of ?SetBufferProperty@CRadialGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E6F20
  * Callers:
  *     <none>
  * Callees:

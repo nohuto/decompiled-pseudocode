@@ -1,9 +1,9 @@
 /*
- * XREFs of LockExchangeW32Thread @ 0x1C00A6768
+ * XREFs of LockExchangeW32Thread @ 0x1C0007B10
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     ExchangeW32ThreadLock @ 0x1C00A68FC (ExchangeW32ThreadLock.c)
+ *     ExchangeW32ThreadLock @ 0x1C003ED2C (ExchangeW32ThreadLock.c)
  */
 
 __int64 __fastcall LockExchangeW32Thread(__int64 a1, __int64 a2)

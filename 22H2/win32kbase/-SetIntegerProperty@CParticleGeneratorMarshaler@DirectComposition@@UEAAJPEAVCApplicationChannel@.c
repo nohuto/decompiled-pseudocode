@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CParticleGeneratorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E240
+ * XREFs of ?SetIntegerProperty@CParticleGeneratorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD620
  * Callers:
  *     <none>
  * Callees:

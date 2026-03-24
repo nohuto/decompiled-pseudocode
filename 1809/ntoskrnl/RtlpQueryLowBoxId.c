@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpQueryLowBoxId @ 0x1400CCD10
+ * XREFs of RtlpQueryLowBoxId @ 0x1400CCD30
  * Callers:
  *     RtlpLookupOrCreateLowBox @ 0x140088BBC (RtlpLookupOrCreateLowBox.c)
  *     RtlpLookupLowBox @ 0x1400892B0 (RtlpLookupLowBox.c)
- *     RtlpAllocateAtomTableEntry @ 0x1400FD1BC (RtlpAllocateAtomTableEntry.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1400FD1DC (RtlpAllocateAtomTableEntry.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
  */
 
 __int64 RtlpQueryLowBoxId()

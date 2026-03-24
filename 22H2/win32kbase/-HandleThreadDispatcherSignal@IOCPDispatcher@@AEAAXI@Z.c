@@ -1,36 +1,32 @@
 /*
- * XREFs of ?HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C0057904
+ * XREFs of ?HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C00444A0
  * Callers:
- *     ?Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z @ 0x1C00557A0 (-Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z.c)
+ *     ?Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z @ 0x1C0043730 (-Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z.c)
  * Callees:
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0052D0C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0052D50 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0057838 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0042830 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0042964 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ApiSetEditionHandleMitSignal @ 0x1C0044528 (ApiSetEditionHandleMitSignal.c)
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C00445D4 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
  */
 
-void __fastcall IOCPDispatcher::HandleThreadDispatcherSignal(IOCPDispatcher *this, unsigned int a2)
+void __fastcall IOCPDispatcher::HandleThreadDispatcherSignal(
+        IOCPDispatcher *this,
+        unsigned int a2,
+        __int64 a3,
+        __int64 a4)
 {
-  __int64 v4; // rdi
-  void (__fastcall *v5)(_QWORD); // rax
-  __int64 *v6; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v6; // rbx
+  __int64 *v7; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( a2 < *((_DWORD *)this + 724) )
+  if ( a2 < *((_DWORD *)this + 684) )
   {
-    v4 = 32LL * a2;
-    if ( *(_QWORD *)((char *)this + v4 + 2584) )
+    v6 = (_QWORD *)((char *)this + 16 * a2 + 2576);
+    if ( v6[1] )
     {
-      InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v6, "HandleInputThreadSignal", 0LL);
-      IOCPDispatcher::SetupIOCPForDispatcherHandle(
-        (__int64)this,
-        *(_QWORD *)((char *)this + v4 + 2584),
-        *(_QWORD *)((char *)this + v4 + 2576),
-        2,
-        a2);
-      v5 = *(void (__fastcall **)(_QWORD))((char *)this + v4 + 2592);
-      if ( v5 )
-        v5(*(_QWORD *)((char *)this + v4 + 2600));
-      InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v6);
+      InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v7, "HandleMitSignal", 0LL, a4);
+      IOCPDispatcher::SetupIOCPForDispatcherHandle(this, v6[1], *v6, 2LL, a2);
+      ApiSetEditionHandleMitSignal(*v6);
+      InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v7);
     }
   }
 }

@@ -1,11 +1,10 @@
 /*
- * XREFs of ?RedirectMouseToHwnd@CApplicationChannel@DirectComposition@@QEAAJIPEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C020C58C
+ * XREFs of ?RedirectMouseToHwnd@CApplicationChannel@DirectComposition@@QEAAJIPEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0083CF4
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C02140D4 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0083DC0 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::RedirectMouseToHwnd(
@@ -16,14 +15,25 @@ __int64 __fastcall DirectComposition::CApplicationChannel::RedirectMouseToHwnd(
         unsigned int a5,
         unsigned int a6)
 {
-  unsigned int v9; // ebx
-  struct DirectComposition::CResourceMarshaler *v10; // rax
-  DirectComposition::CVisualMarshaler *v11; // r10
+  unsigned int v6; // ebx
+  unsigned __int64 v8; // rcx
+  DirectComposition::CVisualMarshaler *v11; // rdi
 
-  v9 = 0;
-  v10 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a2);
-  if ( v10
-    && (v11 = (DirectComposition::CVisualMarshaler *)(*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)v10 + 168LL))(v10)) != 0LL
+  v6 = 0;
+  v8 = (unsigned int)(a2 - 1);
+  if ( a2 && v8 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v11 = *(DirectComposition::CVisualMarshaler **)(v8 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( v11
+    && (*(unsigned __int8 (__fastcall **)(DirectComposition::CVisualMarshaler *, __int64))(*(_QWORD *)v11 + 96LL))(
+         v11,
+         195LL)
     && ((a6 | a5) & 0xFFFF7EC0) == 0 )
   {
     if ( a5 )
@@ -33,5 +43,5 @@ __int64 __fastcall DirectComposition::CApplicationChannel::RedirectMouseToHwnd(
   {
     return (unsigned int)-1073741811;
   }
-  return v9;
+  return v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcSetInformation @ 0x1401B92D0
+ * XREFs of ZwAlpcSetInformation @ 0x1401B92F0
  * Callers:
  *     PopUmpoInitializeChannel @ 0x1409DBCC0 (PopUmpoInitializeChannel.c)
  *     PopUmpoInitializeMonitorChannel @ 0x1409DC8CC (PopUmpoInitializeMonitorChannel.c)

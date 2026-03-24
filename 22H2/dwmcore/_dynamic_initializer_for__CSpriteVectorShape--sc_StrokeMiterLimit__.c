@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeMiterLimit__ @ 0x180002FB0
+ * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeMiterLimit__ @ 0x180002860
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CSpriteVectorShape::sc_StrokeMiterLimit__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4B30 = (unsigned __int64)CSpriteVectorShape::SetBoundsStrokeStyleInvalidatingAnimatedProperty;
-  qword_1803E4B40 = v1;
+  xmmword_180346360 = (unsigned __int64)CSpriteVectorShape::SetBoundsStrokeStyleInvalidatingAnimatedProperty;
+  qword_180346370 = v1;
   return result;
 }

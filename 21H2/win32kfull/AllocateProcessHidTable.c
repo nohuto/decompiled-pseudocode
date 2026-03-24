@@ -1,10 +1,10 @@
 /*
- * XREFs of AllocateProcessHidTable @ 0x1C0121408
+ * XREFs of AllocateProcessHidTable @ 0x1C0107BEC
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C00AE358 (_RegisterRawInputDevices.c)
+ *     _RegisterRawInputDevices @ 0x1C0108350 (_RegisterRawInputDevices.c)
  * Callees:
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AE584 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AE5B4 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0108C7C (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0108CAC (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
  */
 
 __int64 AllocateProcessHidTable()
@@ -27,9 +27,7 @@ __int64 AllocateProcessHidTable()
     v1[4] = v1 + 4;
     v1[7] = v1 + 6;
     v1[6] = v1 + 6;
-    RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded(
-      (RIMLOCKExclusiveIfNeeded *)&v5,
-      (struct _KTHREAD **)gTLCInfoLock);
+    RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v5, gTLCInfoLock);
     v3 = &RawInputManagerObject::gHidRequestTable[4];
     v4 = RawInputManagerObject::gHidRequestTable[4];
     if ( *(_QWORD **)(v4 + 8) != &RawInputManagerObject::gHidRequestTable[4] )

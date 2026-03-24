@@ -1,10 +1,10 @@
 /*
- * XREFs of MmIsSpecialPoolAddress @ 0x140592348
+ * XREFs of MmIsSpecialPoolAddress @ 0x1405374F0
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140553A48 (IopAddBugcheckTriageDataFromParameters.c)
- *     KeBugCheck2 @ 0x1405660A0 (KeBugCheck2.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14050347C (IopAddBugcheckTriageDataFromParameters.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14028FBF0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall MmIsSpecialPoolAddress(unsigned __int64 a1)

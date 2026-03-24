@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcMessageDeleteProcedure @ 0x1406D3DE0
+ * XREFs of AlpcMessageDeleteProcedure @ 0x1406D3DC0
  * Callers:
  *     <none>
  * Callees:

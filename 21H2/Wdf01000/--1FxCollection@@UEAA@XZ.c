@@ -1,19 +1,20 @@
 /*
- * XREFs of ??1FxCollection@@UEAA@XZ @ 0x1C0021F48
+ * XREFs of ??1FxCollection@@UEAA@XZ @ 0x1C00618A0
  * Callers:
- *     ??_EFxIoResList@@UEAAPEAXI@Z @ 0x1C001F2C0 (--_EFxIoResList@@UEAAPEAXI@Z.c)
- *     ??_GFxCmResList@@MEAAPEAXI@Z @ 0x1C0020CC0 (--_GFxCmResList@@MEAAPEAXI@Z.c)
+ *     ??_EFxIoResList@@UEAAPEAXI@Z @ 0x1C005C1D0 (--_EFxIoResList@@UEAAPEAXI@Z.c)
+ *     ??_GFxCmResList@@MEAAPEAXI@Z @ 0x1C007F110 (--_GFxCmResList@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0021C50 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0061930 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
  */
 
 void __fastcall FxCollection::~FxCollection(FxCollection *this)
 {
   unsigned int v2; // edx
+  unsigned int v3; // r8d
 
-  this->__vftable = (FxCollection_vtbl *)FxIoResList::`vftable';
+  this->__vftable = (FxCollection_vtbl *)FxCollection::`vftable';
   FxCollectionInternal::Clear(&this->FxCollectionInternal);
   FxCollectionInternal::Clear(&this->FxCollectionInternal);
-  FxNonPagedObject::~FxNonPagedObject(this, v2);
+  FxNonPagedObject::~FxNonPagedObject(this, v2, v3);
 }

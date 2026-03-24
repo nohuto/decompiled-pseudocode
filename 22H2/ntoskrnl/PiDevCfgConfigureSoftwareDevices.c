@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x14087D1C4
+ * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x140766F18
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
@@ -18,10 +18,10 @@ __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
   NTSTATUS v3; // eax
   NTSTATUS v4; // ebx
   int v6; // eax
-  HANDLE v7; // rsi
-  __int64 Pool2; // rdi
+  char *v7; // rsi
+  WCHAR *PoolWithTag; // rdi
   int v9; // r15d
-  __int64 v10; // rcx
+  __int64 v10; // rax
   __int64 v11; // r8
   __int64 v12; // rax
   __int64 v13; // rcx
@@ -52,15 +52,15 @@ __int64 __fastcall PiDevCfgConfigureSoftwareDevices(void *a1, void *a2)
     *(_DWORD *)&v14.Length = 1048590;
     v14.Buffer = L"Devices";
     v6 = IopCreateRegistryKeyEx(&Handle, a1, &v14, 0xF003Fu, 0, 0LL);
-    v7 = Handle;
+    v7 = (char *)Handle;
     v4 = v6;
     if ( v6 >= 0 )
     {
-      Pool2 = ExAllocatePool2(256LL, 544LL, 1667526736LL);
-      if ( Pool2 )
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x220uLL, 0x63647050u);
+      if ( PoolWithTag )
       {
         v9 = 0;
-        v4 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, (PVOID)Pool2, 0x220u, &ResultLength);
+        v4 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, PoolWithTag, 0x220u, &ResultLength);
         if ( v4 < 0 )
         {
 LABEL_21:
@@ -77,25 +77,32 @@ LABEL_21:
         {
           while ( 1 )
           {
-            *(_WORD *)(Pool2 + 2 * ((unsigned __int64)*(unsigned int *)(Pool2 + 12) >> 1) + 16) = 0;
+            PoolWithTag[((unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1) + 8] = 0;
             if ( *(_QWORD *)&PiPnpRtlCtx && (v10 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
               v11 = *(_QWORD *)(v10 + 8);
             else
               v11 = 0LL;
-            RegRtlDeleteTreeInternal(v7, (const WCHAR *)(Pool2 + 16), v11, 0);
+            RegRtlDeleteTreeInternal(v7, PoolWithTag + 8, v11, 0);
             if ( *(_QWORD *)&PiPnpRtlCtx && (v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
               v13 = *(_QWORD *)(v12 + 8);
             else
               v13 = 0LL;
-            v4 = RegRtlCopyTreeInternal((_DWORD)KeyHandle, (int)Pool2 + 16, (_DWORD)v7, (int)Pool2 + 16, 0, v13, 0);
+            v4 = RegRtlCopyTreeInternal(
+                   (_DWORD)KeyHandle,
+                   (int)PoolWithTag + 16,
+                   (_DWORD)v7,
+                   (int)PoolWithTag + 16,
+                   0,
+                   v13,
+                   0);
             if ( v4 < 0 )
               break;
-            v4 = ZwEnumerateKey(KeyHandle, ++v9, KeyBasicInformation, (PVOID)Pool2, 0x220u, &ResultLength);
+            v4 = ZwEnumerateKey(KeyHandle, ++v9, KeyBasicInformation, PoolWithTag, 0x220u, &ResultLength);
             if ( v4 < 0 )
               goto LABEL_21;
           }
         }
-        ExFreePoolWithTag((PVOID)Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CYCbCrSurface@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A16F0
+ * XREFs of ?IsOfType@CYCbCrSurface@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016FC20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CYCbCrSurface::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 206 || a2 == 45;
+  return a2 == 205 || a2 == 45;
 }

@@ -1,118 +1,135 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x14074DEC8
+ * XREFs of PfSnBeginTrace @ 0x14062E040
  * Callers:
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     PfSnTraceBufferAllocate @ 0x1402F5D0C (PfSnTraceBufferAllocate.c)
- *     PfSnActivateTrace @ 0x1402F5D58 (PfSnActivateTrace.c)
- *     PsGetThreadId @ 0x140346280 (PsGetThreadId.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfSnCleanupTrace @ 0x14074BFD8 (PfSnCleanupTrace.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PfSnTraceBufferAllocate @ 0x14026DCA4 (PfSnTraceBufferAllocate.c)
+ *     PfSnActivateTrace @ 0x14026DCF0 (PfSnActivateTrace.c)
+ *     PsGetThreadId @ 0x14030DA30 (PsGetThreadId.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfSnCleanupTrace @ 0x14062CEBC (PfSnCleanupTrace.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)
 {
   __int64 v8; // r12
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v11; // rdi
   __int64 v12; // rsi
   __int16 v13; // ax
   __int128 v14; // xmm1
   char *v15; // rax
   int v16; // ecx
-  int v17; // eax
-  __int64 *v18; // rax
-  __int64 **v19; // rcx
-  int v20; // ebx
+  __int64 *v17; // rax
+  __int64 **v18; // rcx
+  int v19; // ebx
 
   v8 = a2;
-  if ( PfSnNumActiveTraces >= (unsigned int)dword_140C64F18 )
+  if ( PfSnNumActiveTraces >= (unsigned int)dword_140C50148 )
+  {
     return (unsigned int)-1073741618;
-  if ( !FsRtlpVolumeStartupApplicationsComplete )
+  }
+  else if ( FsRtlpVolumeStartupApplicationsComplete )
+  {
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x258uLL, 0x54506343u);
+    v11 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0x258uLL);
+      *(_DWORD *)v11 = 1128485697;
+      KeInitializeTimerEx((PKTIMER)(v11 + 136), NotificationTimer);
+      v12 = v11 + 104;
+      *(_QWORD *)(v11 + 112) = v11 + 104;
+      *(_QWORD *)(v11 + 104) = v11 + 104;
+      *(_QWORD *)(v11 + 128) = 0LL;
+      *(_DWORD *)(v11 + 456) = -1073741779;
+      *(_QWORD *)(v11 + 464) = MEMORY[0xFFFFF78000000014];
+      *(_QWORD *)(v11 + 520) = 0LL;
+      *(_QWORD *)(v11 + 528) = 0LL;
+      *(_QWORD *)(v11 + 272) = 0LL;
+      KeInitializeDpc((PRKDPC)(v11 + 208), (PKDEFERRED_ROUTINE)PfSnTraceTimerRoutine, (PVOID)v11);
+      ExInitializePushLock((PKSPIN_LOCK)(v11 + 360));
+      ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v11 + 360));
+      ObfReferenceObjectWithTag(a3, 0x73576650u);
+      *(_QWORD *)(v11 + 352) = a3;
+      *(_QWORD *)(v11 + 368) = 0LL;
+      *(_QWORD *)(v11 + 384) = PfSnEndTraceWorkerThreadRoutine;
+      *(_QWORD *)(v11 + 392) = v11;
+      *(_DWORD *)(v11 + 400) = 0;
+      v13 = *(_WORD *)(v11 + 486);
+      *(_OWORD *)(v11 + 24) = *a1;
+      *(_OWORD *)(v11 + 40) = a1[1];
+      *(_OWORD *)(v11 + 56) = a1[2];
+      v14 = a1[3];
+      *(_WORD *)(v11 + 486) = v13 & 0xFFFE | (a5 != 0);
+      v15 = (char *)&unk_140C50128 + 16 * v8;
+      *(_DWORD *)(v11 + 88) = v8;
+      *(_OWORD *)(v11 + 72) = v14;
+      v16 = *(_DWORD *)v15;
+      *(_DWORD *)(v11 + 340) = *(_DWORD *)v15;
+      *(_QWORD *)(v11 + 200) = *((_QWORD *)v15 + 1);
+      if ( v16 )
+      {
+        if ( v16 > 0x100000 )
+          *(_DWORD *)(v11 + 340) = 0x100000;
+        *(_QWORD *)(v11 + 96) = PfSnTraceBufferAllocate();
+        if ( *(_QWORD *)(v11 + 96) )
+        {
+          v17 = *(__int64 **)(v11 + 96);
+          v18 = *(__int64 ***)(v11 + 112);
+          if ( *v18 != (__int64 *)v12 )
+            __fastfail(3u);
+          *v17 = v12;
+          v17[1] = (__int64)v18;
+          *v18 = v17;
+          *(_QWORD *)(v11 + 112) = v17;
+          *(_QWORD *)(v11 + 424) = -1LL;
+          *(_QWORD *)(v11 + 416) = -8LL;
+          *(_DWORD *)(v11 + 120) = 1;
+          *(_QWORD *)(v11 + 408) = v11 + 416;
+          if ( a4 )
+          {
+            *(_QWORD *)(v11 + 432) = a4;
+            *(_QWORD *)(v11 + 440) = PsGetThreadId(a4);
+          }
+          v19 = PfSnActivateTrace(v11);
+          if ( v19 >= 0 )
+          {
+            *a6 = v11;
+            v11 = 0LL;
+            v19 = 0;
+          }
+        }
+        else
+        {
+          v19 = -1073741670;
+        }
+      }
+      else
+      {
+        v19 = -1073741811;
+      }
+      if ( v11 )
+      {
+        PfSnCleanupTrace(v11);
+        ExFreePoolWithTag((PVOID)v11, 0);
+      }
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
+  }
+  else
+  {
     return (unsigned int)-1073741661;
-  Pool2 = (void *)ExAllocatePool2(64LL, 600LL, 1414554435LL);
-  v11 = (__int64)Pool2;
-  if ( !Pool2 )
-    return (unsigned int)-1073741670;
-  memset(Pool2, 0, 0x258uLL);
-  *(_DWORD *)v11 = 1128485697;
-  KeInitializeTimerEx((PKTIMER)(v11 + 136), NotificationTimer);
-  *(_QWORD *)(v11 + 128) = 0LL;
-  v12 = v11 + 104;
-  *(_QWORD *)(v11 + 112) = v11 + 104;
-  *(_QWORD *)(v11 + 104) = v11 + 104;
-  *(_DWORD *)(v11 + 456) = -1073741779;
-  *(_QWORD *)(v11 + 464) = MEMORY[0xFFFFF78000000014];
-  *(_QWORD *)(v11 + 520) = 0LL;
-  *(_QWORD *)(v11 + 528) = 0LL;
-  *(_QWORD *)(v11 + 272) = 0LL;
-  KeInitializeDpc((PRKDPC)(v11 + 208), (PKDEFERRED_ROUTINE)PfSnTraceTimerRoutine, (PVOID)v11);
-  ExInitializePushLock((PEX_RUNDOWN_REF)(v11 + 360));
-  ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v11 + 360));
-  ObfReferenceObjectWithTag(a3, 0x73576650u);
-  *(_QWORD *)(v11 + 352) = a3;
-  *(_QWORD *)(v11 + 368) = 0LL;
-  *(_QWORD *)(v11 + 384) = PfSnEndTraceWorkerThreadRoutine;
-  *(_QWORD *)(v11 + 392) = v11;
-  *(_DWORD *)(v11 + 400) = 0;
-  v13 = *(_WORD *)(v11 + 486);
-  *(_OWORD *)(v11 + 24) = *a1;
-  *(_OWORD *)(v11 + 40) = a1[1];
-  *(_OWORD *)(v11 + 56) = a1[2];
-  v14 = a1[3];
-  *(_WORD *)(v11 + 486) = v13 & 0xFFFE | (a5 != 0);
-  v15 = (char *)&unk_140C64EF8 + 16 * v8;
-  *(_DWORD *)(v11 + 88) = v8;
-  *(_OWORD *)(v11 + 72) = v14;
-  v16 = *(_DWORD *)v15;
-  *(_DWORD *)(v11 + 340) = *(_DWORD *)v15;
-  *(_QWORD *)(v11 + 200) = *((_QWORD *)v15 + 1);
-  if ( !v16 )
-  {
-    v20 = -1073741811;
-LABEL_18:
-    PfSnCleanupTrace(v11);
-    ExFreePoolWithTag((PVOID)v11, 0);
-    return (unsigned int)v20;
   }
-  v17 = v16;
-  if ( v16 > 0x100000 )
-    v17 = 0x100000;
-  *(_DWORD *)(v11 + 340) = v17;
-  *(_QWORD *)(v11 + 96) = PfSnTraceBufferAllocate();
-  if ( !*(_QWORD *)(v11 + 96) )
-  {
-    v20 = -1073741670;
-    goto LABEL_18;
-  }
-  v18 = *(__int64 **)(v11 + 96);
-  v19 = *(__int64 ***)(v11 + 112);
-  if ( *v19 != (__int64 *)v12 )
-    __fastfail(3u);
-  *v18 = v12;
-  v18[1] = (__int64)v19;
-  *v19 = v18;
-  *(_QWORD *)(v11 + 112) = v18;
-  *(_QWORD *)(v11 + 424) = -1LL;
-  *(_DWORD *)(v11 + 120) = 1;
-  *(_QWORD *)(v11 + 416) = -8LL;
-  *(_QWORD *)(v11 + 408) = v11 + 416;
-  if ( a4 )
-  {
-    *(_QWORD *)(v11 + 432) = a4;
-    *(_QWORD *)(v11 + 440) = PsGetThreadId(a4);
-  }
-  v20 = PfSnActivateTrace(v11);
-  if ( v20 < 0 )
-    goto LABEL_18;
-  v20 = 0;
-  *a6 = v11;
-  return (unsigned int)v20;
+  return (unsigned int)v19;
 }

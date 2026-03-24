@@ -1,10 +1,10 @@
 /*
- * XREFs of DispatchNotificationWorker @ 0x1C0031750
+ * XREFs of DispatchNotificationWorker @ 0x1C005C740
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C00071F0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DispatchNotificationWorker(ULONG_PTR a1)
@@ -17,11 +17,11 @@ char __fastcall DispatchNotificationWorker(ULONG_PTR a1)
   void **v7; // rax
 
   v2 = KeAcquireSpinLockRaiseToDpc(&NotifyHandlerLock);
-  v3 = *(void (__fastcall **)(__int64, _QWORD))(a1 + 392);
-  v4 = *(_QWORD *)(a1 + 400);
+  v3 = *(void (__fastcall **)(__int64, _QWORD))(a1 + 352);
+  v4 = *(_QWORD *)(a1 + 360);
   KeReleaseSpinLock(&NotifyHandlerLock, v2);
-  KeWaitForSingleObject((PVOID)(a1 + 904), Executive, 0, 0, 0LL);
-  v5 = (void **)(a1 + 864);
+  KeWaitForSingleObject((PVOID)(a1 + 864), Executive, 0, 0, 0LL);
+  v5 = (void **)(a1 + 824);
   while ( 1 )
   {
     v6 = (void ***)*v5;
@@ -31,13 +31,13 @@ char __fastcall DispatchNotificationWorker(ULONG_PTR a1)
       __fastfail(3u);
     *v5 = v7;
     v7[1] = v5;
-    KeSetEvent((PRKEVENT)(a1 + 904), 0, 0);
+    KeSetEvent((PRKEVENT)(a1 + 864), 0, 0);
     if ( v3 )
       v3(v4, *((unsigned int *)v6 + 4));
     ExFreePoolWithTag(v6, 0x4D706341u);
-    KeWaitForSingleObject((PVOID)(a1 + 904), Executive, 0, 0, 0LL);
+    KeWaitForSingleObject((PVOID)(a1 + 864), Executive, 0, 0, 0LL);
   }
-  *(_BYTE *)(a1 + 936) = 0;
-  KeSetEvent((PRKEVENT)(a1 + 904), 0, 0);
+  *(_BYTE *)(a1 + 896) = 0;
+  KeSetEvent((PRKEVENT)(a1 + 864), 0, 0);
   return ACPIInitDereferenceDeviceExtensionUnlocked(a1);
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PnpBugcheckPowerTimeout @ 0x140288884 (PnpBugcheckPowerTimeout.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PnpBugcheckPowerTimeout @ 0x140288984 (PnpBugcheckPowerTimeout.c)
  */
 
 void __fastcall __noreturn PopBuildDeviceNotifyListWatchdog(

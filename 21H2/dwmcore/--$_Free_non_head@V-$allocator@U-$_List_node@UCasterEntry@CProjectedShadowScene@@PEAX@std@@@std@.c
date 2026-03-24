@@ -1,31 +1,37 @@
 /*
- * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x180235CDC
+ * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x18000CF90
  * Callers:
- *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x18023603C (--1CProjectedShadowScene@@UEAA@XZ.c)
- *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x180236200 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x18000CEF4 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x18000E7B4 (--1CProjectedShadowScene@@UEAA@XZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(
+_QWORD *__fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(
         __int64 a1,
-        _QWORD **a2)
+        __int64 a2)
 {
-  _QWORD *v2; // rdi
+  _QWORD *result; // rax
   _QWORD *v3; // rbx
+  __int64 v4; // rcx
+  _QWORD *v5; // rdi
 
-  *a2[1] = 0LL;
-  v2 = *a2;
-  if ( *a2 )
+  result = *(_QWORD **)(a2 + 8);
+  *result = 0LL;
+  v3 = *(_QWORD **)a2;
+  if ( *(_QWORD *)a2 )
   {
     do
     {
-      v3 = (_QWORD *)*v2;
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v2 + 2);
-      std::_Deallocate<16,0>(v2, 0xB0uLL);
-      v2 = v3;
+      v4 = v3[2];
+      v5 = (_QWORD *)*v3;
+      if ( v4 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+      result = (_QWORD *)std::_Deallocate<16,0>(v3, 176LL);
+      v3 = v5;
     }
-    while ( v3 );
+    while ( v5 );
   }
+  return result;
 }

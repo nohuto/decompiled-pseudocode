@@ -1,116 +1,99 @@
 /*
- * XREFs of rimProcessPointerDeviceButtonContact @ 0x1C01AB8FC
+ * XREFs of rimProcessPointerDeviceButtonContact @ 0x1C017C51C
  * Callers:
- *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01A7EF8 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C01A8348 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C0179364 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01795E8 (rimDoProcessAnyPointerDeviceInput.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMGetPointerInputType @ 0x1C00E1024 (RIMGetPointerInputType.c)
- *     rimExtractButtonPageButtonUsages @ 0x1C00E2EAE (rimExtractButtonPageButtonUsages.c)
- *     RIMCmGetButtonContact @ 0x1C00E358C (RIMCmGetButtonContact.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00E35F8 (RIMCmIsContactSuppressedByArbitrationOnly.c)
- *     RIMAddToActiveDevices @ 0x1C01863D8 (RIMAddToActiveDevices.c)
- *     RIMCmActivateButtonContact @ 0x1C01AFB4C (RIMCmActivateButtonContact.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMAddToActiveDevices @ 0x1C015B7FC (RIMAddToActiveDevices.c)
+ *     RIMGetPointerInputType @ 0x1C015E558 (RIMGetPointerInputType.c)
+ *     rimExtractButtonPageButtonUsages @ 0x1C0179E64 (rimExtractButtonPageButtonUsages.c)
+ *     RIMCmActivateButtonContact @ 0x1C017F878 (RIMCmActivateButtonContact.c)
+ *     RIMCmGetButtonContact @ 0x1C01802CC (RIMCmGetButtonContact.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C01803C4 (RIMCmIsContactSuppressedByArbitrationOnly.c)
  */
 
-_UNKNOWN **__fastcall rimProcessPointerDeviceButtonContact(__int64 a1, LARGE_INTEGER *a2, __int64 a3, int a4, DWORD a5)
+_UNKNOWN **__fastcall rimProcessPointerDeviceButtonContact(
+        LARGE_INTEGER *a1,
+        __int64 a2,
+        char *a3,
+        unsigned int a4,
+        int a5)
 {
-  __int64 QuadPart; // rdi
-  __int64 v10; // r15
-  LARGE_INTEGER *ButtonContact; // rbx
-  int v12; // edx
-  int v13; // r8d
-  LARGE_INTEGER PerformanceCounter; // r13
-  int v15; // edx
-  __int64 v16; // r8
-  LONG v17; // ebp
-  __int64 v18; // r9
-  LARGE_INTEGER v19; // rax
+  __int64 v6; // rdi
+  struct _HIDP_PREPARSED_DATA *v10; // r12
+  int v11; // edx
+  __int64 ButtonContact; // rbx
+  int v13; // edx
+  int v14; // ecx
+  int v15; // eax
+  __int64 v16; // rax
   _UNKNOWN **result; // rax
-  LONG v21[4]; // [rsp+40h] [rbp-38h] BYREF
+  int v18; // [rsp+78h] [rbp+10h] BYREF
 
-  QuadPart = a2[59].QuadPart;
-  v10 = *(_QWORD *)(a2[57].QuadPart + 16);
-  ButtonContact = (LARGE_INTEGER *)RIMCmGetButtonContact(QuadPart);
-  v21[0] = 0;
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  LOBYTE(v12) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v6 = *(_QWORD *)(a2 + 480);
+  v10 = *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)(a2 + 464) + 16LL);
+  ButtonContact = RIMCmGetButtonContact(v6);
+  v18 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v12,
-      v13,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      32,
-      (__int64)&WPP_acebe0338cf732913f05b3829fd55bbc_Traceguids);
+    LOBYTE(v11) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, v11, 1, 32, (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids);
   }
-  if ( *(_DWORD *)(QuadPart + 24) != 7 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 656);
+  if ( *(_DWORD *)(v6 + 24) != 7 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 653);
   if ( !ButtonContact )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 657);
-  if ( (int)rimExtractButtonPageButtonUsages(QuadPart, v10, a3, a4, v21) >= 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 654);
+  if ( rimExtractButtonPageButtonUsages(v6, v10, a3, a4, &v18) >= 0 )
   {
-    v17 = v21[0];
-    if ( (v21[0] & 4) != 0 )
+    v14 = *(_DWORD *)(ButtonContact + 32);
+    if ( (v18 & 4) != 0 )
     {
-      if ( !__CFSHR__(ButtonContact[4].LowPart, 2) )
+      if ( !__CFSHR__(*(_DWORD *)(ButtonContact + 32), 2) )
       {
-        RIMCmActivateButtonContact(QuadPart);
-        if ( *(_DWORD *)(QuadPart + 1008) == 1 )
-          RIMAddToActiveDevices(a1, QuadPart, v16, v18);
+        RIMCmActivateButtonContact(v6);
+        if ( *(_DWORD *)(v6 + 952) == 1 )
+          RIMAddToActiveDevices(a1, v6);
       }
+      v14 = *(_DWORD *)(ButtonContact + 32);
     }
-    else if ( __CFSHR__(ButtonContact[4].LowPart, 2) )
+    else if ( __CFSHR__(*(_DWORD *)(ButtonContact + 32), 2) )
     {
-      ButtonContact[295].HighPart |= 4u;
+      *(_DWORD *)(ButtonContact + 2340) |= 4u;
     }
-    if ( (ButtonContact[4].LowPart & 2) != 0
-      && (!(unsigned int)RIMCmIsContactSuppressed((__int64)ButtonContact)
+    if ( (v14 & 2) != 0
+      && (!(unsigned int)RIMCmIsContactSuppressed(ButtonContact)
        || (unsigned int)RIMCmIsContactDeliveringPointerData(ButtonContact)
-       || (unsigned int)RIMCmIsContactSuppressedByArbitrationOnly((__int64)ButtonContact)) )
+       || (unsigned int)RIMCmIsContactSuppressedByArbitrationOnly(ButtonContact)) )
     {
-      ButtonContact[302].LowPart = a5;
-      ButtonContact[6] = PerformanceCounter;
-      ButtonContact[304].LowPart = RIMGetPointerInputType(QuadPart);
-      ButtonContact[305].HighPart = v17;
-      ButtonContact[312].LowPart = *(_DWORD *)(QuadPart + 836);
-      ButtonContact[314] = *(LARGE_INTEGER *)(QuadPart + 864);
-      if ( (a2[23].LowPart & 0x2000) != 0 )
-        v19 = a2[3];
+      v15 = a5;
+      *(_DWORD *)(ButtonContact + 44) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+      *(_DWORD *)(ButtonContact + 2392) = v15;
+      *(_DWORD *)(ButtonContact + 2408) = RIMGetPointerInputType(v6);
+      *(_DWORD *)(ButtonContact + 2420) = v18;
+      *(_DWORD *)(ButtonContact + 2472) = *(_DWORD *)(v6 + 788);
+      *(_QWORD *)(ButtonContact + 2488) = *(_QWORD *)(v6 + 816);
+      if ( (*(_DWORD *)(a2 + 184) & 0x2000) != 0 )
+        v16 = *(_QWORD *)(a2 + 24);
       else
-        v19 = a2[2];
-      ButtonContact[295].HighPart |= 1u;
-      ButtonContact[306] = v19;
+        v16 = *(_QWORD *)(a2 + 16);
+      *(_DWORD *)(ButtonContact + 2340) |= 1u;
+      *(_QWORD *)(ButtonContact + 2424) = v16;
     }
-  }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(v15) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    LOBYTE(v15) = 0;
   }
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v16) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_(
-                          WPP_GLOBAL_Control->AttachedDevice,
-                          v15,
-                          v16,
+    LOBYTE(v13) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_(
                           (_DWORD)gRimLog,
-                          4,
+                          v13,
                           1,
                           33,
-                          (__int64)&WPP_acebe0338cf732913f05b3829fd55bbc_Traceguids);
+                          (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids);
   }
   return result;
 }

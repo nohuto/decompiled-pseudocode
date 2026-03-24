@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560680
+ * XREFs of PnpHandleEnumerateHandlesAgainstPdoStack @ 0x14050CF20
  * Callers:
- *     PnpCollectOpenHandles @ 0x140950424 (PnpCollectOpenHandles.c)
+ *     PnpCollectOpenHandles @ 0x1408ABC04 (PnpCollectOpenHandles.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x14036B850 (IoGetDeviceAttachmentBaseRef.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140946508 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1408A134C (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
  */
 
 __int64 __fastcall PnpHandleEnumerateHandlesAgainstPdoStack(PVOID *Object, __int64 a2, __int64 a3)
@@ -17,15 +17,15 @@ __int64 __fastcall PnpHandleEnumerateHandlesAgainstPdoStack(PVOID *Object, __int
   unsigned int v5; // ebp
   KIRQL v6; // al
   PVOID v7; // rcx
-  struct _DEVICE_OBJECT *v8; // rsi
+  void *v8; // rsi
   KIRQL v9; // bl
-  PDEVICE_OBJECT DeviceAttachmentBaseRef; // rbx
+  void *DeviceAttachmentBaseRefWithTag; // rbx
   KIRQL v11; // al
   PVOID *v12; // rbx
   KIRQL v13; // si
 
   v4 = Object;
-  ObfReferenceObject(Object);
+  ObfReferenceObjectWithTag(Object, 0x746C6644u);
   while ( 1 )
   {
     v5 = PnpHandleEnumerateHandlesAgainstDeviceObject(v4, PnpCollectOpenHandlesCallBack, a3);
@@ -37,17 +37,20 @@ __int64 __fastcall PnpHandleEnumerateHandlesAgainstPdoStack(PVOID *Object, __int
     v9 = v6;
     if ( v7 )
     {
-      v8 = (struct _DEVICE_OBJECT *)*((_QWORD *)v7 + 1);
+      v8 = (void *)*((_QWORD *)v7 + 1);
       if ( v8 )
-        ObfReferenceObject(*((PVOID *)v7 + 1));
+        ObfReferenceObjectWithTag(*((PVOID *)v7 + 1), 0x746C6644u);
     }
     KeReleaseQueuedSpinLock(9uLL, v9);
     if ( v8 )
     {
-      DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v8);
-      v5 = PnpHandleEnumerateHandlesAgainstDeviceObject(DeviceAttachmentBaseRef, PnpCollectOpenHandlesCallBack, a3);
-      ObfDereferenceObject(DeviceAttachmentBaseRef);
-      ObfDereferenceObject(v8);
+      DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag((__int64)v8, 0x746C6644u);
+      v5 = PnpHandleEnumerateHandlesAgainstDeviceObject(
+             DeviceAttachmentBaseRefWithTag,
+             PnpCollectOpenHandlesCallBack,
+             a3);
+      ObfDereferenceObjectWithTag(DeviceAttachmentBaseRefWithTag, 0x746C6644u);
+      ObfDereferenceObjectWithTag(v8, 0x746C6644u);
       if ( v5 )
         break;
     }
@@ -55,13 +58,13 @@ __int64 __fastcall PnpHandleEnumerateHandlesAgainstPdoStack(PVOID *Object, __int
     v12 = (PVOID *)v4[3];
     v13 = v11;
     if ( v12 )
-      ObfReferenceObject(v4[3]);
+      ObfReferenceObjectWithTag(v4[3], 0x746C6644u);
     KeReleaseQueuedSpinLock(0xAuLL, v13);
-    ObfDereferenceObject(v4);
+    ObfDereferenceObjectWithTag(v4, 0x746C6644u);
     v4 = v12;
     if ( !v12 )
       return v5;
   }
-  ObfDereferenceObject(v4);
+  ObfDereferenceObjectWithTag(v4, 0x746C6644u);
   return v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIFilterIrpSetLock @ 0x1C0086780
+ * XREFs of ACPIFilterIrpSetLock @ 0x1C00AFB00
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
  */
 
 __int64 __fastcall ACPIFilterIrpSetLock(struct _DEVICE_OBJECT *a1, IRP *a2, __int64 a3, __int64 a4)

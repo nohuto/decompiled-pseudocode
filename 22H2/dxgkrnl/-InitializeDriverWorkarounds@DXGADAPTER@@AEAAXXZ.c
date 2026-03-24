@@ -1,114 +1,124 @@
 /*
- * XREFs of ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C021BEA0
+ * XREFs of ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C0191DC4
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     ?xwtol@@YAKPEBG@Z @ 0x1C020E72C (-xwtol@@YAKPEBG@Z.c)
- *     DxgkInitializeBlockList @ 0x1C021C2F0 (DxgkInitializeBlockList.c)
+ *     ?xwtol@@YAKPEBG@Z @ 0x1C0180190 (-xwtol@@YAKPEBG@Z.c)
+ *     DxgkInitializeBlockList @ 0x1C01921FC (DxgkInitializeBlockList.c)
  */
 
 void __fastcall DXGADAPTER::InitializeDriverWorkarounds(DXGADAPTER *this)
 {
   _DWORD **v1; // rdi
-  int v3; // eax
+  int v3; // ecx
   int v4; // eax
-  __int64 v5; // rsi
-  int v6; // eax
-  const wchar_t *v7; // rcx
-  wchar_t *v8; // rax
-  __int64 v9; // rcx
-  const wchar_t *v10; // rcx
-  wchar_t *v11; // rax
+  int v5; // edx
+  __int64 v6; // rsi
+  int v7; // eax
+  const wchar_t *v8; // rcx
+  wchar_t *v9; // rax
+  __int64 v10; // rcx
+  int v11; // eax
+  const wchar_t *v12; // rcx
+  wchar_t *v13; // rax
+  int v14; // eax
   struct _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-49h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-39h] BYREF
-  int v14; // [rsp+48h] [rbp-31h]
-  const wchar_t *v15; // [rsp+50h] [rbp-29h]
+  __int64 v16; // [rsp+40h] [rbp-39h] BYREF
+  int v17; // [rsp+48h] [rbp-31h]
+  const wchar_t *v18; // [rsp+50h] [rbp-29h]
   struct _UNICODE_STRING *p_UnicodeString; // [rsp+58h] [rbp-21h]
-  int v17; // [rsp+60h] [rbp-19h]
-  __int64 v18; // [rsp+68h] [rbp-11h]
-  int v19; // [rsp+70h] [rbp-9h]
-  __int64 v20; // [rsp+78h] [rbp-1h]
-  int v21; // [rsp+80h] [rbp+7h]
-  __int128 v22; // [rsp+88h] [rbp+Fh]
-  __int128 v23; // [rsp+98h] [rbp+1Fh]
-  __int64 v24; // [rsp+A8h] [rbp+2Fh]
+  int v20; // [rsp+60h] [rbp-19h]
+  __int64 v21; // [rsp+68h] [rbp-11h]
+  int v22; // [rsp+70h] [rbp-9h]
+  __int64 v23; // [rsp+78h] [rbp-1h]
+  int v24; // [rsp+80h] [rbp+7h]
+  __int128 v25; // [rsp+88h] [rbp+Fh]
+  __int128 v26; // [rsp+98h] [rbp+1Fh]
+  __int64 v27; // [rsp+A8h] [rbp+2Fh]
   int Key; // [rsp+E0h] [rbp+67h] BYREF
 
-  v1 = (_DWORD **)((char *)this + 2824);
-  DxgkInitializeBlockList(*((_QWORD *)this + 27), *((unsigned int *)this + 638), (char *)this + 2824);
+  v1 = (_DWORD **)((char *)this + 2600);
+  DxgkInitializeBlockList(*((_QWORD *)this + 27), *((unsigned int *)this + 582), (char *)this + 2600);
   if ( (**v1 & 0x80u) != 0 )
     WdDiagNotifyUser(32LL, 9LL, 0LL, 0LL);
-  v3 = *((_DWORD *)this + 638);
-  if ( v3 == 8704 )
+  v3 = *((_DWORD *)this + 582);
+  if ( v3 != 8704 )
   {
-    if ( (*((_DWORD *)this + 109) & 0x200) != 0 )
-      *((_BYTE *)this + 2869) = 1;
+LABEL_6:
+    v4 = v3;
+    if ( v3 < 0x2000 || v3 >= 9216 )
+      goto LABEL_11;
+    goto LABEL_8;
   }
-  else if ( (unsigned int)(v3 - 0x2000) > 0x3FF )
+  if ( (*((_DWORD *)this + 87) & 0x200) != 0 )
   {
-    goto LABEL_10;
+    *((_BYTE *)this + 2645) = 1;
+    goto LABEL_6;
   }
-  v4 = *((_DWORD *)this + 103);
-  if ( v4 == 32902 || v4 == 4098 )
+LABEL_8:
+  v5 = *((_DWORD *)this + 81);
+  if ( v5 == 32902 || (v4 = v3, v5 == 4098) )
+  {
     **v1 |= 0x40u;
-LABEL_10:
-  v5 = -1LL;
-  if ( *((int *)this + 638) >= 0x2000 )
+    v4 = *((_DWORD *)this + 582);
+  }
+LABEL_11:
+  v6 = -1LL;
+  if ( v4 >= 0x2000 )
   {
-    v6 = *((_DWORD *)this + 103);
-    if ( v6 == 4098 || v6 == 4318 )
+    v7 = *((_DWORD *)this + 81);
+    if ( v7 == 4098 || v7 == 4318 )
     {
-      *((_DWORD *)this + 569) |= 0x40u;
+      *((_DWORD *)this + 513) |= 0x40u;
     }
-    else if ( v6 == 32902 && (*((_DWORD *)this + 569) & 0x40) != 0 )
+    else if ( v7 == 32902 && (*((_DWORD *)this + 513) & 0x40) != 0 )
     {
-      Key = *((_DWORD *)this + 104);
-      if ( bsearch(&Key, &unk_1C0097680, 0x18uLL, 4uLL, UintCompareFunc) )
+      Key = *((_DWORD *)this + 82);
+      if ( bsearch(&Key, &unk_1C007B0D0, 0x18uLL, 4uLL, UintCompareFunc) )
       {
-        v7 = (const wchar_t *)*((_QWORD *)this + 227);
-        if ( v7 )
+        v8 = (const wchar_t *)*((_QWORD *)this + 199);
+        if ( v8 )
         {
-          v8 = wcsrchr(v7, 0x2Eu);
-          if ( v8 )
+          v9 = wcsrchr(v8, 0x2Eu);
+          if ( v9 )
           {
-            v9 = -1LL;
+            v10 = -1LL;
             do
-              ++v9;
-            while ( v8[v9] );
-            if ( v9 == 5 && (unsigned int)xwtol(v8 + 1) - 1 <= 0x116D )
-              *((_DWORD *)this + 569) &= ~0x40u;
+              ++v10;
+            while ( v9[v10] );
+            if ( v10 == 5 && (unsigned int)xwtol(v9 + 1) - 1 <= 0x116D )
+              *((_DWORD *)this + 513) &= ~0x40u;
           }
         }
       }
     }
   }
-  if ( *((int *)this + 638) >= 9216 && (*((_DWORD *)this + 109) & 0x100) == 0 )
-    *((_DWORD *)this + 569) |= 8u;
-  if ( *((_DWORD *)this + 103) != 4318 || *((_DWORD *)this + 524) > 0x10004u )
-    **v1 |= 0x10000000u;
-  if ( *((_DWORD *)this + 103) == 1297040209 )
+  if ( *((int *)this + 582) >= 9216 )
+    *((_DWORD *)this + 513) |= 8u;
+  if ( *((_DWORD *)this + 81) == 1297040209 )
   {
-    if ( *((int *)this + 705) <= 2000 )
+    v11 = *((_DWORD *)this + 649);
+    if ( v11 <= 2000 )
     {
       **v1 |= 0x10u;
-      v15 = L"PhoneSOCVersion";
+      v18 = L"PhoneSOCVersion";
       p_UnicodeString = &UnicodeString;
-      v24 = 0LL;
+      v27 = 0LL;
       *(_QWORD *)&UnicodeString.Length = 0LL;
       UnicodeString.Buffer = 0LL;
-      v13 = 0LL;
-      v14 = 292;
-      v17 = 16777217;
-      v18 = 0LL;
-      v19 = 0;
-      v20 = 0LL;
-      v21 = 0;
-      v22 = 0LL;
+      v16 = 0LL;
+      v17 = 292;
+      v20 = 16777217;
+      v21 = 0LL;
+      v22 = 0;
       v23 = 0LL;
+      v24 = 0;
+      v25 = 0LL;
+      v26 = 0LL;
       if ( (int)RtlQueryRegistryValuesEx(
                   0LL,
                   L"\\Registry\\Machine\\System\\Platform\\DeviceTargetingInfo",
-                  &v13,
+                  &v16,
                   0LL,
                   0LL) >= 0
         && UnicodeString.Length >= 4u
@@ -118,59 +128,60 @@ LABEL_10:
         **v1 |= 0x20u;
       }
       RtlFreeUnicodeString(&UnicodeString);
+      v11 = *((_DWORD *)this + 649);
     }
-    if ( *((int *)this + 705) <= 1300 )
+    if ( v11 <= 1300 )
     {
       **v1 |= 1u;
       **v1 |= 2u;
       **v1 |= 8u;
     }
-    if ( *((_DWORD *)this + 638) == 4608 )
+    if ( *((_DWORD *)this + 582) == 4608 )
       **v1 |= 4u;
-    if ( *((_DWORD *)this + 104) == 1161245232 )
+    if ( *((_DWORD *)this + 82) == 1161245232 )
     {
-      if ( *((_DWORD *)this + 105) == 810570829
-        && *((_DWORD *)this + 106) == 808794160
-        && *((_DWORD *)this + 107) == 124 )
+      if ( *((_DWORD *)this + 83) != 810570829
+        || *((_DWORD *)this + 84) != 808794160
+        || *((_DWORD *)this + 85) != 124
+        || (**v1 |= 0x1000u, **v1 |= 0x2000u, *((_DWORD *)this + 82) == 1161245232) )
       {
-        **v1 |= 0x1000u;
-        **v1 |= 0x2000u;
-      }
-      if ( *((_DWORD *)this + 104) == 1161245232
-        && *((_DWORD *)this + 105) == 810434888
-        && *((_DWORD *)this + 106) == 808794160
-        && *((_DWORD *)this + 107) == 124 )
-      {
-        **v1 |= 0x4000u;
+        if ( *((_DWORD *)this + 83) == 810434888 && *((_DWORD *)this + 84) == 808794160 && *((_DWORD *)this + 85) == 124 )
+          **v1 |= 0x4000u;
       }
     }
   }
   if ( (**v1 & 0x400) != 0 )
   {
-    *((_BYTE *)this + 2756) = 0;
-    *((_DWORD *)this + 690) = 1;
-    *((_BYTE *)this + 2861) = 0;
-    *((_BYTE *)this + 2865) = 0;
-    *((_BYTE *)this + 2863) = 0;
+    *((_BYTE *)this + 2532) = 0;
+    *((_DWORD *)this + 634) = 1;
+    *((_BYTE *)this + 2637) = 0;
+    *((_BYTE *)this + 2641) = 0;
+    *((_BYTE *)this + 2639) = 0;
   }
-  if ( *((int *)this + 638) <= 9216 && *((_DWORD *)this + 103) == 32902 )
+  if ( *((int *)this + 582) <= 9216 && *((_DWORD *)this + 81) == 32902 )
   {
-    v10 = (const wchar_t *)*((_QWORD *)this + 227);
-    if ( v10 )
+    v12 = (const wchar_t *)*((_QWORD *)this + 199);
+    if ( v12 )
     {
-      v11 = wcsrchr(v10, 0x2Eu);
-      if ( v11 )
+      v13 = wcsrchr(v12, 0x2Eu);
+      if ( v13 )
       {
         do
-          ++v5;
-        while ( v11[v5] );
-        if ( v5 == 5 && (unsigned int)xwtol(v11 + 1) - 1 <= 0x17F6 )
-          **v1 |= 0x200000u;
+          ++v6;
+        while ( v13[v6] );
+        if ( v6 == 5 && (unsigned int)xwtol(v13 + 1) - 1 <= 0x17F6 )
+          **v1 |= 0x20000u;
       }
     }
   }
-  if ( *((_DWORD *)this + 638) == 8960 && *((_DWORD *)this + 103) == 4098 )
-    **v1 |= 0x400000u;
-  if ( *((int *)this + 638) <= 9728 && *((_DWORD *)this + 103) == 4098 )
-    **v1 |= 0x800000u;
+  v14 = *((_DWORD *)this + 582);
+  if ( v14 == 8960 )
+  {
+    if ( *((_DWORD *)this + 81) != 4098 )
+      return;
+    **v1 |= 0x40000u;
+    v14 = *((_DWORD *)this + 582);
+  }
+  if ( v14 <= 9728 && *((_DWORD *)this + 81) == 4098 )
+    **v1 |= 0x80000u;
 }

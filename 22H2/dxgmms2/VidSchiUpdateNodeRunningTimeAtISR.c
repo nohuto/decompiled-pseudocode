@@ -1,41 +1,41 @@
 /*
- * XREFs of VidSchiUpdateNodeRunningTimeAtISR @ 0x1C000F470
+ * XREFs of VidSchiUpdateNodeRunningTimeAtISR @ 0x1C000E5F0
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000F4F0 (VidSchiUpdateContextRunningTimeAtISR.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000E670 (VidSchiUpdateContextRunningTimeAtISR.c)
  */
 
-__int64 __fastcall VidSchiUpdateNodeRunningTimeAtISR(__int64 *a1, __int64 a2)
+__int64 __fastcall VidSchiUpdateNodeRunningTimeAtISR(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rcx
-  __int64 v4; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rdi
   __int64 result; // rax
-  __int64 v6; // rcx
-  _QWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+30h] [rbp-18h]
-  __int64 v9; // [rsp+38h] [rbp-10h]
+  __int64 v8; // rcx
+  _QWORD v9[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-18h]
+  __int64 v11; // [rsp+38h] [rbp-10h]
 
-  v3 = *a1;
-  v4 = *(_QWORD *)(v3 + 8LL * *(unsigned int *)(v3 + 1556) + 1568);
+  v5 = *a1;
+  v6 = *(_QWORD *)(v5 + 8LL * *(unsigned int *)(v5 + 1548) + 1560);
   result = 0LL;
-  if ( v4 )
+  if ( v6 )
   {
-    v7[0] = 0LL;
-    v8 = 0LL;
-    v9 = 0LL;
-    v7[1] = v4;
-    result = VidSchiUpdateContextRunningTimeAtISR(v7, a2);
-    a1[3] = v9;
-    v6 = v8;
-    a1[1] = v4;
+    v9[0] = 0LL;
+    v10 = 0LL;
+    v11 = 0LL;
+    v9[1] = v6;
+    result = VidSchiUpdateContextRunningTimeAtISR(v9, a2, a3, a4);
+    a1[3] = v11;
+    v8 = v10;
+    a1[1] = v6;
   }
   else
   {
     a1[1] = 0LL;
     a1[3] = 0LL;
-    v6 = *(_QWORD *)(v3 + 2648);
+    v8 = *(_QWORD *)(v5 + 2640);
   }
-  a1[2] = v6;
+  a1[2] = v8;
   return result;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwAdjustPrivilegesToken @ 0x14041BF80
+ * XREFs of ZwAdjustPrivilegesToken @ 0x1403FABC0
  * Callers:
- *     DifZwAdjustPrivilegesTokenWrapper @ 0x14061CA40 (DifZwAdjustPrivilegesTokenWrapper.c)
- *     RtlAcquirePrivilege @ 0x1406CB6DC (RtlAcquirePrivilege.c)
- *     RtlReleasePrivilege @ 0x1406DAE08 (RtlReleasePrivilege.c)
- *     BiAdjustPrivilege @ 0x140813C34 (BiAdjustPrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1406B118C (RtlAcquirePrivilege.c)
+ *     RtlReleasePrivilege @ 0x1406BABEC (RtlReleasePrivilege.c)
+ *     BiAdjustPrivilege @ 0x140785D10 (BiAdjustPrivilege.c)
  * Callees:
  *     <none>
  */

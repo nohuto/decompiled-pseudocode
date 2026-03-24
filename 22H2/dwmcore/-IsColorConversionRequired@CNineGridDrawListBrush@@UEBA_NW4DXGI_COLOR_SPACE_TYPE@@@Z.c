@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsColorConversionRequired@CNineGridDrawListBrush@@UEBA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801FD7B0
+ * XREFs of ?IsColorConversionRequired@CNineGridDrawListBrush@@UEBA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18019E9C0
  * Callers:
  *     <none>
  * Callees:

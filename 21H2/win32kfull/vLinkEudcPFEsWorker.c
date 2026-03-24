@@ -1,79 +1,83 @@
 /*
- * XREFs of vLinkEudcPFEsWorker @ 0x1C000FE74
+ * XREFs of vLinkEudcPFEsWorker @ 0x1C00A3C74
  * Callers:
- *     vLinkEudcPFEs @ 0x1C010E458 (vLinkEudcPFEs.c)
+ *     vLinkEudcPFEs @ 0x1C00A3EEC (vLinkEudcPFEs.c)
  * Callees:
- *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C0011894 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
- *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00150C4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00A11D4 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C00A2D24 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016AAC0 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
  */
 
-void __fastcall vLinkEudcPFEsWorker(__int64 a1, __int64 a2)
+struct PFF *__fastcall vLinkEudcPFEsWorker(__int64 a1, struct PFF *a2)
 {
-  __int64 v2; // rdi
+  struct PFF *result; // rax
   unsigned int v4; // esi
-  __int64 v5; // rax
-  wchar_t *v6; // r14
-  int v7; // r15d
+  __int64 v5; // rbx
   struct _FLENTRY *BaseFontEntry; // rbp
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
+  int v7; // eax
+  __int64 v8; // rax
+  wchar_t *v9; // r14
+  int v10; // r15d
+  __int64 v11; // rax
+  struct PFF *v12; // rdi
+  __int64 v13; // [rsp+58h] [rbp+10h] BYREF
 
-  if ( a2 )
+  for ( result = SkipInvalidPff(a2); ; result = SkipInvalidPff(*((struct PFF **)v12 + 1)) )
   {
-    v2 = a2;
-    while ( 1 )
+    v12 = result;
+    if ( !result )
+      break;
+    if ( (*((_DWORD *)result + 13) & 8) == 0 )
     {
-      if ( (*(_DWORD *)(v2 + 52) & 8) == 0 )
+      v4 = 0;
+      if ( *((_DWORD *)result + 52) )
       {
-        v4 = 0;
-        if ( *(_DWORD *)(v2 + 208) )
-          break;
-      }
-LABEL_11:
-      v2 = *(_QWORD *)(v2 + 8);
-      if ( !v2 )
-        return;
-    }
-    while ( 1 )
-    {
-      v10 = *(_QWORD *)(v2 + 8LL * v4 + 216);
-      v11 = v10;
-      if ( !v10 )
-        goto LABEL_10;
-      if ( a1 )
-      {
-        BaseFontEntry = (struct _FLENTRY *)a1;
-        if ( PFEOBJ::bCheckFamilyName((PFEOBJ *)&v11, (const unsigned __int16 *)(a1 + 32), 0, 0LL) )
-          goto LABEL_13;
-      }
-      else
-      {
-        v5 = *(_QWORD *)(v10 + 32);
-        v6 = (wchar_t *)(v5 + *(int *)(v5 + 8));
-        v7 = *(_DWORD *)(v5 + 48) & 0x8000000;
-        BaseFontEntry = FindBaseFontEntry(v6);
-        if ( BaseFontEntry )
-          goto LABEL_13;
-        if ( v7 )
+        while ( 1 )
         {
-          v9 = -1LL;
+          v5 = *((_QWORD *)v12 + v4 + 27);
+          v13 = v5;
+          if ( v5 )
+            break;
+LABEL_16:
+          if ( ++v4 >= *((_DWORD *)v12 + 52) )
+            goto LABEL_17;
+        }
+        BaseFontEntry = (struct _FLENTRY *)a1;
+        if ( a1 )
+        {
+          v7 = PFEOBJ::bCheckFamilyName((PFEOBJ *)&v13, (const unsigned __int16 *)(a1 + 32), 0, 0LL);
+          goto LABEL_13;
+        }
+        v8 = *(_QWORD *)(v5 + 32);
+        v9 = (wchar_t *)(v8 + *(int *)(v8 + 8));
+        v10 = *(_DWORD *)(v8 + 48) & 0x8000000;
+        BaseFontEntry = FindBaseFontEntry(v9);
+        if ( BaseFontEntry )
+          goto LABEL_15;
+        if ( v10 )
+        {
+          v11 = -1LL;
           do
-            ++v9;
-          while ( v6[v9] );
-          BaseFontEntry = FindBaseFontEntry(&v6[v9 + 1]);
+            ++v11;
+          while ( v9[v11] );
+          BaseFontEntry = FindBaseFontEntry(&v9[v11 + 1]);
           if ( BaseFontEntry )
           {
-LABEL_13:
-            *(_QWORD *)(v10 + 120) = BaseFontEntry;
-            goto LABEL_10;
+LABEL_15:
+            *(_QWORD *)(v5 + 120) = BaseFontEntry;
+            goto LABEL_16;
           }
+          v7 = 0;
+LABEL_13:
+          if ( v7 )
+            goto LABEL_15;
         }
+        *(_QWORD *)(v5 + 120) = 0LL;
+        goto LABEL_16;
       }
-      *(_QWORD *)(v10 + 120) = 0LL;
-LABEL_10:
-      if ( ++v4 >= *(_DWORD *)(v2 + 208) )
-        goto LABEL_11;
     }
+LABEL_17:
+    ;
   }
+  return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of VslInitializeSecureKernelCfg @ 0x14054E548
+ * XREFs of VslInitializeSecureKernelCfg @ 0x1404FC8C8
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslInitializeSecureKernelCfg(__int64 a1, __int64 a2)
+NTSTATUS __fastcall VslInitializeSecureKernelCfg(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // r9
   _QWORD *v5; // rdx
@@ -26,8 +26,8 @@ __int64 __fastcall VslInitializeSecureKernelCfg(__int64 a1, __int64 a2)
     v6 = *(int *)((char *)&MiTrimPassToAge[1] + v4);
     v4 += 4LL;
     v6 *= 2LL;
-    *(v5 - 1) = qword_140C54050[v6];
-    *v5 = qword_140C54058[v6];
+    *(v5 - 1) = qword_140C4FAC8[v6];
+    *v5 = qword_140C4FAD0[v6];
     v5 += 2;
   }
   while ( v4 < 8 );

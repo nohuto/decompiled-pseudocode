@@ -1,49 +1,49 @@
 /*
- * XREFs of KiTryUnwaitThread @ 0x1402F6BC0
+ * XREFs of KiTryUnwaitThread @ 0x140342820
  * Callers:
- *     KeSetProcess @ 0x1402095F0 (KeSetProcess.c)
- *     KeRundownQueueCommon @ 0x140234888 (KeRundownQueueCommon.c)
- *     KeDeleteMutant @ 0x140234B28 (KeDeleteMutant.c)
- *     KeTimeOutQueueWaiters @ 0x14023C084 (KeTimeOutQueueWaiters.c)
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     KiTimerWaitTest @ 0x1402A7FE0 (KiTimerWaitTest.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402B02B0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x1402B1740 (ExpReleaseResourceSharedForThreadLite.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KeTerminateThread @ 0x1402F00BC (KeTerminateThread.c)
- *     KiRundownMutants @ 0x1402F0604 (KiRundownMutants.c)
- *     KiExpireTimer2 @ 0x1402F2CA0 (KiExpireTimer2.c)
- *     KeReleaseMutant @ 0x1402F91E0 (KeReleaseMutant.c)
- *     KeSetEventBoostPriorityEx @ 0x1403595B4 (KeSetEventBoostPriorityEx.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeWakeWaitChain @ 0x14035B8F4 (KeWakeWaitChain.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
+ *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
+ *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
+ *     KeSetProcess @ 0x140251D1C (KeSetProcess.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     KiRundownMutants @ 0x140277650 (KiRundownMutants.c)
+ *     KeTerminateThread @ 0x1402784F0 (KeTerminateThread.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KeTimeOutQueueWaiters @ 0x1402871CC (KeTimeOutQueueWaiters.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
+ *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
+ *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402F1788 (KeSetEventBoostPriorityEx.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiWaitSatisfyMutant @ 0x1402F35E0 (KiWaitSatisfyMutant.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiWaitSatisfyMutant @ 0x14029A584 (KiWaitSatisfyMutant.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiTryUnwaitThread(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   struct _KPRCB *CurrentPrcb; // rbp
   __int64 v5; // rbx
-  unsigned __int8 v6; // r14
-  _DWORD *SchedulerAssist; // r10
+  unsigned __int8 v7; // di
+  __int64 SchedulerAssist; // rdx
   char v12; // cl
   int v13; // eax
   __int64 v14; // rcx
-  __int64 v15; // rbp
+  __int64 v15; // rdi
   char v16; // al
   __int64 v17; // rcx
   struct _KPRCB *v18; // rcx
-  _DWORD *v19; // r8
+  _DWORD *v19; // rax
   __int64 result; // rax
-  struct _KPRCB *v21; // r14
+  struct _KPRCB *v21; // rbp
   _DWORD *v22; // rcx
   __int64 v23; // rdx
   _QWORD *v24; // rcx
@@ -67,17 +67,17 @@ __int64 __fastcall KiTryUnwaitThread(__int64 a1, __int64 a2, __int64 a3, __int64
 
   CurrentPrcb = KeGetCurrentPrcb();
   v5 = *(_QWORD *)(a2 + 24);
-  v6 = 0;
+  v7 = 0;
   v41 = 0;
-  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v32 = SchedulerAssist[6];
-      SchedulerAssist[6] = v32 + 1;
+      v32 = *(_DWORD *)(SchedulerAssist + 24);
+      *(_DWORD *)(SchedulerAssist + 24) = v32 + 1;
       if ( v32 == -1 )
-LABEL_42:
+LABEL_43:
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
@@ -95,7 +95,7 @@ LABEL_42:
       }
     }
     do
-      KeYieldProcessorEx(&v41, a2, a3, (__int64)a4);
+      KeYieldProcessorEx(&v41, SchedulerAssist, a3, (__int64)a4);
     while ( *(_QWORD *)(v5 + 64) );
     v29 = CurrentPrcb->SchedulerAssist;
     if ( v29 )
@@ -105,7 +105,7 @@ LABEL_42:
         v34 = v29[6];
         v29[6] = v34 + 1;
         if ( v34 == -1 )
-          goto LABEL_42;
+          goto LABEL_43;
       }
     }
   }
@@ -141,11 +141,11 @@ LABEL_42:
             v35 = v22[6];
             v22[6] = v35 + 1;
             if ( v35 == -1 )
-LABEL_55:
+LABEL_56:
               KiRemoveSystemWorkPriorityKick(v21);
           }
         }
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 32464), 0LL) )
+        while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 31760), 0LL) )
         {
           v30 = v21->SchedulerAssist;
           if ( v30 )
@@ -159,8 +159,8 @@ LABEL_55:
             }
           }
           do
-            KeYieldProcessorEx(v40, a2, a3, (__int64)a4);
-          while ( *(_QWORD *)(v15 + 32464) );
+            KeYieldProcessorEx(v40, SchedulerAssist, a3, (__int64)a4);
+          while ( *(_QWORD *)(v15 + 31760) );
           v31 = v21->SchedulerAssist;
           if ( v31 )
           {
@@ -169,7 +169,7 @@ LABEL_55:
               v37 = v31[6];
               v31[6] = v37 + 1;
               if ( v37 == -1 )
-                goto LABEL_55;
+                goto LABEL_56;
             }
           }
         }
@@ -183,7 +183,7 @@ LABEL_55:
           *(_QWORD *)(v23 + 8) = v24;
           *(_QWORD *)(v5 + 712) = 0LL;
         }
-        _InterlockedAnd64((volatile signed __int64 *)(v15 + 32464), 0LL);
+        _InterlockedAnd64((volatile signed __int64 *)(v15 + 31760), 0LL);
         v25 = KeGetCurrentPrcb();
         v26 = v25->SchedulerAssist;
         if ( v26 )
@@ -211,39 +211,44 @@ LABEL_55:
           *(_QWORD *)(v5 + 992) += v17;
       }
       *(_BYTE *)(v5 + 388) = 7;
+      v7 = 1;
       *(_QWORD *)(v5 + 216) = *(_QWORD *)(a1 + 11528);
       *(_QWORD *)(a1 + 11528) = v5 + 216;
       *(_QWORD *)(v5 + 200) = a3;
       *(_QWORD *)(v5 + 976) = 0LL;
-      goto LABEL_12;
     }
-    if ( (*(_BYTE *)(v5 + 112) & 7) == 0 )
+    else
     {
-      *(_BYTE *)(v5 + 112) = v12 & 0xF8 | 2;
-      *(_QWORD *)(v5 + 200) = a3;
-      *(_QWORD *)(v5 + 976) = 0LL;
-      *(_BYTE *)(a2 + 17) = 0;
-LABEL_12:
-      v6 = 1;
-      if ( a4 )
+      if ( (*(_BYTE *)(v5 + 112) & 7) == 0 )
       {
-        *a4 = v5;
-        v27 = *(_BYTE **)(a2 + 32);
-        if ( (*v27 & 0x7F) == 2 )
-          KiWaitSatisfyMutant((__int64)v27, v5, a1);
-      }
-      goto LABEL_13;
-    }
-    if ( v13 == 5 )
-    {
-      *(_BYTE *)(v5 + 112) = v12 & 0xF8 | 6;
-    }
-    else if ( v13 == 3 )
-    {
-      *(_BYTE *)(a2 + 17) = 2;
-    }
-  }
+        *(_BYTE *)(v5 + 112) = v12 & 0xF8 | 2;
+        *(_QWORD *)(v5 + 200) = a3;
+        *(_QWORD *)(v5 + 976) = 0LL;
+        *(_BYTE *)(a2 + 17) = 0;
+        v7 = 1;
 LABEL_13:
+        if ( a4 )
+        {
+          *a4 = v5;
+          v27 = *(_BYTE **)(a2 + 32);
+          if ( (*v27 & 0x7F) == 2 )
+            KiWaitSatisfyMutant((__int64)v27, v5, a1);
+        }
+        goto LABEL_14;
+      }
+      if ( v13 == 5 )
+      {
+        *(_BYTE *)(v5 + 112) = v12 & 0xF8 | 6;
+        goto LABEL_14;
+      }
+      if ( v13 == 3 )
+        *(_BYTE *)(a2 + 17) = 2;
+    }
+    if ( !v7 )
+      goto LABEL_14;
+    goto LABEL_13;
+  }
+LABEL_14:
   *(_QWORD *)(v5 + 64) = 0LL;
   v18 = KeGetCurrentPrcb();
   v19 = v18->SchedulerAssist;
@@ -257,7 +262,7 @@ LABEL_13:
         KiRemoveSystemWorkPriorityKick(v18);
     }
   }
-  result = v6;
+  result = v7;
   ++*(_BYTE *)(a2 + 17);
   return result;
 }

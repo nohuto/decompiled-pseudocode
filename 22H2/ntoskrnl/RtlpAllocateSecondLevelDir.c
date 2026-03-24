@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpAllocateSecondLevelDir @ 0x14036F1BC
+ * XREFs of RtlpAllocateSecondLevelDir @ 0x140317AB0
  * Callers:
- *     RtlpCreateHashTable @ 0x14036F050 (RtlpCreateHashTable.c)
- *     RtlExpandHashTable @ 0x14036F7F0 (RtlExpandHashTable.c)
+ *     RtlExpandHashTable @ 0x1403178F0 (RtlExpandHashTable.c)
+ *     RtlpCreateHashTable @ 0x140376250 (RtlpCreateHashTable.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpAllocateSecondLevelDir(char a1)
+PVOID __fastcall RtlpAllocateSecondLevelDir(char a1)
 {
-  return ExAllocatePool2(64LL, (unsigned int)(16 << (a1 + 7)), 1650545736LL);
+  return ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(16 << (a1 + 7)), 0x62615448u);
 }

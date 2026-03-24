@@ -1,55 +1,53 @@
 /*
- * XREFs of SepDuplicateTokenUserAndGroups @ 0x1409CF860
+ * XREFs of SepDuplicateTokenUserAndGroups @ 0x14092310C
  * Callers:
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
  * Callees:
- *     SepDuplicateSid @ 0x1407110C4 (SepDuplicateSid.c)
+ *     SepDuplicateSid @ 0x140654430 (SepDuplicateSid.c)
  */
 
 __int64 __fastcall SepDuplicateTokenUserAndGroups(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebp
-  _QWORD *v3; // r14
-  unsigned int v4; // ebx
-  unsigned int v7; // r8d
+  unsigned int v3; // ebx
+  unsigned int v6; // r8d
   __int64 result; // rax
-  int v9; // eax
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_DWORD *)(a1 + 208);
-  v3 = (_QWORD *)(a1 + 152);
-  v4 = 0;
-  v12 = 0LL;
-  v7 = 0;
+  v3 = 0;
+  v11 = 0LL;
+  v6 = 0;
   if ( v2 != -1 )
   {
-    result = SepDuplicateSid(*(unsigned __int8 **)(*v3 + 16LL * v2), &v12);
-    v7 = result;
+    result = SepDuplicateSid(*(unsigned __int8 **)(*(_QWORD *)(a1 + 152) + 16LL * v2), &v11);
+    v6 = result;
     if ( (int)result < 0 )
       return result;
-    *(_QWORD *)(a2 + 1120) = v12;
+    *(_QWORD *)(a2 + 1120) = v11;
   }
   if ( _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1128) + 8LL)) <= 1 )
     __fastfail(0xEu);
   *(_QWORD *)(a2 + 1128) = *(_QWORD *)(a1 + 1128);
-  v9 = *(_DWORD *)(a1 + 124);
-  *(_DWORD *)(a2 + 124) = v9;
-  if ( v9 )
+  v8 = *(_DWORD *)(a1 + 124);
+  *(_DWORD *)(a2 + 124) = v8;
+  if ( v8 )
   {
     do
     {
-      v10 = 2LL * v4;
-      if ( v4 == v2 )
-        v11 = *(_QWORD *)(a2 + 1120);
+      v9 = 2LL * v3;
+      if ( v3 == v2 )
+        v10 = *(_QWORD *)(a2 + 1120);
       else
-        v11 = *(_QWORD *)(*v3 + 16LL * v4);
-      *(_QWORD *)(*(_QWORD *)(a2 + 152) + 16LL * v4++) = v11;
-      *(_DWORD *)(*(_QWORD *)(a2 + 152) + 8 * v10 + 8) = *(_DWORD *)(*v3 + 8 * v10 + 8);
+        v10 = *(_QWORD *)(*(_QWORD *)(a1 + 152) + 16LL * v3);
+      *(_QWORD *)(*(_QWORD *)(a2 + 152) + 16LL * v3++) = v10;
+      *(_DWORD *)(*(_QWORD *)(a2 + 152) + 8 * v9 + 8) = *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v9 + 8);
     }
-    while ( v4 < *(_DWORD *)(a2 + 124) );
+    while ( v3 < *(_DWORD *)(a2 + 124) );
   }
-  return v7;
+  return v6;
 }

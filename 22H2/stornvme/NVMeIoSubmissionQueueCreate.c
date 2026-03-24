@@ -1,139 +1,135 @@
 /*
- * XREFs of NVMeIoSubmissionQueueCreate @ 0x1C001F720
+ * XREFs of NVMeIoSubmissionQueueCreate @ 0x1C0019EC0
  * Callers:
- *     IoQueuesCreation @ 0x1C000A6A8 (IoQueuesCreation.c)
- *     IoQueuesCreationAsync @ 0x1C000A834 (IoQueuesCreationAsync.c)
+ *     IoQueuesCreation @ 0x1C000BFD8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000C15C (IoQueuesCreationAsync.c)
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     ProcessMultipleCommands @ 0x1C0024740 (ProcessMultipleCommands.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     ProcessMultipleCommands @ 0x1C001C4C4 (ProcessMultipleCommands.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
-__int64 __fastcall NVMeIoSubmissionQueueCreate(__int64 a1, __int64 a2, char a3)
+char __fastcall NVMeIoSubmissionQueueCreate(__int64 a1, __int64 a2, char a3)
 {
-  _WORD *v3; // rdi
-  char v4; // bl
+  unsigned __int16 v3; // ax
   __int64 v6; // r14
-  _BYTE *v7; // r13
-  char v8; // r15
+  _DWORD *v7; // r15
+  char v8; // di
   unsigned __int16 v9; // r12
-  _BYTE *v10; // rax
-  __int64 v11; // rdx
-  char v12; // cl
-  __int64 result; // rax
+  bool i; // cc
+  __int64 v11; // r9
+  _BYTE *v12; // rax
+  void *v13; // rcx
+  __int64 v14; // rdx
   __int64 SrbExtension; // rax
-  __int64 v15; // rdi
-  __int64 v16; // rbx
-  _BYTE *v17; // [rsp+90h] [rbp+48h]
-  _BYTE *v19; // [rsp+A8h] [rbp+60h]
+  __int64 v16; // rdi
+  __int64 v17; // rbx
+  __int64 v18; // r9
+  _DWORD *v20; // [rsp+80h] [rbp+40h]
+  void *v21; // [rsp+98h] [rbp+58h]
 
-  v3 = (_WORD *)(a1 + 336);
-  v4 = a3;
-  v17 = 0LL;
-  v19 = 0LL;
+  v20 = 0LL;
+  v3 = *(_WORD *)(a1 + 288);
+  v21 = 0LL;
   v6 = 0LL;
   v7 = 0LL;
-  if ( (*(_DWORD *)(a1 + 136) & 8) == 0 || (v8 = 1, *v3 >= *(_WORD *)(a1 + 332)) )
+  if ( (*(_DWORD *)(a1 + 128) & 8) == 0 || (v8 = 1, v3 >= *(_WORD *)(a1 + 284)) )
     v8 = 0;
   v9 = 1;
-  if ( !*v3 )
+  for ( i = v3 != 0; i; i = v9 <= *(_WORD *)(a1 + 288) )
   {
-LABEL_25:
-    if ( v8 && v6 )
-      ProcessMultipleCommands(a1, v6);
-    return 0LL;
-  }
-  while ( !v4 )
-  {
-    LocalCommandReuse(a1, a1 + 944);
-    v10 = *(_BYTE **)(a1 + 1040);
-    v17 = (_BYTE *)(a1 + 944);
-    v4 = a3;
-    v19 = v10;
-LABEL_10:
-    v10[4253] |= 1u;
-    v19[4253] &= ~2u;
-    *((_WORD *)v19 + 2122) = 0;
-    v11 = 136LL * v9;
-    v19[4096] = 1;
-    *((_QWORD *)v19 + 515) = *(_QWORD *)(v11 + *(_QWORD *)(a1 + 872) - 128);
-    *((_WORD *)v19 + 2068) = v9;
-    *((_WORD *)v19 + 2069) = *(_WORD *)(a1 + 334) - 1;
-    *((_DWORD *)v19 + 1035) = *((_DWORD *)v19 + 1035) & 0xFFFFFFF8 | 5;
-    *((_WORD *)v19 + 2071) = *(_WORD *)(v11 + *(_QWORD *)(a1 + 872) - 86);
-    if ( (v4 || v8) && (*((_QWORD *)v19 + 528) = NVMeIoSubmissionQueueCreateCompletion, v8) )
+    if ( a3 )
     {
-      if ( v7 )
-        *((_QWORD *)v7 + 5) = v17 + 8;
-      else
-        v6 = (__int64)(v17 + 8);
-      v7 = v17 + 8;
+      StorPortExtendedFunction(0LL, a1, 112LL, 1701672526LL);
+      if ( !v20 )
+        goto LABEL_26;
+      memset(v20, 0, 0x70uLL);
+      NVMeAllocateDmaBuffer(a1, 0x2000u);
+      if ( !v21 )
+      {
+        if ( v20 )
+          StorPortExtendedFunction(1LL, a1, v20, v11);
+LABEL_26:
+        if ( v6 )
+        {
+          do
+          {
+            SrbExtension = GetSrbExtension(v6);
+            v16 = *(_QWORD *)(v6 + 40);
+            v17 = *(_QWORD *)(SrbExtension + 4232);
+            NVMeFreeDmaBuffer(a1, 0x2000LL, (__int64 *)(v6 + 56), *(_QWORD *)(v17 + 104));
+            StorPortExtendedFunction(1LL, a1, v17, v18);
+            v6 = v16;
+          }
+          while ( v16 );
+        }
+        return 0;
+      }
+      memset(v21, 0, 0x10A0uLL);
+      *((_BYTE *)v20 + 11) = 0;
+      v20[5] = 251658240;
+      *((_QWORD *)v20 + 12) = v21;
+      *((_QWORD *)v20 + 8) = v21;
+      *((_QWORD *)v20 + 13) = 0LL;
+      *v20 = 1;
+      *((_QWORD *)v21 + 529) = v20;
+      v12 = v21;
     }
     else
     {
-      ProcessCommand(a1, (__int64)(v17 + 8));
-      if ( v4 )
+      v13 = *(void **)(a1 + 936);
+      *(_BYTE *)(a1 + 851) = 0;
+      memset(v13, 0, 0x10A0uLL);
+      *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+      *(_QWORD *)(a1 + 904) = *(_QWORD *)(a1 + 936);
+      *(_DWORD *)(a1 + 840) = 1;
+      v12 = *(_BYTE **)(a1 + 936);
+      v20 = (_DWORD *)(a1 + 840);
+      v21 = v12;
+    }
+    v12[4253] |= 1u;
+    *((_BYTE *)v21 + 4253) &= ~2u;
+    *((_WORD *)v21 + 2122) = 0;
+    v14 = 136LL * v9;
+    *((_BYTE *)v21 + 4096) = 1;
+    *((_QWORD *)v21 + 515) = *(_QWORD *)(v14 + *(_QWORD *)(a1 + 776) - 128);
+    *((_WORD *)v21 + 2068) = v9;
+    *((_WORD *)v21 + 2069) = *(_WORD *)(a1 + 286) - 1;
+    *((_DWORD *)v21 + 1035) = *((_DWORD *)v21 + 1035) & 0xFFFFFFF8 | 5;
+    *((_WORD *)v21 + 2071) = *(_WORD *)(v14 + *(_QWORD *)(a1 + 776) - 86);
+    if ( (a3 || v8) && (*((_QWORD *)v21 + 528) = NVMeIoSubmissionQueueCreateCompletion, v8) )
+    {
+      if ( v7 )
+        *((_QWORD *)v7 + 5) = v20 + 2;
+      else
+        v6 = (__int64)(v20 + 2);
+      v7 = v20 + 2;
+    }
+    else
+    {
+      ProcessCommand(a1, (__int64)(v20 + 2));
+      if ( a3 )
       {
-        if ( *(_WORD *)(a1 + 472) == *(_WORD *)(a1 + 332) )
+        if ( *(_WORD *)(a1 + 424) == *(_WORD *)(a1 + 284) )
         {
-          StorPortExtendedFunction(81LL, a1, 1000LL);
-          _InterlockedAdd((volatile signed __int32 *)(a1 + 932), 1u);
+          StorPortExtendedFunction(81LL, a1, 1000LL, 0LL);
+          _InterlockedAdd((volatile signed __int32 *)(a1 + 836), 1u);
         }
       }
       else
       {
         WaitForCommandCompleteWithCustomTimeout(a1);
-        v12 = v17[11];
-        if ( v12 != 1 )
-        {
-          result = 3238002689LL;
-          if ( v12 == 5 )
-            return 3238002700LL;
-          return result;
-        }
+        if ( *((_BYTE *)v20 + 11) != 1 )
+          return 0;
       }
     }
-    if ( ++v9 > *v3 )
-      goto LABEL_25;
+    ++v9;
   }
-  StorPortExtendedFunction(0LL, a1, 128LL);
-  if ( !v17 )
-    goto LABEL_31;
-  memset(v17, 0, 0x80uLL);
-  NVMeAllocateDmaBuffer(a1, 0x2000u);
-  if ( v19 )
-  {
-    memset(v19, 0, 0x10A0uLL);
-    v17[11] = 0;
-    *((_DWORD *)v17 + 5) = 251658240;
-    *((_QWORD *)v17 + 12) = v19;
-    *((_QWORD *)v17 + 8) = v19;
-    *((_QWORD *)v17 + 13) = 0LL;
-    *v17 = 1;
-    *((_QWORD *)v19 + 529) = v17;
-    v10 = v19;
-    goto LABEL_10;
-  }
-  if ( v17 )
-    StorPortExtendedFunction(1LL, a1, v17);
-LABEL_31:
-  if ( v6 )
-  {
-    do
-    {
-      SrbExtension = GetSrbExtension(v6);
-      v15 = *(_QWORD *)(v6 + 40);
-      v16 = *(_QWORD *)(SrbExtension + 4232);
-      NVMeFreeDmaBuffer(a1, 0x2000LL, (__int64 *)(v6 + 56), *(_QWORD *)(v16 + 104));
-      StorPortExtendedFunction(1LL, a1, v16);
-      v6 = v15;
-    }
-    while ( v15 );
-  }
-  return 3238002689LL;
+  if ( v8 && v6 )
+    ProcessMultipleCommands(a1, v6);
+  return 1;
 }

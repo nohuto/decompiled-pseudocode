@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C0201C1C
+ * XREFs of DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C018ABE0
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
- *     DpiFdoDispatchPnp @ 0x1C0229300 (DpiFdoDispatchPnp.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
+ *     DpiFdoDispatchPnp @ 0x1C019ECA0 (DpiFdoDispatchPnp.c)
  * Callees:
- *     DpiIndirectOpenDevice @ 0x1C03A4AE0 (DpiIndirectOpenDevice.c)
+ *     DpiIndirectOpenDevice @ 0x1C02D5E3C (DpiIndirectOpenDevice.c)
  */
 
 __int64 __fastcall DpiFdoOpenDeviceFileObjectIfNeeded(__int64 a1)
@@ -12,19 +12,26 @@ __int64 __fastcall DpiFdoOpenDeviceFileObjectIfNeeded(__int64 a1)
   __int64 v3; // rsi
   __int64 v4; // rcx
   int v5; // eax
-  unsigned int v6; // edi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rax
 
-  if ( !*(_BYTE *)(a1 + 1159) )
+  if ( !*(_BYTE *)(a1 + 1158) )
     return 0LL;
   v3 = a1 + 1168;
   ExEnterCriticalRegionAndAcquireFastMutexUnsafe(a1 + 1168);
   v4 = *(_QWORD *)(a1 + 24);
   *(_QWORD *)(a1 + 1224) = KeGetCurrentThread();
   v5 = DpiIndirectOpenDevice(v4, a1 + 1232);
-  v6 = v5;
+  v8 = v5;
   if ( v5 < 0 )
-    WdLogSingleEntry1(2LL, v5);
+  {
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v9 + 24) = v8;
+    WdLogEvent5_WdError(v9);
+  }
   *(_QWORD *)(a1 + 1224) = 0LL;
   ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v3);
-  return v6;
+  return (unsigned int)v8;
 }

@@ -1,26 +1,33 @@
 /*
- * XREFs of PnprWakeDevices @ 0x140A9E05C
+ * XREFs of PnprWakeDevices @ 0x1409AEEDC
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceWorker @ 0x140A9DF20 (PnprQuiesceWorker.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x1409AEDA0 (PnprQuiesceWorker.c)
  * Callees:
- *     PoEndPartitionReplace @ 0x140989618 (PoEndPartitionReplace.c)
- *     PoEndPowerStateTasks @ 0x140989640 (PoEndPowerStateTasks.c)
- *     PoUnblockConsoleSwitch @ 0x1409897B4 (PoUnblockConsoleSwitch.c)
- *     PoClearBroadcast @ 0x14098BC3C (PoClearBroadcast.c)
- *     PnprGetMillisecondCounter @ 0x140A9C974 (PnprGetMillisecondCounter.c)
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoUnblockConsoleSwitch @ 0x140774BB0 (PoUnblockConsoleSwitch.c)
+ *     PoEndPowerStateTasks @ 0x140774BD8 (PoEndPowerStateTasks.c)
+ *     PoClearBroadcast @ 0x1407780E0 (PoClearBroadcast.c)
+ *     PoEndPartitionReplace @ 0x1408E75E8 (PoEndPartitionReplace.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
+ *     PnprGetMillisecondCounter @ 0x1409AD8DC (PnprGetMillisecondCounter.c)
  */
 
 __int64 __fastcall PnprWakeDevices(__int64 a1)
 {
-  *(_DWORD *)(PnprContext + 33320) = PnprGetMillisecondCounter(0);
+  int MillisecondCounter; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
+
+  MillisecondCounter = PnprGetMillisecondCounter(0);
+  v3 = PnprContext;
+  *(_DWORD *)(PnprContext + 21032) = MillisecondCounter;
   *(_BYTE *)(a1 + 29) = 1;
-  PoBroadcastSystemState(a1 + 4);
+  PoBroadcastSystemState(a1 + 4, v3, v4, v5);
   PoClearBroadcast();
   PoEndPartitionReplace((_DWORD *)(a1 + 36), *(_DWORD *)(a1 + 32));
   PoEndPowerStateTasks((_DWORD *)(a1 + 36));
   PoUnblockConsoleSwitch((_DWORD *)(a1 + 36), *(_DWORD *)(a1 + 32));
-  *(_DWORD *)(PnprContext + 33324) = PnprGetMillisecondCounter(0);
+  *(_DWORD *)(PnprContext + 21036) = PnprGetMillisecondCounter(0);
   return 0LL;
 }

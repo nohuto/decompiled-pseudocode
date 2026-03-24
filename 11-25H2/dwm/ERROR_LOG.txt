@@ -1,3 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028A434A9140>) 
- 
+[EXCEPTION] McGenEventRegister_EtwEventRegister @ 0x140004B28: Hex-Rays returned no pseudocode for 0x140004B28
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140004B28'), <traceback object at 0x0000026526ADDE80>)
+

@@ -1,36 +1,21 @@
 /*
- * XREFs of ??1CSERIALIZEDWORKQUEUE@@QEAA@XZ @ 0x1C0051A70
+ * XREFs of ??1CSERIALIZEDWORKQUEUE@@QEAA@XZ @ 0x1C00463B4
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
- *     ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C0354968 (--1DXGSESSIONMGR@@QEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
+ *     ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C029EAC4 (--1DXGSESSIONMGR@@QEAA@XZ.c)
  * Callees:
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0008718 (--1DXGFASTMUTEX@@QEAA@XZ.c)
  */
 
-void __fastcall CSERIALIZEDWORKQUEUE::~CSERIALIZEDWORKQUEUE(CSERIALIZEDWORKQUEUE *this)
+void __fastcall CSERIALIZEDWORKQUEUE::~CSERIALIZEDWORKQUEUE(CSERIALIZEDWORKQUEUE *this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
+  __int64 v3; // rax
 
-  if ( *((_BYTE *)this + 64) || *((CSERIALIZEDWORKQUEUE **)this + 6) != (CSERIALIZEDWORKQUEUE *)((char *)this + 48) )
+  if ( *((_BYTE *)this + 56) || *((CSERIALIZEDWORKQUEUE **)this + 5) != (CSERIALIZEDWORKQUEUE *)((char *)this + 40) )
   {
-    WdLogSingleEntry1(1LL, 816LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v3,
-        v2,
-        v4,
-        0LL,
-        2,
-        -1,
-        L"!m_WorkItemActive && IsListEmpty(&m_WorkItemList)",
-        816LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 499LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  DXGFASTMUTEX::~DXGFASTMUTEX(this);
+  DXGFASTMUTEX::~DXGFASTMUTEX(this, a2);
 }

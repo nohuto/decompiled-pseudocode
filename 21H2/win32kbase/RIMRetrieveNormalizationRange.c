@@ -1,21 +1,20 @@
 /*
- * XREFs of RIMRetrieveNormalizationRange @ 0x1C01B6D80
+ * XREFs of RIMRetrieveNormalizationRange @ 0x1C01815CC
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C018C3A8 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161DCC (RIMPopulatePointerDevice.c)
  * Callees:
- *     RIMRetrieveRealAngularPhysicalValues @ 0x1C01B6EBC (RIMRetrieveRealAngularPhysicalValues.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMRetrieveRealAngularPhysicalValues @ 0x1C0181724 (RIMRetrieveRealAngularPhysicalValues.c)
  */
 
-__int64 __fastcall RIMRetrieveNormalizationRange(__int64 a1, __int16 *a2, _QWORD *a3)
+__int64 __fastcall RIMRetrieveNormalizationRange(unsigned __int16 a1, __int16 *a2, _QWORD *a3)
 {
-  unsigned int v3; // esi
-  unsigned __int16 v6; // di
+  unsigned int v6; // esi
   int v7; // r9d
   _WORD *v8; // rdx
   int v9; // ecx
-  __int64 v10; // r8
+  unsigned int v10; // r8d
   __int16 v11; // r10
   __int128 v12; // xmm1
   __int64 v13; // xmm0_8
@@ -28,30 +27,32 @@ __int64 __fastcall RIMRetrieveNormalizationRange(__int64 a1, __int16 *a2, _QWORD
   __int128 v21; // [rsp+40h] [rbp-30h]
   __int128 v22; // [rsp+50h] [rbp-20h]
   __int64 v23; // [rsp+60h] [rbp-10h]
-  int v24; // [rsp+98h] [rbp+28h] BYREF
-  int v25; // [rsp+A0h] [rbp+30h] BYREF
+  int v24; // [rsp+A8h] [rbp+38h] BYREF
+  int v25; // [rsp+B0h] [rbp+40h] BYREF
 
-  v3 = 0;
-  v6 = a1;
+  v6 = 0;
   if ( !a3 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, 0LL);
+  {
+    v24 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 23);
+  }
   v7 = *((_DWORD *)a2 + 12);
-  v8 = &unk_1C02946E2;
+  v8 = &unk_1C024F962;
   v9 = *((_DWORD *)a2 + 13);
-  v10 = 0LL;
+  v10 = 0;
   v11 = *a2;
   v24 = v7;
   v25 = v9;
   while ( *(v8 - 1) != v11 || *v8 != a2[28] )
   {
-    v10 = (unsigned int)(v10 + 1);
+    ++v10;
     v8 += 6;
-    if ( (unsigned int)v10 >= 5 )
-      return v3;
+    if ( v10 >= 5 )
+      return v6;
   }
-  v3 = 1;
-  *a3 = *(_QWORD *)((char *)&unk_1C02946E4 + 12 * v10);
-  if ( v6 >= 0x1D3Du && (v6 <= 0x1D3Eu || v6 == 7489 || v6 == 19775) && v9 - v7 > 0 )
+  v6 = 1;
+  *a3 = *(_QWORD *)((char *)&unk_1C024F964 + 12 * v10);
+  if ( a1 >= 0x1D3Du && (a1 <= 0x1D3Eu || a1 == 7489 || a1 == 19775) && v9 - v7 > 0 )
   {
     v12 = *((_OWORD *)a2 + 1);
     v19 = *(_OWORD *)a2;
@@ -72,5 +73,5 @@ __int64 __fastcall RIMRetrieveNormalizationRange(__int64 a1, __int16 *a2, _QWORD
     v22 = v17;
     RIMRetrieveRealAngularPhysicalValues(&v19, &v25);
   }
-  return v3;
+  return v6;
 }

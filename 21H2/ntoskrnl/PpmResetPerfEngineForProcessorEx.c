@@ -1,101 +1,91 @@
 /*
- * XREFs of PpmResetPerfEngineForProcessorEx @ 0x140419B58
+ * XREFs of PpmResetPerfEngineForProcessorEx @ 0x1403F81B0
  * Callers:
- *     PopHandleNextState @ 0x140A4B5A0 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
  * Callees:
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14025E708 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     PpmResetPerfTimes @ 0x1403B4C90 (PpmResetPerfTimes.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-void __fastcall PpmResetPerfEngineForProcessorEx(__int64 a1, char a2)
+__int64 __fastcall PpmResetPerfEngineForProcessorEx(__int64 a1, __int64 a2)
 {
+  __int64 result; // rax
+  char v3; // bp
   __int64 i; // rbx
   unsigned int j; // edi
-  __int64 v6; // rcx
-  void (__fastcall *v7)(_QWORD); // rax
-  __int64 *v8; // rsi
+  __int64 v7; // rcx
+  __int64 v8; // rdi
   __int64 v9; // rbx
-  __int64 v10; // rdi
-  __int64 InterruptTimePrecise; // rax
-  __int64 v12; // r8
-  void (__fastcall *v13)(_QWORD); // rax
-  unsigned int k; // edi
-  __int64 v15; // rcx
-  int v16; // eax
-  void (__fastcall *v17)(_QWORD); // rax
-  LARGE_INTEGER v18; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // rcx
+  unsigned int k; // esi
+  __int64 v12; // rcx
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
+  result = (__int64)&retaddr;
+  v3 = a2;
   if ( !*(_DWORD *)(a1 + 36) )
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      if ( *(_DWORD *)(i + 304) )
+      if ( *(_DWORD *)(i + 208) )
       {
-        for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
+        for ( j = 0; j < *(_DWORD *)(i + 200); ++j )
         {
-          v6 = *(_QWORD *)(i + 312) + 136LL * j;
-          if ( a2 )
+          result = j;
+          v7 = *(_QWORD *)(i + 216) + 136LL * j;
+          if ( v3 )
           {
-            if ( *(_DWORD *)(v6 + 16) == 1 )
-              PpmResetPerfTimes(*(_QWORD *)v6);
+            if ( *(_DWORD *)(v7 + 16) == 1 )
+              result = PpmResetPerfTimes(*(_QWORD *)v7, a2);
           }
           else
           {
-            v7 = *(void (__fastcall **)(_QWORD))(i + 368);
-            if ( v7 )
-              v7(*(_QWORD *)(v6 + 8));
+            result = *(_QWORD *)(i + 272);
+            if ( result )
+              result = ((__int64 (__fastcall *)(_QWORD))result)(*(_QWORD *)(v7 + 8));
           }
         }
       }
     }
   }
-  v8 = (__int64 *)(a1 + 33968);
-  v9 = *v8;
-  v10 = v8[1];
-  if ( *v8 && v10 )
+  v8 = a1 + 33128;
+  v9 = *(_QWORD *)(a1 + 33128);
+  if ( v9 )
   {
-    if ( a2 )
+    v10 = *(_QWORD *)(a1 + 33136);
+    if ( v10 )
     {
-      if ( *(_QWORD *)(v9 + 408) )
+      if ( !v3 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v18);
-        LOBYTE(v12) = 1;
-        (*(void (__fastcall **)(_QWORD, __int64, __int64))(v9 + 408))(*(_QWORD *)(v10 + 8), InterruptTimePrecise, v12);
+        result = *(_QWORD *)(v9 + 272);
+        if ( result )
+          result = ((__int64 (__fastcall *)(_QWORD))result)(*(_QWORD *)(v10 + 8));
       }
-    }
-    else
-    {
-      v13 = *(void (__fastcall **)(_QWORD))(v9 + 368);
-      if ( v13 )
-        v13(*(_QWORD *)(v10 + 8));
-    }
-    if ( v8 == *(__int64 **)(v9 + 16) )
-    {
-      for ( k = 0; k < *(_DWORD *)(v9 + 296); ++k )
+      if ( v8 == *(_QWORD *)(v9 + 16) )
       {
-        v15 = *(_QWORD *)(v9 + 312) + 136LL * k;
-        v16 = *(_DWORD *)(v15 + 16);
-        if ( v16 )
+        for ( k = 0; k < *(_DWORD *)(v9 + 200); ++k )
         {
-          if ( a2 )
+          v12 = *(_QWORD *)(v9 + 216) + 136LL * k;
+          result = *(unsigned int *)(v12 + 16);
+          if ( (_DWORD)result )
           {
-            if ( v16 == 1 )
-              PpmResetPerfTimes(*(_QWORD *)v15);
-          }
-          else
-          {
-            v17 = *(void (__fastcall **)(_QWORD))(v9 + 368);
-            if ( v17 )
-              v17(*(_QWORD *)(v15 + 8));
+            if ( v3 )
+            {
+              if ( (_DWORD)result == 1 )
+                result = PpmResetPerfTimes(*(_QWORD *)v12, a2);
+            }
+            else
+            {
+              result = *(_QWORD *)(v9 + 272);
+              if ( result )
+                result = ((__int64 (__fastcall *)(_QWORD))result)(*(_QWORD *)(v12 + 8));
+            }
           }
         }
       }
     }
   }
-  if ( a2 )
-    PpmResetPerfTimes((__int64)v8);
-  else
-    PpmHeteroHgsProcessorThreadFeedbackInit();
+  if ( v3 )
+    return PpmResetPerfTimes(v8, a2);
+  return result;
 }

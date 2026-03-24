@@ -1,9 +1,9 @@
 /*
- * XREFs of STROBJ_bGetAdvanceWidths @ 0x1C02BDEE0
+ * XREFs of STROBJ_bGetAdvanceWidths @ 0x1C02BF560
  * Callers:
- *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02B3D60 (NtGdiSTROBJ_bGetAdvanceWidths.c)
+ *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02B59C0 (NtGdiSTROBJ_bGetAdvanceWidths.c)
  * Callees:
- *     ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02BC290 (-STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z.c)
+ *     ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02BDCF0 (-STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z.c)
  */
 
 BOOL __stdcall STROBJ_bGetAdvanceWidths(STROBJ *pso, ULONG iFirst, ULONG c, POINTQF *pptqD)

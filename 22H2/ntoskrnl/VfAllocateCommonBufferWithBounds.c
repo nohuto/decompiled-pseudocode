@@ -1,16 +1,16 @@
 /*
- * XREFs of VfAllocateCommonBufferWithBounds @ 0x140AC6280
+ * XREFs of VfAllocateCommonBufferWithBounds @ 0x1409CACB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfAllocateCommonBufferWithBounds(
-        int a1,
+        __int64 a1,
         __int64 a2,
         ULONG_PTR *a3,
         unsigned int a4,
@@ -19,27 +19,19 @@ __int64 __fastcall VfAllocateCommonBufferWithBounds(
         int a7,
         __int64 a8)
 {
-  __int64 RealDmaAdapter; // rbp
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, ULONG_PTR *, _QWORD, int, __int64, int, __int64); // r15
   __int64 AdapterInformationInternal; // rbx
   __int64 result; // rax
 
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, ULONG_PTR *, _QWORD, int, __int64, int, __int64))ViGetRealDmaOperation(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
-  if ( AdapterInformationInternal && (MmVerifierData & 0x4000000) != 0 && a3 && *a3 < 0x100000000LL )
+  if ( (MmVerifierData & 0x4000000) != 0 && a3 && *a3 < 0x100000000LL )
     VerifierBugCheckIfAppropriate(0xC4u, 0x141uLL, *a3, a4, 0LL);
-  result = (*(__int64 (__fastcall **)(__int64, __int64, ULONG_PTR *, _QWORD, int, __int64, int, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 272LL))(
-             RealDmaAdapter,
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
-             a7,
-             a8);
+  result = RealDmaOperation(a1, a2, a3, a4, a5, a6, a7, a8);
   if ( result )
   {
     if ( AdapterInformationInternal )
-      _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 204));
+      _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 172));
   }
   return result;
 }

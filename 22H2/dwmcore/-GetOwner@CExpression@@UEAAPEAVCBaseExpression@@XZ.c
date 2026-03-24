@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOwner@CExpression@@UEAAPEAVCBaseExpression@@XZ @ 0x1801073E0
+ * XREFs of ?GetOwner@CExpression@@UEAAPEAVCBaseExpression@@XZ @ 0x1800EFCA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CBaseExpression *__fastcall CExpression::GetOwner(CExpression *this)
 {
-  return (struct CBaseExpression *)*((_QWORD *)this + 56);
+  return (struct CBaseExpression *)*((_QWORD *)this + 53);
 }

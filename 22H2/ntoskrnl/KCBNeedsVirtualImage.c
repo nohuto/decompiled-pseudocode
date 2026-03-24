@@ -1,22 +1,20 @@
 /*
- * XREFs of KCBNeedsVirtualImage @ 0x14034749C
+ * XREFs of KCBNeedsVirtualImage @ 0x140314E3C
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyRemapToVirtual @ 0x140A18024 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F870 (CmKeyBodyRemapToVirtual.c)
  * Callees:
- *     KCBIsVirtualizable @ 0x1403474D4 (KCBIsVirtualizable.c)
- *     CmpIsSystemEntity @ 0x1407BAAAC (CmpIsSystemEntity.c)
+ *     KCBIsVirtualizable @ 0x140345580 (KCBIsVirtualizable.c)
+ *     CmpIsSystemEntity @ 0x1406CF8B0 (CmpIsSystemEntity.c)
  */
 
 bool KCBNeedsVirtualImage()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
+  __int64 v0; // rcx
 
   if ( !(unsigned __int8)KCBIsVirtualizable() )
     return 0;
-  LOBYTE(v1) = KeGetCurrentThread()->PreviousMode;
-  return (unsigned __int8)CmpIsSystemEntity(v1, v0, v2) == 0;
+  LOBYTE(v0) = KeGetCurrentThread()->PreviousMode;
+  return (unsigned __int8)CmpIsSystemEntity(v0) == 0;
 }

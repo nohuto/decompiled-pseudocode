@@ -1,53 +1,53 @@
 /*
- * XREFs of ?HrFindInterface@CSystemMemoryBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180104FC0
+ * XREFs of ?HrFindInterface@CSystemMemoryBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC300
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180105050 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180069080 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CSystemMemoryBitmap::HrFindInterface(CSystemMemoryBitmap *this, const struct _GUID *a2, void **a3)
 {
-  void *v3; // r9
-  unsigned int v5; // ecx
+  char *v3; // r9
+  __int64 result; // rax
+  __int64 v5; // rax
   __int64 v6; // rax
-  __int64 v7; // rax
 
   v3 = 0LL;
-  v5 = -2147024809;
+  result = 2147942487LL;
   if ( a3 )
   {
-    v6 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3.Data1;
+    v5 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3.Data1;
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3.Data1 )
-      v6 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3.Data4;
-    if ( v6 )
+      v5 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3.Data4;
+    if ( v5 )
     {
-      v7 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data1;
+      v6 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data1;
       if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data1 )
-        v7 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data4;
-      if ( v7 )
+        v6 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data4;
+      if ( v6 )
       {
-        return (unsigned int)CBitmap::HrFindInterface(this, a2, a3);
+        return CBitmap::HrFindInterface(this, a2, a3);
       }
       else
       {
-        if ( (unsigned int)(*((_DWORD *)this + 30) - 87) <= 1 )
+        if ( (unsigned int)(*((_DWORD *)this + 50) - 87) <= 1 )
         {
-          v5 = 0;
-          v3 = (void *)(((unsigned __int64)this + 152) & -(__int64)(this != 0LL));
+          result = 0LL;
+          v3 = (char *)this + 256;
         }
         else
         {
-          v5 = -2147467262;
+          result = 2147500034LL;
         }
         *a3 = v3;
       }
     }
     else
     {
-      v5 = 0;
-      *a3 = (void *)(((unsigned __int64)this + 136) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 240) & -(__int64)(this != 0LL));
+      return 0LL;
     }
   }
-  return v5;
+  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025B688
+ * XREFs of ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025EA6C
  * Callers:
- *     ?AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z @ 0x1C025AEA4 (-AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E2A0 (-AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z.c)
  * Callees:
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025B02C (-DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z.c)
- *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025B2CC (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025E428 (-DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z.c)
+ *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E6C8 (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
  */
 
 __int64 __fastcall NeedsEndEllipsis(
         HDC a1,
-        WCHAR *a2,
+        WCHAR *SourceString,
         int *a3,
         struct DRAWTEXTDATA *a4,
         unsigned int a5,
@@ -34,8 +34,8 @@ __int64 __fastcall NeedsEndEllipsis(
     return 0LL;
   v11 = *((_DWORD *)a4 + 8);
   v12 = *((_DWORD *)a4 + 14);
-  if ( (int)DT_GetExtentMinusPrefixes(a1, a2, v6, a5, v17, a6, -1) <= v11
-    || !(unsigned int)GreGetTextExtentW(a1, L"...", 3u, (struct tagSIZE *)&v19, 1u) )
+  if ( (int)DT_GetExtentMinusPrefixes(a1, SourceString, v6, a5, v17, a6, -1) <= v11
+    || !(unsigned int)GreGetTextExtentW(a1, L"...", 3u, (struct tagSIZE *)&v19, 1) )
   {
     return 0LL;
   }
@@ -48,7 +48,7 @@ __int64 __fastcall NeedsEndEllipsis(
     {
       do
       {
-        ExtentMinusPrefixes = DT_GetExtentMinusPrefixes(a1, a2, (v14 + v7 + 1) / 2, a5, v18, a6, -1);
+        ExtentMinusPrefixes = DT_GetExtentMinusPrefixes(a1, SourceString, (v14 + v7 + 1) / 2, a5, v18, a6, -1);
         if ( ExtentMinusPrefixes >= v13 )
         {
           if ( ExtentMinusPrefixes <= v13 )
@@ -68,6 +68,6 @@ __int64 __fastcall NeedsEndEllipsis(
     if ( v14 < 1 )
       v14 = 1;
   }
-  *a3 = DT_AdjustBreakForSurrogatesAndVariationSelectors(a2, v14, v6);
+  *a3 = DT_AdjustBreakForSurrogatesAndVariationSelectors(SourceString, v14, v6);
   return 1LL;
 }

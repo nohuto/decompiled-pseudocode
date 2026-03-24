@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpFindNextNamedTag @ 0x1408E7A6C
+ * XREFs of SdbpFindNextNamedTag @ 0x1408E7A4C
  * Callers:
- *     SdbpSearchDB @ 0x14067D58C (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x14067D56C (SdbpSearchDB.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x14067D214 (SdbGetNextChild.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x14067D1F4 (SdbGetNextChild.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
  */
 
 __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned int a3, __int16 a4, wchar_t *Str1)

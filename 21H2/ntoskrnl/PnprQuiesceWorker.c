@@ -1,17 +1,17 @@
 /*
- * XREFs of PnprQuiesceWorker @ 0x140A69140
+ * XREFs of PnprQuiesceWorker @ 0x1409AEC60
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PnprCompleteWake @ 0x140562A68 (PnprCompleteWake.c)
- *     PnprLockPagesForReplace @ 0x140952A20 (PnprLockPagesForReplace.c)
- *     PnprQuiesceDevices @ 0x140A68674 (PnprQuiesceDevices.c)
- *     PnprWakeDevices @ 0x140A6927C (PnprWakeDevices.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PnprCompleteWake @ 0x14050F128 (PnprCompleteWake.c)
+ *     PnprLockPagesForReplace @ 0x1408ADFC4 (PnprLockPagesForReplace.c)
+ *     PnprQuiesceDevices @ 0x1409AE210 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x1409AED9C (PnprWakeDevices.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnprQuiesceWorker(PVOID P)
@@ -27,23 +27,23 @@ void __fastcall PnprQuiesceWorker(PVOID P)
   memset(v6, 0, sizeof(v6));
   v7 = 0LL;
   v8 = 0;
-  v5[0] = (PVOID)(PnprContext + 33048);
-  v5[1] = (PVOID)(PnprContext + 33096);
+  v5[0] = (PVOID)(PnprContext + 20760);
+  v5[1] = (PVOID)(PnprContext + 20808);
   if ( KeWaitForMultipleObjects(2u, v5, WaitAny, Executive, 0, 0, 0LL, 0LL) != 1 )
   {
     PnprLockPagesForReplace();
     v2 = PnprQuiesceDevices((__int64)v6);
     v3 = (struct _KEVENT *)PnprContext;
     v4 = v2;
-    *(_DWORD *)(PnprContext + 33144) = v2;
-    KeSetEvent(v3 + 1378, 0, 0);
+    *(_DWORD *)(PnprContext + 20856) = v2;
+    KeSetEvent(v3 + 866, 0, 0);
     if ( v4 >= 0 )
     {
-      KeWaitForSingleObject((PVOID)(PnprContext + 33096), Executive, 0, 0, 0LL);
+      KeWaitForSingleObject((PVOID)(PnprContext + 20808), Executive, 0, 0, 0LL);
       PnprWakeDevices(v6);
     }
     PnprCompleteWake();
   }
-  KeSetEvent((PRKEVENT)(PnprContext + 33120), 0, 0);
+  KeSetEvent((PRKEVENT)(PnprContext + 20832), 0, 0);
   ExFreePoolWithTag(P, 0x51706E50u);
 }

@@ -10,18 +10,18 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
  *     ExUpdateSystemTimeFromCmos @ 0x140566B6C (ExUpdateSystemTimeFromCmos.c)
  *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
  *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
  *     sub_1405A23DC @ 0x1405A23DC (sub_1405A23DC.c)
  *     ExpPutLicenseDataIntoRegistry @ 0x1405A2404 (ExpPutLicenseDataIntoRegistry.c)
- *     ExAcquireTimeRefreshLock @ 0x14066585C (ExAcquireTimeRefreshLock.c)
- *     ExReleaseTimeRefreshLock @ 0x1406BEC18 (ExReleaseTimeRefreshLock.c)
- *     sub_1408CF024 @ 0x1408CF024 (sub_1408CF024.c)
- *     sub_1408CF074 @ 0x1408CF074 (sub_1408CF074.c)
- *     sub_1408CF3E4 @ 0x1408CF3E4 (sub_1408CF3E4.c)
+ *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406BEBF8 (ExReleaseTimeRefreshLock.c)
+ *     sub_1408CF004 @ 0x1408CF004 (sub_1408CF004.c)
+ *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
+ *     sub_1408CF3C4 @ 0x1408CF3C4 (sub_1408CF3C4.c)
  */
 
 _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
@@ -191,7 +191,7 @@ LABEL_23:
         ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
       KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      sub_1408CF024();
+      sub_1408CF004();
       if ( v18 <= v17 )
       {
         v19 = KeGetCurrentThread();
@@ -268,8 +268,8 @@ LABEL_63:
             KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
             KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
             ExpPutLicenseDataIntoRegistry();
-            sub_1408CF074(&KernelLicensingCacheExpired);
-            sub_1408CF3E4();
+            sub_1408CF054(&KernelLicensingCacheExpired);
+            sub_1408CF3C4();
 LABEL_71:
             if ( v27 )
               sub_1405A23DC();

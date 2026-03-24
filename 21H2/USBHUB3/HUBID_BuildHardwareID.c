@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBID_BuildHardwareID @ 0x1C001BBEC
+ * XREFs of HUBID_BuildHardwareID @ 0x1C001B6A4
  * Callers:
- *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C00152E4 (HUBPDO_ReturnDeviceConfigInfo.c)
- *     HUBPDO_AssignPDOIds @ 0x1C007A95C (HUBPDO_AssignPDOIds.c)
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0014E10 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     HUBID_AssignIDString @ 0x1C001B784 (HUBID_AssignIDString.c)
- *     HUBID_GetUnknownId @ 0x1C001BB64 (HUBID_GetUnknownId.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     HUBID_AssignIDString @ 0x1C001B228 (HUBID_AssignIDString.c)
+ *     HUBID_GetUnknownId @ 0x1C001B61C (HUBID_GetUnknownId.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 int __fastcall HUBID_BuildHardwareID(__int64 a1, __int64 a2, _OWORD *a3)

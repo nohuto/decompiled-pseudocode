@@ -1,13 +1,13 @@
 /*
- * XREFs of ExAllocateCacheAwareRundownProtection @ 0x14074D200
+ * XREFs of ExAllocateCacheAwareRundownProtection @ 0x14071BDB0
  * Callers:
- *     MmCreatePartition @ 0x1403D981C (MmCreatePartition.c)
- *     RawInitializeVcb @ 0x14074D028 (RawInitializeVcb.c)
- *     EtwpPreInitializeSiloState @ 0x14084EB98 (EtwpPreInitializeSiloState.c)
+ *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
+ *     RawInitializeVcb @ 0x14071BBE0 (RawInitializeVcb.c)
+ *     EtwInitializeSiloState @ 0x14079ABF8 (EtwInitializeSiloState.c)
  * Callees:
- *     KeGetRecommendedSharedDataAlignment @ 0x1402D3250 (KeGetRecommendedSharedDataAlignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeGetRecommendedSharedDataAlignment @ 0x1403614F0 (KeGetRecommendedSharedDataAlignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PEX_RUNDOWN_REF_CACHE_AWARE __stdcall ExAllocateCacheAwareRundownProtection(POOL_TYPE PoolType, ULONG PoolTag)

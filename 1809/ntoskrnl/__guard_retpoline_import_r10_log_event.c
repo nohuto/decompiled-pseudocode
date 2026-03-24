@@ -3,7 +3,7 @@
  * Callers:
  *     __guard_retpoline_import_r10 @ 0x140331420 (__guard_retpoline_import_r10.c)
  * Callees:
- *     EtwTraceRetpolineExit @ 0x1403103A0 (EtwTraceRetpolineExit.c)
+ *     EtwTraceRetpolineExit @ 0x1403104A0 (EtwTraceRetpolineExit.c)
  */
 
 void __fastcall __spoils<rdx,rcx,r8,r9,r10,r11,xmm4,xmm5> _guard_retpoline_import_r10_log_event()

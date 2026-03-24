@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCloseSystemDriverHiveContext @ 0x140B130E0
+ * XREFs of CmpCloseSystemDriverHiveContext @ 0x140A5F5A0
  * Callers:
- *     CmGetSystemDriverList @ 0x140B12C84 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall CmpCloseSystemDriverHiveContext(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall CmpCloseSystemDriverHiveContext(__int64 a1)
 
   *(_QWORD *)(a1 + 48) = 0LL;
   *(_DWORD *)(a1 + 56) = -1;
-  RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 16));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 16));
   v2 = *(void **)(a1 + 40);
   if ( v2 )
   {

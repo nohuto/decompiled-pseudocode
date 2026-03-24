@@ -1,39 +1,33 @@
 /*
- * XREFs of VrpPreUnloadKey @ 0x140A73014
+ * XREFs of VrpPreUnloadKey @ 0x1408841B0
  * Callers:
- *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     VrpFindExactNamespaceNode @ 0x14077BD04 (VrpFindExactNamespaceNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     VrpFindExactNamespaceNode @ 0x1405D371C (VrpFindExactNamespaceNode.c)
  */
 
-__int64 __fastcall VrpPreUnloadKey(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall VrpPreUnloadKey(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r13
-  unsigned __int64 *v3; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v7; // rax
-  __int64 v8; // rbp
-  unsigned int v9; // esi
+  __int64 v3; // rdi
+  int v4; // esi
+  volatile signed __int64 *v6; // rbp
   __int64 ExactNamespaceNode; // rax
-  unsigned __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v8; // edi
+  char v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 24);
-  v3 = a2 + 2;
   CurrentThread = KeGetCurrentThread();
+  v3 = *(_QWORD *)(a1 + 24);
+  v4 = a2;
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((__int64)(a2 + 2), 0LL);
-  v8 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3, v7, (__int64)v3);
-  v9 = 0;
-  if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
-  ExactNamespaceNode = VrpFindExactNamespaceNode(a2, v2 + 16, &v12);
+  v6 = (volatile signed __int64 *)(a2 + 16);
+  ExAcquirePushLockExclusiveEx(a2 + 16, 0LL);
+  ExactNamespaceNode = VrpFindExactNamespaceNode(v4, (int)v3 + 16, (int)&v10);
+  v8 = 0;
   if ( ExactNamespaceNode )
   {
     if ( *(int *)(ExactNamespaceNode + 56) < 0 )
@@ -42,19 +36,19 @@ __int64 __fastcall VrpPreUnloadKey(__int64 a1, unsigned __int64 *a2)
     }
     else
     {
-      v9 = -1073741790;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)v3);
-      KeAbPostRelease((ULONG_PTR)v3);
+      v8 = -1073741790;
+      if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v6);
+      KeAbPostRelease((ULONG_PTR)v6);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
-    return v9;
+    return v8;
   }
   else
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v3);
-    KeAbPostRelease((ULONG_PTR)v3);
+    if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v6);
+    KeAbPostRelease((ULONG_PTR)v6);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return 0LL;
   }

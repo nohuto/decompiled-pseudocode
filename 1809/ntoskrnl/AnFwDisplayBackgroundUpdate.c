@@ -6,10 +6,10 @@
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140950424 (AnFwDisableBackgroundUpdateTimer.c)
  *     BgpGxDrawBitmapImage @ 0x140954520 (BgpGxDrawBitmapImage.c)
  */
@@ -29,7 +29,7 @@ __int64 __fastcall AnFwDisplayBackgroundUpdate(char a1)
     AnFwDisableBackgroundUpdateTimer();
     return 0LL;
   }
-  if ( byte_1404DC881 )
+  if ( byte_1404DC871 )
     return 3221225473LL;
   v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_1403FE530)(&v5);
   if ( !is_mul_ok(v2, 0x3E8uLL) )
@@ -43,15 +43,15 @@ __int64 __fastcall AnFwDisplayBackgroundUpdate(char a1)
   if ( (unsigned __int64)qword_140405B70 >= 0x64 )
   {
     qword_140405B70 = v4;
-    KeInitializeTimerEx(&stru_1404E0B80, NotificationTimer);
-    KeInitializeDpc(&stru_1404E0BC0, AnFwpBackgroundUpdateTimer, 0LL);
-    if ( KeSetCoalescableTimer(&stru_1404E0B80, 0LL, 0x64u, 0, &stru_1404E0BC0) )
+    KeInitializeTimerEx(&stru_1404E0B40, NotificationTimer);
+    KeInitializeDpc(&stru_1404E0B80, AnFwpBackgroundUpdateTimer, 0LL);
+    if ( KeSetCoalescableTimer(&stru_1404E0B40, 0LL, 0x64u, 0, &stru_1404E0B80) )
     {
-      KeCancelTimer(&stru_1404E0B80);
-      byte_1404DC881 = 0;
+      KeCancelTimer(&stru_1404E0B40);
+      byte_1404DC871 = 0;
       return BgpClearScreen(HIDWORD(qword_140405C50));
     }
-    byte_1404DC881 = 1;
+    byte_1404DC871 = 1;
     result = 0LL;
   }
   else

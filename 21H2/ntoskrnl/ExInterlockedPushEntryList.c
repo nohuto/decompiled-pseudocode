@@ -1,11 +1,10 @@
 /*
- * XREFs of ExInterlockedPushEntryList @ 0x14063F2E0
+ * XREFs of ExInterlockedPushEntryList @ 0x1405B6F10
  * Callers:
- *     WheapPushPendingOfflineWrapper @ 0x140A0A460 (WheapPushPendingOfflineWrapper.c)
- *     WheapTrackPendingPage @ 0x140A0A490 (WheapTrackPendingPage.c)
+ *     <none>
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x140243164 (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14024319C (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1402A03F4 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1402A04C4 (ExpAcquireSpinLockDisabled.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
@@ -13,13 +12,14 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PSINGLE_LIST_ENTRY ListEntry,
         PKSPIN_LOCK Lock)
 {
-  char v6; // al
+  __int64 v3; // r9
+  char v7; // al
   struct _SINGLE_LIST_ENTRY *Next; // rbx
 
-  v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
+  v7 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, (__int64)ListEntry, (__int64)Lock, v3);
   Next = ListHead->Next;
   ListEntry->Next = ListHead->Next;
   ListHead->Next = ListEntry;
-  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v6);
+  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v7);
   return Next;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1801EC324
+ * XREFs of VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1801A6F78
  * Callers:
- *     ?TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x1801EC5B4 (-TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV-$StridedSpan@U-$Vertex_UVxN@UVertexXY.c)
+ *     ?TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x1801A7208 (-TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV-$StridedSpan@U-$Vertex_UVxN@UVertexXY.c)
  * Callees:
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     ?BlendStraightColorDW@@YAKKM@Z @ 0x1801EC54C (-BlendStraightColorDW@@YAKKM@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     ?BlendStraightColorDW@@YAKKM@Z @ 0x1801A71A0 (-BlendStraightColorDW@@YAKKM@Z.c)
  */
 
 int __fastcall VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___(

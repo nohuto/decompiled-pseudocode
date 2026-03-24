@@ -1,226 +1,213 @@
 /*
- * XREFs of GreSetSystemPaletteUse @ 0x1C02D2184
+ * XREFs of GreSetSystemPaletteUse @ 0x1C02B7624
  * Callers:
- *     GreRealizeDefaultPalette @ 0x1C001F258 (GreRealizeDefaultPalette.c)
- *     NtGdiSetSystemPaletteUse @ 0x1C02C4F30 (NtGdiSetSystemPaletteUse.c)
+ *     GreRealizeDefaultPalette @ 0x1C012B594 (GreRealizeDefaultPalette.c)
+ *     NtGdiSetSystemPaletteUse @ 0x1C02AFD20 (NtGdiSetSystemPaletteUse.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C00E0CE0 (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C011C0AC (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreSetSystemPaletteUse(HDC a1, int a2)
 {
   int v2; // edi
   unsigned int v3; // ebx
-  int v4; // r14d
-  Gre::Base *v5; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v6; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rax
-  Gre::Base *v11; // rcx
-  _DWORD *v12; // rax
-  int v13; // ecx
-  __int64 v14; // rcx
-  unsigned int v15; // edx
-  __int64 v16; // r9
-  __int64 v17; // r10
-  __int64 v18; // r11
+  int v4; // esi
+  __int64 v5; // rax
+  __int64 v6; // rax
+  int v7; // ebx
+  int v8; // ecx
+  int v9; // edx
+  int v10; // ecx
+  __int64 v11; // r9
+  __int64 v12; // r10
+  __int64 v13; // r11
+  __int64 v14; // rdx
+  __int64 v15; // r10
+  __int64 v16; // r11
+  __int64 v17; // rdx
+  signed __int32 v18; // ecx
   __int64 v19; // rdx
-  __int64 v20; // r10
-  __int64 v21; // r11
+  int v20; // ecx
+  unsigned int v21; // r8d
   __int64 v22; // rdx
-  int v23; // ecx
-  unsigned int v24; // r8d
-  __int64 v25; // rdx
-  unsigned int v26; // ecx
+  unsigned int v23; // ecx
   __int64 i; // r8
-  __int64 v28; // rdi
-  __int64 v30; // [rsp+30h] [rbp-89h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-81h] BYREF
-  _BYTE v32[8]; // [rsp+40h] [rbp-79h] BYREF
-  __int64 *v33; // [rsp+48h] [rbp-71h] BYREF
-  unsigned int v34; // [rsp+54h] [rbp-65h]
-  _BYTE v35[40]; // [rsp+58h] [rbp-61h] BYREF
-  __int128 v36; // [rsp+80h] [rbp-39h] BYREF
-  __int64 v37; // [rsp+90h] [rbp-29h]
-  int v38; // [rsp+98h] [rbp-21h]
-  _QWORD v39[2]; // [rsp+A0h] [rbp-19h] BYREF
-  _BYTE v40[40]; // [rsp+B0h] [rbp-9h] BYREF
-  __int64 v41; // [rsp+D8h] [rbp+1Fh]
-  __int64 v42; // [rsp+E0h] [rbp+27h]
-  int v43; // [rsp+128h] [rbp+6Fh] BYREF
-  _DWORD *v44; // [rsp+130h] [rbp+77h] BYREF
-  __int64 v45; // [rsp+138h] [rbp+7Fh] BYREF
+  DYNAMICMODECHANGESHARELOCK *v25; // rcx
+  __int64 v27; // [rsp+30h] [rbp-89h] BYREF
+  __int64 v28; // [rsp+38h] [rbp-81h] BYREF
+  _BYTE v29[16]; // [rsp+40h] [rbp-79h] BYREF
+  __int128 v30; // [rsp+50h] [rbp-69h] BYREF
+  __int64 v31; // [rsp+60h] [rbp-59h]
+  int v32; // [rsp+68h] [rbp-51h]
+  _QWORD v33[2]; // [rsp+70h] [rbp-49h] BYREF
+  _BYTE v34[40]; // [rsp+80h] [rbp-39h] BYREF
+  __int64 v35; // [rsp+A8h] [rbp-11h]
+  __int64 v36; // [rsp+B0h] [rbp-9h]
+  _QWORD v37[2]; // [rsp+C0h] [rbp+7h] BYREF
+  _BYTE v38[64]; // [rsp+D0h] [rbp+17h] BYREF
+  int v39; // [rsp+128h] [rbp+6Fh] BYREF
+  __int64 v40; // [rsp+130h] [rbp+77h] BYREF
+  __int64 v41; // [rsp+138h] [rbp+7Fh] BYREF
 
   v2 = a2;
   if ( (unsigned int)(a2 - 1) > 2 )
     v2 = 1;
   v3 = 0;
   v4 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)&v33, a1);
-  if ( v33 )
+  DCOBJ::DCOBJ((DCOBJ *)v37, a1);
+  if ( v37[0] )
   {
-    v6 = Gre::Base::Globals(v5);
-    v45 = v33[6];
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v43);
-    NEEDGRELOCK::vLock((NEEDGRELOCK *)v32, (struct PDEVOBJ *)&v45);
-    v31 = *(_QWORD *)(v45 + 56);
-    GreAcquireSemaphore(v31);
-    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v39);
-    v42 = 0LL;
-    v41 = 0LL;
-    v39[0] = 0LL;
-    v10 = v45;
+    v41 = *(_QWORD *)(v37[0] + 48LL);
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v39);
+    NEEDGRELOCK::vLock((NEEDGRELOCK *)v29, (struct PDEVOBJ *)&v41);
+    v28 = *(_QWORD *)(v41 + 64);
+    GreAcquireSemaphore(v28);
+    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v33);
     v36 = 0LL;
-    v38 = 1;
-    v11 = (Gre::Base *)*(unsigned int *)(v45 + 40);
-    if ( ((unsigned __int8)v11 & 1) != 0 )
+    v35 = 0LL;
+    v33[0] = 0LL;
+    v5 = v41;
+    v30 = 0LL;
+    v32 = 1;
+    if ( (*(_DWORD *)(v41 + 40) & 1) != 0 )
     {
-      Gre::Base::Globals(v11);
-      *(_QWORD *)&v36 = *(_QWORD *)(v45 + 48);
-      v37 = v45;
-      GreAcquireSemaphore(v36);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v36, 11LL);
-      v10 = v45;
+      *(_QWORD *)&v30 = *(_QWORD *)(v41 + 48);
+      v31 = v41;
+      GreAcquireSemaphore(v30);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v30, 11LL);
+      v5 = v41;
     }
-    v44 = *(_DWORD **)(v10 + 1776);
-    if ( (*(_DWORD *)(v10 + 2140) & 0x100) == 0 )
-      goto LABEL_37;
-    v30 = *((_QWORD *)v6 + 5);
-    GreAcquireSemaphore(v30);
-    v12 = v44;
-    v13 = v44[6];
-    if ( (v13 & 0x1000) != 0 )
+    v40 = *(_QWORD *)(v5 + 1808);
+    if ( (*(_DWORD *)(v5 + 2172) & 0x100) == 0 )
+      goto LABEL_39;
+    v27 = ghsemPalette;
+    GreAcquireSemaphore(ghsemPalette);
+    v6 = v40;
+    v7 = *(_DWORD *)(v40 + 24);
+    v8 = v7;
+    v9 = v7 & 0x1000;
+    if ( (v7 & 0x1000) != 0 )
       v3 = 2;
     else
-      v3 = (v13 & 0x10000 | 0x8000u) >> 15;
+      v3 = (v7 & 0x10000 | 0x8000u) >> 15;
+    v10 = v8 & 0x10000;
     if ( v2 == 1 )
     {
-      if ( (v13 & 0x11000) != 0 )
+      if ( v9 || v10 )
       {
-        v14 = *((_QWORD *)v6 + 750);
-        v15 = v44[15] >> 1;
-        v16 = 10LL;
-        if ( v15 > 0xA || (v16 = v15) != 0 )
+        v11 = *(_DWORD *)(v40 + 60) >> 1;
+        if ( (unsigned int)v11 > 0xA )
+          v11 = 10LL;
+        if ( (_DWORD)v11 )
         {
-          v17 = 0LL;
-          v18 = (unsigned int)v16;
+          v12 = 0LL;
+          v13 = (unsigned int)v11;
           do
           {
-            v19 = *((_QWORD *)v12 + 14);
-            v43 = *(_DWORD *)(v17 + *(_QWORD *)(v14 + 112));
-            HIBYTE(v43) = 48;
-            *(_DWORD *)(v17 + v19) = v43;
-            v17 += 4LL;
-            v12 = v44;
-            --v18;
+            v14 = *(_QWORD *)(v6 + 112);
+            v39 = *(_DWORD *)(v12 + *((_QWORD *)ppalDefault + 14));
+            HIBYTE(v39) = 48;
+            *(_DWORD *)(v12 + v14) = v39;
+            v12 += 4LL;
+            v6 = v40;
+            --v13;
           }
-          while ( v18 );
+          while ( v13 );
         }
-        else
-        {
-          v16 = 0LL;
-        }
-        LODWORD(v20) = v12[7];
-        LODWORD(v21) = 20;
-        if ( (_DWORD)v16 )
+        LODWORD(v15) = *(_DWORD *)(v6 + 28);
+        LODWORD(v16) = 20;
+        if ( (_DWORD)v11 )
         {
           while ( 1 )
           {
-            v21 = (unsigned int)(v21 - 1);
-            v20 = (unsigned int)(v20 - 1);
-            v22 = *((_QWORD *)v12 + 14);
-            v43 = *(_DWORD *)(*(_QWORD *)(v14 + 112) + 4 * v21);
-            HIBYTE(v43) = 48;
-            *(_DWORD *)(v22 + 4 * v20) = v43;
-            if ( !--v16 )
+            v16 = (unsigned int)(v16 - 1);
+            v15 = (unsigned int)(v15 - 1);
+            v17 = *(_QWORD *)(v6 + 112);
+            v39 = *(_DWORD *)(*((_QWORD *)ppalDefault + 14) + 4 * v16);
+            HIBYTE(v39) = 48;
+            *(_DWORD *)(v17 + 4 * v15) = v39;
+            if ( !--v11 )
               break;
-            v12 = v44;
+            v6 = v40;
           }
         }
-        *(_DWORD *)(v33[122] + 152) |= 0xFu;
-        v44[6] &= 0xFFFEEFFF;
-        XEPALOBJ::vUpdateTime((XEPALOBJ *)&v44);
+        *(_DWORD *)(*(_QWORD *)(v37[0] + 976LL) + 152LL) |= 0xFu;
+        *(_DWORD *)(v40 + 24) &= 0xFFFEEFFF;
+        v18 = _InterlockedIncrement(*(volatile signed __int32 **)&ulXlatePalUnique);
+        *(_DWORD *)(v40 + 32) = v18;
+        v19 = *(_QWORD *)(v40 + 120);
+        if ( v19 != v40 )
+          *(_DWORD *)(v19 + 32) = v18;
         v4 = 1;
       }
-      goto LABEL_32;
+      goto LABEL_34;
     }
     if ( v2 == 2 )
     {
-      v23 = v44[7];
-      if ( !v23 )
+      v20 = *(_DWORD *)(v40 + 28);
+      if ( !v20 )
       {
         v3 = 0;
-LABEL_32:
-        SEMOBJ::vUnlock((SEMOBJ *)&v30);
-        if ( v4 && (*(_DWORD *)(v45 + 40) & 0x400) == 0 )
+LABEL_34:
+        SEMOBJ::vUnlock((SEMOBJ *)&v27);
+        if ( v4 && (*(_DWORD *)(v41 + 40) & 0x400) == 0 )
         {
-          if ( *(_QWORD *)(v45 + 1736) )
-            (*(void (__fastcall **)(_QWORD, _DWORD **, _QWORD, _QWORD, _DWORD))(v45 + 1736))(
-              *(_QWORD *)(*(_QWORD *)(v45 + 24) + 1768LL),
-              &v44,
+          if ( *(_QWORD *)(v41 + 1768) )
+            (*(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v41 + 1768))(
+              *(_QWORD *)(*(_QWORD *)(v41 + 24) + 1800LL),
+              &v40,
               0LL,
               0LL,
-              v44[7]);
+              *(_DWORD *)(v40 + 28));
           else
             v3 = 0;
         }
-LABEL_37:
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v36, v7, v8, v9);
-        if ( v39[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v39);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v40);
-        SEMOBJ::vUnlock((SEMOBJ *)&v31);
-        NEEDGRELOCK::vUnlock((NEEDGRELOCK *)v32);
-        DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v43);
-        if ( v33 )
-        {
-          XDCOBJ::RestoreAttributes((XDCOBJ *)&v33);
-          v43 = 0;
-          v28 = *v33;
-          HmgDecrementExclusiveReferenceCountEx(v33, v34, &v43);
-          if ( v43 )
-            GrepDeleteDC(v28, 0x2000000LL);
-        }
+LABEL_39:
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v30);
+        if ( v33[0] )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v33);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v34);
+        SEMOBJ::vUnlock((SEMOBJ *)&v28);
+        NEEDGRELOCK::vUnlock((NEEDGRELOCK *)v29);
+        DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v25);
         goto LABEL_42;
       }
-      v24 = 1;
-      if ( (unsigned int)(v23 - 1) > 1 )
+      v21 = 1;
+      if ( (unsigned int)(v20 - 1) > 1 )
       {
         do
         {
-          v25 = v24++;
-          *(_BYTE *)(*((_QWORD *)v12 + 14) + 4 * v25 + 3) = 0;
-          v12 = v44;
+          v22 = v21++;
+          *(_BYTE *)(*(_QWORD *)(v6 + 112) + 4 * v22 + 3) = 0;
+          v6 = v40;
         }
-        while ( v24 < v44[7] - 1 );
+        while ( v21 < *(_DWORD *)(v40 + 28) - 1 );
       }
-      v26 = v12[6] & 0xFFFEEFFF | 0x1000;
+      v23 = *(_DWORD *)(v6 + 24) & 0xFFFEEFFF | 0x1000;
     }
     else
     {
-      for ( i = 0LL; (unsigned int)i < v44[7]; v12 = v44 )
+      for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v40 + 28); v6 = v40 )
       {
-        *(_BYTE *)(*((_QWORD *)v12 + 14) + 4 * i + 3) = 0;
+        *(_BYTE *)(*(_QWORD *)(v6 + 112) + 4 * i + 3) = 0;
         i = (unsigned int)(i + 1);
       }
-      v26 = v12[6] & 0xFFFEEFFF | 0x10000;
+      v23 = *(_DWORD *)(v6 + 24) & 0xFFFEEFFF | 0x10000;
     }
-    v12[6] = v26;
-    goto LABEL_32;
+    *(_DWORD *)(v6 + 24) = v23;
+    goto LABEL_34;
   }
 LABEL_42:
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v35);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v37);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v38);
   return v3;
 }

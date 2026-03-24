@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xxqf_EventWriteTransfer @ 0x18021FE1C
+ * XREFs of McTemplateU0xxqf_EventWriteTransfer @ 0x1801B6488
  * Callers:
- *     ?OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x1800FA620 (-OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z.c)
+ *     ?OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x1800D6320 (-OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
@@ -44,7 +44,7 @@ ULONG McTemplateU0xxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v11 = 4LL;
   va_copy(v10, va3);
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DCOMPEVENT_ANIMATION_INITIAL_VALUE,
            v13,
            5u,

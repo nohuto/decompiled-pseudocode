@@ -1,34 +1,54 @@
 /*
- * XREFs of ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00F4784
+ * XREFs of ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00B3CBC
  * Callers:
- *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C003FC60 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
- *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C003FCAC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
- *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00DBA70 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C008E8A0 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C008E8EC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00D5DD0 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
  * Callees:
- *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C00357C0 (-vClearRendering@DC@@QEAAXXZ.c)
- *     ??1DCVISRGNSHARELOCK@@QEAA@XZ @ 0x1C004033C (--1DCVISRGNSHARELOCK@@QEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??0DCVISRGNSHARELOCK@@QEAA@XZ @ 0x1C00F4808 (--0DCVISRGNSHARELOCK@@QEAA@XZ.c)
+ *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C0090120 (-vClearRendering@DC@@QEAAXXZ.c)
  */
 
 void __fastcall DEVLOCKOBJ::vClearRenderState(DEVLOCKOBJ *this)
 {
   __int64 v2; // rcx
-  __int64 ThreadWin32Thread; // rax
-  char v4; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rcx
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v9; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v12; // rcx
+  __int64 CurrentThreadProcess; // rax
 
   v2 = *((_QWORD *)this + 4);
   if ( v2 && *((_BYTE *)this + 81) && (*((_DWORD *)this + 6) & 0x1000) != 0 && (*(_DWORD *)(v2 + 36) & 0x200) != 0 )
   {
-    DCVISRGNSHARELOCK::DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)&v4);
+    GreAcquireSemaphoreSharedInternal(ghsemDCVisRgn);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDCVisRgn", ghsemDCVisRgn);
     if ( !*((_QWORD *)this + 11) )
       DC::vClearRendering(*((DC **)this + 4));
     if ( (*(_DWORD *)(*((_QWORD *)this + 4) + 36LL) & 0x4000) == 0 )
     {
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      if ( ThreadWin32Thread )
-        *(_DWORD *)(ThreadWin32Thread + 328) &= ~1u;
+      CurrentThread = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(v3)
+        || (CurrentProcess = PsGetCurrentProcess(v6, v5, v7),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v12),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+      {
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+        {
+          v9 = *ThreadWin32Thread;
+          if ( v9 )
+            *(_DWORD *)(v9 + 328) &= ~1u;
+        }
+      }
     }
-    DCVISRGNSHARELOCK::~DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)&v4);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
+    GreReleaseSemaphoreInternal(ghsemDCVisRgn);
   }
 }

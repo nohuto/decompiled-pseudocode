@@ -1,30 +1,27 @@
 /*
- * XREFs of NtUserRealChildWindowFromPoint @ 0x1C01D8D50
+ * XREFs of NtUserRealChildWindowFromPoint @ 0x1C02003A0
  * Callers:
  *     <none>
  * Callees:
- *     _RealChildWindowFromPoint @ 0x1C0230658 (_RealChildWindowFromPoint.c)
+ *     _RealChildWindowFromPoint @ 0x1C0248D6C (_RealChildWindowFromPoint.c)
  */
 
-__int64 __fastcall NtUserRealChildWindowFromPoint(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserRealChildWindowFromPoint(__int64 a1, __int64 a2)
 {
-  tagWND *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdi
-  __int64 *v10; // rax
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rdi
+  __int64 *v7; // rax
 
-  EnterSharedCrit(a1, a2, a3);
-  v4 = (tagWND *)ValidateHwnd(a1);
-  v9 = 0LL;
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0LL;
   if ( v4 )
   {
-    v10 = (__int64 *)RealChildWindowFromPoint(v4);
-    if ( v10 )
-      v9 = *v10;
+    v7 = (__int64 *)RealChildWindowFromPoint(v4, a2);
+    if ( v7 )
+      v6 = *v7;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

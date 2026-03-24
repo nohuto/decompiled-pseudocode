@@ -1,34 +1,34 @@
 /*
- * XREFs of VslReportBugCheckProgress @ 0x14054F250
+ * XREFs of VslReportBugCheckProgress @ 0x1404FD4A0
  * Callers:
- *     PopCheckpointSystemSleepUnsafe @ 0x140A6BEC8 (PopCheckpointSystemSleepUnsafe.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B26E4 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
+NTSTATUS __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
 {
   size_t v6; // rbx
   unsigned int v9; // edi
-  wchar_t **v10; // r9
+  wchar_t **v10; // rcx
   unsigned __int16 *v11; // rax
-  int v12; // edx
-  int v13; // ecx
-  __int64 result; // rax
-  __int128 v15; // xmm0
+  int v12; // r8d
+  int v13; // edx
+  __int128 v14; // xmm0
+  NTSTATUS result; // eax
   __int128 v16; // xmm0
   _OWORD v17[7]; // [rsp+20h] [rbp-51h] BYREF
 
   v6 = a4;
   if ( (a5 & 1) == 0 || a4 > 8 )
-    return 3221225485LL;
+    return -1073741811;
   memset(v17, 0, 0x68uLL);
   v9 = 0;
   v10 = IumBugCheckVariables;
-  do
+  while ( 1 )
   {
     v11 = (unsigned __int16 *)a1;
     do
@@ -41,22 +41,21 @@ __int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void 
     }
     while ( v12 );
     if ( !v13 )
-    {
-      *((_QWORD *)&v17[0] + 1) = v9;
-      goto LABEL_13;
-    }
+      break;
     ++v9;
     ++v10;
+    if ( v9 >= 4 )
+      goto LABEL_11;
   }
-  while ( v9 < 4 );
+  *((_QWORD *)&v17[0] + 1) = v9;
+LABEL_11:
   if ( v9 == 4 )
-    return 3221225485LL;
-LABEL_13:
-  v15 = *a2;
+    return -1073741811;
+  v14 = *a2;
   memset(&v17[2], 0, 24);
-  v17[1] = v15;
+  v17[1] = v14;
   if ( (a5 & 0x40) != 0 )
-    result = 3221225485LL;
+    result = -1073741811;
   else
     result = VslpEnterIumSecureMode(2u, 261, 0, (__int64)v17);
   if ( (_DWORD)v6 )

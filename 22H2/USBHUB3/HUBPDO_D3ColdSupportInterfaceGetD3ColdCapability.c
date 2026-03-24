@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability @ 0x1C007D9E0
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability @ 0x1C0079290
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability(_QWORD *a1, _BYTE *a2)
@@ -25,8 +25,8 @@ __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability(_QWORD *a1, 
         *(_QWORD *)(a1[2] + 2520LL),
         2u,
         6u,
-        0x68u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
+        0x60u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     }
   }
   else

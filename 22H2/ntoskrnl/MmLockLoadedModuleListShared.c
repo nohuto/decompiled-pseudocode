@@ -1,41 +1,37 @@
 /*
- * XREFs of MmLockLoadedModuleListShared @ 0x140339800
+ * XREFs of MmLockLoadedModuleListShared @ 0x14029CF18
  * Callers:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     MiAddWorkingSetEntries @ 0x14026BC00 (MiAddWorkingSetEntries.c)
- *     RtlpxLookupFunctionTable @ 0x1402A3B60 (RtlpxLookupFunctionTable.c)
- *     MiIsDriverPage @ 0x140339720 (MiIsDriverPage.c)
- *     RtlPcToFileName @ 0x1403A9CA0 (RtlPcToFileName.c)
- *     MiIsAddressInDriverView @ 0x140633F2C (MiIsAddressInDriverView.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EB70 (RtlpxLookupFunctionTable.c)
+ *     MiLockPagableImageSection @ 0x14029CB80 (MiLockPagableImageSection.c)
+ *     MiIsDriverPage @ 0x14029CD50 (MiIsDriverPage.c)
+ *     MmIsSessionExecutionValid @ 0x1403289F0 (MmIsSessionExecutionValid.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     RtlPcToFileName @ 0x1403CBF30 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x14053A768 (MiIsAddressInDriverView.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 void __fastcall MmLockLoadedModuleListShared(unsigned __int8 *a1)
 {
-  unsigned __int8 CurrentIrql; // bl
-  unsigned __int8 v3; // dl
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v2; // cl
   _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
 
   CurrentIrql = KeGetCurrentIrql();
+  *a1 = CurrentIrql;
   if ( CurrentIrql < 0xFu )
   {
-    v3 = KeGetCurrentIrql();
+    v2 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
+      if ( (KiIrqlFlags & 1) != 0 && v2 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( v3 == 15 )
-          LODWORD(v5) = 0x8000;
-        else
-          v5 = (-1LL << (v3 + 1)) & 0xFFFC;
-        SchedulerAssist[5] |= v5;
+        SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (v2 + 1)) - 1) & 0xFFFC;
       }
     }
   }
   ExAcquireSpinLockSharedAtDpcLevel(&PsLoadedModuleSpinLock);
-  *a1 = CurrentIrql;
 }

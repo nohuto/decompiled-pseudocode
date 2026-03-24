@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlPrivateCheckWaitingLocks @ 0x14021F280
+ * XREFs of FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140358CEC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140359208 (FsRtlFastUnlockSingleShared.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IoGetRequestorProcess @ 0x14021DC00 (IoGetRequestorProcess.c)
- *     FsRtlPrivateInsertLock @ 0x14021E5E4 (FsRtlPrivateInsertLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14021E818 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x14021F198 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlPrivateRemoveLock @ 0x140542018 (FsRtlPrivateRemoveLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402ADB54 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlPrivateInsertLock @ 0x140358C0C (FsRtlPrivateInsertLock.c)
+ *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x14035966C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404EFF40 (FsRtlPrivateRemoveLock.c)
  */
 
-void __fastcall FsRtlPrivateCheckWaitingLocks(_QWORD *a1, KSPIN_LOCK *a2, KIRQL a3)
+void __fastcall FsRtlPrivateCheckWaitingLocks(__int64 a1, KSPIN_LOCK *a2, KIRQL a3)
 {
   _QWORD **v3; // rsi
   _QWORD *i; // rdi
@@ -63,16 +63,16 @@ void __fastcall FsRtlPrivateCheckWaitingLocks(_QWORD *a1, KSPIN_LOCK *a2, KIRQL 
     if ( (*(_BYTE *)(v8 + 2) & 2) != 0 )
     {
       LOBYTE(Object[0]) = 1;
-      v9 = FsRtlPrivateCheckForExclusiveLockAccess((__int64)a2, (unsigned __int64 *)&v20);
+      v9 = FsRtlPrivateCheckForExclusiveLockAccess(a2, &v20);
     }
     else
     {
       LOBYTE(Object[0]) = 0;
-      v9 = FsRtlPrivateCheckForSharedLockAccess((__int64)a2, (__int64)&v20);
+      v9 = FsRtlPrivateCheckForSharedLockAccess(a2, &v20);
     }
     v10 = v9;
     if ( !v9 )
-      goto LABEL_18;
+      goto LABEL_23;
     *(_BYTE *)(v7 + 69) = KeAcquireQueuedSpinLock(7uLL);
     _InterlockedExchange64((volatile __int64 *)(v7 + 104), 0LL);
     v11 = v10;
@@ -107,7 +107,7 @@ void __fastcall FsRtlPrivateCheckWaitingLocks(_QWORD *a1, KSPIN_LOCK *a2, KIRQL 
       }
       __writecr8(a3);
       ObfReferenceObjectWithTag(Object[1], 0x746C6644u);
-      FsRtlCompleteLockIrpReal(a1[1], i[2], v13, inserted == 0 ? 0xC000009A : 0, &v24, Object[1]);
+      FsRtlCompleteLockIrpReal(*(_QWORD *)(a1 + 8), i[2], v13, inserted == 0 ? 0xC000009A : 0, &v24, Object[1]);
       if ( inserted )
       {
         if ( v24 < 0 )
@@ -120,7 +120,7 @@ void __fastcall FsRtlPrivateCheckWaitingLocks(_QWORD *a1, KSPIN_LOCK *a2, KIRQL 
     }
     else
     {
-LABEL_18:
+LABEL_23:
       v3 = (_QWORD **)i;
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of OSNotifyFatalErrorWorker @ 0x1C00337E0
+ * XREFs of OSNotifyFatalErrorWorker @ 0x1C00594D0
  * Callers:
  *     <none>
  * Callees:

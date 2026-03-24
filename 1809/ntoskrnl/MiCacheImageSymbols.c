@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCacheImageSymbols @ 0x140682458
+ * XREFs of MiCacheImageSymbols @ 0x140682438
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140681C04 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
  */
 
 PVOID __fastcall MiCacheImageSymbols(void *a1)

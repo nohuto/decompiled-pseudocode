@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01D4E10
+ * XREFs of ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01DA8B0
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D4A20 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01DA314 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
- *     FeedbackGetWindowSetting @ 0x1C01D54D0 (FeedbackGetWindowSetting.c)
+ *     FeedbackGetWindowSetting @ 0x1C01DB0D0 (FeedbackGetWindowSetting.c)
  */
 
 __int64 __fastcall Feedback::GetWindowBarrelVisualizationSetting(Feedback *this, const struct tagPOINTER_INFO *a2)

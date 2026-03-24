@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1408819A8
+ * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x140881988
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x140881B00 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x140881B9C (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x140881CC8 (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x140881DAC (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140881FA8 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x140882058 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1408820F8 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1408821A0 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchAssignDevice @ 0x140881AE0 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140881B7C (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x140881CA8 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140881D8C (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140881F88 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x140882038 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x1408820D8 (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x140882180 (TtmpDispatchSetDisplayTimeouts.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char a3, _QWORD *a4, __int64 *a5)

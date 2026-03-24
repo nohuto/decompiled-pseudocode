@@ -1,81 +1,83 @@
 /*
- * XREFs of PopIsWakeTimerImmanent @ 0x140997674
+ * XREFs of PopIsWakeTimerImmanent @ 0x1408F05D4
  * Callers:
- *     PopDeferDoze @ 0x1409974E8 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1408F0448 (PopDeferDoze.c)
  * Callees:
- *     ExGetNextWakeTime @ 0x140A6CA38 (ExGetNextWakeTime.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExGetNextWakeTime @ 0x1409B2DE8 (ExGetNextWakeTime.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PopIsWakeTimerImmanent(int a1, int a2, int a3, unsigned __int64 *a4, _QWORD *a5)
 {
-  unsigned __int64 v5; // r15
-  PVOID v6; // rbx
-  void *v7; // rsi
-  int v8; // r10d
-  bool v9; // r14
-  unsigned __int64 v10; // rdi
-  int v11; // r13d
+  unsigned __int64 v6; // rsi
+  void *v7; // rbx
+  void *v8; // rdi
+  int v9; // r11d
+  bool v10; // r14
+  unsigned __int64 v12; // r15
+  int v13; // r10d
   char NextWakeTime; // al
-  char v13; // al
-  __int64 v15; // [rsp+30h] [rbp-20h] BYREF
-  PVOID P; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v17; // [rsp+40h] [rbp-10h] BYREF
-  void *v18; // [rsp+48h] [rbp-8h] BYREF
-  int v20; // [rsp+A0h] [rbp+50h]
+  char v15; // al
+  __int64 v17; // [rsp+30h] [rbp-20h] BYREF
+  void *v18; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-10h] BYREF
+  void *v20; // [rsp+48h] [rbp-8h] BYREF
+  int v22; // [rsp+A0h] [rbp+50h]
+  int v23; // [rsp+B0h] [rbp+60h]
 
-  v20 = a3;
-  v5 = -1LL;
-  v6 = 0LL;
-  v17 = -1LL;
+  v22 = a3;
+  v6 = -1LL;
   v7 = 0LL;
-  v15 = -1LL;
-  v8 = a1;
+  v17 = -1LL;
+  v8 = 0LL;
+  v19 = -1LL;
+  v9 = a1;
   v18 = 0LL;
   *a5 = 0LL;
-  v9 = 0;
-  v10 = -1LL;
-  P = 0LL;
-  if ( qword_140C22880 && PopDozeDeferralMaxSeconds )
+  v10 = 0;
+  v20 = 0LL;
+  v12 = -1LL;
+  if ( qword_140C23500 && PopDozeDeferralMaxSeconds )
   {
-    v11 = qword_140C22880 + 10000000 * PopDozeDeferralMaxSeconds;
+    v13 = qword_140C23500 + 10000000 * PopDozeDeferralMaxSeconds;
+    v23 = v13;
     if ( a2 )
     {
       LOBYTE(a3) = a2 == 2 && PopSimulate >= 0;
-      NextWakeTime = ExGetNextWakeTime(a1, v11, a3, (unsigned int)&v17, (__int64)&v18);
-      v5 = v17;
-      v7 = v18;
-      a3 = v20;
-      v8 = a1;
-      v9 = NextWakeTime != 0;
+      NextWakeTime = ExGetNextWakeTime(a1, v13, a3, (unsigned int)&v17, (__int64)&v18);
+      v6 = v17;
+      v8 = v18;
+      a3 = v22;
+      v13 = v23;
+      v9 = a1;
+      v10 = NextWakeTime != 0;
     }
-    if ( a3
-      && (a3 != 2 || PopSimulate < 0 ? (LOBYTE(a3) = 0) : (LOBYTE(a3) = 1),
-          v13 = ExGetNextWakeTime(v8, v11, a3, (unsigned int)&v15, (__int64)&P),
-          v10 = v15,
-          v6 = P,
-          v13) )
+    if ( a3 )
     {
-      v9 = 1;
+      LOBYTE(a3) = a3 == 2 && PopSimulate >= 0;
+      v15 = ExGetNextWakeTime(v9, v13, a3, (unsigned int)&v19, (__int64)&v20);
+      v12 = v19;
+      v7 = v20;
+      if ( v15 )
+        v10 = 1;
     }
-    else if ( !v9 )
+    if ( v10 )
     {
-      return v9;
-    }
-    if ( v5 > v10 )
-    {
-      if ( v7 )
-        ExFreePoolWithTag(v7, 0x53577254u);
-      *a5 = v6;
-      *a4 = v10;
-    }
-    else
-    {
-      if ( v6 )
-        ExFreePoolWithTag(v6, 0x53577254u);
-      *a5 = v7;
-      *a4 = v5;
+      if ( v6 > v12 )
+      {
+        if ( v8 )
+          ExFreePoolWithTag(v8, 0x53577254u);
+        *a4 = v12;
+        *a5 = v7;
+      }
+      else
+      {
+        if ( v7 )
+          ExFreePoolWithTag(v7, 0x53577254u);
+        *a4 = v6;
+        *a5 = v8;
+      }
     }
   }
-  return v9;
+  return v10;
 }

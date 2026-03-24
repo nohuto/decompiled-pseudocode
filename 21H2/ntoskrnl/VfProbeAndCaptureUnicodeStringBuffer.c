@@ -1,22 +1,21 @@
 /*
- * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x140A818E8
+ * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x1409C61BC
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140A818B0 (VfProbeAndCaptureUnicodeString.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x1409C6184 (VfProbeAndCaptureUnicodeString.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, int a2)
+__int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, POOL_TYPE a2)
 {
   __int64 v3; // rax
   unsigned __int16 v5; // di
   unsigned __int64 v6; // rcx
-  __int64 v7; // rcx
-  void *Pool2; // rax
-  void *v9; // rsi
+  PVOID PoolWithTag; // rax
+  PVOID v8; // rsi
 
   v3 = *a1;
   if ( (v3 & 1) != 0 )
@@ -27,15 +26,12 @@ __int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, in
     v6 = *((_QWORD *)a1 + 1);
     if ( v6 + v3 > 0x7FFFFFFF0000LL || v6 + v3 < v6 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v7 = 256LL;
-    if ( a2 != 1 )
-      v7 = 64LL;
-    Pool2 = (void *)ExAllocatePool2(v7, *a1, 0x43536656u);
-    v9 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(a2, *a1, 0x43536656u);
+    v8 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225495LL;
-    memmove(Pool2, *((const void **)a1 + 1), *a1);
-    *((_QWORD *)a1 + 1) = v9;
+    memmove(PoolWithTag, *((const void **)a1 + 1), *a1);
+    *((_QWORD *)a1 + 1) = v8;
     v5 = *a1;
   }
   else

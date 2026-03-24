@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vSrcCopyS1D1LtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C00DEB90
+ * XREFs of ?vSrcCopyS1D1LtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C00F5AA0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall vSrcCopyS1D1LtoR(struct BLTINFO *a1)
@@ -40,17 +40,17 @@ void __fastcall vSrcCopyS1D1LtoR(struct BLTINFO *a1)
   unsigned int v29; // edx
   int v30; // r13d
   char v31; // al
-  __int64 v32; // rax
-  __int64 v33; // r11
-  char *v34; // r9
-  char v35; // r8
-  char v36; // al
-  char v37; // r8
-  unsigned __int8 v38; // dl
-  _BYTE *v39; // r8
-  unsigned __int8 *v40; // r10
-  int v41; // r9d
-  char v42; // cl
+  _BYTE *v32; // r8
+  unsigned __int8 *v33; // r10
+  int v34; // r9d
+  char v35; // cl
+  __int64 v36; // rax
+  __int64 v37; // r11
+  char *v38; // r9
+  char v39; // r8
+  char v40; // al
+  char v41; // r8
+  unsigned __int8 v42; // dl
   char v43; // dl
   unsigned __int8 v44; // al
   unsigned __int8 v45; // dl
@@ -129,84 +129,75 @@ void __fastcall vSrcCopyS1D1LtoR(struct BLTINFO *a1)
     v18 = v5 - ((_DWORD)v3 - (_DWORD)v14);
     v19 = v7 - ((_DWORD)v3 - (_DWORD)v14);
     v76 = (_DWORD)v3 - (_DWORD)v14;
-    if ( v86 )
+    if ( v86 && v8 && v8 != 3 )
     {
-      if ( v8 && v8 != 3 )
+      if ( v8 == 1 )
       {
-        if ( v8 == 1 )
-        {
-          if ( v17 )
-          {
-            v16 = (int)v16;
-            v32 = v18;
-            v77 = (int)v16;
-            v84 = v18;
-            v33 = v19;
-            do
-            {
-              v34 = &v15[v16];
-              --v17;
-              v35 = *v15 << v86;
-              if ( v15 != &v15[v16] )
-              {
-                do
-                {
-                  v36 = v35 | ((unsigned __int8)*++v15 >> v73);
-                  v37 = *v15;
-                  *v14++ = v36;
-                  v35 = v37 << v86;
-                }
-                while ( v15 != v34 );
-                v32 = v84;
-                v16 = v77;
-              }
-              v14 += v33;
-              v15 += v32;
-            }
-            while ( v17 );
-          }
-          goto LABEL_12;
-        }
-        if ( v8 == 2 && v17 )
+        if ( v17 )
         {
           v16 = (int)v16;
-          v46 = v18;
-          v78 = (int)v16;
-          v85 = v18;
-          v47 = v19;
+          v36 = v18;
+          v77 = (int)v16;
+          v84 = v18;
+          v37 = v19;
           do
           {
-            v48 = &v15[v16];
+            v38 = &v15[v16];
             --v17;
-            v49 = *v15 << v86;
+            v39 = *v15 << v86;
             if ( v15 != &v15[v16] )
             {
               do
               {
-                v50 = ~(v49 | ((unsigned __int8)*++v15 >> v73));
-                v49 = *v15 << v86;
-                *v14++ = v50;
+                v40 = v39 | ((unsigned __int8)*++v15 >> v73);
+                v41 = *v15;
+                *v14++ = v40;
+                v39 = v41 << v86;
               }
-              while ( v15 != v48 );
-              v46 = v85;
-              v16 = v78;
+              while ( v15 != v38 );
+              v36 = v84;
+              v16 = v77;
             }
-            v14 += v47;
-            v15 += v46;
+            v14 += v37;
+            v15 += v36;
           }
           while ( v17 );
-          goto LABEL_11;
         }
-LABEL_12:
-        LOBYTE(v12) = v71;
-        v1 = a1;
-        v6 = 1;
-        v4 = v72;
-        v11 = v86;
-        goto LABEL_13;
+        goto LABEL_12;
       }
+      if ( v8 == 2 && v17 )
+      {
+        v16 = (int)v16;
+        v46 = v18;
+        v78 = (int)v16;
+        v85 = v18;
+        v47 = v19;
+        do
+        {
+          v48 = &v15[v16];
+          --v17;
+          v49 = *v15 << v86;
+          if ( v15 != &v15[v16] )
+          {
+            do
+            {
+              v50 = ~(v49 | ((unsigned __int8)*++v15 >> v73));
+              v49 = *v15 << v86;
+              *v14++ = v50;
+            }
+            while ( v15 != v48 );
+            v46 = v85;
+            v16 = v78;
+          }
+          v14 += v47;
+          v15 += v46;
+        }
+        while ( v17 );
+        goto LABEL_11;
+      }
+      goto LABEL_12;
     }
-    else if ( v8 )
+    if ( v8 )
     {
       if ( v8 == 1 )
       {
@@ -225,9 +216,14 @@ LABEL_12:
           LODWORD(v5) = v20;
 LABEL_11:
           v8 = v74;
-          goto LABEL_12;
         }
-        goto LABEL_12;
+LABEL_12:
+        LOBYTE(v12) = v71;
+        v1 = a1;
+        v6 = 1;
+        v4 = v72;
+        v11 = v86;
+        goto LABEL_13;
       }
       if ( v8 == 2 )
       {
@@ -280,84 +276,84 @@ LABEL_13:
   }
   if ( v80 | v83 ^ 1 )
   {
-    v39 = (_BYTE *)(*((_QWORD *)v1 + 2) + ((__int64)*((int *)v1 + 14) >> 3));
-    v40 = (unsigned __int8 *)(*((_QWORD *)v1 + 1) + ((__int64)*((int *)v1 + 12) >> 3));
-    v41 = *((_DWORD *)v1 + 8);
+    v32 = (_BYTE *)(*((_QWORD *)v1 + 2) + ((__int64)*((int *)v1 + 14) >> 3));
+    v33 = (unsigned __int8 *)(*((_QWORD *)v1 + 1) + ((__int64)*((int *)v1 + 12) >> 3));
+    v34 = *((_DWORD *)v1 + 8);
     switch ( v8 )
     {
       case 0:
-        if ( v41 )
+        if ( v34 )
         {
           v64 = ~(_BYTE)v23;
           do
           {
-            *v39 &= v64;
-            v39 += v7;
-            --v41;
+            *v32 &= v64;
+            v32 += v7;
+            --v34;
           }
-          while ( v41 );
+          while ( v34 );
         }
         break;
       case 1:
-        if ( v41 )
+        if ( v34 )
         {
           if ( v4 < v80 )
           {
             do
             {
-              v45 = *v40;
-              v40 += (int)v5;
-              *v39 = ~(_BYTE)v23 & *v39 | v23 & (v45 >> v73);
-              v39 += v7;
-              --v41;
+              v45 = *v33;
+              v33 += (int)v5;
+              *v32 = ~(_BYTE)v23 & *v32 | v23 & (v45 >> v73);
+              v32 += v7;
+              --v34;
             }
-            while ( v41 );
-            goto LABEL_48;
+            while ( v34 );
+            goto LABEL_49;
           }
           if ( v4 <= v80 )
           {
             do
             {
-              v42 = *v40 & v23 | ~(_BYTE)v23 & *v39;
-              v40 += (int)v5;
-              *v39 = v42;
-              v39 += v7;
-              --v41;
+              v35 = *v33 & v23 | ~(_BYTE)v23 & *v32;
+              v33 += (int)v5;
+              *v32 = v35;
+              v32 += v7;
+              --v34;
             }
-            while ( v41 );
+            while ( v34 );
             break;
           }
           if ( !v6 )
           {
             do
             {
-              v63 = *v40;
-              v40 += (int)v5;
-              *v39 = ~(_BYTE)v23 & *v39 | v23 & (v63 << v11);
-              v39 += v7;
-              --v41;
+              v63 = *v33;
+              v33 += (int)v5;
+              *v32 = ~(_BYTE)v23 & *v32 | v23 & (v63 << v11);
+              v32 += v7;
+              --v34;
             }
-            while ( v41 );
+            while ( v34 );
             break;
           }
           do
           {
-            v61 = v40[1];
-            v62 = *v40;
-            v40 += (int)v5;
-            *v39 = ~(_BYTE)v23 & *v39 | v23 & ((v62 << v11) | (v61 >> v73));
-            v39 += v7;
-            --v41;
+            v61 = v33[1];
+            v62 = *v33;
+            v33 += (int)v5;
+            *v32 = ~(_BYTE)v23 & *v32 | v23 & ((v62 << v11) | (v61 >> v73));
+            v32 += v7;
+            --v34;
           }
-          while ( v41 );
+          while ( v34 );
 LABEL_80:
           LODWORD(v5) = v75;
-LABEL_48:
+LABEL_49:
           v8 = v74;
         }
         break;
       case 2:
-        if ( v41 )
+        if ( v34 )
         {
           if ( v4 <= v80 )
           {
@@ -365,62 +361,62 @@ LABEL_48:
             {
               do
               {
-                v60 = *v40;
-                v40 += (int)v5;
-                *v39 = ~(_BYTE)v23 & *v39 | v23 & ~v60;
-                v39 += v7;
-                --v41;
+                v60 = *v33;
+                v33 += (int)v5;
+                *v32 = ~(_BYTE)v23 & *v32 | v23 & ~v60;
+                v32 += v7;
+                --v34;
               }
-              while ( v41 );
+              while ( v34 );
               break;
             }
             do
             {
-              v59 = *v40;
-              v40 += (int)v5;
-              *v39 = ~(_BYTE)v23 & *v39 | v23 & ~(v59 >> v73);
-              v39 += v7;
-              --v41;
+              v59 = *v33;
+              v33 += (int)v5;
+              *v32 = ~(_BYTE)v23 & *v32 | v23 & ~(v59 >> v73);
+              v32 += v7;
+              --v34;
             }
-            while ( v41 );
-            goto LABEL_48;
+            while ( v34 );
+            goto LABEL_49;
           }
           if ( !v6 )
           {
             do
             {
-              v58 = *v40;
-              v40 += (int)v5;
-              *v39 = ~(_BYTE)v23 & *v39 | v23 & ~(v58 << v11);
-              v39 += v7;
-              --v41;
+              v58 = *v33;
+              v33 += (int)v5;
+              *v32 = ~(_BYTE)v23 & *v32 | v23 & ~(v58 << v11);
+              v32 += v7;
+              --v34;
             }
-            while ( v41 );
+            while ( v34 );
             break;
           }
           do
           {
-            v56 = v40[1];
-            v57 = *v40;
-            v40 += (int)v5;
-            *v39 = ~(_BYTE)v23 & *v39 | v23 & ~((v57 << v11) | (v56 >> v73));
-            v39 += v7;
-            --v41;
+            v56 = v33[1];
+            v57 = *v33;
+            v33 += (int)v5;
+            *v32 = ~(_BYTE)v23 & *v32 | v23 & ~((v57 << v11) | (v56 >> v73));
+            v32 += v7;
+            --v34;
           }
-          while ( v41 );
+          while ( v34 );
           goto LABEL_80;
         }
         break;
       default:
-        if ( v8 == 3 && v41 )
+        if ( v8 == 3 && v34 )
         {
           do
           {
-            *v39 |= v23;
-            v39 += v7;
-            --v41;
+            *v32 |= v23;
+            v32 += v7;
+            --v34;
           }
-          while ( v41 );
+          while ( v34 );
         }
         break;
     }
@@ -504,9 +500,9 @@ LABEL_48:
         {
           do
           {
-            v38 = *v27;
+            v42 = *v27;
             v27 += (int)v5;
-            *v3 = v24 & *v3 | ~(_BYTE)v24 & (v38 << v86);
+            *v3 = v24 & *v3 | ~(_BYTE)v24 & (v42 << v86);
             v3 += v7;
             --v26;
           }

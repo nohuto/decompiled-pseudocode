@@ -1,20 +1,20 @@
 /*
- * XREFs of ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C0060714
+ * XREFs of ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C0042CA8
  * Callers:
- *     ?AllocateCompanionTarget@FxDevice@@QEAAJPEAPEAVFxCompanionTarget@@@Z @ 0x1C0068F90 (-AllocateCompanionTarget@FxDevice@@QEAAJPEAPEAVFxCompanionTarget@@@Z.c)
+ *     ?AllocateCompanionTarget@FxDevice@@QEAAJPEAPEAVFxCompanionTarget@@@Z @ 0x1C0050104 (-AllocateCompanionTarget@FxDevice@@QEAAJPEAPEAVFxCompanionTarget@@@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C00274C0 (-RtlUShortAdd@@YAJGGPEAG@Z.c)
- *     GetNameFromPath @ 0x1C00275B8 (GetNameFromPath.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
- *     ?CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ @ 0x1C0060698 (-CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ.c)
- *     ?OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0060C6C (-OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     RtlStringCbCopyUnicodeString @ 0x1C0060D0C (RtlStringCbCopyUnicodeString.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
+ *     ?CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ @ 0x1C00426B8 (-CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ.c)
+ *     ?OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00431E4 (-OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C0043284 (-RtlUShortAdd@@YAJGGPEAG@Z.c)
+ *     RtlStringCbCopyUnicodeString @ 0x1C0043330 (RtlStringCbCopyUnicodeString.c)
+ *     GetNameFromPath @ 0x1C0060C30 (GetNameFromPath.c)
  */
 
 __int64 __fastcall FxCompanionLibrary::LoadCompanion(
@@ -25,95 +25,90 @@ __int64 __fastcall FxCompanionLibrary::LoadCompanion(
         IDeviceCompanion **DeviceCompanion)
 {
   FxDriver *Driver; // rcx
-  char v9; // r15
-  unsigned int v10; // ebx
+  char v10; // r14
+  unsigned int v11; // ebx
   int _a1; // eax
-  unsigned __int64 v12; // rbx
-  ULONG Tag; // ecx
-  void *v14; // rax
-  FX_POOL **v15; // rax
-  unsigned __int8 v16; // dl
-  wchar_t *v17; // rsi
-  int v18; // eax
-  unsigned __int16 v19; // r9
-  IDeviceCompanion **v20; // r12
-  int v21; // eax
-  _UNICODE_STRING svcNameUnicodeString; // [rsp+30h] [rbp-20h] BYREF
-  __m128i v24; // [rsp+40h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+38h]
-  unsigned __int16 size; // [rsp+98h] [rbp+48h] BYREF
-  _DEVICE_OBJECT *v27; // [rsp+A0h] [rbp+50h]
+  unsigned __int64 v13; // rbx
+  FX_POOL **v14; // rax
+  unsigned __int8 v15; // dl
+  wchar_t *v16; // rsi
+  int v17; // eax
+  unsigned __int16 v18; // r9
+  IDeviceCompanion **v19; // r15
+  int v20; // eax
+  _UNICODE_STRING svcNameUnicodeString; // [rsp+30h] [rbp-38h] BYREF
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  unsigned __int16 size; // [rsp+78h] [rbp+10h] BYREF
 
-  v27 = Pdo;
   Driver = DriverGlobals->Driver;
   size = 0;
-  v9 = 0;
+  v10 = 0;
   svcNameUnicodeString = 0LL;
   GetNameFromPath(&Driver->m_RegistryPath, &svcNameUnicodeString);
   if ( !svcNameUnicodeString.Length )
   {
-    v10 = -1073741811;
+    v11 = -1073741811;
     WPP_IFR_SF_(DriverGlobals, 2u, 0xCu, 0xFu, WPP_FxCompanionLibrary_cpp_Traceguids);
-    return v10;
+    return v11;
   }
   _a1 = RtlUShortAdd(svcNameUnicodeString.Length, 2u, &size);
-  v10 = _a1;
+  v11 = _a1;
   if ( _a1 < 0 )
   {
     WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0x10u, WPP_FxCompanionLibrary_cpp_Traceguids, _a1);
-    return v10;
+    return v11;
   }
-  v12 = size;
-  Tag = DriverGlobals->Tag;
-  v14 = retaddr;
-  v24.m128i_i64[0] = 0LL;
-  v24.m128i_i64[1] = 64LL;
-  if ( !DriverGlobals->FxPoolTrackingOn )
-    v14 = 0LL;
-  v15 = FxPoolAllocator(DriverGlobals, &DriverGlobals->FxPoolFrameworks, &v24, size, Tag, v14);
-  v17 = (wchar_t *)v15;
-  if ( !v15 )
+  v13 = size;
+  v14 = FxPoolAllocator(
+          DriverGlobals,
+          &DriverGlobals->FxPoolFrameworks,
+          ExDefaultNonPagedPoolType,
+          size,
+          DriverGlobals->Tag,
+          retaddr);
+  v16 = (wchar_t *)v14;
+  if ( !v14 )
   {
-    v10 = -1073741670;
-    WPP_IFR_SF_D(DriverGlobals, v16, 0xCu, 0x11u, WPP_FxCompanionLibrary_cpp_Traceguids, size);
-    return v10;
+    v11 = -1073741670;
+    WPP_IFR_SF_D(DriverGlobals, v15, 0xCu, 0x11u, WPP_FxCompanionLibrary_cpp_Traceguids, size);
+    return v11;
   }
-  v18 = RtlStringCbCopyUnicodeString((wchar_t *)v15, v12, &svcNameUnicodeString);
-  v10 = v18;
-  if ( v18 < 0 )
+  v17 = RtlStringCbCopyUnicodeString((wchar_t *)v14, v13, &svcNameUnicodeString);
+  v11 = v17;
+  if ( v17 < 0 )
   {
-    v19 = 18;
-LABEL_11:
-    WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, v19, WPP_FxCompanionLibrary_cpp_Traceguids, v18);
-    goto $exit_22;
+    v18 = 18;
+LABEL_9:
+    WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, v18, WPP_FxCompanionLibrary_cpp_Traceguids, v17);
+    goto $exit_3;
   }
-  v18 = FxCompanionLibrary::OpenCompanionLibraryInterface(this, DriverGlobals);
-  v10 = v18;
-  if ( v18 < 0 )
+  v17 = FxCompanionLibrary::OpenCompanionLibraryInterface(this, DriverGlobals);
+  v11 = v17;
+  if ( v17 < 0 )
   {
-    v19 = 19;
-    goto LABEL_11;
+    v18 = 19;
+    goto LABEL_9;
   }
-  v20 = DeviceCompanion;
-  v21 = this->m_RdCompanionLibrary->LoadCompanion(
+  v19 = DeviceCompanion;
+  v20 = this->m_RdCompanionLibrary->LoadCompanion(
           this->m_RdCompanionLibrary,
-          v27,
-          v17,
+          Pdo,
+          v16,
           CallbackInterface,
           DeviceCompanion);
-  v10 = v21;
-  if ( v21 >= 0 )
+  v11 = v20;
+  if ( v20 >= 0 )
   {
-    WPP_IFR_SF_q(DriverGlobals, 4u, 0xCu, 0x15u, WPP_FxCompanionLibrary_cpp_Traceguids, v20);
+    WPP_IFR_SF_q(DriverGlobals, 4u, 0xCu, 0x15u, WPP_FxCompanionLibrary_cpp_Traceguids, v19);
   }
   else
   {
-    WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0x14u, WPP_FxCompanionLibrary_cpp_Traceguids, v21);
-    v9 = 1;
+    WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0x14u, WPP_FxCompanionLibrary_cpp_Traceguids, v20);
+    v10 = 1;
   }
-$exit_22:
-  FxPoolFree((FX_POOL_TRACKER *)v17);
-  if ( v9 )
+$exit_3:
+  FxPoolFree((FX_POOL_TRACKER *)v16);
+  if ( v10 )
     FxCompanionLibrary::CloseCompanionLibraryInterface(this);
-  return v10;
+  return v11;
 }

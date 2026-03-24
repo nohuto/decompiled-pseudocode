@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ApplyElasticDragModeDeltas@CPTPEngine@@AEAAHPEAUCContactState@@PEAUtagPOINTER_INFO@@PEAUtagPOINT@@@Z @ 0x1C01FECF8
+ * XREFs of ?ApplyElasticDragModeDeltas@CPTPEngine@@AEAAHPEAUCContactState@@PEAUtagPOINTER_INFO@@PEAUtagPOINT@@@Z @ 0x1C01C3600
  * Callers:
- *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01FF558 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01C3FC0 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
  * Callees:
  *     <none>
  */
@@ -29,20 +29,20 @@ __int64 __fastcall CPTPEngine::ApplyElasticDragModeDeltas(
 
   v4 = *((_QWORD *)a3 + 5);
   v6 = 0;
-  v8 = *((_DWORD *)this + 45);
-  v9 = *((_DWORD *)this + 44)
+  v8 = *((_DWORD *)this + 33);
+  v9 = *((_DWORD *)this + 32)
      / 0xAu
-     * ((unsigned __int64)(1000LL * (*((_QWORD *)a3 + 10) - *((_QWORD *)a2 + 11)))
+     * ((unsigned __int64)(1000LL * (*((_QWORD *)a3 + 10) - *((_QWORD *)a2 + 10)))
       / *((_QWORD *)this + 12));
   if ( (int)v4 <= v8 )
   {
-    v10 = *((_DWORD *)this + 45);
-    v11 = *((_DWORD *)a2 + 36);
-    if ( (v11 & 2) == 0 && *((_DWORD *)a2 + 8) > v8 )
+    v10 = *((_DWORD *)this + 33);
+    v11 = *((_DWORD *)a2 + 34);
+    if ( (v11 & 2) == 0 && *((_DWORD *)a2 + 6) > v8 )
     {
       v11 |= 2u;
-      *((_DWORD *)a2 + 36) = v11;
-      v10 = *((_DWORD *)this + 45);
+      *((_DWORD *)a2 + 34) = v11;
+      v10 = *((_DWORD *)this + 33);
     }
     v8 = v10;
     if ( (v11 & 2) != 0 )
@@ -54,11 +54,11 @@ __int64 __fastcall CPTPEngine::ApplyElasticDragModeDeltas(
   v12 = *((_DWORD *)this + 10) - v8;
   if ( (int)v4 >= v12 )
   {
-    v13 = *((_DWORD *)a2 + 36);
-    if ( (v13 & 1) == 0 && *((_DWORD *)a2 + 8) < v12 )
+    v13 = *((_DWORD *)a2 + 34);
+    if ( (v13 & 1) == 0 && *((_DWORD *)a2 + 6) < v12 )
     {
       v13 |= 1u;
-      *((_DWORD *)a2 + 36) = v13;
+      *((_DWORD *)a2 + 34) = v13;
     }
     if ( (v13 & 1) != 0 )
     {
@@ -66,17 +66,17 @@ __int64 __fastcall CPTPEngine::ApplyElasticDragModeDeltas(
       v6 = 1;
     }
   }
-  v14 = *((_DWORD *)this + 46);
+  v14 = *((_DWORD *)this + 34);
   v15 = HIDWORD(v4);
   if ( (int)v15 <= v14 )
   {
-    v16 = *((_DWORD *)this + 46);
-    v17 = *((_DWORD *)a2 + 36);
-    if ( (v17 & 4) == 0 && *((_DWORD *)a2 + 9) > v14 )
+    v16 = *((_DWORD *)this + 34);
+    v17 = *((_DWORD *)a2 + 34);
+    if ( (v17 & 4) == 0 && *((_DWORD *)a2 + 7) > v14 )
     {
       v17 |= 4u;
-      *((_DWORD *)a2 + 36) = v17;
-      v16 = *((_DWORD *)this + 46);
+      *((_DWORD *)a2 + 34) = v17;
+      v16 = *((_DWORD *)this + 34);
     }
     v14 = v16;
     if ( (v17 & 4) != 0 )
@@ -88,11 +88,11 @@ __int64 __fastcall CPTPEngine::ApplyElasticDragModeDeltas(
   v18 = *((_DWORD *)this + 11) - v14;
   if ( (int)v15 >= v18 )
   {
-    v19 = *((_DWORD *)a2 + 36);
-    if ( (v19 & 8) == 0 && *((_DWORD *)a2 + 9) < v18 )
+    v19 = *((_DWORD *)a2 + 34);
+    if ( (v19 & 8) == 0 && *((_DWORD *)a2 + 7) < v18 )
     {
       v19 |= 8u;
-      *((_DWORD *)a2 + 36) = v19;
+      *((_DWORD *)a2 + 34) = v19;
     }
     if ( (v19 & 8) != 0 )
     {

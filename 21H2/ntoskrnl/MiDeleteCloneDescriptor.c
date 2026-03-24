@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteCloneDescriptor @ 0x1405BA624
+ * XREFs of MiDeleteCloneDescriptor @ 0x140559FF4
  * Callers:
- *     MiDecrementCloneBlockReference @ 0x1405BA498 (MiDecrementCloneBlockReference.c)
- *     MiDeleteInsertedCloneVads @ 0x140980A20 (MiDeleteInsertedCloneVads.c)
+ *     MiDecrementCloneBlockReference @ 0x140559E88 (MiDecrementCloneBlockReference.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408D93B4 (MiDeleteInsertedCloneVads.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     MiDecrementCloneHeaderCount @ 0x1405BA5F0 (MiDecrementCloneHeaderCount.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     MiDecrementCloneHeaderCount @ 0x140559FC0 (MiDecrementCloneHeaderCount.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(struct _KPROCESS *a1, __int64 a2)
@@ -25,13 +25,11 @@ PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(struct _KPROCESS *a1, __int64 a2
     v6 = *(_QWORD *)(a2 + 32) - *(_QWORD *)(a2 + 24) + 32LL;
     v7 = *(_QWORD *)(v2 + 16);
     *(_QWORD *)(v7 + 24) = (unsigned int)(v6 >> 12) + ((v6 & 0xFFF) != 0);
-    RtlpInterlockedPushEntrySList((PSLIST_HEADER)(v5 + 2000), (PSLIST_ENTRY)v7);
-    KeSetEvent((PRKEVENT)(v5 + 1976), 0, 0);
+    RtlpInterlockedPushEntrySList((PSLIST_HEADER)(v5 + 1840), (PSLIST_ENTRY)v7);
+    KeSetEvent((PRKEVENT)(v5 + 1808), 0, 0);
     MiDecrementCloneHeaderCount(v5);
     ExFreePoolWithTag((PVOID)v2, 0);
   }
   PsReturnProcessNonPagedPoolQuota(a1, *(_QWORD *)(a2 + 64));
-  return RtlpInterlockedPushEntrySList(
-           (PSLIST_HEADER)(a1[1].ActiveProcessors.StaticBitmap[28] + 352),
-           (PSLIST_ENTRY)(a2 + 80));
+  return RtlpInterlockedPushEntrySList((PSLIST_HEADER)(a1[1].ActiveProcessorsPadding[8] + 368), (PSLIST_ENTRY)(a2 + 80));
 }

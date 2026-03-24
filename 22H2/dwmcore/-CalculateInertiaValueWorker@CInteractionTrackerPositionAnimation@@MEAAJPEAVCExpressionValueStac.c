@@ -1,17 +1,15 @@
 /*
- * XREFs of ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180266B50
+ * XREFs of ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205520
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1802329A8 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x180232AB4 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
- *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1802361B4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
- *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180265330 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55@Z @ 0x1802667FC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@@-$_tlgWriteTe.c)
- *     ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18026F728 (-AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C95D0 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x1801C96D0 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
+ *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1801CD3E4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
+ *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180203C10 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55@Z @ 0x1802051E4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@@-$_tlgWriteTe.c)
+ *     ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18020EF7C (-AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z.c)
  */
 
 __int64 __fastcall CInteractionTrackerPositionAnimation::CalculateInertiaValueWorker(
@@ -21,8 +19,8 @@ __int64 __fastcall CInteractionTrackerPositionAnimation::CalculateInertiaValueWo
         float a4,
         float *a5)
 {
-  __int64 v9; // rcx
-  CInteractionTracker *InteractionTracker; // rbx
+  CInteractionTracker *v5; // rdi
+  __int64 v8; // rax
   float MostRecentCenterPoint; // xmm7_4
   float CurrentVelocity; // xmm6_4
   float CurrentValue; // xmm3_4
@@ -40,18 +38,18 @@ __int64 __fastcall CInteractionTrackerPositionAnimation::CalculateInertiaValueWo
   float v26; // [rsp+C8h] [rbp+20h] BYREF
 
   v26 = a4;
-  InteractionTracker = CScrollAnimation::GetInteractionTracker(this);
-  MostRecentCenterPoint = CInteractionTracker::GetMostRecentCenterPoint(
-                            (__int64)InteractionTracker,
-                            2,
-                            *(_DWORD *)(v9 + 340));
+  v5 = 0LL;
+  v8 = *((_QWORD *)this + 41);
+  if ( v8 )
+    v5 = *(CInteractionTracker **)(v8 + 16);
+  MostRecentCenterPoint = CInteractionTracker::GetMostRecentCenterPoint((__int64)v5, 2, *((_DWORD *)this + 79));
   v25 = MostRecentCenterPoint;
-  CurrentVelocity = CInteractionTracker::GetCurrentVelocity(InteractionTracker, 2);
-  CurrentValue = CInteractionTracker::GetCurrentValue((__int64)InteractionTracker, 2);
-  v14 = CInteractionTracker::ValueFromBoundary(InteractionTracker, 2LL, *((_DWORD *)this + 85));
+  CurrentVelocity = CInteractionTracker::GetCurrentVelocity(v5, 2);
+  CurrentValue = CInteractionTracker::GetCurrentValue((__int64)v5, 2);
+  v14 = CInteractionTracker::ValueFromBoundary(v5, 2LL, *((_DWORD *)this + 79));
   v17 = CInteractionTracker::ValueFromBoundary(v15, 1LL, v16);
   LODWORD(v23) = CPositionMotion::AdvanceInertiaToTime(
-                   (CInteractionTrackerPositionAnimation *)((char *)this + 456),
+                   (CInteractionTrackerPositionAnimation *)((char *)this + 432),
                    a2,
                    a3,
                    a4,
@@ -61,16 +59,16 @@ __int64 __fastcall CInteractionTrackerPositionAnimation::CalculateInertiaValueWo
                    CurrentVelocity,
                    MostRecentCenterPoint);
   *(_DWORD *)a5 = (_DWORD)v23;
-  if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
+  if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
   {
-    v18 = *((_DWORD *)this + 85);
+    v18 = *((_DWORD *)this + 79);
     *(float *)&a5 = v25;
     v25 = *(float *)&v23;
     v23 = (wchar_t *)ScrollAxisToString(v18);
     v24 = this;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
       v19,
-      byte_180381E43,
+      byte_1802E9DFE,
       v20,
       v21,
       (__int64)&v24,

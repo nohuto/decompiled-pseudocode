@@ -1,5 +1,5 @@
 /*
- * XREFs of NtDCompositionConnectPipe @ 0x1C0209540
+ * XREFs of NtDCompositionConnectPipe @ 0x1C01D21E0
  * Callers:
  *     <none>
  * Callees:

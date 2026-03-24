@@ -1,31 +1,35 @@
 /*
- * XREFs of PpmAllocWmiEvent @ 0x140598D8C
+ * XREFs of PpmAllocWmiEvent @ 0x140578390
  * Callers:
- *     PpmFireWmiEvent @ 0x140598E28 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x140598EB0 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x140578438 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1405784C0 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     IoWMIDeviceObjectToProviderId @ 0x1403C1F00 (IoWMIDeviceObjectToProviderId.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x140371760 (IoWMIDeviceObjectToProviderId.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, int a3)
+char *__fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, int a3)
 {
-  int v3; // esi
-  __int64 Pool2; // rbx
-  __int128 v8; // xmm0
+  unsigned int v3; // esi
+  char *PoolWithTag; // rax
+  char *v8; // rbx
+  __int128 v9; // xmm0
 
   v3 = a3 + 64;
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(a3 + 64), 2001555536LL);
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(a3 + 64), 0x774D5050u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = MEMORY[0xFFFFF78000000014];
-    *(_DWORD *)Pool2 = v3;
-    *(_DWORD *)(Pool2 + 4) = IoWMIDeviceObjectToProviderId(DeviceObject);
-    v8 = *a2;
-    *(_DWORD *)(Pool2 + 44) = 138;
-    *(_DWORD *)(Pool2 + 56) = 64;
-    *(_OWORD *)(Pool2 + 24) = v8;
-    *(_DWORD *)(Pool2 + 60) = a3;
+    memset(PoolWithTag, 0, v3);
+    *((_QWORD *)v8 + 2) = MEMORY[0xFFFFF78000000014];
+    *(_DWORD *)v8 = v3;
+    *((_DWORD *)v8 + 1) = IoWMIDeviceObjectToProviderId(DeviceObject);
+    v9 = *a2;
+    *((_DWORD *)v8 + 11) = 138;
+    *((_DWORD *)v8 + 14) = 64;
+    *(_OWORD *)(v8 + 24) = v9;
+    *((_DWORD *)v8 + 15) = a3;
   }
-  return Pool2;
+  return v8;
 }

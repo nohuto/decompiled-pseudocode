@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRunMaximumIrpWorkers @ 0x140396464
+ * XREFs of PopRunMaximumIrpWorkers @ 0x14038C3E0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PopCreateDynamicIrpWorker @ 0x14039653C (PopCreateDynamicIrpWorker.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403A51D0 (PopCreateDynamicIrpWorker.c)
  */
 
 int PopRunMaximumIrpWorkers()

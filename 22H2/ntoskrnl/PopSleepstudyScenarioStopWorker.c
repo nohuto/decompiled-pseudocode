@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepstudyScenarioStopWorker @ 0x140993460
+ * XREFs of PopSleepstudyScenarioStopWorker @ 0x1408FA380
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceSleepStudyStart @ 0x140878EE0 (PopDiagTraceSleepStudyStart.c)
- *     PopDiagTraceSleepStudyStop @ 0x140991778 (PopDiagTraceSleepStudyStop.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceSleepStudyStart @ 0x1408EB2D8 (PopDiagTraceSleepStudyStart.c)
+ *     PopDiagTraceSleepStudyStop @ 0x1408EB420 (PopDiagTraceSleepStudyStop.c)
  */
 
 void PopSleepstudyScenarioStopWorker()
@@ -14,11 +14,10 @@ void PopSleepstudyScenarioStopWorker()
   _DWORD *v0; // rbx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
-  byte_140C3BC58 = 0;
-  v0 = (_DWORD *)((char *)&unk_140C3BD10 + 104 * (unsigned int)dword_140C3BD08);
-  PopDiagTraceSleepStudyStop(qword_140C3BC50);
-  qword_140C3BC50 = -1LL;
+  PopSleepstudySessionContext = 0;
+  v0 = (_DWORD *)((char *)&unk_140C1E518 + 96 * (unsigned int)dword_140C1E510);
+  PopDiagTraceSleepStudyStop();
   if ( (unsigned int)(*v0 - 1) <= 1 )
     PopDiagTraceSleepStudyStart();
-  PopReleaseRwLock(&PopSleepstudySessionLock);
+  PopReleaseRwLock((ULONG_PTR)&PopSleepstudySessionLock);
 }

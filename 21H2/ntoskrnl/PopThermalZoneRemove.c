@@ -1,27 +1,27 @@
 /*
- * XREFs of PopThermalZoneRemove @ 0x140990740
+ * XREFs of PopThermalZoneRemove @ 0x1408E7D80
  * Callers:
  *     <none>
  * Callees:
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeDisableTimer2 @ 0x1402D40E4 (KeDisableTimer2.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x14038ACD0 (PopTraceThermalZonePassiveHistogram.c)
- *     PopTraceThermalZoneActiveActivity @ 0x14038B198 (PopTraceThermalZoneActiveActivity.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1403C0F80 (PopThermalUpdateTelemetryClientCount.c)
- *     PopThermalStandbyNotify @ 0x1405D0668 (PopThermalStandbyNotify.c)
- *     PopDiagTraceThermalStandbyState @ 0x1405D36C0 (PopDiagTraceThermalStandbyState.c)
- *     PopTraceCr3Mitigated @ 0x1405D3D68 (PopTraceCr3Mitigated.c)
- *     PopTraceZoneCr3Mitigated @ 0x1405D44DC (PopTraceZoneCr3Mitigated.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x1407FD7A8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopResetCurrentPolicies @ 0x1408193F4 (PopResetCurrentPolicies.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x14081CEB4 (PopThermalUpdateActiveTimeTracking.c)
- *     PopUpdateOverThrottledCount @ 0x140990924 (PopUpdateOverThrottledCount.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     KeDisableTimer2 @ 0x14027FC30 (KeDisableTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x14038A424 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x14038A5B4 (PopTraceThermalZoneActiveActivity.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403A7FC8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopThermalStandbyNotify @ 0x14056F86C (PopThermalStandbyNotify.c)
+ *     PopDiagTraceThermalStandbyState @ 0x140573100 (PopDiagTraceThermalStandbyState.c)
+ *     PopTraceCr3Mitigated @ 0x14057357C (PopTraceCr3Mitigated.c)
+ *     PopTraceZoneCr3Mitigated @ 0x140573AD0 (PopTraceZoneCr3Mitigated.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778678 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DF1C (PopThermalUpdateActiveTimeTracking.c)
+ *     PopResetCurrentPolicies @ 0x1407928E8 (PopResetCurrentPolicies.c)
+ *     PopUpdateOverThrottledCount @ 0x1408E7F64 (PopUpdateOverThrottledCount.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopThermalZoneRemove(__int64 a1)
@@ -50,15 +50,15 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
   {
     PopDiagTraceThermalStandbyState(*(_QWORD *)(a1 + 48), 0LL);
     PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
-    --dword_140C22074;
-    PopTraceZoneCr3Mitigated(dword_140C22078, a1);
-    if ( !dword_140C22074 )
+    --dword_140C22E14;
+    PopTraceZoneCr3Mitigated(dword_140C22E18, a1);
+    if ( !dword_140C22E14 )
     {
       PopTraceCr3Mitigated();
-      if ( HIBYTE(word_140C22070) == 1 )
+      if ( HIBYTE(word_140C22E10) == 1 )
       {
         PopThermalStandbyNotify(0);
-        HIBYTE(word_140C22070) = 0;
+        HIBYTE(word_140C22E10) = 0;
       }
     }
     PopReleaseRwLock((ULONG_PTR)&PopSystemThermalInfo);

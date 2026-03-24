@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_StartController @ 0x1C004DE54
+ * XREFs of Crashdump_Register_StartController @ 0x1C004B38C
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004C768 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
  *     <none>
  */

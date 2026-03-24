@@ -1,16 +1,16 @@
 /*
- * XREFs of ApiSetpLoadSchemaExtensions @ 0x140A0A18C
+ * XREFs of ApiSetpLoadSchemaExtensions @ 0x14095ECE4
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x140A09E6C (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x14095E9D4 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     ApiSetpLoadSchemaExtension @ 0x140A0A070 (ApiSetpLoadSchemaExtension.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     ApiSetpLoadSchemaExtension @ 0x14095EBD0 (ApiSetpLoadSchemaExtension.c)
  */
 
-__int64 __fastcall ApiSetpLoadSchemaExtensions(HANDLE KeyHandle, PVOID *a2, unsigned int *a3)
+__int64 __fastcall ApiSetpLoadSchemaExtensions(HANDLE KeyHandle, _DWORD **a2, unsigned int *a3)
 {
   ULONG v4; // edi
   ULONG v5; // edx

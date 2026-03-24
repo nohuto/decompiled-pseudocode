@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxInitializeWorkPool @ 0x14085B454
+ * XREFs of PopFxInitializeWorkPool @ 0x1407CB474
  * Callers:
- *     PopFxRegisterPluginEx @ 0x1405CD5BC (PopFxRegisterPluginEx.c)
- *     PoFxInitPowerManagement @ 0x140B28250 (PoFxInitPowerManagement.c)
+ *     PopFxRegisterPluginEx @ 0x14056BEF8 (PopFxRegisterPluginEx.c)
+ *     PoFxInitPowerManagement @ 0x140A6D6E0 (PoFxInitPowerManagement.c)
  * Callees:
- *     KeInitializeSemaphore @ 0x1402A4940 (KeInitializeSemaphore.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopFxCreateEmergencyWorkerThread @ 0x14085B500 (PopFxCreateEmergencyWorkerThread.c)
+ *     KeInitializeSemaphore @ 0x140356600 (KeInitializeSemaphore.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x1407CB520 (PopFxCreateEmergencyWorkerThread.c)
  */
 
 __int64 __fastcall PopFxInitializeWorkPool(struct _KSEMAPHORE *a1, __int64 a2)

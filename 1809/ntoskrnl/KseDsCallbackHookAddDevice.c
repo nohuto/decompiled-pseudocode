@@ -1,12 +1,12 @@
 /*
- * XREFs of KseDsCallbackHookAddDevice @ 0x14029FEB0
+ * XREFs of KseDsCallbackHookAddDevice @ 0x14029FFB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KsepDsEventAddDevice @ 0x1402A0630 (KsepDsEventAddDevice.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KsepDsEventAddDevice @ 0x1402A0730 (KsepDsEventAddDevice.c)
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
  */
 

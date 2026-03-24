@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuidAndGpuSync@CFlipExBuffer@@UEBAJPEAU_LUID@@PEAPEAX@Z @ 0x1C0078DE0
+ * XREFs of ?GetAdapterLuidAndGpuSync@CFlipExBuffer@@UEBAJPEAU_LUID@@PEAPEAX@Z @ 0x1C0066EC0
  * Callers:
  *     <none>
  * Callees:
@@ -11,10 +11,10 @@ __int64 __fastcall CFlipExBuffer::GetAdapterLuidAndGpuSync(CFlipExBuffer *this, 
   unsigned int v3; // r9d
 
   v3 = 0;
-  if ( *((_QWORD *)this + 43) )
+  if ( *((_QWORD *)this + 39) )
   {
-    *a2 = *(struct _LUID *)((char *)this + 360);
-    *a3 = (void *)*((_QWORD *)this + 43);
+    *a2 = *(struct _LUID *)((char *)this + 328);
+    *a3 = (void *)*((_QWORD *)this + 39);
   }
   else
   {

@@ -1,8 +1,8 @@
 /*
- * XREFs of LockThreadByClientId @ 0x1C007B82C
+ * XREFs of LockThreadByClientId @ 0x1C003B7F0
  * Callers:
- *     ?xxxUserNotifyProcessCreate@@YAJKK_KK@Z @ 0x1C007B748 (-xxxUserNotifyProcessCreate@@YAJKK_KK@Z.c)
- *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E3D64 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
+ *     ?xxxUserNotifyProcessCreate@@YAJKK_KK@Z @ 0x1C003B714 (-xxxUserNotifyProcessCreate@@YAJKK_KK@Z.c)
+ *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E96C8 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSessionConnectionInvocation @ 0x14071EF90
+ * XREFs of PopSessionConnectionInvocation @ 0x14071EF70
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall PopSessionConnectionInvocation(

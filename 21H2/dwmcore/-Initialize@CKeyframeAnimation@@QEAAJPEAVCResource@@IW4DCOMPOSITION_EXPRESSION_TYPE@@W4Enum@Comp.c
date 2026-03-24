@@ -1,23 +1,23 @@
 /*
- * XREFs of ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x1802223E0
+ * XREFs of ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x1801D1650
  * Callers:
- *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801F6D64 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
- *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x18021A18C (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
- *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x18022DBD8 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801AD254 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
+ *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x1801C8FC8 (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
+ *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DEB88 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
  * Callees:
- *     ?GetCacheSizeForType@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180044760 (-GetCacheSizeForType@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?SetIterationInfo@CKeyframeAnimation@@AEAAJMW4Enum@KeyframeAnimationDirection@@MW42KeyframeAnimationStopBehavior@@@Z @ 0x1800465AC (-SetIterationInfo@CKeyframeAnimation@@AEAAJMW4Enum@KeyframeAnimationDirection@@MW42KeyframeAnima.c)
- *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180049EFC (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
- *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x18004A0F8 (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
- *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x18004D7F8 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
- *     ?RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x18006FCEC (-RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ.c)
- *     ??$SAFE_DELETE_ARRAY@E@@YAXAEAPEAE@Z @ 0x18006FEB4 (--$SAFE_DELETE_ARRAY@E@@YAXAEAPEAE@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800D8C0C (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064714 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x1800648E8 (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800A9770 (-RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ.c)
+ *     ??$SAFE_DELETE_ARRAY@E@@YAXAEAPEAE@Z @ 0x1800A984C (--$SAFE_DELETE_ARRAY@E@@YAXAEAPEAE@Z.c)
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AA738 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ *     ?SetIterationInfo@CKeyframeAnimation@@AEAAJMW4Enum@KeyframeAnimationDirection@@MW42KeyframeAnimationStopBehavior@@@Z @ 0x1800AC7B0 (-SetIterationInfo@CKeyframeAnimation@@AEAAJMW4Enum@KeyframeAnimationDirection@@MW42KeyframeAnima.c)
+ *     ?GetCacheSizeForType@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800ACDDC (-GetCacheSizeForType@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800CCAC0 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::Initialize(
@@ -45,32 +45,33 @@ __int64 __fastcall CKeyframeAnimation::Initialize(
   int v21; // r9d
   int v22; // eax
   __int64 v23; // rcx
-  __int64 *v24; // rsi
-  unsigned int v26; // [rsp+20h] [rbp-28h]
+  KeyframeSequence *v24; // rsi
+  __int64 v25; // rcx
+  unsigned int v27; // [rsp+20h] [rbp-28h]
 
   updated = CBaseExpression::SetTarget(a1, 0, a2, a3, a4, 0, 0, 0LL);
   v18 = updated;
   if ( updated < 0 )
   {
-    v26 = 75;
+    v27 = 73;
 LABEL_13:
     v21 = updated;
     goto LABEL_14;
   }
-  CacheSizeForType = (unsigned int)GetCacheSizeForType(*(_DWORD *)(a1 + 152));
+  CacheSizeForType = (unsigned int)GetCacheSizeForType(*(_DWORD *)(a1 + 144));
   v20 = DefaultHeap::Alloc(CacheSizeForType);
-  *(_QWORD *)(a1 + 376) = v20;
+  *(_QWORD *)(a1 + 352) = v20;
   if ( !v20 )
   {
     v18 = -2147024882;
     v21 = -2147024882;
-    v26 = 79;
+    v27 = 77;
 LABEL_14:
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v21, v26);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v21, v27, 0LL);
     goto LABEL_15;
   }
   memset_0(v20, 0, CacheSizeForType);
-  *(_DWORD *)(a1 + 360) = 2;
+  *(_DWORD *)(a1 + 336) = 2;
   v22 = CKeyframeAnimation::SetIterationInfo(a1, a10, 0, a12, 0);
   v18 = v22;
   if ( v22 >= 0 )
@@ -79,7 +80,7 @@ LABEL_14:
     v18 = updated;
     if ( updated < 0 )
     {
-      v26 = 93;
+      v27 = 91;
     }
     else
     {
@@ -87,29 +88,34 @@ LABEL_14:
       v18 = updated;
       if ( updated < 0 )
       {
-        v26 = 95;
+        v27 = 93;
       }
       else
       {
-        updated = CKeyframeAnimation::UpdatePlaybackState(a1, 1u, 1, *(_QWORD *)(*(_QWORD *)(a1 + 16) + 608LL));
+        updated = CKeyframeAnimation::UpdatePlaybackState(a1, 1u, 1, *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL));
         v18 = updated;
         if ( updated >= 0 )
           return v18;
-        v26 = 100;
+        v27 = 98;
       }
     }
     goto LABEL_13;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x58u);
+  MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x56u, 0LL);
 LABEL_15:
-  v24 = *(__int64 **)(a1 + 384);
-  *(_QWORD *)(a1 + 384) = 0LL;
+  v24 = *(KeyframeSequence **)(a1 + 360);
+  *(_QWORD *)(a1 + 360) = 0LL;
   if ( v24 )
   {
-    KeyframeSequence::RemoveAllKeyFrames((KeyframeSequence *)v24);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(v24 + 8);
-    DefaultHeap::Free(v24);
+    KeyframeSequence::RemoveAllKeyFrames(v24);
+    v25 = *((_QWORD *)v24 + 8);
+    if ( v25 )
+    {
+      *((_QWORD *)v24 + 8) = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v25 + 16LL))(v25);
+    }
+    operator delete(v24);
   }
-  SAFE_DELETE_ARRAY<unsigned char>((void **)(a1 + 376));
+  SAFE_DELETE_ARRAY<unsigned char>((void **)(a1 + 352));
   return v18;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CTableTransferEffect@@MEBAAEBU_GUID@@XZ @ 0x180107860
+ * XREFs of ?GetEffectGuid@CTableTransferEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E2CC0
  * Callers:
  *     <none>
  * Callees:

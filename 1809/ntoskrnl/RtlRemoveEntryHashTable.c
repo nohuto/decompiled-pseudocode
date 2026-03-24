@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlRemoveEntryHashTable @ 0x1400D9C40
+ * XREFs of RtlRemoveEntryHashTable @ 0x1400D9C60
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x1400D99A0 (SepCleanupMarkedForDeletionEntries.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1400D99C0 (SepCleanupMarkedForDeletionEntries.c)
  *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
  *     SepDereferenceCachedHandlesEntry @ 0x1405DF178 (SepDereferenceCachedHandlesEntry.c)
- *     SepDeReferenceSharedSidEntries @ 0x1408A3DDC (SepDeReferenceSharedSidEntries.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4324 (SepInsertOrReferenceSharedSidEntries.c)
- *     SepRmDestroyCapTable @ 0x1408A4ECC (SepRmDestroyCapTable.c)
+ *     SepDeReferenceSharedSidEntries @ 0x1408A3DBC (SepDeReferenceSharedSidEntries.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4304 (SepInsertOrReferenceSharedSidEntries.c)
+ *     SepRmDestroyCapTable @ 0x1408A4EAC (SepRmDestroyCapTable.c)
  * Callees:
- *     RtlpPopulateContext @ 0x1400D9D20 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1400D9D40 (RtlpPopulateContext.c)
  */
 
 BOOLEAN __stdcall RtlRemoveEntryHashTable(

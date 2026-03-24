@@ -1,12 +1,12 @@
 /*
- * XREFs of _anonymous_namespace_::State::_State @ 0x1801CDB58
+ * XREFs of _anonymous_namespace_::State::_State @ 0x180152450
  * Callers:
- *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D667C (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800267EC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     _anonymous_namespace_::FramesReport::_FramesReport @ 0x18010B7C4 (_anonymous_namespace_--FramesReport--_FramesReport.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??R?$default_delete@VCProcessAttributionObserver@@@std@@QEBAXPEAVCProcessAttributionObserver@@@Z @ 0x1801CDBFC (--R-$default_delete@VCProcessAttributionObserver@@@std@@QEBAXPEAVCProcessAttributionObserver@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800D3944 (_anonymous_namespace_--FramesReport--_FramesReport.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall anonymous_namespace_::State::_State(__int64 a1)
@@ -35,5 +35,5 @@ void __fastcall anonymous_namespace_::State::_State(__int64 a1)
     operator delete(v3);
   }
   if ( *(_QWORD *)a1 )
-    std::default_delete<CProcessAttributionObserver>::operator()();
+    (***(void (__fastcall ****)(_QWORD, __int64))a1)(*(_QWORD *)a1, 1LL);
 }

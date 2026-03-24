@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z @ 0x1C00557A0
+ * XREFs of ?Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z @ 0x1C0043730
  * Callers:
- *     UserKSTWait @ 0x1C0055434 (UserKSTWait.c)
- *     UserDispatchMITCompletion @ 0x1C00579A4 (UserDispatchMITCompletion.c)
+ *     UserDispatchMITCompletion @ 0x1C0043698 (UserDispatchMITCompletion.c)
  * Callees:
- *     ?HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C005779C (-HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
- *     ?HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C0057904 (-HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
+ *     ?HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C00444A0 (-HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
+ *     ?HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C00A4C88 (-HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
  */
 
 void __fastcall IOCPDispatcher::Dispatch(IOCPDispatcher *a1, int a2, unsigned int a3)

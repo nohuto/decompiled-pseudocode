@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcInitSystem3 @ 0x140B38984
+ * XREFs of CmFcInitSystem3 @ 0x140A38454
  * Callers:
- *     CmInitSystem2 @ 0x140B3CD68 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140A4B3D4 (CmInitSystem2.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     TlgRegisterAggregateProvider @ 0x140803364 (TlgRegisterAggregateProvider.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     TlgRegisterAggregateProvider @ 0x1407A5000 (TlgRegisterAggregateProvider.c)
  */
 
 char CmFcInitSystem3()
@@ -42,11 +42,11 @@ char CmFcInitSystem3()
   __int64 *v28; // [rsp+F0h] [rbp-10h]
   __int64 v29; // [rsp+F8h] [rbp-8h]
 
-  TlgRegisterAggregateProvider(&dword_140C04358);
+  TlgRegisterAggregateProvider(&dword_140C01988);
   result = KeLoaderBlock_0;
-  if ( (unsigned int)dword_140C04358 > 5 )
+  if ( (unsigned int)dword_140C01988 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C04358, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C01988, 0x400000000000LL);
     if ( result )
     {
       v2 = *v1;
@@ -77,8 +77,8 @@ char CmFcInitSystem3()
       v10 = 0x1000000LL;
       v29 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C04358,
-               (unsigned __int8 *)word_140036902,
+               (__int64)&dword_140C01988,
+               (unsigned __int8 *)word_14002292A,
                0LL,
                0LL,
                0xBu,

@@ -4,7 +4,7 @@
  *     RtlpGenerateInheritedAce @ 0x14062F2D0 (RtlpGenerateInheritedAce.c)
  * Callees:
  *     RtlpCompareKnownAces @ 0x14062CD40 (RtlpCompareKnownAces.c)
- *     RtlpCompareKnownObjectAces @ 0x140894398 (RtlpCompareKnownObjectAces.c)
+ *     RtlpCompareKnownObjectAces @ 0x140894378 (RtlpCompareKnownObjectAces.c)
  */
 
 char __fastcall RtlpIsDuplicateAce(__int64 a1, __int64 a2)

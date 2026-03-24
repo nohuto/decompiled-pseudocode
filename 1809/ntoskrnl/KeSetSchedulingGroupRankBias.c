@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetSchedulingGroupRankBias @ 0x140116408
+ * XREFs of KeSetSchedulingGroupRankBias @ 0x140116428
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
@@ -7,16 +7,16 @@
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiCheckForEffectivePriorityChange @ 0x140116874 (KiCheckForEffectivePriorityChange.c)
- *     KiRemoveSchedulingGroupQueue @ 0x140116EC8 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x140117190 (KiResortScbQueue.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x140117350 (KiMoveScbThreadsToNewReadylist.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F50 (KiSwapContext.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiCheckForEffectivePriorityChange @ 0x140116894 (KiCheckForEffectivePriorityChange.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140116EE8 (KiRemoveSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140117370 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
  */
 
 char __fastcall KeSetSchedulingGroupRankBias(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

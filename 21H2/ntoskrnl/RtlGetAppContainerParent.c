@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlGetAppContainerParent @ 0x1409B8FF0
+ * XREFs of RtlGetAppContainerParent @ 0x1409137C0
  * Callers:
- *     SepValidateReferencedCachedHandles @ 0x140696944 (SepValidateReferencedCachedHandles.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140914568 (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     RtlGetAppContainerSidType @ 0x140696D90 (RtlGetAppContainerSidType.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlGetAppContainerSidType @ 0x140676500 (RtlGetAppContainerSidType.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlGetAppContainerParent(char *Sid, ULONG **a2)

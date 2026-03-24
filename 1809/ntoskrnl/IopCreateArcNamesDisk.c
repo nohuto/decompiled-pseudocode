@@ -5,12 +5,12 @@
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetDeviceObjectPointer @ 0x140661EB0 (IoGetDeviceObjectPointer.c)
- *     IopCreateArcName @ 0x14070B428 (IopCreateArcName.c)
- *     IoGetConfigurationInformation @ 0x14070F540 (IoGetConfigurationInformation.c)
+ *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
+ *     IopCreateArcName @ 0x14070B408 (IopCreateArcName.c)
+ *     IoGetConfigurationInformation @ 0x14070F520 (IoGetConfigurationInformation.c)
  *     IopFetchConfigurationInformation @ 0x1409D6A3C (IopFetchConfigurationInformation.c)
  */
 

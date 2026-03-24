@@ -1,27 +1,23 @@
 /*
- * XREFs of RawInputManagerObjectOpen @ 0x1C00491CC
+ * XREFs of RawInputManagerObjectOpen @ 0x1C0051524
  * Callers:
- *     RIMObjectManagerCallout @ 0x1C004913C (RIMObjectManagerCallout.c)
+ *     RIMObjectManagerCallout @ 0x1C004EB98 (RIMObjectManagerCallout.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RawInputManagerObjectOpen(__int64 a1)
 {
   __int64 v1; // rsi
   unsigned int v3; // ebx
-  __int64 ObjectType; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
   int ProcessSessionId; // eax
 
   v1 = *(_QWORD *)(a1 + 16);
   v3 = 0;
-  ObjectType = ObGetObjectType(v1);
-  if ( ObjectType != ExRawInputManagerObjectType )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, ObjectType, v6);
+  if ( ObGetObjectType(v1) != ExRawInputManagerObjectType )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 79LL);
   if ( !*(_QWORD *)(v1 + 32) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, ObjectType, v6);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 81LL);
   if ( *(_WORD *)(a1 + 24) )
   {
     if ( !(unsigned __int8)PsIsSystemProcess(*(_QWORD *)(a1 + 8)) )

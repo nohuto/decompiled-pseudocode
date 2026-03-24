@@ -1,90 +1,78 @@
 /*
- * XREFs of ?ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV?$span@PEBVCDrawListBrush@@$0?0@gsl@@AEBUD2D_RECT_F@@PEAW4D2D1_EDGE_FLAGS@@@Z @ 0x1800D4E3C
+ * XREFs of ?ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV?$span@PEBVCDrawListBrush@@$0?0@gsl@@AEBUD2D_RECT_F@@PEAW4D2D1_EDGE_FLAGS@@@Z @ 0x180007CA4
  * Callers:
- *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x180060C80 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
+ *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x180094FF0 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
  * Callees:
- *     ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D5054 (-TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180007E1C (-TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180007FA4 (-Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180007FFC (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
  */
 
 char __fastcall CBrushDrawListGenerator::ProcessBrushClampEdges_Rectangle(
         __int64 *a1,
-        float *a2,
-        const struct D2D_MATRIX_3X2_F *a3)
+        const struct D2D_MATRIX_3X2_F *a2,
+        _DWORD *a3)
 {
   __int64 *v3; // rbx
-  int v4; // esi
-  _DWORD *p_m11; // r15
-  __int64 v7; // rax
+  int v4; // edi
+  __int64 v6; // rax
+  float *p_m11; // r12
   __int64 *i; // r14
-  __int64 v9; // rbp
-  float v10; // xmm6_4
-  float v11; // xmm1_4
-  float v12; // xmm3_4
-  float v13; // xmm2_4
-  float v14; // xmm4_4
-  float v15; // xmm6_4
-  int v16; // ecx
-  int v17; // edx
-  int v18; // ecx
-  float v19; // xmm0_4
-  int v20; // edx
+  __int64 v9; // rsi
+  const struct D2D_MATRIX_3X2_F *v10; // r8
+  int v11; // r9d
+  unsigned int v12; // ecx
+  float v13; // xmm0_4
+  unsigned int v14; // ecx
+  struct D2D_MATRIX_3X2_F v16; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = (__int64 *)a1[1];
   v4 = 0;
-  p_m11 = (_DWORD *)&a3->m11;
-  v7 = *a1;
+  v6 = *a1;
+  p_m11 = &a2->m11;
   for ( i = &v3[*a1]; v3 != i; ++v3 )
   {
     v9 = *v3;
-    if ( *v3
-      && *(_BYTE *)(v9 + 52)
-      && (COERCE_FLOAT(*(_DWORD *)(v9 + 12) & _xmm) < 0.000081380211
-       && COERCE_FLOAT(*(_DWORD *)(v9 + 16) & _xmm) < 0.000081380211
-       || COERCE_FLOAT(*(_DWORD *)(v9 + 8) & _xmm) < 0.000081380211
-       && COERCE_FLOAT(*(_DWORD *)(v9 + 20) & _xmm) < 0.000081380211) )
+    if ( *v3 )
     {
-      LODWORD(v7) = D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving(
-                      (D2DMatrixHelper *)*(unsigned int *)(v9 + 48),
-                      v9 + 8,
-                      a3);
-      a3 = (const struct D2D_MATRIX_3X2_F *)(unsigned int)v7;
-      if ( (_DWORD)v7 != v4 )
+      if ( *(_BYTE *)(v9 + 52) )
       {
-        v10 = (float)((float)(*(float *)(v9 + 36) * *(float *)(v9 + 20))
-                    + (float)(*(float *)(v9 + 32) * *(float *)(v9 + 12)))
-            + *(float *)(v9 + 28);
-        v11 = (float)((float)(*(float *)(v9 + 36) * *(float *)(v9 + 16))
-                    + (float)(*(float *)(v9 + 32) * *(float *)(v9 + 8)))
-            + *(float *)(v9 + 24);
-        v12 = (float)((float)(*(float *)(v9 + 44) * *(float *)(v9 + 16))
-                    + (float)(*(float *)(v9 + 40) * *(float *)(v9 + 8)))
-            + *(float *)(v9 + 24);
-        v13 = (float)((float)(*(float *)(v9 + 44) * *(float *)(v9 + 20))
-                    + (float)(*(float *)(v9 + 40) * *(float *)(v9 + 12)))
-            + *(float *)(v9 + 28);
-        v14 = fminf(v10, v13);
-        v15 = fmaxf(v10, v13);
-        v16 = COERCE_FLOAT(COERCE_UNSIGNED_INT(*a2 - fminf(v11, v12)) & _xmm) <= 0.0000011920929 ? 0x3000000 : 0;
-        v17 = v16 | 0x300;
-        if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2[2] - fmaxf(v11, v12)) & _xmm) > 0.0000011920929 )
-          v17 = v16;
-        v18 = v17 | 3;
-        if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2[1] - v14) & _xmm) > 0.0000011920929 )
-          v18 = v17;
-        LODWORD(v19) = COERCE_UNSIGNED_INT(a2[3] - v15) & _xmm;
-        LOBYTE(v7) = v19 <= 0.0000011920929;
-        v20 = v18 | 0x30000;
-        if ( v19 > 0.0000011920929 )
-          v20 = v18;
-        if ( v20 )
+        LOBYTE(v6) = D2DMatrixHelper::Is2DAxisAlignedPreserving((D2DMatrixHelper *)(v9 + 8), a2);
+        if ( (_BYTE)v6 )
         {
-          v4 |= (unsigned int)a3 & v20;
-          if ( v4 == 50529027 )
-            break;
+          LODWORD(v6) = D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving(
+                          (D2DMatrixHelper *)*(unsigned int *)(v9 + 48),
+                          v9 + 8,
+                          v10);
+          if ( (_DWORD)v6 != v4 )
+          {
+            D2DMatrixHelper::TransformRect_AxisAlignedPreserving(
+              (D2DMatrixHelper *)(v9 + 32),
+              (const struct D2D_RECT_F *)(v9 + 8),
+              &v16,
+              (struct D2D_RECT_F *)(unsigned int)v6);
+            v12 = (COERCE_FLOAT(COERCE_UNSIGNED_INT(*p_m11 - v16.m11) & _xmm) <= 0.0000011920929 ? 0x3000000 : 0) | 0x300;
+            if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(p_m11[2] - v16.m21) & _xmm) > 0.0000011920929 )
+              v12 = COERCE_FLOAT(COERCE_UNSIGNED_INT(*p_m11 - v16.m11) & _xmm) <= 0.0000011920929 ? 0x3000000 : 0;
+            a2 = (const struct D2D_MATRIX_3X2_F *)(v12 | 3);
+            if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(p_m11[1] - v16.m12) & _xmm) > 0.0000011920929 )
+              a2 = (const struct D2D_MATRIX_3X2_F *)v12;
+            LODWORD(v13) = COERCE_UNSIGNED_INT(p_m11[3] - v16.m22) & _xmm;
+            LOBYTE(v6) = v13 <= 0.0000011920929;
+            v14 = (unsigned int)a2 | 0x30000;
+            if ( v13 > 0.0000011920929 )
+              v14 = (unsigned int)a2;
+            if ( v14 )
+            {
+              v4 |= v11 & v14;
+              if ( v4 == 50529027 )
+                break;
+            }
+          }
         }
       }
     }
   }
-  *p_m11 = v4;
-  return v7;
+  *a3 = v4;
+  return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C005AC08
+ * XREFs of ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C004BC28
  * Callers:
- *     ?SwapChainObDeleteProcedure@@YAXPEAX@Z @ 0x1C034CD30 (-SwapChainObDeleteProcedure@@YAXPEAX@Z.c)
- *     DxgkCreateSwapChain @ 0x1C034DD20 (DxgkCreateSwapChain.c)
+ *     ?SwapChainObDeleteProcedure@@YAXPEAX@Z @ 0x1C02ACB00 (-SwapChainObDeleteProcedure@@YAXPEAX@Z.c)
+ *     DxgkCreateSwapChain @ 0x1C02ADA60 (DxgkCreateSwapChain.c)
  * Callees:
- *     ??1DXGSWAPCHAIN@@QEAA@XZ @ 0x1C034988C (--1DXGSWAPCHAIN@@QEAA@XZ.c)
+ *     ??1DXGSWAPCHAIN@@QEAA@XZ @ 0x1C02A9B6C (--1DXGSWAPCHAIN@@QEAA@XZ.c)
  */
 
 DXGSWAPCHAIN *__fastcall DXGSWAPCHAIN::`scalar deleting destructor'(DXGSWAPCHAIN *P)

@@ -1,26 +1,24 @@
 /*
- * XREFs of ObQuerySecurityDescriptorInfo @ 0x140722584
+ * XREFs of ObQuerySecurityDescriptorInfo @ 0x140663148
  * Callers:
- *     WmipSecurityMethod @ 0x1406BB860 (WmipSecurityMethod.c)
- *     SeDefaultObjectMethod @ 0x140725080 (SeDefaultObjectMethod.c)
+ *     SeDefaultObjectMethod @ 0x14065FC50 (SeDefaultObjectMethod.c)
+ *     WmipSecurityMethod @ 0x14069D030 (WmipSecurityMethod.c)
  * Callees:
- *     SeQuerySecurityDescriptorInfo @ 0x1407213B0 (SeQuerySecurityDescriptorInfo.c)
- *     ObpDereferenceSecurityDescriptorForObject @ 0x1407228BC (ObpDereferenceSecurityDescriptorForObject.c)
- *     ObpReferenceSecurityDescriptor @ 0x140722910 (ObpReferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptor @ 0x14065F9D0 (ObpReferenceSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x140665520 (SeQuerySecurityDescriptorInfo.c)
  */
 
 __int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, ULONG *a2, void *a3, ULONG *a4)
 {
-  __int64 v4; // r14
-  PSECURITY_DESCRIPTOR v8; // rbp
-  unsigned int v9; // ebx
-  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+40h] [rbp+8h] BYREF
+  PSECURITY_DESCRIPTOR v7; // rbp
+  unsigned int v8; // ebx
+  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = a1 - 48;
   ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)ObpReferenceSecurityDescriptor(a1 - 48);
-  v8 = ObjectsSecurityDescriptor;
-  v9 = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
-  if ( v8 )
-    ObpDereferenceSecurityDescriptorForObject(v8, v4);
-  return v9;
+  v7 = ObjectsSecurityDescriptor;
+  v8 = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
+  if ( v7 )
+    ObDereferenceSecurityDescriptor((__int64)v7, 1u);
+  return v8;
 }

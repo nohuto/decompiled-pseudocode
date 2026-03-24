@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIInitializeKernelTableHandler @ 0x1C00241DC
+ * XREFs of ACPIInitializeKernelTableHandler @ 0x1C0026BD4
  * Callers:
- *     ACPIRootIrpRemoveDevice @ 0x1C005FC60 (ACPIRootIrpRemoveDevice.c)
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIRootIrpRemoveDevice @ 0x1C005EE60 (ACPIRootIrpRemoveDevice.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
  *     <none>
  */

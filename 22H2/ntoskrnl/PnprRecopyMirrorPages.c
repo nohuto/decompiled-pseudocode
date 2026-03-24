@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprRecopyMirrorPages @ 0x1405633FC
+ * XREFs of PnprRecopyMirrorPages @ 0x14050F82C
  * Callers:
- *     PnprSwapFinalize @ 0x1405637A0 (PnprSwapFinalize.c)
+ *     PnprSwapFinalize @ 0x14050FBD0 (PnprSwapFinalize.c)
  * Callees:
- *     PnprCopyReservedMapping @ 0x140562C4C (PnprCopyReservedMapping.c)
- *     PnprGetStackLimits @ 0x140563084 (PnprGetStackLimits.c)
- *     PnprRecopyAddress @ 0x1405632D0 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x140563328 (PnprRecopyMappingReserve.c)
+ *     PnprCopyReservedMapping @ 0x14050F080 (PnprCopyReservedMapping.c)
+ *     PnprGetStackLimits @ 0x14050F4B8 (PnprGetStackLimits.c)
+ *     PnprRecopyAddress @ 0x14050F700 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x14050F758 (PnprRecopyMappingReserve.c)
  */
 
 __int64 PnprRecopyMirrorPages()
@@ -15,18 +15,18 @@ __int64 PnprRecopyMirrorPages()
   __int64 v1; // rax
   __int64 v2; // rbx
   int v3; // edx
-  int v4; // r8d
-  int v5; // eax
+  __int64 result; // rax
+  int v5; // r8d
   __int64 v6; // rdx
   int v7; // ecx
-  int v8; // eax
-  int v10; // r8d
-  __int64 v11; // rcx
+  int v8; // ecx
+  int v9; // r8d
+  __int64 v10; // rcx
+  int v11; // eax
   int v12; // eax
-  int v13; // eax
 
   Number = KeGetPcr()->Prcb.Number;
-  PnprGetStackLimits((char **)(PnprContext + 216 + 8 * Number), (unsigned __int64 *)(PnprContext + 16600 + 8 * Number));
+  PnprGetStackLimits((char **)(PnprContext + 216 + 8 * Number), (unsigned __int64 *)(PnprContext + 10456 + 8 * Number));
   v1 = PnprContext;
   v2 = 0LL;
   if ( *(_DWORD *)(PnprContext + 176) )
@@ -35,7 +35,7 @@ __int64 PnprRecopyMirrorPages()
     {
       v3 = PnprRecopyAddress(
              *(_QWORD *)(v1 + 8 * v2 + 216),
-             *(_DWORD *)(v1 + 8 * v2 + 16600) - (unsigned int)*(_QWORD *)(v1 + 8 * v2 + 216));
+             *(_DWORD *)(v1 + 8 * v2 + 10456) - (unsigned int)*(_QWORD *)(v1 + 8 * v2 + 216));
       if ( v3 < 0 )
         break;
       if ( (_DWORD)v2 != *(_DWORD *)(PnprContext + 180) )
@@ -43,13 +43,13 @@ __int64 PnprRecopyMirrorPages()
         v3 = PnprRecopyMappingReserve((__int64 *)(*(_QWORD *)(PnprContext + 144) + 24 * v2));
         if ( v3 < 0 )
         {
-          v10 = 5619;
+          v9 = 5613;
           goto LABEL_17;
         }
         v3 = PnprRecopyMappingReserve((__int64 *)(*(_QWORD *)(PnprContext + 136) + 24 * v2));
         if ( v3 < 0 )
         {
-          v10 = 5627;
+          v9 = 5621;
           goto LABEL_17;
         }
       }
@@ -58,43 +58,43 @@ __int64 PnprRecopyMirrorPages()
       if ( (unsigned int)v2 >= *(_DWORD *)(PnprContext + 176) )
         goto LABEL_7;
     }
-    v10 = 5603;
+    v9 = 5597;
 LABEL_17:
-    v11 = PnprContext;
-    v12 = *(_DWORD *)(PnprContext + 33272);
+    v10 = PnprContext;
+    v11 = *(_DWORD *)(PnprContext + 20984);
+    if ( !v11 )
+      v11 = v9;
+    *(_DWORD *)(PnprContext + 20984) = v11;
+    v12 = *(_DWORD *)(v10 + 20988);
     if ( !v12 )
-      v12 = v10;
-    *(_DWORD *)(PnprContext + 33272) = v12;
-    v13 = *(_DWORD *)(v11 + 33276);
-    if ( !v13 )
-      v13 = 1;
-    *(_DWORD *)(v11 + 33276) = v13;
+      v12 = 1;
+    *(_DWORD *)(v10 + 20988) = v12;
     return (unsigned int)v3;
   }
   else
   {
 LABEL_7:
-    v4 = PnprRecopyAddress(v1, 0x8238u);
-    if ( v4 >= 0 )
+    result = PnprRecopyAddress(v1, 0x5238u);
+    if ( (int)result >= 0 )
     {
-      v4 = PnprCopyReservedMapping();
-      if ( v4 >= 0 )
+      result = PnprCopyReservedMapping();
+      if ( (int)result >= 0 )
         return 0LL;
-      v5 = 5651;
+      v5 = 5645;
     }
     else
     {
-      v5 = 5639;
+      v5 = 5633;
     }
     v6 = PnprContext;
-    v7 = *(_DWORD *)(PnprContext + 33272);
+    v7 = *(_DWORD *)(PnprContext + 20984);
     if ( !v7 )
       v7 = v5;
-    *(_DWORD *)(PnprContext + 33272) = v7;
-    v8 = *(_DWORD *)(v6 + 33276);
+    *(_DWORD *)(PnprContext + 20984) = v7;
+    v8 = *(_DWORD *)(v6 + 20988);
     if ( !v8 )
       v8 = 1;
-    *(_DWORD *)(v6 + 33276) = v8;
-    return (unsigned int)v4;
+    *(_DWORD *)(v6 + 20988) = v8;
   }
+  return result;
 }

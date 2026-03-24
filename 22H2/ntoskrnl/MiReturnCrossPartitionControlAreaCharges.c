@@ -1,58 +1,63 @@
 /*
- * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x140625D6C
+ * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x14052A864
  * Callers:
- *     MiSessionInsertImage @ 0x14020AE84 (MiSessionInsertImage.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiReleaseSessionDriverCharges @ 0x140683154 (MiReleaseSessionDriverCharges.c)
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiRemoveMappedPtes @ 0x140288B80 (MiRemoveMappedPtes.c)
+ *     MiSessionInsertImage @ 0x1403A2274 (MiSessionInsertImage.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiUnmapImageInSystemSpace @ 0x14066BB40 (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiReleaseSessionDriverCharges @ 0x140779808 (MiReleaseSessionDriverCharges.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9248 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14029F9B0 (MiDecrementSubsectionViewCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsectionViewCount @ 0x1402957F0 (MiDecrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055502C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)
 {
   BOOL v2; // r14d
   unsigned __int64 v3; // rsi
-  __int64 v4; // rbx
+  __int64 v4; // r8
+  __int64 v5; // rbx
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v9; // zf
+  bool v10; // zf
 
   v2 = *(_QWORD *)(a1 + 64) != 0LL;
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
-  v4 = MiDecrementSubsectionViewCount((__int64 *)(a1 + 128), 24);
+  v5 = MiDecrementSubsectionViewCount((_QWORD *)(a1 + 128), 24LL, v4);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v9 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v10 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);
-  if ( v4 )
+  if ( v5 )
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
              v2,
-             v4);
+             v5);
   return result;
 }

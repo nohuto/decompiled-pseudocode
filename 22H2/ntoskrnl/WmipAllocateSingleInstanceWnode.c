@@ -1,12 +1,13 @@
 /*
- * XREFs of WmipAllocateSingleInstanceWnode @ 0x1409DF574
+ * XREFs of WmipAllocateSingleInstanceWnode @ 0x140931760
  * Callers:
- *     IoWMIExecuteMethod @ 0x1409DECE0 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1409DF050 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1409DF180 (IoWMISetSingleItem.c)
+ *     IoWMIExecuteMethod @ 0x140930ED0 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x140931240 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x140931370 (IoWMISetSingleItem.c)
  * Callees:
- *     WmipAlign @ 0x14022AE50 (WmipAlign.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     WmipAlign @ 0x14032E0C0 (WmipAlign.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipAllocateSingleInstanceWnode(
@@ -16,7 +17,7 @@ __int64 __fastcall WmipAllocateSingleInstanceWnode(
         int *a4,
         int *a5,
         _DWORD *a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
   unsigned int v8; // esi
   unsigned __int16 *v9; // r11
@@ -24,35 +25,40 @@ __int64 __fastcall WmipAllocateSingleInstanceWnode(
   unsigned int v11; // ecx
   unsigned int v12; // r10d
   int v13; // ebx
-  int v14; // ebp
-  __int64 Pool2; // rcx
-  int *v16; // rax
-  int v18; // [rsp+40h] [rbp+8h] BYREF
+  int v14; // r14d
+  unsigned int v15; // r15d
+  PVOID PoolWithTag; // rax
+  PVOID v17; // rbp
+  int *v18; // rax
+  int v20; // [rsp+50h] [rbp+8h] BYREF
 
-  v18 = a1;
+  v20 = a1;
   v8 = -1073741670;
-  if ( WmipAlign(2, &v18) )
+  if ( WmipAlign(2, &v20) )
   {
-    v10 = v18;
+    v10 = v20;
     v11 = *v9 + 2;
-    if ( v11 <= ~v18 )
+    if ( v11 <= ~v20 )
     {
-      v18 += v11;
-      if ( WmipAlign(8, &v18) )
+      v20 += v11;
+      if ( WmipAlign(8, &v20) )
       {
-        v13 = v18;
-        if ( v12 <= ~v18 )
+        v13 = v20;
+        if ( v12 <= ~v20 )
         {
-          v14 = v12 + v18;
-          Pool2 = ExAllocatePool2(64LL, v12 + v18, 1885957463LL);
-          if ( Pool2 )
+          v14 = v12 + v20;
+          v15 = v12 + v20;
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v12 + v20, 0x70696D57u);
+          v17 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            v16 = a5;
+            memset(PoolWithTag, 0, v15);
+            v18 = a5;
             v8 = 0;
             *a4 = v10;
-            *v16 = v13;
+            *v18 = v13;
             *a6 = v14;
-            *a7 = Pool2;
+            *a7 = v17;
           }
         }
       }

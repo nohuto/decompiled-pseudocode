@@ -1,40 +1,37 @@
 /*
- * XREFs of CmpCopySyncTree @ 0x140A214A8
+ * XREFs of CmpCopySyncTree @ 0x140878534
  * Callers:
- *     CmpReorganizeHive @ 0x1407030D0 (CmpReorganizeHive.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x140A0C3E0 (CmpLoadHiveVolatile.c)
- *     CmpCloneHwProfile @ 0x140A10264 (CmpCloneHwProfile.c)
- *     CmpPreserveSystemHiveData @ 0x140A225AC (CmpPreserveSystemHiveData.c)
+ *     CmpReorganizeHive @ 0x14071FE88 (CmpReorganizeHive.c)
+ *     CmpSaveBootControlSet @ 0x140867AD0 (CmpSaveBootControlSet.c)
+ *     CmpCloneHwProfile @ 0x1408771D4 (CmpCloneHwProfile.c)
+ *     CmpPreserveSystemHiveData @ 0x1408796BC (CmpPreserveSystemHiveData.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x14087CFAC (CmpLoadHiveVolatile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpCopySyncTree2 @ 0x140A21558 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1408785E0 (CmpCopySyncTree2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpCopySyncTree(__int64 a1, int a2, __int64 a3, int a4, int a5, int a6)
+char __fastcall CmpCopySyncTree(int a1, int a2, ULONG_PTR a3, int a4, int a5, int a6)
 {
-  __int64 Pool; // rax
-  struct _PRIVILEGE_SET *v11; // rbx
-  unsigned int v12; // edi
+  _DWORD *PoolWithTag; // rax
+  void *v11; // rdi
+  char v12; // bl
 
-  Pool = CmpAllocatePool(256LL, 10240LL, 538987843LL);
-  v11 = (struct _PRIVILEGE_SET *)Pool;
-  if ( Pool )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x2800uLL, 0x20204D43u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool + 8) = 0;
-    *(_DWORD *)(Pool + 12) &= 0xFFFFFFF8;
-    *(_BYTE *)(Pool + 16) &= 0xFCu;
-    *(_DWORD *)Pool = a2;
-    *(_DWORD *)(Pool + 4) = a4;
-    v12 = CmpCopySyncTree2(Pool, 512LL, 0LL, a1, a3, a5, a6);
-    CmSiFreeMemory(v11);
+    PoolWithTag[2] = 0;
+    PoolWithTag[3] &= 0xFFFFFFF8;
+    *((_BYTE *)PoolWithTag + 16) &= 0xFCu;
+    *PoolWithTag = a2;
+    PoolWithTag[1] = a4;
+    v12 = CmpCopySyncTree2((int)PoolWithTag, 512, 0, a1, a3, a5, a6);
+    ExFreePoolWithTag(v11, 0);
+    LOBYTE(PoolWithTag) = v12;
   }
-  else
-  {
-    return (unsigned int)-1073741670;
-  }
-  return v12;
+  return (char)PoolWithTag;
 }

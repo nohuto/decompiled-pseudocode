@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C023FDC0
+ * XREFs of ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0169F60
  * Callers:
- *     xxxEndScroll @ 0x1C0241878 (xxxEndScroll.c)
- *     xxxSBTrackInit @ 0x1C0241B74 (xxxSBTrackInit.c)
+ *     xxxEndScroll @ 0x1C0245904 (xxxEndScroll.c)
+ *     xxxSBTrackInit @ 0x1C0245C00 (xxxSBTrackInit.c)
  * Callees:
- *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0240490 (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0244538 (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  */
 
 unsigned __int8 **__fastcall UserFreeIsolatedType<NSInstrumentation::CTypeIsolation<28672,112>>(__int64 a1)

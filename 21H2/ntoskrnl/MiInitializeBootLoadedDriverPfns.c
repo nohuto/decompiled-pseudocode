@@ -1,80 +1,123 @@
 /*
- * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140B1A054
+ * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140A65FFC
  * Callers:
- *     MiInitializeDriverImages @ 0x140B05E40 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x14026A784 (MiAcquireNonPagedResources.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInitializeBootLoadedDriverPfnRange @ 0x1403CA414 (MiInitializeBootLoadedDriverPfnRange.c)
- *     MiActOnLargeKernelHalPages @ 0x14082BA68 (MiActOnLargeKernelHalPages.c)
+ *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
+ *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiActOnLargeKernelHalPages @ 0x1407A19EC (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
 {
-  __int64 *v1; // r14
-  __int64 *i; // rsi
-  unsigned __int64 v3; // rbp
-  unsigned __int64 v4; // r15
-  unsigned __int64 v5; // rdi
-  __int64 v6; // r12
-  unsigned __int64 v7; // r15
-  unsigned int v8; // eax
-  __int64 v10; // rbx
+  __int64 *v1; // r12
+  __int64 *v2; // r14
+  unsigned __int64 v3; // rax
+  __int64 v4; // rsi
+  int v5; // edx
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rcx
+  unsigned __int64 v8; // rbp
+  __int64 v9; // rbx
+  unsigned __int64 v10; // r13
+  BOOL v11; // r12d
+  struct _LIST_ENTRY *Flink; // r8
+  unsigned __int64 v14; // r15
+  __int64 v15; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+68h] [rbp+10h]
+  __int64 *v17; // [rsp+70h] [rbp+18h]
 
+  v15 = 0LL;
   v1 = (__int64 *)(a1 + 16);
-  for ( i = *(__int64 **)(a1 + 16); ; i = (__int64 *)*i )
+  v2 = *(__int64 **)(a1 + 16);
+  v17 = (__int64 *)(a1 + 16);
+  while ( 1 )
   {
-    if ( i == v1 )
+    if ( v2 == v1 )
     {
-      MiFlags |= 0x800u;
+      MiFlags |= 0x1000u;
       return 1LL;
     }
-    v3 = i[6];
-    v4 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v5 = ((unsigned __int64)*((unsigned int *)i + 16) + 4095) >> 12;
-    if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
+    v8 = v2[6];
+    v6 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v8) )
       break;
-    if ( (MiFlags & 0x8000) != 0 )
+    if ( (MiFlags & 0x10000) != 0 )
       MiActOnLargeKernelHalPages(
-        v3,
+        v8,
         (__int64 (__fastcall *)(unsigned __int64, __int64))MiValidateKernelHalLargePageRange);
-    if ( (unsigned int)dword_140C4F478 >> 12 )
-      MiInitializeBootLoadedDriverPfnRange(
-        v4 + 8LL * (((_DWORD)v5 + 511) & 0xFFFFFE00),
-        (unsigned int)dword_140C4F478 >> 12,
-        1);
-LABEL_14:
-    ;
+LABEL_13:
+    v2 = (__int64 *)*v2;
   }
-  v6 = MiInitializeBootLoadedDriverPfnRange(v4, (unsigned int)v5, 0);
-  v7 = v4 + 8LL * (unsigned int)v5;
-  v8 = (unsigned int)dword_140C4F478 >> 12;
-  if ( (unsigned int)dword_140C4F478 >> 12 )
+  v9 = ((unsigned int)dword_140C4CCB0 >> 12)
+     + (unsigned int)(((unsigned __int64)*((unsigned int *)v2 + 16) + 4095) >> 12);
+  if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
+    v9 = (unsigned int)(dword_140C4CC4C + v9);
+  v10 = v6 + 8 * v9;
+  v7 = (unsigned int)v9;
+  v14 = 0LL;
+  v16 = (unsigned int)v9;
+  if ( v6 >= v10 )
   {
-    LODWORD(v5) = v8 + v5;
-    v10 = v8;
-    MiInitializeBootLoadedDriverPfnRange(v7, v8, 1);
-    v7 += 8 * v10;
-  }
-  if ( v3 != PsHalImageBase && v3 != PsNtosImageBase && dword_140C4F404 )
-  {
-    LODWORD(v5) = dword_140C4F404 + v5;
-    MiInitializeBootLoadedDriverPfnRange(v7, (unsigned int)dword_140C4F404, 0);
-  }
-  if ( !v6 )
-  {
-LABEL_11:
-    if ( v3 != PsHalImageBase && v3 != PsNtosImageBase )
+LABEL_10:
+    if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
     {
-      _InterlockedExchangeAdd(&dword_140C53550, v5);
-      qword_140C53528 -= (unsigned int)v5;
+      _InterlockedExchangeAdd(&dword_140C4EFD0, v9);
+      qword_140C4EFB0 -= v7;
     }
-    goto LABEL_14;
+    goto LABEL_13;
   }
-  if ( (int)MiAcquireNonPagedResources((__int64)&MiSystemPartition, v6, 0LL, 0) >= 0 )
+  v11 = MiPteInShadowRange((unsigned __int64)&v15);
+  do
   {
-    qword_140C53528 += v6;
-    goto LABEL_11;
+    v3 = MI_READ_PTE_LOCK_FREE(v6);
+    v15 = v3;
+    if ( v11
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v3 & 1) != 0
+      && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+    {
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
+      {
+        if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v15 >> 3) & 0x1FF)) & 0x20) != 0 )
+          v3 |= 0x20uLL;
+      }
+    }
+    v4 = 48 * ((v3 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+    if ( MiIsPfnFromSlabAllocation(v4) )
+      ++v14;
+    if ( v15 >= 0 )
+    {
+      v5 = BYTE2(MiFlags) & 1;
+      *(_QWORD *)(v4 + 16) = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFC1FuLL | ((-(__int64)(v5 != 0) & 0xFFFFFFFFFFFFFFA0uLL)
+                                                                           + 192);
+      if ( v5 )
+      {
+        if ( ((*(_QWORD *)(v4 + 40) >> 60) & 7) != 3 )
+          MiMarkPfnVerified(v4, 0);
+      }
+    }
+    *(_BYTE *)(v4 + 35) |= 8u;
+    v6 += 8LL;
+  }
+  while ( v6 < v10 );
+  v1 = v17;
+  if ( !v14 )
+  {
+LABEL_9:
+    v7 = v16;
+    goto LABEL_10;
+  }
+  if ( (int)MiAcquireNonPagedResources(&MiSystemPartition, v14, 0LL, 0) >= 0 )
+  {
+    qword_140C4EFB0 += v14;
+    goto LABEL_9;
   }
   return 0LL;
 }

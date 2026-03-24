@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x1403AD4F0
+ * XREFs of KiSetSystemTimeDpc @ 0x14039DFB0
  * Callers:
  *     <none>
  * Callees:
- *     KiSelectActiveTimerTable @ 0x1402A8670 (KiSelectActiveTimerTable.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeAdjustInterruptTime @ 0x140398D58 (KeAdjustInterruptTime.c)
- *     KiUpdateSystemTime @ 0x1403A493C (KiUpdateSystemTime.c)
- *     KiAdjustTimerDueTimes @ 0x1403AD6AC (KiAdjustTimerDueTimes.c)
+ *     KiSelectActiveTimerTable @ 0x140247A60 (KiSelectActiveTimerTable.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KeAdjustInterruptTime @ 0x14038D81C (KeAdjustInterruptTime.c)
+ *     KiUpdateSystemTime @ 0x140397EA8 (KiUpdateSystemTime.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
  */
 
 char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -33,11 +33,11 @@ char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   int v25; // [rsp+78h] [rbp+10h] BYREF
   int v26; // [rsp+88h] [rbp+20h] BYREF
 
+  v25 = 0;
   v7 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v25 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v8 )
       KeYieldProcessorEx(&v25, a2, (__int64)a3, a4);
   }
@@ -70,11 +70,11 @@ char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
       KiUpdateSystemTime(v22, 0LL, v19);
     }
   }
+  v26 = 0;
   v14 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v15 = ~v14 & 0x80000000;
   if ( (v14 & 0x7FFFFFFF) != 0 )
   {
-    v26 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v15 )
       KeYieldProcessorEx(&v26, v10, v11, v12);
   }
@@ -100,5 +100,5 @@ char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
     }
   }
   _InterlockedDecrement(a3);
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 0, 2u);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1LL, 0LL, 2u);
 }

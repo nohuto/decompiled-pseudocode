@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwWriteStartScenario @ 0x140716670
+ * XREFs of EtwWriteStartScenario @ 0x140716650
  * Callers:
- *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x14019373C (PnpDiagnosticTraceDriverInitPhaseStart.c)
- *     PopDiagTracePowerTransitionStart @ 0x1406DD12C (PopDiagTracePowerTransitionStart.c)
+ *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x14019375C (PnpDiagnosticTraceDriverInitPhaseStart.c)
+ *     PopDiagTracePowerTransitionStart @ 0x1406DD10C (PopDiagTracePowerTransitionStart.c)
  *     PerfDiagInitialize @ 0x1409D0A80 (PerfDiagInitialize.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     EtwGetProviderIdFromHandle @ 0x14017374C (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwTraceControl @ 0x1401BB8F0 (ZwTraceControl.c)
- *     WdipStartEndScenario @ 0x140717700 (WdipStartEndScenario.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x14017376C (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwTraceControl @ 0x1401BB910 (ZwTraceControl.c)
+ *     WdipStartEndScenario @ 0x1407176E0 (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall EtwWriteStartScenario(

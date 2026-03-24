@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpIommuQueryAcpiDeviceMapping @ 0x1403B3FE4
+ * XREFs of HalpIommuQueryAcpiDeviceMapping @ 0x1404C9BA4
  * Callers:
- *     HalpIommuDmaRemappingCapable @ 0x1403B3F90 (HalpIommuDmaRemappingCapable.c)
- *     HalpIommuBlockDevice @ 0x1405178F0 (HalpIommuBlockDevice.c)
- *     HalpIommuUnblockDevice @ 0x140518860 (HalpIommuUnblockDevice.c)
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
+ *     HalpIommuDmaRemappingCapable @ 0x1403EFB40 (HalpIommuDmaRemappingCapable.c)
+ *     HalpIommuBlockDevice @ 0x1404C8DA0 (HalpIommuBlockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9DC0 (HalpIommuUnblockDevice.c)
+ *     HalpIommuCreateDevice @ 0x140864A14 (HalpIommuCreateDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuQueryAcpiDeviceMapping(__int64 a1, __int64 a2)
 {
-  ULONG_PTR v4; // rbx
+  __int64 v4; // rbx
   __int64 result; // rax
 
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
   v4 = HalpIommuList;
   result = 3221226021LL;
-  while ( (ULONG_PTR *)v4 != &HalpIommuList )
+  while ( (__int64 *)v4 != &HalpIommuList )
   {
-    if ( *(_QWORD *)(v4 + 360) )
+    if ( *(_QWORD *)(v4 + 344) )
     {
-      result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(v4 + 360))(*(_QWORD *)(v4 + 16), a1, a2);
+      result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(v4 + 344))(*(_QWORD *)(v4 + 16), a1, a2);
       if ( (_DWORD)result != -1073741275 )
         break;
     }

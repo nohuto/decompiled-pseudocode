@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02292F0
+ * XREFs of ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F04B0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C0026E54 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     Win32FreePool @ 0x1C0038570 (Win32FreePool.c)
- *     ?ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02293EC (-ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplica.c)
- *     ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C022A43C (-RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCA.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C0060F10 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C00CE6EC (-RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCA.c)
+ *     ?ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F05AC (-ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplica.c)
  */
 
 void __fastcall DirectComposition::CInteractionTrackerMarshaler::ReleaseAllReferences(
@@ -16,9 +16,9 @@ void __fastcall DirectComposition::CInteractionTrackerMarshaler::ReleaseAllRefer
 {
   struct DirectComposition::CWeakReferenceBase **v4; // rdi
   __int64 v5; // rbp
-  struct DirectComposition::CResourceMarshaler **v6; // rdi
+  __int64 *v6; // rdi
   __int64 v7; // rbp
-  char *v8; // rcx
+  __int64 v8; // rcx
   struct DirectComposition::CWeakReferenceBase *v9; // rdx
   struct DirectComposition::CWeakReferenceBase *v10; // rdx
   DirectComposition::CInteractionTrackerBindingManagerMarshaler *v11; // rcx
@@ -37,12 +37,14 @@ void __fastcall DirectComposition::CInteractionTrackerMarshaler::ReleaseAllRefer
     --v5;
   }
   while ( v5 );
-  v6 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 264);
+  v6 = (__int64 *)((char *)this + 264);
   v7 = 4LL;
   do
   {
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, *(v6 - 4));
-    v8 = (char *)*v6;
+    DirectComposition::CApplicationChannel::ReleaseResource(
+      a2,
+      (struct DirectComposition::CResourceMarshaler *)*(v6 - 4));
+    v8 = *v6;
     *(v6 - 4) = 0LL;
     if ( v8 )
     {
@@ -69,7 +71,7 @@ void __fastcall DirectComposition::CInteractionTrackerMarshaler::ReleaseAllRefer
   v11 = (DirectComposition::CInteractionTrackerBindingManagerMarshaler *)*((_QWORD *)this + 56);
   if ( v11 )
   {
-    DirectComposition::CInteractionTrackerBindingManagerMarshaler::RemoveTrackerBindings(v11, a2, *((_DWORD *)this + 8));
+    DirectComposition::CInteractionTrackerBindingManagerMarshaler::RemoveTrackerBindings(v11, a2, *((_DWORD *)this + 6));
     *((_QWORD *)this + 56) = 0LL;
   }
 }

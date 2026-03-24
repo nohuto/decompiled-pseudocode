@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z @ 0x1800E87EC
+ * XREFs of ?RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z @ 0x1800E0918
  * Callers:
- *     ?ProcessUpdate@CVisualReferenceController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALREFERENCECONTROLLER@@@Z @ 0x1800E876C (-ProcessUpdate@CVisualReferenceController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALREFERENC.c)
+ *     ?ProcessUpdate@CVisualReferenceController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALREFERENCECONTROLLER@@@Z @ 0x1800E0898 (-ProcessUpdate@CVisualReferenceController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALREFERENC.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800E8C04 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
- *     ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F4038 (-reset@-$com_ptr_t@V-$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ??$_Emplace_reallocate@AEBQEAVCResource@@@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@QEAAPEAPEAVCResource@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800F5574 (--$_Emplace_reallocate@AEBQEAVCResource@@@-$vector@PEAVCResource@@V-$allocator@PEAVCResource@@@s.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045444 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800653D8 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
+ *     ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800DAE8C (-reset@-$com_ptr_t@V-$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CVisualReferenceController::RegisterNotifiers(
@@ -14,23 +14,23 @@ __int64 __fastcall CVisualReferenceController::RegisterNotifiers(
         struct CResourceTable *a2)
 {
   unsigned int v2; // edi
-  __int64 *v4; // rsi
+  struct CWeakResourceReference **v4; // rsi
   int v5; // eax
   __int64 v6; // rcx
-  __int64 v7; // rcx
+  struct CWeakResourceReference *v7; // rcx
   CVisualReferenceController **v8; // rax
-  __int64 v9; // rcx
+  char *v9; // rcx
   CVisualReferenceController **i; // rdx
-  _QWORD *v11; // rdx
+  _BYTE *v11; // rdx
   struct CResourceTable *v13; // [rsp+48h] [rbp+10h] BYREF
 
   v13 = a2;
   v2 = 0;
-  if ( *((_QWORD *)this + 8) )
+  if ( *((_QWORD *)this + 7) )
   {
-    v4 = (__int64 *)((char *)this + 72);
-    wil::com_ptr_t<CWeakReference<CVisual>,wil::err_returncode_policy>::reset((char *)this + 72);
-    v5 = CWeakReference<CVisual>::Create(*((_QWORD *)this + 8), v4);
+    v4 = (struct CWeakResourceReference **)((char *)this + 64);
+    wil::com_ptr_t<CWeakReference<CVisual>,wil::err_returncode_policy>::reset((__int64 *)this + 8);
+    v5 = CWeakReference<CVisual>::Create(*((struct CResource **)this + 7), v4);
     v2 = v5;
     if ( v5 < 0 )
     {
@@ -40,25 +40,27 @@ __int64 __fastcall CVisualReferenceController::RegisterNotifiers(
     {
       v7 = *v4;
       v13 = this;
-      v8 = *(CVisualReferenceController ***)(v7 + 32);
-      v9 = v7 + 24;
-      for ( i = *(CVisualReferenceController ***)v9; i != v8; ++i )
+      v8 = (CVisualReferenceController **)*((_QWORD *)v7 + 4);
+      v9 = (char *)v7 + 24;
+      for ( i = *(CVisualReferenceController ***)v9; i != v8 && *i != this; ++i )
+        ;
+      if ( i == v8 )
       {
-        if ( *i == this )
-          goto LABEL_7;
+        v11 = (_BYTE *)*((_QWORD *)v9 + 1);
+        if ( *((_BYTE **)v9 + 2) == v11 )
+        {
+          std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>(
+            (const void **)v9,
+            v11,
+            &v13);
+        }
+        else
+        {
+          *(_QWORD *)v11 = this;
+          *((_QWORD *)v9 + 1) += 8LL;
+        }
       }
-      v11 = *(_QWORD **)(v9 + 8);
-      if ( v11 == *(_QWORD **)(v9 + 16) )
-      {
-        std::vector<CResource *>::_Emplace_reallocate<CResource * const &>(v9, v11, &v13);
-      }
-      else
-      {
-        *v11 = this;
-        *(_QWORD *)(v9 + 8) += 8LL;
-      }
-LABEL_7:
-      *((_QWORD *)this + 8) = 0LL;
+      *((_QWORD *)this + 7) = 0LL;
     }
   }
   return v2;

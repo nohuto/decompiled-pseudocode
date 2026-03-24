@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpFindAndCommitPages @ 0x1405AD0DC
+ * XREFs of RtlpFindAndCommitPages @ 0x14058A878
  * Callers:
- *     RtlpExtendHeap @ 0x1405ACE88 (RtlpExtendHeap.c)
+ *     RtlpExtendHeap @ 0x14058A5F4 (RtlpExtendHeap.c)
  * Callees:
- *     RtlpHpHeapCheckCommitLimit @ 0x1403244D8 (RtlpHpHeapCheckCommitLimit.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlpCreateUCREntry @ 0x1405AC78C (RtlpCreateUCREntry.c)
- *     RtlpRemoveUCRBlock @ 0x1405AE0DC (RtlpRemoveUCRBlock.c)
- *     RtlpUpdateHeapRates @ 0x1405AE4C4 (RtlpUpdateHeapRates.c)
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405B4D88 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x1405B50BC (RtlpHeapHandleError.c)
- *     RtlpFindUCREntry @ 0x1405B54DC (RtlpFindUCREntry.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x14028B1C0 (RtlpHpHeapCheckCommitLimit.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlpCreateUCREntry @ 0x140589EE4 (RtlpCreateUCREntry.c)
+ *     RtlpRemoveUCRBlock @ 0x14058B788 (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x14058BB64 (RtlpUpdateHeapRates.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x140593500 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x140593824 (RtlpHeapHandleError.c)
+ *     RtlpFindUCREntry @ 0x140593C50 (RtlpFindUCREntry.c)
  */
 
 unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
@@ -29,10 +29,9 @@ unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
   __int64 v12; // r8
   __int64 v13; // r9
   unsigned __int64 v14; // rcx
-  unsigned __int64 v16; // rax
-  unsigned __int64 v17; // r9
-  ULONG_PTR v18; // rdx
-  __int64 v19; // rdx
+  unsigned __int64 v16; // r9
+  ULONG_PTR v17; // rdx
+  __int64 v18; // rdx
   PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
 
   UCREntry = RtlpFindUCREntry(a1, *a2);
@@ -78,8 +77,7 @@ unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
   }
   if ( *(_DWORD *)(a1 + 124) )
   {
-    v11 = *(unsigned int *)(a1 + 136);
-    *(_DWORD *)(v6 + 8) ^= v11;
+    *(_DWORD *)(v6 + 8) ^= *(_DWORD *)(a1 + 136);
     LOBYTE(v11) = *(_BYTE *)(v6 + 8) ^ *(_BYTE *)(v6 + 9) ^ *(_BYTE *)(v6 + 10);
     if ( *(_BYTE *)(v6 + 11) != (_BYTE)v11 )
       RtlpAnalyzeHeapFailure(a1, v6);
@@ -94,24 +92,26 @@ unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
   --*(_DWORD *)(a1 + 604);
   v16 = *(_QWORD *)(v5 + 40);
   if ( v16 >= 0xFF000 )
-    *(_QWORD *)(a1 + 584) -= v16;
-  v17 = *(_QWORD *)(v5 + 40);
-  v18 = *a2;
-  if ( v17 > *a2 || v17 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v9 + 72) )
   {
-    RtlpCreateUCREntry(a1, v9, v18 - 48 + *(_QWORD *)(v5 + 32), v17 - v18, v6, (__int64 *)a2);
+    *(_QWORD *)(a1 + 584) -= v16;
+    v16 = *(_QWORD *)(v5 + 40);
+  }
+  v17 = *a2;
+  if ( v16 > *a2 || v16 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v9 + 72) )
+  {
+    RtlpCreateUCREntry(a1, v9, v17 - 48 + *(_QWORD *)(v5 + 32), v16 - v17, v6, (__int64 *)a2);
     *a2 *= 16LL;
   }
   else
   {
-    *a2 = v18 + 16LL * *(unsigned __int16 *)(v6 + 8);
+    *a2 = v17 + 16LL * *(unsigned __int16 *)(v6 + 8);
   }
   *(_BYTE *)(v6 + 11) = 0;
-  v19 = *(_QWORD *)(v9 + 40);
-  if ( v19 != v9 )
+  v18 = *(_QWORD *)(v9 + 40);
+  if ( v18 != v9 )
   {
     if ( ((v6 - v9) >> 16) + 1 >= 0xFE )
-      RtlpLogHeapFailure(3, v19, v6, v9, 0LL, 0LL);
+      RtlpLogHeapFailure(3, v18, v6, v9, 0LL, 0LL);
     v7 = ((unsigned int)(v6 - v9) >> 16) + 1;
   }
   *(_BYTE *)(v6 + 14) = v7;

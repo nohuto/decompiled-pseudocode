@@ -1,16 +1,12 @@
 /*
- * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403B6360
+ * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2180
  * Callers:
- *     KiConfigureSchedulingInformation @ 0x140A8E7A4 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x14099F9F0 (KiConfigureSchedulingInformation.c)
  * Callees:
- *     PoHeteroIsArchFavoredCoreSupported @ 0x140410B6C (PoHeteroIsArchFavoredCoreSupported.c)
- *     KeDetectHeterogeneousSets @ 0x14067E998 (KeDetectHeterogeneousSets.c)
+ *     <none>
  */
 
-unsigned __int64 KeDoesSystemHaveHeterogeneousCoreTypes()
+ULONG_PTR KeDoesSystemHaveHeterogeneousCoreTypes()
 {
-  if ( (unsigned __int8)PoHeteroIsArchFavoredCoreSupported() )
-    return KeDetectHeterogeneousSets(0LL);
-  else
-    return ((unsigned __int64)KeFeatureBits >> 53) & 1;
+  return (KeFeatureBits >> 53) & 1;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C001C938
+ * XREFs of ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C0017544
  * Callers:
- *     ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C001C768 (-EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00173A8 (-EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  * Callees:
- *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C00A7394 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
- *     ?InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z @ 0x1C00B1A50 (-InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z.c)
+ *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C008B3D0 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
+ *     ?InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z @ 0x1C00978EC (-InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::CalculatePartitionAdapterBudgets(
@@ -20,36 +20,36 @@ void __fastcall VIDMM_GLOBAL::CalculatePartitionAdapterBudgets(
   struct VIDMM_SEGMENT_GROUP_STATE *SegmentGroupStateForPartition; // rax
   unsigned int v11; // edx
 
-  v3 = (unsigned int)dword_1C006E578;
+  v3 = (unsigned int)dword_1C0050508;
   v4 = 0;
   v5 = *((_QWORD *)a2 + 6);
   if ( *((_DWORD *)a2 + 8) )
-    v3 = (unsigned int)dword_1C006E57C;
+    v3 = (unsigned int)dword_1C005050C;
   v8 = v5 * v3 / 0x64;
-  if ( v8 < (unsigned int)dword_1C006E570 )
+  if ( v8 < (unsigned int)dword_1C0050500 )
   {
-    if ( v5 > (unsigned int)dword_1C006E574 )
+    if ( v5 > (unsigned int)dword_1C0050504 )
     {
-      v8 = (v5 - (unsigned int)dword_1C006E574) >> 1;
-      if ( (unsigned int)dword_1C006E570 > v8 )
-        v8 = (unsigned int)dword_1C006E570;
+      v8 = (v5 - (unsigned int)dword_1C0050504) >> 1;
+      if ( (unsigned int)dword_1C0050500 > v8 )
+        v8 = (unsigned int)dword_1C0050500;
     }
     else
     {
-      v8 = (unsigned int)dword_1C006E570;
+      v8 = (unsigned int)dword_1C0050500;
     }
   }
   *((_QWORD *)a3 + 2) = v8;
   if ( !*((_DWORD *)a2 + 8) )
   {
-    v9 = v8 - *((_QWORD *)this + 881);
+    v9 = v8 - *((_QWORD *)this + 880);
     *((_QWORD *)a3 + 2) = v9;
-    qword_1C006E568 = v9;
+    qword_1C00504F8 = v9;
     v8 = *((_QWORD *)a3 + 2);
   }
-  if ( qword_1C006E430 && v8 >= qword_1C006E430 )
-    v8 = qword_1C006E430;
-  if ( *((_DWORD *)this + 1754) )
+  if ( qword_1C00503C0 && v8 >= qword_1C00503C0 )
+    v8 = qword_1C00503C0;
+  if ( *((_DWORD *)this + 1750) )
   {
     do
     {
@@ -57,6 +57,6 @@ void __fastcall VIDMM_GLOBAL::CalculatePartitionAdapterBudgets(
       VIDMM_GLOBAL::InitializeSegmentGroupState(this, v11, SegmentGroupStateForPartition, v8);
       ++v4;
     }
-    while ( v4 < *((_DWORD *)this + 1754) );
+    while ( v4 < *((_DWORD *)this + 1750) );
   }
 }

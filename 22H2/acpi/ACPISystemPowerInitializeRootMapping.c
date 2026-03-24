@@ -1,127 +1,125 @@
 /*
- * XREFs of ACPISystemPowerInitializeRootMapping @ 0x1C003DEC4
+ * XREFs of ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0
  * Callers:
- *     ACPIRootIrpQueryCapabilities @ 0x1C0093FB0 (ACPIRootIrpQueryCapabilities.c)
+ *     ACPIRootIrpQueryCapabilities @ 0x1C00A16B0 (ACPIRootIrpQueryCapabilities.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPISystemPowerProcessRootMapping @ 0x1C00950D0 (ACPISystemPowerProcessRootMapping.c)
- *     ACPISystemPowerProcessSxD @ 0x1C00951D8 (ACPISystemPowerProcessSxD.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPISystemPowerProcessRootMapping @ 0x1C00A188C (ACPISystemPowerProcessRootMapping.c)
+ *     ACPISystemPowerProcessSxD @ 0x1C00A1914 (ACPISystemPowerProcessSxD.c)
  */
 
 __int64 __fastcall ACPISystemPowerInitializeRootMapping(__int64 a1, __int64 a2)
 {
-  __int128 v5; // xmm0
-  __int64 v6; // rdx
+  __int64 v5; // rdx
+  __int128 v6; // xmm0
   _DWORD *v7; // rax
-  __int64 v8; // r8
-  int v9; // ecx
-  int v10; // edi
-  __int64 v11; // r8
-  const char *v12; // rcx
-  const char *v13; // rdx
-  int v15; // eax
-  int v16; // eax
-  __int64 v17; // rdx
-  const char *v18; // rcx
-  const char *v19; // r10
-  KIRQL v20; // al
-  int v21; // edx
-  __int64 v22; // xmm1_8
-  char v23[8]; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v24; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-18h]
-  int v26; // [rsp+70h] [rbp-10h]
+  int v8; // ecx
+  int v9; // edi
+  int v10; // eax
+  int v11; // eax
+  KIRQL v12; // al
+  int v13; // edx
+  __int64 v14; // xmm1_8
+  __int64 v15; // r8
+  void *v16; // rcx
+  void *v17; // rdx
+  __int64 v18; // rdx
+  void *v19; // rcx
+  void *v20; // r10
+  char v21[8]; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v22; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-18h]
+  int v24; // [rsp+70h] [rbp-10h]
 
-  v23[0] = 0;
-  if ( (*(_QWORD *)(a1 + 8) & 0x400000000000000LL) != 0 || (unsigned int)(*(_DWORD *)(a1 + 368) - 2) > 1 )
+  v21[0] = 0;
+  if ( (*(_QWORD *)(a1 + 8) & 0x400000000000000LL) != 0 || (unsigned int)(*(_DWORD *)(a1 + 328) - 2) > 1 )
   {
-LABEL_23:
-    *(_OWORD *)(a2 + 16) = *(_OWORD *)(a1 + 508);
-    *(_QWORD *)(a2 + 32) = *(_QWORD *)(a1 + 524);
-    *(_DWORD *)(a2 + 40) = *(_DWORD *)(a1 + 532);
+LABEL_2:
+    *(_OWORD *)(a2 + 16) = *(_OWORD *)(a1 + 468);
+    *(_QWORD *)(a2 + 32) = *(_QWORD *)(a1 + 484);
+    *(_DWORD *)(a2 + 40) = *(_DWORD *)(a1 + 492);
     return 0LL;
   }
-  v5 = *(_OWORD *)(a1 + 508);
-  v6 = 5LL;
-  v26 = *(_DWORD *)(a1 + 532);
-  v7 = (_DWORD *)&v24 + 2;
-  v25 = *(_QWORD *)(a1 + 524);
-  v24 = v5;
-  DWORD1(v24) = 1;
-  v8 = a2 - ((_QWORD)&v24 + 8);
+  v5 = 5LL;
+  v6 = *(_OWORD *)(a1 + 468);
+  v24 = *(_DWORD *)(a1 + 492);
+  v7 = (_DWORD *)&v22 + 2;
+  v23 = *(_QWORD *)(a1 + 484);
+  v22 = v6;
+  DWORD1(v22) = 1;
   do
   {
-    v9 = *(_DWORD *)((char *)v7 + v8 + 24);
-    if ( v9 )
-      *v7 = v9;
+    v8 = *(_DWORD *)((char *)v7 + a2 - ((_QWORD)&v22 + 8) + 24);
+    if ( v8 )
+      *v7 = v8;
     ++v7;
-    --v6;
+    --v5;
   }
-  while ( v6 );
-  v10 = ACPISystemPowerProcessSxD(a1, &v24, v23);
-  if ( v10 >= 0 )
+  while ( v5 );
+  v9 = ACPISystemPowerProcessSxD(a1, &v22, v21);
+  if ( v9 >= 0 )
   {
-    v15 = v26;
-    if ( !v26 )
-      v15 = 4;
-    v26 = v15;
-    v16 = ACPISystemPowerProcessRootMapping(a1, &v24);
-    if ( v16 >= 0 )
+    v10 = v24;
+    if ( !v24 )
+      v10 = 4;
+    v24 = v10;
+    v11 = ACPISystemPowerProcessRootMapping(a1, &v22);
+    if ( v11 < 0 )
     {
-      _InterlockedOr64((volatile signed __int64 *)(a1 + 8), 0x400000000000000uLL);
-      v20 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-      v21 = v26;
-      v22 = v25;
-      *(_OWORD *)(a1 + 508) = v24;
-      *(_QWORD *)(a1 + 524) = v22;
-      *(_DWORD *)(a1 + 532) = v21;
-      KeReleaseSpinLock(&AcpiPowerLock, v20);
-    }
-    else
-    {
-      v17 = *(_QWORD *)(a1 + 8);
-      v18 = (const char *)&unk_1C00622D0;
-      v19 = (const char *)&unk_1C00622D0;
-      if ( (v17 & 0x200000000000LL) != 0 )
+      v18 = *(_QWORD *)(a1 + 8);
+      v19 = &unk_1C00701BA;
+      v20 = &unk_1C00701BA;
+      if ( (v18 & 0x200000000000LL) != 0 )
       {
-        v18 = *(const char **)(a1 + 608);
-        if ( (v17 & 0x400000000000LL) != 0 )
-          v19 = *(const char **)(a1 + 616);
+        v19 = *(void **)(a1 + 568);
+        if ( (v18 & 0x400000000000LL) != 0 )
+          v20 = *(void **)(a1 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_dqss(
+        WPP_RECORDER_SF_Lqss(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           2u,
           0xFu,
           0xFu,
           (__int64)&WPP_63048e4611d63d39c0d94317710a082a_Traceguids,
-          v16,
+          v11,
           a1,
-          v18,
-          v19);
+          (__int64)v19,
+          (__int64)v20);
     }
-    goto LABEL_23;
+    else
+    {
+      _InterlockedOr64((volatile signed __int64 *)(a1 + 8), 0x400000000000000uLL);
+      v12 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+      v13 = v24;
+      v14 = v23;
+      *(_OWORD *)(a1 + 468) = v22;
+      *(_QWORD *)(a1 + 484) = v14;
+      *(_DWORD *)(a1 + 492) = v13;
+      KeReleaseSpinLock(&AcpiPowerLock, v12);
+    }
+    goto LABEL_2;
   }
-  v11 = *(_QWORD *)(a1 + 8);
-  v12 = (const char *)&unk_1C00622D0;
-  v13 = (const char *)&unk_1C00622D0;
-  if ( (v11 & 0x200000000000LL) != 0 )
+  v15 = *(_QWORD *)(a1 + 8);
+  v16 = &unk_1C00701BA;
+  v17 = &unk_1C00701BA;
+  if ( (v15 & 0x200000000000LL) != 0 )
   {
-    v12 = *(const char **)(a1 + 608);
-    if ( (v11 & 0x400000000000LL) != 0 )
-      v13 = *(const char **)(a1 + 616);
+    v16 = *(void **)(a1 + 568);
+    if ( (v15 & 0x400000000000LL) != 0 )
+      v17 = *(void **)(a1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
+    WPP_RECORDER_SF_Lqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       2u,
       0xFu,
       0xEu,
       (__int64)&WPP_63048e4611d63d39c0d94317710a082a_Traceguids,
-      v10,
+      v9,
       a1,
-      v12,
-      v13);
-  return (unsigned int)v10;
+      (__int64)v16,
+      (__int64)v17);
+  return (unsigned int)v9;
 }

@@ -1,11 +1,10 @@
 /*
- * XREFs of ZwOpenThreadTokenEx @ 0x14041BD40
+ * XREFs of ZwOpenThreadTokenEx @ 0x1403FA980
  * Callers:
- *     DifZwOpenThreadTokenExWrapper @ 0x1406229B0 (DifZwOpenThreadTokenExWrapper.c)
- *     RtlpOpenThreadToken @ 0x1406CBA3C (RtlpOpenThreadToken.c)
- *     BiAdjustPrivilege @ 0x140813C34 (BiAdjustPrivilege.c)
- *     RtlpIsAppContainer @ 0x1409BA210 (RtlpIsAppContainer.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlpOpenThreadToken @ 0x1406B14FC (RtlpOpenThreadToken.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
+ *     BiAdjustPrivilege @ 0x140785D10 (BiAdjustPrivilege.c)
+ *     RtlpIsAppContainer @ 0x140914C28 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */

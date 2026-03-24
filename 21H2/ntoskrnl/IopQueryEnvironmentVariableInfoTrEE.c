@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryEnvironmentVariableInfoTrEE @ 0x14093F7D0
+ * XREFs of IopQueryEnvironmentVariableInfoTrEE @ 0x14089ACC0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopIssueTrEERequest @ 0x14055C25C (IopIssueTrEERequest.c)
- *     IopEfiStatusToNTSTATUS @ 0x14093E9A0 (IopEfiStatusToNTSTATUS.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopIssueTrEERequest @ 0x14050AC40 (IopIssueTrEERequest.c)
+ *     IopEfiStatusToNTSTATUS @ 0x140899ECC (IopEfiStatusToNTSTATUS.c)
  */
 
 __int64 __fastcall IopQueryEnvironmentVariableInfoTrEE(__int64 a1, __int64 a2, int a3, _QWORD *a4, _OWORD *a5)

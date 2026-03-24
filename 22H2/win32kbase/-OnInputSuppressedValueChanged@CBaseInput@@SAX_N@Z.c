@@ -1,72 +1,60 @@
 /*
- * XREFs of ?OnInputSuppressedValueChanged@CBaseInput@@SAX_N@Z @ 0x1C01DCE50
+ * XREFs of ?OnInputSuppressedValueChanged@CBaseInput@@SAX_N@Z @ 0x1C01A3CF8
  * Callers:
- *     UserPowerInfoCallout @ 0x1C000FBD4 (UserPowerInfoCallout.c)
+ *     UserPowerInfoCallout @ 0x1C004FC50 (UserPowerInfoCallout.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-void __fastcall CBaseInput::OnInputSuppressedValueChanged(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall CBaseInput::OnInputSuppressedValueChanged(char a1)
 {
-  char v4; // si
-  __int64 v5; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 i; // rdi
-  int v11; // r8d
-  __int64 v12; // rax
-  int v13; // ecx
-  int v14; // [rsp+38h] [rbp-19h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+48h] [rbp-9h] BYREF
-  _DWORD *v16; // [rsp+68h] [rbp+17h]
-  int v17; // [rsp+70h] [rbp+1Fh]
-  int v18; // [rsp+74h] [rbp+23h]
-  __int64 v19; // [rsp+78h] [rbp+27h]
-  _DWORD v20[2]; // [rsp+80h] [rbp+2Fh] BYREF
-  int *v21; // [rsp+88h] [rbp+37h]
-  int v22; // [rsp+90h] [rbp+3Fh]
-  int v23; // [rsp+94h] [rbp+43h]
+  struct DEVICEINFO *i; // rbx
+  int v3; // r8d
+  int v4; // [rsp+30h] [rbp-19h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+40h] [rbp-9h] BYREF
+  _DWORD *v6; // [rsp+60h] [rbp+17h]
+  int v7; // [rsp+68h] [rbp+1Fh]
+  int v8; // [rsp+6Ch] [rbp+23h]
+  __int64 v9; // [rsp+70h] [rbp+27h]
+  _DWORD v10[2]; // [rsp+78h] [rbp+2Fh] BYREF
+  int *v11; // [rsp+80h] [rbp+37h]
+  int v12; // [rsp+88h] [rbp+3Fh]
+  int v13; // [rsp+8Ch] [rbp+43h]
 
-  v4 = a1;
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v5 + 3232);
-  for ( i = *(_QWORD *)(SGDGetUserSessionState(v7, v6, v8, v9) + 3248); i; i = *(_QWORD *)(i + 56) )
+  RIMLockExclusive((__int64)&CBaseInput::_sLock);
+  for ( i = CBaseInput::_spDevList; i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
   {
-    if ( v4 )
+    if ( a1 )
     {
-      *(_DWORD *)(i + 2304) = 0;
+      *((_DWORD *)i + 574) = 0;
     }
-    else if ( *(_DWORD *)(i + 2304)
-           && (unsigned int)dword_1C02883D8 > 5
-           && tlgKeywordOn((__int64)&dword_1C02883D8, 0x400000000000LL) )
+    else if ( *((_DWORD *)i + 574)
+           && (unsigned int)dword_1C0249250 > 5
+           && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL) )
     {
-      v23 = 0;
-      v18 = 0;
-      v21 = &v14;
-      v14 = v11;
-      v16 = v20;
-      v22 = 4;
-      v17 = 2;
-      v12 = *(_QWORD *)(i + 216);
-      v13 = *(unsigned __int16 *)(i + 208);
-      v20[1] = 0;
-      v19 = v12;
-      v20[0] = v13;
+      v13 = 0;
+      v8 = 0;
+      v10[1] = 0;
+      v11 = &v4;
+      v4 = v3;
+      v6 = v10;
+      v9 = *((_QWORD *)i + 27);
+      v10[0] = *((unsigned __int16 *)i + 104);
+      v12 = 4;
+      v7 = 2;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C02883D8,
-        (unsigned __int8 *)dword_1C025D10D,
+        (__int64)&dword_1C0249250,
+        (unsigned __int8 *)dword_1C021E3D2,
         0LL,
         0LL,
         5u,
-        &v15);
+        &v5);
     }
   }
-  *(_QWORD *)(v5 + 3240) = 0LL;
-  ExReleasePushLockExclusiveEx(v5 + 3232, 0LL);
+  qword_1C0254508 = 0LL;
+  ExReleasePushLockExclusiveEx(&CBaseInput::_sLock, 0LL);
   KeLeaveCriticalRegion();
 }

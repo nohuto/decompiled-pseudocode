@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1CInjectionAnimation@@UEAA@XZ @ 0x18022F090
+ * XREFs of ??1CInjectionAnimation@@UEAA@XZ @ 0x1801C48AC
  * Callers:
- *     ??_ECInjectionAnimation@@UEAAPEAXI@Z @ 0x18022F0D0 (--_ECInjectionAnimation@@UEAAPEAXI@Z.c)
+ *     ??_ECInjectionAnimation@@UEAAPEAXI@Z @ 0x1801C48E0 (--_ECInjectionAnimation@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CInjectionAnimation::~CInjectionAnimation(void **this)
 {
   *this = &CInjectionAnimation::`vftable';
-  operator delete(this[42]);
+  operator delete(this[39]);
   CBaseExpression::~CBaseExpression((CBaseExpression *)this);
 }

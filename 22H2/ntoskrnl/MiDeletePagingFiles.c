@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePagingFiles @ 0x140A32A18
+ * XREFs of MiDeletePagingFiles @ 0x1408D05EC
  * Callers:
- *     MiDeletePartitionResources @ 0x1406594F8 (MiDeletePartitionResources.c)
- *     MiShutdownSystem @ 0x140AABC30 (MiShutdownSystem.c)
+ *     MiDeletePartitionResources @ 0x140561858 (MiDeletePartitionResources.c)
+ *     MiShutdownSystem @ 0x1409AFEF8 (MiShutdownSystem.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
  */
 
 __int64 __fastcall MiDeletePagingFiles(__int64 a1)
@@ -13,23 +13,23 @@ __int64 __fastcall MiDeletePagingFiles(__int64 a1)
   unsigned int v1; // eax
   __int64 v2; // rbx
   __int64 v3; // rdi
-  char **v5; // r14
+  __int64 *v5; // r14
   __int64 v6; // rbp
-  char *v7; // rcx
+  __int64 v7; // rcx
 
-  v1 = *(_DWORD *)(a1 + 17048);
+  v1 = *(_DWORD *)(a1 + 6936);
   v2 = 0LL;
   v3 = 0LL;
   if ( v1 )
   {
-    v5 = (char **)(a1 + 17056);
+    v5 = (__int64 *)(a1 + 6944);
     v6 = v1;
     do
     {
       v7 = *v5;
       if ( *v5 )
       {
-        if ( (v7[204] & 0x50) == 0 )
+        if ( (*(_BYTE *)(v7 + 204) & 0x50) == 0 )
         {
           v3 += *(_QWORD *)v7;
           v2 += 2LL;

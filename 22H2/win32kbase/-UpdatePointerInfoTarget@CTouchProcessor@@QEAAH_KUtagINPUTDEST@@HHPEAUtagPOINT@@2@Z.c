@@ -1,191 +1,136 @@
 /*
- * XREFs of ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01D9F20
+ * XREFs of ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01A0B50
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0052DB0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0056A68 (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9674 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C00B96E0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01D1DD4 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
- *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C01D66C8 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
- *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D8320 (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     GetAdjustedPointerPixelLocation @ 0x1C01E7F10 (GetAdjustedPointerPixelLocation.c)
- *     ApiSetEditionDoPointerDPITransforms @ 0x1C0205EF4 (ApiSetEditionDoPointerDPITransforms.c)
- *     ApiSetPointerPromotionOnPointerInputRetrieval @ 0x1C0207FDC (ApiSetPointerPromotionOnPointerInputRetrieval.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0043EC0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C007CAC0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC20 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD2DC (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C019ABD8 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
+ *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C019E1B8 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
+ *     GetAdjustedPointerPixelLocation @ 0x1C01AE700 (GetAdjustedPointerPixelLocation.c)
+ *     ApiSetEditionDoPointerDPITransforms @ 0x1C01CAF00 (ApiSetEditionDoPointerDPITransforms.c)
+ *     ApiSetPointerPromotionOnPointerInputRetrieval @ 0x1C01CFE0C (ApiSetPointerPromotionOnPointerInputRetrieval.c)
  */
 
 __int64 __fastcall CTouchProcessor::UpdatePointerInfoTarget(
-        __int64 a1,
-        void *a2,
-        struct tagINPUTDEST *a3,
+        struct _KTHREAD **a1,
+        __int64 a2,
+        __int64 a3,
         int a4,
         unsigned int a5,
         _QWORD *a6,
         _QWORD *a7)
 {
-  void *v7; // rsi
-  unsigned int v9; // ebx
-  char v10; // di
-  CTouchProcessor *v11; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  int v13; // edx
-  int v14; // r8d
-  struct CPointerMsgData *v15; // r14
-  PDEVICE_OBJECT v16; // rcx
-  __int16 v17; // ax
-  __int64 v18; // r15
-  _QWORD *v19; // rsi
-  __int128 v20; // xmm1
-  __int128 v21; // xmm0
-  __int128 v22; // xmm1
-  __int128 v23; // xmm0
-  __int128 v24; // xmm1
-  __int128 v25; // xmm0
-  int v26; // edx
-  int v27; // r8d
-  struct tagINPUTDEST *v30; // [rsp+60h] [rbp-A0h]
-  _BYTE v31[56]; // [rsp+68h] [rbp-98h] BYREF
-  _OWORD v32[8]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v9; // rsi
+  unsigned int v11; // ebx
+  int v12; // edx
+  PDEVICE_OBJECT v13; // rcx
+  int v14; // r9d
+  const struct CPointerInputFrame *v15; // r12
+  _QWORD *v16; // rdi
+  __int128 v17; // xmm1
+  __int128 v18; // xmm0
+  __int128 v19; // xmm1
+  __int128 v20; // xmm0
+  __int128 v21; // xmm1
+  __int128 v22; // xmm0
+  int v23; // edx
+  CInpLockGuard *v25[7]; // [rsp+58h] [rbp-A8h] BYREF
+  _OWORD v26[8]; // [rsp+90h] [rbp-70h] BYREF
 
-  v7 = a2;
-  v30 = a3;
-  v9 = 0;
-  v10 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  v9 = a2;
+  v11 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      (_DWORD)a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      4,
+      a2,
+      7,
       104,
-      (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
-  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v31, (struct CInpLockGuard *)(a1 + 32), v7);
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v11, (__int64)v7);
-  v15 = NonConstMsgData;
-  if ( NonConstMsgData )
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+  }
+  CInpLockGuardExclusive::CInpLockGuardExclusive(
+    (CInpLockGuardExclusive *)v25,
+    (struct CInpLockGuard *)(a1 + 5),
+    (void *)v9);
+  if ( v9 )
   {
-    v18 = CTouchProcessor::ReferenceFrame(a1, *((_DWORD *)NonConstMsgData + 7));
-    if ( v18 )
+    v15 = CTouchProcessor::ReferenceFrame(a1, *(_DWORD *)(v9 + 28));
+    if ( v15 )
     {
-      CInputDest::CInputDest((CInputDest *)v32, v30);
+      CInputDest::CInputDest((CInputDest *)v26, (const struct tagINPUTDEST *)a3);
       CTouchProcessor::SetPointerInfoNodeTarget(
         (CTouchProcessor *)a1,
-        (const struct CPointerInputFrame *)v18,
-        *((_DWORD *)v15 + 8),
-        (const struct CInputDest *)v32,
+        v15,
+        *(_DWORD *)(v9 + 32),
+        (const struct CInputDest *)v26,
         a4,
         0LL,
         1,
         0,
         1,
         0);
-      CInputDest::SetEmpty((CInputDest *)v32);
-      v19 = (_QWORD *)(*(_QWORD *)(v18 + 240) + 480LL * *((unsigned int *)v15 + 8));
-      if ( !(unsigned int)GetAdjustedPointerPixelLocation(v19[25], *(_QWORD *)((char *)v19 + 148), a6) )
-        *a6 = v19[25];
-      if ( !(unsigned int)GetAdjustedPointerPixelLocation(v19[27], *(_QWORD *)((char *)v19 + 148), a7) )
-        *a7 = v19[27];
-      CTouchProcessor::UnreferenceFrame(a1, v18);
-      ApiSetPointerPromotionOnPointerInputRetrieval(*((unsigned __int16 *)v15 + 8), *((unsigned int *)v15 + 7), *a7, a5);
-      v20 = *((_OWORD *)v30 + 1);
-      v32[0] = *(_OWORD *)v30;
-      v21 = *((_OWORD *)v30 + 2);
-      v32[1] = v20;
-      v22 = *((_OWORD *)v30 + 3);
-      v32[2] = v21;
-      v23 = *((_OWORD *)v30 + 4);
-      v32[3] = v22;
-      v24 = *((_OWORD *)v30 + 5);
-      v32[4] = v23;
-      v25 = *((_OWORD *)v30 + 6);
-      v32[5] = v24;
-      v32[6] = v25;
-      ApiSetEditionDoPointerDPITransforms(v32, a6, a7);
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-        || (LOBYTE(v26) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+      CInputDest::SetEmpty((CInputDest *)v26);
+      v16 = (_QWORD *)(*((_QWORD *)v15 + 17) + 480LL * *(unsigned int *)(v9 + 32));
+      if ( !(unsigned int)GetAdjustedPointerPixelLocation(v16[25], *(_QWORD *)((char *)v16 + 148), a6) )
+        *a6 = v16[25];
+      if ( !(unsigned int)GetAdjustedPointerPixelLocation(v16[27], *(_QWORD *)((char *)v16 + 148), a7) )
+        *a7 = v16[27];
+      CTouchProcessor::UnreferenceFrame((__int64)a1, (__int64)v15);
+      ApiSetPointerPromotionOnPointerInputRetrieval(*(unsigned __int16 *)(v9 + 16), *(unsigned int *)(v9 + 28), *a7, a5);
+      v17 = *(_OWORD *)(a3 + 16);
+      v26[0] = *(_OWORD *)a3;
+      v18 = *(_OWORD *)(a3 + 32);
+      v26[1] = v17;
+      v19 = *(_OWORD *)(a3 + 48);
+      v26[2] = v18;
+      v20 = *(_OWORD *)(a3 + 64);
+      v26[3] = v19;
+      v21 = *(_OWORD *)(a3 + 80);
+      v26[4] = v20;
+      v22 = *(_OWORD *)(a3 + 96);
+      v26[5] = v21;
+      v26[6] = v22;
+      ApiSetEditionDoPointerDPITransforms(v26, a6, a7);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
-        LOBYTE(v26) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-        || (LOBYTE(v27) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-      {
-        LOBYTE(v27) = 0;
-      }
-      if ( (_BYTE)v26 || (_BYTE)v27 )
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v26,
-          v27,
+        LOBYTE(v23) = 5;
+        WPP_RECORDER_SF_(
           WPP_GLOBAL_Control->DeviceExtension,
-          5,
-          4,
+          v23,
+          7,
           107,
-          (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
-      v9 = 1;
-    }
-    else
-    {
-      v16 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v13) = 0;
+          (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
       }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        v10 = 0;
-      if ( (_BYTE)v13 || v10 )
+      v11 = 1;
+    }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v13 = WPP_GLOBAL_Control;
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
-        v17 = 106;
-        goto LABEL_33;
+        v14 = 106;
+        goto LABEL_12;
       }
     }
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v16 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-      || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+    v13 = WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      LOBYTE(v13) = 0;
-    }
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-      v10 = 0;
-    if ( (_BYTE)v13 || v10 )
-    {
-      v17 = 105;
-LABEL_33:
-      LOBYTE(v14) = v10;
-      WPP_RECORDER_AND_TRACE_SF_(
-        v16->AttachedDevice,
-        v13,
-        v14,
-        v16->DeviceExtension,
-        5,
-        4,
-        v17,
-        (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
+      v14 = 105;
+LABEL_12:
+      LOBYTE(v12) = 5;
+      WPP_RECORDER_SF_(v13->DeviceExtension, v12, 7, v14, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
     }
   }
-  CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v31);
-  return v9;
+  CInpLockGuardExclusive::~CInpLockGuardExclusive(v25);
+  return v11;
 }

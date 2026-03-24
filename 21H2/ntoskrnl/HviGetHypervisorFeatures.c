@@ -1,20 +1,20 @@
 /*
- * XREFs of HviGetHypervisorFeatures @ 0x1403BF8B0
+ * XREFs of HviGetHypervisorFeatures @ 0x1403AE200
  * Callers:
- *     HvlpTryConfigureInterface @ 0x1403BF6EC (HvlpTryConfigureInterface.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x1403BFE70 (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x14041900C (KiIsHyperVCr3RspErrataPresent.c)
- *     HvlSvmGetSystemCapabilities @ 0x140548D80 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x14054C1A4 (HvlpDetermineEnlightenments.c)
- *     HvipApertureDetectParameters @ 0x1405F2D28 (HvipApertureDetectParameters.c)
- *     HviGetIptFeatures @ 0x140647C4C (HviGetIptFeatures.c)
- *     HvlQueryDetailInfo @ 0x140930DA8 (HvlQueryDetailInfo.c)
- *     HalpLbrInitialize @ 0x140A550E0 (HalpLbrInitialize.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
- *     EtwpTraceSystemInitialization @ 0x140AFAD4C (EtwpTraceSystemInitialization.c)
- *     KiComputeDispatchInterruptCost @ 0x140B24E48 (KiComputeDispatchInterruptCost.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
+ *     HvlpTryConfigureInterface @ 0x1403AE640 (HvlpTryConfigureInterface.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1403F3760 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1404F7060 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA3C4 (HvlpDetermineEnlightenments.c)
+ *     PopIsRunningInVm @ 0x140568D00 (PopIsRunningInVm.c)
+ *     HvipApertureDetectParameters @ 0x140594784 (HvipApertureDetectParameters.c)
+ *     HviGetIptFeatures @ 0x1405BF0D8 (HviGetIptFeatures.c)
+ *     HvlQueryDetailInfo @ 0x14088E328 (HvlQueryDetailInfo.c)
+ *     HalpLbrInitialize @ 0x14099B704 (HalpLbrInitialize.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     EtwpTraceSystemInitialization @ 0x140A428C8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403C0314 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 __int64 __fastcall HviGetHypervisorFeatures(_DWORD *a1)

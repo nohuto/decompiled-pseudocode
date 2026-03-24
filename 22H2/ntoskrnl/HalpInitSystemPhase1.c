@@ -1,26 +1,19 @@
 /*
- * XREFs of HalpInitSystemPhase1 @ 0x140A8C31C
+ * XREFs of HalpInitSystemPhase1 @ 0x14099B94C
  * Callers:
- *     HalInitSystem @ 0x140A8BDB0 (HalInitSystem.c)
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     HalInitSystem @ 0x14099B910 (HalInitSystem.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140A8C358 (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x14099B988 (HalpInitSystemHelper.c)
  */
 
-bool __fastcall HalpInitSystemPhase1(__int64 a1)
+bool HalpInitSystemPhase1()
 {
-  __int64 v2; // rcx
-  __int64 v3; // rdx
+  __int64 v0; // rcx
 
   if ( KeGetPcr()->Prcb.Number )
-  {
-    v2 = 19LL;
-    v3 = 20LL;
-  }
+    v0 = 19LL;
   else
-  {
-    v2 = 17LL;
-    v3 = 18LL;
-  }
-  return (int)HalpInitSystemHelper(v2, v3, a1) >= 0;
+    v0 = 17LL;
+  return (int)HalpInitSystemHelper(v0) >= 0;
 }

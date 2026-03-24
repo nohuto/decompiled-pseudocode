@@ -1,16 +1,16 @@
 /*
- * XREFs of KiOpPatchCode @ 0x14057B748
+ * XREFs of KiOpPatchCode @ 0x140524734
  * Callers:
- *     KiOp_MOVAPS @ 0x14057BD80 (KiOp_MOVAPS.c)
- *     KiOp_MOVDQA @ 0x14057BE00 (KiOp_MOVDQA.c)
+ *     KiOp_MOVAPS @ 0x140524950 (KiOp_MOVAPS.c)
+ *     KiOp_MOVDQA @ 0x1405249D0 (KiOp_MOVDQA.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwProtectVirtualMemory @ 0x14041C160 (ZwProtectVirtualMemory.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwProtectVirtualMemory @ 0x1403FADA0 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
@@ -42,7 +42,7 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
     *(_QWORD *)MemoryDescriptorList_44 = a2 & 0xFFF;
     MemoryDescriptorList_40 = 1;
     v5 = 0;
-    MiProbeAndLockPages(&MemoryDescriptorList, 1, 1);
+    MiProbeAndLockPages((__int64)&MemoryDescriptorList, 1, 1u);
     if ( (MemoryDescriptorList_10 & 5) != 0 )
       v6 = *(_BYTE **)&MemoryDescriptorList_12[3];
     else

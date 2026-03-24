@@ -1,27 +1,28 @@
 /*
- * XREFs of PiCslInitialize @ 0x140B3F384
+ * XREFs of PiCslInitialize @ 0x140A53224
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x140367250 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037E950 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
  */
 
 __int64 PiCslInitialize()
 {
   NTSTATUS v0; // ebx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING v2; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  DestinationString = 0LL;
   PipCslConsoleLockState = 0;
-  RtlInitUnicodeString(&DestinationString, L"\\Callback\\IoExternalDmaUnblock");
+  v2 = 0LL;
+  RtlInitUnicodeString(&v2, L"\\Callback\\IoExternalDmaUnblock");
   ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 80;
-  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.ObjectName = &v2;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v0 = ExCreateCallback((PCALLBACK_OBJECT *)&PipCslCallbackObject, &ObjectAttributes, 1u, 1u);
   if ( v0 >= 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOrphanNotification @ 0x140810904
+ * XREFs of PnpOrphanNotification @ 0x1407363EC
  * Callers:
- *     PpDevNodeRemoveFromTree @ 0x1403A6700 (PpDevNodeRemoveFromTree.c)
+ *     PpDevNodeRemoveFromTree @ 0x14036D8B4 (PpDevNodeRemoveFromTree.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 void __fastcall PnpOrphanNotification(__int64 a1)
@@ -13,7 +13,7 @@ void __fastcall PnpOrphanNotification(__int64 a1)
   _QWORD *v2; // rdi
   _QWORD *v3; // rbx
   __int64 v4; // rax
-  void *v5; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
 
   ExAcquireFastMutex(&PnpTargetDeviceNotifyLock);
   v2 = (_QWORD *)(a1 + 472);
@@ -26,12 +26,12 @@ void __fastcall PnpOrphanNotification(__int64 a1)
       __fastfail(3u);
     *v2 = v4;
     *(_QWORD *)(v4 + 8) = v2;
-    v5 = (void *)v3[11];
+    v5 = (struct _DMA_ADAPTER *)v3[11];
     v3[1] = v3;
     *v3 = v3;
     if ( v5 && (!*((_BYTE *)v3 + 58) || (*(_DWORD *)(a1 + 704) & 0x4000) == 0) )
     {
-      ObfDereferenceObject(v5);
+      HalPutDmaAdapter(v5);
       v3[11] = 0LL;
     }
   }

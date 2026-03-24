@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetPeakCommitment @ 0x1400F0D10
+ * XREFs of MmGetPeakCommitment @ 0x1400F0D30
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

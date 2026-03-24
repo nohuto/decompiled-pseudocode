@@ -1,53 +1,50 @@
 /*
- * XREFs of NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C0023F44
+ * XREFs of NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C001BCD4
  * Callers:
- *     NVMeControllerPowerUp @ 0x1C000E1A4 (NVMeControllerPowerUp.c)
- *     NVMePowerSettingChangeNotification @ 0x1C00104A0 (NVMePowerSettingChangeNotification.c)
+ *     NVMeControllerPostPowerUp @ 0x1C0006760 (NVMeControllerPostPowerUp.c)
+ *     NVMePowerSettingChangeNotification @ 0x1C0010838 (NVMePowerSettingChangeNotification.c)
  * Callees:
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     NVMeControllerGetLocalCommand @ 0x1C00043E0 (NVMeControllerGetLocalCommand.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
-void __fastcall NVMeSetNonOperationalPowerStatePermissiveMode(__int64 a1, unsigned __int8 a2)
+void __fastcall NVMeSetNonOperationalPowerStatePermissiveMode(__int64 a1, char a2)
 {
-  int v2; // esi
-  int v4; // eax
-  _BYTE *LocalCommand; // rax
-  _BYTE *v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // eax
+  int v3; // eax
+  int v4; // ebx
+  __int64 v5; // rax
+  __int64 v6; // rcx
 
-  v2 = a2;
-  if ( !*(_BYTE *)(a1 + 20) )
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    v4 = *(_DWORD *)(a1 + 32);
-    if ( (v4 & 8) == 0 )
+    v3 = *(_DWORD *)(a1 + 24);
+    if ( (v3 & 8) == 0 )
     {
-      if ( (v4 & 4) != 0 )
+      v4 = a2 & 1;
+      if ( (v3 & 4) != 0 )
       {
-        *(_DWORD *)(a1 + 4336) = *(_DWORD *)(a1 + 4336) ^ (*(_DWORD *)(a1 + 4336) ^ (4 * a2)) & 4 | 2;
+        *(_DWORD *)(a1 + 4020) = (4 * v4) | *(_DWORD *)(a1 + 4020) & 0xFFFFFFFB | 2;
       }
       else
       {
-        LocalCommand = NVMeControllerGetLocalCommand(a1);
-        v6 = LocalCommand;
-        if ( LocalCommand )
-        {
-          v7 = (__int64)(LocalCommand + 8);
-          *(_BYTE *)(*((_QWORD *)LocalCommand + 12) + 4253LL) |= 1u;
-          *(_BYTE *)(*((_QWORD *)LocalCommand + 12) + 4253LL) &= ~2u;
-          *(_WORD *)(*((_QWORD *)LocalCommand + 12) + 4244LL) = 0;
-          v8 = *((_QWORD *)LocalCommand + 12);
-          v9 = *(_DWORD *)(v8 + 4140) ^ v2;
-          *(_BYTE *)(v8 + 4096) = 9;
-          *(_DWORD *)(v8 + 4140) ^= v9 & 1;
-          *(_BYTE *)(v8 + 4136) = 17;
-          *(_QWORD *)(*((_QWORD *)v6 + 12) + 4224LL) = NVMeSetNonOperationalPowerStatePermissiveModeCompletion;
-          ProcessCommand(a1, v7);
-          WaitForCommandCompleteWithCustomTimeout(a1);
-        }
+        *(_BYTE *)(a1 + 851) = 0;
+        memset(*(void **)(a1 + 936), 0, 0x10A0uLL);
+        *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+        v5 = *(_QWORD *)(a1 + 936);
+        *(_QWORD *)(a1 + 904) = v5;
+        *(_DWORD *)(a1 + 840) = 1;
+        *(_BYTE *)(v5 + 4253) |= 1u;
+        *(_BYTE *)(*(_QWORD *)(a1 + 936) + 4253LL) &= ~2u;
+        *(_WORD *)(*(_QWORD *)(a1 + 936) + 4244LL) = 0;
+        v6 = *(_QWORD *)(a1 + 936);
+        LODWORD(v5) = *(_DWORD *)(v6 + 4140);
+        *(_BYTE *)(v6 + 4096) = 9;
+        *(_BYTE *)(v6 + 4136) = 17;
+        *(_DWORD *)(v6 + 4140) = v4 | v5 & 0xFFFFFFFE;
+        *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4224LL) = NVMeSetNonOperationalPowerStatePermissiveModeCompletion;
+        ProcessCommand(a1, a1 + 848);
+        WaitForCommandCompleteWithCustomTimeout(a1);
       }
     }
   }

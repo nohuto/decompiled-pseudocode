@@ -1,26 +1,24 @@
 /*
- * XREFs of PopFxActivateDevice @ 0x1402D2864
+ * XREFs of PopFxActivateDevice @ 0x14036FCD0
  * Callers:
- *     PoFxActivateDevice @ 0x1402D2848 (PoFxActivateDevice.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x14038BF3C (PoFxActivateDeviceForSystemTransition.c)
- *     PopFxActivateDevicesForSx @ 0x14039734C (PopFxActivateDevicesForSx.c)
- *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
- *     PoFxAddDeviceRelation @ 0x140419310 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140419580 (PoFxRemoveDeviceRelation.c)
- *     PopFxClearDeviceConstraints @ 0x1405CB6D8 (PopFxClearDeviceConstraints.c)
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x1405CDDF8 (PopFxSetDeviceAccountingCsPlatformState.c)
- *     PopPepInitializeVetoMasks @ 0x1405D5704 (PopPepInitializeVetoMasks.c)
- *     PopPepResetDeviceAccountingLevel @ 0x1405D655C (PopPepResetDeviceAccountingLevel.c)
- *     PopPlActivateDeviceIterator @ 0x1405DE2A0 (PopPlActivateDeviceIterator.c)
+ *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140383410 (PoFxActivateDeviceForSystemTransition.c)
+ *     PopFxActivateDevicesForSx @ 0x14038C308 (PopFxActivateDevicesForSx.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BE830 (PoFxStartDevicePowerManagement.c)
+ *     PopFxClearDeviceConstraints @ 0x140569DC4 (PopFxClearDeviceConstraints.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C884 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140575E88 (PopPepResetDeviceAccountingLevel.c)
+ *     PopPlActivateDeviceIterator @ 0x14057E320 (PopPlActivateDeviceIterator.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
+ *     PoFxActivateComponent @ 0x1402627E0 (PoFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 LONG __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
@@ -101,7 +99,7 @@ LONG __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
       v12 = *(_QWORD *)(v5 + 80);
       PopFxAddRefDevice(v12);
       for ( i = 0; i < *(_DWORD *)(v12 + 828); ++i )
-        PoFxActivateComponent(v12, i);
+        PoFxActivateComponent(v12, i, 2);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
     result = KiIrqlFlags;
@@ -135,7 +133,7 @@ LONG __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
         }
         if ( a2 )
           _InterlockedOr((volatile signed __int32 *)(v12 + 32), 1u);
-        if ( (*(_DWORD *)(v12 + 824) & 0x80u) != 0 && a3 )
+        if ( (PopPoFxSystemIrpWaitForReportDevicePoweredReg || (*(_DWORD *)(v12 + 824) & 0x80u) != 0) && a3 )
           _InterlockedOr((volatile signed __int32 *)(v12 + 32), 0x800u);
       }
       KeWaitForSingleObject((PVOID)(v12 + 568), Executive, 0, 0, 0LL);

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z @ 0x1800E0EFC
+ * XREFs of ?InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z @ 0x1800E1498
  * Callers:
- *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E0E8C (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
+ *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E1428 (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CInputSinkStruct::InitializeQueueInfo(
@@ -29,7 +29,7 @@ __int64 __fastcall CInputSinkStruct::InitializeQueueInfo(
   if ( CompositionInputQueueAndTransform < 0 )
   {
     v5 = CompositionInputQueueAndTransform | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, CompositionInputQueueAndTransform | 0x10000000, 0xECu);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, CompositionInputQueueAndTransform | 0x10000000, 0xECu, 0LL);
   }
   else if ( (unsigned int)(LODWORD(v9[0]) - 2) <= 1 )
   {

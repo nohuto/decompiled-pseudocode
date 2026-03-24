@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CDeviceTextureTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B2EA0
+ * XREFs of ?HrFindInterface@CDeviceTextureTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C4C0
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B3300 (-HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C530 (-HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CDeviceTextureTarget::HrFindInterface(CDeviceTextureTarget *this, const struct _GUID *a2, void **a3)

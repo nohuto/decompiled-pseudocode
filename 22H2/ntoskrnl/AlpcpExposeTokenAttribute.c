@@ -1,34 +1,36 @@
 /*
- * XREFs of AlpcpExposeTokenAttribute @ 0x14073C740
+ * XREFs of AlpcpExposeTokenAttribute @ 0x1405E8850
  * Callers:
- *     AlpcpExposeAttributes @ 0x14073C2B0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeDeleteClientSecurity @ 0x14071D1F0 (SeDeleteClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14071D220 (SeCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeCreateClientSecurityEx @ 0x1406D6D20 (SeCreateClientSecurityEx.c)
  */
 
 char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
-  int v8; // ecx
-  __int64 v9; // rsi
+  int v8; // r8d
+  PADAPTER_OBJECT v9; // rdi
   __int64 v10; // rax
   __int64 v11; // rdx
-  int v12; // r8d
+  int v12; // ecx
   __int64 v13; // rcx
-  char v14; // di
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // rbx
-  __int64 v18; // [rsp+20h] [rbp-88h]
-  __int64 v19; // [rsp+28h] [rbp-80h]
-  _QWORD v20[10]; // [rsp+50h] [rbp-58h] BYREF
+  _DMA_OPERATIONS *v15; // rbx
+  PADAPTER_OBJECT v17; // [rsp+20h] [rbp-98h]
+  __int64 v18; // [rsp+28h] [rbp-90h]
+  _DMA_OPERATIONS *DmaOperations; // [rsp+30h] [rbp-88h]
+  PADAPTER_OBJECT v20[10]; // [rsp+50h] [rbp-68h] BYREF
+  char v21; // [rsp+C8h] [rbp+10h]
 
-  memset(v20, 0, 0x44uLL);
+  memset(v20, 0, 0x48uLL);
   v8 = 0;
   v9 = 0LL;
+  v17 = 0LL;
   LODWORD(v10) = *(_DWORD *)(a2 + 40);
   if ( (v10 & 0x80u) != 0LL )
     return v10;
@@ -37,9 +39,10 @@ char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _D
   {
     if ( *(int *)(v10 + 36) < 1 )
       return v10;
-    v9 = *(_QWORD *)(v10 + 48);
-    v14 = 0;
-    goto LABEL_10;
+    v9 = *(PADAPTER_OBJECT *)(v10 + 48);
+    v17 = v9;
+    v21 = 0;
+    goto LABEL_13;
   }
   v11 = *(_QWORD *)(a2 + 24);
   LOBYTE(v10) = *(_DWORD *)(a1 + 416) & 6;
@@ -53,41 +56,41 @@ char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _D
     return v10;
   if ( (v12 & 0x400) == 0 )
   {
-    v9 = *(_QWORD *)(v11 + 80);
+    v9 = *(PADAPTER_OBJECT *)(v11 + 80);
     if ( !v9 )
       return v10;
-    goto LABEL_17;
+    v17 = *(PADAPTER_OBJECT *)(v11 + 80);
+LABEL_12:
+    v21 = 0;
+    if ( v8 < 0 )
+      return v10;
+    goto LABEL_13;
   }
   v13 = *(_QWORD *)(a2 + 32);
   if ( !v13 )
     return v10;
-  LODWORD(v10) = SeCreateClientSecurityEx(v13, (int)v11 + 260, 0, (__int64)v20);
+  LODWORD(v10) = SeCreateClientSecurityEx(v13, v11 + 260, 0LL, v20);
   v8 = v10;
   if ( (int)v10 < 0 )
-  {
-LABEL_17:
-    v14 = 0;
-    if ( v8 < 0 )
-      return v10;
-    goto LABEL_10;
-  }
+    goto LABEL_12;
   v9 = v20[2];
-  v14 = 1;
-LABEL_10:
-  v19 = *(_QWORD *)(v9 + 24);
-  v18 = *(_QWORD *)(v9 + 16);
+  v17 = v20[2];
+  v21 = 1;
+LABEL_13:
+  DmaOperations = v9[1].DmaOperations;
+  v18 = *(_QWORD *)&v9[1].Version;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceSharedLite(*(PERESOURCE *)(v9 + 48), 1u);
-  v16 = *(_QWORD *)(v9 + 56);
-  ExReleaseResourceLite(*(PERESOURCE *)(v9 + 48));
+  ExAcquireResourceSharedLite(*(PERESOURCE *)&v17[3].Version, 1u);
+  v15 = v17[3].DmaOperations;
+  ExReleaseResourceLite(*(PERESOURCE *)&v17[3].Version);
   KeLeaveCriticalRegion();
-  if ( v14 )
-    SeDeleteClientSecurity((__int64)v20);
+  if ( v21 )
+    HalPutDmaAdapter(v20[2]);
   *a3 = v18;
-  LOBYTE(v10) = v19;
-  a3[1] = v19;
-  a3[2] = v16;
+  LOBYTE(v10) = (_BYTE)DmaOperations;
+  a3[1] = DmaOperations;
+  a3[2] = v15;
   *a4 |= 0x8000000u;
   return v10;
 }

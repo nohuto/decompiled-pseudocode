@@ -1,12 +1,12 @@
 /*
- * XREFs of CheckUSBFnIncludeDefaultCfg @ 0x1C005BC48
+ * XREFs of CheckUSBFnIncludeDefaultCfg @ 0x1C005D2E8
  * Callers:
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005C534 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005DBB8 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_L @ 0x1C005C674 (WPP_RECORDER_SF_L.c)
- *     MyRegOpenKeyForRead @ 0x1C005C7F8 (MyRegOpenKeyForRead.c)
- *     MyRegQueryUlong @ 0x1C005CA44 (MyRegQueryUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_L @ 0x1C005DCF8 (WPP_RECORDER_SF_L.c)
+ *     MyRegOpenKeyForRead @ 0x1C005DE7C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C005E0BC (MyRegQueryUlong.c)
  */
 
 char __fastcall CheckUSBFnIncludeDefaultCfg(__int64 a1)

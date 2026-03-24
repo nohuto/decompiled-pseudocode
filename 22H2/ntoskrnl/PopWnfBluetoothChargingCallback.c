@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfBluetoothChargingCallback @ 0x140587310
+ * XREFs of PopWnfBluetoothChargingCallback @ 0x140568D10
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -32,23 +32,26 @@ __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int
     if ( v14[0] )
     {
       v5 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-      byte_140C3D965 = v13[0];
+      byte_140C233A5 = v13[0];
       v6 = v5;
-      if ( PopCsResiliencyStats[0] && v13[0] && !byte_140C3CAE3 )
-        byte_140C3CAE3 = 1;
-      KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
+      if ( PopCsResiliencyStats[0] && v13[0] && !byte_140C23703 )
+        byte_140C23703 = 1;
+      KxReleaseSpinLock(&PopCsResiliencyStatsLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-          v11 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+            v11 = (v10 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v6);

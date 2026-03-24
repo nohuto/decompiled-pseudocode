@@ -1,10 +1,10 @@
 /*
- * XREFs of UserIsCurrentThreadGdiScaled @ 0x1C00D3AB0
+ * XREFs of UserIsCurrentThreadGdiScaled @ 0x1C00AF900
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002EA80 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002AA84 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
  */
 
 __int64 UserIsCurrentThreadGdiScaled()

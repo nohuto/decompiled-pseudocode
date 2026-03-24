@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLockUnlockBufferList @ 0x1402E29C8
+ * XREFs of EtwpLockUnlockBufferList @ 0x1402667AC
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x14079885C (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1402C3044 (ExfAcquireReleasePushLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpLockUnlockBufferList(__int64 a1)
@@ -23,13 +23,13 @@ __int64 __fastcall EtwpLockUnlockBufferList(__int64 a1)
   bool v9; // zf
   signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v1 = (KSPIN_LOCK *)(a1 + 696);
-  if ( *(_DWORD *)(a1 + 300) == 1 )
+  v1 = (KSPIN_LOCK *)(a1 + 712);
+  if ( *(_DWORD *)(a1 + 316) == 1 )
   {
     _InterlockedOr(v10, 0);
     result = *v1;
     if ( (*v1 & 1) != 0 )
-      return ExfAcquireReleasePushLockExclusive(a1 + 696);
+      return ExfAcquireReleasePushLockExclusive(a1 + 712);
   }
   else
   {

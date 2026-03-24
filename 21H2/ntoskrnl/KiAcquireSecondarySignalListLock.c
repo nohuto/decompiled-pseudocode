@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquireSecondarySignalListLock @ 0x14056EC64
+ * XREFs of KiAcquireSecondarySignalListLock @ 0x140518FDC
  * Callers:
- *     KiInsertSecondarySignalList @ 0x14056F060 (KiInsertSecondarySignalList.c)
- *     KiProcessSecondarySignalList @ 0x14056F330 (KiProcessSecondarySignalList.c)
+ *     KiInsertSecondarySignalList @ 0x1405193D8 (KiInsertSecondarySignalList.c)
+ *     KiProcessSecondarySignalList @ 0x1405196B0 (KiProcessSecondarySignalList.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KiAcquireSecondarySignalListLock(unsigned __int8 *a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of IopProcessBufferedIoCompletion @ 0x1402AC270
+ * XREFs of IopProcessBufferedIoCompletion @ 0x1403F0790
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14028C4B0 (IopCopyCompleteReadRequest.c)
- *     IopCompleteRequest @ 0x1402AB360 (IopCompleteRequest.c)
- *     IopIoRingCompleteIrp @ 0x14055957C (IopIoRingCompleteIrp.c)
+ *     IopCompleteRequest @ 0x1402C31B0 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1040 (IopCopyCompleteReadRequest.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     IopExceptionFilter @ 0x140555588 (IopExceptionFilter.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IopExceptionFilter @ 0x1405006E0 (IopExceptionFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopProcessBufferedIoCompletion(__int64 a1)
+__int64 __fastcall IopProcessBufferedIoCompletion(__int64 a1)
 {
-  _DWORD *v2; // rbx
+  int *v2; // rdi
   int v3; // eax
   int v4; // eax
   void *v5; // rcx
   const void *v6; // rdx
+  __int64 result; // rax
 
-  v2 = (_DWORD *)(a1 + 16);
+  v2 = (int *)(a1 + 16);
   v3 = *(_DWORD *)(a1 + 16);
   if ( (v3 & 0x10) != 0 )
   {
@@ -33,11 +33,15 @@ void __fastcall IopProcessBufferedIoCompletion(__int64 a1)
           memmove(v5, v6, *(_QWORD *)(a1 + 56));
       }
     }
+    v3 = *v2;
     if ( (*v2 & 0x20) != 0 )
     {
       ExFreePoolWithTag(*(PVOID *)(a1 + 24), 0);
       *(_QWORD *)(a1 + 24) = 0LL;
+      v3 = *v2;
     }
   }
-  *v2 &= 0xFFFFFFCF;
+  result = v3 & 0xFFFFFFCF;
+  *v2 = result;
+  return result;
 }

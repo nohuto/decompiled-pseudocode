@@ -1,13 +1,13 @@
 /*
- * XREFs of RawCheckForDeleteVolume @ 0x1403770A8
+ * XREFs of RawCheckForDeleteVolume @ 0x140395244
  * Callers:
- *     RawScanDeletedList @ 0x14074C258 (RawScanDeletedList.c)
+ *     RawScanDeletedList @ 0x14071B3D8 (RawScanDeletedList.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RawCleanupVcb @ 0x14074B878 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x14074D308 (RawDeleteVcb.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     RawCleanupVcb @ 0x14071A630 (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x14071B46C (RawDeleteVcb.c)
  */
 
 char __fastcall RawCheckForDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
@@ -36,7 +36,7 @@ char __fastcall RawCheckForDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
       }
       Blink->Flink = Flink;
       Flink->Blink = Blink;
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2].Resource);
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2].PagingIoResource);
       RawCleanupVcb(AdvancedHeader);
       RawDeleteVcb(AdvancedHeader);
       return 1;

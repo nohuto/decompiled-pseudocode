@@ -1,173 +1,151 @@
 /*
- * XREFs of PspChangeProcessExecutionState @ 0x1406A6C04
+ * XREFs of PspChangeProcessExecutionState @ 0x140605D50
  * Callers:
- *     PspExecuteJobFreezeThawCallback @ 0x14020BE60 (PspExecuteJobFreezeThawCallback.c)
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PsSwapProcessWorkingSet @ 0x1409AE75C (PsSwapProcessWorkingSet.c)
+ *     PspExecuteJobFreezeThawCallback @ 0x14031AFD0 (PspExecuteJobFreezeThawCallback.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
+ *     PsSwapProcessWorkingSet @ 0x140907A30 (PsSwapProcessWorkingSet.c)
  * Callees:
- *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     MmOutSwapWorkingSet @ 0x140341B10 (MmOutSwapWorkingSet.c)
- *     MmDetachSession @ 0x140355CB0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140355D50 (MmAttachSession.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PsApplyDeepFreezeOptimizations @ 0x14067ED7C (PsApplyDeepFreezeOptimizations.c)
- *     PsRemoveDeepFreezeOptimizations @ 0x14067EDC0 (PsRemoveDeepFreezeOptimizations.c)
- *     PsFreezeProcess @ 0x1407EC200 (PsFreezeProcess.c)
+ *     MmGetSessionById @ 0x1402063D0 (MmGetSessionById.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmDetachSession @ 0x1402EC090 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EC130 (MmAttachSession.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     MmInSwapWorkingSet @ 0x140350CF4 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PsThawProcess @ 0x1406857E4 (PsThawProcess.c)
+ *     PsFreezeProcess @ 0x14068595C (PsFreezeProcess.c)
  */
 
-__int64 __fastcall PspChangeProcessExecutionState(PEPROCESS Process)
+__int64 __fastcall PspChangeProcessExecutionState(PEPROCESS Process, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned int v1; // r8d
-  char v2; // r13
-  _KPROCESS *v3; // r15
-  unsigned __int32 v5; // eax
-  unsigned int v6; // edi
-  unsigned __int32 v7; // esi
-  unsigned __int32 v8; // ecx
-  __int64 v9; // rdx
-  char v10; // r12
-  unsigned __int8 v11; // bl
+  unsigned int v4; // r15d
+  char v5; // r13
+  unsigned __int32 DirectoryTableBase; // eax
+  struct _DMA_ADAPTER *v8; // rbp
+  int v9; // ebx
+  unsigned int v10; // esi
+  unsigned __int32 v12; // ett
+  char v13; // r12
+  char v14; // r14
   unsigned int SessionId; // eax
+  __int64 v16; // rdx
   _KPROCESS *SessionById; // rax
-  char v14; // bl
-  char v15; // di
-  int v16; // eax
-  int v17; // ecx
-  unsigned __int32 i; // eax
-  unsigned __int32 v19; // eax
+  char v18; // r14
+  unsigned __int32 v19; // edx
+  int v20; // r8d
+  bool v21; // zf
+  signed __int32 v22; // eax
   void (__fastcall **ExtensionTable)(PEPROCESS); // rax
-  unsigned __int32 v22; // [rsp+28h] [rbp-49h]
-  signed __int32 v23; // [rsp+2Ch] [rbp-45h]
-  char v24; // [rsp+30h] [rbp-41h]
-  unsigned int v25; // [rsp+34h] [rbp-3Dh]
-  unsigned int v26; // [rsp+38h] [rbp-39h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v27; // [rsp+40h] [rbp-31h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v28; // [rsp+70h] [rbp-1h] BYREF
+  int v24; // eax
+  char v25; // [rsp+20h] [rbp-98h]
+  _OWORD v26[3]; // [rsp+28h] [rbp-90h] BYREF
+  _OWORD v27[3]; // [rsp+58h] [rbp-60h] BYREF
 
-  v26 = 0;
-  v24 = 0;
-  v1 = 0;
-  v2 = 0;
-  memset(&v28, 0, sizeof(v28));
   v25 = 0;
-  v3 = 0LL;
-  memset(&v27, 0, sizeof(v27));
-  _m_prefetchw(Process[2].IdealNode);
-  v5 = *(_DWORD *)Process[2].IdealNode;
-  v6 = (unsigned __int8)v25 + 1;
-  while ( ((unsigned __int8)v5 & (unsigned __int8)v6) == 0 )
+  v4 = 0;
+  memset(v27, 0, sizeof(v27));
+  v5 = 0;
+  memset(v26, 0, sizeof(v26));
+  _m_prefetchw(&Process[1].DirectoryTableBase);
+  DirectoryTableBase = Process[1].DirectoryTableBase;
+  v8 = 0LL;
+  while ( (DirectoryTableBase & 0x40000000) == 0 )
   {
-    v7 = HIBYTE(v5);
-    v8 = HIWORD(v5);
-    if ( HIBYTE(v5) == BYTE2(v5) )
+    v9 = (DirectoryTableBase >> 28) & 3;
+    v10 = (DirectoryTableBase >> 22) & 3;
+    if ( v9 == v10 )
       break;
-    v22 = _InterlockedCompareExchange((volatile signed __int32 *)Process[2].IdealNode, (unsigned __int16)v6 | v5, v5);
-    v9 = v22;
-    if ( v22 == v5 )
+    v12 = DirectoryTableBase;
+    DirectoryTableBase = _InterlockedCompareExchange(
+                           (volatile signed __int32 *)&Process[1].DirectoryTableBase,
+                           DirectoryTableBase | 0x40000000,
+                           DirectoryTableBase);
+    if ( v12 == DirectoryTableBase )
     {
-LABEL_7:
-      v10 = 0;
-      v11 = v8 ^ v7;
-      if ( !v2 )
+LABEL_6:
+      v13 = 0;
+      v14 = v10 ^ v9;
+      if ( !v5 )
       {
-        KiStackAttachProcess(Process, 0, (__int64)&v28);
+        KiStackAttachProcess(Process, 0LL, (__int64)v27, a4);
         SessionId = MmGetSessionIdEx((__int64)Process);
         if ( SessionId != -1 )
         {
-          SessionById = (_KPROCESS *)MmGetSessionById(SessionId);
-          v3 = SessionById;
+          SessionById = (_KPROCESS *)MmGetSessionById(SessionId, v16);
+          v8 = (struct _DMA_ADAPTER *)SessionById;
           if ( SessionById )
           {
-            if ( (int)MmAttachSession(SessionById, (__int64)&v27) < 0 )
+            if ( (int)MmAttachSession(SessionById, (__int64)v26) < 0 )
             {
-              ObfDereferenceObject(v3);
-              v3 = 0LL;
+              HalPutDmaAdapter(v8);
+              v8 = 0LL;
             }
           }
         }
-        v2 = v6;
+        v5 = 1;
       }
-      if ( (v11 & 2) != 0 )
+      if ( (v14 & 2) != 0 )
       {
-        if ( (v7 & 2) != 0 )
-          v10 = v6;
+        if ( (v9 & 2) != 0 )
+          v13 = 1;
         else
           MmInSwapWorkingSet(Process);
       }
-      if ( (v11 & 4) != 0 && (v7 & 4) == 0 )
+      if ( (v14 & 1) != 0 )
       {
-        v26 = v6;
-        PsRemoveDeepFreezeOptimizations((__int64)Process, &v26);
-      }
-      if ( (v11 & (unsigned __int8)v6) != 0 )
-      {
-        v24 = v6;
-        LOBYTE(v9) = v6;
-        if ( ((unsigned __int8)v7 & (unsigned __int8)v6) != 0 )
-          PsFreezeProcess(Process, v9);
+        v18 = 1;
+        v25 = 1;
+        if ( (v9 & 1) != 0 )
+          PsFreezeProcess((ULONG_PTR)Process);
         else
-          PsThawMultiProcess((ULONG_PTR)Process, v9, v6);
+          PsThawProcess((ULONG_PTR)Process);
       }
-      if ( ((unsigned __int8)v7 & v11 & 4) != 0 )
+      else
       {
-        v26 = v6;
-        PsApplyDeepFreezeOptimizations((__int64)Process, &v26);
+        v18 = v25;
       }
-      v14 = v7;
-      v15 = v7;
-      if ( v10 )
+      v10 = v9;
+      if ( v13 )
       {
-        v16 = MmOutSwapWorkingSet(Process, PspOutSwapSharedPages != 0);
-        if ( v16 < 0 )
+        v24 = MmOutSwapWorkingSet(Process, PspOutSwapSharedPages != 0);
+        if ( v24 < 0 )
         {
-          v17 = v25;
-          v9 = 3221225625LL;
-          if ( v16 == -1073741671 )
-            v17 = -1073741671;
-          v14 = v7 & 0xFD;
-          v25 = v17;
+          if ( v24 == -1073741671 )
+            v4 = -1073741671;
+          v10 = v9 & 0xFFFFFFFD;
         }
       }
-      _m_prefetchw(Process[2].IdealNode);
-      for ( i = *(_DWORD *)Process[2].IdealNode; ; i = v22 )
+      _m_prefetchw(&Process[1].DirectoryTableBase);
+      v19 = Process[1].DirectoryTableBase;
+      v20 = v9;
+      do
       {
-        v23 = i;
-        v19 = HIBYTE(i);
-        LOBYTE(v7) = v19;
-        if ( (_BYTE)v19 != v15 && (_BYTE)v19 != v14 )
-        {
-          LOBYTE(v8) = v14;
-          v6 = 1;
-          goto LABEL_7;
-        }
-        BYTE2(v22) = v14;
-        LOWORD(v22) = v22 & 0xFFFE;
-        HIBYTE(v22) = v14;
-        v22 = _InterlockedCompareExchange((volatile signed __int32 *)Process[2].IdealNode, v22, v23);
-        if ( v22 == v23 )
-          break;
+        v9 = (v19 >> 28) & 3;
+        if ( v9 != v20 && v9 != v10 )
+          goto LABEL_6;
+        v22 = _InterlockedCompareExchange(
+                (volatile signed __int32 *)&Process[1].DirectoryTableBase,
+                v19 & 0x8F3FFFFF | ((v10 | (v10 << 6)) << 22),
+                v19);
+        v21 = v19 == v22;
+        v19 = v22;
       }
-      if ( v2 )
+      while ( !v21 );
+      if ( v8 )
       {
-        if ( v3 )
-        {
-          MmDetachSession((__int64)v3, &v27);
-          ObfDereferenceObject(v3);
-        }
-        KiUnstackDetachProcess(&v28);
+        MmDetachSession((__int64)v8, (__int64)v26);
+        HalPutDmaAdapter(v8);
       }
-      if ( v24 )
+      KiUnstackDetachProcess((__int64)v27, 0);
+      if ( v18 )
       {
         ExtensionTable = (void (__fastcall **)(PEPROCESS))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspMmcssExtensionHost);
         if ( ExtensionTable )
@@ -176,9 +154,8 @@ LABEL_7:
           ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspMmcssExtensionHost);
         }
       }
-      return v25;
+      return v4;
     }
-    v5 = v22;
   }
-  return v1;
+  return v4;
 }

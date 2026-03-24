@@ -1,59 +1,73 @@
 /*
- * XREFs of HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x1404FE500
+ * XREFs of HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x1404B6660
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404FE340 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
- *     HalpTimerConvertAuxiliaryCounter @ 0x1404FE404 (HalpTimerConvertAuxiliaryCounter.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404B64A0 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
+ *     HalpTimerConvertAuxiliaryCounter @ 0x1404B6564 (HalpTimerConvertAuxiliaryCounter.c)
  */
 
-__int64 __fastcall HalpTimerConvertAuxiliaryCounterToPerformanceCounter(unsigned __int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall HalpTimerConvertAuxiliaryCounterToPerformanceCounter(unsigned __int64 a1, __int64 *a2, _QWORD *a3)
 {
-  ULONGLONG v6; // rsi
-  unsigned __int64 v7; // r14
-  int v8; // edx
-  ULONGLONG v9; // r15
+  unsigned __int64 v3; // rax
+  __int64 v5; // r8
+  ULONGLONG v7; // r15
+  int v9; // ecx
+  ULONGLONG v10; // rsi
+  unsigned __int64 v11; // r14
+  int v12; // eax
   ULONGLONG pullResult; // [rsp+40h] [rbp-30h] BYREF
-  LARGE_INTEGER v12; // [rsp+48h] [rbp-28h] BYREF
-  unsigned __int64 v13; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-18h] BYREF
-  unsigned __int64 v15; // [rsp+60h] [rbp-10h] BYREF
+  LARGE_INTEGER v15; // [rsp+48h] [rbp-28h] BYREF
+  unsigned __int64 v16; // [rsp+50h] [rbp-20h] BYREF
+  unsigned __int64 v17; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-10h] BYREF
   ULONGLONG ullMultiplicand; // [rsp+B8h] [rbp+48h] BYREF
 
-  v13 = 0LL;
-  v12.QuadPart = 0LL;
+  v16 = 0LL;
+  v3 = 0LL;
+  v15.QuadPart = 0LL;
   ullMultiplicand = 0LL;
+  v5 = 0LL;
   pullResult = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  if ( !HalpAuxiliaryCounter
-    || (v6 = HalpTimerQpcFreqForAuxQpcConversion,
-        v7 = *(_QWORD *)(HalpAuxiliaryCounter + 192),
-        !HalpTimerQpcFreqForAuxQpcConversion)
-    || !v7 )
+  v7 = 0LL;
+  v18 = 0LL;
+  v17 = 0LL;
+  if ( !HalpAuxiliaryCounter )
   {
-    v8 = -1073741637;
+    v9 = -1073741637;
     goto LABEL_10;
   }
-  HalpTimerCaptureCurrentAuxiliaryQpcPair(&v12, (__int64 *)&v13, (LARGE_INTEGER *)&ullMultiplicand);
-  if ( RtlULongLongMult(ullMultiplicand, 0x3B9ACA00uLL, &pullResult) < 0 )
+  v10 = HalpTimerQpcFreqForAuxQpcConversion;
+  v11 = *(_QWORD *)(HalpAuxiliaryCounter + 192);
+  if ( HalpTimerQpcFreqForAuxQpcConversion && v11 )
   {
-    v8 = -1073741823;
-    goto LABEL_10;
+    HalpTimerCaptureCurrentAuxiliaryQpcPair(&v15, (__int64 *)&v16, (LARGE_INTEGER *)&ullMultiplicand);
+    if ( RtlULongLongMult(ullMultiplicand, 0x3B9ACA00uLL, &pullResult) < 0 )
+    {
+      v9 = -1073741823;
+      goto LABEL_10;
+    }
+    v7 = pullResult / v10;
+    v12 = HalpTimerConvertAuxiliaryCounter(v16, v11, v15.QuadPart, v10, a1, &v18, &v17);
+    v5 = v18;
+    v9 = v12;
+    v3 = v17;
   }
-  v9 = pullResult / v6;
-  v8 = HalpTimerConvertAuxiliaryCounter(v13, v7, v12.QuadPart, v6, a1, &v14, &v15);
-  if ( v8 < 0 )
+  else
+  {
+    v9 = -1073741637;
+  }
+  if ( v9 < 0 )
   {
 LABEL_10:
     *a2 = 0LL;
     if ( a3 )
       *a3 = 0LL;
-    return (unsigned int)v8;
+    return (unsigned int)v9;
   }
-  *a2 = v14;
+  *a2 = v5;
   if ( a3 )
-    *a3 = v9 + v15;
-  return (unsigned int)v8;
+    *a3 = v7 + v3;
+  return (unsigned int)v9;
 }

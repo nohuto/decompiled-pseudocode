@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ClearInteraction@CVisual@@QEAAXXZ @ 0x180049514
+ * XREFs of ?ClearInteraction@CVisual@@QEAAXXZ @ 0x18009FD60
  * Callers:
- *     ?FinalRelease@CVisual@@MEAAXXZ @ 0x1800472A0 (-FinalRelease@CVisual@@MEAAXXZ.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18004A90C (--1CVisual@@MEAA@XZ.c)
- *     ?SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z @ 0x1800E6DC4 (-SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z.c)
+ *     ?Release@CVisual@@UEAAKXZ @ 0x18009FCC0 (-Release@CVisual@@UEAAKXZ.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A047C (--1CVisual@@MEAA@XZ.c)
+ *     ?SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z @ 0x1800E16C4 (-SetInteraction@CVisual@@IEAAJPEAVCInteraction@@@Z.c)
  * Callees:
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x18004D2F4 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C666C (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVisual::ClearInteraction(CVisual *this)
@@ -20,11 +20,11 @@ void __fastcall CVisual::ClearInteraction(CVisual *this)
 
   InteractionInternal = CVisual::GetInteractionInternal(this);
   if ( InteractionInternal )
-    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)InteractionInternal + 16LL))(InteractionInternal);
-  v3 = (_DWORD *)*((_QWORD *)this + 29);
+    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)InteractionInternal + 8LL))(InteractionInternal);
+  v3 = (_DWORD *)*((_QWORD *)this + 28);
   if ( (*v3 & 0x800000) != 0 )
   {
-    v4 = *((_QWORD *)this + 29);
+    v4 = *((_QWORD *)this + 28);
     *v3 &= ~0x800000u;
     Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v4, 9LL);
     if ( Slot < *(_DWORD *)(v6 + 4) )

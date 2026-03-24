@@ -1,41 +1,45 @@
 /*
- * XREFs of LogSenseSupportedLogPages @ 0x1C001C858
+ * XREFs of LogSenseSupportedLogPages @ 0x1C0013FD0
  * Callers:
- *     ScsiLogSenseRequest @ 0x1C00206FC (ScsiLogSenseRequest.c)
+ *     ScsiLogSenseRequest @ 0x1C0016B1C (ScsiLogSenseRequest.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
-__int64 __fastcall LogSenseSupportedLogPages(__int64 a1, __int64 a2)
+__int64 __fastcall LogSenseSupportedLogPages(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _DWORD *v3; // rbx
-  __int64 v4; // rax
-  unsigned int v5; // edx
+  __int64 v4; // rdi
+  _DWORD *v5; // rbx
+  __int64 v6; // rax
   __int64 result; // rax
 
+  v4 = a2;
   if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v3 = *(_DWORD **)(a2 + 64);
-    v4 = 60LL;
+    v5 = *(_DWORD **)(a2 + 64);
+    v6 = 60LL;
   }
   else
   {
-    v3 = *(_DWORD **)(a2 + 24);
-    v4 = 16LL;
+    v5 = *(_DWORD **)(a2 + 24);
+    v6 = 16LL;
   }
-  if ( v3 && (v5 = *(_DWORD *)(a2 + v4), v5 >= 7) )
+  if ( v5 && (a2 = *(unsigned int *)(a2 + v6), (unsigned int)a2 >= 7) )
   {
-    NVMeZeroMemory(v3, v5);
-    *v3 = 50331648;
+    NVMeZeroMemory(v5, a2);
+    *v5 = 50331648;
     result = 0LL;
-    *((_WORD *)v3 + 2) = 3328;
-    *((_BYTE *)v3 + 6) = 47;
-    *(_BYTE *)(a2 + 3) = 1;
+    *((_WORD *)v5 + 2) = 3328;
+    *((_BYTE *)v5 + 6) = 47;
+    *(_BYTE *)(v4 + 3) = 1;
   }
   else
   {
-    NVMeSetSenseData(a2, 6, 5, 0x24u);
+    LOBYTE(a4) = 36;
+    LOBYTE(a3) = 5;
+    LOBYTE(a2) = 6;
+    NVMeSetSenseData(v4, a2, a3, a4);
     return 3238002694LL;
   }
   return result;

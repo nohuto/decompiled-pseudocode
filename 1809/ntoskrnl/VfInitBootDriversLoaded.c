@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
  * Callees:
- *     NtSetDebugFilterState @ 0x140740A30 (NtSetDebugFilterState.c)
+ *     NtSetDebugFilterState @ 0x140740A10 (NtSetDebugFilterState.c)
  *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
  *     VfAvlInitializeTreeEx @ 0x1409214B4 (VfAvlInitializeTreeEx.c)
  *     VfLookasideInitializeInternalNPagedList @ 0x1409215C8 (VfLookasideInitializeInternalNPagedList.c)
@@ -13,9 +13,9 @@
  *     VfDriverLoadBootDrivers @ 0x1409B76F8 (VfDriverLoadBootDrivers.c)
  *     VfThunkFindExportAddressAllTables @ 0x1409B7754 (VfThunkFindExportAddressAllTables.c)
  *     VfThunkInit @ 0x1409B7A1C (VfThunkInit.c)
- *     VfTriageAddDrivers @ 0x1409F84DC (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x1409F8938 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x1409F8AF4 (VfXdvExcludeParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x1409F8B04 (VfXdvExcludeParseRegistryString.c)
  */
 
 char __fastcall VfInitBootDriversLoaded(__int64 a1)
@@ -46,7 +46,7 @@ char __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_14040D768 = 0;
+      dword_14040D708 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }

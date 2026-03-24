@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C015D9D8
+ * XREFs of ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C016AA20
  * Callers:
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vUnlock@XDCOBJ@@IEAAXXZ @ 0x1C015D9B0 (-vUnlock@XDCOBJ@@IEAAXXZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@XDCOBJ@@IEAAXXZ @ 0x1C016A9F8 (-vUnlock@XDCOBJ@@IEAAXXZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  * Callees:
- *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C00DCDA0 (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
+ *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C00D6670 (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
  */
 
 void __fastcall XDCOBJ::vUnlockFast(XDCOBJ *this)

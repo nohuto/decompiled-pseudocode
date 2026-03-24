@@ -1,90 +1,67 @@
 /*
- * XREFs of MiSelectOverflowDllBase @ 0x140A4822C
+ * XREFs of MiSelectOverflowDllBase @ 0x1408D7D4C
  * Callers:
- *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14066AAC0 (MiSelectImageBase.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     MiImageCanUseHighOverflowArea @ 0x140A48200 (MiImageCanUseHighOverflowArea.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiImageCanUseHighOverflowArea @ 0x1408D7D20 (MiImageCanUseHighOverflowArea.c)
  */
 
 __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2)
 {
-  __int64 v3; // rdi
-  unsigned __int64 v4; // rsi
-  int v5; // r8d
-  BOOL CanUseHighOverflowArea; // r9d
-  unsigned __int64 v7; // rdx
-  unsigned int v8; // ecx
-  __int64 *v10; // rcx
-  __int64 v11; // r14
-  __int64 *v12; // r15
-  struct _KTHREAD *CurrentThread; // rbx
-  unsigned __int64 v14; // r12
-  __int64 v15; // rax
-  signed __int8 v16; // cf
-  __int64 v17; // rdi
-  __int64 v18; // rdi
-  __int64 v19; // rax
-  bool v20; // zf
+  unsigned __int64 v3; // r15
+  int v4; // r8d
+  BOOL CanUseHighOverflowArea; // r10d
+  unsigned __int64 v6; // rdx
+  unsigned int v7; // ecx
+  __int64 *v9; // rcx
+  __int64 v10; // rsi
+  __int64 *v11; // r14
+  struct _KTHREAD *CurrentThread; // rbp
+  unsigned __int64 v13; // rdi
+  __int64 v14; // r12
 
   v3 = ((*(_DWORD *)(a1 + 8) << 12) + 0xFFFF) & 0xFFFF0000;
-  v4 = (unsigned int)v3;
   CanUseHighOverflowArea = MiImageCanUseHighOverflowArea(a1, a2);
-  v7 = CanUseHighOverflowArea ? 0x10000000LL : 0x4000000LL;
-  if ( (unsigned int)v3 <= v7 )
+  v6 = CanUseHighOverflowArea ? 0x10000000LL : 0x4000000LL;
+  if ( v3 <= v6 )
   {
-    v10 = &qword_140C65860;
-    if ( v5 == 3 )
-      v10 = (__int64 *)&unk_140C65890;
-    v11 = *v10;
-    v12 = v10 + 1;
+    v9 = &qword_140C4CB68;
+    if ( v4 == 3 )
+      v9 = (__int64 *)&unk_140C4CB98;
+    v10 = *v9;
+    v11 = v9 + 1;
     if ( CanUseHighOverflowArea )
     {
-      v11 = v10[2];
-      v12 = v10 + 3;
+      v10 = v9[2];
+      v11 = v9 + 3;
     }
     CurrentThread = KeGetCurrentThread();
-    v14 = v7 + v11;
+    v13 = v6 + v10;
     --CurrentThread->SpecialApcDisable;
-    v15 = KeAbPreAcquire((__int64)&qword_140C65840, 0LL);
-    v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C65840, 0LL);
-    v17 = v15;
-    if ( v16 )
-      ExfAcquirePushLockExclusiveEx(&qword_140C65840, v15, (__int64)&qword_140C65840);
-    if ( v17 )
-      *(_BYTE *)(v17 + 18) = 1;
-    v18 = *v12;
-    if ( v4 > v14 - *v12 )
-      v18 = v11;
-    v19 = v4 + v18;
-    if ( v4 + v18 == v14 )
-      v19 = v11;
-    *v12 = v19;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C65840, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C65840);
-    KeAbPostRelease((ULONG_PTR)&qword_140C65840);
-    v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    return v18;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB48, 0LL);
+    v14 = v10;
+    if ( v3 <= v13 - *v11 )
+      v14 = *v11;
+    *v11 = v14 + v3;
+    if ( v14 + v3 == v13 )
+      *v11 = v10;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4CB48);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4CB48);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    return v14;
   }
   else
   {
-    v8 = (unsigned __int8)ExGenRandom(1) << 16;
-    if ( a2 < 0x1010000
-      || (_DWORD)v3 && (unsigned int)v3 + a2 - 1 < a2
-      || a2 + ((v3 - 1) & -(__int64)((_DWORD)v3 != 0)) > 0x7FFFFFFEFFFFLL )
-    {
-      return v8 + 0x10000LL;
-    }
+    v7 = (unsigned __int8)ExGenRandom(1) << 16;
+    if ( a2 < 0x1010000 || a2 > v3 + a2 || v3 + a2 > 0x7FFFFFFF0000LL )
+      return v7 + 0x10000LL;
     else
-    {
-      return a2 - v8;
-    }
+      return a2 - v7;
   }
 }

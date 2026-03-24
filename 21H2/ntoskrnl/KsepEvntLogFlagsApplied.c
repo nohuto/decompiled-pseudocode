@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepEvntLogFlagsApplied @ 0x1403D857C
+ * XREFs of KsepEvntLogFlagsApplied @ 0x1403C9704
  * Callers:
- *     KseQueryDeviceFlags @ 0x1407EC520 (KseQueryDeviceFlags.c)
+ *     KseQueryDeviceFlags @ 0x14075F9E0 (KseQueryDeviceFlags.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char KsepEvntLogFlagsApplied(unsigned __int16 *a1, unsigned __int16 *a2, int a3, ...)

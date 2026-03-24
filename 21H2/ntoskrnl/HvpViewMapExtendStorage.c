@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapExtendStorage @ 0x14068F044
+ * XREFs of HvpViewMapExtendStorage @ 0x140724E8C
  * Callers:
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x14091ADA0 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
  * Callees:
- *     CmSiExtendSection @ 0x14020C790 (CmSiExtendSection.c)
- *     HvpViewMapCreateViewsForRegion @ 0x14068D778 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapMakeViewRangeValid @ 0x14068DB00 (HvpViewMapMakeViewRangeValid.c)
- *     HvpViewMapGetLastView @ 0x14068F0EC (HvpViewMapGetLastView.c)
+ *     CmSiExtendSection @ 0x140363D90 (CmSiExtendSection.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140723598 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140723924 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapGetLastView @ 0x140724F34 (HvpViewMapGetLastView.c)
  */
 
 __int64 __fastcall HvpViewMapExtendStorage(__int64 *a1, int a2)

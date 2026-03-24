@@ -1,7 +1,7 @@
 /*
- * XREFs of IrqArbpFindBootConfig @ 0x1C009C0B4
+ * XREFs of IrqArbpFindBootConfig @ 0x1C0095214
  * Callers:
- *     IrqArbGetNextAllocationRange @ 0x1C009A780 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
  * Callees:
  *     <none>
  */

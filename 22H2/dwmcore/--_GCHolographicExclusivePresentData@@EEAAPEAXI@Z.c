@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCHolographicExclusivePresentData@@EEAAPEAXI@Z @ 0x1802AF2EC
+ * XREFs of ??_GCHolographicExclusivePresentData@@EEAAPEAXI@Z @ 0x18025CE88
  * Callers:
- *     ??_ECHolographicExclusivePresentData@@G7EAAPEAXI@Z @ 0x180121A00 (--_ECHolographicExclusivePresentData@@G7EAAPEAXI@Z.c)
+ *     ??_ECHolographicExclusivePresentData@@G7EAAPEAXI@Z @ 0x1800F7E30 (--_ECHolographicExclusivePresentData@@G7EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CHolographicExclusivePresentData@@EEAA@XZ @ 0x1802AF270 (--1CHolographicExclusivePresentData@@EEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CHolographicExclusivePresentData@@EEAA@XZ @ 0x18025CE04 (--1CHolographicExclusivePresentData@@EEAA@XZ.c)
  */
 
 CHolographicExclusivePresentData *__fastcall CHolographicExclusivePresentData::`scalar deleting destructor'(

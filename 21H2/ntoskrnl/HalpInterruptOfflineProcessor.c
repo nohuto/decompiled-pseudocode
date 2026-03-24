@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptOfflineProcessor @ 0x1405242E0
+ * XREFs of HalpInterruptOfflineProcessor @ 0x1404D71E0
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140A621FC (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x1409A827C (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32 *a1)
@@ -18,7 +18,7 @@ void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32
 
   v1 = HalpInterruptController;
   v7 = 0LL;
-  LODWORD(v8) = 0;
+  v8 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -29,9 +29,7 @@ void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32
   v5 = *(void (__fastcall **)(__int64, __int128 *))(v1 + 80);
   if ( v5 )
   {
-    v8 = 0LL;
     v6 = *(_QWORD *)(v1 + 16);
-    v7 = 0LL;
     LODWORD(v7) = 4;
     v5(v6, &v7);
   }

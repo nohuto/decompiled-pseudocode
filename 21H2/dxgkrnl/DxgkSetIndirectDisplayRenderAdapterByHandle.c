@@ -1,34 +1,38 @@
 /*
- * XREFs of DxgkSetIndirectDisplayRenderAdapterByHandle @ 0x1C02D48F4
+ * XREFs of DxgkSetIndirectDisplayRenderAdapterByHandle @ 0x1C02267C8
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
- *     DxgkHandleIndirectEscape @ 0x1C0392C44 (DxgkHandleIndirectEscape.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     DxgkHandleIndirectEscape @ 0x1C02D5A00 (DxgkHandleIndirectEscape.c)
  * Callees:
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z @ 0x1C02B9AE4 (-AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z.c)
- *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C02D4418 (DxgkSetIndirectDisplayRenderAdapter.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z @ 0x1C020B574 (-AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z.c)
+ *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C0226338 (DxgkSetIndirectDisplayRenderAdapter.c)
  */
 
-__int64 __fastcall DxgkSetIndirectDisplayRenderAdapterByHandle(
-        unsigned int a1,
-        struct _LUID *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall DxgkSetIndirectDisplayRenderAdapterByHandle(unsigned int a1, struct _LUID *a2)
 {
-  unsigned int v6; // ebx
-  struct DXGADAPTER *v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // rax
+  unsigned int v7; // ebx
+  struct DXGADAPTER *v9[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v8[0] = 0LL;
-  DXGADAPTER_REFERENCE::AssignByHandle(v8, a1, a3, a4);
-  if ( v8[0] )
+  v9[0] = 0LL;
+  v3 = a1;
+  DXGADAPTER_REFERENCE::AssignByHandle(v9, a1);
+  if ( v9[0] )
   {
-    v6 = DxgkSetIndirectDisplayRenderAdapter(v8[0], a2, 0LL);
+    v7 = DxgkSetIndirectDisplayRenderAdapter(v9[0], a2, 0LL);
   }
   else
   {
-    WdLogSingleEntry2(3LL, a1, -1073741811LL);
-    v6 = -1073741585;
+    v6 = WdLogNewEntry5_WdWarning(0LL, v4, v5);
+    *(_QWORD *)(v6 + 24) = v3;
+    *(_QWORD *)(v6 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v6);
+    v7 = -1073741585;
   }
-  DXGADAPTER_REFERENCE::Assign(v8, 0LL);
-  return v6;
+  DXGADAPTER_REFERENCE::Assign(v9, 0LL);
+  return v7;
 }

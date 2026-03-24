@@ -1,92 +1,93 @@
 /*
- * XREFs of EtwpApplyPackageIdFilter @ 0x1409F4FC8
+ * XREFs of EtwpApplyPackageIdFilter @ 0x1409408CC
  * Callers:
- *     EtwpApplyScopeFilters @ 0x1406BFD14 (EtwpApplyScopeFilters.c)
- *     EtwpApplyTransientFilters @ 0x1409F51C8 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1406A5CC0 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyScopeFilters @ 0x1406BCEF8 (EtwpApplyScopeFilters.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x140225FB0 (RtlQueryPackageIdentity.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     memset @ 0x140435400 (memset.c)
- *     PsQueryProcessAttributesByToken @ 0x14071DEF0 (PsQueryProcessAttributesByToken.c)
+ *     RtlQueryPackageIdentity @ 0x14024EE40 (RtlQueryPackageIdentity.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsQueryProcessAttributesByToken @ 0x140601050 (PsQueryProcessAttributesByToken.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
  */
 
 char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
 {
-  char v6; // bl
-  ULONG_PTR v8; // r13
-  unsigned __int16 v9; // r12
-  unsigned int v10; // r15d
-  char v11; // r12
-  unsigned __int16 v12; // r15
-  unsigned int v13; // esi
-  char v14; // al
-  bool v15; // [rsp+30h] [rbp-D0h] BYREF
-  bool v16; // [rsp+31h] [rbp-CFh] BYREF
-  __int64 v17; // [rsp+38h] [rbp-C8h]
-  _QWORD v18[52]; // [rsp+40h] [rbp-C0h] BYREF
+  struct _KPROCESS *v6; // rcx
+  char v7; // bl
+  bool v8; // r12
+  struct _DMA_ADAPTER *v9; // r13
+  bool v10; // r14
+  unsigned __int16 v11; // r14
+  unsigned int v12; // esi
+  unsigned __int16 v13; // si
+  unsigned int v14; // edi
+  char v16; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v17[7]; // [rsp+31h] [rbp-CFh] BYREF
+  __int64 v18; // [rsp+38h] [rbp-C8h]
+  size_t v19[52]; // [rsp+40h] [rbp-C0h] BYREF
 
-  v17 = a1;
-  memset(v18, 0, 0x198uLL);
-  v6 = 0;
-  v15 = 0;
-  if ( !a2 && !a3 )
-    return 1;
-  v8 = PsReferencePrimaryTokenWithTag(*(_QWORD *)(a1 + 80), 0x746C6644u);
-  PsQueryProcessAttributesByToken(v8, &v15, &v16);
-  if ( v15 )
+  v18 = a1;
+  memset(v19, 0, 0x198uLL);
+  v6 = *(struct _KPROCESS **)(a1 + 80);
+  v7 = 0;
+  v16 = 0;
+  v8 = a3 == 0LL;
+  v9 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(v6);
+  PsQueryProcessAttributesByToken((__int64)v9, &v16, v17);
+  if ( v16 )
   {
-    v18[0] = 256LL;
-    v18[1] = 130LL;
-    if ( (int)RtlQueryPackageIdentity(v8, (int)&v18[2], (int)v18, (int)&v18[34], (__int64)&v18[1], 0LL) >= 0 )
+    v19[0] = 256LL;
+    v19[1] = 130LL;
+    if ( RtlQueryPackageIdentity((int)v9, (wchar_t *)&v19[2], v19, (wchar_t *)&v19[34], &v19[1], 0LL) >= 0 )
     {
+      v10 = a2 == 0LL;
       if ( a2 )
       {
-        v9 = 0;
-        v10 = (v18[0] >> 1) - 1;
-        if ( !*a2 )
+        v11 = 0;
+        v12 = (v19[0] >> 1) - 1;
+        if ( *a2 )
         {
-LABEL_11:
-          v11 = 0;
-          goto LABEL_13;
+          while ( (unsigned __int16)a2[8 * v11 + 4] != v12
+               || wcsnicmp(*(const wchar_t **)&a2[8 * v11 + 8], (const wchar_t *)&v19[2], v12) )
+          {
+            if ( ++v11 >= *a2 )
+              goto LABEL_8;
+          }
+          v10 = 1;
         }
-        while ( (unsigned __int16)a2[8 * v9 + 4] != v10
-             || wcsnicmp(*(const wchar_t **)&a2[8 * v9 + 8], (const wchar_t *)&v18[2], v10) )
+        else
         {
-          if ( ++v9 >= *a2 )
-            goto LABEL_11;
+LABEL_8:
+          v10 = 0;
         }
       }
-      v11 = 1;
-LABEL_13:
       if ( a3 )
       {
-        v12 = 0;
-        v13 = (v18[1] >> 1) - 1;
-        if ( !*a3 )
+        v13 = 0;
+        v14 = (v19[1] >> 1) - 1;
+        if ( *a3 )
         {
-LABEL_18:
-          v14 = 0;
-          goto LABEL_20;
+          while ( (unsigned __int16)a3[8 * v13 + 4] != v14
+               || wcsnicmp(*(const wchar_t **)&a3[8 * v13 + 8], (const wchar_t *)&v19[34], v14) )
+          {
+            if ( ++v13 >= *a3 )
+              goto LABEL_14;
+          }
+          v8 = 1;
         }
-        while ( (unsigned __int16)a3[8 * v12 + 4] != v13
-             || wcsnicmp(*(const wchar_t **)&a3[8 * v12 + 8], (const wchar_t *)&v18[34], v13) )
+        else
         {
-          if ( ++v12 >= *a3 )
-            goto LABEL_18;
+LABEL_14:
+          v8 = 0;
         }
       }
-      v14 = 1;
-LABEL_20:
-      if ( v11 )
-      {
-        if ( v14 )
-          v6 = 1;
-      }
+      if ( v10 && v8 )
+        v7 = 1;
     }
   }
-  ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(v17 + 80) + 1208LL), v8, 0x746C6644u);
-  return v6;
+  ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(v18 + 80) + 1208LL), v9);
+  return v7;
 }

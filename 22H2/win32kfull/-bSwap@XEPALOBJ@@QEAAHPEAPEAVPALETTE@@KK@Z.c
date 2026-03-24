@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bSwap@XEPALOBJ@@QEAAHPEAPEAVPALETTE@@KK@Z @ 0x1C02D88AC
+ * XREFs of ?bSwap@XEPALOBJ@@QEAAHPEAPEAVPALETTE@@KK@Z @ 0x1C02BC6E0
  * Callers:
- *     NtGdiResizePalette @ 0x1C02D2760 (NtGdiResizePalette.c)
+ *     NtGdiResizePalette @ 0x1C02B7AC0 (NtGdiResizePalette.c)
  * Callees:
  *     <none>
  */

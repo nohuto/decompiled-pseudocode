@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhMakePdoName @ 0x1C00432FC
+ * XREFs of UsbhMakePdoName @ 0x1C00445AC
  * Callers:
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhMakePdoName(__int64 a1, struct _UNICODE_STRING *a2, ULONG a3)
 {
-  __int64 Pool2; // rax
-  void *v6; // rdi
-  __int128 v8; // xmm1
+  WCHAR *PoolWithTag; // rax
+  WCHAR *v6; // rdi
+  __int128 v7; // xmm1
   NTSTATUS appended; // ebx
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-98h] BYREF
   __int128 v11; // [rsp+30h] [rbp-88h]
@@ -22,14 +22,15 @@ __int64 __fastcall UsbhMakePdoName(__int64 a1, struct _UNICODE_STRING *a2, ULONG
   v12 = *(_OWORD *)L"USBPDO-";
   DestinationString = 0LL;
   memset(SourceString, 0, sizeof(SourceString));
-  Pool2 = ExAllocatePool2(64LL, 96LL, 1112885333LL);
-  v6 = (void *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x60uLL, 0x42554855u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v8 = v12;
-  *(_OWORD *)Pool2 = v11;
-  *(_OWORD *)(Pool2 + 16) = v8;
-  RtlInitUnicodeString(a2, (PCWSTR)Pool2);
+  memset(PoolWithTag, 0, 0x60uLL);
+  v7 = v12;
+  *(_OWORD *)v6 = v11;
+  *((_OWORD *)v6 + 1) = v7;
+  RtlInitUnicodeString(a2, v6);
   a2->MaximumLength = 96;
   RtlInitUnicodeString(&DestinationString, SourceString);
   DestinationString.MaximumLength = 64;

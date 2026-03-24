@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteKernelStackNode @ 0x140590C24
+ * XREFs of MiDeleteKernelStackNode @ 0x140535E6C
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14029A2A0 (MiInPageSingleKernelStack.c)
+ *     MiInPageSingleKernelStack @ 0x1402E4C40 (MiInPageSingleKernelStack.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteKernelStackNode(unsigned __int64 *P)
@@ -19,9 +19,9 @@ void __fastcall MiDeleteKernelStackNode(unsigned __int64 *P)
   int v6; // eax
   bool v7; // zf
 
-  v2 = ExAcquireSpinLockExclusive(&dword_140C53070);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C53068, P);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C53070);
+  v2 = ExAcquireSpinLockExclusive(&dword_140C4EBE0);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4EBD8, P);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBE0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

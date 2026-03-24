@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbGetDriverShimsInternal @ 0x140694B7C
+ * XREFs of KsepDbGetDriverShimsInternal @ 0x14075867C
  * Callers:
- *     KsepDbGetDriverShims @ 0x140694A54 (KsepDbGetDriverShims.c)
+ *     KsepDbGetDriverShims @ 0x140758450 (KsepDbGetDriverShims.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbFindNextTag @ 0x1407560F8 (SdbFindNextTag.c)
- *     SdbGetDatabaseMatchEx @ 0x1407571D0 (SdbGetDatabaseMatchEx.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbTagRefToTagID @ 0x14080B368 (SdbTagRefToTagID.c)
- *     KsepDbGetSdbString @ 0x140856690 (KsepDbGetSdbString.c)
- *     SdbReadGUIDTag @ 0x1408566C4 (SdbReadGUIDTag.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     KsepDbFreeDriverShims @ 0x140758720 (KsepDbFreeDriverShims.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407591F8 (SdbGetDatabaseMatchEx.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x140759638 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbTagRefToTagID @ 0x1407C2850 (SdbTagRefToTagID.c)
+ *     KsepDbGetSdbString @ 0x1408BF838 (KsepDbGetSdbString.c)
+ *     SdbReadGUIDTag @ 0x1409662A0 (SdbReadGUIDTag.c)
  */
 
 __int64 __fastcall KsepDbGetDriverShimsInternal(
@@ -19,13 +19,13 @@ __int64 __fastcall KsepDbGetDriverShimsInternal(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        int a5,
+        unsigned int a5,
         _QWORD *a6,
         _DWORD *a7)
 {
   _OWORD *Paged; // rsi
   _DWORD *v8; // r13
-  __int64 v10; // r8
+  __int64 v10; // rax
   unsigned int DatabaseMatch; // eax
   int SdbString; // ebx
   __int64 v14; // rdi
@@ -40,21 +40,27 @@ __int64 __fastcall KsepDbGetDriverShimsInternal(
   unsigned int v23; // eax
   unsigned int v24; // eax
   unsigned int v25; // ebp
-  __int128 v26; // [rsp+40h] [rbp-58h] BYREF
-  _BYTE v27[16]; // [rsp+50h] [rbp-48h] BYREF
-  unsigned int v28; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v26; // [rsp+20h] [rbp-78h]
+  __int64 v27; // [rsp+28h] [rbp-70h]
+  __int64 v28; // [rsp+30h] [rbp-68h]
+  __int128 v29; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE v30[16]; // [rsp+50h] [rbp-48h] BYREF
+  unsigned int v31; // [rsp+B0h] [rbp+18h] BYREF
 
   Paged = 0LL;
   v8 = a7;
-  v10 = *(_QWORD *)(a3 + 8);
-  *(_QWORD *)&v26 = 0LL;
+  *(_QWORD *)&v29 = 0LL;
   *a6 = 0LL;
-  v28 = 0;
+  v10 = a5;
+  v31 = 0;
   *v8 = 0;
-  DatabaseMatch = SdbGetDatabaseMatchEx(a1, 0LL, v10);
+  v28 = a2;
+  v27 = v10;
+  v26 = a4;
+  DatabaseMatch = SdbGetDatabaseMatchEx(a1, 0LL);
   if ( !DatabaseMatch
-    || !(unsigned int)SdbTagRefToTagID(a1, DatabaseMatch, &v26, &v28)
-    || (v14 = v26, (FirstTag = SdbFindFirstTag(v26, v28, 28710LL)) == 0) )
+    || !(unsigned int)SdbTagRefToTagID(a1, DatabaseMatch, &v29, &v31)
+    || (v14 = v29, (FirstTag = SdbFindFirstTag(v29, v31, 28710LL)) == 0) )
   {
     SdbString = -1073741275;
 LABEL_3:
@@ -64,7 +70,7 @@ LABEL_3:
   LODWORD(v16) = 0;
   do
   {
-    FirstTag = SdbFindNextTag(v14, v28, FirstTag);
+    FirstTag = SdbFindNextTag(v14, v31, FirstTag);
     v16 = (unsigned int)(v16 + 1);
   }
   while ( FirstTag );
@@ -75,7 +81,7 @@ LABEL_3:
     SdbString = -1073741801;
     goto LABEL_3;
   }
-  NextTag = SdbFindFirstTag(v14, v28, 28710LL);
+  NextTag = SdbFindFirstTag(v14, v31, 28710LL);
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
     v25 = NextTag;
@@ -86,8 +92,8 @@ LABEL_3:
       v19 = SdbFindFirstTag(v14, NextTag, 36880LL);
       if ( v19 )
       {
-        v26 = 0LL;
-        Paged[5 * i] = *(_OWORD *)SdbReadGUIDTag(v27, v14, v19, &v26);
+        v29 = 0LL;
+        Paged[5 * i] = *(_OWORD *)SdbReadGUIDTag(v30, v14, v19, &v29, v26, v27, v28);
       }
       v20 = SdbFindFirstTag(v14, v25, 24577LL);
       v21 = 5 * i;
@@ -116,7 +122,7 @@ LABEL_3:
       }
       DWORD1(Paged[v21 + 4]) = 1;
     }
-    NextTag = SdbFindNextTag(v14, v28, v25);
+    NextTag = SdbFindNextTag(v14, v31, v25);
   }
   SdbString = 0;
   *a6 = Paged;

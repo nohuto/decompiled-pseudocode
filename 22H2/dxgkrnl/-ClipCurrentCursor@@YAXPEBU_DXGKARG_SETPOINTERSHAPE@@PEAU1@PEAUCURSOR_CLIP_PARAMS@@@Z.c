@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ClipCurrentCursor@@YAXPEBU_DXGKARG_SETPOINTERSHAPE@@PEAU1@PEAUCURSOR_CLIP_PARAMS@@@Z @ 0x1C03382F8
+ * XREFs of ?ClipCurrentCursor@@YAXPEBU_DXGKARG_SETPOINTERSHAPE@@PEAU1@PEAUCURSOR_CLIP_PARAMS@@@Z @ 0x1C027D800
  * Callers:
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01F2970 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0339CD4 (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01204C0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 void __fastcall ClipCurrentCursor(
@@ -14,63 +13,71 @@ void __fastcall ClipCurrentCursor(
         struct _DXGKARG_SETPOINTERSHAPE *a2,
         struct CURSOR_CLIP_PARAMS *a3)
 {
-  UINT Height; // r8d
+  const struct _DXGKARG_SETPOINTERSHAPE *v5; // rsi
+  __int64 Height; // rdx
   UINT v7; // r14d
   int v8; // edi
-  UINT Pitch; // edx
+  UINT Pitch; // r8d
   int v10; // edi
-  UINT v11; // ecx
-  UINT v12; // edi
-  __int64 v13; // rdi
-  _BYTE *v14; // r8
-  _BYTE *v15; // r9
-  char v16; // dl
-  char v17; // r13
-  char v18; // r12
-  __int64 v19; // r11
-  void *v20; // rax
+  int v11; // ebp
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  UINT v14; // ebp
+  UINT v15; // edi
+  __int64 v16; // rdi
+  __int64 v17; // rax
+  __int64 v18; // rax
+  _BYTE *v19; // r9
+  _BYTE *v20; // r10
   const void *v21; // rcx
-  bool v22; // zf
-  UINT v23; // r14d
-  UINT v24; // edi
-  __int64 v25; // rdi
-  _BYTE *v26; // rsi
-  _BYTE *v27; // r14
-  unsigned int v28; // ecx
-  char v29; // dl
-  char v30; // bp
-  __int64 v31; // r13
-  __int64 v32; // r8
-  void *v33; // rbx
-  const void *v34; // r15
-  UINT v35; // edi
-  __int64 v36; // rdi
-  _BYTE *v37; // rsi
-  _BYTE *v38; // r14
-  unsigned int v39; // ecx
-  char v40; // dl
-  char v41; // r8
-  __int64 v42; // r12
-  __int64 v43; // r13
-  void *v44; // rbx
-  const void *v45; // rbp
-  _BYTE *v46; // [rsp+50h] [rbp-68h]
-  __int64 v47; // [rsp+58h] [rbp-60h]
-  __int64 v48; // [rsp+60h] [rbp-58h]
-  int v49; // [rsp+C0h] [rbp+8h]
-  char v50; // [rsp+C0h] [rbp+8h]
-  char v51; // [rsp+C0h] [rbp+8h]
-  char v52; // [rsp+C0h] [rbp+8h]
-  _BYTE *v53; // [rsp+C8h] [rbp+10h]
-  char v54; // [rsp+C8h] [rbp+10h]
-  char v55; // [rsp+C8h] [rbp+10h]
-  _BYTE *v56; // [rsp+D0h] [rbp+18h]
-  __int64 v57; // [rsp+D0h] [rbp+18h]
-  char v58; // [rsp+D0h] [rbp+18h]
-  _BYTE *v59; // [rsp+D8h] [rbp+20h]
+  char v22; // si
+  char v23; // r12
+  char v24; // r13
+  void *v25; // rax
+  bool v26; // zf
+  UINT v27; // r14d
+  UINT v28; // edi
+  __int64 v29; // rdi
+  __int64 v30; // rax
+  __int64 v31; // rax
+  _BYTE *v32; // rsi
+  _BYTE *v33; // r14
+  unsigned int v34; // ecx
+  __int64 v35; // r13
+  char v36; // dl
+  char v37; // r12
+  __int64 v38; // r15
+  void *v39; // rbx
+  const void *v40; // rbp
+  unsigned int v41; // edi
+  __int64 v42; // rdi
+  __int64 v43; // rax
+  __int64 v44; // rax
+  _BYTE *v45; // rsi
+  _BYTE *v46; // r14
+  unsigned int v47; // ecx
+  char v48; // dl
+  char v49; // r12
+  __int64 v50; // r15
+  __int64 v51; // r13
+  void *v52; // rbx
+  const void *v53; // rbp
+  _BYTE *v54; // [rsp+20h] [rbp-68h]
+  __int64 v55; // [rsp+28h] [rbp-60h]
+  __int64 v56; // [rsp+30h] [rbp-58h]
+  const struct _DXGKARG_SETPOINTERSHAPE *v57; // [rsp+90h] [rbp+8h]
+  char v58; // [rsp+90h] [rbp+8h]
+  char v59; // [rsp+90h] [rbp+8h]
+  _BYTE *v60; // [rsp+98h] [rbp+10h]
+  char v61; // [rsp+98h] [rbp+10h]
+  char v62; // [rsp+98h] [rbp+10h]
+  _BYTE *v63; // [rsp+A0h] [rbp+18h]
+  _BYTE *v64; // [rsp+A8h] [rbp+20h]
 
+  v57 = a1;
   a2->Flags.Value = a1->Flags.Value;
   a2->Width = a1->Width;
+  v5 = a1;
   Height = a1->Height;
   v7 = 0;
   v8 = *((_DWORD *)a3 + 5);
@@ -84,260 +91,211 @@ void __fastcall ClipCurrentCursor(
   v10 = v8 & 4;
   if ( v10 )
   {
-    v11 = a1->Width - *(_DWORD *)a3;
-    if ( (a1->Flags.Value & 1) != 0 )
-      v7 += v11 >> 3;
-    else
-      v7 += 4 * v11;
-  }
-  v49 = *((_DWORD *)a3 + 3);
-  if ( (a1->Flags.Value & 1) != 0 )
-  {
-    memset((void *)a2->pPixels, 255, Pitch * Height);
-    if ( v49 )
+    a1 = (const struct _DXGKARG_SETPOINTERSHAPE *)(a1->Width - *(_DWORD *)a3);
+    if ( (v5->Flags.Value & 1) != 0 )
     {
+      a1 = (const struct _DXGKARG_SETPOINTERSHAPE *)((unsigned int)a1 >> 3);
+      v7 += (unsigned int)a1;
+    }
+    else
+    {
+      v7 += 4 * (_DWORD)a1;
+    }
+  }
+  v11 = *((_DWORD *)a3 + 3);
+  if ( (v5->Flags.Value & 1) != 0 )
+  {
+    memset((void *)a2->pPixels, 255, (unsigned int)Height * Pitch);
+    if ( v11 )
+    {
+      v14 = *(_DWORD *)a3;
       if ( v10 )
-        v12 = *(_DWORD *)a3 + 8 * a1->Pitch - a1->Width;
+        v15 = v14 + 8 * v5->Pitch - v5->Width;
       else
-        v12 = *(_DWORD *)a3;
-      v13 = v12 >> 3;
+        v15 = *(_DWORD *)a3;
+      v16 = v15 >> 3;
     }
     else
     {
       if ( *((_BYTE *)a3 + 16) )
       {
-        WdLogSingleEntry1(1LL, 143LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsLeftMono == 0",
-          143LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v17 = WdLogNewEntry5_WdAssertion(v13, v12);
+        *(_QWORD *)(v17 + 24) = 143LL;
+        WdLogEvent5_WdAssertion(v17);
       }
       if ( *((_BYTE *)a3 + 17) )
       {
-        WdLogSingleEntry1(1LL, 144LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsRightMono == 0",
-          144LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v18 = WdLogNewEntry5_WdAssertion(v13, v12);
+        *(_QWORD *)(v18 + 24) = 144LL;
+        WdLogEvent5_WdAssertion(v18);
       }
-      v13 = (unsigned int)(4 * *(_DWORD *)a3);
+      v14 = *(_DWORD *)a3;
+      v16 = (unsigned int)(4 * *(_DWORD *)a3);
     }
-    v14 = (char *)a2->pPixels + v7;
-    v15 = (char *)a1->pPixels + v7;
-    v59 = v14;
-    v46 = v15;
-    if ( *((_DWORD *)a3 + 1) )
+    v19 = (char *)a2->pPixels + v7;
+    v20 = (char *)v5->pPixels + v7;
+    v21 = (const void *)*((unsigned int *)a3 + 1);
+    v64 = v19;
+    v54 = v20;
+    if ( (_DWORD)v21 )
     {
-      v16 = *((_BYTE *)a3 + 17);
-      v17 = *((_BYTE *)a3 + 16);
-      v18 = 8 - v16;
-      v19 = *((unsigned int *)a3 + 2);
-      v48 = v19;
-      v50 = v16;
-      v47 = *((unsigned int *)a3 + 1);
+      v22 = *((_BYTE *)a3 + 16);
+      v23 = 8 - *((_BYTE *)a3 + 17);
+      v24 = *((_BYTE *)a3 + 17);
+      v56 = *((unsigned int *)a3 + 2);
+      v55 = *((unsigned int *)a3 + 1);
       do
       {
-        v20 = v14;
-        v21 = v15;
-        v53 = v14;
-        v56 = v15;
-        if ( v17 )
+        v25 = v19;
+        v21 = v20;
+        v60 = v19;
+        v63 = v20;
+        if ( v22 )
         {
-          v16 = v50;
-          v20 = v14 + 1;
-          *v14 = ((1 << v17) - 1) & *v15 | *v14 & ~((1 << v17) - 1);
-          v21 = v15 + 1;
-          v56 = v15 + 1;
-          v53 = v14 + 1;
+          v12 = 1LL;
+          LOBYTE(v12) = (1 << v22) - 1;
+          v25 = v19 + 1;
+          *v19 = v12 & *v20 | *v19 & ~(_BYTE)v12;
+          v21 = v20 + 1;
+          v63 = v20 + 1;
+          v60 = v19 + 1;
         }
-        if ( (_DWORD)v13 )
+        if ( (_DWORD)v16 )
         {
-          memmove(v20, v21, (unsigned int)v13);
-          v14 = v59;
-          v15 = v46;
-          v19 = v48;
-          v16 = v50;
+          memmove(v25, v21, (unsigned int)v16);
+          v19 = v64;
+          v20 = v54;
         }
-        if ( v16 )
+        if ( v24 )
         {
-          v16 = v50;
-          v53[v13] = ((1 << v18) - 1) & v53[v13] | ~((1 << v18) - 1) & v56[v13];
+          v21 = v63;
+          LOBYTE(v21) = ((1 << v23) - 1) & v60[v16] | ~((1 << v23) - 1) & v63[v16];
+          v60[v16] = (_BYTE)v21;
         }
-        v14 += v19;
-        v15 += v19;
-        v22 = v47-- == 1;
-        v59 = v14;
-        v46 = v15;
+        v19 += v56;
+        v20 += v56;
+        v26 = v55-- == 1;
+        v64 = v19;
+        v54 = v20;
       }
-      while ( !v22 );
+      while ( !v26 );
+      v5 = v57;
     }
-    v23 = a2->Height * a2->Pitch + v7;
+    v27 = a2->Height * a2->Pitch + v7;
     if ( *((_DWORD *)a3 + 3) )
     {
       if ( (*((_DWORD *)a3 + 5) & 4) != 0 )
-        v24 = *(_DWORD *)a3 + 8 * a1->Pitch - a1->Width;
+        v28 = v14 + 8 * v5->Pitch - v5->Width;
       else
-        v24 = *(_DWORD *)a3;
-      v25 = v24 >> 3;
+        v28 = v14;
+      v29 = v28 >> 3;
     }
     else
     {
       if ( *((_BYTE *)a3 + 16) )
       {
-        WdLogSingleEntry1(1LL, 143LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsLeftMono == 0",
-          143LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v30 = WdLogNewEntry5_WdAssertion(v21, v12);
+        *(_QWORD *)(v30 + 24) = 143LL;
+        WdLogEvent5_WdAssertion(v30);
       }
       if ( *((_BYTE *)a3 + 17) )
       {
-        WdLogSingleEntry1(1LL, 144LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsRightMono == 0",
-          144LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v31 = WdLogNewEntry5_WdAssertion(v21, v12);
+        *(_QWORD *)(v31 + 24) = 144LL;
+        WdLogEvent5_WdAssertion(v31);
       }
-      v25 = (unsigned int)(4 * *(_DWORD *)a3);
+      v29 = (unsigned int)(4 * *(_DWORD *)a3);
     }
-    v26 = (char *)a1->pPixels + v23;
-    v27 = (char *)a2->pPixels + v23;
-    v28 = *((_DWORD *)a3 + 1);
-    if ( v28 )
+    v32 = (char *)v5->pPixels + v27;
+    v33 = (char *)a2->pPixels + v27;
+    v34 = *((_DWORD *)a3 + 1);
+    if ( v34 )
     {
-      v29 = *((_BYTE *)a3 + 16);
-      v30 = 8 - *((_BYTE *)a3 + 17);
-      v31 = *((unsigned int *)a3 + 2);
-      v32 = v28;
-      v54 = v29;
-      v51 = *((_BYTE *)a3 + 17);
-      v57 = *((unsigned int *)a3 + 1);
+      v35 = v34;
+      v36 = *((_BYTE *)a3 + 16);
+      v37 = 8 - *((_BYTE *)a3 + 17);
+      v38 = *((unsigned int *)a3 + 2);
+      v61 = v36;
+      v58 = *((_BYTE *)a3 + 17);
       do
       {
-        v33 = v27;
-        v34 = v26;
-        if ( v29 )
+        v39 = v33;
+        v40 = v32;
+        if ( v36 )
         {
-          v33 = v27 + 1;
-          v34 = v26 + 1;
-          *v27 = ((1 << v29) - 1) & *v26 | *v27 & ~((1 << v29) - 1);
+          v39 = v33 + 1;
+          v40 = v32 + 1;
+          *v33 = ((1 << v36) - 1) & *v32 | *v33 & ~((1 << v36) - 1);
         }
-        if ( (_DWORD)v25 )
-        {
-          memmove(v33, v34, (unsigned int)v25);
-          v32 = v57;
-        }
-        if ( v51 )
-          *((_BYTE *)v33 + v25) = ((1 << v30) - 1) & *((_BYTE *)v33 + v25) | ~((1 << v30) - 1) & *((_BYTE *)v34 + v25);
-        v29 = v54;
-        v27 += v31;
-        v26 += v31;
-        v57 = --v32;
+        if ( (_DWORD)v29 )
+          memmove(v39, v40, (unsigned int)v29);
+        if ( v58 )
+          *((_BYTE *)v39 + v29) = *((_BYTE *)v39 + v29) & ((1 << v37) - 1) | ~((1 << v37) - 1) & *((_BYTE *)v40 + v29);
+        v36 = v61;
+        v33 += v38;
+        v32 += v38;
+        --v35;
       }
-      while ( v32 );
+      while ( v35 );
     }
   }
   else
   {
-    if ( *((_DWORD *)a3 + 3) )
+    if ( v11 )
     {
       if ( v10 )
-        v35 = *(_DWORD *)a3 + 8 * a1->Pitch - a1->Width;
+        v41 = *(_DWORD *)a3 + 8 * v5->Pitch - v5->Width;
       else
-        v35 = *(_DWORD *)a3;
-      v36 = v35 >> 3;
+        v41 = *(_DWORD *)a3;
+      v42 = v41 >> 3;
     }
     else
     {
       if ( *((_BYTE *)a3 + 16) )
       {
-        WdLogSingleEntry1(1LL, 143LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsLeftMono == 0",
-          143LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v43 = WdLogNewEntry5_WdAssertion(a1, Height);
+        *(_QWORD *)(v43 + 24) = 143LL;
+        WdLogEvent5_WdAssertion(v43);
       }
       if ( *((_BYTE *)a3 + 17) )
       {
-        WdLogSingleEntry1(1LL, 144LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pClipParams->ExtraPixelsRightMono == 0",
-          144LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v44 = WdLogNewEntry5_WdAssertion(a1, Height);
+        *(_QWORD *)(v44 + 24) = 144LL;
+        WdLogEvent5_WdAssertion(v44);
       }
-      v36 = (unsigned int)(4 * *(_DWORD *)a3);
+      v42 = (unsigned int)(4 * *(_DWORD *)a3);
     }
-    v37 = (char *)a1->pPixels + v7;
-    v38 = (char *)a2->pPixels + v7;
-    v39 = *((_DWORD *)a3 + 1);
-    if ( v39 )
+    v45 = (char *)v5->pPixels + v7;
+    v46 = (char *)a2->pPixels + v7;
+    v47 = *((_DWORD *)a3 + 1);
+    if ( v47 )
     {
-      v40 = *((_BYTE *)a3 + 16);
-      v41 = 8 - *((_BYTE *)a3 + 17);
-      v42 = *((unsigned int *)a3 + 2);
-      v43 = v39;
-      v52 = v41;
-      v58 = v40;
-      v55 = *((_BYTE *)a3 + 17);
+      v48 = *((_BYTE *)a3 + 16);
+      v49 = 8 - *((_BYTE *)a3 + 17);
+      v50 = *((unsigned int *)a3 + 2);
+      v51 = v47;
+      v62 = v48;
+      v59 = *((_BYTE *)a3 + 17);
       do
       {
-        v44 = v38;
-        v45 = v37;
-        if ( v40 )
+        v52 = v46;
+        v53 = v45;
+        if ( v48 )
         {
-          v44 = v38 + 1;
-          v45 = v37 + 1;
-          *v38 = ((1 << v40) - 1) & *v37 | *v38 & ~((1 << v40) - 1);
+          v52 = v46 + 1;
+          v53 = v45 + 1;
+          *v46 = ((1 << v48) - 1) & *v45 | *v46 & ~((1 << v48) - 1);
         }
-        if ( (_DWORD)v36 )
-        {
-          memmove(v44, v45, (unsigned int)v36);
-          v41 = v52;
-        }
-        if ( v55 )
-          *((_BYTE *)v44 + v36) = ((1 << v41) - 1) & *((_BYTE *)v44 + v36) | ~((1 << v41) - 1) & *((_BYTE *)v45 + v36);
-        v40 = v58;
-        v38 += v42;
-        v37 += v42;
-        --v43;
+        if ( (_DWORD)v42 )
+          memmove(v52, v53, (unsigned int)v42);
+        if ( v59 )
+          *((_BYTE *)v52 + v42) = ((1 << v49) - 1) & *((_BYTE *)v52 + v42) | ~((1 << v49) - 1) & *((_BYTE *)v53 + v42);
+        v48 = v62;
+        v46 += v50;
+        v45 += v50;
+        --v51;
       }
-      while ( v43 );
+      while ( v51 );
     }
   }
 }

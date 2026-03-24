@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_D3DCOLORVALUE@@XZ @ 0x180122F40
+ * XREFs of ?GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_D3DCOLORVALUE@@XZ @ 0x1800F8960
  * Callers:
  *     <none>
  * Callees:

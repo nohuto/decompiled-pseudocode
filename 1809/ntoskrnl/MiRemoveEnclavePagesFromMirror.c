@@ -3,7 +3,7 @@
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x140152FDC (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140152FFC (MiMirrorOmitPagesFromCopy.c)
  */
 
 _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)

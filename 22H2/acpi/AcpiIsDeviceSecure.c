@@ -1,18 +1,19 @@
 /*
- * XREFs of AcpiIsDeviceSecure @ 0x1C0094C78
+ * XREFs of AcpiIsDeviceSecure @ 0x1C00A264C
  * Callers:
- *     AcpiCheckSecureDevice @ 0x1C0094C18 (AcpiCheckSecureDevice.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     AcpiCheckSecureDevice @ 0x1C00B55A8 (AcpiCheckSecureDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BE4 (ACPIQueryDeviceBiosNameEx.c)
- *     AcpiSearchSdevTable @ 0x1C0094E08 (AcpiSearchSdevTable.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0099CE0 (ACPIQueryDeviceBiosName.c)
+ *     AcpiSearchSdevTable @ 0x1C00B5690 (AcpiSearchSdevTable.c)
  */
 
 char __fastcall AcpiIsDeviceSecure(__int64 a1)
 {
   char v1; // bl
-  __int64 v3; // rsi
+  __int64 v4; // rsi
   PVOID P[2]; // [rsp+20h] [rbp-40h] BYREF
   __int64 v6; // [rsp+30h] [rbp-30h] BYREF
   int v7; // [rsp+38h] [rbp-28h]
@@ -25,18 +26,18 @@ char __fastcall AcpiIsDeviceSecure(__int64 a1)
   *(_OWORD *)P = 0LL;
   if ( BYTE1(WPP_MAIN_CB.Queue.ListEntry.Flink) )
   {
-    v3 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1447380051LL, 0LL, 0LL);
-    if ( v3 )
+    v4 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1447380051LL, 0LL, 0LL);
+    if ( v4 )
     {
-      if ( (int)ACPIQueryDeviceBiosNameEx(*(_QWORD *)(a1 + 768), 1, (struct _UNICODE_STRING *)P) >= 0 )
+      if ( (int)ACPIQueryDeviceBiosName(*(_QWORD *)(a1 + 728), (struct _UNICODE_STRING *)P) >= 0 )
       {
-        if ( (unsigned __int8)AcpiSearchSdevTable(v3, P, (char *)&v6 + 4) )
+        if ( (unsigned __int8)AcpiSearchSdevTable(v4, P, (char *)&v6 + 4) )
         {
           LODWORD(v6) = 3;
           if ( (int)VslQuerySecureDevice(&v6, &v8) >= 0 )
           {
             v1 = v8;
-            *(_QWORD *)(a1 + 960) = *((_QWORD *)&v8 + 1);
+            *(_QWORD *)(a1 + 920) = *((_QWORD *)&v8 + 1);
           }
         }
       }

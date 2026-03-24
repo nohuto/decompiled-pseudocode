@@ -1,28 +1,28 @@
 /*
- * XREFs of IoUpdateThreadIoRateThrottle @ 0x140200B50
+ * XREFs of IoUpdateThreadIoRateThrottle @ 0x14050AB50
  * Callers:
  *     <none>
  * Callees:
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402078D4 (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x140277A2C (KeAbProcessBaseIoPriorityChangeInternal.c)
  */
 
 __int64 __fastcall IoUpdateThreadIoRateThrottle(__int64 a1, unsigned int a2)
 {
   signed __int32 v2; // eax
-  __int64 v3; // rdx
+  int v3; // edx
   __int64 result; // rax
 
-  v2 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 1448), a2);
-  if ( !v2 )
+  v2 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 1368), a2);
+  if ( v2 )
   {
-    v3 = 0LL;
-    return KeAbProcessBaseIoPriorityChangeInternal(a1, v3);
+    result = a2 + v2;
+    if ( (_DWORD)result )
+      return result;
+    v3 = 1;
   }
-  result = a2 + v2;
-  if ( !(_DWORD)result )
+  else
   {
-    v3 = 1LL;
-    return KeAbProcessBaseIoPriorityChangeInternal(a1, v3);
+    v3 = 0;
   }
-  return result;
+  return KeAbProcessBaseIoPriorityChangeInternal(a1, v3);
 }

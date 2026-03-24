@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077A04
+ * XREFs of ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A8C0C
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0077ABC (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     XFORMOBJ_iGetXform @ 0x1C0077B00 (XFORMOBJ_iGetXform.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     XFORMOBJ_iGetXform @ 0x1C00A8CD0 (XFORMOBJ_iGetXform.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8D30 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall UmfdEscXFORMOBJ_iGetXform(volatile void **a1)

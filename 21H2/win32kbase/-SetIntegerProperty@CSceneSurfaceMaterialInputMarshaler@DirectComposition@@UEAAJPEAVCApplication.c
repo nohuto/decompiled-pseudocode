@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0238030
+ * XREFs of ?SetIntegerProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F7C70
  * Callers:
  *     <none>
  * Callees:
@@ -24,18 +24,18 @@ __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::SetIn
       if ( v5 != 1 )
         return 3221225485LL;
       *((_DWORD *)this + 4) |= 0x100u;
-      *((_DWORD *)this + 24) = a4;
+      *((_DWORD *)this + 22) = a4;
     }
     else
     {
       *((_DWORD *)this + 4) |= 0x80u;
-      *((_DWORD *)this + 23) = a4;
+      *((_DWORD *)this + 21) = a4;
     }
   }
   else
   {
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_DWORD *)this + 22) = a4;
+    *((_DWORD *)this + 20) = a4;
   }
   *a5 = 1;
   return 0LL;

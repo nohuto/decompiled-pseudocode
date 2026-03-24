@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIEcDisconnectGpioInterrupt @ 0x1C00AD5F8
+ * XREFs of ACPIEcDisconnectGpioInterrupt @ 0x1C00AE970
  * Callers:
- *     ACPIEcInitOpRegionHandler @ 0x1C0020398 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
  * Callees:
  *     <none>
  */

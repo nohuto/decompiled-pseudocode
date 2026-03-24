@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x140880D70
+ * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x140736E0C
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140799F80 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x1407369EC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     _CmSetDeviceRegProp @ 0x140798B3C (_CmSetDeviceRegProp.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
+ *     _CmSetDeviceRegProp @ 0x1407404B0 (_CmSetDeviceRegProp.c)
  */
 
 NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        int a1,
+        int a2,
+        int a3,
         __int64 a4,
         unsigned int a5,
         int *a6,
@@ -20,50 +20,55 @@ NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
   DEVPROPKEY **v7; // r10
   int v8; // esi
   unsigned int v9; // ebx
-  int v14; // r9d
-  DEVPROPKEY *v15; // r11
-  DEVPROPKEY **v16; // rdx
-  __int64 v17; // r8
-  int v18; // r8d
-  unsigned int v19; // ebx
-  unsigned int v20; // edi
+  int v12; // ecx
+  int v15; // r9d
+  DEVPROPKEY *v16; // r11
+  DEVPROPKEY **v17; // rdx
+  __int64 v18; // r8
+  int v19; // r8d
+  int v20; // ebx
+  int v21; // edi
   NTSTATUS result; // eax
-  wchar_t *v22; // rax
-  unsigned int v23; // ecx
-  int v24; // [rsp+40h] [rbp-98h] BYREF
-  wchar_t v25[40]; // [rsp+50h] [rbp-88h] BYREF
+  wchar_t *v23; // rax
+  int v24; // ecx
+  int *v25; // rax
+  __int64 v26; // [rsp+28h] [rbp-B0h]
+  int v27; // [rsp+30h] [rbp-A8h]
+  int v28; // [rsp+40h] [rbp-98h] BYREF
+  wchar_t v29[40]; // [rsp+50h] [rbp-88h] BYREF
 
-  v24 = 0;
+  v28 = 0;
   v7 = &CmDeviceRegPropMap;
   v8 = *(_DWORD *)(a4 + 16);
   v9 = 0;
-  v14 = 1;
+  v12 = (int)a6;
+  v15 = 1;
   do
   {
-    v15 = *v7;
-    v16 = v7;
+    v16 = *v7;
+    v17 = v7;
     if ( v8 == (*v7)->pid )
     {
-      v17 = *(_QWORD *)a4 - *(_QWORD *)&v15->fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&v15->fmtid.Data1 )
-        v17 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v15->fmtid.Data4;
-      if ( !v17 )
+      v18 = *(_QWORD *)a4 - *(_QWORD *)&v16->fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&v16->fmtid.Data1 )
+        v18 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v16->fmtid.Data4;
+      if ( !v18 )
         break;
     }
-    v16 = 0LL;
+    v17 = 0LL;
     ++v9;
     v7 += 3;
   }
   while ( v9 < 0x21 );
-  if ( !v16 )
+  if ( !v17 )
     return -1073741264;
-  v18 = *((_DWORD *)v16 + 2);
-  v19 = *((_DWORD *)v16 + 3);
-  if ( a5 != v18 )
+  v19 = *((_DWORD *)v17 + 2);
+  v20 = *((_DWORD *)v17 + 3);
+  if ( a5 != v19 )
   {
     if ( a5 == 25 )
     {
-      if ( v18 != 18 )
+      if ( v19 != 18 )
         return -1073741811;
     }
     else if ( a5 >= 2 )
@@ -71,56 +76,57 @@ NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
       return -1073741811;
     }
   }
-  v20 = *((_DWORD *)v16 + 4);
-  if ( v19 != 9 )
+  v21 = *((_DWORD *)v17 + 4);
+  if ( v20 != 9 )
   {
-    if ( v19 == 25 )
+    if ( v20 == 25 )
       return -1073741637;
-    if ( v19 == 27 )
+    if ( v20 == 27 )
     {
       if ( a6 )
       {
-        if ( a7 )
+        if ( !a7 )
+          return -1073741811;
+        if ( *(_BYTE *)a6 != 0xFF )
         {
-          if ( *(_BYTE *)a6 != 0xFF )
-          {
-            if ( *(_BYTE *)a6 )
-              return -1073741811;
-            v14 = 0;
-          }
-          v24 = v14;
-          v22 = (wchar_t *)&v24;
-          v23 = 4;
-          return CmSetDeviceRegProp(a1, a2, a3, v19, v20, (__int64)v22, v23, 0);
+          if ( *(_BYTE *)a6 )
+            return -1073741811;
+          v15 = 0;
         }
-        return -1073741811;
+        v28 = v15;
+        v25 = &v28;
+        v12 = 4;
       }
-LABEL_22:
-      v22 = 0LL;
-      v23 = 0;
-      return CmSetDeviceRegProp(a1, a2, a3, v19, v20, (__int64)v22, v23, 0);
+      else
+      {
+        v25 = 0LL;
+      }
+      return CmSetDeviceRegProp(a1, a2, a3, 27, v21, (__int64)v25, v12, 0);
     }
-    if ( v19 != 37 )
-      return CmSetDeviceRegProp(
-               a1,
-               a2,
-               a3,
-               v19,
-               v20,
-               (unsigned __int64)a6 & -(__int64)(a6 != 0LL),
-               a6 != 0LL ? a7 : 0,
-               0);
+    if ( v20 != 37 )
+    {
+      v27 = a6 != 0LL ? a7 : 0;
+      v26 = (unsigned __int64)a6 & -(__int64)(a6 != 0LL);
+      return CmSetDeviceRegProp(a1, a2, a3, v20, v21, v26, v27, 0);
+    }
   }
   if ( !a6 )
-    goto LABEL_22;
+  {
+    v23 = 0LL;
+    v24 = 0;
+    goto LABEL_21;
+  }
   if ( a7 < 0x10 )
     return -1073741811;
-  result = PnpStringFromGuid(a6, v25);
+  result = PnpStringFromGuid(a6, v29);
   if ( result >= 0 )
   {
-    v22 = v25;
-    v23 = 78;
-    return CmSetDeviceRegProp(a1, a2, a3, v19, v20, (__int64)v22, v23, 0);
+    v23 = v29;
+    v24 = 78;
+LABEL_21:
+    v27 = v24;
+    v26 = (__int64)v23;
+    return CmSetDeviceRegProp(a1, a2, a3, v20, v21, v26, v27, 0);
   }
   return result;
 }

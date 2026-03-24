@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CIndirectSwapchainRenderTarget@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801A1950
+ * XREFs of ?NotifyInvalidResource@CIndirectSwapchainRenderTarget@@UEAAXPEBVIDeviceResource@@@Z @ 0x18016FD70
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ void __fastcall CIndirectSwapchainRenderTarget::NotifyInvalidResource(
         CIndirectSwapchainRenderTarget *this,
         const struct IDeviceResource *a2)
 {
-  CIndirectSwapchainRenderTarget::Unregister((CIndirectSwapchainRenderTarget *)((char *)this - 1872));
+  CIndirectSwapchainRenderTarget::Unregister((CIndirectSwapchainRenderTarget *)((char *)this - 1888));
 }

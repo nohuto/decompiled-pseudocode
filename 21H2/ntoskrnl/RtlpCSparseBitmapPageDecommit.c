@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCSparseBitmapPageDecommit @ 0x14023DD4C
+ * XREFs of RtlpCSparseBitmapPageDecommit @ 0x1402A3A20
  * Callers:
- *     RtlCSparseBitmapBitsClear @ 0x140368170 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1402A3714 (RtlCSparseBitmapBitsClear.c)
  * Callees:
- *     RtlCSparseBitmapLeaveLockingRegion @ 0x140363560 (RtlCSparseBitmapLeaveLockingRegion.c)
- *     RtlpCSparseBitmapUnlock @ 0x1403635BC (RtlpCSparseBitmapUnlock.c)
- *     RtlpCSparseBitmapLock @ 0x140363BC0 (RtlpCSparseBitmapLock.c)
- *     RtlCSparseBitmapEnterLockingRegion @ 0x140363C3C (RtlCSparseBitmapEnterLockingRegion.c)
- *     RtlpHpEnvFreeVA @ 0x140366D64 (RtlpHpEnvFreeVA.c)
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x1405F3A90 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     ExpUnblockPushLock @ 0x14029CE28 (ExpUnblockPushLock.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x1402A47EC (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1402A4830 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapLock @ 0x1402A4BD0 (RtlpCSparseBitmapLock.c)
+ *     RtlCSparseBitmapEnterLockingRegion @ 0x1402A4C4C (RtlCSparseBitmapEnterLockingRegion.c)
+ *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140595810 (RtlpCSparseBitmapWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
@@ -21,8 +21,8 @@ __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2
   const signed __int64 *v10; // rdx
   const signed __int64 *v11; // r9
   signed __int64 v12; // r8
-  BOOL v13; // eax
-  const signed __int64 *v14; // rdx
+  const signed __int64 *v13; // rdx
+  BOOL v14; // eax
   unsigned __int64 v15; // rdx
   __int64 v17; // r13
   const signed __int64 *v18; // r8
@@ -33,26 +33,27 @@ __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2
   bool v23; // al
   char v24; // al
   __int64 v25; // r8
-  signed __int32 v26[8]; // [rsp+0h] [rbp-D8h] BYREF
-  BOOL v27; // [rsp+20h] [rbp-B8h]
-  const signed __int64 *i; // [rsp+28h] [rbp-B0h]
-  unsigned __int64 v29; // [rsp+30h] [rbp-A8h]
-  const signed __int64 *v30; // [rsp+38h] [rbp-A0h]
-  __int64 v31; // [rsp+40h] [rbp-98h] BYREF
-  __int64 v32; // [rsp+48h] [rbp-90h] BYREF
-  _QWORD v33[3]; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v34; // [rsp+68h] [rbp-70h]
-  __int128 v35; // [rsp+70h] [rbp-68h] BYREF
-  __int128 v36; // [rsp+80h] [rbp-58h] BYREF
-  __int64 v37; // [rsp+90h] [rbp-48h] BYREF
-  int v38; // [rsp+F8h] [rbp+20h]
+  signed __int32 v26[8]; // [rsp+0h] [rbp-E8h] BYREF
+  BOOL v27; // [rsp+20h] [rbp-C8h]
+  const signed __int64 *i; // [rsp+28h] [rbp-C0h]
+  unsigned __int64 v29; // [rsp+30h] [rbp-B8h]
+  const signed __int64 *v30; // [rsp+38h] [rbp-B0h]
+  __int64 v31; // [rsp+40h] [rbp-A8h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-A0h] BYREF
+  _QWORD v33[3]; // [rsp+50h] [rbp-98h] BYREF
+  __int64 v34; // [rsp+68h] [rbp-80h]
+  __int128 v35; // [rsp+70h] [rbp-78h] BYREF
+  __int128 v36; // [rsp+80h] [rbp-68h]
+  __int128 v37; // [rsp+90h] [rbp-58h] BYREF
+  __int64 v38; // [rsp+A0h] [rbp-48h] BYREF
+  int v39; // [rsp+108h] [rbp+20h]
 
   v34 = a1;
   v31 = 0LL;
   v33[0] = 0LL;
   v32 = 0LL;
   v35 = 0LL;
-  v38 = 0;
+  v39 = 0;
   v6 = *(const signed __int64 **)(a1 + 8);
   v29 = *(_QWORD *)(a1 + 16);
   v30 = v6;
@@ -63,7 +64,7 @@ __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2
   if ( v9 <= 0x8000 )
     v8 = v9;
   v33[2] = v8;
-  v36 = *(_OWORD *)RtlCSparseBitmapEnterLockingRegion(&v37, a1);
+  v36 = *(_OWORD *)RtlCSparseBitmapEnterLockingRegion(&v38, a1);
   while ( 1 )
   {
     if ( a3 )
@@ -71,20 +72,20 @@ __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2
     i = 0LL;
     if ( v7 >= v29 )
     {
-LABEL_10:
-      v13 = 0;
+LABEL_14:
+      v14 = 0;
       goto LABEL_20;
     }
     if ( v8 <= 1 )
     {
       if ( v8 != 1 )
-        goto LABEL_10;
-      v13 = !_bittest64(v30, v7);
+        goto LABEL_14;
+      v14 = !_bittest64(v30, v7);
     }
     else
     {
       if ( v29 - v7 < v8 )
-        goto LABEL_10;
+        goto LABEL_14;
       v10 = &v30[v7 >> 6];
       i = v10;
       v11 = &v30[(v8 + v7 - 1) >> 6];
@@ -96,24 +97,24 @@ LABEL_10:
       else
       {
         if ( (v12 & (-1LL << v7)) != 0 )
-          goto LABEL_10;
-        v14 = v10 + 1;
-        for ( i = v14; ; i = v14 )
+          goto LABEL_14;
+        v13 = v10 + 1;
+        for ( i = v13; ; i = v13 )
         {
-          v12 = *v14;
-          if ( v14 == v11 )
+          v12 = *v13;
+          if ( v13 == v11 )
             break;
           if ( v12 )
-            goto LABEL_10;
-          ++v14;
+            goto LABEL_14;
+          ++v13;
         }
         v15 = 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v8 + (unsigned __int8)v7 - 1);
       }
-      v13 = (v12 & v15) == 0;
+      v14 = (v12 & v15) == 0;
     }
 LABEL_20:
-    v27 = v13;
-    if ( !v13 )
+    v27 = v14;
+    if ( !v14 )
       goto LABEL_21;
 LABEL_23:
     RtlpCSparseBitmapLock(a1, 1LL, &v35);
@@ -129,7 +130,7 @@ LABEL_23:
   }
   *(_QWORD *)(v34 + 32) = a2;
   RtlpCSparseBitmapUnlock(&v35);
-  v38 = 1;
+  v39 = 1;
   if ( !_bittest64(*(const signed __int64 **)a1, a2) || v7 >= v29 )
     goto LABEL_21;
   if ( v8 <= 1 )
@@ -170,7 +171,7 @@ LABEL_34:
     }
   }
 LABEL_21:
-  if ( v38 )
+  if ( v39 )
   {
     *(_QWORD *)(a1 + 32) = -1LL;
     v24 = *(_BYTE *)(a1 + 48);
@@ -178,8 +179,9 @@ LABEL_21:
     if ( !v24 )
     {
       if ( *(_QWORD *)(a1 + 40) )
-        ExpUnblockPushLock(a1 + 40, 0LL, 0LL);
+        ExpUnblockPushLock((volatile __int64 *)(a1 + 40), 0LL, 0);
     }
   }
-  return RtlCSparseBitmapLeaveLockingRegion(&v36);
+  v37 = v36;
+  return RtlCSparseBitmapLeaveLockingRegion(&v37);
 }

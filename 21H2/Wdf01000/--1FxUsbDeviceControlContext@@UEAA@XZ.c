@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1FxUsbDeviceControlContext@@UEAA@XZ @ 0x1C00394C4
+ * XREFs of ??1FxUsbDeviceControlContext@@UEAA@XZ @ 0x1C006F62C
  * Callers:
- *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0078E40 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
- *     ??_EFxUsbDeviceControlContext@@UEAAPEAXI@Z @ 0x1C007BED0 (--_EFxUsbDeviceControlContext@@UEAAPEAXI@Z.c)
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C006BA90 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     ??_EFxUsbDeviceControlContext@@UEAAPEAXI@Z @ 0x1C006F6D0 (--_EFxUsbDeviceControlContext@@UEAAPEAXI@Z.c)
  * Callees:
- *     USBD_UrbFree @ 0x1C0090EF0 (USBD_UrbFree.c)
+ *     USBD_UrbFree @ 0x1C00901E4 (USBD_UrbFree.c)
  */
 
 void __fastcall FxUsbDeviceControlContext::~FxUsbDeviceControlContext(FxUsbDeviceControlContext *this)

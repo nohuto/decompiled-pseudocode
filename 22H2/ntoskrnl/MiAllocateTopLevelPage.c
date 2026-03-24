@@ -1,23 +1,21 @@
 /*
- * XREFs of MiAllocateTopLevelPage @ 0x140706244
+ * XREFs of MiAllocateTopLevelPage @ 0x1406FE0F4
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140705F00 (MmCreateProcessAddressSpace.c)
- *     MiAllocateProcessShadow @ 0x14070615C (MiAllocateProcessShadow.c)
+ *     MmCreateProcessAddressSpace @ 0x1406FDDB4 (MmCreateProcessAddressSpace.c)
+ *     MiAllocateProcessShadow @ 0x1406FE00C (MiAllocateProcessShadow.c)
  * Callees:
- *     MiGetPage @ 0x14026D240 (MiGetPage.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
- *     MiGetNextPageColor @ 0x1402922AC (MiGetNextPageColor.c)
- *     MiSetPfnOldestWsleLeafCount @ 0x1402923E4 (MiSetPfnOldestWsleLeafCount.c)
- *     MiSetPageTablePfnBuddy @ 0x1402923FC (MiSetPageTablePfnBuddy.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x1402DF09C (MiSetPfnLink.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiWaitForFreePage @ 0x140653AB8 (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x1402135D0 (MiGetPage.c)
+ *     MiGetProcessPartition @ 0x14021AD00 (MiGetProcessPartition.c)
+ *     MiInitializePageColorBase @ 0x14023EBF0 (MiInitializePageColorBase.c)
+ *     MiSetPfnLink @ 0x14029880C (MiSetPfnLink.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiInitializePfnForOtherProcess @ 0x140356D68 (MiInitializePfnForOtherProcess.c)
+ *     MiSetPageTablePfnBuddy @ 0x1403570E4 (MiSetPageTablePfnBuddy.c)
+ *     MiGetNextPageColor @ 0x140357168 (MiGetNextPageColor.c)
+ *     MiWaitForFreePage @ 0x14055C13C (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateTopLevelPage(__int64 a1, unsigned __int64 a2)
@@ -30,86 +28,88 @@ __int64 __fastcall MiAllocateTopLevelPage(__int64 a1, unsigned __int64 a2)
   __int64 Page; // rax
   __int64 v10; // r14
   _QWORD *v11; // rdi
-  unsigned __int64 v12; // rbx
-  _DWORD *v13; // rcx
-  __int64 v14; // rcx
-  unsigned __int64 ValidPte; // rdi
-  int v16; // ebp
-  __int64 v17; // r8
-  unsigned __int64 *v18; // rdi
-  int v19; // esi
-  __int64 v20; // r8
-  bool v22; // zf
-  bool v23; // zf
-  _OWORD v24[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v12; // r9
+  unsigned __int64 ValidPte; // rax
+  unsigned __int64 v14; // rbx
+  _DWORD *v15; // r9
+  __int64 v16; // r9
+  unsigned __int64 v17; // rdi
+  int v18; // ebp
+  __int64 v19; // r8
+  unsigned __int64 *v20; // rdi
+  int v21; // esi
+  __int64 v22; // r8
+  bool v24; // zf
+  bool v25; // zf
+  _OWORD v26[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v24[0] = 0LL;
+  v26[0] = 0LL;
   ProcessPartition = (_QWORD *)MiGetProcessPartition(a1);
-  MiInitializePageColorBase(v4 + 1664, v6, (__int64)v24);
-  NextPageColor = MiGetNextPageColor((__int64)v24);
+  MiInitializePageColorBase(v4 + 1664, v6, (__int64)v26);
+  NextPageColor = MiGetNextPageColor((__int64)v26);
   for ( i = NextPageColor; ; i = NextPageColor )
   {
-    Page = MiGetPage((__int64)ProcessPartition, i, 0x302u);
+    Page = MiGetPage((__int64)ProcessPartition, i, 770LL);
     v10 = Page;
     if ( Page != -1 )
       break;
     MiWaitForFreePage(ProcessPartition);
   }
-  v11 = (_QWORD *)(48 * Page - 0x220000000000LL);
+  v11 = (_QWORD *)(48 * Page - 0x58000000000LL);
   MiSetPfnLink(v11, 0LL);
-  v12 = MiMakeValidPte(0LL, v10, 2415919110LL) & 0xFFFFFFFFFFFFFEFFuLL;
-  MiSetPfnPteFrame((__int64)v11, v10);
+  ValidPte = MiMakeValidPte(0LL, v10, 2415919110LL, v12);
   *v11 = 0LL;
-  MiSetPfnOldestWsleLeafCount(v13, 0);
-  MiSetPageTablePfnBuddy(v14, a1, 0);
-  MiInitializePfnForOtherProcess(v10, 0xFFFFF6FB7DBEDF68uLL, v10, 512);
-  ValidPte = MiMakeValidPte(0LL, v10, 2684354564LL);
-  v16 = 0;
+  v11[5] ^= (v10 ^ v11[5]) & 0xFFFFFFFFFLL;
+  v14 = ValidPte & 0xFFFFFFFFFFFFFEFFuLL;
+  MiSetPageTablePfnBuddy((__int64)v11, a1, 0LL, v15);
+  MiInitializePfnForOtherProcess(v10, 0xFFFFF6FB7DBEDF68uLL, v10, 512LL);
+  v17 = MiMakeValidPte(0LL, v10, 2684354564LL, v16);
+  v18 = 0;
   if ( MiPteInShadowRange(a2) )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v16 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      v18 = 1;
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_4;
-      v22 = (ValidPte & 1) == 0;
+      v24 = (v17 & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_4;
-      v22 = (ValidPte & 1) == 0;
+      v24 = (v17 & 1) == 0;
     }
-    if ( !v22 )
-      ValidPte |= 0x8000000000000000uLL;
+    if ( !v24 )
+      v17 |= 0x8000000000000000uLL;
   }
 LABEL_4:
-  *(_QWORD *)a2 = ValidPte;
-  if ( v16 )
-    MiWritePteShadow(a2, ValidPte, v17);
-  v18 = (unsigned __int64 *)(((__int64)(a2 << 25) >> 16) + 3944);
-  v19 = 0;
-  if ( MiPteInShadowRange((unsigned __int64)v18) )
+  *(_QWORD *)a2 = v17;
+  if ( v18 )
+    MiWritePteShadow(a2, v17, v19);
+  v20 = (unsigned __int64 *)(((__int64)(a2 << 25) >> 16) + 3944);
+  v21 = 0;
+  if ( MiPteInShadowRange((unsigned __int64)v20) )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v19 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      v21 = 1;
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_7;
-      v23 = (v12 & 1) == 0;
+      v25 = (v14 & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_7;
-      v23 = (v12 & 1) == 0;
+      v25 = (v14 & 1) == 0;
     }
-    if ( !v23 )
-      v12 |= 0x8000000000000000uLL;
+    if ( !v25 )
+      v14 |= 0x8000000000000000uLL;
   }
 LABEL_7:
-  *v18 = v12;
-  if ( v19 )
-    MiWritePteShadow((__int64)v18, v12, v20);
+  *v20 = v14;
+  if ( v21 )
+    MiWritePteShadow((__int64)v20, v14, v22);
   return v10;
 }

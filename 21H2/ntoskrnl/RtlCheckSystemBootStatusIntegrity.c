@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x1409BAB50
+ * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140915540
  * Callers:
  *     <none>
  * Callees:
- *     ZwPowerInformation @ 0x14041C340 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)
@@ -11,8 +11,10 @@ NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)
   _QWORD InputBuffer[3]; // [rsp+30h] [rbp-38h] BYREF
   _QWORD v3[2]; // [rsp+48h] [rbp-20h] BYREF
   int v4; // [rsp+58h] [rbp-10h]
+  int v5; // [rsp+5Ch] [rbp-Ch]
 
   v3[0] = 0LL;
+  v5 = 0;
   if ( !a1 )
     return -1073741811;
   v3[1] = a1;

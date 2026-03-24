@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetWorldToProjection@CMesh2DEffect@@QEAAJUD2D_MATRIX_4X4_F@@@Z @ 0x180109310
+ * XREFs of ?SetWorldToProjection@CMesh2DEffect@@QEAAJUD2D_MATRIX_4X4_F@@@Z @ 0x1800E3B04
  * Callers:
- *     <none>
+ *     ??$ValueSetter@P8CMesh2DEffect@@EAAJUD2D_MATRIX_4X4_F@@@Z$H?SetWorldToProjection@1@QEAAJ0@ZA@UID2D1EffectImpl@@@@YAJPEAUIUnknown@@PEBEI@Z @ 0x18026C510 (--$ValueSetter@P8CMesh2DEffect@@EAAJUD2D_MATRIX_4X4_F@@@Z$H-SetWorldToProjection@1@QEAAJ0@ZA@UID.c)
  * Callees:
  *     <none>
  */

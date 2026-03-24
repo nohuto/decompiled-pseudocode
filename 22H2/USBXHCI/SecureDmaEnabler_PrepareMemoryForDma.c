@@ -1,14 +1,14 @@
 /*
- * XREFs of SecureDmaEnabler_PrepareMemoryForDma @ 0x1C0051F50
+ * XREFs of SecureDmaEnabler_PrepareMemoryForDma @ 0x1C004F278
  * Callers:
- *     Isoch_MapStage @ 0x1C0004840 (Isoch_MapStage.c)
- *     Control_Transfer_Map @ 0x1C0007348 (Control_Transfer_Map.c)
- *     Bulk_MapStage @ 0x1C00122F0 (Bulk_MapStage.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Control_Transfer_Map @ 0x1C00040CC (Control_Transfer_Map.c)
+ *     Bulk_MapStage @ 0x1C000D4EC (Bulk_MapStage.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     Controller_LowerAndTrackIrql @ 0x1C00074EC (Controller_LowerAndTrackIrql.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0007588 (Controller_RaiseAndTrackIrql.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall SecureDmaEnabler_PrepareMemoryForDma(
@@ -22,8 +22,7 @@ __int64 __fastcall SecureDmaEnabler_PrepareMemoryForDma(
 {
   char v7; // bp
   _QWORD *v9; // rsi
-  int v10; // edi
-  __int64 *v11; // rbx
+  int v11; // ebx
   int v12; // edx
   __int64 v13; // rdx
   __int64 v14; // rcx
@@ -48,16 +47,15 @@ __int64 __fastcall SecureDmaEnabler_PrepareMemoryForDma(
   }
   else
   {
-    v11 = (__int64 *)(a1 + 8);
     if ( KeGetCurrentIrql() == 2 )
     {
-      Controller_LowerAndTrackIrql((_QWORD *)*v11);
+      Controller_LowerAndTrackIrql(*(_QWORD **)(a1 + 8));
       v7 = 1;
     }
-    v10 = VslCreateSecureSection(&v16, *(_QWORD *)(*v11 + 624), v9, 4LL, 1);
+    v11 = VslCreateSecureSection(&v16, *(_QWORD *)(*(_QWORD *)(a1 + 8) + 576LL), v9, 4LL, 1);
     if ( v7 )
-      Controller_RaiseAndTrackIrql(*v11);
-    if ( v10 >= 0 )
+      Controller_RaiseAndTrackIrql(*(_QWORD *)(a1 + 8));
+    if ( v11 >= 0 )
     {
       v13 = (__int64)a6;
       v14 = a7;
@@ -75,13 +73,13 @@ __int64 __fastcall SecureDmaEnabler_PrepareMemoryForDma(
     {
       LOBYTE(v12) = 2;
       WPP_RECORDER_SF_d(
-        *(_QWORD *)(*v11 + 72),
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         v12,
         18,
         17,
         (__int64)&WPP_bc1ad2459c543d2ca8270d8dd36787fb_Traceguids,
-        v10);
+        v11);
     }
   }
-  return (unsigned int)v10;
+  return (unsigned int)v11;
 }

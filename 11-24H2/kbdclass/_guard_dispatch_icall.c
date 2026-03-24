@@ -1,1 +1,49 @@
-/*\n * XREFs of _guard_dispatch_icall @ 0x1C00072D0\n * Callers:\n *     sub_1C0001790 @ 0x1C0001790 (sub_1C0001790.c)\n *     sub_1C0002F10 @ 0x1C0002F10 (sub_1C0002F10.c)\n *     sub_1C0003050 @ 0x1C0003050 (sub_1C0003050.c)\n *     sub_1C00037A0 @ 0x1C00037A0 (sub_1C00037A0.c)\n *     sub_1C0003F20 @ 0x1C0003F20 (sub_1C0003F20.c)\n *     sub_1C00040E0 @ 0x1C00040E0 (sub_1C00040E0.c)\n *     sub_1C00044A0 @ 0x1C00044A0 (sub_1C00044A0.c)\n *     sub_1C0004980 @ 0x1C0004980 (sub_1C0004980.c)\n *     sub_1C0004D60 @ 0x1C0004D60 (sub_1C0004D60.c)\n *     sub_1C0005380 @ 0x1C0005380 (sub_1C0005380.c)\n *     sub_1C00054C0 @ 0x1C00054C0 (sub_1C00054C0.c)\n *     sub_1C00057D0 @ 0x1C00057D0 (sub_1C00057D0.c)\n *     sub_1C00061D8 @ 0x1C00061D8 (sub_1C00061D8.c)\n *     sub_1C00062B4 @ 0x1C00062B4 (sub_1C00062B4.c)\n *     sub_1C0006360 @ 0x1C0006360 (sub_1C0006360.c)\n *     sub_1C0006414 @ 0x1C0006414 (sub_1C0006414.c)\n *     sub_1C00064C0 @ 0x1C00064C0 (sub_1C00064C0.c)\n *     sub_1C0006594 @ 0x1C0006594 (sub_1C0006594.c)\n *     sub_1C000668C @ 0x1C000668C (sub_1C000668C.c)\n *     sub_1C00067A4 @ 0x1C00067A4 (sub_1C00067A4.c)\n *     sub_1C0006878 @ 0x1C0006878 (sub_1C0006878.c)\n *     sub_1C00069B4 @ 0x1C00069B4 (sub_1C00069B4.c)\n *     sub_1C0006ACC @ 0x1C0006ACC (sub_1C0006ACC.c)\n *     sub_1C0006C24 @ 0x1C0006C24 (sub_1C0006C24.c)\n *     sub_1C0006D60 @ 0x1C0006D60 (sub_1C0006D60.c)\n *     sub_1C0006E78 @ 0x1C0006E78 (sub_1C0006E78.c)\n *     sub_1C0006F64 @ 0x1C0006F64 (sub_1C0006F64.c)\n *     j__guard_dispatch_icall @ 0x1C0008010 (j__guard_dispatch_icall.c)\n *     sub_1C000E4C0 @ 0x1C000E4C0 (sub_1C000E4C0.c)\n *     sub_1C000E610 @ 0x1C000E610 (sub_1C000E610.c)\n *     sub_1C000EB24 @ 0x1C000EB24 (sub_1C000EB24.c)\n *     sub_1C000EBD4 @ 0x1C000EBD4 (sub_1C000EBD4.c)\n *     sub_1C000ECB0 @ 0x1C000ECB0 (sub_1C000ECB0.c)\n *     EnableCallback @ 0x1C00109C0 (EnableCallback.c)\n *     sub_1C00119A0 @ 0x1C00119A0 (sub_1C00119A0.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall guard_dispatch_icall()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n
+/*
+ * XREFs of _guard_dispatch_icall @ 0x1C00072D0
+ * Callers:
+ *     WPP_RECORDER_SF_qqc @ 0x1C0001790 (WPP_RECORDER_SF_qqc.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0002F10 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qqiL @ 0x1C0003050 (WPP_RECORDER_SF_qqiL.c)
+ *     WPP_RECORDER_SF_qqsd @ 0x1C00037A0 (WPP_RECORDER_SF_qqsd.c)
+ *     WPP_RECORDER_SF_qqdDdd @ 0x1C0003F20 (WPP_RECORDER_SF_qqdDdd.c)
+ *     WPP_RECORDER_SF_qqDdd @ 0x1C00040E0 (WPP_RECORDER_SF_qqDdd.c)
+ *     WPP_RECORDER_SF_qqL @ 0x1C00044A0 (WPP_RECORDER_SF_qqL.c)
+ *     WPP_RECORDER_SF_qqLd @ 0x1C0004980 (WPP_RECORDER_SF_qqLd.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C0004D60 (WPP_RECORDER_SF_qqd.c)
+ *     WPP_RECORDER_SF_qqdL @ 0x1C0005380 (WPP_RECORDER_SF_qqdL.c)
+ *     WPP_RECORDER_SF_S @ 0x1C00054C0 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_qqdq @ 0x1C00057D0 (WPP_RECORDER_SF_qqdq.c)
+ *     WPP_RECORDER_SF_ @ 0x1C00061D8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00062B4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0006360 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0006414 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C00064C0 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0006594 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qLqq @ 0x1C000668C (WPP_RECORDER_SF_qLqq.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00067A4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qlqqd @ 0x1C0006878 (WPP_RECORDER_SF_qlqqd.c)
+ *     WPP_RECORDER_SF_qqLL @ 0x1C00069B4 (WPP_RECORDER_SF_qqLL.c)
+ *     WPP_RECORDER_SF_qqLLqq @ 0x1C0006ACC (WPP_RECORDER_SF_qqLLqq.c)
+ *     WPP_RECORDER_SF_qqLqq @ 0x1C0006C24 (WPP_RECORDER_SF_qqLqq.c)
+ *     WPP_RECORDER_SF_qqdd @ 0x1C0006D60 (WPP_RECORDER_SF_qqdd.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0006E78 (WPP_RECORDER_SF_qqq.c)
+ *     WPP_RECORDER_SF_qqqql @ 0x1C0006F64 (WPP_RECORDER_SF_qqqql.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1C0008010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     WppLoadTracingSupport @ 0x1C000E4C0 (WppLoadTracingSupport.c)
+ *     KbdDeterminePortsServiced @ 0x1C000E610 (KbdDeterminePortsServiced.c)
+ *     WppCleanupKm @ 0x1C000EB24 (WppCleanupKm.c)
+ *     WppInitKm @ 0x1C000EBD4 (WppInitKm.c)
+ *     WppTraceCallback @ 0x1C000ECB0 (WppTraceCallback.c)
+ *     _tlgEnableCallback @ 0x1C00109C0 (_tlgEnableCallback.c)
+ *     KbdConfiguration @ 0x1C00119A0 (KbdConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall guard_dispatch_icall()
+{
+  __int64 (__fastcall *v0)(); // rax
+
+  return v0();
+}

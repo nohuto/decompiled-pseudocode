@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCheckDesiredAccess @ 0x14081BF20
+ * XREFs of IoCheckDesiredAccess @ 0x14081BF00
  * Callers:
  *     <none>
  * Callees:
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
  */
 
 NTSTATUS __stdcall IoCheckDesiredAccess(PACCESS_MASK DesiredAccess, ACCESS_MASK GrantedAccess)

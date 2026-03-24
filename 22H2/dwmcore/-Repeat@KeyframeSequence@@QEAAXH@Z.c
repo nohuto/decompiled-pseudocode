@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800F9EE8
+ * XREFs of ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187AC
  * Callers:
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180057590 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800AC434 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BD560 (-Play@KeyframeSequence@@QEAAXXZ.c)
- *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BD6F0 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC998 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800ACA0C (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Repeat(KeyframeSequence *this, int a2)
 {
   KeyframeSequence *v4; // rcx
-  __int64 v5; // r8
-  unsigned int v6; // r9d
-  __int64 v7; // r10
+  __int64 v5; // rdx
+  unsigned int v6; // r8d
+  int v7; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   KeyframeSequence::ConfigureTimer(this);
@@ -23,14 +23,11 @@ void __fastcall KeyframeSequence::Repeat(KeyframeSequence *this, int a2)
   v6 = *((_DWORD *)this + 28);
   if ( v6 )
   {
-    v7 = *((_QWORD *)this + 13);
     do
     {
-      if ( *(_DWORD *)(*(_QWORD *)(v7 + 24 * v5 + 8) + 20LL) != 1
-        && (unsigned int)(*(_DWORD *)(*(_QWORD *)(v7 + 24 * v5 + 8) + 20LL) - 2) >= 2 )
-      {
+      v7 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 13) + 24 * v5 + 8) + 20LL);
+      if ( v7 != 1 && (unsigned int)(v7 - 2) > 1 )
         ModuleFailFastForHRESULT(2147549183LL, retaddr);
-      }
       v5 = (unsigned int)(v5 + 1);
     }
     while ( (unsigned int)v5 < v6 );

@@ -1,13 +1,16 @@
 /*
- * XREFs of ?ComputeEffectiveAlpha@CProjectedShadowCaster@@AEBAMPEBVCVisualTree@@PEA_N@Z @ 0x1802016CC
+ * XREFs of ?ComputeEffectiveAlpha@CProjectedShadowCaster@@AEBAMPEBVCVisualTree@@PEA_N@Z @ 0x180011B64
  * Callers:
- *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z @ 0x1802020F4 (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z.c)
+ *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z @ 0x18001067C (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z.c)
  * Callees:
- *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x18000EC10 (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x180011C24 (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(CProjectedShadowCaster *this, CVisual **a2, bool *a3)
+float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(
+        CProjectedShadowCaster *this,
+        const struct CVisualTree *a2,
+        bool *a3)
 {
   CVisual *v3; // rdi
   bool v4; // bl
@@ -17,17 +20,17 @@ float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(CProjectedShadowC
   bool v10; // r10
   float result; // xmm0_4
 
-  v3 = (CVisual *)*((_QWORD *)this + 8);
+  v3 = (CVisual *)*((_QWORD *)this + 7);
   v4 = 0;
   v5 = *(float *)&FLOAT_1_0;
   for ( *a3 = 0; ; *a3 = v10 )
   {
     v5 = v5 * CVisual::GetVisualAlpha(v3, a2);
-    if ( v3 == a2[8] )
+    if ( v3 == *((CVisual **)a2 + 7) )
       break;
     if ( v8 || (v9 = (*(__int64 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 91LL), v10 = 0, v9) )
       v10 = 1;
-    v3 = (CVisual *)*((_QWORD *)v3 + 11);
+    v3 = (CVisual *)*((_QWORD *)v3 + 10);
   }
   if ( v8 || (*(unsigned __int8 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 91LL) )
     v4 = 1;

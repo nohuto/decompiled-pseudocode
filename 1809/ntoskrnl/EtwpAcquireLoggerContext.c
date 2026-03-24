@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAcquireLoggerContext @ 0x140659E70
+ * XREFs of EtwpAcquireLoggerContext @ 0x140659E50
  * Callers:
- *     EtwpStopTrace @ 0x140658FB0 (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x140659DA0 (EtwpQueryTrace.c)
- *     EtwpFlushTrace @ 0x1406C2960 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
- *     EtwpIncrementTraceFile @ 0x1408B6530 (EtwpIncrementTraceFile.c)
+ *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x140659D80 (EtwpQueryTrace.c)
+ *     EtwpFlushTrace @ 0x1406C2940 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
+ *     EtwpIncrementTraceFile @ 0x1408B6510 (EtwpIncrementTraceFile.c)
  * Callees:
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x140659F84 (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpCaptureString @ 0x14065A044 (EtwpCaptureString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x140659F64 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpCaptureString @ 0x14065A024 (EtwpCaptureString.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, unsigned int **a3)

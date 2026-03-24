@@ -1,9 +1,9 @@
 /*
- * XREFs of Send3FingerTapHotkey @ 0x1C01F6A40
+ * XREFs of Send3FingerTapHotkey @ 0x1C0213800
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C01F66F8 (-xxxSend3FingerTapHotkey@@YAXXZ.c)
+ *     ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C02132BC (-xxxSend3FingerTapHotkey@@YAXXZ.c)
  */
 
 void Send3FingerTapHotkey()

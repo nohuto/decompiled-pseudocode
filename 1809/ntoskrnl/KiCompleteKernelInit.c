@@ -4,12 +4,12 @@
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiSetProcessorIdle @ 0x1400D7324 (KiSetProcessorIdle.c)
- *     KeInitializeTimer2 @ 0x1400FD4B0 (KeInitializeTimer2.c)
- *     KeAttachProcess @ 0x14012F540 (KeAttachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
+ *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
+ *     KeAttachProcess @ 0x14012F560 (KeAttachProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     KiCreateCpuSetForProcessor @ 0x140571D00 (KiCreateCpuSetForProcessor.c)
  */
 

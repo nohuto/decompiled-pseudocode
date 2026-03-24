@@ -1,29 +1,29 @@
 /*
- * XREFs of ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x180025880
+ * XREFs of ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x1800B3140
  * Callers:
- *     ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800257B4 (-GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z.c)
+ *     ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800B31E8 (-GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z.c)
  * Callees:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180025E3C (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B20C4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall OpenComposedEvent(int a1, __int64 a2, void **a3)
 {
   unsigned int v4; // ebx
   HANDLE v5; // rax
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   WCHAR Name[28]; // [rsp+30h] [rbp-48h] BYREF
 
   v4 = 0;
-  if ( StringCchPrintfW(Name, 0x1AuLL, L"%s%x", L"DwmComposedEvent_", a1) >= 0 )
+  if ( (int)StringCchPrintfW(Name, 0x1AuLL, (size_t *)L"%s%x", L"DwmComposedEvent_", a1) >= 0 )
   {
     v5 = OpenEventW(2u, 0, Name);
     *a3 = v5;
     if ( !v5 )
     {
       v4 = -2144980991;
-      MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_18032ACC8, 2u, -2144980991, 0x2Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_1802CF708, 2u, -2144980991, 0x2Eu, 0LL);
     }
   }
   return v4;

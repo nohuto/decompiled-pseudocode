@@ -1,30 +1,28 @@
 /*
- * XREFs of ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C02D9090
+ * XREFs of ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C00D40C8
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C00300D0 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C02D9100 (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F3A8 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00D3E2C (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall XEPALOBJ::vInit256Default(XEPALOBJ *this)
 {
-  struct Gre::Base::SESSION_GLOBALS *v2; // rax
-  unsigned int v3; // r9d
-  __int64 v4; // r10
+  unsigned int v1; // r9d
+  __int64 v3; // r10
+  __int64 v4; // rcx
   __int64 v5; // r8
-  __int64 v6; // rdx
 
-  v2 = Gre::Base::Globals(this);
-  v3 = 0;
-  v4 = 0LL;
+  v1 = 0;
+  v3 = 0LL;
   do
   {
-    *(_DWORD *)(v4 + *(_QWORD *)(*(_QWORD *)this + 112LL)) = *(_DWORD *)((char *)v2 + v4 + 3856);
-    v4 += 4LL;
-    v5 = 19 - v3;
-    v6 = 255 - v3++;
-    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 4 * v6) = *((_DWORD *)v2 + v5 + 964);
+    v4 = 19 - v1;
+    *(_DWORD *)(v3 + *(_QWORD *)(*(_QWORD *)this + 112LL)) = *(_DWORD *)(v3 + logDefaultPal + 4);
+    v3 += 4LL;
+    v5 = 255 - v1++;
+    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 4 * v5) = *((_DWORD *)&logDefaultPal + v4 + 1);
   }
-  while ( v3 < 0xA );
+  while ( v1 < 0xA );
 }

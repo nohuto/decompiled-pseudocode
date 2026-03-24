@@ -1,24 +1,23 @@
 /*
- * XREFs of ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C006D08C
+ * XREFs of ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C005A0F8
  * Callers:
- *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0023B1C (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0052C94 (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
  * Callees:
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0021584 (-AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0059C8C (-AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
  */
 
 __int64 __fastcall FxObject::MoveContexts(FxObject *this, FxObject *TargetObject)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // r12
-  unsigned int _a3; // ebx
-  char *v6; // rdi
+  int _a3; // ebx
+  char *v6; // rsi
   KIRQL v7; // al
   FxContextHeader *_a1; // r14
   FxContextHeader *NextHeader; // r13
-  int v10; // eax
   KIRQL NewIrql; // [rsp+80h] [rbp+8h]
   PKSPIN_LOCK SpinLock; // [rsp+90h] [rbp+18h]
 
@@ -47,26 +46,25 @@ __int64 __fastcall FxObject::MoveContexts(FxObject *this, FxObject *TargetObject
             NextHeader = _a1->NextHeader;
             _a1->NextHeader = 0LL;
             _a1->Object = TargetObject;
-            v10 = FxObject::AddContext(TargetObject, _a1, 0LL, 0LL);
-            _a3 = v10;
-            if ( v10 == 0x40000000 )
+            _a3 = FxObject::AddContext(TargetObject, _a1, 0LL, 0LL);
+            if ( _a3 == 0x40000000 )
+            {
+              WPP_IFR_SF_qq(m_Globals, 2u, 0xBu, 0xDu, WPP_FxObject_cpp_Traceguids, _a1, TargetObject);
+              FxVerifierDbgBreakPoint(m_Globals);
+              _a3 = -1073741635;
+            }
+            if ( _a3 < 0 )
               break;
-            if ( v10 < 0 )
-              goto LABEL_12;
             *((_QWORD *)v6 + 1) = NextHeader;
             _a1 = NextHeader;
             if ( !NextHeader )
-              goto LABEL_13;
+              goto LABEL_14;
           }
-          WPP_IFR_SF_qq(m_Globals, 2u, 0xBu, 0xDu, WPP_FxObject_cpp_Traceguids, _a1, TargetObject);
-          FxVerifierDbgBreakPoint(m_Globals);
-          _a3 = -1073741635;
-LABEL_12:
-          WPP_IFR_SF_qqd(m_Globals, 2u, 0xBu, 0xEu, WPP_FxObject_cpp_Traceguids, _a1, TargetObject, _a3);
+          WPP_IFR_SF_qid(m_Globals, 2u, 0xBu, 0xEu, WPP_FxObject_cpp_Traceguids, _a1, (__int64)TargetObject, _a3);
           _a1->Object = this;
           _a1->NextHeader = NextHeader;
         }
-LABEL_13:
+LABEL_14:
         KeReleaseSpinLock(SpinLock, NewIrql);
       }
       else
@@ -76,5 +74,5 @@ LABEL_13:
       }
     }
   }
-  return _a3;
+  return (unsigned int)_a3;
 }

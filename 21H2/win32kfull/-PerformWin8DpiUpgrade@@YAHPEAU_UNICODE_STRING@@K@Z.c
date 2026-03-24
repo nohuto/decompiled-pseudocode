@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01589B8
+ * XREFs of ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01D43E8
  * Callers:
- *     ?PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C0123AB4 (-PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ *     ?PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C00C7A64 (-PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
  * Callees:
- *     GetDpiSettingWithNoDefault @ 0x1C00C8D80 (GetDpiSettingWithNoDefault.c)
+ *     GetDpiSettingWithNoDefault @ 0x1C00E5590 (GetDpiSettingWithNoDefault.c)
  */
 
 __int64 __fastcall PerformWin8DpiUpgrade(struct _UNICODE_STRING *a1, int a2)

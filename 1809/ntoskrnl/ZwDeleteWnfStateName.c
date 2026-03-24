@@ -1,12 +1,12 @@
 /*
- * XREFs of ZwDeleteWnfStateName @ 0x1401B9BD0
+ * XREFs of ZwDeleteWnfStateName @ 0x1401B9BF0
  * Callers:
  *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065148C (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406C80B8 (PiUEventFreeClientRegistrationContext.c)
- *     PopFreeRegistration @ 0x1406E1508 (PopFreeRegistration.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065146C (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406C8098 (PiUEventFreeClientRegistrationContext.c)
+ *     PopFreeRegistration @ 0x1406E14E8 (PopFreeRegistration.c)
  * Callees:
  *     <none>
  */

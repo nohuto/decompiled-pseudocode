@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpFreeMdlChain @ 0x1408158E4
+ * XREFs of FsRtlpFreeMdlChain @ 0x1408158C4
  * Callers:
- *     FsRtlQueryKernelEaFile @ 0x1406A5100 (FsRtlQueryKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x1406B2850 (FsRtlKernelFsControlFile.c)
- *     FsRtlSetKernelEaFile @ 0x1406C7EF0 (FsRtlSetKernelEaFile.c)
- *     FsRtlQueryInformationFile @ 0x140815710 (FsRtlQueryInformationFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x1406A50E0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1406B2830 (FsRtlKernelFsControlFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1406C7ED0 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryInformationFile @ 0x1408156F0 (FsRtlQueryInformationFile.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
  */
 
 void __fastcall FsRtlpFreeMdlChain(PMDL Mdl)

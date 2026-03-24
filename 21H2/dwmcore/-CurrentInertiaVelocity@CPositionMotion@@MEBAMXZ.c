@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ @ 0x18025FD20
+ * XREFs of ?CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ @ 0x18020F4B0
  * Callers:
  *     <none>
  * Callees:
- *     ?CurrentInertiaPanningVelocity@CPositionMotion@@AEBAMXZ @ 0x18025FCA8 (-CurrentInertiaPanningVelocity@CPositionMotion@@AEBAMXZ.c)
+ *     ?CurrentInertiaVelocity@CScaleMotion@@MEBAMXZ @ 0x18020F430 (-CurrentInertiaVelocity@CScaleMotion@@MEBAMXZ.c)
  */
 
 float __fastcall CPositionMotion::CurrentInertiaVelocity(CPositionMotion *this)
 {
-  return CPositionMotion::CurrentInertiaPanningVelocity(this)
-       + (float)((float)(*((float *)this + 31) / *((float *)this + 37))
-               * (float)(*((float *)this + 36) - *((float *)this + 32)));
+  return CScaleMotion::CurrentInertiaVelocity(this)
+       + (float)((float)(*((float *)this + 41) / *((float *)this + 47))
+               * (float)(*((float *)this + 46) - *((float *)this + 42)));
 }

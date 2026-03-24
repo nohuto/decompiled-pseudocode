@@ -4,17 +4,17 @@
  *     IoInitSystem @ 0x1409D2354 (IoInitSystem.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PnpDiagnosticTrace @ 0x1401371C4 (PnpDiagnosticTrace.c)
- *     PnpRequestDeviceAction @ 0x14015EFE4 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     PnpDiagnosticTrace @ 0x1401371E4 (PnpDiagnosticTrace.c)
+ *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
- *     IopGetDriverNameFromKeyNode @ 0x140680360 (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     IopReferenceDriverObjectByName @ 0x140709494 (IopReferenceDriverObjectByName.c)
- *     ExIsManufacturingModeEnabled @ 0x14073BE00 (ExIsManufacturingModeEnabled.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140680340 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopReferenceDriverObjectByName @ 0x140709474 (IopReferenceDriverObjectByName.c)
+ *     ExIsManufacturingModeEnabled @ 0x14073BDE0 (ExIsManufacturingModeEnabled.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  *     PnpWaitForDevicesToStart @ 0x1409CA968 (PnpWaitForDevicesToStart.c)
  *     InbvIndicateProgress @ 0x1409CBEB0 (InbvIndicateProgress.c)
  *     PipCheckDependencies @ 0x1409CC0A0 (PipCheckDependencies.c)
@@ -46,7 +46,7 @@ __int64 IopInitializeSystemDrivers()
 
   PnpDiagnosticTrace(&KMPnPEvt_SystemStart_Start, 0, 0LL);
   IsManufacturingModeEnabled = ExIsManufacturingModeEnabled();
-  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)qword_140409DF0 & -(__int64)(IsManufacturingModeEnabled != 0));
+  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)qword_140409DB0 & -(__int64)(IsManufacturingModeEnabled != 0));
   v2 = SystemDriverList;
   if ( SystemDriverList )
   {

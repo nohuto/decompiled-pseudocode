@@ -1,20 +1,20 @@
 /*
- * XREFs of PfLogEvent @ 0x1400D53D8
+ * XREFs of PfLogEvent @ 0x1400D53F8
  * Callers:
  *     PfHardFaultLog @ 0x140019F24 (PfHardFaultLog.c)
- *     PfFileInfoNotify @ 0x1400D3DC0 (PfFileInfoNotify.c)
- *     PfLogForegroundProcess @ 0x1400D73D0 (PfLogForegroundProcess.c)
- *     PfpLogApplicationEvent @ 0x1400D8478 (PfpLogApplicationEvent.c)
- *     PfpRpLogDeprioEvent @ 0x1400E20F4 (PfpRpLogDeprioEvent.c)
- *     PfLogFileDataAccess @ 0x1402D3078 (PfLogFileDataAccess.c)
+ *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
+ *     PfLogForegroundProcess @ 0x1400D73F0 (PfLogForegroundProcess.c)
+ *     PfpLogApplicationEvent @ 0x1400D8498 (PfpLogApplicationEvent.c)
+ *     PfpRpLogDeprioEvent @ 0x1400E2114 (PfpRpLogDeprioEvent.c)
+ *     PfLogFileDataAccess @ 0x1402D3178 (PfLogFileDataAccess.c)
  *     PfpPowerActionStartScenarioTracing @ 0x140566844 (PfpPowerActionStartScenarioTracing.c)
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfpLogEventRequest @ 0x1406E1AB4 (PfpLogEventRequest.c)
- *     PfpLogScenarioEvent @ 0x14071BCD4 (PfpLogScenarioEvent.c)
+ *     PfpLogEventRequest @ 0x1406E1A94 (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
  * Callees:
- *     PfFbLogEntryComplete @ 0x1400D5380 (PfFbLogEntryComplete.c)
- *     PfFbLogEntryReserve @ 0x1400D54C4 (PfFbLogEntryReserve.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PfFbLogEntryComplete @ 0x1400D53A0 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x1400D54E4 (PfFbLogEntryReserve.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall PfLogEvent(int a1, int a2, const void *a3, unsigned int a4)

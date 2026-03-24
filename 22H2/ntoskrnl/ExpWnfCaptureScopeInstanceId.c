@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWnfCaptureScopeInstanceId @ 0x14071333C
+ * XREFs of ExpWnfCaptureScopeInstanceId @ 0x14060FD88
  * Callers:
- *     ExpNtUpdateWnfStateData @ 0x14071234C (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140712D00 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1407CD8F0 (NtQueryWnfStateNameInformation.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x14060F2E0 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406893C0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
- *     SeCaptureSid @ 0x1406BB2CC (SeCaptureSid.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     MmGetSessionById @ 0x1402063D0 (MmGetSessionById.c)
+ *     SeCaptureSid @ 0x1405DE46C (SeCaptureSid.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, char *a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // rdi
   int v7; // ecx
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   __int64 SessionById; // rax
   int v10; // ecx
   int v11; // ecx
@@ -44,15 +44,7 @@ __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, char *a2, __int64 a3, __
     }
     if ( v11 == 1 )
     {
-      v10 = ObpReferenceObjectByHandleWithTag(
-              (ULONG_PTR)a2,
-              0,
-              (__int64)PsProcessType,
-              a3,
-              0x20666E57u,
-              (_QWORD *)a5,
-              0LL,
-              0LL);
+      v10 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)a2, 0x20666E57u, a5, 0LL, 0LL);
       if ( v10 >= 0 )
         *v5 = a5;
       return (unsigned int)v10;
@@ -64,14 +56,14 @@ __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, char *a2, __int64 a3, __
     v12 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
       v12 = (__int64)a2;
-    v8 = *(_DWORD *)v12;
+    v8 = *(unsigned int *)v12;
   }
   else
   {
-    v8 = *(_DWORD *)a2;
+    v8 = *(unsigned int *)a2;
   }
   *(_DWORD *)(a5 + 8) = v8;
-  SessionById = MmGetSessionById(v8);
+  SessionById = MmGetSessionById(v8, (__int64)a2);
   *(_QWORD *)a5 = SessionById;
   if ( !SessionById )
     return (unsigned int)-1073741811;

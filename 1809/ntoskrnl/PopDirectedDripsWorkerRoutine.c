@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsWorkerRoutine @ 0x140868810
+ * XREFs of PopDirectedDripsWorkerRoutine @ 0x1408687F0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PopDirectedDripsProcessWork @ 0x140868458 (PopDirectedDripsProcessWork.c)
- *     PopDiagTraceDirectedDripsWorker @ 0x140872234 (PopDiagTraceDirectedDripsWorker.c)
+ *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDiagTraceDirectedDripsWorker @ 0x140872214 (PopDiagTraceDirectedDripsWorker.c)
  */
 
 void __fastcall __noreturn PopDirectedDripsWorkerRoutine(volatile __int64 *StartContext)

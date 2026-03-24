@@ -1,52 +1,56 @@
 /*
- * XREFs of IoctlQueryProtocolInfoProcess @ 0x1C0013BD8
+ * XREFs of IoctlQueryProtocolInfoProcess @ 0x1C0001EF0
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     QueryProtocolInfoFeatureData @ 0x1C0018F40 (QueryProtocolInfoFeatureData.c)
- *     QueryProtocolInfoIdentifyData @ 0x1C0019288 (QueryProtocolInfoIdentifyData.c)
- *     QueryProtocolInfoLogPageData @ 0x1C00194BC (QueryProtocolInfoLogPageData.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C0001F7C (QueryProtocolInfoLogPageData.c)
+ *     QueryProtocolInfoFeatureData @ 0x1C0016414 (QueryProtocolInfoFeatureData.c)
+ *     QueryProtocolInfoIdentifyData @ 0x1C001667C (QueryProtocolInfoIdentifyData.c)
  */
 
 __int64 __fastcall IoctlQueryProtocolInfoProcess(__int64 a1, __int64 a2)
 {
-  _DWORD *SrbDataBuffer; // rdx
-  __int64 v3; // r9
-  __int64 v4; // r10
-  unsigned __int64 v5; // rax
-  __int64 v6; // r11
+  _DWORD *v2; // r8
+  __int64 v3; // rax
+  unsigned __int64 v4; // r11
+  __int64 v5; // rbx
+  int v6; // eax
   int v7; // eax
   int v8; // eax
-  int v9; // eax
-  unsigned int *v11; // [rsp+40h] [rbp+18h] BYREF
 
-  v11 = 0LL;
-  SrbDataBuffer = (_DWORD *)GetSrbDataBuffer(a2, &v11);
-  v5 = *v11;
-  if ( (unsigned int)v5 < 0x4C
-    || (v6 = (unsigned int)SrbDataBuffer[13], v5 < v6 + 36 + (unsigned __int64)(unsigned int)SrbDataBuffer[14]) )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    *(_BYTE *)(v3 + 3) = 21;
+    v2 = *(_DWORD **)(a2 + 64);
+    v3 = 60LL;
   }
   else
   {
-    if ( (!(_DWORD)v6 || (((_BYTE)v6 + 36) & 7) == 0) && SrbDataBuffer[9] == 3 )
+    v2 = *(_DWORD **)(a2 + 24);
+    v3 = 16LL;
+  }
+  v4 = *(unsigned int *)(a2 + v3);
+  if ( (unsigned int)v4 < 0x4C || (v5 = (unsigned int)v2[13], v4 < v5 + 36 + (unsigned __int64)(unsigned int)v2[14]) )
+  {
+    *(_BYTE *)(a2 + 3) = 21;
+  }
+  else
+  {
+    if ( (!(_DWORD)v5 || (((_BYTE)v5 + 36) & 7) == 0) && v2[9] == 3 )
     {
-      v7 = SrbDataBuffer[10];
-      if ( v7 )
+      v6 = v2[10];
+      if ( v6 )
       {
+        v7 = v6 - 1;
+        if ( !v7 )
+          return QueryProtocolInfoIdentifyData(a1);
         v8 = v7 - 1;
         if ( !v8 )
-          return QueryProtocolInfoIdentifyData(v4, v3);
-        v9 = v8 - 1;
-        if ( !v9 )
-          return QueryProtocolInfoLogPageData(v4, v3);
-        if ( v9 == 1 )
-          return QueryProtocolInfoFeatureData(v4, v3);
+          return QueryProtocolInfoLogPageData(a1);
+        if ( v8 == 1 )
+          return QueryProtocolInfoFeatureData(a1);
       }
     }
-    *(_BYTE *)(v3 + 3) = 6;
+    *(_BYTE *)(a2 + 3) = 6;
   }
   return 3238002694LL;
 }

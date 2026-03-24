@@ -1,480 +1,209 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x1403BB598
+ * XREFs of MiActivePageClaimCandidate @ 0x140282D80
  * Callers:
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MiPfnsWorthTrying @ 0x1403BB034 (MiPfnsWorthTrying.c)
- *     MiCheckContiguityTradeEligible @ 0x140648E9C (MiCheckContiguityTradeEligible.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x1402827B0 (MiPfnsWorthTrying.c)
+ *     MiCheckContiguityTradeEligible @ 0x140546B04 (MiCheckContiguityTradeEligible.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPage @ 0x1402E9180 (MiGetBaseResidentPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiPfnLargeBitSet @ 0x1403BBA08 (MiPfnLargeBitSet.c)
- *     MiHyperPage @ 0x1403BBA90 (MiHyperPage.c)
- *     MiVaIsPageFileHash @ 0x1403BBD20 (MiVaIsPageFileHash.c)
- *     MiRequestIoPageMdlCacheRelease @ 0x1403D698C (MiRequestIoPageMdlCacheRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsPfnFileOnly @ 0x140218D20 (MiIsPfnFileOnly.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140283570 (MiIsPfnFromSlabAllocation.c)
+ *     MiHyperPage @ 0x1402835C4 (MiHyperPage.c)
+ *     MiVaIsPageFileHash @ 0x14028367C (MiVaIsPageFileHash.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     MiGetBaseResidentPage @ 0x1403F5DB4 (MiGetBaseResidentPage.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6158 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6188 (MiGetPfnPageSizeIndexUnsynchronized.c)
  */
 
-__int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, char a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  int v7; // ebp
-  int v8; // ebx
-  __int64 v9; // r8
-  __int64 v10; // rsi
-  unsigned __int8 v11; // r13
-  unsigned __int64 v12; // r12
-  unsigned __int64 v13; // r14
-  __int64 v14; // r15
-  unsigned __int64 v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r15
-  unsigned __int64 v19; // rbp
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // rax
-  unsigned __int64 v24; // r15
-  unsigned __int64 v25; // rax
+  int v4; // r13d
+  __int64 v7; // rdi
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  unsigned __int64 v10; // r12
+  unsigned __int64 v11; // rsi
+  __int64 BaseResidentPage; // rax
   int PfnPageSizeIndex; // eax
-  int SystemRegionType; // r15d
-  __int64 BaseResidentPage; // rbp
-  unsigned __int64 v29; // rax
-  unsigned __int64 v30; // rax
-  __int16 v31; // bp
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v35; // eax
-  bool v36; // zf
-  int v37; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v38; // [rsp+28h] [rbp-50h] BYREF
-  __int64 v39; // [rsp+30h] [rbp-48h]
-  int v41; // [rsp+88h] [rbp+10h] BYREF
-  int v42; // [rsp+90h] [rbp+18h]
+  __int64 v14; // r8
+  unsigned int v15; // r8d
+  __int64 *v16; // r10
+  __int64 v17; // r9
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // r15
+  unsigned __int64 v22; // r14
+  unsigned __int64 v23; // rax
+  __int16 v24; // ax
+  unsigned __int64 v25; // rcx
+  unsigned __int64 v26; // rdx
+  int v27; // r8d
+  __int64 v28; // rax
+  unsigned __int64 v29; // rsi
+  unsigned __int64 v30; // rcx
+  int v32; // [rsp+58h] [rbp+10h] BYREF
+  int v33; // [rsp+68h] [rbp+20h] BYREF
 
-  v7 = a3 & 1;
-  v8 = a4;
-  v42 = v7;
-  v9 = a1;
-  v10 = 1LL;
-  v11 = 17;
-  v12 = 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4);
-  v13 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
-  if ( (*(_BYTE *)(a2 + 35) & 8) != 0 )
+  v33 = a4;
+  v4 = a3;
+  v7 = 1LL;
+  v8 = *(_QWORD *)(a2 + 8);
+  v9 = (unsigned __int128)((a2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+  v10 = ((unsigned __int64)v9 >> 63) + (v9 >> 3);
+  v11 = v8 | 0x8000000000000000uLL;
+  if ( (*(_BYTE *)(a2 + 35) & 8) == 0 )
   {
-    if ( (_DWORD)a4 )
-      ++dword_140C1377C;
-    else
-      ++dword_140C138BC;
-  }
-  else
-  {
-    if ( _bittest64((const signed __int64 *)(a2 + 40), 0x28u) )
+    if ( (*(_QWORD *)(a2 + 40) & 0x1000000000LL) == 0 )
+      goto LABEL_9;
+    if ( (_DWORD)a3 == 1 )
     {
-      if ( v7 )
-      {
-        BaseResidentPage = MiGetBaseResidentPage(a2, 1LL, a1, a4);
-        PfnPageSizeIndex = MiGetPfnPageSizeIndex(BaseResidentPage);
-        if ( BaseResidentPage != a2 )
-          _InterlockedAnd64((volatile signed __int64 *)(BaseResidentPage + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        v7 = v42;
-      }
-      else
-      {
-        v37 = 0;
-        v41 = 0;
-        PfnPageSizeIndex = MiGetPfnPageSizeIndexUnsynchronized(a2, &v37, &v41);
-      }
-      if ( PfnPageSizeIndex != -1 )
-        return MiLargePageSizes[PfnPageSizeIndex];
-      v9 = a1;
+      BaseResidentPage = MiGetBaseResidentPage(a2, v9, a3);
+      PfnPageSizeIndex = MiGetPfnPageSizeIndex(BaseResidentPage);
+      if ( v14 != a2 )
+        _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
-    if ( *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)) == v9 )
+    else
     {
-      if ( (a3 & 2) == 0 )
+      v32 = 0;
+      v33 = 0;
+      PfnPageSizeIndex = MiGetPfnPageSizeIndexUnsynchronized(a2, &v32, &v33);
+    }
+    if ( PfnPageSizeIndex == -1 )
+    {
+LABEL_9:
+      if ( *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a2 + 40) >> 39) & 0x3FFLL)) == a1 )
       {
-        PfnPageSizeIndex = MiPfnLargeBitSet(v9, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
-        if ( PfnPageSizeIndex != -1 )
-          return MiLargePageSizes[PfnPageSizeIndex];
-      }
-      v14 = *(_QWORD *)(a2 + 40);
-      if ( v14 >= 0 )
-      {
-        if ( v13 == -8LL )
+        if ( *(_BYTE *)(a1 + 4830) )
         {
-          if ( v8 )
-            ++dword_140C137CC;
-          else
-            ++dword_140C138EC;
-        }
-        else if ( (unsigned int)MiGetSystemRegionType(v13) == 5 )
-        {
-          if ( v8 )
-            ++dword_140C137D8;
-          else
-            ++dword_140C13900;
-        }
-        else if ( (((unsigned __int64)v14 >> 60) & 7) == 1 || (v17 = v14 & 0xFFFFFFFFFFLL, v17 == 0x3FFFFFFFFELL) )
-        {
-          if ( v8 )
-            ++dword_140C137DC;
-          else
-            ++dword_140C138A4;
+          v15 = 0;
+          v16 = MiLargePageSizes;
+          v17 = a1 + 5064;
+          while ( !*(_QWORD *)v17 || !_bittest64(*(const signed __int64 **)(v17 + 8), v10 / *v16) )
+          {
+            ++v15;
+            v17 += 16LL;
+            ++v16;
+            if ( v15 >= 2 )
+              goto LABEL_15;
+          }
+          return MiLargePageSizes[v15];
         }
         else
         {
-          if ( v13 < 0xFFFFF68000000000uLL || v13 > 0xFFFFF6FFFFFFFFFFuLL )
+LABEL_15:
+          if ( !(unsigned int)MiIsPfnFromSlabAllocation(a2) )
           {
-            ++dword_140C13908;
-            return v10;
-          }
-          v39 = 0LL;
-          v19 = (__int64)(v13 << 25) >> 16;
-          if ( (*(_BYTE *)a2 & 1) != 0 )
-          {
-            if ( PsInitialSystemProcess && v12 == PsInitialSystemProcess->DirectoryTableBase >> 12 )
+            if ( (unsigned int)MI_PFN_IS_PROTO(a2) )
             {
-              if ( v8 )
-                ++dword_140C137FC;
-              else
-                ++dword_140C13874;
-            }
-            else
-            {
-              v20 = 0xFFFFF6FB40000000uLL;
-              v21 = 0xFFFFF6FB5FFFFFF8uLL;
-              LODWORD(v22) = 0;
-              do
+              v19 = *(_QWORD *)(a2 + 24);
+              if ( (v19 & 0x4000000000000000LL) == 0
+                && v11 != qword_140C4DE38
+                && v11 != qword_140C4DE40
+                && (v4 != 1 || !MiIsPfnFileOnly(v18)) )
               {
-                if ( v13 <= v21 && v13 >= v20 )
+                v20 = *(unsigned __int16 *)(a2 + 32);
+                if ( (unsigned int)v20 <= 1
+                  && v20 <= (v19 & 0x3FFFFFFFFFFFFFFFuLL)
+                  && (*(_BYTE *)a2 & 1) != 0
+                  && ((*(_QWORD *)(a2 + 40) & 0x1000000000LL) != 0 || *(__int64 *)(a2 + 8) <= 0) )
                 {
-                  if ( *(_WORD *)(a2 + 32) <= 1u )
-                  {
-                    if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) < 0x10000 )
-                      return 0LL;
-                    if ( v8 )
-                      ++dword_140C13804;
-                    else
-                      ++dword_140C13880;
-                  }
-                  else if ( v8 )
-                  {
-                    ++dword_140C13800;
-                  }
-                  else
-                  {
-                    ++dword_140C13878;
-                  }
-                  return v10;
-                }
-                v20 = ((v20 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-                v21 = ((v21 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-                v22 = (unsigned int)(v22 + 1);
-              }
-              while ( (unsigned int)v22 < 3 );
-              if ( v17 == v12 )
-              {
-                v10 = 0LL;
-                if ( v13 == 0xFFFFF6FB7DBEDF68uLL )
-                {
-                  if ( *(_WORD *)(a2 + 32) <= 1u )
-                    return v10;
-                  if ( v8 )
-                    ++dword_140C13818;
-                  else
-                    ++dword_140C138D4;
-                }
-                else if ( v8 )
-                {
-                  ++dword_140C13808;
-                }
-                else
-                {
-                  ++dword_140C13904;
-                }
-                return 1LL;
-              }
-              v23 = *(_QWORD *)(a2 + 24);
-              v24 = v23 & 0x3FFFFFFFFFFFFFFFLL;
-              if ( (v23 & 0x3FFFFFFFFFFFFFFFuLL) <= 1 )
-              {
-                if ( (v23 & 0xFFFFFFFFFFLL) == 0 )
-                {
-                  if ( v8 )
-                    ++dword_140C13820;
-                  else
-                    ++dword_140C138A0;
-                  return v10;
-                }
-                v25 = *(unsigned __int16 *)(a2 + 32);
-                if ( (unsigned __int16)v25 > 1u || v25 > v24 )
-                {
-                  if ( !v42 )
-                    MiRequestIoPageMdlCacheRelease(0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), v21, v22);
-                  v29 = *(unsigned __int16 *)(a2 + 32);
-                  if ( (unsigned __int16)v29 > 1u || v29 > (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) )
-                  {
-                    if ( v8 )
-                      ++dword_140C13824;
-                    else
-                      ++dword_140C13888;
-                    return v10;
-                  }
-                }
-                return 0LL;
-              }
-              if ( (unsigned int)MiGetSystemRegionType(v19) == 6 )
-              {
-                if ( *(_WORD *)(a2 + 32) <= 1u )
-                {
-                  if ( v24 < 0x10000 )
-                    return 0LL;
-                  if ( v8 )
-                    ++dword_140C13810;
-                  else
-                    ++dword_140C13884;
-                }
-                else if ( v8 )
-                {
-                  ++dword_140C1380C;
-                }
-                else
-                {
-                  ++dword_140C1387C;
-                }
-              }
-              else if ( (unsigned int)MiHyperPage(a2) )
-              {
-                if ( *(_WORD *)(a2 + 32) <= 1u )
                   return 0LL;
-                if ( v8 )
-                  ++dword_140C13814;
-                else
-                  ++dword_140C1390C;
-              }
-              else if ( v8 )
-              {
-                ++dword_140C1381C;
-              }
-              else
-              {
-                ++dword_140C138D8;
+                }
               }
             }
-          }
-          else if ( (unsigned int)MiHyperPage(a2) )
-          {
-            v30 = *(unsigned __int16 *)(a2 + 32);
-            if ( (unsigned __int16)v30 <= 1u && v30 <= (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) )
-              return 0LL;
-            if ( v8 )
-              ++dword_140C13818;
-            else
-              ++dword_140C138D4;
-          }
-          else
-          {
-            if ( MiVaIsPageFileHash(a1, v19) )
-              return 0LL;
-            SystemRegionType = MiGetSystemRegionType(v19);
-            if ( SystemRegionType == 5 )
+            else if ( v11 != -8LL && (unsigned int)MiGetSystemRegionType(v11) != 5 )
             {
-              if ( (*(_BYTE *)(a2 + 35) & 0x10) != 0 )
+              v21 = *(_QWORD *)(a2 + 40);
+              if ( ((v21 >> 60) & 7) != 1
+                && (v21 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
+                && v11 >= 0xFFFFF68000000000uLL
+                && v11 <= 0xFFFFF6FFFFFFFFFFuLL )
               {
-                if ( v8 )
-                  ++dword_140C137C4;
-                else
-                  ++dword_140C138E4;
-              }
-              else if ( *(_WORD *)(a2 + 32) <= 1u )
-              {
-                if ( (byte_140C65B8F & 1) != 0 )
+                v22 = (__int64)(v11 << 25) >> 16;
+                if ( (*(_BYTE *)a2 & 1) != 0 )
                 {
-                  if ( v42
-                    || (++dword_140C13914, v11 = MiLockPageInline(a2), (*(_BYTE *)(a2 + 34) & 7) == 6)
-                    && !_bittest64((const signed __int64 *)(a2 + 40), 0x28u)
-                    && (*(_QWORD *)(a2 + 8) | 0x8000000000000000uLL) == v13
-                    && (unsigned int)MiGetSystemRegionType(v19) == 5 )
+                  if ( !PsInitialSystemProcess || v10 != PsInitialSystemProcess->DirectoryTableBase >> 12 )
                   {
-                    v38 = MI_READ_PTE_LOCK_FREE(v13);
-                    v31 = v38;
-                    if ( (v38 & 1) != 0
-                      && v12 == (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v38) >> 12) & 0xFFFFFFFFFFLL) )
+                    v25 = 0xFFFFF6FB40000000uLL;
+                    v26 = 0xFFFFF6FB5FFFFFF8uLL;
+                    v27 = 0;
+                    while ( v11 < v25 || v11 > v26 )
                     {
-                      if ( (v31 & 0x200) != 0 )
+                      v25 = ((v25 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+                      v26 = ((v26 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+                      if ( (unsigned int)++v27 >= 3 )
                       {
-                        if ( v8 )
-                          ++dword_140C137D4;
+                        if ( (v21 & 0xFFFFFFFFFLL) == v10 )
+                        {
+                          v7 = 0LL;
+                          if ( v11 != 0xFFFFF6FB7DBEDF68uLL || *(_WORD *)(a2 + 32) > 1u )
+                            return 1LL;
+                        }
                         else
-                          ++dword_140C138F4;
-                      }
-                      else
-                      {
-                        v10 = 0LL;
-                      }
-                    }
-                    else if ( v8 )
-                    {
-                      ++dword_140C137D0;
-                    }
-                    else
-                    {
-                      ++dword_140C138F0;
-                    }
-                  }
-                  else
-                  {
-                    ++dword_140C138F8;
-                  }
-                  if ( v11 != 17 )
-                  {
-                    _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                    if ( KiIrqlFlags )
-                    {
-                      CurrentIrql = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
-                      {
-                        CurrentPrcb = KeGetCurrentPrcb();
-                        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                        v35 = ~(unsigned __int16)(-1LL << (v11 + 1));
-                        v36 = (v35 & SchedulerAssist[5]) == 0;
-                        SchedulerAssist[5] &= v35;
-                        if ( v36 )
-                          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                        {
+                          v28 = *(_QWORD *)(a2 + 24);
+                          v29 = v28 & 0x3FFFFFFFFFFFFFFFLL;
+                          if ( (v28 & 0x3FFFFFFFFFFFFFFFuLL) <= 1 )
+                          {
+                            if ( (v28 & 0xFFFFFFFFFLL) != 0 && (v22 < qword_140C4DDE0 || v22 >= qword_140C4DDE0 + 4096) )
+                            {
+                              v30 = *(unsigned __int16 *)(a2 + 32);
+                              if ( (unsigned int)v30 <= 1 && v30 <= v29 )
+                                return 0LL;
+                            }
+                          }
+                          else if ( (unsigned int)MiGetSystemRegionType(v22) == 6 )
+                          {
+                            if ( *(_WORD *)(a2 + 32) <= 1u && v29 < 0x10000 )
+                              return 0LL;
+                          }
+                          else if ( (unsigned int)MiHyperPage(a2) && *(_WORD *)(a2 + 32) <= 1u )
+                          {
+                            return 0LL;
+                          }
+                        }
+                        return v7;
                       }
                     }
-                    __writecr8(v11);
+                    if ( *(_WORD *)(a2 + 32) <= 1u && (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) < 0x10000 )
+                      return 0LL;
                   }
                 }
-                else if ( v8 )
+                else if ( (unsigned int)MiHyperPage(a2) )
                 {
-                  ++dword_140C137C8;
+                  v23 = *(unsigned __int16 *)(a2 + 32);
+                  if ( (unsigned int)v23 <= 1 && v23 <= (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) )
+                    return 0LL;
                 }
                 else
                 {
-                  ++dword_140C138E8;
+                  if ( MiVaIsPageFileHash(*(_QWORD *)(qword_140C4E648 + 8 * ((v21 >> 39) & 0x3FF)), v22) )
+                    return 0LL;
+                  if ( (unsigned int)MiGetSystemRegionType(v22) == 5
+                    && (*(_BYTE *)(a2 + 35) & 0x10) == 0
+                    && *(_WORD *)(a2 + 32) <= 1u
+                    && (MiFlags & 0x800) == 0 )
+                  {
+                    if ( v4 != 1 )
+                      return 0LL;
+                    v24 = MI_READ_PTE_LOCK_FREE(v11);
+                    if ( (v24 & 1) != 0 && (v24 & 0x200) == 0 )
+                      return 0LL;
+                  }
                 }
               }
-              else if ( v8 )
-              {
-                ++dword_140C137C4;
-              }
-              else
-              {
-                ++dword_140C138E4;
-              }
-            }
-            else if ( v19 < MmPfnDatabase || v19 > MmPfnDatabase + (MxPfnAllocation << 12) )
-            {
-              if ( SystemRegionType == 1
-                || v19 >= 0xFFFFF68000000000uLL
-                && v19 <= 0xFFFFF6FFFFFFFFFFuLL
-                && (unsigned int)MiGetSystemRegionType((__int64)((v19 << 25) - v39) >> 16) == 1 )
-              {
-                if ( v8 )
-                  ++dword_140C137E8;
-                else
-                  ++dword_140C13890;
-              }
-              else if ( SystemRegionType == 12 )
-              {
-                if ( v8 )
-                  ++dword_140C137EC;
-                else
-                  ++dword_140C13894;
-              }
-              else if ( SystemRegionType == 9 )
-              {
-                if ( v8 )
-                  ++dword_140C137F0;
-                else
-                  ++dword_140C13898;
-              }
-              else if ( v19 < 0xFFFFF68000000000uLL || v19 > 0xFFFFF6FFFFFFFFFFuLL )
-              {
-                if ( v8 )
-                  ++dword_140C137F8;
-                else
-                  ++dword_140C1388C;
-              }
-              else if ( v8 )
-              {
-                ++dword_140C137F4;
-              }
-              else
-              {
-                ++dword_140C1389C;
-              }
-            }
-            else if ( v8 )
-            {
-              ++dword_140C137E4;
-            }
-            else
-            {
-              ++dword_140C138C4;
             }
           }
         }
       }
-      else
-      {
-        if ( (*(_QWORD *)(a2 + 24) & 0x4000000000000000LL) == 0 && v13 != qword_140C65B28 && v13 != qword_140C65B30 )
-        {
-          if ( v7 && (v14 & 0x20000000000000LL) != 0 )
-          {
-            if ( v8 )
-              ++dword_140C137A8;
-            else
-              ++dword_140C138B0;
-            return v10;
-          }
-          v15 = *(unsigned __int16 *)(a2 + 32);
-          if ( (unsigned __int16)v15 > 1u || v15 > (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) )
-          {
-            if ( v8 )
-              ++dword_140C137B8;
-            else
-              ++dword_140C138B8;
-            return v10;
-          }
-          if ( (*(_BYTE *)a2 & 1) == 0 )
-          {
-            if ( v8 )
-              ++dword_140C137BC;
-            else
-              ++dword_140C138B4;
-            return v10;
-          }
-          v16 = *(_QWORD *)(a2 + 8);
-          if ( v16 >= 0 && (v14 & 0x10000000000LL) == 0 && v16 )
-          {
-            *a5 |= 2u;
-            if ( v8 )
-              ++dword_140C137C0;
-            else
-              ++dword_140C138C0;
-            return v10;
-          }
-          return 0LL;
-        }
-        if ( v8 )
-          ++dword_140C137B4;
-        else
-          ++dword_140C138AC;
-      }
-    }
-    else if ( v8 )
-    {
-      ++dword_140C1375C;
     }
     else
     {
-      ++dword_140C1383C;
+      return MiLargePageSizes[PfnPageSizeIndex];
     }
   }
-  return v10;
+  return v7;
 }

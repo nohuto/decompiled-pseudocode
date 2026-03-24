@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveUnusedSubsection @ 0x14021B994
+ * XREFs of MiRemoveUnusedSubsection @ 0x140279184
  * Callers:
- *     MiPrepareSegmentForDeletion @ 0x14021980C (MiPrepareSegmentForDeletion.c)
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     MiReferenceActiveSubsection @ 0x140288C80 (MiReferenceActiveSubsection.c)
- *     MiReferenceSubsection @ 0x140289050 (MiReferenceSubsection.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x1403399D0 (MiDereferenceControlAreaPfnList.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x140238510 (MmPurgeSection.c)
+ *     MiPrepareSegmentForDeletion @ 0x140278384 (MiPrepareSegmentForDeletion.c)
+ *     MiReferenceSubsection @ 0x140295BDC (MiReferenceSubsection.c)
+ *     MiReferenceActiveSubsection @ 0x140296380 (MiReferenceActiveSubsection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402F4E60 (MiDereferenceControlAreaPfnList.c)
  * Callees:
- *     MiReduceUnusedSubsectionCount @ 0x14021BA20 (MiReduceUnusedSubsectionCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReduceUnusedSubsectionCount @ 0x140279210 (MiReduceUnusedSubsectionCount.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveUnusedSubsection(__int64 a1)
@@ -20,8 +20,8 @@ void __fastcall MiRemoveUnusedSubsection(__int64 a1)
   __int64 v4; // r8
   _QWORD *v5; // rdx
 
-  v2 = *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 1408));
+  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 1344));
   v3 = (_QWORD *)(a1 + 80);
   v4 = *(_QWORD *)(a1 + 80);
   if ( *(_QWORD *)(v4 + 8) != a1 + 80 || (v5 = *(_QWORD **)(a1 + 88), (_QWORD *)*v5 != v3) )
@@ -32,5 +32,5 @@ void __fastcall MiRemoveUnusedSubsection(__int64 a1)
   *(_QWORD *)(a1 + 88) = a1 + 80;
   *v3 = v3;
   MiReduceUnusedSubsectionCount(a1);
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1408));
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1344));
 }

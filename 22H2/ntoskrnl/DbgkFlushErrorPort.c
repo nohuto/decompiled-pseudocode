@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkFlushErrorPort @ 0x1407518F4
+ * XREFs of DbgkFlushErrorPort @ 0x140630408
  * Callers:
- *     PspExitProcess @ 0x140751944 (PspExitProcess.c)
+ *     PspExitProcess @ 0x14062FC1C (PspExitProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsGetProcessServerSilo @ 0x14028C060 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     DbgkpDereferenceErrorPort @ 0x14053BC38 (DbgkpDereferenceErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x14093A020 (DbgkpRemoveErrorPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessServerSilo @ 0x14025C2E0 (PsGetProcessServerSilo.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     DbgkpDereferenceErrorPort @ 0x1404EE018 (DbgkpDereferenceErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x1408870C4 (DbgkpRemoveErrorPort.c)
  */
 
 _QWORD *__fastcall DbgkFlushErrorPort(__int64 a1)

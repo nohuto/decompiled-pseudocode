@@ -1,62 +1,73 @@
 /*
- * XREFs of ?GetDeviceRemovalSupport@DXGPROCESS@@QEAAXPEBU_LUID@@PEAE@Z @ 0x1C0336178
+ * XREFs of ?GetDeviceRemovalSupport@DXGPROCESS@@QEAAXPEBU_LUID@@PEAE@Z @ 0x1C02850F8
  * Callers:
- *     DxgkGetProcessDeviceRemovalSupport @ 0x1C0337AF0 (DxgkGetProcessDeviceRemovalSupport.c)
+ *     DxgkGetProcessDeviceRemovalSupport @ 0x1C0286600 (DxgkGetProcessDeviceRemovalSupport.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C000BD28 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C00072DC (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
  */
 
-void __fastcall DXGPROCESS::GetDeviceRemovalSupport(struct _KTHREAD **this, const struct _LUID *a2, bool *a3)
+void __fastcall DXGPROCESS::GetDeviceRemovalSupport(DXGPROCESS *this, const struct _LUID *a2, bool *a3)
 {
-  char *v6; // rsi
-  __int16 v7; // cx
-  char *v8; // rax
-  struct _KTHREAD *v9; // rbx
+  __int64 v6; // rax
+  char *v7; // rbp
+  __int16 v8; // ax
+  bool v9; // al
+  char *v10; // rax
+  _QWORD *v11; // rbx
   __int64 Current; // rax
-  __int64 v11; // rdi
-  _QWORD v12[2]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int64 v16; // rax
+  _QWORD v17[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( this[16] != KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 13) + 16LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 5112LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsMutexOwner()", 5112LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 5053LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v6 = (char *)(this + 27);
+  v7 = (char *)this + 176;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(this + 27, 0LL);
-  this[28] = KeGetCurrentThread();
-  v7 = *((_WORD *)this + 288);
-  if ( !v7 || (*a3 = v7 == 1, v7 != 1) )
+  ExAcquirePushLockExclusiveEx((char *)this + 176, 0LL);
+  *((_QWORD *)this + 23) = KeGetCurrentThread();
+  v8 = *((_WORD *)this + 232);
+  if ( v8 )
+    v9 = v8 == 1;
+  else
+    v9 = 0;
+  *a3 = v9;
+  if ( !v9 )
   {
-    v8 = (char *)(this + 40);
+    v10 = (char *)this + 280;
     *a3 = 1;
-    v9 = this[40];
-    v12[0] = v8;
+    v11 = (_QWORD *)*((_QWORD *)this + 35);
+    v17[0] = v10;
     while ( 1 )
     {
-      v12[1] = v9;
-      Current = DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v12);
+      v17[1] = v11;
+      Current = DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v17);
       if ( !Current )
         break;
       if ( *(_DWORD *)(Current + 432) != 2 )
       {
-        v11 = *(_QWORD *)(*(_QWORD *)(Current + 16) + 16LL);
-        if ( !v11 )
+        v15 = *(_QWORD *)(*(_QWORD *)(Current + 16) + 16LL);
+        if ( !v15 )
         {
-          WdLogSingleEntry1(1LL, 5155LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pAdapter != NULL", 5155LL, 0LL, 0LL, 0LL, 0LL);
+          v16 = WdLogNewEntry5_WdAssertion(v14, v13);
+          *(_QWORD *)(v16 + 24) = 5096LL;
+          WdLogEvent5_WdAssertion(v16);
         }
-        if ( *(_DWORD *)(v11 + 404) == a2->LowPart && *(_DWORD *)(v11 + 408) == a2->HighPart )
+        if ( *(_DWORD *)(v15 + 316) == a2->LowPart && *(_DWORD *)(v15 + 320) == a2->HighPart )
         {
           *a3 = 0;
           break;
         }
       }
-      v9 = *(struct _KTHREAD **)v9;
+      v11 = (_QWORD *)*v11;
     }
   }
-  *((_QWORD *)v6 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v6, 0LL);
+  *((_QWORD *)v7 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v7, 0LL);
   KeLeaveCriticalRegion();
 }

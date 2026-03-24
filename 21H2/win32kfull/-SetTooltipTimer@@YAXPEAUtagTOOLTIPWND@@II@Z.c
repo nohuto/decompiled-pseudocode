@@ -1,20 +1,20 @@
 /*
- * XREFs of ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0118B1C
+ * XREFs of ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0029168
  * Callers:
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     xxxTooltipWndProc @ 0x1C010CED0 (xxxTooltipWndProc.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     xxxTooltipWndProc @ 0x1C00DB220 (xxxTooltipWndProc.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C00C2F28 (_SetSystemTimer.c)
- *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0118BBC (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C002B44C (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     _SetSystemTimer @ 0x1C002CAB8 (_SetSystemTimer.c)
  */
 
-void __fastcall SetTooltipTimer(struct tagTOOLTIPWND *a1, unsigned int a2, unsigned int a3)
+void __fastcall SetTooltipTimer(struct tagTOOLTIPWND *a1, int a2, int a3)
 {
-  unsigned __int64 v6; // rcx
+  __int64 v6; // rcx
 
   KillTooltipTimer(a1);
   v6 = *(_QWORD *)a1;
   *((_DWORD *)a1 + 9) = a2;
-  SetSystemTimer(v6, a2, a3, 0LL, 1);
+  SetSystemTimer(v6, a2, a3, 0, 1);
 }

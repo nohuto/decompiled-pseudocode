@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AU_LUID@@XZ @ 0x18010C950
+ * XREFs of ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AU_LUID@@XZ @ 0x1800F9350
  * Callers:
  *     <none>
  * Callees:

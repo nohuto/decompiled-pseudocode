@@ -1,17 +1,17 @@
 /*
- * XREFs of Etw_ControllerFirmareVersionUpdate @ 0x1C004A8F0
+ * XREFs of Etw_ControllerFirmareVersionUpdate @ 0x1C0047F70
  * Callers:
- *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014180 (Command_D0EntryPostInterruptsEnabled.c)
- *     Register_ParseCapabilityRegister @ 0x1C0071BC8 (Register_ParseCapabilityRegister.c)
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014C14 (Command_D0EntryPostInterruptsEnabled.c)
+ *     Register_ParseCapabilityRegister @ 0x1C006FA80 (Register_ParseCapabilityRegister.c)
  * Callees:
- *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C004B2B8 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C0048D00 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ControllerFirmareVersionUpdate(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     return McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer(
              (int)a2 + 314,
              (unsigned int)&USBXHCI_ETW_EVENT_CONTROLLER_FIRMWARE_VERSION_UPDATE,
@@ -31,6 +31,6 @@ __int64 __fastcall Etw_ControllerFirmareVersionUpdate(__int64 a1, __int64 a2)
              *(_DWORD *)(a2 + 464),
              *(_DWORD *)(a2 + 392),
              *(_DWORD *)(a2 + 176),
-             *(_BYTE *)(a2 + 600));
+             *(_BYTE *)(a2 + 552));
   return result;
 }

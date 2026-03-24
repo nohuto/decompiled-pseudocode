@@ -1,5 +1,5 @@
 /*
- * XREFs of MiFreeLargePages @ 0x1402C54CC
+ * XREFs of MiFreeLargePages @ 0x1402C55CC
  * Callers:
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
  * Callees:
@@ -7,9 +7,9 @@
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8B4 (MiGetLeafPfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionCharges @ 0x1402D23BC (MiReturnCrossPartitionCharges.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionCharges @ 0x1402D24BC (MiReturnCrossPartitionCharges.c)
  */
 
 unsigned __int64 __fastcall MiFreeLargePages(__int64 a1)

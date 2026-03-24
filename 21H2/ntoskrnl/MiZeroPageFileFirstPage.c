@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroPageFileFirstPage @ 0x14084BA88
+ * XREFs of MiZeroPageFileFirstPage @ 0x1407B7608
  * Callers:
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     MiSynchronousPageWrite @ 0x1403CF888 (MiSynchronousPageWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     MiSynchronousPageWrite @ 0x1403BFD58 (MiSynchronousPageWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiZeroPageFileFirstPage(struct _FILE_OBJECT *a1)
@@ -23,7 +23,7 @@ __int64 __fastcall MiZeroPageFileFirstPage(struct _FILE_OBJECT *a1)
   v4 = 0LL;
   MemoryDescriptorList.Next = 0LL;
   MemoryDescriptorList.ByteOffset = 0;
-  v8 = qword_140C53290;
+  v8 = qword_140C4ED80;
   memset(&Event, 0, sizeof(Event));
   MemoryDescriptorList.ByteCount = 4096;
   v6 = 0LL;

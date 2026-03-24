@@ -1,36 +1,35 @@
 /*
- * XREFs of ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BD3F8
+ * XREFs of ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9ECC
  * Callers:
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ??1CKeyframeAnimation@@UEAA@XZ @ 0x180097618 (--1CKeyframeAnimation@@UEAA@XZ.c)
- *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800BCEC0 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
- *     ?StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ @ 0x18023A420 (-StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ.c)
+ *     ??1CKeyframeAnimation@@UEAA@XZ @ 0x1800A9A74 (--1CKeyframeAnimation@@UEAA@XZ.c)
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800AB420 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABBA8 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800AD3F0 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
  * Callees:
- *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x180057730 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
- *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BB448 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
- *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800BD5D4 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
- *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BD6F0 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
- *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800BD760 (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
- *     ?Stop@KeyframeSequence@@QEAAXXZ @ 0x1800BD8E0 (-Stop@KeyframeSequence@@QEAAXXZ.c)
- *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800BD9F0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800A9CF0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800AA37C (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
+ *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABEF0 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800AC820 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800ACA0C (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800ACE0C (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
+ *     ?Stop@KeyframeSequence@@QEAAXXZ @ 0x1800AD008 (-Stop@KeyframeSequence@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::Reset(CKeyframeAnimation *this, char a2, struct CExpressionValueStack *a3)
 {
   int v5; // eax
   int v6; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   int v8; // edi
   KeyframeSequence *v9; // rcx
-  __int64 v11; // rcx
-  int v12; // ecx
-  unsigned int v13; // edx
-  __int64 v14; // rcx
-  int v15; // r10d
+  int v11; // ecx
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  int v14; // r11d
+  __int64 v15; // rcx
 
-  if ( (*((_BYTE *)this + 581) & 1) == 0 )
+  if ( (*((_BYTE *)this + 549) & 1) == 0 )
   {
 LABEL_8:
     v8 = 0;
@@ -38,42 +37,42 @@ LABEL_8:
   }
   if ( !a2 )
     goto LABEL_6;
-  v5 = *((_DWORD *)this + 144);
+  v5 = *((_DWORD *)this + 136);
   if ( v5 == 1 )
   {
-    *((_DWORD *)this + 123) = *((_DWORD *)this + 122);
+    *((_DWORD *)this + 115) = *((_DWORD *)this + 114);
     CKeyframeAnimation::PrepareSequenceForIteration(this, 0);
-    KeyframeSequence::ConfigureTimer(*((KeyframeSequence **)this + 49));
-    *(_DWORD *)(v11 + 92) = 0;
+    KeyframeSequence::ConfigureTimer(*((KeyframeSequence **)this + 45));
+    *(_DWORD *)(v15 + 92) = 0;
   }
   else if ( v5 == 2 )
   {
-    *((_DWORD *)this + 123) = *((_DWORD *)this + 122);
+    *((_DWORD *)this + 115) = *((_DWORD *)this + 114);
     CKeyframeAnimation::GetAnimationTimeLength(this);
-    v12 = *((_DWORD *)this + 136);
-    v13 = 0;
-    if ( v12 >= 1 )
-      v13 = v12 - 1;
-    CKeyframeAnimation::PrepareSequenceForIteration(this, v13);
-    KeyframeSequence::ConfigureTimer(*((KeyframeSequence **)this + 49));
-    *(_DWORD *)(v14 + 92) = v15;
+    v11 = *((_DWORD *)this + 128);
+    v12 = 0;
+    if ( v11 >= 1 )
+      v12 = v11 - 1;
+    CKeyframeAnimation::PrepareSequenceForIteration(this, v12);
+    KeyframeSequence::ConfigureTimer(*((KeyframeSequence **)this + 45));
+    *(_DWORD *)(v13 + 92) = v14;
   }
-  KeyframeSequence::Calculate(*((KeyframeSequence **)this + 49), a3);
-  v6 = CExpressionValueStack::PushConstant(a3, *((const struct CExpressionValue **)this + 49));
+  KeyframeSequence::Calculate(*((KeyframeSequence **)this + 45), a3);
+  v6 = CExpressionValueStack::PushConstant(a3, *((const struct CExpressionValue **)this + 45));
   v8 = v6;
   if ( v6 >= 0 )
   {
 LABEL_6:
-    v9 = (KeyframeSequence *)*((_QWORD *)this + 49);
+    v9 = (KeyframeSequence *)*((_QWORD *)this + 45);
     if ( (*((_BYTE *)v9 + 140) & 1) != 0 )
       KeyframeSequence::Stop(v9);
     goto LABEL_8;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x9B9u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x96Bu, 0LL);
 LABEL_9:
-  *((_BYTE *)this + 580) &= ~0x80u;
-  *((_BYTE *)this + 581) &= 0xF8u;
-  *((_DWORD *)this + 123) = 0;
+  *((_BYTE *)this + 548) &= ~0x80u;
+  *((_BYTE *)this + 549) &= 0xF8u;
+  *((_DWORD *)this + 115) = 0;
   if ( v8 >= 0 )
     CKeyframeAnimation::OnAnimationEvent(this, 2LL, a3);
   return (unsigned int)v8;

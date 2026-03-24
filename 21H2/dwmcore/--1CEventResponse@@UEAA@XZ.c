@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1CEventResponse@@UEAA@XZ @ 0x1801D7308
+ * XREFs of ??1CEventResponse@@UEAA@XZ @ 0x1801628CC
  * Callers:
- *     ??_ECEventResponse@@UEAAPEAXI@Z @ 0x1801D7350 (--_ECEventResponse@@UEAAPEAXI@Z.c)
+ *     ??_ECEventResponse@@UEAAPEAXI@Z @ 0x180162910 (--_ECEventResponse@@UEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

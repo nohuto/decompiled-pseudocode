@@ -1,5 +1,5 @@
 /*
- * XREFs of ExQueueDebuggerWorker @ 0x14018CF90
+ * XREFs of ExQueueDebuggerWorker @ 0x14018CFB0
  * Callers:
  *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
  *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)

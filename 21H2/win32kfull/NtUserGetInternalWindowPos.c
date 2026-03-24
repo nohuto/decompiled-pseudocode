@@ -1,41 +1,39 @@
 /*
- * XREFs of NtUserGetInternalWindowPos @ 0x1C01F4FA0
+ * XREFs of NtUserGetInternalWindowPos @ 0x1C01FA4F0
  * Callers:
  *     <none>
  * Callees:
- *     _GetWindowPlacement @ 0x1C007C658 (_GetWindowPlacement.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     _GetWindowPlacement @ 0x1C0040F18 (_GetWindowPlacement.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtUserGetInternalWindowPos(__int64 a1, _OWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rcx
-  struct tagWND *v7; // r9
+  __int64 v7; // r9
   unsigned int v8; // ebx
-  _BYTE *v9; // rdx
-  _BYTE *v10; // rdx
+  _OWORD *v9; // rax
+  _QWORD *v10; // rdx
   _OWORD v12[3]; // [rsp+38h] [rbp-50h] BYREF
 
   memset(v12, 0, 44);
-  EnterSharedCrit(a1, a2, a3);
-  v7 = (struct tagWND *)ValidateHwnd(a1);
+  EnterSharedCrit(0LL, 1LL);
+  v7 = ValidateHwnd(a1);
   if ( v7 )
   {
     if ( a2 )
     {
       v9 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v9 = (_BYTE *)MmUserProbeAddress;
+        v9 = (_OWORD *)MmUserProbeAddress;
       *v9 = *v9;
-      v9[15] = v9[15];
     }
     if ( a3 )
     {
       v10 = a3;
       if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-        v10 = (_BYTE *)MmUserProbeAddress;
+        v10 = (_QWORD *)MmUserProbeAddress;
       *v10 = *v10;
-      v10[7] = v10[7];
     }
     LODWORD(v12[0]) = 44;
     GetWindowPlacement(v7, (__int64)v12, 0);

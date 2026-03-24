@@ -1,26 +1,28 @@
 /*
- * XREFs of ?GetSurfaceUpdates@CGlobalSurfaceManager@@AEAAJPEAIPEAH@Z @ 0x180081810
+ * XREFs of ?GetSurfaceUpdates@CGlobalSurfaceManager@@AEAAJPEAIPEAH@Z @ 0x180164648
  * Callers:
- *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x1800816C0 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
+ *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x18009C0F0 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180090244 (-GetCurrentFrameId@@YA_KXZ.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::GetSurfaceUpdates(CGlobalSurfaceManager *this, unsigned int *a2, int *a3)
 {
   unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // r8
   int FrameSurfaceUpdates; // eax
-  __int64 v5; // rcx
+  __int64 v7; // rcx
   unsigned __int64 CurrentFrameId; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = 0;
   CurrentFrameId = GetCurrentFrameId();
-  FrameSurfaceUpdates = NtDCompositionGetFrameSurfaceUpdates(&CurrentFrameId);
+  FrameSurfaceUpdates = NtDCompositionGetFrameSurfaceUpdates(&CurrentFrameId, v4, v5);
   if ( FrameSurfaceUpdates < 0 )
   {
     v3 = FrameSurfaceUpdates | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, &dword_1803458B8, 3LL, FrameSurfaceUpdates | 0x10000000, 0xA4u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_1802DB4E0, 3u, FrameSurfaceUpdates | 0x10000000, 0xA9u, 0LL);
   }
   return v3;
 }

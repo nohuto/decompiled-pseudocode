@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x18010CC30
+ * XREFs of ?GetShaderResourceView@CD2DBitmap@@$4PPPPPPPM@FI@EAAPEAUID3D11ShaderResourceView@@XZ @ 0x1800F61C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,26 +1,29 @@
 /*
- * XREFs of ??_GFxDisposeList@@UEAAPEAXI@Z @ 0x1C006AA50
+ * XREFs of ??_GFxDisposeList@@UEAAPEAXI@Z @ 0x1C00550B0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
  */
 
-FxDisposeList *__fastcall FxDisposeList::`scalar deleting destructor'(FxDisposeList *this, unsigned int a2)
+FxDisposeList *__fastcall FxDisposeList::`scalar deleting destructor'(
+        FxDisposeList *this,
+        unsigned int a2,
+        unsigned int a3)
 {
-  char v2; // bl
-  FxDisposeList *v4; // rcx
+  char v3; // bl
+  FxDisposeList *v5; // rcx
 
-  v2 = a2;
+  v3 = a2;
   this->__vftable = (FxDisposeList_vtbl *)FxDisposeList::`vftable';
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxDisposeList *)((char *)this - 48);
+    v5 = (FxDisposeList *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

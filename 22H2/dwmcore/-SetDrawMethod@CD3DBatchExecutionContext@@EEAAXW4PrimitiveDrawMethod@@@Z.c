@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetDrawMethod@CD3DBatchExecutionContext@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x1800DB620
+ * XREFs of ?SetDrawMethod@CD3DBatchExecutionContext@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x180066E70
  * Callers:
  *     <none>
  * Callees:
- *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800DB67C (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x180066ECC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
  */
 
 __int64 __fastcall CD3DBatchExecutionContext::SetDrawMethod(__int64 a1, char a2)

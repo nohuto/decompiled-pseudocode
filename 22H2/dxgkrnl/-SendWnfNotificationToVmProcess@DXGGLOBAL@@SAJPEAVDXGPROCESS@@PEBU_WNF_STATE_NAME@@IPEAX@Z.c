@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z @ 0x1C0315360
+ * XREFs of ?SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z @ 0x1C026BD90
  * Callers:
  *     <none>
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C0052004 (-QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C004684C (-QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::SendWnfNotificationToVmProcess(
@@ -15,40 +15,37 @@ __int64 __fastcall DXGGLOBAL::SendWnfNotificationToVmProcess(
         void *a4)
 {
   size_t v4; // rsi
-  unsigned int v8; // ebp
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  int v12; // eax
-  unsigned __int64 v13; // rax
-  __int64 v14; // rcx
+  ULONG v8; // ebp
+  struct _WNF_STATE_NAME *v9; // rbx
+  char v11; // al
+  unsigned __int64 v12; // rax
+  struct _WNF_STATE_NAME v13; // rax
+  DXG_DEFERRED_WORK_QUEUE *v14; // rcx
 
   v4 = a3;
   v8 = a3 + 47;
-  v9 = operator new[](a3 + 103, 0x4B677844u, 64LL);
-  v10 = v9;
+  v9 = (struct _WNF_STATE_NAME *)operator new(a3 + 103, 0x4B677844u, 1, (POOL_TYPE)512);
   if ( !v9 )
     return 3221225495LL;
-  *(_QWORD *)(v9 + 16) = DXGGLOBAL::SendWnfNotificationToVmProcessWorkItem;
-  v12 = *(_DWORD *)(a1 + 424);
-  if ( (v12 & 0x100) != 0 )
-    v13 = *(_QWORD *)(a1 + 608);
+  v9[2] = (struct _WNF_STATE_NAME)DXGGLOBAL::SendWnfNotificationToVmProcessWorkItem;
+  v11 = *(_BYTE *)(a1 + 347);
+  if ( (v11 & 0x20) != 0 )
+    v12 = *(_QWORD *)(a1 + 496);
   else
-    v13 = a1 & -(__int64)((v12 & 0x80u) != 0);
-  *(_QWORD *)(v10 + 40) = *(_QWORD *)(v13 + 608);
-  *(_DWORD *)(v10 + 48) = v8;
-  *(_QWORD *)(v10 + 24) = v10;
-  v14 = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 88LL);
-  *(_QWORD *)(v10 + 56) = 0LL;
-  *(_DWORD *)(v10 + 64) = 0;
-  *(_QWORD *)(v10 + 88) = v14;
-  *(_BYTE *)(v10 + 68) = 2;
-  *(_DWORD *)(v10 + 68) &= 0x1FFu;
-  *(_DWORD *)(v10 + 72) = 4;
-  *(_DWORD *)(v10 + 96) = v4;
-  memmove((void *)(v10 + 100), a4, v4);
-  *(struct _WNF_STATE_NAME *)(v10 + 80) = *a2;
-  DXG_DEFERRED_WORK_QUEUE::QueueWorkItem(
-    (DXG_DEFERRED_WORK_QUEUE *)(*(_QWORD *)&DXGGLOBAL::m_pGlobal + 2184LL),
-    (struct DXG_DEFERRED_QUEUE_WORK_ITEM *)v10);
+    v12 = a1 & -(__int64)((v11 & 0x10) != 0);
+  v9[5] = *(struct _WNF_STATE_NAME *)(v12 + 496);
+  v9[6].Data[0] = v8;
+  v9[3] = (struct _WNF_STATE_NAME)v9;
+  v13 = *(struct _WNF_STATE_NAME *)(a1 + 544);
+  v9[7] = 0LL;
+  v9[8].Data[0] = 0;
+  v9[11] = v13;
+  v9[8].Data[1] = 2;
+  v9[9].Data[0] = 4;
+  v9[12].Data[0] = v4;
+  memmove((char *)&v9[12] + 4, a4, v4);
+  v14 = (DXG_DEFERRED_WORK_QUEUE *)((char *)DXGGLOBAL::m_pGlobal + 2032);
+  v9[10] = *a2;
+  DXG_DEFERRED_WORK_QUEUE::QueueWorkItem(v14, (struct DXG_DEFERRED_QUEUE_WORK_ITEM *)v9);
   return 0LL;
 }

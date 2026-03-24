@@ -1,7 +1,7 @@
 /*
- * XREFs of KdpSysWriteIoSpace @ 0x14028CE10
+ * XREFs of KdpSysWriteIoSpace @ 0x14028CF10
  * Callers:
- *     KdSystemDebugControl @ 0x1408422D0 (KdSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x1408422B0 (KdSystemDebugControl.c)
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  * Callees:
  *     <none>

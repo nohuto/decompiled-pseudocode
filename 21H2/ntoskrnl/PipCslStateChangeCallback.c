@@ -1,10 +1,10 @@
 /*
- * XREFs of PipCslStateChangeCallback @ 0x1406EB440
+ * XREFs of PipCslStateChangeCallback @ 0x1406C3C80
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PipCslUpdateState @ 0x1406EB470 (PipCslUpdateState.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PipCslUpdateState @ 0x1406C3CB0 (PipCslUpdateState.c)
  */
 
 void __fastcall PipCslStateChangeCallback(PVOID CallbackContext, _BYTE *Argument1, PVOID Argument2)

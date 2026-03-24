@@ -1,61 +1,63 @@
 /*
- * XREFs of MiFreeLargeInitializationCodePages @ 0x14039386C
+ * XREFs of MiFreeLargeInitializationCodePages @ 0x1403BCC20
  * Callers:
- *     MiFreeInitializationCode @ 0x140703BAC (MiFreeInitializationCode.c)
+ *     MiFreeInitializationCode @ 0x14075E45C (MiFreeInitializationCode.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324550 (MiCheckSlabPfnBitmap.c)
- *     MiAddExpansionNonPagedPool @ 0x140396D44 (MiAddExpansionNonPagedPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140283570 (MiIsPfnFromSlabAllocation.c)
+ *     MiReturnFreeZeroPage @ 0x1402836D0 (MiReturnFreeZeroPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1402AA5C0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiAddExpansionNonPagedPool @ 0x1403B5BD4 (MiAddExpansionNonPagedPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiFreeLargeInitializationCodePages(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall MiFreeLargeInitializationCodePages(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-  __int64 i; // rbx
-  unsigned __int64 v8; // rsi
-  char v9; // al
-  struct _KPRCB *CurrentPrcb; // r10
+  __int64 v5; // rdx
+  __int64 v6; // r8
   _DWORD *SchedulerAssist; // r9
-  bool v12; // zf
+  __int64 i; // rdi
+  unsigned __int64 v9; // rsi
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  int v12; // eax
+  bool v13; // zf
 
-  if ( !(unsigned int)MiCheckSlabPfnBitmap(a1, 1LL, 0) )
-    return MiAddExpansionNonPagedPool(a2, a3);
-  result = 48 * a3;
-  for ( i = 48 * a3 + a1; a3; --a3 )
+  if ( MiIsPfnFromSlabAllocation(a1) )
   {
-    i -= 48LL;
-    v8 = (unsigned __int8)MiLockPageInline(i);
-    if ( (MiFlags & 0xC000) == 0xC000 && ((*(_QWORD *)(i + 40) >> 60) & 7) == 3 )
-      MiSetPfnIdentity(i, 0);
-    v9 = *(_BYTE *)(i + 34);
-    *(_QWORD *)(i + 16) = 0LL;
-    *(_BYTE *)(i + 34) = v9 & 0xF8 | 5;
-    MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(i + 16));
-    MiReturnFreeZeroPage(i);
-    result = 0x7FFFFFFFFFFFFFFFLL;
-    _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    for ( i = 48 * a3 + a1; a3; --a3 )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v8 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      i -= 48LL;
+      v9 = (unsigned __int8)MiLockPageInline(i, v5, v6, SchedulerAssist);
+      *(_BYTE *)(i + 34) = *(_BYTE *)(i + 34) & 0xF8 | 5;
+      *(_QWORD *)(i + 16) = 0LL;
+      MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(i + 16));
+      MiReturnFreeZeroPage(i);
+      _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v12 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v5 = -1LL << ((unsigned __int8)v9 + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v12 = ~(unsigned __int16)v5;
+            v13 = (v12 & SchedulerAssist[5]) == 0;
+            v6 = (unsigned int)v12 & SchedulerAssist[5];
+            SchedulerAssist[5] = v6;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
       }
+      __writecr8(v9);
     }
-    __writecr8(v8);
   }
-  return result;
+  else
+  {
+    MiAddExpansionNonPagedPool(v6, a3);
+  }
 }

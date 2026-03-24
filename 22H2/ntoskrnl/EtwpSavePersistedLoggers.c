@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpSavePersistedLoggers @ 0x1409EE078
+ * XREFs of EtwpSavePersistedLoggers @ 0x14094925C
  * Callers:
- *     EtwpKsrCallback @ 0x1409ED590 (EtwpKsrCallback.c)
+ *     EtwpKsrCallback @ 0x140948770 (EtwpKsrCallback.c)
  * Callees:
- *     ExIsSoftBoot @ 0x140374280 (ExIsSoftBoot.c)
- *     EtwpSavePersistedLoggersWorker @ 0x1409EE0A8 (EtwpSavePersistedLoggersWorker.c)
+ *     ExIsSoftBoot @ 0x14039AD70 (ExIsSoftBoot.c)
+ *     EtwpSavePersistedLoggersWorker @ 0x14094928C (EtwpSavePersistedLoggersWorker.c)
  */
 
 char EtwpSavePersistedLoggers()

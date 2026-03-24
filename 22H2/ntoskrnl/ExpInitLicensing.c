@@ -1,29 +1,31 @@
 /*
- * XREFs of ExpInitLicensing @ 0x140864904
+ * XREFs of ExpInitLicensing @ 0x1407D3FA8
  * Callers:
- *     sub_140609258 @ 0x140609258 (sub_140609258.c)
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     sub_1405B2D88 @ 0x1405B2D88 (sub_1405B2D88.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ExpInitLicensing(char *a1)
+__int64 *__fastcall ExpInitLicensing(__int64 a1)
 {
-  __int64 *v1; // rax
-  __int64 result; // rax
+  __int64 *result; // rax
 
-  v1 = (__int64 *)(a1 + 904);
-  if ( a1 == (char *)&PspHostSiloGlobals )
+  if ( (_UNKNOWN *)a1 == &PspHostSiloGlobals )
   {
-    qword_140D9C9C0 = 81920LL;
-    qword_140D5A950 = (__int64)ExpHostBootLicensingData;
-    *v1 = (__int64)&qword_140D5A950;
+    qword_140D72E50 = 81920LL;
+    qword_140D35E40 = (__int64)ExpHostBootLicensingData;
+    result = &qword_140D35E40;
+    *(_QWORD *)(a1 + 904) = &qword_140D35E40;
   }
-  result = *v1;
-  *(_DWORD *)(result + 47032) = -1;
-  *(_DWORD *)(result + 8) = 0;
-  *(_DWORD *)(result + 46988) = 0;
-  *(_QWORD *)(result + 46840) = 0LL;
-  *(_QWORD *)(result + 47024) = 0LL;
+  else
+  {
+    result = *(__int64 **)(a1 + 904);
+  }
+  *((_DWORD *)result + 11758) = -1;
+  *((_DWORD *)result + 2) = 0;
+  *((_DWORD *)result + 11747) = 0;
+  result[5855] = 0LL;
+  result[5878] = 0LL;
   return result;
 }

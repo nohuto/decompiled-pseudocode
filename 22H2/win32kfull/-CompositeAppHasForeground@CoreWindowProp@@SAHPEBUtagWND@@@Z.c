@@ -1,15 +1,18 @@
 /*
- * XREFs of ?CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C000F42C
+ * XREFs of ?CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C000798C
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C000EF44 (xxxSetModernAppWindow.c)
- *     EditionIsAppForeground @ 0x1C01AE570 (EditionIsAppForeground.c)
- *     GetActiveTrackPwnd @ 0x1C01B68AC (GetActiveTrackPwnd.c)
- *     NtUserNavigateFocus @ 0x1C01D7B90 (NtUserNavigateFocus.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01ED858 (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
- *     ?ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z @ 0x1C02007D8 (-ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     NtUserNavigateFocus @ 0x1C00077E0 (NtUserNavigateFocus.c)
+ *     EditionIsAppForeground @ 0x1C01D2450 (EditionIsAppForeground.c)
+ *     GetActiveTrackPwnd @ 0x1C01E16AC (GetActiveTrackPwnd.c)
+ *     xxxInitializeMoveSizeData @ 0x1C021184C (xxxInitializeMoveSizeData.c)
+ *     ?ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z @ 0x1C0223520 (-ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z.c)
+ *     ?CanTransferForeground@CWindow@@QEBA_NXZ @ 0x1C023FA5C (-CanTransferForeground@CWindow@@QEBA_NXZ.c)
+ *     ?xxxRevalidateAndTransferCapture@CMoveSizeRequest@@AEAA_NPEAUtagWND@@@Z @ 0x1C0241498 (-xxxRevalidateAndTransferCapture@CMoveSizeRequest@@AEAA_NPEAUtagWND@@@Z.c)
+ *     ?xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z @ 0x1C0241740 (-xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z.c)
  * Callees:
- *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C00CFF84 (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
+ *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0066A2C (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
  */
 
 __int64 __fastcall CoreWindowProp::CompositeAppHasForeground(const struct tagWND *a1)
@@ -25,7 +28,7 @@ __int64 __fastcall CoreWindowProp::CompositeAppHasForeground(const struct tagWND
   v1 = 0;
   if ( !gpqForeground )
     return 0LL;
-  v2 = *(_QWORD *)(gpqForeground + 128LL);
+  v2 = *(_QWORD *)(gpqForeground + 120LL);
   if ( !v2 )
     return 0LL;
   TopLevelWindow = (const struct tagWND *)GetTopLevelWindow(a1);

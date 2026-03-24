@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInitializeMce @ 0x140A5A6CC
+ * XREFs of HalpInitializeMce @ 0x1409A0E1C
  * Callers:
- *     HalpInitializeErrSrc @ 0x140A5A680 (HalpInitializeErrSrc.c)
+ *     HalpInitializeErrSrc @ 0x1409A0DE0 (HalpInitializeErrSrc.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     HalpMceInitializeRecovery @ 0x1403D2C84 (HalpMceInitializeRecovery.c)
- *     HalpInitializeGhesRecovery @ 0x1403D2CE0 (HalpInitializeGhesRecovery.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpMcaExtendedLogInitialize @ 0x140506DF0 (HalpMcaExtendedLogInitialize.c)
- *     HalpMceInit @ 0x140A5A7C8 (HalpMceInit.c)
- *     HalpMceInitProcessor @ 0x140A5A8F8 (HalpMceInitProcessor.c)
- *     HalpMcaSetFeatureFlags @ 0x140A5B19C (HalpMcaSetFeatureFlags.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A61424 (HalpHandlePreviousMcaErrors.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A61564 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMceInitializeRecovery @ 0x1403C5820 (HalpMceInitializeRecovery.c)
+ *     HalpInitializeGhesRecovery @ 0x1403C587C (HalpInitializeGhesRecovery.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpMcaExtendedLogInitialize @ 0x1404BA460 (HalpMcaExtendedLogInitialize.c)
+ *     HalpMceInit @ 0x1409A0F1C (HalpMceInit.c)
+ *     HalpMceInitProcessor @ 0x1409A104C (HalpMceInitProcessor.c)
+ *     HalpMcaSetFeatureFlags @ 0x1409A1434 (HalpMcaSetFeatureFlags.c)
+ *     HalpHandlePreviousMcaErrors @ 0x1409A6CB0 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  */
 
 __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
@@ -23,15 +23,15 @@ __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64
   __int64 v8; // r8
   __int64 v9; // r9
   ULONG v10; // edi
-  ULONG ActiveProcessorCount; // ebp
-  unsigned int *v12; // rsi
+  ULONG ActiveProcessorCount; // r14d
+  int *v12; // rsi
   unsigned int v13; // edx
   struct _GROUP_AFFINITY *v14; // rdx
   __int64 i; // rbx
-  signed __int32 v16[8]; // [rsp+0h] [rbp-58h] BYREF
-  __int64 v17; // [rsp+20h] [rbp-38h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v19; // [rsp+38h] [rbp-20h] BYREF
+  signed __int32 v16[8]; // [rsp+0h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+20h] [rbp-30h]
+  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  __int128 v19; // [rsp+38h] [rbp-18h] BYREF
 
   v17 = 0LL;
   Affinity = 0LL;
@@ -71,8 +71,8 @@ __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64
             else
               v14 = (struct _GROUP_AFFINITY *)&v19;
             KeSetSystemGroupAffinityThread(&Affinity, v14);
-            for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
-              PshedInitProc(*(unsigned int *)(i + 172));
+            for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
+              PshedInitProc(*(unsigned int *)(i + 164));
             ++v10;
             ++v12;
           }

@@ -1,28 +1,30 @@
 /*
- * XREFs of DesktopFromDesktopWindow @ 0x1C00CE71C
+ * XREFs of DesktopFromDesktopWindow @ 0x1C000E98C
  * Callers:
- *     CreateOrGetRedirectionBitmap @ 0x1C001F528 (CreateOrGetRedirectionBitmap.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BF148 (CreateOrGetRedirectionBitmap.c)
  * Callees:
- *     _GetProcessWindowStation @ 0x1C00CEC40 (_GetProcessWindowStation.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
  */
 
 __int64 __fastcall DesktopFromDesktopWindow(__int64 a1)
 {
   __int64 v1; // rbx
+  __int64 v3; // rdx
   __int64 ProcessWindowStation; // rax
   __int64 i; // rax
-  __int64 v5; // rcx
+  __int64 v6; // rcx
 
   v1 = 0LL;
-  if ( (*(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) & 0x2FFF) == 0x29D )
+  v3 = *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) & 0x2FFF;
+  if ( (_DWORD)v3 == 669 )
   {
-    ProcessWindowStation = GetProcessWindowStation(0LL);
+    ProcessWindowStation = GetProcessWindowStation(0LL, v3);
     if ( ProcessWindowStation )
     {
       for ( i = *(_QWORD *)(ProcessWindowStation + 16); i; i = *(_QWORD *)(i + 32) )
       {
-        v5 = *(_QWORD *)(i + 8);
-        if ( v5 && *(_QWORD *)(v5 + 24) == a1 )
+        v6 = *(_QWORD *)(i + 8);
+        if ( v6 && *(_QWORD *)(v6 + 24) == a1 )
           return i;
       }
     }

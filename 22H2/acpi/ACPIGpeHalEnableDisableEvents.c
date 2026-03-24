@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGpeHalEnableDisableEvents @ 0x1C002C320
+ * XREFs of ACPIGpeHalEnableDisableEvents @ 0x1C0055F80
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C002C2BC (ACPIGpeEnableDisableEvents.c)
- *     ACPIReadGpeStatusRegister @ 0x1C0038A6C (ACPIReadGpeStatusRegister.c)
- *     READ_PM1_STATUS @ 0x1C0038E90 (READ_PM1_STATUS.c)
+ *     READ_PM1_STATUS @ 0x1C0010154 (READ_PM1_STATUS.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0026904 (ACPIReadGpeStatusRegister.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 void *__fastcall ACPIGpeHalEnableDisableEvents(char a1)
@@ -26,7 +26,7 @@ void *__fastcall ACPIGpeHalEnableDisableEvents(char a1)
       {
         do
         {
-          *((_BYTE *)GpeSavedWakeStatus + v2) = ACPIReadGpeStatusRegister((unsigned int)v2);
+          *((_BYTE *)GpeSavedWakeStatus + v2) = ACPIReadGpeStatusRegister(v2);
           v2 = (unsigned int)(v2 + 1);
         }
         while ( (unsigned int)v2 < *((unsigned __int16 *)AcpiInformation + 51) );

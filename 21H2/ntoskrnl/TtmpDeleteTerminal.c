@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpDeleteTerminal @ 0x1409A39E0
+ * XREFs of TtmpDeleteTerminal @ 0x1408FDEA0
  * Callers:
  *     <none>
  * Callees:
- *     TtmiLogTerminalDestroyed @ 0x1409AA4F0 (TtmiLogTerminalDestroyed.c)
+ *     TtmiLogTerminalDestroyed @ 0x1409047F0 (TtmiLogTerminalDestroyed.c)
  */
 
 __int64 TtmpDeleteTerminal()

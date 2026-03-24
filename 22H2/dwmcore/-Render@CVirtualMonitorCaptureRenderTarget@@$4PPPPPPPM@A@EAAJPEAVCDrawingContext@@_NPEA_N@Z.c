@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18011D1E0
+ * XREFs of ?Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F5050
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 __int64 __fastcall CVirtualMonitorCaptureRenderTarget::Render(
         __int64 a1,
         struct CDrawingContext *a2,
-        bool a3,
+        char a3,
         bool *a4)
 {
   return CVirtualMonitorCaptureRenderTarget::Render(

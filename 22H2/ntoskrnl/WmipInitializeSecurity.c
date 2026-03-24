@@ -1,26 +1,26 @@
 /*
- * XREFs of WmipInitializeSecurity @ 0x140B3C860
+ * XREFs of WmipInitializeSecurity @ 0x140A69C2C
  * Callers:
- *     WmipDriverEntry @ 0x140B3C550 (WmipDriverEntry.c)
+ *     WmipDriverEntry @ 0x140A69AA0 (WmipDriverEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140782500 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF640 (RtlSetGroupSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF9B0 (RtlAddAccessAllowedAce.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1406EF9D0 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406EFA00 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406EFA60 (RtlSetOwnerSecurityDescriptor.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 WmipInitializeSecurity()
 {
   ULONG v0; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v2; // rdi
   NTSTATUS Acl; // ebx
   PSID v4; // rsi
@@ -36,11 +36,11 @@ __int64 WmipInitializeSecurity()
       + *((unsigned __int8 *)SeExports->SeLocalServiceSid + 1)
       + *((unsigned __int8 *)SeExports->SeNetworkServiceSid + 1))
      + 116;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v0, 0x70696D57u);
-  v2 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v0, 0x70696D57u);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  Acl = RtlCreateAcl(Pool2, v0, 2u);
+  Acl = RtlCreateAcl(PoolWithTag, v0, 2u);
   if ( Acl < 0 )
     goto LABEL_14;
   Acl = RtlAddAccessAllowedAce(v2, 2u, 0x1FFFFFu, SeLocalSystemSid);
@@ -49,6 +49,7 @@ __int64 WmipInitializeSecurity()
   Acl = RtlAddAccessAllowedAce(v2, 2u, 0x800u, SeAliasUsersSid);
   if ( Acl < 0 )
     goto LABEL_14;
+  v4 = SeAliasAdminsSid;
   Acl = RtlAddAccessAllowedAce(v2, 2u, 0x11FFFFFu, SeAliasAdminsSid);
   if ( Acl < 0 )
     goto LABEL_14;
@@ -63,8 +64,7 @@ __int64 WmipInitializeSecurity()
   Acl = RtlSetDaclSecurityDescriptor(&WmipDefaultAccessSecurityDescriptor, 1u, v2, 0);
   if ( Acl < 0 )
     goto LABEL_14;
-  v4 = SeAliasAdminsSid;
-  Acl = RtlSetOwnerSecurityDescriptor(&WmipDefaultAccessSecurityDescriptor, SeAliasAdminsSid, 0);
+  Acl = RtlSetOwnerSecurityDescriptor(&WmipDefaultAccessSecurityDescriptor, v4, 0);
   if ( Acl < 0 )
     goto LABEL_14;
   Acl = RtlSetGroupSecurityDescriptor(&WmipDefaultAccessSecurityDescriptor, v4, 0);

@@ -1,8 +1,8 @@
 /*
- * XREFs of MmAddRangeToCrashDump @ 0x1402AE110
+ * XREFs of MmAddRangeToCrashDump @ 0x1402AE210
  * Callers:
- *     MmGetDumpRange @ 0x1402AE208 (MmGetDumpRange.c)
- *     ExAddPrivateDataToCrashDump @ 0x14031A250 (ExAddPrivateDataToCrashDump.c)
+ *     MmGetDumpRange @ 0x1402AE308 (MmGetDumpRange.c)
+ *     ExAddPrivateDataToCrashDump @ 0x14031A350 (ExAddPrivateDataToCrashDump.c)
  *     IopLiveDumpMarkDeviceNode @ 0x140578D68 (IopLiveDumpMarkDeviceNode.c)
  *     IopLiveDumpMarkImportantDumpData @ 0x140578DC8 (IopLiveDumpMarkImportantDumpData.c)
  *     IopLiveDumpMarkLoadedModuleList @ 0x140578EB4 (IopLiveDumpMarkLoadedModuleList.c)
@@ -10,9 +10,9 @@
  *     IopLiveDumpMarkRequiredDumpData @ 0x140579088 (IopLiveDumpMarkRequiredDumpData.c)
  *     MmAddPrivateDataToCrashDump @ 0x14057C5F8 (MmAddPrivateDataToCrashDump.c)
  * Callees:
- *     MiIsWorkingSetTrimThread @ 0x1400E94A0 (MiIsWorkingSetTrimThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiAddRangeToCrashDump @ 0x1402ADBF8 (MiAddRangeToCrashDump.c)
+ *     MiIsWorkingSetTrimThread @ 0x1400E94C0 (MiIsWorkingSetTrimThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiAddRangeToCrashDump @ 0x1402ADCF8 (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddRangeToCrashDump(

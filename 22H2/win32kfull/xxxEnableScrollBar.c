@@ -1,17 +1,18 @@
 /*
- * XREFs of xxxEnableScrollBar @ 0x1C009E260
+ * XREFs of xxxEnableScrollBar @ 0x1C00F63B0
  * Callers:
- *     NtUserEnableScrollBar @ 0x1C009E160 (NtUserEnableScrollBar.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     NtUserEnableScrollBar @ 0x1C00F62B0 (NtUserEnableScrollBar.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     xxxEnableWindow @ 0x1C000BA8C (xxxEnableWindow.c)
- *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C009E2A0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     safe_cast_fnid_to_PSBWND @ 0x1C01BB0C0 (safe_cast_fnid_to_PSBWND.c)
+ *     xxxEnableWindow @ 0x1C0037170 (xxxEnableWindow.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F63F0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01D4208 (safe_cast_fnid_to_PSBWND.c)
  */
 
-__int64 __fastcall xxxEnableScrollBar(struct tagWND *BugCheckParameter2, unsigned int a2, unsigned int a3)
+__int64 __fastcall xxxEnableScrollBar(unsigned __int64 a1, unsigned int a2, unsigned int a3)
 {
+  unsigned __int64 v3; // rbx
   __int64 v6; // rax
   __int64 v7; // r8
   int v8; // ecx
@@ -21,39 +22,49 @@ __int64 __fastcall xxxEnableScrollBar(struct tagWND *BugCheckParameter2, unsigne
   unsigned int v12; // eax
   char v13; // dl
 
+  v3 = a3;
   if ( a2 != 2 )
-    return xxxEnableWndSBArrows(BugCheckParameter2, a2, a3);
+    return xxxEnableWndSBArrows((struct tagWND *)a1, a2, a3);
   v6 = safe_cast_fnid_to_PSBWND();
   v7 = v6;
   if ( !v6 )
     return 0LL;
   v8 = *(_DWORD *)(v6 + 12);
   v9 = v8 & 3;
-  if ( v9 == a3 )
+  if ( v9 == (_DWORD)v3 )
     return 0LL;
-  if ( a3 != 3 )
+  if ( (_DWORD)v3 == 3 )
   {
-    if ( !a3 )
-    {
-      v10 = 2;
-      if ( v9 == 3 )
-      {
-        v11 = v8 & 0xFFFFFFFC;
-        goto LABEL_11;
-      }
-LABEL_14:
-      _InterlockedIncrement(&glSendMessage);
-      return xxxSendTransformableMessageTimeout((ULONG_PTR)BugCheckParameter2, 0, 0, 0LL, 1, 1);
-    }
-    if ( (a3 | v9) != 3 )
-      goto LABEL_14;
+    v10 = 1;
+LABEL_7:
+    v11 = v3 | v8;
+    goto LABEL_8;
   }
-  v10 = 1;
-  v11 = a3 | v8;
-LABEL_11:
+  if ( (_DWORD)v3 )
+  {
+    if ( ((unsigned int)v3 | v9) != 3 )
+    {
+LABEL_20:
+      _InterlockedIncrement(&glSendMessage);
+      return xxxSendTransformableMessageTimeout(a1, 0xE4u, v3, 0LL, 0, 0, 0LL, 1, 1);
+    }
+    v10 = 1;
+  }
+  else
+  {
+    v10 = 2;
+    if ( v9 != 3 )
+      v10 = 0;
+  }
+  if ( !v10 )
+    goto LABEL_20;
+  if ( (_DWORD)v3 )
+    goto LABEL_7;
+  v11 = v8 & 0xFFFFFFFC;
+LABEL_8:
   *(_DWORD *)(v7 + 12) = v11;
-  v12 = xxxEnableWindow(BugCheckParameter2, v10 == 2);
-  v13 = *(_BYTE *)(*((_QWORD *)BugCheckParameter2 + 5) + 31LL);
+  v12 = xxxEnableWindow((struct tagWND *)a1, v10 == 2);
+  v13 = *(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL);
   if ( !v12 )
     return v13 & 8;
   LOBYTE(v12) = ~v13;

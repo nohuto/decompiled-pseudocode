@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C0029ECC
+ * XREFs of HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C00297EC
  * Callers:
- *     HUBDSM_ClearingEndpointHaltOnClientResetPipe @ 0x1C001CD10 (HUBDSM_ClearingEndpointHaltOnClientResetPipe.c)
+ *     HUBDSM_ClearingEndpointHaltOnClientResetPipe @ 0x1C001C7D0 (HUBDSM_ClearingEndpointHaltOnClientResetPipe.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDTX_ClearEndpointHaltUsingControlTransfer(__int64 *a1)
@@ -71,8 +71,8 @@ __int64 __fastcall HUBDTX_ClearEndpointHaltUsingControlTransfer(__int64 *a1)
       *(_QWORD *)(a1[1] + 1432),
       2u,
       5u,
-      0x53u,
-      (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+      0x52u,
+      (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
       v9);
   }
   return HUBSM_AddEvent((__int64)(a1 + 63), 4004);

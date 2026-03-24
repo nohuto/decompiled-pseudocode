@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDoBanding @ 0x1C0140DB0
+ * XREFs of NtGdiDoBanding @ 0x1C01527D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0140E60 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
+ *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0152880 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
  */
 
 __int64 __fastcall NtGdiDoBanding(HDC a1, int a2, ULONG64 a3, ULONG64 a4)

@@ -1,24 +1,23 @@
 /*
- * XREFs of MiProcessWsInSwapSupport @ 0x14025EC08
+ * XREFs of MiProcessWsInSwapSupport @ 0x14035CFC8
  * Callers:
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x14097FF40 (MiInSwapSharedWorkingSetWorker.c)
- *     MmInSwapVirtualAddresses @ 0x140980040 (MmInSwapVirtualAddresses.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     MmInSwapVirtualAddresses @ 0x140734690 (MmInSwapVirtualAddresses.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x1408D9B00 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     MiProcessWsInSwapRanges @ 0x14025EA9C (MiProcessWsInSwapRanges.c)
+ *     MiProcessWsInSwapRanges @ 0x14035D09C (MiProcessWsInSwapRanges.c)
  */
 
-struct _KTHREAD *__fastcall MiProcessWsInSwapSupport(__int64 a1, char a2)
+__int64 __fastcall MiProcessWsInSwapSupport(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rdi
-  struct _KTHREAD *result; // rax
+  __int64 result; // rax
   _QWORD *v5; // r9
   unsigned __int64 v6; // rbp
   __int64 v7; // rsi
   __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // rsi
-  unsigned __int64 v11; // rdx
+  __int64 v9; // rsi
+  unsigned __int64 v10; // r8
 
   v2 = *(_QWORD **)a1;
   result = 0LL;
@@ -29,23 +28,23 @@ struct _KTHREAD *__fastcall MiProcessWsInSwapSupport(__int64 a1, char a2)
     do
     {
       v7 = v2[1] >> 12;
-      if ( (unsigned __int64)result + v7 >= 0x1000 )
+      if ( (unsigned __int64)(v7 + result) >= 0x1000 )
       {
-        v9 = 4096LL - (_QWORD)result;
+        v8 = 4096 - result;
         if ( (a2 & 4) != 0 )
         {
-          v11 = *v2 + (v9 << 12);
-          if ( ((*v2 ^ (v11 - 1)) & 0xFFFFFFFFFFE00000uLL) != 0 )
-            v9 -= (v11 >> 12) & 0x1FF;
+          v10 = *v2 + (v8 << 12);
+          if ( ((*v2 ^ (v10 - 1)) & 0xFFFFFFFFFFE00000uLL) != 0 )
+            v8 -= (v10 >> 12) & 0x1FF;
         }
-        v10 = v7 - v9;
-        v2[1] = v9 << 12;
-        MiProcessWsInSwapRanges(v5, (__int64)v2, a2);
-        if ( v10 )
+        v9 = v7 - v8;
+        v2[1] = v8 << 12;
+        MiProcessWsInSwapRanges(v5, v2, a2);
+        if ( v9 )
         {
           v5 = v2;
           *v2 += v2[1];
-          v2[1] = v10 << 12;
+          v2[1] = v9 << 12;
           v2 -= 2;
         }
         else
@@ -56,14 +55,13 @@ struct _KTHREAD *__fastcall MiProcessWsInSwapSupport(__int64 a1, char a2)
       }
       else
       {
-        result = (struct _KTHREAD *)((char *)result + v7);
+        result += v7;
       }
-      v8 = (__int64)v2;
       v2 += 2;
     }
     while ( (unsigned __int64)v2 < v6 );
     if ( result )
-      return MiProcessWsInSwapRanges(v5, v8, a2);
+      return MiProcessWsInSwapRanges(v5, v2 - 2, a2);
   }
   return result;
 }

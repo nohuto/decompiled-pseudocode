@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetDefaultLocale @ 0x14041DA00
+ * XREFs of ZwSetDefaultLocale @ 0x1403FCC20
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C026F888
+ * XREFs of ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C0271C68
  * Callers:
- *     MonitorAPIProcessTerminating @ 0x1C00FAFB0 (MonitorAPIProcessTerminating.c)
- *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C026F91C (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
+ *     MonitorAPIProcessTerminating @ 0x1C010D350 (MonitorAPIProcessTerminating.c)
+ *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C0271CFC (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::DestroyHandleInternal(

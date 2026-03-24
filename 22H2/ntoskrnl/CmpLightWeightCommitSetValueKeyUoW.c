@@ -1,79 +1,76 @@
 /*
- * XREFs of CmpLightWeightCommitSetValueKeyUoW @ 0x140A28940
+ * XREFs of CmpLightWeightCommitSetValueKeyUoW @ 0x14066EE08
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0FB0 (CmpCleanUpKcbCachedSymlink.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpFreeValue @ 0x14070AF78 (CmpFreeValue.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140A2803C (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1405EE830 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x14066EF30 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeValue @ 0x1406E4228 (CmpFreeValue.c)
  */
 
-__int64 __fastcall CmpLightWeightCommitSetValueKeyUoW(__int64 a1, _QWORD *a2)
+__int64 __fastcall CmpLightWeightCommitSetValueKeyUoW(__int64 *a1, _QWORD *a2)
 {
-  __int64 v2; // rbp
-  __int64 v5; // rax
-  ULONG_PTR v6; // rdi
-  ULONG_PTR v7; // rdx
-  __int64 CellFlat; // rax
-  __int64 v9; // rsi
-  unsigned int v10; // ecx
-  unsigned int v11; // ecx
+  __int64 v3; // rbp
+  __int64 v4; // rax
+  ULONG_PTR v6; // rsi
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  unsigned int v9; // ecx
+  unsigned int v10; // eax
+  unsigned int *v11; // rcx
   ULONG_PTR v12; // rdx
   __int64 v13; // rax
   __int64 v14; // r8
   int v15; // r9d
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  int v17; // [rsp+40h] [rbp+8h] BYREF
+  int v18; // [rsp+44h] [rbp+Ch]
 
-  v17 = 0xFFFFFFFFLL;
-  v2 = *(_QWORD *)(a1 + 104);
-  v5 = *(_QWORD *)(a1 + 48);
-  v6 = *(_QWORD *)(v5 + 32);
-  v7 = *(unsigned int *)(v5 + 40);
-  if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(v6, v7, &v17);
-  else
-    CellFlat = HvpGetCellPaged(v6, v7, (unsigned int *)&v17);
-  v9 = CellFlat;
-  v10 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 112) + 8LL);
-  if ( *(_DWORD *)(CellFlat + 60) < v10 )
+  v17 = -1;
+  v3 = a1[13];
+  v18 = 0;
+  v4 = a1[6];
+  v6 = *(_QWORD *)(v4 + 32);
+  v7 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(v6 + 8))(v6, *(unsigned int *)(v4 + 40), &v17);
+  v8 = a1[14];
+  v9 = *(unsigned __int16 *)(v8 + 8);
+  if ( *(_DWORD *)(v7 + 60) < v9 )
   {
-    *(_DWORD *)(CellFlat + 60) = v10;
-    *(_WORD *)(*(_QWORD *)(a1 + 48) + 178LL) = *(_WORD *)(*(_QWORD *)(a1 + 112) + 8LL);
+    *(_DWORD *)(v7 + 60) = v9;
+    *(_WORD *)(a1[6] + 178) = *(_WORD *)(a1[14] + 8);
+    v8 = a1[14];
   }
-  v11 = *(_DWORD *)(*(_QWORD *)(a1 + 112) + 12LL);
-  if ( *(_DWORD *)(CellFlat + 64) < v11 )
+  v10 = *(_DWORD *)(v8 + 12);
+  if ( *(_DWORD *)(v7 + 64) < v10 )
   {
-    *(_DWORD *)(CellFlat + 64) = v11;
-    *(_DWORD *)(*(_QWORD *)(a1 + 48) + 180LL) = *(_DWORD *)(*(_QWORD *)(a1 + 112) + 12LL);
+    *(_DWORD *)(v7 + 64) = v10;
+    *(_DWORD *)(a1[6] + 180) = *(_DWORD *)(a1[14] + 12);
   }
-  *(_QWORD *)(CellFlat + 4) = *a2;
-  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 168LL) = *a2;
-  ++*(_QWORD *)(*(_QWORD *)(a1 + 48) + 304LL);
-  v12 = *(unsigned int *)(*(_QWORD *)(a1 + 112) + 4LL);
+  *(_QWORD *)(v7 + 4) = *a2;
+  *(_QWORD *)(a1[6] + 168) = *a2;
+  ++*(_QWORD *)(a1[6] + 304);
+  v11 = (unsigned int *)a1[14];
+  v12 = v11[1];
   if ( (_DWORD)v12 != -1 )
-    CmpFreeValue(v6, v12);
-  CmpFreeTransientPoolWithTag(*(void **)(a1 + 112), 0x77554D43u);
-  *(_QWORD *)(a1 + 112) = 0LL;
-  if ( *(_DWORD *)v2 == 1 )
   {
-    v13 = *(_QWORD *)(v9 + 36);
-    *(_QWORD *)(v9 + 36) = *(_QWORD *)(v2 + 4);
-    *(_QWORD *)(v2 + 4) = v13;
-    CmpCleanUpKcbCachedSymlink(*(_QWORD *)(a1 + 48));
-    v14 = *(_QWORD *)(a1 + 48);
-    v15 = *(_DWORD *)(v9 + 40);
-    *(_DWORD *)(v14 + 96) = *(_DWORD *)(v9 + 36);
+    CmpFreeValue(v6, v12);
+    v11 = (unsigned int *)a1[14];
+  }
+  CmpFreeTransientPoolWithTag(v11, 0x77554D43u);
+  a1[14] = 0LL;
+  if ( *(_DWORD *)v3 == 1 )
+  {
+    v13 = *(_QWORD *)(v7 + 36);
+    *(_QWORD *)(v7 + 36) = *(_QWORD *)(v3 + 4);
+    *(_QWORD *)(v3 + 4) = v13;
+    CmpCleanUpKcbCachedSymlink(a1[6]);
+    v14 = a1[6];
+    v15 = *(_DWORD *)(v7 + 40);
+    *(_DWORD *)(v14 + 96) = *(_DWORD *)(v7 + 36);
     *(_DWORD *)(v14 + 100) = v15;
   }
-  CmpLightWeightCleanupSetValueKeyUoW(v6, (unsigned int *)v2);
-  *(_QWORD *)(a1 + 104) = 0LL;
-  if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-    return HvpReleaseCellFlat(v6, &v17);
-  else
-    return HvpReleaseCellPaged(v6, (unsigned int *)&v17);
+  CmpLightWeightCleanupSetValueKeyUoW(v6, v3);
+  a1[13] = 0LL;
+  return (*(__int64 (__fastcall **)(ULONG_PTR, int *))(v6 + 16))(v6, &v17);
 }

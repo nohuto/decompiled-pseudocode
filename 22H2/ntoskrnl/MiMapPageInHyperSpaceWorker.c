@@ -1,61 +1,67 @@
 /*
- * XREFs of MiMapPageInHyperSpaceWorker @ 0x14021ACC0
+ * XREFs of MiMapPageInHyperSpaceWorker @ 0x1402B2140
  * Callers:
- *     MiInitializeImageHeaderPage @ 0x14020DCC0 (MiInitializeImageHeaderPage.c)
- *     MiConfirmPageIsZero @ 0x140219CD0 (MiConfirmPageIsZero.c)
- *     MiInitializeImageProtos @ 0x14021A220 (MiInitializeImageProtos.c)
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     MiBuildMappedCluster @ 0x14021C0F0 (MiBuildMappedCluster.c)
- *     MiCopyToUserVa @ 0x14021CBFC (MiCopyToUserVa.c)
- *     MiCompletePrivateZeroFault @ 0x14026A860 (MiCompletePrivateZeroFault.c)
- *     MiWsleFlush @ 0x140280CF0 (MiWsleFlush.c)
- *     MiClearContainingMapping @ 0x140292A38 (MiClearContainingMapping.c)
- *     MiWaitForInPageComplete @ 0x1402A1680 (MiWaitForInPageComplete.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiCopySinglePage @ 0x1402EE8BC (MiCopySinglePage.c)
- *     MiReplaceTransitionPage @ 0x1403304D0 (MiReplaceTransitionPage.c)
- *     MiRestoreTransitionPte @ 0x14033501C (MiRestoreTransitionPte.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140346714 (MiRewriteTrimPteAsDemandZero.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140347C78 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MmOutSwapProcess @ 0x14034C9F8 (MmOutSwapProcess.c)
- *     KiInSwapProcesses @ 0x14034CA8C (KiInSwapProcesses.c)
- *     MiWriteRepurposedTransitionPte @ 0x14035A058 (MiWriteRepurposedTransitionPte.c)
- *     MiReplicatePteChangeToProcess @ 0x140367E94 (MiReplicatePteChangeToProcess.c)
- *     MiDemoteValidLargePageOneLevel @ 0x14038DB24 (MiDemoteValidLargePageOneLevel.c)
- *     MiSwapStackPage @ 0x140399C4C (MiSwapStackPage.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1403C0050 (MiReadWriteAnyLevelShadowPte.c)
- *     MmStealTopLevelPage @ 0x1403D6DAC (MmStealTopLevelPage.c)
- *     MiComputePageHash @ 0x14046EADC (MiComputePageHash.c)
- *     MiUpdateSystemPdes @ 0x1406195A0 (MiUpdateSystemPdes.c)
- *     MiMirrorOmitPagesFromCopy @ 0x1406272F8 (MiMirrorOmitPagesFromCopy.c)
- *     MiReplaceImportEntry @ 0x14062C720 (MiReplaceImportEntry.c)
- *     MiJumpStackTarget @ 0x14062CFF0 (MiJumpStackTarget.c)
- *     MiPersistPage @ 0x14063EA6C (MiPersistPage.c)
- *     MiSplitDirectMapPage @ 0x14063F2D4 (MiSplitDirectMapPage.c)
- *     MmUpdateUserShadowStackValue @ 0x1406467F0 (MmUpdateUserShadowStackValue.c)
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiArePageContentsZero @ 0x14064D490 (MiArePageContentsZero.c)
- *     MiSwapNumaStandbyPage @ 0x140651E40 (MiSwapNumaStandbyPage.c)
- *     MiFinishLastForkPageTable @ 0x14066456C (MiFinishLastForkPageTable.c)
- *     MiComputeCacheAttributeSpeeds @ 0x140825F04 (MiComputeCacheAttributeSpeeds.c)
+ *     MiCompletePrivateZeroFault @ 0x140210810 (MiCompletePrivateZeroFault.c)
+ *     MmOutSwapProcess @ 0x140249E04 (MmOutSwapProcess.c)
+ *     KiInSwapProcesses @ 0x140249EA8 (KiInSwapProcesses.c)
+ *     MiBuildMappedCluster @ 0x140255930 (MiBuildMappedCluster.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MiFlushCacheForAttributeChange @ 0x140283EC8 (MiFlushCacheForAttributeChange.c)
+ *     MiCopyToUserVa @ 0x14028EBB8 (MiCopyToUserVa.c)
+ *     MiWaitForInPageComplete @ 0x14029B880 (MiWaitForInPageComplete.c)
+ *     MiClearContainingMapping @ 0x1402EA2CC (MiClearContainingMapping.c)
+ *     MiRestoreTransitionPte @ 0x1402FB620 (MiRestoreTransitionPte.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x140301240 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiCopySinglePage @ 0x14030C314 (MiCopySinglePage.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403326D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140332EB8 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiReplaceTransitionPage @ 0x140336380 (MiReplaceTransitionPage.c)
+ *     MiInitializeImageProtos @ 0x140336F8C (MiInitializeImageProtos.c)
+ *     MiCreateSystemPageTable @ 0x140356770 (MiCreateSystemPageTable.c)
+ *     MiFillPhysicalPages @ 0x1403579D0 (MiFillPhysicalPages.c)
+ *     MiInitializeImageHeaderPage @ 0x1403590BC (MiInitializeImageHeaderPage.c)
+ *     MiConvertStandbyToProto @ 0x1403668C8 (MiConvertStandbyToProto.c)
+ *     MiConfirmPageIsZero @ 0x1403698E0 (MiConfirmPageIsZero.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14038576C (MiMirrorOmitPagesFromCopy.c)
+ *     MiComputePageHash @ 0x140389A90 (MiComputePageHash.c)
+ *     MiGetFileHashPage @ 0x14038C960 (MiGetFileHashPage.c)
+ *     MiReplicatePteChangeToProcess @ 0x1403A3FA8 (MiReplicatePteChangeToProcess.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403B9BC8 (MiDemoteValidLargePageOneLevel.c)
+ *     MmUpdateUserShadowStackValue @ 0x1403F3CA8 (MmUpdateUserShadowStackValue.c)
+ *     MiUpdateSystemPdes @ 0x14052C920 (MiUpdateSystemPdes.c)
+ *     MmReplaceImportEntry @ 0x14053585C (MmReplaceImportEntry.c)
+ *     MiPersistPage @ 0x1405417DC (MiPersistPage.c)
+ *     MiSplitDirectMapPage @ 0x14054207C (MiSplitDirectMapPage.c)
+ *     MiArePageContentsZero @ 0x14054EB08 (MiArePageContentsZero.c)
+ *     MiSwapNumaStandbyPage @ 0x140551310 (MiSwapNumaStandbyPage.c)
+ *     MiFinishLastForkPageTable @ 0x14055A5E0 (MiFinishLastForkPageTable.c)
+ *     MiMakeProtoTransition @ 0x14055C6A8 (MiMakeProtoTransition.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x140234070 (MiGetUltraMapping.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-unsigned __int64 __fastcall MiMapPageInHyperSpaceWorker(__int64 a1, unsigned __int8 *a2, int a3)
+unsigned __int64 __fastcall MiMapPageInHyperSpaceWorker(__int64 a1, unsigned __int8 *a2, int a3, __int64 a4)
 {
-  __int64 v4; // rbp
   int v5; // r8d
   int v7; // eax
-  __int64 ValidPte; // rbx
-  _QWORD *MmInternal; // rdi
-  unsigned __int64 result; // rax
-  __int64 *v11; // rcx
-  unsigned __int8 CurrentIrql; // dl
+  unsigned __int64 ValidPte; // rbx
+  unsigned __int8 CurrentIrql; // r10
+  struct _KPRCB *CurrentPrcb; // rbp
+  unsigned __int64 *MmInternal; // rsi
+  unsigned __int64 UltraMapping; // r15
+  unsigned __int64 *v13; // rdi
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
   _DWORD *SchedulerAssist; // r9
 
-  LODWORD(v4) = 4;
   v5 = 4;
   if ( (a3 & 0x20000000) != 0 )
     v5 = 1;
@@ -65,24 +71,24 @@ unsigned __int64 __fastcall MiMapPageInHyperSpaceWorker(__int64 a1, unsigned __i
     if ( v7 == 2 )
     {
       v5 |= 0x2000000u;
-LABEL_14:
+LABEL_19:
       v5 |= 0x18u;
       goto LABEL_8;
     }
   }
   else
   {
-    v7 = *(unsigned __int8 *)(48 * a1 - 0x220000000000LL + 34) >> 6;
+    v7 = *(unsigned __int8 *)(48 * a1 - 0x58000000000LL + 34) >> 6;
   }
   if ( v7 && v7 != 3 )
   {
     if ( v7 != 2 )
       goto LABEL_8;
-    goto LABEL_14;
+    goto LABEL_19;
   }
   v5 |= 8u;
 LABEL_8:
-  ValidPte = MiMakeValidPte(0LL, a1, v5 | 0xA0000000);
+  ValidPte = MiMakeValidPte(0LL, a1, v5 | 0xA0000000, a4);
   if ( a2 )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -90,16 +96,63 @@ LABEL_8:
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql != 2 )
-        v4 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v4;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     *a2 = CurrentIrql;
   }
-  MmInternal = KeGetCurrentPrcb()->MmInternal;
-  result = MiGetUltraMapping(MmInternal + 1556, 3LL, 1LL);
-  v11 = (__int64 *)(((result >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  MmInternal[1543] = v11;
-  *v11 = ValidPte;
-  return result;
+  CurrentPrcb = KeGetCurrentPrcb();
+  MmInternal = (unsigned __int64 *)CurrentPrcb->MmInternal;
+  if ( !MmInternal
+    || (UltraMapping = MiGetUltraMapping(MmInternal + 1556, 3u, 1LL, 0),
+        v13 = (unsigned __int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL),
+        MmInternal[1543] = (unsigned __int64)v13,
+        !UltraMapping) )
+  {
+    UltraMapping = ((unsigned __int64)CurrentPrcb->HyperPte & 0xFFFFFFFFFFFFF000uLL)
+                 + (((__int64)CurrentPrcb->HyperPte & 0xFFF) << 12);
+    v13 = (unsigned __int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  }
+  v14 = MiPteInShadowRange(v13, 0xFFFFF68000000000uLL);
+  if ( a3 >= 0 )
+  {
+    if ( !v14 )
+      goto LABEL_15;
+    if ( (unsigned int)MiPteHasShadow(v16, v15, v17, v18) )
+    {
+      if ( HIBYTE(word_140C4E008) || (ValidPte & 1) == 0 )
+        goto LABEL_29;
+LABEL_28:
+      ValidPte |= 0x8000000000000000uLL;
+LABEL_29:
+      *v13 = ValidPte;
+      MiWritePteShadow(v13, ValidPte);
+      return UltraMapping;
+    }
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0
+      || (ValidPte & 1) == 0 )
+    {
+      goto LABEL_15;
+    }
+LABEL_40:
+    ValidPte |= 0x8000000000000000uLL;
+    goto LABEL_15;
+  }
+  if ( v14 )
+  {
+    if ( (unsigned int)MiPteHasShadow(v16, v15, v17, v18) )
+    {
+      if ( HIBYTE(word_140C4E008) || (ValidPte & 1) == 0 )
+        goto LABEL_29;
+      goto LABEL_28;
+    }
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0
+      || (ValidPte & 1) == 0 )
+    {
+      goto LABEL_15;
+    }
+    goto LABEL_40;
+  }
+LABEL_15:
+  *v13 = ValidPte;
+  return UltraMapping;
 }

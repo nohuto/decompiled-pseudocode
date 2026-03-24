@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetDrawInfo@CMesh2DEffect@@UEAAJPEAUID2D1DrawInfo@@@Z @ 0x1802BF490
+ * XREFs of ?SetDrawInfo@CMesh2DEffect@@UEAAJPEAUID2D1DrawInfo@@@Z @ 0x18026CE10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMesh2DEffect::SetDrawInfo(CMesh2DEffect *this, struct ID2D1DrawInfo *a2)

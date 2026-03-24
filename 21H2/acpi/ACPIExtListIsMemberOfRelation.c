@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIExtListIsMemberOfRelation @ 0x1C0054864
+ * XREFs of ACPIExtListIsMemberOfRelation @ 0x1C0055134
  * Callers:
- *     ACPIDetectDockDevices @ 0x1C000A628 (ACPIDetectDockDevices.c)
- *     ACPIDetectEjectDevices @ 0x1C004E440 (ACPIDetectEjectDevices.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
+ *     ACPIDetectEjectDevices @ 0x1C004F600 (ACPIDetectEjectDevices.c)
  * Callees:
  *     <none>
  */

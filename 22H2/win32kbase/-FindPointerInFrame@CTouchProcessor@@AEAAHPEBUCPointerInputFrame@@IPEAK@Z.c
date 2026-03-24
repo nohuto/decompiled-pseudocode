@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C01C2B60
+ * XREFs of ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C018E700
  * Callers:
- *     ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C01C93E0 (-GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z.c)
+ *     ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C019380C (-GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C00E3DA4 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C0188850 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::FindPointerInFrame(
@@ -13,62 +13,65 @@ __int64 __fastcall CTouchProcessor::FindPointerInFrame(
         int a3,
         unsigned int *a4)
 {
-  __int64 v7; // rbx
-  unsigned int v8; // ecx
-  bool v9; // cc
+  unsigned int v7; // ecx
+  unsigned int v8; // edx
+  unsigned int v9; // ebx
   _DWORD *v10; // rax
-  bool v11; // cf
+  bool v11; // zf
   unsigned int v12; // edx
   _DWORD *v13; // rax
 
   if ( !CTouchProcessor::CTouchProcessorLockShared(this) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 14059);
-  if ( *a4 >= *((_DWORD *)a2 + 12) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 14060);
-  v7 = *a4;
-  v8 = *((_DWORD *)a2 + 12);
-  v9 = (unsigned int)v7 <= v8;
-  if ( (unsigned int)v7 >= v8 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13457);
+  v7 = *((_DWORD *)a2 + 12);
+  v8 = v7;
+  v9 = *a4;
+  if ( *a4 >= v7 )
   {
-LABEL_9:
-    if ( !v9 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 14080);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13458);
+    v7 = *((_DWORD *)a2 + 12);
+    v8 = v7;
+    v9 = *a4;
   }
-  else
+  if ( v9 < v8 )
   {
-    v10 = (_DWORD *)(*((_QWORD *)a2 + 30) + 480 * v7 + 172);
-    while ( *v10 != a3 )
+    v10 = (_DWORD *)(*((_QWORD *)a2 + 17) + 480LL * v9 + 172);
+    do
     {
-      LODWORD(v7) = v7 + 1;
+      if ( *v10 == a3 )
+        break;
+      ++v9;
       v10 += 120;
-      v9 = (unsigned int)v7 <= v8;
-      if ( (unsigned int)v7 >= v8 )
-        goto LABEL_9;
     }
+    while ( v9 < v8 );
   }
-  v11 = (unsigned int)v7 < *((_DWORD *)a2 + 12);
-  if ( (_DWORD)v7 == *((_DWORD *)a2 + 12) )
+  v11 = v9 == v7;
+  if ( v9 > v7 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13478);
+    v11 = v9 == *((_DWORD *)a2 + 12);
+  }
+  if ( v11 )
   {
     v12 = *a4;
-    LODWORD(v7) = 0;
+    v9 = 0;
     if ( !*a4 )
       goto LABEL_17;
-    v13 = (_DWORD *)(*((_QWORD *)a2 + 30) + 172LL);
+    v13 = (_DWORD *)(*((_QWORD *)a2 + 17) + 172LL);
     do
     {
       if ( *v13 == a3 )
         break;
-      LODWORD(v7) = v7 + 1;
+      ++v9;
       v13 += 120;
     }
-    while ( (unsigned int)v7 < v12 );
-    if ( (unsigned int)v7 >= v12 )
+    while ( v9 < v12 );
+    if ( v9 >= v12 )
 LABEL_17:
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 14100);
-    v11 = (unsigned int)v7 < *((_DWORD *)a2 + 12);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13498);
   }
-  if ( !v11 || *(unsigned __int16 *)(480LL * (unsigned int)v7 + *((_QWORD *)a2 + 30) + 172) != a3 )
+  if ( v9 >= *((_DWORD *)a2 + 12) || *(unsigned __int16 *)(480LL * v9 + *((_QWORD *)a2 + 17) + 172) != a3 )
     return 0LL;
-  *a4 = v7;
+  *a4 = v9;
   return 1LL;
 }

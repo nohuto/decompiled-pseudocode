@@ -1,49 +1,53 @@
 /*
- * XREFs of LogSenseInformationalExceptions @ 0x1C001C6EC
+ * XREFs of LogSenseInformationalExceptions @ 0x1C0013E64
  * Callers:
- *     ScsiLogSenseRequest @ 0x1C00206FC (ScsiLogSenseRequest.c)
+ *     ScsiLogSenseRequest @ 0x1C0016B1C (ScsiLogSenseRequest.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     BuildGetLogPageCommand @ 0x1C0005458 (BuildGetLogPageCommand.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
-__int64 __fastcall LogSenseInformationalExceptions(__int64 a1, __int64 a2)
+__int64 __fastcall LogSenseInformationalExceptions(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _DWORD *v4; // rbx
-  __int64 v5; // rax
-  unsigned int v6; // edx
-  char v7; // al
+  __int64 v4; // rdi
+  _DWORD *v6; // rbx
+  __int64 v7; // rax
+  char v8; // al
 
+  v4 = a2;
   if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v4 = *(_DWORD **)(a2 + 64);
-    v5 = 60LL;
+    v6 = *(_DWORD **)(a2 + 64);
+    v7 = 60LL;
   }
   else
   {
-    v4 = *(_DWORD **)(a2 + 24);
-    v5 = 16LL;
+    v6 = *(_DWORD **)(a2 + 24);
+    v7 = 16LL;
   }
-  if ( v4 && (v6 = *(_DWORD *)(a2 + v5), v6 >= 0xC) )
+  if ( v6 && (a2 = *(unsigned int *)(a2 + v7), (unsigned int)a2 >= 0xC) )
   {
-    NVMeZeroMemory(v4, v6);
-    v7 = *((_BYTE *)v4 + 6);
-    *((_WORD *)v4 + 2) = 0;
-    *v4 = 134217775;
-    *(_DWORD *)((char *)v4 + 7) = -16777212;
-    *((_BYTE *)v4 + 6) = v7 & 0x40 | 0x23;
+    NVMeZeroMemory(v6, a2);
+    v8 = *((_BYTE *)v6 + 6);
+    *((_WORD *)v6 + 2) = 0;
+    *v6 = 134217775;
+    *(_DWORD *)((char *)v6 + 7) = -16777212;
+    *((_BYTE *)v6 + 6) = v8 & 0x40 | 0x23;
     NVMeAllocateDmaBuffer(a1, 0x200u);
-    *(_BYTE *)(a2 + 3) = 4;
+    *(_BYTE *)(v4 + 3) = 4;
     return 0LL;
   }
   else
   {
-    NVMeSetSenseData(a2, 6, 5, 0x24u);
+    LOBYTE(a4) = 36;
+    LOBYTE(a3) = 5;
+    LOBYTE(a2) = 6;
+    NVMeSetSenseData(v4, a2, a3, a4);
     return 3238002694LL;
   }
 }

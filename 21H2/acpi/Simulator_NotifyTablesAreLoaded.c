@@ -1,22 +1,22 @@
 /*
- * XREFs of Simulator_NotifyTablesAreLoaded @ 0x1C00C0760
+ * XREFs of Simulator_NotifyTablesAreLoaded @ 0x1C00C06CC
  * Callers:
- *     ACPIInitializeDDBs @ 0x1C00BD6E4 (ACPIInitializeDDBs.c)
+ *     ACPIInitializeDDBs @ 0x1C00BE9B0 (ACPIInitializeDDBs.c)
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     Simulator_AllocAndInitTestData @ 0x1C0064AA0 (Simulator_AllocAndInitTestData.c)
- *     Simulator_TestNotify @ 0x1C0065540 (Simulator_TestNotify.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 Simulator_NotifyTablesAreLoaded()
 {
   __int64 v0; // rbx
-  _SLIST_ENTRY *v1; // rax
+  void *v1; // rax
   __int64 v2; // rax
   __int64 v3; // rbx
-  _SLIST_ENTRY *v4; // rax
+  void *v4; // rax
   __int64 v5; // rcx
   _DWORD *inited; // rax
   void *v7; // rbx
@@ -30,7 +30,7 @@ __int64 Simulator_NotifyTablesAreLoaded()
     {
       *(_WORD *)(v9 + 66) = 8;
       *(_DWORD *)(v0 + 88) = 222;
-      v1 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xDEu);
+      v1 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xDEu);
       *(_QWORD *)(v0 + 96) = v1;
       if ( v1 )
       {
@@ -55,7 +55,7 @@ __int64 Simulator_NotifyTablesAreLoaded()
     {
       *(_WORD *)(v9 + 66) = 8;
       *(_DWORD *)(v3 + 88) = 202;
-      v4 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xCAu);
+      v4 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xCAu);
       *(_QWORD *)(v3 + 96) = v4;
       if ( v4 )
       {

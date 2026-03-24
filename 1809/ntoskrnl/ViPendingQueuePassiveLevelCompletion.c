@@ -3,11 +3,11 @@
  * Callers:
  *     ViPendingDelayCompletion @ 0x140933C68 (ViPendingDelayCompletion.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KeQueryPriorityThread @ 0x1400E1740 (KeQueryPriorityThread.c)
- *     ViPendingTryReserveWorker @ 0x14030AC30 (ViPendingTryReserveWorker.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1400E1760 (KeQueryPriorityThread.c)
+ *     ViPendingTryReserveWorker @ 0x14030AD30 (ViPendingTryReserveWorker.c)
  */
 
 __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)

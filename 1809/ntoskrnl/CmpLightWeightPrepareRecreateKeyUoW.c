@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpLightWeightPrepareRecreateKeyUoW @ 0x1405818C4
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  * Callees:
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */

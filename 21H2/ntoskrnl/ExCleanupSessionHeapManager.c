@@ -1,35 +1,39 @@
 /*
- * XREFs of ExCleanupSessionHeapManager @ 0x14036DBE4
+ * XREFs of ExCleanupSessionHeapManager @ 0x140389810
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14036EEAC (ExInitializeSessionHeapManager.c)
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
  * Callees:
- *     RtlpHpHeapDestroy @ 0x14036EBE8 (RtlpHpHeapDestroy.c)
- *     RtlCSparseBitmapCleanup @ 0x1403724D8 (RtlCSparseBitmapCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
+ *     RtlCSparseBitmapCleanup @ 0x14038CCA0 (RtlCSparseBitmapCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void ExCleanupSessionHeapManager()
 {
   _QWORD *v0; // rbx
-  _QWORD *v1; // rdi
-  __int64 v2; // rsi
+  __int64 v1; // rcx
+  __int64 v2; // rcx
+  _QWORD *v3; // rdi
+  __int64 v4; // rsi
 
-  v0 = *(_QWORD **)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25] + 608);
-  if ( v0[1822] )
-    RtlpHpHeapDestroy();
-  if ( v0[1823] )
-    RtlpHpHeapDestroy();
-  v1 = v0 + 1811;
-  v2 = 4LL;
+  v0 = *(_QWORD **)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 672);
+  v1 = v0[1820];
+  if ( v1 )
+    RtlpHpHeapDestroy(v1);
+  v2 = v0[1821];
+  if ( v2 )
+    RtlpHpHeapDestroy(v2);
+  v3 = v0 + 1811;
+  v4 = 3LL;
   do
   {
-    if ( *v1 )
-      RtlpHpHeapDestroy();
-    v1 += 2;
-    --v2;
+    if ( *v3 )
+      RtlpHpHeapDestroy(*v3);
+    v3 += 2;
+    --v4;
   }
-  while ( v2 );
+  while ( v4 );
   RtlCSparseBitmapCleanup(v0 + 2);
   RtlCSparseBitmapCleanup(v0 + 15);
   ExFreePoolWithTag(v0, 0x65537048u);

@@ -1,18 +1,17 @@
 /*
- * XREFs of Controller_WdfEvtDeviceReleaseHardware @ 0x1C0077140
+ * XREFs of Controller_WdfEvtDeviceReleaseHardware @ 0x1C0075D30
  * Callers:
  *     <none>
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C0005AD0 (Controller_IsSecureDevice.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     XilDeviceSlot_ReleaseHardware @ 0x1C0036B74 (XilDeviceSlot_ReleaseHardware.c)
- *     Register_UnmapSecureMmio @ 0x1C003D354 (Register_UnmapSecureMmio.c)
- *     Etw_ReportControllerHealthWithPortInfo @ 0x1C0048494 (Etw_ReportControllerHealthWithPortInfo.c)
- *     SleepstudyHelper_UnregisterComponent @ 0x1C0052AD4 (SleepstudyHelper_UnregisterComponent.c)
- *     Command_ReleaseHardware @ 0x1C0075B98 (Command_ReleaseHardware.c)
- *     Interrupter_ReleaseHardware @ 0x1C0077C50 (Interrupter_ReleaseHardware.c)
- *     RootHub_ReleaseHardware @ 0x1C0077FD8 (RootHub_ReleaseHardware.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     XilDeviceSlot_ReleaseHardware @ 0x1C0036934 (XilDeviceSlot_ReleaseHardware.c)
+ *     Register_UnmapSecureMmio @ 0x1C003CDD8 (Register_UnmapSecureMmio.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C004825C (Etw_ReportControllerHealthWithPortInfo.c)
+ *     Command_ReleaseHardware @ 0x1C0074624 (Command_ReleaseHardware.c)
+ *     Interrupter_ReleaseHardware @ 0x1C0076850 (Interrupter_ReleaseHardware.c)
+ *     RootHub_ReleaseHardware @ 0x1C0076BD8 (RootHub_ReleaseHardware.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceReleaseHardware(__int64 a1)
@@ -28,12 +27,12 @@ __int64 __fastcall Controller_WdfEvtDeviceReleaseHardware(__int64 a1)
   v3 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00613D8)
+                     off_1C00603D8)
                  + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v2) = 4;
-    WPP_RECORDER_SF_i(*(_QWORD *)(v3 + 72), v2, 4, 51, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v1);
+    WPP_RECORDER_SF_i(*(_QWORD *)(v3 + 72), v2, 4, 51, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v1);
   }
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 3056))(
     WdfDriverGlobals,

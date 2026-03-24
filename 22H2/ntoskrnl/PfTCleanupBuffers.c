@@ -1,17 +1,17 @@
 /*
- * XREFs of PfTCleanupBuffers @ 0x14097F3CC
+ * XREFs of PfTCleanupBuffers @ 0x1408E05BC
  * Callers:
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfTCleanupBuffers(__int64 a1)
 {
-  _QWORD **v2; // rdi
+  _QWORD **v2; // rbx
   _QWORD *v3; // rcx
   _QWORD *v4; // rax
-  _QWORD *v5; // rdi
+  _QWORD *v5; // rbx
   void *v6; // rcx
 
   v2 = (_QWORD **)(a1 + 24);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMiscIsLegacyPcType @ 0x14039174C
+ * XREFs of HalpMiscIsLegacyPcType @ 0x140386A24
  * Callers:
- *     HalMakeBeep @ 0x14050A490 (HalMakeBeep.c)
- *     HalpPowerWriteResetCommand @ 0x14050A93C (HalpPowerWriteResetCommand.c)
- *     HalpRestoreDmaControllerState @ 0x140A5054C (HalpRestoreDmaControllerState.c)
+ *     HalMakeBeep @ 0x1404BDA20 (HalMakeBeep.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
+ *     HalpRestoreDmaControllerState @ 0x140995CF0 (HalpRestoreDmaControllerState.c)
  * Callees:
  *     <none>
  */

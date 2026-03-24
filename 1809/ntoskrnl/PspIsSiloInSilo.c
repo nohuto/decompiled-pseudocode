@@ -1,8 +1,8 @@
 /*
- * XREFs of PspIsSiloInSilo @ 0x1406CB48C
+ * XREFs of PspIsSiloInSilo @ 0x1406CB46C
  * Callers:
- *     PsIsProcessInSilo @ 0x1400CB0E8 (PsIsProcessInSilo.c)
- *     PsIsThreadInSilo @ 0x1400CC250 (PsIsThreadInSilo.c)
+ *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
+ *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
  * Callees:
  *     <none>
  */

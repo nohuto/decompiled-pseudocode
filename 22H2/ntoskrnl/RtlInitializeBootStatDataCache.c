@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlInitializeBootStatDataCache @ 0x1403A9534
+ * XREFs of RtlInitializeBootStatDataCache @ 0x1403C7D94
  * Callers:
- *     RtlLockBootStatusData @ 0x1407EF310 (RtlLockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14077F470 (RtlLockBootStatusData.c)
  * Callees:
- *     ZwReadFile @ 0x14041A760 (ZwReadFile.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwReadFile @ 0x1403F9AE0 (ZwReadFile.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 RtlInitializeBootStatDataCache()
 {
   NTSTATUS v0; // edx
-  void *Pool2; // rax
+  PVOID Buffer; // rax
   unsigned int v2; // ecx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-10h] BYREF
-  ULONG Buffer; // [rsp+70h] [rbp+10h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+70h] [rbp+10h] BYREF
   LARGE_INTEGER ByteOffset; // [rsp+78h] [rbp+18h] BYREF
 
-  Buffer = 0;
+  LODWORD(NumberOfBytes) = 0;
   IoStatusBlock = 0LL;
   if ( BootStatDataCache )
   {
@@ -25,20 +25,20 @@ __int64 RtlInitializeBootStatDataCache()
   else
   {
     ByteOffset.QuadPart = 0LL;
-    v0 = ZwReadFile(BootStatFileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0LL);
+    v0 = ZwReadFile(BootStatFileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &NumberOfBytes, 4u, &ByteOffset, 0LL);
     if ( v0 >= 0 )
     {
-      if ( Buffer && Buffer <= 0x800 )
+      if ( (_DWORD)NumberOfBytes && (unsigned int)NumberOfBytes <= 0x800 )
       {
-        Pool2 = (void *)ExAllocatePool2(256LL, Buffer, 1717859170LL);
-        BootStatDataCache = Pool2;
-        if ( Pool2 )
+        Buffer = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x66647362u);
+        BootStatDataCache = Buffer;
+        if ( Buffer )
         {
-          v0 = ZwReadFile(BootStatFileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Buffer, &ByteOffset, 0LL);
+          v0 = ZwReadFile(BootStatFileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, NumberOfBytes, &ByteOffset, 0LL);
           if ( v0 >= 0 )
           {
             v2 = v0;
-            if ( IoStatusBlock.Information != Buffer )
+            if ( IoStatusBlock.Information != (unsigned int)NumberOfBytes )
               return (unsigned int)-1073741823;
             return v2;
           }

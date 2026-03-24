@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpNotifyDriverCallback @ 0x140703774
+ * XREFs of PnpNotifyDriverCallback @ 0x140703754
  * Callers:
  *     PnpNotifyTargetDeviceChange @ 0x14058F46C (PnpNotifyTargetDeviceChange.c)
- *     IoRegisterPlugPlayNotification @ 0x140703160 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyDeviceClassChange @ 0x14070A574 (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyHwProfileChange @ 0x140825D04 (PnpNotifyHwProfileChange.c)
+ *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyDeviceClassChange @ 0x14070A554 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyHwProfileChange @ 0x140825CE4 (PnpNotifyHwProfileChange.c)
  * Callees:
  *     PsGetCurrentProcessSessionId @ 0x140002AA0 (PsGetCurrentProcessSessionId.c)
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)

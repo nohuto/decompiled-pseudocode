@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x140864E80
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x140864E60
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x1408643AC (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtOpenProcess @ 0x140646C10 (NtOpenProcess.c)
- *     NtOpenSession @ 0x1406DB0F0 (NtOpenSession.c)
+ *     NtOpenProcess @ 0x140646BF0 (NtOpenProcess.c)
+ *     NtOpenSession @ 0x1406DB0D0 (NtOpenSession.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)

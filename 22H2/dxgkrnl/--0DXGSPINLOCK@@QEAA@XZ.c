@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??0DXGSPINLOCK@@QEAA@XZ @ 0x1C0037068
+ * Callers:
+ *     ??0DXG_DEFERRED_WORK_QUEUE_DPC_CBLT@@QEAA@XZ @ 0x1C00D7E60 (--0DXG_DEFERRED_WORK_QUEUE_DPC_CBLT@@QEAA@XZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C017DA1C (--0DXGGLOBAL@@AEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
+DXGSPINLOCK *__fastcall DXGSPINLOCK::DXGSPINLOCK(DXGSPINLOCK *this)
+{
+  *((_QWORD *)this + 1) = 0LL;
+  KeInitializeSpinLock((PKSPIN_LOCK)this);
+  return this;
+}

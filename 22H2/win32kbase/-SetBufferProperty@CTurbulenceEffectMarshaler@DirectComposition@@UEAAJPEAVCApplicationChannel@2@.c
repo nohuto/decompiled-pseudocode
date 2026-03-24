@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C020FF30
+ * XREFs of ?SetBufferProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E1120
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C020EB40 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFE00 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetBufferProperty(
@@ -40,7 +40,7 @@ __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetBufferPrope
   v8 = (_QWORD *)((char *)this + v7);
   if ( (DirectComposition::CTurbulenceEffectMarshaler *)((char *)this + v7) )
   {
-    if ( a4 && a5 == 8 )
+    if ( a4 )
     {
       if ( *v8 != *a4 )
       {

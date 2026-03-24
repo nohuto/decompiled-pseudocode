@@ -1,82 +1,88 @@
 /*
- * XREFs of ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x1802A4D00
+ * XREFs of ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x180252B80
  * Callers:
- *     ?ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_CREATE@@@Z @ 0x1802AB3F4 (-ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINT.c)
+ *     ?ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_CREATE@@@Z @ 0x180259354 (-ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINT.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800FB8E4 (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAVCHolographicInteropTexture@@@?$vector@PEAVCHolographicInteropTexture@@V?$allocator@PEAVCHolographicInteropTexture@@@std@@@std@@QEAAPEAPEAVCHolographicInteropTexture@@QEAPEAV2@AEBQEAV2@@Z @ 0x1802A4400 (--$_Emplace_reallocate@AEBQEAVCHolographicInteropTexture@@@-$vector@PEAVCHolographicInteropTextu.c)
- *     ?DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z @ 0x1802A5220 (-DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z.c)
- *     ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802A5724 (-FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z.c)
- *     ?RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802A7394 (-RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTe.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB20C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x180155714 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164458 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ *     ?DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z @ 0x1802530D8 (-DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z.c)
+ *     ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x18025370C (-FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z.c)
+ *     ?RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x180255874 (-RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTe.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
-bool __fastcall CHolographicManager::AddInteropTexture(RTL_SRWLOCK *this, struct CHolographicInteropTexture *a2)
+bool __fastcall CHolographicManager::AddInteropTexture(
+        CHolographicManager *this,
+        struct CHolographicInteropTexture *a2)
 {
   RTL_SRWLOCK *v2; // rbx
-  unsigned int *v4; // rbp
-  bool v5; // r15
+  unsigned int *v4; // rsi
+  bool v5; // r14
   struct CHolographicInteropTexture *InteropTextureByBindId; // rdi
-  bool v7; // r14
-  _BYTE *Ptr; // rdx
-  CHolographicInteropTaskQueue *v9; // rcx
-  struct IUnknown *v10; // r8
-  CStereoscopicContentManager *v11; // rcx
-  unsigned int v12; // edi
+  bool v7; // r15
+  __int64 v8; // r8
+  unsigned int **v9; // rdx
+  CHolographicInteropTaskQueue *v10; // rcx
+  struct IUnknown *v11; // r8
+  __int64 v12; // rdx
   __int64 v13; // rcx
-  CompositorTracing *v14; // rcx
-  struct CHolographicInteropTexture *v16; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v14; // r8
+  CStereoscopicContentManager *StereoscopicContentManager; // rax
+  unsigned int v16; // edi
+  __int64 v17; // rcx
+  CompositorTracing *v18; // rcx
+  struct CHolographicInteropTexture *v20; // [rsp+68h] [rbp+10h] BYREF
 
-  v16 = a2;
-  v2 = this + 13;
+  v20 = a2;
+  v2 = (RTL_SRWLOCK *)((char *)this + 104);
   v4 = (unsigned int *)a2;
   v5 = 0;
-  AcquireSRWLockShared(this + 13);
-  InteropTextureByBindId = CHolographicManager::FindInteropTextureByBindId((CHolographicManager *)this, v4[56]);
+  AcquireSRWLockShared((PSRWLOCK)this + 13);
+  InteropTextureByBindId = CHolographicManager::FindInteropTextureByBindId(this, v4[52]);
   ReleaseSRWLockShared(v2);
   if ( !InteropTextureByBindId )
   {
     v7 = 0;
     AcquireSRWLockExclusive(v2);
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v4 + 2));
-    Ptr = this[19].Ptr;
-    if ( Ptr == this[20].Ptr )
+    CMILCOMBase::InternalAddRef((CMILCOMBase *)v4);
+    v9 = (unsigned int **)*((_QWORD *)this + 19);
+    if ( *((unsigned int ***)this + 20) == v9 )
     {
-      std::vector<CHolographicInteropTexture *>::_Emplace_reallocate<CHolographicInteropTexture * const &>(
-        (const void **)&this[18].Ptr,
-        Ptr,
-        &v16);
-      v4 = (unsigned int *)v16;
+      std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>((__int64 *)this + 18, v9, &v20);
+      v4 = (unsigned int *)v20;
     }
     else
     {
-      *(_QWORD *)Ptr = v4;
-      this[19].Ptr = (char *)this[19].Ptr + 8;
+      *v9 = v4;
+      *((_QWORD *)this + 19) += 8LL;
     }
-    v9 = (CHolographicInteropTaskQueue *)this[6].Ptr;
-    if ( v9 && LOBYTE(this[30].Ptr) )
+    v10 = (CHolographicInteropTaskQueue *)*((_QWORD *)this + 6);
+    if ( v10 && *((_BYTE *)this + 240) )
     {
       if ( v4 )
-        v10 = (struct IUnknown *)(v4 + 20);
+        v11 = (struct IUnknown *)(v4 + 18);
       else
-        v10 = 0LL;
-      v5 = CHolographicInteropTaskQueue::PostMessageW(v9, 2u, v10, 0LL, 0LL, 0LL, 0LL);
+        v11 = 0LL;
+      v5 = CHolographicInteropTaskQueue::PostMessageW(v10, 2u, v11, 0LL, 0LL, 0LL, 0LL);
     }
-    v11 = (CStereoscopicContentManager *)*((_QWORD *)this[3].Ptr + 34);
-    if ( v11 )
+    if ( CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), (__int64)v9, v8) )
     {
-      CStereoscopicContentManager::RegisterStereoscopicContentConsumer(v11, (struct CHolographicInteropTexture *)v4);
+      StereoscopicContentManager = CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), v12, v14);
+      CStereoscopicContentManager::RegisterStereoscopicContentConsumer(
+        StereoscopicContentManager,
+        (struct CHolographicInteropTexture *)v4);
       v7 = 1;
     }
-    v12 = v4[56];
-    if ( CompositorTracing::IsEnabled((__int64)v11) )
+    v16 = v4[52];
+    if ( CompositorTracing::IsEnabled(v13) )
     {
       wil::details::static_lazy<CompositorTracing>::get(
-        v13,
-        (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
-      CompositorTracing::DwmHolographicInteropTextureAdd_(v14, v12, v7);
+        v17,
+        _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
+      CompositorTracing::DwmHolographicInteropTextureAdd_(v18, v16, v7);
     }
     ReleaseSRWLockExclusive(v2);
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FinalizeTracking@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C02FE70C
+ * XREFs of ?FinalizeTracking@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C02C3500
  * Callers:
- *     ?FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ @ 0x1C02E3220 (-FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ @ 0x1C02BF180 (-FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02FBC90 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02C0AD8 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::FinalizeTracking(DripsBlockerTrackingHelper *this)

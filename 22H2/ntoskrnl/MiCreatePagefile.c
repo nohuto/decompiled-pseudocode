@@ -1,22 +1,21 @@
 /*
- * XREFs of MiCreatePagefile @ 0x1408355E4
+ * XREFs of MiCreatePagefile @ 0x1407B7A10
  * Callers:
- *     MmStoreRegister @ 0x140834954 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x140834C2C (MiCreatePagingFile.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A471CC (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MmStoreRegister @ 0x1407B6B30 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1407B6DDC (MiCreatePagingFile.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MiAllocateModWriterEntry @ 0x1403498A8 (MiAllocateModWriterEntry.c)
- *     MiReservePageHash @ 0x140394198 (MiReservePageHash.c)
- *     MiInitializePagefileBitmapsCache @ 0x140394350 (MiInitializePagefileBitmapsCache.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14083595C (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     MiAllocateModWriterEntry @ 0x140259DB8 (MiAllocateModWriterEntry.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     RtlSetAllBits @ 0x1403536C0 (RtlSetAllBits.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403BF7D4 (MiInitializePagefileBitmapsCache.c)
+ *     MiReservePageHash @ 0x1403BF958 (MiReservePageHash.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1407B7D54 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
  */
 
 _BYTE *__fastcall MiCreatePagefile(
@@ -29,174 +28,133 @@ _BYTE *__fastcall MiCreatePagefile(
         int a7,
         char a8)
 {
-  unsigned int v11; // r15d
-  __int64 v12; // r12
   _BYTE *Pool; // rax
-  _BYTE *v14; // r14
-  __int64 v15; // rsi
-  __int64 v16; // r8
-  UNICODE_STRING *v17; // rcx
+  _BYTE *v13; // r14
+  UNICODE_STRING *v14; // rcx
+  __int64 v15; // r13
+  unsigned int v16; // r15d
+  PVOID v17; // rax
   __int64 v18; // rdx
-  _WORD *v19; // rcx
-  __int64 v20; // r9
-  PVOID v21; // rax
-  unsigned int v22; // esi
-  __int64 v23; // rax
-  __int64 v24; // rdi
+  __int64 v19; // r8
+  unsigned __int64 v20; // r9
+  unsigned int v21; // esi
+  __int64 v22; // rax
+  __int64 v23; // rdi
   _QWORD *ModWriterEntry; // rax
-  _QWORD *v26; // rbx
-  int v27; // ecx
-  int v28; // eax
-  ULONG_PTR v29; // rax
+  _QWORD *v25; // rbx
+  ULONG_PTR v26; // rax
   __int64 PageFileSpaceBitmaps; // rax
-  __int64 v31; // rdi
-  RTL_BITMAP *v32; // rdi
-  PVOID v33; // rax
-  __int64 v36; // [rsp+30h] [rbp-168h]
-  _BYTE v37[288]; // [rsp+40h] [rbp-158h] BYREF
+  __int64 v28; // rdi
+  RTL_BITMAP *v29; // rdi
+  PVOID v30; // rax
+  _BYTE v33[288]; // [rsp+30h] [rbp-158h] BYREF
 
-  memset(v37, 0, sizeof(v37));
-  v11 = 2;
-  v12 = (a8 & 2) != 0 ? 5 : 2;
+  memset(v33, 0, sizeof(v33));
   Pool = MiAllocatePool(64, 0x120uLL, 0x20206D4Du);
-  v14 = v37;
+  v13 = v33;
   if ( Pool )
-    v14 = Pool;
-  *((_QWORD *)v14 + 1) = a5;
-  *(_QWORD *)v14 = a4;
-  *((_QWORD *)v14 + 2) = a4;
-  v15 = a4 - v12;
-  *((_QWORD *)v14 + 3) = v15;
-  *((_QWORD *)v14 + 6) = v15;
-  *((_QWORD *)v14 + 7) = a2;
-  *((_QWORD *)v14 + 28) = a3;
-  *((_DWORD *)v14 + 31) = dword_140D1D1DC;
-  *((_DWORD *)v14 + 34) = 4 * dword_140D1D1DC;
-  *((_QWORD *)v14 + 31) = a1;
-  InitializeSListHead((PSLIST_HEADER)v14 + 5);
-  v17 = (UNICODE_STRING *)(v14 + 96);
-  *((_QWORD *)v14 + 30) = 0LL;
+    v13 = Pool;
+  *((_QWORD *)v13 + 1) = a5;
+  *((_QWORD *)v13 + 7) = a2;
+  *((_QWORD *)v13 + 3) = a4 - 2;
+  *((_QWORD *)v13 + 6) = a4 - 2;
+  *((_QWORD *)v13 + 28) = a3;
+  *(_QWORD *)v13 = a4;
+  *((_QWORD *)v13 + 2) = a4;
+  *((_DWORD *)v13 + 31) = dword_140CFB18C;
+  *((_DWORD *)v13 + 34) = 4 * dword_140CFB18C;
+  *((_QWORD *)v13 + 31) = a1;
+  InitializeSListHead((PSLIST_HEADER)v13 + 5);
+  v14 = (UNICODE_STRING *)(v13 + 96);
+  *((_QWORD *)v13 + 30) = 0LL;
   if ( a6 )
-    *v17 = *a6;
+    *v14 = *a6;
   else
-    RtlInitUnicodeString(v17, 0LL);
-  v18 = (unsigned int)a7;
-  v19 = v14 + 204;
+    RtlInitUnicodeString(v14, 0LL);
   if ( a7 < 0 )
   {
-    v16 = 128LL;
-    *v19 |= 0xB0u;
-LABEL_12:
-    v20 = 64LL;
-    goto LABEL_13;
+    *((_WORD *)v13 + 102) |= 0xB0u;
   }
-  if ( (a8 & 2) == 0 )
+  else if ( (a8 & 2) != 0 )
   {
-    if ( (a8 & 4) != 0 )
-    {
-      v16 = 2048LL;
-      *v19 |= 0x8A0u;
-      *((_QWORD *)v14 + 32) = 0LL;
-      *((_QWORD *)v14 + 33) = 0LL;
-    }
-    else
-    {
-      if ( (a7 & 0x40000000) != 0 )
-        *v19 |= 0x20u;
-      if ( (a7 & 0x2000000) != 0 )
-      {
-        v16 = 128LL;
-        *v19 |= 0x80u;
-      }
-    }
-    goto LABEL_12;
+    *((_WORD *)v13 + 102) |= 0x60u;
   }
-  v20 = 64LL;
-  *v19 |= 0x60u;
-LABEL_13:
+  else
+  {
+    if ( (a7 & 0x40000000) != 0 )
+      *((_WORD *)v13 + 102) |= 0x20u;
+    if ( (a7 & 0x2000000) != 0 )
+      *((_WORD *)v13 + 102) |= 0x80u;
+  }
   if ( (a7 & 0x1000000) != 0 )
-    *v19 |= 0x400u;
+    *((_WORD *)v13 + 102) |= 0x400u;
   if ( (a8 & 1) != 0 )
-    *v19 |= 0x200u;
+    *((_WORD *)v13 + 102) |= 0x200u;
   if ( (a7 & 0x3C000000) != 0 )
-    *((_DWORD *)v14 + 50) = (a7 & 0x3C000000u) >> 26;
-  if ( v14 == v37 )
-    goto LABEL_46;
-  v36 = (unsigned int)dword_140D1D1DC;
-  if ( a7 < 0 )
+    *((_DWORD *)v13 + 50) = (a7 & 0x3C000000u) >> 26;
+  if ( v13 == v33 )
+    goto LABEL_38;
+  v15 = (unsigned int)dword_140CFB18C;
+  if ( a7 < 0 || (a8 & 2) == 0 )
   {
-    v11 = 1;
-  }
-  else if ( (a8 & 4) != 0 )
-  {
-    v11 = KeNumberProcessors_0;
-    if ( !(_DWORD)KeNumberProcessors_0 )
-      goto LABEL_27;
-  }
-  v21 = MiAllocatePool(64, 8LL * v11, 0x20206D4Du);
-  *((_QWORD *)v14 + 8) = v21;
-  if ( !v21 )
-    goto LABEL_46;
-  v22 = 0;
-  if ( v11 )
-  {
-    v23 = a1;
-    v24 = 0LL;
-    do
+    v16 = (a7 >> 31) + 2;
+    v17 = MiAllocatePool(64, 8LL * v16, 0x20206D4Du);
+    *((_QWORD *)v13 + 8) = v17;
+    if ( !v17 )
+      goto LABEL_38;
+    v21 = 0;
+    if ( a7 >> 31 != -2 )
     {
-      ModWriterEntry = MiAllocateModWriterEntry(v23, v36, 0);
-      v26 = ModWriterEntry;
-      if ( !ModWriterEntry )
-        goto LABEL_46;
-      memset(ModWriterEntry, 0, 0x108uLL);
-      v23 = a1;
-      ++v22;
-      v26[24] = a1;
-      v26[18] = v14;
-      *(_QWORD *)(v24 + *((_QWORD *)v14 + 8)) = v26;
-      v24 += 8LL;
-      ++*((_DWORD *)v14 + 18);
+      v22 = a1;
+      v23 = 0LL;
+      do
+      {
+        ModWriterEntry = MiAllocateModWriterEntry(v22, v15, 0, v20);
+        v25 = ModWriterEntry;
+        if ( !ModWriterEntry )
+          goto LABEL_38;
+        memset(ModWriterEntry, 0, 0x108uLL);
+        v22 = a1;
+        ++v21;
+        v25[24] = a1;
+        v25[18] = v13;
+        *(_QWORD *)(v23 + *((_QWORD *)v13 + 8)) = v25;
+        v23 += 8LL;
+        ++*((_DWORD *)v13 + 18);
+      }
+      while ( v21 < v16 );
     }
-    while ( v22 < v11 );
+    if ( (a8 & 2) == 0 )
+    {
+      v26 = MiReservePageHash(*((_DWORD *)v13 + 2), v18, v19, v20);
+      if ( !v26 )
+        goto LABEL_38;
+      *((_QWORD *)v13 + 27) = v26;
+    }
   }
-LABEL_27:
-  v27 = 0;
-  v28 = 0;
-  if ( (a8 & 4) == 0 )
-  {
-    LOBYTE(v27) = (a8 & 2) == 0;
-    v28 = v27;
-  }
-  if ( v28 )
-  {
-    v29 = MiReservePageHash(*((_DWORD *)v14 + 2));
-    if ( !v29 )
-      goto LABEL_46;
-    *((_QWORD *)v14 + 27) = v29;
-  }
-  PageFileSpaceBitmaps = MiCreatePageFileSpaceBitmaps(*((unsigned int *)v14 + 2), v18, v16, v20);
-  v31 = PageFileSpaceBitmaps;
+  PageFileSpaceBitmaps = MiCreatePageFileSpaceBitmaps(*((unsigned int *)v13 + 2));
+  v28 = PageFileSpaceBitmaps;
   if ( PageFileSpaceBitmaps )
   {
-    *((_QWORD *)v14 + 14) = PageFileSpaceBitmaps;
+    *((_QWORD *)v13 + 14) = PageFileSpaceBitmaps;
     RtlSetAllBits((PRTL_BITMAP)(PageFileSpaceBitmaps + 8));
-    RtlClearBits((PRTL_BITMAP)(v31 + 8), v12, *(_DWORD *)v14 - v12);
-    v32 = (RTL_BITMAP *)(v31 + 24);
-    RtlSetAllBits(v32);
+    RtlClearBits((PRTL_BITMAP)(v28 + 8), 2u, *(_DWORD *)v13 - 2);
+    v29 = (RTL_BITMAP *)(v28 + 24);
+    RtlSetAllBits(v29);
     if ( (a8 & 2) == 0 )
-      RtlClearBits(v32, v12, *(_DWORD *)v14 - v12);
-    *((_DWORD *)v14 + 30) = v12;
+      RtlClearBits(v29, 2u, *(_DWORD *)v13 - 2);
+    *((_DWORD *)v13 + 30) = 2;
     if ( (a8 & 2) != 0 )
-      return v14;
-    v33 = MiAllocatePool(64, 0x7000uLL, 0x6342694Du);
-    *((_QWORD *)v14 + 24) = v33;
-    if ( v33 )
+      return v13;
+    v30 = MiAllocatePool(64, 0x7000uLL, 0x6342694Du);
+    *((_QWORD *)v13 + 24) = v30;
+    if ( v30 )
     {
-      MiInitializePagefileBitmapsCache((__int64)v14);
-      return v14;
+      MiInitializePagefileBitmapsCache((__int64)v13);
+      return v13;
     }
   }
-LABEL_46:
-  MiDeletePagefile(v14);
+LABEL_38:
+  MiDeletePagefile(v13);
   return 0LL;
 }

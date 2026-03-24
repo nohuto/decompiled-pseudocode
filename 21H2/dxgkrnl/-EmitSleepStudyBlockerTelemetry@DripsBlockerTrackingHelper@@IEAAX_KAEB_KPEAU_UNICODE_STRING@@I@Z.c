@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z @ 0x1C02FB8AC
+ * XREFs of ?EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z @ 0x1C02C06F4
  * Callers:
- *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02FB27C (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
+ *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02C00AC (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@33333333333@Z @ 0x1C004F654 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U1@U1@U1@U1@U1@U1@.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@33333333333@Z @ 0x1C004E81C (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U1@U1@U1@U1@U1@U1@.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerTelemetry(
@@ -34,9 +34,9 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerTelemetry(
   __int64 v23; // [rsp+F0h] [rbp+3Fh] BYREF
   __int64 v24; // [rsp+F8h] [rbp+47h] BYREF
 
-  if ( (unsigned int)dword_1C012F918 > 5 )
+  if ( (unsigned int)dword_1C00B1A90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000002000LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000002000LL) )
     {
       v10 = 4720LL * a5;
       v11 = 50331648LL;
@@ -55,7 +55,7 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerTelemetry(
       v21 = *v9;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
         v10,
-        byte_1C0097ED1,
+        byte_1C008084F,
         v6,
         (__int64)v7,
         (__int64)&v24,

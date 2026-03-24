@@ -1,29 +1,17 @@
 /*
- * XREFs of WheapFreeErrorRecord @ 0x140610ED0
+ * XREFs of WheapFreeErrorRecord @ 0x1405BB9E8
  * Callers:
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x140611090 (WheapProcessWorkQueueItem.c)
- *     WheapProcessWaitingETWEvents @ 0x140861010 (WheapProcessWaitingETWEvents.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x1405BBB10 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x1407D34F0 (WheapEtwEnableCallback.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
  */
 
-void __fastcall WheapFreeErrorRecord(__int64 a1)
+PSLIST_ENTRY __fastcall WheapFreeErrorRecord(ULONG_PTR a1)
 {
-  int v1; // eax
-  ULONG v2; // edx
-
-  v1 = *(_DWORD *)(a1 + 24);
-  if ( (v1 & 1) != 0 )
-  {
-    _InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
-  }
+  if ( (*(_DWORD *)(a1 + 24) & 1) != 0 )
+    return (PSLIST_ENTRY)(unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
   else
-  {
-    if ( (v1 & 2) != 0 )
-      v2 = 1634035799;
-    else
-      v2 = *(_DWORD *)(*(_QWORD *)(a1 + 32) + 36LL);
-    ExFreePoolWithTag((PVOID)a1, v2);
-  }
+    return ExFreeHeapPool(a1);
 }

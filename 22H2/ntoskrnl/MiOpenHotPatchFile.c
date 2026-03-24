@@ -1,23 +1,23 @@
 /*
- * XREFs of MiOpenHotPatchFile @ 0x140A3A3C0
+ * XREFs of MiOpenHotPatchFile @ 0x1408CCB58
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiLoadHotPatch @ 0x140A37FD0 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140A38368 (MiLoadHotPatchForUserSid.c)
+ *     MiLoadHotPatch @ 0x1408CAC20 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x1408CAF80 (MiLoadHotPatchForUserSid.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiCreateSystemSection @ 0x14035F150 (MiCreateSystemSection.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     RtlFindHotPatchBase @ 0x140A7650C (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140A7653C (RtlFindHotPatchInformation.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MiCreateSystemSection @ 0x1403728BC (MiCreateSystemSection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     MiUnmapImageInSystemSpace @ 0x14066BB40 (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
+ *     RtlFindHotPatchBase @ 0x14091AF70 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x14091AFA0 (RtlFindHotPatchInformation.c)
  */
 
 __int64 __fastcall MiOpenHotPatchFile(
@@ -25,42 +25,43 @@ __int64 __fastcall MiOpenHotPatchFile(
         int a2,
         char a3,
         HANDLE *a4,
-        PVOID *a5,
+        PADAPTER_OBJECT *a5,
         _OWORD *a6,
-        _DWORD *a7)
+        _DWORD *a7,
+        _DWORD *a8)
 {
-  __int64 v9; // rdx
+  __int64 v10; // rdx
   int SystemSection; // ebx
-  __int64 v11; // r9
-  int v12; // r14d
+  __int64 v12; // r9
   int v13; // ebx
-  int v14; // esi
-  int v15; // eax
-  int SessionId; // ecx
+  int v14; // r14d
+  int v15; // r15d
+  int SessionId; // eax
   __int64 *v17; // rax
-  unsigned __int64 v18; // rsi
-  __int16 v19; // ax
+  unsigned __int64 v18; // r14
+  unsigned __int64 v19; // rbx
+  _DWORD *v20; // r15
   __int64 HotPatchInformation; // rax
   __int64 HotPatchBase; // rax
-  int v23; // [rsp+40h] [rbp-138h]
-  int v24; // [rsp+48h] [rbp-130h]
-  PVOID Object; // [rsp+78h] [rbp-100h] BYREF
-  HANDLE FileHandle; // [rsp+80h] [rbp-F8h] BYREF
-  unsigned __int64 v28; // [rsp+90h] [rbp-E8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-E0h] BYREF
-  HANDLE *v30; // [rsp+C8h] [rbp-B0h]
-  PVOID *v31; // [rsp+D0h] [rbp-A8h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D8h] [rbp-A0h] BYREF
-  _OWORD v33[5]; // [rsp+F0h] [rbp-88h] BYREF
+  int v24; // [rsp+40h] [rbp-128h]
+  int v25; // [rsp+48h] [rbp-120h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp-F0h] BYREF
+  HANDLE FileHandle; // [rsp+80h] [rbp-E8h] BYREF
+  unsigned __int64 v29; // [rsp+88h] [rbp-E0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-D8h] BYREF
+  HANDLE *v31; // [rsp+C0h] [rbp-A8h]
+  PADAPTER_OBJECT *v32; // [rsp+C8h] [rbp-A0h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D0h] [rbp-98h] BYREF
+  _OWORD v34[5]; // [rsp+E0h] [rbp-88h] BYREF
 
-  v30 = a4;
-  v31 = a5;
+  v31 = a4;
+  v32 = a5;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   IoStatusBlock = 0LL;
-  memset(v33, 0, sizeof(v33));
-  v28 = 0LL;
-  Object = 0LL;
+  memset(v34, 0, sizeof(v34));
+  v29 = 0LL;
+  DmaAdapter = 0LL;
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a1;
@@ -73,7 +74,6 @@ __int64 __fastcall MiOpenHotPatchFile(
     ObjectAttributes.Attributes = 576;
     ObjectAttributes.ObjectName = 0LL;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v12 = 1;
     if ( a2 )
     {
       v13 = 2;
@@ -85,58 +85,51 @@ __int64 __fastcall MiOpenHotPatchFile(
     {
       v13 = 16;
       v14 = 0x1000000;
-      SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v15 = 1;
+      SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     }
-    LOBYTE(v9) = a3;
     SystemSection = MiCreateSystemSection(
-                      (__int64 *)&Object,
-                      v9,
+                      (__int64 *)&DmaAdapter,
+                      v10,
                       (int)&ObjectAttributes,
-                      v11,
+                      v12,
                       v13,
                       v14,
                       0,
                       (__int64)FileHandle,
-                      v23,
                       v24,
+                      v25,
                       SessionId,
                       v15,
                       a3);
     if ( SystemSection >= 0 )
     {
-      v17 = (__int64 *)MiSectionControlArea((__int64)Object);
-      SystemSection = MiMapImageInSystemSpace(v17, 1, (__int64)v33);
+      v17 = (__int64 *)MiSectionControlArea((__int64)DmaAdapter);
+      SystemSection = MiMapImageInSystemSpace(v17, 1, (__int64)v34);
       if ( SystemSection >= 0 )
       {
-        v18 = (unsigned __int64)LODWORD(v33[1]) << 12;
-        SystemSection = RtlImageNtHeaderEx(0, *(unsigned __int64 *)&v33[0], v18, &v28);
+        v18 = (unsigned __int64)LODWORD(v34[1]) << 12;
+        SystemSection = RtlImageNtHeaderEx(0, *(unsigned __int64 *)&v34[0], v18, &v29);
         if ( SystemSection >= 0 )
         {
-          if ( v28 + 24 < v28 || v28 + 24 > v18 + *(_QWORD *)&v33[0] )
+          v19 = v29;
+          v20 = (_DWORD *)(v29 + 8);
+          if ( v29 + 8 < v29 || (unsigned __int64)v20 > v18 + *(_QWORD *)&v34[0] )
           {
             SystemSection = -1073741701;
           }
           else
           {
-            if ( v18 >= 0xFFFFFFFF )
-            {
-              SystemSection = -1073739516;
-              goto LABEL_28;
-            }
-            v19 = *(_WORD *)(v28 + 4);
-            if ( v19 != -31132 && v19 != 332 && v19 != -21916 )
-              v12 = 0;
-            if ( !v12 )
+            if ( *(_WORD *)(v29 + 4) != 0x8664 )
             {
               SystemSection = -1073741701;
-              goto LABEL_28;
+              goto LABEL_24;
             }
-            HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)&v33[0]);
+            HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)&v34[0]);
             if ( !HotPatchInformation )
             {
               SystemSection = -1073741701;
-              goto LABEL_28;
+              goto LABEL_24;
             }
             if ( a7 )
             {
@@ -144,23 +137,28 @@ __int64 __fastcall MiOpenHotPatchFile(
               if ( !HotPatchBase )
               {
                 SystemSection = -1073741701;
-                goto LABEL_28;
+                goto LABEL_24;
               }
               *a7 = *(_DWORD *)(HotPatchBase + 12);
               a7[1] = *(_DWORD *)(HotPatchBase + 8);
             }
-            *v30 = FileHandle;
+            if ( a8 )
+            {
+              *a8 = *(_DWORD *)(v19 + 88);
+              a8[1] = *v20;
+            }
+            *v31 = FileHandle;
             FileHandle = 0LL;
-            *v31 = Object;
-            Object = 0LL;
+            *v32 = DmaAdapter;
+            DmaAdapter = 0LL;
             if ( a6 )
             {
-              *a6 = v33[0];
-              a6[1] = v33[1];
-              a6[2] = v33[2];
-              a6[3] = v33[3];
-              a6[4] = v33[4];
-              *(_QWORD *)&v33[0] = 0LL;
+              *a6 = v34[0];
+              a6[1] = v34[1];
+              a6[2] = v34[2];
+              a6[3] = v34[3];
+              a6[4] = v34[4];
+              *(_QWORD *)&v34[0] = 0LL;
             }
             SystemSection = 0;
           }
@@ -168,11 +166,11 @@ __int64 __fastcall MiOpenHotPatchFile(
       }
     }
   }
-LABEL_28:
-  if ( *(_QWORD *)&v33[0] )
-    MiUnmapImageInSystemSpace((__int64)v33);
-  if ( Object )
-    ObfDereferenceObject(Object);
+LABEL_24:
+  if ( *(_QWORD *)&v34[0] )
+    MiUnmapImageInSystemSpace((unsigned __int64 *)v34);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   if ( FileHandle )
     ObCloseHandle(FileHandle, 0);
   return (unsigned int)SystemSection;

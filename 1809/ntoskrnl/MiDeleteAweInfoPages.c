@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteAweInfoPages @ 0x14084FD58
+ * XREFs of MiDeleteAweInfoPages @ 0x14084FD38
  * Callers:
- *     MiDeleteSectionAwe @ 0x1402B03D4 (MiDeleteSectionAwe.c)
+ *     MiDeleteSectionAwe @ 0x1402B04D4 (MiDeleteSectionAwe.c)
  *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -10,11 +10,11 @@
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     MiLockAwePagesExclusive @ 0x1402B1194 (MiLockAwePagesExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x1402B1FB8 (MiUnlockAwePagesExclusive.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
- *     RtlFindNextForwardRunClearEx @ 0x1402EE910 (RtlFindNextForwardRunClearEx.c)
- *     MiGetAweInfoPartition @ 0x14084FEF0 (MiGetAweInfoPartition.c)
+ *     MiLockAwePagesExclusive @ 0x1402B1294 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x1402B20B8 (MiUnlockAwePagesExclusive.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1402EEA10 (RtlFindNextForwardRunClearEx.c)
+ *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
  */
 
 __int64 __fastcall MiDeleteAweInfoPages(_DWORD *a1, __int64 a2, __int64 a3)

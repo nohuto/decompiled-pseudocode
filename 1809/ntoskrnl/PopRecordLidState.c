@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRecordLidState @ 0x140865FA8
+ * XREFs of PopRecordLidState @ 0x140865F88
  * Callers:
- *     PopLidSwitchChangeCallback @ 0x140868E70 (PopLidSwitchChangeCallback.c)
+ *     PopLidSwitchChangeCallback @ 0x140868E50 (PopLidSwitchChangeCallback.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopWriteBsdPowerTransition @ 0x14071C488 (PopWriteBsdPowerTransition.c)
+ *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
  */
 
 void __fastcall PopRecordLidState(int a1)

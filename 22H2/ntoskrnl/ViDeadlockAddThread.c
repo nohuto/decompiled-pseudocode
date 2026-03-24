@@ -1,19 +1,19 @@
 /*
- * XREFs of ViDeadlockAddThread @ 0x140AD9624
+ * XREFs of ViDeadlockAddThread @ 0x1409DEA88
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD7DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD34 (VfDeadlockBeforeCallDriver.c)
  * Callees:
- *     VfUtilAddressRangeAdd @ 0x140AC3394 (VfUtilAddressRangeAdd.c)
+ *     VfUtilAddressRangeAdd @ 0x1409C62DC (VfUtilAddressRangeAdd.c)
  */
 
 __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)
 {
   __int64 result; // rax
   _QWORD *v5; // r10
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
+  _QWORD *v7; // rcx
+  unsigned __int64 v8; // r8
+  __int64 v9; // rax
   __int64 v10; // rdx
   __int64 v11; // r10
   __int64 v12; // r9
@@ -28,18 +28,17 @@ __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)
     *(_DWORD *)(a2 + 44) = 0;
     *(_BYTE *)(a2 + 48) = 0;
     *(_QWORD *)a2 = a1;
-    v6 = ((a1 >> 12) * (unsigned __int128)0x40100401004011uLL) >> 64;
-    v7 = (a1 >> 12) - 1023 * ((v6 + (((a1 >> 12) - v6) >> 1)) >> 9);
-    v8 = (_QWORD *)(a2 + 24);
-    v9 = v5[2050] + 16 * v7;
+    v7 = (_QWORD *)(a2 + 24);
+    v8 = (a1 >> 12) % 0x3FF;
+    v9 = v5[2050] + 16 * v8;
     v10 = *(_QWORD *)v9;
     if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 )
       __fastfail(3u);
+    *v7 = v10;
     *(_QWORD *)(a2 + 32) = v9;
-    *v8 = v10;
-    *(_QWORD *)(v10 + 8) = v8;
-    *(_QWORD *)v9 = v8;
-    VfUtilAddressRangeAdd(&v5[2 * v7 + 2052], a1, 2320LL);
+    *(_QWORD *)(v10 + 8) = v7;
+    *(_QWORD *)v9 = v7;
+    VfUtilAddressRangeAdd(&v5[2 * v8 + 2052], a1, 2200LL);
     ++*(_QWORD *)(v11 + 16408);
     return v12;
   }

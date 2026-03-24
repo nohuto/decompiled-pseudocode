@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GBamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAPEAXI@Z @ 0x1801B9010
+ * XREFs of ??_GBamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAPEAXI@Z @ 0x180165900
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ @ 0x1801B8D4C (--1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800D7310 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
  */
 
 BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl *__fastcall BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl::`scalar deleting destructor'(
@@ -13,11 +13,14 @@ BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl *__fastcall BamoImpl::Diag
         __int64 a3,
         const char *a4)
 {
-  char v4; // bl
+  char v5; // di
+  Microsoft::BamoImpl::BamoImplObject *v6; // rcx
 
-  v4 = a2;
-  Microsoft::BamoImpl::BaseBamoPeerImpl::~BaseBamoPeerImpl(this, a2, a3, a4);
-  if ( (v4 & 1) != 0 )
+  v5 = a2;
+  v6 = (Microsoft::BamoImpl::BamoImplObject *)*((_QWORD *)this + 3);
+  if ( v6 )
+    Microsoft::BamoImpl::BamoImplObject::Release(v6, a2, a3, a4);
+  if ( (v5 & 1) != 0 )
     operator delete(this);
   return this;
 }

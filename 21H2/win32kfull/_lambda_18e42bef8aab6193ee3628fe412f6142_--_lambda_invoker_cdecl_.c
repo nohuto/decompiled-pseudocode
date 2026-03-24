@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C00CD9C0
+ * XREFs of _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C0027980
  * Callers:
  *     <none>
  * Callees:
- *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00CE218 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00282E8 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
  */
 
 bool __fastcall lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_(__int64 a1, _OWORD *a2)

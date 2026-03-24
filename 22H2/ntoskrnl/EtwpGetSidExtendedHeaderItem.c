@@ -1,100 +1,70 @@
 /*
- * XREFs of EtwpGetSidExtendedHeaderItem @ 0x14071D550
+ * XREFs of EtwpGetSidExtendedHeaderItem @ 0x140654EBC
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D810 (PsReferenceImpersonationTokenEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406D5B10 (PsReferenceEffectiveToken.c)
  */
 
 void *__fastcall EtwpGetSidExtendedHeaderItem(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  _KPROCESS *Process; // rbp
-  void *v4; // rax
-  ULONG_PTR v5; // rbx
-  ULONG v6; // edx
-  __int64 v7; // rcx
-  int v8; // r14d
-  struct _KTHREAD *v9; // rax
-  unsigned __int8 *v10; // rdx
-  unsigned int v11; // ebp
-  _KPROCESS *v12; // rdx
-  signed __int64 v13; // rax
-  signed __int64 v14; // rtt
-  char v16; // [rsp+40h] [rbp-98h] BYREF
-  _BYTE v17[3]; // [rsp+41h] [rbp-97h] BYREF
-  int v18[3]; // [rsp+44h] [rbp-94h] BYREF
-  _BYTE Src[80]; // [rsp+50h] [rbp-88h] BYREF
+  struct _DMA_ADAPTER *v3; // rax
+  int v4; // esi
+  struct _DMA_ADAPTER *v5; // rbx
+  ULONG v6; // eax
+  size_t v7; // r8
+  unsigned int v8; // edi
+  unsigned int v9; // ebx
+  char v11; // [rsp+30h] [rbp-39h] BYREF
+  int v12; // [rsp+34h] [rbp-35h] BYREF
+  int v13; // [rsp+38h] [rbp-31h] BYREF
+  ULONG Size[21]; // [rsp+3Ch] [rbp-2Dh] BYREF
 
-  v18[0] = 0;
-  memset(Src, 0, 0x44uLL);
+  v11 = 0;
+  v13 = 0;
+  memset(Size, 0, 72);
+  v12 = 0;
   CurrentThread = KeGetCurrentThread();
-  Process = CurrentThread->ApcState.Process;
-  v4 = (void *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, v17, &v16, v18, 0LL);
-  v5 = (ULONG_PTR)v4;
-  if ( !v4 )
+  v3 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(
+                                (_DWORD)CurrentThread,
+                                (unsigned int)&v12,
+                                (unsigned int)&v11,
+                                (unsigned int)&v13,
+                                0LL);
+  v4 = v12;
+  v5 = v3;
+  if ( v12 == 2 && v13 < 2 )
   {
-    v6 = 1953654867;
-    v7 = (__int64)Process;
-LABEL_3:
-    v5 = PsReferencePrimaryTokenWithTag(v7, v6);
-    v8 = 1;
-    goto LABEL_4;
+    if ( v3 )
+      HalPutDmaAdapter(v3);
+    v5 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(CurrentThread->Process);
+    v4 = 1;
   }
-  v8 = 2;
-  if ( v18[0] < 2 )
+  SeQueryUserSidToken((__int64)v5, &Size[1], 0x44u, Size);
+  if ( v4 == 1 )
   {
-    ObfDereferenceObjectWithTag(v4, 0x746C6644u);
-    v7 = (__int64)CurrentThread->Process;
-    v6 = 1953261124;
-    goto LABEL_3;
+    ObFastDereferenceObject((signed __int64 *)&CurrentThread->Process[1].Affinity.Bitmap[5], v5);
   }
-LABEL_4:
-  v9 = KeGetCurrentThread();
-  --v9->KernelApcDisable;
-  ExAcquireResourceSharedLite(*(PERESOURCE *)(v5 + 48), 1u);
-  v10 = **(unsigned __int8 ***)(v5 + 152);
-  v11 = 4 * v10[1] + 8;
-  if ( v11 <= 0x44 )
-    memmove(Src, v10, v11);
-  ExReleaseResourceLite(*(PERESOURCE *)(v5 + 48));
-  KeLeaveCriticalRegion();
-  if ( v8 == 1
-    && (v12 = CurrentThread->Process,
-        _m_prefetchw(&v12[1].Affinity.StaticBitmap[5]),
-        v13 = v12[1].Affinity.StaticBitmap[5],
-        (v5 ^ v13) < 0xF) )
+  else if ( v5 )
   {
-    while ( 1 )
-    {
-      v14 = v13;
-      v13 = _InterlockedCompareExchange64((volatile signed __int64 *)&v12[1].Affinity.StaticBitmap[5], v13 + 1, v13);
-      if ( v14 == v13 )
-        break;
-      if ( (v5 ^ v13) >= 0xF )
-        goto LABEL_16;
-    }
-    if ( ObpTraceFlags )
-      ObpPushStackInfo(v5 - 48, 0, 1u, 0x74726853u);
+    HalPutDmaAdapter(v5);
   }
-  else
-  {
-LABEL_16:
-    ObfDereferenceObjectWithTag((PVOID)v5, 0x74726853u);
-  }
+  v6 = Size[0];
+  v7 = Size[0];
   *(_DWORD *)(a1 + 2) = 2;
-  *(_WORD *)(a1 + 6) = v11;
-  *(_WORD *)a1 = (v11 + 15) & 0xFFF8;
-  memmove((void *)(a1 + 8), Src, v11);
-  return memset((void *)(a1 + v11 + 8), 0, ((v11 + 15) & 0xFFFFFFF8) - (v11 + 8));
+  *(_WORD *)(a1 + 6) = v6;
+  v8 = v6 + 8;
+  v9 = (v6 + 15) & 0xFFFFFFF8;
+  *(_WORD *)a1 = (v6 + 15) & 0xFFF8;
+  memmove((void *)(a1 + 8), &Size[1], v7);
+  return memset((void *)(a1 + v8), 0, v9 - v8);
 }

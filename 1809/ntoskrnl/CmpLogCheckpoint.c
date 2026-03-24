@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpLogCheckpoint @ 0x140701D98
+ * XREFs of CmpLogCheckpoint @ 0x140701D78
  * Callers:
- *     CmpStopRMLog @ 0x1406931DC (CmpStopRMLog.c)
- *     CmpTransWriteLog @ 0x1406F7EB8 (CmpTransWriteLog.c)
- *     CmpCleanupTransactionState @ 0x140701C4C (CmpCleanupTransactionState.c)
+ *     CmpStopRMLog @ 0x1406931BC (CmpStopRMLog.c)
+ *     CmpTransWriteLog @ 0x1406F7E98 (CmpTransWriteLog.c)
+ *     CmpCleanupTransactionState @ 0x140701C2C (CmpCleanupTransactionState.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)

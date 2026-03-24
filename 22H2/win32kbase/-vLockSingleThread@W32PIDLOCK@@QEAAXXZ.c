@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLockSingleThread@W32PIDLOCK@@QEAAXXZ @ 0x1C009B6C0
+ * XREFs of ?vLockSingleThread@W32PIDLOCK@@QEAAXXZ @ 0x1C007AE90
  * Callers:
  *     <none>
  * Callees:

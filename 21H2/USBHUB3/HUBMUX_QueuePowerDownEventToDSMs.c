@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBMUX_QueuePowerDownEventToDSMs @ 0x1C000FF44
+ * XREFs of HUBMUX_QueuePowerDownEventToDSMs @ 0x1C000FB28
  * Callers:
- *     HUBHSM_NotifyingHubStopToDevices @ 0x1C0008700 (HUBHSM_NotifyingHubStopToDevices.c)
- *     HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset @ 0x1C0008DA0 (HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset.c)
- *     HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend @ 0x1C0008DE0 (HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend.c)
+ *     HUBHSM_NotifyingHubStopToDevices @ 0x1C00083F0 (HUBHSM_NotifyingHubStopToDevices.c)
+ *     HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset @ 0x1C0008A90 (HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset.c)
+ *     HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend @ 0x1C0008AD0 (HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall HUBMUX_QueuePowerDownEventToDSMs(__int64 a1, int a2)

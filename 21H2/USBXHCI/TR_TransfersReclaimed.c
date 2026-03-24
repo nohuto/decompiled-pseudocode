@@ -1,13 +1,13 @@
 /*
- * XREFs of TR_TransfersReclaimed @ 0x1C000B9F4
+ * XREFs of TR_TransfersReclaimed @ 0x1C000BBB4
  * Callers:
- *     Bulk_ProcessTransferCompletion @ 0x1C000B878 (Bulk_ProcessTransferCompletion.c)
- *     Control_EP_ReclaimTransfers @ 0x1C0040590 (Control_EP_ReclaimTransfers.c)
- *     Control_ProcessTransferCompletion @ 0x1C0040838 (Control_ProcessTransferCompletion.c)
- *     Isoch_ProcessTransferCompletion @ 0x1C0042CD0 (Isoch_ProcessTransferCompletion.c)
+ *     Bulk_ProcessTransferCompletion @ 0x1C000BA38 (Bulk_ProcessTransferCompletion.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0019B38 (Control_ProcessTransferCompletion.c)
+ *     Control_EP_ReclaimTransfers @ 0x1C0019E60 (Control_EP_ReclaimTransfers.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0041DC0 (Isoch_ProcessTransferCompletion.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_TransfersReclaimed(__int64 a1)

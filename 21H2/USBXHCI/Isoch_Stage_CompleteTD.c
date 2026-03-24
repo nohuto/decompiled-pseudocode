@@ -1,18 +1,18 @@
 /*
- * XREFs of Isoch_Stage_CompleteTD @ 0x1C00070C0
+ * XREFs of Isoch_Stage_CompleteTD @ 0x1C00021E0
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C000AB84 (Isoch_ProcessTransferEventWithED0.c)
- *     Isoch_Transfer_CompleteStaleStages @ 0x1C0043454 (Isoch_Transfer_CompleteStaleStages.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_Transfer_CompleteStaleStages @ 0x1C0042A48 (Isoch_Transfer_CompleteStaleStages.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqd @ 0x1C0001330 (WPP_RECORDER_SF_DDqd.c)
- *     WPP_RECORDER_SF_DDqdDDDD @ 0x1C0007770 (WPP_RECORDER_SF_DDqdDDDD.c)
- *     WPP_RECORDER_SF_DDqq @ 0x1C00084E0 (WPP_RECORDER_SF_DDqq.c)
- *     WPP_RECORDER_SF_DDqqD @ 0x1C0008C60 (WPP_RECORDER_SF_DDqqD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     TR_SendCompleteStageRequest @ 0x1C003FE60 (TR_SendCompleteStageRequest.c)
- *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004FF90 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ *     WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002890 (WPP_RECORDER_SF_DDqdDDDD.c)
+ *     WPP_RECORDER_SF_DDqqD @ 0x1C0003CC0 (WPP_RECORDER_SF_DDqqD.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0004F80 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C000568C (WPP_RECORDER_SF_DDqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     TR_SendCompleteStageRequest @ 0x1C003F64C (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004F3D0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
  */
 
 __int64 __fastcall Isoch_Stage_CompleteTD(unsigned __int8 *a1, int a2, int a3, char a4, _BYTE *a5, _DWORD *a6)
@@ -44,31 +44,30 @@ __int64 __fastcall Isoch_Stage_CompleteTD(unsigned __int8 *a1, int a2, int a3, c
   __int64 **v32; // rcx
   int v33; // eax
   __int64 v34; // r9
-  _DWORD *v35; // rcx
+  __int64 v35; // rcx
   int v36; // r8d
   __int64 v37; // rdx
   unsigned int v38; // eax
   int v39; // eax
   int v40; // eax
-  struct _MDL *v41; // rcx
+  __int64 v41; // rdx
   __int64 v42; // r8
-  KIRQL v43; // di
-  KIRQL v44; // dl
-  __int64 v45; // rdx
-  __int64 v46; // rcx
-  int v47; // edx
-  __int64 v48; // rcx
-  __int64 **v49; // rcx
-  int v50; // edx
-  int v51; // [rsp+20h] [rbp-98h]
-  __int64 v52; // [rsp+28h] [rbp-90h]
-  __int64 v53; // [rsp+30h] [rbp-88h]
-  __int64 v54; // [rsp+40h] [rbp-78h]
-  __int64 v55; // [rsp+70h] [rbp-48h]
-  __int64 v56; // [rsp+C0h] [rbp+8h]
-  char v58; // [rsp+D8h] [rbp+20h]
+  __int64 v43; // rax
+  KIRQL v44; // di
+  KIRQL v45; // dl
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  int v48; // edx
+  __int64 v49; // rdx
+  int v50; // r8d
+  __int64 **v51; // rcx
+  int v52; // edx
+  int v53; // [rsp+20h] [rbp-98h]
+  __int64 v54; // [rsp+70h] [rbp-48h]
+  __int64 v55; // [rsp+C0h] [rbp+8h]
+  char v57; // [rsp+D8h] [rbp+20h]
 
-  v58 = a4;
+  v57 = a4;
   v6 = *(__int64 **)a1;
   v7 = a3;
   v8 = *((_DWORD *)a1 + 12);
@@ -85,22 +84,22 @@ __int64 __fastcall Isoch_Stage_CompleteTD(unsigned __int8 *a1, int a2, int a3, c
     if ( *(_DWORD *)(v14 + 12LL * (v15 - 1) + 8) == -1 )
     {
       result = (int)(v15 - 1);
-      v56 = result;
+      v55 = result;
       if ( result >= 0 )
       {
-        v46 = 12 * result;
-        v55 = 12 * result;
+        v47 = 12 * result;
+        v54 = 12 * result;
         do
         {
-          if ( *(_DWORD *)(v46 + v14 + 8) != -1 )
+          if ( *(_DWORD *)(v47 + v14 + 8) != -1 )
             break;
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v47 = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
-            LOBYTE(v47) = 2;
+            v48 = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
+            LOBYTE(v48) = 2;
             WPP_RECORDER_SF_DDqq(
               *(_QWORD *)(*(_QWORD *)(v13 + 56) + 80LL),
-              v47,
+              v48,
               a3,
               24,
               (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
@@ -108,18 +107,18 @@ __int64 __fastcall Isoch_Stage_CompleteTD(unsigned __int8 *a1, int a2, int a3, c
               *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
               v6[3],
               (char)a1);
-            result = v56;
-            v46 = v55;
+            result = v55;
+            v47 = v54;
           }
           --result;
-          *(_DWORD *)(v46 + v14 + 8) = -1073545216;
-          v46 -= 12LL;
-          v56 = result;
-          v55 = v46;
+          *(_DWORD *)(v47 + v14 + 8) = -1073545216;
+          v47 -= 12LL;
+          v55 = result;
+          v54 = v47;
         }
         while ( result >= 0 );
         v7 = a3;
-        a4 = v58;
+        a4 = v57;
       }
     }
   }
@@ -196,14 +195,14 @@ LABEL_6:
         result = (__int64)WPP_GLOBAL_Control;
         if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
-          v50 = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
-          LOBYTE(v50) = 5;
+          v52 = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
+          LOBYTE(v52) = 5;
           return WPP_RECORDER_SF_DDqqD(
                    *(_QWORD *)(*(_QWORD *)(v13 + 56) + 80LL),
-                   v50,
+                   v52,
                    v17 - *((_DWORD *)a1 + 10) + 1,
                    26,
-                   v51,
+                   v53,
                    *(_BYTE *)(*(_QWORD *)(v13 + 48) + 135LL),
                    *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
                    v6[3],
@@ -222,7 +221,7 @@ LABEL_6:
         v18,
         v17 - *((_DWORD *)a1 + 10) + 1,
         25,
-        v51,
+        v53,
         *(_BYTE *)(*(_QWORD *)(v13 + 48) + 135LL),
         *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
         v6[3],
@@ -269,13 +268,13 @@ LABEL_6:
         while ( v25 != v24 );
         v24 = (__int64 *)*v25;
       }
-      v45 = v13 + 208;
+      v46 = v13 + 208;
       if ( v24 != v25 )
       {
-        **((_QWORD **)a1 + 2) = *(_QWORD *)v45;
-        *(_QWORD *)(*(_QWORD *)v45 + 8LL) = *((_QWORD *)a1 + 2);
-        *(_QWORD *)v45 = *v25;
-        *(_QWORD *)(*v25 + 8) = v45;
+        **((_QWORD **)a1 + 2) = *(_QWORD *)v46;
+        *(_QWORD *)(*(_QWORD *)v46 + 8LL) = *((_QWORD *)a1 + 2);
+        *(_QWORD *)v46 = *v25;
+        *(_QWORD *)(*v25 + 8) = v46;
         *((_QWORD *)a1 + 2) = a1 + 8;
         *v25 = (__int64)v25;
       }
@@ -314,7 +313,7 @@ LABEL_6:
       v23[131] = (int)(v30 + v23[131] - 1) % (int)v30;
     ++*((_DWORD *)v6 + 28);
     if ( *((_DWORD *)v6 + 25) != *((_DWORD *)v6 + 24) )
-      goto LABEL_51;
+      goto LABEL_55;
     if ( *((_DWORD *)v6 + 16) == 1 )
     {
       v31 = (__int64 *)*v6;
@@ -337,7 +336,7 @@ LABEL_34:
             if ( *(_WORD *)(v34 + 2) == 10 )
             {
 LABEL_35:
-              v35 = (_DWORD *)(v34 + 36);
+              v35 = 36LL;
             }
             else
             {
@@ -345,14 +344,14 @@ LABEL_35:
               {
                 case '9':
                 case ':':
-                  v35 = (_DWORD *)(v34 + 52);
+                  v35 = 52LL;
                   break;
                 default:
                   goto LABEL_35;
               }
             }
             v36 = 0;
-            *v35 = *((_DWORD *)v6 + 21);
+            *(_DWORD *)(v34 + v35) = *((_DWORD *)v6 + 21);
             v37 = 0LL;
             v38 = *((_DWORD *)v6 + 24);
             if ( v38 )
@@ -363,7 +362,7 @@ LABEL_35:
                 if ( v39 == -1 )
                   break;
                 if ( v39 )
-                  goto LABEL_91;
+                  goto LABEL_95;
                 ++v36;
 LABEL_40:
                 ++*(_DWORD *)(v13 + 256);
@@ -373,22 +372,19 @@ LABEL_40:
                   goto LABEL_41;
               }
               *(_DWORD *)(v34 + 12 * v37 + 148) = -1073610752;
-LABEL_91:
+LABEL_95:
               ++*(_DWORD *)(v34 + 136);
               ++*(_DWORD *)(v13 + 260);
               goto LABEL_40;
             }
 LABEL_41:
             if ( *(_DWORD *)(v34 + 136) == v38 )
-            {
-              *(_DWORD *)(v34 + 4) = -1073739008;
-              v40 = -1073741823;
-            }
+              v40 = -1073739008;
             else
-            {
-              *(_DWORD *)(v34 + 4) = 0;
               v40 = 0;
-            }
+            *(_DWORD *)(v34 + 4) = v40;
+            if ( v40 )
+              v40 = -1073741823;
             *((_DWORD *)v6 + 17) = v40;
             ++*(_DWORD *)(v13 + 240);
             *(_QWORD *)(v13 + 248) += *((unsigned int *)v6 + 21);
@@ -400,7 +396,7 @@ LABEL_41:
                 *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL),
                 v36,
                 v34,
-                v51,
+                v53,
                 *(_BYTE *)(*(_QWORD *)(v13 + 48) + 135LL),
                 *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
                 v6[3],
@@ -409,7 +405,7 @@ LABEL_41:
                 v36,
                 *((_DWORD *)v6 + 24),
                 *((_DWORD *)v6 + 21));
-            v41 = (struct _MDL *)v6[9];
+            v41 = v6[9];
             if ( v41 )
             {
               v42 = v6[6];
@@ -417,67 +413,67 @@ LABEL_41:
               {
                 case '9':
                 case ':':
-                  goto LABEL_94;
-                default:
-                  if ( v41 != *(struct _MDL **)(v42 + 48) )
-                  {
-LABEL_94:
-                    IoFreeMdl(v41);
-                    v6[9] = 0LL;
-                  }
+                  v43 = 0LL;
                   break;
+                default:
+                  v43 = *(_QWORD *)(v42 + 48);
+                  break;
+              }
+              if ( v41 != v43 )
+              {
+                IoFreeMdl((PMDL)v6[9]);
+                v6[9] = 0LL;
               }
             }
             *((_BYTE *)v6 + 16) = 0;
-            v43 = KfRaiseIrql(2u);
+            v44 = KfRaiseIrql(2u);
             (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
               WdfDriverGlobals,
               v6[3],
               *((unsigned int *)v6 + 17));
-            KeLowerIrql(v43);
+            KeLowerIrql(v44);
             *(_BYTE *)(v13 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v13 + 96));
-LABEL_51:
+LABEL_55:
             --*(_DWORD *)(v13 + 376);
-            v44 = *(_BYTE *)(v13 + 104);
+            v45 = *(_BYTE *)(v13 + 104);
             *a6 = *(_DWORD *)(v13 + 376);
-            KeReleaseSpinLock((PKSPIN_LOCK)(v13 + 96), v44);
+            KeReleaseSpinLock((PKSPIN_LOCK)(v13 + 96), v45);
             result = (__int64)a5;
             *a5 = 1;
             return result;
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v48 = *(_QWORD *)(v13 + 56);
-            LODWORD(v54) = v33;
-            LODWORD(v53) = *(_DWORD *)(v48 + 144);
-            LODWORD(v52) = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
+            v49 = *(_QWORD *)(v13 + 48);
+            v50 = *(unsigned __int8 *)(v49 + 135);
+            LOBYTE(v49) = 4;
             WPP_RECORDER_SF_DDqd(
-              *(_QWORD *)(v48 + 80),
-              4u,
-              *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL),
-              0x11u,
+              *(_QWORD *)(*(_QWORD *)(v13 + 56) + 80LL),
+              v49,
+              v50,
+              17,
               (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
-              v52,
-              v53,
+              v50,
+              *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
               v6[3],
-              v54);
+              v33);
           }
           *((_DWORD *)v6 + 16) = 2;
-          v49 = *(__int64 ***)(v13 + 408);
-          if ( *v49 == (__int64 *)(v13 + 400) )
+          v51 = *(__int64 ***)(v13 + 408);
+          if ( *v51 == (__int64 *)(v13 + 400) )
           {
             *v6 = v13 + 400;
-            v6[1] = (__int64)v49;
-            *v49 = v6;
+            v6[1] = (__int64)v51;
+            *v51 = v6;
             *(_QWORD *)(v13 + 408) = v6;
-            goto LABEL_51;
+            goto LABEL_55;
           }
         }
       }
       __fastfail(3u);
     }
     if ( *((_DWORD *)v6 + 16) == 3 )
-      goto LABEL_51;
+      goto LABEL_55;
     goto LABEL_34;
   }
   return result;

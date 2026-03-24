@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPowerInformation @ 0x1401B8D50
+ * XREFs of ZwPowerInformation @ 0x1401B8D70
  * Callers:
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     RtlpRecordBootStatusData @ 0x140718B30 (RtlpRecordBootStatusData.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
- *     PdcPortOpen @ 0x1407453A0 (PdcPortOpen.c)
- *     PoGetLightestSystemStateForEject @ 0x140865D0C (PoGetLightestSystemStateForEject.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x140888F80 (PspRecordCrashedProcessIntoBlackbox.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x140895D50 (RtlCheckSystemBootStatusIntegrity.c)
- *     RtlRestoreSystemBootStatusDefaults @ 0x140895EA0 (RtlRestoreSystemBootStatusDefaults.c)
+ *     RtlpRecordBootStatusData @ 0x140718B10 (RtlpRecordBootStatusData.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
+ *     PdcPortOpen @ 0x140745380 (PdcPortOpen.c)
+ *     PoGetLightestSystemStateForEject @ 0x140865CEC (PoGetLightestSystemStateForEject.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x140888F60 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x140895D30 (RtlCheckSystemBootStatusIntegrity.c)
+ *     RtlRestoreSystemBootStatusDefaults @ 0x140895E80 (RtlRestoreSystemBootStatusDefaults.c)
  * Callees:
  *     <none>
  */

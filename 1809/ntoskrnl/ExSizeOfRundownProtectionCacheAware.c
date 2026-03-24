@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSizeOfRundownProtectionCacheAware @ 0x14070EC50
+ * XREFs of ExSizeOfRundownProtectionCacheAware @ 0x14070EC30
  * Callers:
  *     <none>
  * Callees:

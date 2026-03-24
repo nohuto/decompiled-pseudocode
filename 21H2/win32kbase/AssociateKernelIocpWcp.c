@@ -1,37 +1,28 @@
 /*
- * XREFs of AssociateKernelIocpWcp @ 0x1C0037F90
+ * XREFs of AssociateKernelIocpWcp @ 0x1C00431F0
  * Callers:
- *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0037F08 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0043164 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
  */
 
-__int64 __fastcall AssociateKernelIocpWcp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall AssociateKernelIocpWcp(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        int a6,
+        __int64 a7)
 {
-  int v4; // edx
-  int v5; // ebx
-  int v6; // r8d
+  int v7; // edx
+  int v8; // ebx
 
-  v5 = ZwAssociateWaitCompletionPacket(a1, a2, a3, a4);
-  if ( v5 < 0 )
+  v8 = ZwAssociateWaitCompletionPacket(a1, a2, a3, a4, a5, a6, 0LL, a7);
+  if ( v8 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        v6,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        17,
-        15,
-        (__int64)&WPP_afdc3993018130db7fa6d08e89ab931d_Traceguids,
-        v5);
-    }
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, v7, 17, 14, (__int64)&WPP_eb65e8752d313ccdb5208ac13de848c5_Traceguids, v8);
   }
-  return (unsigned int)v5;
+  return (unsigned int)v8;
 }

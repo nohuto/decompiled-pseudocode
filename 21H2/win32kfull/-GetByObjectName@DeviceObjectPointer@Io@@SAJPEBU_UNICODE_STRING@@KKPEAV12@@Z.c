@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C023EE68
+ * XREFs of ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C0243658
  * Callers:
- *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C023F160 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
+ *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C0243990 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C023EDC4 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C02435B0 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
  */
 
 __int64 __fastcall Io::DeviceObjectPointer::GetByObjectName(

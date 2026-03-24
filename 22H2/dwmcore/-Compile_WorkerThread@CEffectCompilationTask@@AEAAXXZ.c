@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800F9644
+ * XREFs of ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800DA8C0
  * Callers:
- *     _lambda_193e8a4e6d1693db3d1863bd3aa4b00f_::_lambda_invoker_cdecl_ @ 0x180103ED0 (_lambda_193e8a4e6d1693db3d1863bd3aa4b00f_--_lambda_invoker_cdecl_.c)
+ *     _lambda_193e8a4e6d1693db3d1863bd3aa4b00f_::_lambda_invoker_cdecl_ @ 0x1800E0110 (_lambda_193e8a4e6d1693db3d1863bd3aa4b00f_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z @ 0x1800E3B94 (-OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0p_EventWriteTransfer @ 0x1801A2944 (McTemplateU0p_EventWriteTransfer.c)
- *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x1801E6310 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
- *     ?GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z @ 0x1801E6410 (-GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z.c)
+ *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x18001FF20 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z @ 0x1800CA4D8 (-OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180153F28 (McTemplateU0x_EventWriteTransfer.c)
+ *     ?GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z @ 0x180182B84 (-GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z.c)
  */
 
 void __fastcall CEffectCompilationTask::Compile_WorkerThread(CEffectCompilationTask *this)
@@ -18,28 +18,27 @@ void __fastcall CEffectCompilationTask::Compile_WorkerThread(CEffectCompilationT
   __int64 v2; // rcx
   int v3; // esi
   _QWORD *v4; // rax
-  unsigned int v5; // edx
-  _QWORD *v6; // rbx
-  void (__fastcall ***v7)(_QWORD); // rcx
-  CCompiledEffectCache *v8; // rcx
-  CEffectCompilationService *v9; // rcx
-  OLECHAR *v10; // rbp
+  _QWORD *v5; // rbx
+  void (__fastcall ***v6)(_QWORD); // rcx
+  CCompiledEffectCache *v7; // rcx
+  CEffectCompilationService *v8; // rcx
+  OLECHAR *v9; // rbp
   DWORD LastError; // ebx
-  void (__fastcall ***v12)(_QWORD); // [rsp+50h] [rbp+8h] BYREF
+  void (__fastcall ***v11)(_QWORD); // [rsp+50h] [rbp+8h] BYREF
 
-  v12 = 0LL;
+  v11 = 0LL;
   SetRestrictedErrorInfo(0LL);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-    McTemplateU0p_EventWriteTransfer(v2, &EVTDESC_COMPILE_EFFECT_Start, this);
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v12);
-  v3 = CompileEffectDescription(*((_QWORD *)this + 6), &v12);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    McTemplateU0x_EventWriteTransfer(v2, &EVTDESC_COMPILE_EFFECT_Start, this);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v11);
+  v3 = CompileEffectDescription(*((_QWORD *)this + 6), &v11);
   if ( v3 < 0 )
   {
-    v10 = (OLECHAR *)*((_QWORD *)this + 10);
-    if ( v10 )
+    v9 = (OLECHAR *)*((_QWORD *)this + 10);
+    if ( v9 )
     {
       LastError = GetLastError();
-      SysFreeString(v10);
+      SysFreeString(v9);
       SetLastError(LastError);
     }
     *((_QWORD *)this + 10) = 0LL;
@@ -48,37 +47,40 @@ void __fastcall CEffectCompilationTask::Compile_WorkerThread(CEffectCompilationT
   else
   {
     v4 = DefaultHeap::Alloc(0x28uLL);
-    v6 = v4;
+    v5 = v4;
     if ( v4 )
     {
-      v7 = v12;
+      v6 = v11;
       *v4 = 0LL;
       v4[1] = 0LL;
       *((_DWORD *)v4 + 4) = 0;
-      v4[3] = this;
-      v4[4] = v7;
-      if ( v7 )
-        (**v7)(v7);
+      v4[3] = v6;
+      if ( v6 )
+        (**v6)(v6);
+      v5[4] = this;
     }
     else
     {
-      v6 = 0LL;
+      v5 = 0LL;
     }
-    v8 = (CCompiledEffectCache *)*((_QWORD *)this + 9);
-    *((_QWORD *)this + 9) = v6;
-    if ( v8 )
-      CCompiledEffectCache::`scalar deleting destructor'(v8, v5);
-    if ( !*((_QWORD *)this + 9) )
+    v7 = (CCompiledEffectCache *)*((_QWORD *)this + 9);
+    *((_QWORD *)this + 9) = v5;
+    if ( v7 )
+    {
+      CCompiledEffectCache::`scalar deleting destructor'(v7);
+      v5 = (_QWORD *)*((_QWORD *)this + 9);
+    }
+    if ( !v5 )
     {
       v3 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v8, 0LL, 0, -2147024882, 0xB8u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v7, 0LL, 0, -2147024882, 0xB8u, 0LL);
     }
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-    McTemplateU0p_EventWriteTransfer(v8, &EVTDESC_COMPILE_EFFECT_Stop, this);
-  v9 = (CEffectCompilationService *)*((_QWORD *)this + 1);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    McTemplateU0x_EventWriteTransfer(v7, &EVTDESC_COMPILE_EFFECT_Stop, this);
+  v8 = (CEffectCompilationService *)*((_QWORD *)this + 1);
   *((_DWORD *)this + 22) = v3;
   *((_DWORD *)this + 16) = (v3 >> 31) + 3;
-  CEffectCompilationService::OnTaskCompleted_AnyThread(v9, this, 0);
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v12);
+  CEffectCompilationService::OnTaskCompleted_AnyThread(v8, this, 0);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v11);
 }

@@ -1,25 +1,29 @@
 /*
- * XREFs of ACPIThermalGetParameter @ 0x1C00959B4
+ * XREFs of ACPIThermalGetParameter @ 0x1C009B9BC
  * Callers:
- *     ACPIThermalWorker @ 0x1C00962F0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
-__int64 __fastcall ACPIThermalGetParameter(__int64 a1, void *a2, unsigned int a3, _QWORD *a4)
+__int64 __fastcall ACPIThermalGetParameter(__int64 *a1, void *a2, int a3, _QWORD *a4)
 {
   __int64 result; // rax
   __int64 v8; // rcx
-  unsigned int v9; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-40h] BYREF
-  unsigned int v11; // [rsp+60h] [rbp-38h] BYREF
-  char v12; // [rsp+64h] [rbp-34h]
+  unsigned int v9; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-30h] BYREF
+  char SourceString[4]; // [rsp+60h] [rbp-28h] BYREF
+  char v12; // [rsp+64h] [rbp-24h]
 
   v10 = 0LL;
   if ( a2
-    && (v11 = a3, v12 = 0, v9 = 4, result = OSReadRegValue((PCSZ)&v11, a2, &v10, &v9), (int)result >= 0)
+    && (*(_DWORD *)SourceString = a3,
+        v12 = 0,
+        v9 = 4,
+        result = OSReadRegValue(SourceString, a2, &v10, &v9),
+        (int)result >= 0)
     && v9 == 4 )
   {
     v8 = v10;

@@ -1,5 +1,5 @@
 /*
- * XREFs of GetDelegationFlags @ 0x1C00BB580
+ * XREFs of GetDelegationFlags @ 0x1C01AE760
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 GetDelegationFlags()
 {
-  return *(&InputDelegation::CInputDelegationInfo::gInstance + 2);
+  return *(&InputDelegation::CInputDelegationInfo::gInstance + 1);
 }

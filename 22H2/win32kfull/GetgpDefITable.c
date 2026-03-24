@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgpDefITable @ 0x1C00BEA80
+ * XREFs of GetgpDefITable @ 0x1C01374E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgpDefITable(__int64 a1)
+void **GetgpDefITable()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 19928LL;
+  return &gpDefITable;
 }

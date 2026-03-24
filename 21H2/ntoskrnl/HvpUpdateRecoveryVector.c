@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpUpdateRecoveryVector @ 0x140925A18
+ * XREFs of HvpUpdateRecoveryVector @ 0x140881DF8
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140924D00 (HvpApplyIncrementalLogFile.c)
- *     HvpApplyLegacyLogFile @ 0x140924E08 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140881318 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x14088154C (HvpApplyLegacyLogFile.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
  */
 
 void __fastcall HvpUpdateRecoveryVector(_DWORD *a1, unsigned int a2, RTL_BITMAP *a3)

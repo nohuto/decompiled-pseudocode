@@ -1,27 +1,26 @@
 /*
- * XREFs of RegisterDefaultClass @ 0x1C00CC1BC
+ * XREFs of RegisterDefaultClass @ 0x1C007D5B4
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     NtUserGetClassInfoEx @ 0x1C00C9820 (NtUserGetClassInfoEx.c)
- *     NtUserRegisterClassExWOW @ 0x1C00CAF90 (NtUserRegisterClassExWOW.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     NtUserRegisterClassExWOW @ 0x1C007CCC0 (NtUserRegisterClassExWOW.c)
+ *     NtUserGetClassInfoEx @ 0x1C00BBEB0 (NtUserGetClassInfoEx.c)
  * Callees:
- *     InternalRegisterClassEx @ 0x1C00CB7A0 (InternalRegisterClassEx.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     InternalRegisterClassEx @ 0x1C0079D30 (InternalRegisterClassEx.c)
  */
 
 __int64 __fastcall RegisterDefaultClass(wchar_t *Str1)
 {
-  int v2; // r12d
-  int v3; // r13d
-  int IntegerAtom; // r8d
-  unsigned int v5; // edi
-  _QWORD *i; // rsi
+  int v2; // r13d
+  int v3; // r12d
+  __int64 IntegerAtom; // r15
+  unsigned int v5; // ebx
+  _QWORD *v6; // rdi
   const wchar_t *v7; // rdx
   bool v8; // zf
-  __int64 *v9; // rax
-  unsigned __int16 v10; // dx
-  __int16 v11; // r8
   __int64 result; // rax
+  __int64 *v10; // rax
+  __int16 v11; // dx
+  unsigned int v12; // r8d
   _BYTE v13[4]; // [rsp+20h] [rbp-60h] BYREF
   int v14; // [rsp+24h] [rbp-5Ch]
   __int64 v15; // [rsp+28h] [rbp-58h]
@@ -37,53 +36,45 @@ __int64 __fastcall RegisterDefaultClass(wchar_t *Str1)
   __int64 v25; // [rsp+70h] [rbp-10h]
   int v26; // [rsp+78h] [rbp-8h]
   int v27; // [rsp+7Ch] [rbp-4h]
-  __int16 v28; // [rsp+C0h] [rbp+40h] BYREF
-  int v29; // [rsp+C8h] [rbp+48h]
+  __int16 v28; // [rsp+B0h] [rbp+30h] BYREF
 
-  memset_0(v13, 0, 0x60uLL);
   v2 = 1;
   v3 = *(_DWORD *)(gptiCurrent + 488LL) & 4;
+  v28 = 0;
   if ( ((unsigned __int64)Str1 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    v28 = 0;
     IntegerAtom = (unsigned __int8)RtlGetIntegerAtom(Str1, &v28);
-    v29 = IntegerAtom;
   }
   else
   {
-    IntegerAtom = 1;
-    v29 = 1;
     v28 = (__int16)Str1;
+    IntegerAtom = 1LL;
   }
   v5 = 0;
-  for ( i = &gDefaultServerClasses; ; i += 6 )
+  v6 = &gDefaultServerClasses;
+  while ( 1 )
   {
-    if ( (!v3 || (*(_DWORD *)i & 1) != 0) && ((*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 856LL) >> v5) & 1) == 0 )
+    if ( v3 && (*(_DWORD *)v6 & 1) == 0 || ((*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 840LL) >> v5) & 1) != 0 )
+      goto LABEL_10;
+    v2 = 0;
+    if ( IntegerAtom )
+      break;
+    v7 = (const wchar_t *)v6[5];
+    if ( ((unsigned __int64)v7 & 0xFFFFFFFFFFFF0000uLL) != 0 )
     {
-      v2 = 0;
-      if ( IntegerAtom )
-      {
-        v8 = v28 == *(_WORD *)(gpsi + 2LL * ((*(_DWORD *)i >> 3) & 0x1F) + 868);
-      }
-      else
-      {
-        v7 = (const wchar_t *)i[5];
-        if ( ((unsigned __int64)v7 & 0xFFFFFFFFFFFF0000uLL) == 0 )
-          goto LABEL_8;
-        v8 = _wcsicmp(Str1, v7) == 0;
-      }
-      if ( v8 )
-        break;
+      v8 = _wcsicmp(Str1, v7) == 0;
+      goto LABEL_9;
     }
-LABEL_8:
-    if ( ++v5 >= 8 )
-    {
-      if ( v2 )
-        *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) |= 0x2000u;
-      return 1LL;
-    }
-    IntegerAtom = v29;
+LABEL_10:
+    ++v5;
+    v6 += 6;
+    if ( v5 >= 8 )
+      goto LABEL_11;
   }
+  v8 = v28 == *(_WORD *)(gpsi + 2LL * ((*(_DWORD *)v6 >> 3) & 0x1F) + 868);
+LABEL_9:
+  if ( !v8 )
+    goto LABEL_10;
   v16 = 0;
   v18 = hModuleWin;
   v19 = 0LL;
@@ -94,19 +85,22 @@ LABEL_8:
   v14 = *((_DWORD *)&gDefaultServerClasses + 12 * v5 + 2);
   v15 = *((_QWORD *)&gDefaultServerClasses + 6 * v5 + 2);
   v26 = *((_DWORD *)&gDefaultServerClasses + 12 * v5 + 6);
-  if ( (*((_DWORD *)&gDefaultServerClasses + 12 * v5) & 2) != 0 && (v9 = (__int64 *)gasyscur[1]) != 0LL )
-    v20 = *v9;
+  if ( (*((_DWORD *)&gDefaultServerClasses + 12 * v5) & 2) != 0 && (v10 = (__int64 *)gasyscur[1]) != 0LL )
+    v20 = *v10;
   else
     v20 = 0LL;
-  v10 = *((_WORD *)&gDefaultServerClasses + 24 * v5 + 2);
-  v11 = *((_WORD *)&gDefaultServerClasses + 24 * v5 + 3) | 0x41;
+  v11 = *((_WORD *)&gDefaultServerClasses + 24 * v5 + 2);
+  v12 = *((unsigned __int16 *)&gDefaultServerClasses + 24 * v5 + 3) | 0x41;
   v21 = *((_QWORD *)&gDefaultServerClasses + 6 * v5 + 4);
   v23 = *((_QWORD *)&gDefaultServerClasses + 6 * v5 + 5);
   v25 = v23;
-  result = InternalRegisterClassEx((__int64)v13, v10, v11, 0LL);
+  result = InternalRegisterClassEx((__int64)v13, v11, v12, 0LL);
   if ( result )
   {
-    *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 856LL) |= 1 << v5;
+    *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 840LL) |= 1 << v5;
+LABEL_11:
+    if ( v2 )
+      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) |= 0x2000u;
     return 1LL;
   }
   return result;

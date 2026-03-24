@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEnumerateEntryHashTable @ 0x14036F510
+ * XREFs of RtlEnumerateEntryHashTable @ 0x140251400
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x14036F3DC (SepCleanupMarkedForDeletionEntries.c)
- *     RtlWeaklyEnumerateEntryHashTable @ 0x1403D7500 (RtlWeaklyEnumerateEntryHashTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409D170C (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x1409D242C (SepRmDestroyCapTable.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402512F4 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlWeaklyEnumerateEntryHashTable @ 0x140588A30 (RtlWeaklyEnumerateEntryHashTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x14092533C (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x140926088 (SepRmDestroyCapTable.c)
  * Callees:
  *     <none>
  */

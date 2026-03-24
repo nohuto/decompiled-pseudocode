@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionGetThreadPointerHookData @ 0x1C01ECA70
+ * XREFs of EditionGetThreadPointerHookData @ 0x1C01F2140
  * Callers:
  *     <none>
  * Callees:

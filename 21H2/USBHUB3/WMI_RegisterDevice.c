@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_RegisterDevice @ 0x1C00868AC
+ * XREFs of WMI_RegisterDevice @ 0x1C0084C64
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0079110 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall WMI_RegisterDevice(__int64 a1)
@@ -21,11 +21,12 @@ __int64 __fastcall WMI_RegisterDevice(__int64 a1)
   __int128 v9; // [rsp+84h] [rbp+3Bh]
   int v10; // [rsp+94h] [rbp+4Bh]
 
-  HIDWORD(v6[0]) = 0;
+  v10 = 0;
+  v9 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   v10 = 0;
   v7 = 40;
   v3 = v2;
@@ -50,7 +51,7 @@ __int64 __fastcall WMI_RegisterDevice(__int64 a1)
              2u,
              5u,
              0x11u,
-             (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids,
+             (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids,
              v5);
   }
   return result;

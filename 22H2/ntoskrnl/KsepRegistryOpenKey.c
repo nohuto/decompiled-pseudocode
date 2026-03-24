@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepRegistryOpenKey @ 0x1406944C4
+ * XREFs of KsepRegistryOpenKey @ 0x14075AC54
  * Callers:
- *     KsepRegistryQueryDriverShims @ 0x14069499C (KsepRegistryQueryDriverShims.c)
- *     KsepDbQueryRegistryDeviceData @ 0x14080A70C (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140976DF8 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepEngineReadFlags @ 0x140B64DDC (KsepEngineReadFlags.c)
- *     KsepMatchInitBiosInfo @ 0x140B6519C (KsepMatchInitBiosInfo.c)
+ *     KsepRegistryQueryDriverShims @ 0x14075A9E4 (KsepRegistryQueryDriverShims.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14075F08C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFB10 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
  * Callees:
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x1406942D4 (KsepStringDuplicate.c)
- *     KsepStringConcatenate @ 0x140694384 (KsepStringConcatenate.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14075AA64 (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x14075AB14 (KsepStringConcatenate.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
   v11[0] = 0LL;
   v11[1] = 0LL;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !a1 )
   {
     v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
@@ -60,7 +60,7 @@ __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
     if ( v7 >= 0 )
     {
       *a3 = KeyHandle;
-      _InterlockedIncrement(&dword_140C407D8);
+      _InterlockedIncrement(&dword_140C2AA98);
     }
   }
   KsepStringFree(v11);

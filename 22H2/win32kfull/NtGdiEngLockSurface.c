@@ -1,28 +1,34 @@
 /*
- * XREFs of NtGdiEngLockSurface @ 0x1C02CA430
+ * XREFs of NtGdiEngLockSurface @ 0x1C015CAF0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ?LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z @ 0x1C02991C8 (-LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z @ 0x1C015CB50 (-LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z.c)
  */
 
 struct _SURFOBJ *__fastcall NtGdiEngLockSurface(HSURF a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
+  UMPDOBJ *v4; // rcx
+  struct UMPDOBJ *v5; // rbx
   struct _SURFOBJ *result; // rax
-  struct DHPDEV__ *v4; // rcx
-  struct _SURFOBJ *v5; // rbx
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  result = (struct _SURFOBJ *)UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v5 = result;
-  if ( result )
+  ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+  v5 = ThreadCurrentObj;
+  if ( ThreadCurrentObj )
   {
-    ++result[5].sizlBitmap.cy;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
     result = UMPDOBJ::LockSurface(v4, a1);
-    --v5[5].sizlBitmap.cy;
   }
+  else
+  {
+    result = 0LL;
+  }
+  if ( v5 )
+    --*((_DWORD *)v5 + 105);
   return result;
 }

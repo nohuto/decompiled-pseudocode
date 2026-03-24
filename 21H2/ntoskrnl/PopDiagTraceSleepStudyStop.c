@@ -1,175 +1,156 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStop @ 0x140806BFC
+ * XREFs of PopDiagTraceSleepStudyStop @ 0x1408EB3D0
  * Callers:
- *     PopSleepstudyScenarioStopWorker @ 0x140806B90 (PopSleepstudyScenarioStopWorker.c)
+ *     PopSleepstudyScenarioStopWorker @ 0x1408FA330 (PopSleepstudyScenarioStopWorker.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall PopDiagTraceSleepStudyStop(__int64 a1)
+void PopDiagTraceSleepStudyStop()
 {
-  _UNKNOWN **v1; // rax
-  REGHANDLE v2; // rbx
-  int v4; // [rsp+38h] [rbp-D0h] BYREF
-  int v5; // [rsp+3Ch] [rbp-CCh] BYREF
-  int v6; // [rsp+40h] [rbp-C8h] BYREF
-  int v7; // [rsp+44h] [rbp-C4h] BYREF
-  int v8; // [rsp+48h] [rbp-C0h] BYREF
-  int v9; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v10; // [rsp+50h] [rbp-B8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-B0h] BYREF
-  void *v12; // [rsp+68h] [rbp-A0h]
-  __int64 v13; // [rsp+70h] [rbp-98h]
-  int *v14; // [rsp+78h] [rbp-90h]
-  __int64 v15; // [rsp+80h] [rbp-88h]
-  void *v16; // [rsp+88h] [rbp-80h]
-  __int64 v17; // [rsp+90h] [rbp-78h]
-  void *v18; // [rsp+98h] [rbp-70h]
-  __int64 v19; // [rsp+A0h] [rbp-68h]
-  void *v20; // [rsp+A8h] [rbp-60h]
-  __int64 v21; // [rsp+B0h] [rbp-58h]
-  void *v22; // [rsp+B8h] [rbp-50h]
-  __int64 v23; // [rsp+C0h] [rbp-48h]
-  void *v24; // [rsp+C8h] [rbp-40h]
-  __int64 v25; // [rsp+D0h] [rbp-38h]
-  void *v26; // [rsp+D8h] [rbp-30h]
-  __int64 v27; // [rsp+E0h] [rbp-28h]
-  void *v28; // [rsp+E8h] [rbp-20h]
-  __int64 v29; // [rsp+F0h] [rbp-18h]
-  void *v30; // [rsp+F8h] [rbp-10h]
-  __int64 v31; // [rsp+100h] [rbp-8h]
-  void *v32; // [rsp+108h] [rbp+0h]
-  __int64 v33; // [rsp+110h] [rbp+8h]
-  void *v34; // [rsp+118h] [rbp+10h]
-  __int64 v35; // [rsp+120h] [rbp+18h]
-  int *v36; // [rsp+128h] [rbp+20h]
-  __int64 v37; // [rsp+130h] [rbp+28h]
-  int *v38; // [rsp+138h] [rbp+30h]
-  __int64 v39; // [rsp+140h] [rbp+38h]
-  void *v40; // [rsp+148h] [rbp+40h]
-  __int64 v41; // [rsp+150h] [rbp+48h]
-  int *v42; // [rsp+158h] [rbp+50h]
-  __int64 v43; // [rsp+160h] [rbp+58h]
-  void *v44; // [rsp+168h] [rbp+60h]
-  __int64 v45; // [rsp+170h] [rbp+68h]
-  void *v46; // [rsp+178h] [rbp+70h]
-  __int64 v47; // [rsp+180h] [rbp+78h]
-  void *v48; // [rsp+188h] [rbp+80h]
-  __int64 v49; // [rsp+190h] [rbp+88h]
-  void *v50; // [rsp+198h] [rbp+90h]
-  __int64 v51; // [rsp+1A0h] [rbp+98h]
-  void *v52; // [rsp+1A8h] [rbp+A0h]
-  __int64 v53; // [rsp+1B0h] [rbp+A8h]
-  void *v54; // [rsp+1B8h] [rbp+B0h]
-  __int64 v55; // [rsp+1C0h] [rbp+B8h]
-  void *v56; // [rsp+1C8h] [rbp+C0h]
-  __int64 v57; // [rsp+1D0h] [rbp+C8h]
-  void *v58; // [rsp+1D8h] [rbp+D0h]
-  __int64 v59; // [rsp+1E0h] [rbp+D8h]
-  int *v60; // [rsp+1E8h] [rbp+E0h]
-  __int64 v61; // [rsp+1F0h] [rbp+E8h]
-  void *v62; // [rsp+1F8h] [rbp+F0h]
-  __int64 v63; // [rsp+200h] [rbp+F8h]
-  void *v64; // [rsp+208h] [rbp+100h]
-  __int64 v65; // [rsp+210h] [rbp+108h]
-  int *v66; // [rsp+218h] [rbp+110h]
-  __int64 v67; // [rsp+220h] [rbp+118h]
-  __int64 *v68; // [rsp+228h] [rbp+120h]
-  __int64 v69; // [rsp+230h] [rbp+128h]
-  __int64 *v70; // [rsp+238h] [rbp+130h]
-  __int64 v71; // [rsp+240h] [rbp+138h]
-  void *v72; // [rsp+248h] [rbp+140h]
-  __int64 v73; // [rsp+250h] [rbp+148h]
-  void *v74; // [rsp+258h] [rbp+150h]
-  __int64 v75; // [rsp+260h] [rbp+158h]
-  _UNKNOWN *retaddr; // [rsp+280h] [rbp+178h] BYREF
-  __int64 v77; // [rsp+288h] [rbp+180h] BYREF
+  REGHANDLE v0; // rbx
+  int v1; // [rsp+30h] [rbp-D0h] BYREF
+  int v2; // [rsp+34h] [rbp-CCh] BYREF
+  int v3; // [rsp+38h] [rbp-C8h] BYREF
+  int v4; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v5; // [rsp+40h] [rbp-C0h] BYREF
+  int v6; // [rsp+44h] [rbp-BCh] BYREF
+  int v7; // [rsp+48h] [rbp-B8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-B0h] BYREF
+  void *v9; // [rsp+60h] [rbp-A0h]
+  __int64 v10; // [rsp+68h] [rbp-98h]
+  int *v11; // [rsp+70h] [rbp-90h]
+  __int64 v12; // [rsp+78h] [rbp-88h]
+  void *v13; // [rsp+80h] [rbp-80h]
+  __int64 v14; // [rsp+88h] [rbp-78h]
+  void *v15; // [rsp+90h] [rbp-70h]
+  __int64 v16; // [rsp+98h] [rbp-68h]
+  void *v17; // [rsp+A0h] [rbp-60h]
+  __int64 v18; // [rsp+A8h] [rbp-58h]
+  void *v19; // [rsp+B0h] [rbp-50h]
+  __int64 v20; // [rsp+B8h] [rbp-48h]
+  void *v21; // [rsp+C0h] [rbp-40h]
+  __int64 v22; // [rsp+C8h] [rbp-38h]
+  void *v23; // [rsp+D0h] [rbp-30h]
+  __int64 v24; // [rsp+D8h] [rbp-28h]
+  void *v25; // [rsp+E0h] [rbp-20h]
+  __int64 v26; // [rsp+E8h] [rbp-18h]
+  void *v27; // [rsp+F0h] [rbp-10h]
+  __int64 v28; // [rsp+F8h] [rbp-8h]
+  void *v29; // [rsp+100h] [rbp+0h]
+  __int64 v30; // [rsp+108h] [rbp+8h]
+  void *v31; // [rsp+110h] [rbp+10h]
+  __int64 v32; // [rsp+118h] [rbp+18h]
+  int *v33; // [rsp+120h] [rbp+20h]
+  __int64 v34; // [rsp+128h] [rbp+28h]
+  int *v35; // [rsp+130h] [rbp+30h]
+  __int64 v36; // [rsp+138h] [rbp+38h]
+  void *v37; // [rsp+140h] [rbp+40h]
+  __int64 v38; // [rsp+148h] [rbp+48h]
+  int *v39; // [rsp+150h] [rbp+50h]
+  __int64 v40; // [rsp+158h] [rbp+58h]
+  void *v41; // [rsp+160h] [rbp+60h]
+  __int64 v42; // [rsp+168h] [rbp+68h]
+  void *v43; // [rsp+170h] [rbp+70h]
+  __int64 v44; // [rsp+178h] [rbp+78h]
+  void *v45; // [rsp+180h] [rbp+80h]
+  __int64 v46; // [rsp+188h] [rbp+88h]
+  void *v47; // [rsp+190h] [rbp+90h]
+  __int64 v48; // [rsp+198h] [rbp+98h]
+  void *v49; // [rsp+1A0h] [rbp+A0h]
+  __int64 v50; // [rsp+1A8h] [rbp+A8h]
+  void *v51; // [rsp+1B0h] [rbp+B0h]
+  __int64 v52; // [rsp+1B8h] [rbp+B8h]
+  void *v53; // [rsp+1C0h] [rbp+C0h]
+  __int64 v54; // [rsp+1C8h] [rbp+C8h]
+  void *v55; // [rsp+1D0h] [rbp+D0h]
+  __int64 v56; // [rsp+1D8h] [rbp+D8h]
+  int *v57; // [rsp+1E0h] [rbp+E0h]
+  __int64 v58; // [rsp+1E8h] [rbp+E8h]
+  void *v59; // [rsp+1F0h] [rbp+F0h]
+  __int64 v60; // [rsp+1F8h] [rbp+F8h]
+  void *v61; // [rsp+200h] [rbp+100h]
+  __int64 v62; // [rsp+208h] [rbp+108h]
+  int *v63; // [rsp+210h] [rbp+110h]
+  __int64 v64; // [rsp+218h] [rbp+118h]
+  int *v65; // [rsp+220h] [rbp+120h]
+  __int64 v66; // [rsp+228h] [rbp+128h]
 
-  v1 = &retaddr;
-  v77 = a1;
-  if ( PopDiagSleepStudyHandleRegistered )
+  if ( PopDiagHandleRegistered )
   {
-    v2 = PopDiagSleepStudyHandle;
-    LOBYTE(v1) = EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_STOP_REASON);
-    if ( (_BYTE)v1 )
+    v0 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_STOP) )
     {
       *(_QWORD *)&UserData.Size = 4LL;
-      v4 = byte_140C21EDC & 1;
-      v13 = 8LL;
-      v6 = byte_140C21EDD & 1;
-      v5 = ((unsigned __int8)byte_140C21EDD >> 1) & 1;
-      LODWORD(v10) = (unsigned __int8)byte_140C21F35;
-      v8 = (unsigned __int8)byte_140C21F34;
-      v9 = (unsigned __int8)byte_140C21F0C;
+      v1 = byte_140C22C9C & 1;
+      v10 = 8LL;
+      v3 = byte_140C22C9D & 1;
+      v2 = ((unsigned __int8)byte_140C22C9D >> 1) & 1;
+      v7 = (unsigned __int8)byte_140C22CED;
+      v5 = (unsigned __int8)byte_140C22CEC;
+      v6 = (unsigned __int8)byte_140C22CCC;
       UserData.Ptr = (ULONGLONG)&PopWdiScenarioStopEventData;
-      v12 = &unk_140C21E88;
-      v14 = &v4;
-      v16 = &unk_140C21EE0;
-      v18 = &unk_140C21EE8;
-      v20 = &unk_140C21EF0;
-      v22 = &unk_140C21E80;
-      v24 = &unk_140C21E7C;
-      v26 = &unk_140C21EC0;
-      v28 = &unk_140C21F00;
-      v30 = &unk_140C21E78;
-      v32 = &unk_140C21EB8;
-      v34 = &unk_140C21ED8;
-      v36 = &v5;
-      v38 = &v6;
-      v40 = &unk_140C21EC8;
-      v42 = &v7;
-      v44 = &unk_140C21F04;
-      v46 = &unk_140C21F08;
-      v48 = &unk_140C21F10;
-      v7 = ((unsigned __int8)byte_140C21EDD >> 2) & 1;
-      v15 = 4LL;
-      v17 = 8LL;
-      v19 = 8LL;
-      v21 = 8LL;
-      v23 = 8LL;
-      v25 = 4LL;
-      v27 = 8LL;
-      v29 = 1LL;
-      v31 = 4LL;
-      v33 = 8LL;
-      v35 = 4LL;
-      v37 = 4LL;
-      v39 = 4LL;
-      v41 = 8LL;
-      v43 = 4LL;
-      v45 = 4LL;
-      v47 = 4LL;
-      v49 = 4LL;
-      v51 = 4LL;
-      v50 = &unk_140C21F1C;
-      v53 = 4LL;
-      v52 = &unk_140C21F20;
-      v55 = 4LL;
-      v54 = &unk_140C21E68;
-      v57 = 8LL;
-      v56 = &unk_140C21E70;
-      v59 = 4LL;
-      v58 = &unk_140C21F30;
-      v60 = &v8;
-      v62 = &unk_140C21F38;
-      v64 = &unk_140C21F3C;
-      v66 = &v9;
-      v68 = &v10;
-      v70 = &v77;
-      v72 = &unk_140C21F14;
-      v74 = &unk_140C21F18;
-      v61 = 4LL;
-      v63 = 4LL;
-      v65 = 4LL;
-      v67 = 4LL;
-      v69 = 4LL;
-      v71 = 8LL;
-      v73 = 4LL;
-      v75 = 4LL;
-      LOBYTE(v1) = EtwWrite(v2, &SLEEPSTUDY_EVT_SCENARIO_STOP_REASON, &PopDiagActivityId, 0x21u, &UserData);
+      v9 = &unk_140C22C48;
+      v11 = &v1;
+      v13 = &unk_140C22CA0;
+      v15 = &unk_140C22CA8;
+      v17 = &unk_140C22CB0;
+      v19 = &unk_140C22C40;
+      v21 = &unk_140C22C3C;
+      v23 = &unk_140C22C80;
+      v25 = &unk_140C22CC0;
+      v27 = &unk_140C22C38;
+      v29 = &unk_140C22C78;
+      v31 = &unk_140C22C98;
+      v33 = &v2;
+      v35 = &v3;
+      v37 = &unk_140C22C88;
+      v39 = &v4;
+      v41 = &unk_140C22CC4;
+      v43 = &unk_140C22CC8;
+      v45 = &unk_140C22CD0;
+      v4 = ((unsigned __int8)byte_140C22C9D >> 2) & 1;
+      v12 = 4LL;
+      v14 = 8LL;
+      v16 = 8LL;
+      v18 = 8LL;
+      v20 = 8LL;
+      v22 = 4LL;
+      v24 = 8LL;
+      v26 = 1LL;
+      v28 = 4LL;
+      v30 = 8LL;
+      v32 = 4LL;
+      v34 = 4LL;
+      v36 = 4LL;
+      v38 = 8LL;
+      v40 = 4LL;
+      v42 = 4LL;
+      v44 = 4LL;
+      v46 = 4LL;
+      v48 = 4LL;
+      v47 = &unk_140C22CD4;
+      v50 = 4LL;
+      v49 = &unk_140C22CD8;
+      v52 = 4LL;
+      v51 = &unk_140C22C28;
+      v54 = 8LL;
+      v53 = &unk_140C22C30;
+      v56 = 4LL;
+      v55 = &unk_140C22CE8;
+      v57 = &v5;
+      v59 = &unk_140C22CF0;
+      v61 = &unk_140C22CF4;
+      v63 = &v6;
+      v65 = &v7;
+      v58 = 4LL;
+      v60 = 4LL;
+      v62 = 4LL;
+      v64 = 4LL;
+      v66 = 4LL;
+      EtwWrite(v0, &POP_ETW_EVENT_SPM_SCENARIO_STOP, &PopDiagActivityId, 0x1Eu, &UserData);
     }
   }
-  return (char)v1;
 }

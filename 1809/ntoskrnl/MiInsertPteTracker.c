@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertPteTracker @ 0x1402CD9C0
+ * XREFs of MiInsertPteTracker @ 0x1402CDAC0
  * Callers:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x1400E5D84 (MiMapContiguousMemory.c)
- *     MmMapMdl @ 0x1402AD760 (MmMapMdl.c)
- *     MmAllocateMappingAddress @ 0x1406F9300 (MmAllocateMappingAddress.c)
+ *     MiMapContiguousMemory @ 0x1400E5DA4 (MiMapContiguousMemory.c)
+ *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
+ *     MmAllocateMappingAddress @ 0x1406F92E0 (MmAllocateMappingAddress.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

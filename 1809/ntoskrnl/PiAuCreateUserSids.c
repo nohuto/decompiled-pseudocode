@@ -3,9 +3,9 @@
  * Callers:
  *     PiAuCreateSecurityObjects @ 0x1409C67E0 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     PiAuAllocateAndInitializeSid @ 0x140739CA8 (PiAuAllocateAndInitializeSid.c)
+ *     PiAuAllocateAndInitializeSid @ 0x140739C88 (PiAuAllocateAndInitializeSid.c)
  */
 
 __int64 __fastcall PiAuCreateUserSids(PVOID *a1)

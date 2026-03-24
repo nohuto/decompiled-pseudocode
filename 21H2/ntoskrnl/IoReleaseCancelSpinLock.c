@@ -1,12 +1,12 @@
 /*
- * XREFs of IoReleaseCancelSpinLock @ 0x1402A23F0
+ * XREFs of IoReleaseCancelSpinLock @ 0x140285860
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxWaitForLockChainValid @ 0x140282C20 (KxWaitForLockChainValid.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14056E6FC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoReleaseCancelSpinLock(KIRQL Irql)
@@ -37,7 +37,7 @@ void __stdcall IoReleaseCancelSpinLock(KIRQL Irql)
     goto LABEL_8;
   if ( v1 != (volatile signed __int64 **)_InterlockedCompareExchange64(v1[1], 0LL, (signed __int64)v1) )
   {
-    v3 = KxWaitForLockChainValid((__int64 *)v1);
+    v3 = KxWaitForLockChainValid(v1);
 LABEL_8:
     *v1 = 0LL;
     _InterlockedXor64((volatile signed __int64 *)(v3 + 8), 1uLL);

@@ -1,110 +1,114 @@
 /*
- * XREFs of prfntKillList @ 0x1C000BDE0
+ * XREFs of prfntKillList @ 0x1C00A54E0
  * Callers:
- *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C000BF1C (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C0011CB0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A21FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00A5720 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
  * Callees:
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C000AD50 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C000B034 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C000B838 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00153D0 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C00170CC (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D690 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009E450 (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E4E8 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009F174 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C00E8DF0 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
  */
 
-__int64 __fastcall prfntKillList(__int64 *a1)
+unsigned __int64 __fastcall prfntKillList(__int64 *a1)
 {
-  __int64 v2; // rdi
-  struct PDEV *v3; // rbx
-  struct RFONT *v5; // rsi
-  __int64 v6; // rcx
-  struct RFONT *v7; // rax
+  unsigned __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  struct PDEV *v7; // rbx
   struct RFONT *v8; // rsi
   __int64 v9; // rcx
-  struct RFONT *v10; // rax
+  unsigned __int64 v10; // rax
   struct PDEV *v11; // rdx
-  struct PDEV *v12; // rdx
-  int v13; // ecx
-  unsigned __int64 v14; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v15; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-10h] BYREF
-  struct RFONT *v17; // [rsp+78h] [rbp+38h] BYREF
-  struct PDEV *v18; // [rsp+80h] [rbp+40h] BYREF
-  __int64 v19; // [rsp+88h] [rbp+48h] BYREF
+  struct RFONT *v12; // rsi
+  __int64 v13; // rcx
+  unsigned __int64 v14; // rax
+  struct PDEV *v15; // rdx
+  unsigned int v16; // ecx
+  unsigned __int64 v18; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v19; // [rsp+28h] [rbp-18h] BYREF
+  __int64 v20; // [rsp+30h] [rbp-10h] BYREF
+  unsigned __int64 v21; // [rsp+78h] [rbp+38h] BYREF
+  struct PDEV *v22; // [rsp+80h] [rbp+40h] BYREF
+  unsigned __int64 v23; // [rsp+88h] [rbp+48h] BYREF
 
   v2 = 0LL;
-  v19 = 0LL;
-  v16 = ghsemDriverMgmt;
+  v23 = 0LL;
+  v20 = ghsemDriverMgmt;
   GreAcquireSemaphore(ghsemDriverMgmt);
-  v15 = ghsemRFONTList;
+  v19 = ghsemRFONTList;
   GreAcquireSemaphore(ghsemRFONTList);
-  GreAcquireHmgrSemaphore();
-  v3 = gppdevList;
+  GreAcquireHmgrSemaphore(v4, v3, v5, v6);
+  v7 = gppdevList;
   if ( gppdevList )
   {
     do
     {
-      if ( (*((_DWORD *)v3 + 10) & 1) != 0 )
+      if ( (*((_DWORD *)v7 + 10) & 1) != 0 )
       {
-        v18 = v3;
-        v5 = PDEVOBJ::prfntActive((PDEVOBJ *)&v18);
-        while ( v5 )
-        {
-          v6 = *a1;
-          v7 = v5;
-          v5 = (struct RFONT *)*((_QWORD *)v5 + 84);
-          v17 = v7;
-          if ( *((_QWORD *)v7 + 16) == v6 && !*((_DWORD *)v7 + 165) )
-          {
-            v14 = *(_QWORD *)(v6 + 72);
-            RFONTOBJ::vRemove((__int64)&v17, &v14, 0);
-            *(_QWORD *)(*a1 + 72) = v14;
-            if ( (*((_DWORD *)v3 + 10) & 0x800000) != 0 )
-              v11 = (struct PDEV *)*((_QWORD *)v3 + 437);
-            else
-              v11 = v3;
-            RFONTOBJ::vRemove((__int64)&v17, (unsigned __int64 *)v11 + 189, 1);
-            RFONTOBJ::vInsert(&v17, &v19, 1LL);
-          }
-          v17 = 0LL;
-          RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v17);
-        }
-        v8 = PDEVOBJ::prfntInactive((PDEVOBJ *)&v18);
+        v22 = v7;
+        v8 = PDEVOBJ::prfntActive((PDEVOBJ *)&v22);
         while ( v8 )
         {
           v9 = *a1;
-          v10 = v8;
+          v10 = (unsigned __int64)v8;
           v8 = (struct RFONT *)*((_QWORD *)v8 + 84);
-          v17 = v10;
-          if ( *((_QWORD *)v10 + 16) == v9 )
+          v21 = v10;
+          if ( *(_QWORD *)(v10 + 128) == v9 && *(int *)(v10 + 660) <= 0 )
           {
-            v14 = *(_QWORD *)(v9 + 72);
-            RFONTOBJ::vRemove((__int64)&v17, &v14, 0);
-            *(_QWORD *)(*a1 + 72) = v14;
-            if ( (*((_DWORD *)v3 + 10) & 0x800000) != 0 )
-              v12 = (struct PDEV *)*((_QWORD *)v3 + 437);
+            v18 = *(_QWORD *)(v9 + 72);
+            RFONTOBJ::vRemove((__int64)&v21, &v18, 0);
+            *(_QWORD *)(*a1 + 72) = v18;
+            if ( (*((_DWORD *)v7 + 10) & 0x800000) != 0 )
+              v11 = (struct PDEV *)*((_QWORD *)v7 + 440);
             else
-              v12 = v3;
-            RFONTOBJ::vRemove((__int64)&v17, (unsigned __int64 *)v12 + 190, 1);
-            RFONTOBJ::vInsert(&v17, &v19, 1LL);
-            v13 = PDEVOBJ::cInactive((PDEVOBJ *)&v18) - 1;
-            if ( (*((_DWORD *)v3 + 10) & 0x800000) != 0 )
-              *(_DWORD *)(*((_QWORD *)v3 + 437) + 1528LL) = v13;
-            else
-              *((_DWORD *)v3 + 382) = v13;
+              v11 = v7;
+            RFONTOBJ::vRemove((__int64)&v21, (unsigned __int64 *)v11 + 190, 1);
+            RFONTOBJ::vInsert(&v21, &v23, 1);
           }
-          v17 = 0LL;
-          RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v17);
+          v21 = 0LL;
+          RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v21);
+        }
+        v12 = PDEVOBJ::prfntInactive((PDEVOBJ *)&v22);
+        while ( v12 )
+        {
+          v13 = *a1;
+          v14 = (unsigned __int64)v12;
+          v12 = (struct RFONT *)*((_QWORD *)v12 + 84);
+          v21 = v14;
+          if ( *(_QWORD *)(v14 + 128) == v13 )
+          {
+            v18 = *(_QWORD *)(v13 + 72);
+            RFONTOBJ::vRemove((__int64)&v21, &v18, 0);
+            *(_QWORD *)(*a1 + 72) = v18;
+            if ( (*((_DWORD *)v7 + 10) & 0x800000) != 0 )
+              v15 = (struct PDEV *)*((_QWORD *)v7 + 440);
+            else
+              v15 = v7;
+            RFONTOBJ::vRemove((__int64)&v21, (unsigned __int64 *)v15 + 191, 1);
+            RFONTOBJ::vInsert(&v21, &v23, 1);
+            v16 = PDEVOBJ::cInactive((PDEVOBJ *)&v22) - 1;
+            if ( (*((_DWORD *)v7 + 10) & 0x800000) != 0 )
+              *(_DWORD *)(*((_QWORD *)v7 + 440) + 1536LL) = v16;
+            else
+              *((_DWORD *)v7 + 384) = v16;
+          }
+          v21 = 0LL;
+          RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v21);
         }
       }
-      v3 = *(struct PDEV **)v3;
+      v7 = *(struct PDEV **)v7;
     }
-    while ( v3 );
-    v2 = v19;
+    while ( v7 );
+    v2 = v23;
   }
   GreReleaseHmgrSemaphore();
-  SEMOBJ::vUnlock((SEMOBJ *)&v15);
-  SEMOBJ::vUnlock((SEMOBJ *)&v16);
+  SEMOBJ::vUnlock((SEMOBJ *)&v19);
+  SEMOBJ::vUnlock((SEMOBJ *)&v20);
   return v2;
 }

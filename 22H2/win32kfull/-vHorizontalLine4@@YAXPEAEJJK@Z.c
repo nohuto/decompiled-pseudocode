@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vHorizontalLine4@@YAXPEAEJJK@Z @ 0x1C02FC490
+ * XREFs of ?vHorizontalLine4@@YAXPEAEJJK@Z @ 0x1C02D4420
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall vHorizontalLine4(unsigned __int8 *a1, int a2, int a3, unsigned __int8 a4)
@@ -20,18 +20,18 @@ void __fastcall vHorizontalLine4(unsigned __int8 *a1, int a2, int a3, unsigned _
     if ( (a2 & 1) != 0 )
     {
       --v5;
-      *v6 ^= (*v6 ^ a4) & 0xF;
+      *v6 ^= (a4 ^ *v6) & 0xF;
       ++v6;
     }
     v7 = v5 >> 1;
     if ( v5 >> 1 )
     {
       v8 = v7;
-      memset_0(v6, a4, v7);
+      memset(v6, a4, v7);
       v6 += v8;
       v5 &= 1u;
     }
     if ( v5 )
-      *v6 = a4 ^ (*v6 ^ a4) & 0xF;
+      *v6 = a4 ^ (a4 ^ *v6) & 0xF;
   }
 }

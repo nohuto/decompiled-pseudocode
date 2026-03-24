@@ -1,21 +1,17 @@
 /*
- * XREFs of MiScrubInterrupted @ 0x14065E480
+ * XREFs of MiScrubInterrupted @ 0x140563998
  * Callers:
- *     MiScrubLargeMappedPage @ 0x14065E4AC (MiScrubLargeMappedPage.c)
- *     MiScrubLargePage @ 0x14065E9DC (MiScrubLargePage.c)
- *     MiScrubActiveLargePage @ 0x140A463D8 (MiScrubActiveLargePage.c)
- *     MiScrubLargePageRegions @ 0x140A46480 (MiScrubLargePageRegions.c)
- *     MiScrubNode @ 0x140A466E0 (MiScrubNode.c)
+ *     MiScrubNodeLargePageList @ 0x140556D78 (MiScrubNodeLargePageList.c)
+ *     MiScrubLargeMappedPage @ 0x1405639C8 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x140563F8C (MiScrubNode.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408D6690 (MiScrubProcessPhysicalPages.c)
+ *     MiScrubProcesses @ 0x1408DC060 (MiScrubProcesses.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiScrubInterrupted(__int64 a1)
 {
-  _BOOL8 result; // rax
-
-  result = 1LL;
-  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 56LL) + 1376LL) & 1) == 0 )
-    return *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 32LL) + 4LL) != 0;
-  return result;
+  return (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 56LL) + 1296LL) & 1) != 0
+      || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 32LL) + 4LL);
 }

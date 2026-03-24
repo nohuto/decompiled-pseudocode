@@ -1,5 +1,5 @@
 /*
- * XREFs of Crashdump_Endpoint_EventRingCallback @ 0x1C004EE70
+ * XREFs of Crashdump_Endpoint_EventRingCallback @ 0x1C004C3A0
  * Callers:
  *     <none>
  * Callees:

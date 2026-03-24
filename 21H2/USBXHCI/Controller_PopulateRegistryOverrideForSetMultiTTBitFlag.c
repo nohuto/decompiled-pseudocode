@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_PopulateRegistryOverrideForSetMultiTTBitFlag @ 0x1C006DD7C
+ * XREFs of Controller_PopulateRegistryOverrideForSetMultiTTBitFlag @ 0x1C006C1AC
  * Callers:
- *     Controller_PopulateDeviceFlags @ 0x1C006DA94 (Controller_PopulateDeviceFlags.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C006BE84 (Controller_PopulateDeviceFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_PopulateRegistryOverrideForSetMultiTTBitFlag(__int64 a1)
@@ -32,8 +32,8 @@ __int64 __fastcall Controller_PopulateRegistryOverrideForSetMultiTTBitFlag(__int
                  *(_QWORD *)(a1 + 72),
                  v3,
                  4,
-                 167,
-                 (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+                 166,
+                 (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                  result);
     }
   }

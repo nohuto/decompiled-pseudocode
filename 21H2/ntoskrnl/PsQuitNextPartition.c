@@ -1,11 +1,11 @@
 /*
- * XREFs of PsQuitNextPartition @ 0x1405E2D20
+ * XREFs of PsQuitNextPartition @ 0x1405842D0
  * Callers:
- *     ExpNodeHotAddProcessorWorker @ 0x140A01E60 (ExpNodeHotAddProcessorWorker.c)
- *     MiMirrorBrownPhase @ 0x140A48B0C (MiMirrorBrownPhase.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x140955D50 (ExpNodeHotAddProcessorWorker.c)
+ *     MiMirrorBrownPhase @ 0x14099568C (MiMirrorBrownPhase.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsQuitNextPartition(PVOID Object)

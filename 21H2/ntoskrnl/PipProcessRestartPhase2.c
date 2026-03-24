@@ -1,15 +1,15 @@
 /*
- * XREFs of PipProcessRestartPhase2 @ 0x14095B398
+ * XREFs of PipProcessRestartPhase2 @ 0x1408B5330
  * Callers:
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
  * Callees:
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x14055FE50 (IoRequestDeviceEject.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405643B8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpRequestDeviceRemoval @ 0x140765430 (PnpRequestDeviceRemoval.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x14076AC70 (PnpStartedDeviceNodeDependencyCheck.c)
- *     PnpUpdateRebootRequiredReason @ 0x140947274 (PnpUpdateRebootRequiredReason.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     IoRequestDeviceEject @ 0x14050C990 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x14050FE88 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x14074B300 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1408A2104 (PnpUpdateRebootRequiredReason.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
   int v5; // esi
   __int64 v6; // r8
 
-  if ( (byte_140C0DD4B & 0x10) != 0 )
+  if ( (byte_140C1327B & 0x10) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceRestart_Start,
@@ -28,7 +28,7 @@ __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
   v4 = *(_DWORD *)(a1 + 392);
   if ( v4 >= 0 )
   {
-    PipSetDevNodeState(a1, 778);
+    PipSetDevNodeState(a1, 776);
     if ( (*(_DWORD *)(a1 + 704) & 0x20) != 0 )
     {
       PoFxIdleDevice(*(_QWORD *)(a1 + 32));
@@ -51,7 +51,7 @@ __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
     if ( *(_DWORD *)(a1 + 568) )
       IoRequestDeviceEject(*(PDEVICE_OBJECT *)(a1 + 32));
   }
-  if ( (byte_140C0DD4B & 0x10) != 0 )
+  if ( (byte_140C1327B & 0x10) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       *(_QWORD *)(a1 + 48),
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceRestart_Stop,

@@ -1,11 +1,11 @@
 /*
- * XREFs of GreGetBounds @ 0x1C002AEA0
+ * XREFs of GreGetBounds @ 0x1C0036A10
  * Callers:
- *     GetMonitorDC @ 0x1C00183FC (GetMonitorDC.c)
- *     CreateCacheDC @ 0x1C006AA00 (CreateCacheDC.c)
+ *     GetMonitorDC @ 0x1C0039C70 (GetMonitorDC.c)
+ *     CreateCacheDC @ 0x1C006AE00 (CreateCacheDC.c)
  * Callees:
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C002BEFC (--1DCOBJA@@QEAA@XZ.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C002BF28 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0037940 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C003796C (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreGetBounds(HDC a1, _DWORD *a2, char a3)
@@ -15,9 +15,9 @@ __int64 __fastcall GreGetBounds(HDC a1, _DWORD *a2, char a3)
   __m128i *v7; // rax
   unsigned __int128 v8; // xmm0
   unsigned __int128 v9; // kr00_16
-  __int64 v10; // rax
-  int v11; // ecx
-  int v12; // r9d
+  __int64 v10; // rcx
+  int v11; // r9d
+  int v12; // ecx
   unsigned int v13; // ebx
   unsigned __int64 v15; // xmm0_8
   __m128i v16; // [rsp+20h] [rbp-48h]
@@ -33,36 +33,30 @@ __int64 __fastcall GreGetBounds(HDC a1, _DWORD *a2, char a3)
   if ( (a3 & 1) != 0 )
   {
     if ( (a3 & 4) != 0 )
-    {
       *(_DWORD *)(v17[0] + 36LL) |= 0x40u;
-      v5 = v17[0];
-      v6 = a3 & 4;
-      goto LABEL_5;
-    }
-    *(_DWORD *)(v17[0] + 36LL) |= 0x20u;
-    v5 = v17[0];
+    else
+      *(_DWORD *)(v17[0] + 36LL) |= 0x20u;
+    goto LABEL_27;
   }
-  else if ( (a3 & 2) != 0 )
+  if ( (a3 & 2) == 0 )
+    goto LABEL_4;
+  if ( (a3 & 4) == 0 )
   {
-    if ( (a3 & 4) != 0 )
-    {
-      *(_DWORD *)(v17[0] + 36LL) &= ~0x40u;
-      v5 = v17[0];
-      v6 = a3 & 4;
-      goto LABEL_5;
-    }
     *(_DWORD *)(v17[0] + 36LL) &= ~0x20u;
+LABEL_27:
     v5 = v17[0];
-    v6 = a3 & 4;
-LABEL_21:
+    goto LABEL_4;
+  }
+  *(_DWORD *)(v17[0] + 36LL) &= ~0x40u;
+  v5 = v17[0];
+LABEL_4:
+  v6 = a3 & 4;
+  if ( (a3 & 4) == 0 )
+  {
     v8 = *(_OWORD *)(v5 + 1064);
     goto LABEL_7;
   }
-  v6 = a3 & 4;
-  if ( (a3 & 4) == 0 )
-    goto LABEL_21;
-LABEL_5:
-  v7 = *(__m128i **)(v5 + 1184);
+  v7 = *(__m128i **)(v5 + 1192);
   if ( !v7
     || (a3 & 3) != 0
     || (v16 = v7[6],
@@ -87,12 +81,12 @@ LABEL_7:
       v10 = 1016LL;
       if ( (*(_DWORD *)(v5 + 40) & 1) != 0 )
         v10 = 1024LL;
-      v11 = *(_DWORD *)(v10 + v5 + 4);
-      v12 = *(_DWORD *)(v10 + v5);
-      *a2 = v12 + v9;
-      a2[1] = v11 + v16.m128i_i32[1];
-      a2[2] = v12 + DWORD2(v9);
-      a2[3] = v11 + v16.m128i_i32[3];
+      v11 = *(_DWORD *)(v10 + v5);
+      v12 = *(_DWORD *)(v10 + v5 + 4);
+      *a2 = v11 + v9;
+      a2[1] = v12 + v16.m128i_i32[1];
+      a2[2] = v11 + DWORD2(v9);
+      a2[3] = v12 + v16.m128i_i32[3];
     }
     v13 = 1;
     if ( v6 )

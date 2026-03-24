@@ -1,16 +1,16 @@
 /*
- * XREFs of ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C015BFE0
+ * XREFs of ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C00C0360
  * Callers:
  *     <none>
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C01514E0 (-IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C00C03C0 (-IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ.c)
  */
 
-char __fastcall COPMProtectedOutput::IsDestroyed(COPMProtectedOutput *this)
+unsigned __int8 __fastcall COPMProtectedOutput::IsDestroyed(COPMProtectedOutput *this)
 {
   void **v1; // rbx
-  char IsDestroyed; // di
+  unsigned __int8 IsDestroyed; // di
 
   v1 = (void **)*((_QWORD *)this + 1);
   OPM::CMutex::Lock(v1);

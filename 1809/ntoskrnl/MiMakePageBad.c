@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakePageBad @ 0x1402CF028
+ * XREFs of MiMakePageBad @ 0x1402CF128
  * Callers:
- *     MiScrubLargeMappedPage @ 0x1402CF138 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x1402CF5C8 (MiScrubNode.c)
- *     MiScrubProcessPhysicalPages @ 0x140850370 (MiScrubProcessPhysicalPages.c)
+ *     MiScrubLargeMappedPage @ 0x1402CF238 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
+ *     MiScrubProcessPhysicalPages @ 0x140850350 (MiScrubProcessPhysicalPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)

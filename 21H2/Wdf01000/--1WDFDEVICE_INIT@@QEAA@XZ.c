@@ -1,15 +1,15 @@
 /*
- * XREFs of ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C001F8E0
+ * XREFs of ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C004FB14
  * Callers:
- *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C001F62C (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
- *     ?CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z @ 0x1C001F658 (-CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z.c)
- *     ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C001F7C0 (-AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z @ 0x1C003AEC8 (-CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z.c)
+ *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C00441D8 (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
+ *     ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0055490 (-AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C001FA30 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0021C50 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C0068E84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C004FC84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C004FFB8 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C0061930 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
  */
 
 void __fastcall WDFDEVICE_INIT::~WDFDEVICE_INIT(WDFDEVICE_INIT *this)

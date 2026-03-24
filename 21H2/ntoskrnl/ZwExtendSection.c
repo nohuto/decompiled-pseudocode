@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwExtendSection @ 0x14041D460
+ * XREFs of ZwExtendSection @ 0x1403FC000
  * Callers:
- *     CmSiExtendSection @ 0x14020C790 (CmSiExtendSection.c)
+ *     CmSiExtendSection @ 0x140363D90 (CmSiExtendSection.c)
  * Callees:
  *     <none>
  */

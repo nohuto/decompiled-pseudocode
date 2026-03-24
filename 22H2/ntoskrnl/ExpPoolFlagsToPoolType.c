@@ -1,10 +1,12 @@
 /*
- * XREFs of ExpPoolFlagsToPoolType @ 0x140AAFB60
+ * XREFs of ExpPoolFlagsToPoolType @ 0x1409B4010
  * Callers:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     VerifierExAllocatePool2 @ 0x140AD19E0 (VerifierExAllocatePool2.c)
- *     VfHandlePoolAlloc @ 0x140AD1FB0 (VfHandlePoolAlloc.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x1409B4270 (ExAllocatePool3.c)
+ *     VerifierExAllocatePool2 @ 0x1409D49F0 (VerifierExAllocatePool2.c)
+ *     VerifierExAllocatePool3 @ 0x1409D4B20 (VerifierExAllocatePool3.c)
  * Callees:
  *     <none>
  */
@@ -13,8 +15,9 @@ __int64 __fastcall ExpPoolFlagsToPoolType(__int64 a1, int a2, int *a3, _BYTE *a4
 {
   int v5; // r10d
   __int64 v7; // rax
-  int v8; // r8d
-  int v10; // edx
+  int v8; // edx
+  int v9; // r9d
+  int v11; // edx
 
   v5 = 0;
   *a3 = 0;
@@ -35,34 +38,35 @@ __int64 __fastcall ExpPoolFlagsToPoolType(__int64 a1, int a2, int *a3, _BYTE *a4
     if ( (a1 & 0x10) == 0 )
       v5 = 1;
   }
-  if ( (a1 & 4) != 0 )
-    v5 |= 0x20u;
-  v8 = v5 | 0x400;
-  if ( (a1 & 2) != 0 )
+  v8 = v5 | 0x20;
+  if ( (a1 & 4) == 0 )
     v8 = v5;
+  v9 = v8 | 0x400;
+  if ( (a1 & 2) != 0 )
+    v9 = v8;
   if ( (a1 & 0x100000629LL) != 0 )
   {
-    v10 = v8 | 4;
+    v11 = v9 | 4;
     if ( (a1 & 8) == 0 )
-      v10 = v8;
-    v8 = v10;
+      v11 = v9;
+    v9 = v11;
     if ( (a1 & 0x200) != 0 )
-      v8 = v10 | 0x80;
+      v9 = v11 | 0x80;
     if ( (a1 & 0x400) != 0 )
-      v8 |= 0x40u;
+      v9 |= 0x40u;
     if ( (a1 & 1) != 0 )
     {
       *a4 = 1;
       if ( (a1 & 0x20) == 0 )
-        v8 |= 8u;
+        v9 |= 8u;
     }
     else if ( (a1 & 0x20) != 0 )
     {
-      v8 |= 0x10u;
+      v9 |= 0x10u;
     }
     if ( (a1 & 0x100000000LL) != 0 )
       *a5 = 1;
   }
-  *a3 = v8;
+  *a3 = v9;
   return 0LL;
 }

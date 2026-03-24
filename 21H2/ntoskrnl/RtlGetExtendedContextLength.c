@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlGetExtendedContextLength @ 0x140295190
+ * XREFs of RtlGetExtendedContextLength @ 0x140276470
  * Callers:
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
- *     KiContinuePreviousModeUser @ 0x140298420 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140576820 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x140704EF8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140705578 (PspWow64SetContextThread.c)
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
- *     PspSetContextState @ 0x1409B4D94 (PspSetContextState.c)
+ *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspInitializeThunkContext @ 0x140647A20 (PspInitializeThunkContext.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E844 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspSetContextState @ 0x14090F1A4 (PspSetContextState.c)
  * Callees:
- *     RtlGetExtendedContextLength2 @ 0x1402956D0 (RtlGetExtendedContextLength2.c)
- *     RtlpValidateContextFlags @ 0x140297F80 (RtlpValidateContextFlags.c)
+ *     RtlGetExtendedContextLength2 @ 0x1402765C0 (RtlGetExtendedContextLength2.c)
+ *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlGetExtendedContextLength(__int64 a1, __int64 a2)

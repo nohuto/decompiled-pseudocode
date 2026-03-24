@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxCompleteComponentActivation @ 0x1400FEC2C
+ * XREFs of PopFxCompleteComponentActivation @ 0x1400FEC4C
  * Callers:
- *     PopFxActivateComponentWorker @ 0x1400FE210 (PopFxActivateComponentWorker.c)
- *     PopFxProcessWork @ 0x1400FE370 (PopFxProcessWork.c)
- *     PopFxIdleWorkerTail @ 0x1400FE9E8 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentWorker @ 0x1400FE230 (PopFxActivateComponentWorker.c)
+ *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
+ *     PopFxIdleWorkerTail @ 0x1400FEA08 (PopFxIdleWorkerTail.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PopFxIdleComponent @ 0x1400FECEC (PopFxIdleComponent.c)
- *     PopPluginComponentActive @ 0x1400FF398 (PopPluginComponentActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PopPluginComponentActive @ 0x1400FF3B8 (PopPluginComponentActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall PopFxCompleteComponentActivation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

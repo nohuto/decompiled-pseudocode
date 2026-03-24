@@ -1,71 +1,83 @@
 /*
- * XREFs of ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x1802472BC
+ * XREFs of ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x1801FABFC
  * Callers:
- *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1802475EC (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FAF50 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$0LA@@std@@YA_K_K@Z @ 0x180235DB4 (--$_Get_size_of_n@$0LA@@std@@YA_K_K@Z.c)
- *     ??$_Uninitialized_move@PEAVCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@YAPEAVCVisualDepthGeometry@@QEAV1@0PEAV1@AEAV?$allocator@VCVisualDepthGeometry@@@0@@Z @ 0x1802474F8 (--$_Uninitialized_move@PEAVCVisualDepthGeometry@@V-$allocator@VCVisualDepthGeometry@@@std@@@std@.c)
- *     ?_Change_array@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@AEAAXQEAVCVisualDepthGeometry@@_K1@Z @ 0x180247A1C (-_Change_array@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVisualDepthGeometry@@@std@@@std@@A.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Uninitialized_move@PEAVCVisualDepthGeometry@@PEAV1@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@YAPEAVCVisualDepthGeometry@@QEAV1@0PEAV1@AEAV?$allocator@VCVisualDepthGeometry@@@0@@Z @ 0x1801FAE5C (--$_Uninitialized_move@PEAVCVisualDepthGeometry@@PEAV1@V-$allocator@VCVisualDepthGeometry@@@std@.c)
+ *     ?_Change_array@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@AEAAXQEAVCVisualDepthGeometry@@_K1@Z @ 0x1801FB3A4 (-_Change_array@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVisualDepthGeometry@@@std@@@std@@A.c)
  */
 
-_OWORD *__fastcall std::vector<CVisualDepthGeometry>::_Emplace_reallocate<CVisualDepthGeometry>(
+__int64 __fastcall std::vector<CVisualDepthGeometry>::_Emplace_reallocate<CVisualDepthGeometry>(
         __int64 *a1,
         __int64 a2,
         _OWORD *a3)
 {
-  unsigned __int64 v5; // rbx
-  __int64 v7; // r15
-  __int64 v8; // rax
-  unsigned __int64 v9; // rbp
+  __int64 v6; // r15
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rdx
   unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  __int64 v13; // rsi
-  _OWORD *v14; // r8
-  _OWORD *v15; // r15
-  __int64 v16; // rdx
-  __int64 v17; // rcx
+  unsigned __int64 v11; // rbx
+  SIZE_T v12; // rcx
+  __int64 v13; // rbp
+  __int64 v14; // r15
+  _OWORD *v15; // r8
+  _OWORD *v16; // r13
+  __int64 v17; // rdx
+  __int64 v18; // rcx
 
-  v5 = 0x1745D1745D1745DLL;
-  v7 = (a2 - *a1) / 176;
-  v8 = 0x2E8BA2E8BA2E8BA3LL * ((a1[1] - *a1) >> 4);
-  if ( v8 == 0x1745D1745D1745DLL )
-    std::_Xlength_error("vector too long");
-  v9 = v8 + 1;
-  v10 = 0x2E8BA2E8BA2E8BA3LL * ((a1[2] - *a1) >> 4);
-  v11 = v10 >> 1;
-  if ( v10 <= 0x1745D1745D1745DLL - (v10 >> 1) )
+  v6 = (a2 - *a1) / 176;
+  v7 = (a1[1] - *a1) / 176;
+  if ( v7 == 0x1745D1745D1745DLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v7 + 1;
+  v9 = (a1[2] - *a1) / 176;
+  v10 = v9 >> 1;
+  if ( v9 <= 0x1745D1745D1745DLL - (v9 >> 1) )
   {
-    v5 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v5 = v8 + 1;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v8;
   }
-  size_of = std::_Get_size_of_n<176>(v5);
-  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = (_OWORD *)v13;
-  v15 = (_OWORD *)(v13 + 176 * v7);
-  *v15 = *a3;
-  v15[1] = a3[1];
-  v15[2] = a3[2];
-  v15[3] = a3[3];
-  v15[4] = a3[4];
-  v15[5] = a3[5];
-  v15[6] = a3[6];
-  v15[7] = a3[7];
-  v15[8] = a3[8];
-  v15[9] = a3[9];
-  v15[10] = a3[10];
-  v16 = a1[1];
-  v17 = *a1;
-  if ( a2 != v16 )
+  else
   {
-    std::_Uninitialized_move<CVisualDepthGeometry *>(v17, a2, v13);
-    v16 = a1[1];
-    v14 = v15 + 11;
-    v17 = a2;
+    v11 = v8;
   }
-  std::_Uninitialized_move<CVisualDepthGeometry *>(v17, v16, v14);
-  std::vector<CVisualDepthGeometry>::_Change_array(a1, v13, v9, v5);
-  return v15;
+  v12 = 176 * v11;
+  if ( v11 > 0x1745D1745D1745DLL )
+    v12 = -1LL;
+  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  v14 = 176 * v6;
+  v15 = (_OWORD *)v13;
+  v16 = (_OWORD *)(v14 + v13);
+  *v16 = *a3;
+  v16[1] = a3[1];
+  v16[2] = a3[2];
+  v16[3] = a3[3];
+  v16[4] = a3[4];
+  v16[5] = a3[5];
+  v16[6] = a3[6];
+  v16[7] = a3[7];
+  v16[8] = a3[8];
+  v16[9] = a3[9];
+  v16[10] = a3[10];
+  v17 = a1[1];
+  v18 = *a1;
+  if ( a2 != v17 )
+  {
+    std::_Uninitialized_move<CVisualDepthGeometry *,CVisualDepthGeometry *,std::allocator<CVisualDepthGeometry>>(
+      v18,
+      a2,
+      v13);
+    v17 = a1[1];
+    v15 = v16 + 11;
+    v18 = a2;
+  }
+  std::_Uninitialized_move<CVisualDepthGeometry *,CVisualDepthGeometry *,std::allocator<CVisualDepthGeometry>>(
+    v18,
+    v17,
+    v15);
+  std::vector<CVisualDepthGeometry>::_Change_array(a1, v13, v8, v11);
+  return v14 + *a1;
 }

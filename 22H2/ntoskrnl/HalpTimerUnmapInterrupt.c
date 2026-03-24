@@ -1,83 +1,79 @@
 /*
- * XREFs of HalpTimerUnmapInterrupt @ 0x1405095B0
+ * XREFs of HalpTimerUnmapInterrupt @ 0x1404C04C8
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x14037D5E4 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeClock @ 0x1403B1320 (HalpTimerInitializeClock.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050A9E8 (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A1E84 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403AF5E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1A6C (HalpTimerTestHypervisorTimer.c)
  * Callees:
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInterruptLineToGsi @ 0x140505230 (HalpInterruptLineToGsi.c)
- *     HalpInterruptUnmap @ 0x1409334A8 (HalpInterruptUnmap.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC654 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptUnmap @ 0x140760E58 (HalpInterruptUnmap.c)
  */
 
 void __fastcall HalpTimerUnmapInterrupt(__int64 a1, int a2, int a3, char a4)
 {
   int v5; // edi
   unsigned int v9; // edi
-  int v10; // eax
-  unsigned int v11; // eax
+  int v10; // edx
+  int v11; // ecx
   int v12; // eax
-  int v13; // eax
-  unsigned int v14[4]; // [rsp+30h] [rbp-49h] BYREF
-  _DWORD v15[24]; // [rsp+40h] [rbp-39h] BYREF
+  unsigned int v13; // eax
+  int v14; // eax
+  int v15; // eax
+  unsigned int v16[4]; // [rsp+30h] [rbp-49h] BYREF
+  _DWORD v17[24]; // [rsp+40h] [rbp-39h] BYREF
 
-  *(_QWORD *)v14 = 0LL;
+  *(_QWORD *)v16 = 0LL;
   v5 = *(_DWORD *)(a1 + 184);
   if ( (v5 & 0x40) != 0 )
   {
     v9 = v5 & 0xFFFFFFBF;
     *(_DWORD *)(a1 + 184) = v9;
-    memset(v15, 0, 0x58uLL);
-    v15[1] = a2;
-    v15[10] = v15[10] & 0xC0000000 | a3 & 0x3FFFFFFF | 0x40000000;
+    memset(v17, 0, 0x58uLL);
+    v17[1] = a2;
+    v17[10] = v17[10] & 0xC0000000 | a3 & 0x3FFFFFFF | 0x40000000;
     if ( a4 || (v9 & 0x10) != 0 )
     {
-      v13 = *(_DWORD *)(a1 + 236);
-      v15[3] = 0;
-      v15[11] = v13;
-      v15[12] = *(_DWORD *)(a1 + 232);
-      v15[13] = *(_DWORD *)(a1 + 240);
-      v15[0] = 3;
-      v15[4] = 1;
+      v15 = *(_DWORD *)(a1 + 236);
+      v17[3] = 0;
+      v17[11] = v15;
+      v17[12] = *(_DWORD *)(a1 + 232);
+      LOWORD(v17[13]) = *(_WORD *)(a1 + 240);
+      v17[0] = 3;
+      v17[4] = 1;
 LABEL_15:
-      HalpInterruptUnmap(
-        **(_DWORD **)(a1 + 288),
-        *(_DWORD *)(*(_QWORD *)(a1 + 288) + 4LL),
-        *(_QWORD *)(a1 + 288) + 8,
-        0,
-        (__int64)v15,
-        1);
+      HalpInterruptUnmap(v11, v10, *(_DWORD *)(a1 + 288) + 8, 0, (__int64)v17, 1);
       return;
     }
-    v10 = *(_DWORD *)(a1 + 224);
-    if ( (v10 & 0x200) != 0 )
+    v12 = *(_DWORD *)(a1 + 224);
+    if ( (v12 & 0x200) != 0 )
     {
-      if ( (int)HalpInterruptGsiToLine(*(unsigned int *)(a1 + 88), v14) < 0 )
+      if ( (int)HalpInterruptGsiToLine(*(unsigned int *)(a1 + 88), v16) < 0 )
         return;
     }
-    else if ( (v10 & 0x100) != 0 )
+    else if ( (v12 & 0x100) != 0 )
     {
-      v11 = *(_DWORD *)(a1 + 84);
-      if ( v11 >= 8 )
+      v13 = *(_DWORD *)(a1 + 84);
+      if ( v13 >= 8 )
       {
-        v14[0] = 45057;
-        v11 -= 8;
+        v16[0] = 45057;
+        v13 -= 8;
       }
       else
       {
-        v14[0] = 45056;
+        v16[0] = 45056;
       }
-      v14[1] = v11;
+      v16[1] = v13;
     }
-    v12 = *(_DWORD *)(a1 + 96);
-    v15[0] = 0;
-    v15[4] = v12;
-    v15[3] = *(_DWORD *)(a1 + 92);
-    HalpInterruptApplyOverrides(v14, &v15[3], &v15[4]);
-    if ( (int)HalpInterruptLineToGsi(v14, &v15[14]) >= 0 )
+    v14 = *(_DWORD *)(a1 + 96);
+    v17[0] = 0;
+    v17[4] = v14;
+    v17[3] = *(_DWORD *)(a1 + 92);
+    HalpInterruptApplyOverrides(v16, &v17[3], &v17[4]);
+    if ( (int)HalpInterruptLineToGsi(v16, &v17[14]) >= 0 )
       goto LABEL_15;
   }
 }

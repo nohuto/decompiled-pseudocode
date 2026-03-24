@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBSM_EvtSmWorkItem @ 0x1C000B780
+ * XREFs of HUBSM_EvtSmWorkItem @ 0x1C000AEB0
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000AF68 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
- *     HUBSM_RunStateMachine @ 0x1C000BDDC (HUBSM_RunStateMachine.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000A6B0 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     HUBSM_RunStateMachine @ 0x1C000B50C (HUBSM_RunStateMachine.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBSM_EvtSmWorkItem(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ void __fastcall HUBSM_EvtSmWorkItem(__int64 a1, __int64 a2)
     WdfDriverGlobals,
     v4,
     "State Machine Worker Tag",
-    1060LL,
+    1046LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\smengine.c");
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 840));
   LOBYTE(v6) = 1;
@@ -40,7 +40,7 @@ void __fastcall HUBSM_EvtSmWorkItem(__int64 a1, __int64 a2)
     WdfDriverGlobals,
     v7,
     "State Machine Worker Tag",
-    1088LL,
+    1074LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\smengine.c");
   KeLowerIrql(v3);
 }

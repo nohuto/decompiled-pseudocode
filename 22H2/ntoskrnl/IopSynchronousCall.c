@@ -1,50 +1,49 @@
 /*
- * XREFs of IopSynchronousCall @ 0x1407688B4
+ * XREFs of IopSynchronousCall @ 0x14071D3C0
  * Callers:
- *     PnpSendIrp @ 0x1403225B8 (PnpSendIrp.c)
- *     PnpIrpDeviceEnumerated @ 0x140368938 (PnpIrpDeviceEnumerated.c)
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     PpIrpQueryResourceRequirements @ 0x140790A3C (PpIrpQueryResourceRequirements.c)
- *     IopQueryDeviceState @ 0x140793960 (IopQueryDeviceState.c)
- *     PnpIrpQueryID @ 0x1407986DC (PnpIrpQueryID.c)
- *     PnpQueryDeviceText @ 0x1407988B8 (PnpQueryDeviceText.c)
- *     PpIrpQueryCapabilities @ 0x14079BE48 (PpIrpQueryCapabilities.c)
- *     PnpQueryBusInformation @ 0x1407DBE94 (PnpQueryBusInformation.c)
- *     IopQueryLegacyBusInformation @ 0x1407E2AE8 (IopQueryLegacyBusInformation.c)
- *     IopQueryResourceHandlerInterface @ 0x14081AB14 (IopQueryResourceHandlerInterface.c)
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
- *     IopQueryDockRemovalInterface @ 0x14096D014 (IopQueryDockRemovalInterface.c)
- *     IopQueryReconfiguration @ 0x14096D114 (IopQueryReconfiguration.c)
+ *     PnpSendIrp @ 0x140361498 (PnpSendIrp.c)
+ *     PnpIrpDeviceEnumerated @ 0x14037F04C (PnpIrpDeviceEnumerated.c)
+ *     IopQueryLegacyBusInformation @ 0x14073A988 (IopQueryLegacyBusInformation.c)
+ *     PnpIrpQueryID @ 0x1407436F0 (PnpIrpQueryID.c)
+ *     IopQueryDeviceState @ 0x1407460CC (IopQueryDeviceState.c)
+ *     PpIrpQueryCapabilities @ 0x1407478A8 (PpIrpQueryCapabilities.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
+ *     PpIrpQueryResourceRequirements @ 0x140750548 (PpIrpQueryResourceRequirements.c)
+ *     IopQueryResourceHandlerInterface @ 0x140751BBC (IopQueryResourceHandlerInterface.c)
+ *     PnpQueryDeviceText @ 0x14076A190 (PnpQueryDeviceText.c)
+ *     PnpQueryBusInformation @ 0x14076C254 (PnpQueryBusInformation.c)
+ *     IopQueryDockRemovalInterface @ 0x1408B2C68 (IopQueryDockRemovalInterface.c)
+ *     IopQueryReconfiguration @ 0x1408B2D70 (IopQueryReconfiguration.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     IovUtilWatermarkIrp @ 0x140302C64 (IovUtilWatermarkIrp.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x140365D8C (IoGetLowerDeviceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14032634C (IoGetLowerDeviceObjectWithTag.c)
+ *     IovUtilWatermarkIrp @ 0x1403615A4 (IovUtilWatermarkIrp.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1403616F0 (IoGetAttachedDeviceReferenceWithTag.c)
  */
 
-__int64 __fastcall IopSynchronousCall(_QWORD *a1, __int64 a2, NTSTATUS a3, ULONG_PTR a4, _QWORD *a5)
+__int64 __fastcall IopSynchronousCall(struct _DEVICE_OBJECT *a1, __int64 a2, NTSTATUS a3, ULONG_PTR a4, _QWORD *a5)
 {
-  struct _DEVICE_OBJECT *AttachedDeviceReferenceWithTag; // rax
+  PDEVICE_OBJECT AttachedDeviceReferenceWithTag; // rax
   struct _DEVICE_OBJECT *v9; // rbx
-  PIRP Irp; // rax
-  IRP *v11; // rdi
+  PIRP Irp; // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  unsigned int v16; // edi
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  unsigned int v15; // edi
   struct _DEVICE_OBJECT *LowerDeviceObjectWithTag; // rdi
-  __int128 v19; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-28h] BYREF
 
   memset(&Event, 0, sizeof(Event));
-  v19 = 0LL;
-  AttachedDeviceReferenceWithTag = (struct _DEVICE_OBJECT *)IoGetAttachedDeviceReferenceWithTag(a1, 0x69706E50u);
+  v18 = 0LL;
+  AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(a1, 0x69706E50u);
   v9 = AttachedDeviceReferenceWithTag;
   if ( (AttachedDeviceReferenceWithTag->Flags & 0x80u) != 0 )
   {
@@ -53,50 +52,49 @@ __int64 __fastcall IopSynchronousCall(_QWORD *a1, __int64 a2, NTSTATUS a3, ULONG
                                                           0x69706E50u);
     if ( !LowerDeviceObjectWithTag )
     {
-      v16 = -1073741436;
+      v15 = -1073741436;
       goto LABEL_7;
     }
     ObfDereferenceObjectWithTag(v9, 0x69706E50u);
     v9 = LowerDeviceObjectWithTag;
   }
   Irp = IoAllocateIrp(v9->StackSize, 0);
-  v11 = Irp;
   if ( Irp )
   {
-    IovUtilWatermarkIrp((__int64)Irp, 1LL);
-    LODWORD(v19) = a3;
-    v11->IoStatus.Status = a3;
-    *((_QWORD *)&v19 + 1) = a4;
-    v11->IoStatus.Information = a4;
+    IovUtilWatermarkIrp();
+    LODWORD(v18) = a3;
+    Irp->IoStatus.Status = a3;
+    *((_QWORD *)&v18 + 1) = a4;
+    Irp->IoStatus.Information = a4;
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v11->UserIosb = (PIO_STATUS_BLOCK)&v19;
-    v11->UserEvent = &Event;
-    v11->Tail.Overlay.Thread = KeGetCurrentThread();
-    IopQueueThreadIrp((__int64)v11);
-    CurrentStackLocation = v11->Tail.Overlay.CurrentStackLocation;
-    v13 = *(_OWORD *)(a2 + 16);
+    Irp->UserIosb = (PIO_STATUS_BLOCK)&v18;
+    Irp->UserEvent = &Event;
+    Irp->Tail.Overlay.Thread = KeGetCurrentThread();
+    IopQueueThreadIrp((__int64)Irp);
+    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+    v12 = *(_OWORD *)(a2 + 16);
     *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)a2;
-    v14 = *(_OWORD *)(a2 + 32);
-    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = v13;
-    v15 = *(_OWORD *)(a2 + 48);
-    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = v14;
-    *(_QWORD *)&v14 = *(_QWORD *)(a2 + 64);
-    *(_OWORD *)&CurrentStackLocation[-1].FileObject = v15;
-    CurrentStackLocation[-1].Context = (PVOID)v14;
-    v16 = IofCallDriver(v9, v11);
-    if ( v16 == 259 )
+    v13 = *(_OWORD *)(a2 + 32);
+    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = v12;
+    v14 = *(_OWORD *)(a2 + 48);
+    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = v13;
+    *(_QWORD *)&v13 = *(_QWORD *)(a2 + 64);
+    *(_OWORD *)&CurrentStackLocation[-1].FileObject = v14;
+    CurrentStackLocation[-1].Context = (PVOID)v13;
+    v15 = IofCallDriver(v9, Irp);
+    if ( v15 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v16 = v19;
+      v15 = v18;
     }
     if ( a5 )
-      *a5 = *((_QWORD *)&v19 + 1);
+      *a5 = *((_QWORD *)&v18 + 1);
   }
   else
   {
-    v16 = -1073741670;
+    v15 = -1073741670;
   }
 LABEL_7:
   ObfDereferenceObjectWithTag(v9, 0x69706E50u);
-  return v16;
+  return v15;
 }

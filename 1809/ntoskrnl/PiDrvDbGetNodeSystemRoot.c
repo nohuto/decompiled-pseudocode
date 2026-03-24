@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbGetNodeSystemRoot @ 0x14083D6D8
+ * XREFs of PiDrvDbGetNodeSystemRoot @ 0x14083D6B8
  * Callers:
- *     PiDrvDbQuerySystemPathWin32 @ 0x14083E394 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14083EBA4 (PiDrvDbResolveKeyFilePaths.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x14083ECF8 (PiDrvDbResolveNodeFilePaths.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x14083E374 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x14083EB84 (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x14083ECD8 (PiDrvDbResolveNodeFilePaths.c)
  * Callees:
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
- *     RtlDuplicateUnicodeString @ 0x1406D3C20 (RtlDuplicateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     RtlDuplicateUnicodeString @ 0x1406D3C00 (RtlDuplicateUnicodeString.c)
  */
 
 NTSTATUS __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, UNICODE_STRING *a2)

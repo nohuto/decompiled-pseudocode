@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwQueryInstallUILanguage @ 0x14041E240
+ * XREFs of ZwQueryInstallUILanguage @ 0x1403FCDC0
  * Callers:
- *     DifZwQueryInstallUILanguageWrapper @ 0x1406252C0 (DifZwQueryInstallUILanguageWrapper.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14083008C (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
  *     <none>
  */

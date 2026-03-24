@@ -1,61 +1,65 @@
 /*
- * XREFs of NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C00159F0
+ * XREFs of NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C00043C0
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     GetSrbScsiData @ 0x1C0012BEC (GetSrbScsiData.c)
+ *     GetSrbScsiData @ 0x1C0004498 (GetSrbScsiData.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 unsigned __int64 __fastcall NVMeGetFeaturesCurrentCacheValueCompletion(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  __int64 SrbExtension; // rbx
-  __int64 SrbDataBuffer; // rbp
+  __int64 v5; // rdx
+  __int64 SrbExtension; // rbp
+  int v7; // edi
+  __int64 v8; // r14
+  __int64 v9; // rsi
   unsigned __int64 result; // rax
-  int v8; // r9d
-  char v9; // r8
-  __int64 v10; // rcx
-  unsigned int v11; // eax
-  unsigned int v12; // edx
-  unsigned int v13; // r11d
-  unsigned int *v14; // r9
+  int v11; // r9d
+  char v12; // r8
+  __int64 v13; // rcx
+  int v14; // edx
   unsigned __int64 v15; // rcx
-  unsigned int *v16; // [rsp+48h] [rbp+10h] BYREF
 
-  v16 = 0LL;
   SrbExtension = GetSrbExtension(a2);
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v16);
-  result = GetSrbScsiData(a2, 0LL, 0LL, 0LL, 0LL);
+  v7 = 16;
+  if ( *(_BYTE *)(v5 + 2) == 40 )
+  {
+    v8 = *(_QWORD *)(v5 + 64);
+    v9 = 60LL;
+  }
+  else
+  {
+    v8 = *(_QWORD *)(v5 + 24);
+    v9 = 16LL;
+  }
+  result = GetSrbScsiData(a2, 0, 0, 0, 0LL);
   if ( *(_BYTE *)(a2 + 3) == 1 )
   {
     if ( a3 )
     {
-      v9 = *(_BYTE *)result;
-      v10 = (unsigned int)(v8 + 6);
-      v11 = v8 + 10;
-      v12 = v8 + 24;
-      v13 = v8 + 28;
-      v14 = v16;
-      if ( v9 != 26 )
-        v10 = v11;
-      *(_BYTE *)(v10 + SrbDataBuffer) ^= (*(_BYTE *)(v10 + SrbDataBuffer) ^ (4 * *a3)) & 4;
-      v15 = v12;
-      result = *v14;
-      if ( v9 != 26 )
-        v15 = v13;
+      v12 = *(_BYTE *)result;
+      v13 = (unsigned int)(v11 + 6);
+      v14 = 24;
+      if ( *(_BYTE *)result != 26 )
+        v13 = (unsigned int)(v11 + 10);
+      *(_BYTE *)(v13 + v8) ^= (*(_BYTE *)(v13 + v8) ^ (4 * *a3)) & 4;
+      v15 = 24LL;
+      result = *(unsigned int *)(a2 + v9);
+      if ( v12 != 26 )
+        v15 = 28LL;
       if ( result < v15 )
       {
-        result = 16LL;
-        if ( v9 != 26 )
-          result = 20LL;
-        *v14 = result;
+        result = 20LL;
+        if ( v12 != 26 )
+          v7 = 20;
+        *(_DWORD *)(a2 + v9) = v7;
       }
       else
       {
-        if ( v9 != 26 )
-          v12 = v13;
-        *v14 = v12;
+        if ( v12 != 26 )
+          v14 = 28;
+        *(_DWORD *)(a2 + v9) = v14;
       }
     }
     else

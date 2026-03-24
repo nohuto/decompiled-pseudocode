@@ -1,40 +1,68 @@
 /*
- * XREFs of ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x18004A5D0
+ * XREFs of ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x1800CD828
  * Callers:
- *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x180066690 (-CleanTrees@CComposition@@IEAAJXZ.c)
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x180088DF0 (-UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
- *     ?CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z @ 0x180089840 (-CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z.c)
+ *     ?ProcessTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEBVCVisualTree@@_K_N@Z @ 0x180022010 (-ProcessTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEBVCVisualTree@@_K_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A510 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ComputeLayoutSize@CVisual@@QEAA_NXZ @ 0x1800D20FC (-ComputeLayoutSize@CVisual@@QEAA_NXZ.c)
  * Callees:
- *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x180004D18 (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x18000976C (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
- *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
- *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18004AB80 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C25C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x18000CCFC (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
+ *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x1800102C0 (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40 (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18009D958 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
  */
 
 void __fastcall CVisual::OnLayoutChanged(CVisual *this)
 {
+  __int64 v2; // rbx
+  int v3; // r10d
   __int64 ProjectedShadowCasters; // rax
-  CProjectedShadowCaster **v3; // rsi
-  CProjectedShadowCaster **i; // rbx
+  __int64 v5; // r14
+  CProjectedShadowCaster **v6; // rsi
+  unsigned __int64 v7; // rbp
   __int64 ProjectedShadowReceivers; // rax
-  CProjectedShadowReceiver **v6; // rdi
-  CProjectedShadowReceiver **j; // rbx
+  CProjectedShadowReceiver **v9; // rsi
+  unsigned __int64 v10; // rdi
 
   CVisual::ClearContentTreeDataCaches(this);
-  if ( (**((_DWORD **)this + 29) & 0x40000) != 0 )
+  v2 = 0LL;
+  v3 = **((_DWORD **)this + 28);
+  if ( (v3 & 0x40000) != 0 )
   {
     ProjectedShadowCasters = CVisual::GetProjectedShadowCasters((__int64)this);
-    v3 = *(CProjectedShadowCaster ***)(ProjectedShadowCasters + 8);
-    for ( i = *(CProjectedShadowCaster ***)ProjectedShadowCasters; i != v3; ++i )
-      CProjectedShadowCaster::InvalidateMaskContent(*i);
+    v5 = 0LL;
+    v6 = *(CProjectedShadowCaster ***)ProjectedShadowCasters;
+    v7 = (unsigned __int64)(*(_QWORD *)(ProjectedShadowCasters + 8) - *(_QWORD *)ProjectedShadowCasters + 7LL) >> 3;
+    if ( *(_QWORD *)ProjectedShadowCasters > *(_QWORD *)(ProjectedShadowCasters + 8) )
+      v7 = 0LL;
+    if ( v7 )
+    {
+      do
+      {
+        CProjectedShadowCaster::InvalidateMaskContent(*v6);
+        ++v5;
+        ++v6;
+      }
+      while ( v5 != v7 );
+      v3 = **((_DWORD **)this + 28);
+    }
   }
-  if ( (**((_DWORD **)this + 29) & 0x20000) != 0 )
+  if ( (v3 & 0x20000) != 0 )
   {
     ProjectedShadowReceivers = CVisual::GetProjectedShadowReceivers((__int64)this);
-    v6 = *(CProjectedShadowReceiver ***)(ProjectedShadowReceivers + 8);
-    for ( j = *(CProjectedShadowReceiver ***)ProjectedShadowReceivers; j != v6; ++j )
-      CProjectedShadowReceiver::InvalidateMaskContent(*j);
+    v9 = *(CProjectedShadowReceiver ***)ProjectedShadowReceivers;
+    v10 = (unsigned __int64)(*(_QWORD *)(ProjectedShadowReceivers + 8) - *(_QWORD *)ProjectedShadowReceivers + 7LL) >> 3;
+    if ( *(_QWORD *)ProjectedShadowReceivers > *(_QWORD *)(ProjectedShadowReceivers + 8) )
+      v10 = 0LL;
+    if ( v10 )
+    {
+      do
+      {
+        CProjectedShadowReceiver::InvalidateMaskContent(*v9);
+        ++v2;
+        ++v9;
+      }
+      while ( v2 != v10 );
+    }
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTranslatePageForCopy @ 0x1400E9C10
+ * XREFs of MiTranslatePageForCopy @ 0x1400E9C30
  * Callers:
- *     MmCopyMemory @ 0x1400EA850 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1400EA870 (MmCopyMemory.c)
  * Callees:
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -18,13 +18,13 @@
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
  *     MiInitializePageFaultPacket @ 0x140096218 (MiInitializePageFaultPacket.c)
  *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiSynchronizeSystemVa @ 0x1400E9F48 (MiSynchronizeSystemVa.c)
- *     MiVaIsUltra @ 0x1400EA5D4 (MiVaIsUltra.c)
- *     MiUnlockSystemVa @ 0x1400ECDA4 (MiUnlockSystemVa.c)
- *     MiGetPagingFileOffset @ 0x14010FA04 (MiGetPagingFileOffset.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiSynchronizeSystemVa @ 0x1400E9F68 (MiSynchronizeSystemVa.c)
+ *     MiVaIsUltra @ 0x1400EA5F4 (MiVaIsUltra.c)
+ *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
+ *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiTranslatePageForCopy(

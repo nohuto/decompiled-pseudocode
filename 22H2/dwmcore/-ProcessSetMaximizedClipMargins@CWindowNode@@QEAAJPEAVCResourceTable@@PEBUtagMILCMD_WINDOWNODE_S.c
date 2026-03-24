@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetMaximizedClipMargins@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS@@@Z @ 0x18001A6B4
+ * XREFs of ?ProcessSetMaximizedClipMargins@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS@@@Z @ 0x1800314EC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetMaximizedClipMargins(
@@ -11,12 +11,12 @@ __int64 __fastcall CWindowNode::ProcessSetMaximizedClipMargins(
         struct CResourceTable *a2,
         const struct tagMILCMD_WINDOWNODE_SETMAXIMIZEDCLIPMARGINS *a3)
 {
-  if ( *((_DWORD *)this + 214) != *((_DWORD *)a3 + 2)
-    || *((_DWORD *)this + 215) != *((_DWORD *)a3 + 3)
-    || *((_DWORD *)this + 216) != *((_DWORD *)a3 + 4)
-    || *((_DWORD *)this + 217) != *((_DWORD *)a3 + 5) )
+  if ( *((_DWORD *)this + 210) != *((_DWORD *)a3 + 2)
+    || *((_DWORD *)this + 211) != *((_DWORD *)a3 + 3)
+    || *((_DWORD *)this + 212) != *((_DWORD *)a3 + 4)
+    || *((_DWORD *)this + 213) != *((_DWORD *)a3 + 5) )
   {
-    *(_OWORD *)((char *)this + 856) = *(_OWORD *)((char *)a3 + 8);
+    *(_OWORD *)((char *)this + 840) = *(_OWORD *)((char *)a3 + 8);
     CVisual::PropagateFlags(this, 5LL);
   }
   return 0LL;

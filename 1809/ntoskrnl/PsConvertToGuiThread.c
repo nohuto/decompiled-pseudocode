@@ -1,14 +1,14 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x1406AAFC0
+ * XREFs of PsConvertToGuiThread @ 0x1406AAFA0
  * Callers:
- *     KiConvertToGuiThread @ 0x1401C0680 (KiConvertToGuiThread.c)
+ *     KiConvertToGuiThread @ 0x1401C06A0 (KiConvertToGuiThread.c)
  * Callees:
  *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
- *     SeCaptureAtomTableCallout @ 0x140125558 (SeCaptureAtomTableCallout.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     SeCaptureAtomTableCallout @ 0x140125578 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
- *     PsQuerySectionSignatureInformation @ 0x1406AB110 (PsQuerySectionSignatureInformation.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BD388 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     PsQuerySectionSignatureInformation @ 0x1406AB0F0 (PsQuerySectionSignatureInformation.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BD368 (EtwTimLogProhibitWin32kSystemCalls.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -49,12 +49,12 @@ __int64 PsConvertToGuiThread()
   v13 = 1;
   if ( (int)PsQuerySectionSignatureInformation(Process, &v16) >= 0 )
   {
-    v7 = (char)qword_14040DDC0;
-    if ( qword_14040DDC0 )
+    v7 = (char)qword_14040DDA0;
+    if ( qword_14040DDA0 )
     {
       LOBYTE(v6) = v16;
       LOBYTE(v5) = 12;
-      v7 = qword_14040DDC0(v6, v5);
+      v7 = qword_14040DDA0(v6, v5);
       v4 = v13;
     }
     v13 = ((unsigned __int8)v4 ^ (unsigned __int8)(2 * v7)) & 2 ^ v4;

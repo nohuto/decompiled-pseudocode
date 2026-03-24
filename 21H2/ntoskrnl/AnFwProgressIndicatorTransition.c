@@ -1,22 +1,22 @@
 /*
- * XREFs of AnFwProgressIndicatorTransition @ 0x140AAB5FC
+ * XREFs of AnFwProgressIndicatorTransition @ 0x1409F7148
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140AAD490 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
+ *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
  */
 
 BOOLEAN AnFwProgressIndicatorTransition()
 {
   BOOLEAN result; // al
 
-  if ( byte_140CE1AE0 )
+  if ( byte_140CDB160 )
   {
-    KeInitializeTimerEx(&stru_140CF7400, NotificationTimer);
-    KeInitializeDpc(&stru_140CF73C0, AnFwpProgressIndicatorTimer, 0LL);
-    return KeSetCoalescableTimer(&stru_140CF7400, 0LL, 0x1Eu, 0, &stru_140CF73C0);
+    KeInitializeTimerEx(&stru_140CF3280, NotificationTimer);
+    KeInitializeDpc(&stru_140CF3200, (PKDEFERRED_ROUTINE)AnFwpProgressIndicatorTimer, 0LL);
+    return KeSetCoalescableTimer(&stru_140CF3280, 0LL, 0x1Eu, 0, &stru_140CF3200);
   }
   return result;
 }

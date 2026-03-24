@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTokenCompositionSurfaceObjectEvent @ 0x1C00AF730
+ * XREFs of EtwTraceTokenCompositionSurfaceObjectEvent @ 0x1C009F590
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqxxxqqq_EtwWriteTransfer @ 0x1C00E59DA (McTemplateK0ppqxxxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqxxxqqq_EtwWriteTransfer @ 0x1C0125D4C (McTemplateK0ppqxxxqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTokenCompositionSurfaceObjectEvent(

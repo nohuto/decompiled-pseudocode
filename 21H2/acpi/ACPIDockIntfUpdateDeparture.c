@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDockIntfUpdateDeparture @ 0x1C00AA290
+ * XREFs of ACPIDockIntfUpdateDeparture @ 0x1C00AB490
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
  */
 
 __int64 __fastcall ACPIDockIntfUpdateDeparture(ULONG_PTR a1)
@@ -12,7 +12,7 @@ __int64 __fastcall ACPIDockIntfUpdateDeparture(ULONG_PTR a1)
   __int64 DeviceExtension; // rax
   unsigned int v2; // edi
   __int64 v3; // rbx
-  __int64 v5; // rsi
+  __int64 *v5; // rsi
   __int64 v6; // [rsp+60h] [rbp+8h] BYREF
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
@@ -23,7 +23,7 @@ __int64 __fastcall ACPIDockIntfUpdateDeparture(ULONG_PTR a1)
     return 3221225486LL;
   if ( *(_DWORD *)(DeviceExtension + 192) != 3 )
     return 3221225488LL;
-  v5 = *(_QWORD *)(DeviceExtension + 184);
+  v5 = *(__int64 **)(DeviceExtension + 184);
   if ( *(_DWORD *)(DeviceExtension + 200) != 1 )
   {
     KdDisableDebugger();

@@ -1,36 +1,31 @@
 /*
- * XREFs of WmipUpdateModifyGuid @ 0x1409DEB60
+ * XREFs of WmipUpdateModifyGuid @ 0x1407C4120
  * Callers:
- *     WmipUpdateDataSource @ 0x1409DE80C (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1407C3FC8 (WmipUpdateDataSource.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     WmipBuildInstanceSet @ 0x14075D4B8 (WmipBuildInstanceSet.c)
- *     WmipAllocEntry @ 0x14075E074 (WmipAllocEntry.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipFindISInDSByGuid @ 0x1409DE468 (WmipFindISInDSByGuid.c)
- *     WmipIsEqualInstanceSets @ 0x1409DE67C (WmipIsEqualInstanceSets.c)
- *     WmipUpdateAddGuid @ 0x1409DE730 (WmipUpdateAddGuid.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipBuildInstanceSet @ 0x140756BD8 (WmipBuildInstanceSet.c)
+ *     WmipAllocEntry @ 0x1407580C0 (WmipAllocEntry.c)
+ *     WmipIsEqualInstanceSets @ 0x1407C4214 (WmipIsEqualInstanceSets.c)
+ *     WmipFindISInDSByGuid @ 0x1407C4280 (WmipFindISInDSByGuid.c)
+ *     WmipUpdateAddGuid @ 0x140933818 (WmipUpdateAddGuid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WmipUpdateModifyGuid(
-        __int64 a1,
-        _QWORD *a2,
-        __int64 a3,
-        unsigned int a4,
-        volatile signed __int64 **a5)
+__int64 __fastcall WmipUpdateModifyGuid(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 *a5)
 {
   unsigned int v9; // esi
-  _QWORD *ISInDSByGuid; // rbx
+  __int64 ISInDSByGuid; // rbx
   volatile signed __int64 *v11; // rax
   volatile signed __int64 *v12; // rdi
-  __int128 v13; // xmm0
-  __int64 v14; // rcx
-  _QWORD *v15; // rax
-  int v16; // ebp
-  void *v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rcx
+  __int128 v14; // xmm0
+  __int64 v15; // rcx
+  _QWORD *v16; // rax
+  int v17; // ebp
+  void *v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rcx
   __int128 v21; // [rsp+30h] [rbp-E8h]
   __int128 v22; // [rsp+40h] [rbp-D8h]
   __int128 v23; // [rsp+50h] [rbp-C8h]
@@ -48,47 +43,47 @@ __int64 __fastcall WmipUpdateModifyGuid(
     v12 = v11;
     if ( v11
       && (int)WmipBuildInstanceSet(a2, a3, a4, (__int64)v11, *(_DWORD *)(a1 + 56)) >= 0
-      && !WmipIsEqualInstanceSets((__int64)ISInDSByGuid, (__int64)v12) )
+      && !(unsigned __int8)WmipIsEqualInstanceSets(ISInDSByGuid, v12) )
     {
       v21 = *(_OWORD *)ISInDSByGuid;
-      v22 = *((_OWORD *)ISInDSByGuid + 1);
-      v23 = *((_OWORD *)ISInDSByGuid + 2);
-      v24 = *((_OWORD *)ISInDSByGuid + 3);
-      v25 = *((_OWORD *)ISInDSByGuid + 4);
-      v13 = *((_OWORD *)ISInDSByGuid + 5);
-      ISInDSByGuid[11] = 0LL;
-      v14 = *ISInDSByGuid;
-      *(_OWORD *)&v26[10] = v13;
-      if ( *(_QWORD **)(v14 + 8) != ISInDSByGuid )
+      v22 = *(_OWORD *)(ISInDSByGuid + 16);
+      v23 = *(_OWORD *)(ISInDSByGuid + 32);
+      v24 = *(_OWORD *)(ISInDSByGuid + 48);
+      v25 = *(_OWORD *)(ISInDSByGuid + 64);
+      v14 = *(_OWORD *)(ISInDSByGuid + 80);
+      *(_QWORD *)(ISInDSByGuid + 88) = 0LL;
+      v15 = *(_QWORD *)ISInDSByGuid;
+      *(_OWORD *)&v26[10] = v14;
+      if ( *(_QWORD *)(v15 + 8) != ISInDSByGuid )
         goto LABEL_20;
-      v15 = (_QWORD *)ISInDSByGuid[1];
-      if ( (_QWORD *)*v15 != ISInDSByGuid )
+      v16 = *(_QWORD **)(ISInDSByGuid + 8);
+      if ( *v16 != ISInDSByGuid )
         goto LABEL_20;
-      *v15 = v14;
-      *(_QWORD *)(v14 + 8) = v15;
-      v16 = WmipBuildInstanceSet(a2, a3, a4, (__int64)ISInDSByGuid, *(_DWORD *)(a1 + 56));
-      if ( v16 < 0 )
+      *v16 = v15;
+      *(_QWORD *)(v15 + 8) = v16;
+      v17 = WmipBuildInstanceSet(a2, a3, a4, ISInDSByGuid, *(_DWORD *)(a1 + 56));
+      if ( v17 < 0 )
       {
-        v17 = (void *)ISInDSByGuid[11];
-        if ( v17 )
-          ExFreePoolWithTag(v17, 0);
+        v18 = *(void **)(ISInDSByGuid + 88);
+        if ( v18 )
+          ExFreePoolWithTag(v18, 0);
         *(_OWORD *)ISInDSByGuid = v21;
-        *((_OWORD *)ISInDSByGuid + 1) = v22;
-        *((_OWORD *)ISInDSByGuid + 2) = v23;
-        *((_OWORD *)ISInDSByGuid + 3) = v24;
-        *((_OWORD *)ISInDSByGuid + 4) = v25;
-        *((_OWORD *)ISInDSByGuid + 5) = v13;
+        *(_OWORD *)(ISInDSByGuid + 16) = v22;
+        *(_OWORD *)(ISInDSByGuid + 32) = v23;
+        *(_OWORD *)(ISInDSByGuid + 48) = v24;
+        *(_OWORD *)(ISInDSByGuid + 64) = v25;
+        *(_OWORD *)(ISInDSByGuid + 80) = v14;
       }
-      v18 = ISInDSByGuid[7] + 56LL;
-      v19 = *(_QWORD *)v18;
-      if ( *(_QWORD *)(*(_QWORD *)v18 + 8LL) != v18 )
+      v19 = *(_QWORD *)(ISInDSByGuid + 56) + 56LL;
+      v20 = *(_QWORD *)v19;
+      if ( *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19 )
 LABEL_20:
         __fastfail(3u);
-      *ISInDSByGuid = v19;
-      ISInDSByGuid[1] = v18;
-      *(_QWORD *)(v19 + 8) = ISInDSByGuid;
-      *(_QWORD *)v18 = ISInDSByGuid;
-      if ( v16 >= 0 )
+      *(_QWORD *)ISInDSByGuid = v20;
+      *(_QWORD *)(ISInDSByGuid + 8) = v19;
+      *(_QWORD *)(v20 + 8) = ISInDSByGuid;
+      *(_QWORD *)v19 = ISInDSByGuid;
+      if ( v17 >= 0 )
       {
         if ( v26[11] )
           ExFreePoolWithTag(v26[11], 0);
@@ -96,13 +91,13 @@ LABEL_20:
         v9 = 2;
       }
     }
-    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, ISInDSByGuid);
+    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)ISInDSByGuid);
     if ( v12 )
       WmipUnreferenceEntry((__int64)&WmipISChunkInfo, v12);
   }
   else
   {
-    return (unsigned int)WmipUpdateAddGuid(a1, a2, a3, a4, a5);
+    return (unsigned int)WmipUpdateAddGuid(a1, (_DWORD)a2, a3, a4, (__int64)a5);
   }
   return v9;
 }

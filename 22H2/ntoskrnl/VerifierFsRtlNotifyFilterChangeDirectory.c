@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlNotifyFilterChangeDirectory @ 0x140ACF710
+ * XREFs of VerifierFsRtlNotifyFilterChangeDirectory @ 0x1409D22F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierFsRtlNotifyFilterChangeDirectory(

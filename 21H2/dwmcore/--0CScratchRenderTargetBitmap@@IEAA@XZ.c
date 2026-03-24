@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18006565C
+ * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18003DE68
  * Callers:
- *     ?Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z @ 0x1800655E0 (-Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z.c)
+ *     ?Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z @ 0x18003DFE4 (-Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x180067244 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18006120C (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
  */
 
 CScratchRenderTargetBitmap *__fastcall CScratchRenderTargetBitmap::CScratchRenderTargetBitmap(
@@ -24,7 +24,7 @@ CScratchRenderTargetBitmap *__fastcall CScratchRenderTargetBitmap::CScratchRende
   *((_QWORD *)this + 32) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
   *((_QWORD *)this + 35) = &CRenderTargetBitmap::`vbtable'{for `IBitmapRealization'};
   CRenderTargetBitmap::CRenderTargetBitmap(this, 1);
-  *(_QWORD *)this = &CScratchRenderTargetBitmap::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CScratchRenderTargetBitmap::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 10) = &CScratchRenderTargetBitmap::`vftable';
   *((_QWORD *)this + 15) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
   *((_QWORD *)this + 19) = &CScratchRenderTargetBitmap::`vftable'{for `IScratchBitmap'};

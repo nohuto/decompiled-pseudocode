@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwResumeProcess @ 0x14041E800
+ * XREFs of ZwResumeProcess @ 0x1403FD340
  * Callers:
  *     <none>
  * Callees:

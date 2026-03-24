@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCheckQuerySetFileInformation @ 0x1407F9CF0
+ * XREFs of IoCheckQuerySetFileInformation @ 0x140767450
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ NTSTATUS __stdcall IoCheckQuerySetFileInformation(
   __int64 *v3; // r9
   ULONG v4; // ecx
 
-  if ( (unsigned int)FileInformationClass >= (FileMaximumInformation|FileDirectoryInformation) )
+  if ( (unsigned int)FileInformationClass >= FileMaximumInformation )
     return -1073741821;
   v3 = IopSetOperationLength;
   if ( !SetOperation )

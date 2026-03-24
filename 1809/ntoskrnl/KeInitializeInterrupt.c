@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeInterrupt @ 0x14016D840
+ * XREFs of KeInitializeInterrupt @ 0x14016D860
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeInterruptEx @ 0x14016D8C8 (KeInitializeInterruptEx.c)
+ *     KeInitializeInterruptEx @ 0x14016D8E8 (KeInitializeInterruptEx.c)
  */
 
 __int64 __fastcall KeInitializeInterrupt(

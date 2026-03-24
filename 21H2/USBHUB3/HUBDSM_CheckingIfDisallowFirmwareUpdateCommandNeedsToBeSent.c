@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDisallowFirmwareUpdateCommandNeedsToBeSent @ 0x1C0020160
+ * XREFs of HUBDSM_CheckingIfDisallowFirmwareUpdateCommandNeedsToBeSent @ 0x1C001FD50
  * Callers:
  *     <none>
  * Callees:

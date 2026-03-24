@@ -1,63 +1,74 @@
 /*
- * XREFs of xxxDDETrackSendHook @ 0x1C01FB5C4
+ * XREFs of xxxDDETrackSendHook @ 0x1C021CDFC
  * Callers:
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
  * Callees:
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
- *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F9828 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
- *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C01F997C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
- *     ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C01F9A90 (-NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z.c)
- *     xxxMessageEvent @ 0x1C022B658 (xxxMessageEvent.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F2B4 (WPP_RECORDER_SF_qq.c)
+ *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C021A548 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C021A698 (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ *     ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C021A800 (-NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z.c)
+ *     xxxMessageEvent @ 0x1C0246A78 (xxxMessageEvent.c)
  */
 
-__int64 __fastcall xxxDDETrackSendHook(struct tagWND *a1, int a2, __int64 a3, int a4)
+_BOOL8 __fastcall xxxDDETrackSendHook(struct tagWND *a1, int a2, __int64 a3, int a4)
 {
-  unsigned int v4; // ebx
-  struct tagWND *v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // r9
-  struct tagWND *v12; // rdi
+  struct tagWND *v7; // rax
+  struct tagWND *v8; // rdi
   struct tagDDECONV *DdeConv; // rax
-  struct tagDDECONV *v14; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD v15[2]; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v16; // [rsp+48h] [rbp-30h]
-  __int128 v17; // [rsp+58h] [rbp-20h]
-  __int64 v18; // [rsp+68h] [rbp-10h]
-  struct tagDDECONV *v19; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v11; // rcx
+  struct tagDDECONV *v12; // [rsp+40h] [rbp-48h] BYREF
+  _QWORD v13[2]; // [rsp+48h] [rbp-40h] BYREF
+  __int128 v14; // [rsp+58h] [rbp-30h]
+  __int128 v15; // [rsp+68h] [rbp-20h]
+  __int64 v16; // [rsp+78h] [rbp-10h]
+  struct tagDDECONV *v17; // [rsp+90h] [rbp+8h] BYREF
 
-  v4 = 0;
-  v14 = 0LL;
+  v17 = 0LL;
   if ( (MonitorFlags & 0x2000000) != 0 )
   {
+    v14 = 0LL;
+    v15 = 0LL;
     v16 = 0LL;
-    v17 = 0LL;
-    v18 = 0LL;
-    v15[0] = (unsigned __int16)a4;
-    v15[1] = HIWORD(a4);
-    xxxMessageEvent((_DWORD)a1, a2, a3, a4, 0x2000000, (__int64)v15);
+    v13[0] = (unsigned __int16)a4;
+    v13[1] = HIWORD(a4);
+    xxxMessageEvent((_DWORD)a1, a2, a3, a4, 0x2000000, (__int64)v13);
   }
   if ( *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) )
     return 1LL;
-  if ( a2 != 996 )
-    return a2 == 992;
-  v9 = (struct tagWND *)ValidateHwnd(a3);
-  v12 = v9;
-  if ( !v9 )
-    return 0LL;
-  DdeConv = FindDdeConv(v9, a1, v10, v11);
-  v19 = DdeConv;
-  if ( DdeConv )
+  if ( a2 == 996 )
   {
-    AnticipatePost(
-      DdeConv,
-      (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxDupConvTerminate,
-      0LL,
-      0LL,
-      0LL,
-      0);
-    PostMessage(v12, 0x3E1u, *(_QWORD *)a1, 0LL);
+    v7 = (struct tagWND *)ValidateHwnd(a3);
+    v8 = v7;
+    if ( v7 )
+    {
+      DdeConv = FindDdeConv(v7, a1);
+      if ( DdeConv )
+      {
+        AnticipatePost(
+          DdeConv,
+          (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxDupConvTerminate,
+          0LL,
+          0LL,
+          0LL,
+          0);
+        PostMessage((int)v8, 993, *(_QWORD *)a1, 0);
+      }
+      else if ( (unsigned int)NewConversation(&v17, &v12, a1, v8) )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qq(
+            v11,
+            4u,
+            0xEu,
+            0xAu,
+            (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+            *(_QWORD *)a1,
+            a3);
+        return 1LL;
+      }
+    }
     return 0LL;
   }
-  LOBYTE(v4) = (unsigned int)NewConversation(&v14, &v19, a1, v12) != 0;
-  return v4;
+  return a2 == 992;
 }

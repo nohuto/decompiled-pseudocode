@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_EProtectableFromChange@@UEAAPEAXI@Z @ 0x1C006AF20
+ * XREFs of ??_EProtectableFromChange@@UEAAPEAXI@Z @ 0x1C005D860
  * Callers:
  *     <none>
  * Callees:
- *     ??1ProtectableFromChange@@UEAA@XZ @ 0x1C0006614 (--1ProtectableFromChange@@UEAA@XZ.c)
+ *     ??1ProtectableFromChange@@UEAA@XZ @ 0x1C000B1F4 (--1ProtectableFromChange@@UEAA@XZ.c)
  */
 
 ProtectableFromChange *__fastcall ProtectableFromChange::`vector deleting destructor'(

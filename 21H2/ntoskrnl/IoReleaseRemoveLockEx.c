@@ -1,17 +1,16 @@
 /*
- * XREFs of IoReleaseRemoveLockEx @ 0x1402332A0
+ * XREFs of IoReleaseRemoveLockEx @ 0x1402AB990
  * Callers:
- *     DifIoReleaseRemoveLockExWrapper @ 0x140610A00 (DifIoReleaseRemoveLockExWrapper.c)
- *     ViFilterDeviceUsageNotificationCompletion @ 0x140A9E300 (ViFilterDeviceUsageNotificationCompletion.c)
- *     ViFilterGenericCompletionRoutine @ 0x140A9E8F0 (ViFilterGenericCompletionRoutine.c)
- *     ViFilterStartCompletionRoutine @ 0x140A9E960 (ViFilterStartCompletionRoutine.c)
+ *     ViFilterDeviceUsageNotificationCompletion @ 0x1409E50C0 (ViFilterDeviceUsageNotificationCompletion.c)
+ *     ViFilterGenericCompletionRoutine @ 0x1409E56B0 (ViFilterGenericCompletionRoutine.c)
+ *     ViFilterStartCompletionRoutine @ 0x1409E5720 (ViFilterStartCompletionRoutine.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseTag @ 0x140A91EAC (VfRemLockReportBadReleaseTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VfRemLockReportBadReleaseTag @ 0x1409D67D4 (VfRemLockReportBadReleaseTag.c)
  */
 
 void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)

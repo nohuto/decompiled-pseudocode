@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteForWriteCluster @ 0x14045BFE4
+ * XREFs of MiCheckPteForWriteCluster @ 0x1403877F4
  * Callers:
- *     MiGetPageForWriteCluster @ 0x14045C0E8 (MiGetPageForWriteCluster.c)
+ *     MiGetPageForWriteCluster @ 0x1403876CC (MiGetPageForWriteCluster.c)
  * Callees:
- *     MiLockTransitionLeafPageEx @ 0x140315D60 (MiLockTransitionLeafPageEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPteForWriteCluster(
@@ -23,20 +23,20 @@ __int64 __fastcall MiCheckPteForWriteCluster(
   int v13; // eax
   bool v14; // zf
 
-  result = MiLockTransitionLeafPageEx(a2, a6, 0);
+  result = MiLockTransitionLeafPage(a2, a6);
   if ( !result )
     return 0LL;
   if ( (*(_BYTE *)(result + 34) & 7) != 3
     || *(_WORD *)(result + 32)
     || (*(_QWORD *)(result + 16) & 0xFFFFFFFFFC00FC1FuLL) != a3 )
   {
-    goto LABEL_10;
+    goto LABEL_11;
   }
-  if ( qword_140C50780 && (a3 & 0x10) == 0 )
-    a3 &= ~qword_140C50780;
+  if ( qword_140C4DF40 && (a3 & 0x10) == 0 )
+    a3 &= ~qword_140C4DF40;
   if ( _bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
   {
-LABEL_10:
+LABEL_11:
     v9 = (unsigned __int8)*a6;
     _InterlockedAnd64((volatile signed __int64 *)(result + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
@@ -52,7 +52,7 @@ LABEL_10:
           v14 = (v13 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v13;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }

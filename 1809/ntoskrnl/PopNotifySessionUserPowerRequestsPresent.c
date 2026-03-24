@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifySessionUserPowerRequestsPresent @ 0x140866534
+ * XREFs of PopNotifySessionUserPowerRequestsPresent @ 0x140866514
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x14087FF80 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x14087FF60 (TtmNotifySessionPowerRequestPresent.c)
  */
 
 void PopNotifySessionUserPowerRequestsPresent()

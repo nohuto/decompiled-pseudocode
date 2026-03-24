@@ -1,10 +1,10 @@
 /*
- * XREFs of DmaEnabler_AllocateCommonBufferPage @ 0x1C0008274
+ * XREFs of DmaEnabler_AllocateCommonBufferPage @ 0x1C0016B3C
  * Callers:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A54 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, _QWORD *a3, _QWORD *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall DmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, 
   v23 = 0;
   v16 = 1;
   v17 = 1;
-  v20 = off_1C0063040;
+  v20 = off_1C0060040;
   v7 = a2 + 24;
   v8 = *a1;
   v19 = v7;
@@ -66,7 +66,7 @@ __int64 __fastcall DmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, 
     v11 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                       WdfDriverGlobals,
                       v21,
-                      off_1C0063040);
+                      off_1C0060040);
     v11[2] = v21;
     *v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 176))(WdfDriverGlobals, v21);
     v11[1] = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 184))(WdfDriverGlobals, v21);

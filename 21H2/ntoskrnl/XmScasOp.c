@@ -1,12 +1,12 @@
 /*
- * XREFs of XmScasOp @ 0x140536620
+ * XREFs of XmScasOp @ 0x1404E6940
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403A2FA8 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403A3038 (XmSetDestinationValue.c)
- *     XmGetStringAddress @ 0x1403CC31C (XmGetStringAddress.c)
- *     XmCompareOperands @ 0x14053639C (XmCompareOperands.c)
+ *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
+ *     XmGetStringAddress @ 0x1403C0DFC (XmGetStringAddress.c)
+ *     XmCompareOperands @ 0x1404E66BC (XmCompareOperands.c)
  */
 
 __int64 __fastcall XmScasOp(__int64 a1)

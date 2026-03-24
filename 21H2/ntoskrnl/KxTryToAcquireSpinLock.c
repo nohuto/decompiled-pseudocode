@@ -1,20 +1,17 @@
 /*
- * XREFs of KxTryToAcquireSpinLock @ 0x1402DA448
+ * XREFs of KxTryToAcquireSpinLock @ 0x1402D0788
  * Callers:
- *     KiProcessNMI @ 0x14029B9A0 (KiProcessNMI.c)
- *     KiGenericCallDpcWorker @ 0x1402D9F70 (KiGenericCallDpcWorker.c)
- *     KeFreezeExecution @ 0x1402DA0F0 (KeFreezeExecution.c)
- *     PopFxComponentRelationsCleanup @ 0x1403B9594 (PopFxComponentRelationsCleanup.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x140460FAC (EtwpCovSampTryAcquireBufferLock.c)
- *     HalpHandleMachineCheck @ 0x140506BF4 (HalpHandleMachineCheck.c)
- *     HalpMceHandlerCore @ 0x140507820 (HalpMceHandlerCore.c)
- *     IvtHandleInterrupt @ 0x14052EAA0 (IvtHandleInterrupt.c)
- *     DifKeTryToAcquireSpinLockAtDpcLevelWrapper @ 0x140615F20 (DifKeTryToAcquireSpinLockAtDpcLevelWrapper.c)
- *     EtwpGetCrimsonStackKey @ 0x140633B20 (EtwpGetCrimsonStackKey.c)
- *     EtwpTraceStackKey @ 0x1406342C8 (EtwpTraceStackKey.c)
+ *     KeTryToAcquireSpinLockAtDpcLevel @ 0x1402D0770 (KeTryToAcquireSpinLockAtDpcLevel.c)
+ *     HalpMceHandlerCore @ 0x1404BADC4 (HalpMceHandlerCore.c)
+ *     IvtHandleInterrupt @ 0x1404E0040 (IvtHandleInterrupt.c)
+ *     KdPollBreakIn @ 0x140511B20 (KdPollBreakIn.c)
+ *     KiProcessNMI @ 0x140512A70 (KiProcessNMI.c)
+ *     KeFreezeExecution @ 0x14051D6F0 (KeFreezeExecution.c)
+ *     EtwpTraceStackKey @ 0x1405ADDAC (EtwpTraceStackKey.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x1405AFC30 (EtwpCovSampTryAcquireBufferLock.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x14056E8F8 (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x1405169C4 (KiTryToAcquireSpinLockInstrumented.c)
  */
 
 char __fastcall KxTryToAcquireSpinLock(volatile signed __int32 *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IntelPptFilter_Create @ 0x1C00781D4
+ * XREFs of IntelPptFilter_Create @ 0x1C0076DD4
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall IntelPptFilter_Create(__int64 a1, __int64 a2, __int64 *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall IntelPptFilter_Create(__int64 a1, __int64 a2, __int64 *a3)
   v12 = 0;
   v14 = 1;
   v15 = 1;
-  v18 = off_1C00610B8;
+  v18 = off_1C00600B8;
   v13 = IntelPptFilter_EvtDestoryCallback;
   v17 = 0LL;
   v10 = 56;
@@ -52,7 +52,7 @@ __int64 __fastcall IntelPptFilter_Create(__int64 a1, __int64 a2, __int64 *a3)
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
            WdfDriverGlobals,
            v19,
-           off_1C00610B8);
+           off_1C00600B8);
     *(_QWORD *)v8 = v19;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {

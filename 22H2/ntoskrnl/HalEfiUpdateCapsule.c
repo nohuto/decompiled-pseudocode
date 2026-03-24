@@ -1,12 +1,10 @@
 /*
- * XREFs of HalEfiUpdateCapsule @ 0x14050D18C
+ * XREFs of HalEfiUpdateCapsule @ 0x1404C3E28
  * Callers:
- *     HalpUpdateCapsule @ 0x140521460 (HalpUpdateCapsule.c)
+ *     HalpUpdateCapsule @ 0x1404D75E0 (HalpUpdateCapsule.c)
  * Callees:
- *     HalpEfiDecrementEfiCall @ 0x14035E4B4 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035E4DC (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035E510 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035E538 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x1404C3EB4 (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C3EE8 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 HalEfiUpdateCapsule()
@@ -14,16 +12,16 @@ __int64 HalEfiUpdateCapsule()
   __int64 v0; // r9
   __int64 v1; // r10
   __int64 v2; // r11
-  __int64 v3; // r8
+  __int64 v3; // rax
 
   if ( !HalEfiRuntimeServicesTable || !HalEfiRuntimeServicesTable[6] )
     return 3221225474LL;
-  HalpEfiIncrementEfiCall(&HalpEfiCapsuleCalls);
-  HalpEfiIncrementEfiCall(&HalpEfiCapsuleWrites);
-  HalpEfiStartRuntimeCode(0x40u);
-  ((void (__fastcall *)(__int64, __int64, __int64))HalEfiRuntimeServicesTable[6])(v2, v1, v0);
+  _InterlockedIncrement(&HalpEfiCapsuleCalls);
+  _InterlockedIncrement(&HalpEfiCapsuleWrites);
+  HalpEfiStartRuntimeCode(64LL);
+  v3 = ((__int64 (__fastcall *)(__int64, __int64, __int64))HalEfiRuntimeServicesTable[6])(v2, v1, v0);
   _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFBF);
-  HalpEfiDecrementEfiCall(&HalpEfiCapsuleWrites);
-  HalpEfiDecrementEfiCall(&HalpEfiCapsuleCalls);
+  _InterlockedDecrement(&HalpEfiCapsuleWrites);
+  _InterlockedDecrement(&HalpEfiCapsuleCalls);
   return HalpConvertEfiToNtStatus(v3);
 }

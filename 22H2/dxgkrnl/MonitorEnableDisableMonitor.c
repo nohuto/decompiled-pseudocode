@@ -1,193 +1,85 @@
 /*
- * XREFs of MonitorEnableDisableMonitor @ 0x1C01F01CC
+ * XREFs of MonitorEnableDisableMonitor @ 0x1C01772F4
  * Callers:
- *     DxgkPowerOnOffMonitor @ 0x1C01EFB34 (DxgkPowerOnOffMonitor.c)
+ *     DxgkPowerOnOffMonitor @ 0x1C0176CB4 (DxgkPowerOnOffMonitor.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SendHostMonitorPowerMsg@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IE@Z @ 0x1C001A530 (-SendHostMonitorPowerMsg@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IE@Z.c)
- *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEA_N@Z @ 0x1C01DD680 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
- *     ?_GetUsb4TargetList@MONITOR_MGR@@QEAAJPEAK0@Z @ 0x1C03C7B50 (-_GetUsb4TargetList@MONITOR_MGR@@QEAAJPEAK0@Z.c)
- *     ?QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03CA7A8 (-QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CON.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0148E90 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
  */
 
 __int64 __fastcall MonitorEnableDisableMonitor(
-        struct DXGADAPTER *a1,
+        PERESOURCE *this,
         __int64 a2,
-        int *a3,
-        __int64 a4,
-        unsigned __int8 a5,
-        unsigned __int64 a6,
-        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a7)
+        unsigned int *a3,
+        char a4,
+        int a5,
+        unsigned __int64 a6)
 {
-  int *v7; // r12
-  __int64 v8; // r14
-  __int64 v10; // r13
-  _QWORD *v11; // rax
-  __int64 v12; // r8
-  unsigned __int64 v13; // rbx
-  unsigned int v14; // eax
-  __int64 v15; // rdi
-  unsigned __int64 v16; // r15
-  char v17; // r15
-  int v18; // edi
-  bool v19; // zf
-  int *v20; // rbx
-  struct DXGGLOBAL *Global; // rax
-  struct DXGGLOBAL *v23; // rax
-  char v24; // r14
-  int *v25; // rbx
-  __int64 v26; // r13
-  unsigned __int8 v27; // di
-  int v28; // eax
-  unsigned int *v29; // r15
-  unsigned int *v30; // rbx
-  bool v31; // of
-  unsigned __int64 v32; // rax
-  unsigned int *v33; // rax
-  int v34; // eax
-  unsigned int *v35; // [rsp+40h] [rbp-58h]
-  __int64 v36; // [rsp+48h] [rbp-50h]
-  unsigned __int8 v37; // [rsp+A0h] [rbp+8h]
-  unsigned int v38; // [rsp+A8h] [rbp+10h]
-  unsigned int v40; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v7; // r15
+  unsigned int *v8; // r14
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  PERESOURCE v13; // rax
+  __int64 SpinLock; // rbp
+  unsigned int v15; // r15d
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // r12
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  _QWORD *v23; // rax
+  int v25; // [rsp+88h] [rbp+20h]
 
-  LOBYTE(v40) = a4;
-  v38 = a2;
-  v7 = a3;
-  v8 = (unsigned int)a2;
-  v10 = (unsigned int)a2;
-  v11 = (_QWORD *)WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-  v11[5] = 2LL;
-  v11[4] = a1;
-  v11[3] = v8;
-  if ( a1 )
+  v7 = (unsigned int)a2;
+  v8 = a3;
+  v10 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2);
+  v10[5] = 2LL;
+  v10[4] = this;
+  v10[3] = v7;
+  if ( !this )
+    return 3221225485LL;
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
   {
-    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)a1) )
-      WdLogSingleEntry0(1LL);
-    if ( !*((_QWORD *)a1 + 365) )
-      WdLogSingleEntry0(1LL);
-    v35 = *(unsigned int **)(*((_QWORD *)a1 + 365) + 112LL);
-    if ( v35 )
-    {
-      v13 = a6;
-      v14 = v8 - 1;
-      v37 = 0;
-      a5 = 0;
-      v15 = (unsigned int)(v8 - 1);
-      v36 = v15;
-      v16 = (a6 != 0) + 2LL;
-      if ( (_DWORD)v8 != 1 )
-      {
-        v24 = v40;
-        v25 = v7;
-        v26 = v14;
-        v27 = 0;
-        do
-        {
-          LOBYTE(v12) = v24;
-          v28 = MONITOR_MGR::_EnableDisableMonitor((__int64)v35, (unsigned int)*v25, v12, 2, v16, (__int64)a7, &a5);
-          if ( v28 < 0 )
-            WdLogSingleEntry3(2LL, (unsigned int)*v25, a1, v28);
-          v27 |= a5;
-          ++v25;
-          --v26;
-        }
-        while ( v26 );
-        LODWORD(v8) = v38;
-        v7 = a3;
-        v10 = v38;
-        v13 = a6;
-        v37 = v27;
-        v15 = v36;
-      }
-      v17 = v40;
-      LOBYTE(v12) = v40;
-      v18 = MONITOR_MGR::_EnableDisableMonitor((__int64)v35, (unsigned int)v7[v15], v12, 2, v13, (__int64)a7, &a5);
-      if ( v18 < 0 )
-        return (unsigned int)v18;
-      if ( (_DWORD)v8 )
-      {
-        v19 = v13 == 0;
-        v20 = v7;
-        if ( v19 )
-        {
-          do
-          {
-            Global = DXGGLOBAL::GetGlobal();
-            HOSTVMMONITORMAPPING::SendHostMonitorPowerMsg(
-              (KSPIN_LOCK *)Global + 38111,
-              *(struct _LUID *)((char *)a1 + 404),
-              *v20++,
-              1u);
-            --v10;
-          }
-          while ( v10 );
-        }
-        else
-        {
-          do
-          {
-            v23 = DXGGLOBAL::GetGlobal();
-            HOSTVMMONITORMAPPING::SendHostMonitorPowerMsg(
-              (KSPIN_LOCK *)v23 + 38111,
-              *(struct _LUID *)((char *)a1 + 404),
-              *v20++,
-              0);
-            --v10;
-          }
-          while ( v10 );
-        }
-      }
-      if ( !(v37 | a5) || v17 != 1 )
-        return (unsigned int)v18;
-      v29 = 0LL;
-      v30 = 0LL;
-      if ( (_DWORD)v8 == 1 && *v7 == -1 )
-      {
-        v8 = v35[8];
-        v32 = 4 * v8;
-        v31 = (v35[8] * (unsigned __int128)4u) >> 64 != 0;
-        v40 = v35[8];
-        if ( v31 )
-          v32 = -1LL;
-        v33 = (unsigned int *)operator new[](v32, 0x4D677844u, 256LL);
-        v30 = v33;
-        if ( v33 )
-        {
-          MONITOR_MGR::_GetUsb4TargetList((MONITOR_MGR *)v35, &v40, v33);
-          LODWORD(v8) = v40;
-          v29 = v30;
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, v8);
-          v18 = -1073741801;
-        }
-        if ( v18 < 0 )
-          goto LABEL_36;
-      }
-      else
-      {
-        v29 = (unsigned int *)v7;
-      }
-      v34 = USB4_POWERON_WORK_QUEUE::QueueWorkItem(
-              (USB4_POWERON_WORK_QUEUE *)((char *)MONITOR_MGR::_pUsb4Manager + 72),
-              a1,
-              v8,
-              v29,
-              a7);
-      v18 = v34;
-      if ( v34 < 0 )
-        WdLogSingleEntry1(2LL, v34);
-LABEL_36:
-      if ( v30 )
-        operator delete(v30);
-      return (unsigned int)v18;
-    }
-    WdLogSingleEntry1(2LL, a1);
+    v18 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v18);
   }
-  return 3221225485LL;
+  v13 = this[337];
+  if ( !v13 )
+  {
+    v19 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v19);
+    v13 = this[337];
+  }
+  SpinLock = v13->SpinLock;
+  if ( !SpinLock )
+  {
+    v17 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v17 + 24) = this;
+    WdLogEvent5_WdError(v17);
+    return 3221225485LL;
+  }
+  v15 = v7 - 1;
+  if ( v15 )
+  {
+    v20 = v15;
+    do
+    {
+      v25 = MONITOR_MGR::_EnableDisableMonitor(SpinLock, *v8, a4, 2, (a6 != 0) + 2LL);
+      if ( v25 < 0 )
+      {
+        v23 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+        v23[3] = *v8;
+        v23[5] = v25;
+        v23[4] = this;
+        WdLogEvent5_WdError(v23);
+      }
+      ++v8;
+      --v20;
+    }
+    while ( v20 );
+    v8 = a3;
+  }
+  return MONITOR_MGR::_EnableDisableMonitor(SpinLock, v8[v15], a4, 2, a6);
 }

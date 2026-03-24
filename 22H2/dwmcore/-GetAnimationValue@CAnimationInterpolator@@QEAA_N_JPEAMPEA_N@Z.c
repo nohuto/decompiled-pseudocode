@@ -1,23 +1,23 @@
 /*
- * XREFs of ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x180280F4C
+ * XREFs of ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18021FCE0
  * Callers:
- *     ?GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z @ 0x1800DC9B0 (-GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z.c)
+ *     ?GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z @ 0x1800C3AE0 (-GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x180280E44 (-GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEA.c)
- *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x180281014 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x18021FBD8 (-GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEA.c)
+ *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18021FDA0 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  */
 
-bool __fastcall CAnimationInterpolator::GetAnimationValue(
+char __fastcall CAnimationInterpolator::GetAnimationValue(
         CAnimationInterpolator *this,
         __int64 a2,
         float *a3,
         bool *a4)
 {
-  bool result; // al
-  float v8; // [rsp+44h] [rbp-1Ch] BYREF
-  int v9; // [rsp+48h] [rbp-18h] BYREF
-  float v10; // [rsp+4Ch] [rbp-14h] BYREF
+  char result; // al
+  float v8; // [rsp+40h] [rbp-20h] BYREF
+  int v9; // [rsp+44h] [rbp-1Ch] BYREF
+  float v10; // [rsp+48h] [rbp-18h] BYREF
   signed __int64 v11; // [rsp+50h] [rbp-10h] BYREF
 
   v8 = 0.0;
@@ -32,10 +32,12 @@ bool __fastcall CAnimationInterpolator::GetAnimationValue(
                &v9,
                &v10,
                &v11);
-    if ( result
-      && (!v9 || (result = CAnimationInterpolator::GetAdjustedHandoffValue((__int64)this, a2, v8, v9, v10, v11, &v8))) )
+    if ( result )
     {
-      *a3 = v8;
+      if ( v9 )
+        result = CAnimationInterpolator::GetAdjustedHandoffValue((__int64)this, a2, v8, v9, v10, v11, &v8);
+      if ( result )
+        *a3 = v8;
     }
   }
   return result;

@@ -1,40 +1,45 @@
 /*
- * XREFs of PopUsbErrorWNFNotificationCallback @ 0x1409961C0
+ * XREFs of PopUsbErrorWNFNotificationCallback @ 0x1408EDEA0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBatteryQueueWork @ 0x1403C5DF8 (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopBatteryQueueWork @ 0x14039A3BC (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
 {
   int v1; // edi
-  int v2; // ebx
-  unsigned int v4; // [rsp+20h] [rbp-38h] BYREF
-  int v5; // [rsp+28h] [rbp-30h] BYREF
-  _DWORD v6[4]; // [rsp+30h] [rbp-28h] BYREF
+  bool v2; // bl
+  bool v3; // zf
+  unsigned int v5; // [rsp+20h] [rbp-38h] BYREF
+  int v6; // [rsp+28h] [rbp-30h] BYREF
+  _DWORD v7[4]; // [rsp+30h] [rbp-28h] BYREF
 
-  v4 = 12;
-  v1 = 0;
-  v2 = ExQueryWnfStateData(a1, &v5, v6, &v4);
-  if ( v2 >= 0 )
+  v5 = 12;
+  v1 = ExQueryWnfStateData(a1, &v6, v7, &v5);
+  if ( v1 >= 0 )
   {
-    if ( v4 == 12 )
+    if ( v5 == 12 )
     {
-      LOBYTE(v1) = v6[2] == 1;
-      PopAcquireRwLockExclusive((ULONG_PTR)&PopWeakChargerLock);
-      PopWeakChargerNotificationUsbStack = v1;
-      PopBatteryQueueWork(0x40u);
-      PopReleaseRwLock(&PopWeakChargerLock);
+      v2 = v7[2] == 1;
+      PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C23DC8);
+      byte_140C23DC4 = v2;
+      if ( v2 )
+        v3 = dword_140C23DC0 == 0;
+      else
+        v3 = dword_140C23DC0 == 1;
+      if ( v3 )
+        PopBatteryQueueWork(0x40u);
+      PopReleaseRwLock((ULONG_PTR)&xmmword_140C23DC8);
     }
     else
     {
       return 128;
     }
   }
-  return (unsigned int)v2;
+  return (unsigned int)v1;
 }

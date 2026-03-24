@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPostMouseWheelToForeground @ 0x1C0232F1C
+ * XREFs of EditionPostMouseWheelToForeground @ 0x1C01FC20C
  * Callers:
- *     ApiSetEditionPostMouseWheelToForeground @ 0x1C0207414 (ApiSetEditionPostMouseWheelToForeground.c)
+ *     ApiSetEditionPostMouseWheelToForeground @ 0x1C01CD2D8 (ApiSetEditionPostMouseWheelToForeground.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EditionPostMouseWheelToForeground(
@@ -19,8 +19,8 @@ __int64 (__fastcall *__fastcall EditionPostMouseWheelToForeground(
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD); // rax
 
-  result = qword_1C02963F0;
-  if ( qword_1C02963F0 )
-    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD))qword_1C02963F0(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  result = qword_1C02571C0;
+  if ( qword_1C02571C0 )
+    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD))qword_1C02571C0(a1, a2, a3, a4, a5, a6, a7, a8, a9);
   return result;
 }

@@ -1,36 +1,38 @@
 /*
- * XREFs of PspSinglePrivCheck @ 0x1407E4308
+ * XREFs of PspSinglePrivCheck @ 0x140688E8C
  * Callers:
- *     PspSetQuotaLimits @ 0x1407E3E94 (PspSetQuotaLimits.c)
+ *     PspSetQuotaLimits @ 0x140688A74 (PspSetQuotaLimits.c)
  * Callees:
- *     SePrivilegeCheck @ 0x14072F320 (SePrivilegeCheck.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
+ *     SePrivilegeCheck @ 0x1406CDD00 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall PspSinglePrivCheck(__int64 a1, __int64 a2, KPROCESSOR_MODE a3, __int64 a4)
 {
-  int v6; // ebp
+  unsigned __int8 v6; // bl
+  int v7; // ebp
   __int64 **i; // r14
-  __int64 v8; // rcx
+  __int64 v9; // rcx
 
   *(_BYTE *)(a4 + 52) = a3;
   if ( !a3 )
     return 1LL;
+  v6 = 1;
   *(_DWORD *)(a4 + 32) = 1;
   *(_DWORD *)(a4 + 36) = 1;
   SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)a4);
-  v6 = 0;
+  v7 = 0;
   *(_BYTE *)(a4 + 53) = 0;
   for ( i = &PspWorkingSetPrivileges; ; ++i )
   {
-    v8 = **i;
+    v9 = **i;
     *(_DWORD *)(a4 + 48) = 0;
-    *(_QWORD *)(a4 + 40) = v8;
+    *(_QWORD *)(a4 + 40) = v9;
     if ( SePrivilegeCheck((PPRIVILEGE_SET)(a4 + 32), (PSECURITY_SUBJECT_CONTEXT)a4, a3) == 1 )
       break;
-    if ( (unsigned int)++v6 >= 2 )
+    if ( (unsigned int)++v7 >= 2 )
       return *(unsigned __int8 *)(a4 + 53);
   }
   *(_BYTE *)(a4 + 53) = 1;
-  return *(unsigned __int8 *)(a4 + 53);
+  return v6;
 }

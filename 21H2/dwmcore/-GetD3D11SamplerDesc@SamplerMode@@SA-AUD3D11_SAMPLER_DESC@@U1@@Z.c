@@ -1,40 +1,43 @@
 /*
- * XREFs of ?GetD3D11SamplerDesc@SamplerMode@@SA?AUD3D11_SAMPLER_DESC@@U1@@Z @ 0x1800F43E8
+ * XREFs of ?GetD3D11SamplerDesc@SamplerMode@@SA?AUD3D11_SAMPLER_DESC@@U1@@Z @ 0x1800DEC54
  * Callers:
- *     ?GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z @ 0x18027E528 (-GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z.c)
+ *     ?GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z @ 0x180053244 (-GetD3DSamplerStateNoRef@CD3DDevice@@QEAAJUSamplerMode@@PEAPEAUID3D11SamplerState@@@Z.c)
  * Callees:
- *     ?ToD3D11TextureAddressMode@ExtendMode@@YA?AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z @ 0x1800F445C (-ToD3D11TextureAddressMode@ExtendMode@@YA-AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z.c)
+ *     ?ToD3D11TextureAddressMode@ExtendMode@@YA?AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z @ 0x1800DECC4 (-ToD3D11TextureAddressMode@ExtendMode@@YA-AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z.c)
  */
 
 __int64 __fastcall SamplerMode::GetD3D11SamplerDesc(int *a1, _BYTE *a2)
 {
-  int v2; // eax
+  int *v2; // r8
   int v3; // eax
-  __int64 v4; // r9
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v7; // eax
-  __int64 v8; // r8
+  int v4; // eax
+  __int64 v5; // r9
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  int v9; // eax
+  __int64 v10; // r8
   __int64 result; // rax
-  __int64 v10; // r10
+  __int64 v12; // r10
 
-  v2 = 21;
+  v2 = a1;
+  v3 = 21;
   if ( !*a2 )
-    v2 = 0;
-  *a1 = v2;
+    v3 = 0;
+  *a1 = v3;
   LOBYTE(a1) = a2[1];
-  v3 = ExtendMode::ToD3D11TextureAddressMode(a1);
-  LOBYTE(v5) = *(_BYTE *)(v4 + 2);
-  *(_DWORD *)(v6 + 4) = v3;
-  v7 = ExtendMode::ToD3D11TextureAddressMode(v5);
-  *(_DWORD *)(v8 + 8) = v7;
-  result = v8;
-  *(_QWORD *)(v8 + 12) = 3LL;
-  *(_DWORD *)(v8 + 20) = 1;
-  *(_QWORD *)(v8 + 24) = 8LL;
-  *(_QWORD *)(v8 + 36) = v10;
-  *(_DWORD *)(v8 + 32) = v10;
-  *(_DWORD *)(v8 + 44) = v10;
-  *(_DWORD *)(v8 + 48) = 2139095039;
+  v4 = ExtendMode::ToD3D11TextureAddressMode(a1, a2, v2);
+  LOBYTE(v6) = *(_BYTE *)(v5 + 2);
+  *(_DWORD *)(v7 + 4) = v4;
+  v9 = ExtendMode::ToD3D11TextureAddressMode(v6, v8, v7);
+  *(_DWORD *)(v10 + 8) = v9;
+  result = v10;
+  *(_QWORD *)(v10 + 12) = 3LL;
+  *(_DWORD *)(v10 + 20) = 1;
+  *(_QWORD *)(v10 + 24) = 8LL;
+  *(_QWORD *)(v10 + 36) = v12;
+  *(_DWORD *)(v10 + 32) = v12;
+  *(_DWORD *)(v10 + 44) = v12;
+  *(_DWORD *)(v10 + 48) = 2139095039;
   return result;
 }

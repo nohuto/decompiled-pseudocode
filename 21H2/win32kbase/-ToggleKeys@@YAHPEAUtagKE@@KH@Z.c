@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ToggleKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B97E0
+ * XREFs of ?ToggleKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0183A10
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0209254 (ApiSetEditionKillAccessibilityTimer.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
- *     ApiSetEditionSetAccessibilityTimer @ 0x1C020B760 (ApiSetEditionSetAccessibilityTimer.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC6B0 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
+ *     ApiSetEditionSetAccessibilityTimer @ 0x1C01CDE54 (ApiSetEditionSetAccessibilityTimer.c)
  */
 
 __int64 __fastcall ToggleKeys(struct tagKE *a1, unsigned int a2, int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall ToggleKeys(struct tagKE *a1, unsigned int a2, int a3)
       goto LABEL_8;
     case 0x91:
 LABEL_16:
-      if ( (dword_1C0295A0C & 1) != 0 && !v4 )
+      if ( (dword_1C0250BCC & 1) != 0 && !v4 )
       {
         v7 = v5 & 3;
         v8 = *((unsigned __int8 *)&gafAsyncKeyState + (v3 >> 2));
@@ -55,7 +55,7 @@ LABEL_16:
   }
 LABEL_8:
   if ( ((unsigned __int8)gLockBits | (unsigned __int8)(gLatchBits | gPhysModifierState)) != 17
-    || (dword_1C0295A24 & 4) == 0 )
+    || (dword_1C0250BD4 & 4) == 0 )
   {
     if ( (*((_WORD *)a1 + 1) & 0x8000) != 0 )
     {
@@ -64,7 +64,7 @@ LABEL_8:
       gTKExtraInformation = 0;
       gTKScanCode = 0;
     }
-    else if ( !gtmridToggleKeys && (dword_1C0295A0C & 4) != 0 )
+    else if ( !gtmridToggleKeys && (dword_1C0250BCC & 4) != 0 )
     {
       v6 = *(_BYTE *)a1;
       gTKExtraInformation = a2;
@@ -72,7 +72,7 @@ LABEL_8:
       gTKScanCode = v6;
       gtmridToggleKeys = ApiSetEditionSetAccessibilityTimer(0LL, 5000LL, xxxToggleKeysTimer);
     }
-    if ( (dword_1C0295A24 & 1) == 0 )
+    if ( (dword_1C0250BD4 & 1) == 0 )
       goto LABEL_16;
   }
   return 1LL;

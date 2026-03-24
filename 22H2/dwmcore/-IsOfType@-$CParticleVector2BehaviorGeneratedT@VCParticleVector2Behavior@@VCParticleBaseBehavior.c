@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CParticleVector2BehaviorGeneratedT@VCParticleVector2Behavior@@VCParticleBaseBehavior@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C50A0
+ * XREFs of ?IsOfType@?$CParticleVector2BehaviorGeneratedT@VCParticleVector2Behavior@@VCParticleBaseBehavior@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016EEE0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@?$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C4FB0 (-IsOfType@-$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@.c)
+ *     ?IsOfType@?$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016EDF0 (-IsOfType@-$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@.c)
  */
 
 char __fastcall CParticleVector2BehaviorGeneratedT<CParticleVector2Behavior,CParticleBaseBehavior>::IsOfType(
@@ -13,7 +13,7 @@ char __fastcall CParticleVector2BehaviorGeneratedT<CParticleVector2Behavior,CPar
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 123 )
+  if ( a2 == 121 )
     return 1;
   v2 = CParticleBaseBehaviorGeneratedT<CParticleBaseBehavior,CPropertyChangeResource>::IsOfType(a1, a2);
   v3 = 0;

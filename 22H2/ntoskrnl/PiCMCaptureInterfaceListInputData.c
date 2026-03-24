@@ -1,41 +1,38 @@
 /*
- * XREFs of PiCMCaptureInterfaceListInputData @ 0x1407CA33C
+ * XREFs of PiCMCaptureInterfaceListInputData @ 0x14068FF1C
  * Callers:
- *     PiCMGetDeviceInterfaceList @ 0x1407CA19C (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetDeviceInterfaceList @ 0x14068FD38 (PiCMGetDeviceInterfaceList.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC8C (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D42A0 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14032D940 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406AE4B0 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)
 {
-  int v6; // r12d
-  char PreviousMode; // r9
+  int v5; // r15d
+  char PreviousMode; // r12
   int UserModeCallersCopy; // ebx
-  unsigned __int64 v9; // r8
-  void **v10; // r14
-  char *v11; // rcx
-  _DWORD *v12; // r15
-  unsigned __int64 v14; // r8
-  unsigned int v15; // r8d
-  char v16; // [rsp+80h] [rbp+8h]
+  unsigned __int64 v8; // r8
+  _QWORD *v9; // r14
+  __int64 v10; // rcx
+  unsigned __int64 v12; // r8
+  __int64 v13; // r8
 
-  v6 = 0;
+  v5 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v16 = PreviousMode;
   UserModeCallersCopy = 0;
   if ( !a1 || !a2 )
   {
     UserModeCallersCopy = -1073741811;
-    goto LABEL_19;
+    goto LABEL_17;
   }
   if ( a3 )
   {
     if ( (a1 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v14 = a1 + a2;
-    if ( v14 > 0x7FFFFFFF0000LL || v14 < a1 )
+    v12 = a1 + a2;
+    if ( v12 > 0x7FFFFFFF0000LL || v12 < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( a2 >= 0x24 && *(_DWORD *)a1 == 36 )
     {
@@ -55,8 +52,8 @@ __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsign
   {
     if ( (a1 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v9 = a1 + a2;
-    if ( v9 > 0x7FFFFFFF0000LL || v9 < a1 )
+    v8 = a1 + a2;
+    if ( v8 > 0x7FFFFFFF0000LL || v8 < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( a2 < 0x28 )
     {
@@ -72,54 +69,40 @@ __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsign
     }
   }
   if ( UserModeCallersCopy < 0 )
-  {
-LABEL_37:
-    v10 = (void **)(a4 + 24);
-    goto LABEL_38;
-  }
-  v10 = (void **)(a4 + 24);
-  v11 = *(char **)(a4 + 24);
+    goto LABEL_33;
+  v9 = (_QWORD *)(a4 + 24);
+  v10 = *(_QWORD *)(a4 + 24);
   *(_QWORD *)(a4 + 24) = 0LL;
-  if ( v11 )
+  if ( !v10 )
   {
-    v12 = (_DWORD *)(a4 + 32);
-    v15 = *(_DWORD *)(a4 + 32);
-    if ( v15 >= 2 )
+    if ( !*(_DWORD *)(a4 + 32) )
+      goto LABEL_17;
+    goto LABEL_32;
+  }
+  v13 = *(unsigned int *)(a4 + 32);
+  if ( (unsigned int)v13 >= 2 )
+  {
+    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(a4 + 24, v10, v13, 2LL, PreviousMode, 1);
+    if ( UserModeCallersCopy < 0 )
     {
-      UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 24), v11, v15, 2u, PreviousMode, 1);
-      if ( UserModeCallersCopy < 0 )
-      {
-        *v10 = 0LL;
-        *v12 = 0;
-      }
-      else
-      {
-        v6 = 1;
-        *((_WORD *)*v10 + ((unsigned __int64)(unsigned int)*v12 >> 1) - 1) = 0;
-      }
-      goto LABEL_19;
+      *v9 = 0LL;
+      *(_DWORD *)(a4 + 32) = 0;
     }
-  }
-  else
-  {
-    v12 = (_DWORD *)(a4 + 32);
-  }
-  if ( v11 )
-  {
-    if ( *v12 < 2u )
-      goto LABEL_35;
-LABEL_19:
+    else
+    {
+      v5 = 1;
+      *(_WORD *)(*v9 + 2 * ((unsigned __int64)*(unsigned int *)(a4 + 32) >> 1) - 2) = 0;
+    }
+LABEL_17:
     if ( UserModeCallersCopy >= 0 )
       return (unsigned int)UserModeCallersCopy;
-    goto LABEL_37;
+    goto LABEL_33;
   }
-  if ( !*v12 )
-    goto LABEL_19;
-LABEL_35:
+LABEL_32:
   UserModeCallersCopy = -1073741811;
-LABEL_38:
-  if ( v6 )
-    PiControlFreeUserModeCallersBuffer(v16, *v10);
+LABEL_33:
+  if ( v5 )
+    PiControlFreeUserModeCallersBuffer(PreviousMode, *(void **)(a4 + 24));
   *(_OWORD *)a4 = 0LL;
   *(_OWORD *)(a4 + 16) = 0LL;
   *(_QWORD *)(a4 + 32) = 0LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializeEnclave @ 0x140A3DF08
+ * XREFs of MiInitializeEnclave @ 0x1408D2FE0
  * Callers:
- *     NtInitializeEnclave @ 0x140A3F000 (NtInitializeEnclave.c)
+ *     NtInitializeEnclave @ 0x1408D41C0 (NtInitializeEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     KeInitializeEnclave @ 0x1409746E0 (KeInitializeEnclave.c)
- *     MiInitializeVsmEnclave @ 0x140A3E010 (MiInitializeVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140AAD770 (MiReturnReservedEnclavePages.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     KeInitializeEnclave @ 0x1408BB738 (KeInitializeEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1408D30E8 (MiInitializeVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x1409B0EA0 (MiReturnReservedEnclavePages.c)
  */
 
-__int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall MiInitializeEnclave(PEPROCESS Process, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
-  __int64 *v8; // rax
+  volatile signed __int32 *v8; // rax
   __int64 v9; // r8
-  __int64 *v10; // rdi
+  volatile signed __int32 *v10; // rdi
   int v12; // ebx
   int v13; // eax
   int v14; // [rsp+20h] [rbp-28h]
@@ -25,7 +25,7 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
   v10 = v8;
   if ( !v8 )
     return v15[0];
-  if ( (v8[6] & 0x6200000) == 0x4200000 )
+  if ( (v8[12] & 0x3100000) == 0x2100000 )
   {
     v13 = *((_DWORD *)v8 + 16);
     if ( (v13 & 2) != 0 )
@@ -36,7 +36,7 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
     {
       if ( a4 == 4096 )
       {
-        v12 = KeInitializeEnclave(v10[10] << 25 >> 16, a3, v9, a3 + 2048, v14, a5);
+        v12 = KeInitializeEnclave((__int64)(*((_QWORD *)v10 + 10) << 25) >> 16, a3, v9, a3 + 2048, v14, a5);
         if ( v12 >= 0 )
         {
           MiReturnReservedEnclavePages(v10, -1LL);
@@ -51,7 +51,7 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
     }
     else
     {
-      v12 = MiInitializeVsmEnclave(a1, v10, a3, a4);
+      v12 = MiInitializeVsmEnclave(Process);
     }
   }
   else

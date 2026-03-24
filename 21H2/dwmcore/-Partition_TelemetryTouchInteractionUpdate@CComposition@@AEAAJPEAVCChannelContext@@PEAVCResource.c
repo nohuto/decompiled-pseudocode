@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Partition_TelemetryTouchInteractionUpdate@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYTOUCHINTERACTIONUPDATE@@@Z @ 0x180018DDC
+ * XREFs of ?Partition_TelemetryTouchInteractionUpdate@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYTOUCHINTERACTIONUPDATE@@@Z @ 0x18001DAF4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComposition::Partition_TelemetryTouchInteractionUpdate(
@@ -17,12 +17,12 @@ __int64 __fastcall CComposition::Partition_TelemetryTouchInteractionUpdate(
   unsigned int v5; // ecx
   unsigned int v6; // ebx
 
-  v4 = (*(__int64 (__fastcall **)(_QWORD, char *, struct CResourceTable *))(**((_QWORD **)this + 82) + 16LL))(
-         *((_QWORD *)this + 82),
+  v4 = (*(__int64 (__fastcall **)(_QWORD, char *, struct CResourceTable *))(**((_QWORD **)this + 63) + 16LL))(
+         *((_QWORD *)this + 63),
          (char *)a4 + 8,
          a3);
   v6 = v4;
   if ( v4 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x518u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x492u, 0LL);
   return v6;
 }

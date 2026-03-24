@@ -1,21 +1,20 @@
 /*
- * XREFs of ?AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@PEBIIU_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@@Z @ 0x1C0195464
+ * XREFs of ?AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@PEBIIU_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@@Z @ 0x1C00E52AC
  * Callers:
- *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0188C5C (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E3A58 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
  * Callees:
- *     ?GetCddInterface@ADAPTER_DISPLAY@@QEBAPEBU_CDDDXGK_INTERFACE@@I@Z @ 0x1C000122C (-GetCddInterface@ADAPTER_DISPLAY@@QEBAPEBU_CDDDXGK_INTERFACE@@I@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0008248 (-IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0173924 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?CheckSessionOwnership@DISPLAY_SOURCE@@QEAAEXZ @ 0x1C01885C4 (-CheckSessionOwnership@DISPLAY_SOURCE@@QEAAEXZ.c)
- *     ?HasContextWithHintType@DXGDEVICE@@QEAAEW4_D3DKMT_CLIENTHINT@@@Z @ 0x1C01899D4 (-HasContextWithHintType@DXGDEVICE@@QEAAEW4_D3DKMT_CLIENTHINT@@@Z.c)
- *     ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x1C0194B64 (-IssueCommand@BLTQUEUE@@AEAAJXZ.c)
- *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C01A1EB0 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?ReleaseSharedVidPnSourceOwner@ADAPTER_DISPLAY@@AEAAEPEAVDXGDEVICE@@I@Z @ 0x1C02BEA4C (-ReleaseSharedVidPnSourceOwner@ADAPTER_DISPLAY@@AEAAEPEAVDXGDEVICE@@I@Z.c)
+ *     ?IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0001E30 (-IsPartOfDesktop@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     ?GetCddInterface@ADAPTER_DISPLAY@@QEBAPEBU_CDDDXGK_INTERFACE@@I@Z @ 0x1C0017B38 (-GetCddInterface@ADAPTER_DISPLAY@@QEBAPEBU_CDDDXGK_INTERFACE@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?CheckSessionOwnership@DISPLAY_SOURCE@@QEAAEXZ @ 0x1C00E5268 (-CheckSessionOwnership@DISPLAY_SOURCE@@QEAAEXZ.c)
+ *     ?HasOpenGlContext@DXGDEVICE@@QEAAEXZ @ 0x1C00E591C (-HasOpenGlContext@DXGDEVICE@@QEAAEXZ.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C00EABA0 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C015D0D4 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
+ *     ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x1C01645B8 (-IssueCommand@BLTQUEUE@@AEAAJXZ.c)
+ *     ?ReleaseSharedVidPnSourceOwner@ADAPTER_DISPLAY@@AEAAEPEAVDXGDEVICE@@I@Z @ 0x1C0214734 (-ReleaseSharedVidPnSourceOwner@ADAPTER_DISPLAY@@AEAAEPEAVDXGDEVICE@@I@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::AcquireVidPnSourceOwner(
@@ -26,548 +25,466 @@ __int64 __fastcall ADAPTER_DISPLAY::AcquireVidPnSourceOwner(
         unsigned int a5,
         struct _D3DKMT_VIDPNSOURCEOWNER_FLAGS a6)
 {
-  signed __int64 v10; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r13
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   struct DXGPROCESS *Current; // rbx
-  struct _LUID *v12; // rdx
-  DXGADAPTER *v13; // rcx
+  struct _LUID *v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rbx
+  __int64 v19; // r8
+  DXGADAPTER *v20; // rcx
   bool IsAdapterSessionized; // al
-  __int64 v15; // r11
-  ERESOURCE_THREAD OwnerThread; // rcx
-  __int64 v17; // rbx
-  unsigned int *v18; // rdi
-  signed __int64 v19; // r15
-  __int64 v20; // rdx
-  __int64 v21; // rax
   __int64 v22; // rdx
-  PERESOURCE *v23; // r10
-  __int64 v24; // r9
-  struct DXGDEVICE *v25; // r11
-  signed __int64 v26; // rbp
-  struct _D3DKMT_VIDPNSOURCEOWNER_FLAGS::$E3CFEB816EDED244F3F6DA55B10CA063::$8A2F5ADB3529A3A021294BA5D3A2A057 v27; // ebx
-  __int64 v28; // r15
-  PERESOURCE *v29; // rdx
-  __int64 v30; // rcx
-  struct DXGDEVICE *v31; // r9
-  PERESOURCE *v32; // rcx
-  int v34; // r8d
-  int v35; // eax
-  int v36; // r8d
-  __int64 v37; // rbx
-  __int64 v38; // rbx
-  __int64 v39; // rdi
-  __int64 v40; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  _BOOL8 v25; // r15
+  ERESOURCE_THREAD OwnerThread; // rax
+  __int64 v27; // rbx
+  unsigned int *v28; // r12
+  signed __int64 v29; // rax
+  int v30; // eax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // r15
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  PERESOURCE *v37; // r9
+  __int64 v38; // r8
+  struct _ERESOURCE *v39; // r10
+  struct DXGDEVICE *v40; // rax
+  struct _D3DKMT_VIDPNSOURCEOWNER_FLAGS::$E3CFEB816EDED244F3F6DA55B10CA063::$8A2F5ADB3529A3A021294BA5D3A2A057 v41; // ebx
+  signed __int64 v42; // rbp
+  __int64 v43; // r12
+  __int64 v44; // r9
+  PERESOURCE *v45; // rcx
+  __int64 v46; // rdx
+  struct DXGDEVICE *v47; // r10
+  int v48; // eax
+  PERESOURCE *v49; // rcx
+  _QWORD *v50; // rax
+  __int64 v52; // rax
+  int v53; // r8d
+  __int64 v54; // rax
+  __int64 v55; // rax
+  _QWORD *v56; // rax
+  __int64 v57; // rcx
   __int64 CurrentProcess; // rax
   int ProcessSessionId; // eax
-  __int64 v43; // rcx
-  __int64 v44; // rax
-  unsigned int v45; // eax
-  __int64 v46; // rbx
-  __int64 v47; // rcx
-  __int64 v48; // rax
-  unsigned int v49; // eax
-  __int64 v50; // rcx
-  __int64 v51; // rcx
-  __int64 v52; // rcx
-  __int64 v53; // r15
-  struct DXGDEVICE *v54; // rax
-  __int64 v55; // r9
-  __int64 v56; // r8
-  const wchar_t *v57; // r9
-  __int64 v58; // r9
-  __int64 v59; // rcx
-  __int64 v60; // rcx
-  __int64 v61; // r9
-  __int64 v62; // rdx
-  __int64 v63; // rdi
-  struct DXGDEVICE **v64; // r15
-  BLTQUEUE *v65; // rcx
+  __int64 v60; // rax
+  __int64 v61; // rcx
+  __int64 v62; // rbx
+  __int64 v63; // rax
+  __int64 v64; // rcx
+  _QWORD *v65; // rax
+  __int64 v66; // rcx
+  __int64 v67; // rax
+  __int64 v68; // rax
+  __int64 v69; // rcx
+  _QWORD *v70; // rax
+  __int64 v71; // rcx
+  __int64 v72; // rcx
+  __int64 v73; // rax
+  _QWORD *v74; // rax
+  _QWORD *v75; // rax
+  __int64 v76; // rcx
+  __int64 v77; // rdx
+  __int64 v78; // rcx
+  __int64 v79; // rax
+  __int64 v80; // rax
+  __int64 v81; // rax
+  __int64 v82; // rax
+  __int64 v83; // r15
   const struct _CDDDXGK_INTERFACE *CddInterface; // rax
-  __int64 v67; // [rsp+28h] [rbp-60h]
-  __int64 v68; // [rsp+30h] [rbp-58h]
-  __int64 v69; // [rsp+38h] [rbp-50h]
-  int v70; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v71; // [rsp+58h] [rbp-30h]
-  signed __int64 i; // [rsp+90h] [rbp+8h] BYREF
+  int v85[4]; // [rsp+30h] [rbp-38h] BYREF
+  signed __int64 i; // [rsp+70h] [rbp+8h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 1976LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 1976LL, 0LL, 0LL, 0LL, 0LL);
+    v54 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v54 + 24) = 1930LL;
+    WdLogEvent5_WdAssertion(v54);
   }
-  v10 = a5;
-  if ( *((_DWORD *)this + 24) < a5 )
+  v12 = a5;
+  if ( *((_DWORD *)this + 20) < a5 )
   {
-    v37 = a5;
-    WdLogSingleEntry3(2LL, a2, a5, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Device 0x%I64x: Invalid Output (0x%I64x) specified, returning 0x%I64x",
-      (__int64)a2,
-      v37,
-      -1073741811LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v74 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    LODWORD(v27) = -1073741811;
+    v74[4] = v12;
+    v74[5] = -1073741811LL;
+LABEL_100:
+    v74[3] = a2;
+    goto LABEL_101;
   }
   if ( !a3 || !a4 )
   {
-    WdLogSingleEntry5(2LL, a2, a3, a4, a3, -1073741811LL);
-    v57 = L"Device 0x%I64x: Invalid parameter (0x%I64x 0x%I64x 0x%I64x) specified, returning 0x%I64x";
-    v69 = (__int64)a3;
-    v68 = (__int64)a4;
-    v67 = (__int64)a3;
-    goto LABEL_110;
+    v74 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    LODWORD(v27) = -1073741811;
+    v74[4] = a3;
+    v74[5] = a4;
+    v74[6] = a3;
+    v74[7] = -1073741811LL;
+    goto LABEL_100;
   }
-  v70 = 0;
+  v85[0] = 0;
   Current = DXGPROCESS::GetCurrent();
   if ( !Current )
   {
-    WdLogSingleEntry1(1LL, 2010LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess", 2010LL, 0LL, 0LL, 0LL, 0LL);
+    v55 = WdLogNewEntry5_WdAssertion(v14, v13);
+    *(_QWORD *)(v55 + 24) = 1964LL;
+    WdLogEvent5_WdAssertion(v55);
   }
-  (*(void (__fastcall **)(int *, _QWORD, _QWORD))(*((_QWORD *)Current + 11) + 224LL))(&v70, 0LL, 0LL);
-  if ( !v70 )
+  v18 = (*(int (__fastcall **)(int *, _QWORD, _QWORD))(*((_QWORD *)Current + 11) + 224LL))(v85, 0LL, 0LL);
+  if ( !v85[0] )
   {
-    WdLogSingleEntry2(3LL, a2, -1073741790LL);
+    v52 = WdLogNewEntry5_WdWarning(v17, v16, v19);
+    *(_QWORD *)(v52 + 24) = a2;
+    *(_QWORD *)(v52 + 32) = -1073741790LL;
+    WdLogEvent5_WdWarning(v52);
     return 3221225506LL;
   }
-  v13 = (DXGADAPTER *)this[2];
+  v20 = (DXGADAPTER *)this[2];
   LODWORD(i) = 0;
-  IsAdapterSessionized = DXGADAPTER::IsAdapterSessionized(v13, v12, (unsigned int *)&i, 0LL);
-  if ( !IsAdapterSessionized )
+  IsAdapterSessionized = DXGADAPTER::IsAdapterSessionized(v20, v16, (unsigned int *)&i, 0LL);
+  v25 = IsAdapterSessionized;
+  if ( IsAdapterSessionized )
   {
-    if ( !(_DWORD)v15 )
-      goto LABEL_11;
-    WdLogSingleEntry5(3LL, a2, v15, IsAdapterSessionized, (unsigned int)i, -1073741790LL);
-    LOBYTE(v51) = 1;
-    if ( (unsigned __int8)WdIsDebuggerPresent(v51) )
+    if ( (_DWORD)v18 )
     {
-      DbgPrintEx(0x65u, 0, "Breaking in so rcoote can check why remote app is taking console output ownership");
-      goto LABEL_63;
+      CurrentProcess = PsGetCurrentProcess();
+      ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
+      if ( (_DWORD)i == ProcessSessionId )
+        goto LABEL_11;
+      v60 = WdLogNewEntry5_WdError(v23, v22);
+      v61 = (unsigned int)i;
+      v62 = v60;
+      *(_QWORD *)(v60 + 24) = a2;
+      *(_QWORD *)(v60 + 32) = v61;
+      v63 = PsGetCurrentProcess();
+      *(_QWORD *)(v62 + 40) = (unsigned int)PsGetProcessSessionId(v63);
+      *(_QWORD *)(v62 + 48) = -1073741790LL;
+      WdLogEvent5_WdError(v62);
+      LOBYTE(v64) = 1;
+      if ( !(unsigned __int8)WdIsDebuggerPresent(v64) )
+        return 3221225506LL;
+      DbgPrintEx(
+        0x65u,
+        0,
+        "Breaking in so rcoote can check why remote app is trying to take ownership of a remote session ouput");
     }
-    return 3221225506LL;
-  }
-  if ( !(_DWORD)v15 )
-  {
-    v38 = (unsigned int)i;
-    v39 = IsAdapterSessionized;
-    WdLogSingleEntry5(2LL, a2, 0LL, IsAdapterSessionized, (unsigned int)i, -1073741790LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Console session is trying to acquire ownership of a session adapter, device 0x%I64x, RemoteSession = 0x%I"
-                "64x, bIsAdapterSessionized = 0x%I64x, AdapterSessionId = 0x%I64x, returning 0x%I64x",
-      (__int64)a2,
-      0LL,
-      v39,
-      v38,
-      -1073741790LL);
-    LOBYTE(v40) = 1;
-    if ( !(unsigned __int8)WdIsDebuggerPresent(v40) )
-      return 3221225506LL;
-    DbgPrintEx(0x65u, 0, "Breaking in so rcoote can check why console app is taking sessionized output ownership");
-LABEL_63:
+    else
+    {
+      v56 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+      v56[5] = v25;
+      v56[6] = (unsigned int)i;
+      v56[3] = a2;
+      v56[4] = 0LL;
+      v56[7] = -1073741790LL;
+      WdLogEvent5_WdError(v56);
+      LOBYTE(v57) = 1;
+      if ( !(unsigned __int8)WdIsDebuggerPresent(v57) )
+        return 3221225506LL;
+      DbgPrintEx(0x65u, 0, "Breaking in so rcoote can check why console app is taking sessionized output ownership");
+    }
+LABEL_68:
     __debugbreak();
     return 3221225506LL;
   }
-  CurrentProcess = PsGetCurrentProcess(IsAdapterSessionized);
-  ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
-  if ( (_DWORD)i != ProcessSessionId )
+  if ( (_DWORD)v18 )
   {
-    v44 = PsGetCurrentProcess(v43);
-    v45 = PsGetProcessSessionId(v44);
-    v46 = (unsigned int)i;
-    WdLogSingleEntry4(2LL, a2, (unsigned int)i, v45, -1073741790LL);
-    v48 = PsGetCurrentProcess(v47);
-    v49 = PsGetProcessSessionId(v48);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Remote session trying acquire ownership of a different sessions adapter, device 0x%I64x, AdapterSession  "
-                "= 0x%I64x, Current Session  = 0x%I64x",
-      (__int64)a2,
-      v46,
-      v49,
-      -1073741790LL,
-      0LL);
-    LOBYTE(v50) = 1;
-    if ( !(unsigned __int8)WdIsDebuggerPresent(v50) )
-      return 3221225506LL;
-    DbgPrintEx(
-      0x65u,
-      0,
-      "Breaking in so rcoote can check why remote app is trying to take ownership of a remote session ouput");
-    goto LABEL_63;
+    v65 = (_QWORD *)WdLogNewEntry5_WdWarning(v23, v22, v24);
+    v65[6] = (unsigned int)i;
+    v65[3] = a2;
+    v65[4] = v18;
+    v65[5] = v25;
+    v65[7] = -1073741790LL;
+    WdLogEvent5_WdWarning(v65);
+    LOBYTE(v66) = 1;
+    if ( (unsigned __int8)WdIsDebuggerPresent(v66) )
+    {
+      DbgPrintEx(0x65u, 0, "Breaking in so rcoote can check why remote app is taking console output ownership");
+      goto LABEL_68;
+    }
+    return 3221225506LL;
   }
 LABEL_11:
   OwnerThread = a2->OwnerTable[1].OwnerThread;
   if ( !OwnerThread
-    || !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*(_QWORD *)(OwnerThread + 2928) + 16LL)) )
+    || !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*(_QWORD *)(OwnerThread + 2704) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 2101LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(pRenderAdapter != NULL) && (pRenderAdapter->GetRenderCore()->IsCoreResourceExclusiveOwner())",
-      2101LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v67 = WdLogNewEntry5_WdAssertion(v23, v22);
+    *(_QWORD *)(v67 + 24) = 2055LL;
+    WdLogEvent5_WdAssertion(v67);
   }
-  v17 = 0LL;
-  if ( !(_DWORD)v10 )
+  v27 = 0LL;
+  if ( !(_DWORD)v12 )
   {
-    v26 = (char *)a3 - a4;
-    goto LABEL_29;
+LABEL_34:
+    if ( DXGDEVICE::HasOpenGlContext((DXGDEVICE *)a2) )
+    {
+      v79 = WdLogNewEntry5_WdEvent();
+      *(_QWORD *)(v79 + 24) = a2;
+      WdLogEvent5_WdEvent(v79);
+    }
+    if ( !(_DWORD)v12 )
+      return 0LL;
+    v41 = a6.0;
+    v42 = (char *)a3 - a4;
+    v43 = v12;
+    while ( 1 )
+    {
+      v44 = *(unsigned int *)a4;
+      v45 = this[14];
+      v46 = 3968 * v44;
+      v47 = (struct DXGDEVICE *)v45[496 * v44 + 86];
+      if ( !v47 )
+        break;
+      v48 = *(_DWORD *)&a4[v42];
+      if ( v48 != 4 )
+      {
+        v53 = (int)v45[(unsigned __int64)v46 / 8 + 87];
+        if ( v47 == (struct DXGDEVICE *)a2 )
+        {
+          if ( v53 != v48 )
+          {
+            v80 = WdLogNewEntry5_WdAssertion(v45, v46);
+            *(_QWORD *)(v80 + 24) = 2311LL;
+            WdLogEvent5_WdAssertion(v80);
+          }
+          goto LABEL_40;
+        }
+        if ( v53 != 1 || v48 == 1 )
+        {
+          v81 = WdLogNewEntry5_WdAssertion(v45, v46);
+          *(_QWORD *)(v81 + 24) = 2321LL;
+          WdLogEvent5_WdAssertion(v81);
+          v45 = this[14];
+          LODWORD(v44) = *(_DWORD *)a4;
+        }
+        ADAPTER_DISPLAY::ReleaseSharedVidPnSourceOwner(
+          (ADAPTER_DISPLAY *)this,
+          (struct DXGDEVICE *)v45[496 * (unsigned int)v44 + 86],
+          v44);
+        goto LABEL_51;
+      }
+LABEL_40:
+      if ( *(_DWORD *)&a4[v42] == 4 )
+      {
+        this[14][496 * *(unsigned int *)a4 + 88] = a2;
+      }
+      else
+      {
+        v49 = this[48];
+        if ( v49 )
+        {
+          v83 = (__int64)v49[1] + 2904 * *(unsigned int *)a4;
+          *(_QWORD *)(v83 + 576) = a2;
+          *(_BYTE *)(v83 + 560) = 1;
+          if ( (int)BLTQUEUE::IssueCommand((BLTQUEUE *)v83) >= 0 )
+          {
+            *(_QWORD *)(v83 + 352) = a2;
+            *(_OWORD *)(v83 + 312) = 0LL;
+            *(_OWORD *)(v83 + 328) = 0LL;
+            *(_DWORD *)(v83 + 936) &= ~4u;
+          }
+        }
+        this[14][496 * *(unsigned int *)a4 + 86] = a2;
+        LODWORD(this[14][496 * *(unsigned int *)a4 + 87]) = *(_DWORD *)&a4[v42];
+        HIDWORD(this[14][496 * *(unsigned int *)a4 + 87]) = v41;
+      }
+      this[14][496 * *(unsigned int *)a4 + 89] = (PERESOURCE)a2->ExclusiveWaiters;
+      ADAPTER_DISPLAY::UpdateGammaRamp((ADAPTER_DISPLAY *)this, *(_DWORD *)a4);
+      v50 = (_QWORD *)WdLogNewEntry5_WdEvent();
+      v50[3] = a2;
+      v50[4] = *(unsigned int *)a4;
+      v50[5] = *(int *)&a4[v42];
+      v50[6] = v12;
+      WdLogEvent5_WdEvent(v50);
+      if ( *(_DWORD *)&a4[v42] == 3 )
+      {
+        CddInterface = ADAPTER_DISPLAY::GetCddInterface((DXGADAPTER **)this, *(_DWORD *)a4);
+        if ( CddInterface )
+          (*((void (__fastcall **)(_QWORD))CddInterface + 2))(*(_QWORD *)CddInterface);
+      }
+      a4 += 4;
+      if ( !--v43 )
+        return 0LL;
+    }
+    if ( LODWORD(v45[(unsigned __int64)v46 / 8 + 87]) )
+    {
+      v82 = WdLogNewEntry5_WdAssertion(v45, v46);
+      *(_QWORD *)(v82 + 24) = 2331LL;
+      WdLogEvent5_WdAssertion(v82);
+    }
+LABEL_51:
+    OUTPUTDUPL_MGR::MoveContextToPendingDestroyList(this[13], *(unsigned int *)a4, 0LL, 0LL, 0, 1);
+    goto LABEL_40;
   }
-  v18 = (unsigned int *)a4;
-  v19 = (char *)a3 - a4;
-  for ( i = (char *)a3 - a4; ; v19 = i )
+  v28 = (unsigned int *)a4;
+  v29 = (char *)a3 - a4;
+  for ( i = (char *)a3 - a4; ; v29 = i )
   {
-    v20 = *(int *)((char *)v18 + v19);
-    if ( *(unsigned int *)((char *)v18 + v19) != 1
-      && *(unsigned int *)((char *)v18 + v19) != 2
-      && *(unsigned int *)((char *)v18 + v19) - 3 >= 2 )
+    v30 = *(unsigned int *)((char *)v28 + v29);
+    if ( v30 <= 0 )
+      goto LABEL_74;
+    if ( v30 > 4 )
+      goto LABEL_74;
+    v23 = *v28;
+    if ( *((_DWORD *)this + 20) <= (unsigned int)v23 )
+      goto LABEL_74;
+    if ( a2[17].Reserved2 != this[2] )
     {
-      WdLogSingleEntry5(2LL, a2, v17, *(unsigned int *)&a4[4 * v17], v20, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%I64x: Invalid OwnerType (0x%I64x 0x%I64x 0x%I64x) specified, returning 0x%I64x",
-        (__int64)a2,
-        v17,
-        *(unsigned int *)&a4[4 * v17],
-        a3[v17],
-        -1073741811LL);
-      return 3221225485LL;
+      v68 = WdLogNewEntry5_WdAssertion(v23, v22);
+      *(_QWORD *)(v68 + 24) = 2095LL;
+      WdLogEvent5_WdAssertion(v68);
+      LODWORD(v23) = *v28;
     }
-    if ( *((_DWORD *)this + 24) <= *v18 )
+    if ( !DISPLAY_SOURCE::CheckSessionOwnership((DISPLAY_SOURCE *)&this[14][496 * (unsigned int)v23]) )
     {
-      WdLogSingleEntry5(2LL, a2, v17, *v18, v20, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%I64x: Invalid VidPnSourceId (0x%I64x 0x%I64x 0x%I64x) specified, returning 0x%I64x",
-        (__int64)a2,
-        v17,
-        *(unsigned int *)&a4[4 * v17],
-        a3[v17],
-        -1073741811LL);
-      return 3221225485LL;
+      v75 = (_QWORD *)WdLogNewEntry5_WdWarning(v32, v31, v33);
+      v77 = *(unsigned int *)&a4[4 * v27];
+      LODWORD(v27) = -1071774910;
+      v75[3] = v77;
+      v75[4] = -1071774910LL;
+      goto LABEL_89;
     }
-    if ( (PERESOURCE *)a2[18].SystemResourcesList.Blink != this[2] )
-    {
-      WdLogSingleEntry1(1LL, 2141LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pDevice->GetDisplayAdapter(pVidPnSourceId[i]) == this->GetAdapter()",
-        2141LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    if ( !DISPLAY_SOURCE::CheckSessionOwnership((DISPLAY_SOURCE *)&this[16][500 * *v18]) )
-    {
-      v62 = *(unsigned int *)&a4[4 * v17];
-      LODWORD(v17) = -1071774910;
-      WdLogSingleEntry2(3LL, v62, -1071774910LL);
-      return (unsigned int)v17;
-    }
-    v21 = 0LL;
-    if ( !(_DWORD)v17 )
-      goto LABEL_21;
+    v34 = 0LL;
+    if ( !(_DWORD)v27 )
+      goto LABEL_22;
     do
     {
-      v52 = *(unsigned int *)&a4[4 * v21];
-      v53 = (unsigned int)v21;
-      if ( *v18 == (_DWORD)v52 )
+      if ( *v28 == *(_DWORD *)&a4[4 * v34] )
       {
-        WdLogSingleEntry5(2LL, a2, v17, (unsigned int)v21, v52, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Device 0x%I64x: All VidPnSourceId have to be distinct but entry 0x%I64x and 0x%I64x have identical va"
-                    "lue of 0x%I64x, returning 0x%I64x",
-          (__int64)a2,
-          v17,
-          v53,
-          *(unsigned int *)&a4[4 * v53],
-          -1073741811LL);
-        return 3221225485LL;
+        v74 = (_QWORD *)WdLogNewEntry5_WdError(v32, v31);
+        v74[4] = (unsigned int)v27;
+        v74[5] = (unsigned int)v34;
+        v74[3] = a2;
+        v69 = *(unsigned int *)&a4[4 * v34];
+        goto LABEL_76;
       }
-      v21 = (unsigned int)(v21 + 1);
+      v34 = (unsigned int)(v34 + 1);
     }
-    while ( (unsigned int)v21 < (unsigned int)v17 );
-    v19 = i;
-LABEL_21:
-    if ( !ADAPTER_DISPLAY::IsPartOfDesktop((ADAPTER_DISPLAY *)this, *v18) )
+    while ( (unsigned int)v34 < (unsigned int)v27 );
+    v12 = a5;
+LABEL_22:
+    if ( !ADAPTER_DISPLAY::IsPartOfDesktop((ADAPTER_DISPLAY *)this, *v28) )
     {
-      v55 = *(unsigned int *)&a4[4 * v17];
-      v56 = (unsigned int)v17;
-      v17 = -1071774972LL;
-      goto LABEL_91;
+      v75 = (_QWORD *)WdLogNewEntry5_WdWarning(v35, v22, v36);
+      v75[3] = a2;
+      v75[4] = (unsigned int)v27;
+      v76 = *(unsigned int *)&a4[4 * v27];
+      v27 = -1071774972LL;
+      goto LABEL_87;
     }
-    v22 = *(int *)((char *)v18 + v19);
-    if ( (_DWORD)v22 == 1 )
+    v23 = *(unsigned int *)((char *)v28 + i);
+    if ( (_DWORD)v23 == 1 && !LODWORD(a2[4].OwnerTable) || (_DWORD)v23 == 3 && LODWORD(a2[4].OwnerTable) )
     {
-      if ( LODWORD(a2[4].OwnerEntry.OwnerThread) )
-        goto LABEL_24;
-      WdLogSingleEntry5(2LL, a2, v17, *(unsigned int *)&a4[4 * v17], v22, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%I64x: Legacy device can't acquire D3DKMT_VIDPNSOURCEOWNER_SHARED (0x%I64x 0x%I64x 0x%I64x), r"
-                  "eturning 0x%I64x",
-        (__int64)a2,
-        v17,
-        *(unsigned int *)&a4[4 * v17],
-        a3[v17],
-        -1073741811LL);
-      return 3221225485LL;
+LABEL_74:
+      v74 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+      v74[3] = a2;
+      v74[4] = (unsigned int)v27;
+      v74[5] = *(unsigned int *)&a4[4 * v27];
+      goto LABEL_75;
     }
-    if ( (_DWORD)v22 == 3 && LODWORD(a2[4].OwnerEntry.OwnerThread) )
+    v37 = this[14];
+    v38 = 496LL * *v28;
+    v39 = v37[v38 + 86];
+    if ( !v39 )
     {
-      WdLogSingleEntry5(2LL, a2, v17, *(unsigned int *)&a4[4 * v17], v22, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%I64x: No-Legacy device can't acquire D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI(0x%I64x 0x%I64x 0x%"
-                  "I64x), returning 0x%I64x",
-        (__int64)a2,
-        v17,
-        *(unsigned int *)&a4[4 * v17],
-        a3[v17],
-        -1073741811LL);
-      return 3221225485LL;
-    }
-LABEL_24:
-    v23 = this[16];
-    v24 = 500LL * *v18;
-    v25 = (struct DXGDEVICE *)v23[v24 + 91];
-    if ( !v25 )
-    {
-      if ( LODWORD(v23[v24 + 92]) )
+      if ( LODWORD(v37[v38 + 87]) )
       {
-        WdLogSingleEntry1(1LL, 2318LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"D3DKMT_VIDPNSOURCEOWNER_UNOWNED == m_pDisplaySource[pVidPnSourceId[i]].m_VidPnSourceOwnerType",
-          2318LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v73 = WdLogNewEntry5_WdAssertion(v23, v22);
+        *(_QWORD *)(v73 + 24) = 2272LL;
+        WdLogEvent5_WdAssertion(v73);
       }
-      goto LABEL_27;
+      goto LABEL_33;
     }
-    v34 = (int)v23[v24 + 92];
-    if ( v25 == (struct DXGDEVICE *)a2 )
+    v22 = LODWORD(v37[v38 + 87]);
+    if ( v39 == a2 )
     {
-      if ( v34 == (_DWORD)v22 )
-        goto LABEL_27;
-      WdLogSingleEntry5(
-        2LL,
-        a2,
-        *(unsigned int *)&a4[4 * v17],
-        SLODWORD(v23[500 * *(unsigned int *)&a4[4 * v17] + 92]),
-        v22,
-        -1073741811LL);
-      v69 = a3[v17];
-      v68 = SLODWORD(this[16][500 * *(unsigned int *)&a4[4 * v17] + 92]);
-      v67 = *(unsigned int *)&a4[4 * v17];
-LABEL_86:
-      v57 = L"Device 0x%I64x: VidPn 0x%I64x can't change owner type from 0x%I64x to 0x%I64x, returning 0x%I64x";
-LABEL_110:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v57, (__int64)a2, v67, v68, v69, -1073741811LL);
-      return 3221225485LL;
+      if ( (_DWORD)v22 != (_DWORD)v23 )
+      {
+        v74 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+        v74[3] = a2;
+        v74[4] = *(unsigned int *)&a4[4 * v27];
+        v74[5] = SLODWORD(this[14][496 * *(unsigned int *)&a4[4 * v27] + 87]);
+        goto LABEL_75;
+      }
+      goto LABEL_33;
     }
-    if ( v34 != 1 )
-      goto LABEL_89;
-    if ( (_DWORD)v22 == 1 )
+    if ( (_DWORD)v22 != 1 )
+      goto LABEL_90;
+    if ( (_DWORD)v23 == 1 && *((_BYTE *)a2->ExclusiveWaiters + 346) && *((_BYTE *)v39->ExclusiveWaiters + 346) )
       break;
-    v54 = (struct DXGDEVICE *)v23[v24 + 93];
-    if ( v54 == (struct DXGDEVICE *)a2 )
+    if ( (_DWORD)v23 == 1 )
     {
-      if ( (_DWORD)v22 == 4 )
-        goto LABEL_27;
-      WdLogSingleEntry5(2LL, a2, *(unsigned int *)&a4[4 * v17], 4LL, v22, -1073741811LL);
-      v69 = a3[v17];
-      v68 = 4LL;
-      v67 = *(unsigned int *)&a4[4 * v17];
-      goto LABEL_86;
+LABEL_90:
+      v75 = (_QWORD *)WdLogNewEntry5_WdWarning(v23, v22, v38 * 8);
+      v75[3] = a2;
+      v75[4] = SLODWORD(this[14][496 * *(unsigned int *)&a4[4 * v27] + 87]);
+      v75[5] = *(unsigned int *)&a4[4 * v27];
+      v78 = a3[v27];
+      LODWORD(v27) = -1071774910;
+      v75[7] = -1071774910LL;
+      v75[6] = v78;
+      goto LABEL_89;
     }
-    if ( v54 )
+    v40 = (struct DXGDEVICE *)v37[v38 + 88];
+    if ( v40 != (struct DXGDEVICE *)a2 )
     {
-      v55 = *(int *)((char *)v18 + v19);
-      v17 = -1071774910LL;
-      v56 = *v18;
-LABEL_91:
-      WdLogSingleEntry4(3LL, a2, v56, v55, v17);
-      return (unsigned int)v17;
-    }
-LABEL_27:
-    v17 = (unsigned int)(v17 + 1);
-    ++v18;
-    if ( (unsigned int)v17 >= a5 )
-    {
-      v26 = i;
-      v10 = a5;
-LABEL_29:
-      if ( DXGDEVICE::HasContextWithHintType((DXGDEVICE *)a2, D3DKMT_CLIENTHINT_OPENGL) )
-        WdLogSingleEntry1(4LL, a2);
-      if ( !(_DWORD)v10 )
-        return 0LL;
-      v27 = a6.0;
-      v28 = (unsigned int)v10;
-      v71 = (unsigned int)v10;
-      i = (unsigned int)v10;
-      while ( 1 )
-      {
-        v29 = this[16];
-        v30 = 500LL * *(unsigned int *)a4;
-        v31 = (struct DXGDEVICE *)v29[v30 + 91];
-        if ( v31 )
-        {
-          v35 = *(_DWORD *)&a4[v26];
-          if ( v35 == 4 )
-            goto LABEL_37;
-          v36 = (int)v29[v30 + 92];
-          if ( v31 == (struct DXGDEVICE *)a2 )
-          {
-            if ( v36 != v35 )
-            {
-              WdLogSingleEntry1(1LL, 2357LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"m_pDisplaySource[pVidPnSourceId[i]].m_VidPnSourceOwnerType == pVidPnSourceOwnerType[i]",
-                2357LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-            goto LABEL_37;
-          }
-          if ( v36 != 1 || v35 == 1 )
-          {
-            WdLogSingleEntry1(1LL, 2367LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"(D3DKMT_VIDPNSOURCEOWNER_SHARED == m_pDisplaySource[pVidPnSourceId[i]].m_VidPnSourceOwnerType) &&"
-                        " (D3DKMT_VIDPNSOURCEOWNER_SHARED != pVidPnSourceOwnerType[i])",
-              2367LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          ADAPTER_DISPLAY::ReleaseSharedVidPnSourceOwner(
-            (ADAPTER_DISPLAY *)this,
-            (struct DXGDEVICE *)this[16][500 * *(unsigned int *)a4 + 91],
-            *(_DWORD *)a4);
-        }
-        else if ( LODWORD(v29[v30 + 92]) )
-        {
-          WdLogSingleEntry1(1LL, 2377LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"D3DKMT_VIDPNSOURCEOWNER_UNOWNED == m_pDisplaySource[pVidPnSourceId[i]].m_VidPnSourceOwnerType",
-            2377LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        OUTPUTDUPL_MGR::MoveContextToPendingDestroyList(this[15], *(unsigned int *)a4, 0LL, 0LL, 0, 1);
-LABEL_37:
-        if ( *(_DWORD *)&a4[v26] == 4 )
-        {
-          this[16][500 * *(unsigned int *)a4 + 93] = a2;
-        }
-        else
-        {
-          v32 = this[56];
-          if ( v32 )
-          {
-            v63 = (__int64)v32[1] + 2920 * *(unsigned int *)a4;
-            v64 = (struct DXGDEVICE **)(v63 + 360);
-            if ( (*(_DWORD *)(v63 + 952) & 1) == 0 || a2 != (struct _ERESOURCE *)*v64 )
-            {
-              v65 = (BLTQUEUE *)((char *)v32[1] + 2920 * *(unsigned int *)a4);
-              *(_QWORD *)(v63 + 584) = a2;
-              *(_BYTE *)(v63 + 568) = 1;
-              if ( (int)BLTQUEUE::IssueCommand(v65) >= 0 && a2 != (struct _ERESOURCE *)*v64 )
-              {
-                *v64 = (struct DXGDEVICE *)a2;
-                *(_OWORD *)(v63 + 320) = 0LL;
-                *(_OWORD *)(v63 + 336) = 0LL;
-                *(_DWORD *)(v63 + 952) &= ~4u;
-              }
-            }
-            v28 = v71;
-            v10 = i;
-          }
-          this[16][500 * *(unsigned int *)a4 + 91] = a2;
-          LODWORD(this[16][500 * *(unsigned int *)a4 + 92]) = *(_DWORD *)&a4[v26];
-          HIDWORD(this[16][500 * *(unsigned int *)a4 + 92]) = v27;
-        }
-        this[16][500 * *(unsigned int *)a4 + 94] = (PERESOURCE)a2->ExclusiveWaiters;
-        ADAPTER_DISPLAY::UpdateGammaRamp((DXGADAPTER **)this, *(_DWORD *)a4);
-        WdLogSingleEntry4(4LL, a2, *(unsigned int *)a4, *(int *)&a4[v26], v28);
-        if ( *(_DWORD *)&a4[v26] == 3 )
-        {
-          CddInterface = ADAPTER_DISPLAY::GetCddInterface((DXGADAPTER **)this, *(_DWORD *)a4);
-          if ( CddInterface )
-            (*((void (__fastcall **)(_QWORD))CddInterface + 2))(*(_QWORD *)CddInterface);
-        }
-        a4 += 4;
-        i = --v10;
-        if ( !v10 )
-          return 0LL;
-      }
-    }
-  }
-  if ( (*((_DWORD *)a2->ExclusiveWaiters + 106) & 4) != 0 && (*(_DWORD *)(*((_QWORD *)v25 + 5) + 424LL) & 4) != 0 )
-  {
-    v58 = *(unsigned int *)&a4[4 * v17];
-    LODWORD(v17) = -1071774910;
-    WdLogSingleEntry5(3LL, a2, SLODWORD(v23[500 * v58 + 92]), v58, v22, -1071774910LL);
-    LOBYTE(v59) = 1;
-    if ( (unsigned __int8)WdIsDebuggerPresent(v59) )
-    {
-      DbgPrintEx(0x65u, 0, "Breaking in to allow debug of potential DWM swap chain leak");
-      __debugbreak();
-    }
-  }
-  else
-  {
+      if ( !v40 )
+        goto LABEL_33;
+      v75 = (_QWORD *)WdLogNewEntry5_WdWarning(v23, v22, v38 * 8);
+      v75[3] = a2;
+      v75[4] = *(unsigned int *)&a4[4 * v27];
+      v76 = a3[v27];
+      v27 = -1071774910LL;
+LABEL_87:
+      v75[5] = v76;
+      v75[6] = v27;
 LABEL_89:
-    v60 = a3[v17];
-    v61 = *(unsigned int *)&a4[4 * v17];
-    LODWORD(v17) = -1071774910;
-    WdLogSingleEntry5(3LL, a2, SLODWORD(v23[500 * v61 + 92]), v61, v60, -1071774910LL);
+      WdLogEvent5_WdWarning(v75);
+      return (unsigned int)v27;
+    }
+    if ( (_DWORD)v23 != 4 )
+    {
+      v74 = (_QWORD *)WdLogNewEntry5_WdError(v23, v22);
+      v74[3] = a2;
+      v74[4] = *(unsigned int *)&a4[4 * v27];
+      v74[5] = 4LL;
+LABEL_75:
+      v69 = a3[v27];
+LABEL_76:
+      LODWORD(v27) = -1073741811;
+      v74[6] = v69;
+      v74[7] = -1073741811LL;
+LABEL_101:
+      WdLogEvent5_WdError(v74);
+      return (unsigned int)v27;
+    }
+LABEL_33:
+    v27 = (unsigned int)(v27 + 1);
+    ++v28;
+    if ( (unsigned int)v27 >= (unsigned int)v12 )
+      goto LABEL_34;
   }
-  return (unsigned int)v17;
+  v70 = (_QWORD *)WdLogNewEntry5_WdWarning(v23, v22, v38 * 8);
+  v70[3] = a2;
+  v70[4] = SLODWORD(this[14][496 * *(unsigned int *)&a4[4 * v27] + 87]);
+  v70[5] = *(unsigned int *)&a4[4 * v27];
+  v71 = a3[v27];
+  LODWORD(v27) = -1071774910;
+  v70[6] = v71;
+  v70[7] = -1071774910LL;
+  WdLogEvent5_WdWarning(v70);
+  LOBYTE(v72) = 1;
+  if ( (unsigned __int8)WdIsDebuggerPresent(v72) )
+  {
+    DbgPrintEx(0x65u, 0, "Breaking in to allow debug of potential DWM swap chain leak");
+    __debugbreak();
+  }
+  return (unsigned int)v27;
 }

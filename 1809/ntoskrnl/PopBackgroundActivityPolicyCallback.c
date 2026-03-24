@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBackgroundActivityPolicyCallback @ 0x1402D6AD0
+ * XREFs of PopBackgroundActivityPolicyCallback @ 0x1402D6BD0
  * Callers:
  *     <none>
  * Callees:
  *     PopGetPowerSettingValue @ 0x140003B10 (PopGetPowerSettingValue.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopTraceBackgroundActivityPolicyUpdate @ 0x1408750D8 (PopTraceBackgroundActivityPolicyUpdate.c)
+ *     PopTraceBackgroundActivityPolicyUpdate @ 0x1408750B8 (PopTraceBackgroundActivityPolicyUpdate.c)
  */
 
 __int64 __fastcall PopBackgroundActivityPolicyCallback(

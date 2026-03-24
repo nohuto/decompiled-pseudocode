@@ -1,27 +1,24 @@
 /*
- * XREFs of ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C0071D50
+ * XREFs of ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C001F804
  * Callers:
- *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C006A058 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
- *     DrvEnumDisplaySettings @ 0x1C006F640 (DrvEnumDisplaySettings.c)
- *     DrvEnumDisplayDevices @ 0x1C00721C0 (DrvEnumDisplayDevices.c)
+ *     DrvEnumDisplaySettings @ 0x1C001F9E0 (DrvEnumDisplaySettings.c)
+ *     DrvEnumDisplayDevices @ 0x1C0027520 (DrvEnumDisplayDevices.c)
+ *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00B0224 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DrvProbeAndCaptureString(struct _UNICODE_STRING *a1, struct AUTO_FREE_STRING *a2)
 {
   unsigned __int64 Length; // rbx
   __int64 v5; // rax
+  __int64 v7; // rax
   struct _UNICODE_STRING Src; // [rsp+20h] [rbp-18h]
 
   Src = *a1;
   Length = a1->Length;
-  v5 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-         (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-         260LL,
-         (unsigned int)a1->Length + 18,
-         1936876615);
+  v5 = PALLOCMEM2((unsigned int)a1->Length + 18);
   *(_QWORD *)a2 = v5;
   if ( v5 )
   {
@@ -42,7 +39,10 @@ __int64 __fastcall DrvProbeAndCaptureString(struct _UNICODE_STRING *a1, struct A
   }
   else
   {
-    WdLogSingleEntry2(6LL, a1, Length);
+    v7 = WdLogNewEntry5_WdLowResource();
+    *(_QWORD *)(v7 + 24) = a1;
+    *(_QWORD *)(v7 + 32) = Length;
+    WdLogEvent5_WdLowResource(v7);
     return 3221225495LL;
   }
 }

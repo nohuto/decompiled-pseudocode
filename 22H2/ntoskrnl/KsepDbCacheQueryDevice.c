@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepDbCacheQueryDevice @ 0x14080A9A4
+ * XREFs of KsepDbCacheQueryDevice @ 0x14075ED98
  * Callers:
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memset @ 0x140435400 (memset.c)
- *     KsepCacheLookup @ 0x140693A74 (KsepCacheLookup.c)
- *     KsepDbCacheQueryDeviceData @ 0x14080B0B8 (KsepDbCacheQueryDeviceData.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KsepCacheLookup @ 0x14075EFA0 (KsepCacheLookup.c)
+ *     KsepDbCacheQueryDeviceData @ 0x1407C7AE4 (KsepDbCacheQueryDeviceData.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, int a2, int a3, int a4, void *a5)
@@ -18,24 +18,26 @@ __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, int a2, int a3, i
   unsigned int DeviceData; // esi
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v11; // rcx
-  _QWORD *v12; // rax
-  volatile signed __int64 *v13; // rdi
-  _QWORD v15[10]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v12; // rax
+  volatile signed __int64 *v13; // rbx
+  char v14; // di
+  _QWORD v16[10]; // [rsp+30h] [rbp-68h] BYREF
 
   DeviceData = -1073741275;
-  memset(v15, 0, 0x44uLL);
-  RtlInitUnicodeString((PUNICODE_STRING)&v15[5], SourceString);
+  memset(v16, 0, 0x48uLL);
+  RtlInitUnicodeString((PUNICODE_STRING)&v16[5], SourceString);
   CurrentThread = KeGetCurrentThread();
-  v11 = qword_140C64E78;
+  v11 = qword_140C50628;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(v11, 0LL);
-  v12 = KsepCacheLookup(qword_140C64E78, (__int64)v15);
+  v12 = KsepCacheLookup(qword_140C50628, v16);
   if ( v12 )
-    DeviceData = KsepDbCacheQueryDeviceData((int)v12, a2, a3, a4, a5);
-  v13 = (volatile signed __int64 *)qword_140C64E78;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C64E78, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    DeviceData = KsepDbCacheQueryDeviceData(v12, a2, a3, a4, a5);
+  v13 = (volatile signed __int64 *)qword_140C50628;
+  v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C50628, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
     ExfTryToWakePushLock(v13);
   KeAbPostRelease((ULONG_PTR)v13);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return DeviceData;
 }

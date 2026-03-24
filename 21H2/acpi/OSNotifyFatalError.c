@@ -1,5 +1,5 @@
 /*
- * XREFs of OSNotifyFatalError @ 0x1C005A270
+ * XREFs of OSNotifyFatalError @ 0x1C0059400
  * Callers:
  *     <none>
  * Callees:
@@ -22,10 +22,10 @@ __int64 __fastcall OSNotifyFatalError(int a1, int a2, int a3, __int64 a4)
     AcpiFatalContext.List.Flink = 0LL;
     AcpiFatalContext.WorkerRoutine = (void (__fastcall *)(void *))OSNotifyFatalErrorWorker;
     AcpiFatalContext.Parameter = &AcpiFatalContext;
-    dword_1C00810C0 = a1;
-    dword_1C00810C4 = a2;
-    dword_1C00810C8 = a3;
-    qword_1C00810D0 = a4;
+    dword_1C0081EC0 = a1;
+    dword_1C0081EC4 = a2;
+    dword_1C0081EC8 = a3;
+    qword_1C0081ED0 = a4;
     ExQueueWorkItem(&AcpiFatalContext, DelayedWorkQueue);
   }
   return 0LL;

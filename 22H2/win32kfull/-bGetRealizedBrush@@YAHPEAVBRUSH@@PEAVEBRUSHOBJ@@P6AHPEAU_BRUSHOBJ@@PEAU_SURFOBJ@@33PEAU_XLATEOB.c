@@ -1,33 +1,33 @@
 /*
- * XREFs of ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0086DD4
+ * XREFs of ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CF9EC
  * Callers:
- *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0086D7C (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
- *     ?BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0264EB0 (-BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
- *     BRUSHOBJ_pvGetRbrush @ 0x1C0265120 (BRUSHOBJ_pvGetRbrush.c)
+ *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C00CECC8 (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     ?BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C026CAC4 (-BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     BRUSHOBJ_pvGetRbrush @ 0x1C026CDB0 (BRUSHOBJ_pvGetRbrush.c)
  * Callees:
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0055590 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C005640C (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C0087BD0 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
- *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0087C8C (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     PALLOCMEM @ 0x1C013DFA0 (PALLOCMEM.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     HT_CreateHalftoneBrush @ 0x1C024FD98 (HT_CreateHalftoneBrush.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C0264DB0 (--0SURFREF@@QEAA@XZ.c)
- *     ??1EXLATEOBJ@@QEAA@XZ @ 0x1C0264DD4 (--1EXLATEOBJ@@QEAA@XZ.c)
- *     ??1NEEDGRELOCK@@QEAA@XZ @ 0x1C0264DEC (--1NEEDGRELOCK@@QEAA@XZ.c)
- *     ?bDeleteSurface@SURFACE@@QEAAHH@Z @ 0x1C0264F78 (-bDeleteSurface@SURFACE@@QEAAHH@Z.c)
- *     ?bIsCMYKColor@EBRUSHOBJ@@QEBAHXZ @ 0x1C0264F9C (-bIsCMYKColor@EBRUSHOBJ@@QEBAHXZ.c)
- *     ?vAltLock@SURFREF@@QEAAXPEAUHSURF__@@@Z @ 0x1C0264FDC (-vAltLock@SURFREF@@QEAAXPEAUHSURF__@@@Z.c)
- *     EngDitherColor @ 0x1C0289080 (EngDitherColor.c)
- *     ?bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z @ 0x1C02DC558 (-bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z.c)
- *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02DCA50 (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
- *     ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C02DCB64 (-vCheckForICM@XLATE@@QEAAXPEAXK@Z.c)
- *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02DCC04 (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
- *     ??1HTSEMOBJ@@QEAA@XZ @ 0x1C02DE8E8 (--1HTSEMOBJ@@QEAA@XZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A850 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0082D64 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082F38 (--1SURFREF@@QEAA@XZ.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z @ 0x1C009F2E8 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0111F38 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     HT_CreateHalftoneBrush @ 0x1C0260D58 (HT_CreateHalftoneBrush.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C026C9D0 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1EXLATEOBJ@@QEAA@XZ @ 0x1C026C9F4 (--1EXLATEOBJ@@QEAA@XZ.c)
+ *     ??1NEEDGRELOCK@@QEAA@XZ @ 0x1C026CA0C (--1NEEDGRELOCK@@QEAA@XZ.c)
+ *     ?bIsCMYKColor@EBRUSHOBJ@@QEBAHXZ @ 0x1C026CBE0 (-bIsCMYKColor@EBRUSHOBJ@@QEBAHXZ.c)
+ *     ?vAltCheckLock@SURFREF@@QEAAXPEAUHSURF__@@@Z @ 0x1C026CC4C (-vAltCheckLock@SURFREF@@QEAAXPEAUHSURF__@@@Z.c)
+ *     ?vAltLock@SURFREF@@QEAAXPEAUHSURF__@@@Z @ 0x1C026CC7C (-vAltLock@SURFREF@@QEAAXPEAUHSURF__@@@Z.c)
+ *     EngDitherColor @ 0x1C0288210 (EngDitherColor.c)
+ *     ?bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z @ 0x1C02BEFF8 (-bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z.c)
+ *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BF31C (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
+ *     ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C02BF3B0 (-vCheckForICM@XLATE@@QEAAXPEAXK@Z.c)
+ *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02BF44C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
+ *     ??1HTSEMOBJ@@QEAA@XZ @ 0x1C02C0838 (--1HTSEMOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall bGetRealizedBrush(
@@ -35,569 +35,523 @@ __int64 __fastcall bGetRealizedBrush(
         struct EBRUSHOBJ *a2,
         __int64 (__fastcall *a3)(struct _BRUSHOBJ *a1, struct _SURFOBJ *a2, struct _SURFOBJ *a3, struct _SURFOBJ *a4, struct _XLATEOBJ *a5, unsigned int a6))
 {
-  __int64 (__fastcall *v3)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int); // r15
-  struct Gre::Base::SESSION_GLOBALS *v6; // r13
-  __int64 v7; // rdi
-  struct _SURFOBJ *v8; // r12
-  __int64 v9; // rax
-  unsigned int v10; // r14d
-  bool v11; // dl
-  __int64 v12; // rdx
-  unsigned int v13; // eax
-  __int64 v14; // rax
-  struct XLATE *v15; // rbx
-  unsigned int NearestIndexFromColorref; // r12d
-  unsigned int v17; // r15d
-  unsigned int v18; // eax
-  struct _XLATEOBJ *v19; // r14
-  HDEV v20; // rax
-  __int64 v21; // rcx
-  HDEV v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // rdx
-  ULONG *v25; // r9
-  ULONG v26; // eax
-  ULONG v27; // eax
+  unsigned int v3; // r15d
+  struct _SURFOBJ *v8; // rdi
+  struct _SURFOBJ *v9; // r12
+  __int64 v10; // rax
+  int v11; // edx
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  FLONG NearestIndexFromColorref; // r12d
+  FLONG v15; // r15d
+  XLATEOBJ *v16; // r14
+  FLONG v17; // eax
+  HDEV v18; // rax
+  __int64 v19; // rcx
+  HDEV v20; // rcx
+  __int64 v21; // rdx
+  ULONG v22; // eax
+  ULONG v23; // eax
   int IsSemaphoreOwnedOrSharedByCurrentThread; // eax
-  bool v29; // dl
-  Gre::Base *v30; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v31; // rax
+  int v25; // edx
+  HPALETTE *v26; // r14
+  int v27; // edx
+  HDEV v28; // rax
+  int v29; // ecx
+  char v30; // cl
+  int v31; // edx
   int v32; // edx
-  HPALETTE *v33; // r15
-  HDEV v34; // rax
-  int v35; // r8d
-  int v36; // ecx
-  int v37; // edx
-  int v38; // edx
-  int v39; // edx
-  int v40; // edx
-  int v41; // edx
-  char v42; // cl
-  __int128 *v43; // rax
-  __int64 v44; // xmm1_8
-  __int64 HalftoneBrush; // rcx
-  SURFACE *v46; // rax
-  int v47; // edx
-  void *v48; // rbx
-  __int64 v50; // rbx
-  int v51; // eax
-  int v52; // r15d
-  HSURF v53; // r12
-  void *v54; // rdx
-  int v55; // eax
+  int v33; // edx
+  int v34; // edx
+  int v35; // edx
+  char v36; // cl
+  __int128 *v37; // rax
+  __int64 v38; // xmm1_8
+  size_t HalftoneBrush; // rcx
+  __int64 v40; // rax
+  void *v41; // rbx
+  __int64 v42; // rbx
+  __int64 v43; // rdx
+  int v44; // eax
+  int v45; // r8d
+  HSURF v46; // r15
+  int v47; // r14d
+  void *v48; // rdx
+  int v49; // eax
   HBITMAP IcmDIB; // rax
-  bool v57; // zf
-  __int64 v58; // rdx
-  __int64 v59; // r10
-  int v60; // eax
-  __int64 v61; // r9
-  int Xlate; // eax
-  int v63; // r8d
-  __int64 v64; // r8
-  __int64 v65; // rdx
-  __int64 v66; // rax
-  bool v67; // cf
-  unsigned int v68; // ebx
-  char v69; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v70[7]; // [rsp+61h] [rbp-9Fh] BYREF
-  __int64 v71; // [rsp+68h] [rbp-98h] BYREF
-  HDEV hdev; // [rsp+70h] [rbp-90h] BYREF
-  int v73; // [rsp+78h] [rbp-88h] BYREF
-  struct XLATE *v74; // [rsp+80h] [rbp-80h] BYREF
-  SURFACE *v75; // [rsp+88h] [rbp-78h] BYREF
-  char v76; // [rsp+90h] [rbp-70h]
-  int v77; // [rsp+94h] [rbp-6Ch]
-  __int64 v78; // [rsp+98h] [rbp-68h] BYREF
-  int (*v79)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int); // [rsp+A0h] [rbp-60h]
-  unsigned int v80; // [rsp+A8h] [rbp-58h]
-  char v81[8]; // [rsp+B0h] [rbp-50h] BYREF
-  int v82; // [rsp+B8h] [rbp-48h] BYREF
-  int v83; // [rsp+BCh] [rbp-44h]
-  int v84; // [rsp+C0h] [rbp-40h]
-  int v85; // [rsp+C4h] [rbp-3Ch]
-  __int64 v86; // [rsp+C8h] [rbp-38h]
-  int v87; // [rsp+D0h] [rbp-30h]
-  int v88; // [rsp+D4h] [rbp-2Ch]
-  _DWORD v89[2]; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v90; // [rsp+E0h] [rbp-20h]
-  __int64 *v91; // [rsp+E8h] [rbp-18h]
-  _BYTE v92[32]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v93; // [rsp+110h] [rbp+10h]
-  __int128 v94; // [rsp+118h] [rbp+18h] BYREF
-  __int64 v95; // [rsp+128h] [rbp+28h]
+  bool v51; // zf
+  __int64 v52; // rdx
+  __int64 v53; // r10
+  int v54; // eax
+  struct PALETTE *v55; // r9
+  int inited; // eax
+  int v57; // r8d
+  unsigned int v58; // r8d
+  __int64 v59; // rdx
+  __int64 v60; // rdx
+  __int64 v61; // [rsp+60h] [rbp-A0h] BYREF
+  HDEV hdev; // [rsp+68h] [rbp-98h] BYREF
+  struct XLATE *Xlate; // [rsp+70h] [rbp-90h] BYREF
+  int v64; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v65; // [rsp+80h] [rbp-80h] BYREF
+  char v66; // [rsp+88h] [rbp-78h]
+  int v67; // [rsp+8Ch] [rbp-74h]
+  char v68[8]; // [rsp+90h] [rbp-70h] BYREF
+  struct _SURFOBJ *v69; // [rsp+98h] [rbp-68h] BYREF
+  char v70[8]; // [rsp+A0h] [rbp-60h] BYREF
+  int v71; // [rsp+A8h] [rbp-58h] BYREF
+  int v72; // [rsp+ACh] [rbp-54h]
+  int v73; // [rsp+B0h] [rbp-50h]
+  int v74; // [rsp+B4h] [rbp-4Ch]
+  __int64 v75; // [rsp+B8h] [rbp-48h]
+  int v76; // [rsp+C0h] [rbp-40h]
+  int v77; // [rsp+C4h] [rbp-3Ch]
+  _DWORD v78[2]; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v79; // [rsp+D0h] [rbp-30h]
+  struct _SURFOBJ **v80; // [rsp+D8h] [rbp-28h]
+  _BYTE v81[32]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v82; // [rsp+100h] [rbp+0h]
+  char v83[8]; // [rsp+108h] [rbp+8h] BYREF
+  __int128 v84; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v85; // [rsp+120h] [rbp+20h]
 
-  v3 = a3;
-  v79 = (int (*)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int))a3;
-  v6 = Gre::Base::Globals(a1);
-  v80 = *((_DWORD *)a1 + 20);
-  if ( v80 == 12 )
+  v3 = *((_DWORD *)a1 + 20);
+  LODWORD(v61) = v3;
+  if ( v3 == 12 )
     return 0LL;
-  v7 = 0LL;
   v8 = 0LL;
-  SURFREF::SURFREF((SURFREF *)v92);
-  v9 = *((_QWORD *)a2 + 10);
-  v10 = 1;
-  v75 = 0LL;
-  v76 = 0;
-  v77 = 0;
-  hdev = *(HDEV *)(v9 + 48);
-  v74 = 0LL;
-  if ( ((_DWORD)hdev[10] & 1) == 0 || (v11 = 1, v3 != EngRealizeBrush) )
+  v9 = 0LL;
+  SURFREF::SURFREF((SURFREF *)v81);
+  v10 = *((_QWORD *)a2 + 10);
+  v65 = 0LL;
+  v66 = 0;
+  v67 = 0;
+  hdev = *(HDEV *)(v10 + 48);
+  Xlate = 0LL;
+  if ( ((_DWORD)hdev[10] & 1) == 0 || (v11 = 1, a3 != EngRealizeBrush) )
     v11 = 0;
   NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v70, v11);
-  NEEDGRELOCK::vLock((NEEDGRELOCK *)v81, (struct PDEVOBJ *)&hdev);
-  v13 = *((_DWORD *)a1 + 20);
-  if ( v13 >= 6 )
+  NEEDGRELOCK::vLock((NEEDGRELOCK *)v83, (struct PDEVOBJ *)&hdev);
+  v12 = *((unsigned int *)a1 + 20);
+  if ( (unsigned int)v12 < 6 )
   {
-    if ( v13 < 0xC )
+    SURFREF::vAltCheckLock((SURFREF *)v81, *((HSURF *)hdev + v12 + 182));
+    if ( !v82 )
+      goto LABEL_134;
+    v69 = (struct _SURFOBJ *)(v82 + 24);
+    Xlate = pCreateXlate(2u);
+    v13 = (__int64)Xlate;
+    if ( !Xlate )
+      goto LABEL_134;
+    NearestIndexFromColorref = *((_DWORD *)a2 + 13);
+    if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
     {
-      if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
-        goto LABEL_71;
-      if ( (*((_DWORD *)a2 + 6) & 0x1000000) != 0 )
-        *((_DWORD *)a2 + 6) = rgbFromColorref(*((_QWORD *)a2 + 11), *((_QWORD *)a2 + 12));
-      v20 = hdev;
-      if ( ((_DWORD)hdev[448] & 0x200000) != 0 && v3 != EngRealizeBrush )
-      {
-        if ( (unsigned int)v3(
-                             (struct _BRUSHOBJ *)a2,
-                             (struct _SURFOBJ *)((*((_QWORD *)a2 + 10) + 24LL) & -(__int64)(*((_QWORD *)a2 + 10) != 0LL)),
-                             0LL,
-                             0LL,
-                             0LL,
-                             *((_DWORD *)a2 + 6) | 0x80000000) )
-        {
-LABEL_72:
-          NEEDGRELOCK::~NEEDGRELOCK((NEEDGRELOCK *)v81);
-          NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v70);
-          SURFMEM::~SURFMEM((SURFMEM *)&v75);
-          EXLATEOBJ::~EXLATEOBJ((EXLATEOBJ *)&v74);
-          SURFREF::~SURFREF((SURFREF *)v92);
-          return v10;
-        }
-        v20 = hdev;
-      }
-      v21 = *((_QWORD *)a2 + 10);
-      v85 = 0;
-      v88 = 0;
-      v82 = *(_DWORD *)(v21 + 96) == 1 ? 1 : *((_DWORD *)v20 + 519);
-      if ( !*((_WORD *)v20 + 1040) )
-        goto LABEL_71;
-      if ( !*((_WORD *)v20 + 1041) )
-        goto LABEL_71;
-      v83 = *((unsigned __int16 *)v20 + 1040);
-      v84 = *((unsigned __int16 *)v20 + 1041);
-      v86 = 0LL;
-      v87 = 1;
-      if ( !SURFMEM::bCreateDIB((SURFMEM *)&v75, (struct _DEVBITMAPINFO *)&v82, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
-        goto LABEL_71;
-      v22 = hdev;
-      v23 = *((unsigned int *)a2 + 6);
-      v24 = (unsigned int)(*(_DWORD *)(*((_QWORD *)a2 + 10) + 96LL) == 1) + 1;
-      v25 = (ULONG *)*((_QWORD *)v75 + 9);
-      if ( *((_QWORD *)hdev + 346) )
-      {
-        if ( ((_DWORD)hdev[10] & 0x8000) == 0 )
-          v22 = (HDEV)*((_QWORD *)hdev + 221);
-        v26 = (*((__int64 (__fastcall **)(HDEV, __int64, __int64, ULONG *))hdev + 346))(v22, v24, v23, v25);
-      }
-      else
-      {
-        v26 = EngDitherColor(hdev, v24, v23, v25);
-      }
-      v27 = v26 - 1;
-      if ( !v27 )
-      {
-        v19 = (struct _XLATEOBJ *)((char *)v6 + 6896);
-LABEL_124:
-        v58 = v93;
-        goto LABEL_125;
-      }
-      if ( v27 != 1 )
-      {
-LABEL_71:
-        v10 = 0;
-        goto LABEL_72;
-      }
-      if ( v3 != EngRealizeBrush
-        || (IsSemaphoreOwnedOrSharedByCurrentThread = GreIsSemaphoreOwnedOrSharedByCurrentThread(*((_QWORD *)v6 + 10)),
-            v29 = 1,
-            IsSemaphoreOwnedOrSharedByCurrentThread) )
-      {
-        v29 = 0;
-      }
-      NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v69, v29);
-      if ( v3 == EngRealizeBrush )
-      {
-        v73 = 1;
-        v31 = Gre::Base::Globals(v30);
-        GreAcquireSemaphore(*((_QWORD *)v31 + 17));
-      }
-      else
-      {
-        v73 = 0;
-      }
-      if ( PDEVOBJ::pDevHTInfo((PDEVOBJ *)&hdev) || (unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&hdev, 0LL) )
-      {
-        v33 = (HPALETTE *)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&hdev);
-        LODWORD(v78) = *((_DWORD *)a2 + 6);
-        v91 = &v78;
-        v34 = hdev;
-        LODWORD(v71) = 0;
-        v90 = 1LL;
-        v89[0] = 262400;
-        v35 = (_DWORD)hdev[587] & 0x100;
-        v89[1] = 255;
-        v36 = *((_DWORD *)a2 + 18);
-        LODWORD(v71) = v35 == 0 ? 2 : 0;
-        if ( (v36 & 4) != 0 || (v36 & 0x20) == 0 && (v36 & 3) != 0 )
-          LOBYTE(v71) = v35 != 0 ? 16 : 18;
-        if ( *((unsigned __int16 *)v33 + 4) != v83 || *((unsigned __int16 *)v33 + 5) != v84 )
-        {
-          LOBYTE(v32) = v35 == 0 ? 2 : 0;
-          SURFACE::bDeleteSurface(v75, v32);
-          v83 = *((unsigned __int16 *)v33 + 4);
-          v84 = *((unsigned __int16 *)v33 + 5);
-          if ( !SURFMEM::bCreateDIB((SURFMEM *)&v75, (struct _DEVBITMAPINFO *)&v82, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
-            goto LABEL_70;
-          v34 = hdev;
-        }
-        v37 = *((_DWORD *)v34 + 586);
-        if ( v37 )
-        {
-          v38 = v37 - 2;
-          if ( v38 )
-          {
-            v39 = v38 - 1;
-            if ( v39 )
-            {
-              v40 = v39 - 1;
-              if ( v40 )
-              {
-                v41 = v40 - 1;
-                if ( v41 )
-                {
-                  if ( v41 != 2 )
-                    goto LABEL_70;
-                  BYTE1(v71) = 6;
-                }
-                else
-                {
-                  BYTE1(v71) = -3;
-                }
-              }
-              else
-              {
-                BYTE1(v71) = -2;
-              }
-            }
-            else
-            {
-              BYTE1(v71) = -1;
-            }
-          }
-          else
-          {
-            BYTE1(v71) = 2;
-          }
-        }
-        else
-        {
-          BYTE1(v71) = 1;
-        }
-        v42 = *((_BYTE *)v34 + 2336);
-        v43 = (__int128 *)*((_QWORD *)a2 + 7);
-        BYTE3(v71) = v42;
-        BYTE2(v71) = 4;
-        v94 = *v43;
-        v44 = *((_QWORD *)v43 + 2);
-        WORD5(v94) = 10000;
-        v95 = v44;
-        *(_DWORD *)((char *)&v94 + 6) = 655370000;
-        HalftoneBrush = (unsigned int)HT_CreateHalftoneBrush(
-                                        (_DWORD)v33,
-                                        (unsigned int)&v94,
-                                        (unsigned int)v89,
-                                        v71,
-                                        0LL);
-        v46 = v75;
-        if ( (int)HalftoneBrush <= *((_DWORD *)v75 + 16) )
-        {
-LABEL_74:
-          if ( (int)HT_CreateHalftoneBrush(
-                      (_DWORD)v33,
-                      (unsigned int)&v94,
-                      (unsigned int)v89,
-                      v71,
-                      *((_QWORD *)v46 + 9)) <= 0 )
-            goto LABEL_70;
-          if ( ((_DWORD)hdev[10] & 0x200) != 0 )
-          {
-            v19 = (struct _XLATEOBJ *)((char *)v6 + 6896);
-          }
-          else
-          {
-            EPALOBJ::EPALOBJ((EPALOBJ *)&v71, *v33);
-            v50 = v71;
-            if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
-                                  &v74,
-                                  *((_QWORD *)a2 + 8),
-                                  *((unsigned int *)a2 + 18),
-                                  v71,
-                                  *(_QWORD *)(*((_QWORD *)a2 + 10) + 128LL),
-                                  *((_QWORD *)a2 + 12),
-                                  *((_QWORD *)a2 + 12),
-                                  *((_DWORD *)a2 + 12),
-                                  *((_DWORD *)a2 + 13),
-                                  0xFFFFFF,
-                                  0) )
-            {
-              if ( v50 )
-                DEC_SHARE_REF_CNT(v50);
-              goto LABEL_70;
-            }
-            v19 = (struct _XLATEOBJ *)v74;
-            if ( v50 )
-              DEC_SHARE_REF_CNT(v50);
-          }
-          HTSEMOBJ::~HTSEMOBJ((HTSEMOBJ *)&v73);
-          NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v69);
-LABEL_123:
-          v3 = (__int64 (__fastcall *)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int))v79;
-          goto LABEL_124;
-        }
-        v48 = (void *)PALLOCMEM(HalftoneBrush, 1835167815LL);
-        if ( v48 )
-        {
-          SURFACE::bDeleteSurface(v75, v47);
-          if ( !SURFMEM::bCreateDIB((SURFMEM *)&v75, (struct _DEVBITMAPINFO *)&v82, v48, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
-          {
-            Win32FreePool(v48);
-            goto LABEL_70;
-          }
-          *((_BYTE *)v75 + 688) = 1;
-          v46 = v75;
-          goto LABEL_74;
-        }
-      }
-LABEL_70:
-      HTSEMOBJ::~HTSEMOBJ((HTSEMOBJ *)&v73);
-      NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v69);
-      goto LABEL_71;
+      v15 = *((_DWORD *)a2 + 6);
+      *(_DWORD *)(v13 + 84) = NearestIndexFromColorref;
+      *(_DWORD *)(v13 + 88) = v15;
+      XLATE::vCheckForICM((XLATE *)v13, *((void **)a2 + 8), *((_DWORD *)a2 + 18));
+      v16 = (XLATEOBJ *)v13;
     }
-    v51 = *((_DWORD *)a2 + 18);
-    v52 = 0;
-    v53 = (HSURF)*((_QWORD *)a1 + 3);
-    if ( (v51 & 1) != 0 )
+    else
     {
-      v54 = (void *)*((_QWORD *)a2 + 8);
-      if ( !v54 )
+      NearestIndexFromColorref = ulGetNearestIndexFromColorref(
+                                   *((_QWORD *)a2 + 11),
+                                   *((_QWORD *)a2 + 12),
+                                   NearestIndexFromColorref,
+                                   1LL);
+      v17 = ulGetNearestIndexFromColorref(*((_QWORD *)a2 + 11), *((_QWORD *)a2 + 12), *((unsigned int *)a2 + 6), 1LL);
+      v15 = v17;
+      if ( *(_DWORD *)(*((_QWORD *)a2 + 10) + 96LL) == 1
+        && *(_DWORD *)(*((_QWORD *)a2 + 11) + 28LL)
+        && *((_DWORD *)a2 + 13) != *((_DWORD *)a2 + 6)
+        && NearestIndexFromColorref == v17 )
       {
-        if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
-          goto LABEL_97;
-        goto LABEL_96;
+        v15 = 1 - NearestIndexFromColorref;
       }
-      v55 = *((_DWORD *)a1 + 10);
-      if ( (v55 & 0x80u) != 0 )
+      *(_DWORD *)(v13 + 84) = NearestIndexFromColorref;
+      *(_DWORD *)(v13 + 88) = v15;
+      v16 = (XLATEOBJ *)v13;
+      XLATE::vCheckForICM((XLATE *)v13, *((void **)a2 + 8), *((_DWORD *)a2 + 18));
+      XLATE::vCheckForTrivial((XLATE *)v13);
+    }
+    *(_QWORD *)(v13 + 40) = ppalMono;
+    *(_QWORD *)(v13 + 48) = *((_QWORD *)a2 + 11);
+    *(_QWORD *)(v13 + 56) = *((_QWORD *)a2 + 12);
+    v16[3].flXlate |= 0x100u;
+    v16[1].flXlate = NearestIndexFromColorref;
+    v9 = v69;
+    *(_DWORD *)&v16[1].iSrcType = v15;
+LABEL_126:
+    v3 = v61;
+    goto LABEL_127;
+  }
+  if ( (unsigned int)v12 >= 0xC )
+  {
+    v44 = *((_DWORD *)a2 + 18);
+    v45 = 1;
+    v46 = (HSURF)*((_QWORD *)a1 + 3);
+    v47 = 0;
+    if ( (v44 & 1) != 0 )
+    {
+      v48 = (void *)*((_QWORD *)a2 + 8);
+      if ( v48 )
       {
-        if ( *((_DWORD *)a1 + 21) || (IcmDIB = BRUSH::hFindIcmDIB(a1, v54)) == 0LL )
+        v49 = *((_DWORD *)a1 + 10);
+        if ( (v49 & 0x80u) != 0 )
         {
-LABEL_97:
-          SURFREF::vAltLock((SURFREF *)v92, v53);
-          v58 = v93;
-          if ( !v93 )
-            goto LABEL_132;
-          v59 = *((_QWORD *)a2 + 10);
-          v60 = *((_DWORD *)a1 + 10);
-          v61 = *(_QWORD *)(v93 + 128);
-          if ( (v60 & 0x1000) != 0 )
+          if ( !*((_DWORD *)a1 + 21) )
           {
-            Xlate = EXLATEOBJ::bMakeXlate(
-                      &v74,
-                      *(_QWORD *)(v61 + 112),
-                      *((_QWORD *)a2 + 12),
-                      *((_QWORD *)a2 + 10),
-                      *(_DWORD *)(v61 + 60),
-                      *(_DWORD *)(v61 + 28));
-LABEL_121:
-            if ( !Xlate )
-              goto LABEL_132;
-            v19 = (struct _XLATEOBJ *)v74;
-            v8 = 0LL;
-            goto LABEL_123;
-          }
-          if ( (v60 & 0x2000) != 0 )
-          {
-            if ( *(_DWORD *)(v93 + 96) == *(_DWORD *)(v59 + 96) )
+            IcmDIB = BRUSH::hFindIcmDIB(a1, v48);
+            if ( IcmDIB )
             {
-              v3 = (__int64 (__fastcall *)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int))v79;
-              v19 = (struct _XLATEOBJ *)((char *)v6 + 6896);
-              v8 = 0LL;
-LABEL_125:
-              if ( v58 )
-              {
-                v66 = v58 + 24;
-                v67 = v58 != 0;
-LABEL_129:
-                v7 = v66 & -(__int64)v67;
-LABEL_131:
-                v68 = v3(
-                        (struct _BRUSHOBJ *)a2,
-                        (struct _SURFOBJ *)((*((_QWORD *)a2 + 10) + 24LL) & -(__int64)(*((_QWORD *)a2 + 10) != 0LL)),
-                        (struct _SURFOBJ *)v7,
-                        v8,
-                        v19,
-                        v80);
-                NEEDGRELOCK::~NEEDGRELOCK((NEEDGRELOCK *)v81);
-                NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v70);
-                SURFMEM::~SURFMEM((SURFMEM *)&v75);
-                EXLATEOBJ::~EXLATEOBJ((EXLATEOBJ *)&v74);
-                SURFREF::~SURFREF((SURFREF *)v92);
-                return v68;
-              }
-              if ( v75 )
-              {
-                v66 = (__int64)v75 + 24;
-                v67 = v75 != 0LL;
-                goto LABEL_129;
-              }
-              if ( v3 != EngRealizeBrush )
-                goto LABEL_131;
-              goto LABEL_132;
+              v46 = (HSURF)IcmDIB;
+              v47 = 1;
             }
-            goto LABEL_132;
           }
-          if ( (*(_WORD *)(v93 + 100) || *(_QWORD *)(v93 + 24)) && *(HDEV *)(v93 + 48) != hdev )
-            goto LABEL_132;
-          if ( !v61 )
+LABEL_97:
+          SURFREF::vAltLock((SURFREF *)v81, v46);
+          v52 = v82;
+          if ( !v82 )
+            goto LABEL_134;
+          v53 = *((_QWORD *)a2 + 10);
+          v54 = *((_DWORD *)a1 + 10);
+          v55 = *(struct PALETTE **)(v82 + 128);
+          if ( (v54 & 0x1000) != 0 )
           {
-            v63 = *(_DWORD *)(v93 + 96);
-            if ( v63 == *((_DWORD *)hdev + 519) )
+            inited = EXLATEOBJ::bMakeXlate(
+                       &Xlate,
+                       *((_QWORD *)v55 + 14),
+                       *((_QWORD *)a2 + 12),
+                       *((_QWORD *)a2 + 10),
+                       *((_DWORD *)v55 + 15),
+                       *((_DWORD *)v55 + 7));
+LABEL_124:
+            if ( !inited )
+              goto LABEL_134;
+            v16 = (XLATEOBJ *)Xlate;
+            goto LABEL_126;
+          }
+          if ( (v54 & 0x2000) != 0 )
+          {
+            if ( *(_DWORD *)(v82 + 96) != *(_DWORD *)(v53 + 96) )
+              goto LABEL_134;
+            v16 = xloIdent;
+            v3 = v61;
+            goto LABEL_128;
+          }
+          if ( (*(_WORD *)(v82 + 100) || *(_QWORD *)(v82 + 24)) && *(HDEV *)(v82 + 48) != hdev )
+            goto LABEL_134;
+          if ( !v55 )
+          {
+            v57 = *(_DWORD *)(v82 + 96);
+            if ( v57 == *((_DWORD *)hdev + 527) )
             {
-              if ( ((_DWORD)hdev[535] & 0x100) == 0 )
+              if ( ((_DWORD)hdev[543] & 0x100) == 0 )
               {
-                v61 = *((_QWORD *)hdev + 222);
+                v55 = (struct PALETTE *)*((_QWORD *)hdev + 226);
                 goto LABEL_117;
               }
             }
             else
             {
-              if ( v63 == *((_DWORD *)a2 + 19) )
+              if ( v57 == *((_DWORD *)a2 + 19) )
               {
-                v61 = *((_QWORD *)a2 + 13);
+                v55 = (struct PALETTE *)*((_QWORD *)a2 + 13);
                 goto LABEL_117;
               }
-              if ( v63 == 3 )
+              if ( v57 == 3 )
               {
-                if ( ((_DWORD)hdev[535] & 0x100) == 0 )
+                if ( ((_DWORD)hdev[543] & 0x100) == 0 )
                 {
-                  v61 = *((_QWORD *)v6 + 752);
+                  v55 = ppalDefaultSurface8bpp;
                   goto LABEL_117;
                 }
               }
               else if ( ((_DWORD)hdev[10] & 0x20000) == 0 )
               {
-                goto LABEL_132;
+                goto LABEL_134;
               }
             }
-            v61 = 0LL;
+            v55 = 0LL;
           }
 LABEL_117:
-          if ( v52 )
+          if ( v47 )
+            v58 = *((_DWORD *)a2 + 18);
+          else
+            v58 = 0;
+          if ( v47 )
+            v59 = *((_QWORD *)a2 + 8);
+          else
+            v59 = 0LL;
+          inited = EXLATEOBJ::bInitXlateObj(
+                     (__int64 *)&Xlate,
+                     v59,
+                     v58,
+                     (__int64)v55,
+                     *(_QWORD *)(v53 + 128),
+                     *((_QWORD *)a2 + 12),
+                     *((_QWORD *)a2 + 12),
+                     *((_DWORD *)a2 + 12),
+                     *((_DWORD *)a2 + 13),
+                     0xFFFFFF,
+                     0);
+          goto LABEL_124;
+        }
+        v51 = (v49 & 0x20000) == 0;
+        goto LABEL_95;
+      }
+      if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
+        goto LABEL_97;
+    }
+    else if ( (v44 & 4) == 0 )
+    {
+      v51 = (v44 & 2) == 0;
+LABEL_95:
+      if ( v51 )
+        goto LABEL_97;
+    }
+    v47 = v45;
+    goto LABEL_97;
+  }
+  if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
+    goto LABEL_134;
+  if ( (*((_DWORD *)a2 + 6) & 0x1000000) != 0 )
+    *((_DWORD *)a2 + 6) = rgbFromColorref(*((_QWORD *)a2 + 11), *((_QWORD *)a2 + 12));
+  v18 = hdev;
+  if ( ((_DWORD)hdev[456] & 0x200000) != 0 && a3 != EngRealizeBrush )
+  {
+    if ( (unsigned int)a3(
+                         (struct _BRUSHOBJ *)a2,
+                         (struct _SURFOBJ *)((*((_QWORD *)a2 + 10) + 24LL) & -(__int64)(*((_QWORD *)a2 + 10) != 0LL)),
+                         0LL,
+                         0LL,
+                         0LL,
+                         *((_DWORD *)a2 + 6) | 0x80000000) )
+    {
+      LODWORD(v8) = 1;
+      goto LABEL_134;
+    }
+    v18 = hdev;
+  }
+  v19 = *((_QWORD *)a2 + 10);
+  v74 = 0;
+  v77 = 0;
+  if ( *(_DWORD *)(v19 + 96) == 1 )
+    v71 = 1;
+  else
+    v71 = *((_DWORD *)v18 + 527);
+  if ( !*((_WORD *)v18 + 1056) )
+    goto LABEL_134;
+  if ( !*((_WORD *)v18 + 1057) )
+    goto LABEL_134;
+  v72 = *((unsigned __int16 *)v18 + 1056);
+  v73 = *((unsigned __int16 *)v18 + 1057);
+  v75 = 0LL;
+  v76 = 1;
+  if ( !SURFMEM::bCreateDIB((SURFMEM *)&v65, (struct _DEVBITMAPINFO *)&v71, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+    goto LABEL_134;
+  v20 = hdev;
+  v21 = (unsigned int)(*(_DWORD *)(*((_QWORD *)a2 + 10) + 96LL) == 1) + 1;
+  if ( *((_QWORD *)hdev + 349) )
+  {
+    if ( ((_DWORD)hdev[10] & 0x8000) == 0 )
+      v20 = (HDEV)*((_QWORD *)hdev + 225);
+    v22 = (*((__int64 (__fastcall **)(HDEV, __int64, _QWORD, _QWORD))hdev + 349))(
+            v20,
+            v21,
+            *((unsigned int *)a2 + 6),
+            *(_QWORD *)(v65 + 72));
+  }
+  else
+  {
+    v22 = EngDitherColor(hdev, v21, *((_DWORD *)a2 + 6), *(ULONG **)(v65 + 72));
+  }
+  v23 = v22 - 1;
+  if ( !v23 )
+  {
+    v16 = xloIdent;
+    goto LABEL_127;
+  }
+  if ( v23 != 1 )
+    goto LABEL_134;
+  if ( a3 != EngRealizeBrush
+    || (IsSemaphoreOwnedOrSharedByCurrentThread = GreIsSemaphoreOwnedOrSharedByCurrentThread(ghsemDynamicModeChange),
+        v25 = 1,
+        IsSemaphoreOwnedOrSharedByCurrentThread) )
+  {
+    v25 = 0;
+  }
+  NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v68, v25);
+  if ( a3 == EngRealizeBrush )
+  {
+    v64 = 1;
+    GreAcquireSemaphore(ghsemHT);
+  }
+  else
+  {
+    v64 = 0;
+  }
+  if ( !PDEVOBJ::pDevHTInfo((PDEVOBJ *)&hdev) && !(unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&hdev, 0LL) )
+    goto LABEL_72;
+  v26 = (HPALETTE *)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&hdev);
+  v27 = *((_DWORD *)a2 + 18);
+  LODWORD(v69) = *((_DWORD *)a2 + 6);
+  v80 = &v69;
+  v28 = hdev;
+  LODWORD(v61) = 0;
+  v79 = 1LL;
+  v78[0] = 262400;
+  v29 = *((_DWORD *)hdev + 595) >> 7;
+  v78[1] = 255;
+  v30 = ~(_BYTE)v29 & 2;
+  LOBYTE(v61) = v30;
+  if ( (v27 & 4) != 0 || (v27 & 0x20) == 0 && (v27 & 3) != 0 )
+    LOBYTE(v61) = v30 | 0x10;
+  if ( *((unsigned __int16 *)v26 + 4) != v72 || *((unsigned __int16 *)v26 + 5) != v73 )
+  {
+    SURFACE::bDeleteSurface(v65, 0LL, 0LL);
+    v72 = *((unsigned __int16 *)v26 + 4);
+    v73 = *((unsigned __int16 *)v26 + 5);
+    if ( !SURFMEM::bCreateDIB((SURFMEM *)&v65, (struct _DEVBITMAPINFO *)&v71, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+      goto LABEL_72;
+    v28 = hdev;
+  }
+  v31 = *((_DWORD *)v28 + 594);
+  if ( v31 )
+  {
+    v32 = v31 - 2;
+    if ( v32 )
+    {
+      v33 = v32 - 1;
+      if ( v33 )
+      {
+        v34 = v33 - 1;
+        if ( v34 )
+        {
+          v35 = v34 - 1;
+          if ( v35 )
           {
-            v64 = *((unsigned int *)a2 + 18);
-            v65 = *((_QWORD *)a2 + 8);
+            if ( v35 != 2 )
+              goto LABEL_72;
+            BYTE1(v61) = 6;
           }
           else
           {
-            v64 = 0LL;
-            v65 = 0LL;
+            BYTE1(v61) = -3;
           }
-          Xlate = EXLATEOBJ::bInitXlateObj(
-                    &v74,
-                    v65,
-                    v64,
-                    v61,
-                    *(_QWORD *)(v59 + 128),
-                    *((_QWORD *)a2 + 12),
-                    *((_QWORD *)a2 + 12),
-                    *((_DWORD *)a2 + 12),
-                    *((_DWORD *)a2 + 13),
-                    0xFFFFFF,
-                    0);
-          goto LABEL_121;
         }
-        v53 = (HSURF)IcmDIB;
-LABEL_96:
-        v52 = 1;
-        goto LABEL_97;
-      }
-      v57 = (v55 & 0x20000) == 0;
-    }
-    else
-    {
-      if ( (v51 & 4) != 0 )
-        goto LABEL_96;
-      v57 = (v51 & 2) == 0;
-    }
-    if ( v57 )
-      goto LABEL_97;
-    goto LABEL_96;
-  }
-  LOBYTE(v12) = 5;
-  v14 = HmgShareLockCheck(*((_QWORD *)hdev + v13 + 181), v12);
-  v93 = v14;
-  if ( v14 )
-  {
-    v78 = (v14 + 24) & -(__int64)(v14 != 0);
-    v74 = pCreateXlate(2u);
-    v15 = v74;
-    if ( v74 )
-    {
-      NearestIndexFromColorref = *((_DWORD *)a2 + 13);
-      if ( (unsigned int)EBRUSHOBJ::bIsCMYKColor(a2) )
-      {
-        v17 = *((_DWORD *)a2 + 6);
-        *((_DWORD *)v15 + 21) = NearestIndexFromColorref;
-        *((_DWORD *)v15 + 22) = v17;
-        XLATE::vCheckForICM(v15, *((void **)a2 + 8), *((_DWORD *)a2 + 18));
+        else
+        {
+          BYTE1(v61) = -2;
+        }
       }
       else
       {
-        NearestIndexFromColorref = ulGetNearestIndexFromColorref(
-                                     *((_QWORD *)a2 + 11),
-                                     *((_QWORD *)a2 + 12),
-                                     NearestIndexFromColorref,
-                                     1LL);
-        v18 = ulGetNearestIndexFromColorref(*((_QWORD *)a2 + 11), *((_QWORD *)a2 + 12), *((unsigned int *)a2 + 6), 1LL);
-        v17 = v18;
-        if ( *(_DWORD *)(*((_QWORD *)a2 + 10) + 96LL) == 1
-          && *(_DWORD *)(*((_QWORD *)a2 + 11) + 28LL)
-          && *((_DWORD *)a2 + 13) != *((_DWORD *)a2 + 6)
-          && NearestIndexFromColorref == v18 )
-        {
-          v17 = 1 - NearestIndexFromColorref;
-        }
-        *((_DWORD *)v15 + 21) = NearestIndexFromColorref;
-        *((_DWORD *)v15 + 22) = v17;
-        XLATE::vCheckForICM(v15, *((void **)a2 + 8), *((_DWORD *)a2 + 18));
-        XLATE::vCheckForTrivial(v15);
+        BYTE1(v61) = -1;
       }
-      *((_QWORD *)v15 + 5) = *((_QWORD *)v6 + 754);
-      v19 = (struct _XLATEOBJ *)v15;
-      *((_QWORD *)v15 + 6) = *((_QWORD *)a2 + 11);
-      *((_QWORD *)v15 + 7) = *((_QWORD *)a2 + 12);
-      *((_DWORD *)v15 + 19) |= 0x100u;
-      *((_DWORD *)v15 + 7) = NearestIndexFromColorref;
-      v8 = (struct _SURFOBJ *)v78;
-      *((_DWORD *)v15 + 8) = v17;
-      goto LABEL_123;
+    }
+    else
+    {
+      BYTE1(v61) = 2;
     }
   }
-LABEL_132:
-  NEEDGRELOCK::~NEEDGRELOCK((NEEDGRELOCK *)v81);
+  else
+  {
+    BYTE1(v61) = 1;
+  }
+  v36 = *((_BYTE *)v28 + 2368);
+  v37 = (__int128 *)*((_QWORD *)a2 + 7);
+  BYTE3(v61) = v36;
+  BYTE2(v61) = 4;
+  v84 = *v37;
+  v38 = *((_QWORD *)v37 + 2);
+  WORD5(v84) = 10000;
+  v85 = v38;
+  *(_DWORD *)((char *)&v84 + 6) = 655370000;
+  HalftoneBrush = (unsigned int)HT_CreateHalftoneBrush((_DWORD)v26, (unsigned int)&v84, (unsigned int)v78, v61, 0LL);
+  v40 = v65;
+  if ( (int)HalftoneBrush > *(_DWORD *)(v65 + 64) )
+  {
+    v41 = PALLOCMEM2(HalftoneBrush, 1835167815LL, 1);
+    if ( v41 )
+    {
+      SURFACE::bDeleteSurface(v65, 0LL, 0LL);
+      if ( !SURFMEM::bCreateDIB((SURFMEM *)&v65, (struct _DEVBITMAPINFO *)&v71, v41, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
+      {
+        Win32FreePool(v41);
+        goto LABEL_72;
+      }
+      *(_BYTE *)(v65 + 688) = 1;
+      v40 = v65;
+      goto LABEL_74;
+    }
+LABEL_72:
+    HTSEMOBJ::~HTSEMOBJ((HTSEMOBJ *)&v64);
+    NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v68);
+    goto LABEL_134;
+  }
+LABEL_74:
+  if ( (int)HT_CreateHalftoneBrush((_DWORD)v26, (unsigned int)&v84, (unsigned int)v78, v61, *(_QWORD *)(v40 + 72)) <= 0 )
+    goto LABEL_72;
+  if ( ((_DWORD)hdev[10] & 0x200) != 0 )
+  {
+    v16 = xloIdent;
+  }
+  else
+  {
+    EPALOBJ::EPALOBJ((EPALOBJ *)&v61, *v26);
+    v42 = v61;
+    if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
+                          (__int64 *)&Xlate,
+                          *((_QWORD *)a2 + 8),
+                          *((_DWORD *)a2 + 18),
+                          v61,
+                          *(_QWORD *)(*((_QWORD *)a2 + 10) + 128LL),
+                          *((_QWORD *)a2 + 12),
+                          *((_QWORD *)a2 + 12),
+                          *((_DWORD *)a2 + 12),
+                          *((_DWORD *)a2 + 13),
+                          0xFFFFFF,
+                          0) )
+    {
+      if ( v42 )
+        DEC_SHARE_REF_CNT(v42, v43);
+      goto LABEL_72;
+    }
+    v16 = (XLATEOBJ *)Xlate;
+    if ( v42 )
+      DEC_SHARE_REF_CNT(v42, v43);
+  }
+  HTSEMOBJ::~HTSEMOBJ((HTSEMOBJ *)&v64);
+  NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v68);
+LABEL_127:
+  v52 = v82;
+LABEL_128:
+  if ( v52 )
+  {
+    v8 = (struct _SURFOBJ *)(v52 + 24);
+LABEL_133:
+    LODWORD(v8) = a3(
+                    (struct _BRUSHOBJ *)a2,
+                    (struct _SURFOBJ *)((*((_QWORD *)a2 + 10) + 24LL) & -(__int64)(*((_QWORD *)a2 + 10) != 0LL)),
+                    v8,
+                    v9,
+                    v16,
+                    v3);
+    goto LABEL_134;
+  }
+  if ( v65 )
+  {
+    v8 = (struct _SURFOBJ *)(v65 + 24);
+    goto LABEL_133;
+  }
+  if ( a3 != EngRealizeBrush )
+    goto LABEL_133;
+LABEL_134:
+  NEEDGRELOCK::~NEEDGRELOCK((NEEDGRELOCK *)v83);
   NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)v70);
-  SURFMEM::~SURFMEM((SURFMEM *)&v75);
-  EXLATEOBJ::~EXLATEOBJ((EXLATEOBJ *)&v74);
-  SURFREF::~SURFREF((SURFREF *)v92);
-  return 0LL;
+  SURFMEM::~SURFMEM((SURFMEM *)&v65);
+  EXLATEOBJ::~EXLATEOBJ((EXLATEOBJ *)&Xlate);
+  SURFREF::~SURFREF((SURFREF *)v81, v60);
+  return (unsigned int)v8;
 }

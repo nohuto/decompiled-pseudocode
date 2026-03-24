@@ -1,19 +1,15 @@
 /*
- * XREFs of ?HasAtlasedContent@CVisual@@MEBA_NXZ @ 0x1800D0470
+ * XREFs of ?HasAtlasedContent@CVisual@@MEBA_NXZ @ 0x1800BDA80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall CVisual::HasAtlasedContent(CVisual *this)
+bool __fastcall CVisual::HasAtlasedContent(CVisual *this)
 {
   __int64 v1; // rcx
-  char v2; // bl
 
-  v1 = *((_QWORD *)this + 32);
-  v2 = 0;
-  if ( v1 )
-    return (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v1 + 56LL))(v1, 127LL) != 0;
-  return v2;
+  v1 = *((_QWORD *)this + 31);
+  return v1 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v1 + 56LL))(v1, 127LL);
 }

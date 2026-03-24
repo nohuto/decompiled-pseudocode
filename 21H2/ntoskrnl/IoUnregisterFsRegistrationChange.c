@@ -1,13 +1,13 @@
 /*
- * XREFs of IoUnregisterFsRegistrationChange @ 0x140936710
+ * XREFs of IoUnregisterFsRegistrationChange @ 0x140893E10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterFsRegistrationChange(
@@ -36,6 +36,6 @@ void __stdcall IoUnregisterFsRegistrationChange(
     }
   }
   ExReleaseResourceLite(&IopDatabaseResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  ObfDereferenceObject(DriverObject);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  HalPutDmaAdapter((PADAPTER_OBJECT)DriverObject);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessExitTime @ 0x1407DD010
+ * XREFs of PsGetProcessExitTime @ 0x140697B40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 LARGE_INTEGER PsGetProcessExitTime(void)
 {
-  return (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process[1].ExtendedFeatureDisableMask;
+  return (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process[1].EndPadding[2];
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCommitSecurityAttributeChanges @ 0x1400CC960
+ * XREFs of AuthzBasepCommitSecurityAttributeChanges @ 0x1400CC980
  * Callers:
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x1400CC8F4 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x1400CC914 (AuthzBasepFinaliseSecurityAttributesList.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributeValues @ 0x1401346A8 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1401395A0 (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1401346C8 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1401395C0 (AuthzBasepRemoveSecurityAttributeFromLists.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

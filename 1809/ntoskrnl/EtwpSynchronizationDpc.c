@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpSynchronizationDpc @ 0x14013A570
+ * XREFs of EtwpSynchronizationDpc @ 0x14013A590
  * Callers:
  *     <none>
  * Callees:

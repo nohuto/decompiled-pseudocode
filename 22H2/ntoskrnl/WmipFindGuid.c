@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipFindGuid @ 0x1407E337C
+ * XREFs of WmipFindGuid @ 0x1406A2900
  * Callers:
- *     IoWMISystemControl @ 0x1407E3064 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406A25F4 (IoWMISystemControl.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,6 @@ char __fastcall WmipFindGuid(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4
   __int64 v5; // r10
   __int64 v7; // rcx
   char result; // al
-  int v9; // edx
 
   v5 = 0LL;
   if ( !a2 )
@@ -27,9 +26,8 @@ char __fastcall WmipFindGuid(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4
     if ( (unsigned int)v5 >= a2 )
       return 0;
   }
-  result = 1;
-  v9 = *(_DWORD *)(a1 + 24 * v5 + 16);
   *a4 = v5;
-  *a5 = v9;
+  result = 1;
+  *a5 = *(_DWORD *)(a1 + 24 * v5 + 16);
   return result;
 }

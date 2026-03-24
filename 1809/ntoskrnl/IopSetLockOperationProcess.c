@@ -8,8 +8,8 @@
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     IopVerifierExAllocatePool @ 0x14008D04C (IopVerifierExAllocatePool.c)
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x1400B7950 (IopGetFileObjectExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

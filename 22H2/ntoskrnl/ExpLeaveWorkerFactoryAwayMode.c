@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpLeaveWorkerFactoryAwayMode @ 0x140304BB4
+ * XREFs of ExpLeaveWorkerFactoryAwayMode @ 0x140202DC8
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A9090 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402B8950 (NtReleaseWorkerFactoryWorker.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D10 (ExpWorkerFactoryCheckCreate.c)
- *     NtSetInformationWorkerFactory @ 0x140302E90 (NtSetInformationWorkerFactory.c)
- *     ExpShutdownWorkerFactory @ 0x14031D728 (ExpShutdownWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203110 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402424E0 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140242860 (ExpWorkerFactoryCheckCreate.c)
+ *     NtSetInformationWorkerFactory @ 0x1402DBAE0 (NtSetInformationWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x1403489E8 (ExpShutdownWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KiDeregisterObjectWaitBlock @ 0x14033C230 (KiDeregisterObjectWaitBlock.c)
+ *     KeDeregisterObjectNotification @ 0x140202E20 (KeDeregisterObjectNotification.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
  */
 
 void __fastcall ExpLeaveWorkerFactoryAwayMode(char *Object)
 {
-  if ( (*((_DWORD *)Object + 102) & 0x400) != 0
-    && (unsigned __int8)KiDeregisterObjectWaitBlock(*(_QWORD *)(*((_QWORD *)Object + 2) + 8LL), Object + 616) )
+  if ( (*((_DWORD *)Object + 78) & 0x400) != 0
+    && (unsigned __int8)KeDeregisterObjectNotification(*(_QWORD *)(*((_QWORD *)Object + 2) + 8LL), Object + 520) )
   {
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-    *((_DWORD *)Object + 102) &= ~0x400u;
+    *((_DWORD *)Object + 78) &= ~0x400u;
   }
-  *((_DWORD *)Object + 102) &= ~0x200u;
+  *((_DWORD *)Object + 78) &= ~0x200u;
 }

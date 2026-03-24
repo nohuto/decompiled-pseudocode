@@ -1,57 +1,58 @@
 /*
- * XREFs of ?MulEnableDriver@@YAHKKPEAUtagDRVENABLEDATA@@@Z @ 0x1C015E590
+ * XREFs of ?MulEnableDriver@@YAHKKPEAUtagDRVENABLEDATA@@@Z @ 0x1C0141840
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulEnableDriver(__int64 a1, __int64 a2, struct tagDRVENABLEDATA *a3)
 {
-  __int64 v4; // rbx
-  __int128 *v5; // rcx
-  unsigned int v6; // edx
-  __int64 v7; // r8
-  __int64 v8; // rax
-  __int128 v9; // xmm0
+  int v4; // eax
+  unsigned int v5; // ecx
+  _OWORD *v6; // rax
+  char *v7; // rdx
+  __int64 v8; // r8
   __int64 result; // rax
-  unsigned int v11; // [rsp+40h] [rbp+18h] BYREF
-  __int128 *v12; // [rsp+48h] [rbp+20h] BYREF
+  unsigned int v10; // [rsp+40h] [rbp+18h] BYREF
+  _OWORD *v11; // [rsp+48h] [rbp+20h] BYREF
 
-  v4 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( RtlRunOnceBeginInitialize((PRTL_RUN_ONCE)(v4 + 3808), 0, 0LL) == 259 )
+  if ( RtlRunOnceBeginInitialize(&gMulEnableDriverInit, 0, 0LL) == 259 )
   {
-    if ( ext_ms_win_moderncore_win32k_base_ntgdi_l1 && (int)ext_ms_win_moderncore_win32k_base_ntgdi_l1() >= 0 )
+    if ( ext_ms_win_moderncore_win32k_base_ntgdi_l1 )
+      v4 = ext_ms_win_moderncore_win32k_base_ntgdi_l1();
+    else
+      v4 = -1073741637;
+    if ( v4 >= 0 )
     {
-      v5 = 0LL;
-      v6 = 0;
-      v12 = 0LL;
-      v11 = 0;
-      if ( qword_1C0294428 )
+      v11 = 0LL;
+      v5 = 0;
+      v10 = 0;
+      if ( qword_1C0255018 )
       {
-        qword_1C0294428(&v12, &v11);
-        v5 = v12;
-        v6 = v11;
-      }
-      if ( v6 )
-      {
-        v7 = v6;
-        v8 = v4 - (_QWORD)v5;
-        do
+        qword_1C0255018(&v11, &v10);
+        v5 = v10;
+        if ( v10 )
         {
-          v9 = *v5++;
-          *(__int128 *)((char *)v5 + v8 + 3336) = v9;
-          --v7;
+          v6 = v11;
+          v7 = (char *)(&unk_1C024A7B0 - (_UNKNOWN *)v11);
+          v8 = v10;
+          do
+          {
+            *(_OWORD *)((char *)v6 + (_QWORD)v7) = *v6;
+            ++v6;
+            --v8;
+          }
+          while ( v8 );
         }
-        while ( v7 );
       }
-      *(_DWORD *)(v4 + 3800) += v6;
+      gcdrvfnMulti += v5;
     }
-    RtlRunOnceComplete((PRTL_RUN_ONCE)(v4 + 3808), 0, 0LL);
+    RtlRunOnceComplete(&gMulEnableDriverInit, 0, 0LL);
   }
-  a3->pdrvfn = (DRVFN *)(v4 + 3256);
-  result = 1LL;
-  a3->c = *(_DWORD *)(v4 + 3800);
   a3->iDriverVersion = 196608;
+  a3->pdrvfn = (DRVFN *)&gadrvfnMulti;
+  result = 1LL;
+  a3->c = gcdrvfnMulti;
   return result;
 }

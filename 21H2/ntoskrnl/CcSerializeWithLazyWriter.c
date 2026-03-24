@@ -1,11 +1,11 @@
 /*
- * XREFs of CcSerializeWithLazyWriter @ 0x1404171F4
+ * XREFs of CcSerializeWithLazyWriter @ 0x1403F03C4
  * Callers:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402127F0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     CcFreeWorkQueueEntry @ 0x1402766A0 (CcFreeWorkQueueEntry.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
  */
 
 char __fastcall CcSerializeWithLazyWriter(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ char __fastcall CcSerializeWithLazyWriter(__int64 a1, __int64 a2)
   v3 = 1;
   if ( (*(_DWORD *)(a2 + 152) & 0x20) != 0 )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 768), &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 192), &LockHandle);
     v4 = *(_QWORD *)(a2 + 496);
     if ( v4 )
     {

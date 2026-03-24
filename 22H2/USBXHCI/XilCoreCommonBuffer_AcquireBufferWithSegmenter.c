@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000B70C
+ * XREFs of XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C0009D48
  * Callers:
- *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C000B5D4 (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
- *     XilCoreCommonBuffer_AcquireBuffer @ 0x1C00130E0 (XilCoreCommonBuffer_AcquireBuffer.c)
+ *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009C0C (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
+ *     XilCoreCommonBuffer_AcquireBuffer @ 0x1C000E490 (XilCoreCommonBuffer_AcquireBuffer.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 unsigned int *__fastcall XilCoreCommonBuffer_AcquireBufferWithSegmenter(
@@ -36,7 +36,7 @@ unsigned int *__fastcall XilCoreCommonBuffer_AcquireBufferWithSegmenter(
         (_DWORD)a2,
         8,
         16,
-        (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids);
+        (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids);
     }
   }
   else

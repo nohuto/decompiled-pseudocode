@@ -1,82 +1,81 @@
 /*
- * XREFs of ?vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02833DC
+ * XREFs of ?vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C016429C
  * Callers:
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027E794 (-bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0281B48 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0282134 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0163C34 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     ?bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C0280C00 (-bSpTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0283BD4 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C00F55E8 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0279AAC (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
- *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027D4BC (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
- *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C027FFE0 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0098730 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0164400 (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
+ *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C01644D4 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027FA90 (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
  */
 
 void __fastcall vSpWriteToScreen(struct _SPRITESTATE *a1, struct _POINTL *a2, struct _SURFOBJ *a3, struct _RECTL *a4)
 {
-  struct REGION *v4; // rbx
-  __int64 v5; // rdi
-  struct _CLIPOBJ *v10; // r15
-  int v11; // eax
-  int hsurf; // eax
+  struct _CLIPOBJ *v4; // r14
+  struct REGION *v7; // rbx
   PVOID *p_pvScan0; // rbx
-  __int64 v14; // rax
+  int hsurf; // eax
+  __int64 v12; // rax
+  __int64 v13; // rdi
+  struct _SURFOBJ *v14; // rdx
   int v15; // ecx
-  struct _SURFOBJ *v16; // rdx
-  struct _POINTL v17; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v18[4]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v19[52]; // [rsp+54h] [rbp-ACh] BYREF
-  __int64 v20; // [rsp+88h] [rbp-78h]
-  __int64 v21; // [rsp+A0h] [rbp-60h]
-  int v22; // [rsp+A8h] [rbp-58h]
-  int v23; // [rsp+D0h] [rbp-30h]
-  __int64 v24; // [rsp+E0h] [rbp-20h]
-  int v25; // [rsp+E8h] [rbp-18h]
+  int v16; // eax
+  _BYTE v17[4]; // [rsp+40h] [rbp-E8h] BYREF
+  _BYTE v18[52]; // [rsp+44h] [rbp-E4h] BYREF
+  __int64 v19; // [rsp+78h] [rbp-B0h]
+  __int64 v20; // [rsp+90h] [rbp-98h]
+  int v21; // [rsp+98h] [rbp-90h]
+  int v22; // [rsp+C0h] [rbp-68h]
+  __int64 v23; // [rsp+D0h] [rbp-58h]
+  int v24; // [rsp+D8h] [rbp-50h]
 
-  v4 = (struct REGION *)*((_QWORD *)a1 + 129);
-  v5 = 0LL;
-  v21 = 0LL;
-  v22 = 0;
-  v23 = 1;
-  v24 = 0LL;
   v20 = 0LL;
-  v10 = 0LL;
-  v25 = 0;
-  if ( v4 )
+  v4 = 0LL;
+  v21 = 0;
+  v23 = 0LL;
+  v7 = (struct REGION *)*((_QWORD *)a1 + 129);
+  v22 = 1;
+  v19 = 0LL;
+  v24 = 0;
+  if ( v7 )
   {
-    v11 = bConcurrent(a1);
-    ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v18, v11, v4, (struct ERECTL *)a4, 0);
-    if ( ERECTL::bEmpty((ERECTL *)v19) )
-      goto LABEL_15;
-    v10 = (struct _CLIPOBJ *)v18;
+    v16 = bConcurrent(a1);
+    ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v17, v16, v7, (struct ERECTL *)a4, 0);
+    if ( ERECTL::bEmpty((ERECTL *)v18) )
+      goto LABEL_13;
+    v4 = (struct _CLIPOBJ *)v17;
   }
-  hsurf = (int)a3[1].hsurf;
-  p_pvScan0 = 0LL;
   a3->iUniq = 0;
+  p_pvScan0 = 0LL;
+  hsurf = (int)a3[1].hsurf;
   if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
   {
     p_pvScan0 = &a3[-1].pvScan0;
     GreLockDisplayDevice(a3->hdev);
   }
-  v14 = *((_QWORD *)a1 + 4);
-  if ( v14 )
+  v12 = *((_QWORD *)a1 + 4);
+  v13 = 0LL;
+  v14 = (struct _SURFOBJ *)v12;
+  if ( v12 )
   {
-    v15 = *(_DWORD *)(v14 + 88);
+    v15 = *(_DWORD *)(v12 + 88);
     if ( (v15 & 0x80004000) != 0 && (v15 & 0x200) == 0 )
     {
-      v5 = v14 - 24;
-      GreLockDisplayDevice(*(_QWORD *)(v14 - 24 + 48));
+      v13 = v12 - 24;
+      GreLockDisplayDevice(*(_QWORD *)(v12 - 24 + 48));
+      v14 = (struct _SURFOBJ *)*((_QWORD *)a1 + 4);
     }
   }
-  v16 = (struct _SURFOBJ *)*((_QWORD *)a1 + 4);
-  v17 = 0LL;
-  INVOKEOFFCOPYBITS(&v17, v16, a2, a3, v10, 0LL, a4, (struct _POINTL *)a4);
-  if ( v5 )
-    GreUnlockDisplayDevice(*(_QWORD *)(v5 + 48));
+  INVOKEOFFCOPYBITS(&gptlZero, v14, a2, a3, v4, 0LL, a4, (struct _POINTL *)a4);
+  if ( v13 )
+    GreUnlockDisplayDevice(*(_QWORD *)(v13 + 48));
   if ( p_pvScan0 )
     GreUnlockDisplayDevice(p_pvScan0[6]);
-LABEL_15:
-  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v18);
+LABEL_13:
+  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v17);
 }

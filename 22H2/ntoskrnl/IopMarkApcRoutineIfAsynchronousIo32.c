@@ -1,37 +1,43 @@
 /*
- * XREFs of IopMarkApcRoutineIfAsynchronousIo32 @ 0x1403018B8
+ * XREFs of IopMarkApcRoutineIfAsynchronousIo32 @ 0x1402D2650
  * Callers:
- *     NtLockFile @ 0x1407659A0 (NtLockFile.c)
- *     BuildQueryDirectoryIrp @ 0x140765DB0 (BuildQueryDirectoryIrp.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1407CC120 (NtNotifyChangeDirectoryFileEx.c)
- *     NtReadFileScatter @ 0x1407E75F0 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x1407E8870 (NtWriteFileGather.c)
+ *     IopValidateAndGetWriteParameters @ 0x1403F178C (IopValidateAndGetWriteParameters.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140655E20 (NtLockFile.c)
+ *     NtReadFileScatter @ 0x14067E2A0 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x14067EA40 (NtWriteFileGather.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140691690 (NtNotifyChangeDirectoryFileEx.c)
+ *     BuildQueryDirectoryIrp @ 0x1406C8A70 (BuildQueryDirectoryIrp.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall IopMarkApcRoutineIfAsynchronousIo32(unsigned int **a1, __int64 *a2, char a3)
 {
+  unsigned int *v4; // rcx
   unsigned __int64 result; // rax
-  unsigned int *v5; // rcx
-  _KPROCESS *v6; // r10
+  __int16 v6; // r11
   unsigned int *v7; // rcx
-  __int64 v8; // r9
+  __int64 v8; // r10
 
-  result = (unsigned __int64)KeGetCurrentThread();
-  v5 = *a1;
-  v6 = *(_KPROCESS **)(result + 184);
-  if ( v6[1].Affinity.StaticBitmap[30] )
+  v4 = *a1;
+  result = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( result )
   {
-    result = WORD2(v6[2].Affinity.StaticBitmap[20]);
-    if ( ((_WORD)result == 332 || (_WORD)result == 452) && !a3 )
+    v6 = *(_WORD *)(result + 8);
+    result = 332LL;
+    if ( v6 == 332 || (result = 452LL, v6 == 452) )
     {
-      v7 = (unsigned int *)*v5;
-      v8 = *a2 | 1;
-      result = *v7;
-      *v7 = result;
-      *a1 = v7;
-      *a2 = v8;
+      if ( !a3 )
+      {
+        v7 = (unsigned int *)*v4;
+        v8 = *a2 | 1;
+        result = *v7;
+        *v7 = result;
+        *a1 = v7;
+        *a2 = v8;
+      }
     }
   }
   return result;

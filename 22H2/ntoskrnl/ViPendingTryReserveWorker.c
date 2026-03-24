@@ -1,7 +1,7 @@
 /*
- * XREFs of ViPendingTryReserveWorker @ 0x1405CFD04
+ * XREFs of ViPendingTryReserveWorker @ 0x1405A1C50
  * Callers:
- *     ViPendingQueuePassiveLevelCompletion @ 0x140AD2EB0 (ViPendingQueuePassiveLevelCompletion.c)
+ *     ViPendingQueuePassiveLevelCompletion @ 0x1409D5DF4 (ViPendingQueuePassiveLevelCompletion.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall ViPendingTryReserveWorker(signed __int64 a1)
 
   v1 = ViPendingWorkersCount;
   v2 = ViPendingWorkerIndexHint;
-  while ( _InterlockedCompareExchange64(&qword_140C36F28[6 * v2], a1, 0LL) )
+  while ( _InterlockedCompareExchange64(&qword_140C1CBE8[6 * v2], a1, 0LL) )
   {
     v2 = v2 + 1 < ViPendingWorkersCount ? v2 + 1 : 0;
     if ( !--v1 )

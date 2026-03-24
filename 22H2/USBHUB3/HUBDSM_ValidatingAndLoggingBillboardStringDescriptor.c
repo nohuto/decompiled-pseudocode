@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C0022BB0
+ * XREFs of HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00205B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDTX_LogBillboardEvent @ 0x1C002CF10 (HUBDTX_LogBillboardEvent.c)
- *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003C250 (HUBDESC_InternalValidateStringDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDTX_LogBillboardEvent @ 0x1C0029E78 (HUBDTX_LogBillboardEvent.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingAndLoggingBillboardStringDescriptor(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HUBDSM_ValidatingAndLoggingBillboardStringDescriptor(__int64 
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   v18 = v1;
   v13 = 0LL;
   v19 = 0LL;
@@ -70,7 +70,7 @@ __int64 __fastcall HUBDSM_ValidatingAndLoggingBillboardStringDescriptor(__int64 
   {
     *(_DWORD *)(v1 + 2432) = 1073807391;
     v2 = 4065;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
       McTemplateK0p_EtwWriteTransfer(
         v9,
         &USBHUB3_ETW_EVENT_INVALID_BILLBOARD_STRING_DESCRIPTOR,

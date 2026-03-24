@@ -3,14 +3,14 @@
  * Callers:
  *     SepCaptureTokenSecurityAttributesInformation @ 0x1405BF7FC (SepCaptureTokenSecurityAttributesInformation.c)
  *     NtQuerySecurityAttributesToken @ 0x140626040 (NtQuerySecurityAttributesToken.c)
- *     NtQuerySecurityPolicy @ 0x14089AF60 (NtQuerySecurityPolicy.c)
- *     NtSetCachedSigningLevel2 @ 0x14089B2A0 (NtSetCachedSigningLevel2.c)
+ *     NtQuerySecurityPolicy @ 0x14089AF40 (NtQuerySecurityPolicy.c)
+ *     NtSetCachedSigningLevel2 @ 0x14089B280 (NtSetCachedSigningLevel2.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeCaptureUnicodeStringStructures @ 0x1406259E0 (SeCaptureUnicodeStringStructures.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepCaptureUnicodeStringArray(SIZE_T a1, unsigned int a2, char a3, SIZE_T *a4)

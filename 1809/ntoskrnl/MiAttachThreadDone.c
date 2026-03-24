@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttachThreadDone @ 0x1400EEA7C
+ * XREFs of MiAttachThreadDone @ 0x1400EEA9C
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB3EC (MiTrimSharedPageFromViews.c)
- *     MiUnlockStealVm @ 0x1400ECD44 (MiUnlockStealVm.c)
- *     MmQueryCommitReleaseState @ 0x140130934 (MmQueryCommitReleaseState.c)
- *     MmReleaseCommitForMemResetPages @ 0x1402A5484 (MmReleaseCommitForMemResetPages.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
+ *     MiUnlockStealVm @ 0x1400ECD64 (MiUnlockStealVm.c)
+ *     MmQueryCommitReleaseState @ 0x140130954 (MmQueryCommitReleaseState.c)
+ *     MmReleaseCommitForMemResetPages @ 0x1402A5584 (MmReleaseCommitForMemResetPages.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiAttachThreadDone(__int64 a1)

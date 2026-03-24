@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitSetInertiaModifierAnimations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228830
+ * XREFs of ?EmitSetInertiaModifierAnimations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF960
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229180 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F0300 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA?AW4InteractionTrackerMarshalerFlag@12@W4InertiaModifierAxis@@@Z @ 0x1C02292A8 (-GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA-AW4Interac.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA?AW4InteractionTrackerMarshalerFlag@12@W4InertiaModifierAxis@@@Z @ 0x1C01F0468 (-GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA-AW4Interac.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetInertiaModifierAnimations(
@@ -46,12 +46,12 @@ LABEL_9:
     *(_DWORD *)v11 = v8;
     *(_OWORD *)((char *)this + 4) = 0LL;
     *((_DWORD *)this + 5) = 0;
-    *((_DWORD *)this + 1) = 207;
-    *((_DWORD *)this + 2) = *((_DWORD *)v4 + 8);
+    *((_DWORD *)this + 1) = 216;
+    *((_DWORD *)this + 2) = *((_DWORD *)v4 + 6);
     *((_DWORD *)this + 3) = v5;
     v9 = *(v3 - 8);
     if ( v9 )
-      LODWORD(v9) = *(_DWORD *)(v9 + 32);
+      LODWORD(v9) = *(_DWORD *)(v9 + 24);
     *((_DWORD *)this + 4) = v9;
     *((_DWORD *)this + 5) = *(_DWORD *)v3;
     if ( *v3 )

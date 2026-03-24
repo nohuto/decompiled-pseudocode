@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetLowEventPair @ 0x14041ED40
+ * XREFs of ZwSetLowEventPair @ 0x1403FD860
  * Callers:
  *     <none>
  * Callees:

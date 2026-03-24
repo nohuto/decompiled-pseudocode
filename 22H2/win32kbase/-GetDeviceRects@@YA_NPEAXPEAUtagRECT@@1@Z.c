@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetDeviceRects@@YA_NPEAXPEAUtagRECT@@1@Z @ 0x1C01EFB84
+ * XREFs of ?GetDeviceRects@@YA_NPEAXPEAUtagRECT@@1@Z @ 0x1C01B3784
  * Callers:
- *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01EFB2C (-CreateInjectionDevice@@YAHXZ.c)
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01B3730 (-CreateInjectionDevice@@YAHXZ.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
  */
 
 bool __fastcall GetDeviceRects(void *a1, struct tagRECT *a2, struct tagRECT *a3)
 {
-  _QWORD *v3; // rbx
+  void *v3; // rbx
   __int64 v4; // rax
   __int64 v5; // rax
   struct tagRECT v6; // xmm1
@@ -22,15 +22,13 @@ bool __fastcall GetDeviceRects(void *a1, struct tagRECT *a2, struct tagRECT *a3)
   Object = 0LL;
   if ( (int)RawInputManagerDeviceObjectResolveHandle((char *)TouchExtensibility::ghInjectionDevice, 3u, 0, &Object) < 0 )
     return 0;
-  v3 = (char *)Object + 72;
-  if ( Object != (PVOID)-72LL )
-    v3 = (_QWORD *)*v3;
+  v3 = Object == (PVOID)-88LL ? 0LL : (void *)*((_QWORD *)Object + 11);
   TouchExtensibility::hDeviceUser = v3;
   ObfDereferenceObject(Object);
-  v4 = HMValidateHandleNoSecure((int)v3, 19);
+  v4 = HMValidateHandleNoSecure((unsigned __int64)v3, 19);
   if ( !v4 )
     return 0;
-  v5 = *(_QWORD *)(v4 + 472);
+  v5 = *(_QWORD *)(v4 + 480);
   if ( !v5 )
     return 0;
   TouchExtensibility::rcHimetricRect = *(struct tagRECT *)(v5 + 176);

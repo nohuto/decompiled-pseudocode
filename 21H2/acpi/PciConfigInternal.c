@@ -1,10 +1,11 @@
 /*
- * XREFs of PciConfigInternal @ 0x1C001CAAC
+ * XREFs of PciConfigInternal @ 0x1C001815C
  * Callers:
- *     IsPciDeviceWorker @ 0x1C0007A10 (IsPciDeviceWorker.c)
- *     IsPciBusAsyncWorker @ 0x1C000B380 (IsPciBusAsyncWorker.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
  * Callees:
- *     PciConfigSpaceHandlerWorker @ 0x1C000C920 (PciConfigSpaceHandlerWorker.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall PciConfigInternal(
@@ -16,29 +17,26 @@ __int64 __fastcall PciConfigInternal(
         __int64 a6,
         __int64 a7)
 {
-  __int64 Pool2; // rax
-  __int64 v9; // r9
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v9; // rbx
   char v10; // al
 
-  Pool2 = ExAllocatePool2(64LL, 96LL, 1181770561LL);
-  v9 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x46706341u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)Pool2 = 0;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_DWORD *)(Pool2 + 16) = 0;
-  *(_DWORD *)(Pool2 + 20) = 15;
-  *(_QWORD *)(Pool2 + 24) = a7;
-  *(_QWORD *)(Pool2 + 40) = a5;
-  *(_QWORD *)(Pool2 + 48) = a6;
+  memset(PoolWithTag, 0, 0x60uLL);
+  v9[3] = a7;
+  v9[5] = a5;
+  v9[6] = a6;
   v10 = gdwfAMLI;
-  *(_DWORD *)(v9 + 32) = 0;
-  *(_QWORD *)(v9 + 56) = a2;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
+  *((_DWORD *)v9 + 5) = 15;
+  v9[7] = a2;
+  dword_1C0082908 = 0;
+  pszDest = 0;
   if ( (v10 & 4) != 0 )
     _InterlockedIncrement((volatile signed __int32 *)(a2 + 8));
-  *(_DWORD *)(v9 + 80) = -1;
-  *(_DWORD *)(v9 + 72) = 1;
-  return PciConfigSpaceHandlerWorker(a2, 0LL, 0LL, (unsigned int *)v9);
+  *((_DWORD *)v9 + 20) = -1;
+  *((_DWORD *)v9 + 18) = 1;
+  return PciConfigSpaceHandlerWorker(a2, 0LL, 0LL, v9);
 }

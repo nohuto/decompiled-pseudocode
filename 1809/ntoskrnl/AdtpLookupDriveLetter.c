@@ -1,7 +1,7 @@
 /*
- * XREFs of AdtpLookupDriveLetter @ 0x14074DAB0
+ * XREFs of AdtpLookupDriveLetter @ 0x14074DA90
  * Callers:
- *     AdtpSubstituteDriveLetter @ 0x14074DA44 (AdtpSubstituteDriveLetter.c)
+ *     AdtpSubstituteDriveLetter @ 0x14074DA24 (AdtpSubstituteDriveLetter.c)
  * Callees:
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */

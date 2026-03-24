@@ -1,13 +1,13 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x14084D920
+ * XREFs of MmRemovePhysicalMemory @ 0x14084D900
  * Callers:
- *     WheapClearPoison @ 0x1408DBFA4 (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x1408DBF84 (WheapClearPoison.c)
  * Callees:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiRemoveBadPages @ 0x1402A6C6C (MiRemoveBadPages.c)
- *     MiReturnBadPagesToBadList @ 0x1402A6EAC (MiReturnBadPagesToBadList.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiRemoveBadPages @ 0x1402A6D6C (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x1402A6FAC (MiReturnBadPagesToBadList.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)

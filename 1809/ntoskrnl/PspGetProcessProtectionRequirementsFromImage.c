@@ -2,7 +2,7 @@
  * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x140608F94
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14075DE30 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     RtlTestProtectedAccess @ 0x1406092A0 (RtlTestProtectedAccess.c)

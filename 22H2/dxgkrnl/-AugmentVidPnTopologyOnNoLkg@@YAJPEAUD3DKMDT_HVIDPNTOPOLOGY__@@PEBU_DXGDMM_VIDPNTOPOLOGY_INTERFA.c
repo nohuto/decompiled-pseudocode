@@ -1,12 +1,11 @@
 /*
- * XREFs of ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C0300418
+ * XREFs of ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C025D214
  * Callers:
- *     ?AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IEQEA_KPEAY0BA@I@Z @ 0x1C02FFF98 (-AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNT.c)
+ *     ?AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IEQEA_KPEAY0BA@I@Z @ 0x1C025CEF8 (-AugmentVidPnTopology@@YAJPEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C02FFCE0 (-AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTER.c)
- *     ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C02FFEA0 (-AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DK.c)
- *     ?ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@EQEAI4@Z @ 0x1C03009BC (-ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGD.c)
+ *     ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C025CC78 (-AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTER.c)
+ *     ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C025CDCC (-AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DK.c)
+ *     ?ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@EQEAI4@Z @ 0x1C025E1CC (-ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGD.c)
  */
 
 __int64 __fastcall AugmentVidPnTopologyOnNoLkg(
@@ -15,213 +14,178 @@ __int64 __fastcall AugmentVidPnTopologyOnNoLkg(
         void *a3,
         const struct _DXGDMM_INTERFACE *a4,
         unsigned int a5,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE a6,
+        enum _D3DKMDT_MONITOR_CONNECTIVITY_CHECKS a6,
         unsigned int a7,
-        char a8,
+        enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE a8,
         unsigned __int64 *const a9,
         unsigned int *const a10)
 {
-  unsigned int v10; // esi
-  __int64 v15; // r15
-  unsigned __int64 *v16; // r12
-  unsigned int *v17; // rbx
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v18; // esi
+  __int64 v19; // rax
+  unsigned __int64 *v20; // r13
+  __int64 v21; // rax
+  unsigned int *v22; // r14
   int AvailableTarget; // eax
-  __int64 v19; // r14
-  __int64 v20; // rdi
-  __int64 v21; // r9
-  int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rdi
   __int64 v27; // rax
-  __int64 v29; // r14
-  int v30; // eax
-  __int64 v31; // r15
-  unsigned int v32; // [rsp+20h] [rbp-68h]
-  unsigned int v33; // [rsp+20h] [rbp-68h]
+  __int64 v28; // r9
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r15
+  __int64 v33; // rax
+  int v34; // eax
+  __int64 v35; // rax
+  __int64 v37; // rax
+  _QWORD *v38; // rax
+  __int64 v39; // r15
+  int v40; // eax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rsi
+  _QWORD *v44; // rax
+  _QWORD *v45; // rax
+  _QWORD *v46; // rax
+  _QWORD *v47; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v48; // [rsp+20h] [rbp-48h]
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v49; // [rsp+20h] [rbp-48h]
 
-  v10 = -1;
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 3257LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"ARGUMENT_PRESENT(i_hVidPnTopology)",
-      3257LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v14 + 24) = 3130LL;
+    WdLogEvent5_WdAssertion(v14);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 3258LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"ARGUMENT_PRESENT(i_pDmmVidPnTopologyInterface)",
-      3258LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v15 + 24) = 3131LL;
+    WdLogEvent5_WdAssertion(v15);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 3259LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"ARGUMENT_PRESENT(i_hDxgAdapter)", 3259LL, 0LL, 0LL, 0LL, 0LL);
+    v16 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v16 + 24) = 3132LL;
+    WdLogEvent5_WdAssertion(v16);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 3260LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"ARGUMENT_PRESENT(i_pDxgDmmInterface)",
-      3260LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v17 + 24) = 3133LL;
+    WdLogEvent5_WdAssertion(v17);
   }
-  v15 = a5;
+  v18 = -1;
   if ( a5 == -1 )
   {
-    WdLogSingleEntry1(1LL, 3261LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"i_VidPnSourceId != D3DDDI_ID_UNINITIALIZED",
-      3261LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v19 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v19 + 24) = 3134LL;
+    WdLogEvent5_WdAssertion(v19);
   }
-  v16 = a9;
+  v20 = a9;
   if ( !a9 )
   {
-    WdLogSingleEntry1(1LL, 3262LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"ARGUMENT_PRESENT(o_pNumVidPnPresentPathsFromSource)",
-      3262LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v21 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v21 + 24) = 3135LL;
+    WdLogEvent5_WdAssertion(v21);
   }
-  v17 = a10;
-  *v16 = 0LL;
-  if ( v17 )
-    *v17 = -1;
-  a5 = -1;
-  AvailableTarget = AddPathToFirstAvailableTarget(a1, (__int64)a2, v15, (__int64)a4, v32, 2u);
-  v19 = AvailableTarget;
-  if ( AvailableTarget != -1071774925 )
+  *v20 = 0LL;
+  v22 = a10;
+  if ( a10 )
+    *a10 = -1;
+  a6 = -1;
+  AvailableTarget = AddPathToFirstAvailableTarget(a1, (__int64)a2, a5, (__int64)a4, v48, 2u);
+  v26 = AvailableTarget;
+  if ( AvailableTarget == -1071774925 )
   {
-    if ( AvailableTarget >= 0 )
-      goto LABEL_30;
-    goto LABEL_36;
-  }
-  v20 = v15;
-  WdLogSingleEntry2(7LL, a1, v15);
-  AvailableTarget = AddPathToFirstAvailableTarget(a1, (__int64)a2, v15, v21, v33, 1u);
-  v19 = AvailableTarget;
-  if ( AvailableTarget != -1071774925 )
-  {
-    if ( AvailableTarget >= 0 )
-      goto LABEL_30;
-LABEL_36:
-    WdLogSingleEntry3(2LL, a1, v15, AvailableTarget);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to augment VidPN topology 0x%I64x at source 0x%I64x (status = 0x%I64x)",
-      (__int64)a1,
-      v15,
-      v19,
-      0LL,
-      0LL);
-    return (unsigned int)v19;
-  }
-  WdLogSingleEntry2(7LL, a1, v15);
-  a7 = -1;
-  v22 = ReclaimClonedVidPnTarget(a4, a3, a1, a2, a8, &a7, &a5);
-  v19 = v22;
-  if ( v22 == -1071774925 )
-  {
-    v27 = WdLogNewEntry5_WdTrace(v24, v23, v25, v26);
+    v27 = WdLogNewEntry5_WdDmmEvent(v25);
     *(_QWORD *)(v27 + 24) = a1;
-    *(_QWORD *)(v27 + 32) = v15;
-    return 3223192371LL;
+    *(_QWORD *)(v27 + 32) = a5;
+    WdLogEvent5_WdDmmEvent(v27);
+    v29 = AddPathToFirstAvailableTarget(a1, (__int64)a2, a5, v28, v49, 1u);
+    v32 = v29;
+    if ( v29 == -1071774925 )
+    {
+      v33 = WdLogNewEntry5_WdDmmEvent(v31);
+      *(_QWORD *)(v33 + 24) = a1;
+      *(_QWORD *)(v33 + 32) = a5;
+      WdLogEvent5_WdDmmEvent(v33);
+      a7 = -1;
+      v34 = ReclaimClonedVidPnTarget(a4, a3, a1, a2, a8, &a7, (unsigned int *const)&a6);
+      v32 = v34;
+      if ( v34 == -1071774925 )
+      {
+        v35 = WdLogNewEntry5_WdTrace(v31, v30);
+        *(_QWORD *)(v35 + 24) = a1;
+        *(_QWORD *)(v35 + 32) = a5;
+        return 3223192371LL;
+      }
+      if ( v34 >= 0 )
+      {
+        if ( a7 == -1 )
+        {
+          v37 = WdLogNewEntry5_WdAssertion(v31, v30);
+          *(_QWORD *)(v37 + 24) = 3261LL;
+          WdLogEvent5_WdAssertion(v37);
+        }
+        v38 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v31);
+        v39 = a7;
+        v38[3] = a7;
+        v38[4] = a1;
+        v38[5] = a5;
+        WdLogEvent5_WdDmmEvent(v38);
+        v40 = AddPresentPath(a1, a2, a5, a7);
+        v43 = v40;
+        if ( v40 == -1071774975 || v40 == -1071774920 )
+        {
+          v44 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v42);
+          v44[3] = a5;
+          v44[4] = v39;
+          v44[5] = a3;
+          WdLogEvent5_WdDmmEvent(v44);
+          return 3223192371LL;
+        }
+        if ( v40 < 0 )
+        {
+          v45 = (_QWORD *)WdLogNewEntry5_WdError(v42, v41);
+          v45[3] = a5;
+          v45[4] = v39;
+          v45[5] = a1;
+          v45[6] = v43;
+          WdLogEvent5_WdError(v45);
+          return (unsigned int)v43;
+        }
+        v18 = a6;
+        goto LABEL_29;
+      }
+LABEL_33:
+      v46 = (_QWORD *)WdLogNewEntry5_WdError(v31, v30);
+      v46[3] = a1;
+      v46[4] = a5;
+      v46[5] = v32;
+      WdLogEvent5_WdError(v46);
+      return (unsigned int)v32;
+    }
+    if ( v29 < 0 )
+      goto LABEL_33;
   }
-  if ( v22 < 0 )
+  else if ( AvailableTarget < 0 )
   {
-    WdLogSingleEntry3(2LL, a1, v15, v22);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to find cloned target in topology 0x%I64x while trying to augment it on source 0x%I64x (status = 0x%I64x)",
-      (__int64)a1,
-      v15,
-      v19,
-      0LL,
-      0LL);
-    return (unsigned int)v19;
+    v47 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+    v47[4] = a5;
+    v47[3] = a1;
+    v47[5] = v26;
+    WdLogEvent5_WdError(v47);
+    return (unsigned int)v26;
   }
-  if ( a7 == -1 )
-  {
-    WdLogSingleEntry1(1LL, 3388LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"ReclaimedVidPnTargetId != D3DDDI_ID_UNINITIALIZED",
-      3388LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  v29 = a7;
-  WdLogSingleEntry3(7LL, a7, a1, v15);
-  v30 = AddPresentPath(a1, a2, v15, a7);
-  v31 = v30;
-  if ( v30 == -1071774975 || v30 == -1071774920 )
-  {
-    WdLogSingleEntry3(7LL, v20, v29, a3);
-    return 3223192371LL;
-  }
-  if ( v30 < 0 )
-  {
-    WdLogSingleEntry4(2LL, v20, v29, a1, v30);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to add present path (0x%I64x, 0x%I64x) to VidPN topology 0x%I64x (status = 0x%I64x)",
-      v20,
-      v29,
-      (__int64)a1,
-      v31,
-      0LL);
-    return (unsigned int)v31;
-  }
-  v10 = a5;
-LABEL_30:
-  *v16 = 1LL;
-  if ( v17 )
-    *v17 = v10;
+LABEL_29:
+  *v20 = 1LL;
+  if ( v22 )
+    *v22 = v18;
   return 0LL;
 }

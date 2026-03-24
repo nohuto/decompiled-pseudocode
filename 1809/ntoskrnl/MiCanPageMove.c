@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCanPageMove @ 0x1401183D4
+ * XREFs of MiCanPageMove @ 0x1401183F4
  * Callers:
  *     MiReferenceInPageFile @ 0x14001CAC8 (MiReferenceInPageFile.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
- *     MiTradeTransitionPage @ 0x14011810C (MiTradeTransitionPage.c)
- *     MiReplaceLockedPage @ 0x14018B014 (MiReplaceLockedPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
+ *     MiTradeTransitionPage @ 0x14011812C (MiTradeTransitionPage.c)
+ *     MiReplaceLockedPage @ 0x14018B034 (MiReplaceLockedPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
  */

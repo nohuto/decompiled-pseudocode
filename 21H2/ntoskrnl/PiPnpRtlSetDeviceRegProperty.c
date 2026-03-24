@@ -1,24 +1,24 @@
 /*
- * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x1406E5574
+ * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x140739C9C
  * Callers:
- *     PiDevCfgSetDeviceRegProp @ 0x1406E5528 (PiDevCfgSetDeviceRegProp.c)
- *     PiCMSetRegistryProperty @ 0x140956298 (PiCMSetRegistryProperty.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140739C50 (PiDevCfgSetDeviceRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x1408B0F40 (PiCMSetRegistryProperty.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
- *     _CmIsRootEnumeratedDevice @ 0x140778D60 (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14079D560 (SeAuditingWithTokenForSubcategory.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14095B658 (PiAuditDeviceEnableDisableRequest.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140639EA8 (_CmIsRootEnumeratedDevice.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1408B5604 (PiAuditDeviceEnableDisableRequest.c)
  */
 
 __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
-        int a1,
+        __int64 a1,
         const WCHAR *a2,
-        int a3,
+        __int64 a3,
         int a4,
         int a5,
         unsigned int *a6,
@@ -50,7 +50,7 @@ __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
     goto LABEL_7;
   if ( a4 <= 3 )
   {
-    v17 = (unsigned __int8)CmIsRootEnumeratedDevice(a2) == 0;
+    v17 = CmIsRootEnumeratedDevice(a2) == 0;
   }
   else
   {
@@ -58,10 +58,10 @@ __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
     {
       if ( !a6 || a7 != 4 )
         return (unsigned int)-1073741811;
-      if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(137LL) )
+      if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
       {
         v24 = 4;
-        if ( (int)CmGetDeviceRegProp(a1, (_DWORD)a2, a3, 11, (__int64)&v21, (__int64)&v20, (__int64)&v24, 0) < 0
+        if ( (int)CmGetDeviceRegProp(a1, (__int64)a2, a3, 11, (__int64)&v21, (__int64)&v20, (__int64)&v24, 0) < 0
           || v24 != 4
           || v21 != 4 )
         {
@@ -89,7 +89,7 @@ __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
     return (unsigned int)-1073741790;
 LABEL_7:
   v15 = CmSetDeviceRegProp(a1, (_DWORD)a2, a3, a4, a5, (__int64)v9, v8, a8);
-  if ( a4 == 11 && (unsigned __int8)SeAuditingWithTokenForSubcategory(137LL) )
+  if ( a4 == 11 && SeAuditingWithTokenForSubcategory(138, 0LL) )
   {
     RtlInitUnicodeString(&DestinationString, a2);
     LOBYTE(v19) = (v15 & 0x80000000) == 0;
@@ -98,7 +98,7 @@ LABEL_7:
   if ( v14 )
   {
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v15;
 }

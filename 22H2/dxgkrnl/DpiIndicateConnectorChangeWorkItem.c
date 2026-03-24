@@ -1,45 +1,48 @@
 /*
- * XREFs of DpiIndicateConnectorChangeWorkItem @ 0x1C01F54A0
+ * XREFs of DpiIndicateConnectorChangeWorkItem @ 0x1C02C6710
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     DxgkQueryConnectionChanges @ 0x1C001C200 (DxgkQueryConnectionChanges.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DxgkWaitForPnPTransitionDone @ 0x1C0356CF4 (DxgkWaitForPnPTransitionDone.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     DxgkQueryConnectionChanges @ 0x1C00205E0 (DxgkQueryConnectionChanges.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DxgkWaitForPnPTransitionDone @ 0x1C013C5FC (DxgkWaitForPnPTransitionDone.c)
  */
 
 void __fastcall DpiIndicateConnectorChangeWorkItem(_QWORD *IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   __int64 v3; // rdi
   NTSTATUS v6; // eax
-  unsigned int v7; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
 
   v3 = IoObject[8];
   v6 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), IoWorkItem, File, 1u, 0x20u);
-  if ( v6 < 0 )
-  {
-    WdLogSingleEntry1(2LL, v6);
-  }
-  else
+  v9 = v6;
+  if ( v6 >= 0 )
   {
     KeEnterCriticalRegion();
     if ( *(_BYTE *)(v3 + 484) )
       DpiCheckForOutstandingD3Requests(v3);
     ExAcquireResourceSharedLite(*(PERESOURCE *)(v3 + 168), 1u);
-    if ( *(_BYTE *)(v3 + 1159) )
+    if ( *(_BYTE *)(v3 + 1158) )
     {
       if ( !*(_BYTE *)(v3 + 2743) )
       {
-        v7 = *(_DWORD *)(*((_QWORD *)DXGGLOBAL::GetGlobal() + 118) + 144LL);
-        if ( v7 != -1 )
+        v13 = *(_DWORD *)(*((_QWORD *)DXGGLOBAL::GetGlobal(v12, v11) + 102) + 128LL);
+        if ( v13 != -1 )
         {
           if ( *(_BYTE *)(v3 + 484) )
             DpiEnableD3Requests(*(_QWORD *)(v3 + 24));
           ExReleaseResourceLite(*(PERESOURCE *)(v3 + 168));
           KeLeaveCriticalRegion();
-          DxgkWaitForPnPTransitionDone(0LL, 0LL, v7, 1LL);
+          DxgkWaitForPnPTransitionDone(0LL, 0LL, v13, 1);
           KeEnterCriticalRegion();
           if ( *(_BYTE *)(v3 + 484) )
             DpiCheckForOutstandingD3Requests(v3);
@@ -48,15 +51,21 @@ void __fastcall DpiIndicateConnectorChangeWorkItem(_QWORD *IoObject, PVOID Conte
       }
     }
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3320), 1u);
-    DxgkQueryConnectionChanges((__int64)IoObject, 0, 0, 0, 1, 0);
-    ExReleaseResourceLite((PERESOURCE)(v3 + 3320));
+    ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3304), 1u);
+    DxgkQueryConnectionChanges((__int64)IoObject, 0LL, 0, 0, 1);
+    ExReleaseResourceLite((PERESOURCE)(v3 + 3304));
     KeLeaveCriticalRegion();
     if ( *(_BYTE *)(v3 + 484) )
       DpiEnableD3Requests(*(_QWORD *)(v3 + 24));
     ExReleaseResourceLite(*(PERESOURCE *)(v3 + 168));
     KeLeaveCriticalRegion();
     IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), IoWorkItem, 0x20u);
+  }
+  else
+  {
+    v10 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v10 + 24) = v9;
+    WdLogEvent5_WdError(v10);
   }
   IoFreeWorkItem(IoWorkItem);
 }

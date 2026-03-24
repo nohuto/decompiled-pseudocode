@@ -1,10 +1,10 @@
 /*
- * XREFs of SeValidSecurityDescriptor @ 0x14069D770
+ * XREFs of SeValidSecurityDescriptor @ 0x14069D750
  * Callers:
  *     EtwpGetGuidSecurityDescriptor @ 0x1405C6158 (EtwpGetGuidSecurityDescriptor.c)
- *     WmipSDRegistryQueryRoutine @ 0x14069D6F0 (WmipSDRegistryQueryRoutine.c)
- *     PiSwValidateCreateData @ 0x1406D7390 (PiSwValidateCreateData.c)
- *     SepReadAndPopulateCapes @ 0x140737098 (SepReadAndPopulateCapes.c)
+ *     WmipSDRegistryQueryRoutine @ 0x14069D6D0 (WmipSDRegistryQueryRoutine.c)
+ *     PiSwValidateCreateData @ 0x1406D7370 (PiSwValidateCreateData.c)
+ *     SepReadAndPopulateCapes @ 0x140737078 (SepReadAndPopulateCapes.c)
  * Callees:
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
  */

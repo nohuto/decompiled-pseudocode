@@ -1,167 +1,146 @@
 /*
- * XREFs of ?Init@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@@Z @ 0x1C00B3B70
+ * XREFs of ?Init@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@@Z @ 0x1C0060430
  * Callers:
- *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0003674 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
- *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C0017B20 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
+ *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0012118 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
+ *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00170C0 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0019A38 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
- *     ??1DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@XZ @ 0x1C0019A6C (--1DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@XZ.c)
- *     ?GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ @ 0x1C008E118 (-GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ.c)
- *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C009D4E8 (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
- *     ?FreeStorage@VIDMM_FENCE_STORAGE_PAGE@@AEAAXXZ @ 0x1C00B2124 (-FreeStorage@VIDMM_FENCE_STORAGE_PAGE@@AEAAXXZ.c)
- *     ?MapHostAddressesToGuest@VIDMM_PROCESS@@QEAAJPEAU_MDL@@_KPEAPEAXPEA_K@Z @ 0x1C00EF034 (-MapHostAddressesToGuest@VIDMM_PROCESS@@QEAAJPEAU_MDL@@_KPEAPEAXPEA_K@Z.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0001B20 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@XZ @ 0x1C0001D14 (--1DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@XZ.c)
+ *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C0062B9C (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
+ *     ?GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ @ 0x1C0068B30 (-GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ.c)
+ *     ?FreeStorage@VIDMM_FENCE_STORAGE_PAGE@@AEAAXXZ @ 0x1C0088988 (-FreeStorage@VIDMM_FENCE_STORAGE_PAGE@@AEAAXXZ.c)
+ *     ?MapHostAddressesToGuest@VIDMM_PROCESS@@QEAAJPEAU_MDL@@_KPEAPEAXPEA_K@Z @ 0x1C00B8DB4 (-MapHostAddressesToGuest@VIDMM_PROCESS@@QEAAJPEAU_MDL@@_KPEAPEAXPEA_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::Init(VIDMM_FENCE_STORAGE_PAGE *this, struct VIDMM_PROCESS *a2)
 {
-  __int64 v4; // rbx
-  int v5; // r14d
-  __int64 CurrentPartitionHandle; // rcx
-  _QWORD *v7; // rsi
-  int v8; // r14d
+  int v4; // edi
+  void *CurrentPartitionHandle; // rcx
+  _QWORD *v6; // r14
+  int v7; // edi
   struct _MDL *Mdl; // rax
-  __int64 v10; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  VIDMM_PROCESS *v15; // rcx
-  __int64 v16; // rcx
-  int v17; // eax
-  __int64 v18; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rdx
   __int64 v19; // rcx
-  __int64 v20; // rcx
+  __int64 v20; // r8
   __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  _QWORD *v27; // rdi
-  __int64 *v28; // rbx
-  __int64 v29; // rax
-  __int64 v30; // [rsp+50h] [rbp-58h] BYREF
-  _BYTE v31[80]; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v32; // [rsp+C0h] [rbp+18h] BYREF
-  __int64 v33; // [rsp+C8h] [rbp+20h] BYREF
+  __int64 v22; // rax
+  __int64 v23; // rax
+  _QWORD *v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // [rsp+40h] [rbp-48h] BYREF
+  _BYTE v28[64]; // [rsp+48h] [rbp-40h] BYREF
+  __int64 v29; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v30; // [rsp+A8h] [rbp+20h] BYREF
 
-  v4 = 0LL;
-  v33 = 0LL;
-  v32 = 4096LL;
-  v5 = 0x8000000;
+  v30 = 0LL;
+  v29 = 4096LL;
+  v4 = 0x8000000;
   CurrentPartitionHandle = 0LL;
-  if ( *((PVOID *)this + 21) != VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage )
+  if ( *((PVOID *)this + 20) != VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage )
   {
-    v5 = 134479872;
+    v4 = 134479872;
     CurrentPartitionHandle = VIDMM_PROCESS::GetCurrentPartitionHandle();
   }
-  v7 = (_QWORD *)((char *)this + 104);
-  v8 = MmCreateSection((char *)this + 104, 0LL, 0LL, &v32, 4, v5, CurrentPartitionHandle, 0LL);
-  if ( v8 < 0 )
+  v6 = (_QWORD *)((char *)this + 104);
+  v7 = MmCreateSection((char *)this + 104, 0LL, 0LL, &v29, 4, v4, CurrentPartitionHandle, 0LL);
+  if ( v7 < 0 )
   {
-    *v7 = 0LL;
-    goto LABEL_14;
+    *v6 = 0LL;
   }
-  v30 = 4096LL;
-  v8 = MmMapViewInSystemSpaceEx(*v7, (char *)this + 112, &v30, &v33, 0LL);
-  if ( v8 >= 0 )
+  else
   {
-    Mdl = VidMmiAllocateMdl(*((_QWORD *)this + 14), 0x1000uLL);
-    *((_QWORD *)this + 15) = Mdl;
-    if ( !Mdl )
+    v27 = 4096LL;
+    v7 = MmMapViewInSystemSpaceEx(*v6, (char *)this + 112, &v27, &v30, 0LL);
+    if ( v7 >= 0 )
     {
-      _InterlockedAdd((volatile signed __int32 *)&gVidMmLowResourceAccumulated, 1u);
-      WdLogSingleEntry1(6LL, 302LL);
-      DxgkLogInternalTriageEvent(v12, 262145LL);
-      v8 = -1073741801;
-      goto LABEL_14;
-    }
-    MmProbeAndLockPages(Mdl, 0, IoModifyAccess);
-    *((_BYTE *)this + 136) = 1;
-    v10 = *((_QWORD *)this + 21);
-    if ( *(_BYTE *)(v10 + 64) )
-    {
-      if ( !a2 )
+      Mdl = VidMmiAllocateMdl(*((PVOID *)this + 14), 0x1000uLL);
+      *((_QWORD *)this + 15) = Mdl;
+      if ( Mdl )
       {
-        v15 = *(VIDMM_PROCESS **)v10;
-LABEL_24:
-        *((_QWORD *)this + 4) = v15;
-        v8 = VIDMM_PROCESS::MapHostAddressesToGuest(
-               v15,
-               *((struct _MDL **)this + 15),
-               0x1000uLL,
-               (void **)this + 19,
-               (unsigned __int64 *)this + 18);
-        if ( v8 >= 0 )
+        MmProbeAndLockPages(Mdl, 0, IoModifyAccess);
+        *((_BYTE *)this + 128) = 1;
+        v13 = *((_QWORD *)this + 20);
+        if ( *(_BYTE *)(v13 + 64) )
         {
-          v21 = *((_QWORD *)this + 21);
-          if ( !*(_BYTE *)(v21 + 64) )
+          if ( !a2 )
+            a2 = *(struct VIDMM_PROCESS **)v13;
+        }
+        else if ( !a2 )
+        {
+          if ( *((_QWORD *)this + 18) )
           {
-            if ( *(_QWORD *)v21 )
-            {
-              WdLogSingleEntry1(1LL, 379LL);
-              DxgkLogInternalTriageEvent(v22, 262146LL);
-            }
-            *(_BYTE *)(*((_QWORD *)this + 21) + 65LL) = 1;
-            *((_BYTE *)this + 160) = 1;
-            v23 = *(_QWORD *)(*((_QWORD *)this + 4) + 32LL);
-            v24 = *(_DWORD *)(v23 + 424);
-            if ( (v24 & 0x100) != 0 )
-              v25 = *(_QWORD *)(v23 + 608);
-            else
-              v25 = v23 & -(__int64)((v24 & 0x80u) != 0);
-            v26 = *(_QWORD *)(v25 + 64);
-            if ( v26 )
-              v4 = *(_QWORD *)(v26 + 8);
-            DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
-              (DXGAUTOPUSHLOCKEXCLUSIVE *)v31,
-              (struct _KTHREAD **)(v4 + 64));
-            v27 = (_QWORD *)((char *)this + 16);
-            v28 = (__int64 *)(v4 + 48);
-            v29 = *v28;
-            if ( *(__int64 **)(*v28 + 8) != v28 )
-              __fastfail(3u);
-            *v27 = v29;
-            v27[1] = v28;
-            *(_QWORD *)(v29 + 8) = v27;
-            *v28 = (__int64)v27;
-            DXGAUTOPUSHLOCKEXCLUSIVE::~DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v31);
+            v16 = WdLogNewEntry5_WdAssertion(v11, v10, v12);
+            *(_QWORD *)(v16 + 24) = 378LL;
+            WdLogEvent5_WdAssertion(v16);
+          }
+          if ( *((_QWORD *)this + 17) )
+          {
+            v17 = WdLogNewEntry5_WdAssertion(v11, v10, v12);
+            *(_QWORD *)(v17 + 24) = 379LL;
+            WdLogEvent5_WdAssertion(v17);
           }
           return 0LL;
         }
-        WdLogSingleEntry1(1LL, 367LL);
-        DxgkLogInternalTriageEvent(v20, 0x40000LL);
-        goto LABEL_14;
+        *((_QWORD *)this + 4) = a2;
+        v7 = VIDMM_PROCESS::MapHostAddressesToGuest(
+               a2,
+               *((struct _MDL **)this + 15),
+               0x1000uLL,
+               (void **)this + 18,
+               (unsigned __int64 *)this + 17);
+        if ( v7 >= 0 )
+        {
+          v22 = *((_QWORD *)this + 20);
+          if ( !*(_BYTE *)(v22 + 64) )
+          {
+            if ( *(_QWORD *)v22 )
+            {
+              v23 = WdLogNewEntry5_WdAssertion(v19, v18, v20);
+              *(_QWORD *)(v23 + 24) = 366LL;
+              WdLogEvent5_WdAssertion(v23);
+              v22 = *((_QWORD *)this + 20);
+            }
+            *(_BYTE *)(v22 + 65) = 1;
+            *((_BYTE *)this + 152) = 1;
+            DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+              (DXGAUTOPUSHLOCKEXCLUSIVE *)v28,
+              (struct DXGPUSHLOCK *const)(*((_QWORD *)this + 4) + 64LL));
+            v24 = (_QWORD *)((char *)this + 16);
+            v25 = *((_QWORD *)this + 4) + 48LL;
+            v26 = *(_QWORD *)v25;
+            if ( *(_QWORD *)(*(_QWORD *)v25 + 8LL) != v25 )
+              __fastfail(3u);
+            *v24 = v26;
+            *((_QWORD *)this + 3) = v25;
+            *(_QWORD *)(v26 + 8) = v24;
+            *(_QWORD *)v25 = v24;
+            DXGAUTOPUSHLOCKEXCLUSIVE::~DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v28);
+          }
+          return 0LL;
+        }
+        v21 = WdLogNewEntry5_WdAssertion(v19, v18, v20);
+        *(_QWORD *)(v21 + 24) = 354LL;
+        WdLogEvent5_WdAssertion(v21);
+      }
+      else
+      {
+        _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
+        v15 = WdLogNewEntry5_WdLowResource(v9);
+        *(_QWORD *)(v15 + 24) = 293LL;
+        WdLogEvent5_WdLowResource(v15);
+        v7 = -1073741801;
       }
     }
-    else if ( !a2 )
-    {
-      if ( *((_QWORD *)this + 19) )
-      {
-        WdLogSingleEntry1(1LL, 392LL);
-        DxgkLogInternalTriageEvent(v13, 262146LL);
-      }
-      if ( *((_QWORD *)this + 18) )
-      {
-        WdLogSingleEntry1(1LL, 393LL);
-        DxgkLogInternalTriageEvent(v14, 262146LL);
-      }
-      return 0LL;
-    }
-    v16 = *((_QWORD *)a2 + 4);
-    v17 = *(_DWORD *)(v16 + 424);
-    if ( (v17 & 0x100) != 0 )
-      v18 = *(_QWORD *)(v16 + 608);
-    else
-      v18 = v16 & -(__int64)((v17 & 0x80u) != 0);
-    v19 = *(_QWORD *)(v18 + 64);
-    if ( v19 )
-      v15 = *(VIDMM_PROCESS **)(v19 + 8);
-    else
-      v15 = 0LL;
-    goto LABEL_24;
   }
-LABEL_14:
   VIDMM_FENCE_STORAGE_PAGE::FreeStorage(this);
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

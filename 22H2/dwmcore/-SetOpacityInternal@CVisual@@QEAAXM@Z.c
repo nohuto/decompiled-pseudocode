@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetOpacityInternal@CVisual@@QEAAXM@Z @ 0x180038A84
+ * XREFs of ?SetOpacityInternal@CVisual@@QEAAXM@Z @ 0x180065CC4
  * Callers:
- *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x180038990 (-SetOpacity@CVisual@@QEAAXM@Z.c)
+ *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x180068804 (-SetOpacity@CVisual@@QEAAXM@Z.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180038ACC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800639F0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  */
 
 void __fastcall CVisual::SetOpacityInternal(CVisual *this, float a2)
@@ -12,7 +12,7 @@ void __fastcall CVisual::SetOpacityInternal(CVisual *this, float a2)
   float v3; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = a2;
-  v2 = (CVisual *)((char *)this + 224);
+  v2 = (CVisual *)((char *)this + 216);
   if ( LODWORD(a2) == `CVisual::SetOpacityInternal'::`2'::sc_defaultValue )
     *(_DWORD *)(*(_QWORD *)v2 + 4LL) &= ~0x8000000u;
   else

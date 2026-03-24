@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerEnableHypervisorTimer @ 0x1403916B0
+ * XREFs of HalpTimerEnableHypervisorTimer @ 0x14038698C
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x1403BACF8 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpAcpiPostSleep @ 0x140A50388 (HalpAcpiPostSleep.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetLineState @ 0x1403B07C8 (HalpInterruptSetLineState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerEnableHypervisorTimer()
@@ -37,10 +37,10 @@ void HalpTimerEnableHypervisorTimer()
   __int128 *v19; // [rsp+60h] [rbp-20h]
   __int128 v20; // [rsp+68h] [rbp-18h] BYREF
 
-  v0 = HalpHypervisorHpet;
+  v17 = 0LL;
   v18 = 0;
   v14 = 0LL;
-  v17 = 0LL;
+  v0 = HalpHypervisorHpet;
   v20 = 0LL;
   if ( HalpHypervisorHpet
     && (*(int (__fastcall **)(_QWORD))(HalpHypervisorHpet + 104))(*(_QWORD *)(HalpHypervisorHpet + 72)) >= 0 )
@@ -83,7 +83,7 @@ void HalpTimerEnableHypervisorTimer()
       v5 = HalpAcquireHighLevelLock(&HalpInterruptLock);
       LOBYTE(v6) = 15;
       v7 = v5;
-      v8 = HalpInterruptSetLineState(&v14, 212LL, v6, *(unsigned int *)(v0 + 96), *(_DWORD *)(v0 + 92), &v16, v15);
+      v8 = HalpInterruptSetLineState(&v14, 251LL, v6, *(unsigned int *)(v0 + 96), *(_DWORD *)(v0 + 92), &v16, v15);
       KxReleaseSpinLock(&HalpInterruptLock);
       if ( KiIrqlFlags )
       {
@@ -106,6 +106,6 @@ void HalpTimerEnableHypervisorTimer()
       v2 = v8 < 0;
     }
     if ( !v2 )
-      ((void (*)(void))qword_140C4C4C8)();
+      ((void (*)(void))qword_140C4A1C8)();
   }
 }

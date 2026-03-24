@@ -1,36 +1,36 @@
 /*
- * XREFs of ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C007CFD0
+ * XREFs of ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0094D38
  * Callers:
- *     ?GreGetRealizationInfo@@YAHPEAUHDC__@@PEAUtagFONT_REALIZATION_INFO2@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C007CF04 (-GreGetRealizationInfo@@YAHPEAUHDC__@@PEAUtagFONT_REALIZATION_INFO2@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GreGetRealizationInfo @ 0x1C0137954 (GreGetRealizationInfo.c)
  * Callees:
- *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0082214 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0062348 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::GetRealizationInfo(RFONTOBJ *this, struct tagFONT_REALIZATION_INFO2 *a2)
 {
-  __int64 v4; // r11
-  int v5; // edx
+  __int64 v4; // rdx
+  int v5; // eax
   char v6; // al
-  int v7; // ebp
-  __int64 v9; // rdi
-  __int16 v10; // r11
-  unsigned __int16 v11; // dx
-  unsigned int v12; // r8d
-  __int16 v13; // ax
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _DWORD *v16; // r10
-  __int64 *v17; // rsi
-  __int64 v18; // rax
-  int v19; // ecx
-  __int16 v20; // ax
-  __int64 v21; // rdx
-  unsigned int v22; // r8d
-  __int64 v23; // rcx
-  unsigned int v24; // r11d
-  __int64 v25; // r8
-  __int64 v26; // rax
-  __int64 v27; // rcx
+  int v7; // esi
+  _DWORD *v8; // rdi
+  __int16 v9; // r11
+  unsigned __int16 v10; // dx
+  __int64 *v11; // r8
+  __int64 v12; // rax
+  int v13; // ecx
+  __int16 v14; // ax
+  unsigned int v15; // r8d
+  __int16 v16; // ax
+  __int64 v17; // r8
+  __int64 v18; // r9
+  _DWORD *v19; // r10
+  __int64 v20; // rdx
+  unsigned int v21; // r8d
+  __int64 v22; // rcx
+  unsigned int v23; // r11d
+  __int64 v24; // r8
+  __int64 v25; // rax
+  __int64 v26; // rcx
 
   v4 = *(_QWORD *)(*(_QWORD *)this + 128LL);
   v5 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 48LL);
@@ -38,17 +38,13 @@ __int64 __fastcall RFONTOBJ::GetRealizationInfo(RFONTOBJ *this, struct tagFONT_R
   {
     v6 = 1;
   }
+  else if ( (v5 & 4) != 0 )
+  {
+    v6 = 2;
+  }
   else
   {
-    v6 = 4;
-    if ( (v5 & 4) != 0 )
-    {
-      v6 = 2;
-    }
-    else if ( v5 >= 0 || (v5 & 0x4000000) != 0 )
-    {
-      v6 = 3;
-    }
+    v6 = ((v5 & 0x84000000) == 0x80000000) + 3;
   }
   *((_BYTE *)a2 + 4) = v6;
   *((_DWORD *)a2 + 2) = **(_DWORD **)this;
@@ -58,63 +54,63 @@ __int64 __fastcall RFONTOBJ::GetRealizationInfo(RFONTOBJ *this, struct tagFONT_R
   v7 = *(_DWORD *)a2;
   if ( *(_DWORD *)a2 != 16 )
   {
-    v9 = *(_QWORD *)this + 128LL;
-    v10 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 8LL);
-    v11 = v10 - 1;
-    if ( v10 != 1 )
+    v8 = *(_DWORD **)this;
+    v9 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 8LL);
+    v10 = v9 - 1;
+    if ( v9 != 1 )
     {
-      v17 = (__int64 *)(*(_QWORD *)v9 + 216LL + 8LL * v11);
+      v11 = (__int64 *)(*((_QWORD *)v8 + 16) + 216LL + 8LL * v10);
       do
       {
-        v18 = *v17--;
-        v19 = *(_DWORD *)(v18 + 12);
-        v20 = v10 - 1;
-        if ( (v19 & 0x100) == 0 )
-          v20 = v10;
-        v10 = v20;
-        --v11;
+        v12 = *v11--;
+        v13 = *(_DWORD *)(v12 + 12);
+        v14 = v9 - 1;
+        if ( (v13 & 0x100) == 0 )
+          v14 = v9;
+        v9 = v14;
+        --v10;
       }
-      while ( v11 );
+      while ( v10 );
     }
-    v12 = *(_DWORD *)(*(_QWORD *)this + 12LL);
-    v13 = (v12 >> 13) & 1 | 2;
-    *((_DWORD *)a2 + 4) = *(_DWORD *)(*(_QWORD *)v9 + 36LL);
-    *((_WORD *)a2 + 10) = v10 - 1;
-    if ( (v12 & 0x4000) == 0 )
-      v13 = (v12 >> 13) & 1;
-    *((_WORD *)a2 + 11) = v13;
+    v15 = v8[3];
+    v16 = (v15 >> 13) & 1 | 2;
+    *((_DWORD *)a2 + 4) = *(_DWORD *)(*((_QWORD *)v8 + 16) + 36LL);
+    *((_WORD *)a2 + 10) = v9 - 1;
+    if ( (v15 & 0x4000) == 0 )
+      v16 = (v15 >> 13) & 1;
+    *((_WORD *)a2 + 11) = v16;
     if ( v7 != 24 )
     {
       if ( IsVariableFont(*(struct _IFIMETRICS **)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL)) )
       {
-        v21 = v14 + *(unsigned int *)(v14 + 204);
-        v22 = v15;
-        for ( v16[7] = *(_DWORD *)(v21 + 4); v22 < *(_DWORD *)(v21 + 4); v16[v23 + 8] = *(_DWORD *)(v21 + 4 * v23 + 8) )
-          v23 = v22++;
-        v24 = v15;
-        v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL)
+        v20 = v17 + *(unsigned int *)(v17 + 204);
+        v21 = v18;
+        for ( v19[7] = *(_DWORD *)(v20 + 4); v21 < *(_DWORD *)(v20 + 4); v19[v22 + 8] = *(_DWORD *)(v20 + 4 * v22 + 8) )
+          v22 = v21++;
+        v23 = v18;
+        v24 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL)
             + *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 208LL);
-        v16[25] = *(_DWORD *)(v25 + 4);
-        if ( *(_DWORD *)(v25 + 4) > (unsigned int)v15 )
+        v19[25] = *(_DWORD *)(v24 + 4);
+        if ( *(_DWORD *)(v24 + 4) > (unsigned int)v18 )
         {
           do
           {
-            v26 = v24++;
-            v27 = 5 * v26;
-            *(_OWORD *)&v16[2 * v27 + 26] = *(_OWORD *)(v25 + 40 * v26 + 8);
-            *(_OWORD *)&v16[2 * v27 + 30] = *(_OWORD *)(v25 + 40 * v26 + 24);
-            *(_QWORD *)&v16[2 * v27 + 34] = *(_QWORD *)(v25 + 40 * v26 + 40);
+            v25 = v23++;
+            v26 = 5 * v25;
+            *(_OWORD *)&v19[2 * v26 + 26] = *(_OWORD *)(v24 + 40 * v25 + 8);
+            *(_OWORD *)&v19[2 * v26 + 30] = *(_OWORD *)(v24 + 40 * v25 + 24);
+            *(_QWORD *)&v19[2 * v26 + 34] = *(_QWORD *)(v24 + 40 * v25 + 40);
           }
-          while ( v24 < *(_DWORD *)(v25 + 4) );
+          while ( v23 < *(_DWORD *)(v24 + 4) );
         }
-        for ( v16[186] = *(_DWORD *)(v21 + 72); (unsigned int)v15 < *(_DWORD *)(v21 + 4); v15 = (unsigned int)(v15 + 1) )
-          v16[v15 + 187] = *(_DWORD *)(v21 + 4 * v15 + 76);
+        for ( v19[186] = *(_DWORD *)(v20 + 72); (unsigned int)v18 < *(_DWORD *)(v20 + 4); v18 = (unsigned int)(v18 + 1) )
+          v19[v18 + 187] = *(_DWORD *)(v20 + 4 * v18 + 76);
       }
       else
       {
-        v16[7] = v15;
-        v16[25] = v15;
-        v16[186] = v15;
+        v19[7] = v18;
+        v19[25] = v18;
+        v19[186] = v18;
       }
     }
   }

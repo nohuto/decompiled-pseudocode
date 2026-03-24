@@ -1,62 +1,63 @@
 /*
- * XREFs of WmipSendEnableDisableRequest @ 0x1407D6510
+ * XREFs of WmipSendEnableDisableRequest @ 0x14077DF00
  * Callers:
- *     WmipDoDisableRequest @ 0x1407D6368 (WmipDoDisableRequest.c)
- *     WmipSendEnableRequest @ 0x1407D640C (WmipSendEnableRequest.c)
+ *     WmipSendEnableRequest @ 0x1406A3C24 (WmipSendEnableRequest.c)
+ *     WmipDoDisableRequest @ 0x14077A6EC (WmipDoDisableRequest.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7448 (WmipSendWmiIrp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x140756D0C (WmipSendWmiIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WmipSendEnableDisableRequest(char a1, __int64 a2, char a3)
+__int64 __fastcall WmipSendEnableDisableRequest(unsigned __int8 a1, __int64 a2, char a3)
 {
   int v6; // eax
-  bool v7; // r13
+  bool v7; // r8
   __int64 v8; // rax
-  __int64 v9; // rbp
+  __int64 v9; // r15
   int v10; // esi
-  volatile signed __int64 **Pool2; // rdi
+  volatile signed __int64 **PoolWithTag; // rdi
   __int64 *i; // rbx
-  int v13; // edx
-  ULONG_PTR v14; // rcx
+  int v13; // ecx
+  __int64 v14; // rdx
   int v15; // eax
-  int v16; // ecx
+  ULONG_PTR v16; // rcx
   int v17; // eax
-  __int64 v18; // rcx
-  __int128 v19; // xmm0
+  __int128 v18; // xmm0
+  __int64 v19; // r14
   volatile signed __int64 **v20; // rsi
   volatile signed __int64 *v21; // rbx
-  __int128 v24; // [rsp+38h] [rbp-290h] BYREF
-  LARGE_INTEGER v25[2]; // [rsp+48h] [rbp-280h] BYREF
-  _OWORD v26[2]; // [rsp+58h] [rbp-270h] BYREF
-  _BYTE P[512]; // [rsp+80h] [rbp-248h] BYREF
+  bool v23; // [rsp+30h] [rbp-D0h]
+  __int128 v25; // [rsp+38h] [rbp-C8h] BYREF
+  UNICODE_STRING v26[3]; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE P[512]; // [rsp+80h] [rbp-80h] BYREF
 
   memset(P, 0, sizeof(P));
   v6 = *(_DWORD *)(a2 + 16);
-  *(_OWORD *)&v25[0].LowPart = 0LL;
   memset(v26, 0, sizeof(v26));
   if ( (v6 & 1) != 0 )
     return 0LL;
   v7 = ((a1 - 4) & 0xFD) == 0;
   v8 = *(unsigned int *)(a2 + 36);
+  v23 = v7;
   v9 = 0LL;
   v10 = a3 != 0 ? 0x2000 : 0x4000;
   if ( (unsigned int)v8 > 0x40 )
   {
-    Pool2 = (volatile signed __int64 **)ExAllocatePool2(256LL, 8 * v8, 1885957463LL);
-    if ( !Pool2 )
+    PoolWithTag = (volatile signed __int64 **)ExAllocatePoolWithTag(PagedPool, 8 * v8, 0x70696D57u);
+    if ( !PoolWithTag )
       return 3221225626LL;
+    v7 = ((a1 - 4) & 0xFD) == 0;
   }
   else
   {
-    Pool2 = (volatile signed __int64 **)P;
+    PoolWithTag = (volatile signed __int64 **)P;
   }
   for ( i = *(__int64 **)(a2 + 56); i != (__int64 *)(a2 + 56) && (unsigned int)v9 < *(_DWORD *)(a2 + 36); i = (__int64 *)*i )
   {
@@ -75,15 +76,17 @@ __int64 __fastcall WmipSendEnableDisableRequest(char a1, __int64 a2, char a3)
         else if ( v15 )
         {
 LABEL_13:
-          Pool2[v9] = (volatile signed __int64 *)v14;
-          WmipReferenceEntry(v14);
+          v16 = i[8];
+          PoolWithTag[v9] = (volatile signed __int64 *)v14;
+          WmipReferenceEntry(v16);
+          v13 = *((_DWORD *)i + 4);
           v9 = (unsigned int)(v9 + 1);
+          v7 = v23;
         }
-        v16 = *((_DWORD *)i + 4);
         if ( v7 )
-          v17 = v16 | v10;
+          v17 = v13 | v10;
         else
-          v17 = v16 & ~v10;
+          v17 = v13 & ~v10;
         *((_DWORD *)i + 4) = v17;
         continue;
       }
@@ -92,23 +95,25 @@ LABEL_13:
   KeReleaseMutex(&WmipSMMutex, 0);
   if ( (_DWORD)v9 )
   {
-    v19 = *(_OWORD *)(a2 + 72);
-    v25[0].LowPart = 48;
-    v20 = Pool2;
-    *(_OWORD *)((char *)v26 + 8) = v19;
+    memset(&v26[0].MaximumLength + 1, 0, 20);
+    v26[2].Buffer = 0LL;
+    v18 = *(_OWORD *)(a2 + 72);
+    v19 = (unsigned int)v9;
+    v20 = PoolWithTag;
+    *(_OWORD *)&v26[1].Buffer = v18;
+    *(_DWORD *)&v26[0].Length = 48;
     do
     {
       v21 = *v20;
-      LOBYTE(v18) = a1;
-      WmipSendWmiIrp(v18, *((unsigned int *)*v20 + 14), (__int64)v26 + 8, 48, (__int64)v25, &v24);
+      WmipSendWmiIrp(a1, *((_DWORD *)*v20 + 14), (UNICODE_STRING *)&v26[1].Buffer, 0x30u, (__int64)v26, &v25);
       WmipUnreferenceEntry((__int64)&WmipDSChunkInfo, v21);
       ++v20;
-      --v9;
+      --v19;
     }
-    while ( v9 );
+    while ( v19 );
   }
-  if ( Pool2 != (volatile signed __int64 **)P )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag != (volatile signed __int64 **)P )
+    ExFreePoolWithTag(PoolWithTag, 0);
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   return 0LL;
 }

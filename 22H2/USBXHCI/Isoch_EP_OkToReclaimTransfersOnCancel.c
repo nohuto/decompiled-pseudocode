@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_EP_OkToReclaimTransfersOnCancel @ 0x1C0044010
+ * XREFs of Isoch_EP_OkToReclaimTransfersOnCancel @ 0x1C0041390
  * Callers:
  *     <none>
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
  */
 
 void __fastcall Isoch_EP_OkToReclaimTransfersOnCancel(__int64 a1)

@@ -1,16 +1,15 @@
 /*
- * XREFs of DxgkGetAdapter @ 0x1C01F2740
+ * XREFs of DxgkGetAdapter @ 0x1C0178970
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00246F8 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C01F2964 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0020098 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C0178B68 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
  */
 
 __int64 __fastcall DxgkGetAdapter(
@@ -21,106 +20,94 @@ __int64 __fastcall DxgkGetAdapter(
         _BYTE *a5)
 {
   int DefaultRenderAdapterForSession; // ebx
-  struct DXGADAPTER *v10; // rcx
+  __int64 v10; // rdx
+  PDEVICE_OBJECT *v11; // rcx
   PDEVICE_OBJECT DeviceAttachmentBaseRef; // rax
-  __int64 v12; // rcx
-  DXGSESSIONMGR *v13; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  DXGSESSIONMGR *v17; // rbx
   unsigned int CurrentProcessSessionId; // eax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  struct DXGADAPTER *v16; // rdx
-  unsigned __int8 v18[8]; // [rsp+50h] [rbp-30h] BYREF
-  struct DXGADAPTER *v19[2]; // [rsp+58h] [rbp-28h] BYREF
-  _BYTE v20[8]; // [rsp+68h] [rbp-18h] BYREF
-  struct DXGADAPTER *v21; // [rsp+70h] [rbp-10h]
-  char v22; // [rsp+78h] [rbp-8h]
+  struct DXGADAPTER *v20; // rdx
+  __int64 v21; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  unsigned __int8 v25[8]; // [rsp+20h] [rbp-30h] BYREF
+  struct DXGADAPTER *v26[2]; // [rsp+28h] [rbp-28h] BYREF
+  _BYTE v27[8]; // [rsp+38h] [rbp-18h] BYREF
+  struct DXGADAPTER *v28; // [rsp+40h] [rbp-10h]
+  char v29; // [rsp+48h] [rbp-8h]
 
-  v19[0] = 0LL;
-  v18[0] = 0;
+  v26[0] = 0LL;
+  v25[0] = 0;
   DefaultRenderAdapterForSession = DxgkpFindDefaultRenderAdapterForSession(
                                      a2,
-                                     (struct DXGADAPTER_REFERENCE *)v19,
+                                     (struct DXGADAPTER_REFERENCE *)v26,
                                      1u,
-                                     v18);
+                                     v25);
   if ( DefaultRenderAdapterForSession >= 0 )
   {
-    v21 = v19[0];
-    v22 = 0;
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v20);
-    if ( *((_DWORD *)v19[0] + 50) != 1 || (v10 = v19[0], *((_BYTE *)v19[0] + 2705)) )
+    v28 = v26[0];
+    v29 = 0;
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v27);
+    v11 = (PDEVICE_OBJECT *)*((unsigned int *)v26[0] + 50);
+    if ( (_DWORD)v11 != 1 || (v11 = (PDEVICE_OBJECT *)v26[0], *((_BYTE *)v26[0] + 2609)) )
     {
+      v21 = WdLogNewEntry5_WdError(v11, v10);
       DefaultRenderAdapterForSession = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"DxgkGetAdapter(): Aadapter found is not active, returning 0x%I64x.",
-        -1073741275LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      *(_QWORD *)(v21 + 24) = -1073741275LL;
+      WdLogEvent5_WdError(v21);
     }
     else
     {
-      *a2 = *(struct _LUID *)((char *)v19[0] + 404);
+      *a2 = *(struct _LUID *)((char *)v26[0] + 316);
       if ( a1 )
       {
         if ( !a4 )
         {
-          WdLogSingleEntry1(1LL, 4572LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(NULL != pReferenceCookie)",
-            4572LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v10 = v19[0];
+          v23 = WdLogNewEntry5_WdAssertion(v11, v10);
+          *(_QWORD *)(v23 + 24) = 4213LL;
+          WdLogEvent5_WdAssertion(v23);
+          v11 = (PDEVICE_OBJECT *)v26[0];
         }
         if ( !a3 )
         {
-          WdLogSingleEntry1(1LL, 4573LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(NULL != ppPhysicalDeviceHandle)",
-            4573LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v10 = v19[0];
+          v24 = WdLogNewEntry5_WdAssertion(v11, v10);
+          *(_QWORD *)(v24 + 24) = 4214LL;
+          WdLogEvent5_WdAssertion(v24);
+          v11 = (PDEVICE_OBJECT *)v26[0];
         }
-        DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*((PDEVICE_OBJECT *)v10 + 27));
+        DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v11[27]);
         *a3 = DeviceAttachmentBaseRef;
         ObfDereferenceObject(DeviceAttachmentBaseRef);
-        v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-        if ( v13 )
+        v17 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v14, v13) + 102);
+        if ( v17 )
         {
-          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12);
+          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v16, v15);
           SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                             v13,
+                                             v17,
                                              CurrentProcessSessionId);
-          if ( SessionDataForSpecifiedSession )
-            DXGSESSIONDATA::SetAdapterLuidInRemoteSession(SessionDataForSpecifiedSession, v19[0]);
         }
-        v16 = v19[0];
+        else
+        {
+          SessionDataForSpecifiedSession = 0LL;
+        }
+        if ( SessionDataForSpecifiedSession )
+          DXGSESSIONDATA::SetAdapterLuidInRemoteSession(SessionDataForSpecifiedSession, v26[0]);
+        v20 = v26[0];
         if ( a5 )
-          *a5 = *((_BYTE *)v19[0] + 209);
-        *a4 = v19[1];
-        *a1 = v16;
-        v19[0] = 0LL;
+          *a5 = *((_BYTE *)v26[0] + 209);
+        v26[0] = 0LL;
+        *a4 = v26[1];
+        *a1 = v20;
       }
       DefaultRenderAdapterForSession = 0;
     }
-    if ( v22 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v20);
+    if ( v29 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v27);
   }
-  DXGADAPTER_REFERENCE::Assign(v19, 0LL);
+  DXGADAPTER_REFERENCE::Assign(v26, 0LL);
   return (unsigned int)DefaultRenderAdapterForSession;
 }

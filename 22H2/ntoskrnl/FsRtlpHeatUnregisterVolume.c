@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlpHeatUnregisterVolume @ 0x14093FD74
+ * XREFs of FsRtlpHeatUnregisterVolume @ 0x14088D2B0
  * Callers:
- *     FsRtlHeatUninit @ 0x14093FBB0 (FsRtlHeatUninit.c)
+ *     FsRtlHeatUninit @ 0x14088D100 (FsRtlHeatUninit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlpHeatUnregisterVolume(_QWORD *a1)
 {
   __int64 *i; // rcx
   __int64 v3; // rdx
-  __int64 *v5; // rdx
-  __int64 **v6; // rax
+  __int64 *v5; // rax
+  __int64 **v6; // rdx
 
-  ExAcquireResourceExclusiveLite(&stru_140C5F630, 1u);
+  ExAcquireResourceExclusiveLite(&Resource, 1u);
   for ( i = (__int64 *)FsRtlTieringHeatData; i != &FsRtlTieringHeatData; i = (__int64 *)*i )
   {
     v3 = *(__int64 *)((char *)i + 20) - *a1;
@@ -35,5 +35,5 @@ void __fastcall FsRtlpHeatUnregisterVolume(_QWORD *a1)
       break;
     }
   }
-  ExReleaseResourceLite(&stru_140C5F630);
+  ExReleaseResourceLite(&Resource);
 }

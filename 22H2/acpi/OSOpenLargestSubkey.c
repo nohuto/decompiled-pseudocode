@@ -1,10 +1,10 @@
 /*
- * XREFs of OSOpenLargestSubkey @ 0x1C008DFF0
+ * XREFs of OSOpenLargestSubkey @ 0x1C00B2AB4
  * Callers:
- *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D16C (ACPIRegGetTableFromSimulatorRegistryEntry.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3EC (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B2278 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
  * Callees:
- *     OSOpenUnicodeHandle @ 0x1C008E3EC (OSOpenUnicodeHandle.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
  */
 
 __int64 __fastcall OSOpenLargestSubkey(HANDLE KeyHandle, _QWORD *a2, ULONG a3)
@@ -13,7 +13,7 @@ __int64 __fastcall OSOpenLargestSubkey(HANDLE KeyHandle, _QWORD *a2, ULONG a3)
   _QWORD *v4; // r12
   void *v6; // rdi
   ULONG v7; // r14d
-  unsigned __int16 *Pool2; // rsi
+  unsigned __int16 *PoolWithTag; // rsi
   NTSTATUS v10; // ebx
   int v11; // r12d
   ULONG ResultLength; // [rsp+30h] [rbp-20h] BYREF
@@ -29,18 +29,18 @@ __int64 __fastcall OSOpenLargestSubkey(HANDLE KeyHandle, _QWORD *a2, ULONG a3)
   v6 = 0LL;
   String = 0LL;
   v7 = 0;
-  Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1299211073LL);
-  if ( !Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x4D706341u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v10 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, Pool2, 0x200u, &ResultLength);
+  v10 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, PoolWithTag, 0x200u, &ResultLength);
   if ( v10 >= 0 )
   {
     v11 = 0;
     do
     {
-      String.Length = Pool2[6];
-      String.MaximumLength = Pool2[6];
-      String.Buffer = Pool2 + 8;
+      String.Length = PoolWithTag[6];
+      String.MaximumLength = PoolWithTag[6];
+      String.Buffer = PoolWithTag + 8;
       RtlUnicodeStringToInteger(&String, 0x10u, &Value);
       if ( (!v13 || Value > v7) && (int)OSOpenUnicodeHandle(&String, KeyHandle, &v13) >= 0 )
       {
@@ -49,13 +49,13 @@ __int64 __fastcall OSOpenLargestSubkey(HANDLE KeyHandle, _QWORD *a2, ULONG a3)
         v6 = v13;
         v7 = Value;
       }
-      v10 = ZwEnumerateKey(KeyHandle, ++v11, KeyBasicInformation, Pool2, 0x200u, &ResultLength);
+      v10 = ZwEnumerateKey(KeyHandle, ++v11, KeyBasicInformation, PoolWithTag, 0x200u, &ResultLength);
     }
     while ( v10 >= 0 );
     v4 = a2;
     v3 = a3;
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   if ( !v6 )
     return (unsigned int)v10;
   if ( v7 >= v3 )

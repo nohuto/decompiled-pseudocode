@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CProjectedShadowApproxBlurEffect@@WBA@EAAKXZ @ 0x180107E50
+ * XREFs of ?AddRef@CProjectedShadowApproxBlurEffect@@WBA@EAAKXZ @ 0x1800F6430
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CProjectedShadowApproxBlurEffect::AddRef(__int64 a1)
 {
-  return CComposition::AddRef((CComposition *)(a1 - 16));
+  return CManipulationFrame::AddRef((CManipulationFrame *)(a1 - 16));
 }

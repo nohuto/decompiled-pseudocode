@@ -1,42 +1,42 @@
 /*
- * XREFs of SeAccessCheck @ 0x140231630
+ * XREFs of SeAccessCheck @ 0x140206720
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x14022F340 (SeComputeCreatorDeniedRights.c)
- *     IopCreateSecurityCheck @ 0x14035A14C (IopCreateSecurityCheck.c)
- *     SeIsSystemContext @ 0x1405B91FC (SeIsSystemContext.c)
- *     WdipAccessCheck @ 0x1405FB898 (WdipAccessCheck.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x140616408 (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     EtwpAccessCheck @ 0x1406BDBDC (EtwpAccessCheck.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1406BF740 (EtwpFindOrCreateGuidEntry.c)
- *     CmpCheckCreateAccess @ 0x1406C0898 (CmpCheckCreateAccess.c)
- *     ObpCheckObjectReference @ 0x1406C301C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1406C4FC0 (ObCheckCreateObjectAccess.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     sub_1406EF620 @ 0x1406EF620 (sub_1406EF620.c)
- *     ExpWnfCheckCallerAccess @ 0x1407138E4 (ExpWnfCheckCallerAccess.c)
- *     AlpcpCheckConnectionSecurity @ 0x140715A70 (AlpcpCheckConnectionSecurity.c)
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     CmpCheckNotifyAccess @ 0x140766F94 (CmpCheckNotifyAccess.c)
- *     PiAuVerifyAccessToObject @ 0x14079ADDC (PiAuVerifyAccessToObject.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A60F0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     ObCheckObjectAccess @ 0x1407B6810 (ObCheckObjectAccess.c)
- *     ExIsRestrictedCaller @ 0x1407D8DA4 (ExIsRestrictedCaller.c)
- *     PopBootStatAccessCheck @ 0x1407EC0D4 (PopBootStatAccessCheck.c)
- *     NtSetUuidSeed @ 0x140851720 (NtSetUuidSeed.c)
- *     PiAuCheckTokenMembership @ 0x14095B7C0 (PiAuCheckTokenMembership.c)
- *     ObpCheckTraverseAccess @ 0x14097B7C8 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x1409B214C (PspCheckJobAccessState.c)
- *     PspIumVerifyParentSd @ 0x1409B6494 (PspIumVerifyParentSd.c)
- *     CMFCheckAccess @ 0x140A01994 (CMFCheckAccess.c)
- *     CmUpdateFeatureConfiguration @ 0x140A11EDC (CmUpdateFeatureConfiguration.c)
- *     CmUpdateFeatureUsageSubscription @ 0x140A121EC (CmUpdateFeatureUsageSubscription.c)
- *     CmpCheckKeyBodyAccess @ 0x140A1B198 (CmpCheckKeyBodyAccess.c)
- *     VfUtilIsLocalSystem @ 0x140AC3724 (VfUtilIsLocalSystem.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     SeComputeCreatorDeniedRights @ 0x1402D0420 (SeComputeCreatorDeniedRights.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1404EC7E8 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     SeIsSystemContext @ 0x14059710C (SeIsSystemContext.c)
+ *     WdipAccessCheck @ 0x1405A5550 (WdipAccessCheck.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1405DEB24 (AlpcpCheckConnectionSecurity.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     CmpCheckNotifyAccess @ 0x1405EC75C (CmpCheckNotifyAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
+ *     ExpWnfCheckCallerAccess @ 0x14060FF00 (ExpWnfCheckCallerAccess.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     CmpCheckCreateAccess @ 0x14068200C (CmpCheckCreateAccess.c)
+ *     PiAuVerifyAccessToObject @ 0x140684DD8 (PiAuVerifyAccessToObject.c)
+ *     ExIsRestrictedCaller @ 0x140686630 (ExIsRestrictedCaller.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x140688794 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     EtwpAccessCheck @ 0x1406BC938 (EtwpAccessCheck.c)
+ *     ObpCheckObjectReference @ 0x1406D9CFC (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x1406DBC80 (ObCheckCreateObjectAccess.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1406F5028 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopBootStatAccessCheck @ 0x1407C1BDC (PopBootStatAccessCheck.c)
+ *     NtSetUuidSeed @ 0x1407C7220 (NtSetUuidSeed.c)
+ *     CmUpdateFeatureConfiguration @ 0x14086B380 (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureUsageSubscription @ 0x14086B518 (CmUpdateFeatureUsageSubscription.c)
+ *     PiAuCheckTokenMembership @ 0x1408A3BB8 (PiAuCheckTokenMembership.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD180 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x140908C3C (PspCheckJobAccessState.c)
+ *     PspIumVerifyParentSd @ 0x14090CD04 (PspIumVerifyParentSd.c)
+ *     CMFCheckAccess @ 0x1409582C4 (CMFCheckAccess.c)
+ *     VfUtilIsLocalSystem @ 0x1409C67F4 (VfUtilIsLocalSystem.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1402CE470 (SeAccessCheckWithHintWithAdminlessChecks.c)
  */
 
 BOOLEAN __stdcall SeAccessCheck(
@@ -51,13 +51,20 @@ BOOLEAN __stdcall SeAccessCheck(
         PACCESS_MASK GrantedAccess,
         PNTSTATUS AccessStatus)
 {
-  return SeAccessCheckWithHint(
-           (__int64)SecurityDescriptor,
+  char v12; // [rsp+58h] [rbp-10h]
+
+  v12 = 0;
+  return SeAccessCheckWithHintWithAdminlessChecks(
+           SecurityDescriptor,
+           0LL,
+           SubjectSecurityContext,
+           SubjectContextLocked,
            DesiredAccess,
            PreviouslyGrantedAccess,
-           (__int64)Privileges,
-           (__int64)GenericMapping,
+           Privileges,
+           GenericMapping,
            AccessMode,
-           (__int64)GrantedAccess,
-           (__int64)AccessStatus);
+           GrantedAccess,
+           AccessStatus,
+           v12);
 }

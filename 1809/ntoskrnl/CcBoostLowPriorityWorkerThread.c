@@ -1,5 +1,5 @@
 /*
- * XREFs of CcBoostLowPriorityWorkerThread @ 0x140107F30
+ * XREFs of CcBoostLowPriorityWorkerThread @ 0x140107F50
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
@@ -12,12 +12,12 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     PsBoostThreadIo @ 0x1400BBF50 (PsBoostThreadIo.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     IoBoostThreadIoPriority @ 0x14010863C (IoBoostThreadIoPriority.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140108BB0 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140108BD0 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)

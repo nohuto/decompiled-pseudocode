@@ -1,25 +1,16 @@
 /*
- * XREFs of SmProcessCreateNotification @ 0x1406B639C
+ * XREFs of SmProcessCreateNotification @ 0x140706F4C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmpKeyedStoreCreate @ 0x1407B7A40 (SmpKeyedStoreCreate.c)
+ *     SmpKeyedStoreCreate @ 0x1406FB6E4 (SmpKeyedStoreCreate.c)
  */
 
-__int64 __fastcall SmProcessCreateNotification(__int64 a1)
+__int64 __fastcall SmProcessCreateNotification(LUID a1, char a2)
 {
-  __int64 ProcessPartition; // rdx
-  char v2; // r9
-
-  if ( (*(_DWORD *)(a1 + 2172) & 0x40000000) != 0 )
+  if ( (dword_140D24180 & 0xC) == 0 || *(_WORD *)(*(_QWORD *)&a1 + 1838LL) )
     return 3221225659LL;
-  if ( !dword_140C6B400 )
-    return 3221225659LL;
-  ProcessPartition = SmpGetProcessPartition(a1);
-  if ( (*(_DWORD *)(ProcessPartition + 2064) & 0xC) == 0 )
-    return 3221225659LL;
-  if ( (v2 & 3) != 0 )
-    return SmpKeyedStoreCreate(ProcessPartition + 2072);
+  if ( (a2 & 3) != 0 )
+    return SmpKeyedStoreCreate((ULONG_PTR)qword_140D24188, (__int64)&SmGlobals, a1);
   return 3221266944LL;
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of CmInitSystem2 @ 0x140B2359C
+ * XREFs of CmInitSystem2 @ 0x140A4B3D4
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MmLockRegistryRecoverySections @ 0x140582708 (MmLockRegistryRecoverySections.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     CmpRegisterTraceLoggingProvider @ 0x14084F7E4 (CmpRegisterTraceLoggingProvider.c)
- *     CmFcInitSystem3 @ 0x140B0183C (CmFcInitSystem3.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x14079E06C (CmpRegisterTraceLoggingProvider.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     CmFcInitSystem3 @ 0x140A38454 (CmFcInitSystem3.c)
  */
 
 int CmInitSystem2()
@@ -19,10 +18,8 @@ int CmInitSystem2()
   *((_QWORD *)&v1 + 1) = L"\\Driver\\WscVReg";
   CmpRegisterTraceLoggingProvider();
   CmFcInitSystem3();
-  result = IoCreateDriver(&v1, (__int64 (__fastcall *)(void **, _QWORD))VRegSetup);
+  result = IoCreateDriver(&v1, (_DMA_OPERATIONS *)VRegSetup);
   if ( result < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, result, 0LL, 0LL);
-  if ( CmBugcheckRecoveryEnabled )
-    return MmLockRegistryRecoverySections();
   return result;
 }

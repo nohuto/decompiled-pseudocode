@@ -1,20 +1,20 @@
 /*
- * XREFs of KiGetThreadEffectiveRankNonZero @ 0x1400D1500
+ * XREFs of KiGetThreadEffectiveRankNonZero @ 0x1400D1520
  * Callers:
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
  *     KiSelectReadyThreadEx @ 0x14005ADA0 (KiSelectReadyThreadEx.c)
  *     KeAccumulateTicks @ 0x1400601D0 (KeAccumulateTicks.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5210 (KiDirectSwitchThread.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1400C6160 (KiEvaluateGroupSchedulingPreemption.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2C80 (KiDeferGroupSchedulingPreemption.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3260 (KiTransitionSchedulingGroupGeneration.c)
- *     KiChooseLowestRankedThread @ 0x140116A8C (KiChooseLowestRankedThread.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x140117350 (KiMoveScbThreadsToNewReadylist.c)
- *     KiAddThreadToReadyQueue @ 0x140297F84 (KiAddThreadToReadyQueue.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1400C6180 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D3280 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiChooseLowestRankedThread @ 0x140116AAC (KiChooseLowestRankedThread.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140117370 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiAddThreadToReadyQueue @ 0x140298084 (KiAddThreadToReadyQueue.c)
  * Callees:
  *     <none>
  */

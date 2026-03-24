@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3C4
+ * XREFs of AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3A4
  * Callers:
  *     SepCompareClaimAttributes @ 0x1405BC2A4 (SepCompareClaimAttributes.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x1400A71D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1400A71F0 (AuthzBasepFindSecurityAttribute.c)
  *     AuthzBasepCompareSecurityAttribute @ 0x1405BC1F8 (AuthzBasepCompareSecurityAttribute.c)
  */
 

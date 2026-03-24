@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenTimer @ 0x1409FB550
+ * XREFs of NtOpenTimer @ 0x14094F160
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenTimer(_QWORD *a1, int a2, __int64 a3)

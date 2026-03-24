@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEnumMapTableHandler @ 0x1C0001990
+ * XREFs of ACPIEnumMapTableHandler @ 0x1C0002940
  * Callers:
  *     <none>
  * Callees:
- *     ACPIMapNamedTable @ 0x1C00019E0 (ACPIMapNamedTable.c)
- *     ACPIEnumerateTables @ 0x1C00A0698 (ACPIEnumerateTables.c)
+ *     ACPIMapNamedTable @ 0x1C0002990 (ACPIMapNamedTable.c)
+ *     ACPIEnumerateTables @ 0x1C00A2E40 (ACPIEnumerateTables.c)
  */
 
 __int64 __fastcall ACPIEnumMapTableHandler(__int64 a1)

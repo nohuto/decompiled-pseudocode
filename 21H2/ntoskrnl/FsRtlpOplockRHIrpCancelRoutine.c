@@ -1,13 +1,12 @@
 /*
- * XREFs of FsRtlpOplockRHIrpCancelRoutine @ 0x14024E6D0
+ * XREFs of FsRtlpOplockRHIrpCancelRoutine @ 0x1402AD9D0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpCancelOplockRHIrp @ 0x14024E6F0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1402AD9F0 (FsRtlpCancelOplockRHIrp.c)
  */
 
-__int64 __fastcall FsRtlpOplockRHIrpCancelRoutine(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall FsRtlpOplockRHIrpCancelRoutine(__int64 a1, __int64 a2)
 {
-  LOBYTE(a3) = 1;
-  return FsRtlpCancelOplockRHIrp(a2, 0LL, a3);
+  return FsRtlpCancelOplockRHIrp(a2, 0LL);
 }

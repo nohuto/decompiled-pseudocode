@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180031854
+ * XREFs of ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180062B3C
  * Callers:
- *     ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x1800318CC (-ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPD.c)
+ *     ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x180062268 (-ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPD.c)
  * Callees:
- *     McTemplateU0pqqNR2_EventWriteTransfer @ 0x18020CF54 (McTemplateU0pqqNR2_EventWriteTransfer.c)
+ *     McTemplateU0pqqNR2_EventWriteTransfer @ 0x1801C7060 (McTemplateU0pqqNR2_EventWriteTransfer.c)
  */
 
-__int64 __fastcall CInteraction::TraceUpdatedConfiguration(int a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall CInteraction::TraceUpdatedConfiguration(__int64 a1, int a2, int a3, int a4, __int64 a5)
 {
   int v5; // r8d
   int v6; // r8d
@@ -26,58 +26,58 @@ __int64 __fastcall CInteraction::TraceUpdatedConfiguration(int a1, int a2, int a
         v8 = v7 - 1;
         if ( v8 )
         {
-          if ( v8 == 1 && (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+          if ( v8 == 1 && (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
             return McTemplateU0pqqNR2_EventWriteTransfer(
                      12 * a4,
                      (unsigned int)&INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED,
-                     a1,
+                     a1 != 0 ? a1 + 8 : 0,
                      a2,
                      a4,
                      12 * a4,
                      a5);
         }
-        else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+        else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
         {
           return McTemplateU0pqqNR2_EventWriteTransfer(
                    4 * a4,
                    (unsigned int)&INTERACTION_MOUSE_CONFIGURATION_CHANGED,
-                   a1,
+                   a1 != 0 ? a1 + 8 : 0,
                    a2,
                    a4,
                    4 * a4,
                    a5);
         }
       }
-      else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+      else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
       {
         return McTemplateU0pqqNR2_EventWriteTransfer(
                  12 * a4,
                  (unsigned int)&INTERACTION_PEN_CONFIGURATION_CHANGED,
-                 a1,
+                 a1 != 0 ? a1 + 8 : 0,
                  a2,
                  a4,
                  12 * a4,
                  a5);
       }
     }
-    else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+    else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
     {
       return McTemplateU0pqqNR2_EventWriteTransfer(
                12 * a4,
                (unsigned int)&INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED,
-               a1,
+               a1 != 0 ? a1 + 8 : 0,
                a2,
                a4,
                12 * a4,
                a5);
     }
   }
-  else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+  else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
   {
     return McTemplateU0pqqNR2_EventWriteTransfer(
              12 * a4,
              (unsigned int)&INTERACTION_TOUCH_CONFIGURATION_CHANGED,
-             a1,
+             a1 != 0 ? a1 + 8 : 0,
              a2,
              a4,
              12 * a4,

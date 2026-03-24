@@ -1,346 +1,389 @@
 /*
- * XREFs of ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C03C1AE0
+ * XREFs of ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C02EF524
  * Callers:
- *     ??RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C03C064C (--RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ??RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C02EDE18 (--RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C00049B8 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     ?GetPathsCount@CCD_TOPOLOGY@@QEBAGXZ @ 0x1C0007354 (-GetPathsCount@CCD_TOPOLOGY@@QEBAGXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C017D564 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
- *     ?Clear@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C017FC38 (-Clear@CCD_TOPOLOGY@@QEAAXXZ.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0180B78 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0180EE4 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C01E7EAC (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
- *     DxgkIsVirtualizationDisabledForTarget @ 0x1C01E8270 (DxgkIsVirtualizationDisabledForTarget.c)
- *     DxgkIsMonitorConnected @ 0x1C02D2DF0 (DxgkIsMonitorConnected.c)
- *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C03BC170 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
- *     ?CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C03BC348 (-CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
- *     _lambda_58ec37c2392282bb0e6e3e53197351b6_::operator() @ 0x1C03C0594 (_lambda_58ec37c2392282bb0e6e3e53197351b6_--operator().c)
- *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C03C1254 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
- *     ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C1A00 (-_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
- *     ?_ConstructExtend@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C20E4 (-_ConstructExtend@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
- *     ?_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C2120 (-_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
- *     ?_ConstructExternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C03C21C4 (-_ConstructExternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
- *     ?_ConstructFromFirmwareRecommendedVidPn@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C03C2254 (-_ConstructFromFirmwareRecommendedVidPn@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
- *     ?_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C03C2314 (-_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
- *     ?_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA?AW4MultiScreenDefaultShellTopology@@XZ @ 0x1C03C236C (-_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA-AW4MultiScreenDefaultShellTopology@@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?GetPathsCount@CCD_TOPOLOGY@@QEBAGXZ @ 0x1C000A460 (-GetPathsCount@CCD_TOPOLOGY@@QEBAGXZ.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000B9F0 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Clear@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C013CEB4 (-Clear@CCD_TOPOLOGY@@QEAAXXZ.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C013D7C8 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C013DE80 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C013E924 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C0167880 (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
+ *     DxgkIsVirtualizationDisabledForTarget @ 0x1C0169720 (DxgkIsVirtualizationDisabledForTarget.c)
+ *     DxgkIsMonitorConnected @ 0x1C0224820 (DxgkIsMonitorConnected.c)
+ *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C02EBD50 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
+ *     _lambda_58ec37c2392282bb0e6e3e53197351b6_::operator() @ 0x1C02EDD58 (_lambda_58ec37c2392282bb0e6e3e53197351b6_--operator().c)
+ *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C02EEBF0 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
+ *     ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EF42C (-_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
+ *     ?_ConstructExtend@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EFBC4 (-_ConstructExtend@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
+ *     ?_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EFC00 (-_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
+ *     ?_ConstructExternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C02EFCA8 (-_ConstructExternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
+ *     ?_ConstructFromFirmwareRecommendedVidPn@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C02EFD4C (-_ConstructFromFirmwareRecommendedVidPn@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
+ *     ?_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C02EFE10 (-_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
+ *     ?_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA?AW4MultiScreenDefaultShellTopology@@XZ @ 0x1C02EFE5C (-_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA-AW4MultiScreenDefaultShellTopology@@XZ.c)
+ *     ?CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C02F0E5C (-CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
  */
 
 __int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_ConstructDefault(BTL_TOPOLOGY_CONSTRUCTOR *this, unsigned int *a2)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
-  int v6; // edi
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int64 v6; // rdi
+  unsigned __int16 v7; // r13
+  __int64 v8; // rdx
   __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
   DXGPROCESS *Current; // rax
-  struct CCD_BTL *v11; // rax
-  unsigned int v12; // r14d
-  unsigned __int16 v13; // ax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct CCD_BTL *v15; // rax
+  unsigned int v16; // r15d
+  unsigned int v17; // edi
+  unsigned __int16 v18; // ax
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rdi
-  unsigned int v15; // edx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v16; // rcx
-  __int64 v17; // rax
-  __int128 v18; // xmm1
-  unsigned int v19; // r15d
-  unsigned int j; // r15d
-  unsigned int v21; // r14d
-  unsigned int v22; // r12d
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v23; // r15
-  __int64 v24; // rcx
-  unsigned int v25; // edi
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v26; // rax
-  CCD_TOPOLOGY *v27; // rcx
-  int v28; // eax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v29; // r14
-  bool *v30; // r12
-  bool *v31; // rdi
-  const struct _LUID *v32; // r15
+  unsigned int v20; // eax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v21; // rax
+  __int64 v22; // rcx
+  __int128 v23; // xmm1
+  unsigned int v24; // r14d
+  unsigned int j; // r14d
+  unsigned int v26; // r12d
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v27; // r15
+  __int64 v28; // rcx
+  unsigned int v29; // r14d
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v30; // rax
+  CCD_TOPOLOGY *v31; // rcx
+  int v32; // eax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v36; // r14
+  bool *v37; // r12
+  const struct _LUID *v38; // r15
   int IsVirtualizationDisabledForTarget; // eax
-  bool v34; // cl
-  __int16 v35; // dx
-  bool v36; // zf
-  bool v37; // al
-  int v38; // eax
-  __int64 v39; // rax
-  CCD_TOPOLOGY *v40; // rcx
-  __int64 v41; // r15
-  int v42; // esi
-  __int64 v43; // r14
-  int v44; // eax
-  CCD_TOPOLOGY *v45; // rcx
-  int v46; // esi
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  _QWORD *v42; // rax
+  CCD_TOPOLOGY *v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  unsigned int v46; // r14d
   int v47; // eax
-  CCD_TOPOLOGY *v48; // rcx
-  int v50; // [rsp+40h] [rbp-89h]
-  __int128 v51; // [rsp+48h] [rbp-81h]
-  __int128 v52; // [rsp+58h] [rbp-71h]
-  __int128 v53; // [rsp+68h] [rbp-61h]
-  _BYTE v54[64]; // [rsp+80h] [rbp-49h] BYREF
-  __int64 v55; // [rsp+C0h] [rbp-9h]
-  __int64 i; // [rsp+138h] [rbp+6Fh] BYREF
-  unsigned __int16 v57; // [rsp+140h] [rbp+77h]
-  int v58; // [rsp+148h] [rbp+7Fh]
+  bool v48; // cl
+  __int16 v49; // dx
+  bool v50; // zf
+  bool v51; // al
+  int v52; // eax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  _QWORD *v55; // rax
+  __int64 v56; // rax
+  unsigned __int16 v57; // cx
+  int v58; // eax
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  __int64 v61; // rax
+  CCD_TOPOLOGY *v62; // rcx
+  __int64 v63; // rdx
+  __int64 v64; // rcx
+  __int64 v65; // r8
+  int v66; // eax
+  _QWORD *v67; // rax
+  CCD_TOPOLOGY *v68; // rcx
+  int v70; // [rsp+40h] [rbp-79h]
+  __int128 v71; // [rsp+48h] [rbp-71h]
+  __int128 v72; // [rsp+58h] [rbp-61h]
+  __int128 v73; // [rsp+68h] [rbp-51h]
+  _BYTE v74[64]; // [rsp+80h] [rbp-39h] BYREF
+  __int64 v75; // [rsp+C0h] [rbp+7h]
+  __int64 i; // [rsp+128h] [rbp+6Fh] BYREF
+  unsigned __int16 v77; // [rsp+130h] [rbp+77h]
+  int v78; // [rsp+138h] [rbp+7Fh]
 
   *a2 = 0;
-  if ( !*((_BYTE *)DXGGLOBAL::GetGlobal() + 304536)
-    || (v6 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructFromFirmwareRecommendedVidPn(this), v6 < 0) )
+  if ( !*((_BYTE *)DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2) + 304368)
+    || (LODWORD(v6) = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructFromFirmwareRecommendedVidPn(this), (int)v6 < 0) )
   {
-    v50 = *((_DWORD *)this + 15);
-    v51 = *(_OWORD *)((char *)this + 12);
-    v52 = *(_OWORD *)((char *)this + 28);
-    v53 = *(_OWORD *)((char *)this + 44);
-    v57 = BTL_TOPOLOGY_CONSTRUCTOR::_DetermineDefaultTopology(this);
-    v58 = v57;
-    CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v54, 8u, 0);
-    Current = DXGPROCESS::GetCurrent(v9);
+    v70 = *((_DWORD *)this + 15);
+    v71 = *(_OWORD *)((char *)this + 12);
+    v72 = *(_OWORD *)((char *)this + 28);
+    v73 = *(_OWORD *)((char *)this + 44);
+    v77 = BTL_TOPOLOGY_CONSTRUCTOR::_DetermineDefaultTopology(this);
+    v78 = v77;
+    v7 = v77;
+    CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v74, 8u, 0);
+    Current = DXGPROCESS::GetCurrent(v9, v8, v10, v11);
     if ( !DXGPROCESS::IsRemoteConnection(Current) )
     {
-      v11 = CCD_BTL::Global();
-      if ( (int)CCD_TOPOLOGY::CopyRenewScope((CCD_TOPOLOGY *)v54, (struct CCD_BTL *)((char *)v11 + 8)) < 0 )
-        goto LABEL_54;
+      v15 = CCD_BTL::Global(v14, v13);
+      if ( (int)CCD_TOPOLOGY::CopyRenewScope((CCD_TOPOLOGY *)v74, (struct CCD_BTL *)((char *)v15 + 8)) < 0 )
+      {
+LABEL_46:
+        v43 = *(CCD_TOPOLOGY **)this;
+        *((_DWORD *)this + 2) = 0;
+        *(_OWORD *)((char *)this + 12) = v71;
+        *a2 = 0;
+        *(_OWORD *)((char *)this + 28) = v72;
+        *(_OWORD *)((char *)this + 44) = v73;
+        *((_DWORD *)this + 15) = v70;
+        CCD_TOPOLOGY::Clear(v43);
+        switch ( v7 )
+        {
+          case 1u:
+            v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructInternal(this);
+            break;
+          case 2u:
+            v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExternal(this);
+            break;
+          case 3u:
+            v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(this, 0);
+            break;
+          default:
+            v46 = v7 - 4;
+            if ( v46 > 1 )
+            {
+              v61 = WdLogNewEntry5_WdAssertion(v45, v44);
+              *(_QWORD *)(v61 + 24) = v7;
+              WdLogEvent5_WdAssertion(v61);
+              LODWORD(v6) = -1073741823;
+              goto LABEL_76;
+            }
+            v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtend(this, 0);
+            break;
+        }
+        LODWORD(v6) = v47;
+        if ( v47 < 0 )
+        {
+          v46 = v7 - 4;
+LABEL_76:
+          v62 = *(CCD_TOPOLOGY **)this;
+          *((_DWORD *)this + 2) = 0;
+          CCD_TOPOLOGY::Clear(v62);
+          if ( v7 == 3 )
+          {
+            v66 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtend(this, 0);
+          }
+          else
+          {
+            if ( v46 > 1 )
+              goto LABEL_81;
+            v66 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(this, 0);
+          }
+          LODWORD(v6) = v66;
+LABEL_81:
+          if ( (int)v6 < 0 )
+          {
+            v67 = (_QWORD *)WdLogNewEntry5_WdWarning(v64, v63, v65);
+            v67[3] = (int)v6;
+            v67[4] = *(_QWORD *)this;
+            v67[5] = v7;
+            WdLogEvent5_WdWarning(v67);
+            v68 = *(CCD_TOPOLOGY **)this;
+            *((_DWORD *)this + 2) = 0;
+            CCD_TOPOLOGY::Clear(v68);
+            LODWORD(v6) = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructInternal(this);
+          }
+        }
+LABEL_83:
+        CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v74);
+        return (unsigned int)v6;
+      }
     }
-    v12 = 0;
+    v16 = 0;
     *a2 = 0;
+    v17 = 0;
     while ( 1 )
     {
-      v13 = v55 ? *(_WORD *)(v55 + 20) : 0;
-      if ( v12 >= v13 )
+      v18 = v75 ? *(_WORD *)(v75 + 20) : 0;
+      if ( v16 >= v18 )
         break;
-      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v54, v12);
+      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v74, v16);
       LOBYTE(i) = 0;
       if ( (int)DxgkIsMonitorConnected(
                   *(struct _LUID *)((char *)PathDescriptor + 16),
-                  *((_DWORD *)PathDescriptor + 7),
+                  *((unsigned int *)PathDescriptor + 7),
                   0,
                   0,
                   (bool *)&i) >= 0
         && (_BYTE)i )
       {
-        v15 = *a2;
+        v20 = *a2;
         *((_QWORD *)PathDescriptor + 1) = 0LL;
-        if ( v12 != v15 )
+        if ( v16 != v20 )
         {
-          v16 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v54, v15);
-          v17 = 2LL;
+          v21 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v74, v20);
+          v22 = 2LL;
           do
           {
-            *(_OWORD *)v16 = *(_OWORD *)PathDescriptor;
-            *((_OWORD *)v16 + 1) = *((_OWORD *)PathDescriptor + 1);
-            *((_OWORD *)v16 + 2) = *((_OWORD *)PathDescriptor + 2);
-            *((_OWORD *)v16 + 3) = *((_OWORD *)PathDescriptor + 3);
-            *((_OWORD *)v16 + 4) = *((_OWORD *)PathDescriptor + 4);
-            *((_OWORD *)v16 + 5) = *((_OWORD *)PathDescriptor + 5);
-            *((_OWORD *)v16 + 6) = *((_OWORD *)PathDescriptor + 6);
-            v16 = (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)((char *)v16 + 128);
-            v18 = *((_OWORD *)PathDescriptor + 7);
+            *(_OWORD *)v21 = *(_OWORD *)PathDescriptor;
+            *((_OWORD *)v21 + 1) = *((_OWORD *)PathDescriptor + 1);
+            *((_OWORD *)v21 + 2) = *((_OWORD *)PathDescriptor + 2);
+            *((_OWORD *)v21 + 3) = *((_OWORD *)PathDescriptor + 3);
+            *((_OWORD *)v21 + 4) = *((_OWORD *)PathDescriptor + 4);
+            *((_OWORD *)v21 + 5) = *((_OWORD *)PathDescriptor + 5);
+            *((_OWORD *)v21 + 6) = *((_OWORD *)PathDescriptor + 6);
+            v21 = (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)((char *)v21 + 128);
+            v23 = *((_OWORD *)PathDescriptor + 7);
             PathDescriptor = (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)((char *)PathDescriptor + 128);
-            *((_OWORD *)v16 - 1) = v18;
-            --v17;
+            *((_OWORD *)v21 - 1) = v23;
+            --v22;
           }
-          while ( v17 );
-          *(_OWORD *)v16 = *(_OWORD *)PathDescriptor;
-          *((_OWORD *)v16 + 1) = *((_OWORD *)PathDescriptor + 1);
-          *((_QWORD *)v16 + 4) = *((_QWORD *)PathDescriptor + 4);
+          while ( v22 );
+          *(_OWORD *)v21 = *(_OWORD *)PathDescriptor;
+          v20 = *a2;
         }
-        ++*a2;
-        ++v12;
+        v17 = v20 + 1;
+        *a2 = v20 + 1;
       }
       else
       {
-        v19 = 0;
-        for ( i = (__int64)v54; v19 < *a2; ++v19 )
-          lambda_58ec37c2392282bb0e6e3e53197351b6_::operator()((CCD_TOPOLOGY **)&i, (__int64)PathDescriptor, v19);
-        for ( j = ++v12; j < (unsigned __int16)CCD_TOPOLOGY::GetPathsCount((CCD_TOPOLOGY *)v54); ++j )
+        v24 = 0;
+        for ( i = (__int64)v74; v24 < *a2; ++v24 )
+          lambda_58ec37c2392282bb0e6e3e53197351b6_::operator()((CCD_TOPOLOGY **)&i, (__int64)PathDescriptor, v24);
+        for ( j = v16 + 1; j < (unsigned __int16)CCD_TOPOLOGY::GetPathsCount((CCD_TOPOLOGY *)v74); ++j )
           lambda_58ec37c2392282bb0e6e3e53197351b6_::operator()((CCD_TOPOLOGY **)&i, (__int64)PathDescriptor, j);
+        v17 = *a2;
       }
+      ++v16;
     }
-    v21 = *a2;
-    *(_WORD *)(v55 + 20) = *(_WORD *)a2;
-    if ( v21 )
+    *(_WORD *)(v75 + 20) = *(_WORD *)a2;
+    if ( !v17 )
+      goto LABEL_69;
+    v26 = v17 - 1;
+    do
     {
-      v22 = v21 - 1;
-      do
+      v27 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v74, v26);
+      v28 = *(_QWORD *)v27;
+      if ( (*(_QWORD *)v27 & 0x4000000000000LL) != 0 )
       {
-        v23 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v54, v22);
-        v24 = *(_QWORD *)v23;
-        if ( (*(_QWORD *)v23 & 0x4000000000000LL) != 0 )
+        v29 = 0;
+        while ( 1 )
         {
-          v25 = 0;
-          while ( 1 )
-          {
-            v26 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v54, v25);
-            if ( _bittest64((const signed __int64 *)v26, 0x32u) )
-            {
-              if ( *((_DWORD *)v23 + 46) == *((_DWORD *)v26 + 46) )
-                break;
-            }
-            if ( ++v25 >= v21 )
-              goto LABEL_30;
-          }
-          *((_DWORD *)v23 + 46) = v25 | 0xFE530000;
+          v30 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v74, v29);
+          if ( (*(_QWORD *)v30 & 0x4000000000000LL) != 0 && *((_DWORD *)v27 + 46) == *((_DWORD *)v30 + 46) )
+            break;
+          if ( ++v29 >= v17 )
+            goto LABEL_35;
         }
-        else
-        {
-          *((_DWORD *)v23 + 46) = v22 | 0xFE530000;
-          *(_QWORD *)v23 = v24 | 0x4000000000000LL;
-        }
-LABEL_30:
-        --v22;
-        --v21;
+        *((_DWORD *)v27 + 46) = v29 | 0xFE530000;
       }
-      while ( v21 );
-    }
-    if ( !*a2 || (unsigned __int16)(v58 - 1) <= 1u )
-      goto LABEL_54;
-    v27 = *(CCD_TOPOLOGY **)this;
-    *((_WORD *)this + 4) = *(_WORD *)a2;
-    v28 = CCD_TOPOLOGY::CopyInheritScope(v27, (const struct CCD_TOPOLOGY *)v54);
-    if ( v28 < 0 )
-    {
-      WdLogSingleEntry1(2LL, v28);
-      goto LABEL_54;
-    }
-    if ( *a2 != 1 )
-      v58 = 4;
-    v29 = CCD_TOPOLOGY::GetPathDescriptor(*(CCD_TOPOLOGY **)this, 0);
-    v30 = (bool *)this + 60;
-    v31 = (bool *)this + 54;
-    v32 = (const struct _LUID *)((char *)v29 + 16);
-    *(_QWORD *)((char *)this + 12) = *((_QWORD *)v29 + 2);
-    *((_DWORD *)this + 5) = *((_DWORD *)v29 + 6);
-    *((_DWORD *)this + 6) = *((_DWORD *)v29 + 7);
-    *((_DWORD *)this + 7) = *((_DWORD *)v29 + 22);
-    *((_DWORD *)this + 8) = *((_DWORD *)v29 + 23);
-    IsVirtualizationDisabledForTarget = DxgkIsVirtualizationDisabledForTarget(
-                                          *(struct _LUID *)((char *)v29 + 16),
-                                          *((_DWORD *)v29 + 7),
-                                          (bool *)this + 53,
-                                          (bool *)this + 60,
-                                          (char *)this + 54,
-                                          0LL,
-                                          0LL,
-                                          0LL);
-    if ( IsVirtualizationDisabledForTarget >= 0 )
-    {
-      v34 = *v30;
-      v35 = v58;
-      *((_BYTE *)this + 53) = *((_BYTE *)this + 53) == 0;
-      v36 = !*v31;
-      *v30 = !v34;
-      *v31 = v36;
-      *((_BYTE *)this + 11) = v35 == 3;
-      v37 = v35 == 3 && !v34;
-      *((_BYTE *)this + 10) = v37;
-      if ( v34 && v35 == 3 )
+      else
       {
-        *((_BYTE *)this + 10) = 0;
-        v38 = BTL_TOPOLOGY_CONSTRUCTOR::_AddSecondaryPathToTopology((CCD_TOPOLOGY **)this, 0, v32, *((_DWORD *)v29 + 6));
-        v6 = v38;
-        if ( v38 >= 0 )
-        {
-          if ( IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)v29 + 22)) )
-          {
-            v39 = *(_QWORD *)(*(_QWORD *)this + 64LL);
-            if ( v39 )
-            {
-              if ( *(_WORD *)(v39 + 20) >= 2u )
-                CCD_TOPOLOGY::SwapPathsDescriptors(*(void ***)this, 0, 1u);
-            }
-          }
-          goto LABEL_71;
-        }
-        WdLogSingleEntry5(
-          2LL,
-          v38,
-          *((int *)v29 + 5),
-          v32->LowPart,
-          *((unsigned int *)v29 + 6),
-          *(_QWORD *)(*(_QWORD *)this + 64LL));
-LABEL_54:
-        v40 = *(CCD_TOPOLOGY **)this;
-        *((_DWORD *)this + 2) = 0;
-        *(_OWORD *)((char *)this + 12) = v51;
-        *a2 = 0;
-        *(_OWORD *)((char *)this + 28) = v52;
-        *(_OWORD *)((char *)this + 44) = v53;
-        *((_DWORD *)this + 15) = v50;
-        CCD_TOPOLOGY::Clear(v40);
-        v41 = v57;
-        v42 = v57;
-        switch ( v57 )
-        {
-          case 1u:
-            v44 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructInternal(this);
-            break;
-          case 2u:
-            v44 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExternal(this);
-            break;
-          case 3u:
-            v44 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(this, 0);
-            break;
-          default:
-            if ( (unsigned int)v57 - 4 >= 2 )
-            {
-              v43 = v57;
-              WdLogSingleEntry1(1LL, v57);
-              v6 = -1073741823;
-LABEL_65:
-              v45 = *(CCD_TOPOLOGY **)this;
-              *((_DWORD *)this + 2) = 0;
-              CCD_TOPOLOGY::Clear(v45);
-              v46 = v42 - 3;
-              if ( v46 )
-              {
-                if ( (unsigned int)(v46 - 1) > 1 )
-                {
-LABEL_70:
-                  WdLogSingleEntry3(3LL, v6, *(_QWORD *)this, v43);
-                  v48 = *(CCD_TOPOLOGY **)this;
-                  *((_DWORD *)this + 2) = 0;
-                  CCD_TOPOLOGY::Clear(v48);
-                  v6 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructInternal(this);
-                  goto LABEL_71;
-                }
-                v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(this, 0);
-              }
-              else
-              {
-                v47 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtend(this, 0);
-              }
-              v6 = v47;
-              if ( v47 < 0 )
-                goto LABEL_70;
-LABEL_71:
-              CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v54);
-              return (unsigned int)v6;
-            }
-            v44 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtend(this, 0);
-            break;
-        }
-        v6 = v44;
-        if ( v44 >= 0 )
-          goto LABEL_71;
-        v43 = v41;
-        goto LABEL_65;
+        *((_DWORD *)v27 + 46) = v26 | 0xFE530000;
+        *(_QWORD *)v27 = v28 | 0x4000000000000LL;
       }
-      IsVirtualizationDisabledForTarget = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtendSecondPath(this, 0);
+LABEL_35:
+      --v26;
+      --v17;
+    }
+    while ( v17 );
+    if ( *a2 && (unsigned __int16)(v78 - 1) > 1u )
+    {
+      v31 = *(CCD_TOPOLOGY **)this;
+      *((_WORD *)this + 4) = *a2;
+      v32 = CCD_TOPOLOGY::CopyInheritScope(v31, (const struct CCD_TOPOLOGY *)v74);
+      v6 = v32;
+      if ( v32 < 0 )
+      {
+        v35 = WdLogNewEntry5_WdError(v34, v33);
+        *(_QWORD *)(v35 + 24) = v6;
+        WdLogEvent5_WdError(v35);
+        goto LABEL_45;
+      }
+      if ( *a2 != 1 )
+        v78 = 4;
+      v36 = CCD_TOPOLOGY::GetPathDescriptor(*(CCD_TOPOLOGY **)this, 0LL);
+      v37 = (bool *)this + 60;
+      v38 = (const struct _LUID *)((char *)v36 + 16);
+      *(_QWORD *)((char *)this + 12) = *((_QWORD *)v36 + 2);
+      *((_DWORD *)this + 5) = *((_DWORD *)v36 + 6);
+      *((_DWORD *)this + 6) = *((_DWORD *)v36 + 7);
+      *((_DWORD *)this + 7) = *((_DWORD *)v36 + 22);
+      *((_DWORD *)this + 8) = *((_DWORD *)v36 + 23);
+      IsVirtualizationDisabledForTarget = DxgkIsVirtualizationDisabledForTarget(
+                                            *(struct _LUID *)((char *)v36 + 16),
+                                            *((unsigned int *)v36 + 7),
+                                            (bool *)this + 53,
+                                            (bool *)this + 60,
+                                            0LL,
+                                            0LL,
+                                            0LL);
       v6 = IsVirtualizationDisabledForTarget;
-      if ( IsVirtualizationDisabledForTarget >= 0 )
-        goto LABEL_71;
+      if ( IsVirtualizationDisabledForTarget < 0 )
+      {
+        v42 = (_QWORD *)WdLogNewEntry5_WdError(v41, v40);
+        v42[3] = *((unsigned int *)v36 + 7);
+        v42[4] = *((int *)v36 + 5);
+        v42[5] = v38->LowPart;
+        v42[6] = v6;
+        WdLogEvent5_WdError(v42);
+LABEL_44:
+        v7 = v77;
+        goto LABEL_45;
+      }
+      v48 = *v37;
+      v49 = v78;
+      v50 = !*v37;
+      *((_BYTE *)this + 53) = *((_BYTE *)this + 53) == 0;
+      *v37 = v50;
+      *((_BYTE *)this + 11) = v49 == 3;
+      v51 = v49 == 3 && !v48;
+      *((_BYTE *)this + 10) = v51;
+      if ( !v48 || v49 != 3 )
+      {
+        v58 = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtendSecondPath(this, 0);
+        v6 = v58;
+        if ( v58 >= 0 )
+          goto LABEL_83;
+        v55 = (_QWORD *)WdLogNewEntry5_WdError(v60, v59);
+        v55[3] = *((unsigned int *)v36 + 7);
+        v55[4] = *((int *)v36 + 5);
+        v55[5] = v38->LowPart;
+        v55[6] = v6;
+        goto LABEL_59;
+      }
+      *((_BYTE *)this + 10) = 0;
+      v52 = BTL_TOPOLOGY_CONSTRUCTOR::_AddSecondaryPathToTopology((CCD_TOPOLOGY **)this, 0LL, v38, *((_DWORD *)v36 + 6));
+      v6 = v52;
+      if ( v52 < 0 )
+      {
+        v55 = (_QWORD *)WdLogNewEntry5_WdError(v54, v53);
+        v55[3] = v6;
+        v55[4] = *((int *)v36 + 5);
+        v55[5] = v38->LowPart;
+        v55[6] = *((unsigned int *)v36 + 6);
+        v55[7] = *(_QWORD *)(*(_QWORD *)this + 64LL);
+LABEL_59:
+        WdLogEvent5_WdError(v55);
+        goto LABEL_44;
+      }
+      if ( !IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)v36 + 22)) )
+        goto LABEL_44;
+      v56 = *(_QWORD *)(*(_QWORD *)this + 64LL);
+      if ( v56 )
+        v57 = *(_WORD *)(v56 + 20);
+      else
+        v57 = 0;
+      if ( v57 >= 2u )
+        CCD_TOPOLOGY::SwapPathsDescriptors(*(void ***)this, 0, 1u);
+      v7 = v77;
     }
-    WdLogSingleEntry4(
-      2LL,
-      *((unsigned int *)v29 + 7),
-      *((int *)v29 + 5),
-      v32->LowPart,
-      IsVirtualizationDisabledForTarget);
-    goto LABEL_54;
+    else
+    {
+LABEL_69:
+      LODWORD(v6) = -1073741637;
+    }
+LABEL_45:
+    if ( (int)v6 >= 0 )
+      goto LABEL_83;
+    goto LABEL_46;
   }
-  WdLogNewEntry5_WdTrace(v5, v4, v7, v8);
+  WdLogNewEntry5_WdTrace(v5, v4);
   return (unsigned int)v6;
 }

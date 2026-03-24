@@ -1,35 +1,51 @@
 /*
- * XREFs of ?GetGlobalPlaybackRate@CExpressionManager@@QEAAMPEAVCChannelContext@@@Z @ 0x1800245D0
+ * XREFs of ?GetGlobalPlaybackRate@CExpressionManager@@QEAAMPEAVCChannelContext@@@Z @ 0x1800ACEE4
  * Callers:
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABBA8 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ??$_Find_last@PEAVCChannelContext@@@?$_Hash@V?$_Umap_traits@PEAVCChannelContext@@MV?$_Uhash_compare@PEAVCChannelContext@@U?$hash@PEAVCChannelContext@@@std@@U?$equal_to@PEAVCChannelContext@@@3@@std@@V?$allocator@U?$pair@QEAVCChannelContext@@M@std@@@3@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@U?$pair@QEAVCChannelContext@@M@std@@PEAX@std@@@1@AEBQEAVCChannelContext@@_K@Z @ 0x18002464C (--$_Find_last@PEAVCChannelContext@@@-$_Hash@V-$_Umap_traits@PEAVCChannelContext@@MV-$_Uhash_comp.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     <none>
  */
 
 float __fastcall CExpressionManager::GetGlobalPlaybackRate(CExpressionManager *this, struct CChannelContext *a2)
 {
-  char *v3; // rdi
-  unsigned __int64 appended; // rax
-  __int64 v5; // rcx
-  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
-  struct CChannelContext *v8; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v2; // r8
+  __int64 v4; // r9
+  __int64 v5; // rax
+  __int64 *v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // r8
+  float *i; // rax
+  __int64 v11; // rcx
+  struct CChannelContext *v13; // [rsp+10h] [rbp+10h]
 
-  v8 = a2;
+  v2 = 0LL;
+  v13 = a2;
   if ( !a2 )
     return *(float *)&FLOAT_1_0;
-  v3 = (char *)this + 464;
-  appended = std::_Fnv1a_append_bytes((unsigned __int64)this, (const unsigned __int8 *const)&v8, 8uLL);
-  v5 = *(_QWORD *)(std::_Hash<std::_Umap_traits<CChannelContext *,float,std::_Uhash_compare<CChannelContext *,std::hash<CChannelContext *>,std::equal_to<CChannelContext *>>,std::allocator<std::pair<CChannelContext * const,float>>,0>>::_Find_last<CChannelContext *>(
-                     v3,
-                     v7,
-                     &v8,
-                     appended)
-                 + 8);
-  if ( !v5 )
-    v5 = *((_QWORD *)v3 + 1);
-  if ( v5 == *((_QWORD *)this + 59) )
+  v4 = 0xCBF29CE484222325uLL;
+  do
+  {
+    v5 = *((unsigned __int8 *)&v13 + v2++);
+    v4 = 0x100000001B3LL * (v5 ^ v4);
+  }
+  while ( v2 < 8 );
+  v6 = (__int64 *)*((_QWORD *)this + 55);
+  v7 = v4 & *((_QWORD *)this + 60);
+  v8 = *((_QWORD *)this + 57);
+  v9 = 2 * v7;
+  for ( i = *(float **)(v8 + 8 * v9); ; i = *(float **)i )
+  {
+    v11 = *(__int64 **)(v8 + 8 * v9) == v6 ? (__int64)v6 : **(_QWORD **)(v8 + 8 * v9 + 8);
+    if ( i == (float *)v11 )
+      break;
+    if ( *((struct CChannelContext **)i + 2) == a2 )
+      goto LABEL_9;
+  }
+  i = (float *)v6;
+LABEL_9:
+  if ( i == (float *)v6 )
     return *(float *)&FLOAT_1_0;
   else
-    return *(float *)(v5 + 24);
+    return i[6];
 }

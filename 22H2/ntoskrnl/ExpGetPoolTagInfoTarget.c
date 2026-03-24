@@ -1,87 +1,89 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x14038E180
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x1402F3FA0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
-__int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
+__int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, volatile signed __int32 *a4)
 {
+  volatile signed __int32 *v4; // rdi
+  volatile signed __int32 *v5; // rsi
+  __int64 v6; // r14
   signed __int32 v7; // eax
   unsigned int v8; // ebx
-  _DWORD *v9; // rbp
-  __int64 *v10; // r8
-  __int64 v11; // r10
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  __int64 v14; // rax
-  _QWORD *i; // rcx
+  __int64 v9; // r10
+  __int64 v10; // rax
+  signed __int32 v11; // ebp
+  unsigned int v12; // ebx
   __int64 result; // rax
-  unsigned int v17; // ebx
-  int v18; // [rsp+58h] [rbp+10h] BYREF
+  _QWORD *i; // rax
+  int v15; // [rsp+58h] [rbp+10h] BYREF
   int j; // [rsp+68h] [rbp+20h] BYREF
 
-  v7 = _InterlockedDecrement((volatile signed __int32 *)a4);
+  v15 = 0;
+  v4 = a4;
+  v5 = (volatile signed __int32 *)a3;
+  v6 = a2;
+  v7 = _InterlockedDecrement(a4);
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v18 = 0;
-    while ( (*(_DWORD *)a4 & 0x80000000) != v8 )
-      KeYieldProcessorEx(&v18);
-    v9 = (_DWORD *)(a4 + 4);
+    while ( (*v4 & 0x80000000) != v8 )
+      KeYieldProcessorEx(&v15, a2, a3, (__int64)a4);
   }
   else
   {
-    v9 = (_DWORD *)(a4 + 4);
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v8;
-    memmove(*(void **)a2, ExPoolTagTables, 80LL * *(_QWORD *)(a2 + 8));
-    v10 = (__int64 *)&unk_140C2D788;
-    v11 = 2047LL;
-    v12 = *(_QWORD *)a2 + 80LL * *(_QWORD *)(a2 + 8);
+    *a4 = v8 | *((_DWORD *)a4 + 1);
+    memmove(*(void **)a2, ExPoolTagTables, 56LL * *(_QWORD *)(a2 + 8));
+    a4 = (volatile signed __int32 *)&unk_140C16B88;
+    v9 = 1279LL;
+    a3 = *(_QWORD *)v6 + 56LL * *(_QWORD *)(v6 + 8);
     do
     {
-      v13 = *v10;
-      if ( *v10 )
+      a2 = *(_QWORD *)a4;
+      if ( *(_QWORD *)a4 )
       {
-        for ( i = *(_QWORD **)a2; i != (_QWORD *)v12; i += 10 )
+        for ( i = *(_QWORD **)v6; i != (_QWORD *)a3; a2 += 56LL )
         {
-          if ( *(_DWORD *)v13 )
+          if ( *(_DWORD *)a2 )
           {
-            i[2] += *(_QWORD *)(v13 + 16);
-            i[3] += *(_QWORD *)(v13 + 24);
-            i[1] += *(_QWORD *)(v13 + 8);
-            i[5] += *(_QWORD *)(v13 + 40);
-            i[6] += *(_QWORD *)(v13 + 48);
-            i[4] += *(_QWORD *)(v13 + 32);
+            i[2] += *(_QWORD *)(a2 + 16);
+            i[3] += *(_QWORD *)(a2 + 24);
+            i[1] += *(_QWORD *)(a2 + 8);
+            i[5] += *(_QWORD *)(a2 + 40);
+            i[6] += *(_QWORD *)(a2 + 48);
+            i[4] += *(_QWORD *)(a2 + 32);
           }
-          v13 += 80LL;
+          i += 7;
         }
       }
-      ++v10;
-      --v11;
+      a4 += 2;
+      --v9;
     }
-    while ( v11 );
-    v14 = *(_QWORD *)(a2 + 24);
-    if ( v14 )
-      memmove(*(void **)(a2 + 16), (const void *)PoolTrackTableExpansion, 80 * v14);
+    while ( v9 );
+    v10 = *(_QWORD *)(v6 + 24);
+    if ( v10 )
+      memmove(*(void **)(v6 + 16), PoolTrackTableExpansion, 56 * v10);
   }
-  result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a4);
-  v17 = ~(_DWORD)result & 0x80000000;
-  if ( (result & 0x7FFFFFFF) != 0 )
+  v11 = _InterlockedDecrement(v4);
+  v12 = ~v11 & 0x80000000;
+  if ( (v11 & 0x7FFFFFFF) != 0 )
   {
-    for ( j = 0; ; KeYieldProcessorEx(&j) )
+    for ( j = 0; ; KeYieldProcessorEx(&j, a2, a3, (__int64)a4) )
     {
-      result = *(_DWORD *)a4 & 0x80000000;
-      if ( (_DWORD)result == v17 )
+      result = *v4 & 0x80000000;
+      if ( (_DWORD)result == v12 )
         break;
     }
   }
   else
   {
-    *(_DWORD *)a4 = *v9 | v17;
+    result = v12 | *((_DWORD *)v4 + 1);
+    *v4 = result;
   }
-  _InterlockedDecrement(a3);
+  _InterlockedDecrement(v5);
   return result;
 }

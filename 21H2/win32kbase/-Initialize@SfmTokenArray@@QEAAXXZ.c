@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@SfmTokenArray@@QEAAXXZ @ 0x1C00A26E0
+ * XREFs of ?Initialize@SfmTokenArray@@QEAAXXZ @ 0x1C0005F20
  * Callers:
  *     <none>
  * Callees:

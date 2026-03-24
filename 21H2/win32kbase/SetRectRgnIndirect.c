@@ -1,18 +1,18 @@
 /*
- * XREFs of SetRectRgnIndirect @ 0x1C0027A70
+ * XREFs of SetRectRgnIndirect @ 0x1C00347A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0027BB0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C00348E0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall SetRectRgnIndirect(HRGN a1, LONG *a2)
 {
-  LONG v2; // edi
+  LONG v2; // esi
   LONG v3; // ebp
-  LONG v4; // esi
+  LONG v4; // edi
   LONG v5; // r14d
   unsigned int v6; // ebx
   struct _RECTL v8; // [rsp+20h] [rbp-58h] BYREF
@@ -32,8 +32,8 @@ __int64 __fastcall SetRectRgnIndirect(HRGN a1, LONG *a2)
     v8.bottom = v2;
     if ( ((v5 & 0xF8000000) == 0 || (v5 & 0xF8000000) == -134217728)
       && (((v2 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
-      && (((v3 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
-      && (((v4 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0 )
+      && ((v3 & 0xF8000000) == 0 || (v3 & 0xF8000000) == 0xF8000000)
+      && ((v4 & 0xF8000000) == 0 || (v4 & 0xF8000000) == 0xF8000000) )
     {
       if ( v5 > v3 )
       {

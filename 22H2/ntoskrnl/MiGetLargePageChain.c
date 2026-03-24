@@ -1,101 +1,47 @@
 /*
- * XREFs of MiGetLargePageChain @ 0x1402EBA40
+ * XREFs of MiGetLargePageChain @ 0x140318414
  * Callers:
- *     MiInitializePoolCommitPacket @ 0x1402867E0 (MiInitializePoolCommitPacket.c)
+ *     MiInitializePoolCommitPacket @ 0x14028C258 (MiInitializePoolCommitPacket.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     MiGetLargePagesDemoteAsNeeded @ 0x1402E8E18 (MiGetLargePagesDemoteAsNeeded.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeLargePageChain @ 0x14064F18C (MiFreeLargePageChain.c)
- *     MiAddPageToHeatRanges @ 0x140653D64 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x14065466C (MiNotifyPageHeat.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x1403F4EF0 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiFreeLargePageChain @ 0x140556990 (MiFreeLargePageChain.c)
  */
 
-__int64 __fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)
+_QWORD *__fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)
 {
-  __int64 v3; // rdi
-  __int64 v4; // rsi
-  unsigned __int64 v5; // rbp
-  BOOL v6; // ebx
-  unsigned __int64 v7; // r12
-  __int64 LargePagesDemoteAsNeeded; // rax
-  __int64 v9; // r14
-  unsigned __int64 v11; // r15
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
-  int v17; // [rsp+40h] [rbp-C8h] BYREF
-  int v18; // [rsp+44h] [rbp-C4h]
-  int v19; // [rsp+48h] [rbp-C0h]
-  _DWORD v20[32]; // [rsp+4Ch] [rbp-BCh] BYREF
+  _QWORD *v3; // rsi
+  unsigned __int64 v4; // rbp
+  BOOL v5; // ebx
+  unsigned __int64 v6; // r14
+  _QWORD *LargePagesDemoteAsNeeded; // rax
 
-  v3 = a1;
-  memset(v20, 0, sizeof(v20));
-  if ( !*(_QWORD *)(qword_140C6B510 + 25408 * v3 + 22832) && (MiFlags & 0x30) != 0 )
-    return 0LL;
-  v4 = 0LL;
-  v5 = a2 >> 9;
-  v19 = 16;
-  v6 = qword_140C6F788 > 0x110000;
-  v17 = 1;
-  v18 = 0;
-  v7 = 0LL;
-  if ( v5 )
+  if ( *(_QWORD *)(4544LL * a1 + qword_140C50D90 + 4176) || (MiFlags & 0x30) == 0 )
   {
+    v3 = 0LL;
+    v4 = a2 >> 9;
+    v5 = BugCheckParameter3 > 0x110000;
+    v6 = 0LL;
+    if ( !(a2 >> 9) )
+      return v3;
     while ( 1 )
     {
-      LargePagesDemoteAsNeeded = MiGetLargePagesDemoteAsNeeded(
-                                   (__int64)&MiSystemPartition,
-                                   v3,
-                                   0x200uLL,
-                                   0x200uLL,
-                                   0LL,
-                                   0,
-                                   v6,
-                                   1u);
-      v9 = LargePagesDemoteAsNeeded;
+      LargePagesDemoteAsNeeded = (_QWORD *)MiGetLargePagesDemoteAsNeeded(
+                                             (unsigned int)&MiSystemPartition,
+                                             a1,
+                                             512,
+                                             512,
+                                             0,
+                                             v5,
+                                             1);
       if ( !LargePagesDemoteAsNeeded )
         break;
-      if ( MiIsFreeZeroPfnCold(LargePagesDemoteAsNeeded) && (HvlEnlightenments & 0x200000) != 0 )
-      {
-        if ( (unsigned int)MiAddPageToHeatRanges(&v17, 0xAAAAAAAAAAAAAAABuLL * ((v9 + 0x220000000000LL) >> 4), 1LL) )
-          MiNotifyPageHeat(&v17);
-        v11 = (unsigned __int8)MiLockPageInline(v9);
-        *(_QWORD *)(v9 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v9 + 16), 0LL);
-        _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-            v16 = (v15 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v15;
-            if ( v16 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
-        }
-        __writecr8(v11);
-      }
-      ++v7;
-      *(_QWORD *)v9 = v4;
-      v4 = v9;
-      if ( v7 >= v5 )
-        goto LABEL_6;
+      ++v6;
+      *LargePagesDemoteAsNeeded = v3;
+      v3 = LargePagesDemoteAsNeeded;
+      if ( v6 >= v4 )
+        return v3;
     }
-    MiFreeLargePageChain(v4);
-    v4 = 0LL;
-LABEL_6:
-    if ( v18 )
-      MiNotifyPageHeat(&v17);
+    MiFreeLargePageChain(v3);
   }
-  return v4;
+  return 0LL;
 }

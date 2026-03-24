@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfIoQueuePurgeSynchronously @ 0x1C0081040
+ * XREFs of imp_WdfIoQueuePurgeSynchronously @ 0x1C00744D0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FatalError@FxIoQueue@@QEAAXJ@Z @ 0x1C0081C14 (-FatalError@FxIoQueue@@QEAAXJ@Z.c)
- *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C008217C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FatalError@FxIoQueue@@QEAAXJ@Z @ 0x1C0076104 (-FatalError@FxIoQueue@@QEAAXJ@Z.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076E3C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
  */
 
 void __fastcall imp_WdfIoQueuePurgeSynchronously(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFQUEUE__ *Queue)
@@ -15,7 +15,11 @@ void __fastcall imp_WdfIoQueuePurgeSynchronously(_WDF_DRIVER_GLOBALS *DriverGlob
   FxIoQueue *pQueue; // [rsp+30h] [rbp+8h] BYREF
 
   pQueue = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Queue, 0x1003u, (void **)&pQueue);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Queue,
+    0x1003u,
+    (void **)&pQueue);
   if ( (int)FxVerifierCheckIrqlLevel(pQueue->m_Globals, 0) >= 0 )
   {
     v2 = FxIoQueue::QueuePurgeSynchronously(pQueue);

@@ -1,23 +1,21 @@
 /*
- * XREFs of ?Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z @ 0x1801FFF40
+ * XREFs of ?Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z @ 0x1801A1A0C
  * Callers:
- *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@_N@Z @ 0x1801FAAD8 (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
+ *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18019CAEC (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801FFBB8 (--0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z @ 0x180271DD0 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801A1600 (--0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z @ 0x180210A78 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCWARPDrawListEntry@@@Z.c)
  */
 
 __int64 __fastcall CWARPDrawListEntry::Create(const struct WARPDrawListEntryParams *a1, struct CWARPDrawListEntry **a2)
 {
-  unsigned int v4; // edi
+  unsigned int v4; // ebx
   struct CObjectCache *ObjectCache; // rax
   CWARPDrawListEntry *v6; // rcx
   int v7; // r9d
-  CWARPDrawListEntry *v8; // rax
-  struct CWARPDrawListEntry *v9; // rbx
+  volatile signed __int32 *v8; // rax
 
   v4 = 0;
   ObjectCache = CThreadContext::GetObjectCache(a1);
@@ -29,16 +27,17 @@ __int64 __fastcall CWARPDrawListEntry::Create(const struct WARPDrawListEntryPara
     *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v6;
     *((_DWORD *)ObjectCache + 1) = v7 - 1;
   }
-  if ( (v6 || (v6 = (CWARPDrawListEntry *)DefaultHeap::Alloc(0x118uLL)) != 0LL)
-    && (v8 = CWARPDrawListEntry::CWARPDrawListEntry(v6, a1), (v9 = v8) != 0LL) )
+  if ( v6 || (v8 = (volatile signed __int32 *)DefaultHeap::Alloc(0x1C8uLL), (v6 = (CWARPDrawListEntry *)v8) != 0LL) )
+    v8 = (volatile signed __int32 *)CWARPDrawListEntry::CWARPDrawListEntry(v6, a1);
+  if ( v8 )
   {
-    CMILRefCountImpl::AddReference((CWARPDrawListEntry *)((char *)v8 + 8));
-    *a2 = v9;
+    _InterlockedIncrement(v8 + 2);
+    *a2 = (struct CWARPDrawListEntry *)v8;
   }
   else
   {
     v4 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147024882, 0x60u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147024882, 0x53u, 0LL);
   }
   return v4;
 }

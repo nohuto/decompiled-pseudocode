@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C028C59C
+ * XREFs of ?bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C014CEB4
  * Callers:
- *     ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C028C388 (-bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z.c)
+ *     ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C014C818 (-bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z.c)
  * Callees:
- *     ?bDoGradient@@YAHPEA_J00JJJPEAU_GRADSTRUCT@@@Z @ 0x1C028C754 (-bDoGradient@@YAHPEA_J00JJJPEAU_GRADSTRUCT@@@Z.c)
+ *     ?bDoGradient@@YAHPEA_J00JJJPEAU_GRADSTRUCT@@@Z @ 0x1C014D05C (-bDoGradient@@YAHPEA_J00JJJPEAU_GRADSTRUCT@@@Z.c)
  */
 
 __int64 __fastcall bCalulateColorGradient(
@@ -12,55 +12,59 @@ __int64 __fastcall bCalulateColorGradient(
         struct _TRIVERTEX *a3,
         struct _TRIANGLEDATA *a4)
 {
+  LONG x; // r10d
   LONG y; // eax
-  LONG x; // ebx
-  int v9; // r10d
-  int v10; // r11d
-  int v12; // r8d
+  LONG v10; // ebx
+  int v11; // r8d
+  int v12; // r11d
   int v13; // ecx
-  int v14; // eax
-  __int64 v15; // rdx
+  int v14; // r10d
+  int v15; // edx
+  __int64 *v16; // r8
+  __int64 *v17; // rcx
   int Red; // eax
-  int v17; // r10d
-  int v18; // r9d
-  _DWORD v20[2]; // [rsp+40h] [rbp-30h] BYREF
-  int v21; // [rsp+48h] [rbp-28h]
-  int v22; // [rsp+4Ch] [rbp-24h]
-  int v23; // [rsp+50h] [rbp-20h]
-  int v24; // [rsp+54h] [rbp-1Ch]
-  __int64 v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  int v19; // r10d
+  int v20; // r9d
+  _DWORD v22[2]; // [rsp+40h] [rbp-30h] BYREF
+  int v23; // [rsp+48h] [rbp-28h]
+  int v24; // [rsp+4Ch] [rbp-24h]
+  int v25; // [rsp+50h] [rbp-20h]
+  int v26; // [rsp+54h] [rbp-1Ch]
+  __int64 v27; // [rsp+58h] [rbp-18h]
+  __int64 v28; // [rsp+60h] [rbp-10h]
 
+  x = a3->x;
   y = a1->y;
-  x = a1->x;
-  v10 = a3->x - a1->x;
-  v20[0] = a2->x - a1->x;
-  v9 = v20[0];
-  v20[1] = v10;
-  v21 = a2->y - y;
-  v12 = v21;
+  v10 = a1->x;
+  v12 = a2->x - a1->x;
   v13 = a3->y - y;
-  *((_DWORD *)a4 + 34) = x;
-  v22 = v13;
-  v14 = v9 * v13 - v10 * v12;
-  v24 = v14;
-  if ( v9 >= 0 )
-    v9 = 0;
+  v23 = a2->y - y;
+  v11 = v23;
+  v14 = x - v10;
+  v22[0] = v12;
+  v24 = v13;
+  *((_DWORD *)a4 + 34) = v10;
+  v22[1] = v14;
+  v15 = v12 * v13 - v14 * v11;
+  v26 = v15;
   if ( v12 >= 0 )
     v12 = 0;
-  if ( v9 < v10 )
-    v10 = v9;
-  if ( v12 < v13 )
-    v13 = v12;
-  v23 = v10 + v13;
-  v25 = 0x1000000000000LL / (int)abs32(v14);
-  v15 = 0x1000000000000LL % (int)abs32(v14);
+  if ( v11 >= 0 )
+    v11 = 0;
+  if ( v11 >= v13 )
+    v11 = v13;
+  if ( v12 >= v14 )
+    v12 = v14;
+  v25 = v12 + v11;
+  v16 = (__int64 *)((char *)a4 + 80);
+  v27 = 0x1000000000000LL / (int)abs32(v15);
+  v17 = (__int64 *)((char *)a4 + 16);
   *((_DWORD *)a4 + 35) = a1->y;
   Red = a3->Red;
-  v17 = a2->Red;
-  v18 = a1->Red;
-  v26 = v15;
-  bDoGradient((__int64 *)a4 + 2, (__int64 *)a4 + 6, (__int64 *)a4 + 10, v18, v17, Red, (struct _GRADSTRUCT *)v20);
+  v19 = a2->Red;
+  v20 = a1->Red;
+  v28 = 0x1000000000000LL % (int)abs32(v15);
+  bDoGradient(v17, (__int64 *)a4 + 6, v16, v20, v19, Red, (struct _GRADSTRUCT *)v22);
   bDoGradient(
     (__int64 *)a4 + 3,
     (__int64 *)a4 + 7,
@@ -68,7 +72,7 @@ __int64 __fastcall bCalulateColorGradient(
     a1->Green,
     a2->Green,
     a3->Green,
-    (struct _GRADSTRUCT *)v20);
+    (struct _GRADSTRUCT *)v22);
   bDoGradient(
     (__int64 *)a4 + 4,
     (__int64 *)a4 + 8,
@@ -76,7 +80,7 @@ __int64 __fastcall bCalulateColorGradient(
     a1->Blue,
     a2->Blue,
     a3->Blue,
-    (struct _GRADSTRUCT *)v20);
+    (struct _GRADSTRUCT *)v22);
   bDoGradient(
     (__int64 *)a4 + 5,
     (__int64 *)a4 + 9,
@@ -84,6 +88,6 @@ __int64 __fastcall bCalulateColorGradient(
     a1->Alpha,
     a2->Alpha,
     a3->Alpha,
-    (struct _GRADSTRUCT *)v20);
+    (struct _GRADSTRUCT *)v22);
   return 1LL;
 }

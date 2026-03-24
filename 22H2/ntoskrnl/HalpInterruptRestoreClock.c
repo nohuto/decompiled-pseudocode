@@ -1,29 +1,28 @@
 /*
- * XREFs of HalpInterruptRestoreClock @ 0x1405053F8
+ * XREFs of HalpInterruptRestoreClock @ 0x1403861C8
  * Callers:
- *     HalpPostSleepMP @ 0x140A97068 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140995854 (HalpPostSleepMP.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpInterruptRestoreClock()
 {
   unsigned int v0; // ebx
   unsigned int v1; // esi
-  __int64 *v2; // rdi
-  _QWORD *Lines; // rax
-  ULONG_PTR *v4; // rax
-  __int64 v5; // r9
-  int v6; // eax
   __int64 InternalData; // rax
-  __int64 v8; // rdx
+  __int64 v3; // rdx
+  __int64 *v5; // rdi
+  _QWORD *Lines; // rax
+  ULONG_PTR *v7; // rax
+  __int64 v8; // r9
+  int v9; // eax
   __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
   v10 = 0LL;
@@ -31,35 +30,35 @@ __int64 HalpInterruptRestoreClock()
   v1 = HalpTimerCriticalClockSourceCount;
   if ( HalpTimerCriticalClockSourceCount )
   {
-    v2 = &HalpTimerCriticalClockSource;
+    v5 = &HalpTimerCriticalClockSource;
     while ( 1 )
     {
-      v10 = *v2;
-      HalpInterruptApplyOverrides(&v10, 0LL, 0LL);
+      v10 = *v5;
+      HalpInterruptApplyOverrides((unsigned int *)&v10, 0LL, 0LL);
       Lines = HalpInterruptFindLines((unsigned int *)&v10);
       if ( !Lines )
         break;
-      v4 = HalpInterruptLookupController(*((_DWORD *)Lines + 4));
-      if ( !v4 )
+      v7 = HalpInterruptLookupController(*((_DWORD *)Lines + 4));
+      if ( !v7 )
       {
-        HalpInterruptSetProblemEx(0, 17, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1927);
-LABEL_10:
-        v6 = -1073741810;
+        HalpInterruptLastProblem = 17;
 LABEL_11:
-        KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, 2uLL, v6);
+        v9 = -1073741810;
+LABEL_12:
+        KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, 2uLL, v9);
       }
-      v6 = HalpInterruptSetLineStateInternal((__int64)v4, (__int64)&v10, *(_QWORD *)(v5 + 40));
-      if ( v6 < 0 )
-        goto LABEL_11;
+      v9 = HalpInterruptSetLineStateInternal((__int64)v7, (__int64)&v10, *(_QWORD *)(v8 + 40));
+      if ( v9 < 0 )
+        goto LABEL_12;
       ++v0;
-      ++v2;
+      ++v5;
       if ( v0 >= v1 )
-        goto LABEL_7;
+        goto LABEL_2;
     }
-    HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1913);
-    goto LABEL_10;
+    HalpInterruptLastProblem = 18;
+    goto LABEL_11;
   }
-LABEL_7:
+LABEL_2:
   InternalData = HalpTimerGetInternalData(HalpClockTimer);
-  return (*(__int64 (__fastcall **)(__int64))(v8 + 120))(InternalData);
+  return (*(__int64 (__fastcall **)(__int64))(v3 + 120))(InternalData);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForAlertByThreadId @ 0x1401BBA90
+ * XREFs of ZwWaitForAlertByThreadId @ 0x1401BBAB0
  * Callers:
  *     <none>
  * Callees:

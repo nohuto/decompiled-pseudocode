@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierObGetObjectSecurity @ 0x140AE5F50
+ * XREFs of VerifierObGetObjectSecurity @ 0x1409E7B00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
  */
 
-__int64 VerifierObGetObjectSecurity()
+__int64 __fastcall VerifierObGetObjectSecurity(ULONG_PTR a1, __int64 a2, __int64 a3)
 {
-  return ((__int64 (*)(void))pXdvObGetObjectSecurity)();
+  VfUtilCheckKernelAddress(a1, 8uLL);
+  return ((__int64 (__fastcall *)(ULONG_PTR, __int64, __int64))pXdvObGetObjectSecurity)(a1, a2, a3);
 }

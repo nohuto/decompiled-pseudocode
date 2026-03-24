@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C0020CE0
+ * XREFs of HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C001E440
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     HUBMISC_SetDeviceVersionFlag @ 0x1C00304E8 (HUBMISC_SetDeviceVersionFlag.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     HUBMISC_SetDeviceVersionFlag @ 0x1C002D474 (HUBMISC_SetDeviceVersionFlag.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum(__int64 a1)
       2u,
       5u,
       0x1Fu,
-      (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+      (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
       v5);
   }
   HUBMISC_SetDeviceVersionFlag(v1);

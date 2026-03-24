@@ -1,98 +1,75 @@
 /*
- * XREFs of ??$_Emplace_reallocate@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@1@QEAV21@$$QEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@1@@Z @ 0x18011A8A8
+ * XREFs of ??$_Emplace_reallocate@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800F12BC
  * Callers:
- *     ??$emplace_back@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@QEAA?A_T$$QEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@1@@Z @ 0x18011AA28 (--$emplace_back@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@@@-.c)
+ *     ?AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x1800F1758 (-AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9D60 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     ?_Xlength@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1801B29D8 (-_Xlength@-$vector@V-$unique_ptr@UICheckMPOCache@@U-$default_delete@UICheckMPOCache@@@std@@@std@.c)
- *     ?_Change_array@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@AEAAXQEAV?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@2@_K1@Z @ 0x180290914 (-_Change_array@-$vector@V-$unique_ptr@UICheckMPOCache@@U-$default_delete@UICheckMPOCache@@@std@@.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB0A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
+ *     ??$_Uninitialized_move@PEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@PEAV12@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@YAPEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@0@QEAV10@0PEAV10@AEAV?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@0@@Z @ 0x1800F13D0 (--$_Uninitialized_move@PEAV-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std.c)
+ *     ?_Change_array@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@AEAAXQEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@2@_K1@Z @ 0x1800F1964 (-_Change_array@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@.c)
  */
 
-char *__fastcall std::vector<std::unique_ptr<ICheckMPOCache>>::_Emplace_reallocate<std::unique_ptr<CCheckMPOCache>>(
-        char **a1,
-        char *a2,
+__int64 __fastcall std::vector<std::unique_ptr<CCheckMPOCache>>::_Emplace_reallocate<std::unique_ptr<CCheckMPOCache>>(
+        __int64 *a1,
+        __int64 a2,
         __int64 *a3)
 {
-  unsigned __int64 v3; // rdi
-  __int64 v5; // rbp
-  char *v6; // rbx
-  __int64 v7; // rax
-  unsigned __int64 v9; // r14
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
+  __int64 v4; // rsi
+  __int64 v6; // rax
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rbx
+  SIZE_T v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rcx
-  __int64 v15; // r10
-  _QWORD *v16; // rdx
-  char *v17; // r15
-  char *v18; // r8
-  char *v19; // rcx
-  __int64 v20; // rax
-  __int64 v21; // rax
-  char *v22; // r9
-  signed __int64 v23; // rdx
-  __int64 v24; // rcx
+  __int64 v15; // r14
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  __int64 v18; // rcx
 
-  v3 = 0x1FFFFFFFFFFFFFFFLL;
-  v5 = (a2 - *a1) >> 3;
-  v6 = a2;
-  v7 = (a1[1] - *a1) >> 3;
-  if ( v7 == 0x1FFFFFFFFFFFFFFFLL )
-    std::vector<std::unique_ptr<ICheckMPOCache>>::_Xlength();
-  v9 = v7 + 1;
-  v10 = (a1[2] - *a1) >> 3;
-  v11 = v10 >> 1;
-  if ( v10 <= 0x1FFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  v4 = (a2 - *a1) >> 3;
+  v6 = (a1[1] - *a1) >> 3;
+  if ( v6 == 0x1FFFFFFFFFFFFFFFLL )
+    std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
+  v8 = v6 + 1;
+  v9 = (a1[2] - *a1) >> 3;
+  v10 = v9 >> 1;
+  if ( v9 <= 0x1FFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v3 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v3 = v7 + 1;
-  }
-  size_of = std::_Get_size_of_n<8>(v3);
-  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = *a3;
-  *a3 = 0LL;
-  v15 = v13;
-  v16 = (_QWORD *)v13;
-  v17 = (char *)(v13 + 8 * v5);
-  *(_QWORD *)v17 = v14;
-  v18 = a1[1];
-  v19 = *a1;
-  if ( v6 == v18 )
-  {
-    while ( v19 != v18 )
-    {
-      v20 = *(_QWORD *)v19;
-      *(_QWORD *)v19 = 0LL;
-      v19 += 8;
-      *v16++ = v20;
-    }
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v6 + 1;
   }
   else
   {
-    while ( v19 != v6 )
-    {
-      v21 = *(_QWORD *)v19;
-      *(_QWORD *)v19 = 0LL;
-      v19 += 8;
-      *v16++ = v21;
-    }
-    v22 = a1[1];
-    if ( v6 != v22 )
-    {
-      v23 = v17 - v6;
-      do
-      {
-        v24 = *(_QWORD *)v6;
-        *(_QWORD *)v6 = 0LL;
-        *(_QWORD *)&v6[v23 + 8] = v24;
-        v6 += 8;
-      }
-      while ( v6 != v22 );
-    }
+    v11 = v6 + 1;
   }
-  std::vector<std::unique_ptr<ICheckMPOCache>>::_Change_array(a1, v15, v9, v3);
-  return v17;
+  v12 = 8 * v11;
+  if ( v11 > 0x1FFFFFFFFFFFFFFFLL )
+    v12 = -1LL;
+  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  v14 = *a3;
+  v15 = v13;
+  *a3 = 0LL;
+  v16 = v13;
+  *(_QWORD *)(v13 + 8 * v4) = v14;
+  v17 = a1[1];
+  v18 = *a1;
+  if ( a2 != v17 )
+  {
+    std::_Uninitialized_move<std::unique_ptr<CCheckMPOCache> *,std::unique_ptr<CCheckMPOCache> *,std::allocator<std::unique_ptr<CCheckMPOCache>>>(
+      v18,
+      a2,
+      v13);
+    v17 = a1[1];
+    v16 = v15 + 8 * (v4 + 1);
+    v18 = a2;
+  }
+  std::_Uninitialized_move<std::unique_ptr<CCheckMPOCache> *,std::unique_ptr<CCheckMPOCache> *,std::allocator<std::unique_ptr<CCheckMPOCache>>>(
+    v18,
+    v17,
+    v16);
+  std::vector<std::unique_ptr<CCheckMPOCache>>::_Change_array(a1, v15, v8, v11);
+  return *a1 + 8 * v4;
 }

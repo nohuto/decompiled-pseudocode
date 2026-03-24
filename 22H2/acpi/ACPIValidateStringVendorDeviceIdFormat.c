@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIValidateStringVendorDeviceIdFormat @ 0x1C0098A3C
+ * XREFs of ACPIValidateStringVendorDeviceIdFormat @ 0x1C008FB34
  * Callers:
- *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE94 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C007F584 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C007FC4C (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
  * Callees:
  *     <none>
  */
@@ -20,14 +20,14 @@ char __fastcall ACPIValidateStringVendorDeviceIdFormat(__int64 a1, unsigned __in
     while ( 1 )
     {
       v4 = *(_BYTE *)(v3 + a1);
-      if ( (unsigned __int8)(v4 - 65) > 0x19u && (unsigned __int8)(v4 - 97) > 0x19u && (unsigned __int8)(v4 - 48) > 9u )
+      if ( (unsigned __int8)(v4 - 97) > 0x19u && (unsigned __int8)(v4 - 65) > 0x19u && (unsigned __int8)(v4 - 48) > 9u )
         break;
       if ( ++v3 >= (unsigned __int16)((a2 != 7) + 3) )
       {
         while ( v3 < a2 )
         {
           v5 = *(_BYTE *)(v3 + a1);
-          if ( (unsigned __int8)(v5 - 65) > 5u && (unsigned __int8)(v5 - 97) > 5u && (unsigned __int8)(v5 - 48) > 9u )
+          if ( (unsigned __int8)(v5 - 97) > 5u && (unsigned __int8)(v5 - 65) > 5u && (unsigned __int8)(v5 - 48) > 9u )
             return 0;
           ++v3;
         }

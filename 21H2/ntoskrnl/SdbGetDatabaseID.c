@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbGetDatabaseID @ 0x1407ED1D8
+ * XREFs of SdbGetDatabaseID @ 0x140758460
  * Callers:
- *     SdbpValidateAndApplyCompatFlags @ 0x1407ED16C (SdbpValidateAndApplyCompatFlags.c)
- *     SdbReadEntryInformation @ 0x140842F74 (SdbReadEntryInformation.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x1407562E8 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbReadEntryInformation @ 0x1407C1A3C (SdbReadEntryInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbReadBinaryTag @ 0x1407ED29C (SdbReadBinaryTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x1407563C8 (SdbReadBinaryTag.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbGetDatabaseID(__int64 a1, void *a2)
@@ -26,9 +26,9 @@ __int64 __fastcall SdbGetDatabaseID(__int64 a1, void *a2)
   }
   else
   {
-    FirstTag = SdbFindFirstTag(a1, 0LL, 28673);
+    FirstTag = SdbFindFirstTag(a1, 0LL, 28673LL);
     if ( !FirstTag
-      || (v7 = SdbFindFirstTag(a1, FirstTag, 36871)) == 0
+      || (v7 = SdbFindFirstTag(a1, FirstTag, 36871LL)) == 0
       || (v8 = (const void *)(a1 + 28), !(unsigned int)SdbReadBinaryTag(a1, v7, a1 + 28, 16LL)) )
     {
       AslLogCallPrintf(1LL);

@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInitializeTimers @ 0x1403A39D4
+ * XREFs of HalpInitializeTimers @ 0x1403B07C8
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x140379414 (HalpTimerBuildKnownResourceIdString.c)
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1403A3B70 (HalpTimerCalculateMaximumAllowableDrift.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A3BB8 (HalpTimerRegisterBuiltinPluginsCommon.c)
- *     HalpTimerCreateReferencePage @ 0x1403A3D48 (HalpTimerCreateReferencePage.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     HalpTimerCreateReferencePage @ 0x1403B0964 (HalpTimerCreateReferencePage.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403B1718 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403B30A4 (HalpTimerBuildKnownResourceIdString.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x1404BF9A0 (HalpTimerCalculateMaximumAllowableDrift.c)
  */
 
 __int64 __fastcall HalpInitializeTimers(__int64 a1)
@@ -21,26 +21,24 @@ __int64 __fastcall HalpInitializeTimers(__int64 a1)
   __int64 InternalData; // rax
   int v4; // r9d
   ULONG_PTR *Timer; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  ULONG_PTR v8; // r8
-  int v9; // ecx
-  int v10; // eax
-  unsigned int v11; // edx
-  wchar_t *v12; // r8
-  int v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
+  ULONG_PTR v6; // r8
+  int v7; // ecx
+  int v8; // eax
+  unsigned int v9; // edx
+  __int64 v10; // r8
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
   int ReferencePage; // eax
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  _BYTE v22[136]; // [rsp+30h] [rbp-98h] BYREF
-  int v23; // [rsp+B8h] [rbp-10h]
-  int v24; // [rsp+BCh] [rbp-Ch]
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  _BYTE v20[136]; // [rsp+30h] [rbp-98h] BYREF
+  int v21; // [rsp+B8h] [rbp-10h]
+  int v22; // [rsp+BCh] [rbp-Ch]
 
-  memset(v22, 0, sizeof(v22));
+  memset(v20, 0, sizeof(v20));
   HalpTimerLoaderBlock = a1;
   v2 = HalpStallCounter;
   HalpOriginalStallTimer = HalpStallCounter;
@@ -52,52 +50,62 @@ __int64 __fastcall HalpInitializeTimers(__int64 a1)
     HalpTimerLastProblem = 15;
     *(_DWORD *)(v2 + 252) = 15;
     *(_QWORD *)(v2 + 264) = "minkernel\\hals\\lib\\timers\\common\\timer.c";
-    *(_DWORD *)(v2 + 272) = 1556;
-    goto LABEL_12;
+    *(_DWORD *)(v2 + 272) = 1552;
   }
-  v4 = HalpTimerRegisterBuiltinPluginsCommon(1LL);
+  else
+  {
+    v4 = HalpTimerRegisterBuiltinPluginsCommon(1LL);
+    if ( v4 < 0 )
+    {
+      HalpTimerLastProblem = 14;
+    }
+    else
+    {
+      Timer = HalpFindTimer(5, 0, 0, 0, 1);
+      if ( Timer )
+      {
+        v6 = Timer[36];
+        v7 = *((_DWORD *)Timer + 57);
+        v8 = *((_DWORD *)Timer + 71);
+        v21 = v7;
+        v9 = *(unsigned __int16 *)(v6 + 24);
+        v10 = *(_QWORD *)(v6 + 32);
+        v22 = v8;
+        HalpTimerBuildKnownResourceIdString(v20, v9 >> 1, v10);
+      }
+      v11 = HalpTimerSelectRoles();
+      v4 = v11;
+      if ( v11 < 0
+        || (ReferencePage = HalpTimerCreateReferencePage(v13, v12, v14, (unsigned int)v11),
+            v4 = ReferencePage,
+            ReferencePage < 0) )
+      {
+LABEL_13:
+        KeBugCheckEx(0x5Cu, 0x110uLL, 0x5250631uLL, HalpTimerLastProblem, v4);
+      }
+      HalpOriginalPerformanceCounter = HalpPerformanceCounter;
+      qword_140C4C0D8 = (__int64)HalpTimerDpcRoutine;
+      qword_140C4C030 = (__int64)&qword_140C4C028;
+      qword_140C4C028 = (__int64)&qword_140C4C028;
+      off_140C006A8[0] = HalpTimerReportIdleStateUsage;
+      HalpTimerPeriodicTimer = 8LL;
+      off_140C006A0[0] = (__int64 (__fastcall *)())HalpTimerQueryWakeTime;
+      HalpTimerDpc = 275;
+      qword_140C4C0E0 = 0LL;
+      qword_140C4C0F8 = 0LL;
+      qword_140C4C0D0 = 0LL;
+      qword_140C4C038 = 0LL;
+      dword_140C4C05C = 0;
+      word_140C4C058 = 0;
+      if ( HalpAlwaysOnCounter )
+        HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift(
+                                           v17,
+                                           v16,
+                                           v18,
+                                           (unsigned int)ReferencePage);
+    }
+  }
   if ( v4 < 0 )
-  {
-    HalpTimerLastProblem = 14;
-    goto LABEL_12;
-  }
-  Timer = HalpFindTimer(5, 0, 0, 0, 1);
-  if ( Timer )
-  {
-    v8 = Timer[36];
-    v9 = *((_DWORD *)Timer + 57);
-    v10 = *((_DWORD *)Timer + 71);
-    v23 = v9;
-    v11 = *(unsigned __int16 *)(v8 + 24);
-    v12 = *(wchar_t **)(v8 + 32);
-    v24 = v10;
-    HalpTimerBuildKnownResourceIdString((__int64)v22, v11 >> 1, v12);
-  }
-  v13 = HalpTimerSelectRoles(v7, v6);
-  v4 = v13;
-  if ( v13 < 0
-    || (ReferencePage = HalpTimerCreateReferencePage(v15, v14, v16, (unsigned int)v13),
-        v4 = ReferencePage,
-        ReferencePage < 0) )
-  {
-LABEL_12:
-    KeBugCheckEx(0x5Cu, 0x110uLL, 0x5250631uLL, HalpTimerLastProblem, v4);
-  }
-  HalpOriginalPerformanceCounter = HalpPerformanceCounter;
-  qword_140C645F8 = (__int64)HalpTimerDpcRoutine;
-  qword_140C64550 = (__int64)&qword_140C64548;
-  qword_140C64548 = (__int64)&qword_140C64548;
-  off_140C01AB8[0] = HalpTimerReportIdleStateUsage;
-  HalpTimerPeriodicTimer = 8LL;
-  off_140C01AB0[0] = HalpTimerQueryWakeTime;
-  HalpTimerDpc = 275;
-  qword_140C64600 = 0LL;
-  qword_140C64618 = 0LL;
-  qword_140C645F0 = 0LL;
-  qword_140C64558 = 0LL;
-  dword_140C6457C = 0;
-  word_140C64578 = 0;
-  if ( HalpAlwaysOnCounter )
-    HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift(v19, v18, v20, (unsigned int)ReferencePage);
+    goto LABEL_13;
   return (unsigned int)v4;
 }

@@ -1,104 +1,99 @@
 /*
- * XREFs of _output_s @ 0x1403DFAD8
+ * XREFs of _output_s @ 0x1403D7F2C
  * Callers:
- *     _soutput_s @ 0x1403E0424 (_soutput_s.c)
+ *     _soutput_s @ 0x1403D883C (_soutput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     write_char_0 @ 0x1403DCFE8 (write_char_0.c)
- *     write_multi_char_0 @ 0x1403DD038 (write_multi_char_0.c)
- *     write_string_0 @ 0x1403DD090 (write_string_0.c)
- *     _safecrt_wctomb_s @ 0x1403E0348 (_safecrt_wctomb_s.c)
- *     memset @ 0x140435400 (memset.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     write_char_0 @ 0x1403D5508 (write_char_0.c)
+ *     write_multi_char_0 @ 0x1403D5558 (write_multi_char_0.c)
+ *     _safecrt_wctomb_s @ 0x1403D8760 (_safecrt_wctomb_s.c)
+ *     write_string_1 @ 0x1403D8930 (write_string_1.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall output_s(FILE *a1, char *a2, unsigned __int16 *a3)
+__int64 __fastcall output_s(FILE *a1, char *a2, int *a3)
 {
-  int v4; // edi
-  int v5; // esi
-  int v6; // r14d
-  char *v7; // rbx
-  unsigned __int16 *v8; // r15
+  int v5; // edi
+  int v6; // esi
+  int v7; // r14d
+  wchar_t *v8; // rbx
   char v10; // r9
   __int64 v11; // r12
-  int v12; // r10d
-  unsigned __int16 *v13; // r8
+  int v12; // r8d
+  unsigned __int64 v13; // r10
   int v14; // edx
   unsigned __int64 v15; // rax
-  unsigned __int64 v16; // r11
-  unsigned __int16 *v17; // r15
-  __int64 v18; // rax
-  unsigned __int16 *v19; // rcx
-  unsigned int v20; // eax
-  int v21; // ecx
-  const wchar_t *v22; // rax
-  int v23; // eax
-  int v24; // eax
-  __int64 v25; // rax
-  unsigned __int64 v26; // r9
-  char v27; // si
-  int v28; // r10d
-  char *i; // rcx
-  int v30; // edx
-  int v31; // r8d
+  __int64 v16; // rax
+  unsigned __int16 *v17; // rcx
+  unsigned int v18; // eax
+  int v19; // ecx
+  const wchar_t *v20; // rax
+  int v21; // eax
+  int v22; // eax
+  __int64 v23; // rax
+  unsigned __int64 v24; // r8
+  _BYTE *v25; // rbx
+  int v26; // ecx
+  char v27; // r14
+  int v28; // r9d
+  int v29; // ecx
+  unsigned __int64 v30; // rdx
+  char v31; // al
   int v32; // eax
-  bool v33; // zf
-  int v34; // r15d
-  int v35; // r14d
-  FILE *v36; // rsi
-  unsigned __int16 *v37; // r15
-  int v38; // esi
-  __int64 v39; // r9
-  char v40; // cl
-  int v41; // eax
-  __int64 v42; // rcx
-  int v43; // esi
-  int v44; // ecx
-  int v45; // eax
-  char v47[4]; // [rsp+30h] [rbp-D0h] BYREF
-  int v48; // [rsp+34h] [rbp-CCh] BYREF
-  int v49; // [rsp+38h] [rbp-C8h]
-  int v50; // [rsp+3Ch] [rbp-C4h]
-  int v51; // [rsp+40h] [rbp-C0h]
-  int v52; // [rsp+44h] [rbp-BCh] BYREF
-  int v53; // [rsp+48h] [rbp-B8h]
-  int v54; // [rsp+4Ch] [rbp-B4h]
-  unsigned __int16 *v55; // [rsp+50h] [rbp-B0h]
-  FILE *v56; // [rsp+58h] [rbp-A8h]
-  int v57; // [rsp+60h] [rbp-A0h]
-  int v58; // [rsp+64h] [rbp-9Ch]
-  int v59; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v60[512]; // [rsp+70h] [rbp-90h] BYREF
-  char v61[8]; // [rsp+270h] [rbp+170h] BYREF
+  unsigned int v33; // eax
+  int v34; // r14d
+  FILE *v35; // rsi
+  wchar_t *v36; // r15
+  int v37; // esi
+  __int64 v38; // r9
+  char v39; // cl
+  int v40; // eax
+  __int64 v41; // rcx
+  int v42; // eax
+  int v43; // ecx
+  int v45; // [rsp+30h] [rbp-D0h]
+  _BYTE v46[4]; // [rsp+34h] [rbp-CCh] BYREF
+  int v47; // [rsp+38h] [rbp-C8h] BYREF
+  int v48; // [rsp+3Ch] [rbp-C4h]
+  int v49; // [rsp+40h] [rbp-C0h] BYREF
+  int v50; // [rsp+44h] [rbp-BCh]
+  int v51; // [rsp+48h] [rbp-B8h]
+  int v52; // [rsp+4Ch] [rbp-B4h]
+  FILE *v53; // [rsp+50h] [rbp-B0h]
+  int v54; // [rsp+58h] [rbp-A8h]
+  int v55; // [rsp+5Ch] [rbp-A4h]
+  unsigned int v56; // [rsp+60h] [rbp-A0h] BYREF
+  char *v57; // [rsp+68h] [rbp-98h]
+  _BYTE v58[512]; // [rsp+70h] [rbp-90h] BYREF
+  char v59[8]; // [rsp+270h] [rbp+170h] BYREF
 
-  v56 = a1;
-  v55 = a3;
-  v57 = 0;
-  v4 = 0;
+  v53 = a1;
+  v54 = 0;
   v5 = 0;
-  v51 = 0;
+  v52 = 0;
   v6 = 0;
+  v48 = 0;
+  v7 = 0;
+  v45 = 0;
+  v8 = 0LL;
+  v55 = 0;
+  memset(v58, 0, sizeof(v58));
   v50 = 0;
-  v49 = 0;
-  v7 = 0LL;
-  v58 = 0;
-  v8 = a3;
-  memset(v60, 0, sizeof(v60));
-  v53 = 0;
   if ( !a1 || !a2 )
-    goto LABEL_192;
+    goto LABEL_189;
   v10 = *a2;
   LODWORD(v11) = 0;
-  v48 = 0;
+  v47 = 0;
   v12 = 0;
-  v52 = 0;
+  v49 = 0;
   if ( !v10 )
-    return (unsigned int)v48;
+    return (unsigned int)v47;
+  v13 = 16LL;
   do
   {
-    ++a2;
-    v13 = v8;
-    if ( v48 < 0 )
+    v57 = ++a2;
+    if ( v47 < 0 )
       break;
     if ( (unsigned __int8)(v10 - 32) > 0x5Au )
       v14 = 0;
@@ -106,109 +101,104 @@ __int64 __fastcall output_s(FILE *a1, char *a2, unsigned __int16 *a3)
       v14 = *((_BYTE *)&_lookuptable_s[-4] + v10) & 0xF;
     v15 = (unsigned int)(v14 + v12 + 8 * v14);
     v12 = *((unsigned __int8 *)_lookuptable_s + v15) >> 4;
-    v54 = v12;
+    v51 = v12;
     switch ( v12 )
     {
       case 8:
-        goto LABEL_192;
+        goto LABEL_189;
       case 0:
-        goto LABEL_160;
+        goto LABEL_159;
       case 1:
         v6 = -1;
-        v58 = 0;
-        v50 = -1;
+        v55 = 0;
+        v48 = -1;
+        v7 = 0;
+        v52 = 0;
         v5 = 0;
-        v51 = 0;
-        v4 = 0;
-        v49 = 0;
-        v53 = 0;
+        v45 = 0;
+        v50 = 0;
         break;
       case 2:
         switch ( v10 )
         {
           case ' ':
-            v4 |= 2u;
+            v5 |= 2u;
             break;
           case '#':
-            v4 |= 0x80u;
+            v5 |= 0x80u;
             break;
           case '+':
-            v4 |= 1u;
+            v5 |= 1u;
             break;
           case '-':
-            v4 |= 4u;
+            v5 |= 4u;
             break;
           case '0':
-            v4 |= 8u;
+            v5 |= 8u;
             break;
         }
         break;
       case 3:
         if ( v10 == 42 )
         {
-          v43 = *(_DWORD *)v8;
-          v55 = v8 + 4;
-          v44 = v43;
-          if ( v43 < 0 )
-            v4 |= 4u;
-          v45 = v43;
-          v5 = -v43;
-          if ( v45 >= 0 )
-            v5 = v44;
+          v42 = *a3;
+          a3 += 2;
+          v43 = v5 | 4;
+          if ( v42 >= 0 )
+            v43 = v5;
+          v5 = v43;
+          v52 = abs32(v42);
+          goto LABEL_184;
         }
-        else
-        {
-          v5 = v10 + 2 * (5 * v5 - 24);
-        }
-        v51 = v5;
+        v52 = v10 + 2 * (5 * v52 - 24);
         break;
       case 4:
         v6 = 0;
-        v50 = 0;
+        v48 = 0;
         break;
       case 5:
         if ( v10 != 42 )
         {
           v6 = v10 + 2 * (5 * v6 - 24);
-          goto LABEL_165;
+          goto LABEL_164;
         }
-        v6 = *(_DWORD *)v8;
-        v55 = v8 + 4;
-        v50 = v6;
+        v6 = *a3;
+        a3 += 2;
+        v48 = v6;
         if ( v6 < 0 )
         {
           v6 = -1;
-LABEL_165:
-          v50 = v6;
+LABEL_164:
+          v48 = v6;
         }
         break;
       case 6:
         switch ( v10 )
         {
           case 'I':
-            goto LABEL_142;
+            goto LABEL_141;
           case 'h':
-            v4 |= 0x20u;
-            goto LABEL_188;
+            v5 |= 0x20u;
+            goto LABEL_185;
           case 'j':
-            goto LABEL_142;
+            goto LABEL_141;
           case 'l':
-            v40 = *a2;
+            v39 = *a2;
             if ( *a2 == 108 )
               ++a2;
-            v41 = 4096;
-            if ( v40 != 108 )
-              v41 = 16;
-            v4 |= v41;
-            goto LABEL_188;
+            v40 = 4096;
+            if ( v39 != 108 )
+              v40 = 16;
+            v5 |= v40;
+            goto LABEL_185;
           case 't':
-            goto LABEL_142;
+            goto LABEL_141;
           case 'w':
-            v4 |= 0x800u;
-            goto LABEL_188;
+            v5 |= 0x800u;
+            goto LABEL_185;
           case 'z':
-LABEL_142:
-            v4 |= 0x8000u;
+LABEL_141:
+            v5 |= 0x8000u;
             if ( v10 == 73 )
             {
               if ( *a2 == 54 && a2[1] == 52 )
@@ -219,42 +209,148 @@ LABEL_142:
               {
                 if ( *a2 != 51 || a2[1] != 50 )
                 {
-LABEL_157:
+LABEL_156:
                   LOBYTE(v15) = *a2 - 88;
                   if ( (unsigned __int8)v15 <= 0x20u )
                   {
-                    v42 = 0x120821001LL;
-                    if ( _bittest64(&v42, v15) )
-                      goto LABEL_188;
+                    v41 = 0x120821001LL;
+                    if ( _bittest64(&v41, v15) )
+                      goto LABEL_185;
                   }
-                  v54 = 0;
-LABEL_160:
-                  v53 = 0;
-                  write_char_0(v10, v56, &v48);
-LABEL_187:
-                  v12 = v54;
-                  goto LABEL_188;
+                  v51 = 0;
+LABEL_159:
+                  v50 = 0;
+                  write_char_0(v10, v53, &v47);
+LABEL_183:
+                  v12 = v51;
+LABEL_184:
+                  v13 = 16LL;
+                  goto LABEL_185;
                 }
                 a2 += 2;
-                v4 &= ~0x8000u;
+                v5 &= ~0x8000u;
               }
             }
             else if ( v10 != 106 )
             {
-              goto LABEL_157;
+              goto LABEL_156;
             }
             break;
         }
         break;
       case 7:
-        if ( v10 <= 105 )
+        if ( v10 > 105 )
+        {
+          switch ( v10 )
+          {
+            case 'n':
+              goto LABEL_189;
+            case 'o':
+              v13 = 8LL;
+              if ( (v5 & 0x80u) != 0 )
+                v5 |= 0x200u;
+              goto LABEL_28;
+            case 'p':
+              v6 = 16;
+              v5 |= 0x8000u;
+              goto LABEL_77;
+          }
+          if ( v10 != 115 )
+          {
+            if ( v10 != 117 )
+            {
+              if ( v10 != 120 )
+                goto LABEL_108;
+              v22 = 39;
+              goto LABEL_78;
+            }
+LABEL_27:
+            v13 = 10LL;
+LABEL_28:
+            a3 += 2;
+            if ( (v5 & 0x8000) != 0 || (v5 & 0x1000) != 0 )
+            {
+              v16 = *((_QWORD *)a3 - 1);
+            }
+            else if ( (v5 & 0x20) != 0 )
+            {
+              if ( (v5 & 0x40) != 0 )
+                v16 = *((__int16 *)a3 - 4);
+              else
+                v16 = *((unsigned __int16 *)a3 - 4);
+            }
+            else if ( (v5 & 0x40) != 0 )
+            {
+              v16 = *(a3 - 2);
+            }
+            else
+            {
+              v16 = (unsigned int)*(a3 - 2);
+            }
+            if ( (v5 & 0x40) != 0 && v16 < 0 )
+            {
+              v16 = -v16;
+              v5 |= 0x100u;
+            }
+            v24 = (unsigned int)v16;
+            if ( (v5 & 0x9000) != 0 )
+              v24 = v16;
+            if ( v6 >= 0 )
+            {
+              v5 &= ~8u;
+              if ( v6 > 512 )
+                v6 = 512;
+            }
+            else
+            {
+              v6 = 1;
+            }
+            v25 = &v58[511];
+            v26 = v24 != 0 ? v7 : 0;
+            v27 = v54;
+            v45 = v26;
+            v28 = v26;
+            while ( 1 )
+            {
+              v29 = v6--;
+              if ( v29 <= 0 && !v24 )
+                break;
+              v30 = v24 % v13;
+              v24 /= v13;
+              v31 = v30 + 48;
+              if ( (int)v30 + 48 > 57 )
+                v31 = v30 + v27 + 48;
+              *v25-- = v31;
+            }
+            v48 = v6;
+            v32 = (unsigned int)&v58[144] + 367 - (_DWORD)v25;
+            v7 = v28;
+            v8 = (wchar_t *)(v25 + 1);
+            v49 = v32;
+            LODWORD(v11) = v32;
+            if ( (v5 & 0x200) != 0 )
+            {
+              if ( !v32 || (v45 = v28, *(_BYTE *)v8 != 48) )
+              {
+                v8 = (wchar_t *)((char *)v8 - 1);
+                v45 = v28;
+                LODWORD(v11) = v32 + 1;
+                v7 = v28;
+                v49 = v32 + 1;
+                *(_BYTE *)v8 = 48;
+              }
+            }
+            goto LABEL_108;
+          }
+        }
+        else
         {
           if ( v10 == 105 )
-            goto LABEL_25;
+            goto LABEL_26;
           if ( v10 == 67 )
           {
-            if ( (v4 & 0x830) == 0 )
-              v4 |= 0x800u;
+            if ( (v5 & 0x830) == 0 )
+              v5 |= 0x800u;
             goto LABEL_52;
           }
           if ( v10 != 83 )
@@ -263,302 +359,197 @@ LABEL_187:
             {
               if ( v10 == 90 )
               {
-                v19 = *(unsigned __int16 **)v8;
-                v55 = v8 + 4;
-                if ( v19 && (v7 = (char *)*((_QWORD *)v19 + 1)) != 0LL )
+                v17 = *(unsigned __int16 **)a3;
+                a3 += 2;
+                if ( v17 && (v8 = (wchar_t *)*((_QWORD *)v17 + 1)) != 0LL )
                 {
-                  v20 = *v19;
-                  if ( v19[1] < (unsigned __int16)v20 )
-                    goto LABEL_192;
-                  LODWORD(v11) = *v19;
-                  if ( (v4 & 0x800) != 0 )
+                  v18 = *v17;
+                  if ( v17[1] < (unsigned __int16)v18 )
+                    goto LABEL_189;
+                  LODWORD(v11) = *v17;
+                  if ( (v5 & 0x800) != 0 )
                   {
-                    if ( (v20 & 1) != 0 || ((unsigned __int8)v7 & 1) != 0 )
-                      goto LABEL_192;
-                    v53 = 1;
-                    LODWORD(v11) = v20 >> 1;
+                    if ( (v18 & 1) != 0 || ((unsigned __int8)v8 & 1) != 0 )
+                      goto LABEL_189;
+                    v50 = 1;
+                    LODWORD(v11) = v18 >> 1;
                   }
                   else
                   {
-                    v53 = 0;
+                    v50 = 0;
                   }
                 }
                 else
                 {
                   v11 = -1LL;
-                  v7 = "(null)";
+                  v8 = (wchar_t *)"(null)";
                   do
                     ++v11;
                   while ( aNull_2[v11] );
                 }
-                v52 = v11;
-                goto LABEL_109;
+                v49 = v11;
+                goto LABEL_108;
               }
               if ( v10 != 99 )
               {
                 if ( v10 == 100 )
                 {
-LABEL_25:
-                  v4 |= 0x40u;
-                  goto LABEL_26;
+LABEL_26:
+                  v5 |= 0x40u;
+                  goto LABEL_27;
                 }
-LABEL_109:
-                if ( v58 )
-                  goto LABEL_187;
-                if ( (v4 & 0x40) != 0 )
+LABEL_108:
+                if ( v55 )
+                  goto LABEL_183;
+                if ( (v5 & 0x40) != 0 )
                 {
-                  if ( (v4 & 0x100) != 0 )
+                  if ( (v5 & 0x100) != 0 )
                   {
-                    v47[0] = 45;
-                    goto LABEL_117;
+                    v46[0] = 45;
+                    goto LABEL_116;
                   }
-                  if ( (v4 & 1) != 0 )
+                  if ( (v5 & 1) != 0 )
                   {
-                    v47[0] = 43;
-                    goto LABEL_117;
+                    v46[0] = 43;
+                    goto LABEL_116;
                   }
-                  if ( (v4 & 2) != 0 )
+                  if ( (v5 & 2) != 0 )
                   {
-                    v47[0] = 32;
-LABEL_117:
-                    v49 = 1;
+                    v46[0] = 32;
+LABEL_116:
+                    v45 = 1;
                   }
                 }
-                v34 = v49;
-                v35 = v5 - v11 - v49;
-                if ( (v4 & 0xC) == 0 )
-                  write_multi_char_0(32, v35, v56, &v48);
-                write_string_0(v47, v34, v56, &v48);
-                v36 = v56;
-                if ( (v4 & 0xC) == 8 )
-                  write_multi_char_0(48, v35, v56, &v48);
-                if ( v53 && (int)v11 > 0 )
+                v33 = v45;
+                v34 = v52 - v11 - v45;
+                if ( (v5 & 0xC) == 0 )
                 {
-                  v59 = 0;
-                  v37 = (unsigned __int16 *)v7;
-                  v38 = v11;
+                  write_multi_char_0(32, v34, v53, &v47);
+                  v33 = v45;
+                }
+                write_string_1(v46, v33, v53, &v47);
+                v35 = v53;
+                if ( (v5 & 0xC) == 8 )
+                  write_multi_char_0(48, v34, v53, &v47);
+                if ( v50 && (int)v11 > 0 )
+                {
+                  v56 = 0;
+                  v36 = v8;
+                  v37 = v11;
                   while ( 1 )
                   {
-                    v39 = *v37++;
-                    --v38;
-                    if ( (unsigned int)safecrt_wctomb_s(&v59, v61, 6LL, v39) || !v59 )
+                    v38 = *v36++;
+                    --v37;
+                    if ( (unsigned int)safecrt_wctomb_s(&v56, v59, 6LL, v38) || !v56 )
                       break;
-                    write_string_0(v61, v59, v56, &v48);
-                    if ( !v38 )
-                      goto LABEL_130;
+                    write_string_1(v59, v56, v53, &v47);
+                    if ( !v37 )
+                      goto LABEL_129;
                   }
-                  v48 = -1;
-LABEL_130:
-                  v36 = v56;
+                  v47 = -1;
+LABEL_129:
+                  a2 = v57;
+                  v35 = v53;
                 }
                 else
                 {
-                  write_string_0(v7, v11, v36, &v48);
+                  write_string_1(v8, (unsigned int)v11, v35, &v47);
                 }
-                if ( v48 >= 0 && (v4 & 4) != 0 )
+                if ( v47 >= 0 && (v5 & 4) != 0 )
                 {
-                  write_multi_char_0(32, v35, v36, &v48);
-                  v6 = v50;
-                  v5 = v51;
+                  write_multi_char_0(32, v34, v35, &v47);
+                  v6 = v48;
+                  v7 = v45;
                 }
                 else
                 {
-                  v5 = v51;
-                  v6 = v50;
+                  v7 = v45;
+                  v6 = v48;
                 }
-                goto LABEL_187;
+                goto LABEL_183;
               }
 LABEL_52:
-              v55 = v8 + 4;
-              if ( (v4 & 0x810) != 0 )
+              a3 += 2;
+              if ( (v5 & 0x810) != 0 )
               {
-                v23 = safecrt_wctomb_s(&v52, v60, 512LL, *v8);
-                LODWORD(v11) = v52;
-                if ( v23 )
-                  v58 = 1;
+                v21 = safecrt_wctomb_s(&v49, v58, 512LL, *((unsigned __int16 *)a3 - 4));
+                LODWORD(v11) = v49;
+                if ( v21 )
+                  v55 = 1;
               }
               else
               {
                 LODWORD(v11) = 1;
-                v60[0] = *(_BYTE *)v8;
-                v52 = 1;
+                v58[0] = *((_BYTE *)a3 - 8);
+                v49 = 1;
               }
-              v7 = v60;
-              goto LABEL_109;
+              v8 = (wchar_t *)v58;
+              goto LABEL_108;
             }
 LABEL_77:
-            v24 = 7;
+            v22 = 7;
 LABEL_78:
-            v57 = v24;
-            if ( (v4 & 0x80u) != 0 )
+            v54 = v22;
+            if ( (v5 & 0x80u) != 0 )
             {
-              v47[0] = 48;
-              v47[1] = v24 + 81;
-              v49 = 2;
+              v46[0] = 48;
+              v46[1] = v22 + 81;
+              v7 = 2;
             }
-            v16 = 16LL;
-            goto LABEL_27;
+            goto LABEL_28;
           }
-          if ( (v4 & 0x830) == 0 )
-            v4 |= 0x800u;
-LABEL_44:
-          v7 = *(char **)v8;
-          v21 = v6;
-          if ( v6 == -1 )
-            v21 = 0x7FFFFFFF;
-          v55 = v8 + 4;
-          if ( (v4 & 0x810) != 0 )
-          {
-            v22 = (const wchar_t *)v7;
-            if ( !v7 )
-            {
-              v7 = (char *)L"(null)";
-              v22 = L"(null)";
-            }
-            v53 = 1;
-            while ( v21 )
-            {
-              --v21;
-              if ( !*v22 )
-                break;
-              ++v22;
-            }
-            v25 = ((char *)v22 - v7) >> 1;
-          }
-          else
-          {
-            v25 = (__int64)"(null)";
-            if ( v7 )
-              v25 = (__int64)v7;
-            v7 = (char *)v25;
-            while ( v21 )
-            {
-              --v21;
-              if ( !*(_BYTE *)v25 )
-                break;
-              ++v25;
-            }
-            LODWORD(v25) = v25 - (_DWORD)v7;
-          }
-          LODWORD(v11) = v25;
-          v52 = v25;
-          goto LABEL_109;
+          if ( (v5 & 0x830) == 0 )
+            v5 |= 0x800u;
         }
-        switch ( v10 )
+        v8 = *(wchar_t **)a3;
+        v19 = v6;
+        if ( v6 == -1 )
+          v19 = 0x7FFFFFFF;
+        a3 += 2;
+        if ( (v5 & 0x810) != 0 )
         {
-          case 'n':
-            goto LABEL_192;
-          case 'o':
-            v16 = 8LL;
-            if ( (v4 & 0x80u) != 0 )
-              v4 |= 0x200u;
-            goto LABEL_27;
-          case 'p':
-            v6 = 16;
-            v4 |= 0x8000u;
-            goto LABEL_77;
-          case 's':
-            goto LABEL_44;
-        }
-        if ( v10 != 117 )
-        {
-          if ( v10 != 120 )
-            goto LABEL_109;
-          v24 = 39;
-          goto LABEL_78;
-        }
-LABEL_26:
-        v16 = 10LL;
-LABEL_27:
-        v17 = v8 + 4;
-        v55 = v17;
-        if ( (v4 & 0x8000) != 0 || (v4 & 0x1000) != 0 )
-        {
-          v18 = *(_QWORD *)v13;
-          if ( (v4 & 0x40) != 0 )
-            goto LABEL_89;
-LABEL_92:
-          v26 = (unsigned int)v18;
-          if ( (v4 & 0x9000) != 0 )
-            v26 = v18;
-          if ( v6 >= 0 )
+          v20 = v8;
+          if ( !v8 )
           {
-            v4 &= ~8u;
-            if ( v6 > 512 )
-              v6 = 512;
+            v8 = L"(null)";
+            v20 = L"(null)";
           }
-          else
+          v50 = 1;
+          while ( v19 )
           {
-            v6 = 1;
-          }
-          v27 = v57;
-          v49 &= -(v26 != 0);
-          v28 = v49;
-          for ( i = &v60[511]; ; --i )
-          {
-            v30 = v6--;
-            if ( v30 <= 0 && !v26 )
+            --v19;
+            if ( !*v20 )
               break;
-            v31 = v26 % v16 + 48;
-            v26 /= v16;
-            if ( v31 > 57 )
-              LOBYTE(v31) = v27 + v31;
-            *i = v31;
+            ++v20;
           }
-          v50 = v6;
-          v32 = (unsigned int)&v60[144] + 367 - (_DWORD)i;
-          v7 = i + 1;
-          v52 = v32;
-          LODWORD(v11) = v32;
-          if ( (v4 & 0x200) != 0 )
-          {
-            if ( !v32 || (v33 = *v7 == 48, v55 = v17, v49 = v28, !v33) )
-            {
-              v7 = i;
-              v55 = v17;
-              LODWORD(v11) = v32 + 1;
-              v49 = v28;
-              v52 = v32 + 1;
-              *i = 48;
-            }
-          }
-          v5 = v51;
-          goto LABEL_109;
-        }
-        if ( (v4 & 0x20) != 0 )
-        {
-          if ( (v4 & 0x40) == 0 )
-          {
-            v18 = *v13;
-            goto LABEL_92;
-          }
-          v18 = (__int16)*v13;
+          v23 = v20 - v8;
         }
         else
         {
-          if ( (v4 & 0x40) == 0 )
+          v23 = (__int64)"(null)";
+          if ( v8 )
+            v23 = (__int64)v8;
+          v8 = (wchar_t *)v23;
+          while ( v19 )
           {
-            v18 = *(unsigned int *)v13;
-            goto LABEL_92;
+            --v19;
+            if ( !*(_BYTE *)v23 )
+              break;
+            ++v23;
           }
-          v18 = *(int *)v13;
+          LODWORD(v23) = v23 - (_DWORD)v8;
         }
-LABEL_89:
-        if ( v18 < 0 )
-        {
-          v18 = -v18;
-          v4 |= 0x100u;
-        }
-        goto LABEL_92;
+        LODWORD(v11) = v23;
+        v49 = v23;
+        goto LABEL_108;
     }
-LABEL_188:
+LABEL_185:
     v10 = *a2;
-    v8 = v55;
   }
   while ( *a2 );
   if ( !v12 || v12 == 7 )
-    return (unsigned int)v48;
-LABEL_192:
+    return (unsigned int)v47;
+LABEL_189:
   xHalTimerWatchdogStop();
   return 0xFFFFFFFFLL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x14086F030
+ * XREFs of PopPdcCsDeviceNotification @ 0x14086F010
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
@@ -7,16 +7,16 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14075DCA4 (PopNetUpdateCsConsumptionFlags.c)
- *     PopPdcUpdateDeviceCompliance @ 0x14086F3AC (PopPdcUpdateDeviceCompliance.c)
- *     PopNetCompliantNicUpdate @ 0x140876C84 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140876E78 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14075DC84 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x14086F38C (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetCompliantNicUpdate @ 0x140876C64 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140876E58 (PopNetNonCompliantDeviceUpdate.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)

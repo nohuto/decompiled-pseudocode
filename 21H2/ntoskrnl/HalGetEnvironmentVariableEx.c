@@ -1,18 +1,18 @@
 /*
- * XREFs of HalGetEnvironmentVariableEx @ 0x1403DAAF0
+ * XREFs of HalGetEnvironmentVariableEx @ 0x1403BAC50
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403DAA2C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     IoSaveInitialBugCheckProgress @ 0x140552D54 (IoSaveInitialBugCheckProgress.c)
- *     IopGetEnvironmentVariableHal @ 0x140881840 (IopGetEnvironmentVariableHal.c)
- *     NtQueryDriverEntryOrder @ 0x140A00A80 (NtQueryDriverEntryOrder.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140A6AE00 (PopSetMemoryOverwriteRequestAction.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BAB88 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     IoInitializeBugCheckProgress @ 0x140502508 (IoInitializeBugCheckProgress.c)
+ *     IopGetEnvironmentVariableHal @ 0x14089A5E0 (IopGetEnvironmentVariableHal.c)
+ *     NtQueryDriverEntryOrder @ 0x1409546C0 (NtQueryDriverEntryOrder.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x1409B0EAC (PopSetMemoryOverwriteRequestAction.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     HalEfiGetEnvironmentVariable @ 0x140456B94 (HalEfiGetEnvironmentVariable.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     HalEfiGetEnvironmentVariable @ 0x1404C37EC (HalEfiGetEnvironmentVariable.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, _DWORD *a4, __int64 a5)

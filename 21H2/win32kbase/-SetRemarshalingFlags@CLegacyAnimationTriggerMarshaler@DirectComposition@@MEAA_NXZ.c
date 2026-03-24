@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CLegacyAnimationTriggerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0229860
+ * XREFs of ?SetRemarshalingFlags@CLegacyAnimationTriggerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E9B20
  * Callers:
  *     <none>
  * Callees:

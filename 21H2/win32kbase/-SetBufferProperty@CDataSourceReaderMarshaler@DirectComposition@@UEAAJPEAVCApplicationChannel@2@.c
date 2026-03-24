@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CDataSourceReaderMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0236D80
+ * XREFs of ?SetBufferProperty@CDataSourceReaderMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F6450
  * Callers:
  *     <none>
  * Callees:
@@ -22,18 +22,18 @@ __int64 __fastcall DirectComposition::CDataSourceReaderMarshaler::SetBufferPrope
   {
     if ( a3 == 1 && a5 == 8 )
     {
-      if ( *((_QWORD *)this + 9) == *a4 )
+      if ( *((_QWORD *)this + 8) == *a4 )
         return result;
-      *((_QWORD *)this + 9) = *a4;
+      *((_QWORD *)this + 8) = *a4;
       goto LABEL_10;
     }
     return 3221225485LL;
   }
   if ( a5 != 8 )
     return 3221225485LL;
-  if ( *((_QWORD *)this + 8) == *a4 )
+  if ( *((_QWORD *)this + 7) == *a4 )
     return result;
-  *((_QWORD *)this + 8) = *a4;
+  *((_QWORD *)this + 7) = *a4;
 LABEL_10:
   *((_DWORD *)this + 4) |= 0x20u;
   *a6 = 1;

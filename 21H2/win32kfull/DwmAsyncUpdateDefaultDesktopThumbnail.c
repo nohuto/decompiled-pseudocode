@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C02730B4
+ * XREFs of DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C0275824
  * Callers:
- *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C01FFFF0 (NtUserUpdateDefaultDesktopThumbnail.c)
+ *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C0204090 (NtUserUpdateDefaultDesktopThumbnail.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncUpdateDefaultDesktopThumbnail(
@@ -30,7 +30,7 @@ __int64 __fastcall DwmAsyncUpdateDefaultDesktopThumbnail(
     LOBYTE(v14[21]) = a5;
     *(_DWORD *)((char *)&v14[21] + 1) = a6;
     v14[0] = 5832753;
-    v14[10] = 1073741899;
+    v14[10] = 1073741897;
     *(_QWORD *)&v14[11] = a2;
     *(_OWORD *)&v14[13] = v11;
     *(_OWORD *)&v14[17] = v12;

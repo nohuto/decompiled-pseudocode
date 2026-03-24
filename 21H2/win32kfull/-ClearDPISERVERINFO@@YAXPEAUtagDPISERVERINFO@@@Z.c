@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00C74E8
+ * XREFs of ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00E2258
  * Callers:
- *     DestroyDpiMetricsCache @ 0x1C00C73E0 (DestroyDpiMetricsCache.c)
- *     UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00C7450 (UpdateDpiMetricsCacheDPISERVERINFO.c)
+ *     DestroyDpiMetricsCache @ 0x1C00E2150 (DestroyDpiMetricsCache.c)
+ *     UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00E21C0 (UpdateDpiMetricsCacheDPISERVERINFO.c)
  * Callees:
- *     DeleteMetricsFont @ 0x1C00C7520 (DeleteMetricsFont.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     DeleteMetricsFont @ 0x1C00E2290 (DeleteMetricsFont.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall ClearDPISERVERINFO(struct tagDPISERVERINFO *a1)

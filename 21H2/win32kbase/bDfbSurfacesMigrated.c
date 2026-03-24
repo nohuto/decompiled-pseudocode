@@ -1,12 +1,12 @@
 /*
- * XREFs of bDfbSurfacesMigrated @ 0x1C00626A0
+ * XREFs of bDfbSurfacesMigrated @ 0x1C001B6D0
  * Callers:
- *     pProcessDfbSurfaces2 @ 0x1C0061C30 (pProcessDfbSurfaces2.c)
+ *     pProcessDfbSurfaces2 @ 0x1C00BE440 (pProcessDfbSurfaces2.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0063C24 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     MulFindDisplayDhsurfFromMetaSurf @ 0x1C016EE28 (MulFindDisplayDhsurfFromMetaSurf.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001C608 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     MulFindDisplayDhsurfFromMetaSurf @ 0x1C0141F08 (MulFindDisplayDhsurfFromMetaSurf.c)
  */
 
 __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
@@ -35,21 +35,21 @@ __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
     v5 = *(_DWORD *)(a1 + 40);
     if ( (v5 & 0x20000) != 0 )
     {
-      for ( i = **(_QWORD ***)(a1 + 1768); i; i = (_QWORD *)*i )
+      for ( i = **(_QWORD ***)(a1 + 1800); i; i = (_QWORD *)*i )
       {
-        if ( *(_DWORD *)(*(_QWORD *)(i[6] + 1760LL) + 24LL) != 1 )
+        if ( *(_DWORD *)(*(_QWORD *)(i[6] + 1792LL) + 24LL) != 1 )
           return v2;
       }
     }
     v6 = 0LL;
-    if ( (*(_DWORD *)(a1 + 1792) & 0x8000000) == 0 )
+    if ( (*(_DWORD *)(a1 + 1824) & 0x8000000) == 0 )
     {
-      v7 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, _QWORD))(a1 + 3416);
+      v7 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, _QWORD))(a1 + 3440);
       v19 = v7;
       if ( v7 )
       {
         DisplayDhsurfFromMetaSurf = *(_QWORD *)(a2 + 24);
-        if ( _bittest((const signed __int32 *)(*(_QWORD *)(a2 + 48) + 40LL), 0x11u) )
+        if ( (*(_DWORD *)(*(_QWORD *)(a2 + 48) + 40LL) & 0x20000) != 0 )
         {
           DisplayDhsurfFromMetaSurf = MulFindDisplayDhsurfFromMetaSurf();
           if ( !DisplayDhsurfFromMetaSurf )
@@ -61,16 +61,16 @@ __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
         v19 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, _QWORD))(a2 + 568);
         if ( (v5 & 0x4000000) != 0 )
         {
-          v13 = *(_QWORD **)(a1 + 1768);
+          v13 = *(_QWORD **)(a1 + 1800);
           v21 = v13;
           for ( j = (_QWORD *)*v13; ; j = (_QWORD *)*v20 )
           {
             v20 = j;
             if ( !j || v6 )
               break;
-            v13[13] = *(_QWORD *)(*(_QWORD *)(j[7] + 2552LL) + 248LL);
-            v15 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD, __int64, _DWORD, _DWORD, _QWORD *))(a1 + 3416))(
-                    *(_QWORD *)(a1 + 1768),
+            v13[13] = *(_QWORD *)(*(_QWORD *)(j[7] + 2576LL) + 248LL);
+            v15 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD, __int64, _DWORD, _DWORD, _QWORD *))(a1 + 3440))(
+                    *(_QWORD *)(a1 + 1800),
                     v9,
                     *(unsigned int *)(a2 + 96),
                     v10 | 0x10u,
@@ -85,7 +85,7 @@ __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
         else
         {
           v6 = (HSURF)v7(
-                        *(_QWORD *)(a1 + 1768),
+                        *(_QWORD *)(a1 + 1800),
                         v9,
                         *(unsigned int *)(a2 + 96),
                         v10 | 0x10u,
@@ -121,10 +121,9 @@ __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
           }
         }
         SURFREF::~SURFREF((SURFREF *)v17);
-        if ( v6 )
-          return 1;
       }
     }
+    LOBYTE(v2) = v6 != 0LL;
   }
   return v2;
 }

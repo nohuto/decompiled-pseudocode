@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmConvertTimeFrom @ 0x1403D81D0
+ * XREFs of PpmConvertTimeFrom @ 0x1403C94E4
  * Callers:
- *     PopIdleWakeInitialize @ 0x140855C88 (PopIdleWakeInitialize.c)
- *     PopIdleWakeConvertIntervalBucketsFrom @ 0x140855D7C (PopIdleWakeConvertIntervalBucketsFrom.c)
+ *     PopIdleWakeInitialize @ 0x1407C6F38 (PopIdleWakeInitialize.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x1407C702C (PopIdleWakeConvertIntervalBucketsFrom.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
  */
 
-unsigned __int64 __fastcall PpmConvertTimeFrom(unsigned __int64 a1, unsigned __int64 a2)
+ULONGLONG __fastcall PpmConvertTimeFrom(ULONGLONG a1, __int64 a2)
 {
   return PpmConvertTime(a1, a2, PopQpcFrequency);
 }

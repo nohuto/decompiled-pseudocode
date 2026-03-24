@@ -1,11 +1,12 @@
 /*
- * XREFs of ProcessorAddInstance @ 0x1C009DCC0
+ * XREFs of ProcessorAddInstance @ 0x1C0097B80
  * Callers:
- *     ProcessorpAddInstanceCallback @ 0x1C006CA20 (ProcessorpAddInstanceCallback.c)
- *     IrqLibpParseMadt @ 0x1C00BE180 (IrqLibpParseMadt.c)
+ *     ProcessorpAddInstanceCallback @ 0x1C006C600 (ProcessorpAddInstanceCallback.c)
+ *     IrqLibpParseMadt @ 0x1C00BD72C (IrqLibpParseMadt.c)
  * Callees:
- *     ProcessorpIndexInstance @ 0x1C009DE1C (ProcessorpIndexInstance.c)
- *     ProcessorpReserveUnownedRanges @ 0x1C009DFC0 (ProcessorpReserveUnownedRanges.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ProcessorpIndexInstance @ 0x1C0097CE8 (ProcessorpIndexInstance.c)
+ *     ProcessorpReserveUnownedRanges @ 0x1C0097E6C (ProcessorpReserveUnownedRanges.c)
  */
 
 __int64 __fastcall ProcessorAddInstance(unsigned int a1, int a2)
@@ -14,23 +15,24 @@ __int64 __fastcall ProcessorAddInstance(unsigned int a1, int a2)
   ULONG ProcessorIndexFromNumber; // eax
   ULONG v5; // edi
   __int64 v6; // rbp
-  __int64 Pool2; // rbx
-  int v8; // esi
-  unsigned int v9; // edi
-  bool v10; // cc
-  void *v12; // rcx
-  __int128 v13; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-28h]
+  char *PoolWithTag; // rax
+  char *v8; // rbx
+  int v9; // esi
+  unsigned int v10; // edi
+  bool v11; // cc
+  void *v13; // rcx
+  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-28h]
   struct _PROCESSOR_NUMBER ProcNumber; // [rsp+70h] [rbp+18h] BYREF
 
-  v13 = 0LL;
   v14 = 0LL;
+  v15 = 0LL;
   v3 = a1;
   if ( IrqLibInterruptModel == 1 )
   {
-    if ( (int)HalGetInterruptTargetInformation(0LL, a1, &v13) < 0 )
+    if ( (int)HalGetInterruptTargetInformation(0LL, a1, &v14) < 0 )
       return 0LL;
-    ProcNumber = (struct _PROCESSOR_NUMBER)DWORD1(v13);
+    ProcNumber = (struct _PROCESSOR_NUMBER)DWORD1(v14);
     ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
     v5 = ProcessorIndexFromNumber;
     if ( a2 != -1 && ProcessorIndexFromNumber != a2 )
@@ -45,41 +47,43 @@ __int64 __fastcall ProcessorAddInstance(unsigned int a1, int a2)
   v6 = v5;
   if ( *((_QWORD *)ProcessorByNtNumber + v5) )
     return 0LL;
-  Pool2 = ExAllocatePool2(256LL, 112LL, 1232102209LL);
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x49706341u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(struct _PROCESSOR_NUMBER *)(Pool2 + 104) = ProcNumber;
-  RtlInitializeRangeList((PRTL_RANGE_LIST)Pool2);
-  RtlInitializeRangeList((PRTL_RANGE_LIST)(Pool2 + 32));
-  v8 = ProcessorpReserveUnownedRanges((PRTL_RANGE_LIST)Pool2);
-  if ( v8 < 0 )
+  memset(PoolWithTag, 0, 0x70uLL);
+  *((struct _PROCESSOR_NUMBER *)v8 + 26) = ProcNumber;
+  RtlInitializeRangeList((PRTL_RANGE_LIST)v8);
+  RtlInitializeRangeList((PRTL_RANGE_LIST)v8 + 1);
+  v9 = ProcessorpReserveUnownedRanges((PRTL_RANGE_LIST)v8);
+  if ( v9 < 0 )
     goto LABEL_19;
   if ( IrqLibInterruptModel == 1 )
   {
-    *(_DWORD *)(Pool2 + 64) = v3;
-    *(_OWORD *)(Pool2 + 68) = v13;
-    *(_QWORD *)(Pool2 + 84) = v14;
+    *((_DWORD *)v8 + 16) = v3;
+    *(_OWORD *)(v8 + 68) = v14;
+    *(_QWORD *)(v8 + 84) = v15;
   }
-  v8 = ProcessorpIndexInstance(v5, &v13);
-  if ( v8 < 0 )
+  v9 = ProcessorpIndexInstance(v5, &v14);
+  if ( v9 < 0 )
   {
 LABEL_19:
-    v12 = (void *)*((_QWORD *)ProcessorByNtNumber + v5);
-    if ( v12 )
+    v13 = (void *)*((_QWORD *)ProcessorByNtNumber + v5);
+    if ( v13 )
     {
-      ExFreePoolWithTag(v12, 0);
+      ExFreePoolWithTag(v13, 0);
       *((_QWORD *)ProcessorByNtNumber + v5) = 0LL;
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    ExFreePoolWithTag(v8, 0);
   }
   else
   {
-    v9 = v5 + 1;
-    v10 = ProcessorInstanceCount <= v9;
-    *((_QWORD *)ProcessorByNtNumber + v6) = Pool2;
-    if ( v10 )
-      ProcessorInstanceCount = v9;
+    v10 = v5 + 1;
+    v11 = ProcessorInstanceCount <= v10;
+    *((_QWORD *)ProcessorByNtNumber + v6) = v8;
+    if ( v11 )
+      ProcessorInstanceCount = v10;
     return 0;
   }
-  return (unsigned int)v8;
+  return (unsigned int)v9;
 }

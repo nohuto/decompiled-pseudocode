@@ -1,17 +1,17 @@
 /*
- * XREFs of PspLockJobShared @ 0x1406FFEFC
+ * XREFs of PspLockJobShared @ 0x14061879C
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x140687654 (PspQueryJobHierarchyProcessIdList.c)
- *     PsInsertPermanentSiloContextEx @ 0x140692980 (PsInsertPermanentSiloContextEx.c)
- *     PspGetNextChildJob @ 0x1406FF7C4 (PspGetNextChildJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
- *     PspCallJobHierarchyCallbacks @ 0x1406FFF24 (PspCallJobHierarchyCallbacks.c)
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ABC00 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x1409B0400 (PspQueryJobHierarchyInterferenceCount.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x140614100 (PspQueryJobHierarchyProcessIdList.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     PspGetNextChildJob @ 0x140617D5C (PspGetNextChildJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspCallJobHierarchyCallbacks @ 0x1406181F4 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140715D5C (PsInsertPermanentSiloContextEx.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140905F60 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x140909050 (PspQueryJobHierarchyInterferenceCount.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobShared(__int64 a1, __int64 a2)

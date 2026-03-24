@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIRegDumpAcpiTable @ 0x1C00A9FFC
+ * XREFs of ACPIRegDumpAcpiTable @ 0x1C00BC6F4
  * Callers:
- *     ACPIRegDumpAcpiTables @ 0x1C00AA18C (ACPIRegDumpAcpiTables.c)
+ *     ACPIRegDumpAcpiTables @ 0x1C00BC580 (ACPIRegDumpAcpiTables.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     ACPIRegLocalCopyString @ 0x1C008D398 (ACPIRegLocalCopyString.c)
- *     OSCloseHandle @ 0x1C008DB48 (OSCloseHandle.c)
- *     OSCreateHandle @ 0x1C008DB64 (OSCreateHandle.c)
- *     OSWriteRegValue @ 0x1C008EC40 (OSWriteRegValue.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIRegLocalCopyString @ 0x1C008FEA8 (ACPIRegLocalCopyString.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSCreateHandle @ 0x1C0096D28 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C0096E28 (OSWriteRegValue.c)
  */
 
 NTSTATUS __fastcall ACPIRegDumpAcpiTable(PCSZ SourceString, PVOID Data, ULONG DataSize, __int64 a4)

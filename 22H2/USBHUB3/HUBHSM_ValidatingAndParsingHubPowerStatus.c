@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_ValidatingAndParsingHubPowerStatus @ 0x1C0009BC0
+ * XREFs of HUBHSM_ValidatingAndParsingHubPowerStatus @ 0x1C0009400
  * Callers:
  *     <none>
  * Callees:

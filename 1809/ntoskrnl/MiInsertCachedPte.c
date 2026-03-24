@@ -2,17 +2,17 @@
  * XREFs of MiInsertCachedPte @ 0x1400344D0
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     MiEmptyPteBins @ 0x1400EFBF0 (MiEmptyPteBins.c)
- *     MiReplenishBitMap @ 0x1400EFDD0 (MiReplenishBitMap.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x1402C389C (MiReleaseLargePteMappings.c)
+ *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
+ *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x1402C399C (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 a2, unsigned int a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1RGNMEMOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C01350E4
+ * XREFs of ??1RGNMEMOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0147D20
  * Callers:
- *     EngFillPath @ 0x1C0134C30 (EngFillPath.c)
- *     EngStrokeAndFillPath @ 0x1C02856C0 (EngStrokeAndFillPath.c)
+ *     EngFillPath @ 0x1C0147860 (EngFillPath.c)
+ *     EngStrokeAndFillPath @ 0x1C014C2B0 (EngStrokeAndFillPath.c)
  * Callees:
  *     <none>
  */

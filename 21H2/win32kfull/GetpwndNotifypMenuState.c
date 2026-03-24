@@ -1,9 +1,9 @@
 /*
- * XREFs of GetpwndNotifypMenuState @ 0x1C00BAE40
+ * XREFs of GetpwndNotifypMenuState @ 0x1C00DCD44
  * Callers:
- *     IsModelessMenuNotificationWindow @ 0x1C00BAE1C (IsModelessMenuNotificationWindow.c)
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
+ *     IsModelessMenuNotificationWindow @ 0x1C00DCD20 (IsModelessMenuNotificationWindow.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
  * Callees:
  *     <none>
  */

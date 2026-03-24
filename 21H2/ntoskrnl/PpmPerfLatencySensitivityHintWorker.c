@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfLatencySensitivityHintWorker @ 0x140224690
+ * XREFs of PpmPerfLatencySensitivityHintWorker @ 0x140382130
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckCustomRun @ 0x14022475C (PpmCheckCustomRun.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
  */
 
-__int64 PpmPerfLatencySensitivityHintWorker()
+char PpmPerfLatencySensitivityHintWorker()
 {
-  PpmAcquireLock(&PpmPerfPolicyLock);
+  PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PpmPerfLatencyBoostQueued = 0;
-  return PpmCheckCustomRun(3LL);
+  return PpmCheckCustomRun(3);
 }

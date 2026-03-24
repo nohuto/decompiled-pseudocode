@@ -1,16 +1,16 @@
 /*
- * XREFs of IoGetStackLimits @ 0x1402AB940
+ * XREFs of IoGetStackLimits @ 0x140350420
  * Callers:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpApplyPayloadFilterInternal @ 0x1406375D0 (EtwpApplyPayloadFilterInternal.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
- *     _RegRtlEnumKeyWithCallback @ 0x14083EB44 (_RegRtlEnumKeyWithCallback.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140A62018 (HalpCheckLowMemoryPreSleep.c)
- *     ViDeadlockCheckStackLimits @ 0x140A993C8 (ViDeadlockCheckStackLimits.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1405B0D88 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1407B14E0 (_RegRtlEnumKeyWithCallback.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x1409A809C (HalpCheckLowMemoryPreSleep.c)
+ *     ViDeadlockCheckStackLimits @ 0x1409DF1AC (ViDeadlockCheckStackLimits.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x1402AB970 (RtlpGetStackLimits.c)
+ *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
  */
 
 void __stdcall IoGetStackLimits(PULONG_PTR LowLimit, PULONG_PTR HighLimit)

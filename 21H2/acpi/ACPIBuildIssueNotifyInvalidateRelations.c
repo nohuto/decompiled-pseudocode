@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBuildIssueNotifyInvalidateRelations @ 0x1C0027360
+ * XREFs of ACPIBuildIssueNotifyInvalidateRelations @ 0x1C002E630
  * Callers:
  *     <none>
  * Callees:
- *     ACPIPendingInvalidate @ 0x1C00273EC (ACPIPendingInvalidate.c)
+ *     ACPIPendingInvalidate @ 0x1C002E6BC (ACPIPendingInvalidate.c)
  */
 
 void __fastcall ACPIBuildIssueNotifyInvalidateRelations(__int64 a1, __int64 a2)
@@ -20,11 +20,11 @@ void __fastcall ACPIBuildIssueNotifyInvalidateRelations(__int64 a1, __int64 a2)
       {
         _InterlockedAnd64((volatile signed __int64 *)(a2 + 8), 0xFFFFFBFFFFFFFFFFuLL);
         if ( !(unsigned __int8)ACPIPendingInvalidate(a2) )
-          IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(a2 + 784), BusRelations);
+          IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(a2 + 744), BusRelations);
       }
       break;
     }
-    a2 = *(_QWORD *)(a2 + 792);
+    a2 = *(_QWORD *)(a2 + 752);
   }
   KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
 }

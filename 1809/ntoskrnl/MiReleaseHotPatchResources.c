@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseHotPatchResources @ 0x140857F2C
+ * XREFs of MiReleaseHotPatchResources @ 0x140857F0C
  * Callers:
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
- *     MiFinishHoldingDirtyFaults @ 0x1402B94EC (MiFinishHoldingDirtyFaults.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     MiFinishHoldingDirtyFaults @ 0x1402B95EC (MiFinishHoldingDirtyFaults.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of vFetchAndCopy @ 0x1C02DA2BC
+ * XREFs of vFetchAndCopy @ 0x1C02DBE2C
  * Callers:
- *     ?vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5BD0 (-vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
- *     ?vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C61D0 (-vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
- *     ?vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C63DC (-vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C73F0 (-vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C79E0 (-vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C7BEC (-vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
  * Callees:
- *     ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C02DA208 (-CopyPattern@@YAXPEAKJJJ@Z.c)
+ *     ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C02DBD78 (-CopyPattern@@YAXPEAKJJJ@Z.c)
  */
 
 void __fastcall vFetchAndCopy(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1CAtlasEntry@@QEAA@XZ @ 0x18003EE0C
+ * XREFs of ??1CAtlasEntry@@QEAA@XZ @ 0x18024B960
  * Callers:
- *     ??1CAtlasBitmapResource@@MEAA@XZ @ 0x18003EE30 (--1CAtlasBitmapResource@@MEAA@XZ.c)
- *     ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x1800F91D8 (-GenerateWhitePixel@CAtlasTexture@@AEAAXXZ.c)
+ *     ??1CAtlasBitmapResource@@MEAA@XZ @ 0x18020A488 (--1CAtlasBitmapResource@@MEAA@XZ.c)
+ *     ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x18024C694 (-GenerateWhitePixel@CAtlasTexture@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

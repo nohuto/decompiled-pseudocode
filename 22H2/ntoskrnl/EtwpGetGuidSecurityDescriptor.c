@@ -1,39 +1,37 @@
 /*
- * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140741A64
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x1406BD23C
  * Callers:
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0FAC (EtwpGetSecurityDescriptorByGuid.c)
- *     EtwpInitializeSecurity @ 0x140B74864 (EtwpInitializeSecurity.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406BD12C (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpInitializeSecurity @ 0x140A724AC (EtwpInitializeSecurity.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlQueryRegistryValueWithFallback @ 0x140741BA0 (RtlQueryRegistryValueWithFallback.c)
- *     SeValidSecurityDescriptor @ 0x1407B4510 (SeValidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x140676E80 (SeValidSecurityDescriptor.c)
+ *     RtlQueryRegistryValueWithFallback @ 0x1406BD370 (RtlQueryRegistryValueWithFallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(PUNICODE_STRING ValueName, _QWORD *a2)
 {
-  void *ValueData; // rdi
-  ULONG v3; // ebx
+  PVOID ValueData; // rbx
+  SIZE_T v3; // rsi
   NTSTATUS v6; // eax
-  NTSTATUS v7; // esi
-  unsigned int v8; // ebx
-  ULONG v10; // ebx
-  void *Pool2; // rax
+  int v7; // edi
+  PVOID PoolWithTag; // rax
   ULONG Length; // [rsp+68h] [rbp+10h] BYREF
   ULONG ValueType; // [rsp+70h] [rbp+18h] BYREF
 
   ValueData = 0LL;
-  v3 = 512;
+  v3 = 512LL;
   ValueType = 0;
   *a2 = 0LL;
   for ( Length = 512; ; v3 = Length )
   {
     if ( ValueData )
       ExFreePoolWithTag(ValueData, 0);
-    ValueData = (void *)ExAllocatePool2(256LL, v3, 1350005829LL);
+    ValueData = ExAllocatePoolWithTag(PagedPool, (unsigned int)v3, 0x50777445u);
     if ( !ValueData )
-      return (unsigned int)-1073741670;
+      break;
     v6 = RtlQueryRegistryValueWithFallback(
            EtwpMutableSecurityKeyHandle,
            EtwpSecurityKeyHandle,
@@ -44,31 +42,30 @@ __int64 __fastcall EtwpGetGuidSecurityDescriptor(PUNICODE_STRING ValueName, _QWO
            &Length);
     v7 = v6;
     if ( v6 != -2147483643 && v6 != -1073741789 )
-      break;
-  }
-  v8 = v6;
-  if ( v6 >= 0 && ValueType == 3 )
-  {
-    if ( SeValidSecurityDescriptor(Length, ValueData) )
     {
-      v10 = Length;
-      Pool2 = (void *)ExAllocatePool2(256LL, Length, 1350005829LL);
-      *a2 = Pool2;
-      if ( Pool2 )
-      {
-        memmove(Pool2, ValueData, v10);
-        v8 = v7;
-      }
+      v3 = Length;
+      goto LABEL_8;
+    }
+  }
+  v7 = -1073741670;
+LABEL_8:
+  if ( v7 >= 0 && ValueType == 3 )
+  {
+    if ( SeValidSecurityDescriptor(v3, ValueData) )
+    {
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x50777445u);
+      *a2 = PoolWithTag;
+      if ( PoolWithTag )
+        memmove(PoolWithTag, ValueData, v3);
       else
-      {
-        v8 = -1073741670;
-      }
+        v7 = -1073741670;
     }
     else
     {
-      v8 = -1073741703;
+      v7 = -1073741703;
     }
   }
-  ExFreePoolWithTag(ValueData, 0);
-  return v8;
+  if ( ValueData )
+    ExFreePoolWithTag(ValueData, 0);
+  return (unsigned int)v7;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInitializeIrpWorkers @ 0x140B2D120
+ * XREFs of PopInitializeIrpWorkers @ 0x140A70C40
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140250C50 (ExInitializeNPagedLookasideListInternal.c)
- *     PopCreatePowerThread @ 0x1403B5088 (PopCreatePowerThread.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14037A700 (ExInitializeNPagedLookasideListInternal.c)
+ *     PopCreatePowerThread @ 0x1403A5238 (PopCreatePowerThread.c)
  */
 
 NTSTATUS PopInitializeIrpWorkers()
@@ -13,12 +13,12 @@ NTSTATUS PopInitializeIrpWorkers()
   int v1; // ebx
 
   PopCreateIrpWorkerAllowed = 1;
-  qword_140C1FB58 = (__int64)&PopIrpThreadList;
+  qword_140C20BE8 = (__int64)&PopIrpThreadList;
   PopIrpThreadList = (__int64)&PopIrpThreadList;
-  qword_140C22768 = (__int64)&PopIrpWorkerList;
+  qword_140C23408 = (__int64)&PopIrpWorkerList;
   PopIrpWorkerList = (__int64)&PopIrpWorkerList;
-  qword_140C22790 = (__int64)&qword_140C22788;
-  qword_140C22788 = (__int64)&qword_140C22788;
+  qword_140C233F0 = (__int64)&qword_140C233E8;
+  qword_140C233E8 = (__int64)&qword_140C233E8;
   PopIrpWorkerControlEvent.Header.WaitListHead.Blink = &PopIrpWorkerControlEvent.Header.WaitListHead;
   PopIrpWorkerControlEvent.Header.WaitListHead.Flink = &PopIrpWorkerControlEvent.Header.WaitListHead;
   PopIrpWorkerMutex.Event.Header.WaitListHead.Blink = &PopIrpWorkerMutex.Event.Header.WaitListHead;
@@ -28,9 +28,9 @@ NTSTATUS PopInitializeIrpWorkers()
   PopIrpWorkerPendingCount = 0;
   PopIrpWorkerRequested = 0;
   PopIrpWorkerSemaphore = 5;
-  byte_140C22782 = 8;
-  dword_140C22784 = 0;
-  dword_140C22798 = 0x7FFFFFFF;
+  byte_140C233E2 = 8;
+  dword_140C233E4 = 0;
+  dword_140C233F8 = 0x7FFFFFFF;
   LOWORD(PopIrpWorkerControlEvent.Header.Lock) = 1;
   PopIrpWorkerControlEvent.Header.Size = 6;
   PopIrpWorkerControlEvent.Header.SignalState = 0;

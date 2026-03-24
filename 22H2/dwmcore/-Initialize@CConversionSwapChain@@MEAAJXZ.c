@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CConversionSwapChain@@MEAAJXZ @ 0x1802A2500
+ * XREFs of ?Initialize@CConversionSwapChain@@MEAAJXZ @ 0x18024F6A0
  * Callers:
- *     ?Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacySwapChain@@@Z @ 0x1802A1DFC (-Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM.c)
+ *     ?Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@IPEAPEAVILegacySwapChain@@@Z @ 0x18024F17C (-Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AE.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Initialize@CLegacySwapChain@@MEAAJXZ @ 0x1800ED120 (-Initialize@CLegacySwapChain@@MEAAJXZ.c)
- *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x1802A1F98 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CLegacySwapChain@@MEAAJXZ @ 0x1800D9EC0 (-Initialize@CLegacySwapChain@@MEAAJXZ.c)
+ *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x18024F308 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CConversionSwapChain::Initialize(CConversionSwapChain *this)
@@ -20,14 +20,14 @@ __int64 __fastcall CConversionSwapChain::Initialize(CConversionSwapChain *this)
   v4 = v2;
   if ( v2 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x5Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x5Cu, 0LL);
   }
   else
   {
     v5 = CConversionSwapChain::EnsureTargetBitmap(this);
     v4 = v5;
     if ( v5 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x5Fu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x5Eu, 0LL);
   }
   return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_EnsureInputBufferForTrbs @ 0x1C0041750
+ * XREFs of TR_EnsureInputBufferForTrbs @ 0x1C003F23C
  * Callers:
- *     Isoch_PrepareStage @ 0x1C0004B00 (Isoch_PrepareStage.c)
- *     Control_Transfer_Map @ 0x1C0007348 (Control_Transfer_Map.c)
- *     Bulk_PrepareStage @ 0x1C00123CC (Bulk_PrepareStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     Control_Transfer_Map @ 0x1C00040CC (Control_Transfer_Map.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ __int64 __fastcall TR_EnsureInputBufferForTrbs(__int64 a1, unsigned int a2)
   unsigned int v6; // ecx
   unsigned int v7; // edx
   bool v8; // cf
-  __int64 v9; // rdx
-  __int64 Pool2; // rax
+  SIZE_T v9; // rdx
+  PVOID PoolWithTag; // rax
 
   v2 = 0;
   if ( a2 >= *(_DWORD *)(a1 + 312) )
@@ -32,9 +32,9 @@ __int64 __fastcall TR_EnsureInputBufferForTrbs(__int64 a1, unsigned int a2)
     v9 = 0LL;
     if ( !v8 )
       v9 = v6;
-    Pool2 = ExAllocatePool2(64LL, v9, 1229146200LL);
-    *(_QWORD *)(a1 + 304) = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v9, 0x49434858u);
+    *(_QWORD *)(a1 + 304) = PoolWithTag;
+    if ( PoolWithTag )
       *(_DWORD *)(a1 + 312) = a2;
     else
       return (unsigned int)-1073741670;

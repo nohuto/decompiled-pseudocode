@@ -1,29 +1,29 @@
 /*
- * XREFs of PsSetCpuQuotaInformation @ 0x1405A3A14
+ * XREFs of PsSetCpuQuotaInformation @ 0x140580F48
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     KeSetSchedulingGroupWeights @ 0x140200D84 (KeSetSchedulingGroupWeights.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     MmGetSessionSchedulingGroup @ 0x140A3261C (MmGetSessionSchedulingGroup.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeSetSchedulingGroupWeights @ 0x1402DDB30 (KeSetSchedulingGroupWeights.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MmGetSessionSchedulingGroup @ 0x1408C8C5C (MmGetSessionSchedulingGroup.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetCpuQuotaInformation(unsigned __int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
 {
-  __int64 v4; // rbx
-  __int64 v7; // rbx
-  _QWORD *Pool2; // rax
+  __int64 v4; // rdi
+  __int64 v7; // rdi
+  _QWORD *PoolWithQuotaTag; // rax
   _QWORD *v9; // r14
-  __int64 v10; // r12
-  __int64 v11; // r13
+  __int64 v10; // r13
+  __int64 v11; // r12
   __int64 i; // r8
   int v13; // eax
-  NTSTATUS v14; // edi
+  NTSTATUS v14; // ebx
   __int64 j; // rsi
   void *v16; // rcx
   __int64 SessionSchedulingGroup; // rax
@@ -49,12 +49,11 @@ __int64 __fastcall PsSetCpuQuotaInformation(unsigned __int64 a1, unsigned int a2
   v7 = (unsigned int)v4 >> 4;
   if ( (unsigned __int64)(24 * v7) > 0xFFFFFFFF )
     return 3221225621LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(65LL, (unsigned int)(24 * v7), 1666413392LL);
-  v9 = Pool2;
-  Object = Pool2;
-  if ( !Pool2 )
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, (unsigned int)(24 * v7), 0x63537350u);
+  v9 = PoolWithQuotaTag;
+  if ( !PoolWithQuotaTag )
     return 3221225626LL;
-  v10 = (__int64)&Pool2[v7];
+  v10 = (__int64)&PoolWithQuotaTag[v7];
   v11 = v10 + 8 * v7;
   for ( i = 0LL; (unsigned int)i < (unsigned int)v7; i = (unsigned int)(i + 1) )
   {

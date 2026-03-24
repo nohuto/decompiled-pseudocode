@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x1409405C0
+ * XREFs of ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14088DA30
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IoSynchronousCallDriver @ 0x140354C60 (IoSynchronousCallDriver.c)
- *     IoBuildAsynchronousFsdRequest @ 0x140371560 (IoBuildAsynchronousFsdRequest.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IoSynchronousCallDriver @ 0x140318390 (IoSynchronousCallDriver.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x140358DB0 (IoBuildAsynchronousFsdRequest.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
  */
 
 __int64 __fastcall NT_DISK::Write(PDEVICE_OBJECT *this, LARGE_INTEGER a2, ULONG a3, unsigned __int8 *a4)
@@ -18,12 +18,12 @@ __int64 __fastcall NT_DISK::Write(PDEVICE_OBJECT *this, LARGE_INTEGER a2, ULONG 
   LARGE_INTEGER v9; // [rsp+48h] [rbp+10h] BYREF
 
   v9 = a2;
-  v5 = IoBuildAsynchronousFsdRequest(4u, this[49], a4, a3, &v9, 0LL);
+  v5 = IoBuildAsynchronousFsdRequest(4u, this[44], a4, a3, &v9, 0LL);
   v6 = v5;
   if ( v5 )
   {
     v5->Tail.Overlay.CurrentStackLocation[-1].Flags |= 0x12u;
-    v7 = IoSynchronousCallDriver(this[49], v5);
+    v7 = IoSynchronousCallDriver(this[44], v5);
     MmUnlockPages(v6->MdlAddress);
     IoFreeMdl(v6->MdlAddress);
     IoFreeIrp(v6);

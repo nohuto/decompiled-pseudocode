@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D3DXVector3Angle@@YAMAEBUD2DVector3@@0@Z @ 0x18026F1E0
+ * XREFs of ?D3DXVector3Angle@@YAMAEBUD2DVector3@@0@Z @ 0x18021EC70
  * Callers:
- *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x18018F458 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
+ *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x18022F874 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 float __fastcall D3DXVector3Angle(const struct D2DVector3 *a1, const struct D2DVector3 *a2)
@@ -21,9 +21,9 @@ float __fastcall D3DXVector3Angle(const struct D2DVector3 *a1, const struct D2DV
   v4 = *((float *)a1 + 2);
   v5 = *(float *)a1;
   v6 = (float)((float)(*(float *)a2 * *(float *)a1) + (float)(*((float *)a2 + 1) * v3)) + (float)(v2 * v4);
-  v7 = o_sqrtf_0(
+  v7 = sqrtf_0(
          (float)((float)(*(float *)a2 * *(float *)a2) + (float)(*((float *)a2 + 1) * *((float *)a2 + 1)))
        + (float)(v2 * v2));
-  v8 = v6 / (float)(v7 * o_sqrtf_0((float)((float)(v5 * v5) + (float)(v3 * v3)) + (float)(v4 * v4)));
-  return acosf(v8);
+  v8 = v6 / (float)(v7 * sqrtf_0((float)((float)(v5 * v5) + (float)(v3 * v3)) + (float)(v4 * v4)));
+  return acosf_0(v8);
 }

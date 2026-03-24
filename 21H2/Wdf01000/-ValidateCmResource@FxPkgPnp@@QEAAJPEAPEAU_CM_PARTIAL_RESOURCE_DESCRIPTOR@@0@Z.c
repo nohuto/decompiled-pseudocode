@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ValidateCmResource@FxPkgPnp@@QEAAJPEAPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C0085008
+ * XREFs of ?ValidateCmResource@FxPkgPnp@@QEAAJPEAPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C007C170
  * Callers:
- *     ?ValidateInterruptResourceCm@FxPkgPnp@@QEAAJPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C00851D4 (-ValidateInterruptResourceCm@FxPkgPnp@@QEAAJPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0PEAU_WDF_INTER.c)
+ *     ?ValidateInterruptResourceCm@FxPkgPnp@@QEAAJPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C007C340 (-ValidateInterruptResourceCm@FxPkgPnp@@QEAAJPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0PEAU_WDF_INTER.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
  */
 
 __int64 __fastcall FxPkgPnp::ValidateCmResource(
@@ -21,23 +21,23 @@ __int64 __fastcall FxPkgPnp::ValidateCmResource(
   _LIST_ENTRY **v11; // r11
   _LIST_ENTRY *v12; // rcx
   _LIST_ENTRY *v13; // rbp
-  unsigned int v14; // ebx
-  const void *ObjectHandleUnchecked; // rax
-  const void **v16; // r8
+  const void *v14; // rbx
+  unsigned int v15; // ebx
+  unsigned __int64 v16; // rax
   int v17; // edx
-  const void *v19; // rbx
-  const void *v20; // rax
-  int v21; // edx
   const void *_a1; // r8
-  _CM_PARTIAL_RESOURCE_DESCRIPTOR *v23; // r15
-  unsigned __int64 v24; // rax
-  int v25; // edx
-  unsigned __int16 v26; // r9
-  const void *v27; // rax
-  _CM_PARTIAL_RESOURCE_DESCRIPTOR *v28; // rbp
-  unsigned __int64 v29; // rax
-  int v30; // edx
-  void *_a2; // [rsp+30h] [rbp-28h]
+  _CM_PARTIAL_RESOURCE_DESCRIPTOR *v19; // r15
+  unsigned __int64 v20; // rax
+  int v21; // edx
+  unsigned __int16 v22; // r9
+  const void *v23; // rax
+  _CM_PARTIAL_RESOURCE_DESCRIPTOR *v24; // rbp
+  unsigned __int64 v25; // rax
+  int v26; // edx
+  unsigned __int64 ObjectHandleUnchecked; // rax
+  const void **v28; // r8
+  int v29; // edx
+  __int64 _a2; // [rsp+30h] [rbp-28h]
   int _a3; // [rsp+38h] [rbp-20h]
 
   m_Resources = this->m_Resources;
@@ -47,64 +47,61 @@ __int64 __fastcall FxPkgPnp::ValidateCmResource(
   p_Blink = &Flink[-1].Blink;
   v11 = &this->m_ResourcesRaw->m_ListHead.Flink[-1].Blink;
   if ( p_Blink == (_LIST_ENTRY **)v9 )
+    goto LABEL_13;
+  do
   {
-LABEL_4:
-    v14 = -1073741811;
-    ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-    WPP_IFR_SF_qqd(m_Globals, 2u, 0xCu, 0x22u, WPP_PnpStateMachine_cpp_Traceguids, *v16, ObjectHandleUnchecked, v17);
+    v12 = *p_Blink;
+    v13 = *v11;
+    if ( (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)((char *)&(*p_Blink)[7].Blink + 4) == *CmResource )
+      break;
+    p_Blink = &p_Blink[1][-1].Blink;
+    v11 = &v11[1][-1].Blink;
   }
-  else
+  while ( p_Blink != (_LIST_ENTRY **)v9 );
+  if ( p_Blink == (_LIST_ENTRY **)v9 )
   {
-    while ( 1 )
-    {
-      v12 = *p_Blink;
-      v13 = *v11;
-      if ( (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)((char *)&(*p_Blink)[7].Blink + 4) == *CmResource )
-        break;
-      p_Blink = &p_Blink[1][-1].Blink;
-      v11 = &v11[1][-1].Blink;
-      if ( p_Blink == (_LIST_ENTRY **)v9 )
-        goto LABEL_4;
-    }
-    v19 = (char *)&v13[7].Blink + 4;
-    if ( (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)((char *)&v13[7].Blink + 4) == *CmResourceRaw )
-    {
-      v23 = (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v12[6].Blink;
-      if ( RtlCompareMemory((char *)&v12[7].Blink + 4, &v12[6].Blink, 0x14uLL) == 20 )
-      {
-        v28 = (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v13[6].Blink;
-        if ( RtlCompareMemory(v19, v28, 0x14uLL) == 20 )
-        {
-          *CmResource = v23;
-          v14 = 0;
-          *CmResourceRaw = v28;
-          return v14;
-        }
-        v14 = -1073741811;
-        v29 = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-        _a3 = v30;
-        v26 = 37;
-        _a2 = (void *)v29;
-        v27 = *CmResourceRaw;
-      }
-      else
-      {
-        v14 = -1073741811;
-        v24 = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-        _a3 = v25;
-        v26 = 36;
-        _a2 = (void *)v24;
-        v27 = *CmResource;
-      }
-      WPP_IFR_SF_qqd(m_Globals, 2u, 0xCu, v26, WPP_PnpStateMachine_cpp_Traceguids, v27, _a2, _a3);
-    }
-    else
-    {
-      v14 = -1073741811;
-      v20 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-      WPP_IFR_SF_qqd(m_Globals, 2u, 0xCu, 0x23u, WPP_PnpStateMachine_cpp_Traceguids, _a1, v20, v21);
-    }
+LABEL_13:
+    v15 = -1073741811;
+    ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    WPP_IFR_SF_qid(m_Globals, 2u, 0xCu, 0x22u, WPP_PnpStateMachine_cpp_Traceguids, *v28, ObjectHandleUnchecked, v29);
+    goto LABEL_14;
   }
-  FxVerifierDbgBreakPoint(m_Globals);
-  return v14;
+  v14 = (char *)&v13[7].Blink + 4;
+  if ( (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)((char *)&v13[7].Blink + 4) != *CmResourceRaw )
+  {
+    v15 = -1073741811;
+    v16 = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    WPP_IFR_SF_qid(m_Globals, 2u, 0xCu, 0x23u, WPP_PnpStateMachine_cpp_Traceguids, _a1, v16, v17);
+LABEL_14:
+    FxVerifierDbgBreakPoint(m_Globals);
+    return v15;
+  }
+  v19 = (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v12[6].Blink;
+  if ( RtlCompareMemory((char *)&v12[7].Blink + 4, &v12[6].Blink, 0x14uLL) != 20 )
+  {
+    v15 = -1073741811;
+    v20 = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    _a3 = v21;
+    v22 = 36;
+    _a2 = v20;
+    v23 = *CmResource;
+LABEL_9:
+    WPP_IFR_SF_qid(m_Globals, 2u, 0xCu, v22, WPP_PnpStateMachine_cpp_Traceguids, v23, _a2, _a3);
+    goto LABEL_14;
+  }
+  v24 = (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v13[6].Blink;
+  if ( RtlCompareMemory(v14, v24, 0x14uLL) != 20 )
+  {
+    v15 = -1073741811;
+    v25 = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    _a3 = v26;
+    v22 = 37;
+    _a2 = v25;
+    v23 = *CmResourceRaw;
+    goto LABEL_9;
+  }
+  *CmResource = v19;
+  v15 = 0;
+  *CmResourceRaw = v24;
+  return v15;
 }

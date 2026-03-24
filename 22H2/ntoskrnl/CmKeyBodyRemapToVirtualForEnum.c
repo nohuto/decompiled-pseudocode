@@ -1,433 +1,218 @@
 /*
- * XREFs of CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0
+ * XREFs of CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470
  * Callers:
- *     NtQueryKey @ 0x1406D6C60 (NtQueryKey.c)
- *     NtEnumerateKey @ 0x1406DBEC0 (NtEnumerateKey.c)
- *     NtQueryValueKey @ 0x1406E2F20 (NtQueryValueKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DE10 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E3E0 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     NtQueryValueKey @ 0x140645200 (NtQueryValueKey.c)
+ *     NtQueryKey @ 0x140645C90 (NtQueryKey.c)
+ *     NtQueryMultipleValueKey @ 0x140686BA0 (NtQueryMultipleValueKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     CmpIsKcbInsideVirtualizedHive @ 0x1406E2AF0 (CmpIsKcbInsideVirtualizedHive.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076B020 (CmpDereferenceKeyControlBlock.c)
- *     CmpFreeExtraParameter @ 0x1407E72A0 (CmpFreeExtraParameter.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x1409CA018 (SeCreateAccessStateFromSubjectContext.c)
- *     CmVirtualKCBToRealPath @ 0x140A188B8 (CmVirtualKCBToRealPath.c)
- *     CmpReparseToVirtualPath @ 0x140A19FB4 (CmpReparseToVirtualPath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
- *     CmObReferenceObjectByName @ 0x140AF66D4 (CmObReferenceObjectByName.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     CmpHasKcbBeenMirrored @ 0x140314E28 (CmpHasKcbBeenMirrored.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KCBIsVirtualizable @ 0x140345580 (KCBIsVirtualizable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmObReferenceObjectByName @ 0x1405CD0F0 (CmObReferenceObjectByName.c)
+ *     SeDeleteAccessState @ 0x1405DC900 (SeDeleteAccessState.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpLockKcbShared @ 0x140640230 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpReparseToVirtualPath @ 0x1406854AC (CmpReparseToVirtualPath.c)
+ *     CmpCleanupParseContext @ 0x1406CE840 (CmpCleanupParseContext.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     CmpIsSystemEntity @ 0x1406CF8B0 (CmpIsSystemEntity.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FB28 (CmVirtualKCBToRealPath.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x14091D21C (SeCreateAccessStateFromSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmKeyBodyRemapToVirtualForEnum(PVOID *a1, char a2, int a3, PVOID *a4)
+__int64 __fastcall CmKeyBodyRemapToVirtualForEnum(__int64 *a1, unsigned __int8 a2, int a3, _QWORD *a4)
 {
-  _QWORD *v6; // r15
-  _KPROCESS *v7; // rdx
-  PVOID v8; // r8
-  __int64 v9; // r9
-  char v10; // r12
-  __int64 v11; // r14
-  struct _KTHREAD *CurrentThread; // rbx
-  __int64 Process; // r13
-  _QWORD *v14; // rdi
+  int v4; // ebx
+  __int64 v7; // r13
+  struct _DMA_ADAPTER *v8; // rdi
+  char v9; // r14
+  char v10; // r15
+  ULONG_PTR v11; // rsi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
   int AccessStateFromSubjectContext; // ebx
-  struct _KTHREAD *v16; // r15
-  signed __int64 *p_WaitBlockList; // rsi
-  ULONG_PTR v18; // rax
-  _QWORD *v19; // rsi
+  __int64 v16; // rdx
+  struct _DMA_ADAPTER **v17; // rsi
+  int v18; // edx
+  __int64 v19; // r9
   int v20; // eax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rdx
-  char v26; // al
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  int v39; // r13d
-  PVOID *v40; // r14
-  int v41; // edx
-  int v42; // eax
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // rdx
-  __int64 v47; // r8
-  __int64 v48; // r9
-  __int64 v49; // rcx
-  PVOID *v50; // rcx
-  signed __int64 v51; // rax
-  signed __int64 v52; // rtt
-  wchar_t *Buffer; // rcx
-  __int64 v54; // rdx
-  __int64 v55; // rcx
-  __int64 v56; // r8
-  __int64 v57; // r9
-  _OWORD *v58; // rax
-  __int64 v59; // rcx
-  __int64 v60; // rcx
-  char v62; // [rsp+48h] [rbp-C0h]
-  char v64; // [rsp+4Ah] [rbp-BEh]
-  char v65; // [rsp+4Bh] [rbp-BDh]
-  PVOID Object; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD *v67; // [rsp+58h] [rbp-B0h] BYREF
-  PVOID v68[2]; // [rsp+60h] [rbp-A8h]
-  __int64 v69; // [rsp+70h] [rbp-98h]
-  PVOID TokenInformation; // [rsp+78h] [rbp-90h] BYREF
-  int v71; // [rsp+80h] [rbp-88h]
-  PVOID *v72; // [rsp+88h] [rbp-80h]
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-78h] BYREF
-  PVOID *v74; // [rsp+A0h] [rbp-68h]
-  _DWORD v75[2]; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v76; // [rsp+B0h] [rbp-58h]
-  UNICODE_STRING *p_DestinationString; // [rsp+B8h] [rbp-50h]
-  int v78; // [rsp+C0h] [rbp-48h]
-  int v79; // [rsp+C4h] [rbp-44h]
-  __int128 v80; // [rsp+C8h] [rbp-40h]
-  __int128 v81; // [rsp+E0h] [rbp-28h]
-  __int128 v82; // [rsp+F0h] [rbp-18h]
-  _OWORD v83[19]; // [rsp+108h] [rbp+0h] BYREF
-  _OWORD v84[3]; // [rsp+238h] [rbp+130h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT v85[5]; // [rsp+268h] [rbp+160h] BYREF
-  _BYTE v86[224]; // [rsp+308h] [rbp+200h] BYREF
+  char v23; // [rsp+41h] [rbp-BFh]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 *v27; // [rsp+60h] [rbp-A0h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp-98h] BYREF
+  _DWORD v29[2]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v30; // [rsp+90h] [rbp-70h]
+  UNICODE_STRING *p_DestinationString; // [rsp+98h] [rbp-68h]
+  int v32; // [rsp+A0h] [rbp-60h]
+  int v33; // [rsp+A4h] [rbp-5Ch]
+  __int128 v34; // [rsp+A8h] [rbp-58h]
+  _OWORD v35[19]; // [rsp+C0h] [rbp-40h] BYREF
+  _OWORD v36[3]; // [rsp+1F0h] [rbp+F0h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT v37[5]; // [rsp+220h] [rbp+120h] BYREF
+  _BYTE v38[224]; // [rsp+2C0h] [rbp+1C0h] BYREF
 
-  v71 = a3;
-  v74 = a1;
-  v72 = a4;
+  v4 = a3;
+  v27 = a1;
   DestinationString = 0LL;
-  memset(v85, 0, sizeof(v85));
-  memset(v86, 0, sizeof(v86));
-  v65 = 0;
-  v75[1] = 0;
-  v79 = 0;
+  memset(v37, 0, sizeof(v37));
+  memset(v38, 0, sizeof(v38));
+  v29[1] = 0;
+  v33 = 0;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  TokenInformation = *a1;
-  v6 = TokenInformation;
-  Object = 0LL;
-  memset(v84, 0, sizeof(v84));
-  memset(v83, 0, 0x128uLL);
-  LODWORD(v83[6]) = -1;
+  v7 = *a1;
+  DmaAdapter = 0LL;
+  memset(v36, 0, sizeof(v36));
+  v8 = 0LL;
+  memset(v35, 0, 0x128uLL);
+  LODWORD(v35[6]) = -1;
   *a4 = 0LL;
-  *((_QWORD *)&v83[9] + 1) = &v83[9];
+  *((_QWORD *)&v35[9] + 1) = &v35[9];
+  v9 = 0;
+  *(_OWORD *)((char *)&v35[13] + 8) = 0LL;
+  v23 = 0;
+  *(_QWORD *)&v35[9] = &v35[9];
   v10 = 0;
-  *(_OWORD *)((char *)&v83[13] + 8) = 0LL;
-  v62 = 0;
-  *(_QWORD *)&v83[9] = &v83[9];
-  *(_OWORD *)((char *)&v83[14] + 8) = 0LL;
-  v64 = 0;
-  *(_OWORD *)((char *)&v83[15] + 8) = 0LL;
-  *(_OWORD *)((char *)&v83[16] + 8) = 0LL;
-  *(_OWORD *)((char *)&v83[17] + 8) = 0LL;
-  v11 = v6[1];
-  *(_OWORD *)v68 = 0LL;
-  if ( *(_WORD *)(v11 + 66) || (v6[6] & 0x10) != 0 || !CmpVEEnabled )
-    goto LABEL_81;
-  v7 = (_KPROCESS *)*(unsigned int *)(v11 + 184);
-  if ( ((unsigned int)v7 & 0x2000000) == 0 && (unsigned __int8)CmpIsKcbInsideVirtualizedHive(v11) )
+  *(_OWORD *)((char *)&v35[14] + 8) = 0LL;
+  *(_OWORD *)((char *)&v35[15] + 8) = 0LL;
+  *(_OWORD *)((char *)&v35[16] + 8) = 0LL;
+  *(_OWORD *)((char *)&v35[17] + 8) = 0LL;
+  v11 = *(_QWORD *)(v7 + 8);
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  if ( !*(_WORD *)(v11 + 66) && (*(_DWORD *)(v7 + 48) & 0x10) == 0 )
   {
-    v10 = 1;
-    goto LABEL_9;
-  }
-  if ( ((unsigned int)v7 & 0x1000000) == 0 )
-  {
-LABEL_81:
-    AccessStateFromSubjectContext = 0;
-    goto LABEL_82;
-  }
-  v62 = 1;
-LABEL_9:
-  CurrentThread = KeGetCurrentThread();
-  Process = (__int64)CurrentThread->ApcState.Process;
-  v69 = *(_QWORD *)(Process + 1088);
-  if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
-  {
-    v16 = KeGetCurrentThread();
-    p_WaitBlockList = (signed __int64 *)&CurrentThread[1].WaitBlockList;
-    --v16->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)&CurrentThread[1].WaitBlockList, 0LL);
-    if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
+    if ( KCBIsVirtualizable(v11) )
     {
-      v14 = (_QWORD *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
-      ObfReferenceObjectWithTag(v14, 0x75536553u);
-      LODWORD(v68[0]) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
-      AccessStateFromSubjectContext = 0;
-    }
-    else
-    {
-      AccessStateFromSubjectContext = 0;
-      v14 = 0LL;
-    }
-    if ( _InterlockedCompareExchange64(p_WaitBlockList, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(p_WaitBlockList);
-    KeAbPostRelease((ULONG_PTR)p_WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)v16);
-    v6 = TokenInformation;
-  }
-  else
-  {
-    v14 = 0LL;
-    AccessStateFromSubjectContext = 0;
-  }
-  v67 = v14;
-  v18 = PsReferencePrimaryTokenWithTag(Process, 0x75536553u);
-  v19 = (_QWORD *)v18;
-  v68[1] = (PVOID)v18;
-  if ( HIDWORD(NlsMbOemCodePageTag) )
-  {
-    if ( v18 )
-    {
-      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v18 + 1144) + 284LL));
-      v19 = v68[1];
-      if ( v68[1] == (PVOID)SepTokenLeakToken )
-        __debugbreak();
-      v14 = v67;
-    }
-    if ( v14 )
-    {
-      _InterlockedIncrement((volatile signed __int32 *)(v14[143] + 284LL));
-      v14 = v67;
-      if ( v67 == (_QWORD *)SepTokenLeakToken )
-        __debugbreak();
-      v19 = v68[1];
-    }
-  }
-  v81 = 0LL;
-  v82 = 0LL;
-  if ( !CmpVEEnabled )
-  {
-LABEL_59:
-    if ( Object )
-      ObfDereferenceObject(Object);
-    if ( !v64 )
-      goto LABEL_63;
-    goto LABEL_62;
-  }
-  v20 = v83[1];
-  if ( (v83[1] & 1) == 0 )
-  {
-    if ( !a2 )
-      goto LABEL_59;
-    LODWORD(TokenInformation) = 0;
-    if ( !v14 )
-    {
-      SeQueryInformationToken(v19, TokenVirtualizationEnabled, &TokenInformation);
-      if ( (_DWORD)TokenInformation )
+      v9 = 1;
+LABEL_8:
+      SeCaptureSubjectContext(&SubjectContext);
+      if ( (unsigned __int8)CmpIsSystemEntity(a2) || v9 && !CmpHasKcbBeenMirrored(v11) )
       {
-        LODWORD(v83[1]) |= 5u;
-        goto LABEL_34;
+        AccessStateFromSubjectContext = 0;
+        SeReleaseSubjectContext(&SubjectContext);
+        goto LABEL_42;
       }
-      v20 = v83[1];
+      CmpAttachToRegistryProcess((__int64)v36, v12, v13, v14);
+      CmpLockRegistry();
+      CmpLockKcbShared(v11);
+      if ( v9 )
+      {
+        AccessStateFromSubjectContext = CmpPerformKeyBodyDeletionCheck(v7, 0LL);
+        if ( AccessStateFromSubjectContext < 0 )
+        {
+LABEL_26:
+          CmpUnlockKcb(v11);
+          goto LABEL_30;
+        }
+        if ( CmpReparseToVirtualPath(v11, v16, (__int64)&SubjectContext, &DestinationString) )
+        {
+          v4 = a3;
+LABEL_16:
+          CmpUnlockKcb(v11);
+          CmpUnlockRegistry();
+          v17 = (struct _DMA_ADAPTER **)v27;
+          v18 = 8;
+          LODWORD(v35[0]) = 8;
+          if ( !v4 )
+            v18 = 4104;
+          *((_QWORD *)&v35[4] + 1) = *(_QWORD *)(*v27 + 56);
+          LODWORD(v35[0]) = v18;
+          AccessStateFromSubjectContext = SeCreateAccessStateFromSubjectContext(
+                                            (unsigned int)&SubjectContext,
+                                            (unsigned int)v37,
+                                            (unsigned int)v38,
+                                            v4,
+                                            (__int64)CmKeyObjectType + 76);
+          if ( AccessStateFromSubjectContext < 0 )
+            goto LABEL_40;
+          v20 = 1600;
+          v23 = 1;
+          if ( a2 != 1 )
+            v20 = 576;
+          v29[0] = 48;
+          v32 = v20;
+          v30 = 0LL;
+          p_DestinationString = &DestinationString;
+          v34 = 0LL;
+          AccessStateFromSubjectContext = CmObReferenceObjectByName(
+                                            (int)v29,
+                                            (int)v37,
+                                            a3,
+                                            v19,
+                                            0,
+                                            (__int64)v35,
+                                            &DmaAdapter);
+          if ( AccessStateFromSubjectContext < 0 )
+          {
+            v8 = DmaAdapter;
+            if ( v10 )
+              AccessStateFromSubjectContext = 0;
+LABEL_31:
+            if ( v8 )
+              HalPutDmaAdapter(v8);
+            if ( !v23 )
+              goto LABEL_40;
+            goto LABEL_39;
+          }
+          CmpLockRegistry();
+          v8 = DmaAdapter;
+          if ( !WORD1(DmaAdapter->DmaOperations->MapTransfer) )
+          {
+            CmpUnlockRegistry();
+            if ( v9 )
+            {
+              *a4 = v8;
+            }
+            else
+            {
+              *v17 = v8;
+              *a4 = v7;
+            }
+            AccessStateFromSubjectContext = 0;
+LABEL_39:
+            SeDeleteAccessState(v37);
+LABEL_40:
+            CmpDetachFromRegistryProcess((__int64)v36);
+            SeReleaseSubjectContext(&SubjectContext);
+            goto LABEL_42;
+          }
+          if ( v10 )
+            AccessStateFromSubjectContext = 0;
+LABEL_30:
+          CmpUnlockRegistry();
+          goto LABEL_31;
+        }
+      }
+      else if ( (int)CmVirtualKCBToRealPath(v11, &DestinationString) >= 0 )
+      {
+        goto LABEL_16;
+      }
+      AccessStateFromSubjectContext = 0;
+      goto LABEL_26;
     }
-    LODWORD(v83[1]) = v20 | 3;
-    goto LABEL_59;
+    if ( CmpVEEnabled && (*(_DWORD *)(v11 + 184) & 0x1000000) != 0 )
+    {
+      v10 = 1;
+      goto LABEL_8;
+    }
   }
-  if ( (v83[1] & 2) != 0 )
-    goto LABEL_59;
-LABEL_34:
-  if ( v10 && (*(_DWORD *)(v11 + 184) & 0x800000) == 0 )
-    goto LABEL_59;
-  CmpAttachToRegistryProcess(v84);
-  v65 = 1;
-  CmpLockRegistry(v22, v21, v23, v24);
-  CmpLockKcbShared(v11);
-  if ( !v10 )
-  {
-    if ( (int)CmVirtualKCBToRealPath(v11, &DestinationString) >= 0 )
-      goto LABEL_42;
-LABEL_41:
-    CmpUnlockKcb(v11);
-    CmpUnlockRegistry(v32, v31, v33, v34);
-    goto LABEL_59;
-  }
-  AccessStateFromSubjectContext = CmpPerformKeyBodyDeletionCheck(v6, 0LL);
-  if ( AccessStateFromSubjectContext < 0 )
-    goto LABEL_41;
-  v26 = CmpReparseToVirtualPath(v11, v25, &v67, &DestinationString);
-  v19 = v68[1];
-  v14 = v67;
-  if ( !v26 )
-  {
-    AccessStateFromSubjectContext = 0;
-    CmpUnlockKcb(v11);
-    CmpUnlockRegistry(v28, v27, v29, v30);
-    goto LABEL_59;
-  }
+  AccessStateFromSubjectContext = 0;
 LABEL_42:
-  CmpUnlockKcb(v11);
-  CmpUnlockRegistry(v36, v35, v37, v38);
-  v39 = v71;
-  v40 = v74;
-  v41 = 8;
-  LODWORD(v83[0]) = 8;
-  if ( !v71 )
-    v41 = 4104;
-  *((_QWORD *)&v83[4] + 1) = *((_QWORD *)*v74 + 7);
-  LODWORD(v83[0]) = v41;
-  AccessStateFromSubjectContext = SeCreateAccessStateFromSubjectContext(
-                                    (unsigned int)&v67,
-                                    (unsigned int)v85,
-                                    (unsigned int)v86,
-                                    v71,
-                                    (__int64)CmKeyObjectType + 76);
-  if ( AccessStateFromSubjectContext < 0 )
-    goto LABEL_59;
-  v42 = 1600;
-  v64 = 1;
-  v75[0] = 48;
-  if ( a2 != 1 )
-    v42 = 576;
-  v76 = 0LL;
-  v78 = v42;
-  p_DestinationString = &DestinationString;
-  v80 = 0LL;
-  AccessStateFromSubjectContext = CmObReferenceObjectByName(
-                                    (unsigned int)v75,
-                                    (unsigned int)v85,
-                                    v39,
-                                    v9,
-                                    0,
-                                    (__int64)v83,
-                                    (__int64)&Object);
-  if ( AccessStateFromSubjectContext < 0 )
-  {
-    if ( v62 )
-      AccessStateFromSubjectContext = 0;
-    goto LABEL_59;
-  }
-  CmpLockRegistry(v44, v43, v45, v9);
-  v49 = *((_QWORD *)Object + 1);
-  if ( *(_WORD *)(v49 + 66) )
-  {
-    if ( v62 )
-      AccessStateFromSubjectContext = 0;
-    CmpUnlockRegistry(v49, v46, v47, v48);
-    goto LABEL_59;
-  }
-  CmpUnlockRegistry(v49, v46, v47, v48);
-  v50 = v72;
-  if ( v10 )
-  {
-    *v72 = Object;
-    Object = 0LL;
-    AccessStateFromSubjectContext = 0;
-  }
-  else
-  {
-    *v40 = Object;
-    Object = 0LL;
-    AccessStateFromSubjectContext = 0;
-    *v50 = v6;
-  }
-LABEL_62:
-  SepDeleteAccessState((__int64)v85);
-  SeReleaseSubjectContext(&v85[1]);
-LABEL_63:
-  if ( v65 )
-    CmpDetachFromRegistryProcess(v84);
-  if ( HIDWORD(NlsMbOemCodePageTag) )
-  {
-    if ( v19 )
-    {
-      _InterlockedDecrement((volatile signed __int32 *)(v19[143] + 284LL));
-      if ( v68[1] == (PVOID)SepTokenLeakToken )
-        __debugbreak();
-      v14 = v67;
-    }
-    if ( v14 )
-    {
-      _InterlockedDecrement((volatile signed __int32 *)(v14[143] + 284LL));
-      if ( v67 == (_QWORD *)SepTokenLeakToken )
-        __debugbreak();
-    }
-  }
-  v7 = KeGetCurrentThread()->ApcState.Process;
-  _m_prefetchw(&v7[1].Affinity.StaticBitmap[5]);
-  v51 = v7[1].Affinity.StaticBitmap[5];
-  v8 = v68[1];
-  if ( (v51 ^ (unsigned __int64)v68[1]) >= 0xF )
-  {
-LABEL_76:
-    ObfDereferenceObjectWithTag(v8, 0x75536553u);
-  }
-  else
-  {
-    while ( 1 )
-    {
-      v52 = v51;
-      v51 = _InterlockedCompareExchange64((volatile signed __int64 *)&v7[1].Affinity.StaticBitmap[5], v51 + 1, v51);
-      if ( v52 == v51 )
-        break;
-      v8 = v68[1];
-      if ( (v51 ^ (unsigned __int64)v68[1]) >= 0xF )
-        goto LABEL_76;
-    }
-    if ( ObpTraceFlags )
-      ObpPushStackInfo((__int64)v68[1] - 48, 0, 1u, 0x75536553u);
-  }
-  if ( v67 )
-    ObfDereferenceObjectWithTag(v67, 0x75536553u);
-LABEL_82:
-  Buffer = DestinationString.Buffer;
   if ( DestinationString.Buffer )
     ExFreePoolWithTag(DestinationString.Buffer, 0);
-  if ( *((_QWORD *)&v83[5] + 1) )
-  {
-    CmpLockRegistry(Buffer, v7, v8, v9);
-    CmpDereferenceKeyControlBlock(*((ULONG_PTR *)&v83[5] + 1));
-    CmpUnlockRegistry(v55, v54, v56, v57);
-  }
-  v58 = *(_OWORD **)&v83[9];
-  v59 = **(_QWORD **)&v83[9];
-  if ( *(_OWORD **)(*(_QWORD *)&v83[9] + 8LL) != &v83[9] || *(_QWORD *)(v59 + 8) != *(_QWORD *)&v83[9] )
-    goto LABEL_93;
-  *(_QWORD *)&v83[9] = **(_QWORD **)&v83[9];
-  *(_QWORD *)(v59 + 8) = &v83[9];
-  if ( v58 != &v83[9] )
-  {
-    while ( 1 )
-    {
-      CmpFreeExtraParameter(v58);
-      v58 = *(_OWORD **)&v83[9];
-      v60 = **(_QWORD **)&v83[9];
-      if ( *(_OWORD **)(*(_QWORD *)&v83[9] + 8LL) != &v83[9] || *(_QWORD *)(v60 + 8) != *(_QWORD *)&v83[9] )
-        break;
-      *(_QWORD *)&v83[9] = **(_QWORD **)&v83[9];
-      *(_QWORD *)(v60 + 8) = &v83[9];
-      if ( v58 == &v83[9] )
-        return (unsigned int)AccessStateFromSubjectContext;
-    }
-LABEL_93:
-    __fastfail(3u);
-  }
+  CmpCleanupParseContext(v35, 0LL);
   return (unsigned int)AccessStateFromSubjectContext;
 }

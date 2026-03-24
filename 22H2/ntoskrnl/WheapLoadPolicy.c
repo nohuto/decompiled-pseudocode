@@ -1,19 +1,19 @@
 /*
- * XREFs of WheapLoadPolicy @ 0x140B6E9EC
+ * XREFs of WheapLoadPolicy @ 0x140A62C18
  * Callers:
- *     WheaInitialize @ 0x140B4C7E8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HalWheaUpdateCmciPolicy @ 0x1403ACCA0 (HalWheaUpdateCmciPolicy.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalWheaUpdateCmciPolicy @ 0x1403BA420 (HalWheaUpdateCmciPolicy.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
  */
 
-__int64 WheapLoadPolicy()
+LONGLONG WheapLoadPolicy()
 {
   bool v0; // zf
   int v1; // ecx
   int v2; // ecx
-  __int64 result; // rax
+  LONGLONG result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   int v5; // [rsp+50h] [rbp+10h] BYREF
   int v6; // [rsp+58h] [rbp+18h]
@@ -59,37 +59,28 @@ LABEL_8:
     WheapPolicyIgnoreDummyWrite = WheaRegPolicyIgnoreDummyWrite != 0;
   if ( WheapRegPolicyRestoreCmciEnabled != -1 )
     WheapPolicyRestoreCmciEnabled = WheapRegPolicyRestoreCmciEnabled != 0;
-  byte_140C6A9AC = WheapPolicyRestoreCmciEnabled;
+  HalWheaUpdateCmciPolicy(7, (unsigned __int8)WheapPolicyRestoreCmciEnabled);
   if ( WheapRegPolicyRestoreCmciMaxAttempts != -1 )
     WheapPolicyRestoreCmciMaxAttempts = WheapRegPolicyRestoreCmciMaxAttempts;
   HalWheaUpdateCmciPolicy(8, WheapPolicyRestoreCmciMaxAttempts);
   if ( WheapRegPolicyRestoreCmciErrorLimit != -1 )
     WheapPolicyRestoreCmciErrorLimit = WheapRegPolicyRestoreCmciErrorLimit;
-  HalWheaUpdateCmciPolicy(9, WheapPolicyRestoreCmciErrorLimit);
+  result = HalWheaUpdateCmciPolicy(9, WheapPolicyRestoreCmciErrorLimit);
   if ( WheapRegPolicyCmciThresholdCount != -1 )
   {
     WheapPolicyCmciThresholdCount = WheapRegPolicyCmciThresholdCount;
-    HalWheaUpdateCmciPolicy(10, WheapRegPolicyCmciThresholdCount);
+    result = HalWheaUpdateCmciPolicy(10, WheapRegPolicyCmciThresholdCount);
   }
   if ( WheapRegPolicyCmciThresholdTime != -1 )
   {
     WheapPolicyCmciThresholdTime = WheapRegPolicyCmciThresholdTime;
-    HalWheaUpdateCmciPolicy(11, WheapRegPolicyCmciThresholdTime);
+    result = HalWheaUpdateCmciPolicy(11, WheapRegPolicyCmciThresholdTime);
   }
   if ( WheapRegPolicyCmciThresholdPollCount != -1 )
   {
     WheapPolicyCmciThresholdPollCount = WheapRegPolicyCmciThresholdPollCount;
-    HalWheaUpdateCmciPolicy(12, WheapRegPolicyCmciThresholdPollCount);
+    result = HalWheaUpdateCmciPolicy(12, WheapRegPolicyCmciThresholdPollCount);
   }
-  result = (unsigned int)WheapRegPolicyPendingPageListSz;
-  if ( WheapRegPolicyPendingPageListSz != -1 )
-    WheapPolicyPendingPageListSz = WheapRegPolicyPendingPageListSz;
-  if ( WheaRegPolicyBadPageListMaxSize != -1 )
-    WheapPolicyBadPageListMaxSize = WheaRegPolicyBadPageListMaxSize;
-  if ( WheaRegPolicyBadPageListLocation != -1 )
-    WheapPolicyBadPageListLocation = WheaRegPolicyBadPageListLocation;
-  if ( WheaRegPolicyNotifyAllOfflines != -1 )
-    WheapPolicyNotifyAllOfflines = WheaRegPolicyNotifyAllOfflines != 0;
   if ( WheaRegPolicyDisableOffline != -1 )
     WheaRegistryKeysPresent |= 1u;
   if ( WheaRegPolicyMemPersistOffline != -1 )
@@ -120,19 +111,5 @@ LABEL_8:
     WheaRegistryKeysPresent |= 0x2000u;
   if ( WheapRegPolicyCmciThresholdPollCount != -1 )
     WheaRegistryKeysPresent |= 0x4000u;
-  if ( WheapRegPolicyPendingPageListSz != -1 )
-    WheaRegistryKeysPresent |= 0x8000u;
-  if ( WheaRegPolicyBadPageListMaxSize != -1 )
-    WheaRegistryKeysPresent |= 0x10000u;
-  if ( WheaRegPolicyBadPageListLocation != -1 )
-    WheaRegistryKeysPresent |= 0x20000u;
-  if ( WheaRegPolicyNotifyAllOfflines != -1 )
-    WheaRegistryKeysPresent |= 0x40000u;
-  if ( WheaRegPolicyRowFailCheckExtent != -1 )
-    WheaRegistryKeysPresent |= 0x80000u;
-  if ( WheaRegPolicyRowFailCheckEnable != -1 )
-    WheaRegistryKeysPresent |= 0x100000u;
-  if ( WheaRegPolicyRowFailCheckThreshold != -1 )
-    WheaRegistryKeysPresent |= 0x200000u;
   return result;
 }

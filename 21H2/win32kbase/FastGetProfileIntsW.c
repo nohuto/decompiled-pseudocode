@@ -1,11 +1,11 @@
 /*
- * XREFs of FastGetProfileIntsW @ 0x1C00600A0
+ * XREFs of FastGetProfileIntsW @ 0x1C000DEF0
  * Callers:
  *     <none>
  * Callees:
- *     FastGetProfileIntW @ 0x1C0061160 (FastGetProfileIntW.c)
- *     RtlLoadStringOrError @ 0x1C00612C0 (RtlLoadStringOrError.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     FastGetProfileIntW @ 0x1C000F0D0 (FastGetProfileIntW.c)
+ *     RtlLoadStringOrError @ 0x1C000FAE0 (RtlLoadStringOrError.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FastGetProfileIntsW(int a1, __int64 a2, unsigned int a3, int a4)

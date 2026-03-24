@@ -2,9 +2,9 @@
  * XREFs of PnpFreeDevProperty @ 0x1405954EC
  * Callers:
  *     PnpFreeDevPropertyArray @ 0x140595490 (PnpFreeDevPropertyArray.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98D0 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqActionDataGetChangedProperties @ 0x1406DB264 (PiDqActionDataGetChangedProperties.c)
- *     PnpCopyDevProperty @ 0x14075034C (PnpCopyDevProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98B0 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqActionDataGetChangedProperties @ 0x1406DB244 (PiDqActionDataGetChangedProperties.c)
+ *     PnpCopyDevProperty @ 0x14075032C (PnpCopyDevProperty.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

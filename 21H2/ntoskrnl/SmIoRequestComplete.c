@@ -1,29 +1,32 @@
 /*
- * XREFs of SmIoRequestComplete @ 0x14037ADB8
+ * XREFs of SmIoRequestComplete @ 0x1402DA7B4
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14037AC18 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x14037C6BC (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1402D8524 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1402D90C0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MiStoreFreeWriteSupport @ 0x14037AF04 (MiStoreFreeWriteSupport.c)
- *     MiStoreModifiedWriteDereference @ 0x14037AF3C (MiStoreModifiedWriteDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiStoreLogWriteCompleteFailure @ 0x1405B657C (MiStoreLogWriteCompleteFailure.c)
+ *     MiStoreFreeWriteSupport @ 0x1402DAA68 (MiStoreFreeWriteSupport.c)
+ *     MiStoreModifiedWriteDereference @ 0x1402DAAA0 (MiStoreModifiedWriteDereference.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x140554688 (MiStoreLogWriteCompleteFailure.c)
  */
 
 LONG __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
-  struct _SLIST_ENTRY *v4; // rdi
-  int v5; // eax
-  __int64 v6; // rbp
-  __int64 v8; // rbx
-  unsigned __int64 v9; // rsi
+  unsigned __int64 v4; // rdi
+  __int64 v5; // rcx
+  int v6; // eax
+  __int64 v7; // rbp
+  __int64 v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  unsigned __int64 v12; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
+  int v16; // eax
+  bool v17; // zf
 
   if ( (*a2 & 7) != 0 )
   {
@@ -36,36 +39,38 @@ LONG __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 
   }
   if ( a3 < 0 )
     return KeSetEvent((PRKEVENT)a3, 1, 0);
-  v4 = (struct _SLIST_ENTRY *)(a3 | 0x8000000000000000uLL);
-  v5 = *(_DWORD *)((a3 | 0x8000000000000000uLL) + 0x10);
-  v6 = *(_QWORD *)(*(_QWORD *)((a3 | 0x8000000000000000uLL) + 0x38) + 192LL);
-  if ( v5 < 0 )
+  v4 = a3 | 0x8000000000000000uLL;
+  v5 = *(_QWORD *)((a3 | 0x8000000000000000uLL) + 0x38);
+  v6 = *(_DWORD *)((a3 | 0x8000000000000000uLL) + 0x10);
+  v7 = *(_QWORD *)(v5 + 192);
+  if ( v6 < 0 )
   {
-    MiStoreLogWriteCompleteFailure((unsigned int)v5);
-    v8 = 48 * (__int64)v4[7].Next - 0x220000000000LL;
-    v9 = (unsigned __int8)MiLockPageInline(v8);
-    *(_BYTE *)(v8 + 34) |= 0x10u;
-    _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    MiStoreLogWriteCompleteFailure((unsigned int)v6);
+    v9 = 48LL * *(_QWORD *)(v4 + 112) - 0x58000000000LL;
+    v12 = (unsigned __int8)MiLockPageInline(v9, v10, v11);
+    *(_BYTE *)(v9 + 34) |= 0x10u;
+    _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v14 = (v13 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v13;
-          if ( v14 )
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+          v17 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
+          if ( v17 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v9);
-    *(_DWORD *)(v6 + 1188) = 32;
+    __writecr8(v12);
+    *(_DWORD *)(v7 + 1172) = 32;
+    v5 = *(_QWORD *)(v4 + 56);
   }
-  MiStoreModifiedWriteDereference();
-  return MiStoreFreeWriteSupport(v4);
+  MiStoreModifiedWriteDereference(v5);
+  return MiStoreFreeWriteSupport((PSLIST_ENTRY)v4);
 }

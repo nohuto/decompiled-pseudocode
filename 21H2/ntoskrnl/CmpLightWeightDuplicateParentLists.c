@@ -1,70 +1,55 @@
 /*
- * XREFs of CmpLightWeightDuplicateParentLists @ 0x14065E5A4
+ * XREFs of CmpLightWeightDuplicateParentLists @ 0x14087F2DC
  * Callers:
- *     CmpLightWeightCreateModificationData @ 0x14065E480 (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F20C (CmpLightWeightCreateModificationData.c)
  * Callees:
- *     CmpDuplicateIndex @ 0x14065E880 (CmpDuplicateIndex.c)
- *     CmpMarkEntireIndexDirty @ 0x14065E97C (CmpMarkEntireIndexDirty.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpDuplicateIndex @ 0x14087A3B0 (CmpDuplicateIndex.c)
+ *     CmpMarkEntireIndexDirty @ 0x14087AE88 (CmpMarkEntireIndexDirty.c)
  */
 
-__int64 __fastcall CmpLightWeightDuplicateParentLists(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR BugCheckParameter4,
-        __int64 a3)
+__int64 __fastcall CmpLightWeightDuplicateParentLists(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
-  unsigned int v5; // edi
-  __int64 CellFlat; // rax
-  int v7; // ebp
-  _DWORD *v8; // rsi
+  unsigned int v4; // ebx
+  __int64 v6; // rax
+  int v7; // esi
+  _DWORD *v8; // rdi
   __int64 v9; // r14
   unsigned int v10; // r15d
-  int v11; // edi
-  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  int v11; // eax
+  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
 
-  v13 = 0LL;
-  v5 = BugCheckParameter4;
-  HvpGetCellContextReinitialize(&v13);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, v5);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3);
-  if ( CellFlat )
-  {
-    v7 = 0;
-    v8 = (_DWORD *)(CellFlat + 20);
-    v9 = a3 - CellFlat;
-    do
-    {
-      v10 = v8[2];
-      if ( v10 != -1 )
-      {
-        v11 = CmpMarkEntireIndexDirty(BugCheckParameter3, v10);
-        if ( v11 < 0 )
-          goto LABEL_8;
-        v11 = CmpDuplicateIndex(BugCheckParameter3);
-        if ( v11 < 0 )
-          goto LABEL_8;
-        *(_DWORD *)((char *)v8 + v9 - 16) = *v8;
-      }
-      ++v7;
-      ++v8;
-    }
-    while ( v7 < 2 );
-    v11 = 0;
-LABEL_8:
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v13);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, &v13);
-  }
-  else
-  {
+  v4 = 0;
+  v13 = 0xFFFFFFFFLL;
+  v6 = (*(__int64 (__fastcall **)(ULONG_PTR, __int64, __int64 *))(BugCheckParameter2 + 8))(BugCheckParameter2, a2, &v13);
+  if ( !v6 )
     return (unsigned int)-1073741670;
+  v7 = 0;
+  v8 = (_DWORD *)(a3 + 12);
+  v9 = v6 - a3;
+  while ( 1 )
+  {
+    v10 = *(_DWORD *)((char *)v8 + v9 + 16);
+    if ( v10 == -1 )
+      goto LABEL_8;
+    if ( !CmpMarkEntireIndexDirty(BugCheckParameter2, v10) )
+      break;
+    v11 = CmpDuplicateIndex(BugCheckParameter2, v10, v7);
+    *v8 = v11;
+    if ( v11 == -1 )
+    {
+      v4 = -1073741670;
+      goto LABEL_12;
+    }
+    *(v8 - 2) = *(_DWORD *)((char *)v8 + v9 + 8);
+LABEL_8:
+    ++v7;
+    ++v8;
+    if ( v7 >= 2 )
+      goto LABEL_12;
   }
-  return (unsigned int)v11;
+  v4 = -1073741443;
+LABEL_12:
+  (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v13);
+  return v4;
 }

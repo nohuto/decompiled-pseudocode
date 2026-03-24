@@ -1,15 +1,12 @@
 /*
- * XREFs of CmSiRWLockInitialize @ 0x1407F3B30
+ * XREFs of CmSiRWLockInitialize @ 0x140795710
  * Callers:
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
- *     RtlHpHeapManagerInitialize @ 0x14036FB38 (RtlHpHeapManagerInitialize.c)
- *     ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1403D69E8 (-SlotAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     SshpSessionManagerInitialize @ 0x140B01B6C (SshpSessionManagerInitialize.c)
- *     SshInitialize @ 0x140B03360 (SshInitialize.c)
- *     CmFcManagerInitialize @ 0x140B15B24 (CmFcManagerInitialize.c)
- *     DbgkpInitializePhase0 @ 0x140B23400 (DbgkpInitializePhase0.c)
- *     SshpAlpcInitialize @ 0x140B2984C (SshpAlpcInitialize.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
+ *     RtlHpHeapManagerInitialize @ 0x14039DD3C (RtlHpHeapManagerInitialize.c)
+ *     CmFcManagerInitialize @ 0x140A38D64 (CmFcManagerInitialize.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     SshInitialize @ 0x140A40584 (SshInitialize.c)
+ *     DbgkpInitializePhase0 @ 0x140A6D4E0 (DbgkpInitializePhase0.c)
  * Callees:
  *     <none>
  */

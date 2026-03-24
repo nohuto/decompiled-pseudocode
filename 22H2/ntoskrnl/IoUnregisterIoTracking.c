@@ -1,15 +1,15 @@
 /*
- * XREFs of IoUnregisterIoTracking @ 0x140949140
+ * XREFs of IoUnregisterIoTracking @ 0x1408957B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     IopIrpExtensionControl @ 0x1405559D0 (IopIrpExtensionControl.c)
- *     IoPerfReset @ 0x140559074 (IoPerfReset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     IopIrpExtensionControl @ 0x140500B18 (IopIrpExtensionControl.c)
+ *     IoPerfReset @ 0x140507B5C (IoPerfReset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IoUnregisterIoTracking(_QWORD *P)
@@ -17,8 +17,6 @@ void __fastcall IoUnregisterIoTracking(_QWORD *P)
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v3; // rdx
   PVOID *v4; // rax
-  struct _KTHREAD *v5; // rax
-  bool v6; // zf
 
   IoPerfReset(2);
   IopIrpExtensionControl(2, 0);
@@ -33,9 +31,6 @@ void __fastcall IoUnregisterIoTracking(_QWORD *P)
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&IopPerfIoTrackingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&IopPerfIoTrackingLock);
   KeAbPostRelease((ULONG_PTR)&IopPerfIoTrackingLock);
-  v5 = KeGetCurrentThread();
-  v6 = v5->SpecialApcDisable++ == -1;
-  if ( v6 && ($C71981A45BEB2B45F82C232A7085991E *)v5->ApcState.ApcListHead[0].Flink != &v5->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   ExFreePoolWithTag(P, 0x72546F49u);
 }

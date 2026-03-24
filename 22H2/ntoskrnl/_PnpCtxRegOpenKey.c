@@ -1,30 +1,32 @@
 /*
- * XREFs of _PnpCtxRegOpenKey @ 0x140814D40
+ * XREFs of _PnpCtxRegOpenKey @ 0x1406B95FC
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140375490 (PipUpdateDeviceProducts.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x140673F30 (DrvDbGetConfigurationSubKeyCallback.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408769B8 (DrvDbGetDriverPackageMappedProperty.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
- *     PpDevCfgInit @ 0x140B43330 (PpDevCfgInit.c)
- *     PipProcessPendingServices @ 0x140B435C4 (PipProcessPendingServices.c)
- *     PipProcessPendingOsExtensionResources @ 0x140B43650 (PipProcessPendingOsExtensionResources.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
- *     PipHardwareConfigExists @ 0x140B95274 (PipHardwareConfigExists.c)
- *     PipMigrateCleanServiceCallback @ 0x140B953C0 (PipMigrateCleanServiceCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x140B95B80 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140B95D90 (PipCommitPendingService.c)
- *     PipProcessPendingObjects @ 0x140B96120 (PipProcessPendingObjects.c)
+ *     PipUpdateDeviceProducts @ 0x1403C6D30 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x1405C6440 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406B91F0 (DrvDbOpenObjectRegKey.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140A53388 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingServices @ 0x140A53414 (PipProcessPendingServices.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     PipHardwareConfigExists @ 0x140A9023C (PipHardwareConfigExists.c)
+ *     PipMigrateCleanServiceCallback @ 0x140A90380 (PipMigrateCleanServiceCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140A90B40 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140A90D50 (PipCommitPendingService.c)
+ *     PipProcessPendingObjects @ 0x140A910E0 (PipProcessPendingObjects.c)
  * Callees:
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
  */
 
-__int64 __fastcall PnpCtxRegOpenKey(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, __int64 a6)
+__int64 __fastcall PnpCtxRegOpenKey(__int64 a1, int a2, int a3, int a4, int a5, __int64 a6)
 {
-  __int64 v7; // rcx
+  __int64 v6; // rax
 
-  v7 = 0LL;
-  if ( a1 )
-    v7 = *(_QWORD *)(a1 + 224);
-  return SysCtxRegOpenKey(v7, a2, a3, a4, a5, a6);
+  v6 = a1;
+  LODWORD(a1) = 0;
+  if ( v6 )
+    a1 = *(_QWORD *)(v6 + 224);
+  return SysCtxRegOpenKey(a1, a2, a3, a4, a5, a6);
 }

@@ -1,224 +1,216 @@
 /*
- * XREFs of ?ProcessHPDFiltering@VIDPN_MGR@@QEAA?AW4_DMM_HPD_FILTER_RESULT@@PEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C02070C0
+ * XREFs of ?ProcessHPDFiltering@VIDPN_MGR@@QEAA?AW4_DMM_HPD_FILTER_RESULT@@PEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C01794A4
  * Callers:
- *     ?DmmProcessHPDFiltering@@YA?AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C0207030 (-DmmProcessHPDFiltering@@YA-AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM.c)
+ *     ?DmmProcessHPDFiltering@@YA?AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C0179414 (-DmmProcessHPDFiltering@@YA-AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007124 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     ?GetCurrenRapidHPDState@RAPID_HPD_MANAGER@@QEAAX_NPEAW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAU_DXGK_RAPID_HPD_DIAG@@@Z @ 0x1C0022418 (-GetCurrenRapidHPDState@RAPID_HPD_MANAGER@@QEAAX_NPEAW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAU_DXG.c)
- *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U3@U2@U2@U3@U?$_tlgWrapperByRef@$0BA@@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@45445AEBU?$_tlgWrapperByRef@$0BA@@@@Z @ 0x1C0023080 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U3@U2@U2@.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000951C (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A23C (-IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U2@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3433@Z @ 0x1C00245F8 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U2@U1@U1@@-$_tlgWriteTemplate@$$A6.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     ?SetUnplugHiding@DMMVIDEOPRESENTTARGET@@QEAAXE@Z @ 0x1C02E6DE4 (-SetUnplugHiding@DMMVIDEOPRESENTTARGET@@QEAAXE@Z.c)
  */
 
 __int64 __fastcall VIDPN_MGR::ProcessHPDFiltering(__int64 a1, __int64 a2, __int64 a3, char a4, const GUID *a5)
 {
-  DMMVIDEOPRESENTTARGETSET *v9; // rcx
-  unsigned int v10; // edx
-  _QWORD *v11; // r15
-  struct DMMVIDEOPRESENTTARGET *TargetById; // r8
-  unsigned int v13; // edx
-  unsigned int v14; // ecx
-  int v15; // edx
-  unsigned int v16; // edx
-  int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
-  int v21; // eax
+  __int64 v5; // rsi
+  _QWORD *v10; // rsi
+  DMMVIDEOPRESENTTARGETSET *v11; // rcx
+  int v12; // edx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int *TargetById; // r9
+  __int64 v16; // rax
+  __int64 v18; // rax
+  unsigned int v19; // edx
+  int v20; // r8d
+  unsigned int v21; // ecx
   bool v22; // al
-  __int64 v23; // r8
-  int v24; // edx
-  int v25; // r9d
-  __int64 v26; // rdx
-  __int64 v27; // r14
-  __int64 v28; // r10
-  __int64 v29; // r11
-  __int64 v30; // rdi
-  __int64 v31; // rcx
-  __int64 v33; // r9
-  int v34; // ecx
-  int v35; // eax
-  __int64 v36; // rax
-  int v37; // edx
-  struct _LUID *v38; // rdx
-  struct _LUID *v39; // rdx
-  struct DXGGLOBAL *Global; // rax
-  __int64 v41; // r9
-  int v42; // eax
-  unsigned int v43; // edi
-  __int64 v44; // rax
-  unsigned __int64 v45; // [rsp+70h] [rbp-90h] BYREF
-  int v46; // [rsp+78h] [rbp-88h] BYREF
-  int v47; // [rsp+7Ch] [rbp-84h] BYREF
-  int v48; // [rsp+80h] [rbp-80h] BYREF
-  int v49; // [rsp+84h] [rbp-7Ch] BYREF
-  struct _GUID *v50; // [rsp+88h] [rbp-78h] BYREF
-  unsigned __int64 v51; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v52; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v53; // [rsp+A0h] [rbp-60h] BYREF
-  int v54; // [rsp+B0h] [rbp-50h] BYREF
-  int v55; // [rsp+B4h] [rbp-4Ch]
-  _BYTE v56[24]; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v57; // [rsp+D0h] [rbp-30h]
-  int v58; // [rsp+D8h] [rbp-28h]
-  int v59; // [rsp+DCh] [rbp-24h]
-  int v60; // [rsp+E0h] [rbp-20h]
-  int v61; // [rsp+E4h] [rbp-1Ch]
-  BOOL v62; // [rsp+E8h] [rbp-18h]
-  int v63; // [rsp+ECh] [rbp-14h]
-  __int64 v64; // [rsp+F0h] [rbp-10h]
-  struct _GUID v65; // [rsp+100h] [rbp+0h] BYREF
+  int v23; // r8d
+  __int64 v24; // r9
+  bool v25; // al
+  DMMVIDEOPRESENTTARGET *v26; // r9
+  int v27; // edx
+  int v28; // r15d
+  __int64 v29; // r8
+  __int64 v30; // r13
+  __int64 v31; // r14
+  __int64 v32; // r10
+  int v33; // eax
+  __int64 v34; // r11
+  __int64 v35; // rcx
+  int v36; // edx
+  __int64 v37; // rcx
+  _QWORD *v38; // rax
+  __int64 v39; // rax
+  int v40; // edx
+  struct _LUID *v41; // rdx
+  __int64 v42; // r9
+  __int64 v43; // rax
+  unsigned int v44; // r14d
+  int v45; // [rsp+50h] [rbp-71h] BYREF
+  int v46; // [rsp+54h] [rbp-6Dh] BYREF
+  int v47; // [rsp+58h] [rbp-69h] BYREF
+  int v48; // [rsp+5Ch] [rbp-65h] BYREF
+  unsigned __int64 v49; // [rsp+60h] [rbp-61h] BYREF
+  unsigned __int64 v50; // [rsp+68h] [rbp-59h] BYREF
+  __int64 v51; // [rsp+70h] [rbp-51h] BYREF
+  __int64 v52; // [rsp+78h] [rbp-49h] BYREF
+  int v53; // [rsp+80h] [rbp-41h] BYREF
+  int v54; // [rsp+84h] [rbp-3Dh]
+  _BYTE v55[24]; // [rsp+88h] [rbp-39h] BYREF
+  __int64 v56; // [rsp+A0h] [rbp-21h]
+  int v57; // [rsp+A8h] [rbp-19h]
+  int v58; // [rsp+ACh] [rbp-15h]
+  int v59; // [rsp+B0h] [rbp-11h]
+  int v60; // [rsp+B4h] [rbp-Dh]
+  BOOL v61; // [rsp+B8h] [rbp-9h]
+  int v62; // [rsp+BCh] [rbp-5h]
+  __int64 v63; // [rsp+C0h] [rbp-1h]
 
-  if ( !*(_QWORD *)(a1 + 8) )
-    WdLogSingleEntry0(1LL);
-  v9 = *(DMMVIDEOPRESENTTARGETSET **)(a1 + 120);
-  v10 = *(_DWORD *)(a2 + 8) & 0xFFFFFF;
-  v11 = *(_QWORD **)(*(_QWORD *)(a1 + 8) + 16LL);
-  memset(v56, 0, sizeof(v56));
-  v59 = 0;
-  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById(v9, v10);
+  v5 = *(_QWORD *)(a1 + 8);
+  if ( !v5 )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v18);
+    v5 = *(_QWORD *)(a1 + 8);
+  }
+  v10 = *(_QWORD **)(v5 + 16);
+  v11 = *(DMMVIDEOPRESENTTARGETSET **)(a1 + 80);
+  v12 = *(_DWORD *)(a2 + 8);
+  memset(v55, 0, sizeof(v55));
+  v58 = 0;
+  TargetById = (int *)DMMVIDEOPRESENTTARGETSET::GetTargetById(v11, v12 & 0xFFFFFF);
   if ( !TargetById )
   {
-    WdLogSingleEntry1(2LL, *(_DWORD *)(a2 + 8) & 0xFFFFFFLL);
+    v16 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v16 + 24) = *(_DWORD *)(a2 + 8) & 0xFFFFFFLL;
+    WdLogEvent5_WdError(v16);
     return 0LL;
   }
-  v13 = *(_DWORD *)(a3 + 40) & 0xFFEFFFFF | (a4 == 0 ? 0x100000 : 0);
-  *(_DWORD *)(a3 + 40) = v13;
-  v14 = v13 & 0xFEFFFFFF | (*((_DWORD *)TargetById + 25) != 4 ? 0x1000000 : 0);
-  v15 = 0;
-  *(_DWORD *)(a3 + 40) = v14;
-  if ( *((_DWORD *)TargetById + 21) == 15 )
-    v15 = 0x200000;
-  v16 = v14 & 0xFFDFFFFF | v15;
-  *(_DWORD *)(a3 + 40) = v16;
-  v17 = *((_DWORD *)TargetById + 20);
-  if ( !v17 || (v18 = v17 - 1) == 0 || (v19 = v18 - 1) == 0 || (v20 = v19 - 1) == 0 || (v21 = 0, v20 == 11) )
-    v21 = 0x400000;
-  *(_DWORD *)(a3 + 40) = v21 | v16 & 0xFFBFFFFF;
-  v22 = IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)TargetById + 20));
-  v25 = v24 ^ (v24 ^ (v22 << 23)) & 0x800000;
-  *(_DWORD *)(a3 + 40) = v25;
-  v26 = MEMORY[0xFFFFF78000000014];
+  v19 = *(_DWORD *)(a3 + 40) & 0xFFEFFFFF | (a4 == 0 ? 0x100000 : 0);
+  *(_DWORD *)(a3 + 40) = v19;
+  v20 = 0;
+  v21 = v19 & 0xFEFFFFFF | (TargetById[24] != 4 ? 0x1000000 : 0);
+  *(_DWORD *)(a3 + 40) = v21;
+  if ( TargetById[21] == 15 )
+    v20 = 0x200000;
+  *(_DWORD *)(a3 + 40) = v21 & 0xFFDFFFFF | v20;
+  v22 = IsAnalogueVideoOutput(TargetById[20]);
+  *(_DWORD *)(a3 + 40) = v23 ^ (v23 ^ (v22 << 22)) & 0x400000;
+  v25 = IsInternalVideoOutput(*(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v24 + 80));
+  v28 = v27 ^ (v27 ^ (v25 << 23)) & 0x800000;
+  *(_DWORD *)(a3 + 40) = v28;
+  v29 = MEMORY[0xFFFFF78000000014];
   *(_QWORD *)(a3 + 16) = MEMORY[0xFFFFF78000000014];
-  v27 = *(_QWORD *)(v23 + 424);
-  *(_QWORD *)(a3 + 24) = v27;
-  v28 = v26 - v27;
-  v29 = *(_QWORD *)(v23 + 432);
-  *(_QWORD *)(a3 + 32) = v29;
-  if ( v26 - v27 < 100000000 || v26 - v29 < 100000000 )
+  v30 = *((_QWORD *)v26 + 53);
+  *(_QWORD *)(a3 + 24) = v30;
+  v31 = v29 - v30;
+  v32 = *((_QWORD *)v26 + 54);
+  *(_QWORD *)(a3 + 32) = v32;
+  if ( v29 - v30 < 100000000 || v29 - v32 < 100000000 )
   {
+    v33 = *(_DWORD *)(a3 + 40);
     if ( (*(_DWORD *)(a2 + 8) & 0xF000000) == 0x8000000 )
-      *(_DWORD *)(a3 + 40) |= 0x40000u;
-    *(_DWORD *)(a3 + 40) |= 0x80000u;
+      v33 |= 0x40000u;
+    *(_DWORD *)(a3 + 40) = v33 | 0x80000;
   }
-  v30 = *(unsigned int *)(v11[365] + 524LL);
-  v31 = (unsigned int)(v30 + 100000000);
-  if ( v28 < v31 || v26 - v29 < v31 )
+  v34 = *(unsigned int *)(v10[337] + 452LL);
+  v35 = (unsigned int)(v34 + 100000000);
+  if ( v31 < v35 || v29 - v32 < v35 )
     *(_DWORD *)(a3 + 40) |= 0x80000u;
   *(_BYTE *)(a3 + 40) = *(_BYTE *)(a2 + 11) & 0xF;
-  if ( v25 )
+  if ( v28 )
     return 0LL;
-  v33 = *(_QWORD *)(v23 + 536);
-  v34 = *(_DWORD *)(a2 + 8);
-  v35 = v34 & 0xF000000;
-  if ( *(_BYTE *)(v33 + 172) )
+  v36 = *(_DWORD *)(a2 + 8);
+  v37 = v36 & 0xF000000;
+  if ( *(_BYTE *)(*((_QWORD *)v26 + 67) + 172LL) )
   {
-    if ( v35 == 0x8000000 )
+    if ( (_DWORD)v37 == 0x8000000 )
     {
-      *(_BYTE *)(v33 + 172) = 0;
-      WdLogSingleEntry2(7LL, *(unsigned int *)(v23 + 24), 0LL);
-      v34 = *(_DWORD *)(a2 + 8);
-      v43 = 2;
+      DMMVIDEOPRESENTTARGET::SetUnplugHiding(v26, 0);
+      v36 = *(_DWORD *)(a2 + 8);
+      v44 = 2;
     }
     else
     {
-      v43 = 3;
+      v44 = 3;
     }
-    v44 = *(_QWORD *)((char *)v11 + 404);
-    v54 = 30;
-    v61 = v34 & 0xFFFFFF;
-    v55 = 72;
-    v58 = 0;
-    v57 = 0LL;
-    memset(v56, 0, sizeof(v56));
-    v62 = v43 == 3;
-    v60 = 103;
-    v63 = 0;
-    v64 = v44;
-    v45 = 0LL;
-    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v11, 0LL, 0LL, &v45);
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v54, v45);
+    v63 = *(_QWORD *)((char *)v10 + 316);
+    v60 = v36 & 0xFFFFFF;
+    v53 = 30;
+    v54 = 72;
+    v57 = 0;
+    v56 = 0LL;
+    v61 = v44 == 3;
+    memset(v55, 0, sizeof(v55));
+    v59 = 103;
+    v62 = 0;
+    v50 = 0LL;
+    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v10, (struct _LUID *)(v44 == 3), 0LL, &v50);
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v53, v50);
     *(_DWORD *)(a3 + 40) |= 0x20000u;
-    return v43;
+    return v44;
   }
-  if ( v35 != 0x8000000 )
-    return 0LL;
-  if ( v28 >= v30 && v26 - v29 >= v30 )
+  else
   {
-    WdLogSingleEntry4(7LL, v34 & 0xFFFFFF, v11, v27, v28);
-    return 0LL;
-  }
-  v36 = *(_QWORD *)((char *)v11 + 404);
-  v54 = 30;
-  v37 = *(_DWORD *)(a3 + 16);
-  v61 = v34 & 0xFFFFFF;
-  v55 = 72;
-  v58 = 0;
-  v62 = v27 >= v29;
-  v38 = (struct _LUID *)(unsigned int)(v37 - v27);
-  v57 = 0LL;
-  v60 = 102;
-  memset(v56, 0, sizeof(v56));
-  v63 = (int)v38;
-  v64 = v36;
-  v45 = 0LL;
-  DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v11, v38, 0LL, &v45);
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v54, v45);
-  v45 = 0LL;
-  DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v11, v39, 0LL, &v45);
-  v46 = 0;
-  v65 = 0LL;
-  Global = DXGGLOBAL::GetGlobal();
-  RAPID_HPD_MANAGER::GetCurrenRapidHPDState(
-    (struct DXGGLOBAL *)((char *)Global + 305192),
-    0,
-    (enum _DXGK_RAPID_HPD_TYPE *)&v46,
-    &v65,
-    0LL);
-  if ( (unsigned int)dword_1C013F918 > 5 )
-  {
-    if ( tlgKeywordOn((__int64)&dword_1C013F918, 0x400000000080LL) )
+    if ( (_DWORD)v37 != 0x8000000 )
+      return 0LL;
+    if ( v31 >= v34 && v29 - v32 >= v34 )
     {
-      v47 = -1;
-      v50 = &v65;
-      v51 = v45;
-      v53 = *(_QWORD *)((char *)v11 + 404);
-      v42 = *(_DWORD *)(a2 + 8) & 0xFFFFFF;
-      v48 = 1;
-      LODWORD(v45) = v42;
-      v52 = 2LL;
-      v49 = 0;
-      LOWORD(v46) = 3;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>>(
-        (__int64)&v46,
-        byte_1C00AA1B5,
-        a5,
-        v41,
-        (__int64)&v46,
-        (__int64)&v45,
-        (__int64)&v53,
-        (__int64)&v49,
-        (__int64)&v52,
-        (__int64)&v48,
-        (__int64)&v47,
-        (__int64)&v51,
-        (__int64 *)&v50);
+      v38 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v37);
+      v38[3] = *(_DWORD *)(a2 + 8) & 0xFFFFFF;
+      v38[4] = v10;
+      v38[5] = *(_QWORD *)(a3 + 24);
+      v38[6] = *(_QWORD *)(a3 + 16) - *(_QWORD *)(a3 + 24);
+      WdLogEvent5_WdDmmEvent(v38);
+      return 0LL;
     }
+    v39 = *(_QWORD *)((char *)v10 + 316);
+    v53 = 30;
+    v60 = v36 & 0xFFFFFF;
+    v40 = *(_DWORD *)(a3 + 16);
+    v54 = 72;
+    v61 = v30 >= v32;
+    v41 = (struct _LUID *)(unsigned int)(v40 - v30);
+    v57 = 0;
+    v56 = 0LL;
+    memset(v55, 0, sizeof(v55));
+    v59 = 102;
+    v62 = (int)v41;
+    v63 = v39;
+    v49 = 0LL;
+    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v10, v41, 0LL, &v49);
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v53, v49);
+    if ( (unsigned int)dword_1C00B1A90 > 5 )
+    {
+      if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000080LL) )
+      {
+        v43 = *(_QWORD *)((char *)v10 + 316);
+        v45 = -1;
+        v52 = v43;
+        LODWORD(v43) = *(_DWORD *)(a2 + 8) & 0xFFFFFF;
+        v46 = 1;
+        v48 = v43;
+        v51 = 2LL;
+        v47 = 0;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          (__int64)&v48,
+          byte_1C0081303,
+          a5,
+          v42,
+          (__int64)&v48,
+          (__int64)&v52,
+          (__int64)&v47,
+          (__int64)&v51,
+          (__int64)&v46,
+          (__int64)&v45);
+      }
+    }
+    *(_DWORD *)(a3 + 40) |= 0x10000u;
+    return 1LL;
   }
-  *(_DWORD *)(a3 + 40) |= 0x10000u;
-  return 1LL;
 }

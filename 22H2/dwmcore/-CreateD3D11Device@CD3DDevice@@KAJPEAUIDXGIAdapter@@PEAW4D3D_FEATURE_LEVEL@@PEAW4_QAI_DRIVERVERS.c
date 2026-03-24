@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@PEAPEAUID3D11Device1@@@Z @ 0x1800CF3E4
+ * XREFs of ?CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@PEAPEAUID3D11Device1@@@Z @ 0x18002D8C8
  * Callers:
- *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x1800CEFB4 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
+ *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x18002AB64 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsOOM@@YA_NJ@Z @ 0x1800C22CC (-IsOOM@@YA_NJ@Z.c)
- *     ?GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@@Z @ 0x1800CFAF4 (-GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVER.c)
- *     ?CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ @ 0x1800D1820 (-CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ @ 0x18002DEB8 (-CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ.c)
+ *     ?GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@@Z @ 0x18002DFB8 (-GetMaxFeatureLevel@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVER.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsOOM@@YA_NJ@Z @ 0x1800DBA5C (-IsOOM@@YA_NJ@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateD3D11Device(
@@ -21,7 +21,7 @@ __int64 __fastcall CD3DDevice::CreateD3D11Device(
         struct ID3D11Device1 **a5)
 {
   int MaxFeatureLevel; // eax
-  __int64 v8; // rcx
+  unsigned int v8; // ecx
   unsigned int v9; // ebx
   UINT v10; // edi
   const D3D_FEATURE_LEVEL *v11; // rsi
@@ -30,7 +30,7 @@ __int64 __fastcall CD3DDevice::CreateD3D11Device(
   D3D_FEATURE_LEVEL *v14; // rax
   __int64 v15; // rcx
   HRESULT v16; // eax
-  __int64 v18; // rcx
+  unsigned int v18; // ecx
   unsigned int pFeatureLevels; // [rsp+20h] [rbp-51h]
   D3D_FEATURE_LEVEL pFeatureLevel; // [rsp+50h] [rbp-21h] BYREF
   ID3D11Device *ppDevice; // [rsp+58h] [rbp-19h] BYREF
@@ -46,7 +46,7 @@ __int64 __fastcall CD3DDevice::CreateD3D11Device(
   v9 = MaxFeatureLevel;
   if ( MaxFeatureLevel < 0 )
   {
-    pFeatureLevels = 187;
+    pFeatureLevels = 237;
     goto LABEL_20;
   }
   v10 = 169;
@@ -93,14 +93,14 @@ LABEL_7:
       *a2 = pFeatureLevel;
       goto LABEL_12;
     }
-    pFeatureLevels = 287;
+    pFeatureLevels = 340;
 LABEL_20:
     MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, MaxFeatureLevel, pFeatureLevels, 0LL);
     goto LABEL_12;
   }
   if ( IsOOM(v16) )
     ModuleFailFastForHRESULT(2291662989LL, retaddr);
-  MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v9, 0x129u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v9, 0x15Eu, 0LL);
 LABEL_12:
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&ppDevice);
   return v9;

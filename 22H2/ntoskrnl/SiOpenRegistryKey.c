@@ -1,31 +1,32 @@
 /*
- * XREFs of SiOpenRegistryKey @ 0x1407C04B0
+ * XREFs of SiOpenRegistryKey @ 0x140687E18
  * Callers:
- *     SiGetRegistryValue @ 0x1407C033C (SiGetRegistryValue.c)
+ *     SiGetRegistryValue @ 0x140687CA4 (SiGetRegistryValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
  */
 
-__int64 __fastcall SiOpenRegistryKey(void *a1, const WCHAR *a2, __int64 a3, HANDLE *a4)
+__int64 __fastcall SiOpenRegistryKey(__int64 a1, const WCHAR *a2, __int64 a3, HANDLE *a4)
 {
-  NTSTATUS v6; // ebx
+  NTSTATUS v5; // ebx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+70h] [rbp+10h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, a2);
-  ObjectAttributes.RootDirectory = a1;
+  ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v6 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-  if ( v6 < 0 )
+  v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( v5 < 0 )
   {
     if ( KeyHandle )
       ZwClose(KeyHandle);
@@ -34,5 +35,5 @@ __int64 __fastcall SiOpenRegistryKey(void *a1, const WCHAR *a2, __int64 a3, HAND
   {
     *a4 = KeyHandle;
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

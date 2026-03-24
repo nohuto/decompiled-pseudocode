@@ -1,30 +1,29 @@
 /*
- * XREFs of ObpSetSiloDeviceMap @ 0x140859914
+ * XREFs of ObpSetSiloDeviceMap @ 0x1407A145C
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x1408596D0 (ObpCreateDosDevicesDirectory.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407A1228 (ObpCreateDosDevicesDirectory.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020C010 (PsGetEffectiveServerSilo.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     ObpSetDeviceMap @ 0x1407B006C (ObpSetDeviceMap.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     PsGetEffectiveServerSilo @ 0x140361880 (PsGetEffectiveServerSilo.c)
+ *     ObpSetDeviceMap @ 0x1406A04E4 (ObpSetDeviceMap.c)
  */
 
-NTSTATUS __fastcall ObpSetSiloDeviceMap(__int64 a1, void *a2, __int64 *a3)
+NTSTATUS __fastcall ObpSetSiloDeviceMap(__int64 a1, void *a2)
 {
-  void *EffectiveServerSilo; // rax
-  PEPROCESS v7; // rdx
-  char v8; // di
+  struct _DMA_ADAPTER *EffectiveServerSilo; // rax
+  struct _DMA_ADAPTER *v5; // rbx
+  PEPROCESS v6; // rdx
 
-  EffectiveServerSilo = (void *)PdcCreateWatchdogAroundClientCall();
-  if ( (void *)a1 == EffectiveServerSilo )
+  EffectiveServerSilo = (struct _DMA_ADAPTER *)HalSystemVectorDispatchEntry();
+  v5 = EffectiveServerSilo;
+  if ( (struct _DMA_ADAPTER *)a1 == EffectiveServerSilo )
   {
-    v7 = PsInitialSystemProcess;
-    v8 = 3;
+    v6 = PsInitialSystemProcess;
   }
   else
   {
-    v8 = 4;
-    EffectiveServerSilo = (void *)PsGetEffectiveServerSilo(a1);
-    v7 = 0LL;
+    EffectiveServerSilo = (struct _DMA_ADAPTER *)PsGetEffectiveServerSilo(a1);
+    v6 = 0LL;
   }
-  return ObpSetDeviceMap(EffectiveServerSilo, (__int64)v7, a2, 0, v8, a3);
+  return ObpSetDeviceMap(EffectiveServerSilo, (__int64)v6, a2, 0, (a1 != (_QWORD)v5) + 3, 0LL);
 }

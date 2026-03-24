@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Destroy@CPhysicalMonitorHandle@@UEAAJXZ @ 0x1C026F810
+ * XREFs of ?Destroy@CPhysicalMonitorHandle@@UEAAJXZ @ 0x1C0271BF0
  * Callers:
- *     ??1CPhysicalMonitorHandle@@UEAA@XZ @ 0x1C026E5C4 (--1CPhysicalMonitorHandle@@UEAA@XZ.c)
+ *     ??_GCPhysicalMonitorHandle@@UEAAPEAXI@Z @ 0x1C02709B0 (--_GCPhysicalMonitorHandle@@UEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

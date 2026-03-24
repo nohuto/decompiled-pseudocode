@@ -1,13 +1,13 @@
 /*
- * XREFs of VslDebugReadWriteSecureProcess @ 0x140941F60
+ * XREFs of VslDebugReadWriteSecureProcess @ 0x14088F460
  * Callers:
- *     MiCopyVirtualMemory @ 0x1406F79C0 (MiCopyVirtualMemory.c)
+ *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslDebugReadWriteSecureProcess(
@@ -20,10 +20,10 @@ __int64 __fastcall VslDebugReadWriteSecureProcess(
 {
   __int64 v8; // r14
   BOOL v10; // edx
-  unsigned int v11; // r15d
+  ULONG v11; // r15d
   __int64 result; // rax
   __int64 v13; // rax
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   __int64 *v16[10]; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD v17[14]; // [rsp+90h] [rbp-70h] BYREF
 
@@ -49,7 +49,7 @@ __int64 __fastcall VslDebugReadWriteSecureProcess(
     v17[4] = v16[0];
     v17[5] = v16[7];
     v17[2] = a2;
-    v14 = VslpEnterIumSecureMode(2u, 40, 0, (__int64)v17);
+    v14 = VslpEnterIumSecureMode(2u, 39, 0, (__int64)v17);
     VslpUnlockPagesForTransfer(v16);
     *a6 += v17[6];
     if ( v14 < 0 )

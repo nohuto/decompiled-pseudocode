@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhResetNotifyDownstreamHub @ 0x1C0043854
+ * XREFs of UsbhResetNotifyDownstreamHub @ 0x1C0044B0C
  * Callers:
- *     Usbh_HRS_WaitReady @ 0x1C001CD34 (Usbh_HRS_WaitReady.c)
- *     Usbh_HRS_Queued @ 0x1C003D128 (Usbh_HRS_Queued.c)
- *     UsbhResetNotificationIrpCompletion @ 0x1C0043690 (UsbhResetNotificationIrpCompletion.c)
+ *     Usbh_HRS_WaitReady @ 0x1C001A964 (Usbh_HRS_WaitReady.c)
+ *     Usbh_HRS_Queued @ 0x1C003E308 (Usbh_HRS_Queued.c)
+ *     UsbhResetNotificationIrpCompletion @ 0x1C0044950 (UsbhResetNotificationIrpCompletion.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     UsbhSetPdo_FailIo @ 0x1C0038C90 (UsbhSetPdo_FailIo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     UsbhSetPdo_FailIo @ 0x1C0039F80 (UsbhSetPdo_FailIo.c)
  */
 
 _DWORD *__fastcall UsbhResetNotifyDownstreamHub(__int64 a1)
@@ -40,7 +40,7 @@ _DWORD *__fastcall UsbhResetNotifyDownstreamHub(__int64 a1)
             *((_QWORD *)v6 + 148),
             3u,
             0x18u,
-            (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids,
+            (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids,
             *((_QWORD *)v6 + 148));
         v7 = *((_QWORD *)v6 + 349);
         if ( v7 )

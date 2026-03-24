@@ -1,13 +1,13 @@
 /*
- * XREFs of FeedbackGetWindowSetting @ 0x1C01ADBFC
+ * XREFs of FeedbackGetWindowSetting @ 0x1C01DAB10
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
- *     ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01AD510 (-GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z.c)
- *     ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01AD5E0 (-GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z.c)
- *     NtUserGetWindowFeedbackSetting @ 0x1C01D45F0 (NtUserGetWindowFeedbackSetting.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01DA2F0 (-GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z.c)
+ *     ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01DA3B0 (-GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z.c)
+ *     NtUserGetWindowFeedbackSetting @ 0x1C01FC3C0 (NtUserGetWindowFeedbackSetting.c)
  * Callees:
- *     ?GetStore@Feedback@@YA?AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z @ 0x1C00C6350 (-GetStore@Feedback@@YA-AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     ?GetStore@Feedback@@YA?AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z @ 0x1C0038500 (-GetStore@Feedback@@YA-AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall FeedbackGetWindowSetting(__int64 a1, unsigned int a2, char a3, _DWORD *a4)
@@ -30,13 +30,12 @@ __int64 __fastcall FeedbackGetWindowSetting(__int64 a1, unsigned int a2, char a3
     v10 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)Feedback::GetStore(v13, v8), 8));
     if ( (v9 & v10) != 0 )
       break;
-    if ( (a3 & 1) != 0 && !IsTopLevelWindow(v8) )
-    {
+    if ( (a3 & 1) == 0 || (unsigned int)IsTopLevelWindow(v8) )
+      v8 = 0LL;
+    else
       v8 = *(_QWORD *)(v8 + 104);
-      if ( v8 )
-        continue;
-    }
-    return 0LL;
+    if ( !v8 )
+      return 0LL;
   }
   v12 = _bittest(&v10, a2);
   result = 1LL;

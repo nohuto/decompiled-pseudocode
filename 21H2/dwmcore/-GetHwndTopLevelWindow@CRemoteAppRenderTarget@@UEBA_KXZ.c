@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHwndTopLevelWindow@CRemoteAppRenderTarget@@UEBA_KXZ @ 0x1800FAB60
+ * XREFs of ?GetHwndTopLevelWindow@CRemoteAppRenderTarget@@UEBA_KXZ @ 0x1800E2400
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 unsigned __int64 __fastcall CRemoteAppRenderTarget::GetHwndTopLevelWindow(CRemoteAppRenderTarget *this)
 {
-  return *((_QWORD *)this + 13);
+  return *((_QWORD *)this + 14);
 }

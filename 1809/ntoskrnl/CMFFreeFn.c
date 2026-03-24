@@ -1,7 +1,7 @@
 /*
- * XREFs of CMFFreeFn @ 0x1407027D0
+ * XREFs of CMFFreeFn @ 0x1407027B0
  * Callers:
- *     XpressDecodeClose @ 0x14032C8F0 (XpressDecodeClose.c)
+ *     XpressDecodeClose @ 0x14032C9F0 (XpressDecodeClose.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

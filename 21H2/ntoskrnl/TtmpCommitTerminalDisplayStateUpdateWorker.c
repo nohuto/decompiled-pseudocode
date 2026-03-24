@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1409A25D0
+ * XREFs of TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1408FCB70
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A1E04 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC3A4 (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     TtmpFindDeviceByDeviceId @ 0x1409A2774 (TtmpFindDeviceByDeviceId.c)
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1409A2AF4 (TtmpPushTerminalDisplayStateOntoDevice.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     TtmpFindDeviceByDeviceId @ 0x1408FCD14 (TtmpFindDeviceByDeviceId.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1408FD098 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmpCommitTerminalDisplayStateUpdateWorker(__int64 a1, int a2)
@@ -35,25 +35,40 @@ void __fastcall TtmpCommitTerminalDisplayStateUpdateWorker(__int64 a1, int a2)
   v6 = *v4;
   if ( *v4 != v4 )
   {
-    while ( 1 )
+    do
     {
-      if ( !(unsigned __int8)TtmpFindDeviceByDeviceId(a1, *((unsigned int *)v6 + 8), &v12) )
+      if ( (unsigned __int8)TtmpFindDeviceByDeviceId(a1, *((unsigned int *)v6 + 8), &v12) )
       {
-        TtmiLogError("TtmpCommitTerminalDisplayStateUpdateWorker", 2986LL, 3221226021LL, 0xFFFFFFFFLL);
-        goto LABEL_12;
+        v7 = v13[7];
+        v8 = v12;
+        if ( !v13[7] && *(_QWORD *)(v12 + 56) )
+        {
+          v5 = 1;
+          LODWORD(v13[2]) = *(_DWORD *)(v12 + 16);
+          LODWORD(v13[9]) = *(_DWORD *)(v12 + 72);
+          v7 = *(_QWORD *)(v12 + 56);
+          v13[7] = v7;
+        }
+        if ( v5 )
+        {
+          v9 = *(_QWORD *)(v12 + 56);
+          if ( v9 )
+          {
+            if ( v9 != v7 )
+            {
+              TtmpPushTerminalDisplayStateOntoDevice(a1, v13, (unsigned int)v2);
+              LODWORD(v13[2]) = *(_DWORD *)(v8 + 16);
+              LODWORD(v13[9]) = *(_DWORD *)(v8 + 72);
+              v13[7] = *(_QWORD *)(v8 + 56);
+            }
+          }
+        }
+        TtmpPushTerminalDisplayStateOntoDevice(a1, v8, (unsigned int)v2);
       }
-      v7 = v13[7];
-      v8 = v12;
-      if ( !v13[7] )
+      else
       {
-        if ( *(_QWORD *)(v12 + 56) )
-          break;
+        TtmiLogError("TtmpCommitTerminalDisplayStateUpdateWorker", 2982LL, 3221226021LL, 0xFFFFFFFFLL);
       }
-      if ( v5 )
-        goto LABEL_8;
-LABEL_11:
-      TtmpPushTerminalDisplayStateOntoDevice(a1, v8, (unsigned int)v2);
-LABEL_12:
       v10 = (_QWORD *)*v6;
       v11 = (void **)v6[1];
       if ( *(_QWORD **)(*v6 + 8LL) != v6 || *v11 != v6 )
@@ -62,27 +77,9 @@ LABEL_12:
       v10[1] = v11;
       ExFreePoolWithTag(v6, 0x446D7454u);
       v6 = *v11;
-      if ( *v11 == v4 )
-      {
-        if ( v5 )
-          TtmpPushTerminalDisplayStateOntoDevice(a1, v13, (unsigned int)v2);
-        return;
-      }
     }
-    v5 = 1;
-    LODWORD(v13[2]) = *(_DWORD *)(v12 + 16);
-    LODWORD(v13[9]) = *(_DWORD *)(v12 + 72);
-    v7 = *(_QWORD *)(v12 + 56);
-    v13[7] = v7;
-LABEL_8:
-    v9 = *(_QWORD *)(v12 + 56);
-    if ( v9 && v9 != v7 )
-    {
+    while ( *v11 != v4 );
+    if ( v5 )
       TtmpPushTerminalDisplayStateOntoDevice(a1, v13, (unsigned int)v2);
-      LODWORD(v13[2]) = *(_DWORD *)(v8 + 16);
-      LODWORD(v13[9]) = *(_DWORD *)(v8 + 72);
-      v13[7] = *(_QWORD *)(v8 + 56);
-    }
-    goto LABEL_11;
   }
 }

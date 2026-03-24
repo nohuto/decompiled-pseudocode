@@ -1,19 +1,19 @@
 /*
- * XREFs of ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00C098C
+ * XREFs of ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00496F0
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     NtUserUpdateWindowTrackingInfo @ 0x1C01DFC00 (NtUserUpdateWindowTrackingInfo.c)
- *     ?ReportMoveSizeCompletionToShell@@YAXPEBUMOVESIZEDATA@@W4tagINPUT_MESSAGE_DEVICE_TYPE@@@Z @ 0x1C01EA4CC (-ReportMoveSizeCompletionToShell@@YAXPEBUMOVESIZEDATA@@W4tagINPUT_MESSAGE_DEVICE_TYPE@@@Z.c)
+ *     ?PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z @ 0x1C006A944 (-PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C0203D60 (NtUserUpdateWindowTrackingInfo.c)
+ *     ?xxxReportMoveSizeCompletionToShell@@YAXPEAU_MOVESIZEDATA@@@Z @ 0x1C020F5A4 (-xxxReportMoveSizeCompletionToShell@@YAXPEAU_MOVESIZEDATA@@@Z.c)
  * Callees:
- *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C00C09DC (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B590 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
  */
 
-bool __fastcall IsShellParticipatesInSizing(struct tagWND *a1, __int64 a2, unsigned int a3)
+char __fastcall IsShellParticipatesInSizing(struct tagWND *a1, __int64 a2, unsigned int a3)
 {
   bool v3; // al
   ShellWindowManagement *v4; // rcx
   unsigned int v5; // r8d
-  int v6; // r9d
+  char v6; // r9
   __int64 v7; // r10
   __int64 v8; // r11
   __int64 v9; // rax
@@ -22,14 +22,14 @@ bool __fastcall IsShellParticipatesInSizing(struct tagWND *a1, __int64 a2, unsig
          *(ShellWindowManagement **)(*((_QWORD *)a1 + 2) + 456LL),
          (const struct tagDESKTOP *)0x40,
          a3);
-  LOBYTE(v6) = 0;
+  v6 = 0;
   if ( v3 && !ShellWindowManagement::BehaviorEnabled(v4, (const struct tagDESKTOP *)8, v5) )
   {
     v9 = *(_QWORD *)(v8 + 672);
     if ( v9 )
     {
-      if ( *(_QWORD *)(v9 + 16) == v7 && *(_DWORD *)(v9 + 324) != v6 )
-        LOBYTE(v6) = 1;
+      if ( *(_QWORD *)(v9 + 16) == v7 && (*(_DWORD *)(v9 + 280) & 4) != 0 )
+        return 1;
     }
   }
   return v6;

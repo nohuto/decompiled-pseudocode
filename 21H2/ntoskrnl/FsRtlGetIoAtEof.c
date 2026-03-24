@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlGetIoAtEof @ 0x14035D610
+ * XREFs of FsRtlGetIoAtEof @ 0x140290760
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
  */
 
-__int64 __fastcall FsRtlGetIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3, __int64 a4, char a5, char *a6)
+__int64 __fastcall FsRtlGetIoAtEof(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _BYTE *a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v7; // rdx

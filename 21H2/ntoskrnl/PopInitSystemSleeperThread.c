@@ -1,35 +1,46 @@
 /*
- * XREFs of PopInitSystemSleeperThread @ 0x140807FEC
+ * XREFs of PopInitSystemSleeperThread @ 0x1407799D8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2)
 {
   __int64 result; // rax
-  __int128 v4; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v5; // [rsp+60h] [rbp-20h]
-  int v6; // [rsp+68h] [rbp-18h]
-  int v7; // [rsp+6Ch] [rbp-14h]
-  __int128 v8; // [rsp+70h] [rbp-10h]
-  HANDLE Handle; // [rsp+98h] [rbp+18h] BYREF
+  __int128 v4; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+60h] [rbp-28h]
+  int v6; // [rsp+68h] [rbp-20h]
+  int v7; // [rsp+6Ch] [rbp-1Ch]
+  __int128 v8; // [rsp+70h] [rbp-18h]
+  HANDLE Handle; // [rsp+98h] [rbp+10h] BYREF
 
+  DWORD1(v4) = 0;
   v7 = 0;
   Handle = 0LL;
   a2[3].Header.LockNV = a1;
-  v4 = 0x30uLL;
   KeInitializeEvent(a2, SynchronizationEvent, 0);
   KeInitializeEvent(a2 + 1, SynchronizationEvent, 0);
   KeInitializeEvent(a2 + 2, SynchronizationEvent, 0);
+  *((_QWORD *)&v4 + 1) = 0LL;
   v5 = 0LL;
+  LODWORD(v4) = 48;
   v6 = 512;
   v8 = 0LL;
-  result = PsCreateSystemThreadEx((int)&Handle, 0, &v4, 0LL, 0LL, (__int64)PopTransitionToSleep, (__int64)a2, 0LL, 0LL);
+  result = PsCreateSystemThreadEx(
+             (__int64)&Handle,
+             0,
+             &v4,
+             0LL,
+             0LL,
+             (__int64)PopTransitionToSleep,
+             (__int64)a2,
+             0LL,
+             0LL);
   if ( (int)result >= 0 )
   {
     ZwClose(Handle);

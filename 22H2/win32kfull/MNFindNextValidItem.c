@@ -1,10 +1,10 @@
 /*
- * XREFs of MNFindNextValidItem @ 0x1C023EFB0
+ * XREFs of MNFindNextValidItem @ 0x1C0250258
  * Callers:
- *     xxxMNKeyDown @ 0x1C0218038 (xxxMNKeyDown.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     MNFindItemInColumn @ 0x1C023EEA8 (MNFindItemInColumn.c)
- *     xxxMNFindChar @ 0x1C023F070 (xxxMNFindChar.c)
+ *     xxxMNKeyDown @ 0x1C02384D8 (xxxMNKeyDown.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     MNFindItemInColumn @ 0x1C0250148 (MNFindItemInColumn.c)
+ *     xxxMNFindChar @ 0x1C0250318 (xxxMNFindChar.c)
  * Callees:
  *     <none>
  */
@@ -57,7 +57,7 @@ LABEL_15:
   }
   a3 = 0;
 LABEL_13:
-  v7 = *(_QWORD *)(96LL * (unsigned int)a2 + *(_QWORD *)(a1 + 88));
+  v7 = *(_QWORD *)(96LL * a2 + *(_QWORD *)(a1 + 88));
   if ( (*(_DWORD *)v7 & 0x800) != 0 )
   {
     if ( (a4 & 1) == 0 )

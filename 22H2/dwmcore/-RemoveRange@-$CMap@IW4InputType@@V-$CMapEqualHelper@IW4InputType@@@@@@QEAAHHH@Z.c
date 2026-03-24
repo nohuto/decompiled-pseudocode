@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveRange@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHHH@Z @ 0x1801A0C40
+ * XREFs of ?RemoveRange@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHHH@Z @ 0x180226ADC
  * Callers:
- *     ?RemoveKey@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z @ 0x1801A0B28 (-RemoveKey@-$CMap@IW4InputType@@V-$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z.c)
+ *     ?RemoveKey@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z @ 0x1802269C4 (-RemoveKey@-$CMap@IW4InputType@@V-$CMapEqualHelper@IW4InputType@@@@@@QEAAHAEBI@Z.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 __int64 __fastcall CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int,enum InputType>>::RemoveRange(
@@ -29,8 +29,9 @@ __int64 __fastcall CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int
       (void *)(*(_QWORD *)(a1 + 8) + 4 * v2),
       (const void *)(*(_QWORD *)(a1 + 8) + 4 * (v2 + 1)),
       4LL * (*(_DWORD *)(a1 + 16) - (int)v2 - 1));
+    v4 = *(_DWORD *)(a1 + 16);
   }
-  v5 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) - 1));
+  v5 = DefaultHeap::Realloc(*(void **)a1, 4LL * (v4 - 1));
   if ( v5 )
     *(_QWORD *)a1 = v5;
   v6 = DefaultHeap::Realloc(*(void **)(a1 + 8), 4LL * (*(_DWORD *)(a1 + 16) - 1));

@@ -2,18 +2,18 @@
  * XREFs of MmEnforceWorkingSetLimit @ 0x14008FB50
  * Callers:
  *     PspApplyWorkingSetLimitsToProcess @ 0x140604D74 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetQuotaLimits @ 0x1406D1118 (PspSetQuotaLimits.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x140889740 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x140889804 (PspApplyWorkingSetLimits.c)
+ *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x140889720 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x1408897E4 (PspApplyWorkingSetLimits.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *BugCheckParameter1, char a2)

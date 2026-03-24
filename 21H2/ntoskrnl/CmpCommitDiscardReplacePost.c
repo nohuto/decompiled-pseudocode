@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCommitDiscardReplacePost @ 0x14091CBB0
+ * XREFs of CmpCommitDiscardReplacePost @ 0x140876020
  * Callers:
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14091CB44 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140875FB4 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
  * Callees:
- *     CmpDiscardKcb @ 0x14067EB68 (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x14067EDC0 (CmpMarkKeyUnbacked.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1406FEA54 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpRebuildKcbCache @ 0x14071B3F0 (CmpRebuildKcbCache.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14071BC64 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071C0FC (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140915544 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x14066CB80 (CmpMarkKeyUnbacked.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpRebuildKcbCache @ 0x14071D99C (CmpRebuildKcbCache.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x14086F1D4 (CmpSearchKeyControlBlockTreeEx.c)
  */
 
 __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
@@ -47,18 +47,18 @@ __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter2, __i
   if ( v9 != -1 )
   {
     *(_DWORD *)(v8 + 40) = v9;
-    CmpMarkKeyUnbacked(BugCheckParameter2, a2);
-    CmpRebuildKcbCache(v8);
+    CmpMarkKeyUnbacked(BugCheckParameter2);
+    CmpRebuildKcbCache(v8, a2);
   }
   CmpDiscardKcb(BugCheckParameter2);
   v10 = *(_QWORD *)(v8 + 32);
-  v11 = *(_QWORD *)(v10 + 1648);
+  v11 = *(_QWORD *)(v10 + 1640);
   v12 = 3
-      * ((unsigned int)(*(_DWORD *)(v10 + 1656) - 1) & ((unsigned int)(101027
+      * ((unsigned int)(*(_DWORD *)(v10 + 1648) - 1) & ((unsigned int)(101027
                                                                      * (*(_DWORD *)(v8 + 16) ^ (*(_DWORD *)(v8 + 16) >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*(_DWORD *)(v8 + 16) ^ (*(_DWORD *)(v8 + 16) >> 9))) >> 9)));
   *(_QWORD *)(v8 + 24) = *(_QWORD *)(v11
                                    + 24
-                                   * ((unsigned int)(*(_DWORD *)(v10 + 1656) - 1) & ((unsigned int)(101027
+                                   * ((unsigned int)(*(_DWORD *)(v10 + 1648) - 1) & ((unsigned int)(101027
                                                                                                   * (*(_DWORD *)(v8 + 16) ^ (*(_DWORD *)(v8 + 16) >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*(_DWORD *)(v8 + 16) ^ (*(_DWORD *)(v8 + 16) >> 9))) >> 9)))
                                    + 16);
   *(_QWORD *)(v11 + 8 * v12 + 16) = v8 + 16;
@@ -85,10 +85,10 @@ __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter2, __i
   v19[0] = BugCheckParameter2;
   v19[1] = v8;
   CmpSearchKeyControlBlockTreeEx(
-    (__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, __int64, __int64))CmpRefreshParent,
+    (__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, __int64, _DWORD *))CmpRefreshParent,
     *(_QWORD *)(v8 + 32),
     a2,
-    (__int64)v19,
+    v19,
     0);
   CmpDereferenceKeyControlBlockWithLock(BugCheckParameter2, a2, 0);
   CmpDereferenceKeyControlBlockWithLock(v8, a2, 0);

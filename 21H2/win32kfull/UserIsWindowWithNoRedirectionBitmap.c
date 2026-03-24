@@ -1,14 +1,14 @@
 /*
- * XREFs of UserIsWindowWithNoRedirectionBitmap @ 0x1C00EDCCC
+ * XREFs of UserIsWindowWithNoRedirectionBitmap @ 0x1C011919C
  * Callers:
- *     GreTransferDwmStateToSpriteState @ 0x1C0097BB8 (GreTransferDwmStateToSpriteState.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00ECC20 (GreTransferSpriteStateToDwmState.c)
- *     GreGetDxSharedSurface @ 0x1C00ED940 (GreGetDxSharedSurface.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA5BC (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAF9C (GreTransferDwmStateToSpriteState.c)
+ *     GreGetDxSharedSurface @ 0x1C0118EDC (GreGetDxSharedSurface.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall UserIsWindowWithNoRedirectionBitmap(int a1)
+__int64 __fastcall UserIsWindowWithNoRedirectionBitmap(unsigned __int64 a1)
 {
   unsigned int v1; // ebx
   __int64 v2; // rax

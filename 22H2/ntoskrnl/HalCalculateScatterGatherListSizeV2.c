@@ -1,12 +1,18 @@
 /*
- * XREFs of HalCalculateScatterGatherListSizeV2 @ 0x1403B45D0
+ * XREFs of HalCalculateScatterGatherListSizeV2 @ 0x140381B40
  * Callers:
  *     <none>
  * Callees:
- *     HalpCalculateScatterGatherListSize @ 0x1403B9050 (HalpCalculateScatterGatherListSize.c)
+ *     HalpCalculateScatterGatherListSize @ 0x1402E4500 (HalpCalculateScatterGatherListSize.c)
  */
 
-__int64 __fastcall HalCalculateScatterGatherListSizeV2(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
+__int64 __fastcall HalCalculateScatterGatherListSizeV2(
+        __int64 a1,
+        __int64 *a2,
+        __int64 a3,
+        unsigned int a4,
+        unsigned int *a5,
+        _DWORD *a6)
 {
   return HalpCalculateScatterGatherListSize(a1, a2, a3, a4, a5, a6, 0LL);
 }

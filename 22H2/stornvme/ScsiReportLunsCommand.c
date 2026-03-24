@@ -1,61 +1,68 @@
 /*
- * XREFs of ScsiReportLunsCommand @ 0x1C001A74C
+ * XREFs of ScsiReportLunsCommand @ 0x1C0016D78
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeIsLunActive @ 0x1C00169CC (NVMeIsLunActive.c)
+ *     NVMeIsLunActive @ 0x1C0015204 (NVMeIsLunActive.c)
  */
 
 __int64 __fastcall ScsiReportLunsCommand(__int64 a1, __int64 a2)
 {
-  int v2; // eax
-  _BYTE *SrbDataBuffer; // r9
-  __int64 v4; // r10
-  __int64 v5; // r11
-  _DWORD *v6; // rax
-  unsigned int v7; // r8d
-  unsigned int v8; // r11d
+  __int64 v3; // r11
+  _BYTE *v4; // r8
+  __int64 v5; // r10
+  unsigned __int64 v6; // rax
+  unsigned int v7; // edx
+  __int64 v8; // r10
   __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // r11d
-  unsigned int *v13; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v10; // r10
 
-  *(_BYTE *)(a2 + 3) = 1;
-  v2 = *(_DWORD *)(a1 + 136);
-  v13 = 0LL;
-  if ( ((v2 & 0x10) != 0 || (*(_DWORD *)(a1 + 32) & 0x2000) == 0) && *(_WORD *)(a1 + 338) && *(_WORD *)(a1 + 336) )
+  v3 = a1;
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    SrbDataBuffer = (_BYTE *)GetSrbDataBuffer(a2, &v13);
-    v6 = v13;
-    v7 = 8 * *(_DWORD *)(v4 + 232);
-    if ( *v13 >= (unsigned __int64)v7 + 8 )
+    v4 = *(_BYTE **)(a2 + 64);
+    v5 = 60LL;
+  }
+  else
+  {
+    v4 = *(_BYTE **)(a2 + 24);
+    v5 = 16LL;
+  }
+  *(_BYTE *)(a2 + 3) = 1;
+  v6 = *(unsigned int *)(a2 + v5);
+  v7 = 8 * *(_DWORD *)(a1 + 208);
+  if ( v6 >= (unsigned __int64)v7 + 8 )
+  {
+    v4[3] = v7;
+    v8 = 0LL;
+    *v4 = HIBYTE(v7);
+    v4[1] = BYTE2(v7);
+    v4[2] = BYTE1(v7);
+    if ( *(_DWORD *)(a1 + 208) )
     {
-      SrbDataBuffer[3] = v7;
-      v8 = 0;
-      *SrbDataBuffer = HIBYTE(v7);
-      SrbDataBuffer[1] = BYTE2(v7);
-      for ( SrbDataBuffer[2] = BYTE1(v7); v8 < *(_DWORD *)(v4 + 232); v8 = v11 + 1 )
+      do
       {
-        if ( NVMeIsLunActive(*(_QWORD *)(v4 + 8LL * v8 + 1952)) )
+        if ( NVMeIsLunActive(*(_QWORD *)(v3 + 8 * v8 + 1736)) )
         {
-          *(_BYTE *)(v10 + 8 * v9 + 8) = 0;
-          *(_BYTE *)(v10 + 8 * v9 + 9) = v11;
-          *(_DWORD *)(v10 + 8 * v9 + 10) = 0;
-          *(_WORD *)(v10 + 8 * v9 + 14) = 0;
+          *(_DWORD *)(v9 + 8 * v10 + 10) = 0;
+          *(_WORD *)(v9 + 8 * v10 + 14) = 0;
+          *(_BYTE *)(v9 + 8 * v10 + 8) = 0;
+          *(_BYTE *)(v9 + 8 * v10 + 9) = v10;
         }
+        v8 = (unsigned int)(v10 + 1);
       }
+      while ( (unsigned int)v8 < *(_DWORD *)(v3 + 208) );
     }
-    else
+  }
+  else
+  {
+    *(_BYTE *)(a2 + 3) = 18;
+    if ( *(_DWORD *)(a2 + v5) >= 4u )
     {
-      *(_BYTE *)(v5 + 3) = 18;
-      if ( *v6 >= 4u )
-      {
-        SrbDataBuffer[3] = v7;
-        *SrbDataBuffer = HIBYTE(v7);
-        SrbDataBuffer[1] = BYTE2(v7);
-        SrbDataBuffer[2] = BYTE1(v7);
-      }
+      v4[3] = v7;
+      *v4 = HIBYTE(v7);
+      v4[1] = BYTE2(v7);
+      v4[2] = BYTE1(v7);
     }
   }
   return 0LL;

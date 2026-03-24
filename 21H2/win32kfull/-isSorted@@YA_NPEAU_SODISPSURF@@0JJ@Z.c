@@ -1,7 +1,7 @@
 /*
- * XREFs of ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02A48E8
+ * XREFs of ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02A6EC0
  * Callers:
- *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A4D00 (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
+ *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A72D8 (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
  * Callees:
  *     <none>
  */

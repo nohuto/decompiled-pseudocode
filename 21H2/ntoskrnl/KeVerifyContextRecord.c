@@ -1,41 +1,37 @@
 /*
- * XREFs of KeVerifyContextRecord @ 0x1402985E4
+ * XREFs of KeVerifyContextRecord @ 0x14027748C
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140298420 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140576820 (KyRaiseException.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
+ *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
  * Callees:
- *     KiVerifyContextRecord @ 0x140298680 (KiVerifyContextRecord.c)
- *     RtlGuardIsValidStackPointer @ 0x1407048D8 (RtlGuardIsValidStackPointer.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x140705DA4 (RtlGuardIsValidWow64StackPointer.c)
+ *     KiVerifyContextRecord @ 0x140277170 (KiVerifyContextRecord.c)
+ *     RtlGuardIsValidStackPointer @ 0x140648730 (RtlGuardIsValidStackPointer.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x140697098 (RtlGuardIsValidWow64StackPointer.c)
  */
 
-__int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
+__int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v5; // rbx
-  int v7; // edi
-  int v8; // ebp
-  unsigned __int64 v10; // rsi
-  __int64 v11; // r14
-  __int16 v12; // ax
+  __int64 v5; // rsi
+  unsigned __int64 v9; // rdi
+  __int64 v10; // r14
+  __int64 v12; // rax
+  __int16 v13; // cx
 
   v5 = *(_QWORD *)(a1 + 544);
-  v7 = a2;
-  v8 = a1;
   if ( (*(_DWORD *)(v5 + 632) & 0x20) == 0 )
-    return KiVerifyContextRecord(v8, v7, a3, a4, a5);
+    return KiVerifyContextRecord(a1, a2, a3, a4, a5);
   if ( (*(_DWORD *)(a2 + 48) & 0x100001) != 0x100001 )
-    return KiVerifyContextRecord(v8, v7, a3, a4, a5);
-  v10 = *(_QWORD *)(a2 + 152);
-  v11 = *(_QWORD *)(a1 + 240);
-  if ( (unsigned int)RtlGuardIsValidStackPointer(v10, v11) )
-    return KiVerifyContextRecord(v8, v7, a3, a4, a5);
-  if ( *(_QWORD *)(v5 + 1408)
-    && ((v12 = *(_WORD *)(v5 + 2412), v12 == 332) || v12 == 452)
-    && v10 < 0xFFFFFFFF
-    && (unsigned int)RtlGuardIsValidWow64StackPointer((unsigned int)v10, v11) )
+    return KiVerifyContextRecord(a1, a2, a3, a4, a5);
+  v9 = *(_QWORD *)(a2 + 152);
+  v10 = *(_QWORD *)(a1 + 240);
+  if ( (unsigned int)RtlGuardIsValidStackPointer(v9, v10) )
+    return KiVerifyContextRecord(a1, a2, a3, a4, a5);
+  if ( (v12 = *(_QWORD *)(v5 + 1408)) != 0
+    && ((v13 = *(_WORD *)(v12 + 8), v13 == 332) || v13 == 452)
+    && v9 < 0xFFFFFFFF
+    && (unsigned int)RtlGuardIsValidWow64StackPointer((unsigned int)v9, v10) )
   {
-    return KiVerifyContextRecord(v8, v7, a3, a4, a5);
+    return KiVerifyContextRecord(a1, a2, a3, a4, a5);
   }
   else
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmGetDmaPrivateData @ 0x1C0018FD0
+ * XREFs of VidMmGetDmaPrivateData @ 0x1C0016220
  * Callers:
  *     <none>
  * Callees:

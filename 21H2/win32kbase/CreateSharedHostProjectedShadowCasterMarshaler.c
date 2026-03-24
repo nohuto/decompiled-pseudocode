@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedHostProjectedShadowCasterMarshaler @ 0x1C023B890
+ * XREFs of CreateSharedHostProjectedShadowCasterMarshaler @ 0x1C01F9F50
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C023B688 (-Create@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ *     ?Create@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F9DC8 (-Create@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
  */
 
 __int64 __fastcall CreateSharedHostProjectedShadowCasterMarshaler(
@@ -15,7 +15,7 @@ __int64 __fastcall CreateSharedHostProjectedShadowCasterMarshaler(
   struct DirectComposition::CSharedHostProjectedShadowCasterMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
 
   *a3 = 0LL;
-  if ( *(_DWORD *)(a1 + 12) != 129 )
+  if ( *(_DWORD *)(a1 + 12) != 130 )
     return 3221225485LL;
   if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 32), 1, 0) )
     return 3221225506LL;

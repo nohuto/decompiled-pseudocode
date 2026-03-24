@@ -3,8 +3,8 @@
  * Callers:
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
  * Callees:
- *     RtlValidSecurityDescriptor @ 0x14069B9B0 (RtlValidSecurityDescriptor.c)
- *     SeObjectCreateSaclAccessBits @ 0x1406B0FB8 (SeObjectCreateSaclAccessBits.c)
+ *     RtlValidSecurityDescriptor @ 0x14069B990 (RtlValidSecurityDescriptor.c)
+ *     SeObjectCreateSaclAccessBits @ 0x1406B0F98 (SeObjectCreateSaclAccessBits.c)
  */
 
 __int64 __fastcall ObpAdjustAccessMask(__int64 a1)

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddResourceNotifier@CDeviceResource@@$4PPPPPPPM@BEI@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F80C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CDeviceResource::AddResourceNotifier(__int64 a1, struct IDeviceResourceNotify *a2)
+{
+  CDeviceResource::AddResourceNotifier((CDeviceResource *)(a1 - *(int *)(a1 - 4) - 328), a2);
+}

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDockIrpSetSystemPower @ 0x1C00494E4
+ * XREFs of ACPIDockIrpSetSystemPower @ 0x1C004AA04
  * Callers:
- *     ACPIDockIrpSetPower @ 0x1C00494B0 (ACPIDockIrpSetPower.c)
+ *     ACPIDockIrpSetPower @ 0x1C004A9D0 (ACPIDockIrpSetPower.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
- *     ACPIDeviceIrpWarmEjectRequest @ 0x1C00500F4 (ACPIDeviceIrpWarmEjectRequest.c)
- *     ACPIDispatchPowerIrpSuccess @ 0x1C0052450 (ACPIDispatchPowerIrpSuccess.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C0050D60 (ACPIDeviceIrpWarmEjectRequest.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0052EA0 (ACPIDispatchPowerIrpSuccess.c)
  */
 
 __int64 __fastcall ACPIDockIrpSetSystemPower(PDEVICE_OBJECT DeviceObject, PIRP *Irp)
@@ -33,22 +33,22 @@ __int64 __fastcall ACPIDockIrpSetSystemPower(PDEVICE_OBJECT DeviceObject, PIRP *
   IrpCount = v2->AssociatedIrp.IrpCount;
   v8 = DeviceExtension;
   v9 = *(_QWORD *)(DeviceExtension + 184);
-  v10.SystemState = *(_SYSTEM_POWER_STATE *)(DeviceExtension + 4 * IrpCount + 508);
-  *(_DWORD *)(v9 + 548) = IrpCount;
+  v10.SystemState = *(_SYSTEM_POWER_STATE *)(DeviceExtension + 4 * IrpCount + 468);
+  *(_DWORD *)(v9 + 508) = IrpCount;
   if ( LODWORD(v2->ThreadListEntry.Flink) == 7 )
   {
     v11 = Irp[23];
     *((_DWORD *)Irp + 12) = 0;
     HIBYTE(v11->Size) |= 1u;
-    _InterlockedIncrement((volatile signed __int32 *)(v9 + 728));
+    _InterlockedIncrement((volatile signed __int32 *)(v9 + 688));
     v12 = *(_QWORD *)(DeviceExtension + 8);
-    v13 = (const char *)&unk_1C006FB8B;
-    v14 = (const char *)&unk_1C006FB8B;
+    v13 = (const char *)&unk_1C00701BA;
+    v14 = (const char *)&unk_1C00701BA;
     if ( (v12 & 0x200000000000LL) != 0 )
     {
-      v13 = *(const char **)(DeviceExtension + 608);
+      v13 = *(const char **)(DeviceExtension + 568);
       if ( (v12 & 0x400000000000LL) != 0 )
-        v14 = *(const char **)(DeviceExtension + 616);
+        v14 = *(const char **)(DeviceExtension + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qdqss(
@@ -67,20 +67,20 @@ __int64 __fastcall ACPIDockIrpSetSystemPower(PDEVICE_OBJECT DeviceObject, PIRP *
     if ( (_DWORD)result == -1073741802 )
       return 259LL;
   }
-  else if ( *(_DWORD *)(DeviceExtension + 384) == v10.SystemState )
+  else if ( *(_DWORD *)(DeviceExtension + 344) == v10.SystemState )
   {
     return ACPIDispatchPowerIrpSuccess(DeviceObject, Irp, v6);
   }
   else
   {
     v16 = *(_QWORD *)(DeviceExtension + 8);
-    v17 = (const char *)&unk_1C006FB8B;
-    v18 = (const char *)&unk_1C006FB8B;
+    v17 = (const char *)&unk_1C00701BA;
+    v18 = (const char *)&unk_1C00701BA;
     if ( (v16 & 0x200000000000LL) != 0 )
     {
-      v17 = *(const char **)(DeviceExtension + 608);
+      v17 = *(const char **)(DeviceExtension + 568);
       if ( (v16 & 0x400000000000LL) != 0 )
-        v18 = *(const char **)(DeviceExtension + 616);
+        v18 = *(const char **)(DeviceExtension + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qdqss(
@@ -97,7 +97,7 @@ __int64 __fastcall ACPIDockIrpSetSystemPower(PDEVICE_OBJECT DeviceObject, PIRP *
     v19 = Irp[23];
     *((_DWORD *)Irp + 12) = 0;
     HIBYTE(v19->Size) |= 1u;
-    _InterlockedIncrement((volatile signed __int32 *)(v8 + 728));
+    _InterlockedIncrement((volatile signed __int32 *)(v8 + 688));
     PoRequestPowerIrp(DeviceObject, 2u, v10, ACPIBusIrpSetSystemPowerComplete, Irp, 0LL);
     return 259LL;
   }

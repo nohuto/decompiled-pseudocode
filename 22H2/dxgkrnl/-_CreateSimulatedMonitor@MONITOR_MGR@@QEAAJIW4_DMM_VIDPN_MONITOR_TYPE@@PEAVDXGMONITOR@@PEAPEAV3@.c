@@ -1,140 +1,119 @@
 /*
- * XREFs of ?_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7578
+ * XREFs of ?_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2184
  * Callers:
- *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7C9C (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
+ *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F27C8 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C0014EC8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??_GDXGMONITOR@@UEAAPEAXI@Z @ 0x1C002B280 (--_GDXGMONITOR@@UEAAPEAXI@Z.c)
- *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C019E0C4 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
- *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEA_N@Z @ 0x1C01DD680 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
- *     ?FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0207408 (-FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV?$unique_ptr@VIMonitorDriverInterface@DxgMonitor@@U?$default_delete@VIMonitorDriverInterface@DxgMonitor@@@wistd@@@wistd@@IPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAUDXGKMON_USB4_HOSTROUTER_INFO@@@Z @ 0x1C0208314 (-_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV-$unique_ptr@VIMonitorDriverInterface@DxgMoni.c)
- *     ??1MonitorEventDeferral@@UEAA@XZ @ 0x1C020AB18 (--1MonitorEventDeferral@@UEAA@XZ.c)
- *     ?CreateMonitorDriverInterface@DxgMonitor@@YA?AV?$unique_ptr@VIMonitorDriverInterface@DxgMonitor@@U?$default_delete@VIMonitorDriverInterface@DxgMonitor@@@wistd@@@wistd@@PEAUHDXGMONITOR__@@PEAVADAPTER_DISPLAY@@IPEAU_DEVICE_OBJECT@@@Z @ 0x1C020AB44 (-CreateMonitorDriverInterface@DxgMonitor@@YA-AV-$unique_ptr@VIMonitorDriverInterface@DxgMonitor@.c)
- *     ??0DXGMONITOR@@QEAA@PEAVMONITOR_MGR@@@Z @ 0x1C020ABC0 (--0DXGMONITOR@@QEAA@PEAVMONITOR_MGR@@@Z.c)
- *     ?_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B164 (-_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A23C (-IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ??_GDXGMONITOR@@AEAAPEAXI@Z @ 0x1C005DDDC (--_GDXGMONITOR@@AEAAPEAXI@Z.c)
+ *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C012F130 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
+ *     ?_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0148E90 (-_EnableDisableMonitor@MONITOR_MGR@@QEAAJIEW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
+ *     ?_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183AE8 (-_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEA.c)
+ *     ??0DXGMONITOR@@AEAA@PEAVMONITOR_MGR@@@Z @ 0x1C0184E90 (--0DXGMONITOR@@AEAA@PEAVMONITOR_MGR@@@Z.c)
  */
 
 __int64 __fastcall MONITOR_MGR::_CreateSimulatedMonitor(
         __int64 a1,
-        unsigned int a2,
-        unsigned int a3,
+        __int64 a2,
+        int a3,
         struct DXGMONITOR *a4,
-        struct DxgMonitor::IMonitorComponentParent **a5,
+        DXGMONITOR **a5,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a6)
 {
-  __int64 v8; // r14
-  __int64 v9; // rax
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v10; // edi
-  char *v11; // rax
-  DXGMONITOR *v12; // rax
-  struct DxgMonitor::IMonitorComponentParent *v13; // rsi
-  int v14; // eax
-  __int64 v15; // rdi
-  DXGMONITOR *v16; // rbx
-  void (__fastcall ***v17)(_QWORD, __int64); // rcx
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v19; // [rsp+20h] [rbp-C9h]
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v20[2]; // [rsp+40h] [rbp-A9h] BYREF
-  void (__fastcall ***v21)(_QWORD, __int64); // [rsp+48h] [rbp-A1h] BYREF
-  struct DXGMONITOR *v22; // [rsp+50h] [rbp-99h]
-  _QWORD v23[14]; // [rsp+60h] [rbp-89h] BYREF
-  int v24; // [rsp+D0h] [rbp-19h]
+  DXGMONITOR **v6; // r14
+  __int64 v8; // rsi
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v14; // r15
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v19; // edi
+  __int64 v20; // rax
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v21; // ecx
+  char *v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  DXGMONITOR *v26; // rbx
+  __int64 v27; // rax
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rdi
+  __int64 v33; // rax
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v34; // [rsp+78h] [rbp+10h] BYREF
 
-  v22 = a4;
-  v8 = a2;
+  v6 = a5;
+  v8 = (unsigned int)a2;
   if ( !a5 )
-    WdLogSingleEntry0(1LL);
+  {
+    v11 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v11);
+  }
   if ( (_DWORD)v8 == -1 )
-    WdLogSingleEntry0(1LL);
+  {
+    v12 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v12);
+  }
   if ( a3 == 1 )
   {
-    WdLogSingleEntry0(1LL);
-    *a5 = 0LL;
+    v13 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v13);
+  }
+  *v6 = 0LL;
+  v14 = a6;
+  if ( a3 == 5 )
+  {
+    v15 = *(_QWORD *)(a1 + 8);
+    v34 = D3DKMDT_VOT_UNINITIALIZED;
+    if ( (int)DmmGetVideoOutputTechnology(*(_QWORD **)(v15 + 16), (unsigned int)v8, &v34, 0LL) < 0 )
+    {
+      v18 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v18);
+    }
+    v19 = v34;
+    if ( v34 == D3DKMDT_VOT_UNINITIALIZED )
+    {
+      v20 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v20);
+    }
+    if ( !IsAnalogueVideoOutput(v19)
+      && *(_BYTE *)(a1 + 3)
+      && (!IsInternalVideoOutput(v21) || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL) + 2596LL) >= 1200) )
+    {
+      MONITOR_MGR::_EnableDisableMonitor(a1, 0xFFFFFFFFLL, 0, 8, 1uLL);
+    }
+  }
+  v23 = (char *)operator new[](0x538uLL, 0x4D677844u, (POOL_TYPE)512);
+  if ( v23 )
+    v26 = DXGMONITOR::DXGMONITOR(v23, (struct MONITOR_MGR *)a1);
+  else
+    v26 = 0LL;
+  if ( v26 )
+  {
+    v29 = DXGMONITOR::_InitializeMonitor((__int64)v26, (unsigned int)v8, 0LL, 0, 0, a3, a4, v14);
+    v32 = v29;
+    if ( v29 >= 0 )
+    {
+      *v6 = v26;
+    }
+    else
+    {
+      v33 = WdLogNewEntry5_WdError(v31, v30);
+      *(_QWORD *)(v33 + 24) = v8;
+      *(_QWORD *)(v33 + 32) = v32;
+      WdLogEvent5_WdError(v33);
+      DXGMONITOR::`scalar deleting destructor'(v26);
+    }
+    return (unsigned int)v32;
   }
   else
   {
-    *a5 = 0LL;
-    if ( a3 == 5 )
-    {
-      v9 = *(_QWORD *)(a1 + 24);
-      v20[0] = D3DKMDT_VOT_UNINITIALIZED;
-      if ( (int)DmmGetVideoOutputTechnology(*(_QWORD **)(v9 + 16), v8, v20, 0LL) < 0 )
-        WdLogSingleEntry0(1LL);
-      v10 = v20[0];
-      if ( v20[0] == D3DKMDT_VOT_UNINITIALIZED )
-        WdLogSingleEntry0(1LL);
-      if ( (unsigned int)v10 >= D3DKMDT_VOT_DVI
-        && v10 != D3DKMDT_VOT_SDTVDONGLE
-        && *(_BYTE *)(a1 + 19)
-        && (!IsInternalVideoOutput(v10) || *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 2820LL) >= 1200) )
-      {
-        MONITOR_MGR::_EnableDisableMonitor(a1, 0xFFFFFFFFLL, 0LL, 8, 1uLL, (__int64)a6, 0LL);
-      }
-    }
+    v27 = WdLogNewEntry5_WdError(v25, v24);
+    WdLogEvent5_WdError(v27);
+    return 3221225495LL;
   }
-  v11 = (char *)operator new[](0x380uLL, 0x4D677844u, 64LL);
-  if ( !v11 || (v12 = DXGMONITOR::DXGMONITOR(v11, (struct MONITOR_MGR *)a1), (v13 = v12) == 0LL) )
-  {
-    WdLogSingleEntry0(6LL);
-    LODWORD(v15) = -1073741801;
-    return (unsigned int)v15;
-  }
-  DxgMonitor::CreateMonitorDriverInterface((__int64 *)&v21, (__int64)v12, *(_QWORD *)(a1 + 24), v8, 0LL);
-  if ( v21 )
-  {
-    LOBYTE(v19) = 0;
-    v14 = DXGMONITOR::_InitializeMonitorNoDriver(v13, (__int64 *)&v21, (unsigned int)v8, 0LL, v19, 0, a3, 0LL);
-    LODWORD(v15) = v14;
-    if ( v14 >= 0 )
-    {
-      v23[0] = &MonitorEventDeferral::`vftable';
-      memset(&v23[2], 0, 0x60uLL);
-      v24 = 0;
-      v23[1] = a1 + 8;
-      RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(v20, (__int64)v13, 1);
-      v15 = (int)DXGMONITOR::_InitializeMonitorWithDriver(
-                   v13,
-                   v22,
-                   (struct DxgMonitor::IMonitorDeferredEventSource *)v23,
-                   a6);
-      if ( *(_QWORD *)v20 )
-      {
-        ExReleaseResourceLite((PERESOURCE)(*(_QWORD *)v20 + 24LL));
-        KeLeaveCriticalRegion();
-      }
-      MonitorEventDeferral::FlushEventsWithContext((MonitorEventDeferral *)v23, a6);
-      if ( (int)v15 >= 0 )
-      {
-        v16 = 0LL;
-        *a5 = v13;
-      }
-      else
-      {
-        WdLogSingleEntry2(2LL, v8, v15);
-        v16 = v13;
-      }
-      MonitorEventDeferral::~MonitorEventDeferral((MonitorEventDeferral *)v23);
-      goto LABEL_31;
-    }
-    WdLogSingleEntry2(2LL, v8, v14);
-  }
-  else
-  {
-    WdLogSingleEntry0(6LL);
-    LODWORD(v15) = -1073741801;
-  }
-  v16 = v13;
-LABEL_31:
-  v17 = v21;
-  v21 = 0LL;
-  if ( v17 )
-    (**v17)(v17, 1LL);
-  if ( v16 )
-    DXGMONITOR::`scalar deleting destructor'(v16, 1);
-  return (unsigned int)v15;
 }

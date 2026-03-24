@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406E8720
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406C2F90
  * Callers:
- *     SeMarkLogonSessionForTerminationNotification @ 0x1406E8700 (SeMarkLogonSessionForTerminationNotification.c)
+ *     SeMarkLogonSessionForTerminationNotification @ 0x1406C2F70 (SeMarkLogonSessionForTerminationNotification.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
@@ -33,6 +33,6 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
     }
   }
   ExReleaseResourceLite(v7);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v5 == 0 ? 0xC0000225 : 0;
 }

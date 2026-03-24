@@ -1,89 +1,87 @@
 /*
- * XREFs of AlpcpCaptureMessageDataSafe @ 0x1407AC020
+ * XREFs of AlpcpCaptureMessageDataSafe @ 0x1405E6080
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1407A9A80 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x1407AACC0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1405E4440 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1407A7378 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpChargePagedPoolQuota @ 0x1407A7464 (AlpcpChargePagedPoolQuota.c)
- *     AlpcpAvailableBufferSize @ 0x1407A7C84 (AlpcpAvailableBufferSize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14061FB44 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x140660A4C (AlpcpChargePagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall AlpcpCaptureMessageDataSafe(__int64 a1)
 {
-  char *v2; // rsi
-  size_t v3; // rdi
-  __int64 v4; // r14
-  size_t v5; // r14
-  void *v6; // rcx
-  struct _KPROCESS *v7; // rcx
-  unsigned __int64 v8; // r15
-  void *v9; // rcx
-  size_t v10; // r12
-  __int64 Pool2; // rax
-  struct _KPROCESS *v12; // rcx
+  char *v2; // r14
+  unsigned __int64 v3; // rdi
+  unsigned __int64 v4; // rax
+  _QWORD *v5; // rcx
+  size_t v6; // r15
+  void *v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // r12
+  void *v10; // rcx
+  unsigned __int64 v11; // r13
+  PVOID PoolWithTag; // rax
+  __int64 v13; // rcx
 
   v2 = *(char **)(a1 + 176);
   v3 = *(unsigned __int16 *)(a1 + 240);
-  v4 = *(_QWORD *)(a1 + 96);
-  if ( v4 )
-    v5 = *(_QWORD *)(v4 + 32) - 40LL;
-  else
-    v5 = 512LL;
-  if ( v3 <= v5 )
+  v4 = AlpcpAvailableBufferSize(a1);
+  v6 = v4;
+  if ( v3 <= v4 )
   {
     if ( v2 )
-      memmove((void *)(a1 + 280), v2, v3);
-    v6 = *(void **)(a1 + 224);
-    if ( v6 )
+      memmove(v5 + 35, v2, (unsigned int)v3);
+    v7 = *(void **)(a1 + 224);
+    if ( v7 )
     {
-      ExFreePoolWithTag(v6, 0x42456C41u);
+      ExFreePoolWithTag(v7, 0x42456C41u);
       *(_QWORD *)(a1 + 224) = 0LL;
-      v7 = *(struct _KPROCESS **)(a1 + 48);
-      if ( v7 )
-        AlpcpReleasePagedPoolQuota(v7, *(_QWORD *)(a1 + 232));
+      v8 = *(_QWORD *)(a1 + 48);
+      if ( v8 )
+        AlpcpReleasePagedPoolQuota(v8, *(_QWORD *)(a1 + 232));
       *(_QWORD *)(a1 + 232) = 0LL;
     }
     return;
   }
   if ( v3 > 0xFFD7 )
     return;
-  v8 = *(_QWORD *)(a1 + 232);
-  if ( v3 <= v8 + v5 )
-    goto LABEL_12;
-  v9 = *(void **)(a1 + 224);
-  if ( v9 )
+  v9 = v5[29];
+  if ( v3 > v9 + v4 )
   {
-    ExFreePoolWithTag(v9, 0x42456C41u);
-    *(_QWORD *)(a1 + 232) = 0LL;
-  }
-  v10 = v3 - v5;
-  Pool2 = ExAllocatePool2(256LL, v3 - v5, 1111845953LL);
-  *(_QWORD *)(a1 + 224) = Pool2;
-  v12 = *(struct _KPROCESS **)(a1 + 48);
-  if ( Pool2 )
-  {
-    *(_QWORD *)(a1 + 232) = v10;
-    if ( v12 && (int)AlpcpChargePagedPoolQuota(v12, v10 - v8) < 0 )
+    v10 = (void *)v5[28];
+    if ( v10 )
+    {
+      ExFreePoolWithTag(v10, 0x42456C41u);
+      *(_QWORD *)(a1 + 232) = 0LL;
+    }
+    v11 = v3 - v6;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3 - v6, 0x42456C41u);
+    *(_QWORD *)(a1 + 224) = PoolWithTag;
+    v13 = *(_QWORD *)(a1 + 48);
+    if ( !PoolWithTag )
+    {
+      if ( v13 )
+        AlpcpReleasePagedPoolQuota(v13, v9);
+      return;
+    }
+    *(_QWORD *)(a1 + 232) = v11;
+    if ( v13 && (int)AlpcpChargePagedPoolQuota(v13, v11 - v9) < 0 )
     {
       ExFreePoolWithTag(*(PVOID *)(a1 + 224), 0x42456C41u);
       *(_QWORD *)(a1 + 224) = 0LL;
       *(_QWORD *)(a1 + 232) = 0LL;
-      AlpcpReleasePagedPoolQuota(*(struct _KPROCESS **)(a1 + 48), v8);
+      AlpcpReleasePagedPoolQuota(*(_QWORD *)(a1 + 48), v9);
       return;
     }
-LABEL_12:
-    if ( v2 )
-    {
-      memmove((void *)(a1 + 280), v2, v5);
-      memmove(*(void **)(a1 + 224), &v2[v5], v3 - v5);
-    }
-    return;
   }
-  if ( v12 )
-    AlpcpReleasePagedPoolQuota(v12, v8);
+  if ( v2 )
+  {
+    memmove((void *)(a1 + 280), v2, v6);
+    memmove(*(void **)(a1 + 224), &v2[v6], v3 - v6);
+  }
 }

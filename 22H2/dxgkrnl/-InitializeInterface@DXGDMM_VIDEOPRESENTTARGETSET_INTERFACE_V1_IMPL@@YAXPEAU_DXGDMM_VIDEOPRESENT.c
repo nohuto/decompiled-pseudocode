@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE@@@Z @ 0x1C02160D8
+ * XREFs of ?InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE@@@Z @ 0x1C017D058
  * Callers:
- *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215E98 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017CC20 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,13 @@ void __fastcall DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::InitializeInterf
         DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *this,
         struct _DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE *a2)
 {
+  __int64 v3; // rax
+
   if ( !this )
-    WdLogSingleEntry0(1LL);
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v3);
+  }
   *(_QWORD *)this = DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::GetNumTargets;
   *((_QWORD *)this + 1) = DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::AcquireFirstTargetInfo;
   *((_QWORD *)this + 2) = DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::AcquireNextTargetInfo;

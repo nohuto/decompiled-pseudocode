@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpFileLargeMapCreate @ 0x140A59AB0
+ * XREFs of AslpFileLargeMapCreate @ 0x14096C454
  * Callers:
- *     AslpFileLargeEnsureLargeFileMapping @ 0x140A59538 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x14096BF44 (AslpFileLargeEnsureLargeFileMapping.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     MmSecureVirtualMemoryEx @ 0x1407BAE50 (MmSecureVirtualMemoryEx.c)
- *     AslpFileLargeMapDelete @ 0x140A59D28 (AslpFileLargeMapDelete.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     MmSecureVirtualMemoryEx @ 0x140620040 (MmSecureVirtualMemoryEx.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     AslpFileLargeMapDelete @ 0x14096C6CC (AslpFileLargeMapDelete.c)
  */
 
 __int64 __fastcall AslpFileLargeMapCreate(HANDLE **a1, HANDLE *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall AslpFileLargeMapCreate(HANDLE **a1, HANDLE *a2)
          2u);
   if ( v6 < 0 )
     goto LABEL_4;
-  v8 = MmSecureVirtualMemoryEx((unsigned __int64)v5[6], (__int64)v5[7], 2u, 0);
+  v8 = MmSecureVirtualMemoryEx((unsigned __int64)v5[6], (__int64)v5[7], 2, 0);
   v5[9] = (HANDLE)v8;
   if ( !v8 )
   {
@@ -88,7 +88,7 @@ LABEL_4:
     AslLogCallPrintf(1LL);
     goto LABEL_14;
   }
-  v14 = MmSecureVirtualMemoryEx((unsigned __int64)*v11, *v10, 2u, 0);
+  v14 = MmSecureVirtualMemoryEx((unsigned __int64)*v11, *v10, 2, 0);
   v5[5] = (HANDLE)v14;
   if ( !v14 )
     goto LABEL_7;

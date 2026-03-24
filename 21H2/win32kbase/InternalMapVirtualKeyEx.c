@@ -1,14 +1,14 @@
 /*
- * XREFs of InternalMapVirtualKeyEx @ 0x1C003F3A0
+ * XREFs of InternalMapVirtualKeyEx @ 0x1C003CFB0
  * Callers:
- *     NtUserMapVirtualKeyEx @ 0x1C003F300 (NtUserMapVirtualKeyEx.c)
- *     _GetKeyNameText @ 0x1C0051280 (_GetKeyNameText.c)
- *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01E0298 (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
- *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01E426C (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
- *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01E9B0C (-SendKeyUpDown@@YAXEE@Z.c)
- *     ProcessKeyboardInputWorker @ 0x1C01E9C00 (ProcessKeyboardInputWorker.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C003CD90 (NtUserMapVirtualKeyEx.c)
+ *     _GetKeyNameText @ 0x1C006B0C0 (_GetKeyNameText.c)
+ *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01A7D2C (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01AADBC (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01B05D4 (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C01B08E0 (ProcessKeyboardInputWorker.c)
  * Callees:
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
  */
 
 unsigned int __fastcall InternalMapVirtualKeyEx(unsigned int a1, __int64 a2, __int64 a3)
@@ -19,9 +19,9 @@ unsigned int __fastcall InternalMapVirtualKeyEx(unsigned int a1, __int64 a2, __i
   unsigned int v6; // ecx
   unsigned __int16 v7; // dx
   unsigned __int8 *v8; // rcx
-  unsigned __int8 v9; // dl
-  char *v10; // rcx
   unsigned int result; // eax
+  unsigned __int8 v10; // dl
+  char *v11; // rcx
   _BYTE *v12; // rax
   unsigned __int8 *v13; // rcx
   unsigned __int8 *v14; // rcx
@@ -33,7 +33,7 @@ unsigned int __fastcall InternalMapVirtualKeyEx(unsigned int a1, __int64 a2, __i
   if ( !(_DWORD)a2 )
     goto LABEL_2;
   if ( (_DWORD)a2 == 1 )
-    goto LABEL_26;
+    goto LABEL_27;
   if ( (_DWORD)a2 != 2 )
   {
     if ( (_DWORD)a2 != 3 )
@@ -84,23 +84,23 @@ LABEL_6:
             }
           }
         }
-        v9 = aVkNumpad;
-        v10 = &aVkNumpad;
-        if ( aVkNumpad )
+        v10 = aVkNumpad[0];
+        v11 = aVkNumpad;
+        if ( aVkNumpad[0] )
         {
-          while ( v9 != (_DWORD)v4 )
+          while ( v10 != (_DWORD)v4 )
           {
-            v9 = *++v10;
-            if ( !*v10 )
+            v10 = *++v11;
+            if ( !*v11 )
               return 0;
           }
-          return (_DWORD)v10 - (unsigned int)&aVkNumpad + 71;
+          return (_DWORD)v11 - (unsigned int)aVkNumpad + 71;
         }
         return 0;
       }
-      goto LABEL_50;
+      goto LABEL_53;
     }
-LABEL_26:
+LABEL_27:
     if ( (unsigned int)v4 < *(unsigned __int8 *)(a3 + 56) )
     {
       v6 = *(unsigned __int8 *)(*(_QWORD *)(a3 + 48) + 2 * v4);
@@ -110,12 +110,12 @@ LABEL_26:
       if ( (v4 & 0xFFFFFF00) == 0xE000 )
       {
         v12 = *(_BYTE **)(a3 + 64);
-        goto LABEL_29;
+        goto LABEL_30;
       }
       if ( (v4 & 0xFFFFFF00) == 0xE100 )
       {
         v12 = *(_BYTE **)(a3 + 72);
-LABEL_29:
+LABEL_30:
         if ( v12 )
         {
           while ( *((_WORD *)v12 + 1) )
@@ -140,13 +140,13 @@ LABEL_29:
     return v4;
   a2 = *(_QWORD *)(a3 + 8);
   if ( !a2 )
-    goto LABEL_50;
-LABEL_55:
+    goto LABEL_53;
+LABEL_58:
   v14 = *(unsigned __int8 **)a2;
   if ( !*(_QWORD *)a2 )
   {
-LABEL_50:
-    UserSetLastError(87LL, a2, a3, 0LL);
+LABEL_53:
+    UserSetLastError(87LL, a2);
     return 0;
   }
   while ( 1 )
@@ -154,7 +154,7 @@ LABEL_50:
     if ( !*v14 )
     {
       a2 += 16LL;
-      goto LABEL_55;
+      goto LABEL_58;
     }
     if ( *v14 == (_DWORD)v4 )
       break;

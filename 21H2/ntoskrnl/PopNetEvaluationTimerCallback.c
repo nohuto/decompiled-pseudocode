@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetEvaluationTimerCallback @ 0x1405D8820
+ * XREFs of PopNetEvaluationTimerCallback @ 0x140578680
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x14036AAC4 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
  */
 
 char PopNetEvaluationTimerCallback()
@@ -12,6 +12,6 @@ char PopNetEvaluationTimerCallback()
 
   v0 = _InterlockedCompareExchange(&PopNetGracePeriodState, 2, 1);
   if ( v0 == 1 )
-    LOBYTE(v0) = PopQueueWorkItem((__int64)&unk_140C1F8C8, DelayedWorkQueue);
+    LOBYTE(v0) = PopQueueWorkItem((__int64)&unk_140C20AE8, DelayedWorkQueue);
   return v0;
 }

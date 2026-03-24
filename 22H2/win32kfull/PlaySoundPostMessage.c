@@ -1,11 +1,11 @@
 /*
- * XREFs of PlaySoundPostMessage @ 0x1C039957C
+ * XREFs of PlaySoundPostMessage @ 0x1C037A4B0
  * Callers:
- *     ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C009D5D0 (-PlaySync@CUserPlaySound@@AEAAJK@Z.c)
+ *     ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C0101520 (-PlaySync@CUserPlaySound@@AEAAJK@Z.c)
  * Callees:
- *     PlaySndClient_midl_user_allocate @ 0x1C009D670 (PlaySndClient_midl_user_allocate.c)
- *     I_PlaySoundkPostMessage @ 0x1C009D69C (I_PlaySoundkPostMessage.c)
- *     PlaySndClient_midl_user_free @ 0x1C024B7B0 (PlaySndClient_midl_user_free.c)
+ *     I_PlaySoundkPostMessage @ 0x1C01015B8 (I_PlaySoundkPostMessage.c)
+ *     PlaySndClient_midl_user_allocate @ 0x1C0101610 (PlaySndClient_midl_user_allocate.c)
+ *     ?PlatformFree@NSInstrumentation@@YAXPEAX@Z @ 0x1C010DA70 (-PlatformFree@NSInstrumentation@@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall PlaySoundPostMessage(RPC_BINDING_HANDLE SourceBinding, int a2, int a3)
@@ -16,14 +16,14 @@ __int64 __fastcall PlaySoundPostMessage(RPC_BINDING_HANDLE SourceBinding, int a2
   RPC_BINDING_HANDLE DestinationBinding; // [rsp+78h] [rbp+20h] BYREF
 
   DestinationBinding = 0LL;
-  v6 = (struct _RPC_ASYNC_STATE *)PlaySndClient_midl_user_allocate(88LL);
+  v6 = (struct _RPC_ASYNC_STATE *)PlaySndClient_midl_user_allocate(0x58uLL);
   v7 = (__int64)v6;
   if ( !v6 )
     return 3221225495LL;
   v8 = RpcAsyncInitializeHandle(v6, 0x58u);
   if ( v8 || (v8 = RpcBindingCopy(SourceBinding, &DestinationBinding)) != 0 )
   {
-    PlaySndClient_midl_user_free((void *)v7);
+    NSInstrumentation::PlatformFree((PVOID)v7);
   }
   else
   {

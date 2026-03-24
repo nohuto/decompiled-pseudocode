@@ -1,144 +1,117 @@
 /*
- * XREFs of MiReadWriteVirtualMemory @ 0x1407AEAA0
+ * XREFs of MiReadWriteVirtualMemory @ 0x1405F6190
  * Callers:
- *     NtReadVirtualMemoryEx @ 0x140338610 (NtReadVirtualMemoryEx.c)
- *     NtWriteVirtualMemory @ 0x1407AEA40 (NtWriteVirtualMemory.c)
- *     NtReadVirtualMemory @ 0x1407AEA70 (NtReadVirtualMemory.c)
+ *     NtReadVirtualMemory @ 0x1405F6160 (NtReadVirtualMemory.c)
+ *     NtWriteVirtualMemory @ 0x140695AE0 (NtWriteVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessLoggingEnabled @ 0x140338640 (PsIsProcessLoggingEnabled.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     MiCopyVirtualMemory @ 0x1406F79C0 (MiCopyVirtualMemory.c)
- *     EtwTiLogReadWriteVm @ 0x14076C34C (EtwTiLogReadWriteVm.c)
+ *     PsIsProcessLoggingEnabled @ 0x1402072B0 (PsIsProcessLoggingEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
+ *     EtwTiLogReadWriteVm @ 0x1406297CC (EtwTiLogReadWriteVm.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiReadWriteVirtualMemory(
-        ULONG_PTR BugCheckParameter1,
-        char *a2,
-        char *a3,
-        __int64 a4,
+        HANDLE Handle,
+        size_t a2,
+        size_t a3,
+        size_t a4,
         unsigned __int64 a5,
-        int a6,
-        int a7)
+        ACCESS_MASK DesiredAccess)
 {
-  struct _KTHREAD *CurrentThread; // r15
-  char PreviousMode; // al
-  __int64 v12; // rcx
-  char *v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rax
-  _QWORD *v16; // rdi
-  __int64 v17; // rcx
-  int v18; // ebx
-  _KPROCESS *Process; // r15
-  PVOID v20; // rsi
-  __int64 v21; // r14
+  int v7; // r13d
+  __int64 v9; // rsi
+  struct _KTHREAD *CurrentThread; // r14
+  KPROCESSOR_MODE PreviousMode; // al
+  _QWORD *v12; // rbx
+  __int64 v13; // rcx
+  NTSTATUS v14; // edi
+  _KPROCESS *Process; // r10
+  PVOID v16; // r14
+  int v17; // r9d
+  int v18; // r8d
+  int v19; // edx
+  int v20; // ecx
+  NTSTATUS v21; // eax
   int v22; // eax
-  ULONG Tag[2]; // [rsp+20h] [rbp-68h]
-  KPROCESSOR_MODE v25; // [rsp+40h] [rbp-48h]
+  int v23; // r10d
+  char v25; // [rsp+40h] [rbp-48h]
   __int64 v26; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object[2]; // [rsp+50h] [rbp-38h] BYREF
+  int v28; // [rsp+A0h] [rbp+18h]
 
+  v28 = a3;
+  v7 = a2;
+  v9 = 0LL;
   Object[0] = 0LL;
-  if ( (a7 & 0xFFFFFFFE) != 0 || (a7 & 1) != 0 && a6 != 16 )
-    return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   v25 = PreviousMode;
   if ( PreviousMode )
   {
-    v12 = a4 - 1;
-    v13 = &a2[a4 - 1];
-    if ( !a4 )
-      v13 = a2;
-    if ( v13 < a2 )
+    if ( a4 + a2 < a2 || a4 + a2 > 0x7FFFFFFF0000LL || a3 + a4 < a3 || a3 + a4 > 0x7FFFFFFF0000LL )
       return 3221225477LL;
-    v14 = a4 - 1;
-    if ( !a4 )
-      v14 = 0LL;
-    if ( (unsigned __int64)&a2[v14] > 0x7FFFFFFEFFFFLL )
-      return 3221225477LL;
-    v15 = a4 - 1;
-    if ( !a4 )
-      v15 = 0LL;
-    if ( &a3[v15] < a3 )
-      return 3221225477LL;
-    if ( !a4 )
-      v12 = 0LL;
-    if ( (unsigned __int64)&a3[v12] > 0x7FFFFFFEFFFFLL )
-      return 3221225477LL;
-    v16 = (_QWORD *)a5;
+    v12 = (_QWORD *)a5;
     if ( a5 )
     {
-      v17 = a5;
+      v13 = a5;
       if ( a5 >= 0x7FFFFFFF0000LL )
-        v17 = 0x7FFFFFFF0000LL;
-      *(_QWORD *)v17 = *(_QWORD *)v17;
-      PreviousMode = v25;
-    }
-    else
-    {
-      PreviousMode = v25;
+        v13 = 0x7FFFFFFF0000LL;
+      *(_QWORD *)v13 = *(_QWORD *)v13;
     }
   }
   else
   {
-    v16 = (_QWORD *)a5;
+    v12 = (_QWORD *)a5;
   }
   v26 = 0LL;
-  v18 = 0;
+  v14 = 0;
   if ( a4 )
   {
-    v18 = ObpReferenceObjectByHandleWithTag(
-            BugCheckParameter1,
-            a6,
-            (__int64)PsProcessType,
+    v14 = ObReferenceObjectByHandleWithTag(
+            Handle,
+            DesiredAccess,
+            (POBJECT_TYPE)PsProcessType,
             PreviousMode,
             0x6D566D4Du,
             Object,
-            0LL,
             0LL);
-    if ( v18 >= 0 )
+    if ( v14 >= 0 )
     {
       Process = CurrentThread->ApcState.Process;
-      v20 = Object[0];
+      Object[1] = Process;
+      v16 = Object[0];
       if ( (*((_BYTE *)Object[0] + 992) & 1) == 0 || Process == Object[0] || *((_QWORD *)Object[0] + 175) )
       {
-        *(_QWORD *)Tag = a4;
-        v21 = (__int64)a2;
-        if ( a6 == 16 )
-          v22 = MiCopyVirtualMemory(
-                  (ULONG_PTR)Object[0],
-                  a2,
-                  (ULONG_PTR)Process,
-                  a3,
-                  *(size_t *)Tag,
-                  v25,
-                  (size_t *)&v26,
-                  a7);
+        if ( DesiredAccess == 16 )
+        {
+          v17 = v28;
+          v18 = (int)Process;
+          v19 = v7;
+          v20 = (int)Object[0];
+        }
         else
-          v22 = MiCopyVirtualMemory(
-                  (ULONG_PTR)Process,
-                  a3,
-                  (ULONG_PTR)Object[0],
-                  a2,
-                  *(size_t *)Tag,
-                  v25,
-                  (size_t *)&v26,
-                  0);
-        v18 = v22;
+        {
+          v17 = v7;
+          v18 = (int)Object[0];
+          v19 = v28;
+          v20 = (int)Process;
+        }
+        v21 = MmCopyVirtualMemory(v20, v19, v18, v17, a4, v25, (__int64)&v26);
+        v9 = v26;
+        v14 = v21;
       }
       else
       {
-        v18 = -1073741819;
-        v21 = (__int64)a2;
+        v14 = -1073741819;
       }
-      if ( (unsigned int)PsIsProcessLoggingEnabled((__int64)Process, (__int64)v20, a6) )
-        EtwTiLogReadWriteVm(v18, (__int64)Process, (__int64)v20, a6, v21, v26);
-      ObfDereferenceObjectWithTag(v20, 0x6D566D4Du);
+      LOBYTE(v22) = PsIsProcessLoggingEnabled((__int64)v16, DesiredAccess);
+      if ( v22 )
+        EtwTiLogReadWriteVm(v14, v23, (_DWORD)v16, DesiredAccess, v7, v9);
+      ObfDereferenceObjectWithTag(v16, 0x6D566D4Du);
     }
   }
-  if ( v16 )
-    *v16 = v26;
-  return (unsigned int)v18;
+  if ( v12 )
+    *v12 = v9;
+  return (unsigned int)v14;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C000BAA0
+ * XREFs of ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C000D9D0
  * Callers:
- *     ?HandleQueryInterfaceForReenumerate@FxPkgPdo@@QEAAJPEAVFxIrp@@PEAE@Z @ 0x1C0033340 (-HandleQueryInterfaceForReenumerate@FxPkgPdo@@QEAAJPEAVFxIrp@@PEAE@Z.c)
- *     _vsnwprintf_l @ 0x1C00358C4 (_vsnwprintf_l.c)
- *     _woutput_l @ 0x1C00359CC (_woutput_l.c)
- *     _fputwc_nolock @ 0x1C003645C (_fputwc_nolock.c)
+ *     _vsnwprintf_l @ 0x1C001A574 (_vsnwprintf_l.c)
+ *     _woutput_l @ 0x1C001A67C (_woutput_l.c)
+ *     _fputwc_nolock @ 0x1C001B0C0 (_fputwc_nolock.c)
+ *     ?HandleQueryInterfaceForReenumerate@FxPkgPdo@@QEAAJPEAVFxIrp@@PEAE@Z @ 0x1C0079090 (-HandleQueryInterfaceForReenumerate@FxPkgPdo@@QEAAJPEAVFxIrp@@PEAE@Z.c)
  * Callees:
  *     <none>
  */

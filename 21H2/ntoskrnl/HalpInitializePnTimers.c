@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializePnTimers @ 0x1403BB5A0
+ * XREFs of HalpInitializePnTimers @ 0x1403A8AB0
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpInitializePnTimers()

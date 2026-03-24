@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSiMapViewOfSection @ 0x14020B638
+ * XREFs of CmSiMapViewOfSection @ 0x140362928
  * Callers:
- *     HvpViewMapCreateView @ 0x14068DA14 (HvpViewMapCreateView.c)
+ *     HvpViewMapCreateView @ 0x140723834 (HvpViewMapCreateView.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x14041BC60 (ZwMapViewOfSection.c)
+ *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
  */
 
 NTSTATUS __fastcall CmSiMapViewOfSection(

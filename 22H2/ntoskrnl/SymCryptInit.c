@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptInit @ 0x1403B6520
+ * XREFs of SymCryptInit @ 0x1403B7664
  * Callers:
- *     HvInitializeHashLibrary @ 0x14080EB70 (HvInitializeHashLibrary.c)
+ *     HvInitializeHashLibrary @ 0x1407A59B0 (HvInitializeHashLibrary.c)
  * Callees:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2CE0 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EB92C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  */
 
 __int64 SymCryptInit()
 {
-  return SymCryptInitEnvWindowsKernelmodeWin8_1nLater(6619136LL);
+  return SymCryptInitEnvWindowsKernelmodeWin8_1nLater(6553605LL);
 }

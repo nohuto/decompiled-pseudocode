@@ -1,22 +1,22 @@
 /*
- * XREFs of ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00AB168
+ * XREFs of ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00FEEB4
  * Callers:
- *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00AB110 (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0106B60 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EF50 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FEE5C (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0107D28 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00902E0 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
  */
 
 void __fastcall DEVLOCKOBJ::vFlushSpriteUpdates(DEVLOCKOBJ *this, int a2)
 {
-  struct XDCOBJ *v2; // rbx
+  HDC **v2; // rdi
   __int64 v4; // r8
-  SURFACE *v5; // rcx
-  __int64 v6; // rdx
-  int v7; // eax
-  __int64 v8; // rbx
+  int v5; // eax
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  HDC *v8; // rdx
 
-  v2 = (DEVLOCKOBJ *)((char *)this + 32);
+  v2 = (HDC **)((char *)this + 32);
   v4 = *((_QWORD *)this + 4);
   if ( v4 && *((_BYTE *)this + 81) )
   {
@@ -24,37 +24,28 @@ void __fastcall DEVLOCKOBJ::vFlushSpriteUpdates(DEVLOCKOBJ *this, int a2)
     {
       if ( (*((_DWORD *)this + 6) & 0x1000) != 0 )
       {
-        if ( (*(_DWORD *)(v4 + 44) & 1) == 0 )
+        v7 = *((_QWORD *)this + 4);
+        if ( (*(_DWORD *)(v4 + 44) & 1) == 0 && *(_QWORD *)(v4 + 496) )
         {
-          v5 = *(SURFACE **)(v4 + 496);
-          if ( v5 )
-            SURFACE::bUnMap(v5, this, (struct DC *)v4);
+          SURFACE::bUnMap(*(SURFACE **)(v4 + 496), this, (struct DC *)v4);
+          v7 = *((_QWORD *)this + 4);
         }
-        *(_DWORD *)(*(_QWORD *)v2 + 44LL) &= ~1u;
-        v6 = *(_QWORD *)v2;
-        if ( (*(_DWORD *)(*(_QWORD *)v2 + 36LL) & 0x4000) != 0 && *(_QWORD *)(v6 + 472) )
-        {
-          if ( *(_DWORD *)(v6 + 488) )
-            GreUpdateSpriteDevLockEnd(v2, *((_DWORD *)this + 6) & 0x400000);
-        }
+        *(_DWORD *)(v7 + 44) &= ~1u;
+        v8 = *v2;
+        if ( (*((_DWORD *)*v2 + 9) & 0x4000) != 0 && v8[59] && *((_DWORD *)v8 + 122) )
+          GreUpdateSpriteDevLockEnd(v2, *((_DWORD *)this + 6) & 0x400000);
       }
     }
     else
     {
-      v7 = *(_DWORD *)(v4 + 36);
-      if ( (v7 & 0x4000) != 0 && (v7 & 0x40) != 0 )
+      v5 = *(_DWORD *)(v4 + 36);
+      if ( (v5 & 0x4000) != 0 && (v5 & 0x40) != 0 && *(_QWORD *)(v4 + 472) && *(_DWORD *)(v4 + 488) )
       {
-        if ( *(_QWORD *)(v4 + 472) )
+        v6 = *(_QWORD *)(v4 + 496);
+        if ( v6 )
         {
-          if ( *(_DWORD *)(v4 + 488) )
-          {
-            v8 = *(_QWORD *)(v4 + 496);
-            if ( v8 )
-            {
-              W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v8 + 272));
-              W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v8 + 272));
-            }
-          }
+          W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v6 + 272));
+          W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v6 + 272));
         }
       }
     }

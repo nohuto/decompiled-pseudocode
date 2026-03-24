@@ -4,9 +4,9 @@
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     KiInitializeMutant @ 0x1400DD358 (KiInitializeMutant.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     strstr @ 0x140194EA0 (strstr.c)
+ *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
  *     MmIsVerifierEnabled @ 0x140921490 (MmIsVerifierEnabled.c)
  */
 

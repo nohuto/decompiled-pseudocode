@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x1406F7A68
+ * XREFs of PerfLogImageLoad @ 0x14061A978
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x1406F84B0 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x1406F7C44 (EtwpPsProvTraceImage.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x140628F68 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
@@ -56,7 +56,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
       HIDWORD(v10) = *(_DWORD *)(v7 + 8);
       v13 = *(_QWORD *)(v7 + 48);
     }
-    if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4540) & 4) != 0 )
+    if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4516) & 4) != 0 )
       EtwpPsProvTraceImage(a1, v8, 5121LL, 0LL);
     v17[0] = v8;
     v17[1] = 56LL;
@@ -68,6 +68,6 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
     if ( a2 )
       EtwTraceSiloKernelEvent(*(_QWORD *)(a2 + 2160), (int)v17, 3, 4u, 778, 5249283);
     else
-      EtwTraceKernelEvent((__int64)v17, 3u, 4u, 0x30Au, 0x501903u);
+      EtwTraceKernelEvent((int)v17, 3, 4u, 778, 5249283);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CLIPOBJ_bEnum @ 0x1C0005BE0
+ * XREFs of CLIPOBJ_bEnum @ 0x1C00CB5C0
  * Callers:
  *     <none>
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
  */
 
 BOOL __stdcall CLIPOBJ_bEnum(CLIPOBJ *pco, ULONG cj, ULONG *pul)

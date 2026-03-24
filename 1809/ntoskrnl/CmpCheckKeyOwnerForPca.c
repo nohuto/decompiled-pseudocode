@@ -2,11 +2,11 @@
  * XREFs of CmpCheckKeyOwnerForPca @ 0x140580A4C
  * Callers:
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1E0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1C0 (RtlGetOwnerSecurityDescriptor.c)
  */
 
 BOOLEAN __fastcall CmpCheckKeyOwnerForPca(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcOpenSenderProcess @ 0x1401B9210
+ * XREFs of ZwAlpcOpenSenderProcess @ 0x1401B9230
  * Callers:
  *     <none>
  * Callees:

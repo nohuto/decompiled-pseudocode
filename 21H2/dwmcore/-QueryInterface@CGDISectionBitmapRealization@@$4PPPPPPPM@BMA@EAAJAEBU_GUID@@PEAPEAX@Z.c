@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CGDISectionBitmapRealization@@$4PPPPPPPM@BMA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18010B310
+ * XREFs of ?QueryInterface@CGDISectionBitmapRealization@@$4PPPPPPPM@BMA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F7230
  * Callers:
  *     <none>
  * Callees:

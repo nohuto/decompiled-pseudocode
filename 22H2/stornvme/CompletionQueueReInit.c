@@ -1,9 +1,9 @@
 /*
- * XREFs of CompletionQueueReInit @ 0x1C00095A4
+ * XREFs of CompletionQueueReInit @ 0x1C000B310
  * Callers:
- *     NVMeQueuesReInit @ 0x1C00105F8 (NVMeQueuesReInit.c)
+ *     NVMeQueuesReInit @ 0x1C0010990 (NVMeQueuesReInit.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
  */
 
 void *__fastcall CompletionQueueReInit(__int64 a1, __int64 a2)
@@ -12,8 +12,8 @@ void *__fastcall CompletionQueueReInit(__int64 a1, __int64 a2)
 
   *(_DWORD *)(a2 + 170) = 0;
   if ( *(_WORD *)(a2 + 168) )
-    v2 = *(_WORD *)(a1 + 334);
+    v2 = *(_WORD *)(a1 + 286);
   else
-    v2 = *(_WORD *)(a1 + 332);
+    v2 = *(_WORD *)(a1 + 284);
   return NVMeZeroMemory(*(void **)a2, 16 * (unsigned int)v2);
 }

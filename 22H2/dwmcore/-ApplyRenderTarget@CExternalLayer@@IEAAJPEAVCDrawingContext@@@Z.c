@@ -1,34 +1,36 @@
 /*
- * XREFs of ?ApplyRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x1800DC810
+ * XREFs of ?ApplyRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x180041184
  * Callers:
- *     ?ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180019640 (-ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
- *     ?ApplyState@COffScreenRenderingLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800DC570 (-ApplyState@COffScreenRenderingLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180019240 (-ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?ApplyState@COffScreenRenderingLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180040FC0 (-ApplyState@COffScreenRenderingLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z @ 0x18001C358 (-PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z.c)
- *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x180073A24 (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
- *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x18008D934 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z @ 0x18003EF68 (-PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z.c)
+ *     ?PopGpuClipFromScope@CScopedClipStack@@QEAAX_N@Z @ 0x180041414 (-PopGpuClipFromScope@CScopedClipStack@@QEAAX_N@Z.c)
+ *     ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x180041450 (-Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076964 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x18007ABEC (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CExternalLayer::ApplyRenderTarget(CExternalLayer *this, struct CDrawingContext *a2)
 {
   struct IDeviceTarget *v4; // rax
   int v5; // eax
-  __int64 v6; // rcx
+  unsigned int v6; // ecx
   unsigned int v7; // ebx
   __int64 v8; // rdx
   void (__fastcall ***v9)(_QWORD, _DWORD *); // rcx
   int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   int v12; // eax
-  __int64 v13; // rcx
-  int v14; // eax
-  __int64 v15; // rax
-  float v16; // xmm1_4
-  int v17; // eax
-  __int64 v18; // rcx
+  unsigned int v13; // ecx
+  int v14; // edx
+  float v15; // xmm1_4
+  int v16; // eax
+  unsigned int v17; // ecx
+  __int64 v19; // r8
   _DWORD v20[2]; // [rsp+30h] [rbp-20h] BYREF
   int v21; // [rsp+38h] [rbp-18h] BYREF
   int v22; // [rsp+3Ch] [rbp-14h]
@@ -52,7 +54,7 @@ __int64 __fastcall CExternalLayer::ApplyRenderTarget(CExternalLayer *this, struc
     v22 = 0;
     v23 = (float)v20[0];
     v24 = (float)v20[1];
-    v10 = CDrawingContext::PushGpuClipRectInternal((__int64)a2, 0LL, (__int64)&v21, D2D1_ANTIALIAS_MODE_ALIASED, 1);
+    v10 = CDrawingContext::PushGpuClipRectInternal((_DWORD)a2, 0, (unsigned int)&v21, 1, 1);
     v7 = v10;
     if ( v10 < 0 )
     {
@@ -60,32 +62,26 @@ __int64 __fastcall CExternalLayer::ApplyRenderTarget(CExternalLayer *this, struc
     }
     else
     {
-      v12 = (**((__int64 (__fastcall ***)(char *, __int64 *))a2 + 2))(
-              (char *)a2 + 16,
-              &`CVisual::SetBlurredWallpaperSurfaceRect'::`2'::sc_defaultValue);
+      v12 = CDrawingContext::Clear((struct CDrawingContext *)((char *)a2 + 16), &stru_18028B7C0);
       v7 = v12;
       if ( v12 < 0 )
       {
         MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x7Au, 0LL);
-        CDrawingContext::PopGpuClipRectInternal(a2, 0);
+        CDrawingContext::PopGpuClipRectInternal(a2, 0, v19);
       }
       else
       {
-        v14 = *((_DWORD *)a2 + 796);
-        if ( v14 )
-          *((_DWORD *)a2 + 796) = v14 - 1;
-        v15 = *((_QWORD *)a2 + 113);
-        v21 = 0;
-        v22 = 0;
-        --*(_QWORD *)(v15 - 184);
-        *((_BYTE *)a2 + 8169) = 1;
-        v16 = (float)*((int *)this + 7);
+        CScopedClipStack::PopGpuClipFromScope((struct CDrawingContext *)((char *)a2 + 936), 0);
+        v21 &= v14;
+        v22 &= v14;
+        *((_BYTE *)a2 + 5954) = 1;
+        v15 = (float)*((int *)this + 7);
         v23 = (float)*((int *)this + 6);
-        v24 = v16;
-        v17 = CDrawingContext::PushGpuClipRectInternal((__int64)a2, 0LL, (__int64)&v21, D2D1_ANTIALIAS_MODE_ALIASED, 1);
-        v7 = v17;
-        if ( v17 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x87u, 0LL);
+        v24 = v15;
+        v16 = CDrawingContext::PushGpuClipRectInternal((_DWORD)a2, v14, (unsigned int)&v21, v14 + 1, 1);
+        v7 = v16;
+        if ( v16 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x87u, 0LL);
         else
           *((_BYTE *)this + 34) = 1;
       }

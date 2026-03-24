@@ -1,27 +1,27 @@
 /*
- * XREFs of HvpMapHiveImage @ 0x14091AB6C
+ * XREFs of HvpMapHiveImage @ 0x140873E94
  * Callers:
- *     HvpMapHiveImageFromFile @ 0x14091ACEC (HvpMapHiveImageFromFile.c)
+ *     HvpMapHiveImageFromFile @ 0x140874008 (HvpMapHiveImageFromFile.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpPointMapEntriesToBuffer @ 0x14068CEA0 (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x14068D2B8 (HvpAllocateBin.c)
- *     HvpProtectBinPartial @ 0x1406C9BF4 (HvpProtectBinPartial.c)
- *     HvpFreeBin @ 0x1406D16F8 (HvpFreeBin.c)
- *     HvpReadHiveDataFromFile @ 0x14091B240 (HvpReadHiveDataFromFile.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
+ *     HvpProtectBin @ 0x140724980 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x1407249BC (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x140725BD0 (HvpFreeBin.c)
+ *     HvpReadHiveDataFromFile @ 0x14087463C (HvpReadHiveDataFromFile.c)
  */
 
 __int64 __fastcall HvpMapHiveImage(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v6; // r15
   int v7; // r14d
-  signed int v8; // eax
-  signed int Bin; // ebx
-  unsigned int v10; // ebp
+  int v8; // eax
+  int Bin; // ebx
+  unsigned int v10; // esi
   const void *v11; // r12
-  __int64 v12; // r8
-  unsigned int v13; // eax
+  __int64 v12; // rcx
+  int v13; // eax
   __int64 v15; // [rsp+60h] [rbp+8h] BYREF
   unsigned int v16; // [rsp+70h] [rbp+18h] BYREF
   void *v17; // [rsp+78h] [rbp+20h] BYREF
@@ -54,7 +54,7 @@ LABEL_2:
     if ( Bin < 0 )
       break;
     memmove(v17, v11, 0x1000uLL);
-    Bin = HvpProtectBinPartial(BugCheckParameter2, (__int64)v17, v12, 0, 0x1000u, 0);
+    Bin = HvpProtectBin(v12, 0x1000u, (__int64)v17, 0);
     if ( Bin < 0 )
     {
       v13 = 32;
@@ -71,6 +71,6 @@ LABEL_2:
 LABEL_10:
   SetFailureLocation(v6, 0, 7, Bin, v13);
   if ( v17 )
-    HvpFreeBin(BugCheckParameter2, 0x1000u, (__int64)v17);
+    HvpFreeBin(BugCheckParameter2, 0x1000u, (unsigned __int64)v17);
   return (unsigned int)Bin;
 }

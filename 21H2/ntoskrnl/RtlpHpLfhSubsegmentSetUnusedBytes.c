@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSetUnusedBytes @ 0x14039FF7C
+ * XREFs of RtlpHpLfhSubsegmentSetUnusedBytes @ 0x1403927D4
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14034A490 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSetUnusedBytes(__int64 a1, __int64 a2, int
   __int64 result; // rax
   __int16 v4; // r8
 
-  result = (unsigned __int16)qword_140C5A5C8;
+  result = WORD4(RtlpHpHeapGlobals);
   if ( a3 == 1 )
   {
     v4 = 0x8000;
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSetUnusedBytes(__int64 a1, __int64 a2, int
     result = 0x3FFFLL;
     v4 = a3 & 0x3FFF;
   }
-  *(_WORD *)(((unsigned __int16)qword_140C5A5C8 ^ *(unsigned __int16 *)(a1 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)a1 >> 12))
+  *(_WORD *)((WORD4(RtlpHpHeapGlobals) ^ *(unsigned __int16 *)(a1 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)a1 >> 12))
            + a2
            - 2) = v4;
   return result;

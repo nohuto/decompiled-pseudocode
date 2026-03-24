@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalGetRelativeAttributeForString @ 0x1408A9324
+ * XREFs of LocalGetRelativeAttributeForString @ 0x1408A9304
  * Callers:
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     iswspace @ 0x140196050 (iswspace.c)
- *     wcstoxq @ 0x140198128 (wcstoxq.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     iswspace @ 0x140196070 (iswspace.c)
+ *     wcstoxq @ 0x140198148 (wcstoxq.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     LocalGetSidForString @ 0x1406B02CC (LocalGetSidForString.c)
- *     SddlpAlloc @ 0x1406B0594 (SddlpAlloc.c)
- *     DecodeAttributeName @ 0x1408A6FB0 (DecodeAttributeName.c)
- *     GetDigitFromChar @ 0x1408A76D0 (GetDigitFromChar.c)
- *     GetFlags @ 0x1408A774C (GetFlags.c)
- *     GetValueType @ 0x1408A8A2C (GetValueType.c)
- *     IsLegalAttributeChar2 @ 0x1408A8B8C (IsLegalAttributeChar2.c)
+ *     LocalGetSidForString @ 0x1406B02AC (LocalGetSidForString.c)
+ *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     DecodeAttributeName @ 0x1408A6F90 (DecodeAttributeName.c)
+ *     GetDigitFromChar @ 0x1408A76B0 (GetDigitFromChar.c)
+ *     GetFlags @ 0x1408A772C (GetFlags.c)
+ *     GetValueType @ 0x1408A8A0C (GetValueType.c)
+ *     IsLegalAttributeChar2 @ 0x1408A8B6C (IsLegalAttributeChar2.c)
  */
 
 __int64 __fastcall LocalGetRelativeAttributeForString(

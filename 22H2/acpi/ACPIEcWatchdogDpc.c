@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcWatchdogDpc @ 0x1C0025D90
+ * XREFs of ACPIEcWatchdogDpc @ 0x1C0054AB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
- *     ACPIEcLogError @ 0x1C0025BB8 (ACPIEcLogError.c)
- *     ACPIEcServiceDevice @ 0x1C0025C70 (ACPIEcServiceDevice.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcLogError @ 0x1C00542D8 (ACPIEcLogError.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  */
 
 void __fastcall ACPIEcWatchdogDpc(
@@ -17,7 +17,7 @@ void __fastcall ACPIEcWatchdogDpc(
   char v5; // al
   char v6; // bp
   KIRQL v7; // bl
-  char v8; // al
+  char v8; // cl
   KIRQL v9; // al
   KIRQL v10; // bl
   KIRQL v11; // bl

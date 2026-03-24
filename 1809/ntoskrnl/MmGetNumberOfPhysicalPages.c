@@ -1,9 +1,9 @@
 /*
  * XREFs of MmGetNumberOfPhysicalPages @ 0x1406259BC
  * Callers:
- *     ExpGetSystemBasicInformation @ 0x1400A612C (ExpGetSystemBasicInformation.c)
- *     ExpGetSystemEmulationBasicInformation @ 0x140128F68 (ExpGetSystemEmulationBasicInformation.c)
- *     ExpDetermineLargePagePolicy @ 0x14018D488 (ExpDetermineLargePagePolicy.c)
+ *     ExpGetSystemBasicInformation @ 0x1400A614C (ExpGetSystemBasicInformation.c)
+ *     ExpGetSystemEmulationBasicInformation @ 0x140128F88 (ExpGetSystemEmulationBasicInformation.c)
+ *     ExpDetermineLargePagePolicy @ 0x14018D4A8 (ExpDetermineLargePagePolicy.c)
  *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
  *     PopRequestWrite @ 0x14056A5F4 (PopRequestWrite.c)
  *     InitializePool @ 0x1409B6DF8 (InitializePool.c)

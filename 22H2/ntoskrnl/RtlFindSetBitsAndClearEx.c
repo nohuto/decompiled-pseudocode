@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlFindSetBitsAndClearEx @ 0x14034A090
+ * XREFs of RtlFindSetBitsAndClearEx @ 0x1403266F0
  * Callers:
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiHotRemoveHugeRange @ 0x140620144 (MiHotRemoveHugeRange.c)
+ *     MiGetUltraMapping @ 0x140234070 (MiGetUltraMapping.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindSetBitsAndClearEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -14,32 +13,33 @@ unsigned __int64 __fastcall RtlFindSetBitsAndClearEx(unsigned __int64 *a1, unsig
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // rbp
-  unsigned __int64 v11; // rdi
+  unsigned __int64 v11; // rsi
   _QWORD *v12; // r8
   signed __int64 v13; // r9
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rbx
   __int64 v18; // rdx
-  _QWORD *v19; // rsi
+  _QWORD *v19; // rdi
   bool v20; // zf
   __int64 v21; // rax
   unsigned int v22; // r10d
   unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // r10
-  __int64 v25; // rax
-  unsigned __int64 v26; // r10
-  __int64 v27; // rax
-  unsigned int v28; // ecx
-  unsigned int v29; // r9d
-  __int64 v30; // rcx
-  _QWORD *v31; // rcx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  unsigned int v26; // eax
+  unsigned __int64 v27; // rcx
+  unsigned __int64 v28; // rax
+  unsigned __int64 v29; // r10
+  __int64 v30; // rax
+  unsigned int v31; // ecx
   __int64 v32; // rdx
   _QWORD *v33; // r9
-  __int64 v34; // rcx
-  unsigned int v35; // eax
-  unsigned __int64 v36; // rcx
-  unsigned __int64 v37; // rax
+  unsigned int v34; // r9d
+  __int64 v35; // rcx
+  unsigned __int64 v36; // r10
+  int v37; // [rsp+88h] [rbp+10h]
+  int v38; // [rsp+90h] [rbp+18h]
 
   v3 = *a1;
   v5 = a1[1];
@@ -51,9 +51,9 @@ unsigned __int64 __fastcall RtlFindSetBitsAndClearEx(unsigned __int64 *a1, unsig
     {
       if ( v9 - v8 + 1 < a2 )
       {
-LABEL_27:
+LABEL_16:
         v15 = -1LL;
-        goto LABEL_28;
+        goto LABEL_75;
       }
       v10 = v9 - a2 + 1;
       v11 = v5 + 8 * (v10 >> 6);
@@ -61,56 +61,58 @@ LABEL_27:
       v13 = ~*v12 | ((1LL << (v8 & 0x3F)) - 1);
       if ( a2 > 0x7F )
       {
-        v26 = v11 + 8;
+        v29 = v11 + 8;
         if ( (v10 & 0x3F) == 0 )
-          v26 = v5 + 8 * (v10 >> 6);
+          v29 = v5 + 8 * (v10 >> 6);
         if ( v13 )
         {
-          if ( *++v12 != -1LL )
-            goto LABEL_49;
-          v20 = !_BitScanReverse64((unsigned __int64 *)&v27, v13);
+          v30 = ~*++v12;
+          if ( *v12 != -1LL )
+            goto LABEL_56;
+          v37 &= v30;
+          v20 = !_BitScanReverse64((unsigned __int64 *)&v30, v13);
           if ( v20 )
-            v28 = 64;
+            v31 = 64;
           else
-            v28 = 63 - v27;
+            v31 = 63 - v30;
         }
         else
         {
-          v28 = 0;
+          v31 = 0;
         }
         while ( 1 )
         {
-          v15 = ((__int64)((__int64)v12 - v5) >> 3 << 6) - v28;
+          v15 = ((__int64)((__int64)v12 - v5) >> 3 << 6) - v31;
           if ( v15 > v10 )
-            goto LABEL_27;
-          v33 = &v12[(a2 - v28) >> 6];
+            goto LABEL_16;
+          v33 = &v12[(a2 - v31) >> 6];
           while ( ++v12 != v33 )
           {
             if ( *v12 != -1LL )
-              goto LABEL_49;
+              goto LABEL_56;
           }
-          v29 = ((_BYTE)a2 - (_BYTE)v28) & 0x3F;
-          if ( (((_BYTE)a2 - (_BYTE)v28) & 0x3F) == 0 )
+          v34 = ((_BYTE)a2 - (_BYTE)v31) & 0x3F;
+          if ( (((_BYTE)a2 - (_BYTE)v31) & 0x3F) == 0 )
             goto LABEL_11;
-          v20 = !_BitScanForward64((unsigned __int64 *)&v30, ~*v12);
+          v20 = !_BitScanForward64((unsigned __int64 *)&v35, ~*v12);
           if ( v20 )
-            LODWORD(v30) = 64;
-          if ( (unsigned int)v30 >= v29 )
+            LODWORD(v35) = 64;
+          if ( (unsigned int)v35 >= v34 )
             goto LABEL_11;
           do
           {
-LABEL_49:
-            v31 = v12;
-            if ( (unsigned __int64)v12 > v26 )
-              goto LABEL_27;
+LABEL_56:
+            if ( (unsigned __int64)v12 > v29 )
+              goto LABEL_16;
             ++v12;
           }
           while ( *v12 != -1LL );
-          v20 = !_BitScanReverse64((unsigned __int64 *)&v32, ~*v31);
+          v38 &= ~*(_DWORD *)v12;
+          v20 = !_BitScanReverse64((unsigned __int64 *)&v32, ~*(v12 - 1));
           if ( v20 )
-            v28 = 64;
+            v31 = 64;
           else
-            v28 = 63 - v32;
+            v31 = 63 - v32;
         }
       }
       if ( a2 >= 0x40 )
@@ -121,14 +123,14 @@ LABEL_49:
         v19 = (_QWORD *)(v5 + 8 * (v9 >> 6));
         while ( v13 != -1 )
         {
-LABEL_18:
+LABEL_19:
           v20 = !_BitScanForward64((unsigned __int64 *)&v21, v13);
           if ( v20 )
             LODWORD(v21) = 64;
           if ( (unsigned int)(v18 + v21) >= a2 )
           {
             v23 = -v18;
-LABEL_25:
+LABEL_26:
             v15 = ((__int64)((__int64)v12 - v5) >> 3 << 6) + v23;
             goto LABEL_10;
           }
@@ -143,41 +145,41 @@ LABEL_25:
             if ( v22 <= 1 )
             {
               _BitScanForward64(&v23, v23);
-              goto LABEL_25;
+              goto LABEL_26;
             }
           }
           if ( v12 == v19 )
-            goto LABEL_27;
-          v20 = !_BitScanReverse64((unsigned __int64 *)&v25, v13);
+            goto LABEL_16;
+          v20 = !_BitScanReverse64((unsigned __int64 *)&v24, v13);
           if ( v20 )
             v18 = 64LL;
           else
-            v18 = (unsigned int)(63 - v25);
+            v18 = (unsigned int)(63 - v24);
           v13 = ~*++v12;
         }
         while ( 1 )
         {
           if ( (unsigned __int64)++v12 > v11 )
-            goto LABEL_27;
+            goto LABEL_16;
           v13 = ~*v12;
           if ( *v12 )
           {
             v18 = 0LL;
-            goto LABEL_18;
+            goto LABEL_19;
           }
         }
       }
       while ( v13 == -1 )
       {
         if ( (unsigned __int64)++v12 > v11 )
-          goto LABEL_27;
+          goto LABEL_16;
         v13 = ~*v12;
       }
       _BitScanForward64(&v14, ~v13);
       v15 = v14 + ((__int64)((__int64)v12 - v5) >> 3 << 6);
 LABEL_10:
       if ( v15 > v10 )
-        goto LABEL_27;
+        goto LABEL_16;
 LABEL_11:
       if ( v15 != -1LL )
       {
@@ -185,13 +187,13 @@ LABEL_12:
         v16 = v15;
         goto LABEL_13;
       }
-LABEL_28:
+LABEL_75:
       if ( !v8 )
         goto LABEL_12;
-      v24 = a2 + a3;
+      v36 = a2 + a3;
       if ( a2 + a3 > v3 )
-        v24 = v3;
-      v9 = v24 - 1;
+        v36 = v3;
+      v9 = v36 - 1;
       v8 = 0LL;
     }
     while ( 1 )
@@ -201,37 +203,37 @@ LABEL_28:
         while ( v13 < 0 )
         {
           if ( (unsigned __int64)++v12 > v11 )
-            goto LABEL_27;
+            goto LABEL_16;
           v13 = ~*v12;
         }
-        v20 = !_BitScanReverse64((unsigned __int64 *)&v34, v13);
+        v20 = !_BitScanReverse64((unsigned __int64 *)&v25, v13);
         if ( v20 )
-          v35 = 64;
+          v26 = 64;
         else
-          v35 = 63 - v34;
-        v15 = ((((__int64)((__int64)v12 - v5) >> 3) + 1) << 6) - v35;
+          v26 = 63 - v25;
+        v15 = ((((__int64)((__int64)v12 - v5) >> 3) + 1) << 6) - v26;
         if ( v15 > v10 )
-          goto LABEL_27;
-        v36 = a2 - v35;
-        if ( a2 == v35 )
+          goto LABEL_16;
+        v27 = a2 - v26;
+        if ( a2 == v26 )
           goto LABEL_11;
         v13 = ~*++v12;
-        if ( v36 >= 0x40 )
+        if ( v27 >= 0x40 )
           break;
-LABEL_63:
-        v20 = !_BitScanForward64(&v37, v13);
+LABEL_45:
+        v20 = !_BitScanForward64(&v28, v13);
         if ( v20 )
-          v37 = 64LL;
-        if ( v37 >= v36 )
+          v28 = 64LL;
+        if ( v28 >= v27 )
           goto LABEL_11;
       }
       if ( *v12 == -1LL )
       {
-        v36 -= 64LL;
-        if ( !v36 )
+        v27 -= 64LL;
+        if ( !v27 )
           goto LABEL_11;
         v13 = ~*++v12;
-        goto LABEL_63;
+        goto LABEL_45;
       }
     }
   }

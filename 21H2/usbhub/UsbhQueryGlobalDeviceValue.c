@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhQueryGlobalDeviceValue @ 0x1C0045550
+ * XREFs of UsbhQueryGlobalDeviceValue @ 0x1C0046880
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_Sdqdqq @ 0x1C0047E84 (WPP_RECORDER_SF_Sdqdqq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_Sdqdqq @ 0x1C0049204 (WPP_RECORDER_SF_Sdqdqq.c)
  */
 
 __int64 __fastcall UsbhQueryGlobalDeviceValue(__int64 a1, int a2, __int64 a3, unsigned int a4, __int64 a5, __int64 a6)

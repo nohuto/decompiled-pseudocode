@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140B91FB8
+ * XREFs of HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140A8C8A0
  * Callers:
- *     HalpAcpiTableCacheInit @ 0x140B4C428 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
  * Callees:
  *     <none>
  */

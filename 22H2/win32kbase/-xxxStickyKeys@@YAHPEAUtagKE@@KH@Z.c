@@ -1,220 +1,185 @@
 /*
- * XREFs of ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B6F90
+ * XREFs of ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01850C0
  * Callers:
  *     <none>
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E3A10 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01B74F0 (-xxxTurnOffStickyKeys@@YAXXZ.c)
- *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01B7550 (-xxxTwoKeysDown@@YAHH@Z.c)
- *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01B7650 (-xxxUpdateModifierState@@YAXHH@Z.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0207254 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C0207294 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01830F0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185580 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01855E0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01856D0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD030 (ApiSetEditionPostAccessibility.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
  */
 
-_BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
+_BOOL8 __fastcall xxxStickyKeys(struct tagKE *a1, __int64 a2, unsigned int a3)
 {
-  __int16 v4; // si
-  __int64 v6; // r15
-  __int64 v7; // rcx
-  int v8; // esi
-  signed int v9; // r14d
-  char v10; // bp
+  int v3; // r11d
+  __int64 v4; // rsi
+  char v7; // r10
+  char v9; // al
+  __int64 v10; // rdx
+  int v11; // ecx
   __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  __int64 v34; // rdx
-  __int64 v35; // rdx
-  int v36; // ecx
-  __int64 v37; // rdx
-  char v38; // di
-  char v39; // si
-  char v40; // bp
-  int v41; // eax
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // r8
-  __int64 v45; // r9
-  __int64 v46; // rdx
-  __int64 v47; // rcx
-  __int64 v48; // r8
-  __int64 v49; // r9
-  bool v50; // zf
+  unsigned __int16 v13; // ax
+  char v14; // di
+  char v15; // si
+  char v16; // r10
+  int v17; // eax
+  __int64 v18; // rdx
+  bool v19; // zf
 
-  v4 = *((_WORD *)a1 + 1);
-  v6 = (unsigned int)a2;
-  v7 = (unsigned __int8)gCurrentModifierBit;
-  v8 = v4 & 0x8000;
-  v9 = a3;
-  v10 = 0;
+  v3 = *((_WORD *)a1 + 1) & 0x8000;
+  v4 = (unsigned int)a2;
+  v7 = 0;
   if ( !gCurrentModifierBit )
   {
-    *(_BYTE *)(SGDGetUserSessionState(0LL, a2, a3, a4) + 13832) = 0;
-    *(_BYTE *)(SGDGetUserSessionState(v47, v46, v48, v49) + 13833) = 0;
-    if ( (dword_1C02905F4 & 1) != 0 )
+    gStickyKeysLeftShiftCount = 0;
+    gStickyKeysRightShiftCount = 0;
+    if ( (dword_1C024F944 & 1) != 0 )
     {
-      if ( !gPhysModifierState || v8 )
+      if ( !gPhysModifierState || v3 )
       {
-        if ( (unsigned int)AccessProceduresStream(a1, v6, v9) )
-          xxxProcessKeyEvent((unsigned __int16 *)a1, v6, 0, 0, 0LL, 0LL);
-        xxxUpdateModifierState((unsigned __int8)gLockBits, v9);
-        v50 = gLatchBits == 0;
+        if ( (unsigned int)AccessProceduresStream(a1, a2, a3) )
+          xxxProcessKeyEvent(a1, v4, 0LL, 0LL, 0LL, 0LL);
+        xxxUpdateModifierState((unsigned __int8)gLockBits, a3);
+        v19 = gLatchBits == 0;
         gLatchBits = 0;
-        if ( !v50 )
-          ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
+        if ( !v19 )
+          ApiSetEditionPostAccessibility(1LL);
         return 0LL;
       }
-      xxxTwoKeysDown(v9);
+      xxxTwoKeysDown(a3);
     }
     return 1LL;
   }
-  if ( !v8 && ((unsigned __int8)gCurrentModifierBit & (unsigned __int8)gPrevModifierState) != 0 )
+  if ( (*((_WORD *)a1 + 1) & 0x8000) == 0
+    && ((unsigned __int8)gCurrentModifierBit & (unsigned __int8)gPrevModifierState) != 0 )
   {
     gPrevModifierState = gPhysModifierState;
     return 1LL;
   }
-  LOBYTE(a2) = gPhysModifierState;
   gPrevModifierState = gPhysModifierState;
-  if ( *((_BYTE *)a1 + 2) != 0xA0
-    || (v7 = ~(unsigned __int8)gCurrentModifierBit,
-        ((unsigned __int8)~gCurrentModifierBit & (unsigned __int8)gPhysModifierState) != 0) )
-  {
-    *(_BYTE *)(SGDGetUserSessionState(v7, a2, a3, a4) + 13832) = 0;
-  }
+  if ( *((_BYTE *)a1 + 2) != 0xA0 || ((unsigned __int8)~gCurrentModifierBit & (unsigned __int8)gPhysModifierState) != 0 )
+    LOBYTE(a2) = 0;
   else
-  {
-    SGDGetUserSessionState(v7, a2, a3, a4);
-    v16 = SGDGetUserSessionState(v13, v12, v14, v15);
-    ++*(_BYTE *)(v16 + 13832);
-  }
-  if ( *((_BYTE *)a1 + 2) != 0xA1
-    || (v18 = ~(unsigned __int8)gCurrentModifierBit,
-        ((unsigned __int8)~gCurrentModifierBit & (unsigned __int8)gPhysModifierState) != 0) )
-  {
-    *(_BYTE *)(SGDGetUserSessionState(v18, v17, v19, v20) + 13833) = 0;
-  }
+    LOBYTE(a2) = gStickyKeysLeftShiftCount + 1;
+  gStickyKeysLeftShiftCount = a2;
+  if ( *((_BYTE *)a1 + 2) != 0xA1 || ((unsigned __int8)~gCurrentModifierBit & (unsigned __int8)gPhysModifierState) != 0 )
+    v9 = 0;
   else
+    v9 = gStickyKeysRightShiftCount + 1;
+  gStickyKeysRightShiftCount = v9;
+  if ( (_BYTE)a2 == 10 || v9 == 10 )
   {
-    SGDGetUserSessionState(v18, v17, v19, v20);
-    v25 = SGDGetUserSessionState(v22, v21, v23, v24);
-    ++*(_BYTE *)(v25 + 13833);
-  }
-  if ( *(_BYTE *)(SGDGetUserSessionState(v27, v26, v28, v29) + 13832) == 10
-    || *(_BYTE *)(SGDGetUserSessionState(v31, v30, v32, v33) + 13833) == 10 )
-  {
-    if ( (dword_1C02905F4 & 4) != 0 )
+    if ( (dword_1C024F944 & 4) != 0 )
     {
-      if ( (dword_1C02905F4 & 1) != 0 )
+      if ( (dword_1C024F944 & 1) != 0 )
       {
         xxxTurnOffStickyKeys();
-        if ( (dword_1C02905F4 & 0x10) != 0 )
-          ApiSetEditionPostRitSound(1LL, v30, 0LL);
+        if ( (dword_1C024F944 & 0x10) != 0 )
+          ApiSetEditionPostRitSound(1LL, v18, 0LL);
       }
       else
       {
-        if ( (dword_1C02905F4 & 0x10) != 0 )
-          ApiSetEditionPostRitSound(0LL, v30, 0LL);
-        ApiSetEditionPostAccessibilityShortcutNotification(1LL);
+        if ( (dword_1C024F944 & 0x10) != 0 )
+          ApiSetEditionPostRitSound(0LL, a2, 0LL);
+        PostWinlogonMessage(1026LL, 1u);
       }
     }
-    *(_BYTE *)(SGDGetUserSessionState(v31, v30, v32, v33) + 13832) = 0;
-    *(_BYTE *)(SGDGetUserSessionState(v43, v42, v44, v45) + 13833) = 0;
+    gStickyKeysLeftShiftCount = 0;
+    gStickyKeysRightShiftCount = 0;
     return 1LL;
   }
-  if ( (dword_1C02905F4 & 1) == 0 )
+  if ( (dword_1C024F944 & 1) == 0 )
     return 1LL;
-  if ( !v8 )
+  if ( !v3 )
   {
-    v34 = (unsigned __int8)gCurrentModifierBit;
     if ( gPhysModifierState == gCurrentModifierBit )
     {
-      switch ( *((_WORD *)a1 + 1) )
+      v13 = *((_WORD *)a1 + 1);
+      if ( v13 >= 0x5Bu )
       {
-        case 0x5B:
-        case 0x5C:
-          v10 = -64;
-          break;
-        case 0xA0:
-        case 0xA1:
-          v10 = 3;
-          break;
-        case 0xA2:
-        case 0xA3:
-          v10 = 12;
-          break;
-        default:
-          if ( (unsigned int)*((unsigned __int16 *)a1 + 1) - 164 <= 1 )
-            v10 = 48;
-          break;
+        if ( v13 <= 0x5Cu )
+        {
+          v7 = -64;
+        }
+        else
+        {
+          a2 = 159LL;
+          if ( v13 > 0x9Fu )
+          {
+            if ( v13 <= 0xA1u )
+            {
+              v7 = 3;
+            }
+            else
+            {
+              a2 = 163LL;
+              if ( v13 <= 0xA3u )
+              {
+                v7 = 12;
+              }
+              else
+              {
+                a2 = 165LL;
+                if ( v13 <= 0xA5u )
+                  v7 = 48;
+              }
+            }
+          }
+        }
       }
-      v38 = gLockBits;
-      v39 = gLatchBits;
-      if ( ((unsigned __int8)gLockBits & (unsigned __int8)v10) != 0 )
+      v14 = gLockBits;
+      v15 = gLatchBits;
+      if ( ((unsigned __int8)gLockBits & (unsigned __int8)v7) != 0 )
       {
-        v40 = ~v10;
-        v38 = v40 & gLockBits;
-        v39 = v40 & gLatchBits;
+        v16 = ~v7;
+        v14 = v16 & gLockBits;
+        v15 = v16 & gLatchBits;
         xxxUpdateModifierState(
-          (unsigned __int8)gCurrentModifierBit | (unsigned __int8)(v40 & gLockBits) | (unsigned __int8)(v40 & gLatchBits),
-          v9);
+          (unsigned __int8)gCurrentModifierBit | (unsigned __int8)(v16 & gLockBits) | (unsigned __int8)(v16 & gLatchBits),
+          a3);
       }
       else
       {
         if ( ((unsigned __int8)gCurrentModifierBit & (unsigned __int8)gLockBits) == 0 )
-          v39 = gCurrentModifierBit ^ gLatchBits;
-        if ( (dword_1C02905F4 & 0x80u) != 0
+          v15 = gCurrentModifierBit ^ gLatchBits;
+        if ( (dword_1C024F944 & 0x80u) != 0
           && ((unsigned __int8)(gLockBits | gLatchBits) & (unsigned __int8)gCurrentModifierBit) != 0 )
         {
-          v38 = gCurrentModifierBit ^ gLockBits;
+          v14 = gCurrentModifierBit ^ gLockBits;
         }
       }
-      if ( gLatchBits != v39 || (v41 = 0, gLockBits != v38) )
-        v41 = 1;
-      gLatchBits = v39;
-      gLockBits = v38;
-      if ( v41 )
-        ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
-      if ( (dword_1C02905F4 & 0x40) != 0 )
+      if ( gLatchBits != v15 || (v17 = 0, gLockBits != v14) )
+        v17 = 1;
+      gLatchBits = v15;
+      gLockBits = v14;
+      if ( v17 )
+        ApiSetEditionPostAccessibility(1LL);
+      if ( (dword_1C024F944 & 0x40) != 0 )
       {
         if ( ((unsigned __int8)gLockBits & (unsigned __int8)gCurrentModifierBit) == 0 )
-          ApiSetEditionPostRitSound(2LL, v34, 0LL);
+          ApiSetEditionPostRitSound(2LL, a2, 0LL);
         if ( ((unsigned __int8)(gLatchBits | gLockBits) & (unsigned __int8)gCurrentModifierBit) != 0 )
-          ApiSetEditionPostRitSound(3LL, v34, 0LL);
+          ApiSetEditionPostRitSound(3LL, a2, 0LL);
       }
-      return ((unsigned __int8)gLatchBits & (unsigned __int8)gCurrentModifierBit) != 0;
+      if ( ((unsigned __int8)gLatchBits & (unsigned __int8)gCurrentModifierBit) == 0 )
+        return 0LL;
     }
-    if ( (unsigned int)xxxTwoKeysDown(v9) )
+    else if ( (unsigned int)xxxTwoKeysDown(a3) )
     {
-      if ( gLockBits || (v36 = 0, gLatchBits != gPhysModifierState) )
-        v36 = 1;
+      if ( gLockBits || (v11 = 0, gLatchBits != gPhysModifierState) )
+        v11 = 1;
       gLatchBits = gPhysModifierState;
       gLockBits = 0;
-      if ( v36 )
-        ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
-      if ( (dword_1C02905F4 & 0x40) != 0 )
+      if ( v11 )
+        ApiSetEditionPostAccessibility(1LL);
+      if ( (dword_1C024F944 & 0x40) != 0 )
       {
-        ApiSetEditionPostRitSound(2LL, v35, 0LL);
-        ApiSetEditionPostRitSound(3LL, v37, 0LL);
+        ApiSetEditionPostRitSound(2LL, v10, 0LL);
+        ApiSetEditionPostRitSound(3LL, v12, 0LL);
       }
       return 0LL;
     }

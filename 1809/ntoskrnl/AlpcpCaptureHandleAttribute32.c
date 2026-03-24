@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpCaptureHandleAttribute32 @ 0x14084BC04
+ * XREFs of AlpcpCaptureHandleAttribute32 @ 0x14084BBE4
  * Callers:
  *     AlpcpCaptureAttributes @ 0x1406363E0 (AlpcpCaptureAttributes.c)
  * Callees:
- *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5684 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5664 (AlpcpCaptureHandleAttributeInternal.c)
  */
 
 __int64 __fastcall AlpcpCaptureHandleAttribute32(int *a1, __int64 a2)

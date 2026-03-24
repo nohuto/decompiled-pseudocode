@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CVisRgnTrackerProp@@MEAAGXZ @ 0x1C0123CD0
+ * XREFs of ?GetAtom@CVisRgnTrackerProp@@MEAAGXZ @ 0x1C0137B40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CVisRgnTrackerProp::GetAtom(CVisRgnTrackerProp *this)
 {
-  return LOWORD(WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  return LOWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSharedReadCaptureControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00CB200
+ * XREFs of ?SetIntegerProperty@CSharedReadCaptureControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00BBF80
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnParsePrefetchParam @ 0x1407DC794
+ * XREFs of PfSnParsePrefetchParam @ 0x1406CB720
  * Callers:
- *     PfSnScanCommandLine @ 0x1407DC6F4 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x1406CB680 (PfSnScanCommandLine.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wtol @ 0x1403E1810 (_wtol.c)
- *     iswdigit @ 0x1403E1BF0 (iswdigit.c)
- *     PfSnFindString @ 0x1407DC8F4 (PfSnFindString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wtol @ 0x1403D2450 (_wtol.c)
+ *     iswdigit @ 0x1403D2830 (iswdigit.c)
+ *     PfSnFindString @ 0x1406CB880 (PfSnFindString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnParsePrefetchParam(unsigned __int16 *a1, unsigned int *a2)
@@ -50,7 +50,7 @@ __int64 __fastcall PfSnParsePrefetchParam(unsigned __int16 *a1, unsigned int *a2
     }
     *i = 0;
     v12 = wtol(Str);
-    if ( v12 > 0x10 )
+    if ( v12 > 8 )
       return (unsigned int)-1073741811;
     else
       *a2 = v12;

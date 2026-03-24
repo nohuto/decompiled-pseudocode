@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C007F700
+ * XREFs of ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C009B0A4
  * Callers:
- *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C007F180 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
- *     ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C007F5C0 (-CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C009ACB0 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C009B1A0 (-CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,18 +11,21 @@ bool __fastcall ValidateGlyphBitsBuffer(unsigned int a1, int a2, int a3, unsigne
 {
   unsigned __int64 v6; // rdx
   unsigned int v7; // ecx
+  bool result; // al
 
-  if ( !a4 )
-    return 1;
-  if ( a2 < 0 )
-    return 0;
-  if ( a3 < 0 )
-    return 0;
-  v6 = a4 * (unsigned __int64)(unsigned int)a3;
-  if ( v6 > 0xFFFFFFFF )
-    return 0;
-  v7 = (v6 + 3) & 0xFFFFFFFC;
-  if ( v7 < (unsigned int)v6 || v7 + a5 < a5 )
-    return 0;
-  return v7 + a5 <= a1;
+  result = 1;
+  if ( a4 )
+  {
+    if ( a2 < 0 )
+      return 0;
+    if ( a3 < 0 )
+      return 0;
+    v6 = a4 * (unsigned __int64)(unsigned int)a3;
+    if ( v6 > 0xFFFFFFFF )
+      return 0;
+    v7 = (v6 + 3) & 0xFFFFFFFC;
+    if ( v7 < (unsigned int)v6 || v7 + a5 < a5 || v7 + a5 > a1 )
+      return 0;
+  }
+  return result;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of InvalidateWEFCOMPOSITEDDCEs @ 0x1C0005BBC
+ * XREFs of InvalidateWEFCOMPOSITEDDCEs @ 0x1C01E79E0
  * Callers:
- *     xxxSystemTimerProc @ 0x1C0005B40 (xxxSystemTimerProc.c)
+ *     xxxSystemTimerProc @ 0x1C002AE80 (xxxSystemTimerProc.c)
  * Callees:
- *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C00176A0 (FlushWEFCOMPOSITEDDCEBounds.c)
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C01E78C0 (FlushWEFCOMPOSITEDDCEBounds.c)
  */
 
 __int64 InvalidateWEFCOMPOSITEDDCEs()
 {
-  __int64 *i; // rbx
+  __int64 i; // rbx
 
   GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  for ( i = *(__int64 **)(gpDispInfo + 24LL); i; i = (__int64 *)*i )
+  for ( i = *(_QWORD *)(gpDispInfo + 24LL); i; i = *(_QWORD *)i )
   {
-    if ( (i[8] & 0x4400800) == 0
-      && i[2]
-      && !(unsigned int)GreIsRendering(i[1])
-      && (i[8] & 0x5000) == 0x5000
-      && (*(_BYTE *)(*(_QWORD *)(i[4] + 40) + 27LL) & 2) != 0 )
+    if ( (*(_DWORD *)(i + 64) & 0x4400800) == 0
+      && *(_QWORD *)(i + 16)
+      && !(unsigned int)GreIsRendering(*(_QWORD *)(i + 8))
+      && (*(_DWORD *)(i + 64) & 0x5000) == 0x5000
+      && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(i + 32) + 40LL) + 27LL) & 2) != 0 )
     {
       FlushWEFCOMPOSITEDDCEBounds(i);
     }

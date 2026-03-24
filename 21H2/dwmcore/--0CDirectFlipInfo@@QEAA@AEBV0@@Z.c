@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CDirectFlipInfo@@QEAA@AEBV0@@Z @ 0x1801DEDAC
+ * XREFs of ??0CDirectFlipInfo@@QEAA@AEBV0@@Z @ 0x180183E0C
  * Callers:
- *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x1800BC2AC (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
+ *     ?ApplyConfiguration@COverlayContext@@QEAAJPEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N1@Z @ 0x1800931CC (-ApplyConfiguration@COverlayContext@@QEAAJPEAV-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@s.c)
  * Callees:
- *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x1800081E8 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?reset@?$shared_ptr@VCRegion@@@std@@QEAAXXZ @ 0x1801132D6 (-reset@-$shared_ptr@VCRegion@@@std@@QEAAXXZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025B70 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?reset@?$shared_ptr@VCRegion@@@std@@QEAAXXZ @ 0x180184758 (-reset@-$shared_ptr@VCRegion@@@std@@QEAAXXZ.c)
  */
 
 CDirectFlipInfo *__fastcall CDirectFlipInfo::CDirectFlipInfo(CDirectFlipInfo *this, const struct CDirectFlipInfo *a2)
@@ -24,14 +24,14 @@ CDirectFlipInfo *__fastcall CDirectFlipInfo::CDirectFlipInfo(CDirectFlipInfo *th
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 13) = *((_DWORD *)a2 + 13);
   *((_QWORD *)this + 7) = 0LL;
-  *((_BYTE *)this + 64) = 0;
-  *(_QWORD *)((char *)this + 68) = 0LL;
-  *(_OWORD *)((char *)this + 76) = 0LL;
-  *(_QWORD *)((char *)this + 92) = 0LL;
-  *(_QWORD *)((char *)this + 100) = 0LL;
-  *((_QWORD *)this + 14) = 0LL;
-  *((_DWORD *)this + 30) = 0x1000000;
-  *((_WORD *)this + 62) = 0;
-  std::shared_ptr<CRegion>::reset((_QWORD *)this + 4);
+  *((_DWORD *)this + 16) = 0;
+  *(_OWORD *)((char *)this + 68) = 0LL;
+  *(_QWORD *)((char *)this + 84) = 0LL;
+  *((_DWORD *)this + 23) = 0;
+  *((_DWORD *)this + 24) = -1;
+  *((_DWORD *)this + 25) = 0;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_DWORD *)this + 28) = 256;
+  std::shared_ptr<CRegion>::reset((char *)this + 32);
   return this;
 }

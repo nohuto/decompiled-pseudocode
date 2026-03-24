@@ -1,22 +1,20 @@
 /*
- * XREFs of CmpClaimGlobalQuota @ 0x14070304C
+ * XREFs of CmpClaimGlobalQuota @ 0x140720214
  * Callers:
- *     CmpAllocateForNonPagedHive @ 0x140616580 (CmpAllocateForNonPagedHive.c)
- *     CmpAllocate @ 0x140702FE0 (CmpAllocate.c)
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
- *     HvpMapHiveImageFromViewMap @ 0x1407507E8 (HvpMapHiveImageFromViewMap.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1408272D8 (HvpBuildMapForMemoryBackedHive.c)
- *     HvpAllocateNonPagedBin @ 0x140A2A22C (HvpAllocateNonPagedBin.c)
+ *     HvpMapHiveImageFromViewMap @ 0x140656AE0 (HvpMapHiveImageFromViewMap.c)
+ *     CmpAllocate @ 0x1407201B0 (CmpAllocate.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B233C (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     CmpUpdateGlobalQuotaAllowed @ 0x1407030A0 (CmpUpdateGlobalQuotaAllowed.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x140720268 (CmpUpdateGlobalQuotaAllowed.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
   CmpUpdateGlobalQuotaAllowed(a1, a2, (unsigned int)a1);
   if ( !(_DWORD)v2 || v2 >= CmpGlobalQuotaAllowed - CmpGlobalQuotaUsed )
@@ -26,14 +24,14 @@ char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)
     && !CmpQuotaWarningPopupDisplayed
     && ExReadyForErrors )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 538987843LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x20204D43u);
+    if ( PoolWithTag )
     {
-      Pool2->List.Flink = 0LL;
-      Pool2->WorkerRoutine = (void (__fastcall *)(void *))CmpQuotaWarningWorker;
+      PoolWithTag->List.Flink = 0LL;
+      PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))CmpQuotaWarningWorker;
       CmpQuotaWarningPopupDisplayed = 1;
-      Pool2->Parameter = Pool2;
-      ExQueueWorkItem(Pool2, DelayedWorkQueue);
+      PoolWithTag->Parameter = PoolWithTag;
+      ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
     }
   }
   return 1;

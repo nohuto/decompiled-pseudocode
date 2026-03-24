@@ -1,26 +1,25 @@
 /*
- * XREFs of ExpGetNextCallback @ 0x140880F90
+ * XREFs of ExpGetNextCallback @ 0x14076C6A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
  */
 
 unsigned __int64 __fastcall ExpGetNextCallback(_QWORD *Object)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  int v3; // esi
-  __int64 *v4; // r14
+  struct _KTHREAD *CurrentThread; // r14
+  int v2; // edi
+  __int64 *v3; // rbp
   __int64 *v5; // rbx
-  bool v6; // zf
 
   CurrentThread = KeGetCurrentThread();
-  v3 = 0;
-  v4 = 0LL;
+  v2 = 0;
+  v3 = 0LL;
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
   v5 = (__int64 *)ExpCallbackListHead;
@@ -28,19 +27,17 @@ unsigned __int64 __fastcall ExpGetNextCallback(_QWORD *Object)
     v5 = (__int64 *)Object[5];
   while ( v5 != &ExpCallbackListHead )
   {
-    v4 = v5 - 5;
+    v3 = v5 - 5;
     if ( ObReferenceObjectSafeWithTag((__int64)(v5 - 5)) )
     {
-      v3 = 1;
+      v2 = 1;
       break;
     }
     v5 = (__int64 *)*v5;
   }
-  ExReleasePushLockEx((__int64 *)&ExpCallbackListLock, 0LL);
-  v6 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v6 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
+  ExReleasePushLockEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x6E457845u);
-  return (unsigned __int64)v4 & -(__int64)(v3 != 0);
+  return (unsigned __int64)v3 & -(__int64)(v2 != 0);
 }

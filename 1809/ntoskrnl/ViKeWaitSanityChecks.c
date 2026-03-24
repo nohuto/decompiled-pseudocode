@@ -4,7 +4,7 @@
  *     ViKeWaitForMultipleObjectsCommon @ 0x14093B230 (ViKeWaitForMultipleObjectsCommon.c)
  *     ViKeWaitForSingleObjectCommon @ 0x14093B318 (ViKeWaitForSingleObjectCommon.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x1400CAB00 (RtlpGetStackLimits.c)
+ *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
  *     VfUtilSynchronizationObjectSanityChecks @ 0x140926400 (VfUtilSynchronizationObjectSanityChecks.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */

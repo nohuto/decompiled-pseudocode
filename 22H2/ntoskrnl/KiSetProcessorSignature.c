@@ -1,256 +1,262 @@
 /*
- * XREFs of KiSetProcessorSignature @ 0x140A8EAF4
+ * XREFs of KiSetProcessorSignature @ 0x14099DF64
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
- *     KiSetFeatureBits @ 0x140A8DD24 (KiSetFeatureBits.c)
+ *     KiInitializeBootStructures @ 0x14099BA20 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x14099C42C (KiSetFeatureBits.c)
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KdInitSystem @ 0x140AB2040 (KdInitSystem.c)
- *     KiPublishProcessorFeatures @ 0x140B760B8 (KiPublishProcessorFeatures.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     KiPublishProcessorFeatures @ 0x140A3FE38 (KiPublishProcessorFeatures.c)
  */
 
-__int64 __fastcall KiSetProcessorSignature(__int64 a1, unsigned int a2)
+__int64 __fastcall KiSetProcessorSignature(__int64 a1, int a2)
 {
-  ULONG_PTR v13; // r13
-  ULONG_PTR v14; // r15
-  __int64 v15; // r9
-  unsigned int v16; // edx
-  unsigned int v17; // r10d
-  unsigned __int8 *v18; // rbx
-  int *v19; // r14
-  __int64 *v20; // rsi
-  unsigned int v21; // r11d
-  unsigned int v22; // r8d
-  unsigned int v23; // ecx
-  int v29; // edx
-  int v30; // edx
-  __int64 v31; // r8
-  unsigned int *v32; // rsi
-  unsigned int v33; // edx
-  unsigned int v34; // ecx
-  ULONG_PTR v35; // rdx
-  unsigned __int64 v36; // r11
-  __int64 i; // rbx
-  unsigned int v38; // ecx
-  int v39; // edx
-  int v40; // edx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  int v43; // ebx
-  __int64 v44; // rax
-  __int64 v45; // r8
-  __int64 v46; // r11
+  unsigned int v8; // r10d
+  ULONG_PTR v14; // r9
+  ULONG_PTR v15; // r13
+  ULONG_PTR v16; // r12
+  int v17; // r11d
+  int v18; // edx
+  __int64 v19; // r14
+  unsigned int v20; // r8d
+  unsigned int v21; // ecx
+  int v27; // r10d
+  ULONG_PTR BugCheckParameter4; // rbx
+  ULONG_PTR v29; // r9
+  int v30; // eax
+  int v31; // edx
+  int v32; // ebx
+  __int64 i; // r8
+  unsigned int *v34; // r14
+  unsigned int v35; // edx
+  unsigned int v36; // ecx
+  ULONG_PTR v37; // rdx
+  unsigned __int64 v38; // r10
+  __int64 j; // rbx
+  unsigned int v40; // ecx
+  unsigned int v41; // edx
+  int v42; // edx
+  int v43; // edx
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // rax
   int v47; // ecx
   ULONG_PTR v48; // rsi
   __int64 result; // rax
-  ULONG_PTR BugCheckParameter4; // rbx
+  ULONG_PTR v50; // rbx
   __int64 Prcb; // rax
-  unsigned int v52; // [rsp+30h] [rbp-98h]
-  unsigned __int8 *v53; // [rsp+38h] [rbp-90h]
-  unsigned int v55; // [rsp+50h] [rbp-78h]
-  __int128 v56; // [rsp+80h] [rbp-48h]
+  int v52; // [rsp+30h] [rbp-88h]
+  int v53; // [rsp+34h] [rbp-84h]
+  unsigned int v54; // [rsp+38h] [rbp-80h]
+  unsigned int v55; // [rsp+3Ch] [rbp-7Ch]
+  unsigned int v56; // [rsp+40h] [rbp-78h]
+  __int128 v57; // [rsp+70h] [rbp-48h]
 
   _RAX = 0x80000000LL;
   __asm { cpuid }
+  v8 = _RAX;
   v55 = _RAX;
   _RAX = 0LL;
   __asm { cpuid }
-  *(_QWORD *)&v56 = __PAIR64__(_RBX, _RAX);
-  *((_QWORD *)&v56 + 1) = __PAIR64__(_RDX, _RCX);
-  v13 = 0LL;
-  v14 = 0LL;
+  v14 = (unsigned int)_RAX;
+  v54 = _RAX;
+  *(_QWORD *)&v57 = __PAIR64__(_RBX, _RAX);
+  *((_QWORD *)&v57 + 1) = __PAIR64__(_RDX, _RCX);
   v15 = 0LL;
-  v16 = 0;
-  v52 = 0;
+  v16 = 0LL;
   v17 = 0;
-  v18 = (unsigned __int8 *)(a1 + 141);
-  v53 = (unsigned __int8 *)(a1 + 141);
-  v19 = (int *)(a1 + 36);
-  v20 = qword_140014A28;
-  v21 = _RAX;
+  v52 = 0;
+  v18 = 0;
+  v53 = 0;
+  v56 = 0;
+  v19 = 0LL;
   do
   {
-    v22 = *((_DWORD *)v20 - 2);
-    if ( (v22 & 2) == 0 )
+    v20 = KiCpuFeatureTable[v19 + 2];
+    if ( (v20 & 2) == 0 )
     {
-      if ( !HIBYTE(v22) || (v23 = HIBYTE(v22), _bittest((const int *)&v23, *v18)) )
+      if ( !HIBYTE(v20) || (v21 = HIBYTE(v20), _bittest((const int *)&v21, *(unsigned __int8 *)(a1 + 141))) )
       {
-        _RAX = *((unsigned int *)v20 - 6);
-        if ( *(v20 - 3) != __PAIR64__(v16, v15) )
+        _RAX = LODWORD(KiCpuFeatureTable[v19]);
+        if ( (_DWORD)_RAX != v17 || HIDWORD(KiCpuFeatureTable[v19]) != v18 )
         {
-          v15 = (unsigned int)_RAX;
-          v52 = *((_DWORD *)v20 - 5);
-          if ( ((unsigned int)_RAX < 0x80000000 || (unsigned int)_RAX > v55) && (unsigned int)_RAX > v21 )
+          v52 = KiCpuFeatureTable[v19];
+          v53 = HIDWORD(KiCpuFeatureTable[v19]);
+          if ( ((unsigned int)_RAX < 0x80000000 || (unsigned int)_RAX > v8) && (unsigned int)_RAX > (unsigned int)v14 )
           {
-            v56 = 0LL;
+            v57 = 0LL;
           }
           else
           {
             __asm { cpuid }
-            *(_QWORD *)&v56 = __PAIR64__(_RBX, _RAX);
-            *((_QWORD *)&v56 + 1) = __PAIR64__(_RDX, _RCX);
+            *(_QWORD *)&v57 = __PAIR64__(_RBX, _RAX);
+            *((_QWORD *)&v57 + 1) = __PAIR64__(_RDX, _RCX);
           }
         }
-        v29 = 0;
-        if ( (*((_DWORD *)&v56 + *((int *)v20 - 3)) & *(_DWORD *)(v20 - 2)) != 0
-          || (v22 & 8) != 0 && (v13 & *v20) == *v20 )
+        v27 = 0;
+        BugCheckParameter4 = SHIDWORD(KiCpuFeatureTable[v19 + 1]);
+        v29 = LODWORD(KiCpuFeatureTable[v19 + 1]);
+        if ( ((unsigned int)v29 & *((_DWORD *)&v57 + BugCheckParameter4)) == 0
+          && ((v20 & 8) == 0 || (v15 & KiCpuFeatureTable[v19 + 3]) != KiCpuFeatureTable[v19 + 3]) )
         {
-          v29 = 1;
-        }
-        else if ( (v22 & 0x10) != 0 && (v14 & *v20) == *v20 )
-        {
-          v29 = 1;
-        }
-        if ( !v29 )
-        {
-          if ( (v22 & 1) != 0 )
+          v30 = v20 & 0x10;
+          if ( (v20 & 0x10) != 0 )
           {
-            if ( !*v19 )
-              KdInitSystem(0LL, KeLoaderBlock_0);
-            KeBugCheckEx(
-              0x5Du,
-              0xFFFFFFFFuLL,
-              *((unsigned int *)v20 - 6),
-              *((unsigned int *)v20 - 4),
-              *((int *)v20 - 3));
+            if ( (v16 & KiCpuFeatureTable[v19 + 3]) == KiCpuFeatureTable[v19 + 3] )
+              v27 = 1;
+            v30 = v20 & 0x10;
           }
-          if ( (v22 & 4) != 0 && *v19 )
+          if ( !v27 )
           {
-            if ( (v22 & 8) != 0 )
+            if ( (v20 & 1) != 0 )
             {
-              LOBYTE(v29) = (KeFeatureBits & *v20) == *v20;
+              if ( !*(_DWORD *)(a1 + 36) )
+              {
+                KdInitSystem(0LL, KeLoaderBlock_0);
+                LODWORD(BugCheckParameter4) = HIDWORD(KiCpuFeatureTable[v19 + 1]);
+                v29 = LODWORD(KiCpuFeatureTable[v19 + 1]);
+              }
+              KeBugCheckEx(0x5Du, 0xFFFFFFFFuLL, LODWORD(KiCpuFeatureTable[v19]), v29, (int)BugCheckParameter4);
             }
-            else if ( (v22 & 0x10) != 0 && (KeFeatureBits2 & *v20) == *v20 )
+            if ( (v20 & 4) != 0 && *(_DWORD *)(a1 + 36) )
             {
+              v31 = 0;
+              if ( (v20 & 8) != 0 )
+              {
+                LOBYTE(v31) = (KeFeatureBits & KiCpuFeatureTable[v19 + 3]) == KiCpuFeatureTable[v19 + 3];
+              }
+              else if ( v30 && (KeFeatureBits2 & KiCpuFeatureTable[v19 + 3]) == KiCpuFeatureTable[v19 + 3] )
+              {
 LABEL_98:
-              KeBugCheckEx(
-                0x5Du,
-                0xFFFFFFFEuLL,
-                *((unsigned int *)v20 - 6),
-                *((unsigned int *)v20 - 4),
-                *((int *)v20 - 3));
+                KeBugCheckEx(0x5Du, 0xFFFFFFFEuLL, LODWORD(KiCpuFeatureTable[v19]), v29, BugCheckParameter4);
+              }
+              if ( v31 )
+                goto LABEL_98;
             }
-            if ( v29 )
-              goto LABEL_98;
+            goto LABEL_40;
           }
-          goto LABEL_39;
         }
-        if ( (v22 & 8) != 0 )
+        if ( (v20 & 8) != 0 )
         {
-          v13 |= *v20;
+          v15 |= KiCpuFeatureTable[v19 + 3];
         }
-        else if ( (v22 & 0x10) != 0 )
+        else if ( (v20 & 0x10) != 0 )
         {
-          v14 |= *v20;
+          v16 |= KiCpuFeatureTable[v19 + 3];
         }
-        if ( (v22 & 4) != 0 && *v19 )
+        if ( (v20 & 4) != 0 && *(_DWORD *)(a1 + 36) )
         {
-          v30 = 0;
-          if ( (v22 & 8) != 0 )
+          v32 = 0;
+          if ( (v20 & 8) != 0 )
           {
-            LOBYTE(v30) = (KeFeatureBits & *v20) == *v20;
-            goto LABEL_38;
+            LOBYTE(v32) = (KeFeatureBits & KiCpuFeatureTable[v19 + 3]) == KiCpuFeatureTable[v19 + 3];
+            goto LABEL_39;
           }
-          if ( (v22 & 0x10) == 0 || (KeFeatureBits2 & *v20) != *v20 )
+          if ( (v20 & 0x10) == 0 || (KeFeatureBits2 & KiCpuFeatureTable[v19 + 3]) != KiCpuFeatureTable[v19 + 3] )
           {
-LABEL_38:
-            if ( !v30 )
+LABEL_39:
+            if ( !v32 )
               KeBugCheckEx(
                 0x5Du,
                 0xFFFFFFFDuLL,
-                *((unsigned int *)v20 - 6),
-                *((unsigned int *)v20 - 4),
-                *((int *)v20 - 3));
+                LODWORD(KiCpuFeatureTable[v19]),
+                LODWORD(KiCpuFeatureTable[v19 + 1]),
+                SHIDWORD(KiCpuFeatureTable[v19 + 1]));
           }
         }
-LABEL_39:
-        v16 = v52;
+LABEL_40:
+        v17 = v52;
         v18 = v53;
+        v14 = v54;
+        v8 = v55;
       }
     }
-    ++v17;
-    v20 += 4;
+    ++v56;
+    v19 += 4LL;
   }
-  while ( v17 < 0x37 );
-  v31 = 0LL;
-  while ( (unsigned int)v31 < 2 )
+  while ( v56 < 0x2F );
+  for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
   {
-    v32 = (unsigned int *)(0x140000000LL + 24 * v31 + 27464);
-    v33 = *(_DWORD *)(0x140000004LL + 24 * v31 + 27464);
-    if ( (v33 & 2) == 0 )
+    v34 = (unsigned int *)(0x140000000LL + 24 * i + 24928);
+    v35 = *(_DWORD *)(0x140000004LL + 24 * i + 24928);
+    if ( (v35 & 2) == 0 )
     {
-      if ( !HIBYTE(v33) || (v34 = HIBYTE(v33), _bittest((const int *)&v34, *v18)) )
+      if ( !HIBYTE(v35) || (v36 = HIBYTE(v35), _bittest((const int *)&v36, *(unsigned __int8 *)(a1 + 141))) )
       {
-        if ( (v33 & 8) != 0 )
+        if ( (v35 & 8) != 0 )
         {
-          v35 = v13;
+          v37 = v15;
         }
         else
         {
-          if ( (v33 & 0x10) == 0 )
-            goto LABEL_78;
-          v35 = v14;
+          if ( (v35 & 0x10) == 0 )
+            continue;
+          v37 = v16;
         }
-        if ( (v35 & *(_QWORD *)(0x140000010LL + 24 * v31 + 27464)) == *(_QWORD *)(0x140000010LL + 24 * v31 + 27464) )
+        if ( (v37 & *(_QWORD *)(0x140000010LL + 24 * i + 24928)) == *(_QWORD *)(0x140000010LL + 24 * i + 24928) )
         {
-          v36 = __readmsr(*v32);
-          for ( i = *(_QWORD *)(0x140000008LL + 24 * v31 + 27464); *(_QWORD *)i; i += 24LL )
+          v38 = __readmsr(*v34);
+          for ( j = *(_QWORD *)(0x140000008LL + 24 * i + 24928); ; j += 24LL )
           {
-            v38 = *(_DWORD *)(i + 8);
-            if ( (v38 & 2) == 0 )
+            v14 = *(_QWORD *)j;
+            if ( !*(_QWORD *)j )
+              break;
+            v40 = *(_DWORD *)(j + 8);
+            if ( (v40 & 2) == 0 )
             {
-              v15 = HIBYTE(v38);
-              if ( !(_DWORD)v15 || _bittest((const int *)&v15, *v53) )
+              if ( !HIBYTE(v40) || (v41 = HIBYTE(v40), _bittest((const int *)&v41, *(unsigned __int8 *)(a1 + 141))) )
               {
-                if ( (*(_QWORD *)i & v36) != 0 )
+                if ( (v14 & v38) != 0 )
                 {
-                  v15 = v38 & 8;
-                  if ( (v38 & 8) != 0 )
+                  if ( (v40 & 8) != 0 )
                   {
-                    v13 |= *(_QWORD *)(i + 16);
+                    v15 |= *(_QWORD *)(j + 16);
                   }
-                  else if ( (v38 & 0x10) != 0 )
+                  else if ( (v40 & 0x10) != 0 )
                   {
-                    v14 |= *(_QWORD *)(i + 16);
+                    v16 |= *(_QWORD *)(j + 16);
                   }
-                  if ( (v38 & 4) != 0 && *v19 )
+                  if ( (v40 & 4) != 0 && *(_DWORD *)(a1 + 36) )
                   {
-                    v40 = 0;
-                    if ( (v38 & 8) != 0 )
+                    v43 = 0;
+                    if ( (v40 & 8) != 0 )
                     {
-                      LOBYTE(v40) = (KeFeatureBits & *(_QWORD *)(i + 16)) == *(_QWORD *)(i + 16);
+                      LOBYTE(v43) = (KeFeatureBits & *(_QWORD *)(j + 16)) == *(_QWORD *)(j + 16);
                     }
-                    else if ( (v38 & 0x10) != 0 && (KeFeatureBits2 & *(_QWORD *)(i + 16)) == *(_QWORD *)(i + 16) )
+                    else if ( (v40 & 0x10) != 0 && (KeFeatureBits2 & *(_QWORD *)(j + 16)) == *(_QWORD *)(j + 16) )
                     {
                       continue;
                     }
-                    if ( !v40 )
-                      KeBugCheckEx(0x5Du, 0xFFFFFFFAuLL, *v32, *(_QWORD *)i, HIDWORD(*(_QWORD *)i));
+                    if ( !v43 )
+                      KeBugCheckEx(0x5Du, 0xFFFFFFFAuLL, *v34, *(_QWORD *)j, HIDWORD(*(_QWORD *)j));
                   }
                 }
                 else
                 {
-                  if ( (v38 & 1) != 0 )
+                  if ( (v40 & 1) != 0 )
                   {
-                    if ( !*v19 )
-                      KdInitSystem(0LL, KeLoaderBlock_0);
-                    KeBugCheckEx(0x5Du, 0xFFFFFFFCuLL, *v32, *(_QWORD *)i, HIDWORD(*(_QWORD *)i));
-                  }
-                  if ( (v38 & 4) != 0 && *v19 )
-                  {
-                    v39 = 0;
-                    if ( (v38 & 8) != 0 )
+                    if ( !*(_DWORD *)(a1 + 36) )
                     {
-                      LOBYTE(v39) = (KeFeatureBits & *(_QWORD *)(i + 16)) == *(_QWORD *)(i + 16);
+                      KdInitSystem(0LL, KeLoaderBlock_0);
+                      v14 = *(_QWORD *)j;
                     }
-                    else if ( (v38 & 0x10) != 0 && (KeFeatureBits2 & *(_QWORD *)(i + 16)) == *(_QWORD *)(i + 16) )
+                    KeBugCheckEx(0x5Du, 0xFFFFFFFCuLL, *v34, v14, HIDWORD(v14));
+                  }
+                  if ( (v40 & 4) != 0 && *(_DWORD *)(a1 + 36) )
+                  {
+                    v42 = 0;
+                    if ( (v40 & 8) != 0 )
+                    {
+                      LOBYTE(v42) = (KeFeatureBits & *(_QWORD *)(j + 16)) == *(_QWORD *)(j + 16);
+                    }
+                    else if ( (v40 & 0x10) != 0 && (KeFeatureBits2 & *(_QWORD *)(j + 16)) == *(_QWORD *)(j + 16) )
                     {
 LABEL_103:
-                      KeBugCheckEx(0x5Du, 0xFFFFFFFBuLL, *v32, *(_QWORD *)i, HIDWORD(*(_QWORD *)i));
+                      KeBugCheckEx(0x5Du, 0xFFFFFFFBuLL, *v34, v14, HIDWORD(v14));
                     }
-                    if ( v39 )
+                    if ( v42 )
                       goto LABEL_103;
                   }
                 }
@@ -260,57 +266,48 @@ LABEL_103:
         }
       }
     }
-LABEL_78:
-    v31 = (unsigned int)(v31 + 1);
-    v18 = v53;
   }
-  v41 = 0LL;
-  v42 = 0LL;
-  v43 = *v18;
   v44 = 0LL;
-  v45 = a2;
-  while ( *(_DWORD *)((char *)KiCpuTable + v44) != v43 || *(_DWORD *)((char *)KiCpuTable + v44 + 4) != a2 )
+  v45 = 0LL;
+  v46 = 0LL;
+  while ( *(_DWORD *)((char *)KiCpuTable + v46) != *(unsigned __int8 *)(a1 + 141)
+       || *(_DWORD *)((char *)KiCpuTable + v46 + 4) != a2 )
   {
-    v41 = (unsigned int)(v41 + 1);
-    v42 = (unsigned int)v41;
-    v44 = 20 * v41;
-    if ( *((_DWORD *)&KiCpuTable[1] + 5 * v41) == 19 )
-    {
-      v46 = a1;
-      goto LABEL_84;
-    }
+    v44 = (unsigned int)(v44 + 1);
+    v45 = (unsigned int)v44;
+    v46 = 20 * v44;
+    if ( *((_DWORD *)&KiCpuTable[1] + 5 * v44) == 19 )
+      goto LABEL_86;
   }
-  v46 = a1;
-  *(_DWORD *)(a1 + 1740) = dword_140022C50[5 * v42];
-LABEL_84:
-  v47 = *v19;
-  if ( *v19 )
+  *(_DWORD *)(a1 + 1740) = dword_140021B70[5 * v45];
+LABEL_86:
+  v47 = *(_DWORD *)(a1 + 36);
+  if ( v47 )
   {
     KeGetPrcb(0);
-    v47 = *v19;
-    v46 = a1;
+    v47 = *(_DWORD *)(a1 + 36);
   }
   v48 = 0LL;
-  if ( *v53 == 1 && ((*(_BYTE *)(v46 + 64) - 16) & 0xFD) == 0 )
+  if ( *(_BYTE *)(a1 + 141) == 1 && ((*(_BYTE *)(a1 + 64) - 16) & 0xFD) == 0 )
     v48 = 0x800000000000LL;
-  if ( v47 && (v48 & *(_QWORD *)(KeGetPrcb(0) + 35232)) != 0 )
+  if ( v47 && (v48 & *(_QWORD *)(KeGetPrcb(0) + 34208)) != 0 )
   {
-    BugCheckParameter4 = (unsigned int)*v19;
+    v50 = *(unsigned int *)(a1 + 36);
     Prcb = KeGetPrcb(0);
-    KeBugCheckEx(0x5Du, 0x4D535546uLL, v48, *(_QWORD *)(Prcb + 35232), BugCheckParameter4);
+    KeBugCheckEx(0x5Du, 0x4D535546uLL, v48, *(_QWORD *)(Prcb + 34208), v50);
   }
   *(_DWORD *)(a1 + 1736) = a2;
-  *(_QWORD *)(a1 + 35232) |= v13 & ~v48;
-  result = (unsigned int)*v19;
+  *(_QWORD *)(a1 + 34208) |= ~v48 & v15;
+  result = *(unsigned int *)(a1 + 36);
   if ( (_DWORD)result )
   {
-    if ( v14 != KeFeatureBits2 )
-      KeBugCheckEx(0x5Du, 0xFFFFFFF7uLL, v14, KeFeatureBits2, (unsigned int)*v19);
+    if ( v16 != KeFeatureBits2 )
+      KeBugCheckEx(0x5Du, 0xFFFFFFF7uLL, v16, KeFeatureBits2, *(unsigned int *)(a1 + 36));
   }
   else
   {
-    KeFeatureBits2 |= v14;
-    return KiPublishProcessorFeatures(a1, v41, v45, v15);
+    KeFeatureBits2 |= v16;
+    return KiPublishProcessorFeatures(a1, v44, i, v14);
   }
   return result;
 }

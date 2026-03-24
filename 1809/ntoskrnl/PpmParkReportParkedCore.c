@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkReportParkedCore @ 0x1402E7DF4
+ * XREFs of PpmParkReportParkedCore @ 0x1402E7EF4
  * Callers:
- *     PpmPerfAction @ 0x14010B980 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x14010B9A0 (PpmPerfAction.c)
  * Callees:
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
- *     PpmEventCoreParkingStateChange @ 0x1402E546C (PpmEventCoreParkingStateChange.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChange @ 0x1402E556C (PpmEventCoreParkingStateChange.c)
  */
 
 void __fastcall PpmParkReportParkedCore(__int64 a1)

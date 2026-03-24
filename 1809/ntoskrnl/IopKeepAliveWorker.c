@@ -1,5 +1,5 @@
 /*
- * XREFs of IopKeepAliveWorker @ 0x140284A40
+ * XREFs of IopKeepAliveWorker @ 0x140284B40
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140888A44 (PspAdjustKeepAliveCountProcess.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140888A24 (PspAdjustKeepAliveCountProcess.c)
  */
 
 __int64 IopKeepAliveWorker()

@@ -1,25 +1,25 @@
 /*
- * XREFs of ?SetPointerInfoNodeFlagFromEdition@CTouchProcessor@@QEAAHKGI@Z @ 0x1C01D6A20
+ * XREFs of ?SetPointerInfoNodeFlagFromEdition@CTouchProcessor@@QEAAHKGI@Z @ 0x1C019DE40
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C01BD200 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C01BD260 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ?SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z @ 0x1C01D696C (-SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCB00 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C01874D8 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z @ 0x1C019DD60 (-SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z.c)
  */
 
 __int64 __fastcall CTouchProcessor::SetPointerInfoNodeFlagFromEdition(
         struct _KTHREAD **this,
-        unsigned int a2,
-        unsigned __int16 a3,
+        int a2,
+        __int16 a3,
         int a4)
 {
   unsigned int v8; // ebx
-  PERESOURCE *v10[8]; // [rsp+20h] [rbp-48h] BYREF
+  CInpLockGuard *v10[8]; // [rsp+20h] [rbp-48h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
     (CInpLockGuardExclusiveIfNeeded *)v10,
-    (struct CInpLockGuard *)(this + 4),
+    (struct CInpLockGuard *)(this + 5),
     0LL);
   v8 = (unsigned int)CTouchProcessor::SetPointerInfoNodeFlag(this, a2, a3, a4);
   CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v10);

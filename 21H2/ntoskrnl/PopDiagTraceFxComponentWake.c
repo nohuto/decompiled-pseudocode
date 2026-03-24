@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxComponentWake @ 0x1405D218C
+ * XREFs of PopDiagTraceFxComponentWake @ 0x140571E1C
  * Callers:
- *     PoFxSetComponentWake @ 0x1405CAD20 (PoFxSetComponentWake.c)
+ *     PoFxSetComponentWake @ 0x1405692A0 (PoFxSetComponentWake.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxComponentWake(__int64 a1, int a2, unsigned __int8 a3)

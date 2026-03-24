@@ -1,45 +1,51 @@
 /*
- * XREFs of CmpStartKeyNodeStack @ 0x14069F324
+ * XREFs of CmpStartKeyNodeStack @ 0x14072A1E8
  * Callers:
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpSubtreeEnumeratorStart @ 0x14065C7A4 (CmpSubtreeEnumeratorStart.c)
- *     CmpKeyEnumStackStart @ 0x14065C8A4 (CmpKeyEnumStackStart.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x14069EDC0 (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072A08C (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStart @ 0x14072A18C (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766AC (CmpStartKeyNodeStackFromKcbStack.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  unsigned int v5; // ebx
-  __int64 v8; // rbp
+  unsigned int v4; // ebx
+  __int16 v8; // di
   PVOID TransientPoolWithTag; // rax
-  __int64 v10; // rdi
-  __int64 v11; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
 
-  v5 = 0;
+  v4 = 0;
   if ( a2 >= 2 )
   {
-    LOWORD(v8) = a2 - 1;
-    TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, 32LL * a2 - 32, 0x39364D43u, a4);
+    v8 = a2 - 1;
+    TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, 32LL * (__int16)(a2 - 1), 0x39364D43u, a4);
     *(_QWORD *)(a1 + 72) = TransientPoolWithTag;
     if ( !TransientPoolWithTag )
       return (unsigned int)-1073741670;
-    v10 = 0LL;
-    v8 = (unsigned __int16)v8;
-    do
+    if ( v8 > 0 )
     {
-      v11 = *(_QWORD *)(a1 + 72);
-      *(_OWORD *)(v10 + v11) = 0LL;
-      *(_OWORD *)(v10 + v11 + 16) = 0LL;
-      *(_DWORD *)(v10 + v11 + 8) = -1;
-      HvpGetCellContextReinitialize(v10 + v11 + 24);
-      v10 += 32LL;
-      --v8;
+      v10 = 0LL;
+      v11 = (unsigned __int16)v8;
+      do
+      {
+        v12 = *(_QWORD *)(a1 + 72);
+        *(_QWORD *)(v10 + v12) = 0LL;
+        *(_QWORD *)(v10 + v12 + 12) = 0LL;
+        *(_DWORD *)(v10 + v12 + 20) = 0;
+        *(_DWORD *)(v10 + v12 + 8) = -1;
+        *(_QWORD *)(v10 + v12 + 24) = 0LL;
+        *(_DWORD *)(v10 + v12 + 24) = -1;
+        *(_WORD *)(v10 + v12 + 28) = 0;
+        v10 += 32LL;
+        --v11;
+      }
+      while ( v11 );
     }
-    while ( v8 );
   }
   *(_WORD *)a1 = a2;
-  return v5;
+  return v4;
 }

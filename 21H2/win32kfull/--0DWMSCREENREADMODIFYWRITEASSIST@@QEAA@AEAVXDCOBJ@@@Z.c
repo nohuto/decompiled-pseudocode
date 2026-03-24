@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C015E3AC
+ * XREFs of ??0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C016BDA8
  * Callers:
- *     NtGdiPolyPatBlt @ 0x1C0043A80 (NtGdiPolyPatBlt.c)
+ *     NtGdiPolyPatBlt @ 0x1C00B3160 (NtGdiPolyPatBlt.c)
  * Callees:
  *     <none>
  */

@@ -1,75 +1,76 @@
 /*
- * XREFs of ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x1800AC9F8
+ * XREFs of ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x1800B28A0
  * Callers:
- *     ?TryGetPointer@SemaphoreValue@details_abi@wil@@SAJPEBGPEAPEAX@Z @ 0x1800AD404 (-TryGetPointer@SemaphoreValue@details_abi@wil@@SAJPEBGPEAPEAX@Z.c)
+ *     ?TryGetPointer@SemaphoreValue@details_abi@wil@@SAJPEBGPEAPEAX@Z @ 0x1800B06A4 (-TryGetPointer@SemaphoreValue@details_abi@wil@@SAJPEBGPEAPEAX@Z.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1800AB2E8 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z @ 0x1800ACC28 (-GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FFF80 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??1?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@wil@@QEAA@XZ @ 0x180197EC0 (--1-$unique_any_t@V-$mutex_t@V-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18019A210 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180045030 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$integr.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1800B2B60 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z @ 0x1800E626C (-GetValueFromSemaphore@SemaphoreValue@details_abi@wil@@CAJPEAXPEAJ@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18014E3BC (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall wil::details_abi::SemaphoreValue::TryGetValueInternal(
-        size_t *a1,
+        const unsigned __int16 *a1,
         __int64 a2,
         unsigned __int64 *a3,
         bool *a4)
 {
-  WCHAR *v5; // rax
-  __int64 v6; // r11
-  __int64 v7; // r14
-  __int64 v8; // r8
+  unsigned int v4; // ebx
+  __int64 v6; // rcx
+  WCHAR *v7; // rax
+  __int64 v8; // rax
   WCHAR *v9; // rcx
   __int64 v10; // rdx
-  __int64 v11; // rax
-  char *v12; // r8
+  __int64 v11; // r8
+  char *v12; // rax
   WCHAR v13; // r9
   WCHAR *v14; // rax
   wil::details *v15; // rax
-  wil::details *v16; // rdi
   int ValueFromSemaphore; // eax
-  unsigned int LastError; // ebx
-  __int64 v19; // rdx
-  WCHAR *v20; // rax
-  __int64 v21; // r8
-  WCHAR *v22; // rdx
-  __int64 v23; // rsi
-  char *v24; // rcx
-  WCHAR v25; // ax
+  int v17; // esi
+  __int64 v18; // rcx
+  WCHAR *v19; // rax
+  __int64 v20; // rax
+  WCHAR *v21; // rdx
+  __int64 v22; // rdi
+  __int64 v23; // rcx
+  char *v24; // rax
+  WCHAR v25; // r8
   WCHAR *v26; // rax
   wil::details *v27; // rax
   const char *v28; // r9
-  wil::details *v29; // rbx
-  int v30; // eax
-  void *v31; // rdx
-  int v32; // esi
-  void *v33; // rdx
+  int v29; // eax
+  void *v30; // rdx
+  int LastError; // edi
+  void *v32; // rdx
+  const char *v33; // r9
   void *v35; // rdx
-  const char *v36; // r9
-  int v37; // [rsp+20h] [rbp-E0h] BYREF
-  int v38; // [rsp+24h] [rbp-DCh] BYREF
-  wil::details *v39; // [rsp+28h] [rbp-D8h] BYREF
-  wil::details *v40; // [rsp+30h] [rbp-D0h] BYREF
+  int v36; // [rsp+20h] [rbp-E0h] BYREF
+  int v37; // [rsp+24h] [rbp-DCh] BYREF
+  wil::details *v38; // [rsp+28h] [rbp-D8h] BYREF
+  wil::details *v39; // [rsp+30h] [rbp-D0h] BYREF
   WCHAR Name[264]; // [rsp+40h] [rbp-C0h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+288h] [rbp+188h]
+  wil::details::in1diag3 *retaddr; // [rsp+278h] [rbp+178h]
 
+  v4 = 0;
   *a3 = 0LL;
   StringCchCopyW(Name, 0x104uLL, a1);
-  v5 = Name;
   v6 = 260LL;
+  v7 = Name;
   do
   {
-    if ( !*v5 )
+    if ( !*v7 )
       break;
-    ++v5;
+    ++v7;
     --v6;
   }
   while ( v6 );
-  v7 = 2147483646LL;
-  v8 = (260 - v6) & -(__int64)(v6 != 0);
+  if ( v6 )
+    v8 = 260 - v6;
+  else
+    v8 = 0LL;
   if ( v6 )
   {
     v9 = &Name[v8];
@@ -99,89 +100,100 @@ __int64 __fastcall wil::details_abi::SemaphoreValue::TryGetValueInternal(
   }
   v15 = (wil::details *)OpenSemaphoreW(0x1F0003u, 0, Name);
   v39 = v15;
-  v16 = v15;
-  if ( !v15 )
+  if ( v15 )
   {
-    if ( GetLastError() == 2 )
-      LastError = 0;
-    else
-      LastError = wil::details::in1diag3::Return_GetLastError(retaddr, (void *)0xC9, (unsigned int)"wil", v36);
-    goto LABEL_38;
-  }
-  v38 = 0;
-  v37 = 0;
-  ValueFromSemaphore = wil::details_abi::SemaphoreValue::GetValueFromSemaphore(v15, &v38);
-  LastError = ValueFromSemaphore;
-  if ( ValueFromSemaphore < 0 )
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0xCF,
-      (unsigned int)"wil",
-      (const char *)(unsigned int)ValueFromSemaphore,
-      v37);
-LABEL_38:
-    __1__unique_any_t_V__mutex_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil___wil__QEAA_XZ(&v39);
-    return LastError;
-  }
-  v19 = 260LL;
-  v20 = Name;
-  do
-  {
-    if ( !*v20 )
-      break;
-    ++v20;
-    --v19;
-  }
-  while ( v19 );
-  v21 = (260 - v19) & -(__int64)(v19 != 0);
-  if ( v19 )
-  {
-    v22 = &Name[v21];
-    v23 = 260 - v21;
-    if ( 260 != v21 )
+    v37 = 0;
+    v36 = 0;
+    ValueFromSemaphore = wil::details_abi::SemaphoreValue::GetValueFromSemaphore(v15, &v37);
+    v17 = ValueFromSemaphore;
+    if ( ValueFromSemaphore < 0 )
     {
-      v24 = (char *)((char *)L"h" - (char *)v22);
-      do
-      {
-        if ( !v7 )
-          break;
-        v25 = *(WCHAR *)((char *)v22 + (_QWORD)v24);
-        if ( !v25 )
-          break;
-        *v22 = v25;
-        --v7;
-        ++v22;
-        --v23;
-      }
-      while ( v23 );
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0xCF,
+        (unsigned int)"wil",
+        (const char *)(unsigned int)ValueFromSemaphore,
+        v36);
+      v4 = v17;
+      goto LABEL_36;
     }
-    v26 = v22 - 1;
-    if ( v23 )
-      v26 = v22;
-    *v26 = 0;
+    v18 = 260LL;
+    v19 = Name;
+    do
+    {
+      if ( !*v19 )
+        break;
+      ++v19;
+      --v18;
+    }
+    while ( v18 );
+    if ( v18 )
+      v20 = 260 - v18;
+    else
+      v20 = 0LL;
+    if ( v18 )
+    {
+      v21 = &Name[v20];
+      v22 = 260 - v20;
+      if ( 260 != v20 )
+      {
+        v23 = 2147483646LL;
+        v24 = (char *)((char *)L"h" - (char *)v21);
+        do
+        {
+          if ( !v23 )
+            break;
+          v25 = *(WCHAR *)((char *)v21 + (_QWORD)v24);
+          if ( !v25 )
+            break;
+          *v21 = v25;
+          --v23;
+          ++v21;
+          --v22;
+        }
+        while ( v22 );
+      }
+      v26 = v21 - 1;
+      if ( v22 )
+        v26 = v21;
+      *v26 = 0;
+    }
+    v27 = (wil::details *)OpenSemaphoreW(0x1F0003u, 0, Name);
+    v38 = v27;
+    if ( v27 )
+    {
+      v29 = wil::details_abi::SemaphoreValue::GetValueFromSemaphore(v27, &v36);
+      LastError = v29;
+      if ( v29 >= 0 )
+      {
+        wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+          &v38,
+          v30);
+        *a3 = ((__int64)v36 << 31) | v37;
+        goto LABEL_36;
+      }
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0xD7,
+        (unsigned int)"wil",
+        (const char *)(unsigned int)v29,
+        v36);
+    }
+    else
+    {
+      LastError = wil::details::in1diag3::Return_GetLastError(retaddr, (void *)0xD5, (unsigned int)"wil", v28);
+    }
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+      &v38,
+      v35);
+    v4 = LastError;
+    goto LABEL_36;
   }
-  v27 = (wil::details *)OpenSemaphoreW(0x1F0003u, 0, Name);
-  v40 = v27;
-  v29 = v27;
-  if ( !v27 )
-  {
-    LastError = wil::details::in1diag3::Return_GetLastError(retaddr, (void *)0xD5, (unsigned int)"wil", v28);
-    __1__unique_any_t_V__mutex_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil___wil__QEAA_XZ(&v40);
-    goto LABEL_38;
-  }
-  v30 = wil::details_abi::SemaphoreValue::GetValueFromSemaphore(v27, &v37);
-  v32 = v30;
-  if ( v30 < 0 )
-  {
-    wil::details::in1diag3::Return_Hr(retaddr, (void *)0xD7, (unsigned int)"wil", (const char *)(unsigned int)v30, v37);
-    wil::details::CloseHandle(v29, v35);
-    LastError = v32;
-    goto LABEL_38;
-  }
-  wil::details::CloseHandle(v29, v31);
-  *a3 = v38 | (unsigned __int64)((__int64)v37 << 31);
-  if ( v16 )
-    wil::details::CloseHandle(v16, v33);
-  return 0LL;
+  if ( GetLastError() != 2 )
+    v4 = wil::details::in1diag3::Return_GetLastError(retaddr, (void *)0xC9, (unsigned int)"wil", v33);
+LABEL_36:
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+    &v39,
+    v32);
+  return v4;
 }

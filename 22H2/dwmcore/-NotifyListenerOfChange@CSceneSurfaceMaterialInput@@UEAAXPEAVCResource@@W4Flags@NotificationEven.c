@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyListenerOfChange@CSceneSurfaceMaterialInput@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E7BE0
+ * XREFs of ?NotifyListenerOfChange@CSceneSurfaceMaterialInput@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800DC850
  * Callers:
  *     <none>
  * Callees:

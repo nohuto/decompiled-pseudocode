@@ -1,5 +1,5 @@
 /*
- * XREFs of ProcgrpQueryMaximumProcessorCount @ 0x1C000C110
+ * XREFs of ProcgrpQueryMaximumProcessorCount @ 0x1C000E070
  * Callers:
  *     <none>
  * Callees:

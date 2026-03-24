@@ -1,11 +1,11 @@
 /*
- * XREFs of GreGetColorAdjustment @ 0x1C02A7E60
+ * XREFs of GreGetColorAdjustment @ 0x1C029E794
  * Callers:
- *     NtGdiGetColorAdjustment @ 0x1C02C2C10 (NtGdiGetColorAdjustment.c)
+ *     NtGdiGetColorAdjustment @ 0x1C02AE5E0 (NtGdiGetColorAdjustment.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetColorAdjustment(HDC a1, __int64 a2)
@@ -17,21 +17,19 @@ __int64 __fastcall GreGetColorAdjustment(HDC a1, __int64 a2)
 
   DCOBJ::DCOBJ((DCOBJ *)v6, a1);
   v3 = v6[0];
+  v4 = 0;
   if ( v6[0] )
   {
+    v4 = 1;
     *(_OWORD *)a2 = *(_OWORD *)(v6[0] + 176LL);
     *(_QWORD *)(a2 + 16) = *(_QWORD *)(v3 + 192);
     *(_WORD *)(a2 + 2) &= 3u;
-    v4 = 1;
   }
   else
   {
     EngSetLastError(6u);
-    v3 = v6[0];
-    v4 = 0;
   }
-  if ( v3 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v6);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v6);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v7);
   return v4;
 }

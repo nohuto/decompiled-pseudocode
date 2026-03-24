@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaCreateHwErrorReportDeviceDriver @ 0x140644220
+ * XREFs of WheaCreateHwErrorReportDeviceDriver @ 0x1405BBDB0
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapInitErrorReportDeviceDriver @ 0x140644930 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1405BC480 (WheapInitErrorReportDeviceDriver.c)
  */
 
 __int64 __fastcall WheaCreateHwErrorReportDeviceDriver(__int64 a1)

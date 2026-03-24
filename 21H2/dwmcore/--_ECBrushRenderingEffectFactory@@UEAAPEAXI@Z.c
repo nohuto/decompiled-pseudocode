@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECBrushRenderingEffectFactory@@UEAAPEAXI@Z @ 0x1802AD010
+ * XREFs of ??_ECBrushRenderingEffectFactory@@UEAAPEAXI@Z @ 0x18026A440
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CBrushRenderingEffectFactory *__fastcall CBrushRenderingEffectFactory::`vector deleting destructor'(

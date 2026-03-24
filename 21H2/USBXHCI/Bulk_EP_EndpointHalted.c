@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_EndpointHalted @ 0x1C0044610
+ * XREFs of Bulk_EP_EndpointHalted @ 0x1C0043E70
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00448B8 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00442A0 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
  */
 
 void __fastcall Bulk_EP_EndpointHalted(__int64 a1)

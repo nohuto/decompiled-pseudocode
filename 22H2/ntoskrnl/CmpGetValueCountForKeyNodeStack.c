@@ -1,113 +1,105 @@
 /*
- * XREFs of CmpGetValueCountForKeyNodeStack @ 0x140616604
+ * XREFs of CmpGetValueCountForKeyNodeStack @ 0x1404ECDC8
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14061733C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404ED99C (CmpQueryKeyDataFromKeyNodeStack.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140616830 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1FDA0 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpSortedValueEnumStackAdvance @ 0x140A25050 (CmpSortedValueEnumStackAdvance.c)
- *     CmpSortedValueEnumStackCleanup @ 0x140A25190 (CmpSortedValueEnumStackCleanup.c)
- *     CmpSortedValueEnumStackInitialize @ 0x140A25400 (CmpSortedValueEnumStackInitialize.c)
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A25438 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
- *     CmpValueEnumStackAdvance @ 0x140A25604 (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x140A25788 (CmpValueEnumStackCleanup.c)
- *     CmpValueEnumStackInitialize @ 0x140A257E8 (CmpValueEnumStackInitialize.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036B6A8 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpValueEnumStackAdvance @ 0x14072AB14 (CmpValueEnumStackAdvance.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14072ADD0 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpValueEnumStackCleanup @ 0x14072ADF0 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackInitialize @ 0x14072B0FC (CmpValueEnumStackInitialize.c)
+ *     CmpSortedValueEnumStackAdvance @ 0x14087B580 (CmpSortedValueEnumStackAdvance.c)
+ *     CmpSortedValueEnumStackCleanup @ 0x14087B6BC (CmpSortedValueEnumStackCleanup.c)
+ *     CmpSortedValueEnumStackInitialize @ 0x14087B914 (CmpSortedValueEnumStackInitialize.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087B94C (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpGetValueCountForKeyNodeStack(__int16 *a1, _DWORD *a2)
 {
-  __int16 v4; // r9
   _QWORD *EntryAtLayerHeight; // rax
+  char v5; // r8
   __int16 v6; // r9
-  char v7; // r10
-  __int16 v8; // r11
-  __int64 v9; // rdx
-  int v10; // eax
-  int v11; // ebx
-  int v12; // esi
+  __int16 v7; // r10
+  int v8; // eax
+  int v9; // ebx
+  int v10; // esi
   int j; // eax
   int i; // eax
-  _BYTE v16[96]; // [rsp+20h] [rbp-99h] BYREF
-  _BYTE v17[96]; // [rsp+80h] [rbp-39h] BYREF
+  _BYTE v14[96]; // [rsp+20h] [rbp-99h] BYREF
+  _BYTE v15[96]; // [rsp+80h] [rbp-39h] BYREF
 
-  memset(v16, 0, 0x58uLL);
-  memset(v17, 0, 0x58uLL);
-  CmpSortedValueEnumStackInitialize(v16);
-  CmpValueEnumStackInitialize(v17);
-  v4 = *a1;
+  memset(v14, 0, 0x58uLL);
+  memset(v15, 0, 0x58uLL);
+  CmpSortedValueEnumStackInitialize(v14);
+  CmpValueEnumStackInitialize(v15);
   if ( *a1 < 0 )
     goto LABEL_23;
   do
-  {
-    EntryAtLayerHeight = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight(a1, (unsigned __int16)v4);
-    v9 = EntryAtLayerHeight[2];
-    if ( v9 && (unsigned int)CmpGetEffectiveKeyNodeSemantics(*EntryAtLayerHeight) )
-      break;
-    v4 = v6 - 1;
-  }
-  while ( v4 >= 0 );
-  if ( !v8 )
+    EntryAtLayerHeight = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight(a1);
+  while ( (!EntryAtLayerHeight[2] || !(unsigned int)CmpGetEffectiveKeyNodeSemantics(*EntryAtLayerHeight))
+       && (__int16)(v6 - 1) >= 0 );
+  if ( !v7 )
   {
 LABEL_23:
     *a2 = 0;
     goto LABEL_24;
   }
-  if ( !v7 )
+  if ( !v5 )
   {
-    *a2 = *(_DWORD *)(*(_QWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight(a1, 0LL) + 16) + 36LL);
+    *a2 = *(_DWORD *)(*(_QWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight(a1) + 16) + 36LL);
 LABEL_24:
-    v11 = 0;
+    v9 = 0;
     goto LABEL_25;
   }
-  if ( v8 <= 1 )
+  if ( v7 <= 1 )
   {
 LABEL_17:
-    v11 = CmpValueEnumStackStartFromKeyNodeStack(v17, a1);
-    if ( v11 >= 0 )
+    v9 = CmpValueEnumStackStartFromKeyNodeStack((__int64)v15, a1);
+    if ( v9 >= 0 )
     {
-      v12 = 0;
-      for ( i = CmpValueEnumStackAdvance(v17); ; i = CmpValueEnumStackAdvance(v17) )
+      v10 = 0;
+      for ( i = CmpValueEnumStackAdvance(v15); ; i = CmpValueEnumStackAdvance(v15) )
       {
-        v11 = i;
+        v9 = i;
         if ( i == -2147483622 )
           break;
         if ( i < 0 )
           goto LABEL_25;
-        ++v12;
+        ++v10;
       }
       goto LABEL_14;
     }
     goto LABEL_25;
   }
-  v10 = CmpSortedValueEnumStackStartFromKeyNodeStack(v16, a1);
-  v11 = v10;
-  if ( v10 >= 0 )
+  v8 = CmpSortedValueEnumStackStartFromKeyNodeStack(v14, a1);
+  v9 = v8;
+  if ( v8 >= 0 )
   {
-    v12 = 0;
-    for ( j = CmpSortedValueEnumStackAdvance(v16); ; j = CmpSortedValueEnumStackAdvance(v16) )
+    v10 = 0;
+    for ( j = CmpSortedValueEnumStackAdvance(v14); ; j = CmpSortedValueEnumStackAdvance(v14) )
     {
-      v11 = j;
+      v9 = j;
       if ( j == -2147483622 )
         break;
       if ( j < 0 )
         goto LABEL_25;
-      ++v12;
+      ++v10;
     }
 LABEL_14:
-    *a2 = v12;
+    *a2 = v10;
     goto LABEL_24;
   }
-  if ( v10 == -1073741670 )
+  if ( v8 == -1073741670 )
   {
-    CmpSortedValueEnumStackCleanup(v16);
-    CmpSortedValueEnumStackInitialize(v16);
+    CmpSortedValueEnumStackCleanup(v14);
+    CmpSortedValueEnumStackInitialize(v14);
     goto LABEL_17;
   }
 LABEL_25:
-  CmpValueEnumStackCleanup(v17);
-  CmpSortedValueEnumStackCleanup(v16);
-  return (unsigned int)v11;
+  CmpValueEnumStackCleanup(v15);
+  CmpSortedValueEnumStackCleanup(v14);
+  return (unsigned int)v9;
 }

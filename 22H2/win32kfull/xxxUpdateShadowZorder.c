@@ -1,53 +1,56 @@
 /*
- * XREFs of xxxUpdateShadowZorder @ 0x1C02219BC
+ * XREFs of xxxUpdateShadowZorder @ 0x1C023DB48
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E8B8 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
  * Callees:
- *     SetWindowGroupBand @ 0x1C002567C (SetWindowGroupBand.c)
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00A38A4 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
+ *     SetWindowGroupBand @ 0x1C0036648 (SetWindowGroupBand.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BBE88 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
  */
 
-struct tagSHADOW *__fastcall xxxUpdateShadowZorder(struct tagWND *a1)
+struct tagSHADOW *__fastcall xxxUpdateShadowZorder(__int64 a1)
 {
   struct tagSHADOW *result; // rax
   __int64 v3; // rcx
-  struct tagWND *v4; // rbx
-  __int64 v5; // rdx
-  int v6; // ecx
-  unsigned int v7; // edx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int128 v11; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-18h]
+  __int64 v4; // rbx
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  int v7; // ecx
+  unsigned int v8; // edx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v10; // rcx
+  _QWORD v11[5]; // [rsp+40h] [rbp-28h] BYREF
 
-  v11 = 0LL;
-  v12 = 0LL;
-  result = FindShadow(a1);
+  v11[2] = 0LL;
+  result = FindShadow((struct tagWND *)a1);
   if ( !result )
     return result;
-  v4 = (struct tagWND *)*((_QWORD *)result + 1);
-  v5 = *((_QWORD *)v4 + 5);
-  if ( (*(_BYTE *)(*(_QWORD *)(v3 + 40) + 24LL) & 8) != 0 )
+  v4 = *((_QWORD *)result + 1);
+  v5 = *(_QWORD *)(v3 + 40);
+  v6 = *(_QWORD *)(v4 + 40);
+  if ( (*(_BYTE *)(v5 + 24) & 8) != 0 && (*(_BYTE *)(v6 + 24) & 8) == 0 )
   {
-    if ( (*(_BYTE *)(v5 + 24) & 8) == 0 )
-    {
-      v6 = 1;
-LABEL_7:
-      SetOrClrWF(v6, v4, 0x808u, 1);
-    }
+    v7 = 1;
+LABEL_8:
+    SetOrClrWF(v7, v4, 0x808u, 1);
+    goto LABEL_9;
   }
-  else if ( (*(_BYTE *)(v5 + 24) & 8) != 0 )
+  if ( (*(_BYTE *)(v5 + 24) & 8) == 0 && (*(_BYTE *)(v6 + 24) & 8) != 0 )
   {
-    v6 = 0;
-    goto LABEL_7;
+    v7 = 0;
+    goto LABEL_8;
   }
-  v7 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 236LL);
-  if ( *(_DWORD *)(*((_QWORD *)v4 + 5) + 236LL) != v7 )
-    SetWindowGroupBand(v4, v7, 0);
-  ThreadLock(v4, &v11);
-  xxxSetWindowPos(v4, (__int64)a1, 0LL, 0LL, 0, 0, 19);
-  return (struct tagSHADOW *)ThreadUnlock1(v9, v8, v10);
+LABEL_9:
+  v8 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 236LL);
+  if ( *(_DWORD *)(*(_QWORD *)(v4 + 40) + 236LL) != v8 )
+    SetWindowGroupBand((struct tagWND *)v4, v8, 0);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v11[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v11;
+  v11[1] = v4;
+  HMLockObject(v4);
+  xxxSetWindowPos((struct tagWND *)v4, a1, 0LL, 0LL, 0, 0, 19);
+  return (struct tagSHADOW *)ThreadUnlock1(v10);
 }

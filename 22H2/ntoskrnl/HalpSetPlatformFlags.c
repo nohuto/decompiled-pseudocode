@@ -1,25 +1,30 @@
 /*
- * XREFs of HalpSetPlatformFlags @ 0x140B66E4C
+ * XREFs of HalpSetPlatformFlags @ 0x140A65198
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     strstr @ 0x1403D8B70 (strstr.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
  */
 
 void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)
 {
   const char *v3; // rcx
+  __int16 v4; // ax
 
   if ( (!a2 || (v3 = *(const char **)(a2 + 216)) == 0LL || !strstr(v3, "FORCELEGACYPLATFORM"))
     && *(_BYTE *)(a1 + 8) >= 5u )
   {
     if ( (*(_DWORD *)(a1 + 112) & 0x100000) != 0 )
       HalpPlatformFlags &= ~1u;
-    if ( (*(_BYTE *)(a1 + 109) & 2) == 0 )
+    v4 = *(_WORD *)(a1 + 109);
+    if ( (v4 & 2) == 0 )
+    {
       HalpPlatformFlags &= ~2u;
-    if ( (*(_BYTE *)(a1 + 109) & 0x20) != 0 )
+      v4 = *(_WORD *)(a1 + 109);
+    }
+    if ( (v4 & 0x20) != 0 )
       HalpPlatformFlags &= ~4u;
-    off_140C01C70[0] = (__int64 (__fastcall *)())HalpAcpiAoacCapable;
+    off_140C00860[0] = (__int64 (__fastcall *)())HalpAcpiAoacCapable;
     if ( (*(_DWORD *)(a1 + 112) & 0x200000) != 0 )
       HalpPlatformFlags |= 8u;
   }

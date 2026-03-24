@@ -2,10 +2,10 @@
  * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x1405A1E10
  * Callers:
  *     FsRtlCancellableWaitForSingleObject @ 0x1405A17E0 (FsRtlCancellableWaitForSingleObject.c)
- *     FsRtlQueryKernelEaFile @ 0x1406A5100 (FsRtlQueryKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x1406B2850 (FsRtlKernelFsControlFile.c)
- *     FsRtlSetKernelEaFile @ 0x1406C7EF0 (FsRtlSetKernelEaFile.c)
- *     FsRtlQueryInformationFile @ 0x140815710 (FsRtlQueryInformationFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x1406A50E0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1406B2830 (FsRtlKernelFsControlFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1406C7ED0 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryInformationFile @ 0x1408156F0 (FsRtlQueryInformationFile.c)
  * Callees:
  *     KeQueryTimeIncrement @ 0x1400077E0 (KeQueryTimeIncrement.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)

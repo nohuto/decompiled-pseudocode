@@ -1,15 +1,13 @@
 /*
- * XREFs of ACPITableLoadCallBack @ 0x1C003F3E0
+ * XREFs of ACPITableLoadCallBack @ 0x1C0030360
  * Callers:
  *     <none>
  * Callees:
- *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D5B4 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIPowerScheduleDpc @ 0x1C0022734 (ACPIPowerScheduleDpc.c)
- *     ACPIGpeBuildWakeMasks @ 0x1C002C000 (ACPIGpeBuildWakeMasks.c)
- *     ACPIInternalMoveList @ 0x1C002EC24 (ACPIInternalMoveList.c)
- *     Simulator_RefreshTree @ 0x1C0049890 (Simulator_RefreshTree.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C001AFA8 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIPowerScheduleDpc @ 0x1C001CD7C (ACPIPowerScheduleDpc.c)
+ *     ACPIInternalMoveList @ 0x1C00318C8 (ACPIInternalMoveList.c)
+ *     Simulator_RefreshTree @ 0x1C00641C0 (Simulator_RefreshTree.c)
  */
 
 void __fastcall ACPITableLoadCallBack(_QWORD *a1, char a2)
@@ -21,24 +19,18 @@ void __fastcall ACPITableLoadCallBack(_QWORD *a1, char a2)
     ACPIGpeBuildWakeMasks(RootDeviceExtension);
     KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
     KeReleaseSpinLockFromDpcLevel(&GpeTableLock);
-    KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
-    ACPIWakeRemoveDevicesAndUpdate(0LL, 0LL);
-    KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
   }
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerQueueLock);
   if ( (__int64 *)AcpiPowerDelayedQueueList != &AcpiPowerDelayedQueueList )
   {
-    ACPIInternalMoveList(&AcpiPowerDelayedQueueList, (__int64)&AcpiPowerQueueList);
+    ACPIInternalMoveList(&AcpiPowerDelayedQueueList, &AcpiPowerQueueList);
     ACPIPowerScheduleDpc();
   }
   KeReleaseSpinLockFromDpcLevel(&AcpiPowerQueueLock);
   if ( !a2 )
   {
-    if ( (int)ACPIDeviceInternalSynchronizeRequest(
-                a1,
-                (void (__fastcall *)(__int64, __int64, __int64))ACPITableLoadNotifyPnp,
-                0LL) < 0 )
-      ACPIInternalError(0x1100A6uLL);
+    if ( (int)ACPIDeviceInternalSynchronizeRequest(a1, (__int64)ACPITableLoadNotifyPnp, 0LL) < 0 )
+      KeBugCheckEx(0xA3u, 1uLL, 0x1100A2uLL, 0LL, 0LL);
     if ( g_SimulatorCallbackObject )
       Simulator_RefreshTree();
   }

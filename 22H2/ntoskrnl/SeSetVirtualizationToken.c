@@ -1,19 +1,19 @@
 /*
- * XREFs of SeSetVirtualizationToken @ 0x1409C989C
+ * XREFs of SeSetVirtualizationToken @ 0x1406A1878
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 _QWORD *__fastcall SeSetVirtualizationToken(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v5; // eax
-  unsigned int v6; // eax
+  unsigned int v7; // eax
   signed __int32 v8[10]; // [rsp+0h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -23,14 +23,14 @@ _QWORD *__fastcall SeSetVirtualizationToken(__int64 a1, int a2)
   v5 = *(_DWORD *)(a1 + 200);
   if ( !a2 )
   {
-    v6 = v5 & 0xFFFFFBFF;
+    v7 = v5 & 0xFFFFFBFF;
     goto LABEL_5;
   }
   if ( (v5 & 0x200) != 0 )
   {
-    v6 = v5 | 0x400;
+    v7 = v5 | 0x400;
 LABEL_5:
-    *(_DWORD *)(a1 + 200) = v6;
+    *(_DWORD *)(a1 + 200) = v7;
   }
   *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
   _InterlockedOr(v8, 0);

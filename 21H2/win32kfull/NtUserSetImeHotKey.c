@@ -1,18 +1,18 @@
 /*
- * XREFs of NtUserSetImeHotKey @ 0x1C0103570
+ * XREFs of NtUserSetImeHotKey @ 0x1C01173E0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z @ 0x1C01035E4 (-SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z.c)
+ *     SetImeHotKey @ 0x1C0117458 (SetImeHotKey.c)
  */
 
-__int64 __fastcall NtUserSetImeHotKey(unsigned int a1, unsigned int a2, unsigned int a3, HKL a4, unsigned int a5)
+__int64 __fastcall NtUserSetImeHotKey(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  __int64 v9; // rbx
-  __int64 v10; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rcx
 
-  EnterCrit(0LL, 0LL);
-  v9 = (int)SetImeHotKey(a1, a2, a3, a4, a5);
-  UserSessionSwitchLeaveCrit(v10);
-  return v9;
+  EnterCrit(0LL, 1LL);
+  v6 = (int)SetImeHotKey(a1, a5);
+  UserSessionSwitchLeaveCrit(v7);
+  return v6;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z @ 0x1C0024D94
+ * XREFs of ?AddIoQueue@FxPkgIo@@AEAAXPEAVFxIoQueue@@@Z @ 0x1C0074960
  * Callers:
- *     ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0024C4C (-CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@P.c)
+ *     ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0074DA8 (-CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@P.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z @ 0x1C001B62C (-SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z @ 0x1C001518C (-SetState@FxIoQueue@@QEAAXW4_FX_IO_QUEUE_SET_STATE@@@Z.c)
  */
 
 void __fastcall FxPkgIo::AddIoQueue(FxPkgIo *this, FxIoQueue *IoQueue, unsigned __int8 a3)
@@ -15,10 +15,10 @@ void __fastcall FxPkgIo::AddIoQueue(FxPkgIo *this, FxIoQueue *IoQueue, unsigned 
   char Index; // si
   unsigned __int8 v8; // r8
   _LIST_ENTRY *i; // rax
-  _LIST_ENTRY *v10; // rdx
+  _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *v11; // rdx
   FxIoQueueNode *p_m_IoPkgListNode; // rcx
   unsigned __int8 m_PowerManaged; // al
-  _LIST_ENTRY *Flink; // rcx
   unsigned __int8 irql; // [rsp+30h] [rbp+8h] BYREF
 
   irql = 0;
@@ -36,17 +36,17 @@ void __fastcall FxPkgIo::AddIoQueue(FxPkgIo *this, FxIoQueue *IoQueue, unsigned 
       Flink = i[-34].Flink;
       if ( Flink )
         LOBYTE(Flink) = Flink[5].Blink;
-      if ( (_BYTE)Flink == Index || (char)Flink < Index )
+      if ( (char)Flink <= Index )
         break;
     }
   }
-  v10 = i->Flink;
+  v11 = i->Flink;
   p_m_IoPkgListNode = &IoQueue->m_IoPkgListNode;
   if ( i->Flink->Blink != i )
     __fastfail(3u);
-  p_m_IoPkgListNode->m_ListEntry.Flink = v10;
+  p_m_IoPkgListNode->m_ListEntry.Flink = v11;
   IoQueue->m_IoPkgListNode.m_ListEntry.Blink = i;
-  v10->Blink = &p_m_IoPkgListNode->m_ListEntry;
+  v11->Blink = &p_m_IoPkgListNode->m_ListEntry;
   i->Flink = &p_m_IoPkgListNode->m_ListEntry;
   m_PowerManaged = IoQueue->m_PowerManaged;
   if ( this->m_PowerStateOn )

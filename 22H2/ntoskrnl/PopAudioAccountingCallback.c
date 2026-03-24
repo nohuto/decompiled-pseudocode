@@ -1,7 +1,7 @@
 /*
- * XREFs of PopAudioAccountingCallback @ 0x140856398
+ * XREFs of PopAudioAccountingCallback @ 0x140772304
  * Callers:
- *     PopWnfAudioCallback @ 0x1408562B0 (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x140772040 (PopWnfAudioCallback.c)
  * Callees:
  *     <none>
  */
@@ -13,19 +13,19 @@ __int64 __fastcall PopAudioAccountingCallback(char a1)
   result = MEMORY[0xFFFFF78000000008];
   if ( a1 )
   {
-    qword_140CF7D18 = MEMORY[0xFFFFF78000000008];
+    qword_140C4FF58 = MEMORY[0xFFFFF78000000008];
   }
   else
   {
-    if ( qword_140CF7CC8 )
+    if ( qword_140C4FF08 )
     {
-      if ( qword_140CF7CC8 <= (unsigned __int64)qword_140CF7D18 )
-        result = MEMORY[0xFFFFF78000000008] - qword_140CF7D18;
+      if ( qword_140C4FF08 <= (unsigned __int64)qword_140C4FF58 )
+        result = MEMORY[0xFFFFF78000000008] - qword_140C4FF58;
       else
-        result = MEMORY[0xFFFFF78000000008] - qword_140CF7CC8;
-      qword_140CF7D20 += result;
+        result = MEMORY[0xFFFFF78000000008] - qword_140C4FF08;
+      qword_140C4FF60 += result;
     }
-    qword_140CF7D18 = 0LL;
+    qword_140C4FF58 = 0LL;
   }
   return result;
 }

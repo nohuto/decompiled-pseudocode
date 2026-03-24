@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCopyRetpolineStubsUnwindInfo @ 0x1405EEDA4
+ * XREFs of RtlCopyRetpolineStubsUnwindInfo @ 0x14058FA00
  * Callers:
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B06F28 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5054C (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x1405EECF4 (RtlCalculateUnwindInfoSizeForRetpoline.c)
- *     RtlpGetRetpolineStubsFunctionTable @ 0x1405EEF88 (RtlpGetRetpolineStubsFunctionTable.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x14058F958 (RtlCalculateUnwindInfoSizeForRetpoline.c)
+ *     RtlpGetRetpolineStubsFunctionTable @ 0x14058FBE0 (RtlpGetRetpolineStubsFunctionTable.c)
  */
 
 __int64 __fastcall RtlCopyRetpolineStubsUnwindInfo(__int64 a1, int a2, unsigned int *a3, int a4)
@@ -16,7 +16,7 @@ __int64 __fastcall RtlCopyRetpolineStubsUnwindInfo(__int64 a1, int a2, unsigned 
   int v11; // esi
   unsigned int v12; // eax
   __int64 v13; // r15
-  unsigned int v14[4]; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD v14[4]; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v16; // [rsp+80h] [rbp+18h] BYREF
 
   v14[0] = 0;

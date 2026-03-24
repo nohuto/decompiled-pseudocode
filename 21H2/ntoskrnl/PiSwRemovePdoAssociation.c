@@ -1,35 +1,35 @@
 /*
- * XREFs of PiSwRemovePdoAssociation @ 0x140953B2C
+ * XREFs of PiSwRemovePdoAssociation @ 0x140732D6C
  * Callers:
- *     PiSwUnassociateDeviceObject @ 0x140953CF8 (PiSwUnassociateDeviceObject.c)
+ *     PiSwUnassociateDeviceObject @ 0x140732D2C (PiSwUnassociateDeviceObject.c)
  * Callees:
- *     PiSwFindPdoAssociation @ 0x1406E34FC (PiSwFindPdoAssociation.c)
- *     PiSwPdoAssociationFree @ 0x140953970 (PiSwPdoAssociationFree.c)
+ *     PiSwPdoAssociationFree @ 0x140732DDC (PiSwPdoAssociationFree.c)
+ *     PiSwFindPdoAssociation @ 0x140770B48 (PiSwFindPdoAssociation.c)
  */
 
 __int64 __fastcall PiSwRemovePdoAssociation(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  PVOID *PdoAssociation; // rax
-  PVOID *v4; // rcx
-  PVOID **v5; // rdx
-  PVOID **v6; // r8
-  PVOID **v7; // rdx
+  _QWORD *PdoAssociation; // rax
+  __int64 v4; // rcx
+  _QWORD *v5; // rdx
+  __int64 v6; // r8
+  _QWORD *v7; // rdx
 
   v2 = 0;
-  PdoAssociation = (PVOID *)PiSwFindPdoAssociation(a1, a2, 0);
+  PdoAssociation = (_QWORD *)PiSwFindPdoAssociation(a1, a2, 0LL);
   if ( PdoAssociation )
   {
-    v4 = (PVOID *)*PdoAssociation;
-    if ( *((PVOID **)*PdoAssociation + 1) != PdoAssociation
-      || (v5 = (PVOID **)PdoAssociation[1], *v5 != PdoAssociation)
-      || (*v5 = v4, v4[1] = v5, v6 = (PVOID **)PdoAssociation[2], v6[1] != PdoAssociation + 2)
-      || (v7 = (PVOID **)PdoAssociation[3], *v7 != PdoAssociation + 2) )
+    v4 = *PdoAssociation;
+    if ( *(_QWORD **)(*PdoAssociation + 8LL) != PdoAssociation
+      || (v5 = (_QWORD *)PdoAssociation[1], (_QWORD *)*v5 != PdoAssociation)
+      || (*v5 = v4, *(_QWORD *)(v4 + 8) = v5, v6 = PdoAssociation[2], *(_QWORD **)(v6 + 8) != PdoAssociation + 2)
+      || (v7 = (_QWORD *)PdoAssociation[3], (_QWORD *)*v7 != PdoAssociation + 2) )
     {
       __fastfail(3u);
     }
-    *v7 = (PVOID *)v6;
-    v6[1] = (PVOID *)v7;
+    *v7 = v6;
+    *(_QWORD *)(v6 + 8) = v7;
     PiSwPdoAssociationFree(PdoAssociation);
   }
   else

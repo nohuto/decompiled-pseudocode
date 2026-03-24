@@ -1,65 +1,64 @@
 /*
- * XREFs of _SetThreadQueueMergeSetting @ 0x1C02040D8
+ * XREFs of _SetThreadQueueMergeSetting @ 0x1C0207260
  * Callers:
- *     NtUserSetThreadQueueMergeSetting @ 0x1C01FE410 (NtUserSetThreadQueueMergeSetting.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00AC870 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
- *     FindShellFrameThreadFromAssociation @ 0x1C01D996C (FindShellFrameThreadFromAssociation.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01D2E4C (FindShellFrameThreadFromAssociation.c)
  */
 
-__int64 __fastcall SetThreadQueueMergeSetting(__int64 a1, __int64 a2)
+__int64 __fastcall SetThreadQueueMergeSetting(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v2; // di
-  __int64 v3; // rcx
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // rsi
+  char v3; // di
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rsi
 
-  v2 = a2;
+  v3 = a2;
   if ( (a2 & 0xFFFFFFFE) != 0 )
   {
-    v3 = 87LL;
+    v4 = 87LL;
   }
   else
   {
-    v4 = PtiFromThreadId(a1);
-    v6 = v4;
-    if ( !v4 || (*(_DWORD *)(v4 + 1256) & 0x40000) != 0 )
+    v5 = PtiFromThreadId(a1);
+    v7 = v5;
+    if ( !v5 || (*(_DWORD *)(v5 + 1232) & 0x40000) != 0 )
     {
-      v3 = 1444LL;
+      v4 = 1444LL;
       goto LABEL_17;
     }
-    v7 = *(_QWORD *)(v4 + 424);
-    if ( v7 == PsGetCurrentProcessWin32Process(v5) )
+    v8 = *(_QWORD *)(v5 + 424);
+    if ( v8 == PsGetCurrentProcessWin32Process(v6) )
     {
-      if ( (unsigned int)IsImmersiveAppRestricted(v7) )
+      if ( (unsigned int)IsImmersiveAppRestricted(v8) )
       {
-        if ( (v2 & 1) != 0 )
+        if ( (v3 & 1) != 0 )
         {
-          if ( tagQ::AreMultipleThreadsAttached(*(tagQ **)(v6 + 432))
-            || FindShellFrameThreadFromAssociation((struct tagTHREADINFO *)v6) )
+          if ( *(_DWORD *)(*(_QWORD *)(v7 + 432) + 392LL) != 1
+            || FindShellFrameThreadFromAssociation((struct tagTHREADINFO *)v7) )
           {
-            v3 = 170LL;
+            v4 = 170LL;
             goto LABEL_17;
           }
-          *(_DWORD *)(v6 + 488) |= 0xC0u;
+          *(_DWORD *)(v7 + 488) |= 0xC0u;
         }
         else
         {
-          *(_DWORD *)(v6 + 488) &= 0xFFFFFF3F;
+          *(_DWORD *)(v7 + 488) &= 0xFFFFFF3F;
         }
         return 1LL;
       }
-      v3 = 50LL;
+      v4 = 50LL;
     }
     else
     {
-      v3 = 5LL;
+      v4 = 5LL;
     }
   }
 LABEL_17:
-  UserSetLastError(v3, a2);
+  UserSetLastError(v4, a2, a3);
   return 0LL;
 }

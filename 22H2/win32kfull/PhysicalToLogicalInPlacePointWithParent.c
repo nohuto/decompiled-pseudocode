@@ -1,15 +1,15 @@
 /*
- * XREFs of PhysicalToLogicalInPlacePointWithParent @ 0x1C0151E50
+ * XREFs of PhysicalToLogicalInPlacePointWithParent @ 0x1C01E550C
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01C645C (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
- *     ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C0213B08 (-AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01F1438 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C0233604 (-AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z.c)
  * Callees:
- *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z @ 0x1C00D1C5C (-GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z.c)
- *     FixedPointSubPixel @ 0x1C0151E1E (FixedPointSubPixel.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1544 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     FixedPointSubPixel @ 0x1C01E507C (FixedPointSubPixel.c)
  */
 
-__int64 __fastcall PhysicalToLogicalInPlacePointWithParent(const struct tagWND *a1, int *a2, int *a3)
+__int64 __fastcall PhysicalToLogicalInPlacePointWithParent(struct tagWND *a1, int *a2, int *a3)
 {
   __int64 result; // rax
   __int64 v6; // rdi
@@ -19,8 +19,7 @@ __int64 __fastcall PhysicalToLogicalInPlacePointWithParent(const struct tagWND *
   float v10; // xmm0_4
   __int64 v11; // rdx
   float v12; // xmm0_4
-  __int64 v13; // rdx
-  float v14; // xmm1_4
+  __m128i v13; // xmm0
 
   result = (__int64)GetTopLevelOrDpiBoundaryWindow(a1);
   v6 = result;
@@ -38,15 +37,15 @@ __int64 __fastcall PhysicalToLogicalInPlacePointWithParent(const struct tagWND *
         {
           v10 = FixedPointSubPixel(*a3);
           *a2 = (int)(float)((float)((float)(v10 + (float)*a2) - *(float *)(v11 + 48)) * v8);
-          v12 = FixedPointSubPixel(a3[1]);
-          result = (unsigned int)(int)(float)((float)((float)(v12 + (float)a2[1]) - *(float *)(v13 + 52)) * v9);
+          v12 = FixedPointSubPixel(a3[1]) + (float)a2[1];
         }
         else
         {
-          v14 = (float)a2[1];
+          v13 = _mm_cvtsi32_si128(a2[1]);
           *a2 = (int)(float)((float)((float)*a2 - v7[12]) * v8);
-          result = (unsigned int)(int)(float)((float)(v14 - v7[13]) * v9);
+          LODWORD(v12) = _mm_cvtepi32_ps(v13).m128_u32[0];
         }
+        result = (unsigned int)(int)(float)(v9 * (float)(v12 - v7[13]));
         a2[1] = result;
       }
     }

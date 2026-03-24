@@ -1,57 +1,61 @@
 /*
- * XREFs of PoTraceSystemTimerResolution @ 0x1407DD2CC
+ * XREFs of PoTraceSystemTimerResolution @ 0x14070A204
  * Callers:
- *     NtSetTimerResolution @ 0x1407DD0A0 (NtSetTimerResolution.c)
- *     ExTraceTimerResolution @ 0x1409F7C58 (ExTraceTimerResolution.c)
+ *     ExTraceTimerResolution @ 0x1406F90C4 (ExTraceTimerResolution.c)
+ *     NtSetTimerResolution @ 0x140709FF0 (NtSetTimerResolution.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)
 {
-  int v4; // eax
-  char v5; // r8
+  __int64 v4; // rax
+  bool v5; // r8
   REGHANDLE v6; // rbx
   unsigned __int16 *v7; // r8
   struct _KTHREAD *CurrentThread; // rdx
   _DWORD *Teb; // rdx
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v10; // rcx
   __int16 v11; // ax
-  bool v12; // zf
-  char v13; // al
-  int v14; // eax
-  int v15; // ecx
-  const EVENT_DESCRIPTOR *v16; // rdx
-  int *v17; // r8
-  __int16 v19; // [rsp+30h] [rbp-98h] BYREF
-  int v20; // [rsp+34h] [rbp-94h] BYREF
-  int v21; // [rsp+38h] [rbp-90h] BYREF
-  int v22; // [rsp+3Ch] [rbp-8Ch] BYREF
-  int v23; // [rsp+40h] [rbp-88h] BYREF
-  int v24; // [rsp+44h] [rbp-84h] BYREF
+  int v12; // eax
+  int v13; // ecx
+  ULONG v14; // r9d
+  const EVENT_DESCRIPTOR *v15; // rdx
+  int *v16; // r8
+  __int16 v18; // [rsp+30h] [rbp-98h] BYREF
+  int v19; // [rsp+34h] [rbp-94h] BYREF
+  int v20; // [rsp+38h] [rbp-90h] BYREF
+  int v21; // [rsp+3Ch] [rbp-8Ch] BYREF
+  int v22; // [rsp+40h] [rbp-88h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-78h] BYREF
-  int *v26; // [rsp+60h] [rbp-68h]
-  __int64 v27; // [rsp+68h] [rbp-60h]
-  __int16 *v28; // [rsp+70h] [rbp-58h]
-  __int64 v29; // [rsp+78h] [rbp-50h]
+  int *v24; // [rsp+60h] [rbp-68h]
+  int v25; // [rsp+68h] [rbp-60h]
+  int v26; // [rsp+6Ch] [rbp-5Ch]
+  __int16 *v27; // [rsp+70h] [rbp-58h]
+  int v28; // [rsp+78h] [rbp-50h]
+  int v29; // [rsp+7Ch] [rbp-4Ch]
   __int64 v30; // [rsp+80h] [rbp-48h]
   int v31; // [rsp+88h] [rbp-40h]
   int v32; // [rsp+8Ch] [rbp-3Ch]
   int *v33; // [rsp+90h] [rbp-38h]
-  __int64 v34; // [rsp+98h] [rbp-30h]
-  int *v35; // [rsp+A0h] [rbp-28h]
-  __int64 v36; // [rsp+A8h] [rbp-20h]
+  int v34; // [rsp+98h] [rbp-30h]
+  int v35; // [rsp+9Ch] [rbp-2Ch]
+  _DWORD *v36; // [rsp+A0h] [rbp-28h]
+  int v37; // [rsp+A8h] [rbp-20h]
+  int v38; // [rsp+ACh] [rbp-1Ch]
 
   if ( a1 )
   {
     v6 = PopDiagHandle;
     LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN);
-    if ( (_BYTE)v4
-      || (LOBYTE(v4) = EtwEventEnabled(v6, &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN), v5 = 0, (_BYTE)v4) )
+    v5 = 1;
+    if ( !(_BYTE)v4 )
     {
-      v5 = 1;
+      LOBYTE(v4) = EtwEventEnabled(v6, &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN);
+      if ( !(_BYTE)v4 )
+        v5 = 0;
     }
   }
   else
@@ -62,9 +66,9 @@ char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)
   if ( PopDiagHandleRegistered && v5 )
   {
     v7 = *(unsigned __int16 **)(a2 + 1472);
-    v19 = *v7 >> 1;
-    v22 = *(_DWORD *)(a2 + 2104);
-    v20 = 0;
+    v18 = *v7 >> 1;
+    v20 = *(_DWORD *)(a2 + 2104);
+    v19 = 0;
     if ( !a1 )
     {
       CurrentThread = KeGetCurrentThread();
@@ -74,62 +78,59 @@ char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)
         Teb = CurrentThread->Teb;
       if ( Teb )
       {
-        if ( !KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[30] )
-          goto LABEL_22;
-        Process = KeGetCurrentThread()->ApcState.Process;
-        if ( !Process[1].Affinity.StaticBitmap[30] )
-          goto LABEL_22;
-        v11 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-        if ( v11 == 332 || (v12 = v11 == 452, v13 = 0, v12) )
-          v13 = 1;
-        if ( v13 )
-          v14 = Teb[3032];
+        if ( KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]
+          && (v10 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]) != 0
+          && ((v11 = *(_WORD *)(v10 + 8), v11 == 332) || v11 == 452) )
+        {
+          v12 = Teb[3032];
+        }
         else
-LABEL_22:
-          v14 = Teb[1480];
-        v20 = v14;
+        {
+          v12 = Teb[1480];
+        }
+        v19 = v12;
       }
     }
-    v23 = *(_DWORD *)(a2 + 1088);
-    UserData.Ptr = (ULONGLONG)&v22;
-    *(_QWORD *)&UserData.Size = 4LL;
-    v26 = &v23;
-    v27 = 4LL;
-    v28 = &v19;
-    v29 = 2LL;
-    v15 = *v7;
-    v30 = *((_QWORD *)v7 + 1);
-    v31 = v15;
+    v21 = *(_DWORD *)(a2 + 1088);
+    UserData.Ptr = (ULONGLONG)&v20;
+    UserData.Size = 4;
+    UserData.Reserved = 0;
+    v24 = &v21;
+    v25 = 4;
+    v26 = 0;
+    v27 = &v18;
+    v28 = 2;
+    v29 = 0;
+    v13 = *v7;
+    v4 = *((_QWORD *)v7 + 1);
+    v30 = v4;
+    v31 = v13;
     v32 = 0;
-    v4 = (*(_DWORD *)(a2 + 2172) >> 26) & 1;
-    v21 = v4;
     if ( a1 )
     {
       if ( (*(_DWORD *)(a2 + 1124) & 0x1000) != 0 )
-      {
-        v33 = &v21;
-        v34 = 4LL;
-        LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN, 0LL, 5u, &UserData);
-      }
-      v17 = *(int **)(a2 + 2096);
-      if ( !v17 || !*v17 )
+        LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN, 0LL, 4u, &UserData);
+      v16 = *(int **)(a2 + 2096);
+      if ( !v16 || !*v16 )
         return v4;
-      v22 = *(_DWORD *)(a2 + 2108);
-      v24 = *v17;
-      v33 = &v24;
-      v35 = v17 + 2;
-      v36 = (unsigned int)(8 * v24);
-      v16 = &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN;
+      v20 = *(_DWORD *)(a2 + 2108);
+      v22 = *v16;
+      v33 = &v22;
+      v36 = v16 + 2;
+      v37 = 8 * v22;
+      v38 = 0;
+      v14 = 6;
+      v15 = &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN;
     }
     else
     {
-      v33 = &v20;
-      v35 = &v21;
-      v36 = 4LL;
-      v16 = &POP_ETW_EVENT_STRS;
+      v33 = &v19;
+      v14 = 5;
+      v15 = &POP_ETW_EVENT_STRS;
     }
-    v34 = 4LL;
-    LOBYTE(v4) = EtwWrite(PopDiagHandle, v16, 0LL, 6u, &UserData);
+    v34 = 4;
+    v35 = 0;
+    LOBYTE(v4) = EtwWrite(PopDiagHandle, v15, 0LL, v14, &UserData);
   }
   return v4;
 }

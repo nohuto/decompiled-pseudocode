@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsRequirePairedToken@CFlipToken@@UEBA_NXZ @ 0x1C001A1A0
+ * XREFs of ?IsRequirePairedToken@CFlipToken@@UEBA_NXZ @ 0x1C001B9C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipToken::IsRequirePairedToken(CFlipToken *this)
 {
-  return *((_BYTE *)this + 565);
+  return *((_BYTE *)this + 560);
 }

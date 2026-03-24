@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YA?AU?$pair@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@PEAU123@@0@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU234@1@Z@Z @ 0x180268EF8
+ * XREFs of ??$_Partition_by_median_guess_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YA?AU?$pair@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@PEAU123@@0@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU234@1@Z@Z @ 0x180207B98
  * Callers:
- *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x1802694A8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020818C (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Guess_median_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@00P6A_NAEBU123@1@Z@Z @ 0x180268B20 (--$_Guess_median_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Guess_median_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@00P6A_NAEBU123@1@Z@Z @ 0x1802077D8 (--$_Guess_median_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std.c)
  */
 
 unsigned __int64 *__fastcall std::_Partition_by_median_guess_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
@@ -43,7 +43,7 @@ unsigned __int64 *__fastcall std::_Partition_by_median_guess_unchecked<EmitterSh
   __int64 v34; // xmm2_8
   unsigned __int64 *result; // rax
 
-  v7 = a2 + 28 * ((0x6DB6DB6DB6DB6DB7LL * ((__int64)(a3 - a2) >> 2)) >> 1);
+  v7 = a2 + 28 * (((__int64)((unsigned __int128)((__int64)(a3 - a2) * (__int128)0x4924924924924925LL) >> 64) >> 3) / 2);
   std::_Guess_median_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
     a2,
     v7,

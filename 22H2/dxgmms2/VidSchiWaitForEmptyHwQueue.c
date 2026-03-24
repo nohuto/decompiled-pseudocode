@@ -1,37 +1,40 @@
 /*
- * XREFs of VidSchiWaitForEmptyHwQueue @ 0x1C0106F10
+ * XREFs of VidSchiWaitForEmptyHwQueue @ 0x1C00CF730
  * Callers:
- *     VidSchiSwitchFromSuspendedDevices @ 0x1C00046B0 (VidSchiSwitchFromSuspendedDevices.c)
- *     VidSchFlushAdapter @ 0x1C01070F0 (VidSchFlushAdapter.c)
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0016990 (VidSchiSwitchFromSuspendedDevices.c)
+ *     VidSchFlushAdapter @ 0x1C00CFF30 (VidSchFlushAdapter.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
  */
 
-__int64 __fastcall VidSchiWaitForEmptyHwQueue(__int64 a1)
+unsigned __int64 __fastcall VidSchiWaitForEmptyHwQueue(__int64 a1)
 {
+  unsigned __int64 result; // rax
   __int64 i; // rbx
-  __int64 *v3; // rcx
-  __int64 v4; // rsi
-  __int64 result; // rax
-  _DWORD v6[40]; // [rsp+40h] [rbp-A8h] BYREF
+  struct _KEVENT **v4; // rcx
+  struct _KEVENT *v5; // rsi
+  _DWORD v6[40]; // [rsp+48h] [rbp-49h] BYREF
+  _UNKNOWN *retaddr; // [rsp+F0h] [rbp+5Fh] BYREF
 
-  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 80); i = (unsigned int)(i + 1) )
+  result = (unsigned __int64)&retaddr;
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 72); i = (unsigned int)(i + 1) )
   {
-    v3 = *(__int64 **)(a1 + 632);
-    if ( (unsigned int)i < *(_DWORD *)(a1 + 704) )
-      v3 += i;
-    v4 = *v3;
+    v4 = *(struct _KEVENT ***)(a1 + 624);
+    if ( (unsigned int)i < *(_DWORD *)(a1 + 696) )
+      v4 += i;
+    v5 = *v4;
     memset(v6, 0, sizeof(v6));
+    v6[4] = 0;
     v6[8] |= 0x40u;
     v6[5] = 1;
     v6[12] = i;
-    *(_QWORD *)(v4 + 280) = MEMORY[0xFFFFF78000000320];
-    KeResetEvent((PRKEVENT)(v4 + 240));
+    v5[11].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
+    KeResetEvent(v5 + 10);
     while ( 1 )
     {
-      result = *(unsigned int *)(v4 + 2888);
+      result = (unsigned int)v5[120].Header.Lock;
       if ( !(_DWORD)result )
         break;
       VidSchiProfilePerformanceTick(16LL, a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);

@@ -1,11 +1,11 @@
 /*
- * XREFs of FxIoResourceRequirementsListInsertIoResList @ 0x1C006F57C
+ * XREFs of FxIoResourceRequirementsListInsertIoResList @ 0x1C005C450
  * Callers:
- *     imp_WdfIoResourceRequirementsListAppendIoResList @ 0x1C006FB10 (imp_WdfIoResourceRequirementsListAppendIoResList.c)
- *     imp_WdfIoResourceRequirementsListInsertIoResList @ 0x1C006FB30 (imp_WdfIoResourceRequirementsListInsertIoResList.c)
+ *     imp_WdfIoResourceRequirementsListAppendIoResList @ 0x1C005CDA0 (imp_WdfIoResourceRequirementsListAppendIoResList.c)
+ *     imp_WdfIoResourceRequirementsListInsertIoResList @ 0x1C005CEA0 (imp_WdfIoResourceRequirementsListInsertIoResList.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?AddAt@FxResourceCollection@@QEAAJKPEAVFxObject@@@Z @ 0x1C00720DC (-AddAt@FxResourceCollection@@QEAAJKPEAVFxObject@@@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?AddAt@FxResourceCollection@@QEAAJKPEAVFxObject@@@Z @ 0x1C0061094 (-AddAt@FxResourceCollection@@QEAAJKPEAVFxObject@@@Z.c)
  */
 
 int __fastcall FxIoResourceRequirementsListInsertIoResList(
@@ -21,7 +21,7 @@ int __fastcall FxIoResourceRequirementsListInsertIoResList(
   pIoResReqList = 0LL;
   pIoResList = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)RequirementsList,
     0x1037u,
     (void **)&pIoResReqList);

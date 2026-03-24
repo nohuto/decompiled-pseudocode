@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapErrorHandleIsValid @ 0x1406447EC
+ * XREFs of WheapErrorHandleIsValid @ 0x1405BC350
  * Callers:
- *     WheaAddHwErrorReportSectionDeviceDriver @ 0x140644110 (WheaAddHwErrorReportSectionDeviceDriver.c)
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x140644250 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x140644280 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
- *     WheaHwErrorReportMarkAsCriticalDeviceDriver @ 0x1406442D0 (WheaHwErrorReportMarkAsCriticalDeviceDriver.c)
- *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x140644300 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
- *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x1406443B0 (WheaHwErrorReportSetSeverityDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1406443F0 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBCB0 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BBDE0 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x1405BBE10 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
+ *     WheaHwErrorReportMarkAsCriticalDeviceDriver @ 0x1405BBE60 (WheaHwErrorReportMarkAsCriticalDeviceDriver.c)
+ *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x1405BBE90 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
+ *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x1405BBF40 (WheaHwErrorReportSetSeverityDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBF80 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
  *     <none>
  */

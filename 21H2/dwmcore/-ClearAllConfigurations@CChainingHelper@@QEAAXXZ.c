@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x1802663BC
+ * XREFs of ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x180215380
  * Callers:
- *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180263CE4 (--1InteractionSourceManager@@QEAA@XZ.c)
- *     ?CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@@Z @ 0x180263E30 (-CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV-$vector@PEAVCManipulation@@V-$alloca.c)
- *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x180264B5C (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
+ *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180212D08 (--1InteractionSourceManager@@QEAA@XZ.c)
+ *     ?CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@@Z @ 0x180212ECC (-CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV-$vector@PEAVCManipulation@@V-$alloca.c)
+ *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x180213C20 (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
  * Callees:
  *     <none>
  */

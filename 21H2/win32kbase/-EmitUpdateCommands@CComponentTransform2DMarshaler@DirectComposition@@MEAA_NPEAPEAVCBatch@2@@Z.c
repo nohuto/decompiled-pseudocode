@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EmitUpdateCommands@CComponentTransform2DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00072B0
+ * XREFs of ?EmitUpdateCommands@CComponentTransform2DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060FD0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36d___ @ 0x1C00073F8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e2e130be531dcf6684c12c56d14076c1___ @ 0x1C000747C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e2e130be531dcf6684c12c56d14076c.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_1ec7242a182fd7ab52eab4ec75b316de___ @ 0x1C00074F4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_1ec7242a182fd7ab52eab4ec75b316d.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_645b102eff9e887120288b9b65e9f1dc___ @ 0x1C0007568 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_645b102eff9e887120288b9b65e9f1d.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e0098fcade8aafb263e245137e45c739___ @ 0x1C00075E0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e0098fcade8aafb263e245137e45c73.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a426e53e1cc74de2ae842011fff912d3___ @ 0x1C0007658 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a426e53e1cc74de2ae842011fff912d.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010F54 (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36d___ @ 0x1C0060F48 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e2e130be531dcf6684c12c56d14076c1___ @ 0x1C0062F44 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e2e130be531dcf6684c12c56d14076c.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_1ec7242a182fd7ab52eab4ec75b316de___ @ 0x1C0062FBC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_1ec7242a182fd7ab52eab4ec75b316d.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_645b102eff9e887120288b9b65e9f1dc___ @ 0x1C0063030 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_645b102eff9e887120288b9b65e9f1d.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e0098fcade8aafb263e245137e45c739___ @ 0x1C00630A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e0098fcade8aafb263e245137e45c73.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a426e53e1cc74de2ae842011fff912d3___ @ 0x1C0063120 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a426e53e1cc74de2ae842011fff912d.c)
  */
 
 char __fastcall DirectComposition::CComponentTransform2DMarshaler::EmitUpdateCommands(
@@ -82,10 +82,10 @@ char __fastcall DirectComposition::CComponentTransform2DMarshaler::EmitUpdateCom
     v7 = this;
     if ( (v5 & 0x1000) != 0 )
       return 1;
-    if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36d___(
-                            this,
-                            a2,
-                            &v7) )
+    if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3fb4fd2fa475976a4c9077d17217d36d___(
+           (__int64)this,
+           a2,
+           (__int64 *)&v7) )
     {
       *((_DWORD *)this + 4) |= 0x1000u;
       return 1;

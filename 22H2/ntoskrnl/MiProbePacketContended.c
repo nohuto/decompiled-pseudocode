@@ -1,25 +1,24 @@
 /*
- * XREFs of MiProbePacketContended @ 0x1402E6584
+ * XREFs of MiProbePacketContended @ 0x140288A88
  * Callers:
- *     MiProbeAndLockPacket @ 0x140236240 (MiProbeAndLockPacket.c)
- *     MmProbeAndLockSelectedPages @ 0x1403D4D60 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x14030EB80 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     MiPageTableLockIsContended @ 0x1402E6A30 (MiPageTableLockIsContended.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
+ *     MiPageTableLockIsContended @ 0x140288AE0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x14028BE50 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x1402F1320 (KeShouldYieldProcessor.c)
  */
 
-__int64 __fastcall MiProbePacketContended(__int64 a1)
+LOGICAL __fastcall MiProbePacketContended(__int64 a1)
 {
-  __int64 v1; // rdx
-  _QWORD *v2; // r10
-  unsigned int v3; // ebx
+  LOGICAL result; // eax
 
-  v1 = *(_QWORD *)(a1 + 40);
-  v2 = (_QWORD *)(a1 + 104);
-  v3 = 0;
-  if ( v1 && (unsigned int)MiPageTableLockIsContended(*v2, v1) || (unsigned int)MiWorkingSetIsContended(*v2) )
-    return 1LL;
-  LOBYTE(v3) = KeShouldYieldProcessor() != 0;
-  return v3;
+  if ( *(_QWORD *)(a1 + 32) && (unsigned int)MiPageTableLockIsContended(*(_QWORD *)(a1 + 96)) )
+    return 1;
+  if ( (unsigned int)MiWorkingSetIsContended(*(_QWORD *)(a1 + 96)) )
+    return 1;
+  result = KeShouldYieldProcessor();
+  if ( result )
+    return 1;
+  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of GreGetDCOrg @ 0x1C016C2C0
+ * XREFs of GreGetDCOrg @ 0x1C0072220
  * Callers:
  *     <none>
  * Callees:
- *     GreGetDCPoint @ 0x1C003B970 (GreGetDCPoint.c)
+ *     GreGetDCPoint @ 0x1C00722C0 (GreGetDCPoint.c)
  */
 
-__int64 __fastcall GreGetDCOrg(HDC a1, __int64 a2)
+__int64 __fastcall GreGetDCOrg(HDC a1)
 {
-  return GreGetDCPoint(a1, 32, a2);
+  return GreGetDCPoint(a1);
 }

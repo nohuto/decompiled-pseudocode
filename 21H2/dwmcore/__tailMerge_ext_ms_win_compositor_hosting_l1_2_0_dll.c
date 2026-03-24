@@ -1,10 +1,11 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_2_0_dll @ 0x180101F64
+ * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_2_0_dll @ 0x1800E8E97
  * Callers:
- *     __imp_load_RegisterManipulationThread @ 0x180101F58 (__imp_load_RegisterManipulationThread.c)
- *     __imp_load_StopAndEndInertia @ 0x18010206E (__imp_load_StopAndEndInertia.c)
+ *     __imp_load_RegisterManipulationThread @ 0x1800E8E8B (__imp_load_RegisterManipulationThread.c)
+ *     __imp_load_SetManipulationInputTarget @ 0x1800E8F16 (__imp_load_SetManipulationInputTarget.c)
+ *     __imp_load_StopAndEndInertia @ 0x1800E8F3A (__imp_load_StopAndEndInertia.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_compositor_hosting_l1_2_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

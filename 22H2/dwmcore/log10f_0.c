@@ -1,8 +1,8 @@
 /*
- * XREFs of log10f_0 @ 0x18011B908
+ * XREFs of log10f_0 @ 0x1800F3FB7
  * Callers:
- *     ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x180218E68 (-CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z.c)
- *     ?Log10@CExpressionValueStack@@QEAAJXZ @ 0x18025E518 (-Log10@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x1801F3F5C (-CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z.c)
+ *     ?Log10@CExpressionValueStack@@QEAAJXZ @ 0x1801FD818 (-Log10@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitCreate@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02266A4
+ * XREFs of ?EmitCreate@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED854
  * Callers:
- *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226820 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED9D0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     OpenDwmHandle @ 0x1C0086D6C (OpenDwmHandle.c)
+ *     OpenDwmHandle @ 0x1C004A8E0 (OpenDwmHandle.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitCreate(
@@ -36,8 +36,8 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitCreat
     *(_DWORD *)v9 = 28;
     *(_OWORD *)(v5 + 4) = 0LL;
     *(_QWORD *)(v5 + 20) = 0LL;
-    *((_DWORD *)v5 + 1) = 170;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v5 + 1) = 178;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
     *((_DWORD *)v5 + 5) = *((_DWORD *)this + 15);
     *((_DWORD *)v5 + 6) = *((_DWORD *)this + 14);
     *(_QWORD *)(v5 + 12) = v10;

@@ -1,1 +1,170 @@
-/*\n * XREFs of MouseClassFindMorePorts @ 0x1C000C180\n * Callers:\n *     <none>\n * Callees:\n *     __security_check_cookie @ 0x1C0002AC0 (__security_check_cookie.c)\n *     memset @ 0x1C0002FC0 (memset.c)\n *     MouseClassLogError @ 0x1C00045CC (MouseClassLogError.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005040 (WPP_RECORDER_SF_.c)\n *     MouseAddDeviceEx @ 0x1C000C480 (MouseAddDeviceEx.c)\n *     MouDeterminePortsServiced @ 0x1C000C7A0 (MouDeterminePortsServiced.c)\n *     MouCreateClassObject @ 0x1C000C990 (MouCreateClassObject.c)\n */\n\nvoid __fastcall MouseClassFindMorePorts(struct _DRIVER_OBJECT *DriverObject, PVOID Context, ULONG Count)\n{\n  PVOID v4; // rsi\n  WCHAR *PoolWithTag; // rax\n  ULONG NumberOfMapRegisters; // ebx\n  int i; // edi\n  int ClassObject; // eax\n  __int64 v9; // r15\n  void *v10; // rcx\n  PVOID v11; // rdx\n  int v12; // r12d\n  void *v13; // rcx\n  _QWORD *v14; // rax\n  _QWORD *v15; // r15\n  struct _UNICODE_STRING Destination; // [rsp+40h] [rbp-C0h] BYREF\n  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF\n  __int64 v18; // [rsp+60h] [rbp-A0h]\n  PFILE_OBJECT FileObject; // [rsp+68h] [rbp-98h] BYREF\n  ULONG v20; // [rsp+70h] [rbp-90h] BYREF\n  PVOID P[3]; // [rsp+78h] [rbp-88h] BYREF\n  _BYTE v22[512]; // [rsp+90h] [rbp-70h] BYREF\n\n  v18 = 0LL;\n  P[0] = 0LL;\n  *(_QWORD *)&Destination.Length = 0LL;\n  Destination.Buffer = 0LL;\n  v4 = 0LL;\n  memset(v22, 0, sizeof(v22));\n  *(_DWORD *)&DestinationString.Length = 0x2000000;\n  DestinationString.Buffer = (PWSTR)v22;\n  RtlCopyUnicodeString(&DestinationString, &::DestinationString);\n  DestinationString.Length -= 10;\n  RtlAppendUnicodeToString(&DestinationString, L"Port");\n  if ( DestinationString.MaximumLength >= (unsigned __int64)DestinationString.Length + 2 )\n  {\n    DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) + 1] = 0;\n    RtlInitUnicodeString(&Destination, 0LL);\n    Destination.MaximumLength = DestinationString.Length + 20;\n    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(\n                             PagedPool,\n                             (unsigned __int16)(DestinationString.Length + 20),\n                             0x43756F4Du);\n    Destination.Buffer = PoolWithTag;\n    if ( PoolWithTag )\n    {\n      memset(PoolWithTag, 0, Destination.MaximumLength);\n      RtlAppendUnicodeToString(&Destination, L"\\Device\\");\n      RtlAppendUnicodeToString(&Destination, DestinationString.Buffer);\n      RtlAppendUnicodeToString(&Destination, L"0");\n      MouDeterminePortsServiced(&DestinationString, &v20);\n      NumberOfMapRegisters = WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;\n      for ( i = 0; NumberOfMapRegisters < HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock); ++NumberOfMapRegisters )\n      {\n        if ( NumberOfMapRegisters >= v20 )\n          break;\n        Destination.Buffer[((unsigned __int64)Destination.Length >> 1) - 1] = NumberOfMapRegisters + 48;\n        if ( v4 )\n        {\n          ExFreePoolWithTag(v4, 0);\n          P[0] = 0LL;\n        }\n        ClassObject = MouCreateClassObject(DriverObject, 1);\n        if ( ClassObject >= 0 )\n        {\n          v9 = *(_QWORD *)(v18 + 64);\n          *(_QWORD *)v9 = v18;\n          *(_BYTE *)(v9 + 64) = 0;\n          if ( IoGetDeviceObjectPointer(&Destination, 0x80u, &FileObject, (PDEVICE_OBJECT *)(v9 + 16)) )\n          {\n            v10 = *(void **)(v9 + 104);\n            if ( v10 )\n            {\n              ExFreePoolWithTag(v10, 0);\n              *(_QWORD *)(v9 + 120) = 0LL;\n              *(_QWORD *)(v9 + 112) = 0LL;\n              *(_QWORD *)(v9 + 104) = 0LL;\n            }\n            IoDeleteDevice(*(PDEVICE_OBJECT *)v9);\n            v4 = P[0];\n          }\n          else\n          {\n            v4 = P[0];\n            v11 = P[0];\n            *(_BYTE *)(v18 + 76) = *(_BYTE *)(*(_QWORD *)(v9 + 16) + 76LL) + 1;\n            v12 = MouseAddDeviceEx(v9, v11, FileObject);\n            *(_DWORD *)(v18 + 48) &= ~0x80u;\n            if ( v4 )\n            {\n              ExFreePoolWithTag(v4, 0);\n              v4 = 0LL;\n              P[0] = 0LL;\n            }\n            if ( v12 >= 0 )\n            {\n              v14 = (_QWORD *)qword_1C00094C8;\n              v15 = (_QWORD *)(v9 + 320);\n              if ( *(__int64 **)qword_1C00094C8 != &qword_1C00094C0 )\n                __fastfail(3u);\n              *v15 = &qword_1C00094C0;\n              ++i;\n              v15[1] = v14;\n              *v14 = v15;\n              qword_1C00094C8 = (__int64)v15;\n            }\n            else\n            {\n              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n              {\n                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine\n                                           + 3 * *(unsigned int *)(v9 + 180));\n                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *(unsigned int *)(v9 + 180)) = 0LL;\n                *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v9 + 180) + 19) = 1;\n                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *(unsigned int *)(v9 + 180) + 1) = 0LL;\n                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n              }\n              else if ( *(_QWORD *)(v9 + 336) )\n              {\n                FileObject = *(PFILE_OBJECT *)(v9 + 336);\n                *(_QWORD *)(v9 + 336) = 0LL;\n              }\n              if ( FileObject )\n                ObfDereferenceObject(FileObject);\n              v13 = *(void **)(v9 + 104);\n              if ( v13 )\n              {\n                ExFreePoolWithTag(v13, 0);\n                *(_QWORD *)(v9 + 120) = 0LL;\n                *(_QWORD *)(v9 + 112) = 0LL;\n                *(_QWORD *)(v9 + 104) = 0LL;\n              }\n              IoDeleteDevice(*(PDEVICE_OBJECT *)v9);\n            }\n          }\n        }\n        else\n        {\n          MouseClassLogError(DriverObject, -1073414143, 20008, ClassObject, 0, 0LL, 0);\n          v4 = P[0];\n        }\n      }\n      WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters += i;\n    }\n    else\n    {\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, 2LL, 2LL);\n      LODWORD(P[0]) = Destination.MaximumLength;\n      MouseClassLogError(DriverObject, -1073414143, 20008, -1073741823, 1u, P, 0);\n    }\n  }\n  if ( Destination.Buffer )\n    ExFreePoolWithTag(Destination.Buffer, 0);\n  if ( v4 )\n    ExFreePoolWithTag(v4, 0);\n}\n
+/*
+ * XREFs of MouseClassFindMorePorts @ 0x1C000C180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0002AC0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002FC0 (memset.c)
+ *     MouseClassLogError @ 0x1C00045CC (MouseClassLogError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0005040 (WPP_RECORDER_SF_.c)
+ *     MouseAddDeviceEx @ 0x1C000C480 (MouseAddDeviceEx.c)
+ *     MouDeterminePortsServiced @ 0x1C000C7A0 (MouDeterminePortsServiced.c)
+ *     MouCreateClassObject @ 0x1C000C990 (MouCreateClassObject.c)
+ */
+
+void __fastcall MouseClassFindMorePorts(struct _DRIVER_OBJECT *DriverObject, PVOID Context, ULONG Count)
+{
+  PVOID v4; // rsi
+  WCHAR *PoolWithTag; // rax
+  ULONG NumberOfMapRegisters; // ebx
+  int i; // edi
+  int ClassObject; // eax
+  __int64 v9; // r15
+  void *v10; // rcx
+  PVOID v11; // rdx
+  int v12; // r12d
+  void *v13; // rcx
+  _QWORD *v14; // rax
+  _QWORD *v15; // r15
+  struct _UNICODE_STRING Destination; // [rsp+40h] [rbp-C0h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-A0h]
+  PFILE_OBJECT FileObject; // [rsp+68h] [rbp-98h] BYREF
+  ULONG v20; // [rsp+70h] [rbp-90h] BYREF
+  PVOID P[3]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v22[512]; // [rsp+90h] [rbp-70h] BYREF
+
+  v18 = 0LL;
+  P[0] = 0LL;
+  *(_QWORD *)&Destination.Length = 0LL;
+  Destination.Buffer = 0LL;
+  v4 = 0LL;
+  memset(v22, 0, sizeof(v22));
+  *(_DWORD *)&DestinationString.Length = 0x2000000;
+  DestinationString.Buffer = (PWSTR)v22;
+  RtlCopyUnicodeString(&DestinationString, &::DestinationString);
+  DestinationString.Length -= 10;
+  RtlAppendUnicodeToString(&DestinationString, L"Port");
+  if ( DestinationString.MaximumLength >= (unsigned __int64)DestinationString.Length + 2 )
+  {
+    DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) + 1] = 0;
+    RtlInitUnicodeString(&Destination, 0LL);
+    Destination.MaximumLength = DestinationString.Length + 20;
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(
+                             PagedPool,
+                             (unsigned __int16)(DestinationString.Length + 20),
+                             0x43756F4Du);
+    Destination.Buffer = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, Destination.MaximumLength);
+      RtlAppendUnicodeToString(&Destination, L"\\Device\\");
+      RtlAppendUnicodeToString(&Destination, DestinationString.Buffer);
+      RtlAppendUnicodeToString(&Destination, L"0");
+      MouDeterminePortsServiced(&DestinationString, &v20);
+      NumberOfMapRegisters = WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;
+      for ( i = 0; NumberOfMapRegisters < HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock); ++NumberOfMapRegisters )
+      {
+        if ( NumberOfMapRegisters >= v20 )
+          break;
+        Destination.Buffer[((unsigned __int64)Destination.Length >> 1) - 1] = NumberOfMapRegisters + 48;
+        if ( v4 )
+        {
+          ExFreePoolWithTag(v4, 0);
+          P[0] = 0LL;
+        }
+        ClassObject = MouCreateClassObject(DriverObject, 1);
+        if ( ClassObject >= 0 )
+        {
+          v9 = *(_QWORD *)(v18 + 64);
+          *(_QWORD *)v9 = v18;
+          *(_BYTE *)(v9 + 64) = 0;
+          if ( IoGetDeviceObjectPointer(&Destination, 0x80u, &FileObject, (PDEVICE_OBJECT *)(v9 + 16)) )
+          {
+            v10 = *(void **)(v9 + 104);
+            if ( v10 )
+            {
+              ExFreePoolWithTag(v10, 0);
+              *(_QWORD *)(v9 + 120) = 0LL;
+              *(_QWORD *)(v9 + 112) = 0LL;
+              *(_QWORD *)(v9 + 104) = 0LL;
+            }
+            IoDeleteDevice(*(PDEVICE_OBJECT *)v9);
+            v4 = P[0];
+          }
+          else
+          {
+            v4 = P[0];
+            v11 = P[0];
+            *(_BYTE *)(v18 + 76) = *(_BYTE *)(*(_QWORD *)(v9 + 16) + 76LL) + 1;
+            v12 = MouseAddDeviceEx(v9, v11, FileObject);
+            *(_DWORD *)(v18 + 48) &= ~0x80u;
+            if ( v4 )
+            {
+              ExFreePoolWithTag(v4, 0);
+              v4 = 0LL;
+              P[0] = 0LL;
+            }
+            if ( v12 >= 0 )
+            {
+              v14 = (_QWORD *)qword_1C00094C8;
+              v15 = (_QWORD *)(v9 + 320);
+              if ( *(__int64 **)qword_1C00094C8 != &qword_1C00094C0 )
+                __fastfail(3u);
+              *v15 = &qword_1C00094C0;
+              ++i;
+              v15[1] = v14;
+              *v14 = v15;
+              qword_1C00094C8 = (__int64)v15;
+            }
+            else
+            {
+              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+              {
+                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine
+                                           + 3 * *(unsigned int *)(v9 + 180));
+                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *(unsigned int *)(v9 + 180)) = 0LL;
+                *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v9 + 180) + 19) = 1;
+                *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *(unsigned int *)(v9 + 180) + 1) = 0LL;
+                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+              }
+              else if ( *(_QWORD *)(v9 + 336) )
+              {
+                FileObject = *(PFILE_OBJECT *)(v9 + 336);
+                *(_QWORD *)(v9 + 336) = 0LL;
+              }
+              if ( FileObject )
+                ObfDereferenceObject(FileObject);
+              v13 = *(void **)(v9 + 104);
+              if ( v13 )
+              {
+                ExFreePoolWithTag(v13, 0);
+                *(_QWORD *)(v9 + 120) = 0LL;
+                *(_QWORD *)(v9 + 112) = 0LL;
+                *(_QWORD *)(v9 + 104) = 0LL;
+              }
+              IoDeleteDevice(*(PDEVICE_OBJECT *)v9);
+            }
+          }
+        }
+        else
+        {
+          MouseClassLogError(DriverObject, -1073414143, 20008, ClassObject, 0, 0LL, 0);
+          v4 = P[0];
+        }
+      }
+      WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters += i;
+    }
+    else
+    {
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, 2LL, 2LL);
+      LODWORD(P[0]) = Destination.MaximumLength;
+      MouseClassLogError(DriverObject, -1073414143, 20008, -1073741823, 1u, P, 0);
+    }
+  }
+  if ( Destination.Buffer )
+    ExFreePoolWithTag(Destination.Buffer, 0);
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0);
+}

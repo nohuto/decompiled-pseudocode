@@ -1,18 +1,19 @@
 /*
- * XREFs of ??1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ @ 0x1800E650C
+ * XREFs of ??1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ @ 0x180029DEC
  * Callers:
- *     ??_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x1800E64D0 (--_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z.c)
+ *     ??_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x180029DB0 (--_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
  */
 
 void __fastcall CSharedSectionAnimationPrimitiveBuffer::~CSharedSectionAnimationPrimitiveBuffer(
         CSharedSectionAnimationPrimitiveBuffer *this)
 {
-  CResource *v1; // rcx
+  CRenderTargetBitmap *v2; // rcx
 
   *(_QWORD *)this = &CSharedSectionAnimationPrimitiveBuffer::`vftable';
-  v1 = (CResource *)*((_QWORD *)this + 2);
-  if ( v1 )
-    CResource::InternalRelease(v1);
+  v2 = (CRenderTargetBitmap *)*((_QWORD *)this + 2);
+  if ( v2 )
+    CRenderTargetBitmap::Release(v2);
+  *(_QWORD *)this = &CAnimationPrimitiveBuffer::`vftable';
 }

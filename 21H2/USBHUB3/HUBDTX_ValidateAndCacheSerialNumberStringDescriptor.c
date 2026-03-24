@@ -1,15 +1,16 @@
 /*
- * XREFs of HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002A218
+ * XREFs of HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C0029B38
  * Callers:
- *     HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice @ 0x1C001FE70 (HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice.c)
+ *     HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice @ 0x1C001FA60 (HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0031650 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
- *     HUBDESC_InternalValidateStringDescriptor @ 0x1C00399FC (HUBDESC_InternalValidateStringDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0030F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBDTX_ValidateAndCacheSerialNumberStringDescriptor(__int64 a1)
@@ -20,23 +21,23 @@ __int64 __fastcall HUBDTX_ValidateAndCacheSerialNumberStringDescriptor(__int64 a
   bool v5; // cf
   __int64 v6; // rcx
   bool v7; // zf
-  __int64 v8; // rsi
-  int v9; // r9d
-  __int64 v10; // rcx
-  char v11; // r13
-  unsigned int v12; // r15d
-  unsigned int v13; // esi
+  __int64 v8; // r14
+  unsigned int v9; // esi
+  int v10; // r9d
+  __int64 v11; // rcx
+  char v12; // r12
+  unsigned int v13; // r13d
   unsigned int v14; // r14d
   unsigned __int16 *v15; // rdi
-  void *v16; // rcx
-  unsigned int v17; // eax
-  unsigned int v18; // edi
-  __int64 Pool2; // rax
-  int v20; // eax
-  int v21; // eax
-  unsigned int v22; // edi
+  unsigned int v16; // edi
+  void *v18; // rcx
+  unsigned int v19; // eax
+  unsigned int v20; // edi
+  PVOID PoolWithTag; // rax
+  _DWORD *v22; // rcx
+  int v23; // eax
   __int64 v24; // [rsp+28h] [rbp-41h]
-  unsigned int v25; // [rsp+30h] [rbp-39h]
+  unsigned int NumberOfBytes; // [rsp+30h] [rbp-39h]
   __int64 v26; // [rsp+38h] [rbp-31h]
   _WORD v27[2]; // [rsp+40h] [rbp-29h] BYREF
   int v28; // [rsp+44h] [rbp-25h]
@@ -55,7 +56,7 @@ __int64 __fastcall HUBDTX_ValidateAndCacheSerialNumberStringDescriptor(__int64 a
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v27[0] = *(_WORD *)(a1 + 1990);
   v3 = *(_DWORD *)(a1 + 172);
   v29 = 0LL;
@@ -77,92 +78,100 @@ __int64 __fastcall HUBDTX_ValidateAndCacheSerialNumberStringDescriptor(__int64 a
   v30 = *(_DWORD *)(v6 + 220);
   v32 = HUBMISC_LogDescriptorValidationErrorForDevice;
   v33 = &HUBMISC_LogDescriptorValidationWarningForDevice;
-  v25 = *(_DWORD *)(a1 + 256);
-  v39 = v25;
+  v9 = *(_DWORD *)(a1 + 256);
+  NumberOfBytes = v9;
+  v39 = v9;
   v36 = 0;
-  v11 = HUBDESC_InternalValidateStringDescriptor((int)a1 + 1732, v25, (unsigned int)&v36, v9, v8, (__int64)v27);
-  if ( !v11 )
-    goto LABEL_13;
-  v12 = *(unsigned __int8 *)(a1 + 1732);
-  v13 = 0;
-  v37 = v12;
-  v38 = v12 - 2;
-  v14 = (v12 - 2) >> 1;
-  if ( !v14 )
-    goto LABEL_15;
-  v15 = (unsigned __int16 *)(a1 + 1734);
-  do
+  v12 = HUBDESC_InternalValidateStringDescriptor((int)a1 + 1732, v9, (unsigned int)&v36, v10, v8, (__int64)v27);
+  if ( v12 )
   {
-    v10 = *v15;
-    if ( !(_WORD)v10 )
-      break;
-    if ( (unsigned __int16)(v10 - 32) > 0x5Fu || (_DWORD)v10 == 44 )
+    v13 = *(unsigned __int8 *)(a1 + 1732);
+    v14 = 0;
+    v38 = v13;
+    v9 = v13 - 2;
+    v37 = v13 - 2;
+    if ( (v13 - 2) >> 1 )
     {
-      v11 = 0;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v15 = (unsigned __int16 *)(a1 + 1734);
+      do
       {
-        LODWORD(v24) = *v15;
-        WPP_RECORDER_SF_d(v26, 2u, 5u, 0x117u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v24);
+        v11 = *v15;
+        if ( !(_WORD)v11 )
+          break;
+        if ( (unsigned __int16)(v11 - 32) > 0x5Fu || (_DWORD)v11 == 44 )
+        {
+          v12 = 0;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LODWORD(v24) = *v15;
+            WPP_RECORDER_SF_d(v26, 2u, 5u, 0x117u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v24);
+          }
+          HUBMISC_LogDescriptorValidationErrorForDevice(a1, 132LL);
+        }
+        ++v14;
+        ++v15;
       }
-      HUBMISC_LogDescriptorValidationErrorForDevice(a1, 132LL);
+      while ( v14 < (v13 - 2) >> 1 );
+      v9 = v37;
+      v13 = v38;
     }
-    ++v13;
-    ++v15;
+    if ( v12 )
+    {
+      v9 = v13;
+      goto LABEL_17;
+    }
+    v8 = v26;
   }
-  while ( v13 < v14 );
-  v12 = v37;
-  if ( v11 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(v8, 2u, 5u, 0x118u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
+LABEL_17:
+  if ( v12 )
   {
-LABEL_15:
-    v16 = *(void **)(a1 + 2152);
-    if ( v16 )
-      ExFreePoolWithTag(v16, 0x64334855u);
-    v17 = v39 + 12;
-    if ( !_bittest((const signed __int32 *)(a1 + 1636), 0xBu) )
-      v17 = v25;
-    v18 = v17;
-    Pool2 = ExAllocatePool2(64LL, v17, 1681082453LL);
-    *(_QWORD *)(a1 + 2152) = Pool2;
-    v10 = Pool2;
-    if ( !Pool2 )
-      goto LABEL_28;
-    v20 = *(_DWORD *)(a1 + 1632);
-    *(_DWORD *)(a1 + 2148) = v18;
-    if ( (v20 & 2) != 0 )
+    v18 = *(void **)(a1 + 2152);
+    if ( v18 )
+      ExFreePoolWithTag(v18, 0x64334855u);
+    v19 = v39 + 12;
+    if ( (*(_DWORD *)(a1 + 1636) & 0x800) == 0 )
+      v19 = NumberOfBytes;
+    v20 = v19;
+    PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v19, 0x64334855u);
+    *(_QWORD *)(a1 + 2152) = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_19;
+    *(_DWORD *)(a1 + 2148) = v20;
+    memset(PoolWithTag, 0, v20);
+    v22 = *(_DWORD **)(a1 + 2152);
+    if ( (*(_DWORD *)(a1 + 1632) & 2) != 0 )
     {
       if ( *(_WORD *)(a1 + 1990) < 0x300u )
       {
-        *(_QWORD *)v10 = *(_QWORD *)L"MSFT20";
-        v21 = *(_DWORD *)L"20";
-LABEL_25:
-        *(_DWORD *)(v10 + 8) = v21;
-        v10 += 12LL;
-        goto LABEL_26;
+        *(_QWORD *)v22 = *(_QWORD *)L"MSFT20";
+        v23 = *(_DWORD *)L"20";
+LABEL_32:
+        v22[2] = v23;
+        v22 += 3;
+        goto LABEL_33;
       }
     }
-    else if ( !_bittest((const signed __int32 *)(a1 + 1636), 0xBu) )
+    else if ( (*(_DWORD *)(a1 + 1636) & 0x800) == 0 )
     {
-LABEL_26:
-      memmove((void *)v10, (const void *)(a1 + 1734), v12 - 2LL);
+LABEL_33:
+      memmove(v22, (const void *)(a1 + 1734), v9 - 2LL);
       _InterlockedOr((volatile signed __int32 *)(a1 + 1632), 0x40u);
       return 4077;
     }
-    *(_QWORD *)v10 = *(_QWORD *)L"MSFT30";
-    v21 = *(_DWORD *)L"30";
-    goto LABEL_25;
+    *(_QWORD *)v22 = *(_QWORD *)L"MSFT30";
+    v23 = *(_DWORD *)L"30";
+    goto LABEL_32;
   }
-  v8 = v26;
-LABEL_13:
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(v8, 2u, 5u, 0x118u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
   *(_DWORD *)(a1 + 2432) = 1073807384;
-LABEL_28:
-  v22 = 4065;
+LABEL_19:
+  v16 = 4065;
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
     McTemplateK0p_EtwWriteTransfer(
-      v10,
+      v11,
       &USBHUB3_ETW_EVENT_INVALID_SERIAL_NUMBER_STRING_DESCRIPTOR,
       (const GUID *)(a1 + 1516),
       *(_QWORD *)(a1 + 24));
-  return v22;
+  return v16;
 }

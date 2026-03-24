@@ -1,9 +1,9 @@
 /*
- * XREFs of DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C001BA0C
+ * XREFs of DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004FC48
  * Callers:
- *     AcquireDeviceFirmwareLock @ 0x1C001B730 (AcquireDeviceFirmwareLock.c)
- *     ReleaseDeviceFirmwareLock @ 0x1C001BF8C (ReleaseDeviceFirmwareLock.c)
- *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C008285C (AcpiUnregisterDeviceFirmwareLockHandler.c)
+ *     AcquireDeviceFirmwareLock @ 0x1C004F97C (AcquireDeviceFirmwareLock.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C00500E4 (ReleaseDeviceFirmwareLock.c)
+ *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C00AE47C (AcpiUnregisterDeviceFirmwareLockHandler.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,9 @@ void __fastcall DereferenceDeviceFirmwareLockHandlerEntry(PVOID **P, char a2)
   char v3; // di
   KIRQL v6; // r8
   PVOID *v7; // rcx
-  PVOID *v8; // rax
-  _QWORD **v9; // rax
-  _QWORD *v10; // rcx
+  PVOID *v8; // rdx
+  _QWORD **v9; // rcx
+  _QWORD *v10; // rax
   _QWORD *v11; // rdx
   PVOID *v12; // rcx
   struct _KEVENT Object; // [rsp+30h] [rbp-28h] BYREF

@@ -1,7 +1,8 @@
 /*
- * XREFs of PsGetProcessSecurityDomain @ 0x1405A4158
+ * XREFs of PsGetProcessSecurityDomain @ 0x140581884
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1403259E0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x14021ECC0 (KiUpdateSpeculationControl.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

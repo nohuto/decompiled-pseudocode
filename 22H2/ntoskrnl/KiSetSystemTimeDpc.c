@@ -1,104 +1,104 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x14039A160
+ * XREFs of KiSetSystemTimeDpc @ 0x14039D8B0
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiSelectActiveTimerTable @ 0x14033BC80 (KiSelectActiveTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14039A2F4 (KiAdjustTimerDueTimes.c)
- *     KiUpdateSystemTime @ 0x1403C0E98 (KiUpdateSystemTime.c)
- *     KeAdjustInterruptTime @ 0x14056C214 (KeAdjustInterruptTime.c)
+ *     KiSelectActiveTimerTable @ 0x1402473D0 (KiSelectActiveTimerTable.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     KeAdjustInterruptTime @ 0x14038D11C (KeAdjustInterruptTime.c)
+ *     KiUpdateSystemTime @ 0x1403977A8 (KiUpdateSystemTime.c)
+ *     KiAdjustTimerDueTimes @ 0x14039DA6C (KiAdjustTimerDueTimes.c)
  */
 
-__int64 __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
+char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
   signed __int32 v7; // eax
-  unsigned int v8; // edi
+  unsigned int v8; // esi
   struct _KPRCB *CurrentPrcb; // rbp
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
   __int64 active; // r14
-  __int64 v11; // rdx
-  unsigned int v12; // eax
-  __int64 v13; // r9
-  _QWORD *v14; // rcx
-  __int64 v15; // r9
+  signed __int32 v14; // eax
+  unsigned int v15; // esi
   signed __int32 v16; // eax
   unsigned int v17; // edi
-  signed __int32 v18; // eax
-  unsigned int v19; // edi
-  __int64 v21; // rax
-  _DWORD v22[4]; // [rsp+30h] [rbp-38h] BYREF
-  int v23; // [rsp+78h] [rbp+10h] BYREF
-  int v24; // [rsp+88h] [rbp+20h] BYREF
+  int v19; // eax
+  __int64 v20; // r9
+  _QWORD *v21; // rcx
+  __int64 v22; // r9
+  __int64 v23; // rax
+  _DWORD v24[4]; // [rsp+30h] [rbp-38h] BYREF
+  int v25; // [rsp+78h] [rbp+10h] BYREF
+  int v26; // [rsp+88h] [rbp+20h] BYREF
 
+  v25 = 0;
   v7 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v23 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v8 )
-      KeYieldProcessorEx(&v23);
+      KeYieldProcessorEx(&v25, a2, (__int64)a3, a4);
   }
   else
   {
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v8;
+    *(_DWORD *)a4 = v8 | *(_DWORD *)(a4 + 4);
   }
   CurrentPrcb = KeGetCurrentPrcb();
   active = KiSelectActiveTimerTable((__int64)CurrentPrcb, 1);
   if ( CurrentPrcb->ClockOwner )
   {
-    v11 = MEMORY[0xFFFFF78000000014];
     **(_QWORD **)(a2 + 16) = MEMORY[0xFFFFF78000000014];
-    v12 = *(_DWORD *)(a2 + 4);
-    v13 = **(_QWORD **)(a2 + 8);
-    v14 = *(_QWORD **)(a2 + 16);
-    *(_QWORD *)(a2 + 24) = v13;
-    v15 = v13 - *v14;
-    *(_QWORD *)(a2 + 24) = v15;
-    if ( (v12 & 1) != 0 )
+    v19 = *(_DWORD *)(a2 + 4);
+    v20 = **(_QWORD **)(a2 + 8);
+    v21 = *(_QWORD **)(a2 + 16);
+    *(_QWORD *)(a2 + 24) = v20;
+    v22 = v20 - *v21;
+    *(_QWORD *)(a2 + 24) = v22;
+    if ( (v19 & 1) != 0 )
     {
-      LOBYTE(v11) = (v12 & 2) != 0;
-      if ( (unsigned __int8)KeAdjustInterruptTime(v15, v11) )
+      if ( KeAdjustInterruptTime(v22, (v19 & 2) != 0) )
       {
-        v21 = -*(_QWORD *)(a2 + 24);
+        v23 = -*(_QWORD *)(a2 + 24);
         *(_BYTE *)a2 = 1;
-        *(_QWORD *)(a2 + 24) = v21;
+        *(_QWORD *)(a2 + 24) = v23;
       }
     }
     else
     {
-      KiUpdateSystemTime(v15, 0LL, v12);
+      KiUpdateSystemTime(v22, 0LL, v19);
     }
   }
-  v16 = _InterlockedDecrement((volatile signed __int32 *)a4);
-  v17 = ~v16 & 0x80000000;
-  if ( (v16 & 0x7FFFFFFF) != 0 )
+  v26 = 0;
+  v14 = _InterlockedDecrement((volatile signed __int32 *)a4);
+  v15 = ~v14 & 0x80000000;
+  if ( (v14 & 0x7FFFFFFF) != 0 )
   {
-    v24 = 0;
-    while ( (*(_DWORD *)a4 & 0x80000000) != v17 )
-      KeYieldProcessorEx(&v24);
+    while ( (*(_DWORD *)a4 & 0x80000000) != v15 )
+      KeYieldProcessorEx(&v26, v10, v11, v12);
   }
   else
   {
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v17;
+    *(_DWORD *)a4 = v15 | *(_DWORD *)(a4 + 4);
   }
   if ( *(_QWORD *)(a2 + 24) )
   {
     if ( active )
       KiAdjustTimerDueTimes(CurrentPrcb, active, a2);
-    v18 = _InterlockedDecrement((volatile signed __int32 *)a4);
-    v19 = ~v18 & 0x80000000;
-    if ( (v18 & 0x7FFFFFFF) != 0 )
+    v16 = _InterlockedDecrement((volatile signed __int32 *)a4);
+    v17 = ~v16 & 0x80000000;
+    if ( (v16 & 0x7FFFFFFF) != 0 )
     {
-      v22[0] = 0;
-      while ( (*(_DWORD *)a4 & 0x80000000) != v19 )
-        KeYieldProcessorEx(v22);
+      v24[0] = 0;
+      while ( (*(_DWORD *)a4 & 0x80000000) != v17 )
+        KeYieldProcessorEx(v24, v10, v11, v12);
     }
     else
     {
-      *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v19;
+      *(_DWORD *)a4 = v17 | *(_DWORD *)(a4 + 4);
     }
   }
   _InterlockedDecrement(a3);
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, 2u);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1LL, 0LL, 2u);
 }

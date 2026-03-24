@@ -1,13 +1,13 @@
 /*
- * XREFs of VfMajorRegisterHandlers @ 0x140AD40D4
+ * XREFs of VfMajorRegisterHandlers @ 0x1409D7B6C
  * Callers:
- *     ViIovInitialization @ 0x140ADD358 (ViIovInitialization.c)
+ *     VfInitVerifierComponents @ 0x1409C6E80 (VfInitVerifierComponents.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall VfMajorRegisterHandlers(
-        unsigned __int8 a1,
+__int64 __fastcall VfMajorRegisterHandlers(
+        int a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -21,30 +21,31 @@ void __fastcall VfMajorRegisterHandlers(
         __int64 a12,
         __int64 a13)
 {
-  __int64 v13; // rax
-  _QWORD *v14; // rcx
+  __int64 result; // rax
+  __int64 v14; // rax
+  _QWORD *v15; // rcx
 
-  if ( a1 == 0xFF )
+  result = (unsigned int)(a1 - 28);
+  if ( (unsigned __int8)(a1 - 28) > 0xE2u )
   {
-    v13 = 28LL;
+    if ( (unsigned __int8)a1 > 0x1Bu )
+      v14 = (unsigned int)((_BYTE)a1 != 0xFF) + 28;
+    else
+      v14 = (unsigned __int8)a1;
+    v15 = (_QWORD *)((char *)&ViMajorVerifierRoutines + 96 * v14);
+    v15[3] = a5;
+    v15[4] = a6;
+    v15[5] = a7;
+    v15[6] = a8;
+    v15[7] = a9;
+    v15[8] = a10;
+    v15[9] = a11;
+    v15[10] = a12;
+    result = a13;
+    v15[11] = a13;
+    v15[1] = a3;
+    v15[2] = a4;
+    *v15 = a2;
   }
-  else
-  {
-    if ( a1 > 0x1Bu )
-      return;
-    v13 = a1;
-  }
-  v14 = (_QWORD *)((char *)&ViMajorVerifierRoutines + 96 * v13);
-  v14[3] = a5;
-  v14[4] = a6;
-  v14[5] = a7;
-  v14[6] = a8;
-  v14[7] = a9;
-  v14[8] = a10;
-  v14[9] = a11;
-  v14[10] = a12;
-  v14[11] = a13;
-  v14[1] = a3;
-  v14[2] = a4;
-  *v14 = a2;
+  return result;
 }

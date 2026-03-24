@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00A7D70
+ * XREFs of ?SetFloatProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C009BBE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of HmgShareLockIgnoreStockBit @ 0x1C00AE0E0
+ * XREFs of HmgShareLockIgnoreStockBit @ 0x1C00996F8
  * Callers:
- *     EngModifySurface @ 0x1C00AE7E0 (EngModifySurface.c)
- *     ?W32kCddSetDeviceBitmapAdapterLuid@@YAHPEAUHSURF__@@U_LUID@@@Z @ 0x1C00B4240 (-W32kCddSetDeviceBitmapAdapterLuid@@YAHPEAUHSURF__@@U_LUID@@@Z.c)
+ *     EngModifySurface @ 0x1C009A680 (EngModifySurface.c)
+ *     ?W32kCddSetDeviceBitmapAdapterLuid@@YAHPEAUHSURF__@@U_LUID@@@Z @ 0x1C00A2370 (-W32kCddSetDeviceBitmapAdapterLuid@@YAHPEAUHSURF__@@U_LUID@@@Z.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0022D90 (-TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0030270 (-TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z.c)
  */
 
 __int64 __fastcall HmgShareLockIgnoreStockBit(unsigned int a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HmgShareLockIgnoreStockBit(unsigned int a1)
   v1 = 0LL;
   v11 = 0LL;
   v12 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v11, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v11, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0, 0, 0);
   if ( v12 )
   {
     if ( *(_BYTE *)(v11 + 14) == 5 && ((HIWORD(a1) ^ *(unsigned __int16 *)(v11 + 12)) & 0xFFFFFF7F) == 0 )

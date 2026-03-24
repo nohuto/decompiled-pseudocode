@@ -1,19 +1,19 @@
 /*
- * XREFs of bDeleteSurface @ 0x1C0019110
+ * XREFs of bDeleteSurface @ 0x1C001BA00
  * Callers:
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C0074810 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
- *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0096FB8 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
- *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00B3F80 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
- *     EngDeleteSurface @ 0x1C00BF950 (EngDeleteSurface.c)
- *     ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00C5820 (-StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
- *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C016E370 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     EngDeleteSurface @ 0x1C001B9E0 (EngDeleteSurface.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
+ *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0082384 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
+ *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00A2510 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B7580 (-StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9900 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C01414B0 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
  * Callees:
- *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C001C9F4 (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C001FE90 (HmgShareLockCheckIgnoreStockBit.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C00319D0 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C8F1C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F6E4 (--0SURFREF@@QEAA@XZ.c)
  */
 
 __int64 __fastcall bDeleteSurface(__int64 a1)

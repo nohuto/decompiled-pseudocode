@@ -1,14 +1,14 @@
 /*
- * XREFs of Bulk_ProcessTransferCompletion @ 0x1C000E3F8
+ * XREFs of Bulk_ProcessTransferCompletion @ 0x1C000BA38
  * Callers:
- *     Bulk_WdfEvtDpcForTransferCompletion @ 0x1C000E3C0 (Bulk_WdfEvtDpcForTransferCompletion.c)
- *     Bulk_WdfEvtWorkItemForTransferCompletion @ 0x1C00473C0 (Bulk_WdfEvtWorkItemForTransferCompletion.c)
+ *     Bulk_WdfEvtDpcForTransferCompletion @ 0x1C000BA00 (Bulk_WdfEvtDpcForTransferCompletion.c)
+ *     Bulk_WdfEvtWorkItemForTransferCompletion @ 0x1C0044A50 (Bulk_WdfEvtWorkItemForTransferCompletion.c)
  * Callees:
- *     Bulk_DoesDriverOwnRequests @ 0x1C000E574 (Bulk_DoesDriverOwnRequests.c)
- *     TR_TransfersReclaimed @ 0x1C000E5A8 (TR_TransfersReclaimed.c)
- *     Bulk_CompleteTransfers @ 0x1C000E638 (Bulk_CompleteTransfers.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     TR_TransfersReclaimed @ 0x1C000BBB4 (TR_TransfersReclaimed.c)
+ *     Bulk_DoesDriverOwnRequests @ 0x1C000BCDC (Bulk_DoesDriverOwnRequests.c)
+ *     Bulk_CompleteTransfers @ 0x1C000C2F0 (Bulk_CompleteTransfers.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Bulk_ProcessTransferCompletion(__int64 a1)
@@ -29,7 +29,7 @@ void __fastcall Bulk_ProcessTransferCompletion(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063388);
+         off_1C0060388);
   v11 = &v10;
   v10 = (__int64)&v10;
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 96));
@@ -76,12 +76,12 @@ void __fastcall Bulk_ProcessTransferCompletion(__int64 a1)
         {
           v9 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 48) + 135LL);
           LOBYTE(v9) = 5;
-          WPP_RECORDER_SF_DDD(
+          WPP_RECORDER_SF_ddL(
             *(_QWORD *)(*(_QWORD *)(v2 + 56) + 80LL),
             v9,
             14,
             16,
-            (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+            (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
             *(_BYTE *)(*(_QWORD *)(v2 + 48) + 135LL),
             *(_DWORD *)(*(_QWORD *)(v2 + 56) + 144LL),
             *(_DWORD *)(v2 + 64));

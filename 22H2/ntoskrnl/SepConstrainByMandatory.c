@@ -1,9 +1,9 @@
 /*
- * XREFs of SepConstrainByMandatory @ 0x1402281D4
+ * XREFs of SepConstrainByMandatory @ 0x140310374
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228D00 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373854 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     <none>
  */

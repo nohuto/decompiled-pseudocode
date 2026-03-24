@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteEnclavePage @ 0x1402BDA54
+ * XREFs of MiDeleteEnclavePage @ 0x1402BDB54
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1402BD0D4 (MiDecommitHardwareEnclavePages.c)
- *     MiDeleteEnclavePages @ 0x14085A0E8 (MiDeleteEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402BD1D4 (MiDecommitHardwareEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x14085A0C8 (MiDeleteEnclavePages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiDeleteEnclavePage(unsigned __int64 a1, int a2)

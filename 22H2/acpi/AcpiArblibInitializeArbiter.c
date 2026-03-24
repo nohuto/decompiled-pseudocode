@@ -1,21 +1,21 @@
 /*
- * XREFs of AcpiArblibInitializeArbiter @ 0x1C000B688
+ * XREFs of AcpiArblibInitializeArbiter @ 0x1C00AD2D4
  * Callers:
- *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
- *     ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830 (ACPIDispatchIrpDepPdoQueryID.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C00107D0 (ACPIDispatchIrpDepPdoQueryID.c)
+ *     ACPIBuildPdo @ 0x1C0011198 (ACPIBuildPdo.c)
  * Callees:
- *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
- *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB74 (AcpiArblibAllocateArbiterInstance.c)
- *     AcpiInitializeBusNumberArbiter @ 0x1C008205C (AcpiInitializeBusNumberArbiter.c)
- *     AcpiInitializeMemoryArbiter @ 0x1C0088F3C (AcpiInitializeMemoryArbiter.c)
- *     AcpiInitializePortArbiter @ 0x1C008C03C (AcpiInitializePortArbiter.c)
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C00ACD30 (AcpiArblibAllocateArbiterInstance.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiInitializeBusNumberArbiter @ 0x1C00AE288 (AcpiInitializeBusNumberArbiter.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1C00B01D0 (AcpiInitializeMemoryArbiter.c)
+ *     AcpiInitializePortArbiter @ 0x1C00B1EB4 (AcpiInitializePortArbiter.c)
  */
 
-__int64 __fastcall AcpiArblibInitializeArbiter(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall AcpiArblibInitializeArbiter(__int64 a1, unsigned int a2, wchar_t **a3)
 {
   int v6; // eax
-  __int64 ArbiterInstance; // rax
-  _BYTE *v8; // rbx
+  wchar_t *ArbiterInstance; // rax
+  wchar_t *v8; // rbx
   __int64 result; // rax
   int v10; // eax
   unsigned int v11; // edi
@@ -25,8 +25,8 @@ __int64 __fastcall AcpiArblibInitializeArbiter(__int64 a1, unsigned int a2, _QWO
   v6 = 74;
   if ( !_bittest(&v6, a2) )
     return 3221225485LL;
-  ArbiterInstance = AcpiArblibAllocateArbiterInstance();
-  v8 = (_BYTE *)ArbiterInstance;
+  ArbiterInstance = AcpiArblibAllocateArbiterInstance(a1, a2);
+  v8 = ArbiterInstance;
   if ( !ArbiterInstance )
     return 3221225626LL;
   if ( a2 == 1 )
@@ -44,7 +44,7 @@ __int64 __fastcall AcpiArblibInitializeArbiter(__int64 a1, unsigned int a2, _QWO
   v11 = v10;
   if ( v10 >= 0 )
   {
-    v8[128] = 1;
+    *((_BYTE *)v8 + 128) = 1;
     result = 0LL;
     *a3 = v8;
   }

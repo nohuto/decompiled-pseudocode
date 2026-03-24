@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ShouldSnapToPixels@CMaskBrush@@UEBA_NXZ @ 0x1800E72E0
+ * XREFs of ?ShouldSnapToPixels@CMaskBrush@@UEBA_NXZ @ 0x1800C5450
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CMaskBrush::ShouldSnapToPixels(CMaskBrush *this)
@@ -13,13 +13,13 @@ char __fastcall CMaskBrush::ShouldSnapToPixels(CMaskBrush *this)
   __int64 v4; // rcx
 
   v2 = 0;
-  v3 = *((_QWORD *)this + 12);
-  if ( v3 && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 304LL))(v3) )
+  v3 = *((_QWORD *)this + 11);
+  if ( v3 && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 312LL))(v3) )
     return 1;
-  v4 = *((_QWORD *)this + 11);
+  v4 = *((_QWORD *)this + 10);
   if ( v4 )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v4 + 304LL))(v4) )
+    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v4 + 312LL))(v4) )
       return 1;
   }
   return v2;

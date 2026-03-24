@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802B01CC
+ * XREFs of ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x18021A114
  * Callers:
- *     ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x1802AFC90 (-InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z.c)
+ *     ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x180219BD0 (-InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x1802B008C (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
- *     ?Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z @ 0x1802B048C (-Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z.c)
- *     ?GetNearestInterchangeFormat@@YA?AW4DXGI_FORMAT@@W41@@Z @ 0x1802B06F4 (-GetNearestInterchangeFormat@@YA-AW4DXGI_FORMAT@@W41@@Z.c)
- *     ?GetOp_AlphaDivide@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x1802B0720 (-GetOp_AlphaDivide@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
- *     ?GetOp_AlphaMultiply@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x1802B076C (-GetOp_AlphaMultiply@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
- *     ?GetOp_IgnoreAlpha@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x1802B07B8 (-GetOp_IgnoreAlpha@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x180219FD0 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
+ *     ?Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z @ 0x18021A3D4 (-Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z.c)
+ *     ?GetNearestInterchangeFormat@@YA?AW4DXGI_FORMAT@@W41@@Z @ 0x18021A63C (-GetNearestInterchangeFormat@@YA-AW4DXGI_FORMAT@@W41@@Z.c)
+ *     ?GetOp_AlphaDivide@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x18021A668 (-GetOp_AlphaDivide@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
+ *     ?GetOp_AlphaMultiply@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x18021A6B4 (-GetOp_AlphaMultiply@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
+ *     ?GetOp_IgnoreAlpha@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x18021A700 (-GetOp_IgnoreAlpha@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z.c)
  */
 
 __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, __int64 a3)
@@ -67,7 +67,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
         v7 = v31;
         if ( v31 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0LL, v31, 0x204u);
+          MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x204u, 0LL);
           return v7;
         }
       }
@@ -81,7 +81,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
         v7 = v35;
         if ( v35 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0LL, v35, 0x20Du);
+          MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v35, 0x20Du, 0LL);
           return v7;
         }
       }
@@ -100,7 +100,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
         v7 = v15;
         if ( v15 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x1C3u);
+          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1C3u, 0LL);
           return v7;
         }
       }
@@ -114,7 +114,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
         v7 = v18;
         if ( v18 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x1CCu);
+          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1CCu, 0LL);
           return v7;
         }
       }
@@ -146,7 +146,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
       v7 = v22;
       if ( v22 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x1DCu);
+        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x1DCu, 0LL);
         return v7;
       }
     }
@@ -157,7 +157,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
     v7 = appended;
     if ( appended < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0LL, appended, 0x1E4u);
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, appended, 0x1E4u, 0LL);
       return v7;
     }
     if ( *(_DWORD *)a2 != NearestInterchangeFormat
@@ -181,7 +181,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
       v7 = v27;
       if ( v27 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0LL, v27, 0x1F6u);
+        MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x1F6u, 0LL);
         return v7;
       }
     }
@@ -194,7 +194,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
       v39 = ScanPipelineBuilder::AddOp_Binary(a1, (__int64)v37, v38);
       v7 = v39;
       if ( v39 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0LL, v39, 0x21Bu);
+        MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, v39, 0x21Bu, 0LL);
     }
   }
   else if ( *(_DWORD *)(a2 + 4) == 1 )
@@ -205,7 +205,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert(__int64 a1, __int64 a2, _
       v43 = ScanPipelineBuilder::AddOp_Binary(a1, (__int64)Op_AlphaMultiply, v42);
       v7 = v43;
       if ( v43 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0LL, v43, 0x226u);
+        MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x226u, 0LL);
     }
   }
   return v7;

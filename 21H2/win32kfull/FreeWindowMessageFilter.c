@@ -1,14 +1,14 @@
 /*
- * XREFs of FreeWindowMessageFilter @ 0x1C005FCD0
+ * XREFs of FreeWindowMessageFilter @ 0x1C007C1F0
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C00A70D8 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F428 (_ChangeWindowMessageFilterEx.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C00786B0 (-VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z.c)
- *     ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C00FC66C (-MsgLookupTableCleanUp@@YAXPEAPEAX@Z.c)
+ *     ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C004F1F4 (-VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z.c)
+ *     ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C010FBCC (-MsgLookupTableCleanUp@@YAXPEAPEAX@Z.c)
  */
 
-void __fastcall FreeWindowMessageFilter(struct tagWND *a1, unsigned __int64 a2, __int64 a3, int a4)
+void __fastcall FreeWindowMessageFilter(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax
   void **v5; // [rsp+40h] [rbp+8h] BYREF

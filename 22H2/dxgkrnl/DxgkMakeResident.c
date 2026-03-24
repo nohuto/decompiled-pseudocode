@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkMakeResident @ 0x1C01C4F40
+ * XREFs of DxgkMakeResident @ 0x1C0154230
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z @ 0x1C01C4F60 (-DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z.c)
+ *     ?DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z @ 0x1C0154250 (-DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z.c)
  */
 
-int __fastcall DxgkMakeResident(struct D3DDDI_MAKERESIDENT *a1)
+__int64 __fastcall DxgkMakeResident(struct D3DDDI_MAKERESIDENT *a1)
 {
   return DxgkMakeResidentInternal(a1, 1, 0LL);
 }

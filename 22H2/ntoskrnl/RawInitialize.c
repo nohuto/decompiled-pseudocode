@@ -1,14 +1,14 @@
 /*
- * XREFs of RawInitialize @ 0x140B3C2E0
+ * XREFs of RawInitialize @ 0x140A69840
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     IoRegisterShutdownNotification @ 0x1408110B0 (IoRegisterShutdownNotification.c)
- *     IoRegisterFileSystem @ 0x140871D80 (IoRegisterFileSystem.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IoRegisterFileSystem @ 0x1407807C0 (IoRegisterFileSystem.c)
+ *     IoRegisterShutdownNotification @ 0x1407BE9A0 (IoRegisterShutdownNotification.c)
  */
 
 NTSTATUS __fastcall RawInitialize(PDRIVER_OBJECT DriverObject)
@@ -53,15 +53,15 @@ NTSTATUS __fastcall RawInitialize(PDRIVER_OBJECT DriverObject)
           IoRegisterFileSystem(RawDeviceDiskObject);
           IoRegisterFileSystem(RawDeviceCdRomObject);
           IoRegisterFileSystem(RawDeviceTapeObject);
-          ObfReferenceObjectWithTag(RawDeviceDiskObject, 0x746C6644u);
-          ObfReferenceObjectWithTag(RawDeviceCdRomObject, 0x746C6644u);
-          ObfReferenceObjectWithTag(RawDeviceTapeObject, 0x746C6644u);
+          ObfReferenceObject(RawDeviceDiskObject);
+          ObfReferenceObject(RawDeviceCdRomObject);
+          ObfReferenceObject(RawDeviceTapeObject);
           RawGlobalLock.Owner = 0LL;
           RawGlobalLock.Contention = 0;
           RawGlobalLock.Event.Header.SignalState = 0;
-          qword_140C38048 = (__int64)&RawMountedQueue;
+          qword_140C1DF18 = (__int64)&RawMountedQueue;
           RawMountedQueue = (__int64)&RawMountedQueue;
-          qword_140C37FF8 = (__int64)&RawDismountedQueue;
+          qword_140C1DF08 = (__int64)&RawDismountedQueue;
           RawDismountedQueue = (__int64)&RawDismountedQueue;
           RawGlobalLock.Event.Header.WaitListHead.Blink = &RawGlobalLock.Event.Header.WaitListHead;
           RawGlobalLock.Event.Header.WaitListHead.Flink = &RawGlobalLock.Event.Header.WaitListHead;

@@ -1,178 +1,185 @@
 /*
- * XREFs of FindQMsg @ 0x1C012AFC0
+ * XREFs of FindQMsg @ 0x1C0058200
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z @ 0x1C012A920 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z.c)
+ *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H@Z @ 0x1C0057C00 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
- *     ?CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z @ 0x1C0014EF0 (-CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z.c)
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C012B370 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     FreeDdeXact @ 0x1C01FAFB0 (FreeDdeXact.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00C1CCC (WPP_RECORDER_SF_qqq.c)
+ *     ?CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z @ 0x1C0135504 (-CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z.c)
+ *     FreeDdeXact @ 0x1C021C4B0 (FreeDdeXact.c)
  */
 
 __int64 *__fastcall FindQMsg(
         struct tagTHREADINFO *a1,
-        __int64 **a2,
-        _QWORD *a3,
+        struct tagMLIST *a2,
+        __int64 *a3,
         unsigned int a4,
         unsigned int a5,
         int a6)
 {
-  __int64 *v6; // rdi
+  __int64 *v6; // rbx
   __int64 *result; // rax
-  __int64 **v10; // rsi
-  struct tagTHREADINFO *v11; // r14
-  _QWORD *v12; // rbx
-  __int64 v13; // rbp
-  __int64 v14; // rsi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  _QWORD *v18; // r14
-  int v19; // eax
-  unsigned int v20; // ecx
-  __int64 v21; // rcx
+  unsigned __int64 v11; // rsi
+  __int64 *v12; // rdi
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rdi
+  unsigned __int64 v18; // rsi
+  __int64 **v19; // rbp
+  __int64 v20; // rcx
+  int v21; // eax
   __int64 v22; // rax
-  int v23; // edx
-  int v24; // r8d
-  _DWORD *v25; // rax
-  __int64 *v27; // [rsp+60h] [rbp-48h]
+  __int64 v23; // rdx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 v26; // rcx
+  __int64 CurrentThreadProcess; // rax
+  bool v28; // zf
+  __int64 v29; // rax
+  __int64 v30; // [rsp+38h] [rbp-50h]
+  __int64 *v31; // [rsp+40h] [rbp-48h]
+  struct tagTHREADINFO *v32; // [rsp+90h] [rbp+8h]
 
-  v6 = *a2;
+  v32 = a1;
+  v6 = *(__int64 **)a2;
   result = 0LL;
-  v27 = 0LL;
-  v10 = a2;
-  v11 = a1;
-  if ( *a2 )
+  v31 = 0LL;
+  if ( *(_QWORD *)a2 )
   {
     while ( 1 )
     {
+      v11 = v6[2];
       v12 = 0LL;
-      v13 = v6[2];
-      PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( (unsigned __int64)(unsigned __int16)v13 < *(_QWORD *)(gpsi + 8LL) )
+      CurrentThread = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+        || (CurrentProcess = PsGetCurrentProcess(v15, v14, v16),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v26),
+            v28 = ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess),
+            v12 = 0LL,
+            v28) )
       {
-        v14 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v13;
-        v18 = (_QWORD *)HMPkheFromPhe(v14);
-        LOWORD(v13) = WORD1(v13) & 0x7FFF;
-        if ( ((WORD1(v13) & 0x7FFF) == *(_WORD *)(v14 + 26)
-           || (_WORD)v13 == 0x7FFF
-           || !(_WORD)v13 && PsGetCurrentProcessWow64Process(v16, v15, v17))
-          && (*(_BYTE *)(v14 + 25) & 1) == 0
-          && *(_BYTE *)(v14 + 24) == 1 )
+        PsGetThreadWin32Thread(CurrentThread);
+      }
+      a1 = (struct tagTHREADINFO *)gpsi;
+      if ( (unsigned __int64)(unsigned __int16)v11 < *(_QWORD *)(gpsi + 8LL) )
+      {
+        v17 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v11 * LODWORD(gSharedInfo[2]);
+        v18 = v11 >> 16;
+        v19 = (__int64 **)HMPkheFromPhe(v17);
+        if ( ((_WORD)v18 == *(_WORD *)(v17 + 26)
+           || (_WORD)v18 == 0xFFFF
+           || !(_WORD)v18 && PsGetCurrentProcessWow64Process(a1))
+          && (*(_BYTE *)(v17 + 25) & 1) == 0
+          && *(_BYTE *)(v17 + 24) == 1 )
         {
-          v12 = (_QWORD *)*v18;
-          if ( *v18 )
-            goto LABEL_7;
+          v12 = *v19;
+          if ( *v19 )
+            goto LABEL_9;
         }
-        v10 = a2;
-        v11 = a1;
+        else
+        {
+          v12 = 0LL;
+        }
       }
       if ( v6[2] )
       {
         if ( *((_DWORD *)v6 + 6) == 786 )
-          CheckRemoveHotkeyBit(v11, v10);
-        v21 = *((_QWORD *)v11 + 54);
-        if ( *(__int64 **)(v21 + 80) == v6 && *(struct tagTHREADINFO **)(v21 + 72) == v11 )
+          CheckRemoveHotkeyBit(v32, a2);
+        v20 = *((_QWORD *)v32 + 54);
+        if ( *(__int64 **)(v20 + 72) == v6 && *(struct tagTHREADINFO **)(v20 + 64) == v32 )
         {
           EtwTraceInputQueueUnLocked();
-          LOBYTE(v23) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v23 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_qqq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v23,
-              v24,
-              (_DWORD)gFullLog,
-              4,
-              18,
-              22,
-              (__int64)&WPP_da10ed9f41f835a692699b91a3623186_Traceguids,
-              *((_QWORD *)v11 + 54),
+            v23 = *((_QWORD *)v32 + 54);
+            v30 = *(_QWORD *)(v23 + 64);
+            LOBYTE(v23) = 4;
+            WPP_RECORDER_SF_qqq(
               gptiCurrent,
-              *(_QWORD *)(*((_QWORD *)v11 + 54) + 72LL));
+              v23,
+              18,
+              21,
+              (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids,
+              *((_QWORD *)v32 + 54),
+              gptiCurrent,
+              v30);
           }
-          *(_QWORD *)(*((_QWORD *)v11 + 54) + 72LL) = 0LL;
+          *(_QWORD *)(*((_QWORD *)v32 + 54) + 64LL) = 0LL;
         }
-        goto LABEL_41;
+        goto LABEL_26;
       }
-LABEL_7:
-      if ( a6 )
+LABEL_9:
+      if ( !a6
+        || (!a3 ? (v22 = 0LL) : (v22 = *a3),
+            v22 != v6[2]
+         || *((_DWORD *)v6 + 6) != -2147482652
+         || (v29 = HMValidateHandleNoRip(v6[5], 11), !v29 || (*(_DWORD *)(v29 + 64) & 0x200) == 0)) )
       {
-        v22 = a3 ? *a3 : 0LL;
-        if ( v22 == v6[2] && *((_DWORD *)v6 + 6) == -2147482652 )
+        if ( a3 && a3 != v12 && (a3 != (__int64 *)1 || v12) )
         {
-          v25 = (_DWORD *)HMValidateHandleNoRip(v6[5], 11);
-          if ( v25 && (v25[16] & 0x200) != 0 )
+          while ( v12 )
           {
-            FreeDdeXact(v25);
-            v10 = a2;
-            v11 = a1;
-LABEL_41:
-            DelQEntry((__int64)v10, (__int64)v6, 1);
-            v6 = *v10;
-            goto LABEL_28;
-          }
-        }
-      }
-      if ( a3 && a3 != v12 && (a3 != (_QWORD *)1 || v12) )
-      {
-        if ( v12 )
-        {
-          while ( (*(_BYTE *)(v12[5] + 31LL) & 0xC0) == 0x40 )
-          {
-            v12 = (_QWORD *)v12[13];
+            a1 = (struct tagTHREADINFO *)*(unsigned __int8 *)(v12[5] + 31);
+            LOBYTE(a1) = (unsigned __int8)a1 & 0xC0;
+            if ( (_BYTE)a1 != 64 )
+              break;
+            v12 = (__int64 *)v12[13];
             if ( a3 == v12 )
             {
-              v19 = 1;
-              goto LABEL_14;
+              v21 = 1;
+              goto LABEL_38;
             }
-            if ( !v12 )
-              break;
+          }
+          v21 = 0;
+LABEL_38:
+          if ( !v21 )
+            goto LABEL_30;
+        }
+        a1 = (struct tagTHREADINFO *)*((unsigned int *)v6 + 6);
+        if ( (unsigned int)((_DWORD)a1 + 2147482655) <= 7 )
+          LODWORD(a1) = (unsigned int)a1 & 0x7FFFFFFF;
+        if ( a4 )
+        {
+          if ( a4 <= a5 )
+          {
+            if ( (unsigned int)a1 >= a4 )
+              goto LABEL_29;
+            goto LABEL_30;
+          }
+          if ( (unsigned int)a1 >= a5 && (unsigned int)a1 <= a4 )
+            goto LABEL_30;
+        }
+        else
+        {
+          if ( a5 == -1 )
+            goto LABEL_15;
+LABEL_29:
+          if ( (unsigned int)a1 > a5 )
+          {
+LABEL_30:
+            v6 = (__int64 *)*v6;
+            goto LABEL_31;
           }
         }
-        v19 = 0;
-LABEL_14:
-        if ( !v19 )
-          goto LABEL_27;
-      }
-      v20 = *((_DWORD *)v6 + 6);
-      if ( v20 + 2147482655 <= 7 )
-        v20 &= ~0x80000000;
-      if ( !a4 )
-      {
-        if ( a5 == -1 )
-          goto LABEL_19;
-LABEL_24:
-        if ( v20 <= a5 )
-          goto LABEL_19;
-        goto LABEL_27;
-      }
-      if ( a4 <= a5 )
-      {
-        if ( v20 < a4 )
-          goto LABEL_27;
-        goto LABEL_24;
-      }
-      if ( v20 < a5 || v20 > a4 )
-      {
-LABEL_19:
+LABEL_15:
         if ( !a6 )
           return v6;
-        if ( !v27 )
-          v27 = v6;
+        if ( !v31 )
+          v31 = v6;
+        goto LABEL_30;
       }
-LABEL_27:
-      v6 = (__int64 *)*v6;
-      v10 = a2;
-      v11 = a1;
-LABEL_28:
+      FreeDdeXact(v29);
+LABEL_26:
+      DelQEntry(a2, v6, 1LL);
+      v6 = *(__int64 **)a2;
+LABEL_31:
       if ( !v6 )
-        return v27;
+        return v31;
     }
   }
   return result;

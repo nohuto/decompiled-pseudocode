@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetEmbedFonts @ 0x1C02AD5E0
+ * XREFs of NtGdiGetEmbedFonts @ 0x1C02AEEB0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C02703D4 (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
+ *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C0272708 (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
  */
 
 __int64 NtGdiGetEmbedFonts()

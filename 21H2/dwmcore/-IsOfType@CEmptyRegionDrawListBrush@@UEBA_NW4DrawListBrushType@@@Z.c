@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CEmptyRegionDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x180116420
+ * XREFs of ?IsOfType@CEmptyRegionDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800197E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CEmptyRegionDrawListBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 6 || a2 == 3;
+  return a2 == 3 || a2 == 6;
 }

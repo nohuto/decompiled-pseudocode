@@ -1,28 +1,28 @@
 /*
- * XREFs of ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C0060E90
+ * XREFs of ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C012D100
  * Callers:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
  * Callees:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     ExchangeW32ThreadLock @ 0x1C0062148 (ExchangeW32ThreadLock.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
+ *     ExchangeW32ThreadLock @ 0x1C003EC8C (ExchangeW32ThreadLock.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
 void __fastcall xxxSystemBroadcastMessage(
         unsigned int a1,
         unsigned __int64 a2,
-        __int128 *a3,
+        struct _LARGE_STRING *a3,
         unsigned int a4,
         union tagBROADCASTMSG *a5,
         int a6,
         unsigned int a7)
 {
   unsigned int v8; // ebp
-  _QWORD *v9; // rbx
+  _QWORD *v9; // rdi
   unsigned int v10; // esi
-  _QWORD *v11; // rdi
+  _QWORD *v11; // rbx
   __int64 v12; // rcx
   _QWORD *v13; // [rsp+40h] [rbp-78h]
   __int128 v14; // [rsp+48h] [rbp-70h] BYREF
@@ -47,14 +47,14 @@ void __fastcall xxxSystemBroadcastMessage(
         v10 = v8;
       if ( v9 )
         ObfReferenceObject(v9);
-      ExchangeW32ThreadLock(v9, &v16);
+      ExchangeW32ThreadLock((__int64)v9, (__int64)&v16);
       v11 = (_QWORD *)v9[2];
       if ( v11 )
       {
         do
         {
           ObfReferenceObject(v11);
-          ExchangeW32ThreadLock(v11, &v14);
+          ExchangeW32ThreadLock((__int64)v11, (__int64)&v14);
           v12 = *(_QWORD *)(v11[1] + 24LL);
           if ( v12 )
             xxxBroadcastMessageEx(v12, a1, a2, a3, v10, a5, a6, a7);
@@ -69,6 +69,6 @@ void __fastcall xxxSystemBroadcastMessage(
     }
     while ( v9 );
   }
-  PopAndFreeW32ThreadLock(&v14);
-  PopAndFreeW32ThreadLock(&v16);
+  PopAndFreeW32ThreadLock((__int64)&v14);
+  PopAndFreeW32ThreadLock((__int64)&v16);
 }

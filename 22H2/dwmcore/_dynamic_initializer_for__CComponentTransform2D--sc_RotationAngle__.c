@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_RotationAngle__ @ 0x180001930
+ * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_RotationAngle__ @ 0x180001690
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform2D::sc_RotationAngle__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E3600 = (unsigned __int64)CComponentTransform2D::SetRotationAngle;
-  qword_1803E3610 = v1;
+  xmmword_180344210 = (unsigned __int64)CComponentTransform2D::SetRotationAngle;
+  qword_180344220 = v1;
   return result;
 }

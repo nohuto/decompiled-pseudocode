@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapAddErrorSource @ 0x14017D1BC
+ * XREFs of WheapAddErrorSource @ 0x14017D1DC
  * Callers:
- *     WheaAddErrorSource @ 0x1408DB8A0 (WheaAddErrorSource.c)
+ *     WheaAddErrorSource @ 0x1408DB880 (WheaAddErrorSource.c)
  *     WheapInitializeErrorSourceTable @ 0x1409AEE9C (WheapInitializeErrorSourceTable.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 LONG __fastcall WheapAddErrorSource(__int64 a1, __int64 a2)

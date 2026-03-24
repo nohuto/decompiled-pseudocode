@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceIdleStatus @ 0x1C00AB1F0
+ * XREFs of EtwTraceIdleStatus @ 0x1C0095C20
  * Callers:
  *     <none>
  * Callees:
- *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C007D200 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
- *     McTemplateK0qqqqqqq_EtwWriteTransfer @ 0x1C0150F98 (McTemplateK0qqqqqqq_EtwWriteTransfer.c)
+ *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C00774C0 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
+ *     McTemplateK0qqqqqqq_EtwWriteTransfer @ 0x1C0126990 (McTemplateK0qqqqqqq_EtwWriteTransfer.c)
  */
 
 void EtwTraceIdleStatus()
@@ -17,9 +17,9 @@ void EtwTraceIdleStatus()
   int v5; // r9d
 
   if ( (W32kEtwEnabledKeyword & 0x2000000000008000LL) != 0
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x2000000000008000LL) != 0
-    && (qword_1C028DB28 & 0x2000000000008000LL) == qword_1C028DB28 )
+    && (unsigned __int8)(byte_1C024A738 - 1) > 2u
+    && (qword_1C024A720 & 0x2000000000008000LL) != 0
+    && (qword_1C024A728 & 0x2000000000008000LL) == qword_1C024A728 )
   {
     v0 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
         * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;

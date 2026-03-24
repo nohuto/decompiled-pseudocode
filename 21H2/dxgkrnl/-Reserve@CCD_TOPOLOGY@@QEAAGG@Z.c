@@ -1,24 +1,24 @@
 /*
- * XREFs of ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01ADEA8
+ * XREFs of ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01359F0
  * Callers:
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01ADE34 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C01B5124 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C01B6A50 (-_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@C.c)
- *     ?_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z @ 0x1C01B833C (-_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z.c)
- *     ?_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ @ 0x1C01B83A4 (-_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ.c)
- *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BF100 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01C0964 (-AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z.c)
- *     ?_FillTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@K@Z @ 0x1C01D4080 (-_FillTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@K@Z.c)
- *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C01E3C20 (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
- *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C01EDEC0 (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03A9374 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
- *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C03AAC14 (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0133190 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0135980 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C013AEF4 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C01461B0 (-_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@C.c)
+ *     ?_FillTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@K@Z @ 0x1C0149FA8 (-_FillTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@K@Z.c)
+ *     ?_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z @ 0x1C0160A20 (-_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z.c)
+ *     ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01639B0 (-AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z.c)
+ *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C0169BBC (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
+ *     ?_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ @ 0x1C016B074 (-_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ.c)
+ *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C0174110 (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EA94C (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C02ED32C (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::Reserve(CCD_TOPOLOGY *this, __int64 a2, __int64 a3, __int64 a4)
@@ -26,36 +26,32 @@ __int64 __fastcall CCD_TOPOLOGY::Reserve(CCD_TOPOLOGY *this, __int64 a2, __int64
   unsigned __int16 v4; // bx
   __int64 v5; // r14
   __int64 v7; // rax
-  unsigned __int16 v8; // bp
-  __int64 v9; // rax
-  __int64 v10; // rsi
-  __int64 v11; // r9
-  _OWORD *v12; // rcx
-  _OWORD *v13; // rax
-  __int128 v14; // xmm1
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  __int128 v18; // xmm1
-  __int128 v19; // xmm0
+  unsigned __int16 v8; // si
+  _OWORD *v9; // rbp
+  _OWORD *v10; // rcx
+  _OWORD *v11; // rax
+  __int64 v12; // r8
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
+  __int128 v17; // xmm1
+  __int128 v18; // xmm0
+  __int128 v19; // xmm1
   __int128 v20; // xmm1
-  __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  __int128 v25; // xmm1
-  __int64 v26; // rbx
-  _QWORD *v28; // rcx
+  __int128 v21; // xmm0
+  __int128 v22; // xmm1
+  _QWORD *v24; // rcx
+  __int64 v25; // rax
+  unsigned __int16 v26; // ax
+  __int64 v27; // rax
+  unsigned __int16 v28; // dx
   __int64 v29; // rax
-  unsigned __int16 v30; // ax
-  __int64 v31; // rax
-  unsigned __int16 v32; // dx
-  __int64 v33; // rax
-  _OWORD *v34; // rcx
-  __int64 v35; // r9
-  _OWORD *v36; // rdx
-  __int128 v37; // xmm1
-  _BYTE v38[352]; // [rsp+20h] [rbp-178h] BYREF
+  _OWORD *v30; // rax
+  _OWORD *v31; // rcx
+  __int64 v32; // r8
+  __int128 v33; // xmm1
+  _BYTE v34[320]; // [rsp+20h] [rbp-158h] BYREF
 
   v4 = 0;
   v5 = (unsigned __int16)a2;
@@ -67,86 +63,78 @@ __int64 __fastcall CCD_TOPOLOGY::Reserve(CCD_TOPOLOGY *this, __int64 a2, __int64
     else
       v8 = 0;
     if ( v8 < (unsigned __int16)a2
-      && (v9 = operator new[](296 * ((unsigned __int16)a2 - 1LL) + 352, 0x63644356u, 256LL, a4), (v10 = v9) != 0) )
+      && (v9 = operator new[](272 * ((unsigned __int16)a2 - 1LL) + 320, 0x63644356u, PagedPool)) != 0LL )
     {
       if ( v8 )
       {
-        v34 = (_OWORD *)*((_QWORD *)this + 8);
-        v35 = 2LL;
-        v36 = (_OWORD *)v9;
+        v30 = (_OWORD *)*((_QWORD *)this + 8);
+        v31 = v9;
+        v32 = 2LL;
         do
         {
-          *v36 = *v34;
-          v36[1] = v34[1];
-          v36[2] = v34[2];
-          v36[3] = v34[3];
-          v36[4] = v34[4];
-          v36[5] = v34[5];
-          v36[6] = v34[6];
-          v36 += 8;
-          v37 = v34[7];
-          v34 += 8;
-          *(v36 - 1) = v37;
-          --v35;
+          *v31 = *v30;
+          v31[1] = v30[1];
+          v31[2] = v30[2];
+          v31[3] = v30[3];
+          v31[4] = v30[4];
+          v31[5] = v30[5];
+          v31[6] = v30[6];
+          v31 += 8;
+          v33 = v30[7];
+          v30 += 8;
+          *(v31 - 1) = v33;
+          --v32;
         }
-        while ( v35 );
-        v26 = v8;
-        *v36 = *v34;
-        v36[1] = v34[1];
-        v36[2] = v34[2];
-        v36[3] = v34[3];
-        v36[4] = v34[4];
-        v36[5] = v34[5];
-        memmove((void *)(v9 + 352), (const void *)(*((_QWORD *)this + 8) + 352LL), 296LL * v8 - 296);
+        while ( v32 );
+        *v31 = *v30;
+        v31[1] = v30[1];
+        v31[2] = v30[2];
+        v31[3] = v30[3];
+        memmove(v9 + 20, (const void *)(*((_QWORD *)this + 8) + 320LL), 272LL * v8 - 272);
       }
       else
       {
-        memset(v38, 0, sizeof(v38));
-        v11 = 2LL;
-        v12 = v38;
-        v13 = (_OWORD *)v10;
+        memset(v34, 0, sizeof(v34));
+        v10 = v34;
+        v11 = v9;
+        v12 = 2LL;
         do
         {
-          v14 = v12[1];
-          *v13 = *v12;
-          v15 = v12[2];
-          v13[1] = v14;
-          v16 = v12[3];
-          v13[2] = v15;
-          v17 = v12[4];
-          v13[3] = v16;
-          v18 = v12[5];
-          v13[4] = v17;
-          v19 = v12[6];
-          v13[5] = v18;
-          v20 = v12[7];
-          v12 += 8;
-          v13[6] = v19;
-          v13 += 8;
-          *(v13 - 1) = v20;
-          --v11;
+          v13 = v10[1];
+          *v11 = *v10;
+          v14 = v10[2];
+          v11[1] = v13;
+          v15 = v10[3];
+          v11[2] = v14;
+          v16 = v10[4];
+          v11[3] = v15;
+          v17 = v10[5];
+          v11[4] = v16;
+          v18 = v10[6];
+          v11[5] = v17;
+          v19 = v10[7];
+          v10 += 8;
+          v11[6] = v18;
+          v11 += 8;
+          *(v11 - 1) = v19;
+          --v12;
         }
-        while ( v11 );
-        v21 = v12[1];
-        *v13 = *v12;
-        v22 = v12[2];
-        v13[1] = v21;
-        v23 = v12[3];
-        v13[2] = v22;
-        v24 = v12[4];
-        v13[3] = v23;
-        v25 = v12[5];
-        v13[4] = v24;
-        v13[5] = v25;
-        *(_DWORD *)(v10 + 40) = 0;
-        *(_QWORD *)(v10 + 48) = 0LL;
-        v26 = 0LL;
+        while ( v12 );
+        v20 = v10[1];
+        *v11 = *v10;
+        v21 = v10[2];
+        v11[1] = v20;
+        v22 = v10[3];
+        v11[2] = v21;
+        v11[3] = v22;
+        *((_DWORD *)v9 + 9) = 0;
+        *((_QWORD *)v9 + 5) = 0LL;
       }
-      *(_WORD *)(v10 + 22) = v5;
-      memset((void *)(296 * v26 + v10 + 56), 0, 296 * (v5 - v26));
+      *((_WORD *)v9 + 11) = v5;
+      memset(&v9[17 * v8 + 3], 0, 272 * (v5 - v8));
       operator delete[](*((void **)this + 8));
-      *((_QWORD *)this + 8) = v10;
-      return *(unsigned __int16 *)(v10 + 22);
+      *((_QWORD *)this + 8) = v9;
+      return *((unsigned __int16 *)v9 + 11);
     }
     else
     {
@@ -155,25 +143,25 @@ __int64 __fastcall CCD_TOPOLOGY::Reserve(CCD_TOPOLOGY *this, __int64 a2, __int64
   }
   else
   {
-    v28 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2);
-    v28[3] = this;
-    v28[4] = *((_QWORD *)this + 8);
+    v24 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+    v24[3] = this;
+    v24[4] = *((_QWORD *)this + 8);
+    v25 = *((_QWORD *)this + 8);
+    if ( v25 )
+      v26 = *(_WORD *)(v25 + 20);
+    else
+      v26 = 0;
+    v24[5] = v26;
+    v27 = *((_QWORD *)this + 8);
+    if ( v27 )
+      v28 = *(_WORD *)(v27 + 22);
+    else
+      v28 = 0;
+    v24[6] = v28;
+    v24[7] = v5;
     v29 = *((_QWORD *)this + 8);
     if ( v29 )
-      v30 = *(_WORD *)(v29 + 20);
-    else
-      v30 = 0;
-    v28[5] = v30;
-    v31 = *((_QWORD *)this + 8);
-    if ( v31 )
-      v32 = *(_WORD *)(v31 + 22);
-    else
-      v32 = 0;
-    v28[6] = v32;
-    v28[7] = v5;
-    v33 = *((_QWORD *)this + 8);
-    if ( v33 )
-      return *(unsigned __int16 *)(v33 + 22);
+      return *(unsigned __int16 *)(v29 + 22);
     return v4;
   }
 }

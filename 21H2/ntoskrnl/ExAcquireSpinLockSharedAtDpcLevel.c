@@ -1,67 +1,46 @@
 /*
- * XREFs of ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0
+ * XREFs of ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0
  * Callers:
- *     KiSetLegacyAffinityThread @ 0x14020E6EC (KiSetLegacyAffinityThread.c)
- *     MiLockIoPfnTree @ 0x1402165BC (MiLockIoPfnTree.c)
- *     MiRemoveWsleList @ 0x140218310 (MiRemoveWsleList.c)
- *     MiIsDriverPage @ 0x1402189A0 (MiIsDriverPage.c)
- *     KeQueryBasePriorityThread @ 0x140234504 (KeQueryBasePriorityThread.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1402358D4 (MiCaptureWriteWatchDirtyBit.c)
- *     KeQueryAffinityProcess @ 0x1402395A0 (KeQueryAffinityProcess.c)
- *     MiGetSharedProtosAtDpcLevel @ 0x140256EAC (MiGetSharedProtosAtDpcLevel.c)
- *     KeQueryPrimaryGroupProcess @ 0x140257BB4 (KeQueryPrimaryGroupProcess.c)
- *     MiAbortCombineScan @ 0x140268998 (MiAbortCombineScan.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x14026EEA8 (MiUpdateWorkingSetPrivateSize.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     InsertEventEntryInLookUpTable @ 0x1402A1AEC (InsertEventEntryInLookUpTable.c)
- *     MiInsertPageInList @ 0x1402BF9C0 (MiInsertPageInList.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1402D8304 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     MmLockLoadedModuleListShared @ 0x1402DC098 (MmLockLoadedModuleListShared.c)
- *     MiLockVadTree @ 0x1402ED128 (MiLockVadTree.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402EE104 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiRundownMutants @ 0x1402F0604 (KiRundownMutants.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MiEmptyDecayClusterTimers @ 0x1403122F0 (MiEmptyDecayClusterTimers.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiLockPageTableInternal @ 0x14031DE00 (MiLockPageTableInternal.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiCrcStillIntact @ 0x140339D70 (MiCrcStillIntact.c)
- *     MiReservePageFileSpace @ 0x14033AC90 (MiReservePageFileSpace.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x14034F230 (KiAbEntryGetLockedHeadEntry.c)
- *     MiCheckVirtualAddress @ 0x1403536F0 (MiCheckVirtualAddress.c)
- *     vDbgPrintExWithPrefixInternal @ 0x140369C50 (vDbgPrintExWithPrefixInternal.c)
- *     DbgEnumerateCallback @ 0x140389E40 (DbgEnumerateCallback.c)
- *     VmpProcessContextLockShared @ 0x14045F804 (VmpProcessContextLockShared.c)
- *     KeQueryCpuSetsProcess @ 0x140572490 (KeQueryCpuSetsProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
- *     KiSelectCandidateProcessor @ 0x14057D168 (KiSelectCandidateProcessor.c)
- *     MiLocatePageCollisionNodeByPfn @ 0x1405AF30C (MiLocatePageCollisionNodeByPfn.c)
- *     MiPurgeSlabEntries @ 0x1405B1568 (MiPurgeSlabEntries.c)
- *     MiLockPageListAndFirstPage @ 0x1405B350C (MiLockPageListAndFirstPage.c)
- *     MiLockPageListAndLastPage @ 0x1405B3654 (MiLockPageListAndLastPage.c)
- *     DbgpRemoveDebugPrintCallback @ 0x1405E439C (DbgpRemoveDebugPrintCallback.c)
- *     RtlpAcquirePropStoreLockShared @ 0x1405E7B68 (RtlpAcquirePropStoreLockShared.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x140601F88 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     VmpInvalidateOutstandingFaults @ 0x14062A198 (VmpInvalidateOutstandingFaults.c)
- *     ViDeadlockDetectionLock @ 0x140A994C4 (ViDeadlockDetectionLock.c)
+ *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
+ *     KeQueryAffinityProcess @ 0x14025C840 (KeQueryAffinityProcess.c)
+ *     KiRundownMutants @ 0x140277650 (KiRundownMutants.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1402841E0 (vDbgPrintExWithPrefixInternal.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14029F4FC (KiActivateWaiterQueueWithNoLocks.c)
+ *     KeQueryBasePriorityThread @ 0x1402A74C0 (KeQueryBasePriorityThread.c)
+ *     MiFreeSlabEntries @ 0x1402BA910 (MiFreeSlabEntries.c)
+ *     KeSetLegacyAffinityThread @ 0x1402ECAF0 (KeSetLegacyAffinityThread.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1402F2040 (KiAbEntryGetLockedHeadEntry.c)
+ *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
+ *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371C40 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     InsertEventEntryInLookUpTable @ 0x140375F60 (InsertEventEntryInLookUpTable.c)
+ *     DbgEnumerateCallback @ 0x1403953D0 (DbgEnumerateCallback.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A628C (MiGetSharedProtosAtDpcLevel.c)
+ *     KeQueryCpuSetsProcess @ 0x14051C654 (KeQueryCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
+ *     KiSelectCandidateProcessor @ 0x140525BA4 (KiSelectCandidateProcessor.c)
+ *     DbgpRemoveDebugPrintCallback @ 0x14058579C (DbgpRemoveDebugPrintCallback.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405A3C94 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessContextLockShared @ 0x1405A49D4 (VmpProcessContextLockShared.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2AC (ViDeadlockDetectionLock.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140366A20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140461B20 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 void __stdcall ExAcquireSpinLockSharedAtDpcLevel(PEX_SPIN_LOCK SpinLock)
 {
   __int64 v1; // rdx
+  __int64 v2; // r8
+  _DWORD *v3; // r9
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *SchedulerAssist; // rcx
-  signed __int32 v5; // ett
-  _DWORD *v6; // rcx
-  int v7; // eax
-  int v8; // eax
+  signed __int32 v7; // ett
+  _DWORD *v8; // rcx
+  int v9; // eax
+  int v10; // eax
 
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
@@ -75,26 +54,26 @@ void __stdcall ExAcquireSpinLockSharedAtDpcLevel(PEX_SPIN_LOCK SpinLock)
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v7 = SchedulerAssist[6];
-        SchedulerAssist[6] = v7 + 1;
-        if ( v7 == -1 )
+        v9 = SchedulerAssist[6];
+        SchedulerAssist[6] = v9 + 1;
+        if ( v9 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     _m_prefetchw((const void *)SpinLock);
-    v5 = *SpinLock & 0x7FFFFFFF;
-    if ( v5 != _InterlockedCompareExchange(SpinLock, v5 + 1, v5) )
+    v7 = *SpinLock & 0x7FFFFFFF;
+    if ( v7 != _InterlockedCompareExchange(SpinLock, v7 + 1, v7) )
     {
-      v6 = CurrentPrcb->SchedulerAssist;
-      if ( v6 && CurrentPrcb->NestingLevel <= 1u )
+      v8 = CurrentPrcb->SchedulerAssist;
+      if ( v8 && CurrentPrcb->NestingLevel <= 1u )
       {
-        v8 = v6[6] - 1;
-        v6[6] = v8;
-        if ( !v8 )
+        v10 = v8[6] - 1;
+        v8[6] = v10;
+        if ( !v10 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
       LOBYTE(v1) = -1;
-      ExpWaitForSpinLockSharedAndAcquire(SpinLock, v1);
+      ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)SpinLock, v1, v2, v3);
     }
   }
 }

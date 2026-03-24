@@ -15,15 +15,15 @@
  *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
  *     AlpcpDispatchReplyToWaitingThread @ 0x140634530 (AlpcpDispatchReplyToWaitingThread.c)
  *     NtAlpcImpersonateClientOfPort @ 0x140637740 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpExposeViewAttribute @ 0x1406A557C (AlpcpExposeViewAttribute.c)
- *     AlpcpQueryRemoteView @ 0x1406A6218 (AlpcpQueryRemoteView.c)
- *     AlpcRegionDestroyProcedure @ 0x1406B34A0 (AlpcRegionDestroyProcedure.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF60 (AlpcpMapLegacyPortRemoteView.c)
- *     AlpcpForceUnlinkSecureView @ 0x14084B1A8 (AlpcpForceUnlinkSecureView.c)
+ *     AlpcpExposeViewAttribute @ 0x1406A555C (AlpcpExposeViewAttribute.c)
+ *     AlpcpQueryRemoteView @ 0x1406A61F8 (AlpcpQueryRemoteView.c)
+ *     AlpcRegionDestroyProcedure @ 0x1406B3480 (AlpcRegionDestroyProcedure.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF40 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcpForceUnlinkSecureView @ 0x14084B188 (AlpcpForceUnlinkSecureView.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     AlpcpDestroyBlob @ 0x140618CB0 (AlpcpDestroyBlob.c)
  */
 

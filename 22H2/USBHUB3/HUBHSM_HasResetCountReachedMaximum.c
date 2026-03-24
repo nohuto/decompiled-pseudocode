@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_HasResetCountReachedMaximum @ 0x1C00088F0
+ * XREFs of HUBHSM_HasResetCountReachedMaximum @ 0x1C0008130
  * Callers:
  *     <none>
  * Callees:

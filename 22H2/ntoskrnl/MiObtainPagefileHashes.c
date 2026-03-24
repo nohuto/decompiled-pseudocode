@@ -1,66 +1,65 @@
 /*
- * XREFs of MiObtainPagefileHashes @ 0x14046EBF4
+ * XREFs of MiObtainPagefileHashes @ 0x14055D500
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14046ED1A (MiValidatePagefilePageHash.c)
- *     MiArePagefileContentsCorrupted @ 0x140665A2C (MiArePagefileContentsCorrupted.c)
+ *     MiValidatePagefilePageHash @ 0x14055D65C (MiValidatePagefilePageHash.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReadEntirePageHashEntry @ 0x140666C80 (MiReadEntirePageHashEntry.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiObtainPagefileHashes(__int64 a1, int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall MiObtainPagefileHashes(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4)
 {
-  volatile LONG *v4; // r14
+  volatile LONG *v4; // r15
+  __int64 v7; // rbx
   unsigned __int64 v9; // rsi
-  unsigned __int64 v10; // rcx
-  unsigned int v11; // r9d
-  __int64 v12; // r8
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int64 v10; // r10
+  __int64 v11; // rcx
+  int v12; // eax
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
+  bool v16; // zf
 
   v4 = (volatile LONG *)(a1 + 232);
+  v7 = a2;
   v9 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 232));
-  v10 = *(_QWORD *)(a1 + 216) + (unsigned int)(dword_140C6974C * a2);
-  v11 = 0;
+  v10 = *(_QWORD *)(a1 + 216) + 4 * v7;
   if ( a3 )
   {
-    v12 = a4 + 4;
+    v11 = a3;
     do
     {
       if ( (*(_BYTE *)(((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 1) != 0 )
-      {
-        MiReadEntirePageHashEntry(v10, a4 + 16LL * v11, v12);
-      }
+        v12 = *(_DWORD *)v10;
       else
-      {
-        *(_QWORD *)(v12 - 4) = 0LL;
-        *(_QWORD *)(v12 + 4) = 0LL;
-      }
-      ++v11;
-      v10 += (unsigned int)dword_140C6974C;
-      v12 += 16LL;
+        v12 = 0;
+      *a4 = v12;
+      v10 += 4LL;
+      ++a4;
+      --v11;
     }
-    while ( v11 < a3 );
+    while ( v11 );
   }
   ExReleaseSpinLockSharedFromDpcLevel(v4);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v16 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v9);
+  return result;
 }

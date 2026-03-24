@@ -1,22 +1,21 @@
 /*
- * XREFs of RtlIntegerToUnicodeString @ 0x1407CF660
+ * XREFs of RtlIntegerToUnicodeString @ 0x1406F6350
  * Callers:
- *     BapdpMarshallBootDataToRegistry @ 0x140373A58 (BapdpMarshallBootDataToRegistry.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpFormatPrefix @ 0x140671134 (AdtpFormatPrefix.c)
- *     RtlpInitNlsFileName @ 0x1407A5798 (RtlpInitNlsFileName.c)
- *     pIoQueryDeviceDescription @ 0x1407CEB14 (pIoQueryDeviceDescription.c)
- *     AdtpObjsInitialize @ 0x140843E58 (AdtpObjsInitialize.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
- *     AdtpBuildAccessesString @ 0x140A5B944 (AdtpBuildAccessesString.c)
- *     AdtpBuildReplacementString @ 0x140A5BFEC (AdtpBuildReplacementString.c)
- *     AdtpBuildUserAccountControlString @ 0x140A5C088 (AdtpBuildUserAccountControlString.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B70 (ObCreateSiloRootDirectory.c)
- *     ObGetSiloRootDirectoryPath @ 0x140A73EB4 (ObGetSiloRootDirectoryPath.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1403AA474 (BapdpMarshallBootDataToRegistry.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpFormatPrefix @ 0x1405C363C (AdtpFormatPrefix.c)
+ *     RtlpInitNlsFileName @ 0x14069D2A8 (RtlpInitNlsFileName.c)
+ *     pIoQueryDeviceDescription @ 0x14078AA64 (pIoQueryDeviceDescription.c)
+ *     AdtpObjsInitialize @ 0x14079E8F0 (AdtpObjsInitialize.c)
+ *     AdtpBuildAccessesString @ 0x14096E308 (AdtpBuildAccessesString.c)
+ *     AdtpBuildReplacementString @ 0x14096E9C0 (AdtpBuildReplacementString.c)
+ *     AdtpBuildUserAccountControlString @ 0x14096EA5C (AdtpBuildUserAccountControlString.c)
+ *     ObCreateSiloRootDirectory @ 0x140980520 (ObCreateSiloRootDirectory.c)
+ *     ObGetSiloRootDirectoryPath @ 0x14098085C (ObGetSiloRootDirectoryPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x1407CF6F0 (RtlIntegerToChar.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x1406F70C0 (RtlIntegerToChar.c)
  */
 
 NTSTATUS __stdcall RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_STRING String)

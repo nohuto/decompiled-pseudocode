@@ -1,7 +1,7 @@
 /*
- * XREFs of UsbhPdo_IsDeviceExternal @ 0x1C00727D4
+ * XREFs of UsbhPdo_IsDeviceExternal @ 0x1C0075C74
  * Callers:
- *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054570 (UsbhPdoPnp_DeviceUsageNotification.c)
+ *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0055C00 (UsbhPdoPnp_DeviceUsageNotification.c)
  * Callees:
  *     <none>
  */

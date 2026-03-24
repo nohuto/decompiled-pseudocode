@@ -1,20 +1,20 @@
 /*
- * XREFs of LogicalToPhysicalInPlaceRgnWorker @ 0x1C00A4994
+ * XREFs of LogicalToPhysicalInPlaceRgnWorker @ 0x1C0115A04
  * Callers:
- *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C00328E0 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0033750 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
- *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C008B878 (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C00F7B60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006DF90 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C00729C0 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073B10 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C00F5494 (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
  * Callees:
- *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z @ 0x1C00D1C5C (-GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C015195C (-TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1544 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C01E3E14 (-TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z.c)
  */
 
-__int64 __fastcall LogicalToPhysicalInPlaceRgnWorker(const struct tagWND *a1, HRGN *a2, int a3)
+__int64 __fastcall LogicalToPhysicalInPlaceRgnWorker(struct tagWND *a1, HRGN *a2, int a3)
 {
   unsigned int v3; // ebx
-  const struct tagWND *TopLevelOrDpiBoundaryWindow; // rdi
+  struct tagWND *TopLevelOrDpiBoundaryWindow; // rdi
   float *v7; // rax
   float v8; // xmm2_4
   float v9; // xmm5_4

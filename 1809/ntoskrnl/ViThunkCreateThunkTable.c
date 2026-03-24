@@ -4,7 +4,7 @@
  *     VfThunkAddDriverThunks @ 0x140936724 (VfThunkAddDriverThunks.c)
  *     VfThunkAddSpecialDriverThunks @ 0x1409367A8 (VfThunkAddSpecialDriverThunks.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

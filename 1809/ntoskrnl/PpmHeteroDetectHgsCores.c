@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroDetectHgsCores @ 0x14018A1F4
+ * XREFs of PpmHeteroDetectHgsCores @ 0x14018A214
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F454 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 char __fastcall PpmHeteroDetectHgsCores(__int64 a1)

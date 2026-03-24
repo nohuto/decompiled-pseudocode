@@ -1,12 +1,17 @@
 /*
- * XREFs of HalRealAllocateAdapterChannelV3 @ 0x140514D30
+ * XREFs of HalRealAllocateAdapterChannelV3 @ 0x1404CA2C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateAdapterChannel @ 0x140514D80 (HalpAllocateAdapterChannel.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA310 (HalpAllocateAdapterChannel.c)
  */
 
-__int64 __fastcall HalRealAllocateAdapterChannelV3(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)
+__int64 __fastcall HalRealAllocateAdapterChannelV3(
+        struct _DMA_ADAPTER *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5)
 {
   __int64 v5; // rax
 
@@ -15,5 +20,5 @@ __int64 __fastcall HalRealAllocateAdapterChannelV3(__int64 a1, __int64 a2, int a
   *(_DWORD *)(a2 + 100) &= ~2u;
   *(_QWORD *)(a2 + 136) = v5;
   *(_QWORD *)(a2 + 112) = a5;
-  return HalpAllocateAdapterChannel(a1, (int)a2 + 80, a3, *(_DWORD *)(a1 + 252) >> 12, 0, a4);
+  return HalpAllocateAdapterChannel(a1, 0, a4);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0236660
+ * XREFs of ?SetIntegerProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F5DB0
  * Callers:
  *     <none>
  * Callees:
@@ -21,18 +21,18 @@ __int64 __fastcall DirectComposition::CCaptureControllerMarshaler::SetIntegerPro
   v6 = a3 - 1;
   if ( !v6 )
   {
-    if ( (a4 != 0) == *((_BYTE *)this + 80) )
+    if ( (a4 != 0) == *((_BYTE *)this + 72) )
       return v5;
     *((_DWORD *)this + 4) |= 0x40u;
-    *((_BYTE *)this + 80) = a4 != 0;
+    *((_BYTE *)this + 72) = a4 != 0;
     goto LABEL_8;
   }
   if ( v6 == 5 )
   {
-    if ( (a4 != 0) == *((_BYTE *)this + 81) )
+    if ( (a4 != 0) == *((_BYTE *)this + 73) )
       return v5;
     *((_DWORD *)this + 4) |= 0x200u;
-    *((_BYTE *)this + 81) = a4 != 0;
+    *((_BYTE *)this + 73) = a4 != 0;
 LABEL_8:
     *a5 = 1;
     return v5;

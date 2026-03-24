@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiAcpiDockEventCallback @ 0x1C0394770
+ * XREFs of DpiAcpiDockEventCallback @ 0x1C02D5EA0
  * Callers:
  *     <none>
  * Callees:
- *     DpiAcpiCallAcpiEventHandler @ 0x1C0066024 (DpiAcpiCallAcpiEventHandler.c)
+ *     ?DpiAcpiCallAcpiEventHandler@@YAJPEAU_DEVICE_OBJECT@@W4_DXGK_EVENT_TYPE@@KPEAX@Z @ 0x1C0059334 (-DpiAcpiCallAcpiEventHandler@@YAJPEAU_DEVICE_OBJECT@@W4_DXGK_EVENT_TYPE@@KPEAX@Z.c)
  */
 
 __int64 __fastcall DpiAcpiDockEventCallback(PVOID NotificationStructure, PVOID Context)
 {
-  return DpiAcpiCallAcpiEventHandler(Context, 3u, 0x77u, 0LL);
+  return DpiAcpiCallAcpiEventHandler(Context, DxgkDockingEvent, 0x77u, 0LL);
 }

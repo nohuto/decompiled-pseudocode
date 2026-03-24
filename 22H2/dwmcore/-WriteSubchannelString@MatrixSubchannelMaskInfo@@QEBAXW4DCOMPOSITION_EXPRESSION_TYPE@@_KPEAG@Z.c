@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x180280AF4
+ * XREFs of ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x18021F6E8
  * Callers:
- *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x180215910 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
+ *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x1801B04E8 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z @ 0x180280848 (-Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z.c)
- *     ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x180280950 (-StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ?Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z @ 0x18021F41C (-Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z.c)
+ *     ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x18021F524 (-StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z.c)
  */
 
 const void **MatrixSubchannelMaskInfo::WriteSubchannelString(__int64 a1, int a2, __int64 a3, ...)
@@ -16,7 +16,7 @@ const void **MatrixSubchannelMaskInfo::WriteSubchannelString(__int64 a1, int a2,
   size_t v6; // r11
   unsigned __int16 *v7; // r10
   wchar_t *v10; // rax
-  HRESULT v11; // eax
+  int v11; // eax
   unsigned __int64 v12[3]; // [rsp+30h] [rbp-18h] BYREF
   const void *retaddr; // [rsp+48h] [rbp+0h] BYREF
   unsigned __int16 *v14; // [rsp+68h] [rbp+20h] BYREF

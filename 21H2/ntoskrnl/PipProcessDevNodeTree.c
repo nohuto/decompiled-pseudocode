@@ -1,43 +1,44 @@
 /*
- * XREFs of PipProcessDevNodeTree @ 0x140777578
+ * XREFs of PipProcessDevNodeTree @ 0x140741204
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
- *     PiProcessDeviceResetAction @ 0x140560174 (PiProcessDeviceResetAction.c)
- *     PnpProcessRebalance @ 0x140564C24 (PnpProcessRebalance.c)
- *     PiRestartDevice @ 0x1406617B0 (PiRestartDevice.c)
- *     PiProcessReenumeration @ 0x140764BE0 (PiProcessReenumeration.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PiProcessStartSystemDevices @ 0x140863BE8 (PiProcessStartSystemDevices.c)
- *     PiProcessResourceRequirementsChanged @ 0x140947934 (PiProcessResourceRequirementsChanged.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
+ *     PnpProcessRebalance @ 0x14051049C (PnpProcessRebalance.c)
+ *     PiRestartDevice @ 0x140733C40 (PiRestartDevice.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PiProcessReenumeration @ 0x14076D850 (PiProcessReenumeration.c)
+ *     PiProcessStartSystemDevices @ 0x1407D3DFC (PiProcessStartSystemDevices.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1408A26E8 (PiProcessResourceRequirementsChanged.c)
  * Callees:
- *     PiCollapseEnumRequests @ 0x14025A690 (PiCollapseEnumRequests.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PoFxPrepareDevice @ 0x1402D2238 (PoFxPrepareDevice.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x1402D2848 (PoFxActivateDevice.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x140561048 (McTemplateK0z_EtwWriteTransfer.c)
- *     PiProcessNewDeviceNodeAsync @ 0x1406E60B0 (PiProcessNewDeviceNodeAsync.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x1406EA5EC (PnpSynchronizeDeviceEventQueue.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PiDevCfgLogDeviceStarted @ 0x1407456F8 (PiDevCfgLogDeviceStarted.c)
- *     PipProcessStartPhase1 @ 0x1407491FC (PipProcessStartPhase1.c)
- *     PnpProcessAssignResources @ 0x140749294 (PnpProcessAssignResources.c)
- *     PipEnumerateDevice @ 0x14074B420 (PipEnumerateDevice.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PipProcessStartPhase2 @ 0x140768EA8 (PipProcessStartPhase2.c)
- *     IopAllocateUnicodeString @ 0x140769784 (IopAllocateUnicodeString.c)
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
- *     PipEnumerateCompleted @ 0x14076F8AC (PipEnumerateCompleted.c)
- *     PipCallDriverAddDevice @ 0x1407743C8 (PipCallDriverAddDevice.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x140777B74 (PnpDeviceCompletionProcessCompletedRequests.c)
- *     PnpCheckForActiveDependencies @ 0x140777C08 (PnpCheckForActiveDependencies.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PipProcessRestartPhase1 @ 0x14095B2D4 (PipProcessRestartPhase1.c)
- *     PipProcessRestartPhase2 @ 0x14095B398 (PipProcessRestartPhase2.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     PoFxPrepareDevice @ 0x14036F300 (PoFxPrepareDevice.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
+ *     PiCollapseEnumRequests @ 0x14037D718 (PiCollapseEnumRequests.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14050DAB4 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PnpInsertNoopEvent @ 0x1405CEEA0 (PnpInsertNoopEvent.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PipProcessStartPhase2 @ 0x14073DCFC (PipProcessStartPhase2.c)
+ *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
+ *     PnpProcessAssignResources @ 0x14074058C (PnpProcessAssignResources.c)
+ *     PpDevCfgTraceDeviceStart @ 0x140740814 (PpDevCfgTraceDeviceStart.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x14074181C (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpCheckForActiveDependencies @ 0x1407418B0 (PnpCheckForActiveDependencies.c)
+ *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
+ *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
+ *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
+ *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
+ *     PipProcessRestartPhase1 @ 0x1408B526C (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x1408B5330 (PipProcessRestartPhase2.c)
  */
 
 __int64 __fastcall PipProcessDevNodeTree(
@@ -49,373 +50,334 @@ __int64 __fastcall PipProcessDevNodeTree(
         unsigned __int8 a6,
         char a7)
 {
-  char v7; // r14
+  char v7; // r15
   int v8; // ebx
-  int v9; // edi
-  int v10; // r12d
-  char *v11; // rsi
-  PVOID *v12; // r13
-  __int64 v13; // r9
-  char v14; // dl
-  unsigned __int8 v15; // r15
+  __int64 v9; // r8
+  int v10; // edi
+  int v11; // r13d
+  unsigned __int16 *v12; // r14
+  bool v13; // al
+  char v14; // si
+  unsigned __int8 v15; // r12
   __int64 v16; // rcx
-  ULONG_PTR v17; // rbx
-  int v18; // edi
-  int v19; // eax
-  __int64 v20; // rdx
-  int v21; // eax
-  int v22; // edx
-  __int64 v23; // r9
-  int v24; // ecx
-  int v25; // edi
-  ULONG_PTR v26; // rax
-  char v27; // al
-  int v29; // eax
-  bool v30; // zf
-  int v31; // eax
-  int started; // eax
-  unsigned int v33; // edx
+  __int64 v17; // r8
+  ULONG_PTR v18; // rbx
+  int v19; // esi
+  char v20; // al
+  __int64 v21; // rdx
+  int v22; // edi
   int restarted; // eax
-  bool v35; // al
-  int UnicodeString; // ebx
-  __int64 v37; // rbx
-  int v38; // eax
-  __int64 v39; // rax
-  char v40; // [rsp+40h] [rbp-28h]
-  char v41; // [rsp+41h] [rbp-27h]
-  unsigned int v42; // [rsp+44h] [rbp-24h]
-  unsigned int v43; // [rsp+48h] [rbp-20h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-18h] BYREF
-  char v45; // [rsp+B0h] [rbp+48h] BYREF
-  char v46; // [rsp+B8h] [rbp+50h] BYREF
-  __int64 v47; // [rsp+C0h] [rbp+58h]
-  int v48; // [rsp+C8h] [rbp+60h]
+  int started; // eax
+  unsigned int v25; // edx
+  int v26; // eax
+  int v27; // esi
+  ULONG_PTR v28; // rax
+  PADAPTER_OBJECT *v29; // rax
+  __int64 v31; // rax
+  int v32; // ebx
+  _QWORD *v33; // rbx
+  char v34; // [rsp+40h] [rbp-41h]
+  char v35; // [rsp+44h] [rbp-3Dh]
+  unsigned int v36; // [rsp+48h] [rbp-39h]
+  PADAPTER_OBJECT *v37; // [rsp+50h] [rbp-31h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-29h] BYREF
+  struct _KEVENT Event; // [rsp+68h] [rbp-19h] BYREF
+  char v40; // [rsp+D0h] [rbp+4Fh] BYREF
+  char v41; // [rsp+D8h] [rbp+57h]
+  __int64 v42; // [rsp+E0h] [rbp+5Fh]
+  int v43; // [rsp+E8h] [rbp+67h]
 
-  v48 = a4;
-  v47 = a3;
+  v43 = a4;
+  v42 = a3;
   v7 = a7;
-  v46 = 0;
-  v8 = a4;
-  v9 = a3;
-  v10 = a2;
-  v11 = (char *)a1;
-  v12 = (PVOID *)a1;
-  v13 = 1LL;
+  v8 = a3;
+  v9 = 0LL;
+  v37 = (PADAPTER_OBJECT *)a1;
+  v40 = 0;
+  v10 = a4;
+  v11 = a2;
+  v12 = (unsigned __int16 *)a1;
   DestinationString = 0LL;
   if ( a2 )
   {
-    if ( v8 != 1 && !*(_BYTE *)(a2 + 28) && !a7 )
+    if ( !*(_BYTE *)(a2 + 28) && a4 != 1 && !a7 )
     {
-      v35 = PiCollapseEnumRequests(a2);
-      a1 = (__int64)IopRootDeviceNode;
-      v13 = 1LL;
-      if ( v35 )
-        v11 = (char *)IopRootDeviceNode;
+      v13 = PiCollapseEnumRequests(a2);
+      v9 = 0LL;
+      if ( v13 )
+        v12 = (unsigned __int16 *)IopRootDeviceNode;
     }
   }
-  LOBYTE(a1) = 0;
-  v14 = 1;
-  v43 = 0;
-  v42 = a1;
+  v14 = 0;
+  v36 = 0;
+  v35 = 0;
   v15 = 0;
-  v41 = 0;
-  a7 = 1;
+  v34 = 0;
   while ( 2 )
   {
     if ( !v7 )
     {
-      if ( (byte_140C0DD4B & 8) != 0 )
+      if ( (byte_140C1327B & 8) != 0 )
         McTemplateK0z_EtwWriteTransfer(
           a1,
           (const EVENT_DESCRIPTOR *)KMPnPEvt_AssignResources_Start,
-          a3,
-          *((const wchar_t **)v11 + 6));
-      v45 = 0;
-      v41 = PnpProcessAssignResources((__int64)v11, a5, (__int64)&v45);
-      if ( (byte_140C0DD4B & 8) != 0 )
+          0LL,
+          *((const wchar_t **)v12 + 6));
+      a7 = 0;
+      v34 = PnpProcessAssignResources((__int64)v12, a5, (__int64)&a7);
+      if ( (byte_140C1327B & 8) != 0 )
         McTemplateK0z_EtwWriteTransfer(
           v16,
           (const EVENT_DESCRIPTOR *)KMPnPEvt_AssignResources_Stop,
-          a3,
-          *((const wchar_t **)v11 + 6));
-      if ( v45 )
+          v17,
+          *((const wchar_t **)v12 + 6));
+      v9 = 0LL;
+      if ( a7 )
       {
-        v38 = PipProcessDevNodeTree((_DWORD)IopRootDeviceNode, v10, v9, v8, 0, 0, 1);
-        LODWORD(a1) = (unsigned __int8)v42;
-        v13 = 1LL;
-        if ( v38 == -1073741106 )
-          LODWORD(a1) = 1;
-        v42 = a1;
+        if ( (unsigned int)PipProcessDevNodeTree((_DWORD)IopRootDeviceNode, v11, v8, v10, 0, 0, 1) == -1073741106 )
+          v14 = 1;
+        v9 = 0LL;
+        v35 = v14;
       }
-      else
-      {
-        LOBYTE(a1) = v42;
-        v13 = 1LL;
-      }
-      v14 = a7;
     }
-    v40 = 0;
-    v17 = (ULONG_PTR)v11;
-    v45 = 1;
+    a7 = 0;
+    v18 = (ULONG_PTR)v12;
+    v41 = 1;
     do
     {
-      v18 = 1;
-      if ( !(_BYTE)a1 )
+      v19 = 1;
+      if ( v35 )
+        goto LABEL_106;
+      if ( *(_DWORD *)(v18 + 300) != 769 && (*(_DWORD *)(v18 + 396) & 0x6000) == 0 )
       {
-        if ( v14 )
+        v20 = PnpCheckForActiveDependencies(v18, 2LL, 0LL);
+        v9 = 0LL;
+        if ( v20 )
         {
-          v19 = *(_DWORD *)(v17 + 704);
-          if ( (v19 & 0x10000) != 0 )
-            *(_DWORD *)(v17 + 704) = v19 & 0xFFFEFFFF;
+          PipSetDevNodeProblem(v18, 51, 0);
+          v9 = 0LL;
         }
-        if ( (unsigned int)(*(_DWORD *)(v17 + 300) - 769) > 1 && (*(_DWORD *)(v17 + 396) & 0x6000) == 0 )
-        {
-          if ( (unsigned __int8)PnpCheckForActiveDependencies(v17, 2LL) )
-            PipSetDevNodeProblem(v17, 51, 0);
-          v13 = 1LL;
-        }
-        v20 = *(unsigned int *)(v17 + 396);
-        if ( (v20 & 0x6000) == 0 )
-        {
-          if ( *(_DWORD *)(v17 + 300) == 769 )
+      }
+      v21 = *(unsigned int *)(v18 + 396);
+      if ( (v21 & 0x6000) != 0 )
+        goto LABEL_77;
+      switch ( *(_DWORD *)(v18 + 300) )
+      {
+        case 0x301:
+          if ( v10 == 3 && (v21 & 0x2000000) != 0 || v7 )
+            goto LABEL_68;
+          if ( (unsigned __int8)PnpCheckForActiveDependencies(v18, 1LL, 0LL) )
           {
-            if ( v48 == 3 && (v20 & 0x2000000) != 0 || v7 )
-              goto LABEL_41;
-            if ( (unsigned __int8)PnpCheckForActiveDependencies(v17, 1LL) )
-            {
-              PipSetDevNodeProblem(v17, 51, 0);
-              goto LABEL_41;
-            }
-            v31 = PiProcessNewDeviceNodeAsync(v17, a6);
-            v22 = v31;
-            if ( v31 != 259 )
-            {
-              if ( v31 >= 0 )
-                goto LABEL_94;
-              goto LABEL_40;
-            }
-LABEL_98:
-            v15 = 1;
-            goto LABEL_41;
+            PipSetDevNodeProblem(v18, 51, 0);
+            goto LABEL_68;
           }
-          if ( *(_DWORD *)(v17 + 300) == 772 )
-          {
-            if ( v7 || (*(_DWORD *)(v17 + 704) & 0x10000) != 0 )
-              goto LABEL_41;
-            v22 = PipCallDriverAddDevice(v17, v47);
-            if ( v22 >= 0 )
-            {
-              PoFxPrepareDevice(v17, 0);
-              v18 = 0;
-              v41 = 1;
-              goto LABEL_41;
-            }
-            if ( *(_DWORD *)(v17 + 300) == 772 )
-              *(_DWORD *)(v17 + 704) |= 0x10000u;
-            goto LABEL_40;
-          }
-          if ( *(_DWORD *)(v17 + 300) != 774 )
-          {
-            switch ( *(_DWORD *)(v17 + 300) )
-            {
-              case 0x308:
-                started = PipProcessStartPhase2(v17, v20, a3);
-                break;
-              case 0x309:
-                if ( (int)v20 < 0 )
-                {
-                  v18 = 1;
-                  goto LABEL_41;
-                }
-                started = PipProcessStartPhase3(v17, v48 != 1, a3);
-                break;
-              case 0x30A:
-                if ( v48 == 1 && (char *)v17 != v11 )
-                  goto LABEL_41;
-                v18 = 2;
-                if ( v7 || (v20 & 8) == 0 )
-                  goto LABEL_41;
-                v21 = PipEnumerateDevice(v17, a6, v15);
-                v22 = v21;
-                if ( v21 == 259 )
-                {
-                  v15 = 1;
-                  v18 = 1;
-                  goto LABEL_41;
-                }
-                if ( v21 < 0 )
-                  goto LABEL_40;
-                goto LABEL_34;
-              case 0x30C:
-                restarted = PipProcessRestartPhase1(v17, a6, v15, 1LL);
-                goto LABEL_97;
-              case 0x30D:
-                started = PipProcessRestartPhase2(v17, v20, a3, 1LL);
-                break;
-              case 0x30F:
-                if ( (*(_DWORD *)(v17 + 704) & 0x200) != 0 )
-                {
-                  PoFxIdleDevice(*(_QWORD *)(v17 + 32));
-                  *(_DWORD *)(v17 + 704) &= ~0x200u;
-                }
-                v22 = PipEnumerateCompleted(v17);
-                v18 = 2;
-                goto LABEL_40;
-              default:
-                goto LABEL_41;
-            }
-            if ( started >= 0 )
-            {
-LABEL_94:
-              v18 = 0;
-              goto LABEL_41;
-            }
-            v22 = -1073741106;
-LABEL_40:
-            if ( v22 == -1073741106 )
-            {
-LABEL_108:
-              if ( !v7 )
-                goto LABEL_109;
-              v43 = v22;
-LABEL_47:
-              if ( v15 && v18 && PnpAsyncOptions >= 0 || (v25 = v18 - 1) == 0 )
-              {
-                while ( 1 )
-                {
-LABEL_49:
-                  if ( (char *)v17 == v11 )
-                  {
-                    v40 = 1;
-                    v14 = 0;
-                    v45 &= -(v15 != 0);
-                    a7 = 0;
-                    v27 = v45;
-                    goto LABEL_53;
-                  }
-                  v26 = *(_QWORD *)v17;
-                  if ( *(_QWORD *)v17 )
-                    goto LABEL_51;
-                  if ( v15 && PnpAsyncOptions > 0 )
-                    break;
-                  if ( *(_QWORD *)(v17 + 16) )
-                    v17 = *(_QWORD *)(v17 + 16);
-                }
-                v39 = *(_QWORD *)(v17 + 16);
-                if ( v39 )
-                  v17 = *(_QWORD *)(v39 + 8);
-                v40 = 1;
-              }
-              else if ( v25 == 1 )
-              {
-                v26 = *(_QWORD *)(v17 + 8);
-                if ( !v26 )
-                  goto LABEL_49;
-LABEL_51:
-                v17 = v26;
-              }
-              goto LABEL_52;
-            }
-LABEL_41:
-            v46 = 0;
-            v22 = PnpDeviceCompletionProcessCompletedRequests(0LL, 0LL, &v46, v13);
-            if ( v22 != -1073741106 )
-            {
-              if ( !v40 )
-                goto LABEL_45;
-              if ( v46 )
-                goto LABEL_45;
-              v22 = PnpDeviceCompletionProcessCompletedRequests(0LL, 1LL, &v46, v23);
-              v40 = 0;
-              v15 &= -(v46 != 0);
-              if ( v22 != -1073741106 )
-                goto LABEL_45;
-            }
-            goto LABEL_108;
-          }
+          v22 = PiProcessNewDeviceNode(v18);
+          if ( v22 >= 0 )
+            v19 = 0;
+          goto LABEL_67;
+        case 0x302:
           if ( v7 )
-            goto LABEL_41;
-          PoFxActivateDevice(*(_QWORD *)(v17 + 32));
-          v33 = a6;
-          *(_DWORD *)(v17 + 704) |= 0x200u;
-          restarted = PipProcessStartPhase1(v17, v33, v15);
-LABEL_97:
-          v22 = restarted;
-          if ( restarted != 259 )
+            goto LABEL_68;
+          v22 = PipCallDriverAddDevice(v18);
+          if ( v22 >= 0 )
           {
-LABEL_34:
-            v18 = 0;
-            goto LABEL_40;
+            PoFxPrepareDevice(v18, 0);
+            v19 = 0;
+            v34 = 1;
           }
-          goto LABEL_98;
-        }
-LABEL_45:
-        if ( v7 )
-          goto LABEL_47;
-        v24 = *(_DWORD *)(v17 + 704);
-        if ( (v24 & 1) == 0 )
-          goto LABEL_47;
-        v29 = *(_DWORD *)(v17 + 300);
-        if ( v29 < 771 )
-          goto LABEL_112;
-        if ( v29 <= 777 )
-        {
-          v30 = (*(_DWORD *)(v17 + 396) & 0x6000) == 0;
-          goto LABEL_82;
-        }
-        if ( v29 != 778 )
-        {
-LABEL_112:
-          if ( (*(_DWORD *)(v17 + 396) & 0x2000) != 0 )
+          goto LABEL_67;
+        case 0x304:
+          if ( v7 )
+            goto LABEL_68;
+          PoFxActivateDevice(*(_QWORD *)(v18 + 32));
+          v25 = a6;
+          *(_DWORD *)(v18 + 704) |= 0x200u;
+          started = PipProcessStartPhase1(v18, v25, v15);
+LABEL_40:
+          v22 = started;
+          if ( started == 259 )
           {
-            v30 = *(_DWORD *)(v17 + 404) == 56;
-LABEL_82:
-            if ( v30 )
-              goto LABEL_47;
+            v15 = 1;
+LABEL_68:
+            v40 = 0;
+            v26 = PnpDeviceCompletionProcessCompletedRequests(0LL, 0LL, &v40);
+            v9 = 0LL;
+            v22 = v26;
+            if ( v26 != -1073741106 )
+            {
+              if ( !v40 && a7 )
+              {
+                a7 = 0;
+                v22 = PnpDeviceCompletionProcessCompletedRequests(0LL, 1LL, &v40);
+                v15 &= -(v40 != 0);
+                v9 = 0LL;
+              }
+              if ( v22 != -1073741106 )
+                goto LABEL_77;
+            }
+            goto LABEL_75;
           }
-        }
-        *(_DWORD *)(v17 + 704) = v24 & 0xFFFFFFFE;
-        PiDevCfgLogDeviceStarted(v17);
-        goto LABEL_47;
+          v19 = 0;
+          goto LABEL_67;
+        case 0x306:
+          restarted = PipProcessStartPhase2(v18, v21, 0LL);
+          goto LABEL_37;
+        case 0x307:
+          if ( (int)v21 < 0 )
+          {
+            v19 = 1;
+            goto LABEL_68;
+          }
+          restarted = PipProcessStartPhase3(v18, v10 != 1);
+          goto LABEL_37;
       }
-LABEL_109:
-      LOBYTE(v42) = 0;
-      PnpDeviceCompletionProcessCompletedRequests(1LL, 1LL, &v46, 1LL);
-      v15 = 0;
-      PipProcessDevNodeTree((_DWORD)IopRootDeviceNode, v10, v47, v48, a5, a6, 1);
-      UnicodeString = IopAllocateUnicodeString((__int64)&DestinationString, *((_WORD *)v11 + 20));
-      if ( UnicodeString < 0 )
+      if ( *(_DWORD *)(v18 + 300) != 776 )
       {
-        ObfDereferenceObject(v12[4]);
-        return (unsigned int)UnicodeString;
+        if ( *(_DWORD *)(v18 + 300) != 778 )
+        {
+          if ( *(_DWORD *)(v18 + 300) != 779 )
+          {
+            if ( *(_DWORD *)(v18 + 300) != 781 )
+              goto LABEL_68;
+            if ( (*(_DWORD *)(v18 + 704) & 0x200) != 0 )
+            {
+              PoFxIdleDevice(*(_QWORD *)(v18 + 32));
+              *(_DWORD *)(v18 + 704) &= ~0x200u;
+            }
+            v22 = PipEnumerateCompleted(v18, v21, v9);
+            v19 = 2;
+            goto LABEL_67;
+          }
+          restarted = PipProcessRestartPhase2(v18, v21, 0LL);
+LABEL_37:
+          v22 = restarted;
+          if ( restarted < 0 )
+          {
+            v22 = -1073741106;
+            goto LABEL_67;
+          }
+LABEL_49:
+          v19 = 0;
+          goto LABEL_67;
+        }
+        started = PipProcessRestartPhase1(v18, a6, v15);
+        goto LABEL_40;
       }
-      RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(v11 + 40));
-      ObfDereferenceObject(v12[4]);
+      if ( v10 == 1 && (unsigned __int16 *)v18 != v12 )
+        goto LABEL_68;
+      v19 = 2;
+      if ( v7 || (v21 & 8) == 0 )
+        goto LABEL_68;
+      v22 = PipEnumerateDevice(v18, a6, v15);
+      if ( v22 == 259 )
+      {
+        v15 = 1;
+        v19 = 1;
+        goto LABEL_68;
+      }
+      if ( v22 >= 0 )
+        goto LABEL_49;
+LABEL_67:
+      if ( v22 != -1073741106 )
+        goto LABEL_68;
+      v9 = 0LL;
+LABEL_75:
+      if ( v7 )
+      {
+        v36 = v22;
+LABEL_77:
+        a1 = 1LL;
+        if ( !v7 && (*(_DWORD *)(v18 + 704) & 1) != 0 )
+        {
+          PpDevCfgTraceDeviceStart((_DWORD *)v18);
+          v9 = 0LL;
+          a1 = 1LL;
+        }
+        if ( v15 && v19 && PnpAsyncOptions >= 0 )
+          v19 = 1;
+        v27 = v19 - 1;
+        if ( v27 )
+        {
+          if ( v27 == 1 )
+          {
+            v28 = *(_QWORD *)(v18 + 8);
+            if ( !v28 )
+              goto LABEL_94;
+LABEL_87:
+            v18 = v28;
+          }
+        }
+        else
+        {
+          while ( 1 )
+          {
+LABEL_94:
+            if ( (unsigned __int16 *)v18 == v12 )
+            {
+              a7 = 1;
+              LOBYTE(a1) = -(v15 != 0);
+              v41 &= a1;
+              goto LABEL_88;
+            }
+            v28 = *(_QWORD *)v18;
+            if ( *(_QWORD *)v18 )
+              goto LABEL_87;
+            if ( v15 && PnpAsyncOptions > 0 )
+              break;
+            if ( *(_QWORD *)(v18 + 16) )
+              v18 = *(_QWORD *)(v18 + 16);
+          }
+          v31 = *(_QWORD *)(v18 + 16);
+          if ( v31 )
+            v18 = *(_QWORD *)(v31 + 8);
+          a7 = 1;
+        }
+LABEL_88:
+        v29 = v37;
+        v14 = v35;
+        goto LABEL_89;
+      }
+      v10 = v43;
+LABEL_106:
+      v14 = 0;
+      v35 = 0;
+      PnpDeviceCompletionProcessCompletedRequests(1LL, 1LL, &v40);
+      v15 = 0;
+      PipProcessDevNodeTree((_DWORD)IopRootDeviceNode, v11, v42, v10, a5, a6, 1);
+      v32 = IopAllocateUnicodeString(&DestinationString, v12[20]);
+      if ( v32 < 0 )
+      {
+        HalPutDmaAdapter(v37[4]);
+        return (unsigned int)v32;
+      }
+      RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(v12 + 20));
+      HalPutDmaAdapter(v37[4]);
       PpDevNodeUnlockTree(1);
-      PnpSynchronizeDeviceEventQueue();
+      LODWORD(v37) = 0;
+      memset(&Event, 0, sizeof(Event));
+      KeInitializeEvent(&Event, NotificationEvent, 0);
+      if ( (int)PnpInsertNoopEvent((__int64)&Event, (__int64)&v37) >= 0 )
+        KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
       PpDevNodeLockTree(1);
-      v37 = PnpDeviceObjectFromDeviceInstanceWithTag(&DestinationString, 1953261124LL);
-      RtlFreeUnicodeString(&DestinationString);
-      if ( !v37 )
+      v33 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
+      RtlFreeAnsiString(&DestinationString);
+      v9 = 0LL;
+      if ( !v33 )
         return 3221225473LL;
-      v11 = *(char **)(*(_QWORD *)(v37 + 312) + 40LL);
-      v17 = (ULONG_PTR)v11;
-      v12 = (PVOID *)v11;
-LABEL_52:
-      v27 = v45;
-      v14 = a7;
-LABEL_53:
-      a1 = v42;
-      v13 = 1LL;
+      v12 = *(unsigned __int16 **)(v33[39] + 40LL);
+      v29 = (PADAPTER_OBJECT *)v12;
+      v18 = (ULONG_PTR)v12;
+      v37 = (PADAPTER_OBJECT *)v12;
+LABEL_89:
+      v10 = v43;
     }
-    while ( v27 );
-    v8 = v48;
-    v9 = v47;
-    if ( v41 )
+    while ( v41 );
+    v8 = v42;
+    if ( v34 )
       continue;
     break;
   }
   if ( !v7 )
-    ObfDereferenceObject(v12[4]);
-  return v43;
+    HalPutDmaAdapter(v29[4]);
+  return v36;
 }

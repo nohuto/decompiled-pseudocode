@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCollapseEnumRequests @ 0x140358884
+ * XREFs of PiCollapseEnumRequests @ 0x140370448
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x1407CD638 (PiMarkDeviceTreeForReenumeration.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x140749330 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 bool __fastcall PiCollapseEnumRequests(__int64 a1)
@@ -18,14 +18,15 @@ bool __fastcall PiCollapseEnumRequests(__int64 a1)
   unsigned __int64 v5; // rbx
   __int64 v6; // rdx
   __int64 *i; // rbx
-  __int64 *v9; // r8
-  __int64 **v10; // rax
-  __int64 *v11; // rax
+  __int64 *v9; // rcx
+  int v10; // eax
+  __int64 **v11; // rax
+  __int64 *v12; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
+  int v16; // eax
+  bool v17; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
   v3 = PnpEnumerationRequestList;
@@ -38,38 +39,42 @@ bool __fastcall PiCollapseEnumRequests(__int64 a1)
       v9 = *(__int64 **)v3;
       if ( *(_BYTE *)(v3 + 28) )
         break;
-      if ( *(_DWORD *)(v3 + 24) == 9 || *(_DWORD *)(v3 + 24) == 10 || *(_DWORD *)(v3 + 24) == 14 )
+      v10 = *(_DWORD *)(v3 + 24);
+      if ( v10 >= 9 && (v10 <= 10 || v10 == 14) )
       {
-        v10 = *(__int64 ***)(v3 + 8);
+        v11 = *(__int64 ***)(v3 + 8);
         if ( v9[1] != v3
-          || *v10 != (__int64 *)v3
-          || (*v10 = v9, v9[1] = (__int64)v10, v11 = *(__int64 **)(a1 + 8), *v11 != a1) )
+          || *v11 != (__int64 *)v3
+          || (*v11 = v9, v9[1] = (__int64)v11, v12 = *(__int64 **)(a1 + 8), *v12 != a1) )
         {
           __fastfail(3u);
         }
         *(_QWORD *)v3 = a1;
-        *(_QWORD *)(v3 + 8) = v11;
-        *v11 = v3;
+        *(_QWORD *)(v3 + 8) = v12;
+        *v12 = v3;
         *(_QWORD *)(a1 + 8) = v3;
       }
       v3 = (__int64)v9;
     }
     while ( v9 != &PnpEnumerationRequestList );
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+  KxReleaseSpinLock(&PnpSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v6 = -1LL << ((unsigned __int8)v5 + 1);
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)v6;
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v6 = -1LL << ((unsigned __int8)v5 + 1);
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)v6;
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
@@ -77,7 +82,7 @@ bool __fastcall PiCollapseEnumRequests(__int64 a1)
   {
     LOBYTE(v6) = 1;
     PiMarkDeviceTreeForReenumeration(*(_QWORD *)(*(_QWORD *)(i[2] + 312) + 40LL), v6);
-    ObfDereferenceObject((PVOID)i[2]);
+    ObfDereferenceObjectWithTag((PVOID)i[2], 0x746C6644u);
     i[2] = 0LL;
   }
   return v4 != *(__int64 ***)(a1 + 8);

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptWipeAsm @ 0x1403F57F0
+ * XREFs of SymCryptWipeAsm @ 0x1403EECB0
  * Callers:
- *     SymCryptWipe @ 0x1403F5EA8 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1403EEF34 (SymCryptWipe.c)
  * Callees:
  *     <none>
  */

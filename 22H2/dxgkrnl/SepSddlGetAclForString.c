@@ -1,52 +1,58 @@
 /*
- * XREFs of SepSddlGetAclForString @ 0x1C0397360
+ * XREFs of SepSddlGetAclForString @ 0x1C02C49D4
  * Callers:
- *     SepSddlDaclFromSDDLString @ 0x1C0397274 (SepSddlDaclFromSDDLString.c)
+ *     SepSddlDaclFromSDDLString @ 0x1C02C48E8 (SepSddlDaclFromSDDLString.c)
  * Callees:
- *     _wcsnicmp_0 @ 0x1C0023F02 (_wcsnicmp_0.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     SepSddlAddAceToAcl @ 0x1C0397174 (SepSddlAddAceToAcl.c)
- *     SepSddlGetSidForString @ 0x1C03976D8 (SepSddlGetSidForString.c)
- *     SepSddlLookupAccessMaskInTable @ 0x1C03977A4 (SepSddlLookupAccessMaskInTable.c)
- *     SepSddlParseWideStringUlong @ 0x1C0397838 (SepSddlParseWideStringUlong.c)
+ *     _wcsnicmp_0 @ 0x1C0024962 (_wcsnicmp_0.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     SepSddlAddAceToAcl @ 0x1C02C47E8 (SepSddlAddAceToAcl.c)
+ *     SepSddlGetSidForString @ 0x1C02C4D64 (SepSddlGetSidForString.c)
+ *     SepSddlLookupAccessMaskInTable @ 0x1C02C4E38 (SepSddlLookupAccessMaskInTable.c)
+ *     SepSddlParseWideStringUlong @ 0x1C02C4ECC (SepSddlParseWideStringUlong.c)
  */
 
-__int64 __fastcall SepSddlGetAclForString(wchar_t *Str1, _QWORD *a2, wchar_t **a3)
+__int64 __fastcall SepSddlGetAclForString(wchar_t *Str1, const void **a2, wchar_t **a3)
 {
-  wchar_t *v5; // rbx
+  wchar_t *v5; // rsi
   unsigned int SidForString; // edi
-  unsigned int v7; // r15d
+  unsigned int v7; // ebx
   wchar_t *v8; // rax
   __int64 v10; // rax
-  wchar_t *v11; // rax
-  wchar_t *v12; // rcx
+  wchar_t *v11; // rcx
+  wchar_t *v12; // rax
   int i; // r8d
-  unsigned int v14; // edx
+  unsigned int v14; // r13d
   _QWORD *PoolWithTag; // rax
-  __int16 v16; // si
-  unsigned int v17; // r12d
-  _WORD *v18; // rax
-  _WORD *v19; // r15
-  int v20; // r13d
-  unsigned int v21; // r15d
-  int v22; // r12d
+  unsigned int v16; // r15d
+  _WORD *v17; // r14
+  unsigned int v18; // r12d
+  ACCESS_MASK AccessMask; // r15d
+  wchar_t v20; // ax
+  wchar_t v21; // cx
+  const wchar_t *v22; // rbx
   wchar_t *j; // rbx
   wchar_t v24; // ax
   wchar_t *v25; // rax
-  wchar_t *v26; // rbx
-  __int64 v27; // rcx
-  _WORD *v28; // rbx
-  _WORD *v29; // rax
-  _WORD *v30; // [rsp+A0h] [rbp+48h] BYREF
-  int v31; // [rsp+A8h] [rbp+50h]
-  int v32; // [rsp+B0h] [rbp+58h]
-  wchar_t *v33; // [rsp+B8h] [rbp+60h] BYREF
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  _WORD *v29; // rsi
+  const void **v30; // rbx
+  _WORD *v31; // rcx
+  wchar_t *v32; // [rsp+40h] [rbp-18h] BYREF
+  PSID Sid; // [rsp+48h] [rbp-10h]
+  _WORD *v34; // [rsp+A0h] [rbp+48h] BYREF
+  const void **v35; // [rsp+A8h] [rbp+50h]
+  int v36; // [rsp+B0h] [rbp+58h]
+  int v37; // [rsp+B8h] [rbp+60h] BYREF
 
+  v35 = a2;
   *a2 = 0LL;
   v5 = Str1;
-  v31 = 0;
+  v36 = 0;
   SidForString = 0;
-  v33 = 0LL;
+  v32 = 0LL;
+  Sid = 0LL;
   v7 = 0;
   v8 = wcschr(Str1, 0x3Au);
   *a3 = v8;
@@ -78,7 +84,6 @@ __int64 __fastcall SepSddlGetAclForString(wchar_t *Str1, _QWORD *a2, wchar_t **a
     }
   }
   v14 = v7 / 5;
-  LODWORD(v30) = v7 / 5;
   if ( v7 != 5 * (v7 / 5) || !v7 && i )
     return (unsigned int)-1073741811;
   if ( !v14 )
@@ -92,126 +97,140 @@ __int64 __fastcall SepSddlGetAclForString(wchar_t *Str1, _QWORD *a2, wchar_t **a
     }
     return (unsigned int)-1073741670;
   }
-  v16 = 8;
-  v17 = 48 * v14 + 8;
-  if ( v17 > 0xFFFF )
-    v17 = 0xFFFF;
-  v18 = ExAllocatePoolWithTag(PagedPool, v17, 0x6C416553u);
-  *a2 = v18;
-  v19 = v18;
-  if ( !v18 )
+  v16 = 48 * v14 + 8;
+  if ( v16 > 0xFFFF )
+    v16 = 0xFFFF;
+  v17 = ExAllocatePoolWithTag(PagedPool, v16, 0x6C416553u);
+  *v35 = v17;
+  if ( !v17 )
     return (unsigned int)-1073741670;
-  v32 = 8;
-  memset(v18, 0, v17);
-  *v19 = 2;
-  v19[1] = v17;
-  v20 = 0;
-  *((_DWORD *)v19 + 1) = 0;
-  v21 = (unsigned int)v30;
-  if ( (_DWORD)v30 )
+  v37 = 8;
+  memset(v17, 0, v16);
+  *v17 = 2;
+  v17[1] = v16;
+  v18 = 0;
+  *((_DWORD *)v17 + 1) = 0;
+  do
   {
+    AccessMask = 0;
+    LODWORD(v34) = 0;
     while ( 1 )
     {
-      v22 = 0;
-      LODWORD(v30) = 0;
-      while ( *v5 == 32 )
-        ++v5;
-      if ( *v5 == 40 )
+      v20 = *v5;
+      if ( *v5 != 32 )
+        break;
+      ++v5;
+    }
+    v21 = *v5;
+    if ( v20 == 40 )
+      v21 = v5[1];
+    v22 = v5 + 1;
+    if ( v20 != 40 )
+      v22 = v5;
+    if ( v21 == 32 )
+    {
+      do
+        ++v22;
+      while ( *v22 == 32 );
+    }
+    if ( wcsnicmp_0(v22, L"A", 1uLL) )
+      goto LABEL_73;
+    for ( j = (wchar_t *)(v22 + 2); *j == 32; ++j )
+      ;
+    if ( *j != 59 )
+    {
+LABEL_73:
+      SidForString = -1073741811;
+      break;
+    }
+    do
+      v24 = *++j;
+    while ( *j == 32 );
+    while ( 1 )
+    {
+      if ( v24 == 59 )
+      {
+        ++j;
+        goto LABEL_49;
+      }
+      if ( v24 == 32 )
       {
         do
-          ++v5;
-        while ( *v5 == 32 );
+          ++j;
+        while ( *j == 32 );
       }
-      if ( wcsnicmp_0(v5, L"A", 1uLL) )
+      if ( (unsigned int)SepSddlLookupAccessMaskInTable(j) )
+      {
+        AccessMask |= v36;
+        v25 = v32;
+        LODWORD(v34) = AccessMask;
+        goto LABEL_46;
+      }
+      SepSddlParseWideStringUlong(j, &v32, &v34);
+      v25 = v32;
+      AccessMask = (unsigned int)v34;
+      if ( v32 == j )
         break;
-      for ( j = v5 + 2; *j == 32; ++j )
-        ;
-      if ( *j != 59 )
-        break;
-      do
-        v24 = *++j;
-      while ( *j == 32 );
-      for ( ; v24 != 59; v24 = *v25 )
-      {
-        if ( v24 == 32 )
-        {
-          do
-            ++j;
-          while ( *j == 32 );
-        }
-        if ( (unsigned int)SepSddlLookupAccessMaskInTable(j) )
-        {
-          v22 |= v31;
-          v25 = v33;
-          LODWORD(v30) = v22;
-        }
-        else
-        {
-          SepSddlParseWideStringUlong(j, &v33, &v30);
-          v25 = v33;
-          if ( v33 == j )
-            goto LABEL_66;
-          v22 = (int)v30;
-        }
-        j = v25;
-      }
-      v26 = j + 1;
-      v27 = 2LL;
-      do
-      {
-        while ( *v26 == 32 )
-          ++v26;
-        if ( *v26 != 59 )
-          SidForString = -1073741811;
-        ++v26;
-        --v27;
-      }
-      while ( v27 );
-      if ( SidForString )
-        goto LABEL_67;
-      while ( *v26 == 32 )
-        ++v26;
-      v30 = 0LL;
-      SidForString = SepSddlGetSidForString(v26);
-      if ( SidForString )
-      {
-LABEL_63:
-        v16 = v32;
-        goto LABEL_64;
-      }
-      v28 = v30;
-      if ( !v30 )
-        goto LABEL_56;
-      while ( *v28 == 32 )
-        ++v28;
-      if ( *v28 != 41 )
-      {
-LABEL_56:
-        SidForString = -1073741705;
-        goto LABEL_67;
-      }
-      v5 = v28 + 1;
-      if ( *v5 == 40 )
-        ++v5;
-      if ( ++v20 >= v21 )
-        goto LABEL_63;
+LABEL_46:
+      j = v25;
+      v24 = *v25;
     }
-LABEL_66:
     SidForString = -1073741811;
-LABEL_67:
-    v29 = (_WORD *)*a2;
+LABEL_49:
+    if ( SidForString )
+      break;
+    v26 = 2LL;
+    do
+    {
+      while ( *j == 32 )
+        ++j;
+      if ( *j != 59 )
+        SidForString = -1073741811;
+      ++j;
+      --v26;
+    }
+    while ( v26 );
+    if ( SidForString )
+      break;
+    while ( *j == 32 )
+      ++j;
+    v34 = 0LL;
+    SidForString = SepSddlGetSidForString(j);
+    if ( SidForString )
+      break;
+    v29 = v34;
+    if ( v34 )
+    {
+      while ( *v29 == 32 )
+        ++v29;
+      if ( *v29 == 41 )
+        goto LABEL_81;
+    }
+    SidForString = -1073741705;
+    break;
+LABEL_81:
+    v5 = v29 + 1;
+    if ( Sid )
+    {
+      SidForString = SepSddlAddAceToAcl(v35, &v37, v27, v28, AccessMask, v14 - v18, Sid);
+      if ( SidForString )
+        break;
+    }
+    if ( *v5 == 40 )
+      ++v5;
+    ++v18;
+  }
+  while ( v18 < v14 );
+  v30 = v35;
+  v31 = *v35;
+  if ( SidForString )
+  {
+    ExFreePoolWithTag(v31, 0);
+    *v30 = 0LL;
   }
   else
   {
-LABEL_64:
-    v29 = (_WORD *)*a2;
-    if ( !SidForString )
-    {
-      v29[1] = v16;
-      return SidForString;
-    }
+    v31[1] = v37;
   }
-  ExFreePoolWithTag(v29, 0);
-  *a2 = 0LL;
   return SidForString;
 }

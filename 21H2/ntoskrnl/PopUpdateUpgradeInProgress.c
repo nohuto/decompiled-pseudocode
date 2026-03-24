@@ -1,24 +1,24 @@
 /*
- * XREFs of PopUpdateUpgradeInProgress @ 0x1408620D0
+ * XREFs of PopUpdateUpgradeInProgress @ 0x1405CF3D0
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x14041DB60 (ZwNotifyChangeKey.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x140762A68 (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x140810E2C (PopLogSleepDisabled.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14067B62C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EC0C (PopLogSleepDisabled.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
-NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
+int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
 {
   HANDLE v2; // rdi
-  NTSTATUS result; // eax
+  int result; // eax
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
@@ -30,10 +30,10 @@ NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
   int v12; // [rsp+B0h] [rbp+47h]
 
   ResultLength = 0;
+  KeyHandlea = KeyHandle;
   v12 = 0;
   v2 = KeyHandle;
-  KeyHandlea = KeyHandle;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyValueInformation = 0LL;
   DestinationString = 0LL;
   if ( !KeyHandle )
@@ -46,7 +46,7 @@ NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     result = ZwOpenKey(&KeyHandlea, 0x20019u, &ObjectAttributes);
     if ( result < 0 )
-      goto LABEL_8;
+      goto LABEL_13;
     v2 = KeyHandlea;
   }
   RtlInitUnicodeString(&DestinationString, L"SystemSetupInProgress");
@@ -57,20 +57,20 @@ NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
              &KeyValueInformation,
              0x14u,
              &ResultLength);
-  if ( result < 0 || !HIDWORD(KeyValueInformation) || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
+  if ( result < 0 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || !HIDWORD(KeyValueInformation) )
   {
     if ( KeyHandle )
     {
       PopAcquirePolicyLock(v4);
-      PopRemoveReasonRecordByReasonCode();
+      PopRemoveReasonRecordByReasonCode(15LL);
       result = PopReleasePolicyLock(v6, v5);
     }
-    goto LABEL_8;
+    goto LABEL_13;
   }
-  if ( !KeyHandle && (result = PopLogSleepDisabled(15, 8, 0LL, 0LL), result < 0)
+  if ( !KeyHandle && (result = PopLogSleepDisabled(15LL, 8LL, 0LL, 0LL), result < 0)
     || (*(_QWORD *)PopSetupInProgressUpdateWorkItem = 0LL,
-        qword_140C245B0 = (__int64)PopUpdateUpgradeInProgress,
-        qword_140C245B8 = (__int64)KeyHandlea,
+        qword_140C25130 = (__int64)PopUpdateUpgradeInProgress,
+        qword_140C25138 = (__int64)KeyHandlea,
         result = ZwNotifyChangeKey(
                    KeyHandlea,
                    0LL,
@@ -84,7 +84,7 @@ NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
                    1u),
         result < 0) )
   {
-LABEL_8:
+LABEL_13:
     if ( KeyHandlea )
       return ZwClose(KeyHandlea);
   }

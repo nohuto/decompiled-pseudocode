@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z @ 0x1C001F080
+ * XREFs of ?OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z @ 0x1C001AE20
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001F12C (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
+ *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001AECC (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
  */
 
 NTSTATUS __fastcall CTokenManager::OpenSectionAndEvents(
@@ -19,13 +19,13 @@ NTSTATUS __fastcall CTokenManager::OpenSectionAndEvents(
   *a3 = 0LL;
   *a4 = (void *)-1LL;
   *a5 = (void *)-1LL;
-  result = ObOpenObjectByPointer(this[5], 0x40u, 0LL, 4u, MmSectionObjectType, 0, a2);
+  result = ObOpenObjectByPointer(this[4], 0x40u, 0LL, 4u, MmSectionObjectType, 0, a2);
   if ( result >= 0 )
   {
-    *a3 = (unsigned __int64)this[7];
-    result = CTokenManager::OpenEventForSynchonize(this[8], a4);
+    *a3 = (unsigned __int64)this[6];
+    result = CTokenManager::OpenEventForSynchonize(this[7], a4);
     if ( result >= 0 )
-      return CTokenManager::OpenEventForSynchonize(this[9], a5);
+      return CTokenManager::OpenEventForSynchonize(this[8], a5);
   }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_InitializingAddDeviceToGlobalListRetryCount @ 0x1C00232C0
+ * XREFs of HUBDSM_InitializingAddDeviceToGlobalListRetryCount @ 0x1C0020CC0
  * Callers:
  *     <none>
  * Callees:

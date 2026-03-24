@@ -1,18 +1,18 @@
 /*
- * XREFs of IovpCallDriver2 @ 0x140A8BD60
+ * XREFs of IovpCallDriver2 @ 0x1409D0144
  * Callers:
- *     VfAfterCallDriver @ 0x140A8CA78 (VfAfterCallDriver.c)
+ *     VfAfterCallDriver @ 0x1409D0E84 (VfAfterCallDriver.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViErrorReport1 @ 0x1405FFB44 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405FFBC8 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x1405FFC5C (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x1405FFD00 (ViErrorReport6.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140A92074 (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140A92124 (IovUtilIsDeviceObjectMarked.c)
- *     IovpSessionDataDereference @ 0x140A9CF00 (IovpSessionDataDereference.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AA5BCC (VfIrpDatabaseEntryReleaseLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViErrorReport1 @ 0x1405A1F18 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405A1F9C (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x1405A2030 (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x1405A20D4 (ViErrorReport6.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x1409D699C (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A4C (IovUtilIsDeviceObjectMarked.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpSessionDataDereference @ 0x1409E1930 (IovpSessionDataDereference.c)
  */
 
 _UNKNOWN **__fastcall IovpCallDriver2(__int64 a1, int *a2)
@@ -30,10 +30,10 @@ _UNKNOWN **__fastcall IovpCallDriver2(__int64 a1, int *a2)
   __int64 v14; // r8
   int v15; // ecx
   __int64 v16; // rcx
-  int v17; // ecx
-  int v18; // r9d
-  __int64 v19; // rcx
-  unsigned int v20; // ecx
+  unsigned int v17; // ecx
+  int v18; // ecx
+  int v19; // r9d
+  __int64 v20; // rcx
   __int64 v21; // rcx
   int v22; // r9d
   int v23; // eax
@@ -55,80 +55,81 @@ _UNKNOWN **__fastcall IovpCallDriver2(__int64 a1, int *a2)
     *a2 = 259;
   v9 = *(_DWORD *)(a1 + 24);
   v10 = *(_QWORD **)(a1 + 160);
-  if ( (v9 & 0x20000000) == 0 || *a2 == 259 || (v9 & 0x1000000) != 0 )
-    goto LABEL_17;
-  LowerDeviceObjectWithTag = IovUtilGetLowerDeviceObjectWithTag(*(_QWORD *)(a1 + 160));
-  v12 = (void *)LowerDeviceObjectWithTag;
-  if ( (*(_DWORD *)(a1 + 24) & 0x10000000) == 0 )
+  if ( (v9 & 0x20000000) != 0 && *a2 != 259 && (v9 & 0x1000000) == 0 )
   {
+    LowerDeviceObjectWithTag = IovUtilGetLowerDeviceObjectWithTag(*(_QWORD *)(a1 + 160));
+    v12 = (void *)LowerDeviceObjectWithTag;
+    if ( (*(_DWORD *)(a1 + 24) & 0x10000000) != 0 )
+    {
+LABEL_12:
+      if ( !LowerDeviceObjectWithTag )
+        goto LABEL_19;
+      v16 = *(_QWORD *)(v10[1] + 80LL);
+      if ( v16 && *(_QWORD *)(v16 + 104) )
+        goto LABEL_17;
+      v17 = 541;
+      goto LABEL_16;
+    }
     v13 = *(_QWORD **)(a1 + 64);
     v14 = *(_QWORD *)(v13[39] + 40LL);
     if ( !v14 )
-      goto LABEL_30;
+      goto LABEL_17;
     v15 = *(_DWORD *)(v14 + 396);
     if ( (v15 & 0x10) == 0 )
     {
-      if ( (v15 & 0x10000) != 0 )
-        goto LABEL_12;
-LABEL_30:
-      if ( !v12 )
+      if ( (v15 & 0x10000) == 0 )
         goto LABEL_17;
-      goto LABEL_16;
+      goto LABEL_12;
     }
     if ( v10 == v13 )
     {
-      if ( !(unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL) )
-        goto LABEL_30;
-      v20 = 545;
-    }
-    else
-    {
-      if ( (unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL) || !(unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL) )
-        goto LABEL_30;
-      v20 = 547;
-    }
-    ViErrorReport10(v20, *(const void **)(a1 + 48), *(const void **)(a1 + 72), v10);
-    goto LABEL_30;
-  }
-LABEL_12:
-  if ( LowerDeviceObjectWithTag )
-  {
-    v16 = *(_QWORD *)(v10[1] + 80LL);
-    if ( !v16 || !*(_QWORD *)(v16 + 104) )
-      ViErrorReport10(0x21Du, *(const void **)(a1 + 48), *(const void **)(a1 + 72), v10);
+      if ( (unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL) )
+      {
+        v17 = 545;
 LABEL_16:
-    ObfDereferenceObjectWithTag(v12, 0x49667256u);
-  }
+        ViErrorReport10(v17, *(const void **)(a1 + 48), *(const void **)(a1 + 72), v10);
+      }
+    }
+    else if ( !(unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL)
+           && (unsigned int)IovUtilIsDeviceObjectMarked(v10, 0LL) )
+    {
+      v17 = 547;
+      goto LABEL_16;
+    }
 LABEL_17:
-  v17 = *(_DWORD *)(a1 + 24);
-  if ( (v17 & 0x40000000) == 0 || (v3[8] & 2) != 0 )
-    goto LABEL_36;
-  v18 = *a2;
-  if ( (v17 & 0x2000000) != 0 )
+    if ( v12 )
+      ObfDereferenceObjectWithTag(v12, 0x49667256u);
+  }
+LABEL_19:
+  v18 = *(_DWORD *)(a1 + 24);
+  if ( (v18 & 0x40000000) == 0 || (v3[8] & 2) != 0 )
+    goto LABEL_35;
+  v19 = *a2;
+  if ( (v18 & 0x2000000) != 0 )
   {
-    if ( v18 == 259 || (v17 & 0x1000000) != 0 )
-      goto LABEL_36;
-    v19 = 574LL;
+    if ( v19 == 259 || (v18 & 0x1000000) != 0 )
+      goto LABEL_35;
+    v20 = 574LL;
   }
   else
   {
-    if ( v18 != 259 && (v17 & 0x1000000) == 0 )
-      goto LABEL_36;
-    v19 = 588LL;
+    if ( v19 != 259 && (v18 & 0x1000000) == 0 )
+      goto LABEL_35;
+    v20 = 588LL;
   }
-  ViErrorReport6(v19, *(const void **)(a1 + 48), *(const void **)(a1 + 72), v18);
+  ViErrorReport6(v20, *(const void **)(a1 + 48), *(const void **)(a1 + 72), v19);
   v3[8] |= 2u;
-LABEL_36:
+LABEL_35:
   v21 = (unsigned int)*a2;
-  if ( _bittest((const signed __int32 *)(a1 + 24), 0x1Eu) )
+  if ( (*(_DWORD *)(a1 + 24) & 0x40000000) != 0 )
   {
     v22 = *(_DWORD *)(a1 + 56);
-    if ( (_DWORD)v21 == v22 )
+    if ( (_DWORD)v21 == v22 || (_DWORD)v21 == 259 )
     {
       if ( (_DWORD)v21 == -1 )
         ViErrorReport6(549LL, *(const void **)(a1 + 48), *(const void **)(a1 + 72), -1);
     }
-    else if ( (_DWORD)v21 != 259 )
+    else
     {
       v23 = v3[8];
       if ( (v23 & 1) == 0 )

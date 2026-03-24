@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CVisualCaptureMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02338F0
+ * XREFs of ?SetIntegerProperty@CVisualCaptureMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F3380
  * Callers:
  *     <none>
  * Callees:
@@ -15,46 +15,43 @@ __int64 __fastcall DirectComposition::CVisualCaptureMarshaler::SetIntegerPropert
 {
   unsigned int v5; // r10d
   int v6; // r8d
-  int v7; // r8d
+  bool v7; // dl
   bool v8; // dl
-  bool v9; // dl
 
   v5 = 0;
   v6 = a3 - 3;
   if ( v6 )
   {
-    v7 = v6 - 1;
-    if ( v7 )
+    if ( v6 == 1 )
     {
-      if ( v7 != 2 )
-        return (unsigned int)-1073741811;
-      if ( *((_DWORD *)this + 29) != a4 )
+      if ( *((_DWORD *)this + 25) == a4 )
       {
-        *((_DWORD *)this + 29) = a4;
-LABEL_9:
-        v8 = 1;
-LABEL_11:
-        *a5 = v8;
-        return v5;
+        v7 = 0;
       }
+      else
+      {
+        *((_DWORD *)this + 25) = a4;
+        v7 = 1;
+      }
+      *a5 = v7;
     }
-    else if ( *((_DWORD *)this + 27) != a4 )
+    else
     {
-      *((_DWORD *)this + 27) = a4;
-      goto LABEL_9;
+      return (unsigned int)-1073741811;
     }
-    v8 = 0;
-    goto LABEL_11;
-  }
-  if ( *((_DWORD *)this + 26) == a4 )
-  {
-    v9 = 0;
   }
   else
   {
-    *((_DWORD *)this + 26) = a4;
-    v9 = 1;
+    if ( *((_DWORD *)this + 24) == a4 )
+    {
+      v8 = 0;
+    }
+    else
+    {
+      *((_DWORD *)this + 24) = a4;
+      v8 = 1;
+    }
+    *a5 = v8;
   }
-  *a5 = v9;
   return v5;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUpdateDevicePanel @ 0x1406E9A3C
+ * XREFs of PiUpdateDevicePanel @ 0x1406E9A1C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _CmUpdateDevicePanel @ 0x1406E85F8 (_CmUpdateDevicePanel.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4C0 (PnpDeviceObjectToDeviceInstance.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _CmUpdateDevicePanel @ 0x1406E85D8 (_CmUpdateDevicePanel.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4A0 (PnpDeviceObjectToDeviceInstance.c)
  */
 
 __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2)

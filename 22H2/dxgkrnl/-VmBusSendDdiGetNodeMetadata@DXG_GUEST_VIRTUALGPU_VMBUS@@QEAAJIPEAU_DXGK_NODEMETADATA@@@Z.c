@@ -1,13 +1,10 @@
 /*
- * XREFs of ?VmBusSendDdiGetNodeMetadata@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z @ 0x1C03875B4
+ * XREFs of ?VmBusSendDdiGetNodeMetadata@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z @ 0x1C02481B8
  * Callers:
- *     ?DdiGetNodeMetadata@DXGADAPTER@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z @ 0x1C02132C8 (-DdiGetNodeMetadata@DXGADAPTER@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z.c)
+ *     ?DdiGetNodeMetadata@DXGADAPTER@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z @ 0x1C0187170 (-DdiGetNodeMetadata@DXGADAPTER@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDdiGetNodeMetadata(
@@ -15,68 +12,52 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDdiGetNodeMetadata(
         int a2,
         struct _DXGK_NODEMETADATA *a3)
 {
-  __int64 v6; // rax
-  int v7; // edi
-  __int128 v8; // xmm1
-  __int16 v9; // ax
-  __int128 v10; // xmm0
-  __int128 v11; // xmm1
-  unsigned int v13[4]; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v14; // [rsp+60h] [rbp-A0h] BYREF
-  int v15; // [rsp+70h] [rbp-90h]
-  _OWORD v16[4]; // [rsp+180h] [rbp+80h] BYREF
-  __int64 v17; // [rsp+1C0h] [rbp+C0h]
-  __int16 v18; // [rsp+1C8h] [rbp+C8h]
-  int v19; // [rsp+1CCh] [rbp+CCh]
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  int v6; // ebx
+  __int128 v7; // xmm1
+  __int16 v8; // ax
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  __int64 v11; // rax
+  struct _MDL *v13; // [rsp+28h] [rbp-41h]
+  unsigned int v14; // [rsp+30h] [rbp-39h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-31h] BYREF
+  int v16; // [rsp+40h] [rbp-29h]
+  int v17; // [rsp+44h] [rbp-25h]
+  int v18; // [rsp+48h] [rbp-21h]
+  int v19; // [rsp+50h] [rbp-19h]
+  _OWORD v20[4]; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v21; // [rsp+A0h] [rbp+37h]
+  __int16 v22; // [rsp+A8h] [rbp+3Fh]
+  int v23; // [rsp+ACh] [rbp+43h]
 
-  v15 = 0;
-  v14 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v14, this, 0x20u, 0LL, 0LL, 0LL);
-  v6 = v14;
-  if ( (_QWORD)v14 )
+  v15 = 0LL;
+  v16 = 0;
+  v17 = 0;
+  v19 = a2;
+  v18 = 44;
+  v14 = 80;
+  v6 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v15, 0x20u, v20, &v14, v13);
+  if ( v6 < 0 || (v6 = -1073741823, v14 < 0x50) || (v6 = v23, v23 < 0) )
   {
-    *(_QWORD *)v14 = 0LL;
-    *(_DWORD *)(v6 + 8) = 0;
-    *(_DWORD *)(v6 + 20) = 0;
-    *(_BYTE *)(v6 + 12) = 0;
-    *(_DWORD *)(v6 + 12) &= 0x1FFu;
-    *(_DWORD *)(v6 + 16) = 44;
-    *(_DWORD *)(v6 + 24) = a2;
-    v13[0] = 80;
-    v7 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v14, v16, v13);
-    if ( v7 < 0 || (v7 = -1073741823, v13[0] < 0x50) || (v7 = v19, v19 < 0) )
-    {
-      WdLogSingleEntry1(2LL, v7);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendDdiGetNodeMetadata failed: 0x%I64x",
-        v7,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    else
-    {
-      v8 = v16[1];
-      v9 = v18;
-      *(_OWORD *)&a3->EngineType = v16[0];
-      v10 = v16[2];
-      *(_OWORD *)&a3->FriendlyName[6] = v8;
-      v11 = v16[3];
-      *(_OWORD *)&a3->FriendlyName[14] = v10;
-      *(_QWORD *)&v10 = v17;
-      *(_OWORD *)&a3->FriendlyName[22] = v11;
-      *(_QWORD *)&a3->FriendlyName[30] = v10;
-      *(_WORD *)&a3->GpuMmuSupported = v9;
-    }
+    v11 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v11 + 24) = v6;
+    WdLogEvent5_WdError(v11);
   }
   else
   {
-    v7 = -1073741801;
+    v7 = v20[1];
+    v8 = v22;
+    *(_OWORD *)&a3->EngineType = v20[0];
+    v9 = v20[2];
+    *(_OWORD *)&a3->FriendlyName[6] = v7;
+    v10 = v20[3];
+    *(_OWORD *)&a3->FriendlyName[14] = v9;
+    *(_QWORD *)&v9 = v21;
+    *(_OWORD *)&a3->FriendlyName[22] = v10;
+    *(_QWORD *)&a3->FriendlyName[30] = v9;
+    *(_WORD *)&a3->GpuMmuSupported = v8;
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v14);
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

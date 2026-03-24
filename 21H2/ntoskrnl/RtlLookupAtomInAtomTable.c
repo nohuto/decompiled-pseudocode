@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlLookupAtomInAtomTable @ 0x1407A0C90
+ * XREFs of RtlLookupAtomInAtomTable @ 0x14061B580
  * Callers:
- *     NtFindAtom @ 0x1406F68C0 (NtFindAtom.c)
+ *     NtFindAtom @ 0x14061ACD0 (NtFindAtom.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlGetIntegerAtom @ 0x1407A0DF0 (RtlGetIntegerAtom.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
- *     RtlpHashStringToAtom @ 0x1407A0EE0 (RtlpHashStringToAtom.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1407A1A30 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlGetIntegerAtom @ 0x14061B6E0 (RtlGetIntegerAtom.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BA60 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpHashStringToAtom @ 0x14061BB60 (RtlpHashStringToAtom.c)
  */
 
 __int64 __fastcall RtlLookupAtomInAtomTable(__int64 a1, _WORD *a2, unsigned __int16 *a3)

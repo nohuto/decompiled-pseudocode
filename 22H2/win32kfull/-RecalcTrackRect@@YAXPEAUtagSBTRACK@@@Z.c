@@ -1,40 +1,40 @@
 /*
- * XREFs of ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02291DC
+ * XREFs of ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02442D8
  * Callers:
- *     DrawThumb2 @ 0x1C0014D68 (DrawThumb2.c)
- *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C022913C (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0229B1C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
- *     xxxTrackBox @ 0x1C022B3F0 (xxxTrackBox.c)
- *     xxxTrackThumb @ 0x1C022B560 (xxxTrackThumb.c)
+ *     DrawThumb2 @ 0x1C0157C84 (DrawThumb2.c)
+ *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C0244238 (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0244C54 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxTrackBox @ 0x1C0246580 (xxxTrackBox.c)
+ *     xxxTrackThumb @ 0x1C02466F0 (xxxTrackThumb.c)
  * Callees:
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0228A60 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0243B98 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
  */
 
 void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
 {
-  unsigned int v1; // r8d
-  __int128 *v3; // rcx
-  __int128 *v4; // rdx
-  _DWORD *v5; // r8
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // eax
-  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v1; // eax
+  __int128 *v3; // r8
+  __int128 *v4; // rcx
+  _DWORD *v5; // rdx
+  int v6; // r8d
+  int v7; // eax
+  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = *(_DWORD *)a1;
-  v11 = 0LL;
+  v8 = 0LL;
   if ( (v1 & 4) == 0 )
-    CalcSBStuff(*((_QWORD *)a1 + 1), *((_QWORD *)a1 + 12), (v1 >> 1) & 1);
-  v3 = &v11;
-  v4 = (__int128 *)((char *)&v11 + 4);
-  if ( (*(_DWORD *)a1 & 2) == 0 )
   {
-    v3 = (__int128 *)((char *)&v11 + 4);
-    v4 = &v11;
+    CalcSBStuff(*((_QWORD *)a1 + 1), *((int **)a1 + 12), (v1 >> 1) & 1);
+    v1 = *(_DWORD *)a1;
+  }
+  v3 = &v8;
+  v4 = (__int128 *)((char *)&v8 + 4);
+  if ( (v1 & 2) == 0 )
+  {
+    v3 = (__int128 *)((char *)&v8 + 4);
+    v4 = &v8;
   }
   v5 = (_DWORD *)*((_QWORD *)a1 + 12);
   *(_DWORD *)v3 = v5[6];
@@ -44,34 +44,40 @@ void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
   *((_DWORD *)v4 + 2) = v5[5];
   if ( !v6 )
   {
-    v10 = v5[9];
-    goto LABEL_15;
+    v6 = 0;
+    *((_DWORD *)v4 + 2) = v5[9];
+    goto LABEL_16;
   }
-  v7 = v6 - 1;
-  if ( !v7 )
+  if ( v6 == 1 )
   {
     *(_DWORD *)v4 = v5[10];
-    goto LABEL_16;
   }
-  v8 = v7 - 1;
-  if ( !v8 )
+  else
   {
-    *(_DWORD *)v4 = v5[9];
-    v10 = v5[13];
-    goto LABEL_15;
-  }
-  v9 = v8 - 1;
-  if ( !v9 )
-  {
-    *(_DWORD *)v4 = v5[12];
-    v10 = v5[10];
-LABEL_15:
-    *((_DWORD *)v4 + 2) = v10;
-    goto LABEL_16;
-  }
-  if ( v9 == 1 )
-    CalcTrackDragRect(a1);
+    if ( v6 == 2 )
+    {
+      *(_DWORD *)v4 = v5[9];
+      v7 = v5[13];
+    }
+    else
+    {
+      if ( v6 != 3 )
+      {
+        if ( v6 == 4 )
+        {
+          CalcTrackDragRect(a1);
+          v6 = *((_DWORD *)a1 + 14);
+        }
 LABEL_16:
-  if ( *((_DWORD *)a1 + 14) != 4 )
-    *((_OWORD *)a1 + 2) = v11;
+        if ( v6 == 4 )
+          return;
+        goto LABEL_17;
+      }
+      *(_DWORD *)v4 = v5[12];
+      v7 = v5[10];
+    }
+    *((_DWORD *)v4 + 2) = v7;
+  }
+LABEL_17:
+  *((_OWORD *)a1 + 2) = v8;
 }

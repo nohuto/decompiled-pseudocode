@@ -1,20 +1,31 @@
 /*
- * XREFs of ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1800B10FC
+ * XREFs of ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1802115D8
  * Callers:
- *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000D184 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B1068 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
- *     ?CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x18011B59C (-CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV-$TMi.c)
+ *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180013B98 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
  * Callees:
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B11AC (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     <none>
  */
 
 void __fastcall CMILMatrix::Set2DScaleAndOffset(CMILMatrix *this, float a2, float a3, float a4, float a5)
 {
-  char v6; // al
+  char v5; // al
 
-  CMILMatrix::Set2DAffineMatrix(this, a2, 0.0, 0.0, a3, a4, a5);
-  v6 = *((_BYTE *)this + 64) & 0x3F | 0x40;
-  *((_BYTE *)this + 65) |= 3u;
-  *((_BYTE *)this + 64) = v6;
+  *(float *)this = a2;
+  *((float *)this + 13) = a5;
+  *((float *)this + 12) = a4;
+  *(_QWORD *)((char *)this + 60) = 1065353216LL;
+  *((float *)this + 5) = a3;
+  *(_QWORD *)((char *)this + 4) = 0LL;
+  *(_QWORD *)((char *)this + 12) = 0LL;
+  *((_QWORD *)this + 3) = 0LL;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 5) = 1065353216LL;
+  *((_DWORD *)this + 14) = 0;
+  *((_WORD *)this + 32) = 32064;
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2 - 1.0) & _xmm) >= 0.000081380211
+    || (v5 = 84, COERCE_FLOAT(COERCE_UNSIGNED_INT(a3 - 1.0) & _xmm) >= 0.000081380211) )
+  {
+    v5 = 124;
+  }
+  *((_BYTE *)this + 64) = v5;
 }

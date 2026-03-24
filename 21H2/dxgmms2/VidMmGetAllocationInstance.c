@@ -1,12 +1,12 @@
 /*
- * XREFs of VidMmGetAllocationInstance @ 0x1C0018F40
+ * XREFs of VidMmGetAllocationInstance @ 0x1C0016190
  * Callers:
  *     <none>
  * Callees:
- *     ?GetAllocationInstance@VIDMM_GLOBAL@@QEAAKPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B8D14 (-GetAllocationInstance@VIDMM_GLOBAL@@QEAAKPEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ *     ?ValidateApertureUnmapToDummyPage@VIDMM_SEGMENT@@UEAAJPEAV1@_K@Z @ 0x1C008B8A0 (-ValidateApertureUnmapToDummyPage@VIDMM_SEGMENT@@UEAAJPEAV1@_K@Z.c)
  */
 
-unsigned int __fastcall VidMmGetAllocationInstance(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_ALLOC *a2)
+__int64 __fastcall VidMmGetAllocationInstance(VIDMM_SEGMENT *a1, struct VIDMM_SEGMENT *a2, unsigned __int64 a3)
 {
-  return VIDMM_GLOBAL::GetAllocationInstance(a1, a2);
+  return VIDMM_SEGMENT::ValidateApertureUnmapToDummyPage(a1, a2, a3);
 }

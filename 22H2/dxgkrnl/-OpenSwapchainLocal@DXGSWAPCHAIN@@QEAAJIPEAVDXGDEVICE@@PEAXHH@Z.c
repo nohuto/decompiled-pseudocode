@@ -1,119 +1,138 @@
 /*
- * XREFs of ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C0359400
+ * XREFs of ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C02AC1E8
  * Callers:
- *     DxgkCreateSwapChain @ 0x1C035B600 (DxgkCreateSwapChain.c)
- *     DxgkOpenSwapChain @ 0x1C035C340 (DxgkOpenSwapChain.c)
+ *     DxgkCreateSwapChain @ 0x1C02ADFB0 (DxgkCreateSwapChain.c)
+ *     DxgkOpenSwapChain @ 0x1C02AEA40 (DxgkOpenSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C0357C84 (-DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C02AB07C (-DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::OpenSwapchainLocal(
         DXGSWAPCHAIN *this,
-        int a2,
+        __int64 a2,
         struct DXGDEVICE *a3,
-        __int64 a4,
+        void *a4,
         int a5,
         int a6)
 {
-  unsigned int v6; // edi
-  __int64 v11; // rcx
-  __int64 CurrentProcess; // rax
-  __int64 v14; // rcx
-  char *v15; // rbx
-  __int64 v16; // rax
-  const wchar_t *v17; // r13
-  NTSTATUS v18; // eax
-  struct _KEVENT *v19; // rcx
-  __int64 v20; // rax
+  int v8; // r12d
+  int v10; // edi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rbx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v20; // rdx
   __int64 v21; // rcx
-  PVOID Object; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v23[24]; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v22; // r8
+  __int64 v23; // r9
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  char *v26; // rsi
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // r8
+  __int64 v31; // r9
+  NTSTATUS v32; // eax
+  struct _KEVENT *v33; // rcx
+  __int64 v34; // rbx
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // r9
+  __int64 v39; // rax
+  PVOID Object; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE v41[24]; // [rsp+38h] [rbp-30h] BYREF
 
-  v6 = 0;
-  if ( !DXGPROCESS::GetCurrent((__int64)this) )
+  v8 = a2;
+  v10 = 0;
+  if ( !DXGPROCESS::GetCurrent((__int64)this, a2, (__int64)a3, (__int64)a4) )
   {
-    CurrentProcess = PsGetCurrentProcess(v11);
-    WdLogSingleEntry1(3LL, CurrentProcess);
+    v14 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+    *(_QWORD *)(v14 + 24) = PsGetCurrentProcess(v16, v15, v17, v18);
+    WdLogEvent5_WdWarning(v14);
     return 3221225485LL;
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
-  if ( *((_DWORD *)this + 12) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v41, this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v41);
+  if ( *((_DWORD *)this + 10) )
   {
-    WdLogSingleEntry1(3LL, this);
-    v6 = -1073741738;
+    v24 = WdLogNewEntry5_WdWarning(v21, v20, v22);
+    *(_QWORD *)(v24 + 24) = this;
+    WdLogEvent5_WdWarning(v24);
+    v10 = -1073741738;
   }
   else
   {
-    v15 = (char *)this + (a6 != 0 ? 144LL : 96LL);
-    if ( *((_QWORD *)v15 + 2) )
+    v26 = (char *)this + (a6 != 0 ? 136LL : 88LL);
+    if ( *((_QWORD *)v26 + 2) )
     {
-      WdLogSingleEntry2(3LL, this, a6);
-      v6 = -1073740008;
+      v27 = WdLogNewEntry5_WdWarning(v21, v20, v22);
+      *(_QWORD *)(v27 + 24) = this;
+      *(_QWORD *)(v27 + 32) = a6;
+      WdLogEvent5_WdWarning(v27);
+      v10 = -1073740008;
     }
     else
     {
-      *((_QWORD *)v15 + 2) = PsGetCurrentProcess(v14);
-      *(_DWORD *)v15 = a2;
-      if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) + 404LL) == *((_QWORD *)this + 25) )
+      *((_QWORD *)v26 + 2) = PsGetCurrentProcess(v21, v20, v22, v23);
+      *(_DWORD *)v26 = v8;
+      if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) + 316LL) == *((_QWORD *)this + 24) )
       {
-        *((_DWORD *)v15 + 6) = a5;
+        *((_DWORD *)v26 + 6) = a5;
         if ( a4 )
         {
           if ( a5 )
           {
-            a4 = 2059LL;
-            WdLogSingleEntry1(2LL, 2059LL);
-            v16 = 0LL;
-            v17 = L"We not code currently to set event once busy surface is not busy";
-            v6 = -1073741822;
+            v29 = WdLogNewEntry5_WdError(v28, v25);
+            *(_QWORD *)(v29 + 24) = 1993LL;
+            WdLogEvent5_WdError(v29);
+            v10 = -1073741822;
           }
           else
           {
             Object = 0LL;
-            v18 = ObReferenceObjectByHandle((HANDLE)a4, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-            v19 = (struct _KEVENT *)Object;
-            v6 = v18;
-            *((_QWORD *)v15 + 4) = Object;
-            if ( v18 >= 0 )
+            v32 = ObReferenceObjectByHandle(a4, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+            v33 = (struct _KEVENT *)Object;
+            v10 = v32;
+            *((_QWORD *)v26 + 4) = Object;
+            if ( v32 >= 0 )
             {
               if ( !a6 )
-                KeSetEvent(v19, 2, 0);
-              goto LABEL_17;
+                KeSetEvent(v33, 2, 0);
             }
-            v20 = PsGetCurrentProcess(v19);
-            WdLogSingleEntry2(2LL, a4, v20);
-            v17 = L"Failed to open CPU signal event 0x%I64x process 0x%I64x";
-            v16 = PsGetCurrentProcess(v21);
+            else
+            {
+              v34 = WdLogNewEntry5_WdError(v33, v25);
+              *(_QWORD *)(v34 + 24) = a4;
+              *(_QWORD *)(v34 + 32) = PsGetCurrentProcess(v36, v35, v37, v38);
+              WdLogEvent5_WdError(v34);
+            }
+            if ( v10 >= 0 )
+              goto LABEL_18;
           }
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v17, a4, v16, 0LL, 0LL, 0LL);
-          DXGSWAPCHAIN::DestroySwapchainLocalClient(this, (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v15);
+          DXGSWAPCHAIN::DestroySwapchainLocalClient(this, (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v26, v30, v31);
         }
       }
       else
       {
-        WdLogSingleEntry1(2LL, this);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"SwapChain (0x%I64x) - Attempt to open with a device that is not from the swap-chain's adapter.",
-          (__int64)this,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v6 = -1073741811;
+        v39 = WdLogNewEntry5_WdError(v28, v25);
+        *(_QWORD *)(v39 + 24) = this;
+        WdLogEvent5_WdError(v39);
+        v10 = -1073741811;
       }
     }
   }
-LABEL_17:
-  if ( v23[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
-  return v6;
+LABEL_18:
+  if ( v41[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v41, v25);
+  return (unsigned int)v10;
 }

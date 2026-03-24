@@ -1,43 +1,47 @@
 /*
- * XREFs of PopWnfFullscreenVideoCallback @ 0x1409846C0
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x1408E41A0
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
 {
   int v1; // ebx
-  unsigned int v3; // [rsp+20h] [rbp-28h] BYREF
-  int v4; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v5; // [rsp+30h] [rbp-18h] BYREF
+  int v2; // eax
+  unsigned int v4; // [rsp+20h] [rbp-28h] BYREF
+  int v5; // [rsp+28h] [rbp-20h] BYREF
+  int v6; // [rsp+30h] [rbp-18h] BYREF
 
-  v3 = 8;
-  v1 = ExQueryWnfStateData(a1, &v4, &v5, &v3);
+  v4 = 8;
+  v1 = ExQueryWnfStateData(a1, &v5, &v6, &v4);
   if ( v1 >= 0 )
   {
-    if ( v3 < 8 )
+    if ( v4 < 8 )
       return 0;
-    PpmAcquireLock(&PopFxSystemLatencyLock);
-    if ( byte_140C3D94E )
+    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
+    if ( byte_140C2338E )
     {
-      if ( (v5 & 2) != 0 )
+      v2 = v6 & 2;
+      if ( (v6 & 2) != 0 )
       {
 LABEL_9:
-        PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
+        PpmReleaseLock(&PopFxSystemLatencyLock);
         return (unsigned int)v1;
       }
     }
-    else if ( (v5 & 2) == 0 )
+    else
     {
-      goto LABEL_9;
+      v2 = v6 & 2;
+      if ( (v6 & 2) == 0 )
+        goto LABEL_9;
     }
-    byte_140C3D94E = (v5 & 2) != 0;
+    byte_140C2338E = v2 != 0;
     PoFxSendSystemLatencyUpdate();
     goto LABEL_9;
   }

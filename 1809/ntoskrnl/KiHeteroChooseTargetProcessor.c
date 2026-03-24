@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroChooseTargetProcessor @ 0x14029858C
+ * XREFs of KiHeteroChooseTargetProcessor @ 0x14029868C
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1402982B0 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x14029851C (KiGenerateHeteroSets.c)
- *     KiSelectProcessorToPreempt @ 0x1402989F4 (KiSelectProcessorToPreempt.c)
- *     KiSelectCandidateProcessor @ 0x14029D26C (KiSelectCandidateProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1402983B0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14029861C (KiGenerateHeteroSets.c)
+ *     KiSelectProcessorToPreempt @ 0x140298AF4 (KiSelectProcessorToPreempt.c)
+ *     KiSelectCandidateProcessor @ 0x14029D36C (KiSelectCandidateProcessor.c)
  */
 
 __int64 __fastcall KiHeteroChooseTargetProcessor(_QWORD *a1, __int64 a2, __int64 *a3, _DWORD *a4)

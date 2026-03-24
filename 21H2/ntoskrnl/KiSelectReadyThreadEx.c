@@ -1,67 +1,57 @@
 /*
- * XREFs of KiSelectReadyThreadEx @ 0x1402B7AE0
+ * XREFs of KiSelectReadyThreadEx @ 0x14022FEC0
  * Callers:
- *     KeYieldExecution @ 0x14029B310 (KeYieldExecution.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiSchedulerApc @ 0x1402EFA40 (KiSchedulerApc.c)
- *     KiSetPriorityThread @ 0x140344A30 (KiSetPriorityThread.c)
- *     KiRemoveBoostThread @ 0x14035B110 (KiRemoveBoostThread.c)
- *     KiSelectNextThread @ 0x14035C3FC (KiSelectNextThread.c)
- *     KiApplyForegroundBoostThread @ 0x14035CAD8 (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KiSchedulerApc @ 0x140279C00 (KiSchedulerApc.c)
+ *     KeYieldExecution @ 0x14029E1B0 (KeYieldExecution.c)
+ *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
  * Callees:
- *     KiChooseLowestRankedThread @ 0x140210224 (KiChooseLowestRankedThread.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1402103E0 (KiGetThreadEffectiveRankNonZero.c)
- *     KiSelectReadyThread @ 0x1402B4AE0 (KiSelectReadyThread.c)
- *     KiSelectLowestRankedThread @ 0x14034412C (KiSelectLowestRankedThread.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiSelectLowestRankedThread @ 0x1402571A4 (KiSelectLowestRankedThread.c)
+ *     KiChooseLowestRankedThread @ 0x1402EAFC0 (KiChooseLowestRankedThread.c)
+ *     KiSelectReadyThread @ 0x140347900 (KiSelectReadyThread.c)
  */
 
-__int64 __fastcall KiSelectReadyThreadEx(struct _KPRCB *a1, _KTHREAD *a2, __int64 a3)
+__int64 __fastcall KiSelectReadyThreadEx(struct _KPRCB *a1, _KTHREAD *a2, char a3)
 {
-  char v3; // si
-  __int64 result; // rax
-  unsigned int Priority; // eax
+  unsigned int Priority; // r10d
   _KSCHEDULING_GROUP *volatile SchedulingGroup; // rdx
-  unsigned int v9; // esi
-  signed int v10; // ecx
-  __int64 v11; // rdx
-  char v12; // r9
+  __int64 v8; // rcx
+  __int64 result; // rax
+  __int64 v10; // rdx
+  bool v11; // r9
 
-  v3 = a3;
   if ( a2 )
   {
-    Priority = a2->Priority;
     if ( a2->Priority == 31 )
-    {
       return 0LL;
-    }
-    else
+    Priority = a2->Priority;
+    if ( (a3 & 2) == 0 )
+      Priority = a2->Priority + 1;
+    SchedulingGroup = a2->SchedulingGroup;
+    if ( SchedulingGroup )
     {
-      SchedulingGroup = a2->SchedulingGroup;
-      v9 = Priority + 1;
-      if ( (a3 & 2) != 0 )
-        v9 = Priority;
-      if ( !SchedulingGroup
-        || (v11 = (__int64)SchedulingGroup + a1->ScbOffset) == 0
-        || (a1 == KeGetCurrentPrcb() || a2 != a1->CurrentThread ? (v12 = 1) : (v12 = 0),
-            !(unsigned int)KiGetThreadEffectiveRankNonZero((__int64)a2, v11, a3, v12, 0LL)) )
+      v10 = (__int64)SchedulingGroup + a1->ScbOffset;
+      if ( v10 )
       {
-        v10 = v9;
-        return KiSelectReadyThread(v10, (__int64)a1, a3);
+        v11 = a1 == KeGetCurrentPrcb() || a2 != a1->CurrentThread;
+        if ( (unsigned int)KiGetThreadEffectiveRankNonZero((_DWORD)a2, v10, a3, v11, 0LL) )
+          return KiChooseLowestRankedThread(a1, a2, Priority);
       }
-      return KiChooseLowestRankedThread(a1, a2, v9);
     }
+    v8 = Priority;
+    return KiSelectReadyThread(v8, a1);
   }
-  else
+  result = KiSelectReadyThread(1LL, a1);
+  if ( !result )
   {
-    result = KiSelectReadyThread(1, (__int64)a1, a3);
-    if ( !result )
+    result = KiSelectLowestRankedThread(a1);
+    if ( !result && (a3 & 1) == 0 )
     {
-      result = KiSelectLowestRankedThread(a1);
-      if ( !result && (v3 & 1) == 0 )
-      {
-        v10 = 0;
-        return KiSelectReadyThread(v10, (__int64)a1, a3);
-      }
+      v8 = 0LL;
+      return KiSelectReadyThread(v8, a1);
     }
   }
   return result;

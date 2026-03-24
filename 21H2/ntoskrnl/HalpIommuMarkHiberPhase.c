@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuMarkHiberPhase @ 0x140A4E6D4
+ * XREFs of HalpIommuMarkHiberPhase @ 0x140996560
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A4EB20 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x14038DBE0 (PoSetHiberRange.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)
@@ -18,7 +18,7 @@ void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)
   {
     v5 = (void (__fastcall *)(PVOID, __int64, __int64 *))i[38];
     if ( v5 )
-      v5(MemoryMap, i[2], i + 48);
+      v5(MemoryMap, i[2], i + 46);
   }
   if ( MemoryMap )
   {
@@ -27,7 +27,7 @@ void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)
     {
       PoSetHiberRange(MemoryMap, 2u, j, 0x40uLL, 0x496C6148u);
       for ( k = (PVOID *)j[6]; k != j + 6; k = (PVOID *)*k )
-        PoSetHiberRange(MemoryMap, 2u, k, 0x80uLL, 0x496C6148u);
+        PoSetHiberRange(MemoryMap, 2u, k, 0x68uLL, 0x496C6148u);
     }
   }
 }

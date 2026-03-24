@@ -1,11 +1,11 @@
 /*
- * XREFs of OSInitializeCallbacks @ 0x1C00A8170
+ * XREFs of OSInitializeCallbacks @ 0x1C00BF128
  * Callers:
- *     ACPIInitializeAMLI @ 0x1C00A92E4 (ACPIInitializeAMLI.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
  * Callees:
- *     ACPIGetCmosInterface @ 0x1C0019B00 (ACPIGetCmosInterface.c)
- *     AMLIRegEventHandler @ 0x1C0048A9C (AMLIRegEventHandler.c)
- *     RegisterOperationRegionHandler @ 0x1C008BB34 (RegisterOperationRegionHandler.c)
+ *     AMLIRegEventHandler @ 0x1C002C19C (AMLIRegEventHandler.c)
+ *     ACPIGetCmosInterface @ 0x1C002C4B0 (ACPIGetCmosInterface.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
  */
 
 __int64 OSInitializeCallbacks()
@@ -25,7 +25,6 @@ __int64 OSInitializeCallbacks()
   AMLIRegEventHandler(0x10u, 0, AcpiHandleDeviceFirmwareLock, 0LL);
   AMLIRegEventHandler(0x11u, 0, ACPIQueryDeviceLockMutexSupport, 0LL);
   AMLIRegEventHandler(0x14u, 0, AcpiNativeMethodEvalRequestHandler, 0LL);
-  RegisterOperationRegionHandler(0LL, 1, 0xBu, (__int64)PrmOpregionHandler, 0LL, &v1);
   RegisterOperationRegionHandler(0LL, 2, 2u, (__int64)PciConfigSpaceHandler, 0LL, &v1);
   RegisterOperationRegionHandler(0LL, 2, 5u, (__int64)CmosConfigSpaceHandler, 0LL, &v1);
   RegisterOperationRegionHandler(0LL, 1, 7u, (__int64)IpmiOpRegionHandler, 0LL, &v1);

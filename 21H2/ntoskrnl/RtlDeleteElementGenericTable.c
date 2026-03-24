@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteElementGenericTable @ 0x14021E9A0
+ * XREFs of RtlDeleteElementGenericTable @ 0x1402B8D50
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
- *     FindNodeOrParent @ 0x14021EEF0 (FindNodeOrParent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     FindNodeOrParent_0 @ 0x1402B8F54 (FindNodeOrParent_0.c)
+ *     RtlDelete @ 0x140359960 (RtlDelete.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
@@ -17,7 +17,7 @@ BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID B
   PRTL_SPLAY_LINKS Links; // [rsp+40h] [rbp+18h] BYREF
 
   Links = 0LL;
-  if ( (unsigned int)FindNodeOrParent(Table, Buffer, &Links) != 1 )
+  if ( (unsigned int)FindNodeOrParent_0(Table, Buffer, &Links) != 1 )
     return 0;
   v3 = Links;
   Table->TableRoot = RtlDelete(Links);

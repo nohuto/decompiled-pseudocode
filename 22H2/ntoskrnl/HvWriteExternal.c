@@ -1,133 +1,117 @@
 /*
- * XREFs of HvWriteExternal @ 0x140A20BF4
+ * XREFs of HvWriteExternal @ 0x140729E60
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
- *     CmpFileFlush @ 0x14075127C (CmpFileFlush.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetBinAddress @ 0x140AF6210 (HvpMapEntryGetBinAddress.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140AF62DC (HvpMapEntryReleaseBinAddress.c)
- *     HvpHeaderCheckSum @ 0x140AF6640 (HvpHeaderCheckSum.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
+ *     CmpFileFlush @ 0x14071CE04 (CmpFileFlush.c)
+ *     HvpHeaderCheckSum @ 0x140723C78 (HvpHeaderCheckSum.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HvWriteExternal(ULONG_PTR BugCheckParameter2)
 {
-  unsigned int v2; // edi
-  unsigned int v4; // r14d
-  int v5; // r11d
-  unsigned int v6; // r10d
+  unsigned int v1; // edi
+  unsigned int v3; // ebp
+  int v4; // r10d
+  unsigned int v5; // r8d
   __int64 CellMap; // rax
-  __int64 v8; // rcx
-  unsigned int v9; // r10d
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  int v12; // r10d
-  int v13; // r15d
-  _DWORD *Pool2; // rax
-  _DWORD *v15; // r13
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 (__fastcall *v19)(ULONG_PTR, __int64, __int128 *, __int64, _DWORD); // rax
-  int v20; // ebx
-  unsigned int v21; // ebx
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 BinAddress; // rax
-  int v25; // r13d
-  int (__fastcall *v26)(ULONG_PTR, __int64, __int128 *); // rax
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int128 v29; // [rsp+30h] [rbp-20h] BYREF
-  int v30; // [rsp+40h] [rbp-10h]
-  __int16 v31; // [rsp+80h] [rbp+30h] BYREF
+  unsigned int v7; // r8d
+  int v8; // ecx
+  int v9; // r14d
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v11; // r13
+  __int64 (__fastcall *v12)(ULONG_PTR, __int64, __int128 *, __int64, _DWORD); // rax
+  int v13; // ebx
+  unsigned int v14; // ebx
+  __int64 v15; // rax
+  unsigned __int64 v16; // rax
+  int v17; // r12d
+  int (__fastcall *v18)(ULONG_PTR, __int64, __int128 *); // rax
+  __int128 v21; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v22; // [rsp+40h] [rbp-28h]
 
-  v2 = 0;
-  v30 = 0;
-  v31 = 0;
-  v29 = 0LL;
-  HvpGetBinContextInitialize(&v31);
-  if ( !*(_QWORD *)(BugCheckParameter2 + 1560) )
+  v1 = 0;
+  v21 = 0LL;
+  v22 = 0LL;
+  if ( !*(_QWORD *)(BugCheckParameter2 + 1552) )
     return 3221225485LL;
-  v4 = *(_DWORD *)(BugCheckParameter2 + 280);
-  v5 = CmpDoFileSetSizeEx(BugCheckParameter2, 2u, v4 + 4096, 0);
-  if ( v5 >= 0 )
+  v3 = *(_DWORD *)(BugCheckParameter2 + 272);
+  v4 = CmpDoFileSetSizeEx(BugCheckParameter2, 2u, v3 + 4096, 0);
+  if ( v4 < 0 )
+    return (unsigned int)v4;
+  v5 = 0;
+  if ( v3 )
   {
-    v6 = 0;
-    if ( v4 )
+    while ( 1 )
+    {
+      CellMap = HvpGetCellMap(BugCheckParameter2, v5);
+      if ( !CellMap )
+        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v7, 0xCE4uLL);
+      v8 = *(_DWORD *)((*(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL) + 8);
+      v5 = v8 + v7;
+      if ( v5 > *(_DWORD *)(BugCheckParameter2 + 272) || (v8 & 0xFFF) != 0 )
+        break;
+      if ( v5 >= v3 )
+        goto LABEL_8;
+    }
+    return (unsigned int)-1073741492;
+  }
+LABEL_8:
+  if ( v5 < *(_DWORD *)(BugCheckParameter2 + 272) )
+    return (unsigned int)v4;
+  v9 = 4096;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolCacheAligned, 0x1000uLL, 0x20204D43u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  memmove(PoolWithTag, *(const void **)(BugCheckParameter2 + 64), 0x1000uLL);
+  v11[10] = v3;
+  v11[11] = 1;
+  v11[127] = HvpHeaderCheckSum(v11);
+  v12 = *(__int64 (__fastcall **)(ULONG_PTR, __int64, __int128 *, __int64, _DWORD))(BugCheckParameter2 + 40);
+  *((_QWORD *)&v21 + 1) = v11;
+  LODWORD(v22) = 4096;
+  v13 = v12(BugCheckParameter2, 2LL, &v21, 1LL, 0);
+  ExFreePoolWithTag(v11, 0);
+  if ( v13 >= 0 )
+  {
+    v14 = 0;
+    if ( v3 )
     {
       while ( 1 )
       {
-        CellMap = HvpGetCellMap(BugCheckParameter2, v6);
-        if ( !CellMap )
-          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v9, 0xCE0uLL);
-        v11 = *(unsigned int *)(HvpMapEntryGetBinAddress(v8, CellMap, &v31) + 8);
-        if ( (unsigned int)(v11 + v12) > *(_DWORD *)(BugCheckParameter2 + 280) || (v11 & 0xFFF) != 0 )
+        v15 = HvpGetCellMap(BugCheckParameter2, v14);
+        if ( !v15 )
+          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v14, 0xD39uLL);
+        v16 = *(_QWORD *)(v15 + 8) & 0xFFFFFFFFFFFFFFF0uLL;
+        v17 = *(_DWORD *)(v16 + 8);
+        *((_QWORD *)&v21 + 1) = v16;
+        v18 = *(int (__fastcall **)(ULONG_PTR, __int64, __int128 *))(BugCheckParameter2 + 40);
+        LODWORD(v21) = v9;
+        LODWORD(v22) = v17;
+        if ( v18(BugCheckParameter2, 2LL, &v21) < 0 )
           break;
-        HvpMapEntryReleaseBinAddress(v11, v10, &v31);
-        if ( v6 >= v4 )
-          goto LABEL_9;
+        v9 += v17;
+        v14 += v17;
+        if ( v14 >= v3 )
+          goto LABEL_15;
       }
-      return (unsigned int)-1073741492;
+      return (unsigned int)-1073741491;
     }
-LABEL_9:
-    if ( v6 >= *(_DWORD *)(BugCheckParameter2 + 280) )
+    else
     {
-      v13 = 4096;
-      Pool2 = (_DWORD *)ExAllocatePool2(264LL, 4096LL, 538987843LL);
-      v15 = Pool2;
-      if ( !Pool2 )
-        return 3221225626LL;
-      memmove(Pool2, *(const void **)(BugCheckParameter2 + 64), 0x1000uLL);
-      v15[10] = v4;
-      v15[11] = 1;
-      v15[127] = HvpHeaderCheckSum(v15, v17, v18);
-      v19 = *(__int64 (__fastcall **)(ULONG_PTR, __int64, __int128 *, __int64, _DWORD))(BugCheckParameter2 + 40);
-      *((_QWORD *)&v29 + 1) = v15;
-      v30 = 4096;
-      v20 = v19(BugCheckParameter2, 2LL, &v29, 1LL, 0);
-      ExFreePoolWithTag(v15, 0);
-      if ( v20 < 0 )
-        return 3221225805LL;
-      v21 = 0;
-      if ( v4 )
-      {
-        while ( 1 )
-        {
-          v22 = HvpGetCellMap(BugCheckParameter2, v21);
-          if ( !v22 )
-            KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v21, 0xD37uLL);
-          BinAddress = HvpMapEntryGetBinAddress(v23, v22, &v31);
-          v25 = *(_DWORD *)(BinAddress + 8);
-          *((_QWORD *)&v29 + 1) = BinAddress;
-          v26 = *(int (__fastcall **)(ULONG_PTR, __int64, __int128 *))(BugCheckParameter2 + 40);
-          LODWORD(v29) = v13;
-          v30 = v25;
-          if ( v26(BugCheckParameter2, 2LL, &v29) < 0 )
-            break;
-          HvpMapEntryReleaseBinAddress(v28, v27, &v31);
-          v13 += v25;
-          v21 += v25;
-          if ( v21 >= v4 )
-            goto LABEL_20;
-        }
+LABEL_15:
+      if ( CmpFileFlush(BugCheckParameter2, 2u) < 0 )
         return (unsigned int)-1073741491;
-      }
-      else
-      {
-LABEL_20:
-        if ( CmpFileFlush(BugCheckParameter2, 2u) < 0 )
-          return (unsigned int)-1073741491;
-        return v2;
-      }
+      return v1;
     }
   }
-  return (unsigned int)v5;
+  return 3221225805LL;
 }

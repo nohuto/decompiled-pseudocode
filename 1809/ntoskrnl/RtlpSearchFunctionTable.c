@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSearchFunctionTable @ 0x14016A324
+ * XREFs of RtlpSearchFunctionTable @ 0x14016A344
  * Callers:
- *     RtlMarkExceptionHandlingPages @ 0x140682D90 (RtlMarkExceptionHandlingPages.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140682D70 (RtlMarkExceptionHandlingPages.c)
  * Callees:
  *     <none>
  */

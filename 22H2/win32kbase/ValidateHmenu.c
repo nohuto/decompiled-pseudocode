@@ -1,29 +1,30 @@
 /*
- * XREFs of ValidateHmenu @ 0x1C00528F0
+ * XREFs of ValidateHmenu @ 0x1C00438F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     HMValidateHandle @ 0x1C0052938 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0043940 (HMValidateHandle.c)
  */
 
 __int64 __fastcall ValidateHmenu(__int64 a1)
 {
-  struct tagTHREADINFO *v2; // rax
+  __int64 ThreadWin32Thread; // rax
   __int64 v3; // rdx
-  struct tagTHREADINFO *v4; // rdi
+  __int64 v4; // rdi
   __int64 result; // rax
+  __int64 v6; // rdx
 
-  v2 = PtiCurrentShared();
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   LOBYTE(v3) = 2;
-  v4 = v2;
+  v4 = ThreadWin32Thread;
   result = HMValidateHandle(a1, v3);
   if ( result )
   {
-    if ( *(_QWORD *)(result + 24) != *((_QWORD *)v4 + 57) )
+    if ( *(_QWORD *)(result + 24) != *(_QWORD *)(v4 + 456) )
     {
-      UserSetLastError(1401LL);
+      UserSetLastError(1401LL, v6);
       return 0LL;
     }
   }

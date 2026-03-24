@@ -1,13 +1,13 @@
 /*
- * XREFs of BiTranslateSymbolicLinkFile @ 0x1408F1B80
+ * XREFs of BiTranslateSymbolicLinkFile @ 0x1408F1B60
  * Callers:
- *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x1407146A0 (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140714680 (BiGetPartitionVhdFilePathFromUnicodeString.c)
  * Callees:
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiTranslateSymbolicLink @ 0x140711FCC (BiTranslateSymbolicLink.c)
+ *     BiTranslateSymbolicLink @ 0x140711FAC (BiTranslateSymbolicLink.c)
  */
 
 __int64 __fastcall BiTranslateSymbolicLinkFile(wchar_t *SourceString, wchar_t **a2)

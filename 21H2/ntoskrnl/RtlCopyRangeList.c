@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCopyRangeList @ 0x14083A400
+ * XREFs of RtlCopyRangeList @ 0x140761200
  * Callers:
- *     ArbTestAllocation @ 0x140839900 (ArbTestAllocation.c)
- *     ArbBootAllocation @ 0x140839BE0 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x14090B4C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x14090B860 (ArbRetestAllocation.c)
- *     RtlMergeRangeLists @ 0x1409B59D0 (RtlMergeRangeLists.c)
+ *     ArbTestAllocation @ 0x140760F20 (ArbTestAllocation.c)
+ *     ArbBootAllocation @ 0x1407B3E70 (ArbBootAllocation.c)
+ *     ArbQueryConflict @ 0x1408671C0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140867550 (ArbRetestAllocation.c)
+ *     RtlMergeRangeLists @ 0x14090FDF0 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     RtlpCopyRangeListEntry @ 0x14083A490 (RtlpCopyRangeListEntry.c)
+ *     RtlpCopyRangeListEntry @ 0x140761290 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)
@@ -16,8 +16,8 @@ __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)
   __int64 *i; // rax
   __int64 *v5; // rsi
   __int64 v6; // rax
-  __int64 **v7; // rcx
-  __int64 *v8; // rax
+  _QWORD *v7; // rcx
+  _QWORD *v8; // rax
 
   if ( *(_DWORD *)(a1 + 20) )
     return 3221225485LL;
@@ -32,12 +32,12 @@ __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)
     v6 = RtlpCopyRangeListEntry(i - 5);
     if ( !v6 )
       break;
-    v7 = *(__int64 ***)(a1 + 8);
-    v8 = (__int64 *)(v6 + 40);
-    if ( *v7 != (__int64 *)a1 )
+    v7 = *(_QWORD **)(a1 + 8);
+    v8 = (_QWORD *)(v6 + 40);
+    if ( *v7 != a1 )
       __fastfail(3u);
     *v8 = a1;
-    v8[1] = (__int64)v7;
+    v8[1] = v7;
     *v7 = v8;
     *(_QWORD *)(a1 + 8) = v8;
   }

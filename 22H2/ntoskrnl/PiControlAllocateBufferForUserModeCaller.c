@@ -1,16 +1,20 @@
 /*
- * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x14022AE74
+ * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x14031BAD0
  * Callers:
- *     PiControlGetRelatedDevice @ 0x1406C9150 (PiControlGetRelatedDevice.c)
- *     PiControlGetPropertyData @ 0x140792C60 (PiControlGetPropertyData.c)
- *     PiControlQueryDeviceRelations @ 0x14084EB60 (PiControlQueryDeviceRelations.c)
+ *     PiControlGetPropertyData @ 0x140690D50 (PiControlGetPropertyData.c)
+ *     PiControlGetRelatedDevice @ 0x140690FC0 (PiControlGetRelatedDevice.c)
+ *     PiControlQueryAndRemoveDevice @ 0x1408B3740 (PiControlQueryAndRemoveDevice.c)
+ *     PiControlQueryConflictList @ 0x1408B38A0 (PiControlQueryConflictList.c)
+ *     PiControlQueryDeviceRelations @ 0x1408B3AC0 (PiControlQueryDeviceRelations.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall PiControlAllocateBufferForUserModeCaller(__int64 *a1, unsigned int a2, char a3, __int64 a4)
+__int64 __fastcall PiControlAllocateBufferForUserModeCaller(_QWORD *a1, unsigned int a2, char a3, __int64 a4)
 {
-  __int64 Pool2; // rax
+  size_t v6; // rdi
+  PVOID PoolWithQuotaTag; // rax
 
   if ( !a2 )
   {
@@ -22,7 +26,13 @@ __int64 __fastcall PiControlAllocateBufferForUserModeCaller(__int64 *a1, unsigne
     *a1 = a4;
     return 0LL;
   }
-  Pool2 = ExAllocatePool2(257LL, a2, 538996816LL);
-  *a1 = Pool2;
-  return Pool2 == 0 ? 0xC000009A : 0;
+  v6 = a2;
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, a2, 0x20207050u);
+  *a1 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
+  {
+    memset(PoolWithQuotaTag, 0, v6);
+    return 0LL;
+  }
+  return 3221225626LL;
 }

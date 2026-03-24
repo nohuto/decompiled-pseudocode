@@ -1,90 +1,101 @@
 /*
- * XREFs of ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000B40C
+ * XREFs of ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000E488
  * Callers:
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
  * Callees:
- *     zzzAttachThreadInput @ 0x1C005BB64 (zzzAttachThreadInput.c)
- *     DwmAsyncOwnerChange @ 0x1C00CCF70 (DwmAsyncOwnerChange.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     PostIAMShellHookMessage @ 0x1C00D34E8 (PostIAMShellHookMessage.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     zzzAttachThreadInput @ 0x1C00115F8 (zzzAttachThreadInput.c)
+ *     PostIAMShellHookMessageEx @ 0x1C002DAB0 (PostIAMShellHookMessageEx.c)
+ *     DwmAsyncOwnerChange @ 0x1C0035C74 (DwmAsyncOwnerChange.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
  */
 
 void __fastcall xxxHandleOwnerSwitch(struct tagWND *a1, struct tagWND *a2, struct tagWND *a3)
 {
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  unsigned __int64 v11; // rsi
-  int v12; // r12d
-  int v13; // r15d
-  unsigned __int64 v14; // rdx
-  __int64 v15; // rcx
-  void *v16; // rax
+  unsigned __int64 v8; // r14
+  int v9; // r12d
+  int v10; // r15d
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned __int64 v13; // r8
+  void *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rdx
 
-  if ( !a3 || (v6 = *((_QWORD *)a3 + 2), v7 = *((_QWORD *)a1 + 2), v6 == v7) )
+  if ( a3 )
   {
-LABEL_7:
-    if ( !a2 )
-      goto LABEL_12;
-    goto LABEL_8;
-  }
-  if ( !a2 || (v8 = *((_QWORD *)a2 + 2), v8 == v7) || v8 != v6 )
-  {
-    zzzAttachThreadInput(v7, v6, 0LL);
-    goto LABEL_7;
-  }
-LABEL_8:
-  v9 = *((_QWORD *)a2 + 2);
-  v10 = *((_QWORD *)a1 + 2);
-  if ( v9 != v10 && (!a3 || v9 != *((_QWORD *)a3 + 2)) )
-    zzzAttachThreadInput(v10, v9, 1LL);
-LABEL_12:
-  v11 = 0LL;
-  if ( a1 )
-    v11 = *(_QWORD *)a1;
-  v12 = (unsigned __int8)IsTrayWindow(a1, 1LL);
-  if ( !gpqForeground || (v13 = 1, *(struct tagWND **)(gpqForeground + 128LL) != a1) )
-    v13 = 0;
-  if ( !a3 )
-  {
-    if ( !a2 )
-      goto LABEL_30;
-    if ( v12 )
+    v15 = *((_QWORD *)a3 + 2);
+    v16 = *((_QWORD *)a1 + 2);
+    if ( v15 != v16 )
     {
-      xxxCallHook(2, v11, 0LL, 10);
-      PostShellHookMessagesEx(2uLL, v11, 0LL);
+      if ( !a2 || (v17 = *((_QWORD *)a2 + 2), v17 == v16) || v17 != v15 )
+        zzzAttachThreadInput(v16, v15, 0LL);
     }
-    v14 = v11;
-    v15 = v13 != 0 ? 25 : 28;
-    goto LABEL_29;
   }
   if ( a2 )
   {
-    if ( a3 == a2 )
-      goto LABEL_30;
-    v14 = v11;
-    if ( v13 )
-      v15 = 27LL;
-    else
-      v15 = 30LL;
-LABEL_29:
-    PostIAMShellHookMessage(v15, v14);
-    goto LABEL_30;
+    v6 = *((_QWORD *)a2 + 2);
+    v7 = *((_QWORD *)a1 + 2);
+    if ( v6 != v7 && (!a3 || v6 != *((_QWORD *)a3 + 2)) )
+      zzzAttachThreadInput(v7, v6, 1LL);
   }
-  PostIAMShellHookMessage(v13 != 0 ? 26 : 29, v11);
-  if ( v12 )
+  v8 = 0LL;
+  if ( a1 )
+    v8 = *(_QWORD *)a1;
+  v9 = IsTrayWindow(a1);
+  if ( !gpqForeground || (v10 = 1, *(struct tagWND **)(gpqForeground + 120LL) != a1) )
+    v10 = 0;
+  if ( !a3 )
   {
-    xxxCallHook(1, v11, 0LL, 10);
-    PostShellHookMessagesEx(1uLL, v11, 0LL);
+    if ( !a2 )
+      goto LABEL_17;
+    if ( v9 )
+    {
+      xxxCallHook(2, v8, 0LL, 10);
+      PostShellHookMessagesEx(2uLL, v8, 0LL);
+    }
+    v11 = 25LL;
+    v12 = *(_QWORD *)(gptiCurrent + 456LL);
+    if ( !v10 )
+      v11 = 28LL;
+    v13 = v8;
+    goto LABEL_16;
   }
-LABEL_30:
+  if ( a2 )
+  {
+    if ( a3 != a2 )
+    {
+      v13 = v8;
+      v12 = *(_QWORD *)(gptiCurrent + 456LL);
+      if ( v10 )
+        v11 = 27LL;
+      else
+        v11 = 30LL;
+LABEL_16:
+      PostIAMShellHookMessageEx(v12, v11, v13);
+    }
+  }
+  else
+  {
+    v18 = 26LL;
+    if ( !v10 )
+      v18 = 29LL;
+    PostIAMShellHookMessageEx(*(_QWORD *)(gptiCurrent + 456LL), v18, v8);
+    if ( v9 )
+    {
+      xxxCallHook(1, v8, 0LL, 10);
+      PostShellHookMessagesEx(1uLL, v8, 0LL);
+    }
+  }
+LABEL_17:
   if ( (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    v16 = (void *)ReferenceDwmApiPort();
-    DwmAsyncOwnerChange(v16);
+    v14 = (void *)ReferenceDwmApiPort();
+    DwmAsyncOwnerChange(v14);
   }
 }

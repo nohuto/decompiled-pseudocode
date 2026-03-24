@@ -1,7 +1,7 @@
 /*
- * XREFs of Simulator_UnInitializeInterface @ 0x1C00AB548
+ * XREFs of Simulator_UnInitializeInterface @ 0x1C00C08A4
  * Callers:
- *     Simulator_InitializeInterface @ 0x1C00AB2A0 (Simulator_InitializeInterface.c)
+ *     Simulator_InitializeInterface @ 0x1C00BB6C8 (Simulator_InitializeInterface.c)
  * Callees:
  *     <none>
  */

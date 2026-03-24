@@ -1,15 +1,15 @@
 /*
- * XREFs of HdlspSendStringAtBaud @ 0x140AAA418
+ * XREFs of HdlspSendStringAtBaud @ 0x1409F0350
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140AA8D9C (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
- *     HdlspEnableTerminal @ 0x140AA9594 (HdlspEnableTerminal.c)
- *     HdlspGetLine @ 0x140AA9660 (HdlspGetLine.c)
- *     HdlspPutString @ 0x140AAA178 (HdlspPutString.c)
- *     HdlspPutWideString @ 0x140AAA2B0 (HdlspPutWideString.c)
- *     HdlspSendBlueScreenInfo @ 0x140AAA374 (HdlspSendBlueScreenInfo.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
+ *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
+ *     HdlspPutString @ 0x1409F00C0 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x1409F01E8 (HdlspPutWideString.c)
+ *     HdlspSendBlueScreenInfo @ 0x1409F02AC (HdlspSendBlueScreenInfo.c)
  * Callees:
- *     InbvPortPutByte @ 0x14065461C (InbvPortPutByte.c)
+ *     InbvPortPutByte @ 0x1405C9EEC (InbvPortPutByte.c)
  */
 
 char __fastcall HdlspSendStringAtBaud(_BYTE *a1, __int64 a2, __int64 a3)

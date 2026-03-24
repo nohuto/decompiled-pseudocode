@@ -1,31 +1,31 @@
 /*
- * XREFs of ScsiUnmapRequest @ 0x1C0002F48
+ * XREFs of ScsiUnmapRequest @ 0x1C0002794
  * Callers:
- *     ScsiToNVMe @ 0x1C0004650 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     IsDeallocateSupported @ 0x1C000566C (IsDeallocateSupported.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     IsDeallocateSupported @ 0x1C0005BA8 (IsDeallocateSupported.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiUnmapRequest(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx
   __int64 SrbExtension; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // r10
-  __int64 v11; // r14
-  unsigned __int16 v12; // ax
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // r10
+  __int64 v12; // rbp
   unsigned __int16 v13; // si
   _BYTE *v14; // rcx
   __int64 v15; // rdx
-  __int64 v16; // r14
+  __int64 v16; // rbp
   __int64 v17; // r8
   __int64 v18; // r9
   unsigned __int8 v19; // cl
@@ -36,45 +36,48 @@ __int64 __fastcall ScsiUnmapRequest(__int64 a1, __int64 a2)
 
   SrbExtension = GetSrbExtension(a2);
   if ( *(_BYTE *)(v4 + 2) == 40 )
-    v6 = *(_QWORD *)(v4 + 64);
-  else
-    v6 = *(_QWORD *)(v4 + 24);
-  if ( !(unsigned __int8)IsDeallocateSupported(a1, v6) || (*(_BYTE *)(v10 + 1) & 1) != 0 )
   {
-    LOBYTE(v9) = 36;
-    LOBYTE(v8) = 5;
-    LOBYTE(v7) = 6;
-    NVMeSetSenseData(a2, v7, v8, v9);
+    v6 = *(_QWORD *)(v4 + 64);
+    v7 = 60LL;
+  }
+  else
+  {
+    v6 = *(_QWORD *)(v4 + 24);
+    v7 = 16LL;
+  }
+  if ( !(unsigned __int8)IsDeallocateSupported(a1, v4, v6, v7) || (*(_BYTE *)(v11 + 1) & 1) != 0 )
+  {
+    LOBYTE(v10) = 36;
+    LOBYTE(v9) = 5;
+    LOBYTE(v8) = 6;
+    NVMeSetSenseData(a2, v8, v9, v10);
     return 3238002694LL;
   }
-  if ( *(_DWORD *)(v9 + a2) < 0x18u )
+  if ( *(_DWORD *)(v10 + a2) < 0x18u )
   {
     v23 = -1056964604;
-LABEL_19:
-    LOBYTE(v9) = 36;
-    LOBYTE(v8) = 5;
-    LOBYTE(v7) = 21;
-    NVMeSetSenseData(a2, v7, v8, v9);
+LABEL_17:
+    LOBYTE(v10) = 36;
+    LOBYTE(v9) = 5;
+    LOBYTE(v8) = 21;
+    NVMeSetSenseData(a2, v8, v9, v10);
     return v23;
   }
-  v11 = v7 + 8;
-  BYTE1(v24) = *(_BYTE *)(v7 + 2);
-  LOBYTE(v24) = *(_BYTE *)(v7 + 3);
-  v12 = *(unsigned __int8 *)(a1 + 4147);
+  v12 = v9 + 8;
+  BYTE1(v24) = *(_BYTE *)(v9 + 2);
+  LOBYTE(v24) = *(_BYTE *)(v9 + 3);
   v13 = (unsigned __int16)v24 >> 4;
-  if ( !(_BYTE)v12 )
-    v12 = 256;
-  if ( v13 > v12 )
+  if ( (unsigned __int16)((unsigned __int16)v24 >> 4) > 0x100u )
   {
     v23 = -1056964602;
-    goto LABEL_19;
+    goto LABEL_17;
   }
   memset((void *)SrbExtension, 0, 0x1000uLL);
   if ( v13 )
   {
     v14 = (_BYTE *)(SrbExtension + 14);
     v15 = v13;
-    v16 = v11 - SrbExtension;
+    v16 = v12 - SrbExtension;
     do
     {
       v14[1] = v14[v16 - 14];

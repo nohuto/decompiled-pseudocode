@@ -1,12 +1,12 @@
 /*
- * XREFs of HviGetIptFeatures @ 0x140647C4C
+ * XREFs of HviGetIptFeatures @ 0x1405BF0D8
  * Callers:
- *     KiGetIptInfo @ 0x1403BF914 (KiGetIptInfo.c)
+ *     KiGetIptInfo @ 0x1403AD944 (KiGetIptInfo.c)
  * Callees:
- *     HviGetHypervisorFeatures @ 0x1403BF8B0 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403C0314 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140647B74 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x1405BEFF0 (HviGetHypervisorVendorAndMaxFunction.c)
  */
 
 char __fastcall HviGetIptFeatures(_DWORD *a1)

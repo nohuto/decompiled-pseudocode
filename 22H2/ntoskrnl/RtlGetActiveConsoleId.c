@@ -1,28 +1,36 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x14035E670
+ * XREFs of RtlGetActiveConsoleId @ 0x14034ADC0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x140599180 (PopPowerButtonWorkCallback.c)
- *     PoBlockConsoleSwitch @ 0x140682A78 (PoBlockConsoleSwitch.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     PfpProcessScenarioPhase @ 0x1407D3BD0 (PfpProcessScenarioPhase.c)
- *     PopNotifyConsoleUserPresent @ 0x1407D3CC4 (PopNotifyConsoleUserPresent.c)
- *     PiCMQueryRemove @ 0x14096A324 (PiCMQueryRemove.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x14034AD04 (PopGetConsoleDisplayRequestCount.c)
+ *     PopPowerButtonWorkCallback @ 0x140578790 (PopPowerButtonWorkCallback.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     PoBlockConsoleSwitch @ 0x140725A44 (PoBlockConsoleSwitch.c)
+ *     PiCMQueryRemove @ 0x14072F1D0 (PiCMQueryRemove.c)
+ *     PopNotifyConsoleUserPresent @ 0x140772DC0 (PopNotifyConsoleUserPresent.c)
+ *     PfpProcessScenarioPhase @ 0x14078CE98 (PfpProcessScenarioPhase.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+__int64 __fastcall RtlGetActiveConsoleId(__int64 a1, __int64 a2)
 {
-  __int64 CurrentServerSilo; // rax
-  _QWORD *v2; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 ThreadServerSilo; // rax
+  _QWORD *v6; // rax
 
-  if ( !PsIsCurrentThreadInServerSilo() )
+  if ( !PsIsCurrentThreadInServerSilo(a1, a2) )
     return MEMORY[0xFFFFF780000002D8];
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  if ( CurrentServerSilo )
-    v2 = *(_QWORD **)(CurrentServerSilo + 1488);
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v3, v2)
+    || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
+  {
+    v6 = &PspHostSiloGlobals;
+  }
   else
-    v2 = &PspHostSiloGlobals;
-  return *(unsigned int *)(v2[165] + 4LL);
+  {
+    v6 = *(_QWORD **)(ThreadServerSilo + 1272);
+  }
+  return *(unsigned int *)(v6[141] + 4LL);
 }

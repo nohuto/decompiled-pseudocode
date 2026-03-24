@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x14018EAD4
+ * XREFs of MiMapMdlCommon @ 0x14018EAF4
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x14018E900 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x14084C6A0 (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14018E920 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x14084C680 (MmMapLockedRestartPages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB0C (MiWriteValidPteNewPage.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiAssignInitialPageAttribute @ 0x14018D1B4 (MiAssignInitialPageAttribute.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShowBadMapper @ 0x1402A5944 (MiShowBadMapper.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiAssignInitialPageAttribute @ 0x14018D1D4 (MiAssignInitialPageAttribute.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, int a3, int a4)

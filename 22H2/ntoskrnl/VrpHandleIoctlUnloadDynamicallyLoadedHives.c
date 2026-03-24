@@ -1,134 +1,117 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14077ACF8
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C600 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14031C6B8 (PsIsThreadInSilo.c)
- *     ZwUnloadKey2 @ 0x14041E1A0 (ZwUnloadKey2.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x14077BB14 (VrpDestroyNamespaceNode.c)
- *     VrpCleanupNamespace @ 0x14077C308 (VrpCleanupNamespace.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x14025C1E8 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     ZwUnloadKey2 @ 0x1403FD360 (ZwUnloadKey2.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     VrpCleanupNamespace @ 0x1405D61B0 (VrpCleanupNamespace.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
-        ULONG_PTR *a1,
+        HANDLE *a1,
         unsigned int a2,
-        char a3,
+        KPROCESSOR_MODE a3,
         __int64 a4,
-        __int64 a5,
-        PVOID Object)
+        PVOID Object,
+        __int64 a6)
 {
-  int JobSilo; // edi
+  int JobSilo; // ebx
   int PermanentSiloContext; // eax
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v9; // r13
-  unsigned __int64 *v10; // rdi
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  __int64 v13; // rsi
-  unsigned __int64 v14; // r14
-  unsigned __int64 v15; // rcx
-  unsigned __int64 i; // rsi
-  unsigned __int64 v17; // rax
-  __int64 v18; // r15
-  char v19; // bl
-  unsigned __int64 v21; // rcx
-  _QWORD v22[3]; // [rsp+48h] [rbp-38h] BYREF
-  int v23; // [rsp+60h] [rbp-20h]
-  int v24; // [rsp+64h] [rbp-1Ch]
-  __int128 v25; // [rsp+68h] [rbp-18h]
-  unsigned __int64 v26; // [rsp+C8h] [rbp+48h] BYREF
+  __int64 v8; // rdi
+  unsigned __int64 v9; // r8
+  unsigned __int64 v10; // rbx
+  __int64 *v11; // rax
+  __int64 v12; // rsi
+  unsigned __int64 v14; // rcx
+  _DWORD v15[2]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v16; // [rsp+50h] [rbp-30h]
+  __int64 v17; // [rsp+58h] [rbp-28h]
+  int v18; // [rsp+60h] [rbp-20h]
+  int v19; // [rsp+64h] [rbp-1Ch]
+  __int128 v20; // [rsp+68h] [rbp-18h]
 
   Object = 0LL;
-  v26 = 0LL;
-  a5 = 0LL;
+  a6 = 0LL;
   if ( a2 < 8 )
-    goto LABEL_26;
-  JobSilo = ObpReferenceObjectByHandleWithTag(*a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
-  if ( JobSilo < 0 )
-    goto LABEL_21;
-  JobSilo = PsGetJobSilo((__int64)Object);
-  if ( JobSilo < 0 )
-    goto LABEL_21;
-  if ( PsIsThreadInSilo((__int64)KeGetCurrentThread(), a5) )
+    return (unsigned int)-1073741811;
+  JobSilo = ObReferenceObjectByHandleWithTag(*a1, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
+  if ( JobSilo >= 0 )
   {
-LABEL_26:
-    JobSilo = -1073741811;
-    goto LABEL_21;
-  }
-  PermanentSiloContext = PsGetPermanentSiloContext(a5, VrpSiloContextSlot, &v26);
-  JobSilo = PermanentSiloContext;
-  if ( PermanentSiloContext < 0 )
-  {
-    if ( PermanentSiloContext == -1073741275 )
-LABEL_20:
-      JobSilo = 0;
-  }
-  else
-  {
-    CurrentThread = KeGetCurrentThread();
-    v9 = (unsigned __int64 *)v26;
-    v10 = (unsigned __int64 *)(v26 + 16);
-    v11 = v26 + 16;
-    --CurrentThread->KernelApcDisable;
-    v12 = KeAbPreAcquire(v11, 0LL);
-    v13 = v12;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v10, v12, (__int64)v10);
-    if ( v13 )
-      *(_BYTE *)(v13 + 18) = 1;
-    v14 = v26;
-    if ( !*(_DWORD *)(v26 + 84) )
+    JobSilo = PsGetJobSilo((__int64)Object);
+    if ( JobSilo >= 0 )
     {
-      v15 = v9[6];
-      for ( i = 0LL; i < v15; v15 = v9[6] )
+      if ( PsIsThreadInSilo((__int64)KeGetCurrentThread(), 0LL) )
       {
-        v17 = 0LL;
-        if ( i < v15 )
+        JobSilo = -1073741811;
+      }
+      else
+      {
+        PermanentSiloContext = PsGetPermanentSiloContext(0LL, VrpSiloContextSlot, (unsigned __int64 *)&a6);
+        JobSilo = PermanentSiloContext;
+        if ( PermanentSiloContext < 0 )
         {
-          if ( !is_mul_ok(v9[5], i) || (v21 = v9[9], v17 = v21 + v9[5] * i, v17 < v21) )
-            v17 = 0LL;
-        }
-        v18 = *(_QWORD *)v17;
-        if ( *(int *)(*(_QWORD *)v17 + 56LL) < 0 )
-        {
-          v24 = 0;
-          v22[1] = 0LL;
-          v22[0] = 48LL;
-          v22[2] = v18 + 24;
-          v25 = 0LL;
-          v23 = 576;
-          ZwUnloadKey2((__int64)v22, 1LL);
-          VrpDestroyNamespaceNode(v14, v18);
+          if ( PermanentSiloContext == -1073741275 )
+LABEL_15:
+            JobSilo = 0;
         }
         else
         {
-          ++i;
+          v8 = a6;
+          VrpLockJobContextExclusive(a6);
+          if ( !*(_DWORD *)(v8 + 84) )
+          {
+            v9 = *(_QWORD *)(v8 + 48);
+            v10 = 0LL;
+            while ( v10 < v9 )
+            {
+              v11 = 0LL;
+              if ( v10 < v9 )
+              {
+                if ( !is_mul_ok(*(_QWORD *)(v8 + 40), v10)
+                  || (v14 = *(_QWORD *)(v8 + 72),
+                      v11 = (__int64 *)(v14 + *(_QWORD *)(v8 + 40) * v10),
+                      (unsigned __int64)v11 < v14) )
+                {
+                  v11 = 0LL;
+                }
+              }
+              v12 = *v11;
+              if ( *(int *)(*v11 + 56) < 0 )
+              {
+                v15[1] = 0;
+                v19 = 0;
+                v16 = 0LL;
+                v17 = v12 + 24;
+                v20 = 0LL;
+                v15[0] = 48;
+                v18 = 576;
+                ZwUnloadKey2((__int64)v15, 1LL);
+                VrpDestroyNamespaceNode(v8, v12);
+                v9 = *(_QWORD *)(v8 + 48);
+              }
+              else
+              {
+                ++v10;
+              }
+            }
+            VrpCleanupNamespace(v8);
+            VrpUnlockJobContextExclusive(v8);
+            goto LABEL_15;
+          }
+          JobSilo = -1073741738;
+          VrpUnlockJobContextExclusive(v8);
         }
       }
-      VrpCleanupNamespace(v14);
-      v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL);
-      if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
-        ExfTryToWakePushLock((volatile signed __int64 *)v10);
-      KeAbPostRelease((ULONG_PTR)v10);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      goto LABEL_20;
     }
-    JobSilo = -1073741738;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v26 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v14 + 16));
-    KeAbPostRelease(v14 + 16);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-LABEL_21:
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x52566D43u);
   return (unsigned int)JobSilo;

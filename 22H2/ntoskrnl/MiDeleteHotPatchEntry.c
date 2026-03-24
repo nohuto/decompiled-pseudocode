@@ -1,60 +1,35 @@
 /*
- * XREFs of MiDeleteHotPatchEntry @ 0x140A367C0
+ * XREFs of MiDeleteHotPatchEntry @ 0x1408C99B8
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiDeleteVadHotPatchState @ 0x140A36A4C (MiDeleteVadHotPatchState.c)
+ *     MiDeleteImageHotPatchState @ 0x1408C9B6C (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x1408CA384 (MiHotPatchImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     MiGetProcessHotPatchContext @ 0x140A37300 (MiGetProcessHotPatchContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x14061FB80 (MmUnsecureVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiDeleteHotPatchEntry(char *P)
+void __fastcall MiDeleteHotPatchEntry(UNICODE_STRING *P)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  _KPROCESS *Process; // rdi
-  void *v4; // rcx
-  __int64 ProcessHotPatchContext; // rax
-  unsigned __int64 *v6; // rdi
-  __int64 v7; // rax
-  __int64 v8; // rbp
-  _QWORD *v9; // rcx
-  PVOID *v10; // rax
-  bool v11; // zf
+  _KPROCESS *Process; // rsi
+  wchar_t *Buffer; // rdi
+  wchar_t *v4; // rcx
 
-  CurrentThread = KeGetCurrentThread();
-  Process = CurrentThread->ApcState.Process;
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 40));
-  v4 = (void *)*((_QWORD *)P + 3);
+  Process = KeGetCurrentThread()->ApcState.Process;
+  while ( 1 )
+  {
+    Buffer = P[3].Buffer;
+    if ( !Buffer )
+      break;
+    P[3].Buffer = *(wchar_t **)Buffer;
+    MmUnsecureVirtualMemory(*((HANDLE *)Buffer + 2));
+    MiUnmapViewOfSection((ULONG_PTR)Process, *((_QWORD *)Buffer + 1), 0, 0LL);
+    ExFreePoolWithTag(Buffer, 0);
+  }
+  RtlFreeAnsiString(P + 4);
+  v4 = P[2].Buffer;
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
-  if ( *(_QWORD *)P )
-  {
-    ProcessHotPatchContext = MiGetProcessHotPatchContext(Process, 0LL);
-    --CurrentThread->SpecialApcDisable;
-    v6 = (unsigned __int64 *)(ProcessHotPatchContext + 16);
-    v7 = KeAbPreAcquire(ProcessHotPatchContext + 16, 0LL);
-    v8 = v7;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
-    if ( v8 )
-      *(_BYTE *)(v8 + 18) = 1;
-    v9 = *(_QWORD **)P;
-    if ( *(char **)(*(_QWORD *)P + 8LL) != P || (v10 = (PVOID *)*((_QWORD *)P + 1), *v10 != P) )
-      __fastfail(3u);
-    *v10 = v9;
-    v9[1] = v10;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v6);
-    KeAbPostRelease((ULONG_PTR)v6);
-    v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-  }
   ExFreePoolWithTag(P, 0);
 }

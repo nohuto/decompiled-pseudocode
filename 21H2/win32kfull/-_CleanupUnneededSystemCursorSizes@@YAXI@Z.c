@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C016A77E
+ * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D40B0
  * Callers:
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C009A8A4 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01670A8 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
  * Callees:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C00A1F0C (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024D48 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
  */
 
 void __fastcall _CleanupUnneededSystemCursorSizes(int a1)

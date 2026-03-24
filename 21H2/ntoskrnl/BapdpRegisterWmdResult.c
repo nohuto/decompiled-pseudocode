@@ -1,44 +1,41 @@
 /*
- * XREFs of BapdpRegisterWmdResult @ 0x140B5421C
+ * XREFs of BapdpRegisterWmdResult @ 0x140A94488
  * Callers:
- *     BapdpProcessWmdResults @ 0x140B1BEA8 (BapdpProcessWmdResults.c)
+ *     BapdpProcessWmdResults @ 0x140A40F4C (BapdpProcessWmdResults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
-int __fastcall BapdpRegisterWmdResult(ULONG *Data)
+void __fastcall BapdpRegisterWmdResult(ULONG *Data)
 {
-  int result; // eax
-  NTSTATUS v3; // eax
-  HANDLE v4; // rcx
+  NTSTATUS v2; // eax
+  HANDLE v3; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+17h] BYREF
   ULONG Disposition; // [rsp+A0h] [rbp+67h] BYREF
-  int v8; // [rsp+A8h] [rbp+6Fh] BYREF
+  int v7; // [rsp+A8h] [rbp+6Fh] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp+77h] BYREF
   HANDLE KeyHandle; // [rsp+B8h] [rbp+7Fh] BYREF
 
-  Disposition = 0;
-  result = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   if ( Data )
   {
+    Disposition = 0;
+    *(&ObjectAttributes.Length + 1) = 0;
+    *(&ObjectAttributes.Attributes + 1) = 0;
     KeyHandle = 0LL;
     Handle = 0LL;
+    DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = &DestinationString;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-    if ( result >= 0 )
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MemoryDiagnostic");
       ObjectAttributes.RootDirectory = KeyHandle;
@@ -46,22 +43,21 @@ int __fastcall BapdpRegisterWmdResult(ULONG *Data)
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v3 = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-      v4 = KeyHandle;
-      if ( v3 >= 0 )
+      v2 = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+      v3 = KeyHandle;
+      if ( v2 >= 0 )
       {
         ZwClose(KeyHandle);
         RtlInitUnicodeString(&DestinationString, L"Results");
         if ( ZwSetValueKey(Handle, &DestinationString, 0, 3u, Data, Data[1]) >= 0 )
         {
-          v8 = 1;
+          v7 = 1;
           RtlInitUnicodeString(&DestinationString, L"RunMemDiag");
-          ZwSetValueKey(Handle, &DestinationString, 0, 4u, &v8, 4u);
+          ZwSetValueKey(Handle, &DestinationString, 0, 4u, &v7, 4u);
         }
-        v4 = Handle;
+        v3 = Handle;
       }
-      return ZwClose(v4);
+      ZwClose(v3);
     }
   }
-  return result;
 }

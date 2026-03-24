@@ -1,22 +1,20 @@
 /*
- * XREFs of AppModelFreeUnicodeString @ 0x14022020C
+ * XREFs of AppModelFreeUnicodeString @ 0x1402C9E0C
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x14069954C (KIsUnlockSettingEnabled.c)
- *     KIsSideloadingEnabled @ 0x140A0AC70 (KIsSideloadingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406B7BD8 (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x14095EFA4 (KIsSideloadingEnabled.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AppModelFreeUnicodeString(__int64 a1)
+void __fastcall AppModelFreeUnicodeString(__int64 a1)
 {
-  ULONG_PTR v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
 
-  v2 = *(_QWORD *)(a1 + 8);
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
   {
-    result = ExFreeHeapPool(v2);
+    ExFreePoolWithTag(v2, 0x4D707041u);
     *(_OWORD *)a1 = 0LL;
   }
-  return result;
 }

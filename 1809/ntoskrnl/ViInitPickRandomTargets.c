@@ -3,7 +3,7 @@
  * Callers:
  *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     VfRandomGetNumber @ 0x140925F50 (VfRandomGetNumber.c)
  */
 

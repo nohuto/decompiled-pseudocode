@@ -1,75 +1,54 @@
 /*
- * XREFs of RIMAbandonPointerDeviceFrame @ 0x1C019F6F0
+ * XREFs of RIMAbandonPointerDeviceFrame @ 0x1C0171344
  * Callers:
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C017C440 (rimAbSuppressLowerRankActivityForFrame.c)
- *     RIMSuppressAllActiveContacts @ 0x1C018C2BC (RIMSuppressAllActiveContacts.c)
- *     rimEndAllActiveContactsWorker @ 0x1C018E494 (rimEndAllActiveContactsWorker.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
- *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01A9174 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0159500 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D000 (RIMEndAllActiveContacts.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C015FB2C (RIMSuppressAllActiveContacts.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C017A474 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     rimFindHoldingFrame @ 0x1C00E1BCA (rimFindHoldingFrame.c)
- *     rimReclaimHoldingFrame @ 0x1C01A1180 (rimReclaimHoldingFrame.c)
- *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01A75A0 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     rimFindHoldingFrame @ 0x1C0008348 (rimFindHoldingFrame.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172980 (rimReclaimHoldingFrame.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C017889C (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
  */
 
-__int64 __fastcall RIMAbandonPointerDeviceFrame(__int64 a1, __int64 a2)
+_QWORD *__fastcall RIMAbandonPointerDeviceFrame(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx
-  char v4; // r8
-  __int64 result; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  char v8; // r8
+  _QWORD *result; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
 
   v2 = a2;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v4 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    v4 = 0;
-  }
-  if ( (_BYTE)a2 || v4 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      v4,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       1,
-      50,
-      (__int64)&WPP_fa356a5d835a35169fe137386a876b0b_Traceguids);
-  result = (__int64)rimFindHoldingFrame(a1, v2);
-  if ( result && *(_DWORD *)(result + 16) )
-  {
-    rimReclaimHoldingFrame(v7, v6, result);
-    result = RIMUpdatePointerDeviceStateAfterFrameCompleted(a1, v2, 0LL, 1LL);
+      51,
+      (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (result = HIDWORD(WPP_GLOBAL_Control->Timer), (result & 1) == 0)
-    || (LOBYTE(v6) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  result = rimFindHoldingFrame(a1, v2);
+  if ( result && *((_DWORD *)result + 4) )
   {
-    LOBYTE(v6) = 0;
+    rimReclaimHoldingFrame(v6, v5, result);
+    result = (_QWORD *)RIMUpdatePointerDeviceStateAfterFrameCompleted(a1, v2, 0LL, 1LL);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v8 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v8 = 0;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v5) = 5;
+      return (_QWORD *)WPP_RECORDER_SF_(
+                         WPP_GLOBAL_Control->DeviceExtension,
+                         v5,
+                         1,
+                         52,
+                         (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
+    }
   }
-  if ( (_BYTE)v6 || v8 )
-    return WPP_RECORDER_AND_TRACE_SF_(
-             WPP_GLOBAL_Control->AttachedDevice,
-             v6,
-             v8,
-             WPP_GLOBAL_Control->DeviceExtension,
-             5,
-             1,
-             51,
-             (__int64)&WPP_fa356a5d835a35169fe137386a876b0b_Traceguids);
   return result;
 }

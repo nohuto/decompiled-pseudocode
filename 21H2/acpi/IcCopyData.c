@@ -1,7 +1,7 @@
 /*
- * XREFs of IcCopyData @ 0x1C009DA5C
+ * XREFs of IcCopyData @ 0x1C00972F4
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C009D86C (AcpiIrqLibSetupSciInterrupt.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
  *     <none>
  */

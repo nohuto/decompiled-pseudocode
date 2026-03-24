@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@DXGCHANNELENDPOINTPROXY@@UEAAJXZ @ 0x1C01EA560
+ * XREFs of ?AddRef@DXGCHANNELENDPOINTPROXY@@UEAAJXZ @ 0x1C016F6B0
  * Callers:
  *     <none>
  * Callees:

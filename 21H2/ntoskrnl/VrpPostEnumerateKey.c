@@ -1,30 +1,30 @@
 /*
- * XREFs of VrpPostEnumerateKey @ 0x140691CD8
+ * XREFs of VrpPostEnumerateKey @ 0x1405D37A4
  * Callers:
- *     VrpRegistryCallback @ 0x140780EF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExGetPreviousMode @ 0x1402DFD50 (ExGetPreviousMode.c)
- *     EtwActivityIdControl @ 0x1402DFD70 (EtwActivityIdControl.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     VrpFindExactNamespaceNode @ 0x1406924F0 (VrpFindExactNamespaceNode.c)
- *     VrpUpdateKeyInformation @ 0x1406C22CC (VrpUpdateKeyInformation.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     VrpBuildKeyPath @ 0x14077FB68 (VrpBuildKeyPath.c)
- *     VrpCleanupBufferParameter @ 0x140780CC8 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x140780D00 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x140782720 (VrpProcessBufferParameter.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExGetPreviousMode @ 0x14029DFA0 (ExGetPreviousMode.c)
+ *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     VrpFindExactNamespaceNode @ 0x1405D371C (VrpFindExactNamespaceNode.c)
+ *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
+ *     VrpCleanupBufferParameter @ 0x1405D5748 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1405D57FC (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1405D5AEC (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x1405D5B84 (VrpUpdateKeyInformation.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
@@ -65,111 +65,117 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
   __int64 v37; // rcx
   int updated; // eax
   int v39; // eax
-  KPROCESSOR_MODE v40; // [rsp+40h] [rbp-198h]
-  const UNICODE_STRING *v41; // [rsp+48h] [rbp-190h] BYREF
-  __int64 v42; // [rsp+50h] [rbp-188h]
-  ULONG ResultLength; // [rsp+58h] [rbp-180h] BYREF
-  int v44; // [rsp+5Ch] [rbp-17Ch] BYREF
-  PULONG v45; // [rsp+60h] [rbp-178h] BYREF
-  HANDLE KeyHandle; // [rsp+68h] [rbp-170h] BYREF
-  __int64 v47; // [rsp+70h] [rbp-168h]
-  HANDLE v48; // [rsp+78h] [rbp-160h] BYREF
-  PVOID P; // [rsp+80h] [rbp-158h]
-  PVOID v50; // [rsp+88h] [rbp-150h]
-  unsigned __int16 *v51; // [rsp+90h] [rbp-148h] BYREF
-  UNICODE_STRING Source; // [rsp+98h] [rbp-140h] BYREF
-  UNICODE_STRING v53; // [rsp+A8h] [rbp-130h] BYREF
-  __int64 v54; // [rsp+C0h] [rbp-118h]
-  __int64 v55; // [rsp+C8h] [rbp-110h]
-  __int64 v56; // [rsp+D0h] [rbp-108h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-100h] BYREF
-  GUID ActivityId; // [rsp+108h] [rbp-D0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v59[2]; // [rsp+120h] [rbp-B8h] BYREF
-  int *v60; // [rsp+140h] [rbp-98h]
-  __int64 v61; // [rsp+148h] [rbp-90h]
-  int *v62; // [rsp+150h] [rbp-88h]
-  __int64 v63; // [rsp+158h] [rbp-80h]
-  __int64 v64; // [rsp+160h] [rbp-78h]
-  int v65; // [rsp+168h] [rbp-70h] BYREF
-  int v66; // [rsp+16Ch] [rbp-6Ch]
-  _DWORD *v67; // [rsp+170h] [rbp-68h]
-  __int64 v68; // [rsp+178h] [rbp-60h]
-  PVOID v69; // [rsp+180h] [rbp-58h]
-  _DWORD v70[2]; // [rsp+188h] [rbp-50h] BYREF
-  const UNICODE_STRING **v71; // [rsp+190h] [rbp-48h]
-  __int64 v72; // [rsp+198h] [rbp-40h]
+  KPROCESSOR_MODE v40; // [rsp+40h] [rbp-1F8h]
+  const UNICODE_STRING *v41; // [rsp+48h] [rbp-1F0h]
+  ULONG ResultLength; // [rsp+58h] [rbp-1E0h] BYREF
+  PULONG v44; // [rsp+60h] [rbp-1D8h] BYREF
+  HANDLE KeyHandle; // [rsp+68h] [rbp-1D0h] BYREF
+  int v46; // [rsp+70h] [rbp-1C8h] BYREF
+  int v47; // [rsp+74h] [rbp-1C4h] BYREF
+  NTSTATUS v48; // [rsp+78h] [rbp-1C0h] BYREF
+  __int64 v49; // [rsp+80h] [rbp-1B8h]
+  HANDLE v50; // [rsp+88h] [rbp-1B0h] BYREF
+  PVOID P; // [rsp+90h] [rbp-1A8h]
+  PVOID v52; // [rsp+98h] [rbp-1A0h]
+  unsigned __int16 *v53; // [rsp+A0h] [rbp-198h] BYREF
+  UNICODE_STRING Source; // [rsp+A8h] [rbp-190h] BYREF
+  UNICODE_STRING v55; // [rsp+B8h] [rbp-180h] BYREF
+  __int64 v56; // [rsp+D0h] [rbp-168h]
+  __int64 v57; // [rsp+D8h] [rbp-160h]
+  __int64 v58; // [rsp+E0h] [rbp-158h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+E8h] [rbp-150h] BYREF
+  GUID ActivityId; // [rsp+118h] [rbp-120h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v61; // [rsp+130h] [rbp-108h] BYREF
+  int *v62; // [rsp+150h] [rbp-E8h]
+  __int64 v63; // [rsp+158h] [rbp-E0h]
+  _DWORD *v64; // [rsp+160h] [rbp-D8h]
+  __int64 v65; // [rsp+168h] [rbp-D0h]
+  __int64 v66; // [rsp+170h] [rbp-C8h]
+  _DWORD v67[2]; // [rsp+178h] [rbp-C0h] BYREF
+  _DWORD *v68; // [rsp+180h] [rbp-B8h]
+  __int64 v69; // [rsp+188h] [rbp-B0h]
+  PVOID v70; // [rsp+190h] [rbp-A8h]
+  _DWORD v71[2]; // [rsp+198h] [rbp-A0h] BYREF
+  NTSTATUS *v72; // [rsp+1A0h] [rbp-98h]
+  __int64 v73; // [rsp+1A8h] [rbp-90h]
+  struct _EVENT_DATA_DESCRIPTOR v74; // [rsp+1B0h] [rbp-88h] BYREF
+  int *v75; // [rsp+1D0h] [rbp-68h]
+  __int64 v76; // [rsp+1D8h] [rbp-60h]
+  _DWORD *v77; // [rsp+1E0h] [rbp-58h]
+  __int64 v78; // [rsp+1E8h] [rbp-50h]
+  __int64 v79; // [rsp+1F0h] [rbp-48h]
+  _DWORD v80[2]; // [rsp+1F8h] [rbp-40h] BYREF
 
-  v42 = a2;
-  v47 = a1;
-  v54 = a2;
-  v53 = 0LL;
+  v49 = a1;
+  v56 = a2;
+  v55 = 0LL;
   Source = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   ActivityId = 0LL;
   EtwActivityIdControl(3u, &ActivityId);
-  v50 = 0LL;
+  v52 = 0LL;
   v3 = *(_QWORD *)(a1 + 40);
   v41 = (const UNICODE_STRING *)v3;
-  v55 = v3;
+  v57 = v3;
   KeyHandle = 0LL;
   v4 = *(_QWORD *)(a1 + 16);
-  v56 = v4;
-  v51 = 0LL;
+  v58 = v4;
+  v53 = 0LL;
   P = 0LL;
   AccessMode = ExGetPreviousMode();
   v40 = AccessMode;
   ResultLength = 0;
-  v45 = 0LL;
+  v44 = 0LL;
   v7 = *(_DWORD *)(a1 + 8);
-  v48 = 0LL;
-  if ( (unsigned int)dword_140C038A0 > 5 )
+  v50 = 0LL;
+  if ( (unsigned int)dword_140C02168 > 5 )
   {
-    v44 = *(_DWORD *)(v4 + 12);
-    v60 = &v44;
-    v61 = 4LL;
+    v46 = *(_DWORD *)(v4 + 12);
+    v75 = &v46;
+    v76 = 4LL;
     v8 = (__int64 *)(v3 + 16);
     if ( !*(_QWORD *)(v3 + 24) )
       v8 = &EmptyUnicodeString;
     v9 = *(unsigned __int16 *)v8;
     v10 = v8[1];
-    v62 = &v65;
-    v63 = 2LL;
-    v64 = v10;
-    v65 = v9;
-    v66 = 0;
+    v77 = v80;
+    v78 = 2LL;
+    v79 = v10;
+    v80[0] = v9;
+    v80[1] = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C038A0,
-      (unsigned __int8 *)byte_14002A5D0,
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)byte_14002405D,
       &ActivityId,
       0LL,
       5u,
-      v59);
+      &v74);
   }
   if ( v7 < 0 && v7 != -1073741789 && v7 != -2147483643 )
   {
     v11 = (const UNICODE_STRING *)v3;
 LABEL_52:
-    v23 = v42;
+    v23 = a2;
     goto LABEL_53;
   }
   LOBYTE(v5) = AccessMode;
-  v7 = VrpProcessBufferParameter(v5, *(_QWORD *)(v4 + 16), *(unsigned int *)(v4 + 24), &v51);
+  v7 = VrpProcessBufferParameter(v5, *(_QWORD *)(v4 + 16), *(unsigned int *)(v4 + 24), &v53);
   if ( v7 < 0 )
     goto LABEL_51;
-  v13 = v51;
+  v13 = v53;
   LOBYTE(v12) = AccessMode;
-  v7 = VrpOutputBufferParameter(v12, v51, *(unsigned int *)(v4 + 24), v4 + 16);
+  v7 = VrpOutputBufferParameter(v12, v53, *(unsigned int *)(v4 + 24), v4 + 16);
   if ( v7 < 0 )
     goto LABEL_51;
   LOBYTE(v14) = AccessMode;
-  v7 = VrpProcessBufferParameter(v14, *(_QWORD *)(v4 + 32), 4LL, &v45);
+  v7 = VrpProcessBufferParameter(v14, *(_QWORD *)(v4 + 32), 4LL, &v44);
   if ( v7 < 0 )
     goto LABEL_51;
   LOBYTE(v15) = AccessMode;
-  v7 = VrpOutputBufferParameter(v15, v45, 4LL, v4 + 32);
+  v7 = VrpOutputBufferParameter(v15, v44, 4LL, v4 + 32);
   if ( v7 < 0 )
     goto LABEL_51;
-  if ( AccessMode == 1 && *(int *)(v47 + 8) >= 0 )
+  if ( AccessMode == 1 && *(int *)(v49 + 8) >= 0 )
   {
     v16 = *(_DWORD *)(v4 + 12);
     if ( !v16 )
@@ -189,7 +195,7 @@ LABEL_51:
     }
   }
 LABEL_20:
-  v18 = *(_DWORD *)(v47 + 8);
+  v18 = *(_DWORD *)(v49 + 8);
   if ( v18 == -1073741789 || v18 == -2147483643 || *(_DWORD *)(v4 + 12) == 2 )
   {
     v7 = ObOpenObjectByPointer(
@@ -212,13 +218,13 @@ LABEL_20:
       v7 = -1073741670;
       goto LABEL_51;
     }
-    v50 = Pool2;
+    v52 = Pool2;
     v7 = ZwEnumerateKey(KeyHandle, *(_DWORD *)(v4 + 8), KeyBasicInformation, Pool2, ResultLength, &ResultLength);
     if ( v7 < 0 )
       goto LABEL_51;
   }
   v20 = *(_DWORD *)(v4 + 12);
-  if ( !v20 || v50 )
+  if ( !v20 || v52 )
   {
     Source.MaximumLength = v13[6];
     Source.Length = Source.MaximumLength;
@@ -236,22 +242,22 @@ LABEL_20:
     v21 = v13 + 12;
   }
   Source.Buffer = v21;
-  v7 = VrpBuildKeyPath(v41 + 1, &Source, &v53);
+  v7 = VrpBuildKeyPath(v41 + 1, &Source, &v55);
   if ( v7 < 0 )
     goto LABEL_51;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v23 = v42;
-  v24 = (signed __int64 *)(v42 + 16);
-  ExAcquirePushLockSharedEx(v42 + 16, 0LL);
-  ExactNamespaceNode = VrpFindExactNamespaceNode(v42, &v53, 0LL);
+  v23 = a2;
+  v24 = (signed __int64 *)(a2 + 16);
+  ExAcquirePushLockSharedEx(a2 + 16, 0LL);
+  ExactNamespaceNode = VrpFindExactNamespaceNode(a2, (int)&v55, 0);
   if ( !ExactNamespaceNode
     || (ObjectAttributes.Length = 48,
         ObjectAttributes.RootDirectory = 0LL,
         ObjectAttributes.Attributes = 576,
         ObjectAttributes.ObjectName = (PUNICODE_STRING)(ExactNamespaceNode + 24),
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
-        ZwOpenKey(&v48, 0xF003Fu, &ObjectAttributes) < 0) )
+        ZwOpenKey(&v50, 0xF003Fu, &ObjectAttributes) < 0) )
   {
     v7 = 0;
     v11 = v41;
@@ -261,7 +267,7 @@ LABEL_20:
   if ( _InterlockedCompareExchange64(v24, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v24);
   KeAbPostRelease((ULONG_PTR)v24);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v27 = *(_DWORD *)(v4 + 24);
   if ( v27 )
   {
@@ -281,8 +287,8 @@ LABEL_53:
     v28 = 0LL;
   }
   v29 = v28;
-  v30 = v45;
-  Key = ZwQueryKey(v48, *(KEY_INFORMATION_CLASS *)(v4 + 12), v28, *(_DWORD *)(v4 + 24), v45);
+  v30 = v44;
+  Key = ZwQueryKey(v50, *(KEY_INFORMATION_CLASS *)(v4 + 12), v28, *(_DWORD *)(v4 + 24), v44);
   v7 = Key;
   if ( Key == -1073741789 )
   {
@@ -298,7 +304,7 @@ LABEL_50:
   v37 = *(unsigned int *)(v4 + 12);
   if ( (_DWORD)v37 != 2 )
   {
-    updated = VrpUpdateKeyInformation(v37, v29, *(unsigned int *)(v4 + 24), v30, &v53, 0);
+    updated = VrpUpdateKeyInformation(v37, v29, *(unsigned int *)(v4 + 24), v30, &v55, 0);
     v7 = updated;
     if ( updated < 0 && updated != -2147483643 && updated != -1073741789 )
       goto LABEL_50;
@@ -307,12 +313,12 @@ LABEL_50:
     memmove(*(void **)(v4 + 16), v29, *(unsigned int *)(v4 + 24));
   AccessMode = v40;
   LOBYTE(v37) = v40;
-  v39 = VrpOutputBufferParameter(v37, *(_QWORD *)(v4 + 32), 4LL, &v45);
+  v39 = VrpOutputBufferParameter(v37, *(_QWORD *)(v4 + 32), 4LL, &v44);
   v11 = v41;
-  v23 = v42;
+  v23 = a2;
   if ( v39 >= 0 )
   {
-    *(_DWORD *)(v47 + 24) = v7;
+    *(_DWORD *)(v49 + 24) = v7;
     v7 = -1073740541;
   }
   else
@@ -326,54 +332,54 @@ LABEL_54:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v23 + 16), 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(v23 + 16));
     KeAbPostRelease(v23 + 16);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( v7 < 0 && (unsigned int)dword_140C038A0 > 2 )
+  if ( v7 < 0 && (unsigned int)dword_140C02168 > 2 )
   {
-    v44 = *(_DWORD *)(v4 + 12);
-    v60 = &v44;
-    v61 = 4LL;
+    v47 = *(_DWORD *)(v4 + 12);
+    v62 = &v47;
+    v63 = 4LL;
     v32 = (__int64 *)&v11[1];
     if ( !v11[1].Buffer )
       v32 = &EmptyUnicodeString;
-    v62 = &v65;
-    v63 = 2LL;
-    v64 = v32[1];
-    v65 = *(unsigned __int16 *)v32;
-    v66 = 0;
-    v33 = (PVOID *)&v53;
-    if ( !v53.Buffer )
+    v64 = v67;
+    v65 = 2LL;
+    v66 = v32[1];
+    v67[0] = *(unsigned __int16 *)v32;
+    v67[1] = 0;
+    v33 = (PVOID *)&v55;
+    if ( !v55.Buffer )
       v33 = (PVOID *)&EmptyUnicodeString;
-    v67 = v70;
-    v68 = 2LL;
-    v69 = v33[1];
-    v70[0] = *(unsigned __int16 *)v33;
-    v70[1] = 0;
-    LODWORD(v41) = v7;
-    v71 = &v41;
-    v72 = 4LL;
+    v68 = v71;
+    v69 = 2LL;
+    v70 = v33[1];
+    v71[0] = *(unsigned __int16 *)v33;
+    v71[1] = 0;
+    v48 = v7;
+    v72 = &v48;
+    v73 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C038A0,
-      (unsigned __int8 *)byte_14002A687,
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)byte_1400240AD,
       &ActivityId,
       0LL,
       8u,
-      v59);
+      &v61);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( v48 )
-    ZwClose(v48);
+  if ( v50 )
+    ZwClose(v50);
   if ( P )
     ExFreePoolWithTag(P, 0x67655256u);
-  if ( v50 )
-    ExFreePoolWithTag(v50, 0x67655256u);
-  Buffer = v53.Buffer;
-  if ( v53.Buffer )
-    ExFreePoolWithTag(v53.Buffer, 0x67655256u);
+  if ( v52 )
+    ExFreePoolWithTag(v52, 0x67655256u);
+  Buffer = v55.Buffer;
+  if ( v55.Buffer )
+    ExFreePoolWithTag(v55.Buffer, 0x67655256u);
   LOBYTE(Buffer) = AccessMode;
-  VrpCleanupBufferParameter(Buffer, &v51);
+  VrpCleanupBufferParameter(Buffer, &v53);
   LOBYTE(v35) = AccessMode;
-  VrpCleanupBufferParameter(v35, &v45);
+  VrpCleanupBufferParameter(v35, &v44);
   return (unsigned int)v7;
 }

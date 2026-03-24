@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetWorkerForData @ 0x1C002BD20
+ * XREFs of ACPIGetWorkerForData @ 0x1C002B520
  * Callers:
  *     <none>
  * Callees:
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIGetWorkerForData(__int64 a1, int a2, __int64 a3, _DWORD *a4)
@@ -35,8 +35,8 @@ void __fastcall ACPIGetWorkerForData(__int64 a1, int a2, __int64 a3, _DWORD *a4)
   a4[18] = v5;
   if ( v8 )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     FreeDataBuffs(a3, 1u);
   }
   if ( (*a4 & 0x10000000) == 0 )

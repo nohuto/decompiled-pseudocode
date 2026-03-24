@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0083510
+ * XREFs of ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0078FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C002BB4C (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
- *     ?IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C005C218 (-IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ.c)
+ *     ?IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C003BAF0 (-IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ.c)
+ *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C0050620 (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
  */
 
 void __fastcall FxPkgPdo::DeleteSymbolicLinkOverload(FxPkgPdo *this, unsigned __int8 GracefulRemove)

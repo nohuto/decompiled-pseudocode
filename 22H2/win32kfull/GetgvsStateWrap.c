@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgvsStateWrap @ 0x1C00BE770
+ * XREFs of GetgvsStateWrap @ 0x1C01374A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgvsStateWrap(__int64 a1)
+void *GetgvsStateWrap()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 23592LL;
+  return &gvs;
 }

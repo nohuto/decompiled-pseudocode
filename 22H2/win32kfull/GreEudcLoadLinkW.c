@@ -1,161 +1,146 @@
 /*
- * XREFs of GreEudcLoadLinkW @ 0x1C029E958
+ * XREFs of GreEudcLoadLinkW @ 0x1C0297780
  * Callers:
- *     NtGdiEudcLoadUnloadLink @ 0x1C02A0D00 (NtGdiEudcLoadUnloadLink.c)
+ *     NtGdiEudcLoadUnloadLink @ 0x1C02987E0 (NtGdiEudcLoadUnloadLink.c)
  * Callees:
- *     vLinkEudcPFEs @ 0x1C00827D0 (vLinkEudcPFEs.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0085D98 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00860F8 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0089BF0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
- *     ?IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0089CBC (-IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C008A8C4 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00A4C34 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
- *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C00A81E0 (vUnlinkAllEudcRFONTsAndPFEs.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     bAddFlEntry @ 0x1C0111EC0 (bAddFlEntry.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
- *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0114FA8 (--0MALLOCOBJ@@QEAA@K@Z.c)
- *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029E35C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C02A02D8 (bWriteUserSystemEUDCRegistry.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8B8 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C009FD78 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A096C (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1C50 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
+ *     vLinkEudcPFEs @ 0x1C00A3D9C (vLinkEudcPFEs.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00BB8C8 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C011E610 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029731C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029825C (bWriteUserSystemEUDCRegistry.c)
  */
 
-__int64 __fastcall GreEudcLoadLinkW(
-        unsigned __int16 *a1,
-        __int64 a2,
-        size_t *a3,
-        unsigned int a4,
-        int a5,
-        unsigned int a6)
+__int64 __fastcall GreEudcLoadLinkW(wchar_t *a1, __int64 a2, char *a3, unsigned int a4, int a5, unsigned int a6)
 {
-  __int64 v8; // rcx
-  unsigned int v9; // edi
-  __int64 v11; // r14
-  wchar_t *v12; // rbx
+  unsigned int v8; // edi
+  unsigned __int16 *v10; // rbx
   unsigned int appended; // esi
-  Gre::Base *v14; // rcx
-  __int64 v15; // r12
-  __int64 v16; // rax
-  _WORD *v17; // r13
-  struct PFE *v18; // rdx
-  __int64 v19; // r13
-  unsigned int v20; // eax
-  unsigned int v21; // ebx
-  int v22; // r8d
-  wchar_t *Src; // [rsp+48h] [rbp-39h] BYREF
-  struct PFF *v24; // [rsp+50h] [rbp-31h] BYREF
-  __int64 v25; // [rsp+58h] [rbp-29h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-21h] BYREF
-  struct PFE *v27[2]; // [rsp+68h] [rbp-19h] BYREF
-  _QWORD v28[2]; // [rsp+78h] [rbp-9h] BYREF
-  unsigned int v29; // [rsp+88h] [rbp+7h]
-  _QWORD v30[3]; // [rsp+90h] [rbp+Fh] BYREF
-  unsigned int v31; // [rsp+F0h] [rbp+6Fh] BYREF
+  __int64 v12; // r14
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // r13
+  unsigned int v16; // eax
+  unsigned int v17; // r12d
+  int v18; // r8d
+  wchar_t *Src; // [rsp+48h] [rbp-29h] BYREF
+  struct PFF *v20; // [rsp+50h] [rbp-21h] BYREF
+  __int64 v21; // [rsp+58h] [rbp-19h] BYREF
+  struct PFE *v22[2]; // [rsp+60h] [rbp-11h] BYREF
+  _QWORD v23[2]; // [rsp+70h] [rbp-1h] BYREF
+  __int64 v24; // [rsp+80h] [rbp+Fh] BYREF
+  unsigned int v25; // [rsp+90h] [rbp+1Fh]
+  unsigned int v26; // [rsp+E0h] [rbp+6Fh] BYREF
 
-  v31 = a4;
-  v9 = 0;
-  if ( (unsigned int)UmfdHostLifeTimeManager::GetSessionTextStackStatus((__int64)a1) )
+  v26 = a4;
+  v8 = 0;
+  if ( (unsigned int)UmfdHostLifeTimeManager::GetSessionTextStackStatus() )
     return 0LL;
-  v11 = *(_QWORD *)(SGDGetSessionState(v8) + 32);
-  v26 = *(_QWORD *)(v11 + 13288);
-  GreAcquireSemaphore(v26);
-  GreAcquireSemaphore(*(_QWORD *)(v11 + 13272));
-  if ( !IsConcurrentEUDCOperationInProgress((struct Gre::Full::SESSION_GLOBALS *)v11) )
+  GreAcquireSemaphore(ghsemEUDC1);
+  if ( gcEUDCCount <= 0 )
   {
     if ( a1 )
     {
-      v22 = a6;
+      v18 = a6;
       Src = 0LL;
       if ( a6 > 1 )
-        v22 = 1;
-      appended = bAddFlEntry(a1, (__int64)a3, v22, a5, &Src);
+        v18 = 1;
+      appended = bAddFlEntry(a1, a3, v18, a5, (struct _FLENTRY **)&Src);
       if ( appended && Src )
-        vLinkEudcPFEs((Gre::Base *)Src);
+        vLinkEudcPFEs((__int64)Src);
     }
     else
     {
       MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&Src, 0x20Au);
-      v12 = Src;
-      *(_OWORD *)v27 = 0LL;
+      v10 = Src;
+      *(_OWORD *)v22 = 0LL;
       appended = Src != 0LL;
       if ( Src )
       {
-        appended = bAppendSysDirectory(Src, a3);
+        appended = bAppendSysDirectory(Src, (const unsigned __int16 *)a3);
         if ( appended )
         {
-          v25 = *((_QWORD *)Gre::Base::Globals(v14) + 6);
-          GreAcquireSemaphore(v25);
-          v15 = -1LL;
-          v30[0] = *(_QWORD *)(v11 + 20272);
-          v16 = -1LL;
+          v21 = ghsemPublicPFT;
+          GreAcquireSemaphore(ghsemPublicPFT);
+          v12 = -1LL;
+          Src = (wchar_t *)gpPFTPublic;
+          v13 = -1LL;
           do
-            ++v16;
-          while ( v12[v16] );
-          if ( PUBLIC_PFTOBJ::pPFFGet((PUBLIC_PFTOBJ *)v30, v12, (int)v16 + 1, 1, 0LL, 0, 0LL, 1) )
+            ++v13;
+          while ( v10[v13] );
+          if ( PUBLIC_PFTOBJ::pPFFGet((PUBLIC_PFTOBJ *)&Src, v10, (int)v13 + 1, 1, 0LL, 0, 0LL, 1) )
           {
             appended = 0;
           }
           else
           {
-            v28[0] = v27;
-            v28[1] = 0LL;
-            v31 = 0;
-            v24 = 0LL;
-            appended = PUBLIC_PFTOBJ::bLoadAFont((PUBLIC_PFTOBJ *)v30, v12, &v31, 8u, &v24, (struct _EUDCLOAD *)v28, 0);
+            v23[0] = v22;
+            v23[1] = 0LL;
+            v26 = 0;
+            v20 = 0LL;
+            appended = PUBLIC_PFTOBJ::bLoadAFont((PUBLIC_PFTOBJ *)&Src, v10, &v26, 8u, &v20, (struct _EUDCLOAD *)v23, 0);
           }
-          SEMOBJ::vUnlock((SEMOBJ *)&v25);
+          SEMOBJ::vUnlock((SEMOBJ *)&v21);
           if ( appended )
           {
-            if ( *(_QWORD *)(v11 + 13320) || *(_QWORD *)(v11 + 13328) )
+            if ( *(_OWORD *)&gappfeSysEUDC != 0LL )
             {
-              vUnlinkAllEudcRFONTsAndPFEs(0LL);
-              bUnloadEudcFont(v11 + 13320);
+              vUnlinkAllEudcRFONTsAndPFEs(v14, 0);
+              bUnloadEudcFont((__int64)&gappfeSysEUDC);
             }
-            *(_OWORD *)(v11 + 13320) = *(_OWORD *)v27;
-            v17 = (_WORD *)(v11 + 13336);
-            wcscpy_s((wchar_t *)(v11 + 13336), 0x105uLL, v12);
-            v18 = v27[0];
-            ++*(_DWORD *)(v11 + 13896);
-            if ( !(unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)(v11 + 13864), v18, 1) )
+            *(_OWORD *)&gappfeSysEUDC = *(_OWORD *)v22;
+            wcscpy_s(Dst, 0x105uLL, v10);
+            ++dword_1C033A0B4;
+            if ( !(unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v22[0], 1) )
             {
-              v30[0] = *(_QWORD *)v27[0];
+              v23[0] = *(_QWORD *)v22[0];
               UmfdClientSideFileViewMapper::UmfdClientSideFileViewMapper(
-                (UmfdClientSideFileViewMapper *)v28,
-                (struct PFFOBJ *)v30);
-              v19 = v28[0];
-              v20 = v29;
-              if ( v29 == *(_DWORD *)(v28[0] + 36LL) )
+                (UmfdClientSideFileViewMapper *)&v24,
+                (struct PFFOBJ *)v23);
+              v15 = v24;
+              v16 = v25;
+              if ( v25 == *(_DWORD *)(v24 + 36) )
               {
-                bComputeQuickLookup((struct _QUICKLOOKUP *)(v11 + 13864), v27[0], 1);
-                v20 = v29;
+                bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v22[0], 1);
+                v16 = v25;
               }
-              v21 = 0;
-              if ( v20 )
+              v17 = 0;
+              if ( v16 )
               {
                 do
                 {
-                  if ( v21 >= *(_DWORD *)(v19 + 36) )
+                  if ( v17 >= *(_DWORD *)(v15 + 36) )
                     break;
-                  EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v19 + 200) + 8LL * v21++));
+                  EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v15 + 200) + 8LL * v17++));
                 }
-                while ( v21 < v29 );
+                while ( v17 < v25 );
               }
-              v17 = (_WORD *)(v11 + 13336);
             }
             do
-              ++v15;
-            while ( v17[v15] );
-            bWriteUserSystemEUDCRegistry(v17);
+              ++v12;
+            while ( Dst[v12] );
+            bWriteUserSystemEUDCRegistry(Dst);
           }
         }
       }
-      AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((void **)&Src);
+      if ( v10 )
+        Win32FreePool(v10);
     }
-    v9 = appended;
+    v8 = appended;
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-  GreReleaseSemaphoreInternal(*(_QWORD *)(v11 + 13272));
-  SEMOBJ::vUnlock((SEMOBJ *)&v26);
-  return v9;
+  else
+  {
+    EngSetLastError(0xA7u);
+  }
+  EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+  GreReleaseSemaphoreInternal(ghsemEUDC1);
+  return v8;
 }

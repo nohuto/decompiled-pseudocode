@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwLoadKey3 @ 0x14041C8A0
+ * XREFs of ZwLoadKey3 @ 0x1403FD500
  * Callers:
  *     <none>
  * Callees:

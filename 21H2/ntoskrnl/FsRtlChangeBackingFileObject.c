@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlChangeBackingFileObject @ 0x140248390
+ * XREFs of FsRtlChangeBackingFileObject @ 0x140394E90
  * Callers:
  *     <none>
  * Callees:
- *     CcChangeBackingFileObject @ 0x140201AC4 (CcChangeBackingFileObject.c)
- *     MmChangeSectionBackingFile @ 0x1402483DC (MmChangeSectionBackingFile.c)
+ *     MmChangeSectionBackingFile @ 0x1402C3114 (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x1404E8AE8 (CcChangeBackingFileObject.c)
  */
 
 NTSTATUS __stdcall FsRtlChangeBackingFileObject(
@@ -13,20 +13,20 @@ NTSTATUS __stdcall FsRtlChangeBackingFileObject(
         FSRTL_CHANGE_BACKING_TYPE ChangeBackingType,
         ULONG Flags)
 {
-  __int64 v4; // r8
+  int v4; // r8d
   __int32 v6; // r8d
 
   if ( Flags )
     return -1073741582;
   if ( ChangeBackingType == ChangeDataControlArea )
   {
-    v4 = 1LL;
+    v4 = 1;
     return MmChangeSectionBackingFile(CurrentFileObject, NewFileObject, v4);
   }
   v6 = ChangeBackingType - 1;
   if ( !v6 )
   {
-    v4 = 2LL;
+    v4 = 2;
     return MmChangeSectionBackingFile(CurrentFileObject, NewFileObject, v4);
   }
   if ( v6 == 1 )

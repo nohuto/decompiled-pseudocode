@@ -1,11 +1,11 @@
 /*
- * XREFs of IoReportResourceForDetection @ 0x140826100
+ * XREFs of IoReportResourceForDetection @ 0x1408260E0
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     IoReportResourceUsageInternal @ 0x1408264D8 (IoReportResourceUsageInternal.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     IoReportResourceUsageInternal @ 0x1408264B8 (IoReportResourceUsageInternal.c)
  */
 
 NTSTATUS __stdcall IoReportResourceForDetection(

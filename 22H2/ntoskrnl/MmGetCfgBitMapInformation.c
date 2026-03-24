@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetCfgBitMapInformation @ 0x1407A1C08
+ * XREFs of MmGetCfgBitMapInformation @ 0x14061204C
  * Callers:
- *     PspPrepareSystemDllInitBlock @ 0x1407A19D8 (PspPrepareSystemDllInitBlock.c)
+ *     PspPrepareSystemDllInitBlock @ 0x140611E28 (PspPrepareSystemDllInitBlock.c)
  * Callees:
  *     <none>
  */
@@ -12,16 +12,16 @@ __int64 __fastcall MmGetCfgBitMapInformation(int a1, _QWORD *a2)
   __int64 v3; // rcx
   __int64 v4; // r8
 
-  v2 = (_QWORD *)KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
+  v2 = (_QWORD *)KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8];
   if ( a1 )
   {
-    v3 = v2[57];
-    v4 = v2[58];
+    v3 = v2[59];
+    v4 = v2[60];
   }
   else
   {
-    v3 = v2[53];
-    v4 = v2[54];
+    v3 = v2[55];
+    v4 = v2[56];
   }
   *a2 = v4;
   return v3;

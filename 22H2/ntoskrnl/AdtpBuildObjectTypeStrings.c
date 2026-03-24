@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildObjectTypeStrings @ 0x140A5BDE4
+ * XREFs of AdtpBuildObjectTypeStrings @ 0x14096E7B8
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     AdtpBuildGuidString @ 0x140A5A4E0 (AdtpBuildGuidString.c)
- *     AdtpAppendString @ 0x140A5B754 (AdtpAppendString.c)
- *     AdtpAppendZString @ 0x140A5B8EC (AdtpAppendZString.c)
- *     AdtpBuildAccessesString @ 0x140A5B944 (AdtpBuildAccessesString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     AdtpBuildGuidString @ 0x14096CED0 (AdtpBuildGuidString.c)
+ *     AdtpAppendString @ 0x14096E108 (AdtpAppendString.c)
+ *     AdtpAppendZString @ 0x14096E2B0 (AdtpAppendZString.c)
+ *     AdtpBuildAccessesString @ 0x14096E308 (AdtpBuildAccessesString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildObjectTypeStrings(
@@ -43,7 +43,7 @@ __int64 __fastcall AdtpBuildObjectTypeStrings(
   v7 = a4;
   v23 = 0LL;
   LOBYTE(v26) = 0;
-  RtlInitUnicodeString(DestinationString, &word_14001EFE4);
+  RtlInitUnicodeString(DestinationString, &word_14001BDB0);
   v9 = a6;
   *a6 = 0;
   if ( !(_DWORD)v7 )
@@ -81,7 +81,7 @@ __int64 __fastcall AdtpBuildObjectTypeStrings(
     v17 = *(_WORD *)v13;
     if ( *(_WORD *)v13 >= 4u )
       v17 = 3;
-    appended = AdtpAppendZString((__int64)DestinationString, (__int64)v9, off_14000B078[v17], &v22);
+    appended = AdtpAppendZString((__int64)DestinationString, (__int64)v9, off_140009D08[v17], &v22);
     if ( appended < 0 )
       return (unsigned int)appended;
     v21[0] = 0;

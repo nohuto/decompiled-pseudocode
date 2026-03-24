@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0ptqDR2DR2DR2DR2_EtwWriteTransfer @ 0x1C002B0B6
+ * XREFs of McTemplateK0ptqDR2DR2DR2DR2_EtwWriteTransfer @ 0x1C0048794
  * Callers:
- *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C0168B54 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C01BF8F0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C0107DA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C015B3DC (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ptqDR2DR2DR2DR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -54,23 +54,23 @@ NTSTATUS McTemplateK0ptqDR2DR2DR2DR2_EtwWriteTransfer(__int64 a1, __int64 a2, __
   v30 = va_arg(va3, _QWORD);
   v31 = va_arg(va3, _QWORD);
   v32 = va_arg(va3, _QWORD);
-  v8 = 4LL;
-  v13 = 0;
   va_copy(v5, va);
-  v16 = 0;
   va_copy(v7, va1);
+  v12 = 4 * v27;
   va_copy(v9, va2);
   v11 = v29;
-  v19 = 0;
-  v22 = 0;
-  v6 = 8LL;
-  v10 = 4LL;
   v14 = v30;
   v17 = v31;
   v20 = v32;
-  v12 = 4 * v27;
+  v13 = 0;
   v15 = 4 * v27;
+  v16 = 0;
   v18 = 4 * v27;
+  v19 = 0;
   v21 = 4 * v27;
+  v22 = 0;
+  v6 = 8LL;
+  v8 = 4LL;
+  v10 = 4LL;
   return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventBlitRect, a3, 8u, &v4);
 }

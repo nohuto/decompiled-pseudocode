@@ -1,109 +1,154 @@
 /*
- * XREFs of MiSessionCreate @ 0x1407A95BC
+ * XREFs of MiSessionCreate @ 0x14078610C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MiMapProcessExecutable @ 0x1407A35A0 (MiMapProcessExecutable.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
+ *     MiMapProcessExecutable @ 0x1406FC5E0 (MiMapProcessExecutable.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiMarkSessionReferenceProcess @ 0x14032ED70 (MiMarkSessionReferenceProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiGetNewSessionId @ 0x1407A9F4C (MiGetNewSessionId.c)
- *     MiInitializeSessionGlobals @ 0x1407AA030 (MiInitializeSessionGlobals.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407AA178 (MiInitializeSystemWorkingSetList.c)
- *     MiSessionObjectCreate @ 0x1407AA29C (MiSessionObjectCreate.c)
- *     MiDereferenceSession @ 0x1407E1140 (MiDereferenceSession.c)
- *     MiFreeSessionId @ 0x140A324E4 (MiFreeSessionId.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     MiGetProcessPartition @ 0x14021AD00 (MiGetProcessPartition.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiCreateSystemWsles @ 0x140299B00 (MiCreateSystemWsles.c)
+ *     MiMakeDemandZeroPte @ 0x1402AA600 (MiMakeDemandZeroPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     ExInitializeSessionHeapManager @ 0x14039CEC4 (ExInitializeSessionHeapManager.c)
+ *     MiMakeZeroedPageTables @ 0x14039D740 (MiMakeZeroedPageTables.c)
+ *     MiDereferenceSession @ 0x140697868 (MiDereferenceSession.c)
+ *     MiSessionObjectCreate @ 0x140786384 (MiSessionObjectCreate.c)
+ *     MiInitializeSystemSpaceMap @ 0x140786650 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407866BC (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicBitmap @ 0x1407867DC (MiInitializeDynamicBitmap.c)
+ *     MiSessionCreateInternal @ 0x140786B10 (MiSessionCreateInternal.c)
+ *     MiInitializeSessionGlobals @ 0x1407873A0 (MiInitializeSessionGlobals.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 MiSessionCreate()
 {
   __int64 result; // rax
-  _KPROCESS *Process; // r15
-  _QWORD *ProcessPartition; // r14
-  unsigned __int32 NewSessionId; // eax
-  unsigned __int32 v4; // esi
-  unsigned __int64 v5; // rdi
-  _DWORD *Pool; // rax
-  __int64 v7; // rbx
-  void *CurrentServerSilo; // rax
-  LARGE_INTEGER v9; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int32 v11; // [rsp+40h] [rbp-38h]
-  int v12; // [rsp+44h] [rbp-34h]
-  __int64 *v13; // [rsp+48h] [rbp-30h] BYREF
-  int v14; // [rsp+50h] [rbp-28h]
-  int v15; // [rsp+54h] [rbp-24h]
+  _KPROCESS *Process; // rsi
+  __int64 ProcessPartition; // rbp
+  unsigned __int64 v3; // rsi
+  unsigned __int64 v4; // r13
+  __int64 v5; // rdx
+  _QWORD *PteAddress; // r14
+  __int64 v7; // rax
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // r15
+  __int64 v10; // rax
+  int v11; // edx
+  __int64 DemandZeroPte; // rdi
+  unsigned __int64 v13; // rbx
+  int v14; // r12d
+  __int64 v15; // r8
+  int v16; // ecx
+  int v17; // edx
+  unsigned __int64 v18; // rax
+  PVOID Pool; // rax
+  int v20; // ebx
+  bool v21; // zf
 
   result = MiInitializeSessionGlobals();
   if ( (int)result < 0 )
     return result;
   Process = KeGetCurrentThread()->ApcState.Process;
-  ProcessPartition = (_QWORD *)MiGetProcessPartition((__int64)Process);
-  NewSessionId = MiGetNewSessionId();
-  v4 = NewSessionId;
-  if ( NewSessionId == -1 )
-    return 3221225495LL;
-  v5 = NewSessionId != 0 ? 1024LL : 20LL;
-  if ( !(unsigned int)MiChargeResident(ProcessPartition, v5, 0LL) )
+  ProcessPartition = MiGetProcessPartition((__int64)Process);
+  result = MiSessionCreateInternal(ProcessPartition);
+  if ( (int)result < 0 )
+    return result;
+  v3 = Process[1].AffinityPadding[5];
+  v4 = v3 + 256;
+  if ( !(unsigned int)MiCreateSystemWsles()
+    || !(unsigned int)MiInitializeDynamicBitmap(v3 + 880, qword_140C4DDB0, 0x200000LL, 0LL) )
   {
-LABEL_15:
-    MiFreeSessionId(v4);
-    return 3221225495LL;
+    goto LABEL_24;
   }
-  Pool = MiAllocatePool(64, 0x340uLL, 0x7353694Du);
-  v7 = (__int64)Pool;
-  if ( !Pool )
+  *(_QWORD *)(v3 + 840) = qword_140C4CD90;
+  *(_QWORD *)(v3 + 832) = 0x10000LL;
+  PteAddress = (_QWORD *)MiGetPteAddress(qword_140C4CD90);
+  v7 = MiGetPteAddress(v5 + 0x1FFF);
+  v8 = qword_140C4CD98;
+  v9 = v7;
+  if ( !qword_140C4CD98 )
   {
-    MiReturnResident((__int64)ProcessPartition, v5);
+    v8 = ((v7 - (__int64)PteAddress) >> 3) + 1;
+    qword_140C4CD98 = v8;
+  }
+  if ( !(unsigned int)MiChargeCommit(ProcessPartition, v8, 0) )
+    goto LABEL_24;
+  if ( !(unsigned int)MiMakeZeroedPageTables((__int64)PteAddress, v9, 1u, 11) )
+  {
+    MiReturnCommit(ProcessPartition, qword_140C4CD98);
+    goto LABEL_24;
+  }
+  v10 = qword_140C4CD98 + *(_QWORD *)(v3 + 48);
+  *(_DWORD *)(v3 + 4) |= 8u;
+  *(_QWORD *)(v3 + 48) = v10;
+  DemandZeroPte = MiMakeDemandZeroPte(4);
+  if ( (unsigned __int64)PteAddress > v9 )
     goto LABEL_15;
-  }
-  Pool[2] = v4;
-  *Pool = 1;
-  Pool[18] = PsDefaultSystemLocaleId;
-  *((_QWORD *)Pool + 99) = RtlGetInterruptTimePrecise(&v9);
-  *(_WORD *)(v7 + 366) = *(_WORD *)ProcessPartition;
-  if ( _InterlockedIncrement64((volatile signed __int64 *)(ProcessPartition[25] + 32LL)) <= 1 )
-    __fastfail(0xEu);
-  *(_QWORD *)(v7 + 304) = v5;
-  *(_QWORD *)(v7 + 64) = 0LL;
-  *(_QWORD *)(v7 + 24) = v7 + 16;
-  *(_QWORD *)(v7 + 16) = v7 + 16;
-  *(_DWORD *)(v7 + 12) = 1;
-  *(_QWORD *)(v7 + 160) = _InterlockedIncrement64(&PsNextSecurityDomain);
-  CurrentServerSilo = (void *)PsGetCurrentServerSilo();
-  *(_QWORD *)(v7 + 784) = CurrentServerSilo;
-  if ( CurrentServerSilo )
+  do
   {
-    ObfReferenceObjectWithTag(CurrentServerSilo, 0x73536D4Du);
-    _InterlockedCompareExchange(
-      *((volatile signed __int32 **)PsGetServerSiloGlobals(*(_QWORD *)(v7 + 784)) + 165),
-      v4,
-      -1);
+    v13 = DemandZeroPte;
+    v14 = 0;
+    if ( !MiPteInShadowRange((unsigned __int64)PteAddress) )
+      goto LABEL_11;
+    if ( (unsigned int)MiPteHasShadow() )
+    {
+      v14 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_11;
+      v21 = (DemandZeroPte & 1) == 0;
+    }
+    else
+    {
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+        goto LABEL_11;
+      v21 = (DemandZeroPte & 1) == 0;
+    }
+    if ( !v21 )
+      v13 = DemandZeroPte | 0x8000000000000000uLL;
+LABEL_11:
+    *PteAddress = v13;
+    if ( v14 )
+      MiWritePteShadow((__int64)PteAddress, v13, v15);
+    ++PteAddress;
   }
-  MiMarkSessionReferenceProcess((__int64)Process, v7);
-  *(_BYTE *)(v7 + 376) = *(_BYTE *)(v7 + 376) & 0xF8 | 1;
-  if ( (DWORD1(PerfGlobalGroupMask) & 0x400000) != 0 )
+  while ( (unsigned __int64)PteAddress <= v9 );
+  v11 = *(_DWORD *)(v3 + 4);
+  v4 = v3 + 256;
+LABEL_15:
+  *(_DWORD *)(v3 + 4) = v11 | 0x10;
+  MiInitializeSystemWorkingSetList(ProcessPartition, v4, 1LL);
+  v16 = qword_140C4CDA0;
+  *(_QWORD *)(v3 + 56) = qword_140C4CDA0;
+  v17 = qword_140C4CDA0 - 1;
+  *(_QWORD *)(v3 + 64) = qword_140C4CDA0 + 0x1FFFFFFFFFLL;
+  result = ExInitializeSessionHeapManager(v16, v17);
+  if ( (int)result >= 0 )
   {
-    v12 = 0;
-    v15 = 0;
-    v13 = &v10;
-    v11 = v4;
-    v10 = v7;
-    v14 = 12;
-    EtwTraceKernelEvent((int)&v13, 1, 0x20400000u, 587, 4200451);
-  }
-  *(_DWORD *)(v7 + 4) |= 4u;
-  MiInitializeSystemWorkingSetList(ProcessPartition, v7 + 192, 1LL, 0LL);
-  *(_DWORD *)(v7 + 4) |= 1u;
-  if ( (int)MiSessionObjectCreate() < 0 )
+    *(_DWORD *)(v3 + 4) |= 0x80u;
+    v18 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+    *(_QWORD *)(v18 + 168) = 0LL;
+    *(_QWORD *)(v18 + 176) = 0x2000000LL;
+    *(_DWORD *)(v18 + 4) |= 4u;
+    Pool = MiAllocatePool(260, 1uLL, 0x6C6F6F50u);
+    if ( Pool )
+      ExFreePoolWithTag(Pool, 0);
+    *(_DWORD *)(v3 + 4) |= 1u;
+    if ( (unsigned int)MiInitializeSystemSpaceMap(v3 + 192) )
+    {
+      v20 = MiSessionObjectCreate();
+      if ( v20 < 0 )
+        MiDereferenceSession();
+      return (unsigned int)v20;
+    }
+LABEL_24:
     MiDereferenceSession();
-  return 0LL;
+    return 3221225626LL;
+  }
+  return result;
 }

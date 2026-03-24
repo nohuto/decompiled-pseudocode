@@ -4,8 +4,8 @@
  *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140939FB0 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot @ 0x14093A050 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

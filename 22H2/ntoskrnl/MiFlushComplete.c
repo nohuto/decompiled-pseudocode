@@ -1,51 +1,61 @@
 /*
- * XREFs of MiFlushComplete @ 0x140635ED0
+ * XREFs of MiFlushComplete @ 0x14053D0A0
  * Callers:
- *     MiIssueAsynchronousFlush @ 0x1406360C4 (MiIssueAsynchronousFlush.c)
+ *     MiIssueAsynchronousFlush @ 0x14053D228 (MiIssueAsynchronousFlush.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiUnlockMdlWritePages @ 0x1402D9B30 (MiUnlockMdlWritePages.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
- *     MiRetardMdl @ 0x14061CA30 (MiRetardMdl.c)
- *     MiFreeOverlappedFlushEntry @ 0x140636050 (MiFreeOverlappedFlushEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     MiUnlockMdlWritePages @ 0x1402A6070 (MiUnlockMdlWritePages.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402D7A34 (MiReleaseControlAreaWaiters.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402D7BB8 (MiDecrementModifiedWriteCount.c)
+ *     MiRetardMdl @ 0x140530C30 (MiRetardMdl.c)
+ *     MiFreeOverlappedFlushEntry @ 0x14053D1B4 (MiFreeOverlappedFlushEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-LONG __fastcall MiFlushComplete(__int64 a1, __int64 a2)
+LONG __fastcall MiFlushComplete(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  struct _MDL *v2; // rbx
-  __int64 *v5; // rax
+  __int64 v4; // rbx
+  __int16 v7; // cx
+  unsigned __int64 v8; // rbp
+  _QWORD *v9; // rax
   LONG result; // eax
-  __int64 v7; // rcx
+  __int64 v11; // rcx
 
-  v2 = *(struct _MDL **)(a1 + 72);
-  if ( _bittest16(&v2->MdlFlags, 9u) )
-    MiRetardMdl(*(_QWORD *)(a1 + 72));
-  if ( (v2->MdlFlags & 1) != 0 )
-    MmUnmapLockedPages(v2->MappedSystemVa, v2);
-  MiUnlockMdlWritePages(v2, (int *)a2);
+  v4 = *(_QWORD *)(a1 + 72);
+  v7 = *(_WORD *)(v4 + 10);
+  if ( (v7 & 0x200) != 0 )
+  {
+    MiRetardMdl(v4);
+    v7 = *(_WORD *)(v4 + 10);
+  }
+  v8 = v4
+     + 48
+     + 8
+     * ((*(unsigned int *)(v4 + 40) + 4095LL + (unsigned __int64)((*(_DWORD *)(v4 + 32) + *(_DWORD *)(v4 + 44)) & 0xFFF)) >> 12);
+  if ( (v7 & 1) != 0 )
+    MmUnmapLockedPages(*(PVOID *)(v4 + 24), (PMDL)v4);
+  MiUnlockMdlWritePages((_QWORD *)(v4 + 48), v8, a2, a4);
   if ( *(int *)a2 < 0 )
     *(_QWORD *)(a2 + 8) = 0LL;
-  v5 = MiDecrementModifiedWriteCount(*(_QWORD *)(a1 + 32), 0);
-  if ( v5 )
-    MiReleaseControlAreaWaiters(v5);
-  if ( v2 != (struct _MDL *)(a1 + 80) )
+  v9 = (_QWORD *)MiDecrementModifiedWriteCount(*(_QWORD *)(a1 + 32), 0);
+  if ( v9 )
+    MiReleaseControlAreaWaiters(v9);
+  if ( v4 != a1 + 80 )
   {
-    ExFreePoolWithTag(v2, 0);
+    ExFreePoolWithTag((PVOID)v4, 0);
     *(_QWORD *)(a1 + 72) = a1 + 80;
   }
   *(_QWORD *)(a1 + 16) = 0LL;
   result = KeSetEvent((PRKEVENT)(a1 + 48), 0, 0);
-  v7 = *(_QWORD *)(a1 + 40);
-  if ( v7 )
+  v11 = *(_QWORD *)(a1 + 40);
+  if ( v11 )
   {
     if ( *(int *)a2 < 0 )
-      *(_DWORD *)(v7 + 20) = *(_DWORD *)a2;
-    result = _InterlockedExchangeAdd((volatile signed __int32 *)(v7 + 16), 0xFFFFFFFF);
+      *(_DWORD *)(v11 + 20) = *(_DWORD *)a2;
+    result = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 16), 0xFFFFFFFF);
     if ( result == 1 )
-      return MiFreeOverlappedFlushEntry((PVOID)v7);
+      return MiFreeOverlappedFlushEntry((PVOID)v11);
   }
   return result;
 }

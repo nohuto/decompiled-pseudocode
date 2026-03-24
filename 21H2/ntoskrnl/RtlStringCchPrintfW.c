@@ -1,75 +1,77 @@
 /*
- * XREFs of RtlStringCchPrintfW @ 0x1402E0198
+ * XREFs of RtlStringCchPrintfW @ 0x14027F140
  * Callers:
- *     CarLiveDumpCallBack @ 0x1406054D0 (CarLiveDumpCallBack.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x14064F770 (DrvDbGetConfigurationSubKeyCallback.c)
- *     SepValidateReferencedCachedHandles @ 0x140696944 (SepValidateReferencedCachedHandles.c)
- *     RtlpInitNlsFileName @ 0x1406E9530 (RtlpInitNlsFileName.c)
- *     EtwpPsProvTraceProcess @ 0x14070AFEC (EtwpPsProvTraceProcess.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407446E0 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1407459F4 (PiDevCfgLogDeviceConfigured.c)
- *     IopBootLog @ 0x140748300 (IopBootLog.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     IoWMIOpenBlock @ 0x140784550 (IoWMIOpenBlock.c)
- *     RtlpInitNlsSectionName @ 0x14078508C (RtlpInitNlsSectionName.c)
- *     MiSessionObjectCreate @ 0x1407F385C (MiSessionObjectCreate.c)
- *     PiDevCfgResolveVariableExpression @ 0x140804350 (PiDevCfgResolveVariableExpression.c)
- *     PipMakeGloballyUniqueId @ 0x14080E438 (PipMakeGloballyUniqueId.c)
- *     IopCreateArcName @ 0x14080F068 (IopCreateArcName.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     _SysCtxOpenControlSet @ 0x140827DE0 (_SysCtxOpenControlSet.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     AslpFileQueryVersionString @ 0x140841F20 (AslpFileQueryVersionString.c)
- *     AslGuidToString @ 0x140843C1C (AslGuidToString.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     PiDrvDbRegisterNodeCallback @ 0x1408646E8 (PiDrvDbRegisterNodeCallback.c)
- *     PiDevCfgResolveVariableFormatString @ 0x14094DE60 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x14094E570 (PiDevCfgResolveVariableSwitchCase.c)
- *     IopCreateLegacyDeviceIds @ 0x140957F9C (IopCreateLegacyDeviceIds.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
- *     SepReadAndInsertCaps @ 0x1409CF26C (SepReadAndInsertCaps.c)
- *     EncloseSubCondition @ 0x1409D0360 (EncloseSubCondition.c)
- *     GetPrintableOperandValue @ 0x1409D1418 (GetPrintableOperandValue.c)
- *     LocalpGetStringForCondition @ 0x1409D3874 (LocalpGetStringForCondition.c)
- *     CMFFlushHitsFile @ 0x140A047F0 (CMFFlushHitsFile.c)
- *     CMFSystemThreadRoutine @ 0x140A05110 (CMFSystemThreadRoutine.c)
- *     SdbpCheckMatchingRegistryEntry @ 0x140A10FDC (SdbpCheckMatchingRegistryEntry.c)
- *     AslGuidToString_UStr @ 0x140A1483C (AslGuidToString_UStr.c)
- *     IopCreateArcNamesDisk @ 0x140B0E1A8 (IopCreateArcNamesDisk.c)
- *     PipInitComputerIds @ 0x140B0F20C (PipInitComputerIds.c)
- *     IopReassignSystemRoot @ 0x140B2BC5C (IopReassignSystemRoot.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x1405C6500 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     LocalpGetStringForCondition @ 0x140672DF8 (LocalpGetStringForCondition.c)
+ *     EncloseSubCondition @ 0x140673220 (EncloseSubCondition.c)
+ *     GetPrintableOperandValue @ 0x14067326C (GetPrintableOperandValue.c)
+ *     RtlpInitNlsSectionName @ 0x1406B9CB0 (RtlpInitNlsSectionName.c)
+ *     RtlpInitNlsFileName @ 0x1406B9D18 (RtlpInitNlsFileName.c)
+ *     SepValidateReferencedCachedHandles @ 0x1407182A0 (SepValidateReferencedCachedHandles.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14073A788 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x14073B090 (PiDevCfgLogDeviceConfigured.c)
+ *     IoWMIOpenBlock @ 0x14075AC90 (IoWMIOpenBlock.c)
+ *     PipMakeGloballyUniqueId @ 0x14076C400 (PipMakeGloballyUniqueId.c)
+ *     IopBootLog @ 0x140771A20 (IopBootLog.c)
+ *     IopCreateArcName @ 0x140780318 (IopCreateArcName.c)
+ *     MiSessionObjectCreate @ 0x140786484 (MiSessionObjectCreate.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
+ *     _SysCtxOpenControlSet @ 0x1407A4B24 (_SysCtxOpenControlSet.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     AslpFileQueryVersionString @ 0x1407B2E5C (AslpFileQueryVersionString.c)
+ *     AslGuidToString @ 0x1407C1FD8 (AslGuidToString.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x1407D4850 (PiDrvDbRegisterNodeCallback.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A9380 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA440 (PiDevCfgResolveVariableSwitchCase.c)
+ *     IopCreateLegacyDeviceIds @ 0x1408B23EC (IopCreateLegacyDeviceIds.c)
+ *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140914568 (RtlpGetTokenNamedObjectPath.c)
+ *     SepReadAndInsertCaps @ 0x1409259CC (SepReadAndInsertCaps.c)
+ *     CMFFlushHitsFile @ 0x140958AB0 (CMFFlushHitsFile.c)
+ *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x14096466C (SdbpCheckMatchingRegistryEntry.c)
+ *     AslGuidToString_UStr @ 0x140967730 (AslGuidToString_UStr.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     _vsnwprintf @ 0x1403E0440 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1403D1070 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlStringCchPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
-  size_t v4; // rsi
-  NTSTATUS v5; // edi
+  NTSTATUS v4; // edi
+  size_t v5; // rbx
   int v6; // eax
   va_list Args; // [rsp+78h] [rbp+20h] BYREF
 
   va_start(Args, pszFormat);
+  v4 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    v5 = -1073741811;
     if ( cchDest )
       *pszDest = 0;
   }
   else
   {
-    v4 = cchDest - 1;
-    v5 = 0;
+    v5 = cchDest - 1;
+    v4 = 0;
     v6 = vsnwprintf(pszDest, cchDest - 1, pszFormat, Args);
-    if ( v6 < 0 || v6 > v4 )
+    if ( v6 < 0 || v6 > v5 )
     {
-      v5 = -2147483643;
-      goto LABEL_5;
+      pszDest[v5] = 0;
+      return -2147483643;
     }
-    if ( v6 == v4 )
-LABEL_5:
-      pszDest[v4] = 0;
+    else if ( v6 == v5 )
+    {
+      pszDest[v5] = 0;
+    }
   }
-  return v5;
+  return v4;
 }

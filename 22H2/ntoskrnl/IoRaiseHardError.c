@@ -1,47 +1,47 @@
 /*
- * XREFs of IoRaiseHardError @ 0x140556B20
+ * XREFs of IoRaiseHardError @ 0x1405058F0
  * Callers:
- *     DifIoRaiseHardErrorWrapper @ 0x1405E0700 (DifIoRaiseHardErrorWrapper.c)
+ *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopGetThreadActiveConsoleId @ 0x140947B5C (IopGetThreadActiveConsoleId.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopGetThreadActiveConsoleId @ 0x14089431C (IopGetThreadActiveConsoleId.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall IoRaiseHardError(PIRP Irp, PVPB Vpb, PDEVICE_OBJECT RealDeviceObject)
 {
-  PVPB v4; // r13
-  bool v6; // r15
-  PETHREAD Thread; // r14
+  bool v6; // r14
+  PETHREAD Thread; // rsi
   int SessionId; // ebx
   int ThreadActiveConsoleId; // eax
   int v10; // ecx
-  char v11; // cl
-  __int64 Pool2; // rbx
+  LONG SpareLong; // ecx
+  PVOID PoolWithTag; // rbx
   bool v13; // bl
-  struct _EX_RUNDOWN_REF *p_WaitStatus; // r15
-  _DWORD *Teb; // r13
+  struct _EX_RUNDOWN_REF *p_WaitStatus; // r14
+  _DWORD *v15; // r9
+  _DWORD *Teb; // r15
   _KPROCESS *Process; // rbx
-  char v17; // r14
-  int v18; // eax
-  __int16 v19; // cx
-  struct _WORK_QUEUE_ITEM *v21; // rax
-  $115DCDF994C6370D29323EAB0E0C9502 v22; // [rsp+58h] [rbp-60h] BYREF
+  char v18; // si
+  int v19; // eax
+  unsigned __int64 v20; // rcx
+  __int16 v21; // dx
+  struct _WORK_QUEUE_ITEM *v22; // rax
+  _OWORD v23[3]; // [rsp+58h] [rbp-70h] BYREF
 
-  v4 = Vpb;
   v6 = 0;
   Thread = Irp->Tail.Overlay.Thread;
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 0x10) != 0 )
-    goto LABEL_32;
+    goto LABEL_26;
   SessionId = MmGetSessionIdEx((__int64)Thread->Process);
   ThreadActiveConsoleId = IopGetThreadActiveConsoleId(Thread);
   v10 = 0;
@@ -49,95 +49,83 @@ void __stdcall IoRaiseHardError(PIRP Irp, PVPB Vpb, PDEVICE_OBJECT RealDeviceObj
     v10 = SessionId;
   if ( v10 != ThreadActiveConsoleId )
   {
-LABEL_32:
+LABEL_26:
     if ( (Irp->Flags & 0x40) == 0 )
-      goto LABEL_34;
-    goto LABEL_33;
+      goto LABEL_28;
+LABEL_27:
+    Irp->IoStatus.Information = 0LL;
+    goto LABEL_28;
   }
-  if ( (Irp->Flags & 0x3FF1FFFF) == 0x43 || Irp->Tail.Overlay.CurrentStackLocation->MajorFunction == 18 )
+  if ( (Irp->Flags & 0x3FF1FFFF) != 0x43 && Irp->Tail.Overlay.CurrentStackLocation->MajorFunction != 18 )
   {
-    v11 = 1;
-  }
-  else
-  {
-    v11 = 0;
-    v6 = KeGetCurrentThread()->WaitBlock[3].SpareLong != 0;
-  }
-  if ( v11 )
-  {
-    if ( !v6 )
-      goto LABEL_30;
-  }
-  else if ( !v6 )
-  {
-    Pool2 = ExAllocatePool2(64LL, 88LL, 1129333067LL);
-    if ( Pool2 )
+    SpareLong = KeGetCurrentThread()->WaitBlock[3].SpareLong;
+    v6 = SpareLong != 0;
+    if ( !SpareLong )
     {
-      KeInitializeApc(
-        Pool2,
-        (__int64)Thread,
-        Irp->ApcEnvironment,
-        (__int64)SC_ENV::Free,
-        (__int64)IopAbortRequest,
-        (__int64)IopRaiseHardError,
-        0,
-        (__int64)Irp);
-      KeInsertQueueApc(Pool2, (__int64)v4, RealDeviceObject, 0);
-      return;
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x4350414Bu);
+      if ( PoolWithTag )
+      {
+        KeInitializeApc(
+          (__int64)PoolWithTag,
+          (__int64)Thread,
+          Irp->ApcEnvironment,
+          (__int64)SC_ENV::Free,
+          (__int64)IopAbortRequest,
+          (__int64)IopRaiseHardError,
+          0,
+          (__int64)Irp);
+        KeInsertQueueApc((__int64)PoolWithTag, (__int64)Vpb, (__int64)RealDeviceObject, 0);
+        return;
+      }
+      goto LABEL_28;
     }
-    goto LABEL_34;
   }
-  if ( (Thread->MiscFlags & 0x400) == 0 )
+  if ( v6 && (Thread->MiscFlags & 0x400) == 0 )
   {
     v13 = 1;
     p_WaitStatus = (struct _EX_RUNDOWN_REF *)&Thread[1].WaitStatus;
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&Thread[1].WaitStatus) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&Thread[1].WaitStatus) )
     {
-      memset(&v22, 0, sizeof(v22));
+      memset(v23, 0, sizeof(v23));
       Teb = Thread->Teb;
       Process = Thread->Process;
       if ( Process == KeGetCurrentThread()->ApcState.Process )
       {
-        v17 = 0;
+        v18 = 0;
       }
       else
       {
-        v17 = 1;
-        KiStackAttachProcess(Process, 0, (__int64)&v22);
+        v18 = 1;
+        KiStackAttachProcess(Process, 0LL, (__int64)v23, v15);
       }
-      v18 = Teb[1452];
-      if ( Process[1].Affinity.StaticBitmap[30] )
+      v19 = Teb[1452];
+      v20 = Process[1].AffinityPadding[10];
+      if ( v20 )
       {
-        v19 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-        if ( v19 == 332 || v19 == 452 )
-          v18 |= Teb[3018];
+        v21 = *(_WORD *)(v20 + 8);
+        if ( v21 == 332 || v21 == 452 )
+          v19 |= Teb[3018];
       }
-      v13 = (v18 & 0x10) != 0;
-      if ( v17 )
-        KiUnstackDetachProcess(&v22);
-      ExReleaseRundownProtection_0(p_WaitStatus);
-      v4 = Vpb;
+      v13 = (v19 & 0x10) != 0;
+      if ( v18 )
+        KiUnstackDetachProcess((__int64)v23, 0);
+      ExReleaseRundownProtection(p_WaitStatus);
     }
     if ( v13 )
-    {
-LABEL_33:
-      Irp->IoStatus.Information = 0LL;
-      goto LABEL_34;
-    }
+      goto LABEL_27;
   }
-LABEL_30:
-  v21 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 56LL, 1917153097LL);
-  if ( v21 )
+  v22 = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72456F49u);
+  if ( v22 )
   {
-    v21->WorkerRoutine = (void (__fastcall *)(void *))IopStartApcHardError;
-    v21->Parameter = v21;
-    v21->List.Flink = 0LL;
-    v21[1].List.Flink = (struct _LIST_ENTRY *)Irp;
-    v21[1].List.Blink = (struct _LIST_ENTRY *)v4;
-    v21[1].WorkerRoutine = (void (__fastcall *)(void *))RealDeviceObject;
-    ExQueueWorkItem(v21, CriticalWorkQueue);
+    v22->WorkerRoutine = (void (__fastcall *)(void *))IopStartApcHardError;
+    v22->Parameter = v22;
+    v22->List.Flink = 0LL;
+    v22[1].List.Flink = (struct _LIST_ENTRY *)Irp;
+    v22[1].List.Blink = (struct _LIST_ENTRY *)Vpb;
+    v22[1].WorkerRoutine = (void (__fastcall *)(void *))RealDeviceObject;
+    ExQueueWorkItem(v22, CriticalWorkQueue);
     return;
   }
-LABEL_34:
+LABEL_28:
   IofCompleteRequest(Irp, 1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Channel_SetConnectionId@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_SETCONNECTIONID@@@Z @ 0x1800F7E10
+ * XREFs of ?Channel_SetConnectionId@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_SETCONNECTIONID@@@Z @ 0x1800D536C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CComposition::Channel_SetConnectionId(
@@ -13,8 +13,8 @@ __int64 __fastcall CComposition::Channel_SetConnectionId(
         struct CResourceTable *a3,
         const struct tagMILCMD_CHANNEL_SETCONNECTIONID *a4)
 {
-  __int64 v4; // rsi
-  unsigned int v6; // ebp
+  unsigned int v4; // ebp
+  __int64 v6; // rsi
   int v8; // eax
   int v10; // eax
   int v11; // [rsp+20h] [rbp-18h]
@@ -22,33 +22,36 @@ __int64 __fastcall CComposition::Channel_SetConnectionId(
   struct CResourceTable *v13; // [rsp+50h] [rbp+18h] BYREF
 
   v13 = a3;
-  v4 = *((_QWORD *)this + 155);
-  v6 = *((_DWORD *)a4 + 5);
-  v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, struct CResourceTable **))(**(_QWORD **)(v4 + 32) + 32LL))(
-         *(_QWORD *)(v4 + 32),
+  v4 = *((_DWORD *)a4 + 5);
+  v6 = *((_QWORD *)this + 135);
+  v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, struct CResourceTable **))(**(_QWORD **)(v6 + 40) + 24LL))(
+         *(_QWORD *)(v6 + 40),
          *((_QWORD *)a4 + 1),
-         v6,
+         v4,
          &v13);
   if ( v8 == -2018375658 )
   {
-    v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(v4 + 16) + 224LL))(
-            *(_QWORD *)(v4 + 16),
-            v6,
+    v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(v6 + 24) + 208LL))(
+            *(_QWORD *)(v6 + 24),
+            v4,
             0LL);
     if ( v10 < 0 )
+    {
       wil::details::in1diag3::FailFast_Hr(
         retaddr,
-        (void *)0x138,
+        (void *)0x122,
         (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\messageconversationhost.cpp",
         (const char *)(unsigned int)v10,
         v11);
+      JUMPOUT(0x180148642LL);
+    }
   }
   else if ( !v8 )
   {
     if ( *((_BYTE *)a4 + 16) )
-      *((_DWORD *)a2 + 20) = (_DWORD)v13;
+      *((_DWORD *)a2 + 18) = (_DWORD)v13;
     else
-      *((_DWORD *)a2 + 19) = (_DWORD)v13;
+      *((_DWORD *)a2 + 17) = (_DWORD)v13;
   }
   return 0LL;
 }

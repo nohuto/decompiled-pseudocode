@@ -6,9 +6,9 @@
  * Callees:
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)
  */

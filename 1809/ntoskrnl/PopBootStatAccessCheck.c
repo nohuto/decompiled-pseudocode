@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBootStatAccessCheck @ 0x140753390
+ * XREFs of PopBootStatAccessCheck @ 0x140753370
  * Callers:
- *     PopBootStatSet @ 0x1407184E4 (PopBootStatSet.c)
- *     PopBootStatGet @ 0x1407530B0 (PopBootStatGet.c)
- *     PopBootStatCheckIntegrity @ 0x140877270 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x1408774D8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x1407184C4 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x140753090 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x140877250 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408774B8 (PopBootStatRestoreDefaults.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)

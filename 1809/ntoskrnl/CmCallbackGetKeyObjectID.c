@@ -1,21 +1,21 @@
 /*
- * XREFs of CmCallbackGetKeyObjectID @ 0x1407EAC50
+ * XREFs of CmCallbackGetKeyObjectID @ 0x1407EAC30
  * Callers:
- *     EtwpRegTraceCallback @ 0x1408BC250 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x1408BC230 (EtwpRegTraceCallback.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpLockKcbStackShared @ 0x140644050 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpConstructAndCacheName @ 0x1406C8AC8 (CmpConstructAndCacheName.c)
+ *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpConstructAndCacheName @ 0x1406C8AA8 (CmpConstructAndCacheName.c)
  */
 
 NTSTATUS __stdcall CmCallbackGetKeyObjectID(

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1CLockedInputSpace@@QEAA@XZ @ 0x1C00D8850
+ * XREFs of ??1CLockedInputSpace@@QEAA@XZ @ 0x1C0071554
  * Callers:
- *     NtInputSpaceRegionFromPoint @ 0x1C0153B90 (NtInputSpaceRegionFromPoint.c)
+ *     NtInputSpaceRegionFromPoint @ 0x1C0128DF0 (NtInputSpaceRegionFromPoint.c)
  * Callees:
  *     <none>
  */

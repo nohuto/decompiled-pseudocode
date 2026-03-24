@@ -1,49 +1,52 @@
 /*
- * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x1407E3B00
+ * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x1409227FC
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepAddTokenOriginClaim @ 0x1407E3BD4 (SepAddTokenOriginClaim.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     SepAddTokenOriginClaim @ 0x140922BA0 (SepAddTokenOriginClaim.c)
  */
 
-__int64 __fastcall SeDuplicateTokenAndAddOriginClaim(__int128 *a1, __int64 a2, unsigned int a3, _QWORD *a4)
+__int64 __fastcall SeDuplicateTokenAndAddOriginClaim(__int64 a1, __int64 a2, unsigned int a3, PADAPTER_OBJECT *a4)
 {
   int v7; // ebx
-  __int64 v8; // r9
-  void *v10; // rcx
-  void *v11; // [rsp+40h] [rbp-40h] BYREF
-  _QWORD v12[3]; // [rsp+48h] [rbp-38h] BYREF
-  int v13; // [rsp+60h] [rbp-20h]
-  int v14; // [rsp+64h] [rbp-1Ch]
-  __int128 v15; // [rsp+68h] [rbp-18h]
+  struct _DMA_ADAPTER *v8; // rcx
+  int v9; // eax
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-40h] BYREF
+  _DWORD v12[2]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+50h] [rbp-30h]
+  __int64 v14; // [rsp+58h] [rbp-28h]
+  int v15; // [rsp+60h] [rbp-20h]
+  int v16; // [rsp+64h] [rbp-1Ch]
+  __int128 v17; // [rsp+68h] [rbp-18h]
 
-  v11 = 0LL;
-  v14 = 0;
-  v12[1] = 0LL;
-  v13 = 0;
-  v12[2] = 0LL;
-  v12[0] = 48LL;
-  v15 = 0LL;
-  v7 = SepDuplicateToken(a1, (__int64)v12, 0, 1, 0, 0, 0, (__int64 *)&v11);
+  DmaAdapter = 0LL;
+  v12[1] = 0;
+  v16 = 0;
+  v13 = 0LL;
+  v15 = 0;
+  v14 = 0LL;
+  v12[0] = 48;
+  v17 = 0LL;
+  v7 = SepDuplicateToken(a1, (int)v12, 0, 1, 0, 0, 0, &DmaAdapter);
   if ( v7 < 0 )
   {
-    v10 = 0LL;
-    v11 = 0LL;
+    v8 = 0LL;
+    DmaAdapter = 0LL;
+    goto LABEL_5;
   }
-  else
+  v9 = SepAddTokenOriginClaim(a2, a3, DmaAdapter);
+  v8 = DmaAdapter;
+  v7 = v9;
+  if ( v9 >= 0 )
   {
-    LOBYTE(v8) = 1;
-    v7 = SepAddTokenOriginClaim(a2, a3, v11, v8);
+    *a4 = DmaAdapter;
+LABEL_5:
     if ( v7 >= 0 )
-    {
-      *a4 = v11;
       return (unsigned int)v7;
-    }
-    v10 = v11;
   }
-  if ( v10 )
-    ObfDereferenceObject(v10);
+  if ( v8 )
+    HalPutDmaAdapter(v8);
   return (unsigned int)v7;
 }

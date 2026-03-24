@@ -1,30 +1,31 @@
 /*
- * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1405DF54C
+ * XREFs of PopRecordPoIrpBlackboxInformation @ 0x14057F5F8
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A0C98 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FA9E0 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagGetDriverName @ 0x140395628 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopDiagGetDriverName @ 0x140388F7C (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPoIrpBlackboxInformation()
 {
-  __int64 v0; // r11
-  int v1; // esi
-  void *v2; // rbx
-  unsigned __int64 v3; // rdi
+  __int64 v0; // rsi
+  int v1; // r15d
+  _DWORD *v2; // rdi
+  SIZE_T v3; // rbx
   unsigned __int64 v4; // r14
   __int64 v5; // rax
-  __int64 Pool2; // rax
-  ULONG_PTR v7; // rcx
+  _DWORD *PoolWithTag; // rax
+  ULONG_PTR v7; // rax
   _DWORD *v8; // r14
   __int64 i; // rsi
   __int64 v10; // r12
@@ -82,18 +83,19 @@ LABEL_22:
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, v3, 1111641936LL);
-    v2 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v3, 0x42424F50u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
+      memset(PoolWithTag, 0, v3);
+      v2[2] = v1;
+      *((_QWORD *)v2 + 3) = &PopIrpThreadList;
       v7 = ExWorkerQueue;
-      v8 = (_DWORD *)(Pool2 + 40);
-      *(_DWORD *)(Pool2 + 4) = 1;
-      *(_DWORD *)Pool2 = v3;
-      *(_DWORD *)(Pool2 + 8) = v1;
-      *(_QWORD *)(Pool2 + 16) = &PopIrpList;
-      *(_QWORD *)(Pool2 + 24) = &PopIrpThreadList;
-      *(_QWORD *)(Pool2 + 32) = v7;
+      *((_QWORD *)v2 + 2) = &PopIrpList;
+      v8 = v2 + 10;
+      *((_QWORD *)v2 + 4) = v7;
+      v2[1] = 1;
+      *v2 = v3;
       for ( i = PopIrpList; (__int64 *)i != &PopIrpList; i = *(_QWORD *)i )
       {
         if ( *(_BYTE *)(i + 196) )

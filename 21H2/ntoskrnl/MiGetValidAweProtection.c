@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetValidAweProtection @ 0x1405AB0FC
+ * XREFs of MiGetValidAweProtection @ 0x14054C628
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402E67E8 (MiGetWorkingSetInfoList.c)
- *     MiGetPageProtection @ 0x140319160 (MiGetPageProtection.c)
+ *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
+ *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
  * Callees:
  *     <none>
  */

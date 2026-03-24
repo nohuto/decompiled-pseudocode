@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4
+ * XREFs of CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4
  * Callers:
  *     CmpResetCachedSecurity @ 0x140581274 (CmpResetCachedSecurity.c)
  *     CmpUndoDeleteKeyForTransEx @ 0x140581354 (CmpUndoDeleteKeyForTransEx.c)
@@ -8,11 +8,11 @@
  *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
  *     CmpIncrementCachedSecurityRefcount @ 0x1405DBC90 (CmpIncrementCachedSecurityRefcount.c)
- *     CmpRemoveFromSecurityCache @ 0x1406CA580 (CmpRemoveFromSecurityCache.c)
- *     CmpCopyKeyPartial @ 0x1406FF8E0 (CmpCopyKeyPartial.c)
- *     CmpSyncKeyValues @ 0x1407FE4FC (CmpSyncKeyValues.c)
+ *     CmpRemoveFromSecurityCache @ 0x1406CA560 (CmpRemoveFromSecurityCache.c)
+ *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
+ *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
  * Callees:
- *     CmpFindLowerBoundInSortedArray @ 0x1401B355C (CmpFindLowerBoundInSortedArray.c)
+ *     CmpFindLowerBoundInSortedArray @ 0x1401B357C (CmpFindLowerBoundInSortedArray.c)
  */
 
 char __fastcall CmpFindSecurityCellCacheIndexNew(__int64 a1, unsigned int a2, _DWORD *a3)

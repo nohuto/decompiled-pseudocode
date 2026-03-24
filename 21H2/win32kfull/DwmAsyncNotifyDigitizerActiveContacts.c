@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncNotifyDigitizerActiveContacts @ 0x1C02727C8
+ * XREFs of DwmAsyncNotifyDigitizerActiveContacts @ 0x1C0274F20
  * Callers:
- *     DwmAsyncNotifyDigitizerActiveContactsWrap @ 0x1C01E8CF0 (DwmAsyncNotifyDigitizerActiveContactsWrap.c)
+ *     DwmAsyncNotifyDigitizerActiveContactsWrap @ 0x1C01EE670 (DwmAsyncNotifyDigitizerActiveContactsWrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DwmAsyncNotifyDigitizerActiveContacts(PVOID Object, int a2, int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall DwmAsyncNotifyDigitizerActiveContacts(PVOID Object, int a2, i
     memset(v6, 0, sizeof(v6));
     LODWORD(v6[0]) = 3407884;
     WORD2(v6[0]) = 0x8000;
-    v8 = 1073741912;
+    v8 = 1073741909;
     v4 = LpcRequestPort(Object, v6);
     ObfDereferenceObject(Object);
   }

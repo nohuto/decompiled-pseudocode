@@ -1,12 +1,11 @@
 /*
- * XREFs of EtwpTiFillVadEventWrite @ 0x1402519E4
+ * XREFs of EtwpTiFillVadEventWrite @ 0x1402CCB54
  * Callers:
- *     EtwpTiVadQueryEventWrite @ 0x14024BFF8 (EtwpTiVadQueryEventWrite.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1406D97E0 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWrite @ 0x1402C5AA8 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1406BAE00 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     EtwpTiFillVad @ 0x140251AA8 (EtwpTiFillVad.c)
- *     EtwpTiFillZeroVad @ 0x1402EDF48 (EtwpTiFillZeroVad.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     EtwpTiFillVad @ 0x1402CCC88 (EtwpTiFillVad.c)
  */
 
 NTSTATUS __fastcall EtwpTiFillVadEventWrite(
@@ -18,17 +17,49 @@ NTSTATUS __fastcall EtwpTiFillVadEventWrite(
         unsigned int a6,
         PCEVENT_DESCRIPTOR EventDescriptor)
 {
-  unsigned int i; // r11d
-  int v13; // eax
-  int v14; // r11d
+  unsigned int v7; // r11d
+  int v12; // r9d
+  struct _EVENT_DATA_DESCRIPTOR *v14; // rax
 
-  for ( i = 0; i < a6; i = v14 + 1 )
+  v7 = 0;
+  if ( a6 )
   {
-    if ( a3 && _bittest(&a5, i) )
-      v13 = EtwpTiFillVad(&UserData[UserDataCount], a4 + ((unsigned __int64)i << 6));
-    else
-      v13 = EtwpTiFillZeroVad(&UserData[UserDataCount]);
-    UserDataCount += v13;
+    v12 = a5;
+    do
+    {
+      if ( a3 && _bittest(&v12, v7) )
+      {
+        UserDataCount += EtwpTiFillVad(&UserData[UserDataCount], a4 + ((unsigned __int64)v7 << 6));
+      }
+      else
+      {
+        v14 = &UserData[UserDataCount];
+        v14->Reserved = 0;
+        v14->Ptr = (ULONGLONG)&qword_14000B518;
+        v14->Size = 4;
+        v14[1].Reserved = 0;
+        v14[1].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[1].Size = 8;
+        v14[2].Reserved = 0;
+        v14[2].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[2].Size = 4;
+        v14[3].Reserved = 0;
+        v14[3].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[3].Size = 4;
+        v14[4].Reserved = 0;
+        v14[4].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[4].Size = 8;
+        v14[5].Reserved = 0;
+        v14[5].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[5].Size = 8;
+        v14[6].Reserved = 0;
+        UserDataCount += 7;
+        v14[6].Ptr = (ULONGLONG)&qword_14000B518;
+        v14[6].Size = 2;
+      }
+      ++v7;
+    }
+    while ( v7 < a6 );
   }
   return EtwWriteEx(EtwThreatIntProvRegHandle, EventDescriptor, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpReport @ 0x14028CA00
+ * XREFs of KdpReport @ 0x14028CB00
  * Callers:
  *     KdpTrap @ 0x140919518 (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x1401BBE20 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x1401BBEF0 (KiSaveProcessorControlState.c)
+ *     KiRestoreProcessorControlState @ 0x1401BBE40 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1401BBF10 (KiSaveProcessorControlState.c)
  *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
  *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
  *     KdpReportExceptionStateChange @ 0x140916954 (KdpReportExceptionStateChange.c)

@@ -1,18 +1,19 @@
 /*
- * XREFs of ViKeIrqlLogCommon @ 0x140A7F7DA
+ * XREFs of ViKeIrqlLogCommon @ 0x1409DC0CC
  * Callers:
- *     VerifierKeLowerIrql @ 0x140A7F480 (VerifierKeLowerIrql.c)
- *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140A7F4E0 (VerifierKeReleaseInStackQueuedSpinLock.c)
- *     VerifierKeReleaseSpinLock @ 0x140A7F570 (VerifierKeReleaseSpinLock.c)
- *     VerifierKeReleaseQueuedSpinLock @ 0x140A8EF40 (VerifierKeReleaseQueuedSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x140A966F0 (VerifierPortKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140A96730 (VerifierPortKeReleaseSpinLockNoXdv.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140A96894 (ViKeIrqlLogAndTrimMemory.c)
- *     VerifierExAcquireFastMutex @ 0x140A9C1E0 (VerifierExAcquireFastMutex.c)
- *     VerifierExReleaseFastMutex @ 0x140A9C2E0 (VerifierExReleaseFastMutex.c)
- *     VerifierExTryToAcquireFastMutex @ 0x140A9C3A0 (VerifierExTryToAcquireFastMutex.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x1409D34D0 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeLowerIrql @ 0x1409DAE40 (VerifierKeLowerIrql.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x1409DAFF0 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
+ *     VerifierKeReleaseSpinLock @ 0x1409DB3D0 (VerifierKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x1409DB550 (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLockNoXdv @ 0x1409DBC50 (VerifierPortKeReleaseSpinLockNoXdv.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E4710 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexNoReboot @ 0x1409E47C0 (VerifierExAcquireFastMutexNoReboot.c)
+ *     VerifierExReleaseFastMutex @ 0x1409E4900 (VerifierExReleaseFastMutex.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409E4E70 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)

@@ -1,70 +1,79 @@
 /*
- * XREFs of MiInitializeProtoPfn @ 0x14066B2E0
+ * XREFs of MiInitializeProtoPfn @ 0x140554ED0
  * Callers:
- *     MiFillPerSessionProtos @ 0x140A4A01C (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiDecrementShareCount @ 0x140280690 (MiDecrementShareCount.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiInitializePfn @ 0x1402E1040 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiDecrementShareCount @ 0x14023FB30 (MiDecrementShareCount.c)
+ *     MiInitializePfn @ 0x140241370 (MiInitializePfn.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-__int64 __fastcall MiInitializeProtoPfn(__int64 a1, unsigned __int64 *a2, unsigned int a3, int a4)
+__int64 __fastcall MiInitializeProtoPfn(__int64 a1, __int64 *a2, unsigned int a3, int a4)
 {
   __int64 v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // r15
-  unsigned __int64 v10; // rbx
-  int v11; // ebp
-  BOOL v12; // eax
-  __int64 v13; // r8
-  int v14; // r11d
-  int v16; // [rsp+60h] [rbp+18h] BYREF
-  int v17; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // r14
+  __int64 v12; // r9
+  unsigned __int64 v13; // rbx
+  int v14; // ebp
+  BOOL v15; // eax
+  __int64 v16; // r8
+  int v17; // r11d
+  int v19; // [rsp+50h] [rbp+18h] BYREF
+  int v20; // [rsp+58h] [rbp+20h] BYREF
 
-  v17 = a4;
-  LOBYTE(v17) = 0;
-  v7 = 48 * a1 - 0x220000000000LL;
-  v8 = MiLockProtoPoolPageForce((ULONG_PTR)a2, (unsigned __int8 *)&v17);
-  v16 = 0;
-  v9 = v8;
+  v20 = a4;
+  LOBYTE(v20) = 0;
+  v7 = 48 * a1 - 0x58000000000LL;
+  while ( 1 )
+  {
+    v11 = MiLockProtoPoolPage((unsigned __int64)a2, (__int64)&v20);
+    if ( v11 )
+      break;
+    MmAccessFault(2uLL, (signed __int64)a2, 0, 0LL);
+  }
+  v19 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v16);
+      KeYieldProcessorEx(&v19, v8, v9, v10);
     while ( *(__int64 *)(v7 + 24) < 0 );
   }
-  MiInitializePfn(v7, (unsigned __int64)a2, a3, 23);
-  v10 = MiMakeValidPte(0LL, a1, a3 | 0x80000000) & 0xFFFFFFFFFFFFFEFFuLL;
-  v11 = 0;
-  v12 = MiPteInShadowRange((unsigned __int64)a2);
-  LOWORD(v14) = 1;
-  if ( v12 )
+  MiInitializePfn(v7, a2, a3, 23);
+  v13 = MiMakeValidPte(0LL, a1, a3 | 0x80000000, v12) & 0xFFFFFFFFFFFFFEFFuLL;
+  v14 = 0;
+  v15 = MiPteInShadowRange((unsigned __int64)a2);
+  LOWORD(v17) = 1;
+  if ( v15 )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v11 = v14;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_11;
+      v14 = v17;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_14;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
     {
-      goto LABEL_11;
+      goto LABEL_14;
     }
-    if ( ((unsigned __int8)v10 & (unsigned __int8)v14) != 0 )
-      v10 |= 0x8000000000000000uLL;
+    if ( ((unsigned __int8)v13 & (unsigned __int8)v17) != 0 )
+      v13 |= 0x8000000000000000uLL;
   }
-LABEL_11:
-  *a2 = v10;
-  if ( v11 )
-    MiWritePteShadow((__int64)a2, v10, v13);
-  *(_WORD *)(v7 + 32) += v14;
+LABEL_14:
+  *a2 = v13;
+  if ( v14 )
+    MiWritePteShadow((__int64)a2, v13, v16);
+  *(_WORD *)(v7 + 32) += v17;
   MiDecrementShareCount(v7);
   _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  return MiUnlockProtoPoolPage(v9, v17);
+  return MiUnlockProtoPoolPage(v11, v20);
 }

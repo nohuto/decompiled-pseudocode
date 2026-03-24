@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C00629A4
+ * XREFs of ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C006E418
  * Callers:
- *     ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0062ED0 (-ClearClip@CCursorClip@@QEAAXXZ.c)
- *     ?OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z @ 0x1C00642EC (-OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z.c)
- *     ?LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01DC0BC (-LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z.c)
- *     ?SetClip@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01DC260 (-SetClip@CCursorClip@@QEAAXUtagRECT@@@Z.c)
+ *     ?OnDisplayStateChange@CCursorClip@@QEAAXXZ @ 0x1C006E3A4 (-OnDisplayStateChange@CCursorClip@@QEAAXXZ.c)
+ *     ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0070840 (-ClearClip@CCursorClip@@QEAAXXZ.c)
+ *     ?LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01A2A84 (-LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z.c)
+ *     ?SetClip@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01A2BE0 (-SetClip@CCursorClip@@QEAAXUtagRECT@@@Z.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     SendAppClipChanged @ 0x1C00640B0 (SendAppClipChanged.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333@Z @ 0x1C01DB7E0 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPE.c)
- *     ApiSetEditionInternalSetCursorPos @ 0x1C020688C (ApiSetEditionInternalSetCursorPos.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     SendAppClipChanged @ 0x1C006E500 (SendAppClipChanged.c)
+ *     ApiSetEditionInternalSetCursorPos @ 0x1C00B1B74 (ApiSetEditionInternalSetCursorPos.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333@Z @ 0x1C01A2710 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPE.c)
  */
 
 void __fastcall CCursorClip::UpdateClipRect(struct tagRECT *this, struct tagRECT *a2)
@@ -53,15 +53,15 @@ void __fastcall CCursorClip::UpdateClipRect(struct tagRECT *this, struct tagRECT
   if ( left > right || top > bottom )
     *a2 = *this;
   this[1] = *a2;
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 64LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 64LL) )
   {
     v14 = this[1].bottom;
     v15 = this[1].right;
     v16 = this[1].top;
     v17 = this[1].left;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (unsigned int)&dword_1C0289810,
-      (unsigned int)&unk_1C025D011,
+      (unsigned int)&dword_1C024AA90,
+      (unsigned int)&unk_1C021E354,
       v11,
       v12,
       (__int64)&v17,

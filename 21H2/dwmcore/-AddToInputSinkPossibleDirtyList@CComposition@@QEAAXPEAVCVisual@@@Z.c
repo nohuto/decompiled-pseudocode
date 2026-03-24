@@ -1,41 +1,35 @@
 /*
- * XREFs of ?AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x1800492AC
+ * XREFs of ?AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x18009EE48
  * Callers:
- *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x1800486D0 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?RemoveChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009EEC0 (-RemoveChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x18009F510 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
  * Callees:
- *     ??$_Emplace_reallocate@AEAPEAVCVisual@@@?$vector@V?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEAPEAVCVisual@@@Z @ 0x1800457C4 (--$_Emplace_reallocate@AEAPEAVCVisual@@@-$vector@V-$com_ptr_t@VCVisual@@Uerr_returncode_policy@w.c)
- *     ??0?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z @ 0x1800458B4 (--0-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z.c)
- *     ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x18004933C (-GetInputHandle@CVisual@@QEBAPEAXXZ.c)
+ *     ??$_Emplace_reallocate@AEBQEAVCVisual@@@?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@QEAAPEAPEAVCVisual@@QEAPEAV2@AEBQEAV2@@Z @ 0x18004F414 (--$_Emplace_reallocate@AEBQEAVCVisual@@@-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@s.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CComposition::AddToInputSinkPossibleDirtyList(CComposition *this, struct CVisual *a2)
 {
   struct CVisual *v2; // rbx
-  __int64 *v3; // r10
-  __int64 *v4; // rdi
+  _BYTE *v4; // rdx
   struct CVisual *v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = a2;
   v2 = a2;
-  if ( !*((_BYTE *)this + 1277)
-    && (CVisual::GetInputHandle(a2) || (*((_DWORD *)v2 + 24) & 0x2000) != 0 || (*((_BYTE *)v2 + 96) & 0x10) != 0) )
+  if ( (*((_DWORD *)a2 + 22) & 0x2000) != 0 || (*((_BYTE *)a2 + 88) & 0x10) != 0 )
   {
-    v4 = v3 + 164;
-    if ( v3[165] == v3[166] )
+    (*(void (__fastcall **)(struct CVisual *))(*(_QWORD *)a2 + 8LL))(a2);
+    v4 = (_BYTE *)*((_QWORD *)this + 147);
+    if ( *((_BYTE **)this + 148) == v4 )
     {
-      std::vector<wil::com_ptr_t<CVisual,wil::err_returncode_policy>>::_Emplace_reallocate<CVisual * &>(
-        v3 + 164,
-        v3[165],
-        &v5);
+      std::vector<CVisual *>::_Emplace_reallocate<CVisual * const &>((__int64 *)this + 146, v4, &v5);
       v2 = v5;
     }
     else
     {
-      wil::com_ptr_t<CVisual,wil::err_returncode_policy>::com_ptr_t<CVisual,wil::err_returncode_policy>(
-        (_QWORD *)v3[165],
-        (__int64)v2);
-      v4[1] += 8LL;
+      *(_QWORD *)v4 = v2;
+      *((_QWORD *)this + 147) += 8LL;
     }
-    *((_BYTE *)v2 + 96) |= 0x20u;
+    *((_BYTE *)v2 + 88) |= 0x20u;
   }
 }

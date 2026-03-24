@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpFileGetChecksumAttributes @ 0x140A57E4C
+ * XREFs of AslpFileGetChecksumAttributes @ 0x14096AA44
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407592F8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2904 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x1403B0C90 (RtlFileMapMapView.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A5471C (AslFileMappingEnsureMappedAs.c)
- *     AslpFileGetChecksum @ 0x140A57D60 (AslpFileGetChecksum.c)
- *     AslpFileGetCrcChecksum @ 0x140A58358 (AslpFileGetCrcChecksum.c)
+ *     RtlFileMapFree @ 0x140371CCC (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1403BD264 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140967FD4 (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksum @ 0x14096A95C (AslpFileGetChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x14096AF5C (AslpFileGetCrcChecksum.c)
  */
 
 __int64 __fastcall AslpFileGetChecksumAttributes(__int64 a1, __int64 a2)
@@ -56,6 +56,7 @@ LABEL_5:
       {
         v7 = v11;
         *(_DWORD *)(a1 + 856) |= 1u;
+        *(_DWORD *)(a1 + 1112) |= 2u;
         *(_QWORD *)(a1 + 848) = v7;
         Checksum = 0;
         *(_DWORD *)(a1 + 832) = 2;
@@ -69,6 +70,7 @@ LABEL_5:
   *(_DWORD *)(a1 + 88) |= 2u;
   Checksum = -1073741823;
   *(_DWORD *)(a1 + 856) |= 2u;
+  *(_DWORD *)(a1 + 1112) |= 2u;
 LABEL_12:
   RtlFileMapFree((__int64)v9);
   return (unsigned int)Checksum;

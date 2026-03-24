@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeepSleepWatchdogTakeAction @ 0x1409A10D4
+ * XREFs of PopDeepSleepWatchdogTakeAction @ 0x1408FA568
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C520 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1408EF280 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     PopPowerSettingPendingUpdateWatchdog @ 0x14058DBD8 (PopPowerSettingPendingUpdateWatchdog.c)
- *     PopDiagTraceCsDeepSleepWatchdog @ 0x140591B6C (PopDiagTraceCsDeepSleepWatchdog.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408839B0 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPowerSettingPendingUpdateWatchdog @ 0x14056ED78 (PopPowerSettingPendingUpdateWatchdog.c)
+ *     PopDiagTraceCsDeepSleepWatchdog @ 0x140570AB4 (PopDiagTraceCsDeepSleepWatchdog.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 char __fastcall PopDeepSleepWatchdogTakeAction(__int64 a1, char a2)
@@ -31,7 +31,7 @@ char __fastcall PopDeepSleepWatchdogTakeAction(__int64 a1, char a2)
     {
       if ( updated )
         v6 = 5LL;
-      return DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351LL, v6, a1, *(unsigned int *)(a1 + 4), 0LL, 0LL, 0LL, 0);
+      return DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351, v6, a1, *(unsigned int *)(a1 + 4), 0LL, 0LL, 0LL, 0);
     }
   }
   return result;

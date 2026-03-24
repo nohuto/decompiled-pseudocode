@@ -1,22 +1,29 @@
 /*
- * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00EFFE4
+ * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00095E4
  * Callers:
- *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C01181A4 (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
- *     PlaySoundConnect @ 0x1C0377490 (PlaySoundConnect.c)
+ *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C000927C (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
+ *     PlaySoundConnect @ 0x1C037B808 (PlaySoundConnect.c)
  * Callees:
- *     StringVPrintfWorkerW @ 0x1C00F0020 (StringVPrintfWorkerW.c)
+ *     StringVPrintfWorkerW @ 0x1C000963C (StringVPrintfWorkerW.c)
  */
 
-HRESULT StringCchPrintfW(unsigned __int16 *a1, size_t a2, size_t *a3, ...)
+__int64 StringCchPrintfW(unsigned __int16 *a1, size_t a2, size_t *a3, ...)
 {
-  HRESULT result; // eax
+  int v3; // r9d
   va_list va; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(va, a3);
-  if ( a2 - 1 <= 0x7FFFFFFE )
-    return StringVPrintfWorkerW(a1, a2, a3, (STRSAFE_LPCWSTR)a3, va);
-  result = -2147024809;
-  if ( a2 )
-    *a1 = 0;
-  return result;
+  v3 = 0;
+  if ( a2 - 1 > 0x7FFFFFFE )
+    v3 = -2147024809;
+  if ( v3 < 0 )
+  {
+    if ( a2 )
+      *a1 = 0;
+  }
+  else
+  {
+    return (unsigned int)StringVPrintfWorkerW(a1, a2, a3, (STRSAFE_LPCWSTR)a3, va);
+  }
+  return (unsigned int)v3;
 }

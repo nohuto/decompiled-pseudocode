@@ -1,14 +1,14 @@
 /*
- * XREFs of RIMInsertSimulatedKeepAliveStateForActiveContacts @ 0x1C01A6F9C
+ * XREFs of RIMInsertSimulatedKeepAliveStateForActiveContacts @ 0x1C01783F8
  * Callers:
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C017C440 (rimAbSuppressLowerRankActivityForFrame.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0159500 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
  * Callees:
- *     RIMCmActiveContactsEnd @ 0x1C00E3530 (RIMCmActiveContactsEnd.c)
- *     rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C01AA87C (rimInsertSimulatedContactKeepAliveStateInFrame.c)
- *     RIMCmActiveContactsBeginNoButton @ 0x1C01AFE08 (RIMCmActiveContactsBeginNoButton.c)
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
- *     RIMCmIsContactDeliveringAnyData @ 0x1C01B08E8 (RIMCmIsContactDeliveringAnyData.c)
+ *     rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C017B814 (rimInsertSimulatedContactKeepAliveStateInFrame.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C017FBB8 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FC4C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
  */
 
 __int64 __fastcall RIMInsertSimulatedKeepAliveStateForActiveContacts(int a1, __int64 a2, int a3, int a4)
@@ -17,38 +17,47 @@ __int64 __fastcall RIMInsertSimulatedKeepAliveStateForActiveContacts(int a1, __i
   int v5; // esi
   __int64 active; // rax
   __int64 v10; // xmm1_8
-  int v11; // ebx
+  __int64 v11; // rax
+  int v12; // ebx
+  __int128 v13; // xmm1
+  __int64 v14; // xmm0_8
+  __int64 v15; // rax
   __int64 result; // rax
-  __int128 v13; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-20h]
-  __int64 v15; // [rsp+48h] [rbp-18h] BYREF
-  unsigned int v16; // [rsp+50h] [rbp-10h]
-  __int64 v17; // [rsp+58h] [rbp-8h]
+  __int128 v17; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v18; // [rsp+40h] [rbp-40h]
+  __int128 v19; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v20; // [rsp+58h] [rbp-28h]
+  _BYTE v21[32]; // [rsp+60h] [rbp-20h] BYREF
 
-  v4 = *(_QWORD *)(a2 + 472);
+  v4 = *(_QWORD *)(a2 + 480);
   v5 = a2;
-  active = RIMCmActiveContactsBeginNoButton(&v15, v4);
+  active = RIMCmActiveContactsBeginNoButton(&v19, v4);
   v10 = *(_QWORD *)(active + 16);
-  v13 = *(_OWORD *)active;
-  v14 = v10;
+  v17 = *(_OWORD *)active;
+  v18 = v10;
   while ( 1 )
   {
-    RIMCmActiveContactsEnd((__int64)&v15, v4);
-    v11 = v14;
-    if ( (_QWORD)v13 == v15 )
+    v11 = RIMCmActiveContactsEnd(v21, v4);
+    v12 = v18;
+    v13 = *(_OWORD *)v11;
+    v14 = *(_QWORD *)(v11 + 16);
+    v15 = *(_QWORD *)v11;
+    v20 = v14;
+    v19 = v13;
+    if ( (_QWORD)v17 == v15 )
     {
-      result = v16;
-      if ( DWORD2(v13) == v16 && v14 == v17 )
+      result = DWORD2(v19);
+      if ( DWORD2(v17) == DWORD2(v19) && v18 == v20 )
         break;
     }
-    if ( (*(_DWORD *)(v14 + 16) & 2) == 0 )
+    if ( (*(_DWORD *)(v18 + 16) & 2) == 0 )
       __int2c();
-    if ( (*(_DWORD *)(v14 + 2348) & 1) == 0 )
+    if ( (*(_DWORD *)(v18 + 2324) & 1) == 0 )
     {
-      if ( (unsigned int)RIMCmIsContactDeliveringAnyData(v14 - 16) )
-        rimInsertSimulatedContactKeepAliveStateInFrame(a1, v5, v11 - 16, a3, a4);
+      if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v18 - 16) )
+        rimInsertSimulatedContactKeepAliveStateInFrame(a1, v5, v12 - 16, a3, a4);
     }
-    RIMCmActiveContactsNext(v4, &v13);
+    RIMCmActiveContactsNext(v4, &v17);
   }
   return result;
 }

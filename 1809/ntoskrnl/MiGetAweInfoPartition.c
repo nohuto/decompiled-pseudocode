@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetAweInfoPartition @ 0x14084FEF0
+ * XREFs of MiGetAweInfoPartition @ 0x14084FED0
  * Callers:
- *     MiFreePhysicalPageChain @ 0x1402B04BC (MiFreePhysicalPageChain.c)
- *     MiAllocateAweInfo @ 0x14084F4FC (MiAllocateAweInfo.c)
- *     MiCreateAweInfoBitMap @ 0x14084F8E4 (MiCreateAweInfoBitMap.c)
- *     MiDeleteAweInfoPages @ 0x14084FD58 (MiDeleteAweInfoPages.c)
- *     NtAllocateUserPhysicalPages @ 0x1408506B0 (NtAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x140850F30 (NtFreeUserPhysicalPages.c)
+ *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
+ *     MiAllocateAweInfo @ 0x14084F4DC (MiAllocateAweInfo.c)
+ *     MiCreateAweInfoBitMap @ 0x14084F8C4 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweInfoPages @ 0x14084FD38 (MiDeleteAweInfoPages.c)
+ *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140850F10 (NtFreeUserPhysicalPages.c)
  * Callees:
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)

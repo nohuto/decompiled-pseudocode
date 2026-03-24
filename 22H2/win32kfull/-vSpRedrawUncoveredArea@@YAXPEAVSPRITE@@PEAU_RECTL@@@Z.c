@@ -1,22 +1,22 @@
 /*
- * XREFs of ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0282134
+ * XREFs of ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0283BD4
  * Callers:
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
- *     ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C001AD98 (-pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
- *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C001C534 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C00F55E8 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0137568 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C027EF40 (-cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z.c)
- *     ?psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z @ 0x1C027FCB0 (-psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z.c)
- *     ?vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C027FF10 (-vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
- *     ?vSpUpdateLockedScreenAreas@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C0282818 (-vSpUpdateLockedScreenAreas@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_RECTL@@PEAU_CLIPOBJ@@H@Z.c)
- *     ?vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02833DC (-vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0283550 (-vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
- *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0283694 (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0098730 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00ED794 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C010DA90 (-pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0163E9C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C016429C (-vSpWriteToScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z @ 0x1C01645BC (-psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C02811C4 (-cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z.c)
+ *     ?vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0281EDC (-vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
+ *     ?vSpUpdateLockedScreenAreas@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C02842B0 (-vSpUpdateLockedScreenAreas@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_RECTL@@PEAU_CLIPOBJ@@H@Z.c)
+ *     ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0284E4C (-vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
+ *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0284F7C (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
@@ -26,41 +26,41 @@ void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
   unsigned int v5; // eax
   __int64 v6; // r14
   int v7; // edi
+  struct _POINTL *v8; // rdx
   struct _SURFOBJ *Composite; // r12
-  struct _RECTL *v9; // rbx
-  __int64 v10; // rdi
-  struct SPRITE *v11; // r13
-  struct _RECTL *v12; // r15
-  const struct _RECTL *v13; // rbx
-  __int64 v14; // r15
-  const struct _RECTL *v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rdi
-  int v18; // ecx
+  struct _RECTL *v10; // rbx
+  __int64 v11; // rdi
+  struct SPRITE *v12; // r13
+  struct _RECTL *v13; // r15
+  struct _RECTL *v14; // rbx
+  __int64 v15; // r15
+  const struct _RECTL *v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rdi
+  int v19; // ecx
   int hsurf; // eax
   PVOID *p_pvScan0; // rbx
-  struct SPRITE *v21; // rbx
-  bool v22; // zf
-  struct _RECTL *v23; // rdi
-  __int64 v24; // rsi
+  struct SPRITE *v22; // rbx
+  bool v23; // zf
+  struct _RECTL *v24; // rdi
+  __int64 v25; // rsi
   ULONG StartingIndex; // [rsp+40h] [rbp-99h] BYREF
-  struct _RECTL *v26; // [rsp+48h] [rbp-91h]
-  struct _POINTL v27; // [rsp+50h] [rbp-89h] BYREF
-  struct _POINTL v28; // [rsp+58h] [rbp-81h] BYREF
-  unsigned int v29; // [rsp+60h] [rbp-79h]
-  char v30[8]; // [rsp+68h] [rbp-71h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-69h]
-  __int64 v32; // [rsp+78h] [rbp-61h]
-  struct SPRITE *v33; // [rsp+80h] [rbp-59h] BYREF
-  int v34; // [rsp+88h] [rbp-51h]
-  struct _RECTL *v35; // [rsp+90h] [rbp-49h]
-  __int64 v36; // [rsp+98h] [rbp-41h]
-  struct _RECTL v37; // [rsp+A0h] [rbp-39h] BYREF
+  struct _RECTL *v27; // [rsp+48h] [rbp-91h]
+  struct _POINTL v28; // [rsp+50h] [rbp-89h] BYREF
+  unsigned int v29; // [rsp+58h] [rbp-81h]
+  __int64 v30; // [rsp+60h] [rbp-79h] BYREF
+  __int64 v31; // [rsp+68h] [rbp-71h]
+  __int64 v32; // [rsp+70h] [rbp-69h]
+  struct _RECTL *v33; // [rsp+78h] [rbp-61h]
+  struct SPRITE *v34; // [rsp+80h] [rbp-59h] BYREF
+  int v35; // [rsp+88h] [rbp-51h]
+  struct _RECTL *v36; // [rsp+90h] [rbp-49h]
+  struct _RECTL v37; // [rsp+98h] [rbp-41h] BYREF
   struct _RECTL v38; // [rsp+B0h] [rbp-29h] BYREF
 
   v2 = *((_QWORD *)a1 + 2);
   v37 = 0LL;
-  v36 = v2;
+  v30 = v2;
   if ( (*(_DWORD *)(*(_QWORD *)v2 + 40LL) & 0x400) == 0 )
   {
     v4 = (struct _RECTL *)((char *)a1 + 80);
@@ -71,61 +71,57 @@ void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
     {
       v7 = 0;
       StartingIndex = 0;
-      LODWORD(v26) = 0;
+      LODWORD(v27) = 0;
       Composite = psoSpGetComposite((struct _SPRITESTATE *)v2, v4, &StartingIndex);
       if ( Composite )
       {
-        if ( *(_QWORD *)(v2 + 1032) )
+        if ( *(_QWORD *)(v2 + 1032) && (_DWORD)v6 )
         {
-          v28 = 0LL;
-          if ( (_DWORD)v6 )
-          {
-            v9 = &v38;
-            v10 = (unsigned int)v6;
-            do
-            {
-              vSpUpdateLockedScreenAreas((struct _SPRITESTATE *)v2, &v28, v9++, 0LL, 1);
-              --v10;
-            }
-            while ( v10 );
-            v7 = (int)v26;
-          }
-        }
-        v27.x = -v4->left;
-        v27.y = -*((_DWORD *)a1 + 21);
-        v11 = pSpFindInZ(*(struct SPRITE **)(v2 + 8), v4);
-        if ( v11 )
-        {
-          v12 = (struct _RECTL *)((char *)a1 + 80);
+          v10 = &v38;
+          v11 = (unsigned int)v6;
           do
           {
-            if ( v11 != a1 && (_DWORD)v6 )
+            vSpUpdateLockedScreenAreas((struct _SPRITESTATE *)v2, v8, v10++, 0LL, 1);
+            --v11;
+          }
+          while ( v11 );
+          v7 = (int)v27;
+        }
+        v28.x = -v4->left;
+        v28.y = -*((_DWORD *)a1 + 21);
+        v12 = pSpFindInZ(*(struct SPRITE **)(v2 + 8), v4);
+        if ( v12 )
+        {
+          v13 = (struct _RECTL *)((char *)a1 + 80);
+          do
+          {
+            if ( v12 != a1 && (_DWORD)v6 )
             {
-              v13 = &v38;
-              v14 = (unsigned int)v6;
-              v15 = (const struct _RECTL *)((char *)v11 + 80);
-              v28 = (struct _POINTL)&v38;
+              v14 = &v38;
+              v15 = (unsigned int)v6;
+              v16 = (const struct _RECTL *)((char *)v12 + 80);
+              v33 = &v38;
               v6 = (unsigned int)v6;
               v32 = (unsigned int)v6;
               do
               {
-                if ( bIntersect(v13, v15, &v37) )
+                if ( bIntersect(v14, v16, &v37) )
                 {
                   if ( !v7 )
                   {
                     v31 = v6;
-                    v26 = &v38;
+                    v27 = &v38;
                     do
                     {
-                      v16 = *((_QWORD *)a1 + 20);
-                      v17 = 0LL;
-                      if ( v16 )
+                      v17 = *((_QWORD *)a1 + 20);
+                      v18 = 0LL;
+                      if ( v17 )
                       {
-                        v18 = *(_DWORD *)(v16 + 88);
-                        if ( (v18 & 0x80004000) != 0 && (v18 & 0x200) == 0 )
+                        v19 = *(_DWORD *)(v17 + 88);
+                        if ( (v19 & 0x80004000) != 0 && (v19 & 0x200) == 0 )
                         {
-                          v17 = v16 - 24;
-                          GreLockDisplayDevice(*(_QWORD *)(v16 - 24 + 48));
+                          v18 = v17 - 24;
+                          GreLockDisplayDevice(*(_QWORD *)(v17 - 24 + 48));
                         }
                       }
                       hsurf = (int)Composite[1].hsurf;
@@ -136,59 +132,59 @@ void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
                         GreLockDisplayDevice(Composite->hdev);
                       }
                       INVOKEOFFCOPYBITS(
-                        &v27,
+                        &v28,
                         Composite,
                         (struct _POINTL *)a1 + 21,
                         *((struct _SURFOBJ **)a1 + 20),
                         0LL,
                         0LL,
-                        v26,
-                        (struct _POINTL *)v26);
+                        v27,
+                        (struct _POINTL *)v27);
                       if ( p_pvScan0 )
                         GreUnlockDisplayDevice(p_pvScan0[6]);
-                      if ( v17 )
-                        GreUnlockDisplayDevice(*(_QWORD *)(v17 + 48));
-                      ++v26;
+                      if ( v18 )
+                        GreUnlockDisplayDevice(*(_QWORD *)(v18 + 48));
+                      ++v27;
                       --v31;
                     }
                     while ( v31 );
-                    v13 = (const struct _RECTL *)v28;
+                    v14 = v33;
                     v7 = 1;
                     v6 = v32;
                   }
-                  vSpComposite(v11, &v27, Composite, &v37);
+                  vSpComposite(v12, &v28, Composite, &v37);
                 }
-                ++v13;
-                v15 = (const struct _RECTL *)((char *)v11 + 80);
-                v28 = (struct _POINTL)v13;
-                --v14;
+                ++v14;
+                v16 = (const struct _RECTL *)((char *)v12 + 80);
+                v33 = v14;
+                --v15;
               }
-              while ( v14 );
+              while ( v15 );
               v6 = v29;
-              v12 = (struct _RECTL *)((char *)a1 + 80);
+              v13 = (struct _RECTL *)((char *)a1 + 80);
             }
-            SINGLEREADERLOCK::vUnlock((struct SPRITE *)((char *)v11 + 248));
-            v11 = pSpFindInZ(*((struct SPRITE **)v11 + 3), v12);
+            SINGLEREADERLOCK::vUnlock((struct SPRITE *)((char *)v12 + 248));
+            v12 = pSpFindInZ(*((struct SPRITE **)v12 + 3), v13);
           }
-          while ( v11 );
-          v2 = v36;
+          while ( v12 );
+          v2 = v30;
         }
-        v21 = 0LL;
-        v34 = 0;
-        v33 = 0LL;
+        v22 = 0LL;
+        v35 = 0;
+        v34 = 0LL;
         if ( *((_QWORD *)a1 + 9) )
         {
-          v34 = v6;
-          v21 = a1;
-          v35 = &v38;
-          v33 = a1;
-          UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo((UNDOWNDOBJSPRITEOVERLAPCLIP *)&v33);
+          v35 = v6;
+          v22 = a1;
+          v36 = &v38;
+          v34 = a1;
+          UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo((UNDOWNDOBJSPRITEOVERLAPCLIP *)&v34);
         }
         if ( (_DWORD)v6 )
         {
-          v22 = v7 == 0;
-          v23 = &v38;
-          if ( v22 )
+          v23 = v7 == 0;
+          v24 = &v38;
+          if ( v23 )
           {
             do
             {
@@ -196,20 +192,20 @@ void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
                 (struct _SPRITESTATE *)v2,
                 (struct _POINTL *)a1 + 21,
                 *((struct _SURFOBJ **)a1 + 20),
-                v23++);
+                v24++);
               --v6;
             }
             while ( v6 );
           }
           else
           {
-            v24 = (unsigned int)v6;
+            v25 = (unsigned int)v6;
             do
             {
-              vSpWriteToScreen((struct _SPRITESTATE *)v2, &v27, Composite, v23++);
-              --v24;
+              vSpWriteToScreen((struct _SPRITESTATE *)v2, &v28, Composite, v24++);
+              --v25;
             }
-            while ( v24 );
+            while ( v25 );
           }
         }
         if ( StartingIndex == -1 )
@@ -218,12 +214,12 @@ void __fastcall vSpRedrawUncoveredArea(struct SPRITE *a1, struct _RECTL *a2)
         }
         else
         {
-          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v30, (struct _EX_PUSH_LOCK *)(v2 + 688));
+          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v30, (struct _EX_PUSH_LOCK *)(v2 + 688));
           RtlClearBits((PRTL_BITMAP)(v2 + 664), StartingIndex, 1u);
-          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v30);
+          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v30);
         }
-        if ( v21 )
-          UNDOWNDOBJSPRITEOVERLAPCLIP::vRedo((UNDOWNDOBJSPRITEOVERLAPCLIP *)&v33);
+        if ( v22 )
+          UNDOWNDOBJSPRITEOVERLAPCLIP::vRedo((UNDOWNDOBJSPRITEOVERLAPCLIP *)&v34);
       }
     }
   }

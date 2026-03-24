@@ -1,29 +1,31 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E6B8
+ * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6F50
  * Callers:
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099E2B4 (PopDirectedDripsDiagBroadcastTreeBegin.c)
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099E9BC (PopDirectedDripsDiagTraceBroadcastVisit.c)
- *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099EB84 (PopDirectedDripsDiagTraceMarkDevice.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x1408F6B38 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x1408F80C0 (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x1408F8288 (PopDirectedDripsDiagTraceMarkDevice.c)
  * Callees:
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E598 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E75C (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1408F6E30 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1408F7008 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rbx
   _QWORD *v4; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 168LL, 1734960208LL);
-  v3 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xA8uLL, 0x67696450u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = a1;
-    *(_DWORD *)(Pool2 + 24) = dword_140C1CD80++;
-    *(_DWORD *)(Pool2 + 148) = -1;
-    if ( (int)PopDirectedDripsDiagCreateDeviceDescription(a1, Pool2) < 0 )
+    memset(PoolWithTag, 0, 0xA8uLL);
+    v3[2] = a1;
+    *((_DWORD *)v3 + 6) = dword_140C1ED80++;
+    *((_DWORD *)v3 + 37) = -1;
+    if ( (int)PopDirectedDripsDiagCreateDeviceDescription(a1, (__int64)v3) < 0 )
     {
       PopDirectedDripsDiagFreeDeviceDiagnostic(v3);
       return 0LL;
@@ -31,13 +33,13 @@ _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
     else
     {
       *(_QWORD *)(a1 + 776) = v3;
-      v4 = (_QWORD *)qword_140C1CB78;
-      if ( *(PVOID **)qword_140C1CB78 != &qword_140C1CB70 )
+      v4 = (_QWORD *)qword_140C1EB98;
+      if ( *(PVOID **)qword_140C1EB98 != &qword_140C1EB90 )
         __fastfail(3u);
-      *v3 = &qword_140C1CB70;
+      *v3 = &qword_140C1EB90;
       v3[1] = v4;
       *v4 = v3;
-      qword_140C1CB78 = (__int64)v3;
+      qword_140C1EB98 = (__int64)v3;
     }
   }
   return v3;

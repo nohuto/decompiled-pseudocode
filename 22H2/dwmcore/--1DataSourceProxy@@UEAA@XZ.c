@@ -1,62 +1,70 @@
 /*
- * XREFs of ??1DataSourceProxy@@UEAA@XZ @ 0x1801E2794
+ * XREFs of ??1DataSourceProxy@@UEAA@XZ @ 0x18017FE64
  * Callers:
- *     ??_GDataSourceProxy@@UEAAPEAXI@Z @ 0x1801E2970 (--_GDataSourceProxy@@UEAAPEAXI@Z.c)
+ *     ??_GDataSourceProxy@@UEAAPEAXI@Z @ 0x18017FFA0 (--_GDataSourceProxy@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Free_non_head@V?$allocator@U?$_List_node@PEAVCBaseExpression@@PEAX@std@@@std@@@?$_List_node@PEAVCBaseExpression@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@PEAVCBaseExpression@@PEAX@std@@@1@PEAU01@@Z @ 0x1801E24D8 (--$_Free_non_head@V-$allocator@U-$_List_node@PEAVCBaseExpression@@PEAX@std@@@std@@@-$_List_node@.c)
- *     ??1?$com_ptr_t@VBamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801E2764 (--1-$com_ptr_t@VBamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@Uerr_returncode_p.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@std@@@2@@std@@AEAAXXZ @ 0x1800DA6EC (-_Tidy@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@QEAVCInte.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DataSourceProxy::~DataSourceProxy(DataSourceProxy *this)
 {
-  _QWORD *v2; // rsi
-  _QWORD *i; // rbx
+  __int64 *v2; // rsi
+  __int64 *i; // rbx
   __int64 v4; // rcx
-  void *v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  __int64 v5; // rax
+  void *v6; // rcx
+  _QWORD **v7; // rcx
+  _QWORD *v8; // rcx
+  _QWORD *v9; // rbx
+  void (__fastcall ***v10)(_QWORD); // rcx
 
   *(_QWORD *)this = &DataSourceProxy::`vftable'{for `Microsoft::Bamo::BamoProxy'};
   *((_QWORD *)this + 1) = &DataSourceProxy::`vftable'{for `IDataSourceProxy'};
-  v2 = (_QWORD *)*((_QWORD *)this + 26);
-  for ( i = (_QWORD *)*((_QWORD *)this + 25); i != v2; ++i )
+  v2 = (__int64 *)*((_QWORD *)this + 26);
+  for ( i = (__int64 *)*((_QWORD *)this + 25); i != v2; ++i )
   {
-    v4 = *(_QWORD *)(*i + 16LL);
-    if ( v4 )
+    v4 = *i;
+    v5 = *(_QWORD *)(*i + 16);
+    if ( v5 )
     {
-      *(_QWORD *)(v4 + 64) = 0LL;
-      *(_QWORD *)(v4 + 72) = 0LL;
-      *(_BYTE *)(v4 + 80) &= ~1u;
+      *(_QWORD *)(v5 + 56) = 0LL;
+      *(_QWORD *)(v5 + 64) = 0LL;
+      *(_BYTE *)(v5 + 72) &= ~1u;
+      v4 = *i;
     }
-    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*i + 8LL))(*i);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
   }
-  v5 = (void *)*((_QWORD *)this + 25);
-  *((_QWORD *)this + 26) = v5;
+  v6 = (void *)*((_QWORD *)this + 25);
   *((_QWORD *)this + 24) = 0LL;
-  if ( v5 )
+  *((_QWORD *)this + 26) = v6;
+  if ( v6 )
   {
-    std::_Deallocate<16,0>(v5, (*((_QWORD *)this + 27) - (_QWORD)v5) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(v6, (*((_QWORD *)this + 27) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF8uLL);
     *((_QWORD *)this + 25) = 0LL;
     *((_QWORD *)this + 26) = 0LL;
     *((_QWORD *)this + 27) = 0LL;
   }
   DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 160);
   DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 128);
-  std::_Deallocate<16,0>(
-    *((void **)this + 11),
-    (*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) & 0xFFFFFFFFFFFFFFF8uLL);
-  *((_QWORD *)this + 11) = 0LL;
-  *((_QWORD *)this + 12) = 0LL;
-  *((_QWORD *)this + 13) = 0LL;
-  std::_List_node<CBaseExpression *,void *>::_Free_non_head<std::allocator<std::_List_node<CBaseExpression *,void *>>>(
-    v6,
-    *((_QWORD ***)this + 9));
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>>>>::_Tidy((__int64)this + 88);
+  v7 = (_QWORD **)*((_QWORD *)this + 9);
+  *v7[1] = 0LL;
+  v8 = *v7;
+  if ( v8 )
+  {
+    do
+    {
+      v9 = (_QWORD *)*v8;
+      std::_Deallocate<16,0>(v8, 0x18uLL);
+      v8 = v9;
+    }
+    while ( v9 );
+  }
   std::_Deallocate<16,0>(*((void **)this + 9), 0x18uLL);
-  wil::com_ptr_t<Microsoft::Bamo::Lib::dataprovider_AutoBamos::BamoList_uint_Proxy,wil::err_returncode_policy>::~com_ptr_t<Microsoft::Bamo::Lib::dataprovider_AutoBamos::BamoList_uint_Proxy,wil::err_returncode_policy>((__int64 *)this + 7);
-  v7 = *((_QWORD *)this + 4);
-  if ( v7 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
+  v10 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 4);
+  if ( v10 )
+    (**v10)(v10);
 }

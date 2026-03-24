@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbCrossThreadRelease @ 0x140164E20
+ * XREFs of KeAbCrossThreadRelease @ 0x140164E40
  * Callers:
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14016471C (ExpReleaseDisownedFastResourceExclusive.c)
- *     ExpReleaseDisownedFastResourceShared @ 0x140164C2C (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x14016473C (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x140164C4C (ExpReleaseDisownedFastResourceShared.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)

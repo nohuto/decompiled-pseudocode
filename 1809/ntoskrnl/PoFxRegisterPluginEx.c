@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxRegisterPluginEx @ 0x1402D71D0
+ * XREFs of PoFxRegisterPluginEx @ 0x1402D72D0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxRegisterPluginEx @ 0x1402D8E98 (PopFxRegisterPluginEx.c)
+ *     PopFxRegisterPluginEx @ 0x1402D8F98 (PopFxRegisterPluginEx.c)
  */
 
 __int64 PoFxRegisterPluginEx()

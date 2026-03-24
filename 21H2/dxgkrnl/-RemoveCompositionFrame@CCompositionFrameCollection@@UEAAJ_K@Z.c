@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveCompositionFrame@CCompositionFrameCollection@@UEAAJ_K@Z @ 0x1C00176F0
+ * XREFs of ?RemoveCompositionFrame@CCompositionFrameCollection@@UEAAJ_K@Z @ 0x1C0015070
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionFrameCollection::RemoveCompositionFrame(CCompositionFrameCollection *this, __int64 a2)

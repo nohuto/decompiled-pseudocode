@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwUnloadKey @ 0x14041F1C0
+ * XREFs of ZwUnloadKey @ 0x1403FDCC0
  * Callers:
- *     DifZwUnloadKeyWrapper @ 0x140628480 (DifZwUnloadKeyWrapper.c)
- *     VrpUnloadDifferencingHive @ 0x1407F6200 (VrpUnloadDifferencingHive.c)
- *     BiUnloadHiveByName @ 0x1408073EC (BiUnloadHiveByName.c)
- *     BiLoadHive @ 0x140813960 (BiLoadHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     BiUnloadHiveByName @ 0x140779404 (BiUnloadHiveByName.c)
+ *     BiLoadHive @ 0x140785A48 (BiLoadHive.c)
  * Callees:
  *     <none>
  */

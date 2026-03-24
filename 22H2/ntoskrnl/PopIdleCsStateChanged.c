@@ -1,39 +1,36 @@
 /*
- * XREFs of PopIdleCsStateChanged @ 0x14099BEEC
+ * XREFs of PopIdleCsStateChanged @ 0x1408F5684
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x140599840 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576300 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopIdleCancelAoAcDozeS4Timer @ 0x14032EE20 (PopIdleCancelAoAcDozeS4Timer.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C7E5C (PopGetModernStandbyTransitionReason.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14059E208 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140381684 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576440 (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14057C158 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopIdleCsStateChanged(int a1)
 {
   char v1; // bl
-  unsigned int ModernStandbyTransitionReason; // eax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
+  __int64 v2; // rdx
+  __int64 v3; // rcx
 
   v1 = a1;
   PopAcquirePolicyLock(a1);
-  byte_140C3CD91 = v1;
-  ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(0);
+  byte_140C239B1 = v1;
   if ( v1 )
   {
-    qword_140C3CD98 = qword_140CF7CC8;
-    if ( !qword_140CF7CC8 )
-      qword_140C3CD98 = MEMORY[0xFFFFF78000000008];
+    qword_140C239B8 = qword_140C4FF08;
+    if ( !qword_140C4FF08 )
+      qword_140C239B8 = MEMORY[0xFFFFF78000000008];
     PopIdleArmAoAcDozeS4Timer();
   }
-  else if ( ModernStandbyTransitionReason >= 0x1000000 || (ModernStandbyTransitionReason & 0xFFFFFF) != 6 )
+  else if ( (unsigned int)PopGetModernStandbyTransitionReason(0, 0LL) != 6 )
   {
     PopIdleCancelAoAcDozeS4Timer(1u);
-    dword_140C3CD70 = 0;
-    qword_140C3CD98 = 0LL;
+    dword_140C23990 = 0;
+    qword_140C239B8 = 0LL;
   }
-  return PopReleasePolicyLock(v4, v3, v5);
+  return PopReleasePolicyLock(v3, v2);
 }

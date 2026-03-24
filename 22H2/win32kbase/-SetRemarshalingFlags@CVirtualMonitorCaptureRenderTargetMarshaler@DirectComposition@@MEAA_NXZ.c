@@ -1,32 +1,30 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022E840
+ * XREFs of ?SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F58D0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022E350 (-SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F53C0 (-SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
-bool __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::SetRemarshalingFlags(
+char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler *this)
 {
-  bool result; // al
-  _DWORD *v3; // rdx
+  char result; // al
 
   result = DirectComposition::CCaptureRenderTargetMarshaler::SetRemarshalingFlags(this);
-  v3 = (_DWORD *)((char *)this + 16);
-  if ( *((_QWORD *)this + 17) )
+  if ( *((_QWORD *)this + 16) )
   {
-    *v3 |= 0x2000u;
+    *((_DWORD *)this + 4) |= 0x1000u;
     result = 1;
   }
-  if ( *((_QWORD *)this + 24) )
+  if ( *((_QWORD *)this + 23) )
   {
-    *v3 |= 0x4000u;
+    *((_DWORD *)this + 4) |= 0x2000u;
     result = 1;
   }
-  if ( *((_DWORD *)this + 40) || *((_DWORD *)this + 42) || *((_DWORD *)this + 41) || *((_DWORD *)this + 43) )
+  if ( *((_DWORD *)this + 38) || *((_DWORD *)this + 40) || *((_DWORD *)this + 39) || *((_DWORD *)this + 41) )
   {
-    *v3 |= 0x8000u;
+    *((_DWORD *)this + 4) |= 0x4000u;
     return 1;
   }
   return result;

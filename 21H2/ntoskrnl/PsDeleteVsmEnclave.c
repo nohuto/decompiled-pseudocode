@@ -1,38 +1,38 @@
 /*
- * XREFs of PsDeleteVsmEnclave @ 0x1409B41CC
+ * XREFs of PsDeleteVsmEnclave @ 0x14090DD54
  * Callers:
- *     MiDeleteEnclavePages @ 0x140A6A73C (MiDeleteEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x1409B0B60 (MiDeleteEnclavePages.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PsDereferenceVsmEnclave @ 0x140882604 (PsDereferenceVsmEnclave.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PsDereferenceVsmEnclave @ 0x14090DEA0 (PsDereferenceVsmEnclave.c)
  */
 
-void __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)
+__int64 __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)
 {
   volatile signed __int64 *v4; // rdi
   __int64 v5; // r11
   _QWORD *i; // r8
-  __int64 v7; // [rsp+38h] [rbp+10h]
+  __int64 v8; // [rsp+38h] [rbp+10h]
 
   if ( !*((_BYTE *)a2 + 76) )
   {
     v4 = (volatile signed __int64 *)(a1 + 2264);
     ExAcquirePushLockExclusiveEx(a1 + 2264, 0LL);
     v5 = *(_QWORD *)(a1 + 2248);
-    v7 = a2[1] & (-1LL << (*(_DWORD *)(v5 + 4) & 0x1F));
+    v8 = a2[1] & (-1LL << (*(_DWORD *)(v5 + 4) & 0x1F));
     for ( i = (_QWORD *)(*(_QWORD *)(v5 + 8)
                        + 8LL
                        * ((37
-                         * (BYTE6(v7)
+                         * (BYTE6(v8)
                           + 37
-                          * (BYTE5(v7)
+                          * (BYTE5(v8)
                            + 37
-                           * (BYTE4(v7)
+                           * (BYTE4(v8)
                             + 37
-                            * (BYTE3(v7) + 37 * (BYTE2(v7) + 37 * (BYTE1(v7) + 37 * ((unsigned __int8)v7 + 11623883)))))))
-                         + HIBYTE(v7)) & (unsigned int)((*(_DWORD *)(v5 + 4) >> 5) - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
+                            * (BYTE3(v8) + 37 * (BYTE2(v8) + 37 * (BYTE1(v8) + 37 * ((unsigned __int8)v8 + 11623883)))))))
+                         + HIBYTE(v8)) & (unsigned int)((*(_DWORD *)(v5 + 4) >> 5) - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
     {
       if ( (_QWORD *)*i == a2 )
       {
@@ -46,5 +46,5 @@ void __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)
       ExfTryToWakePushLock(v4);
     KeAbPostRelease((ULONG_PTR)v4);
   }
-  PsDereferenceVsmEnclave(a2);
+  return PsDereferenceVsmEnclave(a2);
 }

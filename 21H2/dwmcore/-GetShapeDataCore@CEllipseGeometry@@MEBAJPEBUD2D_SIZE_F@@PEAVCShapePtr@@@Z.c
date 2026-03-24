@@ -1,13 +1,15 @@
 /*
- * XREFs of ?GetShapeDataCore@CEllipseGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800DECC0
+ * XREFs of ?GetShapeDataCore@CEllipseGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801C0370
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ??0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z @ 0x1800DEE54 (--0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRoundedRectangleShape@@@Z @ 0x1800DEF60 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRoundedRectangleShape@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x18025DE84 (--0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
  */
 
 __int64 __fastcall CEllipseGeometry::GetShapeDataCore(
@@ -15,60 +17,44 @@ __int64 __fastcall CEllipseGeometry::GetShapeDataCore(
         const struct D2D_SIZE_F *a2,
         struct CShapePtr *a3)
 {
-  float v3; // xmm3_4
-  float v4; // xmm2_4
-  float v6; // xmm1_4
-  unsigned int v7; // esi
-  float v8; // xmm0_4
-  struct CObjectCache *ObjectCache; // rax
-  CRoundedRectangleShape *v10; // rcx
-  int v11; // r8d
-  CRoundedRectangleShape *v12; // rbx
-  __int64 result; // rax
-  float v14[13]; // [rsp+30h] [rbp-48h] BYREF
-  __int16 v15; // [rsp+64h] [rbp-14h]
+  __int128 v3; // xmm0
+  CComplexShape *v4; // rbx
+  int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // edi
+  CComplexShape *v9; // rax
+  __int64 v10; // rcx
+  struct ID2D1Geometry *v12; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v13; // [rsp+38h] [rbp-20h] BYREF
 
-  v3 = *((float *)this + 38);
-  v4 = *((float *)this + 39);
-  v6 = *((float *)this + 36);
-  v7 = 0;
-  v14[12] = 0.0;
-  v8 = *((float *)this + 37) - v4;
-  v14[4] = v3;
-  v14[5] = v4;
-  v15 = 1;
-  v14[0] = v6 - v3;
-  v14[1] = v8;
-  v14[2] = v3 + v3;
-  v14[3] = v4 + v4;
-  ObjectCache = CThreadContext::GetObjectCache(this);
-  v10 = 0LL;
-  v11 = *((_DWORD *)ObjectCache + 1);
-  if ( v11 )
+  v3 = *(_OWORD *)((char *)this + 136);
+  v4 = 0LL;
+  v12 = 0LL;
+  v13 = v3;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v12);
+  v6 = (*(__int64 (__fastcall **)(void *, __int128 *, struct ID2D1Geometry **))(*(_QWORD *)g_DeviceManager + 56LL))(
+         g_DeviceManager,
+         &v13,
+         &v12);
+  v8 = v6;
+  if ( v6 < 0 )
   {
-    v10 = (CRoundedRectangleShape *)*((_QWORD *)ObjectCache + 1);
-    *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v10;
-    *((_DWORD *)ObjectCache + 1) = v11 - 1;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x52u, 0LL);
   }
-  if ( !v10 )
+  else
   {
-    v10 = (CRoundedRectangleShape *)DefaultHeap::Alloc(0x18uLL);
-    if ( !v10 )
+    v9 = (CComplexShape *)DefaultHeap::Alloc(0x18uLL);
+    if ( v9 )
+      v4 = CComplexShape::CComplexShape(v9, v12);
+    if ( !v4 )
     {
-      v12 = 0LL;
-      goto LABEL_8;
+      v8 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x55u, 0LL);
     }
   }
-  v12 = CRoundedRectangleShape::CRoundedRectangleShape(v10, (const struct CRoundedRectangleGeometryData *)v14);
-  if ( !v12 )
-  {
-LABEL_8:
-    v7 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v10, 0LL, 0LL, -2147024882, 0x5Du);
-  }
   CShapePtr::Release(a3);
-  *(_QWORD *)a3 = v12;
-  result = v7;
+  *(_QWORD *)a3 = v4;
   *((_BYTE *)a3 + 8) = 1;
-  return result;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v12);
+  return v8;
 }

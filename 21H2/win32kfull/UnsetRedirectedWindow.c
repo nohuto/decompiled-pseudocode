@@ -1,21 +1,21 @@
 /*
- * XREFs of UnsetRedirectedWindow @ 0x1C00B40A4
+ * XREFs of UnsetRedirectedWindow @ 0x1C00EF7E8
  * Callers:
- *     xxxSetWindowStyle @ 0x1C0050020 (xxxSetWindowStyle.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     zzzUpdateLayeredWindow @ 0x1C008FE60 (zzzUpdateLayeredWindow.c)
- *     UnsetLayeredWindow @ 0x1C00B3964 (UnsetLayeredWindow.c)
- *     UserRecreateRedirectionBitmap @ 0x1C01E2880 (UserRecreateRedirectionBitmap.c)
- *     xxxPrintWindow @ 0x1C01E297C (xxxPrintWindow.c)
+ *     xxxSetWindowStyle @ 0x1C005E1E0 (xxxSetWindowStyle.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1FE4 (zzzUpdateLayeredWindow.c)
+ *     UserRecreateRedirectionBitmap @ 0x1C01E81F0 (UserRecreateRedirectionBitmap.c)
+ *     xxxPrintWindow @ 0x1C01E82D0 (xxxPrintWindow.c)
  * Callees:
- *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C001F87C (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
- *     UnredirectDCEs @ 0x1C0020208 (UnredirectDCEs.c)
- *     HintSpriteShape @ 0x1C00210C4 (HintSpriteShape.c)
- *     GetRedirectionBitmap @ 0x1C0049330 (GetRedirectionBitmap.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     DeleteOldRedirectionBitmap @ 0x1C00B4184 (DeleteOldRedirectionBitmap.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00B4214 (DeleteOrSetRedirectionBitmap.c)
+ *     UnredirectDCEs @ 0x1C004C23C (UnredirectDCEs.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     HintSpriteShape @ 0x1C00BD898 (HintSpriteShape.c)
+ *     GetRedirectionBitmap @ 0x1C00BEF20 (GetRedirectionBitmap.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C00BEFA8 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C00EF8C8 (DeleteOldRedirectionBitmap.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF958 (DeleteOrSetRedirectionBitmap.c)
  */
 
 __int64 __fastcall UnsetRedirectedWindow(struct tagWND *a1, int a2)
@@ -25,9 +25,10 @@ __int64 __fastcall UnsetRedirectedWindow(struct tagWND *a1, int a2)
   int v6; // edx
   BOOL v7; // eax
   __int64 RedirectionBitmap; // rbx
+  __int64 v9; // r9
 
   v3 = 1;
-  Prop = GetProp((__int64)a1, (unsigned __int16)atomLayer, 1u);
+  Prop = GetProp((__int64)a1, (unsigned __int16)atomLayer, 1LL);
   v6 = *(_DWORD *)(Prop + 32) & ~a2;
   *(_DWORD *)(Prop + 32) = v6;
   if ( (a2 & 1) != 0 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 0x20) == 0 )
@@ -38,14 +39,14 @@ __int64 __fastcall UnsetRedirectedWindow(struct tagWND *a1, int a2)
   }
   if ( !v6 )
   {
-    SetOrClrWF(0, a1, 0xB20u, 1);
+    SetOrClrWF(0, (__int64)a1, 0xB20u, 1);
     DeleteOldRedirectionBitmap(a1);
     RedirectionBitmap = GetRedirectionBitmap((__int64)a1);
     UnredirectDCEs(a1);
     if ( RedirectionBitmap )
     {
-      v3 = SetRedirectionBitmap(a1, 0LL, 1);
-      DeleteOrSetRedirectionBitmap(a1, RedirectionBitmap, 0LL);
+      v3 = SetRedirectionBitmap((void **)a1, 0LL, 1);
+      DeleteOrSetRedirectionBitmap(a1, RedirectionBitmap, 0LL, v9);
     }
   }
   return v3;

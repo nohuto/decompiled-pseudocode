@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapSaveRecordForLiveDump @ 0x140A6D5D8
+ * XREFs of WheapSaveRecordForLiveDump @ 0x1409B3974
  * Callers:
- *     WheapCreateLiveDumpFromPreviousSession @ 0x140A6D528 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B38C4 (WheapCreateLiveDumpFromPreviousSession.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
 {
   size_t v1; // rsi
   unsigned int v3; // edi
-  __int64 Pool2; // rbx
-  __int64 *v5; // rax
+  struct _DEVICE_OBJECT *PoolWithTag; // rbx
+  struct _DEVICE_OBJECT *NextDevice; // rax
 
   v1 = *(unsigned int *)(a1 + 60);
   if ( (int)v1 + 32 < (unsigned int)v1 )
@@ -24,21 +24,21 @@ __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
   else
   {
     v3 = 0;
-    Pool2 = ExAllocatePool2(66LL, (unsigned int)(v1 + 32), 1634035799LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _DEVICE_OBJECT *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(v1 + 32), 0x61656857u);
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 16) = *(_DWORD *)(*(_QWORD *)(a1 + 32) + 40LL);
-      *(_QWORD *)(Pool2 + 24) = Pool2 + 32;
-      memmove((void *)(Pool2 + 32), (const void *)(a1 + 40), v1);
-      ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
-      v5 = *(__int64 **)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels;
-      if ( **(struct _DEVICE_OBJECT ***)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink )
+      LODWORD(PoolWithTag->NextDevice) = *(_DWORD *)(*(_QWORD *)(a1 + 32) + 40LL);
+      PoolWithTag->AttachedDevice = (struct _DEVICE_OBJECT *)&PoolWithTag->CurrentIrp;
+      memmove(&PoolWithTag->CurrentIrp, (const void *)(a1 + 40), v1);
+      ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.Timer);
+      NextDevice = WheapDispatchPtr.NextDevice;
+      if ( *(struct _DEVICE_OBJECT **)WheapDispatchPtr.NextDevice != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DriverObject )
         __fastfail(3u);
-      *(_QWORD *)Pool2 = &WheapDispatchPtr.Queue.ListEntry.Blink;
-      *(_QWORD *)(Pool2 + 8) = v5;
-      *v5 = Pool2;
-      *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = Pool2;
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.AttachedDevice);
+      *(_QWORD *)&PoolWithTag->Type = &WheapDispatchPtr.DriverObject;
+      PoolWithTag->DriverObject = (struct _DRIVER_OBJECT *)NextDevice;
+      *(_QWORD *)&NextDevice->Type = PoolWithTag;
+      WheapDispatchPtr.NextDevice = PoolWithTag;
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.Timer);
     }
     else
     {

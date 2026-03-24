@@ -1,15 +1,14 @@
 /*
- * XREFs of ACPIBuildDeviceDpc @ 0x1C000BE30
+ * XREFs of ACPIBuildDeviceDpc @ 0x1C001CDD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIBuildProcessGenericList @ 0x1C0010D2C (ACPIBuildProcessGenericList.c)
- *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C0012100 (ACPIBuildProcessSpecialSynchronizationList.c)
- *     ACPIBuildProcessSynchronizationList @ 0x1C00123A0 (ACPIBuildProcessSynchronizationList.c)
- *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
- *     ACPIPowerScheduleDpc @ 0x1C0022734 (ACPIPowerScheduleDpc.c)
- *     ACPIInternalMoveList @ 0x1C002EC24 (ACPIInternalMoveList.c)
+ *     ACPIBuildProcessSynchronizationList @ 0x1C0019B44 (ACPIBuildProcessSynchronizationList.c)
+ *     ACPIPowerScheduleDpc @ 0x1C001CD7C (ACPIPowerScheduleDpc.c)
+ *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C001D2F4 (ACPIBuildProcessSpecialSynchronizationList.c)
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C002C8F0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     ACPIInternalMoveList @ 0x1C00318C8 (ACPIInternalMoveList.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIBuildDeviceDpc(
@@ -20,44 +19,49 @@ void __fastcall ACPIBuildDeviceDpc(
 {
   int v4; // eax
   __int64 v5; // rcx
-  __int64 *v6; // rdx
-  __int64 **v7; // rax
-  __int64 v8; // rax
-  __int64 *v9; // r8
-  int v10; // r9d
-  __int64 v11; // rdi
-  __int64 v12; // rdi
-  __int64 v13; // rsi
-  unsigned __int32 v14; // eax
-  __int64 (__fastcall *v15)(PVOID); // rdx
-  signed __int32 v16; // ebx
-  __int64 v17; // rdi
-  char v18; // bp
-  __int64 v19; // rsi
-  unsigned __int32 v20; // eax
-  void (__fastcall *v21)(__int64); // rdx
+  int v6; // r9d
+  __int64 v7; // rdi
+  __int64 v8; // rdi
+  __int64 v9; // rdi
+  __int64 v10; // rdi
+  __int64 v11; // rbx
+  __int64 v12; // rsi
+  unsigned __int32 v13; // eax
+  void (__fastcall *v14)(__int64); // rdx
+  __int64 v15; // rdi
+  signed __int32 v16; // edi
+  char v17; // bp
+  __int64 v18; // rsi
+  unsigned __int32 v19; // eax
+  __int64 (__fastcall *v20)(PSLIST_ENTRY); // rdx
+  int v21; // ebx
   signed __int32 v22; // ebx
-  __int64 v23; // rdi
-  __int64 v24; // rsi
-  unsigned __int32 v25; // eax
-  __int64 (__fastcall *v26)(PVOID); // rdx
-  signed __int32 v27; // ebx
-  __int64 v28; // rdi
-  __int64 v29; // rsi
-  unsigned __int32 v30; // eax
-  void (__fastcall *v31)(__int64); // rdx
-  signed __int32 v32; // ebx
-  char v33; // bp
-  __int64 v34; // rsi
-  unsigned __int32 v35; // eax
-  __int64 (__fastcall *v36)(PVOID); // rdx
-  signed __int32 v37; // ebx
-  int v38; // ebx
+  __int64 *v23; // rdx
+  __int64 **v24; // rax
+  __int64 v25; // rax
+  __int64 *v26; // r8
+  char v27; // bp
+  __int64 v28; // rsi
+  unsigned __int32 v29; // eax
+  void (__fastcall *v30)(__int64); // rdx
+  signed __int32 v31; // ebx
+  __int64 v32; // rsi
+  unsigned __int32 v33; // eax
+  __int64 (__fastcall *v34)(PSLIST_ENTRY); // rdx
+  signed __int32 v35; // ebx
+  __int64 v36; // rsi
+  unsigned __int32 v37; // eax
+  void (__fastcall *v38)(__int64); // rdx
+  signed __int32 v39; // ebx
+  __int64 v40; // rsi
+  unsigned __int32 v41; // eax
+  __int64 (__fastcall *v42)(PSLIST_ENTRY); // rdx
+  signed __int32 v43; // ebx
 
   KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
   v4 = AcpiBuildDpcFlags;
   if ( (AcpiBuildDpcFlags & 2) == 0 )
-    goto LABEL_80;
+    goto LABEL_20;
   do
   {
     v5 = AcpiBuildQueueList;
@@ -66,143 +70,139 @@ void __fastcall ACPIBuildDeviceDpc(
     {
       do
       {
-        v6 = *(__int64 **)v5;
+        v23 = *(__int64 **)v5;
         if ( (*(_DWORD *)(v5 + 20) & 0x40) == 0 )
         {
-          if ( v6[1] != v5
-            || (v7 = *(__int64 ***)(v5 + 8), *v7 != (__int64 *)v5)
-            || (*v7 = v6, v6[1] = (__int64)v7, v8 = *(_QWORD *)(v5 + 128), v9 = *(__int64 **)(v8 + 8), *v9 != v8) )
+          if ( v23[1] != v5
+            || (v24 = *(__int64 ***)(v5 + 8), *v24 != (__int64 *)v5)
+            || (*v24 = v23, v23[1] = (__int64)v24,
+                            v25 = *(_QWORD *)(v5 + 128),
+                            v26 = *(__int64 **)(v25 + 8),
+                            *v26 != v25) )
           {
             __fastfail(3u);
           }
-          *(_QWORD *)v5 = v8;
-          *(_QWORD *)(v5 + 8) = v9;
-          *v9 = v5;
-          *(_QWORD *)(v8 + 8) = v5;
+          *(_QWORD *)v5 = v25;
+          *(_QWORD *)(v5 + 8) = v26;
+          *v26 = v5;
+          *(_QWORD *)(v25 + 8) = v5;
           *(_DWORD *)(v5 + 20) &= ~0x1000u;
           *(_QWORD *)(v5 + 128) = 0LL;
         }
-        v5 = (__int64)v6;
+        v5 = (__int64)v23;
       }
-      while ( v6 != &AcpiBuildQueueList );
+      while ( v23 != &AcpiBuildQueueList );
     }
     KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);
-    v11 = AcpiBuildRunMethodList;
+    v7 = AcpiBuildRunMethodList;
     if ( (__int64 *)AcpiBuildRunMethodList != &AcpiBuildRunMethodList )
     {
-      v33 = 1;
+      v17 = 1;
       while ( 1 )
       {
-        v34 = *(_QWORD *)v11;
-        v35 = _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 1, 1);
-        if ( v35 >= 0xA )
-          goto LABEL_82;
-        v36 = AcpiBuildRunMethodDispatch[v35];
-        if ( v36 )
+        v18 = *(_QWORD *)v7;
+        v19 = _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 24), 1, 1);
+        if ( v19 >= 0xA )
+          goto LABEL_93;
+        v20 = AcpiBuildRunMethodDispatch[v19];
+        if ( v20 )
         {
-          if ( v35 != 2 )
-            *(_DWORD *)(v11 + 28) = v35;
-          v37 = _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 1, v35);
-          v36((PVOID)v11);
-          if ( (v37 & 0xFFFFFFFD) != 0 )
-            goto LABEL_73;
+          if ( v19 != 2 )
+            *(_DWORD *)(v7 + 28) = v19;
+          v22 = _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 24), 1, v19);
+          v20((PSLIST_ENTRY)v7);
+          if ( (v22 & 0xFFFFFFFD) != 0 )
+            goto LABEL_30;
         }
         else
         {
-          v33 = 0;
+          v17 = 0;
         }
-        v11 = v34;
-LABEL_73:
-        if ( (__int64 *)v11 == &AcpiBuildRunMethodList )
+        v7 = v18;
+LABEL_30:
+        if ( (__int64 *)v7 == &AcpiBuildRunMethodList )
         {
-          if ( v33 )
-            v38 = 0;
+          if ( v17 )
+            v21 = 0;
           else
-            v38 = 259;
+            v21 = 259;
           KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
-          if ( v38 != 259 )
+          if ( v21 != 259 )
             AcpiBuildDpcFlags |= 2u;
-          goto LABEL_79;
+          goto LABEL_19;
         }
       }
     }
-    v12 = AcpiBuildOperationRegionList;
-    if ( (__int64 *)AcpiBuildOperationRegionList != &AcpiBuildOperationRegionList )
+    v8 = AcpiBuildOperationRegionList;
+    while ( (__int64 *)v8 != &AcpiBuildOperationRegionList )
     {
-      while ( 1 )
+      v40 = *(_QWORD *)v8;
+      v41 = _InterlockedCompareExchange((volatile signed __int32 *)(v8 + 24), 1, 1);
+      if ( v41 >= 4 )
+        goto LABEL_93;
+      v42 = AcpiBuildOperationRegionDispatch[v41];
+      if ( v42 )
       {
-        v13 = *(_QWORD *)v12;
-        v14 = _InterlockedCompareExchange((volatile signed __int32 *)(v12 + 24), 1, 1);
-        if ( v14 >= 4 )
-          break;
-        v15 = AcpiBuildOperationRegionDispatch[v14];
-        if ( !v15 )
-          goto LABEL_16;
-        if ( v14 != 2 )
-          *(_DWORD *)(v12 + 28) = v14;
-        v16 = _InterlockedCompareExchange((volatile signed __int32 *)(v12 + 24), 1, v14);
-        v15((PVOID)v12);
-        if ( (v16 & 0xFFFFFFFD) == 0 )
-LABEL_16:
-          v12 = v13;
-        if ( (__int64 *)v12 == &AcpiBuildOperationRegionList )
-          goto LABEL_18;
+        if ( v41 != 2 )
+          *(_DWORD *)(v8 + 28) = v41;
+        v43 = _InterlockedCompareExchange((volatile signed __int32 *)(v8 + 24), 1, v41);
+        v42((PSLIST_ENTRY)v8);
+        if ( (v43 & 0xFFFFFFFD) != 0 )
+          continue;
       }
-LABEL_82:
-      KeBugCheckEx(0xA3u, 1uLL, 0x102124uLL, 0LL, 0LL);
+      v8 = v40;
     }
-LABEL_18:
-    v17 = AcpiBuildPowerResourceList;
+    v9 = AcpiBuildPowerResourceList;
     if ( (__int64 *)AcpiBuildPowerResourceList == &AcpiBuildPowerResourceList )
-      goto LABEL_30;
-    v18 = 1;
+      goto LABEL_6;
+    v27 = 1;
     do
     {
-      v19 = *(_QWORD *)v17;
-      v20 = _InterlockedCompareExchange((volatile signed __int32 *)(v17 + 24), 1, 1);
-      if ( v20 >= 7 )
-        goto LABEL_82;
-      v21 = (void (__fastcall *)(__int64))*(&AcpiBuildPowerResourceDispatch + v20);
-      if ( !v21 )
+      v28 = *(_QWORD *)v9;
+      v29 = _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 24), 1, 1);
+      if ( v29 >= 7 )
+        goto LABEL_93;
+      v30 = (void (__fastcall *)(__int64))*(&AcpiBuildPowerResourceDispatch + v29);
+      if ( !v30 )
       {
-        v18 = 0;
-LABEL_27:
-        v17 = v19;
+        v27 = 0;
+LABEL_61:
+        v9 = v28;
         continue;
       }
-      if ( v20 != 2 )
-        *(_DWORD *)(v17 + 28) = v20;
-      v22 = _InterlockedCompareExchange((volatile signed __int32 *)(v17 + 24), 1, v20);
-      v21(v17);
-      if ( (v22 & 0xFFFFFFFD) == 0 )
-        goto LABEL_27;
+      if ( v29 != 2 )
+        *(_DWORD *)(v9 + 28) = v29;
+      v31 = _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 24), 1, v29);
+      v30(v9);
+      if ( (v31 & 0xFFFFFFFD) == 0 )
+        goto LABEL_61;
     }
-    while ( (__int64 *)v17 != &AcpiBuildPowerResourceList );
-    if ( v18 )
+    while ( (__int64 *)v9 != &AcpiBuildPowerResourceList );
+    if ( v27 )
     {
-LABEL_30:
-      v23 = AcpiBuildDelayedDependencyList;
+LABEL_6:
+      v10 = AcpiBuildDelayedDependencyList;
       if ( (__int64 *)AcpiBuildDelayedDependencyList != &AcpiBuildDelayedDependencyList )
       {
         do
         {
-          v24 = *(_QWORD *)v23;
-          v25 = _InterlockedCompareExchange((volatile signed __int32 *)(v23 + 24), 1, 1);
-          if ( v25 >= 5 )
-            goto LABEL_82;
-          v26 = AcpiBuildDelayedDependencyDispatch[v25];
-          if ( v26 )
+          v32 = *(_QWORD *)v10;
+          v33 = _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 24), 1, 1);
+          if ( v33 >= 5 )
+            goto LABEL_93;
+          v34 = AcpiBuildDelayedDependencyDispatch[v33];
+          if ( v34 )
           {
-            if ( v25 != 2 )
-              *(_DWORD *)(v23 + 28) = v25;
-            v27 = _InterlockedCompareExchange((volatile signed __int32 *)(v23 + 24), 1, v25);
-            v26((PVOID)v23);
-            if ( (v27 & 0xFFFFFFFD) != 0 )
+            if ( v33 != 2 )
+              *(_DWORD *)(v10 + 28) = v33;
+            v35 = _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 24), 1, v33);
+            v34((PSLIST_ENTRY)v10);
+            if ( (v35 & 0xFFFFFFFD) != 0 )
               continue;
           }
-          v23 = v24;
+          v10 = v32;
         }
-        while ( (__int64 *)v23 != &AcpiBuildDelayedDependencyList );
+        while ( (__int64 *)v10 != &AcpiBuildDelayedDependencyList );
         if ( (__int64 *)AcpiBuildDelayedDependencyList == &AcpiBuildDelayedDependencyList
           && (AcpiOverrideAttributes & 0x80000) != 0 )
         {
@@ -210,30 +210,53 @@ LABEL_30:
             RootDeviceExtension,
             (unsigned int)ACPIBuildIssueNotifyInvalidateRelations,
             RootDeviceExtension,
-            v10,
+            v6,
             0);
         }
       }
+      v11 = AcpiBuildDeviceList;
       if ( (__int64 *)AcpiBuildDeviceList != &AcpiBuildDeviceList )
-        ACPIBuildProcessGenericList(&AcpiBuildDeviceList, &AcpiBuildDeviceDispatch, 34LL);
-      v28 = AcpiBuildThermalZoneList;
-      while ( (__int64 *)v28 != &AcpiBuildThermalZoneList )
       {
-        v29 = *(_QWORD *)v28;
-        v30 = _InterlockedCompareExchange((volatile signed __int32 *)(v28 + 24), 1, 1);
-        if ( v30 >= 8 )
-          goto LABEL_82;
-        v31 = (void (__fastcall *)(__int64))*(&AcpiBuildThermalZoneDispatch + v30);
-        if ( v31 )
+        while ( 1 )
         {
-          if ( v30 != 2 )
-            *(_DWORD *)(v28 + 28) = v30;
-          v32 = _InterlockedCompareExchange((volatile signed __int32 *)(v28 + 24), 1, v30);
-          v31(v28);
-          if ( (v32 & 0xFFFFFFFD) != 0 )
-            continue;
+          v12 = *(_QWORD *)v11;
+          v13 = _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 1, 1);
+          if ( v13 >= 0x22 )
+            break;
+          v14 = (void (__fastcall *)(__int64))*(&AcpiBuildDeviceDispatch + v13);
+          if ( !v14 )
+            goto LABEL_10;
+          if ( v13 != 2 )
+            *(_DWORD *)(v11 + 28) = v13;
+          v16 = _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 1, v13);
+          v14(v11);
+          if ( (v16 & 0xFFFFFFFD) == 0 )
+LABEL_10:
+            v11 = v12;
+          if ( (__int64 *)v11 == &AcpiBuildDeviceList )
+            goto LABEL_12;
         }
-        v28 = v29;
+LABEL_93:
+        KeBugCheckEx(0xA3u, 1uLL, 0x102131uLL, 0LL, 0LL);
+      }
+LABEL_12:
+      v15 = AcpiBuildThermalZoneList;
+      while ( (__int64 *)v15 != &AcpiBuildThermalZoneList )
+      {
+        v36 = *(_QWORD *)v15;
+        v37 = _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 24), 1, 1);
+        if ( v37 >= 8 )
+          goto LABEL_93;
+        v38 = (void (__fastcall *)(__int64))*(&AcpiBuildThermalZoneDispatch + v37);
+        if ( !v38 )
+          goto LABEL_81;
+        if ( v37 != 2 )
+          *(_DWORD *)(v15 + 28) = v37;
+        v39 = _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 24), 1, v37);
+        v38(v15);
+        if ( (v39 & 0xFFFFFFFD) == 0 )
+LABEL_81:
+          v15 = v36;
       }
       if ( (__int64 *)AcpiBuildDeviceList == &AcpiBuildDeviceList
         && (__int64 *)AcpiBuildOperationRegionList == &AcpiBuildOperationRegionList
@@ -249,17 +272,17 @@ LABEL_30:
         }
         KeReleaseSpinLockFromDpcLevel(&AcpiPowerQueueLock);
       }
-      if ( AcpiBuildSynchronizationList != &AcpiBuildSynchronizationList )
+      if ( AcpiBuildSynchronizationList != (PSLIST_ENTRY)&AcpiBuildSynchronizationList )
         ACPIBuildProcessSynchronizationList();
-      if ( AcpiBuildSpecialSynchronizationList != &AcpiBuildSpecialSynchronizationList )
+      if ( AcpiBuildSpecialSynchronizationList != (PSLIST_ENTRY)&AcpiBuildSpecialSynchronizationList )
         ACPIBuildProcessSpecialSynchronizationList();
     }
     KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
-LABEL_79:
+LABEL_19:
     v4 = AcpiBuildDpcFlags;
   }
   while ( (AcpiBuildDpcFlags & 2) != 0 );
-LABEL_80:
+LABEL_20:
   AcpiBuildDpcFlags = v4 & 0xFFFFFFFE;
   KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);
 }

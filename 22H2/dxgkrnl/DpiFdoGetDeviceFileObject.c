@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiFdoGetDeviceFileObject @ 0x1C039B768
+ * XREFs of DpiFdoGetDeviceFileObject @ 0x1C02CA68C
  * Callers:
- *     DpiIndirectCbSendMessage @ 0x1C03A49A0 (DpiIndirectCbSendMessage.c)
+ *     DpiIndirectCbSendMessage @ 0x1C02D5CE0 (DpiIndirectCbSendMessage.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 void *__fastcall DpiFdoGetDeviceFileObject(__int64 a1)
 {
   __int64 v1; // rsi
-  void *v3; // rbx
+  void *v3; // rdi
 
   v1 = a1 + 1168;
   ExEnterCriticalRegionAndAcquireFastMutexUnsafe(a1 + 1168);

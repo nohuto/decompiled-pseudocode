@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_SendingUsbFeaturesVendorCmd @ 0x1C00228E0
+ * XREFs of HUBDSM_SendingUsbFeaturesVendorCmd @ 0x1C00202E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_SendingUsbFeaturesVendorCmd(__int64 a1)
@@ -16,9 +16,9 @@ __int64 __fastcall HUBDSM_SendingUsbFeaturesVendorCmd(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 960);
   *(_BYTE *)(v1 + 400) = 64;
-  *(_BYTE *)(v1 + 401) = *(_BYTE *)(v1 + 2673);
-  *(_WORD *)(v1 + 402) = *(_WORD *)(v1 + 2665);
-  *(_WORD *)(v1 + 404) = *(_WORD *)(v1 + 2667);
+  *(_BYTE *)(v1 + 401) = *(_BYTE *)(v1 + 2665);
+  *(_WORD *)(v1 + 402) = *(_WORD *)(v1 + 2657);
+  *(_WORD *)(v1 + 404) = *(_WORD *)(v1 + 2659);
   *(_WORD *)(v1 + 406) = 0;
   v2 = HUBMISC_ControlTransfer(
          *(_QWORD *)v1,
@@ -44,7 +44,7 @@ __int64 __fastcall HUBDSM_SendingUsbFeaturesVendorCmd(__int64 a1)
         2u,
         5u,
         0x36u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v4);
     }
     HUBSM_AddEvent(v1 + 504, 4004);

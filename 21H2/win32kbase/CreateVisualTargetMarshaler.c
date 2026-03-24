@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateVisualTargetMarshaler @ 0x1C00A6D70
+ * XREFs of CreateVisualTargetMarshaler @ 0x1C00934F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CVisualTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A6DC8 (-Create@CVisualTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z.c)
+ *     ?Create@CVisualTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0093548 (-Create@CVisualTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z.c)
  */
 
 __int64 __fastcall CreateVisualTargetMarshaler(

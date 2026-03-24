@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWritePCIConfig @ 0x140394EA0
+ * XREFs of HalpWritePCIConfig @ 0x14039E0DC
  * Callers:
- *     HalpSetPCIData @ 0x140394DC4 (HalpSetPCIData.c)
- *     HalpValidPCISlot @ 0x140395154 (HalpValidPCISlot.c)
+ *     HalpSetPCIData @ 0x14039E1A4 (HalpSetPCIData.c)
+ *     HalpValidPCISlot @ 0x14039E474 (HalpValidPCISlot.c)
  * Callees:
- *     HalpPCIConfig @ 0x14033F1A0 (HalpPCIConfig.c)
- *     HalpValidPCISlot @ 0x140395154 (HalpValidPCISlot.c)
+ *     HalpPCIConfig @ 0x140309270 (HalpPCIConfig.c)
+ *     HalpValidPCISlot @ 0x14039E474 (HalpValidPCISlot.c)
  */
 
 __int64 __fastcall HalpWritePCIConfig(

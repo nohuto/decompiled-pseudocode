@@ -1,13 +1,14 @@
 /*
- * XREFs of KeRaiseUserException @ 0x14056E010
+ * XREFs of KeRaiseUserException @ 0x140515F20
  * Callers:
- *     ExHandleLogBadReference @ 0x14025032C (ExHandleLogBadReference.c)
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
- *     ObCloseHandleTableEntry @ 0x1407A2E10 (ObCloseHandleTableEntry.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
  * Callees:
- *     KiSetupForInstrumentationReturn @ 0x14025E30C (KiSetupForInstrumentationReturn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x14036CFA8 (KiSetupForInstrumentationReturn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRaiseUserException(unsigned int a1)
@@ -36,7 +37,7 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
     {
       *((_DWORD *)CurrentThread->Teb + 176) = a1;
       *(_WORD *)(TrapFrame + 368) = 51;
-      *(_QWORD *)(TrapFrame + 360) = qword_140D071A0;
+      *(_QWORD *)(TrapFrame + 360) = KeRaiseUserExceptionDispatcher;
       if ( *(_BYTE *)(TrapFrame + 43) != 2 )
         KiSetupForInstrumentationReturn(TrapFrame);
     }

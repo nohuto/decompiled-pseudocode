@@ -1,53 +1,51 @@
 /*
- * XREFs of NtUserSetThreadInputBlocked @ 0x1C0005190
+ * XREFs of NtUserSetThreadInputBlocked @ 0x1C0067550
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ @ 0x1C011BC6C (-EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetThreadInputBlocked(int a1, int a2)
 {
-  AtomicExecutionCheck *v4; // rcx
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v6; // rbx
-  int v7; // eax
-  unsigned int v8; // eax
-  __int64 v9; // rax
+  __int64 v4; // rbx
+  int v5; // ecx
+  unsigned int v6; // eax
+  int v7; // ecx
+  __int64 v8; // rcx
+  char v10; // [rsp+40h] [rbp+18h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::EnforceConsistency(v4);
-  CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
-  ++*(_DWORD *)(CurrentThreadWin32Thread + 48);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v10);
   if ( a1 != 4096 )
   {
     UserSetLastError(87LL);
-    v6 = 0LL;
-    goto LABEL_6;
+    v4 = 0LL;
+    goto LABEL_7;
   }
-  v6 = 0LL;
-  v7 = *(_DWORD *)(gptiCurrent + 1272LL);
+  v4 = 0LL;
+  v5 = *(_DWORD *)(gptiCurrent + 1232LL);
   if ( !a2 )
   {
-    if ( (v7 & 0x8000) != 0 )
-    {
-      v8 = v7 & 0xFFFF7FFF;
-      goto LABEL_5;
-    }
+    if ( (v5 & 0x8000) != 0 )
+      goto LABEL_4;
 LABEL_9:
     UserSetLastError(87LL);
-    goto LABEL_6;
+    goto LABEL_7;
   }
-  if ( (v7 & 0x8000) != 0 )
+  if ( (v5 & 0x8000) != 0 )
     goto LABEL_9;
-  v8 = v7 | 0x8000;
-LABEL_5:
-  *(_DWORD *)(gptiCurrent + 1272LL) = v8;
-  v6 = 1LL;
-LABEL_6:
-  v9 = PsGetCurrentThreadWin32Thread();
-  --*(_DWORD *)(v9 + 48);
-  UserSessionSwitchLeaveCrit();
-  return v6;
+LABEL_4:
+  v4 = 1LL;
+  v6 = v5 & 0xFFFF7FFF;
+  v7 = v5 | 0x8000;
+  if ( !a2 )
+    v7 = v6;
+  *(_DWORD *)(gptiCurrent + 1232LL) = v7;
+LABEL_7:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v10);
+  UserSessionSwitchLeaveCrit(v8);
+  return v4;
 }

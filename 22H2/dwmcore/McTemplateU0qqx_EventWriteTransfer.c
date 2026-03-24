@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateU0qqx_EventWriteTransfer @ 0x1801B549C
+ * XREFs of McTemplateU0qqx_EventWriteTransfer @ 0x180155F3C
  * Callers:
- *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x180053874 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
- *     ?Reset@CComposition@@UEAAXXZ @ 0x1800EBF50 (-Reset@CComposition@@UEAAXXZ.c)
- *     ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800FF370 (-Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x18007A4A0 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
+ *     ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800DBC44 (-Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ *     ?Reset@CComposition@@UEAAXXZ @ 0x1800DEE50 (-Reset@CComposition@@UEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0qqx_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
@@ -30,7 +30,7 @@ ULONG __fastcall McTemplateU0qqx_EventWriteTransfer(__int64 a1, __int64 a2, __in
   v9 = &v14;
   v11 = &a5;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_SCHEDULE_ROUNDTRIPREQUEST_STATE,
            a3,
            4u,

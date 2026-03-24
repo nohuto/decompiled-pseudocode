@@ -1,25 +1,23 @@
 /*
- * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0266D90
+ * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C026E63C
  * Callers:
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C013411C (-bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEA.c)
- *     _lambda_1cf76e2996e024a73989971e750c3c23_::operator() @ 0x1C02DDD60 (_lambda_1cf76e2996e024a73989971e750c3c23_--operator().c)
- *     _lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_::operator() @ 0x1C02DDDA4 (_lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_--operator().c)
+ *     ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C0016490 (-bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEA.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
  */
 
 void __fastcall ERECTL::vScale(ERECTL *this, const struct POINTFL *a2)
 {
-  float v2; // xmm2_4
+  float v2; // xmm1_4
   int *v3; // r14
   int *v4; // rsi
-  float v5; // xmm1_4
+  float v5; // xmm2_4
   int *v6; // rdi
-  int v7; // r15d
-  int v8; // r12d
-  int v9; // ebp
+  int v7; // ebp
+  int v8; // r15d
+  int v9; // r12d
   unsigned int v11; // r8d
   unsigned int v12; // r8d
   unsigned int v13; // r8d

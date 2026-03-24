@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapDeferredRecoveryServiceWorker @ 0x140612F10
+ * XREFs of WheapDeferredRecoveryServiceWorker @ 0x1405BD1D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 WheapDeferredRecoveryServiceWorker()
@@ -14,7 +14,7 @@ __int64 WheapDeferredRecoveryServiceWorker()
   KIRQL v0; // al
   __int64 v1; // rbx
   unsigned __int64 v2; // rdi
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v6; // eax
@@ -29,19 +29,22 @@ __int64 WheapDeferredRecoveryServiceWorker()
     v1 = WheaPassiveDrsList;
     v2 = v0;
     WheaPassiveDrsList = *(_QWORD *)WheaPassiveDrsList;
-    KxReleaseSpinLock((volatile signed __int64 *)&WheaPassiveDrsListLock);
+    KxReleaseSpinLock(&WheaPassiveDrsListLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v7 = (v6 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v6;
-        if ( v7 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+          v7 = (v6 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v6;
+          if ( v7 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v2);

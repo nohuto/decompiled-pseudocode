@@ -1,17 +1,17 @@
 /*
- * XREFs of ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C0007A94
+ * XREFs of ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C0011800
  * Callers:
- *     ?GetSwapChainRealizationInfo@CFlipExBuffer@@UEBAJ_NPEAIPEAUCSM_REALIZATION_INFO@@@Z @ 0x1C0007990 (-GetSwapChainRealizationInfo@CFlipExBuffer@@UEBAJ_NPEAIPEAUCSM_REALIZATION_INFO@@@Z.c)
- *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C00089D4 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
+ *     ?OpenSwapChainHandles@CFlipExBuffer@@UEBAJPEAUCSM_SWAPCHAIN_HANDLE_INFO@@@Z @ 0x1C0011740 (-OpenSwapChainHandles@CFlipExBuffer@@UEBAJPEAUCSM_SWAPCHAIN_HANDLE_INFO@@@Z.c)
+ *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C001D898 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DxgkGetSharedAllocationObjectType @ 0x1C0161E10 (DxgkGetSharedAllocationObjectType.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DxgkGetSharedAllocationObjectType @ 0x1C0154580 (DxgkGetSharedAllocationObjectType.c)
  */
 
 NTSTATUS __fastcall CBufferRealization::OpenDxSurfaceHandle(
         CBufferRealization *this,
-        unsigned __int8 a2,
+        __int64 a2,
         unsigned __int8 a3,
         void **a4)
 {
@@ -26,9 +26,13 @@ NTSTATUS __fastcall CBufferRealization::OpenDxSurfaceHandle(
     return -1073741811;
   AccessMode = 1;
   v7 = a3 << 9;
-  v8 = a2;
-  if ( a3 || (Global = DXGGLOBAL_GetGlobal(), (*(unsigned int (**)(void))(*((_QWORD *)Global + 38073) + 528LL))()) )
+  v8 = (unsigned __int8)a2;
+  if ( a3
+    || (Global = DXGGLOBAL::GetGlobal((__int64)this, a2),
+        (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))()) )
+  {
     AccessMode = 0;
+  }
   ObjectType = (struct _OBJECT_TYPE *)DxgkGetSharedAllocationObjectType();
-  return ObOpenObjectByPointer(*((PVOID *)this + 8), v7, 0LL, v8 + 983040, ObjectType, AccessMode, a4);
+  return ObOpenObjectByPointer(*((PVOID *)this + 7), v7, 0LL, v8 + 983040, ObjectType, AccessMode, a4);
 }

@@ -1,145 +1,353 @@
 /*
- * XREFs of ?UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z @ 0x1800506EC
+ * XREFs of ?UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z @ 0x1800732C0
  * Callers:
- *     ?UpdateExpressions@CComposition@@QEAAXXZ @ 0x180050684 (-UpdateExpressions@CComposition@@QEAAXXZ.c)
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18007D2F8 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x180025194 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x18004A0F8 (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
- *     ?NotifyInteractionTrackerExpressionProcessingComplete@CExpressionManager@@QEAAXXZ @ 0x180050824 (-NotifyInteractionTrackerExpressionProcessingComplete@CExpressionManager@@QEAAXXZ.c)
- *     ?FlushQueuedSuspendAnimations@CExpressionManager@@AEAAXXZ @ 0x180050860 (-FlushQueuedSuspendAnimations@CExpressionManager@@AEAAXXZ.c)
- *     ?FlushQueuedStateChanges@CExpressionManager@@AEAAXXZ @ 0x1800508CC (-FlushQueuedStateChanges@CExpressionManager@@AEAAXXZ.c)
- *     ?UpdateExpressionsWorker@CExpressionManager@@AEAAX_N@Z @ 0x180050990 (-UpdateExpressionsWorker@CExpressionManager@@AEAAX_N@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ?MustUpdateExpressions@CExpressionManager@@QEBA_NXZ @ 0x180081324 (-MustUpdateExpressions@CExpressionManager@@QEBA_NXZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x1800DC2C8 (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapperByVal@$00@@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapperByVal@$00@@3333333@Z @ 0x1801FD550 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapperByVal@$00@@U1@.c)
- *     ?FlushPendingTriggeredAnimations@CExpressionManager@@AEAAX_N@Z @ 0x1801FDC0C (-FlushPendingTriggeredAnimations@CExpressionManager@@AEAAX_N@Z.c)
- *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801FDC90 (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
- *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1801FDDFC (-Start@QpcStopwatch@@QEAAXXZ.c)
- *     ?GetDurationAverage@CExpressionPerformanceCounter@@QEAANW4ExpressionPerformanceLabel@@@Z @ 0x180251FE0 (-GetDurationAverage@CExpressionPerformanceCounter@@QEAANW4ExpressionPerformanceLabel@@@Z.c)
- *     ?Reset@CExpressionPerformanceCounter@@QEAAXXZ @ 0x180252014 (-Reset@CExpressionPerformanceCounter@@QEAAXXZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x180036A38 (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x18004598C (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InsertInOrder@CBaseExpression@@QEAAX_K@Z @ 0x1800643F0 (-InsertInOrder@CBaseExpression@@QEAAX_K@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073600 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800AA170 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapperByVal@$00@@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapperByVal@$00@@3333333@Z @ 0x1801AAD24 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapperByVal@$00@@U1@.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@IPEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@I@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@IPEAX@std@@@1@PEAU?$_Tree_node@IPEAX@1@@Z @ 0x1801AAE74 (--$_Erase_tree@V-$allocator@U-$_Tree_node@IPEAX@std@@@std@@@-$_Tree_val@U-$_Tree_simple_types@I@.c)
+ *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801AB31C (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
+ *     ?SuspendAnimations@CExpressionManager@@QEAAXI_N0@Z @ 0x1801AB490 (-SuspendAnimations@CExpressionManager@@QEAAXI_N0@Z.c)
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x1801CA268 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x1801D04F4 (-TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInterac.c)
+ *     ?GetDurationAverage@CExpressionPerformanceCounter@@QEAANW4ExpressionPerformanceLabel@@@Z @ 0x180202D50 (-GetDurationAverage@CExpressionPerformanceCounter@@QEAANW4ExpressionPerformanceLabel@@@Z.c)
+ *     ?Reset@CExpressionPerformanceCounter@@QEAAXXZ @ 0x180202D84 (-Reset@CExpressionPerformanceCounter@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CExpressionManager::UpdateExpressions(CExpressionManager *this, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rsi
-  char v8; // dl
-  bool v9; // si
-  char v10; // dl
-  char v11; // dl
-  __int64 v13; // rcx
-  int Elapsed; // eax
-  double v15; // xmm2_8
-  double v16; // xmm3_8
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  __int64 v21; // rcx
+  char v3; // al
+  unsigned int v5; // esi
+  bool v8; // r13
+  unsigned int v9; // r12d
+  LARGE_INTEGER v10; // r14
+  bool v11; // zf
+  __int64 v12; // rdx
+  unsigned int v13; // ebx
+  __int64 v14; // rax
+  CBaseExpression *v15; // rdi
+  unsigned __int64 v16; // r8
+  unsigned int v17; // ecx
+  unsigned int j; // edi
+  __int64 *v19; // rbx
+  __int64 *m; // rdi
+  _QWORD *v21; // rbx
+  __int64 *v22; // rdi
+  unsigned int v23; // ebx
+  char v25; // al
+  __int64 v26; // rax
+  unsigned int *v27; // rbx
+  __int64 v28; // r8
+  unsigned int v29; // ebx
+  unsigned int v30; // edx
+  CBaseExpression *v31; // rcx
+  int v32; // eax
+  BOOL v33; // eax
+  LARGE_INTEGER v34; // rcx
+  __int64 Elapsed; // rax
+  __int64 v36; // rdi
+  unsigned int v37; // r12d
+  char *i; // rbx
+  __int64 v39; // r8
+  unsigned int v40; // eax
+  unsigned int v41; // edx
+  int v42; // eax
+  __int64 v43; // rcx
+  __int64 **v44; // rax
+  __int64 *k; // rax
+  __int64 *v46; // rcx
+  __int64 *v47; // rcx
+  int v48; // eax
+  double v49; // xmm2_8
+  double v50; // xmm3_8
+  __int64 v51; // rcx
+  __int64 v52; // rcx
+  __int64 v53; // rcx
+  __int64 v54; // rcx
+  __int64 v55; // rcx
   double DurationAverage; // xmm0_8
-  __int64 v23; // rax
-  int v24; // ecx
-  int v25; // r8d
-  int v26; // r9d
-  bool v27[8]; // [rsp+98h] [rbp-80h] BYREF
-  __int64 i; // [rsp+A0h] [rbp-78h] BYREF
-  int v29; // [rsp+A8h] [rbp-70h] BYREF
-  int v30; // [rsp+ACh] [rbp-6Ch] BYREF
-  int v31; // [rsp+B0h] [rbp-68h] BYREF
-  __int64 v32; // [rsp+B8h] [rbp-60h] BYREF
-  double v33; // [rsp+C0h] [rbp-58h] BYREF
-  double v34; // [rsp+C8h] [rbp-50h] BYREF
-  double v35; // [rsp+D0h] [rbp-48h] BYREF
-  double v36; // [rsp+D8h] [rbp-40h] BYREF
-  double v37; // [rsp+E0h] [rbp-38h] BYREF
-  double v38; // [rsp+E8h] [rbp-30h] BYREF
-  double v39; // [rsp+F0h] [rbp-28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v40; // [rsp+F8h] [rbp-20h] BYREF
+  __int64 v57; // rax
+  int v58; // ecx
+  int v59; // r8d
+  int v60; // r9d
+  __int64 v61; // rdx
+  CInteractionTrackerBindingManager *v62; // rcx
+  unsigned int v63; // eax
+  int v64; // [rsp+90h] [rbp-29h] BYREF
+  int v65; // [rsp+94h] [rbp-25h] BYREF
+  int v66; // [rsp+98h] [rbp-21h] BYREF
+  __int64 v67; // [rsp+A0h] [rbp-19h] BYREF
+  double v68; // [rsp+A8h] [rbp-11h] BYREF
+  double v69; // [rsp+B0h] [rbp-9h] BYREF
+  double v70; // [rsp+B8h] [rbp-1h] BYREF
+  double v71; // [rsp+C0h] [rbp+7h] BYREF
+  double v72; // [rsp+C8h] [rbp+Fh] BYREF
+  double v73; // [rsp+D0h] [rbp+17h] BYREF
+  double v74[7]; // [rsp+D8h] [rbp+1Fh] BYREF
+  LARGE_INTEGER PerformanceCount; // [rsp+120h] [rbp+67h] BYREF
+  __int64 v76; // [rsp+130h] [rbp+77h]
+  LARGE_INTEGER v77; // [rsp+138h] [rbp+7Fh] BYREF
 
-  v3 = 0LL;
-  v4 = 0LL;
-  for ( i = 0LL; (unsigned int)v4 < *((_DWORD *)this + 110); v4 = (unsigned int)(v4 + 1) )
-    CBaseExpression::TryRegisterWithExpressionManager(*(CBaseExpression **)(*((_QWORD *)this + 52) + 8 * v4));
-  *((_DWORD *)this + 110) = 0;
-  DynArrayImpl<1>::ShrinkToSize((char *)this + 416, 8LL);
-  v8 = *((_BYTE *)this + 448) & 0xF3 | (2 * (*((_BYTE *)this + 448) & 4));
-  *((_BYTE *)this + 448) = v8;
-  v9 = (v8 & 8) != 0;
-  if ( CExpressionManager::MustUpdateExpressions(this) )
+  v76 = a3;
+  v3 = *((_BYTE *)this + 416);
+  v5 = 0;
+  v77.QuadPart = 0LL;
+  *((_BYTE *)this + 416) = v3 & 0xF3 | (2 * (v3 & 4));
+  v8 = ((2 * (v3 & 4)) & 8) != 0;
+  v9 = 0;
+  v10.QuadPart = 0LL;
+  if ( *((_DWORD *)this + 64) || v3 & 2 | (2 * (v3 & 4)) & 2 || *((_DWORD *)this + 40) )
   {
-    v11 = v10 & 0xFD;
-    *((_BYTE *)this + 448) = v11;
+    *((_BYTE *)this + 416) = v3 & 0xF1 | (2 * (v3 & 4)) & 0xFD;
     if ( *((_DWORD *)this + 40) || CCommonRegistryData::LogExpressionPerfStats )
     {
       CExpressionPerformanceCounter::Reset((CExpressionManager *)((char *)this + 88));
-      QpcStopwatch::Start((QpcStopwatch *)&i);
-      v11 = *((_BYTE *)this + 448);
-      v3 = i;
+      if ( QueryPerformanceCounter(&PerformanceCount) )
+        v10 = PerformanceCount;
+      v77 = v10;
     }
+    *((_BYTE *)this + 416) |= 1u;
+    v11 = (*((_BYTE *)this + 416) & 8) == 0;
     *((_QWORD *)this + 2) = a2;
-    *((_BYTE *)this + 448) = v11 | 1;
     *((_QWORD *)this + 3) = a3;
-    CExpressionManager::UpdateExpressionsWorker(this, 0);
-    if ( *((_DWORD *)this + 110) )
+    if ( !v11 )
     {
-      CExpressionManager::FlushPendingTriggeredAnimations(this, 1);
-      *((_BYTE *)this + 448) = *((_BYTE *)this + 448) & 0xF3 | (2 * (*((_BYTE *)this + 448) & 4));
-      if ( (unsigned int)dword_1803D0EF0 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1803D0EF0, 4LL) )
-        tlgWriteTransfer_EventWriteTransfer(v13, (unsigned __int8 *)dword_180370D9A, 0LL, 0LL, 2u, &v40);
-      CExpressionManager::UpdateExpressionsWorker(this, 1);
-    }
-    *((_BYTE *)this + 448) &= ~1u;
-    CExpressionManager::FlushQueuedStateChanges(this);
-    CExpressionManager::FlushQueuedSuspendAnimations(this);
-    if ( v3 )
-    {
-      Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&i);
-      v15 = (double)(int)g_qpcFrequency.LowPart / 1000000.0;
-      v16 = (double)Elapsed;
-      if ( (unsigned int)dword_1803D0EF0 > 4 )
+      PerformanceCount.QuadPart = 0LL;
+      if ( CCommonRegistryData::LogExpressionPerfStats )
       {
-        if ( (unsigned __int8)tlgKeywordOn(&dword_1803D0EF0, 1LL) )
+        v33 = QueryPerformanceCounter(&PerformanceCount);
+        v34.QuadPart = 0LL;
+        if ( v33 )
+          v34 = PerformanceCount;
+        PerformanceCount = v34;
+      }
+      v28 = *((unsigned int *)this + 41);
+      v29 = 0;
+      if ( *((_DWORD *)this + 8 * v28 + 48) )
+      {
+        do
         {
-          v32 = a3;
-          v33 = CExpressionPerformanceCounter::GetDurationAverage((char *)this + 88, 5LL) / v15;
-          v34 = CExpressionPerformanceCounter::GetDurationAverage(v17, 4LL) / v15;
-          v35 = CExpressionPerformanceCounter::GetDurationAverage(v18, 3LL) / v15;
-          v36 = CExpressionPerformanceCounter::GetDurationAverage(v19, 2LL) / v15;
-          v37 = CExpressionPerformanceCounter::GetDurationAverage(v20, 1LL) / v15;
-          DurationAverage = CExpressionPerformanceCounter::GetDurationAverage(v21, 0LL);
-          v29 = *((_DWORD *)this + 80);
-          v23 = *((unsigned int *)this + 41) + 6LL;
-          v27[0] = v9;
-          v38 = DurationAverage / v15;
-          v30 = *((_DWORD *)this + 8 * v23);
-          v31 = *((_DWORD *)this + 114);
-          LODWORD(i) = *((_DWORD *)this + 113);
-          v39 = v16 / v15;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-            v24,
-            (unsigned int)&unk_180370C19,
-            v25,
-            v26,
-            (__int64)&v39,
-            (__int64)&i,
-            (__int64)&v31,
-            (__int64)&v30,
-            (__int64)&v29,
-            (__int64)v27,
-            (__int64)&v38,
-            (__int64)&v37,
-            (__int64)&v36,
-            (__int64)&v35,
-            (__int64)&v34,
-            (__int64)&v33,
-            (__int64)&v32);
+          v30 = v28;
+          v31 = *(CBaseExpression **)(*((_QWORD *)this + 4 * (unsigned int)v28 + 21) + 8LL * v29);
+          if ( v31 )
+          {
+            CBaseExpression::InsertInOrder(v31, *((_QWORD *)this + 3));
+            v30 = *((_DWORD *)this + 41);
+          }
+          ++v29;
+          LODWORD(v28) = v30;
         }
+        while ( v29 < *((_DWORD *)this + 8 * v30 + 48) );
+      }
+      *((_DWORD *)this + 8 * (unsigned int)v28 + 48) = 0;
+      v32 = 1 - *((_DWORD *)this + 41);
+      *((_BYTE *)this + 416) &= ~8u;
+      *((_DWORD *)this + 41) = v32;
+      if ( CCommonRegistryData::LogExpressionPerfStats )
+      {
+        Elapsed = QpcStopwatch::GetElapsed((QpcStopwatch *)&PerformanceCount);
+        ++*((_DWORD *)this + 24);
+        *((_QWORD *)this + 16) += Elapsed;
+      }
+    }
+    v12 = *((unsigned int *)this + 41);
+    v13 = 0;
+    *(_QWORD *)((char *)this + 420) = 0LL;
+    if ( *((_DWORD *)this + 8 * v12 + 48) )
+    {
+      do
+      {
+        v14 = *((_QWORD *)this + 4 * (unsigned int)v12 + 21);
+        v15 = *(CBaseExpression **)(v14 + 8LL * v13);
+        if ( v15 )
+        {
+          if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v15 + 56LL))(
+                 *(_QWORD *)(v14 + 8LL * v13),
+                 90LL) )
+          {
+            v25 = *((_BYTE *)v15 + 548);
+            if ( (v25 & 1) != 0 || (v25 & 6) != 0 )
+            {
+              v26 = *((_QWORD *)v15 + 6);
+              if ( v26 )
+              {
+                ++*(_DWORD *)(v26 + 76);
+                *(_BYTE *)(*((_QWORD *)v15 + 2) + 289LL) = 1;
+              }
+            }
+          }
+          v16 = *((_QWORD *)this + 3);
+          LOBYTE(PerformanceCount.LowPart) = 0;
+          CBaseExpression::CalculateValue(
+            v15,
+            (CExpressionManager *)((char *)this + 32),
+            v16,
+            (bool *)&PerformanceCount);
+          *((_BYTE *)this + 416) |= 2 * (PerformanceCount.LowPart & 1);
+          v17 = *((_DWORD *)this + 41);
+        }
+        else
+        {
+          ++v9;
+          v17 = v12;
+        }
+        ++v13;
+        LODWORD(v12) = v17;
+      }
+      while ( v13 < *((_DWORD *)this + 8 * v17 + 48) );
+      if ( v9 > 0x100 )
+      {
+        v36 = 32LL * v17;
+        v37 = 0;
+        for ( i = (char *)this + 32 * (1 - v17); v37 < *(_DWORD *)((char *)this + v36 + 192); ++v37 )
+        {
+          v39 = *(_QWORD *)(*(_QWORD *)((char *)this + v36 + 168) + 8LL * v37);
+          PerformanceCount.QuadPart = v39;
+          if ( v39 )
+          {
+            v40 = *((_DWORD *)i + 48);
+            v41 = v40 + 1;
+            if ( v40 + 1 < v40 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+            }
+            else if ( v41 > *((_DWORD *)i + 47) )
+            {
+              v42 = DynArrayImpl<1>::AddMultipleAndSet((__int64)(i + 168), 8u, v39, &PerformanceCount);
+              if ( v42 < 0 )
+                MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0, v42, 0xC0u, 0LL);
+            }
+            else
+            {
+              *(_QWORD *)(*((_QWORD *)i + 21) + 8LL * v40) = v39;
+              *((_DWORD *)i + 48) = v41;
+            }
+          }
+        }
+        *(_DWORD *)((char *)this + v36 + 192) = 0;
+        *((_DWORD *)this + 41) = 1 - *((_DWORD *)this + 41);
+      }
+    }
+    *((_BYTE *)this + 416) &= ~1u;
+    for ( j = 0; j < *((_DWORD *)this + 64); ++j )
+    {
+      v27 = (unsigned int *)(*((_QWORD *)this + 29) + 16LL * j);
+      CBaseExpression::NotifyAnimationStateChanged(*((_QWORD *)v27 + 1), *v27);
+      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)v27 + 1) + 16LL))(*((_QWORD *)v27 + 1));
+    }
+    *((_DWORD *)this + 64) = 0;
+    DynArrayImpl<1>::ShrinkToSize((__int64)this + 232, 0x10u);
+    v19 = (__int64 *)*((_QWORD *)this + 50);
+    m = (__int64 *)*v19;
+    while ( m != v19 )
+    {
+      CExpressionManager::SuspendAnimations(this, *((_DWORD *)m + 7), 1, 0);
+      v44 = (__int64 **)m[2];
+      if ( *((_BYTE *)v44 + 25) )
+      {
+        for ( k = (__int64 *)m[1]; !*((_BYTE *)k + 25); k = (__int64 *)k[1] )
+        {
+          if ( m != (__int64 *)k[2] )
+            break;
+          m = k;
+        }
+        m = k;
+      }
+      else
+      {
+        v46 = *v44;
+        for ( m = (__int64 *)m[2]; !*((_BYTE *)v46 + 25); v46 = (__int64 *)*v46 )
+          m = v46;
+      }
+    }
+    v21 = (_QWORD *)*((_QWORD *)this + 50);
+    v22 = (__int64 *)v21[1];
+    while ( !*((_BYTE *)v22 + 25) )
+    {
+      std::_Tree_val<std::_Tree_simple_types<unsigned int>>::_Erase_tree<std::allocator<std::_Tree_node<unsigned int,void *>>>(
+        (char *)this + 400,
+        (char *)this + 400,
+        v22[2]);
+      v47 = v22;
+      v22 = (__int64 *)*v22;
+      std::_Deallocate<16,0>(v47, 32LL);
+    }
+    v21[1] = v21;
+    *v21 = v21;
+    v21[2] = v21;
+    *((_QWORD *)this + 51) = 0LL;
+    if ( v10.QuadPart )
+    {
+      v48 = QpcStopwatch::GetElapsed((QpcStopwatch *)&v77);
+      v49 = (double)(int)g_qpcFrequency.LowPart / 1000000.0;
+      v50 = (double)v48;
+      if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 1) != 0 && (qword_180344F08 & 1) == qword_180344F08 )
+      {
+        v67 = v76;
+        v68 = CExpressionPerformanceCounter::GetDurationAverage((char *)this + 88, 5LL) / v49;
+        v69 = CExpressionPerformanceCounter::GetDurationAverage(v51, 4LL) / v49;
+        v70 = CExpressionPerformanceCounter::GetDurationAverage(v52, 3LL) / v49;
+        v71 = CExpressionPerformanceCounter::GetDurationAverage(v53, 2LL) / v49;
+        v72 = CExpressionPerformanceCounter::GetDurationAverage(v54, 1LL) / v49;
+        DurationAverage = CExpressionPerformanceCounter::GetDurationAverage(v55, 0LL);
+        v77.LowPart = *((_DWORD *)this + 80);
+        v57 = *((unsigned int *)this + 41) + 6LL;
+        LOBYTE(PerformanceCount.LowPart) = v8;
+        v73 = DurationAverage / v49;
+        v64 = *((_DWORD *)this + 8 * v57);
+        v65 = *((_DWORD *)this + 106);
+        v66 = *((_DWORD *)this + 105);
+        v74[0] = v50 / v49;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+          v58,
+          (unsigned int)&unk_1802E7B5D,
+          v59,
+          v60,
+          (__int64)v74,
+          (__int64)&v66,
+          (__int64)&v65,
+          (__int64)&v64,
+          (__int64)&v77,
+          (__int64)&PerformanceCount,
+          (__int64)&v73,
+          (__int64)&v72,
+          (__int64)&v71,
+          (__int64)&v70,
+          (__int64)&v69,
+          (__int64)&v68,
+          (__int64)&v67);
       }
     }
   }
-  CExpressionManager::NotifyInteractionTrackerExpressionProcessingComplete(this);
+  v23 = 0;
+  if ( *((_DWORD *)this + 72) )
+  {
+    do
+    {
+      v61 = *(_QWORD *)(*((_QWORD *)this + 33) + 8LL * v23);
+      v62 = *(CInteractionTrackerBindingManager **)(v61 + 632);
+      if ( v62 && *(_DWORD *)(v61 + 168) == 2 && (*(_BYTE *)(v61 + 533) & 1) != 0 )
+        CInteractionTrackerBindingManager::TryUpdateBoundTrackerInertiaCallbackValues(
+          v62,
+          (struct CInteractionTracker *)v61);
+      v63 = *((_DWORD *)this + 72);
+      ++v23;
+    }
+    while ( v23 < v63 );
+    if ( v63 )
+    {
+      do
+        CInteractionTracker::NotifyExpressionProcessingComplete(*(CInteractionTracker **)(*((_QWORD *)this + 33)
+                                                                                        + 8LL * v5++));
+      while ( v5 < *((_DWORD *)this + 72) );
+    }
+  }
   return 0LL;
 }

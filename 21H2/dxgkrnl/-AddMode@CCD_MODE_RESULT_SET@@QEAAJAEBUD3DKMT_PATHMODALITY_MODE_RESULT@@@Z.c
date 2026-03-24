@@ -1,81 +1,95 @@
 /*
- * XREFs of ?AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z @ 0x1C03A8E64
+ * XREFs of ?AddMode@CCD_MODE_RESULT_SET@@QEAAJAEBUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z @ 0x1C02EA440
  * Callers:
- *     _BmlGetPathModeListForPathTargetModes @ 0x1C03AC0EC (_BmlGetPathModeListForPathTargetModes.c)
+ *     _BmlGetPathModeListForPathTargetModes @ 0x1C02ECB80 (_BmlGetPathModeListForPathTargetModes.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004EF84 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004D650 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
  */
 
 __int64 __fastcall CCD_MODE_RESULT_SET::AddMode(
         CCD_MODE_RESULT_SET *this,
         const struct D3DKMT_PATHMODALITY_MODE_RESULT *a2)
 {
-  __int64 v4; // r9
-  _QWORD *v5; // rsi
-  _QWORD *v6; // rbx
-  __int64 v7; // rax
-  _QWORD *v8; // rcx
+  _QWORD *v4; // rsi
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  _QWORD *v7; // rbx
+  __int64 v8; // rax
   _QWORD *v9; // rax
-  __int128 v10; // xmm1
-  __int64 v11; // rcx
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
+  _QWORD *v10; // rcx
+  _QWORD *v11; // rax
+  __int128 v12; // xmm1
+  __int64 v13; // rcx
   __int128 v14; // xmm0
   __int128 v15; // xmm1
   __int128 v16; // xmm0
+  __int128 v17; // xmm1
 
   if ( (**(unsigned __int8 (__fastcall ***)(CCD_MODE_RESULT_SET *))this)(this) )
   {
-    v5 = (_QWORD *)((char *)this + 16);
-    if ( (_QWORD *)*v5 != v5 && *((_DWORD *)this + 12) != 50 * (*((_DWORD *)this + 12) / 0x32u) )
+    v4 = (_QWORD *)((char *)this + 16);
+    if ( (_QWORD *)*v4 != v4 )
     {
-      v6 = (_QWORD *)(*((_QWORD *)this + 3) - 8LL);
-      if ( *((_QWORD *)this + 3) == 8LL )
-        WdLogSingleEntry0(1LL);
-LABEL_11:
-      v10 = *((_OWORD *)a2 + 1);
-      v11 = 14LL * (*((_DWORD *)this + 12) % 0x32u);
-      *(_OWORD *)&v6[v11 + 3] = *(_OWORD *)a2;
-      v12 = *((_OWORD *)a2 + 2);
-      *(_OWORD *)&v6[v11 + 5] = v10;
-      v13 = *((_OWORD *)a2 + 3);
-      *(_OWORD *)&v6[v11 + 7] = v12;
-      v14 = *((_OWORD *)a2 + 4);
-      *(_OWORD *)&v6[v11 + 9] = v13;
-      v15 = *((_OWORD *)a2 + 5);
-      *(_OWORD *)&v6[v11 + 11] = v14;
-      v16 = *((_OWORD *)a2 + 6);
-      *(_OWORD *)&v6[v11 + 13] = v15;
-      *(_OWORD *)&v6[v11 + 15] = v16;
-      ++*((_DWORD *)this + 12);
-      return 0LL;
+      v5 = *((unsigned int *)this + 12);
+      v6 = (unsigned int)v5 / 0x32;
+      if ( (_DWORD)v5 != 50 * (_DWORD)v6 )
+      {
+        v7 = (_QWORD *)(*((_QWORD *)this + 3) - 8LL);
+        if ( *((_QWORD *)this + 3) == 8LL )
+        {
+          v8 = WdLogNewEntry5_WdAssertion(v5, v6);
+          WdLogEvent5_WdAssertion(v8);
+        }
+LABEL_14:
+        v12 = *((_OWORD *)a2 + 1);
+        v13 = 12LL * (*((_DWORD *)this + 12) % 0x32u);
+        *(_OWORD *)&v7[v13 + 3] = *(_OWORD *)a2;
+        v14 = *((_OWORD *)a2 + 2);
+        *(_OWORD *)&v7[v13 + 5] = v12;
+        v15 = *((_OWORD *)a2 + 3);
+        *(_OWORD *)&v7[v13 + 7] = v14;
+        v16 = *((_OWORD *)a2 + 4);
+        *(_OWORD *)&v7[v13 + 9] = v15;
+        v17 = *((_OWORD *)a2 + 5);
+        *(_OWORD *)&v7[v13 + 11] = v16;
+        *(_OWORD *)&v7[v13 + 13] = v17;
+        ++*((_DWORD *)this + 12);
+        return 0LL;
+      }
     }
-    v7 = operator new[](0x15F8uLL, 0x4B677844u, 256LL, v4);
-    v6 = (_QWORD *)v7;
+    v9 = operator new[](0x12D8uLL, 0x4B677844u, PagedPool);
+    v7 = v9;
+    if ( v9 )
+    {
+      memset(v9 + 3, 0, 0x12C0uLL);
+      v7[1] = 0LL;
+      v7[2] = 0LL;
+      *v7 = &SetElement::`vftable';
+    }
+    else
+    {
+      v7 = 0LL;
+    }
     if ( v7 )
     {
-      memset((void *)(v7 + 24), 0, 0x15E0uLL);
-      v6[1] = 0LL;
-      v6[2] = 0LL;
-      *v6 = &SetElement::`vftable';
       if ( !DoublyLinkedList<DMMVIDPNTARGETMODESET,DoubleLinkedListElementDeleter<DMMVIDPNTARGETMODESET>>::ContainsByReference(
               (__int64)this,
-              (__int64)v6) )
+              (__int64)v7) )
       {
-        v8 = (_QWORD *)*((_QWORD *)this + 3);
-        v9 = v6 + 1;
-        if ( (_QWORD *)*v8 != v5 )
+        v10 = (_QWORD *)*((_QWORD *)this + 3);
+        v11 = v7 + 1;
+        if ( (_QWORD *)*v10 != v4 )
           __fastfail(3u);
-        *v9 = v5;
-        v6[2] = v8;
-        *v8 = v9;
-        *((_QWORD *)this + 3) = v9;
+        *v11 = v4;
+        v7[2] = v10;
+        *v10 = v11;
+        *((_QWORD *)this + 3) = v11;
         ++*((_QWORD *)this + 4);
       }
-      goto LABEL_11;
+      goto LABEL_14;
     }
   }
   return 3221225495LL;

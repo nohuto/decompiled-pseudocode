@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnPnpNotification@CBaseInput@@AEAAJXZ @ 0x1C0009AB0
+ * XREFs of ?OnPnpNotification@CBaseInput@@AEAAJXZ @ 0x1C01A3F20
  * Callers:
  *     <none>
  * Callees:
- *     RIMOnPnpNotification @ 0x1C0042B50 (RIMOnPnpNotification.c)
+ *     RIMOnPnpNotification @ 0x1C00539C0 (RIMOnPnpNotification.c)
  */
 
 __int64 __fastcall CBaseInput::OnPnpNotification(CBaseInput *this)

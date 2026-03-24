@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140362EF4
+ * XREFs of RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1402A69A8
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x140362C48 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1402A66E0 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,7 @@ __int64 __fastcall RtlpHpLfhBucketComputeNewSubsegmentBlockCount(__int64 a1, int
   bool v7; // dl
   char v8; // cl
   char v9; // dl
-  __int64 result; // rax
-  unsigned int v11; // r11d
+  unsigned int v10; // r10d
 
   v3 = RtlpBucketBlockSizes[*(unsigned __int8 *)(a1 + 1)];
   v4 = *(unsigned __int8 *)(a1 + 2);
@@ -31,17 +30,14 @@ __int64 __fastcall RtlpHpLfhBucketComputeNewSubsegmentBlockCount(__int64 a1, int
   if ( (unsigned __int16)v3 >= 0x100u )
     v8 = v7;
   v9 = v8 - 1;
-  result = 4LL;
   if ( !*(_QWORD *)(a1 + 64) )
     v9 = v8;
-  v11 = 1 << (3 - v9);
-  if ( v6 >= v11 )
-    v11 = v6;
-  if ( v11 >= 4 )
-  {
-    result = v11;
-    if ( v11 > 0x400 )
-      return 1024LL;
-  }
-  return result;
+  v10 = 1 << (3 - v9);
+  if ( v6 >= v10 )
+    v10 = v6;
+  if ( v10 < 4 )
+    v10 = 4;
+  if ( v10 > 0x400 )
+    return 1024;
+  return v10;
 }

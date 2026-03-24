@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x140117F88
+ * XREFs of MiReleaseInPageRefs @ 0x140117FA8
  * Callers:
- *     MiInvalidateCollidedIos @ 0x140117D28 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiLockAndDecrementShareCount @ 0x140118088 (MiLockAndDecrementShareCount.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReleaseInPageRefs(__int64 a1)

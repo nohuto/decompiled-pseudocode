@@ -1,13 +1,13 @@
 /*
- * XREFs of KiStartSavingSupervisorState @ 0x140A9F760
+ * XREFs of KiStartSavingSupervisorState @ 0x1409AF840
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiUpdateSavedSupervisorState @ 0x140A9F7E0 (KiUpdateSavedSupervisorState.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiUpdateSavedSupervisorState @ 0x1409AF8C0 (KiUpdateSavedSupervisorState.c)
  */
 
 __int64 KiStartSavingSupervisorState()

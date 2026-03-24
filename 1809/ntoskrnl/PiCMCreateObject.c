@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCMCreateObject @ 0x140836F18
+ * XREFs of PiCMCreateObject @ 0x140836EF8
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
  *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     _PnpCreateObject @ 0x1408F9B40 (_PnpCreateObject.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     _PnpCreateObject @ 0x1408F9B20 (_PnpCreateObject.c)
  */
 
 __int64 __fastcall PiCMCreateObject(

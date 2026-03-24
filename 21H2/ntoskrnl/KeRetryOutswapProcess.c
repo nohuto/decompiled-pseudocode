@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRetryOutswapProcess @ 0x14056C540
+ * XREFs of KeRetryOutswapProcess @ 0x1405138C8
  * Callers:
- *     MiProcessWorkingSets @ 0x14030BBF0 (MiProcessWorkingSets.c)
- *     MmReleaseCommitForMemResetPages @ 0x140581748 (MmReleaseCommitForMemResetPages.c)
+ *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
+ *     MmReleaseCommitForMemResetPages @ 0x14052CCF4 (MmReleaseCommitForMemResetPages.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)

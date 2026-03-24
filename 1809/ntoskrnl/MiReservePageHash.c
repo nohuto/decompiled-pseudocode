@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReservePageHash @ 0x140188388
+ * XREFs of MiReservePageHash @ 0x1401883A8
  * Callers:
- *     MiCreatePagingFile @ 0x14074BFD8 (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x14074CB40 (MiCreatePagefile.c)
+ *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x14074CB20 (MiCreatePagefile.c)
  * Callees:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  */

@@ -1,38 +1,34 @@
 /*
- * XREFs of EngFntCacheAllocInternal @ 0x1C028A3EC
+ * XREFs of EngFntCacheAllocInternal @ 0x1C0288ADC
  * Callers:
- *     EngFntCacheAlloc @ 0x1C028A3D0 (EngFntCacheAlloc.c)
- *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C03071C8 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
+ *     EngFntCacheAlloc @ 0x1C0288AC0 (EngFntCacheAlloc.c)
+ *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C02DED78 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
  * Callees:
- *     EngCloseFNTCache @ 0x1C0089CDC (EngCloseFNTCache.c)
- *     SearchFntCacheNewLink @ 0x1C0289F08 (SearchFntCacheNewLink.c)
- *     bReAllocCacheFile @ 0x1C028A268 (bReAllocCacheFile.c)
+ *     EngCloseFNTCache @ 0x1C00E61F0 (EngCloseFNTCache.c)
+ *     SearchFntCacheNewLink @ 0x1C0288710 (SearchFntCacheNewLink.c)
+ *     bReAllocCacheFile @ 0x1C0288998 (bReAllocCacheFile.c)
  */
 
-__int64 __fastcall EngFntCacheAllocInternal(__int64 a1, unsigned int a2, _DWORD *a3)
+__int64 __fastcall EngFntCacheAllocInternal(unsigned int a1, unsigned int a2, _DWORD *a3)
 {
-  __int64 v3; // rdi
-  unsigned int v6; // ebp
-  __int64 v7; // rbx
-  __int64 v8; // r9
-  __int64 v9; // rsi
-  unsigned int *v10; // rax
-  __int64 v11; // rcx
-  __int64 v12; // rcx
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+  __int64 v8; // r14
+  int v9; // eax
+  _DWORD *v10; // rax
 
-  v3 = 0LL;
+  v3 = qword_1C0339BE8;
+  v4 = 0LL;
   *a3 = 0;
-  v6 = a1;
-  v7 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v8 = *(_QWORD *)(v7 + 19392);
-  if ( !v8 || !v6 )
+  if ( !v3 || !a1 )
     return 0LL;
-  if ( (*(_DWORD *)(v7 + 19384) & 2) != 0 )
+  if ( (dword_1C0339BE0 & 2) != 0 )
   {
-    v9 = (a2 + 7) & 0xFFFFFFF8;
-    if ( (unsigned __int64)(v9 + *(_QWORD *)(v8 + 32)) < *(_QWORD *)(v8 + 40) || (unsigned int)bReAllocCacheFile(a2) )
+    v8 = (a2 + 7) & 0xFFFFFFF8;
+    if ( (unsigned __int64)(v8 + *(_QWORD *)(v3 + 32)) < *(_QWORD *)(v3 + 40)
+      || (v9 = bReAllocCacheFile(a2), v3 = qword_1C0339BE8, v9) )
     {
-      v10 = SearchFntCacheNewLink(v6);
+      v10 = (_DWORD *)SearchFntCacheNewLink(a1);
       if ( v10 )
       {
         if ( v10[4] || v10[5] )
@@ -41,26 +37,24 @@ __int64 __fastcall EngFntCacheAllocInternal(__int64 a1, unsigned int a2, _DWORD 
         }
         else
         {
-          v11 = *(_QWORD *)(v7 + 19392);
-          v3 = *(_QWORD *)(v11 + 32);
-          *(_QWORD *)(v11 + 32) = v3 + v9;
+          v4 = *(_QWORD *)(v3 + 32);
+          *(_QWORD *)(v3 + 32) = v4 + v8;
           v10[4] = a2;
-          v10[5] = v3 - *(_DWORD *)(*(_QWORD *)(v7 + 19392) + 24LL);
+          v10[5] = v4 - *(_DWORD *)(v3 + 24);
         }
-        *(_DWORD *)(*(_QWORD *)(v7 + 19392) + 20LL) = 1;
+        *(_DWORD *)(v3 + 20) = 1;
       }
     }
   }
   else
   {
-    *(_DWORD *)(v8 + 16) |= 2u;
+    *(_DWORD *)(v3 + 16) |= 2u;
   }
-  v12 = *(unsigned int *)(*(_QWORD *)(v7 + 19392) + 16LL);
-  if ( (v12 & 1) != 0 )
+  if ( (*(_DWORD *)(v3 + 16) & 1) != 0 )
   {
-    EngCloseFNTCache(v12);
-    v3 = 0LL;
+    EngCloseFNTCache();
+    v4 = 0LL;
     *a3 = 1;
   }
-  return v3;
+  return v4;
 }

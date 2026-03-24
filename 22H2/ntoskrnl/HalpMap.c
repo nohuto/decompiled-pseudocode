@@ -1,28 +1,29 @@
 /*
- * XREFs of HalpMap @ 0x14037E878
+ * XREFs of HalpMap @ 0x1403BB2D8
  * Callers:
- *     HalpAcpiCheckAndMapTable @ 0x14033564C (HalpAcpiCheckAndMapTable.c)
- *     HalpAcpiGetRsdt @ 0x140336C28 (HalpAcpiGetRsdt.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14033F4B8 (HalpPciMapMmConfigPhysicalAddress.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpAcpiAllocateMemory @ 0x14037E520 (HalpAcpiAllocateMemory.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     HalpMapPhysicalMemoryWriteThrough64 @ 0x14037FE80 (HalpMapPhysicalMemoryWriteThrough64.c)
- *     HalpMapPhysicalMemory64 @ 0x14040F0F0 (HalpMapPhysicalMemory64.c)
- *     HalpAllocateEarlyPages @ 0x140505660 (HalpAllocateEarlyPages.c)
- *     HalpMapEarlyPages @ 0x140505740 (HalpMapEarlyPages.c)
- *     HalpPowerWriteResetCommand @ 0x140506BCC (HalpPowerWriteResetCommand.c)
- *     HalpInterruptMapParkedPage @ 0x14051A820 (HalpInterruptMapParkedPage.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x140521130 (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpAcpiTableCacheInit @ 0x140B4C428 (HalpAcpiTableCacheInit.c)
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
- *     HalpBlkAllocateAndShadowMemory @ 0x140B92BDC (HalpBlkAllocateAndShadowMemory.c)
- *     HalpBlkAllocatePageTablePage @ 0x140B92CD4 (HalpBlkAllocatePageTablePage.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B92ECC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpAcpiGetRsdt @ 0x1402E7690 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiCheckAndMapTable @ 0x1402E7D28 (HalpAcpiCheckAndMapTable.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x140309618 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB1A8 (HalpAcpiAllocateMemory.c)
+ *     HalpMapPhysicalMemory64 @ 0x1403EF780 (HalpMapPhysicalMemory64.c)
+ *     HalpAllocateEarlyPages @ 0x1404BC840 (HalpAllocateEarlyPages.c)
+ *     HalpMapEarlyPages @ 0x1404BC920 (HalpMapEarlyPages.c)
+ *     HalpMapPhysicalMemoryWriteThrough64 @ 0x1404BC950 (HalpMapPhysicalMemoryWriteThrough64.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE25C (HalpPowerWriteResetCommand.c)
+ *     HalpInterruptMapParkedPage @ 0x1404D1840 (HalpInterruptMapParkedPage.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D72BC (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpAllocateNumaConfigData @ 0x140A644EC (HalpAllocateNumaConfigData.c)
+ *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140A8DC88 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140A8DD80 (HalpBlkAllocatePageTablePage.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x14037EA3C (HalpMmGetPteAddressSafe.c)
- *     HalpFlushTLB @ 0x14037EAEC (HalpFlushTLB.c)
- *     HalpIsHeap64KRegionExecutable @ 0x1405056D0 (HalpIsHeap64KRegionExecutable.c)
+ *     HalpMmGetPteAddressSafe @ 0x1403BB4A0 (HalpMmGetPteAddressSafe.c)
+ *     HalpFlushTLB @ 0x1403BB550 (HalpFlushTLB.c)
+ *     HalpIsHeap64KRegionExecutable @ 0x1404BC8B0 (HalpIsHeap64KRegionExecutable.c)
  */
 
 unsigned __int64 __fastcall HalpMap(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -57,44 +58,45 @@ unsigned __int64 __fastcall HalpMap(__int64 a1, __int64 a2, unsigned int a3, __i
   {
     while ( 2 )
     {
+      v12 = 0;
+      v13 = v11;
       while ( 1 )
       {
-        v12 = 0;
-        v13 = v11;
-        while ( 1 )
-        {
-          if ( v13 == HalpHeapEnd )
-            return 0LL;
-          PteAddressSafe = (_BYTE *)HalpMmGetPteAddressSafe(v13);
-          if ( !PteAddressSafe )
-            return 0LL;
-          v13 += 4096LL;
-          v7 = 1LL;
-          if ( (*PteAddressSafe & 1) != 0 )
-            break;
-          if ( ++v12 >= v8 )
-            goto LABEL_10;
-        }
-        v11 = v13;
-LABEL_10:
-        if ( a5 != 32 )
+        if ( v13 == HalpHeapEnd )
+          return 0LL;
+        PteAddressSafe = (_BYTE *)HalpMmGetPteAddressSafe(v13);
+        if ( !PteAddressSafe )
+          return 0LL;
+        v13 += 4096LL;
+        v7 = 1LL;
+        if ( (*PteAddressSafe & 1) != 0 )
           break;
+        if ( ++v12 >= v8 )
+          goto LABEL_10;
+      }
+      v11 = v13;
+LABEL_10:
+      if ( a5 == 32 )
+      {
         v15 = v12 < v8;
         if ( v12 != v8 )
-          goto LABEL_12;
-        if ( !(unsigned __int8)HalpIsHeap64KRegionExecutable(v11)
-          && !(unsigned __int8)HalpIsHeap64KRegionExecutable(v11 + (v8 << 12) - 4096) )
         {
-          v7 = 1LL;
+LABEL_12:
+          if ( v15 )
+            continue;
           goto LABEL_13;
         }
+        if ( (unsigned __int8)HalpIsHeap64KRegionExecutable(v11)
+          || (unsigned __int8)HalpIsHeap64KRegionExecutable(v11 + (v8 << 12) - 4096) )
+        {
+          v12 = 0;
+        }
+        v7 = 1LL;
       }
-      v15 = v12 < v8;
-LABEL_12:
-      if ( v15 )
-        continue;
       break;
     }
+    v15 = v12 < v8;
+    goto LABEL_12;
   }
 LABEL_13:
   v16 = v11 | a1 & 0xFFF;
@@ -113,7 +115,7 @@ LABEL_13:
       a2 = v18;
     do
     {
-      v19 = a2 | a1 & 0xFFFFFFFFFF000LL;
+      v19 = a2 | a1 & 0xFFFFFFFFF000LL;
       v7 = 0xFFFFF68000000000uLL;
       a1 += 4096LL;
       v10 = 8 * ((v11 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL;

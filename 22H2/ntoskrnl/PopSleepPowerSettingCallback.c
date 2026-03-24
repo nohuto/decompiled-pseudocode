@@ -1,37 +1,37 @@
 /*
- * XREFs of PopSleepPowerSettingCallback @ 0x1408248F0
+ * XREFs of PopSleepPowerSettingCallback @ 0x14079C460
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x14082513C (PopApplyPolicy.c)
- *     PopInitSIdle @ 0x140825874 (PopInitSIdle.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopInitSIdle @ 0x14078C9A8 (PopInitSIdle.c)
+ *     PopApplyPolicy @ 0x14079CC2C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
+__int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
 {
   int v6; // esi
-  __int64 v7; // r8
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  __int128 v12; // xmm0
   __int128 v13; // xmm0
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int64 v18; // rax
   __int64 v19; // rax
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  int v22; // edx
-  __int64 v23; // rcx
-  __int64 v24; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rcx
   __int64 v25; // rcx
-  __int64 v26; // rcx
+  int v27; // eax
   int v28; // eax
   _OWORD v29[3]; // [rsp+20h] [rbp-F8h] BYREF
   __int128 v30; // [rsp+50h] [rbp-C8h]
@@ -49,40 +49,40 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
 
   v6 = -1073741811;
   PopAcquirePolicyLock((_DWORD)a1);
-  v8 = *((_OWORD *)PopPolicy + 1);
+  v7 = *((_OWORD *)PopPolicy + 1);
   v29[0] = *(_OWORD *)PopPolicy;
-  v9 = *((_OWORD *)PopPolicy + 2);
-  v29[1] = v8;
-  v10 = *((_OWORD *)PopPolicy + 3);
-  v29[2] = v9;
-  v11 = *((_OWORD *)PopPolicy + 4);
-  v30 = v10;
-  v12 = *((_OWORD *)PopPolicy + 5);
-  v31 = v11;
-  v13 = *((_OWORD *)PopPolicy + 6);
-  v32 = v12;
-  v33 = v13;
+  v8 = *((_OWORD *)PopPolicy + 2);
+  v29[1] = v7;
+  v9 = *((_OWORD *)PopPolicy + 3);
+  v29[2] = v8;
+  v10 = *((_OWORD *)PopPolicy + 4);
+  v30 = v9;
+  v11 = *((_OWORD *)PopPolicy + 5);
+  v31 = v10;
+  v12 = *((_OWORD *)PopPolicy + 6);
+  v32 = v11;
+  v33 = v12;
   v34 = *((_OWORD *)PopPolicy + 7);
-  v14 = *((_OWORD *)PopPolicy + 9);
+  v13 = *((_OWORD *)PopPolicy + 9);
   v35 = *((_OWORD *)PopPolicy + 8);
-  v15 = *((_OWORD *)PopPolicy + 10);
-  v36 = v14;
-  v16 = *((_OWORD *)PopPolicy + 11);
-  v37 = v15;
-  v17 = *((_OWORD *)PopPolicy + 12);
-  v38 = v16;
-  v18 = *((_OWORD *)PopPolicy + 13);
-  v19 = *((_QWORD *)PopPolicy + 28);
-  v39 = v17;
-  v40 = v18;
-  v41 = v19;
-  v20 = *a1;
-  v21 = *(_QWORD *)&GUID_STANDBY_TIMEOUT.Data1 - *a1;
+  v14 = *((_OWORD *)PopPolicy + 10);
+  v36 = v13;
+  v15 = *((_OWORD *)PopPolicy + 11);
+  v37 = v14;
+  v16 = *((_OWORD *)PopPolicy + 12);
+  v38 = v15;
+  v17 = *((_OWORD *)PopPolicy + 13);
+  v18 = *((_QWORD *)PopPolicy + 28);
+  v39 = v16;
+  v40 = v17;
+  v41 = v18;
+  v19 = *a1;
+  v20 = *(_QWORD *)&GUID_STANDBY_TIMEOUT.Data1 - *a1;
   if ( *(_QWORD *)&GUID_STANDBY_TIMEOUT.Data1 == *a1 )
-    v21 = *(_QWORD *)GUID_STANDBY_TIMEOUT.Data4 - a1[1];
-  if ( !v21 && a3 == 4 && a2 )
+    v20 = *(_QWORD *)GUID_STANDBY_TIMEOUT.Data4 - a1[1];
+  if ( !v20 && a3 == 4 && a2 )
   {
-    v22 = *a2;
+    v21 = (unsigned int)*a2;
     HIDWORD(v30) = *a2;
     if ( BYTE5(PopCapabilities) || *(_WORD *)((char *)&PopCapabilities + 3) )
       LODWORD(v30) = 2;
@@ -90,51 +90,54 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
   }
   else
   {
-    v22 = HIDWORD(v30);
+    v21 = HIDWORD(v30);
   }
-  v23 = *(_QWORD *)&GUID_HIBERNATE_TIMEOUT.Data1 - v20;
-  if ( *(_QWORD *)&GUID_HIBERNATE_TIMEOUT.Data1 == v20 )
-    v23 = *(_QWORD *)GUID_HIBERNATE_TIMEOUT.Data4 - a1[1];
+  v22 = *(_QWORD *)&GUID_HIBERNATE_TIMEOUT.Data1 - v19;
+  if ( *(_QWORD *)&GUID_HIBERNATE_TIMEOUT.Data1 == v19 )
+    v22 = *(_QWORD *)GUID_HIBERNATE_TIMEOUT.Data4 - a1[1];
+  if ( !v22 && a3 == 4 && a2 )
+  {
+    v27 = *a2;
+    DWORD2(v32) = *a2;
+    if ( !(_DWORD)v21 && v27 && BYTE6(PopCapabilities) )
+    {
+      v28 = v30;
+      if ( BYTE7(PopCapabilities) )
+        v28 = 3;
+      LODWORD(v30) = v28;
+    }
+    v6 = 0;
+  }
+  if ( v6 >= 0 )
+  {
+    LOBYTE(v22) = 1;
+    v6 = ((__int64 (__fastcall *)(__int64, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v22, 0LL, v29, 232LL);
+  }
+  v23 = *(_QWORD *)&GUID_HIBERNATE_FASTS4_POLICY.Data1 - *a1;
+  if ( *(_QWORD *)&GUID_HIBERNATE_FASTS4_POLICY.Data1 == *a1 )
+    v23 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
   if ( !v23 && a3 == 4 && a2 )
   {
-    v28 = *a2;
-    DWORD2(v32) = *a2;
-    if ( !v22 && v28 && BYTE6(PopCapabilities) && BYTE7(PopCapabilities) )
-      LODWORD(v30) = 3;
+    byte_140C2335C = *a2 == 0;
+    v6 = 0;
   }
-  else if ( v6 < 0 )
-  {
-    goto LABEL_9;
-  }
-  LOBYTE(v23) = 1;
-  v6 = PopApplyPolicy(v23, 0LL, v29, 232LL);
-LABEL_9:
-  v24 = *(_QWORD *)&GUID_HIBERNATE_FASTS4_POLICY.Data1 - *a1;
-  if ( *(_QWORD *)&GUID_HIBERNATE_FASTS4_POLICY.Data1 == *a1 )
-    v24 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
+  v24 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
+  if ( *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 == *a1 )
+    v24 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
   if ( !v24 && a3 == 4 && a2 )
   {
-    byte_140C3D91C = *a2 == 0;
+    byte_140C2335D = *a2 == 0;
     v6 = 0;
   }
-  v25 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
-  if ( *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 == *a1 )
-    v25 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
+  v25 = *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 - *a1;
+  if ( *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 == *a1 )
+    v25 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
   if ( !v25 && a3 == 4 && a2 )
   {
-    byte_140C3D91D = *a2 == 0;
-    PopInitSIdle(3LL);
+    dword_140C23360 = *a2;
+    PopInitSIdle(3u);
     v6 = 0;
   }
-  v26 = *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 - *a1;
-  if ( *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 == *a1 )
-    v26 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
-  if ( !v26 && a3 == 4 && a2 )
-  {
-    dword_140C3D920 = *a2;
-    PopInitSIdle(3LL);
-    v6 = 0;
-  }
-  PopReleasePolicyLock(v26, v24, v7);
+  PopReleasePolicyLock(v25, v21);
   return (unsigned int)v6;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpWnfDispatchKernelSubscription @ 0x1406B79D4
+ * XREFs of ExpWnfDispatchKernelSubscription @ 0x1406B79B4
  * Callers:
- *     ExpWnfStartKernelDispatcher @ 0x1406B7924 (ExpWnfStartKernelDispatcher.c)
- *     ExpWnfWorkItemRoutine @ 0x1406B7980 (ExpWnfWorkItemRoutine.c)
+ *     ExpWnfStartKernelDispatcher @ 0x1406B7904 (ExpWnfStartKernelDispatcher.c)
+ *     ExpWnfWorkItemRoutine @ 0x1406B7960 (ExpWnfWorkItemRoutine.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -12,8 +12,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceConstraintEvent @ 0x1C0007AE8
+ * XREFs of AcpiDiagTraceConstraintEvent @ 0x1C00304D8
  * Callers:
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
  */
 
 void __fastcall AcpiDiagTraceConstraintEvent(
@@ -34,11 +34,11 @@ void __fastcall AcpiDiagTraceConstraintEvent(
   {
     if ( EtwEventEnabled(AcpiDiagHandle, a3) )
     {
-      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), &v12, 1LL) >= 0 )
+      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&v12) >= 0 )
       {
-        v8 = *(_QWORD *)(a2 + 760);
+        v8 = *(_QWORD *)(a2 + 720);
         v14 = v12.Length >> 1;
-        if ( (int)ACPIAmliBuildObjectPathnameUnicode(v8, &DestinationString, 1LL) >= 0 )
+        if ( (int)ACPIAmliBuildObjectPathnameUnicode(v8, (__int64)&DestinationString) >= 0 )
         {
           UserData = a5;
           v10 = DestinationString.Length >> 1;

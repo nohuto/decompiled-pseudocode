@@ -1,166 +1,116 @@
 /*
- * XREFs of RIMInjectInput @ 0x1C01792E0
+ * XREFs of RIMInjectInput @ 0x1C0157080
  * Callers:
  *     <none>
  * Callees:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00744D4 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     RawInputManagerObjectResolveHandle @ 0x1C00751C0 (RawInputManagerObjectResolveHandle.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     ?bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z @ 0x1C0055178 (-bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C00551A0 (RawInputManagerObjectResolveHandle.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  */
 
-__int64 __fastcall RIMInjectInput(char *a1, char *a2, int a3, char *a4, unsigned int Size)
+__int64 __fastcall RIMInjectInput(char *a1, char *a2, int a3, char *a4, size_t Size)
 {
-  char *v6; // r13
-  int v8; // r15d
-  _BYTE *v9; // r14
+  char *v5; // rsi
+  int v7; // edx
+  int v8; // edi
+  struct RawInputManagerObject *v9; // r14
   int v10; // edx
   int v11; // edx
-  PVOID v12; // r13
+  PVOID v12; // r15
   char *v13; // rsi
   __int64 v14; // rcx
   __int64 v15; // rax
   char *v16; // rcx
-  _UNKNOWN **v17; // r8
-  _UNKNOWN **v18; // r8
-  char v19; // dl
-  PVOID v21; // [rsp+50h] [rbp-38h] BYREF
-  PVOID Object[3]; // [rsp+58h] [rbp-30h] BYREF
-  int v23; // [rsp+A0h] [rbp+18h]
+  void *v17; // r9
+  PVOID v19; // [rsp+30h] [rbp-48h] BYREF
+  PVOID Object[8]; // [rsp+38h] [rbp-40h] BYREF
 
-  v23 = a3;
-  v6 = a2;
-  v21 = 0LL;
+  v5 = a2;
+  v19 = 0LL;
   Object[0] = 0LL;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      95,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, (_DWORD)a2, 1, 86, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
   }
-  v8 = RawInputManagerObjectResolveHandle(a1, 3u, 0, &v21);
+  v8 = RawInputManagerObjectResolveHandle(a1, 3u, 0, &v19);
   if ( v8 >= 0 )
   {
-    v9 = v21;
-    RIMLockExclusive((__int64)v21 + 104);
-    if ( v9[81] || v9[82] )
+    v9 = (struct RawInputManagerObject *)v19;
+    RIMLockExclusive((__int64)v19 + 104);
+    if ( bRimDispositionNormal(v9) )
+    {
+      v8 = RawInputManagerDeviceObjectResolveHandle(v5, 3u, 1, Object);
+      if ( v8 >= 0 )
+      {
+        v12 = Object[0];
+        if ( Object[0] )
+          v13 = (char *)Object[0] + 88;
+        else
+          v13 = 0LL;
+        Object[1] = v13;
+        if ( (*((_DWORD *)v13 + 46) & 0x2000) != 0 )
+        {
+          RIMLockExclusive((__int64)v9 + 568);
+          *((_DWORD *)v13 + 64) = 0;
+          v14 = *((_QWORD *)v13 + 58);
+          v15 = *(unsigned __int16 *)(v14 + 44);
+          if ( (unsigned int)Size < (unsigned int)v15 )
+            v15 = (unsigned int)Size;
+          *((_QWORD *)v13 + 33) = (unsigned int)v15;
+          if ( a3 )
+          {
+            v17 = *(void **)(v14 + 24);
+            if ( &a4[v15] < a4 || (unsigned __int64)&a4[v15] > MmUserProbeAddress )
+              *(_BYTE *)MmUserProbeAddress = 0;
+            memmove(v17, a4, (unsigned int)v15);
+          }
+          else
+          {
+            v16 = *(char **)(v14 + 24);
+            if ( a4 != v16 )
+              memmove(v16, a4, (unsigned int)v15);
+          }
+          rimProcessDeviceBufferAndStartRead(v9, (struct RIMDEV *)v13);
+          *((_QWORD *)v9 + 72) = 0LL;
+          ExReleasePushLockExclusiveEx((char *)v9 + 568, 0LL);
+          KeLeaveCriticalRegion();
+        }
+        else
+        {
+          v8 = -1073741811;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v11) = 3;
+            WPP_RECORDER_SF_((_DWORD)gRimLog, v11, 1, 88, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
+          }
+        }
+        ObfDereferenceObject(v12);
+      }
+    }
+    else
     {
       v8 = -1073741637;
-      LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      v18 = &WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v18) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v10,
-          (_DWORD)v18,
-          (_DWORD)gRimLog,
-          3,
-          1,
-          98,
-          (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
-      }
-      goto LABEL_44;
-    }
-    v8 = RawInputManagerDeviceObjectResolveHandle(v6, 3u, 1, Object);
-    if ( v8 < 0 )
-    {
-LABEL_44:
-      *((_QWORD *)v9 + 14) = 0LL;
-      ExReleasePushLockExclusiveEx(v9 + 104, 0LL);
-      KeLeaveCriticalRegion();
-      ObfDereferenceObject(v9);
-      goto LABEL_45;
-    }
-    v12 = Object[0];
-    if ( Object[0] )
-      v13 = (char *)Object[0] + 72;
-    else
-      v13 = 0LL;
-    Object[1] = v13;
-    if ( (*((_DWORD *)v13 + 46) & 0x2000) == 0 )
-    {
-      v8 = -1073741811;
-      LOBYTE(v11) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      v17 = &WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v17) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v11,
-          (_DWORD)v17,
-          (_DWORD)gRimLog,
-          3,
-          1,
-          97,
-          (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
-      }
-      goto LABEL_27;
-    }
-    RIMLockExclusive((__int64)(v9 + 760));
-    *((_DWORD *)v13 + 64) = 0;
-    v14 = *((_QWORD *)v13 + 57);
-    v15 = *(unsigned __int16 *)(v14 + 44);
-    if ( Size < (unsigned int)v15 )
-      v15 = Size;
-    *((_QWORD *)v13 + 33) = (unsigned int)v15;
-    if ( v23 )
-    {
-      v16 = *(char **)(v14 + 24);
-      if ( &a4[v15] < a4 || (unsigned __int64)&a4[v15] > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-    }
-    else
-    {
-      v16 = *(char **)(v14 + 24);
-      if ( a4 == v16 )
-      {
-LABEL_26:
-        rimProcessDeviceBufferAndStartRead((struct RawInputManagerObject *)v9, (struct RIMDEV *)v13, 1);
-        *((_QWORD *)v9 + 96) = 0LL;
-        ExReleasePushLockExclusiveEx(v9 + 760, 0LL);
-        KeLeaveCriticalRegion();
-LABEL_27:
-        ObfDereferenceObject(v12);
-        goto LABEL_44;
+        LOBYTE(v10) = 3;
+        WPP_RECORDER_SF_((_DWORD)gRimLog, v10, 1, 89, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
       }
     }
-    memmove(v16, a4, (unsigned int)v15);
-    goto LABEL_26;
+    *((_QWORD *)v9 + 14) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)v9 + 104, 0LL);
+    KeLeaveCriticalRegion();
+    ObfDereferenceObject(v9);
   }
-LABEL_45:
-  v19 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_d(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v19,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      0x63u,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids,
-      v8);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v7, 1, 90, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, v8);
+  }
   return (unsigned int)v8;
 }

@@ -1,10 +1,10 @@
 /*
  * XREFs of CmpGetNextHive @ 0x1405D00F0
  * Callers:
- *     CmpDoFlushAll @ 0x1401579E8 (CmpDoFlushAll.c)
+ *     CmpDoFlushAll @ 0x140157A08 (CmpDoFlushAll.c)
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmpBlockHiveWrites @ 0x1407F06C0 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x1407F0908 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x1407F06A0 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x1407F08E8 (CmpUnblockHiveWrites.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

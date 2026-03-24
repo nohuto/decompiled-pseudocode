@@ -1,139 +1,165 @@
 /*
- * XREFs of CreateDxgkSharedObjectTypes @ 0x1C0213600
+ * XREFs of CreateDxgkSharedObjectTypes @ 0x1C0195BDC
  * Callers:
- *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0210BEC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0192DAC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
  * Callees:
- *     ?GenericMapping@DxgkCompositionObject@@SA?AU_GENERIC_MAPPING@@XZ @ 0x1C001FB98 (-GenericMapping@DxgkCompositionObject@@SA-AU_GENERIC_MAPPING@@XZ.c)
- *     ?CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@ZP6AX45_K8@ZP6AX5@ZP6AE455D@ZPEAPEAU_OBJECT_TYPE@@KW4_POOL_TYPE@@@Z @ 0x1C0213910 (-CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAK.c)
+ *     ?GenericMapping@DxgkCompositionObject@@SA?AU_GENERIC_MAPPING@@XZ @ 0x1C001B4C4 (-GenericMapping@DxgkCompositionObject@@SA-AU_GENERIC_MAPPING@@XZ.c)
+ *     ?CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@ZP6AX45_K8@ZP6AX5@ZP6AE455D@ZPEAPEAU_OBJECT_TYPE@@KW4_POOL_TYPE@@@Z @ 0x1C0195F78 (-CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAK.c)
  */
 
 __int64 CreateDxgkSharedObjectTypes()
 {
   __int64 result; // rax
-  enum _POOL_TYPE v1; // [rsp+48h] [rbp-28h]
-  struct _GENERIC_MAPPING v2; // [rsp+50h] [rbp-20h] BYREF
-  struct _GENERIC_MAPPING v3; // [rsp+60h] [rbp-10h] BYREF
+  struct _GENERIC_MAPPING v1; // [rsp+50h] [rbp-20h] BYREF
+  struct _GENERIC_MAPPING v2; // [rsp+60h] [rbp-10h] BYREF
 
   result = 0LL;
   if ( g_pDxgkSharedAllocationObjectType
-    || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095488,
+    || (v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB58,
         result = CreateSharedObject(
                    L"DxgkSharedResource",
                    0,
-                   &v2,
+                   &v1,
                    (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
                    0LL,
                    (void (*)(void *))DxgkSharedAllocationObDeleteProcedure,
                    0LL,
                    &g_pDxgkSharedAllocationObjectType,
                    0,
-                   v1),
+                   PagedPool),
         (int)result >= 0) )
   {
-    if ( g_pDxgkSharedKeyedMutexObjectType
-      || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095468,
-          result = CreateSharedObject(
-                     L"DxgkSharedKeyedMutexObject",
-                     0,
-                     &v2,
-                     (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
-                     0LL,
-                     (void (*)(void *))DxgkSharedKeyedMutexObjectObDeleteProcedure,
-                     0LL,
-                     &g_pDxgkSharedKeyedMutexObjectType,
-                     0,
-                     v1),
-          (int)result >= 0) )
+    if ( !g_pDxgkSharedKeyedMutexObjectType )
     {
-      if ( g_pDxgkSharedSyncObjectType
-        || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095478,
+      v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB78;
+      result = CreateSharedObject(
+                 L"DxgkSharedKeyedMutexObject",
+                 0,
+                 &v1,
+                 (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
+                 0LL,
+                 (void (*)(void *))DxgkSharedKeyedMutexObjectObDeleteProcedure,
+                 0LL,
+                 &g_pDxgkSharedKeyedMutexObjectType,
+                 0,
+                 PagedPool);
+    }
+    if ( (int)result >= 0 )
+    {
+      if ( !g_pDxgkSharedSyncObjectType )
+      {
+        v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB88;
+        result = CreateSharedObject(
+                   L"DxgkSharedSyncObject",
+                   0,
+                   &v1,
+                   (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
+                   0LL,
+                   (void (*)(void *))DxgkSharedSyncObjectObDeleteProcedure,
+                   0LL,
+                   &g_pDxgkSharedSyncObjectType,
+                   0,
+                   PagedPool);
+      }
+      if ( (int)result >= 0 )
+      {
+        if ( !g_pDxgkSharedSwapChainObjectType )
+        {
+          v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB78;
+          result = CreateSharedObject(
+                     L"DxgkSharedSwapChainObject",
+                     0,
+                     &v1,
+                     (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
+                     (void (*)(struct _EPROCESS *, void *, unsigned __int64, unsigned __int64))SwapChainObCloseProcedure,
+                     (void (*)(void *))SwapChainObDeleteProcedure,
+                     0LL,
+                     &g_pDxgkSharedSwapChainObjectType,
+                     0,
+                     PagedPool);
+        }
+        if ( (int)result >= 0 )
+        {
+          if ( !g_pDxgkDisplayManagerObjectType )
+          {
+            v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB78;
             result = CreateSharedObject(
-                       L"DxgkSharedSyncObject",
+                       L"DxgkDisplayManagerObject",
                        0,
-                       &v2,
+                       &v1,
                        (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
                        0LL,
-                       (void (*)(void *))DxgkSharedSyncObjectObDeleteProcedure,
+                       (void (*)(void *))DxgkDisplayManagerDeleteProcedure,
                        0LL,
-                       &g_pDxgkSharedSyncObjectType,
+                       &g_pDxgkDisplayManagerObjectType,
                        0,
-                       v1),
-            (int)result >= 0) )
-      {
-        if ( g_pDxgkSharedSwapChainObjectType
-          || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095468,
+                       PagedPool);
+          }
+          if ( (int)result >= 0 )
+          {
+            if ( !g_pDxgkCurrentDxgThreadObjectType )
+            {
+              v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB58;
               result = CreateSharedObject(
-                         L"DxgkSharedSwapChainObject",
-                         0,
-                         &v2,
-                         (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
-                         (void (*)(struct _EPROCESS *, void *, unsigned __int64, unsigned __int64))SwapChainObCloseProcedure,
-                         (void (*)(void *))SwapChainObDeleteProcedure,
+                         L"DxgkCurrentDxgThreadObject",
+                         1,
+                         &v1,
                          0LL,
-                         &g_pDxgkSharedSwapChainObjectType,
+                         0LL,
+                         (void (*)(void *))DxgkThreadObjectDeleteProcedure,
+                         0LL,
+                         &g_pDxgkCurrentDxgThreadObjectType,
                          0,
-                         v1),
-              (int)result >= 0) )
-        {
-          if ( g_pDxgkDisplayManagerObjectType
-            || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095468,
+                         (enum _POOL_TYPE)512);
+            }
+            if ( (int)result >= 0 )
+            {
+              if ( !g_pDxgkSharedProtectedSessionObjectType )
+              {
+                v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB78;
                 result = CreateSharedObject(
-                           L"DxgkDisplayManagerObject",
+                           L"DxgkSharedProtectedSessionObject",
                            0,
-                           &v2,
+                           &v1,
                            (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
                            0LL,
-                           (void (*)(void *))DxgkDisplayManagerDeleteProcedure,
+                           (void (*)(void *))DxgkSharedProtectedSessionObDeleteProcedure,
                            0LL,
-                           &g_pDxgkDisplayManagerObjectType,
+                           &g_pDxgkSharedProtectedSessionObjectType,
                            0,
-                           v1),
-                (int)result >= 0) )
-          {
-            if ( g_pDxgkSharedProtectedSessionObjectType
-              || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095468,
+                           PagedPool);
+              }
+              if ( (int)result >= 0 )
+              {
+                if ( !g_pDxgkSharedBundleObjectType )
+                {
+                  v1 = (struct _GENERIC_MAPPING)xmmword_1C007CB68;
                   result = CreateSharedObject(
-                             L"DxgkSharedProtectedSessionObject",
+                             L"DxgkSharedBundleObject",
                              0,
-                             &v2,
+                             &v1,
                              (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
                              0LL,
-                             (void (*)(void *))DxgkSharedProtectedSessionObDeleteProcedure,
+                             (void (*)(void *))DxgkSharedBundleObjectObDeleteProcedure,
                              0LL,
-                             &g_pDxgkSharedProtectedSessionObjectType,
+                             &g_pDxgkSharedBundleObjectType,
                              0,
-                             v1),
-                  (int)result >= 0) )
-            {
-              if ( g_pDxgkSharedBundleObjectType
-                || (v2 = (struct _GENERIC_MAPPING)xmmword_1C0095458,
-                    result = CreateSharedObject(
-                               L"DxgkSharedBundleObject",
-                               0,
-                               &v2,
-                               (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))W32kStub_UserRemoveWindowedSwapChain,
-                               0LL,
-                               (void (*)(void *))DxgkSharedBundleObjectObDeleteProcedure,
-                               0LL,
-                               &g_pDxgkSharedBundleObjectType,
-                               0,
-                               v1),
-                    (int)result >= 0) )
-              {
-                if ( !g_pDxgkCompositionObjectType )
+                             PagedPool);
+                }
+                if ( (int)result >= 0 && !g_pDxgkCompositionObjectType )
                 {
-                  v2 = *DxgkCompositionObject::GenericMapping(&v3);
+                  v1 = *DxgkCompositionObject::GenericMapping(&v2);
                   return CreateSharedObject(
                            L"DxgkCompositionObject",
                            1,
-                           &v2,
+                           &v1,
                            (int (__high *)(enum _OB_OPEN_REASON, char, struct _EPROCESS *, void *, unsigned int *, unsigned int))DxgkCompositionObject::Open,
                            (void (*)(struct _EPROCESS *, void *, unsigned __int64, unsigned __int64))DxgkCompositionObject::Close,
                            (void (*)(void *))DxgkCompositionObject::Delete,
                            (unsigned __int8 (*)(struct _EPROCESS *, void *, void *, char))DxgkCompositionObject::OkToClose,
                            &g_pDxgkCompositionObjectType,
                            0x400u,
-                           v1);
+                           PagedPool);
                 }
               }
             }

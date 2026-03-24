@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSpriteVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4AF0
+ * XREFs of ?IsOfType@CSpriteVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800AD650
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall CSpriteVisual::IsOfType(__int64 a1, int a2)
   __int64 v3; // rcx
   bool result; // al
 
-  v2 = (unsigned int)(a2 - 134);
-  result = (unsigned int)v2 <= 0x3E && (v3 = 0x4000100000000001LL, _bittest64(&v3, v2)) || a2 == 114;
+  v2 = (unsigned int)(a2 - 133);
+  result = (unsigned int)v2 <= 0x3E && (v3 = 0x4000200000000001LL, _bittest64(&v3, v2)) || a2 == 112;
   return result;
 }

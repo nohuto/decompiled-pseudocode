@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceShouldBeDisabled @ 0x1C001CB80
+ * XREFs of HUBDSM_CheckingIfDeviceShouldBeDisabled @ 0x1C001C640
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove @ 0x1C002DA9C (HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove.c)
+ *     HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove @ 0x1C002D410 (HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfDeviceShouldBeDisabled(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfUsbInterfaceGetInterfaceNumber @ 0x1C0077680
+ * XREFs of imp_WdfUsbInterfaceGetInterfaceNumber @ 0x1C006A240
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 unsigned __int8 __fastcall imp_WdfUsbInterfaceGetInterfaceNumber(
@@ -14,7 +14,7 @@ unsigned __int8 __fastcall imp_WdfUsbInterfaceGetInterfaceNumber(
 
   pUsbInterface = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)UsbInterface,
     0x1204u,
     (void **)&pUsbInterface);

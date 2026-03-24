@@ -1,16 +1,17 @@
 /*
- * XREFs of ?bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02F4AF4
+ * XREFs of ?bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02CF39C
  * Callers:
- *     ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02F6590 (-bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z.c)
+ *     ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02CF7D4 (-bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall PRECOMPUTE::bAddPreComputedFastFillRects(
         PRECOMPUTE *this,
         struct EPATHOBJ *a2,
         struct _RECTL *a3,
-        __int64 a4)
+        unsigned int a4)
 {
   unsigned int v4; // eax
   __int64 v6; // rbp
@@ -23,27 +24,25 @@ __int64 __fastcall PRECOMPUTE::bAddPreComputedFastFillRects(
   void *v14; // rcx
 
   v4 = *((_DWORD *)a2 + 14);
-  v6 = (unsigned int)a4;
-  if ( v4 + (unsigned int)a4 <= v4 )
+  v6 = a4;
+  if ( v4 + a4 <= v4 )
   {
     if ( v4 )
     {
       *((_DWORD *)a2 + 14) = 0;
       v14 = (void *)*((_QWORD *)a2 + 6);
-      goto LABEL_14;
+      goto LABEL_13;
     }
     return 0LL;
   }
-  v8 = 16LL * (v4 + (unsigned int)a4);
-  if ( v8 > 0xFFFFFFFF
-    || !(_DWORD)v8
-    || (v9 = (char *)Win32AllocPool((unsigned int)v8, 1734632775LL, a3, a4), (v10 = v9) == 0LL) )
+  v8 = 16LL * (v4 + a4);
+  if ( v8 > 0xFFFFFFFF || (v9 = (char *)PALLOCMEM2((unsigned int)v8, 1734632775LL, 0), (v10 = v9) == 0LL) )
   {
     if ( *((_DWORD *)a2 + 14) )
     {
       *((_DWORD *)a2 + 14) = 0;
       v14 = (void *)*((_QWORD *)a2 + 6);
-LABEL_14:
+LABEL_13:
       Win32FreePool(v14);
       *((_QWORD *)a2 + 6) = 0LL;
       return 0LL;

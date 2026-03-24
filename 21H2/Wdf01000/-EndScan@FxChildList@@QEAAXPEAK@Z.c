@@ -1,19 +1,19 @@
 /*
- * XREFs of ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C00131C0
+ * XREFs of ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C000E280
  * Callers:
- *     ?EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z @ 0x1C001311C (-EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z.c)
- *     imp_WdfChildListEndScan @ 0x1C0013170 (imp_WdfChildListEndScan.c)
+ *     imp_WdfChildListEndScan @ 0x1C000E230 (imp_WdfChildListEndScan.c)
+ *     ?EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z @ 0x1C003B270 (-EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ @ 0x1C0015030 (-GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ.c)
- *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C001812C (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0018288 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?MarkDescriptionNotPresentWorker@FxChildList@@IEAAXPEAUFxDeviceDescriptionEntry@@E@Z @ 0x1C005C270 (-MarkDescriptionNotPresentWorker@FxChildList@@IEAAXPEAUFxDeviceDescriptionEntry@@E@Z.c)
- *     ?MarkModificationNotPresentWorker@FxChildList@@IEAAXPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@@Z @ 0x1C005C2BC (-MarkModificationNotPresentWorker@FxChildList@@IEAAXPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntr.c)
- *     WPP_IFR_SF_qll @ 0x1C005CDBC (WPP_IFR_SF_qll.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ @ 0x1C000EBEC (-GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ.c)
+ *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C000FC54 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0010A58 (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?MarkDescriptionNotPresentWorker@FxChildList@@IEAAXPEAUFxDeviceDescriptionEntry@@E@Z @ 0x1C003BB48 (-MarkDescriptionNotPresentWorker@FxChildList@@IEAAXPEAUFxDeviceDescriptionEntry@@E@Z.c)
+ *     ?MarkModificationNotPresentWorker@FxChildList@@IEAAXPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@@Z @ 0x1C003BB9C (-MarkModificationNotPresentWorker@FxChildList@@IEAAXPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntr.c)
+ *     WPP_IFR_SF_qll @ 0x1C003CA88 (WPP_IFR_SF_qll.c)
  */
 
 void __fastcall FxChildList::EndScan(FxChildList *this, unsigned int *ScanTag)
@@ -25,26 +25,27 @@ void __fastcall FxChildList::EndScan(FxChildList *this, unsigned int *ScanTag)
   const _GUID *v7; // r8
   _LIST_ENTRY *Flink; // rdi
   _LIST_ENTRY *i; // rdi
-  _LIST_ENTRY *v10; // rax
-  FxChildList *v11; // rbp
-  _LIST_ENTRY **p_Blink; // rsi
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
   const void *_a1; // rax
   unsigned int _a2; // edx
-  const _GUID *v16; // r8
-  _FX_DRIVER_GLOBALS *v17; // r10
+  const _GUID *v12; // r8
+  _FX_DRIVER_GLOBALS *v13; // r10
+  FxChildList *v14; // rbp
+  _LIST_ENTRY **p_Blink; // rsi
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
   const void *ObjectHandleUnchecked; // rax
-  __int64 v19; // rdx
-  _FX_DRIVER_GLOBALS *v20; // r10
-  _LIST_ENTRY *v21; // rcx
+  __int64 v18; // rdx
+  _FX_DRIVER_GLOBALS *v19; // r10
+  _LIST_ENTRY *v20; // rcx
   _LIST_ENTRY *Blink; // rax
+  _LIST_ENTRY *v22; // rax
   _LIST_ENTRY *v23; // rcx
   _LIST_ENTRY **v24; // rdx
   _LIST_ENTRY *v25; // rcx
   _FX_DRIVER_GLOBALS *v26; // r10
-  const void *v27; // rax
-  __int64 v28; // rdx
-  _FX_DRIVER_GLOBALS *v29; // r10
+  unsigned __int8 FxVerboseOn; // al
+  const void *v28; // rax
+  __int64 v29; // rdx
+  _FX_DRIVER_GLOBALS *v30; // r10
   _DEVICE_OBJECT *SafePhysicalDevice; // rax
   const _GUID *traceGuid; // [rsp+20h] [rbp-48h]
   _LIST_ENTRY freeHead; // [rsp+40h] [rbp-28h] BYREF
@@ -59,7 +60,7 @@ void __fastcall FxChildList::EndScan(FxChildList *this, unsigned int *ScanTag)
   if ( this->m_Globals->FxVerboseOn )
   {
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-    WPP_IFR_SF_qL(v17, 5u, 0xCu, 0xCu, v16, _a1, _a2);
+    WPP_IFR_SF_qL(v13, 5u, 0xCu, 0xCu, v12, _a1, _a2);
     m_ScanCount = this->m_ScanCount;
   }
   if ( !m_ScanCount )
@@ -69,7 +70,7 @@ void __fastcall FxChildList::EndScan(FxChildList *this, unsigned int *ScanTag)
     {
       do
       {
-        v11 = (FxChildList *)Flink->Flink;
+        v14 = (FxChildList *)Flink->Flink;
         p_Blink = &Flink[-3].Blink;
         m_Globals = this->m_Globals;
         if ( m_Globals->FxVerboseOn )
@@ -94,40 +95,40 @@ void __fastcall FxChildList::EndScan(FxChildList *this, unsigned int *ScanTag)
             {
               ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked((FxObject *)p_Blink[8]);
               WPP_IFR_SF_qq(
-                v20,
+                v19,
                 5u,
                 0xCu,
                 0xEu,
                 WPP_FxChildList_cpp_Traceguids,
                 ObjectHandleUnchecked,
-                *(const void **)(v19 + 144));
+                *(const void **)(v18 + 144));
             }
             *((_DWORD *)p_Blink + 14) = 3;
-            v21 = Flink->Flink;
+            v20 = Flink->Flink;
             if ( Flink->Flink->Blink != Flink || (Blink = Flink->Blink, Blink->Flink != Flink) )
 LABEL_37:
               __fastfail(3u);
-            Blink->Flink = v21;
-            v21->Blink = Blink;
+            Blink->Flink = v20;
+            v20->Blink = Blink;
             Flink->Blink = Flink;
             Flink->Flink = Flink;
           }
         }
-        Flink = (_LIST_ENTRY *)v11;
+        Flink = (_LIST_ENTRY *)v14;
       }
-      while ( v11 != (FxChildList *)&this->m_ModificationListHead );
+      while ( v14 != (FxChildList *)&this->m_ModificationListHead );
     }
     for ( i = this->m_DescriptionListHead.Flink; i != &this->m_DescriptionListHead; i = i->Flink )
     {
-      v10 = i;
+      v22 = i;
       if ( BYTE2(i[5].Flink) )
       {
         v23 = i->Flink;
         v24 = &i->Blink;
         i = i->Blink;
-        if ( v10->Flink->Blink != v10 )
+        if ( v22->Flink->Blink != v22 )
           goto LABEL_37;
-        if ( i->Flink != v10 )
+        if ( i->Flink != v22 )
           goto LABEL_37;
         i->Flink = v23;
         v23->Blink = i;
@@ -135,22 +136,23 @@ LABEL_37:
         if ( freeHead.Blink->Flink != &freeHead )
           goto LABEL_37;
         *v24 = freeHead.Blink;
-        v10->Flink = &freeHead;
-        v25->Flink = v10;
-        freeHead.Blink = v10;
+        v22->Flink = &freeHead;
+        v25->Flink = v22;
+        freeHead.Blink = v22;
       }
       else if ( (unsigned int)(LODWORD(i[1].Flink) - 1) <= 1 && !LOBYTE(i[5].Flink) )
       {
         v26 = this->m_Globals;
+        FxVerboseOn = v26->FxVerboseOn;
         if ( i[4].Flink )
         {
-          if ( v26->FxVerboseOn )
+          if ( FxVerboseOn )
           {
-            v27 = (const void *)FxObject::GetObjectHandleUnchecked((FxObject *)i[4].Flink);
-            WPP_IFR_SF_qq(v29, 5u, 0xCu, 0xFu, WPP_FxChildList_cpp_Traceguids, v27, *(const void **)(v28 + 144));
+            v28 = (const void *)FxObject::GetObjectHandleUnchecked((FxObject *)i[4].Flink);
+            WPP_IFR_SF_qq(v30, 5u, 0xCu, 0xFu, WPP_FxChildList_cpp_Traceguids, v28, *(const void **)(v29 + 144));
           }
         }
-        else if ( v26->FxVerboseOn )
+        else if ( FxVerboseOn )
         {
           WPP_IFR_SF_q(v26, 5u, 0xCu, 0x10u, WPP_FxChildList_cpp_Traceguids, i);
         }

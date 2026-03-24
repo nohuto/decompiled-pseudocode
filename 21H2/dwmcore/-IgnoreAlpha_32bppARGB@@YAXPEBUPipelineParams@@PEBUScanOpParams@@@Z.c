@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IgnoreAlpha_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B1C50
+ * XREFs of ?IgnoreAlpha_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021BC00
  * Callers:
  *     <none>
  * Callees:

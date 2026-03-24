@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetHugePageToZero @ 0x140185444
+ * XREFs of MiGetHugePageToZero @ 0x140185464
  * Callers:
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
  * Callees:
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiGetUltraHugeAlreadyActive @ 0x1401855D4 (MiGetUltraHugeAlreadyActive.c)
- *     MiInitializeNewUltraHugeContext @ 0x14018589C (MiInitializeNewUltraHugeContext.c)
- *     MiDecrementHugeContext @ 0x140185A28 (MiDecrementHugeContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1401855F4 (MiGetUltraHugeAlreadyActive.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1401858BC (MiInitializeNewUltraHugeContext.c)
+ *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

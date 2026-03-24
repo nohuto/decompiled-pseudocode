@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpValidatePayloadFilter @ 0x1409F5758
+ * XREFs of EtwpValidatePayloadFilter @ 0x140949938
  * Callers:
- *     EtwpAllocatePayloadFilterData @ 0x1409F49A4 (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocatePayloadFilterData @ 0x140940470 (EtwpAllocatePayloadFilterData.c)
  * Callees:
  *     <none>
  */
@@ -62,7 +62,7 @@ __int64 __fastcall EtwpValidatePayloadFilter(_QWORD *a1, __int16 *a2, unsigned i
   _BYTE *v57; // [rsp+28h] [rbp-80h]
   unsigned int v58; // [rsp+34h] [rbp-74h]
   unsigned int v59; // [rsp+38h] [rbp-70h]
-  __int64 v60; // [rsp+40h] [rbp-68h]
+  _WORD *v60; // [rsp+40h] [rbp-68h]
   __int64 v61; // [rsp+48h] [rbp-60h]
   __int64 v62; // [rsp+58h] [rbp-50h]
   __int64 v63; // [rsp+60h] [rbp-48h]
@@ -115,14 +115,13 @@ __int64 __fastcall EtwpValidatePayloadFilter(_QWORD *a1, __int16 *a2, unsigned i
                     v21 = v13 >> 2;
                     v22 = 0;
                     v52 = 0;
-                    v51 = 0;
                     v23 = (__int64)a2 + v11;
-                    v64 = 0;
+                    v51 = 0;
                     v24 = (__int16 *)((char *)a2 + v14);
-                    v65 = 0;
+                    v64 = 0;
                     v25 = (__int64)a2 + v7;
+                    v65 = 0;
                     v26 = v16 >> 2;
-                    v61 = v23;
                     v27 = v19 >> 1;
                     v28 = (unsigned __int16 *)(a2 + 28);
                     v58 = (unsigned int)v10 / 0xC;
@@ -131,8 +130,9 @@ __int64 __fastcall EtwpValidatePayloadFilter(_QWORD *a1, __int16 *a2, unsigned i
                     v29 = 0;
                     v59 = v27;
                     v57 = (char *)a2 + v62;
-                    v60 = (__int64)a2 + v14;
+                    v61 = v23;
                     v30 = 0LL;
+                    v60 = v24;
                     v53 = 0;
                     if ( (unsigned int)v10 / 0xC )
                     {
@@ -259,8 +259,8 @@ LABEL_61:
                             }
 LABEL_63:
                             ++v35;
-                            v24 = (_WORD *)(v60 + 4);
-                            v60 += 4LL;
+                            v24 = v60 + 2;
+                            v60 += 2;
                             if ( v35 >= v34 )
                             {
                               v23 = v61;

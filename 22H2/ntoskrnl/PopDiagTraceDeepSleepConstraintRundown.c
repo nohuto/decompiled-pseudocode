@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x140592754
+ * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x14034D6BC
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140862C00 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void PopDiagTraceDeepSleepConstraintRundown()
@@ -26,10 +26,10 @@ void PopDiagTraceDeepSleepConstraintRundown()
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
-  unsigned __int16 v13; // [rsp+40h] [rbp-118h] BYREF
-  _DWORD v14[14]; // [rsp+48h] [rbp-110h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-D8h] BYREF
-  _QWORD v16[22]; // [rsp+90h] [rbp-C8h]
+  unsigned __int16 v13; // [rsp+40h] [rbp-F8h] BYREF
+  _DWORD v14[10]; // [rsp+48h] [rbp-F0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-C8h] BYREF
+  _QWORD v16[20]; // [rsp+80h] [rbp-B8h]
 
   v0 = 0;
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN) )
@@ -64,19 +64,22 @@ void PopDiagTraceDeepSleepConstraintRundown()
       while ( !v6 );
     }
     EtwWriteEx(PopDiagHandle, &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN, 0LL, 0, 0LL, 0LL, UserDataCount, &UserData);
-    KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
+    KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v6 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v6 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v6 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v6 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v3);

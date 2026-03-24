@@ -1,10 +1,10 @@
 /*
- * XREFs of _splitpath_s @ 0x1403DE7E0
+ * XREFs of _splitpath_s @ 0x1403D6C20
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     strncpy_s @ 0x1403DF3C0 (strncpy_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     strncpy_s @ 0x1403D7810 (strncpy_s.c)
  */
 
 errno_t __cdecl splitpath_s(
@@ -18,8 +18,9 @@ errno_t __cdecl splitpath_s(
         char *Ext,
         size_t ExtSize)
 {
-  size_t v12; // rsi
-  int v13; // ecx
+  const char *v9; // rdi
+  size_t v11; // rsi
+  int v13; // r9d
   __int64 v14; // rax
   const char *v15; // rbx
   char v16; // al
@@ -29,7 +30,8 @@ errno_t __cdecl splitpath_s(
   rsize_t v20; // rbx
   rsize_t v21; // rbx
 
-  v12 = DriveSize;
+  v9 = FullPath;
+  v11 = DriveSize;
   v13 = 0;
   if ( !FullPath )
     goto LABEL_4;
@@ -42,7 +44,7 @@ errno_t __cdecl splitpath_s(
   {
 LABEL_4:
     v13 = 1;
-    goto LABEL_58;
+    goto LABEL_57;
   }
   if ( Dir )
   {
@@ -86,21 +88,20 @@ LABEL_4:
     if ( Drive )
     {
       if ( DriveSize < 3 )
-        goto LABEL_59;
+        goto LABEL_57;
       strncpy_s(Drive, DriveSize, FullPath, 2uLL);
-      v13 = 0;
     }
-    FullPath = v15 + 1;
+    v9 = v15 + 1;
   }
   else if ( Drive )
   {
     *Drive = 0;
   }
-  v16 = *FullPath;
+  v16 = *v9;
   v17 = 0LL;
   v18 = 0LL;
-  v19 = FullPath;
-  if ( !*FullPath )
+  v19 = v9;
+  if ( !*v9 )
     goto LABEL_40;
   do
   {
@@ -115,74 +116,66 @@ LABEL_4:
     v16 = *++v19;
   }
   while ( *v19 );
-  if ( !v17 )
+  if ( v17 )
+  {
+    if ( Dir )
+    {
+      if ( DirSize <= v17 - v9 )
+        goto LABEL_56;
+      strncpy_s(Dir, DirSize, v9, v17 - v9);
+    }
+    v9 = v17;
+  }
+  else
   {
 LABEL_40:
     if ( Dir )
       *Dir = 0;
-LABEL_42:
-    if ( v18 && v18 >= FullPath )
-    {
-      if ( !Filename )
-      {
-LABEL_47:
-        if ( !Ext )
-          return 0;
-        v20 = v19 - v18;
-        if ( ExtSize > v20 )
-        {
-          strncpy_s(Ext, ExtSize, v18, v20);
-          return 0;
-        }
-        goto LABEL_56;
-      }
-      if ( FilenameSize > v18 - FullPath )
-      {
-        strncpy_s(Filename, FilenameSize, FullPath, v18 - FullPath);
-        goto LABEL_47;
-      }
-LABEL_56:
-      v13 = 0;
-      goto LABEL_57;
-    }
+  }
+  if ( !v18 || v18 < v9 )
+  {
     if ( Filename )
     {
-      v21 = v19 - FullPath;
+      v21 = v19 - v9;
       if ( FilenameSize <= v21 )
         goto LABEL_56;
-      strncpy_s(Filename, FilenameSize, FullPath, v21);
+      strncpy_s(Filename, FilenameSize, v9, v21);
     }
     if ( Ext )
       *Ext = 0;
     return 0;
   }
-  if ( !Dir )
+  if ( !Filename )
   {
-LABEL_39:
-    FullPath = v17;
-    goto LABEL_42;
+LABEL_47:
+    if ( !Ext )
+      return 0;
+    v20 = v19 - v18;
+    if ( ExtSize > v20 )
+    {
+      strncpy_s(Ext, ExtSize, v18, v20);
+      return 0;
+    }
+    goto LABEL_56;
   }
-  if ( DirSize > v17 - FullPath )
+  if ( FilenameSize > v18 - v9 )
   {
-    strncpy_s(Dir, DirSize, FullPath, v17 - FullPath);
-    goto LABEL_39;
+    strncpy_s(Filename, FilenameSize, v9, v18 - v9);
+    goto LABEL_47;
   }
+LABEL_56:
+  v13 = 0;
+  v11 = DriveSize;
 LABEL_57:
-  v12 = DriveSize;
-LABEL_58:
-  if ( Drive )
-  {
-LABEL_59:
-    if ( v12 )
-      *Drive = 0;
-  }
+  if ( Drive && v11 )
+    *Drive = 0;
   if ( Dir && DirSize )
     *Dir = 0;
   if ( Filename && FilenameSize )
     *Filename = 0;
   if ( Ext && ExtSize )
     *Ext = 0;
-  if ( FullPath && !v13 )
+  if ( v9 && !v13 )
     return 34;
   xHalTimerWatchdogStop();
   return 22;

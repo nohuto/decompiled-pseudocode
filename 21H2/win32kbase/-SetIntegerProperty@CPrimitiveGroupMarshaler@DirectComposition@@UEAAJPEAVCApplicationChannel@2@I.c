@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A8650
+ * XREFs of ?SetIntegerProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0095150
  * Callers:
  *     <none>
  * Callees:
@@ -21,16 +21,16 @@ __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetIntegerProper
   v6 = a3 - 3;
   if ( !v6 )
   {
-    if ( *((_QWORD *)this + 9) == a4 )
+    if ( *((_QWORD *)this + 8) == a4 )
       return result;
-    *((_QWORD *)this + 9) = a4;
+    *((_QWORD *)this + 8) = a4;
     goto LABEL_4;
   }
   if ( v6 != 1 )
     return 3221225485LL;
-  if ( *((_QWORD *)this + 10) != a4 )
+  if ( *((_QWORD *)this + 9) != a4 )
   {
-    *((_QWORD *)this + 10) = a4;
+    *((_QWORD *)this + 9) = a4;
 LABEL_4:
     *((_DWORD *)this + 4) &= ~0x20u;
     *a5 = 1;

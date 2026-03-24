@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180023F04
+ * XREFs of ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180029BD4
  * Callers:
- *     ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x180023D74 (--0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z @ 0x180023DC8 (--0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z @ 0x180023E30 (--0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x1802249F0 (--0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z @ 0x18026E230 (--0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z @ 0x180029A54 (--0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z @ 0x180029AB4 (--0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x180029B80 (--0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x1801BAA74 (--0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z @ 0x18020F654 (--0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,27 +17,27 @@ CCompositionLight *__fastcall CCompositionLight::CCompositionLight(
 {
   CCompositionLight *result; // rax
 
-  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 2) = a2;
+  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
   *(_QWORD *)this = &CCompositionLight::`vftable'{for `CPropertyChangeResource'};
-  *((_QWORD *)this + 10) = &CCompositionSpotLight::`vftable'{for `ISceneNotificationListener'};
-  *((_QWORD *)this + 11) = (char *)this + 120;
-  *((_QWORD *)this + 12) = (char *)this + 120;
-  *((_DWORD *)this + 26) = 1;
-  *(_QWORD *)((char *)this + 108) = 1LL;
-  *((_QWORD *)this + 16) = (char *)this + 160;
-  *((_QWORD *)this + 17) = (char *)this + 160;
+  *((_QWORD *)this + 9) = &CCompositionSpotLight::`vftable'{for `ISceneNotificationListener'};
+  *((_QWORD *)this + 10) = (char *)this + 112;
+  *((_QWORD *)this + 11) = (char *)this + 112;
+  *((_DWORD *)this + 24) = 1;
+  *(_QWORD *)((char *)this + 100) = 1LL;
+  *((_QWORD *)this + 15) = (char *)this + 152;
+  *((_QWORD *)this + 16) = (char *)this + 152;
   result = this;
-  *((_DWORD *)this + 36) = 1;
-  *(_QWORD *)((char *)this + 148) = 1LL;
-  *((_BYTE *)this + 168) = 1;
-  *((_BYTE *)this + 169) = a3;
-  *((_WORD *)this + 85) = 1;
-  *((_QWORD *)this + 22) = 0LL;
-  *((_DWORD *)this + 62) = 0;
-  *((_BYTE *)this + 252) = 0;
+  *((_DWORD *)this + 34) = 1;
+  *(_QWORD *)((char *)this + 140) = 1LL;
+  *((_BYTE *)this + 160) = 1;
+  *((_BYTE *)this + 161) = a3;
+  *((_BYTE *)this + 162) = 1;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_DWORD *)this + 60) = 0;
+  *((_BYTE *)this + 244) = 0;
   return result;
 }

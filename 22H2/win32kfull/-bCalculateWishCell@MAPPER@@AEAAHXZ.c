@@ -1,38 +1,41 @@
 /*
- * XREFs of ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C0098B5C
+ * XREFs of ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C0063124
  * Callers:
- *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C0098960 (-bGetFaceName@MAPPER@@AEAAHXZ.c)
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C010FE6C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C029ABC8 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C0060050 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C00FFD2C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C014E6B4 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
  */
 
 __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
 {
   int v2; // eax
   int v3; // edx
-  int v4; // esi
-  float v6; // xmm0_4
-  int v7; // r15d
-  BOOL v8; // r10d
-  bool v9; // cf
-  bool v10; // zf
-  float v11; // xmm0_4
-  int v12; // r10d
-  BOOL v13; // edx
-  __int64 v14; // rcx
-  float v15; // xmm0_4
-  BOOL v16; // r11d
-  int v17; // r8d
-  int v18; // r9d
-  int v19; // edi
+  int v4; // r14d
+  unsigned int v6; // esi
+  int v7; // edi
+  float v8; // xmm0_4
+  int v9; // r12d
+  BOOL v10; // r9d
+  bool v11; // cf
+  bool v12; // zf
+  float v13; // xmm0_4
+  int v14; // r9d
+  BOOL v15; // r8d
+  float v16; // xmm0_4
+  BOOL v17; // r10d
+  int v18; // r11d
+  __int64 v19; // rcx
   int v20; // eax
-  int v21; // eax
-  int v22; // ecx
-  float *v23; // [rsp+20h] [rbp-10h] BYREF
-  int v24; // [rsp+60h] [rbp+30h] BYREF
+  int v21; // r10d
+  int v22; // eax
+  int v23; // eax
+  int v24; // eax
+  int v25; // edi
+  float *v26; // [rsp+20h] [rbp-10h] BYREF
+  int v27; // [rsp+60h] [rbp+30h] BYREF
 
   v2 = lNormAngle(*(unsigned int *)(*((_QWORD *)this + 1) + 12LL));
   v3 = *((_DWORD *)this + 63);
@@ -45,70 +48,72 @@ __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
       *((_DWORD *)this + 63) = v3 | 0x1C;
       return 1LL;
     }
-    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v23, *(struct XDCOBJ **)this, 0x204u);
-    v6 = v23[1];
-    v7 = (__PAIR64__(*v23 > 0.0, *v23) - COERCE_UNSIGNED_INT(0.0)) >> 32;
-    v8 = v6 > 0.0;
-    v9 = v6 > 0.0;
-    v10 = v6 == 0.0;
-    v11 = v23[2];
-    v12 = v8 - (!v9 && !v10);
-    v13 = v11 > 0.0;
-    v14 = *(unsigned int *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL);
-    v9 = v11 > 0.0;
-    v10 = v11 == 0.0;
-    v15 = v23[3];
-    v16 = !v9 && !v10;
-    v17 = v13 - v16;
-    v18 = (__PAIR64__(v15 > 0.0, LODWORD(v15)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
-    if ( (v14 & 0x40) != 0 )
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v26, *(struct XDCOBJ **)this, 0x204u);
+    v6 = 0;
+    v7 = *((_DWORD *)this + 63);
+    v8 = v26[1];
+    v9 = (__PAIR64__(*v26 > 0.0, *v26) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+    v10 = v8 > 0.0;
+    v11 = v8 > 0.0;
+    v12 = v8 == 0.0;
+    v13 = v26[2];
+    v14 = v10 - (!v11 && !v12);
+    v15 = v13 > 0.0;
+    v11 = v13 > 0.0;
+    v12 = v13 == 0.0;
+    v16 = v26[3];
+    v17 = !v11 && !v12;
+    v18 = (__PAIR64__(v16 < 0.0, 0.0) - LODWORD(v16)) >> 32;
+    v19 = *(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40;
+    if ( (*(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40) == 0 )
+      v18 = (__PAIR64__(v16 > 0.0, LODWORD(v16)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+    v20 = v15 - v17;
+    v21 = v17 - v15;
+    if ( !(_DWORD)v19 )
+      v21 = v20;
+    if ( (v7 & 0x81000) == 0 )
     {
-      v17 = v16 - v13;
-      v18 = (__PAIR64__(v15 < 0.0, 0.0) - LODWORD(v15)) >> 32;
+      if ( v4 != 900 * (v4 / 900)
+        || (v19 = (v21 + v14) | (v9 - v18) | ((unsigned __int8)v9 ^ (unsigned __int8)~(_BYTE)v14) & 1u) != 0 )
+      {
+        v25 = v7 | 0x20;
+LABEL_25:
+        *((_DWORD *)this + 63) = v25;
+        return v6;
+      }
+      v22 = (v14 & 0x384)
+          + (v21 & 0xA8C)
+          + v4
+          + (((__PAIR64__(*v26 > 0.0, *v26) - COERCE_UNSIGNED_INT(0.0)) >> 32) & 0x708);
+      *((_DWORD *)this + 44) = v22;
+      if ( v22 >= 3600 )
+        *((_DWORD *)this + 44) = v22 - 3600;
+      v7 |= 0x80000u;
+      *((_DWORD *)this + 63) = v7;
     }
-    v19 = *((_DWORD *)this + 63);
-    if ( (v19 & 0x81000) != 0 )
+    if ( (v7 & 8) == 0 )
     {
-LABEL_16:
-      if ( (v19 & 8) == 0 )
-      {
-        v24 = 0;
-        bFToL(v14, &v24, 0LL);
-        v21 = v24;
-        if ( v24 < 0 )
-          v21 = -v24;
-        *((_DWORD *)this + 41) = (v21 + 8) >> 4;
-      }
-      if ( *(_DWORD *)(*((_QWORD *)this + 1) + 4LL) && (v19 & 0x10) == 0 )
-      {
-        v24 = 0;
-        bFToL(v14, &v24, 0LL);
-        v22 = v24;
-        if ( v24 < 0 )
-          v22 = -v24;
-        *((_DWORD *)this + 42) = (v22 + 8) >> 4;
-      }
-      *((_DWORD *)this + 63) = v19 | 0x1C;
-      return 1LL;
+      v27 = 0;
+      bFToL(v19, &v27, 0LL);
+      v23 = v27;
+      *((_DWORD *)this + 41) = v27;
+      if ( v23 < 0 )
+        v23 = -v23;
+      *((_DWORD *)this + 41) = (v23 + 8) >> 4;
     }
-    if ( v4 == 900 * (v4 / 900) )
+    if ( *(_DWORD *)(*((_QWORD *)this + 1) + 4LL) && (v7 & 0x10) == 0 )
     {
-      v14 = (v17 + v12) | (v7 - v18) | ((unsigned __int8)v7 ^ (unsigned __int8)~(_BYTE)v12) & 1u;
-      if ( !((v17 + v12) | (v7 - v18) | ((unsigned __int8)v7 ^ (unsigned __int8)~(_BYTE)v12) & 1) )
-      {
-        v20 = (v12 & 0x384)
-            + (v17 & 0xA8C)
-            + v4
-            + (((__PAIR64__(*v23 > 0.0, *v23) - COERCE_UNSIGNED_INT(0.0)) >> 32) & 0x708);
-        *((_DWORD *)this + 44) = v20;
-        if ( v20 >= 3600 )
-          *((_DWORD *)this + 44) = v20 - 3600;
-        v19 |= 0x80000u;
-        *((_DWORD *)this + 63) = v19;
-        goto LABEL_16;
-      }
+      v27 = 0;
+      bFToL(v19, &v27, 0LL);
+      v24 = v27;
+      *((_DWORD *)this + 42) = v27;
+      if ( v24 < 0 )
+        v24 = -v24;
+      *((_DWORD *)this + 42) = (v24 + 8) >> 4;
     }
-    *((_DWORD *)this + 63) = v19 | 0x20;
+    v25 = v7 | 0x1C;
+    v6 = 1;
+    goto LABEL_25;
   }
   return 0LL;
 }

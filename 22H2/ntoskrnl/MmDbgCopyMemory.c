@@ -1,22 +1,22 @@
 /*
- * XREFs of MmDbgCopyMemory @ 0x1402E5DB0
+ * XREFs of MmDbgCopyMemory @ 0x1405469DC
  * Callers:
- *     KiTpWriteMemory @ 0x14057EFFC (KiTpWriteMemory.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
- *     KdpReadPhysicalMemory @ 0x140AB5178 (KdpReadPhysicalMemory.c)
- *     KdpSearchMemory @ 0x140AB5634 (KdpSearchMemory.c)
- *     KdpSearchPhysicalPage @ 0x140AB5848 (KdpSearchPhysicalPage.c)
+ *     KiTpWriteMemory @ 0x14051D43C (KiTpWriteMemory.c)
+ *     KdpReadPhysicalMemory @ 0x1409B7870 (KdpReadPhysicalMemory.c)
+ *     KdpSearchMemory @ 0x1409B8018 (KdpSearchMemory.c)
+ *     KdpSearchPhysicalPage @ 0x1409B8230 (KdpSearchPhysicalPage.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  * Callees:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1405457E4 (MiDbgCopyMemory.c)
  */
 
-__int64 __fastcall MmDbgCopyMemory(char *BaseAddress, __int64 a2, unsigned int a3, unsigned int a4, int a5)
+__int64 __fastcall MmDbgCopyMemory(char *BaseAddress, _BYTE *a2, unsigned int a3, unsigned int a4, unsigned int a5)
 {
-  unsigned int v5; // ebx
+  unsigned int v6; // edi
   __int64 result; // rax
-  unsigned int v9; // edi
+  unsigned int v10; // ebp
 
-  v5 = a3;
+  v6 = a3;
   if ( a4 > 2 && a4 != 4 && a4 != 8 )
     return 2147483650LL;
   result = 0LL;
@@ -24,17 +24,17 @@ __int64 __fastcall MmDbgCopyMemory(char *BaseAddress, __int64 a2, unsigned int a
   {
     do
     {
-      v9 = v5;
-      if ( 4096 - ((unsigned __int16)BaseAddress & 0xFFFu) <= v5 )
-        v9 = 4096 - ((unsigned __int16)BaseAddress & 0xFFF);
-      result = MiDbgCopyMemory(BaseAddress, a5);
+      v10 = v6;
+      if ( 4096 - ((unsigned __int16)BaseAddress & 0xFFFu) <= v6 )
+        v10 = 4096 - ((unsigned __int16)BaseAddress & 0xFFF);
+      result = MiDbgCopyMemory(BaseAddress, a2, v10, a4, a5);
       if ( (int)result < 0 )
         break;
-      BaseAddress += v9;
-      a2 += v9;
-      v5 -= v9;
+      BaseAddress += v10;
+      a2 += v10;
+      v6 -= v10;
     }
-    while ( v5 );
+    while ( v6 );
   }
   return result;
 }

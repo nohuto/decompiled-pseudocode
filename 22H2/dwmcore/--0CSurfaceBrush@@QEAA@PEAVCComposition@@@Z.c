@@ -1,50 +1,45 @@
 /*
- * XREFs of ??0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B9318
+ * XREFs of ??0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z @ 0x180062108
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ?GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCSurfaceBrush@@@Z @ 0x18024AAA0 (-GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-$.c)
+ *     ?GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCSurfaceBrush@@@Z @ 0x18001D5C4 (-GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-$.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B9448 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
- *     ?FindCommonRenderStrategy@CSurfaceBrush@@KAPEAVCSurfaceRenderStrategy@1@PEBVCResource@@@Z @ 0x1800EA2D8 (-FindCommonRenderStrategy@CSurfaceBrush@@KAPEAVCSurfaceRenderStrategy@1@PEBVCResource@@@Z.c)
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x18009F484 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CSurfaceBrush *__fastcall CSurfaceBrush::CSurfaceBrush(CSurfaceBrush *this, struct CComposition *a2)
 {
+  __int64 v2; // r9
   __int64 v3; // rax
   __int64 v4; // rcx
   __int64 v5; // rcx
-  const struct CResource *v6; // rcx
+  CSurfaceBrush *result; // rax
 
-  *((_QWORD *)this + 8) = &CSurfaceBrush::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 26) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-  *((_QWORD *)this + 25) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 26) + 4LL) + 208) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *((_QWORD *)this + 7) = &CSurfaceBrush::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 24) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+  *((_QWORD *)this + 23) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 24) + 4LL) + 192) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   CContent::CContent(this, a2);
-  *((_QWORD *)this + 9) = 0LL;
-  *(_QWORD *)this = &CSurfaceBrush::`vftable';
-  v3 = *((_QWORD *)this + 8);
-  *((_BYTE *)this + 80) = 0;
-  *(_QWORD *)((char *)this + *(int *)(v3 + 4) + 64) = &CEffectBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CSurfaceBrush::`vftable'{for `IContent'};
-  v4 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v4 + 60) = v4 - 120;
-  v5 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v5 + 60) = v5 - 136;
-  v6 = (const struct CResource *)*((_QWORD *)this + 13);
-  *((_DWORD *)this + 22) = 1056964608;
-  *((_DWORD *)this + 23) = 1056964608;
-  *((_DWORD *)this + 24) = 2;
-  *((_DWORD *)this + 25) = 1;
-  *((_QWORD *)this + 14) = CSurfaceBrush::FindCommonRenderStrategy(v6);
-  *((_DWORD *)this + 33) = 0;
-  *((_DWORD *)this + 34) = 0;
-  *((_DWORD *)this + 36) = 0;
-  *((_DWORD *)this + 37) = 0;
-  *((_DWORD *)this + 38) = 0;
-  *((_DWORD *)this + 39) = 0;
-  *((_DWORD *)this + 40) = 0;
-  *((_DWORD *)this + 41) = 0;
-  *((_DWORD *)this + 32) = 1065353216;
-  *((_DWORD *)this + 35) = 1065353216;
-  return this;
+  *(_QWORD *)v2 = &CSurfaceBrush::`vftable';
+  v3 = *(_QWORD *)(v2 + 56);
+  *(_QWORD *)(v2 + 64) = 0LL;
+  *(_BYTE *)(v2 + 72) = 0;
+  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 56) = &CEffectBrush::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56) = &CSurfaceBrush::`vftable'{for `IContent'};
+  v4 = *(int *)(*(_QWORD *)(v2 + 56) + 4LL);
+  *(_DWORD *)(v4 + v2 + 52) = v4 - 112;
+  v5 = *(int *)(*(_QWORD *)(v2 + 56) + 8LL);
+  *(_DWORD *)(v5 + v2 + 52) = v5 - 128;
+  *(_DWORD *)(v2 + 80) = 1056964608;
+  *(_DWORD *)(v2 + 84) = 1056964608;
+  result = (CSurfaceBrush *)v2;
+  *(_DWORD *)(v2 + 88) = 2;
+  *(_DWORD *)(v2 + 92) = 1;
+  *(_QWORD *)(v2 + 112) = 1065353216LL;
+  *(_DWORD *)(v2 + 120) = 0;
+  *(_QWORD *)(v2 + 124) = 1065353216LL;
+  *(_QWORD *)(v2 + 132) = 0LL;
+  *(_QWORD *)(v2 + 140) = 0LL;
+  *(_DWORD *)(v2 + 148) = 0;
+  return result;
 }

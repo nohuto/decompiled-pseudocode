@@ -1,86 +1,67 @@
 /*
- * XREFs of PiDmInitializeComparisonObject @ 0x1406D8320
+ * XREFs of PiDmInitializeComparisonObject @ 0x1406AF984
  * Callers:
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x140789A18 (PiPnpRtlObjectEventCreate.c)
- *     PiDmLookupObject @ 0x1407C2814 (PiDmLookupObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406AE094 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmLookupObject @ 0x1406AF8DC (PiDmLookupObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlHashUnicodeString @ 0x1406AFA80 (RtlHashUnicodeString.c)
  */
 
-__int64 __fastcall PiDmInitializeComparisonObject(_WORD *a1, int a2, __int64 a3)
+NTSTATUS __fastcall PiDmInitializeComparisonObject(wchar_t *a1, int a2, __int64 a3)
 {
-  unsigned int v3; // esi
-  _WORD *v5; // rax
-  __int64 v6; // rcx
-  unsigned __int16 v7; // r8
-  int *v8; // rdi
-  __int64 v9; // rbx
-  unsigned __int16 v10; // r8
-  int v11; // r9d
-  unsigned __int16 *v12; // r11
-  int v13; // r10d
-  unsigned __int64 v14; // r8
+  wchar_t *Buffer; // r9
+  NTSTATUS result; // eax
+  __int64 v6; // rdx
+  wchar_t *v7; // rax
+  unsigned __int16 Length; // cx
+  unsigned __int16 MaximumLength; // dx
+  UNICODE_STRING String; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = 0;
   *(_QWORD *)(a3 + 16) = a1;
   *(_DWORD *)(a3 + 28) = a2;
-  if ( a1 )
+  Buffer = a1;
+  result = 0;
+  String = 0LL;
+  if ( !a1 )
+    goto LABEL_13;
+  v6 = 0x7FFFLL;
+  v7 = a1;
+  do
   {
-    v5 = a1;
-    v6 = 0x7FFFLL;
-    while ( *v5 )
-    {
-      ++v5;
-      if ( !--v6 )
-        return 3221225485LL;
-    }
-    v7 = 2 * (0x7FFF - v6);
+    if ( !*v7 )
+      break;
+    ++v7;
+    --v6;
+  }
+  while ( v6 );
+  result = v6 == 0 ? 0xC000000D : 0;
+  if ( v6 )
+  {
+    Length = 2 * (v6 != 0 ? 0x7FFF - v6 : 0);
+    String.Buffer = Buffer;
+    String.Length = Length;
+    MaximumLength = Length + 2;
+    String.MaximumLength = Length + 2;
   }
   else
   {
-    v7 = 0;
+LABEL_13:
+    Buffer = String.Buffer;
+    MaximumLength = String.MaximumLength;
+    Length = String.Length;
   }
-  if ( a2 == 3 && v7 <= 8u )
-    return 3221225524LL;
-  v8 = (int *)(a3 + 24);
-  v9 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
-  if ( v8 )
+  if ( result >= 0 )
   {
-    v13 = v10 >> 1;
-    for ( *v8 = 0; v13; v11 = (unsigned __int16)v14 + 65599 * v11 )
+    if ( a2 == 3 )
     {
-      v14 = *v12++;
-      --v13;
-      if ( (unsigned int)v14 >= 0x61 )
-      {
-        if ( (unsigned int)v14 > 0x7A )
-        {
-          if ( v9 )
-          {
-            if ( (unsigned __int16)v14 >= 0xC0u )
-              LOWORD(v14) = *(_WORD *)(v9
-                                     + 2
-                                     * ((v14 & 0xF)
-                                      + *(unsigned __int16 *)(v9
-                                                            + 2LL
-                                                            * (((unsigned __int8)v14 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(v9 + 2 * (v14 >> 8))))))
-                          + v14;
-          }
-        }
-        else
-        {
-          LOWORD(v14) = v14 - 32;
-        }
-      }
+      if ( Length <= 8u )
+        return -1073741772;
+      String.Length = Length - 8;
+      String.Buffer = Buffer + 4;
+      String.MaximumLength = MaximumLength - 8;
     }
-    *v8 = v11;
+    return RtlHashUnicodeString(&String, 1u, 0, (PULONG)(a3 + 24));
   }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return v3;
+  return result;
 }

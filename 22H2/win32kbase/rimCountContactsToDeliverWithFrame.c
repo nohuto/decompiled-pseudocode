@@ -1,61 +1,84 @@
 /*
- * XREFs of rimCountContactsToDeliverWithFrame @ 0x1C00E1A7E
+ * XREFs of rimCountContactsToDeliverWithFrame @ 0x1C0171F84
  * Callers:
- *     RIMCompletePointerDeviceFrame @ 0x1C019F844 (RIMCompletePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C0171424 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMCmActiveContactsEnd @ 0x1C00E3530 (RIMCmActiveContactsEnd.c)
- *     RIMCmGetButtonContact @ 0x1C00E358C (RIMCmGetButtonContact.c)
- *     RIMCmActiveContactsBeginNoButton @ 0x1C01AFE08 (RIMCmActiveContactsBeginNoButton.c)
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C017FBB8 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FC4C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     RIMCmGetButtonContact @ 0x1C01802CC (RIMCmGetButtonContact.c)
  */
 
-void __fastcall rimCountContactsToDeliverWithFrame(__int64 a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall rimCountContactsToDeliverWithFrame(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 active; // rax
   __int64 v7; // xmm1_8
-  __int64 v8; // rbx
-  __int64 ButtonContact; // rax
-  int v10; // edx
-  __int128 v11; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-20h]
-  __int64 v13; // [rsp+38h] [rbp-18h] BYREF
-  int v14; // [rsp+40h] [rbp-10h]
-  __int64 v15; // [rsp+48h] [rbp-8h]
+  __int64 v8; // rax
+  __int64 v9; // rdi
+  __int128 v10; // xmm1
+  __int64 v11; // xmm0_8
+  __int64 v12; // rax
+  __int64 result; // rax
+  int v14; // eax
+  int v15; // edx
+  __int128 v16; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-40h]
+  __int128 v18; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-28h]
+  _BYTE v20[32]; // [rsp+50h] [rbp-20h] BYREF
 
   *a2 = 0;
   *a3 = 0;
-  active = RIMCmActiveContactsBeginNoButton(&v13, a1);
+  active = RIMCmActiveContactsBeginNoButton(&v18, a1);
   v7 = *(_QWORD *)(active + 16);
-  v11 = *(_OWORD *)active;
-  v12 = v7;
+  v16 = *(_OWORD *)active;
+  v17 = v7;
   while ( 1 )
   {
-    RIMCmActiveContactsEnd(&v13, a1);
-    v8 = v12;
-    if ( (_QWORD)v11 == v13 && DWORD2(v11) == v14 && v12 == v15 )
-      break;
-    if ( (*(_DWORD *)(v12 + 16) & 2) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 600);
-    if ( (*(_DWORD *)(v8 + 16) & 4) != 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 601);
-    if ( (*(_DWORD *)(v8 + 2348) & 1) != 0 )
+    v8 = RIMCmActiveContactsEnd(v20, a1);
+    v9 = v17;
+    v10 = *(_OWORD *)v8;
+    v11 = *(_QWORD *)(v8 + 16);
+    v12 = *(_QWORD *)v8;
+    v19 = v11;
+    v18 = v10;
+    if ( (_QWORD)v16 == v12 )
+    {
+      result = DWORD2(v18);
+      if ( DWORD2(v16) == DWORD2(v18) && v17 == v19 )
+        break;
+    }
+    v14 = *(_DWORD *)(v17 + 16);
+    if ( (v14 & 2) == 0 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 607);
+      v14 = *(_DWORD *)(v9 + 16);
+    }
+    if ( (v14 & 4) != 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 608);
+    if ( (*(_DWORD *)(v9 + 2324) & 1) != 0 )
       ++*a2;
-    RIMCmActiveContactsNext(a1, &v11);
+    RIMCmActiveContactsNext(a1, &v16);
   }
   if ( !*a2 )
   {
-    ButtonContact = RIMCmGetButtonContact(a1);
-    if ( ButtonContact )
+    result = RIMCmGetButtonContact(a1);
+    if ( result )
     {
-      v10 = *(_DWORD *)(ButtonContact + 32);
-      if ( (v10 & 2) != 0 && (*(_DWORD *)(ButtonContact + 2364) & 1) != 0 )
+      v15 = *(_DWORD *)(result + 32);
+      if ( (v15 & 2) != 0 )
       {
-        if ( (v10 & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 622);
-        *a2 = 1;
-        *a3 = 1;
+        result = *(unsigned int *)(result + 2340);
+        if ( (result & 1) != 0 )
+        {
+          if ( (v15 & 4) == 0 )
+            result = MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 629);
+          *a2 = 1;
+          *a3 = 1;
+        }
       }
     }
   }
+  return result;
 }

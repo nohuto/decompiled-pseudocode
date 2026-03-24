@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x1400E85F0
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x1400E8610
  * Callers:
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x1400E8580 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1400E85A0 (MmCanFileBeTruncated.c)
  * Callees:
  *     MiEndingOffset @ 0x140031090 (MiEndingOffset.c)
  *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmFlushImageSection @ 0x140121F50 (MmFlushImageSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmFlushImageSection @ 0x140121F70 (MmFlushImageSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char *__fastcall MiCanFileBeTruncatedInternal(

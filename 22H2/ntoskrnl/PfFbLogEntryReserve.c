@@ -1,15 +1,15 @@
 /*
- * XREFs of PfFbLogEntryReserve @ 0x14028BAB4
+ * XREFs of PfFbLogEntryReserve @ 0x14026E634
  * Callers:
- *     PfLogEvent @ 0x14028BF68 (PfLogEvent.c)
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     PfLogDeleteHelper @ 0x1403608F0 (PfLogDeleteHelper.c)
+ *     PfLogDeleteHelper @ 0x14026E3C8 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x14026E544 (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2, _QWORD *a3, unsigned int a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2,
 
   v4 = a4;
   v7 = RunRef;
-  while ( ExAcquireRundownProtection_0(RunRef) )
+  while ( ExAcquireRundownProtection(RunRef) )
   {
     while ( 1 )
     {
@@ -32,7 +32,7 @@ __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2,
       v8 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&v7[2]);
       if ( v8 )
         break;
-      v10 = ((__int64 (__fastcall *)(PEX_RUNDOWN_REF))v7[12].Count)(v7);
+      v10 = ((__int64 (__fastcall *)(PEX_RUNDOWN_REF))v7[11].Count)(v7);
       if ( v10 < 0 )
         goto LABEL_9;
     }
@@ -49,12 +49,12 @@ __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2,
       RtlpInterlockedPushEntrySList((PSLIST_HEADER)&v7[2], v8);
       v10 = -1073741789;
 LABEL_9:
-      ++HIDWORD(v7[14].Ptr);
-      LODWORD(v7[15].Count) += v4;
-      ExReleaseRundownProtection_0(v7);
+      ++HIDWORD(v7[13].Ptr);
+      LODWORD(v7[14].Count) += v4;
+      ExReleaseRundownProtection(v7);
       return (unsigned int)v10;
     }
-    ((void (__fastcall *)(PSLIST_ENTRY))v7[13].Count)(v8);
+    ((void (__fastcall *)(PSLIST_ENTRY))v7[12].Count)(v8);
     RunRef = v7;
   }
   return 3221225865LL;

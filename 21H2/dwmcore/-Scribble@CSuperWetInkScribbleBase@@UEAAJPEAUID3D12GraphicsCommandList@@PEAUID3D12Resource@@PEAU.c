@@ -1,140 +1,85 @@
 /*
- * XREFs of ?Scribble@CSuperWetInkScribbleBase@@UEAAJPEAUID3D12GraphicsCommandList@@PEAUID3D12Resource@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAW4D3D12_RESOURCE_STATES@@PEAUComputeScribbleLatencyData@@PEAUtagRECT@@@Z @ 0x1802AB700
+ * XREFs of ?Scribble@CSuperWetInkScribbleBase@@UEAAJPEAUID3D12GraphicsCommandList@@PEAUID3D12Resource@@PEAUIUnknown@@PEAW4D3D12_RESOURCE_STATES@@PEAUComputeScribbleLatencyData@@PEAUtagRECT@@@Z @ 0x1800F3870
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@U3@U1@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@53355@Z @ 0x1802AB018 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$00@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapS.c)
- *     McTemplateU0qqqxx_EventWriteTransfer @ 0x1802AB9A4 (McTemplateU0qqqxx_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0qqqxx_EventWriteTransfer @ 0x180269388 (McTemplateU0qqqxx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CSuperWetInkScribbleBase::Scribble(
         CSuperWetInkScribbleBase *this,
         struct ID3D12GraphicsCommandList *a2,
         struct ID3D12Resource *a3,
-        struct IDCompositionDirectInkSuperWetRenderer *a4,
-        struct IUnknown *a5,
-        enum D3D12_RESOURCE_STATES *a6,
-        struct ComputeScribbleLatencyData *a7,
-        struct tagRECT *a8)
+        struct IUnknown *a4,
+        enum D3D12_RESOURCE_STATES *a5,
+        struct ComputeScribbleLatencyData *a6,
+        struct tagRECT *a7)
 {
-  int v12; // esi
-  __int64 v13; // rdx
-  struct tagRECT *v15; // rax
-  int v16; // edx
-  int v17; // ecx
-  int v18; // edx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  bool v22; // zf
-  __int64 v23; // rax
-  bool v24[4]; // [rsp+70h] [rbp-90h] BYREF
-  int v25; // [rsp+74h] [rbp-8Ch] BYREF
-  int v26; // [rsp+78h] [rbp-88h] BYREF
-  int v27; // [rsp+7Ch] [rbp-84h] BYREF
-  enum D3D12_RESOURCE_STATES *v28; // [rsp+80h] [rbp-80h] BYREF
-  struct tagRECT *v29; // [rsp+88h] [rbp-78h] BYREF
-  int v30[2]; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v31; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v32; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v33; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v34; // [rsp+B0h] [rbp-50h] BYREF
-  wchar_t *v35; // [rsp+B8h] [rbp-48h] BYREF
-  int v36; // [rsp+C0h] [rbp-40h] BYREF
-  int v37; // [rsp+C4h] [rbp-3Ch]
-  int v38; // [rsp+C8h] [rbp-38h]
-  __int64 v39; // [rsp+D0h] [rbp-30h]
-  __int64 v40; // [rsp+D8h] [rbp-28h]
-  int v41; // [rsp+E0h] [rbp-20h]
-  _QWORD v42[2]; // [rsp+E8h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+148h] [rbp+48h]
+  int v11; // edi
+  __int64 v12; // rdx
+  struct tagRECT *v14; // rax
+  int v15; // edx
+  int v16; // ecx
+  int v17; // [rsp+20h] [rbp-81h]
+  __int64 v18; // [rsp+40h] [rbp-61h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-59h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-51h] BYREF
+  struct tagRECT *v21; // [rsp+58h] [rbp-49h]
+  int v22; // [rsp+60h] [rbp-41h]
+  int v23; // [rsp+64h] [rbp-3Dh]
+  int v24; // [rsp+68h] [rbp-39h]
+  __int64 v25; // [rsp+70h] [rbp-31h]
+  __int64 v26; // [rsp+78h] [rbp-29h]
+  _BYTE v27[16]; // [rsp+80h] [rbp-21h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+E8h] [rbp+47h]
 
-  v28 = a6;
-  v29 = a8;
-  v25 = 0;
-  v32 = 0LL;
-  v31 = 0LL;
-  *(_QWORD *)v30 = 0LL;
-  v12 = (*(__int64 (__fastcall **)(CSuperWetInkScribbleBase *, int *, __int64 *, __int64 *, int *))(*(_QWORD *)this
-                                                                                                  + 88LL))(
+  v21 = a7;
+  v20 = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
+  v11 = (*(__int64 (__fastcall **)(CSuperWetInkScribbleBase *, __int64 *, __int64 *, __int64 *))(*(_QWORD *)this + 64LL))(
           this,
-          &v25,
-          &v32,
-          &v31,
-          v30);
-  if ( v12 < 0 )
+          &v20,
+          &v19,
+          &v18);
+  if ( v11 < 0 )
   {
-    v13 = 32LL;
+    v12 = 30LL;
 LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)v13,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\superwetinkscribble.cpp",
-      (const char *)(unsigned int)v12);
-    return (unsigned int)v12;
+      (void *)v12,
+      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\superwetinkscribble.cpp",
+      (const char *)(unsigned int)v11,
+      v17);
+    return (unsigned int)v11;
   }
-  *((_QWORD *)a7 + 6) = *(_QWORD *)v30;
-  *((_QWORD *)a7 + 2) = v31;
-  *((_QWORD *)a7 + 1) = v32;
-  v15 = (struct tagRECT *)(*(__int64 (__fastcall **)(_QWORD, _QWORD *))(**((_QWORD **)this + 2) + 24LL))(
+  *((_QWORD *)a6 + 6) = v18;
+  *((_QWORD *)a6 + 2) = v19;
+  *((_QWORD *)a6 + 1) = v20;
+  v14 = (struct tagRECT *)(*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 2) + 24LL))(
                             *((_QWORD *)this + 2),
-                            v42);
-  *v29 = *v15;
-  v12 = (*(__int64 (__fastcall **)(_QWORD, struct IDCompositionDirectInkSuperWetRenderer *, struct ID3D12GraphicsCommandList *, struct ID3D12Resource *, struct IUnknown *, enum D3D12_RESOURCE_STATES *, int *))(**((_QWORD **)this + 2) + 48LL))(
+                            v27);
+  v17 = (int)a5;
+  *v21 = *v14;
+  v11 = (*(__int64 (__fastcall **)(_QWORD, struct ID3D12GraphicsCommandList *, struct ID3D12Resource *, struct IUnknown *))(**((_QWORD **)this + 2) + 48LL))(
           *((_QWORD *)this + 2),
-          a4,
           a2,
           a3,
-          a5,
-          v28,
-          &v36);
-  if ( v12 < 0 )
+          a4);
+  if ( v11 < 0 )
   {
-    v13 = 46LL;
+    v12 = 43LL;
     goto LABEL_3;
   }
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 72LL))(*((_QWORD *)this + 2));
-  *((_DWORD *)this + 6) = v25;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200000) != 0 )
-    McTemplateU0qqqxx_EventWriteTransfer(v17, v16, v38, v36, v37, v39, v40);
-  if ( (unsigned int)dword_1803D0EB8 > 4 )
-  {
-    if ( tlgKeywordOn((__int64)&dword_1803D0EB8, 2LL) )
-    {
-      v26 = v37;
-      v27 = v36;
-      v33 = v40;
-      v34 = v39;
-      LODWORD(v28) = v41;
-      v35 = (wchar_t *)*((_QWORD *)this + 6);
-      v22 = *((_DWORD *)this + 10) == v18;
-      LODWORD(v29) = *((_DWORD *)this + 10);
-      v23 = *((_QWORD *)this + 4);
-      v24[0] = v22;
-      v42[0] = v23;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v19,
-        byte_180373C38,
-        v20,
-        v21,
-        (__int64)v42,
-        (__int64)v24,
-        (__int64)&v29,
-        &v35,
-        (__int64)&v28,
-        (__int64)&v34,
-        (__int64)&v33,
-        (__int64)&v27,
-        (__int64)&v26);
-    }
-  }
-  *(_DWORD *)a7 = v36;
-  *((_DWORD *)a7 + 1) = v37;
-  *((_QWORD *)a7 + 3) = v39;
-  *((_QWORD *)a7 + 5) = *((_QWORD *)this + 4);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+    McTemplateU0qqqxx_EventWriteTransfer(v16, v15, v24, v22, v23, v25, v26);
+  *(_DWORD *)a6 = v22;
+  *((_DWORD *)a6 + 1) = v23;
+  *((_QWORD *)a6 + 3) = v25;
+  *((_QWORD *)a6 + 5) = *((_QWORD *)this + 4);
   return 0LL;
 }

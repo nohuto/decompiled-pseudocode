@@ -1,14 +1,14 @@
 /*
- * XREFs of ObHandleRevocationBlockAddObject @ 0x14097B37C
+ * XREFs of ObHandleRevocationBlockAddObject @ 0x1408DC970
  * Callers:
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F4E10 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F44DC (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
 void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __i
 
   v3 = 0;
   v4 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(a2 - 48);
-  v5 = ExAcquireRundownProtection_0(a1 + 3);
+  v5 = ExAcquireRundownProtection(a1 + 3);
   CurrentThread = KeGetCurrentThread();
   v7 = v5;
   --CurrentThread->KernelApcDisable;
@@ -38,11 +38,11 @@ void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __i
     *Count = (struct _EX_RUNDOWN_REF *)v4;
     a1[1].Count = v4;
   }
-  ExReleasePushLockEx((__int64 *)&a1[2], 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&a1[2], 0LL);
   KeLeaveCriticalRegion();
   if ( v7 )
   {
     if ( !v3 )
-      ExReleaseRundownProtection_0(a1 + 3);
+      ExReleaseRundownProtection(a1 + 3);
   }
 }

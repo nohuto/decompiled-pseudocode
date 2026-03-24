@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPdcEngagePhases @ 0x14086F238
+ * XREFs of PopPdcEngagePhases @ 0x14086F218
  * Callers:
- *     PopProcessSessionDisplayStateChange @ 0x14086F458 (PopProcessSessionDisplayStateChange.c)
- *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B70 (PopPowerAggregatorExecuteActiveCallback.c)
- *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140875C10 (PopPowerAggregatorExecuteModernStandbyCallback.c)
- *     TtmpInitiateModernStandbyTransition @ 0x140880B20 (TtmpInitiateModernStandbyTransition.c)
+ *     PopProcessSessionDisplayStateChange @ 0x14086F438 (PopProcessSessionDisplayStateChange.c)
+ *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B50 (PopPowerAggregatorExecuteActiveCallback.c)
+ *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140875BF0 (PopPowerAggregatorExecuteModernStandbyCallback.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x140880B00 (TtmpInitiateModernStandbyTransition.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopSetModernStandbyTransitionReason @ 0x14086F550 (PopSetModernStandbyTransitionReason.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopSetModernStandbyTransitionReason @ 0x14086F530 (PopSetModernStandbyTransitionReason.c)
  */
 
 __int64 __fastcall PopPdcEngagePhases(char a1, unsigned int a2)

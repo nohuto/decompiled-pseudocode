@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessInitialization@CPTPEngine@@MEAAJXZ @ 0x1C02024C0
+ * XREFs of ?ProcessInitialization@CPTPEngine@@MEAAJXZ @ 0x1C01C6B90
  * Callers:
  *     <none>
  * Callees:
- *     ?TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z @ 0x1C020442C (-TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z.c)
+ *     ?TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z @ 0x1C01C8B54 (-TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z.c)
  */
 
 __int64 __fastcall CPTPEngine::ProcessInitialization(CPTPEngine *this)
 {
-  *((_DWORD *)this + 984) |= 0x80000000;
-  *((_DWORD *)this + 911) = 1;
+  *((_DWORD *)this + 958) |= 0x80000000;
+  *((_DWORD *)this + 887) = 1;
   CPTPEngine::TPAAPSetCurtainState(this, 0);
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalUpdateConstraints @ 0x1C0021984
+ * XREFs of ACPIThermalUpdateConstraints @ 0x1C0014B28
  * Callers:
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     ACPIThermalReevaluateConstraints @ 0x1C0003ED4 (ACPIThermalReevaluateConstraints.c)
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0047A40 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0047AC4 (AcpiDiagTraceActiveCoolingDevicePower.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0030EB8 (AcpiDiagTraceActiveCoolingDevicePower.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
@@ -31,11 +31,11 @@ void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
     {
       if ( *((unsigned __int8 *)i + 53) != *(_DWORD *)(v1 + 96) )
       {
-        v9 = i[5];
+        v10 = i[5];
         v4 = 1;
         *((_BYTE *)i + 53) = *(_BYTE *)(v1 + 96);
-        if ( v9 )
-          AcpiDiagTracePassiveCoolingConstraint(i[4], v9, 0LL);
+        if ( v10 )
+          AcpiDiagTracePassiveCoolingConstraint(i[4], v10, 0LL);
       }
     }
     else
@@ -52,12 +52,12 @@ void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
       {
         goto LABEL_6;
       }
-      v10 = i[5];
+      v9 = i[5];
       v4 = 1;
       *((_BYTE *)i + 55) = v7;
-      if ( v10 )
+      if ( v9 )
       {
-        AcpiDiagTraceActiveCoolingConstraint(i[4], v10, 0LL);
+        AcpiDiagTraceActiveCoolingConstraint(i[4], v9, 0LL);
         AcpiDiagTraceActiveCoolingDevicePower(i[4], i[5], *((unsigned __int8 *)i + 54), *((_DWORD *)i + 12), v7);
       }
     }
@@ -66,7 +66,7 @@ LABEL_6:
     if ( v8 )
     {
       if ( v4 )
-        ACPIThermalReevaluateConstraints(*(PVOID *)(v8 + 656));
+        ACPIThermalReevaluateConstraints(*(PVOID *)(v8 + 616));
     }
   }
   KeReleaseSpinLock(&AcpiThermalConstraintLock, v2);

@@ -1,14 +1,14 @@
 /*
- * XREFs of VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C0087770
+ * XREFs of VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C00D02F0
  * Callers:
  *     <none>
  * Callees:
- *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C000294C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
- *     VidSchiSuspendFlipQueues @ 0x1C0086ED0 (VidSchiSuspendFlipQueues.c)
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0016DFC (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     VidSchiSuspendFlipQueues @ 0x1C00CF510 (VidSchiSuspendFlipQueues.c)
  */
 
 void __fastcall VidSchFlushPresentReferencesAndDisableOverlays(
-        KSPIN_LOCK *a1,
+        __int64 a1,
         unsigned int a2,
         __int64 a3,
         __int64 a4,
@@ -27,5 +27,5 @@ void __fastcall VidSchFlushPresentReferencesAndDisableOverlays(
     ++v5;
   }
   if ( a5 )
-    VidSchiSuspendFlipQueues((struct _VIDSCH_GLOBAL *)a1, a5);
+    VidSchiSuspendFlipQueues(a1, a5);
 }

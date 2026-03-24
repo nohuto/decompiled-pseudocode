@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepComponentGetWork @ 0x140356698
+ * XREFs of PopPepComponentGetWork @ 0x140261CC8
  * Callers:
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
  * Callees:
- *     PopPepStartActivity @ 0x1403563F8 (PopPepStartActivity.c)
- *     PopPepGetReadyActivityType @ 0x140356DBC (PopPepGetReadyActivityType.c)
+ *     PopPepStartActivity @ 0x140261A28 (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x1402623C8 (PopPepGetReadyActivityType.c)
  */
 
 char __fastcall PopPepComponentGetWork(__int64 a1, __int64 a2, __int64 a3)
@@ -55,16 +55,16 @@ char __fastcall PopPepComponentGetWork(__int64 a1, __int64 a2, __int64 a3)
     v11 = v3;
     if ( v10 )
     {
-      v12 = (unsigned int *)(a1 + 296);
+      v12 = (unsigned int *)(a1 + 288);
       while ( *v12 <= v3 )
       {
         v11 = (unsigned int)(v11 + 1);
-        v12 += 52;
+        v12 += 50;
         if ( (unsigned int)v11 >= v10 )
           goto LABEL_16;
       }
-      v13 = PopPepGetReadyActivityType(a1 + 208 * v11 + 248, 1LL, 3LL);
-      started = PopPepStartActivity(a1, v14 + 192, v14 + 248, v13, (volatile signed __int32 *)(v14 + 296), a3);
+      v13 = PopPepGetReadyActivityType(a1 + 200 * v11 + 240, 1LL, 3LL);
+      started = PopPepStartActivity(a1, v14 + 184, v14 + 240, v13, (volatile signed __int32 *)(v14 + 288), a3);
       goto LABEL_10;
     }
   }
@@ -83,11 +83,11 @@ LABEL_10:
     LOBYTE(v3) = started;
     return v3;
   }
-  v22 = (unsigned int *)(a1 + 296);
+  v22 = (unsigned int *)(a1 + 288);
   while ( *v22 <= v3 )
   {
     ++v21;
-    v22 += 52;
+    v22 += 50;
     if ( v21 >= v20 )
       goto LABEL_21;
   }

@@ -12,7 +12,7 @@
  *     ViExAcquireFastMutexCommon @ 0x140942644 (ViExAcquireFastMutexCommon.c)
  *     ViExTryToAcquireFastMutexCommon @ 0x1409427A8 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)

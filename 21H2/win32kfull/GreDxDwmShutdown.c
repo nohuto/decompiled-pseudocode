@@ -1,12 +1,12 @@
 /*
- * XREFs of GreDxDwmShutdown @ 0x1C0275600
+ * XREFs of GreDxDwmShutdown @ 0x1C0277E90
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0098410 (xxxDwmStopRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026E10 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C011778C (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018F2C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002AA38 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void GreDxDwmShutdown()
@@ -18,12 +18,13 @@ void GreDxDwmShutdown()
   __int64 v4; // rax
   __int64 v5; // rbx
   __int64 v6; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  DYNAMICMODECHANGESHARELOCK *v7; // rcx
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (unsigned int)UserIsWddmConnectedSession() )
   {
-    ((void (__fastcall *)(__int64))gDxgkInterface[15])(-1LL);
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v7);
+    gDxgkInterface[15]((_QWORD *)-1LL);
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v8);
     HDEV = UserGetHDEV();
     GreLockVisRgn(HDEV);
     for ( i = 0LL; ; i = v5 )
@@ -33,22 +34,22 @@ void GreDxDwmShutdown()
       if ( !v4 )
         break;
       v2 = *(_DWORD *)(v4 + 40);
-      v7 = v5;
+      v8 = v5;
       if ( (v2 & 1) != 0
         && (v2 & 0x400) == 0
         && (v2 & 0x20000) == 0
-        && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v7) )
+        && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v8) )
       {
         GreLockDisplayDevice(v5);
         if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))gDxgkInterface[36])(
-               *(_QWORD *)(*(_QWORD *)(v5 + 2552) + 240LL),
-               *(unsigned int *)(*(_QWORD *)(v5 + 2552) + 256LL)) )
+               *(_QWORD *)(*(_QWORD *)(v5 + 2576) + 240LL),
+               *(unsigned int *)(*(_QWORD *)(v5 + 2576) + 256LL)) )
         {
-          if ( *(_QWORD *)(v5 + 2704) )
+          if ( *(_QWORD *)(v5 + 2728) )
           {
             LOBYTE(v3) = 1;
             DrvDxgkDisplayOnOff(v5, v3, 3LL);
-            (*(void (__fastcall **)(_QWORD, __int64))(v5 + 2704))(*(_QWORD *)(v5 + 1768), 1LL);
+            (*(void (__fastcall **)(_QWORD, __int64))(v5 + 2728))(*(_QWORD *)(v5 + 1800), 1LL);
           }
         }
         GreUnlockDisplayDevice(v5);
@@ -56,6 +57,6 @@ void GreDxDwmShutdown()
     }
     v6 = UserGetHDEV();
     GreUnlockVisRgn(v6);
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v7);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v7);
   }
 }

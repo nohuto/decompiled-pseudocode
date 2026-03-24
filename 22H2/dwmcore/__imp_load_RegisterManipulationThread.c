@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_RegisterManipulationThread @ 0x18011059C
+ * XREFs of __imp_load_RegisterManipulationThread @ 0x1800E8BCB
  * Callers:
  *     <none>
  * Callees:

@@ -1,68 +1,65 @@
 /*
- * XREFs of KiSetAffinityThread @ 0x14020EC24
+ * XREFs of KiSetAffinityThread @ 0x1402EC3D4
  * Callers:
- *     KiSetLegacyAffinityThread @ 0x14020E6EC (KiSetLegacyAffinityThread.c)
- *     KeSetUserAffinityThread @ 0x14020E9E8 (KeSetUserAffinityThread.c)
- *     KeSetAffinityProcess @ 0x1403DAC1C (KeSetAffinityProcess.c)
+ *     KeSetLegacyAffinityThread @ 0x1402ECAF0 (KeSetLegacyAffinityThread.c)
+ *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x1403CB2CC (KeSetAffinityProcess.c)
  * Callees:
- *     KiRescheduleThreadAfterAffinityChange @ 0x14020EE7C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x14020EFEC (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiSendSoftwareInterrupt @ 0x14022BA48 (KiSendSoftwareInterrupt.c)
- *     KiCheckPrcbAffinityEx @ 0x140291EB8 (KiCheckPrcbAffinityEx.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140292818 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiComputeThreadAffinity @ 0x140292884 (KiComputeThreadAffinity.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x140292A04 (KiUpdateNodeAffinitizedFlag.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     KiAcquireThreadStateLock @ 0x140344DD0 (KiAcquireThreadStateLock.c)
- *     KeFirstGroupAffinityEx @ 0x14035C9C0 (KeFirstGroupAffinityEx.c)
- *     KiReleaseThreadStateLock @ 0x14035D0F8 (KiReleaseThreadStateLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14062DAE4 (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x14062E5D0 (EtwTraceThreadAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140277ED4 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
+ *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
+ *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
+ *     KiComputeThreadAffinity @ 0x1402EBAA0 (KiComputeThreadAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1402EC610 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KeSelectNodeForAffinity @ 0x1402ECD60 (KeSelectNodeForAffinity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x1405A8340 (EtwTraceThreadAffinity.c)
  */
 
-unsigned int __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, _WORD *a3)
+int __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  int v4; // r12d
   struct _KPRCB *CurrentPrcb; // rbx
-  __int64 v4; // rsi
-  int v7; // r13d
+  __int128 *v6; // rsi
   _DWORD *SchedulerAssist; // rcx
-  __int64 v9; // r14
-  unsigned int v10; // r12d
-  __int64 v11; // rbx
-  char v12; // r12
-  int v13; // r8d
-  __int64 v14; // r14
-  __int64 v15; // rbx
-  __int64 v16; // rcx
-  unsigned int v17; // ebx
-  unsigned int result; // eax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  _DWORD *v21; // rcx
-  int v22; // eax
+  unsigned int v9; // r13d
+  __int64 v10; // rbx
+  unsigned int v11; // r15d
+  __int64 v12; // r14
+  __int64 v13; // rax
+  unsigned __int16 v14; // ax
+  char v15; // r15
+  int v16; // r8d
+  __int64 v17; // r14
+  volatile signed __int64 *v18; // rbx
+  __int64 v19; // rcx
+  unsigned int v20; // ebx
+  int result; // eax
+  _DWORD *v22; // rcx
   int v23; // eax
-  __int64 v24; // rax
-  unsigned int v25; // [rsp+30h] [rbp-30h]
-  unsigned int v26; // [rsp+34h] [rbp-2Ch]
-  __int64 v27; // [rsp+38h] [rbp-28h] BYREF
-  __int64 v28; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v29; // [rsp+48h] [rbp-18h] BYREF
-  __int16 v30; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v31; // [rsp+A8h] [rbp+48h]
-  int v32; // [rsp+B8h] [rbp+58h] BYREF
+  int v24; // eax
+  int v25; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int v26; // [rsp+34h] [rbp-3Ch]
+  __int64 v27; // [rsp+38h] [rbp-38h] BYREF
+  volatile signed __int64 *v28; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v29; // [rsp+48h] [rbp-28h]
+  __int128 v30; // [rsp+50h] [rbp-20h] BYREF
 
-  v31 = a2;
-  CurrentPrcb = KeGetCurrentPrcb();
-  v4 = 0LL;
   v27 = 0LL;
+  v4 = 0;
   v28 = 0LL;
-  v30 = 0;
-  v32 = 0;
-  v29 = 0LL;
-  v7 = 0;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v6 = (__int128 *)a3;
+  v25 = 0;
+  v29 = a2;
+  v30 = 0LL;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -70,92 +67,90 @@ unsigned int __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, _WORD *a3)
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v22 = SchedulerAssist[6];
-        SchedulerAssist[6] = v22 + 1;
-        if ( v22 == -1 )
+        v23 = SchedulerAssist[6];
+        SchedulerAssist[6] = v23 + 1;
+        if ( v23 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v21 = CurrentPrcb->SchedulerAssist;
-    if ( v21 )
+    v22 = CurrentPrcb->SchedulerAssist;
+    if ( v22 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v23 = v21[6] - 1;
-        v21[6] = v23;
-        if ( !v23 )
+        v24 = v22[6] - 1;
+        v22[6] = v24;
+        if ( !v24 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v32);
+      KeYieldProcessorEx(&v25, a2, a3, a4);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  v25 = *(_DWORD *)(a1 + 588);
-  v26 = *(_DWORD *)(a1 + 196);
-  KiCopyAffinityEx(*(_QWORD *)(a1 + 552), *(unsigned __int16 *)(*(_QWORD *)(a1 + 552) + 2LL), a3);
-  v9 = *(unsigned int *)(a1 + 196);
-  v10 = *(_DWORD *)(a1 + 196);
-  v11 = KiProcessorBlock[v9];
-  if ( !(unsigned __int8)KiCheckPrcbAffinityEx(a3, v11) )
+  v9 = *(_DWORD *)(a1 + 196);
+  v26 = *(_DWORD *)(a1 + 588);
+  *(_WORD *)(a1 + 560) = *((_WORD *)v6 + 4);
+  *(_QWORD *)(a1 + 552) = *(_QWORD *)v6;
+  v10 = *(unsigned int *)(a1 + 196);
+  v11 = *(_DWORD *)(a1 + 196);
+  v12 = KiProcessorBlock[v10];
+  if ( !KiPrcbInGroupAffinity(v12, (__int64)v6) )
   {
-    _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), 0);
-    KeFirstGroupAffinityEx(&v29, a3);
-    v30 = *(unsigned __int8 *)(v11 + 209);
-    v9 = (unsigned __int16)KiReselectIdealProcessorAfterAffinityChange(a1, &v29, v11, &v30);
-    *(_DWORD *)(a1 + 196) = v9;
-    v10 = v9;
-    v11 = KiProcessorBlock[v9];
-    *(_WORD *)(a1 + 560) = *(unsigned __int8 *)(v11 + 208);
+    v13 = KeSelectNodeForAffinity(v6);
+    WORD4(v30) = *((_WORD *)v6 + 4);
+    *(_QWORD *)&v30 = *(_QWORD *)v6 & *(_QWORD *)(v13 + 136);
+    v14 = KeSelectIdealProcessor(v13, &v30, 0LL, (unsigned int *)(v12 + 36));
+    LODWORD(v10) = v14;
+    *(_DWORD *)(a1 + 196) = v14;
+    v11 = v14;
+    v12 = KiProcessorBlock[v14];
   }
   if ( (*(_DWORD *)(a1 + 116) & 8) != 0 )
   {
-    v14 = v27;
+    v17 = v27;
   }
   else
   {
-    v12 = KiAcquireThreadStateLock(a1, &v27, &v28);
-    KiCopyAffinityEx(*(_QWORD *)(a1 + 576), *(unsigned __int16 *)(*(_QWORD *)(a1 + 576) + 2LL), a3);
-    if ( !(unsigned int)KiComputeThreadAffinity(a1) )
+    v15 = KiAcquireThreadStateLock(a1, &v27, (volatile signed __int32 **)&v28);
+    *(_WORD *)(a1 + 584) = *((_WORD *)v6 + 4);
+    *(_QWORD *)(a1 + 576) = *(_QWORD *)v6;
+    if ( (unsigned int)KiComputeThreadAffinity(a1) )
     {
-      *(_DWORD *)(a1 + 588) = v9;
-      *(_WORD *)(a1 + 584) = *(unsigned __int8 *)(v11 + 208);
+      v6 = &v30;
+      WORD4(v30) = *(_WORD *)(a1 + 584);
+      *(_QWORD *)&v30 = *(_QWORD *)(a1 + 576);
+    }
+    else
+    {
+      *(_DWORD *)(a1 + 588) = v10;
       KiUpdateNodeAffinitizedFlag(a1);
-      KiUpdateSharedReadyQueueAffinityThread(v11, a1);
+      KiUpdateSharedReadyQueueAffinityThread(v12, a1);
     }
-    LOBYTE(v13) = v12;
-    v14 = v27;
-    v15 = v28;
-    v7 = KiRescheduleThreadAfterAffinityChange(a1, *(_QWORD *)(a1 + 576), v13, v27, v28, v31);
-    KiReleaseThreadStateLock(v16, v14, v15);
-    v10 = *(_DWORD *)(a1 + 196);
+    LOBYTE(v16) = v15;
+    v17 = v27;
+    v18 = v28;
+    v4 = KiRescheduleThreadAfterAffinityChange(a1, (_DWORD)v6, v16, v27, (__int64)v28, v29);
+    KiReleaseThreadStateLock(v19, v17, v18);
+    v11 = *(_DWORD *)(a1 + 196);
   }
-  v17 = *(_DWORD *)(a1 + 588);
+  v20 = *(_DWORD *)(a1 + 588);
   result = KiReleaseThreadLockSafe(a1);
-  if ( v7 )
+  if ( v4 )
   {
-    v20 = *(unsigned int *)(v14 + 36);
     result = KeGetPcr()->Prcb.Number;
-    if ( result != (_DWORD)v20 )
-    {
-      LOBYTE(v19) = 2;
-      result = KiSendSoftwareInterrupt(v20, v19);
-    }
+    if ( result != *(_DWORD *)(v17 + 36) )
+      result = KiSendSoftwareInterrupt();
   }
-  if ( _bittest((const signed __int32 *)&xmmword_140D06910, 0x1Bu) )
-    result = EtwTraceIdealProcessor(a1, 1350LL, v25, v17);
-  if ( _bittest((const signed __int32 *)&xmmword_140D06910, 0x1Bu) )
-    result = EtwTraceIdealProcessor(a1, 1351LL, v26, v10);
-  if ( (WORD2(PerfGlobalGroupMask) & 0x1000) != 0 )
+  if ( (xmmword_140CFC490 & 0x8000000) != 0 )
   {
-    v24 = *(unsigned __int16 *)(a1 + 560);
-    WORD4(v29) = v24;
-    if ( (unsigned __int16)v24 < *a3 )
-      v4 = *(_QWORD *)&a3[4 * v24 + 4];
-    *(_QWORD *)&v29 = v4;
-    return EtwTraceThreadAffinity(a1, &v29);
+    result = EtwTraceIdealProcessor(a1, 1350LL, v26, v20);
+    if ( (xmmword_140CFC490 & 0x8000000) != 0 )
+      result = EtwTraceIdealProcessor(a1, 1351LL, v9, v11);
   }
+  if ( (WORD2(PerfGlobalGroupMask) & 0x1000) != 0 )
+    return EtwTraceThreadAffinity(a1, v6);
   return result;
 }

@@ -6,7 +6,7 @@
  *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     VfUtilFreePoolDispatchLevel @ 0x1403099A0 (VfUtilFreePoolDispatchLevel.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x140309AA0 (VfUtilFreePoolDispatchLevel.c)
  */
 
 void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)

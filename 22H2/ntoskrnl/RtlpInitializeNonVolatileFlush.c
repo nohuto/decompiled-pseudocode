@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeNonVolatileFlush @ 0x1403B53C0
+ * XREFs of RtlpInitializeNonVolatileFlush @ 0x1403B4040
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
  */
 
 __int64 RtlpInitializeNonVolatileFlush()
@@ -13,7 +13,7 @@ __int64 RtlpInitializeNonVolatileFlush()
   _OWORD v1[2]; // [rsp+20h] [rbp-38h] BYREF
 
   memset(v1, 0, sizeof(v1));
-  result = ZwQuerySystemInformation(192LL, v1, 32LL, 0LL);
+  result = ZwQuerySystemInformation(192LL, v1);
   if ( (int)result >= 0 )
   {
     if ( (BYTE8(v1[0]) & 1) != 0 )
@@ -26,7 +26,7 @@ __int64 RtlpInitializeNonVolatileFlush()
     {
       if ( (v1[0] & 2) == 0 )
       {
-LABEL_8:
+LABEL_6:
         result = DWORD1(v1[0]);
         RtlpClFlushSize = DWORD1(v1[0]);
         return result;
@@ -34,7 +34,7 @@ LABEL_8:
       RtlpOptimalFlushMethod = 3;
     }
     RtlpIsDrainRequired = 1;
-    goto LABEL_8;
+    goto LABEL_6;
   }
   return result;
 }

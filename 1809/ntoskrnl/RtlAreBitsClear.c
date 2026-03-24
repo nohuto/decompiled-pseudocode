@@ -4,9 +4,9 @@
  *     HvGetHiveLogFileStatus @ 0x1405A62C8 (HvGetHiveLogFileStatus.c)
  *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B50 (CmpLoadHiveThread.c)
- *     HvIsRangeDirty @ 0x140800F44 (HvIsRangeDirty.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     HvIsRangeDirty @ 0x140800F24 (HvIsRangeDirty.c)
  * Callees:
  *     <none>
  */

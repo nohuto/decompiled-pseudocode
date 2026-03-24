@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CopyStackFrames@FxTagTracker@@AEAAXPEAPEAUFxTagTrackingStackFrames@@GPEAPEAX@Z @ 0x1C006E638
+ * XREFs of ?CopyStackFrames@FxTagTracker@@AEAAXPEAPEAUFxTagTrackingStackFrames@@GPEAPEAX@Z @ 0x1C005B6F8
  * Callers:
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
  */
 
 void __fastcall FxTagTracker::CopyStackFrames(
@@ -14,46 +14,38 @@ void __fastcall FxTagTracker::CopyStackFrames(
 {
   char *v4; // r10
   __int64 v6; // rdi
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  void *v9; // rax
-  FX_POOL **v10; // rax
-  __int64 v11; // rcx
-  signed __int64 v12; // r10
-  __m128i v13; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  FX_POOL **v8; // rax
+  __int64 v9; // rcx
+  signed __int64 v10; // r10
+  void *Caller; // [rsp+38h] [rbp+0h]
 
   v4 = (char *)*StackFrames;
   v6 = NumFrames;
-  if ( *StackFrames )
+  if ( !*StackFrames )
   {
-LABEL_7:
-    *(_WORD *)v4 = v6;
-    v11 = v6;
-    if ( v6 )
-    {
-      v12 = v4 - (char *)Frames;
-      do
-      {
-        *(void **)((char *)Frames + v12 + 8) = *Frames;
-        ++Frames;
-        --v11;
-      }
-      while ( v11 );
-    }
-    return;
+    v8 = FxPoolAllocator(
+           this->m_Globals,
+           &this->m_Globals->FxPoolFrameworks,
+           ExDefaultNonPagedPoolType,
+           0x88uLL,
+           this->m_Globals->Tag,
+           Caller);
+    v4 = (char *)v8;
+    if ( !v8 )
+      return;
+    *StackFrames = v8;
   }
-  m_Globals = this->m_Globals;
-  v13.m128i_i64[0] = 0LL;
-  v13.m128i_i64[1] = 64LL;
-  if ( m_Globals->FxPoolTrackingOn )
-    v9 = retaddr;
-  else
-    v9 = 0LL;
-  v10 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v13, 0x88uLL, m_Globals->Tag, v9);
-  v4 = (char *)v10;
-  if ( v10 )
+  *(_WORD *)v4 = v6;
+  v9 = v6;
+  if ( v6 )
   {
-    *StackFrames = v10;
-    goto LABEL_7;
+    v10 = v4 - (char *)Frames;
+    do
+    {
+      *(void **)((char *)Frames + v10 + 8) = *Frames;
+      ++Frames;
+      --v9;
+    }
+    while ( v9 );
   }
 }

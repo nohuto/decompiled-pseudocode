@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B5A00
+ * XREFs of ?Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00A5870
  * Callers:
- *     <none>
+ *     ?InitializeFromSharedResource@CSharedCompositionSpotLightMarshaler@DirectComposition@@IEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00A5818 (-InitializeFromSharedResource@CSharedCompositionSpotLightMarshaler@DirectComposition@@IEAAJPEBVC.c)
  * Callees:
  *     <none>
  */
@@ -22,10 +22,10 @@ __int64 __fastcall DirectComposition::CCompositionSpotLightMarshaler::Initialize
   *((_DWORD *)this + 46) = 1065353216;
   *((_DWORD *)this + 47) = 1065353216;
   result = 0LL;
-  *(_OWORD *)((char *)this + 152) = xmmword_1C0255208;
+  *(_OWORD *)((char *)this + 152) = xmmword_1C02178C0;
   *((_BYTE *)this + 88) = 1;
   *((_DWORD *)this + 36) = 1057360530;
   *((_DWORD *)this + 37) = 1070141403;
-  *(_OWORD *)((char *)this + 168) = xmmword_1C0255208;
+  *(_OWORD *)((char *)this + 168) = xmmword_1C02178C0;
   return result;
 }

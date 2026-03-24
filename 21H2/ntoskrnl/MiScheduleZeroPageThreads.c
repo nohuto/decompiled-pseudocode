@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScheduleZeroPageThreads @ 0x140267B58
+ * XREFs of MiScheduleZeroPageThreads @ 0x140272E84
  * Callers:
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
  * Callees:
- *     MiReduceZeroingThreads @ 0x140266CA8 (MiReduceZeroingThreads.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReduceZeroingThreads @ 0x1402BB870 (MiReduceZeroingThreads.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
@@ -15,7 +15,7 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
   LARGE_INTEGER result; // rax
   LARGE_INTEGER v3; // rsi
   unsigned int i; // ebx
-  __int64 v5; // rcx
+  __int64 v5; // r14
   __int64 v6; // rbp
   __int64 v7; // rdi
   unsigned __int64 OldIrql; // rdi
@@ -26,25 +26,26 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
   bool v13; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
+  result.QuadPart = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  result = KeQueryPerformanceCounter(0LL);
-  v3 = result;
-  for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
+  if ( *(_BYTE *)(a1 + 6297) )
   {
-    v5 = *(_QWORD *)(a1 + 16) + 24512LL * i;
-    if ( *(_BYTE *)(v5 + 22965) )
+    result = KeQueryPerformanceCounter(0LL);
+    v3 = result;
+    for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
     {
-      if ( *(_BYTE *)(v5 + 22964) )
+      v5 = *(_QWORD *)(a1 + 16) + 4544LL * i;
+      if ( *(_BYTE *)(v5 + 4490) )
       {
-        v6 = *(_QWORD *)(v5 + 22944);
+        v6 = *(_QWORD *)(v5 + 4432);
         v7 = *(_QWORD *)(v6 + 48);
         if ( v3.QuadPart <= v7 )
         {
-          ++dword_140C29710;
+          ++dword_140C2A270;
         }
-        else if ( 1000000 * (v3.QuadPart - v7) / stru_140C50750.QuadPart < 0x10000 )
+        else if ( 1000000 * (v3.QuadPart - v7) / stru_140C4DF10.QuadPart < 0x10000 )
         {
-          ++dword_140C29714;
+          ++dword_140C2A274;
         }
         else
         {
@@ -53,15 +54,15 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
           {
             if ( v7 == *(_QWORD *)(v6 + 48) )
             {
-              if ( (unsigned int)MiReduceZeroingThreads(v6, i, 1) == 7 )
-                ++dword_140C2971C;
+              if ( (unsigned int)MiReduceZeroingThreads(v6, v5, 1LL) == 7 )
+                ++dword_140C2A27C;
               else
-                ++dword_140C29720;
+                ++dword_140C2A280;
               *(LARGE_INTEGER *)(v6 + 48) = KeQueryPerformanceCounter(0LL);
             }
             else
             {
-              ++dword_140C29718;
+              ++dword_140C2A278;
             }
           }
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -88,10 +89,10 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
       }
       else
       {
-        ++dword_140C2970C;
+        ++dword_140C2A26C;
       }
+      result.QuadPart = (unsigned __int16)KeNumberNodes;
     }
-    result.QuadPart = (unsigned __int16)KeNumberNodes;
   }
   return result;
 }

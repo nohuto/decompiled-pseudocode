@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0szzq_EtwWriteTransfer @ 0x1C016BEBC
+ * XREFs of McTemplateK0szzq_EtwWriteTransfer @ 0x1C014CF4C
  * Callers:
- *     EtwSyscallFilterMessage @ 0x1C016B670 (EtwSyscallFilterMessage.c)
+ *     EtwSyscallFilterMessage @ 0x1C014C710 (EtwSyscallFilterMessage.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0szzq_EtwWriteTransfer(
@@ -16,14 +16,14 @@ NTSTATUS __fastcall McTemplateK0szzq_EtwWriteTransfer(
         const wchar_t *a6,
         char a7)
 {
-  const wchar_t *v7; // r10
-  __int64 v8; // rcx
-  const wchar_t *v9; // rdx
-  __int64 v10; // rax
-  int v11; // eax
-  int v12; // r9d
-  __int64 v13; // rax
-  int v14; // r8d
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  int v9; // eax
+  const wchar_t *v10; // rax
+  int v11; // r9d
+  __int64 v12; // rdx
+  int v13; // r8d
+  const wchar_t *v14; // rax
   bool v15; // zf
   struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+30h] [rbp-21h] BYREF
   const char *v18; // [rsp+40h] [rbp-11h]
@@ -38,59 +38,59 @@ NTSTATUS __fastcall McTemplateK0szzq_EtwWriteTransfer(
   char *v27; // [rsp+70h] [rbp+1Fh]
   __int64 v28; // [rsp+78h] [rbp+27h]
 
-  v7 = a6;
-  v8 = -1LL;
-  v9 = a5;
+  v7 = -1LL;
   if ( a4 )
   {
-    v10 = -1LL;
+    v8 = -1LL;
     do
-      ++v10;
-    while ( a4[v10] );
-    v11 = v10 + 1;
+      ++v8;
+    while ( a4[v8] );
+    v9 = v8 + 1;
   }
   else
   {
-    v11 = 5;
+    v9 = 5;
   }
-  v19 = v11;
-  v20 = 0;
+  v19 = v9;
+  v10 = a5;
   if ( !a4 )
     a4 = "NULL";
+  v20 = 0;
   v18 = a4;
-  v12 = 10;
+  v11 = 10;
   if ( a5 )
   {
-    v13 = -1LL;
+    v12 = -1LL;
     do
-      ++v13;
-    while ( a5[v13] );
-    v14 = 2 * v13 + 2;
+      ++v12;
+    while ( a5[v12] );
+    v13 = 2 * v12 + 2;
   }
   else
   {
-    v14 = 10;
+    v13 = 10;
   }
-  v22 = v14;
+  v22 = v13;
   v23 = 0;
   if ( !a5 )
-    v9 = L"NULL";
-  v21 = v9;
+    v10 = L"NULL";
+  v21 = v10;
+  v14 = a6;
   v15 = a6 == 0LL;
   if ( a6 )
   {
     do
-      ++v8;
-    while ( a6[v8] );
-    v12 = 2 * v8 + 2;
+      ++v7;
+    while ( a6[v7] );
+    v11 = 2 * v7 + 2;
     v15 = a6 == 0LL;
   }
   if ( v15 )
-    v7 = L"NULL";
-  v25 = v12;
-  v24 = v7;
-  v27 = &a7;
+    v14 = L"NULL";
+  v25 = v11;
+  v24 = v14;
   v26 = 0;
+  v27 = &a7;
   v28 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(v8, &SyscallFilterMessage, &W32kControlGuid, 5u, &v17);
+  return McGenEventWrite_EtwWriteTransfer(v7, &SyscallFilterMessage, &W32kControlGuid, 5u, &v17);
 }

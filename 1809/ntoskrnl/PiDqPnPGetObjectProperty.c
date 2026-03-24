@@ -3,9 +3,9 @@
  * Callers:
  *     PiDqActionDataGetRequestedProperties @ 0x140590E50 (PiDqActionDataGetRequestedProperties.c)
  *     PiDqPropertyCallback @ 0x140595AB0 (PiDqPropertyCallback.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98D0 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqActionDataGetChangedProperties @ 0x1406DB264 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A68C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98B0 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqActionDataGetChangedProperties @ 0x1406DB244 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A66C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

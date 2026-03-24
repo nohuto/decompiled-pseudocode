@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDbgCopyMemoryTarget @ 0x1402BA890
+ * XREFs of MiDbgCopyMemoryTarget @ 0x1402BA990
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,9 @@
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiCopyFromUntrustedMemory @ 0x1402BA3F0 (MiCopyFromUntrustedMemory.c)
- *     MiCopyToUntrustedMemory @ 0x1402BA518 (MiCopyToUntrustedMemory.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiCopyFromUntrustedMemory @ 0x1402BA4F0 (MiCopyFromUntrustedMemory.c)
+ *     MiCopyToUntrustedMemory @ 0x1402BA618 (MiCopyToUntrustedMemory.c)
  */
 
 __int64 __fastcall MiDbgCopyMemoryTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

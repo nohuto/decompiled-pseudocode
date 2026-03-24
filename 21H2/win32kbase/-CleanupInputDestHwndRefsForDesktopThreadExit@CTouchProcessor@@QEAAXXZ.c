@@ -1,69 +1,71 @@
 /*
- * XREFs of ?CleanupInputDestHwndRefsForDesktopThreadExit@CTouchProcessor@@QEAAXXZ @ 0x1C0088B80
+ * XREFs of ?CleanupInputDestHwndRefsForDesktopThreadExit@CTouchProcessor@@QEAAXXZ @ 0x1C00CCC10
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0088D40 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0088D80 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     _lambda_eba40ec2e57c463160aa5102b24468e6_::operator() @ 0x1C01BD758 (_lambda_eba40ec2e57c463160aa5102b24468e6_--operator().c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C007B3E0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCAC0 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     _lambda_eba40ec2e57c463160aa5102b24468e6_::operator() @ 0x1C00CCBE4 (_lambda_eba40ec2e57c463160aa5102b24468e6_--operator().c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CTouchProcessor::CleanupInputDestHwndRefsForDesktopThreadExit(CTouchProcessor *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 *v5; // rdi
-  CTouchProcessor *v6; // rbx
-  __int64 v7; // r12
-  __int64 v8; // r14
+  __int64 v2; // rcx
+  __int64 *v3; // rdi
+  unsigned int v4; // r14d
+  __int64 v5; // r12
   __int64 i; // r15
-  __int64 v10; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  _BYTE v15[48]; // [rsp+20h] [rbp-58h] BYREF
-  char v16; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v7; // rbx
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 **v10; // rbx
+  CInpLockGuard *v11[6]; // [rsp+20h] [rbp-58h] BYREF
+  int v12; // [rsp+80h] [rbp+8h] BYREF
 
   CInpLockGuardExclusive::CInpLockGuardExclusive(
-    (CInpLockGuardExclusive *)v15,
-    (CTouchProcessor *)((char *)this + 32),
+    (CInpLockGuardExclusive *)v11,
+    (CTouchProcessor *)((char *)this + 40),
     0LL);
-  v16 = 0;
-  v5 = (__int64 *)*((_QWORD *)this + 6);
-  if ( v5 != (__int64 *)((char *)this + 48) )
+  v3 = (__int64 *)*((_QWORD *)this + 7);
+  LOBYTE(v12) = 0;
+  if ( v3 != (__int64 *)((char *)this + 56) )
   {
     do
     {
-      v7 = v5[30];
-      v8 = 0LL;
-      for ( i = v5[29]; (unsigned int)v8 < *((_DWORD *)v5 + 10); v8 = (unsigned int)(v8 + 1) )
+      v4 = 0;
+      v5 = v3[17];
+      for ( i = v3[16]; v4 < *((_DWORD *)v3 + 10); ++v4 )
       {
-        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v3, v7 + 160 * v8 + 16, &v16);
-        v10 = 480LL * (unsigned int)v8;
-        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v11, v10 + i + 24, &v16);
-        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v12, v10 + i + 352, &v16);
+        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v2, (CInputDest *)(v5 + 160LL * v4 + 16), (char *)&v12);
+        v7 = 480LL * v4;
+        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v8, (CInputDest *)(v7 + i + 24), (char *)&v12);
+        lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v9, (CInputDest *)(v7 + i + 352), (char *)&v12);
       }
-      v5 = (__int64 *)*v5;
+      v3 = (__int64 *)*v3;
     }
-    while ( v5 != (__int64 *)((char *)this + 48) );
-    if ( v16 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v3, v2, v4);
+    while ( v3 != (__int64 *)((char *)this + 56) );
+    if ( (_BYTE)v12 )
+    {
+      v12 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 16323LL);
+    }
   }
-  v16 = 0;
-  v6 = (CTouchProcessor *)*((_QWORD *)this + 8);
-  if ( v6 != (CTouchProcessor *)((char *)this + 64) )
+  LOBYTE(v12) = 0;
+  v10 = (__int64 **)*((_QWORD *)this + 9);
+  if ( v10 != (__int64 **)((char *)this + 72) )
   {
     do
     {
-      lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v3, (char *)v6 + 72, &v16);
-      v6 = *(CTouchProcessor **)v6;
+      lambda_eba40ec2e57c463160aa5102b24468e6_::operator()(v2, (CInputDest *)(v10 + 8), (char *)&v12);
+      v10 = (__int64 **)*v10;
     }
-    while ( v6 != (CTouchProcessor *)((char *)this + 64) );
-    if ( v16 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v3, v13, v14);
+    while ( v10 != (__int64 **)((char *)this + 72) );
+    if ( (_BYTE)v12 )
+    {
+      v12 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 16333LL);
+    }
   }
-  CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v15);
+  CInpLockGuardExclusive::~CInpLockGuardExclusive(v11);
 }

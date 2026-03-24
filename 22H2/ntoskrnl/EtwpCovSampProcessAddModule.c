@@ -1,41 +1,40 @@
 /*
- * XREFs of EtwpCovSampProcessAddModule @ 0x1409F2914
+ * XREFs of EtwpCovSampProcessAddModule @ 0x140945508
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408A9D00 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1409450A0 (EtwpCovSampImageNotify.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpCovSampModuleReference @ 0x1408A9E52 (EtwpCovSampModuleReference.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408AA14C (EtwpCovSampProcessRemoveModule.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpCovSampModuleReference @ 0x1409454C8 (EtwpCovSampModuleReference.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140945A9C (EtwpCovSampProcessRemoveModule.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, PVOID *a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v5; // rbp
-  void *Pool2; // r14
+  PVOID PoolWithTag; // r14
+  volatile signed __int64 *v10; // rbp
   int v11; // r12d
   unsigned int v12; // eax
-  unsigned int v13; // edx
-  __int64 v14; // rcx
+  unsigned int v13; // ecx
+  __int64 v14; // rdx
   unsigned int v15; // eax
   unsigned int v16; // esi
   struct _KTHREAD *v17; // rax
-  const void *v18; // rdx
-  void *v19; // rax
-  unsigned int v20; // esi
-  _QWORD *v21; // rsi
+  void *v18; // rax
+  unsigned int v19; // esi
+  _QWORD *v20; // rsi
 
   CurrentThread = KeGetCurrentThread();
-  v5 = (volatile signed __int64 *)(a1 + 8);
+  PoolWithTag = 0LL;
   --CurrentThread->KernelApcDisable;
-  Pool2 = 0LL;
+  v10 = (volatile signed __int64 *)(a1 + 8);
   ExAcquirePushLockExclusiveEx(a1 + 8, 0LL);
   *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
   if ( !*(_QWORD *)a1 )
@@ -58,61 +57,66 @@ __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, PVOID *a2, __int64 a3
       if ( !v13 )
         v16 = 16;
       *(_QWORD *)(a1 + 16) = 0LL;
-      if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v5);
-      KeAbPostRelease((ULONG_PTR)v5);
+      if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v10);
+      KeAbPostRelease((ULONG_PTR)v10);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x56777445u);
-      Pool2 = (void *)ExAllocatePool2(256LL, 16LL * v16, 1450669125LL);
-      if ( !Pool2 )
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x56777445u);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 16LL * v16, 0x56777445u);
+      if ( !PoolWithTag )
       {
-        v20 = -1073741670;
+        v19 = -1073741670;
         goto LABEL_25;
       }
       v17 = KeGetCurrentThread();
       --v17->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)v10, 0LL);
       *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
       if ( v16 > *(_DWORD *)(a1 + 36) )
       {
-        v18 = *(const void **)(a1 + 24);
+        v18 = *(void **)(a1 + 24);
         if ( v18 )
-          memmove(Pool2, v18, 16LL * *(unsigned int *)(a1 + 32));
-        v19 = *(void **)(a1 + 24);
-        *(_QWORD *)(a1 + 24) = Pool2;
-        Pool2 = v19;
+        {
+          memmove(PoolWithTag, *(const void **)(a1 + 24), 16LL * *(unsigned int *)(a1 + 32));
+          v18 = *(void **)(a1 + 24);
+        }
+        *(_QWORD *)(a1 + 24) = PoolWithTag;
+        PoolWithTag = v18;
         *(_DWORD *)(a1 + 36) = v16;
       }
       if ( (unsigned int)++v11 >= 0x14 )
       {
-        v20 = -1073741823;
+        v19 = -1073741823;
         goto LABEL_25;
       }
     }
-    v21 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16 * v14);
+    v20 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16 * v14);
     if ( v15 > (unsigned int)v14 )
-      memmove(v21 + 2, (const void *)(*(_QWORD *)(a1 + 24) + 16 * v14), 16LL * (v15 - (unsigned int)v14));
-    ++*(_DWORD *)(a1 + 32);
-    *v21 = a4 + *(_QWORD *)(a3 + 40);
+    {
+      memmove(v20 + 2, (const void *)(*(_QWORD *)(a1 + 24) + 16 * v14), 16LL * (v15 - (unsigned int)v14));
+      v15 = *(_DWORD *)(a1 + 32);
+    }
+    *(_DWORD *)(a1 + 32) = v15 + 1;
+    *v20 = a4 + *(_QWORD *)(a3 + 40);
     EtwpCovSampModuleReference(*(_QWORD *)a1, a3);
-    v21[1] = a3;
+    v20[1] = a3;
   }
   else
   {
     EtwpCovSampProcessRemoveModule(a1, a4, *(_QWORD *)(a3 + 40));
   }
-  v20 = 0;
+  v19 = 0;
 LABEL_25:
   if ( *(struct _KTHREAD **)(a1 + 16) == KeGetCurrentThread() )
   {
     *(_QWORD *)(a1 + 16) = 0LL;
-    if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v5);
-    KeAbPostRelease((ULONG_PTR)v5);
+    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v10);
+    KeAbPostRelease((ULONG_PTR)v10);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x56777445u);
-  return v20;
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x56777445u);
+  return v19;
 }

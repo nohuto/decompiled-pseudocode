@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbDeleteArbiterInstance @ 0x1C00B7724
+ * XREFs of ArbDeleteArbiterInstance @ 0x1C00B7C24
  * Callers:
- *     AcpiArblibFreeArbiterInstance @ 0x1C0049B1C (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
  * Callees:
- *     RtlFreeRangeList_0 @ 0x1C002F18F (RtlFreeRangeList_0.c)
- *     ArbFreeOrderingList @ 0x1C009EA24 (ArbFreeOrderingList.c)
+ *     RtlFreeRangeList_0 @ 0x1C0031CCF (RtlFreeRangeList_0.c)
+ *     ArbFreeOrderingList @ 0x1C00A05F0 (ArbFreeOrderingList.c)
  */
 
 void __fastcall ArbDeleteArbiterInstance(__int64 a1)

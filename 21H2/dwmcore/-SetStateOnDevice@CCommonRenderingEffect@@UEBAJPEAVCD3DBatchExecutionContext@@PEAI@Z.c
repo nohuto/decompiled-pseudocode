@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetStateOnDevice@CCommonRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1800381B0
+ * XREFs of ?SetStateOnDevice@CCommonRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x180052A20
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180039534 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
- *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180039660 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ToD3D11TextureAddressMode@ExtendMode@@YA?AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z @ 0x1800F445C (-ToD3D11TextureAddressMode@ExtendMode@@YA-AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _Init_thread_footer @ 0x180101100 (_Init_thread_footer.c)
- *     _Init_thread_header @ 0x180101168 (_Init_thread_header.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?IsHDRColorSpace@ColorConversion@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801ED9EC (-IsHDRColorSpace@ColorConversion@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050ED0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
+ *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180053140 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ToD3D11TextureAddressMode@ExtendMode@@YA?AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z @ 0x1800DECC4 (-ToD3D11TextureAddressMode@ExtendMode@@YA-AW4D3D11_TEXTURE_ADDRESS_MODE@@W4Enum@1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _Init_thread_footer @ 0x1800E7910 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E7978 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?IsHDRColorSpace@ColorConversion@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801A7A8C (-IsHDRColorSpace@ColorConversion@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CCommonRenderingEffect::SetStateOnDevice(
@@ -20,131 +20,135 @@ __int64 __fastcall CCommonRenderingEffect::SetStateOnDevice(
         struct CD3DBatchExecutionContext *a2,
         unsigned int *a3)
 {
-  __int64 v3; // rsi
-  __int64 v4; // rdi
-  __int64 v5; // rbx
+  __int64 v3; // rdi
+  __int64 v4; // r14
   int v6; // r12d
-  __int64 v8; // rax
-  CCommonRenderingEffect *v9; // r8
+  const char *v7; // rcx
+  __int64 v9; // rax
   int *v10; // rax
-  __m128i *v11; // rax
-  int v12; // eax
-  unsigned int v13; // r14d
-  __int64 i; // rbx
-  __int64 *v15; // rcx
-  __int64 v16; // rax
-  __int64 (__fastcall ***v17)(_QWORD, char *); // rcx
-  __int64 v18; // rax
-  __int64 v19; // xmm0_8
-  __int64 v20; // rax
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  CD3DDevice *v23; // r9
-  char *v24; // r10
-  unsigned int v25; // ecx
-  _QWORD *v26; // r11
-  int v27; // eax
-  int v28; // eax
-  __int64 v29; // rcx
-  bool v30; // zf
-  unsigned int ColorChannelDepth; // eax
-  unsigned int v32; // r11d
-  __int64 v33; // rcx
-  char v34; // al
-  char v35; // r9
-  DXGI_COLOR_SPACE_TYPE v36; // ecx
-  int CommonOrCubeMapRenderingShadersNoRefInternal; // r15d
-  bool v38; // r10
-  int v39; // edx
-  unsigned int v40; // ecx
-  unsigned int v41; // eax
-  __int128 v42; // xmm0
-  CD3DDevice *v43; // rbx
-  unsigned int v44; // ecx
-  DXGI_COLOR_SPACE_TYPE v45; // r14d
-  void (__fastcall *v46)(__int64, __int64, _QWORD, _QWORD); // r12
-  int v47; // ecx
-  __int64 v48; // r8
-  __int64 v49; // rdx
-  _DWORD *v50; // rax
-  __int64 v51; // rbx
-  __int64 (__fastcall ***v53)(_QWORD, char *); // rcx
-  __int64 (__fastcall ***v54)(_QWORD, char *); // rcx
-  __int64 v55; // rax
-  int v56; // eax
-  int v57; // eax
-  int v58; // eax
-  __int64 v59; // r10
-  __int64 v60; // rcx
-  int v61; // eax
-  __int64 v62; // r9
-  __int64 *v63; // rcx
-  __int64 v64; // rax
-  _QWORD *v65; // r11
+  unsigned int v11; // r8d
+  int v12; // esi
+  bool v13; // al
+  char **v14; // rax
+  __int128 v15; // xmm0
+  int v16; // r15d
+  unsigned int v17; // r14d
+  __int64 v18; // rsi
+  __int64 v19; // rbx
+  __int64 v20; // rcx
+  CD3DDevice *v21; // rbx
+  int CommonOrCubeMapRenderingShadersNoRefInternal; // eax
+  unsigned int v23; // ecx
+  unsigned int v24; // r14d
+  __int64 v25; // r12
+  __int64 v26; // rdx
+  DXGI_COLOR_SPACE_TYPE v27; // esi
+  void (__fastcall *v28)(__int64, __int64, _QWORD, _QWORD); // r15
+  _DWORD *v29; // rax
+  __int64 v30; // r8
+  __int64 v31; // rcx
+  __int64 v32; // rbx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  CD3DDevice *v36; // r11
+  char *v37; // r10
+  int v38; // r8d
+  unsigned int v39; // ecx
+  __int64 v40; // rdx
+  _QWORD *v41; // r9
+  int v42; // ecx
+  unsigned int ColorChannelDepth; // r10d
+  char v44; // r8
+  DXGI_COLOR_SPACE_TYPE v45; // r11d
+  int v46; // ebx
+  bool v47; // r9
+  int v48; // edx
+  unsigned int v49; // ecx
+  unsigned int v50; // eax
+  __int128 v51; // xmm0
+  __int64 v52; // rcx
+  __int64 (__fastcall ***v53)(_QWORD, _BYTE *); // rcx
+  __int64 v54; // rax
+  __int64 v55; // xmm0_8
+  __int64 v56; // rcx
+  __int64 v57; // rcx
+  char v58; // al
+  __int64 v59; // rcx
+  char v60; // al
+  __int64 (__fastcall ***v61)(_QWORD, _BYTE *); // rcx
+  __int64 (__fastcall ***v62)(_QWORD, __int128 *); // rcx
+  __int64 v63; // rax
+  int v64; // eax
+  int v65; // eax
   int v66; // eax
-  unsigned int v67; // ecx
-  unsigned int v68; // ebx
-  unsigned int v69; // ecx
-  int v70; // [rsp+30h] [rbp-D0h]
-  DXGI_COLOR_SPACE_TYPE v71; // [rsp+34h] [rbp-CCh] BYREF
-  CCommonRenderingEffect *v72; // [rsp+38h] [rbp-C8h]
-  __int16 v73; // [rsp+40h] [rbp-C0h]
-  __int16 v74; // [rsp+50h] [rbp-B0h]
-  __int64 v75; // [rsp+60h] [rbp-A0h]
-  __int64 *v76; // [rsp+68h] [rbp-98h] BYREF
-  __int16 v77; // [rsp+70h] [rbp-90h]
-  __int64 v78; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v79; // [rsp+88h] [rbp-78h]
-  __m128i v80; // [rsp+98h] [rbp-68h]
-  int v81; // [rsp+A8h] [rbp-58h]
-  int v82; // [rsp+ACh] [rbp-54h]
-  CD3DDevice *v83; // [rsp+B0h] [rbp-50h]
-  struct ID3D11PixelShader *v84; // [rsp+B8h] [rbp-48h] BYREF
-  __int128 v85; // [rsp+C0h] [rbp-40h]
-  _QWORD *v86; // [rsp+D0h] [rbp-30h]
-  char *v87; // [rsp+D8h] [rbp-28h]
-  unsigned int *v88; // [rsp+E0h] [rbp-20h]
-  DXGI_FORMAT v89[2]; // [rsp+E8h] [rbp-18h]
-  DXGI_COLOR_SPACE_TYPE v90; // [rsp+F0h] [rbp-10h]
-  __int128 v91; // [rsp+F8h] [rbp-8h] BYREF
-  __int128 v92; // [rsp+108h] [rbp+8h] BYREF
-  _DWORD v93[3]; // [rsp+118h] [rbp+18h] BYREF
-  __int64 v94; // [rsp+124h] [rbp+24h]
-  int v95; // [rsp+12Ch] [rbp+2Ch]
-  int v96; // [rsp+130h] [rbp+30h]
-  __int128 v97; // [rsp+134h] [rbp+34h]
-  int v98; // [rsp+144h] [rbp+44h]
-  int v99; // [rsp+148h] [rbp+48h]
-  char v100[16]; // [rsp+150h] [rbp+50h] BYREF
-  char v101[16]; // [rsp+160h] [rbp+60h] BYREF
-  char v102[16]; // [rsp+170h] [rbp+70h] BYREF
+  __int64 v67; // r10
+  __int64 v68; // rcx
+  __int64 v69; // rdx
+  __int64 v70; // r8
+  int v71; // eax
+  __int64 v72; // r11
+  __int64 *v73; // rcx
+  __int64 v74; // rax
+  _QWORD *v75; // r9
+  int v76; // eax
+  DXGI_COLOR_SPACE_TYPE v77; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD *v78; // [rsp+38h] [rbp-C8h] BYREF
+  __int16 v79; // [rsp+40h] [rbp-C0h]
+  __int16 v80; // [rsp+50h] [rbp-B0h]
+  _QWORD v81[2]; // [rsp+60h] [rbp-A0h] BYREF
+  __int16 v82; // [rsp+70h] [rbp-90h]
+  __int64 v83; // [rsp+80h] [rbp-80h]
+  __int64 v84; // [rsp+88h] [rbp-78h] BYREF
+  __int128 v85; // [rsp+90h] [rbp-70h]
+  __int128 v86; // [rsp+A0h] [rbp-60h]
+  int v87; // [rsp+B0h] [rbp-50h]
+  int v88; // [rsp+B4h] [rbp-4Ch]
+  CD3DDevice *v89; // [rsp+B8h] [rbp-48h]
+  struct ID3D11PixelShader *v90; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v91; // [rsp+C8h] [rbp-38h]
+  __int64 v92; // [rsp+D8h] [rbp-28h]
+  unsigned int *v93; // [rsp+E0h] [rbp-20h]
+  enum DXGI_FORMAT v94[2]; // [rsp+E8h] [rbp-18h]
+  DXGI_COLOR_SPACE_TYPE v95; // [rsp+F0h] [rbp-10h]
+  __int128 v96; // [rsp+F8h] [rbp-8h] BYREF
+  __int128 v97; // [rsp+108h] [rbp+8h] BYREF
+  __int128 v98; // [rsp+118h] [rbp+18h] BYREF
+  _DWORD v99[3]; // [rsp+128h] [rbp+28h] BYREF
+  __int64 v100; // [rsp+134h] [rbp+34h]
+  int v101; // [rsp+13Ch] [rbp+3Ch]
+  int v102; // [rsp+140h] [rbp+40h]
+  __int128 v103; // [rsp+144h] [rbp+44h]
+  int v104; // [rsp+154h] [rbp+54h]
+  int v105; // [rsp+158h] [rbp+58h]
+  _BYTE v106[16]; // [rsp+160h] [rbp+60h] BYREF
+  _BYTE v107[16]; // [rsp+170h] [rbp+70h] BYREF
 
   v3 = 0LL;
-  v4 = *((_QWORD *)a2 + 2);
-  v5 = *((_QWORD *)a2 + 4);
-  v6 = *((_DWORD *)a2 + 30);
-  v83 = (CD3DDevice *)*((_QWORD *)a2 + 1);
-  v78 = 0LL;
-  *(_QWORD *)&v79 = "NoOp";
-  v80.m128i_i64[0] = (__int64)"NoOp";
-  v82 = 0;
-  v8 = *((_QWORD *)a2 + 6);
-  v88 = a3;
-  v9 = this;
-  v72 = this;
+  v4 = *((_QWORD *)a2 + 4);
+  v6 = *((_DWORD *)a2 + 27);
+  v7 = "NoOp";
+  v89 = (CD3DDevice *)*((_QWORD *)a2 + 1);
+  v92 = *((_QWORD *)a2 + 2);
+  v93 = a3;
   v84 = 0LL;
-  DWORD2(v79) = 0;
-  v80.m128i_i32[2] = 0;
-  v91 = 0LL;
-  v92 = 0LL;
-  if ( v8 )
+  v88 = 0;
+  v9 = *((_QWORD *)a2 + 6);
+  v90 = 0LL;
+  *(_QWORD *)&v85 = "NoOp";
+  DWORD2(v85) = 0;
+  *(_QWORD *)&v86 = "NoOp";
+  DWORD2(v86) = 0;
+  v96 = 0LL;
+  v97 = 0LL;
+  if ( v9 )
   {
-    v10 = (int *)(v8 + 16);
+    v10 = (int *)(v9 + 16);
   }
   else
   {
-    LODWORD(this) = *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index) + 4LL);
-    if ( __TSS0__1__NoLights_CLightsMask__SAAEBV2_XZ_4HA > (int)this )
+    if ( __TSS0__1__NoLights_CLightsMask__SAAEBV2_XZ_4HA > *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer
+                                                                       + (unsigned int)tls_index)
+                                                                     + 4LL) )
     {
       Init_thread_header(&__TSS0__1__NoLights_CLightsMask__SAAEBV2_XZ_4HA);
       if ( __TSS0__1__NoLights_CLightsMask__SAAEBV2_XZ_4HA == -1 )
@@ -152,420 +156,485 @@ __int64 __fastcall CCommonRenderingEffect::SetStateOnDevice(
         `CLightsMask::NoLights'::`2'::noLights = -1;
         Init_thread_footer(&__TSS0__1__NoLights_CLightsMask__SAAEBV2_XZ_4HA);
       }
-      v9 = v72;
     }
     v10 = &`CLightsMask::NoLights'::`2'::noLights;
+    v7 = "NoOp";
   }
-  v81 = *v10;
-  BYTE1(v82) = v6 == 1;
-  BYTE2(v82) = *((_BYTE *)a2 + 82) == 2;
-  if ( v6 == 1 && !ColorConversion::IsHDRColorSpace(DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709) )
-  {
-    LOBYTE(v82) = 1;
-LABEL_78:
-    v11 = (__m128i *)&off_1803D1010;
-    goto LABEL_7;
-  }
-  LOBYTE(v82) = 0;
+  v87 = *v10;
+  BYTE1(v88) = v6 == 1;
+  BYTE2(v88) = *((_BYTE *)a2 + 82) == 2;
+  *(_QWORD *)&v98 = "NoOp";
+  v11 = 0;
+  DWORD2(v98) = 0;
+  v12 = -2003292288;
+  v13 = v6 == 1 && !ColorConversion::IsHDRColorSpace(DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709);
+  LOBYTE(v88) = v13;
+  v14 = (char **)&ColorConversion::g_rgShaders;
   if ( v6 )
   {
     if ( v6 != 1 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2003292288, 0x98u, 0LL);
-      return 2291675008LL;
+      v15 = v98;
+      goto LABEL_8;
     }
-    goto LABEL_78;
+    v14 = &off_180344F90;
   }
-  v11 = (__m128i *)&ColorConversion::g_rgShaders;
-LABEL_7:
-  if ( (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(*v11, 8)) > 1 )
-    v80 = *v11;
-  v12 = v78;
-  if ( *(_BYTE *)(v5 + 368) )
+  v15 = *(_OWORD *)v14;
+  v12 = 0;
+  v98 = *(_OWORD *)v14;
+  v11 = DWORD2(v98);
+LABEL_8:
+  if ( v12 < 0 )
   {
-    v12 = v78 | 0x10;
-    LODWORD(v78) = v78 | 0x10;
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v7, 0LL, 0, v12, 0x8Fu, 0LL);
+    return (unsigned int)v12;
   }
-  v70 = v12;
+  if ( v11 > 1 )
+    v86 = v15;
+  v16 = v84;
+  if ( *(_BYTE *)(v4 + 368) )
+  {
+    v16 = v84 | 0x10;
+    LODWORD(v84) = v84 | 0x10;
+  }
   if ( *((_DWORD *)a2 + 16) == 22 )
   {
-    v70 = v12 | 8;
-    LODWORD(v78) = v12 | 8;
+    v16 |= 8u;
+    LODWORD(v84) = v16;
   }
-  v13 = 0;
-  v71 = v90;
-  for ( i = 0LL; ; ++i )
+  v17 = 0;
+  v77 = v95;
+  v18 = 0LL;
+  while ( 1 )
   {
-    while ( 1 )
+    v19 = 48 * v18;
+    v20 = *((_QWORD *)this + 6 * v18 + 2);
+    if ( !v20 && !*(_QWORD *)((char *)this + v19 + 24) )
+      goto LABEL_18;
+    v78 = 0LL;
+    if ( v20 )
     {
-      v15 = (__int64 *)*((_QWORD *)v9 + 3 * i + 3);
-      if ( v15 )
-        break;
-LABEL_44:
-      ++v13;
-      ++i;
-      if ( v13 >= 2 )
-      {
-        v43 = v83;
-        v71 = 0x80000000;
-        CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
-                                                         v83,
-                                                         (const struct CommonRenderingShaderDesc *)&v78,
-                                                         0,
-                                                         (unsigned int *)&v71,
-                                                         &v84);
-        if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, 0xE6u, 0LL);
-        }
-        else
-        {
-          v45 = v71;
-          v46 = *(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)v4 + 88LL);
-          v47 = 0;
-          if ( *((int *)v43 + 382) > 0 )
-          {
-            v48 = *((int *)v43 + 382);
-            v49 = 0LL;
-            v50 = (_DWORD *)*((_QWORD *)v43 + 189);
-            while ( *v50 != v71 )
-            {
-              ++v47;
-              ++v49;
-              ++v50;
-              if ( v49 >= v48 )
-                goto LABEL_52;
-            }
-            if ( v47 != -1 )
-            {
-              v51 = *(_QWORD *)(*((_QWORD *)v43 + 190) + 8LL * v47);
-              if ( v51 )
-              {
-                (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v51 + 8LL))(v51, v49, v48);
-                v3 = v51;
-                (*(void (__fastcall **)(__int64))(*(_QWORD *)v51 + 16LL))(v51);
-              }
-            }
-          }
-LABEL_52:
-          v46(v4, v3, 0LL, 0LL);
-          (*(void (__fastcall **)(__int64, struct ID3D11PixelShader *, _QWORD, _QWORD))(*(_QWORD *)v4 + 72LL))(
-            v4,
-            v84,
-            0LL,
-            0LL);
-          (*(void (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v4 + 64LL))(v4, 0LL, 2LL, &v91);
-          (*(void (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v4 + 80LL))(v4, 0LL, 2LL, &v92);
-          *v88 = v45;
-        }
-        return (unsigned int)CommonOrCubeMapRenderingShadersNoRefInternal;
-      }
-    }
-    v16 = *v15;
-    v76 = 0LL;
-    if ( (*(int (__fastcall **)(__int64 *, _QWORD, __int64 **))(v16 + 48))(v15, *((_QWORD *)a2 + 14), &v76) < 0 )
-    {
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v76);
-      v21 = 0LL;
+      if ( (*(int (__fastcall **)(__int64, _QWORD **))(*(_QWORD *)v20 + 48LL))(v20, &v78) < 0 )
+        goto LABEL_31;
     }
     else
     {
-      v17 = (__int64 (__fastcall ***)(_QWORD, char *))((char *)v76 + *(int *)(v76[1] + 12) + 8);
-      v18 = (**v17)(v17, v100);
-      v19 = *(_QWORD *)v18;
-      v71 = *(_DWORD *)(v18 + 8);
-      v20 = *v76;
-      *(_QWORD *)v89 = v19;
-      v21 = (*(__int64 (__fastcall **)(__int64 *))(v20 + 8))(v76);
-      v75 = v21;
-      if ( v76 )
-      {
-        v22 = (__int64)v76 + *(int *)(v76[1] + 4) + 8;
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
-        v21 = v75;
-      }
+      v78 = *(_QWORD **)((char *)this + v19 + 24);
+      v52 = (__int64)v78 + *(int *)(v78[1] + 4LL) + 8;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v52 + 8LL))(v52);
     }
-    v9 = v72;
-    v23 = v83;
-    *((_QWORD *)&v91 + i) = v21;
-    v24 = (char *)v9 + 2 * i;
-    v25 = (unsigned __int8)*(_WORD *)&v24[i + 64];
-    v73 = *(_WORD *)&v24[i + 64];
-    v87 = v24;
-    v26 = (_QWORD *)((char *)v23 + 128 * v25 + 32 * HIBYTE(v73) + 8 * (unsigned __int8)v24[i + 66] + 1880);
-    v86 = v26;
-    if ( *v26 )
-      goto LABEL_19;
-    v77 = *(_WORD *)&v24[i + 64];
-    if ( HIBYTE(v77) && v24[i + 66] )
-      v56 = 37120;
+    v81[0] = 0LL;
+    if ( (*(int (__fastcall **)(_QWORD *, char *, _QWORD *))(*v78 + 48LL))(v78, (char *)this + v19 + 32, v81) < 0 )
+    {
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v81);
+LABEL_31:
+      if ( v78 )
+      {
+        v34 = (__int64)v78 + *(int *)(v78[1] + 4LL) + 8;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v34 + 16LL))(v34);
+      }
+      v35 = 0LL;
+      goto LABEL_34;
+    }
+    v53 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v81[0] + 8LL) + 12LL) + v81[0] + 8LL);
+    v54 = (**v53)(v53, v106);
+    v55 = *(_QWORD *)v54;
+    v77 = *(_DWORD *)(v54 + 8);
+    *(_QWORD *)v94 = v55;
+    v83 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)v81[0] + 8LL))(v81[0]);
+    if ( v81[0] )
+    {
+      v56 = *(int *)(*(_QWORD *)(v81[0] + 8LL) + 4LL) + v81[0] + 8LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v56 + 16LL))(v56);
+    }
+    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v78);
+    v35 = v83;
+LABEL_34:
+    v36 = v89;
+    *((_QWORD *)&v96 + v18) = v35;
+    v37 = (char *)this + 2 * v18;
+    v38 = 0;
+    v39 = (unsigned __int8)*(_WORD *)&v37[v18 + 112];
+    v79 = *(_WORD *)&v37[v18 + 112];
+    v40 = HIBYTE(v79) + 4 * v39;
+    v41 = (_QWORD *)((char *)v36 + 32 * (_DWORD)v40 + 8 * (unsigned int)(unsigned __int8)v37[v18 + 114] + 1808);
+    v83 = (__int64)v41;
+    if ( *v41 )
+      goto LABEL_35;
+    v82 = *(_WORD *)&v37[v18 + 112];
+    if ( HIBYTE(v82) && v37[v18 + 114] )
+      v64 = 37120;
     else
-      v56 = 37632;
-    if ( *((_DWORD *)v23 + 146) < v56 )
+      v64 = 37632;
+    if ( *((_DWORD *)v36 + 156) < v64 )
       break;
-    v74 = *(_WORD *)&v24[i + 64];
-    if ( (_BYTE)v74 )
-      v57 = 21;
+    v80 = *(_WORD *)&v37[v18 + 112];
+    if ( (_BYTE)v80 )
+      v65 = 21;
     else
-      v57 = 0;
-    v93[0] = v57;
-    v58 = ExtendMode::ToD3D11TextureAddressMode(HIBYTE(v74));
-    v60 = *(unsigned __int8 *)(i + v59 + 66);
-    v93[1] = v58;
-    v61 = ExtendMode::ToD3D11TextureAddressMode(v60);
-    v63 = *(__int64 **)(v62 + 552);
-    v93[2] = v61;
-    v94 = 3LL;
-    v95 = 1;
-    v96 = 8;
-    v97 = 0LL;
-    v98 = 0;
-    v99 = 2139095039;
-    v64 = *v63;
-    *v65 = 0LL;
-    v66 = (*(__int64 (__fastcall **)(__int64 *, _DWORD *, _QWORD *))(v64 + 184))(v63, v93, v65);
-    if ( v66 < 0 )
+      v65 = 0;
+    v99[0] = v65;
+    v66 = ExtendMode::ToD3D11TextureAddressMode(HIBYTE(v80), v40, 0LL);
+    v68 = *(unsigned __int8 *)(v18 + v67 + 114);
+    v99[1] = v66;
+    v71 = ExtendMode::ToD3D11TextureAddressMode(v68, v69, v70);
+    v73 = *(__int64 **)(v72 + 592);
+    v99[2] = v71;
+    v100 = 3LL;
+    v101 = 1;
+    v102 = 8;
+    v103 = 0LL;
+    v104 = 0;
+    v105 = 2139095039;
+    v74 = *v73;
+    *v75 = 0LL;
+    v76 = (*(__int64 (__fastcall **)(__int64 *, _DWORD *, _QWORD *))(v74 + 184))(v73, v99, v75);
+    LODWORD(v78) = v76;
+    v38 = v76;
+    if ( v76 < 0 )
     {
-      v68 = v66;
-      MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v66, 0xC21u, 0LL);
-      goto LABEL_122;
+      MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, v76, 0xE8Bu, 0LL);
+      v38 = (int)v78;
+      goto LABEL_36;
     }
-    v9 = v72;
-    v26 = v86;
-LABEL_19:
-    *(_QWORD *)&v93[2 * i - 4] = *v26;
-    v27 = v70;
-    if ( v13 )
+    v41 = (_QWORD *)v83;
+LABEL_35:
+    *((_QWORD *)&v97 + v18) = *v41;
+LABEL_36:
+    if ( v38 < 0 )
+      goto LABEL_146;
+    if ( !v17 )
     {
-      v70 |= 2u;
-      LODWORD(v78) = v27 | 2;
-      goto LABEL_44;
-    }
-    v28 = v70 | 1;
-    v70 = v28;
-    LODWORD(v78) = v28;
-    if ( *((_BYTE *)v9 + 24 * i + 32) )
-      goto LABEL_54;
-    v29 = *((_QWORD *)v9 + 3 * i + 2);
-    if ( v29 )
-    {
-      v30 = (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v29 + 8LL))(v29) == 0;
-      v28 = v70;
-      if ( v30 )
-        goto LABEL_23;
-LABEL_54:
-      v28 |= 4u;
-      v70 = v28;
-      LODWORD(v78) = v28;
-      goto LABEL_23;
-    }
-    v53 = (__int64 (__fastcall ***)(_QWORD, char *))(*((_QWORD *)v9 + 3 * i + 3)
-                                                   + 8LL
-                                                   + *(int *)(*(_QWORD *)(*((_QWORD *)v9 + 3 * i + 3) + 8LL) + 8LL));
-    v30 = *(_DWORD *)((**v53)(v53, v101) + 4) == 3;
-    v28 = v70;
-    if ( v30 )
-      goto LABEL_54;
-LABEL_23:
-    if ( v87[i + 64] == 2 )
-    {
-      v70 = v28 | 0x20;
-      LODWORD(v78) = v28 | 0x20;
-    }
-    *(_QWORD *)&v85 = "NoOp";
-    DWORD2(v85) = 0;
-    ColorChannelDepth = GetColorChannelDepth(v89[0]);
-    v9 = v72;
-    v32 = ColorChannelDepth;
-    LODWORD(v75) = ColorChannelDepth;
-    if ( *((_BYTE *)v72 + 24 * i + 32) )
-      goto LABEL_55;
-    v33 = *((_QWORD *)v72 + 3 * i + 2);
-    if ( !v33 )
-    {
-      v54 = (__int64 (__fastcall ***)(_QWORD, char *))(*((_QWORD *)v72 + 3 * i + 3)
-                                                     + 8LL
-                                                     + *(int *)(*(_QWORD *)(*((_QWORD *)v72 + 3 * i + 3) + 8LL) + 8LL));
-      v55 = (**v54)(v54, v102);
-      v9 = v72;
-      v32 = v75;
-      if ( *(_DWORD *)(v55 + 4) != 3 )
+      v16 |= 1u;
+      LODWORD(v84) = v16;
+      if ( *((_BYTE *)this + v19 + 56) )
+        goto LABEL_39;
+      v57 = *(_QWORD *)((char *)this + v19 + 16);
+      if ( v57 )
       {
-        v35 = 0;
-        goto LABEL_28;
-      }
-LABEL_55:
-      v35 = 1;
-      goto LABEL_28;
-    }
-    v34 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v33 + 8LL))(v33);
-    v9 = v72;
-    v35 = v34;
-    v32 = v75;
-LABEL_28:
-    v36 = v71;
-    CommonOrCubeMapRenderingShadersNoRefInternal = -2003292288;
-    v38 = v6 == 1 && !ColorConversion::IsHDRColorSpace(v71);
-    v39 = 0;
-    if ( v36 )
-    {
-      switch ( v36 )
-      {
-        case DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709:
-          if ( v6 )
-          {
-            v39 = 40;
-            v40 = 40;
-            goto LABEL_33;
-          }
-          v39 = 2;
-          CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-          goto LABEL_73;
-        case DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709:
-          if ( v6 )
-          {
-            if ( v32 == 8 )
-            {
-              v39 = 16;
-              v40 = 16;
-              goto LABEL_33;
-            }
-            if ( v32 == 10 )
-            {
-              v39 = 24;
-              v40 = 24;
-              goto LABEL_33;
-            }
-          }
-          else
-          {
-            if ( v32 == 8 )
-            {
-              v39 = 14;
-              v40 = 14;
-              goto LABEL_33;
-            }
-            if ( v32 == 10 )
-            {
-LABEL_98:
-              v39 = 22;
-              CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-            }
-          }
-          goto LABEL_73;
-        case DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020:
-          if ( !v6 )
-            goto LABEL_98;
-          v39 = 24;
-          v40 = 24;
-          goto LABEL_33;
-        case DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020:
-          if ( v6 )
-          {
-            v39 = 12;
-            v40 = 12;
-            goto LABEL_33;
-          }
-          v39 = 10;
-          CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-          goto LABEL_73;
-        case DXGI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020:
-          if ( v6 )
-          {
-            v39 = 36;
-            v40 = 36;
-            goto LABEL_33;
-          }
-          v39 = 34;
-          CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-          goto LABEL_73;
-        case DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709:
-          if ( v6 )
-          {
-            if ( v32 == 8 )
-            {
-              v39 = 20;
-              v40 = 20;
-              goto LABEL_33;
-            }
-            if ( v32 == 10 )
-            {
-              v39 = 28;
-              v40 = 28;
-              goto LABEL_33;
-            }
-          }
-          else
-          {
-            if ( v32 == 8 )
-            {
-              v39 = 18;
-              v40 = 18;
-              goto LABEL_33;
-            }
-            if ( v32 == 10 )
-            {
-              v39 = 26;
-              CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-            }
-          }
-          goto LABEL_73;
-        case DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020:
-          if ( v6 )
-          {
-            v39 = 32;
-            v40 = 32;
-            goto LABEL_33;
-          }
-          v39 = 30;
-          CommonOrCubeMapRenderingShadersNoRefInternal = 0;
-LABEL_73:
-          v40 = v39;
-          if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
-          {
-            v42 = v85;
-            goto LABEL_37;
-          }
-          break;
-        default:
-          goto LABEL_73;
-      }
-    }
-    else
-    {
-      if ( v6 )
-      {
-        v39 = 6;
-        v40 = 6;
+        v58 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v57 + 8LL))(v57);
+        v42 = v16;
+        if ( v58 )
+          goto LABEL_39;
       }
       else
       {
-        v40 = 0;
+        v61 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(_QWORD *)((char *)this + v19 + 24)
+                                                        + 8LL
+                                                        + *(int *)(*(_QWORD *)(*(_QWORD *)((char *)this + v19 + 24) + 8LL)
+                                                                 + 8LL));
+        if ( *(_DWORD *)((**v61)(v61, v107) + 4) == 3 )
+        {
+LABEL_39:
+          v16 |= 4u;
+          LODWORD(v84) = v16;
+        }
+        v42 = v16;
       }
-LABEL_33:
-      CommonOrCubeMapRenderingShadersNoRefInternal = 0;
+      if ( *((_BYTE *)this + 2 * v18 + v18 + 112) == 2 )
+      {
+        v16 = v42 | 0x20;
+        LODWORD(v84) = v42 | 0x20;
+      }
+      *(_QWORD *)&v91 = "NoOp";
+      DWORD2(v91) = 0;
+      ColorChannelDepth = GetColorChannelDepth(v94[0]);
+      LODWORD(v78) = ColorChannelDepth;
+      if ( *((_BYTE *)this + v19 + 56) )
+      {
+LABEL_44:
+        v44 = 1;
+      }
+      else
+      {
+        v59 = *(_QWORD *)((char *)this + v19 + 16);
+        if ( v59 )
+        {
+          v60 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v59 + 8LL))(v59);
+          ColorChannelDepth = (unsigned int)v78;
+          v44 = v60;
+        }
+        else
+        {
+          v62 = (__int64 (__fastcall ***)(_QWORD, __int128 *))(*(_QWORD *)((char *)this + v19 + 24)
+                                                             + 8LL
+                                                             + *(int *)(*(_QWORD *)(*(_QWORD *)((char *)this + v19 + 24)
+                                                                                  + 8LL)
+                                                                      + 8LL));
+          v63 = (**v62)(v62, &v98);
+          ColorChannelDepth = (unsigned int)v78;
+          if ( *(_DWORD *)(v63 + 4) == 3 )
+            goto LABEL_44;
+          v44 = 0;
+        }
+      }
+      v45 = v77;
+      v46 = -2003292288;
+      v47 = v6 == 1 && !ColorConversion::IsHDRColorSpace(v77);
+      v48 = 0;
+      if ( v45 )
+      {
+        switch ( v45 )
+        {
+          case DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709:
+            if ( v6 )
+            {
+              if ( v6 == 1 )
+              {
+                v48 = 40;
+                v46 = 0;
+                v49 = 40;
+                goto LABEL_51;
+              }
+              if ( v6 != 12 )
+                goto LABEL_50;
+              v48 = 4;
+            }
+            else
+            {
+              v48 = 2;
+            }
+            break;
+          case DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709:
+            if ( v6 )
+            {
+              if ( v6 != 1 )
+                goto LABEL_50;
+              if ( ColorChannelDepth == 8 )
+              {
+                v48 = 16;
+                v46 = 0;
+                v49 = 16;
+                goto LABEL_51;
+              }
+              if ( ColorChannelDepth == 10 )
+              {
+                v48 = 24;
+                break;
+              }
+            }
+            else
+            {
+              if ( ColorChannelDepth == 8 )
+              {
+                v48 = 14;
+                v46 = 0;
+                v49 = 14;
+                goto LABEL_51;
+              }
+              if ( ColorChannelDepth == 10 )
+              {
+LABEL_112:
+                v48 = 22;
+                break;
+              }
+            }
+            goto LABEL_50;
+          case DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020:
+            if ( !v6 )
+              goto LABEL_112;
+            if ( v6 != 1 )
+              goto LABEL_50;
+            v48 = 24;
+            break;
+          case DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020:
+            if ( v6 )
+            {
+              if ( v6 == 1 )
+              {
+                v48 = 12;
+                v46 = 0;
+                v49 = 12;
+                goto LABEL_51;
+              }
+              if ( v6 != 12 )
+                goto LABEL_50;
+            }
+            else
+            {
+              v48 = 10;
+            }
+            break;
+          case DXGI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020:
+            if ( v6 )
+            {
+              if ( v6 == 1 )
+              {
+                v48 = 36;
+                v46 = 0;
+                v49 = 36;
+                goto LABEL_51;
+              }
+              if ( v6 != 12 )
+                goto LABEL_50;
+              v48 = 38;
+            }
+            else
+            {
+              v48 = 34;
+            }
+            break;
+          case DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709:
+            if ( v6 )
+            {
+              if ( v6 != 1 )
+                goto LABEL_50;
+              if ( ColorChannelDepth == 8 )
+              {
+                v48 = 20;
+                v46 = 0;
+                v49 = 20;
+                goto LABEL_51;
+              }
+              if ( ColorChannelDepth == 10 )
+              {
+                v48 = 28;
+                break;
+              }
+            }
+            else
+            {
+              if ( ColorChannelDepth == 8 )
+              {
+                v48 = 18;
+                v46 = 0;
+                v49 = 18;
+                goto LABEL_51;
+              }
+              if ( ColorChannelDepth == 10 )
+              {
+                v48 = 26;
+                break;
+              }
+            }
+            goto LABEL_50;
+          case DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020:
+            if ( v6 )
+            {
+              if ( v6 != 1 )
+                goto LABEL_50;
+              v48 = 32;
+            }
+            else
+            {
+              v48 = 30;
+            }
+            break;
+          default:
+            goto LABEL_50;
+        }
+LABEL_49:
+        v46 = 0;
+      }
+      else
+      {
+        if ( !v6 )
+          goto LABEL_49;
+        if ( v6 == 1 )
+        {
+          v48 = 6;
+          goto LABEL_49;
+        }
+      }
+LABEL_50:
+      v49 = v48;
+      if ( v46 < 0 )
+      {
+        v51 = v91;
+      }
+      else
+      {
+LABEL_51:
+        v50 = v48 + 1;
+        if ( !v44 )
+          v50 = v49;
+        v49 = 2 * v50;
+        v51 = *((_OWORD *)&ColorConversion::g_rgShaders + v50);
+        v91 = v51;
+      }
+      if ( v46 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v49, 0LL, 0, v46, 0xC1u, 0LL);
+        return (unsigned int)v46;
+      }
+      if ( DWORD2(v91) > 1 )
+        v85 = v51;
+      if ( !v47 )
+        LOBYTE(v88) = 0;
+      goto LABEL_18;
     }
-    v41 = v39 + 1;
-    if ( !v35 )
-      v41 = v40;
-    v40 = 2 * v41;
-    v42 = *((_OWORD *)&ColorConversion::g_rgShaders + v41);
-    v85 = v42;
-LABEL_37:
-    if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
+    v16 |= 2u;
+    LODWORD(v84) = v16;
+LABEL_18:
+    ++v17;
+    ++v18;
+    if ( v17 >= 2 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, 0xCAu, 0LL);
-      return (unsigned int)CommonOrCubeMapRenderingShadersNoRefInternal;
+      v21 = v89;
+      v77 = 0x80000000;
+      CommonOrCubeMapRenderingShadersNoRefInternal = CD3DDevice::GetCommonOrCubeMapRenderingShadersNoRefInternal(
+                                                       v89,
+                                                       (__int64)&v84,
+                                                       0,
+                                                       (unsigned int *)&v77,
+                                                       &v90);
+      v24 = CommonOrCubeMapRenderingShadersNoRefInternal;
+      if ( CommonOrCubeMapRenderingShadersNoRefInternal < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, CommonOrCubeMapRenderingShadersNoRefInternal, 0xDDu, 0LL);
+        return v24;
+      }
+      v25 = v92;
+      v26 = 0LL;
+      v27 = v77;
+      v28 = *(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)v92 + 88LL);
+      if ( *((int *)v21 + 364) <= 0 )
+        goto LABEL_150;
+      v29 = (_DWORD *)*((_QWORD *)v21 + 180);
+      v30 = *((int *)v21 + 364);
+      v31 = 0LL;
+      while ( *v29 != v77 )
+      {
+        v26 = (unsigned int)(v26 + 1);
+        ++v31;
+        ++v29;
+        if ( v31 >= v30 )
+          goto LABEL_150;
+      }
+      if ( (_DWORD)v26 == -1 )
+      {
+LABEL_150:
+        v32 = 0LL;
+      }
+      else
+      {
+        v32 = *(_QWORD *)(*((_QWORD *)v21 + 181) + 8LL * (int)v26);
+        if ( !v32 )
+        {
+LABEL_28:
+          v28(v25, v3, 0LL, 0LL);
+          (*(void (__fastcall **)(__int64, struct ID3D11PixelShader *, _QWORD, _QWORD))(*(_QWORD *)v25 + 72LL))(
+            v25,
+            v90,
+            0LL,
+            0LL);
+          (*(void (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v25 + 64LL))(v25, 0LL, 2LL, &v96);
+          (*(void (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(*(_QWORD *)v25 + 80LL))(v25, 0LL, 2LL, &v97);
+          *v93 = v27;
+          return v24;
+        }
+        (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v32 + 8LL))(v32, v26, v30);
+        v3 = v32;
+      }
+      if ( v32 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v32 + 16LL))(v32);
+      goto LABEL_28;
     }
-    if ( DWORD2(v85) > 1 )
-      v79 = v42;
-    if ( !v38 )
-      LOBYTE(v82) = 0;
-    v13 = 1;
   }
-  v68 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, -2147024809, 0xC1Cu, 0LL);
-LABEL_122:
-  MilInstrumentationCheckHR_MaybeFailFast(v69, 0LL, 0, v68, 0xB1u, 0LL);
-  return v68;
+  MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, -2147024809, 0xE86u, 0LL);
+  v38 = -2147024809;
+LABEL_146:
+  v46 = v38;
+  MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, v38, 0xA8u, 0LL);
+  return (unsigned int)v46;
 }

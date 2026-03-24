@@ -1,54 +1,54 @@
 /*
- * XREFs of MiDecrementShareCount @ 0x140273FD0
+ * XREFs of MiDecrementShareCount @ 0x1402401C0
  * Callers:
- *     MmOutSwapProcess @ 0x140211108 (MmOutSwapProcess.c)
- *     MiFreeContiguousPages @ 0x140213FA8 (MiFreeContiguousPages.c)
- *     MiDeleteTopLevelPage @ 0x140217060 (MiDeleteTopLevelPage.c)
- *     MiConvertStandbyToProto @ 0x140227490 (MiConvertStandbyToProto.c)
- *     MiLockAndDecrementShareCount @ 0x140228660 (MiLockAndDecrementShareCount.c)
- *     MiAddSystemPageTableToList @ 0x14022900C (MiAddSystemPageTableToList.c)
- *     MiFreeUnmappedPageTables @ 0x14022973C (MiFreeUnmappedPageTables.c)
- *     MiPurgeImageSection @ 0x14025AD28 (MiPurgeImageSection.c)
- *     MiOutPageSingleKernelStack @ 0x1402704A0 (MiOutPageSingleKernelStack.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiConvertPrivateToProto @ 0x140272A10 (MiConvertPrivateToProto.c)
- *     MiAddPageToInsertList @ 0x140276C78 (MiAddPageToInsertList.c)
- *     MiWsleFree @ 0x1402C2AD0 (MiWsleFree.c)
- *     MiDeletePteList @ 0x1402C3BA0 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402C8FD0 (MiDeletePteRun.c)
- *     MiTrimSystemImagePages @ 0x1402D92AC (MiTrimSystemImagePages.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiCompletePrivateZeroFault @ 0x140321F70 (MiCompletePrivateZeroFault.c)
- *     MiMakeSystemCacheRangeValid @ 0x140333AC0 (MiMakeSystemCacheRangeValid.c)
- *     MiUnlockMdlWritePages @ 0x140334830 (MiUnlockMdlWritePages.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14033F8E0 (MiRewriteTrimPteAsDemandZero.c)
- *     MiRestoreTransitionPte @ 0x14033FAA4 (MiRestoreTransitionPte.c)
- *     MiPurgeSubsection @ 0x14058BA98 (MiPurgeSubsection.c)
- *     MiDecrementLargeSubsections @ 0x14059DF58 (MiDecrementLargeSubsections.c)
- *     MiDecrementProtoShareCounts @ 0x14059E1E8 (MiDecrementProtoShareCounts.c)
- *     MiClearDriverHotPatchPtes @ 0x1405A2F88 (MiClearDriverHotPatchPtes.c)
- *     MiDuplicateCloneLeaf @ 0x1405BA864 (MiDuplicateCloneLeaf.c)
- *     MiFinishLastForkPageTable @ 0x1405BACCC (MiFinishLastForkPageTable.c)
- *     MiInitializeProtoPfn @ 0x1405C4A48 (MiInitializeProtoPfn.c)
- *     MiTradeBootImagePage @ 0x140B05434 (MiTradeBootImagePage.c)
- *     MiFreeRegistryPageRange @ 0x140B19724 (MiFreeRegistryPageRange.c)
+ *     MiCompletePrivateZeroFault @ 0x140210850 (MiCompletePrivateZeroFault.c)
+ *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
+ *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
+ *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140269EA8 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiFreeContiguousPages @ 0x140296068 (MiFreeContiguousPages.c)
+ *     MiDeleteTopLevelPage @ 0x1402970E8 (MiDeleteTopLevelPage.c)
+ *     MiRestoreTransitionPte @ 0x1402A2DD0 (MiRestoreTransitionPte.c)
+ *     MiAddSystemPageTableToList @ 0x1402B6FA0 (MiAddSystemPageTableToList.c)
+ *     MiFreeUnmappedPageTables @ 0x1402B9C18 (MiFreeUnmappedPageTables.c)
+ *     MiTrimSystemImagePages @ 0x1402BE540 (MiTrimSystemImagePages.c)
+ *     MiOutPageSingleKernelStack @ 0x1402D5A60 (MiOutPageSingleKernelStack.c)
+ *     MiLockAndDecrementShareCount @ 0x1402D5EE0 (MiLockAndDecrementShareCount.c)
+ *     MmUnmapViewInSystemCache @ 0x140313AE0 (MmUnmapViewInSystemCache.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14031EB90 (MiMakeSystemCacheRangeValid.c)
+ *     MiWsleFree @ 0x140327ED0 (MiWsleFree.c)
+ *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
+ *     MiBuildReservationCluster @ 0x140386DF0 (MiBuildReservationCluster.c)
+ *     MiPurgeImageSection @ 0x1403A53C4 (MiPurgeImageSection.c)
+ *     MiPurgeSubsection @ 0x14052A2B0 (MiPurgeSubsection.c)
+ *     MiClearDriverHotPatchPtes @ 0x14053E428 (MiClearDriverHotPatchPtes.c)
+ *     MiUnmapPatchTable @ 0x14053F19C (MiUnmapPatchTable.c)
+ *     MiDecrementLargeSubsections @ 0x140540410 (MiDecrementLargeSubsections.c)
+ *     MiDecrementProtoShareCounts @ 0x1405406A0 (MiDecrementProtoShareCounts.c)
+ *     MiInitializeProtoPfn @ 0x140554F90 (MiInitializeProtoPfn.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
+ *     MiFinishLastForkPageTable @ 0x14055A6A0 (MiFinishLastForkPageTable.c)
+ *     MiFreeRegistryPageRange @ 0x140A4CD08 (MiFreeRegistryPageRange.c)
+ *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
  * Callees:
- *     MiPfnShareCountIsZero @ 0x1402BF640 (MiPfnShareCountIsZero.c)
- *     MiBadShareCount @ 0x1405AD6C8 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x140326190 (MiPfnShareCountIsZero.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiDecrementShareCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiDecrementShareCount(__int64 a1)
 {
-  __int64 v4; // rdx
+  char v1; // dl
+  __int64 v2; // r8
 
-  if ( (*(_BYTE *)(a1 + 34) & 7) != 6 )
-    MiBadShareCount(a1, a2, a3, a4);
-  v4 = *(_QWORD *)(a1 + 24);
-  *(_QWORD *)(a1 + 24) = v4 ^ (((v4 & 0x3FFFFFFFFFFFFFFFLL) - 1) ^ v4) & 0x3FFFFFFFFFFFFFFFLL;
-  if ( (v4 & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+  v1 = *(_BYTE *)(a1 + 34);
+  v2 = *(_QWORD *)(a1 + 24) & 0x3FFFFFFFFFFFFFFFLL;
+  if ( (v1 & 7) != 6 )
+    KeBugCheckEx(0x4Eu, 0x99uLL, (a1 + 0x58000000000LL) / 48, v1 & 7, *(_QWORD *)(a1 + 24) & 0x3FFFFFFFFFFFFFFFLL);
+  *(_QWORD *)(a1 + 24) ^= ((v2 - 1) ^ *(_QWORD *)(a1 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
+  if ( v2 == 1 )
     return MiPfnShareCountIsZero(a1);
   else
     return 2LL;

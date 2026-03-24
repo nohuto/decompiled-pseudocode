@@ -1,9 +1,9 @@
 /*
- * XREFs of XmInt1aReadConfigRegister @ 0x140537E78
+ * XREFs of XmInt1aReadConfigRegister @ 0x1404E81C8
  * Callers:
- *     XmExecuteInt1a @ 0x140537B84 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1404E7ED4 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall XmInt1aReadConfigRegister(__int64 a1)

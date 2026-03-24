@@ -3,19 +3,19 @@
  * Callers:
  *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     SeMaximumAuditMask @ 0x1402FE770 (SeMaximumAuditMask.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     SeMaximumAuditMask @ 0x1402FE870 (SeMaximumAuditMask.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1F0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x14089F998 (SepQueryTypeString.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A20 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepIsAclEqual @ 0x1408A3BBC (SepIsAclEqual.c)
- *     SepIsSidEqual @ 0x1408A3C3C (SepIsSidEqual.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1D0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepIsAclEqual @ 0x1408A3B9C (SepIsAclEqual.c)
+ *     SepIsSidEqual @ 0x1408A3C1C (SepIsSidEqual.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SeSecurityDescriptorChangedAuditAlarm(

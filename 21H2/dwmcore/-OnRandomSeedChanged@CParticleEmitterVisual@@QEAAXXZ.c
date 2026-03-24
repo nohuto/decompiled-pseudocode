@@ -1,32 +1,35 @@
 /*
- * XREFs of ?OnRandomSeedChanged@CParticleEmitterVisual@@QEAAXXZ @ 0x1801A19F4
+ * XREFs of ?OnRandomSeedChanged@CParticleEmitterVisual@@QEAAXXZ @ 0x18016FDF4
  * Callers:
- *     ?SetRandomSeed@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z @ 0x1801A5468 (-SetRandomSeed@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z.c)
+ *     ?SetRandomSeed@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z @ 0x1801730E0 (-SetRandomSeed@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180105110 (_alloca_probe.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1800F46D0 (_alloca_probe.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CParticleEmitterVisual::OnRandomSeedChanged(CParticleEmitterVisual *this)
 {
-  unsigned int v2; // ecx
-  unsigned __int64 v3; // rdx
+  int v2; // r8d
+  unsigned int v3; // ecx
+  __int64 v4; // rdx
   int Src; // [rsp+20h] [rbp-13A8h] BYREF
-  _DWORD v5[1251]; // [rsp+24h] [rbp-13A4h]
+  _DWORD v6[1251]; // [rsp+24h] [rbp-13A4h]
 
-  v5[1248] = -1;
-  v2 = *((_DWORD *)this + 185);
-  v3 = 1LL;
-  v5[0] = v2;
+  v6[1248] = -1;
+  v2 = 1;
+  v3 = *((_DWORD *)this + 157);
+  v4 = 1LL;
+  v6[0] = v3;
   do
   {
-    v2 = v3 + 1812433253 * (v2 ^ (v2 >> 30));
-    v5[v3++] = v2;
+    v3 = v2 + 1812433253 * (v3 ^ (v3 >> 30));
+    ++v2;
+    v6[v4++] = v3;
   }
-  while ( v3 < 0x270 );
+  while ( v4 < 624 );
   Src = 624;
-  memcpy_0((char *)this + 1412, &Src, 0x1388uLL);
+  memcpy_0((char *)this + 1300, &Src, 0x1388uLL);
   (*(void (__fastcall **)(CParticleEmitterVisual *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
 }

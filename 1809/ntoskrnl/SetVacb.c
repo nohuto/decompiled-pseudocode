@@ -1,9 +1,9 @@
 /*
- * XREFs of SetVacb @ 0x14026AF74
+ * XREFs of SetVacb @ 0x14026B074
  * Callers:
- *     CcDereferenceFileOffset @ 0x14026A4D4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x14026A6A0 (CcReferenceFileOffset.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026A9AC (CcUnmapInactiveViewsInternal.c)
+ *     CcDereferenceFileOffset @ 0x14026A5D4 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x14026A7A0 (CcReferenceFileOffset.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     CcSetVacbLargeOffset @ 0x1400224B0 (CcSetVacbLargeOffset.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C00798F4
+ * XREFs of ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C0068244
  * Callers:
- *     ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C0079950 (--_ECFlipConsumerMessage@@MEAAPEAXI@Z.c)
+ *     ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C00682A0 (--_ECFlipConsumerMessage@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C007EC7C (--1CFlipPropertySetBase@@MEAA@XZ.c)
+ *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C006BE4C (--1CFlipPropertySetBase@@MEAA@XZ.c)
  */
 
 void __fastcall CFlipConsumerMessage::~CFlipConsumerMessage(CFlipConsumerMessage *this)

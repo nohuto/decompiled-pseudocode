@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCompareOctetStringOperands @ 0x14064AD1C
+ * XREFs of AuthzBasepCompareOctetStringOperands @ 0x1405C1C44
  * Callers:
- *     AuthzBasepValueInSet @ 0x140218D80 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x140219B90 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024F320 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 __int64 __fastcall AuthzBasepCompareOctetStringOperands(unsigned __int8 a1, __int64 a2)

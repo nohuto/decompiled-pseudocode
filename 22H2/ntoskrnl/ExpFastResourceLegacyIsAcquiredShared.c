@@ -1,31 +1,27 @@
 /*
- * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x14060A5F8
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x1405B48B0
  * Callers:
- *     ExIsResourceAcquiredSharedLite @ 0x1402A06D0 (ExIsResourceAcquiredSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA294 (ExpFindFastOwnerEntryForThread.c)
- *     ExpFastResourceLegacyIsAcquiredShared2 @ 0x1404150B8 (ExpFastResourceLegacyIsAcquiredShared2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x14038EFC0 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
+__int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1)
 {
-  unsigned int v3; // ebx
+  unsigned int v1; // ebx
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  int v6; // eax
   __int64 *FastOwnerEntryForThread; // rax
-  __int64 v8; // r11
-  __int64 *v9; // rcx
-  __int64 *v10; // rax
-  unsigned __int8 v11; // al
+  __int64 v5; // r11
+  __int64 *v6; // rcx
+  __int64 *v7; // rax
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v13; // r9
-  int v14; // edx
-  bool v15; // zf
+  _DWORD *v10; // r9
+  int v11; // edx
+  bool v12; // zf
 
-  if ( FeatureFastResource2 )
-    return ExpFastResourceLegacyIsAcquiredShared2(a1, a2);
   if ( *(_DWORD *)(a1 + 64) )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -33,39 +29,39 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v6 = 4;
-      if ( CurrentIrql != 2 )
-        v6 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v6;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread((__int64)KeGetCurrentThread(), a1, 0, 0);
     if ( FastOwnerEntryForThread )
     {
-      v9 = FastOwnerEntryForThread + 5;
-      v3 = 1;
-      v10 = (__int64 *)FastOwnerEntryForThread[5];
-      while ( v10 != v9 )
+      v6 = FastOwnerEntryForThread + 5;
+      v1 = 1;
+      v7 = (__int64 *)FastOwnerEntryForThread[5];
+      while ( v7 != v6 )
       {
-        v10 = (__int64 *)*v10;
-        ++v3;
+        v7 = (__int64 *)*v7;
+        ++v1;
       }
     }
     else
     {
-      v3 = 0;
+      v1 = 0;
     }
     if ( KiIrqlFlags )
     {
-      v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v13 = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(v8 << (CurrentIrql + 1));
-        v15 = (v14 & v13[5]) == 0;
-        v13[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v8 = KeGetCurrentIrql();
+        if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v10 = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(v5 << (CurrentIrql + 1));
+          v12 = (v11 & v10[5]) == 0;
+          v10[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
@@ -74,5 +70,5 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
   {
     return 0;
   }
-  return v3;
+  return v1;
 }

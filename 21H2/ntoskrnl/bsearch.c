@@ -1,17 +1,14 @@
 /*
- * XREFs of bsearch @ 0x1403E1840
+ * XREFs of bsearch @ 0x1403D2480
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x140372644 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1403C68CC (DownLevelLanguageNameToLangID.c)
- *     RtlCompareExchangePropertyStore @ 0x1405E7300 (RtlCompareExchangePropertyStore.c)
- *     RtlQueryPropertyStore @ 0x1405E7780 (RtlQueryPropertyStore.c)
- *     RtlRemovePropertyStore @ 0x1405E79C0 (RtlRemovePropertyStore.c)
- *     DownLevelGetParentLanguageName @ 0x140646E04 (DownLevelGetParentLanguageName.c)
- *     EtwpIsGuidAllowed @ 0x140797B54 (EtwpIsGuidAllowed.c)
- *     sub_14082DD70 @ 0x14082DD70 (sub_14082DD70.c)
+ *     DownLevelLangIDToLanguageName @ 0x1402A99BC (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x1403ACCF4 (DownLevelLanguageNameToLangID.c)
+ *     DownLevelGetParentLanguageName @ 0x1405BE228 (DownLevelGetParentLanguageName.c)
+ *     EtwpIsGuidAllowed @ 0x140644770 (EtwpIsGuidAllowed.c)
+ *     sub_1407AB504 @ 0x1407AB504 (sub_1407AB504.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall @ 0x140408560 (_guard_check_icall.c)
  */
 
 void *__cdecl bsearch(

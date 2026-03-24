@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnEvent@CBasePTPEngine@@UEAAJPEAUPTPEngineEvent@@@Z @ 0x1C02019F0
+ * XREFs of ?OnEvent@CBasePTPEngine@@UEAAJPEAUPTPEngineEvent@@@Z @ 0x1C01C63B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBasePTPEngine::OnEvent(CBasePTPEngine *this, struct PTPEngineEvent *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of x86BiosInitializeBiosEx @ 0x1403D0428
+ * XREFs of x86BiosInitializeBiosEx @ 0x1403C4D50
  * Callers:
- *     HalInitializeBios @ 0x1403D0150 (HalInitializeBios.c)
+ *     HalInitializeBios @ 0x1403C4AB0 (HalInitializeBios.c)
  * Callees:
- *     XmInitializeEmulator @ 0x1403D04EC (XmInitializeEmulator.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     XmInitializeEmulator @ 0x1403C4E1C (XmInitializeEmulator.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char __fastcall x86BiosInitializeBiosEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -19,7 +19,7 @@ char __fastcall x86BiosInitializeBiosEx(__int64 a1, __int64 a2, __int64 a3, __in
   x86BiosInitialized = 1;
   x86BiosTransferMemory = a4;
   x86BiosTransferLength = 0x2000;
-  if ( qword_140C01C80 )
+  if ( qword_140C00630 )
   {
     if ( !XmPciBiosPresent )
     {

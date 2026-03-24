@@ -1,7 +1,7 @@
 /*
- * XREFs of _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C013FF04
+ * XREFs of _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C016C2F4
  * Callers:
- *     GreGetRandomRgn @ 0x1C0131360 (GreGetRandomRgn.c)
+ *     GreGetRandomRgn @ 0x1C0042B10 (GreGetRandomRgn.c)
  * Callees:
  *     <none>
  */

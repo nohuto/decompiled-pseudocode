@@ -1,23 +1,23 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x140A0EB90
+ * XREFs of WbGetWowTrapFrame @ 0x140963ADC
  * Callers:
- *     WbGetTrapFrame @ 0x1407E3868 (WbGetTrapFrame.c)
+ *     WbGetTrapFrame @ 0x14064D2E0 (WbGetTrapFrame.c)
  * Callees:
- *     PspWow64GetContextThread @ 0x140704EF8 (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
  */
 
 __int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
 {
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v4; // rax
   __int16 v5; // si
   int v6; // eax
   int v7; // r8d
   int ContextThread; // edx
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !Process[1].Affinity.StaticBitmap[30] )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( !v4 )
     return (unsigned int)-1073741637;
-  v5 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+  v5 = *(_WORD *)(v4 + 8);
   if ( !v5 )
     return (unsigned int)-1073741637;
   if ( v5 == 332 )

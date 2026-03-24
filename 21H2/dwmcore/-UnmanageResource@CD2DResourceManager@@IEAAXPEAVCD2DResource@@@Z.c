@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18006AB4C
+ * XREFs of ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003A298
  * Callers:
- *     ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x180023E88 (-MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ.c)
- *     ??1CD2DResource@@MEAA@XZ @ 0x18006A7A4 (--1CD2DResource@@MEAA@XZ.c)
- *     ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18028D120 (-MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ.c)
+ *     ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x18002AA8C (-MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ.c)
+ *     ??1CD2DResource@@MEAA@XZ @ 0x180039EF8 (--1CD2DResource@@MEAA@XZ.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18024CBDC (-MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ.c)
  * Callees:
- *     ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x1802792E8 (-RemoveHwProtectedResource@CD2DContext@@IEAAXXZ.c)
+ *     ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023CFD8 (-RemoveHwProtectedResource@CD2DContext@@IEAAXXZ.c)
  */
 
 void __fastcall CD2DResourceManager::UnmanageResource(CD2DContext **this, struct CD2DResource *a2)

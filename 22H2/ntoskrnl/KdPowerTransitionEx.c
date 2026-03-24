@@ -1,50 +1,47 @@
 /*
- * XREFs of KdPowerTransitionEx @ 0x1403AD360
+ * XREFs of KdPowerTransitionEx @ 0x140510F00
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     PpmExitCoordinatedIdle @ 0x1402C6CA0 (PpmExitCoordinatedIdle.c)
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
- *     KdDisableDebuggerWithLock @ 0x1405675C8 (KdDisableDebuggerWithLock.c)
- *     KdEnableDebuggerWithLock @ 0x14056781C (KdEnableDebuggerWithLock.c)
- *     KdPowerTransition @ 0x140567A50 (KdPowerTransition.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140599BD0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     PpmExitCoordinatedIdle @ 0x140223FC0 (PpmExitCoordinatedIdle.c)
+ *     KdDisableDebuggerWithLock @ 0x1403CF338 (KdDisableDebuggerWithLock.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
+ *     KdEnableDebuggerWithLock @ 0x140510CBC (KdEnableDebuggerWithLock.c)
+ *     KdPowerTransition @ 0x140510EE0 (KdPowerTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140579180 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     PpmCancelExitLatencyTrace @ 0x1403AD4A8 (PpmCancelExitLatencyTrace.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PpmCancelExitLatencyTrace @ 0x140565620 (PpmCancelExitLatencyTrace.c)
  */
 
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
 {
-  unsigned int v3; // esi
+  unsigned int v3; // edi
   int v4; // ebx
-  unsigned __int8 CurrentIrql; // di
-  int v6; // esi
-  int v7; // ebx
-  int v8; // ebx
-  int v9; // ebx
-  __int64 v11; // rcx
-  unsigned __int8 v12; // bl
+  unsigned __int8 CurrentIrql; // si
+  unsigned int v6; // edi
+  unsigned int v7; // ebx
   _DWORD *SchedulerAssist; // r9
-  __int64 v14; // rdx
-  unsigned __int8 v15; // al
+  __int64 v9; // rcx
+  unsigned __int8 v10; // bl
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
+  _DWORD *v13; // r8
+  int v14; // eax
+  bool v15; // zf
 
   v3 = 0;
   if ( !KdPitchDebugger )
   {
-    v4 = a1 ^ a1 & 0x40000000;
+    v4 = a1 & 0x40000000 ^ a1;
     if ( (_BYTE)KdDebuggerEnabled || (a1 & 0x40000000) != 0 )
     {
       CurrentIrql = -1;
-      v6 = v4 & (((v4 >> 31) & 0x60000000) + 0x20000000);
-      v7 = v6 ^ v4;
+      v6 = v4 & 0x80000000;
+      v7 = v4 & 0x80000000 ^ v4;
       if ( KdTransportMaxPacketSize != 1152 )
         v6 = 0;
       if ( a2 )
@@ -58,55 +55,53 @@ __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
             if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-              if ( CurrentIrql == 2 )
-                LODWORD(v14) = 4;
-              else
-                v14 = (-1LL << (CurrentIrql + 1)) & 4;
-              SchedulerAssist[5] |= v14;
+              SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
             }
           }
         }
         KxAcquireSpinLock(&KdDebuggerLock);
       }
-      v8 = v7 - 1;
-      if ( v8 )
+      if ( v7 == 1 )
       {
-        v9 = v8 - 1;
-        if ( v9 && (unsigned int)(v9 - 1) > 1 )
-          v3 = -1073741811;
-        else
-          v3 = KdPower(v6 | 4u, &KdpContext);
+        PpmCancelExitLatencyTrace(KeGetCurrentPrcb());
+        v10 = ObGetCurrentIrql();
+        if ( v10 >= 2u )
+        {
+          LOBYTE(v9) = 1;
+          ((void (__fastcall *)(__int64, _QWORD))off_140C00738[0])(v9, 0LL);
+        }
+        v3 = KdPower(v6 | 1, &KdpContext);
+        if ( v10 >= 2u )
+          ((void (__fastcall *)(_QWORD, _QWORD))off_140C00738[0])(0LL, 0LL);
+      }
+      else if ( v7 - 2 > 2 )
+      {
+        v3 = -1073741811;
       }
       else
       {
-        PpmCancelExitLatencyTrace(KeGetCurrentPrcb());
-        v12 = ObGetCurrentIrql();
-        if ( v12 >= 2u )
-        {
-          LOBYTE(v11) = 1;
-          ((void (__fastcall *)(__int64, _QWORD))off_140C01B48)(v11, 0LL);
-        }
-        v3 = KdPower(v6 | 1u, &KdpContext);
-        if ( v12 >= 2u )
-          ((void (__fastcall *)(_QWORD, _QWORD))off_140C01B48)(0LL, 0LL);
+        v3 = KdPower(v6 | 4, &KdpContext);
       }
       if ( a2 )
       {
-        KxReleaseSpinLock((volatile signed __int64 *)&KdDebuggerLock);
+        KxReleaseSpinLock(&KdDebuggerLock);
         if ( CurrentIrql != 0xFF )
         {
           if ( KiIrqlFlags )
           {
-            v15 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              CurrentPrcb = KeGetCurrentPrcb();
-              v17 = CurrentPrcb->SchedulerAssist;
-              v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v19 = (v18 & v17[5]) == 0;
-              v17[5] &= v18;
-              if ( v19 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              v11 = KeGetCurrentIrql();
+              if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                v13 = CurrentPrcb->SchedulerAssist;
+                v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                v15 = (v14 & v13[5]) == 0;
+                v13[5] &= v14;
+                if ( v15 )
+                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              }
             }
           }
           __writecr8(CurrentIrql);

@@ -1,18 +1,19 @@
 /*
- * XREFs of MiMapContiguousMemoryLarge @ 0x1403C6E24
+ * XREFs of MiMapContiguousMemoryLarge @ 0x1403B8854
  * Callers:
- *     MiMapContiguousMemory @ 0x14021538C (MiMapContiguousMemory.c)
+ *     MiMapContiguousMemory @ 0x140295824 (MiMapContiguousMemory.c)
  * Callees:
- *     MiDereferenceIoPages @ 0x140215AA8 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140215E54 (MiReferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x1402166A4 (MiIoSpaceIsConstant.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiMapWithLargePages @ 0x1403C7090 (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x1403C736C (MiGetPageTablesForLargeMap.c)
- *     MiAssignInitialPageAttribute @ 0x1403D240C (MiAssignInitialPageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
+ *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x140295E20 (MiIoSpaceIsConstant.c)
+ *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiMapWithLargePages @ 0x1403B8AEC (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x1403B8DC4 (MiGetPageTablesForLargeMap.c)
+ *     MiAssignInitialPageAttribute @ 0x1403C6BC0 (MiAssignInitialPageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMapContiguousMemoryLarge(
@@ -22,42 +23,47 @@ __int64 __fastcall MiMapContiguousMemoryLarge(
         int a4,
         _DWORD *a5)
 {
-  __int64 *BugCheckParameter4; // r11
-  _QWORD *v8; // r14
+  _DWORD *v5; // r13
+  __int64 PageTablesForLargeMap; // r15
+  _QWORD *v7; // r11
   unsigned int v9; // esi
-  unsigned __int64 v10; // r10
-  ULONG_PTR v11; // rdx
-  int v12; // ebp
-  ULONG_PTR v13; // r12
-  ULONG_PTR v14; // r13
-  ULONG_PTR v15; // r8
-  bool v16; // zf
+  unsigned __int64 v11; // r10
+  ULONG_PTR v12; // rcx
+  __int64 v13; // r12
+  __int64 v14; // rdx
+  ULONG_PTR v15; // r14
+  int v16; // ebp
+  unsigned __int8 *v17; // r13
+  ULONG_PTR v18; // r8
   unsigned __int8 CurrentIrql; // r15
-  int v18; // r15d
-  unsigned int v19; // edx
-  int v20; // r12d
-  __int64 PageTablesForLargeMap; // rsi
+  __int64 v20; // rdx
   unsigned int AnyMultiplexedVm; // eax
-  unsigned __int8 v24; // cl
+  unsigned __int8 v23; // cl
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v26; // al
+  unsigned __int8 v25; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v28; // r9
-  int v29; // eax
-  ULONG_PTR v30; // [rsp+48h] [rbp-50h]
-  int v31; // [rsp+A0h] [rbp+8h] BYREF
-  int v32; // [rsp+A8h] [rbp+10h]
-  unsigned int v33; // [rsp+B0h] [rbp+18h]
-  int v34; // [rsp+B8h] [rbp+20h]
+  _DWORD *v27; // r9
+  int v28; // eax
+  bool v29; // zf
+  _QWORD *v30; // [rsp+40h] [rbp-68h]
+  __int64 v31; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v32; // [rsp+50h] [rbp-58h]
+  int v33; // [rsp+B0h] [rbp+8h] BYREF
+  __int64 v34; // [rsp+B8h] [rbp+10h]
+  unsigned int v35; // [rsp+C0h] [rbp+18h]
+  int v36; // [rsp+C8h] [rbp+20h]
 
-  v34 = a4;
-  v33 = a3;
-  BugCheckParameter4 = 0LL;
-  v32 = 0;
-  v8 = 0LL;
+  v36 = a4;
+  v35 = a3;
+  v5 = a5;
+  PageTablesForLargeMap = 0LL;
+  v7 = 0LL;
+  v34 = 0LL;
+  v31 = 0LL;
   *a5 = 0;
   v9 = 1;
-  v10 = 2LL;
+  v30 = 0LL;
+  v11 = 2LL;
   if ( a3 >> 3 == 1 )
   {
     v9 = 0;
@@ -66,143 +72,137 @@ __int64 __fastcall MiMapContiguousMemoryLarge(
   {
     v9 = 2;
   }
-  if ( BugCheckParameter2 <= qword_140C50840
-    && _bittest64((const signed __int64 *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL), 0x36u) )
+  if ( BugCheckParameter2 > 0xFFFFFFFFFLL )
   {
-    v11 = 48 * BugCheckParameter2 - 0x220000000000LL;
-    v31 = 1;
+    LODWORD(v13) = 0;
   }
   else
   {
-    v31 = 0;
-    v11 = 0LL;
-  }
-  v30 = v11;
-  v12 = 3;
-  v13 = 0LL;
-  if ( a2 )
-  {
-    v14 = v11 + 34;
-    while ( 1 )
+    v12 = 6 * BugCheckParameter2;
+    v13 = (*(_QWORD *)(8 * v12 - 0x57FFFFFFFD8LL) >> 50) & 1LL;
+    if ( ((*(_QWORD *)(8 * v12 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
     {
-      v15 = v13 + BugCheckParameter2;
-      if ( v13 + BugCheckParameter2 <= qword_140C50840
-        && (*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
-      {
-        if ( ((unsigned __int8)a4 & (unsigned __int8)v10) != 0
-          && ((*(_BYTE *)v14 & 7) != 5 || !_bittest64((const signed __int64 *)(v14 + 6), 0x35u)) )
-        {
-          KeBugCheckEx(0x1Au, 0x1160CuLL, v15, 0LL, (ULONG_PTR)BugCheckParameter4);
-        }
-        if ( !v11 )
-          break;
-        v24 = *(_BYTE *)v14;
-        if ( (*(_BYTE *)v14 & 0xC0) == 0xC0 )
-        {
-          MiAssignInitialPageAttribute(v14 - 34, v9);
-          v24 = *(_BYTE *)v14;
-          BugCheckParameter4 = 0LL;
-          v10 = 2LL;
-        }
-        if ( v24 >> 6 != v9 )
-          break;
-        v12 = v9;
-      }
-      else
-      {
-        if ( v11 )
-          break;
-        if ( !v13 )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          __writecr8(v10);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-          {
-            SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-            SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
-          }
-          v8 = MiIoSpaceIsConstant(BugCheckParameter2, a2);
-          if ( KiIrqlFlags )
-          {
-            if ( (KiIrqlFlags & 1) != 0 )
-            {
-              v26 = KeGetCurrentIrql();
-              if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= (unsigned __int8)v10 )
-              {
-                CurrentPrcb = KeGetCurrentPrcb();
-                v28 = CurrentPrcb->SchedulerAssist;
-                v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v16 = (v29 & v28[5]) == 0;
-                v28[5] &= v29;
-                if ( v16 )
-                {
-                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-                  BugCheckParameter4 = 0LL;
-                }
-                v10 = 2LL;
-              }
-            }
-          }
-          __writecr8(CurrentIrql);
-          if ( v8 )
-          {
-            if ( BugCheckParameter2 >= v8[3] && BugCheckParameter2 + a2 - 1 <= v8[4] )
-            {
-              v12 = *((_DWORD *)v8 + 10);
-              goto LABEL_19;
-            }
-          }
-        }
-      }
-      ++v13;
-      v14 += 48LL;
-      v16 = v13 == a2;
-      if ( v13 >= a2 )
-        goto LABEL_18;
-      v11 = v30;
-      LOBYTE(a4) = v34;
+      v14 = 8 * v12 - 0x58000000000LL;
+      goto LABEL_6;
     }
   }
-  v16 = v13 == a2;
+  v14 = 0LL;
+LABEL_6:
+  v15 = 0LL;
+  v32 = v14;
+  v16 = 3;
+  if ( !a2 )
+    goto LABEL_19;
+  v17 = (unsigned __int8 *)(v14 + 34);
+  while ( 1 )
+  {
+    v18 = v15 + BugCheckParameter2;
+    if ( v15 + BugCheckParameter2 > 0xFFFFFFFFFLL || (*(_QWORD *)(48 * v18 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) == 0 )
+      break;
+    if ( ((unsigned __int8)a4 & (unsigned __int8)v11) != 0 && ((*v17 & 7) != 5 || !MiIsPfnFileOnly((__int64)(v17 - 34))) )
+      KeBugCheckEx(0x1Au, 0x1160CuLL, v18, 0LL, 0LL);
+    if ( !v14 )
+      goto LABEL_18;
+    v23 = *v17;
+    if ( (*v17 & 0xC0) == 0xC0 )
+    {
+      MiAssignInitialPageAttribute(v17 - 34, v9);
+      v23 = *v17;
+      v11 = 2LL;
+      v7 = v30;
+    }
+    if ( v23 >> 6 != v9 )
+      goto LABEL_18;
+    v16 = v9;
+LABEL_12:
+    ++v15;
+    v17 += 48;
+    if ( v15 >= a2 )
+      goto LABEL_18;
+    v14 = v32;
+    LOBYTE(a4) = v36;
+  }
+  if ( v14 )
+    goto LABEL_18;
+  if ( v15 )
+    goto LABEL_12;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(v11);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+  }
+  v7 = MiIoSpaceIsConstant(BugCheckParameter2, a2);
+  v30 = v7;
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v25 = KeGetCurrentIrql();
+      if ( v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= (unsigned __int8)v11 )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v27 = CurrentPrcb->SchedulerAssist;
+        v28 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v29 = (v28 & v27[5]) == 0;
+        v27[5] &= v28;
+        if ( v29 )
+        {
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v7 = v30;
+        }
+        v11 = 2LL;
+      }
+    }
+  }
+  __writecr8(CurrentIrql);
+  if ( !v7 )
+    goto LABEL_12;
+  v16 = *((_DWORD *)v7 + 10);
+  v15 = a2;
 LABEL_18:
-  if ( !v16 )
-    return 0LL;
+  PageTablesForLargeMap = v34;
+  v5 = a5;
 LABEL_19:
-  v18 = v31;
-  if ( v31 || v8 )
+  if ( v15 == a2 )
   {
-    v20 = v32;
-    goto LABEL_27;
-  }
-  v31 = (int)BugCheckParameter4;
-  if ( (int)MiReferenceIoPages(1, BugCheckParameter2, a2, v9, &v31, BugCheckParameter4) < 0 )
-    return 0LL;
-  v19 = v31;
-  if ( ((v31 - 1) & v31) != 0 )
-  {
-    MiDereferenceIoPages(1, BugCheckParameter2, a2);
-    return 0LL;
-  }
-  v12 = 0;
-  while ( (v19 & 1) == 0 )
-  {
-    ++v12;
-    v19 >>= 1;
-  }
-  v20 = 1;
-LABEL_27:
-  MiSearchNumaNodeTable(BugCheckParameter2);
-  PageTablesForLargeMap = MiGetPageTablesForLargeMap(a2, 9LL, 1LL);
-  if ( PageTablesForLargeMap )
-  {
-    AnyMultiplexedVm = (unsigned int)MiGetAnyMultiplexedVm(3);
-    MiMapWithLargePages(AnyMultiplexedVm, PageTablesForLargeMap, BugCheckParameter2, a2, 1, v33, v12);
-    if ( v20 )
-      *a5 |= 1u;
-  }
-  else if ( !v18 && !v8 )
-  {
-    MiDereferenceIoPages(1, BugCheckParameter2, a2);
+    if ( (_DWORD)v13 || v7 )
+    {
+LABEL_25:
+      MiSearchNumaNodeTable(BugCheckParameter2);
+      PageTablesForLargeMap = MiGetPageTablesForLargeMap(a2, 9LL, 1LL);
+      if ( PageTablesForLargeMap )
+      {
+        AnyMultiplexedVm = (unsigned int)MiGetAnyMultiplexedVm(3);
+        MiMapWithLargePages(AnyMultiplexedVm, PageTablesForLargeMap, BugCheckParameter2, a2, 1, v35, v16);
+        if ( v31 )
+          *v5 |= 1u;
+      }
+      else if ( !(_DWORD)v13 && !v30 )
+      {
+        v20 = BugCheckParameter2;
+        goto LABEL_58;
+      }
+    }
+    else
+    {
+      v33 = 0;
+      if ( (int)MiReferenceIoPages(1u, BugCheckParameter2, a2, v9, &v33, &v31) >= 0 )
+      {
+        v20 = BugCheckParameter2;
+        if ( ((v33 - 1) & v33) == 0 )
+        {
+          v16 = *(unsigned __int16 *)(*(_QWORD *)(v31 + 48)
+                                    + 2 * ((BugCheckParameter2 & 0xFFFFFFFFFLL) - *(_QWORD *)(v31 + 40))) >> 14;
+          LOWORD(a5) = *(_WORD *)(*(_QWORD *)(v31 + 48)
+                                + 2 * ((BugCheckParameter2 & 0xFFFFFFFFFLL) - *(_QWORD *)(v31 + 40)));
+          goto LABEL_25;
+        }
+LABEL_58:
+        MiDereferenceIoPages(1, v20, a2);
+      }
+    }
   }
   return PageTablesForLargeMap;
 }

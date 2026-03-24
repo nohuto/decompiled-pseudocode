@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckAcquireProcessorPerformance @ 0x140350950
+ * XREFs of PpmCheckAcquireProcessorPerformance @ 0x140303540
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x140355EBC (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x140306DDC (PpmPerfControlExecuteAction.c)
  */
 
 char PpmCheckAcquireProcessorPerformance()
@@ -20,7 +20,7 @@ char PpmCheckAcquireProcessorPerformance()
     goto LABEL_6;
   do
   {
-    v3 = *(_BYTE *)(v0 + 1062) == 0;
+    v3 = *(_BYTE *)(v0 + 766) == 0;
     v0 = *(_QWORD *)v0;
     if ( !v3 )
       v1 = 1;

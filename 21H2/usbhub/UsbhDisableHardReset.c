@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhDisableHardReset @ 0x1C003C718
+ * XREFs of UsbhDisableHardReset @ 0x1C003D8F8
  * Callers:
- *     UsbhBusPnpStop @ 0x1C0036520 (UsbhBusPnpStop.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     UsbhFdoPnp_QueryStop @ 0x1C00426A0 (UsbhFdoPnp_QueryStop.c)
- *     Usbh_FDO_WaitPnpStop @ 0x1C0043FE0 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhBusPnpStop @ 0x1C0037840 (UsbhBusPnpStop.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     UsbhFdoPnp_QueryStop @ 0x1C0043950 (UsbhFdoPnp_QueryStop.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0045290 (Usbh_FDO_WaitPnpStop.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
  */
 
 __int64 __fastcall UsbhDisableHardReset(__int64 a1)

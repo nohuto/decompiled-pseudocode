@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwSyscallFilterMessage @ 0x1C0178720
+ * XREFs of EtwSyscallFilterMessage @ 0x1C014C420
  * Callers:
- *     NtUserWin32kSysCallFilterStub @ 0x1C0164A30 (NtUserWin32kSysCallFilterStub.c)
+ *     NtUserWin32kSysCallFilterStub @ 0x1C0136E40 (NtUserWin32kSysCallFilterStub.c)
  * Callees:
- *     McTemplateK0szzq_EtwWriteTransfer @ 0x1C0178F6C (McTemplateK0szzq_EtwWriteTransfer.c)
+ *     McTemplateK0szzq_EtwWriteTransfer @ 0x1C014CC5C (McTemplateK0szzq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwSyscallFilterMessage(int a1, __int64 a2, __int64 a3, char a4)

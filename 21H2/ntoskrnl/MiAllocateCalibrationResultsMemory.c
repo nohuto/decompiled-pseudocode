@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateCalibrationResultsMemory @ 0x1403D4274
+ * XREFs of MiAllocateCalibrationResultsMemory @ 0x1403B0180
  * Callers:
- *     MiZeroPageCalibrate @ 0x1403D3EE0 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall MiAllocateCalibrationResultsMemory(__int64 a1)

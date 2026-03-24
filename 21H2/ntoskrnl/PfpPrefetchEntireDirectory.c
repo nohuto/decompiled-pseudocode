@@ -1,72 +1,61 @@
 /*
- * XREFs of PfpPrefetchEntireDirectory @ 0x1407DE480
+ * XREFs of PfpPrefetchEntireDirectory @ 0x1406C846C
  * Callers:
- *     PfSnPrefetchMetadata @ 0x1407DE1A8 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x1406C8184 (PfSnPrefetchMetadata.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
- *     PfpOpenHandleCreate @ 0x1407DFC68 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1407DFFD8 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x1406C94F8 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
+ *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
  */
 
-__int64 __fastcall PfpPrefetchEntireDirectory(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 PfpPrefetchEntireDirectory(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, __int64 a5, ...)
 {
-  __int64 v9; // r9
-  __int64 v10; // r8
-  int v11; // eax
-  __int64 v12; // rsi
-  NTSTATUS v13; // edi
-  _QWORD *v14; // rdi
+  __int64 v8; // r9
+  __int64 v9; // r8
+  int v10; // eax
+  __int64 v11; // rsi
+  int v12; // edi
+  PADAPTER_OBJECT v13; // rdi
   size_t Size; // [rsp+40h] [rbp-31h]
-  int Length; // [rsp+50h] [rbp-21h]
-  char v18; // [rsp+58h] [rbp-19h]
-  __int64 v19; // [rsp+68h] [rbp-9h] BYREF
-  __int64 v20[2]; // [rsp+70h] [rbp-1h] BYREF
-  int v21[2]; // [rsp+80h] [rbp+Fh] BYREF
-  PVOID Object[2]; // [rsp+88h] [rbp+17h]
-  __int64 v23; // [rsp+98h] [rbp+27h]
+  SIZE_T Length; // [rsp+50h] [rbp-21h]
+  __int64 v17; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v18[2]; // [rsp+70h] [rbp-1h] BYREF
+  int v19[2]; // [rsp+80h] [rbp+Fh] BYREF
+  PADAPTER_OBJECT DmaAdapter[2]; // [rsp+88h] [rbp+17h]
+  __int64 v21; // [rsp+98h] [rbp+27h]
+  va_list va; // [rsp+F0h] [rbp+7Fh] BYREF
 
-  v19 = 0LL;
-  v9 = *(_QWORD *)(a5 + 8);
-  v10 = *(_QWORD *)(a5 + 16);
-  *(_QWORD *)v21 = 0LL;
-  v23 = 0x200000000LL;
-  *(_OWORD *)v20 = 0LL;
-  *(_OWORD *)Object = 0LL;
-  v11 = PfpOpenHandleCreate((unsigned int)v21, a1, v10, v9, 1048577, 16417, 0, a2);
-  v12 = v23;
-  v13 = v11;
-  if ( v11 >= 0 )
+  va_start(va, a5);
+  v17 = 0LL;
+  v8 = *(_QWORD *)(a5 + 8);
+  v9 = *(_QWORD *)(a5 + 16);
+  *(_QWORD *)v19 = 0LL;
+  v21 = 0x200000000LL;
+  *(_OWORD *)v18 = 0LL;
+  *(_OWORD *)DmaAdapter = 0LL;
+  v10 = PfpOpenHandleCreate((unsigned int)v19, a1, v9, v8, 1048577, 16417, 0, a2);
+  v11 = v21;
+  v12 = v10;
+  if ( v10 >= 0 )
   {
     if ( a4 )
     {
-      v14 = Object[0];
-      if ( (int)IopQueryXxxInformation((struct _FILE_OBJECT *)Object[0], 6, 8u, 0, (struct _IRP *)&v19, &a6, 1) >= 0 )
+      v13 = DmaAdapter[0];
+      if ( (int)IopQueryXxxInformation(DmaAdapter[0], (__int64)&v17, (__int64)va, 1) >= 0 )
       {
-        *(_QWORD *)(a4 + 12) = v19;
-        *(_QWORD *)a4 = v14[3];
-        *(_DWORD *)(a4 + 8) = v12;
+        *(_QWORD *)(a4 + 12) = v17;
+        *(_QWORD *)a4 = v13[1].DmaOperations;
+        *(_DWORD *)(a4 + 8) = v11;
       }
     }
-    v18 = 0;
-    Length = 0;
-    LODWORD(Size) = 8 * *(_DWORD *)(a3 + 4) + 16;
-    v13 = IopXxxControlFile(
-            *(void **)v21,
-            0LL,
-            0LL,
-            0LL,
-            (unsigned __int64)v20,
-            590112,
-            (char *)a3,
-            Size,
-            0LL,
-            Length,
-            v18);
-    if ( v13 >= 0 )
-      v13 = 0;
+    LODWORD(Length) = 0;
+    LODWORD(Size) = 8 * a3[1] + 16;
+    v12 = IopXxxControlFile(v19[0], (__int64)v18, 590112, a3, Size, 0LL, Length, 0);
+    if ( v12 >= 0 )
+      v12 = 0;
   }
-  if ( (v12 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose(v21, a1);
-  return (unsigned int)v13;
+  if ( (v11 & 0x400000000LL) != 0 )
+    PfpOpenHandleClose(v19, a1);
+  return (unsigned int)v12;
 }

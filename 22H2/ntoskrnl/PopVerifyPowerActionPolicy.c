@@ -1,32 +1,33 @@
 /*
- * XREFs of PopVerifyPowerActionPolicy @ 0x1408256D8
+ * XREFs of PopVerifyPowerActionPolicy @ 0x14078B6CC
  * Callers:
- *     PopVerifySystemPowerPolicy @ 0x140825404 (PopVerifySystemPowerPolicy.c)
- *     PopExecutePowerAction @ 0x1409898A4 (PopExecutePowerAction.c)
- *     PdcPoVerifyActionPolicy @ 0x140997C80 (PdcPoVerifyActionPolicy.c)
+ *     PopExecutePowerAction @ 0x140775C28 (PopExecutePowerAction.c)
+ *     PopVerifySystemPowerPolicy @ 0x14079CEF4 (PopVerifySystemPowerPolicy.c)
+ *     PdcPoVerifyActionPolicy @ 0x1408EFBA0 (PdcPoVerifyActionPolicy.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
- *     PopIsHibernateSupported @ 0x140873AD4 (PopIsHibernateSupported.c)
- *     PopIsHiberbootSupported @ 0x140980BF0 (PopIsHiberbootSupported.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopIsHibernateSupported @ 0x1406F4158 (PopIsHibernateSupported.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
+ *     PopIsHiberbootSupported @ 0x14077A0FC (PopIsHiberbootSupported.c)
  */
 
 char __fastcall PopVerifyPowerActionPolicy(int *a1)
 {
   char v2; // di
   int v3; // eax
-  char IsHiberbootSupported; // al
+  bool IsHiberbootSupported; // al
   int v5; // r9d
   int v6; // r10d
-  int v7; // r11d
-  int v8; // ecx
-  int v9; // edx
+  int v7; // r8d
+  int v8; // esi
+  int v9; // ecx
   int v10; // edx
   int v11; // edx
-  _BYTE v13[80]; // [rsp+20h] [rbp-58h] BYREF
+  int v12; // edx
+  _BYTE v14[80]; // [rsp+20h] [rbp-58h] BYREF
 
   v2 = 0;
-  memset(v13, 0, 0x4CuLL);
+  memset(v14, 0, 0x4CuLL);
   if ( !a1 )
     return 0;
   v3 = a1[1];
@@ -34,75 +35,78 @@ char __fastcall PopVerifyPowerActionPolicy(int *a1)
     return 0;
   if ( v3 < 0 )
     a1[1] = v3 & 0xFFFFFFF8 | 4;
-  if ( (int)PopFilterCapabilities(&PopCapabilities, (__int64)v13) >= 0 )
+  if ( (int)PopFilterCapabilities(&PopCapabilities, (__int64)v14) >= 0 )
   {
     if ( (a1[1] & 8) != 0 )
-      IsHiberbootSupported = PopIsHiberbootSupported(v13);
+      IsHiberbootSupported = PopIsHiberbootSupported((__int64)v14);
     else
-      IsHiberbootSupported = PopIsHibernateSupported(v13);
+      IsHiberbootSupported = PopIsHibernateSupported(v14);
+    v7 = *a1;
     while ( 1 )
     {
-      v7 = *a1;
-      v8 = *a1;
-      if ( *a1 == v5 )
+      v8 = v7;
+      v9 = v7;
+      if ( v7 == v5 )
         break;
-      v9 = *a1 - v5 - v5;
-      if ( !v9 )
-        goto LABEL_19;
-      v10 = v9 - v5;
+      v10 = v7 - v5 - v5;
       if ( !v10 )
-      {
-        v8 = 3;
-        if ( IsHiberbootSupported )
-          goto LABEL_17;
-        if ( PopPromoteHibernateToShutdown )
-        {
-LABEL_22:
-          *a1 = 4;
-          v8 = 4;
-          goto LABEL_17;
-        }
-        if ( !v6 )
-          goto LABEL_33;
         goto LABEL_16;
-      }
-      v11 = v10 - 3;
-      if ( v11 )
+      v11 = v10 - v5;
+      if ( !v11 )
       {
-        if ( v11 != 2 )
-          return v2;
-        v8 = 8;
-        if ( !v13[20] )
-          goto LABEL_17;
-LABEL_16:
-        *a1 = 2;
-        v8 = 2;
-        goto LABEL_17;
+        v9 = 3;
+        if ( IsHiberbootSupported )
+          goto LABEL_14;
+        if ( !PopPromoteHibernateToShutdown )
+        {
+          if ( !v6 )
+            goto LABEL_31;
+          goto LABEL_23;
+        }
+LABEL_19:
+        *a1 = 4;
+        v9 = 4;
+        goto LABEL_14;
       }
-      v8 = 6;
-      if ( !v13[7] )
-        goto LABEL_22;
-LABEL_17:
-      if ( v7 == v8 )
+      v12 = v11 - 3;
+      if ( v12 )
+      {
+        if ( v12 != 2 )
+          goto LABEL_14;
+        v9 = 8;
+        if ( !v14[20] )
+          goto LABEL_14;
+LABEL_23:
+        *a1 = 2;
+        v9 = 2;
+        goto LABEL_14;
+      }
+      v9 = 6;
+      if ( !v14[7] )
+        goto LABEL_19;
+LABEL_14:
+      v7 = v9;
+      if ( v8 == v9 )
         return v2;
     }
     *a1 = 2;
-    v8 = 2;
-LABEL_19:
+    v7 = 2;
+LABEL_16:
+    v9 = v7;
     if ( !v6 )
     {
       if ( !IsHiberbootSupported )
       {
-LABEL_33:
+LABEL_31:
         *a1 = 0;
         v2 = v5;
-        v8 = 0;
-        goto LABEL_17;
+        v9 = 0;
+        goto LABEL_14;
       }
       *a1 = 3;
-      v8 = 3;
+      v9 = 3;
     }
-    goto LABEL_17;
+    goto LABEL_14;
   }
   return 1;
 }

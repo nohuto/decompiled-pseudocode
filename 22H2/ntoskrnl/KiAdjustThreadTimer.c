@@ -1,67 +1,100 @@
 /*
- * XREFs of KiAdjustThreadTimer @ 0x140576E68
+ * XREFs of KiAdjustThreadTimer @ 0x14051EF14
  * Callers:
- *     KeAdjustTimerDelayProcess @ 0x14056F568 (KeAdjustTimerDelayProcess.c)
+ *     KeAdjustTimerDelayProcess @ 0x14051370C (KeAdjustTimerDelayProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     KiSuspendThread @ 0x140309DEC (KiSuspendThread.c)
- *     KiResumeThread @ 0x14030ABC8 (KiResumeThread.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiResumeThread @ 0x1403428E0 (KiResumeThread.c)
+ *     KiSuspendThread @ 0x140343334 (KiSuspendThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, int a4)
+char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  volatile signed __int32 *v4; // rdi
-  char v9; // bp
-  __int64 v10; // r8
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  int v14; // [rsp+40h] [rbp+8h] BYREF
+  volatile signed __int32 *v4; // rbp
+  int v6; // r12d
+  char v9; // r14
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  char result; // al
+  struct _KPRCB *CurrentPrcb; // rdi
+  _DWORD *SchedulerAssist; // rcx
+  int v16; // eax
+  _DWORD *v17; // rcx
+  int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // r9
+  int v22; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = (volatile signed __int32 *)(a1 + 736);
+  v6 = a4;
   v9 = 0;
-  KiAcquireKobjectLockSafe((volatile signed __int32 *)(a1 + 736));
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)(a1 + 736), a2, a3, a4);
   if ( *(char *)(a1 + 644) < 1 && (*(_DWORD *)(a1 + 120) & 0x4000) == 0 )
   {
-    LOBYTE(v11) = KiSuspendThread(a1, a2, v10);
-    if ( !(_BYTE)v11 )
-      goto LABEL_21;
+    result = KiSuspendThread(a1, a2, v11, v12);
+    if ( !result )
+      goto LABEL_29;
     v9 = 1;
   }
-  v14 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+  CurrentPrcb = KeGetCurrentPrcb();
+  v22 = 0;
+  while ( 1 )
   {
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v16 = SchedulerAssist[6];
+        SchedulerAssist[6] = v16 + 1;
+        if ( v16 == -1 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+      break;
+    v17 = CurrentPrcb->SchedulerAssist;
+    if ( v17 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v18 = v17[6] - 1;
+        v17[6] = v18;
+        if ( !v18 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v14);
+      KeYieldProcessorEx(&v22, v10, v11, v12);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  LODWORD(v11) = *(_DWORD *)(a1 + 116) & 0x60000;
-  if ( (_DWORD)v11 == 393216 && (*(_BYTE *)(a1 + 257) & 1) == 0 )
+  if ( (*(_DWORD *)(a1 + 116) & 0x60000) == 0x60000 && (*(_BYTE *)(a1 + 257) & 1) == 0 )
   {
-    v12 = *(_QWORD *)(a1 + 280);
+    v19 = *(_QWORD *)(a1 + 280);
     if ( a3 >= 0 )
     {
-      if ( a3 > 0 )
-      {
-        LOBYTE(v11) = v12 - a3;
-        if ( v12 - a3 < v12 )
-          v12 -= a3;
-      }
+      if ( a3 > 0 && v19 - a3 < v19 )
+        v19 -= a3;
     }
     else
     {
-      v11 = v12 - a3;
-      v12 = 0LL;
-      if ( v11 <= 0 )
-        v12 = v11;
+      v20 = v19 - a3;
+      v19 = 0LL;
+      if ( v20 <= 0 )
+        v19 = v20;
     }
-    *(_QWORD *)(a1 + 280) = v12;
+    *(_QWORD *)(a1 + 280) = v19;
   }
-  *(_DWORD *)(a1 + 952) = a4;
-  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_DWORD *)(a1 + 952) = v6;
+  result = KiReleaseThreadLockSafe(a1);
   if ( v9 )
-    LOBYTE(v11) = KiResumeThread(a1, a2, 0LL);
-LABEL_21:
+    result = KiResumeThread(a1, a2, 0LL, v21);
+LABEL_29:
   _InterlockedAnd(v4, 0xFFFFFF7F);
-  return v11;
+  return result;
 }

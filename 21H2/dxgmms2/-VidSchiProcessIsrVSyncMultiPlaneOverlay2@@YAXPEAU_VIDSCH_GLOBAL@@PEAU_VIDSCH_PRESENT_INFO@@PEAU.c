@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidSchiProcessIsrVSyncMultiPlaneOverlay2@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@PEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0017830
+ * XREFs of ?VidSchiProcessIsrVSyncMultiPlaneOverlay2@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@PEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C002BC28
  * Callers:
- *     VidSchiProcessIsrVSync @ 0x1C000D890 (VidSchiProcessIsrVSync.c)
+ *     VidSchiProcessIsrVSync @ 0x1C000E7C0 (VidSchiProcessIsrVSync.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
 void __fastcall VidSchiProcessIsrVSyncMultiPlaneOverlay2(
@@ -12,44 +12,50 @@ void __fastcall VidSchiProcessIsrVSyncMultiPlaneOverlay2(
         struct _DXGKARGCB_NOTIFY_INTERRUPT_DATA *a3,
         struct _VIDSCH_VSYNC_COOKIE *a4)
 {
-  __int64 EngineOrdinal; // rcx
-  __int64 v8; // r9
-  DXGK_MULTIPLANE_OVERLAY_VSYNC_INFO *pMultiPlaneOverlayVsyncInfo; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // rcx
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  __int64 i; // rdx
+  DXGK_MULTIPLANE_OVERLAY_VSYNC_INFO *pMultiPlaneOverlayVsyncInfo; // r14
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  _QWORD *v13; // rax
 
-  EngineOrdinal = a3->DmaCompleted.EngineOrdinal;
-  if ( (unsigned int)EngineOrdinal > *((_DWORD *)a1 + 38) )
+  if ( a3->DmaCompleted.EngineOrdinal > *((_DWORD *)a1 + 36) )
   {
-    v11 = WdLogSingleEntry5(0LL, 281LL, 14LL, a1, EngineOrdinal, *((unsigned int *)a1 + 38));
+    v7 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v7[3] = 281LL;
+    v7[4] = 14LL;
+    v7[5] = a1;
+    v7[6] = a3->DmaCompleted.EngineOrdinal;
+    v7[7] = *((unsigned int *)a1 + 36);
+    WdLogEvent5_WdCriticalError(v7);
     __debugbreak();
-    goto LABEL_7;
   }
-  *((_QWORD *)a2 + 5511) = a3->MiracastEncodeChunkCompleted.pPrivateDriverData;
-  *((_BYTE *)a4 + 124) ^= (*((_BYTE *)a4 + 124) ^ (a3->Flags.Value >> 1)) & 1;
-  memset((char *)a4 + 128, 0, 0xA0uLL);
-  v8 = 0LL;
-  if ( a3->DmaCompleted.EngineOrdinal )
+  *((_QWORD *)a2 + 4148) = a3->MiracastEncodeChunkCompleted.pPrivateDriverData;
+  *((_BYTE *)a4 + 104) ^= (*((_BYTE *)a4 + 104) ^ (a3->Flags.Value >> 1)) & 1;
+  memset((char *)a4 + 112, 0, 0xA0uLL);
+  for ( i = 0LL;
+        (unsigned int)i < a3->DmaCompleted.EngineOrdinal;
+        *((_DWORD *)a4 + 4 * *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 2 * v11) + 30) = *((_DWORD *)&pMultiPlaneOverlayVsyncInfo->PlaneAttributes.Flags.0
+                                                                                           + 2 * v11) )
   {
-    while ( 1 )
+    pMultiPlaneOverlayVsyncInfo = a3->CrtcVsyncWithMultiPlaneOverlay.pMultiPlaneOverlayVsyncInfo;
+    v11 = 3 * i;
+    v12 = *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 6 * i);
+    if ( (unsigned int)v12 >= *((_DWORD *)a1 + 36) )
     {
-      pMultiPlaneOverlayVsyncInfo = a3->CrtcVsyncWithMultiPlaneOverlay.pMultiPlaneOverlayVsyncInfo;
-      v10 = 3 * v8;
-      v11 = *((unsigned int *)a1 + 38);
-      v12 = *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 6 * v8);
-      if ( (unsigned int)v12 >= (unsigned int)v11 )
-        break;
-      v8 = (unsigned int)(v8 + 1);
-      *((_QWORD *)a4 + 2 * v12 + 16) = *(&pMultiPlaneOverlayVsyncInfo->PhysicalAddress.QuadPart + v10);
-      *((_DWORD *)a4 + 4 * *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 2 * v10) + 34) = *((_DWORD *)&pMultiPlaneOverlayVsyncInfo->PlaneAttributes.Flags.0
-                                                                                         + 2 * v10);
-      if ( (unsigned int)v8 >= a3->DmaCompleted.EngineOrdinal )
-        return;
+      v13 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v8, i);
+      v13[3] = 281LL;
+      v13[4] = 14LL;
+      v13[5] = a1;
+      v13[6] = *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 2 * v11);
+      v13[7] = *((unsigned int *)a1 + 36);
+      WdLogEvent5_WdCriticalError(v13);
+      __debugbreak();
+      JUMPOUT(0x1C002BD64LL);
     }
-LABEL_7:
-    WdLogSingleEntry5(0LL, 281LL, 14LL, a1, v12, v11);
-    __debugbreak();
-    JUMPOUT(0x1C002A996LL);
+    i = (unsigned int)(i + 1);
+    *((_QWORD *)a4 + 2 * v12 + 14) = *(&pMultiPlaneOverlayVsyncInfo->PhysicalAddress.QuadPart + v11);
+    v8 = 2LL * *(&pMultiPlaneOverlayVsyncInfo->LayerIndex + 2 * v11);
   }
 }

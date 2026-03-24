@@ -1,11 +1,11 @@
 /*
- * XREFs of InbvGetDisplayState @ 0x14027D26C
+ * XREFs of InbvGetDisplayState @ 0x14027D36C
  * Callers:
- *     FinalizeBootLogo @ 0x14027D48C (FinalizeBootLogo.c)
- *     InbvRotateGuiBootDisplay @ 0x14027D4E0 (InbvRotateGuiBootDisplay.c)
- *     RotBarUpdate @ 0x14027D638 (RotBarUpdate.c)
+ *     FinalizeBootLogo @ 0x14027D58C (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x14027D5E0 (InbvRotateGuiBootDisplay.c)
+ *     RotBarUpdate @ 0x14027D738 (RotBarUpdate.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvGetDisplayState()

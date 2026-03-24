@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializePartition @ 0x14072AB48
+ * XREFs of MiInitializePartition @ 0x14072AB28
  * Callers:
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  *     MiCreatePfnDatabase @ 0x1409BA550 (MiCreatePfnDatabase.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     KeInitializeGate @ 0x14013A354 (KeInitializeGate.c)
- *     MiInitializePfnListHead @ 0x14017EEB4 (MiInitializePfnListHead.c)
- *     MiInitializeSlabAllocator @ 0x14017EEDC (MiInitializeSlabAllocator.c)
- *     MiInitializeCombining @ 0x14017EF14 (MiInitializeCombining.c)
- *     MiInitializeCommitment @ 0x140187CE0 (MiInitializeCommitment.c)
- *     MiInitializeSections @ 0x14072B024 (MiInitializeSections.c)
- *     MiInitializeNuma @ 0x14072B198 (MiInitializeNuma.c)
- *     MiInitializeLargePageNodeLists @ 0x14072B35C (MiInitializeLargePageNodeLists.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
+ *     MiInitializePfnListHead @ 0x14017EED4 (MiInitializePfnListHead.c)
+ *     MiInitializeSlabAllocator @ 0x14017EEFC (MiInitializeSlabAllocator.c)
+ *     MiInitializeCombining @ 0x14017EF34 (MiInitializeCombining.c)
+ *     MiInitializeCommitment @ 0x140187D00 (MiInitializeCommitment.c)
+ *     MiInitializeSections @ 0x14072B004 (MiInitializeSections.c)
+ *     MiInitializeNuma @ 0x14072B178 (MiInitializeNuma.c)
+ *     MiInitializeLargePageNodeLists @ 0x14072B33C (MiInitializeLargePageNodeLists.c)
  */
 
 __int64 __fastcall MiInitializePartition(__int64 a1, __int16 a2)

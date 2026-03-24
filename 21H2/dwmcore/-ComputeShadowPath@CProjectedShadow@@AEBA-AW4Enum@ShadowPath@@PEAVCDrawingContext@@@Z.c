@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x180232FD8
+ * XREFs of ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x18000C720
  * Callers:
- *     ?Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180233140 (-Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180009580 (-Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CanUseFastShadow@CProjectedShadow@@AEBA_NXZ @ 0x180114732 (-CanUseFastShadow@CProjectedShadow@@AEBA_NXZ.c)
- *     ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x180114836 (-GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z.c)
- *     ?IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ @ 0x180234EBC (-IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ.c)
+ *     ?IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ @ 0x180006278 (-IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ.c)
+ *     ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x18000C7E8 (-GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z.c)
+ *     ?CanUseFastShadow@CProjectedShadow@@AEBA_NXZ @ 0x18000C844 (-CanUseFastShadow@CProjectedShadow@@AEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadow::ComputeShadowPath(__int64 a1, __int64 a2)
@@ -14,25 +14,31 @@ __int64 __fastcall CProjectedShadow::ComputeShadowPath(__int64 a1, __int64 a2)
   int v4; // ebx
   float v6; // xmm1_4
   __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rcx
+  double BlurForBoundary; // xmm0_8
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  double v11; // xmm0_8
+  double v12; // xmm0_8
 
   v4 = 0;
-  if ( CProjectedShadow::CanUseFastShadow((CProjectedShadowCaster **)a1) )
+  if ( CProjectedShadow::CanUseFastShadow((CProjectedShadow *)a1) )
     return 1LL;
-  if ( (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 72) + 96LL) + 216LL))(*(_QWORD *)(*(_QWORD *)(a1 + 72) + 96LL)) != 1
+  if ( (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 64) + 88LL) + 232LL))(*(_QWORD *)(*(_QWORD *)(a1 + 64) + 88LL)) != 1
     || !CProjectedShadow::IsShadowAxisAlignedRectToReceiver((CProjectedShadow *)a1) )
   {
     return 0LL;
   }
-  v6 = *(float *)(a1 + 96);
-  if ( v6 >= CProjectedShadow::GetBlurForBoundary(a1, 3) )
+  v6 = *(float *)(a1 + 88);
+  BlurForBoundary = CProjectedShadow::GetBlurForBoundary(a1, 3LL);
+  if ( v6 >= *(float *)&BlurForBoundary )
     return 5LL;
-  v8 = *(_QWORD *)(a2 + 40);
-  if ( *(int *)(v8 + 584) < 37632 || *(_BYTE *)(v8 + 1505) )
+  v9 = *(_QWORD *)(a2 + 40);
+  if ( *(int *)(v9 + 624) < 37632 || *(_BYTE *)(v9 + 1433) )
     return 0LL;
-  if ( v6 >= CProjectedShadow::GetBlurForBoundary(v7, 2) )
+  v11 = CProjectedShadow::GetBlurForBoundary(v7, 2LL);
+  if ( v6 >= *(float *)&v11 )
     return 4LL;
-  LOBYTE(v4) = v6 >= CProjectedShadow::GetBlurForBoundary(v9, 1);
+  v12 = CProjectedShadow::GetBlurForBoundary(v10, 1LL);
+  LOBYTE(v4) = v6 >= *(float *)&v12;
   return (unsigned int)(v4 + 2);
 }

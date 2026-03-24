@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_PopulateDeviceFlagsFromRegistry @ 0x1C00739F8
+ * XREFs of Controller_PopulateDeviceFlagsFromRegistry @ 0x1C006BFF8
  * Callers:
- *     Controller_PopulateDeviceFlags @ 0x1C00738F4 (Controller_PopulateDeviceFlags.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C006BE84 (Controller_PopulateDeviceFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_di @ 0x1C001C498 (WPP_RECORDER_SF_di.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_di @ 0x1C001550C (WPP_RECORDER_SF_di.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_PopulateDeviceFlagsFromRegistry(__int64 *a1, int a2)
@@ -51,7 +51,7 @@ __int64 __fastcall Controller_PopulateDeviceFlagsFromRegistry(__int64 *a1, int a
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v7) = 3;
-      result = WPP_RECORDER_SF_d(a1[9], v7, 4, 164, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, result);
+      result = WPP_RECORDER_SF_d(a1[9], v7, 4, 163, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, result);
     }
   }
   else
@@ -89,7 +89,7 @@ __int64 __fastcall Controller_PopulateDeviceFlagsFromRegistry(__int64 *a1, int a
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
       LOBYTE(v9) = 5;
-      result = WPP_RECORDER_SF_d(a1[9], v9, 4, 165, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, a2);
+      result = WPP_RECORDER_SF_d(a1[9], v9, 4, 164, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, a2);
     }
   }
   v10 = 0;
@@ -102,7 +102,7 @@ __int64 __fastcall Controller_PopulateDeviceFlagsFromRegistry(__int64 *a1, int a
       if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
         LOBYTE(v9) = 5;
-        result = WPP_RECORDER_SF_di(a1[9], v9, v8, 166, (_DWORD)v12, v10, *v11);
+        result = WPP_RECORDER_SF_di(a1[9], v9, v8, 165, (_DWORD)v12, v10, *v11);
       }
     }
     ++v10;

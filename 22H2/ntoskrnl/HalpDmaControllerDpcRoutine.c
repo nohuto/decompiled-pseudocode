@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaControllerDpcRoutine @ 0x140527750
+ * XREFs of HalpDmaControllerDpcRoutine @ 0x1404DC810
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpDmaControllerDpcRoutine(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ void __fastcall HalpDmaControllerDpcRoutine(__int64 a1, __int64 a2)
   v3 = 0;
   if ( v2 && *(_QWORD *)(a2 + 8) )
   {
-    v4 = *(_QWORD *)(v2 + 360);
+    v4 = *(_QWORD *)(v2 + 352);
     if ( v4 && (*(_DWORD *)(v4 + 12) & 1) != 0 )
     {
       v3 = 3;
@@ -30,7 +30,7 @@ void __fastcall HalpDmaControllerDpcRoutine(__int64 a1, __int64 a2)
     }
     (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(a2 + 8))(
       *(_QWORD *)(a2 + 24),
-      *(_QWORD *)(*(_QWORD *)(v2 + 352) + 48LL),
+      *(_QWORD *)(*(_QWORD *)(v2 + 344) + 48LL),
       *(_QWORD *)(a2 + 16),
       v3);
   }

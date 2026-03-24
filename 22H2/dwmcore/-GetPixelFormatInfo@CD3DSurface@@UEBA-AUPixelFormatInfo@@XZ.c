@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CD3DSurface@@UEBA?AUPixelFormatInfo@@XZ @ 0x180108510
+ * XREFs of ?GetPixelFormatInfo@CD3DSurface@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E3360
  * Callers:
  *     <none>
  * Callees:

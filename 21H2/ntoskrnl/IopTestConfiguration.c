@@ -1,11 +1,11 @@
 /*
- * XREFs of IopTestConfiguration @ 0x140820094
+ * XREFs of IopTestConfiguration @ 0x140752854
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x14081FF7C (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x14075273C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnpLogDeviceConflictingResource @ 0x14081F87C (PnpLogDeviceConflictingResource.c)
- *     PnpLookupArbitersNewResources @ 0x140820188 (PnpLookupArbitersNewResources.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PnpLookupArbitersNewResources @ 0x140752948 (PnpLookupArbitersNewResources.c)
+ *     PnpLogDeviceConflictingResource @ 0x1407D07C4 (PnpLogDeviceConflictingResource.c)
  */
 
 __int64 __fastcall IopTestConfiguration(int a1, int a2, __int64 **a3)
@@ -32,7 +32,7 @@ __int64 __fastcall IopTestConfiguration(int a1, int a2, __int64 **a3)
       v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int128 *))(v8 + 32))(*(_QWORD *)(v8 + 8), 0LL, &v11);
       if ( v4 < 0 )
       {
-        PnpLogDeviceConflictingResource((__int64)(v3 - 11), *(_QWORD *)(v8 + 8));
+        PnpLogDeviceConflictingResource(v3 - 11, *(_QWORD *)(v8 + 8));
         *((_BYTE *)v3 + 16) |= 2u;
         return (unsigned int)v4;
       }

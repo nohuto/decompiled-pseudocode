@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCScanPipeline@@UEAAPEAXI@Z @ 0x1802AF090
+ * XREFs of ??_GCScanPipeline@@UEAAPEAXI@Z @ 0x180219090
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CScanPipeline@@UEAA@XZ @ 0x1802AEFB0 (--1CScanPipeline@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CScanPipeline@@UEAA@XZ @ 0x180218FB8 (--1CScanPipeline@@UEAA@XZ.c)
  */
 
 void **__fastcall CScanPipeline::`scalar deleting destructor'(void **this, char a2)

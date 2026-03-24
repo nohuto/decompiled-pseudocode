@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSddlDaclFromSDDLString @ 0x1C00BE378
+ * XREFs of SepSddlDaclFromSDDLString @ 0x1C00BCBF8
  * Callers:
- *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BEA60 (SepSddlSecurityDescriptorFromSDDLString.c)
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BD2F0 (SepSddlSecurityDescriptorFromSDDLString.c)
  * Callees:
- *     SepSddlGetAclForString @ 0x1C00BE464 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C00BCCE4 (SepSddlGetAclForString.c)
  */
 
 __int64 __fastcall SepSddlDaclFromSDDLString(

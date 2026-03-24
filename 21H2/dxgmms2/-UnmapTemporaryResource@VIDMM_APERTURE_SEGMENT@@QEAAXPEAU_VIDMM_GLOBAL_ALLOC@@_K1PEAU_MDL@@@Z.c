@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnmapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00E87E8
+ * XREFs of ?UnmapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00C4180
  * Callers:
- *     ?EndTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00E7AA0 (-EndTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@.c)
+ *     ?EndTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00C2C00 (-EndTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00856F4 (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C006802C (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 void __fastcall VIDMM_APERTURE_SEGMENT::UnmapTemporaryResource(
@@ -21,18 +21,18 @@ void __fastcall VIDMM_APERTURE_SEGMENT::UnmapTemporaryResource(
   v5 = 0LL;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v10 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+    v10 = (_QWORD *)WdLogNewEntry5_WdTrace(this);
     v10[3] = a2;
     v10[4] = a3;
     v10[5] = a4;
   }
   (*((void (__fastcall **)(VIDMM_GLOBAL **, struct _VIDMM_GLOBAL_ALLOC *, unsigned __int64, unsigned __int64, _QWORD, struct _MDL *, int))*this
-   + 26))(
+   + 29))(
     this,
     a2,
     a4 >> 12,
-    (*((_QWORD *)a2 + 29) + a3) >> 12,
-    *((_QWORD *)a2 + 29) >> 12,
+    (*((_QWORD *)a2 + 31) + a3) >> 12,
+    *((_QWORD *)a2 + 31) >> 12,
     a5,
     1);
   if ( a3 )
@@ -41,12 +41,12 @@ void __fastcall VIDMM_APERTURE_SEGMENT::UnmapTemporaryResource(
     {
       VIDMM_GLOBAL::WaitForAllPagingEngines(this[1], a2);
       (*((void (__fastcall **)(VIDMM_GLOBAL **, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, VIDMM_GLOBAL *, int))*this
-       + 26))(
+       + 29))(
         this,
         a2,
         1LL,
-        (*((_QWORD *)a2 + 29) + v5) >> 12,
-        *((_QWORD *)a2 + 29) >> 12,
+        (*((_QWORD *)a2 + 31) + v5) >> 12,
+        *((_QWORD *)a2 + 31) >> 12,
         this[34],
         1);
       v5 += 4096LL;
@@ -57,12 +57,12 @@ void __fastcall VIDMM_APERTURE_SEGMENT::UnmapTemporaryResource(
   {
     VIDMM_GLOBAL::WaitForAllPagingEngines(this[1], a2);
     (*((void (__fastcall **)(VIDMM_GLOBAL **, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, VIDMM_GLOBAL *, int))*this
-     + 26))(
+     + 29))(
       this,
       a2,
       1LL,
-      (*((_QWORD *)a2 + 29) + i) >> 12,
-      *((_QWORD *)a2 + 29) >> 12,
+      (*((_QWORD *)a2 + 31) + i) >> 12,
+      *((_QWORD *)a2 + 31) >> 12,
       this[34],
       1);
   }

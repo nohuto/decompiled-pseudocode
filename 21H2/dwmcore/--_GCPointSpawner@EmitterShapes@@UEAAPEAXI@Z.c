@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCPointSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x18022DAF0
+ * XREFs of ??_GCPointSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x18019DFE0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 EmitterShapes::CPointSpawner *__fastcall EmitterShapes::CPointSpawner::`scalar deleting destructor'(

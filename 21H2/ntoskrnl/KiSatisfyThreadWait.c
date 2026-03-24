@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSatisfyThreadWait @ 0x140578730
+ * XREFs of KiSatisfyThreadWait @ 0x140522AF4
  * Callers:
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiExitThreadWait @ 0x1402947A0 (KiExitThreadWait.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitThreadWait @ 0x140278330 (KiExitThreadWait.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 *a4, int a5)
@@ -15,7 +15,7 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
   __int64 v10; // r8
   __int64 v11; // r9
   __int64 v12; // r12
-  __int64 v13; // rcx
+  ULONG_PTR v13; // rcx
   __int64 v14; // rax
   __int64 *v15; // rdi
   volatile signed __int32 *v16; // rsi
@@ -29,9 +29,9 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
   if ( v13 )
   {
     *(_QWORD *)(a2 + 976) = 0LL;
-    v14 = KeAbPreAcquire(v13, 0LL);
+    v14 = KeAbPreAcquire(v13, 0LL, 1);
     if ( v14 )
-      *(_BYTE *)(v14 + 18) = 1;
+      *(_BYTE *)(v14 + 26) |= 1u;
   }
   if ( a5 )
   {
@@ -57,6 +57,6 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
     while ( a4 != v15 );
   }
   LOBYTE(v10) = a3;
-  KiExitThreadWait(a1, a2, v10);
+  KiExitThreadWait(a1, a2, v10, v11);
   return v12;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of Bulk_EP_StartMapping @ 0x1C0011CE0
+ * XREFs of Bulk_EP_StartMapping @ 0x1C000C8B0
  * Callers:
  *     <none>
  * Callees:
- *     Controller_LowerAndTrackIrql @ 0x1C00074EC (Controller_LowerAndTrackIrql.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0007588 (Controller_RaiseAndTrackIrql.c)
- *     Bulk_MapTransfers @ 0x1C0011ED8 (Bulk_MapTransfers.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     Bulk_MapTransfers @ 0x1C000CC18 (Bulk_MapTransfers.c)
  */
 
 void __fastcall Bulk_EP_StartMapping(__int64 a1)
 {
-  char v2; // si
+  char v2; // di
 
   v2 = 0;
   if ( KeGetCurrentIrql() != 2 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x14075BF80
+ * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x14075BF60
  * Callers:
- *     IoRegisterFsRegistrationChange @ 0x14081C860 (IoRegisterFsRegistrationChange.c)
+ *     IoRegisterFsRegistrationChange @ 0x14081C840 (IoRegisterFsRegistrationChange.c)
  * Callees:
  *     IoGetActivityIdThread @ 0x1400065C0 (IoGetActivityIdThread.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
@@ -9,15 +9,15 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     IopGetFsRegistrationInProgress @ 0x140283C7C (IopGetFsRegistrationInProgress.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x140283F34 (IopIsKnownGoodLegacyFsFilter.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     IopGetFsRegistrationInProgress @ 0x140283D7C (IopGetFsRegistrationInProgress.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x140284034 (IopIsKnownGoodLegacyFsFilter.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     FsRtlSetDriverBacking @ 0x14070D2E0 (FsRtlSetDriverBacking.c)
- *     IopNotifyAlreadyRegisteredFileSystems @ 0x14075C128 (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     FsRtlSetDriverBacking @ 0x14070D2C0 (FsRtlSetDriverBacking.c)
+ *     IopNotifyAlreadyRegisteredFileSystems @ 0x14075C108 (IopNotifyAlreadyRegisteredFileSystems.c)
  */
 
 NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(

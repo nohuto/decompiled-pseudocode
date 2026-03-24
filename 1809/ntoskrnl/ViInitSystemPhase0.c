@@ -3,15 +3,15 @@
  * Callers:
  *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
  * Callees:
- *     KiInitializeMutant @ 0x1400DD358 (KiInitializeMutant.c)
- *     strstr @ 0x140194EA0 (strstr.c)
+ *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
  *     VfDisableCodeIntegrityBreaks @ 0x1409276B8 (VfDisableCodeIntegrityBreaks.c)
  *     VfSetVerifierRunningMode @ 0x140937490 (VfSetVerifierRunningMode.c)
  *     ViInitPickRandomTargets @ 0x1409DB108 (ViInitPickRandomTargets.c)
  *     VfTriageSystem @ 0x1409DB150 (VfTriageSystem.c)
- *     VfInitSetVerifyDriverTargets @ 0x1409F8488 (VfInitSetVerifyDriverTargets.c)
+ *     VfInitSetVerifyDriverTargets @ 0x1409F8498 (VfInitSetVerifyDriverTargets.c)
  */
 
 void __fastcall ViInitSystemPhase0(__int64 a1, __int64 a2, __int64 a3)
@@ -46,11 +46,11 @@ void __fastcall ViInitSystemPhase0(__int64 a1, __int64 a2, __int64 a3)
     VfDisableCodeIntegrityBreaks();
   LOBYTE(a3) = 1;
   KiInitializeMutant((__int64)&ViDriversLoadLock, 0LL, a3);
-  qword_14040D7A8 = (__int64)&VfSuspectDriversList;
+  qword_14040D778 = (__int64)&VfSuspectDriversList;
   VfSuspectDriversList = (__int64)&VfSuspectDriversList;
-  qword_14040D248 = (__int64)&VfExcludedDriversList;
+  qword_14040D2A8 = (__int64)&VfExcludedDriversList;
   VfExcludedDriversList = (__int64)&VfExcludedDriversList;
-  qword_14040D2B8 = (__int64)&VfXdvExcludedDriversList;
+  qword_14040D298 = (__int64)&VfXdvExcludedDriversList;
   VfXdvExcludedDriversList = (__int64)&VfXdvExcludedDriversList;
   if ( VfVerifyMode == -1 )
   {

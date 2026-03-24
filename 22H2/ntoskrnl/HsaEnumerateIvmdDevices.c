@@ -1,46 +1,53 @@
 /*
- * XREFs of HsaEnumerateIvmdDevices @ 0x14052F860
+ * XREFs of HsaEnumerateIvmdDevices @ 0x1404E2B20
  * Callers:
  *     <none>
  * Callees:
- *     HalpHsaCreateReservedDevice @ 0x14052E24C (HalpHsaCreateReservedDevice.c)
+ *     HalpHsaCreateReservedDevice @ 0x1404E14E8 (HalpHsaCreateReservedDevice.c)
  */
 
-__int64 __fastcall HsaEnumerateIvmdDevices(__int64 a1, _DWORD *a2, __int64 a3)
+__int64 __fastcall HsaEnumerateIvmdDevices(__int64 a1, unsigned int *a2, __int64 a3)
 {
-  _DWORD *v3; // r14
-  __int64 result; // rax
-  __int64 v8; // rdi
+  unsigned int *v3; // r14
+  unsigned int v7; // eax
   _QWORD **v9; // r14
-  _QWORD *v10; // rbx
-  _QWORD *ReservedDevice; // rax
+  __int64 v10; // rbp
+  _QWORD *v11; // rbx
+  __int64 *ReservedDevice; // rax
 
-  v3 = *(_DWORD **)(a1 + 208);
+  v3 = *(unsigned int **)(a1 + 208);
+  v7 = *v3;
   if ( *a2 >= *v3 )
   {
-    v8 = 0LL;
     v9 = (_QWORD **)(v3 + 2);
-    v10 = *v9;
-    while ( 1 )
+    v10 = 0LL;
+    v11 = *v9;
+    if ( *v9 != v9 )
     {
-      if ( v10 == v9 || (unsigned int)v8 >= **(_DWORD **)(a1 + 208) )
+      while ( 1 )
       {
-        result = 0LL;
-        *a2 = **(_DWORD **)(a1 + 208);
-        return result;
+        v7 = **(_DWORD **)(a1 + 208);
+        if ( (unsigned int)v10 >= v7 )
+          break;
+        ReservedDevice = HalpHsaCreateReservedDevice(*(unsigned __int16 *)(a1 + 160), (__int64)v11);
+        *(_QWORD *)(a3 + 8 * v10) = ReservedDevice;
+        if ( !ReservedDevice )
+          return 3221225626LL;
+        v11 = (_QWORD *)*v11;
+        v10 = (unsigned int)(v10 + 1);
+        if ( v11 == v9 )
+        {
+          v7 = **(_DWORD **)(a1 + 208);
+          break;
+        }
       }
-      ReservedDevice = HalpHsaCreateReservedDevice(*(unsigned __int16 *)(a1 + 160), (__int64)v10);
-      *(_QWORD *)(a3 + 8 * v8) = ReservedDevice;
-      if ( !ReservedDevice )
-        break;
-      v10 = (_QWORD *)*v10;
-      v8 = (unsigned int)(v8 + 1);
     }
-    return 3221225626LL;
+    *a2 = v7;
+    return 0LL;
   }
   else
   {
-    *a2 = *v3;
+    *a2 = v7;
     return 3221225507LL;
   }
 }

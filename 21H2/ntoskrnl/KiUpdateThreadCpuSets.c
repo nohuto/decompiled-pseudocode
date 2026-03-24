@@ -1,40 +1,40 @@
 /*
- * XREFs of KiUpdateThreadCpuSets @ 0x1403D3170
+ * XREFs of KiUpdateThreadCpuSets @ 0x1403C628C
  * Callers:
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403D30D0 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C61EC (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
  * Callees:
- *     KiRescheduleThreadAfterAffinityChange @ 0x14020EE7C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiComputeThreadAffinity @ 0x140292884 (KiComputeThreadAffinity.c)
- *     KiAcquireThreadStateLock @ 0x140344DD0 (KiAcquireThreadStateLock.c)
- *     KiReleaseThreadStateLock @ 0x14035D0F8 (KiReleaseThreadStateLock.c)
+ *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
+ *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
+ *     KiComputeThreadAffinity @ 0x1402EBAA0 (KiComputeThreadAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1402EC610 (KiRescheduleThreadAfterAffinityChange.c)
  */
 
-__int64 __fastcall KiUpdateThreadCpuSets(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiUpdateThreadCpuSets(__int64 a1, __int64 a2)
 {
-  int v4; // eax
-  __int64 v5; // r8
-  char v8; // bl
-  volatile signed __int64 *v9; // rdi
-  int v10; // ebx
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+28h] [rbp-10h]
-  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
-  volatile signed __int64 *v15; // [rsp+50h] [rbp+18h] BYREF
+  int v2; // eax
+  __int64 v3; // r8
+  char v6; // bl
+  volatile signed __int64 *v7; // rdi
+  int v8; // ebx
+  __int64 v9; // rcx
+  __int64 v11; // [rsp+28h] [rbp-10h]
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  volatile signed __int64 *v13; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = *(_DWORD *)(a1 + 116);
-  v5 = 0LL;
-  v15 = 0LL;
-  v14 = 0LL;
-  if ( (v4 & 8) == 0 )
+  v2 = *(_DWORD *)(a1 + 116);
+  v3 = 0LL;
+  v13 = 0LL;
+  v12 = 0LL;
+  if ( (v2 & 8) == 0 )
   {
-    v8 = KiAcquireThreadStateLock(a1, (__int64)&v14, (volatile signed __int32 **)&v15, a4);
+    v6 = KiAcquireThreadStateLock(a1, &v12, (volatile signed __int32 **)&v13);
     KiComputeThreadAffinity(a1);
-    v13 = a2;
-    v9 = v15;
-    v10 = KiRescheduleThreadAfterAffinityChange(a1, *(_QWORD *)(a1 + 576), v8, v14, (__int64)v15, v13);
-    KiReleaseThreadStateLock(v11, v14, v9);
-    return v14 & -(__int64)(v10 != 0);
+    v11 = a2;
+    v7 = v13;
+    v8 = KiRescheduleThreadAfterAffinityChange(a1, a1 + 576, v6, v12, (__int64)v13, v11);
+    KiReleaseThreadStateLock(v9, v12, v7);
+    return v12 & -(__int64)(v8 != 0);
   }
-  return v5;
+  return v3;
 }

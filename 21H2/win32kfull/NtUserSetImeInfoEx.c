@@ -1,23 +1,23 @@
 /*
- * XREFs of NtUserSetImeInfoEx @ 0x1C011CF80
+ * XREFs of NtUserSetImeInfoEx @ 0x1C000D7F0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _GetProcessWindowStation @ 0x1C00CEC40 (_GetProcessWindowStation.c)
- *     ?SetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@@Z @ 0x1C011D088 (-SetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@@Z.c)
+ *     SetImeInfoEx @ 0x1C000D8FC (SetImeInfoEx.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetImeInfoEx(_OWORD *a1)
 {
   _OWORD *v2; // rax
   __int64 v3; // rcx
-  struct tagWINDOWSTATION *ProcessWindowStation; // rax
+  __int64 ProcessWindowStation; // rax
   __int64 v5; // rcx
   int v6; // ebx
   _BYTE v8[360]; // [rsp+30h] [rbp-168h] BYREF
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (*gpsi & 4) != 0 )
   {
     v2 = v8;
@@ -43,12 +43,12 @@ __int64 __fastcall NtUserSetImeInfoEx(_OWORD *a1)
     v2[3] = a1[3];
     v2[4] = a1[4];
     v2[5] = a1[5];
-    ProcessWindowStation = (struct tagWINDOWSTATION *)GetProcessWindowStation(0LL);
-    v6 = SetImeInfoEx(ProcessWindowStation, (struct tagIMEINFOEX *)v8);
+    ProcessWindowStation = GetProcessWindowStation(0LL, 128LL);
+    v6 = SetImeInfoEx(ProcessWindowStation, v8);
   }
   else
   {
-    UserSetLastError(120LL, gpsi);
+    UserSetLastError(120LL);
     v6 = 0;
   }
   UserSessionSwitchLeaveCrit(v5);

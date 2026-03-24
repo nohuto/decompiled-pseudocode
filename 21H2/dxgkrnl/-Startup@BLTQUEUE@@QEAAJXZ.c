@@ -1,131 +1,106 @@
 /*
- * XREFs of ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C0160578
+ * XREFs of ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C016DDE8
  * Callers:
- *     ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C0160258 (-StartEmulation@REMOTE_VSYNC@@AEAAJXZ.c)
- *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C020F170 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
+ *     ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C00DF854 (-StartEmulation@REMOTE_VSYNC@@AEAAJXZ.c)
+ *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C019E668 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
  * Callees:
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0002624 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z @ 0x1C01606B8 (-RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z.c)
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C001AFA4 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     ?RecreateVsyncSource@BLTQUEUE@@AEAAX_N@Z @ 0x1C016DF18 (-RecreateVsyncSource@BLTQUEUE@@AEAAX_N@Z.c)
  */
 
-__int64 __fastcall BLTQUEUE::Startup(char *StartContext)
+__int64 __fastcall BLTQUEUE::Startup(BLTQUEUE *this, __int64 a2)
 {
-  DXGDODPRESENT *v2; // rcx
-  __int64 v3; // rbx
+  __int64 v3; // rdi
+  DXGDODPRESENT *v4; // rcx
   __int64 Timer; // rax
-  __int64 v5; // rax
-  NTSTATUS v6; // eax
-  const wchar_t *v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
-  v2 = *(DXGDODPRESENT **)StartContext;
   LODWORD(v3) = 0;
-  if ( v2 )
+  v4 = *(DXGDODPRESENT **)this;
+  if ( v4 )
   {
-    if ( *((_DWORD *)StartContext + 34) != 1 || (*((_DWORD *)DXGDODPRESENT::GetAdapter(v2) + 109) & 0x100) == 0 )
+    if ( *((_DWORD *)this + 34) == 1 && (*((_DWORD *)DXGDODPRESENT::GetAdapter(v4) + 87) & 0x100) != 0 )
     {
-LABEL_3:
-      Timer = ExAllocateTimer(0LL, 0LL, 0LL);
-      *((_QWORD *)StartContext + 19) = Timer;
-      if ( Timer )
-      {
-        v5 = ExAllocateTimer(0LL, 0LL, 4LL);
-        *((_QWORD *)StartContext + 18) = v5;
-        if ( v5 )
-        {
-          BLTQUEUE::RecreateVsyncSource(StartContext, 0LL, 12LL);
-          *(_QWORD *)&ObjectAttributes.Length = 48LL;
-          *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
-          ObjectAttributes.RootDirectory = 0LL;
-          ObjectAttributes.ObjectName = 0LL;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v6 = PsCreateSystemThread(
-                 (PHANDLE)StartContext + 76,
-                 0x1FFFFFu,
-                 &ObjectAttributes,
-                 0LL,
-                 0LL,
-                 BLTQUEUE::BltQueueWorkerThread,
-                 StartContext);
-          v3 = v6;
-          if ( v6 < 0 )
-          {
-            WdLogSingleEntry2(2LL, StartContext, v6);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"BLTQUEUE 0x%I64x : PsCreateSystemThread() failed with Status = 0x%I64x",
-              (__int64)StartContext,
-              v3,
-              0LL,
-              0LL,
-              0LL);
-            v10 = *((_QWORD *)StartContext + 18);
-            LODWORD(v3) = -1073741801;
-            if ( v10 )
-            {
-              LOBYTE(v9) = 1;
-              ExDeleteTimer(v10, v9, 0LL, 0LL);
-              *((_QWORD *)StartContext + 18) = 0LL;
-            }
-            v11 = *((_QWORD *)StartContext + 19);
-            if ( v11 )
-            {
-              LOBYTE(v9) = 1;
-              ExDeleteTimer(v11, v9, 0LL, 0LL);
-              *((_QWORD *)StartContext + 19) = 0LL;
-            }
-          }
-          else
-          {
-            KeWaitForSingleObject(StartContext + 496, Executive, 0, 0, 0LL);
-          }
-          return (unsigned int)v3;
-        }
-        WdLogSingleEntry1(6LL, StartContext);
-        v8 = L"BLTQUEUE 0x%I64x : ExAllocateTimerFailed() failed for normal res timer.";
-      }
-      else
-      {
-        WdLogSingleEntry1(6LL, StartContext);
-        v8 = L"BLTQUEUE 0x%I64x : ExAllocateTimerFailed() failed for high res timer.";
-      }
-      DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v8, (__int64)StartContext, 0LL, 0LL, 0LL, 0LL);
-      return (unsigned int)v3;
+      v18 = WdLogNewEntry5_WdAssertion(v17, v16);
+      *(_QWORD *)(v18 + 24) = 857LL;
+      WdLogEvent5_WdAssertion(v18);
+      return 3221225659LL;
     }
-    WdLogSingleEntry1(1LL, 868LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Indirect displays cannot currently support HW VSync",
-      868LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225659LL;
+  }
+  else if ( *((_DWORD *)this + 34) == 1 )
+  {
+    v15 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v15 + 24) = 851LL;
+    WdLogEvent5_WdError(v15);
+    return 3221225485LL;
+  }
+  Timer = ExAllocateTimer(0LL, 0LL, 0LL);
+  *((_QWORD *)this + 19) = Timer;
+  if ( Timer && (v10 = ExAllocateTimer(0LL, 0LL, 4LL), (*((_QWORD *)this + 18) = v10) != 0LL) )
+  {
+    BLTQUEUE::RecreateVsyncSource(this, 0);
+    memset(&ObjectAttributes.Length + 1, 0, 20);
+    memset(&ObjectAttributes.Attributes + 1, 0, 20);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 512;
+    v11 = PsCreateSystemThread(
+            (PHANDLE)this + 75,
+            0x1FFFFFu,
+            &ObjectAttributes,
+            0LL,
+            0LL,
+            BLTQUEUE::BltQueueWorkerThread,
+            this);
+    v3 = v11;
+    if ( v11 < 0 )
+    {
+      v20 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v20 + 24) = this;
+      *(_QWORD *)(v20 + 32) = v3;
+      WdLogEvent5_WdError(v20);
+      v22 = *((_QWORD *)this + 18);
+      LODWORD(v3) = -1073741801;
+      if ( v22 )
+      {
+        LOBYTE(v21) = 1;
+        ExDeleteTimer(v22, v21, 0LL, 0LL);
+        *((_QWORD *)this + 18) = 0LL;
+      }
+      v23 = *((_QWORD *)this + 19);
+      if ( v23 )
+      {
+        LOBYTE(v21) = 1;
+        ExDeleteTimer(v23, v21, 0LL, 0LL);
+        *((_QWORD *)this + 19) = 0LL;
+      }
+    }
+    else
+    {
+      KeWaitForSingleObject((char *)this + 488, Executive, 0, 0, 0LL);
+    }
   }
   else
   {
-    if ( *((_DWORD *)StartContext + 34) != 1 )
-      goto LABEL_3;
-    WdLogSingleEntry1(2LL, 862LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"A BLTQUEUE must have a pointer to the DoDPresent if HW Vsync is used",
-      862LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v19 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+    *(_QWORD *)(v19 + 24) = this;
+    WdLogEvent5_WdLowResource(v19);
   }
+  return (unsigned int)v3;
 }

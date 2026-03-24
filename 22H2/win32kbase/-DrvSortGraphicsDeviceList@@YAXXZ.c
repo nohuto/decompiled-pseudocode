@@ -1,76 +1,61 @@
 /*
- * XREFs of ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00BC3C4
+ * XREFs of ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00B37C4
  * Callers:
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001F350 (DrvUpdateGraphicsDeviceList.c)
  * Callees:
- *     ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00BC4BC (-DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z.c)
+ *     ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00B387C (-DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z.c)
  */
 
-void __fastcall DrvSortGraphicsDeviceList(__int64 a1)
+void DrvSortGraphicsDeviceList(void)
 {
-  struct tagGRAPHICS_DEVICE *v1; // rdi
-  struct tagGRAPHICS_DEVICE *v2; // rsi
-  struct tagGRAPHICS_DEVICE *v3; // rbp
-  struct tagGRAPHICS_DEVICE *v4; // rbx
-  int v5; // eax
-  struct tagGRAPHICS_DEVICE *v6; // rcx
-  struct tagGRAPHICS_DEVICE *v7; // r14
-  struct tagGRAPHICS_DEVICE *v8; // r8
-  __int64 v9; // rax
-  bool v10; // zf
-  struct tagGRAPHICS_DEVICE *v11; // rax
-  struct tagGRAPHICS_DEVICE *v12; // rax
+  wchar_t *v0; // r9
+  struct tagGRAPHICS_DEVICE *v1; // rdx
+  struct tagGRAPHICS_DEVICE *v2; // r10
+  wchar_t *v3; // r11
+  int v4; // eax
+  wchar_t *v5; // rbx
+  struct tagGRAPHICS_DEVICE *v6; // r8
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  struct tagGRAPHICS_DEVICE *v9; // rcx
+  struct tagGRAPHICS_DEVICE *v10; // r10
 
+  v0 = gpGraphicsDeviceList;
   v1 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  v4 = *(struct tagGRAPHICS_DEVICE **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 1264LL);
-  if ( v4 )
+  if ( gpGraphicsDeviceList )
   {
     do
     {
-      v5 = *((_DWORD *)v4 + 40);
-      v6 = v2;
-      v7 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v4 + 16);
-      v8 = v3;
-      if ( (v5 & 0x800000) != 0 )
+      v4 = *((_DWORD *)v0 + 40);
+      v5 = (wchar_t *)*((_QWORD *)v0 + 16);
+      v6 = (struct tagGRAPHICS_DEVICE *)v3;
+      if ( (v4 & 0x800000) != 0 )
       {
-        if ( (v5 & 0x100000) != 0 )
+        if ( (v4 & 0x100000) != 0 )
         {
-          DrvMoveGraphicsDevice(v4, v1, 0LL);
-          v12 = v4;
-          v3 = v4;
-          if ( v2 )
-            v12 = v2;
-          v2 = v12;
+          DrvMoveGraphicsDevice((struct tagGRAPHICS_DEVICE *)v0, v1, 0LL);
+          v3 = v0;
+          if ( v10 )
+            v9 = v10;
+          v2 = v9;
         }
         else
         {
-          if ( v3 && (v9 = *((_QWORD *)v3 + 29)) != 0 && v9 == *((_QWORD *)v4 + 29) )
-          {
-            v10 = v2 == v3;
-            v11 = v4;
-            v3 = v4;
-            if ( !v10 )
-              v11 = v2;
-            v2 = v11;
-          }
-          else
-          {
-            v2 = v4;
-            v8 = v6;
-          }
-          DrvMoveGraphicsDevice(v4, v1, v8);
+          if ( !v3 || (v7 = *((_QWORD *)v3 + 30)) == 0 || v7 != *((_QWORD *)v0 + 30) )
+            v6 = v2;
+          DrvMoveGraphicsDevice((struct tagGRAPHICS_DEVICE *)v0, v1, v6);
         }
-        if ( v1 )
+        if ( v8 )
         {
-          if ( *((struct tagGRAPHICS_DEVICE **)v1 + 16) != v4 )
-            v4 = v1;
+          if ( *(wchar_t **)(v8 + 128) != v0 )
+            v0 = (wchar_t *)v8;
         }
       }
-      v1 = v4;
-      v4 = v7;
+      v1 = (struct tagGRAPHICS_DEVICE *)v0;
+      v0 = v5;
     }
-    while ( v7 );
+    while ( v5 );
   }
 }

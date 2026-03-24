@@ -1,11 +1,11 @@
 /*
- * XREFs of GreCleanDC @ 0x1C0038740
+ * XREFs of GreCleanDC @ 0x1C0093490
  * Callers:
- *     UserThreadCallout @ 0x1C0050B50 (UserThreadCallout.c)
+ *     UserThreadCallout @ 0x1C003DA00 (UserThreadCallout.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003BD24 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003BD68 (--1DCOBJ@@QEAA@XZ.c)
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00408D0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003C8E8 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003C948 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00934E0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
  */
 
 _BOOL8 __fastcall GreCleanDC(HDC a1)

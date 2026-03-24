@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiInitializeBlockList @ 0x1C021BDE4
+ * XREFs of DpiInitializeBlockList @ 0x1C018B610
  * Callers:
- *     DpiFdoInitializeFdo @ 0x1C020431C (DpiFdoInitializeFdo.c)
+ *     DpiFdoInitializeFdo @ 0x1C018DAEC (DpiFdoInitializeFdo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     DxgkInitializeBlockList @ 0x1C021C2F0 (DxgkInitializeBlockList.c)
- *     DpiDestroyBlockList @ 0x1C0399DE4 (DpiDestroyBlockList.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     DxgkInitializeBlockList @ 0x1C01921FC (DxgkInitializeBlockList.c)
+ *     DpiDestroyBlockList @ 0x1C02C7B74 (DpiDestroyBlockList.c)
  */
 
 __int64 __fastcall DpiInitializeBlockList(__int64 a1)
@@ -36,11 +36,11 @@ __int64 __fastcall DpiInitializeBlockList(__int64 a1)
   v7 = &v14;
   v8 = 4;
   v11 = 4;
-  v10 = v1 + 5700;
+  v10 = v1 + 5892;
   v4 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *))(v3 + 272))(*(_QWORD *)(v1 + 48), v6);
   if ( v4 < 0 )
     return 0LL;
-  if ( (int)DxgkInitializeBlockList(a1, *(unsigned int *)(v1 + 5700), 0LL) < 0 )
+  if ( (int)DxgkInitializeBlockList(a1, *(unsigned int *)(v1 + 5892), 0LL) < 0 )
     DpiDestroyBlockList(v1);
   return (unsigned int)v4;
 }

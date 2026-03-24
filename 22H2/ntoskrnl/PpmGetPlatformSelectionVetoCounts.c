@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1403C7EC4
+ * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x140565CB0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
- *     PopCalculateCsSummary @ 0x1405913C4 (PopCalculateCsSummary.c)
+ *     PopCalculateCsSummary @ 0x14056FDE0 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */
@@ -20,8 +20,8 @@ __int64 __fastcall PpmGetPlatformSelectionVetoCounts(unsigned int a1, _QWORD *a2
     if ( a1 < *(_DWORD *)PpmPlatformStates )
     {
       v4 = *(_QWORD *)(PpmPlatformStates + 48);
-      *a2 = *(_QWORD *)(1016 * result + v4 + 88);
-      result = *(_QWORD *)(1016 * result + v4 + 80);
+      *a2 = *(_QWORD *)(1008 * result + v4 + 88);
+      result = *(_QWORD *)(1008 * result + v4 + 80);
       *a3 = result;
     }
   }

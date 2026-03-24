@@ -1,26 +1,26 @@
 /*
- * XREFs of NtUnlockFile @ 0x14069B660
+ * XREFs of NtUnlockFile @ 0x14069B640
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopVerifierExAllocatePool @ 0x14008D04C (IopVerifierExAllocatePool.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoGetAttachedDevice @ 0x1400B9230 (IoGetAttachedDevice.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IopAcquireFastLock_0 @ 0x1400DD9B4 (IopAcquireFastLock_0.c)
- *     IopVerifierExAllocatePoolWithQuota_2 @ 0x14013FC1C (IopVerifierExAllocatePoolWithQuota_2.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoGetAttachedDevice @ 0x1400B9250 (IoGetAttachedDevice.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IopAcquireFastLock_0 @ 0x1400DD9D4 (IopAcquireFastLock_0.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x14013FC3C (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14065E93C (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x1408193D4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x140819B48 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousApiServiceTail @ 0x14065E91C (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  *     VfFastIoCheckState @ 0x140928F74 (VfFastIoCheckState.c)
  *     VfFastIoSnapState @ 0x14092904C (VfFastIoSnapState.c)
  */

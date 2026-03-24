@@ -1,12 +1,12 @@
 /*
- * XREFs of UIPISQMChangeFilter @ 0x1C00A726C
+ * XREFs of UIPISQMChangeFilter @ 0x1C003F660
  * Callers:
- *     _ChangeWindowMessageFilter @ 0x1C00A6E9C (_ChangeWindowMessageFilter.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C00A70D8 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F428 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilter @ 0x1C003F5C0 (_ChangeWindowMessageFilter.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?MsgSQMPopulateProcessSQMInfo@@YAXPEAUtagPROCESSINFO@@PEAUtagMSGSQM_PROCESSSQMINFO@@@Z @ 0x1C0218FDC (-MsgSQMPopulateProcessSQMInfo@@YAXPEAUtagPROCESSINFO@@PEAUtagMSGSQM_PROCESSSQMINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?MsgSQMPopulateProcessSQMInfo@@YAXPEAUtagPROCESSINFO@@PEAUtagMSGSQM_PROCESSSQMINFO@@@Z @ 0x1C021DFA8 (-MsgSQMPopulateProcessSQMInfo@@YAXPEAUtagPROCESSINFO@@PEAUtagMSGSQM_PROCESSSQMINFO@@@Z.c)
  */
 
 void *__fastcall UIPISQMChangeFilter(struct tagPROCESSINFO *a1, int a2, int a3, int a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnDelete@ConnectionTargetInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z @ 0x1C00AB180
+ * XREFs of ?OnDelete@ConnectionTargetInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z @ 0x1C0073510
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ @ 0x1C00AB1B4 (-Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C01A3FC4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ?Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ @ 0x1C0073544 (-Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C016F8D4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
  */
 
 void __fastcall CoreMessagingK::ConnectionTargetInfo::OnDelete(
@@ -20,15 +20,15 @@ void __fastcall CoreMessagingK::ConnectionTargetInfo::OnDelete(
   __int64 v9; // [rsp+68h] [rbp+20h] BYREF
 
   v5 = (CoreMessagingK::ClientPortInfo *)*((_QWORD *)a1 + 2);
-  if ( (unsigned int)dword_1C028D8C0 > 5 )
+  if ( (unsigned int)dword_1C024A450 > 5 )
   {
     v6 = *((_DWORD *)v5 + 3);
     v7 = *((_DWORD *)v5 + 2);
     v8 = *(_QWORD *)v5;
     v9 = *((_QWORD *)a1 + 1);
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (unsigned int)&dword_1C028D8C0,
-      (unsigned int)&unk_1C02667A8,
+      (unsigned int)&dword_1C024A450,
+      (unsigned int)&unk_1C022363C,
       a3,
       a4,
       (__int64)&v9,

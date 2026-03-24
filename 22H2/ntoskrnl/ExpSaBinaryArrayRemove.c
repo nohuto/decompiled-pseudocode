@@ -1,27 +1,28 @@
 /*
- * XREFs of ExpSaBinaryArrayRemove @ 0x1403D5678
+ * XREFs of ExpSaBinaryArrayRemove @ 0x1405BA3D4
  * Callers:
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403C577C (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaPageGroupDescriptorFree @ 0x1403D54E4 (ExpSaPageGroupDescriptorFree.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403916E8 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1405BA41C (ExpSaPageGroupDescriptorFree.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
  */
 
-void __fastcall ExpSaBinaryArrayRemove(__int64 a1, unsigned int a2)
+PSLIST_ENTRY __fastcall ExpSaBinaryArrayRemove(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // ecx
-  __int64 v4; // r8
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
+  __int64 v2; // r10
+  int v3; // ecx
+  _QWORD *v4; // r9
+  PSLIST_ENTRY result; // rax
 
-  _BitScanReverse(&v3, a2);
-  v4 = a2 ^ (1 << v3);
-  v5 = v3 - 2;
-  v6 = *(_QWORD **)(a1 + 8 * v5);
-  v6[v4 + 1] = 0LL;
-  if ( (*v6)-- == 1LL )
+  v2 = a1;
+  _BitScanReverse((unsigned int *)&a1, a2);
+  v4 = *(_QWORD **)(v2 + 8LL * (unsigned int)(v3 - 2));
+  result = (PSLIST_ENTRY)a2;
+  v4[(a2 ^ (unsigned __int64)(unsigned int)(1 << v3)) + 1] = 0LL;
+  if ( (*v4)-- == 1LL )
   {
-    *(_QWORD *)(a1 + 8 * v5) = 0LL;
-    ExFreePoolWithTag(v6, 0);
+    *(_QWORD *)(v2 + 8LL * (unsigned int)(a1 - 2)) = 0LL;
+    return ExFreeHeapPool((ULONG_PTR)v4);
   }
+  return result;
 }

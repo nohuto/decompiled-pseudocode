@@ -1,73 +1,76 @@
 /*
- * XREFs of MmAddVerifierThunks @ 0x140A2D5B0
+ * XREFs of MmAddVerifierThunks @ 0x1408C6600
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     VfThunkAddDriverThunks @ 0x140ADBF7C (VfThunkAddDriverThunks.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     VfThunkAddDriverThunks @ 0x1409D8840 (VfThunkAddDriverThunks.c)
  */
 
 NTSTATUS __stdcall MmAddVerifierThunks(PVOID ThunkBuffer, ULONG ThunkBufferSize)
 {
-  int v5; // edi
-  ULONG v6; // ebx
-  unsigned __int64 *v7; // rsi
+  int v4; // ebx
+  unsigned __int64 *v5; // rsi
   struct _KTHREAD *Lock; // rbp
-  PVOID *v9; // rax
-  PVOID *v10; // r8
-  PVOID v11; // r10
-  int v12; // edx
-  PVOID *v13; // rcx
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // rax
-  NTSTATUS v16; // ebx
+  __int64 v8; // rax
+  __int64 v9; // r8
+  unsigned __int64 v10; // r10
+  int v11; // edx
+  PVOID *v12; // rcx
+  unsigned __int64 v13; // r9
+  unsigned __int64 v14; // rax
+  NTSTATUS v15; // ebx
 
   if ( (MiFlags & 1) == 0 )
     return -1073741637;
-  v5 = 0;
-  v6 = ThunkBufferSize >> 4;
-  v7 = (unsigned __int64 *)ThunkBuffer;
+  v4 = 0;
+  if ( !(unsigned int)VfIsVerifierEnabled()
+    || (VfRuleClasses & 0xFFAFFFFF) == 0 && (VfRuleClasses & 0x200000000LL) == 0 && (VfRuleClasses & 0x400000000LL) == 0 )
+  {
+    return -1073741637;
+  }
+  v5 = (unsigned __int64 *)ThunkBuffer;
   if ( !(ThunkBufferSize >> 4) )
     return -1073741585;
-  VfNumberOfClassDriverThunks += v6;
   Lock = MmAcquireLoadLock();
-  v9 = (PVOID *)MiLookupDataTableEntry(*(_QWORD *)ThunkBuffer, 0);
-  v10 = v9;
-  if ( v9 )
+  v8 = MiLookupDataTableEntry(*(_QWORD *)ThunkBuffer, 0);
+  v9 = v8;
+  if ( v8 )
   {
-    v11 = v9[6];
-    v12 = 0;
-    v13 = (PVOID *)PsLoadedModuleList;
-    v14 = (unsigned __int64)v11 + *((unsigned int *)v9 + 16);
+    v10 = *(_QWORD *)(v8 + 48);
+    v11 = 0;
+    v12 = (PVOID *)PsLoadedModuleList;
+    v13 = v10 + *(unsigned int *)(v8 + 64);
     while ( 1 )
     {
-      if ( v13 == &PsLoadedModuleList )
-        goto LABEL_11;
-      if ( v9 == v13 )
+      if ( v12 == &PsLoadedModuleList )
+        goto LABEL_14;
+      if ( (PVOID *)v8 == v12 )
         break;
-      if ( (unsigned int)++v12 >= 2 )
+      if ( (unsigned int)++v11 >= 2 )
       {
-LABEL_11:
-        while ( *v7 >= (unsigned __int64)v11 )
+LABEL_14:
+        while ( *v5 >= v10 )
         {
-          if ( *v7 >= v14 )
+          if ( *v5 >= v13 )
             break;
-          v15 = v7[1];
-          if ( v15 < (unsigned __int64)v11 || v15 >= v14 )
+          v14 = v5[1];
+          if ( v14 < v10 || v14 >= v13 )
             break;
-          v7 += 2;
-          if ( ++v5 >= v6 )
+          v5 += 2;
+          if ( ++v4 >= ThunkBufferSize >> 4 )
           {
-            v16 = VfThunkAddDriverThunks(ThunkBuffer, ThunkBufferSize, v10, v14);
+            v15 = VfThunkAddDriverThunks(ThunkBuffer, ThunkBufferSize, v9, v13);
             MmReleaseLoadLock((__int64)Lock);
-            return v16;
+            return v15;
           }
         }
         break;
       }
-      v13 = (PVOID *)*v13;
+      v12 = (PVOID *)*v12;
     }
   }
   MmReleaseLoadLock((__int64)Lock);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C0033FA0
+ * XREFs of HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C00310B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014258 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall HUBMISC_LogDescriptorValidationErrorForHub(__int64 a1)
@@ -12,7 +12,7 @@ NTSTATUS __fastcall HUBMISC_LogDescriptorValidationErrorForHub(__int64 a1)
 
   if ( a1 )
   {
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x100) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
       return McTemplateK0ppqq_EtwWriteTransfer(a1, &USBHUB3_ETW_EVENT_DESCRIPTOR_VALIDATION_FAILURE, 0LL);
   }
   return result;

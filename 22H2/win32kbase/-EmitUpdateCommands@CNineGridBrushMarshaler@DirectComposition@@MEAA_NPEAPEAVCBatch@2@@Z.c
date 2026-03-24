@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CNineGridBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0099A00
+ * XREFs of ?EmitUpdateCommands@CNineGridBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00617D0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298b___ @ 0x1C0099CB0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_fcd9eab81033f9ef5ab1bd2685319b70___ @ 0x1C0099D24 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_fcd9eab81033f9ef5ab1bd2685319b7.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef373___ @ 0x1C0099DA8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef37.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298b___ @ 0x1C0061A44 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b66204dcb5c2f5f8345eb77005edeb7___ @ 0x1C009F47C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_4b66204dcb5c2f5f8345eb77005edeb.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef373___ @ 0x1C00A001C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef37.c)
  */
 
 char __fastcall DirectComposition::CNineGridBrushMarshaler::EmitUpdateCommands(
@@ -21,7 +21,7 @@ char __fastcall DirectComposition::CNineGridBrushMarshaler::EmitUpdateCommands(
   v4 = 0;
   if ( (v3 & 0x20) != 0 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_fcd9eab81033f9ef5ab1bd2685319b70___(
+    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b66204dcb5c2f5f8345eb77005edeb7___(
                              this,
                              a2,
                              &v7) )
@@ -126,15 +126,14 @@ char __fastcall DirectComposition::CNineGridBrushMarshaler::EmitUpdateCommands(
     v3 = *((_DWORD *)this + 4);
   }
   v7 = this;
-  if ( (v3 & 0x4000) == 0 )
-    return 1;
-  if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef373___(
-                          this,
-                          a2,
-                          &v7) )
+  if ( (v3 & 0x4000) != 0 )
   {
+    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef373___(
+                             this,
+                             a2,
+                             &v7) )
+      return v4;
     *((_DWORD *)this + 4) &= ~0x4000u;
-    return 1;
   }
-  return v4;
+  return 1;
 }

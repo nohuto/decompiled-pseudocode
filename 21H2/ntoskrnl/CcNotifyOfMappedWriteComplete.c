@@ -1,65 +1,58 @@
 /*
- * XREFs of CcNotifyOfMappedWriteComplete @ 0x1402590D8
+ * XREFs of CcNotifyOfMappedWriteComplete @ 0x1402D0220
  * Callers:
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
  * Callees:
- *     CcIsFatalWriteError @ 0x140248C10 (CcIsFatalWriteError.c)
- *     MmGetControlAreaPartition @ 0x14027FC48 (MmGetControlAreaPartition.c)
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcReleaseByteRangeFromWrite @ 0x14028A258 (CcReleaseByteRangeFromWrite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x14053A100 (CcPostDeferredWrites.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcIsFatalWriteError @ 0x1402C1E0C (CcIsFatalWriteError.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1402F40EC (CcReleaseByteRangeFromWrite.c)
+ *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1404EA2F0 (CcPostDeferredWrites.c)
  */
 
-__int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigned int a3, NTSTATUS a4)
 {
-  __int64 v4; // rdi
+  __int64 v4; // rbp
   __int64 v6; // rsi
-  __int64 v7; // r14
-  __int64 v8; // r13
-  bool v9; // bp
-  __int64 v10; // r15
-  _QWORD *v12; // r15
-  __int64 v13; // rcx
+  bool v9; // r15
+  __int64 Partition; // r14
+  __int64 v11; // rcx
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v18; // zf
+  bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v20; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+10h] BYREF
 
-  v20 = a2;
+  v18 = a2;
   v4 = *(_QWORD *)(a1 + 8);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v6 = a3;
-  v7 = *(_QWORD *)(v4 + 528);
-  v8 = *(_QWORD *)(v4 + 592);
   v9 = 0;
-  v10 = v7;
-  if ( CcEnablePerVolumeLazyWriter == 1 )
-    v10 = *(_QWORD *)(v4 + 592);
-  v12 = (_QWORD *)(v10 + 1104);
-  if ( v7 != *(_QWORD *)(MmGetControlAreaPartition() + 8) )
-    KeBugCheckEx(0x34u, 0x14BBuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  Partition = CcGetPartition(v4);
+  if ( Partition != *(_QWORD *)(MmGetControlAreaPartition(a1) + 8) )
+    KeBugCheckEx(0x34u, 0x12F9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( a4 < 0 )
     v9 = !CcIsFatalWriteError(v4, a4);
-  v13 = *(_QWORD *)(v4 + 48);
-  if ( a2 + v6 > v13 )
+  v11 = *(_QWORD *)(v4 + 48);
+  if ( a2 + v6 > v11 )
   {
-    if ( a2 > v13 )
-      goto LABEL_9;
-    LODWORD(v6) = v13 - a2;
+    if ( a2 > v11 )
+      goto LABEL_7;
+    LODWORD(v6) = v11 - a2;
   }
   if ( (_DWORD)v6 )
-    CcReleaseByteRangeFromWrite(v4, &v20, (unsigned int)v6, 0LL, v9);
-LABEL_9:
-  if ( (_QWORD *)*v12 != v12 )
-    CcPostDeferredWrites(v7, v8);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v7 + 704), &LockHandle);
+    CcReleaseByteRangeFromWrite(v4, &v18, (unsigned int)v6, 0LL, v9);
+LABEL_7:
+  if ( *(_QWORD *)(Partition + 784) != Partition + 784 )
+    CcPostDeferredWrites(Partition);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
   --*(_DWORD *)(v4 + 516);
   CcDecrementOpenCount(v4);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -75,9 +68,9 @@ LABEL_9:
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v18 )
+        if ( v16 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

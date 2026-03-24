@@ -1,154 +1,153 @@
 /*
- * XREFs of SmProcessCreateRequest @ 0x1407B7C2C
+ * XREFs of SmProcessCreateRequest @ 0x1406FD1F0
  * Callers:
- *     SmpDirtyStoreCreate @ 0x1407B7B24 (SmpDirtyStoreCreate.c)
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
+ *     SmpDirtyStoreCreate @ 0x1406FB7C8 (SmpDirtyStoreCreate.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403428E8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140342E58 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343E8C (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     SmKmStoreDelete @ 0x1407B7898 (SmKmStoreDelete.c)
- *     SmKmStoreCreatePrepare @ 0x1407B7F8C (SmKmStoreCreatePrepare.c)
- *     SmKmStoreAdd @ 0x1407B801C (SmKmStoreAdd.c)
- *     SmFirstTimeInit @ 0x1407B82C4 (SmFirstTimeInit.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034E538 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140351C48 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140353D08 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     SmKmStoreDelete @ 0x1406A0870 (SmKmStoreDelete.c)
+ *     SmKmStoreCreatePrepare @ 0x1406FB8D4 (SmKmStoreCreatePrepare.c)
+ *     SmKmStoreAdd @ 0x1406FD558 (SmKmStoreAdd.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, KPROCESSOR_MODE a4)
+__int64 __fastcall SmProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)
 {
-  __int64 v8; // rdi
-  int v9; // esi
-  __int64 v10; // rcx
-  __int64 v11; // rdx
+  __int64 v7; // rdi
+  int v8; // esi
+  __int64 v9; // rcx
   int TimeInit; // ebx
-  int *v13; // r14
-  int v14; // ecx
-  char *NonPaged; // rax
-  struct _EX_RUNDOWN_REF *v17; // rax
-  signed __int32 v18[8]; // [rsp+0h] [rbp-148h] BYREF
-  __int128 v19; // [rsp+20h] [rbp-128h]
-  __int64 v20; // [rsp+30h] [rbp-118h]
-  PPRIVILEGE_SET Privileges; // [rsp+38h] [rbp-110h] BYREF
-  _QWORD v22[2]; // [rsp+40h] [rbp-108h] BYREF
-  _KPROCESS *Process; // [rsp+50h] [rbp-F8h]
-  int v24; // [rsp+58h] [rbp-F0h]
-  int v25; // [rsp+5Ch] [rbp-ECh]
-  int *v26[8]; // [rsp+60h] [rbp-E8h] BYREF
-  _OWORD v27[6]; // [rsp+A0h] [rbp-A8h] BYREF
+  _DWORD *v11; // r14
+  int v12; // ecx
+  PVOID NonPaged; // rax
+  __int64 v14; // r14
+  struct _EX_RUNDOWN_REF *v16; // rax
+  signed __int32 v17[8]; // [rsp+0h] [rbp-158h] BYREF
+  __int64 v18; // [rsp+20h] [rbp-138h]
+  int v19; // [rsp+28h] [rbp-130h]
+  int v20; // [rsp+2Ch] [rbp-12Ch]
+  PPRIVILEGE_SET v21; // [rsp+30h] [rbp-128h]
+  __int64 v22; // [rsp+38h] [rbp-120h]
+  PPRIVILEGE_SET Privileges; // [rsp+40h] [rbp-118h] BYREF
+  _QWORD v24[2]; // [rsp+48h] [rbp-110h] BYREF
+  _KPROCESS *Process; // [rsp+58h] [rbp-100h]
+  int v26; // [rsp+60h] [rbp-F8h]
+  int v27; // [rsp+64h] [rbp-F4h]
+  __int64 v28[8]; // [rsp+70h] [rbp-E8h] BYREF
+  _OWORD v29[6]; // [rsp+B0h] [rbp-A8h] BYREF
 
-  v20 = a1;
+  v18 = a1;
+  v22 = a1;
   Process = 0LL;
-  v25 = 0;
-  v8 = 0LL;
-  v19 = 0xFFFFFFFFuLL;
-  v9 = -1;
+  v27 = 0;
+  v7 = 0LL;
+  v21 = 0LL;
+  v8 = -1;
+  v19 = -1;
   Privileges = 0LL;
-  memset(v27, 0, 0x58uLL);
+  memset(v29, 0, 0x58uLL);
   if ( a3 != 88 )
   {
     TimeInit = -1073741306;
-    goto LABEL_23;
+LABEL_33:
+    v14 = v18;
+    goto LABEL_24;
   }
   if ( a4 )
   {
     if ( (a2 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v10 = a2;
-    *(_BYTE *)v10 = *(_BYTE *)v10;
-    *(_BYTE *)(v10 + 87) = *(_BYTE *)(v10 + 87);
+    v9 = a2;
+    if ( a2 >= 0x7FFFFFFF0000LL )
+      v9 = 0x7FFFFFFF0000LL;
+    *(_BYTE *)v9 = *(_BYTE *)v9;
+    *(_BYTE *)(v9 + 87) = *(_BYTE *)(v9 + 87);
   }
-  v27[0] = *(_OWORD *)a2;
-  v27[1] = *(_OWORD *)(a2 + 16);
-  v27[2] = *(_OWORD *)(a2 + 32);
-  v27[3] = *(_OWORD *)(a2 + 48);
-  v27[4] = *(_OWORD *)(a2 + 64);
-  *(_QWORD *)&v27[5] = *(_QWORD *)(a2 + 80);
-  memset(v26, 0, sizeof(v26));
-  LOBYTE(v11) = a4;
-  TimeInit = SmKmStoreCreatePrepare(v27, v11, &Privileges, v26, v19, *((_QWORD *)&v19 + 1), v20);
-  if ( TimeInit >= 0 )
+  v29[0] = *(_OWORD *)a2;
+  v29[1] = *(_OWORD *)(a2 + 16);
+  v29[2] = *(_OWORD *)(a2 + 32);
+  v29[3] = *(_OWORD *)(a2 + 48);
+  v29[4] = *(_OWORD *)(a2 + 64);
+  *(_QWORD *)&v29[5] = *(_QWORD *)(a2 + 80);
+  memset(v28, 0, sizeof(v28));
+  TimeInit = SmKmStoreCreatePrepare((unsigned int *)v29, a4, &Privileges, (__int64)v28);
+  if ( TimeInit < 0 )
+    goto LABEL_33;
+  v11 = (_DWORD *)v28[0];
+  v12 = *(_DWORD *)v28[0];
+  if ( (*(_DWORD *)v28[0] & 0x400FF) != 0x40000 || (v12 & 0x300) != 0 )
+    goto LABEL_36;
+  if ( !(_BYTE)v12 && (v12 & 0x160000) != 0x40000 && !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a4) )
   {
-    v13 = v26[0];
-    v14 = *v26[0];
-    if ( (*v26[0] & 0x400FF) != 0x40000 || (v14 & 0x300) != 0 )
-      goto LABEL_35;
-    if ( !(_BYTE)v14 && (v14 & 0x160000) != 0x40000 && !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a4) )
-    {
-      TimeInit = -1073741790;
-      goto LABEL_23;
-    }
-    if ( (*v13 & 0x400FF) == 0x40000 && (unsigned int)v13[2] > 0x20000 )
-    {
-LABEL_35:
-      TimeInit = -1073741637;
-    }
-    else
-    {
-      NonPaged = (char *)SSHSupportAllocateNonPaged(6752LL, 0x74536D73u);
-      v8 = (__int64)NonPaged;
-      if ( NonPaged )
-      {
-        SMKM_STORE<SM_TRAITS>::SmStInitialize(NonPaged);
-        TimeInit = SmFirstTimeInit(a1, (unsigned int)v13[2], 4 - (unsigned int)((*v13 & 0x10000) != 0));
-        if ( TimeInit >= 0 )
-        {
-          v26[4] = (int *)a1;
-          v26[5] = *(int **)(a1 + 2008);
-          v26[6] = *(int **)(a1 + 2000);
-          *v13 |= 0x8000u;
-          TimeInit = SMKM_STORE<SM_TRAITS>::SmStStart(v8, v26);
-          if ( TimeInit >= 0 )
-          {
-            Process = 0LL;
-            v25 = 0;
-            v22[0] = (char *)v27 + 8;
-            v22[1] = *(_QWORD *)(v8 + 6200);
-            v24 = DWORD2(v27[1]);
-            if ( (v27[0] & 0x200) != 0 )
-              Process = KeGetCurrentThread()->ApcState.Process;
-            TimeInit = SmKmStoreAdd(a1, v8, v22, v8 + 6016);
-            if ( TimeInit >= 0 )
-            {
-              LODWORD(v19) = *(_DWORD *)(v8 + 6016);
-              v9 = v19;
-              _InterlockedOr(v18, 0);
-              *(_BYTE *)(a1 + 2040) = 5;
-              v8 = 0LL;
-              *((_QWORD *)&v19 + 1) = 0LL;
-              DWORD1(v19) = 1;
-              TimeInit = 0;
-              *(_DWORD *)(a2 + 80) = v9;
-              if ( (v27[0] & 0x100) != 0 )
-                v9 = -1;
-            }
-          }
-        }
-      }
-      else
-      {
-        TimeInit = -1073741670;
-      }
-    }
+    TimeInit = -1073741790;
+    goto LABEL_33;
   }
-LABEL_23:
-  if ( v9 != -1 )
+  if ( (*v11 & 0x400FF) == 0x40000 && v11[2] > 0x20000u )
   {
-    v17 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, v9 & 0x3FF);
-    ExReleaseRundownProtection_0(v17 + 1);
+LABEL_36:
+    TimeInit = -1073741637;
+    goto LABEL_33;
   }
-  if ( v8 )
+  NonPaged = SSHSupportAllocateNonPaged(0x1A50uLL, 0x74536D73u);
+  v7 = (__int64)NonPaged;
+  if ( !NonPaged )
   {
-    SMKM_STORE<SM_TRAITS>::SmStCleanup(v8);
-    CmSiFreeMemory((PPRIVILEGE_SET)v8);
+    TimeInit = -1073741670;
+    goto LABEL_33;
+  }
+  SMKM_STORE<SM_TRAITS>::SmStInitialize((__int64)NonPaged);
+  TimeInit = SmFirstTimeInit(v11[2], 4 - (unsigned int)((*v11 & 0x10000) != 0));
+  if ( TimeInit < 0 )
+    goto LABEL_33;
+  v28[4] = (__int64)&SmGlobals;
+  v28[5] = (__int64)qword_140D24158;
+  v28[6] = (__int64)Handle;
+  *v11 |= 0x8000u;
+  TimeInit = SMKM_STORE<SM_TRAITS>::SmStStart(v7, v28);
+  if ( TimeInit < 0 )
+    goto LABEL_33;
+  Process = 0LL;
+  v27 = 0;
+  v24[0] = (char *)v29 + 8;
+  v24[1] = *(_QWORD *)(v7 + 6200);
+  v26 = DWORD2(v29[1]);
+  if ( (v29[0] & 0x200) != 0 )
+    Process = KeGetCurrentThread()->ApcState.Process;
+  TimeInit = SmKmStoreAdd(v18, v7, v24, v7 + 6016);
+  if ( TimeInit < 0 )
+    goto LABEL_33;
+  v19 = *(_DWORD *)(v7 + 6016);
+  v8 = v19;
+  _InterlockedOr(v17, 0);
+  byte_140D24168 = 5;
+  v7 = 0LL;
+  v21 = 0LL;
+  v20 = 1;
+  TimeInit = 0;
+  *(_DWORD *)(a2 + 80) = v8;
+  if ( (v29[0] & 0x100) != 0 )
+    v8 = -1;
+  v14 = v18;
+LABEL_24:
+  if ( v8 != -1 )
+  {
+    v16 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(v14, v8 & 0x3FF);
+    ExReleaseRundownProtection(v16 + 1);
+  }
+  if ( v7 )
+  {
+    SMKM_STORE<SM_TRAITS>::SmStCleanup(v7);
+    CmSiFreeMemory((PPRIVILEGE_SET)v7);
   }
   if ( Privileges )
     CmSiFreeMemory(Privileges);

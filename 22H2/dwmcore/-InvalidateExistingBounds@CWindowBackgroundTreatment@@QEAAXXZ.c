@@ -1,24 +1,24 @@
 /*
- * XREFs of ?InvalidateExistingBounds@CWindowBackgroundTreatment@@QEAAXXZ @ 0x1800E6CE4
+ * XREFs of ?InvalidateExistingBounds@CWindowBackgroundTreatment@@QEAAXXZ @ 0x1800C9C60
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A510 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall CWindowBackgroundTreatment::InvalidateExistingBounds(__int64 this)
+void __fastcall CWindowBackgroundTreatment::InvalidateExistingBounds(CWindowBackgroundTreatment *this)
 {
   __int128 v1; // xmm0
   __int64 v2; // xmm1_8
 
-  v1 = *(_OWORD *)(this + 88);
-  *(_BYTE *)(this + 300) = 1;
-  v2 = *(_QWORD *)(this + 104);
-  *(_OWORD *)(this + 112) = v1;
-  *(_QWORD *)(this + 128) = v2;
-  *(_QWORD *)(this + 104) = 0LL;
-  *(_QWORD *)(this + 96) = 0LL;
-  *(_QWORD *)(this + 88) = 0LL;
-  if ( *(_BYTE *)(this + 301) )
-    CWindowBackgroundTreatment::InvalidateBitmapRealization(this);
+  v1 = *((_OWORD *)this + 9);
+  *((_WORD *)this + 178) = 256;
+  v2 = *((_QWORD *)this + 20);
+  *(_OWORD *)((char *)this + 168) = v1;
+  *((_QWORD *)this + 23) = v2;
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 19) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  if ( *((_BYTE *)this + 358) )
+    CWindowBackgroundTreatment::ClearRenderTargetMaps(this);
 }

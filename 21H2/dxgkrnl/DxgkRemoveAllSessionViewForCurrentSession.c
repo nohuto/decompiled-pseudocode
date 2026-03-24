@@ -1,63 +1,47 @@
 /*
- * XREFs of DxgkRemoveAllSessionViewForCurrentSession @ 0x1C01C0654
+ * XREFs of DxgkRemoveAllSessionViewForCurrentSession @ 0x1C00E0508
  * Callers:
- *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BF100 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0133190 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01C06C0 (-RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C00E0570 (-RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-__int64 DxgkRemoveAllSessionViewForCurrentSession()
+__int64 __fastcall DxgkRemoveAllSessionViewForCurrentSession(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rcx
-  DXGSESSIONMGR *v1; // rbx
-  unsigned int v2; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  DXGSESSIONDATA *v4; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  struct _KTHREAD **SessionDataForSpecifiedSession; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // eax
+  __int64 v7; // rbx
+  __int64 v8; // rax
 
-  v1 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( v1
-    && (v2 = PsGetCurrentProcessSessionId(v0),
-        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v1, v2),
-        (v4 = SessionDataForSpecifiedSession) != 0LL) )
+  SessionDataForSpecifiedSession = (struct _KTHREAD **)*((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 102);
+  if ( SessionDataForSpecifiedSession )
   {
-    if ( *((struct _KTHREAD **)SessionDataForSpecifiedSession + 2319) != KeGetCurrentThread() )
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId();
+    SessionDataForSpecifiedSession = (struct _KTHREAD **)DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                                           (DXGSESSIONMGR *)SessionDataForSpecifiedSession,
+                                                           CurrentProcessSessionId);
+  }
+  if ( SessionDataForSpecifiedSession )
+  {
+    if ( SessionDataForSpecifiedSession[2317] != KeGetCurrentThread() )
     {
-      WdLogSingleEntry1(1LL, 889LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pSessionData->IsSessionModeChangeLockExclusiveOwner()",
-        889LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v8 = WdLogNewEntry5_WdAssertion(v3, v2);
+      *(_QWORD *)(v8 + 24) = 882LL;
+      WdLogEvent5_WdAssertion(v8);
     }
-    DXGSESSIONDATA::RemoveAllSourceViewFromSession(v4);
+    DXGSESSIONDATA::RemoveAllSourceViewFromSession((DXGSESSIONDATA *)SessionDataForSpecifiedSession);
     return 0LL;
   }
   else
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v0);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v8 = PsGetCurrentProcessSessionId(v7);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-      v8,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v7 + 24) = (unsigned int)PsGetCurrentProcessSessionId();
+    *(_QWORD *)(v7 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v7);
     return 3221225485LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DetermineMessageCreationFlags@InteractiveControlDevice@@QEAAIPEAVInteractiveControlInput@@0@Z @ 0x1C0253E34
+ * XREFs of ?DetermineMessageCreationFlags@InteractiveControlDevice@@QEAAIPEAVInteractiveControlInput@@0@Z @ 0x1C02570BC
  * Callers:
- *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0253FF8 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02547C0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0257288 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0257A90 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall InteractiveControlDevice::DetermineMessageCreationFlags(
@@ -15,12 +15,13 @@ __int64 __fastcall InteractiveControlDevice::DetermineMessageCreationFlags(
   int v3; // ebx
   int v7; // eax
   int v8; // eax
-  int v9; // edx
+  int v9; // r8d
   int v10; // r10d
-  unsigned int v11; // r9d
-  int v12; // edx
-  int v13; // eax
-  int v14; // edi
+  unsigned int v11; // edx
+  int v12; // r8d
+  int v13; // edx
+  int v14; // eax
+  int v15; // edi
 
   v3 = 0;
   if ( *((_DWORD *)this + 94) )
@@ -45,14 +46,10 @@ __int64 __fastcall InteractiveControlDevice::DetermineMessageCreationFlags(
     v11 = *((_DWORD *)a2 + 18);
     if ( (v10 != 0) != ((v11 >> 2) & 1) )
     {
-      if ( (v9 & 4) != 0 )
-      {
-        v3 = 512;
-      }
-      else
+      v3 = v10 != 0 ? 512 : 256;
+      if ( (v9 & 4) == 0 )
       {
         *((_DWORD *)this + 95) = 0;
-        v3 = 256;
         v9 = *((_DWORD *)a3 + 18);
         v11 = *((_DWORD *)a2 + 18);
       }
@@ -84,22 +81,23 @@ __int64 __fastcall InteractiveControlDevice::DetermineMessageCreationFlags(
   }
   else
   {
-    v3 = v10 != 0 ? 0x200 : 0;
-    if ( (v9 & 0x80u) != 0 )
-      v3 |= 0x40u;
-    if ( (v9 & 1) != 0 )
-      v3 |= 1u;
+    v13 = (v10 != 0 ? 0x200 : 0) | 0x40;
+    if ( (v9 & 0x80u) == 0 )
+      v13 = v10 != 0 ? 0x200 : 0;
+    v3 = v13 | 1;
+    if ( (v9 & 1) == 0 )
+      v3 = v13;
     if ( (v9 & 2) != 0 )
       v3 |= 0x400u;
   }
-  v13 = *((_DWORD *)a3 + 19);
-  v14 = v3 | 0x80;
-  if ( !v13 )
-    v14 = v3;
+  v14 = *((_DWORD *)a3 + 19);
+  v15 = v3 | 0x80;
+  if ( !v14 )
+    v15 = v3;
   if ( *((_DWORD *)this + 95) )
   {
     *((_DWORD *)this + 95) = 0;
-    v14 |= 0x2000u;
+    v15 |= 0x2000u;
   }
-  return v14 & (unsigned int)~*((_DWORD *)InteractiveControlManager::Instance() + 23);
+  return v15 & (unsigned int)~*((_DWORD *)InteractiveControlManager::Instance() + 23);
 }

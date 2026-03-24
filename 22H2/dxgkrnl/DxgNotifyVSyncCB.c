@@ -1,67 +1,25 @@
 /*
- * XREFs of DxgNotifyVSyncCB @ 0x1C000BD40
+ * XREFs of DxgNotifyVSyncCB @ 0x1C0042750
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C000BE00 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C01C0434 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0005848 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C0013A20 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C00380C4 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
  */
 
 void __fastcall DxgNotifyVSyncCB(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // rax
-  DXGADAPTER *v5; // rcx
-  DXGGLOBAL *Global; // rax
-  struct DXGSESSIONDATA *SessionData; // rax
-  __int64 v8; // rbx
-  struct _KPROCESS *ThreadProcess; // rax
-  char v10; // [rsp+20h] [rbp-48h]
+  __int64 v4; // rdx
+  KSPIN_LOCK *DxgAdapter; // rax
+  __int64 v6; // r8
+  _BYTE v7[8]; // [rsp+20h] [rbp-48h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-40h] BYREF
 
-  v10 = 0;
-  if ( (unsigned __int8)KeIsAttachedProcess() )
-  {
-    if ( KeGetCurrentIrql() < 2u )
-    {
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 421) )
-      {
-        Global = DXGGLOBAL::GetGlobal();
-        SessionData = DXGGLOBAL::GetSessionData(Global);
-        if ( SessionData )
-        {
-          v8 = *((_QWORD *)SessionData + 2340);
-          if ( v8 == PsGetCurrentProcess() )
-          {
-            ThreadProcess = PsGetThreadProcess(KeGetCurrentThread());
-            if ( ThreadProcess )
-            {
-              KeStackAttachProcess(ThreadProcess, &ApcState);
-              v10 = 1;
-            }
-          }
-        }
-      }
-    }
-  }
-  if ( a1 )
-  {
-    v4 = *(_QWORD *)(a1 + 64);
-    if ( v4 && *(_DWORD *)(v4 + 16) == 1953656900 && *(_DWORD *)(v4 + 20) == 2 )
-    {
-      v5 = *(DXGADAPTER **)(v4 + 3912);
-      goto LABEL_8;
-    }
-    WdLogSingleEntry1(2LL, a1);
-  }
-  else
-  {
-    WdLogSingleEntry0(2LL);
-  }
-  v5 = 0LL;
-LABEL_8:
-  DXGADAPTER::NotifyVSync(v5, a2);
-  if ( v10 )
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v7);
+  DxgAdapter = (KSPIN_LOCK *)DpiGetDxgAdapter(a1, v4);
+  DXGADAPTER::NotifyVSync(DxgAdapter, a2, v6);
+  if ( v7[0] )
     KeUnstackDetachProcess(&ApcState);
 }

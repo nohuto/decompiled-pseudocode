@@ -3,11 +3,11 @@
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
  * Callees:
- *     KeOrAffinityEx @ 0x1400DC8D0 (KeOrAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED920 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, char *a5)

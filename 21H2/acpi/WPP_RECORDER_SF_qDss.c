@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qDss @ 0x1C006CA68
+ * XREFs of WPP_RECORDER_SF_qDss @ 0x1C006C648
  * Callers:
- *     ProcessorpFindAffinitizedIdtEntries @ 0x1C00995A0 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C0093160 (ProcessorpFindAffinitizedIdtEntries.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qDss(
@@ -47,7 +47,7 @@ __int64 __fastcall WPP_RECORDER_SF_qDss(
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_1e63366df8ec383a090aab9dc42a0bec_Traceguids,
+      &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids,
       12LL,
       &a6,
       8LL,
@@ -67,5 +67,5 @@ __int64 __fastcall WPP_RECORDER_SF_qDss(
     while ( *(_BYTE *)(v11 + v10) );
   }
   LOWORD(v17) = 12;
-  return WppAutoLogTrace(a1, 2LL, 20LL, &WPP_1e63366df8ec383a090aab9dc42a0bec_Traceguids, v17, &a6);
+  return WppAutoLogTrace(a1, 2LL, 20LL, &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids, v17, &a6);
 }

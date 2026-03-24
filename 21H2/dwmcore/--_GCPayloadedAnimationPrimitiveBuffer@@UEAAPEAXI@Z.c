@@ -1,17 +1,18 @@
 /*
- * XREFs of ??_GCPayloadedAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x180253710
+ * XREFs of ??_GCPayloadedAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x180016A40
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CPayloadedAnimationPrimitiveBuffer@@UEAA@XZ @ 0x180016A7C (--1CPayloadedAnimationPrimitiveBuffer@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
-void **__fastcall CPayloadedAnimationPrimitiveBuffer::`scalar deleting destructor'(void **this, char a2)
+CPayloadedAnimationPrimitiveBuffer *__fastcall CPayloadedAnimationPrimitiveBuffer::`scalar deleting destructor'(
+        CPayloadedAnimationPrimitiveBuffer *this,
+        char a2)
 {
-  *this = &CPayloadedAnimationPrimitiveBuffer::`vftable';
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 2);
+  CPayloadedAnimationPrimitiveBuffer::~CPayloadedAnimationPrimitiveBuffer(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this);
+    operator delete(this, 0x30uLL);
   return this;
 }

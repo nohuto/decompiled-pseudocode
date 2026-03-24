@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CPathEmitterEdge@EmitterShapes@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18026A5D0
+ * XREFs of ?HrFindInterface@CPathEmitterEdge@EmitterShapes@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180209440
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall EmitterShapes::CPathEmitterEdge::HrFindInterface(
@@ -24,7 +24,7 @@ __int64 __fastcall EmitterShapes::CPathEmitterEdge::HrFindInterface(
   }
   else
   {
-    *a3 = this;
+    *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
     return 0;
   }
   return v4;

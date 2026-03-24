@@ -1,10 +1,10 @@
 /*
- * XREFs of Event @ 0x1C0050570
+ * XREFs of Event @ 0x1C0067310
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     InitEvent @ 0x1C005095C (InitEvent.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     InitEvent @ 0x1C0067370 (InitEvent.c)
  */
 
 __int64 __fastcall Event(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall Event(__int64 a1, __int64 a2)
              *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
              *(_QWORD *)(a1 + 80),
              *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-             (__int64 *)(a2 + 64),
+             (_QWORD *)(a2 + 64),
              0);
   if ( !(_DWORD)result )
     return InitEvent(a1, *(_QWORD *)(a1 + 320), *v2);

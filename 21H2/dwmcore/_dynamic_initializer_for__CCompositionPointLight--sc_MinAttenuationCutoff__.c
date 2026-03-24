@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_MinAttenuationCutoff__ @ 0x180001F00
+ * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_MinAttenuationCutoff__ @ 0x180001C10
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionPointLight::sc_MinAttenuationCutoff
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1E28 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803D1E38 = v1;
+  xmmword_180345F38 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345F48 = v1;
   return result;
 }

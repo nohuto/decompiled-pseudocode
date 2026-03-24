@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetMiterLimit @ 0x1C014D840
+ * XREFs of NtGdiGetMiterLimit @ 0x1C015C7D0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetMiterLimit @ 0x1C014D89C (GreGetMiterLimit.c)
+ *     GreGetMiterLimit @ 0x1C015C82C (GreGetMiterLimit.c)
  */
 
 __int64 __fastcall NtGdiGetMiterLimit(HDC a1, unsigned __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfVerifierDbgBreakPoint @ 0x1C0063F50
+ * XREFs of imp_WdfVerifierDbgBreakPoint @ 0x1C0049840
  * Callers:
  *     <none>
  * Callees:
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_sl @ 0x1C0063D90 (WPP_IFR_SF_sl.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_sl @ 0x1C0049684 (WPP_IFR_SF_sl.c)
  */
 
 void __fastcall imp_WdfVerifierDbgBreakPoint(
@@ -13,17 +13,17 @@ void __fastcall imp_WdfVerifierDbgBreakPoint(
         unsigned int a3,
         unsigned __int16 a4)
 {
-  _FX_DRIVER_GLOBALS *v4; // rbx
+  _FX_DRIVER_GLOBALS *DriverName; // rbx
   const _GUID *v5; // [rsp+20h] [rbp-28h]
 
-  v4 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   WPP_IFR_SF_sl(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (_BYTE)DriverGlobals + 16,
     a3,
     a4,
     v5,
     DriverGlobals->DriverName,
-    (unsigned __int8)DriverGlobals[-3].DriverName[30]);
-  FxVerifierDbgBreakPoint(v4);
+    *(&DriverGlobals[-3].DisplaceDriverUnload + 6));
+  FxVerifierDbgBreakPoint(DriverName);
 }

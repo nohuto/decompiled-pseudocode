@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CD2DResource@@$4PPPPPPPM@BAA@EBA?AU_LUID@@XZ @ 0x18010CB90
+ * XREFs of ?GetAdapterLuid@CD2DResource@@$4PPPPPPPM@BAA@EBA?AU_LUID@@XZ @ 0x1800F60B0
  * Callers:
  *     <none>
  * Callees:

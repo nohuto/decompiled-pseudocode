@@ -1,62 +1,50 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x14039A994
+ * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x14057B8DC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopIdleWakeNotifyModernStandbyEnter()
 {
   __int64 result; // rax
-  void *v1; // rbx
-  unsigned int v2; // esi
-  __int64 v3; // rdi
-  unsigned int *v4; // r14
-  unsigned __int64 v5; // rdi
-  signed __int32 v6; // eax
+  char *v1; // rdi
+  unsigned int v2; // r14d
+  char *v3; // rbp
+  int *v4; // rbx
+  int v5; // eax
+  unsigned __int64 v6; // rbx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
   bool v9; // zf
 
-  result = ExAllocatePool2(64LL, 20328LL, 1734960208LL);
-  v1 = (void *)result;
+  result = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 0x4510uLL, 0x67696450u);
+  v1 = (char *)result;
   if ( result )
   {
-    *(_QWORD *)(result + 20280) = 0LL;
+    memset((void *)result, 0, 0x4510uLL);
     v2 = 0;
-    *(_QWORD *)(result + 20296) = PopIdleWakeNotifyModernStandbyExitWorker;
-    *(_QWORD *)(result + 20304) = result;
-    v3 = result + 428;
+    v3 = v1 + 428;
     do
     {
-      v4 = (unsigned int *)(v3 - 148);
-      memset((void *)(v3 - 148), 0, 0x320uLL);
-      *(_QWORD *)(v3 + 276) = -1LL;
-      *(_DWORD *)(v3 - 4) = 2097153;
+      v4 = (int *)(v3 - 148);
+      memset(v3 - 148, 0, 0x2B8uLL);
+      *(_QWORD *)(v3 + 172) = -1LL;
+      *((_DWORD *)v3 - 1) = 1310721;
+      v3 += 696;
+      v5 = 7;
       if ( v2 <= 4 )
-      {
-        *v4 = v2;
-        do
-        {
-          v6 = _InterlockedIncrement(&PopIdleWakeNextToken);
-          *(_DWORD *)(v3 + 268) = v6;
-        }
-        while ( v6 == -1 );
-      }
-      else
-      {
-        *v4 = 7;
-      }
+        v5 = v2;
       ++v2;
-      v3 += 800LL;
+      *v4 = v5;
     }
     while ( v2 < 0x19 );
-    v5 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
+    v6 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
     PopIdleWakeContext = v1;
     KxReleaseSpinLock(&PopIdleWakeContextLock);
     result = (unsigned int)KiIrqlFlags;
@@ -65,19 +53,19 @@ __int64 PopIdleWakeNotifyModernStandbyEnter()
       if ( (KiIrqlFlags & 1) != 0 )
       {
         result = KeGetCurrentIrql();
-        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v5 <= 0xFu && (unsigned __int8)result >= 2u )
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
           v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= result;
           if ( v9 )
-            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v5);
+    __writecr8(v6);
   }
   return result;
 }

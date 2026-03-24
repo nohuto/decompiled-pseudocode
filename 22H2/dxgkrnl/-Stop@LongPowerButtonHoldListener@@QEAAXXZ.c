@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Stop@LongPowerButtonHoldListener@@QEAAXXZ @ 0x1C004C1D4
+ * XREFs of ?Stop@LongPowerButtonHoldListener@@QEAAXXZ @ 0x1C00509C8
  * Callers:
- *     ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C002368C (-Initialize@DisplayDiagnostics@@QEAAXXZ.c)
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C0021A10 (-Initialize@DisplayDiagnostics@@QEAAXXZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
  *     <none>
  */

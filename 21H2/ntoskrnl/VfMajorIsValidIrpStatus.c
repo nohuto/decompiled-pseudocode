@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorIsValidIrpStatus @ 0x140A92668
+ * XREFs of VfMajorIsValidIrpStatus @ 0x1409D7AE0
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140A82730 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyIrpStackUpward @ 0x140A82930 (ViGenericVerifyIrpStackUpward.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x1409C7540 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyIrpStackUpward @ 0x1409C7740 (ViGenericVerifyIrpStackUpward.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorIsValidIrpStatus(_BYTE *a1, unsigned int a2)
@@ -16,9 +16,9 @@ __int64 __fastcall VfMajorIsValidIrpStatus(_BYTE *a1, unsigned int a2)
     v4 = (*a1 != 0xFF) + 28LL;
   else
     v4 = (unsigned __int8)*a1;
-  v5 = (unsigned int (__fastcall *)(_BYTE *))*((_QWORD *)&unk_140D59780 + 12 * v4);
-  if ( (!v5 || v5(a1)) && qword_140D5A200 )
-    return qword_140D5A200(a1, a2);
+  v5 = (unsigned int (__fastcall *)(_BYTE *))*((_QWORD *)&unk_140D4C0F0 + 12 * v4);
+  if ( (!v5 || v5(a1)) && qword_140D4CB70 )
+    return qword_140D4CB70(a1, a2);
   else
     return 0LL;
 }

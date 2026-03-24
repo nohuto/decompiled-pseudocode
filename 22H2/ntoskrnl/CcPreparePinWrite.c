@@ -1,16 +1,17 @@
 /*
- * XREFs of CcPreparePinWrite @ 0x1407654A0
+ * XREFs of CcPreparePinWrite @ 0x140678510
  * Callers:
  *     <none>
  * Callees:
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     CcMapDataForOverwrite @ 0x1402FC384 (CcMapDataForOverwrite.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     memset @ 0x140435400 (memset.c)
- *     CcUnpinData @ 0x1406F58F0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x140885F50 (CcAllocateObcb.c)
+ *     CcSetDirtyPinnedData @ 0x140279990 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
+ *     CcMapDataForOverwrite @ 0x140306B18 (CcMapDataForOverwrite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CcUnpinData @ 0x140635390 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x14077D1AC (CcAllocateObcb.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 BOOLEAN __stdcall CcPreparePinWrite(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,
@@ -21,14 +22,14 @@ BOOLEAN __stdcall CcPreparePinWrite(
         PVOID *Buffer)
 {
   ULONG v8; // edi
-  __int64 v11; // r10
+  LONGLONG v11; // r10
   LONGLONG QuadPart; // rax
   PVOID *p_BcbVoid; // rsi
   BOOLEAN v15; // bl
   PVOID v16; // rcx
   PVOID BcbVoid; // [rsp+58h] [rbp-50h] BYREF
   LONGLONG v18; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-40h] BYREF
+  LONGLONG v19; // [rsp+68h] [rbp-40h] BYREF
   void *v20; // [rsp+70h] [rbp-38h] BYREF
   PVOID *v21; // [rsp+78h] [rbp-30h]
 
@@ -42,7 +43,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
   p_BcbVoid = &BcbVoid;
   if ( (Flags & 0x20) != 0 )
   {
-    CcMapDataForOverwrite((__int64)FileObject, FileOffset, Length, Bcb, (unsigned __int64 *)Buffer);
+    CcMapDataForOverwrite((__int64)FileObject, FileOffset, *(__int64 *)&Length, Bcb, (unsigned __int64 *)Buffer);
     return 1;
   }
   else
@@ -65,16 +66,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
         v18 = v11;
         v21 = ++p_BcbVoid;
       }
-      if ( !(unsigned __int8)CcPinFileData(
-                               (__int64)FileObject,
-                               &v18,
-                               v8,
-                               0,
-                               1,
-                               Flags,
-                               (ULONG_PTR *)p_BcbVoid,
-                               &v20,
-                               &v19) )
+      if ( !(unsigned __int8)CcPinFileData((__int64)FileObject, &v18, v8, 0, 1, Flags, (__int64 *)p_BcbVoid, &v20, &v19) )
       {
         v15 = 0;
         v16 = BcbVoid;

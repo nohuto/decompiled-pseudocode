@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSetExtraPresent @ 0x1405F327C
+ * XREFs of RtlpHpSegSetExtraPresent @ 0x140595048
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x1405F2F80 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x1405949DC (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x140365700 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpVsChunkSetExtraPresent @ 0x1405F3950 (RtlpHpVsChunkSetExtraPresent.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1403422D0 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpVsChunkSetExtraPresent @ 0x1405956D0 (RtlpHpVsChunkSetExtraPresent.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int64 a2)
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int6
     v7 = ((__int64)(result - v6) >> 5 << *(_BYTE *)(v4 + 8)) + v6;
     if ( v5 == 8 )
     {
-      v8 = (unsigned __int16)qword_140C5A5C8 ^ *(unsigned __int16 *)(v7 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v7 >> 12);
+      v8 = WORD4(RtlpHpHeapGlobals) ^ *(unsigned __int16 *)(v7 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v7 >> 12);
       result = 0x4000LL;
       *(_WORD *)(v8 + v3 - 2) |= 0x4000u;
     }

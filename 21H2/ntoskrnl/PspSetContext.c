@@ -1,63 +1,66 @@
 /*
- * XREFs of PspSetContext @ 0x140703FB0
+ * XREFs of PspSetContext @ 0x14064A390
  * Callers:
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlXRestoreS @ 0x14022E800 (RtlXRestoreS.c)
- *     KiCopyXStateArea @ 0x14056FC20 (KiCopyXStateArea.c)
+ *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x140519F90 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  int v4; // ebx
+  int v4; // ebp
   int v9; // eax
-  int v10; // r9d
-  int v11; // eax
-  int v12; // r9d
-  __int64 v13; // rcx
-  __int16 v14; // ax
+  int v10; // eax
+  __int64 v11; // rdx
+  __int16 v12; // ax
+  bool v13; // zf
   __int64 result; // rax
+  unsigned __int64 v15; // rcx
   unsigned __int64 v16; // rax
-  unsigned __int64 v17; // rax
+  unsigned __int64 v17; // rcx
   unsigned __int64 v18; // rax
-  __int64 v19; // rax
-  struct _KTHREAD *CurrentThread; // rcx
-  __int64 v21; // r8
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rax
+  __int64 v23; // rcx
+  __int64 v24; // r8
   _QWORD *SparePtr; // rcx
-  _QWORD *v23; // rdx
-  __int64 v24; // rcx
+  __int64 v26; // rcx
+  _QWORD *v27; // rdx
 
   v4 = *(_DWORD *)(a3 + 48);
   if ( (v4 & 0x100001) == 0x100001 )
   {
     v9 = *(_DWORD *)(a3 + 68);
-    v10 = v9 & 0x210DD5;
-    v11 = v9 & 0x250FD5;
-    v12 = v10 | 0x200;
-    if ( !a4 )
-      v12 = v11;
-    *(_DWORD *)(a1 + 376) = v12;
-    v13 = *(_QWORD *)(a3 + 248);
-    *(_QWORD *)(a1 + 360) = v13;
+    if ( a4 )
+      v10 = v9 & 0x210DD5 | 0x200;
+    else
+      v10 = v9 & 0x250FD5;
+    *(_DWORD *)(a1 + 376) = v10;
+    v11 = *(_QWORD *)(a3 + 248);
+    *(_QWORD *)(a1 + 360) = v11;
     *(_QWORD *)(a1 + 384) = *(_QWORD *)(a3 + 152);
     if ( a4 == 1 )
     {
       *(_WORD *)(a1 + 392) = 43;
-      v14 = 51;
-      if ( *(_WORD *)(a3 + 56) != 51 )
-        v14 = 35;
-      *(_WORD *)(a1 + 368) = v14;
-      if ( v14 == 35 )
-        v13 = (unsigned int)v13;
+      v12 = 35;
+      v13 = *(_WORD *)(a3 + 56) == 51;
+      if ( *(_WORD *)(a3 + 56) == 51 )
+        v12 = 51;
+      *(_WORD *)(a1 + 368) = v12;
+      if ( v13 )
+        v11 = v11 << 16 >> 16;
       else
-        v13 = v13 << 16 >> 16;
+        v11 = (unsigned int)v11;
     }
     else
     {
       *(_WORD *)(a1 + 392) = 0;
       *(_WORD *)(a1 + 368) = 16;
     }
-    *(_QWORD *)(a1 + 360) = v13;
+    *(_QWORD *)(a1 + 360) = v11;
   }
   if ( (v4 & 0x100002) == 0x100002 )
   {
@@ -79,29 +82,34 @@ __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
   }
   if ( (v4 & 0x100040) == 0x100040 && a4 == 1 )
   {
-    v21 = *(int *)(a3 + 1248) + a3 + 720;
+    v24 = *(int *)(a3 + 1248) + a3 + 720;
     SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
-    if ( !SparePtr )
-      goto LABEL_31;
-    v23 = (_QWORD *)*SparePtr;
-    if ( *SparePtr )
+    if ( SparePtr )
     {
-      do
+      v27 = (_QWORD *)*SparePtr;
+      if ( *SparePtr )
       {
-        SparePtr = v23;
-        v23 = (_QWORD *)*v23;
+        do
+        {
+          SparePtr = v27;
+          v27 = (_QWORD *)*v27;
+        }
+        while ( v27 );
       }
-      while ( v23 );
+      v26 = SparePtr[5];
     }
-    v24 = SparePtr[5];
-    if ( v24 )
-      KiCopyXStateArea(v24, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL, v21);
     else
-LABEL_31:
-      RtlXRestoreS(v21, (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
+    {
+      v26 = 0LL;
+    }
+    if ( v26 )
+      KiCopyXStateArea(v26, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL, v24);
+    else
+      RtlXRestoreS(
+        *(int *)(a3 + 1248) + a3 + 720,
+        (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
   }
-  result = v4 & 0x100008;
-  if ( (_DWORD)result == 1048584 )
+  if ( (v4 & 0x100008) == 0x100008 )
   {
     *(_OWORD *)(a1 + 112) = *(_OWORD *)(a3 + 416);
     *(_OWORD *)(a1 + 128) = *(_OWORD *)(a3 + 432);
@@ -121,50 +129,58 @@ LABEL_31:
     *(_OWORD *)*(_QWORD *)(a2 + 120) = *(_OWORD *)(a3 + 656);
     *(_DWORD *)(a1 + 44) = KiMxCsrMask & *(_DWORD *)(a3 + 52);
     *(_DWORD *)(a3 + 280) = _mm_getcsr();
-    result = 7999LL;
     *(_WORD *)(a3 + 256) &= 0x1F3Fu;
   }
+  result = 1048592LL;
   if ( (v4 & 0x100010) == 0x100010 )
   {
-    v16 = *(_QWORD *)(a3 + 72);
+    v15 = *(_QWORD *)(a3 + 72);
     if ( a4 )
     {
-      if ( v16 > 0x7FFFFFFEFFFFLL )
-        *(_QWORD *)(a1 + 216) = 0LL;
-      else
-        *(_QWORD *)(a1 + 216) = v16;
-      v17 = *(_QWORD *)(a3 + 80);
-      if ( v17 > 0x7FFFFFFEFFFFLL )
-        *(_QWORD *)(a1 + 224) = 0LL;
-      else
-        *(_QWORD *)(a1 + 224) = v17;
-      v18 = *(_QWORD *)(a3 + 88);
-      if ( v18 > 0x7FFFFFFEFFFFLL )
-        *(_QWORD *)(a1 + 232) = 0LL;
-      else
-        *(_QWORD *)(a1 + 232) = v18;
-      v19 = 0LL;
-      if ( *(_QWORD *)(a3 + 96) <= 0x7FFFFFFEFFFFuLL )
-        v19 = *(_QWORD *)(a3 + 96);
+      v16 = 0LL;
+      if ( v15 <= 0x7FFFFFFEFFFFLL )
+        v16 = *(_QWORD *)(a3 + 72);
+      v15 = v16;
     }
-    else
+    *(_QWORD *)(a1 + 216) = v15;
+    v17 = *(_QWORD *)(a3 + 80);
+    if ( a4 )
     {
-      *(_QWORD *)(a1 + 216) = v16;
-      *(_QWORD *)(a1 + 224) = *(_QWORD *)(a3 + 80);
-      *(_QWORD *)(a1 + 232) = *(_QWORD *)(a3 + 88);
-      v19 = *(_QWORD *)(a3 + 96);
+      v18 = 0LL;
+      if ( v17 <= 0x7FFFFFFEFFFFLL )
+        v18 = *(_QWORD *)(a3 + 80);
+      v17 = v18;
     }
-    *(_QWORD *)(a1 + 240) = v19;
+    *(_QWORD *)(a1 + 224) = v17;
+    v19 = *(_QWORD *)(a3 + 88);
+    if ( a4 )
+    {
+      v20 = 0LL;
+      if ( v19 <= 0x7FFFFFFEFFFFLL )
+        v20 = *(_QWORD *)(a3 + 88);
+      v19 = v20;
+    }
+    *(_QWORD *)(a1 + 232) = v19;
+    v21 = *(_QWORD *)(a3 + 96);
+    if ( a4 )
+    {
+      v22 = 0LL;
+      if ( v21 <= 0x7FFFFFFEFFFFLL )
+        v22 = *(_QWORD *)(a3 + 96);
+      v21 = v22;
+    }
+    *(_QWORD *)(a1 + 240) = v21;
+    result = 4294902613LL;
     *(_QWORD *)(a1 + 248) = 0LL;
-    result = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
-    *(_QWORD *)(a1 + 256) = result;
+    v23 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
+    *(_QWORD *)(a1 + 256) = v23;
     if ( a4 )
     {
-      CurrentThread = KeGetCurrentThread();
-      if ( (result & 0x355) != 0 )
-        _interlockedbittestandset(&CurrentThread->Header.Lock, 0x18u);
+      result = (__int64)KeGetCurrentThread();
+      if ( (v23 & 0x355) != 0 )
+        _interlockedbittestandset((volatile signed __int32 *)result, 0x18u);
       else
-        _interlockedbittestandreset(&CurrentThread->Header.Lock, 0x18u);
+        _interlockedbittestandreset((volatile signed __int32 *)result, 0x18u);
     }
   }
   return result;

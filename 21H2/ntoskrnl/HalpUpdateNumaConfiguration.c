@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpUpdateNumaConfiguration @ 0x14051E7B4
+ * XREFs of HalpUpdateNumaConfiguration @ 0x1404D1F34
  * Callers:
- *     HalStartDynamicProcessor @ 0x140508D60 (HalStartDynamicProcessor.c)
+ *     HalStartDynamicProcessor @ 0x1404BC2E0 (HalStartDynamicProcessor.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall HalpUpdateNumaConfiguration(int a1, unsigned __int16 a2)
     result = *(_QWORD *)(HalpNumaConfig + 24);
     v4 = *(_DWORD *)(HalpNumaConfig + 60);
     v5 = *(_DWORD *)(result + 4LL * a2);
-    v6 = 2048LL;
+    v6 = 1280LL;
     if ( v4 )
     {
       while ( 1 )

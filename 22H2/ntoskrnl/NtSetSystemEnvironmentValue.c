@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSetSystemEnvironmentValue @ 0x140A00030
+ * XREFs of NtSetSystemEnvironmentValue @ 0x140955390
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     HalSetEnvironmentVariable @ 0x140504A90 (HalSetEnvironmentVariable.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     RtlxUnicodeStringToOemSize @ 0x1407561F0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalSetEnvironmentVariable @ 0x1404BBC00 (HalSetEnvironmentVariable.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075D380 (RtlxUnicodeStringToAnsiSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetSystemEnvironmentValue(UNICODE_STRING *a1, UNICODE_STRING *a2)
@@ -82,10 +82,10 @@ LABEL_20:
     UnicodeString = *a1;
     SourceString = *a2;
   }
-  v7 = RtlxUnicodeStringToOemSize(&UnicodeString);
+  v7 = RtlxUnicodeStringToAnsiSize(&UnicodeString);
   v8 = v7;
   v17 = v7;
-  DestinationString.Buffer = (char *)ExAllocatePool2(64LL, v7, 1920364101LL);
+  DestinationString.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x72766E45u);
   if ( !DestinationString.Buffer )
     return 3221225626LL;
   DestinationString.MaximumLength = v8;
@@ -93,10 +93,10 @@ LABEL_20:
   v19 = v9;
   if ( v9 >= 0 )
   {
-    v10 = RtlxUnicodeStringToOemSize(&SourceString);
+    v10 = RtlxUnicodeStringToAnsiSize(&SourceString);
     v11 = v10;
     v18 = v10;
-    v16.Buffer = (char *)ExAllocatePool2(64LL, v10, 1920364101LL);
+    v16.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x72766E45u);
     if ( v16.Buffer )
     {
       v16.MaximumLength = v11;

@@ -1,71 +1,58 @@
 /*
- * XREFs of ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C02156A0
+ * XREFs of ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021B278
  * Callers:
- *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C0217594 (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C8DC (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C0214DD8 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
- *     ?xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z @ 0x1C021647C (-xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C021AB08 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
+ *     ?xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z @ 0x1C021BC5C (-xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z.c)
  */
 
-__int64 __fastcall xxxAdvise(unsigned int *a1, void **a2, struct tagDDECONV *a3)
+__int64 __fastcall xxxAdvise(unsigned int *a1, void **a2, struct tagDDECONV **a3)
 {
-  struct tagDDECONV *v3; // rdi
-  void **v4; // rsi
+  void **v4; // r14
   void *v6; // rcx
   unsigned int v7; // ebx
-  unsigned int v8; // eax
-  void *v9; // rax
-  unsigned int v10; // ecx
-  struct tagINTDDEINFO *v12; // [rsp+40h] [rbp-18h] BYREF
-  void *v13; // [rsp+48h] [rbp-10h] BYREF
+  __int64 v8; // rax
+  struct tagINTDDEINFO *v9; // rdi
+  void *v10; // rax
+  struct tagINTDDEINFO *v12; // [rsp+30h] [rbp-28h] BYREF
+  void *v13; // [rsp+38h] [rbp-20h] BYREF
   unsigned int v14; // [rsp+78h] [rbp+20h] BYREF
 
   v12 = 0LL;
-  v3 = a3;
   v13 = 0LL;
   v4 = a2;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      (_DWORD)a3,
-      25,
-      4,
-      14,
-      25,
-      (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 25, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
   }
   v6 = *v4;
   v14 = 129;
   v7 = xxxCopyDdeIn(v6, &v14, &v13, &v12);
-  if ( (*(_BYTE *)(_HMPheFromObject(v3) + 25) & 1) != 0 )
+  v8 = _HMPheFromObject(a3);
+  v9 = v12;
+  if ( (*(_BYTE *)(v8 + 25) & 1) != 0 )
   {
     v7 = 3;
-    if ( v12 )
-      Win32FreePool(v12);
+    if ( !v12 )
+      return v7;
+    Win32FreePool(v12);
   }
-  else if ( v7 == 2 )
+  if ( v7 == 2 )
   {
-    v8 = v14;
     *a1 |= 0x80000000;
-    v9 = AnticipatePost(
-           *((struct tagDDECONV **)v3 + 4),
-           (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxAdviseAck,
-           v13,
-           0LL,
-           v12,
-           v8);
-    v10 = 2;
-    *v4 = v9;
-    if ( !v9 )
+    v10 = AnticipatePost(
+            a3[4],
+            (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxAdviseAck,
+            v13,
+            0LL,
+            v9,
+            v14);
+    *v4 = v10;
+    if ( !v10 )
       return 3;
-    return v10;
   }
   return v7;
 }

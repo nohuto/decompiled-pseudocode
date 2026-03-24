@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_GetGenericErrorResponseOnDescriptorFailure @ 0x1C002D38C
+ * XREFs of HUBMISC_GetGenericErrorResponseOnDescriptorFailure @ 0x1C002A2F8
  * Callers:
- *     HUBDSM_ReturningErrorResponseOnProductStringQuery @ 0x1C0021540 (HUBDSM_ReturningErrorResponseOnProductStringQuery.c)
+ *     HUBDSM_ReturningErrorResponseOnProductStringQuery @ 0x1C001ECA0 (HUBDSM_ReturningErrorResponseOnProductStringQuery.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C00150D4 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
  */
 
 __int64 __fastcall HUBMISC_GetGenericErrorResponseOnDescriptorFailure(__int64 a1)
@@ -17,8 +17,8 @@ __int64 __fastcall HUBMISC_GetGenericErrorResponseOnDescriptorFailure(__int64 a1
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         5u,
-        0x60u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        0x5Eu,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         a1);
     return 4017;
   }
@@ -30,8 +30,8 @@ __int64 __fastcall HUBMISC_GetGenericErrorResponseOnDescriptorFailure(__int64 a1
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         5u,
-        0x5Fu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        0x5Du,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         a1);
   }
   return v1;

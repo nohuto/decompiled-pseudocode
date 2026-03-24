@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventCopyEventData @ 0x14078C7F4
+ * XREFs of PiUEventCopyEventData @ 0x1406E1E98
  * Callers:
- *     PiUEventHandleGetEvent @ 0x14078C678 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleGetEvent @ 0x1406E1D18 (PiUEventHandleGetEvent.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x140788E8C (_CmSetDeviceInterfacePathFormat.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14063A94C (_CmSetDeviceInterfacePathFormat.c)
  */
 
 __int64 __fastcall PiUEventCopyEventData(__int64 a1, unsigned int a2, __int64 a3)
 {
-  NTSTATUS v3; // ebx
+  int v3; // ebx
   __int64 v6; // r11
   __int64 v7; // rcx
   unsigned int v8; // edx
@@ -79,7 +79,7 @@ __int64 __fastcall PiUEventCopyEventData(__int64 a1, unsigned int a2, __int64 a3
         }
         return (unsigned int)-1073741789;
       }
-      if ( (unsigned int)(*(_DWORD *)(a3 + 88) - 10) >= 2 )
+      if ( (unsigned int)(*(_DWORD *)(a3 + 88) - 10) > 1 )
         return (unsigned int)-1073741811;
     }
     v3 = RtlStringCchLengthW((STRSAFE_PCNZWCH)(a3 + 120), 0xC8uLL, &pcchLength);

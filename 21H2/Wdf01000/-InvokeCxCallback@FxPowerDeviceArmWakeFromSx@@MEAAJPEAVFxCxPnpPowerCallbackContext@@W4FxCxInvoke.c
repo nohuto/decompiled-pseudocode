@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0086090
+ * XREFs of ?InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C001BED0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_sqqd @ 0x1C008644C (WPP_IFR_SF_sqqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_sqqd @ 0x1C007D248 (WPP_IFR_SF_sqqd.c)
  */
 
 __int64 __fastcall FxPowerDeviceArmWakeFromSx::InvokeCxCallback(

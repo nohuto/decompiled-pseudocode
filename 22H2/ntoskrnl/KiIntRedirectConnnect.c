@@ -1,32 +1,31 @@
 /*
- * XREFs of KiIntRedirectConnnect @ 0x140580908
+ * XREFs of KiIntRedirectConnnect @ 0x1403A539C
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14031FF50 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140377A84 (KiIntSteerChooseInitialTargetProcessors.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntRedirectConnnect(__int64 *a1, unsigned int a2, __int64 a3)
 {
-  __int64 v3; // rdi
-  __int64 Pool2; // rax
+  _WORD *PoolWithTag; // rax
   unsigned int v7; // r9d
-  __int64 v8; // r10
+  _WORD *v8; // r10
   __int64 v9; // rax
   __int64 v10; // rcx
 
-  v3 = a2;
-  Pool2 = ExAllocatePool2(64LL, 24LL, 1380541771LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x5249654Bu);
   v7 = 0;
-  v8 = Pool2;
-  if ( Pool2 )
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_WORD *)(Pool2 + 8) = *(_WORD *)(a3 + 32);
-    *(_QWORD *)Pool2 = *(_QWORD *)(a3 + 24);
-    *(_BYTE *)(Pool2 + 16) = 0;
-    if ( (_DWORD)v3 )
+    *(_OWORD *)PoolWithTag = 0LL;
+    PoolWithTag[4] = *(_WORD *)(a3 + 32);
+    *(_QWORD *)PoolWithTag = *(_QWORD *)(a3 + 24);
+    *((_BYTE *)PoolWithTag + 16) = 0;
+    if ( a2 )
     {
-      v9 = v3;
+      v9 = a2;
       do
       {
         v10 = *a1++;

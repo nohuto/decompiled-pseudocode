@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceOpticalIoInit @ 0x140311F40
+ * XREFs of EtwpTraceOpticalIoInit @ 0x140312040
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwpGetScsiPassThroughCdb @ 0x140310D5C (EtwpGetScsiPassThroughCdb.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x140310E5C (EtwpGetScsiPassThroughCdb.c)
  */
 
 void __fastcall EtwpTraceOpticalIoInit(__int64 a1)

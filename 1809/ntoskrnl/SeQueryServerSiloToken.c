@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQueryServerSiloToken @ 0x1406C5520
+ * XREFs of SeQueryServerSiloToken @ 0x1406C5500
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
  *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1408A18F4 (SepUpdateSiloInClientSecurity.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1408A18D4 (SepUpdateSiloInClientSecurity.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMPbuttonToCursor @ 0x1C0194BF4
+ * XREFs of RIMPbuttonToCursor @ 0x1C015F3D0
  * Callers:
- *     RIMGetDeviceButtons @ 0x1C0192130 (RIMGetDeviceButtons.c)
+ *     RIMGetDeviceButtons @ 0x1C015D9D0 (RIMGetDeviceButtons.c)
  * Callees:
  *     <none>
  */

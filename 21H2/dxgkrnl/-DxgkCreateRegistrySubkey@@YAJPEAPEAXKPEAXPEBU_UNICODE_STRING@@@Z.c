@@ -1,25 +1,24 @@
 /*
- * XREFs of ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C002806C
+ * XREFs of ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C02F53C0
  * Callers:
- *     ?OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z @ 0x1C01DC750 (-OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z.c)
- *     MonitorInitializeGlobal @ 0x1C020D64C (MonitorInitializeGlobal.c)
- *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C02186E0 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
+ *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C0190348 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
+ *     ?_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z @ 0x1C01904E0 (-_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __fastcall DxgkCreateRegistrySubkey(void **a1, ACCESS_MASK a2, void *a3, struct _UNICODE_STRING *a4)
 {
-  struct _OBJECT_ATTRIBUTES v5; // [rsp+40h] [rbp-38h] BYREF
-  ULONG v6; // [rsp+80h] [rbp+8h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
+  ULONG Disposition; // [rsp+80h] [rbp+8h] BYREF
 
   if ( !a1 )
     return -1073741811;
-  v5.RootDirectory = a3;
-  v5.ObjectName = a4;
-  *(_QWORD *)&v5.Length = 48LL;
-  *(_QWORD *)&v5.Attributes = 576LL;
-  *(_OWORD *)&v5.SecurityDescriptor = 0LL;
-  v6 = 0;
-  return ZwCreateKey(a1, a2, &v5, 0, 0LL, 0, &v6);
+  ObjectAttributes.RootDirectory = a3;
+  ObjectAttributes.ObjectName = a4;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  Disposition = 0;
+  return ZwCreateKey(a1, a2, &ObjectAttributes, 0, 0LL, 0, &Disposition);
 }

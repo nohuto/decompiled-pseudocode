@@ -1,36 +1,35 @@
 /*
- * XREFs of ObQueryDeviceMapInformation @ 0x14069C1E0
+ * XREFs of ObQueryDeviceMapInformation @ 0x1406250A0
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ObpDereferenceCurrentDeviceMap @ 0x14069C7C0 (ObpDereferenceCurrentDeviceMap.c)
- *     ObpReferenceCurrentDeviceMap @ 0x14069C820 (ObpReferenceCurrentDeviceMap.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
+ *     ObpReferenceDeviceMap @ 0x1406256F0 (ObpReferenceDeviceMap.c)
  */
 
 __int64 __fastcall ObQueryDeviceMapInformation(_KPROCESS *a1, __int64 a2, int a3)
 {
-  char v3; // si
-  unsigned int v6; // r15d
-  unsigned __int64 v7; // rbx
+  char v5; // r12
+  int v6; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r14
   __int64 ProcessServerSilo; // rax
-  _QWORD *ServerSiloGlobals; // rax
-  _QWORD *v10; // r14
+  __int64 *ServerSiloGlobals; // rax
+  __int64 *v12; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  char v12; // di
-  __int64 v13; // rdx
-  int v14; // r9d
-  int v15; // eax
-  unsigned int v16; // r8d
-  int v17; // eax
+  unsigned int v14; // edi
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  int v17; // r10d
   int v18; // eax
-  int v19; // eax
+  unsigned int v19; // r8d
   int v20; // eax
   int v21; // eax
   int v22; // eax
@@ -43,198 +42,192 @@ __int64 __fastcall ObQueryDeviceMapInformation(_KPROCESS *a1, __int64 a2, int a3
   int v29; // eax
   int v30; // eax
   int v31; // eax
-  struct _KTHREAD *v32; // rax
-  bool v33; // zf
-  unsigned __int64 *v35; // rax
-  struct _KTHREAD *v36; // rax
-  __int128 v37; // [rsp+28h] [rbp-50h]
-  __int128 v38; // [rsp+38h] [rbp-40h]
-  __int64 v39; // [rsp+48h] [rbp-30h]
-  __int64 v40; // [rsp+98h] [rbp+20h] BYREF
+  int v32; // eax
+  int v33; // eax
+  int v34; // eax
+  __int64 *v36; // rax
+  __int128 v37; // [rsp+20h] [rbp-48h]
+  __int128 v38; // [rsp+30h] [rbp-38h]
+  __int64 v39; // [rsp+40h] [rbp-28h]
 
-  v3 = a3;
-  v6 = 0;
-  v40 = 0LL;
   v37 = 0LL;
   v38 = 0LL;
   v39 = 0LL;
-  if ( (a3 & 0xFFFFFFFE) != 0 || a1 && KeGetCurrentThread()->ApcState.Process != a1 )
+  v5 = 0;
+  if ( (a3 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
-  v7 = ObpReferenceCurrentDeviceMap(0LL, &v40);
+  v6 = a3 & 1;
+  if ( a1 )
+  {
+    if ( KeGetCurrentThread()->ApcState.Process != a1 )
+      return 3221225485LL;
+  }
+  v9 = ObpReferenceDeviceMap(0LL);
   if ( a1 )
   {
     ProcessServerSilo = PsGetProcessServerSilo((__int64)a1);
-    ServerSiloGlobals = PsGetServerSiloGlobals(ProcessServerSilo);
+    ServerSiloGlobals = (__int64 *)PsGetServerSiloGlobals(ProcessServerSilo);
   }
   else
   {
-    ServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+    ServerSiloGlobals = (__int64 *)PsGetCurrentServerSiloGlobals(v8, v7);
   }
-  v10 = ServerSiloGlobals;
+  v12 = ServerSiloGlobals;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)(v10 + 15), 0LL);
-  if ( v7 )
+  ExAcquirePushLockSharedEx((ULONG_PTR)(v12 + 15), 0LL);
+  if ( v9 )
   {
-    v12 = 1;
+    v5 = 1;
   }
   else
   {
-    v35 = &a1[1].Affinity.StaticBitmap[31];
+    v36 = (__int64 *)&a1[1].AffinityPadding[11];
     if ( !a1 )
-      v35 = v10;
-    v7 = *v35 & 0xFFFFFFFFFFFFFFF0uLL;
-    v12 = 0;
+      v36 = v12;
+    v9 = *v36;
   }
-  if ( v7 )
+  if ( v9 )
   {
-    v13 = 0LL;
-    if ( (v3 & 1) == 0 )
-      v13 = *(_QWORD *)(v7 + 24);
-    v14 = *(_DWORD *)(v7 + 256);
-    LODWORD(v37) = v14;
-    v15 = 1;
-    v16 = 2;
+    v14 = 0;
+    v15 = v9;
+    v16 = *(_QWORD *)(v9 + 8);
+    if ( v16 && *(_QWORD *)(v16 + 304) )
+      v15 = *(_QWORD *)(v16 + 304);
+    v17 = *(_DWORD *)(v9 + 28);
+    LODWORD(v37) = v17;
+    v18 = 1;
+    v19 = 2;
     do
     {
-      *((_BYTE *)&v37 + v16 + 2) = *(_BYTE *)(v16 - 2 + v7 + 260);
-      if ( (v14 & v15) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 2) = *(_BYTE *)(v9 + v19 - 2 + 32);
+      if ( (v17 & v18) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 2) = *(_BYTE *)(v16 - 2 + v13 + 260);
-        LODWORD(v37) = v15 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 2) = *(_BYTE *)(v19 - 2 + v15 + 32);
+        LODWORD(v37) = v18 & *(_DWORD *)(v15 + 28) | v37;
       }
-      v17 = 2 * v15;
-      *((_BYTE *)&v37 + v16 + 3) = *(_BYTE *)(v16 - 1 + v7 + 260);
-      if ( (v14 & v17) == 0 && v13 )
+      v20 = 2 * v18;
+      *((_BYTE *)&v37 + v19 + 3) = *(_BYTE *)(v9 + v19 - 1 + 32);
+      if ( (v17 & v20) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 3) = *(_BYTE *)(v16 - 1 + v13 + 260);
-        LODWORD(v37) = v17 & *(_DWORD *)(v13 + 256) | v37;
-      }
-      v18 = 2 * v17;
-      *((_BYTE *)&v37 + v16 + 4) = *(_BYTE *)(v16 + v7 + 260);
-      if ( (v14 & v18) == 0 && v13 )
-      {
-        *((_BYTE *)&v37 + v16 + 4) = *(_BYTE *)(v16 + v13 + 260);
-        LODWORD(v37) = v18 & *(_DWORD *)(v13 + 256) | v37;
-      }
-      v19 = 2 * v18;
-      *((_BYTE *)&v37 + v16 + 5) = *(_BYTE *)(v16 + 1 + v7 + 260);
-      if ( (v14 & v19) == 0 && v13 )
-      {
-        *((_BYTE *)&v37 + v16 + 5) = *(_BYTE *)(v16 + 1 + v13 + 260);
-        LODWORD(v37) = v19 & *(_DWORD *)(v13 + 256) | v37;
-      }
-      v20 = 2 * v19;
-      *((_BYTE *)&v37 + v16 + 6) = *(_BYTE *)(v16 + 2 + v7 + 260);
-      if ( (v14 & v20) == 0 && v13 )
-      {
-        *((_BYTE *)&v37 + v16 + 6) = *(_BYTE *)(v16 + 2 + v13 + 260);
-        LODWORD(v37) = v20 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 3) = *(_BYTE *)(v19 - 1 + v15 + 32);
+        LODWORD(v37) = v20 & *(_DWORD *)(v15 + 28) | v37;
       }
       v21 = 2 * v20;
-      *((_BYTE *)&v37 + v16 + 7) = *(_BYTE *)(v16 + 3 + v7 + 260);
-      if ( (v14 & v21) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 4) = *(_BYTE *)(v9 + v19 + 32);
+      if ( (v17 & v21) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 7) = *(_BYTE *)(v16 + 3 + v13 + 260);
-        LODWORD(v37) = v21 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 4) = *(_BYTE *)(v19 + v15 + 32);
+        LODWORD(v37) = v21 & *(_DWORD *)(v15 + 28) | v37;
       }
       v22 = 2 * v21;
-      *((_BYTE *)&v37 + v16 + 8) = *(_BYTE *)(v16 + 4 + v7 + 260);
-      if ( (v14 & v22) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 5) = *(_BYTE *)(v9 + v19 + 1 + 32);
+      if ( (v17 & v22) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 8) = *(_BYTE *)(v16 + 4 + v13 + 260);
-        LODWORD(v37) = v22 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 5) = *(_BYTE *)(v19 + 1 + v15 + 32);
+        LODWORD(v37) = v22 & *(_DWORD *)(v15 + 28) | v37;
       }
       v23 = 2 * v22;
-      *((_BYTE *)&v37 + v16 + 9) = *(_BYTE *)(v16 + 5 + v7 + 260);
-      if ( (v14 & v23) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 6) = *(_BYTE *)(v9 + v19 + 2 + 32);
+      if ( (v17 & v23) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 9) = *(_BYTE *)(v16 + 5 + v13 + 260);
-        LODWORD(v37) = v23 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 6) = *(_BYTE *)(v19 + 2 + v15 + 32);
+        LODWORD(v37) = v23 & *(_DWORD *)(v15 + 28) | v37;
       }
       v24 = 2 * v23;
-      *((_BYTE *)&v37 + v16 + 10) = *(_BYTE *)(v16 + 6 + v7 + 260);
-      if ( (v14 & v24) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 7) = *(_BYTE *)(v9 + v19 + 3 + 32);
+      if ( (v17 & v24) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 10) = *(_BYTE *)(v16 + 6 + v13 + 260);
-        LODWORD(v37) = v24 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 7) = *(_BYTE *)(v19 + 3 + v15 + 32);
+        LODWORD(v37) = v24 & *(_DWORD *)(v15 + 28) | v37;
       }
       v25 = 2 * v24;
-      *((_BYTE *)&v37 + v16 + 11) = *(_BYTE *)(v16 + 7 + v7 + 260);
-      if ( (v14 & v25) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 8) = *(_BYTE *)(v9 + v19 + 4 + 32);
+      if ( (v17 & v25) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 11) = *(_BYTE *)(v16 + 7 + v13 + 260);
-        LODWORD(v37) = v25 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 8) = *(_BYTE *)(v19 + 4 + v15 + 32);
+        LODWORD(v37) = v25 & *(_DWORD *)(v15 + 28) | v37;
       }
       v26 = 2 * v25;
-      *((_BYTE *)&v37 + v16 + 12) = *(_BYTE *)(v16 + 8 + v7 + 260);
-      if ( (v14 & v26) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 9) = *(_BYTE *)(v9 + v19 + 5 + 32);
+      if ( (v17 & v26) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 12) = *(_BYTE *)(v16 + 8 + v13 + 260);
-        LODWORD(v37) = v26 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 9) = *(_BYTE *)(v19 + 5 + v15 + 32);
+        LODWORD(v37) = v26 & *(_DWORD *)(v15 + 28) | v37;
       }
       v27 = 2 * v26;
-      *((_BYTE *)&v37 + v16 + 13) = *(_BYTE *)(v16 + 9 + v7 + 260);
-      if ( (v14 & v27) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 10) = *(_BYTE *)(v9 + v19 + 6 + 32);
+      if ( (v17 & v27) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 13) = *(_BYTE *)(v16 + 9 + v13 + 260);
-        LODWORD(v37) = v27 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 10) = *(_BYTE *)(v19 + 6 + v15 + 32);
+        LODWORD(v37) = v27 & *(_DWORD *)(v15 + 28) | v37;
       }
       v28 = 2 * v27;
-      *((_BYTE *)&v37 + v16 + 14) = *(_BYTE *)(v16 + 10 + v7 + 260);
-      if ( (v14 & v28) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 11) = *(_BYTE *)(v9 + v19 + 7 + 32);
+      if ( (v17 & v28) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 14) = *(_BYTE *)(v16 + 10 + v13 + 260);
-        LODWORD(v37) = v28 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 11) = *(_BYTE *)(v19 + 7 + v15 + 32);
+        LODWORD(v37) = v28 & *(_DWORD *)(v15 + 28) | v37;
       }
       v29 = 2 * v28;
-      *((_BYTE *)&v37 + v16 + 15) = *(_BYTE *)(v16 + 11 + v7 + 260);
-      if ( (v14 & v29) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 12) = *(_BYTE *)(v9 + v19 + 8 + 32);
+      if ( (v17 & v29) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 15) = *(_BYTE *)(v16 + 11 + v13 + 260);
-        LODWORD(v37) = v29 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 12) = *(_BYTE *)(v19 + 8 + v15 + 32);
+        LODWORD(v37) = v29 & *(_DWORD *)(v15 + 28) | v37;
       }
       v30 = 2 * v29;
-      *((_BYTE *)&v37 + v16 + 16) = *(_BYTE *)(v16 + 12 + v7 + 260);
-      if ( (v14 & v30) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 13) = *(_BYTE *)(v9 + v19 + 9 + 32);
+      if ( (v17 & v30) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 16) = *(_BYTE *)(v16 + 12 + v13 + 260);
-        LODWORD(v37) = v30 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 13) = *(_BYTE *)(v19 + 9 + v15 + 32);
+        LODWORD(v37) = v30 & *(_DWORD *)(v15 + 28) | v37;
       }
       v31 = 2 * v30;
-      *((_BYTE *)&v37 + v16 + 17) = *(_BYTE *)(v16 + 13 + v7 + 260);
-      if ( (v14 & v31) == 0 && v13 )
+      *((_BYTE *)&v37 + v19 + 14) = *(_BYTE *)(v9 + v19 + 10 + 32);
+      if ( (v17 & v31) == 0 && !v6 )
       {
-        *((_BYTE *)&v37 + v16 + 17) = *(_BYTE *)(v16 + 13 + v13 + 260);
-        LODWORD(v37) = v31 & *(_DWORD *)(v13 + 256) | v37;
+        *((_BYTE *)&v37 + v19 + 14) = *(_BYTE *)(v19 + 10 + v15 + 32);
+        LODWORD(v37) = v31 & *(_DWORD *)(v15 + 28) | v37;
       }
-      v15 = 2 * v31;
-      v16 += 16;
+      v32 = 2 * v31;
+      *((_BYTE *)&v37 + v19 + 15) = *(_BYTE *)(v9 + v19 + 11 + 32);
+      if ( (v17 & v32) == 0 && !v6 )
+      {
+        *((_BYTE *)&v37 + v19 + 15) = *(_BYTE *)(v19 + 11 + v15 + 32);
+        LODWORD(v37) = v32 & *(_DWORD *)(v15 + 28) | v37;
+      }
+      v33 = 2 * v32;
+      *((_BYTE *)&v37 + v19 + 16) = *(_BYTE *)(v9 + v19 + 12 + 32);
+      if ( (v17 & v33) == 0 && !v6 )
+      {
+        *((_BYTE *)&v37 + v19 + 16) = *(_BYTE *)(v19 + 12 + v15 + 32);
+        LODWORD(v37) = v33 & *(_DWORD *)(v15 + 28) | v37;
+      }
+      v34 = 2 * v33;
+      *((_BYTE *)&v37 + v19 + 17) = *(_BYTE *)(v9 + v19 + 13 + 32);
+      if ( (v17 & v34) == 0 && !v6 )
+      {
+        *((_BYTE *)&v37 + v19 + 17) = *(_BYTE *)(v19 + 13 + v15 + 32);
+        LODWORD(v37) = v34 & *(_DWORD *)(v15 + 28) | v37;
+      }
+      v18 = 2 * v34;
+      v19 += 16;
     }
-    while ( v16 - 2 < 0x20 );
-    if ( _InterlockedCompareExchange64(v10 + 15, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v10 + 15);
-    KeAbPostRelease((ULONG_PTR)(v10 + 15));
-    v32 = KeGetCurrentThread();
-    v33 = v32->SpecialApcDisable++ == -1;
-    if ( v33 && ($CEA84C04E3712D858E5667A507841A2A *)v32->ApcState.ApcListHead[0].Flink != &v32->152 )
-      KiCheckForKernelApcDelivery();
-    if ( v12 == 1 )
-      ObpDereferenceCurrentDeviceMap((PVOID)v7);
+    while ( v19 - 2 < 0x20 );
+    ExReleasePushLockEx((ULONG_PTR)(v12 + 15), 0LL);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    if ( v5 == 1 )
+      ObfDereferenceDeviceMap((PVOID)v9);
     *(_OWORD *)a2 = v37;
     *(_OWORD *)(a2 + 16) = v38;
     *(_DWORD *)(a2 + 32) = v39;
   }
   else
   {
-    if ( _InterlockedCompareExchange64(v10 + 15, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v10 + 15);
-    KeAbPostRelease((ULONG_PTR)(v10 + 15));
-    v36 = KeGetCurrentThread();
-    v33 = v36->SpecialApcDisable++ == -1;
-    if ( v33 && ($CEA84C04E3712D858E5667A507841A2A *)v36->ApcState.ApcListHead[0].Flink != &v36->152 )
-      KiCheckForKernelApcDelivery();
+    ExReleasePushLockEx((ULONG_PTR)(v12 + 15), 0LL);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     return (unsigned int)-1073741807;
   }
-  return v6;
+  return v14;
 }

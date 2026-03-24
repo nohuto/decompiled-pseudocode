@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsEventNameFilterEnabled @ 0x140259C30
+ * XREFs of EtwpIsEventNameFilterEnabled @ 0x14025ECE8
  * Callers:
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */
@@ -18,19 +18,20 @@ bool __fastcall EtwpIsEventNameFilterEnabled(__int64 a1, unsigned int a2, unsign
   if ( !v5 )
     return 0;
   v7 = 104LL * a2;
-  v8 = *(_DWORD *)(v7 + v5);
-  if ( a5 )
+  v8 = *(_DWORD *)(v5 + v7);
+  if ( !a5 )
   {
-    if ( (v8 & 0x80002000) != 0x80002000 )
-      return 0;
-    v9 = *(_QWORD *)(v7 + v5 + 56);
+    if ( (v8 & 0x80000400) == 0x80000400 )
+    {
+      v9 = *(_QWORD *)(v5 + v7 + 96);
+      goto LABEL_8;
+    }
+    return 0;
   }
-  else
-  {
-    if ( (v8 & 0x80000400) != 0x80000400 )
-      return 0;
-    v9 = *(_QWORD *)(v7 + v5 + 96);
-  }
+  if ( (v8 & 0x80002000) != 0x80002000 )
+    return 0;
+  v9 = *(_QWORD *)(v7 + v5 + 56);
+LABEL_8:
   if ( !v9 )
     return 0;
   v10 = *(_BYTE *)(v9 + 1);
@@ -39,11 +40,5 @@ bool __fastcall EtwpIsEventNameFilterEnabled(__int64 a1, unsigned int a2, unsign
     if ( v10 )
       return 0;
   }
-  if ( a4 )
-  {
-    if ( (a4 & *(_QWORD *)(v9 + 8)) != 0 )
-      return (a4 & *(_QWORD *)(v9 + 16)) == *(_QWORD *)(v9 + 16);
-    return 0;
-  }
-  return 1;
+  return !a4 || (a4 & *(_QWORD *)(v9 + 8)) != 0 && (a4 & *(_QWORD *)(v9 + 16)) == *(_QWORD *)(v9 + 16);
 }

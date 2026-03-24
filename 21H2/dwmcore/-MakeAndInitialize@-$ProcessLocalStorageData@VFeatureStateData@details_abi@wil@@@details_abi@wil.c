@@ -1,15 +1,15 @@
 /*
- * XREFs of ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1800276B4
+ * XREFs of ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1800ADE7C
  * Callers:
- *     ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x1800261C4 (-Acquire@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
+ *     ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x1800B00D8 (-Acquire@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x180027784 (-CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z.c)
- *     ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x180027F74 (--0-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV-$u.c)
- *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800295B8 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800F6630 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800F76D8 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
- *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x180178E94 (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180045170 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$integr.c)
+ *     ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x1800ADF4C (--0-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV-$u.c)
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800AF6D0 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x1800B0288 (-CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE3A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x18014ECA4 (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
  */
 
 __int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::MakeAndInitialize(
@@ -21,11 +21,13 @@ __int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::F
   wil::details::in1diag3 *v7; // rcx
   bool v8; // r8
   wil::details *v9; // rbx
-  int v10; // eax
-  unsigned int v11; // edi
-  void *v12; // rdx
-  wil::details *v13; // rax
-  wil::details *v15[2]; // [rsp+20h] [rbp-18h] BYREF
+  wil::details *v10; // rsi
+  int v11; // eax
+  unsigned int v12; // edi
+  void *v13; // rdx
+  void *v14; // rdx
+  void *v15; // rdx
+  int v17[4]; // [rsp+20h] [rbp-18h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
   *a3 = 0LL;
@@ -33,41 +35,49 @@ __int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::F
   v9 = v6;
   if ( v6 )
   {
-    *(_OWORD *)v15 = 0LL;
+    v10 = v6;
+    *(_OWORD *)v17 = 0LL;
     if ( ((unsigned __int8)v6 & 3) != 0 )
       wil::details::in1diag3::_FailFastImmediate_Unexpected(v7);
-    v10 = wil::details_abi::SemaphoreValue::CreateFromValueInternal(
-            (wil::details_abi::SemaphoreValue *)v15,
+    v11 = wil::details_abi::SemaphoreValue::CreateFromValueInternal(
+            (wil::details_abi::SemaphoreValue *)v17,
             a1,
             v8,
             (unsigned __int64)v6 >> 2);
-    v11 = v10;
-    if ( v10 < 0 )
+    v12 = v11;
+    if ( v11 < 0 )
     {
-      wil::details::in1diag3::Return_Hr(retaddr, (void *)0x145, (int)"wil", (const char *)(unsigned int)v10);
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x145,
+        (unsigned int)"wil",
+        (const char *)(unsigned int)v11,
+        v17[0]);
     }
     else
     {
       wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::ProcessLocalStorageData<wil::details_abi::FeatureStateData>(
         v9,
         a2,
-        v15);
-      v13 = v9;
+        v17);
       v9 = 0LL;
-      v11 = 0;
-      *a3 = v13;
+      *a3 = v10;
+      v12 = 0;
+      v10 = 0LL;
     }
-    if ( v15[1] )
-      wil::details::CloseHandle(v15[1], v12);
-    if ( v15[0] )
-      wil::details::CloseHandle(v15[0], v12);
-    if ( v9 )
-      wil::details::FreeProcessHeap(v9, v12);
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+      (wil::details **)&v17[2],
+      v13);
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+      (wil::details **)v17,
+      v14);
+    if ( v10 )
+      wil::details::FreeProcessHeap(v9, v15);
   }
   else
   {
-    v11 = -2147024882;
-    wil::details::in1diag3::Return_Hr(retaddr, (void *)0x142, (int)"wil", (const char *)0x8007000ELL);
+    v12 = -2147024882;
+    wil::details::in1diag3::Return_Hr(retaddr, (void *)0x142, (unsigned int)"wil", (const char *)0x8007000ELL, v17[0]);
   }
-  return v11;
+  return v12;
 }

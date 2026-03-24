@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0hbr0pqx_EtwWriteTransfer @ 0x1C0066640
+ * XREFs of McTemplateK0hbr0pqx_EtwWriteTransfer @ 0x1C0059924
  * Callers:
- *     DpiDxgkDdiQueryChildRelations @ 0x1C020F0B4 (DpiDxgkDdiQueryChildRelations.c)
+ *     DpiDxgkDdiQueryChildRelations @ 0x1C0197AAC (DpiDxgkDdiQueryChildRelations.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hbr0pqx_EtwWriteTransfer(

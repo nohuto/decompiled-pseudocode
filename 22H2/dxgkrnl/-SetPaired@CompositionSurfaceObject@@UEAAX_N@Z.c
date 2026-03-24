@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetPaired@CompositionSurfaceObject@@UEAAX_N@Z @ 0x1C00197F0
+ * XREFs of ?SetPaired@CompositionSurfaceObject@@UEAAX_N@Z @ 0x1C001B690
  * Callers:
  *     <none>
  * Callees:

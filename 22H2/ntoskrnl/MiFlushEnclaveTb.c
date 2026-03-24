@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFlushEnclaveTb @ 0x14064806C
+ * XREFs of MiFlushEnclaveTb @ 0x14054A5DC
  * Callers:
- *     MiProtectEnclavePages @ 0x1406482B8 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14054AA70 (MiProtectEnclavePages.c)
  * Callees:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
  */
 
-void __fastcall MiFlushEnclaveTb(int *a1, unsigned __int64 a2, int a3)
+void __fastcall MiFlushEnclaveTb(__int64 a1, _KPROCESS *a2, int a3)
 {
-  if ( a2 != -1LL )
+  if ( a2 != (_KPROCESS *)-1LL )
   {
-    if ( (a3 & 0x20000000) == 0 && !a1[3] )
-      MiInsertTbFlushEntry((__int64)a1, a2, 1LL, 0);
-    MiFlushTbList(a1);
+    if ( (a3 & 0x20000000) == 0 && !*(_DWORD *)(a1 + 12) )
+      MiInsertTbFlushEntry(a1, (unsigned __int64)a2, 1LL, 0);
+    MiFlushTbList(a1, a2);
   }
 }

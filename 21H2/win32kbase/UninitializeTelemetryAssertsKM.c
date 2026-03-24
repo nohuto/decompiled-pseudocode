@@ -1,10 +1,9 @@
 /*
- * XREFs of UninitializeTelemetryAssertsKM @ 0x1C00C090C
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C00B2FE0
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     UninitializeTelemetryAssertsLocks @ 0x1C00C09FC (UninitializeTelemetryAssertsLocks.c)
- *     TakeTelemetryAssertsLock @ 0x1C00C0A34 (TakeTelemetryAssertsLock.c)
+ *     TakeTelemetryAssertsLock @ 0x1C00B30F0 (TakeTelemetryAssertsLock.c)
  */
 
 NTSTATUS UninitializeTelemetryAssertsKM()
@@ -39,23 +38,27 @@ NTSTATUS UninitializeTelemetryAssertsKM()
       }
       ExReleaseFastMutex(g_AssertFastMutex);
     }
-    UninitializeTelemetryAssertsLocks();
+    if ( g_AssertFastMutex )
+    {
+      ExFreePoolWithTag(g_AssertFastMutex, 0x74727341u);
+      g_AssertFastMutex = 0LL;
+    }
     if ( g_ModuleName )
     {
       ExFreePoolWithTag(g_ModuleName, 0x74727341u);
       g_ModuleName = 0LL;
     }
-    v2 = qword_1C02C7098;
-    qword_1C02C7098 = 0LL;
-    dword_1C02C7078 = 0;
+    v2 = qword_1C027E098;
+    qword_1C027E098 = 0LL;
+    dword_1C027E078 = 0;
     EtwUnregister(v2);
-    v3 = qword_1C02C7028;
-    qword_1C02C7028 = 0LL;
-    dword_1C02C7008 = 0;
+    v3 = qword_1C027E028;
+    qword_1C027E028 = 0LL;
+    dword_1C027E008 = 0;
     EtwUnregister(v3);
-    v4 = qword_1C02C7060;
-    qword_1C02C7060 = 0LL;
-    dword_1C02C7040 = 0;
+    v4 = qword_1C027E060;
+    qword_1C027E060 = 0LL;
+    dword_1C027E040 = 0;
     return EtwUnregister(v4);
   }
   return result;

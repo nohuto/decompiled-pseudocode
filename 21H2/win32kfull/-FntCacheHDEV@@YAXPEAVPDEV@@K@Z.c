@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F7E7C
+ * XREFs of ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F4AFC
  * Callers:
- *     bEnableFontDriver @ 0x1C00F7DB0 (bEnableFontDriver.c)
- *     FontDriverQueryRoutine @ 0x1C03925F0 (FontDriverQueryRoutine.c)
+ *     bEnableFontDriver @ 0x1C00F4A30 (bEnableFontDriver.c)
+ *     FontDriverQueryRoutine @ 0x1C0395510 (FontDriverQueryRoutine.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall FntCacheHDEV(struct PDEV *a1, unsigned int a2)
@@ -15,7 +15,7 @@ void __fastcall FntCacheHDEV(struct PDEV *a1, unsigned int a2)
   v3 = a2;
   v4 = ghsemFntCache;
   GreAcquireSemaphore(ghsemFntCache);
-  if ( (dword_1C0335DA0 & 3) != 0 && qword_1C0335DA8 && (_DWORD)v3 )
+  if ( (dword_1C033ABE0 & 3) != 0 && qword_1C033ABE8 && (_DWORD)v3 )
     gaFntPDev[v3] = a1;
   SEMOBJ::vUnlock((SEMOBJ *)&v4);
 }

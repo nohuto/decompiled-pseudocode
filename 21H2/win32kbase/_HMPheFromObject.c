@@ -1,20 +1,13 @@
 /*
- * XREFs of _HMPheFromObject @ 0x1C002FB80
+ * XREFs of _HMPheFromObject @ 0x1C002CDC0
  * Callers:
- *     HMChangeOwnerThreadWorker @ 0x1C00C2298 (HMChangeOwnerThreadWorker.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A5924 (HMChangeOwnerThreadWorker.c)
  * Callees:
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C002C87C (IS_USERCRIT_OWNED_SHARED.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
  */
 
 char *__fastcall HMPheFromObject(_DWORD *a1)
 {
-  if ( !gbInDestroyHandleTableObjects
-    && ExIsResourceAcquiredExclusiveLite(gpresUser) != 1
-    && (!IS_USERCRIT_OWNED_SHARED()
-     || ExIsResourceAcquiredExclusiveLite(gDomainHandleManagerLock) != 1
-     && !ExIsResourceAcquiredSharedLite(gDomainHandleManagerLock)) )
-  {
-    __int2c();
-  }
-  return (char *)qword_1C0294B68 + dword_1C0294B70 * (unsigned int)(unsigned __int16)*a1;
+  GetDomainLockRef(14LL);
+  return (char *)qword_1C024FD58 + dword_1C024FD60 * (unsigned int)(unsigned __int16)*a1;
 }

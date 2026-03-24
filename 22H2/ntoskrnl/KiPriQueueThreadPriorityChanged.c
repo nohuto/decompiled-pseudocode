@@ -1,26 +1,26 @@
 /*
- * XREFs of KiPriQueueThreadPriorityChanged @ 0x1402BAAC4
+ * XREFs of KiPriQueueThreadPriorityChanged @ 0x1402F76C0
  * Callers:
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1402B9D70 (KeSetBasePriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14034FB90 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1402586C0 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14035AEA4 (KeSetPriorityAndQuantumProcess.c)
  * Callees:
- *     KiProcessThreadWaitList @ 0x140253CA0 (KiProcessThreadWaitList.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B318 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterPriQueue @ 0x14030BB1C (KiActivateWaiterPriQueue.c)
+ *     KiProcessThreadWaitList @ 0x14024AC40 (KiProcessThreadWaitList.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402F781C (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x1402F79E4 (KiActivateWaiterPriQueue.c)
  */
 
-__int64 __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)
+int __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)
 {
   __int64 v2; // r8
   int v4; // edx
-  bool v5; // r11
-  __int64 v6; // rbx
-  int v8; // edx
-  __int64 v9; // rcx
-  __int64 result; // rax
-  __int64 v11; // rdx
-  signed __int8 v12; // cf
+  bool v5; // r9
+  __int64 v6; // r10
+  int result; // eax
+  int v9; // edx
+  __int64 v10; // rcx
+  bool v11; // bl
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = *(char *)(a2 + 563);
@@ -28,34 +28,26 @@ __int64 __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, 
   v5 = 0;
   v6 = (unsigned __int8)v4;
   if ( (unsigned __int8)v4 == (_DWORD)v2 )
-    goto LABEL_2;
-  v8 = v4 & 0x100;
-  if ( !v8 )
+    return KiReleaseThreadLockSafe(a2);
+  v9 = v4 & 0x100;
+  if ( !v9 )
   {
-    v9 = *(_QWORD *)(a2 + 232);
-    _InterlockedDecrement((volatile signed __int32 *)(v9 + 4 * v6 + 536));
-    _InterlockedAdd((volatile signed __int32 *)(v9 + 4 * v2 + 536), 1u);
+    v10 = *(_QWORD *)(a2 + 232);
+    _InterlockedDecrement((volatile signed __int32 *)(v10 + 4 * v6 + 536));
+    _InterlockedAdd((volatile signed __int32 *)(v10 + 4 * v2 + 536), 1u);
     v5 = (int)v2 < (int)v6;
   }
-  result = (unsigned __int8)v2;
-  v11 = (unsigned __int8)v2 | (unsigned int)v8;
-  *(_DWORD *)(a2 + 540) = v11;
+  *(_DWORD *)(a2 + 540) = v9 | (unsigned __int8)v2;
   if ( !v5 )
-  {
-LABEL_2:
-    *(_QWORD *)(a2 + 64) = 0LL;
-  }
+    return KiReleaseThreadLockSafe(a2);
+  v11 = !_interlockedbittestandset(a1, 7u);
+  KiReleaseThreadLockSafe(a2);
+  if ( v11 )
+    result = KiActivateWaiterPriQueue(a1);
   else
-  {
-    v12 = _interlockedbittestandset(a1, 7u);
-    *(_QWORD *)(a2 + 64) = 0LL;
-    if ( v12 )
-      result = KiActivateWaiterQueueWithNoLocks(a2, a1, 0LL);
-    else
-      result = KiActivateWaiterPriQueue(a1, v11, v2);
-    CurrentPrcb = KeGetCurrentPrcb();
-    if ( CurrentPrcb->DeferredReadyListHead.Next )
-      return KiProcessThreadWaitList((__int64)CurrentPrcb, 1u, 0, 0);
-  }
+    result = KiActivateWaiterQueueWithNoLocks(a2, a1, 0LL);
+  CurrentPrcb = KeGetCurrentPrcb();
+  if ( CurrentPrcb->DeferredReadyListHead.Next )
+    return KiProcessThreadWaitList((__int64)CurrentPrcb, 1u, 0, 0);
   return result;
 }

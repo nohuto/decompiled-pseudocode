@@ -1,45 +1,14 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredArgs @ 0x18026C27C
+ * XREFs of MicrosoftTelemetryAssertTriggeredArgs @ 0x1802170C8
  * Callers:
- *     ?ConvertHostPointerFrameTimesToContainerTimeline@InteractionLatencyTelemetry@@YA?AUtagTELEMETRY_POINTER_FRAME_TIMES@@AEBU2@@Z @ 0x1801D2824 (-ConvertHostPointerFrameTimesToContainerTimeline@InteractionLatencyTelemetry@@YA-AUtagTELEMETRY_.c)
+ *     ?ConvertHostTimeToContainerTimeline@CTelemetryTouchLatencyAnalysis@@CA_K_K0@Z @ 0x18015D330 (-ConvertHostTimeToContainerTimeline@CTelemetryTouchLatencyAnalysis@@CA_K_K0@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x180217120 (MicrosoftTelemetryAssertTriggeredWorker.c)
  */
 
-int __fastcall MicrosoftTelemetryAssertTriggeredArgs(__int64 a1, int a2, int a3)
+__int64 __fastcall MicrosoftTelemetryAssertTriggeredArgs(__int64 a1, int a2, int a3)
 {
-  FARPROC ProcAddress; // rax
-  int v7; // [rsp+20h] [rbp-40h] BYREF
-  __int16 *v8; // [rsp+28h] [rbp-38h]
-  void *v9; // [rsp+30h] [rbp-30h]
-  char v10; // [rsp+38h] [rbp-28h]
-  const char *v11; // [rsp+40h] [rbp-20h]
-  int v12; // [rsp+48h] [rbp-18h]
-  int v13; // [rsp+4Ch] [rbp-14h]
-  char v14; // [rsp+50h] [rbp-10h]
-  void *retaddr; // [rsp+68h] [rbp+8h]
-  HMODULE phModule; // [rsp+70h] [rbp+10h] BYREF
+  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  phModule = 0LL;
-  LODWORD(ProcAddress) = GetModuleHandleExA(2u, "ntdll.dll", &phModule);
-  if ( (_DWORD)ProcAddress )
-  {
-    if ( phModule )
-    {
-      ProcAddress = GetProcAddress(phModule, "MicrosoftTelemetryAssertTriggeredUM");
-      if ( ProcAddress )
-      {
-        v7 = 11;
-        v8 = _ImageBase;
-        v9 = retaddr;
-        v11 = "dwmcore.dll";
-        v14 = 1;
-        v10 = 1;
-        v12 = a2;
-        v13 = a3;
-        LODWORD(ProcAddress) = ((__int64 (__fastcall *)(int *))ProcAddress)(&v7);
-      }
-    }
-  }
-  return (int)ProcAddress;
+  return MicrosoftTelemetryAssertTriggeredWorker((_DWORD)retaddr, 1, (unsigned int)"dwmcore.dll", a2, a3);
 }

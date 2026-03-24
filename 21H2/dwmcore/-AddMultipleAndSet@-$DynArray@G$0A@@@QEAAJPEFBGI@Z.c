@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddMultipleAndSet@?$DynArray@G$0A@@@QEAAJPEFBGI@Z @ 0x18020E3BC
+ * XREFs of ?AddMultipleAndSet@?$DynArray@G$0A@@@QEAAJPEFBGI@Z @ 0x1801BB75C
  * Callers:
- *     ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x18020E868 (-CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawLi.c)
+ *     ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x1801BBC94 (-CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawLi.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
  */
 
-__int64 __fastcall DynArray<unsigned short,0>::AddMultipleAndSet(unsigned __int64 a1, __int64 *a2)
+__int64 __fastcall DynArray<unsigned short,0>::AddMultipleAndSet(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rax
   unsigned int v5; // r8d
@@ -25,10 +25,10 @@ __int64 __fastcall DynArray<unsigned short,0>::AddMultipleAndSet(unsigned __int6
     v6 = 0;
     if ( v5 > *(_DWORD *)(a1 + 20) )
     {
-      v10 = DynArrayImpl<0>::AddMultipleAndSet(a1, 2u, 6, a2);
+      v10 = DynArrayImpl<0>::AddMultipleAndSet(a1, 2, 6, a2);
       v6 = v10;
       if ( v10 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0xC0u);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC0u, 0LL);
     }
     else
     {
@@ -43,7 +43,7 @@ __int64 __fastcall DynArray<unsigned short,0>::AddMultipleAndSet(unsigned __int6
   else
   {
     v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024362, 0xB5u);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   return v6;
 }

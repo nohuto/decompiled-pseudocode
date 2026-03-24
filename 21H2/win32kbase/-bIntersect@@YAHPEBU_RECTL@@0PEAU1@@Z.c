@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bIntersect@@YAHPEBU_RECTL@@0PEAU1@@Z @ 0x1C00BF7A0
+ * XREFs of ?bIntersect@@YAHPEBU_RECTL@@0PEAU1@@Z @ 0x1C00AE670
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDTX_SetDeviceNullConfigurationUsingControlTransfer @ 0x1C0028FE4
+ * XREFs of HUBDTX_SetDeviceNullConfigurationUsingControlTransfer @ 0x1C0028B38
  * Callers:
- *     HUBDSM_DeConfiguringDeviceOnClientRequest @ 0x1C001D010 (HUBDSM_DeConfiguringDeviceOnClientRequest.c)
+ *     HUBDSM_DeConfiguringDeviceOnClientRequest @ 0x1C001CAD0 (HUBDSM_DeConfiguringDeviceOnClientRequest.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDTX_SetDeviceNullConfigurationUsingControlTransfer(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HUBDTX_SetDeviceNullConfigurationUsingControlTransfer(__int64
         2u,
         5u,
         0x45u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v3);
     }
     return HUBSM_AddEvent(a1 + 504, 4004);

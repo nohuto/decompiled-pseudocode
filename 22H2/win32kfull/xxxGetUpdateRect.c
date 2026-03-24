@@ -1,99 +1,98 @@
 /*
- * XREFs of xxxGetUpdateRect @ 0x1C008BB5C
+ * XREFs of xxxGetUpdateRect @ 0x1C0117BC0
  * Callers:
- *     NtUserGetUpdateRect @ 0x1C008BA10 (NtUserGetUpdateRect.c)
+ *     NtUserGetUpdateRect @ 0x1C01179E0 (NtUserGetUpdateRect.c)
  * Callees:
- *     GreTransformPoints @ 0x1C0006CF4 (GreTransformPoints.c)
- *     IntersectWithParents @ 0x1C008BCA0 (IntersectWithParents.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     xxxSimpleDoSyncPaint @ 0x1C0118654 (xxxSimpleDoSyncPaint.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D7A0 (xxxSimpleDoSyncPaint.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     IntersectWithParents @ 0x1C0073078 (IntersectWithParents.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     GreTransformPoints @ 0x1C00FA30C (GreTransformPoints.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
+__int64 __fastcall xxxGetUpdateRect(__int64 a1, _OWORD *a2, int a3)
 {
   __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  int v9; // ecx
-  int v10; // edx
-  int v11; // ecx
-  __int64 v12; // rcx
-  __int64 v14; // rcx
-  __int64 **v15; // rcx
-  int v16; // r8d
-  __int128 v17; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v7; // rax
+  int v8; // ecx
+  int v9; // edx
+  int v10; // ecx
+  __int64 v11; // rcx
+  __int64 v13; // rcx
+  __int64 **v14; // rcx
+  int v15; // r8d
+  __int128 v16; // [rsp+30h] [rbp-20h] BYREF
 
-  v17 = 0LL;
+  v16 = 0LL;
   if ( a3 )
-    xxxSimpleDoSyncPaint(a1);
-  SetOrClrWF(0LL, a1, 288LL, 1LL);
-  v5 = *((_QWORD *)a1 + 5);
+    xxxSimpleDoSyncPaint((struct tagWND *)a1);
+  SetOrClrWF(0, a1, 0x120u, 1);
+  v5 = *(_QWORD *)(a1 + 40);
   v6 = *(_QWORD *)(v5 + 136);
   if ( v6 )
   {
     if ( v6 == 1 )
     {
-      v17 = *(_OWORD *)(v5 + 104);
+      v16 = *(_OWORD *)(v5 + 104);
     }
     else
     {
-      if ( (unsigned int)GreGetRgnBox(v6, &v17) < 2 )
-        v17 = 0LL;
-      IntersectRect(&v17, &v17, *((_QWORD *)a1 + 5) + 104LL);
+      if ( (unsigned int)GreGetRgnBox(v6, &v16) <= 1 )
+        v16 = 0LL;
+      IntersectRect(&v16, (int *)&v16, (int *)(*(_QWORD *)(a1 + 40) + 104LL));
     }
-    if ( (unsigned int)IntersectWithParents(a1, &v17) )
+    if ( (unsigned int)IntersectWithParents(a1, (int *)&v16) )
     {
-      if ( a1 != (struct tagWND *)GetDesktopWindow(a1, v7) )
+      if ( a1 != GetDesktopWindow(a1) )
       {
-        v8 = *((_QWORD *)a1 + 5);
-        v9 = *(_DWORD *)(v8 + 104);
-        v10 = -*(_DWORD *)(v8 + 108);
-        HIDWORD(v17) -= *(_DWORD *)(v8 + 108);
-        v11 = -v9;
-        LODWORD(v17) = v11 + v17;
-        DWORD2(v17) += v11;
-        DWORD1(v17) += v10;
+        v7 = *(_QWORD *)(a1 + 40);
+        v8 = *(_DWORD *)(v7 + 104);
+        v9 = -*(_DWORD *)(v7 + 108);
+        HIDWORD(v16) -= *(_DWORD *)(v7 + 108);
+        v10 = -v8;
+        LODWORD(v16) = v10 + v16;
+        DWORD2(v16) += v10;
+        DWORD1(v16) += v9;
       }
-      if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 8LL) & 0x20) != 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 136) + 8LL) + 8LL) & 0x20) != 0 )
       {
-        v14 = *((_QWORD *)a1 + 5);
-        if ( (*(_BYTE *)(v14 + 21) & 1) != 0 || *(_QWORD *)(v14 + 136) != 1LL )
+        v13 = *(_QWORD *)(a1 + 40);
+        if ( (*(_BYTE *)(v13 + 21) & 1) != 0 || *(_QWORD *)(v13 + 136) != 1LL )
         {
           GreLockVisRgnShared(*(_QWORD *)(gpDispInfo + 40LL));
-          v15 = *(__int64 ***)(gpDispInfo + 24LL);
-          if ( v15 )
+          v14 = *(__int64 ***)(gpDispInfo + 24LL);
+          if ( v14 )
           {
-            while ( v15[2] != (__int64 *)a1 || ((_DWORD)v15[8] & 2) != 0 )
+            while ( v14[2] != (__int64 *)a1 || ((_DWORD)v14[8] & 2) != 0 )
             {
-              v15 = (__int64 **)*v15;
-              if ( !v15 )
-                goto LABEL_28;
+              v14 = (__int64 **)*v14;
+              if ( !v14 )
+                goto LABEL_23;
             }
-            GreTransformPoints((HDC)v15[1], (struct _POINTL *)&v17, (struct _POINTFIX *)&v17, 2, 0);
+            GreTransformPoints((HDC)v14[1], (struct _POINTL *)&v16, (struct _POINTL *)&v16, 2, 0);
           }
-LABEL_28:
+LABEL_23:
           GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
         }
       }
     }
     else
     {
-      v17 = 0LL;
+      v16 = 0LL;
     }
     if ( a2 )
     {
-      v12 = *((_QWORD *)a1 + 5);
-      if ( (*(_BYTE *)(v12 + 26) & 0x40) != 0 )
+      v11 = *(_QWORD *)(a1 + 40);
+      if ( (*(_BYTE *)(v11 + 26) & 0x40) != 0 )
       {
-        v16 = *(_DWORD *)(v12 + 112) - *(_DWORD *)(v12 + 104) - v17;
-        LODWORD(v17) = *(_DWORD *)(v12 + 112) - *(_DWORD *)(v12 + 104) - DWORD2(v17);
-        DWORD2(v17) = v16;
+        v15 = *(_DWORD *)(v11 + 112) - *(_DWORD *)(v11 + 104) - v16;
+        LODWORD(v16) = *(_DWORD *)(v11 + 112) - *(_DWORD *)(v11 + 104) - DWORD2(v16);
+        DWORD2(v16) = v15;
       }
-      *a2 = v17;
+      *a2 = v16;
     }
     return 1LL;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180100FF0
+ * XREFs of ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E50A0
  * Callers:
- *     ?HrFindInterface@CLegacyRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180052700 (-HrFindInterface@CLegacyRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18010A6B0 (-HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18012E520 (-HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180131940 (-HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?HrFindInterface@CHolographicInteropTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C4D40 (-HrFindInterface@CHolographicInteropTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801EAFA0 (-HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CLegacyRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006FDA0 (-HrFindInterface@CLegacyRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E5040 (-HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CHolographicInteropTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18016ECA0 (-HrFindInterface@CHolographicInteropTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18016ED00 (-HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180186140 (-HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180198EB0 (-HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -38,22 +38,22 @@ __int64 __fastcall CRenderTarget::HrFindInterface(CRenderTarget *this, const str
           v7 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_e1d14fc9_d6ac_4947_99ed_00f1c89e9ed9.Data4;
         if ( v7 )
           return 2147500034LL;
-        v9 = (char *)(((unsigned __int64)this + 72) & -(__int64)(this != 0LL));
+        v9 = (char *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
 LABEL_20:
         *a3 = v9;
         return 0LL;
       }
       if ( this )
       {
-        v8 = *(int *)(*((_QWORD *)this + 10) + 12LL);
+        v8 = *(int *)(*((_QWORD *)this + 9) + 12LL);
         goto LABEL_15;
       }
     }
     else if ( this )
     {
-      v8 = *(int *)(*((_QWORD *)this + 10) + 8LL);
+      v8 = *(int *)(*((_QWORD *)this + 9) + 8LL);
 LABEL_15:
-      v9 = (char *)this + v8 + 80;
+      v9 = (char *)this + v8 + 72;
       goto LABEL_20;
     }
     v9 = 0LL;

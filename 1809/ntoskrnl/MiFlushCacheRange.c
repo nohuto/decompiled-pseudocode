@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushCacheRange @ 0x1402C3D7C
+ * XREFs of MiFlushCacheRange @ 0x1402C3E7C
  * Callers:
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x140138EA8 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x140177030 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)

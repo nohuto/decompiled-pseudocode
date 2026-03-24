@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlIpv6AddressToStringA @ 0x140376610
+ * XREFs of RtlIpv6AddressToStringA @ 0x14036C9A0
  * Callers:
- *     RtlIpv6AddressToStringExA @ 0x1405EB5C0 (RtlIpv6AddressToStringExA.c)
+ *     RtlIpv6AddressToStringExA @ 0x14058BF40 (RtlIpv6AddressToStringExA.c)
  * Callees:
- *     sprintf_s @ 0x1403E7020 (sprintf_s.c)
+ *     sprintf_s @ 0x1403D7BF0 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
 {
-  unsigned int v2; // ebp
-  PSTR v3; // r14
+  unsigned int v2; // r14d
+  PSTR v3; // rbp
   char *v4; // rdi
   int v6; // r10d
   int v7; // r11d
@@ -28,7 +28,7 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   __int64 v20; // r13
   int v21; // eax
   USHORT v23; // ax
-  USHORT v24; // r10
+  USHORT v24; // dx
   int v25; // ecx
   const char *v26; // r9
   int v27; // eax
@@ -63,7 +63,7 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
       v26 = &Src;
       if ( v24 )
         v26 = "ffff:";
-      v27 = sprintf_s(S, 0x2EuLL, "::%hs%u.%u.%u.%u", v26, Addr->u.Byte[12], Addr->u.Byte[13], v25, Addr->u.Byte[15]);
+      v27 = sprintf_s(v4, v3 - v4, "::%hs%u.%u.%u.%u", v26, Addr->u.Byte[12], Addr->u.Byte[13], v25, Addr->u.Byte[15]);
       return &v4[v27];
     }
   }

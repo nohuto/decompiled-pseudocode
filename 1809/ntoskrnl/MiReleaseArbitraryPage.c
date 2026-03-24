@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseArbitraryPage @ 0x140111C60
+ * XREFs of MiReleaseArbitraryPage @ 0x140111C80
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReleaseArbitraryPage(_QWORD *SchedulerAssist, __int64 a2, __int64 a3)

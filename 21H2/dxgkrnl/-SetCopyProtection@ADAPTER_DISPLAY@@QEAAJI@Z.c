@@ -1,44 +1,47 @@
 /*
- * XREFs of ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01BC490
+ * XREFs of ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143528
  * Callers:
- *     ?SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01BC39C (-SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01E4EE8 (-PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C02BF554 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
- *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02BFD18 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
- *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C02C2DD0 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
+ *     ?SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143468 (-SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143C50 (-PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C0210DB0 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02114C0 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C0214FE0 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C01BC4FC (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C0143594 (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::SetCopyProtection(DXGADAPTER **this, unsigned int a2)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // r9d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  unsigned int v7; // r9d
   DXGADAPTER **i; // rcx
-  DXGADAPTER *v7; // rcx
+  DXGADAPTER *v9; // rcx
+  __int64 v11; // rax
 
-  v4 = 0;
+  v6 = 0;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 5801LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 5801LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v11 + 24) = 5570LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v5 = 0;
-  for ( i = (DXGADAPTER **)this[10]; i != this + 10 && i; i = (DXGADAPTER **)*i )
+  v7 = 0;
+  for ( i = (DXGADAPTER **)this[8]; i != this + 8 && i; i = (DXGADAPTER **)*i )
   {
-    if ( *((_DWORD *)i + 13) == a2 && *((_DWORD *)i + 14) > v5 )
-      v5 = *((_DWORD *)i + 14);
+    if ( *((_DWORD *)i + 13) == a2 && *((_DWORD *)i + 14) > v7 )
+      v7 = *((_DWORD *)i + 14);
   }
-  v7 = this[2];
-  if ( v5 )
+  v9 = this[2];
+  if ( v7 )
     return (unsigned int)DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource(
-                           v7,
+                           v9,
                            a2,
                            D3DKMDT_VPPMT_MACROVISION_APSTRIGGER,
-                           v5);
+                           v7);
   else
-    DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource(v7, a2, D3DKMDT_VPPMT_NOPROTECTION, 0);
-  return v4;
+    DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource(v9, a2, D3DKMDT_VPPMT_NOPROTECTION, 0);
+  return v6;
 }

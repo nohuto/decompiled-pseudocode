@@ -1,13 +1,13 @@
 /*
- * XREFs of ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343F94
+ * XREFs of ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140351D54
  * Callers:
- *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343E8C (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140351C48 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     ?StDmInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z @ 0x140344138 (-StDmInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z.c)
- *     StLcInitialize @ 0x1403444F8 (StLcInitialize.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmCrEncInitialize @ 0x1407B86F8 (SmCrEncInitialize.c)
+ *     ?StDmInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z @ 0x140351EF8 (-StDmInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     StLcInitialize @ 0x140352A70 (StLcInitialize.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SmCrEncInitialize @ 0x1406FD1A8 (SmCrEncInitialize.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StInitialize(__int64 a1)

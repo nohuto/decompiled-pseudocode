@@ -1,114 +1,116 @@
 /*
- * XREFs of BcpDisplayErrorInformation @ 0x1406726E4
+ * XREFs of BcpDisplayErrorInformation @ 0x1405C4BF8
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x140673134 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5644 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     BcpConvertBugDataToString @ 0x140672114 (BcpConvertBugDataToString.c)
- *     BcpDisplayCriticalCharacter @ 0x1406722B0 (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x14067237C (BcpDisplayCriticalString.c)
- *     BcpSanitizeDriverName @ 0x140672E00 (BcpSanitizeDriverName.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     BcpConvertBugDataToString @ 0x1405C4624 (BcpConvertBugDataToString.c)
+ *     BcpDisplayCriticalCharacter @ 0x1405C47C0 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x1405C488C (BcpDisplayCriticalString.c)
+ *     BcpSanitizeDriverName @ 0x1405C5308 (BcpSanitizeDriverName.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a3, __int64 a4, __int64 a5, char a6)
 {
-  int v6; // r15d
-  __int64 v7; // rbp
-  unsigned __int64 *v9; // r14
-  __int64 v10; // r8
-  int v11; // ecx
-  int v12; // ebx
-  int v13; // edx
-  __int64 v14; // r8
-  int v15; // esi
-  int v16; // edx
-  __int64 v17; // r8
-  __int16 v18; // cx
-  __int64 v19; // r8
+  int v6; // ebp
+  __int64 v7; // rsi
+  int v9; // edx
+  unsigned __int64 *v10; // r14
+  __int64 v11; // r8
+  int v12; // ecx
+  int v13; // ebx
+  int v14; // edx
+  __int64 v15; // r8
+  int v16; // r15d
+  int v17; // edx
+  __int64 v18; // r8
+  __int16 v19; // cx
   __int64 v20; // r8
-  __int64 v21; // rbx
-  int v22; // edx
+  __int64 v21; // r8
+  __int64 v22; // rbx
   int v23; // edx
-  __int16 v24; // cx
-  __int64 v25; // r8
-  __int64 v26; // rsi
-  __int64 v27; // r12
-  int v28; // r13d
-  __int64 v29; // r8
+  int v24; // edx
+  __int16 v25; // cx
+  __int64 v26; // r8
+  __int64 v27; // rbp
+  __int64 v28; // r12
+  int v29; // r13d
+  __int64 v30; // r8
   __int64 result; // rax
-  int v31; // [rsp+20h] [rbp-F8h] BYREF
-  int v32; // [rsp+24h] [rbp-F4h]
-  __int64 v33; // [rsp+28h] [rbp-F0h]
-  unsigned int v34; // [rsp+30h] [rbp-E8h]
-  _DWORD v35[2]; // [rsp+38h] [rbp-E0h] BYREF
-  char *v36; // [rsp+40h] [rbp-D8h]
-  __int64 v37; // [rsp+48h] [rbp-D0h]
-  char v38; // [rsp+50h] [rbp-C8h] BYREF
+  int v32; // [rsp+20h] [rbp-F8h] BYREF
+  int v33; // [rsp+24h] [rbp-F4h]
+  __int64 v34; // [rsp+28h] [rbp-F0h]
+  unsigned int v35; // [rsp+30h] [rbp-E8h]
+  _DWORD v36[2]; // [rsp+38h] [rbp-E0h] BYREF
+  char *v37; // [rsp+40h] [rbp-D8h]
+  __int64 v38; // [rsp+48h] [rbp-D0h]
+  char v39; // [rsp+50h] [rbp-C8h] BYREF
 
   v6 = BcpCursor;
   v7 = a1;
-  v35[1] = 0;
-  v32 = a2;
-  v37 = a5;
-  v31 = BcpCursor;
-  BcpTextBoxLeftEdgeOverride = (__int64)&v31;
-  v9 = (unsigned __int64 *)a3;
-  BcpDisplayCriticalString(&stru_140C70C00.Length, dword_140C0B5A0[18 * a1 + 1], a3, a1);
-  BcpDisplayCriticalString(&stru_140C70C10.Length, dword_140C0B5A0[18 * v7 + 1], v10, v7);
-  v11 = dword_140C0B5A0[18 * v7 + 11];
+  v36[1] = 0;
+  v33 = a2;
+  v38 = a5;
+  v32 = BcpCursor;
+  v9 = dword_140C10F00[18 * a1 + 1];
+  v10 = (unsigned __int64 *)a3;
+  BcpTextBoxLeftEdgeOverride = (__int64)&v32;
+  BcpDisplayCriticalString(&stru_140C53E90.Length, v9, a3, a1);
+  BcpDisplayCriticalString(&stru_140C53EA0.Length, dword_140C10F00[18 * v7 + 1], v11, (unsigned int)v7);
+  v12 = dword_140C10F00[18 * v7 + 11];
   LODWORD(BcpCursor) = v6;
-  HIDWORD(BcpCursor) = v11 + dword_140C64B30;
-  v13 = dword_140C0B5A0[18 * v7];
-  dword_140C64B30 += v11 + v11;
-  v12 = dword_140C64B30;
-  BcpDisplayCriticalString(&stru_140C70B50.Length, v13, v14, v7);
-  v15 = v12 + dword_140C0B5A0[18 * v7 + 11];
-  HIDWORD(BcpCursor) = v12;
+  HIDWORD(BcpCursor) = v12 + dword_140C4C5E0;
+  v14 = dword_140C10F00[18 * v7];
+  dword_140C4C5E0 += v12 + v12;
+  v13 = dword_140C4C5E0;
+  BcpDisplayCriticalString(&stru_140C53DE0.Length, v14, v15, (unsigned int)v7);
+  v16 = v13 + dword_140C10F00[18 * v7 + 11];
+  HIDWORD(BcpCursor) = v13;
   LODWORD(BcpCursor) = v6;
-  v16 = dword_140C0B5A0[18 * v7];
-  dword_140C64B30 = v15;
-  BcpDisplayCriticalString(&stru_140C70BF0.Length, v16, v17, v7);
-  BcpDisplayCriticalCharacter(v18, dword_140C0B5A0[18 * v7]);
-  BcpDisplayCriticalString((unsigned __int16 *)(a5 + 16), dword_140C0B5A0[18 * v7], v19, v7);
-  v21 = 0LL;
+  v17 = dword_140C10F00[18 * v7];
+  dword_140C4C5E0 = v16;
+  BcpDisplayCriticalString(&stru_140C53E80.Length, v17, v18, (unsigned int)v7);
+  BcpDisplayCriticalCharacter(v19, dword_140C10F00[18 * v7]);
+  BcpDisplayCriticalString((unsigned __int16 *)(a5 + 16), dword_140C10F00[18 * v7], v20, (unsigned int)v7);
+  v22 = 0LL;
   if ( a4 )
   {
-    v22 = dword_140C0B5A0[18 * v7 + 11];
+    v23 = dword_140C10F00[18 * v7 + 11];
     LODWORD(BcpCursor) = v6;
-    dword_140C64B30 = v15 + v22;
-    v23 = dword_140C0B5A0[18 * v7];
-    HIDWORD(BcpCursor) = v15;
-    BcpDisplayCriticalString(&stru_140C70BE0.Length, v23, v20, v7);
-    BcpDisplayCriticalCharacter(v24, dword_140C0B5A0[18 * v7]);
-    v35[0] = 0x800000;
-    v36 = &v38;
-    BcpSanitizeDriverName(a4, v35);
-    BcpDisplayCriticalString((unsigned __int16 *)v35, dword_140C0B5A0[18 * v7], v25, v7);
+    dword_140C4C5E0 = v16 + v23;
+    v24 = dword_140C10F00[18 * v7];
+    HIDWORD(BcpCursor) = v16;
+    BcpDisplayCriticalString(&stru_140C53E70.Length, v24, v21, (unsigned int)v7);
+    BcpDisplayCriticalCharacter(v25, dword_140C10F00[18 * v7]);
+    v36[0] = 0x800000;
+    v37 = &v39;
+    BcpSanitizeDriverName(a4, v36);
+    BcpDisplayCriticalString((unsigned __int16 *)v36, dword_140C10F00[18 * v7], v26, (unsigned int)v7);
   }
-  v26 = 4LL;
-  v33 = BcpCursor;
-  v27 = v37;
-  v28 = v32;
-  v34 = dword_140C64B30;
+  v27 = 4LL;
+  v34 = BcpCursor;
+  v28 = v38;
+  v29 = v33;
+  v35 = dword_140C4C5E0;
   BcpCursor = 0LL;
-  dword_140C64B30 = 0;
+  dword_140C4C5E0 = 0;
   do
   {
-    BcpConvertBugDataToString(*v9, v21 + v27 + 32);
-    if ( BcpDisplayParameters || (a6 & 8) != 0 && v28 == 317 )
+    BcpConvertBugDataToString(*v10, v22 + v28 + 32);
+    if ( BcpDisplayParameters || (a6 & 8) != 0 && v29 == 317 )
     {
-      BcpDisplayCriticalString((unsigned __int16 *)(v21 + v27 + 32), dword_140C0B5A0[18 * v7], v29, v7);
+      BcpDisplayCriticalString((unsigned __int16 *)(v22 + v28 + 32), dword_140C10F00[18 * v7], v30, (unsigned int)v7);
       LODWORD(BcpCursor) = 0;
-      HIDWORD(BcpCursor) = dword_140C64B30;
+      HIDWORD(BcpCursor) = dword_140C4C5E0;
     }
-    v21 += 16LL;
-    ++v9;
-    --v26;
+    v22 += 16LL;
+    ++v10;
+    --v27;
   }
-  while ( v26 );
-  result = v34;
+  while ( v27 );
+  result = v35;
   BcpTextBoxLeftEdgeOverride = 0LL;
-  BcpCursor = v33;
-  dword_140C64B30 = v34;
+  BcpCursor = v34;
+  dword_140C4C5E0 = v35;
   return result;
 }

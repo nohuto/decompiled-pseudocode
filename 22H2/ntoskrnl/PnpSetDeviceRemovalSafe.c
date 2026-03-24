@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpSetDeviceRemovalSafe @ 0x140964750
+ * XREFs of PnpSetDeviceRemovalSafe @ 0x1408ABEF4
  * Callers:
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetDeviceRemovalSafe(_QWORD *Object)
 {
   __int64 v3; // rdi
   int v4; // ebp
-  __int64 DeviceEventEntry; // rbx
+  _DWORD *DeviceEventEntry; // rbx
   const void *v6; // rdx
 
   if ( PnpShutdownEvent.Header.SignalState )
@@ -27,19 +27,19 @@ __int64 __fastcall PnpSetDeviceRemovalSafe(_QWORD *Object)
   if ( !DeviceEventEntry )
     return 3221225626LL;
   ObfReferenceObjectWithTag(Object, 0x56706E50u);
-  *(_QWORD *)(DeviceEventEntry + 24) = 0LL;
-  *(_QWORD *)(DeviceEventEntry + 16) = 0LL;
-  *(_QWORD *)(DeviceEventEntry + 48) = 0LL;
-  *(_QWORD *)(DeviceEventEntry + 56) = 0LL;
-  *(_DWORD *)(DeviceEventEntry + 128) = 1;
-  *(_QWORD *)(DeviceEventEntry + 136) = 0LL;
-  *(GUID *)(DeviceEventEntry + 112) = GUID_DEVICE_SAFE_REMOVAL;
-  *(_DWORD *)(DeviceEventEntry + 144) = 0;
-  *(_DWORD *)(DeviceEventEntry + 148) = v4;
-  *(_QWORD *)(DeviceEventEntry + 152) = Object;
+  *((_QWORD *)DeviceEventEntry + 3) = 0LL;
+  *((_QWORD *)DeviceEventEntry + 2) = 0LL;
+  *((_QWORD *)DeviceEventEntry + 6) = 0LL;
+  *((_QWORD *)DeviceEventEntry + 7) = 0LL;
+  DeviceEventEntry[32] = 1;
+  *((_QWORD *)DeviceEventEntry + 17) = 0LL;
+  *((GUID *)DeviceEventEntry + 7) = GUID_DEVICE_SAFE_REMOVAL;
+  DeviceEventEntry[36] = 0;
+  DeviceEventEntry[37] = v4;
+  *((_QWORD *)DeviceEventEntry + 19) = Object;
   v6 = *(const void **)(v3 + 48);
   if ( v6 )
-    memmove((void *)(DeviceEventEntry + 160), v6, *(unsigned __int16 *)(v3 + 40));
-  *(_WORD *)(DeviceEventEntry + 2 * ((unsigned __int64)*(unsigned __int16 *)(v3 + 40) >> 1) + 160) = 0;
-  return PnpInsertEventInQueue(DeviceEventEntry);
+    memmove(DeviceEventEntry + 40, v6, *(unsigned __int16 *)(v3 + 40));
+  *((_WORD *)DeviceEventEntry + ((unsigned __int64)*(unsigned __int16 *)(v3 + 40) >> 1) + 80) = 0;
+  return PnpInsertEventInQueue((__int64)DeviceEventEntry);
 }

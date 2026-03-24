@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhFdoPnp_RemoveDevice @ 0x1C0042760
+ * XREFs of UsbhFdoPnp_RemoveDevice @ 0x1C0043A10
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhReleaseHubNumber @ 0x1C00435F0 (UsbhReleaseHubNumber.c)
- *     Usbh_FDO_Pnp_State @ 0x1C0043A98 (Usbh_FDO_Pnp_State.c)
- *     UsbhSshDisabled @ 0x1C00589F0 (UsbhSshDisabled.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhReleaseHubNumber @ 0x1C00448B0 (UsbhReleaseHubNumber.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044D48 (Usbh_FDO_Pnp_State.c)
+ *     UsbhSshDisabled @ 0x1C005A0C0 (UsbhSshDisabled.c)
  */
 
 __int64 __fastcall UsbhFdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -29,7 +29,7 @@ __int64 __fastcall UsbhFdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp
       0,
       1u,
       0x16u,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids);
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids);
   v5 = FdoExt((__int64)DeviceObject);
   UsbhSshDisabled(DeviceObject, v5 + 346);
   v6 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 306), Irp, File, 1u, 0x20u);
@@ -42,7 +42,7 @@ __int64 __fastcall UsbhFdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp
   else
   {
     Log((__int64)DeviceObject, 2, 1769174128, 0LL, 0LL);
-    if ( LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) )
+    if ( dword_1C006C4D0 )
     {
       v8 = FdoExt((__int64)DeviceObject);
       if ( *((_QWORD *)v8 + 554) )

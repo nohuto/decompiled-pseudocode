@@ -1,9 +1,9 @@
 /*
- * XREFs of XmAddOp @ 0x1403CF380
+ * XREFs of XmAddOp @ 0x1403C3620
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmAddOperands @ 0x1403A2AC0 (XmAddOperands.c)
+ *     XmAddOperands @ 0x140396A20 (XmAddOperands.c)
  */
 
 __int64 __fastcall XmAddOp(__int64 a1)

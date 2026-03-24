@@ -1,24 +1,15 @@
 /*
- * XREFs of ??0RGNMEMOBJ@@QEAA@K@Z @ 0x1C007D940
+ * XREFs of ??0RGNMEMOBJ@@QEAA@K@Z @ 0x1C002C480
  * Callers:
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004B888 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003950C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
  * Callees:
- *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C003E160 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
- *     ?vInit@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E3F0 (-vInit@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
  */
 
 RGNMEMOBJ *__fastcall RGNMEMOBJ::RGNMEMOBJ(RGNMEMOBJ *this, unsigned int a2)
 {
-  unsigned int v2; // edi
-  struct REGION *Region; // rax
-
   *(_QWORD *)this = 0LL;
-  v2 = 112;
-  if ( a2 >= 0x70 )
-    v2 = a2;
-  Region = RGNMEMOBJ::AllocateRegion(v2);
-  *(_QWORD *)this = Region;
-  if ( Region )
-    RGNMEMOBJ::vInit(this, v2);
+  *((_DWORD *)this + 2) = 0;
+  RGNMEMOBJ::vInitialize(this, a2);
   return this;
 }

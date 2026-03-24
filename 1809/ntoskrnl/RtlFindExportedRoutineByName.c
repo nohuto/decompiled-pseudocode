@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindExportedRoutineByName @ 0x140678EE0
+ * XREFs of RtlFindExportedRoutineByName @ 0x140678EC0
  * Callers:
- *     MmGetSystemRoutineAddress @ 0x14067B8B0 (MmGetSystemRoutineAddress.c)
- *     MiUnloadApproved @ 0x14070DF94 (MiUnloadApproved.c)
- *     MiCompactServiceTable @ 0x140718348 (MiCompactServiceTable.c)
- *     MmCallDllInitialize @ 0x14071B71C (MmCallDllInitialize.c)
- *     KsepResolveShimHooks @ 0x140848074 (KsepResolveShimHooks.c)
+ *     MmGetSystemRoutineAddress @ 0x14067B890 (MmGetSystemRoutineAddress.c)
+ *     MiUnloadApproved @ 0x14070DF74 (MiUnloadApproved.c)
+ *     MiCompactServiceTable @ 0x140718328 (MiCompactServiceTable.c)
+ *     MmCallDllInitialize @ 0x14071B6FC (MmCallDllInitialize.c)
+ *     KsepResolveShimHooks @ 0x140848054 (KsepResolveShimHooks.c)
  *     PspInitializeSystemDlls @ 0x1409D6048 (PspInitializeSystemDlls.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
  */
 
 char *__fastcall RtlFindExportedRoutineByName(char *a1, char *a2)

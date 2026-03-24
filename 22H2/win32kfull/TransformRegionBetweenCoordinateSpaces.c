@@ -1,74 +1,85 @@
 /*
- * XREFs of TransformRegionBetweenCoordinateSpaces @ 0x1C01BA260
+ * XREFs of TransformRegionBetweenCoordinateSpaces @ 0x1C01E5A84
  * Callers:
- *     ?PtInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C023A408 (-PtInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagPOINT@@@Z.c)
- *     ?RectInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagRECT@@@Z @ 0x1C023A4A0 (-RectInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagRECT@@@Z.c)
+ *     ?MoveRect@@YAHPEAU_MOVESIZEDATA@@KW4_MOVERECT_STYLE@@@Z @ 0x1C020B7DC (-MoveRect@@YAHPEAU_MOVESIZEDATA@@KW4_MOVERECT_STYLE@@@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020E968 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TransformRegionBetweenCoordinateSpaces(__int64 a1, __int64 a2, __int64 *a3)
 {
-  __int64 v3; // rbp
-  unsigned int v4; // esi
+  __int64 v3; // rsi
+  unsigned int v4; // r14d
+  unsigned int v6; // edx
+  unsigned int v7; // r8d
+  int v8; // ecx
+  int v9; // eax
   int RegionData; // eax
-  unsigned int v7; // edi
-  __int64 v8; // rax
-  _DWORD *v9; // rbx
-  _QWORD *v10; // r14
-  unsigned int v11; // ebp
+  unsigned int v11; // edi
+  __int64 v12; // rax
+  _DWORD *v13; // rbx
+  _QWORD *v14; // rsi
+  unsigned int v15; // ebp
   __int64 RectRgn; // rdi
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // r15
-  __int128 v19; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // r15
+  __int128 v23; // [rsp+30h] [rbp-58h] BYREF
 
   v3 = *a3;
   v4 = 0;
-  if ( (unsigned __int64)*a3 > 2
-    && (((unsigned __int16)(*(_DWORD *)(*(_QWORD *)(a1 + 40) + 288LL) >> 8) ^ (unsigned __int16)(*(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL) >> 8)) & 0x1FF) != 0 )
+  if ( (unsigned __int64)*a3 > 2 )
   {
-    RegionData = GreGetRegionData(v3, 0LL, 0LL);
-    v7 = RegionData;
-    if ( RegionData > 0 )
+    v6 = *(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL);
+    v7 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 288LL);
+    if ( (((unsigned __int16)(v6 >> 8) ^ (unsigned __int16)(v7 >> 8)) & 0x1FF) != 0
+      || ((v6 & 0xF) != 2 || (v6 & 0x20000000) == 0 ? (v8 = 0) : (v8 = 1),
+          (v7 & 0xF) != 2 || (v7 & 0x20000000) == 0 ? (v9 = 0) : (v9 = 1),
+          v8 != v9) )
     {
-      v8 = Win32AllocPoolZInit(RegionData, 1919775573LL);
-      v9 = (_DWORD *)v8;
-      if ( v8 )
+      RegionData = GreGetRegionData(v3, 0LL, 0LL);
+      v11 = RegionData;
+      if ( RegionData > 0 )
       {
-        if ( (unsigned int)GreGetRegionData(v3, v7, v8) )
+        v12 = Win32AllocPool(RegionData, 1919775573LL);
+        v13 = (_DWORD *)v12;
+        if ( v12 )
         {
-          v10 = v9 + 8;
-          v19 = 0LL;
-          v11 = 0;
-          RectRgn = GreCreateRectRgn(0LL, 0LL, 0LL, 0LL);
-          if ( !v9[2] )
-            goto LABEL_14;
-          do
+          if ( (unsigned int)GreGetRegionData(v3, v11, v12) )
           {
-            TransformRectBetweenCoordinateSpaces(&v19, v10, a1, a2);
-            v13 = v19 - *v10;
-            if ( (_QWORD)v19 == *v10 )
-              v13 = *((_QWORD *)&v19 + 1) - v10[1];
-            v4 |= v13 != 0;
-            v14 = GreCreateRectRgnIndirect(&v19);
-            v15 = v14;
-            if ( v14 )
+            v14 = v13 + 8;
+            v23 = 0LL;
+            v15 = 0;
+            RectRgn = GreCreateRectRgn(0LL, 0LL, 0LL, 0LL);
+            if ( !v13[2] )
+              goto LABEL_23;
+            do
             {
-              GreCombineRgn(RectRgn, RectRgn, v14, 2LL);
-              GreDeleteObject(v15);
+              TransformRectBetweenCoordinateSpaces(&v23, v14, a1, a2);
+              v17 = v23 - *v14;
+              if ( (_QWORD)v23 == *v14 )
+                v17 = *((_QWORD *)&v23 + 1) - v14[1];
+              v4 |= v17 != 0;
+              v18 = GreCreateRectRgnIndirect(&v23);
+              v19 = v18;
+              if ( v18 )
+              {
+                GreCombineRgn(RectRgn, RectRgn, v18, 2LL);
+                GreDeleteObject(v19);
+              }
+              v14 += 2;
+              ++v15;
             }
-            v10 += 2;
-            ++v11;
+            while ( v15 < v13[2] );
+            if ( v4 )
+              *a3 = RectRgn;
+            else
+LABEL_23:
+              GreDeleteObject(RectRgn);
           }
-          while ( v11 < v9[2] );
-          if ( v4 )
-            *a3 = RectRgn;
-          else
-LABEL_14:
-            GreDeleteObject(RectRgn);
+          Win32FreePool(v13);
         }
-        Win32FreePool(v9);
       }
     }
   }

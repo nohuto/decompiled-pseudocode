@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x180240420
+ * XREFs of ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1801DB030
  * Callers:
  *     <none>
  * Callees:
- *     ??A?$span@M$0?0@gsl@@QEBAAEAM_K@Z @ 0x1802403FC (--A-$span@M$0-0@gsl@@QEBAAEAM_K@Z.c)
- *     ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x180240BC4 (-GetValueAt@-$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV-$span@M$0-0@gsl@@AEAV34@@Z.c)
+ *     ??A?$span@M$0?0@gsl@@QEBAAEAM_J@Z @ 0x1801DAFFC (--A-$span@M$0-0@gsl@@QEBAAEAM_J@Z.c)
+ *     ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x1801DB7C0 (-GetValueAt@-$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV-$span@M$0-0@gsl@@AEAV34@@Z.c)
  */
 
 __int64 __fastcall Particles::LinearKeyframeAnimation<float>::AnimateSingle(
         __int64 a1,
-        gsl::details *a2,
+        _QWORD *a2,
         __int64 a3,
         __int64 a4)
 {

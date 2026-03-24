@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpLockDeviceActionQueue @ 0x140135414
+ * XREFs of PnpLockDeviceActionQueue @ 0x140135434
  * Callers:
- *     IoControlPnpDeviceActionQueue @ 0x140135350 (IoControlPnpDeviceActionQueue.c)
- *     PopUpdateWakeSourceWorker @ 0x1402DBD60 (PopUpdateWakeSourceWorker.c)
+ *     IoControlPnpDeviceActionQueue @ 0x140135370 (IoControlPnpDeviceActionQueue.c)
+ *     PopUpdateWakeSourceWorker @ 0x1402DBE60 (PopUpdateWakeSourceWorker.c)
  *     IoBuildPoDeviceNotifyList @ 0x14056CE10 (IoBuildPoDeviceNotifyList.c)
- *     PopDisengageDirectedDrips @ 0x140868894 (PopDisengageDirectedDrips.c)
+ *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
  *     PipInitializeCoreDriversByGroup @ 0x1409CA988 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
  */

@@ -1,179 +1,168 @@
 /*
- * XREFs of WmipQuerySetExecuteSI @ 0x1406C6DEC
+ * XREFs of WmipQuerySetExecuteSI @ 0x140756A60
  * Callers:
- *     IoWMIQuerySingleInstance @ 0x1406C7760 (IoWMIQuerySingleInstance.c)
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
- *     IoWMIExecuteMethod @ 0x1409DECE0 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1409DF050 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1409DF180 (IoWMISetSingleItem.c)
- *     WmipQuerySingleMultiple @ 0x1409E0FE4 (WmipQuerySingleMultiple.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstance @ 0x140756930 (IoWMIQuerySingleInstance.c)
+ *     IoWMIExecuteMethod @ 0x140930ED0 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x140931240 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x140931370 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x140932EDC (WmipQuerySingleMultiple.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipPrepareWnodeSI @ 0x1406C6594 (WmipPrepareWnodeSI.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7448 (WmipSendWmiIrp.c)
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
+ *     WmipSendWmiIrp @ 0x140756D0C (WmipSendWmiIrp.c)
+ *     WmipPrepareWnodeSI @ 0x140756DF4 (WmipPrepareWnodeSI.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQuerySetExecuteSI(
-        PVOID Object,
-        IRP *a2,
-        KPROCESSOR_MODE a3,
+        PADAPTER_OBJECT DmaAdapter,
+        PIRP Irp,
+        KPROCESSOR_MODE AccessMode,
         unsigned __int8 a4,
         __int64 a5,
         unsigned int a6,
         unsigned int *a7)
 {
-  unsigned int *v7; // r15
-  PVOID v10; // rsi
-  __int64 v11; // r12
+  unsigned int *v7; // rsi
+  __int64 v11; // r15
   ACCESS_MASK v12; // edx
-  int v13; // r13d
+  int v13; // r12d
   NTSTATUS v14; // eax
   int v15; // ebx
   __int64 v16; // rcx
-  __int64 v17; // r15
-  _QWORD *v18; // rsi
-  __int64 v19; // rcx
-  __int64 v20; // rdx
-  int v21; // ecx
+  volatile signed __int64 **v17; // rsi
+  volatile signed __int64 *v18; // rcx
+  __int64 v19; // rdx
+  int v20; // ecx
   ULONG_PTR *p_Information; // rax
-  _QWORD *v23; // r14
-  int v25; // eax
-  ULONG_PTR *v26; // r14
-  void *v27; // rcx
-  char v28; // [rsp+30h] [rbp-C1h] BYREF
-  char v29[7]; // [rsp+31h] [rbp-C0h] BYREF
-  PVOID v30; // [rsp+38h] [rbp-B9h] BYREF
-  PVOID P; // [rsp+40h] [rbp-B1h] BYREF
-  unsigned int *v32; // [rsp+48h] [rbp-A9h]
-  PVOID v33; // [rsp+50h] [rbp-A1h]
-  __int128 v34; // [rsp+58h] [rbp-99h] BYREF
-  _BYTE v35[128]; // [rsp+70h] [rbp-81h] BYREF
+  __int64 v22; // r15
+  volatile signed __int64 **v23; // r14
+  void *v25; // rcx
+  __int64 v26; // rdx
+  int v27; // eax
+  ULONG_PTR *v28; // r14
+  char v29; // [rsp+30h] [rbp-B1h] BYREF
+  char v30[7]; // [rsp+31h] [rbp-B0h] BYREF
+  PVOID Object; // [rsp+38h] [rbp-A9h] BYREF
+  unsigned int *v32; // [rsp+40h] [rbp-A1h]
+  PVOID P; // [rsp+48h] [rbp-99h] BYREF
+  __int128 v34; // [rsp+50h] [rbp-91h] BYREF
+  _BYTE v35[128]; // [rsp+60h] [rbp-81h] BYREF
 
   v7 = a7;
-  v10 = Object;
-  v33 = Object;
   v32 = a7;
   v11 = a4;
   memset(v35, 0, sizeof(v35));
   v12 = *((_DWORD *)DesiredAccessForFunction + v11);
   v13 = 0;
-  v29[0] = 0;
-  v28 = 0;
+  v30[0] = 0;
+  v29 = 0;
   v34 = 0LL;
-  if ( v10 )
+  if ( DmaAdapter )
   {
-    v14 = ObReferenceObjectByPointer(v10, v12, WmipGuidObjectType, a3);
+    v14 = ObReferenceObjectByPointer(DmaAdapter, v12, WmipGuidObjectType, AccessMode);
   }
   else
   {
-    v27 = *(void **)(a5 + 16);
-    v30 = 0LL;
-    v14 = ObReferenceObjectByHandle(v27, v12, WmipGuidObjectType, a3, &v30, 0LL);
-    v10 = v30;
-    v33 = v30;
+    v25 = *(void **)(a5 + 16);
+    Object = 0LL;
+    v14 = ObReferenceObjectByHandle(v25, v12, WmipGuidObjectType, AccessMode, &Object, 0LL);
+    DmaAdapter = (PADAPTER_OBJECT)Object;
   }
   v15 = v14;
   if ( v14 < 0 )
     return (unsigned int)v15;
-  LODWORD(v30) = 16;
+  LODWORD(Object) = 16;
   P = v35;
-  v15 = WmipPrepareWnodeSI((__int64)v10, a5, (int *)&v30, &P, v29, &v28);
+  v15 = WmipPrepareWnodeSI((_DWORD)DmaAdapter, a5, (unsigned int)&Object, (unsigned int)&P, (__int64)v30, (__int64)&v29);
   if ( v15 >= 0 )
   {
-    if ( v28 )
+    if ( v29 )
     {
       *(_DWORD *)(a5 + 44) |= 0x100u;
       *(_DWORD *)a5 = 48;
-      a2->IoStatus.Information = 48LL;
+      Irp->IoStatus.Information = 48LL;
     }
-    else if ( v29[0] )
+    else if ( v30[0] )
     {
       if ( (_BYTE)v11 == 3 || (v15 = -1073741162, (_BYTE)v11 == 9) )
         v15 = -1073741161;
-      v17 = (unsigned int)v30;
-      v18 = P;
-      if ( (_DWORD)v30 )
+      v17 = (volatile signed __int64 **)P;
+      if ( (_DWORD)Object )
       {
         while ( 1 )
         {
-          v19 = v18[v13];
-          v20 = *(unsigned int *)(v19 + 80);
-          *(_DWORD *)(a5 + 4) = v20;
-          if ( a2 )
+          v18 = v17[v13];
+          v19 = *((unsigned int *)v18 + 20);
+          *(_DWORD *)(a5 + 4) = v19;
+          if ( Irp )
           {
-            v21 = WmipForwardWmiIrp(a2, a6, a5);
-            p_Information = &a2->IoStatus.Information;
+            v20 = WmipForwardWmiIrp(Irp, v11, v19, (UNICODE_STRING *)(a5 + 24), a6, a5);
+            p_Information = &Irp->IoStatus.Information;
           }
           else
           {
-            LOBYTE(v19) = v11;
-            v21 = WmipSendWmiIrp(v19, v20, a5 + 24, a6, a5, &v34);
+            LOBYTE(v18) = v11;
+            v20 = WmipSendWmiIrp(v18, v19, a5 + 24, a6, a5, &v34);
             p_Information = (ULONG_PTR *)&v34 + 1;
           }
-          if ( v21 >= 0 )
+          if ( v20 >= 0 )
+            *v32 = *(_DWORD *)p_Information;
+          if ( (unsigned int)(v20 + 1073741163) > 1 )
             break;
-          if ( (unsigned int)(v21 + 1073741163) > 1 )
-            goto LABEL_14;
-          if ( ++v13 >= (unsigned int)v17 )
-            goto LABEL_15;
+          if ( ++v13 >= (unsigned int)Object )
+            goto LABEL_18;
         }
-        *v32 = *(_DWORD *)p_Information;
-LABEL_14:
-        v15 = v21;
-      }
-LABEL_15:
-      if ( (_DWORD)v17 )
-      {
-        v23 = v18;
+        v15 = v20;
+LABEL_18:
+        v22 = (unsigned int)Object;
+        v23 = v17;
         do
         {
-          WmipUnreferenceEntry(&WmipISChunkInfo, *v23++);
-          --v17;
+          WmipUnreferenceEntry((__int64)&WmipISChunkInfo, *v23++);
+          --v22;
         }
-        while ( v17 );
+        while ( v22 );
       }
-      if ( v18 != (_QWORD *)v35 && v18 )
-        ExFreePoolWithTag(v18, 0);
-      if ( v15 < 0 )
-        goto LABEL_23;
+      if ( v17 != (volatile signed __int64 **)v35 && v17 )
+        ExFreePoolWithTag(v17, 0);
       v7 = v32;
     }
     else
     {
-      if ( a2 )
+      v26 = *(unsigned int *)(a5 + 4);
+      if ( Irp )
       {
-        v25 = WmipForwardWmiIrp(a2, a6, a5);
-        v26 = &a2->IoStatus.Information;
+        v27 = WmipForwardWmiIrp(Irp, v11, v26, (UNICODE_STRING *)(a5 + 24), a6, a5);
+        v28 = &Irp->IoStatus.Information;
       }
       else
       {
         LOBYTE(v16) = v11;
-        v25 = WmipSendWmiIrp(v16, *(unsigned int *)(a5 + 4), a5 + 24, a6, a5, &v34);
-        v26 = (ULONG_PTR *)&v34 + 1;
+        v27 = WmipSendWmiIrp(v16, v26, a5 + 24, a6, a5, &v34);
+        v28 = (ULONG_PTR *)&v34 + 1;
       }
-      v15 = v25;
-      if ( v25 < 0 )
+      v15 = v27;
+      if ( v27 < 0 )
       {
-LABEL_23:
-        v10 = v33;
+LABEL_25:
         *(_DWORD *)(a5 + 4) = 0;
-        goto LABEL_24;
+        goto LABEL_26;
       }
-      *a7 = *(_DWORD *)v26;
+      *a7 = *(_DWORD *)v28;
     }
-    if ( *v7 > a6 )
+    if ( v15 >= 0 && *v7 > a6 )
       v15 = -1073741811;
-    goto LABEL_23;
+    goto LABEL_25;
   }
-LABEL_24:
-  if ( v10 )
-    ObfDereferenceObject(v10);
+LABEL_26:
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return (unsigned int)v15;
 }

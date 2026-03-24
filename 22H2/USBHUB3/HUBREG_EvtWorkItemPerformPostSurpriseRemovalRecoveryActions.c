@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions @ 0x1C0086E60
+ * XREFs of HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions @ 0x1C0081380
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions(_
   v2 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                      WdfDriverGlobals,
                      WdfDriverGlobals->Driver,
-                     off_1C00691E8)
+                     off_1C00661C0)
                  + 80);
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3016))(WdfDriverGlobals, v2);
   v4 = 1;
@@ -48,13 +48,13 @@ __int64 __fastcall HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions(_
       v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
              WdfDriverGlobals,
              WdfDriverGlobals->Driver,
-             off_1C00691E8);
+             off_1C00661C0);
       WPP_RECORDER_SF_d(
         *(_QWORD *)(v6 + 64),
         2u,
         2u,
         0x15u,
-        (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids,
+        (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids,
         v5);
     }
   }
@@ -77,7 +77,7 @@ __int64 __fastcall HUBREG_EvtWorkItemPerformPostSurpriseRemovalRecoveryActions(_
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00691E8);
+           off_1C00661C0);
     v9 = 116;
     goto LABEL_13;
   }
@@ -101,7 +101,7 @@ LABEL_10:
       v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
              WdfDriverGlobals,
              WdfDriverGlobals->Driver,
-             off_1C00691E8);
+             off_1C00661C0);
       v9 = 118;
 LABEL_13:
       LODWORD(v11) = v7;
@@ -110,7 +110,7 @@ LABEL_13:
         2u,
         2u,
         v9,
-        (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v11);
       goto LABEL_14;
     }
@@ -123,7 +123,7 @@ LABEL_13:
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00691E8);
+           off_1C00661C0);
     v9 = 117;
     goto LABEL_13;
   }

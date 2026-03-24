@@ -1,22 +1,24 @@
 /*
- * XREFs of MiClusterVadActive @ 0x140669F18
+ * XREFs of MiClusterVadActive @ 0x1405555E4
  * Callers:
- *     MiLockStealUserVm @ 0x1403BD8B8 (MiLockStealUserVm.c)
+ *     MiLockStealUserVm @ 0x140333FE4 (MiLockStealUserVm.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiClusterVadActive(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v4; // rbx
-  unsigned __int64 v5; // rdi
-  int v6; // r14d
-  __int64 v7; // rsi
-  unsigned __int64 v8; // rdi
-  unsigned int i; // ebp
-  unsigned __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v4; // rdi
+  unsigned __int64 v5; // rsi
+  int v6; // r15d
+  __int64 v7; // rbp
+  unsigned __int64 v8; // rsi
+  __int64 v9; // r14
+  unsigned __int64 v10; // rbx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v12; // rbx
+  __int64 v14; // [rsp+50h] [rbp+8h] BYREF
 
   *a3 = -1LL;
   v4 = (__int64)(*(_QWORD *)(a2 + 8) << 25) >> 16;
@@ -29,28 +31,43 @@ __int64 __fastcall MiClusterVadActive(__int64 a1, __int64 a2, _QWORD *a3)
   v6 = 0;
   v7 = -1LL;
   v8 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  for ( i = 0; i < 0x10; ++i )
+  v9 = 0LL;
+  do
   {
-    v13 = MI_READ_PTE_LOCK_FREE(v8);
-    if ( (v13 & 1) != 0 )
+    v14 = MI_READ_PTE_LOCK_FREE(v8);
+    v10 = v14;
+    if ( (v14 & 1) != 0 )
     {
-      v10 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13);
-      v11 = (v10 >> 12) & 0xFFFFFFFFFFLL;
-      if ( (unsigned __int16)v10 >> 12 != (unsigned __int64)i )
+      if ( MiPteInShadowRange((unsigned __int64)&v14)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && ((v10 & 0x20) == 0 || (v10 & 0x42) == 0) )
+      {
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v14 >> 3) & 0x1FF)) & 0x20) != 0 )
+            v10 |= 0x20uLL;
+        }
+      }
+      v12 = (v10 >> 12) & 0xFFFFFFFFFLL;
+      if ( (v12 & 0xF) != (unsigned int)v9 )
         return 0LL;
       if ( v7 == -1 )
       {
-        v7 = v11 - i;
+        v7 = v12 - (unsigned int)v9;
       }
       else
       {
-        if ( v11 != v7 + i )
+        if ( v12 != v9 + v7 )
           return 0LL;
         v6 = 1;
       }
     }
+    v9 = (unsigned int)(v9 + 1);
     v8 += 8LL;
   }
+  while ( (unsigned int)v9 < 0x10 );
   if ( !v6 )
   {
     *a3 = (unsigned __int16)v4 >> 12;

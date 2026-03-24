@@ -1,1 +1,118 @@
-/*\n * XREFs of MouseStart @ 0x1C00026C0\n * Callers:\n *     MousePnP @ 0x1C0001EE0 (MousePnP.c)\n *     MouseStartWorker @ 0x1C0002630 (MouseStartWorker.c)\n * Callees:\n *     __security_check_cookie @ 0x1C00029B0 (__security_check_cookie.c)\n *     MouseClassCheckWaitWakeEnabled @ 0x1C0004898 (MouseClassCheckWaitWakeEnabled.c)\n *     MouEnableDisablePort @ 0x1C000D230 (MouEnableDisablePort.c)\n *     MouseSendIrpSynchronously @ 0x1C000DEF0 (MouseSendIrpSynchronously.c)\n *     MouseClassCreateWaitWakeIrp @ 0x1C000EF00 (MouseClassCreateWaitWakeIrp.c)\n *     MouseClassGetWaitWakeEnableState @ 0x1C000F0BC (MouseClassGetWaitWakeEnableState.c)\n */\n\n__int64 __fastcall MouseStart(__int64 a1, __int64 a2)\n{\n  IRP *v2; // rdi\n  __int64 v3; // rbx\n  int Status; // ebp\n  NTSTATUS v5; // esi\n  ULONG_PTR Information; // r14\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax\n  int *v8; // rdi\n  struct _DEVICE_OBJECT *v9; // rcx\n  char v11; // di\n  char *v12; // rbp\n  __int64 v13; // rcx\n  KIRQL v14; // al\n  _QWORD v15[2]; // [rsp+20h] [rbp-78h] BYREF\n  __int128 v16; // [rsp+30h] [rbp-68h]\n  __int128 v17; // [rsp+40h] [rbp-58h]\n  __int128 v18; // [rsp+50h] [rbp-48h]\n\n  v2 = *(IRP **)(a2 + 8);\n  v3 = *(_QWORD *)(a1 + 64);\n  Status = v2->IoStatus.Status;\n  if ( Status < 0 )\n    return (unsigned int)Status;\n  v2->IoStatus.Status = -1073741637;\n  v5 = 0;\n  Information = v2->IoStatus.Information;\n  v2->IoStatus.Information = 0LL;\n  v15[0] = 65600LL;\n  v16 = 0LL;\n  v17 = 0LL;\n  v18 = 0LL;\n  v15[1] = -1LL;\n  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;\n  CurrentStackLocation[-1].MinorFunction = 9;\n  CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v15;\n  if ( (int)MouseSendIrpSynchronously(*(PDEVICE_OBJECT *)(v3 + 16), v2) >= 0 && v2->IoStatus.Status >= 0 )\n  {\n    *(_DWORD *)(v3 + 268) = v18;\n    *(_DWORD *)(v3 + 272) = HIDWORD(v17);\n    *(_OWORD *)(v3 + 248) = v16;\n    *(_DWORD *)(v3 + 264) = v17;\n  }\n  v2->IoStatus.Information = Information;\n  v2->IoStatus.Status = Status;\n  v8 = (int *)(v3 + 272);\n  *(_BYTE *)(v3 + 65) = 1;\n  if ( *(int *)(v3 + 268) <= 1 || *v8 <= 1 )\n  {\n    *(_DWORD *)(v3 + 184) = 1;\n  }\n  else\n  {\n    *(_DWORD *)(v3 + 184) = 2;\n    MouseClassGetWaitWakeEnableState(v3);\n  }\n  v9 = *(struct _DEVICE_OBJECT **)v3;\n  *(_QWORD *)(v3 + 192) = &MouseClassWmiGuidList;\n  *(_QWORD *)(v3 + 232) = 0LL;\n  *(_QWORD *)(v3 + 200) = MouseClassQueryWmiRegInfo;\n  *(_QWORD *)(v3 + 208) = MouseClassQueryWmiDataBlock;\n  *(_QWORD *)(v3 + 216) = MouseClassSetWmiDataBlock;\n  *(_QWORD *)(v3 + 224) = MouseClassSetWmiDataItem;\n  *(_QWORD *)(v3 + 240) = 0LL;\n  IoWMIRegistrationControl(v9, 1u);\n  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n  {\n    if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )\n    {\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    }\n    else\n    {\n      v11 = *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 180) + 16);\n      v12 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 180);\n      v12[16] = 1;\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      if ( !v11 )\n      {\n        LOBYTE(v13) = 1;\n        v5 = MouEnableDisablePort(v13, 0LL, v3, v12);\n        if ( v5 < 0 )\n          v12[16] = 0;\n      }\n    }\n    v8 = (int *)(v3 + 272);\n  }\n  else\n  {\n    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    v5 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 88), 1u);\n  }\n  if ( *(int *)(v3 + 268) > 1 && *v8 > 1 )\n  {\n    v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 72));\n    if ( !*(_QWORD *)(v3 + 280) || *(_BYTE *)(v3 + 288) )\n    {\n      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v14);\n      if ( (unsigned __int8)MouseClassCheckWaitWakeEnabled(v3) )\n        MouseClassCreateWaitWakeIrp((PVOID)v3);\n    }\n    else\n    {\n      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v14);\n    }\n  }\n  return (unsigned int)v5;\n}\n
+/*
+ * XREFs of MouseStart @ 0x1C0002730
+ * Callers:
+ *     MousePnP @ 0x1C0001570 (MousePnP.c)
+ *     MouseStartWorker @ 0x1C00026A0 (MouseStartWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0002950 (__security_check_cookie.c)
+ *     MouseClassCheckWaitWakeEnabled @ 0x1C00042E8 (MouseClassCheckWaitWakeEnabled.c)
+ *     MouEnableDisablePort @ 0x1C000C010 (MouEnableDisablePort.c)
+ *     MouseSendIrpSynchronously @ 0x1C000D1A0 (MouseSendIrpSynchronously.c)
+ *     MouseClassCreateWaitWakeIrp @ 0x1C000DF40 (MouseClassCreateWaitWakeIrp.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000E100 (MouseClassGetWaitWakeEnableState.c)
+ */
+
+__int64 __fastcall MouseStart(__int64 a1, __int64 a2)
+{
+  IRP *v2; // rdi
+  int *v3; // rbx
+  int Status; // ebp
+  NTSTATUS v5; // esi
+  ULONG_PTR Information; // r14
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  struct _DEVICE_OBJECT *v8; // rcx
+  char v10; // di
+  char *v11; // rbp
+  __int64 v12; // rcx
+  KIRQL v13; // al
+  bool v14; // di
+  _QWORD v15[2]; // [rsp+20h] [rbp-78h] BYREF
+  __int128 v16; // [rsp+30h] [rbp-68h]
+  __int128 v17; // [rsp+40h] [rbp-58h]
+  __int128 v18; // [rsp+50h] [rbp-48h]
+
+  v2 = *(IRP **)(a2 + 8);
+  v3 = *(int **)(a1 + 64);
+  Status = v2->IoStatus.Status;
+  if ( Status < 0 )
+    return (unsigned int)Status;
+  v2->IoStatus.Status = -1073741637;
+  v5 = 0;
+  Information = v2->IoStatus.Information;
+  v2->IoStatus.Information = 0LL;
+  v15[0] = 65600LL;
+  v16 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
+  v15[1] = -1LL;
+  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation[-1].MinorFunction = 9;
+  CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v15;
+  if ( (int)MouseSendIrpSynchronously(*((PDEVICE_OBJECT *)v3 + 2), v2) >= 0 && v2->IoStatus.Status >= 0 )
+  {
+    v3[67] = v18;
+    v3[68] = HIDWORD(v17);
+    *(_OWORD *)(v3 + 62) = v16;
+    v3[66] = v17;
+  }
+  v2->IoStatus.Information = Information;
+  v2->IoStatus.Status = Status;
+  *((_BYTE *)v3 + 65) = 1;
+  if ( v3[67] <= 1 || v3[68] <= 1 )
+  {
+    v3[46] = 1;
+  }
+  else
+  {
+    v3[46] = 2;
+    MouseClassGetWaitWakeEnableState(v3);
+  }
+  v8 = *(struct _DEVICE_OBJECT **)v3;
+  *((_QWORD *)v3 + 24) = &MouseClassWmiGuidList;
+  *((_QWORD *)v3 + 29) = 0LL;
+  *((_QWORD *)v3 + 25) = MouseClassQueryWmiRegInfo;
+  *((_QWORD *)v3 + 26) = MouseClassQueryWmiDataBlock;
+  *((_QWORD *)v3 + 27) = MouseClassSetWmiDataBlock;
+  *((_QWORD *)v3 + 28) = MouseClassSetWmiDataItem;
+  *((_QWORD *)v3 + 30) = 0LL;
+  IoWMIRegistrationControl(v8, 1u);
+  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+  {
+    if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )
+    {
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    }
+    else
+    {
+      v10 = *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * (unsigned int)v3[45] + 16);
+      v11 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * (unsigned int)v3[45];
+      v11[16] = 1;
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      if ( !v10 )
+      {
+        LOBYTE(v12) = 1;
+        v5 = MouEnableDisablePort(v12, 0LL, v3, v11);
+        if ( v5 < 0 )
+          v11[16] = 0;
+      }
+    }
+  }
+  else
+  {
+    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    v5 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 22), 1u);
+  }
+  if ( v3[67] > 1 && v3[68] > 1 )
+  {
+    v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v3 + 9);
+    v14 = *((_QWORD *)v3 + 35) && !*((_BYTE *)v3 + 288);
+    KeReleaseSpinLock((PKSPIN_LOCK)v3 + 9, v13);
+    if ( !v14 )
+    {
+      if ( (unsigned __int8)MouseClassCheckWaitWakeEnabled(v3) )
+        MouseClassCreateWaitWakeIrp(v3);
+    }
+  }
+  return (unsigned int)v5;
+}

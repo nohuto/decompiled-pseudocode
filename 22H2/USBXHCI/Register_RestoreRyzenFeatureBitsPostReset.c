@@ -1,11 +1,11 @@
 /*
- * XREFs of Register_RestoreRyzenFeatureBitsPostReset @ 0x1C0013A5C
+ * XREFs of Register_RestoreRyzenFeatureBitsPostReset @ 0x1C000F3B8
  * Callers:
- *     Register_ControllerReset @ 0x1C0018568 (Register_ControllerReset.c)
+ *     Register_ControllerReset @ 0x1C0010D88 (Register_ControllerReset.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 char __fastcall Register_RestoreRyzenFeatureBitsPostReset(__int64 a1, int a2, int a3, int a4)

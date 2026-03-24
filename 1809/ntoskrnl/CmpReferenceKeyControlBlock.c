@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpReferenceKeyControlBlock @ 0x140692A5C
+ * XREFs of CmpReferenceKeyControlBlock @ 0x140692A3C
  * Callers:
- *     CmpTransEnlistUowInKcb @ 0x14010EE88 (CmpTransEnlistUowInKcb.c)
+ *     CmpTransEnlistUowInKcb @ 0x14010EEA8 (CmpTransEnlistUowInKcb.c)
  *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C8C (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1406F81FC (CmpFindSubkeyInHashByChildCell.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0348 (CmpResolveHiveLoadConflict.c)
- *     CmpGetVirtualStoreRoot @ 0x1407F34A8 (CmpGetVirtualStoreRoot.c)
- *     CmpCreateLayerLink @ 0x1407F9C10 (CmpCreateLayerLink.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardReplacePost @ 0x1407FA220 (CmpPrepareDiscardReplacePost.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140804618 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C6C (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1406F81DC (CmpFindSubkeyInHashByChildCell.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
+ *     CmpGetVirtualStoreRoot @ 0x1407F3488 (CmpGetVirtualStoreRoot.c)
+ *     CmpCreateLayerLink @ 0x1407F9BF0 (CmpCreateLayerLink.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardReplacePost @ 0x1407FA200 (CmpPrepareDiscardReplacePost.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpRemoveFromDelayedDeref @ 0x140692AC0 (CmpRemoveFromDelayedDeref.c)
- *     CmpRemoveFromDelayedClose @ 0x140692D6C (CmpRemoveFromDelayedClose.c)
+ *     CmpRemoveFromDelayedDeref @ 0x140692AA0 (CmpRemoveFromDelayedDeref.c)
+ *     CmpRemoveFromDelayedClose @ 0x140692D4C (CmpRemoveFromDelayedClose.c)
  */
 
 char __fastcall CmpReferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)

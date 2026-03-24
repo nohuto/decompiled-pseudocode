@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionDelegateCapturePointers @ 0x1C01C41F0
+ * XREFs of EditionDelegateCapturePointers @ 0x1C01EF440
  * Callers:
  *     <none>
  * Callees:
- *     _DelegateCapturePointers @ 0x1C01C4B28 (_DelegateCapturePointers.c)
+ *     _DelegateCapturePointers @ 0x1C01EFCC4 (_DelegateCapturePointers.c)
  */
 
 __int64 EditionDelegateCapturePointers()

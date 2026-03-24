@@ -1,39 +1,38 @@
 /*
- * XREFs of RtlpGetRegistryHandle @ 0x14077FDA0
+ * XREFs of RtlpGetRegistryHandle @ 0x140642460
  * Callers:
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
- *     RtlCheckRegistryKey @ 0x1406DEF70 (RtlCheckRegistryKey.c)
- *     RtlDeleteRegistryValue @ 0x1406E8410 (RtlDeleteRegistryValue.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406F1A04 (RtlpGetTimeZoneInfoHandle.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140836228 (RtlpUpdateDynamicTimeZones.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14083673C (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlCreateRegistryKey @ 0x1408609D0 (RtlCreateRegistryKey.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x1406BBF70 (RtlCheckRegistryKey.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1406E0BD4 (RtlpGetTimeZoneInfoHandle.c)
+ *     RtlDeleteRegistryValue @ 0x140781820 (RtlDeleteRegistryValue.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1407AA15C (RtlpUpdateDynamicTimeZones.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA5E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlCreateRegistryKey @ 0x1407D0D00 (RtlCreateRegistryKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlFormatCurrentUserKeyPath @ 0x14066B5D0 (RtlFormatCurrentUserKeyPath.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140676CD0 (RtlFormatCurrentUserKeyPath.c)
  */
 
 __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
 {
-  __int64 result; // rax
-  __int64 v8; // rbx
-  struct _KPRCB *CurrentPrcb; // rsi
+  __int64 v7; // rbx
+  struct _KPRCB *CurrentPrcb; // r14
   _GENERAL_LOOKASIDE *P; // rdi
-  wchar_t *v11; // rcx
+  wchar_t *v10; // rcx
   NTSTATUS appended; // ebx
-  NTSTATUS v13; // eax
-  struct _KPRCB *v14; // r8
+  NTSTATUS v12; // eax
+  struct _KPRCB *v13; // r8
   wchar_t *Buffer; // rdx
-  _GENERAL_LOOKASIDE *v16; // rcx
+  _GENERAL_LOOKASIDE *v15; // rcx
   _GENERAL_LOOKASIDE *L; // rdi
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
@@ -43,21 +42,21 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
-  result = 0LL;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   Source = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
+    return 0LL;
   }
   else
   {
-    v8 = (unsigned int)a1;
-    LODWORD(v8) = a1 & 0x7FFFFFFF;
+    v7 = (unsigned int)a1;
+    LODWORD(v7) = a1 & 0x7FFFFFFF;
     if ( a1 >= 0 )
-      v8 = (unsigned int)a1;
-    if ( (unsigned int)v8 >= 6 )
+      v7 = (unsigned int)a1;
+    if ( (unsigned int)v7 >= 6 )
     {
       return 3221225485LL;
     }
@@ -66,38 +65,38 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
       CurrentPrcb = KeGetCurrentPrcb();
       P = CurrentPrcb->PPLookasideList[8].P;
       ++P->TotalAllocates;
-      v11 = (wchar_t *)RtlpInterlockedPopEntrySList(&P->ListHead);
-      if ( v11 )
+      v10 = (wchar_t *)RtlpInterlockedPopEntrySList(&P->ListHead);
+      if ( v10 )
         goto LABEL_6;
       ++P->AllocateMisses;
       L = CurrentPrcb->PPLookasideList[8].L;
       ++L->TotalAllocates;
-      v11 = (wchar_t *)RtlpInterlockedPopEntrySList(&L->ListHead);
-      if ( v11
+      v10 = (wchar_t *)RtlpInterlockedPopEntrySList(&L->ListHead);
+      if ( v10
         || (Size = L->Size,
             AllocateEx = L->AllocateEx,
             Tag = L->Tag,
             Type = (unsigned int)L->Type,
             ++L->AllocateMisses,
-            (v11 = (wchar_t *)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag)) != 0LL) )
+            (v10 = (wchar_t *)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag)) != 0LL) )
       {
 LABEL_6:
-        *(_DWORD *)v11 = CurrentPrcb->Number;
+        *(_DWORD *)v10 = CurrentPrcb->Number;
       }
-      Destination.Buffer = v11;
-      if ( v11 )
+      Destination.Buffer = v10;
+      if ( v10 )
       {
         *(_DWORD *)&Destination.Length = 34340864;
-        if ( !(_DWORD)v8 )
+        if ( !(_DWORD)v7 )
           goto LABEL_13;
-        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v7 == 5 && (int)RtlFormatCurrentUserKeyPath(&Source) >= 0 )
         {
           appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          RtlFreeUnicodeString(&Source);
+          RtlFreeAnsiString(&Source);
         }
         else
         {
-          appended = RtlAppendUnicodeToString(&Destination, (PCWSTR)RtlpRegistryPaths[v8]);
+          appended = RtlAppendUnicodeToString(&Destination, (PCWSTR)RtlpRegistryPaths[v7]);
         }
         if ( appended >= 0 )
         {
@@ -114,29 +113,29 @@ LABEL_13:
               ObjectAttributes.Attributes = 576;
               *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
               if ( a3 )
-                v13 = ZwCreateKey(a4, 0x40000000u, &ObjectAttributes, 0, 0LL, 0, 0LL);
+                v12 = ZwCreateKey(a4, 0x40000000u, &ObjectAttributes, 0, 0LL, 0, 0LL);
               else
-                v13 = ZwOpenKey(a4, 0x82000000, &ObjectAttributes);
-              appended = v13;
+                v12 = ZwOpenKey(a4, 0x82000000, &ObjectAttributes);
+              appended = v12;
             }
           }
         }
-        v14 = KeGetCurrentPrcb();
+        v13 = KeGetCurrentPrcb();
         Buffer = Destination.Buffer;
-        v16 = v14->PPLookasideList[8].P;
-        ++v16->TotalFrees;
-        if ( LOWORD(v16->ListHead.Alignment) < v16->Depth
-          || (++v16->FreeMisses,
-              v16 = v14->PPLookasideList[8].L,
-              ++v16->TotalFrees,
-              LOWORD(v16->ListHead.Alignment) < v16->Depth) )
+        v15 = v13->PPLookasideList[8].P;
+        ++v15->TotalFrees;
+        if ( LOWORD(v15->ListHead.Alignment) < v15->Depth
+          || (++v15->FreeMisses,
+              v15 = v13->PPLookasideList[8].L,
+              ++v15->TotalFrees,
+              LOWORD(v15->ListHead.Alignment) < v15->Depth) )
         {
-          RtlpInterlockedPushEntrySList(&v16->ListHead, (PSLIST_ENTRY)Buffer);
+          RtlpInterlockedPushEntrySList(&v15->ListHead, (PSLIST_ENTRY)Buffer);
         }
         else
         {
-          ++v16->FreeMisses;
-          ((void (__fastcall *)(wchar_t *))v16->FreeEx)(Buffer);
+          ++v15->FreeMisses;
+          ((void (__fastcall *)(wchar_t *))v15->FreeEx)(Buffer);
         }
         return (unsigned int)appended;
       }
@@ -146,5 +145,4 @@ LABEL_13:
       }
     }
   }
-  return result;
 }

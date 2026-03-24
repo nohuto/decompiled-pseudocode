@@ -1,104 +1,86 @@
 /*
- * XREFs of MiLockLeafPage @ 0x140218430
+ * XREFs of MiLockLeafPage @ 0x140332CE0
  * Callers:
- *     MiCombineWithExisting @ 0x1402179D4 (MiCombineWithExisting.c)
- *     MiSoftFaultMappedView @ 0x140217EB0 (MiSoftFaultMappedView.c)
- *     MiReservePageFileSpaceForPage @ 0x140284D50 (MiReservePageFileSpaceForPage.c)
- *     MiActOnPte @ 0x140293FB4 (MiActOnPte.c)
- *     MmCopyToCachedPage @ 0x1402CD7D0 (MmCopyToCachedPage.c)
- *     MiResolveProtoCombine @ 0x1402E3AF8 (MiResolveProtoCombine.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiDeletePerSessionProtos @ 0x14033E9C4 (MiDeletePerSessionProtos.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140347C78 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiInitializeNewImageSectionProtos @ 0x140356790 (MiInitializeNewImageSectionProtos.c)
- *     MiMakeImageReadOnly @ 0x14035C74C (MiMakeImageReadOnly.c)
- *     MiPurgeImageSection @ 0x140369DE8 (MiPurgeImageSection.c)
- *     MiReplacePageOfProtoPool @ 0x14061DA50 (MiReplacePageOfProtoPool.c)
- *     MiIsSubsectionClean @ 0x140624B04 (MiIsSubsectionClean.c)
- *     MiPurgeSubsection @ 0x140625744 (MiPurgeSubsection.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiEliminateStaleExtents @ 0x14063CBF8 (MiEliminateStaleExtents.c)
- *     MiEnableLargeSubsection @ 0x14063CE70 (MiEnableLargeSubsection.c)
- *     MiFillFileOnlyProtoAsBad @ 0x14063D000 (MiFillFileOnlyProtoAsBad.c)
- *     MiPurgeFileOnlyPfn @ 0x14063EF38 (MiPurgeFileOnlyPfn.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660478 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiActOnPte @ 0x14023BF60 (MiActOnPte.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023CFD0 (MiReservePageFileSpaceForPage.c)
+ *     MmCopyToCachedPage @ 0x1402B1B90 (MmCopyToCachedPage.c)
+ *     MiTranslatePageForCopy @ 0x14030C534 (MiTranslatePageForCopy.c)
+ *     MiDeletePerSessionProtos @ 0x1403285B0 (MiDeletePerSessionProtos.c)
+ *     MiReplacePageOfProtoPool @ 0x140331F6C (MiReplacePageOfProtoPool.c)
+ *     MiMakeImageReadOnly @ 0x140332500 (MiMakeImageReadOnly.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403326D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiGetWorkingSetInfoList @ 0x1403378AC (MiGetWorkingSetInfoList.c)
+ *     MiSectionCreated @ 0x140359E2C (MiSectionCreated.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiResolveProtoCombine @ 0x14036A484 (MiResolveProtoCombine.c)
+ *     MiPurgeImageSection @ 0x1403A4CC4 (MiPurgeImageSection.c)
+ *     MiIsSubsectionClean @ 0x140529B74 (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x14052A1F0 (MiPurgeSubsection.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiEliminateStaleExtents @ 0x140540808 (MiEliminateStaleExtents.c)
+ *     MiEnableLargeSubsection @ 0x1405408EC (MiEnableLargeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x140541CB4 (MiPurgeFileOnlyPfn.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiInvalidPteConforms @ 0x1402DC440 (MiInvalidPteConforms.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1406608C8 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiInvalidPteConforms @ 0x14023AEB0 (MiInvalidPteConforms.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
  */
 
-__int64 __fastcall MiLockLeafPage(unsigned __int64 *a1, __int64 a2)
+__int64 __fastcall MiLockLeafPage(__int64 *a1, int a2, __int64 a3, __int64 a4)
 {
-  char v2; // r14
-  unsigned __int64 v4; // r8
-  unsigned __int64 i; // r9
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // rax
+  unsigned __int64 v6; // r8
+  __int64 v7; // rbx
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdi
-  __int64 v11; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rsi
   int v12; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a2;
-  v4 = 0xFFFFDE0000000000uLL;
-  for ( i = 0x7FFFFFFFFFFFFFFFLL; ; _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), i) )
+  v6 = 0x7FFFFFFFFFFFFFFFLL;
+  while ( 1 )
   {
     while ( 1 )
     {
-      v6 = *a1;
       v7 = *a1;
-      if ( (*a1 & 1) != 0 )
-        goto LABEL_3;
-      if ( (*a1 & 0xC00) != 0x800 )
-        return 0LL;
-      if ( (unsigned int)MiInvalidPteConforms(*a1, a2, v4, i) )
+      v8 = *a1;
+      if ( (*a1 & 1) == 0 )
+        break;
+LABEL_8:
+      v9 = 6 * ((v8 >> 12) & 0xFFFFFFFFFLL);
+      if ( (*(_QWORD *)(48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0 )
       {
-        v7 = v6;
-        if ( qword_140C65C40 && (v6 & 0x10) == 0 )
-          v7 = v6 & ~qword_140C65C40;
-LABEL_3:
-        v8 = (v7 >> 12) & 0xFFFFFFFFFFLL;
-        if ( v8 <= qword_140C65CA0 )
+        v10 = 48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+        if ( a2 )
         {
-          a2 = 6 * v8;
-          if ( _bittest64((const signed __int64 *)(48 * v8 - 0x21FFFFFFFFD8LL), 0x36u) )
-            break;
+          MiLockNestedPageAtDpcInline(48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
         }
+        else
+        {
+          v12 = 0;
+          if ( !_interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
+            goto LABEL_11;
+          do
+          {
+            do
+              KeYieldProcessorEx(&v12, v9, v6, a4);
+            while ( *(__int64 *)(v10 + 24) < 0 );
+          }
+          while ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) );
+        }
+        v6 = 0x7FFFFFFFFFFFFFFFLL;
+LABEL_11:
+        if ( *a1 == v7 )
+          return v10;
+        _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), v6);
       }
     }
-    v9 = v4 + 48 * v8;
-    if ( (v2 & 1) != 0 )
+    if ( (*a1 & 0xC00) != 0x800 )
+      return 0LL;
+    if ( MiInvalidPteConforms(*a1) )
     {
-      MiLockNestedPageAtDpcInline(v4 + 48 * v8, 6 * v8, v4, i);
+      v8 = v7;
+      if ( qword_140C4DF40 && (v7 & 0x10) == 0 )
+        v8 = v7 & ~qword_140C4DF40;
+      goto LABEL_8;
     }
-    else
-    {
-      v12 = v2 & 1;
-      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
-        goto LABEL_7;
-      do
-      {
-        do
-          KeYieldProcessorEx(&v12);
-        while ( *(__int64 *)(v9 + 24) < 0 );
-      }
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) );
-    }
-    i = 0x7FFFFFFFFFFFFFFFLL;
-    v4 = 0xFFFFDE0000000000uLL;
-LABEL_7:
-    if ( *a1 == v6 )
-      break;
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) != 0 )
-  {
-    v11 = v2 & 1 | 2u;
-    if ( (v2 & 2) == 0 )
-      v11 = v2 & 1;
-    return MiLockSpecialPurposeMemoryCachedPage(v9, v11, v4, i);
-  }
-  return v9;
 }

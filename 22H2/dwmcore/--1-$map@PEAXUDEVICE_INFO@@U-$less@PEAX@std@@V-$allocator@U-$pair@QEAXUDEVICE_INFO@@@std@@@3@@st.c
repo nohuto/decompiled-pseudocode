@@ -1,16 +1,16 @@
 /*
- * XREFs of ??1?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x18010ED98
+ * XREFs of ??1?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800E6934
  * Callers:
- *     _dynamic_atexit_destructor_for__CPointerDeviceCache::s_deviceCache__ @ 0x1801242E0 (_dynamic_atexit_destructor_for__CPointerDeviceCache--s_deviceCache__.c)
+ *     _dynamic_atexit_destructor_for__CPointerDeviceCache::s_deviceCache__ @ 0x1800F9180 (_dynamic_atexit_destructor_for__CPointerDeviceCache--s_deviceCache__.c)
  * Callees:
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAXUDEVICE_INFO@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@1@@Z @ 0x1801A7044 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@std@@@-$_Tr.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAXUDEVICE_INFO@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@1@@Z @ 0x1800E6428 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@std@@@-$_Tr.c)
  */
 
-void __fastcall std::map<void *,DEVICE_INFO>::~map<void *,DEVICE_INFO>(void **a1)
+void std::map<void *,DEVICE_INFO>::~map<void *,DEVICE_INFO>()
 {
   std::_Tree_val<std::_Tree_simple_types<std::pair<void * const,DEVICE_INFO>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<void * const,DEVICE_INFO>,void *>>>(
-    a1,
-    a1,
-    *((_QWORD *)*a1 + 1));
-  std::_Deallocate<16,0>(*a1, 0x60uLL);
+    (__int64)&CPointerDeviceCache::s_deviceCache,
+    (__int64)&CPointerDeviceCache::s_deviceCache,
+    *(_QWORD *)(CPointerDeviceCache::s_deviceCache + 8));
+  std::_Deallocate<16,0>((void *)CPointerDeviceCache::s_deviceCache, 0x60uLL);
 }

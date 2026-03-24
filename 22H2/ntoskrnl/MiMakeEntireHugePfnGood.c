@@ -1,56 +1,44 @@
 /*
- * XREFs of MiMakeEntireHugePfnGood @ 0x140621584
+ * XREFs of MiMakeEntireHugePfnGood @ 0x1403F2FCC
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140620144 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140532C38 (MiHotRemoveHugeRange.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8C00 (RtlNumberOfSetBitsEx.c)
- *     MiHugePfnPartition @ 0x140620CC0 (MiHugePfnPartition.c)
- *     MiUnlinkHugeRange @ 0x140622B2C (MiUnlinkHugeRange.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     MiHugePfnPartition @ 0x1403F2F68 (MiHugePfnPartition.c)
+ *     MiUnlinkHugeRange @ 0x140533A9C (MiUnlinkHugeRange.c)
  */
 
-unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(__int64 a1)
+unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(int a1)
 {
-  unsigned __int64 v2; // rsi
-  _QWORD *v3; // r14
-  __int64 v4; // rbp
-  unsigned __int64 *v5; // rdi
-  unsigned __int64 v6; // rax
-  unsigned __int64 *result; // rax
-  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v1; // rdi
+  __int64 v2; // rax
+  unsigned __int64 v3; // r8
+  __int64 v4; // r9
+  unsigned __int64 *v5; // rsi
+  unsigned __int64 *v6; // rbx
+  unsigned __int64 v7; // rcx
 
-  v2 = a1 & 0x3FFFFF;
-  v8 = 0LL;
-  v3 = (_QWORD *)(qword_140C67EF0 + 8 * v2);
-  v4 = MiHugePfnPartition(v3);
-  MiSearchNumaNodeTable((unsigned __int64)(unsigned int)v2 << 18);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C67410);
-  v5 = (unsigned __int64 *)qword_140C67460;
-  while ( v5 )
+  v1 = (_QWORD *)(qword_140C4E670 + 8 * (*(_QWORD *)&a1 & 0x3FFFFLL));
+  v2 = MiHugePfnPartition(v1);
+  v5 = (unsigned __int64 *)(v2 + 4896);
+  v6 = *(unsigned __int64 **)(v2 + 4896);
+  while ( v6 )
   {
-    v6 = v5[3] & 0x3FFFFF;
-    if ( v2 <= v6 )
+    v7 = v4 & v6[3];
+    if ( v3 > v7 )
     {
-      if ( v2 >= v6 )
-        break;
-      v5 = (unsigned __int64 *)*v5;
+      v6 = (unsigned __int64 *)v6[1];
     }
     else
     {
-      v5 = (unsigned __int64 *)v5[1];
+      if ( v3 >= v7 )
+        break;
+      v6 = (unsigned __int64 *)*v6;
     }
   }
-  if ( (*(_BYTE *)v3 & 7) == 4 )
-    MiUnlinkHugeRange(v4, a1);
-  *((_QWORD *)&v8 + 1) = v5[4];
-  *(_QWORD *)&v8 = 0x40000LL;
-  qword_140C67468 -= RtlNumberOfSetBitsEx(&v8);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C67460, v5);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C67410);
-  result = v5;
-  *v3 &= ~8uLL;
-  return result;
+  if ( (*(_DWORD *)v1 & 0x1C0000) == 0x100000LL )
+    MiUnlinkHugeRange(v2);
+  RtlAvlRemoveNode(v5, v6);
+  *v1 &= ~0x10000000000uLL;
+  return v6;
 }

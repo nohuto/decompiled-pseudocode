@@ -1,49 +1,49 @@
 /*
- * XREFs of CmpQueryFileSecurityDescriptor @ 0x14068C0AC
+ * XREFs of CmpQueryFileSecurityDescriptor @ 0x1406EADF0
  * Callers:
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     CmpOpenHiveFiles @ 0x14068B784 (CmpOpenHiveFiles.c)
- *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     CmpLogHiveFileInaccessible @ 0x14068F4C0 (CmpLogHiveFileInaccessible.c)
- *     CmpStartRMLog @ 0x140873068 (CmpStartRMLog.c)
+ *     CmpInitHiveFromFile @ 0x1406E9D98 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1406EA6B8 (CmpOpenHiveFile.c)
+ *     CmpLogHiveFileInaccessible @ 0x1406F00E4 (CmpLogHiveFileInaccessible.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x14077D3E4 (CmpStartRMLog.c)
  * Callees:
- *     CmSiAllocateMemory @ 0x1402089E0 (CmSiAllocateMemory.c)
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ZwQuerySecurityObject @ 0x14041D360 (ZwQuerySecurityObject.c)
+ *     ZwQuerySecurityObject @ 0x1403FC5A0 (ZwQuerySecurityObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpQueryFileSecurityDescriptor(HANDLE Handle, struct _PRIVILEGE_SET **a2)
+__int64 __fastcall CmpQueryFileSecurityDescriptor(HANDLE Handle, _QWORD *a2)
 {
-  struct _PRIVILEGE_SET *Memory; // rdi
-  NTSTATUS v5; // ebx
+  PVOID PoolWithTag; // rdi
+  NTSTATUS SecurityObject; // ebx
   __int64 result; // rax
-  ULONG Length; // [rsp+48h] [rbp+10h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+48h] [rbp+10h] BYREF
 
-  Memory = 0LL;
-  Length = 0;
-  v5 = ZwQuerySecurityObject(Handle, 4u, 0LL, 0, &Length);
-  if ( v5 == -1073741789 )
+  PoolWithTag = 0LL;
+  LODWORD(NumberOfBytes) = 0;
+  SecurityObject = ZwQuerySecurityObject(Handle, 4u, 0LL, 0, (PULONG)&NumberOfBytes);
+  if ( SecurityObject == -1073741789 )
   {
-    Memory = (struct _PRIVILEGE_SET *)CmSiAllocateMemory(Length, 0x64734D43u);
-    if ( Memory )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64734D43u);
+    if ( PoolWithTag )
     {
-      v5 = ZwQuerySecurityObject(Handle, 4u, Memory, Length, &Length);
-      if ( v5 < 0 )
+      SecurityObject = ZwQuerySecurityObject(Handle, 4u, PoolWithTag, NumberOfBytes, (PULONG)&NumberOfBytes);
+      if ( SecurityObject < 0 )
       {
-        CmSiFreeMemory(Memory);
-        Memory = 0LL;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = 0LL;
       }
     }
     else
     {
-      v5 = -1073741670;
+      SecurityObject = -1073741670;
     }
   }
-  else if ( !v5 )
+  else if ( !SecurityObject )
   {
-    v5 = -1073741823;
+    SecurityObject = -1073741823;
   }
-  result = (unsigned int)v5;
-  *a2 = Memory;
+  result = (unsigned int)SecurityObject;
+  *a2 = PoolWithTag;
   return result;
 }

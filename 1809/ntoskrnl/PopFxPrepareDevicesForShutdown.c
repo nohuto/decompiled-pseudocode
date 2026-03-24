@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxPrepareDevicesForShutdown @ 0x1402D8C74
+ * XREFs of PopFxPrepareDevicesForShutdown @ 0x1402D8D74
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopFxActivateDevicesForSx @ 0x140142D20 (PopFxActivateDevicesForSx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopFxActivateDevicesForSx @ 0x140142D40 (PopFxActivateDevicesForSx.c)
  */
 
 _QWORD *PopFxPrepareDevicesForShutdown()

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfTriageAddDrivers @ 0x140B53724
+ * XREFs of VfTriageAddDrivers @ 0x140A93974
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140B0DBD4 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     TriageGetLoaderEntry @ 0x1406546AC (TriageGetLoaderEntry.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140A89E7C (VfDriverUnlock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140A9A588 (VfSuspectDriversAllocateEntry.c)
- *     VfSuspectDriversInsert @ 0x140A9A8C4 (VfSuspectDriversInsert.c)
- *     TriageGetDriverCount @ 0x140B55B68 (TriageGetDriverCount.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     TriageGetLoaderEntry @ 0x1405C9F7C (TriageGetLoaderEntry.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x1409C88EC (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9828 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x1409D9B64 (VfSuspectDriversInsert.c)
+ *     TriageGetDriverCount @ 0x140A95CF4 (TriageGetDriverCount.c)
  */
 
 __int64 __fastcall VfTriageAddDrivers(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall VfTriageAddDrivers(__int64 a1)
   unsigned int i; // edi
   __int64 LoaderEntry; // rax
   const void **v7; // rbx
-  _QWORD *Entry; // rbx
+  void **Entry; // rbx
   unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
 
   v9 = 0;
@@ -40,7 +40,7 @@ __int64 __fastcall VfTriageAddDrivers(__int64 a1)
     {
       v7 = (const void **)(LoaderEntry + 88);
       DbgPrintEx(0x5Du, 3u, "VfTriageAddDrivers: Marking %wZ for verification when it is loaded\n", LoaderEntry + 88);
-      Entry = (_QWORD *)VfSuspectDriversAllocateEntry(v7);
+      Entry = VfSuspectDriversAllocateEntry(v7);
       if ( Entry )
       {
         VfDriverLock();

@@ -5,13 +5,13 @@
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B804 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiUpdatePageAttributeStamp @ 0x140132BE0 (MiUpdatePageAttributeStamp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiUpdatePageAttributeStamp @ 0x140132C00 (MiUpdatePageAttributeStamp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, __int64 a2)

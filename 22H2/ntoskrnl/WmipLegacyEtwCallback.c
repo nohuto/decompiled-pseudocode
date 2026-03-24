@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipLegacyEtwCallback @ 0x1409E1970
+ * XREFs of WmipLegacyEtwCallback @ 0x140933620
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     WmipQueueLegacyEtwWork @ 0x140853C20 (WmipQueueLegacyEtwWork.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     WmipQueueLegacyEtwWork @ 0x1407C7768 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3, _QWORD *a4)
@@ -17,7 +17,7 @@ void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3
   __int64 *v9; // r14
   __int64 *v10; // rax
   int v11; // ecx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v13; // rsi
   __int64 v14; // r12
   __int64 *i; // rdi
@@ -48,15 +48,15 @@ void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3
         while ( v10 != v9 );
         if ( v7 )
         {
-          Pool2 = ExAllocatePool2(256LL, 8 * v7 + 40, 1885957463LL);
-          v13 = (_QWORD *)Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v7 + 40, 0x70696D57u);
+          v13 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            *(_DWORD *)(Pool2 + 16) = 2;
+            *((_DWORD *)PoolWithTag + 4) = 2;
             v14 = 0LL;
-            *(_QWORD *)(Pool2 + 24) = *a3;
-            *(_BYTE *)(Pool2 + 36) = a2;
-            *(_DWORD *)(Pool2 + 32) = v7;
+            PoolWithTag[3] = *a3;
+            *((_BYTE *)PoolWithTag + 36) = a2;
+            *((_DWORD *)PoolWithTag + 8) = v7;
             for ( i = (__int64 *)*v9; i != v9; i = (__int64 *)*i )
             {
               v16 = *((_DWORD *)i + 4);

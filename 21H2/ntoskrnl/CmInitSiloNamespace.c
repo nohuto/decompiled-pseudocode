@@ -1,29 +1,24 @@
 /*
- * XREFs of CmInitSiloNamespace @ 0x140690914
+ * XREFs of CmInitSiloNamespace @ 0x1405D2580
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140690378 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmpStartSiloRegistryNamespace @ 0x140690978 (CmpStartSiloRegistryNamespace.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140690C50 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140715BF8 (CmpGetOrCreateContextForSiloNoRef.c)
  */
 
-__int64 CmInitSiloNamespace()
+__int64 __fastcall CmInitSiloNamespace(__int64 a1)
 {
-  __int64 v0; // r8
-  int v1; // eax
-  __int64 v2; // rdx
-  unsigned int v3; // r8d
-  __int64 v5[3]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  __int64 result; // rax
+  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
 
-  *(_OWORD *)v5 = 0LL;
-  v6 = 0LL;
-  CmpInitializeThreadInfo((__int64)v5);
-  v1 = CmpGetOrCreateContextForSiloNoRef(v0, &v6);
-  if ( v1 >= 0 )
-    CmpStartSiloRegistryNamespace(v6, v2, (unsigned int)v1);
-  CmCleanupThreadInfo(v5);
-  return v3;
+  v2 = 0LL;
+  result = CmpGetOrCreateContextForSiloNoRef(a1, &v2);
+  if ( (int)result >= 0 )
+  {
+    result = CmpStartSiloRegistryNamespace(v2);
+    if ( (int)result >= 0 )
+      return 0LL;
+  }
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ConstrainWindowSize @ 0x1C002589C
+ * XREFs of ConstrainWindowSize @ 0x1C006A22C
  * Callers:
- *     ConstrainWindowSIZERECT @ 0x1C0025550 (ConstrainWindowSIZERECT.c)
- *     NtUserSetWindowPos @ 0x1C0025580 (NtUserSetWindowPos.c)
- *     xxxAdjustSize @ 0x1C00686A8 (xxxAdjustSize.c)
+ *     xxxAdjustSize @ 0x1C004B2E8 (xxxAdjustSize.c)
+ *     NtUserSetWindowPos @ 0x1C006A660 (NtUserSetWindowPos.c)
+ *     ConstrainWindowSIZERECT @ 0x1C01D0AB0 (ConstrainWindowSIZERECT.c)
  * Callees:
  *     <none>
  */

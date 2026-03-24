@@ -1,12 +1,10 @@
 /*
- * XREFs of ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C01A95F4
+ * XREFs of ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C0006D20
  * Callers:
- *     FreeHidProcessRequest @ 0x1C009F158 (FreeHidProcessRequest.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01A9A00 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     FreeHidProcessRequest @ 0x1C010790C (FreeHidProcessRequest.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D4B6C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  * Callees:
- *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00A00AC (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?SetHidPOCountToTLCInfo@@YAXGKH@Z @ 0x1C01A9B10 (-SetHidPOCountToTLCInfo@@YAXGKH@Z.c)
+ *     ?SetHidPOCountToTLCInfo@@YAXGKH@Z @ 0x1C0006DC0 (-SetHidPOCountToTLCInfo@@YAXGKH@Z.c)
  */
 
 void __fastcall DerefPageOnlyRequest(struct tagPROCESS_HID_REQUEST *a1, struct tagPROCESS_HID_TABLE *a2, int a3)
@@ -15,11 +13,6 @@ void __fastcall DerefPageOnlyRequest(struct tagPROCESS_HID_REQUEST *a1, struct t
   __int64 v7; // rdx
   _QWORD *v8; // rax
   int v9; // eax
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  _BYTE v12[16]; // [rsp+20h] [rbp-38h] BYREF
-  tagObjLock *v13; // [rsp+30h] [rbp-28h]
-  char v14; // [rsp+40h] [rbp-18h]
 
   SetHidPOCountToTLCInfo(*((_WORD *)a1 + 8), --*(_DWORD *)(*((_QWORD *)a1 + 3) + 20LL), a3);
   v6 = (_QWORD *)*((_QWORD *)a1 + 3);
@@ -38,15 +31,6 @@ void __fastcall DerefPageOnlyRequest(struct tagPROCESS_HID_REQUEST *a1, struct t
   {
     *((_DWORD *)a1 + 5) = v9 & 0xFFFFFFFE;
     --*((_DWORD *)a2 + 20);
-    DomainSharedRecursive<>::DomainExclusiveRecursive<>::ObjectLockRecursive<tagObjLock>::ObjectLockRecursive<tagObjLock>(
-      (__int64)v12,
-      gHidCountersLock);
-    v11 = SGDGetUserSessionState(v10);
-    --*(_DWORD *)(v11 + 16856);
-    if ( v14 )
-    {
-      if ( v13 )
-        tagObjLock::UnLockExclusive(v13);
-    }
+    --gHidCounters[2];
   }
 }

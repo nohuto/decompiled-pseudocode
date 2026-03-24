@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x1400F9938
+ * XREFs of KiCheckAndRearmForceIdle @ 0x1400F9958
  * Callers:
  *     KiCallInterruptServiceRoutine @ 0x1400162E0 (KiCallInterruptServiceRoutine.c)
- *     KiTimer2Expiration @ 0x1400FB3D0 (KiTimer2Expiration.c)
+ *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14029B4B4 (KiSetForceIdleState.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14029B5B4 (KiSetForceIdleState.c)
  */
 
 void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3)

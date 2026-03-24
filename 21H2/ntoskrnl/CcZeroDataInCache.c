@@ -1,17 +1,17 @@
 /*
- * XREFs of CcZeroDataInCache @ 0x14029C34C
+ * XREFs of CcZeroDataInCache @ 0x1402E86F8
  * Callers:
- *     CcZeroData @ 0x14029BD20 (CcZeroData.c)
+ *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     MmSetAddressRangeModifiedEx @ 0x14033D860 (MmSetAddressRangeModifiedEx.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14030F640 (MmSetAddressRangeModifiedEx.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
  */
 
 char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned __int8 a4)
@@ -50,15 +50,15 @@ char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned
     v11 = v14 - v15 + v7;
     MemoryDescriptorList = IoAllocateMdl(VirtualAddress[0], (int)v14 - (int)v15, 0, 0, 0LL);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(3221225626LL);
-    v8 = BYTE5(KeGetCurrentThread()[1].Queue);
+      RtlRaiseStatus(0xC000009A);
+    v8 = BYTE5(KeGetCurrentThread()[1].Queue) + 2;
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
-    MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);
-    BYTE5(KeGetCurrentThread()[1].Queue) = v8;
+    MiProbeAndLockPages((__int64)MemoryDescriptorList, 0, 0);
+    BYTE5(KeGetCurrentThread()[1].Queue) = v8 - 2;
     v15 = v14;
     MmSetAddressRangeModifiedEx(VirtualAddress[0], v10);
     CcSetDirtyPinnedData(BcbVoid, 0LL);
-    CcUnpinFileDataEx((char *)BcbVoid, 0, 0);
+    CcUnpinFileDataEx(BcbVoid);
     BcbVoid = 0LL;
     MmUnlockPages(MemoryDescriptorList);
     IoFreeMdl(MemoryDescriptorList);
@@ -69,6 +69,6 @@ char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned
   v17 = 0;
 LABEL_8:
   if ( BcbVoid )
-    CcUnpinFileDataEx((char *)BcbVoid, 0, 0);
+    CcUnpinFileDataEx(BcbVoid);
   return v17;
 }

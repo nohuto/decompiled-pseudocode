@@ -1,92 +1,90 @@
 /*
- * XREFs of ?OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z @ 0x1C0358AE0
+ * XREFs of ?OpenSurfaceResourcesLocalForSequentialOpener@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z @ 0x1C02ABA8C
  * Callers:
- *     DxgkOpenSwapChain @ 0x1C035C340 (DxgkOpenSwapChain.c)
+ *     DxgkOpenSwapChain @ 0x1C02AEA40 (DxgkOpenSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C03579B4 (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
- *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C0359050 (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02AAE0C (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
+ *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C02ABEEC (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::OpenSurfaceResourcesLocalForSequentialOpener(
         DXGSWAPCHAIN *this,
         struct _D3DKMT_OPENSWAPCHAIN *a2)
 {
-  int v4; // esi
-  UINT v5; // edi
-  __int64 v6; // r14
-  __int64 v7; // rcx
-  BOOL bProducer; // eax
-  unsigned int v9; // ebp
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r9
+  int v7; // eax
+  __int64 v8; // rax
+  int v9; // ebp
   __int64 v10; // rdi
-  _BYTE v12[16]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v11; // rcx
+  __int64 v12; // r14
+  __int64 v13; // rax
+  BOOL bProducer; // eax
+  unsigned int v15; // esi
+  __int64 v16; // rdi
+  _BYTE v18[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
-  if ( a2->SurfaceCount != *((_DWORD *)this + 15) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v18, this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v18);
+  v7 = *((_DWORD *)this + 13);
+  if ( a2->SurfaceCount != v7 )
   {
-    WdLogSingleEntry1(1LL, 2299LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pKmOpen->SurfaceCount == m_ActiveSurfaceCo",
-      2299LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v8 + 24) = 2233LL;
+    WdLogEvent5_WdAssertion(v8);
+    v7 = *((_DWORD *)this + 13);
   }
-  v4 = 0;
-  v5 = 0;
-  if ( *((_DWORD *)this + 15) )
+  v9 = 0;
+  v10 = 0LL;
+  if ( v7 )
   {
-    while ( v5 < a2->SurfaceCount )
+    do
     {
-      v6 = 112LL * v5;
-      if ( !*(_DWORD *)(*((_QWORD *)this + 8) + v6 + 8) )
+      if ( (unsigned int)v10 >= a2->SurfaceCount )
+        break;
+      v11 = *((_QWORD *)this + 7);
+      v12 = 112LL * (unsigned int)v10;
+      if ( !*(_DWORD *)(v12 + v11 + 8) )
       {
-        WdLogSingleEntry1(1LL, 2307LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"m_pSurfaceTable[Idx].SlotStatus != SLOT_AVAILABLE",
-          2307LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v13 = WdLogNewEntry5_WdAssertion(v11, v4);
+        *(_QWORD *)(v13 + 24) = 2241LL;
+        WdLogEvent5_WdAssertion(v13);
+        v11 = *((_QWORD *)this + 7);
       }
-      v4 = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener(
+      v9 = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener(
              this,
-             (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(v6 + *((_QWORD *)this + 8)),
+             (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(v12 + v11),
              a2->bProducer,
-             &a2->pNtSurfaceHandles[v5]);
-      if ( v4 < 0 )
-      {
-        bProducer = a2->bProducer;
-        v9 = 0;
-        if ( *((_DWORD *)this + 14) )
-        {
-          v10 = bProducer ? 0x30 : 0;
-          do
-            DXGSWAPCHAIN::DestroySurfacesResourcesLocal(
-              v7,
-              *(_DWORD *)((char *)this + v10 + 124),
-              *((_QWORD *)this + 8) + 112LL * v9++);
-          while ( v9 < *((_DWORD *)this + 14) );
-        }
-        break;
-      }
-      if ( ++v5 >= *((_DWORD *)this + 15) )
-        break;
+             &a2->pNtSurfaceHandles[v10]);
+      if ( v9 < 0 )
+        goto LABEL_10;
+      v10 = (unsigned int)(v10 + 1);
+    }
+    while ( (unsigned int)v10 < *((_DWORD *)this + 13) );
+    if ( v9 >= 0 )
+      goto LABEL_13;
+LABEL_10:
+    bProducer = a2->bProducer;
+    v15 = 0;
+    if ( *((_DWORD *)this + 12) )
+    {
+      v16 = bProducer ? 0x30 : 0;
+      do
+        DXGSWAPCHAIN::DestroySurfacesResourcesLocal(
+          v5,
+          *(unsigned int *)((char *)this + v16 + 116),
+          *((_QWORD *)this + 7) + 112LL * v15++,
+          v6);
+      while ( v15 < *((_DWORD *)this + 12) );
     }
   }
-  if ( v12[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12);
-  return (unsigned int)v4;
+LABEL_13:
+  if ( v18[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18, v4);
+  return (unsigned int)v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x140839F54
+ * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x140839F34
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408267D0 (IoRequestDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408267B0 (IoRequestDeviceRemovalForReset.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
@@ -65,7 +65,7 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
       v23 = 4;
       v26 = 4;
       v29 = 4;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D4BA, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&stru_1403FFBC8, &unk_14036D5CA, 0LL, 0LL, 9u, &pData);
     }
   }
 }

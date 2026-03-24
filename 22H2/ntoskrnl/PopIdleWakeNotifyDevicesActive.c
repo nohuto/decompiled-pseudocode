@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14059D92C
+ * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14057B5B8
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x14058B3EC (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x14056B9CC (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
   KIRQL v2; // al
   _QWORD *v3; // rbx
   unsigned __int64 v4; // rdi
-  int v5; // ecx
+  int v5; // edx
   LARGE_INTEGER v6; // rcx
   LONGLONG v7; // rax
   __int64 result; // rax
@@ -31,11 +31,11 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
   v4 = v2;
   if ( PopIdleWakeContext )
   {
-    v5 = *(_DWORD *)PopIdleWakeContext;
     if ( (*(_DWORD *)PopIdleWakeContext & 0x10) != 0 && (*(_DWORD *)PopIdleWakeContext & 1) != v1 )
     {
-      *(_DWORD *)PopIdleWakeContext = v5 ^ ((unsigned __int8)v1 ^ (unsigned __int8)v5) & 1;
-      if ( (((unsigned __int8)v5 ^ ((unsigned __int8)v1 ^ (unsigned __int8)v5) & 1) & 2) == 0 )
+      v5 = *(_DWORD *)PopIdleWakeContext ^ ((unsigned __int8)*(_DWORD *)PopIdleWakeContext ^ (unsigned __int8)v1) & 1;
+      *(_DWORD *)PopIdleWakeContext = v5;
+      if ( (v5 & 2) == 0 )
       {
         RtlGetInterruptTimePrecise(&v12);
         v6 = v12;
@@ -48,22 +48,23 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
       }
     }
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
+  KxReleaseSpinLock(&PopIdleWakeContextLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v4 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v11 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

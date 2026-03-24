@@ -1,21 +1,22 @@
 /*
- * XREFs of KiDetectKvaLeakage @ 0x140A57460
+ * XREFs of KiDetectKvaLeakage @ 0x14099D588
  * Callers:
- *     KiSetFeatureBits @ 0x140A56CDC (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
  * Callees:
- *     HvlGetImplementedPhysicalBits @ 0x1403BFE1C (HvlGetImplementedPhysicalBits.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x140418C1C (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsFbClearSupported @ 0x140418FE4 (KiIsFbClearSupported.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HvlGetImplementedPhysicalBits @ 0x1403ADCC8 (HvlGetImplementedPhysicalBits.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F31C4 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1403F322C (KiIsKvaShadowNeededForTsa.c)
+ *     KiIsFbClearSupported @ 0x1403F3738 (KiIsFbClearSupported.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiDetectKvaLeakage(__int64 a1)
 {
   __int64 v3; // rcx
-  char v12; // dl
+  char v8; // r8
   char v13; // dl
-  bool v14; // zf
+  char v14; // dl
   __int64 v15; // rdx
   int v16; // ecx
   ULONG_PTR v26; // rdx
@@ -24,16 +25,22 @@ char __fastcall KiDetectKvaLeakage(__int64 a1)
   v28[0] = 0;
   LODWORD(_RAX) = KiIsKvaShadowNeededForBranchConfusion(a1);
   if ( (_DWORD)_RAX )
-    goto LABEL_18;
+    goto LABEL_20;
+  LODWORD(_RAX) = KiIsKvaShadowNeededForTsa(a1);
+  if ( (_DWORD)_RAX )
+    goto LABEL_20;
   LOBYTE(_RAX) = *(_BYTE *)(a1 + 141);
   if ( (_BYTE)_RAX == 2 )
   {
-    _RAX = *(unsigned __int8 *)(a1 + 67);
-    if ( *(_BYTE *)(a1 + 64) == 6 && (unsigned __int8)_RAX <= 0x36u )
+    if ( *(_BYTE *)(a1 + 64) == 6 )
     {
-      v3 = 0x6000C010000000LL;
-      if ( _bittest64(&v3, _RAX) )
-        return _RAX;
+      _RAX = *(unsigned __int8 *)(a1 + 67);
+      if ( (unsigned __int8)_RAX <= 0x36u )
+      {
+        v3 = 0x6000C010000000LL;
+        if ( _bittest64(&v3, _RAX) )
+          return _RAX;
+      }
     }
   }
   else if ( (_BYTE)_RAX != 3 || *(_BYTE *)(a1 + 64) == 6 && *(_BYTE *)(a1 + 67) == 13 )
@@ -42,32 +49,34 @@ char __fastcall KiDetectKvaLeakage(__int64 a1)
   }
   _RAX = 0LL;
   __asm { cpuid }
+  v8 = 0;
   if ( (unsigned int)_RAX < 7 )
-    goto LABEL_17;
+    goto LABEL_19;
   _RAX = 7LL;
   __asm { cpuid }
-  if ( (_RDX & 0x20000000) == 0 )
-    goto LABEL_17;
-  _RAX = __readmsr(0x10Au);
-  if ( (_RAX & 1) == 0 )
-    goto LABEL_17;
+  if ( (_RDX & 0x20000000) != 0 )
+  {
+    _RAX = __readmsr(0x10Au);
+    v8 = _RAX;
+  }
+  if ( (v8 & 1) == 0 )
+    goto LABEL_19;
   KiMicrocodeTrackerEnabled = 1;
   LOBYTE(_RAX) = 0;
-  v12 = (KeFeatureBits2 & 0x28) == 8;
+  v13 = (KeFeatureBits2 & 0x28) == 8;
   if ( (KeFeatureBits2 & 0x380000) != 0x380000 )
   {
     LOBYTE(_RAX) = KiIsFbClearSupported();
-    v12 = _RAX | v13;
+    v13 = _RAX | v14;
   }
-  if ( v12 )
+  if ( v13 )
   {
-LABEL_17:
+LABEL_19:
     if ( *(_DWORD *)(a1 + 36) && !KiKvaLeakage )
       KeBugCheckEx(0x5Du, 0x4B56414CuLL, 0LL, 0LL, 0LL);
-LABEL_18:
-    v14 = *(_BYTE *)(a1 + 141) == 2;
+LABEL_20:
     KiKvaLeakage = 1;
-    if ( !v14 || (KeFeatureBits2 & 0x10) != 0 )
+    if ( *(_BYTE *)(a1 + 141) != 2 || (KeFeatureBits2 & 0x10) != 0 )
     {
       if ( !*(_DWORD *)(a1 + 36) )
         KiImplementedPhysicalBits = -1;
@@ -90,7 +99,7 @@ LABEL_18:
           ++v15;
           _RAX = 20 * v15;
           if ( *((_DWORD *)&KiCpuTable[1] + 5 * v15) == 19 )
-            goto LABEL_32;
+            goto LABEL_34;
         }
         LOBYTE(_RAX) = 5 * v15;
         v16 = *((_DWORD *)&KiCpuTable[1] + 5 * v15 + 1);
@@ -110,7 +119,7 @@ LABEL_18:
           v16 = (unsigned __int8)_RAX;
         }
       }
-LABEL_32:
+LABEL_34:
       v26 = *(unsigned int *)(a1 + 36);
       if ( (_DWORD)v26 )
       {

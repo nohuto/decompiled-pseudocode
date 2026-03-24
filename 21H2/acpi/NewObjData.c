@@ -1,22 +1,21 @@
 /*
- * XREFs of NewObjData @ 0x1C0015D5C
+ * XREFs of NewObjData @ 0x1C000A9E8
  * Callers:
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     Return @ 0x1C00174B0 (Return.c)
- *     AMLICreateNativeNamespaceObject @ 0x1C00655C8 (AMLICreateNativeNamespaceObject.c)
- *     AMLICreateOverrideObjectDefault @ 0x1C0065E94 (AMLICreateOverrideObjectDefault.c)
- *     AMLICreateOverrideObjectDep @ 0x1C0065F88 (AMLICreateOverrideObjectDep.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     Return @ 0x1C000A590 (Return.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C0064348 (AMLICreateNativeNamespaceObject.c)
+ *     AMLICreateOverrideObjectDefault @ 0x1C0064C10 (AMLICreateOverrideObjectDefault.c)
+ *     AMLICreateOverrideObjectDep @ 0x1C0064D04 (AMLICreateOverrideObjectDep.c)
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
-_SLIST_ENTRY *__fastcall NewObjData(struct _SLIST_ENTRY *a1, __int64 a2)
+__int64 __fastcall NewObjData(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   unsigned int v2; // r8d
   __int64 v3; // rbx
@@ -99,7 +98,7 @@ LABEL_33:
     AcpiDiagTraceAmlError(0LL, 3222536195LL);
     ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a2 + 2));
     PrintDebugMessage(112, ObjectTypeName, 0, 0, 0LL);
-    return (_SLIST_ENTRY *)v3;
+    return v3;
   }
   if ( v2 == 8 )
   {

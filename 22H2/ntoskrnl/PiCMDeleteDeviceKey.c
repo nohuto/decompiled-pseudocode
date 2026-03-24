@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMDeleteDeviceKey @ 0x140969340
+ * XREFs of PiCMDeleteDeviceKey @ 0x1408AFFB8
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14079A618 (PiCMReturnBasicResultData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A694 (PiCMCaptureObjectInputData.c)
- *     PiAuDoesClientHaveAccess @ 0x14079AD98 (PiAuDoesClientHaveAccess.c)
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
- *     PiCMConvertDeviceKeyType @ 0x1407BEFD0 (PiCMConvertDeviceKeyType.c)
- *     _RegRtlEnumKey @ 0x14086B97C (_RegRtlEnumKey.c)
- *     _CmDeleteDeviceRegKey @ 0x140A61E2C (_CmDeleteDeviceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
+ *     PiCMReturnBasicResultData @ 0x140684A20 (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x140684D94 (PiAuDoesClientHaveAccess.c)
+ *     PiCMConvertDeviceKeyType @ 0x1406A8A64 (PiCMConvertDeviceKeyType.c)
+ *     PiCMReleaseObjectInputData @ 0x1406B1920 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x1406B1954 (PiCMCaptureObjectInputData.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x14072DE2C (_CmDeleteDeviceRegKey.c)
+ *     _RegRtlEnumKey @ 0x14076619C (_RegRtlEnumKey.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceKey(
@@ -26,56 +26,52 @@ __int64 __fastcall PiCMDeleteDeviceKey(
         int a5,
         _DWORD *a6)
 {
-  _DWORD *v6; // rdi
+  int v8; // ebx
   int v9; // ebx
-  int v10; // ebx
-  __int16 v11; // r11
-  __int64 v12; // rcx
-  ULONG v13; // edi
-  ULONG v14; // r15d
-  int inited; // esi
-  int v17; // [rsp+30h] [rbp-59h] BYREF
-  ULONG Value[3]; // [rsp+34h] [rbp-55h] BYREF
-  _DWORD *v19; // [rsp+40h] [rbp-49h]
-  HANDLE Handle; // [rsp+48h] [rbp-41h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-39h] BYREF
-  __int128 v22; // [rsp+60h] [rbp-29h]
-  __int64 v23; // [rsp+70h] [rbp-19h]
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-11h] BYREF
-  WCHAR SourceString[8]; // [rsp+88h] [rbp-1h] BYREF
+  __int16 v10; // r11
+  __int64 v11; // rcx
+  ULONG v12; // esi
+  int inited; // edi
+  int v15; // [rsp+30h] [rbp-59h] BYREF
+  ULONG Value; // [rsp+34h] [rbp-55h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-51h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-49h] BYREF
+  __int128 v19; // [rsp+48h] [rbp-41h] BYREF
+  __int128 v20; // [rsp+58h] [rbp-31h]
+  __int64 v21; // [rsp+68h] [rbp-21h]
+  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
+  unsigned int SourceString[4]; // [rsp+80h] [rbp-9h] BYREF
 
-  v6 = a6;
+  v17 = 0LL;
   Handle = 0LL;
-  memset(Value, 0, sizeof(Value));
+  Value = 0;
   *a6 = 0;
-  v17 = 0;
-  v19 = a6;
+  v19 = 0LL;
   v21 = 0LL;
-  v23 = 0LL;
-  v22 = 0LL;
+  v20 = 0LL;
+  v15 = 0;
   DestinationString = 0LL;
-  v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v21);
-  if ( v9 >= 0 )
+  v8 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v19);
+  if ( v8 >= 0 )
   {
     if ( PiAuDoesClientHaveAccess(2u) )
     {
-      if ( (_QWORD)v22 && DWORD2(v21) == 1 && a3 && a4 >= 8 )
+      if ( (_QWORD)v20 && DWORD2(v19) == 1 && a3 && a4 >= 8 )
       {
-        v10 = PiCMConvertDeviceKeyType(SWORD2(v21), &v17);
-        if ( v10 >= 0 )
+        v9 = PiCMConvertDeviceKeyType(SWORD2(v19), &v15);
+        if ( v9 >= 0 )
         {
-          if ( (v11 & 0xFF00) == 0x200 && HIDWORD(v22) == -1 )
+          if ( (v10 & 0xFF00) == 0x200 && HIDWORD(v20) == -1 )
           {
-            if ( (int)PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&Value[1]) >= 0 )
+            if ( (int)PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v17) >= 0 )
             {
+              v11 = 0LL;
               if ( *(_QWORD *)&PiPnpRtlCtx )
-                v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-              else
-                v12 = 0LL;
-              v13 = 0;
+                v11 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+              v12 = 0;
               if ( (int)SysCtxRegOpenKey(
-                          v12,
-                          *(__int64 *)&Value[1],
+                          v11,
+                          v17,
                           (__int64)L"Control\\IDConfigDB\\Hardware Profiles",
                           0,
                           8u,
@@ -83,54 +79,49 @@ __int64 __fastcall PiCMDeleteDeviceKey(
               {
                 do
                 {
-                  v14 = v13;
-                  if ( v10 < 0 )
+                  if ( v9 < 0 )
                     break;
-                  while ( 1 )
+                  LODWORD(v17) = 5;
+                  inited = RegRtlEnumKey(Handle, v12, SourceString, (unsigned int *)&v17);
+                  if ( inited >= 0 )
                   {
-                    Value[1] = 5;
-                    inited = RegRtlEnumKey(Handle, v13, (char *)SourceString, &Value[1]);
-                    if ( inited < 0 )
-                      break;
-                    inited = RtlInitUnicodeStringEx(&DestinationString, SourceString);
-                    if ( inited < 0 )
-                      break;
-                    inited = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
-                    if ( inited < 0 )
-                      break;
-                    v10 = CmDeleteDeviceRegKey(PiPnpRtlCtx);
-                    if ( v10 != -1073741772 )
-                      break;
-                    v13 = v14 + 1;
-                    v10 = 0;
-                    ++v14;
+                    inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)SourceString);
+                    if ( inited >= 0 )
+                    {
+                      inited = RtlUnicodeStringToInteger(&DestinationString, 0, &Value);
+                      if ( inited >= 0 )
+                      {
+                        v9 = CmDeleteDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, v20, v15, Value);
+                        if ( v9 == -1073741772 )
+                          v9 = 0;
+                      }
+                    }
                   }
-                  ++v13;
+                  ++v12;
                 }
                 while ( inited >= 0 );
               }
-              v6 = v19;
             }
           }
           else
           {
-            v10 = CmDeleteDeviceRegKey(PiPnpRtlCtx);
+            v9 = CmDeleteDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, v20, v15, SHIDWORD(v20));
           }
         }
       }
       else
       {
-        v10 = -1073741811;
+        v9 = -1073741811;
       }
     }
     else
     {
-      v10 = -1073741790;
+      v9 = -1073741790;
     }
     if ( Handle )
       ZwClose(Handle);
-    v9 = PiCMReturnBasicResultData(v10, v23, a3, a4, v6);
+    v8 = PiCMReturnBasicResultData(v9, v21, a3, a4, a6);
   }
-  PiCMReleaseObjectInputData((__int64)&v21);
-  return (unsigned int)v9;
+  PiCMReleaseObjectInputData((__int64)&v19);
+  return (unsigned int)v8;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qqqD @ 0x1C0057850
+ * XREFs of WPP_IFR_SF_qqqD @ 0x1C00349A8
  * Callers:
- *     ?StageTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C0056570 (-StageTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
- *     ?_SystemDmaCompletion@FxDmaSystemTransaction@@KAXPEAU_DMA_ADAPTER@@PEAU_DEVICE_OBJECT@@PEAXW4DMA_COMPLETION_STATUS@@@Z @ 0x1C0058C80 (-_SystemDmaCompletion@FxDmaSystemTransaction@@KAXPEAU_DMA_ADAPTER@@PEAU_DEVICE_OBJECT@@PEAXW4DMA.c)
+ *     ?StageTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C00336F0 (-StageTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
+ *     ?_SystemDmaCompletion@FxDmaSystemTransaction@@KAXPEAU_DMA_ADAPTER@@PEAU_DEVICE_OBJECT@@PEAXW4DMA_COMPLETION_STATUS@@@Z @ 0x1C0036010 (-_SystemDmaCompletion@FxDmaSystemTransaction@@KAXPEAU_DMA_ADAPTER@@PEAU_DEVICE_OBJECT@@PEAXW4DMA.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqqD(

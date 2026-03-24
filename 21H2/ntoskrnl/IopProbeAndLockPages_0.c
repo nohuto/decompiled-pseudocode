@@ -1,24 +1,23 @@
 /*
- * XREFs of IopProbeAndLockPages_0 @ 0x14029C568
+ * XREFs of IopProbeAndLockPages_0 @ 0x1402C1DC4
  * Callers:
- *     IopBuildAsynchronousFsdRequest @ 0x14029BAD0 (IopBuildAsynchronousFsdRequest.c)
- *     IopBuildDeviceIoControlRequest @ 0x1403428E0 (IopBuildDeviceIoControlRequest.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D24 (IopAllocateAndPopulateWriteIrp.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x140584F10 (MmUpdateMdlTracker.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x140531270 (MmUpdateMdlTracker.c)
  */
 
-__int64 __fastcall IopProbeAndLockPages_0(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
+__int64 __fastcall IopProbeAndLockPages_0(__int64 a1, char a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   bool v7; // zf
-  __int64 v8; // r8
+  char v8; // dl
   __int64 result; // rax
 
-  v7 = a3 == 0;
-  v8 = 1LL;
+  v7 = a2 == 0;
+  v8 = 1;
   if ( v7 )
-    v8 = a3;
-  MiProbeAndLockPages(a1, 0LL, v8);
+    v8 = a2;
+  MiProbeAndLockPages(a1, v8, 0);
   result = (unsigned int)MmTrackLockedPages;
   if ( (MmTrackLockedPages & 1) != 0 )
     return MmUpdateMdlTracker(a1, *(_QWORD *)(*(_QWORD *)(a4 + 8) + 8LL * a5 + 112), a4);

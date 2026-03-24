@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSignalAndWaitForSingleObject @ 0x14041EF80
+ * XREFs of ZwSignalAndWaitForSingleObject @ 0x1403FDAA0
  * Callers:
  *     <none>
  * Callees:

@@ -1,27 +1,26 @@
 /*
- * XREFs of PerfInfoLogSysCallExit @ 0x1405FECE0
+ * XREFs of PerfInfoLogSysCallExit @ 0x1405AA2E0
  * Callers:
- *     KiSystemCall64 @ 0x140433500 (KiSystemCall64.c)
- *     KiTrackSystemCallExit @ 0x140975D60 (KiTrackSystemCallExit.c)
+ *     KiSystemCall64 @ 0x140411000 (KiSystemCall64.c)
+ *     KiTrackSystemCallExit @ 0x1408BD260 (KiTrackSystemCallExit.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140214970 (EtwTraceSiloKernelEvent.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A0AC (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 __int64 __fastcall PerfInfoLogSysCallExit(__int64 a1)
 {
-  __int64 CurrentServerSilo; // rax
+  __int64 ThreadServerSilo; // r10
   int v4; // [rsp+30h] [rbp-28h] BYREF
-  int *v5; // [rsp+38h] [rbp-20h] BYREF
-  int v6; // [rsp+40h] [rbp-18h]
-  int v7; // [rsp+44h] [rbp-14h]
+  _QWORD v5[2]; // [rsp+38h] [rbp-20h] BYREF
 
-  v7 = 0;
-  v5 = &v4;
+  v5[1] = 4LL;
   v4 = a1;
-  v6 = 4;
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  EtwTraceSiloKernelEvent(CurrentServerSilo, (int)&v5, 1, 0x40000040u, 3892, 5249026);
+  v5[0] = &v4;
+  if ( !KeIsExecutingInArbitraryThreadContext() )
+    ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
+  EtwTraceSiloKernelEvent(ThreadServerSilo, (int)v5, 1, 0x40000040u, 3892, 5249026);
   return a1;
 }

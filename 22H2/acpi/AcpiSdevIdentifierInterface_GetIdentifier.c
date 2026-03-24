@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiSdevIdentifierInterface_GetIdentifier @ 0x1C007A580
+ * XREFs of AcpiSdevIdentifierInterface_GetIdentifier @ 0x1C0090450
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall AcpiSdevIdentifierInterface_GetIdentifier(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 960);
+  return *(_QWORD *)(a1 + 920);
 }

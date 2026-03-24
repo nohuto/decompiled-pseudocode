@@ -1,44 +1,31 @@
 /*
- * XREFs of ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C009E720
+ * XREFs of ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C0078140
  * Callers:
- *     CleanupPowerRequestList @ 0x1C009E380 (CleanupPowerRequestList.c)
- *     xxxUserPowerCalloutWorker @ 0x1C009E490 (xxxUserPowerCalloutWorker.c)
+ *     CleanupPowerRequestList @ 0x1C00779E0 (CleanupPowerRequestList.c)
+ *     xxxUserPowerCalloutWorker @ 0x1C0077FA0 (xxxUserPowerCalloutWorker.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00DFA54 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C01261B0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
-struct tagPOWERREQUEST *__fastcall UnqueuePowerRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+struct tagPOWERREQUEST *UnqueuePowerRequest(void)
 {
-  _QWORD *v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 *v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  __int64 v16; // rax
+  __int64 v0; // rbx
+  __int64 v1; // r8
+  _QWORD *v2; // rax
 
-  v4 = 0LL;
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  ExEnterCriticalRegionAndAcquireFastMutexUnsafe(*(_QWORD *)(v5 + 696));
-  v10 = SGDGetUserSessionState(v7, v6, v8, v9);
-  if ( *(_QWORD *)(v10 + 680) != v10 + 680 )
+  v0 = 0LL;
+  ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gpPowerRequestMutex);
+  if ( gPowerRequestList.Flink != &gPowerRequestList )
   {
-    v15 = SGDGetUserSessionState(v12, v11, v13, v14) + 680;
-    v4 = *(_QWORD **)(v15 + 8);
-    if ( *v4 != v15 || (v12 = (__int64 *)v4[1], (_QWORD *)*v12 != v4) )
+    v0 = qword_1C0253768;
+    v2 = *(_QWORD **)(qword_1C0253768 + 8);
+    if ( *(struct _LIST_ENTRY **)qword_1C0253768 != &gPowerRequestList || *v2 != qword_1C0253768 )
       __fastfail(3u);
-    *(_QWORD *)(v15 + 8) = v12;
-    *v12 = v15;
+    qword_1C0253768 = *(_QWORD *)(qword_1C0253768 + 8);
+    *v2 = &gPowerRequestList;
     if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
-      McTemplateK0pq_EtwWriteTransfer(v12, &RemovePowerRequestFromQueue, v13, v4, -1);
+      McTemplateK0pq_EtwWriteTransfer(&gPowerRequestList, &RemovePowerRequestFromQueue, v1, v0, -1);
   }
-  v16 = SGDGetUserSessionState(v12, v11, v13, v14);
-  ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(*(_QWORD *)(v16 + 696));
-  return (struct tagPOWERREQUEST *)v4;
+  ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpPowerRequestMutex);
+  return (struct tagPOWERREQUEST *)v0;
 }

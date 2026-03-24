@@ -1,68 +1,64 @@
 /*
- * XREFs of ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C0098960
+ * XREFs of ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C00FFD2C
  * Callers:
- *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C010F6B4 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
- *     ??0MAPPER@@QEAA@PEAVXDCOBJ@@PEAKPEAU_POINTL@@1PEBUtagENUMLOGFONTEXDVW@@PEBGKHK@Z @ 0x1C0110610 (--0MAPPER@@QEAA@PEAVXDCOBJ@@PEAKPEAU_POINTL@@1PEBUtagENUMLOGFONTEXDVW@@PEBGKHK@Z.c)
+ *     ??0MAPPER@@QEAA@PEAVXDCOBJ@@PEAKPEAU_POINTL@@1PEBUtagENUMLOGFONTEXDVW@@PEBGKHK@Z @ 0x1C005D5D0 (--0MAPPER@@QEAA@PEAVXDCOBJ@@PEAKPEAU_POINTL@@1PEBUtagENUMLOGFONTEXDVW@@PEBGKHK@Z.c)
+ *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C005F890 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
  * Callees:
- *     ?FindFaceName@@YAPEAGK@Z @ 0x1C0098AD0 (-FindFaceName@@YAPEAGK@Z.c)
- *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C0098B28 (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
- *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C0098B5C (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
- *     ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C0098BF0 (-bCalcOrientation@MAPPER@@QEAAHXZ.c)
+ *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C0063124 (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
+ *     ?FindFaceName@@YAPEAGK@Z @ 0x1C00FFE90 (-FindFaceName@@YAPEAGK@Z.c)
+ *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C00FFECC (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
+ *     ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C00FFFB0 (-bCalcOrientation@MAPPER@@QEAAHXZ.c)
  */
 
 __int64 __fastcall MAPPER::bGetFaceName(MAPPER *this)
 {
-  __int64 v2; // rax
-  unsigned __int8 v3; // r8
-  int v4; // r10d
-  __int64 v5; // rax
-  int v6; // edx
-  char v7; // di
-  char v8; // r11
+  unsigned __int8 v1; // r10
+  int v3; // edx
+  int v4; // eax
+  char v5; // r9
+  char v6; // r8
+  int v7; // ecx
+  unsigned int v8; // edi
   int v9; // eax
-  unsigned int v10; // edi
-  int v11; // eax
   const unsigned __int16 *FaceName; // rsi
-  unsigned __int16 *v13; // rax
+  unsigned __int16 *v11; // rax
 
-  v2 = SGDGetSessionState(this);
-  v3 = *((_BYTE *)this + 284);
-  if ( v3 == 1 )
-    v3 = *(_BYTE *)(*(_QWORD *)(v2 + 32) + 19528LL);
-  v4 = *((_DWORD *)this + 63);
-  v5 = *((_QWORD *)this + 1);
-  *((_DWORD *)this + 63) = v4 | 0x20000;
-  v6 = v3 | 0x8000;
-  v7 = *(_BYTE *)(v5 + 27) & 3;
-  if ( v7 != 1 )
-    v6 = v3;
-  v8 = *(_BYTE *)(v5 + 27) & 0x70;
-  if ( v8 == 16 )
+  v1 = *((_BYTE *)this + 284);
+  v3 = *((_DWORD *)this + 63);
+  if ( v1 == 1 )
+    v1 = MAPPER::DefaultCharset;
+  *((_DWORD *)this + 63) = v3 | 0x20000;
+  v4 = v1 | 0x8000;
+  v5 = *(_BYTE *)(*((_QWORD *)this + 1) + 27LL) & 3;
+  if ( v5 != 1 )
+    v4 = v1;
+  v6 = *(_BYTE *)(*((_QWORD *)this + 1) + 27LL) & 0x70;
+  if ( v6 == 16 )
   {
-    v9 = v6 | 0x4000;
+    v7 = v4 | 0x4000;
   }
   else
   {
-    v9 = v6;
-    if ( !v7 && v8 == 48 )
-      v9 = v6 | 0x8000;
+    v7 = v4;
+    if ( !v5 && v6 == 48 )
+      v7 = v4 | 0x8000;
   }
-  v10 = v9 | 0x2000;
-  if ( (v4 & 0x2000000) == 0 )
-    v10 = v9;
-  if ( v3 || (v4 & 0x100) == 0 || (v4 & 4) == 0 && !(unsigned int)MAPPER::bCalculateWishCell(this) )
+  v8 = v7 | 0x2000;
+  if ( (v3 & 0x2000000) == 0 )
+    v8 = v7;
+  if ( v1 || (v3 & 0x100) == 0 || (v3 & 4) == 0 && !(unsigned int)MAPPER::bCalculateWishCell(this) )
     goto LABEL_21;
   if ( (*((_DWORD *)this + 63) & 0x80000) == 0 && !(unsigned int)MAPPER::bCalcOrientation(this) )
     goto LABEL_21;
-  v11 = *((_DWORD *)this + 44);
-  if ( v11 )
+  v9 = *((_DWORD *)this + 44);
+  if ( v9 )
   {
-    if ( v11 != 900 && v11 != 1800 && v11 != 2700 )
+    if ( v9 != 900 && v9 != 1800 && v9 != 2700 )
       goto LABEL_21;
   }
-  FaceName = FindFaceName(v10 | 0x1000);
+  FaceName = FindFaceName(v8 | 0x1000);
   if ( MAPPER::bFindBitmapFont(this, FaceName)
-    || (FaceName = FindFaceName(v10 | 0x800), MAPPER::bFindBitmapFont(this, FaceName)) )
+    || (FaceName = FindFaceName(v8 | 0x800), MAPPER::bFindBitmapFont(this, FaceName)) )
   {
     *((_QWORD *)this + 2) = FaceName;
     return 1LL;
@@ -70,9 +66,9 @@ __int64 __fastcall MAPPER::bGetFaceName(MAPPER *this)
   if ( (*((_DWORD *)this + 63) & 0x100000) == 0 )
   {
 LABEL_21:
-    v13 = FindFaceName(v10);
-    if ( *v13 || (*((_DWORD *)this + 63) & 0x40000000) == 0 )
-      *((_QWORD *)this + 2) = v13;
+    v11 = FindFaceName(v8);
+    if ( *v11 || (*((_DWORD *)this + 63) & 0x40000000) == 0 )
+      *((_QWORD *)this + 2) = v11;
     return 1LL;
   }
   return 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUmpoSendFlushSleepStudyLoggerNotification @ 0x14015976C
+ * XREFs of PopUmpoSendFlushSleepStudyLoggerNotification @ 0x14015978C
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopDiagTraceFlushSleepStudyLoggerEnd @ 0x14056DE34 (PopDiagTraceFlushSleepStudyLoggerEnd.c)
  *     PopDiagTraceFlushSleepStudyLogger @ 0x14056DE50 (PopDiagTraceFlushSleepStudyLogger.c)
  */

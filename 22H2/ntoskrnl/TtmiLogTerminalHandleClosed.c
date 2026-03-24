@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalHandleClosed @ 0x1409AA574
+ * XREFs of TtmiLogTerminalHandleClosed @ 0x140904AF8
  * Callers:
- *     TtmpCloseTerminalHandle @ 0x1409AB810 (TtmpCloseTerminalHandle.c)
+ *     TtmpCloseTerminalHandle @ 0x1408FDE40 (TtmpCloseTerminalHandle.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalHandleClosed(int a1)
@@ -27,9 +27,9 @@ void __fastcall TtmiLogTerminalHandleClosed(int a1)
   __int64 *v16; // [rsp+A0h] [rbp+37h]
   __int64 v17; // [rsp+A8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       v8 = v2;
       v10 = &v5;
@@ -43,7 +43,7 @@ void __fastcall TtmiLogTerminalHandleClosed(int a1)
       v7 = v3;
       v15 = 8LL;
       v17 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53948, (unsigned __int8 *)byte_140033CC5, 0LL, 0LL, 6u, &v9);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)word_14002B6A2, 0LL, 0LL, 6u, &v9);
     }
   }
 }

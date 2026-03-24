@@ -9,8 +9,8 @@
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
  *     MiGetSystemPage @ 0x1400935E4 (MiGetSystemPage.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPageForHeader(ULONG_PTR *a1, int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?VisualSetOffset@CChannel@@UEAAJINNN@Z @ 0x180070C60
+ * XREFs of ?VisualSetOffset@CChannel@@UEAAJINNN@Z @ 0x18005D610
  * Callers:
  *     <none>
  * Callees:
- *     ?VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z @ 0x180070D3C (-VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005DB10 (-VerifyHandleTableEntry@CHandleTable@@QEAAJIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CChannel::VisualSetOffset(CChannel *this, unsigned int a2, double a3, double a4, double a5)
@@ -22,9 +22,9 @@ __int64 __fastcall CChannel::VisualSetOffset(CChannel *this, unsigned int a2, do
   v13 = (char *)this + 168;
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle(this, a2, 195LL);
-  if ( (int)CHandleTable::VerifyHandleTableEntry((char *)this + 16) < 0 )
+  if ( (int)CHandleTable::VerifyHandleTableEntry((char *)this + 16, a2, 0LL) < 0 )
     ModuleFailFastForHRESULT(2147942406LL, retaddr);
-  v11[0] = 418;
+  v11[0] = 421;
   v7 = a3;
   v11[1] = a2;
   *(float *)&v11[2] = v7;

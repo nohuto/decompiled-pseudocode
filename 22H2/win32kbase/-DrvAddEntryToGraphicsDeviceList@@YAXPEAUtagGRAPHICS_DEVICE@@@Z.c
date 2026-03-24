@@ -1,21 +1,21 @@
 /*
- * XREFs of ?DrvAddEntryToGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0160AD4
+ * XREFs of ?DrvAddEntryToGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0143C20
  * Callers:
- *     DrvAddMirrorDriversToRemoteList @ 0x1C00CAEC4 (DrvAddMirrorDriversToRemoteList.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C3560 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall DrvAddEntryToGraphicsDeviceList(struct tagGRAPHICS_DEVICE *a1)
+void __fastcall DrvAddEntryToGraphicsDeviceList(wchar_t *a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
+  __int64 v2; // rax
 
-  WdLogSingleEntry1(4LL, a1);
-  v3 = *(_QWORD *)(SGDGetSessionState(v2) + 24);
-  if ( *(_QWORD *)(v3 + 1264) )
-    *(_QWORD *)(*(_QWORD *)(v3 + 1272) + 128LL) = a1;
+  v2 = WdLogNewEntry5_WdEvent(a1);
+  *(_QWORD *)(v2 + 24) = a1;
+  WdLogEvent5_WdEvent(v2);
+  if ( gpGraphicsDeviceList )
+    *((_QWORD *)gpGraphicsDeviceListLast + 16) = a1;
   else
-    *(_QWORD *)(v3 + 1264) = a1;
-  *(_QWORD *)(v3 + 1272) = a1;
+    gpGraphicsDeviceList = a1;
+  gpGraphicsDeviceListLast = (struct tagGRAPHICS_DEVICE *)a1;
 }

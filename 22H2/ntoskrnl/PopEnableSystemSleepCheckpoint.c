@@ -1,85 +1,89 @@
 /*
- * XREFs of PopEnableSystemSleepCheckpoint @ 0x140996E9C
+ * XREFs of PopEnableSystemSleepCheckpoint @ 0x140775418
  * Callers:
- *     PopIssueActionRequest @ 0x140989D54 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140776468 (PopIssueActionRequest.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     PopTraceSleepCheckpointInitFailure @ 0x140992B98 (PopTraceSleepCheckpointInitFailure.c)
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140996FE0 (PopIsDetailedSleepReliabilityDiagEnabled.c)
- *     NtQueryEnvironmentVariableInfoEx @ 0x1409FF610 (NtQueryEnvironmentVariableInfoEx.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA6B4 (PopCheckpointSystemSleepUnsafe.c)
+ *     KeQueryInterruptTimePrecise @ 0x140318820 (KeQueryInterruptTimePrecise.c)
+ *     Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage @ 0x1403F7A28 (Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage.c)
+ *     PopTraceSleepCheckpointInitFailure @ 0x1408EC708 (PopTraceSleepCheckpointInitFailure.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954990 (NtQueryEnvironmentVariableInfoEx.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B2824 (PopCheckpointSystemSleepUnsafe.c)
  */
 
 __int64 PopEnableSystemSleepCheckpoint()
 {
-  char v0; // si
+  char v0; // di
   __int32 v1; // eax
-  int v2; // edi
+  int v2; // ebx
   __int32 v3; // eax
-  __int64 InterruptTimePrecise; // rbp
+  __int64 v4; // rsi
   unsigned __int64 v5; // rax
-  unsigned __int64 v7; // [rsp+50h] [rbp+8h] BYREF
-  LARGE_INTEGER v8; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+68h] [rbp+20h] BYREF
+  unsigned __int64 v7; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
-  v0 = 0;
   v10 = 0LL;
   v7 = 0LL;
   v8.QuadPart = 0LL;
+  PopSleepReliabilityDetailedDiagEnabled = (unsigned int)Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage() != 0;
   PopCheckpointSystemSleepEnabled = 0;
+  v0 = 0;
   _InterlockedExchange(&PopSleepCheckpointStatus, 0);
   if ( PopCheckpointSystemSleepEnabledReg )
     goto LABEL_2;
-  if ( (unsigned __int8)PopIsDetailedSleepReliabilityDiagEnabled() )
+  if ( PopSleepReliabilityDetailedDiagEnabled )
   {
     v0 = 1;
 LABEL_2:
     v1 = 4;
     goto LABEL_8;
   }
-  if ( !byte_140C3DAD4 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
+  if ( !byte_140C233F4 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
     return (unsigned int)-1073741271;
   v1 = 1;
 LABEL_8:
   _InterlockedExchange(&PopSleepCheckpointStatus, v1);
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
   {
     v2 = -1073741822;
     v3 = 8;
-LABEL_15:
+LABEL_10:
     _InterlockedExchange(&PopSleepCheckpointStatus, v3);
-    PopTraceSleepCheckpointInitFailure();
+LABEL_21:
+    PopTraceSleepCheckpointInitFailure((unsigned int)v2);
     return (unsigned int)v2;
   }
   v2 = NtQueryEnvironmentVariableInfoEx(1LL, &v10, &v7, &v9);
   if ( v2 < 0 )
-    goto LABEL_14;
+    goto LABEL_12;
   if ( v7 <= 0x400 )
   {
     v2 = -1073740716;
     v3 = 9;
-    goto LABEL_15;
+    goto LABEL_10;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
+  v4 = KeQueryInterruptTimePrecise(&v8);
   v2 = PopCheckpointSystemSleepUnsafe(0LL);
   if ( v2 < 0 )
   {
-LABEL_14:
-    v3 = 15;
-    goto LABEL_15;
-  }
-  v5 = RtlGetInterruptTimePrecise(&v8) - InterruptTimePrecise;
-  if ( v0 && v5 > 0x186A0 )
-  {
-    v2 = 258;
-    _InterlockedExchange(&PopSleepCheckpointStatus, 10);
+LABEL_12:
+    _InterlockedExchange(&PopSleepCheckpointStatus, 15);
   }
   else
   {
+    v5 = KeQueryInterruptTimePrecise(&v8) - v4;
+    if ( v0 && v5 > 0x186A0 )
+    {
+      v2 = 258;
+      _InterlockedExchange(&PopSleepCheckpointStatus, 10);
+      return (unsigned int)v2;
+    }
     PopCheckpointSystemSleepEnabled = 1;
-    return 0;
+    v2 = 0;
   }
+  if ( v2 < 0 )
+    goto LABEL_21;
   return (unsigned int)v2;
 }

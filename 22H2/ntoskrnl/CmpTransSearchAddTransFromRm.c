@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTransSearchAddTransFromRm @ 0x140698CB4
+ * XREFs of CmpTransSearchAddTransFromRm @ 0x1407663D4
  * Callers:
- *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
- *     CmpTransSearchAddTransFromHive @ 0x140768CB8 (CmpTransSearchAddTransFromHive.c)
- *     CmpRecoverEnlistment @ 0x1408017A8 (CmpRecoverEnlistment.c)
- *     CmpRmAnalysisPhase @ 0x140A1ED04 (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x140A1EF34 (CmpRmReDoPhase.c)
+ *     CmpTransSearchAddTransFromHive @ 0x14066DD60 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransInitializeTransaction @ 0x1407666DC (CmpTransInitializeTransaction.c)
+ *     CmpRecoverEnlistment @ 0x140874EDC (CmpRecoverEnlistment.c)
+ *     CmpRmAnalysisPhase @ 0x140875630 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140875870 (CmpRmReDoPhase.c)
  * Callees:
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTransFromRm(_QWORD *a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -19,7 +19,7 @@ __int64 __fastcall CmpTransSearchAddTransFromRm(_QWORD *a1, __int64 a2, __int64 
     return 3222863877LL;
   if ( !a2 && !a3 )
     return 3222863874LL;
-  LODWORD(v6) = qword_140C028D0;
+  LODWORD(v6) = qword_140C01170;
   if ( a1 != CmRmSystem )
     v6 = a1[10];
   result = CmpTransSearchAddTrans(a2, a3, (_DWORD)a1, v6, a4, a5);

@@ -1,45 +1,47 @@
 /*
- * XREFs of WheapGetPreallocatedPacketBuffer @ 0x140644878
+ * XREFs of WheapGetPreallocatedPacketBuffer @ 0x1405BC3D0
  * Callers:
- *     WheapInitErrorReportDeviceDriver @ 0x140644930 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1405BC480 (WheapInitErrorReportDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406447D0 (WheapErrDescIsDeviceDriver.c)
+ *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
  */
 
-volatile signed __int32 *__fastcall WheapGetPreallocatedPacketBuffer(unsigned int a1)
+volatile signed __int32 *__fastcall WheapGetPreallocatedPacketBuffer(int a1)
 {
   __int64 *ErrorSource; // rax
-  __int64 v2; // r9
-  _QWORD *v3; // r11
-  __int64 v4; // rdi
-  unsigned int v5; // r10d
-  volatile signed __int32 *v6; // r8
-  __int64 v7; // rbx
-  volatile signed __int32 v8; // ett
+  _QWORD *v2; // r11
+  unsigned __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdi
+  unsigned int v6; // r10d
+  volatile signed __int32 *v7; // r8
+  __int64 v8; // rbx
+  volatile signed __int32 v9; // ett
 
   ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, a1);
-  if ( !WheapErrDescIsDeviceDriver((unsigned __int64)(ErrorSource + 12) & -(__int64)(ErrorSource != 0LL)) )
+  v3 = (unsigned __int64)(ErrorSource + 12);
+  v4 = -(__int64)ErrorSource;
+  if ( (v3 & -(__int64)(v4 != 0)) == 0 )
     return 0LL;
-  v4 = *(unsigned int *)(v2 + 64);
-  v5 = 0;
-  v6 = *(volatile signed __int32 **)(v2 + 72);
-  v7 = *(_QWORD *)(v2 + 144);
-  if ( !*(_DWORD *)(v2 + 68) )
+  v5 = *(unsigned int *)((v3 & -(__int64)(v4 != 0)) + 0x40);
+  v6 = 0;
+  v7 = *(volatile signed __int32 **)((v3 & -(__int64)(v4 != 0)) + 0x48);
+  v8 = *(_QWORD *)((v3 & -(__int64)(v4 != 0)) + 0x90);
+  if ( !*(_DWORD *)((v3 & -(__int64)(v4 != 0)) + 0x44) )
     return 0LL;
   while ( 1 )
   {
-    if ( (*v6 & 0xF0000000) != 0x80000000 )
+    if ( (*v7 & 0xF0000000) != 0x80000000 )
     {
-      v8 = *v6;
-      if ( v8 == _InterlockedCompareExchange(v6, *v6 | 0x80000000, *v6) )
+      v9 = *v7;
+      if ( v9 == _InterlockedCompareExchange(v7, *v7 | 0x80000000, *v7) )
         break;
     }
-    v6 = (volatile signed __int32 *)((char *)v6 + v4);
-    if ( ++v5 >= *(_DWORD *)(v2 + 68) )
+    v7 = (volatile signed __int32 *)((char *)v7 + v5);
+    if ( ++v6 >= *(_DWORD *)((v3 & -(__int64)(v4 != 0)) + 0x44) )
       return 0LL;
   }
-  if ( v3 )
-    *v3 = v7 + 104LL * v5;
-  return v6;
+  if ( v2 )
+    *v2 = v8 + 104LL * v6;
+  return v7;
 }

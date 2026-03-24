@@ -1,179 +1,172 @@
 /*
- * XREFs of ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180204820
+ * XREFs of ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18000E26C
  * Callers:
- *     ?GetBoundsWithEffects@CVisual@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x1800D0360 (-GetBoundsWithEffects@CVisual@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
- *     ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180204820 (-GetBounds@CFilterEffect@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18000E26C (-GetBounds@CFilterEffect@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?GetBoundsWithEffects@CVisual@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18009FAF0 (-GetBoundsWithEffects@CVisual@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180204820 (-GetBounds@CFilterEffect@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?GetBounds@CFilterEffect@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18000E26C (-GetBounds@CFilterEffect@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFilterEffect::GetBounds(__int64 a1, __int128 *a2, __int64 a3)
 {
   int v3; // eax
   unsigned int v6; // r8d
-  __int64 v8; // rcx
-  unsigned int v9; // ebx
-  int v10; // r9d
+  unsigned int v8; // ecx
+  int v9; // eax
+  __int128 v10; // xmm0
   int v11; // eax
-  __int128 v12; // xmm0
-  int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // r15
+  unsigned __int64 v12; // rcx
+  int v13; // ebx
+  int v15; // r9d
   __int64 v16; // r14
-  __int64 v17; // rbx
-  int v18; // edi
-  char v19; // al
-  __int64 v20; // rcx
+  __int64 v17; // rsi
+  __int64 v18; // rbx
+  int v19; // r12d
+  char v20; // al
+  __int64 v21; // rcx
   int Bounds; // eax
-  __m128i v22; // xmm1
-  unsigned __int64 v23; // xmm0_8
-  unsigned int v24; // r9d
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rdx
-  int v28; // eax
-  __int64 v29; // rcx
-  int v30; // edi
-  unsigned int v32; // [rsp+20h] [rbp-60h]
-  __int128 v33; // [rsp+30h] [rbp-50h] BYREF
-  int v34; // [rsp+40h] [rbp-40h]
-  unsigned int v35; // [rsp+44h] [rbp-3Ch]
-  unsigned int v36; // [rsp+48h] [rbp-38h]
-  __int128 v37; // [rsp+50h] [rbp-30h] BYREF
-  _BYTE v38[20]; // [rsp+60h] [rbp-20h] BYREF
+  __m128i v23; // xmm1
+  unsigned __int64 v24; // xmm0_8
+  unsigned int v25; // r9d
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  int v29; // eax
+  unsigned int v30; // [rsp+20h] [rbp-60h]
+  __int128 v31; // [rsp+30h] [rbp-50h] BYREF
+  int v32; // [rsp+40h] [rbp-40h]
+  unsigned int v33; // [rsp+44h] [rbp-3Ch]
+  unsigned int v34; // [rsp+48h] [rbp-38h]
+  __int128 v35; // [rsp+50h] [rbp-30h] BYREF
+  _BYTE v36[20]; // [rsp+60h] [rbp-20h] BYREF
 
   v3 = *(_DWORD *)(a1 + 32);
-  v34 = 0;
-  v35 = 0;
+  v32 = 0;
+  v33 = 0;
   v6 = 0;
-  v36 = 0;
-  v8 = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6u;
+  v34 = 0;
+  v8 = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6;
   *(_DWORD *)(a1 + 32) = v8;
   LOBYTE(v8) = (v3 ^ (v3 ^ (v3 + 2)) & 6) & 6;
-  v33 = 0LL;
-  if ( (_BYTE)v8 == 2 )
+  v31 = 0LL;
+  if ( (_BYTE)v8 != 2 )
   {
-    v11 = *(_DWORD *)(a1 + 136);
-    if ( v11 )
+    v13 = -2147467259;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147467259, 0xD4u, 0LL);
+    goto LABEL_7;
+  }
+  v9 = *(_DWORD *)(a1 + 128);
+  if ( v9 )
+  {
+    v13 = 0;
+    v16 = *(int *)(a1 + 128);
+    if ( v9 <= 0 )
     {
-      v9 = 0;
-      v15 = *(int *)(a1 + 136);
-      if ( v11 > 0 )
-      {
-        v16 = 0LL;
-        while ( 1 )
-        {
-          v17 = *(_QWORD *)(*(_QWORD *)(a1 + 128) + 8 * v16);
-          v18 = *(_DWORD *)(*(_QWORD *)(a1 + 120) + 4 * v16);
-          v37 = *(_OWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-          v8 = *(_QWORD *)(v17 + 24);
-          if ( v8 )
-          {
-            v19 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v8 + 56LL))(v8, 59LL);
-            v20 = *(_QWORD *)(v17 + 24);
-            if ( v19 )
-            {
-              Bounds = CFilterEffect::GetBounds(v20, a2, &v37);
-              v9 = Bounds;
-              if ( Bounds < 0 )
-              {
-                v10 = Bounds;
-                v32 = 238;
-                goto LABEL_3;
-              }
-            }
-            else
-            {
-              if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v20 + 56LL))(v20, 40LL) )
-              {
-                v9 = -2147467263;
-                v32 = 256;
-                goto LABEL_7;
-              }
-              v22 = *(__m128i *)(v17 + 4);
-              *(_QWORD *)&v37 = 0LL;
-              v23 = _mm_srli_si128(v22, 8).m128i_u64[0];
-              v8 = HIDWORD(v22.m128i_i64[0]);
-              *((float *)&v37 + 3) = (float)(HIDWORD(v23) - v22.m128i_i32[1]);
-              *((float *)&v37 + 2) = (float)((int)v23 - v22.m128i_i32[0]);
-            }
-            v6 = v36;
-          }
-          else
-          {
-            v37 = *a2;
-          }
-          v24 = v6 + 1;
-          *(_DWORD *)v38 = v18;
-          *(_OWORD *)&v38[4] = v37;
-          if ( v6 + 1 < v6 )
-            break;
-          if ( v24 > v35 )
-          {
-            v28 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)&v33, 0x14u, 1, v38);
-            v30 = v28;
-            v9 = v28;
-            if ( v28 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0LL, v28, 0xC0u);
-              goto LABEL_29;
-            }
-            v6 = v36;
-          }
-          else
-          {
-            v25 = v33;
-            v9 = 0;
-            v26 = v6++;
-            v27 = 5 * v26;
-            *(_OWORD *)(v33 + 4 * v27) = *(_OWORD *)v38;
-            *(_DWORD *)(v25 + 4 * v27 + 16) = *(_DWORD *)&v38[16];
-            v36 = v24;
-          }
-          if ( ++v16 >= v15 )
-            goto LABEL_24;
-        }
-        v9 = -2147024362;
-        v30 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2147024362, 0xB5u);
-LABEL_29:
-        v10 = v30;
-        v32 = 265;
-        goto LABEL_3;
-      }
+LABEL_6:
+      (*(void (__fastcall **)(__int64, __int128 *, __int64))(*(_QWORD *)a1 + 232LL))(a1, &v31, a3);
+      goto LABEL_7;
     }
-    else
+    v17 = 0LL;
+    while ( 1 )
     {
-      v12 = *a2;
-      *(_DWORD *)v38 = 0;
-      *(_OWORD *)&v38[4] = v12;
-      v13 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)&v33, 0x14u, 1, v38);
-      v9 = v13;
+      v18 = *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8 * v17);
+      v19 = *(_DWORD *)(*(_QWORD *)(a1 + 112) + 4 * v17);
+      v35 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+      v12 = *(_QWORD *)(v18 + 24);
+      if ( v12 )
+      {
+        v20 = (*(__int64 (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)v12 + 56LL))(v12, 59LL);
+        v21 = *(_QWORD *)(v18 + 24);
+        if ( v20 )
+        {
+          Bounds = CFilterEffect::GetBounds(v21, a2, &v35);
+          v13 = Bounds;
+          if ( Bounds < 0 )
+          {
+            v15 = Bounds;
+            v30 = 238;
+            goto LABEL_11;
+          }
+        }
+        else
+        {
+          if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v21 + 56LL))(v21, 40LL) )
+          {
+            v13 = -2147467263;
+            v30 = 256;
+            goto LABEL_10;
+          }
+          v23 = *(__m128i *)(v18 + 4);
+          *(_QWORD *)&v35 = 0LL;
+          v24 = _mm_srli_si128(v23, 8).m128i_u64[0];
+          v12 = HIDWORD(v23.m128i_i64[0]);
+          *((float *)&v35 + 3) = (float)(HIDWORD(v24) - v23.m128i_i32[1]);
+          *((float *)&v35 + 2) = (float)((int)v24 - v23.m128i_i32[0]);
+        }
+        v6 = v34;
+      }
+      else
+      {
+        v35 = *a2;
+      }
+      v25 = v6 + 1;
+      *(_DWORD *)v36 = v19;
+      *(_OWORD *)&v36[4] = v35;
+      if ( v6 + 1 >= v6 )
+      {
+        if ( v25 <= v33 )
+        {
+          v26 = v31;
+          v13 = 0;
+          v27 = v6++;
+          v28 = 5 * v27;
+          *(_OWORD *)(v31 + 4 * v28) = *(_OWORD *)v36;
+          *(_DWORD *)(v26 + 4 * v28 + 16) = *(_DWORD *)&v36[16];
+          v34 = v25;
+          goto LABEL_30;
+        }
+        v29 = DynArrayImpl<0>::AddMultipleAndSet(&v31, 20LL, 1LL, v36);
+        v13 = v29;
+        if ( v29 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v29, 0xC0u, 0LL);
+      }
+      else
+      {
+        v13 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      }
       if ( v13 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0xC0u);
-        v32 = 218;
-LABEL_7:
-        v10 = v9;
-        goto LABEL_3;
+        v30 = 265;
+        goto LABEL_10;
       }
+      v6 = v34;
+LABEL_30:
+      if ( ++v17 >= v16 )
+        goto LABEL_6;
     }
-LABEL_24:
-    (*(void (__fastcall **)(__int64, __int128 *, __int64))(*(_QWORD *)a1 + 216LL))(a1, &v33, a3);
-    goto LABEL_25;
   }
-  v9 = -2147467259;
-  v10 = -2147467259;
-  v32 = 212;
-LABEL_3:
-  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v10, v32);
-LABEL_25:
+  v10 = *a2;
+  *(_DWORD *)v36 = 0;
+  *(_OWORD *)&v36[4] = v10;
+  v11 = DynArrayImpl<0>::AddMultipleAndSet(&v31, 20LL, 1LL, v36);
+  v13 = v11;
+  if ( v11 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xC0u, 0LL);
+  if ( v13 >= 0 )
+    goto LABEL_6;
+  v30 = 218;
+LABEL_10:
+  v15 = v13;
+LABEL_11:
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v15, v30, 0LL);
+LABEL_7:
   *(_DWORD *)(a1 + 32) ^= (*(_DWORD *)(a1 + 32) ^ (2 * (*(_DWORD *)(a1 + 32) >> 1) - 2)) & 6;
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v33);
-  return v9;
+  DynArrayImpl<0>::~DynArrayImpl<0>(&v31);
+  return (unsigned int)v13;
 }

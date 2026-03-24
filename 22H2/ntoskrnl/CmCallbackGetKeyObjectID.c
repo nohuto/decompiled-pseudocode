@@ -1,20 +1,18 @@
 /*
- * XREFs of CmCallbackGetKeyObjectID @ 0x1408ABBD0
+ * XREFs of CmCallbackGetKeyObjectID @ 0x140869AC0
  * Callers:
- *     EtwpRegTraceCallback @ 0x1408AB050 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x14093B370 (EtwpRegTraceCallback.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D56E8 (CmpLockKcbStackShared.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructAndCacheName @ 0x1407E1FC0 (CmpConstructAndCacheName.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpLockKcbStackShared @ 0x140648B00 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpConstructAndCacheName @ 0x14069E394 (CmpConstructAndCacheName.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
  */
 
 NTSTATUS __stdcall CmCallbackGetKeyObjectID(
@@ -23,63 +21,51 @@ NTSTATUS __stdcall CmCallbackGetKeyObjectID(
         PULONG_PTR ObjectID,
         PCUNICODE_STRING *ObjectName)
 {
-  __int64 *v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rdi
+  unsigned __int64 v5; // rdi
   NTSTATUS started; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // r8
-  const UNICODE_STRING *v20; // [rsp+20h] [rbp-39h] BYREF
-  __int128 v21; // [rsp+28h] [rbp-31h] BYREF
-  PPRIVILEGE_SET Privileges[2]; // [rsp+38h] [rbp-21h]
-  __int128 v23; // [rsp+48h] [rbp-11h] BYREF
-  _OWORD v24[3]; // [rsp+58h] [rbp-1h] BYREF
+  __int64 v7; // r8
+  struct _LOOKASIDE_LIST_EX *v8; // r9
+  const UNICODE_STRING *v10; // [rsp+20h] [rbp-60h] BYREF
+  __int128 v11; // [rsp+28h] [rbp-58h] BYREF
+  PPRIVILEGE_SET Privileges[2]; // [rsp+38h] [rbp-48h]
+  _OWORD v13[3]; // [rsp+48h] [rbp-38h] BYREF
 
-  v20 = 0LL;
-  v23 = 0LL;
-  memset(v24, 0, sizeof(v24));
-  CmpInitializeThreadInfo((__int64)&v23);
-  v21 = 0LL;
-  WORD1(v21) = -1;
+  v10 = 0LL;
+  v11 = 0LL;
+  WORD1(v11) = -1;
+  memset(v13, 0, sizeof(v13));
   *(_OWORD *)Privileges = 0LL;
-  if ( !Object || *(_DWORD *)Object != 1803104306 || !v7 )
+  if ( !Object || *(_DWORD *)Object != 1803104306 || !Cookie )
     goto LABEL_16;
-  v8 = *((_QWORD *)Object + 1);
-  if ( v6 )
-    *v6 = v8;
+  v5 = *((_QWORD *)Object + 1);
+  if ( ObjectID )
+    *ObjectID = v5;
   if ( !ObjectName )
   {
     started = 0;
     goto LABEL_17;
   }
-  if ( (v8 & 1) == 0 )
+  if ( (v5 & 1) == 0 )
   {
-    CmpAttachToRegistryProcess(v24);
-    CmpLockRegistry(v11, v10, v12, v13);
-    started = CmpStartKcbStackForTopLayerKcb((__int64)&v21, v8);
+    CmpAttachToRegistryProcess((__int64)v13, (__int64)Object, (__int64)ObjectID, ObjectName);
+    CmpLockRegistry();
+    started = CmpStartKcbStackForTopLayerKcb((__int64)&v11, v5, v7, v8);
     if ( started >= 0 )
     {
-      CmpLockKcbStackShared((__int64)&v21);
-      if ( *(_QWORD *)(v8 + 80) && (int)CmpConstructAndCacheName(v8, &v20, v18) >= 0 )
+      CmpLockKcbStackShared((__int64)&v11);
+      if ( *(_QWORD *)(v5 + 80) && (int)CmpConstructAndCacheName(v5, &v10) >= 0 )
       {
         started = 0;
-        *ObjectName = v20;
+        *ObjectName = v10;
       }
       else
       {
         started = -1073741670;
       }
-      CmpUnlockKcbStack((__int64)&v21);
+      CmpUnlockKcbStack((__int64)&v11);
     }
-    CmpUnlockRegistry(v15, v14, v16, v17);
-    CmpDetachFromRegistryProcess(v24);
+    CmpUnlockRegistry();
+    KiUnstackDetachProcess((__int64)v13, 0);
   }
   else
   {
@@ -89,6 +75,5 @@ LABEL_16:
 LABEL_17:
   if ( Privileges[1] )
     CmSiFreeMemory(Privileges[1]);
-  CmCleanupThreadInfo((__int64 *)&v23);
   return started;
 }

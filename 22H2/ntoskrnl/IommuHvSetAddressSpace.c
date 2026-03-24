@@ -1,22 +1,22 @@
 /*
- * XREFs of IommuHvSetAddressSpace @ 0x140524340
+ * XREFs of IommuHvSetAddressSpace @ 0x1404D9D80
  * Callers:
- *     IommuDisableDevicePasid @ 0x140522130 (IommuDisableDevicePasid.c)
+ *     IommuDisableDevicePasid @ 0x1404D7ED0 (IommuDisableDevicePasid.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommuHvSetAddressSpace(__int64 a1, ULONG_PTR a2)
+__int64 __fastcall IommuHvSetAddressSpace(_QWORD *a1, ULONG_PTR a2)
 {
-  __int64 v4; // r8
+  __int64 v2; // r8
   int v5; // eax
 
-  v4 = a2 | 1;
+  v2 = a2 | 1;
   if ( !a2 )
-    v4 = 0LL;
-  v5 = qword_140C62670(0LL, *(unsigned int *)(*(_QWORD *)(a1 + 8) + 16LL), v4);
+    v2 = 0LL;
+  v5 = qword_140C4A2F0(*(unsigned int *)(*a1 + 16LL), *(unsigned int *)(a1[1] + 16LL), v2);
   if ( v5 < 0 )
-    KeBugCheckEx(0x159u, 0x3200uLL, v5, *(unsigned int *)(*(_QWORD *)(a1 + 8) + 16LL), a2);
+    KeBugCheckEx(0x159u, 0x3200uLL, v5, *(unsigned int *)(a1[1] + 16LL), a2);
   return 0LL;
 }

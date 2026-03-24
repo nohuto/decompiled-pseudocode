@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsValueTombstone @ 0x1406CDC28
+ * XREFs of CmpIsValueTombstone @ 0x1406CDC08
  * Callers:
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1407ED64C (CmQueryMultipleValueForLayeredKey.c)
- *     CmpValueEnumStackAdvance @ 0x140800BDC (CmpValueEnumStackAdvance.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1407ED62C (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpValueEnumStackAdvance @ 0x140800BBC (CmpValueEnumStackAdvance.c)
  * Callees:
  *     <none>
  */

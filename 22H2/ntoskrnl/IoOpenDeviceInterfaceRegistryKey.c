@@ -1,16 +1,15 @@
 /*
- * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x140849F50
+ * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x1407CCD30
  * Callers:
- *     DifIoOpenDeviceInterfaceRegistryKeyWrapper @ 0x1405E0340 (DifIoOpenDeviceInterfaceRegistryKeyWrapper.c)
- *     IoWMISuggestInstanceName @ 0x1409DF2B0 (IoWMISuggestInstanceName.c)
+ *     IoWMISuggestInstanceName @ 0x1409314A0 (IoWMISuggestInstanceName.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IopApplyMutableTagToRegistryKey @ 0x140687DC0 (IopApplyMutableTagToRegistryKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC2A8 (_CmOpenDeviceInterfaceRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x14068829C (IopApplyMutableTagToRegistryKey.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406B6624 (_CmOpenDeviceInterfaceRegKey.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceInterfaceRegistryKey(
@@ -21,7 +20,7 @@ NTSTATUS __stdcall IoOpenDeviceInterfaceRegistryKey(
   NTSTATUS v6; // edi
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // r9
-  void *v10; // [rsp+60h] [rbp+8h] BYREF
+  __int16 *v10; // [rsp+60h] [rbp+8h] BYREF
 
   v10 = 0LL;
   if ( SymbolicLinkName && SymbolicLinkName->Buffer && SymbolicLinkName->Length )

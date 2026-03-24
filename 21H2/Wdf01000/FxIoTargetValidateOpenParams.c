@@ -1,63 +1,61 @@
 /*
- * XREFs of FxIoTargetValidateOpenParams @ 0x1C002CEA8
+ * XREFs of FxIoTargetValidateOpenParams @ 0x1C0062B0C
  * Callers:
- *     imp_WdfIoTargetOpen @ 0x1C002C9D0 (imp_WdfIoTargetOpen.c)
+ *     imp_WdfIoTargetOpen @ 0x1C00636C0 (imp_WdfIoTargetOpen.c)
  * Callees:
- *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0015654 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     WPP_IFR_SF_qqqqd @ 0x1C00668D4 (WPP_IFR_SF_qqqqd.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C000A094 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     WPP_IFR_SF_qqqqd @ 0x1C004C740 (WPP_IFR_SF_qqqqd.c)
  */
 
 __int64 __fastcall FxIoTargetValidateOpenParams(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _WDF_IO_TARGET_OPEN_PARAMS *OpenParams)
 {
+  unsigned __int16 v2; // r9
   __int64 result; // rax
-  unsigned __int16 v3; // r9
 
   switch ( OpenParams->Type )
   {
     case WdfIoTargetOpenUseExistingDevice:
-      if ( OpenParams->TargetDeviceObject )
+      if ( !OpenParams->TargetDeviceObject )
       {
-        if ( !FxDriverGlobals->IsUserModeDriver )
-        {
-          if ( OpenParams->TargetFileObject
-            || *(_OWORD *)&OpenParams->EvtIoTargetQueryRemove == 0LL && !OpenParams->EvtIoTargetRemoveComplete )
-          {
-            return 0LL;
-          }
-          WPP_IFR_SF_qqqqd(
-            FxDriverGlobals,
-            (unsigned __int8)OpenParams,
-            0xEu,
-            0xEu,
-            WPP_FxIoTargetAPI_cpp_Traceguids,
-            OpenParams,
-            OpenParams->EvtIoTargetQueryRemove,
-            OpenParams->EvtIoTargetRemoveCanceled,
-            OpenParams->EvtIoTargetRemoveComplete,
-            -1073741811);
-          return 3221225485LL;
-        }
-        v3 = 13;
+        v2 = 12;
+        goto LABEL_23;
       }
-      else
+      if ( FxDriverGlobals->IsUserModeDriver )
       {
-        v3 = 12;
+        v2 = 13;
+        goto LABEL_23;
       }
-      goto LABEL_28;
+      if ( !OpenParams->TargetFileObject
+        && (*(_OWORD *)&OpenParams->EvtIoTargetQueryRemove != 0LL || OpenParams->EvtIoTargetRemoveComplete) )
+      {
+        WPP_IFR_SF_qqqqd(
+          FxDriverGlobals,
+          (unsigned __int8)OpenParams,
+          0xEu,
+          0xEu,
+          WPP_FxIoTargetAPI_cpp_Traceguids,
+          OpenParams,
+          OpenParams->EvtIoTargetQueryRemove,
+          OpenParams->EvtIoTargetRemoveCanceled,
+          OpenParams->EvtIoTargetRemoveComplete,
+          -1073741811);
+        return 3221225485LL;
+      }
+      return 0LL;
     case WdfIoTargetOpenByName:
-      if ( OpenParams->TargetDeviceName.Buffer
-        && OpenParams->TargetDeviceName.Length
-        && OpenParams->TargetDeviceName.MaximumLength )
+      if ( !OpenParams->TargetDeviceName.Buffer
+        || !OpenParams->TargetDeviceName.Length
+        || !OpenParams->TargetDeviceName.MaximumLength )
       {
-        return 0LL;
+        v2 = 15;
+        goto LABEL_23;
       }
-      v3 = 15;
-      goto LABEL_28;
+      return 0LL;
     case WdfIoTargetOpenReopen:
       return 0LL;
   }
@@ -68,9 +66,9 @@ __int64 __fastcall FxIoTargetValidateOpenParams(
   }
   if ( !FxDriverGlobals->IsUserModeDriver )
   {
-    v3 = 16;
-LABEL_28:
-    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, v3, WPP_FxIoTargetAPI_cpp_Traceguids, -1073741811);
+    v2 = 16;
+LABEL_23:
+    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, v2, WPP_FxIoTargetAPI_cpp_Traceguids, -1073741811);
     return 3221225485LL;
   }
   if ( *(_OWORD *)&OpenParams->EvtIoTargetQueryRemove != 0LL || OpenParams->EvtIoTargetRemoveComplete )

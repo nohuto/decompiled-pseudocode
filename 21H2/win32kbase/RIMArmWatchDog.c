@@ -1,8 +1,8 @@
 /*
- * XREFs of RIMArmWatchDog @ 0x1C00040B0
+ * XREFs of RIMArmWatchDog @ 0x1C0152058
  * Callers:
- *     rimSignalReadComplete @ 0x1C0003DB8 (rimSignalReadComplete.c)
- *     RIMWatchDog @ 0x1C0043C80 (RIMWatchDog.c)
+ *     RIMWatchDog @ 0x1C0046BD0 (RIMWatchDog.c)
+ *     rimSignalReadComplete @ 0x1C0175F28 (rimSignalReadComplete.c)
  * Callees:
  *     <none>
  */

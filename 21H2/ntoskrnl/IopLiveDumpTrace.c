@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpTrace @ 0x14055A870
+ * XREFs of IopLiveDumpTrace @ 0x140508A88
  * Callers:
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14093A954 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpStartDumpDataBuffering @ 0x140A67994 (IopLiveDumpStartDumpDataBuffering.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x1409AD558 (IopLiveDumpStartDumpDataBuffering.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTrace()

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPdoDeleteSymbolicLink @ 0x1C00542E0
+ * XREFs of UsbhPdoDeleteSymbolicLink @ 0x1C0055974
  * Callers:
- *     UsbhPdoRemoveCleanup @ 0x1C0056374 (UsbhPdoRemoveCleanup.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0057A34 (UsbhPdoRemoveCleanup.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 void __fastcall UsbhPdoDeleteSymbolicLink(__int64 a1)

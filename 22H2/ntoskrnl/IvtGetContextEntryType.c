@@ -1,12 +1,21 @@
 /*
- * XREFs of IvtGetContextEntryType @ 0x1403B62E4
+ * XREFs of IvtGetContextEntryType @ 0x1404DFEB0
  * Callers:
- *     IvtInitializeIommu @ 0x140A8A670 (IvtInitializeIommu.c)
+ *     IvtUpdateContextEntry @ 0x1404E0AFC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0CB0 (IvtUpdateExtendedContextEntry.c)
+ *     IvtInitializeIommu @ 0x1409A9A90 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IvtGetContextEntryType(__int64 a1, __int64 a2, char a3)
+unsigned __int64 __fastcall IvtGetContextEntryType(char a1, char a2)
 {
-  return a3 == 0 ? 2 : 0;
+  unsigned __int64 result; // rax
+
+  result = 0LL;
+  if ( a1 )
+    return (-(__int64)(a2 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 5;
+  if ( !a2 )
+    return 2LL;
+  return result;
 }

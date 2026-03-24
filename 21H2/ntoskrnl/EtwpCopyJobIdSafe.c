@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCopyJobIdSafe @ 0x1409E2E78
+ * XREFs of EtwpCopyJobIdSafe @ 0x1409369F4
  * Callers:
- *     EtwTraceJobServerSiloMonitorCallback @ 0x1403D683C (EtwTraceJobServerSiloMonitorCallback.c)
+ *     EtwTraceJobServerSiloMonitorCallback @ 0x1403C82F0 (EtwTraceJobServerSiloMonitorCallback.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall EtwpCopyJobIdSafe(_DWORD *a1, __int64 a2)
 
   result = 0LL;
   if ( a2 )
-    result = *(unsigned int *)(a2 + 1428);
+    result = *(unsigned int *)(a2 + 1236);
   *a1 = result;
   return result;
 }

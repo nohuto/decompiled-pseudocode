@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CBitmapLockUnaligned@@QEAA@XZ @ 0x18028246C
+ * XREFs of ??0CBitmapLockUnaligned@@QEAA@XZ @ 0x180218544
  * Callers:
- *     ?HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x180281B84 (-HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitm.c)
+ *     ?HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x180217D88 (-HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitm.c)
  * Callees:
- *     ??0CBitmapLock@@QEAA@XZ @ 0x1800A858C (--0CBitmapLock@@QEAA@XZ.c)
+ *     ??0CBitmapLock@@QEAA@XZ @ 0x18003C0A8 (--0CBitmapLock@@QEAA@XZ.c)
  */
 
 CBitmapLockUnaligned *__fastcall CBitmapLockUnaligned::CBitmapLockUnaligned(CBitmapLockUnaligned *this)
@@ -11,14 +11,15 @@ CBitmapLockUnaligned *__fastcall CBitmapLockUnaligned::CBitmapLockUnaligned(CBit
   __int64 v2; // rcx
   CBitmapLockUnaligned *result; // rax
 
-  *((_QWORD *)this + 1) = &CBitmapLockUnaligned::`vbtable';
+  *((_QWORD *)this + 3) = &CBitmapLockUnaligned::`vbtable';
   CBitmapLock::CBitmapLock(this, 0);
-  *(_QWORD *)this = &CBitmapLockUnaligned::`vftable'{for `IPixelFormat'};
-  *((_QWORD *)this + 3) = &CBitmapLockUnaligned::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &CBitmapLockUnaligned::`vftable'{for `IUnknown'};
-  v2 = *(int *)(*((_QWORD *)this + 1) + 4LL);
+  *(_QWORD *)this = &CBitmapLockUnaligned::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CBitmapLockUnaligned::`vftable'{for `IPixelFormat'};
+  *((_QWORD *)this + 4) = &CBitmapLockUnaligned::`vftable'{for `IWICBitmapLock'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &CBitmapLockUnaligned::`vftable'{for `IUnknown'};
+  v2 = *(int *)(*((_QWORD *)this + 3) + 4LL);
   result = this;
-  *(_DWORD *)((char *)this + v2 + 4) = v2 - 168;
-  *((_QWORD *)this + 14) = 0LL;
+  *(_DWORD *)((char *)this + v2 + 20) = v2 - 160;
+  *((_QWORD *)this + 15) = 0LL;
   return result;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x140374BBC
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x1405366CC
  * Callers:
- *     MiDeprioritizeVad @ 0x1402598CC (MiDeprioritizeVad.c)
- *     HvTrimHive @ 0x1406D59B8 (HvTrimHive.c)
+ *     MiDeprioritizeVad @ 0x140381E94 (MiDeprioritizeVad.c)
+ *     HvTrimHive @ 0x1406BD0DC (HvTrimHive.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiUpdatePfnPriority @ 0x14027428C (MiUpdatePfnPriority.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140274D10 (MI_WSLE_LOG_ACCESS.c)
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiFreeWsleList @ 0x1402C1D70 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDemoteCombinedPte @ 0x1403336E0 (MiDemoteCombinedPte.c)
- *     MiTbFlushType @ 0x140333AA0 (MiTbFlushType.c)
- *     MiGetWsleContents @ 0x14033A410 (MiGetWsleContents.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
+ *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140309080 (MI_WSLE_LOG_ACCESS.c)
+ *     MiFreeWsleList @ 0x140327320 (MiFreeWsleList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
+ *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -27,103 +27,110 @@ __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a
   int v8; // eax
   unsigned __int64 v9; // rsi
   unsigned __int64 valid; // r15
-  __int64 v11; // rcx
-  unsigned __int8 v12; // al
-  unsigned __int64 v13; // rdi
-  unsigned __int64 v14; // rdi
-  char v15; // r13
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  unsigned __int8 v21; // [rsp+20h] [rbp-E0h]
-  unsigned int v22; // [rsp+24h] [rbp-DCh]
-  int v23; // [rsp+28h] [rbp-D8h] BYREF
-  int v24; // [rsp+2Ch] [rbp-D4h]
-  unsigned __int64 v25; // [rsp+30h] [rbp-D0h]
-  unsigned __int64 v26; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v27[24]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  unsigned __int8 v15; // al
+  unsigned __int64 v16; // rdi
+  __int64 v17; // rdi
+  char v18; // r13
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned __int8 v24; // [rsp+20h] [rbp-E0h]
+  int v25; // [rsp+28h] [rbp-D8h] BYREF
+  int v26; // [rsp+2Ch] [rbp-D4h]
+  unsigned __int64 v27; // [rsp+30h] [rbp-D0h]
+  unsigned __int64 v28; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v29[24]; // [rsp+40h] [rbp-C0h] BYREF
 
-  memset(v27, 0, 0xB8uLL);
-  v22 = a4 & 7;
+  memset(v29, 0, 0xB8uLL);
   v8 = MiTbFlushType(a3);
-  v27[2] = 0LL;
-  v27[3] = 0LL;
-  LODWORD(v27[0]) = v8;
-  v24 = dword_140C52B68;
-  WORD2(v27[0]) = 4;
-  LODWORD(v27[1]) = 20;
+  v29[2] = 0LL;
+  v29[3] = 0LL;
+  LODWORD(v29[0]) = v8;
+  v26 = dword_140C4E828;
+  WORD2(v29[0]) = 4;
+  LODWORD(v29[1]) = 20;
   v9 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   valid = 0LL;
-  v25 = v9 + 8 * a2;
-  v12 = MiLockWorkingSetShared(v11);
-  v21 = v12;
-  if ( v9 >= v25 )
-    return MiUnlockWorkingSetShared(a3, v12);
-  do
+  v27 = v9 + 8 * a2;
+  v15 = MiLockWorkingSetShared(v12, v11, v13, v14);
+  v24 = v15;
+  if ( v9 < v27 )
   {
-    v13 = v9 >> 9;
-    if ( valid )
+    do
     {
-      if ( valid == (v13 & 0x7FFFFFFFF8LL) - 0x98000000000LL )
-        goto LABEL_4;
-      if ( HIDWORD(v27[1]) )
-        MiFreeWsleList(a3, (__int64)v27, 0);
-      MiUnlockPageTableInternal(a3, valid);
-    }
-    valid = MiLockLowestValidPageTable(a3, v9, &v26);
-    if ( valid != (v13 & 0x7FFFFFFFF8LL) - 0x98000000000LL )
-    {
-      MiUnlockPageTableInternal(a3, valid);
-      valid = 0LL;
-      v9 = (v9 & 0xFFFFFFFFFFFFF000uLL) + 4088;
-      goto LABEL_20;
-    }
-LABEL_4:
-    if ( (*(_BYTE *)v9 & 1) != 0 )
-    {
-      v14 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v9) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      v15 = MiGetWsleContents(0xFFFFFFFFFFLL, (__int64)(v9 << 25) >> 16) & 0xF;
-      if ( v15 != 9 )
+      v16 = v9 >> 9;
+      if ( valid )
       {
-        if ( !_bittest64((const signed __int64 *)(v14 + 40), 0x28u) )
+        if ( valid != (v16 & 0x7FFFFFFFF8LL) - 0x98000000000LL )
         {
-          v16 = *(_QWORD *)(v14 + 8);
-          if ( v16 > 0 )
-            MiDemoteCombinedPte(a3, v9, v16 | 0x8000000000000000uLL);
+          if ( HIDWORD(v29[1]) )
+            MiFreeWsleList(a3, (__int64)v29, 0);
+          MiUnlockPageTableInternal(a3, valid);
+          valid = 0LL;
         }
-        if ( (a4 & 8) == 0 && v22 != (unsigned int)MiGetPfnPriority(v14) )
+        if ( valid )
+          goto LABEL_36;
+      }
+      valid = MiLockLowestValidPageTable(a3, v9, &v28);
+      if ( valid == (v16 & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+      {
+LABEL_36:
+        if ( (*(_BYTE *)v9 & 1) != 0 )
         {
-          v23 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
+          v17 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v9) >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+          v18 = MiGetWsleContents(0xFFFFFFFFFLL, (__int64)(v9 << 25) >> 16) & 0xF;
+          if ( v18 != 9 )
           {
-            do
-              KeYieldProcessorEx(&v23, v17, v18, v19);
-            while ( *(__int64 *)(v14 + 24) < 0 );
+            if ( (*(_QWORD *)(v17 + 40) & 0x1000000000LL) == 0 )
+            {
+              v19 = *(_QWORD *)(v17 + 8);
+              if ( v19 > 0 )
+                MiDemoteCombinedPte(a3, v9, v19 | 0x8000000000000000uLL);
+            }
+            if ( (a4 & 8) == 0 && (a4 & 7) != (unsigned int)MiGetPfnPriority(v17) )
+            {
+              v25 = 0;
+              while ( _interlockedbittestandset64((volatile signed __int32 *)(v17 + 24), 0x3FuLL) )
+              {
+                do
+                  KeYieldProcessorEx(&v25, v20, v21, v22);
+                while ( *(__int64 *)(v17 + 24) < 0 );
+              }
+              MiUpdatePfnPriority(v17);
+              _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            }
+            if ( (a4 & 0x10) != 0 && v18 != 8 )
+            {
+              if ( v26 )
+                MI_WSLE_LOG_ACCESS(a3, (_BYTE *)v9);
+              MiInsertTbFlushEntry((__int64)v29, (__int64)(v9 << 25) >> 16, 1LL, 0);
+              if ( HIDWORD(v29[1]) == LODWORD(v29[1]) )
+                MiFreeWsleList(a3, (__int64)v29, 0);
+            }
           }
-          MiUpdatePfnPriority(v14, v22, 1);
-          _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        }
-        if ( (a4 & 0x10) != 0 && v15 != 8 )
-        {
-          if ( v24 )
-            MI_WSLE_LOG_ACCESS(a3, (_BYTE *)v9);
-          MiInsertTbFlushEntry((__int64)v27, (__int64)(v9 << 25) >> 16, 1LL, 0);
-          if ( HIDWORD(v27[1]) == LODWORD(v27[1]) )
-            MiFreeWsleList(a3, (__int64)v27, 0);
         }
       }
+      else
+      {
+        MiUnlockPageTableInternal(a3, valid);
+        valid = 0LL;
+        v9 = (v9 & 0xFFFFFFFFFFFFF000uLL) + 4088;
+      }
+      v9 += 8LL;
     }
-LABEL_20:
-    v9 += 8LL;
+    while ( v9 < v27 );
+    if ( valid )
+    {
+      if ( HIDWORD(v29[1]) )
+        MiFreeWsleList(a3, (__int64)v29, 0);
+      MiUnlockPageTableInternal(a3, valid);
+    }
+    v15 = v24;
   }
-  while ( v9 < v25 );
-  if ( valid )
-  {
-    if ( HIDWORD(v27[1]) )
-      MiFreeWsleList(a3, (__int64)v27, 0);
-    MiUnlockPageTableInternal(a3, valid);
-  }
-  v12 = v21;
-  return MiUnlockWorkingSetShared(a3, v12);
+  return MiUnlockWorkingSetShared(a3, v15);
 }

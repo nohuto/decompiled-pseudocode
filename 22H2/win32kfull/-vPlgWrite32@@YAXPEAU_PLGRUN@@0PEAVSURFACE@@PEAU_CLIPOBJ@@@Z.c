@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vPlgWrite32@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C015F080
+ * XREFs of ?vPlgWrite32@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C02D9060
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00542C4 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
- *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C02654BC (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00CEAA0 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
+ *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C00CEB24 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
  */
 
 void __fastcall vPlgWrite32(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
@@ -14,27 +14,26 @@ void __fastcall vPlgWrite32(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
   struct SURFACE *v6; // r14
   struct _PLGRUN *v7; // rbp
   unsigned __int64 v9; // rdi
-  int v10; // r9d
-  int v11; // eax
-  int v12; // r8d
-  int v13; // r10d
+  int v10; // eax
+  int v11; // r8d
+  int v12; // r10d
   __int64 j; // rdx
-  _DWORD *v15; // rcx
+  _DWORD *v14; // rcx
   int k; // eax
-  int v17; // eax
-  LONG v18; // esi
-  int v19; // ecx
-  __int64 v20; // r13
+  int v16; // eax
+  LONG v17; // esi
+  int v18; // ecx
+  __int64 v19; // r13
   bool i; // zf
-  int v22; // r15d
-  __int64 v23; // rdi
-  _DWORD *v24; // rbx
-  unsigned __int64 v25; // rax
-  int v26; // [rsp+30h] [rbp-68h]
-  int v27; // [rsp+34h] [rbp-64h]
-  unsigned __int64 v28; // [rsp+38h] [rbp-60h]
-  unsigned __int64 v29; // [rsp+40h] [rbp-58h]
-  struct _PLGRUN *v30; // [rsp+48h] [rbp-50h]
+  int v21; // r15d
+  __int64 v22; // rdi
+  _DWORD *v23; // rbx
+  unsigned __int64 v24; // rax
+  int v25; // [rsp+30h] [rbp-68h]
+  int v26; // [rsp+34h] [rbp-64h]
+  unsigned __int64 v27; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v28; // [rsp+40h] [rbp-58h]
+  struct _PLGRUN *v29; // [rsp+48h] [rbp-50h]
   struct _RECTL si128; // [rsp+50h] [rbp-48h] BYREF
 
   if ( a2 )
@@ -42,67 +41,67 @@ void __fastcall vPlgWrite32(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
     v4 = *((_QWORD *)a3 + 9);
     v6 = a3;
     v7 = a2;
-    v28 = v4;
+    v27 = v4;
     v9 = *((unsigned int *)a3 + 16) + v4 - 4;
-    v29 = v9;
+    v28 = v9;
     if ( a4 )
     {
       XCLIPOBJ::cEnumStart((XCLIPOBJ *)a4, 0, 0, 4u, 0x64u);
       si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
       while ( a1 < v7 )
       {
-        v17 = *(_DWORD *)a1;
-        v18 = *((_DWORD *)a1 + 1);
-        v19 = *((_DWORD *)a1 + 2);
+        v16 = *(_DWORD *)a1;
+        v17 = *((_DWORD *)a1 + 1);
+        v18 = *((_DWORD *)a1 + 2);
         a1 = (struct _PLGRUN *)((char *)a1 + 12);
-        v27 = v17;
-        v20 = *((_QWORD *)v6 + 10) + *((_DWORD *)v6 + 22) * v18;
-        for ( i = v19 == 0; ; i = v19 == 0 )
+        v26 = v16;
+        v19 = *((_QWORD *)v6 + 10) + v17 * *((_DWORD *)v6 + 22);
+        for ( i = v18 == 0; ; i = v18 == 0 )
         {
-          v26 = v19;
+          v25 = v18;
           if ( i )
             break;
-          v30 = (struct _PLGRUN *)((char *)a1 + 8);
+          v29 = (struct _PLGRUN *)((char *)a1 + 8);
           if ( (struct _PLGRUN *)((char *)a1 + 8) > v7 )
             break;
-          if ( v18 < si128.top || v18 >= si128.bottom )
+          if ( v17 < si128.top || v17 >= si128.bottom )
           {
-            XCLIPOBJ::vFindScan((XCLIPOBJ *)a4, &si128, v18);
-            v19 = v26;
+            XCLIPOBJ::vFindScan((XCLIPOBJ *)a4, &si128, v17);
+            v18 = v25;
           }
-          if ( v18 >= si128.top && v18 < si128.bottom )
+          if ( v17 >= si128.top && v17 < si128.bottom )
           {
-            v22 = *((_DWORD *)a1 + 1);
-            v23 = *(int *)a1;
-            v24 = (_DWORD *)(v20 + 4 * v23);
-            if ( v22 )
+            v21 = *((_DWORD *)a1 + 1);
+            v22 = *(int *)a1;
+            v23 = (_DWORD *)(v19 + 4 * v22);
+            if ( v21 )
             {
-              v25 = v28;
+              v24 = v27;
               do
               {
-                if ( (unsigned __int64)v24 < v25 || (unsigned __int64)v24 > v29 )
+                if ( (unsigned __int64)v23 < v24 || (unsigned __int64)v23 > v28 )
                   break;
-                if ( (int)v23 < si128.left || (int)v23 >= si128.right )
+                if ( (int)v22 < si128.left || (int)v22 >= si128.right )
                 {
-                  XCLIPOBJ::vFindSegment((XCLIPOBJ *)a4, &si128, v23, v10);
-                  v25 = v28;
+                  XCLIPOBJ::vFindSegment((XCLIPOBJ *)a4, &si128, v22);
+                  v24 = v27;
                 }
-                if ( (int)v23 >= si128.left && (int)v23 < si128.right )
-                  *v24 = v27;
-                LODWORD(v23) = v23 + 1;
-                ++v24;
-                --v22;
+                if ( (int)v22 >= si128.left && (int)v22 < si128.right )
+                  *v23 = v26;
+                LODWORD(v22) = v22 + 1;
+                ++v23;
+                --v21;
               }
-              while ( v22 );
+              while ( v21 );
               v7 = a2;
               v6 = a3;
-              v19 = v26;
+              v18 = v25;
             }
           }
-          ++v18;
-          a1 = v30;
-          v20 += *((int *)v6 + 22);
-          --v19;
+          ++v17;
+          a1 = v29;
+          v19 += *((int *)v6 + 22);
+          --v18;
         }
       }
     }
@@ -110,22 +109,22 @@ void __fastcall vPlgWrite32(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
     {
       while ( a1 < v7 )
       {
-        v11 = *((_DWORD *)v6 + 22) * *((_DWORD *)a1 + 1);
-        v12 = *((_DWORD *)a1 + 2);
-        v13 = *(_DWORD *)a1;
+        v10 = *((_DWORD *)v6 + 22) * *((_DWORD *)a1 + 1);
+        v11 = *((_DWORD *)a1 + 2);
+        v12 = *(_DWORD *)a1;
         a1 = (struct _PLGRUN *)((char *)a1 + 12);
-        for ( j = *((_QWORD *)v6 + 10) + v11; v12; --v12 )
+        for ( j = *((_QWORD *)v6 + 10) + v10; v11; --v11 )
         {
           if ( (struct _PLGRUN *)((char *)a1 + 8) > v7 )
             break;
-          v15 = (_DWORD *)(j + 4LL * *(int *)a1);
+          v14 = (_DWORD *)(j + 4LL * *(int *)a1);
           for ( k = *((_DWORD *)a1 + 1); k; --k )
           {
-            if ( (unsigned __int64)v15 < v4 )
+            if ( (unsigned __int64)v14 < v4 )
               break;
-            if ( (unsigned __int64)v15 > v9 )
+            if ( (unsigned __int64)v14 > v9 )
               break;
-            *v15++ = v13;
+            *v14++ = v12;
           }
           a1 = (struct _PLGRUN *)((char *)a1 + 8);
           j += *((int *)v6 + 22);

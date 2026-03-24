@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCheckCreateObjectAccess @ 0x1406B6C50
+ * XREFs of ObCheckCreateObjectAccess @ 0x140662E90
  * Callers:
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     ObReleaseObjectSecurityEx @ 0x140722890 (ObReleaseObjectSecurityEx.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
  */
 
 BOOLEAN __fastcall ObCheckCreateObjectAccess(
@@ -22,26 +22,23 @@ BOOLEAN __fastcall ObCheckCreateObjectAccess(
         PNTSTATUS AccessStatus)
 {
   KPROCESSOR_MODE AccessMode; // si
-  unsigned __int64 v9; // r10
-  __int64 v12; // r13
+  unsigned __int64 v10; // r10
+  __int64 v11; // r13
   NTSTATUS ObjectSecurity; // eax
-  BOOLEAN v14; // si
-  __int64 v15; // rdx
-  __int64 v16; // r9
+  BOOLEAN v13; // si
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-20h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+58h] [rbp-18h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+60h] [rbp-10h] BYREF
-  char v21; // [rsp+A0h] [rbp+30h] BYREF
+  BOOLEAN MemoryAllocated; // [rsp+90h] [rbp+20h] BYREF
 
   AccessMode = a6;
-  v9 = *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
   GrantedAccess = 0;
-  v21 = 0;
   Privileges = 0LL;
-  LOBYTE(a4) = a6;
   SecurityDescriptor = 0LL;
-  v12 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v9];
-  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &v21, a4);
+  v10 = *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
+  MemoryAllocated = 0;
+  v11 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v10];
+  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &MemoryAllocated, a6);
   if ( ObjectSecurity < 0 )
   {
     *AccessStatus = ObjectSecurity;
@@ -52,14 +49,14 @@ BOOLEAN __fastcall ObCheckCreateObjectAccess(
     SeLockSubjectContext(&a3->SubjectSecurityContext);
     if ( SecurityDescriptor )
     {
-      v14 = SeAccessCheck(
+      v13 = SeAccessCheck(
               SecurityDescriptor,
               &a3->SubjectSecurityContext,
               1u,
               a2,
               0,
               &Privileges,
-              (PGENERIC_MAPPING)(v12 + 76),
+              (PGENERIC_MAPPING)(v11 + 76),
               AccessMode,
               &GrantedAccess,
               AccessStatus);
@@ -71,11 +68,10 @@ BOOLEAN __fastcall ObCheckCreateObjectAccess(
     }
     else
     {
-      v14 = 1;
+      v13 = 1;
     }
     SeUnlockSubjectContext(&a3->SubjectSecurityContext);
-    LOBYTE(v15) = v21;
-    ObReleaseObjectSecurityEx(SecurityDescriptor, v15, a1, v16);
-    return v14;
+    ObReleaseObjectSecurity(SecurityDescriptor, MemoryAllocated);
+    return v13;
   }
 }

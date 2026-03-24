@@ -1,38 +1,32 @@
 /*
- * XREFs of VidSchiProcessIsrGpuEngineTimeout @ 0x1C00431BC
+ * XREFs of VidSchiProcessIsrGpuEngineTimeout @ 0x1C003B3C0
  * Callers:
- *     VidSchDdiNotifyInterruptWorker @ 0x1C000C7A0 (VidSchDdiNotifyInterruptWorker.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000DE00 (VidSchDdiNotifyInterruptWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 PSLIST_ENTRY __fastcall VidSchiProcessIsrGpuEngineTimeout(__int64 a1)
 {
   union _SLIST_HEADER *v1; // rdi
   PSLIST_ENTRY v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v8; // rax
 
   v1 = *(union _SLIST_HEADER **)(a1 + 24);
-  v3 = ExpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 6128));
+  v3 = ExpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 6112));
   if ( v3 )
   {
     v3[2].Next = (struct _SLIST_ENTRY *)a1;
     LODWORD(v3->Next) = 16;
-    return ExpInterlockedPushEntrySList(v1 + 111, v3 + 1);
+    return ExpInterlockedPushEntrySList(v1 + 110, v3 + 1);
   }
   else
   {
-    WdLogSingleEntry1(1LL, *(unsigned __int16 *)(a1 + 4));
-    return (PSLIST_ENTRY)((__int64 (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-                           0LL,
-                           0x40000LL,
-                           0xFFFFFFFFLL,
-                           L"The list of pending GPU engine timeout interrupts is full on node %d. There must be severe co"
-                            "ntention on the scheduler spin lock. This interrupt will be ignored, and a preceding interru"
-                            "pt will reset the GPU engine",
-                           *(unsigned __int16 *)(a1 + 4),
-                           0LL,
-                           0LL,
-                           0LL,
-                           0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4, v6);
+    *(_QWORD *)(v8 + 24) = *(unsigned __int16 *)(a1 + 4);
+    return (PSLIST_ENTRY)WdLogEvent5_WdAssertion(v8);
   }
 }

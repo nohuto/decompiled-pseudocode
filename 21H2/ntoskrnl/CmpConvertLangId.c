@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpConvertLangId @ 0x140B15184
+ * XREFs of CmpConvertLangId @ 0x140A601F0
  * Callers:
- *     CmpGetSystemControlValues @ 0x140B14B1C (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
  * Callees:
  *     <none>
  */
@@ -32,9 +32,9 @@ __int64 __fastcall CmpConvertLangId(__int64 a1, unsigned int a2)
           return v2;
         v7 = v6 - 87;
       }
-      if ( v7 >= 0x10u )
-        break;
     }
+    if ( v7 >= 0x10u )
+      break;
     ++i;
   }
   return v2;

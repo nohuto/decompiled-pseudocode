@@ -1,16 +1,13 @@
 /*
- * XREFs of NVMeQueueWorkItem @ 0x1C001DF70
+ * XREFs of NVMeQueueWorkItem @ 0x1C001522C
  * Callers:
- *     NVMeCompletionDpcRoutine @ 0x1C0002000 (NVMeCompletionDpcRoutine.c)
- *     NVMeControllerInitPart3 @ 0x1C0005FFC (NVMeControllerInitPart3.c)
- *     FirmwareDownload @ 0x1C001AA58 (FirmwareDownload.c)
- *     NVMeFirmwareActivateCompletion @ 0x1C001CB60 (NVMeFirmwareActivateCompletion.c)
- *     NVMeSanitizeCommandCompletion @ 0x1C001F040 (NVMeSanitizeCommandCompletion.c)
- *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C001F4D0 (NVMeWriteBufferFirmwareActivateCompletion.c)
- *     NVMeWriteBufferFirmwareDownload @ 0x1C001F6BC (NVMeWriteBufferFirmwareDownload.c)
- *     NVMeAsyncEventRequestCompletion @ 0x1C00215A0 (NVMeAsyncEventRequestCompletion.c)
- *     NVMeReenumerateNameSpaceIdentify @ 0x1C0023918 (NVMeReenumerateNameSpaceIdentify.c)
- *     ProcessNvmeSanitizeStatus @ 0x1C0024FDC (ProcessNvmeSanitizeStatus.c)
+ *     NVMeCompletionDpcRoutine @ 0x1C00030F0 (NVMeCompletionDpcRoutine.c)
+ *     FirmwareDownload @ 0x1C00119E4 (FirmwareDownload.c)
+ *     NVMeFirmwareActivateCompletion @ 0x1C0014340 (NVMeFirmwareActivateCompletion.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0015A60 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C0015C4C (NVMeWriteBufferFirmwareDownload.c)
+ *     NVMeAsyncEventRequestCompletion @ 0x1C0017780 (NVMeAsyncEventRequestCompletion.c)
+ *     NVMeReenumerateNameSpaceIdentify @ 0x1C001AAB8 (NVMeReenumerateNameSpaceIdentify.c)
  * Callees:
  *     <none>
  */

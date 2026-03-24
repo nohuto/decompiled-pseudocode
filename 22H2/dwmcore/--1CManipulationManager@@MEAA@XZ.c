@@ -1,57 +1,73 @@
 /*
- * XREFs of ??1CManipulationManager@@MEAA@XZ @ 0x18028352C
+ * XREFs of ??1CManipulationManager@@MEAA@XZ @ 0x180221274
  * Callers:
- *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x1802834D8 (--1CGlobalManipulationManager@@EEAA@XZ.c)
- *     ??_ECManipulationManager@@MEAAPEAXI@Z @ 0x180283780 (--_ECManipulationManager@@MEAAPEAXI@Z.c)
+ *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x180221220 (--1CGlobalManipulationManager@@EEAA@XZ.c)
+ *     ??_ECManipulationManager@@MEAAPEAXI@Z @ 0x180221500 (--_ECManipulationManager@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x18010E938 (--1-$CQueue@PEAVCResource@@@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1MCCollections@@QEAA@XZ @ 0x180283650 (--1MCCollections@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x180221188 (--1-$CQueue@PEAVCResource@@@@QEAA@XZ.c)
+ *     ??1MCCollections@@QEAA@XZ @ 0x1802213A4 (--1MCCollections@@QEAA@XZ.c)
+ *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x180221474 (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CManipulationManager::~CManipulationManager(CManipulationManager *this)
 {
-  _DWORD *v2; // rdi
-  int i; // esi
+  void *v2; // rcx
+  int v3; // edi
   __int64 v4; // rcx
   __int64 v5; // rcx
   __int64 v6; // rcx
+  __int64 v7; // rcx
 
   *(_QWORD *)this = &CManipulationManager::`vftable';
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 30);
-  v2 = (_DWORD *)((char *)this + 232);
-  if ( *((_QWORD *)this + 28) )
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 33);
+  v2 = (void *)*((_QWORD *)this + 31);
+  if ( v2 )
   {
-    for ( i = 0; i < *v2; ++i )
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)(*((_QWORD *)this + 28) + 8LL * i));
-    operator delete(*((void **)this + 28));
-    *((_QWORD *)this + 28) = 0LL;
+    v3 = 0;
+    if ( *((int *)this + 64) > 0 )
+    {
+      do
+        Microsoft::WRL::ComPtr<CInteraction>::`scalar deleting destructor'(*((_QWORD *)this + 31) + 8LL * v3++);
+      while ( v3 < *((_DWORD *)this + 64) );
+      v2 = (void *)*((_QWORD *)this + 31);
+    }
+    operator delete(v2);
+    *((_QWORD *)this + 31) = 0LL;
   }
-  *v2 = 0;
-  *((_DWORD *)this + 59) = 0;
-  MCCollections::~MCCollections((CManipulationManager *)((char *)this + 160));
-  CQueue<CResource *>::~CQueue<CResource *>((_DWORD *)this + 20);
-  v4 = *((_QWORD *)this + 9);
+  *((_DWORD *)this + 64) = 0;
+  *((_DWORD *)this + 65) = 0;
+  MCCollections::~MCCollections((CManipulationManager *)((char *)this + 184));
+  CQueue<CResource *>::~CQueue<CResource *>((_DWORD *)this + 26);
+  v4 = *((_QWORD *)this + 12);
   if ( v4 )
   {
-    *((_QWORD *)this + 9) = 0LL;
+    *((_QWORD *)this + 12) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 8);
-  v5 = *((_QWORD *)this + 6);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 11);
+  v5 = *((_QWORD *)this + 9);
   if ( v5 )
   {
-    *((_QWORD *)this + 6) = 0LL;
+    *((_QWORD *)this + 9) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 5);
-  v6 = *((_QWORD *)this + 3);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 8);
+  v6 = *((_QWORD *)this + 6);
   if ( v6 )
   {
-    *((_QWORD *)this + 3) = 0LL;
+    *((_QWORD *)this + 6) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
   }
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 5);
+  v7 = *((_QWORD *)this + 3);
+  if ( v7 )
+  {
+    *((_QWORD *)this + 3) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  }
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

@@ -1,16 +1,17 @@
 /*
- * XREFs of ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0022E54
+ * XREFs of ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0114FF8
  * Callers:
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0112870 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C013E7D4 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
- *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C026AF54 (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
- *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C026B460 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAC64 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C016A2E4 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
+ *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C027258C (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0272930 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
  * Callees:
- *     ComputeFileviewCheckSum @ 0x1C0088700 (ComputeFileviewCheckSum.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C0289D28 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
- *     ?ComputeFileviewCheckSumInFontDriverAddressSpace@@YAKPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C02D619C (-ComputeFileviewCheckSumInFontDriverAddressSpace@@YAKPEAPEAU_FONTFILEVIEW@@I@Z.c)
- *     ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02D6240 (-bAddPvtData@PFFOBJ@@QEAAHK@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ComputeFileviewCheckSum @ 0x1C00E5D48 (ComputeFileviewCheckSum.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C028858C (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ?ComputeFileviewCheckSumInFontDriverAddressSpace@@YAKPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C02BABD8 (-ComputeFileviewCheckSumInFontDriverAddressSpace@@YAKPEAPEAU_FONTFILEVIEW@@I@Z.c)
+ *     ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02BAC80 (-bAddPvtData@PFFOBJ@@QEAAHK@Z.c)
  */
 
 PFFMEMOBJ *__fastcall PFFMEMOBJ::PFFMEMOBJ(
@@ -32,40 +33,39 @@ PFFMEMOBJ *__fastcall PFFMEMOBJ::PFFMEMOBJ(
         struct _UNIVERSAL_FONT_ID *a16,
         int a17)
 {
-  __int64 v18; // r14
-  unsigned __int64 v20; // rax
-  int v21; // r9d
+  unsigned __int64 v18; // rax
+  int v19; // r8d
+  __int64 v20; // r14
   unsigned int v22; // r13d
   unsigned int v23; // r12d
-  unsigned int v24; // edx
-  int v25; // r8d
+  unsigned int v24; // ebx
+  int v25; // edx
   int v26; // eax
   unsigned int v27; // ecx
   unsigned int v28; // ecx
-  __int64 v29; // rsi
-  __int64 v30; // rax
+  char *v29; // rax
+  __int64 v30; // rcx
   __int64 v31; // rcx
-  __int64 v32; // rcx
-  __int64 v33; // rax
-  __int64 v34; // rcx
-  unsigned int v35; // edx
-  int v36; // ecx
-  __int64 v37; // rax
-  unsigned int v39; // eax
+  unsigned int v32; // edx
+  int v33; // ecx
+  __int64 v34; // rax
+  unsigned int v36; // eax
+  __int64 v37; // rbx
+  __int64 v38; // rbx
 
-  v18 = a4;
-  v20 = 8LL * a2;
-  v21 = -1;
+  v18 = 8LL * a2;
+  v19 = -1;
+  v20 = a4;
   *(_QWORD *)this = 0LL;
-  v22 = 0;
   *((_WORD *)this + 8) = 0;
-  v23 = 0;
+  v22 = 0;
   *((_DWORD *)this + 5) = a13;
+  v23 = 0;
   *((_DWORD *)this + 2) = 0;
-  if ( v20 > 0xFFFFFFFF || (v24 = v20 + 216, (unsigned int)v20 >= 0xFFFFFF28) )
+  if ( v18 > 0xFFFFFFFF || (v24 = v18 + 216, (unsigned int)v18 >= 0xFFFFFF28) )
   {
-    v24 = -1;
     v25 = 0;
+    v24 = -1;
   }
   else
   {
@@ -75,10 +75,10 @@ PFFMEMOBJ *__fastcall PFFMEMOBJ::PFFMEMOBJ(
   {
     v23 = v24;
     v26 = -1;
-    v27 = v24 + ((2 * v18 + 3) & 0xFFFFFFFC);
+    v27 = v24 + ((2 * a4 + 3) & 0xFFFFFFFC);
     v25 = 0;
     if ( v27 >= v24 )
-      v26 = v24 + ((2 * v18 + 3) & 0xFFFFFFFC);
+      v26 = v24 + ((2 * a4 + 3) & 0xFFFFFFFC);
     v24 = v26;
     LOBYTE(v25) = v27 >= v23;
   }
@@ -87,111 +87,104 @@ PFFMEMOBJ *__fastcall PFFMEMOBJ::PFFMEMOBJ(
   {
     if ( !v25 )
       return this;
-    v39 = v24 + Size;
+    v36 = v24 + Size;
     v25 = 0;
     v22 = v24;
     if ( v24 + (unsigned int)Size >= v24 )
-      v21 = v24 + Size;
-    v24 = v21;
-    LOBYTE(v25) = v39 >= v28;
+      v19 = v24 + Size;
+    v24 = v19;
+    LOBYTE(v25) = v36 >= v28;
   }
   if ( v25 )
   {
-    v29 = v24;
-    if ( v24 )
+    v29 = (char *)PALLOCMEM2(v24, 1717989447LL, 1);
+    *(_QWORD *)this = v29;
+    if ( v29 )
     {
-      v30 = Win32AllocPoolZInit(v24, 1717989447LL);
-      *(_QWORD *)this = v30;
-      if ( v30 )
+      PushThreadGuardedObject(v29 + 160, v29, CleanUpPFF);
+      **(_QWORD **)this = v24;
+      *(_QWORD *)(*(_QWORD *)this + 16LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 8LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 80LL) = a8;
+      *(_QWORD *)(*(_QWORD *)this + 88LL) = a9;
+      *(_QWORD *)(*(_QWORD *)this + 96LL) = a10;
+      *(_QWORD *)(*(_QWORD *)this + 128LL) = a11;
+      *(_DWORD *)(*(_QWORD *)this + 36LL) = a5;
+      *(_DWORD *)(*(_QWORD *)this + 32LL) = v20;
+      v30 = *(_QWORD *)this;
+      if ( (_DWORD)v20 )
       {
-        PushThreadGuardedObject(v30 + 160, v30, CleanUpPFF);
-        **(_QWORD **)this = v29;
-        *(_QWORD *)(*(_QWORD *)this + 16LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 8LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 80LL) = a8;
-        *(_QWORD *)(*(_QWORD *)this + 88LL) = a9;
-        *(_QWORD *)(*(_QWORD *)this + 96LL) = a10;
-        *(_QWORD *)(*(_QWORD *)this + 128LL) = a11;
-        *(_DWORD *)(*(_QWORD *)this + 36LL) = a5;
-        *(_DWORD *)(*(_QWORD *)this + 32LL) = v18;
-        v31 = *(_QWORD *)this;
-        if ( (_DWORD)v18 )
+        *(_QWORD *)(v30 + 24) = v30 + v23;
+        memmove(*(void **)(*(_QWORD *)this + 24LL), a3, 2 * v20);
+      }
+      else
+      {
+        *(_QWORD *)(v30 + 24) = 0LL;
+      }
+      *(_DWORD *)(*(_QWORD *)this + 48LL) = Size;
+      v31 = *(_QWORD *)this;
+      if ( (_DWORD)Size )
+      {
+        *(_QWORD *)(v31 + 40) = v31 + v22;
+        memmove(*(void **)(*(_QWORD *)this + 40LL), Src, (unsigned int)Size);
+      }
+      else
+      {
+        *(_QWORD *)(v31 + 40) = 0LL;
+      }
+      if ( gbNetworkFontsLoaded && gbAttemptedEnableEUDC && gbFntCacheClosed )
+        v32 = a12;
+      else
+        v32 = a12 | 0x200;
+      v33 = v32 | 0x1000;
+      *(_QWORD *)(*(_QWORD *)this + 200LL) = a15;
+      if ( !a17 )
+        v33 = v32;
+      *(_DWORD *)(*(_QWORD *)this + 208LL) = 0;
+      *(_DWORD *)(*(_QWORD *)this + 68LL) = 0;
+      *(_DWORD *)(*(_QWORD *)this + 52LL) = v33;
+      *(_QWORD *)(*(_QWORD *)this + 104LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 112LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 120LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 72LL) = 0LL;
+      *(_QWORD *)(*(_QWORD *)this + 144LL) = 0LL;
+      v34 = *(_QWORD *)this;
+      if ( (a13 & 0x1C) != 0 )
+      {
+        *(_DWORD *)(v34 + 56) = 0;
+        *(_DWORD *)(*(_QWORD *)this + 60LL) = 0;
+        PFFOBJ::bAddPvtData(this, a13);
+      }
+      else if ( (a13 & 0x20) != 0 )
+      {
+        *(_DWORD *)(v34 + 56) = 0;
+        *(_DWORD *)(*(_QWORD *)this + 60LL) = 1;
+      }
+      else
+      {
+        *(_DWORD *)(v34 + 56) = 1;
+        *(_DWORD *)(*(_QWORD *)this + 60LL) = 0;
+      }
+      *(_QWORD *)(*(_QWORD *)this + 152LL) = 0LL;
+      *(_DWORD *)(*(_QWORD *)this + 136LL) = 0;
+      if ( a16 )
+      {
+        *(_DWORD *)(*(_QWORD *)this + 136LL) = *(_DWORD *)a16;
+      }
+      else if ( a15 )
+      {
+        *(_DWORD *)(*(_QWORD *)this + 136LL) = *((_DWORD *)a14 + 1);
+        if ( !*(_DWORD *)(*(_QWORD *)this + 136LL) )
         {
-          *(_QWORD *)(v31 + 24) = v31 + v23;
-          memmove(*(void **)(*(_QWORD *)this + 24LL), a3, 2 * v18);
+          v37 = *(_QWORD *)this;
+          *(_DWORD *)(v37 + 136) += ComputeFileviewCheckSumInFontDriverAddressSpace(a15, a5);
+          if ( (a13 & 0x10) == 0 )
+            PutFNTCacheCheckSum(*(_DWORD *)a14, *(_DWORD *)(*(_QWORD *)this + 136LL));
         }
-        else
+        if ( *(_DWORD *)(*(_QWORD *)this + 48LL) )
         {
-          *(_QWORD *)(v31 + 24) = 0LL;
-        }
-        *(_DWORD *)(*(_QWORD *)this + 48LL) = Size;
-        v32 = *(_QWORD *)this;
-        if ( (_DWORD)Size )
-        {
-          *(_QWORD *)(v32 + 40) = v32 + v22;
-          memmove(*(void **)(*(_QWORD *)this + 40LL), Src, (unsigned int)Size);
-        }
-        else
-        {
-          *(_QWORD *)(v32 + 40) = 0LL;
-        }
-        v33 = SGDGetSessionState(v32);
-        if ( gbNetworkFontsLoaded
-          && *(_BYTE *)(*(_QWORD *)(v33 + 32) + 13296LL)
-          && *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v34) + 32) + 19404LL) )
-        {
-          v35 = a12;
-        }
-        else
-        {
-          v35 = a12 | 0x200;
-        }
-        v36 = v35 | 0x1000;
-        *(_QWORD *)(*(_QWORD *)this + 200LL) = a15;
-        if ( !a17 )
-          v36 = v35;
-        *(_DWORD *)(*(_QWORD *)this + 208LL) = 0;
-        *(_DWORD *)(*(_QWORD *)this + 68LL) = 0;
-        *(_DWORD *)(*(_QWORD *)this + 52LL) = v36;
-        *(_QWORD *)(*(_QWORD *)this + 104LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 112LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 120LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 72LL) = 0LL;
-        *(_QWORD *)(*(_QWORD *)this + 144LL) = 0LL;
-        v37 = *(_QWORD *)this;
-        if ( (a13 & 0x1C) != 0 )
-        {
-          *(_DWORD *)(v37 + 56) = 0;
-          *(_DWORD *)(*(_QWORD *)this + 60LL) = 0;
-          PFFOBJ::bAddPvtData(this, a13);
-        }
-        else if ( (a13 & 0x20) != 0 )
-        {
-          *(_DWORD *)(v37 + 56) = 0;
-          *(_DWORD *)(*(_QWORD *)this + 60LL) = 1;
-        }
-        else
-        {
-          *(_DWORD *)(v37 + 56) = 1;
-          *(_DWORD *)(*(_QWORD *)this + 60LL) = 0;
-        }
-        *(_QWORD *)(*(_QWORD *)this + 152LL) = 0LL;
-        *(_DWORD *)(*(_QWORD *)this + 136LL) = 0;
-        if ( a16 )
-        {
-          *(_DWORD *)(*(_QWORD *)this + 136LL) = *(_DWORD *)a16;
-        }
-        else if ( a15 )
-        {
-          *(_DWORD *)(*(_QWORD *)this + 136LL) = *((_DWORD *)a14 + 1);
-          if ( !*(_DWORD *)(*(_QWORD *)this + 136LL) )
-          {
-            *(_DWORD *)(*(_QWORD *)this + 136LL) += ComputeFileviewCheckSumInFontDriverAddressSpace(a15, a5);
-            if ( (a13 & 0x10) == 0 )
-              PutFNTCacheCheckSum(*(_DWORD *)a14, *(_DWORD *)(*(_QWORD *)this + 136LL));
-          }
-          if ( *(_DWORD *)(*(_QWORD *)this + 48LL) )
-            *(_DWORD *)(*(_QWORD *)this + 136LL) += ComputeFileviewCheckSum(Src, (unsigned int)Size);
+          v38 = *(_QWORD *)this;
+          *(_DWORD *)(v38 + 136) += ComputeFileviewCheckSum(Src, Size);
         }
       }
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInitSystemSleeperThread @ 0x1406DCE84
+ * XREFs of PopInitSystemSleeperThread @ 0x1406DCE64
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2)

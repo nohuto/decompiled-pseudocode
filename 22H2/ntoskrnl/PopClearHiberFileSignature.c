@@ -1,12 +1,12 @@
 /*
- * XREFs of PopClearHiberFileSignature @ 0x1409884FC
+ * XREFs of PopClearHiberFileSignature @ 0x14078E594
  * Callers:
- *     PopEnableHiberFile @ 0x140803C60 (PopEnableHiberFile.c)
- *     PopFreeHiberContext @ 0x1409886A0 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x14077404C (PopFreeHiberContext.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x14041ADC0 (ZwFsControlFile.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1403FA140 (ZwFsControlFile.c)
  */
 
 void PopClearHiberFileSignature()
@@ -23,7 +23,7 @@ void PopClearHiberFileSignature()
     v1[1] = 1;
     v2 = 4096LL;
     v3 = -4097LL;
-    if ( ZwFsControlFile(PopHiberInfo, 0LL, 0LL, 0LL, &v0, 0x98208u, v1, 0x18u, 0LL, 0) == 259 )
+    if ( ZwFsControlFile(*(HANDLE *)&PopHiberInfo, 0LL, 0LL, 0LL, &v0, 0x98208u, v1, 0x18u, 0LL, 0) == 259 )
       KeWaitForSingleObject((char *)FileObject + 152, Executive, 0, 0, 0LL);
   }
 }

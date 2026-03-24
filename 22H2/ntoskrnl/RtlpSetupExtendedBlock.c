@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetupExtendedBlock @ 0x1405AE16C
+ * XREFs of RtlpSetupExtendedBlock @ 0x14058B818
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14034C538 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402FECA8 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405B4D88 (RtlpAnalyzeHeapFailure.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlpAnalyzeHeapFailure @ 0x140593500 (RtlpAnalyzeHeapFailure.c)
  */
 
 __int64 __fastcall RtlpSetupExtendedBlock(
@@ -17,22 +17,22 @@ __int64 __fastcall RtlpSetupExtendedBlock(
         int a6)
 {
   char v7; // cl
-  __int64 v8; // rsi
-  char v9; // r15
+  char v8; // r15
+  __int64 v10; // rsi
   __int64 v11; // rdx
   int v12; // ecx
   unsigned __int16 v13; // ax
-  int v15; // [rsp+28h] [rbp-10h]
+  int v15; // [rsp+28h] [rbp-20h]
 
   v7 = *(_BYTE *)(a3 - 1);
-  v8 = a3 + a5;
-  v9 = 0;
+  v8 = 0;
+  v10 = a3 + a5;
   if ( v7 == 4 )
   {
-    if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
+    if ( ((a2 | *(_BYTE *)(a1 + 116)) & 1) == 0 )
     {
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 352), 1u);
-      v9 = 1;
+      v8 = 1;
     }
     if ( *(_DWORD *)(a1 + 124) )
     {
@@ -40,15 +40,15 @@ __int64 __fastcall RtlpSetupExtendedBlock(
       if ( *(_BYTE *)(a3 - 5) != (*(_BYTE *)(a3 - 8) ^ (unsigned __int8)(*(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6))) )
         RtlpAnalyzeHeapFailure(a1, a3 - 16);
     }
-    LOWORD(v11) = *(_WORD *)(a3 - 8) + a5;
-    *(_WORD *)(a3 - 8) = v11;
+    *(_WORD *)(a3 - 8) += a5;
+    LOWORD(v11) = *(_WORD *)(a3 - 8);
     *(_BYTE *)(a3 - 2) = a5 >> 4;
     if ( *(_DWORD *)(a1 + 124) )
     {
-      *(_BYTE *)(a3 - 5) = v11 ^ *(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6);
+      *(_BYTE *)(a3 - 5) = *(_BYTE *)(a3 - 8) ^ *(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6);
       *(_DWORD *)(a3 - 8) ^= *(_DWORD *)(a1 + 136);
     }
-    *(_BYTE *)(v8 - 2) = a5 >> 4;
+    *(_BYTE *)(v10 - 2) = a5 >> 4;
   }
   else
   {
@@ -80,13 +80,13 @@ __int64 __fastcall RtlpSetupExtendedBlock(
     {
       LOWORD(v11) = v7 & 0x3F;
     }
-    *(_BYTE *)(v8 - 2) = a5 >> 4;
+    *(_BYTE *)(v10 - 2) = a5 >> 4;
     *(_BYTE *)(a3 - 1) = (a5 >> 4) | *(_BYTE *)(a3 - 1) & 0xC0 | 0x40;
   }
-  *(_BYTE *)(v8 - 1) = 5;
-  *(_WORD *)(v8 - 4) = a5 + v11;
-  *(_DWORD *)(v8 - 8) = a6;
-  if ( v9 )
+  *(_BYTE *)(v10 - 1) = 5;
+  *(_WORD *)(v10 - 4) = a5 + v11;
+  *(_DWORD *)(v10 - 8) = a6;
+  if ( v8 )
     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 352));
-  return v8;
+  return v10;
 }

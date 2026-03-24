@@ -1,13 +1,13 @@
 /*
- * XREFs of PsReturnPoolQuota @ 0x140367E30
+ * XREFs of PsReturnPoolQuota @ 0x1402AEC50
  * Callers:
- *     ExpReturnPoolQuota @ 0x140367DEC (ExpReturnPoolQuota.c)
+ *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
  * Callees:
- *     PspReturnQuota @ 0x1403493B0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
  */
 
 void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
 {
   if ( Process != PsInitialSystemProcess )
-    PspReturnQuota((char *)Process[1].Affinity.StaticBitmap[27], (ULONG_PTR)Process, PoolType == PagedPool, Amount);
+    PspReturnQuota(Process[1].AffinityPadding[7], Process, PoolType == PagedPool, Amount);
 }

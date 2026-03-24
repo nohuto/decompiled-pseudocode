@@ -1,12 +1,15 @@
 /*
- * XREFs of ?Release@CD3DSurface@@UEAAKXZ @ 0x18028C9C8
+ * XREFs of ?Release@CD3DSurface@@UEAAKXZ @ 0x1800D52C0
  * Callers:
- *     ?Release@CD3DSurface@@$4PPPPPPPM@A@EAAKXZ @ 0x1801092D0 (-Release@CD3DSurface@@$4PPPPPPPM@A@EAAKXZ.c)
+ *     ?Release@CD3DResource@@$4PPPPPPPM@II@EAAKXZ @ 0x1800F6F20 (-Release@CD3DResource@@$4PPPPPPPM@II@EAAKXZ.c)
+ *     ?Release@CD3DResource@@$4PPPPPPPM@HI@EAAKXZ @ 0x1800F6F60 (-Release@CD3DResource@@$4PPPPPPPM@HI@EAAKXZ.c)
+ *     ?Release@CD3DSurface@@$4PPPPPPPM@PI@EAAKXZ @ 0x1800F7750 (-Release@CD3DSurface@@$4PPPPPPPM@PI@EAAKXZ.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CD3DSurface::Release(CD3DSurface *this)
+// attributes: thunk
+unsigned int __fastcall CD3DSurface::Release(CD3DSurface *this)
 {
-  return CMILRefCountBaseT<IDeviceResource>::InternalRelease((volatile signed __int32 *)this - 58);
+  return CMILPoolResource::Release(this);
 }

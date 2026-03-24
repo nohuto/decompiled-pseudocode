@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhPeekNextPdoWakeIrp @ 0x1C001EBF0
+ * XREFs of UsbhPeekNextPdoWakeIrp @ 0x1C001C6F0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 _LIST_ENTRY **__fastcall UsbhPeekNextPdoWakeIrp(PIO_CSQ Csq, PIRP Irp, PVOID PeekContext)

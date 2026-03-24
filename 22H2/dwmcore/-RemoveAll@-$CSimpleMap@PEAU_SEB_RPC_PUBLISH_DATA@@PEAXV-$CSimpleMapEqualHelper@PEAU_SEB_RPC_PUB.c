@@ -1,28 +1,22 @@
 /*
- * XREFs of ?RemoveAll@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAXXZ @ 0x18027C958
+ * XREFs of ?RemoveAll@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAXXZ @ 0x1800E647C
  * Callers:
- *     ??1ContextTable@@QEAA@XZ @ 0x18010EE0C (--1ContextTable@@QEAA@XZ.c)
+ *     ??1ContextTable@@QEAA@XZ @ 0x1800E6464 (--1ContextTable@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAll(
-        __int64 a1)
+void ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAll()
 {
-  void *v2; // rcx
-  void *v3; // rcx
-
-  v2 = *(void **)a1;
-  if ( v2 )
+  if ( Block )
   {
-    free(v2);
-    *(_QWORD *)a1 = 0LL;
+    free(Block);
+    Block = 0LL;
   }
-  v3 = *(void **)(a1 + 8);
-  if ( v3 )
+  if ( *(&Block + 1) )
   {
-    free(v3);
-    *(_QWORD *)(a1 + 8) = 0LL;
+    free(*(&Block + 1));
+    *(&Block + 1) = 0LL;
   }
-  *(_DWORD *)(a1 + 16) = 0;
+  LODWORD(qword_18034B4E0) = 0;
 }

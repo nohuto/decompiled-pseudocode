@@ -1,8 +1,8 @@
 /*
- * XREFs of adapt @ 0x1405ECE9C
+ * XREFs of adapt @ 0x14058D83C
  * Callers:
- *     punycode_decode @ 0x1409BBF5C (punycode_decode.c)
- *     punycode_encode @ 0x1409BC59C (punycode_encode.c)
+ *     punycode_decode @ 0x1409168DC (punycode_decode.c)
+ *     punycode_encode @ 0x140916F24 (punycode_encode.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall adapt(int a1, int a2, char a3)
     v4 = a1 / 700;
   else
     v4 = a1 / 2;
-  for ( i = v4 / a2 + v4; i > 455; i /= 0x23u )
+  for ( i = v4 / a2 + v4; i > 455; i /= 35 )
     v3 += 36;
   return (unsigned int)(v3 + 36 * i / (i + 38));
 }

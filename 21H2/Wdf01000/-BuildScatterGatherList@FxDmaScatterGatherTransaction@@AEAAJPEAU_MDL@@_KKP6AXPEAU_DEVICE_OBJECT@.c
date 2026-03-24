@@ -1,11 +1,11 @@
 /*
- * XREFs of ?BuildScatterGatherList@FxDmaScatterGatherTransaction@@AEAAJPEAU_MDL@@_KKP6AXPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAU_SCATTER_GATHER_LIST@@PEAX@Z55K@Z @ 0x1C0057C98
+ * XREFs of ?BuildScatterGatherList@FxDmaScatterGatherTransaction@@AEAAJPEAU_MDL@@_KKP6AXPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAU_SCATTER_GATHER_LIST@@PEAX@Z55K@Z @ 0x1C0034DF0
  * Callers:
- *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058240 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035430 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
  * Callees:
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
  */
 
 __int64 __fastcall FxDmaScatterGatherTransaction::BuildScatterGatherList(
@@ -18,30 +18,28 @@ __int64 __fastcall FxDmaScatterGatherTransaction::BuildScatterGatherList(
         void *ScatterGatherBufferLength,
         unsigned int Mdl_0)
 {
-  KIRQL v12; // al
-  FxDmaEnabler *m_DmaEnabler; // rsi
-  KIRQL v14; // r14
-  _FxDmaDescription *m_AdapterInfo; // rdx
-  unsigned int m_Flags; // edi
-  _DMA_ADAPTER *AdapterObject; // rbp
-  __int64 v18; // r9
-  __int64 v19; // r11
-  int v20; // eax
-  unsigned int v21; // ebx
+  KIRQL v12; // si
+  __int64 v13; // r11
+  _DMA_ADAPTER *AdapterObject; // rdi
+  unsigned int m_Flags; // edx
+  __int64 v16; // r9
+  __int64 v17; // r10
+  __int64 v18; // r11
+  int v19; // eax
+  unsigned int v20; // ebx
+  unsigned __int8 v22; // [rsp+38h] [rbp-60h]
+  char m_DmaDirection; // [rsp+48h] [rbp-50h]
 
   v12 = KfRaiseIrql(2u);
-  m_DmaEnabler = this->m_DmaEnabler;
-  v14 = v12;
-  if ( FxDmaEnabler::GetDmaDescription(m_DmaEnabler, WdfDmaDirectionReadFromDevice)->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
+  if ( FxDmaEnabler::GetDmaDescription(this->m_DmaEnabler, WdfDmaDirectionReadFromDevice)->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
   {
-    m_AdapterInfo = this->m_AdapterInfo;
-    m_Flags = 0;
-    AdapterObject = m_AdapterInfo->AdapterObject;
-    if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, (unsigned int)m_AdapterInfo, 0xFu) )
+    AdapterObject = this->m_AdapterInfo->AdapterObject;
+    if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, 0, 0xFu) )
       m_Flags = this->m_Flags;
-    v20 = (*(__int64 (__fastcall **)(_DMA_ADAPTER *, _DEVICE_OBJECT *, void *, _MDL *, unsigned __int64, unsigned int, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, _BYTE, void *, unsigned int, __int64, __int64, __int64))(v19 + 200))(
+    m_DmaDirection = this->m_DmaDirection;
+    v19 = (*(__int64 (__fastcall **)(_DMA_ADAPTER *, _QWORD, void *, _MDL *, unsigned __int64, unsigned int, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, char, void *, unsigned int, __int64, __int64, __int64))(v17 + 200))(
             AdapterObject,
-            m_DmaEnabler->m_FDO,
+            *(_QWORD *)(v18 + 168),
             this->m_TransferContext,
             Mdl,
             CurrentOffset,
@@ -49,28 +47,29 @@ __int64 __fastcall FxDmaScatterGatherTransaction::BuildScatterGatherList(
             m_Flags,
             FxDmaScatterGatherTransaction::_AdapterListControl,
             ScatterGatherBuffer,
-            this->m_DmaDirection,
+            m_DmaDirection,
             ScatterGatherBufferLength,
             Mdl_0,
-            v18,
-            v18,
-            v18);
+            v16,
+            v16,
+            v16);
   }
   else
   {
-    v20 = this->m_AdapterInfo->AdapterObject->DmaOperations->BuildScatterGatherList(
+    v22 = this->m_DmaDirection;
+    v19 = this->m_AdapterInfo->AdapterObject->DmaOperations->BuildScatterGatherList(
             this->m_AdapterInfo->AdapterObject,
-            m_DmaEnabler->m_FDO,
+            *(_DEVICE_OBJECT **)(v13 + 168),
             Mdl,
             (char *)Mdl->StartVa + Mdl->ByteOffset + CurrentOffset,
             Length,
             FxDmaScatterGatherTransaction::_AdapterListControl,
             ScatterGatherBuffer,
-            this->m_DmaDirection,
+            v22,
             ScatterGatherBufferLength,
             Mdl_0);
   }
-  v21 = v20;
-  KeLowerIrql(v14);
-  return v21;
+  v20 = v19;
+  KeLowerIrql(v12);
+  return v20;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockRetpolineStubs @ 0x140B9A9F0
+ * XREFs of MiLockRetpolineStubs @ 0x140A92540
  * Callers:
- *     MiInitializeRetpoline @ 0x140B48688 (MiInitializeRetpoline.c)
+ *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmCreateMdl @ 0x1403564F0 (MmCreateMdl.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmCreateMdl @ 0x14027D890 (MmCreateMdl.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 MiLockRetpolineStubs()
@@ -13,11 +13,11 @@ __int64 MiLockRetpolineStubs()
   PMDL Mdl; // rax
   __int64 v1; // rbx
 
-  Mdl = MmCreateMdl(0LL, Base, (unsigned int)(dword_140C65980 << 12));
+  Mdl = MmCreateMdl(0LL, Base, (unsigned int)(dword_140C4CC88 << 12));
   v1 = (__int64)Mdl;
   if ( !Mdl )
     return 3221225626LL;
   MiProbeAndLockPages((__int64)Mdl, 0, 0);
-  qword_140C65948 = v1;
+  qword_140C4CC50 = v1;
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCallSetInputMode @ 0x1409A229C
+ * XREFs of TtmpCallSetInputMode @ 0x1408FC83C
  * Callers:
- *     TtmpPushTerminalState @ 0x1409A2BAC (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x1408FD150 (TtmpPushTerminalState.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     TtmpStartCallout @ 0x1409A2D68 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1409A2E54 (TtmpStopCallout.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     TtmpStartCallout @ 0x1408FD31C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD408 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallSetInputMode(int a1, __int64 a2, unsigned int a3)
@@ -25,6 +25,6 @@ void __fastcall TtmpCallSetInputMode(int a1, __int64 a2, unsigned int a3)
     v6 = v3(*(_QWORD *)(a2 + 24), a3);
     TtmpStopCallout(v7, (unsigned int)v6);
     if ( v6 < 0 )
-      TtmiLogError("TtmpCallSetInputMode", 2503LL, (unsigned int)v6, 0xFFFFFFFFLL);
+      TtmiLogError("TtmpCallSetInputMode", 2498LL, (unsigned int)v6, 0xFFFFFFFFLL);
   }
 }

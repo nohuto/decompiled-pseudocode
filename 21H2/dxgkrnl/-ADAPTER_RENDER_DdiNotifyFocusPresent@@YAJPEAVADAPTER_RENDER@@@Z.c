@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ADAPTER_RENDER_DdiNotifyFocusPresent@@YAJPEAVADAPTER_RENDER@@@Z @ 0x1C004B7B0
+ * XREFs of ?ADAPTER_RENDER_DdiNotifyFocusPresent@@YAJPEAVADAPTER_RENDER@@@Z @ 0x1C00422E0
  * Callers:
  *     <none>
  * Callees:
- *     ?DdiNotifyFocusPresent@ADAPTER_RENDER@@QEAAJXZ @ 0x1C00477C0 (-DdiNotifyFocusPresent@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?DdiNotifyFocusPresent@ADAPTER_RENDER@@QEAAJXZ @ 0x1C003C6A4 (-DdiNotifyFocusPresent@ADAPTER_RENDER@@QEAAJXZ.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER_DdiNotifyFocusPresent(struct ADAPTER_RENDER *a1, __int64 a2, __int64 a3)

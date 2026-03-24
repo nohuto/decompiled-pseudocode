@@ -1,20 +1,18 @@
 /*
- * XREFs of McGenEventUnregister_EventUnregister @ 0x18026FE14
+ * XREFs of McGenEventUnregister_EventUnregister @ 0x1800E6760
  * Callers:
- *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800ADEE8 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B2DFC (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
  * Callees:
  *     <none>
  */
 
-ULONG __fastcall McGenEventUnregister_EventUnregister(REGHANDLE *a1)
+ULONG McGenEventUnregister_EventUnregister()
 {
-  REGHANDLE v2; // rcx
   ULONG result; // eax
 
-  v2 = *a1;
-  if ( !v2 )
+  if ( !Microsoft_Windows_Dwm_Core_Provider_Context[0] )
     return 0;
-  result = EventUnregister(v2);
-  *a1 = 0LL;
+  result = EventUnregister(Microsoft_Windows_Dwm_Core_Provider_Context[0]);
+  Microsoft_Windows_Dwm_Core_Provider_Context[0] = 0LL;
   return result;
 }

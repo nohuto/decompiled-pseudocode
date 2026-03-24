@@ -1,35 +1,35 @@
 /*
- * XREFs of PnpQueryBusInformation @ 0x1407499A8
+ * XREFs of PnpQueryBusInformation @ 0x14076CA84
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PnpBusTypeGuidGetIndex @ 0x140747C74 (PnpBusTypeGuidGetIndex.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     PnpBusTypeGuidGetIndex @ 0x14076CB5C (PnpBusTypeGuidGetIndex.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueryBusInformation(__int64 a1)
 {
-  __int64 v2; // rcx
+  struct _DEVICE_OBJECT *v2; // rcx
   int v3; // eax
-  __int128 *v4; // rbx
+  _DWORD *v4; // rbx
   unsigned int v5; // esi
-  _WORD v7[36]; // [rsp+30h] [rbp-58h] BYREF
-  __int128 *v8; // [rsp+90h] [rbp+8h] BYREF
+  _WORD v7[40]; // [rsp+30h] [rbp-58h] BYREF
+  _DWORD *v8; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = 0LL;
-  memset(v7, 0, sizeof(v7));
-  v2 = *(_QWORD *)(a1 + 32);
+  memset(v7, 0, 0x48uLL);
+  v2 = *(struct _DEVICE_OBJECT **)(a1 + 32);
   v7[0] = 5403;
-  v3 = IopSynchronousCall(v2, (unsigned int)v7, -1073741637, 0, (__int64)&v8);
+  v3 = IopSynchronousCall(v2, (__int64)v7, -1073741637, 0LL, &v8);
   v4 = v8;
   v5 = v3;
   if ( v3 >= 0 )
   {
     *(_WORD *)(a1 + 464) = PnpBusTypeGuidGetIndex(v8);
-    *(_DWORD *)(a1 + 456) = *((_DWORD *)v4 + 4);
-    *(_DWORD *)(a1 + 460) = *((_DWORD *)v4 + 5);
+    *(_DWORD *)(a1 + 456) = v4[4];
+    *(_DWORD *)(a1 + 460) = v4[5];
     ExFreePoolWithTag(v4, 0);
   }
   else

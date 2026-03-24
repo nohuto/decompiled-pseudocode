@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CManipulationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021ACF0
+ * XREFs of ?SetRemarshalingFlags@CManipulationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E4840
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0215C04 (-SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01D5F90 (-SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CManipulationMarshaler::SetRemarshalingFlags(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CManipulationMarshaler::SetRemarshalingFlags(
 
   v1 = *((_DWORD *)this + 4) | 0xC0;
   *((_DWORD *)this + 4) = v1;
-  if ( *((_QWORD *)this + 36) && *((_DWORD *)this + 39) && *((_WORD *)this + 80) )
+  if ( *((_QWORD *)this + 35) && *((_DWORD *)this + 37) && *((_WORD *)this + 76) )
     *((_DWORD *)this + 4) = v1 | 0x100;
   DirectComposition::CNotificationResourceMarshaler::SetRemarshalingFlags(this);
   return 1;

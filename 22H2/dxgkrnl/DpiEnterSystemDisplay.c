@@ -1,15 +1,15 @@
 /*
- * XREFs of DpiEnterSystemDisplay @ 0x1C001BEC0
+ * XREFs of DpiEnterSystemDisplay @ 0x1C0020290
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C0043000 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C0197F10 (DxgkAcquireAdapterCoreSync.c)
- *     DxgkReleaseAdapterCoreSync @ 0x1C01984C8 (DxgkReleaseAdapterCoreSync.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C001A408 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C012E1AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C012E510 (DxgkAcquireAdapterCoreSync.c)
  */
 
 __int64 __fastcall DpiEnterSystemDisplay(char a1, __int64 a2, _QWORD *a3)
@@ -24,31 +24,29 @@ __int64 __fastcall DpiEnterSystemDisplay(char a1, __int64 a2, _QWORD *a3)
   ADAPTER_DISPLAY *v13; // rcx
   unsigned int v14; // esi
   __int64 v15; // rcx
-  _BYTE *v16; // rsi
-  __int64 v17; // rcx
-  int (__fastcall *v18)(__int64, __int64, int *, int *, int *, int *); // rax
-  int v19; // edx
-  int v20; // [rsp+40h] [rbp-58h] BYREF
-  int v21; // [rsp+44h] [rbp-54h] BYREF
-  int v22; // [rsp+48h] [rbp-50h] BYREF
-  int v23; // [rsp+4Ch] [rbp-4Ch] BYREF
-  unsigned int v24; // [rsp+50h] [rbp-48h] BYREF
-  PRKMUTEX Mutex; // [rsp+58h] [rbp-40h]
-  int v26; // [rsp+A8h] [rbp+10h] BYREF
-  _QWORD *v27; // [rsp+B0h] [rbp+18h]
-  unsigned int v28; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v16; // rcx
+  int (__fastcall *v17)(__int64, __int64, int *, int *, int *, int *); // rax
+  int v18; // edx
+  unsigned int v19; // [rsp+40h] [rbp-58h] BYREF
+  int v20; // [rsp+44h] [rbp-54h] BYREF
+  int v21; // [rsp+48h] [rbp-50h] BYREF
+  int v22; // [rsp+4Ch] [rbp-4Ch] BYREF
+  unsigned int v23[18]; // [rsp+50h] [rbp-48h] BYREF
+  int v24; // [rsp+A8h] [rbp+10h] BYREF
+  _QWORD *v25; // [rsp+B0h] [rbp+18h]
+  int v26; // [rsp+B8h] [rbp+20h] BYREF
 
-  v27 = a3;
-  v28 = -1;
-  v20 = 3;
-  v23 = 0;
-  v21 = 0;
-  v5 = 0LL;
+  v25 = a3;
+  v19 = -1;
+  v26 = 3;
   v22 = 0;
-  v26 = 0;
+  v20 = 0;
+  v5 = 0LL;
+  v21 = 0;
+  v24 = 0;
   if ( !a2 )
     return 3221225485LL;
-  if ( byte_1C0140810 )
+  if ( byte_1C00B2E88 )
   {
     v6 = 640;
     *(_DWORD *)(a2 + 16) = 5;
@@ -68,17 +66,16 @@ LABEL_4:
     AcquireMiniportListMutex();
   for ( i = 0; i < 4; ++i )
   {
-    v10 = qword_1C01404C8;
+    v10 = qword_1C00B2B40;
     if ( *(_QWORD *)v10 == v10 )
       continue;
     while ( *(_DWORD *)(v10 + 28) < 0x3004u || !*(_QWORD *)(v10 + 744) )
     {
 LABEL_63:
       v10 = *(_QWORD *)v10;
-      if ( *(_QWORD *)v10 == qword_1C01404C8 )
+      if ( *(_QWORD *)v10 == qword_1C00B2B40 )
         goto LABEL_47;
     }
-    Mutex = (PRKMUTEX)(v10 + 72);
     if ( !a1 )
       KeWaitForSingleObject((PVOID)(v10 + 72), Executive, 0, 0, 0LL);
     v11 = *(_QWORD *)(v10 + 56);
@@ -100,35 +97,33 @@ LABEL_63:
           DpiCheckForOutstandingD3Requests(v11);
         ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v11 + 168), 1u);
       }
-      if ( (*(_BYTE *)(v11 + 3920) & 4) == 0 )
-      {
-        if ( !a1 )
-          goto LABEL_35;
-        goto LABEL_38;
-      }
+      if ( (*(_BYTE *)(v11 + 3904) & 4) == 0 )
+        goto LABEL_34;
       if ( !a1 )
-        DxgkAcquireAdapterCoreSync(*(_QWORD *)(v11 + 3912), 2LL);
-      v12 = *(_QWORD *)(v11 + 3912);
+        DxgkAcquireAdapterCoreSync(*(_QWORD *)(v11 + 3896), 2LL);
+      v12 = *(_QWORD *)(v11 + 3896);
       if ( v12 )
       {
-        v13 = *(ADAPTER_DISPLAY **)(v12 + 2920);
+        v13 = *(ADAPTER_DISPLAY **)(v12 + 2696);
         if ( v13 )
         {
-          ADAPTER_DISPLAY::GetPrimaryPath(v13, &v24, &v28, (enum _DXGK_PRIMARY_TARGET_TYPE *)&v20);
-          if ( v20 == i )
+          ADAPTER_DISPLAY::GetPrimaryPath(v13, v23, &v19, (enum _DXGK_PRIMARY_TARGET_TYPE *)&v26);
+          if ( v26 == i )
             break;
         }
       }
       if ( !a1 )
       {
-        DxgkReleaseAdapterCoreSync(*(_QWORD *)(v11 + 3912), 2LL);
-LABEL_35:
-        if ( *(_BYTE *)(v11 + 484) )
-          DpiEnableD3Requests(*(_QWORD *)(v11 + 24));
-        ExReleaseResourceLite(*(PERESOURCE *)(v11 + 168));
-        KeLeaveCriticalRegion();
+        DxgkReleaseAdapterCoreSync(*(_QWORD *)(v11 + 3896), 2LL);
+LABEL_34:
+        if ( !a1 )
+        {
+          if ( *(_BYTE *)(v11 + 484) )
+            DpiEnableD3Requests(*(_QWORD *)(v11 + 24));
+          ExReleaseResourceLite(*(PERESOURCE *)(v11 + 168));
+          KeLeaveCriticalRegion();
+        }
       }
-LABEL_38:
       v5 = 0LL;
 LABEL_39:
       v11 = *(_QWORD *)v11;
@@ -141,92 +136,91 @@ LABEL_61:
         KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
       goto LABEL_63;
     }
-    v14 = v28;
+    v14 = v19;
     if ( (*(int (__fastcall **)(_QWORD, _QWORD, int *, int *, int *, int *))(v10 + 744))(
            *(_QWORD *)(v5 + 48),
-           v28,
-           &v23,
-           &v21,
+           v19,
            &v22,
-           &v26) >= 0 )
+           &v20,
+           &v21,
+           &v24) >= 0 )
     {
-      v19 = v26;
-      if ( !v26 && qword_1C0140748 && v5 == *(_QWORD *)(qword_1C0140748 + 64) )
+      v18 = v24;
+      if ( !v24 && qword_1C00B2DC0 && v5 == *(_QWORD *)(qword_1C00B2DC0 + 64) )
         *(_DWORD *)(a2 + 16) = 1;
       else
         *(_DWORD *)(a2 + 16) = 5;
 LABEL_60:
-      v7 = v22;
-      a3 = v27;
-      dword_1C0140828 = v20;
-      v6 = v21;
-      dword_1C0140830 = v21;
-      byte_1C0140811 = a1;
-      qword_1C0140818 = v10;
-      qword_1C0140820 = v5;
-      dword_1C014082C = v14;
-      dword_1C0140834 = v22;
-      dword_1C0140838 = v19;
+      v7 = v21;
+      a3 = v25;
+      dword_1C00B2EA0 = v26;
+      v6 = v20;
+      dword_1C00B2EA8 = v20;
+      byte_1C00B2E89 = a1;
+      qword_1C00B2E90 = v10;
+      qword_1C00B2E98 = v5;
+      dword_1C00B2EA4 = v14;
+      dword_1C00B2EAC = v21;
+      dword_1C00B2EB0 = v18;
       goto LABEL_4;
     }
     if ( !a1 )
     {
-      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v5 + 3912), 2LL);
+      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v5 + 3896), 2LL);
       if ( *(_BYTE *)(v5 + 484) )
         DpiEnableD3Requests(*(_QWORD *)(v5 + 24));
       ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
       KeLeaveCriticalRegion();
+      KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
       KeReleaseMutex(Mutex, 0);
-      _InterlockedExchange64(&qword_1C01404D8, 0LL);
-      KeReleaseMutex(::Mutex, 0);
     }
     v5 = 0LL;
 LABEL_47:
     ;
   }
-  if ( qword_1C0140740 )
+  if ( qword_1C00B2DB8 )
   {
-    v15 = *(_QWORD *)(qword_1C0140740 + 64);
+    v15 = *(_QWORD *)(qword_1C00B2DB8 + 64);
     if ( *(_DWORD *)(v15 + 236) == 2 )
       (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(v15 + 40) + 240LL))(*(_QWORD *)(v15 + 48));
   }
   if ( !a1 )
     AcquireMiniportListMutex();
-  if ( qword_1C0140748 )
+  if ( qword_1C00B2DC0 )
   {
-    v5 = *(_QWORD *)(qword_1C0140748 + 64);
+    v5 = *(_QWORD *)(qword_1C00B2DC0 + 64);
     v10 = *(_QWORD *)(v5 + 40);
-    v16 = (_BYTE *)(v5 + 484);
     if ( !a1 )
     {
       KeWaitForSingleObject((PVOID)(v10 + 72), Executive, 0, 0, 0LL);
       KeEnterCriticalRegion();
-      if ( *v16 )
+      if ( *(_BYTE *)(v5 + 484) )
         DpiCheckForOutstandingD3Requests(v5);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v5 + 168), 1u);
-      DxgkAcquireAdapterCoreSync(*(_QWORD *)(v5 + 3912), 2LL);
+      DxgkAcquireAdapterCoreSync(*(_QWORD *)(v5 + 3896), 2LL);
     }
-    v17 = *(_QWORD *)(v5 + 48);
-    v18 = *(int (__fastcall **)(__int64, __int64, int *, int *, int *, int *))(v10 + 744);
-    v20 = 3;
-    v28 = -1;
-    if ( v18(v17, 0xFFFFFFFFLL, &v23, &v21, &v22, &v26) >= 0 )
+    v16 = *(_QWORD *)(v5 + 48);
+    v17 = *(int (__fastcall **)(__int64, __int64, int *, int *, int *, int *))(v10 + 744);
+    v26 = 3;
+    v14 = -1;
+    v19 = -1;
+    if ( v17(v16, 0xFFFFFFFFLL, &v22, &v20, &v21, &v24) >= 0 )
     {
-      v19 = v26;
-      v14 = v28;
-      *(_DWORD *)(a2 + 16) = v26 != 0 ? 5 : 1;
+      v18 = v24;
+      *(_DWORD *)(a2 + 16) = v24 != 0 ? 5 : 1;
       goto LABEL_60;
     }
     if ( !a1 )
     {
-      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v5 + 3912), 2LL);
-      if ( *v16 )
+      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v5 + 3896), 2LL);
+      if ( *(_BYTE *)(v5 + 484) )
         DpiEnableD3Requests(*(_QWORD *)(v5 + 24));
       ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
       KeLeaveCriticalRegion();
       KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
-      _InterlockedExchange64(&qword_1C01404D8, 0LL);
-      KeReleaseMutex(::Mutex, 0);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
+      KeReleaseMutex(Mutex, 0);
     }
   }
   return 3221225473LL;

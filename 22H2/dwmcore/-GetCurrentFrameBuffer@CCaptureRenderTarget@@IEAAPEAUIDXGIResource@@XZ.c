@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ @ 0x1801ED370
+ * XREFs of ?GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ @ 0x1801877B4
  * Callers:
- *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801ECA1C (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
- *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801ED54C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
- *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EDC04 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EDB10 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801874B4 (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x18018780C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,9 @@ struct IDXGIResource *__fastcall CCaptureRenderTarget::GetCurrentFrameBuffer(CCa
 {
   unsigned int v1; // eax
 
-  v1 = *((_DWORD *)this + 484);
+  v1 = *((_DWORD *)this + 486);
   if ( v1 == -1 )
     return 0LL;
   else
-    return *(struct IDXGIResource **)(*((_QWORD *)this + 249) + 8LL * v1);
+    return *(struct IDXGIResource **)(*((_QWORD *)this + 251) + 8LL * v1);
 }

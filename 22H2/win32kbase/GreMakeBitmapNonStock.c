@@ -1,50 +1,51 @@
 /*
- * XREFs of GreMakeBitmapNonStock @ 0x1C0060A30
+ * XREFs of GreMakeBitmapNonStock @ 0x1C00172A0
  * Callers:
- *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C003F8CC (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C002BDF8 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
  * Callees:
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
- *     HmgLockEx @ 0x1C0043B50 (HmgLockEx.c)
- *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C0060B10 (-bDIBSection@SURFACE@@QEAAHXZ.c)
- *     HmgLockAndModifyHandleType @ 0x1C0060B30 (HmgLockAndModifyHandleType.c)
+ *     HmgLockAndModifyHandleType @ 0x1C0017460 (HmgLockAndModifyHandleType.c)
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C00175FC (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     HmgLockEx @ 0x1C0030D90 (HmgLockEx.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
  */
 
-unsigned __int64 __fastcall GreMakeBitmapNonStock(__int64 a1)
+unsigned __int64 __fastcall GreMakeBitmapNonStock(unsigned __int64 a1, __int64 a2)
 {
-  unsigned __int64 v1; // rdi
-  __int64 v3; // rbx
-  __int64 v4; // rcx
-  __int64 v5; // rbp
-  struct OBJECT *v6; // rcx
+  unsigned __int64 v2; // rdi
+  SURFACE *v4; // rax
+  SURFACE *v5; // rbx
+  __int64 v6; // r8
 
-  v1 = 0LL;
-  v3 = HmgLockEx(a1, 5, 0);
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 24);
-  if ( v3 )
+  LOBYTE(a2) = 5;
+  v2 = 0LL;
+  v4 = (SURFACE *)HmgLockEx(a1, a2, 0LL);
+  v5 = v4;
+  if ( v4 )
   {
-    if ( (!(unsigned int)SURFACE::bDIBSection((SURFACE *)v3) || !*(_WORD *)(v3 + 100) && *(_DWORD *)(v3 + 216))
-      && a1 != *(_QWORD *)(*(_QWORD *)(v5 + 3168) + 168LL)
+    if ( (!(unsigned int)SURFACE::bDIBSection(v4) || !*((_WORD *)v5 + 50) && *((_DWORD *)v5 + 54))
+      && (void *)a1 != gahStockObjects[21]
       && (a1 & 0x800000) != 0 )
     {
-      v1 = a1 & 0xFFFFFFFFFF7FFFFFuLL;
-      if ( *(_DWORD *)(v3 + 168) )
+      v2 = a1 & 0xFFFFFFFFFF7FFFFFuLL;
+      if ( *((_DWORD *)v5 + 42) )
       {
-        if ( _bittest((const signed __int32 *)v3, 0x17u) )
-          *(_WORD *)(v3 + 102) |= 0x400u;
+        if ( (*(_DWORD *)v5 & 0x800000) != 0 )
+          *((_WORD *)v5 + 51) |= 0x400u;
       }
-      else if ( (unsigned int)HmgLockAndModifyHandleType(v6) )
+      else if ( (unsigned int)HmgLockAndModifyHandleType(v5) )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(v5 + 6484));
-        *(_QWORD *)(v3 + 32) = v1;
-        *(_WORD *)(v3 + 102) &= ~0x200u;
-        HmgSetOwner(a1 & 0xFF7FFFFF, -2147483646, 5);
+        _InterlockedIncrement(&gStockBitmapFree);
+        *((_QWORD *)v5 + 4) = v2;
+        *((_WORD *)v5 + 51) &= ~0x200u;
+        LOBYTE(v6) = 5;
+        HmgSetOwner(a1 & 0xFFFFFFFFFF7FFFFFuLL, 2147483650LL, v6);
       }
       else
       {
-        v1 = 0LL;
+        v2 = 0LL;
       }
     }
-    _InterlockedDecrement((volatile signed __int32 *)(v3 + 12));
+    _InterlockedDecrement((volatile signed __int32 *)v5 + 3);
   }
-  return v1;
+  return v2;
 }

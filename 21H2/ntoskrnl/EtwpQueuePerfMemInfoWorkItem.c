@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x14062F5B0
+ * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x1405A93E0
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x14062F040 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1405A8D20 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpQueuePerfMemInfoWorkItem(struct _LIST_ENTRY *a1)
 {
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 40LL, 1467446341LL);
-  if ( Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x57777445u);
+  if ( PoolWithTag )
   {
-    Pool2->List.Flink = 0LL;
-    Pool2->WorkerRoutine = (void (__fastcall *)(void *))EtwpPerfMemInfoWork;
-    Pool2[1].List.Flink = a1;
-    Pool2->Parameter = Pool2;
-    ExQueueWorkItem(Pool2, CriticalWorkQueue);
+    PoolWithTag->List.Flink = 0LL;
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))EtwpPerfMemInfoWork;
+    PoolWithTag[1].List.Flink = a1;
+    PoolWithTag->Parameter = PoolWithTag;
+    ExQueueWorkItem(PoolWithTag, CriticalWorkQueue);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of GreWaitForTextReady @ 0x1C0122D20
+ * XREFs of GreWaitForTextReady @ 0x1C0137610
  * Callers:
  *     <none>
  * Callees:
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C5FC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8E4 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
  */
 
 NTSTATUS GreWaitForTextReady()

@@ -1,23 +1,23 @@
 /*
- * XREFs of xxxCalcCaptionButton @ 0x1C022BDD0
+ * XREFs of xxxCalcCaptionButton @ 0x1C0247188
  * Callers:
- *     xxxGetTitleBarInfoEx @ 0x1C000C37C (xxxGetTitleBarInfoEx.c)
- *     xxxTrackCaptionButton @ 0x1C022C718 (xxxTrackCaptionButton.c)
+ *     xxxGetTitleBarInfoEx @ 0x1C002E488 (xxxGetTitleBarInfoEx.c)
+ *     xxxTrackCaptionButton @ 0x1C0247450 (xxxTrackCaptionButton.c)
  * Callees:
- *     xxxMNCanClose @ 0x1C00632C4 (xxxMNCanClose.c)
- *     GetWindowBordersForDpi @ 0x1C00C6AB0 (GetWindowBordersForDpi.c)
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C618 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     xxxMNCanClose @ 0x1C00614C0 (xxxMNCanClose.c)
+ *     GetWindowBordersForDpi @ 0x1C00E0E50 (GetWindowBordersForDpi.c)
  */
 
 __int64 __fastcall xxxCalcCaptionButton(__int64 a1, int a2, __int16 *a3, _DWORD *a4, int *a5, int a6)
 {
   __int64 v10; // r8
   int v11; // ecx
-  int WindowDpiLastNotify; // ebp
+  unsigned int WindowDpiLastNotify; // ebp
   __int64 v13; // rax
   int v14; // r9d
-  _DWORD *v15; // r8
+  int WindowBordersForDpi; // eax
   __int64 v16; // rax
   int v17; // r15d
   int v18; // ebx
@@ -42,7 +42,7 @@ __int64 __fastcall xxxCalcCaptionButton(__int64 a1, int a2, __int16 *a3, _DWORD 
   {
     WindowDpiLastNotify = (*(_DWORD *)(v10 + 288) >> 8) & 0x1FF;
   }
-  else if ( (*(_DWORD *)(v10 + 232) & 0x400) != 0 )
+  else if ( (*(_DWORD *)(v10 + 232) & 0x8000000) != 0 )
   {
     WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
   }
@@ -57,25 +57,30 @@ __int64 __fastcall xxxCalcCaptionButton(__int64 a1, int a2, __int16 *a3, _DWORD 
     WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
   }
   if ( (*(_BYTE *)(v10 + 31) & 0x20) != 0 )
+  {
     v14 = -3;
+  }
   else
-    v14 = -(int)GetWindowBordersForDpi(
-                  *(_DWORD *)(v10 + 28),
-                  *(_DWORD *)(v10 + 24),
-                  v10,
-                  (__int64)a4,
-                  WindowDpiLastNotify);
-  v15 = *(_DWORD **)(a1 + 40);
-  *a4 = v15[22] - v14;
-  a4[2] = v14 + v15[24];
-  a4[1] = v15[23] - v14;
-  a4[3] = v14 + v15[25];
+  {
+    WindowBordersForDpi = GetWindowBordersForDpi(
+                            *(_DWORD *)(v10 + 28),
+                            *(_DWORD *)(v10 + 24),
+                            v10,
+                            (__int64)a4,
+                            WindowDpiLastNotify);
+    v10 = *(_QWORD *)(a1 + 40);
+    v14 = -WindowBordersForDpi;
+  }
+  *a4 = *(_DWORD *)(v10 + 88) - v14;
+  a4[2] = v14 + *(_DWORD *)(v10 + 96);
+  a4[1] = *(_DWORD *)(v10 + 92) - v14;
+  a4[3] = v14 + *(_DWORD *)(v10 + 100);
   v16 = *(_QWORD *)(a1 + 40);
   v32 = -*(_DWORD *)(v16 + 92);
   v17 = -*(_DWORD *)(v16 + 88);
   v18 = (*(char *)(v16 + 24) >> 7) & 0xB;
-  DpiDependentMetric = GetDpiDependentMetric(v18 + 12, WindowDpiLastNotify);
-  v20 = GetDpiDependentMetric(v18 + 13, WindowDpiLastNotify);
+  DpiDependentMetric = GetDpiDependentMetric((unsigned int)(v18 + 12), WindowDpiLastNotify);
+  v20 = GetDpiDependentMetric((unsigned int)(v18 + 13), WindowDpiLastNotify);
   if ( a2 != 5 )
   {
     v22 = *(_QWORD *)(a1 + 40);

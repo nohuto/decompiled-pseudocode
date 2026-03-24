@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlUnicodeToUTF8N @ 0x140AE2D40
+ * XREFs of VerifierRtlUnicodeToUTF8N @ 0x1409E5B80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierRtlUnicodeToUTF8N(__int64 a1)

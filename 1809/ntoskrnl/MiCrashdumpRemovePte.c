@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCrashdumpRemovePte @ 0x1402AE080
+ * XREFs of MiCrashdumpRemovePte @ 0x1402AE180
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiCrashdumpRemovePte(__int64 a1, unsigned __int64 a2, int a3)

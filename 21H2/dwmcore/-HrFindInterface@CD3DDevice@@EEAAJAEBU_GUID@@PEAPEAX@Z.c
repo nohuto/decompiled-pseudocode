@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CD3DDevice@@EEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18027ED60
+ * XREFs of ?HrFindInterface@CD3DDevice@@EEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18023FFB0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006BFF0 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CD3DDevice::HrFindInterface(CD3DDevice *this, const struct _GUID *a2, void **a3)
@@ -19,7 +19,7 @@ __int64 __fastcall CD3DDevice::HrFindInterface(CD3DDevice *this, const struct _G
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_74cc6ad9_1f38_4fd9_9734_84cb3e5c0b1b.Data4;
     if ( v4 )
     {
-      return 2147500034LL;
+      return CMILCOMBase::HrFindInterface(this, a2, a3);
     }
     else
     {

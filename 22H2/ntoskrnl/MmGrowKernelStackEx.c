@@ -1,27 +1,25 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140360D00
+ * XREFs of MmGrowKernelStackEx @ 0x1403244F0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KxSwitchKernelStackCallout @ 0x140423090 (KxSwitchKernelStackCallout.c)
- *     MmGrowKernelStack @ 0x14062D720 (MmGrowKernelStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA760 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x140401DB0 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x1405365F0 (MmGrowKernelStack.c)
  * Callees:
- *     MiAllocateKernelStackPages @ 0x1402731A0 (MiAllocateKernelStackPages.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MI_GET_NODE_FROM_VALID_PTE @ 0x140360EF4 (MI_GET_NODE_FROM_VALID_PTE.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateKernelStackPages @ 0x14023E170 (MiAllocateKernelStackPages.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MI_GET_NODE_FROM_VALID_PTE @ 0x1403246B0 (MI_GET_NODE_FROM_VALID_PTE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
+__int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v3; // ebp
-  __int64 v4; // r15
+  unsigned __int64 CurrentThread; // rsi
+  unsigned int v5; // ebp
+  __int64 v6; // r15
   unsigned __int8 CurrentIrql; // r14
-  unsigned __int64 v6; // rdi
-  unsigned __int64 v7; // rbx
-  int v8; // eax
-  _DWORD *SchedulerAssist; // r9
-  __int64 v11; // rax
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rbx
+  int v10; // eax
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
   bool v14; // zf
@@ -31,94 +29,100 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   _DWORD *v18; // r9
   int v19; // edx
 
-  CurrentThread = KeGetCurrentThread();
-  if ( (char *)CurrentThread->StackBase - (*((_QWORD *)CurrentThread->InitialStack + 1) & 0xFFFFFFFFFFFFFFFEuLL) < (void *)0x12000 )
+  CurrentThread = (unsigned __int64)KeGetCurrentThread();
+  if ( *(_QWORD *)(CurrentThread + 56) - (*(_QWORD *)(*(_QWORD *)(CurrentThread + 40) + 8LL) & 0xFFFFFFFFFFFFFFFEuLL) < 0x12000 )
     return 3221225659LL;
-  v3 = 0;
-  v4 = *(_QWORD *)(qword_140C674C8 + 8LL * CurrentThread->Process[1].IdealProcessor[25]);
+  v5 = 0;
+  v6 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(CurrentThread + 544) + 1838LL));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v11) = 4;
-    if ( CurrentIrql != 2 )
-      v11 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v11;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v6 = (((unsigned __int64)(a1 - a2) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( v6 < (((unsigned __int64)CurrentThread->StackLimit >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+  v8 = (((unsigned __int64)(a1 - a2) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  if ( v8 < ((*(_QWORD *)(CurrentThread + 48) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
   {
-    if ( v6 < ((*((_QWORD *)CurrentThread->InitialStack + 1) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
+    if ( v8 < ((*(_QWORD *)(*(_QWORD *)(CurrentThread + 40) + 8LL) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
     {
-      ++dword_140C685B8;
-      v3 = -1073741571;
-      goto LABEL_8;
+      ++dword_140C4EBB8;
+      v5 = -1073741571;
     }
-    v7 = ((__int64)((((unsigned __int64)CurrentThread->StackLimit >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL - v6) >> 3)
-       + 1;
-    if ( (unsigned int)MiChargeResident((void *)v4, v7, 0LL) )
+    else
     {
-      v8 = MI_GET_NODE_FROM_VALID_PTE((((unsigned __int64)CurrentThread->StackBase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL);
-      if ( (unsigned int)MiAllocateKernelStackPages(v4, v6, v7, (unsigned __int64)CurrentThread, v8, 2, 0LL) )
+      v9 = ((__int64)(((*(_QWORD *)(CurrentThread + 48) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL - v8) >> 3) + 1;
+      if ( (unsigned int)MiChargeResident((ULONG_PTR *)v6, v9, 0LL, (__int64)SchedulerAssist) )
       {
-        CurrentThread->StackLimit = (void *volatile)((__int64)(v6 << 25) >> 16);
-        goto LABEL_8;
-      }
-      if ( (_UNKNOWN *)v4 == &MiSystemPartition )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-        if ( (_DWORD)CachedResidentAvailable != -1 )
+        v10 = MI_GET_NODE_FROM_VALID_PTE(((*(_QWORD *)(CurrentThread + 56) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL);
+        if ( (unsigned int)MiAllocateKernelStackPages(v6, (__int64 *)v8, v9, CurrentThread | 1, v10, 2) )
         {
-          if ( v7 + CachedResidentAvailable <= 0x100 && v7 < 0x80000 )
+          *(_QWORD *)(CurrentThread + 48) = (__int64)(v8 << 25) >> 16;
+        }
+        else
+        {
+          if ( (ULONG_PTR *)v6 == &MiSystemPartition )
           {
-            do
+            CurrentPrcb = KeGetCurrentPrcb();
+            CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+            if ( (_DWORD)CachedResidentAvailable != -1 )
             {
-              v15 = _InterlockedCompareExchange(
-                      (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                      CachedResidentAvailable + v7,
-                      CachedResidentAvailable);
-              v14 = (_DWORD)CachedResidentAvailable == v15;
-              LODWORD(CachedResidentAvailable) = v15;
-              if ( v14 )
-                goto LABEL_29;
+              if ( v9 + CachedResidentAvailable <= 0x100 )
+              {
+                do
+                {
+                  if ( v9 >= 0x80000 )
+                    break;
+                  v15 = _InterlockedCompareExchange(
+                          (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                          CachedResidentAvailable + v9,
+                          CachedResidentAvailable);
+                  v14 = (_DWORD)CachedResidentAvailable == v15;
+                  LODWORD(CachedResidentAvailable) = v15;
+                  if ( v14 )
+                    goto LABEL_28;
+                }
+                while ( v15 != -1 && v9 + v15 <= 0x100 );
+              }
+              if ( (int)CachedResidentAvailable > 192
+                && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                        (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                                        192,
+                                                        CachedResidentAvailable) )
+              {
+                v9 += (int)CachedResidentAvailable - 192;
+              }
             }
-            while ( v15 != -1 && v7 + v15 <= 0x100 );
           }
-          if ( (int)CachedResidentAvailable > 192
-            && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                                    192,
-                                                    CachedResidentAvailable) )
-          {
-            v7 += (int)CachedResidentAvailable - 192;
-          }
+          if ( v9 )
+            _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 7168), v9);
+LABEL_28:
+          v5 = -1073741670;
         }
       }
-      if ( v7 )
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 17280), v7);
-LABEL_29:
-      v3 = -1073741670;
-      goto LABEL_8;
+      else
+      {
+        v5 = -1073741801;
+      }
     }
-    v3 = -1073741801;
   }
-LABEL_8:
   if ( KiIrqlFlags )
   {
-    v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentPrcb();
-      v18 = v17->SchedulerAssist;
-      v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v14 = (v19 & v18[5]) == 0;
-      v18[5] &= v19;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(v17);
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      {
+        v17 = KeGetCurrentPrcb();
+        v18 = v17->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v14 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(v17);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  return v3;
+  return v5;
 }

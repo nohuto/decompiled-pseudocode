@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepRegistryOpenKey @ 0x14067DE78
+ * XREFs of KsepRegistryOpenKey @ 0x14067DE58
  * Callers:
- *     KsepRegistryQueryDriverShims @ 0x14067DCB4 (KsepRegistryQueryDriverShims.c)
- *     KsepDbQueryRegistryDeviceData @ 0x140720BBC (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140847AA4 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepRegistryQueryDriverShims @ 0x14067DC94 (KsepRegistryQueryDriverShims.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x140720B9C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140847A84 (KsepDbQueryRegistryDeviceDataList.c)
  *     KsepMatchInitBiosInfo @ 0x1409AF2B4 (KsepMatchInitBiosInfo.c)
  *     KsepEngineReadFlags @ 0x1409AF4F4 (KsepEngineReadFlags.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
- *     KsepStringConcatenate @ 0x14067DD34 (KsepStringConcatenate.c)
- *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x14070CDB8 (KsepStringDuplicate.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepStringConcatenate @ 0x14067DD14 (KsepStringConcatenate.c)
+ *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
+ *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of __security_init_cookie @ 0x1C00C9044
+ * XREFs of __security_init_cookie @ 0x1C00C8044
  * Callers:
- *     GsDriverEntry @ 0x1C00C9010 (GsDriverEntry.c)
+ *     GsDriverEntry @ 0x1C00C8010 (GsDriverEntry.c)
  * Callees:
  *     <none>
  */

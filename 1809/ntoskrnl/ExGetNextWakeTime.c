@@ -2,13 +2,13 @@
  * XREFs of ExGetNextWakeTime @ 0x14057E734
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopIsWakeTimerImmanent @ 0x14086F8BC (PopIsWakeTimerImmanent.c)
+ *     PopIsWakeTimerImmanent @ 0x14086F89C (PopIsWakeTimerImmanent.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeQueryTimerDueTime @ 0x1402904C8 (KeQueryTimerDueTime.c)
- *     PoStoreDiagnosticContext @ 0x1402D3170 (PoStoreDiagnosticContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryTimerDueTime @ 0x1402905C8 (KeQueryTimerDueTime.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

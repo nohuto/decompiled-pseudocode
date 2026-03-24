@@ -1,495 +1,490 @@
 /*
- * XREFs of ?SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z @ 0x1C03485B0
+ * XREFs of ?SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z @ 0x1C029F380
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     DxgkPowerOnOffMonitor @ 0x1C01F0E64 (DxgkPowerOnOffMonitor.c)
- *     ?DpiBrightnessNotifyMonitorDimming@@YAJPEAU_DEVICE_OBJECT@@KE@Z @ 0x1C0390148 (-DpiBrightnessNotifyMonitorDimming@@YAJPEAU_DEVICE_OBJECT@@KE@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     DxgkPowerOnOffMonitor @ 0x1C0177F24 (DxgkPowerOnOffMonitor.c)
+ *     ?LPMSetTTMDisplayPowerState@@YAJW4_TERMINAL_DISPLAY_STATE@@@Z @ 0x1C0275FC0 (-LPMSetTTMDisplayPowerState@@YAJW4_TERMINAL_DISPLAY_STATE@@@Z.c)
+ *     ?DpiBrightnessNotifyMonitorDimming@@YAJPEAU_DEVICE_OBJECT@@KE@Z @ 0x1C02D1418 (-DpiBrightnessNotifyMonitorDimming@@YAJPEAU_DEVICE_OBJECT@@KE@Z.c)
  */
 
-__int64 __fastcall CTTMDEVICE::SetDisplayStateCallback(struct _EX_RUNDOWN_REF *a1, int a2, unsigned int a3)
+__int64 __fastcall CTTMDEVICE::SetDisplayStateCallback(struct _EX_RUNDOWN_REF *a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r14
-  unsigned int v4; // r13d
+  __int64 v4; // r13
   __int64 v6; // rdi
-  __int64 v7; // rcx
-  DXGSESSIONMGR *v8; // rsi
-  unsigned int v9; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  unsigned __int8 v11; // r8
-  __int64 v12; // r9
-  struct DXGSESSIONDATA *v13; // rsi
-  unsigned int v14; // eax
-  __int64 v15; // rax
-  const wchar_t *v16; // r9
-  __int64 v17; // r9
-  __int64 result; // rax
-  int v19; // ecx
-  unsigned int v20; // r15d
-  unsigned int v21; // r15d
-  unsigned __int64 v22; // rax
-  void *v23; // r14
-  __int16 v24; // ax
-  __int64 v25; // rcx
-  struct _EX_RUNDOWN_REF **v26; // rcx
-  unsigned int v27; // eax
-  int *v28; // rdi
-  unsigned int v29; // edx
-  __int64 v30; // rsi
-  int v31; // ebx
-  struct _DEVICE_OBJECT *Count; // r15
-  struct _EX_RUNDOWN_REF **v33; // rax
-  unsigned int v34; // ecx
-  struct _EX_RUNDOWN_REF *v35; // r9
-  __int64 v36; // rax
-  struct _EX_RUNDOWN_REF *v37; // rbx
-  __int64 v38; // rcx
-  struct _EX_RUNDOWN_REF *v39; // r8
-  struct _EX_RUNDOWN_REF *i; // rbx
-  int v41; // eax
-  __int64 v42; // rcx
-  unsigned int v43; // eax
-  __int64 v44; // rbx
-  unsigned __int64 v45; // rax
-  unsigned __int64 v46; // kr00_8
-  int v47; // eax
-  __int64 v48; // rbx
-  int v49; // eax
-  __int64 v50; // rdi
-  int v51; // eax
-  __int64 v52; // rbx
-  struct _EX_RUNDOWN_REF **v53; // rbx
-  __int64 v54; // rdi
-  struct _EX_RUNDOWN_REF *v55; // r9
-  __int64 v56; // r8
-  struct DXGSESSIONDATA *v57; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  DXGSESSIONMGR *v9; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  __int64 v59; // rcx
-  __int64 v60; // [rsp+28h] [rbp-D8h]
-  __int64 v61; // [rsp+30h] [rbp-D0h]
-  unsigned int v62; // [rsp+50h] [rbp-B0h]
-  int v63; // [rsp+54h] [rbp-ACh]
-  unsigned int v64; // [rsp+58h] [rbp-A8h]
-  int v65; // [rsp+5Ch] [rbp-A4h]
-  unsigned int v66; // [rsp+5Ch] [rbp-A4h]
-  struct _EX_RUNDOWN_REF *v67; // [rsp+60h] [rbp-A0h] BYREF
-  int *v68; // [rsp+68h] [rbp-98h]
-  struct _EX_RUNDOWN_REF **v69; // [rsp+70h] [rbp-90h]
-  int v70; // [rsp+78h] [rbp-88h] BYREF
-  int v71; // [rsp+7Ch] [rbp-84h] BYREF
-  struct _EX_RUNDOWN_REF **v72; // [rsp+80h] [rbp-80h]
-  struct _EX_RUNDOWN_REF *v73; // [rsp+88h] [rbp-78h]
-  struct DXGSESSIONDATA *v74; // [rsp+90h] [rbp-70h]
-  _QWORD v75[10]; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v76[10]; // [rsp+F0h] [rbp-10h] BYREF
-  int v77[4]; // [rsp+140h] [rbp+40h] BYREF
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rcx
+  __int64 result; // rax
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  unsigned int v22; // r14d
+  unsigned int v23; // r14d
+  SIZE_T v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  PVOID v29; // r15
+  __int64 v30; // rax
+  __int16 v31; // ax
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  struct _EX_RUNDOWN_REF **v34; // rcx
+  unsigned __int64 v35; // r9
+  _DWORD *v36; // r12
+  unsigned __int64 v37; // rdx
+  struct _DEVICE_OBJECT *Count; // r14
+  unsigned int v39; // ebx
+  unsigned int v40; // r15d
+  unsigned int v41; // eax
+  struct _EX_RUNDOWN_REF *v42; // r9
+  __int64 v43; // rax
+  struct _EX_RUNDOWN_REF *v44; // r13
+  struct _EX_RUNDOWN_REF *v45; // r8
+  unsigned int v46; // ecx
+  struct _EX_RUNDOWN_REF *i; // r13
+  bool v48; // zf
+  char v49; // r13
+  __int64 v50; // rax
+  __int64 v51; // rax
+  SIZE_T v52; // rax
+  __int64 v53; // rsi
+  __int64 v54; // rdx
+  __int64 v55; // rcx
+  __int64 v56; // r8
+  __int64 v57; // r9
+  __int64 v58; // rax
+  int v59; // eax
+  __int64 v60; // r13
+  __int64 v61; // rax
+  int *v62; // r9
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v63; // rax
+  int v64; // eax
+  __int64 v65; // rbx
+  _QWORD *v66; // rax
+  __int64 v67; // r12
+  unsigned int *v68; // r13
+  int v69; // eax
+  __int64 v70; // rbx
+  int v71; // eax
+  __int64 v72; // r12
+  __int64 v73; // rax
+  struct _EX_RUNDOWN_REF **v74; // r12
+  struct _EX_RUNDOWN_REF *v75; // r9
+  __int64 v76; // r8
+  __int64 v77; // rax
+  struct DXGSESSIONDATA *v78; // rbx
+  unsigned int v79; // [rsp+38h] [rbp-D0h]
+  char v80; // [rsp+3Ch] [rbp-CCh]
+  unsigned __int64 v81; // [rsp+40h] [rbp-C8h]
+  struct _EX_RUNDOWN_REF *v82; // [rsp+48h] [rbp-C0h] BYREF
+  _BYTE *v83; // [rsp+50h] [rbp-B8h]
+  struct _EX_RUNDOWN_REF **v84; // [rsp+58h] [rbp-B0h]
+  int v85; // [rsp+60h] [rbp-A8h] BYREF
+  int v86; // [rsp+64h] [rbp-A4h] BYREF
+  struct _EX_RUNDOWN_REF **v87; // [rsp+68h] [rbp-A0h]
+  struct _EX_RUNDOWN_REF *v88; // [rsp+70h] [rbp-98h]
+  struct DXGSESSIONDATA *v89; // [rsp+78h] [rbp-90h]
+  _QWORD v90[10]; // [rsp+88h] [rbp-80h] BYREF
+  _QWORD v91[10]; // [rsp+D8h] [rbp-30h] BYREF
+  _BYTE v92[16]; // [rsp+128h] [rbp+20h] BYREF
 
-  v3 = a2;
-  v4 = 0;
-  v65 = a2;
-  v67 = 0LL;
-  v68 = v77;
-  v6 = a3;
-  v64 = -1073741637;
-  v63 = 4;
-  v8 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( !v8
-    || (v9 = PsGetCurrentProcessSessionId(v7),
-        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v8, v9),
-        v74 = SessionDataForSpecifiedSession,
-        (v13 = SessionDataForSpecifiedSession) == 0LL) )
+  v3 = a3;
+  LOWORD(v4) = 0;
+  v83 = v92;
+  v82 = 0LL;
+  v6 = (int)a2;
+  v81 = 0xC00000BB00000004uLL;
+  v9 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)a1, a2) + 102);
+  if ( v9 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v7);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    LODWORD(v15) = PsGetCurrentProcessSessionId(v59);
-    v16 = L"Cannot find the session data for current session 0x%I64x, returning 0x%I64x.";
-    v61 = 0LL;
-    v60 = -1073741811LL;
-    v15 = (unsigned int)v15;
-    goto LABEL_86;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v8, v7);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v9, CurrentProcessSessionId);
   }
-  if ( a1 == (struct _EX_RUNDOWN_REF *)0xFFFFFFFFLL )
+  else
   {
-    v43 = *((_DWORD *)SessionDataForSpecifiedSession + 4656);
-    if ( v43 != (_DWORD)v6 )
-    {
-      WdLogSingleEntry2(2LL, v43, v6);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Batch sequence numbers are not match (0x%I64x : 0x%I64x).",
-        *((unsigned int *)v13 + 4656),
-        v6,
-        0LL,
-        0LL,
-        0LL);
-    }
-    if ( *((_DWORD *)v13 + 4657) != (_DWORD)v3 )
-    {
-      WdLogSingleEntry2(2LL, *((int *)v13 + 4657), v3);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"The display state from batch is not same as the one from flush (0x%I64x : 0x%I64x).",
-        *((int *)v13 + 4657),
-        v3,
-        0LL,
-        0LL,
-        0LL);
-      v65 = *((_DWORD *)v13 + 4657);
-    }
-    goto LABEL_49;
+    SessionDataForSpecifiedSession = 0LL;
   }
-  if ( !*((_WORD *)SessionDataForSpecifiedSession + 9317) )
+  v89 = SessionDataForSpecifiedSession;
+  if ( !SessionDataForSpecifiedSession )
   {
-    *((_DWORD *)SessionDataForSpecifiedSession + 4656) = v6;
-    *((_DWORD *)SessionDataForSpecifiedSession + 4657) = v3;
-    goto LABEL_6;
-  }
-  v14 = *((_DWORD *)SessionDataForSpecifiedSession + 4656);
-  if ( v14 != (_DWORD)v6 )
-  {
-    WdLogSingleEntry3(2LL, v14, v6, -1073741811LL);
-    v15 = *((unsigned int *)v13 + 4656);
-    v16 = L"Batch sequence numbers are not match (0x%I64x : 0x%I64x), returning 0x%I64x.";
-    v61 = -1073741811LL;
-    v60 = v6;
-LABEL_86:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v16, v15, v60, v61, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v12 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v14, v13);
+    v15 = (_QWORD *)v12;
+    *(_QWORD *)(v12 + 32) = -1073741811LL;
+LABEL_6:
+    WdLogEvent5_WdError(v15);
     return 3221225485LL;
   }
-  if ( *((_DWORD *)v13 + 4657) != (_DWORD)v3 )
+  if ( a1 != (struct _EX_RUNDOWN_REF *)0xFFFFFFFFLL )
   {
-    WdLogSingleEntry3(2LL, *((int *)v13 + 4657), v3, -1073741811LL);
-    v15 = *((int *)v13 + 4657);
-    v16 = L"Batch does not share same display state (0x%I64x : 0x%I64x), returning 0x%I64x.";
-    v61 = -1073741811LL;
-    v60 = v3;
-    goto LABEL_86;
-  }
-LABEL_6:
-  v67 = a1;
-  if ( !a1 )
-  {
-    WdLogSingleEntry1(1LL, 6225LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pThis != NULL", 6225LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  if ( !ExAcquireRundownProtection(a1 + 6) )
-    return 3221226166LL;
-  v19 = *((unsigned __int16 *)v13 + 9317);
-  v20 = *((unsigned __int16 *)v13 + 9316);
-  if ( v20 > v19 + 1 )
-    goto LABEL_23;
-  v21 = v20 + 4;
-  if ( v21 >= 0xFFFF )
-  {
-    WdLogSingleEntry1(3LL, v21);
-    goto LABEL_25;
-  }
-  v22 = 8LL * v21;
-  if ( !is_mul_ok(v21, 8uLL) )
-    v22 = -1LL;
-  v23 = (void *)operator new[](v22, 0x4B677844u, 256LL, v17);
-  if ( v23 )
-  {
-    v24 = *((_WORD *)v13 + 9317);
-    if ( v24 )
+    if ( !*((_WORD *)SessionDataForSpecifiedSession + 9309) )
     {
-      memmove(v23, *((const void **)v13 + 2330), 8LL * *((unsigned __int16 *)v13 + 9317));
-      operator delete[](*((void **)v13 + 2330));
-      v24 = *((_WORD *)v13 + 9317);
+      *((_DWORD *)SessionDataForSpecifiedSession + 4652) = v3;
+      *((_DWORD *)SessionDataForSpecifiedSession + 4653) = v6;
+      goto LABEL_10;
     }
-    *((_QWORD *)v13 + 2330) = v23;
-    LOWORD(v19) = v24;
-    *((_WORD *)v13 + 9316) = v21;
-LABEL_23:
-    *(_QWORD *)(*((_QWORD *)v13 + 2330) + 8LL * (unsigned __int16)v19) = a1;
-    ++*((_WORD *)v13 + 9317);
-    return 0LL;
-  }
-  WdLogSingleEntry1(6LL, v21);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate new batch buffer, size = 0x%I64x.",
-    v21,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-LABEL_25:
-  v25 = *((_QWORD *)v13 + 2330);
-  if ( !v25 )
-  {
-    v26 = &v67;
-    v27 = 1;
-    v69 = &v67;
-    v62 = 1;
-LABEL_27:
-    v28 = v77;
-    goto LABEL_28;
-  }
-  *(_QWORD *)(v25 + 8LL * (unsigned __int16)(*((_WORD *)v13 + 9317))++) = a1;
-LABEL_49:
-  v26 = (struct _EX_RUNDOWN_REF **)*((_QWORD *)v13 + 2330);
-  v27 = *((unsigned __int16 *)v13 + 9317);
-  v69 = v26;
-  v62 = v27;
-  if ( v27 <= 4 )
-    goto LABEL_27;
-  v44 = v27;
-  v46 = v27;
-  v45 = 4LL * v27;
-  if ( !is_mul_ok(v46, 4uLL) )
-    v45 = -1LL;
-  v68 = (int *)operator new[](v45, 0x4B677844u, 256LL, v12);
-  v28 = v68;
-  if ( v68 )
-  {
-    v26 = v69;
-    v27 = v44;
-    v29 = v44;
-    v63 = v44;
-    goto LABEL_29;
-  }
-  WdLogSingleEntry1(6LL, (unsigned int)v44);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate new batch buffer, size = 0x%I64x.",
-    v44,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  v26 = v69;
-  v28 = v77;
-  v68 = v77;
-  v27 = v44;
-LABEL_28:
-  v29 = 4;
-LABEL_29:
-  v30 = v65;
-  while ( 1 )
-  {
-    v31 = 0;
-    v66 = 0;
-    Count = 0LL;
-    if ( !v27 )
-      break;
-    v33 = v26;
-    v72 = v26;
-    v34 = v62;
-    do
+    if ( *((_DWORD *)SessionDataForSpecifiedSession + 4652) == (_DWORD)v3 )
     {
-      if ( v4 >= v29 )
-        break;
-      v35 = *v33;
-      v67 = v35;
-      if ( v35 && (!Count || (struct _DEVICE_OBJECT *)v35[9].Count == Count) )
+      if ( *((_DWORD *)SessionDataForSpecifiedSession + 4653) == (_DWORD)v6 )
       {
-        v36 = _InterlockedExchangeAdd((volatile signed __int32 *)&v35[78], 1u) & 0x1F;
-        HIDWORD(v35[v36 + 78].Ptr) = v30;
-        v37 = v67 + 111;
-        LODWORD(v35[(unsigned int)v36 + 79].Count) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
-        v73 = v37;
-        KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx(v37, 0LL);
-        v38 = 0LL;
-        v37[1].Count = (ULONG_PTR)KeGetCurrentThread();
-        v39 = v37;
-        for ( i = v67; (unsigned int)v38 < v4; v38 = (unsigned int)(v38 + 1) )
+LABEL_10:
+        v82 = a1;
+        if ( !a1 )
         {
-          if ( v28[v38] == LODWORD(v67[10].Count) )
-            break;
+          v17 = WdLogNewEntry5_WdAssertion(v8, v7);
+          *(_QWORD *)(v17 + 24) = 6127LL;
+          WdLogEvent5_WdAssertion(v17);
         }
-        if ( LOBYTE(v67[114].Count) || (unsigned int)v38 < v4 )
+        if ( !ExAcquireRundownProtection(a1 + 6) )
+          return 3221226166LL;
+        v21 = *((unsigned __int16 *)SessionDataForSpecifiedSession + 9309);
+        v22 = *((unsigned __int16 *)SessionDataForSpecifiedSession + 9308);
+        if ( v22 <= (int)v21 + 1 )
         {
-          v39[1].Count = 0LL;
-          ExReleasePushLockExclusiveEx(v39, 0LL);
-          KeLeaveCriticalRegion();
-          ExReleaseRundownProtection(i + 6);
-          v33 = v72;
-          v31 = 0;
-          *v72 = 0LL;
+          v23 = v22 + 4;
+          if ( v23 >= 0xFFFF )
+          {
+            v32 = WdLogNewEntry5_WdWarning(v21, v18, v19);
+            *(_QWORD *)(v32 + 24) = v23;
+            WdLogEvent5_WdWarning(v32);
+            goto LABEL_30;
+          }
+          v24 = 8LL * v23;
+          if ( !is_mul_ok(v23, 8uLL) )
+            v24 = -1LL;
+          v29 = operator new[](v24, 0x4B677844u, PagedPool);
+          if ( !v29 )
+          {
+            v30 = WdLogNewEntry5_WdLowResource(v26, v25, v27, v28);
+            *(_QWORD *)(v30 + 24) = v23;
+            WdLogEvent5_WdLowResource(v30);
+LABEL_30:
+            v33 = *((_QWORD *)SessionDataForSpecifiedSession + 2328);
+            if ( !v33 )
+            {
+              v34 = &v82;
+              v79 = 1;
+              v84 = &v82;
+              LODWORD(v35) = 1;
+LABEL_32:
+              v36 = v92;
+              goto LABEL_33;
+            }
+            *(_QWORD *)(v33 + 8LL * (unsigned __int16)(*((_WORD *)SessionDataForSpecifiedSession + 9309))++) = a1;
+            goto LABEL_55;
+          }
+          v31 = *((_WORD *)SessionDataForSpecifiedSession + 9309);
+          if ( v31 )
+          {
+            memmove(
+              v29,
+              *((const void **)SessionDataForSpecifiedSession + 2328),
+              8LL * *((unsigned __int16 *)SessionDataForSpecifiedSession + 9309));
+            operator delete[](*((void **)SessionDataForSpecifiedSession + 2328));
+            v31 = *((_WORD *)SessionDataForSpecifiedSession + 9309);
+          }
+          *((_QWORD *)SessionDataForSpecifiedSession + 2328) = v29;
+          LOWORD(v21) = v31;
+          *((_WORD *)SessionDataForSpecifiedSession + 9308) = v23;
+        }
+        *(_QWORD *)(*((_QWORD *)SessionDataForSpecifiedSession + 2328) + 8LL * (unsigned __int16)v21) = a1;
+        ++*((_WORD *)SessionDataForSpecifiedSession + 9309);
+        return 0LL;
+      }
+      v15 = (_QWORD *)WdLogNewEntry5_WdError(v8, v7);
+      v20 = *((int *)SessionDataForSpecifiedSession + 4653);
+      v15[4] = v6;
+    }
+    else
+    {
+      v15 = (_QWORD *)WdLogNewEntry5_WdError(v8, v7);
+      v20 = *((unsigned int *)SessionDataForSpecifiedSession + 4652);
+      v15[4] = v3;
+    }
+    v15[3] = v20;
+    v15[5] = -1073741811LL;
+    goto LABEL_6;
+  }
+  if ( *((_DWORD *)SessionDataForSpecifiedSession + 4652) != (_DWORD)v3 )
+  {
+    v50 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v50 + 24) = *((unsigned int *)SessionDataForSpecifiedSession + 4652);
+    *(_QWORD *)(v50 + 32) = v3;
+    WdLogEvent5_WdError(v50);
+  }
+  if ( *((_DWORD *)SessionDataForSpecifiedSession + 4653) != (_DWORD)v6 )
+  {
+    v51 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v51 + 24) = *((int *)SessionDataForSpecifiedSession + 4653);
+    *(_QWORD *)(v51 + 32) = v6;
+    WdLogEvent5_WdError(v51);
+    LODWORD(v6) = *((_DWORD *)SessionDataForSpecifiedSession + 4653);
+  }
+LABEL_55:
+  v34 = (struct _EX_RUNDOWN_REF **)*((_QWORD *)SessionDataForSpecifiedSession + 2328);
+  v35 = *((unsigned __int16 *)SessionDataForSpecifiedSession + 9309);
+  v84 = v34;
+  v79 = v35;
+  if ( (unsigned int)v35 <= 4 )
+    goto LABEL_32;
+  v52 = 4 * v35;
+  v53 = (unsigned int)v35;
+  if ( !is_mul_ok(v35, 4uLL) )
+    v52 = -1LL;
+  v83 = operator new[](v52, 0x4B677844u, PagedPool);
+  v36 = v83;
+  if ( !v83 )
+  {
+    v58 = WdLogNewEntry5_WdLowResource(v55, v54, v56, v57);
+    *(_QWORD *)(v58 + 24) = v53;
+    WdLogEvent5_WdLowResource(v58);
+    v36 = v92;
+    LODWORD(v35) = v53;
+    v83 = v92;
+    goto LABEL_60;
+  }
+  v34 = v84;
+  v37 = (unsigned int)v53;
+  LODWORD(v81) = v53;
+  LODWORD(v35) = v53;
+LABEL_34:
+  v80 = 0;
+  Count = 0LL;
+  v39 = 0;
+  v40 = 0;
+  if ( (_DWORD)v35 )
+  {
+    v41 = v79;
+    v87 = v34;
+    while ( 1 )
+    {
+      if ( v40 >= (unsigned int)v37 )
+      {
+        v49 = v80;
+LABEL_67:
+        if ( !Count )
+        {
+          LOWORD(v4) = 0;
+          break;
+        }
+        if ( v49 )
+        {
+          if ( (v6 & 0xFFFFFFFC) == 0 && (_DWORD)v6 != 1 )
+          {
+            v59 = LPMSetTTMDisplayPowerState(v6, (struct _ERESOURCE *)v37);
+            v60 = v59;
+            if ( v59 < 0 )
+            {
+              v61 = WdLogNewEntry5_WdError(v34, v37);
+              *(_QWORD *)(v61 + 24) = (int)v6;
+              *(_QWORD *)(v61 + 32) = v60;
+              WdLogEvent5_WdError(v61);
+            }
+          }
+        }
+        if ( (int)v6 < 0 )
+          goto LABEL_87;
+        if ( (int)v6 <= 1 )
+        {
+          memset(v91, 0, 0x48uLL);
+          EtwActivityIdControl(3u, (LPGUID)&v91[1]);
+          v62 = &v86;
+          v91[8] = MEMORY[0xFFFFF78000000014];
+          v63 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v91;
+          LODWORD(v91[3]) = 54;
+          LOBYTE(v91[6]) = -1;
+          v86 = 4;
+LABEL_78:
+          v64 = DxgkPowerOnOffMonitor((__int64)Count, v40, v36, v62, 0, v63);
+          v65 = v64;
+          HIDWORD(v81) = v64;
+          if ( v64 < 0 )
+          {
+            v66 = (_QWORD *)WdLogNewEntry5_WdError(v34, v37);
+            v66[3] = Count;
+            v66[4] = v65;
+            goto LABEL_88;
+          }
+        }
+        else if ( (_DWORD)v6 == 2 )
+        {
+          v67 = 0LL;
+          if ( v40 )
+          {
+            v68 = (unsigned int *)v83;
+            while ( 1 )
+            {
+              v69 = DpiBrightnessNotifyMonitorDimming(Count, *v68, 1u);
+              v70 = v69;
+              HIDWORD(v81) = v69;
+              if ( v69 < 0 )
+                break;
+              ++v68;
+              v67 = (unsigned int)(v67 + 1);
+              if ( (unsigned int)v67 >= v40 )
+                goto LABEL_89;
+            }
+            v66 = (_QWORD *)WdLogNewEntry5_WdError(v34, v37);
+            v66[3] = *(unsigned int *)&v83[4 * v67];
+            v66[4] = Count;
+            v66[5] = v70;
+            goto LABEL_88;
+          }
         }
         else
         {
+          if ( (_DWORD)v6 == 3 )
+          {
+            memset(v90, 0, 0x48uLL);
+            EtwActivityIdControl(3u, (LPGUID)&v90[1]);
+            v62 = &v85;
+            v90[8] = MEMORY[0xFFFFF78000000014];
+            v63 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v90;
+            LODWORD(v90[3]) = 55;
+            LOBYTE(v90[6]) = -1;
+            v85 = 1;
+            goto LABEL_78;
+          }
+LABEL_87:
+          HIDWORD(v81) = -1073741811;
+          v66 = (_QWORD *)WdLogNewEntry5_WdError(v34, v37);
+          v66[3] = (int)v6;
+          v66[4] = -1073741811LL;
+LABEL_88:
+          WdLogEvent5_WdError(v66);
+        }
+LABEL_89:
+        if ( v80 )
+        {
+          if ( (_DWORD)v6 == 1 )
+          {
+            v71 = LPMSetTTMDisplayPowerState(1, (struct _ERESOURCE *)v37);
+            v72 = v71;
+            if ( v71 < 0 )
+            {
+              v73 = WdLogNewEntry5_WdError(v34, v37);
+              *(_QWORD *)(v73 + 24) = 1LL;
+              *(_QWORD *)(v73 + 32) = v72;
+              WdLogEvent5_WdError(v73);
+            }
+          }
+        }
+        v74 = v84;
+        v4 = v79;
+        do
+        {
+          v75 = *v74;
+          if ( *v74 && (struct _DEVICE_OBJECT *)v75[9].Count == Count )
+          {
+            v76 = _InterlockedExchangeAdd((volatile signed __int32 *)&v75[78], 1u) & 0x1F;
+            HIDWORD(v75[v76 + 78].Ptr) = v6 | 0x80000000;
+            LODWORD(v75[v76 + 79].Count) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
+            ExReleaseRundownProtection(*v74 + 6);
+            *v74 = 0LL;
+            --v40;
+          }
+          ++v74;
+          --v4;
+        }
+        while ( v4 );
+        if ( v40 )
+        {
+          v77 = WdLogNewEntry5_WdAssertion(v34, v37);
+          *(_QWORD *)(v77 + 24) = 6527LL;
+          WdLogEvent5_WdAssertion(v77);
+        }
+        ObfDereferenceObject(Count);
+        LODWORD(v35) = v79;
+        v36 = v83;
+LABEL_60:
+        v34 = v84;
+LABEL_33:
+        v37 = (unsigned int)v81;
+        goto LABEL_34;
+      }
+      v42 = *v34;
+      v82 = v42;
+      if ( v42 && (!Count || (struct _DEVICE_OBJECT *)v42[9].Count == Count) )
+      {
+        v43 = _InterlockedExchangeAdd((volatile signed __int32 *)&v42[78], 1u) & 0x1F;
+        HIDWORD(v42[v43 + 78].Ptr) = v6;
+        v44 = v82 + 111;
+        LODWORD(v42[(unsigned int)v43 + 79].Count) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
+        v88 = v44;
+        KeEnterCriticalRegion();
+        ExAcquirePushLockExclusiveEx(v44, 0LL);
+        v45 = v44;
+        v44[1].Count = (ULONG_PTR)KeGetCurrentThread();
+        v46 = 0;
+        for ( i = v82; v46 < v40; ++v46 )
+        {
+          if ( v36[v46] == LODWORD(v82[10].Count) )
+            break;
+        }
+        if ( !LOBYTE(v82[114].Count) && v46 >= v40 )
+        {
           if ( !Count )
           {
-            Count = (struct _DEVICE_OBJECT *)v67[9].Count;
+            Count = (struct _DEVICE_OBJECT *)v82[9].Count;
             ObfReferenceObject(Count);
-            v39 = v73;
+            v45 = v88;
           }
-          HIDWORD(i[114].Ptr) = v30;
-          v41 = i[10].Count;
-          v31 = 0;
-          v42 = v4++;
-          v28[v42] = v41;
-          v39[1].Count = 0LL;
-          ExReleasePushLockExclusiveEx(v39, 0LL);
+          HIDWORD(i[114].Ptr) = v6;
+          v36[v40++] = i[10].Count;
+          v48 = (BYTE4(i[10].Ptr) & 1) == 0;
+          v49 = v80;
+          if ( !v48 )
+            v49 = 1;
+          v45[1].Count = 0LL;
+          v80 = v49;
+          ExReleasePushLockExclusiveEx(v45, 0LL);
           KeLeaveCriticalRegion();
-          v33 = v72;
+          v41 = v79;
+          v34 = v87;
+          v37 = (unsigned int)v81;
+          goto LABEL_64;
         }
-        v29 = v63;
-        v34 = v62;
+        v45[1].Count = 0LL;
+        ExReleasePushLockExclusiveEx(v45, 0LL);
+        KeLeaveCriticalRegion();
+        ExReleaseRundownProtection(i + 6);
+        v34 = v87;
+        v41 = v79;
+        v37 = (unsigned int)v81;
+        *v87 = 0LL;
       }
-      v72 = ++v33;
-      ++v66;
+      v49 = v80;
+LABEL_64:
+      ++v34;
+      ++v39;
+      v87 = v34;
+      if ( v39 >= v41 )
+        goto LABEL_67;
     }
-    while ( v66 < v34 );
-    if ( !Count )
-      break;
-    if ( (int)v30 < 0 )
-      goto LABEL_72;
-    if ( (int)v30 <= 1 )
-    {
-      memset(v76, 0, 0x48uLL);
-      EtwActivityIdControl(3u, (LPGUID)&v76[1]);
-      v76[8] = MEMORY[0xFFFFF78000000014];
-      LODWORD(v76[3]) = 54;
-      LOBYTE(v76[6]) = -1;
-      v71 = 4;
-      v51 = DxgkPowerOnOffMonitor((__int64)Count, v4, v28, &v71, 0, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v76);
-      v64 = v51;
-      if ( v51 < 0 )
-      {
-        v52 = v51;
-        WdLogSingleEntry2(2LL, Count, v51);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to power off monitors on device 0x%I64x, (Status = 0x%I64x).",
-          (__int64)Count,
-          v52,
-          0LL,
-          0LL,
-          0LL);
-      }
-    }
-    else if ( (_DWORD)v30 == 2 )
-    {
-      if ( v4 )
-      {
-        while ( 1 )
-        {
-          v49 = DpiBrightnessNotifyMonitorDimming(Count, *v28, v11);
-          v64 = v49;
-          if ( v49 < 0 )
-            break;
-          ++v28;
-          if ( ++v31 >= v4 )
-            goto LABEL_73;
-        }
-        v50 = v49;
-        WdLogSingleEntry3(2LL, (unsigned int)v68[v31], Count, v49);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to notify brightness dimming on target 0x%I64x from device 0x%I64x, (Status = 0x%I64x).",
-          (unsigned int)v68[v31],
-          (__int64)Count,
-          v50,
-          0LL,
-          0LL);
-      }
-    }
-    else
-    {
-      if ( (_DWORD)v30 != 3 )
-      {
-LABEL_72:
-        v64 = -1073741811;
-        WdLogSingleEntry2(2LL, v30, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Receieved unknown TTM display State 0x%I64x, returning 0x%I64x.",
-          v30,
-          -1073741811LL,
-          0LL,
-          0LL,
-          0LL);
-        goto LABEL_73;
-      }
-      memset(v75, 0, 0x48uLL);
-      EtwActivityIdControl(3u, (LPGUID)&v75[1]);
-      v75[8] = MEMORY[0xFFFFF78000000014];
-      v70 = 1;
-      LODWORD(v75[3]) = 55;
-      LOBYTE(v75[6]) = -1;
-      v47 = DxgkPowerOnOffMonitor((__int64)Count, v4, v28, &v70, 0, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v75);
-      v64 = v47;
-      if ( v47 < 0 )
-      {
-        v48 = v47;
-        WdLogSingleEntry2(2LL, Count, v47);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to power on monitors on device 0x%I64x, (Status = 0x%I64x).",
-          (__int64)Count,
-          v48,
-          0LL,
-          0LL,
-          0LL);
-      }
-    }
-LABEL_73:
-    v53 = v69;
-    v54 = v62;
-    do
-    {
-      v55 = *v53;
-      if ( *v53 && (struct _DEVICE_OBJECT *)v55[9].Count == Count )
-      {
-        v56 = _InterlockedExchangeAdd((volatile signed __int32 *)&v55[78], 1u) & 0x1F;
-        HIDWORD(v55[v56 + 78].Ptr) = v30 | 0x80000000;
-        LODWORD(v55[v56 + 79].Count) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
-        ExReleaseRundownProtection(*v53 + 6);
-        *v53 = 0LL;
-        --v4;
-      }
-      ++v53;
-      --v54;
-    }
-    while ( v54 );
-    if ( v4 )
-    {
-      WdLogSingleEntry1(1LL, 6584LL);
-      v4 = 0;
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"j == 0", 6584LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    else
-    {
-      v4 = 0;
-    }
-    ObfDereferenceObject(Count);
-    v27 = v62;
-    v26 = v69;
-    v29 = v63;
-    v28 = v68;
   }
-  v57 = v74;
-  if ( v28 != v77 )
-    operator delete[](v28);
-  result = v64;
-  *((_WORD *)v57 + 9317) = 0;
+  v78 = v89;
+  if ( v36 != (_DWORD *)v92 )
+    operator delete[](v36);
+  result = HIDWORD(v81);
+  *((_WORD *)v78 + 9309) = v4;
   return result;
 }

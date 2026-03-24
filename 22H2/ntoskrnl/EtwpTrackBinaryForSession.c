@@ -1,109 +1,111 @@
 /*
- * XREFs of EtwpTrackBinaryForSession @ 0x1408AB730
+ * XREFs of EtwpTrackBinaryForSession @ 0x140940F5C
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x14077E16C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x14068DF0C (EtwpProviderArrivalCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-signed __int32 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, __int64 a3)
+char __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, __int64 a3)
 {
   volatile signed __int64 *v3; // r15
-  unsigned __int16 v7; // cx
-  void ***v8; // rsi
-  void ***v9; // rbx
-  __int64 v10; // rdx
-  SIZE_T v11; // rax
-  __int64 Pool2; // rax
-  __int64 v13; // rdi
+  SIZE_T v6; // rdi
+  void ***v7; // rsi
+  void ***v8; // rbx
+  SIZE_T v9; // r14
+  char *PoolWithTag; // rax
+  char *v11; // rdi
+  __int64 v12; // rbx
+  char *v13; // rbx
   void **v14; // rax
   unsigned int v15; // r8d
   unsigned int v16; // edx
   __int64 v17; // r9
   __int64 v18; // rcx
-  __int64 v19; // rax
+  char *v19; // rax
   __int64 v20; // rcx
   void **v21; // rcx
   void **v22; // rax
 
-  v3 = (volatile signed __int64 *)(a1 + 688);
-  ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  v7 = *(_WORD *)a2;
-  if ( *(_DWORD *)(a1 + 324) + (unsigned int)*(unsigned __int16 *)a2 > *(_DWORD *)(a1 + 4) )
+  v3 = (volatile signed __int64 *)(a1 + 704);
+  ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+  LOWORD(v6) = *(_WORD *)a2;
+  if ( *(_DWORD *)(a1 + 340) + (unsigned int)*(unsigned __int16 *)a2 > *(_DWORD *)(a1 + 4) )
     goto LABEL_22;
-  v8 = (void ***)(a1 + 1040);
-  v9 = *(void ****)(a1 + 1040);
+  v7 = (void ***)(a1 + 1024);
+  v8 = *(void ****)(a1 + 1024);
+  if ( v8 == (void ***)(a1 + 1024) )
+  {
+LABEL_7:
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v6 + 50LL, 0x62777445u);
+    v11 = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_22;
+    *((_DWORD *)PoolWithTag + 5) = 1;
+    *((_DWORD *)PoolWithTag + 6) = 1;
+    *(_OWORD *)(PoolWithTag + 28) = *(_OWORD *)a3;
+    v12 = *((unsigned int *)PoolWithTag + 5);
+    *((_DWORD *)PoolWithTag + 4) = *(unsigned __int16 *)a2 + 2;
+    v13 = &PoolWithTag[16 * v12];
+    memmove(v13 + 28, a2[1], *(unsigned __int16 *)a2);
+    *(_WORD *)&v13[2 * ((unsigned __int64)*(unsigned __int16 *)a2 >> 1) + 28] = 0;
+    *(_DWORD *)(a1 + 340) += *((_DWORD *)v11 + 4) + 16;
+    goto LABEL_9;
+  }
+  v9 = *(unsigned __int16 *)a2;
   while ( 1 )
   {
-    if ( v9 == v8 )
+    if ( *((_DWORD *)v8 + 4) == v9 + 2 )
     {
-      Pool2 = ExAllocatePool2(256LL, v7 + 50LL, 1651995717LL);
-      v13 = Pool2;
-      if ( !Pool2 )
-        goto LABEL_22;
-      *(_DWORD *)(Pool2 + 20) = 1;
-      *(_DWORD *)(Pool2 + 24) = 1;
-      *(_OWORD *)(Pool2 + 28) = *(_OWORD *)a3;
-      *(_DWORD *)(Pool2 + 16) = *(unsigned __int16 *)a2 + 2;
-      memmove((void *)(Pool2 + 44), a2[1], *(unsigned __int16 *)a2);
-      *(_WORD *)(v13 + 2 * ((unsigned __int64)*(unsigned __int16 *)a2 >> 1) + 44) = 0;
-      *(_DWORD *)(a1 + 324) += *(_DWORD *)(v13 + 16) + 16;
-      goto LABEL_9;
-    }
-    LOWORD(v10) = v7;
-    if ( *((_DWORD *)v9 + 4) == v7 + 2LL )
-    {
-      v11 = RtlCompareMemory((char *)&v9[2 * *((unsigned int *)v9 + 5) + 3] + 4, a2[1], v7);
-      v10 = *(unsigned __int16 *)a2;
-      if ( v11 == v10 )
+      v6 = *(unsigned __int16 *)a2;
+      v9 = v6;
+      if ( RtlCompareMemory((char *)&v8[2 * *((unsigned int *)v8 + 5) + 3] + 4, a2[1], v6) == v6 )
         break;
     }
-    v9 = (void ***)*v9;
-    v7 = v10;
+    v8 = (void ***)*v8;
+    if ( v8 == v7 )
+      goto LABEL_7;
   }
-  v15 = *((_DWORD *)v9 + 5);
+  v15 = *((_DWORD *)v8 + 5);
   v16 = 0;
   if ( !v15 )
   {
 LABEL_16:
     if ( v15 >= 0x10 )
       goto LABEL_22;
-    v19 = ExAllocatePool2(256LL, *((_DWORD *)v9 + 4) + 16 * (v15 + 3), 1651995717LL);
-    v13 = v19;
+    v19 = (char *)ExAllocatePoolWithTag(PagedPool, *((_DWORD *)v8 + 4) + 16 * (v15 + 3), 0x62777445u);
+    v11 = v19;
     if ( !v19 )
       goto LABEL_22;
-    memmove((void *)(v19 + 28), (char *)v9 + 28, 16LL * *((unsigned int *)v9 + 5));
-    *(_OWORD *)(v13 + 16LL * *((unsigned int *)v9 + 5) + 28) = *(_OWORD *)a3;
-    v20 = (unsigned int)(*((_DWORD *)v9 + 5) + 1);
-    *(_DWORD *)(v13 + 20) = v20;
-    *(_DWORD *)(v13 + 24) = *((_DWORD *)v9 + 6) + 1;
-    *(_DWORD *)(v13 + 16) = *((_DWORD *)v9 + 4);
-    memmove(
-      (void *)(v13 + 16 * v20 + 28),
-      (char *)&v9[2 * *((unsigned int *)v9 + 5) + 3] + 4,
-      *((unsigned int *)v9 + 4));
-    v21 = *v9;
-    if ( (*v9)[1] != v9 || (v22 = v9[1], *v22 != v9) )
+    memmove(v19 + 28, (char *)v8 + 28, 16LL * *((unsigned int *)v8 + 5));
+    *(_OWORD *)&v11[16 * *((unsigned int *)v8 + 5) + 28] = *(_OWORD *)a3;
+    v20 = (unsigned int)(*((_DWORD *)v8 + 5) + 1);
+    *((_DWORD *)v11 + 5) = v20;
+    *((_DWORD *)v11 + 6) = *((_DWORD *)v8 + 6) + 1;
+    *((_DWORD *)v11 + 4) = *((_DWORD *)v8 + 4);
+    memmove(&v11[16 * v20 + 28], (char *)&v8[2 * *((unsigned int *)v8 + 5) + 3] + 4, *((unsigned int *)v8 + 4));
+    v21 = *v8;
+    if ( (*v8)[1] != v8 || (v22 = v8[1], *v22 != v8) )
 LABEL_10:
       __fastfail(3u);
     *v22 = v21;
     v21[1] = v22;
-    ExFreePoolWithTag(v9, 0);
+    ExFreePoolWithTag(v8, 0);
 LABEL_9:
-    v14 = *v8;
-    if ( (*v8)[1] == v8 )
+    v14 = *v7;
+    if ( (*v7)[1] == v7 )
     {
-      *(_QWORD *)v13 = v14;
-      *(_QWORD *)(v13 + 8) = v8;
-      v14[1] = (void *)v13;
-      *v8 = (void **)v13;
-      _InterlockedOr((volatile signed __int32 *)(a1 + 824), 0xC0u);
+      *(_QWORD *)v11 = v14;
+      *((_QWORD *)v11 + 1) = v7;
+      v14[1] = v11;
+      *v7 = (void **)v11;
+      _InterlockedOr((volatile signed __int32 *)(a1 + 836), 0xC0u);
       goto LABEL_22;
     }
     goto LABEL_10;
@@ -111,9 +113,9 @@ LABEL_9:
   while ( 1 )
   {
     v17 = 2LL * v16;
-    v18 = *(_QWORD *)a3 - *(_QWORD *)((char *)&v9[v17 + 3] + 4);
-    if ( *(void ***)a3 == *(void ***)((char *)&v9[v17 + 3] + 4) )
-      v18 = *(_QWORD *)(a3 + 8) - *(_QWORD *)((char *)&v9[v17 + 4] + 4);
+    v18 = *(_QWORD *)a3 - *(_QWORD *)((char *)&v8[v17 + 3] + 4);
+    if ( *(void ***)a3 == *(void ***)((char *)&v8[v17 + 3] + 4) )
+      v18 = *(_QWORD *)(a3 + 8) - *(_QWORD *)((char *)&v8[v17 + 4] + 4);
     if ( !v18 )
       break;
     if ( ++v16 >= v15 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_diiii @ 0x1C003BC78
+ * XREFs of WPP_RECORDER_SF_diiii @ 0x1C005E1B8
  * Callers:
- *     ACPIRangeValidatePciResources @ 0x1C003B3C4 (ACPIRangeValidatePciResources.c)
+ *     ACPIRangeValidatePciResources @ 0x1C002B280 (ACPIRangeValidatePciResources.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_diiii(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
@@ -35,7 +35,7 @@ __int64 WPP_RECORDER_SF_diiii(__int64 a1, __int64 a2, __int64 a3, unsigned __int
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_1fd0c010928a3334a25fba642ba00601_Traceguids,
+      &WPP_95ceafb9c956380d4634093f153ba036_Traceguids,
       a4,
       (__int64 *)va,
       4LL,
@@ -49,19 +49,5 @@ __int64 WPP_RECORDER_SF_diiii(__int64 a1, __int64 a2, __int64 a3, unsigned __int
       8LL,
       0LL);
   LOWORD(v8) = a4;
-  return WppAutoLogTrace(
-           a1,
-           2LL,
-           13LL,
-           &WPP_1fd0c010928a3334a25fba642ba00601_Traceguids,
-           v8,
-           (__int64 *)va,
-           4LL,
-           (__int64 *)va1,
-           8LL,
-           (__int64 *)va2,
-           8LL,
-           (__int64 *)va3,
-           8LL,
-           va4);
+  return WppAutoLogTrace(a1, 2LL, 13LL, &WPP_95ceafb9c956380d4634093f153ba036_Traceguids, v8, (__int64 *)va);
 }

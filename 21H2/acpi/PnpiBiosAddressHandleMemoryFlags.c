@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpiBiosAddressHandleMemoryFlags @ 0x1C0098D5C
+ * XREFs of PnpiBiosAddressHandleMemoryFlags @ 0x1C009CA28
  * Callers:
- *     PnpiBiosAddressToIoDescriptor @ 0x1C0097330 (PnpiBiosAddressToIoDescriptor.c)
- *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C00974BC (PnpiBiosAddressQuadToIoDescriptor.c)
- *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009888C (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009D6AC (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00A26F8 (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C00B3A44 (PnpiBiosAddressQuadToIoDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
  */
 
 __int16 __fastcall PnpiBiosAddressHandleMemoryFlags(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int16 __fastcall PnpiBiosAddressHandleMemoryFlags(__int64 a1, __int64 a2)
             2u,
             0xDu,
             0xAu,
-            (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+            (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
             *(unsigned __int8 *)(a1 + 5));
         break;
     }

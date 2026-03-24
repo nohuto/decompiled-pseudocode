@@ -1,9 +1,9 @@
 /*
- * XREFs of _SetHimetricToPixelRatio @ 0x1C01E8950
+ * XREFs of _SetHimetricToPixelRatio @ 0x1C01AF740
  * Callers:
  *     <none>
  * Callees:
- *     LongLongToLong @ 0x1C003C44C (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C007FFEC (LongLongToLong.c)
  */
 
 HRESULT __fastcall SetHimetricToPixelRatio(_DWORD *a1, _DWORD *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalAllocateCommonBuffer @ 0x1405054E0
+ * XREFs of HalAllocateCommonBuffer @ 0x1403816B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     HalAllocateCommonBufferExV2 @ 0x1403B64E0 (HalAllocateCommonBufferExV2.c)
- *     HalAllocateCommonBufferExV3 @ 0x140511050 (HalAllocateCommonBufferExV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     HalAllocateCommonBufferExV2 @ 0x140381350 (HalAllocateCommonBufferExV2.c)
+ *     HalAllocateCommonBufferExV3 @ 0x1403A1170 (HalAllocateCommonBufferExV3.c)
  */
 
 PVOID __stdcall HalAllocateCommonBuffer(
@@ -17,7 +17,7 @@ PVOID __stdcall HalAllocateCommonBuffer(
   PHYSICAL_ADDRESS *v4; // r8
   char v5; // r9
   __int64 v6; // r10
-  unsigned int v7; // r11d
+  int v7; // r11d
   int v9; // [rsp+20h] [rbp-18h]
 
   if ( (unsigned int)HalpDmaGetAdapterVersion((__int64)DmaAdapter) != 2 )

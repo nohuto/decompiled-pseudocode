@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022A740
+ * XREFs of ?SetRemarshalingFlags@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F1900
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C020EA30 (-SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01D5EC0 (-SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::SetRemarshalingFlags(
@@ -31,7 +31,7 @@ char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::S
       v6 = (__int128 *)(*((_QWORD *)this + 9) + v4 * v5);
       v7 = *v6;
       v11 = v6[1];
-      DWORD1(v11) = 0;
+      BYTE8(v11) = 1;
       Src = v7;
       memmove(v6, &Src, v5);
       v8 = *((_QWORD *)this + 12);
@@ -41,6 +41,7 @@ char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::S
     if ( v8 )
       *((_DWORD *)this + 4) |= 0x40u;
   }
+  *((_BYTE *)this + 64) = 1;
   if ( DirectComposition::CNotificationResourceMarshaler::SetRemarshalingFlags(this)
     || (*((_DWORD *)this + 4) & 0x40) != 0 )
   {

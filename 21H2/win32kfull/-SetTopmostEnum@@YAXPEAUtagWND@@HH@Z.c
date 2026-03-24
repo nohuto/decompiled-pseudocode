@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0107E94
+ * XREFs of ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0039240
  * Callers:
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0081210 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0036098 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
  * Callees:
- *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0107ECC (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
- *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0107F54 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035300 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0039278 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
  */
 
 void __fastcall SetTopmostEnum(struct tagWND *a1, int a2, int a3)

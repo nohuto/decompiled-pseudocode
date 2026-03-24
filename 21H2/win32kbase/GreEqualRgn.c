@@ -1,11 +1,11 @@
 /*
- * XREFs of GreEqualRgn @ 0x1C0098230
+ * XREFs of GreEqualRgn @ 0x1C0093D80
  * Callers:
  *     <none>
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C009829C (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C0093DEC (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall GreEqualRgn(HRGN a1, HRGN a2)

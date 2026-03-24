@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHandle@FxRequestSystemBuffer@@UEAAPEAUWDFMEMORY__@@XZ @ 0x1C000BC50
+ * XREFs of ?GetHandle@FxRequestSystemBuffer@@UEAAPEAUWDFMEMORY__@@XZ @ 0x1C000DB90
  * Callers:
  *     <none>
  * Callees:

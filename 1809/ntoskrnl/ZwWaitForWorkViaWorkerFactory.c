@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x1401BBAF0
+ * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x1401BBB10
  * Callers:
  *     <none>
  * Callees:

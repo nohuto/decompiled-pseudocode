@@ -1,19 +1,19 @@
 /*
- * XREFs of PopGetCurrentWakeInfos @ 0x1403971A8
+ * XREFs of PopGetCurrentWakeInfos @ 0x14038BA3C
  * Callers:
- *     PopGetWakeSource @ 0x140806788 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x1407787B8 (PopGetWakeSource.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopGetCurrentWakeInfos(__int64 *a1)
+__int64 __fastcall PopGetCurrentWakeInfos(_QWORD *a1)
 {
-  __int64 v2; // rdi
+  _QWORD *v2; // rdi
   unsigned int v3; // ebx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v5; // rcx
   __int64 i; // rdx
   unsigned __int64 OldIrql; // rsi
@@ -31,14 +31,14 @@ __int64 __fastcall PopGetCurrentWakeInfos(__int64 *a1)
   v3 = PopWakeInfoCount;
   if ( PopWakeInfoCount )
   {
-    Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned int)PopWakeInfoCount, 544040269LL);
-    v2 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)PopWakeInfoCount, 0x206D654Du);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
       v5 = PopWakeInfoList;
       for ( i = 0LL; (__int64 *)v5 != &PopWakeInfoList && (unsigned int)i < v3; i = (unsigned int)(i + 1) )
       {
-        *(_QWORD *)(Pool2 + 8 * i) = v5;
+        PoolWithTag[i] = v5;
         _InterlockedIncrement((volatile signed __int32 *)(v5 + 16));
         v5 = *(_QWORD *)v5;
       }

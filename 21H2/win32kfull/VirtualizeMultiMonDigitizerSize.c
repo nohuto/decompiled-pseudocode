@@ -1,45 +1,43 @@
 /*
- * XREFs of VirtualizeMultiMonDigitizerSize @ 0x1C01E01B4
+ * XREFs of VirtualizeMultiMonDigitizerSize @ 0x1C01E6264
  * Callers:
- *     _GetPointerDeviceRects @ 0x1C0110B24 (_GetPointerDeviceRects.c)
- *     MiPGetPhysicalRect @ 0x1C0110BD4 (MiPGetPhysicalRect.c)
- *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01DFB4C (RemapHimetricPointsForMultiMonDigitizers.c)
+ *     _GetPointerDeviceRects @ 0x1C0122BAC (_GetPointerDeviceRects.c)
+ *     MiPGetPhysicalRect @ 0x1C0122C5C (MiPGetPhysicalRect.c)
+ *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01E5BEC (RemapHimetricPointsForMultiMonDigitizers.c)
  * Callees:
- *     GetScreenRect @ 0x1C0110C1C (GetScreenRect.c)
- *     ExpandedMonitorSpace @ 0x1C01DEC3C (ExpandedMonitorSpace.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     GetScreenRect @ 0x1C0122CA4 (GetScreenRect.c)
+ *     ExpandedMonitorSpace @ 0x1C01E401C (ExpandedMonitorSpace.c)
  */
 
-char __fastcall VirtualizeMultiMonDigitizerSize(__int64 a1, __int64 a2)
+char __fastcall VirtualizeMultiMonDigitizerSize(__int64 a1)
 {
-  INT v3; // eax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rdx
+  INT v2; // eax
+  __int64 v3; // rdx
   __m128i *ScreenRect; // rax
-  __m128i v9; // xmm6
-  INT v10; // eax
-  INT v11; // r8d
-  INT v12; // ecx
-  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
-  __m128i v15; // [rsp+30h] [rbp-28h] BYREF
+  __m128i v5; // xmm6
+  INT v6; // eax
+  INT v7; // r8d
+  INT v8; // ecx
+  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
+  __m128i v11; // [rsp+30h] [rbp-28h] BYREF
 
-  LOBYTE(v3) = W32GetCurrentThreadDpiAwarenessContext(a1, a2) & 0xF;
-  if ( (_BYTE)v3 != 2 )
+  LOBYTE(v2) = W32GetCurrentThreadDpiAwarenessContext(a1) & 0xF;
+  if ( (_BYTE)v2 != 2 )
   {
-    v14 = 0LL;
-    ExpandedMonitorSpace((__int64 *)&v14, v4, v5, v6);
-    ScreenRect = GetScreenRect(&v15, v7);
-    v9 = *ScreenRect;
-    v10 = EngMulDiv(
-            *(_DWORD *)(a1 + 8),
-            _mm_cvtsi128_si32(_mm_srli_si128(*ScreenRect, 8)) - _mm_cvtsi128_si32(*ScreenRect),
-            DWORD2(v14) - v14);
-    v11 = HIDWORD(v14) - DWORD1(v14);
-    v12 = *(_DWORD *)(a1 + 12);
-    *(_DWORD *)(a1 + 8) = v10;
-    v3 = EngMulDiv(v12, _mm_cvtsi128_si32(_mm_srli_si128(v9, 12)) - _mm_cvtsi128_si32(_mm_srli_si128(v9, 4)), v11);
-    *(_DWORD *)(a1 + 12) = v3;
+    v10 = 0LL;
+    ExpandedMonitorSpace((__int64 *)&v10, v3);
+    ScreenRect = GetScreenRect(&v11);
+    v5 = *ScreenRect;
+    v6 = EngMulDiv(
+           *(_DWORD *)(a1 + 8),
+           _mm_cvtsi128_si32(_mm_srli_si128(*ScreenRect, 8)) - _mm_cvtsi128_si32(*ScreenRect),
+           DWORD2(v10) - v10);
+    v7 = HIDWORD(v10) - DWORD1(v10);
+    v8 = *(_DWORD *)(a1 + 12);
+    *(_DWORD *)(a1 + 8) = v6;
+    v2 = EngMulDiv(v8, _mm_cvtsi128_si32(_mm_srli_si128(v5, 12)) - _mm_cvtsi128_si32(_mm_srli_si128(v5, 4)), v7);
+    *(_DWORD *)(a1 + 12) = v2;
   }
-  return v3;
+  return v2;
 }

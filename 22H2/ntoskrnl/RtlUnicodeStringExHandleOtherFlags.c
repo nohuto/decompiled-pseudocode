@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x14055F938
+ * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x14050C398
  * Callers:
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     PiDevCfgLogDeviceConfigured @ 0x14087A140 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x14087BF60 (PiDevCfgBuildDriverConfigurationId.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140737538 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140739908 (PiDevCfgBuildDriverConfigurationId.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringExHandleOtherFlags(

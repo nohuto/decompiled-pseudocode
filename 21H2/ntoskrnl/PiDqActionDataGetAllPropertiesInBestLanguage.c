@@ -1,31 +1,31 @@
 /*
- * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14094A034
+ * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A44E0
  * Callers:
- *     PiDqActionDataCreate @ 0x140778100 (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x14069717C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDqOpenObjectRegKey @ 0x14069984C (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x14069A184 (PiDqGrowPropertyArray.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x140778B24 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x140638D94 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
+ *     PiDqGrowPropertyArray @ 0x140771474 (PiDqGrowPropertyArray.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1408A4918 (PiDqPnPGetObjectPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(
         __int64 a1,
         int a2,
-        int a3,
-        int a4,
-        const wchar_t *a5,
+        unsigned int a3,
+        __int64 a4,
+        NTSTRSAFE_PCWSTR a5,
         const void **a6,
         unsigned int *a7,
         unsigned int *a8)
 {
   unsigned int v8; // r14d
-  PVOID v10; // rbx
-  int v11; // r15d
+  void *v10; // rbx
+  unsigned int v11; // r15d
   int v12; // edi
-  __int64 v13; // r9
+  int v13; // r9d
   unsigned int *v14; // rsi
   unsigned int v15; // eax
   const void **v16; // r12
@@ -33,7 +33,7 @@ __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(
   unsigned int v18; // r8d
   __int64 v19; // rax
   HANDLE Handle; // [rsp+50h] [rbp-10h] BYREF
-  PVOID v22; // [rsp+58h] [rbp-8h] BYREF
+  void *v22; // [rsp+58h] [rbp-8h] BYREF
   unsigned int v24; // [rsp+B0h] [rbp+50h] BYREF
 
   v8 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(
   v12 = PiDqOpenObjectRegKey(a2, a4, a3, 1, 0, a1, &Handle);
   if ( v12 >= 0 )
   {
-    v12 = PiDqPnPGetObjectPropertyKeys(a4, v11, (__int64)Handle, v13, &v22, &v24);
+    v12 = PiDqPnPGetObjectPropertyKeys(a4, v11, (_DWORD)Handle, v13, (__int64)&v22, (__int64)&v24);
     if ( v12 >= 0 )
     {
       v14 = a7;
@@ -72,8 +72,8 @@ __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(
           v12 = PiDqPnPGetObjectPropertyInBestLocale(
                   a4,
                   v11,
-                  (int)Handle,
-                  (unsigned int)v10 + 20 * v8,
+                  (__int64)Handle,
+                  (__int64)v10 + 20 * v8,
                   a2,
                   a5,
                   (_OWORD *)*v16 + 3 * v19);

@@ -1,16 +1,17 @@
 /*
- * XREFs of ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C007F0D4
+ * XREFs of ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C00123F0
  * Callers:
- *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C007E124 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
+ *     ?OpenSwapChainHandles@CFlipExBuffer@@UEBAJPEAUCSM_SWAPCHAIN_HANDLE_INFO@@@Z @ 0x1C0012330 (-OpenSwapChainHandles@CFlipExBuffer@@UEBAJPEAUCSM_SWAPCHAIN_HANDLE_INFO@@@Z.c)
+ *     ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C001D7E8 (-EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     DxgkGetSharedAllocationObjectType @ 0x1C01D8380 (DxgkGetSharedAllocationObjectType.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     DxgkGetSharedAllocationObjectType @ 0x1C0156130 (DxgkGetSharedAllocationObjectType.c)
  */
 
 NTSTATUS __fastcall CBufferRealization::OpenDxSurfaceHandle(
         CBufferRealization *this,
-        unsigned __int8 a2,
+        __int64 a2,
         unsigned __int8 a3,
         void **a4)
 {
@@ -25,9 +26,13 @@ NTSTATUS __fastcall CBufferRealization::OpenDxSurfaceHandle(
     return -1073741811;
   AccessMode = 1;
   v7 = a3 << 9;
-  v8 = a2;
-  if ( a3 || (Global = DXGGLOBAL::GetGlobal(), (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 560LL))()) )
+  v8 = (unsigned __int8)a2;
+  if ( a3
+    || (Global = DXGGLOBAL::GetGlobal((__int64)this, a2),
+        (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))()) )
+  {
     AccessMode = 0;
+  }
   ObjectType = (struct _OBJECT_TYPE *)DxgkGetSharedAllocationObjectType();
-  return ObOpenObjectByPointer(*((PVOID *)this + 8), v7, 0LL, v8 + 983040, ObjectType, AccessMode, a4);
+  return ObOpenObjectByPointer(*((PVOID *)this + 7), v7, 0LL, v8 + 983040, ObjectType, AccessMode, a4);
 }

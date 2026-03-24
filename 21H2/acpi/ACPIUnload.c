@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIUnload @ 0x1C00524C0
+ * XREFs of ACPIUnload @ 0x1C0052F10
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     wil_UninitializeFeatureStaging @ 0x1C008E354 (wil_UninitializeFeatureStaging.c)
- *     WppCleanupKm @ 0x1C00AB678 (WppCleanupKm.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C008F2F0 (wil_UninitializeFeatureStaging.c)
+ *     WppCleanupKm @ 0x1C00AC97C (WppCleanupKm.c)
  */
 
 __int64 __fastcall ACPIUnload(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall ACPIUnload(__int64 a1)
   KeWaitForSingleObject(ACPIThread, Executive, 0, 0, 0LL);
   ObfDereferenceObject(ACPIThread);
   IoDeleteSymbolicLink(&ACPISymbolicLinkName);
-  ExDeleteNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&BuildRequestLookAsideList);
+  ExDeleteNPagedLookasideList(&BuildRequestLookAsideList);
   ExDeleteNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RequestLookAsideList);
   ExDeleteNPagedLookasideList(&DeviceExtensionLookAsideList);
   ExDeleteNPagedLookasideList(&ObjectDataLookAsideList);
@@ -34,6 +34,6 @@ __int64 __fastcall ACPIUnload(__int64 a1)
       4u,
       6u,
       0x12u,
-      (__int64)&WPP_6f88517ea7123f8ddbeafbeda42a4256_Traceguids);
+      (__int64)&WPP_6862a416d8603aba0a2e2af82566a863_Traceguids);
   return WppCleanupKm(a1);
 }

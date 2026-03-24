@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBACPI_EvaluateDsmMethod @ 0x1C00843C8
+ * XREFs of HUBACPI_EvaluateDsmMethod @ 0x1C0082C40
  * Callers:
- *     HUBACPI_GetAcpiPortAttributes @ 0x1C00854D0 (HUBACPI_GetAcpiPortAttributes.c)
+ *     HUBACPI_GetAcpiPortAttributes @ 0x1C0083988 (HUBACPI_GetAcpiPortAttributes.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     RtlStringCbCatNA @ 0x1C003C844 (RtlStringCbCatNA.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     memcpy_s @ 0x1C00435F0 (memcpy_s.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     RtlStringCbCatNA @ 0x1C003C1C4 (RtlStringCbCatNA.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     memcpy_s @ 0x1C0042910 (memcpy_s.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBACPI_EvaluateDsmMethod(
@@ -27,10 +27,10 @@ __int64 __fastcall HUBACPI_EvaluateDsmMethod(
   __int64 v12; // rdi
   __int64 v13; // rbx
   __int64 v14; // rdx
-  _BYTE *v15; // rcx
+  char *v15; // rcx
   size_t v16; // rdx
   char v17; // al
-  _BYTE *v18; // rax
+  char *v18; // rax
   size_t v19; // rdx
   __int64 v20; // r12
   _WORD *v21; // rbx
@@ -91,14 +91,12 @@ __int64 __fastcall HUBACPI_EvaluateDsmMethod(
     v16 = v14 - ((_QWORD)v28 + 4);
     do
     {
-      if ( !v12 )
+      if ( !(v13 + v12 - 256) )
         break;
       v17 = v15[v16];
       if ( !v17 )
         break;
-      *v15 = v17;
-      --v12;
-      ++v15;
+      *v15++ = v17;
       --v13;
     }
     while ( v13 );
@@ -155,7 +153,7 @@ __int64 __fastcall HUBACPI_EvaluateDsmMethod(
             2u,
             3u,
             0x12u,
-            (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+            (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
         }
         v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(
                 WdfDriverGlobals,
@@ -174,7 +172,7 @@ __int64 __fastcall HUBACPI_EvaluateDsmMethod(
                 2u,
                 3u,
                 0x14u,
-                (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+                (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
             v10 = -1072431089;
           }
         }
@@ -203,7 +201,7 @@ LABEL_5:
         2u,
         3u,
         v11,
-        (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids,
+        (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids,
         v27);
     }
   }
@@ -211,7 +209,7 @@ LABEL_5:
   {
     v10 = -1073741811;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xFu, (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xFu, (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
   }
 LABEL_35:
   if ( v29 )

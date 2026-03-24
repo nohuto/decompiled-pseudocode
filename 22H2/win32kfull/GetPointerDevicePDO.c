@@ -1,7 +1,9 @@
 /*
- * XREFs of GetPointerDevicePDO @ 0x1C01C3108
+ * XREFs of GetPointerDevicePDO @ 0x1C0121950
  * Callers:
- *     GetPointerDeviceKey @ 0x1C01A9F1C (GetPointerDeviceKey.c)
+ *     GetContainerId @ 0x1C01213E0 (GetContainerId.c)
+ *     ?IsHIDMouse@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C0121828 (-IsHIDMouse@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     GetPointerDeviceKey @ 0x1C01D5060 (GetPointerDeviceKey.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +18,6 @@ __int64 __fastcall GetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
   struct _KEVENT Event; // [rsp+50h] [rbp-28h] BYREF
 
   IoStatusBlock = 0LL;
-  memset(&Event, 0, sizeof(Event));
   KeInitializeEvent(&Event, NotificationEvent, 0);
   v4 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Event, &IoStatusBlock);
   if ( v4 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of ObEnableEtwReferenceTrace @ 0x1408627E0
+ * XREFs of ObEnableEtwReferenceTrace @ 0x1408627C0
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

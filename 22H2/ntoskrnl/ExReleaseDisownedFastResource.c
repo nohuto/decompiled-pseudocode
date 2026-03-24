@@ -1,24 +1,21 @@
 /*
- * XREFs of ExReleaseDisownedFastResource @ 0x1403CA2F0
+ * XREFs of ExReleaseDisownedFastResource @ 0x14038DE70
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403CA3F0 (ExpReleaseDisownedFastResourceShared.c)
- *     ExReleaseDisownedFastResource2 @ 0x1404136EC (ExReleaseDisownedFastResource2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14060A734 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038DEEC (ExpReleaseDisownedFastResourceShared.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B49D0 (ExpReleaseDisownedFastResourceExclusive.c)
  */
 
 __int64 __fastcall ExReleaseDisownedFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
-  __int16 v3; // r9
+  __int16 v2; // r9
   unsigned __int8 CurrentIrql; // al
   struct _KTHREAD *CurrentThread; // r8
 
-  if ( FeatureFastResource2 )
-    return ExReleaseDisownedFastResource2(BugCheckParameter2, a2);
-  v3 = *(_WORD *)(BugCheckParameter2 + 26);
-  if ( (v3 & 1) == 0 )
+  v2 = *(_WORD *)(BugCheckParameter2 + 26);
+  if ( (v2 & 1) == 0 )
     KeBugCheckEx(0x1C6u, 3uLL, BugCheckParameter2, 0LL, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   CurrentThread = KeGetCurrentThread();
@@ -30,8 +27,8 @@ __int64 __fastcall ExReleaseDisownedFastResource(ULONG_PTR BugCheckParameter2, U
     KeBugCheckEx(0x1C6u, 0xCuLL, BugCheckParameter2, a2, *(_QWORD *)(a2 + 24));
   if ( (*(_BYTE *)(a2 + 17) & 1) == 0 )
     KeBugCheckEx(0x1C6u, 0xDuLL, a2, 0LL, 0LL);
-  if ( (v3 & 0x80u) == 0 )
-    return ExpReleaseDisownedFastResourceShared(BugCheckParameter2, a2, CurrentThread);
-  else
+  if ( (v2 & 0x80u) != 0 )
     return ExpReleaseDisownedFastResourceExclusive(BugCheckParameter2, a2, CurrentThread);
+  else
+    return ExpReleaseDisownedFastResourceShared(BugCheckParameter2, a2, CurrentThread);
 }

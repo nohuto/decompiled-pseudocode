@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlDoesDbcsContainWildCards @ 0x140815A20
+ * XREFs of FsRtlDoesDbcsContainWildCards @ 0x140815A00
  * Callers:
- *     FsRtlIsFatDbcsLegal @ 0x1406B3E70 (FsRtlIsFatDbcsLegal.c)
- *     FsRtlIsDbcsInExpression @ 0x140815A90 (FsRtlIsDbcsInExpression.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1406B3E50 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsDbcsInExpression @ 0x140815A70 (FsRtlIsDbcsInExpression.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ LABEL_9:
     if ( ++v2 >= Length )
       return 0;
   }
-  if ( v4 < 0 || (byte_14035C600[v4] & 8) == 0 )
+  if ( v4 < 0 || (byte_14035C710[v4] & 8) == 0 )
     goto LABEL_9;
   return 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCaptureWnfStateName @ 0x14071313C
+ * XREFs of ExpCaptureWnfStateName @ 0x14060F7A4
  * Callers:
- *     ExpWnfCompleteThreadSubscriptions @ 0x140712024 (ExpWnfCompleteThreadSubscriptions.c)
- *     ExpNtUpdateWnfStateData @ 0x14071234C (ExpNtUpdateWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x140712974 (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateData @ 0x140712D00 (NtQueryWnfStateData.c)
- *     NtUnsubscribeWnfStateChange @ 0x14076CD70 (NtUnsubscribeWnfStateChange.c)
- *     NtDeleteWnfStateName @ 0x1407C98C0 (NtDeleteWnfStateName.c)
- *     NtQueryWnfStateNameInformation @ 0x1407CD8F0 (NtQueryWnfStateNameInformation.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x14060D820 (NtDeleteWnfStateName.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x14060E73C (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14060EF54 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x14060F2E0 (NtQueryWnfStateData.c)
+ *     NtUnsubscribeWnfStateChange @ 0x140611A40 (NtUnsubscribeWnfStateChange.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406893C0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  * Callees:
  *     <none>
  */
@@ -18,10 +18,9 @@ __int64 __fastcall ExpCaptureWnfStateName(__int64 *a1, unsigned __int64 *a2, cha
   __int64 v3; // rax
   __int64 v4; // rcx
   unsigned __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  int v8; // ecx
-  int v10; // ecx
+  unsigned __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rax
 
   if ( a3 )
   {
@@ -38,19 +37,10 @@ __int64 __fastcall ExpCaptureWnfStateName(__int64 *a1, unsigned __int64 *a2, cha
   *a2 = v5;
   if ( (v5 & 0xF) != 1 )
     return 3221225485LL;
-  v6 = (v5 >> 6) & 0xF;
+  v6 = v5;
   v7 = (v5 >> 10) & 1;
-  v8 = (v5 >> 4) & 3;
-  if ( v8 )
-  {
-    v10 = v8 - 1;
-    if ( v10 )
-    {
-      if ( (unsigned int)(v10 - 1) >= 2 )
-        return 3221225485LL;
-    }
-  }
-  if ( (unsigned int)v6 >= 4 && (unsigned int)(v6 - 4) >= 2 || (_DWORD)v7 && ((v6 & 0xFFFFFFF9) != 0 || (_DWORD)v6 == 6) )
+  v8 = (v6 >> 6) & 0xF;
+  if ( (unsigned int)v8 > 5 || (_DWORD)v7 && (v8 & 0xFFFFFFF9) != 0 )
     return 3221225485LL;
   else
     return 0LL;

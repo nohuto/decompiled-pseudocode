@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveFromAdapterList@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6EFC
+ * XREFs of ?RemoveFromAdapterList@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1BA4
  * Callers:
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00DFE3C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AC37C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ void __fastcall VIDMM_GLOBAL::RemoveFromAdapterList(VIDMM_GLOBAL *this)
   _QWORD *v4; // rax
 
   ExAcquirePushLockExclusiveEx(&VIDMM_GLOBAL::_AdapterListLock, 0LL);
-  v2 = (_QWORD *)((char *)this + 44768);
+  v2 = (_QWORD *)((char *)this + 44712);
   v3 = *v2;
   if ( *(_QWORD **)(*v2 + 8LL) != v2 || (v4 = (_QWORD *)v2[1], (_QWORD *)*v4 != v2) )
     __fastfail(3u);

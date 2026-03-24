@@ -1,83 +1,82 @@
 /*
- * XREFs of MiPageNotZero @ 0x14064DB1C
+ * XREFs of MiPageNotZero @ 0x14054F0B0
  * Callers:
- *     MiArePageContentsZero @ 0x14064D490 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x14054EB08 (MiArePageContentsZero.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140423F80 (KeZeroPages.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x140402430 (KeZeroPages.c)
  */
 
-__int64 __fastcall MiPageNotZero(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MiPageNotZero(__m128i *BugCheckParameter1, ULONG_PTR BugCheckParameter2)
 {
-  __m128i *v3; // rbp
   int v4; // r8d
-  ULONG_PTR v5; // r10
-  unsigned int v6; // esi
-  int v7; // r15d
-  ULONG_PTR v8; // r9
-  ULONG_PTR v9; // rax
-  ULONG v10; // r14d
-  ULONG_PTR BugCheckParameter4; // rcx
+  unsigned int v5; // r14d
+  int v6; // r15d
+  __m128i *v7; // r10
+  __int64 v8; // r9
+  signed __int64 v9; // rax
+  ULONG_PTR v10; // rcx
+  ULONG v11; // ebp
   __int64 v12; // rbx
 
-  v3 = (__m128i *)BugCheckParameter1;
-  _InterlockedAdd(&dword_140C68068, 1u);
+  _InterlockedAdd(&dword_140C4E7D4, 1u);
   v4 = 0;
-  v5 = BugCheckParameter1 + 4096;
+  v5 = 0;
   v6 = 0;
-  v7 = 0;
+  v7 = BugCheckParameter1;
   v8 = 4096LL;
-  if ( BugCheckParameter1 < BugCheckParameter1 + 4096 )
+  if ( BugCheckParameter1 < &BugCheckParameter1[256] )
   {
     while ( 1 )
     {
-      if ( *(_DWORD *)BugCheckParameter1 )
+      if ( v7->m128i_i32[0] )
       {
-        v9 = BugCheckParameter1 - (_QWORD)v3;
+        v9 = (char *)v7 - (char *)BugCheckParameter1;
         if ( v8 != 4096 )
           v9 = v8;
         ++v4;
         v8 = v9;
         if ( v4 != 1 )
-          break;
-        v6 = BugCheckParameter1 & 0xFFF;
-        v7 = *(_DWORD *)BugCheckParameter1;
-        if ( ((*(_DWORD *)BugCheckParameter1 - 1) & *(_DWORD *)BugCheckParameter1) != 0 )
+          goto LABEL_12;
+        v5 = (unsigned __int16)v7 & 0xFFF;
+        v6 = v7->m128i_i32[0];
+        if ( ((v7->m128i_i32[0] - 1) & v7->m128i_i32[0]) != 0 )
           break;
       }
-      BugCheckParameter1 += 4LL;
-      if ( BugCheckParameter1 >= v5 )
-      {
-        if ( v4 != 1 )
-          break;
-        v10 = 299;
-        v8 = 0LL;
-        _InterlockedAdd(&dword_140C68064, 1u);
-        BugCheckParameter4 = 0LL;
-        goto LABEL_11;
-      }
+      v7 = (__m128i *)((char *)v7 + 4);
+      if ( v7 >= &BugCheckParameter1[256] )
+        goto LABEL_10;
     }
+    v4 = 2;
   }
-  v10 = 295;
-  BugCheckParameter4 = 4096LL;
-LABEL_11:
-  if ( (MmPageValidationAction & 1) != 0 )
-    KeBugCheckEx(v10, (ULONG_PTR)v3, BugCheckParameter2, v8, BugCheckParameter4);
-  v12 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
-  KeSetEvent(*(PRKEVENT *)(v12 + 344), 0, 0);
-  if ( (unsigned __int16 *)v12 != MiSystemPartition )
-    KeSetEvent(qword_140C6B658, 0, 0);
-  if ( (MiFlags & 0x30) == 0x20 && !_InterlockedCompareExchange(&dword_140C67FBC, 1, 0) )
+LABEL_10:
+  if ( v4 == 1 )
+    _InterlockedAdd(&dword_140C4E7D0, 1u);
+LABEL_12:
+  v10 = 0LL;
+  v11 = 299;
+  if ( v4 != 1 )
   {
-    stru_140C67FD0.List.Flink = 0LL;
-    dword_140C67FC0 = v7;
-    qword_140C67FC8 = v6 + (BugCheckParameter2 << 12);
-    stru_140C67FD0.WorkerRoutine = (void (__fastcall *)(void *))MiBadMemoryLogger;
-    stru_140C67FD0.Parameter = &dword_140C67FB8;
-    dword_140C67FB8 = v10;
-    ExQueueWorkItem(&stru_140C67FD0, DelayedWorkQueue);
+    v10 = v8;
+    v11 = 295;
   }
-  return KeZeroPages(v3, 0x1000uLL);
+  if ( (MmPageValidationAction & 1) != 0 )
+    KeBugCheckEx(v11, (ULONG_PTR)BugCheckParameter1, BugCheckParameter2, v10, -(__int64)(v4 != 1) & 0x1000);
+  v12 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL));
+  KeSetEvent(*(PRKEVENT *)(v12 + 320), 0, 0);
+  if ( (ULONG_PTR *)v12 != &MiSystemPartition )
+    KeSetEvent(qword_140C50EC0, 0, 0);
+  if ( (MiFlags & 0x30) == 0x20 && !_InterlockedCompareExchange(&dword_140C4E73C, 1, 0) )
+  {
+    stru_140C4E750.List.Flink = 0LL;
+    dword_140C4E740 = v6;
+    qword_140C4E748 = v5 + (BugCheckParameter2 << 12);
+    stru_140C4E750.WorkerRoutine = (void (__fastcall *)(void *))MiBadMemoryLogger;
+    stru_140C4E750.Parameter = &dword_140C4E738;
+    dword_140C4E738 = v11;
+    ExQueueWorkItem(&stru_140C4E750, DelayedWorkQueue);
+  }
+  return KeZeroPages(BugCheckParameter1, 0x1000uLL);
 }

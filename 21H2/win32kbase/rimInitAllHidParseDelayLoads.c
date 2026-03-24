@@ -1,9 +1,9 @@
 /*
- * XREFs of rimInitAllHidParseDelayLoads @ 0x1C0056AC8
+ * XREFs of rimInitAllHidParseDelayLoads @ 0x1C006C794
  * Callers:
- *     RIMInitialize @ 0x1C0056920 (RIMInitialize.c)
+ *     RIMInitialize @ 0x1C006C2B0 (RIMInitialize.c)
  * Callees:
- *     rimFindImageProcAddress @ 0x1C0056C20 (rimFindImageProcAddress.c)
+ *     rimFindImageProcAddress @ 0x1C006C8EC (rimFindImageProcAddress.c)
  */
 
 void rimInitAllHidParseDelayLoads()

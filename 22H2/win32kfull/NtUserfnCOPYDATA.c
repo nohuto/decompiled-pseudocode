@@ -1,37 +1,34 @@
 /*
- * XREFs of NtUserfnCOPYDATA @ 0x1C00A7A50
+ * XREFs of NtUserfnCOPYDATA @ 0x1C0120BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnCOPYDATA(__int64 a1, unsigned int a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
 {
-  __int64 v10; // r10
-  SIZE_T Length[2]; // [rsp+38h] [rbp-20h] BYREF
-  volatile void *Address; // [rsp+48h] [rbp-10h]
+  __int64 v9; // r10
+  __int128 v11; // [rsp+38h] [rbp-20h] BYREF
+  volatile void *v12; // [rsp+48h] [rbp-10h]
 
-  *(_OWORD *)Length = 0LL;
-  Address = 0LL;
-  PtiCurrentShared();
-  v10 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
+  v9 = 0LL;
   if ( a4 )
   {
     if ( a4 >= MmUserProbeAddress )
       a4 = MmUserProbeAddress;
-    *(_OWORD *)Length = *(_OWORD *)a4;
-    Address = *(volatile void **)(a4 + 16);
-    if ( Address )
-      ProbeForRead(Address, LODWORD(Length[1]), 1u);
-    return (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, SIZE_T *, __int64))&WPP_MAIN_CB.SectorSize
-            + ((a6 + 6) & 0x1F)))(
+    v11 = *(_OWORD *)a4;
+    v12 = *(volatile void **)(a4 + 16);
+    if ( v12 )
+      ProbeForRead(v12, DWORD2(v11), 1u);
+    return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int128 *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
              a1,
              a2,
              a3,
-             Length,
+             &v11,
              a5);
   }
-  return v10;
+  return v9;
 }

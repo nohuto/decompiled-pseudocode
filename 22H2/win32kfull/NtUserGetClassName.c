@@ -1,56 +1,51 @@
 /*
- * XREFs of NtUserGetClassName @ 0x1C0097C10
+ * XREFs of NtUserGetClassName @ 0x1C00D6110
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetClassName(__int64 a1, __int64 a2, ULONG64 a3)
+__int64 __fastcall NtUserGetClassName(__int64 a1, int a2, ULONG64 a3)
 {
-  ULONG64 v3; // rsi
-  int v4; // r14d
   unsigned int AtomName; // edi
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rbx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  volatile void *v12; // rsi
-  unsigned int v13; // ecx
-  unsigned int v14; // ecx
-  unsigned __int16 v16; // [rsp+20h] [rbp-48h]
-  int v17; // [rsp+28h] [rbp-40h]
+  __int64 v7; // rcx
+  __int64 v8; // r14
+  volatile void *v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  int v14; // [rsp+28h] [rbp-50h]
 
-  v3 = a3;
-  v4 = a2;
   AtomName = 0;
-  EnterSharedCrit(a1, a2, a3);
-  v9 = ValidateHwnd(a1);
-  if ( v9 )
+  EnterSharedCrit(0LL, 1LL);
+  v8 = ValidateHwnd(a1);
+  if ( v8 )
   {
-    if ( v3 >= MmUserProbeAddress )
-      v3 = MmUserProbeAddress;
-    v17 = *(_DWORD *)v3;
-    v12 = *(volatile void **)(v3 + 8);
-    ProbeForWrite(v12, HIWORD(v17), 2u);
-    v16 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 136) + 8LL) + 2LL);
-    if ( v4 )
+    if ( a3 >= MmUserProbeAddress )
+      a3 = MmUserProbeAddress;
+    v14 = *(_DWORD *)a3;
+    v9 = *(volatile void **)(a3 + 8);
+    ProbeForWrite(v9, (unsigned __int16)HIWORD(*(_DWORD *)a3), 2u);
+    v10 = *(_QWORD *)(*(_QWORD *)(v8 + 136) + 8LL);
+    v11 = *(unsigned __int16 *)(v10 + 2);
+    if ( a2 )
     {
-      if ( (*(_WORD *)(*(_QWORD *)(v9 + 40) + 42LL) & 0x2FFF) != 0 )
+      if ( (*(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFF) != 0 )
       {
-        v13 = (*(_WORD *)(*(_QWORD *)(v9 + 40) + 42LL) & 0x2FFF) - 666;
-        if ( v13 < 0x1F )
+        v12 = (*(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFFu) - 666;
+        if ( (unsigned int)v12 < 0x1F )
         {
           _mm_lfence();
-          v14 = byte_1C03171A8[v13];
-          if ( (_BYTE)v14 != 25 )
-            v16 = *(_WORD *)(gpsi + 2LL * v14 + 868);
+          if ( byte_1C02EAE10[v12] == 25 )
+            v11 = *(unsigned __int16 *)(v10 + 2);
+          else
+            v11 = *(unsigned __int16 *)(gpsi + 2LL * byte_1C02EAE10[v12] + 868);
         }
       }
     }
-    AtomName = UserGetAtomName(v16, v12, HIWORD(v17) >> 1);
+    AtomName = UserGetAtomName(v11, v9, HIWORD(v14) >> 1);
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v10, v11);
+  UserSessionSwitchLeaveCrit(v7);
   return AtomName;
 }

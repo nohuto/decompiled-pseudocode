@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPrimitive@CAnimation@@UEAAPEBUDwmAnimationPrimitive@@I@Z @ 0x1800D9C40
+ * XREFs of ?GetPrimitive@CAnimation@@UEAAPEBUDwmAnimationPrimitive@@I@Z @ 0x1800C4CF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 const struct DwmAnimationPrimitive *__fastcall CAnimation::GetPrimitive(CAnimation *this)
 {
-  return (const struct DwmAnimationPrimitive *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 32LL))(*((_QWORD *)this + 2));
+  return (const struct DwmAnimationPrimitive *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 24LL))(*((_QWORD *)this + 2));
 }

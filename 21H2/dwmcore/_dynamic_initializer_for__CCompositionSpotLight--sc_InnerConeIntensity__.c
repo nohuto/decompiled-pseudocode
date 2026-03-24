@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeIntensity__ @ 0x180002220
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeIntensity__ @ 0x180001E90
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeIntensity__(
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1828 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803D1838 = v1;
+  xmmword_180345808 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345818 = v1;
   return result;
 }

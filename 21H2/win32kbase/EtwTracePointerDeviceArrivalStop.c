@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceArrivalStop @ 0x1C014E1E0
+ * XREFs of EtwTracePointerDeviceArrivalStop @ 0x1C01235C0
  * Callers:
- *     ApiSetEtwTracePointerDeviceArrivalStop @ 0x1C020C8E4 (ApiSetEtwTracePointerDeviceArrivalStop.c)
+ *     ApiSetEtwTracePointerDeviceArrivalStop @ 0x1C01CEA34 (ApiSetEtwTracePointerDeviceArrivalStop.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceArrivalStop(__int64 a1)

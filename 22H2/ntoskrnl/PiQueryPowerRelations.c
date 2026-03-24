@@ -1,66 +1,66 @@
 /*
- * XREFs of PiQueryPowerRelations @ 0x14086F044
+ * XREFs of PiQueryPowerRelations @ 0x140748844
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C854 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x140747A0C (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpQueryDeviceRelations @ 0x140795430 (PnpQueryDeviceRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x14086F248 (PiQueryPowerDependencyRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086F3AC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiValidatePowerRelations @ 0x14086F428 (PiValidatePowerRelations.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PnpQueryDeviceRelations @ 0x1407433D8 (PnpQueryDeviceRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140748CE4 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiValidatePowerRelations @ 0x140748D60 (PiValidatePowerRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x140748EC8 (PiQueryPowerDependencyRelations.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryPowerRelations(__int64 a1, char a2)
 {
   unsigned int v2; // ebx
   int DeviceRelations; // edi
-  int PowerDependencyRelations; // eax
-  PVOID *v6; // rax
-  int v7; // ecx
-  _QWORD *v9; // r13
-  _QWORD *v10; // rsi
-  _DWORD *v11; // r8
-  unsigned int v12; // r12d
-  __int64 v13; // rcx
-  __int64 v14; // r15
-  __int64 Pool2; // rax
-  __int64 *v16; // rcx
-  __int64 v17; // r15
-  _QWORD *v18; // rax
-  _QWORD *v19; // rcx
-  __int64 v20; // rax
+  _QWORD *v6; // r12
+  _QWORD *v7; // rsi
+  __int64 v8; // rax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rdx
+  __int64 v11; // r8
+  _QWORD *v12; // rdx
+  _DWORD *v13; // r8
+  unsigned int v14; // r13d
+  __int64 v15; // rax
+  __int64 v16; // r15
+  char *PoolWithTag; // rax
+  _QWORD *v18; // rcx
+  __int64 v19; // r15
+  _QWORD *v20; // rax
   _QWORD *v21; // rcx
-  _QWORD *v22; // rdx
-  __int64 v23; // r8
-  _QWORD *v24; // rdx
+  int PowerDependencyRelations; // eax
+  PADAPTER_OBJECT *v23; // rax
+  int v24; // ecx
   __int64 v25; // rcx
-  _WORD *v26; // rcx
-  __int64 v27; // rcx
+  __int64 v26; // rcx
+  _WORD *v27; // rcx
   __int64 v28; // rcx
-  __int64 v29; // rax
-  __int64 v30; // rdi
-  __int64 v31; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rdi
   __int64 v32; // rcx
-  __int64 v33; // r9
-  __int64 v34; // rcx
+  __int64 v33; // rcx
+  __int64 v34; // rdx
   __int64 v35; // rcx
-  __int64 v36; // r8
-  __int64 v37; // rcx
-  __int64 v38; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
   __int64 v39; // rcx
-  __int64 v40; // r9
+  __int64 v40; // rdx
   __int64 v41; // rax
   __int64 v42; // rcx
   __int64 v43; // rcx
-  __int64 v44; // r8
-  __int64 v45; // rax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
   PVOID P; // [rsp+60h] [rbp+30h] BYREF
 
   v2 = 0;
@@ -73,193 +73,194 @@ __int64 __fastcall PiQueryPowerRelations(__int64 a1, char a2)
     DeviceRelations = PnpQueryDeviceRelations(*(_QWORD *)(a1 + 32), 2, 0LL, (__int64)&P);
     if ( DeviceRelations >= 0 )
     {
-      v9 = (_QWORD *)(a1 + 192);
-      v10 = *(_QWORD **)(a1 + 192);
-      while ( v10 != v9 )
+      v6 = (_QWORD *)(a1 + 192);
+      v7 = *(_QWORD **)(a1 + 192);
+      while ( v7 != v6 )
       {
-        v20 = *v10;
-        v21 = v10;
-        v10 = (_QWORD *)v20;
-        if ( *(_QWORD **)(v20 + 8) != v21
-          || (v22 = (_QWORD *)v21[1], (_QWORD *)*v22 != v21)
-          || (*v22 = v20, *(_QWORD *)(v20 + 8) = v22, v23 = v21[3], *(_QWORD **)(v23 + 8) != v21 + 3)
-          || (v24 = (_QWORD *)v21[4], (_QWORD *)*v24 != v21 + 3) )
+        v8 = *v7;
+        v9 = v7;
+        v7 = (_QWORD *)v8;
+        if ( *(_QWORD **)(v8 + 8) != v9
+          || (v10 = (_QWORD *)v9[1], (_QWORD *)*v10 != v9)
+          || (*v10 = v8, *(_QWORD *)(v8 + 8) = v10, v11 = v9[3], *(_QWORD **)(v11 + 8) != v9 + 3)
+          || (v12 = (_QWORD *)v9[4], (_QWORD *)*v12 != v9 + 3) )
         {
-LABEL_37:
+LABEL_26:
           __fastfail(3u);
         }
-        *v24 = v23;
-        *(_QWORD *)(v23 + 8) = v24;
-        ExFreePoolWithTag(v21, 0x72775044u);
+        *v12 = v11;
+        *(_QWORD *)(v11 + 8) = v12;
+        ExFreePoolWithTag(v9, 0x72775044u);
       }
-      v11 = P;
+      v13 = P;
       if ( !P || !*(_DWORD *)P )
       {
         DeviceRelations = 0;
-        goto LABEL_3;
+        goto LABEL_29;
       }
-      v12 = 0;
+      v14 = 0;
       while ( 1 )
       {
-        v13 = *(_QWORD *)&v11[2 * v12 + 2];
-        if ( !v13 )
-          goto LABEL_72;
-        v14 = *(_QWORD *)(*(_QWORD *)(v13 + 312) + 40LL);
-        if ( !v14 || (*(_DWORD *)(v14 + 396) & 0x20000) != 0 )
+        v15 = *(_QWORD *)&v13[2 * v14 + 2];
+        if ( !v15 || (v16 = *(_QWORD *)(*(_QWORD *)(v15 + 312) + 40LL)) == 0 || (*(_DWORD *)(v16 + 396) & 0x20000) != 0 )
         {
-          IoAddTriageDumpDataBlock(v13, (PVOID)*(unsigned __int16 *)(v13 + 2));
-          v11 = P;
-          v25 = *(_QWORD *)(*((_QWORD *)P + v12 + 1) + 8LL);
+          v25 = *(_QWORD *)&v13[2 * v14 + 2];
           if ( v25 )
           {
-            IoAddTriageDumpDataBlock(v25, (PVOID)(unsigned int)*(__int16 *)(v25 + 2));
-            v11 = P;
-            v26 = (_WORD *)(*(_QWORD *)(*((_QWORD *)P + v12 + 1) + 8LL) + 56LL);
-            if ( *v26 )
+            IoAddTriageDumpDataBlock(v25, (PVOID)*(unsigned __int16 *)(v25 + 2));
+            v13 = P;
+            v26 = *(_QWORD *)(*((_QWORD *)P + v14 + 1) + 8LL);
+            if ( v26 )
             {
-              IoAddTriageDumpDataBlock((ULONG)v26, (PVOID)2);
-              v27 = *(_QWORD *)(*((_QWORD *)P + v12 + 1) + 8LL);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v27 + 64), (PVOID)*(unsigned __int16 *)(v27 + 56));
-              v11 = P;
+              IoAddTriageDumpDataBlock(v26, (PVOID)(unsigned int)*(__int16 *)(v26 + 2));
+              v13 = P;
+              v27 = (_WORD *)(*(_QWORD *)(*((_QWORD *)P + v14 + 1) + 8LL) + 56LL);
+              if ( *v27 )
+              {
+                IoAddTriageDumpDataBlock((ULONG)v27, (PVOID)2);
+                v28 = *(_QWORD *)(*((_QWORD *)P + v14 + 1) + 8LL);
+                IoAddTriageDumpDataBlock(*(_QWORD *)(v28 + 64), (PVOID)*(unsigned __int16 *)(v28 + 56));
+                v13 = P;
+              }
             }
-          }
-          v28 = *(_QWORD *)&v11[2 * v12 + 2];
-          if ( v28 )
-          {
-            v29 = *(_QWORD *)(v28 + 312);
-            if ( *(_QWORD *)(v29 + 40) )
+            v29 = *(_QWORD *)&v13[2 * v14 + 2];
+            if ( v29 )
+              v30 = *(_QWORD *)(*(_QWORD *)(v29 + 312) + 40LL);
+            else
+              v30 = 0LL;
+            if ( v30 )
             {
-              v30 = *(_QWORD *)(v29 + 40);
-              IoAddTriageDumpDataBlock(v30, (PVOID)0x388);
-              if ( *(_WORD *)(v30 + 40) )
-              {
-                IoAddTriageDumpDataBlock(v30 + 40, (PVOID)2);
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v30 + 48), (PVOID)*(unsigned __int16 *)(v30 + 40));
-              }
-              v11 = P;
-              v31 = *((_QWORD *)P + v12 + 1);
-              v32 = v31 + 312;
-              if ( v31 )
-                v33 = *(_QWORD *)(*(_QWORD *)v32 + 40LL);
+              if ( v29 )
+                v31 = *(_QWORD *)(*(_QWORD *)(v29 + 312) + 40LL);
               else
-                v33 = 0LL;
-              if ( *(_WORD *)(v33 + 56) )
+                v31 = 0LL;
+              if ( v29 )
+                v32 = *(_QWORD *)(*(_QWORD *)(v29 + 312) + 40LL);
+              else
+                LODWORD(v32) = 0;
+              IoAddTriageDumpDataBlock(v32, (PVOID)0x310);
+              if ( *(_WORD *)(v31 + 40) )
               {
-                if ( v31 )
-                  v34 = *(_QWORD *)(*(_QWORD *)v32 + 40LL);
-                else
-                  LODWORD(v34) = 0;
-                IoAddTriageDumpDataBlock(v34 + 56, (PVOID)2);
-                v35 = *((_QWORD *)P + v12 + 1);
-                if ( v35 )
-                {
-                  v36 = *(_QWORD *)(*(_QWORD *)(v35 + 312) + 40LL);
-                  v37 = v36;
-                }
-                else
-                {
-                  v36 = 0LL;
-                  v37 = 0LL;
-                }
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v36 + 64), (PVOID)*(unsigned __int16 *)(v37 + 56));
-                v11 = P;
+                IoAddTriageDumpDataBlock(v31 + 40, (PVOID)2);
+                IoAddTriageDumpDataBlock(*(_QWORD *)(v31 + 48), (PVOID)*(unsigned __int16 *)(v31 + 40));
               }
-              v38 = *(_QWORD *)&v11[2 * v12 + 2];
-              v39 = v38 + 312;
-              if ( v38 )
-                v40 = *(_QWORD *)(*(_QWORD *)v39 + 40LL);
+              v13 = P;
+              v33 = *((_QWORD *)P + v14 + 1);
+              if ( v33 )
+                v34 = *(_QWORD *)(*(_QWORD *)(v33 + 312) + 40LL);
+              else
+                v34 = 0LL;
+              if ( *(_WORD *)(v34 + 56) )
+              {
+                if ( v33 )
+                  v35 = *(_QWORD *)(*(_QWORD *)(v33 + 312) + 40LL);
+                else
+                  LODWORD(v35) = 0;
+                IoAddTriageDumpDataBlock(v35 + 56, (PVOID)2);
+                v36 = *((_QWORD *)P + v14 + 1);
+                if ( v36 )
+                  v37 = *(_QWORD *)(*(_QWORD *)(v36 + 312) + 40LL);
+                else
+                  v37 = 0LL;
+                if ( v36 )
+                  v38 = *(_QWORD *)(*(_QWORD *)(v36 + 312) + 40LL);
+                else
+                  v38 = 0LL;
+                IoAddTriageDumpDataBlock(*(_QWORD *)(v38 + 64), (PVOID)*(unsigned __int16 *)(v37 + 56));
+                v13 = P;
+              }
+              v39 = *(_QWORD *)&v13[2 * v14 + 2];
+              if ( v39 )
+                v40 = *(_QWORD *)(*(_QWORD *)(v39 + 312) + 40LL);
               else
                 v40 = 0LL;
               if ( *(_QWORD *)(v40 + 16) )
               {
-                v41 = v38 ? *(_QWORD *)(*(_QWORD *)v39 + 40LL) : 0LL;
+                v41 = v39 ? *(_QWORD *)(*(_QWORD *)(v39 + 312) + 40LL) : 0LL;
                 if ( *(_WORD *)(*(_QWORD *)(v41 + 16) + 56LL) )
                 {
-                  if ( v38 )
-                    v42 = *(_QWORD *)(*(_QWORD *)v39 + 40LL);
+                  if ( v39 )
+                    v42 = *(_QWORD *)(*(_QWORD *)(v39 + 312) + 40LL);
                   else
                     v42 = 0LL;
                   IoAddTriageDumpDataBlock(*(_QWORD *)(v42 + 16) + 56, (PVOID)2);
-                  v43 = *((_QWORD *)P + v12 + 1);
+                  v43 = *((_QWORD *)P + v14 + 1);
                   if ( v43 )
-                  {
                     v44 = *(_QWORD *)(*(_QWORD *)(v43 + 312) + 40LL);
-                    v45 = v44;
-                  }
                   else
-                  {
                     v44 = 0LL;
+                  if ( v43 )
+                    v45 = *(_QWORD *)(*(_QWORD *)(v43 + 312) + 40LL);
+                  else
                     v45 = 0LL;
-                  }
                   IoAddTriageDumpDataBlock(
-                    *(_QWORD *)(*(_QWORD *)(v44 + 16) + 64LL),
-                    (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v45 + 16) + 56LL));
-                  v11 = P;
+                    *(_QWORD *)(*(_QWORD *)(v45 + 16) + 64LL),
+                    (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v44 + 16) + 56LL));
+                  v13 = P;
                 }
               }
             }
           }
-LABEL_72:
-          KeBugCheckEx(0xCAu, 2uLL, *(_QWORD *)&v11[2 * v12 + 2], 0LL, 0LL);
+          KeBugCheckEx(0xCAu, 2uLL, *(_QWORD *)&v13[2 * v14 + 2], 0LL, 0LL);
         }
-        if ( *(_QWORD *)(v14 + 16) )
+        if ( *(_QWORD *)(v16 + 16) )
         {
-          Pool2 = ExAllocatePool2(64LL, 56LL, 1920421956LL);
-          if ( !Pool2 )
+          PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72775044u);
+          if ( !PoolWithTag )
           {
             DeviceRelations = -1073741670;
-            goto LABEL_3;
+            goto LABEL_29;
           }
-          *(_BYTE *)(Pool2 + 48) = 0;
-          *(_QWORD *)(Pool2 + 16) = a1 + 160;
-          *(_QWORD *)(Pool2 + 40) = v14 + 160;
-          v16 = *(__int64 **)(a1 + 200);
-          if ( (_QWORD *)*v16 != v9 )
-            goto LABEL_37;
-          *(_QWORD *)Pool2 = v9;
-          v17 = v14 + 176;
-          *(_QWORD *)(Pool2 + 8) = v16;
-          *v16 = Pool2;
-          *(_QWORD *)(a1 + 200) = Pool2;
-          v18 = (_QWORD *)(Pool2 + 24);
-          v19 = *(_QWORD **)(v17 + 8);
-          if ( *v19 != v17 )
-            goto LABEL_37;
-          *v18 = v17;
-          v18[1] = v19;
-          *v19 = v18;
-          *(_QWORD *)(v17 + 8) = v18;
-          v11 = P;
+          PoolWithTag[48] = 0;
+          *((_QWORD *)PoolWithTag + 2) = a1 + 160;
+          *((_QWORD *)PoolWithTag + 5) = v16 + 160;
+          v18 = *(_QWORD **)(a1 + 200);
+          if ( (_QWORD *)*v18 != v6 )
+            goto LABEL_26;
+          *(_QWORD *)PoolWithTag = v6;
+          v19 = v16 + 176;
+          *((_QWORD *)PoolWithTag + 1) = v18;
+          *v18 = PoolWithTag;
+          *(_QWORD *)(a1 + 200) = PoolWithTag;
+          v20 = PoolWithTag + 24;
+          v21 = *(_QWORD **)(v19 + 8);
+          if ( *v21 != v19 )
+            goto LABEL_26;
+          *v20 = v19;
+          v20[1] = v21;
+          *v21 = v20;
+          *(_QWORD *)(v19 + 8) = v20;
+          v13 = P;
         }
-        if ( ++v12 >= *v11 )
-          goto LABEL_3;
+        if ( ++v14 >= *v13 )
+          goto LABEL_29;
       }
     }
     P = 0LL;
   }
-LABEL_3:
+LABEL_29:
   PowerDependencyRelations = PiQueryPowerDependencyRelations(a1);
   if ( DeviceRelations >= 0 && PowerDependencyRelations < 0 )
     DeviceRelations = PowerDependencyRelations;
   PiValidatePowerRelations(a1);
-  v6 = (PVOID *)P;
+  v23 = (PADAPTER_OBJECT *)P;
   if ( P )
   {
     if ( *(_DWORD *)P )
     {
       do
       {
-        ObfDereferenceObject(v6[v2 + 1]);
-        v6 = (PVOID *)P;
+        HalPutDmaAdapter(v23[v2 + 1]);
+        v23 = (PADAPTER_OBJECT *)P;
         ++v2;
       }
       while ( v2 < *(_DWORD *)P );
     }
-    ExFreePoolWithTag(v6, 0);
+    ExFreePoolWithTag(v23, 0);
   }
   PpDevNodeLockTree(0);
-  v7 = *(_DWORD *)(a1 + 300);
-  if ( (unsigned int)(v7 - 768) > 2 && (unsigned int)(v7 - 789) > 1 )
+  v24 = *(_DWORD *)(a1 + 300);
+  if ( (unsigned int)(v24 - 768) > 1 && (unsigned int)(v24 - 787) > 1 )
     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent(*(_QWORD *)(a1 + 32));
   PpDevNodeUnlockTree(0);
   return (unsigned int)DeviceRelations;

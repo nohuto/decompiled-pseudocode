@@ -1,5 +1,5 @@
 /*
- * XREFs of VfReportIssueWithOptions @ 0x14030AD18
+ * XREFs of VfReportIssueWithOptions @ 0x14030AE18
  * Callers:
  *     VfCheckImageCompliance @ 0x1409271A4 (VfCheckImageCompliance.c)
  *     VfCheckPagePriority @ 0x1409274A0 (VfCheckPagePriority.c)
@@ -40,8 +40,8 @@
  *     ViDeadlockRemoveResource @ 0x14093D948 (ViDeadlockRemoveResource.c)
  *     ViDeadlockRemoveThread @ 0x14093DAE4 (ViDeadlockRemoveThread.c)
  * Callees:
- *     DbgPrompt @ 0x1402EC890 (DbgPrompt.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     DbgPrompt @ 0x1402EC990 (DbgPrompt.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     VfErrorReleaseTriageInformation @ 0x140935FA8 (VfErrorReleaseTriageInformation.c)
  *     VfErrorStoreTriageInformation @ 0x1409360D8 (VfErrorStoreTriageInformation.c)

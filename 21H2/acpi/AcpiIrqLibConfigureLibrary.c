@@ -1,35 +1,31 @@
 /*
- * XREFs of AcpiIrqLibConfigureLibrary @ 0x1C00BE048
+ * XREFs of AcpiIrqLibConfigureLibrary @ 0x1C00BD584
  * Callers:
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     IcAddSecondaryIcInstance @ 0x1C009DBAC (IcAddSecondaryIcInstance.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00A1684 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     IcAddGicInstance @ 0x1C00B70AC (IcAddGicInstance.c)
- *     IrqPolicyConfigure @ 0x1C00BDD74 (IrqPolicyConfigure.c)
- *     IrqPolicyUpdatePolicy @ 0x1C00BDE10 (IrqPolicyUpdatePolicy.c)
- *     IrqArbUpdateInterruptLimit @ 0x1C00BE118 (IrqArbUpdateInterruptLimit.c)
- *     IrqLibpParseMadt @ 0x1C00BE180 (IrqLibpParseMadt.c)
- *     ProcessorConfigure @ 0x1C00BE360 (ProcessorConfigure.c)
+ *     IcAddSecondaryIcInstance @ 0x1C0097938 (IcAddSecondaryIcInstance.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00A3490 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     IcAddGicInstance @ 0x1C00B75E0 (IcAddGicInstance.c)
+ *     IrqPolicyConfigure @ 0x1C00BC884 (IrqPolicyConfigure.c)
+ *     IrqArbUpdateInterruptLimit @ 0x1C00BD65C (IrqArbUpdateInterruptLimit.c)
+ *     IrqPolicyUpdatePolicy @ 0x1C00BD6C4 (IrqPolicyUpdatePolicy.c)
+ *     IrqLibpParseMadt @ 0x1C00BD72C (IrqLibpParseMadt.c)
+ *     ProcessorConfigure @ 0x1C00BD930 (ProcessorConfigure.c)
  */
 
 __int64 __fastcall AcpiIrqLibConfigureLibrary(int a1, __int64 a2)
 {
+  int v4; // r8d
   __int64 result; // rax
-  __int64 v5; // rcx
 
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_1C007E130);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_1C007F130);
   IrqLibRealInterruptModel = a1;
-  if ( (unsigned int)(a1 - 2) <= 2 )
-  {
-    IrqLibInterruptModel = 1;
-  }
-  else
-  {
-    IrqLibInterruptModel = a1;
-    if ( a1 != 1 )
-      return 3221225485LL;
-  }
+  v4 = 1;
+  if ( (unsigned int)(a1 - 2) > 2 )
+    v4 = a1;
+  IrqLibInterruptModel = v4;
+  if ( v4 != 1 )
+    return 3221225485LL;
   result = ProcessorConfigure();
   if ( (int)result >= 0 )
   {
@@ -49,16 +45,16 @@ __int64 __fastcall AcpiIrqLibConfigureLibrary(int a1, __int64 a2)
           case 4:
             IrqLibpParseMadt(a2);
             result = IcAddGicInstance(0);
-            goto LABEL_7;
+            goto LABEL_8;
           default:
             return 3221225473LL;
         }
       }
       result = IrqLibpParseMadt(a2);
-LABEL_7:
+LABEL_8:
       if ( (int)result >= 0 )
       {
-        result = IrqPolicyUpdatePolicy(v5);
+        result = IrqPolicyUpdatePolicy();
         if ( (int)result >= 0 )
         {
           IrqArbUpdateInterruptLimit();

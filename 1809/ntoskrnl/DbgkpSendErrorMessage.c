@@ -1,8 +1,8 @@
 /*
- * XREFs of DbgkpSendErrorMessage @ 0x140810DEC
+ * XREFs of DbgkpSendErrorMessage @ 0x140810DCC
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     DbgkForwardException @ 0x1406D68FC (DbgkForwardException.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
  * Callees:
  *     AlpcGetMessageAttribute @ 0x140004B10 (AlpcGetMessageAttribute.c)
  *     AlpcInitializeMessageAttribute @ 0x140004C30 (AlpcInitializeMessageAttribute.c)
@@ -18,20 +18,20 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     KeTestAlertThread @ 0x1400A26D0 (KeTestAlertThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeCopyExceptionRecord @ 0x14013B8C4 (KeCopyExceptionRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1401B92B0 (ZwAlpcSendWaitReceivePort.c)
- *     ZwFlushInstructionCache @ 0x1401B9DB0 (ZwFlushInstructionCache.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeCopyExceptionRecord @ 0x14013B8E4 (KeCopyExceptionRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1401B92D0 (ZwAlpcSendWaitReceivePort.c)
+ *     ZwFlushInstructionCache @ 0x1401B9DD0 (ZwFlushInstructionCache.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PsTestProtectedProcessIncompatibility @ 0x14060921C (PsTestProtectedProcessIncompatibility.c)
- *     MmGetSectionInformation @ 0x14066D870 (MmGetSectionInformation.c)
- *     PsThawProcess @ 0x14067E324 (PsThawProcess.c)
- *     DbgkForwardException @ 0x1406D68FC (DbgkForwardException.c)
- *     DbgkpRemoveErrorPort @ 0x140706C80 (DbgkpRemoveErrorPort.c)
- *     DbgkpDeleteErrorPort @ 0x140707104 (DbgkpDeleteErrorPort.c)
- *     DbgkpStartSystemErrorHandler @ 0x1408112C4 (DbgkpStartSystemErrorHandler.c)
- *     DbgkpSuspendProcess @ 0x140811704 (DbgkpSuspendProcess.c)
+ *     MmGetSectionInformation @ 0x14066D850 (MmGetSectionInformation.c)
+ *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
+ *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
+ *     DbgkpRemoveErrorPort @ 0x140706C60 (DbgkpRemoveErrorPort.c)
+ *     DbgkpDeleteErrorPort @ 0x1407070E4 (DbgkpDeleteErrorPort.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408112A4 (DbgkpStartSystemErrorHandler.c)
+ *     DbgkpSuspendProcess @ 0x1408116E4 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, _DWORD *a3)

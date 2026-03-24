@@ -3,7 +3,7 @@
  * Callers:
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)

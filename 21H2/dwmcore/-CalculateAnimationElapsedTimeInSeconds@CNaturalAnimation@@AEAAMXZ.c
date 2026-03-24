@@ -1,18 +1,18 @@
 /*
- * XREFs of ?CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ @ 0x180225B1C
+ * XREFs of ?CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ @ 0x1801D74DC
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180225B8C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D754C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x180227E7C (-ToSeconds@TimeDelta@@QEBAMXZ.c)
+ *     ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x1801D95F8 (-ToSeconds@TimeDelta@@QEBAMXZ.c)
  */
 
 float __fastcall CNaturalAnimation::CalculateAnimationElapsedTimeInSeconds(CNaturalAnimation *this)
 {
   LONGLONG v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(*((_QWORD *)this + 2) + 608LL)
-     - 1000 * Time::s_luFreq.QuadPart * *((int *)this + 104) / 1000000
-     - *((_QWORD *)this + 50)
+  v2 = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL)
+     - 1000 * Time::s_luFreq.QuadPart * *((int *)this + 98) / 1000000
+     - *((_QWORD *)this + 47)
      - Time::s_luBegin.QuadPart;
   return TimeDelta::ToSeconds((TimeDelta *)&v2);
 }

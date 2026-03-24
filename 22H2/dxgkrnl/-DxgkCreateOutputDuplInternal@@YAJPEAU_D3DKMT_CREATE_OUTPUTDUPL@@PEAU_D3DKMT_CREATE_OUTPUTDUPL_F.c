@@ -1,32 +1,30 @@
 /*
- * XREFs of ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C032B4D0
+ * XREFs of ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C0299B08
  * Callers:
- *     DxgkCreateOutputDupl @ 0x1C032FC50 (DxgkCreateOutputDupl.c)
+ *     DxgkCreateOutputDupl @ 0x1C029D5E0 (DxgkCreateOutputDupl.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?Acquire@DXGUSERCRIT@@QEAAXH@Z @ 0x1C00037DC (-Acquire@DXGUSERCRIT@@QEAAXH@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0007998 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ @ 0x1C01E1158 (-DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ.c)
- *     ?FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C01E11B4 (-FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
- *     ?CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C032AD60 (-CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
- *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C032AEA0 (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
- *     ?CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z @ 0x1C032B224 (-CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z.c)
- *     ?OutputDuplIsAllowedByMdmPolicy@@YA_NXZ @ 0x1C032DD00 (-OutputDuplIsAllowedByMdmPolicy@@YA_NXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0008C9C (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
+ *     ?Acquire@DXGUSERCRIT@@QEAAXH@Z @ 0x1C000A41C (-Acquire@DXGUSERCRIT@@QEAAXH@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C014F4D8 (-FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
+ *     ?CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C02994E0 (-CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
+ *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C02995EC (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
+ *     ?CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z @ 0x1C02998D4 (-CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z.c)
+ *     ?OutputDuplIsAllowedByMdmPolicy@@YA_NXZ @ 0x1C029C0A0 (-OutputDuplIsAllowedByMdmPolicy@@YA_NXZ.c)
  */
 
 __int64 __fastcall DxgkCreateOutputDuplInternal(
@@ -34,339 +32,304 @@ __int64 __fastcall DxgkCreateOutputDuplInternal(
         struct _D3DKMT_CREATE_OUTPUTDUPL_FLAGS *a2,
         __int64 a3)
 {
-  struct DXGADAPTER *v3; // r13
+  __int64 v5; // rdx
   __int64 v6; // rcx
-  unsigned __int64 v7; // r15
-  __int64 v8; // rbx
-  const wchar_t *v9; // r9
-  __int64 v10; // rdi
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+  __int64 v10; // rdx
   __int64 v11; // rcx
-  DXGSESSIONMGR *v12; // rdi
+  struct _KTHREAD **v12; // r15
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 hAdapter; // rdx
+  struct DXGADAPTER **v24; // r9
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  int v28; // eax
+  struct DXGADAPTER *v29; // r12
+  struct DXGADAPTER *v30; // r13
+  struct DXGADAPTER *v31; // r14
+  __int64 v32; // rax
+  int OutputDuplManager; // eax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  OUTPUTDUPL_MGR *v37; // r14
+  DXGSESSIONMGR *v38; // r14
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  __int64 v15; // rcx
-  int v16; // eax
-  int v17; // eax
-  struct DXGADAPTER **v18; // r9
-  D3DKMT_HANDLE hAdapter; // edx
-  int v20; // eax
-  struct DXGADAPTER *v21; // r12
-  struct DXGADAPTER *v22; // rsi
-  struct DXGADAPTER *v23; // rdx
-  int OutputDuplManager; // eax
-  OUTPUTDUPL_MGR *v25; // rsi
-  __int64 v26; // rcx
-  DXGSESSIONMGR *v27; // rsi
-  unsigned int v28; // eax
-  struct DXGSESSIONDATA *v29; // rax
-  OUTPUTDUPL_SESSION_MGR *v30; // r15
-  __int64 v31; // rbx
-  const wchar_t *v32; // r9
-  unsigned int v33; // eax
-  __int64 v34; // rsi
+  __int64 v41; // rax
+  __int64 v42; // r15
+  unsigned int v43; // eax
+  __int64 v44; // r14
+  __int64 v45; // rax
   UINT KeyedMutexCount; // eax
-  D3DDDI_VIDEO_PRESENT_SOURCE_ID VidPnSourceId; // eax
+  __int64 v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // rax
   int OutputDuplication; // eax
-  __int64 v38; // rcx
-  struct DXGPROCESS *v39; // rax
-  __int64 v40; // rbx
-  __int64 v41; // rcx
-  __int64 v42; // r8
-  int v44; // [rsp+50h] [rbp-B0h] BYREF
-  struct DXGADAPTER *v45; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 Current; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v47[8]; // [rsp+68h] [rbp-98h] BYREF
-  DXGPUSHLOCK *v48; // [rsp+70h] [rbp-90h]
-  int v49; // [rsp+78h] [rbp-88h]
-  struct DXGADAPTER *v50; // [rsp+80h] [rbp-80h] BYREF
-  struct DXGADAPTER *v51; // [rsp+88h] [rbp-78h] BYREF
-  OUTPUTDUPL_MGR *v52; // [rsp+90h] [rbp-70h] BYREF
-  int v53; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v54; // [rsp+A0h] [rbp-60h]
-  char v55; // [rsp+A8h] [rbp-58h]
-  DXGADAPTER *v56; // [rsp+B0h] [rbp-50h] BYREF
-  _BYTE v57[144]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  __int64 v57; // r8
+  __int64 v58; // r9
+  struct DXGPROCESS *v59; // rax
+  __int64 v60; // rdi
+  __int64 v61; // rcx
+  __int64 v62; // r8
+  int v64; // [rsp+40h] [rbp-C0h] BYREF
+  struct DXGADAPTER *v65; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int64 Current; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v67[8]; // [rsp+58h] [rbp-A8h] BYREF
+  DXGPUSHLOCK *v68; // [rsp+60h] [rbp-A0h]
+  int v69; // [rsp+68h] [rbp-98h]
+  struct DXGADAPTER *v70; // [rsp+70h] [rbp-90h] BYREF
+  struct DXGADAPTER *v71; // [rsp+78h] [rbp-88h] BYREF
+  OUTPUTDUPL_MGR *v72; // [rsp+80h] [rbp-80h] BYREF
+  int v73; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v74; // [rsp+90h] [rbp-70h]
+  char v75; // [rsp+98h] [rbp-68h]
+  DXGADAPTER *v76; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v77[144]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v53 = -1;
-  v3 = 0LL;
-  v54 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v73 = -1;
+  v74 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v55 = 1;
-    v53 = 2061;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v75 = 1;
+    v73 = 2061;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 2061);
   }
   else
   {
-    v55 = 0;
+    v75 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v53, 2061);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v73, 2061LL);
   if ( (unsigned __int64)a1 <= MmUserProbeAddress )
   {
-    WdLogSingleEntry1(1LL, 3171LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(ULONG_PTR)pCreate > MM_USER_PROBE_ADDRESS",
-      3171LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v9 + 24) = 3181LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  Current = (unsigned __int64)DXGPROCESS::GetCurrent(v6);
-  v7 = Current;
+  Current = (unsigned __int64)DXGPROCESS::GetCurrent(v6, v5, v7, v8);
+  v12 = (struct _KTHREAD **)Current;
   if ( !Current )
   {
-    v8 = 3176LL;
-    WdLogSingleEntry1(2LL, 3176LL);
-    v9 = L"Invalid process context.";
-    LODWORD(v10) = -1073741811;
-LABEL_18:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, v8, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_66;
+    v13 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v13 + 24) = 3186LL;
+    WdLogEvent5_WdError(v13);
+    LODWORD(v15) = -1073741811;
+    goto LABEL_62;
   }
-  v12 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v12 )
+  if ( !OutputDuplIsAllowedByMdmPolicy() )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v11);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v12, CurrentProcessSessionId);
+    v18 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v18 + 24) = 3193LL;
+    WdLogEvent5_WdError(v18);
+    LODWORD(v15) = -1073741790;
+    goto LABEL_62;
+  }
+  v64 = 0;
+  v19 = *(_DWORD *)a2 ^ (*(_DWORD *)a2 ^ (32
+                                        * (*(__int64 (__fastcall **)(int *, _QWORD, _QWORD))(*(_QWORD *)(Current + 88)
+                                                                                           + 224LL))(
+                                            &v64,
+                                            0LL,
+                                            0LL))) & 0x20;
+  *(_DWORD *)a2 = v19;
+  if ( !v64 )
+  {
+    v22 = WdLogNewEntry5_WdError(v21, v20);
+    *(_QWORD *)(v22 + 24) = 3204LL;
+    WdLogEvent5_WdError(v22);
+    LODWORD(v15) = -2147483611;
+    goto LABEL_62;
+  }
+  hAdapter = a1->hAdapter;
+  v24 = &v65;
+  v65 = 0LL;
+  if ( (v19 & 0x20) != 0 )
+    v24 = 0LL;
+  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v76, hAdapter, v12, v24, 1);
+  v28 = *(_DWORD *)a2;
+  LODWORD(v15) = 0;
+  v70 = 0LL;
+  v29 = 0LL;
+  v71 = 0LL;
+  v30 = 0LL;
+  v72 = 0LL;
+  if ( (v28 & 0x20) == 0 )
+  {
+    v31 = v65;
+    if ( !v65 )
+    {
+      v32 = WdLogNewEntry5_WdWarning(v26, v25, v27);
+      v15 = -1073741811LL;
+      *(_QWORD *)(v32 + 24) = a1->hAdapter;
+LABEL_20:
+      *(_QWORD *)(v32 + 32) = v15;
+      WdLogEvent5_WdWarning(v32);
+      goto LABEL_60;
+    }
+    OutputDuplManager = FindOutputDuplManager(
+                          v65,
+                          a1->VidPnSourceId,
+                          &v70,
+                          (unsigned __int64 *)&v65,
+                          &v71,
+                          &Current,
+                          &v72);
+    v15 = OutputDuplManager;
+    if ( OutputDuplManager < 0 )
+    {
+      v32 = WdLogNewEntry5_WdWarning(v35, v34, v36);
+      *(_QWORD *)(v32 + 24) = v31;
+      goto LABEL_20;
+    }
+    v29 = v70;
+    v30 = v71;
+    v37 = v72;
+    goto LABEL_35;
+  }
+  v38 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v26, v25) + 102);
+  if ( v38 )
+  {
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v35, v34);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v38, CurrentProcessSessionId);
   }
   else
   {
     SessionDataForSpecifiedSession = 0LL;
   }
-  if ( *((_DWORD *)SessionDataForSpecifiedSession + 4738) )
+  if ( !SessionDataForSpecifiedSession )
   {
-    v8 = 3184LL;
-    WdLogSingleEntry1(2LL, 3184LL);
-    v9 = L"Screen capture (DDA) is disabled in VAIL container";
-    LODWORD(v10) = -1073741790;
-    goto LABEL_18;
+    v41 = WdLogNewEntry5_WdError(v35, v34);
+    *(_QWORD *)(v41 + 24) = 3251LL;
+LABEL_29:
+    WdLogEvent5_WdError(v41);
+    LODWORD(v15) = -1073741801;
+    goto LABEL_60;
   }
-  if ( !OutputDuplIsAllowedByMdmPolicy() )
+  v42 = *((_QWORD *)SessionDataForSpecifiedSession + 1);
+  if ( !v42 )
   {
-    v8 = 3191LL;
-    WdLogSingleEntry1(2LL, 3191LL);
-    v9 = L"Screen capture (DDA) is disabled because of MDM policy";
-    LODWORD(v10) = -1073741790;
-    goto LABEL_18;
+    v41 = WdLogNewEntry5_WdError(v35, v34);
+    *(_QWORD *)(v41 + 24) = 3258LL;
+    goto LABEL_29;
   }
-  v16 = (*(_DWORD *)a2 ^ (32 * DxgIsRemoteSessionUsingXddmMonitors(v15))) & 0x20;
-  v44 = 0;
-  *(_DWORD *)a2 ^= v16;
-  (*(void (__fastcall **)(int *, _QWORD, _QWORD))(*(_QWORD *)(v7 + 88) + 224LL))(&v44, 0LL, 0LL);
-  if ( !v44 )
+  v37 = *(OUTPUTDUPL_MGR **)(v42 + 40);
+  if ( !v37 )
   {
-    v8 = 3203LL;
-    WdLogSingleEntry1(2LL, 3203LL);
-    v9 = L"Output duplication is not supported on disconnected session";
-    LODWORD(v10) = -2147483611;
-    goto LABEL_18;
-  }
-  v17 = *(_DWORD *)a2;
-  v18 = &v45;
-  hAdapter = a1->hAdapter;
-  v45 = 0LL;
-  if ( (v17 & 0x20) != 0 )
-    v18 = 0LL;
-  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v56, hAdapter, (struct _KTHREAD **)v7, v18, 1);
-  v20 = *(_DWORD *)a2;
-  LODWORD(v10) = 0;
-  v52 = 0LL;
-  v21 = 0LL;
-  v50 = 0LL;
-  v51 = 0LL;
-  if ( (v20 & 0x20) == 0 )
-  {
-    v22 = v45;
-    if ( !v45 )
+    v43 = (*(__int64 (**)(void))(*(_QWORD *)(Current + 88) + 328LL))();
+    v44 = v43;
+    LODWORD(v15) = OUTPUTDUPL_SESSION_MGR::CreateRemoteOutputDuplMgr((struct DXGFASTMUTEX *const *)v42, v43);
+    if ( (int)v15 < 0 )
     {
-      v23 = (struct DXGADAPTER *)a1->hAdapter;
-      v10 = -1073741811LL;
-LABEL_26:
-      WdLogSingleEntry2(3LL, v23, v10);
-      goto LABEL_64;
+      v45 = WdLogNewEntry5_WdError(v35, v34);
+      *(_QWORD *)(v45 + 24) = v44;
+      WdLogEvent5_WdError(v45);
+      goto LABEL_60;
     }
-    OutputDuplManager = FindOutputDuplManager(
-                          v45,
-                          a1->VidPnSourceId,
-                          &v50,
-                          (unsigned __int64 *)&v45,
-                          &v51,
-                          &Current,
-                          &v52);
-    v10 = OutputDuplManager;
-    if ( OutputDuplManager < 0 )
-    {
-      v23 = v22;
-      goto LABEL_26;
-    }
-    v21 = v50;
-    v3 = v51;
-    v25 = v52;
-    goto LABEL_37;
+    v37 = *(OUTPUTDUPL_MGR **)(v42 + 40);
   }
-  v27 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v27
-    && (v28 = PsGetCurrentProcessSessionId(v26),
-        (v29 = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v27, v28)) != 0LL) )
+  v12 = (struct _KTHREAD **)Current;
+LABEL_35:
+  KeyedMutexCount = a1->KeyedMutexCount;
+  if ( KeyedMutexCount )
   {
-    v30 = (OUTPUTDUPL_SESSION_MGR *)*((_QWORD *)v29 + 1);
-    if ( v30 )
+    if ( KeyedMutexCount > 3 )
     {
-      v25 = (OUTPUTDUPL_MGR *)*((_QWORD *)v30 + 15);
-      if ( !v25 )
-      {
-        v33 = (*(__int64 (**)(void))(*(_QWORD *)(Current + 88) + 328LL))();
-        v34 = v33;
-        LODWORD(v10) = OUTPUTDUPL_SESSION_MGR::CreateRemoteOutputDuplMgr(v30, v33);
-        if ( (int)v10 < 0 )
-        {
-          WdLogSingleEntry1(2LL, (unsigned int)v34);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to create remote output duplication manager for 0x%I64x sources",
-            v34,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          goto LABEL_64;
-        }
-        v25 = (OUTPUTDUPL_MGR *)*((_QWORD *)v30 + 15);
-      }
-      v7 = Current;
-LABEL_37:
-      KeyedMutexCount = a1->KeyedMutexCount;
-      if ( KeyedMutexCount )
-      {
-        if ( KeyedMutexCount > 3 )
-        {
-          WdLogSingleEntry1(2LL, a1->KeyedMutexCount);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Invalid KeyedMutexCount specified 0x%I64x",
-            a1->KeyedMutexCount,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          LODWORD(v10) = -1073741811;
-          goto LABEL_64;
-        }
-        *(_DWORD *)a2 &= ~0x10u;
-      }
-      else
-      {
-        *(_DWORD *)a2 |= 0x10u;
-      }
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v57, v21, v3);
-      if ( (*(_DWORD *)a2 & 0x20) == 0 )
-      {
-        DXGADAPTER::ReleaseReference(v21);
-        DXGADAPTER::ReleaseReference(v3);
-        LODWORD(v10) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v57, 0LL);
-        if ( (int)v10 < 0 )
-          goto LABEL_48;
-      }
-      VidPnSourceId = a1->VidPnSourceId;
-      if ( VidPnSourceId >= *((_DWORD *)v25 + 19) )
-      {
-        WdLogSingleEntry1(2LL, VidPnSourceId);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid source ID 0x%I64x",
-          a1->VidPnSourceId,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v10) = -1071774972;
-LABEL_48:
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v57);
-        goto LABEL_64;
-      }
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v47, (struct _KTHREAD **)v25 + 3, 0);
-      DXGPUSHLOCK::AcquireExclusive(v48);
-      v49 = 2;
-      if ( !*((_DWORD *)v25 + 18) )
-      {
-        WdLogSingleEntry1(2LL, 3325LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Connection currently not allowed",
-          3325LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v10) = -2147483611;
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v47);
-        goto LABEL_48;
-      }
-      if ( (*(_DWORD *)a2 & 1) != 0 )
-      {
-        if ( (*(_DWORD *)a2 & 0x10) != 0 )
-          goto LABEL_54;
-        OutputDuplication = OUTPUTDUPL_MGR::CompleteInitialization(v25, a1);
-      }
-      else
-      {
-        OutputDuplication = OUTPUTDUPL_MGR::CreateOutputDuplication(v25, a1, a2);
-      }
-      LODWORD(v10) = OutputDuplication;
-LABEL_54:
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v47);
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v57);
-      if ( (int)v10 >= 0 && (*(_DWORD *)a2 & 1) != 0 && (*(_DWORD *)a2 & 0x10) == 0 )
-      {
-        v39 = DXGPROCESS::GetCurrent(v38);
-        v40 = v39 ? *((_QWORD *)v39 + 11) : 0LL;
-        v48 = (DXGPUSHLOCK *)v7;
-        LOBYTE(v49) = 0;
-        DXGUSERCRIT::Acquire((DXGUSERCRIT *)v47, 1u);
-        (*(void (**)(void))(v40 + 192))();
-        if ( (_BYTE)v49 )
-        {
-          LOBYTE(v49) = 0;
-          (*(void (**)(void))(*((_QWORD *)v48 + 11) + 40LL))();
-        }
-      }
-      goto LABEL_64;
+      v47 = WdLogNewEntry5_WdError(v35, v34);
+      *(_QWORD *)(v47 + 24) = a1->KeyedMutexCount;
+      WdLogEvent5_WdError(v47);
+      LODWORD(v15) = -1073741811;
+      goto LABEL_60;
     }
-    v31 = 3257LL;
-    WdLogSingleEntry1(2LL, 3257LL);
-    v32 = L"OUTPUTDUPL_SESSION_MGR is NULL";
+    *(_DWORD *)a2 &= ~0x10u;
   }
   else
   {
-    v31 = 3250LL;
-    WdLogSingleEntry1(2LL, 3250LL);
-    v32 = L"DXGSESSIONDATA is NULL";
+    *(_DWORD *)a2 |= 0x10u;
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v32, v31, 0LL, 0LL, 0LL, 0LL);
-  LODWORD(v10) = -1073741801;
-LABEL_64:
-  if ( v56 )
-    DXGADAPTER::ReleaseReference(v56);
-LABEL_66:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v53);
-  if ( v55 )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v77, v29, v30);
+  if ( (*(_DWORD *)a2 & 0x20) != 0
+    || (DXGADAPTER::ReleaseReference(v29),
+        DXGADAPTER::ReleaseReference(v30),
+        LODWORD(v15) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v77, 0LL),
+        (int)v15 >= 0) )
   {
-    LOBYTE(v41) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v41, &EventProfilerExit, v42, v53);
+    if ( a1->VidPnSourceId >= *((_DWORD *)v37 + 13) )
+    {
+      v50 = WdLogNewEntry5_WdError(v49, v48);
+      *(_QWORD *)(v50 + 24) = a1->VidPnSourceId;
+      WdLogEvent5_WdError(v50);
+      LODWORD(v15) = -1071774972;
+      goto LABEL_46;
+    }
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v67, *((struct _KTHREAD ***)v37 + 3), 0);
+    DXGPUSHLOCK::AcquireExclusive(v68);
+    v69 = 2;
+    if ( !*((_DWORD *)v37 + 12) )
+    {
+      v53 = WdLogNewEntry5_WdError(v52, v51);
+      *(_QWORD *)(v53 + 24) = 3326LL;
+      WdLogEvent5_WdError(v53);
+      LODWORD(v15) = -2147483611;
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v67);
+      goto LABEL_46;
+    }
+    if ( (*(_DWORD *)a2 & 1) != 0 )
+    {
+      if ( (*(_DWORD *)a2 & 0x10) != 0 )
+        goto LABEL_53;
+      OutputDuplication = OUTPUTDUPL_MGR::CompleteInitialization(v37, a1);
+    }
+    else
+    {
+      OutputDuplication = OUTPUTDUPL_MGR::CreateOutputDuplication(v37, a1, a2);
+    }
+    LODWORD(v15) = OutputDuplication;
+LABEL_53:
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v67);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v77, v55);
+    if ( (int)v15 >= 0 && (*(_DWORD *)a2 & 0x11) == 1 )
+    {
+      v59 = DXGPROCESS::GetCurrent(v56, v14, v57, v58);
+      v60 = v59 ? *((_QWORD *)v59 + 11) : 0LL;
+      v68 = (DXGPUSHLOCK *)v12;
+      LOBYTE(v69) = 0;
+      DXGUSERCRIT::Acquire((DXGUSERCRIT *)v67, 1LL);
+      (*(void (**)(void))(v60 + 192))();
+      if ( (_BYTE)v69 )
+      {
+        LOBYTE(v69) = 0;
+        (*(void (**)(void))(*((_QWORD *)v68 + 11) + 40LL))();
+      }
+    }
+    goto LABEL_60;
   }
-  return (unsigned int)v10;
+LABEL_46:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v77, v48);
+LABEL_60:
+  if ( v76 )
+    DXGADAPTER::ReleaseReference(v76);
+LABEL_62:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v73, v14);
+  if ( v75 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v61, &EventProfilerExit, v62, v73);
+  return (unsigned int)v15;
 }

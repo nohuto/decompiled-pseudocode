@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x1408D3334
+ * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x1408D3314
  * Callers:
- *     ExGetFirmwareEnvironmentVariable @ 0x1406CADC0 (ExGetFirmwareEnvironmentVariable.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB80 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406CADA0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB60 (ExSetFirmwareEnvironmentVariable.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

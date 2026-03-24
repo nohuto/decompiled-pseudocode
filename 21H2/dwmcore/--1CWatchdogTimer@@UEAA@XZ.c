@@ -1,20 +1,26 @@
 /*
- * XREFs of ??1CWatchdogTimer@@UEAA@XZ @ 0x1801D70B0
+ * XREFs of ??1CWatchdogTimer@@UEAA@XZ @ 0x180162660
  * Callers:
- *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x1801AD988 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
- *     ??_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z @ 0x1801CAC40 (--_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z.c)
- *     ??_ECWatchdogTimer@@UEAAPEAXI@Z @ 0x1801D7110 (--_ECWatchdogTimer@@UEAAPEAXI@Z.c)
+ *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x180153AB4 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
+ *     ??_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z @ 0x180156930 (--_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z.c)
+ *     ??_ECWatchdogTimer@@UEAAPEAXI@Z @ 0x1801626E0 (--_ECWatchdogTimer@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x18002D294 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@wil@.c)
- *     ?SetTimer@CWatchdogTimer@@AEAAXHH@Z @ 0x18007AAC4 (-SetTimer@CWatchdogTimer@@AEAAXHH@Z.c)
+ *     ?SetTimer@CWatchdogTimer@@AEAAXHH@Z @ 0x18016271C (-SetTimer@CWatchdogTimer@@AEAAXHH@Z.c)
  */
 
 void __fastcall CWatchdogTimer::~CWatchdogTimer(CWatchdogTimer *this)
 {
+  char *v2; // rcx
+  char *v3; // rcx
+
   *((_BYTE *)this + 25) = 1;
   *(_QWORD *)this = &CWatchdogTimer::`vftable';
   CWatchdogTimer::SetTimer(this, 0, 0);
   WaitForSingleObject(*((HANDLE *)this + 1), 0xFFFFFFFF);
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>((void **)this + 2);
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>((void **)this + 1);
+  v2 = (char *)*((_QWORD *)this + 2);
+  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v2);
+  v3 = (char *)*((_QWORD *)this + 1);
+  if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v3);
 }

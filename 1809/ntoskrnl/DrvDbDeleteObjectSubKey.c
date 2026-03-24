@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbDeleteObjectSubKey @ 0x140900ED4
+ * XREFs of DrvDbDeleteObjectSubKey @ 0x140900EB4
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x140900D6C (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140900D4C (DrvDbDeleteObjectRegKey.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406F5604 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406FA568 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpDeletePropertyWorker @ 0x140700FB4 (_PnpDeletePropertyWorker.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762160 (_RegRtlDeleteKeyTransacted.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406FA548 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpDeletePropertyWorker @ 0x140700F94 (_PnpDeletePropertyWorker.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, char *a2, const WCHAR *a3, unsigned int a4)

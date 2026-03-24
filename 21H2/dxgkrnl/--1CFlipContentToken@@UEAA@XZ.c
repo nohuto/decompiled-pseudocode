@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CFlipContentToken@@UEAA@XZ @ 0x1C0082B60
+ * XREFs of ??1CFlipContentToken@@UEAA@XZ @ 0x1C006FC50
  * Callers:
- *     ??_GCFlipContentToken@@UEAAPEAXI@Z @ 0x1C0082BA0 (--_GCFlipContentToken@@UEAAPEAXI@Z.c)
+ *     ??_GCFlipContentToken@@UEAAPEAXI@Z @ 0x1C006FC90 (--_GCFlipContentToken@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1CToken@@UEAA@XZ @ 0x1C0020B94 (--1CToken@@UEAA@XZ.c)
- *     ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C0082E14 (-SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z.c)
+ *     ??1CToken@@UEAA@XZ @ 0x1C001C0E4 (--1CToken@@UEAA@XZ.c)
+ *     ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C006FEB4 (-SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z.c)
  */
 
 void __fastcall CFlipContentToken::~CFlipContentToken(CFlipContentToken *this)

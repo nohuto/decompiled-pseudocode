@@ -1,54 +1,60 @@
 /*
- * XREFs of ?DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C01E76F8
+ * XREFs of ?DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C02120F0
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0173F88 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C0194C28 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
- *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01B8EF0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00E767C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C00EA8F4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0112FB0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0pqqxpxqqqddddddddddddqqtqq_EtwWriteTransfer @ 0x1C00423A0 (McTemplateK0pqqxpxqqqddddddddddddqqtqq_EtwWriteTransfer.c)
- *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C0172880 (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?IsPlaneEnabled@ADAPTER_DISPLAY@@QEAAEII@Z @ 0x1C01E7854 (-IsPlaneEnabled@ADAPTER_DISPLAY@@QEAAEII@Z.c)
- *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C02BC2F8 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     McTemplateK0pqqxpxqqqddddddddddddqqtqq_EtwWriteTransfer @ 0x1C003B684 (McTemplateK0pqqxpxqqqddddddddddddqqtqq_EtwWriteTransfer.c)
+ *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00F93C0 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C016A8F0 (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?IsPlaneEnabled@ADAPTER_DISPLAY@@QEAAEII@Z @ 0x1C0214050 (-IsPlaneEnabled@ADAPTER_DISPLAY@@QEAAEII@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::DisableMPOPlanes(ADAPTER_DISPLAY *this, unsigned int a2, char a3)
 {
-  __int64 v4; // r15
+  __int64 v4; // rsi
   __int64 v6; // rax
   __int64 v7; // rax
-  unsigned int i; // esi
+  unsigned int i; // ebx
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // rax
-  __int64 v13; // rax
+  __int64 v13; // rdx
   __int64 v14; // rcx
-  int v15; // [rsp+38h] [rbp-138h]
-  int v16; // [rsp+48h] [rbp-128h]
-  int v17; // [rsp+50h] [rbp-120h]
-  int v18; // [rsp+58h] [rbp-118h]
-  _DWORD *v19; // [rsp+F0h] [rbp-80h] BYREF
-  _OWORD v20[3]; // [rsp+F8h] [rbp-78h] BYREF
-  __int64 v21; // [rsp+128h] [rbp-48h]
-  _DWORD v22[36]; // [rsp+130h] [rbp-40h] BYREF
+  _QWORD *v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  int v18; // [rsp+38h] [rbp-138h]
+  int v19; // [rsp+48h] [rbp-128h]
+  int v20; // [rsp+50h] [rbp-120h]
+  int v21; // [rsp+58h] [rbp-118h]
+  _DWORD *v22; // [rsp+F0h] [rbp-80h] BYREF
+  int v23; // [rsp+F8h] [rbp-78h] BYREF
+  __int64 v24; // [rsp+FCh] [rbp-74h]
+  int v25; // [rsp+104h] [rbp-6Ch]
+  _QWORD *v26; // [rsp+108h] [rbp-68h]
+  __int128 v27; // [rsp+110h] [rbp-60h]
+  __int64 v28; // [rsp+120h] [rbp-50h]
+  _DWORD v29[36]; // [rsp+130h] [rbp-40h] BYREF
 
   v4 = a2;
-  v6 = *(_QWORD *)(*((_QWORD *)this + 2) + 2928LL);
+  v6 = *(_QWORD *)(*((_QWORD *)this + 2) + 2704LL);
   if ( v6 )
   {
     v7 = *(_QWORD *)(v6 + 16);
-    for ( i = a3 == 0; i < *(_DWORD *)(v7 + 2760); ++i )
+    for ( i = a3 == 0; i < *(_DWORD *)(v7 + 2536); ++i )
     {
       if ( ADAPTER_DISPLAY::IsPlaneEnabled(this, v4, i) )
       {
-        memset(&v22[1], 0, 0x8CuLL);
-        v22[0] = i;
-        v19 = v22;
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80u) != 0LL )
+        memset(&v29[1], 0, 0x8CuLL);
+        v22 = v29;
+        v29[0] = i;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
           McTemplateK0pqqxpxqqqddddddddddddqqtqq_EtwWriteTransfer(
             v10,
             v9,
@@ -57,11 +63,11 @@ void __fastcall ADAPTER_DISPLAY::DisableMPOPlanes(ADAPTER_DISPLAY *this, unsigne
             v4,
             i,
             0,
-            v15,
-            0,
-            v16,
-            v17,
             v18,
+            0,
+            v19,
+            v20,
+            v21,
             0,
             0,
             0,
@@ -74,32 +80,26 @@ void __fastcall ADAPTER_DISPLAY::DisableMPOPlanes(ADAPTER_DISPLAY *this, unsigne
             0,
             0,
             0);
-        v21 = 0LL;
-        v20[0] = 0LL;
-        LODWORD(v20[0]) = v4;
-        v20[1] = (unsigned __int64)&v19;
+        v24 = 0LL;
+        v26 = &v22;
         v12 = *((_QWORD *)this + 2);
-        v20[2] = 0LL;
-        HIDWORD(v20[0]) = 1;
-        if ( (*(int (__fastcall **)(_QWORD, _OWORD *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v12 + 2928) + 736LL) + 8LL)
-                                                     + 824LL))(
-               *(_QWORD *)(*(_QWORD *)(v12 + 2928) + 744LL),
-               v20) < 0 )
+        v27 = 0LL;
+        v28 = 0LL;
+        v23 = v4;
+        v25 = 1;
+        if ( (*(int (__fastcall **)(_QWORD, int *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v12 + 2704) + 616LL) + 8LL)
+                                                  + 824LL))(
+               *(_QWORD *)(*(_QWORD *)(v12 + 2704) + 624LL),
+               &v23) < 0 )
         {
-          WdLogSingleEntry3(2LL, i, v4, *((_QWORD *)this + 2));
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to disable MPO plane 0x%I64x in SetVidPnSourceVisibility, VidPnSourceId: 0x%I64x, Adapter 0x%I64x",
-            i,
-            v4,
-            *((_QWORD *)this + 2),
-            0LL,
-            0LL);
+          v15 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+          v15[3] = i;
+          v15[4] = v4;
+          v15[5] = *((_QWORD *)this + 2);
+          WdLogEvent5_WdError(v15);
         }
       }
-      v7 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 2928LL) + 16LL);
+      v7 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 2704LL) + 16LL);
     }
     if ( a3 )
     {
@@ -107,12 +107,12 @@ void __fastcall ADAPTER_DISPLAY::DisableMPOPlanes(ADAPTER_DISPLAY *this, unsigne
     }
     else
     {
-      v13 = *(_QWORD *)(4000 * v4 + *((_QWORD *)this + 16) + 728);
-      if ( v13 )
+      v16 = *(_QWORD *)(3968 * v4 + *((_QWORD *)this + 14) + 688);
+      if ( v16 )
       {
-        v14 = *(_QWORD *)(v13 + 1880);
-        if ( v14 == *(_QWORD *)(*(_QWORD *)(v13 + 16) + 16LL) )
-          ADAPTER_DISPLAY::DisableOverlayPlanes(*(ADAPTER_DISPLAY **)(v14 + 2920), v4);
+        v17 = *(_QWORD *)(v16 + 1848);
+        if ( v17 == *(_QWORD *)(*(_QWORD *)(v16 + 16) + 16LL) )
+          ADAPTER_DISPLAY::DisableOverlayPlanes(*(ADAPTER_DISPLAY **)(v17 + 2696), (unsigned int)v4);
       }
     }
   }

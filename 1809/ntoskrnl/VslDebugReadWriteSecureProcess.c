@@ -1,12 +1,12 @@
 /*
- * XREFs of VslDebugReadWriteSecureProcess @ 0x140818384
+ * XREFs of VslDebugReadWriteSecureProcess @ 0x140818364
  * Callers:
- *     MmCopyVirtualMemory @ 0x1406447B0 (MmCopyVirtualMemory.c)
+ *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  */
 
 __int64 __fastcall VslDebugReadWriteSecureProcess(

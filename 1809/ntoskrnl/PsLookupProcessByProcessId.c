@@ -1,27 +1,27 @@
 /*
- * XREFs of PsLookupProcessByProcessId @ 0x140646C40
+ * XREFs of PsLookupProcessByProcessId @ 0x140646C20
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     PsOpenProcess @ 0x1406467E0 (PsOpenProcess.c)
- *     PfpCopyEvent @ 0x140669C40 (PfpCopyEvent.c)
- *     PfpRpControlRequestUpdate @ 0x14069DDE0 (PfpRpControlRequestUpdate.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B6964 (PspOneDirectionSecurityDomainCombine.c)
- *     PopDiagTraceAppPowerMessage @ 0x1406E0ED8 (PopDiagTraceAppPowerMessage.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7F0 (PiUEventHandleVetoEvent.c)
- *     EtwpProcessThreadImageRundown @ 0x1407263D0 (EtwpProcessThreadImageRundown.c)
- *     SeAuditProcessCreation @ 0x1407495D0 (SeAuditProcessCreation.c)
- *     CmpDumpOneKeyBody @ 0x1407F0EC4 (CmpDumpOneKeyBody.c)
- *     PnpLogVetoInformation @ 0x1408330F0 (PnpLogVetoInformation.c)
- *     EtwpUpdatePerProcessTracing @ 0x1408B5894 (EtwpUpdatePerProcessTracing.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x1408BFE44 (EtwpGetPrivateSessionTraceHandle.c)
+ *     PsOpenProcess @ 0x1406467C0 (PsOpenProcess.c)
+ *     PfpCopyEvent @ 0x140669C20 (PfpCopyEvent.c)
+ *     PfpRpControlRequestUpdate @ 0x14069DDC0 (PfpRpControlRequestUpdate.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1406B6944 (PspOneDirectionSecurityDomainCombine.c)
+ *     PopDiagTraceAppPowerMessage @ 0x1406E0EB8 (PopDiagTraceAppPowerMessage.c)
+ *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
+ *     EtwpProcessThreadImageRundown @ 0x1407263B0 (EtwpProcessThreadImageRundown.c)
+ *     SeAuditProcessCreation @ 0x1407495B0 (SeAuditProcessCreation.c)
+ *     CmpDumpOneKeyBody @ 0x1407F0EA4 (CmpDumpOneKeyBody.c)
+ *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1408B5874 (EtwpUpdatePerProcessTracing.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x1408BFE24 (EtwpGetPrivateSessionTraceHandle.c)
  *     ViCreateProcessCallbackInternal @ 0x140938564 (ViCreateProcessCallbackInternal.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessInSilo @ 0x1400CB0E8 (PsIsProcessInSilo.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14012F2E0 (ExfAcquireReleasePushLockExclusive.c)
- *     PspReferenceCidTableEntry @ 0x140646D30 (PspReferenceCidTableEntry.c)
+ *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14012F300 (ExfAcquireReleasePushLockExclusive.c)
+ *     PspReferenceCidTableEntry @ 0x140646D10 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupProcessByProcessId(HANDLE ProcessId, PEPROCESS *Process)

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C0386518
+ * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C02C5828
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C0385C50 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C02C4F64 (PpRegStateReadCreateClassCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005EE70 (WdmlibRtlInitUnicodeStringEx.c)
- *     CmRegUtilUcValueSetUcString @ 0x1C038636C (CmRegUtilUcValueSetUcString.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050B6C (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C02C567C (CmRegUtilUcValueSetUcString.c)
  */
 
 NTSTATUS __fastcall CmRegUtilWstrValueSetWstrString(__int64 a1, __int64 a2, const WCHAR *a3)

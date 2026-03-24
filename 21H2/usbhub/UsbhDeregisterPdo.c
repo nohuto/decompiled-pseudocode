@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhDeregisterPdo @ 0x1C0036B38
+ * XREFs of UsbhDeregisterPdo @ 0x1C0037DEC
  * Callers:
- *     Usbh_Disconnect_PdoEvent @ 0x1C003A55C (Usbh_Disconnect_PdoEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003B86C (Usbh_Disconnect_PdoEvent.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     SET_PDO_HWPNPSTATE @ 0x1C0035D18 (SET_PDO_HWPNPSTATE.c)
- *     UsbhBusIoInvalidateDeviceRelations @ 0x1C0035F00 (UsbhBusIoInvalidateDeviceRelations.c)
- *     UsbhSetPdo_FailIo @ 0x1C0038C90 (UsbhSetPdo_FailIo.c)
- *     UsbhResetPortData @ 0x1C0056EB0 (UsbhResetPortData.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036FD4 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhBusIoInvalidateDeviceRelations @ 0x1C00371C0 (UsbhBusIoInvalidateDeviceRelations.c)
+ *     UsbhSetPdo_FailIo @ 0x1C0039F80 (UsbhSetPdo_FailIo.c)
+ *     UsbhResetPortData @ 0x1C0058588 (UsbhResetPortData.c)
  */
 
 void __fastcall UsbhDeregisterPdo(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -39,9 +39,9 @@ void __fastcall UsbhDeregisterPdo(__int64 a1, __int64 a2, __int64 a3, int a4, __
   if ( *((_BYTE *)v8 + 2740) || (PortData = UsbhGetPortData(a1, *((_WORD *)v8 + 714)), (v11 = PortData) == 0) )
   {
     *(_DWORD *)(a5 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     *(_DWORD *)(a5 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a5 + 132));
+    KeReleaseSpinLock(&HubG, *(_BYTE *)(a5 + 132));
   }
   else
   {
@@ -72,10 +72,10 @@ LABEL_11:
     UsbhSetPdo_FailIo(a2);
     v7[226] = 1;
     *(_DWORD *)(a5 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v17 = *(_BYTE *)(a5 + 132);
     *(_DWORD *)(a5 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v17);
+    KeReleaseSpinLock(&HubG, v17);
     UsbhSignalSyncDeviceResetPdo(a1, a2, -1073741810);
     UsbhSignalDriverResetEvent(a1, v11);
     UsbhSshSetPortsBusyState(a1, *(_WORD *)(v9 + 1428), 1, 0);

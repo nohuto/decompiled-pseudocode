@@ -1,163 +1,154 @@
 /*
- * XREFs of ?SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0229D70
+ * XREFs of ?SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F0F70
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV?$CWeakReference@VCResourceMarshaler@DirectComposition@@@2@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C0028EBC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@P.c)
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA?AW4InteractionTrackerMarshalerFlag@12@W4InertiaModifierAxis@@@Z @ 0x1C01F0468 (-GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA-AW4Interac.c)
+ *     ?SetInertiaCenterpoint@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChannel@2@W4ScrollAxis@@PEAVCConditionalExpressionMarshaler@2@PEA_N@Z @ 0x1C01F0D4C (-SetInertiaCenterpoint@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChan.c)
+ *     ?SetRequestedPositionAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChannel@2@PEAVCBaseExpressionMarshaler@2@PEA_N@Z @ 0x1C01F1240 (-SetRequestedPositionAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplica.c)
+ *     ?SetRequestedScaleAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChannel@2@PEAVCBaseExpressionMarshaler@2@PEA_N@Z @ 0x1C01F12FC (-SetRequestedScaleAnimation@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicatio.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetReferenceProperty(
-        DirectComposition::CInteractionTrackerMarshaler *this,
+        struct DirectComposition::CResourceMarshaler **this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  int v6; // r8d
-  int v7; // r8d
-  int v8; // r8d
+  int v5; // edi
   int v9; // r8d
   int v10; // r8d
   int v11; // r8d
   int v12; // r8d
-  __int64 result; // rax
+  int v13; // r8d
+  int v14; // r8d
+  int v15; // r8d
+  int v16; // r8d
+  unsigned int v17; // r14d
+  __int64 v18; // rcx
 
-  v6 = a3 - 18;
-  if ( v6 )
+  v5 = 0;
+  v9 = a3 - 18;
+  if ( v9 )
   {
-    v7 = v6 - 15;
-    if ( v7 )
+    v10 = v9 - 15;
+    if ( v10 )
     {
-      v8 = v7 - 4;
-      if ( v8 )
+      v11 = v10 - 4;
+      if ( v11 )
       {
-        v9 = v8 - 1;
-        if ( v9 )
+        v12 = v11 - 1;
+        if ( v12 )
         {
-          v10 = v9 - 1;
-          if ( v10 )
+          v13 = v12 - 1;
+          if ( v13 )
           {
-            v11 = v10 - 1;
-            if ( v11 )
+            v14 = v13 - 1;
+            if ( v14 )
             {
-              v12 = v11 - 27;
-              if ( v12 )
+              v15 = v14 - 27;
+              if ( v15 )
               {
-                if ( v12 == 1 )
-                  return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                           a2,
-                           (struct DirectComposition::CWeakReferenceBase **)this + 42,
-                           (unsigned int *)a4,
-                           (__int64)a4,
-                           0x2Du,
-                           (int *)this + 4,
-                           0x10000000,
-                           1,
-                           a5);
-                else
-                  return 3221225485LL;
+                if ( v15 == 1
+                  && (!a4
+                   || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+                        a4,
+                        43LL)) )
+                {
+                  v16 = 1;
+                  return (unsigned int)DirectComposition::CInteractionTrackerMarshaler::SetInertiaCenterpoint(
+                                         (__int64)this,
+                                         a2,
+                                         v16,
+                                         a4,
+                                         a5);
+                }
               }
-              else
+              else if ( !a4
+                     || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+                          a4,
+                          43LL) )
               {
-                return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                         a2,
-                         (struct DirectComposition::CWeakReferenceBase **)this + 41,
-                         (unsigned int *)a4,
-                         (__int64)a4,
-                         0x2Du,
-                         (int *)this + 4,
-                         0x8000000,
-                         1,
-                         a5);
+                v16 = 0;
+                return (unsigned int)DirectComposition::CInteractionTrackerMarshaler::SetInertiaCenterpoint(
+                                       (__int64)this,
+                                       a2,
+                                       v16,
+                                       a4,
+                                       a5);
               }
+              return (unsigned int)-1073741811;
             }
-            else
-            {
-              return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                       a2,
-                       (struct DirectComposition::CResourceMarshaler **)this + 32,
-                       (unsigned int *)a4,
-                       1,
-                       45,
-                       (int *)this + 4,
-                       0x400000,
-                       1,
-                       a5);
-            }
+            v17 = 3;
           }
           else
           {
-            return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                     a2,
-                     (struct DirectComposition::CResourceMarshaler **)this + 31,
-                     (unsigned int *)a4,
-                     1,
-                     45,
-                     (int *)this + 4,
-                     0x200000,
-                     1,
-                     a5);
+            v17 = 2;
           }
         }
         else
         {
-          return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                   a2,
-                   (struct DirectComposition::CResourceMarshaler **)this + 30,
-                   (unsigned int *)a4,
-                   1,
-                   45,
-                   (int *)this + 4,
-                   0x100000,
-                   1,
-                   a5);
+          v17 = 1;
         }
       }
       else
       {
-        return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                 a2,
-                 (struct DirectComposition::CResourceMarshaler **)this + 29,
-                 (unsigned int *)a4,
-                 1,
-                 45,
-                 (int *)this + 4,
-                 0x80000,
-                 1,
-                 a5);
+        v17 = 0;
       }
+      if ( a4
+        && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+              a4,
+              43LL) )
+      {
+        return (unsigned int)-1073741811;
+      }
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, this[v17 + 29]);
+      this[v17 + 29] = a4;
+      if ( a4 )
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+      *((_DWORD *)this + 4) &= ~(unsigned int)DirectComposition::CInteractionTrackerMarshaler::GetInertiaModifierMarshalerFlag(
+                                                v18,
+                                                v17);
+      *a5 = 1;
     }
     else
     {
-      result = DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                 a2,
-                 (struct DirectComposition::CWeakReferenceBase **)this + 28,
-                 (unsigned int *)a4,
-                 (__int64)a4,
-                 0xBu,
-                 (int *)this + 4,
-                 0x40000,
-                 1,
-                 a5);
-      if ( (int)result >= 0 )
+      if ( a4
+        && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+              a4,
+              10LL) )
+      {
+        return (unsigned int)-1073741811;
+      }
+      v5 = DirectComposition::CInteractionTrackerMarshaler::SetRequestedScaleAnimation(
+             (DirectComposition::CInteractionTrackerMarshaler *)this,
+             a2,
+             a4,
+             a5);
+      if ( v5 >= 0 )
         *((_BYTE *)this + 456) &= ~2u;
     }
   }
   else
   {
-    result = DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-               a2,
-               (struct DirectComposition::CWeakReferenceBase **)this + 27,
-               (unsigned int *)a4,
-               (__int64)a4,
-               0xBu,
-               (int *)this + 4,
-               1024,
-               1,
-               a5);
-    if ( (int)result >= 0 )
+    if ( a4
+      && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+            a4,
+            10LL) )
+    {
+      return (unsigned int)-1073741811;
+    }
+    v5 = DirectComposition::CInteractionTrackerMarshaler::SetRequestedPositionAnimation(
+           (DirectComposition::CInteractionTrackerMarshaler *)this,
+           a2,
+           a4,
+           a5);
+    if ( v5 >= 0 )
       *((_BYTE *)this + 456) &= ~1u;
   }
-  return result;
+  return (unsigned int)v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoTargetSendInternalIoctlSynchronously @ 0x1C001B3B0
+ * XREFs of imp_WdfIoTargetSendInternalIoctlSynchronously @ 0x1C0063E50
  * Callers:
  *     <none>
  * Callees:
- *     FxIoTargetSendIoctl @ 0x1C0019E84 (FxIoTargetSendIoctl.c)
+ *     FxIoTargetSendIoctl @ 0x1C0017974 (FxIoTargetSendIoctl.c)
  */
 
 __int64 __fastcall imp_WdfIoTargetSendInternalIoctlSynchronously(
@@ -17,7 +17,7 @@ __int64 __fastcall imp_WdfIoTargetSendInternalIoctlSynchronously(
         unsigned __int64 *BytesReturned)
 {
   return FxIoTargetSendIoctl(
-           (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+           (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
            IoTarget,
            Request,
            Ioctl,

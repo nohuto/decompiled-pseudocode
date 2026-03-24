@@ -1,91 +1,113 @@
 /*
- * XREFs of ?GetBounds@CTextVisualContent@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18026C5C4
+ * XREFs of ?GetBounds@CTextVisualContent@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18020CA04
  * Callers:
- *     ?GetBounds@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011E4C0 (-GetBounds@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
+ *     ?GetBounds@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F6340 (-GetBounds@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
  * Callees:
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040530 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?GetBounds@CCompositionGlyphRun@@QEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802239EC (-GetBounds@CCompositionGlyphRun@@QEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
- *     ?GetBounds@CCompositionTextLine@@QEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802270C4 (-GetBounds@CCompositionTextLine@@QEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006C310 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CTextVisualContent::GetBounds(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v6; // rax
+  _QWORD *v6; // rax
   __int64 *v7; // rbx
-  __int64 *v8; // rbp
-  __int64 v9; // rcx
-  int Bounds; // edi
-  __int64 v11; // rax
+  __int64 *v8; // r14
+  __int64 v9; // rdx
+  __int64 (__fastcall ***v10)(_QWORD, __int64, int *); // rcx
+  int v11; // esi
   __int64 *v12; // rbx
-  __int64 *v13; // rbp
+  __int64 *v13; // r14
   __int64 v14; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 *v18; // rbx
-  __int64 *v19; // rbp
-  __int64 v20; // rcx
-  int v21[4]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 (__fastcall ***v15)(_QWORD, __int64, int *); // rcx
+  __int64 *v16; // rbx
+  __int64 *v17; // rsi
+  __int64 v18; // rdx
+  __int64 v20; // rdx
+  __int64 (__fastcall ***v21)(_QWORD, __int64, int *); // rcx
+  int v22; // eax
+  unsigned int v23; // ebp
+  int v24[4]; // [rsp+20h] [rbp-48h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
 
   *(_DWORD *)(a3 + 12) = 0;
   *(_DWORD *)(a3 + 8) = 0;
   *(_DWORD *)(a3 + 4) = 0;
   *(_DWORD *)a3 = 0;
-  v6 = *(_QWORD *)(a1 - 32);
-  v7 = *(__int64 **)(v6 + 704);
-  v8 = *(__int64 **)(v6 + 712);
-  while ( v7 != v8 )
+  v6 = *(_QWORD **)(a1 - 32);
+  v7 = (__int64 *)v6[77];
+  v8 = (__int64 *)v6[78];
+  if ( v7 != v8 )
   {
-    v9 = *v7;
-    *(_OWORD *)v21 = 0LL;
-    Bounds = CCompositionGlyphRun::GetBounds(v9, a2, v21);
-    if ( Bounds < 0 )
+    while ( 1 )
     {
-      v14 = 102LL;
-      goto LABEL_7;
+      v9 = *v7;
+      *(_OWORD *)v24 = 0LL;
+      v10 = (__int64 (__fastcall ***)(_QWORD, __int64, int *))(v9 + 56 + *(int *)(*(_QWORD *)(v9 + 56) + 8LL));
+      v11 = (**v10)(v10, a2, v24);
+      if ( v11 < 0 )
+        break;
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v24);
+      if ( ++v7 == v8 )
+      {
+        v6 = *(_QWORD **)(a1 - 32);
+        goto LABEL_5;
+      }
     }
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v21);
-    ++v7;
+    v18 = 102LL;
+    goto LABEL_11;
   }
-  v11 = *(_QWORD *)(a1 - 32);
-  v12 = *(__int64 **)(v11 + 752);
-  v13 = *(__int64 **)(v11 + 760);
-  while ( v12 != v13 )
+LABEL_5:
+  v12 = (__int64 *)v6[83];
+  v13 = (__int64 *)v6[84];
+  if ( v12 != v13 )
   {
-    v16 = *v12;
-    *(_OWORD *)v21 = 0LL;
-    Bounds = CCompositionTextLine::GetBounds(v16, a2, v21);
-    if ( Bounds < 0 )
+    while ( 1 )
     {
-      v14 = 110LL;
-      goto LABEL_7;
+      v14 = *v12;
+      *(_OWORD *)v24 = 0LL;
+      v15 = (__int64 (__fastcall ***)(_QWORD, __int64, int *))(v14 + 56 + *(int *)(*(_QWORD *)(v14 + 56) + 8LL));
+      v11 = (**v15)(v15, a2, v24);
+      if ( v11 < 0 )
+        break;
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v24);
+      if ( ++v12 == v13 )
+      {
+        v6 = *(_QWORD **)(a1 - 32);
+        goto LABEL_9;
+      }
     }
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v21);
-    ++v12;
+    v18 = 110LL;
+LABEL_11:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v18,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+      (const char *)(unsigned int)v11);
+    return (unsigned int)v11;
   }
-  v17 = *(_QWORD *)(a1 - 32);
-  v18 = *(__int64 **)(v17 + 728);
-  v19 = *(__int64 **)(v17 + 736);
+LABEL_9:
+  v16 = (__int64 *)v6[80];
+  v17 = (__int64 *)v6[81];
   while ( 1 )
   {
-    if ( v18 == v19 )
+    if ( v16 == v17 )
       return 0LL;
-    v20 = *v18;
-    *(_OWORD *)v21 = 0LL;
-    Bounds = CCompositionTextLine::GetBounds(v20, a2, v21);
-    if ( Bounds < 0 )
+    v20 = *v16;
+    *(_OWORD *)v24 = 0LL;
+    v21 = (__int64 (__fastcall ***)(_QWORD, __int64, int *))(v20 + 56 + *(int *)(*(_QWORD *)(v20 + 56) + 8LL));
+    v22 = (**v21)(v21, a2, v24);
+    v23 = v22;
+    if ( v22 < 0 )
       break;
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v21);
-    ++v18;
+    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a3, (float *)v24);
+    ++v16;
   }
-  v14 = 118LL;
-LABEL_7:
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)v14,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-    (const char *)(unsigned int)Bounds);
-  return (unsigned int)Bounds;
+    (void *)0x76,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+    (const char *)(unsigned int)v22);
+  return v23;
 }

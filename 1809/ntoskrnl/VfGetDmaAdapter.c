@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IoGetDmaAdapter @ 0x140755920 (IoGetDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IoGetDmaAdapter @ 0x140755900 (IoGetDmaAdapter.c)
  *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
  *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x14092996C (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
  *     VfIsPCIBus @ 0x14092BA28 (VfIsPCIBus.c)

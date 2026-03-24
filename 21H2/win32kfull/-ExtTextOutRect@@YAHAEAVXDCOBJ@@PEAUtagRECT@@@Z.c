@@ -1,222 +1,230 @@
 /*
- * XREFs of ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C002CA18
+ * XREFs of ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C00B4620
  * Callers:
- *     ?GreBatchTextOutRect@@YAHAEAVXDCOBJ@@PEAU_BATCHTEXTOUTRECT@@K@Z @ 0x1C002C7F8 (-GreBatchTextOutRect@@YAHAEAVXDCOBJ@@PEAU_BATCHTEXTOUTRECT@@K@Z.c)
- *     GreExtTextOutRect @ 0x1C008AD4C (GreExtTextOutRect.c)
+ *     GreExtTextOutRect @ 0x1C00AA21C (GreExtTextOutRect.c)
+ *     ?GreBatchTextOutRect@@YAHAEAVXDCOBJ@@PEAU_BATCHTEXTOUTRECT@@K@Z @ 0x1C00B4A7C (-GreBatchTextOutRect@@YAHAEAVXDCOBJ@@PEAU_BATCHTEXTOUTRECT@@K@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C002CDE8 (-_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C002CE30 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C002CF6C (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     bCvtPts1 @ 0x1C0089370 (bCvtPts1.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     bCvtPts1 @ 0x1C0084CF0 (bCvtPts1.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C00B3108 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C00B3134 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C00B4A34 (-_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B4CCC (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B61E0 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ExtTextOutRect(struct XDCOBJ *this, struct tagRECT *a2)
+__int64 __fastcall ExtTextOutRect(struct XDCOBJ *a1, struct tagRECT *a2)
 {
-  unsigned int v4; // ebx
-  int v5; // eax
-  LONG left; // edx
-  LONG top; // r9d
-  LONG right; // r8d
-  LONG bottom; // r10d
-  __int64 v10; // rdi
+  __int64 v3; // rdx
+  unsigned int v5; // ebx
+  int v6; // eax
+  LONG left; // ecx
+  LONG top; // r8d
+  LONG right; // edx
+  LONG bottom; // r9d
   __int64 v11; // rdi
-  __int64 v12; // r14
-  __int64 v13; // rcx
-  __int64 v14; // r15
-  __int64 v15; // rdx
-  __int64 v16; // r12
-  BOOL v17; // r15d
-  int v18; // edx
-  int v19; // r9d
-  __int64 v20; // rcx
-  int v21; // eax
-  struct REGION *v22; // rax
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r14
-  struct ECLIPOBJ *v26; // rdx
-  LONG v29; // eax
-  LONG v30; // eax
-  __int128 *v31; // r13
-  __int128 v32; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v33; // [rsp+70h] [rbp-9h] BYREF
-  int v34; // [rsp+7Ch] [rbp+3h]
-  __int128 v35; // [rsp+80h] [rbp+7h] BYREF
+  __int64 v12; // rdi
+  __int64 v13; // r14
+  __int64 v14; // rdx
+  __int64 v15; // r11
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  __int64 v18; // r12
+  int v19; // r8d
+  BOOL v20; // r15d
+  int v21; // r9d
+  int v22; // edx
+  int v23; // eax
+  struct REGION *v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r14
+  struct ECLIPOBJ *v28; // rdx
+  __int64 v29; // rcx
+  LONG v32; // eax
+  LONG v33; // eax
+  __int128 *v34; // r13
+  unsigned __int64 v35; // [rsp+60h] [rbp-19h] BYREF
+  int v36; // [rsp+68h] [rbp-11h]
+  int v37; // [rsp+6Ch] [rbp-Dh]
+  __int128 v38; // [rsp+70h] [rbp-9h] BYREF
+  __int128 v39; // [rsp+80h] [rbp+7h] BYREF
 
-  if ( !*(_QWORD *)this || (*(_DWORD *)(*(_QWORD *)this + 36LL) & 0x10000) != 0 )
+  v3 = *(_QWORD *)a1;
+  if ( !*(_QWORD *)a1 || (*(_DWORD *)(v3 + 36) & 0x10000) != 0 )
     return 0;
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v33, this, 0x80000204);
-  v4 = 1;
-  v5 = *(_DWORD *)(v33 + 32);
-  if ( (v5 & 1) == 0 )
+  v5 = 1;
+  v36 = *(_DWORD *)(*(_QWORD *)(v3 + 976) + 208LL);
+  v37 = *(_DWORD *)(*(_QWORD *)(v3 + 976) + 108LL) & 1;
+  EXFORMOBJ::vInit((EXFORMOBJ *)&v35, a1, 0x204u, 0x80000000);
+  v6 = *(_DWORD *)(v35 + 32);
+  if ( (v6 & 1) == 0 )
     return (unsigned int)GreExtTextOutWLocked(
-                           this,
+                           a1,
                            0,
                            0,
-                           2u,
+                           2,
                            a2,
                            0LL,
                            0,
                            0LL,
-                           *(unsigned __int8 *)(*(_QWORD *)(*(_QWORD *)this + 976LL) + 213LL),
+                           *(unsigned __int8 *)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 213LL),
                            0LL,
                            0);
   left = a2->left;
   top = a2->top;
   right = a2->right;
   bottom = a2->bottom;
-  LODWORD(v35) = a2->left;
-  *(_QWORD *)((char *)&v35 + 4) = __PAIR64__(right, top);
-  HIDWORD(v35) = bottom;
-  if ( (v5 & 0x43) != 0x43 )
+  LODWORD(v39) = a2->left;
+  *(_QWORD *)((char *)&v39 + 4) = __PAIR64__(right, top);
+  HIDWORD(v39) = bottom;
+  if ( (v6 & 0x43) != 0x43 )
   {
-    bCvtPts1(v33, &v35, 2LL);
-    bottom = HIDWORD(v35);
-    right = DWORD2(v35);
-    top = DWORD1(v35);
-    left = v35;
+    bCvtPts1(v35, &v39, 2LL);
+    bottom = HIDWORD(v39);
+    right = DWORD2(v39);
+    top = DWORD1(v39);
+    left = v39;
   }
-  if ( v34 )
+  if ( v37 )
   {
     ++left;
     ++right;
-    LODWORD(v35) = left;
-    DWORD2(v35) = right;
+    LODWORD(v39) = left;
+    DWORD2(v39) = right;
   }
   if ( left > right )
   {
-    v29 = left;
+    v32 = left;
+    LODWORD(v39) = right;
     left = right;
-    LODWORD(v35) = right;
-    right = v29;
-    DWORD2(v35) = v29;
+    DWORD2(v39) = v32;
+    right = v32;
   }
   if ( top > bottom )
   {
-    v30 = top;
-    DWORD1(v35) = bottom;
+    v33 = top;
+    DWORD1(v39) = bottom;
     top = bottom;
-    HIDWORD(v35) = v30;
-    bottom = v30;
+    HIDWORD(v39) = v33;
+    bottom = v33;
   }
   if ( left == right || top == bottom )
-    return v4;
-  v10 = *(_QWORD *)this;
-  if ( (*(_DWORD *)(*(_QWORD *)this + 36LL) & 0xE0) != 0 )
+    return v5;
+  v11 = *(_QWORD *)a1;
+  if ( (*(_DWORD *)(*(_QWORD *)a1 + 36LL) & 0xE0) != 0 )
   {
-    XDCOBJ::vAccumulate(this, (struct ERECTL *)&v35);
-    v10 = *(_QWORD *)this;
+    XDCOBJ::vAccumulate(a1, (struct ERECTL *)&v39);
+    v11 = *(_QWORD *)a1;
   }
-  v11 = *(_QWORD *)(v10 + 496);
-  if ( !v11 )
-    return v4;
-  if ( ((*(_DWORD *)(v11 + 116) & 8) != 0 || *(_QWORD *)(v11 + 224))
-    && _bittest16((const signed __int16 *)(v11 + 102), 9u)
-    || !(unsigned int)_SurfaceAccessCheck((struct SURFACE *)v11) )
+  v12 = *(_QWORD *)(v11 + 496);
+  if ( !v12 )
+    return v5;
+  if ( ((*(_DWORD *)(v12 + 116) & 8) != 0 || *(_QWORD *)(v12 + 224)) && (*(_WORD *)(v12 + 102) & 0x200) != 0
+    || !(unsigned int)_SurfaceAccessCheck((struct SURFACE *)v12) )
   {
     EngSetLastError(5u);
     return 0;
   }
-  v12 = *(_QWORD *)this;
-  v13 = *(_DWORD *)(*(_QWORD *)this + 40LL) & 1LL;
-  v14 = *(int *)(*(_QWORD *)this + 8 * v13 + 1016);
-  if ( (unsigned __int64)(v14 + (int)v35 + 0x80000000LL) <= 0xFFFFFFFF
-    && (unsigned __int64)(v14 + SDWORD2(v35) + 0x80000000LL) <= 0xFFFFFFFF )
+  v13 = *(_QWORD *)a1;
+  v14 = *(_DWORD *)(*(_QWORD *)a1 + 40LL) & 1LL;
+  v15 = *(int *)(*(_QWORD *)a1 + 8 * v14 + 1016);
+  if ( (unsigned __int64)(v15 + (int)v39 + 0x80000000LL) <= 0xFFFFFFFF
+    && (unsigned __int64)(v15 + SDWORD2(v39) + 0x80000000LL) <= 0xFFFFFFFF )
   {
-    v15 = *(int *)(v12 + 8 * v13 + 1020);
-    if ( (unsigned __int64)(v15 + SDWORD1(v35) + 0x80000000LL) <= 0xFFFFFFFF
-      && (unsigned __int64)(v15 + SHIDWORD(v35) + 0x80000000LL) <= 0xFFFFFFFF )
+    v16 = *(int *)(v13 + 8 * v14 + 1020);
+    if ( (unsigned __int64)(v16 + SDWORD1(v39) + 0x80000000LL) <= 0xFFFFFFFF
+      && (unsigned __int64)(v16 + SHIDWORD(v39) + 0x80000000LL) <= 0xFFFFFFFF )
     {
-      *(_QWORD *)&v32 = 0LL;
-      LODWORD(v35) = v14 + v35;
-      v16 = 0LL;
-      v17 = 0;
-      v18 = DWORD2(v35) + *(_DWORD *)(v12 + 8 * v13 + 1016);
-      v19 = *(_DWORD *)(v12 + 8 * v13 + 1020) + DWORD1(v35);
-      *(_QWORD *)((char *)&v35 + 4) = __PAIR64__(v18, v19);
-      v20 = (unsigned int)(HIDWORD(v35) + *(_DWORD *)(v12 + 8 * v13 + 1020));
-      HIDWORD(v35) = v20;
-      if ( (int)v35 >= *(_DWORD *)(v12 + 1000) && v18 <= *(_DWORD *)(v12 + 1008) && v19 >= *(_DWORD *)(v12 + 1004) )
-        v17 = (int)v20 <= *(_DWORD *)(v12 + 1012);
-      v21 = *(_DWORD *)(v12 + 520);
-      if ( (v21 & 1) != 0 && (v21 & 2) == 0 )
+      v17 = (unsigned int)(v15 + v39);
+      *(_QWORD *)&v38 = 0LL;
+      LODWORD(v39) = v17;
+      v18 = 0LL;
+      v19 = *(_DWORD *)(v13 + 8 * v14 + 1016) + DWORD2(v39);
+      v20 = 0;
+      v21 = *(_DWORD *)(v13 + 8 * v14 + 1020) + DWORD1(v39);
+      *(_QWORD *)((char *)&v39 + 4) = __PAIR64__(v19, v21);
+      v22 = HIDWORD(v39) + *(_DWORD *)(v13 + 8 * v14 + 1020);
+      HIDWORD(v39) = v22;
+      if ( (int)v17 >= *(_DWORD *)(v13 + 1000) && v19 <= *(_DWORD *)(v13 + 1008) && v21 >= *(_DWORD *)(v13 + 1004) )
+        v20 = v22 <= *(_DWORD *)(v13 + 1012);
+      v23 = *(_DWORD *)(v13 + 520);
+      if ( (v23 & 1) != 0 && (v23 & 2) == 0 )
       {
-        v31 = &v35;
+        v34 = &v39;
         do
         {
-          if ( !(unsigned int)bFToL(v20, (char *)&v35 + 4 * (unsigned int)v16, 6LL) )
+          if ( !(unsigned int)bFToL(v17, (char *)&v39 + 4 * (unsigned int)v18, 6LL) )
             break;
-          LODWORD(v16) = v16 + 1;
-          v31 = (__int128 *)((char *)v31 + 4);
+          LODWORD(v18) = v18 + 1;
+          v34 = (__int128 *)((char *)v34 + 4);
         }
-        while ( (unsigned int)v16 < 4 );
-        v16 = v32;
+        while ( (unsigned int)v18 < 4 );
+        v18 = v38;
       }
-      if ( !v17 )
+      if ( !v20 )
       {
-        v16 = v12 + 1768;
-        v22 = XDCOBJ::prgnEffRao(this);
-        XCLIPOBJ::vSetup((XCLIPOBJ *)(v12 + 1768), v22, (struct ERECTL *)&v35, 2);
-        v35 = *(_OWORD *)(v12 + 1772);
-        if ( ERECTL::bEmpty((ERECTL *)&v35) )
-          return v4;
+        v18 = v13 + 1776;
+        v24 = DC::prgnRao((DC *)v13) ? DC::prgnRao((DC *)v13) : DC::prgnVisSnap((DC *)v13);
+        XCLIPOBJ::vSetup((XCLIPOBJ *)(v13 + 1776), v24, (struct ERECTL *)&v39, 2);
+        v39 = *(_OWORD *)(v13 + 1780);
+        if ( ERECTL::bEmpty((ERECTL *)&v39) )
+          return v5;
       }
-      v23 = *(_QWORD *)this;
-      v24 = *(_QWORD *)(*(_QWORD *)this + 976LL);
-      v25 = *(_QWORD *)this + 1608LL;
-      v26 = (struct ECLIPOBJ *)*(unsigned int *)(v24 + 152);
-      if ( (((unsigned __int8)v26 | *(_BYTE *)(*(_QWORD *)this + 316LL)) & 8) != 0 )
+      v25 = *(_QWORD *)a1;
+      v26 = *(_QWORD *)(*(_QWORD *)a1 + 976LL);
+      v27 = *(_QWORD *)a1 + 1616LL;
+      v28 = (struct ECLIPOBJ *)*(unsigned int *)(v26 + 152);
+      if ( (((unsigned __int8)v28 | *(_BYTE *)(*(_QWORD *)a1 + 316LL)) & 8) != 0 )
       {
-        *(_DWORD *)(v24 + 152) = (unsigned int)v26 & 0xFFFFFFF7;
-        *(_DWORD *)(*(_QWORD *)this + 316LL) &= ~8u;
+        *(_DWORD *)(v26 + 152) = (unsigned int)v28 & 0xFFFFFFF7;
+        *(_DWORD *)(*(_QWORD *)a1 + 316LL) &= ~8u;
         EBRUSHOBJ::vInitBrush(
-          v25,
-          *(_QWORD *)this,
+          v27,
+          *(_QWORD *)a1,
           gpbrBackground,
-          *(_QWORD *)(*(_QWORD *)this + 88LL),
-          *(_QWORD *)(v11 + 128),
-          v11,
-          (*(_DWORD *)(*(_QWORD *)this + 72LL) >> 15) & 1);
-        v23 = *(_QWORD *)this;
+          *(_QWORD *)(*(_QWORD *)a1 + 88LL),
+          *(_QWORD *)(v12 + 128),
+          v12,
+          (*(_DWORD *)(*(_QWORD *)a1 + 72LL) >> 15) & 1);
+        v25 = *(_QWORD *)a1;
       }
-      if ( (*(_DWORD *)(v23 + 36) & 0xE0) != 0 && (*(_DWORD *)(v25 + 120) & 0x100) == 0 )
+      if ( (*(_DWORD *)(v25 + 36) & 0xE0) != 0 && (*(_DWORD *)(v27 + 120) & 0x100) == 0 )
       {
-        v32 = v35;
-        XDCOBJ::vAccumulateTight(this, v26, (struct ERECTL *)&v32);
+        v38 = v39;
+        XDCOBJ::vAccumulateTight(a1, v28, (struct ERECTL *)&v38);
       }
-      ++*(_DWORD *)(v11 + 92);
-      if ( (*(_DWORD *)(v11 + 112) & 1) != 0 )
-        return (unsigned int)(*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64, _QWORD, __int128 *, _QWORD, _QWORD, __int64, __int64, int))(*(_QWORD *)(v11 + 48) + 2808LL))(
-                               v11 + 24,
+      ++*(_DWORD *)(v12 + 92);
+      v29 = *(_QWORD *)a1 + 1200LL;
+      if ( (*(_DWORD *)(v12 + 112) & 1) != 0 )
+        return (unsigned int)(*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64, _QWORD, __int128 *, _QWORD, _QWORD, __int64, __int64, int))(*(_QWORD *)(v12 + 48) + 2832LL))(
+                               v12 + 24,
                                0LL,
                                0LL,
-                               v16,
+                               v18,
                                0LL,
-                               &v35,
+                               &v39,
                                0LL,
                                0LL,
-                               v25,
-                               *(_QWORD *)this + 1192LL,
+                               v27,
+                               v29,
                                61680);
       else
         return (unsigned int)((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, __int64, _QWORD, __int128 *, _QWORD, _QWORD, __int64, __int64, int))EngBitBlt)(
-                               v11 + 24,
+                               v12 + 24,
                                0LL,
                                0LL,
-                               v16,
+                               v18,
                                0LL,
-                               &v35,
+                               &v39,
                                0LL,
                                0LL,
-                               v25,
-                               *(_QWORD *)this + 1192LL,
+                               v27,
+                               v29,
                                61680);
     }
   }

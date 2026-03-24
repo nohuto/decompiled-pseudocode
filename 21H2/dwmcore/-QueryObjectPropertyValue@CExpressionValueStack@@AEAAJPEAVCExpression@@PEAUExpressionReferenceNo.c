@@ -1,17 +1,17 @@
 /*
- * XREFs of ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x18025008C
+ * XREFs of ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x180200B7C
  * Callers:
- *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800716AC (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
+ *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x18005BDD0 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x180191FDC (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
- *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801FDC90 (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
- *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1801FDDFC (-Start@QpcStopwatch@@QEAAXXZ.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801FE380 (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
- *     ?CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCResource@@1@Z @ 0x180219F48 (-CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCReso.c)
- *     ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1802292B0 (-ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ.c)
- *     ?GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceNode@@@Z @ 0x18024B1D8 (-GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceN.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C186C (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetElapsed@QpcStopwatch@@QEAA_JXZ @ 0x1801AB31C (-GetElapsed@QpcStopwatch@@QEAA_JXZ.c)
+ *     ?Start@QpcStopwatch@@QEAAXXZ @ 0x1801AB45C (-Start@QpcStopwatch@@QEAAXXZ.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B186C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ?CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCResource@@1@Z @ 0x1801C8D90 (-CheckTargetsForInteractionSource@CInteractionTracker@@SAXPEAUExpressionReferenceInfo@@PEAVCReso.c)
+ *     ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1801DA840 (-ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ.c)
+ *     ?GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceNode@@@Z @ 0x1801FC8D0 (-GetReferenceInfoFromNode@CExpression@@QEAAPEAUExpressionReferenceInfo@@PEAUExpressionReferenceN.c)
  */
 
 __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
@@ -45,7 +45,7 @@ __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
   ReferenceInfoFromNode = CExpression::GetReferenceInfoFromNode(a2, a3);
   if ( CBaseExpression::ShouldLogPerfStats(a2) )
   {
-    v8 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) + 88LL;
+    v8 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 272LL) + 88LL;
     QpcStopwatch::Start((QpcStopwatch *)&v21);
     v7 = v21;
   }
@@ -56,7 +56,7 @@ __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
   v12 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_18032C888, 2LL, v10, 0x104u);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802CE578, 2u, v10, 0xFEu, 0LL);
   }
   else
   {
@@ -66,22 +66,22 @@ __int64 __fastcall CExpressionValueStack::QueryObjectPropertyValue(
       ++*(_DWORD *)(v8 + 12);
       *(_QWORD *)(v8 + 48) += Elapsed;
     }
-    v14 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, struct CExpressionValue *))(*(_QWORD *)v22 + 136LL))(
+    v14 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, struct CExpressionValue *))(*(_QWORD *)v22 + 144LL))(
             v22,
             *(unsigned int *)ReferenceInfoFromNode,
             a5);
     v12 = v14;
     if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_18032C888, 2LL, v14, 0x10Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_1802CE578, 2u, v14, 0x105u, 0LL);
     }
     else if ( a6 && *((_BYTE *)a6 + 4) && (v16 = CExpressionValue::ApplyMaskToValue(a5, a6), v12 = v16, v16 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_18032C888, 2LL, v16, 0x11Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802CE578, 2u, v16, 0x115u, 0LL);
     }
     else
     {
-      v18 = *((_QWORD *)a2 + 23);
+      v18 = *((_QWORD *)a2 + 22);
       if ( v18 )
         v19 = *(struct CResource **)(v18 + 16);
       else

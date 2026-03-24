@@ -1,96 +1,109 @@
 /*
- * XREFs of xxxRegisterSiblingFrostWindow @ 0x1C0211880
+ * XREFs of xxxRegisterSiblingFrostWindow @ 0x1C020A2E0
  * Callers:
- *     NtUserRegisterSiblingFrostWindow @ 0x1C01FBBC0 (NtUserRegisterSiblingFrostWindow.c)
+ *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     InternalRemoveProp @ 0x1C0069510 (InternalRemoveProp.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
- *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0144D6C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C014501C (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C0145668 (-SetGhostFNID@@YAHPEAUtagWND@@H@Z.c)
- *     ?SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C02113D8 (-SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
- *     ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C0211548 (-_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003D2C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C0004A30 (-SetGhostFNID@@YAHPEAUtagWND@@H@Z.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C0209DE8 (-SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C0209F58 (-_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z.c)
  */
 
-__int64 __fastcall xxxRegisterSiblingFrostWindow(HWND a1, HWND a2)
+__int64 __fastcall xxxRegisterSiblingFrostWindow(HWND a1, HWND a2, __int64 a3)
 {
-  unsigned int v4; // ebx
+  unsigned int v5; // ebx
   __int64 CurrentProcess; // rax
-  __int64 v6; // rdx
-  struct tagWND *v7; // rsi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  _WORD *v10; // r8
-  __int64 v11; // rax
-  struct tagWND *v12; // rdi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int128 v17; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-38h]
-  __int128 v19; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-20h]
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // rsi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rdi
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  _QWORD v21[3]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v22[3]; // [rsp+38h] [rbp-30h] BYREF
 
-  v4 = 0;
-  CurrentProcess = PsGetCurrentProcess(a1, a2);
+  v5 = 0;
+  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
   if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    UserSetLastError(5LL, v6);
-    return v4;
+    UserSetLastError(5LL, v7, v8);
+    return v5;
   }
-  v7 = (struct tagWND *)HMValidateHandleNoSecure((int)a2, 1);
-  if ( v7 )
+  v9 = HMValidateHandleNoSecure((unsigned __int64)a2, 1);
+  if ( v9 )
   {
-    v17 = 0LL;
-    v18 = 0LL;
-    ThreadLock((__int64)v7, (__int64 *)&v17);
-    if ( !(unsigned int)_ShouldFrostSiblingWindow(v7) )
-      goto LABEL_19;
-    v11 = HMValidateHandleNoSecure((int)a1, 1);
-    v12 = (struct tagWND *)v11;
-    if ( !v11 )
-      goto LABEL_19;
-    v9 = gptiCurrent;
-    v8 = gptiCurrent;
-    if ( *(_QWORD *)(v11 + 16) != gptiCurrent )
-      goto LABEL_19;
-    v10 = *(_WORD **)(*(_QWORD *)(v11 + 136) + 8LL);
-    v8 = gpsi;
-    v9 = *(unsigned __int16 *)(gpsi + 900LL);
-    if ( *v10 != (_WORD)v9 )
-      goto LABEL_19;
-    v19 = 0LL;
-    v20 = 0LL;
-    ThreadLock(v11, (__int64 *)&v19);
-    if ( (unsigned int)SetFrostProp(v12, (__int64)a2) )
+    v21[2] = 0LL;
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v21[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v21;
+    v21[1] = v9;
+    HMLockObject(v9);
+    if ( !(unsigned int)_ShouldFrostSiblingWindow((struct tagWND *)v9) )
+      goto LABEL_23;
+    v12 = HMValidateHandleNoSecure((unsigned __int64)a1, 1);
+    v13 = v12;
+    if ( !v12 )
+      goto LABEL_23;
+    v11 = gptiCurrent;
+    if ( *(_QWORD *)(v12 + 16) != gptiCurrent )
+      goto LABEL_23;
+    v11 = *(unsigned __int16 *)(gpsi + 900LL);
+    if ( **(_WORD **)(*(_QWORD *)(v12 + 136) + 8LL) != (_WORD)v11 )
+      goto LABEL_23;
+    v22[2] = 0LL;
+    v14 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v22[0] = *(_QWORD *)(v14 + 416);
+    *(_QWORD *)(v14 + 416) = v22;
+    v22[1] = v13;
+    HMLockObject(v13);
+    if ( (unsigned int)SetFrostProp((struct tagWND *)v13, (__int64)a2) )
     {
-      if ( (unsigned int)SetFrostProp(v7, (__int64)a1) )
+      if ( (unsigned int)SetFrostProp((struct tagWND *)v9, (__int64)a1) )
       {
-        SetGhostFNID(v12, 1);
-        xxxShowGhostWindow(v12, v7);
-        if ( !(unsigned int)IsWindowBeingDestroyed((__int64)v12)
-          && !(unsigned int)IsWindowBeingDestroyed((__int64)v7)
-          && (HWND)GetProp((__int64)v12, *(unsigned __int16 *)(gpsi + 1378LL), 1u) == a2
-          && (HWND)GetProp((__int64)v7, *(unsigned __int16 *)(gpsi + 1378LL), 1u) == a1 )
+        SetGhostFNID((struct tagWND *)v13, 1);
+        xxxShowGhostWindow((struct tagWND *)v13, (struct tagWND *)v9);
+        if ( !(unsigned int)IsWindowBeingDestroyed(v13)
+          && !(unsigned int)IsWindowBeingDestroyed(v9)
+          && (HWND)GetProp(v13, *(unsigned __int16 *)(gpsi + 1378LL), 1LL) == a2
+          && (HWND)GetProp(v9, *(unsigned __int16 *)(gpsi + 1378LL), 1LL) == a1 )
         {
-          v4 = 1;
-          goto LABEL_18;
+          v5 = 1;
+          goto LABEL_22;
         }
-        SetGhostFNID(v12, 0);
-        if ( (HWND)GetProp((__int64)v7, *(unsigned __int16 *)(gpsi + 1378LL), 1u) == a1 )
-          InternalRemoveProp((__int64)v7, *(unsigned __int16 *)(gpsi + 1378LL), 1u);
-        xxxHideGhostWindow(v12, v7);
+        SetGhostFNID((struct tagWND *)v13, 0);
+        if ( (HWND)GetProp(v9, *(unsigned __int16 *)(gpsi + 1378LL), 1LL) == a1 )
+        {
+          v16 = *(unsigned __int16 *)(gpsi + 1378LL);
+          v17 = *(_QWORD *)(v9 + 144);
+          if ( (_WORD)v16 == word_1C033AF44 )
+            *(_QWORD *)(*(_QWORD *)(v9 + 40) + 312LL) = 0LL;
+          RealInternalRemoveProp(v17, v16, 1LL);
+        }
+        xxxHideGhostWindow((struct tagWND *)v13, (struct tagWND *)v9);
       }
-      InternalRemoveProp((__int64)v12, *(unsigned __int16 *)(gpsi + 1378LL), 1u);
+      v18 = *(unsigned __int16 *)(gpsi + 1378LL);
+      v19 = *(_QWORD *)(v13 + 144);
+      if ( (_WORD)v18 == word_1C033AF44 )
+        *(_QWORD *)(*(_QWORD *)(v13 + 40) + 312LL) = 0LL;
+      RealInternalRemoveProp(v19, v18, 1LL);
     }
-LABEL_18:
-    ThreadUnlock1(v14, v13, v15);
-LABEL_19:
-    ThreadUnlock1(v9, v8, v10);
+LABEL_22:
+    ThreadUnlock1(v15);
+LABEL_23:
+    ThreadUnlock1(v11);
   }
-  return v4;
+  return v5;
 }

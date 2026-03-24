@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreatePathEmitterArea@CPathEmitterArea@EmitterShapes@@SAJPEAUID2D1Geometry@@PEAPEAV12@@Z @ 0x180259354
+ * XREFs of ?CreatePathEmitterArea@CPathEmitterArea@EmitterShapes@@SAJPEAUID2D1Geometry@@PEAPEAV12@@Z @ 0x180208DE4
  * Callers:
- *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x18022EC94 (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DFD94 (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EmitterShapes::CPathEmitterArea::CreatePathEmitterArea(
@@ -23,41 +23,42 @@ __int64 __fastcall EmitterShapes::CPathEmitterArea::CreatePathEmitterArea(
   __int64 v11; // rcx
   struct EmitterShapes::CPathEmitterArea *v13; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (struct EmitterShapes::CPathEmitterArea *)operator new(0x30uLL);
+  v4 = (struct EmitterShapes::CPathEmitterArea *)operator new(0x38uLL);
   v6 = v4;
   if ( v4 )
   {
     *((_DWORD *)v4 + 2) = 0;
-    *((_DWORD *)v4 + 4) = 0;
-    *(_QWORD *)v4 = &EmitterShapes::CPathEmitterArea::`vftable';
-    *((_QWORD *)v4 + 3) = 0LL;
+    *((_DWORD *)v4 + 6) = 0;
     *((_QWORD *)v4 + 4) = 0LL;
     *((_QWORD *)v4 + 5) = 0LL;
-    v13 = v4;
-    ((void (__fastcall *)(struct EmitterShapes::CPathEmitterArea *))*(&EmitterShapes::CPathEmitterArea::`vftable' + 1))(v4);
+    *((_QWORD *)v4 + 6) = 0LL;
+    *(_QWORD *)v4 = &EmitterShapes::CPathEmitterArea::`vftable'{for `CMILCOMBase'};
+    *((_QWORD *)v4 + 2) = &EmitterShapes::CPathEmitterArea::`vftable'{for `ID2D1TessellationSink'};
   }
   else
   {
     v6 = 0LL;
-    v13 = 0LL;
   }
-  v7 = (*(__int64 (__fastcall **)(struct ID2D1Geometry *, _QWORD, __int64, struct EmitterShapes::CPathEmitterArea *))(*(_QWORD *)a1 + 80LL))(
+  v13 = v6;
+  if ( v6 )
+    (*(void (__fastcall **)(struct EmitterShapes::CPathEmitterArea *))(*(_QWORD *)v6 + 8LL))(v6);
+  v7 = (*(__int64 (__fastcall **)(struct ID2D1Geometry *, _QWORD, __int64, unsigned __int64))(*(_QWORD *)a1 + 80LL))(
          a1,
          0LL,
          v5,
-         v6);
+         ((unsigned __int64)v6 + 16) & -(__int64)(v6 != 0LL));
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x118u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x118u, 0LL);
   }
   else
   {
-    v10 = (*(__int64 (__fastcall **)(struct EmitterShapes::CPathEmitterArea *))(*(_QWORD *)v6 + 32LL))(v6);
+    v10 = (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v6 + 2) + 32LL))((__int64)v6 + 16);
     v9 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x119u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x119u, 0LL);
     }
     else
     {

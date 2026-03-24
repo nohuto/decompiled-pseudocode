@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCbLengthA @ 0x1405228C8
+ * XREFs of RtlStringCbLengthA @ 0x14050A2FC
  * Callers:
- *     KiValidateComponentName @ 0x1405682F4 (KiValidateComponentName.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A659E0 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     KiValidateComponentName @ 0x140518B40 (KiValidateComponentName.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB5C0 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ NTSTATUS __stdcall RtlStringCbLengthA(STRSAFE_PCNZCH psz, size_t cbMax, size_t *
 {
   size_t v3; // r9
   size_t v4; // r10
-  size_t i; // r10
+  size_t i; // r11
   NTSTATUS result; // eax
 
   v3 = 0LL;
@@ -25,7 +25,8 @@ NTSTATUS __stdcall RtlStringCbLengthA(STRSAFE_PCNZCH psz, size_t cbMax, size_t *
       ++psz;
     }
     result = i == 0 ? 0xC000000D : 0;
-    v4 = (cbMax - i) & -(__int64)(i != 0);
+    if ( i )
+      v4 = cbMax - i;
   }
   else
   {

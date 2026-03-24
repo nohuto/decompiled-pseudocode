@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C002996C
+ * XREFs of ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C007FF80
  * Callers:
- *     ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C0029900 (-QueryForPowerThread@FxPkgFdo@@EEAAJXZ.c)
- *     ?QueryForPowerThread@FxPkgPdo@@EEAAJXZ @ 0x1C00838F0 (-QueryForPowerThread@FxPkgPdo@@EEAAJXZ.c)
+ *     ?QueryForPowerThread@FxPkgPdo@@EEAAJXZ @ 0x1C0079780 (-QueryForPowerThread@FxPkgPdo@@EEAAJXZ.c)
+ *     ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C00847B0 (-QueryForPowerThread@FxPkgFdo@@EEAAJXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C00299D8 (-_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?ExitThread@FxSystemThread@@QEAAEXZ @ 0x1C00914BC (-ExitThread@FxSystemThread@@QEAAEXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ExitThread@FxSystemThread@@QEAAEXZ @ 0x1C0090FEC (-ExitThread@FxSystemThread@@QEAAEXZ.c)
+ *     ?_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C00912A8 (-_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE.c)
  */
 
 int __fastcall FxPkgPnp::CreatePowerThread(FxPkgPnp *this)

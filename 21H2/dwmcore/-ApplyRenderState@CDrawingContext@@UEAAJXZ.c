@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ApplyRenderState@CDrawingContext@@UEAAJXZ @ 0x180097770
+ * XREFs of ?ApplyRenderState@CDrawingContext@@UEAAJXZ @ 0x1800201B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,18 @@
 /*
- * XREFs of ProcessChannelSuspended @ 0x1C03673D0
+ * XREFs of ProcessChannelSuspended @ 0x1C02B4430
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0366C6C (-NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C02B3CF0 (-NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ.c)
  */
 
 void ProcessChannelSuspended()
 {
-  DXGVMBUSCHANNEL *v0; // rax
+  PRKEVENT *v0; // rax
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
 
-  v0 = (DXGVMBUSCHANNEL *)((__int64 (*)(void))qword_1C0141F08)();
+  v0 = (PRKEVENT *)((__int64 (*)(void))qword_1C00B4348)();
   if ( v0 )
-    DXGVMBUSCHANNEL::NotifyChannelSuspended(v0, v1, v2, v3);
+    DXGVMBUSCHANNEL::NotifyChannelSuspended(v0, v1);
 }

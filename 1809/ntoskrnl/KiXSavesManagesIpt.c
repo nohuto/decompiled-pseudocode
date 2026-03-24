@@ -1,7 +1,7 @@
 /*
- * XREFs of KiXSavesManagesIpt @ 0x140294954
+ * XREFs of KiXSavesManagesIpt @ 0x140294A54
  * Callers:
- *     KiGetSavedIptState @ 0x140294540 (KiGetSavedIptState.c)
+ *     KiGetSavedIptState @ 0x140294640 (KiGetSavedIptState.c)
  *     KiQueryIptSupport @ 0x14057B500 (KiQueryIptSupport.c)
  * Callees:
  *     <none>

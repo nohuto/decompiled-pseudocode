@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIInternalSetFlags @ 0x1C0001778
+ * XREFs of ACPIInternalSetFlags @ 0x1C0002350
  * Callers:
- *     AcpiQueryPciDeviceChassisLabel @ 0x1C0090240 (AcpiQueryPciDeviceChassisLabel.c)
- *     ACPIFilterIrpDeviceEnumeratedCompletion @ 0x1C00914F0 (ACPIFilterIrpDeviceEnumeratedCompletion.c)
- *     ACPIBusIrpQueryId @ 0x1C0093F10 (ACPIBusIrpQueryId.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C0094A68 (ACPISystemPowerQueryDeviceCapabilities.c)
- *     ACPIQueryCacheCoherencyAttribute @ 0x1C00A0518 (ACPIQueryCacheCoherencyAttribute.c)
- *     ACPIInternalIsPci @ 0x1C00A0FB0 (ACPIInternalIsPci.c)
- *     PcisuppAcquirePciInterfaces @ 0x1C00A115C (PcisuppAcquirePciInterfaces.c)
- *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AE970 (ACPIFilterIrpQueryIdCompletion.c)
+ *     ACPIFilterIrpDeviceEnumeratedCompletion @ 0x1C008F320 (ACPIFilterIrpDeviceEnumeratedCompletion.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     PcisuppAcquirePciInterfaces @ 0x1C00906FC (PcisuppAcquirePciInterfaces.c)
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0099E28 (AcpiQueryPciDeviceChassisLabel.c)
+ *     ACPIQueryCacheCoherencyAttribute @ 0x1C009A070 (ACPIQueryCacheCoherencyAttribute.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     ACPIInternalIsPci @ 0x1C00A306C (ACPIInternalIsPci.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0 (ACPIFilterIrpQueryIdCompletion.c)
  * Callees:
  *     <none>
  */

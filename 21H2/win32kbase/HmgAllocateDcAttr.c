@@ -1,125 +1,116 @@
 /*
- * XREFs of HmgAllocateDcAttr @ 0x1C002631C
+ * XREFs of HmgAllocateDcAttr @ 0x1C002B568
  * Callers:
- *     GreSetDCOwnerEx @ 0x1C002C0D0 (GreSetDCOwnerEx.c)
- *     GreCreateDisplayDC @ 0x1C002F6A0 (GreCreateDisplayDC.c)
+ *     GreSetDCOwnerEx @ 0x1C0037AB0 (GreSetDCOwnerEx.c)
+ *     GreCreateDisplayDC @ 0x1C003B650 (GreCreateDisplayDC.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C008E7F4 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
- *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C016BDC0 (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
+ *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C007FE60 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
+ *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C013EDA0 (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
  */
 
 __int64 HmgAllocateDcAttr()
 {
   __int64 ThreadWin32Thread; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 v4; // rbx
-  __int64 v5; // rbp
+  __int64 v1; // rbx
+  __int64 v2; // rbp
   __int64 CurrentProcessWin32Process; // rdi
-  __int64 v7; // rcx
-  _QWORD *v8; // rcx
-  _QWORD *v9; // rsi
-  _QWORD *v10; // rax
-  _QWORD *v13; // rcx
-  void **v14; // rdx
-  char *v15; // rsi
-  _QWORD *v16; // rax
+  __int64 v5; // rcx
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rsi
+  __int64 v8; // rax
+  __int64 v10; // rcx
+  _QWORD *v11; // rdx
+  char *v12; // rsi
+  _QWORD *v13; // rax
+  _QWORD *v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
   _QWORD *v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rdx
-  _QWORD *v20; // rcx
-  __int64 v21; // rcx
-  void *v22; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v18; // rcx
+  void *v19; // [rsp+30h] [rbp+8h] BYREF
 
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v4 = 0LL;
-  v5 = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v1 = 0LL;
+  v2 = 0LL;
   if ( *(_QWORD *)(ThreadWin32Thread + 24) )
   {
-    v5 = *(_QWORD *)(ThreadWin32Thread + 24);
+    v2 = *(_QWORD *)(ThreadWin32Thread + 24);
     *(_QWORD *)(ThreadWin32Thread + 24) = 0LL;
-    return v5;
+    return v2;
   }
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(0LL, v1, v2, v3);
-  GreAcquireHmgrSemaphore(v7);
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(0LL);
+  GreAcquireHmgrSemaphore(v5);
   if ( *(_QWORD *)(CurrentProcessWin32Process + 40) )
-    goto LABEL_3;
-  v22 = 0LL;
-  v15 = (char *)HmgAllocateSecureUserMemory(&v22);
-  if ( !v15 )
-    goto LABEL_3;
-  v16 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          0x104uLL,
-          0x70uLL,
-          0x66636447u);
-  if ( v16 )
+    goto LABEL_5;
+  v19 = 0LL;
+  v12 = (char *)HmgAllocateSecureUserMemory(&v19);
+  if ( !v12 )
+    goto LABEL_5;
+  v13 = PALLOCMEM2(0x70uLL, 1717789767LL, 0);
+  if ( v13 )
   {
-    v17 = (_QWORD *)(CurrentProcessWin32Process + 192);
-    v18 = *(_QWORD *)(CurrentProcessWin32Process + 192);
-    if ( *(_QWORD *)(v18 + 8) != CurrentProcessWin32Process + 192 )
-      goto LABEL_9;
-    *v16 = v18;
-    v16[1] = v17;
-    *(_QWORD *)(v18 + 8) = v16;
-    v19 = 11LL;
-    *v17 = v16;
-    v20 = v16 + 3;
-    *((_DWORD *)v16 + 4) = 11;
-    *(_QWORD *)(CurrentProcessWin32Process + 40) = v15 + 3520;
+    v14 = (_QWORD *)(CurrentProcessWin32Process + 192);
+    v15 = *(_QWORD *)(CurrentProcessWin32Process + 192);
+    if ( *(_QWORD *)(v15 + 8) != CurrentProcessWin32Process + 192 )
+      goto LABEL_10;
+    *v13 = v15;
+    v13[1] = v14;
+    *(_QWORD *)(v15 + 8) = v13;
+    v16 = 11LL;
+    *v14 = v13;
+    v17 = v13 + 3;
+    *((_DWORD *)v13 + 4) = 11;
+    *(_QWORD *)(CurrentProcessWin32Process + 40) = v12 + 3520;
     do
     {
-      *v20 = v15;
-      v15 += 352;
-      ++v20;
-      --v19;
+      *v17 = v12;
+      v12 += 352;
+      ++v17;
+      --v16;
     }
-    while ( v19 );
-LABEL_3:
-    v8 = *(_QWORD **)(CurrentProcessWin32Process + 40);
-    if ( !v8 )
+    while ( v16 );
+LABEL_5:
+    v6 = *(_QWORD **)(CurrentProcessWin32Process + 40);
+    if ( !v6 )
     {
-LABEL_6:
-      GreReleaseHmgrSemaphore(v8);
-      return v5;
+LABEL_8:
+      GreReleaseHmgrSemaphore(v6);
+      return v2;
     }
-    v9 = (_QWORD *)(CurrentProcessWin32Process + 192);
-    v5 = *(_QWORD *)(CurrentProcessWin32Process + 40);
-    v10 = *(_QWORD **)(CurrentProcessWin32Process + 192);
-    if ( (*((_DWORD *)v10 + 4))-- != 1 )
+    v7 = (_QWORD *)(CurrentProcessWin32Process + 192);
+    v2 = *(_QWORD *)(CurrentProcessWin32Process + 40);
+    v8 = *(_QWORD *)(CurrentProcessWin32Process + 192);
+    if ( (*(_DWORD *)(v8 + 16))-- != 1 )
     {
-      v8 = (_QWORD *)v10[(unsigned int)(*((_DWORD *)v10 + 4) - 1) + 3];
-      *(_QWORD *)(CurrentProcessWin32Process + 40) = v8;
-      goto LABEL_6;
+      v6 = *(_QWORD **)(v8 + 8LL * (unsigned int)(*(_DWORD *)(v8 + 16) - 1) + 24);
+      *(_QWORD *)(CurrentProcessWin32Process + 40) = v6;
+      goto LABEL_8;
     }
-    v13 = (_QWORD *)*v10;
-    if ( *(_QWORD **)(*v10 + 8LL) == v10 )
+    v10 = *(_QWORD *)v8;
+    if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) == v8 )
     {
-      v14 = (void **)v10[1];
-      if ( *v14 == v10 )
+      v11 = *(_QWORD **)(v8 + 8);
+      if ( *v11 == v8 )
       {
-        *v14 = v13;
-        v13[1] = v14;
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v10);
-        v8 = (_QWORD *)*v9;
-        if ( (_QWORD *)*v9 != v9 )
-          v4 = v8[(unsigned int)(*((_DWORD *)v8 + 4) - 1) + 3];
-        *(_QWORD *)(CurrentProcessWin32Process + 40) = v4;
-        goto LABEL_6;
+        *v11 = v10;
+        *(_QWORD *)(v10 + 8) = v11;
+        Win32FreePool(v8);
+        v6 = (_QWORD *)*v7;
+        if ( (_QWORD *)*v7 != v7 )
+          v1 = v6[(unsigned int)(*((_DWORD *)v6 + 4) - 1) + 3];
+        *(_QWORD *)(CurrentProcessWin32Process + 40) = v1;
+        goto LABEL_8;
       }
     }
-LABEL_9:
+LABEL_10:
     __fastfail(3u);
   }
-  HmgFreeAllocateSecureUserMemory(v15, v22);
-  GreReleaseHmgrSemaphore(v21);
+  HmgFreeAllocateSecureUserMemory(v12, v19);
+  GreReleaseHmgrSemaphore(v18);
   return 0LL;
 }

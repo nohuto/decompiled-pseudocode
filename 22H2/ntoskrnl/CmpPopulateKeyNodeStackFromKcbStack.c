@@ -1,27 +1,25 @@
 /*
- * XREFs of CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1FF4C
+ * XREFs of CmpPopulateKeyNodeStackFromKcbStack @ 0x14072B180
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x140A203FC (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x140A205D8 (CmpSubtreeEnumeratorBeginForKcbStack.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766FC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x140876748 (CmpSubtreeEnumeratorBeginForKcbStack.c)
  * Callees:
- *     CmpGetEffectiveKcbSemantics @ 0x1406D5810 (CmpGetEffectiveKcbSemantics.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x1405EF510 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 _UNKNOWN **__fastcall CmpPopulateKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **result; // rax
   __int16 i; // bx
-  __int64 EntryAtLayerHeight; // rdi
+  __int64 EntryAtLayerHeight; // r14
   __int16 v9; // dx
-  __int64 v10; // rbp
-  ULONG_PTR v11; // rdx
-  ULONG_PTR v12; // rcx
-  unsigned int *v13; // r8
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 (__fastcall **v12)(void *, _QWORD, __int64); // rcx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -33,14 +31,10 @@ _UNKNOWN **__fastcall CmpPopulateKeyNodeStackFromKcbStack(__int64 a1, __int64 a2
     v11 = *((unsigned int *)result + 10);
     if ( (_DWORD)v11 != -1 )
     {
-      v12 = (ULONG_PTR)result[4];
-      v13 = (unsigned int *)(EntryAtLayerHeight + 24);
+      v12 = (__int64 (__fastcall **)(void *, _QWORD, __int64))result[4];
       *(_QWORD *)EntryAtLayerHeight = v12;
       *(_DWORD *)(EntryAtLayerHeight + 8) = v11;
-      if ( (*(_BYTE *)(v12 + 140) & 1) != 0 )
-        result = (_UNKNOWN **)HvpGetCellFlat(v12, v11, v13);
-      else
-        result = (_UNKNOWN **)HvpGetCellPaged(v12, v11, v13);
+      result = (_UNKNOWN **)v12[1](v12, v11, EntryAtLayerHeight + 24);
       *(_QWORD *)(EntryAtLayerHeight + 16) = result;
     }
     if ( a3 )

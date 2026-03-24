@@ -1,52 +1,54 @@
 /*
- * XREFs of RtlAreBitsClearEx @ 0x140350DE0
+ * XREFs of RtlAreBitsClearEx @ 0x1402C9680
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1406F9520 (MiCommitPageTablesForVad.c)
- *     MiReturnPageTablePageCommitment @ 0x140764EA0 (MiReturnPageTablePageCommitment.c)
- *     MiMarkRetpolineBits @ 0x140A344F0 (MiMarkRetpolineBits.c)
- *     MiPatchDataPagesCallback @ 0x140A3A7A0 (MiPatchDataPagesCallback.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
+ *     MiMarkHugePfnGood @ 0x1403F3428 (MiMarkHugePfnGood.c)
+ *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x14063C0B0 (MiReturnPageTablePageCommitment.c)
+ *     MiCheckHotPatchApplicable @ 0x1408C97F0 (MiCheckHotPatchApplicable.c)
+ *     MiMarkRetpolineBits @ 0x1408D0D04 (MiMarkRetpolineBits.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB2CC (MiHotAddPartitionMemory.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlAreBitsClearEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
+bool __fastcall RtlAreBitsClearEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  bool result; // al
-  unsigned __int64 v5; // rcx
-  char v6; // bl
-  __int64 *v7; // rdx
-  __int64 v8; // r11
-  __int64 *v9; // r10
-  __int64 *v11; // rdx
+  __int64 v3; // rcx
+  unsigned __int64 v4; // r11
+  __int64 v5; // rbx
+  _QWORD *v6; // r9
+  _QWORD *v7; // r10
+  _QWORD *v10; // r9
 
-  if ( a2 >= *a1 )
+  if ( a2 >= *(_QWORD *)a1 )
     return 0;
   if ( a3 <= 1 )
   {
     if ( a3 == 1 )
-      return !_bittest64((const signed __int64 *)(a1[1] + 8 * (a2 >> 6)), a2 & 0x3F);
+      return !_bittest64(*(const signed __int64 **)(a1 + 8), a2);
     return 0;
   }
-  if ( *a1 - a2 < a3 )
+  if ( *(_QWORD *)a1 - a2 < a3 )
     return 0;
-  v5 = a1[1];
-  v6 = a2 + a3 - 1;
-  v7 = (__int64 *)(v5 + 8 * (a2 >> 6));
-  v8 = *v7;
-  v9 = (__int64 *)(v5 + 8 * ((a2 + a3 - 1) >> 6));
-  if ( v7 == v9 )
-    return (v8 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)a3) << a2)) == 0;
-  if ( (v8 & (-1LL << a2)) != 0 )
-    return 0;
-  v11 = v7 + 1;
-  if ( v11 == v9 )
-    return ((0xFFFFFFFFFFFFFFFFuLL >> ~v6) & *v11) == 0;
-  result = 0;
-  while ( !*v11 )
+  v3 = *(_QWORD *)(a1 + 8);
+  v4 = a2 + a3 - 1;
+  v5 = *(_QWORD *)(v3 + 8 * (a2 >> 6));
+  v6 = (_QWORD *)(v3 + 8 * (a2 >> 6));
+  v7 = (_QWORD *)(v3 + 8 * (v4 >> 6));
+  if ( v6 != v7 )
   {
-    if ( ++v11 == v9 )
-      return ((0xFFFFFFFFFFFFFFFFuLL >> ~v6) & *v11) == 0;
+    if ( (v5 & (-1LL << a2)) == 0 )
+    {
+      v10 = v6 + 1;
+      if ( v10 == v7 )
+        return ((0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v4) & *v10) == 0;
+      while ( !*v10 )
+      {
+        if ( ++v10 == v7 )
+          return ((0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v4) & *v10) == 0;
+      }
+    }
+    return 0;
   }
-  return result;
+  return (v5 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)a3) << a2)) == 0;
 }

@@ -1,28 +1,26 @@
 /*
- * XREFs of PspComputeReportWakeFilter @ 0x1407DA9D4
+ * XREFs of PspComputeReportWakeFilter @ 0x14065D308
  * Callers:
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspFreezeJobTree @ 0x1407DA648 (PspFreezeJobTree.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x14065D058 (PspFreezeJobTree.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PspComputeReportWakeFilter(_DWORD *a1, _QWORD *a2, __int64 *a3, char a4)
+__int64 __fastcall PspComputeReportWakeFilter(_DWORD *a1, __int64 a2, _QWORD *a3, char a4)
 {
-  __int64 v4; // rax
-  _DWORD *v5; // r8
+  int v4; // eax
   __int64 result; // rax
 
-  v4 = *a3;
-  v5 = (_DWORD *)a2 + 1;
-  *a2 = v4;
+  *(_QWORD *)a2 = *a3;
   if ( a4 )
   {
-    *(_DWORD *)a2 &= ~a1[292];
-    *v5 &= ~a1[293];
+    *(_DWORD *)a2 &= ~a1[238];
+    *(_DWORD *)(a2 + 4) &= ~a1[239];
   }
-  *v5 &= a1[294];
-  result = (unsigned int)~*v5;
-  a1[294] &= result;
+  v4 = a1[240] & *(_DWORD *)(a2 + 4);
+  *(_DWORD *)(a2 + 4) = v4;
+  result = (unsigned int)~v4;
+  a1[240] &= result;
   return result;
 }

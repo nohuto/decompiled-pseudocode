@@ -1,9 +1,9 @@
 /*
- * XREFs of IopFreeResetRemovalContext @ 0x140826B50
+ * XREFs of IopFreeResetRemovalContext @ 0x140826B30
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408267D0 (IoRequestDeviceRemovalForReset.c)
- *     IopDeviceRemovalForResetComplete @ 0x1408269A0 (IopDeviceRemovalForResetComplete.c)
- *     IopRetryDeviceRemovalForReset @ 0x140826BD0 (IopRetryDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408267B0 (IoRequestDeviceRemovalForReset.c)
+ *     IopDeviceRemovalForResetComplete @ 0x140826980 (IopDeviceRemovalForResetComplete.c)
+ *     IopRetryDeviceRemovalForReset @ 0x140826BB0 (IopRetryDeviceRemovalForReset.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

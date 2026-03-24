@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpIsRunningInWDAGContainer @ 0x1408CF290
+ * XREFs of ExpIsRunningInWDAGContainer @ 0x1408CF270
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     sub_1407045E8 @ 0x1407045E8 (sub_1407045E8.c)
- *     ExGetVMType @ 0x1408CEAEC (ExGetVMType.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
+ *     ExGetVMType @ 0x1408CEACC (ExGetVMType.c)
  */
 
 __int64 __fastcall ExpIsRunningInWDAGContainer(_DWORD *a1, _DWORD *a2, unsigned int a3, _DWORD *a4, _BYTE *a5)
@@ -28,7 +28,7 @@ __int64 __fastcall ExpIsRunningInWDAGContainer(_DWORD *a1, _DWORD *a2, unsigned 
         VMType = qword_14096D410(v12, 8LL, v13, 8LL);
         if ( VMType >= 0 && v13[0] == 0x20000 )
         {
-          VMType = sub_1407045E8(a1, a2, a3, a4, v13[1]);
+          VMType = sub_1407045C8(a1, a2, a3, a4, v13[1]);
           *a5 = 1;
         }
       }

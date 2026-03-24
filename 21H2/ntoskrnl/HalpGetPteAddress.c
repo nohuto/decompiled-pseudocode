@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpGetPteAddress @ 0x140372890
+ * XREFs of HalpGetPteAddress @ 0x140364FB0
  * Callers:
  *     <none>
  * Callees:

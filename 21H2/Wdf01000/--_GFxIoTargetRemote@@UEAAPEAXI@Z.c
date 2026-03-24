@@ -1,26 +1,29 @@
 /*
- * XREFs of ??_GFxIoTargetRemote@@UEAAPEAXI@Z @ 0x1C0034720
+ * XREFs of ??_GFxIoTargetRemote@@UEAAPEAXI@Z @ 0x1C0064820
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
  */
 
-FxIoTargetRemote *__fastcall FxIoTargetRemote::`scalar deleting destructor'(FxIoTargetRemote *this, unsigned int a2)
+FxIoTargetRemote *__fastcall FxIoTargetRemote::`scalar deleting destructor'(
+        FxIoTargetRemote *this,
+        unsigned int a2,
+        unsigned int a3)
 {
-  char v2; // bl
-  FX_POOL_TRACKER *p_ShareAccess; // rcx
+  char v3; // bl
+  FxIoTargetRemote *v5; // rcx
 
-  v2 = a2;
+  v3 = a2;
   this->__vftable = (FxIoTargetRemote_vtbl *)FxIoTarget::`vftable';
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    p_ShareAccess = (FX_POOL_TRACKER *)&this[-1].m_OpenParams.ShareAccess;
+    v5 = (FxIoTargetRemote *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      p_ShareAccess = (FX_POOL_TRACKER *)this;
-    FxPoolFree(p_ShareAccess);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

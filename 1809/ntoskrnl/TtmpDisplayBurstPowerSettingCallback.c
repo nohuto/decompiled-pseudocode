@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpDisplayBurstPowerSettingCallback @ 0x140761640
+ * XREFs of TtmpDisplayBurstPowerSettingCallback @ 0x140761620
  * Callers:
  *     <none>
  * Callees:
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     TtmpAcquireSessionById @ 0x140761694 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiResetTerminalTimeouts @ 0x14087EBC4 (TtmiResetTerminalTimeouts.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiResetTerminalTimeouts @ 0x14087EBA4 (TtmiResetTerminalTimeouts.c)
  */
 
 __int64 __fastcall TtmpDisplayBurstPowerSettingCallback(

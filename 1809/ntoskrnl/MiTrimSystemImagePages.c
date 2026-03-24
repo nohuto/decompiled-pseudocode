@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTrimSystemImagePages @ 0x1400DB1B4
+ * XREFs of MiTrimSystemImagePages @ 0x1400DB1D4
  * Callers:
- *     MiSetPagingOfDriver @ 0x1400DADDC (MiSetPagingOfDriver.c)
+ *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -11,8 +11,8 @@
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiTrimSystemImagePages(__int64 *a1, unsigned __int64 a2, int a3)

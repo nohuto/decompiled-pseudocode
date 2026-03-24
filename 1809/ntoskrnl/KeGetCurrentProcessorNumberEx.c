@@ -1,11 +1,11 @@
 /*
- * XREFs of KeGetCurrentProcessorNumberEx @ 0x1400FE8A0
+ * XREFs of KeGetCurrentProcessorNumberEx @ 0x1400FE8C0
  * Callers:
- *     PopFxAddLogEntry @ 0x1400FE7E4 (PopFxAddLogEntry.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C440 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     KiInterruptDispatchCommon @ 0x140299764 (KiInterruptDispatchCommon.c)
- *     PopDiagTraceIdleWakeSource @ 0x1402E14AC (PopDiagTraceIdleWakeSource.c)
- *     KiCopyCountersWorker @ 0x140844678 (KiCopyCountersWorker.c)
+ *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     KiInterruptDispatchCommon @ 0x140299864 (KiInterruptDispatchCommon.c)
+ *     PopDiagTraceIdleWakeSource @ 0x1402E15AC (PopDiagTraceIdleWakeSource.c)
+ *     KiCopyCountersWorker @ 0x140844658 (KiCopyCountersWorker.c)
  * Callees:
  *     <none>
  */

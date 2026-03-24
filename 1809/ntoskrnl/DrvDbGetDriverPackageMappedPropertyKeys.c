@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140901BE4
+ * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140901BC4
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1406D28C0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406D28A0 (DrvDbDispatchDriverPackage.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1406D2A04 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901360 (DrvDbGetCompositeMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140901F0C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406D29E4 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901340 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140901EEC (DrvDbGetDriverPackageSignerScore.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
@@ -84,7 +84,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
           CompositeMappedPropertyKeys >= 0) )
     {
       v15 = 0;
-      v16 = (__int64 *)off_140356478;
+      v16 = (__int64 *)off_1403564F8;
       while ( 1 )
       {
         v17 = Handle[0];

@@ -1,87 +1,59 @@
 /*
- * XREFs of ?NotifyHardwareContentProtectionTeardown@DXGADAPTER@@QEAAXI@Z @ 0x1C0043D40
+ * XREFs of ?NotifyHardwareContentProtectionTeardown@DXGADAPTER@@QEAAXI@Z @ 0x1C0037B3C
  * Callers:
- *     DxgkHardwareContentProtectionTeardownCB @ 0x1C004BD50 (DxgkHardwareContentProtectionTeardownCB.c)
+ *     DxgkHardwareContentProtectionTeardownCB @ 0x1C0042E90 (DxgkHardwareContentProtectionTeardownCB.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?HandleAdapterTeardownEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02BBC00 (-HandleAdapterTeardownEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     ?HandleAdapterTeardownEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C020D590 (-HandleAdapterTeardownEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
  */
 
 void __fastcall DXGADAPTER::NotifyHardwareContentProtectionTeardown(DXGADAPTER *this, int a2)
 {
   _QWORD *PoolWithTag; // rax
-  _QWORD *v5; // rbx
-  int v6; // edx
-  int v7; // ecx
-  int v8; // r8d
-  KIRQL CurrentIrql; // al
-  struct _DEVICE_OBJECT *v10; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  _QWORD *v9; // rbx
+  __int64 v10; // rax
+  struct _DEVICE_OBJECT *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   struct _IO_WORKITEM *WorkItem; // rdi
-  int v12; // edx
-  int v13; // ecx
-  int v14; // r8d
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rax
 
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x18uLL, 0x4B677844u);
-  v5 = PoolWithTag;
-  if ( PoolWithTag )
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    *PoolWithTag = this;
-    *((_DWORD *)PoolWithTag + 2) = a2;
-    *((_DWORD *)PoolWithTag + 3) = PsGetCurrentProcessSessionId();
-    v5[2] = *(_QWORD *)((char *)this + 404);
-    CurrentIrql = KeGetCurrentIrql();
-    v10 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 27);
-    if ( CurrentIrql >= 2u )
+    v10 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+    *(_QWORD *)(v10 + 24) = 2386LL;
+LABEL_3:
+    WdLogEvent5_WdLowResource(v10);
+    return;
+  }
+  *PoolWithTag = this;
+  *((_DWORD *)PoolWithTag + 2) = a2;
+  *((_DWORD *)PoolWithTag + 3) = PsGetCurrentProcessSessionId();
+  v9[2] = *(_QWORD *)((char *)this + 316);
+  v11 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 27);
+  if ( KeGetCurrentIrql() >= 2u )
+  {
+    WorkItem = IoAllocateWorkItem(v11);
+    if ( !WorkItem )
     {
-      WorkItem = IoAllocateWorkItem(v10);
-      if ( WorkItem )
-      {
-        WdLogSingleEntry1(4LL, 2438LL);
-        IoQueueWorkItemEx(WorkItem, HandleAdapterTeardownEvent, DelayedWorkQueue, v5);
-      }
-      else
-      {
-        WdLogSingleEntry1(6LL, 2434LL);
-        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v13,
-            v12,
-            v14,
-            0,
-            1,
-            -1,
-            (__int64)L"Can't allocate memory to hold IO work item.",
-            2434LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v10 = WdLogNewEntry5_WdLowResource(v13, v12, v15, v16);
+      *(_QWORD *)(v10 + 24) = 2407LL;
+      goto LABEL_3;
     }
-    else
-    {
-      HandleAdapterTeardownEvent(v10, v5, 0LL);
-    }
+    v17 = WdLogNewEntry5_WdEvent();
+    *(_QWORD *)(v17 + 24) = 2411LL;
+    WdLogEvent5_WdEvent(v17);
+    IoQueueWorkItemEx(WorkItem, HandleAdapterTeardownEvent, DelayedWorkQueue, v9);
   }
   else
   {
-    WdLogSingleEntry1(6LL, 2413LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v7,
-          v6,
-          v8,
-          0,
-          1,
-          -1,
-          (__int64)L"Cannot allocate memory for teardown event structure",
-          2413LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    HandleAdapterTeardownEvent(v11, v9, 0LL);
   }
 }

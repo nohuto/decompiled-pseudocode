@@ -1,9 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000F340
+ * XREFs of ?ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0005740
  * Callers:
- *     ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCProjectedShadowCasterMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C020E3B0 (-ReleaseAllReferences@-$CSharedResourceMarshaler@VCProjectedShadowCasterMarshaler@DirectComposit.c)
+ *     ?ReleaseAllReferences@CSharedClientProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F9C10 (-ReleaseAllReferences@CSharedClientProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCA.c)
+ *     ?ReleaseAllReferences@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F9E00 (-ReleaseAllReferences@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApp.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CProjectedShadowCasterMarshaler::ReleaseAllReferences(

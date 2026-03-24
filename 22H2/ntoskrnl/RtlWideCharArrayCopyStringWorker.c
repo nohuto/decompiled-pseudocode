@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlWideCharArrayCopyStringWorker @ 0x1405A2190
+ * XREFs of RtlWideCharArrayCopyStringWorker @ 0x14057EFC8
  * Callers:
- *     RtlUnicodeStringCchCopyStringN @ 0x1405A20F8 (RtlUnicodeStringCchCopyStringN.c)
- *     RtlUnicodeStringCbCatStringN @ 0x14066E53C (RtlUnicodeStringCbCatStringN.c)
+ *     RtlUnicodeStringCchCopyStringN @ 0x14057EEF8 (RtlUnicodeStringCchCopyStringN.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x1405C0B3C (RtlUnicodeStringCbCatStringN.c)
  * Callees:
  *     <none>
  */
@@ -23,33 +23,32 @@ NTSTATUS __stdcall RtlWideCharArrayCopyStringWorker(
   result = 0;
   v6 = pszSrc;
   v7 = 0LL;
-  if ( cchDest )
-  {
-    v8 = (char *)pszDest - (char *)pszSrc;
-    v9 = cchToCopy;
-    while ( v9 )
-    {
-      if ( *v6 )
-      {
-        *(NTSTRSAFE_PCWSTR)((char *)v6 + v8) = *v6;
-        --v9;
-        ++v6;
-        ++v7;
-        if ( --cchDest )
-          continue;
-      }
-      if ( cchDest )
-        break;
-      goto LABEL_9;
-    }
-  }
-  else
+  if ( !cchDest )
   {
     v9 = cchToCopy;
 LABEL_9:
     if ( v9 && *v6 )
       result = -2147483643;
+    goto LABEL_12;
   }
+  v8 = (char *)pszDest - (char *)pszSrc;
+  v9 = cchToCopy;
+  do
+  {
+    if ( !v9 )
+      break;
+    if ( !*v6 )
+      break;
+    *(NTSTRSAFE_PCWSTR)((char *)v6 + v8) = *v6;
+    --v9;
+    ++v6;
+    ++v7;
+    --cchDest;
+  }
+  while ( cchDest );
+  if ( !cchDest )
+    goto LABEL_9;
+LABEL_12:
   *pcchNewDestLength = v7;
   return result;
 }

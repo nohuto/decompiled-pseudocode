@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixRotationX@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18027DEB4
+ * XREFs of ?D2DMatrixRotationX@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18021D164
  * Callers:
- *     ?Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z @ 0x18025F4C8 (-Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z.c)
+ *     ?Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z @ 0x1801FE7A4 (-Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z.c)
  * Callees:
- *     cosf_0 @ 0x18011B8A8 (cosf_0.c)
- *     sinf_0 @ 0x18011B944 (sinf_0.c)
+ *     cosf_0 @ 0x1800F3F93 (cosf_0.c)
+ *     sinf_0 @ 0x1800F3FCF (sinf_0.c)
  */
 
 __int64 __fastcall D2DMatrixRotationX(__int64 a1, float a2, __int64 a3)

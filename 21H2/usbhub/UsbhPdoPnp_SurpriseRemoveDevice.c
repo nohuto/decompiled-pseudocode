@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C0056200
+ * XREFs of UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C00578C0
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhSetPdo_FailIo @ 0x1C0038C90 (UsbhSetPdo_FailIo.c)
- *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003AA28 (Usbh_PdoSurpriseRemove_PdoEvent.c)
- *     SET_PDO_SWPNPSTATE @ 0x1C0052994 (SET_PDO_SWPNPSTATE.c)
- *     UsbhBillboardCleanup @ 0x1C00529F4 (UsbhBillboardCleanup.c)
- *     UsbhPdoRemoveCleanup @ 0x1C0056374 (UsbhPdoRemoveCleanup.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     UsbhSetPdo_FailIo @ 0x1C0039F80 (UsbhSetPdo_FailIo.c)
+ *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003BD38 (Usbh_PdoSurpriseRemove_PdoEvent.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053FE8 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhBillboardCleanup @ 0x1C0054048 (UsbhBillboardCleanup.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0057A34 (UsbhPdoRemoveCleanup.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_SurpriseRemoveDevice(PDEVICE_OBJECT Pdo, PIRP Irp)

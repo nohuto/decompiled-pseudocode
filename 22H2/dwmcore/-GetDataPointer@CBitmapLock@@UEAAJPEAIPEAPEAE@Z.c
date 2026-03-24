@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDataPointer@CBitmapLock@@UEAAJPEAIPEAPEAE@Z @ 0x1800F27A0
+ * XREFs of ?GetDataPointer@CBitmapLock@@UEAAJPEAIPEAPEAE@Z @ 0x1800D1D10
  * Callers:
- *     ?GetDataPointer@CBitmapLock@@WBI@EAAJPEAIPEAPEAE@Z @ 0x18011E980 (-GetDataPointer@CBitmapLock@@WBI@EAAJPEAIPEAPEAE@Z.c)
+ *     ?GetDataPointer@CBitmapLock@@WBA@EAAJPEAIPEAPEAE@Z @ 0x1800F6600 (-GetDataPointer@CBitmapLock@@WBA@EAAJPEAIPEAPEAE@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CBitmapLock::GetDataPointer(CBitmapLock *this, unsigned int *a2, unsigned __int8 **a3)
@@ -13,17 +13,17 @@ __int64 __fastcall CBitmapLock::GetDataPointer(CBitmapLock *this, unsigned int *
   unsigned int v7; // ebx
   struct _RTL_CRITICAL_SECTION *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
+  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
   if ( a3 )
   {
     if ( a2 )
     {
-      if ( *((_BYTE *)this + 72) )
+      if ( *((_BYTE *)this + 64) )
       {
         v7 = 0;
-        *a2 = *((_DWORD *)this + 30);
-        *a3 = (unsigned __int8 *)*((_QWORD *)this + 14);
+        *a2 = *((_DWORD *)this + 28);
+        *a3 = (unsigned __int8 *)*((_QWORD *)this + 13);
       }
       else
       {

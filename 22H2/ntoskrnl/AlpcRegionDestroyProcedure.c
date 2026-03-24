@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcRegionDestroyProcedure @ 0x1407D1390
+ * XREFs of AlpcRegionDestroyProcedure @ 0x140685C80
  * Callers:
  *     <none>
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcRegionDestroyProcedure(__int64 a1)

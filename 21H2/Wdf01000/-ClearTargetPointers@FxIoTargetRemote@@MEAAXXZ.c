@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ @ 0x1C002C800
+ * XREFs of ?ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ @ 0x1C0066B50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qqLdqqq @ 0x1C002C8DC (WPP_IFR_SF_qqLdqqq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqLdqqq @ 0x1C00678CC (WPP_IFR_SF_qqLdqqq.c)
  */
 
 void __fastcall FxIoTargetRemote::ClearTargetPointers(FxIoTargetRemote *this)

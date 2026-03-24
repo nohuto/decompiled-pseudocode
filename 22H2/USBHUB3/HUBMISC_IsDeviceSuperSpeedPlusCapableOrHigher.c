@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_IsDeviceSuperSpeedPlusCapableOrHigher @ 0x1C0030D8C
+ * XREFs of HUBMISC_IsDeviceSuperSpeedPlusCapableOrHigher @ 0x1C002DBD4
  * Callers:
- *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C007A55C (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C00768D8 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
  * Callees:
  *     <none>
  */

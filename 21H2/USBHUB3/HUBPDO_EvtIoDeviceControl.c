@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_EvtIoDeviceControl @ 0x1C0014B90
+ * XREFs of HUBPDO_EvtIoDeviceControl @ 0x1C00146D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     KsPropertyHandleDrmSetContentId @ 0x1C00896BC (KsPropertyHandleDrmSetContentId.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     KsPropertyHandleDrmSetContentId @ 0x1C0085DAC (KsPropertyHandleDrmSetContentId.c)
  */
 
 __int64 __fastcall HUBPDO_EvtIoDeviceControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

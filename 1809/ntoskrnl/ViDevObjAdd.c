@@ -3,10 +3,10 @@
  * Callers:
  *     VerifierIoCreateDevice @ 0x140933ED0 (VerifierIoCreateDevice.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1400F56B8 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1400F5830 (VfAvlReserveNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400F56D8 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1400F5850 (VfAvlReserveNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  */
 
 char __fastcall ViDevObjAdd(__int64 a1)

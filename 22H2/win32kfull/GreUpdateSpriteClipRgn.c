@@ -1,107 +1,106 @@
 /*
- * XREFs of GreUpdateSpriteClipRgn @ 0x1C0077DA8
+ * XREFs of GreUpdateSpriteClipRgn @ 0x1C00BA178
  * Callers:
- *     SelectWindowRgn @ 0x1C0077C08 (SelectWindowRgn.c)
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     SelectWindowRgn @ 0x1C011172C (SelectWindowRgn.c)
  * Callees:
- *     UserGetWindowRect @ 0x1C00769D0 (UserGetWindowRect.c)
- *     ?vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C00780E4 (-vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00C89F8 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C011BD38 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C0017500 (-vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B2D1C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE028 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     UserGetWindowRect @ 0x1C011F388 (UserGetWindowRect.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-void __fastcall GreUpdateSpriteClipRgn(Gre::Base *a1, HWND a2, HRGN a3, int a4)
+void __fastcall GreUpdateSpriteClipRgn(__int64 a1, struct PDEVOBJ *a2, HRGN a3, int a4)
 {
-  struct Gre::Base::SESSION_GLOBALS *v7; // rsi
-  struct PDEVOBJ *v8; // rdx
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  REGION *v11; // rcx
-  __int64 v12; // [rsp+28h] [rbp-59h] BYREF
-  struct _POINTL v13; // [rsp+30h] [rbp-51h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-49h] BYREF
-  _BYTE v15[8]; // [rsp+40h] [rbp-41h] BYREF
-  _BYTE v16[8]; // [rsp+48h] [rbp-39h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-31h] BYREF
-  _BYTE v18[32]; // [rsp+60h] [rbp-21h] BYREF
-  __int64 v19; // [rsp+80h] [rbp-1h]
-  _QWORD v20[8]; // [rsp+88h] [rbp+7h] BYREF
-  Gre::Base *v21; // [rsp+E8h] [rbp+67h] BYREF
+  __int64 v7; // rdi
+  __int64 v8; // rbx
+  REGION *v9; // rcx
+  __int64 v10; // [rsp+28h] [rbp-49h] BYREF
+  struct _POINTL v11; // [rsp+30h] [rbp-41h] BYREF
+  _BYTE v12[8]; // [rsp+38h] [rbp-39h] BYREF
+  _BYTE v13[8]; // [rsp+40h] [rbp-31h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-29h] BYREF
+  int v15; // [rsp+50h] [rbp-21h]
+  _DWORD v16[4]; // [rsp+58h] [rbp-19h] BYREF
+  _BYTE v17[32]; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+17h]
+  _QWORD v19[7]; // [rsp+90h] [rbp+1Fh] BYREF
+  __int64 v20; // [rsp+D8h] [rbp+67h] BYREF
 
-  v21 = a1;
-  v7 = Gre::Base::Globals(a1);
-  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v21, v8, 0, 0);
-  GreAcquireSemaphore(*((_QWORD *)v7 + 9));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v7 + 9), 7LL);
-  if ( (unsigned int)IsDwmActive() )
+  v20 = a1;
+  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v20, a2, 0, 0);
+  GreAcquireSemaphore(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+  if ( g_pDwmState )
   {
-    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v20, a3, 0, 0);
-    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v18, a2);
-    v9 = v19;
-    if ( !v19 )
+    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v19, a3, 0, 0);
+    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v17, (HWND)a2);
+    v7 = v18;
+    if ( !v18 )
     {
-LABEL_24:
-      v19 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v18);
-      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v20);
-      goto LABEL_25;
+LABEL_26:
+      v18 = 0LL;
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v17);
+      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v19);
+      goto LABEL_27;
     }
-    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v16, (struct _EX_PUSH_LOCK *)(v19 + 88));
-    v10 = *(_QWORD *)(v9 + 144);
-    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v15, (struct _EX_PUSH_LOCK *)(v10 + 256));
-    if ( v20[0] && (unsigned int)UserGetWindowRect(*(_QWORD *)(v9 + 40), &v17) )
+    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v13, (struct _EX_PUSH_LOCK *)(v18 + 88));
+    v8 = *(_QWORD *)(v7 + 168);
+    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v12, (struct _EX_PUSH_LOCK *)(v8 + 256));
+    if ( v19[0] && (unsigned int)UserGetWindowRect(*(_QWORD *)(v7 + 40), v16) )
     {
-      if ( !*(_QWORD *)(v10 + 88) )
+      if ( !*(_QWORD *)(v8 + 88) )
       {
         RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v14);
         if ( v14 )
-          *(_QWORD *)(v10 + 88) = v14;
+          *(_QWORD *)(v8 + 88) = v14;
+        if ( v15 == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v14);
       }
-      if ( !*(_QWORD *)(v10 + 88) )
-        goto LABEL_19;
-      v12 = *(_QWORD *)(v10 + 88);
-      if ( !RGNOBJ::bCopy((RGNOBJ *)&v12, (struct RGNOBJ *)v20) )
-        goto LABEL_19;
-      v13.x = -(int)v17;
-      v13.y = -DWORD1(v17);
-      if ( RGNOBJ::bOffset((RGNOBJ *)&v12, &v13) )
+      if ( !*(_QWORD *)(v8 + 88) )
+        goto LABEL_21;
+      v10 = *(_QWORD *)(v8 + 88);
+      if ( !RGNOBJ::bCopy((RGNOBJ *)&v10, (struct RGNOBJ *)v19) )
+        goto LABEL_21;
+      v11.x = -v16[0];
+      v11.y = -v16[1];
+      if ( RGNOBJ::bOffset((RGNOBJ *)&v10, &v11) )
       {
-        if ( (*(_DWORD *)(v9 + 140) & 0x20) != 0 )
+        if ( (*(_DWORD *)(v7 + 164) & 0x20) != 0 )
           RGNOBJ::vScale(
-            &v12,
-            _mm_unpacklo_ps((__m128)*(unsigned int *)(v9 + 132), (__m128)*(unsigned int *)(v9 + 136)).m128_u64[0]);
-        *(_QWORD *)(v10 + 88) = v12;
-        goto LABEL_18;
+            &v10,
+            _mm_unpacklo_ps((__m128)*(unsigned int *)(v7 + 156), (__m128)*(unsigned int *)(v7 + 160)).m128_u64[0]);
+        *(_QWORD *)(v8 + 88) = v10;
+        goto LABEL_20;
       }
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v12);
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v10);
     }
     else
     {
-      v11 = *(REGION **)(v10 + 88);
-      if ( !v11 )
-        goto LABEL_19;
-      REGION::vDeleteREGION(v11);
+      v9 = *(REGION **)(v8 + 88);
+      if ( !v9 )
+        goto LABEL_21;
+      REGION::vDeleteREGION(v9);
     }
-    *(_QWORD *)(v10 + 88) = 0LL;
-LABEL_18:
-    *(_DWORD *)(v10 + 252) |= 0x20u;
-LABEL_19:
-    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v15);
-    if ( (*(_DWORD *)(v10 + 252) & 1) == 0 || !a4 )
-      vSpDwmFlushSpriteClipRgnChange((struct SFMLOGICALSURFACE *)v10);
-    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v16);
-    if ( v19 )
-      _InterlockedDecrement((volatile signed __int32 *)(v19 + 12));
-    goto LABEL_24;
+    *(_QWORD *)(v8 + 88) = 0LL;
+LABEL_20:
+    *(_DWORD *)(v8 + 252) |= 0x20u;
+LABEL_21:
+    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v12);
+    if ( (*(_DWORD *)(v8 + 252) & 1) == 0 || !a4 )
+      vSpDwmFlushSpriteClipRgnChange((struct SFMLOGICALSURFACE *)v8);
+    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v13);
+    if ( v18 )
+      _InterlockedDecrement((volatile signed __int32 *)(v18 + 12));
+    goto LABEL_26;
   }
-LABEL_25:
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v7 + 9));
-  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v21);
+LABEL_27:
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+  GreReleaseSemaphoreInternal(ghsemDwmState);
+  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v20);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CHolographicViewer@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18029C950
+ * XREFs of ?IsOfType@CHolographicViewer@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18025A340
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CHolographicViewer::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 79;
+  return a2 == 77;
 }

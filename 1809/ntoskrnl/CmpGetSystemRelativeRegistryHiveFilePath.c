@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetSystemRelativeRegistryHiveFilePath @ 0x1409F39B8
+ * XREFs of CmpGetSystemRelativeRegistryHiveFilePath @ 0x1409F39C0
  * Callers:
  *     CmpInitializeDriverStores @ 0x1409C1534 (CmpInitializeDriverStores.c)
  *     CmpInitializePreloadedHive @ 0x1409C3CAC (CmpInitializePreloadedHive.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
  */
 
 const wchar_t *__fastcall CmpGetSystemRelativeRegistryHiveFilePath(const wchar_t *a1)

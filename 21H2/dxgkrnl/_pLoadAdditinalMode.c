@@ -1,253 +1,320 @@
 /*
- * XREFs of _pLoadAdditinalMode @ 0x1C01DC608
+ * XREFs of _pLoadAdditinalMode @ 0x1C019AE40
  * Callers:
- *     _pGetAdditionalTiming @ 0x1C01DC484 (_pGetAdditionalTiming.c)
+ *     _pGetAdditionalTiming @ 0x1C019AC9C (_pGetAdditionalTiming.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C001CBB4 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
- *     ?IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0027054 (-IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _pPopulateProgressiveTimingList @ 0x1C03B4B78 (_pPopulateProgressiveTimingList.c)
- *     _pReadDetailTimingFromReg @ 0x1C03B4C68 (_pReadDetailTimingFromReg.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0009EFC (-IsAnalogueVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _pReadDetailTimingFromReg @ 0x1C019B1A8 (_pReadDetailTimingFromReg.c)
+ *     _pPopulateProgressiveTimingList @ 0x1C02F8790 (_pPopulateProgressiveTimingList.c)
  */
 
-__int64 __fastcall pLoadAdditinalMode(int a1)
+__int64 __fastcall pLoadAdditinalMode(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rdi
-  const WCHAR *v2; // rdx
+  __int64 v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  ULONG v8; // r15d
+  const WCHAR *v9; // rdx
   NTSTATUS appended; // eax
-  __int64 v4; // rbx
-  NTSTATUS v5; // eax
-  __int64 v6; // rcx
-  HANDLE v8; // rcx
-  NTSTATUS v9; // eax
-  __int64 v10; // r9
-  int v11; // r13d
-  _QWORD *v12; // rsi
-  __int64 v13; // r9
-  void *v14; // rax
-  ULONG v15; // r12d
-  NTSTATUS v16; // eax
-  NTSTATUS v17; // eax
-  _QWORD *v18; // rax
-  HANDLE KeyHandle; // [rsp+38h] [rbp-39h] BYREF
-  ULONG ResultLength; // [rsp+40h] [rbp-31h] BYREF
-  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-29h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-19h] BYREF
-  void *v23; // [rsp+60h] [rbp-11h]
-  __int128 KeyInformation; // [rsp+68h] [rbp-9h] BYREF
-  __int128 v25; // [rsp+78h] [rbp+7h]
-  __int128 v26; // [rsp+88h] [rbp+17h]
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdi
+  NTSTATUS v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  void *v17; // rcx
+  NTSTATUS v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  int v22; // r12d
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  _QWORD *v25; // rsi
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  unsigned __int16 *v32; // r13
+  NTSTATUS v33; // eax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // rcx
+  NTSTATUS v38; // eax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rax
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // rax
+  __int64 v48; // rax
+  _QWORD *v49; // rax
+  __int64 v50; // rax
+  _QWORD *v51; // rax
+  __int64 v52; // rax
+  __int64 v53; // rax
+  void *KeyHandle; // [rsp+38h] [rbp-59h] BYREF
+  ULONG ResultLength; // [rsp+40h] [rbp-51h] BYREF
+  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-49h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-39h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-31h] BYREF
+  __int128 KeyInformation; // [rsp+90h] [rbp-1h] BYREF
+  __int128 v60; // [rsp+A0h] [rbp+Fh]
+  __int128 v61; // [rsp+B0h] [rbp+1Fh]
 
-  v1 = a1;
-  WdLogSingleEntry1(7LL, a1);
-  if ( (_DWORD)v1 == -2 )
-    WdLogSingleEntry0(1LL);
+  v2 = (int)a1;
+  v3 = WdLogNewEntry5_WdDmmEvent(a1, a2);
+  *(_QWORD *)(v3 + 24) = v2;
+  WdLogEvent5_WdDmmEvent(v3);
+  if ( (_DWORD)v2 == -2 )
+  {
+    v40 = WdLogNewEntry5_WdAssertion(v5, v4);
+    WdLogEvent5_WdAssertion(v40);
+  }
   *(_QWORD *)&Destination.Length = 15859712LL;
-  Destination.Buffer = (wchar_t *)&unk_1C0130EF0;
+  Destination.Buffer = (wchar_t *)&unk_1C00B3F80;
+  v8 = 0;
   if ( RtlAppendUnicodeToString(
          &Destination,
          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\AdditionalModeLists\\") < 0 )
-    WdLogSingleEntry0(1LL);
-  if ( (unsigned int)v1 <= 8 )
   {
-    if ( (_DWORD)v1 == 8 )
-    {
-      v2 = L"D_JPN";
-    }
-    else if ( (_DWORD)v1 )
-    {
-      switch ( (_DWORD)v1 )
-      {
-        case 1:
-          v2 = L"SVIDEO";
-          break;
-        case 2:
-          v2 = L"COMPOSITE";
-          break;
-        case 3:
-          v2 = L"COMPONENT";
-          break;
-        case 4:
-          v2 = L"DVI";
-          break;
-        case 5:
-          v2 = L"HDTV";
-          break;
-        case 6:
-          v2 = L"LVDS";
-          break;
-        default:
-          goto LABEL_39;
-      }
-    }
-    else
-    {
-      v2 = L"HD15";
-    }
+    v41 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v41);
   }
-  else
+  if ( (int)v2 > 5 )
   {
-    if ( (_DWORD)v1 == 9 )
+    switch ( (_DWORD)v2 )
     {
-      v2 = L"SDI";
-      goto LABEL_9;
+      case 6:
+        v9 = L"LVDS";
+        goto LABEL_11;
+      case 8:
+        v9 = L"D_JPN";
+        goto LABEL_11;
+      case 9:
+        v9 = L"SDI";
+        goto LABEL_11;
     }
-    if ( (unsigned int)v1 > 0xB )
+    if ( (int)v2 > 9 )
     {
-      if ( (unsigned int)v1 <= 0xD )
+      if ( (int)v2 <= 11 )
       {
-        v2 = L"UDI";
-        goto LABEL_9;
+        v9 = L"DISPLAYPORT";
+        goto LABEL_11;
       }
-      if ( (_DWORD)v1 == 14 )
+      if ( (int)v2 <= 13 )
       {
-        v2 = L"SDTVDONGLE";
-        goto LABEL_9;
+        v9 = L"UDI";
+        goto LABEL_11;
       }
-      if ( (_DWORD)v1 != 18 )
+      if ( (_DWORD)v2 == 14 )
       {
-        if ( (_DWORD)v1 == 0x80000000 )
-        {
-          v2 = L"INTERNAL";
-          goto LABEL_9;
-        }
-        if ( (_DWORD)v1 == -1 )
-        {
-          v2 = L"OTHER";
-          goto LABEL_9;
-        }
-LABEL_39:
-        WdLogSingleEntry1(7LL, v1);
-        return 3221226021LL;
+        v9 = L"SDTVDONGLE";
+        goto LABEL_11;
       }
     }
-    v2 = L"DISPLAYPORT";
+    goto LABEL_56;
   }
-LABEL_9:
-  appended = RtlAppendUnicodeToString(&Destination, v2);
-  v4 = appended;
+  switch ( (_DWORD)v2 )
+  {
+    case 5:
+      v9 = L"HDTV";
+      goto LABEL_11;
+    case 0x80000000:
+      v9 = L"INTERNAL";
+      goto LABEL_11;
+    case 0xFFFFFFFF:
+      v9 = L"OTHER";
+      goto LABEL_11;
+  }
+  if ( (_DWORD)v2 )
+  {
+    switch ( (_DWORD)v2 )
+    {
+      case 1:
+        v9 = L"SVIDEO";
+        goto LABEL_11;
+      case 2:
+        v9 = L"COMPOSITE";
+        goto LABEL_11;
+      case 3:
+        v9 = L"COMPONENT";
+        goto LABEL_11;
+      case 4:
+        v9 = L"DVI";
+        goto LABEL_11;
+    }
+LABEL_56:
+    v42 = WdLogNewEntry5_WdDmmEvent(v7, v6);
+    *(_QWORD *)(v42 + 24) = v2;
+    WdLogEvent5_WdDmmEvent(v42);
+    return 3221226021LL;
+  }
+  v9 = L"HD15";
+LABEL_11:
+  appended = RtlAppendUnicodeToString(&Destination, v9);
+  v13 = appended;
   if ( appended < 0 )
   {
     if ( appended != -1073741789 )
-      WdLogSingleEntry0(1LL);
-    v6 = 2LL;
-    goto LABEL_12;
+    {
+      v43 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v43);
+    }
+    v44 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v44 + 24) = v2;
+    *(_QWORD *)(v44 + 32) = v13;
+    WdLogEvent5_WdError(v44);
+    return (unsigned int)v13;
   }
   KeyHandle = 0LL;
-  v5 = DxgkOpenRegistrySubkey(&KeyHandle, 0x20019u, 0LL, &Destination);
-  v4 = v5;
-  if ( v5 < 0 )
+  ObjectAttributes.ObjectName = &Destination;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v14 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  v13 = v14;
+  if ( v14 < 0 )
   {
-    v6 = 7LL;
-LABEL_12:
-    WdLogSingleEntry2(v6, v1, v4);
-    return (unsigned int)v4;
+    v45 = WdLogNewEntry5_WdDmmEvent(v16, v15);
+    *(_QWORD *)(v45 + 24) = v2;
+    *(_QWORD *)(v45 + 32) = v13;
+    WdLogEvent5_WdDmmEvent(v45);
+    return (unsigned int)v13;
   }
-  v8 = KeyHandle;
+  v17 = KeyHandle;
   if ( !KeyHandle )
   {
-    WdLogSingleEntry0(1LL);
-    v8 = KeyHandle;
+    v46 = WdLogNewEntry5_WdAssertion(0LL, v15);
+    WdLogEvent5_WdAssertion(v46);
+    v17 = KeyHandle;
   }
   ResultLength = 0;
   KeyInformation = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
-  v9 = ZwQueryKey(v8, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
-  LODWORD(v4) = v9;
-  if ( v9 < 0 )
+  v60 = 0LL;
+  v61 = 0LL;
+  v18 = ZwQueryKey(v17, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
+  v13 = v18;
+  if ( v18 < 0 )
   {
-    WdLogSingleEntry2(3LL, v1, v9);
-    goto LABEL_75;
+    v53 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+    *(_QWORD *)(v53 + 24) = v2;
+    *(_QWORD *)(v53 + 32) = v13;
+    WdLogEvent5_WdWarning(v53);
+    goto LABEL_33;
   }
-  if ( !DWORD1(v25) )
+  if ( !DWORD1(v60) )
   {
-    WdLogSingleEntry1(7LL, v1);
-    LODWORD(v4) = -1073741275;
-    goto LABEL_75;
+    v52 = WdLogNewEntry5_WdDmmEvent(0LL, v19);
+    *(_QWORD *)(v52 + 24) = v2;
+    WdLogEvent5_WdDmmEvent(v52);
+    LODWORD(v13) = -1073741275;
+    goto LABEL_33;
   }
-  v11 = 0;
-  v12 = (_QWORD *)operator new[]((unsigned int)(28 * (DWORD1(v25) - 1) + 48), 0x4D677844u, 256LL, v10);
-  if ( !v12 )
+  v22 = 0;
+  v25 = operator new[]((unsigned int)(28 * (DWORD1(v60) - 1) + 48), 0x4D677844u, PagedPool);
+  if ( !v25 )
   {
-    WdLogSingleEntry0(6LL);
+    v47 = WdLogNewEntry5_WdLowResource(v24, v23, v26, v27);
+    WdLogEvent5_WdLowResource(v47);
     ZwClose(KeyHandle);
     return 3221225495LL;
   }
-  v14 = (void *)operator new[](0x96uLL, 0x4D677844u, 256LL, v13);
-  v23 = v14;
-  if ( !v14 )
+  v32 = (unsigned __int16 *)operator new[](0x96uLL, 0x4D677844u, PagedPool);
+  if ( !v32 )
   {
-    WdLogSingleEntry0(6LL);
-    operator delete[](v12);
-    LODWORD(v4) = -1073741801;
-    goto LABEL_75;
+    v48 = WdLogNewEntry5_WdLowResource(v29, v28, v30, v31);
+    WdLogEvent5_WdLowResource(v48);
+    operator delete[](v25);
+    LODWORD(v13) = -1073741801;
+    goto LABEL_33;
   }
-  v15 = 0;
-  if ( !DWORD1(v25) )
-    goto LABEL_71;
+  if ( !DWORD1(v60) )
+    goto LABEL_72;
   while ( 1 )
   {
-    v16 = ZwEnumerateKey(KeyHandle, v15, KeyBasicInformation, v14, 0x96u, &ResultLength);
-    v4 = v16;
-    if ( v16 == -2147483643 || v16 == -1073741789 )
+    v33 = ZwEnumerateKey(KeyHandle, v8, KeyBasicInformation, v32, 0x96u, &ResultLength);
+    v13 = v33;
+    if ( v33 == -2147483643 || v33 == -1073741789 )
     {
-      WdLogSingleEntry2(3LL, v1, v15);
-      goto LABEL_63;
+      v49 = (_QWORD *)WdLogNewEntry5_WdWarning(v35, v34, v36);
+      goto LABEL_68;
     }
-    if ( v16 == -2147483622 )
+    if ( v33 == -2147483622 )
       break;
-    if ( v16 < 0
-      || (Handle = 0LL,
-          Destination.MaximumLength = *((_WORD *)v23 + 6),
-          Destination.Length = Destination.MaximumLength,
-          Destination.Buffer = (wchar_t *)((char *)v23 + 16),
-          v17 = DxgkOpenRegistrySubkey(&Handle, 0x20019u, KeyHandle, &Destination),
-          v4 = v17,
-          v17 < 0) )
+    v37 = 0LL;
+    if ( v33 >= 0 )
     {
-      WdLogSingleEntry3(3LL, v1, v15, v4);
+      Destination.MaximumLength = v32[6];
+      Destination.Length = Destination.MaximumLength;
+      Handle = 0LL;
+      Destination.Buffer = v32 + 8;
+      ObjectAttributes.RootDirectory = KeyHandle;
+      ObjectAttributes.ObjectName = &Destination;
+      *(_QWORD *)&ObjectAttributes.Length = 48LL;
+      *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v38 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+      v13 = v38;
+      if ( v38 >= 0 )
+      {
+        LODWORD(v13) = pReadDetailTimingFromReg(Handle);
+        if ( (int)v13 >= 0 )
+          ++v22;
+        ZwClose(Handle);
+        goto LABEL_28;
+      }
     }
-    else
-    {
-      LODWORD(v4) = pReadDetailTimingFromReg(Handle);
-      if ( (int)v4 >= 0 )
-        ++v11;
-      ZwClose(Handle);
-    }
-LABEL_63:
-    if ( ++v15 >= DWORD1(v25) )
-      goto LABEL_66;
-    v14 = v23;
+    v49 = (_QWORD *)WdLogNewEntry5_WdWarning(v37, v34, v36);
+    v49[5] = v13;
+LABEL_68:
+    v49[4] = v8;
+    v49[3] = v2;
+    WdLogEvent5_WdWarning(v49);
+LABEL_28:
+    if ( ++v8 >= DWORD1(v60) )
+      goto LABEL_29;
   }
-  WdLogSingleEntry1(3LL, v1);
-LABEL_66:
-  if ( !v11 )
+  v50 = WdLogNewEntry5_WdWarning(v35, v34, v36);
+  *(_QWORD *)(v50 + 24) = v2;
+  WdLogEvent5_WdWarning(v50);
+LABEL_29:
+  if ( !v22 )
   {
-LABEL_71:
-    operator delete[](v12);
-    goto LABEL_72;
-  }
-  *v12 = qword_1C0131EA0;
-  *((_DWORD *)v12 + 2) = v1;
-  *((_DWORD *)v12 + 4) = v11;
-  *((_BYTE *)v12 + 12) = 0;
-  qword_1C0131EA0 = v12;
-  if ( !IsAnalogueVideoOutput(v1) )
-  {
-    v18 = (_QWORD *)pPopulateProgressiveTimingList(v12);
-    if ( v18 )
-    {
-      *v18 = qword_1C0131EA0;
-      qword_1C0131EA0 = v18;
-    }
-  }
-  LODWORD(v4) = 0;
 LABEL_72:
-  operator delete[](v23);
-LABEL_75:
+    operator delete[](v25);
+    goto LABEL_32;
+  }
+  *v25 = qword_1C00B3200;
+  *((_DWORD *)v25 + 2) = v2;
+  *((_DWORD *)v25 + 4) = v22;
+  *((_BYTE *)v25 + 12) = 0;
+  qword_1C00B3200 = v25;
+  if ( !IsAnalogueVideoOutput(v2) )
+  {
+    v51 = (_QWORD *)pPopulateProgressiveTimingList(v25);
+    if ( v51 )
+    {
+      *v51 = qword_1C00B3200;
+      qword_1C00B3200 = v51;
+    }
+  }
+  LODWORD(v13) = 0;
+LABEL_32:
+  operator delete[](v32);
+LABEL_33:
   ZwClose(KeyHandle);
-  return (unsigned int)v4;
+  return (unsigned int)v13;
 }

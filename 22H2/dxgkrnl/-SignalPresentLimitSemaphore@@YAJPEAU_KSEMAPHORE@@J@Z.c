@@ -1,9 +1,8 @@
 /*
- * XREFs of ?SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z @ 0x1C007F190
+ * XREFs of ?SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z @ 0x1C00139E8
  * Callers:
- *     ?ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ @ 0x1C000E1FC (-ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ.c)
- *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000E864 (--1CFlipExBuffer@@MEAA@XZ.c)
- *     ?SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ @ 0x1C007EAB0 (-SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ.c)
+ *     ?ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ @ 0x1C0012820 (-ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ.c)
+ *     ?SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ @ 0x1C00139B0 (-SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ.c)
  * Callees:
  *     <none>
  */

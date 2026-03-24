@@ -1,67 +1,70 @@
 /*
- * XREFs of ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800E6120
+ * XREFs of ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800D1344
  * Callers:
- *     ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x180064BA8 (-CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEA.c)
- *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800DDEC8 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x180029470 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x18003439C (-CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEA.c)
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035B6C (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     ?_Change_array@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@AEAAXQEAPEAUProcessAttributionRecord@CProcessAttributionManager@@_K1@Z @ 0x1800E6224 (-_Change_array@-$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V-$allocator@PE.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCBaseExpression@@V?$allocator@PEAVCBaseExpression@@@std@@@std@@AEAAXQEAPEAVCBaseExpression@@_K1@Z @ 0x18001A418 (-_Change_array@-$vector@PEAVCBaseExpression@@V-$allocator@PEAVCBaseExpression@@@std@@@std@@AEAAX.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
-char *__fastcall std::vector<CProcessAttributionManager::ProcessAttributionRecord *>::_Emplace_reallocate<CProcessAttributionManager::ProcessAttributionRecord * const &>(
-        const void **a1,
-        _BYTE *a2,
+__int64 __fastcall std::vector<CProcessAttributionManager::ProcessAttributionRecord *>::_Emplace_reallocate<CProcessAttributionManager::ProcessAttributionRecord * const &>(
+        __int64 *a1,
+        const void *a2,
         _QWORD *a3)
 {
-  unsigned __int64 v3; // rbx
-  __int64 v5; // r14
-  __int64 v7; // rax
-  unsigned __int64 v9; // rbp
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  char *v13; // rsi
-  char *v14; // r14
-  void *v15; // rcx
-  _BYTE *v16; // r8
-  _BYTE *v17; // rdx
-  size_t v18; // r8
+  __int64 v4; // rsi
+  __int64 v6; // rax
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rbx
+  SIZE_T v12; // rcx
+  char *v13; // r14
+  char *v14; // rcx
+  __int64 v15; // r8
+  const void *v16; // rdx
+  size_t v17; // r8
 
-  v3 = 0x1FFFFFFFFFFFFFFFLL;
-  v5 = (a2 - (_BYTE *)*a1) >> 3;
-  v7 = ((_BYTE *)a1[1] - (_BYTE *)*a1) >> 3;
-  if ( v7 == 0x1FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v9 = v7 + 1;
-  v10 = ((_BYTE *)a1[2] - (_BYTE *)*a1) >> 3;
-  v11 = v10 >> 1;
-  if ( v10 <= 0x1FFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  v4 = ((__int64)a2 - *a1) >> 3;
+  v6 = (a1[1] - *a1) >> 3;
+  if ( v6 == 0x1FFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v6 + 1;
+  v9 = (a1[2] - *a1) >> 3;
+  v10 = v9 >> 1;
+  if ( v9 > 0x1FFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v3 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v3 = v7 + 1;
-  }
-  size_of = std::_Get_size_of_n<8>(v3);
-  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = &v13[8 * v5];
-  *(_QWORD *)v14 = *a3;
-  v15 = v13;
-  v16 = a1[1];
-  v17 = *a1;
-  if ( a2 == v16 )
-  {
-    v18 = v16 - v17;
+    v11 = v6 + 1;
   }
   else
   {
-    memmove_0(v13, v17, a2 - (_BYTE *)*a1);
-    v15 = v14 + 8;
-    v18 = (_BYTE *)a1[1] - a2;
-    v17 = a2;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v6 + 1;
   }
-  memmove_0(v15, v17, v18);
-  std::vector<CProcessAttributionManager::ProcessAttributionRecord *>::_Change_array(a1, v13, v9, v3);
-  return v14;
+  v12 = 8 * v11;
+  if ( v11 > 0x1FFFFFFFFFFFFFFFLL )
+    v12 = -1LL;
+  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  *(_QWORD *)&v13[8 * v4] = *a3;
+  v14 = v13;
+  v15 = a1[1];
+  v16 = (const void *)*a1;
+  if ( a2 == (const void *)v15 )
+  {
+    v17 = v15 - (_QWORD)v16;
+  }
+  else
+  {
+    memmove_0(v13, v16, (size_t)a2 - *a1);
+    v17 = a1[1] - (_QWORD)a2;
+    v14 = &v13[8 * v4 + 8];
+    v16 = a2;
+  }
+  memmove_0(v14, v16, v17);
+  std::vector<CBaseExpression *>::_Change_array(a1, (__int64)v13, v8, v11);
+  return *a1 + 8 * v4;
 }

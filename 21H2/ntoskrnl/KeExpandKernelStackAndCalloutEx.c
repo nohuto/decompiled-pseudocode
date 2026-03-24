@@ -1,11 +1,12 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutEx @ 0x1402AA8A0
+ * XREFs of KeExpandKernelStackAndCalloutEx @ 0x140329FC0
  * Callers:
- *     sub_1406B6278 @ 0x1406B6278 (sub_1406B6278.c)
- *     IopIssueSystemEnvironmentRequest @ 0x14093F428 (IopIssueSystemEnvironmentRequest.c)
- *     ViPtLogStackTrace @ 0x140A9DFBC (ViPtLogStackTrace.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x1402E18B0 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ *     sub_14064F6C8 @ 0x14064F6C8 (sub_14064F6C8.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14089A928 (IopIssueSystemEnvironmentRequest.c)
+ *     ViPoolLogStackTrace @ 0x1409E0398 (ViPoolLogStackTrace.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1402AA8D0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140329FF0 (KeExpandKernelStackAndCalloutInternal.c)
  */
 
 NTSTATUS __stdcall KeExpandKernelStackAndCalloutEx(

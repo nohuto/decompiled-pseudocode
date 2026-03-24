@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFailSystemBIOS @ 0x1405FE0D0
+ * XREFs of VfFailSystemBIOS @ 0x1405A0810
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfFailSystemBIOS(ULONG a1, unsigned int a2)

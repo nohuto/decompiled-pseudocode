@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenKeyTransactedEx @ 0x1401BA4F0
+ * XREFs of ZwOpenKeyTransactedEx @ 0x1401BA510
  * Callers:
  *     <none>
  * Callees:

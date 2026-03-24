@@ -3,9 +3,9 @@
  * Callers:
  *     NtLockFile @ 0x1405FA000 (NtLockFile.c)
  *     BuildQueryDirectoryIrp @ 0x1405FA710 (BuildQueryDirectoryIrp.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1406B9D00 (NtNotifyChangeDirectoryFileEx.c)
- *     NtWriteFileGather @ 0x1406CC880 (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1406CD3B0 (NtReadFileScatter.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406B9CE0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtWriteFileGather @ 0x1406CC860 (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1406CD390 (NtReadFileScatter.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlWaitForSmssEvent @ 0x1408650D0
+ * XREFs of FsRtlWaitForSmssEvent @ 0x1407D5360
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-LONG_PTR __fastcall FsRtlWaitForSmssEvent(PVOID Object)
+void __fastcall FsRtlWaitForSmssEvent(PADAPTER_OBJECT DmaAdapter)
 {
-  KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(DmaAdapter, Executive, 0, 0, 0LL);
   FsRtlpVolumeStartupApplicationsComplete = 1;
-  return ObfDereferenceObject(Object);
+  HalPutDmaAdapter(DmaAdapter);
 }

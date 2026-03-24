@@ -1,36 +1,33 @@
 /*
- * XREFs of NtUserUnregisterHotKey @ 0x1C0042B50
+ * XREFs of NtUserUnregisterHotKey @ 0x1C00327C0
  * Callers:
  *     <none>
  * Callees:
- *     ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C0042BDC (-_UnregisterHotKey@@YAHPEAUtagWND@@H@Z.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _UnregisterHotKey @ 0x1C0032850 (_UnregisterHotKey.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
  */
 
-__int64 __fastcall NtUserUnregisterHotKey(__int64 a1, int a2)
+__int64 __fastcall NtUserUnregisterHotKey(__int64 a1, unsigned int a2)
 {
   int v4; // ebx
-  struct tagWND *v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  char v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  char v8; // [rsp+30h] [rbp+8h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v11);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v8);
   v4 = 0;
   if ( !a1 )
   {
     v5 = 0LL;
     goto LABEL_3;
   }
-  v5 = (struct tagWND *)ValidateHwnd(a1);
+  v5 = ValidateHwnd(a1);
   if ( v5 )
 LABEL_3:
-    v4 = _UnregisterHotKey(v5, a2);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v11);
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
+    v4 = UnregisterHotKey(v5, a2);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v8);
+  UserSessionSwitchLeaveCrit(v6);
   return v4;
 }

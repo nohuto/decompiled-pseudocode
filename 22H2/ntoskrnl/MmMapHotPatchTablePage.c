@@ -1,126 +1,106 @@
 /*
- * XREFs of MmMapHotPatchTablePage @ 0x1406430EC
+ * XREFs of MmMapHotPatchTablePage @ 0x14053F3F0
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiLockPageTableInternal @ 0x1402376E0 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetContainingPageTable @ 0x14023DDC0 (MiGetContainingPageTable.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiMakeTransitionPte @ 0x1402AF040 (MiMakeTransitionPte.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
+unsigned __int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rbp
-  char *AnyMultiplexedVm; // r12
+  __int64 v6; // r8
+  _DWORD *v7; // r9
   int v8; // r15d
-  __int64 v9; // rdi
-  int v10; // r13d
-  _QWORD *v11; // r14
-  __int64 v12; // r9
-  __int64 v13; // rsi
-  unsigned __int64 ContainingPageTable; // rdi
-  __int64 v15; // rdi
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r9
-  __int16 v20; // r10
-  char v21; // r11
-  char v22; // al
-  __int64 v24; // rax
-  __int64 v25; // rcx
-  unsigned __int8 v26; // dl
-  int v27; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v28; // [rsp+28h] [rbp-40h]
-  unsigned __int8 v29; // [rsp+78h] [rbp+10h] BYREF
-  int v30; // [rsp+88h] [rbp+20h]
+  unsigned __int64 *v9; // rdi
+  __int64 v10; // rsi
+  unsigned __int8 v11; // al
+  char v12; // cl
+  unsigned __int64 v13; // rbp
+  __int64 ContainingPageTable; // rax
+  __int64 v15; // rbx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  unsigned __int64 v18; // r8
+  __int64 SchedulerAssist; // r9
+  __int64 v20; // rdx
+  char v21; // al
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  int v24; // eax
+  bool v25; // zf
+  unsigned __int64 result; // rax
 
-  v30 = a4;
-  v4 = 0LL;
-  v29 = 0;
-  v28 = 0LL;
-  AnyMultiplexedVm = 0LL;
-  v8 = 1;
-  if ( a4 != 2 )
-    v8 = 3;
-  v9 = (a1 >> 9) & 0x7FFFFFFFF8LL;
   if ( (unsigned int)MiGetSystemRegionType(a1) == 1 )
   {
-    v10 = 1;
-    v11 = (_QWORD *)(*(_QWORD *)(a3 + 288)
-                   + 8
-                   * ((v9
-                     - 8LL * ((*(_DWORD *)(a3 + 64) >> 12) + (unsigned int)((*(_DWORD *)(a3 + 64) & 0xFFF) != 0))
-                     - ((*(_QWORD *)(a3 + 48) >> 9) & 0x7FFFFFFFF8LL)) >> 3));
-    v28 = MiLockProtoPoolPage((unsigned __int64)v11, &v29);
+    v8 = 1;
+    v7 = (_DWORD *)(*(_DWORD *)(a3 + 64) >> 12);
+    v9 = (unsigned __int64 *)(*(_QWORD *)(a3 + 288)
+                            + 8
+                            * ((__int64)(((a1 >> 9) & 0x7FFFFFFFF8LL)
+                                       - 8LL * ((unsigned int)v7 + ((*(_DWORD *)(a3 + 64) & 0xFFF) != 0))
+                                       - ((*(_QWORD *)(a3 + 48) >> 9) & 0x7FFFFFFFF8LL)) >> 3));
   }
   else
   {
-    v10 = 0;
-    AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-    v11 = (_QWORD *)(v9 - 0x98000000000LL);
-    v4 = (((unsigned __int64)(v9 - 0x98000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v29 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v4, 0, v12);
+    v8 = 0;
+    v9 = (unsigned __int64 *)(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   }
-  v13 = 48 * a2 - 0x220000000000LL;
-  v27 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
-  {
-    do
-      KeYieldProcessorEx(&v27);
-    while ( *(__int64 *)(v13 + 24) < 0 );
-  }
-  *(_QWORD *)(v13 + 24) &= ~0x4000000000000000uLL;
-  *(_BYTE *)(v13 + 34) |= 0x10u;
-  ContainingPageTable = MiGetContainingPageTable((unsigned __int64)v11);
-  MiSetPfnPteFrame(48 * a2 - 0x220000000000LL, ContainingPageTable);
-  v15 = 48 * ContainingPageTable - 0x220000000000LL;
-  MiLockNestedPageAtDpcInline(v15);
-  *(_QWORD *)(v15 + 24) ^= (*(_QWORD *)(v15 + 24) ^ (*(_QWORD *)(v15 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+  v10 = 48 * a2 - 0x58000000000LL;
+  v11 = MiLockPageInline(v10, 0x7FFFFFFFF8LL, v6, v7);
+  v12 = *(_BYTE *)(v10 + 34) | 0x10;
+  v13 = v11;
+  *(_QWORD *)(v10 + 24) &= ~0x4000000000000000uLL;
+  *(_BYTE *)(v10 + 34) = v12;
+  ContainingPageTable = MiGetContainingPageTable((unsigned __int64)v9);
+  *(_QWORD *)(v10 + 40) ^= (*(_QWORD *)(v10 + 40) ^ ContainingPageTable) & 0xFFFFFFFFFLL;
+  v15 = 48 * ContainingPageTable - 0x58000000000LL;
+  MiLockNestedPageAtDpcInline(v15, 0xFFFFFFFFFLL, v16, v17);
+  *(_QWORD *)(v15 + 24) ^= ((*(_QWORD *)(v15 + 24) + 1LL) ^ *(_QWORD *)(v15 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v16 = 32LL;
-  if ( v30 != 2 )
-    v16 = 96LL;
-  v17 = MiSwizzleInvalidPte(v16);
-  *(_QWORD *)(v13 + 16) = MiUpdatePageFileHighInPte(v17, v18);
-  *(_QWORD *)(v13 + 8) = v11;
-  if ( v10 )
+  *(_QWORD *)(v10 + 16) = MiSwizzleInvalidPte(32LL);
+  *(_QWORD *)(v10 + 8) = v9;
+  if ( v8 )
   {
-    *(_QWORD *)(v13 + 40) |= 0x8000000000000000uLL;
-    v22 = *(_BYTE *)(v13 + 34) & 0xFB;
-    *(_QWORD *)(v13 + 24) ^= (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) - 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
-    *(_BYTE *)(v13 + 34) = v21 | v22;
+    v20 = *(_QWORD *)(v10 + 24);
+    *(_QWORD *)(v10 + 40) |= 0x8000000000000000uLL;
+    v21 = *(_BYTE *)(v10 + 34) & 0xF8 | 3;
+    *(_QWORD *)(v10 + 24) = v20 ^ SchedulerAssist & ((v20 - 1) ^ v20);
+    *(_BYTE *)(v10 + 34) = v21;
   }
   else
   {
-    *(_WORD *)(v13 + 32) += v20;
+    ++*(_WORD *)(v10 + 32);
   }
-  _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v10 )
+  _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), v18);
+  if ( KiIrqlFlags )
   {
-    v24 = MiSwizzleInvalidPte(32 * (v19 | ((a2 & 0xFFFFFFFFFFLL) << 7) | 0x40));
-    v25 = v28;
-    v26 = v29;
-    *v11 = v24;
-    return MiUnlockProtoPoolPage(v25, v26);
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+        v25 = (v24 & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+        *(_DWORD *)(SchedulerAssist + 20) &= v24;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
   }
+  __writecr8(v13);
+  if ( v8 )
+    result = MiMakeTransitionPte(a2, 1);
   else
-  {
-    *v11 = MiMakeValidPte((unsigned __int64)v11, a2, v8 | 0x20000000u);
-    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v4);
-    return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v29);
-  }
+    result = MiMakeValidPte((unsigned __int64)v9, a2, 536870913LL, SchedulerAssist);
+  *v9 = result;
+  return result;
 }

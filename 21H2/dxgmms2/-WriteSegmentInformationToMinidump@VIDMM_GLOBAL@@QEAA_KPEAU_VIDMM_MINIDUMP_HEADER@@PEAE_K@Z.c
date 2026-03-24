@@ -1,12 +1,12 @@
 /*
- * XREFs of ?WriteSegmentInformationToMinidump@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K@Z @ 0x1C00DD32C
+ * XREFs of ?WriteSegmentInformationToMinidump@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K@Z @ 0x1C00B79E4
  * Callers:
- *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00D80BC (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
+ *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00B11D8 (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     memmove @ 0x1C001D980 (memmove.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0032BA4 (-CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     memmove @ 0x1C0018C00 (memmove.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0028614 (-CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::WriteSegmentInformationToMinidump(
@@ -54,7 +54,7 @@ __int64 __fastcall VIDMM_GLOBAL::WriteSegmentInformationToMinidump(
       *(_QWORD *)&v24[1] = *(_QWORD *)(v12 + 48);
       *((_QWORD *)&v24[2] + 1) = *(_QWORD *)(v12 + 208);
       LODWORD(v24[3]) = *(_DWORD *)(v12 + 80);
-      if ( (int)VIDMM_SEGMENT::CheckForApertureGuardPageCorruption((VIDMM_SEGMENT *)v12, (unsigned int **)&Src, 0) < 0 )
+      if ( (int)VIDMM_SEGMENT::CheckForApertureGuardPageCorruption((VIDMM_SEGMENT *)v12, (unsigned int **)&Src, 0LL) < 0 )
       {
         DWORD2(v24[3]) = 1;
         if ( Src )
@@ -98,6 +98,6 @@ __int64 __fastcall VIDMM_GLOBAL::WriteSegmentInformationToMinidump(
     while ( (unsigned int)v6 < *((_DWORD *)this + 926) );
     v9 = v23;
   }
-  *((_DWORD *)v9 + 328) = v4;
+  *((_DWORD *)v9 + 319) = v4;
   return v5;
 }

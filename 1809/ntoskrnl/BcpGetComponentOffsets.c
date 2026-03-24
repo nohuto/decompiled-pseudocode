@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpGetComponentOffsets @ 0x14032842C
+ * XREFs of BcpGetComponentOffsets @ 0x14032852C
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
  */
 
 __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int a4, int a5, char a6)
@@ -50,7 +50,7 @@ __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int 
         break;
       if ( __PAIR64__(v17, v21) < BcpProgressEnd )
       {
-        v15 = dword_1404059F8;
+        v15 = dword_140405A08;
         LODWORD(v21) = BcpProgressEnd;
         v17 = HIDWORD(BcpProgressEnd);
       }

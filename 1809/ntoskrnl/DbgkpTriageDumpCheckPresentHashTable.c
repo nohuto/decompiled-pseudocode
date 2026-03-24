@@ -1,8 +1,8 @@
 /*
- * XREFs of DbgkpTriageDumpCheckPresentHashTable @ 0x14026E1D8
+ * XREFs of DbgkpTriageDumpCheckPresentHashTable @ 0x14026E2D8
  * Callers:
- *     DbgkpTriageDumpSnapData @ 0x14026E260 (DbgkpTriageDumpSnapData.c)
- *     DbgkpTriageDumpIsMemoryBlockPresent @ 0x140813450 (DbgkpTriageDumpIsMemoryBlockPresent.c)
+ *     DbgkpTriageDumpSnapData @ 0x14026E360 (DbgkpTriageDumpSnapData.c)
+ *     DbgkpTriageDumpIsMemoryBlockPresent @ 0x140813430 (DbgkpTriageDumpIsMemoryBlockPresent.c)
  * Callees:
  *     <none>
  */

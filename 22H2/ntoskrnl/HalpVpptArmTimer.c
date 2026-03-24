@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptArmTimer @ 0x1405098F0
+ * XREFs of HalpVpptArmTimer @ 0x1404C0800
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     HalpTimerScaleCounter @ 0x1403C3EC4 (HalpTimerScaleCounter.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140509E90 (HalpVpptUpdatePhysicalTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpTimerScaleCounter @ 0x140395BF0 (HalpTimerScaleCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0D94 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
@@ -36,7 +36,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
     return 3221225659LL;
   if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) == 2 )
     v3 = HalpTimerScaleCounter(a3, *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL), 10000000LL);
-  byte_140C628F8 = HalpAcquireHighLevelLock(&qword_140C628F0);
+  byte_140C4A738 = HalpAcquireHighLevelLock(&qword_140C4A730);
   if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
   {
     v7 = 0LL;
@@ -78,20 +78,23 @@ LABEL_19:
     HalpVpptUpdatePhysicalTimer();
   *((_DWORD *)a1 + 5) = 2;
   *((_BYTE *)a1 + 24) = 1;
-  v16 = (unsigned __int8)byte_140C628F8;
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C628F0);
+  v16 = (unsigned __int8)byte_140C4A738;
+  KxReleaseSpinLock(&qword_140C4A730);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-      v21 = (v20 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v20;
-      if ( v21 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+        v21 = (v20 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v20;
+        if ( v21 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v16);

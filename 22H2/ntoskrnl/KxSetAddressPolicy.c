@@ -1,7 +1,7 @@
 /*
- * XREFs of KxSetAddressPolicy @ 0x14041FAB0
+ * XREFs of KxSetAddressPolicy @ 0x1403FEB80
  * Callers:
- *     KiSetAddressPolicy @ 0x14022E140 (KiSetAddressPolicy.c)
+ *     KiSetAddressPolicy @ 0x140207990 (KiSetAddressPolicy.c)
  * Callees:
  *     <none>
  */

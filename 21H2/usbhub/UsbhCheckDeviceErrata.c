@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhCheckDeviceErrata @ 0x1C0050C04
+ * XREFs of UsbhCheckDeviceErrata @ 0x1C0052254
  * Callers:
- *     UsbhGetUsbDeviceFlags @ 0x1C0037EA8 (UsbhGetUsbDeviceFlags.c)
+ *     UsbhGetUsbDeviceFlags @ 0x1C0039180 (UsbhGetUsbDeviceFlags.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhApplyDeviceFix @ 0x1C0050AAC (UsbhApplyDeviceFix.c)
- *     UsbhGetDeviceFlags @ 0x1C0051110 (UsbhGetDeviceFlags.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhApplyDeviceFix @ 0x1C00520FC (UsbhApplyDeviceFix.c)
+ *     UsbhGetDeviceFlags @ 0x1C0052760 (UsbhGetDeviceFlags.c)
  */
 
 char *__fastcall UsbhCheckDeviceErrata(__int64 a1, __int64 a2)

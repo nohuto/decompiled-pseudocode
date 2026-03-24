@@ -1,173 +1,223 @@
 /*
- * XREFs of ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C03615BC
+ * XREFs of ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B53C0
  * Callers:
- *     NtDxgkVailConnect @ 0x1C0364970 (NtDxgkVailConnect.c)
+ *     NtDxgkVailConnect @ 0x1C02B8ED0 (NtDxgkVailConnect.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02E20F0 (-Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z.c)
- *     ??0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z @ 0x1C0360838 (--0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z.c)
- *     ?AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z @ 0x1C0360B14 (-AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z.c)
- *     ?AllocateResourceSecurityDescriptor@DXGVAILOBJECT@@QEAAJEKPEAPEAX@Z @ 0x1C0360CFC (-AllocateResourceSecurityDescriptor@DXGVAILOBJECT@@QEAAJEKPEAPEAX@Z.c)
- *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C0366F90 (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C028D508 (-Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z.c)
+ *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C02B401C (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
+ *     ??0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z @ 0x1C02B45A4 (--0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z.c)
+ *     ?AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z @ 0x1C02B487C (-AllocateDefaultSecurityDescriptor@DXGVAILOBJECT@@SAJKPEAPEAX@Z.c)
+ *     ?AllocateResourceSecurityDescriptor@DXGVAILOBJECT@@QEAAJEKPEAPEAX@Z @ 0x1C02B4A64 (-AllocateResourceSecurityDescriptor@DXGVAILOBJECT@@QEAAJEKPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DXGVAILOBJECT::CreateVmBusHostSubscribers(DXGVAILOBJECT *this)
 {
   __int64 v2; // rcx
-  __int64 *v3; // rsi
   int DefaultSecurityDescriptor; // eax
-  int v5; // ebx
-  void *v6; // r14
-  int v7; // eax
-  void *v8; // r12
-  DXG_HOST_REMOTEOBJECTCHANNEL *v9; // rax
-  DXG_HOST_REMOTEOBJECTCHANNEL *v10; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  void *v10; // r15
   int v11; // eax
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  void *v16; // r15
-  struct DXGVMBUSCHANNEL *v17; // rdx
-  int v18; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
+  void *v16; // r12
+  DXG_HOST_REMOTEOBJECTCHANNEL *v17; // rax
+  __int64 v18; // rdx
   __int64 v19; // rcx
-  char v20; // bl
-  char v21; // al
-  _BYTE v23[16]; // [rsp+20h] [rbp-10h] BYREF
-  void *v24; // [rsp+70h] [rbp+40h] BYREF
-  void *v25; // [rsp+78h] [rbp+48h] BYREF
-  void *v26; // [rsp+80h] [rbp+50h] BYREF
+  __int64 v20; // r8
+  DXG_HOST_REMOTEOBJECTCHANNEL *v21; // rax
+  __int64 v22; // rax
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rax
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // rax
+  void *v33; // r14
+  _QWORD *v34; // rax
+  void **v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // rax
+  int v39; // eax
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // rcx
+  __int64 v43; // rcx
+  char v44; // bl
+  char v45; // al
+  _BYTE v47[16]; // [rsp+20h] [rbp-10h] BYREF
+  void *v48; // [rsp+70h] [rbp+40h] BYREF
+  void *v49; // [rsp+78h] [rbp+48h] BYREF
+  void *v50; // [rsp+80h] [rbp+50h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (DXGVAILOBJECT *)((char *)this + 40), 1);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
-  v2 = *((_QWORD *)this + 15);
-  v3 = (__int64 *)((char *)this + 128);
-  if ( !v2 && !*v3 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v47, (DXGVAILOBJECT *)((char *)this + 40), 1);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v47);
+  v2 = *((_QWORD *)this + 14);
+  if ( !v2 && !*((_QWORD *)this + 15) )
   {
-    v24 = 0LL;
-    v26 = 0LL;
-    v25 = 0LL;
-    DefaultSecurityDescriptor = DXGVAILOBJECT::AllocateDefaultSecurityDescriptor(0x20000u, (struct _ACL **)&v24);
-    v5 = DefaultSecurityDescriptor;
-    if ( DefaultSecurityDescriptor < 0 )
+    v48 = 0LL;
+    v49 = 0LL;
+    v50 = 0LL;
+    DefaultSecurityDescriptor = DXGVAILOBJECT::AllocateDefaultSecurityDescriptor(0x20000u, (struct _ACL **)&v48);
+    v7 = DefaultSecurityDescriptor;
+    if ( DefaultSecurityDescriptor >= 0 )
     {
-      WdLogSingleEntry1(3LL, DefaultSecurityDescriptor);
-      v6 = v24;
-LABEL_24:
-      if ( v6 )
-        operator delete(v6);
-LABEL_26:
-      if ( v5 >= 0 )
-        goto LABEL_34;
-      goto LABEL_27;
-    }
-    v7 = DXGVAILOBJECT::AllocateResourceSecurityDescriptor(this, 0, 0x10000000u, &v26);
-    v5 = v7;
-    if ( v7 < 0 )
-    {
-      WdLogSingleEntry1(3LL, v7);
-      v6 = v24;
-      v8 = v26;
-      goto LABEL_22;
-    }
-    v9 = (DXG_HOST_REMOTEOBJECTCHANNEL *)operator new[](0x30uLL, 0x4B677844u, 256LL);
-    v6 = v24;
-    v8 = v26;
-    if ( v9 )
-    {
-      v10 = DXG_HOST_REMOTEOBJECTCHANNEL::DXG_HOST_REMOTEOBJECTCHANNEL(v9, v24, v26, *((struct _EPROCESS **)this + 13));
-      *((_QWORD *)this + 15) = v10;
-      if ( v10 )
+      v11 = DXGVAILOBJECT::AllocateResourceSecurityDescriptor(this, 0, 0x10000000u, &v49);
+      v7 = v11;
+      if ( v11 >= 0 )
       {
-        v6 = 0LL;
-        v8 = 0LL;
-        v11 = DXGVMBUSCHANNEL::RegisterSubscriber(
-                *((DXGVMBUSCHANNEL **)this + 14),
-                0x6F746D72u,
-                v10,
-                (struct IDXGCHANNEL **)v10 + 1);
-        v5 = v11;
-        if ( v11 < 0 )
+        v17 = (DXG_HOST_REMOTEOBJECTCHANNEL *)operator new(0x30uLL, 0x4B677844u, 1, PagedPool);
+        v10 = v48;
+        v16 = v49;
+        if ( v17 )
+          v21 = DXG_HOST_REMOTEOBJECTCHANNEL::DXG_HOST_REMOTEOBJECTCHANNEL(
+                  v17,
+                  v48,
+                  v49,
+                  *((struct _EPROCESS **)this + 12));
+        else
+          v21 = 0LL;
+        *((_QWORD *)this + 14) = v21;
+        if ( v21 )
         {
-          WdLogSingleEntry1(3LL, v11);
-LABEL_27:
-          v19 = *((_QWORD *)this + 15);
-          if ( v19 )
+          v10 = 0LL;
+          v16 = 0LL;
+          v23 = DXGVMBUSCHANNEL::RegisterSubscriber(
+                  *((DXGVMBUSCHANNEL **)this + 13),
+                  0x6F746D72u,
+                  v21,
+                  (struct IDXGCHANNEL **)v21 + 1);
+          v7 = v23;
+          if ( v23 < 0 )
           {
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 56LL))(v19);
-            *((_QWORD *)this + 15) = 0LL;
+            v27 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+            *(_QWORD *)(v27 + 24) = v7;
+            WdLogEvent5_WdWarning(v27);
+LABEL_30:
+            if ( (int)v7 < 0 )
+            {
+              v42 = *((_QWORD *)this + 14);
+              if ( v42 )
+              {
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)v42 + 56LL))(v42);
+                *((_QWORD *)this + 14) = 0LL;
+              }
+              v43 = *((_QWORD *)this + 15);
+              if ( v43 )
+              {
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)v43 + 56LL))(v43);
+                *((_QWORD *)this + 15) = 0LL;
+              }
+            }
+            goto LABEL_38;
           }
-          if ( *v3 )
+          v28 = DXGVAILOBJECT::AllocateResourceSecurityDescriptor(this, 1, 3u, &v50);
+          v7 = v28;
+          if ( v28 >= 0 )
           {
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)*v3 + 56LL))(*v3);
-            *v3 = 0LL;
+            v34 = operator new(0x38uLL, 0x4B677844u, 1, PagedPool);
+            v33 = v50;
+            if ( v34 )
+            {
+              v36 = *((_QWORD *)this + 12);
+              v35 = &DXG_HOST_COMPOSITIONOBJECTCHANNEL::`vftable';
+              *v34 = &DXG_HOST_COMPOSITIONOBJECTCHANNEL::`vftable';
+              v34[5] = v36;
+              v34[1] = 0LL;
+              *((_WORD *)v34 + 8) = 0;
+              v34[3] = 0LL;
+              v34[4] = 0LL;
+              v34[6] = v33;
+            }
+            else
+            {
+              v34 = 0LL;
+            }
+            *((_QWORD *)this + 15) = v34;
+            if ( v34 )
+            {
+              v33 = 0LL;
+              v39 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::Initialize(
+                      (struct _EPROCESS **)v34,
+                      *((struct DXGVMBUSCHANNEL **)this + 13));
+              v7 = v39;
+              if ( v39 >= 0 )
+                goto LABEL_38;
+              v38 = WdLogNewEntry5_WdWarning(v40, v9, v41);
+              *(_QWORD *)(v38 + 24) = v7;
+            }
+            else
+            {
+              LODWORD(v7) = -1073741801;
+              v38 = WdLogNewEntry5_WdWarning(v36, v35, v37);
+              *(_QWORD *)(v38 + 24) = -1073741801LL;
+            }
+            WdLogEvent5_WdWarning(v38);
           }
-          goto LABEL_34;
-        }
-        v12 = DXGVAILOBJECT::AllocateResourceSecurityDescriptor(this, 1, 3u, &v25);
-        v5 = v12;
-        if ( v12 >= 0 )
-        {
-          v14 = operator new[](0x38uLL, 0x4B677844u, 256LL);
-          if ( v14 )
+          else
           {
-            v15 = *((_QWORD *)this + 13);
-            *(_QWORD *)v14 = &DXG_HOST_COMPOSITIONOBJECTCHANNEL::`vftable';
-            v16 = 0LL;
-            *(_QWORD *)(v14 + 48) = v25;
-            *(_QWORD *)(v14 + 8) = 0LL;
-            *(_WORD *)(v14 + 16) = 0;
-            *(_QWORD *)(v14 + 24) = 0LL;
-            *(_QWORD *)(v14 + 32) = 0LL;
-            *(_QWORD *)(v14 + 40) = v15;
-            v17 = (struct DXGVMBUSCHANNEL *)*((_QWORD *)this + 14);
-            *v3 = v14;
-            v18 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::Initialize((struct _EPROCESS **)v14, v17);
-            v5 = v18;
-            if ( v18 >= 0 )
-              goto LABEL_34;
-            WdLogSingleEntry1(3LL, v18);
-            goto LABEL_18;
+            v32 = WdLogNewEntry5_WdWarning(v30, v29, v31);
+            *(_QWORD *)(v32 + 24) = v7;
+            WdLogEvent5_WdWarning(v32);
+            v33 = v50;
           }
-          v13 = -1073741801LL;
-          *v3 = 0LL;
-          v5 = -1073741801;
+          if ( !v33 )
+            goto LABEL_30;
+          operator delete[](v33);
         }
         else
         {
-          v13 = v12;
+          LODWORD(v7) = -1073741801;
+          v22 = WdLogNewEntry5_WdWarning(v19, v18, v20);
+          *(_QWORD *)(v22 + 24) = -1073741801LL;
+          WdLogEvent5_WdWarning(v22);
         }
-        WdLogSingleEntry1(3LL, v13);
-        v16 = v25;
-LABEL_18:
-        if ( !v16 )
-          goto LABEL_26;
-        operator delete(v16);
-        goto LABEL_22;
       }
+      else
+      {
+        v15 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+        *(_QWORD *)(v15 + 24) = v7;
+        WdLogEvent5_WdWarning(v15);
+        v10 = v48;
+        v16 = v49;
+      }
+      if ( v16 )
+        operator delete[](v16);
     }
     else
     {
-      *((_QWORD *)this + 15) = 0LL;
+      v8 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+      *(_QWORD *)(v8 + 24) = v7;
+      WdLogEvent5_WdWarning(v8);
+      v10 = v48;
     }
-    v5 = -1073741801;
-    WdLogSingleEntry1(3LL, -1073741801LL);
-LABEL_22:
-    if ( v8 )
-      operator delete(v8);
-    goto LABEL_24;
+    if ( v10 )
+      operator delete[](v10);
+    goto LABEL_30;
   }
-  v20 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 64LL))(v2);
-  v21 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)*v3 + 64LL))(*v3);
-  if ( v20 || (v5 = -1073740528, v21) )
-    v5 = 0;
-LABEL_34:
-  if ( v23[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
-  return (unsigned int)v5;
+  v44 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 64LL))(v2);
+  v45 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 15) + 64LL))(*((_QWORD *)this + 15));
+  if ( v44 || (LODWORD(v7) = -1073740528, v45) )
+    LODWORD(v7) = 0;
+LABEL_38:
+  if ( v47[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v47, v9);
+  return (unsigned int)v7;
 }

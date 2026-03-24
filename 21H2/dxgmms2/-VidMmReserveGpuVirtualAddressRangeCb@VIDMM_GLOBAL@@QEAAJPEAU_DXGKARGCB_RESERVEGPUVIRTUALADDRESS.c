@@ -1,130 +1,134 @@
 /*
- * XREFs of ?VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE@@@Z @ 0x1C009CBCC
+ * XREFs of ?VidMmReserveGpuVirtualAddressRangeCb@VIDMM_GLOBAL@@QEAAJPEAU_DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE@@@Z @ 0x1C0085BE0
  * Callers:
- *     VidMmReserveGpuVirtualAddressRangeCb @ 0x1C0014A90 (VidMmReserveGpuVirtualAddressRangeCb.c)
+ *     VidMmReserveGpuVirtualAddressRangeCb @ 0x1C0012CE0 (VidMmReserveGpuVirtualAddressRangeCb.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C00859C8 (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
- *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C009A5E0 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE@@_KEPEA_KPEAPEAUVIDMM_MAPPED_VA_RANGE@@E@Z @ 0x1C009BB44 (-ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESE.c)
+ *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C006F95C (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
+ *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0084384 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE@@_KEPEA_KPEAPEAUVIDMM_MAPPED_VA_RANGE@@E@Z @ 0x1C0085D6C (-ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESE.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::VidMmReserveGpuVirtualAddressRangeCb(
         VIDMM_GLOBAL *this,
         struct _DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE *a2,
-        __int64 a3,
-        __int64 a4)
+        __int64 a3)
 {
-  char v6; // dl
-  UINT Alignment; // ecx
+  struct _DXGKARGCB_RESERVEGPUVIRTUALADDRESSRANGE *v3; // rbx
+  __int64 Alignment; // rcx
+  UINT64 v6; // rcx
+  __int64 v7; // rax
   UINT64 v8; // rcx
-  __int64 v9; // rax
-  UINT64 v10; // rcx
-  unsigned int v11; // r10d
-  unsigned int v12; // r15d
-  VIDMM_PROCESS *v13; // r13
-  __int64 v14; // r12
-  unsigned int v15; // r14d
+  unsigned int v9; // r10d
+  VIDMM_PROCESS *v10; // r15
+  unsigned int v11; // ebp
+  unsigned int v12; // esi
+  __int64 v13; // r14
   CVirtualAddressAllocator *VirtualAddressAllocator; // r11
   __int64 result; // rax
   UINT64 BaseAddress; // rax
   UINT64 SizeInBytes; // rax
-  __int64 v20; // rcx
+  __int64 v18; // rax
 
-  v6 = *((_BYTE *)this + 40936);
-  if ( (v6 & 2) == 0 )
+  v3 = a2;
+  LOBYTE(a2) = *((_BYTE *)this + 40936);
+  if ( ((unsigned __int8)a2 & 2) == 0 )
   {
-    WdLogSingleEntry1(1LL, 22264LL);
+    v18 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v18 + 24) = 22113LL;
     goto LABEL_34;
   }
-  Alignment = a2->Alignment;
-  if ( !Alignment || ((Alignment - 1) & Alignment) != 0 )
+  Alignment = v3->Alignment;
+  if ( !(_DWORD)Alignment || (((_DWORD)Alignment - 1) & (unsigned int)Alignment) != 0 )
   {
-    WdLogSingleEntry1(1LL, 22270LL);
+    v18 = WdLogNewEntry5_WdAssertion(Alignment, a2, a3);
+    *(_QWORD *)(v18 + 24) = 22119LL;
     goto LABEL_34;
   }
-  if ( (a2->Flags & 1) != 0 )
+  if ( (v3->Flags & 1) != 0 )
   {
-    BaseAddress = a2->BaseAddress;
+    BaseAddress = v3->BaseAddress;
     if ( BaseAddress && (BaseAddress & 0xFFF) != 0 )
     {
-      WdLogSingleEntry1(1LL, 22293LL);
+      v18 = WdLogNewEntry5_WdAssertion(4095LL, a2, a3);
+      *(_QWORD *)(v18 + 24) = 22142LL;
     }
     else
     {
-      SizeInBytes = a2->SizeInBytes;
+      SizeInBytes = v3->SizeInBytes;
       if ( SizeInBytes && (SizeInBytes & 0xFFF) == 0 )
         goto LABEL_9;
-      WdLogSingleEntry1(1LL, 22299LL);
+      v18 = WdLogNewEntry5_WdAssertion(4095LL, a2, a3);
+      *(_QWORD *)(v18 + 24) = 22148LL;
     }
 LABEL_34:
-    DxgkLogInternalTriageEvent(v20, 0x40000LL);
+    WdLogEvent5_WdAssertion(v18);
     return 3221225485LL;
   }
-  v8 = a2->BaseAddress;
-  v9 = (1LL << *((_DWORD *)this + 10233) << 12) - 1;
-  if ( v8 && (v8 & v9) != 0 )
+  v6 = v3->BaseAddress;
+  v7 = (1LL << *((_DWORD *)this + 10233) << 12) - 1;
+  if ( v6 && (v6 & v7) != 0 )
   {
-    WdLogSingleEntry1(1LL, 22279LL);
+    v18 = WdLogNewEntry5_WdAssertion(v6, a2, a3);
+    *(_QWORD *)(v18 + 24) = 22128LL;
     goto LABEL_34;
   }
-  v10 = a2->SizeInBytes;
-  if ( !v10 || (v10 & v9) != 0 )
+  v8 = v3->SizeInBytes;
+  if ( !v8 || (v8 & v7) != 0 )
   {
-    WdLogSingleEntry1(1LL, 22285LL);
+    v18 = WdLogNewEntry5_WdAssertion(v8, a2, a3);
+    *(_QWORD *)(v18 + 24) = 22134LL;
     goto LABEL_34;
   }
 LABEL_9:
-  v11 = 0;
-  v12 = 1;
-  v13 = (VIDMM_PROCESS *)*((_QWORD *)a2->hDxgkProcess + 1);
-  if ( (*(_DWORD *)(*((_QWORD *)a2->hDxgkProcess + 4) + 424LL) & 2) == 0 )
+  v9 = 0;
+  v10 = (VIDMM_PROCESS *)*((_QWORD *)v3->hDxgkProcess + 1);
+  v11 = 1;
+  if ( *(_BYTE *)(*((_QWORD *)v3->hDxgkProcess + 4) + 345LL) )
   {
-LABEL_10:
-    v14 = 0LL;
-    v15 = 0;
-    while ( 1 )
+    if ( ((unsigned __int8)a2 & 0x20) == 0 )
+    {
+      result = VIDMM_PROCESS::OpenAdapter(*((struct _KTHREAD ***)v3->hDxgkProcess + 1), this);
+      v9 = result;
+      if ( (int)result < 0 )
+        return result;
+      *((_BYTE *)this + 40936) |= 0x20u;
+    }
+    v11 = *((_DWORD *)this + 1750);
+  }
+  v12 = 0;
+  if ( v11 )
+  {
+    v13 = 0LL;
+    do
     {
       VirtualAddressAllocator = VIDMM_PROCESS::GetVirtualAddressAllocator(
-                                  v13,
-                                  *(_DWORD *)(*((_QWORD *)this + 3) + 240LL),
-                                  v15);
+                                  v10,
+                                  *(_DWORD *)(*((_QWORD *)this + 3) + 232LL),
+                                  v12);
       if ( VirtualAddressAllocator )
       {
-        v11 = CVirtualAddressAllocator::ReserveVirtualAddressRange(
-                VirtualAddressAllocator,
-                a2->SizeInBytes,
-                a2->BaseAddress,
-                0LL,
-                0LL,
-                a2->Alignment,
-                D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT,
-                0LL,
-                (*(_BYTE *)&a2->0 & 1) == 0,
-                &a2->StartVirtualAddress,
-                0LL,
-                0);
+        v9 = CVirtualAddressAllocator::ReserveVirtualAddressRange(
+               VirtualAddressAllocator,
+               v3->SizeInBytes,
+               v3->BaseAddress,
+               0LL,
+               0LL,
+               v3->Alignment,
+               D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT,
+               0LL,
+               (*(_BYTE *)&v3->0 & 1) == 0,
+               &v3->StartVirtualAddress,
+               0LL,
+               0);
       }
-      else if ( (*(_BYTE *)(*((_QWORD *)this + 5028) + v14 + 436) & 1) != 0 )
+      else if ( (*(_BYTE *)(*((_QWORD *)this + 5027) + v13 + 436) & 1) != 0 )
       {
         return 3221225485LL;
       }
-      ++v15;
-      v14 += 1584LL;
-      if ( v15 >= v12 )
-        return v11;
+      ++v12;
+      v13 += 1584LL;
     }
+    while ( v12 < v11 );
   }
-  if ( (v6 & 0x20) == 0 )
-  {
-    result = VIDMM_PROCESS::OpenAdapter(*((struct _KTHREAD ***)a2->hDxgkProcess + 1), this, a3, a4);
-    v11 = result;
-    if ( (int)result < 0 )
-      return result;
-    *((_BYTE *)this + 40936) |= 0x20u;
-  }
-  v12 = *((_DWORD *)this + 1754);
-  if ( v12 )
-    goto LABEL_10;
-  return v11;
+  return v9;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CConditionalExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022B520
+ * XREFs of ?SetIntegerProperty@CConditionalExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EB5C0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098D70 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0084650 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
  */
 
 __int64 __fastcall DirectComposition::CConditionalExpressionMarshaler::SetIntegerProperty(
@@ -19,11 +19,11 @@ __int64 __fastcall DirectComposition::CConditionalExpressionMarshaler::SetIntege
   *a5 = 0;
   if ( a3 != 13 )
     return DirectComposition::CBaseExpressionMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
-  if ( *((_DWORD *)this + 40) != (_DWORD)a4 )
+  if ( *((_DWORD *)this + 38) != (_DWORD)a4 )
   {
-    *((_DWORD *)this + 40) = a4;
+    *((_DWORD *)this + 38) = a4;
     *a5 = 1;
-    *((_DWORD *)this + 4) &= ~0x1000u;
+    *((_DWORD *)this + 4) &= ~0x800u;
   }
   return result;
 }

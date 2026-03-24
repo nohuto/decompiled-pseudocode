@@ -1,18 +1,18 @@
 /*
- * XREFs of KiRemoveBoostThread @ 0x1400CFDC0
+ * XREFs of KiRemoveBoostThread @ 0x1400CFDE0
  * Callers:
  *     ExpReleaseResourceSharedForThreadLite @ 0x14004F6A0 (ExpReleaseResourceSharedForThreadLite.c)
- *     KiCompleteDirectSwitchThread @ 0x1400D2BFC (KiCompleteDirectSwitchThread.c)
- *     KeGenericProcessorCallback @ 0x1400D8670 (KeGenericProcessorCallback.c)
- *     KeSetEventBoostPriorityEx @ 0x1401034A8 (KeSetEventBoostPriorityEx.c)
- *     KeWakeWaitChain @ 0x140125BB8 (KeWakeWaitChain.c)
- *     KeRemovePriorityBoost @ 0x14028DE44 (KeRemovePriorityBoost.c)
+ *     KiCompleteDirectSwitchThread @ 0x1400D2C1C (KiCompleteDirectSwitchThread.c)
+ *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
+ *     KeSetEventBoostPriorityEx @ 0x1401034C8 (KeSetEventBoostPriorityEx.c)
+ *     KeWakeWaitChain @ 0x140125BD8 (KeWakeWaitChain.c)
+ *     KeRemovePriorityBoost @ 0x14028DF44 (KeRemovePriorityBoost.c)
  * Callees:
  *     KiSelectReadyThreadEx @ 0x14005ADA0 (KiSelectReadyThreadEx.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
  */
 
 char __fastcall KiRemoveBoostThread(__int64 a1, __int64 a2, __int64 a3)

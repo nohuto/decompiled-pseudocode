@@ -1,73 +1,42 @@
 /*
- * XREFs of EtwpEnableDisableUMGL @ 0x1409E4318
+ * XREFs of EtwpEnableDisableUMGL @ 0x140934218
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x14078FCF8 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1406E2E4C (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     EtwpUpdateProcessTracingCallback @ 0x1409E4A50 (EtwpUpdateProcessTracingCallback.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-__int64 __fastcall EtwpEnableDisableUMGL(
-        __int64 a1,
-        char a2,
-        unsigned __int16 a3,
-        char a4,
-        unsigned int a5,
-        unsigned int *a6,
-        unsigned int a7)
+__int64 __fastcall EtwpEnableDisableUMGL(__int64 a1, char a2, unsigned __int16 a3, char a4, unsigned int a5)
 {
-  __int64 v7; // rsi
-  char v9; // r14
-  NTSTATUS v11; // ebx
-  __int64 v13; // rdi
-  char v15; // al
-  PEPROCESS Process; // [rsp+38h] [rbp-30h] BYREF
-  __int16 v17; // [rsp+78h] [rbp+10h]
+  unsigned int v5; // ebx
+  char v6; // si
+  __int64 v9; // rdi
+  char v10; // al
+  __int16 v12; // [rsp+60h] [rbp+18h]
 
-  v7 = a7;
-  v9 = a3;
-  v11 = 0;
-  if ( !a2 && a7 && a5 >= 2 )
-    return 3221225659LL;
+  v5 = 0;
+  v6 = a3;
   if ( a1 == EtwpHostSiloState )
-    v13 = 0xFFFFF78000000380uLL;
+    v9 = 0xFFFFF78000000380uLL;
   else
-    v13 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1320LL) + 550LL;
+    v9 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1128LL) + 550LL;
   if ( (unsigned int)a3 < *(_DWORD *)(a1 + 16) && a3 )
   {
     KeWaitForSingleObject(&EtwpGlobalMutex, Executive, 0, 0, 0LL);
     if ( a2 )
     {
-      Process = 0LL;
-      if ( a7 )
-      {
-        do
-        {
-          v11 = PsLookupProcessByProcessId((HANDLE)*a6, &Process);
-          if ( v11 >= 0 )
-          {
-            EtwpUpdateProcessTracingCallback((ULONG_PTR)Process);
-            ObfDereferenceObjectWithTag(Process, 0x746C6644u);
-          }
-          ++a6;
-          --v7;
-        }
-        while ( v7 );
-      }
-      LOBYTE(v17) = v9;
-      HIBYTE(v17) = a4;
-      *(_WORD *)(v13 + 2LL * a5) = v17;
+      LOBYTE(v12) = v6;
+      HIBYTE(v12) = a4;
+      *(_WORD *)(v9 + 2LL * a5) = v12;
     }
     else
     {
-      v15 = *(_BYTE *)(v13 + 2LL * a5);
-      if ( v15 == v9 )
-        *(_WORD *)(v13 + 2LL * a5) = 0;
+      v10 = *(_BYTE *)(v9 + 2LL * a5);
+      if ( v10 == v6 )
+        *(_WORD *)(v9 + 2LL * a5) = 0;
       else
-        v11 = v15 != 0 ? -1073741734 : -1073741054;
+        v5 = v10 != 0 ? -1073741734 : -1073741054;
     }
     KeReleaseMutex(&EtwpGlobalMutex, 0);
   }
@@ -75,5 +44,5 @@ __int64 __fastcall EtwpEnableDisableUMGL(
   {
     return (unsigned int)-1073741816;
   }
-  return (unsigned int)v11;
+  return v5;
 }

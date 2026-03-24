@@ -2,13 +2,13 @@
  * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x14001284C
  * Callers:
  *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStart @ 0x1408AB720 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1408AB79C (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1408AB77C (SmStoreCompressionStop.c)
  * Callees:
  *     MiGetWorkingSetSwapSupport @ 0x14001290C (MiGetWorkingSetSwapSupport.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)

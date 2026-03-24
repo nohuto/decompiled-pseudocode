@@ -1,11 +1,10 @@
 /*
- * XREFs of ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C02FFCE0
+ * XREFs of ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C025CC78
  * Callers:
- *     ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C0300418 (-AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFA.c)
+ *     ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C025D214 (-AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFA.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C02FFEA0 (-AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DK.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C025CDCC (-AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DK.c)
  */
 
 __int64 __fastcall AddPathToFirstAvailableTarget(
@@ -16,67 +15,67 @@ __int64 __fastcall AddPathToFirstAvailableTarget(
         unsigned int i,
         unsigned int a6)
 {
+  __int64 v7; // r14
   __int64 v8; // rdx
-  __int64 v9; // rbp
-  int v11; // eax
-  __int64 v12; // r14
-  int v13; // eax
-  __int64 v14; // rdi
-  __int64 v16; // rdi
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v17; // [rsp+20h] [rbp-48h]
-  unsigned __int16 v18; // [rsp+28h] [rbp-40h]
-  enum _D3DKMDT_MONITOR_CONNECTIVITY_CHECKS v19; // [rsp+30h] [rbp-38h]
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdi
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
+  _QWORD *v18; // rcx
+  _QWORD *v20; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v21; // [rsp+20h] [rbp-28h]
+  unsigned __int16 v22; // [rsp+28h] [rbp-20h]
+  enum _D3DKMDT_MONITOR_CONNECTIVITY_CHECKS v23; // [rsp+30h] [rbp-18h]
 
+  v7 = a3;
   v8 = 0xFFFFFFFFLL;
-  v9 = a3;
   for ( i = -1; ; v8 = i )
   {
-    v11 = (*(__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, __int64, _QWORD, unsigned int *))(a2 + 96))(
+    v10 = (*(__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, __int64, _QWORD, unsigned int *))(a2 + 96))(
             a1,
             v8,
             a6,
             &i);
-    v12 = v11;
-    if ( v11 == -1071774925 )
-    {
-      WdLogSingleEntry3(7LL, (int)a6, a1, v9);
-      return 3223192371LL;
-    }
-    if ( v11 < 0 )
-    {
-      v16 = (int)a6;
-      WdLogSingleEntry4(2LL, (int)a6, a1, v9, v11);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to find an available target in the subset %I64d of VidPN targets in topology 0x%I64x to be conne"
-                  "cted to source 0x%I64x (status = 0x%I64x).",
-        v16,
-        (__int64)a1,
-        v9,
-        v12,
-        0LL);
-      return (unsigned int)v12;
-    }
-    v13 = AddPresentPath(a1, (const struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *)a2, a3, i, v17, v18, v19);
-    v14 = v13;
-    if ( v13 != -1071774975 )
+    v13 = v10;
+    if ( v10 == -1071774925 )
       break;
-    WdLogSingleEntry3(7LL, v9, i, a1);
+    if ( v10 < 0 )
+    {
+      v18 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+      v18[3] = (int)a6;
+      v18[4] = a1;
+      v18[5] = v7;
+LABEL_10:
+      v18[6] = v13;
+      WdLogEvent5_WdError(v18);
+      return (unsigned int)v13;
+    }
+    v14 = AddPresentPath(a1, (const struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *)a2, v7, i, v21, v22, v23);
+    v13 = v14;
+    if ( v14 != -1071774975 )
+    {
+      if ( v14 >= 0 )
+        return 0LL;
+      v18 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+      v18[3] = v7;
+      v18[4] = i;
+      v18[5] = a1;
+      goto LABEL_10;
+    }
+    v17 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v16);
+    v17[3] = v7;
+    v17[4] = i;
+    v17[5] = a1;
+    WdLogEvent5_WdDmmEvent(v17);
   }
-  if ( v13 >= 0 )
-    return 0LL;
-  WdLogSingleEntry4(2LL, v9, i, a1, v13);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to add present path (0x%I64x, 0x%I64x) to VidPN topology 0x%I64x (status = 0x%I64x)",
-    v9,
-    i,
-    (__int64)a1,
-    v14,
-    0LL);
-  return (unsigned int)v14;
+  v20 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v12);
+  v20[3] = (int)a6;
+  v20[4] = a1;
+  v20[5] = v7;
+  WdLogEvent5_WdDmmEvent(v20);
+  return 3223192371LL;
 }

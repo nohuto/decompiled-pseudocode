@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserSetThreadLayoutHandles @ 0x1C01FE310
+ * XREFs of NtUserSetThreadLayoutHandles @ 0x1C0202BF0
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ __int64 __fastcall NtUserSetThreadLayoutHandles(__int64 a1, __int64 a2)
   __int64 v9; // rdx
   _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v7 = 0LL;
   v8 = *(_QWORD *)(gptiCurrent + 440LL);
   if ( !v8 || *(_QWORD *)(v8 + 40) == a2 )
@@ -27,9 +27,9 @@ __int64 __fastcall NtUserSetThreadLayoutHandles(__int64 a1, __int64 a2)
       LOBYTE(v7) = (WORD1(a2) & 0xF000) == 0xE000;
       if ( (_DWORD)v7 != ((WORD1(a1) & 0xF000) == 0xE000) )
         *(_QWORD *)(gptiCurrent + 800LL) = a2;
-      v11[1] = v9;
       v11[0] = gptiCurrent + 440LL;
-      HMAssignmentLock(v11, 0LL);
+      v11[1] = v9;
+      HMAssignmentLock(v11);
       v7 = 1LL;
     }
   }

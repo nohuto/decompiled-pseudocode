@@ -1,281 +1,240 @@
 /*
- * XREFs of CmpLoadHiveVolatile @ 0x140A0C3E0
+ * XREFs of CmpLoadHiveVolatile @ 0x14087CFAC
  * Callers:
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpCopyCompressedName @ 0x140708D60 (CmpCopyCompressedName.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     CmpCopyKeyPartial @ 0x1407DDDD8 (CmpCopyKeyPartial.c)
- *     CmpAddToHiveFileList @ 0x1407E53E4 (CmpAddToHiveFileList.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
- *     CmpCopySyncTree @ 0x140A214A8 (CmpCopySyncTree.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpConstructName @ 0x1405F2FBC (CmpConstructName.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpAddToHiveFileList @ 0x1406A1CFC (CmpAddToHiveFileList.c)
+ *     CmpReleaseShutdownRundown @ 0x1406CE440 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x1406CF870 (CmpAcquireShutdownRundown.c)
+ *     CmpCopyCompressedName @ 0x1406E2D64 (CmpCopyCompressedName.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     CmpUuidCreate @ 0x14070D95C (CmpUuidCreate.c)
+ *     CmpLockHiveListExclusive @ 0x14071C674 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x14071C694 (CmpUnlockHiveList.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     CmpCopyKeyPartial @ 0x14076F54C (CmpCopyKeyPartial.c)
+ *     CmpCopySyncTree @ 0x140878534 (CmpCopySyncTree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r14
-  UNICODE_STRING *v5; // rsi
-  char UnloadRundown; // r13
-  int v7; // ebx
-  __int64 v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned int v13; // edi
-  int v14; // r9d
-  __int64 CellFlat; // rax
-  __int64 v16; // r8
-  __int64 v17; // rdi
-  int v18; // eax
-  __int16 v19; // bx
-  unsigned __int16 v20; // bx
-  unsigned __int16 v21; // ax
-  __int16 v22; // cx
-  __int64 v23; // rax
-  signed __int8 v24; // cf
-  __int64 v25; // rbx
-  _QWORD *v26; // rcx
-  _QWORD *v27; // rax
-  signed __int64 v28; // rdx
-  ULONG_PTR v29; // rtt
-  ULONG_PTR v31; // [rsp+28h] [rbp-D8h]
-  ULONG_PTR BugCheckParameter3; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v33; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+80h] [rbp-80h] BYREF
-  ULONG_PTR v36; // [rsp+88h] [rbp-78h] BYREF
-  PCUNICODE_STRING SourceString; // [rsp+90h] [rbp-70h] BYREF
-  UNICODE_STRING Source; // [rsp+98h] [rbp-68h] BYREF
-  UUID v39[2]; // [rsp+A8h] [rbp-58h] BYREF
-  UUID v40; // [rsp+C8h] [rbp-38h] BYREF
-  UUID Uuid; // [rsp+D8h] [rbp-28h] BYREF
-  _OWORD v42[27]; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v2; // r15
+  UNICODE_STRING *v5; // rdi
+  int Hive; // ebx
+  __int64 v8; // rsi
+  int v9; // eax
+  int v10; // eax
+  unsigned int v11; // ebx
+  __int64 v12; // rbx
+  UNICODE_STRING *v13; // rax
+  __int16 v14; // si
+  unsigned __int16 v15; // si
+  unsigned __int16 v16; // cx
+  __int16 v17; // cx
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  struct _LOOKASIDE_LIST_EX *v20; // r9
+  _QWORD *v21; // rdx
+  _QWORD *v22; // rcx
+  __int64 v23; // [rsp+28h] [rbp-D8h]
+  PVOID P; // [rsp+60h] [rbp-A0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
+  PVOID v26; // [rsp+78h] [rbp-88h] BYREF
+  _DWORD v27[2]; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING Source; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v29; // [rsp+98h] [rbp-68h] BYREF
+  __int128 v30; // [rsp+A0h] [rbp-60h]
+  __int64 v31; // [rsp+B0h] [rbp-50h]
+  UUID v32; // [rsp+B8h] [rbp-48h] BYREF
+  UUID Uuid; // [rsp+C8h] [rbp-38h] BYREF
+  _OWORD v34[27]; // [rsp+E0h] [rbp-20h] BYREF
 
   v2 = *(_QWORD *)(a1 + 8);
-  v33 = 0LL;
-  LODWORD(BugCheckParameter4) = 0;
-  SourceString = 0LL;
-  Source = 0LL;
+  v27[0] = -1;
+  P = 0LL;
+  v26 = 0LL;
+  v31 = 0LL;
+  v27[1] = 0;
   v5 = 0LL;
+  Source = 0LL;
   DestinationString = 0LL;
   Uuid = 0LL;
-  v40 = 0LL;
-  memset(v39, 0, sizeof(v39));
-  memset(v42, 0, sizeof(v42));
-  BugCheckParameter3 = 0LL;
-  RtlInitUnicodeString(&DestinationString, 0LL);
-  HvpGetCellContextReinitialize(&v33);
-  v36 = 0LL;
-  UnloadRundown = CmpAcquireHiveLoadUnloadRundown();
-  if ( !UnloadRundown )
+  v32 = 0LL;
+  v30 = 0LL;
+  memset(v34, 0, sizeof(v34));
+  if ( !CmpAcquireShutdownRundown() )
+    return 3221225865LL;
+  Hive = CmpUuidCreate(&Uuid);
+  if ( Hive >= 0 )
   {
-    v7 = -1073741431;
-    goto LABEL_50;
-  }
-  v7 = CmpUuidCreate(&Uuid);
-  if ( v7 >= 0 )
-  {
-    v7 = CmpUuidCreate(&v40);
-    if ( v7 >= 0 )
+    Hive = CmpUuidCreate(&v32);
+    if ( Hive >= 0 )
     {
       v8 = *(_QWORD *)(v2 + 32);
-      if ( v8 != CmpMasterHive )
+      if ( v8 == CmpMasterHive )
       {
-        v7 = -1073741811;
-        goto LABEL_50;
-      }
-      *(_QWORD *)&v39[0].Data1 = a2;
-      memset(v39[0].Data4, 0, 24);
-      v7 = CmpCreateHive(&v36, 2u, 0x8000LL, 0, 0LL, (__int64)v39, 0LL, 18415617, 0LL, 0LL, 0LL, (__int64)v42);
-      if ( v7 >= 0 )
-      {
-        v7 = CmpCreateHive(&BugCheckParameter3, 0, 1LL, 0, 0LL, 0LL, 0LL, 17956864, &Uuid, &v40, 0LL, (__int64)v42);
-        if ( v7 >= 0 )
+        v31 = 0LL;
+        v30 = 0LL;
+        v29 = a2;
+        v9 = CmpCreateHive((ULONG_PTR *)&v26, 2u, 0x8000, 0, 0LL, &v29, 0LL, 18415617, 0LL, 0LL, 0LL, (__int64)v34);
+        if ( v9 >= 0 )
         {
-          CmpLockRegistryExclusive();
-          v7 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-          if ( v7 >= 0 )
+          Hive = CmpCreateHive(
+                   (ULONG_PTR *)&P,
+                   0,
+                   1,
+                   0,
+                   0LL,
+                   0LL,
+                   0LL,
+                   17956864,
+                   (__int64)&Uuid,
+                   (__int64)&v32,
+                   0LL,
+                   (__int64)v34);
+          if ( Hive >= 0 )
           {
-            if ( *(_BYTE *)(v8 + 2944) == 1 )
+            CmpLockRegistryExclusive();
+            if ( CmpIsKeyDeletedForKeyBody(a1, 0LL) )
             {
-              v7 = -1073741431;
+              Hive = -1073741444;
+            }
+            else if ( *(_BYTE *)(v8 + 2936) == 1 )
+            {
+              Hive = -1073741431;
             }
             else
             {
-              v7 = CmpCopyKeyPartial(
-                     v36,
-                     *(unsigned int *)(*(_QWORD *)(v36 + 64) + 36LL),
-                     BugCheckParameter3,
-                     0xFFFFFFFF,
-                     2,
-                     v31,
-                     1u,
-                     (unsigned int *)&BugCheckParameter4);
-              if ( v7 >= 0 )
+              v10 = CmpCopyKeyPartial(
+                      (__int64)v26,
+                      *(unsigned int *)(*((_QWORD *)v26 + 8) + 36LL),
+                      (ULONG_PTR)P,
+                      0xFFFFFFFF,
+                      2,
+                      v23,
+                      1u);
+              v11 = v10;
+              if ( v10 != -1 )
               {
-                v13 = BugCheckParameter4;
-                v14 = BugCheckParameter4;
-                *(_DWORD *)(*(_QWORD *)(BugCheckParameter3 + 64) + 36LL) = BugCheckParameter4;
-                v7 = CmpCopySyncTree(v36, *(_DWORD *)(*(_QWORD *)(v36 + 64) + 36LL), BugCheckParameter3, v14, 2, 0);
-                if ( v7 >= 0 )
+                *(_DWORD *)(*((_QWORD *)P + 8) + 36LL) = v10;
+                if ( CmpCopySyncTree((int)v26, *(_DWORD *)(*((_QWORD *)v26 + 8) + 36LL), (ULONG_PTR)P, v10, 2, 0) )
                 {
-                  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-                    CellFlat = HvpGetCellFlat(BugCheckParameter3, v13, &v33);
-                  else
-                    CellFlat = HvpGetCellPaged(BugCheckParameter3, v13, (unsigned int *)&v33);
-                  v17 = CellFlat;
-                  v18 = CmpConstructNameWithStatus(v2, &SourceString, v16);
-                  v5 = (UNICODE_STRING *)SourceString;
-                  v7 = v18;
-                  if ( v18 >= 0 )
+                  v12 = (*((__int64 (__fastcall **)(PVOID, _QWORD, _DWORD *))P + 1))(P, v11, v27);
+                  if ( v12 )
                   {
-                    v19 = 2 * *(_WORD *)(v17 + 72);
-                    if ( (*(_BYTE *)(v17 + 2) & 0x20) == 0 )
-                      v19 = *(_WORD *)(v17 + 72);
-                    v20 = SourceString->Length + v19 + 2;
-                    DestinationString.Buffer = (wchar_t *)CmpAllocatePool(256LL, v20, 538987843LL);
+                    v13 = (UNICODE_STRING *)CmpConstructName(v2);
+                    v14 = 2 * *(_WORD *)(v12 + 72);
+                    v5 = v13;
+                    if ( (*(_BYTE *)(v12 + 2) & 0x20) == 0 )
+                      v14 = *(_WORD *)(v12 + 72);
+                    v15 = v13->Length + v14 + 2;
+                    DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v15, 0x20204D43u);
                     if ( DestinationString.Buffer )
                     {
-                      DestinationString.MaximumLength = v20;
-                      DestinationString.Length = v20;
+                      DestinationString.MaximumLength = v15;
+                      DestinationString.Length = v15;
                       RtlCopyUnicodeString(&DestinationString, v5);
                       RtlAppendUnicodeToString(&DestinationString, L"\\");
-                      v21 = *(_WORD *)(v17 + 72);
-                      if ( (*(_BYTE *)(v17 + 2) & 0x20) != 0 )
+                      v16 = *(_WORD *)(v12 + 72);
+                      if ( (*(_BYTE *)(v12 + 2) & 0x20) != 0 )
                       {
                         CmpCopyCompressedName(
                           &DestinationString.Buffer[(unsigned __int64)DestinationString.Length >> 1],
                           DestinationString.MaximumLength - DestinationString.Length,
-                          (unsigned __int8 *)(v17 + 76),
-                          (unsigned __int16)(2 * v21));
-                        v22 = 2 * *(_WORD *)(v17 + 72);
-                        if ( (*(_BYTE *)(v17 + 2) & 0x20) == 0 )
-                          v22 = *(_WORD *)(v17 + 72);
-                        DestinationString.Length += v22;
+                          (unsigned __int8 *)(v12 + 76),
+                          (unsigned __int16)(2 * v16));
+                        v17 = 2 * *(_WORD *)(v12 + 72);
+                        if ( (*(_BYTE *)(v12 + 2) & 0x20) == 0 )
+                          v17 = *(_WORD *)(v12 + 72);
+                        DestinationString.Length += v17;
                       }
                       else
                       {
-                        Source.Buffer = (wchar_t *)(v17 + 76);
-                        Source.MaximumLength = v21;
-                        Source.Length = v21;
+                        Source.MaximumLength = *(_WORD *)(v12 + 72);
+                        Source.Length = v16;
+                        Source.Buffer = (wchar_t *)(v12 + 76);
                         RtlAppendUnicodeStringToString(&DestinationString, &Source);
                       }
-                      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-                        HvpReleaseCellFlat(BugCheckParameter3, &v33);
-                      else
-                        HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v33);
-                      v7 = CmpLinkHiveToMaster(
-                             (__int64)&DestinationString,
-                             0LL,
-                             BugCheckParameter3,
-                             0,
-                             0x200u,
-                             0,
-                             0LL,
-                             0LL,
-                             0LL,
-                             0LL,
-                             1,
-                             v42);
-                      if ( v7 >= 0 )
+                      (*((void (__fastcall **)(PVOID, _DWORD *))P + 2))(P, v27);
+                      Hive = CmpLinkHiveToMaster(
+                               (__int64)&DestinationString,
+                               0LL,
+                               (__int64)P,
+                               0,
+                               0x200u,
+                               0,
+                               0LL,
+                               0LL,
+                               0LL,
+                               0LL,
+                               1,
+                               v34);
+                      if ( Hive >= 0 )
                       {
-                        CmpAddToHiveFileList(BugCheckParameter3);
-                        v23 = KeAbPreAcquire((__int64)&CmpHiveListHeadLock, 0LL);
-                        v24 = _interlockedbittestandset64((volatile signed __int32 *)&CmpHiveListHeadLock, 0LL);
-                        v25 = v23;
-                        if ( v24 )
-                          ExfAcquirePushLockExclusiveEx(&CmpHiveListHeadLock, v23, (__int64)&CmpHiveListHeadLock);
-                        if ( v25 )
-                          *(_BYTE *)(v25 + 18) = 1;
-                        v26 = (_QWORD *)qword_140D54CA0;
-                        v27 = (_QWORD *)(BugCheckParameter3 + 1608);
-                        if ( *(__int64 **)qword_140D54CA0 != &CmpHiveListHead )
+                        CmpAddToHiveFileList((__int64)P, v18, v19, v20);
+                        CmpLockHiveListExclusive();
+                        v21 = (_QWORD *)qword_140D2E918;
+                        v22 = (char *)P + 1600;
+                        if ( *(__int64 **)qword_140D2E918 != &CmpHiveListHead )
                           __fastfail(3u);
-                        *v27 = &CmpHiveListHead;
-                        v27[1] = v26;
-                        *v26 = v27;
-                        qword_140D54CA0 = (__int64)v27;
-                        _m_prefetchw(&CmpHiveListHeadLock);
-                        v28 = CmpHiveListHeadLock - 16;
-                        if ( (CmpHiveListHeadLock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-                          v28 = 0LL;
-                        if ( (CmpHiveListHeadLock & 2) != 0
-                          || (v29 = CmpHiveListHeadLock,
-                              v29 != _InterlockedCompareExchange64(
-                                       (volatile signed __int64 *)&CmpHiveListHeadLock,
-                                       v28,
-                                       CmpHiveListHeadLock)) )
-                        {
-                          ExfReleasePushLock(&CmpHiveListHeadLock);
-                        }
-                        KeAbPostRelease((ULONG_PTR)&CmpHiveListHeadLock);
+                        *v22 = &CmpHiveListHead;
+                        v22[1] = v21;
+                        *v21 = v22;
+                        qword_140D2E918 = (__int64)v22;
+                        CmpUnlockHiveList();
                         if ( !CmpProfileLoaded )
                         {
                           CmpGlobalQuotaAllowed = CmpGlobalQuota;
                           CmpProfileLoaded = 1;
                         }
-                        v5 = (UNICODE_STRING *)SourceString;
-                        v7 = 0;
-                        BugCheckParameter3 = 0LL;
                       }
-                      goto LABEL_49;
+                      CmpUnlockRegistry();
+                      if ( Hive < 0 )
+                        CmpDestroyHive((volatile signed __int32 *)P);
+                      CmpDestroyHive((volatile signed __int32 *)v26);
+                      ExFreePoolWithTag(DestinationString.Buffer, 0);
+                      ExFreePoolWithTag(v5, 0x624E4D43u);
+                      goto LABEL_25;
                     }
-                    v7 = -1073741670;
-                  }
-                  if ( v17 )
-                  {
-                    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-                      HvpReleaseCellFlat(BugCheckParameter3, &v33);
-                    else
-                      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v33);
+                    (*((void (__fastcall **)(PVOID, _DWORD *))P + 2))(P, v27);
                   }
                 }
               }
+              Hive = -1073741670;
             }
+            CmpUnlockRegistry();
+            CmpDestroyHive((volatile signed __int32 *)P);
           }
-LABEL_49:
-          CmpUnlockRegistry(v10, v9, v11, v12);
+          CmpDestroyHive((volatile signed __int32 *)v26);
+          if ( v5 )
+            CmpFreeTransientPoolWithTag(v5, 0x624E4D43u);
         }
+        else
+        {
+          Hive = v9;
+        }
+      }
+      else
+      {
+        Hive = -1073741811;
       }
     }
   }
-LABEL_50:
-  if ( BugCheckParameter3 )
-    CmpDestroyHive((PVOID)BugCheckParameter3);
-  if ( v36 )
-    CmpDestroyHive((PVOID)v36);
-  if ( UnloadRundown )
-    CmpReleaseHiveLoadUnloadRundown();
-  if ( DestinationString.Buffer )
-    CmSiFreeMemory((PPRIVILEGE_SET)DestinationString.Buffer);
-  if ( v5 )
-    CmpFreeTransientPoolWithTag(v5, 0x624E4D43u);
-  return (unsigned int)v7;
+LABEL_25:
+  CmpReleaseShutdownRundown();
+  return (unsigned int)Hive;
 }

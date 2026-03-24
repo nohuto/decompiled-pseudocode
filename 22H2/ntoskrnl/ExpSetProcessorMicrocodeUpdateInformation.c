@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSetProcessorMicrocodeUpdateInformation @ 0x1409F7674
+ * XREFs of ExpSetProcessorMicrocodeUpdateInformation @ 0x14094B364
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
  *     <none>
  */

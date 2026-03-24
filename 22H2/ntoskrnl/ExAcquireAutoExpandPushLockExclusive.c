@@ -1,85 +1,35 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14022F760
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x1402FAF60
  * Callers:
- *     MiLockLoaderEntry @ 0x140292044 (MiLockLoaderEntry.c)
- *     FsRtlRemovePerFileObjectContext @ 0x1402FD3D0 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1402FD4C0 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlInsertPerFileContext @ 0x140363640 (FsRtlInsertPerFileContext.c)
- *     FsRtlRemovePerFileContext @ 0x14053D060 (FsRtlRemovePerFileContext.c)
- *     FsRtlRemovePerStreamContext @ 0x14053D160 (FsRtlRemovePerStreamContext.c)
- *     MiFreePhysicalPages @ 0x14064A5B0 (MiFreePhysicalPages.c)
- *     MiLockAwePagesExclusive @ 0x14064B060 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x14064B0A8 (MiLockAweVadsExclusive.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1407918D0 (FsRtlTeardownPerStreamContexts.c)
- *     FsRtlTeardownPerFileContexts @ 0x1407BB3B0 (FsRtlTeardownPerFileContexts.c)
+ *     MiDeletePagablePteRange @ 0x1402B79F0 (MiDeletePagablePteRange.c)
+ *     MiLockLoaderEntry @ 0x140358C88 (MiLockLoaderEntry.c)
+ *     MiFreePhysicalPageChain @ 0x14054BB28 (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPages @ 0x14054BE84 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesExclusive @ 0x14054CEF8 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14054CF40 (MiLockAweVadsExclusive.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x1403CF96C (ExpAcquireFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x140390BD0 (ExpAcquireFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
   __int64 v2; // rbx
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int AbEntrySummary; // eax
-  unsigned int v6; // ecx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  int SessionId; // eax
   __int64 result; // rax
-  signed __int32 v11; // eax
-  signed __int32 v12; // ett
-  unsigned int v13; // [rsp+58h] [rbp+10h]
 
   v2 = 0LL;
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   if ( (BugCheckParameter1 & 2) == 0 )
-  {
-    CurrentThread = KeGetCurrentThread();
-    _disable();
-    AbEntrySummary = CurrentThread->AbEntrySummary;
-    if ( CurrentThread->AbEntrySummary
-      || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(BugCheckParameter2, CurrentThread)) != 0 )
-    {
-      _BitScanForward(&v6, AbEntrySummary);
-      v13 = v6;
-      CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v6);
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( SchedulerAssist )
-      {
-        _m_prefetchw(SchedulerAssist);
-        v11 = *SchedulerAssist;
-        do
-        {
-          v12 = v11;
-          v11 = _InterlockedCompareExchange(SchedulerAssist, v11 & 0xFFDFFFFF, v11);
-        }
-        while ( v12 != v11 );
-        if ( (v11 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-      _enable();
-      v2 = (__int64)(&CurrentThread[1].Process + 12 * v13);
-      if ( BugCheckParameter2 - qword_140C65AE8 < 0x8000000000LL )
-        SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
-      else
-        SessionId = -1;
-      *(_DWORD *)(v2 + 8) = SessionId;
-      *(_QWORD *)v2 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
-    }
-  }
+    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(BugCheckParameter2, v2, BugCheckParameter2);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v2, BugCheckParameter2);
   result = *(unsigned int *)(BugCheckParameter2 + 8);
   if ( (result & 1) != 0 )
     result = ExpAcquireFannedOutPushLockExclusive((unsigned int)result & 0xFFFFFFF8, v2, BugCheckParameter2);
   if ( v2 )
-    *(_BYTE *)(v2 + 18) = 1;
+    *(_BYTE *)(v2 + 26) |= 1u;
   return result;
 }

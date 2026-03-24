@@ -1,15 +1,15 @@
 /*
- * XREFs of WheapCreateLiveTriageDump @ 0x1408DC59C
+ * XREFs of WheapCreateLiveTriageDump @ 0x1408DC57C
  * Callers:
  *     WheapCreateTriageDumpFromPreviousSession @ 0x14057F05C (WheapCreateTriageDumpFromPreviousSession.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x1401C54D0 (RtlCaptureContext.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KeCapturePersistentThreadState @ 0x1402825A0 (KeCapturePersistentThreadState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x1402826A0 (KeCapturePersistentThreadState.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapInsertTriageDataBlock @ 0x1408DC6A4 (WheapInsertTriageDataBlock.c)
+ *     WheapInsertTriageDataBlock @ 0x1408DC684 (WheapInsertTriageDataBlock.c)
  */
 
 __int64 __fastcall WheapCreateLiveTriageDump(__int64 a1)

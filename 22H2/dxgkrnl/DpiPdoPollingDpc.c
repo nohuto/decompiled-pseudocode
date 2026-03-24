@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiPdoPollingDpc @ 0x1C0066BE0
+ * XREFs of DpiPdoPollingDpc @ 0x1C0059DA0
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ void __fastcall DpiPdoPollingDpc(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  if ( !_InterlockedExchange(&dword_1C0140720, 1) )
-    IoQueueWorkItem(qword_1C0140718, DpiPdoPollingWorkItem, DelayedWorkQueue, 0LL);
+  if ( !_InterlockedExchange(&dword_1C00B2D98, 1) )
+    IoQueueWorkItem(qword_1C00B2D90, DpiPdoPollingWorkItem, DelayedWorkQueue, 0LL);
 }

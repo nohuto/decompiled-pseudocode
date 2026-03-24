@@ -1,7 +1,7 @@
 /*
  * XREFs of _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C003FC14 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C003F0E8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */
@@ -19,8 +19,8 @@ NTSTATUS __fastcall tlgWriteTransfer_EtwWriteTransfer(
   *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
   *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
   EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
-  UserData->Ptr = (unsigned __int64)off_1C0071048;
-  UserData->Size = *(unsigned __int16 *)off_1C0071048;
+  UserData->Ptr = (unsigned __int64)off_1C0070048;
+  UserData->Size = *(unsigned __int16 *)off_1C0070048;
   UserData[1].Ptr = (unsigned __int64)(a2 + 11);
   UserData->Reserved = 2;
   UserData[1].Size = *(unsigned __int16 *)(a2 + 11);

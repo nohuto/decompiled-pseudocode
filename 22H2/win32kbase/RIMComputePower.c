@@ -1,25 +1,36 @@
 /*
- * XREFs of RIMComputePower @ 0x1C01B0D38
+ * XREFs of RIMComputePower @ 0x1C01813C8
  * Callers:
- *     RIMComputeSpecificHighMetricValue @ 0x1C01B0D6C (RIMComputeSpecificHighMetricValue.c)
- *     RIMRetrieveRealAngularPhysicalValues @ 0x1C01B0FA4 (RIMRetrieveRealAngularPhysicalValues.c)
+ *     RIMComputeSpecificHighMetricValue @ 0x1C0181400 (RIMComputeSpecificHighMetricValue.c)
+ *     RIMRetrieveRealAngularPhysicalValues @ 0x1C0181654 (RIMRetrieveRealAngularPhysicalValues.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RIMComputePower(__int16 a1)
 {
-  int v1; // r8d
-  unsigned int v2; // r9d
-  __int16 i; // ax
+  int v1; // edx
+  __int64 result; // rax
+  bool v3; // zf
 
   v1 = 10;
-  v2 = 1;
-  for ( i = abs16(a1); i; i >>= 1 )
+  result = 1LL;
+  v3 = a1 == 0;
+  if ( a1 < 0 )
   {
-    if ( (i & 1) != 0 )
-      v2 *= v1;
-    v1 *= v1;
+    a1 = -a1;
+    v3 = a1 == 0;
   }
-  return v2;
+  if ( !v3 )
+  {
+    do
+    {
+      if ( (a1 & 1) != 0 )
+        result = (unsigned int)(v1 * result);
+      v1 *= v1;
+      a1 >>= 1;
+    }
+    while ( a1 );
+  }
+  return result;
 }

@@ -1,23 +1,22 @@
 /*
- * XREFs of LinkNodepAddLinkNodeWorker @ 0x1C0099730
+ * XREFs of LinkNodepAddLinkNodeWorker @ 0x1C0091AF0
  * Callers:
  *     <none>
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     IrqLibAcquireArbiterLock @ 0x1C005CCA8 (IrqLibAcquireArbiterLock.c)
- *     IrqLibReleaseArbiterLock @ 0x1C005CD48 (IrqLibReleaseArbiterLock.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 void __fastcall LinkNodepAddLinkNodeWorker(PDEVICE_OBJECT DeviceObject, char *Context)
 {
-  _QWORD *v3; // rcx
+  __int64 *v3; // rcx
   __int64 *v4; // rax
-  volatile signed __int32 *v5; // rdi
-  __int64 v6; // rdx
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rax
+  __int64 v5; // rdi
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
 
   *((_DWORD *)Context + 46) = 0;
   *((_DWORD *)Context + 47) = 0;
@@ -25,25 +24,25 @@ void __fastcall LinkNodepAddLinkNodeWorker(PDEVICE_OBJECT DeviceObject, char *Co
   *((_DWORD *)Context + 49) = 0;
   *((_DWORD *)Context + 50) = -1;
   *((_QWORD *)Context + 26) = 0LL;
-  v3 = (_QWORD *)*((_QWORD *)Context + 95);
+  v3 = (__int64 *)*((_QWORD *)Context + 90);
   *((_QWORD *)Context + 30) = Context + 232;
   *((_QWORD *)Context + 29) = Context + 232;
   v4 = AMLIGetNamedChild(v3, 1397310559);
-  v5 = (volatile signed __int32 *)v4;
+  v5 = (__int64)v4;
   if ( v4 )
   {
-    AMLIEvalNameSpaceObject(v4, 0LL, 0, 0LL);
-    AMLIDereferenceHandleEx(v5, v6);
+    AMLIEvalNameSpaceObject((unsigned __int64 *)v4, 0LL, 0, 0LL);
+    AMLIDereferenceHandleEx(v5);
   }
   IrqLibAcquireArbiterLock(0);
-  v7 = (_QWORD *)qword_1C006E6B8;
-  v8 = Context + 216;
-  if ( *(__int64 **)qword_1C006E6B8 != &LinkNodeListHead )
+  v6 = (_QWORD *)qword_1C0081618;
+  v7 = Context + 216;
+  if ( *(__int64 **)qword_1C0081618 != &LinkNodeListHead )
     __fastfail(3u);
-  *v8 = &LinkNodeListHead;
-  *((_QWORD *)Context + 28) = v7;
-  *v7 = v8;
-  qword_1C006E6B8 = (__int64)(Context + 216);
+  *v7 = &LinkNodeListHead;
+  *((_QWORD *)Context + 28) = v6;
+  *v6 = v7;
+  qword_1C0081618 = (__int64)(Context + 216);
   IrqLibReleaseArbiterLock();
   IoFreeWorkItem(*((PIO_WORKITEM *)Context + 31));
   *((_QWORD *)Context + 31) = 0LL;

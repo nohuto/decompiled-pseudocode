@@ -1,5 +1,5 @@
 /*
- * XREFs of ?getDLT@DLT_WINEVENT@@SA?AW4DomainLockType@@XZ @ 0x1C009D750
+ * XREFs of ?getDLT@DLT_WINEVENT@@SA?AW4DomainLockType@@XZ @ 0x1C0087850
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of _vsnwprintf @ 0x1403E0440
+ * XREFs of _vsnwprintf @ 0x1403D1070
  * Callers:
- *     StringCchPrintfW @ 0x1402511F0 (StringCchPrintfW.c)
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringPrintfEx @ 0x1402D1840 (RtlUnicodeStringPrintfEx.c)
- *     RtlStringVPrintfWorkerW @ 0x1402DFCC8 (RtlStringVPrintfWorkerW.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     StringVPrintfWorkerW @ 0x14064CB7C (StringVPrintfWorkerW.c)
+ *     RtlStringVPrintfWorkerW @ 0x140265C40 (RtlStringVPrintfWorkerW.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036F060 (RtlUnicodeStringPrintfEx.c)
+ *     StringVPrintfWorkerW @ 0x1405C39A8 (StringVPrintfWorkerW.c)
  * Callees:
- *     _vsnwprintf_l @ 0x1403E0460 (_vsnwprintf_l.c)
+ *     _vsnwprintf_l @ 0x1403D1090 (_vsnwprintf_l.c)
  */
 
 int __cdecl vsnwprintf(wchar_t *Dest, size_t Count, const wchar_t *Format, va_list Args)

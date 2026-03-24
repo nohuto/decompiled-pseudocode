@@ -1,30 +1,30 @@
 /*
- * XREFs of PspIsProcessReadyForRemoteThread @ 0x14030E7E0
+ * XREFs of PspIsProcessReadyForRemoteThread @ 0x14031DD54
  * Callers:
- *     PspCreateThread @ 0x1407712B4 (PspCreateThread.c)
+ *     PspCreateThread @ 0x1406C1A0C (PspCreateThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-bool __fastcall PspIsProcessReadyForRemoteThread(__int64 a1)
+bool __fastcall PspIsProcessReadyForRemoteThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  bool v2; // bl
-  int v4; // eax
-  $115DCDF994C6370D29323EAB0E0C9502 v5; // [rsp+28h] [rbp-40h] BYREF
+  bool v5; // bl
+  int v7; // eax
+  _OWORD v8[3]; // [rsp+28h] [rbp-40h] BYREF
 
-  memset(&v5, 0, sizeof(v5));
-  v2 = 1;
+  memset(v8, 0, sizeof(v8));
+  v5 = 1;
   if ( PsNoRemoteThreadBeforeProcessInit )
   {
-    v4 = *(_DWORD *)(a1 + 2172);
-    if ( (v4 & 1) == 0 && (v4 & 0x1000) == 0 && (*(_BYTE *)(a1 + 992) & 1) == 0 )
+    v7 = *(_DWORD *)(a1 + 2172);
+    if ( (v7 & 1) == 0 && (v7 & 0x1000) == 0 && (*(_BYTE *)(a1 + 992) & 1) == 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v5);
-      v2 = *(_QWORD *)(*(_QWORD *)(a1 + 1360) + 24LL) != 0LL;
-      KiUnstackDetachProcess(&v5);
+      KiStackAttachProcess((_KPROCESS *)a1, 0LL, (__int64)v8, a4);
+      v5 = *(_QWORD *)(*(_QWORD *)(a1 + 1360) + 24LL) != 0LL;
+      KiUnstackDetachProcess((__int64)v8, 0);
     }
   }
-  return v2;
+  return v5;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase4 @ 0x1C0022A98
+ * XREFs of ACPIDevicePowerProcessPhase4 @ 0x1C002B9D4
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     ACPIDeviceCompleteRequest @ 0x1C000AA40 (ACPIDeviceCompleteRequest.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001EAE8 (ACPIDeviceCompleteRequest.c)
+ *     WPP_RECORDER_SF_qDqss @ 0x1C004E29C (WPP_RECORDER_SF_qDqss.c)
  */
 
 __int64 ACPIDevicePowerProcessPhase4()
@@ -19,19 +19,20 @@ __int64 ACPIDevicePowerProcessPhase4()
   PVOID *v7; // rbx
   PVOID *v8; // rbp
   _QWORD *v9; // rcx
-  PVOID v10; // rax
-  const char *v11; // r8
-  const char *v12; // rdx
+  _QWORD *v10; // rax
+  void *v11; // r8
+  void *v12; // rdx
   __int64 v13; // rcx
-  __int64 *v14; // [rsp+80h] [rbp+8h]
+  __int64 v14; // [rsp+48h] [rbp-30h]
+  __int64 *v15; // [rsp+80h] [rbp+8h]
 
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_(
-      WPP_GLOBAL_Control->DeviceExtension,
-      4,
-      10,
-      72,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids);
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xAu,
+      0x46u,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids);
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
   v0 = (__int64 *)AcpiPowerNodeList;
   while ( v0 != &AcpiPowerNodeList )
@@ -48,7 +49,7 @@ __int64 ACPIDevicePowerProcessPhase4()
       }
       v3 = v1 + 6;
       v4 = (__int64 *)v1[6];
-      v14 = v1 + 6;
+      v15 = v1 + 6;
       if ( v4 != v1 + 6 )
       {
         do
@@ -68,37 +69,41 @@ __int64 ACPIDevicePowerProcessPhase4()
               if ( v9 == v6 )
               {
                 LOBYTE(v10) = 0;
-                v11 = (const char *)&unk_1C006FB8B;
-                v12 = (const char *)&unk_1C006FB8B;
+                v11 = &unk_1C00701BA;
+                v12 = &unk_1C00701BA;
                 if ( v9 )
                 {
                   v10 = v8[5];
                   v13 = v9[1];
                   if ( (v13 & 0x200000000000LL) != 0 )
                   {
-                    v11 = (const char *)*((_QWORD *)v10 + 76);
+                    v11 = (void *)v10[71];
                     if ( (v13 & 0x400000000000LL) != 0 )
-                      v12 = (const char *)*((_QWORD *)v10 + 77);
+                      v12 = (void *)v10[72];
                   }
                 }
                 if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  WPP_RECORDER_SF_qLqss(
-                    (__int64)WPP_GLOBAL_Control->DeviceExtension,
-                    4u,
-                    0xAu,
-                    0x49u,
-                    (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+                {
+                  v14 = (__int64)v12;
+                  LOBYTE(v12) = 4;
+                  WPP_RECORDER_SF_qDqss(
+                    WPP_GLOBAL_Control->DeviceExtension,
+                    (_DWORD)v12,
+                    10,
+                    71,
+                    (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
                     (char)v8,
                     33,
                     (char)v10,
-                    v11,
-                    v12);
+                    (__int64)v11,
+                    v14);
+                }
                 *((_DWORD *)v8 + 64) = -1072431071;
                 ACPIDeviceCompleteRequest((struct _SLIST_ENTRY *)v8);
               }
             }
             while ( v7 != &AcpiPowerPhase4List );
-            v3 = v14;
+            v3 = v15;
           }
           KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
         }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIPepPlatformEntryExitNotify @ 0x1C00B044C
+ * XREFs of ACPIPepPlatformEntryExitNotify @ 0x1C00B1188
  * Callers:
- *     ACPIPepWorker @ 0x1C00B06E0 (ACPIPepWorker.c)
+ *     ACPIPepWorker @ 0x1C00B1420 (ACPIPepWorker.c)
  * Callees:
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIAmliEvaluateDsm @ 0x1C0090340 (ACPIAmliEvaluateDsm.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C0099F08 (ACPIAmliEvaluateDsm.c)
  */
 
 __int64 __fastcall ACPIPepPlatformEntryExitNotify(__int64 a1, int a2, char a3)
@@ -37,11 +37,11 @@ __int64 __fastcall ACPIPepPlatformEntryExitNotify(__int64 a1, int a2, char a3)
   {
     v5 = 6 - (a3 != 0);
   }
-  v6 = *(__int64 **)(a1 + 760);
+  v6 = *(__int64 **)(a1 + 720);
   v8 = 0LL;
   memset(v10, 0, sizeof(v10));
   v9 = PEP_NOTIFICATIONS_DSM_UUID;
-  v3 = ACPIAmliEvaluateDsm(v6, (__int64)&v9, 0, v5, v10, &v8);
+  v3 = ACPIAmliEvaluateDsm(v6, (__int64)&v9, 0, v5, (__int64)v10, &v8);
   if ( v3 >= 0 )
     AMLIFreeDataBuffs(v8);
   return (unsigned int)v3;

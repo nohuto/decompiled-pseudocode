@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDCompositionCreateSharedResourceHandle @ 0x1C0058750
+ * XREFs of NtDCompositionCreateSharedResourceHandle @ 0x1C004A9F0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C0058820 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
- *     CreateSharedResourceObject @ 0x1C0058874 (CreateSharedResourceObject.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004AC10 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     CreateSharedResourceObject @ 0x1C004ADB8 (CreateSharedResourceObject.c)
  */
 
 __int64 __fastcall NtDCompositionCreateSharedResourceHandle(__int64 a1, _QWORD *a2)
@@ -17,11 +17,11 @@ __int64 __fastcall NtDCompositionCreateSharedResourceHandle(__int64 a1, _QWORD *
   v3 = 0;
   Object = 0LL;
   Handle = 0LL;
-  if ( (_DWORD)a1 != 141 && (_DWORD)a1 != 195 )
+  if ( (_DWORD)a1 != 142 && (_DWORD)a1 != 195 )
     v3 = -1073741811;
   if ( v3 >= 0 )
   {
-    v3 = CreateSharedResourceObject(a1, 0x80000000LL, &Object);
+    v3 = CreateSharedResourceObject(a1, &Object);
     v4 = Object;
     if ( v3 >= 0 )
     {

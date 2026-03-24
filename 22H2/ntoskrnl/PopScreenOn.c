@@ -1,10 +1,10 @@
 /*
- * XREFs of PopScreenOn @ 0x140998330
+ * XREFs of PopScreenOn @ 0x1408F0364
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
- *     PopBlockSessionSwitch @ 0x140997DA0 (PopBlockSessionSwitch.c)
- *     PopControlMonitor @ 0x140997E20 (PopControlMonitor.c)
+ *     PopBlockSessionSwitch @ 0x140779C60 (PopBlockSessionSwitch.c)
+ *     PopControlMonitor @ 0x140779EA0 (PopControlMonitor.c)
  */
 
 __int64 PopScreenOn()

@@ -1,12 +1,11 @@
 /*
- * XREFs of ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C0298DC4
+ * XREFs of ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C02934DC
  * Callers:
- *     FreeNonCachedUserMemWrap @ 0x1C015AAF0 (FreeNonCachedUserMemWrap.c)
- *     ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C02998F4 (-bInit@UMPDOBJ@@QEAAHXZ.c)
+ *     ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C001F170 (-bInit@UMPDOBJ@@QEAAHXZ.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C0298D50 (-DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z.c)
- *     ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C0299B54 (-bSandboxedClient@UMPDOBJ@@QEAAHXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C0160818 (-DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z.c)
+ *     ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C016B3FC (-bSandboxedClient@UMPDOBJ@@QEAAHXZ.c)
  */
 
 void __fastcall UMPDOBJ::FreeNonCachedUserMem(UMPDOBJ *this)
@@ -16,7 +15,7 @@ void __fastcall UMPDOBJ::FreeNonCachedUserMem(UMPDOBJ *this)
 
   if ( (unsigned int)UMPDOBJ::bSandboxedClient(this) )
   {
-    *((_QWORD *)this + 51) = 0LL;
+    *((_QWORD *)this + 49) = 0LL;
   }
   else if ( *((_QWORD *)this + 7) )
   {

@@ -1,17 +1,17 @@
 /*
- * XREFs of DWP_GetIcon @ 0x1C00ACEC8
+ * XREFs of DWP_GetIcon @ 0x1C00467C4
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
  * Callees:
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall DWP_GetIcon(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx
   __int64 v3; // rbx
-  __int64 v5; // rax
+  __int64 v4; // rax
 
   if ( a2 > 2 )
   {
@@ -28,10 +28,10 @@ __int64 __fastcall DWP_GetIcon(__int64 a1, unsigned int a2)
     {
       if ( v3 )
       {
-        v5 = HMValidateHandleNoRip(v3, 3);
-        if ( v5 )
+        v4 = HMValidateHandleNoRip(v3, 3);
+        if ( v4 )
         {
-          if ( *(char *)(v5 + 80) < 0 )
+          if ( *(char *)(v4 + 80) < 0 )
             return 0LL;
         }
       }

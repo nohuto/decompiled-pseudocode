@@ -1,136 +1,133 @@
 /*
- * XREFs of UnInitializeInputComponents @ 0x1C00B6FA4
+ * XREFs of UnInitializeInputComponents @ 0x1C00747B0
  * Callers:
- *     InputUnInitialize @ 0x1C00B72FC (InputUnInitialize.c)
+ *     InputUnInitialize @ 0x1C00B4F7C (InputUnInitialize.c)
  * Callees:
- *     isChildPartition @ 0x1C004FE70 (isChildPartition.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?UnInitialize@CTouchProcessor@@SAJXZ @ 0x1C00B71A0 (-UnInitialize@CTouchProcessor@@SAJXZ.c)
- *     ?SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z @ 0x1C00B7224 (-SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z.c)
- *     ?GetInstance@CDesktopInputSink@@CAAEAV1@XZ @ 0x1C00B72C0 (-GetInstance@CDesktopInputSink@@CAAEAV1@XZ.c)
- *     ??1CCursorClip@@AEAA@XZ @ 0x1C00B7408 (--1CCursorClip@@AEAA@XZ.c)
- *     ??1CInputConfig@@AEAA@XZ @ 0x1C00B749C (--1CInputConfig@@AEAA@XZ.c)
- *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C00B75D0 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
- *     ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C00B77D0 (-Uninitialize@CInpLockGuard@@QEAAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C01E7AC4 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     isChildPartition @ 0x1C00423A0 (isChildPartition.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??_GCInputConfig@@AEAAPEAXI@Z @ 0x1C0075EF4 (--_GCInputConfig@@AEAAPEAXI@Z.c)
+ *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C0075F88 (--1CTouchProcessor@@QEAA@XZ.c)
+ *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C0075FC0 (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
+ *     ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C00760A0 (-Uninitialize@CInpLockGuard@@QEAAXXZ.c)
+ *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C00760E0 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
+ *     ?CleanUp@CActivationObjectManager@@AEAAXXZ @ 0x1C0082584 (-CleanUp@CActivationObjectManager@@AEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C01AE2A0 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
  */
 
-bool UnInitializeInputComponents()
+void UnInitializeInputComponents()
 {
-  char *v0; // rbx
-  char *v1; // rdx
-  char *v2; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  char *v10; // rbx
-  PERESOURCE v11; // rcx
-  __int64 v12; // rbx
-  char *v13; // rdi
-  char *v14; // rdx
-  char *Reserved; // rbx
-  char **Instance; // rbx
-  char *v18; // rdx
-  __int64 v19; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v20; // rcx
-  struct _LUID v21; // [rsp+30h] [rbp+8h] BYREF
+  CActivationObjectManager *v0; // rbx
+  unsigned int v1; // edx
+  CInputGlobals *v2; // rbx
+  CTouchProcessor *v3; // rbx
+  CCursorClip *v4; // rbx
+  __int64 v5; // rcx
+  CInputDest *v6; // rbx
+  CInputThread *v7; // rbx
+  struct CDeviceIdentity *v8; // rbx
+  struct A0xad387374::CFrameIdGenerator *v9; // rbx
+  struct InputVirtualization::RootSynthesizedMouseList *Instance; // rbx
+  _QWORD *v11; // rcx
+  __int64 v12; // rax
 
-  v0 = *(char **)&WPP_MAIN_CB.AlignmentRequirement;
-  if ( *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement )
+  v0 = qword_1C0250798;
+  if ( qword_1C0250798 )
   {
-    v1 = *(char **)(*(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement + 8LL);
-    if ( v1 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v0);
+    CActivationObjectManager::CleanUp(qword_1C0250798);
+    Win32FreePool((__int64)v0);
   }
-  *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
+  qword_1C0250798 = 0LL;
   InputExtensibilityCallout::UnInitialize();
-  v2 = (char *)*((_QWORD *)&WPP_MAIN_CB.Reserved + 1);
-  if ( *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) )
+  v2 = gpInputGlobals;
+  if ( gpInputGlobals )
   {
-    if ( *(_QWORD *)(*((_QWORD *)&WPP_MAIN_CB.Reserved + 1) + 8LL) )
+    if ( *((_QWORD *)gpInputGlobals + 1) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 27LL);
+    Win32FreePool((__int64)v2);
+  }
+  gpInputGlobals = 0LL;
+  if ( gpTouchProcessor )
+  {
+    DelayZonePalmRejection::Uninitialize();
+    v3 = gpTouchProcessor;
+    if ( gpTouchProcessor )
     {
-      v21.LowPart = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 28LL);
+      CTouchProcessor::~CTouchProcessor(gpTouchProcessor);
+      Win32FreePool((__int64)v3);
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v2);
+    gpTouchProcessor = 0LL;
   }
-  *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = 0LL;
-  CTouchProcessor::UnInitialize();
-  if ( *(_QWORD *)(SGDGetUserSessionState(v4, v3, v5, v6) + 3608) )
+  v4 = gpCursorClip;
+  if ( gpCursorClip )
   {
-    v21.LowPart = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 28LL);
+    v5 = *((_QWORD *)gpCursorClip + 10);
+    if ( v5 )
+      Win32FreePool(v5);
+    Win32FreePool((__int64)v4);
+    gpCursorClip = 0LL;
   }
-  Reserved = (char *)WPP_MAIN_CB.Reserved;
-  if ( WPP_MAIN_CB.Reserved )
+  v6 = gpForegroundInfo;
+  if ( gpForegroundInfo )
   {
-    CCursorClip::~CCursorClip((CCursorClip *)WPP_MAIN_CB.Reserved);
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, Reserved);
-    WPP_MAIN_CB.Reserved = 0LL;
+    CInputDest::SetEmpty(gpForegroundInfo);
+    Win32FreePool((__int64)v6);
+    gpForegroundInfo = 0LL;
   }
-  if ( WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc )
+  v7 = gpInputThread;
+  if ( gpInputThread )
   {
-    (**(void (__fastcall ***)(PKDPC, __int64))WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc)(
-      WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc,
-      1LL);
-    WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc = 0LL;
+    if ( *((_QWORD *)gpInputThread + 1) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 27LL);
+    Win32FreePool((__int64)v7);
+    gpInputThread = 0LL;
   }
-  if ( WPP_MAIN_CB.Queue.Wcb.CurrentIrp )
-  {
-    (**(void (__fastcall ***)(PVOID, __int64))WPP_MAIN_CB.Queue.Wcb.CurrentIrp)(WPP_MAIN_CB.Queue.Wcb.CurrentIrp, 1LL);
-    WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
-  }
-  v10 = (char *)gpInputConfig;
   if ( gpInputConfig )
-  {
-    CInputConfig::~CInputConfig(gpInputConfig);
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v10);
-  }
-  v11 = CInputConfig::slock;
+    CInputConfig::`scalar deleting destructor'(gpInputConfig, v1);
   gpInputConfig = 0LL;
   if ( CInputConfig::slock )
   {
     ExDeleteResourceLite(CInputConfig::slock);
     ExFreePoolWithTag(CInputConfig::slock, 0);
   }
-  v12 = SGDGetUserSessionState(v11, v7, v8, v9);
-  v13 = *(char **)(v12 + 16368);
-  if ( v13 )
+  v8 = gpDeviceIdentity;
+  if ( gpDeviceIdentity )
   {
-    CInpLockGuard::Uninitialize((CInpLockGuard *)(v13 + 8));
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v13);
+    if ( *((_QWORD *)gpDeviceIdentity + 1) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 27LL);
+    Win32FreePool((__int64)v8);
   }
-  v14 = (char *)gpInputSystemMetrics;
-  *(_QWORD *)(v12 + 16368) = 0LL;
-  if ( v14 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v14);
+  v9 = `anonymous namespace'::CFrameIdGenerator::s_pInstance;
+  gpDeviceIdentity = 0LL;
+  if ( `anonymous namespace'::CFrameIdGenerator::s_pInstance )
+  {
+    CInpLockGuard::Uninitialize((struct A0xad387374::CFrameIdGenerator *)((char *)`anonymous namespace'::CFrameIdGenerator::s_pInstance
+                                                                        + 8));
+    Win32FreePool((__int64)v9);
+  }
+  `anonymous namespace'::CFrameIdGenerator::s_pInstance = 0LL;
+  if ( gpInputSystemMetrics )
+    Win32FreePool((__int64)gpInputSystemMetrics);
   gpInputSystemMetrics = 0LL;
   if ( Buffer )
     ExFreePoolWithTag(Buffer, 0);
   if ( isChildPartition() )
   {
-    Instance = (char **)InputVirtualization::RootSynthesizedMouseList::GetInstance();
+    Instance = InputVirtualization::RootSynthesizedMouseList::GetInstance();
     while ( 1 )
     {
-      v18 = *Instance;
-      if ( *Instance == (char *)Instance )
+      v11 = *(_QWORD **)Instance;
+      if ( *(struct InputVirtualization::RootSynthesizedMouseList **)Instance == Instance )
         break;
-      if ( *((char ***)v18 + 1) != Instance || (v19 = *(_QWORD *)v18, *(char **)(*(_QWORD *)v18 + 8LL) != v18) )
+      if ( (struct InputVirtualization::RootSynthesizedMouseList *)v11[1] != Instance
+        || (v12 = *v11, *(_QWORD **)(*v11 + 8LL) != v11) )
+      {
         __fastfail(3u);
-      v20 = gpLeakTrackingAllocator;
-      *Instance = (char *)v19;
-      *(_QWORD *)(v19 + 8) = Instance;
-      NSInstrumentation::CLeakTrackingAllocator::Free(v20, v18);
+      }
+      *(_QWORD *)Instance = v12;
+      *(_QWORD *)(v12 + 8) = Instance;
+      Win32FreePool((__int64)v11);
     }
   }
-  CDesktopInputSink::GetInstance();
-  v21 = 0LL;
-  return CDesktopInputSink::SetDesktopInputSink(0LL, &v21);
 }

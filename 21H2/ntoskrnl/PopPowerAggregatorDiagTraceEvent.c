@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x1407F274C
+ * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x140776334
  * Callers:
- *     PopPowerAggregatorDiagTraceHandleIntent @ 0x1407F2558 (PopPowerAggregatorDiagTraceHandleIntent.c)
- *     PopPowerAggregatorNotifySuspendResume @ 0x1407FFBAC (PopPowerAggregatorNotifySuspendResume.c)
- *     PopPowerAggregatorWorker @ 0x140808DA0 (PopPowerAggregatorWorker.c)
- *     PopPowerAggregatorInvokeStateMachine @ 0x140808E28 (PopPowerAggregatorInvokeStateMachine.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140809310 (PopPowerAggregatorSetCurrentState.c)
- *     PopNotifyCsStateExited @ 0x140996F70 (PopNotifyCsStateExited.c)
- *     PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1409A0730 (PopPowerAggregatorDiagTracePdcSleepTransition.c)
+ *     PopPowerAggregatorDiagTraceHandleIntent @ 0x140382CA8 (PopPowerAggregatorDiagTraceHandleIntent.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140775D28 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorWorker @ 0x140776120 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopNotifyCsStateExited @ 0x1408EFD90 (PopNotifyCsStateExited.c)
+ *     PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1408FA478 (PopPowerAggregatorDiagTracePdcSleepTransition.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
  */
 
 void __fastcall PopPowerAggregatorDiagTraceEvent(

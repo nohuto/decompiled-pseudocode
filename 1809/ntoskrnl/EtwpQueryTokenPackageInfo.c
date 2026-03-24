@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpQueryTokenPackageInfo @ 0x14066CD6C
+ * XREFs of EtwpQueryTokenPackageInfo @ 0x14066CD4C
  * Callers:
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwpBuildProcessEvent @ 0x14066CA4C (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1406A4CA0 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1408BF8A0 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1406A4C80 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1408BF880 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
  *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
  */
 

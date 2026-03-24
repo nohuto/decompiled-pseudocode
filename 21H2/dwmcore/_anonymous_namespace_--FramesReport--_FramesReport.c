@@ -1,21 +1,21 @@
 /*
- * XREFs of _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800EEC44
+ * XREFs of _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800D3B44
  * Callers:
- *     _anonymous_namespace_::SendFramesReports @ 0x1800EEB30 (_anonymous_namespace_--SendFramesReports.c)
- *     _anonymous_namespace_::State::_State @ 0x1801A97FC (_anonymous_namespace_--State--_State.c)
+ *     _anonymous_namespace_::SendFramesReports @ 0x1800D3A30 (_anonymous_namespace_--SendFramesReports.c)
+ *     _anonymous_namespace_::State::_State @ 0x180152800 (_anonymous_namespace_--State--_State.c)
  * Callees:
- *     std::_Destroy_range_std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______ @ 0x18005F7C0 (std--_Destroy_range_std--allocator_std--unique_ptr__anonymous_namespace_--FramesReport--Resource.c)
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800786D8 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_ea_1800786D8.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     std::_Destroy_range_std::allocator__anonymous_namespace_::FrameSequenceInfo___ @ 0x1800E36F4 (std--_Destroy_range_std--allocator__anonymous_namespace_--FrameSequenceInfo___.c)
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@std@@@1@PEAU?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@1@@Z @ 0x1800EED30 (--$_Erase_tree@V-$allocator@U-$_Tree_node@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@.c)
+ *     std::_Destroy_range_std::allocator__anonymous_namespace_::FrameSequenceInfo___ @ 0x1800290C8 (std--_Destroy_range_std--allocator__anonymous_namespace_--FrameSequenceInfo___.c)
+ *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800291F0 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__std--.c)
+ *     std::_Destroy_range_std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______ @ 0x180036064 (std--_Destroy_range_std--allocator_std--unique_ptr__anonymous_namespace_--FramesReport--Resource.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@std@@@1@PEAU?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@1@@Z @ 0x1800D3C44 (--$_Erase_tree@V-$allocator@U-$_Tree_node@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@.c)
  */
 
 void __fastcall anonymous_namespace_::FramesReport::_FramesReport(__int64 a1)
 {
   void **v1; // rbx
-  void **v3; // rcx
-  _QWORD *v4; // rcx
+  void *v3; // rbx
+  void *v4; // rbx
 
   v1 = (void **)(a1 + 160);
   std::_Tree_val<std::_Tree_simple_types<std::wstring>>::_Erase_tree<std::allocator<std::_Tree_node<std::wstring,void *>>>(
@@ -28,24 +28,24 @@ void __fastcall anonymous_namespace_::FramesReport::_FramesReport(__int64 a1)
     a1 + 144,
     *(__int64 **)(*(_QWORD *)(a1 + 144) + 8LL));
   std::_Deallocate<16,0>(*(void **)(a1 + 144), 0x38uLL);
-  v3 = *(void ***)(a1 + 112);
+  v3 = *(void **)(a1 + 112);
   if ( v3 )
   {
     std::_Destroy_range_std::allocator_std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn_______(
-      v3,
+      *(void ***)(a1 + 112),
       *(void ***)(a1 + 120));
-    std::_Deallocate<16,0>(
-      *(void **)(a1 + 112),
-      (*(_QWORD *)(a1 + 128) - *(_QWORD *)(a1 + 112)) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(v3, (*(_QWORD *)(a1 + 128) - (_QWORD)v3) & 0xFFFFFFFFFFFFFFF8uLL);
     *(_QWORD *)(a1 + 112) = 0LL;
     *(_QWORD *)(a1 + 120) = 0LL;
     *(_QWORD *)(a1 + 128) = 0LL;
   }
-  v4 = *(_QWORD **)(a1 + 16);
+  v4 = *(void **)(a1 + 16);
   if ( v4 )
   {
-    std::_Destroy_range_std::allocator__anonymous_namespace_::FrameSequenceInfo___(v4, *(_QWORD **)(a1 + 24));
-    std::_Deallocate<16,0>(*(void **)(a1 + 16), 32 * ((__int64)(*(_QWORD *)(a1 + 32) - *(_QWORD *)(a1 + 16)) >> 5));
+    std::_Destroy_range_std::allocator__anonymous_namespace_::FrameSequenceInfo___(
+      *(_QWORD *)(a1 + 16),
+      *(_QWORD *)(a1 + 24));
+    std::_Deallocate<16,0>(v4, 480 * ((*(_QWORD *)(a1 + 32) - (_QWORD)v4) / 480LL));
     *(_QWORD *)(a1 + 16) = 0LL;
     *(_QWORD *)(a1 + 24) = 0LL;
     *(_QWORD *)(a1 + 32) = 0LL;

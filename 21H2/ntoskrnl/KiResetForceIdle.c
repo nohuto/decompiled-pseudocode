@@ -1,18 +1,18 @@
 /*
- * XREFs of KiResetForceIdle @ 0x14057A428
+ * XREFs of KiResetForceIdle @ 0x140523620
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KeClockInterruptNotify @ 0x140305780 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x140308240 (KeResumeClockTimerFromIdle.c)
- *     KeClearForceIdle @ 0x140579CD4 (KeClearForceIdle.c)
+ *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     KeClearForceIdle @ 0x140522E78 (KeClearForceIdle.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     KeIsForceIdleEngaged @ 0x1403542B8 (KeIsForceIdleEngaged.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057A5A8 (KiSetForceIdleState.c)
- *     PoTraceForceIdleReset @ 0x1405D0B58 (PoTraceForceIdleReset.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeIsForceIdleEngaged @ 0x1402935F4 (KeIsForceIdleEngaged.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
+ *     PoTraceForceIdleReset @ 0x14056FCC8 (PoTraceForceIdleReset.c)
  */
 
 char __fastcall KiResetForceIdle(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -84,7 +84,7 @@ char __fastcall KiResetForceIdle(unsigned int a1, __int64 a2, __int64 a3, __int6
       v14 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v20);
     KiForceIdleStartTime = v14;
     if ( !KiForceIdleStopDpc.DpcData )
-      KiForceIdleStopDpc.Number = KiClockTimerOwner + 2048;
+      KiForceIdleStopDpc.Number = KiClockTimerOwner + 1280;
     KeInsertQueueDpc(&KiForceIdleStopDpc, 0LL, 0LL);
     LOBYTE(v13) = PoTraceForceIdleReset(a1);
   }

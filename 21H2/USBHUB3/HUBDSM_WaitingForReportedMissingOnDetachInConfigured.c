@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_WaitingForReportedMissingOnDetachInConfigured @ 0x1C001E130
+ * XREFs of HUBDSM_WaitingForReportedMissingOnDetachInConfigured @ 0x1C001DBF0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_ReportDeviceAsMissing @ 0x1C0019BE8 (HUBPDO_ReportDeviceAsMissing.c)
+ *     HUBPDO_ReportDeviceAsMissing @ 0x1C0019698 (HUBPDO_ReportDeviceAsMissing.c)
  */
 
 __int64 __fastcall HUBDSM_WaitingForReportedMissingOnDetachInConfigured(__int64 a1)

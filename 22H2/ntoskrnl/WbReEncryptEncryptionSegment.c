@@ -1,16 +1,16 @@
 /*
- * XREFs of WbReEncryptEncryptionSegment @ 0x1407D2464
+ * XREFs of WbReEncryptEncryptionSegment @ 0x1405D6F68
  * Callers:
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     WbGetInitializedEncryptionSegment @ 0x1407D2800 (WbGetInitializedEncryptionSegment.c)
- *     sub_1407D2B00 @ 0x1407D2B00 (sub_1407D2B00.c)
- *     WbReEncryptWarbirdEncryptionSegment @ 0x1407D2D44 (WbReEncryptWarbirdEncryptionSegment.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
+ *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
+ *     sub_1405D78F8 @ 0x1405D78F8 (sub_1405D78F8.c)
  */
 
 __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
@@ -18,45 +18,38 @@ __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 
   int InitializedEncryptionSegment; // edi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rbx
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdi
-  char v9; // si
-  struct _KTHREAD *v10; // rax
-  bool v11; // zf
-  __int64 v13; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v6; // rax
+  __int64 v7; // rdi
+  char v8; // si
+  __int64 v10; // [rsp+48h] [rbp+20h] BYREF
 
-  v13 = 0LL;
+  v10 = 0LL;
   if ( (unsigned int)a3 < 0x10 )
   {
     InitializedEncryptionSegment = -1073741811;
   }
   else
   {
-    InitializedEncryptionSegment = WbGetInitializedEncryptionSegment(a1, a2, a3, &v13);
+    InitializedEncryptionSegment = WbGetInitializedEncryptionSegment(a1, a2, a3, &v10);
     if ( InitializedEncryptionSegment >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      v5 = (unsigned __int64 *)(v13 + 8);
-      v6 = v13 + 8;
       --CurrentThread->SpecialApcDisable;
-      v7 = KeAbPreAcquire(v6, 0LL);
-      v8 = v7;
+      v5 = (unsigned __int64 *)(v10 + 8);
+      v6 = KeAbPreAcquire(v10 + 8, 0LL, 0LL);
+      v7 = v6;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v5, v7, (__int64)v5);
-      if ( v8 )
-        *(_BYTE *)(v8 + 18) = 1;
-      InitializedEncryptionSegment = WbReEncryptWarbirdEncryptionSegment(v13);
-      v9 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
-      if ( (v9 & 2) != 0 && (v9 & 4) == 0 )
+        ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
+      if ( v7 )
+        *(_BYTE *)(v7 + 26) |= 1u;
+      InitializedEncryptionSegment = sub_1405D78F8(v10);
+      v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v8 & 2) != 0 && (v8 & 4) == 0 )
         ExfTryToWakePushLock((volatile signed __int64 *)v5);
       KeAbPostRelease((ULONG_PTR)v5);
-      v10 = KeGetCurrentThread();
-      v11 = v10->SpecialApcDisable++ == -1;
-      if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
-        KiCheckForKernelApcDelivery();
+      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     }
   }
-  sub_1407D2B00(v13);
+  sub_1405D72F4(v10);
   return (unsigned int)InitializedEncryptionSegment;
 }
